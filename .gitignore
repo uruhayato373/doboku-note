@@ -13,6 +13,9 @@
 .docusaurus
 .cache-loader
 
+# Wrangler local state
+.wrangler/
+
 # Misc
 .DS_Store
 *.pem
