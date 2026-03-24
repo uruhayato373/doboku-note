@@ -1,0 +1,381 @@
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base Styles ===== */
+
+body {
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", "YuGothic",
+    "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  color: #333333;
+}
+
+/* ===== Markdown / Article Content ===== */
+
+.markdown a {
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.markdown a:hover {
+  color: #004080;
+  text-decoration: underline;
+}
+
+/* h1 — page title */
+.markdown > h1 {
+  font-size: 1.44rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.2em 0;
+  color: #333333;
+  border-bottom: solid 3px #1a56db;
+  margin-top: 0;
+  margin-bottom: 1.5em;
+}
+
+/* h2 — chapter */
+.markdown > h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.25em 0.5em;
+  color: #1a2332;
+  background-color: #f0f4fb;
+  border-left: 3px solid #1a56db;
+  box-shadow: none;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  border-radius: 0 4px 4px 0;
+}
+
+/* h3 — section */
+.markdown > h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0.15em 0.4em;
+  border-left: 3px solid #1a56db;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+/* h4 — subsection with icon */
+.markdown > h4 {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  position: relative;
+  padding-left: 1.2em;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+.markdown > h4:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0.35em;
+  width: 0;
+  height: 0;
+  border-top: 0.3em solid transparent;
+  border-bottom: 0.3em solid transparent;
+  border-left: 0.45em solid #1a56db;
+}
+
+/* h5 — minor heading */
+.markdown > h5 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.4;
+  padding: 0;
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+}
+
+/* p */
+.markdown > p {
+  padding: 0.1em 0.2em;
+  color: #434343;
+  line-height: 1.8;
+  letter-spacing: 0.08em;
+}
+
+/* li */
+.markdown li {
+  margin: 0.2em 1.2em;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", "YuGothic",
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.markdown li ul li,
+.markdown li ol li {
+  margin: 0.1em 0.2em;
+}
+
+/* blockquote */
+.markdown blockquote {
+  padding: 1em 1.2em;
+  background-color: transparent;
+  border: 1px dotted #666;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.markdown blockquote p {
+  margin: 0.2rem 0;
+}
+
+/* ===== Custom utility classes ===== */
+
+.text-center {
+  text-align: center;
+  margin-bottom: 40px !important;
+}
+
+/* source citation */
+.markdown .source {
+  transform: skewX(-10deg);
+  text-align: right;
+  margin-top: 20px !important;
+}
+
+.source::before {
+  content: "『";
+}
+
+.source::after {
+  content: "』";
+}
+
+/* mathematical */
+.markdown .mathmatical {
+  padding: 1rem 2rem;
+  overflow-x: auto;
+  white-space: nowrap;
+  max-width: 100%;
+  font-size: 1em;
+}
+
+/* table-title */
+.table-title {
+  text-align: center;
+  margin-top: 40px !important;
+}
+
+/* table-wrapper */
+.table-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  margin-bottom: 50px;
+}
+
+/* ===== 重要判例の枠 ===== */
+.box_important-precedent {
+  position: relative;
+  width: 100%;
+  margin: 4em auto;
+  padding: 1em 1.5em;
+  border: solid 1px #1a56db;
+}
+
+.box_important-precedent .box-title {
+  position: absolute;
+  display: inline-block;
+  top: -13px;
+  left: 10px;
+  padding: 0 9px;
+  line-height: 1;
+  font-size: 19px;
+  background: #fff;
+  color: #1a56db;
+  font-weight: bold;
+}
+
+.box_important-precedent p {
+  margin: 0;
+  padding: 0;
+}
+
+/* 最重要判例の枠 */
+.box_most-important-precedent {
+  position: relative;
+  width: 100%;
+  margin: 4em auto;
+}
+
+.box_most-important-precedent_inner {
+  padding: 0.5em;
+}
+
+.box_most-important-precedent::before,
+.box_most-important-precedent::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(
+    -45deg,
+    #fff 25%,
+    #e0e0e0 25%,
+    #e0e0e0 50%,
+    #fff 50%,
+    #fff 75%,
+    #e0e0e0 75%,
+    #e0e0e0
+  );
+  background-size: 8px 8px;
+}
+
+.box_most-important-precedent::before {
+  top: 0;
+  left: 0;
+}
+
+.box_most-important-precedent::after {
+  bottom: 0;
+  left: 0;
+}
+
+.box_most-important-precedent h3 {
+  margin: 0.5em 0;
+}
+
+.box_most-important-precedent h3:first-letter {
+  font-size: 1.4em;
+  color: #1a56db;
+}
+
+.box_most-important-precedent h4 {
+  margin: 1em 0;
+  font-size: 1.2em;
+  color: #1a56db;
+}
+
+/* 最重要判例のTable */
+.table_most-important-precedent {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table_most-important-precedent th,
+.table_most-important-precedent td {
+  border: 2px solid #fff;
+  background-color: #f0f0f0;
+  padding: 1em;
+}
+
+.table_most-important-precedent th {
+  background-color: #4d4d4d;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+  width: 20%;
+  min-width: 4em;
+}
+
+/* ===== center-image ===== */
+.center-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+/* ===== KaTeX / scroll-equation ===== */
+.scroll-equation {
+  overflow-x: auto;
+  overflow-y: visible;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 10px 0;
+}
+
+.scroll-equation:not(.scrollable) {
+  overflow-x: visible;
+}
+
+.scroll-equation .katex-html .tag {
+  position: static;
+  display: inline-block;
+  margin-left: 2em;
+}
+
+.scroll-equation .katex-display {
+  margin: 0.5em 0;
+}
+
+/* ===== indent ===== */
+.indent {
+  margin-left: 30px;
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 1080px) {
+  .scroll-equation .katex {
+    font-size: 0.95em;
+  }
+
+  .scroll-equation .katex-html .tag {
+    position: static;
+    display: block;
+    text-align: right;
+    margin-top: 0.5em;
+  }
+}
+
+/* ===== Print ===== */
+@media print {
+  nav,
+  aside,
+  footer,
+  button {
+    display: none !important;
+  }
+
+  main {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  body {
+    font-size: 12pt;
+    color: #000;
+  }
+
+  .markdown a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  .markdown h2,
+  .markdown h3,
+  .markdown h4 {
+    page-break-after: avoid;
+  }
+
+  .markdown table,
+  .markdown pre,
+  .markdown blockquote {
+    page-break-inside: avoid;
+  }
+
+  .markdown > h2 {
+    background-color: transparent !important;
+    color: #000 !important;
+    border-left: 3px solid #333 !important;
+    box-shadow: none !important;
+  }
+}

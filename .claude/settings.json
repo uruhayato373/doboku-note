@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(pdftoppm:*)",
+      "Bash(magick:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(npm run build:*)",
+      "Bash(cat:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(git:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sort:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(echo:*)",
+      "Bash(which:*)",
+      "Bash(node:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(shuf:*)",
+      "Bash(for:*)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Agent",
+      "Skill"
+    ],
+    "defaultMode": "bypassPermissions"
+  }
+}

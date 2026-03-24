@@ -1,0 +1,894 @@
+---
+title: "第1編 第3章 附属資料（3）"
+description: "近畿地方整備局 設計便覧 第1編 土木工事共通編 第3章 附属資料 — 第2節 設計計算例：4 支保工（鳥居型・桁式・簡易鋼ベント・三角トラス・橋梁上部工）、5 水替工"
+sidebar_label: "第3章 附属資料（3）"
+---
+
+### 4. 支保工
+
+#### 4-1 鳥居型支保工
+
+##### 4-1-1 設計条件
+
+- スラブコンクリート　　1m³ 当り　　24.5kN
+- 作業荷重　　　　　　　1m² 当り　　1.8kN
+- 型枠重量　　　　　　　1m² 当り　　0.6kN
+- 木材許容応力度（曲げ）1m² 当り　　1.2kN
+- ビテー枠一組負荷限界　　　　　　　50kN
+- 桁材のたわみ許容限界　　　　　　　1/480
+
+![鳥居型支保工 側面図・正面図](./img/03-fig-70.png)
+
+<p className="text-center">図4-1-1 鳥居型支保工 側面図・正面図</p>
+
+![工事用仮橋 平面図・断面図](./img/03-fig-71.png)
+
+<p className="text-center">図4-1-2 工事用仮橋 平面図・断面図</p>
+
+![一般供用仮橋 断面図・側面図・平面図](./img/03-fig-72.png)
+
+<p className="text-center">図4-1-3 一般供用仮橋 断面図・側面図・平面図</p>
+
+<p className="table-title">表4-1-1 鳥居型支保工 平面図・配置表</p>
+
+![鳥居型支保工 平面図・配置表](./img/03-tbl-40.png)
+
+#### 4-2 桁式支保工
+
+<p className="table-title">表4-2-1 桁式支保工 スパン別耐力表</p>
+
+![桁式支保工 スパン別耐力表](./img/03-tbl-41.png)
+
+![桁式支保工 スパン別たわみとモーメント線図](./img/03-fig-73.png)
+
+<p className="text-center">図4-2-1 スパン別たわみとモーメント線図（A型・B・C型・D・E型）</p>
+
+#### 4-3 簡易鋼ベント（16型）
+
+1本当り許容荷重　160kN（高さ 2.3m、2.0m、1.3m）
+
+![簡易鋼ベント 160kN 図](./img/03-fig-74.png)
+
+<p className="text-center">図4-3-1 簡易鋼ベント（160kN 型）</p>
+
+1本当り許容荷重　200kN
+
+![簡易鋼ベント 200kN 図](./img/03-fig-75.png)
+
+<p className="text-center">図4-3-2 簡易鋼ベント（200kN 型）</p>
+
+#### 4-4 三角トラス
+
+##### 4-4-1 一般図
+
+![三角トラス 一般図・横桁設計](./img/03-fig-76.png)
+
+<p className="text-center">図4-4-1 三角トラス 一般図および横桁設計</p>
+
+##### 4-4-2 横桁の設計
+
+**(A) 荷重の計算**
+
+**(1) 死荷重**
+
+(a) コンクリート重量
+
+横桁の間隔を 1.000m とし、コンクリートの重量が最大となる位置で求める。
+
+<div className="scroll-equation">
+$$w_{d1} = \frac{1}{2} \times (2.500 + 2.200) \times 1.0 \times 24.5 = 57.58 \text{ kN/m}$$
+</div>
+
+(b) 型枠重量
+
+<div className="scroll-equation">
+$$w_{d2} = 0.59 \times 1.00 = 0.59 \text{ kN/m}$$
+</div>
+
+(c) 横桁自重（横桁として H-200×200 を仮定）
+
+<div className="scroll-equation">
+$$w_{d3} = 0.49 \text{ kN/m}$$
+</div>
+
+**(2) 活荷重**
+
+<div className="scroll-equation">
+$$w_1 = 2.94 \times 1.00 = 2.94 \text{ kN/m}$$
+</div>
+
+**(3) 荷重の集計**
+
+<div className="scroll-equation">
+$$w = w_{d1} + w_{d2} + w_{d3} + w_1 = 57.58 + 0.59 + 0.49 + 2.94 = 61.60 \text{ kN/m}$$
+</div>
+
+**(B) 断面力の計算**
+
+横桁は、主桁に支持された単純ばりとして断面力を求める。
+
+<div className="scroll-equation">
+$$M_{max} = \frac{1}{8} w \ell^2 = \frac{1}{8} \times 61.70 \times 2.850^2 = 62.65 \text{ kN·m}$$
+</div>
+
+<div className="scroll-equation">
+$$R_A = R_B = \frac{1}{2} \times w \ell = \frac{1}{2} \times 61.70 \times 2.850 = 87.93 \text{ kN}$$
+</div>
+
+**(C) 応力度算定**
+
+横桁として H-200×200×12 を使用すると
+
+$I = 4720 \times 10^4 \text（ mm）^4$、$Z = 472 \times 10^3 \text（ mm）^3$
+
+<div className="scroll-equation">
+$$\sigma = \frac{M}{Z} = \frac{62.65 \times 10^6}{472 \times 10^3} = 132.7 \text{ N/mm}^2 < \sigma_a = 210 \text{ N/mm}^2$$
+</div>
+
+<div className="scroll-equation">
+$$\tau = \frac{S}{ht} = \frac{87.93 \times 10^3}{(200.0 - 12 \times 2) \times 8.0} = \frac{87.93 \times 10^3}{1408} = 62.45 \text{ N/mm}^2 < \tau_a = 120 \text{ N/mm}^2$$
+</div>
+
+たわみの計算
+
+<div className="scroll-equation">
+$$y = \frac{5 w \ell^4}{384EI} = \frac{5 \times 61.60 \times 2850^4}{384 \times 2.0 \times 10^5 \times 4720 \times 10^4} = 5.61 \text{ mm} < y_a = 10 \text{ mm}$$
+</div>
+
+##### 4-4-3 主桁の検討
+
+**(A) 荷重計算**
+
+![主桁 荷重計算図](./img/03-fig-77.png)
+
+<p className="text-center">図4-4-2 主桁 荷重計算図</p>
+
+**(1) 死荷重**
+
+(a) コンクリート
+
+<div className="scroll-equation">
+$$w_{d1\text{-}1} = \frac{1}{2} \times 1.000 \times 2.500 \times 24.5 = 30.63 \text{ kN/m}$$
+</div>
+
+<div className="scroll-equation">
+$$w_{d1\text{-}2} = \frac{1}{2} \times 2.500 \times 2.500 \times 24.5 = 76.56 \text{ kN/m}$$
+</div>
+
+(b) 型枠重量
+
+<div className="scroll-equation">
+$$w_{d2} = \frac{1}{2} \times 0.59 \times 2.50 = 0.74 \text{ kN/m}$$
+</div>
+
+(c) 横桁自重
+
+<div className="scroll-equation">
+$$w_{d3} = \frac{1}{2} \times 3.500 \times 0.49 = 0.86 \text{ kN/m}$$
+</div>
+
+(d) 主桁自重（H-350 と仮定）
+
+<div className="scroll-equation">
+$$w_{d4} = 1.37 \text{ kN/m}$$
+</div>
+
+**(2) 活荷重**
+
+<div className="scroll-equation">
+$$w_1 = \frac{1}{2} \times 2.500 \times 2.94 = 3.68 \text{ kN/m}$$
+</div>
+
+**(3) 荷重の集計**
+
+<div className="scroll-equation">
+$$w_1 = w_{d1\text{-}1} + w_{d2} + w_{d3} + w_{d4} + w_1 = 30.63 + 0.74 + 0.86 + 1.37 + 3.68 = 37.28 \text{ kN/m}$$
+</div>
+
+<div className="scroll-equation">
+$$w_2 = w_{d1\text{-}2} + w_{d2} + w_{d3} + w_{d4} + w_1 = 76.56 + 0.74 + 0.86 + 1.37 + 3.68 = 83.21 \text{ kN/m}$$
+</div>
+
+**(B) 断面力の計算**
+
+主桁は、ジャッキ取付位置で支持された単純ばりとして設計する。
+
+<div className="scroll-equation">
+$$y_1 = \frac{(83.21 - 37.28) \times 1.500}{5.500} = 12.25 \text{ kN/m}$$
+</div>
+
+<div className="scroll-equation">
+$$y_2 = (83.21 - 37.28) - 12.25 = 33.68 \text{ kN/m}$$
+</div>
+
+<div className="scroll-equation">
+$$y_x = y_2 \cdot \frac{(4.000 - x)}{4.000} = y_2 (1 - 0.25x)$$
+</div>
+
+支点反力
+
+<div className="scroll-equation">
+$$R_A = \frac{1}{4750} \left\{ \frac{1}{2} \times 83.21 \times 4.00^2 - \frac{1}{6} \times 33.68 \times 4.00^2 - \left( \frac{1}{2} \times 37.28 \times 1.500^2 + \frac{1}{6} \times 12.25 \times 1.500^2 \right) \right\}$$
+</div>
+
+<div className="scroll-equation">
+$$= \frac{1}{4750} (665.68 - 89.81 - 41.94 - 4.59) = 111.44 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$R_B = \frac{1}{2} \times (37.28 + 83.21) \times 5.500 - 111.44 = 331.35 - 111.44 = 219.91 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$M_A = 0, \quad S_A = R_A = 111.44 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$M_B = \frac{1}{2} \times 37.28 \times 1.500^2 + \frac{1}{6} \times 12.25 \times 1.500^2 = 41.94 + 4.59 = 46.53 \text{ kN·m}$$
+</div>
+
+<div className="scroll-equation">
+$$S_{B\text{左}} = 111.44 - \left\{ (37.28 + 12.25) \times 4.00 + \frac{1}{2} \times 33.68 \times 4.00 \right\} = 111.44 - (198.12 + 67.36) = -154.04 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$S_{B\text{右}} = 219.91 - 154.04 = 65.87 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$M_X = R_A(0.750 + x) - \left[ \frac{1}{2} w_2 x^2 - \frac{1}{6} \left\{ y_2 - y_2(1 - 0.25x) \right\} x^2 \right]$$
+</div>
+
+<div className="scroll-equation">
+$$= 111.44 \times (0.750 + x) - \frac{1}{2} \times 83.21 \times x^2 - \frac{1}{6} \times (0.25 \times 33.68 x^3)$$
+</div>
+
+$S = \dfrac（dM_x）（dx） = 0$ とおくと
+
+<div className="scroll-equation">
+$$S = 4.2x^2 - 83.22x + 111.44 = 0$$
+</div>
+
+<div className="scroll-equation">
+$$x = \frac{83.22 \pm \sqrt{83.22^2 - 4 \times 4.2 \times 111.44}}{2 \times 4.2} = 1.444 \text{ m}$$
+</div>
+
+<div className="scroll-equation">
+$$M_{max} = 1.40 \times (1.444)^3 - 41.61 \times (1.444)^2 + 111.44 \times 1.444 + 83.58$$
+</div>
+
+<div className="scroll-equation">
+$$= 4.215 - 86.76 + 160.92 + 83.58 = 161.96 \text{ kN·m}$$
+</div>
+
+![主桁 せん断力図・曲げモーメント図](./img/03-fig-78.png)
+
+<p className="text-center">図4-4-3 主桁 せん断力図・曲げモーメント図</p>
+
+**(C) 応力度算定**
+
+主桁として H-350×350×12×9 を使用する。
+
+$I = 39800 \times 10^4$、$Z = 2280 \times 10^4$
+
+<div className="scroll-equation">
+$$\sigma = \frac{M_{max}}{Z} = \frac{161.96 \times 10^6}{2280 \times 10^3} = 71.0 \text{ N/mm}^2 < \sigma_a = 210 \text{ N/mm}^2$$
+</div>
+
+<div className="scroll-equation">
+$$\tau = \frac{S_B}{ht} = \frac{154.04 \times 10^3}{(350 - 12 \times 2) \times 9} = 52.5 \text{ N/mm}^2$$
+</div>
+
+**(D) たわみの計算**
+
+**(1) 突出部**
+
+$w_1 = 37.28 \text（ kN/m）$
+
+<div className="scroll-equation">
+$$M_X = \frac{1}{2} w_1 (\ell - x)^2 + \frac{1}{6} (\ell - x)^3 \cdot \frac{y_1}{\ell}$$
+</div>
+
+<div className="scroll-equation">
+$$= \frac{1}{2} \times 37.28 \times (1.500 - x)^2 + \frac{1}{6} \times (1.500 - x)^3 \times \frac{12.25}{1.500}$$
+</div>
+
+<div className="scroll-equation">
+$$= 18.64 \times (1.500 - x)^2 + 1.36 \times (1.500 - x)^3$$
+</div>
+
+<div className="scroll-equation">
+$$= -1.36x^3 + 24.76x^2 - 65.1x + 46.53$$
+</div>
+
+<div className="scroll-equation">
+$$\frac{d^2y}{dx^2} = \frac{M}{EI}$$
+</div>
+
+<div className="scroll-equation">
+$$\frac{dy}{dx} = i = \frac{1}{EI} \times (-0.34x^4 + 8.25x^3 - 32.55x^2 + 46.53x) + C_1$$
+</div>
+
+<div className="scroll-equation">
+$$y = \frac{1}{EI} (-0.068x^5 + 2.063x^4 - 10.85x^3 + 23.265x^2) + C_1 x + C_2$$
+</div>
+
+$x = 0$ → $i = 0$、$y = 0$ であるから、$C_1 = C_2 = 0$
+
+突出部先端のたわみ
+
+<div className="scroll-equation">
+$$y_{x=1.500} = \frac{1}{2.0 \times 10^8 \times 3.98 \times 10^{-4}} \times \left\{ -0.068 \times (1.500)^5 + 2.063 \times (1.500)^4 - 10.85 \times (1.500)^3 + 23.265 \times (1.500)^2 \right\}$$
+</div>
+
+<div className="scroll-equation">
+$$= \frac{1}{7.96 \times 10^4} \times (-0.516 + 10.444 - 36.619 + 52.346) = 3.070 \times 10^{-4} \text{ m} = 0.32 \text{ mm} < y_a = 20 \text{ mm}$$
+</div>
+
+**(2) 径間部**
+
+径間部のたわみは、主桁を単純ばりとして次式により求める。
+
+<div className="scroll-equation">
+$$y = \frac{5 M_{max} \ell^2}{48EI} = \frac{5 \times 161.96 \times 10^3 \times 4.0^2}{48 \times 2.0 \times 10^8 \times 3.98 \times 10^{-4}} = 3.39 \text{ mm} < y_a = 20 \text{ mm}$$
+</div>
+
+##### 4-4-4 三角トラスの検討
+
+![三角トラスの検討 荷重図](./img/03-fig-79.png)
+
+<p className="text-center">図4-4-4 三角トラスの検討 荷重図</p>
+
+**(1) 設計断面力**
+
+<div className="scroll-equation">
+$$R_④ = \frac{1}{4500} \times (220.7 \times 5.250 + 111.9 \times 0.500) = 269.9 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$R_③ = 220.7 + 111.9 - 269.9 = 62.7 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$M_④ = 220.7 \times 0.750 = 165.5 \text{ kN·m}$$
+</div>
+
+<div className="scroll-equation">
+$$N = \frac{R_④}{\sin 45°} = \frac{269.9}{0.707} = 381.8 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$T = \frac{R_④}{\tan 45°} = \frac{269.9}{1} = 269.9 \text{ kN}$$
+</div>
+
+**(2) 受桁（部材③－④－⑤）の検討**
+
+$M_④ = 165.5 \text（ kN·m）$、$T = 269.9 \text（ kN）$
+
+H-350×350×12×19 を使用する。$Z = 2280 \times 10^3 \text（ mm）^3$、$A = 171.9 \times 10^2 \text（ mm）^2$
+
+<div className="scroll-equation">
+$$\sigma = \frac{T}{A} + \frac{M}{Z} = \frac{269.9 \times 10^3}{171.9 \times 10^2} + \frac{165.5 \times 10^6}{2280 \times 10^3} = 15.7 + 72.6 = 88.3 \text{ N/mm}^2 < \sigma_{sa} = 210 \text{ N/mm}^2$$
+</div>
+
+**(3) 方杖材（部材④～⑥）の検討**
+
+$N = 381.8 \text（ kN）$
+
+H-300×300×10×15 を使用する。$A = 118.4 \times 10^2 \text（ mm）^2$、$i_X = 13.1 \times 10 \text（ mm）$、$i_Y = 7.55 \times 10 \text（ mm）$
+
+<div className="scroll-equation">
+$$\sigma_{sa} = \left\{ 135 - 0.82 \left( \frac{\ell}{r} - 18 \right) \right\} \times 1.5 = \left\{ 135 - 0.82 \times \left( \frac{6360}{75.5} - 18 \right) \right\} \times 1.5 = 121.0 \text{ N/mm}^2$$
+</div>
+
+<div className="scroll-equation">
+$$\sigma = \frac{N}{A} = \frac{381.8 \times 10^3}{118.4 \times 10^2} = 32.2 \text{ N/mm}^2 < \sigma_{sa} = 121.0 \text{ N/mm}^2$$
+</div>
+
+**(4) 垂直材（部材③～⑥）の検討**
+
+$\sum P = 2 \times (220.7 + 111.9) = 665.2 \text（ kN）$
+
+H-350×350×12×19 を使用する。$A = 171.9 \times 10^2 \text（ mm）^2$、$i_X = 15.2 \times 10 \text（ mm）$、$i_Y = 8.89 \times 10 \text（ mm）$、$\ell = 4500 \text（ mm）$
+
+<div className="scroll-equation">
+$$\sigma_{sa} = \left\{ 135 - 0.82 \left( \frac{\ell}{r} - 18 \right) \right\} \times 1.5 = \left\{ 135 - 0.82 \left( \frac{4500}{88.9} - 18 \right) \right\} \times 1.5 = 162.4 \text{ N/mm}^2$$
+</div>
+
+<div className="scroll-equation">
+$$\sigma_S = \frac{\sum P}{A} = \frac{665.2 \times 10^3}{171.9 \times 10^2} = 38.7 \text{ N/mm}^2 < 162.4 \text{ N/mm}^2$$
+</div>
+
+**(5) 火打受ピース取付ボルトの検討**
+
+(a) 上部取付部
+
+水平方向力 $H = 269.89 \text（ kN）$、使用ボルト M-22
+
+$A = \pi D^2 / 4 = 3.8 \times 10^2 \text（ mm）^2$
+
+許容せん断力 $= 58.8 \times 1.5 = 88.2 \text（ N/mm）^2$
+
+<div className="scroll-equation">
+$$H_a = 3.8 \times 10^2 \times 88.2 = 33.5 \text{ kN/本}$$
+</div>
+
+<div className="scroll-equation">
+$$n = \frac{H}{H_a} = \frac{269.89}{33.5} = 8.05 \approx 10 \text{ 本}$$
+</div>
+
+故に上部取付ボルト本数は **10本以上** 必要となる。
+
+(b) 下部取付部
+
+垂直力 $V = 291.66 \text（ kN）$、許容せん断力 $\tau = 88.2 \text（ N/mm）^2$、$H_a = 33.5 \text（ kN/本）$
+
+<div className="scroll-equation">
+$$n = \frac{291.66}{33.5} = 8.71 \text{ 本}$$
+</div>
+
+故に下部取付ボルト本数は **10本以上** 必要となる。
+
+**(6) 埋込部アンカーボルトの検討**
+
+合計垂直力 $N = 665.1 \text（ kN）$
+
+インサート式高張力アンカーボルト
+
+許容せん断力 $Z = 78.4 \times 1.5 = 117.6 \text（ N/mm）^2$、断面積 $A = 3.8 \times 10^2 \text（ mm）^2$
+
+せん断抵抗力
+
+<div className="scroll-equation">
+$$P_S = 117.6 \times 3.8 \times 10^2 = 44.7 \text{ kN/本}$$
+</div>
+
+<div className="scroll-equation">
+$$n = \frac{665.1}{44.7} = 14.88 \text{ 本}$$
+</div>
+
+故にアンカーボルトは **16本以上** 必要となる。
+
+![鳥居型支保工 正面図](./img/03-fig-80.png)
+
+<p className="text-center">図4-4-5 鳥居型支保工 正面図</p>
+
+![三角トラス支保工 その1（2車線）](./img/03-fig-81.png)
+
+<p className="text-center">図4-4-6 三角トラス支保工 その1（2車線）</p>
+
+![三角トラス支保工 その2（4車線）](./img/03-fig-82.png)
+
+<p className="text-center">図4-4-7 三角トラス支保工 その2（4車線）</p>
+
+![三角トラス支保工 その3（6車線）](./img/03-fig-83.png)
+
+<p className="text-center">図4-4-8 三角トラス支保工 その3（6車線）</p>
+
+#### 4-5 橋梁上部工支保工
+
+中空床版橋および箱桁橋の型わく、支保工および基礎についての計算例を示す。例とした橋梁規模は次の通りである。
+
+**中空床版橋**
+
+- 橋長：77.550m
+- 支間：25.400m＋25.850m＋25.400m
+- 幅員：8.00m
+- 桁下空間：8.500m
+- 支保工：地上基礎、わく組式支保工
+- 型わく：木製型わく
+
+**箱桁橋**
+
+- 橋長：45.000m
+- 支間：43.710m
+- 幅員：10.500m
+- 桁下空間：12.000m
+- 支保工：H鋼杭基礎、支柱式支保工
+
+##### 4-5-1 設計条件
+
+| 項目 | 記号 | 値 |
+|------|------|-----|
+| コンクリート単位重量 | $W_c$ | 24.5 kN/m³ |
+| 作業荷重 | $W_（l1）$ | 3.4 kN/m² |
+| 型わく荷重 | $W_（l2）$ | 0.5 kN/m² |
+| 水平荷重（支柱支保工） | — | 5.0% |
+| 水平荷重（わく組支保工） | — | 2.5% |
+| たわみ（型わく） | $\delta_a$ | ≦3.0mm |
+| たわみ（支保工） | $\delta_a$ | ≦$\dfrac（0.816）（\sqrt（L_m））$ |
+| 基礎地盤 | — | 平均N値10程度以上 |
+| 許容値の割り増し（型わく・支保工） | — | 1.0 |
+| 弾性係数（合板） | $E$ | $12 \times 10^3$ N/mm² |
+| 弾性係数（角材） | $E$ | $7.0 \times 10^3$ N/mm² |
+| 弾性係数（鋼材） | $E$ | $2.0 \times 10^5$ N/mm² |
+
+##### 4-5-2 許容応力度
+
+<div className="table-wrapper">
+
+| 項目 | 材種 | 許容応力度 |
+|------|------|------------|
+| 許容曲げ応力度 | 合板 | $\sigma_a = 16.5$ N/mm² |
+| 許容曲げ応力度 | 角材 | $\sigma_a = 10.5$ N/mm² |
+| 許容曲げ応力度 | 鋼材 SS400 | $\sigma_a = 160$ N/mm² |
+| 許容曲げ応力度 | 鋼材 STK400 | $\sigma_a = 160$ N/mm² |
+| 許容引張応力度 | 鋼材 SS400 | $\sigma_a = 160$ N/mm² |
+| 許容引張応力度 | 鋼材 STK400 | $\sigma_a = 160$ N/mm² |
+| 許容圧縮応力度 | 角材 | $\sigma_a = 9$ N/mm² |
+| 許容圧縮応力度 | 鋼材 SS400 | $\sigma_a = 160$ N/mm² |
+| 許容圧縮応力度 | 鋼材 STK400 | $\sigma_a = 160$ N/mm² |
+| 許容せん断応力度 | 角材 | $\tau_a = 0.75$ N/mm² |
+| 許容せん断応力度 | 鋼材 SS400 | $\tau_a = 100$ N/mm² |
+| 許容せん断応力度 | 鋼材 STK400 | $\tau_a = 100$ N/mm² |
+| 許容せん断応力度 | 高力ボルト F10T | $\tau_a = 150$ N/mm² |
+
+</div>
+
+##### 4-5-3 中空床版橋（枠組式支保工）
+
+支保工は、わく組支保工とし図11-3 のようにわく組にビディわくを使用する。
+
+**設計荷重**
+
+コンクリート荷重および作業荷重を主桁底板巾内の支保工で支持すると考え、底板巾内の等分布荷重に換算する。
+
+<div className="scroll-equation">
+$$A_{\text{中空}} = 5.85 \times 1.25 - \frac{\pi \times 1.0^2}{4} \times 4 = 4.173 \text{ m}^2$$
+</div>
+
+<div className="scroll-equation">
+$$A_{\text{充腹}} = 5.85 \times 1.25 = 7.313 \text{ m}^2$$
+</div>
+
+<div className="scroll-equation">
+$$W_d = \frac{1}{25.85 \times 5.85} \times (4.173 \times 11.775 \times 2 + 7.313 \times 2.3) \times 24.5 = 18.6 \text{ kN/m}^2$$
+</div>
+
+設計荷重時
+
+- コンクリート荷重　$W_d = 18.6 \text（ kN/m）^2$
+- 作業荷重　$W_i = 3.9 \times \dfrac（9.0）（5.85） = 6.0 \text（ kN/m）^2$
+- 合計　$= 24.6 \text（ kN/m）^2$
+
+**(1) 大引の検討**
+
+ビディわくを図11-3 のように 914mm 間隔に設置すると大引に加わる荷重 $W$ は
+
+<div className="scroll-equation">
+$$W = 24.6 \times 0.914 = 22.5 \text{ kN/m} = 22.5 \text{ N/mm}$$
+</div>
+
+角鋼管 100×100×3.2 を使用する。$Z = 37.5 \text（ cm）^3 = 37.5 \times 10^3 \text（ mm）^3$、$I = 187 \text（ cm）^4$
+
+<div className="scroll-equation">
+$$M = \frac{22.5 \times 914^2}{8} = 2549551 \text{ N·mm}$$
+</div>
+
+<div className="scroll-equation">
+$$\sigma = \frac{2549551}{37.5 \times 10^3} = 63 \text{ N/mm}^2 < 160 \text{ N/mm}^2$$
+</div>
+
+<div className="scroll-equation">
+$$\delta = \frac{5 \times 22.5 \times 914^4}{384 \times 2.0 \times 10^5 \times 187 \times 10^4} = 0.55 \text{ mm} < \frac{0.816}{\sqrt{L}} = 8.0 \text{ mm}$$
+</div>
+
+**(2) わく組支保工の検討**
+
+図11-3・図11-4 のように巾 914mm のビディわくを 914mm 間隔に主桁底板部に5わく、両張出し部に巾 1219mm 1わくづつ計7わく使用する。
+
+(a) 主桁底板部ビディわく
+
+前記のようにコンクリート荷重および作業荷重の全部を主桁底板部の5わくのビディわくで支持するものとし、ビディわく4段の荷重を考慮すると（ビディわく1段につき 0.2kN/m²）
+
+<div className="scroll-equation">
+$$P = (24.6 \times 0.914 \times 5.85 + 0.2 \times 4 \times 0.914 \times 5.85) \times \frac{1}{5} = 27.2 \text{ kN} < 50 \text{ kN}$$
+</div>
+
+(b) 主桁張出し部ビディわく
+
+張出し部ビディわくも一応コンクリート荷重および作業荷重を支持すると考えると、張出し部1わく当り
+
+<div className="scroll-equation">
+$$\text{コンクリート荷重：} \left\{ \frac{(0.2 + 0.343) \times 1.128}{2} + \frac{(0.343 + 0.849) \times 0.447}{2} \right\} \times 24.5 \times 0.914 = 12.8 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$\text{作業荷重：} 3.9 \times 1.575 \times 0.914 + 0.2 \times 5 \times 0.914 \times 1.575 = 7.05 \text{ kN}$$
+</div>
+
+<div className="scroll-equation">
+$$\text{合計：} 19.9 \text{ kN} < 50 \text{ kN}$$
+</div>
+
+**(3) 水平力に対する検討**
+
+水平荷重は型わくがほぼ水平の場合、鉛直荷重の 2.5% となる。よって水平力 $H$ は、
+
+<div className="scroll-equation">
+$$H = (24.6 \times 25.85 \times 5.85 + 19.9 \times \frac{25.85}{0.914} \times 2) \times 0.025 = 121 \text{ kN}$$
+</div>
+
+(a) 橋軸方向水平力に対する検討
+
+水平力は単管パイプを各橋台（橋脚）に突当てることにより支えられる。
+
+単管パイプの許容座屈応力は、安衛則第241条より許容座屈応力 $\sigma_c$ は次により求めた値以下とする。
+
+$\ell/i \leq \Lambda$ の場合：
+
+<div className="scroll-equation">
+$$\sigma_c = \frac{\left[ 1 - 0.4 \left\{ \frac{(\ell/i)}{\Lambda} \right\}^2 \right]}{\nu} \times F$$
+</div>
+
+$\ell/i > \Lambda$ の場合：
+
+<div className="scroll-equation">
+$$\sigma_c = \frac{0.29}{\left\{ \frac{(\ell/i)}{\Lambda} \right\}^2} \times F$$
+</div>
+
+ここに、
+
+- $\ell$：支柱の長さ（cm）（ただし拘束点間の最大長さ）
+- $i$：支柱の最小断面二次半径（cm）
+- $\Lambda$：限界細長比　$\Lambda = \sqrt（\pi^2 E / (0.6 \cdot F)）$
+- $\nu$：安全率　$\nu = 1.5 + 0.57 \left\（ (\ell/i) / \Lambda \right\）^2$
+- $F$：（降伏点）または（引張強さ×0.75）のいずれか小さい値
+
+単管パイプ3種（φ48.6×2.4）を使用すれば、断面積 $A = 3.48 \text（ cm）^2 = 348 \text（ mm）^2$、断面二次半径 $i = 1.64 \text（ cm）$、許容圧縮応力度 $\sigma_c = 160 \text（ N/mm）^2$
+
+$\ell = 2.0$ m とすれば
+
+<div className="scroll-equation">
+$$\ell/i = 200/1.64 = 122$$
+</div>
+
+<div className="scroll-equation">
+$$\ell/i > \Lambda = \sqrt{\frac{3.14^2 \times 2.0 \times 10^5}{0.6 \times 240}} = 117$$
+</div>
+
+<div className="scroll-equation">
+$$\sigma_c = \frac{0.29}{\left\{ (2000/16.4) / 117 \right\}^2} \times 240 = 64 \text{ N/mm}^2$$
+</div>
+
+よって許容軸圧縮力 $N$ は、
+
+<div className="scroll-equation">
+$$N = A \cdot \sigma_c = 348 \times 64 = 22.2 \text{ kN/本}$$
+</div>
+
+各橋台（橋脚）に突当てる単管パイプの本数を12本とすれば、
+
+<div className="scroll-equation">
+$$H_R = 22.2 \times 12 = 266 \text{ kN} > 121 \text{ kN}$$
+</div>
+
+又、クランプの許容伝達力は 350kg/個 であるので、
+
+<div className="scroll-equation">
+$$N = \frac{121}{12 \times 3.4} = 3.0$$
+</div>
+
+単管パイプ1本当り **3個以上** のクランプが必要である。
+
+(b) 橋軸直角方向水平力に対する検討
+
+水平力は単管パイプをビティわくに約35°に配置することにより受け持たせる。
+
+<div className="scroll-equation">
+$$H' = H \times \frac{1}{\cos 41°30'} = 121 \times 1.355 = 164 \text{ kN}$$
+</div>
+
+単管パイプの軸圧縮に対する許容値は前項より 22.2kN 程度は考えられる。又、許容引張力については、パイプ本体では
+
+<div className="scroll-equation">
+$$160 \times 348 = 55680 \text{ N} = 56 \text{ kN}$$
+</div>
+
+であるが、継手部については摩擦形継手金具（クランプ）で 3.43kN/個、せん断継手金具（単管ジョイント）で 7.35kN/個となる。よって、クランプを使用し足場パイプによる筋違いを10本使用するとパイプに加わる力 $F$ は、
+
+<div className="scroll-equation">
+$$F = 10 \times 22.2 = 222 \text{ kN} > 158 \text{ kN}$$
+</div>
+
+又、クランプの許容伝達力は
+
+<div className="scroll-equation">
+$$N = \frac{158}{3.4 \times 10} = 4.6 \text{ 個}$$
+</div>
+
+よって単管パイプ1本あたり **5個以上** 使用する。
+
+![中空床版橋 一般図](./img/03-fig-84.png)
+
+<p className="text-center">図4-5-1 中空床版橋 一般図</p>
+
+![わく組支保工 一般図（1）](./img/03-fig-85.png)
+
+<p className="text-center">図4-5-2 わく組支保工 一般図（1）</p>
+
+![わく組支保工 一般図（2）](./img/03-fig-86.png)
+
+<p className="text-center">図4-5-3 わく組支保工 一般図（2）</p>
+
+#### 4-6 支保工の分類
+
+![支保工の分類（1）支柱式・枠組式](./img/03-fig-87.png)
+
+<p className="text-center">図4-6-1 支保工の分類（1）</p>
+
+支柱式支保工は、型枠を支える支柱部材を多数使用した構造である。支柱式支保工は、支柱材に単管、パイプサポート、枠組式支保工、四角支柱およびH形鋼等を用いた構造であり、水平方向の剛性を高めるために単管等を用いて、水平継ぎおよび筋かいで補強したものである。
+
+単管支柱式支保工は、足場用鋼管を用いて型枠を支持する方式で、単独で用いられることは少なく、他の支保工と組合せて補助的に用いることが望ましい。なお、単管支保工のみで大規模な支保工に用いる場合、組立・解体方法や支保工の緊結方法等を充分に検討する必要がある。
+
+パイプサポート支保工は、橋梁床版工事や、鉄筋コンクリートスラブ等、比較的支柱高の低い所に使用されている支保工型式である。
+
+くさび結合式支保工は、支柱および水平材等にあらかじめ結合用金具が溶接されているため、各部材の結合がワンタッチで行え、組立、解体が容易にできるという利点がある。また、組立方法によっては大荷重にも耐えることができるため、大きな支持力が必要な場合にも使用される。
+
+![支保工の分類（2）枠組式・三角枠組式](./img/03-fig-88.png)
+
+<p className="text-center">図4-6-2 支保工の分類（2）</p>
+
+枠組式支保工は、建築用足場材として開発された鋼管製の枠（建枠）を多層スパンに組立て、支保工として用いたものであり、組立・解体が容易で広く用いられている。鋼管枠組式支保工の主材料は、一般炭素鋼鋼管からなり鳥居型に組立加工したフレームを所定の高さに組立て、布枠、筋かい等で剛性を図り、コンクリート荷重を支持する支保工型式である。
+
+枠組式支保工の基本構造は、2組の建枠と水平方向の布枠および交差筋かいで構成され、鉛直方向の継手には連結ピンが使用されている。
+
+三角枠組式支保工は、直角三角形の鋼管枠を三角断面、あるいは四角断面の塔状に組み上げた構造の支保工である。この支保工は、基本形が三角形であるために、極めて安定した構造で、垂直材の接続が唯一の作業手間であり、組立解体が容易な構造である。
+
+![支保工の分類（3）組立支柱式・梁式](./img/03-fig-89.png)
+
+<p className="text-center">図4-6-3 支保工の分類（3）</p>
+
+組立支柱式支保工は、コンクリート橋の断面の大きい場合、橋下に広い空間を確保したい場合等で、支持力の大きな支柱が必要とされるときに使用する。
+
+形鋼支柱式は、支保工の支柱材に形鋼を用いて組立てるものである。形鋼の種類としては、支柱に主としてH形鋼が、支柱の水平継ぎ材、斜材として、溝形鋼、等辺山形鋼等が用いられている。
+
+四角支柱は、主材の鋼管（φ48.6×t2.4）を一辺200mmの正方形に配置し、それに腹材のウエブプレート（板厚3.2mm）を溶接したユニット柱と、高さを調節する頭部と脚部のジャッキより構成される。
+
+梁式支保工は、型枠を支える支保工部材の構成において、そのほとんどが梁材より構成されることから梁式支保工と呼ばれている。支保工の梁材として使用される製品は、形鋼に部分的加工を加えた程度の形鋼梁と、数種の形鋼、鋼管等を接合して所要の梁とする組立梁とがある。梁材の支持方法には、既設構造物によって支持する場合と、支柱式支保工で支持する場合がある。
+
+梁式支保工は、けた下高が高い場合や支持地盤が軟弱な場合のほかに、河川や道路と工事目的物とが交差している場合等に多く使用されている。
+
+形鋼梁式支保工は、コンクリート等の荷重を形鋼または組立梁を用いて支持し、梁材の支持方法は橋台または橋脚等の既設構造物に埋め込まれたブラケット等により支持する支保工である。
+
+形鋼梁式支保工は、梁材として形鋼梁を使用する支保工である。使用材料にはI形鋼、H形鋼を使用し、その上に建枠を一段設置する場合が多い。形鋼を並べて支保工材とする場合には水平力に対して転倒しないように、相互に継ぎ材を用いるか、またはブレーシングにより固定する必要がある。
+
+![支保工の分類（4）重量型・軽量型支保梁](./img/03-fig-90.png)
+
+<p className="text-center">図4-6-4 支保工の分類（4）</p>
+
+重量型支保梁は、主に橋梁工事における支保工として使用されており、特にけた下空間が高く支柱材を多く配置できない場合、地盤が軟弱で地上から支柱を建てると基礎工事に大きな費用がかかる場合、河川の上に支保工を架設しなければならない場合等に使用される。
+
+軽量型支保梁は、建築工事、橋梁工事等における床版の支保工として開発されたもので、I形鋼梁等に比べ軽量でしかもスパン調整が簡単にできるため、床版工事以外に架台の梁材等にも広く利用されている。
+
+![支保工の分類（5）張出し式・移動式](./img/03-fig-91.png)
+
+<p className="text-center">図4-6-5 支保工の分類（5）</p>
+
+張出し式支保工（ブラケット式支保工）は、構造を大別すると、ブラケット式、トラス型ブラケット式、方杖式の3種類に区分される。ブラケット式、トラス型ブラケット式は、構造物にアンカーボルトで取り付けるため、その支持力はアンカーボルトの引張強度または付着強度で決まる場合があるので、この部分の検討を十分に行い、あらかじめ計画しておかなければならない。これに対し方杖式は、主材連続梁の張出し部に方杖を取付けるため信頼感があり、かなりの支持力が期待できる型式である。
+
+張出し式支保工は、橋梁工事のスラブ（合成けた、PCけた等のスラブの突縁部）の張出し部等の工事において、地上から高い場合や障害物があり他の型式の支保工が使えない場合に使用する型式である。
+
+移動支保工は、同一の構造物に対して支保工設備をほとんどそのまま次の構造物へ移動し、何回も転用するもので、構造物の急速施工を図ると同時に省力化、経済性の向上等を図る工法であり、特に橋梁上部工施工の分野で目ざましい発展をとげている。
+
+大型移動支保工架設工法は、支保工、型枠設備、荷役設備等が一体となった移動支保工設備により、一径間ごとに移動しながら躯体を構築していくもので、一定の規模以上の多径間橋梁等で有利な架設工法である。大型移動支保工設備には多くの種類があるが、支保工型式は荷重を支持する主構が躯体の下側に配置されるサポートタイプと、橋梁工事等の場合のように、主構が橋体の上側に配置されるハンガータイプに分けられる。
+
+---
+
+### 5. 水替工
+
+#### 5-1 設計条件
+
+下図に示す掘削形状におけるポンプ排水工法の設計計算例を示す。
+
+| 項目 | 値 |
+|------|----|
+| 掘削 | 8m×8m×3m |
+| 不透水層から自然水位までの距離 | $H = 13.5$ m |
+| 地下水位 | GL－1.5m |
+| 計画水位 | GL－3.0m |
+| 透水係数 | $k = 2.0 \times 10^（-2）$ cm/s |
+| 帯水土層 | 砂 |
+
+![水替工 掘削形状概要](./img/03-fig-92.png)
+
+<p className="text-center">図5-1-1 掘削形状概要</p>
+
+#### 5-2 仮想井戸半径
+
+敷地が正方形なので次式による。
+
+<div className="scroll-equation">
+$$r_0 = \sqrt{\frac{A}{\pi}} = \sqrt{\frac{64}{\pi}} = 4.5 \text{ m}$$
+</div>
+
+ここに、
+
+- $r_0$：仮想井戸半径（m）
+- $A$：掘削場の面積（m²）
+- $\pi$：円周率
+
+#### 5-3 影響半径
+
+**Kusakin の式**
+
+<div className="scroll-equation">
+$$R = 575 s \sqrt{Dk} = 575 \times 1.5 \times \sqrt{13.5 \times \frac{2 \times 10^{-2}}{10^{10}}} = 45 \text{ m}$$
+</div>
+
+**Seichardt の式**
+
+<div className="scroll-equation">
+$$R = 3{,}000 s \sqrt{k} = 3{,}000 \times 1.5 \times \sqrt{\frac{2 \times 10^{-2}}{10^{10}}} = 64 \text{ m}$$
+</div>
+
+ここに、
+
+- $R$：影響半径（m）
+- $s$：水位低下量（m）
+- $D$：帯水層厚（m）
+- $k$：透水係数（m/s）
+
+よって、大きい方を採用し **64m** とする。
+
+#### 5-4 排水量の計算
+
+<div className="scroll-equation">
+$$Q = \frac{\pi k (H^2 - h^2)}{2.3 \log(R/r_0)} \cdot \frac{1}{2h_t - r_0^{0.5} h_t}$$
+</div>
+
+<div className="scroll-equation">
+$$= \frac{\pi \times 0.02 \times (13.5^2 - 12.0^2)}{2.3 \log(64/4.5)} \cdot \frac{1}{2 \times 12.0 - 12.0}$$
+</div>
+
+<div className="scroll-equation">
+$$= 0.00555 \text{ m}^3/\text{s} = 0.3 \text{ m}^3/\text{min}$$
+</div>
+
+ここに、
+
+- $Q$：排水量（m³/s）
+- $\pi$：円周率
+- $k$：透水係数（m/s）
+- $H$：初期地下水位（m）
+- $h$：内水位（定常状態）（m）
+- $R$：影響半径（m）
+- $r_0$：仮想井戸半径（m）
+- $h_t$：内水位以深の井戸の長さ（m）
+
+#### 5-5 ポンプ台数
+
+<div className="scroll-equation">
+$$N = \frac{Q}{nq} = \frac{0.3}{0.7 \times 0.5} = 0.85 \approx 1 \text{ 台}$$
+</div>
+
+ここに、
+
+- $N$：ポンプ台数（使用ポンプ：全揚程20m、吐出量 $q = 0.5$ m³/min、ポンプ効率 $n = 0.7$）
+- $Q$：全揚水量（m³/min）
+- $q$：ポンプ1台の吐出量（m³/min）
+- $n$：ポンプ効率
+
+![水替工 関連図（1）](./img/03-fig-93.png)
+
+<p className="text-center">図5-5-1 水替工 関連図（1）</p>
+
+![水替工 関連図（2）](./img/03-fig-94.png)
+
+<p className="text-center">図5-5-2 水替工 関連図（2）</p>
+
+![水替工 関連図（3）](./img/03-fig-95.png)
+
+<p className="text-center">図5-5-3 水替工 関連図（3）</p>
+
+![水替工 関連図（4）](./img/03-fig-96.png)
+
+<p className="text-center">図5-5-4 水替工 関連図（4）</p>
+
+![水替工 関連図（5）](./img/03-fig-97.png)
+
+<p className="text-center">図5-5-5 水替工 関連図（5）</p>
+
+![水替工 関連図（6）](./img/03-fig-98.png)
+
+<p className="text-center">図5-5-6 水替工 関連図（6）</p>

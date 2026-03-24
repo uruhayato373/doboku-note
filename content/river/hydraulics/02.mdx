@@ -1,0 +1,377 @@
+# 流れの基礎定理
+
+## 2.1 流体要素の運動と変形
+
+### 2.1.1 流速、流線、流跡線
+
+流速は一般に空間的および時間的に変化するベクトル量であるから、$\mathbf{u}(\mathbf{x},t)$とかける。ここに、$\mathbf{x}$は空間の位置ベクトル、$t$は時間である。したがって流体の微小要素の運動は次の方程式で表わされる。
+
+$$
+\frac{d\mathbf{x}}{dt} = \mathbf{\mu}(\mathbf{x},l)
+$$
+
+流速場が与えられれば、上式を積分して流体の微小要素の通過する経路を求められる。この経路を流跡線という。水流中に比重1の粒子をまいて長い露出時間で写真撮影すると各粒子の軌跡を得られるが、これが流跡線である。
+
+一方、非常に短い露出時間で写真撮影すると瞬間的な流向を示す短い線が得られ、これらを接線とする曲線群を描ける。この曲線を流線という。流線は次の方程式を積分することにより得られる。
+
+$$\frac{d\mathbf{x}}{dt} = \mathbf{\mu}(\mathbf{x},l_0)$$ (2.2)
+
+ここに、$t_0$は写真撮影した時刻である。もし流速が時間に依存しなければ、すなわち流れが定常であれば、式(2.1)と式(2.2)は等しく、流線と流跡線は一致する。
+
+### 2.1.2 流体の変形と渦運動
+
+微小距離$d\mathbf{x}$だけ離れた点での流速の差を$\delta\mathbf{\mu}$とする。デカルト座標系を使用して$\mathbf{x}$の成分を$(x,y,z)$、$\mathbf{\mu}$の成分を$(u,v,w)$とし、テイラー展開すると次式を得る。
+
+$$\delta\mathbf{\mu} = \begin{pmatrix} \varepsilon_x & 0 & 0 \\ 0 & \varepsilon_y & 0 \\ 0 & 0 & \varepsilon_z \end{pmatrix} d\mathbf{x} + \begin{pmatrix} 0 & \frac{1}{2}\gamma_{yx} & \frac{1}{2}\gamma_{zx} \\ \frac{1}{2}\gamma_{xy} & 0 & \frac{1}{2}\gamma_{zy} \\ \frac{1}{2}\gamma_{xz} & \frac{1}{2}\gamma_{yz} & 0 \end{pmatrix} d\mathbf{x} + \begin{pmatrix} 0 & -\frac{1}{2}\zeta & \frac{1}{2}\eta \\ \frac{1}{2}\zeta & 0 & -\frac{1}{2}\xi \\ -\frac{1}{2}\eta & \frac{1}{2}\xi & 0 \end{pmatrix} d\mathbf{x}$$ (2.3)
+
+ここに、
+
+$$\varepsilon_x = \frac{\partial u}{\partial x}, \varepsilon_y = \frac{\partial v}{\partial y}, \varepsilon_z = \frac{\partial w}{\partial z}$$
+
+$$\gamma_{yz} = \gamma_{zy} = \frac{\partial w}{\partial y} + \frac{\partial v}{\partial z}, \gamma_{zx} = \gamma_{xz} = \frac{\partial u}{\partial z} + \frac{\partial w}{\partial x}, \gamma_{xy} = \gamma_{yx} = \frac{\partial v}{\partial x} + \frac{\partial u}{\partial y}$$
+
+$$\xi =  \frac{\partial w}{\partial y} - \frac{\partial v}{\partial z}, \eta = \frac{\partial u}{\partial z} - \frac{\partial w}{\partial x}, \zeta = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y}$$ (2.4)
+
+式(2.3)の右辺第1項は流体の微小要素の伸縮変形を、第2項はずり変形を、第3項は回転を表わしている。
+
+回転角速度の2倍を成分とするベクトル$\boldsymbol{\omega} = (\xi,\eta,\zeta)$を渦度ベクトルという。渦度ベクトルと流速ベクトルは次式で関係づけられる。
+
+$$\boldsymbol{\omega} = \nabla \times \mathbf{\mu}$$ (2.5)
+
+ここに、$\nabla$は$(\partial/\partial x, \partial/\partial y, \partial/\partial z)$というベクトル演算子、$\times$は外積である。$\boldsymbol{\omega} = \mathbf{0}$の流れを渦なし流れまたは非回転流れ、$\boldsymbol{\omega} \neq \mathbf{0}$の流れを渦あり流れまたは回転流れという。
+
+速度ベクトルについて流線を定義したのと同様に、渦度ベクトルについて渦線（または渦糸）を定義できる。排水孔付近にできる渦や竜巻などの中心軸は渦線である。渦線は流れの中で途切れずに、境界から境界まで続くか、渦輪を形成する。自然界に生じる流れのほとんどは、視覚的に明確な渦を形づくらなくとも、大なり小なり渦あり流れである。
+
+非回転流れでは、速度成分の間に次の関係がある。
+
+$$\frac{\partial w}{\partial y} = \frac{\partial v}{\partial z}, \frac{\partial u}{\partial z} = \frac{\partial w}{\partial x}, \frac{\partial v}{\partial x} = \frac{\partial u}{\partial y}$$ (2.6)
+
+これから、次式のように速度ベクトルに関係づけられるスカラー関数$\phi(\mathbf{x},t)$を定義できる。
+
+$$u = \frac{\partial \phi}{\partial x}, v = \frac{\partial \phi}{\partial y}, w = \frac{\partial \phi}{\partial z}$$
+
+または、
+
+$$\mathbf{\mu} = \nabla \phi$$ (2.7)
+
+このような関数$\phi$を速度ポテンシャルという。
+
+## 2.2 流れを記述する基礎方程式
+
+### 2.2.1 連続方程式
+
+流体の質量保存則は次のように書かれる。この式を連続方程式と呼んでいる。
+
+$$
+\frac{\partial \rho}{\partial t} + \frac{\partial (\rho u)}{\partial x} + \frac{\partial (\rho v)}{\partial y} + \frac{\partial (\rho w)}{\partial z} = 0 \tag{2.8}
+$$
+
+ここに、$\rho$は流体密度である。
+
+流体が非圧縮性の場合には、流体の微小要素の密度が不変という条件から次式が成立する。
+
+$$
+\frac{D \rho}{D t} = 0 \tag{2.9}
+$$
+
+ここに、$D/Dt$は流体の微小要素とともに移動するときに観測される時間変化率であり、次式で定義される。
+
+$$
+\frac{D}{D t} = \frac{\partial}{\partial t} + u \frac{\partial}{\partial x} + v \frac{\partial}{\partial y} + w \frac{\partial}{\partial z} \tag{2.10}
+$$
+
+式(2.8)と式(2.9)の差をとれば、非圧縮性流体の連続方程式が得られる。
+
+$$
+\frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} = 0 \tag{2.11}
+$$
+
+土木工学で取り扱われる流れでは、多くの場合、非圧縮性を仮定してさしつかえない。
+
+### 2.2.2 粘性流体の運動方程式
+
+運動量保存則を流体の微小要素に適用すると次式を得る。
+
+$$
+\begin{align}
+\rho \frac{D u}{D t} &= \rho X + \frac{\partial \sigma_{xx}}{\partial x} + \frac{\partial \sigma_{xy}}{\partial y} + \frac{\partial \sigma_{xz}}{\partial z} \\
+\rho \frac{D v}{D t} &= \rho Y + \frac{\partial \sigma_{yx}}{\partial x} + \frac{\partial \sigma_{yy}}{\partial y} + \frac{\partial \sigma_{yz}}{\partial z} \\
+\rho \frac{D w}{D t} &= \rho Z + \frac{\partial \sigma_{zx}}{\partial x} + \frac{\partial \sigma_{zy}}{\partial y} + \frac{\partial \sigma_{zz}}{\partial z}
+\end{align} \tag{2.12}
+$$
+
+ここに、$X, Y, Z$は質量力の$x, y, z$方向成分である。重力場では、鉛直上向きに$z$軸をとると、$X = Y = 0, Z = -g$となる。また$\sigma_{xx}, \sigma_{xy}, \ldots$などは応力テンソルの成分である。水や空気などのニュートン流体の応力は次式で表わされる。
+
+$$
+\begin{align}
+\sigma_{xx} &= -p + \mu \left( 2 \frac{\partial u}{\partial x} - \frac{2}{3} \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} \right) \right) \\
+\sigma_{yy} &= -p + \mu \left( 2 \frac{\partial v}{\partial y} - \frac{2}{3} \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} \right) \right) \\
+\sigma_{zz} &= -p + \mu \left( 2 \frac{\partial w}{\partial z} - \frac{2}{3} \left( \frac{\partial u}{\partial x} + \frac{\partial v}{\partial y} + \frac{\partial w}{\partial z} \right) \right) \\
+\sigma_{xy} &= \sigma_{yx} = \mu \left( \frac{\partial u}{\partial y} + \frac{\partial v}{\partial x} \right) \\
+\sigma_{yz} &= \sigma_{zy} = \mu \left( \frac{\partial w}{\partial y} + \frac{\partial v}{\partial z} \right) \\
+\sigma_{zx} &= \sigma_{xz} = \mu \left( \frac{\partial w}{\partial x} + \frac{\partial u}{\partial z} \right)
+\end{align} \tag{2.13}
+$$
+
+ここに、$p$は圧力、$\mu$は粘性係数である。式(2.13)を式(2.12)に代入して得られる式を Navier-Stokes (ナビエ・ストークス)方程式という。流体が非圧縮性の場合には、Navier-Stokes 方程式は次のようになる。
+
+$$
+\begin{align}
+\frac{D u}{D t} &= X - \frac{1}{\rho} \frac{\partial p}{\partial x} + \nu \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right) \\
+\frac{D v}{D t} &= Y - \frac{1}{\rho} \frac{\partial p}{\partial y} + \nu \left( \frac{\partial^2 v}{\partial x^2} + \frac{\partial^2 v}{\partial y^2} + \frac{\partial^2 v}{\partial z^2} \right) \\
+\frac{D w}{D t} &= Z - \frac{1}{\rho} \frac{\partial p}{\partial z} + \nu \left( \frac{\partial^2 w}{\partial x^2} + \frac{\partial^2 w}{\partial y^2} + \frac{\partial^2 w}{\partial z^2} \right)
+\end{align} \tag{2.14}
+$$
+
+ここに、$\nu = \mu / \rho$は動粘性係数である。
+
+Navier-Stokes方程式は慣性力、質量力、圧力、粘性力のつり合いを示している。これらの力は異なる性質をもっているから、各々の影響度の違いによって流れ場の性質が変化する。特に流速成分が陽な形で含まれる慣性力と粘性力の比は重要である。流れ場の代表量を用いて表わされるグローバルな慣性項と粘性項の比$Ul/\nu$をレイノルズ数と呼び$Re$と表記する。ここに$U$は代表流速、$l$は代表長さである。$Re$が小さい流れでは粘性力の影響が大きく、$Re$が大きな流れではその影響が小さい。
+
+### 2.2.3 完全流体の運動方程式
+
+粘性の影響が小さいか、あるいは空間的に限定されている場合、流体を非粘性と仮定して流れ場を記述できることがある。例えば堰をこえる流れや波の運動がそうである。粘性を全くもたない仮想の流体を完全流体という。式(2.13)で$\mu = 0$とおくと完全流体の運動方程式となる。
+
+$$
+\begin{align}
+\frac{D u}{D t} &= X - \frac{1}{\rho} \frac{\partial p}{\partial x} \\
+\frac{D v}{D t} &= Y - \frac{1}{\rho} \frac{\partial p}{\partial y} \\
+\frac{D w}{D t} &= Z - \frac{1}{\rho} \frac{\partial p}{\partial z}
+\end{align} \tag{2.15}
+$$
+
+この式はEuler方程式と呼ばれている。
+
+### 2.2.4 乱流の平均量についての方程式
+
+$Re$が小さい流れでは、流線が整然として乱れない。このような流れを層流という。$Re$が大きくなると、流線が乱れて速度や圧力が不規則に変動する流れとなる。このような流れを乱流という。円形断面の管路の流れでは、平均流速と管径を用いた$Re$が2000~4000をこえると乱流になる。土木工学が取り扱う流れの多くは乱流である。
+
+乱流は不規則に変動するので、瞬間々々の流速や圧力を数学的に記述するのは困難であるし、実用的でもない。そこで速度ベクトル$\mathbf{u}(u, v, w)$を平均値$\mathbf{U}(U, V, W)$と変動値$\mathbf{u}'(u', v', w')$に分け、また圧力$p$も平均値$P$と変動値$p'$に分けて、平均値の変化を表わす方程式を導くと次式となる。
+
+連続方程式:
+
+$$
+\frac{\partial U}{\partial x} + \frac{\partial V}{\partial y} + \frac{\partial W}{\partial z} = 0 \tag{2.16}
+$$
+
+運動方程式:
+
+$$
+\begin{align}
+\frac{D U}{D t} &= X - \frac{1}{\rho} \frac{\partial P}{\partial x} - \frac{\partial (u'u')}{\partial x} - \frac{\partial (u'v')}{\partial y} - \frac{\partial (u'w')}{\partial z} \\
+\frac{D V}{D t} &= Y - \frac{1}{\rho} \frac{\partial P}{\partial y} - \frac{\partial (u'v')}{\partial x} - \frac{\partial (v'v')}{\partial y} - \frac{\partial (v'w')}{\partial z} \\
+\frac{D W}{D t} &= Z - \frac{1}{\rho} \frac{\partial P}{\partial z} - \frac{\partial (u'w')}{\partial x} - \frac{\partial (v'w')}{\partial y} - \frac{\partial (w'w')}{\partial z}
+\end{align} \tag{2.17}
+$$
+
+ここに、$\overline{\cdot}$は平均操作を表わしている。したがって$\overline{u'v'}$などは変動成分の相関である。これに密度$\rho$を乗じて負号を付した量、すなわち$-\rho \overline{u'v'}$などは速度変動によって生じる運動量のフラックスであり、レイノルズ応力と呼ばれる。なお乱流ではレイノルズ応力が粘性力に比べて十分大きいので、上式において粘性項は省略されている。式(2.17)はレイノルズ方程式と呼ばれる。
+
+### 2.2.5 境界条件
+
+個々の流体現象について連続方程式と運動方程式を解くにあたり、計算領域の境界において境界条件を設定しなければならない。境界条件は運動学的境界条件と力学的境界条件に分類される。運動学的境界条件は境界上での流体の連続性を表わすもので、それらはさらに粘性境界条件と非粘性境界条件に分類される。
+
+非粘性境界条件とは流体境界上にある流体の微小要素が、境界が変形する場合でも、そのまま境界上にあるという条件である。流体境界の位置が$f(x, y, z, t) = 0$で表わされるとき、非粘性境界条件は$Df/Dt = 0$で与えられる。例えば、水の自由表面の高さを$\eta(x, y, t)$とすると、その位置を表わす方程式は$f(x, y, z, t) = \eta(x, y, t) - z = 0$である。これから自由表面の非粘性境界条件が次のように求まる。
+
+$$
+\frac{\partial \eta}{\partial t} + u \frac{\partial \eta}{\partial x} + v \frac{\partial \eta}{\partial y} = w \quad (z = \eta \text{で}) \tag{2.18}
+$$
+
+また静止した物体の表面では$f(x, y, z) = 0$であるから、$Df/Dt = 0$より次式が得られる。
+
+$$
+\mathbf{u} \cdot \mathbf{n} = 0 \tag{2.19}
+$$
+
+ここに、$\mathbf{n}$は境界面の法線ベクトル、$\cdot$は内積である。上式は境界面に垂直な流速成分が零であることを示している。
+
+粘性境界条件は境界の内部と外部の接線速度の連続性を表わす条件である。例えば水と空気という流体どうしの境界では、両方の流体の速度が一致しなければならない。また静止した物体の表面では流速は零となる。
+
+力学的境界条件は境界における応力(圧力とせん断応力)の連続性を表わすものである。例えば自由表面をもつ水流の解析では、自由表面における水圧が大気圧に等しいという条件が課せられる。狭い隙間の流れのように表面張力を無視できない場合には、水圧と大気圧の差が表面張力につり合うという条件になる。また風が吹いている場合には自由表面上で大気のもつせん断応力と水流のもつせん断応力が等しいという条件が課せられる。
+
+境界条件の具体的な与え方は、対象とする流体現象と解析に用いる運動方程式の種類によって異なる。例えば完全流体の運動方程式を用いる場合には、粘性境界条件とせん断応力に関する力学的境界条件は必要でない。完全流体の運動方程式には流体の粘性やせん断応力といった特性が含まれていないからである。
+
+本節では式(2.14)のような基本的な運動方程式に対応させて境界条件を説明した。しかし水理学では対象とする流体現象に合せてさらに変形したり簡略化した運動方程式を用いることが多く、それに対応してさまざまな境界条件の表記がなされる。具体的には各々の章で述べられるであろう。
+
+## 2.3 Bernoulliの定理(Bernoulli theorems)
+
+### 2.3.1 Bernoulliの定理
+
+完全流体の運動方程式(2.15)を変形してベクトル表示すると次のようになる。
+
+$$
+\frac{\partial \mathbf{u}}{\partial t} + (\mathbf{\omega} \times \mathbf{u}) = \mathbf{X} - \frac{1}{\rho} \nabla P - \nabla \left( \frac{q^2}{2} \right) \tag{2.20}
+$$
+
+ここに、$\mathbf{X}$は質量力ベクトル、$q$は流速ベクトルの絶対値である。質量力$\mathbf{X}$がポテンシャル$\Omega$から導かれる場合、すなわち、$\mathbf{X} = -\nabla \Omega$の場合には次式となる。
+
+$$
+\frac{\partial \mathbf{u}}{\partial t} + \nabla \left( \frac{q^2}{2} + \int \frac{dP}{\rho} + \Omega \right) = \mathbf{0} \tag{2.21}
+$$
+
+ただし密度$\rho$が圧力$P$の1価関数であると仮定している。右辺のベクトルは速度ベクトル$\mathbf{u}$と直交しているので、流れが定常であるなら左辺第2項の( )内の量は一つの流線上で一定の値をとる。すなわち、
+
+$$
+E = \frac{q^2}{2} + \int \frac{dP}{\rho} + \Omega = \text{const.} \tag{2.22}
+$$
+
+$E$は流体の単位質量当りのエネルギーを表わす量で、ベルヌーイ和と呼ばれる。重力場における非圧縮性完全流体ではベルヌーイ和は次のようになる。
+
+$$
+E = \frac{q^2}{2} + \frac{P}{\rho} + gz = \text{const.} \tag{2.23}
+$$
+
+式(2.22)、(2.23)は各流線上でのエネルギー保存則を示すもので、Bernoulliの定理と呼ばれる。
+
+### 2.3.2 拡張されたBernoulliの定理
+
+非回転流れでは式(2.21)の右辺は常に零であり、また式(2.7)に示した速度ポテンシャル$\phi$が存在する。そこで式(2.21)は積分でき、流れの全領域で次式が成立する。
+
+$$
+\frac{\partial \phi}{\partial t} + \frac{q^2}{2} + \Omega + \int \frac{dP}{\rho} = f(t) \tag{2.24}
+$$
+
+ここに、$f(t)$は時間のみに依存する関数である。重力場における非圧縮性完全流体では次式となる。
+
+$$
+\frac{\partial \phi}{\partial t} + \frac{q^2}{2} + gz + \frac{P}{\rho} = f(t) \tag{2.25}
+$$
+
+式(2.24)、(2.25)を拡張されたBernoulliの定理という。
+
+### 2.3.3 1次元のBernoulli方程式
+
+流線を母線とする管を流管という。重力場における定常な非圧縮・非粘性流れでは各流線上で式(2.24)が成立するので、これに流速を乗じて断面積分して得られる量は各々の流管について一定値をとる。一方、流管を通過する流量$Q$も各々の流管について一定であるから次式を得る。
+
+$$
+E = \frac{\int q^3 dA}{Q} = \alpha \frac{\bar{q}^2}{2} + \frac{\bar{P}}{\rho} + \bar{z} = \text{const} \tag{2.26}
+$$
+
+ここに、$\bar{E}$は断面平均ベルヌーイ和、$\bar{q}$は断面平均流速、$\bar{P}$は断面平均圧力、$\bar{z}$は断面の図心の高さである。またαは運動エネルギー補正係数と呼ばれ、次式で定義される。
+
+$$
+\alpha = \frac{\int q^3 dA}{\bar{q}^3 A} \tag{2.27}
+$$
+
+式(2.26)を重力加速度$g$で割ると次式となる。
+
+$$
+H = \alpha \frac{\bar{q}^2}{2g} + \frac{\bar{P}}{\rho g} + \bar{z} = \text{const.} \tag{2.28}
+$$
+
+ここに、$H = \bar{E}/g$、$\rho g$は流体の単位体積重量である。式(2.28)は長さの次元をもっており、各項は次のように呼ばれている。
+
+- $H$ ......... 全水頭
+- $\bar{P}/\rho g$ ....... 圧力水頭
+- $\alpha \bar{q}^2/2g$ ...... 速度水頭
+- $\bar{z}$ ......... ピエゾ水頭
+
+管路流や開水路流はしばしば一つの流管として取り扱われ、各断面でのエネルギー状態を表わす際に水頭が用いられる。ただし実在の流体は粘性流体であるから、式(2.28)の全水頭$H$は長い距離を流下する間に徐々に減少する。その減少分を損失水頭という。式(2.28)は損失水頭が無視できるような短い区間の流れの解析に用いられる。
+
+## 2.4 運動量の定理(Impulse-momentum theorem)
+
+定常流について式(2.12)を空間積分すると次式を得る。
+
+$$
+\int \rho \mathbf{u}(\mathbf{u} \cdot d\mathbf{A}) = \int \mathbf{X} dV + \int \boldsymbol{\sigma} \cdot d\mathbf{A} \tag{2.29}
+$$
+
+ここに、$\boldsymbol{\sigma}$は応力テンソル、$dV$は積分空間の微小要素、$d\mathbf{A}$は積分空間の境界の面素ベクトルである。式(2.29)の左辺は積分空間から単位時間に流出する運動量を、右辺は積分空間内の流体に加えられる力の合力を表わしている。この式は運動量の定理と呼ばれる。また積分空間を検査領域という。
+
+質量力がポテンシャル$\Omega$をもつ場合は、次式のように検査領域の表面積分のみの関係となる。
+
+$$
+\int \rho \mathbf{u}(\mathbf{u} \cdot d\mathbf{A}) = -\int \Omega d\mathbf{A} + \int \boldsymbol{\sigma} \cdot d\mathbf{A} \tag{2.30}
+$$
+
+したがって、検査領域の中の状態を知らなくとも、式(2.30)を用いて流れのグローバルな変化を解ける場合がある。
+
+検査領域を一つの流管に設定する。流速ベクトルは流管の側面を横切らないので、左辺の面積分は流管の断面についてのみ行えばよい。そこで次式が得られる。
+
+$$
+(\rho \beta \mathbf{U} Q)_2 - (\rho \beta \mathbf{U} Q)_1 = -\int \Omega d\mathbf{A} + \int \boldsymbol{\sigma} \cdot d\mathbf{A} \tag{2.31}
+$$
+
+ただし$( )_2$は下流側の断面での値、$( )_1$は上流側断面での値である。また$\mathbf{U}$は断面平均流速ベクトル、$\beta$は運動量補正係数と呼ばれ次式で定義される。
+
+$$
+\beta = \frac{1}{A \bar{q}^2} \int q^2 dA \tag{2.32}
+$$
+
+式(2.31)は管路流や開水路流の解析でしばしば用いられる。
+
+## 2.5 静水力学
+
+### 2.5.1 静水圧
+
+静止状態にある液体に重力だけ働いている場合Navier・Stokes方程式(2.14) は積分できて、 液体と空気との内部境界面、 いわゆる自由表面、 からHの深さの点における圧力$P'$は次式で与えられる.
+$$P'=P_0+wH \tag{2.33}$$
+ここに、$P_0$は大気圧、 $w=\rho g$は液体の単位体積重量、$P'$は完全真空を基準とした絶対圧力である. この圧力$P'$は$H$の深さの点を中心とする微小面積に働くものであり、その微小面積の向きにはよらない.工学上では大気圧を基準とした圧力$P$を用いることが多く、これは次式で与えられる.
+$$P=wH \tag{2.34}$$
+$P$をゲージ圧力または有効圧力と呼ぶ.
+
+大気圧に相当する圧力を1気圧と呼び、標準大気圧は以下のようである.
+$1\text{気圧}=1 013. 25\ \text{mb} = 1. 0336\ \text{kgf/cm}^2 = 10. 336\ \text{m}$ (水柱)
+
+### 2.5.2 水圧計と水圧機
+#### (1) 水圧計
+水圧は水柱または液体柱とつり合せて測る方法(マノメータ)のほか、機械的につり合せる方法(ブルドン管など)や電気的方法などがあるが、ここではマノメータについて述べる.
+
+マノメータは測定しようとする液体の圧力を図ー2.1のように液体の自重とつり合せて測るもので、 つり合いの条件式により次式を得る.
+$$P'-P_0=w_1H_1-w_2H_2 \tag{2.35}$$
+右辺の$H_1$, $H_2$を読み取ってゲージ圧力を測定する.この型のマノメータは測ろうとする圧力が高いときに、$w_2$の大きな液体(例えば水銀)を用いて$H_1$を測りやすい値にするものであり、圧力が比較的低い場合は、マノメータ管内に測定しようとする液体を直接上昇させて$H$のみを読み取り$P'-P_0=wH$より求める.
+
+示差マノメータは液体の圧力差を測定するために用いるもので、その原理はマノメータと同様で圧力差が小さい場合は図-2.2(a) のように逆U字管の上部に、 測定しようとする液体より軽い液体$w_2 (<w_1)$ を入れ、つり合い条件より圧力差を測定する. すなわち$\Delta p=(w_1-w_2)H_1$ したがって$H_1=k_1\Delta p/w_1$, $k_1= (1-w_2/w_1)^{-1}$であるから、$w_1$と近い値の$w_2$を選べば圧力差に相当する水頭$\Delta p/w_1$を拡大して読み取れる.
+
+圧力差の大きい場合には、図-2.2(b) のように測定しようとする液体より重い液体$w_2 (>w_1)$を用いる. つり合い条件より$\Delta p=(w_2-w_1)H_1$, したがって、$H_1=k_2\Delta p/w_1$, $k_2=(w_1/w_2-1)^{-1}$であるから$w_1$より大きい値の$w_2$を選べば圧力差に相当する水頭を短縮して読み取ることができる.
+
+#### (2) 水圧機
+密閉された容器内に非圧縮性流体があるとき、その一部分に圧力を加えると、圧力は増減することなく一様に伝達される. これをPascal(パスカル)の原理という. この原理を応用したものが水圧機である. 図2.3の容器に水が入っており、 断面積$A_1$, $A_2$の両開口部にそれぞれ$P_1$, $P_2$の力が加わって図の状態でつり合ったとする. もし$w_1$が外部からの圧力に比べて無視できるならば
+$$P_2=P_1A_2/A_1 \tag{2.36}$$
+
+### 2.5.3 平面に作用する水圧
+平面図形内の微小面積$dA$に静水圧$p=wz$が働いているとき(図ー2.4)、 この図形に働く全水圧の各軸方向成分$P_x$、$P_y$、 $P_z$は次式で与えられる.
+$$\begin{aligned}
+P_x&=w\int zdA_x=wG_x \\
+P_y&=w\int zdA_y=wG_y \\  
+P_z&=w\int zdA_z=wV
+\end{aligned} \tag{2.37}$$
+ここに、$G_x$、$G_y$は図形の$x$、$y$軸方向の射影図形についての水面に関する断面1次モーメント、$V$は図形を下底とし水面を上底とする鉛直柱体の水の体積である.全水圧は各分力$P_x$、 $P_y$、 $P_z$の合力として求められる.
+
+全水圧の作用点は$(P_x、P_y、 P_z)$の作用点がわかれば、その交点として求められる.したがって各分力の作用点を求めればよい.
+$$\begin{aligned}
+z_{jc} &= \frac{\int pzdA_j}{P_j} = \frac{w\int z^2dA_j}{P_j} = \frac{I_j}{P_j} & (j: x, y) \\
+x_{zc} &= \frac{\int pxdA_x}{P_z} = \frac{w\int xzdA_x}{P_z} = \frac{I_x}{P_z} = \frac{I_x}{V} 
+\end{aligned} \tag{2.38}$$
+ここに、$I_j$は$x$、$y$両軸方向の射影図形についての水面に関する断面2次モーメントであり、 $I_x$は$z$軸に関する体積$V$に関する体積モーメントである.断面1次モーメント、断面2次モーメント、体積モーメントなどは次式で与えられる.
+$$\begin{aligned}
+G_j &= A_jz_{jG} \\
+I_j &= I_{jo} + A_jz^2_{jG} & (j: x, y) \\
+I_x &= Vx_G
+\end{aligned} \tag{2.39}$$
+ここに、$A_j$は$x$、$y$軸方向の射影面積、$z_{jG}$はその図形の図心と水面との間の鉛直距離、$I_{jo}$はその図形の図心軸に関する断面2次モーメント、$x_G$は体積$V$の重心の$x$軸からの水平距離である.式(2.39)を式(2.38) に代入して、
+$$\begin{aligned}
+z_{jc} &= z_{jG} + \frac{I_{jo}}{A_jz_{jG}}  \\
+x_{zc} &= x_G
+\end{aligned} \tag{2.40}$$
+したがって、静水圧の合力、および作用点を求めるためには$A_j$、$z_{jG}$、$I_{jo}$、$x_G$、$V$ が決ればよい.$V$、$A_j$、$I_{jo}$は図形の形、$z_{jG}$, $x_G$は図形の位置が決れば求められる.
+
+### 2.5.4 曲面に作用する水圧
+この場合にも平面の場合と同様に3軸方向の各射影面の図形について式(2.37)から式(2.40)を用いて計算すればよい.作用点は、平面の場合にはその図形上にあったが、曲面の場合には必ずしもその面上にあるとは限らない.代表的な場合について表-2.1に示す.
+
+表-2.1 曲面に作用する水圧の計算例(Examples of calculation of pressure force on a curved area)
+
+![表2.1の画像](table2_1.png)
+
+### 2.5.5 浮力および浮体の安定
+#### (1) 浮力
+静水中にある、または水面に浮かんでいる物体に作用している全水圧を浮力と呼び、その大きさ$P$は水面以下にある物体の体積$V$と水の単位体積の重量$w$との積に等しい.
+$$P=wV \tag{2.41}$$
+浮力の作用点は水面以下の物体を水に置き換えたものの重心で、その点を浮心$C$と呼ぶ.浮体がつり合い状態にある、すなわち水中に浮かんでいるときには物体の重心と浮心とは同一鉛直線上にあって、浮体の自重と浮力とは相等しい.
+
+#### (2) 浮体の安定
+浮体がつり合いの状態からわずかに傾くと、浮体の自重と浮力によってモーメントが生ずる. このモーメントが浮体の傾きを元に戻すように作用する場合浮体は安定で、逆の場合は不安定、もしモーメントが0ならば浮体は中立である.
+
+これを図2.5に示すように浮心と重心の関係で説明する.第一に浮心$C$が重心$G$より上にある場合は常に安定である.次に重心$G$が浮心$C$の上にある場合、わずか傾いたために浮心が$C'$に移動したとする. $C'$より引かれた鉛直線と$CG$線との交点$M$を傾心といい、$M$が$G$より上にあれば安定、下にあれば不安定、 また$M$が$G$に重なれば中立である. この関係を数式で表わせば
+$$h=\frac{I_y}{Va}-a>0 (\text{安定}), =0 (\text{中立}), <0 (\text{不安定}) \tag{2.42}$$
+ここに、$\overline{GM}=h$ ($M$が$G$より上にあれば$h>0$)、$I_y$はつり合い状態にある浮体を水面で切断したとき、水によって囲まれた図形の傾きの軸($y$)に関する2次モーメント、$a=\overline{GC}$ ($G$が$C$の上にあれば$a>0$)とする.
+
+![図2.5](fig2_5.png)
