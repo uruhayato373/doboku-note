@@ -97,7 +97,7 @@ TINでは点の配置を調整できるため、ラスター形式とは異な�
 
 
 
-<img src="/content/general/spatial-information/img/0501.png"  style={{width: 500, margin: '0 auto 40px', display: 'block'}} />
+<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0501.png"  style={{width: 500, margin: '0 auto 40px', display: 'block'}} />
 
 <p className="text-center">図-1：道路網のオブジェクトモデルのクラス図</p>
 
@@ -135,7 +135,7 @@ GISでは一般に、**データベース管理システム**(database managemen
 空間索引のおもな手法として、格子、四分木、kd木、R木などが挙げられます。なお、R木以外は、点で表されたデータに限定的に用いられます。
 
 
-<img src="/content/general/spatial-information/img/0502.png"  style={{width: 500, margin: '0 auto 40px', display: 'block'}} />
+<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0502.png"  style={{width: 500, margin: '0 auto 40px', display: 'block'}} />
 
 <p className="text-center">図-2：空間索引</p>
 
@@ -151,7 +151,7 @@ kd木を用いた空間索引は、分割後の領域内の地物数が等しく
 一方、R木は、データ更新にも対応して平衡木を作成でき、線や面など大きさを持つ地物にも適用できる空間索引で、多くの空間DBMSで採用されています。地物の存在領域を最小外接矩形で指定し、索引を作成します。検索では、条件に合う最小外接矩形を抽出した後、地物の詳細形状を利用して検索条件を満たすかの最終判定を行います。
 
 
-<img src="/content/general/spatial-information/img/0503.png"  style={{width: 200, margin: '0 auto 40px', display: 'block'}} />
+<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0503.png"  style={{width: 200, margin: '0 auto 40px', display: 'block'}} />
 
 <p className="text-center">図-3：最小外接矩形</p>
 
@@ -159,7 +159,7 @@ kd木を用いた空間索引は、分割後の領域内の地物数が等しく
 図-4にR木の例を示します。最下層の葉ノードに記録されたr1-r10は、地物の最小外接矩形を表します。内部ノードは、下位階層の子ノードへの参照と、その子ノードの最小外接矩形をすべて包含する最小外接矩形(R1-R6)を持ちます。R木の各ノードから出る枝の数は可変で、図の例では最大3です。
 
 
-<img src="/content/general/spatial-information/img/0504.png"  style={{width: 650, margin: '0 auto 40px', display: 'block'}} />
+<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0504.png"  style={{width: 650, margin: '0 auto 40px', display: 'block'}} />
 
 <p className="text-center">図-4：R木による空間索引</p>
 
@@ -240,7 +240,7 @@ GISにおける空間解析において用いられる、幾何的位置や形�
 行政区域のように、ある一定領域が複数の領域に分割された面に対して、質問点がどの面の内側に位置するかを判定する問題である。GISで面データを表示しマウスのクリックで面を指定して属性情報を閲覧する操作に相当する。
 
 
-<img src="/content/general/spatial-information/img/0505.png"  style={{width: 400, margin: '0 auto 40px', display: 'block'}} />
+<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0505.png"  style={{width: 400, margin: '0 auto 40px', display: 'block'}} />
 
 <p className="text-center">図-5：点位置決定問題</p>
 
@@ -253,7 +253,7 @@ GISにおける空間解析において用いられる、幾何的位置や形�
 空間領域に配置された複数の母点に対して、領域内の任意の点がどの母点に最も近いかを表すように領域を分割した結果をボロノイ図という(図-6(a)参照)。この作成問題は、駅の位置が与えられたときに、駅勢圏を表す領域に地域を分割する問題に相当する。
 
 
-<img src="/content/general/spatial-information/img/0506.png"  style={{width: 400, margin: '0 auto 40px', display: 'block'}} />
+<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0506.png"  style={{width: 400, margin: '0 auto 40px', display: 'block'}} />
 
 <p className="text-center">図-6：ボロノイ図作成問題</p>
 

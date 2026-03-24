@@ -19,7 +19,7 @@ toc_max_heading_level: 5
 4. 一般的に、作業の所要時間を矢線の下に書き、作業名または作業内容を上に書く。
 
 <img
-  src="/content/general/construction-management/img/0313.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0313.jpg"
   width="450"
   className="center-image"
 />
@@ -31,7 +31,7 @@ toc_max_heading_level: 5
 イベントは、〇で示し、〇の中に 0 または正整数を書き込み、これをイベント番号と呼ぶ。工程表では、作業の前後関係（次作業の開始条件となる前作業の完了）を明らかにする役割を持つ。
 
 <img
-  src="/content/general/construction-management/img/0314.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0314.jpg"
   width="300"
   className="center-image"
 />
@@ -43,7 +43,7 @@ toc_max_heading_level: 5
 ダミーは、同一の作業が複数発生する場合に、起終点のイベントを区別するために使われる所要時間ゼロの疑似作業である。点線の矢印で表記する。
 
 <img
-  src="/content/general/construction-management/img/0315.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0315.jpg"
   width="350"
   className="center-image"
 />
@@ -61,7 +61,7 @@ toc_max_heading_level: 5
 ある結合点において、入ってくる矢線（先行作業 B、C）がすべて完了した後でなければ、結合点から出る矢線（後続作業 D）は開始できない。
 
 <img
-  src="/content/general/construction-management/img/0316.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0316.jpg"
   width="350"
   className="center-image"
 />
@@ -81,7 +81,7 @@ toc_max_heading_level: 5
 あるイベントにおいて、先行するすべての作業を終了し、次の作業が最も早く開始できる時刻を最早開始時刻（EarliestStartTime:EST）という。開始イベントの最早開始時刻は 0 とし、左から右へ所要時間を足し算する。ただし、先行作業が複数ある場合は、そのうち最も終わりが遅い作業が終わらなければ次の作業に入れない。
 
 <img
-  src="/content/general/construction-management/img/0317.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0317.jpg"
   width="500"
   className="center-image"
 />
@@ -93,7 +93,7 @@ toc_max_heading_level: 5
 工事が所要工期以内に完了するために、各イベントまでの先行作業のすべてが遅くとも終了していなければならない時刻を最遲完了時刻（LatestFinishTime:LFT）という。最終イベントの最早開始時刻をその工事の最遲完了時刻とし、右から左に各作業の所要時間を引き算する。ただし、イベントに複数の作業（矢線）が戻る場合は、引き算の結果が最も小さいものが、そのイベントの先行作業の最遲完了時刻となる。
 
 <img
-  src="/content/general/construction-management/img/0318.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0318.jpg"
   width="500"
   className="center-image"
 />
@@ -109,7 +109,7 @@ toc_max_heading_level: 5
 その作業が遅くともその時刻に開始されなければ予定工期までに完成できない時刻のことを最遲開始時刻（LatestStartTime:LST）という。
 
 <img
-  src="/content/general/construction-management/img/0319.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0319.jpg"
   width="400"
   className="center-image"
 />
@@ -127,7 +127,7 @@ toc_max_heading_level: 5
 3. クリティカルパスが通るイベントの最早開始時刻と最遲完了時刻は等しいので、その両時刻を算出して等しくなるすべてのイベントを通るルートをクリティカルパスとする。
 
 <img
-  src="/content/general/construction-management/img/0320.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0320.jpg"
   width="450"
   className="center-image"
 />
@@ -149,7 +149,7 @@ toc_max_heading_level: 5
 全余裕時間（トータルフロート）（TotalFloat:T.F）とは、あるひとつの作業内で、全体工期に影響を及ぼすことなく取り得る最大の余裕時間のことである。作業を最早開始時刻から始め、最遲完了時刻で完了する場合に生じる余裕時間のことをいう。
 
 <img
-  src="/content/general/construction-management/img/0321.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0321.jpg"
   width="350"
   className="center-image"
 />
@@ -163,7 +163,7 @@ toc_max_heading_level: 5
 自由余裕時間（フリーフロート）（FreeFloat:F.F）とは、前述の全余裕時間（トータルフロート）の中に存在するものである。つまり、あるひとつの施工種別の作業を最早開始時刻で始めて完了させた後、次の作業を最早開始時刻で始めるまでに存在する余裕時間のことである。つまり、後続する作業に何ら影響を及ぼさないで自由に使える余裕時間である。
 
 <img
-  src="/content/general/construction-management/img/0322.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0322.jpg"
   width="350"
   className="center-image"
 />
@@ -173,7 +173,7 @@ toc_max_heading_level: 5
 図-11 の作業 1→3 は最大 5 日までなら延ばすことができ、また、そのうちの 3 日までは、自由に使っても後続にまったく影響を与えないことがわかる。
 
 <img
-  src="/content/general/construction-management/img/0323.jpg"
+  src="https://storage.doboku-note.com/content/general/construction-management/img/0323.jpg"
   width="450"
   className="center-image"
 />

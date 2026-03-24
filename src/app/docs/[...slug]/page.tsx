@@ -54,21 +54,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     (gi) => gi.slug === slug.join('/')
   );
 
+  const canonical = `https://doboku-note.com/docs/${slug.join('/')}`;
+
   if (doc) {
     const { data } = matter(doc.content);
     return {
       title: data.title || slug[slug.length - 1],
       description: data.description,
+      alternates: { canonical },
     };
   }
 
   if (generatedIndex) {
     return {
       title: generatedIndex.title,
+      alternates: { canonical },
     };
   }
 
-  return { title: slug.join('/') };
+  return { title: slug.join('/'), alternates: { canonical } };
 }
 
 // Generated index page component

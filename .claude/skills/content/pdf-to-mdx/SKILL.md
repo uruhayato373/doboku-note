@@ -194,8 +194,42 @@ $$
 ...
 ```
 
+## 画像の取り扱い（R2）
+
+コンテンツ画像は Cloudflare R2 (`storage.doboku-note.com`) から配信する。Gitには含めない。
+
+### 画像ワークフロー
+
+1. PDFから図・複雑な表をPNG抽出（150 DPI）
+2. `content/{カテゴリ}/img/` に一時保存
+3. R2にアップロード: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
+4. MDXでは R2 URL で参照:
+   ```html
+   <img src="https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名}" alt="..." />
+   ```
+   または Markdown 記法:
+   ```markdown
+   ![alt](https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名})
+   ```
+
+### R2アップロードスクリプト
+
+```bash
+node scripts/upload-images-to-r2.mjs                          # 全画像
+node scripts/upload-images-to-r2.mjs --prefix general/design-manual  # 特定ディレクトリ
+node scripts/upload-images-to-r2.mjs --dry-run                # プレビュー
+node scripts/upload-images-to-r2.mjs --skip-existing          # 差分のみ
+```
+
+### 注意
+
+- `content/**/img/` は `.gitignore` 対象 — ローカルの画像ファイルはコミットしない
+- R2バケット: `doboku-note`、カスタムドメイン: `storage.doboku-note.com`
+- S3互換API使用（`@aws-sdk/client-s3`、20並行アップロード）
+
 ## 参照
 
 - `src/css/custom.css` — スタイル定義（見出し、判例枠、数式スクロール等）
 - `docs/` — 既存コンテンツの形式を参考にする
 - `sidebars/` — サイドバー定義
+- `scripts/upload-images-to-r2.mjs` — R2画像アップロードスクリプト

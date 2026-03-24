@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     locale: 'ja_JP',
     type: 'website',
   },
+  alternates: {
+    canonical: 'https://doboku-note.com',
+  },
   robots: {
     index: true,
     follow: true,

@@ -13,6 +13,7 @@
 | 検索 | Algolia DocSearch |
 | 分析 | Google Analytics (gtag: G-8VXJ1RL1HG) |
 | 広告 | Google AdSense (ca-pub-7995274743017484) |
+| 画像配信 | Cloudflare R2 (`storage.doboku-note.com`) |
 | ホスティング | Cloudflare Pages |
 | CI/CD | GitHub Actions → Cloudflare Pages |
 
@@ -46,10 +47,12 @@ static/                # 静的ファイル（画像、favicon）
 - 日本語で記述
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
 - 図表: Mermaid コードブロック
-- 画像: ドキュメント近くの `img/` ディレクトリに配置し、相対パスで参照する
-  - 良い例: `docs/river/hydraulics/img/fig-01.png` → MDXから `./img/fig-01.png`
-  - 悪い例: `static/images/river/fig-01.png` → MDXから `/images/river/fig-01.png`
-  - `static/img/` はサイト共通素材（favicon, logo等）専用。コンテンツ画像を置かない
+- 画像: Cloudflare R2 から配信。Gitには含めない
+  - R2 URL: `https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名}`
+  - MDXでの参照: `<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-01.png" />`
+  - アップロード: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
+  - `content/**/img/` は `.gitignore` 対象
+  - `static/img/` はサイト共通素材（favicon, logo等）専用
 
 ## デプロイ
 
