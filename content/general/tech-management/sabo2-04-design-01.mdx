@@ -701,7 +701,7 @@ $$P_h = k \cdot \gamma \cdot 15 \quad (h \geq 15\text{m})$$
 
 最大土圧強度 $P_{hmax}$ は、深度20.00mのときに次のようになる。ただし、深度15.00m以深では一定圧とし、土圧の増加はない。
 
-$$P_{hmax} = k \cdot \gamma \cdot h = 0.500 \times 18.0 \times 15.00 = 135.00 \text{ (kN/m²)}$$
+$$P_{hmax} = k \cdot \gamma \cdot h = 0.500 \times 18.0 \times 15.00 = 135.00 \text{ (kN/m^{2})}$$
 
 #### 3. 許容座屈荷重
 
@@ -737,7 +737,7 @@ $$P_{hmax} = k \cdot \gamma \cdot h = 0.500 \times 18.0 \times 15.00 = 135.00 \t
 
 よって、ライナープレートの深さ1m当たりの断面二次モーメント $I_0$ は
 
-$$I_0 = 0.8 \cdot I = 113.0 \times 10^{-8} \text{ (m⁴/m)}$$
+$$I_0 = 0.8 \cdot I = 113.0 \times 10^{-8} \text{ (m^{4}/m)}$$
 
 **補強リングの断面性能（単位：mあたり）**
 
@@ -753,7 +753,7 @@ $$I_0 = 0.8 \cdot I = 113.0 \times 10^{-8} \text{ (m⁴/m)}$$
 
 以上より、補強リングの間隔を2.0mとすると補強リングの断面二次モーメント $I_h$ は、
 
-$$I_h = 839 \text{ (cm⁴)} / 2 \text{ (m)} = 420 \times 10^{-8} \text{ (m⁴/m)}$$
+$$I_h = 839 \text{ (cm^{4})} / 2 \text{ (m)} = 420 \times 10^{-8} \text{ (m^{4}/m)}$$
 
 **座屈の検討**
 
@@ -803,8 +803,8 @@ $$\alpha_L = \frac{A_L}{A_L + A_H} = \frac{31.81}{31.81 + 15} = 0.680$$
 
 $$\alpha_H = \frac{A_H}{A_L + A_H} = \frac{15}{31.81 + 15} = 0.320$$
 
-- $A_L$：1m当たりのライナープレートの断面積 $= 19.88 \text{ (cm²/枚)} \times 2 \text{ 枚} \times 0.8 = 31.81 \text{ (cm²/m)}$
-- $A_H$：1m当たりの補強リングの断面積 $= 30 \text{ (cm²)} / 2 = 15 \text{ (cm²/m)}$
+- $A_L$：1m当たりのライナープレートの断面積 $= 19.88 \text{ (cm^{2}/枚)} \times 2 \text{ 枚} \times 0.8 = 31.81 \text{ (cm^{2}/m)}$
+- $A_H$：1m当たりの補強リングの断面積 $= 30 \text{ (cm^{2})} / 2 = 15 \text{ (cm^{2}/m)}$
 
 **曲げモーメント分担率**
 
@@ -814,9 +814,9 @@ $$\beta_H = \frac{I_H}{I_L + I_H} = \frac{419.5 \times 10^{-8}}{112.8 \times 10^
 
 **断面係数**
 
-$$Z_L = 23 \text{ (cm³/枚)} \times 2 \text{ (枚)} \times 0.8 = 36.8 \text{ (cm³/m)}$$
+$$Z_L = 23 \text{ (cm^{3}/枚)} \times 2 \text{ (枚)} \times 0.8 = 36.8 \text{ (cm^{3}/m)}$$
 
-$$Z_H = 134 / 2 = 67 \text{ (cm³/m)}$$
+$$Z_H = 134 / 2 = 67 \text{ (cm^{3}/m)}$$
 
 **等分布荷重が作用するときの集水井に働く圧縮力Nの算出**
 
@@ -830,7 +830,7 @@ $$M_{max} = N \cdot \delta_0 \cdot \frac{1}{1 - P_{hmax}/q_k}$$
 
 $$\delta_0 = 0.01 \times r = 0.01 \times 1.75 = 0.0175 \text{ (m)}$$
 
-$$q_k = 1.5 \times q_A = 1.5 \times 397.8 = 596.7 \text{ (kN/m²)}$$
+$$q_k = 1.5 \times q_A = 1.5 \times 397.8 = 596.7 \text{ (kN/m^{2})}$$
 
 $$M_{max} = 236.25 \times 0.0175 \times \frac{1}{1 - 135.0/596.7} = 5.35 \text{ (kN・m/m)}$$
 
@@ -838,27 +838,27 @@ $$M_{max} = 236.25 \times 0.0175 \times \frac{1}{1 - 135.0/596.7} = 5.35 \text{ 
 
 ライナープレートの材質はSS300とし、許容応力度は175 N/mm²。永久構造物として施工するため、仮設時の許容応力度を1.5で除した値とする。
 
-$$\sigma_{La} = 175 / 1.5 = 120 \text{ (N/mm²)}$$
+$$\sigma_{La} = 175 / 1.5 = 120 \text{ (N/mm^{2})}$$
 
 **補強リングの許容応力度** $\sigma_{Ha}$
 
 補強リングの材質はSS400とし、許容応力度は210 N/mm²。
 
-$$\sigma_{Ha} = 210 / 1.5 = 140 \text{ (N/mm²)}$$
+$$\sigma_{Ha} = 210 / 1.5 = 140 \text{ (N/mm^{2})}$$
 
 **圧縮応力の検討（h=6.00m地点）**
 
-$$\sigma_L = \frac{1.000 \times 94.50 \times 10^3}{31.81 \times 10^2} + \frac{1.000 \times 2.89 \times 10^6}{36.8 \times 10^3} = 109 \text{ (N/mm²)} \leq 120 \text{ (N/mm²)} \quad \cdots \text{OK}$$
+$$\sigma_L = \frac{1.000 \times 94.50 \times 10^3}{31.81 \times 10^2} + \frac{1.000 \times 2.89 \times 10^6}{36.8 \times 10^3} = 109 \text{ (N/mm^{2})} \leq 120 \text{ (N/mm^{2})} \quad \cdots \text{OK}$$
 
 **圧縮応力の検討（h=20.00m地点）**
 
 ライナープレートの圧縮応力：
 
-$$\sigma_L = \frac{0.680 \times 236.25 \times 10^3}{31.81 \times 10^2} + \frac{0.212 \times 5.35 \times 10^6}{36.8 \times 10^3} = 82 \text{ (N/mm²)} \leq 120 \text{ (N/mm²)} \quad \cdots \text{OK}$$
+$$\sigma_L = \frac{0.680 \times 236.25 \times 10^3}{31.81 \times 10^2} + \frac{0.212 \times 5.35 \times 10^6}{36.8 \times 10^3} = 82 \text{ (N/mm^{2})} \leq 120 \text{ (N/mm^{2})} \quad \cdots \text{OK}$$
 
 補強リングの圧縮応力：
 
-$$\sigma_H = \frac{0.320 \times 236.25 \times 10^3}{15.00 \times 10^2} + \frac{0.788 \times 5.35 \times 10^6}{67.0 \times 10^3} = 114 \text{ (N/mm²)} \leq 140 \text{ (N/mm²)} \quad \cdots \text{OK}$$
+$$\sigma_H = \frac{0.320 \times 236.25 \times 10^3}{15.00 \times 10^2} + \frac{0.788 \times 5.35 \times 10^6}{67.0 \times 10^3} = 114 \text{ (N/mm^{2})} \leq 140 \text{ (N/mm^{2})} \quad \cdots \text{OK}$$
 
 一覧表より、補強リングは6.5m以深に設置するのが安全と言えるが、GL-6.0m地点では、ライナープレートの許容応力度 $\sigma_{La}$ 内（安全：補強リングなし）、GL-6.5m地点では、ライナープレートの許容応力度 $\sigma_{La}$ 外（危険：補強リング必要）となることから、安全を考慮して、**補強リングをGL-6.0mから設置**することとする。
 
@@ -919,7 +919,7 @@ $$Q_s = \frac{\pi k L s_0}{2.3 \log_{10} \left( \dfrac{\sinh(\pi R / 2b)}{\sinh(
 
 $$R = 575 \cdot s_0 \cdot \sqrt{k \cdot b} = 575 \times 4.00 \times \sqrt{5.00 \times 10^{-6} \times 3.00} = 8.908$$
 
-$$Q_s = \frac{\pi \times 5.00 \times 10^{-6} \times 30.00 \times 4.00}{2.3 \times \log_{10} \left( \dfrac{\sinh(\pi \times 8.908 / 2 \times 3.00)}{\sinh(\pi \times 0.02000 / 2 \times 3.00)} \right)} = 0.000221 \text{ (m³/s)}$$
+$$Q_s = \frac{\pi \times 5.00 \times 10^{-6} \times 30.00 \times 4.00}{2.3 \times \log_{10} \left( \dfrac{\sinh(\pi \times 8.908 / 2 \times 3.00)}{\sinh(\pi \times 0.02000 / 2 \times 3.00)} \right)} = 0.000221 \text{ (m^{3}/s)}$$
 
 - $Q_s$：集水ボーリング1本当たりの集水量（m³/s）
 - $k$：透水係数（m/s）、$L$：ストレーナー有効区間長（m）
@@ -955,13 +955,13 @@ $$r = \sin(\theta) \cdot l = \sin(20.00/2) \times 15.00 = 2.60 \text{ (m)}$$
 
 <div className="scroll-equation">
 
-$$Q_s = \frac{\pi k L s_0}{2.3 \left\{ \ln \left( \sinh \frac{\pi r}{2b} \right) - \ln \left( \sinh \frac{\pi r_0}{2b} \right) + \frac{\pi (S/2)}{Q_s / kL} \right\}} = 0.000206 \text{ (m³/s)}$$
+$$Q_s = \frac{\pi k L s_0}{2.3 \left\{ \ln \left( \sinh \frac{\pi r}{2b} \right) - \ln \left( \sinh \frac{\pi r_0}{2b} \right) + \frac{\pi (S/2)}{Q_s / kL} \right\}} = 0.000206 \text{ (m^{3}/s)}$$
 
 </div>
 
 よって、集水ボーリングによる集水量は、
 
-$$\Sigma Q_s = 0.000206 \text{ (m³/s)} \times 10 \text{ (本)} = 0.002060 \text{ (m³/s)} = 123 \text{ (l/min)}$$
+$$\Sigma Q_s = 0.000206 \text{ (m^{3}/s)} \times 10 \text{ (本)} = 0.002060 \text{ (m^{3}/s)} = 123 \text{ (l/min)}$$
 
 #### 2. 排水ボーリング工の計算
 
@@ -987,7 +987,7 @@ $$R = D_h \times 10^{-3} / 4 = 105.3 \times 10^{-3} / 4 = 0.026325 \text{ (m)}$$
 
 **断面積**
 
-$$A = \frac{1}{4} D_h^2 \cdot \pi = \frac{1}{4} \times (105.3 \times 10^{-3})^2 \times \pi = 0.00871 \text{ (m²)}$$
+$$A = \frac{1}{4} D_h^2 \cdot \pi = \frac{1}{4} \times (105.3 \times 10^{-3})^2 \times \pi = 0.00871 \text{ (m^{2})}$$
 
 **平均流速**
 
@@ -995,17 +995,17 @@ $$V = 0.84935 \cdot C_h \cdot R^{0.63} \cdot I^{0.54} = 0.84935 \times 100 \time
 
 **許容排水流量**
 
-$$Q_h = z \cdot A \cdot V = 0.70 \times 0.00871 \times 2.121 = 0.012931 \text{ (m³/s)}$$
+$$Q_h = z \cdot A \cdot V = 0.70 \times 0.00871 \times 2.121 = 0.012931 \text{ (m^{3}/s)}$$
 
 よって、
 
-$$\Sigma Q_h = 0.012931 \text{ (m³/s)} \times 1 \text{ (本)} = 0.012931 \text{ (m³/s)} = 775 \text{ (l/min)} > \Sigma Q = 623 \text{ (l/min)} \quad \cdots \text{OK}$$
+$$\Sigma Q_h = 0.012931 \text{ (m^{3}/s)} \times 1 \text{ (本)} = 0.012931 \text{ (m^{3}/s)} = 775 \text{ (l/min)} > \Sigma Q = 623 \text{ (l/min)} \quad \cdots \text{OK}$$
 
 ##### 2.3 排水ボーリングの口径の確認
 
 $$D = 1.6258 \cdot C^{-0.38} \cdot \Sigma Q^{0.38} \cdot I^{-0.205}$$
 
-$$\Sigma Q = 623 \text{ (l/min)} = 0.623/60 = 0.0104 \text{ (m³/s)}$$
+$$\Sigma Q = 623 \text{ (l/min)} = 0.623/60 = 0.0104 \text{ (m^{3}/s)}$$
 
 $$D = 1.6258 \times 100^{-0.38} \times 0.0104^{0.38} \times 0.0750^{-0.205} = 0.0848 \text{ (m)} < 0.1053 \text{ (m)} \quad \cdots \text{OK}$$
 
