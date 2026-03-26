@@ -48,8 +48,10 @@ static/                # 静的ファイル（画像、favicon）
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
 - 図表: Mermaid コードブロック
 - 画像: Cloudflare R2 から配信。Gitには含めない
-  - R2 URL: `https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名}`
-  - MDXでの参照: `<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-01.png" />`
+  - R2 URL（本番）: `https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名}`
+  - MDXでの参照: `<img src="/content/{カテゴリ}/img/{ファイル名}" />`（相対パス）
+  - ローカル開発: `.local/r2/content/` から配信（`scripts/serve-local-r2.mjs`）
+  - 本番: Cloudflare Pages `_redirects` で R2 にリダイレクト
   - アップロード: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
   - `content/**/img/` は `.gitignore` 対象
   - `static/img/` はサイト共通素材（favicon, logo等）専用
@@ -114,6 +116,7 @@ npm run serve          # ビルド結果のプレビュー
 | `/common-specs-import` | 土木工事共通仕様書PDF→MDX変換 | `.claude/skills/content/common-specs-import/SKILL.md` |
 | `/civil-law-import` | 民法テキストPDF→MDX変換 | `.claude/skills/content/civil-law-import/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
+| `/fix-design-manual-figures` | 設計便覧の図品質修正（テキスト映り込み・出典欠落） | `.claude/skills/content/fix-design-manual-figures/SKILL.md` |
 | `/design-manual-import` | 近畿地方整備局 設計便覧PDF→MDX変換 | `.claude/skills/content/design-manual-import/SKILL.md` |
 | `/tech-management-import` | 土木技術管理規定集PDF→MDX変換 | `.claude/skills/content/tech-management-import/SKILL.md` |
 

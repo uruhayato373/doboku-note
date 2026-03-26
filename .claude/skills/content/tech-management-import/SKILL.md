@@ -237,7 +237,7 @@ X－X 中見出し         → h3: ### X-X タイトル
 
 - PDFページをPNG化（150 DPI） → PILでトリミング → R2にアップロード
 - **R2パス**: `content/general/tech-management/img/{編略号}-fig-{連番2桁}.png`
-- **MDXでの参照**: `<img src="https://storage.doboku-note.com/content/general/tech-management/img/{編略号}-fig-01.png" />`
+- **MDXでの参照**: `<img src="/content/general/tech-management/img/{編略号}-fig-01.png" />`
 - **図キャプション**: `<p className="text-center">図X-X-X タイトル</p>`
 - **命名**: `{編略号}-fig-{連番2桁}.png`（例: `road1-fig-01.png`, `river-fig-01.png`）
 - **表画像命名**: `{編略号}-tbl-{連番2桁}.png`
@@ -288,7 +288,7 @@ node scripts/upload-images-to-r2.mjs --prefix general/tech-management
 ```
 
 **R2キー**: `content/general/tech-management/img/{編略号}-fig-{連番2桁}.png`
-**参照URL**: `https://storage.doboku-note.com/content/general/tech-management/img/{編略号}-fig-{連番2桁}.png`
+**参照URL**: `/content/general/tech-management/img/{編略号}-fig-{連番2桁}.png`
 
 > **注意**: 画像はGitに含めない。`content/**/img/` は `.gitignore` 対象。R2のみが正とする。
 
@@ -334,7 +334,7 @@ node scripts/upload-images-to-r2.mjs --prefix general/tech-management
 - 一時ファイル: `/tmp/tech-management-{編略号}/page-{NNN}.png`
 - 抽出後に `content/general/tech-management/img/` に保存
 - 全図完了後にまとめてR2アップロード: `node scripts/upload-images-to-r2.mjs --prefix general/tech-management`
-- MDXでは最初からR2 URL (`https://storage.doboku-note.com/content/...`) で参照する
+- MDXでは最初からR2 URL (`/content/...`) で参照する
 
 ## ファイル命名規則
 

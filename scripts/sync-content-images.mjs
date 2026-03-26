@@ -1,5 +1,5 @@
 /**
- * content/ 配下の img/ ディレクトリを public/content/ にコピーする。
+ * content/ 配下の img/ ディレクトリを .local/r2/content/ にコピーする。
  * dev/build 実行前に自動で走るため、手動コピー忘れを防ぐ。
  */
 import fs from 'fs';
@@ -9,7 +9,7 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
 const contentDir = path.join(root, 'content');
-const publicContentDir = path.join(root, 'public', 'content');
+const localR2Dir = path.join(root, '.local', 'r2', 'content');
 
 let copied = 0;
 
@@ -39,7 +39,6 @@ function copyDirSync(src, dest) {
     } else {
       const srcStat = fs.statSync(srcPath);
       const destExists = fs.existsSync(destPath);
-      // Skip if destination is newer or same
       if (destExists) {
         const destStat = fs.statSync(destPath);
         if (destStat.mtimeMs >= srcStat.mtimeMs && destStat.size === srcStat.size) {
@@ -56,12 +55,12 @@ const imgDirs = findImgDirs(contentDir);
 
 for (const imgDir of imgDirs) {
   const rel = path.relative(contentDir, imgDir);
-  const dest = path.join(publicContentDir, rel);
+  const dest = path.join(localR2Dir, rel);
   copyDirSync(imgDir, dest);
 }
 
 if (copied > 0) {
-  console.log(`[sync-images] ${copied} file(s) synced to public/content/`);
+  console.log(`[sync-images] ${copied} file(s) synced to .local/r2/content/`);
 } else {
   console.log('[sync-images] Already up to date.');
 }

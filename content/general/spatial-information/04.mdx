@@ -24,7 +24,7 @@ description: "リモートセンシングは非接触で対象物の特性を計
 土木計画学の分野で利用されるリモートセンシングでは、可視光線から赤外線の範囲の波長と、マイクロ波の波長の電磁波が用いられます。前者の電磁波を利用するセンサーを**光学センサー**と呼びます。
 
 
-<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0401.png"  style={{width: 500, margin: '0 auto 40px', display: 'block'}} />
+<img src="/content/general/spatial-information/img/0401.png"  style={{width: 500, margin: '0 auto 40px', display: 'block'}} />
 
 
 光学センサーでは単位時間、単位面積、単位立体角当りの放射エネルギーである**放射輝度**が計測されます。放射輝度は入射光のエネルギーによって大きく変動します。その変動を抑えるために、入射光の放射輝度で基準化して得られる**反射率**が解析に用いられることが多いです。
@@ -32,7 +32,7 @@ description: "リモートセンシングは非接触で対象物の特性を計
 横軸に観測波長を、縦軸に反射率を記した曲線を分光反射率曲線と呼びます。対象物によって、また対象物の状態の違いによって分光反射率曲線は変化します。例えば、植物は赤の波長帯で反射率が低く、近赤外の波長帯で反射率が高いことが知られています。
 
 
-<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0402.gif"  style={{width: 500, margin: '0 auto 20px', display: 'block'}} />
+<img src="/content/general/spatial-information/img/0402.gif"  style={{width: 500, margin: '0 auto 20px', display: 'block'}} />
 
 <p className="text-center">図-2：土地被覆と分光反射率曲線</p>
 
@@ -100,7 +100,7 @@ SAR画像では、DNに変換係数を適用して対数化し後方散乱係数
 衛星画像の1シーンは数十$km$から百数十$km$の幅の領域に限られることが多いです。より広範囲を網羅する画像を生成するにはモザイク処理と呼ばれる複数シーンの画像を接合して処理を行います。各シーンは一部分が重なるように撮影されており、GCP検出と同様に対応する地点が検出されます。
 
 
-<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0403.png"  style={{width: 450, margin: '0 auto 20px', display: 'block'}} />
+<img src="/content/general/spatial-information/img/0403.png"  style={{width: 450, margin: '0 auto 20px', display: 'block'}} />
 
 <p className="text-center">図-3：モザイク処理の例</p>
 
@@ -122,7 +122,7 @@ SAR画像では、DNに変換係数を適用して対数化し後方散乱係数
 もともとのマルチスペクトルバンドから3バンドを選び、RGB画像を生成します。RGB画像からhue(色相)、saturation(彩度)、intensity(明度)で構成されるHSI画像へ変換します。このintensityをパンクロマチックバンド画像に置き換えて、HSI画像からRGB画像へ逆変換します。この結果、パンクロマチックバンド画像の解像度を有する、視覚的に効果のあるカラー画像が得られます。
 
 
-<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0404.png"  style={{width: 450, margin: '0 auto 20px', display: 'block'}} />
+<img src="/content/general/spatial-information/img/0404.png"  style={{width: 450, margin: '0 auto 20px', display: 'block'}} />
 
 <p className="text-center">図-3：パンシャープン処理</p>
 
@@ -198,7 +198,7 @@ SAR画像では、ほぼ同じ位置、同じオフナディア角で撮影し�
 三次元データの復元に焦点を当てるため、2時期の間には有意な地盤変動は生じないと仮定して話を進めます。
 
 
-<img src="https://storage.doboku-note.com/content/general/spatial-information/img/0405.png"  style={{width: 350, margin: '0 auto 20px', display: 'block'}} />
+<img src="/content/general/spatial-information/img/0405.png"  style={{width: 350, margin: '0 auto 20px', display: 'block'}} />
 
 <p className="text-center">図-5：SAR画像を用いた地物の高さ推定</p>
 

@@ -205,11 +205,11 @@ $$
 3. R2にアップロード: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
 4. MDXでは R2 URL で参照:
    ```html
-   <img src="https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名}" alt="..." />
+   <img src="/content/{カテゴリ}/img/{ファイル名}" alt="..." />
    ```
    または Markdown 記法:
    ```markdown
-   ![alt](https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名})
+   ![alt](/content/{カテゴリ}/img/{ファイル名})
    ```
 
 ### R2アップロードスクリプト

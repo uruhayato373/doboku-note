@@ -41,32 +41,95 @@ sidebar_label: "第1章 設計一般"
 
 <p className="table-title">表1-1-1 図面の仕上り寸法</p>
 
-<div className="table-wrapper">
-
-| | A列サイズ（第1列） | | 特別延長サイズ（第2列） | | 特別延長サイズ（第3列） | |
-|---|---|---|---|---|---|---|
-| **呼び方** | **寸法 a×b** | **呼び方** | **寸法 a×b** | **呼び方** | **寸法 a×b** |
-| | | | | A0X2 | 1189X1682 |
-| | | | | A0X3※ | 1189X2523 |
-| A0 | 841X1189 | | | A1X3 | 841X1783 |
-| | | | | A1X4※ | 841X2378 |
-| A1 | 594X841 | | | A2X3 | 594X1261 |
-| | | | | A2X4 | 594X1682 |
-| | | | | A2X5 | 594X2102 |
-| A2 | 420X594 | A3X3 | 420X891 | A3X5 | 420X1486 |
-| | | A3X4 | 420X1189 | A3X6 | 420X1783 |
-| | | | | A3X7 | 420X2080 |
-| A3 | 297X420 | A4X3 | 297X630 | A4X6 | 297X1261 |
-| | | A4X4 | 297X841 | A4X7 | 297X1471 |
-| | | A4X5 | 297X1051 | A4X8 | 297X1682 |
-| | | | | A4X9 | 297X1892 |
-| A4 | 210X297 | | | | |
-
-</div>
-
-（単位：mm）
-
-注）※ この大きさは、取り扱い上の不都合があるので、なるべく使用しない。JIS Z 8311:1998「製図－製図用紙のサイズ及び図面の様式」
+<svg viewBox="0 0 600 510" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '600px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`
+    text { font-family: sans-serif; font-size: 11px; }
+    .hdr { font-weight: bold; font-size: 10.5px; }
+    .note { font-size: 10px; }
+    line, rect { stroke: #333; }
+  `}</style>
+  <rect x="0" y="0" width="600" height="476" fill="none" strokeWidth="1.5"/>
+  {/* Header row 1 */}
+  <line x1="0" y1="28" x2="600" y2="28" strokeWidth="1"/>
+  <line x1="0" y1="56" x2="600" y2="56" strokeWidth="1.5"/>
+  {/* Column lines */}
+  <line x1="80" y1="28" x2="80" y2="476" strokeWidth="0.5"/>
+  <line x1="200" y1="0" x2="200" y2="476" strokeWidth="1"/>
+  <line x1="280" y1="28" x2="280" y2="476" strokeWidth="0.5"/>
+  <line x1="400" y1="0" x2="400" y2="476" strokeWidth="1"/>
+  <line x1="480" y1="28" x2="480" y2="476" strokeWidth="0.5"/>
+  {/* Data row lines */}
+  {[112, 168, 252, 336, 448].map(y => <line key={y} x1="0" y1={y} x2="600" y2={y} strokeWidth="1"/>)}
+  {[84, 140, 196, 224, 280, 308, 364, 392, 420].map(y => <line key={y} x1="200" y1={y} x2="600" y2={y} strokeWidth="0.5"/>)}
+  {/* Header row 1 text */}
+  <text x="100" y="19" textAnchor="middle" className="hdr">A列サイズ（第1列）</text>
+  <text x="300" y="19" textAnchor="middle" className="hdr">特別延長サイズ（第2列）</text>
+  <text x="500" y="19" textAnchor="middle" className="hdr">特別延長サイズ（第3列）</text>
+  {/* Header row 2 text */}
+  <text x="40" y="47" textAnchor="middle" className="hdr">呼び方</text>
+  <text x="140" y="47" textAnchor="middle" className="hdr">寸法 a×b</text>
+  <text x="240" y="47" textAnchor="middle" className="hdr">呼び方</text>
+  <text x="340" y="47" textAnchor="middle" className="hdr">寸法 a×b</text>
+  <text x="440" y="47" textAnchor="middle" className="hdr">呼び方</text>
+  <text x="540" y="47" textAnchor="middle" className="hdr">寸法 a×b</text>
+  {/* Row 1-2: before A0 */}
+  <text x="440" y="75" textAnchor="middle">A0X2</text>
+  <text x="540" y="75" textAnchor="middle">1189X1682</text>
+  <text x="440" y="103" textAnchor="middle">A0X3※</text>
+  <text x="540" y="103" textAnchor="middle">1189X2523</text>
+  {/* Row 3-4: A0 */}
+  <text x="40" y="145" textAnchor="middle">A0</text>
+  <text x="140" y="145" textAnchor="middle">841X1189</text>
+  <text x="440" y="131" textAnchor="middle">A1X3</text>
+  <text x="540" y="131" textAnchor="middle">841X1783</text>
+  <text x="440" y="159" textAnchor="middle">A1X4※</text>
+  <text x="540" y="159" textAnchor="middle">841X2378</text>
+  {/* Row 5-7: A1 */}
+  <text x="40" y="215" textAnchor="middle">A1</text>
+  <text x="140" y="215" textAnchor="middle">594X841</text>
+  <text x="440" y="187" textAnchor="middle">A2X3</text>
+  <text x="540" y="187" textAnchor="middle">594X1261</text>
+  <text x="440" y="215" textAnchor="middle">A2X4</text>
+  <text x="540" y="215" textAnchor="middle">594X1682</text>
+  <text x="440" y="243" textAnchor="middle">A2X5</text>
+  <text x="540" y="243" textAnchor="middle">594X2102</text>
+  {/* Row 8-10: A2 */}
+  <text x="40" y="299" textAnchor="middle">A2</text>
+  <text x="140" y="299" textAnchor="middle">420X594</text>
+  <text x="240" y="271" textAnchor="middle">A3X3</text>
+  <text x="340" y="271" textAnchor="middle">420X891</text>
+  <text x="240" y="299" textAnchor="middle">A3X4</text>
+  <text x="340" y="299" textAnchor="middle">420X1189</text>
+  <text x="440" y="271" textAnchor="middle">A3X5</text>
+  <text x="540" y="271" textAnchor="middle">420X1486</text>
+  <text x="440" y="299" textAnchor="middle">A3X6</text>
+  <text x="540" y="299" textAnchor="middle">420X1783</text>
+  <text x="440" y="327" textAnchor="middle">A3X7</text>
+  <text x="540" y="327" textAnchor="middle">420X2080</text>
+  {/* Row 11-14: A3 */}
+  <text x="40" y="397" textAnchor="middle">A3</text>
+  <text x="140" y="397" textAnchor="middle">297X420</text>
+  <text x="240" y="355" textAnchor="middle">A4X3</text>
+  <text x="340" y="355" textAnchor="middle">297X630</text>
+  <text x="240" y="383" textAnchor="middle">A4X4</text>
+  <text x="340" y="383" textAnchor="middle">297X841</text>
+  <text x="240" y="411" textAnchor="middle">A4X5</text>
+  <text x="340" y="411" textAnchor="middle">297X1051</text>
+  <text x="440" y="355" textAnchor="middle">A4X6</text>
+  <text x="540" y="355" textAnchor="middle">297X1261</text>
+  <text x="440" y="383" textAnchor="middle">A4X7</text>
+  <text x="540" y="383" textAnchor="middle">297X1471</text>
+  <text x="440" y="411" textAnchor="middle">A4X8</text>
+  <text x="540" y="411" textAnchor="middle">297X1682</text>
+  <text x="440" y="439" textAnchor="middle">A4X9</text>
+  <text x="540" y="439" textAnchor="middle">297X1892</text>
+  {/* Row 15: A4 */}
+  <text x="40" y="467" textAnchor="middle">A4</text>
+  <text x="140" y="467" textAnchor="middle">210X297</text>
+  {/* Unit and note */}
+  <text x="590" y="492" textAnchor="end" className="note">（単位：mm）</text>
+  <text x="10" y="506" className="note">注）※ この大きさは、取り扱い上の不都合があるので、なるべく使用しない。JIS Z 8311:1998「製図－製図用紙のサイズ及び図面の様式」</text>
+</svg>
 
 > **（解 説）**
 >
@@ -78,7 +141,7 @@ sidebar_label: "第1章 設計一般"
 
 図面は、その長辺を横方向においた位置を正位とする。ただし、高さの大きい構造物等を示す場合には、関係者間協議の上、短辺を横方向においた位置に正位を変えることができる。
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-01.png" alt="図1-1-1 図面の正位" />
+<img src="/content/general/design-manual/img/01-fig-01.png" alt="図1-1-1 図面の正位" />
 <p className="text-center">図1-1-1 図面の正位</p>
 
 > **（解 説）**
@@ -91,7 +154,11 @@ sidebar_label: "第1章 設計一般"
 
 輪郭外の余白は20mm以上とする。
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-02.png" alt="図1-1-2 輪郭と余白" />
+:::note[出典]
+[1-5] CAD製図基準（H20.5）P7
+:::
+
+<img src="/content/general/design-manual/img/01-fig-02.png" alt="図1-1-2 輪郭と余白" />
 <p className="text-center">図1-1-2 輪郭と余白</p>
 
 #### 1-6 表題欄
@@ -110,7 +177,11 @@ sidebar_label: "第1章 設計一般"
 
 (3) 表題欄の寸法及び様式は、以下を原則とする。
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-03.png" alt="表題欄の寸法及び様式" />
+:::note[出典]
+[1-6] CAD製図基準（H20.5）P8
+:::
+
+<img src="/content/general/design-manual/img/01-fig-03.png" alt="表題欄の寸法及び様式" />
 <p className="text-center">表題欄の寸法及び様式（当初設計の場合・設計変更の場合）</p>
 
 #### 1-7 縮尺
@@ -135,7 +206,7 @@ sidebar_label: "第1章 設計一般"
 
 折りたたんだ図面は幅180mm、長さ297mmとする。
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-04.png" alt="図面の折りたたみ" />
+<img src="/content/general/design-manual/img/01-fig-04.png" alt="図面の折りたたみ" />
 
 ### 2. 設計図面記載要領
 
@@ -149,29 +220,29 @@ sidebar_label: "第1章 設計一般"
 
 **(1) 河川工事の部**
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-02.png" alt="河川工事の部 掘削・築堤" />
+<img src="/content/general/design-manual/img/01-tbl-02.png" alt="河川工事の部 掘削・築堤" />
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-03.png" alt="河川工事の部 築堤・護岸" />
+<img src="/content/general/design-manual/img/01-tbl-03.png" alt="河川工事の部 築堤・護岸" />
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-04.png" alt="河川工事の部 護岸・構造物" />
+<img src="/content/general/design-manual/img/01-tbl-04.png" alt="河川工事の部 護岸・構造物" />
 
 **(2) 砂防工事の部**
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-05.png" alt="砂防工事の部 堰堤工事・山腹工事" />
+<img src="/content/general/design-manual/img/01-tbl-05.png" alt="砂防工事の部 堰堤工事・山腹工事" />
 
 **(3) 道路工事の部**
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-06.png" alt="道路工事の部 道路改良工事" />
+<img src="/content/general/design-manual/img/01-tbl-06.png" alt="道路工事の部 道路改良工事" />
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-07.png" alt="道路工事の部 道路補修工事・橋梁下部工事・橋梁上部工事・トンネル工事" />
+<img src="/content/general/design-manual/img/01-tbl-07.png" alt="道路工事の部 道路補修工事・橋梁下部工事・橋梁上部工事・トンネル工事" />
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08.png" alt="道路工事の部 トンネル工事・道路舗装工事" />
+<img src="/content/general/design-manual/img/01-tbl-08.png" alt="道路工事の部 トンネル工事・道路舗装工事" />
 
 **(4) 機械設備工事の部**
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-09.png" alt="機械設備工事の部 水門設備・揚排水ポンプ設備・トンネル換気設備" />
+<img src="/content/general/design-manual/img/01-tbl-09.png" alt="機械設備工事の部 水門設備・揚排水ポンプ設備・トンネル換気設備" />
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-10.png" alt="機械設備工事の部 トンネル換気設備・道路排水設備・散水融雪設備" />
+<img src="/content/general/design-manual/img/01-tbl-10.png" alt="機械設備工事の部 トンネル換気設備・道路排水設備・散水融雪設備" />
 
 #### 2-2 記載注意事項
 
@@ -207,7 +278,7 @@ sidebar_label: "第1章 設計一般"
 
 横断図の配置は、測点の番号順に矢印（→）の方向に配置する。また、原則として表題欄に重ならないようにする。
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-05.png" alt="図1-1-3 横断面図" />
+<img src="/content/general/design-manual/img/01-fig-05.png" alt="図1-1-3 横断面図" />
 <p className="text-center">図1-1-3 横断面図</p>
 
 (a) 横断面の視方向
@@ -254,7 +325,7 @@ sidebar_label: "第1章 設計一般"
 >
 > 設計変更図面の表示（例）……元設計図面を使用する場合
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-06.png" alt="図1-1-4 設計変更図面" />
+<img src="/content/general/design-manual/img/01-fig-06.png" alt="図1-1-4 設計変更図面" />
 <p className="text-center">図1-1-4 設計変更図面</p>
 
 当該変更数字を明瞭に判明できるよう朱色で着色する。
@@ -383,7 +454,11 @@ $$
 
 <p className="table-title">表1-1-4 丸鋼の標準寸法および単位質量</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-11.png" alt="表1-1-4 丸鋼の標準寸法および単位質量" />
+<img src="/content/general/design-manual/img/01-tbl-11.png" alt="表1-1-4 丸鋼の標準寸法および単位質量" />
+
+:::note[出典]
+JIS G 3191
+:::
 
 #### 3-3 鋼板の質量
 
@@ -435,47 +510,87 @@ $$
 
 <p className="table-title">表1-1-8 平鋼の標準断面寸法とその断面積、単位質量</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-13.png" alt="表1-1-8 平鋼の標準断面寸法とその断面積、単位質量" />
+<img src="/content/general/design-manual/img/01-tbl-13.png" alt="表1-1-8 平鋼の標準断面寸法とその断面積、単位質量" />
+
+:::note[出典]
+JIS G 3194
+:::
 
 #### 3-4 形鋼の単位質量
 
 <p className="table-title">表1-1-9 等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-14.png" alt="表1-1-9 等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-14.png" alt="表1-1-9 等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 <p className="table-title">表1-1-10 T形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-15.png" alt="表1-1-10 T形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-15.png" alt="表1-1-10 T形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 <p className="table-title">表1-1-11 不等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-16.png" alt="表1-1-11 不等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-16.png" alt="表1-1-11 不等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 <p className="table-title">表1-1-12 不等辺不等厚山形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-17.png" alt="表1-1-12 不等辺不等厚山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-17.png" alt="表1-1-12 不等辺不等厚山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 <p className="table-title">表1-1-13 I形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-18.png" alt="表1-1-13 I形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-18.png" alt="表1-1-13 I形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 <p className="table-title">表1-1-14 みぞ形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-19.png" alt="表1-1-14 みぞ形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-19.png" alt="表1-1-14 みぞ形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 <p className="table-title">表1-1-15 球平形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-20.png" alt="表1-1-15 球平形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-20.png" alt="表1-1-15 球平形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 <p className="table-title">表1-1-16 H形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-21.png" alt="表1-1-16 H形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<img src="/content/general/design-manual/img/01-tbl-21.png" alt="表1-1-16 H形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+
+:::note[出典]
+JIS G 3192
+:::
 
 #### 3-5 U形鋼矢板の寸法および断面性能
 
 <p className="table-title">表1-1-17 U形鋼矢板の寸法および断面性能</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-22.png" alt="表1-1-17 U形鋼矢板の寸法および断面性能" />
+<img src="/content/general/design-manual/img/01-tbl-22.png" alt="表1-1-17 U形鋼矢板の寸法および断面性能" />
+
+:::note[出典]
+JIS A 5523、JIS A 5528
+:::
 
 #### 3-6 鋼管杭寸法および断面性能
 
@@ -497,17 +612,25 @@ $$
 
 <p className="table-title">表1-1-18 鋼管杭寸法と断面性能表（SI単位系）（ミリサイズ）</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-23.png" alt="表1-1-18 鋼管杭寸法と断面性能表（SI単位系）" />
+<img src="/content/general/design-manual/img/01-tbl-23.png" alt="表1-1-18 鋼管杭寸法と断面性能表（SI単位系）" />
+
+:::note[出典]
+杭基礎設計便覧（H19.1）P42
+:::
 
 <p className="table-title">表1-1-19 腐蝕しろ1mmを考慮した断面性能表（SI単位系）</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-24.png" alt="表1-1-19 腐蝕しろ1mmを考慮した断面性能表（SI単位系）" />
+<img src="/content/general/design-manual/img/01-tbl-24.png" alt="表1-1-19 腐蝕しろ1mmを考慮した断面性能表（SI単位系）" />
 
 #### 資-2 PHC杭の断面性能
 
 <p className="table-title">表1-1-20 PHC杭の断面性能表（参考：SI単位系）</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-25.png" alt="表1-1-20 PHC杭の断面性能表（参考：SI単位系）" />
+<img src="/content/general/design-manual/img/01-tbl-25.png" alt="表1-1-20 PHC杭の断面性能表（参考：SI単位系）" />
+
+:::note[出典]
+杭基礎設計便覧（H19.1）P24
+:::
 
 ## 第2節 適用示方書・指針等（参考）
 
@@ -830,7 +953,7 @@ $$
 
 ### 6. 河川関係工種別（河川、砂防、海岸）
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s2-tbl-01.png" alt="河川関係工種別の適用示方書一覧表" />
+<img src="/content/general/design-manual/img/01-s2-tbl-01.png" alt="河川関係工種別の適用示方書一覧表" />
 
 :::note
 なお、この配筋基準についての工種については、（注）を参照のこと。また、（注）は記載されている略称等に関しては、その精度を考慮して、期間等を参考にして判断するものとする。
@@ -838,7 +961,7 @@ $$
 
 ### 7. 道路関係工種別
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s2-tbl-02.png" alt="道路関係工種別の適用示方書一覧表" />
+<img src="/content/general/design-manual/img/01-s2-tbl-02.png" alt="道路関係工種別の適用示方書一覧表" />
 
 ---
 
@@ -953,23 +1076,23 @@ $$
 
 <p className="table-title">表1-3-1 鋼構造</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s3-tbl-01.png" alt="表1-3-1 鋼構造の許容応力度" />
+<img src="/content/general/design-manual/img/01-s3-tbl-01.png" alt="表1-3-1 鋼構造の許容応力度" />
 
 <p className="table-title">表1-3-2 鋼構造</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s3-tbl-02.png" alt="表1-3-2 鋼構造の許容応力度（基礎工）" />
+<img src="/content/general/design-manual/img/01-s3-tbl-02.png" alt="表1-3-2 鋼構造の許容応力度（基礎工）" />
 
 <p className="table-title">表1-3-3 鉄筋コンクリート構造（RC構造）</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s3-tbl-03.png" alt="表1-3-3 鉄筋コンクリート構造（RC構造）の許容応力度" />
+<img src="/content/general/design-manual/img/01-s3-tbl-03.png" alt="表1-3-3 鉄筋コンクリート構造（RC構造）の許容応力度" />
 
 <p className="table-title">表1-3-4 プレストレストコンクリート構造（PC構造）</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s3-tbl-04.png" alt="表1-3-4 プレストレストコンクリート構造（PC構造）の許容応力度" />
+<img src="/content/general/design-manual/img/01-s3-tbl-04.png" alt="表1-3-4 プレストレストコンクリート構造（PC構造）の許容応力度" />
 
 <p className="table-title">表1-3-5 無筋コンクリート構造</p>
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s3-tbl-05.png" alt="表1-3-5 無筋コンクリート構造の許容応力度" />
+<img src="/content/general/design-manual/img/01-s3-tbl-05.png" alt="表1-3-5 無筋コンクリート構造の許容応力度" />
 
 ---
 
@@ -997,7 +1120,7 @@ $$
 >
 > (b) プレキャスト製品を除くボックスカルバートの鉄筋加工の単純化をはかるため、定尺鉄筋（50cmピッチ）の使用を原則とし、重ね継手長を長くすることで調整することする。ただし、スターラップ、帯鉄筋、組立筋、ハンチ筋はこの限りではない。また、鉄筋のフック長による調整は、鉄筋の加工作業を煩雑にさせるため行わないのがよい。
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s4-fig-01.png" alt="図1-4-1 定尺鉄筋の採用例（鉄筋径D19）" />
+<img src="/content/general/design-manual/img/01-s4-fig-01.png" alt="図1-4-1 定尺鉄筋の採用例（鉄筋径D19）" />
 <p className="table-title">図1-4-1 定尺鉄筋の採用例（鉄筋径D19）</p>
 
 > (c) 従来の設計では施工性よりも設計計算の優位性を重要視して、主鉄筋を配力鉄筋の外側に配置していた。しかし、鉄筋の組立順序としては、従来の設計方法では施工性が悪く、また設計計算上の優位性もきわめて小さいことから施工性や荷重の分配、耐久性の確保等に配慮して配力鉄筋は主鉄筋の外側に配置することとした。
@@ -1119,7 +1242,7 @@ $\phi$：鉄筋の直径（mm）
 
 (b) 深礎杭の帯鉄筋の重ね継手長は、表1-4-1、表1-4-2に示す値以上とするが、下図に示すように主鉄筋の配置を考慮して決定するものとする。
 
-<img src="https://storage.doboku-note.com/content/general/design-manual/img/01-s4-fig-02.png" alt="図1-4-2 主鉄筋の配置を考慮した帯鉄筋の重ね継手長" />
+<img src="/content/general/design-manual/img/01-s4-fig-02.png" alt="図1-4-2 主鉄筋の配置を考慮した帯鉄筋の重ね継手長" />
 <p className="table-title">図1-4-2 主鉄筋の配置を考慮した帯鉄筋の重ね継手長</p>
 
 ## 第5節 土工関係（標準）
@@ -1131,7 +1254,7 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-5-1 土及び岩の分類表</p>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-05.png" alt="表1-5-1 土及び岩の分類表" />
+  <img src="/content/general/design-manual/img/01-tbl-05.png" alt="表1-5-1 土及び岩の分類表" />
 </div>
 
 ## 第6節 コンクリートの適用範囲（標準）
@@ -1141,11 +1264,15 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-6-1 コンクリートの適用範囲</p>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-06a.png" alt="表1-6-1 コンクリートの適用範囲（1/2）" />
+  <img src="/content/general/design-manual/img/01-tbl-06a.png" alt="表1-6-1 コンクリートの適用範囲（1/2）" />
 </div>
 
+:::note[出典]
+コンクリート標準示方書に準じ、構造物ごとに設定
+:::
+
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-06b.png" alt="表1-6-1 コンクリートの適用範囲（2/2）" />
+  <img src="/content/general/design-manual/img/01-tbl-06b.png" alt="表1-6-1 コンクリートの適用範囲（2/2）" />
 </div>
 
 - ※1 鋼合成桁（床版）の上段は、床版にプレストレスを与えない場合、下段はプレストレスを与える場合
@@ -1169,8 +1296,12 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-6-2 コンクリートの種類（構造物による分類）</p>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-06d.png" alt="表1-6-2 コンクリートの種類（構造物による分類）" />
+  <img src="/content/general/design-manual/img/01-tbl-06d.png" alt="表1-6-2 コンクリートの種類（構造物による分類）" />
 </div>
+
+:::note[出典]
+[2] 土木工事積算標準基準書（共通編）(H23) P1-4-1に加筆
+:::
 
 ## 第7節 プレキャスト部材の適用（標準）
 
@@ -1235,7 +1366,7 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-8-1 新技術の評価情報チェックリスト（一部抜粋）</p>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-07.png" alt="表1-8-1 新技術の評価情報チェックリスト（一部抜粋）" />
+  <img src="/content/general/design-manual/img/01-tbl-07.png" alt="表1-8-1 新技術の評価情報チェックリスト（一部抜粋）" />
 </div>
 
 ### 2．設計業務における「設計比較対象技術」の活用促進
@@ -1271,63 +1402,63 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-8-2 設計比較対象技術一覧</p>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-01.png" alt="表1-8-2 設計比較対象技術一覧（1/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-01.png" alt="表1-8-2 設計比較対象技術一覧（1/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-02.png" alt="表1-8-2 設計比較対象技術一覧（2/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-02.png" alt="表1-8-2 設計比較対象技術一覧（2/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-03.png" alt="表1-8-2 設計比較対象技術一覧（3/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-03.png" alt="表1-8-2 設計比較対象技術一覧（3/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-04.png" alt="表1-8-2 設計比較対象技術一覧（4/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-04.png" alt="表1-8-2 設計比較対象技術一覧（4/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-05.png" alt="表1-8-2 設計比較対象技術一覧（5/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-05.png" alt="表1-8-2 設計比較対象技術一覧（5/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-06.png" alt="表1-8-2 設計比較対象技術一覧（6/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-06.png" alt="表1-8-2 設計比較対象技術一覧（6/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-07.png" alt="表1-8-2 設計比較対象技術一覧（7/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-07.png" alt="表1-8-2 設計比較対象技術一覧（7/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-08.png" alt="表1-8-2 設計比較対象技術一覧（8/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-08.png" alt="表1-8-2 設計比較対象技術一覧（8/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-09.png" alt="表1-8-2 設計比較対象技術一覧（9/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-09.png" alt="表1-8-2 設計比較対象技術一覧（9/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-10.png" alt="表1-8-2 設計比較対象技術一覧（10/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-10.png" alt="表1-8-2 設計比較対象技術一覧（10/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-11.png" alt="表1-8-2 設計比較対象技術一覧（11/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-11.png" alt="表1-8-2 設計比較対象技術一覧（11/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-12.png" alt="表1-8-2 設計比較対象技術一覧（12/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-12.png" alt="表1-8-2 設計比較対象技術一覧（12/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-13.png" alt="表1-8-2 設計比較対象技術一覧（13/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-13.png" alt="表1-8-2 設計比較対象技術一覧（13/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-14.png" alt="表1-8-2 設計比較対象技術一覧（14/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-14.png" alt="表1-8-2 設計比較対象技術一覧（14/15）" />
 </div>
 
 <div className="table-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-tbl-08-15.png" alt="表1-8-2 設計比較対象技術一覧（15/15）" />
+  <img src="/content/general/design-manual/img/01-tbl-08-15.png" alt="表1-8-2 設計比較対象技術一覧（15/15）" />
 </div>
 
 ## 第9節 建設リサイクルの推進（標準）
@@ -1371,7 +1502,7 @@ $\phi$：鉄筋の直径（mm）
 <p className="figure-title">図1-9-1 建設リサイクルに対する法令と国土交通省の取組み</p>
 
 <div className="figure-wrapper">
-  <img src="https://storage.doboku-note.com/content/general/design-manual/img/01-fig-03.png" alt="図1-9-1 建設リサイクルに対する法令と国土交通省の取組み" />
+  <img src="/content/general/design-manual/img/01-fig-03.png" alt="図1-9-1 建設リサイクルに対する法令と国土交通省の取組み" />
 </div>
 
 ### 3．建設リサイクルガイドライン

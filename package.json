@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "sync-images": "node scripts/sync-content-images.mjs",
-    "dev": "node scripts/sync-content-images.mjs && next dev -p 3020",
-    "build": "node scripts/sync-content-images.mjs && node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs",
-    "start": "next start -p 3020",
+    "dev": "node scripts/sync-content-images.mjs && node scripts/serve-local-r2.mjs & next dev -p 3020",
+    "build": "node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs",
+    "start": "node scripts/sync-content-images.mjs && node scripts/serve-local-r2.mjs & next start -p 3020",
     "lint": "next lint",
     "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note"
   },
