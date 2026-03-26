@@ -136,6 +136,7 @@ npm run serve          # ビルド結果のプレビュー
 | `/exam-demand` | 資格試験の検索需要調査・不足コンテンツ提案 | `.claude/skills/strategy/exam-demand/SKILL.md` |
 | `/discover-trends-civil` | 土木系ニュース・業界動向からトレンド発見 | `.claude/skills/strategy/discover-trends-civil/SKILL.md` |
 | `/discover-exam-season` | 試験日程に基づく季節性コンテンツ戦略 | `.claude/skills/strategy/discover-exam-season/SKILL.md` |
+| `/content-roadmap` | コンテンツ拡充ロードマップの生成（全データ統合） | `.claude/skills/strategy/content-roadmap/SKILL.md` |
 
 ### ads — 広告・アフィリエイト
 
