@@ -127,11 +127,43 @@ npm run serve          # ビルド結果のプレビュー
 | `/design-review` | デザインシステム準拠レビュー（7カテゴリ・重大度判定） | `.claude/skills/ui/design-review/SKILL.md` |
 | `/ui-panel-review` | 10人の専門家パネルによるUI/UX評価 | `.claude/skills/ui/ui-panel-review/SKILL.md` |
 
-### ads — 広告
+### strategy — 競合調査・市場分析
+
+| スキル | 用途 | 定義 |
+|---|---|---|
+| `/competitor-audit` | 競合サイト調査（コンテンツ・SEO・収益モデル比較） | `.claude/skills/strategy/competitor-audit/SKILL.md` |
+| `/keyword-gap` | GSC + 競合比較でコンテンツギャップを特定 | `.claude/skills/strategy/keyword-gap/SKILL.md` |
+| `/exam-demand` | 資格試験の検索需要調査・不足コンテンツ提案 | `.claude/skills/strategy/exam-demand/SKILL.md` |
+| `/discover-trends-civil` | 土木系ニュース・業界動向からトレンド発見 | `.claude/skills/strategy/discover-trends-civil/SKILL.md` |
+| `/discover-exam-season` | 試験日程に基づく季節性コンテンツ戦略 | `.claude/skills/strategy/discover-exam-season/SKILL.md` |
+
+### ads — 広告・アフィリエイト
 
 | スキル | 用途 | 定義 |
 |---|---|---|
 | `/register-affiliate-banner` | アフィリエイトバナーの登録 | `.claude/skills/ads/register-affiliate-banner/SKILL.md` |
+| `/plan-affiliate` | 書籍・教材・通信講座のアフィリエイト記事企画 | `.claude/skills/ads/plan-affiliate/SKILL.md` |
+| `/audit-ads` | AdSense・アフィリエイトの現状監査と最適化提案 | `.claude/skills/ads/audit-ads/SKILL.md` |
+
+## エージェント
+
+`.claude/agents/` に定義されたサブエージェント群。
+
+| エージェント | 役割 | 担当スキル |
+|---|---|---|
+| `strategy-advisor` | 戦略・PDCA・レビュールーティング | weekly-plan/review, growth-loops, monetization-strategy, competitor-audit, keyword-gap |
+| `seo-auditor` | SEO 監査・アナリティクス収集 | seo-audit, fetch-gsc-data, fetch-ga4-data, keyword-gap |
+| `content-planner` | コンテンツ企画の統括（トレンド→ギャップ→提案） | discover-trends-civil, discover-exam-season, exam-demand, keyword-gap, plan-affiliate |
+
+### チーム連携パターン
+
+| シナリオ | エージェント連携 |
+|---|---|
+| 月次コンテンツ企画 | content-planner → seo-auditor（データ）→ strategy-advisor（レビュー） |
+| 試験シーズン対策 | content-planner（exam-demand + discover-exam-season）→ plan-affiliate |
+| 四半期戦略レビュー | strategy-advisor（competitor-audit → keyword-gap → monetization-strategy → pre-mortem） |
+| 週次 PDCA | strategy-advisor（weekly-review → discover-exam-season → weekly-plan） |
+| 広告最適化 | strategy-advisor → audit-ads → plan-affiliate |
 
 ## コンテキスト管理
 
@@ -146,12 +178,35 @@ npm run serve          # ビルド結果のプレビュー
 1. /north-star-metric     <- 最重要指標を決める
 2. /growth-loops           <- 成長メカニズムを設計
 3. /monetization-strategy  <- 収益化手段を検討
+4. /competitor-audit       <- 競合を把握
+5. /plan-affiliate         <- アフィリエイト商材を調査
 ```
 
 ### 週次運用
 
 ```
 日曜〜月曜:
-1. /weekly-review   <- 実績を振り返る
-2. /weekly-plan     <- 来週の計画を立てる
+1. /weekly-review          <- 実績を振り返る
+2. /discover-trends-civil  <- 土木系トレンドを確認
+3. /weekly-plan            <- 来週の計画を立てる
+```
+
+### 四半期レビュー
+
+```
+1. /competitor-audit       <- 競合状況の変化を調査
+2. /keyword-gap            <- コンテンツギャップの更新
+3. /exam-demand            <- 資格試験需要の再調査
+4. /monetization-strategy  <- 収益戦略の見直し
+5. /audit-ads              <- 広告・アフィリエイトの効果検証
+6. /pre-mortem             <- リスクの再評価
+```
+
+### 試験シーズン対応
+
+```
+試験2-3ヶ月前:
+1. /discover-exam-season   <- 季節性戦略を立案
+2. /exam-demand --exam XX  <- 該当試験の需要調査
+3. /plan-affiliate         <- 教材アフィリエイト企画
 ```
