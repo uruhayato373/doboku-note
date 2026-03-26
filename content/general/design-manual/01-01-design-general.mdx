@@ -141,7 +141,29 @@ sidebar_label: "第1章 設計一般"
 
 図面は、その長辺を横方向においた位置を正位とする。ただし、高さの大きい構造物等を示す場合には、関係者間協議の上、短辺を横方向においた位置に正位を変えることができる。
 
-<img src="/content/general/design-manual/img/01-fig-01.png" alt="図1-1-1 図面の正位" />
+<svg viewBox="0 0 520 200" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '520px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`
+    text { font-family: "Noto Sans JP", sans-serif; font-size: 10px; fill: #333; }
+    .lbl { font-size: 11px; }
+  `}</style>
+  {/* 左: 長辺を横方向にした配置 */}
+  {/* 外枠 */}
+  <rect x="20" y="10" width="210" height="145" fill="none" stroke="#333" strokeWidth="1.5"/>
+  {/* 内枠 */}
+  <rect x="30" y="16" width="192" height="130" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 表題欄 */}
+  <rect x="190" y="122" width="30" height="22" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <text x="125" y="175" textAnchor="middle" className="lbl">長辺を横方向にした配置</text>
+
+  {/* 右: 長辺を縦方向にした配置 */}
+  {/* 外枠 */}
+  <rect x="310" y="10" width="145" height="175" fill="none" stroke="#333" strokeWidth="1.5"/>
+  {/* 内枠 */}
+  <rect x="318" y="16" width="130" height="162" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 表題欄 */}
+  <rect x="418" y="154" width="28" height="22" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <text x="383" y="200" textAnchor="middle" className="lbl">長辺を縦方向にした配置</text>
+</svg>
 <p className="text-center">図1-1-1 図面の正位</p>
 
 > **（解 説）**
@@ -158,7 +180,50 @@ sidebar_label: "第1章 設計一般"
 [1-5] CAD製図基準（H20.5）P7
 :::
 
-<img src="/content/general/design-manual/img/01-fig-02.png" alt="図1-1-2 輪郭と余白" />
+<svg viewBox="0 0 560 220" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '560px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`
+    text { font-family: "Noto Sans JP", sans-serif; font-size: 10px; fill: #333; }
+    .note { font-size: 10.5px; }
+    .dim { font-size: 9px; }
+  `}</style>
+  {/* 外枠（図面用紙） */}
+  <rect x="30" y="10" width="300" height="190" fill="none" stroke="#333" strokeWidth="1.5"/>
+  {/* 内枠（輪郭） */}
+  <rect x="60" y="22" width="258" height="166" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 寸法 a（左余白） */}
+  <line x1="30" y1="208" x2="60" y2="208" stroke="#333" strokeWidth="0.6"/>
+  <line x1="30" y1="200" x2="30" y2="212" stroke="#333" strokeWidth="0.6"/>
+  <line x1="60" y1="200" x2="60" y2="212" stroke="#333" strokeWidth="0.6"/>
+  <polygon points="30,208 36,206 36,210" fill="#333"/>
+  <polygon points="60,208 54,206 54,210" fill="#333"/>
+  <text x="45" y="218" textAnchor="middle" className="dim">a</text>
+  {/* 寸法 b（右余白） */}
+  <line x1="238" y1="208" x2="330" y2="208" stroke="#333" strokeWidth="0.6"/>
+  <line x1="318" y1="200" x2="318" y2="212" stroke="#333" strokeWidth="0.6"/>
+  <line x1="330" y1="200" x2="330" y2="212" stroke="#333" strokeWidth="0.6"/>
+  <polygon points="318,208 324,206 324,210" fill="#333"/>
+  <polygon points="238,208 244,206 244,210" fill="#333"/>
+  <text x="276" y="218" textAnchor="middle" className="dim">b</text>
+  {/* 寸法 b（上余白） */}
+  <line x1="336" y1="10" x2="336" y2="22" stroke="#333" strokeWidth="0.6"/>
+  <line x1="332" y1="10" x2="340" y2="10" stroke="#333" strokeWidth="0.6"/>
+  <line x1="332" y1="22" x2="340" y2="22" stroke="#333" strokeWidth="0.6"/>
+  <polygon points="336,10 334,16 338,16" fill="#333"/>
+  <polygon points="336,22 334,16 338,16" fill="#333"/>
+  <text x="344" y="19" className="dim">b</text>
+  {/* 寸法 b（右余白 縦） */}
+  <line x1="336" y1="178" x2="336" y2="200" stroke="#333" strokeWidth="0.6"/>
+  <line x1="332" y1="188" x2="340" y2="188" stroke="#333" strokeWidth="0.6"/>
+  <line x1="332" y1="200" x2="340" y2="200" stroke="#333" strokeWidth="0.6"/>
+  <polygon points="336,188 334,194 338,194" fill="#333"/>
+  <polygon points="336,200 334,194 338,194" fill="#333"/>
+  <text x="344" y="197" className="dim">b</text>
+  {/* 右側注釈 */}
+  <text x="370" y="40" className="note">A0・A1</text>
+  <text x="380" y="60" className="note">a ＝20mm 以上（綴じない場合）</text>
+  <text x="380" y="78" className="note">a ＝40mm 以上（綴じる場合）</text>
+  <text x="380" y="96" className="note">b ＝20mm 以上</text>
+</svg>
 <p className="text-center">図1-1-2 輪郭と余白</p>
 
 #### 1-6 表題欄
@@ -181,8 +246,120 @@ sidebar_label: "第1章 設計一般"
 [1-6] CAD製図基準（H20.5）P8
 :::
 
-<img src="/content/general/design-manual/img/01-fig-03.png" alt="表題欄の寸法及び様式" />
-<p className="text-center">表題欄の寸法及び様式（当初設計の場合・設計変更の場合）</p>
+<p className="text-center font-bold">当初設計の場合</p>
+
+<svg viewBox="0 0 420 230" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '420px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`text { font-family: sans-serif; font-size: 11px; } .dim { font-size: 9.5px; } .unit { font-size: 9px; }`}</style>
+  {/* Table: 6 rows x 100mm, scaled 3x → 300px wide, 180px tall */}
+  <rect x="10" y="10" width="300" height="180" fill="none" stroke="#333" strokeWidth="1.5"/>
+  {/* Column divider at 60px (=20mm) */}
+  <line x1="70" y1="10" x2="70" y2="190" stroke="#333" strokeWidth="1"/>
+  {/* Row lines every 30px (=10mm) */}
+  {[40,70,100,130,160].map(y=><line key={y} x1="10" y1={y} x2="310" y2={y} stroke="#333" strokeWidth="0.5"/>)}
+  {/* 縮尺 row subdivisions: 1/○○○ | 図面番号 | ○○葉之内○○ */}
+  <line x1="160" y1="100" x2="160" y2="130" stroke="#333" strokeWidth="0.5"/>
+  <line x1="220" y1="100" x2="220" y2="130" stroke="#333" strokeWidth="0.5"/>
+  {/* Row labels */}
+  <text x="40" y="30" textAnchor="middle">工事名</text>
+  <text x="40" y="60" textAnchor="middle">図面名</text>
+  <text x="40" y="90" textAnchor="middle">作成年月日</text>
+  <text x="40" y="120" textAnchor="middle">縮尺</text>
+  <text x="40" y="150" textAnchor="middle">会社名</text>
+  <text x="40" y="180" textAnchor="middle">事業者名</text>
+  {/* Row content */}
+  <text x="190" y="30" textAnchor="middle">○○○工事</text>
+  <text x="190" y="60" textAnchor="middle">○○○○○○図</text>
+  <text x="160" y="90" textAnchor="middle">平成　年　月　日</text>
+  <text x="115" y="120" textAnchor="middle">1/○○○</text>
+  <text x="190" y="120" textAnchor="middle">図面番号</text>
+  <text x="265" y="120" textAnchor="middle">○○葉之内○○</text>
+  <text x="190" y="180" textAnchor="middle">近畿地方整備局　○○○○事務所</text>
+  {/* Bottom dimensions */}
+  <line x1="10" y1="200" x2="10" y2="210" stroke="#333" strokeWidth="0.5"/>
+  <line x1="70" y1="200" x2="70" y2="210" stroke="#333" strokeWidth="0.5"/>
+  <line x1="160" y1="200" x2="160" y2="210" stroke="#333" strokeWidth="0.5"/>
+  <line x1="220" y1="200" x2="220" y2="210" stroke="#333" strokeWidth="0.5"/>
+  <line x1="310" y1="200" x2="310" y2="210" stroke="#333" strokeWidth="0.5"/>
+  <line x1="10" y1="205" x2="310" y2="205" stroke="#333" strokeWidth="0.5"/>
+  <text x="40" y="218" textAnchor="middle" className="dim">20</text>
+  <text x="115" y="218" textAnchor="middle" className="dim">30</text>
+  <text x="190" y="218" textAnchor="middle" className="dim">20</text>
+  <text x="265" y="218" textAnchor="middle" className="dim">30</text>
+  <line x1="10" y1="222" x2="310" y2="222" stroke="#333" strokeWidth="0.5"/>
+  <text x="160" y="230" textAnchor="middle" className="dim">100</text>
+  {/* Right dimensions */}
+  {[10,40,70,100,130,160,190].map(y=><line key={y} x1="320" y1={y} x2="330" y2={y} stroke="#333" strokeWidth="0.5"/>)}
+  <line x1="325" y1="10" x2="325" y2="190" stroke="#333" strokeWidth="0.5"/>
+  {[25,55,85,115,145,175].map((y,i)=><text key={y} x="338" y={y+2} className="dim">10</text>)}
+  {/* 60 bracket */}
+  <line x1="355" y1="10" x2="355" y2="190" stroke="#333" strokeWidth="0.5"/>
+  <line x1="350" y1="10" x2="360" y2="10" stroke="#333" strokeWidth="0.5"/>
+  <line x1="350" y1="190" x2="360" y2="190" stroke="#333" strokeWidth="0.5"/>
+  <text x="368" y="104" className="dim">60</text>
+  <text x="390" y="218" textAnchor="middle" className="unit">(単位：mm)</text>
+</svg>
+
+<p className="text-center font-bold">設計変更の場合</p>
+
+<svg viewBox="0 0 420 270" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '420px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`text { font-family: sans-serif; font-size: 11px; } .dim { font-size: 9.5px; } .unit { font-size: 9px; }`}</style>
+  {/* (第○回)変更 box: 30mm wide, 10mm tall, top-right */}
+  <rect x="220" y="20" width="90" height="30" fill="none" stroke="#333" strokeWidth="1"/>
+  <text x="265" y="40" textAnchor="middle">（第○回）変更</text>
+  {/* 30 dimension above */}
+  <line x1="220" y1="10" x2="220" y2="18" stroke="#333" strokeWidth="0.5"/>
+  <line x1="310" y1="10" x2="310" y2="18" stroke="#333" strokeWidth="0.5"/>
+  <line x1="220" y1="14" x2="310" y2="14" stroke="#333" strokeWidth="0.5"/>
+  <text x="265" y="9" textAnchor="middle" className="dim">30</text>
+  {/* Main table below: same as 当初設計 but shifted down by 30px */}
+  <rect x="10" y="50" width="300" height="180" fill="none" stroke="#333" strokeWidth="1.5"/>
+  <line x1="70" y1="50" x2="70" y2="230" stroke="#333" strokeWidth="1"/>
+  {[80,110,140,170,200].map(y=><line key={y} x1="10" y1={y} x2="310" y2={y} stroke="#333" strokeWidth="0.5"/>)}
+  <line x1="160" y1="140" x2="160" y2="170" stroke="#333" strokeWidth="0.5"/>
+  <line x1="220" y1="140" x2="220" y2="170" stroke="#333" strokeWidth="0.5"/>
+  {/* Row labels */}
+  <text x="40" y="70" textAnchor="middle">工事名</text>
+  <text x="40" y="100" textAnchor="middle">図面名</text>
+  <text x="40" y="130" textAnchor="middle">作成年月日</text>
+  <text x="40" y="160" textAnchor="middle">縮尺</text>
+  <text x="40" y="190" textAnchor="middle">会社名</text>
+  <text x="40" y="220" textAnchor="middle">事業者名</text>
+  {/* Row content */}
+  <text x="190" y="70" textAnchor="middle">○○○工事</text>
+  <text x="190" y="100" textAnchor="middle">○○○○○○図</text>
+  <text x="160" y="130" textAnchor="middle">平成　年　月　日</text>
+  <text x="115" y="160" textAnchor="middle">1/○○○</text>
+  <text x="190" y="160" textAnchor="middle">図面番号</text>
+  <text x="265" y="160" textAnchor="middle">○○葉之内○○</text>
+  <text x="190" y="220" textAnchor="middle">近畿地方整備局　○○○○事務所</text>
+  {/* Bottom dimensions */}
+  <line x1="10" y1="240" x2="10" y2="250" stroke="#333" strokeWidth="0.5"/>
+  <line x1="70" y1="240" x2="70" y2="250" stroke="#333" strokeWidth="0.5"/>
+  <line x1="160" y1="240" x2="160" y2="250" stroke="#333" strokeWidth="0.5"/>
+  <line x1="220" y1="240" x2="220" y2="250" stroke="#333" strokeWidth="0.5"/>
+  <line x1="310" y1="240" x2="310" y2="250" stroke="#333" strokeWidth="0.5"/>
+  <line x1="10" y1="245" x2="310" y2="245" stroke="#333" strokeWidth="0.5"/>
+  <text x="40" y="258" textAnchor="middle" className="dim">20</text>
+  <text x="115" y="258" textAnchor="middle" className="dim">30</text>
+  <text x="190" y="258" textAnchor="middle" className="dim">20</text>
+  <text x="265" y="258" textAnchor="middle" className="dim">30</text>
+  <line x1="10" y1="262" x2="310" y2="262" stroke="#333" strokeWidth="0.5"/>
+  <text x="160" y="270" textAnchor="middle" className="dim">100</text>
+  {/* Right dimensions */}
+  {[50,80,110,140,170,200,230].map(y=><line key={y} x1="320" y1={y} x2="330" y2={y} stroke="#333" strokeWidth="0.5"/>)}
+  <line x1="325" y1="50" x2="325" y2="230" stroke="#333" strokeWidth="0.5"/>
+  {[65,95,125,155,185,215].map((y,i)=><text key={y} x="338" y={y+2} className="dim">10</text>)}
+  <line x1="355" y1="50" x2="355" y2="230" stroke="#333" strokeWidth="0.5"/>
+  <line x1="350" y1="50" x2="360" y2="50" stroke="#333" strokeWidth="0.5"/>
+  <line x1="350" y1="230" x2="360" y2="230" stroke="#333" strokeWidth="0.5"/>
+  <text x="368" y="144" className="dim">60</text>
+  {/* 10 dimension for 変更 box */}
+  <line x1="320" y1="20" x2="330" y2="20" stroke="#333" strokeWidth="0.5"/>
+  <line x1="325" y1="20" x2="325" y2="50" stroke="#333" strokeWidth="0.5"/>
+  <text x="338" y="40" className="dim">10</text>
+  <text x="390" y="258" textAnchor="middle" className="unit">(単位：mm)</text>
+  <text x="160" y="270" textAnchor="middle" className="dim">参考：CAD製図基準（案）</text>
+</svg>
 
 #### 1-7 縮尺
 
@@ -206,7 +383,44 @@ sidebar_label: "第1章 設計一般"
 
 折りたたんだ図面は幅180mm、長さ297mmとする。
 
-<img src="/content/general/design-manual/img/01-fig-04.png" alt="図面の折りたたみ" />
+<svg viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '520px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`text { font-family: sans-serif; font-size: 10px; } .dim { font-size: 9px; } .lbl { font-size: 11px; }`}</style>
+  {/* Title */}
+  <text x="260" y="14" textAnchor="middle" className="lbl">図面の折りたたみ幅</text>
+  {/* Outer frame: 5 panels = 120+180+180+180+180 → scaled: 60+90+90+90+90=420px */}
+  <rect x="50" y="40" width="420" height="180" fill="none" stroke="#333" strokeWidth="1.5"/>
+  {/* Fold lines (dashed) */}
+  {[110,200,290,380].map(x=><line key={x} x1={x} y1="40" x2={x} y2="220" stroke="#666" strokeWidth="0.5" strokeDasharray="4,3"/>)}
+  {/* Horizontal dimension arrows at top */}
+  {[50,110,200,290,380,470].map(x=><line key={x} x1={x} y1="22" x2={x} y2="32" stroke="#333" strokeWidth="0.5"/>)}
+  <line x1="50" y1="27" x2="110" y2="27" stroke="#333" strokeWidth="0.5"/>
+  <text x="80" y="25" textAnchor="middle" className="dim">120</text>
+  <line x1="110" y1="27" x2="200" y2="27" stroke="#333" strokeWidth="0.5"/>
+  <text x="155" y="25" textAnchor="middle" className="dim">180</text>
+  <line x1="200" y1="27" x2="290" y2="27" stroke="#333" strokeWidth="0.5"/>
+  <text x="245" y="25" textAnchor="middle" className="dim">180</text>
+  <line x1="290" y1="27" x2="380" y2="27" stroke="#333" strokeWidth="0.5"/>
+  <text x="335" y="25" textAnchor="middle" className="dim">180</text>
+  <line x1="380" y1="27" x2="470" y2="27" stroke="#333" strokeWidth="0.5"/>
+  <text x="425" y="25" textAnchor="middle" className="dim">180</text>
+  {/* Left vertical dimensions: 297 + 297 */}
+  <line x1="20" y1="40" x2="20" y2="130" stroke="#333" strokeWidth="0.5"/>
+  <line x1="15" y1="40" x2="25" y2="40" stroke="#333" strokeWidth="0.5"/>
+  <line x1="15" y1="130" x2="25" y2="130" stroke="#333" strokeWidth="0.5"/>
+  <text x="18" y="90" textAnchor="middle" className="dim" transform="rotate(-90,18,90)">297</text>
+  <line x1="20" y1="130" x2="20" y2="220" stroke="#333" strokeWidth="0.5"/>
+  <line x1="15" y1="220" x2="25" y2="220" stroke="#333" strokeWidth="0.5"/>
+  <text x="18" y="180" textAnchor="middle" className="dim" transform="rotate(-90,18,180)">297</text>
+  {/* 表題欄 box in lower-right panel */}
+  <rect x="400" y="150" width="55" height="55" fill="none" stroke="#333" strokeWidth="0.5"/>
+  <text x="428" y="172" textAnchor="middle" fontSize="9">表</text>
+  <text x="428" y="184" textAnchor="middle" fontSize="9">題</text>
+  <text x="428" y="196" textAnchor="middle" fontSize="9">欄</text>
+  {/* Fold center line */}
+  <line x1="50" y1="130" x2="470" y2="130" stroke="#333" strokeWidth="0.3" strokeDasharray="6,4"/>
+  {/* A 1版を例示 */}
+  <text x="90" y="245" className="dim">A　1版を例示</text>
+</svg>
 
 ### 2. 設計図面記載要領
 
@@ -220,29 +434,210 @@ sidebar_label: "第1章 設計一般"
 
 **(1) 河川工事の部**
 
-<img src="/content/general/design-manual/img/01-tbl-02.png" alt="河川工事の部 掘削・築堤" />
+{/* 01-tbl-02: 河川工事の部 掘削 */}
 
-<img src="/content/general/design-manual/img/01-tbl-03.png" alt="河川工事の部 築堤・護岸" />
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan="4">掘削</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>（着色）施工箇所……………朱書</td></tr>
+<tr><td>平面図</td><td>1／2,500以下</td><td>方位、流下方向、距離標、測点、改修計画法線、掘削捨土箇所、延長、仮橋位置</td><td>仮橋のある場合は別途詳細図を附記すること。<br/>捨土箇所が築堤工事と関連する場合はこの区間を青色で表わし、工事名は朱書し、又前後に関連ある他の工事がある場合は全て図示する。<br/>（着色）<br/>掘削箇所……………………朱色<br/>捨土（又は盛土）箇所…青色<br/>搬　路…………………太い青線<br/>仮橋位置……………………朱書<br/>（関連ある別途設計のものは破線）</td></tr>
+<tr><td>縦断面図</td><td>縦 1／100程度<br/>横 1／1,000程度</td><td>H.W.L.、L.W.L.、地盤高、河床勾配、堤防天端高、掘削基面高、計画河床高、計画高水敷高、構造物位置、名称、寸法、工事施工範囲</td><td>前後の掘削工事と関連ある場合は、その工事名及び掘削基面又護岸工事のある場合はその基礎高を図示すること。<br/>（着色）掘削箇所……………朱色</td></tr>
+<tr><td>横断面図</td><td>1／100～1／1,000</td><td>H.W.L.、H.W.L.、河川断面、掘削断面、改修計画断面</td><td>河川断面は細い実線<br/>掘削断面は太い実線<br/>改修計画断面は細い1点破線<br/>諸寸法、法勾配は少なくとも1枚につき1箇所は記入する。<br/>尚標準断面図で表示してもよい。<br/>（着色）掘削断面……………朱色</td></tr>
+</tbody>
+</table>
+</div>
 
-<img src="/content/general/design-manual/img/01-tbl-04.png" alt="河川工事の部 護岸・構造物" />
+{/* 01-tbl-03: 河川工事の部 築堤・護岸 */}
+
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan="5">築堤</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>（着色）施工箇所……………朱書</td></tr>
+<tr><td>平面図</td><td>1／2,500以下</td><td>方位、距離標、測点、流下方向、施工箇所、延長、堤防法線、仮橋位置、仮ベンチマークの位置、曲線諸元</td><td>採土箇所が掘削工事と関連ある場合は、その箇所を朱色で表わし、工事名を朱書すること。<br/>又前後（上下流側）に他の工事がある場合は全て図示すること。<br/>（着色）築堤盛土箇所……青色<br/>仮橋位置……………朱書<br/>搬　路………青実線<br/>掘削箇所……………朱色<br/>（関連ある別途設計は破線）</td></tr>
+<tr><td>縦断面図</td><td>縦 1／100程度<br/>横 1／1,000程度</td><td>H.W.L.、河床勾配、計画堤防高、施工天端高、高水勾配、地盤高、計画河床高、計画高水敷高、潮位、構造物の位置、名称、寸法、工事施工範囲</td><td>その箇所に護岸工事がある場合、その天端及び基礎高を図示のこと。<br/>（着色）築堤盛土箇所……青色</td></tr>
+<tr><td>標準断面図</td><td>1／50程度<br/>1／100程度</td><td>現地盤、H.W.L.、改修計画断面、施工断面、形状寸法、法勾配、芝付区分、用地境界</td><td>現地盤線は細い実線<br/>改修計画断面は細い一点破線<br/>施工断面は太い実線<br/>用地境界は細い一点破線</td></tr>
+<tr><td>横断面図</td><td>縦横共 1／100<br/>又は 1／200</td><td>盛土断面、現地盤（既設工断面）、H.W.L.、L.W.L.、芝付面、掘削断面、用地境界</td><td>施工断面は太い実線<br/>現地盤(既設工断面)は細い実線<br/>用地境界線は細い一点破線<br/>（着色）盛土断面……………青色<br/>掘削断面……………朱書<br/>芝付面張芝……緑実線<br/>筋芝……緑点線</td></tr>
+<tr><td rowSpan="5">護岸</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>（着色）施工箇所……………朱書</td></tr>
+<tr><td>平面図</td><td>1／2,500以下</td><td>方位、流下方向、施工箇所延長、距離標測点、その前後の別途設計工事、既設護岸、水制、樋門等構造物、治水上必要な構造物は全て明記、仮ベンチマークの位置、曲線諸元、土質調査位置</td><td>河川の状況が分かるように施工箇所の上下流、少なくとも施工延長と同等程度を図示すること。<br/>（着色）<br/>施工箇所……………………朱書<br/>別途設計工事、既存護岸<br/>水制、樋門等の構造物　………黄色</td></tr>
+<tr><td>縦断面図</td><td>縦 1／100程度<br/>横 1／1,000程度</td><td>H.W.L.、L.W.L.、計画築堤高、現堤防高、計画護岸高、計画高水敷高、施工護岸高(構造物の位置)、名称、寸法、基礎高、河床勾配、現況地盤高、計画掘削基面高、高水勾配、計画河床高、潮位、土質柱状図</td><td>計画掘削基面高とは、掘削工事がある場合の基面高をいう。又工事箇所の上下流に護岸工事がある場合は、工事名、天端高、基礎高を記入のこと。</td></tr>
+<tr><td>詳細（標準）断面図</td><td>1／50以下</td><td>法勾配、H.W.L.、L.W.L.、現地盤面、芝付、形状寸法、計画堤防断面</td><td>根入れ深さを明記のこと。<br/>計画堤防断面は細い一点破線、他は横断面図を参照。</td></tr>
+<tr><td>横断面図</td><td>縦横共 1／100<br/>又は 1／200</td><td>H.W.L.、L.W.L.、現地盤、現在堤防断面、計画護岸、施工断面、潮位</td><td>現地盤（既設工事断面）は細い実線<br/>施工護岸断面は太い実線<br/>未施工部は細い点線<br/>（着色）盛土断面……………青<br/>他は築堤部参照</td></tr>
+</tbody>
+</table>
+</div>
+
+{/* 01-tbl-04: 河川工事の部 構造物 */}
+
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan="5">構造物</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>（着色）施工箇所……………朱書</td></tr>
+<tr><td>平面図</td><td>1／500以下</td><td>方位、施工箇所、流下方向、関係水路、堤防法線、仮ベンチマークの位置、構造物関係位置、諸寸法、土質調査位置図</td><td>施工箇所…朱書…関係構造物<br/>関係水路…青色</td></tr>
+<tr><td>縦断面図</td><td>縦 1／100<br/>横 1／1,000</td><td>H.W.L.、L.W.L.、基礎高、河床勾配、高水勾配</td><td></td></tr>
+<tr><td>一般図</td><td>1／500以下</td><td>H.W.L.、L.W.L.、基礎杭長、寸法、地質図、河川断面構造物形状、諸寸法</td><td></td></tr>
+<tr><td>構造図</td><td>1／100以下</td><td>寸法、内水位、外水位地盤高、断面（堤防）、側面図、平面図、正面図、断面図、材料表（鉄筋表）、堤防断面、その他の詳細図</td><td></td></tr>
+</tbody>
+</table>
+</div>
 
 **(2) 砂防工事の部**
 
-<img src="/content/general/design-manual/img/01-tbl-05.png" alt="砂防工事の部 堰堤工事・山腹工事" />
+{/* 01-tbl-05: 砂防工事の部 */}
+
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan={4}>堰堤工事</td><td>位置図</td><td>1／50,000以下</td><td>施工位置、堰堤名、附近の既設堰堤</td><td>（着色）<br/>施工位置、堰堤名……朱書<br/>既設堰堤………………黒色</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>方位、測点（距離標）、推定貯砂区域、仮ベンチマークの位置</td><td>測点（距離標）は縦断面図に対応したもの。<br/>（着色）<br/>推定貯砂区域…………朱色</td></tr>
+<tr><td>縦断面図</td><td>縦1／200<br/>横1／1,000</td><td>河床、堤体、推定貯砂勾配</td><td></td></tr>
+<tr><td>構造図</td><td>1／200以下</td><td>河川断面、岩盤線、中心線寸法（正面図、平面図、断面図に分けてかくこと。）</td><td>既、未施工の３部分があるときは施工分を朱色とし、既設工部分を薄墨とする。正面図及び側面図には流量を記入すること。</td></tr>
+<tr><td rowSpan={3}>山腹工事</td><td>位置図</td><td>1／50,000以下</td><td>施工箇所</td><td>（着色）<br/>未施工箇所…………黄色<br/>竣功箇所……………薄墨色<br/>施工箇所……………朱色</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>施工区域</td><td>（着色）<br/>施工区域……………朱色</td></tr>
+<tr><td>標準断面図</td><td>1／50以下</td><td>谷止石積、積石工、積苗工、蓆工、蓋積苗工、筋工、畝工等種別に詳細図をかくこと。</td><td></td></tr>
+</tbody>
+</table>
+</div>
 
 **(3) 道路工事の部**
 
-<img src="/content/general/design-manual/img/01-tbl-06.png" alt="道路工事の部 道路改良工事" />
+{/* 01-tbl-06: 道路工事の部 道路改良 */}
 
-<img src="/content/general/design-manual/img/01-tbl-07.png" alt="道路工事の部 道路補修工事・橋梁下部工事・橋梁上部工事・トンネル工事" />
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan={7}>道路改良工事</td><td>位置図</td><td>1／50,000以下</td><td>方位、施工箇所、延長（橋梁）</td><td>（着色）施工箇所、延長、採取土箇所、捨土箇所…朱</td></tr>
+<tr><td>平面図</td><td>1／1,000又は1／500</td><td>方位、工事起終点、測点、道路延長、構造物の位置、寸法、名称、曲線部、曲線設置諸元、仮ベンチマークの位置、切土、盛土部分、側溝、擁壁箇所</td><td>構造物等は異種毎に着色、色分けし凡例を附し施工箇所に明示し、その延長、形状、寸法を明記する。<br/>工事起終点、構造物の名称、寸法延長、道路延長…明示<br/>盛土部分…緑、切土部分…橙</td></tr>
+<tr><td>縦断面図</td><td>縦1／100<br/>〜<br/>1／200<br/>横1／500<br/>〜<br/>1／1,000</td><td>工事起終点、現在地盤線、改良工事による計画高、構造物の位置名称、平面曲線設置諸元、縦断曲線</td><td>線形、単距離、追加距離、地盤高、計画高、勾配、拡幅量その他必要なもの<br/>工事起終点</td></tr>
+<tr><td>標準断面図（横断定規図）</td><td>1／50<br/>〜<br/>1／200</td><td>側溝、擁壁断面、寸法、法勾配、舗装厚、車道、歩道等の幅員、全幅員、道路中心線、横断勾配</td><td>暫定、完成断面の区分は実線、破線等による。</td></tr>
+<tr><td>横断面図</td><td>縦横共<br/>1／100<br/>〜<br/>1／200</td><td>中心線、測点番号、現在地盤線、用地境界、中心線に於ける現在地盤高、計画断面、施工所面、地下埋設物の位置（新設）</td><td>幅員等が一定な場合は、図面を拡げた場合、中央部の上位になる断面について記入すればよい。異なる場合はその都度記入のこと。<br/>必要に応じ、側溝、擁壁、底面高を記入する。<br/>（着色）<br/>盛土断面…………緑<br/>切土　〃…………橙<br/>既竣功部分………薄墨</td></tr>
+<tr><td>構造図</td><td>1／50以下<br/>〜<br/>1／200</td><td>土被り寸法、鉄筋表、添付すべき図面、正面図、横断面図、縦断面図（側面図）、平面図、配筋図、（鉄筋詳細図）</td><td></td></tr>
+<tr><td>位置図</td><td>1／50,000以下</td><td>方位、延長</td><td></td></tr>
+<tr><td rowSpan={2}>道路補修工事</td><td>平面図</td><td>1／1,000以下</td><td>方位、工事起終点、距離標、測点延長、目地、舗装箇所、施工する構造物の位置、寸法、名称、仮ベンチマークの位置</td><td>（着色）<br/>工事起終点地先名<br/>施工箇所<br/>構造物延長、寸法<br/>…朱</td></tr>
+<tr><td>縦断面図</td><td>縦1／20<br/>横1／1,000</td><td>道路改良工事と同じ</td><td>道路改良工事と同じ</td></tr>
+</tbody>
+</table>
+</div>
 
-<img src="/content/general/design-manual/img/01-tbl-08.png" alt="道路工事の部 トンネル工事・道路舗装工事" />
+{/* 01-tbl-07: 道路工事の部 補修・橋梁・トンネル */}
+
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan={1}>道路補修工事</td><td>標準断面図（横断定規図）</td><td>1／50以下</td><td>舗装厚、幅員構成、構造物断面、寸法、横断勾配</td><td></td></tr>
+<tr><td rowSpan={4}>橋梁下部工事</td><td>位置図</td><td>1／50,000以下</td><td>方位、位置</td><td>位置………………<br/>本年度施工区間……<br/>…朱</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>方位、河川流下方向、堤防法線、角度、橋脚、橋台位置、取付道路</td><td></td></tr>
+<tr><td>一般図</td><td>1／200<br/>〜<br/>1／500</td><td>H.W.L.、L.W.L.、河川断面支間、井筒、基礎杭長、橋脚寸法、橋台寸法、桁下空間</td><td>地質図<br/>親柱、高欄のデザイン未決定の場合は描く必要なし。</td></tr>
+<tr><td>構造図</td><td>1／20<br/>〜<br/>1／1,000</td><td>寸法、角度、平面図、正面断面図、鉄筋詳細図</td><td>出来れば地質図を付けること。細部、構造詳細図を含む。</td></tr>
+<tr><td rowSpan={5}>橋梁上部工事</td><td>位置図</td><td>1／50,000以下</td><td>橋梁下部工と同じ</td><td>橋梁下部工と同じ</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>〃</td><td>〃</td></tr>
+<tr><td>一般図</td><td>1／200<br/>〜<br/>1／500</td><td>H.W.L.、L.W.L.、河川断面桁下高、橋脚、橋台、橋体寸法</td><td>支間、高欄、親柱<br/>橋面縦断勾配</td></tr>
+<tr><td>一般断面図</td><td>1／20<br/>〜<br/>1／100</td><td>床版、舗装厚、横断勾配、高欄、親柱、桁高、主桁間隔等</td><td></td></tr>
+<tr><td>構造図</td><td>1／50以下</td><td>構造詳細図、各構造図等</td><td>鋼材料表</td></tr>
+<tr><td rowSpan={4}>トンネル工事</td><td>位置図</td><td>1／50,000以下</td><td>方位、位置、延長、幅員</td><td>位置、延長、幅員………朱</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>方位、トンネル延長、切拡げ延長</td><td>トンネル延長<br/>切拡げ延長<br/>…朱</td></tr>
+<tr><td>縦断面図</td><td>縦1／100<br/>〜<br/>1／200<br/>横1／1,000</td><td>工事起終点、拱頂線、地質図、覆工、その他改良工事と同じ</td><td>道路改良工事と同じ</td></tr>
+<tr><td>標準断面図</td><td>1／30<br/>〜<br/>1／50</td><td>覆工、掘削順序、幅員構成、寸法、舗装、側溝</td><td>支保工断面図と重複させても良い。</td></tr>
+</tbody>
+</table>
+</div>
+
+{/* 01-tbl-08: 道路工事の部 トンネル・舗装 */}
+
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan={3}>トンネル工事</td><td>横断面図</td><td></td><td>道路改良工事と同じ</td><td></td></tr>
+<tr><td>坑内詳細図</td><td>1／50以下</td><td>寸法、正面、平面、側面図、鉄筋詳細図、鉄筋表、その他</td><td>坑内詳細図<br/>仮設備関係</td></tr>
+<tr><td>支保工詳細図<br/>型枠詳細図</td><td>1／50以下</td><td>諸寸法</td><td></td></tr>
+<tr><td rowSpan={5}>道路舗装工事</td><td>位置図（一般平面図）</td><td>1／50,000以下</td><td>方位、施工箇所延長</td><td>施工箇所延長………朱</td></tr>
+<tr><td>平面図</td><td>1／500<br/>〜<br/>1／1,000</td><td>方位、工事起終点、延長、測点、曲線設置諸元、仮ベンチマークの位置、構造物位置、寸法、目的</td><td>構造物位置、寸法は必要なもののみ</td></tr>
+<tr><td>縦断面図</td><td>縦1／20<br/>横1／1,000</td><td>道路改良工事と同じ</td><td></td></tr>
+<tr><td>標準断面図</td><td>1／50以下</td><td>舗装厚、横断勾配、路盤、幅員構成、目地詳細図</td><td></td></tr>
+<tr><td>横断面図</td><td>1／100<br/>〜<br/>1／200</td><td>道路改良工事と同じ</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+※下記については、参考図として設計図面の最後に添付する。
+
+線形図、座標図、擁壁・法枠等の展開図、橋梁設計計画図、仮設図（指定仮設以外）
 
 **(4) 機械設備工事の部**
 
-<img src="/content/general/design-manual/img/01-tbl-09.png" alt="機械設備工事の部 水門設備・揚排水ポンプ設備・トンネル換気設備" />
+{/* 01-tbl-09: 機械設備工事の部 前半 */}
 
-<img src="/content/general/design-manual/img/01-tbl-10.png" alt="機械設備工事の部 トンネル換気設備・道路排水設備・散水融雪設備" />
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan={9}>水門設備</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>施工箇所…○印</td></tr>
+<tr><td>水門全体図</td><td>標準<br/>1／300</td><td></td><td>側面図、平面図</td></tr>
+<tr><td>ゲート一般図</td><td>〃<br/>1／50</td><td>主要寸法</td><td>平面図、正面図、側面図</td></tr>
+<tr><td>箱抜図</td><td>〃<br/>1／50</td><td>主要寸法、差し筋寸法、本数</td><td>〃</td></tr>
+<tr><td>操作盤</td><td>〃1／10以下</td><td>寸法、厚、盤表示項目</td><td>機側、中央</td></tr>
+<tr><td>単線結線図</td><td></td><td>動力、制御</td><td>〃</td></tr>
+<tr><td>操作フロー図</td><td></td><td>制御</td><td>〃</td></tr>
+<tr><td>配管配線図</td><td>標準<br/>1／30以下</td><td>寸法、一次側、二次側</td><td></td></tr>
+<tr><td>配管配線系統図</td><td></td><td></td><td></td></tr>
+<tr><td rowSpan={9}>揚排水ポンプ設備</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>施工箇所…○印</td></tr>
+<tr><td>機場計画平面図</td><td>標準<br/>1／100</td><td>主要寸法、施工部着色</td><td></td></tr>
+<tr><td>機器据付平面図</td><td>標準<br/>1／60</td><td>〃</td><td></td></tr>
+<tr><td>機器据付断面図</td><td>〃<br/>1／60</td><td>〃</td><td></td></tr>
+<tr><td>操作盤</td><td>〃1／20以下</td><td>寸法、厚、盤表示項目</td><td>機側、中央</td></tr>
+<tr><td>箱抜図</td><td>〃1／50</td><td>主要寸法、差し筋寸法、本数</td><td>平面図、正面図、側面図</td></tr>
+<tr><td>単線結線図</td><td></td><td>動力、制御</td><td></td></tr>
+<tr><td>操作フロー図</td><td></td><td>制御</td><td>機側、中央</td></tr>
+<tr><td>配管配線図</td><td>標準<br/>1／30以下</td><td>寸法、一次側、二次側</td><td></td></tr>
+<tr><td></td><td>配管配線系統図</td><td></td><td></td><td></td></tr>
+<tr><td rowSpan={3}>トンネル機械設備</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>施工箇所…○印</td></tr>
+<tr><td>換気装置計測装置配置図</td><td>標準<br/>1／300</td><td>主要寸法</td><td></td></tr>
+<tr><td>換気装置据付図</td><td>標準<br/>1／50以下</td><td>トンネル断面寸法、据付寸法</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+{/* 01-tbl-10: 機械設備工事の部 後半 */}
+
+<div className="table-wrapper">
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan={7}>トンネル換気設備</td><td>換気装置構造図取付金具詳細図</td><td>標準1／15以下</td><td>寸法、名称、取付要領</td><td></td></tr>
+<tr><td>操作盤</td><td>〃1／20以下</td><td>寸法、厚、盤表示項目</td><td>機側、中央</td></tr>
+<tr><td>計測盤</td><td>〃</td><td>〃</td><td></td></tr>
+<tr><td>単線結線図</td><td></td><td>動力、制御</td><td></td></tr>
+<tr><td>操作フロー図</td><td></td><td>制御</td><td></td></tr>
+<tr><td>配管配線図</td><td>標準<br/>1／30以下</td><td>寸法、一次側、二次側</td><td></td></tr>
+<tr><td>配管配線系統図</td><td></td><td></td><td></td></tr>
+<tr><td rowSpan={9}>道路排水設備</td><td>位置図</td><td>1／50,000</td><td>施工箇所</td><td>施工箇所…○印</td></tr>
+<tr><td>機器据付平面図</td><td>標準1／50</td><td>主要寸法</td><td></td></tr>
+<tr><td>機器据付断面図</td><td>〃1／50</td><td>主要寸法</td><td></td></tr>
+<tr><td>機器据付断面図</td><td>〃1／50</td><td>〃</td><td></td></tr>
+<tr><td>操作盤</td><td>〃1／20以下</td><td>寸法、厚、盤表示項目</td><td>機側、中央</td></tr>
+<tr><td>単線結線図</td><td></td><td>動力、制御</td><td></td></tr>
+<tr><td>操作フロー図</td><td></td><td>制御</td><td>機側、中央</td></tr>
+<tr><td>配管配線図</td><td>標準<br/>1／30以下</td><td>寸法、一次側、二次側</td><td></td></tr>
+<tr><td>配管配線系統図</td><td></td><td></td><td></td></tr>
+<tr><td rowSpan={10}>散水融雪設備</td><td>位置図</td><td>1／50,000</td><td>散水延長、取水位置</td><td></td></tr>
+<tr><td>取水構造図</td><td>標準1／50</td><td>ポンプピット図、貯水槽</td><td>河川水、井戸水別</td></tr>
+<tr><td>除塵設備</td><td>標準1／20</td><td></td><td>河川水</td></tr>
+<tr><td>一般図<br/>配管平面図</td><td>標準<br/>1／1,000</td><td>送水管径、主要寸法延長</td><td></td></tr>
+<tr><td>ポンプ据付図</td><td>1／50</td><td>主要寸法、ポンプ廻り配管</td><td></td></tr>
+<tr><td>配管詳細図</td><td>1／10</td><td>送水管、散水管、バルブ等据付寸法</td><td></td></tr>
+<tr><td>操作盤</td><td>1／10以下</td><td>寸法、厚、盤表示項目</td><td></td></tr>
+<tr><td>単線結線図</td><td></td><td>動力、制御</td><td></td></tr>
+<tr><td>配管配線図</td><td>1／30以下</td><td>寸法、一次側、二次側</td><td></td></tr>
+<tr><td>配管配線系統図</td><td></td><td></td><td></td></tr>
+</tbody>
+</table>
+</div>
 
 #### 2-2 記載注意事項
 
@@ -278,7 +673,72 @@ sidebar_label: "第1章 設計一般"
 
 横断図の配置は、測点の番号順に矢印（→）の方向に配置する。また、原則として表題欄に重ならないようにする。
 
-<img src="/content/general/design-manual/img/01-fig-05.png" alt="図1-1-3 横断面図" />
+<svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '680px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`
+    text { font-family: "Noto Sans JP", sans-serif; }
+    .title { font-size: 12px; }
+    .label { font-size: 11px; }
+    .caption { font-size: 11px; }
+  `}</style>
+  {/* 左図: 道路・砂防関係 */}
+  <text x="155" y="16" textAnchor="middle" className="title">道路・砂防関係</text>
+  {/* 外枠 */}
+  <rect x="10" y="24" width="290" height="230" fill="none" stroke="#333" strokeWidth="2"/>
+  {/* 内枠 */}
+  <rect x="20" y="30" width="270" height="210" fill="none" stroke="#333" strokeWidth="1"/>
+  {/* 横断面セル 3列×3行 */}
+  {/* 1行目 */}
+  <rect x="30" y="38" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="118" y="38" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="206" y="38" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 2行目 */}
+  <rect x="30" y="100" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="118" y="100" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="206" y="100" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 3行目 */}
+  <rect x="30" y="162" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 表題欄 */}
+  <rect x="236" y="210" width="50" height="26" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 対角線矢印（左上→右下→左下） */}
+  <line x1="69" y1="38" x2="245" y2="152" stroke="#333" strokeWidth="1.5"/>
+  <polygon points="245,152 238,145 242,152" fill="#333"/>
+  <line x1="245" y1="152" x2="69" y2="214" stroke="#333" strokeWidth="1.5"/>
+  {/* ↑矢印（2列目上端） */}
+  <line x1="157" y1="90" x2="157" y2="40" stroke="#333" strokeWidth="1.2"/>
+  <polygon points="157,38 153,46 161,46" fill="#333"/>
+  {/* ラベル */}
+  <text x="155" y="274" textAnchor="middle" className="label">道路関係（道路・トンネル）、砂防</text>
+
+  {/* 右図: 河川・海岸関係 */}
+  <text x="510" y="16" textAnchor="middle" className="title">河川・海岸関係</text>
+  {/* 外枠 */}
+  <rect x="370" y="24" width="290" height="230" fill="none" stroke="#333" strokeWidth="2"/>
+  {/* 内枠 */}
+  <rect x="380" y="30" width="270" height="210" fill="none" stroke="#333" strokeWidth="1"/>
+  {/* 横断面セル 3列×3行 */}
+  {/* 1行目 */}
+  <rect x="390" y="38" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="478" y="38" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="566" y="38" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 2行目 */}
+  <rect x="390" y="100" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="478" y="100" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="566" y="100" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 3行目 */}
+  <rect x="390" y="162" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  <rect x="478" y="162" width="78" height="52" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 表題欄 */}
+  <rect x="596" y="210" width="50" height="26" fill="none" stroke="#333" strokeWidth="0.8"/>
+  {/* 対角線矢印（右上→左下→右中） */}
+  <line x1="605" y1="38" x2="429" y2="152" stroke="#333" strokeWidth="1.5"/>
+  <line x1="429" y1="152" x2="605" y2="214" stroke="#333" strokeWidth="1.5"/>
+  {/* ↓矢印（2列目） */}
+  <line x1="517" y1="90" x2="517" y2="152" stroke="#333" strokeWidth="1.2"/>
+  <polygon points="517,152 513,144 521,144" fill="#333"/>
+  {/* ラベル */}
+  <text x="510" y="274" textAnchor="middle" className="label">河川・海岸関係、管路</text>
+
+</svg>
 <p className="text-center">図1-1-3 横断面図</p>
 
 (a) 横断面の視方向
@@ -325,7 +785,59 @@ sidebar_label: "第1章 設計一般"
 >
 > 設計変更図面の表示（例）……元設計図面を使用する場合
 
-<img src="/content/general/design-manual/img/01-fig-06.png" alt="図1-1-4 設計変更図面" />
+<svg viewBox="0 0 640 280" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '640px', width: '100%', display: 'block', margin: '0 auto'}}>
+  <style>{`
+    text { font-family: "Noto Sans JP", sans-serif; font-size: 11px; }
+    .dim { font-size: 10px; }
+    .red { fill: #d00; font-size: 12px; font-weight: bold; }
+    .black { fill: #333; }
+  `}</style>
+  {/* 寸法線：コンクリート擁壁 */}
+  <text x="30" y="30" className="dim">コンクリート擁壁 H=1.0m</text>
+  <text x="380" y="30" className="dim">L=<tspan style={{textDecoration:'line-through'}}>115.0</tspan>m</text>
+  <text x="380" y="16" className="red">116.0</text>
+  {/* 寸法矢印 */}
+  <line x1="30" y1="38" x2="30" y2="50" stroke="#333" strokeWidth="0.8"/>
+  <line x1="560" y1="38" x2="560" y2="50" stroke="#333" strokeWidth="0.8"/>
+  <line x1="30" y1="44" x2="560" y2="44" stroke="#333" strokeWidth="0.8"/>
+  <polygon points="30,44 36,42 36,46" fill="#333"/>
+  <polygon points="560,44 554,42 554,46" fill="#333"/>
+
+  {/* 擁壁本体（左端の垂直壁） */}
+  <rect x="30" y="50" width="8" height="60" fill="#333"/>
+
+  {/* 上段：舗装面（太い線） */}
+  <line x1="38" y1="56" x2="570" y2="56" stroke="#333" strokeWidth="3"/>
+  <line x1="38" y1="62" x2="570" y2="62" stroke="#333" strokeWidth="1.5"/>
+
+  {/* 路面厚の層表現 */}
+  <line x1="38" y1="68" x2="570" y2="68" stroke="#333" strokeWidth="2.5"/>
+  <line x1="38" y1="73" x2="570" y2="73" stroke="#333" strokeWidth="0.5"/>
+
+  {/* 測点マーク（上段） */}
+  {[60,72,82,90,96,110,130,300,320,332,340,348,360,376,400].map((x,i) =>
+    <line key={`t1-${i}`} x1={x} y1="82" x2={x} y2={i%3===0?94:90} stroke="#333" strokeWidth="0.6"/>
+  )}
+
+  {/* 中段：杭列（丸＋横線） */}
+  <line x1="30" y1="130" x2="570" y2="130" stroke="#333" strokeWidth="1"/>
+  {[80,160,210,280,340,400,460,530].map((x,i) =>
+    <circle key={`c-${i}`} cx={x} cy={130} r={4} fill="none" stroke="#333" strokeWidth="1"/>
+  )}
+  {/* 杭間の短い横線 */}
+  {[120,185,245,310,370,430,495].map((x,i) =>
+    <line key={`d-${i}`} x1={x-8} y1="130" x2={x+8} y2="130" stroke="#333" strokeWidth="2.5"/>
+  )}
+
+  {/* 測点マーク（下段） */}
+  {[60,72,82,90,96,100,106,115,130,300,320,332,340,348,356,364,376,400].map((x,i) =>
+    <line key={`t2-${i}`} x1={x} y1="150" x2={x} y2={i%3===0?162:158} stroke="#333" strokeWidth="0.6"/>
+  )}
+
+  {/* 下段：基礎面（二重太線） */}
+  <line x1="30" y1="180" x2="570" y2="180" stroke="#333" strokeWidth="3"/>
+  <line x1="30" y1="188" x2="570" y2="188" stroke="#333" strokeWidth="3"/>
+</svg>
 <p className="text-center">図1-1-4 設計変更図面</p>
 
 当該変更数字を明瞭に判明できるよう朱色で着色する。
@@ -454,7 +966,38 @@ $$
 
 <p className="table-title">表1-1-4 丸鋼の標準寸法および単位質量</p>
 
-<img src="/content/general/design-manual/img/01-tbl-11.png" alt="表1-1-4 丸鋼の標準寸法および単位質量" />
+<div className="table-wrapper">
+
+| 径 (mm) | 断面積 (cm²) | 単位質量 (kg/m) | 径 (mm) | 断面積 (cm²) | 単位質量 (kg/m) |
+|---|---|---|---|---|---|
+| 6 | 0.2827 | 0.222 | (45) | 15.90 | 12.5 |
+| 7 | 0.3848 | 0.302 | 46 | 16.62 | 13.0 |
+| 8 | 0.5027 | 0.395 | 48 | 18.10 | 14.2 |
+| 9 | 0.6362 | 0.499 | 50 | 19.64 | 15.4 |
+| 10 | 0.7854 | 0.617 | (52) | 21.24 | 16.7 |
+| 11 | 0.9503 | 0.746 | 55 | 23.76 | 18.7 |
+| 12 | 1.131 | 0.888 | 56 | 24.63 | 19.3 |
+| 13 | 1.327 | 1.04 | 60 | 28.27 | 22.2 |
+| (14) | 1.539 | 1.21 | 64 | 32.17 | 25.3 |
+| 16 | 2.011 | 1.58 | 65 | 33.18 | 26.0 |
+| (18) | 2.545 | 2.00 | (68) | 36.32 | 28.5 |
+| 19 | 2.835 | 2.23 | 70 | 38.48 | 30.2 |
+| 20 | 3.142 | 2.47 | 75 | 44.18 | 34.7 |
+| 22 | 3.801 | 2.98 | 80 | 50.27 | 39.5 |
+| 24 | 4.524 | 3.55 | 85 | 56.75 | 44.5 |
+| 25 | 4.909 | 3.85 | 90 | 63.62 | 49.9 |
+| (27) | 5.726 | 4.49 | 95 | 70.88 | 55.6 |
+| 28 | 6.158 | 4.83 | 100 | 78.54 | 61.7 |
+| 30 | 7.069 | 5.55 | 110 | 95.03 | 74.6 |
+| 32 | 8.042 | 6.31 | 120 | 113.1 | 88.8 |
+| (33) | 8.553 | 6.71 | 130 | 132.7 | 104 |
+| 36 | 10.18 | 7.99 | 140 | 153.9 | 121 |
+| 38 | 11.34 | 8.90 | 150 | 176.7 | 139 |
+| (39) | 11.95 | 9.38 | 160 | 201.1 | 158 |
+| 42 | 13.85 | 10.9 | 180 | 254.5 | 200 |
+| | | | 200 | 314.2 | 247 |
+
+</div>
 
 :::note[出典]
 JIS G 3191
@@ -510,7 +1053,48 @@ JIS G 3191
 
 <p className="table-title">表1-1-8 平鋼の標準断面寸法とその断面積、単位質量</p>
 
-<img src="/content/general/design-manual/img/01-tbl-13.png" alt="表1-1-8 平鋼の標準断面寸法とその断面積、単位質量" />
+<div className="table-wrapper">
+
+| 厚さ (mm) | 幅 (mm) | 断面積 (cm²) | 単位質量 (kg/m) | 厚さ (mm) | 幅 (mm) | 断面積 (cm²) | 単位質量 (kg/m) | 厚さ (mm) | 幅 (mm) | 断面積 (cm²) | 単位質量 (kg/m) | 厚さ (mm) | 幅 (mm) | 断面積 (cm²) | 単位質量 (kg/m) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 4.5 | 25 | 1.125 | 0.88 | 9 | 180 | 16.20 | 12.7 | 16 | 300 | 48.00 | 37.7 | 25 | 180 | 45.00 | 35.3 |
+| 4.5 | 32 | 1.440 | 1.13 | 9 | 200 | 18.00 | 14.1 | 19 | 38 | 7.220 | 5.67 | 25 | 200 | 50.00 | 39.2 |
+| 4.5 | 38 | 1.710 | 1.34 | 9 | 230 | 20.70 | 16.2 | 19 | 44 | 8.360 | 6.56 | 25 | 230 | 57.50 | 45.1 |
+| 4.5 | 44 | 1.980 | 1.55 | 9 | 250 | 22.50 | 17.7 | 19 | 50 | 9.500 | 7.46 | 25 | 250 | 62.50 | 49.1 |
+| 4.5 | 50 | 2.250 | 1.77 | 12 | 25 | 3.000 | 2.36 | 19 | 65 | 12.35 | 9.69 | 25 | 280 | 70.00 | 55.0 |
+| 6 | 25 | 1.500 | 1.18 | 12 | 32 | 3.840 | 3.01 | 19 | 75 | 14.25 | 11.2 | 25 | 300 | 75.00 | 58.9 |
+| 6 | 32 | 1.920 | 1.51 | 12 | 33 | 4.560 | 3.58 | 19 | 90 | 17.10 | 13.4 | 28 | 100 | 28.00 | 22.0 |
+| 6 | 38 | 2.280 | 1.79 | 12 | 44 | 5.280 | 4.14 | 19 | 100 | 19.00 | 14.9 | 28 | 125 | 35.00 | 27.5 |
+| 6 | 44 | 2.640 | 2.07 | 12 | 50 | 6.000 | 4.71 | 19 | 125 | 23.75 | 18.6 | 28 | 150 | 42.00 | 33.0 |
+| 6 | 50 | 3.000 | 2.36 | 12 | 65 | 7.800 | 6.12 | 19 | 150 | 28.50 | 22.4 | 28 | 180 | 50.40 | 39.6 |
+| 6 | 65 | 3.900 | 3.06 | 12 | 75 | 9.000 | 7.06 | 19 | 180 | 34.20 | 26.8 | 28 | 200 | 56.00 | 44.0 |
+| 6 | 75 | 4.500 | 3.53 | 12 | 90 | 10.80 | 8.48 | 19 | 200 | 38.00 | 29.8 | 28 | 230 | 64.40 | 50.6 |
+| 6 | 90 | 5.400 | 4.24 | 12 | 100 | 12.00 | 9.42 | 19 | 230 | 45.70 | 34.3 | 28 | 250 | 70.00 | 55.0 |
+| 6 | 100 | 6.000 | 4.71 | 12 | 125 | 15.00 | 11.8 | 19 | 250 | 47.50 | 37.3 | 28 | 280 | 78.40 | 61.5 |
+| 6 | 125 | 7.500 | 5.89 | 12 | 150 | 18.00 | 14.1 | 19 | 280 | 53.20 | 41.8 | 28 | 300 | 84.00 | 65.9 |
+| 8 | 25 | 2.000 | 1.57 | 12 | 180 | 21.60 | 17.0 | 19 | 300 | 57.00 | 44.7 | 32 | 100 | 32.00 | 25.1 |
+| 8 | 32 | 2.560 | 2.01 | 12 | 200 | 24.00 | 18.8 | 22 | 50 | 11.00 | 8.64 | 32 | 125 | 40.00 | 31.4 |
+| 8 | 38 | 3.040 | 2.39 | 12 | 230 | 27.60 | 21.7 | 22 | 65 | 14.30 | 11.2 | 32 | 150 | 48.00 | 37.7 |
+| 8 | 44 | 3.520 | 2.76 | 12 | 250 | 30.00 | 23.6 | 22 | 75 | 16.50 | 13.0 | 32 | 180 | 57.60 | 45.2 |
+| 8 | 50 | 4.000 | 3.14 | 12 | 280 | 33.60 | 26.4 | 22 | 90 | 19.80 | 15.5 | 32 | 200 | 64.00 | 50.2 |
+| 8 | 65 | 5.200 | 4.08 | 12 | 300 | 36.00 | 28.3 | 22 | 100 | 22.00 | 17.3 | 32 | 230 | 73.60 | 57.8 |
+| 8 | 75 | 6.000 | 4.71 | 16 | 32 | 5.120 | 4.02 | 22 | 125 | 27.50 | 21.6 | 32 | 250 | 80.00 | 62.8 |
+| 8 | 90 | 7.200 | 5.65 | 16 | 38 | 6.080 | 4.77 | 22 | 150 | 33.00 | 25.9 | 32 | 280 | 89.60 | 70.3 |
+| 8 | 100 | 8.000 | 6.28 | 16 | 44 | 7.040 | 5.53 | 22 | 180 | 39.60 | 31.1 | 32 | 300 | 96.00 | 75.4 |
+| 8 | 125 | 10.00 | 7.85 | 16 | 50 | 8.000 | 6.28 | 22 | 200 | 44.00 | 34.5 | 36 | 100 | 36.00 | 28.3 |
+| 9 | 25 | 2.250 | 1.77 | 16 | 65 | 10.40 | 8.16 | 22 | 230 | 50.60 | 39.7 | 36 | 125 | 45.00 | 35.3 |
+| 9 | 32 | 2.880 | 2.26 | 16 | 75 | 12.00 | 9.42 | 22 | 250 | 55.00 | 43.2 | 36 | 150 | 54.00 | 42.4 |
+| 9 | 38 | 3.420 | 2.68 | 16 | 90 | 14.40 | 11.3 | 22 | 280 | 61.60 | 48.4 | 36 | 180 | 64.80 | 50.9 |
+| 9 | 44 | 3.960 | 3.11 | 16 | 100 | 16.00 | 12.6 | 22 | 300 | 66.00 | 51.8 | 36 | 200 | 72.00 | 56.5 |
+| 9 | 50 | 4.500 | 3.53 | 16 | 125 | 20.00 | 15.7 | 25 | 50 | 12.50 | 9.81 | 36 | 230 | 82.80 | 65.0 |
+| 9 | 65 | 5.850 | 4.59 | 16 | 150 | 24.00 | 18.8 | 25 | 65 | 16.25 | 12.8 | 36 | 250 | 90.00 | 70.6 |
+| 9 | 75 | 6.750 | 5.30 | 16 | 180 | 28.80 | 22.6 | 25 | 75 | 18.75 | 14.7 | 36 | 280 | 100.8 | 79.1 |
+| 9 | 90 | 8.100 | 6.36 | 16 | 200 | 32.00 | 25.1 | 25 | 90 | 22.50 | 17.7 | 36 | 300 | 108.0 | 84.8 |
+| 9 | 100 | 9.000 | 7.06 | 16 | 230 | 36.80 | 28.9 | 25 | 100 | 25.00 | 19.6 | | | | |
+| 9 | 125 | 11.25 | 8.83 | 16 | 250 | 40.00 | 31.4 | 25 | 125 | 31.25 | 24.5 | | | | |
+| 9 | 150 | 13.50 | 10.6 | 16 | 280 | 44.80 | 35.2 | 25 | 150 | 37.50 | 29.4 | | | | |
+
+</div>
 
 :::note[出典]
 JIS G 3194
@@ -520,7 +1104,52 @@ JIS G 3194
 
 <p className="table-title">表1-1-9 等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-14.png" alt="表1-1-9 等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| A×B | t | r₁ | r₂ | 断面積 (cm²) | 単位質量 (kg/m) | C<sub>x</sub> | C<sub>y</sub> | I<sub>x</sub> | I<sub>y</sub> (最大) | I<sub>y</sub> (最小) | i<sub>x</sub> | i<sub>y</sub> (最大) | i<sub>y</sub> (最小) | Z<sub>x</sub> | Z<sub>y</sub> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 25×25 | 3 | 4 | 2 | 1.427 | 1.12 | 0.719 | 0.719 | 0.797 | 1.26 | 0.332 | 0.747 | 0.940 | 0.483 | 0.449 | 0.448 |
+| 30×30 | 3 | 4 | 2 | 1.727 | 1.36 | 0.844 | 0.844 | 1.42 | 2.26 | 0.590 | 0.908 | 1.14 | 0.585 | 0.661 | 0.661 |
+| 40×40 | 3 | 4.5 | 2 | 2.336 | 1.83 | 1.09 | 3.53 | 3.53 | 5.60 | 1.46 | 1.23 | 1.55 | 0.790 | 1.21 | 1.21 |
+| 40×40 | 5 | 4.5 | 3 | 3.785 | 2.95 | 1.17 | 5.42 | 5.42 | 8.59 | 2.25 | 1.20 | 1.51 | 0.770 | 1.91 | 1.91 |
+| *45×45 | 4 | 6.5 | 3 | 3.492 | 2.74 | 1.24 | 6.50 | 6.50 | 10.3 | 2.70 | 1.36 | 1.72 | 0.880 | 2.00 | 2.00 |
+| *45×45 | 5 | 6.5 | 3 | 4.302 | 3.38 | 1.28 | 7.91 | 7.91 | 12.5 | 3.29 | 1.36 | 1.71 | 0.874 | 2.46 | 2.46 |
+| 50×50 | 4 | 6.5 | 3 | 3.892 | 3.06 | 1.37 | 9.06 | 9.06 | 14.4 | 3.76 | 1.53 | 1.92 | 0.983 | 2.49 | 2.49 |
+| *50×50 | 6 | 6.5 | 3 | 4.802 | 3.77 | 1.41 | 11.1 | 11.1 | 17.5 | 4.58 | 1.52 | 1.91 | 0.976 | 3.08 | 3.08 |
+| 50×50 | 6 | 6.5 | 4.5 | 5.644 | 4.43 | 1.44 | 12.6 | 12.6 | 20.0 | 5.23 | 1.50 | 1.88 | 0.963 | 3.55 | 3.55 |
+| *60×60 | 4 | 6.5 | 3 | 4.692 | 3.68 | 1.61 | 16.0 | 16.0 | 25.4 | 6.62 | 1.85 | 2.33 | 1.19 | 3.66 | 3.66 |
+| *60×60 | 5 | 6.5 | 3 | 5.802 | 4.55 | 1.66 | 19.6 | 19.6 | 31.2 | 8.09 | 1.84 | 2.32 | 1.18 | 4.52 | 4.52 |
+| *65×65 | 6 | 8.5 | 3 | 6.367 | 5.00 | 1.77 | 25.3 | 25.3 | 40.1 | 10.5 | 1.99 | 2.51 | 1.28 | 5.35 | 5.35 |
+| 65×65 | 6 | 8.5 | 4 | 7.527 | 5.91 | 1.81 | 29.4 | 29.4 | 46.6 | 12.2 | 1.98 | 2.49 | 1.27 | 6.26 | 6.26 |
+| 65×65 | 8 | 8.5 | 4 | 9.761 | 7.66 | 1.88 | 38.8 | 38.8 | 58.3 | 15.3 | 1.94 | 1.94 | 2.44 | 7.96 | 7.96 |
+| *70×70 | 6 | 8.5 | 4 | 8.127 | 6.38 | 1.93 | 37.1 | 37.1 | 58.9 | 15.3 | 2.14 | 2.14 | 2.69 | 7.53 | 7.53 |
+| 75×75 | 6 | 8.5 | 4 | 8.727 | 6.85 | 2.06 | 46.1 | 46.1 | 72.2 | 19.8 | 2.30 | 2.30 | 2.88 | 8.47 | 8.47 |
+| *75×75 | 9 | 8.5 | 6 | 12.69 | 9.96 | 2.17 | 64.4 | 64.4 | 102 | 26.7 | 2.25 | 2.25 | 2.84 | 12.1 | 12.1 |
+| 75×75 | 12 | 8.5 | 6 | 16.56 | 13.0 | 2.29 | 81.9 | 81.9 | 129 | 34.5 | 2.22 | 2.22 | 2.79 | 15.7 | 15.7 |
+| *80×80 | 6 | 8.5 | 4 | 9.327 | 7.32 | 2.18 | 56.4 | 56.4 | 89.6 | 23.2 | 2.46 | 2.46 | 3.10 | 9.70 | 9.70 |
+| *90×90 | 6 | 10 | 5 | 10.55 | 8.28 | 2.42 | 80.7 | 80.7 | 128 | 33.4 | 2.77 | 2.77 | 3.48 | 12.3 | 12.3 |
+| 90×90 | 7 | 10 | 5 | 12.22 | 9.59 | 2.46 | 93.0 | 93.0 | 148 | 38.3 | 2.76 | 2.76 | 3.46 | 14.2 | 14.2 |
+| 90×90 | 10 | 10 | 7 | 17.00 | 13.3 | 2.57 | 125 | 125 | 199 | 51.7 | 2.71 | 2.71 | 3.42 | 19.5 | 19.5 |
+| 90×90 | 13 | 10 | 7 | 21.71 | 17.0 | 2.69 | 156 | 156 | 248 | 65.3 | 2.68 | 2.68 | 3.38 | 24.8 | 24.8 |
+| 100×100 | 7 | 10 | 5 | 13.62 | 10.7 | 2.71 | 129 | 129 | 205 | 53.2 | 3.08 | 3.08 | 3.88 | 17.7 | 17.7 |
+| 100×100 | 10 | 10 | 7 | 19.00 | 14.9 | 2.82 | 175 | 175 | 278 | 72.0 | 3.04 | 3.04 | 3.83 | 24.4 | 24.4 |
+| 100×100 | 13 | 10 | 7 | 24.31 | 19.1 | 2.94 | 220 | 220 | 348 | 91.1 | 3.00 | 3.00 | 3.78 | 31.1 | 31.1 |
+| *120×120 | 8 | 12 | 5 | 18.76 | 14.7 | 3.24 | 258 | 258 | 410 | 106 | 3.71 | 3.71 | 4.67 | 29.5 | 29.5 |
+| 130×130 | 9 | 12 | 6 | 22.74 | 17.9 | 3.53 | 366 | 366 | 583 | 150 | 4.01 | 4.01 | 5.06 | 38.7 | 38.7 |
+| 130×130 | 10 | 12 | 6.5 | 29.76 | 23.4 | 3.64 | 467 | 467 | 743 | 192 | 3.96 | 3.96 | 5.00 | 49.9 | 49.9 |
+| 130×130 | 12 | 12 | 8.5 | 36.75 | 28.8 | 3.76 | 568 | 568 | 902 | 234 | 3.93 | 3.93 | 4.95 | 61.5 | 61.5 |
+| 150×150 | 12 | 14 | 7 | 34.77 | 27.3 | 4.14 | 740 | 740 | 1180 | 304 | 4.61 | 4.61 | 5.82 | 68.1 | 68.1 |
+| 150×150 | 15 | 14 | 10 | 42.74 | 33.6 | 4.24 | 888 | 888 | 1410 | 365 | 4.56 | 4.56 | 5.75 | 82.6 | 82.6 |
+| 150×150 | 19 | 14 | 10 | 53.38 | 41.9 | 4.40 | 1090 | 1090 | 1730 | 451 | 4.52 | 4.52 | 5.69 | 103 | 103 |
+| *175×175 | 12 | 15 | 11 | 40.52 | 31.8 | 4.73 | 1170 | 1170 | 1860 | 480 | 5.38 | 5.38 | 6.78 | 91.8 | 91.8 |
+| *175×175 | 15 | 15 | 11 | 50.21 | 39.4 | 4.85 | 1440 | 1440 | 2290 | 589 | 5.35 | 5.35 | 6.75 | 114 | 114 |
+| 200×200 | 15 | 17 | 12 | 57.75 | 45.3 | 5.46 | 2180 | 2180 | 3470 | 891 | 6.14 | 6.14 | 7.75 | 150 | 150 |
+| 200×200 | 20 | 17 | 12 | 76.00 | 59.7 | 5.67 | 2820 | 2820 | 4490 | 1160 | 6.09 | 6.09 | 7.68 | 197 | 197 |
+| 200×200 | 25 | 17 | 12 | 93.75 | 73.6 | 5.86 | 3420 | 3420 | 5440 | 1410 | 6.00 | 6.00 | 7.61 | 242 | 242 |
+| *250×250 | 25 | 24 | 12 | 119.4 | 93.7 | 7.10 | 6950 | 6950 | 11000 | 2860 | 7.63 | 7.63 | 9.62 | 388 | 388 |
+| 250×250 | 35 | 24 | 18 | 162.6 | 128 | 7.45 | 9110 | 9110 | 14400 | 3790 | 7.49 | 7.49 | 9.42 | 519 | 519 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -528,7 +1157,23 @@ JIS G 3192
 
 <p className="table-title">表1-1-10 T形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-15.png" alt="表1-1-10 T形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| 呼称寸法 B×t₂ | B | H | t₁ | t₂ | r₁ | r₂ | 断面積 (cm²) | 単位質量 (kg/m) | C<sub>x</sub> | C<sub>y</sub> | I<sub>x</sub> (cm⁴) | I<sub>y</sub> (cm⁴) | i<sub>x</sub> (cm) | i<sub>y</sub> (cm) | Z<sub>x</sub> (cm³) | Z<sub>y</sub> (cm³) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 150×9 | 150 | 39 | 12 | 9 | 8 | 3 | 18.52 | 14.5 | 0.934 | 0 | 16.5 | 254 | 0.942 | 3.70 | 5.55 | 33.8 |
+| 150×12 | 150 | 42 | 12 | 12 | 8 | 3 | 23.02 | 18.1 | 1.02 | 0 | 20.7 | 338 | 0.949 | 3.83 | 6.52 | 45.1 |
+| 150×15 | 150 | 45 | 12 | 15 | 8 | 3 | 27.52 | 21.6 | 1.13 | 0 | 25.9 | 423 | 0.971 | 3.92 | 7.70 | 56.4 |
+| 200×12 | 200 | 42 | 12 | 12 | 8 | 3 | 29.02 | 22.8 | 0.935 | 0 | 22.3 | 799 | 0.877 | 5.25 | 6.83 | 79.9 |
+| 200×16 | 200 | 46 | 12 | 16 | 8 | 3 | 37.02 | 29.1 | 1.09 | 0 | 30.5 | 1070 | 0.907 | 5.37 | 8.68 | 107 |
+| 200×19 | 200 | 49 | 12 | 19 | 8 | 3 | 43.02 | 33.8 | 1.22 | 0 | 38.5 | 1270 | 0.946 | 5.43 | 10.4 | 127 |
+| 200×22 | 200 | 52 | 12 | 22 | 8 | 3 | 49.02 | 38.5 | 1.35 | 0 | 48.3 | 1470 | 0.993 | 5.47 | 12.6 | 147 |
+| 250×16 | 250 | 46 | 12 | 16 | 20 | 3 | 46.05 | 36.2 | 1.06 | 0 | 33.6 | 2080 | 0.854 | 6.72 | 9.49 | 167 |
+| 250×19 | 250 | 49 | 12 | 19 | 20 | 3 | 53.55 | 42.0 | 1.19 | 0 | 43.1 | 2470 | 0.897 | 6.80 | 11.6 | 198 |
+| 250×22 | 250 | 52 | 12 | 22 | 20 | 3 | 61.05 | 47.9 | 1.33 | 0 | 55.0 | 2870 | 0.949 | 6.85 | 14.2 | 229 |
+| 250×25 | 250 | 55 | 12 | 25 | 20 | 3 | 68.55 | 53.8 | 1.46 | 0 | 69.6 | 3260 | 1.01 | 6.90 | 17.2 | 261 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -536,7 +1181,25 @@ JIS G 3192
 
 <p className="table-title">表1-1-11 不等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-16.png" alt="表1-1-11 不等辺山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| A×B | t | r₁ | r₂ | 断面積 (cm²) | 単位質量 (kg/m) | C<sub>x</sub> | C<sub>y</sub> | I<sub>x</sub> | I<sub>y</sub> (最大) | I<sub>y</sub> (最小) | i<sub>x</sub> | i<sub>y</sub> | i (最大) | i (最小) | tan α | Z<sub>x</sub> | Z<sub>y</sub> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 90×75 | 9 | 8.5 | 6 | 14.04 | 11.0 | 2.75 | 2.00 | 109 | 68.1 | 143 | 34.1 | 2.78 | 2.20 | 3.19 | 1.56 | 0.676 | 17.4 | 12.4 |
+| 100×75 | 7 | 10 | 5 | 11.87 | 9.32 | 3.06 | 1.83 | 118 | 56.9 | 144 | 30.8 | 3.15 | 2.19 | 3.49 | 1.61 | 0.548 | 17.0 | 10.0 |
+| 100×75 | 10 | 10 | 7 | 16.50 | 13.0 | 3.17 | 1.94 | 159 | 76.1 | 194 | 41.3 | 3.11 | 2.15 | 3.43 | 1.58 | 0.543 | 23.3 | 13.7 |
+| 125×75 | 7 | 10 | 5 | 13.62 | 10.7 | 4.10 | 1.64 | 219 | 60.4 | 243 | 36.4 | 4.01 | 2.11 | 4.23 | 1.64 | 0.362 | 26.1 | 10.3 |
+| 125×75 | 10 | 10 | 7 | 19.00 | 14.9 | 4.22 | 1.75 | 299 | 80.8 | 330 | 49.6 | 3.96 | 2.06 | 4.17 | 1.61 | 0.357 | 36.1 | 14.1 |
+| *125×75 | 13 | 10 | 7 | 24.31 | 19.1 | 4.35 | 1.87 | 376 | 101 | 415 | 61.9 | 3.93 | 2.04 | 4.13 | 1.60 | 0.352 | 46.1 | 17.9 |
+| 125×90 | 10 | 10 | 7 | 20.50 | 16.1 | 3.95 | 2.22 | 318 | 138 | 380 | 76.2 | 3.94 | 2.59 | 4.30 | 1.93 | 0.505 | 37.2 | 20.3 |
+| *125×90 | 13 | 10 | 7 | 26.26 | 20.6 | 4.07 | 2.34 | 401 | 173 | 477 | 96.3 | 3.91 | 2.57 | 4.26 | 1.91 | 0.501 | 47.5 | 25.9 |
+| 150×90 | 9 | 12 | 6 | 20.94 | 16.4 | 4.95 | 1.99 | 485 | 133 | 537 | 80.4 | 4.81 | 2.52 | 5.06 | 1.96 | 0.361 | 48.2 | 19.0 |
+| 150×90 | 12 | 12 | 8.5 | 27.36 | 21.5 | 5.07 | 2.10 | 619 | 167 | 685 | 102 | 4.76 | 2.47 | 5.00 | 1.93 | 0.357 | 62.3 | 24.3 |
+| *150×100 | 9 | 12 | 6 | 21.84 | 17.1 | 4.76 | 2.30 | 502 | 181 | 579 | 104 | 4.79 | 2.88 | 5.15 | 2.18 | 0.439 | 49.1 | 23.5 |
+| *150×100 | 12 | 12 | 8.5 | 28.56 | 22.4 | 4.88 | 2.41 | 642 | 228 | 738 | 132 | 4.74 | 2.83 | 5.09 | 2.15 | 0.435 | 63.4 | 30.1 |
+| *150×100 | 15 | 12 | 8.5 | 35.25 | 27.7 | 5.00 | 2.53 | 782 | 276 | 897 | 161 | 4.71 | 2.80 | 5.04 | 2.14 | 0.431 | 78.2 | 37.0 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -544,7 +1207,19 @@ JIS G 3192
 
 <p className="table-title">表1-1-12 不等辺不等厚山形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-17.png" alt="表1-1-12 不等辺不等厚山形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| A×B | t₁ | t₂ | r₁ | r₂ | 断面積 (cm²) | 単位質量 (kg/m) | C<sub>x</sub> | C<sub>y</sub> | I<sub>x</sub> | I<sub>y</sub> (最大) | I<sub>y</sub> (最小) | i<sub>x</sub> | i<sub>y</sub> | i (最大) | i (最小) | tan α | Z<sub>x</sub> | Z<sub>y</sub> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 200×90 | 9 | 14 | 14 | 7 | 29.66 | 23.3 | 6.36 | 2.15 | 1210 | 200 | 1290 | 125 | 6.39 | 2.60 | 6.58 | 2.05 | 0.263 | 88.7 | 29.2 |
+| 250×90 | 10 | 15 | 17 | 8.5 | 37.47 | 29.4 | 8.61 | 1.92 | 2440 | 223 | 2520 | 147 | 8.08 | 2.44 | 8.20 | 1.98 | 0.182 | 149 | 31.5 |
+| 250×90 | 12 | 16 | 17 | 8.5 | 42.95 | 33.7 | 8.99 | 1.89 | 2790 | 238 | 2870 | 160 | 8.07 | 2.35 | 8.18 | 1.93 | 0.173 | 174 | 33.5 |
+| 300×90 | 11 | 16 | 19 | 9.5 | 46.22 | 36.3 | 11.0 | 1.76 | 4370 | 245 | 4440 | 168 | 9.72 | 2.30 | 9.80 | 1.90 | 0.136 | 229 | 33.8 |
+| 300×90 | 13 | 17 | 19 | 9.5 | 52.67 | 41.3 | 11.3 | 1.75 | 4940 | 259 | 5020 | 181 | 9.68 | 2.22 | 9.76 | 1.85 | 0.128 | 265 | 35.8 |
+| 350×100 | 12 | 17 | 22 | 11 | 57.74 | 45.3 | 13.0 | 1.87 | 7440 | 362 | 7550 | 251 | 11.3 | 2.50 | 11.4 | 2.08 | 0.124 | 338 | 44.5 |
+| 400×100 | 13 | 18 | 24 | 12 | 68.59 | 53.8 | 15.4 | 1.77 | 11500 | 388 | 11600 | 277 | 12.9 | 2.38 | 13.0 | 2.01 | 0.0996 | 467 | 47.1 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -552,7 +1227,32 @@ JIS G 3192
 
 <p className="table-title">表1-1-13 I形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-18.png" alt="表1-1-13 I形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| H×B | t₁ | t₂ | r₁ | r₂ | 断面積 (cm²) | 単位質量 (kg/m) | C<sub>x</sub> | C<sub>y</sub> | I<sub>x</sub> (cm⁴) | I<sub>y</sub> (cm⁴) | i<sub>x</sub> (cm) | i<sub>y</sub> (cm) | Z<sub>x</sub> (cm³) | Z<sub>y</sub> (cm³) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| *100×75 | 5 | 8 | 7 | 3.5 | 16.43 | 12.9 | 0 | 0 | 281 | 47.3 | 4.14 | 1.70 | 56.2 | 12.6 |
+| *125×75 | 5.5 | 9.5 | 9 | 4.5 | 20.45 | 16.1 | 0 | 0 | 538 | 57.5 | 5.13 | 1.68 | 86.0 | 15.3 |
+| 150×75 | 5.5 | 9.5 | 9 | 4.5 | 21.83 | 17.1 | 0 | 0 | 819 | 57.5 | 6.12 | 1.62 | 109 | 15.3 |
+| *150×125 | 8.5 | 14 | 13 | 6.5 | 46.15 | 36.2 | 0 | 0 | 1760 | 385 | 6.18 | 2.89 | 235 | 61.6 |
+| *180×100 | 6 | 10 | 10 | 5 | 30.06 | 23.6 | 0 | 0 | 1670 | 138 | 7.45 | 2.14 | 186 | 27.5 |
+| 200×100 | 7 | 10 | 10 | 5 | 33.06 | 26.0 | 0 | 0 | 2170 | 138 | 8.11 | 2.05 | 217 | 27.7 |
+| *200×150 | 9 | 16 | 15 | 7.5 | 64.16 | 50.4 | 0 | 0 | 4460 | 753 | 8.34 | 3.43 | 446 | 10.0 |
+| 250×125 | 7.5 | 12.5 | 12 | 6 | 48.79 | 38.3 | 0 | 0 | 5180 | 337 | 10.3 | 2.63 | 414 | 53.9 |
+| 250×125 | 10 | 19 | 21 | 10.5 | 70.73 | 55.5 | 0 | 0 | 7310 | 538 | 10.2 | 2.76 | 585 | 86.0 |
+| 300×150 | 8 | 13 | 12 | 6 | 61.58 | 48.3 | 0 | 0 | 9480 | 588 | 12.4 | 3.09 | 632 | 78.4 |
+| 300×150 | 10 | 18.5 | 19 | 9.5 | 83.47 | 65.5 | 0 | 0 | 12700 | 886 | 12.3 | 3.26 | 849 | 118 |
+| 300×150 | 11.5 | 22 | 23 | 11.5 | 97.88 | 76.8 | 0 | 0 | 14700 | 1080 | 12.2 | 3.32 | 978 | 143 |
+| 350×150 | 9 | 15 | 13 | 6.5 | 74.58 | 58.5 | 0 | 0 | 15200 | 702 | 14.3 | 3.07 | 870 | 93.5 |
+| 350×150 | 12 | 24 | 25 | 12.5 | 111.1 | 87.2 | 0 | 0 | 22400 | 1180 | 14.2 | 3.26 | 1280 | 158 |
+| 400×150 | 10 | 18 | 17 | 8.5 | 91.73 | 72.0 | 0 | 0 | 24100 | 864 | 16.2 | 3.07 | 1200 | 115 |
+| 400×150 | 12.5 | 25 | 27 | 13.5 | 122.1 | 95.8 | 0 | 0 | 31700 | 1240 | 16.1 | 3.18 | 1580 | 165 |
+| 450×175 | 11 | 20 | 19 | 9.5 | 116.8 | 91.7 | 0 | 0 | 39200 | 1510 | 18.3 | 3.60 | 1740 | 173 |
+| 450×175 | 13 | 26 | 27 | 13.5 | 146.1 | 115 | 0 | 0 | 48800 | 2020 | 18.3 | 3.72 | 2170 | 231 |
+| *600×190 | 13 | 25 | 25 | 12.5 | 169.4 | 133 | 0 | 0 | 98400 | 2460 | 24.1 | 3.81 | 3280 | 259 |
+| *600×190 | 16 | 35 | 38 | 19 | 224.5 | 176 | 0 | 0 | 130000 | 3540 | 24.1 | 3.97 | 4330 | 373 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -560,7 +1260,28 @@ JIS G 3192
 
 <p className="table-title">表1-1-14 みぞ形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-19.png" alt="表1-1-14 みぞ形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| H×B | t₁ | t₂ | r₁ | r₂ | 断面積 (cm²) | 単位質量 (kg/m) | C<sub>x</sub> | C<sub>y</sub> | I<sub>x</sub> (cm⁴) | I<sub>y</sub> (cm⁴) | i<sub>x</sub> (cm) | i<sub>y</sub> (cm) | Z<sub>x</sub> (cm³) | Z<sub>y</sub> (cm³) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 75×40 | 5 | 7 | 8 | 4 | 8.818 | 6.92 | 0 | 1.28 | 75.3 | 12.2 | 2.92 | 1.17 | 20.1 | 4.47 |
+| 100×50 | 5 | 7.5 | 8 | 4 | 11.92 | 9.36 | 0 | 1.54 | 188 | 26.0 | 3.97 | 1.48 | 37.6 | 7.52 |
+| 125×65 | 6 | 8 | 8 | 4 | 17.11 | 13.4 | 0 | 1.90 | 424 | 61.8 | 4.98 | 1.90 | 67.8 | 13.4 |
+| 150×75 | 6.5 | 10 | 10 | 5 | 23.71 | 18.6 | 0 | 2.28 | 861 | 117 | 6.03 | 2.22 | 115 | 22.4 |
+| 150×75 | 9 | 12.5 | 15 | 7.5 | 30.59 | 24.0 | 0 | 2.31 | 1050 | 147 | 5.86 | 2.19 | 140 | 28.3 |
+| 180×75 | 7 | 10.5 | 11 | 5.5 | 27.20 | 21.4 | 0 | 2.13 | 1380 | 131 | 7.12 | 2.19 | 153 | 24.3 |
+| 200×80 | 7.5 | 11 | 12 | 6 | 31.33 | 24.6 | 0 | 2.21 | 1950 | 168 | 7.88 | 2.32 | 195 | 29.1 |
+| 200×90 | 8 | 13.5 | 14 | 7 | 38.65 | 30.3 | 0 | 2.74 | 2490 | 277 | 8.02 | 2.68 | 249 | 44.2 |
+| 250×90 | 9 | 13 | 14 | 7 | 44.07 | 34.6 | 0 | 2.40 | 4180 | 294 | 9.74 | 2.58 | 334 | 44.5 |
+| 250×90 | 11 | 14.5 | 17 | 8.5 | 51.17 | 40.2 | 0 | 2.40 | 4680 | 329 | 9.56 | 2.54 | 374 | 49.9 |
+| 300×90 | 9 | 13 | 14 | 7 | 48.57 | 38.1 | 0 | 2.22 | 6440 | 309 | 11.5 | 2.52 | 429 | 45.7 |
+| 300×90 | 10 | 15.5 | 19 | 9.5 | 55.74 | 43.8 | 0 | 2.34 | 7410 | 360 | 11.5 | 2.54 | 494 | 54.1 |
+| 300×90 | 12 | 16 | 19 | 9.5 | 61.90 | 48.6 | 0 | 2.28 | 7870 | 379 | 11.3 | 2.48 | 525 | 56.4 |
+| 380×100 | 10.5 | 16 | 18 | 9 | 69.39 | 54.5 | 0 | 2.41 | 14500 | 535 | 14.5 | 2.78 | 763 | 70.5 |
+| *380×100 | 13 | 16.5 | 18 | 9 | 78.96 | 62.0 | 0 | 2.33 | 15600 | 565 | 14.1 | 2.67 | 823 | 73.6 |
+| 380×100 | 13 | 20 | 24 | 12 | 85.71 | 67.3 | 0 | 2.54 | 17600 | 655 | 14.3 | 2.76 | 926 | 87.8 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -568,7 +1289,16 @@ JIS G 3192
 
 <p className="table-title">表1-1-15 球平形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-20.png" alt="表1-1-15 球平形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| A | t | d | r₁ | r₂ | 断面積 (cm²) | 単位質量 (kg/m) | C<sub>x</sub> | C<sub>y</sub> | I<sub>x</sub> | I<sub>y</sub> (最大) | I<sub>y</sub> (最小) | i<sub>x</sub> | i<sub>y</sub> | i (最大) | i (最小) | tan α | Z<sub>x</sub> | Z<sub>y</sub> |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 180 | 9.5 | 23 | 7 | 2 | 21.06 | 16.5 | 7.49 | 0.746 | 671 | 9.48 | 673 | 7.34 | 5.64 | 0.671 | 5.65 | 0.591 | 0.0568 | 63.8 | 3.79 |
+| 200 | 10 | 26.5 | 8 | 2 | 25.23 | 19.8 | 8.16 | 0.838 | 997 | 15.1 | 1000 | 11.4 | 6.29 | 0.773 | 6.30 | 0.672 | 0.0611 | 84.2 | 5.35 |
+| 230 | 11 | 30 | 9 | 2 | 31.98 | 25.1 | 9.36 | 0.927 | 1680 | 24.2 | 1680 | 18.3 | 7.24 | 0.870 | 7.25 | 0.755 | 0.0599 | 123 | 7.62 |
+| 250 | 12 | 33 | 10 | 2 | 38.13 | 29.9 | 10.1 | 1.02 | 2360 | 35.2 | 2370 | 26.4 | 7.87 | 0.960 | 7.88 | 0.832 | 0.0612 | 159 | 10.1 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -576,7 +1306,50 @@ JIS G 3192
 
 <p className="table-title">表1-1-16 H形鋼の標準断面寸法とその断面積、単位質量、断面特性</p>
 
-<img src="/content/general/design-manual/img/01-tbl-21.png" alt="表1-1-16 H形鋼の標準断面寸法とその断面積、単位質量、断面特性" />
+<div className="table-wrapper">
+
+| 呼称寸法 | H | B | t₁ | t₂ | r | 断面積 (cm²) | 単位質量 (kg/m) | I<sub>x</sub> (cm⁴) | I<sub>y</sub> (cm⁴) | i<sub>x</sub> (cm) | i<sub>y</sub> (cm) | Z<sub>x</sub> (cm³) | Z<sub>y</sub> (cm³) |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| 100×100 | 100 | 100 | 6 | 8 | 8 | 21.59 | 16.9 | 378 | 134 | 4.18 | 2.49 | 75.6 | 26.7 |
+| 125×125 | 125 | 125 | 6.5 | 9 | 8 | 30.00 | 23.6 | 839 | 293 | 5.29 | 3.13 | 134 | 46.9 |
+| 150×150 | 150 | 150 | 7 | 10 | 8 | 39.65 | 31.1 | 1,620 | 563 | 6.40 | 3.77 | 216 | 75.1 |
+| 175×175 | 175 | 175 | 7.5 | 11 | 13 | 51.42 | 40.4 | 2,900 | 984 | 7.50 | 4.37 | 331 | 112 |
+| 200×200 | 200 | 200 | 8 | 12 | 13 | 63.53 | 49.9 | 4,720 | 1,600 | 8.62 | 5.02 | 472 | 160 |
+| 250×250 | 250 | 250 | 9 | 14 | 13 | 91.43 | 71.8 | 10,700 | 3,650 | 10.8 | 6.32 | 860 | 292 |
+| 300×300 | 300 | 300 | 10 | 15 | 13 | 118.4 | 93.0 | 20,200 | 6,750 | 13.1 | 7.55 | 1,350 | 450 |
+| 350×350 | 350 | 350 | 12 | 19 | 13 | 171.9 | 135 | 39,800 | 13,600 | 15.2 | 8.89 | 2,280 | 776 |
+| 400×400 (13) | 400 | 400 | 13 | 21 | 22 | 218.7 | 172 | 66,600 | 22,400 | 17.5 | 10.1 | 3,330 | 1,120 |
+| 400×400 (18) | 414 | 405 | 18 | 28 | 22 | 295.4 | 232 | 92,800 | 31,000 | 17.7 | 10.2 | 4,480 | 1,530 |
+| 400×400 (20) | 407 | 405 | 20 | 35 | 22 | 360.7 | 283 | 119,000 | 39,400 | 18.2 | 10.4 | 5,570 | 1,930 |
+| 400×400 (30) | 428 | 407 | 30 | 50 | 22 | 528.6 | 415 | 187,000 | 60,500 | 18.8 | 10.7 | 8,170 | 2,900 |
+| 400×400 (45) | 458 | 417 | 45 | 70 | 22 | 770.1 | 605 | 298,000 | 94,400 | 19.7 | 11.1 | 12,000 | 4,370 |
+| 150×100 | 148 | 100 | 6 | 9 | 8 | 26.35 | 20.7 | 1,000 | 150 | 6.17 | 2.39 | 135 | 30.1 |
+| 200×150 | 294 | 150 | 6 | 9 | 8 | 38.11 | 29.9 | 2,630 | 507 | 8.30 | 3.65 | 271 | 67.6 |
+| 250×175 | 244 | 175 | 7 | 11 | 13 | 55.49 | 43.6 | 6,040 | 984 | 10.4 | 4.21 | 495 | 112 |
+| 300×200 | 194 | 200 | 8 | 12 | 13 | 71.05 | 55.8 | 11,100 | 1,600 | 12.5 | 4.75 | 756 | 160 |
+| 350×250 | 340 | 250 | 9 | 14 | 13 | 99.53 | 78.1 | 21,200 | 3,650 | 14.6 | 6.05 | 1,250 | 292 |
+| 400×300 | 390 | 300 | 10 | 16 | 13 | 133.2 | 105 | 37,900 | 7,200 | 16.9 | 7.35 | 1,940 | 480 |
+| 450×300 | 440 | 300 | 11 | 18 | 13 | 153.9 | 121 | 54,700 | 8,110 | 18.9 | 7.26 | 2,490 | 540 |
+| 500×300 | 488 | 300 | 11 | 18 | 13 | 159.2 | 125 | 68,900 | 8,110 | 20.8 | 7.14 | 2,820 | 540 |
+| 600×300 | 588 | 300 | 12 | 20 | 13 | 187.2 | 147 | 114,000 | 9,010 | 24.7 | 6.94 | 3,890 | 601 |
+| 700×300 | 700 | 300 | 13 | 24 | 18 | 231.5 | 182 | 197,000 | 10,800 | 29.2 | 6.83 | 5,640 | 721 |
+| 800×300 | 800 | 300 | 14 | 26 | 18 | 263.5 | 207 | 286,000 | 11,700 | 33.0 | 6.67 | 7,160 | 781 |
+| 900×300 (15) | 890 | 299 | 15 | 23 | 18 | 266.9 | 210 | 339,000 | 10,300 | 35.6 | 6.20 | 7,610 | 687 |
+| 900×300 (16) | 900 | 300 | 16 | 28 | 18 | 305.8 | 240 | 404,000 | 12,600 | 36.4 | 6.43 | 8,990 | 842 |
+| 900×300 (18) | 912 | 302 | 18 | 34 | 18 | 360.1 | 283 | 491,000 | 15,700 | 36.9 | 6.59 | 10,800 | 1,040 |
+| 900×300 (19) | 918 | 303 | 19 | 37 | 18 | 387.4 | 304 | 535,000 | 17,200 | 37.2 | 6.67 | 11,700 | 1,140 |
+| 150×75 | 150 | 75 | 5 | 7 | 8 | 17.85 | 14.0 | 666 | 49.5 | 6.11 | 1.66 | 88.8 | 13.2 |
+| 175×90 | 175 | 90 | 5 | 8 | 8 | 22.90 | 18.0 | 1,210 | 97.5 | 7.26 | 2.06 | 138 | 21.7 |
+| 200×100 | 200 | 100 | 5.5 | 8 | 8 | 26.67 | 20.9 | 1,810 | 137 | 8.23 | 2.24 | 181 | 26.7 |
+| 250×125 | 250 | 125 | 6 | 9 | 8 | 36.97 | 29.0 | 3,960 | 294 | 10.4 | 2.82 | 317 | 47.0 |
+| 300×150 | 300 | 150 | 6.5 | 9 | 13 | 46.78 | 36.7 | 7,210 | 508 | 12.4 | 3.29 | 481 | 67.7 |
+| 350×175 | 350 | 175 | 7 | 11 | 13 | 62.91 | 49.4 | 13,500 | 984 | 14.6 | 3.96 | 771 | 112 |
+| 400×200 | 400 | 200 | 8 | 13 | 13 | 83.37 | 65.4 | 23,500 | 1,740 | 16.8 | 4.56 | 1,170 | 174 |
+| 450×200 | 450 | 200 | 9 | 14 | 13 | 95.43 | 74.9 | 32,900 | 1,870 | 18.6 | 4.43 | 1,460 | 187 |
+| 500×200 | 500 | 200 | 10 | 16 | 13 | 112.2 | 88.2 | 46,800 | 2,140 | 20.4 | 4.36 | 1,870 | 214 |
+| 600×200 | 600 | 200 | 11 | 17 | 13 | 131.7 | 103 | 75,600 | 2,270 | 24.0 | 4.16 | 2,520 | 227 |
+
+</div>
 
 :::note[出典]
 JIS G 3192
@@ -586,7 +1359,51 @@ JIS G 3192
 
 <p className="table-title">表1-1-17 U形鋼矢板の寸法および断面性能</p>
 
-<img src="/content/general/design-manual/img/01-tbl-22.png" alt="表1-1-17 U形鋼矢板の寸法および断面性能" />
+<div className="table-wrapper">
+
+<table>
+<thead>
+<tr>
+<th rowSpan="2">形式</th>
+<th colSpan="3">寸法 (mm)</th>
+<th colSpan="2">断面積 (cm²)</th>
+<th colSpan="2">質量 (kg/m)</th>
+<th colSpan="2">断面係数 (cm³)</th>
+<th colSpan="2">断面二次モーメント (cm⁴)</th>
+</tr>
+<tr>
+<th>W</th>
+<th>h</th>
+<th>t</th>
+<th>1枚当り</th>
+<th>幅1m当り</th>
+<th>1枚当り</th>
+<th>幅1m当り</th>
+<th>1枚当り</th>
+<th>幅1m当り</th>
+<th>1枚当り</th>
+<th>幅1m当り</th>
+</tr>
+</thead>
+<tbody>
+<tr><td rowSpan="12">ラルゼン形式</td><td>400</td><td>85</td><td>8.0</td><td>45.21</td><td>113.0</td><td>35.5</td><td>88.8</td><td>88.0</td><td>529</td><td>598</td><td>4,500</td></tr>
+<tr><td>400</td><td>100</td><td>10.5</td><td>61.18</td><td>153.0</td><td>48.0</td><td>120</td><td>152</td><td>874</td><td>1,240</td><td>8,740</td></tr>
+<tr><td>400</td><td>120</td><td>9.2</td><td>55.01</td><td>137.5</td><td>43.2</td><td>108</td><td>160</td><td>880</td><td>1,460</td><td>10,600</td></tr>
+<tr><td>400</td><td>125</td><td>13.0</td><td>76.42</td><td>191.0</td><td>60.0</td><td>150</td><td>223</td><td>1,340</td><td>2,220</td><td>16,800</td></tr>
+<tr><td>400</td><td>150</td><td>13.1</td><td>74.40</td><td>186.0</td><td>58.4</td><td>146</td><td>250</td><td>1,520</td><td>2,790</td><td>22,800</td></tr>
+<tr><td>400</td><td>170</td><td>15.5</td><td>96.99</td><td>242.5</td><td>76.1</td><td>190</td><td>362</td><td>2,270</td><td>4,670</td><td>38,600</td></tr>
+<tr><td>400</td><td>185</td><td>16.1</td><td>94.21</td><td>235.1</td><td>74.0</td><td>185</td><td>400</td><td>2,250</td><td>5,300</td><td>41,600</td></tr>
+<tr><td>500</td><td>200</td><td>24.3</td><td>133.8</td><td>267.6</td><td>105</td><td>210</td><td>520</td><td>3,150</td><td>7,960</td><td>63,000</td></tr>
+<tr><td>500</td><td>225</td><td>27.6</td><td>153.0</td><td>306.0</td><td>120</td><td>240</td><td>680</td><td>3,820</td><td>11,400</td><td>86,000</td></tr>
+<tr><td>600</td><td>130</td><td>10.3</td><td>78.70</td><td>131.2</td><td>61.8</td><td>103</td><td>203</td><td>1,000</td><td>2,110</td><td>13,000</td></tr>
+<tr><td>600</td><td>180</td><td>13.4</td><td>103.9</td><td>173.2</td><td>81.6</td><td>136</td><td>376</td><td>1,800</td><td>5,220</td><td>32,400</td></tr>
+<tr><td>600</td><td>210</td><td>18.0</td><td>135.3</td><td>225.5</td><td>106</td><td>177</td><td>539</td><td>2,700</td><td>8,630</td><td>56,700</td></tr>
+<tr><td rowSpan="2">ハット形式</td><td>900</td><td>230</td><td>10.8</td><td>110.0</td><td>122.2</td><td>86.4</td><td>96</td><td>812</td><td>902</td><td>9,430</td><td>10,500</td></tr>
+<tr><td>900</td><td>300</td><td>13.2</td><td>144.4</td><td>160.4</td><td>113</td><td>126</td><td>1,450</td><td>1,610</td><td>22,000</td><td>24,400</td></tr>
+</tbody>
+</table>
+
+</div>
 
 :::note[出典]
 JIS A 5523、JIS A 5528
@@ -612,7 +1429,37 @@ JIS A 5523、JIS A 5528
 
 <p className="table-title">表1-1-18 鋼管杭寸法と断面性能表（SI単位系）（ミリサイズ）</p>
 
-<img src="/content/general/design-manual/img/01-tbl-23.png" alt="表1-1-18 鋼管杭寸法と断面性能表（SI単位系）" />
+<div className="table-wrapper">
+
+| 外径 (mm) | 厚さ (mm) | 断面積 (mm²) | 単位重量 (N/m) | 断面2次モーメント I (mm⁴) | 断面係数 Z (mm³) | 断面2次半径 i (mm) | 外側表面積 (m²/m) |
+|---|---|---|---|---|---|---|---|
+| 400 | 9 | 110.6 | 851.6 | 211 × 10⁶ | 105.7 × 10⁴ | 138 | 1.26 |
+| 400 | 12 | 146.3 | 1127 | 276 × 10⁶ | 137.8 × 10⁴ | 137 | 1.26 |
+| 500 | 9 | 138.8 | 1069 | 418 × 10⁶ | 167 × 10⁴ | 174 | 1.57 |
+| 500 | 12 | 184.0 | 1417 | 548 × 10⁶ | 219 × 10⁴ | 173 | 1.57 |
+| 500 | 14 | 213.8 | 1646 | 632 × 10⁶ | 253 × 10⁴ | 172 | 1.57 |
+| 600 | 9 | 167.1 | 1287 | 730 × 10⁶ | 243 × 10⁴ | 209 | 1.88 |
+| 600 | 12 | 221.7 | 1707 | 958 × 10⁶ | 319 × 10⁴ | 208 | 1.88 |
+| 600 | 14 | 257.7 | 1984 | 111 × 10⁷ | 369 × 10⁴ | 207 | 1.88 |
+| 600 | 16 | 293.6 | 2261 | 125 × 10⁷ | 417 × 10⁴ | 207 | 1.88 |
+| 700 | 9 | 195.4 | 1505 | 117 × 10⁷ | 333 × 10⁴ | 244 | 2.20 |
+| 700 | 12 | 259.4 | 1997 | 154 × 10⁷ | 439 × 10⁴ | 243 | 2.20 |
+| 700 | 14 | 301.7 | 2323 | 178 × 10⁷ | 507 × 10⁴ | 243 | 2.20 |
+| 700 | 16 | 343.8 | 2647 | 201 × 10⁷ | 575 × 10⁴ | 242 | 2.20 |
+| 800 | 9 | 223.6 | 1722 | 175 × 10⁷ | 437 × 10⁴ | 280 | 2.51 |
+| 800 | 12 | 297.1 | 2288 | 231 × 10⁷ | 577 × 10⁴ | 279 | 2.51 |
+| 800 | 14 | 345.7 | 2662 | 267 × 10⁷ | 668 × 10⁴ | 278 | 2.51 |
+| 800 | 16 | 394.1 | 3035 | 303 × 10⁷ | 757 × 10⁴ | 277 | 2.51 |
+| 900 | 12 | 334.8 | 2578 | 330 × 10⁷ | 733 × 10⁴ | 314 | 2.83 |
+| 900 | 14 | 389.7 | 3001 | 382 × 10⁷ | 850 × 10⁴ | 313 | 2.83 |
+| 900 | 16 | 444.3 | 3421 | 434 × 10⁷ | 965 × 10⁴ | 313 | 2.83 |
+| 900 | 19 | 525.9 | 4049 | 510 × 10⁷ | 113 × 10⁵ | 312 | 2.83 |
+| 1000 | 12 | 372.5 | 2868 | 455 × 10⁷ | 909 × 10⁴ | 349 | 3.14 |
+| 1000 | 14 | 433.7 | 3339 | 527 × 10⁷ | 105 × 10⁵ | 349 | 3.14 |
+| 1000 | 16 | 494.6 | 3808 | 599 × 10⁷ | 120 × 10⁵ | 348 | 3.14 |
+| 1000 | 19 | 585.6 | 4509 | 705 × 10⁷ | 141 × 10⁵ | 347 | 3.14 |
+
+</div>
 
 :::note[出典]
 杭基礎設計便覧（H19.1）P42
@@ -620,13 +1467,103 @@ JIS A 5523、JIS A 5528
 
 <p className="table-title">表1-1-19 腐蝕しろ1mmを考慮した断面性能表（SI単位系）</p>
 
-<img src="/content/general/design-manual/img/01-tbl-24.png" alt="表1-1-19 腐蝕しろ1mmを考慮した断面性能表（SI単位系）" />
+<div className="table-wrapper">
+
+| 外径 (mm) | 厚さ (mm) | (D−2Δt) (mm) | (I) (mm⁴) | (Z) (mm³) | (A) (mm²) |
+|---|---|---|---|---|---|
+| 400 | 9 | 398 | 18,643 × 10⁴ | 937 × 10³ | 9802 |
+| 400 | 12 | 398 | 25,057 × 10⁴ | 1,259 × 10³ | 13374 |
+| 500 | 9 | 498 | 36,970 × 10⁴ | 1,485 × 10³ | 12315 |
+| 500 | 12 | 498 | 49,918 × 10⁴ | 2,005 × 10³ | 16830 |
+| 500 | 14 | 498 | 58,283 × 10⁴ | 2,341 × 10³ | 19808 |
+| 600 | 9 | 598 | 64,534 × 10⁴ | 2,158 × 10³ | 14828 |
+| 600 | 12 | 598 | 87,402 × 10⁴ | 2,923 × 10³ | 20285 |
+| 600 | 14 | 598 | 102,255 × 10⁴ | 3,420 × 10³ | 23892 |
+| 600 | 16 | 598 | 116,800 × 10⁴ | 3,906 × 10³ | 27473 |
+| 700 | 9 | 698 | 103,218 × 10⁴ | 2,958 × 10³ | 17342 |
+| 700 | 12 | 698 | 140,099 × 10⁴ | 4,014 × 10³ | 23741 |
+| 700 | 14 | 698 | 164,146 × 10⁴ | 4,703 × 10³ | 27976 |
+| 700 | 16 | 698 | 187,768 × 10⁴ | 5,380 × 10³ | 32186 |
+| 800 | 9 | 798 | 154,909 × 10⁴ | 3,882 × 10³ | 19855 |
+| 800 | 12 | 798 | 210,602 × 10⁴ | 5,278 × 10³ | 27197 |
+| 800 | 14 | 798 | 247,020 × 10⁴ | 6,191 × 10³ | 32060 |
+| 800 | 16 | 798 | 282,876 × 10⁴ | 7,090 × 10³ | 36898 |
+| 900 | 12 | 898 | 301,502 × 10⁴ | 6,715 × 10³ | 30653 |
+| 900 | 14 | 898 | 353,938 × 10⁴ | 7,883 × 10³ | 36144 |
+| 900 | 16 | 898 | 405,657 × 10⁴ | 9,035 × 10³ | 41610 |
+| 900 | 19 | 898 | 481,906 × 10⁴ | 10,733 × 10³ | 49763 |
+| 1000 | 12 | 998 | 415,392 × 10⁴ | 8,324 × 10³ | 34108 |
+| 1000 | 14 | 998 | 487,964 × 10⁴ | 9,779 × 10³ | 40228 |
+| 1000 | 16 | 998 | 559,645 × 10⁴ | 11,215 × 10³ | 46323 |
+| 1000 | 19 | 998 | 665,514 × 10⁴ | 13,337 × 10³ | 55418 |
+
+</div>
 
 #### 資-2 PHC杭の断面性能
 
 <p className="table-title">表1-1-20 PHC杭の断面性能表（参考：SI単位系）</p>
 
-<img src="/content/general/design-manual/img/01-tbl-25.png" alt="表1-1-20 PHC杭の断面性能表（参考：SI単位系）" />
+<div className="table-wrapper">
+
+<table>
+<thead>
+<tr>
+<th rowSpan="3">外径 D (mm)</th>
+<th rowSpan="3">厚さ t (mm)</th>
+<th rowSpan="3">長さ L (m)</th>
+<th rowSpan="3">種類</th>
+<th rowSpan="2">有効プレストレス量 σ<sub>ce</sub> (N/mm²)</th>
+<th rowSpan="2">コンクリート断面積 A<sub>c</sub> (mm²)</th>
+<th rowSpan="2">コンクリート換算断面積 A<sub>e</sub> (mm²)</th>
+<th rowSpan="2">換算断面二次モーメント I<sub>e</sub> (mm⁴)</th>
+<th rowSpan="2">換算断面係数 Z<sub>e</sub> (mm³)</th>
+<th colSpan="3">JIS規格値 (N=0時)</th>
+<th rowSpan="3">単位質量 w (kg/m)</th>
+</tr>
+<tr>
+<th>ひび割れ曲げモーメント (kN·m)</th>
+<th>破壊曲げモーメント (kN·m)</th>
+<th>せん断強さ (kN)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td rowSpan="3">300</td><td rowSpan="3">60</td><td rowSpan="2">5\~13</td><td>A</td><td>4</td><td rowSpan="3">45,200</td><td>46,300</td><td>354×10⁶</td><td>236×10⁴</td><td>24.5</td><td>37.2</td><td>99.0</td><td rowSpan="3">118</td></tr>
+<tr><td>B</td><td>8</td><td>47,500</td><td>363×10⁶</td><td>242×10⁴</td><td>34.3</td><td>61.7</td><td>125.4</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>48,100</td><td>369×10⁶</td><td>246×10⁴</td><td>39.2</td><td>78.4</td><td>136.2</td></tr>
+<tr><td rowSpan="3">350</td><td rowSpan="3">60</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">54,600</td><td>56,000</td><td>613×10⁶</td><td>350×10⁴</td><td>34.3</td><td>51.9</td><td>118.6</td><td rowSpan="3">142</td></tr>
+<tr><td>B</td><td>8</td><td>57,500</td><td>631×10⁶</td><td>360×10⁴</td><td>49.0</td><td>88.2</td><td>149.9</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>58,200</td><td>640×10⁶</td><td>365×10⁴</td><td>58.8</td><td>117.6</td><td>162.7</td></tr>
+<tr><td rowSpan="3">400</td><td rowSpan="3">65</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">68,400</td><td>70,200</td><td>102×10⁷</td><td>510×10⁴</td><td>53.9</td><td>81.3</td><td>148.0</td><td rowSpan="3">178</td></tr>
+<tr><td>B</td><td>8</td><td>71,400</td><td>104×10⁷</td><td>520×10⁴</td><td>73.5</td><td>132.3</td><td>187.2</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>73,000</td><td>106×10⁷</td><td>530×10⁴</td><td>88.2</td><td>176.4</td><td>203.8</td></tr>
+<tr><td rowSpan="3">450</td><td rowSpan="3">65</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">78,600</td><td>80,700</td><td>153×10⁷</td><td>682×10⁴</td><td>73.5</td><td>107.8</td><td>173.4</td><td rowSpan="3">-</td></tr>
+<tr><td>B</td><td>8</td><td>83,500</td><td>160×10⁷</td><td>711×10⁴</td><td>103.8</td><td>187.2</td><td>220.4</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>85,700</td><td>163×10⁷</td><td>725×10⁴</td><td>122.5</td><td>245.0</td><td>247.9</td></tr>
+<tr><td rowSpan="3">500</td><td rowSpan="3">70</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">94,600</td><td>97,200</td><td>225×10⁷</td><td>900×10⁴</td><td>95.0</td><td>146.0</td><td>218.5</td><td rowSpan="3">-</td></tr>
+<tr><td>B</td><td>8</td><td>99,800</td><td>233×10⁷</td><td>932×10⁴</td><td>137.2</td><td>254.8</td><td>277.4</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>102,600</td><td>239×10⁷</td><td>956×10⁴</td><td>166.6</td><td>333.2</td><td>313.6</td></tr>
+<tr><td rowSpan="3">600</td><td rowSpan="3">80</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">130,700</td><td>134,200</td><td>455×10⁷</td><td>152×10⁵</td><td>153.8</td><td>243.0</td><td>296.9</td><td rowSpan="3">-</td></tr>
+<tr><td>B</td><td>8</td><td>141,500</td><td>474×10⁷</td><td>158×10⁵</td><td>221.5</td><td>406.7</td><td>374.5</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>145,400</td><td>484×10⁷</td><td>161×10⁵</td><td>272.4</td><td>544.8</td><td>417.5</td></tr>
+<tr><td rowSpan="3">700</td><td rowSpan="3">90</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">172,400</td><td>177,000</td><td>787×10⁷</td><td>225×10⁵</td><td>230.3</td><td>362.6</td><td>385.1</td><td rowSpan="3">-</td></tr>
+<tr><td>B</td><td>8</td><td>186,400</td><td>817×10⁷</td><td>233×10⁵</td><td>329.3</td><td>608.7</td><td>486.7</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>192,000</td><td>833×10⁷</td><td>238×10⁵</td><td>399.0</td><td>798.0</td><td>541.6</td></tr>
+<tr><td rowSpan="3">800</td><td rowSpan="3">100</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">219,900</td><td>225,600</td><td>130×10⁸</td><td>326×10⁵</td><td>326.3</td><td>519.6</td><td>490.0</td><td rowSpan="3">-</td></tr>
+<tr><td>B</td><td>8</td><td>235,300</td><td>134×10⁸</td><td>334×10⁵</td><td>466.1</td><td>862.0</td><td>617.4</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>244,000</td><td>137×10⁸</td><td>342×10⁵</td><td>568.4</td><td>1136.8</td><td>695.6</td></tr>
+<tr><td rowSpan="3">900</td><td rowSpan="3">110</td><td rowSpan="2">5\~15</td><td>A</td><td>4</td><td rowSpan="3">272,800</td><td>279,800</td><td>203×10⁸</td><td>452×10⁵</td><td>445.0</td><td>720.3</td><td>608.8</td><td rowSpan="3">-</td></tr>
+<tr><td>B</td><td>8</td><td>294,000</td><td>210×10⁸</td><td>466×10⁵</td><td>637.0</td><td>1176.0</td><td>764.8</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>302,000</td><td>215×10⁸</td><td>478×10⁵</td><td>784.3</td><td>1568.6</td><td>856.3</td></tr>
+<tr><td rowSpan="3">1000</td><td rowSpan="3">120</td><td rowSpan="2">5\~14</td><td>A</td><td>4</td><td rowSpan="3">331,600</td><td>340,200</td><td>312×10⁸</td><td>623×10⁵</td><td>588.0</td><td>970.2</td><td>745.8</td><td rowSpan="3">-</td></tr>
+<tr><td>B</td><td>8</td><td>355,300</td><td>321×10⁸</td><td>641×10⁵</td><td>836.4</td><td>1565.4</td><td>937.8</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>369,000</td><td>332×10⁸</td><td>664×10⁵</td><td>1029.0</td><td>2058.0</td><td>1045.0</td></tr>
+<tr><td rowSpan="3">1000</td><td rowSpan="3">130</td><td rowSpan="2">5~12</td><td>A</td><td>4</td><td rowSpan="3">355,300</td><td>371,000</td><td>362×10⁸</td><td>724×10⁵</td><td>735.0</td><td>1102.5</td><td>960.4</td><td rowSpan="3">923</td></tr>
+<tr><td>B</td><td>8</td><td>382,000</td><td>362×10⁸</td><td>724×10⁵</td><td>1029.0</td><td>1852.2</td><td>960.4</td></tr>
+<tr><td>5\~15</td><td>C</td><td>10</td><td>375,000</td><td>367×10⁸</td><td>734×10⁵</td><td>1176.0</td><td>2352.0</td><td>1045.7</td></tr>
+</tbody>
+</table>
+
+</div>
 
 :::note[出典]
 杭基礎設計便覧（H19.1）P24
@@ -953,15 +1890,176 @@ JIS A 5523、JIS A 5528
 
 ### 6. 河川関係工種別（河川、砂防、海岸）
 
-<img src="/content/general/design-manual/img/01-s2-tbl-01.png" alt="河川関係工種別の適用示方書一覧表" />
+{/* 01-s2-tbl-01: 河川関係工種別（河川、砂防、海岸）適用示方書 */}
 
-:::note
-なお、この配筋基準についての工種については、（注）を参照のこと。また、（注）は記載されている略称等に関しては、その精度を考慮して、期間等を参考にして判断するものとする。
-:::
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th colSpan={2}>工　種</th>
+<th>種　別</th>
+<th>細　別</th>
+<th>適用示方書類（主要なもの）</th>
+<th>基準強度または<br/>許容応力度</th>
+<th>必要とする主要材料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowSpan={4}>1. 土工</td>
+<td>護則（切土）</td>
+<td rowSpan={2}>岩石および<br/>根固石ブロック<br/>コンクリート<br/>ブロック</td>
+<td rowSpan={2}>島、堤防および<br/>コンクリート</td>
+<td>道路土工<br/>河川砂防技術基準（案）設計編、河川砂防技術基準（案）設計編</td>
+<td rowSpan={4}>コンクリート<br/>〃<br/>〃<br/>〃</td>
+<td rowSpan={4}>鋼矢板、杭<br/>〃、棒鋼<br/>〃、棒鋼、杭<br/>〃</td>
+</tr>
+<tr>
+<td>護岸（護工）</td>
+<td>コンクリート標準示方書、河川砂防技術基準（案）設計編</td>
+</tr>
+<tr>
+<td>法面</td>
+<td>下　工</td>
+<td>水圧、基礎</td>
+<td>河川堤防設計指針等の各種基準、建設省河川砂防技術基準（案）設計編、コンクリート標準示方書<br/>ダム・堰堤設計基準（案）</td>
+</tr>
+<tr>
+<td>基礎工</td>
+<td></td>
+<td></td>
+<td>ダム・堰堤設計基準（案）、河川砂防技術基準（案）設計編</td>
+</tr>
+<tr>
+<td rowSpan={3}>2. 構造物</td>
+<td>水門</td>
+<td rowSpan={3}>門、樋管工<br/>堰堤工</td>
+<td>副管、余裕</td>
+<td>河川管理施設等構造令、河川砂防技術基準（案）設計編、コンクリート標準示方書<br/>ダム・堰堤設計基準（案）設計編</td>
+<td rowSpan={3}>コンクリート<br/>〃<br/>〃</td>
+<td rowSpan={3}>鋼矢板、棒鋼<br/>〃<br/>鋼矢板、杭</td>
+</tr>
+<tr>
+<td>樋門、樋管工</td>
+<td>水ゲートおよび鉄管</td>
+<td>河川砂防技術基準（案）設計編、コンクリート標準示方書の引き<br/>余裕通則設計の引き</td>
+</tr>
+<tr>
+<td>堰堤工</td>
+<td>余</td>
+<td>河川管理施設等構造令、河川砂防技術基準（案）設計編、ダム・堰堤設計基準（案）設計編<br/>余裕通則設計の引き</td>
+</tr>
+<tr>
+<td rowSpan={2}>3. 橋りょう</td>
+<td>橋、照場</td>
+<td>鋼</td>
+<td>基本、木、ダー</td>
+<td>河川砂防技術基準（案）設計編、コンクリート標準示方書<br/>ダム・堰堤設計基準（案）設計編<br/>ゴム引割型改良製品（二次製品）</td>
+<td rowSpan={2}>コンクリート、鋼矢板、杭<br/>〃、〃、〃</td>
+<td rowSpan={2}>コンクリート、鋼矢板、杭、棒鋼、杭、鋼材</td>
+</tr>
+<tr>
+<td>コンクリート<br/>プレストレスト<br/>コンクリート</td>
+<td>体、ダー</td>
+<td>一</td>
+<td>道路橋示方書（鋼構造編）、コンクリート標準示方書（下部構造編）、道路橋示方書（耐震設計編）</td>
+</tr>
+<tr>
+<td>4. 付属施設</td>
+<td colSpan={2}>コンクリート</td>
+<td></td>
+<td>道路橋示方書（鋼構造編）、コンクリート標準示方書（下部構造編）、道路橋示方書（耐震設計編）</td>
+<td>コンクリート<br/>〃</td>
+<td>鋼材</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>（注）なお、既設構造物等に関しては、その規模、直営施工、河道等を考慮して、期間等を考慮して、別途決定する。</p>
 
 ### 7. 道路関係工種別
 
-<img src="/content/general/design-manual/img/01-s2-tbl-02.png" alt="道路関係工種別の適用示方書一覧表" />
+{/* 01-s2-tbl-02: 道路関係工種別 適用示方書 */}
+
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th colSpan={2}>工　種</th>
+<th>種　別</th>
+<th>細　別</th>
+<th>適用示方書類（主要なもの）</th>
+<th>基準強度または<br/>許容応力度</th>
+<th>必要とする主要材料</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowSpan={3}>1. 土工</td>
+<td>切　土</td>
+<td rowSpan={3}>土　工<br/>法面<br/>築堤</td>
+<td rowSpan={3}>盛　土<br/>開削工<br/>擁壁</td>
+<td rowSpan={3}>道路土工・切土工・斜面安定工指針、JIS<br/>道路土工・コンクリート標準示方書T設計編<br/>道路土工・エクスパンドT設計基準</td>
+<td rowSpan={3}>コンクリート<br/>〃<br/>〃</td>
+<td rowSpan={3}>土木工製品<br/>〃<br/>棒鋼</td>
+</tr>
+<tr>
+<td>法面</td>
+</tr>
+<tr>
+<td>築堤</td>
+</tr>
+<tr>
+<td>2. 構造物</td>
+<td>開削工<br/>擁壁</td>
+<td>鋼<br/>コンクリート<br/>プレストレスト<br/>コンクリート</td>
+<td></td>
+<td>道路橋示方書（性能基準編）、道路橋示方書（コンクリート橋編）、道路橋示方書（鋼橋編）、道路橋示方書（下部構造編）、道路橋示方書（耐震設計編）、JI</td>
+<td>コンクリート<br/>〃<br/>〃</td>
+<td>鋼板、鉄板、杭、鋼材</td>
+</tr>
+<tr>
+<td>3. 橋りょう</td>
+<td>鋼<br/>コンクリート<br/>プレストレスト<br/>コンクリート</td>
+<td>経路工<br/>中央分離帯<br/>区画線<br/>防護柵</td>
+<td>S</td>
+<td>道路橋示方書、T形橋示方書、道路橋示方書（コンクリート橋編）、道路橋示方書（鋼橋編）、道路橋示方書（耐震設計編）</td>
+<td>コンクリート<br/>〃</td>
+<td></td>
+</tr>
+<tr>
+<td>4. 付属施設</td>
+<td>経路・経路<br/>中央分離帯<br/>区画線<br/>防護柵</td>
+<td></td>
+<td></td>
+<td>道路照明設置設計基準・同解説<br/>道路構造設計基準・P解説書</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5. トンネル</td>
+<td>覆工</td>
+<td>鋼製支保工<br/>選</td>
+<td></td>
+<td>道路トンネル設計基準・同解説（技術基準）<br/>道路橋設計基準・同解説T設計基準</td>
+<td>鋼　材</td>
+<td></td>
+</tr>
+<tr>
+<td>6. 舗装工</td>
+<td>コンクリート<br/>アスファルト</td>
+<td></td>
+<td></td>
+<td>道路に多水路設計基準T設計基準<br/>〃</td>
+<td>コンクリート<br/>アスファルト</td>
+<td>建設設計施工基準書、舗装設計規格、<br/>製品決定するものとする。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>（注）なお、既設構造物等に関しては、その規模、直営施工、期間等を考慮して、別途決定するものとする。</p>
 
 ---
 
@@ -1074,25 +2172,633 @@ $$
 >
 > （一般の環境に比べて乾湿の繰り返し多い場合や有害な物質を含む地下水位以下の土中の場合海洋環境などでは別途かぶりなどについて考慮する。）
 
+{/* 01-s3-tbl-01: 表1-3-1 鋼構造 許容応力度 */}
+
 <p className="table-title">表1-3-1 鋼構造</p>
 
-<img src="/content/general/design-manual/img/01-s3-tbl-01.png" alt="表1-3-1 鋼構造の許容応力度" />
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>構造</th>
+<th>示方書類</th>
+<th colSpan={7}>許容応力度　N/mm<sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+{/* 鋼種ヘッダ */}
+<tr>
+<td rowSpan={20}>橋りょう<br/>上部工</td>
+<td rowSpan={20}>道示<br/>鋼橋編</td>
+<td>鋼種<br/>鋼材の<br/>板厚（mm）</td>
+<td>SS400<br/>SM400<br/>SMA400W</td>
+<td>SM490</td>
+<td>SM490Y<br/>SM520<br/>SMA490W</td>
+<td>SM570<br/>SMA570W</td>
+<td>コンクリート</td>
+<td>SD345</td>
+</tr>
+{/* 引張応力度 */}
+<tr>
+<td rowSpan={3}>引張応力度</td>
+<td colSpan={4}></td>
+<td rowSpan={3}>（非合成）<br/>σ<sub>ck</sub>／3<br/>≦10</td>
+<td rowSpan={9}></td>
+</tr>
+<tr>
+<td>40 以下</td>
+<td>140</td>
+<td>185</td>
+<td>210</td>
+<td>255</td>
+</tr>
+<tr>
+<td>40 をこえ 75 以下</td>
+<td colSpan={2}>125　　175</td>
+<td>195</td>
+<td>245</td>
+</tr>
+<tr>
+<td></td>
+<td>75 をこえ 100 以下</td>
+<td colSpan={2}></td>
+<td>190</td>
+<td>240</td>
+<td></td>
+</tr>
+{/* 圧縮応力度 */}
+<tr>
+<td rowSpan={6}>圧縮応力度</td>
+<td rowSpan={2}>40 以下</td>
+<td>140</td>
+<td>185</td>
+<td>210</td>
+<td>255</td>
+<td rowSpan={2}>（合成）<br/>σ<sub>ck</sub>/3.5<br/>≦10</td>
+</tr>
+<tr>
+<td colSpan={4}>（ℓ/r≦18）（ℓ/r≦16）（ℓ/r≦15）（ℓ/r≦18）</td>
+</tr>
+<tr>
+<td rowSpan={2}>40 をこえ 75 以下</td>
+<td>125</td>
+<td>175</td>
+<td>195</td>
+<td>245</td>
+<td rowSpan={4}>（引張）<br/>140</td>
+</tr>
+<tr>
+<td colSpan={4}>（ℓ/r≦19）（ℓ/r≦16）（ℓ/r≦15）（ℓ/r≦17）</td>
+</tr>
+<tr>
+<td rowSpan={2}>75 をこえ 100 以下</td>
+<td colSpan={2}></td>
+<td>190</td>
+<td>240</td>
+</tr>
+<tr>
+<td colSpan={2}></td>
+<td colSpan={2}>（ℓ/r≦16）（ℓ/r≦17）</td>
+</tr>
+{/* 曲げ応力度 */}
+<tr>
+<td rowSpan={3}>曲げ応力度</td>
+<td>40 以下</td>
+<td>140</td>
+<td>185</td>
+<td>210</td>
+<td>255</td>
+<td rowSpan={6}></td>
+<td rowSpan={6}></td>
+</tr>
+<tr>
+<td>40 をこえ 75 以下</td>
+<td colSpan={2}>125　　175</td>
+<td>195</td>
+<td>245</td>
+</tr>
+<tr>
+<td>75 をこえ 100 以下</td>
+<td colSpan={2}></td>
+<td>190</td>
+<td>240</td>
+</tr>
+{/* せん断応力度 */}
+<tr>
+<td rowSpan={3}>せん断応力度</td>
+<td>40 以下</td>
+<td>80</td>
+<td>105</td>
+<td>120</td>
+<td>145</td>
+</tr>
+<tr>
+<td>40 をこえ 75 以下</td>
+<td colSpan={2}>75　　100</td>
+<td>115</td>
+<td>140</td>
+</tr>
+<tr>
+<td>75 をこえ 100 以下</td>
+<td colSpan={2}></td>
+<td>110</td>
+<td>135</td>
+</tr>
+{/* 橋りょう下部工 */}
+<tr>
+<td>橋りょう<br/>下部工</td>
+<td>道示<br/>鋼橋編</td>
+<td colSpan={7}>上　記</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{/* 01-s3-tbl-02: 表1-3-2 鋼構造（基礎工） */}
 
 <p className="table-title">表1-3-2 鋼構造</p>
 
-<img src="/content/general/design-manual/img/01-s3-tbl-02.png" alt="表1-3-2 鋼構造の許容応力度（基礎工）" />
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>構造</th>
+<th>示方書類</th>
+<th colSpan={5}>許容応力度　N/mm<sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+{/* 橋りょう基礎工（鋼ぐい） */}
+<tr>
+<td rowSpan={4}>橋りょう<br/>基礎工</td>
+<td rowSpan={4}>道示<br/>下部構造編<br/>（鋼ぐい）</td>
+<td></td>
+<td>SS400　SM400<br/>SMA400W<br/>SKK400　SKY400</td>
+<td>SM490<br/>SKK490<br/>SKY490</td>
+<td>SM490Y<br/>SM520<br/>SMA490W</td>
+<td>SM570<br/>SMA570W</td>
+</tr>
+<tr>
+<td>引張応力度</td>
+<td>140</td>
+<td>185</td>
+<td>210</td>
+<td>255</td>
+</tr>
+<tr>
+<td>圧縮応力度</td>
+<td>140</td>
+<td>185</td>
+<td>210</td>
+<td>255</td>
+</tr>
+<tr>
+<td>せん断応力度</td>
+<td>80</td>
+<td>105</td>
+<td>120</td>
+<td>145</td>
+</tr>
+{/* その他基礎工（鋼ぐい）港湾基準 */}
+<tr>
+<td rowSpan={5}>その他<br/>基礎工</td>
+<td rowSpan={5}>港湾基準<br/>（鋼ぐい）</td>
+<td></td>
+<td>SKK400<br/>SHK400<br/>SHK400M<br/>SKY400</td>
+<td>SKK490<br/>SHK490M<br/>SKY490</td>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>引張応力度</td>
+<td>140</td>
+<td>185</td>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>圧縮応力度</td>
+<td>注1）</td>
+<td>注2）</td>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>曲げ応力度</td>
+<td>140</td>
+<td>190</td>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>せん断応力度</td>
+<td>80</td>
+<td>110</td>
+<td colSpan={2}></td>
+</tr>
+{/* その他（鋼矢板）港湾基準 */}
+<tr>
+<td rowSpan={4}>その他</td>
+<td rowSpan={4}>港湾基準<br/>（鋼矢板）</td>
+<td></td>
+<td>SY295</td>
+<td>SY390</td>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>曲げ引張応力度</td>
+<td>180</td>
+<td>235</td>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>曲げ圧縮応力度</td>
+<td>180</td>
+<td>235</td>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>せん断応力度</td>
+<td>100</td>
+<td>125</td>
+<td colSpan={2}></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>注1）ℓ／rが18以下の場合　140<br/>
+　　ℓ／rが18を超え、92以下の場合　140－0.82（ℓ／r－18）<br/>
+　　ℓ／rが92を超える場合　1200000／(6700＋（ℓ／r）<sup>2</sup>)</p>
+
+<p>注2）ℓ／rが16以下の場合　185<br/>
+　　ℓ／rが16を超え、79以下の場合　185－1.2（ℓ／r－16）<br/>
+　　ℓ／rが79を超える場合　1200000／(5000＋（ℓ／r）<sup>2</sup>)</p>
+
+{/* 01-s3-tbl-03: 表1-3-3 鉄筋コンクリート構造（RC構造） */}
 
 <p className="table-title">表1-3-3 鉄筋コンクリート構造（RC構造）</p>
 
-<img src="/content/general/design-manual/img/01-s3-tbl-03.png" alt="表1-3-3 鉄筋コンクリート構造（RC構造）の許容応力度" />
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>構造</th>
+<th>示方書類</th>
+<th colSpan={4}>許容応力度　N/mm<sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+{/* 橋りょう上部工 */}
+<tr>
+<td rowSpan={4}>橋りょう<br/>上部工</td>
+<td rowSpan={4}>道示<br/>コンクリート橋編</td>
+<td>曲げ圧縮応力度</td>
+<td>支圧応力度</td>
+<td colSpan={2}>鉄　筋</td>
+</tr>
+<tr>
+<td rowSpan={3}>$\dfrac{"{\\sigma_{ck}}{3}"}$</td>
+<td rowSpan={3}>$\left[0.25 + 0.05\dfrac{"{Ac}{Ab}"}\right]\sigma_{"{ck}"}$<br/><br/>ただし 0.5σ<sub>ck</sub> 以下</td>
+<td>SR235</td>
+<td>140</td>
+</tr>
+<tr>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>SD345</td>
+<td>180<br/>＜140＞</td>
+</tr>
+{/* ＜　＞支間10m以下の床版橋 */}
+<tr>
+<td colSpan={6}>＜　＞支間10m以下の床版橋</td>
+</tr>
+{/* 橋りょう下部工 道示コンクリート橋編 */}
+<tr>
+<td rowSpan={6}>橋りょう<br/>下部工</td>
+<td rowSpan={3}>道示<br/>コンクリート橋編</td>
+<td rowSpan={3}>$\dfrac{"{\\sigma_{ck}}{3}"}$</td>
+<td rowSpan={3}>$\left[0.25 + 0.05\dfrac{"{Ac}{Ab}"}\right]\sigma_{"{ck}"}$<br/><br/>ただし 0.5σ<sub>ck</sub> 以下</td>
+<td>SR235</td>
+<td>140</td>
+</tr>
+<tr>
+<td colSpan={2}></td>
+</tr>
+<tr>
+<td>SD345</td>
+<td>180</td>
+</tr>
+{/* 橋りょう下部工 港湾基準 */}
+<tr>
+<td rowSpan={3}>港湾基準</td>
+<td rowSpan={3}>$\dfrac{"{\\sigma_{ck}}{3}"} + 1.0$</td>
+<td rowSpan={3}>$0.30\sigma_{"{ck}"}$</td>
+<td>SR235</td>
+<td>140</td>
+</tr>
+<tr>
+<td>SR295</td>
+<td>160</td>
+</tr>
+<tr>
+<td>SD345<br/>SD390</td>
+<td>200<br/>210</td>
+</tr>
+{/* 基礎工 */}
+<tr>
+<td>基礎工</td>
+<td>道示<br/>下部構造編<br/>耐震設計編<br/>港湾基準編</td>
+<td colSpan={4}>上　記</td>
+</tr>
+{/* 擁壁その他 */}
+<tr>
+<td>擁壁<br/>その他</td>
+<td>道示<br/>下部構造編<br/>耐震設計編</td>
+<td colSpan={4}>上　記</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{/* 01-s3-tbl-04: 表1-3-4 プレストレストコンクリート構造（PC構造） */}
 
 <p className="table-title">表1-3-4 プレストレストコンクリート構造（PC構造）</p>
 
-<img src="/content/general/design-manual/img/01-s3-tbl-04.png" alt="表1-3-4 プレストレストコンクリート構造（PC構造）の許容応力度" />
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>構造</th>
+<th>示方書類</th>
+<th colSpan={6}>許容応力度　N/mm<sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+{/* 橋りょう上部工 道示 コンクリート橋編・耐震設計編 */}
+<tr>
+<td rowSpan={10}>橋りょう上部工</td>
+<td rowSpan={10}>道示<br/>コンクリート<br/>橋編<br/>耐震設計編</td>
+<td colSpan={2}>応力度・部材の種類</td>
+<td colSpan={4}>コンクリートの設計基準強度</td>
+</tr>
+<tr>
+<td colSpan={2}></td>
+<td>30</td>
+<td>36</td>
+<td>40</td>
+<td>50</td>
+</tr>
+<tr>
+<td rowSpan={3}>プレスト<br/>レッシング<br/>直後</td>
+<td>曲げ圧縮 長方形断面の場合</td>
+<td>15</td>
+<td>17.4</td>
+<td>19</td>
+<td>21</td>
+</tr>
+<tr>
+<td>T形および箱形断面の場合</td>
+<td>14</td>
+<td>16.4</td>
+<td>18</td>
+<td>20</td>
+</tr>
+<tr>
+<td>二軸曲げのぐう角部</td>
+<td>16</td>
+<td></td>
+<td>20</td>
+<td>22</td>
+</tr>
+<tr>
+<td colSpan={2}>軸圧縮応力度</td>
+<td>11</td>
+<td>13.1</td>
+<td>14.5</td>
+<td>16</td>
+</tr>
+<tr>
+<td rowSpan={2}>その他<br/>応力度</td>
+<td>曲げ圧縮 長方形断面の場合</td>
+<td>12</td>
+<td>13.8</td>
+<td>15</td>
+<td>17</td>
+</tr>
+<tr>
+<td>T形および箱形断面の場合</td>
+<td>11</td>
+<td>12.8</td>
+<td>14</td>
+<td>16</td>
+</tr>
+<tr>
+<td colSpan={2}>軸圧縮応力度</td>
+<td>8.5</td>
+<td>10</td>
+<td>11</td>
+<td>13.5</td>
+</tr>
+<tr>
+<td colSpan={6}>※ σ<sub>ck</sub>=36 N/mm<sup>2</sup>の許容応力度は、σ<sub>ck</sub>=30N/mm<sup>2</sup>とσ<sub>ck</sub>=40N/mm<sup>2</sup>の値を用いて直線補間により求めている。</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>コンクリート支圧応力度　$(0.25 + 0.05\dfrac{"{Ac}{Ab}"})\sigma_{"{ck}"}$　ただし σ<sub>ca</sub>≦0.5σ<sub>ck</sub></p>
+
+<div className="table-wrapper">
+<table>
+<tbody>
+<tr>
+<td rowSpan={2}>鉄筋引張応力度</td>
+<td>SR235</td>
+<td>140</td>
+</tr>
+<tr>
+<td>SD345</td>
+<td>180</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{/* PC標示（S53年制定）部分 */}
+
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>構造</th>
+<th>示方書類</th>
+<th colSpan={6}>許容応力度　N/mm<sup>2</sup></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowSpan={12}>PC標示<br/>（S53年制定）</td>
+<td rowSpan={12}></td>
+<td colSpan={2}>応力度・部材の種類</td>
+<td colSpan={4}>コンクリートの設計基準強度</td>
+</tr>
+<tr>
+<td colSpan={2}></td>
+<td>30</td>
+<td>40</td>
+<td>50</td>
+<td>60</td>
+</tr>
+<tr>
+<td rowSpan={4}>プレスト<br/>レッシング<br/>直後</td>
+<td>曲げ圧縮 長方形断面</td>
+<td>15</td>
+<td>19</td>
+<td>21</td>
+<td>23</td>
+</tr>
+<tr>
+<td>T形および箱形断面</td>
+<td>14</td>
+<td>18</td>
+<td>20</td>
+<td>22</td>
+</tr>
+<tr>
+<td>二軸曲げのぐう角部</td>
+<td>16</td>
+<td>20</td>
+<td>22</td>
+<td>24</td>
+</tr>
+<tr>
+<td>軸圧縮</td>
+<td>12</td>
+<td>14.5</td>
+<td>16</td>
+<td>17</td>
+</tr>
+<tr>
+<td rowSpan={4}>使用状態</td>
+<td>曲げ圧縮 長方形断面</td>
+<td>12</td>
+<td>15</td>
+<td>17</td>
+<td>19</td>
+</tr>
+<tr>
+<td>T形および箱形断面</td>
+<td>11</td>
+<td>14</td>
+<td>16</td>
+<td>18</td>
+</tr>
+<tr>
+<td>二軸曲げのぐう角部</td>
+<td>13</td>
+<td>16</td>
+<td>18</td>
+<td>20</td>
+</tr>
+<tr>
+<td>軸圧縮</td>
+<td>9</td>
+<td>12</td>
+<td>13.5</td>
+<td>15</td>
+</tr>
+<tr>
+<td colSpan={6}>コンクリート支圧応力度　$(0.25 + 0.05\dfrac{"{Ac}{Ab}"})\sigma_{"{ck}"}$　ただし σ<sub>ca</sub>≦0.5σ<sub>ck</sub></td>
+</tr>
+<tr>
+<td colSpan={6}></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div className="table-wrapper">
+<table>
+<tbody>
+<tr>
+<td rowSpan={4}>鉄筋引張応力度</td>
+<td>SR235</td>
+<td>140</td>
+</tr>
+<tr>
+<td>SR295</td>
+<td>160</td>
+</tr>
+<tr>
+<td>SD345</td>
+<td>200</td>
+</tr>
+<tr>
+<td>SD390</td>
+<td>210</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div className="table-wrapper">
+<table>
+<tbody>
+<tr>
+<td>橋りょう下部工</td>
+<td>道示<br/>下部構造編<br/>耐震設計編<br/>PC標示<br/>（S53年制定）</td>
+<td>上　記</td>
+</tr>
+<tr>
+<td>基礎工<br/>その他</td>
+<td>道示<br/>下部構造編<br/>耐震設計編<br/>PC標示<br/>（S53年制定）<br/>JIS</td>
+<td>上　記</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+{/* 01-s3-tbl-05: 表1-3-5 無筋コンクリート構造 */}
 
 <p className="table-title">表1-3-5 無筋コンクリート構造</p>
 
-<img src="/content/general/design-manual/img/01-s3-tbl-05.png" alt="表1-3-5 無筋コンクリート構造の許容応力度" />
+<div className="table-wrapper">
+<table>
+<thead>
+<tr>
+<th>構造</th>
+<th>示方書類</th>
+<th colSpan={2}>許容応力度　N/mm<sup>2</sup></th>
+<th>備考</th>
+</tr>
+<tr>
+<th colSpan={2}></th>
+<th>圧縮応力度</th>
+<th>支圧応力度</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>橋りょう下部工</td>
+<td>道示<br/>下部構造編<br/>耐震設計編</td>
+<td>$\dfrac{"{\\sigma_{ck}}{4}"}$　≦5.5</td>
+<td>0.3σ<sub>ck</sub>≦6</td>
+<td rowSpan={2}>σ<sub>ck</sub>：コンクリートの<br/>設計基準強度</td>
+</tr>
+<tr>
+<td></td>
+<td>C標示<br/>〔H14年制定〕</td>
+<td>$\dfrac{"{\\sigma_{ck}}{4}"}$　≦5.5</td>
+<td>0.3σ<sub>ck</sub>≦6</td>
+</tr>
+<tr>
+<td>擁壁その他</td>
+<td>道示<br/>下部構造編<br/>C標示<br/>〔H14年制定〕</td>
+<td colSpan={2}>上　記</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 
 ---
 
@@ -1120,7 +2826,279 @@ $$
 >
 > (b) プレキャスト製品を除くボックスカルバートの鉄筋加工の単純化をはかるため、定尺鉄筋（50cmピッチ）の使用を原則とし、重ね継手長を長くすることで調整することする。ただし、スターラップ、帯鉄筋、組立筋、ハンチ筋はこの限りではない。また、鉄筋のフック長による調整は、鉄筋の加工作業を煩雑にさせるため行わないのがよい。
 
-<img src="/content/general/design-manual/img/01-s4-fig-01.png" alt="図1-4-1 定尺鉄筋の採用例（鉄筋径D19）" />
+<svg viewBox="0 0 920 620" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '920px', width: '100%', display: 'block', margin: '0 auto'}} role="img" aria-label="図1-4-1 定尺鉄筋の採用例（鉄筋径D19）">
+  <style>{`
+    text { font-family: sans-serif; font-size: 11px; }
+    .dim { font-size: 10px; }
+    .arrow-fill { fill: #333; }
+    line, rect, path { stroke: #333; fill: none; }
+    .rebar { stroke: #333; stroke-width: 2.5; fill: none; }
+    .rebar-thick { stroke: #333; stroke-width: 5; fill: none; }
+    .dim-line { stroke: #333; stroke-width: 0.7; }
+    .dim-ext { stroke: #333; stroke-width: 0.5; }
+    .wall { stroke: #333; stroke-width: 1.5; fill: none; }
+    .wall-fill { stroke: #333; stroke-width: 1.5; fill: #e8e8e8; }
+    .overlap { stroke: #333; stroke-width: 5; }
+    .big-arrow { fill: #333; stroke: none; }
+  `}</style>
+
+  {/* ===== TOP SECTION: Simple rebar elevation ===== */}
+
+  {/* --- Left (Before) --- */}
+  {/* Rebar line */}
+  <line x1="30" y1="50" x2="300" y2="50" className="rebar" />
+  {/* Second rebar (overlapping portion at right) */}
+  <line x1="200" y1="44" x2="300" y2="44" className="rebar" />
+  {/* Overlap thick mark at top-right */}
+  <rect x="200" y="40" width="30" height="14" fill="#333" stroke="none" />
+
+  {/* Dimension: 9000 */}
+  <line x1="30" y1="80" x2="230" y2="80" className="dim-line" />
+  <line x1="30" y1="55" x2="30" y2="85" className="dim-ext" />
+  <line x1="230" y1="55" x2="230" y2="85" className="dim-ext" />
+  <polygon points="30,80 38,77 38,83" className="big-arrow" />
+  <polygon points="230,80 222,77 222,83" className="big-arrow" />
+  <text x="120" y="77" textAnchor="middle" className="dim">9000</text>
+
+  {/* Dimension: 6400 */}
+  <line x1="100" y1="100" x2="300" y2="100" className="dim-line" />
+  <line x1="100" y1="55" x2="100" y2="105" className="dim-ext" />
+  <line x1="300" y1="55" x2="300" y2="105" className="dim-ext" />
+  <polygon points="100,100 108,97 108,103" className="big-arrow" />
+  <polygon points="300,100 292,97 292,103" className="big-arrow" />
+  <text x="210" y="97" textAnchor="middle" className="dim">6400</text>
+
+  {/* Dimension: 600 (overlap) */}
+  <line x1="200" y1="28" x2="230" y2="28" className="dim-line" />
+  <line x1="200" y1="38" x2="200" y2="25" className="dim-ext" />
+  <line x1="230" y1="38" x2="230" y2="25" className="dim-ext" />
+  <text x="215" y="24" textAnchor="middle" className="dim">600</text>
+
+  {/* Dimension: 14800 (total) */}
+  <line x1="30" y1="120" x2="300" y2="120" className="dim-line" />
+  <polygon points="30,120 38,117 38,123" className="big-arrow" />
+  <polygon points="300,120 292,117 292,123" className="big-arrow" />
+  <text x="165" y="117" textAnchor="middle" className="dim">14800</text>
+
+  {/* --- Arrow between left and right --- */}
+  <polygon points="380,65 410,50 410,55 440,55 440,75 410,75 410,80" className="big-arrow" />
+
+  {/* --- Right (After) --- */}
+  {/* Rebar line */}
+  <line x1="490" y1="50" x2="760" y2="50" className="rebar" />
+  {/* Second rebar */}
+  <line x1="660" y1="44" x2="760" y2="44" className="rebar" />
+  {/* Overlap thick mark */}
+  <rect x="660" y="40" width="30" height="14" fill="#333" stroke="none" />
+
+  {/* Dimension: 9000 */}
+  <line x1="490" y1="80" x2="690" y2="80" className="dim-line" />
+  <line x1="490" y1="55" x2="490" y2="85" className="dim-ext" />
+  <line x1="690" y1="55" x2="690" y2="85" className="dim-ext" />
+  <polygon points="490,80 498,77 498,83" className="big-arrow" />
+  <polygon points="690,80 682,77 682,83" className="big-arrow" />
+  <text x="590" y="77" textAnchor="middle" className="dim">9000</text>
+
+  {/* Dimension: 6500 */}
+  <line x1="560" y1="100" x2="760" y2="100" className="dim-line" />
+  <line x1="560" y1="55" x2="560" y2="105" className="dim-ext" />
+  <line x1="760" y1="55" x2="760" y2="105" className="dim-ext" />
+  <polygon points="560,100 568,97 568,103" className="big-arrow" />
+  <polygon points="760,100 752,97 752,103" className="big-arrow" />
+  <text x="670" y="97" textAnchor="middle" className="dim">6500</text>
+
+  {/* Dimension: 600以上 (overlap) */}
+  <line x1="660" y1="28" x2="690" y2="28" className="dim-line" />
+  <line x1="660" y1="38" x2="660" y2="25" className="dim-ext" />
+  <line x1="690" y1="38" x2="690" y2="25" className="dim-ext" />
+  <text x="675" y="22" textAnchor="middle" className="dim">600以上</text>
+
+  {/* Dimension: 14800 (total) */}
+  <line x1="490" y1="120" x2="760" y2="120" className="dim-line" />
+  <polygon points="490,120 498,117 498,123" className="big-arrow" />
+  <polygon points="760,120 752,117 752,123" className="big-arrow" />
+  <text x="625" y="117" textAnchor="middle" className="dim">14800</text>
+
+  {/* ===== BOTTOM SECTION: Box culvert cross-section ===== */}
+
+  {/* --- Left (Before) Box Culvert --- */}
+  {/* Outer rectangle */}
+  <rect x="30" y="190" width="260" height="280" className="wall" strokeWidth="2" />
+  {/* Inner rectangle (opening) */}
+  <rect x="70" y="220" width="180" height="220" stroke="#333" strokeWidth="1" fill="white" />
+
+  {/* Outer rebar loop with rounded corners */}
+  <path d="M 70,205 L 250,205 Q 270,205 270,225 L 270,445 Q 270,460 250,460 L 70,460 Q 50,460 50,445 L 50,225 Q 50,205 70,205 Z" className="rebar" />
+  {/* Inner rebar loop with rounded corners */}
+  <path d="M 90,230 L 230,230 Q 242,230 242,242 L 242,428 Q 242,440 230,440 L 90,440 Q 78,440 78,428 L 78,242 Q 78,230 90,230 Z" className="rebar" />
+
+  {/* Lap splice indicators (small squares at corners) */}
+  <rect x="47" y="310" width="8" height="12" fill="#333" stroke="none" />
+  <rect x="47" y="380" width="8" height="12" fill="#333" stroke="none" />
+  <rect x="265" y="310" width="8" height="12" fill="#333" stroke="none" />
+  <rect x="265" y="380" width="8" height="12" fill="#333" stroke="none" />
+
+  {/* Top lap splices */}
+  <rect x="120" y="200" width="12" height="8" fill="#333" stroke="none" />
+  <rect x="190" y="200" width="12" height="8" fill="#333" stroke="none" />
+
+  {/* Bottom lap splices */}
+  <rect x="120" y="458" width="12" height="8" fill="#333" stroke="none" />
+  <rect x="190" y="458" width="12" height="8" fill="#333" stroke="none" />
+
+  {/* Dimension: 9748 (top outer width) */}
+  <line x1="30" y1="178" x2="290" y2="178" className="dim-line" />
+  <line x1="30" y1="188" x2="30" y2="175" className="dim-ext" />
+  <line x1="290" y1="188" x2="290" y2="175" className="dim-ext" />
+  <polygon points="30,178 38,175 38,181" className="big-arrow" />
+  <polygon points="290,178 282,175 282,181" className="big-arrow" />
+  <text x="160" y="175" textAnchor="middle" className="dim">9748</text>
+
+  {/* Dimension: 4260 (inner width) */}
+  <line x1="70" y1="185" x2="250" y2="185" className="dim-line" />
+  <text x="160" y="183" textAnchor="middle" className="dim">4260</text>
+
+  {/* Dimension: 314 left wall */}
+  <text x="50" y="195" textAnchor="middle" className="dim" transform="rotate(-50, 50, 195)">314</text>
+
+  {/* Dimension: 314 right wall */}
+  <text x="270" y="195" textAnchor="middle" className="dim" transform="rotate(50, 270, 195)">314</text>
+
+  {/* Dimension: 2730 (left outer height) */}
+  <line x1="15" y1="190" x2="15" y2="470" className="dim-line" />
+  <line x1="28" y1="190" x2="12" y2="190" className="dim-ext" />
+  <line x1="28" y1="470" x2="12" y2="470" className="dim-ext" />
+  <polygon points="15,190 12,198 18,198" className="big-arrow" />
+  <polygon points="15,470 12,462 18,462" className="big-arrow" />
+  <text x="13" y="335" textAnchor="middle" className="dim" transform="rotate(-90, 13, 335)">2730</text>
+
+  {/* Dimension: 2800 (right outer height - to bottom of slab) */}
+  <line x1="305" y1="190" x2="305" y2="470" className="dim-line" />
+  <line x1="292" y1="190" x2="308" y2="190" className="dim-ext" />
+  <line x1="292" y1="470" x2="308" y2="470" className="dim-ext" />
+  <polygon points="305,190 302,198 308,198" className="big-arrow" />
+  <polygon points="305,470 302,462 308,462" className="big-arrow" />
+  <text x="307" y="335" textAnchor="middle" className="dim" transform="rotate(90, 307, 335)">2800</text>
+
+  {/* Dimension: 2130 (inner height) */}
+  <text x="258" y="335" textAnchor="middle" className="dim" transform="rotate(90, 258, 335)">2130</text>
+
+  {/* Dimension: 600 (lap length left) */}
+  <text x="42" y="350" textAnchor="middle" className="dim" transform="rotate(-90, 42, 350)">600</text>
+
+  {/* Dimension: 600 (lap length at bottom) */}
+  <text x="155" y="472" textAnchor="middle" className="dim">600</text>
+
+  {/* Dimension: 314 bottom left */}
+  <text x="50" y="480" textAnchor="middle" className="dim" transform="rotate(50, 50, 480)">314</text>
+
+  {/* Dimension: 314 bottom right */}
+  <text x="270" y="480" textAnchor="middle" className="dim" transform="rotate(-50, 270, 480)">314</text>
+
+  {/* Dimension: 4260 bottom inner */}
+  <line x1="70" y1="488" x2="250" y2="488" className="dim-line" />
+  <text x="160" y="486" textAnchor="middle" className="dim">4260</text>
+
+  {/* Dimension: 9888 (bottom outer width) */}
+  <line x1="30" y1="498" x2="290" y2="498" className="dim-line" />
+  <line x1="30" y1="472" x2="30" y2="501" className="dim-ext" />
+  <line x1="290" y1="472" x2="290" y2="501" className="dim-ext" />
+  <polygon points="30,498 38,495 38,501" className="big-arrow" />
+  <polygon points="290,498 282,495 282,501" className="big-arrow" />
+  <text x="160" y="510" textAnchor="middle" className="dim">9888</text>
+
+  {/* --- Arrow between left and right box culverts --- */}
+  <polygon points="380,350 410,335 410,340 440,340 440,360 410,360 410,365" className="big-arrow" />
+
+  {/* --- Right (After) Box Culvert --- */}
+  {/* Outer rectangle */}
+  <rect x="490" y="180" width="280" height="300" className="wall" strokeWidth="2" />
+  {/* Inner rectangle (opening) */}
+  <rect x="535" y="215" width="190" height="230" stroke="#333" strokeWidth="1" fill="white" />
+
+  {/* Outer rebar loop with rounded corners */}
+  <path d="M 535,198 L 725,198 Q 748,198 748,221 L 748,455 Q 748,472 725,472 L 535,472 Q 512,472 512,455 L 512,221 Q 512,198 535,198 Z" className="rebar" />
+  {/* Inner rebar loop with rounded corners */}
+  <path d="M 553,225 L 707,225 Q 720,225 720,238 L 720,432 Q 720,445 707,445 L 553,445 Q 540,445 540,432 L 540,238 Q 540,225 553,225 Z" className="rebar" />
+
+  {/* Lap splice indicators */}
+  <rect x="509" y="310" width="8" height="12" fill="#333" stroke="none" />
+  <rect x="509" y="390" width="8" height="12" fill="#333" stroke="none" />
+  <rect x="743" y="310" width="8" height="12" fill="#333" stroke="none" />
+  <rect x="743" y="390" width="8" height="12" fill="#333" stroke="none" />
+
+  {/* Top lap splices */}
+  <rect x="590" y="193" width="12" height="8" fill="#333" stroke="none" />
+  <rect x="660" y="193" width="12" height="8" fill="#333" stroke="none" />
+
+  {/* Bottom lap splices */}
+  <rect x="590" y="470" width="12" height="8" fill="#333" stroke="none" />
+  <rect x="660" y="470" width="12" height="8" fill="#333" stroke="none" />
+
+  {/* Dimension: 10000 (top outer width) */}
+  <line x1="490" y1="168" x2="770" y2="168" className="dim-line" />
+  <line x1="490" y1="178" x2="490" y2="165" className="dim-ext" />
+  <line x1="770" y1="178" x2="770" y2="165" className="dim-ext" />
+  <polygon points="490,168 498,165 498,171" className="big-arrow" />
+  <polygon points="770,168 762,165 762,171" className="big-arrow" />
+  <text x="630" y="165" textAnchor="middle" className="dim">10000</text>
+
+  {/* Dimension: 4260 (inner width) */}
+  <line x1="535" y1="176" x2="725" y2="176" className="dim-line" />
+  <text x="630" y="174" textAnchor="middle" className="dim">4260</text>
+
+  {/* Dimension: 314 left wall */}
+  <text x="512" y="186" textAnchor="middle" className="dim" transform="rotate(-50, 512, 186)">314</text>
+
+  {/* Dimension: 314 right wall */}
+  <text x="748" y="186" textAnchor="middle" className="dim" transform="rotate(50, 748, 186)">314</text>
+
+  {/* Dimension: 2982 (left outer height) */}
+  <line x1="475" y1="180" x2="475" y2="480" className="dim-line" />
+  <line x1="488" y1="180" x2="472" y2="180" className="dim-ext" />
+  <line x1="488" y1="480" x2="472" y2="480" className="dim-ext" />
+  <polygon points="475,180 472,188 478,188" className="big-arrow" />
+  <polygon points="475,480 472,472 478,472" className="big-arrow" />
+  <text x="473" y="335" textAnchor="middle" className="dim" transform="rotate(-90, 473, 335)">2982</text>
+
+  {/* Dimension: 2800 (right side reference) */}
+  <line x1="785" y1="180" x2="785" y2="480" className="dim-line" />
+  <line x1="772" y1="180" x2="788" y2="180" className="dim-ext" />
+  <line x1="772" y1="480" x2="788" y2="480" className="dim-ext" />
+  <polygon points="785,180 782,188 788,188" className="big-arrow" />
+  <polygon points="785,480 782,472 788,472" className="big-arrow" />
+  <text x="787" y="335" textAnchor="middle" className="dim" transform="rotate(90, 787, 335)">2800</text>
+
+  {/* Dimension: 2130 (inner height) */}
+  <text x="735" y="335" textAnchor="middle" className="dim" transform="rotate(90, 735, 335)">2130</text>
+
+  {/* Dimension: 600以上 (lap length left) */}
+  <text x="503" y="355" textAnchor="middle" className="dim" transform="rotate(-90, 503, 355)">600以上</text>
+
+  {/* Dimension: 600以上 (lap length at bottom) */}
+  <text x="625" y="484" textAnchor="middle" className="dim">600以上</text>
+
+  {/* Dimension: 2912 (right outer height annotation) */}
+  <text x="760" y="410" textAnchor="middle" className="dim" transform="rotate(90, 760, 410)">2912</text>
+
+  {/* Dimension: 314 bottom left */}
+  <text x="512" y="492" textAnchor="middle" className="dim" transform="rotate(50, 512, 492)">314</text>
+
+  {/* Dimension: 314 bottom right */}
+  <text x="748" y="492" textAnchor="middle" className="dim" transform="rotate(-50, 748, 492)">314</text>
+
+  {/* Dimension: 4260 bottom inner */}
+  <line x1="535" y1="500" x2="725" y2="500" className="dim-line" />
+  <text x="630" y="498" textAnchor="middle" className="dim">4260</text>
+
+  {/* Dimension: 10000 (bottom outer width) */}
+  <line x1="490" y1="510" x2="770" y2="510" className="dim-line" />
+  <line x1="490" y1="482" x2="490" y2="513" className="dim-ext" />
+  <line x1="770" y1="482" x2="770" y2="513" className="dim-ext" />
+  <polygon points="490,510 498,507 498,513" className="big-arrow" />
+  <polygon points="770,510 762,507 762,513" className="big-arrow" />
+  <text x="630" y="524" textAnchor="middle" className="dim">10000</text>
+</svg>
 <p className="table-title">図1-4-1 定尺鉄筋の採用例（鉄筋径D19）</p>
 
 > (c) 従来の設計では施工性よりも設計計算の優位性を重要視して、主鉄筋を配力鉄筋の外側に配置していた。しかし、鉄筋の組立順序としては、従来の設計方法では施工性が悪く、また設計計算上の優位性もきわめて小さいことから施工性や荷重の分配、耐久性の確保等に配慮して配力鉄筋は主鉄筋の外側に配置することとした。
@@ -1242,7 +3220,66 @@ $\phi$：鉄筋の直径（mm）
 
 (b) 深礎杭の帯鉄筋の重ね継手長は、表1-4-1、表1-4-2に示す値以上とするが、下図に示すように主鉄筋の配置を考慮して決定するものとする。
 
-<img src="/content/general/design-manual/img/01-s4-fig-02.png" alt="図1-4-2 主鉄筋の配置を考慮した帯鉄筋の重ね継手長" />
+<svg viewBox="0 0 500 340" xmlns="http://www.w3.org/2000/svg" style={{maxWidth: '500px', width: '100%', display: 'block', margin: '0 auto'}} role="img" aria-label="図1-4-2 主鉄筋の配置を考慮した帯鉄筋の重ね継手長">
+  <style>{`
+    .fig142-label { font-family: sans-serif; font-size: 13px; }
+    .fig142-dim { font-family: sans-serif; font-size: 11.5px; }
+  `}</style>
+  <defs>
+    <marker id="arrow142L" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6" fill="none" stroke="#333" strokeWidth="1" />
+    </marker>
+    <marker id="arrow142R" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+      <path d="M8,0 L0,3 L8,6" fill="none" stroke="#333" strokeWidth="1" />
+    </marker>
+  </defs>
+  {/* Dimension text at top */}
+  <text x="250" y="18" textAnchor="middle" className="fig142-dim">重ね継手長</text>
+  <text x="250" y="34" textAnchor="middle" className="fig142-dim">（上表の値以上）</text>
+  {/* Dimension arrows */}
+  <line x1="165" y1="52" x2="120" y2="80" stroke="#333" strokeWidth="0.8" strokeDasharray="4,3" />
+  <line x1="335" y1="52" x2="380" y2="80" stroke="#333" strokeWidth="0.8" strokeDasharray="4,3" />
+  <line x1="165" y1="52" x2="335" y2="52" stroke="#333" strokeWidth="1" markerStart="url(#arrow142R)" markerEnd="url(#arrow142L)" />
+  {/* Outer concrete arc */}
+  <path d="M 60,280 A 200,200 0 0,1 440,280" fill="none" stroke="#333" strokeWidth="2.5" />
+  {/* Inner reinforcement arc (stirrup path) — left half */}
+  <path d="M 85,280 A 175,175 0 0,1 250,95" fill="none" stroke="#333" strokeWidth="2" />
+  {/* Inner reinforcement arc (stirrup path) — right half */}
+  <path d="M 415,280 A 175,175 0 0,0 250,95" fill="none" stroke="#333" strokeWidth="2" />
+  {/* Left stirrup hook at top — curves inward then back */}
+  <path d="M 250,95 C 245,80 225,72 215,82 C 208,89 215,102 225,105" fill="none" stroke="#333" strokeWidth="2" />
+  {/* Right stirrup hook at top — curves inward then back */}
+  <path d="M 250,95 C 255,80 275,72 285,82 C 292,89 285,102 275,105" fill="none" stroke="#333" strokeWidth="2" />
+  {/* Main reinforcing bars (circles along the inner arc) */}
+  {/* Left bottom */}
+  <circle cx="95" cy="260" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Left lower-mid */}
+  <circle cx="105" cy="228" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Left mid */}
+  <circle cx="125" cy="198" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Left upper-mid */}
+  <circle cx="155" cy="172" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Left upper */}
+  <circle cx="192" cy="150" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Top center-left */}
+  <circle cx="232" cy="138" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Top center-right */}
+  <circle cx="268" cy="138" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Right upper */}
+  <circle cx="308" cy="150" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Right upper-mid */}
+  <circle cx="345" cy="172" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Right mid */}
+  <circle cx="375" cy="198" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Right lower-mid */}
+  <circle cx="395" cy="228" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Right bottom */}
+  <circle cx="405" cy="260" r="8" fill="none" stroke="#333" strokeWidth="1.5" />
+  {/* Leader line from main bar to label */}
+  <line x1="125" y1="206" x2="168" y2="290" stroke="#333" strokeWidth="0.8" />
+  <line x1="168" y1="290" x2="215" y2="290" stroke="#333" strokeWidth="0.8" />
+  <text x="217" y="295" className="fig142-label">主鉄筋</text>
+</svg>
 <p className="table-title">図1-4-2 主鉄筋の配置を考慮した帯鉄筋の重ね継手長</p>
 
 ## 第5節 土工関係（標準）
@@ -1254,7 +3291,20 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-5-1 土及び岩の分類表</p>
 
 <div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-05.png" alt="表1-5-1 土及び岩の分類表" />
+<table>
+<thead>
+<tr><th>工種</th><th>図面種別</th><th>縮　尺</th><th>記載事項</th><th>備　考</th></tr>
+</thead>
+<tbody>
+<tr><td rowSpan="4">堰堤工事</td><td>位 置 図</td><td>1／50,000<br/>以下</td><td>施工位置、<br/>堰堤名、<br/>附近の既設堰堤</td><td>（着色）<br/>施工位置、堰堤名……朱書<br/>既設堰堤………………黒色</td></tr>
+<tr><td>平 面 図</td><td>1／1,000<br/>以下</td><td>方位、測点（距離標）、<br/>推定貯砂区域、<br/>仮ベンチマークの位置</td><td>測点（距離標）は縦断面図に対応したもの。<br/>（着色）<br/>推定貯砂区域…………朱色</td></tr>
+<tr><td>縦断面図</td><td>縦 1／200<br/>横 1／1,000</td><td>河床、堤体、<br/>推定貯砂勾配</td><td></td></tr>
+<tr><td>構 造 図</td><td>1／200<br/>以下</td><td>河川断面、岩盤線、中心線寸法（正面図、平面図、断面図に分けてかくこと。）</td><td>既、未施工の３部分があるときは施工分を朱色とし、既設工部分を薄墨とする。<br/>正面図及び側面図には流量を記入すること。</td></tr>
+<tr><td rowSpan="3">山腹工事</td><td>位 置 図</td><td>1／50,000<br/>以下</td><td>施工箇所</td><td>（着色）<br/>未施工箇所…………黄　色<br/>竣功箇所……………薄墨色<br/>施工箇所……………朱　色</td></tr>
+<tr><td>平 面 図</td><td>1／1,000<br/>以下</td><td>施工区域</td><td>（着色）<br/>施工区域……………朱　色</td></tr>
+<tr><td>標 準<br/>断 面 図</td><td>1／50以下</td><td>谷止石積、積石工、積苗工、蓆積苗工、筋工、蓆工等種別に詳細図をかくこと。</td><td></td></tr>
+</tbody>
+</table>
 </div>
 
 ## 第6節 コンクリートの適用範囲（標準）
@@ -1263,20 +3313,93 @@ $\phi$：鉄筋の直径（mm）
 
 <p className="table-title">表1-6-1 コンクリートの適用範囲</p>
 
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-06a.png" alt="表1-6-1 コンクリートの適用範囲（1/2）" />
-</div>
-
-:::note[出典]
-コンクリート標準示方書に準じ、構造物ごとに設定
-:::
+{/* 01-tbl-06a: 表1-6-1 コンクリートの適用範囲 1/2 */}
 
 <div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-06b.png" alt="表1-6-1 コンクリートの適用範囲（2/2）" />
+<table>
+<thead>
+<tr><th>工種</th><th colSpan="2">種　　別</th><th>記　号</th><th>設計基準<br/>強　度<br/>N/mm²</th><th>生コンクリート<br/>呼び強度<br/>N/mm²</th><th>スランプ<br/>cm</th><th>骨材の最<br/>大寸法<br/>mm</th><th>備　考</th></tr>
+</thead>
+<tbody>
+{/* 擁壁 */}
+<tr><td rowSpan="3">擁壁</td><td colSpan="2">重力式擁壁</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">半重力擁壁</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">鉄筋コンクリート擁壁</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+{/* 橋台・橋脚 */}
+<tr><td rowSpan="4">橋台<br/>・<br/>橋脚</td><td colSpan="2">重力式橋台、橋脚</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">半重力式橋台、橋脚</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">鉄筋コンクリート橋台、橋脚（躯体・ウイング）</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">鉄筋コンクリート橋台、橋脚（フーチング）</td><td>24-Ⓢ12-40</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>40</td><td>※2</td></tr>
+{/* 基礎 */}
+<tr><td rowSpan="6">基<br/><br/>礎</td><td colSpan="2">井筒基礎</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td rowSpan="2">水中コンクリートはスランプ8cmとする。</td></tr>
+<tr><td colSpan="2">潜函基礎</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td></tr>
+<tr><td colSpan="2">深礎基礎</td><td>24-Ⓢ12-40</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">場所打杭（リバース・ベノト・アース・ドリル・連続地中壁工法）</td><td>30-18-40</td><td>24</td><td>30</td><td>18</td><td>40</td><td>参考<br/>C=350kg/m³以上</td></tr>
+<tr><td colSpan="2">ニューマチックケーソンの中埋コンクリート</td><td>18-15-25</td><td>18</td><td>18</td><td>15</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">均しコンクリート</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+{/* 河川・道路構造物 */}
+<tr><td rowSpan="7">河川<br/>・<br/>道路<br/>構造<br/>物</td><td colSpan="2">樋門</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">堰柱</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">閘門</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">函渠</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">堰（鉄筋コンクリート）</td><td>24-Ⓢ12-40</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>40</td><td>※2</td></tr>
+<tr><td colSpan="2">堰・床止（無筋コンクリート）</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">RC 場所打ちスラブ</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+{/* 橋梁上部工 */}
+<tr><td rowSpan="11">橋梁<br/><br/>上部工</td><td colSpan="2">RC 場所打ちホロースラブ</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">PC プレテンT桁橋（横桁・間詰）</td><td>30-Ⓢ12-25</td><td>30</td><td>30</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">PC プレテン床版橋（間詰）</td><td>30-Ⓢ12-25</td><td>30</td><td>30</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">PC 合成桁（RC 床版）</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">PC 合成桁（PC 合成床版）</td><td>30-Ⓢ12-25</td><td>30</td><td>30</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">PC 場所打ホロースラブ</td><td>36-Ⓢ12-25</td><td>36</td><td>36</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">PC ポステンT桁（主桁）</td><td>40-Ⓢ12-25</td><td>40</td><td>40</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">PC ポステンT桁（床版・横桁）</td><td>30-Ⓢ12-25</td><td>30</td><td>30</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">鋼非合成桁（床版）</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">鋼合成桁（床版）</td><td>27-Ⓢ12-25<br/>30-Ⓢ12-25</td><td>27<br/>30</td><td>27<br/>30</td><td>Ⓢ 12</td><td>25</td><td>※1</td></tr>
+<tr><td colSpan="2">地覆・高欄</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+</tbody>
+</table>
 </div>
 
 - ※1 鋼合成桁（床版）の上段は、床版にプレストレスを与えない場合、下段はプレストレスを与える場合
 - ※2 鉄筋コンクリート構造物の内、鉄筋コンクリート橋台、橋脚（フーチング）および堰（鉄筋コンクリート）については、部材条件、鉄筋のあきを鑑み品質の確保のために骨材の最大寸法を40mmとした。また、コンクリート標準示方書では最大寸法が1000mm以上、かつ鋼材の最小あきおよびかぶりの3/4が40mm以上の場合は骨材の最小寸法を40mmとしている。
+
+{/* 01-tbl-06b: 表1-6-1 コンクリートの適用範囲 2/2 */}
+
+<div className="table-wrapper">
+<table>
+<thead>
+<tr><th>工種</th><th colSpan="2">種　　別</th><th>記　号</th><th>設計基準<br/>強　度<br/>N/mm²</th><th>生コンクリート<br/>呼び強度<br/>N/mm²</th><th>スランプ<br/>cm</th><th>骨材の最<br/>大寸法<br/>mm</th><th>備　考</th></tr>
+</thead>
+<tbody>
+{/* トンネル NATM */}
+<tr><td rowSpan="3">トンネル</td><td rowSpan="2">NATM</td><td>覆工　アーチ・側壁</td><td>18-15-40</td><td>18</td><td>18</td><td>15</td><td>40</td><td>C=270kg/m³</td></tr>
+<tr><td>覆工　インバート</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td>C=240kg/m³</td></tr>
+<tr><td colSpan="2">坑門</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+{/* 砂防 */}
+<tr><td rowSpan="3">砂防</td><td colSpan="2">渓流保全工（流路工）</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">堰堤本体・間詰コンクリート・間詰擁壁</td><td>18- 5-40</td><td>18</td><td>18</td><td>5</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">堤冠コンクリート</td><td>21- 5-40</td><td>21</td><td>21</td><td>5</td><td>40</td><td></td></tr>
+{/* その他の構造物 */}
+<tr><td rowSpan="16">その他の構造物</td><td colSpan="2">法張コンクリート</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td>ブロック積擁壁のパネル<br/>壁コンクリート<br/>充填コンクリート</td></tr>
+<tr><td colSpan="2">法枠（場所打）</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td></td><td></td><td></td></tr>
+<tr><td colSpan="2">法枠（中埋）</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">ブロック積（張）・石積</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td>胴込、裏込、<br/>基礎、天端</td></tr>
+<tr><td colSpan="2">小構造物基礎（無筋）</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td>標識、防音壁等</td></tr>
+<tr><td colSpan="2">小構造物基礎（鉄筋）</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td>標識、防音壁等<br/>※</td></tr>
+<tr><td colSpan="2">蓋板</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">側溝（無筋）</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">側溝（鉄筋）</td><td>24-Ⓢ12-25</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>25</td><td></td></tr>
+<tr><td colSpan="2">街渠</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">ヒューム管基礎</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">ヒューム管ライニング</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td>鋼繊P3,P4 参照</td></tr>
+<tr><td colSpan="2">消波ブロック・根固めブロック</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+<tr><td colSpan="2">杭頭補強</td><td>24-Ⓢ12-40</td><td>24</td><td>24</td><td>Ⓢ 12</td><td>40</td><td>フーチングと同じ規格とする。</td></tr>
+<tr><td colSpan="2">伸縮継手</td><td>36-Ⓢ12-25</td><td>36</td><td>36</td><td>Ⓢ 12</td><td>25</td><td>後打工法（荷重の交通開放が必要な場合）</td></tr>
+<tr><td colSpan="2">集水桝</td><td>18- 8-40</td><td>18</td><td>18</td><td>8</td><td>40</td><td></td></tr>
+</tbody>
+</table>
+</div>
 
 > **（解 説）**
 >
@@ -1285,7 +3408,7 @@ $\phi$：鉄筋の直径（mm）
 > (2) 場所打杭（ベノト杭）は一般に地下水等による水中コンクリートとなる場合が多いため、セメント使用量を考慮して呼び強度30N/mm²、スランプ18cmとし、セメント量は350kg/m³以上とする（特注品）。骨材最大寸法は40mmを標準とするが、配筋が困難な場合は25mmとしてよい。
 > 尚、混和材（遅延材）の使用については、25℃を超える場合は1.5時間、25℃以下は2.0時間以内にコンクリートを打込めるよう運搬計画を立てるものとし、混和剤（遅延材）は使用しないものとする。
 >
-> (3) スランプの範囲は、スランプ5〜8cmは±1.5cm、スランプ8〜18cmは±2.5cm、ただしコンクリート舗装はスランプ2.5cm、許容値±1.0cm、道路橋床版はスランプ8cmとする。
+> (3) スランプの範囲は、スランプ5～8cmは±1.5cm、スランプ8～18cmは±2.5cm、ただしコンクリート舗装はスランプ2.5cm、許容値±1.0cm、道路橋床版はスランプ8cmとする。
 >
 > (4) 生コンクリートにおいて耐久性等を要求される場合は、特注配合品を考慮する。
 >
@@ -1295,8 +3418,20 @@ $\phi$：鉄筋の直径（mm）
 
 <p className="table-title">表1-6-2 コンクリートの種類（構造物による分類）</p>
 
+{/* 01-tbl-06d: 表1-6-2 コンクリートの種類（構造物による分類） */}
+
 <div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-06d.png" alt="表1-6-2 コンクリートの種類（構造物による分類）" />
+<table>
+<thead>
+<tr><th>種　別</th><th>コンクリートの種類（構造物による分類）</th></tr>
+</thead>
+<tbody>
+<tr><td>無筋構造物</td><td>重力式のコンクリートダム、砂防堰堤、法覆工コンクリート、治山の堰堤など全部又は部分的に無筋で築造される構造物を全て称する構造をさす。</td></tr>
+<tr><td>鉄筋構造物</td><td>コンクリート中に、引張り及びせん断補強のために鉄筋を配置し、あるいは圧縮鉄筋（鋼材・鋼管）・プレストレスト（PC）鋼材を配したコンクリートで、鉄筋コンクリート構造に使用するコンクリートをさす。</td></tr>
+<tr><td>鉄骨構造物</td><td>【例】鉄骨と鋼板とRC構造の組合わせ、又は鉄骨とRC構造とコンクリートの組合せ構造。</td></tr>
+<tr><td>小型構造物</td><td>高さ3.0m程度以下の擁壁、水路、水路橋用コンクリート、側溝、集水桝、防護柵基礎等の構造物に使用するコンクリートをさす。<br/><br/>【プレキャスト】JIS適合品の側溝、桝類、管類等がある。<br/><br/>【RC】防護柵基礎の管理強度の場合、塩害対策まで考慮すべきか否かは検討を要す。呼称12のコンクリートと注記</td></tr>
+</tbody>
+</table>
 </div>
 
 :::note[出典]
@@ -1366,7 +3501,25 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-8-1 新技術の評価情報チェックリスト（一部抜粋）</p>
 
 <div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-07.png" alt="表1-8-1 新技術の評価情報チェックリスト（一部抜粋）" />
+<table>
+<thead><tr><th>工種</th><th>図面種別</th><th>縮尺</th><th>記載事項</th><th>備考</th></tr></thead>
+<tbody>
+<tr><td rowSpan={1}>道路補修工事</td><td>標準断面図（横断定規図）</td><td>1／50以下</td><td>舗装厚、幅員構成、構造物断面、寸法、横断勾配</td><td></td></tr>
+<tr><td rowSpan={4}>橋梁下部工事</td><td>位置図</td><td>1／50,000以下</td><td>方位、位置</td><td>位置………………<br/>本年度施工区間……<br/>…朱</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>方位、河川流下方向、堤防法線、角度、橋脚、橋台位置、取付道路</td><td></td></tr>
+<tr><td>一般図</td><td>1／200<br/>〜<br/>1／500</td><td>H.W.L.、L.W.L.、河川断面支間、井筒、基礎杭長、橋脚寸法、橋台寸法、桁下空間</td><td>地質図<br/>親柱、高欄のデザイン未決定の場合は描く必要なし。</td></tr>
+<tr><td>構造図</td><td>1／20<br/>〜<br/>1／1,000</td><td>寸法、角度、平面図、正面断面図、鉄筋詳細図</td><td>出来れば地質図を付けること。細部、構造詳細図を含む。</td></tr>
+<tr><td rowSpan={5}>橋梁上部工事</td><td>位置図</td><td>1／50,000以下</td><td>橋梁下部工と同じ</td><td>橋梁下部工と同じ</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>〃</td><td>〃</td></tr>
+<tr><td>一般図</td><td>1／200<br/>〜<br/>1／500</td><td>H.W.L.、L.W.L.、河川断面桁下高、橋脚、橋台、橋体寸法</td><td>支間、高欄、親柱<br/>橋面縦断勾配</td></tr>
+<tr><td>一般断面図</td><td>1／20<br/>〜<br/>1／100</td><td>床版、舗装厚、横断勾配、高欄、親柱、桁高、主桁間隔等</td><td></td></tr>
+<tr><td>構造図</td><td>1／50以下</td><td>構造詳細図、各構造図等</td><td>鋼材料表</td></tr>
+<tr><td rowSpan={4}>トンネル工事</td><td>位置図</td><td>1／50,000以下</td><td>方位、位置、延長、幅員</td><td>位置、延長、幅員………朱</td></tr>
+<tr><td>平面図</td><td>1／1,000以下</td><td>方位、トンネル延長、切拡げ延長</td><td>トンネル延長<br/>切拡げ延長<br/>…朱</td></tr>
+<tr><td>縦断面図</td><td>縦1／100<br/>〜<br/>1／200<br/>横1／1,000</td><td>工事起終点、拱頂線、地質図、覆工、その他改良工事と同じ</td><td>道路改良工事と同じ</td></tr>
+<tr><td>標準断面図</td><td>1／30<br/>〜<br/>1／50</td><td>覆工、掘削順序、幅員構成、寸法、舗装、側溝</td><td>支保工断面図と重複させても良い。</td></tr>
+</tbody>
+</table>
 </div>
 
 ### 2．設計業務における「設計比較対象技術」の活用促進
@@ -1402,63 +3555,1684 @@ $\phi$：鉄筋の直径（mm）
 <p className="table-title">表1-8-2 設計比較対象技術一覧</p>
 
 <div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-01.png" alt="表1-8-2 設計比較対象技術一覧（1/15）" />
+
+{/* 表1-8-2 設計比較対象技術一覧 (01-tbl-08-01 ~ 01-tbl-08-15) */}
+
+<div id="01-tbl-08-01">
+
+<table>
+<caption>表1-8-2 設計比較対象技術一覧</caption>
+<thead>
+<tr>
+<th rowSpan="2">番号</th>
+<th colSpan="3">NETIS工種分類</th>
+<th rowSpan="2">従来工法（参考）</th>
+<th rowSpan="2">技術名称</th>
+<th rowSpan="2">技術概要</th>
+<th rowSpan="2">期待される効果</th>
+<th rowSpan="2">NETIS登録番号</th>
+<th rowSpan="2">有用な技術名称（適用年度）</th>
+</tr>
+<tr>
+<th>レベル1</th>
+<th>レベル2</th>
+<th>レベル3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>土工</td>
+<td>土工</td>
+<td>残土処理工</td>
+<td>安定処理工（バックホウ混合）</td>
+<td>ESR工法</td>
+<td>発生土及び固化材の自動計量装置を有する自走式土質改良機用いた土質改良を行う</td>
+<td>・原位置において土質改良を行うことができる<br/>・高品質の改良土を安定供給できる<br/>・砂塵発生を抑制、周辺環境の保全に有効</td>
+<td>HR-060002-V</td>
+<td>設計比較対象技術（h23年度〜）少実績優良技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>土工</td>
+<td>土工</td>
+<td>残土処理工</td>
+<td>建設副産物(建設汚泥)に伴うリサイクル・システム</td>
+<td>汚泥改良工法</td>
+<td>無機性の建設汚泥を対象とし、無機固化剤マテックスを添加撹拌を行うことで、建設発生土としての再利用を可能とする処理技術</td>
+<td>・コスト削減<br/>・産業廃棄物の発生を抑制<br/>・資源の有効利用</td>
+<td>SK-990021-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>3</td>
+<td>土工</td>
+<td>土工</td>
+<td>残土処理工</td>
+<td>場外搬出・処分</td>
+<td>オデッサシステム</td>
+<td>掘削あるいは基礎工事業により発生する不要な粘性土を数分で再利用可能な造粒物に処理する</td>
+<td>・物理的粘水処理が不要<br/>・施設からの排水がない<br/>・現場内での現位置処理が可能</td>
+<td>TH-980015-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>土工</td>
+<td>土工</td>
+<td>残土処理工</td>
+<td>バックホウ混合</td>
+<td>自走式土質改良機</td>
+<td>そのままでは利用できない建設発生土を、有効利用・再利用するために、固化材等で改良する技術</td>
+<td>・混合ムラが少なく高品質で安定した改良を確保できる<br/>・固化材使用量の低減と工期短縮によるコストダウンが可能<br/>・粉塵の飛散が極めて少なく、作業・周辺環境に配慮した施工ができる</td>
+<td>KT-990459-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>5</td>
+<td>土工</td>
+<td>土工</td>
+<td>締固め工</td>
+<td>丁張り杭による数値し管理、オペレータによる圧 口数カウンによる人的施工管理ならびに計器による盛土の締固め管理</td>
+<td>GPSによる盛土め管理システム</td>
+<td>盛土の締固め施工管理をリアルタイムに施工結果の確認が出来、電子化・保存・出力が可能</td>
+<td>・大幅なコストダウンが可能<br/>・重複による労働災害を無くなり、測量コストを省くことが可能<br/>・施工データの即時的な布を現場事務所及び各オペレーターが管理・確認できる</td>
+<td>KT-060123-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>6</td>
+<td>土工</td>
+<td>土工</td>
+<td>安定処理工</td>
+<td>固化材散布後バックホウによる混合処理</td>
+<td>リテラ(BZ10・BZ200・BZ120)</td>
+<td>現場内での安定処理工事で、自走式土質改良機(リテラ)により、土等の原料土を固化材と均質に混合して改良土とし、盛材として再利用するための混合技術</td>
+<td>・原料土と固化材の混合品質が安定<br/>・粉塵飛散が低減<br/>・固化材取扱作業の軽減<br/>・切り作業の軽減</td>
+<td>KK-980067-V</td>
+<td>H23推薦技術 H22運用推奨技術 設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>7</td>
+<td>土工</td>
+<td>軽量盛土工</td>
+<td>超軽量盛土</td>
+<td>EPS工法(小固支柱 度壁タイプ)</td>
+<td>ウォールブロック工法</td>
+<td>EPS軽量盛土工法での発泡スチロール採用の箱体を空く、薄く、軽量に作成可能な新しい保護壁面付き軽量盛土用工法</td>
+<td>・非常に効率的な工期短縮の効果<br/>・耐風、対雪を効果的に回避する<br/>・横断時に交通荷重、地震動の振動衝撃を効率的に吸収するため壁面材に影響をあたえない</td>
+<td>QS-040024-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>8</td>
+<td>土工</td>
+<td>軽量盛土工</td>
+<td>超軽量盛土</td>
+<td>軽量盛土工法</td>
+<td>フォームライトW（R-PUR工法）</td>
+<td>現場発泡ウレタン型軽量盛土工法用に開発されたエコフローン材料で、2液の原液を現場発泡させることで、軽量な盛土体を現場で成形することが可能</td>
+<td>・現地盤形状に合わせた施工が可能<br/>・資材置場ヤードの縮小<br/>・工期短縮が可能</td>
+<td>QS-990001-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>9</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>コンクリート法枠工</td>
+<td>自由に変形する型枠鋳筋のプレハブ材を用いたのり枠構造</td>
+<td>ソルクリート工法</td>
+<td>簡易枠付のり枠工で、のり枠には複雑な型枠用材料間をあまだ及び鉄工事が改善されることで大幅にコスト・縮減を期待することができる技術</td>
+<td>・型枠なしでも規格とおりの断面形状の枠がつくれる<br/>・内部補強の鉄筋挿入と人工との併用も可能<br/>・吹付けのり枠工にて、慣用の吹付用材料と施工方法</td>
+<td>CB-980023-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>10</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>吹付枠工</td>
+<td></td>
+<td>ユニラップ工法</td>
+<td>斜面に対して高強度の吹付け構造物を構築する技術で、吹付繊維・高張力繊維性材料を使用する送工法</td>
+<td>・長距離・高通路箇所の施工もプラント移動なしに行える<br/>・吹付構造物の設計基準強度を24N/mm2以上に設定可能<br/>・繊維のある材料の使用により、打設時の変形が少ない</td>
+<td>KT-980565-V</td>
+<td>H23推薦技術 設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>11</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>植生工</td>
+<td>厚層基材吹付工</td>
+<td>ネッコチップ工法</td>
+<td>伐採材と現地発生土を利用した法面緑化工法。法面緑化工事において、現場の発生木材の活用と、機能化に寄り建設廃棄物の抑制とコストの軽減に寄与する技術</td>
+<td>・地域植生の保全・復元が期待できる<br/>・廃棄物を緑化材としてリサイクルできる<br/>・運搬費・処理費が低減できる</td>
+<td>CB-980067-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>12</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>植生工</td>
+<td>植生基材吹付工 T=5cm</td>
+<td>PRAE（ピーレイ）緑化工法</td>
+<td>道路開設等の建設工事で発生する伐根、樹幹、剪定枝等の植物発生材を使用したコスト縮減型植生基材吹付工</td>
+<td>・緑化基礎工の省略による工期の短縮<br/>・リサイクルによるコスト縮減<br/>・廃棄物の低減効果が期待できる</td>
+<td>CG-020023-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>13</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>植生工</td>
+<td>植生マット工及び植生シート工</td>
+<td>多機能フィルター</td>
+<td>繊維材による透部保護と植生、透水し、遇れても空隙率が変わらず蒸気・気体・水を通すが、泥や微小な侵透させない防災機能に優れた斜面保護マット</td>
+<td>・雨滴の直撃力緩和による土壌浸食防止<br/>・排水作用が大きいため表の流い洗いが減少<br/>・吹付プラント等の設置搬去が不要</td>
+<td>CG-980018-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>14</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>植生工</td>
+<td>植生基材吹付工</td>
+<td>ミドリナール団粒緑化工法</td>
+<td>基盤材を、パーツ別に基から団粒発生土、木質チップと変え、土壌菌を加えた</td>
+<td>・現場で発生する廃棄物のリサイクル利用<br/>・埋土種子、飛来落下種子による緑化の基盤としても可能</td>
+<td>KT-980420-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>15</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>植生工</td>
+<td>吹付枠工</td>
+<td>ロービングウォール工法</td>
+<td>長繊維混入緑化一体緑化工法、緑植物の生育に適した質の高い環境との調和可能な法面を作ることが可能</td>
+<td>・厚い生育基盤の造成で経済的<br/>・のり面緑効果が得られる<br/>・周辺環境との調和が期待できる</td>
+<td>QS-000021-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>16</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>植生工</td>
+<td>植生基材吹付工（ネットバッシン工法T=5cm）</td>
+<td>アルファグリーン緑化吹付工法</td>
+<td>コスト縮減・工期短縮・リサイクル型植生基材吹付工。炭及き芝残渣を基材としその無骨系安定剤を用いた緑化吹付工法</td>
+<td>・造成基盤を強固に安定させる<br/>・耐侵性、耐凍上性に優れる<br/>・施工単価の縮減・工期の短縮が図れる</td>
+<td>TH-990001-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>17</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>植生工</td>
+<td>客土吹付工2cm</td>
+<td>グラベル工法</td>
+<td>面倒なストレートに土壌粒子に付着し、粘手が大きい団粒構造をつくり出すことができる</td>
+<td>・乾燥しても水にあっても崩れない硬固な持続体を形成する<br/>・植物の生育には理想的な構造が形成され、長く保たれる<br/>・土壌の透水性・通気性・保水性・保肥性・膨軟性を著しく増加させ、雨砂防止・防塵効果を発揮する</td>
+<td>QS-050011-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>18</td>
+<td>共通工</td>
+<td>法面工</td>
+<td>地山補強工</td>
+<td>吹付のり枠工法</td>
+<td>グリーンパネル工法</td>
+<td>法面にFRP製格子状パネルを使用し、法面全体の安定を図り、全面緑化を可能としたた工法</td>
+<td>・雨水等による腐食の懸念が無い<br/>・軽量なため、人力施工が可能で、施工性が向上<br/>・格子枠状のマス目により、法面全体の緑化が可能</td>
+<td>CG-010007-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>19</td>
+<td>共通工</td>
+<td>擁壁工</td>
+<td>プレキャスト擁壁工</td>
+<td>プレキャストL型擁壁・車両用防護柵独立型基礎</td>
+<td>Gr・L型擁壁</td>
+<td>擁壁のたて壁部分に種類の異なるCH鋼の車両用防護柵の支柱の基部を組み込んだ車両用防護柵基礎一体型プレキャスト型擁壁</td>
+<td>・道路工の施工量は従来の施工方法より少なくて済む<br/>・寸法ならびに工期短縮になるので、製品代および施工費が安くなる<br/>・現場打ちコンクリート防護柵基礎を設置する工法より施工性、経済性が優れている</td>
+<td>QS-030051-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>20</td>
+<td>共通工</td>
+<td>排水構造物工</td>
+<td>暗渠工</td>
+<td>ヒューム管、コンクリート二次製品の排水管</td>
+<td>ダイプラハウエル管による遠路下カルバート・高耐圧ポリエチレン管</td>
+<td>ダイプラハウエル管による道路下カルバート工法の設計・施工方法（高耐圧ポリエチレン管）</td>
+<td>・軽量のため大型クレーンを必要としない<br/>・コンクリート基礎不要のため工期短縮<br/>・不等沈下に対応</td>
+<td>CB-980025-V</td>
+<td>H23推薦技術 設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>21</td>
+<td>共通工</td>
+<td>排水構造物工</td>
+<td>暗渠工</td>
+<td>クレーン施工による製品据付</td>
+<td>コンクリート製品搬送据付吊「リフトローラー工法」</td>
+<td>コンクリート二次製品の搬送から据付まで一連の作業を連続的に行うことが出来る吊工法</td>
+<td>・クレーンでの据付ができない場所での施工が可能<br/>・曲線路および径方向の施工が可能<br/>・厚壁が10t未て、薄壁部の据工も可能</td>
+<td>CB-990105-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>22</td>
+<td>共通工</td>
+<td>排水構造物工</td>
+<td>暗渠工</td>
+<td>開削工法による管布設替え</td>
+<td>インシチュフォーム工法（INS工法）</td>
+<td>管渠更生工法。既設管渠を開削して布設替えするのでなく、非開削で新たなプラスチック管を構築する</td>
+<td>・交通規制等の周辺環境への影響が少ない<br/>・工期が短く、経済性が向上する<br/>・長期性能(耐食性・耐磨耗性)に優れる</td>
+<td>QS-980006-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>23</td>
+<td>共通工</td>
+<td>軟弱地盤</td>
+<td>締固め改良工法</td>
+<td>グラブルドレーン工法</td>
+<td>SAVEコンポーザー</td>
+<td>静的締固め砂杭工法。軟弱地盤中に径70cmの締固めた砂杭を造成する工法。</td>
+<td>・無振動 低騒音 低コストで更に短尺杭も対応<br/>・縮</td>
+<td>CB-980039-V</td>
+<td>H22推薦技術 H20運用推奨技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>24</td>
+<td>共通工</td>
+<td>軟弱地盤</td>
+<td>締固め改良工法</td>
+<td></td>
+<td>パワーブレンダー工法（スラリー撹拌方式）</td>
+<td>浅層・中層地盤改良。液状な地盤を遠心して構造物、盛土等の沈下及び安定対策を行なう技術</td>
+<td>・低コストで大幅な改良が可能<br/>・稼働時での施工が可能<br/>・近接構造物、周辺地盤への影響が少ない</td>
+<td>CB-980012-V</td>
+<td>H23推薦技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>25</td>
+<td>共通工</td>
+<td>軟弱地盤処理工</td>
+<td></td>
+<td>スラリー撹拌工（二軸 施工）</td>
+<td>ツイン・ブレードミキシング工法</td>
+<td>縦型回転撹拌翼装置を用いた中層混合処理工法。改良体の断面を既建設に使った改良機組で変更するための攪拌装置がバウンドを35t級、45t級に取付け可能</td>
+<td>・改良体配置に無駄が無く経済的<br/>・大名の許容支持力が高い<br/>・攪拌装置の改良回転カ方が高い</td>
+<td>KT-050086-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>26</td>
+<td>共通工</td>
+<td>軟弱地盤処理工</td>
+<td></td>
+<td>軟弱地盤処理工（スラリー撹拌工・一軸 式）</td>
+<td>SCM工法</td>
+<td>軟弱地盤の改良において、特殊撹拌装置ゆる硬化材を使用することにより上下方向に撹拌してセメント粉体を原位地盤土と混合させる技術</td>
+<td>・セメント系・石灰系あらゆる硬化材を使用できる<br/>・上下方向に撹拌するため、品質の良い改良体が得られる<br/>・粉体、スラリー両方に適応可能</td>
+<td>SK-020004-V</td>
+<td>H22推薦技術 設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>27</td>
+<td>共通工</td>
+<td>軟弱地盤処理工</td>
+<td>表面安定処理工</td>
+<td>敷網工(ひし形金網)</td>
+<td>スタビランカ</td>
+<td>軟弱地盤上の盛土造成において、敷設地盤を含む円弧すべり破壊を防止する</td>
+<td>・橋梁ほど分離材を併用する必要がない<br/>・高強度の実現により、敷段枚数が少なくなる<br/>・盛土構造物の変形、沈下などが最小限に抑えられる</td>
+<td>KK-050097-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>28</td>
+<td>共通工</td>
+<td>軟弱地盤処理工</td>
+<td>その他</td>
+<td>DMM改良+ボードドレーン改良</td>
+<td>高強度帯状（スーパーオンレイ＋パラリンク）</td>
+<td>軟弱地盤上の盛土対策工 敷網工、数段地盤上盛土造成において安定計画の中のモーメントを補う工法で盛土下部に敷設するもの</td>
+<td>・杭広域的により改良率低値による経済性<br/>・同上<br/>・施工量の減少、既知LDの施工量動率がよい<br/>・全体変位がかなくなる・残留不等沈下を無くする</td>
+<td>HR-990111-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>29</td>
+<td>共通工</td>
+<td>深層混合処理工</td>
+<td></td>
+<td>高圧噴射撹拌工（二重管工法）</td>
+<td>Superjet(スーパージェット)工法</td>
+<td>超大口径改良体を超間に造成可能な高圧噴射撹拌工法</td>
+<td>・単位面積あたりの改良土量が従来工法の5〜8倍<br/>・造成に伴う排泥量を従来工法の約1/5の大幅な減量化</td>
+<td>KK-980026-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>30</td>
+<td>共通工</td>
+<td>深層混合処理工</td>
+<td></td>
+<td>スラリー撹工（二軸施工）</td>
+<td>SDM工法</td>
+<td>高速底変位深層混合処理工法。超高圧・大吐出量の噴化により必要な上量を噴出す力のための超高圧ポンプを開発</td>
+<td>・工期の短縮が図れる<br/>・安定施工が可能<br/>・幅広い土質に対応</td>
+<td>KT-980134-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>31</td>
+<td>共通工</td>
+<td>深層混合処理工</td>
+<td></td>
+<td>高圧噴射撹拌工法（二重管工法）</td>
+<td>LDis(エルディス)工法</td>
+<td>高圧噴射工法と機械撹拌工法を併用する周辺地盤変位低減・超高圧噴射撹拌改良工法</td>
+<td>・施工時の周辺地盤変位を抑制する<br/>・大水土地工が可能で、山岳、丘陵地との密着施工が可能<br/>・幅広い土質に対応でき、管理がしやすい・一一管理と容易</td>
+<td>KT-980135-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>32</td>
+<td>共通工</td>
+<td>深層混合処理工</td>
+<td></td>
+<td>スラリー機械撹拌杭工法(CDM)</td>
+<td>エポコラム工法（地盤改良工法）</td>
+<td>エポコラム-Loto工法・大口径φ2,500 地盤改良工法・深層撹拌合工法</td>
+<td>・経済性(33%縮減)、工期(54%短縮)、品質<br/>・変動係数20%以下<br/>・低速回転・高トルクの9軸で施工径目的の多重化<br/>・杭芯の鉛直精度の保持性が高い</td>
+<td>KT-980205-V</td>
+<td>H23推薦技術 設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>33</td>
+<td>共通工</td>
+<td>深層混合処理工</td>
+<td></td>
+<td>JSG(高圧噴射撹拌二重管方式)工法</td>
+<td>X-jet(クロスジェット)工法</td>
+<td>地表面から直径15cmの孔を目標深度まで掘削するパイプから高圧に中に直径2.5mの円柱状体を造成でき地盤改良技術（特に腐植土地盤に対して有効）</td>
+<td>・一定径の改良体の達成が可能<br/>・トータルパワーの低減による施工速度の向上、経済的な貢献<br/>・柱体の品質向上（特に腐植土地盤に対して有効）</td>
+<td>KT-990495-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>34</td>
+<td>共通工</td>
+<td>薬液注入工</td>
+<td>薬液系</td>
+<td>薬液注入工法(微粒子セメント)</td>
+<td>浸透固化処理工法</td>
+<td>既存構造物直下の液状化対策技術。既設構造物を併用する浸透性の良い改良系液を利用する浸透性地盤改良液を使用する技術</td>
+<td>・薬液の浸透性性が良く、削孔数が減少できコストも低減<br/>・JBA工期が低減<br/>・切削によるため、既存構造物直下の液状化対策に利用可能<br/>・打設散布テシッカンを使用するので長期的に劣化しない</td>
+<td>KT-990230-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>35</td>
+<td>共通工</td>
+<td>アンカー工</td>
+<td>グラウンドアンカー工</td>
+<td>プレキャストコンクリート製フレーム</td>
+<td>KTBスーパーフレームアンカー工法</td>
+<td>斜面安定用受圧体として、鋼製フレームを使用した法枠アンカー工法</td>
+<td>・受圧板の軽量化<br/>・施工性の向上<br/>・自然と調和した景観、植生を考慮した形状</td>
+<td>KT-000115-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>36</td>
+<td>共通工</td>
+<td>アンカー工</td>
+<td>グラウンドアンカー工</td>
+<td>（エポキシ鋼線を組付アンボンドしていない永久アンカー工法の場合（引抜力：0.55t、470kN、全長15m、定着長4m、自由長10m）</td>
+<td>EHD永久アンカー</td>
+<td>永久アンカー工法。水密性、耐久性に配慮した引張り型の永久アンカー</td>
+<td>・自由長部の水密性が向上。<br/>・水深100mで使用可能。<br/>・緊張作業時間が短縮50%向上、</td>
+<td>KT-040039-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>37</td>
+<td>共通工</td>
+<td>アンカー工</td>
+<td>グラウンドアンカー工</td>
+<td>工場製品コンクリート製受圧板</td>
+<td>SEEE/KIT受圧反力体</td>
+<td>グラウンドアンカーの受圧体として開発、斜面安定に地すべり崩壊に用いるグラウンドアンカー用の受圧反力体</td>
+<td>・現場作業を省力化でき、工期の短縮が図れる<br/>・逆巻き施工が容易、工期の短縮および施工時安全性向上、<br/>・全面緑化に近い緑化ができる。</td>
+<td>QS-040016-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>38</td>
+<td>共通工</td>
+<td>アンカー工</td>
+<td>鉄筋挿入工</td>
+<td>地山補強土工（PAN WALL）（グラウンド・アンカー工法）</td>
+<td>グラウンドアンカー工法「法」</td>
+<td>比較的切土高さの高い地山をプレキャストパネルと格段材を使用した急配斜面を築造する技術</td>
+<td>・改変面積の減少、立木等の保護、安全性の向上<br/>・省力化と環境負荷の低減<br/>・意匠デザインの多様化による景観性の向上</td>
+<td>CB-980093-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>39</td>
+<td>共通工</td>
+<td>アンカー工</td>
+<td>鉄筋挿入工</td>
+<td>現場打吹付法枠工</td>
+<td>KITフレーム工法</td>
+<td>法面の鉄筋挿入工の反力体として使用される鋼製反力体。設計荷重や地盤の条件のあわせにおいて適用の形状から選択可能</td>
+<td>・簡易型の全面緑化に近い緑化が可能<br/>・施工に際して特別な技術を必要としない<br/>・工期短縮により、工事費は従来技術に比べて縮減できる</td>
+<td>QS-020037-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>40</td>
+<td>共通工</td>
+<td>ボックスカルバート工</td>
+<td>躯体工</td>
+<td>険隘な施工場所での施工方法（トラッククレーン等による墜落工）</td>
+<td>BCCS工法</td>
+<td>新たに開発した自走式台車を使用してボックスカルバートを検査・オーバーカンス位置まで移動運搬し、据付けるもの</td>
+<td>・クレーンが狭隘な場所において、ボックスカルバートの据付け可能<br/>・全天で現場打設工・連続式によるよる上下調整とスライト機構により、高い据付精度の確保</td>
+<td>CB-980040-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>41</td>
+<td>共通工</td>
+<td>ボックスカルバート工</td>
+<td>躯体工</td>
+<td>場所打ちボックスカルバート</td>
+<td>スーパーカルバート</td>
+<td>プレキャスト頂版及び頂版部材を施工現場に搬入し組み立てて建設。側壁にて一段づつコンクリートを打設し、上部プラス柱カルバートを構築する工法</td>
+<td>・支保工が現場で不要<br/>・地盤の不陸に対応が可能、<br/>・現場における施工工期の短縮と省人化が可能。</td>
+<td>CB-980060-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>42</td>
+<td>共通工</td>
+<td>ボックスカルバート工</td>
+<td>躯体工</td>
+<td>現場打ボックスカルバート</td>
+<td>スーパーボックスカルバート</td>
+<td>大型PRCボックスカルバート工法。超大型断面のボックスカルバートのプレキャスト化でプレキャストの構築を可能としたもの</td>
+<td>・主筋材のプレキャスト化により、工期の短縮と省人化が可能<br/>・環境貢献面よりコスト縮減<br/>・頂版、側壁部のプレキャスト化により、支保工が不要</td>
+<td>TH-030024-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>43</td>
+<td>共通工</td>
+<td>かご工</td>
+<td>その他</td>
+<td>かごマット工</td>
+<td>河川護岸用「ドレーンかご」（ドレーンかごFR型）</td>
+<td>河川護岸用トレンチに求められる護岸形状を実現すると同時に、従来工法にはない排水・大水面なの排水機能と施工性改善を実現した</td>
+<td>・従来技術に比べコスト大幅なダウン<br/>・従来技術に比べ施工工程も改善<br/>・場の設計法面に適なドレーン形状の構築が可能</td>
+<td>KK-050126-V</td>
+<td>設計比較対象技術（h21年度〜）少実績優良技術（h05年度〜）</td>
+</tr>
+<tr>
+<td>44</td>
+<td>共通工</td>
+<td>その他</td>
+<td></td>
+<td>くい打ち、番線結束</td>
+<td>セフテム2看板金具</td>
+<td>工事用看板が必要な箇所について、看板と一体化した構造金具により直接石部に固定して設置する技術</td>
+<td>・看板設置が容易になる<br/>・木杭や番線などの産業廃棄物を発生させない<br/>・明瞭でも転用可能である</td>
+<td>CB-010019-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>45</td>
+<td>共通工</td>
+<td>その他</td>
+<td></td>
+<td>勤条式横引き工法</td>
+<td>エア・キャスター工法</td>
+<td>プレキャストボックスカルバートなどコンクリート二次製品をエア・キャスターを使用して移動して据設する技術</td>
+<td>・基礎工事に要する費用・手間の縮減及び工期短縮が期待できる<br/>・連続作業による手待ち現場部、シフトの技工量性の改善<br/>・重量15t以下の運搬物の人力施工も可能で省力化施工が期待できる</td>
+<td>KT-010013-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>46</td>
+<td>基礎工</td>
+<td>鋼管・既設・フリート杭打設工</td>
+<td>打設工</td>
+<td>場所打ち杭工法 リート杭</td>
+<td>ガンテツパイル</td>
+<td>構造物の杭基礎を鋼管と現地盤へのセメントミルク注入により「鋼管ソイルセメント杭」として構築する技術</td>
+<td>・高い支持力により本数低減<br/>・建設発生土低減<br/>・工程短縮</td>
+<td>KT-980188-V</td>
+<td>H20推薦技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>47</td>
+<td>基礎工</td>
+<td>鋼管・既設・フリート杭打設工</td>
+<td>打設工</td>
+<td>場所打ち杭工法 合成鋼管杭工法(HYSC杭)</td>
+<td>ソイルセメント</td>
+<td>鋼管ソイルセメント杭工法。柱体の材料をコンクリートからソイルセメントに変え、場所打ち技術を複合技術とした工法に変えた。</td>
+<td>・施設立上が少なくなりコスト縮減が期待できる<br/>・工場を短くでき、効率の向上が期待できる</td>
+<td>KT-980320-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>48</td>
+<td>基礎工</td>
+<td>鋼管・既設・フリート杭打設工</td>
+<td>打設工</td>
+<td>ダウンザホール ハンマ工</td>
+<td>ガンパイル工法</td>
+<td>死ジェットで岩砕を削孔しながら振動杭打ち機によって鋼管杭を岩盤杭打ちさせる岩盤杭打ち工法</td>
+<td>・施工設備が大幅に簡素化される<br/>・運搬作業が大幅に簡素化される<br/>・従来の岩盤打設工法より施工能力が大きく工期短縮が図れる</td>
+<td>KT-990499-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>49</td>
+<td>基礎工</td>
+<td>ケーソン工</td>
+<td>チッケケーソン工</td>
+<td>作業員の入坑による機械(潜函用ショベル/潜函）</td>
+<td>石式入坑ケーソン工法</td>
+<td>遠隔操作によるニューマチックケーソンの無人掘削工法。専用の地上遠隔操縦による無人掘削システムを使用し掘削する</td>
+<td>・コスト13.44%削減<br/>・工程18.58%短縮<br/>・安全性の向上</td>
+<td>KT-990443-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>50</td>
+<td>基礎工</td>
+<td></td>
+<td>その他</td>
+<td>大口径ボーリング</td>
+<td>MLT工法</td>
+<td>硬質地盤無排土工法。硬質地盤に杭、鋼矢板を打ち込む際、損をまわすだけに効率良く削孔する技術</td>
+<td>・工期短縮、コスト縮減<br/>・自然環境、周辺環境への影響が少ない<br/>・安全性の向上</td>
+<td>HR-990077-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>51</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>コンクリート打設</td>
+<td>チッピングによるコンクリート粗面の目荒し処理</td>
+<td>KKシート工法</td>
+<td>コンクリート鉛直打継目処理シート工法。打継粗砂の突起を枠に取り付けることでコンクリートを打設する</td>
+<td>・均質な打ち継ぎ面粗面処理が可能<br/>・施工の合理化が図れる<br/>・騒音や粉塵および汚濁水などの発生がない</td>
+<td>KT-030007-V</td>
+<td>H23推薦技術 設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>52</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>コンクリート打設</td>
+<td>コンクリート打ち継ぎ面処理工 主にJAにレイタンス処理(遅延剤使用)JA-40</td>
+<td>ジョイントエース</td>
+<td>コンクリート打ち継ぎ面処理用。耐久性の高い(マクロ)ル形状ポリマーエマルジョンを使用</td>
+<td>・打継ぎ部の耐久性向上<br/>・作業の省力化、経済性の向上および周辺環境の保全が可能<br/>・レイタンスの付着とレイタンス層の改質効果が向上</td>
+<td>KT-010204-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>53</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>コンクリート打設</td>
+<td>レイタンス処理（表面凝結遅延剤使用による）</td>
+<td>ジョインテックスち継ぎ処理剤CT-400</td>
+<td>コンクリート打ち継ぎの際、レイタンスの洗い出しが容易に行うことができるち継ぎ処理剤</td>
+<td>・打継ぎ処理に掛かる費用を縮減<br/>・作業工程が短縮<br/>・レイタンス処理液が出ないので、周辺環境への影響がない</td>
+<td>KT-070054-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>54</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>コンクリート打設</td>
+<td></td>
+<td>生コンクリート改質材</td>
+<td>高耐久性コンクリートを促す入工ゼオライトを使用したコンクリート改質材</td>
+<td>・クラック発生の減少、ワーカビリティーの改善が図られる<br/>・池遅な硬化化が得られるカラクラを無少する<br/>・スランプ低下を減少させ流動性を保つ事ができる</td>
+<td>KT-070086-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>55</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>コンクリート打設</td>
+<td>チッピングにしるコンクリート目荒し処理</td>
+<td>リタメイトCJ</td>
+<td>洗い出し処理による旧コンクリート部の目荒しを目的に用いたもの、削離打設後脱型が自らを可能にする技術</td>
+<td>・表面を目視にしか骨材の露出が簡単に出来る<br/>・骨材が露出した所としない所がはっきり確認が取れ、均一に処理する効果がある</td>
+<td>TH-990084-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>56</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>コンクリート打設</td>
+<td>コンクリートのポンプ圧送における先行モルタル</td>
+<td>次世代コンクリート圧送の充填耐久リックパワー</td>
+<td>コンクリートポンプ圧送のコンクリートパイプの詰まりを低減するための先行圧送剤</td>
+<td>・モルタルを購入するよりもコスト削減が可能。<br/>・省力化が可能。<br/>・産業廃棄物制限の発生量を制限可能。</td>
+<td>KK-070033-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>57</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>コンクリート打設</td>
+<td>レイタンス処理（高圧洗浄器用）</td>
+<td>フレッシュバスター</td>
+<td>均一性に優れた商品質の打継面しながら、処理作業時間を大幅に短縮しさらにコンクリートの打継目処理剤</td>
+<td>・作業の省力化<br/>・経済性の向上<br/>・打継面の品質向上に効果</td>
+<td>KK-990050-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>58</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>養生</td>
+<td>給熱ヒーター養生</td>
+<td>断熱養生シートによる断熱養生工法</td>
+<td>コンクリートの養生で保護・保温を行う技術。密造度シートの上に空気層・熱もちのよいマットを敷くことで保温効果を確保</td>
+<td>・CO2の削減が期待できる<br/>・コンクリートの施工で長期間の要求を維持する上で有効である<br/>・初期の表面乾燥縫にさるひび割れを抑制できる</td>
+<td>KT-070067-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>59</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>養生</td>
+<td>珪酸塩系含浸コンクリート保護材</td>
+<td>ウレタン樹脂</td>
+<td>コンクリートの表面に塗布し、含浸させることで有害な物質を無害化し、劣化因子のコンクリート構入を防ぎ耐久性を向上させる技術</td>
+<td>・コンクリート構造物の防水性及び耐久性を向上させる<br/>・コンクリートの中性化及び弊害の抑制を防止する<br/>・漏洩性を保持し、収縮クラックの発生を防止する</td>
+<td>KT-080005-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>60</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>鉄筋工</td>
+<td>従来型の鉤角フック、半円形Y字型せん断補強鉄筋</td>
+<td>Head-bar(ヘッドバー)</td>
+<td>プレート定着型の甲形棒鋼筋、半円形フック(付替定着工法)をプレート形による定着工法(支圧定着型にした)</td>
+<td>・施工性が改善され工程短縮になる<br/>・ピッチや配筋の正確さが得られると品質が向上する<br/>・半円形フックと同等以上の定着性能を有する</td>
+<td>KT-010207-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>61</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>その他</td>
+<td>表面被覆工法</td>
+<td>マジカルリペラー</td>
+<td>コンクリート表裏部にシリコーン相極の液状の共用と親水化を形成し、塩害・中性化・凍結融害への反応有財反応させ、コンクリート構造物の耐久性を向上</td>
+<td>・1回の塗布で従来の3回塗布した場合と同等の浸りの効果<br/>・工期の短縮および施工費の低減、耐久性効果の長期化<br/>・材料がクリーム状で壁面や下面でも飛散や液ダレがしにくい</td>
+<td>TS-030006-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>62</td>
+<td>コンクリート工</td>
+<td>コンクリート工</td>
+<td>その他</td>
+<td>表面塗布型製品（バンデックス、パラテックス）</td>
+<td>ケイ酸塩リチウム系コンクリート改質剤「Osmo」</td>
+<td>坤剤、塩害、凍結融解などの劣化因子から既設コンクリート構造物に長寿命化対策を施す安定安全な製品を塗布する</td>
+<td>・コンクリートの長寿命化が基を安く大きめのの設計期間のまま、複工の施工（塗布）で行える<br/>・施工後のライフサイクルコストを大幅に削減できる可能性のある<br/>・耐用年数経過廃業後の完全リサイクルが可能</td>
+<td>HK-070015-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>63</td>
+<td>コンクリート工</td>
+<td></td>
+<td>その他</td>
+<td></td>
+<td>張りコンクリート工法</td>
+<td>無機質セメント結晶増殖材によるコンクリート構体改質。コンクリートの耐久性能を向上させ、ライフサイクルを延長させる</td>
+<td>・空隙やひび割れ面のセメント結晶増殖による微細化・躯体緻密化により水の浸入を防ぎ強度復旧<br/>・ひび割れ面にセメント結晶を生成して止水する</td>
+<td>QS-000011-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>64</td>
+<td>コンクリート工</td>
+<td>仮設工</td>
+<td>仮設材設置撤去工</td>
+<td>切株を用いた溶接方法</td>
+<td>リングプレート</td>
+<td>敷鉄板を食具リンクプレートで固定する方法。敷鉄板の固定を切株荷押しから食具リンクプレート（固定）に変えた</td>
+<td>・特殊安全ピンにより敷鉄板のずれを防止し、安全性が向上<br/>・雨天での取付けが可能<br/>・据付工事、工期が短期間<br/>・ボルト以外は繰り返し使用が可能な為、経済性が向上</td>
+<td>KT-060068-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>65</td>
+<td>仮設工</td>
+<td>仮設材設置撤去工</td>
+<td></td>
+<td>盛り替え架工法</td>
+<td>スルーサー</td>
+<td>切替式覆工法による、仮既設構造体のRC版立て耐震補修工事で用いて、切斜取付構造体の動のPC設立工事への設設で、切斜の盛り替え作業が不要</td>
+<td>・生産性および安全性の向上が図れる<br/>・工期短縮および工事費縮減が図れる<br/>・品質の向上が図れる</td>
+<td>CG-040004-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>66</td>
+<td>仮設工</td>
+<td>仮設材設置撤去工</td>
+<td></td>
+<td>単管パイプにクランプ付きステップを一枚一枚嵌を含わせ取り付ける工法</td>
+<td>法面2号ユニバーサルユニット自在階段</td>
+<td>取付角度が自由に設定できるユニット式アルミ合金製階段。単管パイプ・自在ステップの組み合わせ階段にし比較。のユニット化と自在階段とした</td>
+<td>・単管パイプクランプ付きステップとの重量は約66.18%削減<br/>・角度調節が一度で完了。安全性の向上が図れる<br/>・設置解体時間比83.33%削減</td>
+<td>KT-090046-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>67</td>
+<td>仮設工</td>
+<td>足場支保工</td>
+<td>足場工</td>
+<td>単管吊り足場</td>
+<td>ラック足場工法</td>
+<td>建造物に沿って取り付けられる3本のレールをモノレール自走移動(7m/min)する移動式吊足場</td>
+<td>・工期短縮、労務費軽減<br/>・従来の足場に比べ景観を損なわない<br/>・増滅・風圧による足場の倒壊は起こらない</td>
+<td>SK-050011-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>68</td>
+<td>仮設工</td>
+<td>足場支保工</td>
+<td>足場工</td>
+<td>仮橋・仮設構工</td>
+<td>YTロック工法</td>
+<td>杭打ち機やボーリングマシン据付のための斜面養生、および法面工事等における単管足場に代わる新技術</td>
+<td>・転落、落下の危険性が少なくなり安全性の向上が期待される<br/>・設置時にはばつきがなく品質が確保される<br/>・組立て期間の短縮・労務費および運搬費の削減が期待される</td>
+<td>KK-080017-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>69</td>
+<td>河川維持</td>
+<td>消波根固めブロック</td>
+<td>消波根固め護岸平型ブロック</td>
+<td></td>
+<td>ログブロック工法</td>
+<td>間伐材と特殊布型製型を用いた据置め・護岸工法。ブロック体の据付施工で直接打設が可能</td>
+<td>・鋼製型枠の脱型および維持管理(型枠清掃、塗油等)が不要<br/>・工期約40%に短縮可能で、施工に優れている<br/>・施工面積も返り面工事等での12の場合堤防上より施工する</td>
+<td>KT-020076-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>70</td>
+<td>河川維持</td>
+<td></td>
+<td>軟弱地盤上における柔構造樋門・樋管</td>
+<td></td>
+<td>ローラーゲート</td>
+<td>KaNaFゲート</td>
+<td>河川の樋門・樋管用浮体構造式ゲート。木質系用部材に特化させた淡水体構造による自動開閉4方水害の起伏ゲート</td>
+<td>・人為的な開閉操作を必要としない<br/>・洪水時の増水にも速やかに対応<br/>・重量が軽く、軟弱地盤に対しても安定し易い</td>
+<td>KT-990126-V</td>
+<td>H21推薦技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>71</td>
+<td>河川維持</td>
+<td></td>
+<td>軟弱地盤上における柔構造樋門・樋管</td>
+<td></td>
+<td>現場打コンクリートによる樋門函体</td>
+<td>プレキャスト樋門工法</td>
+<td>樋門(底板・側壁・頂版)のプレキャスト方式。関接合方式・弾性材・オールプレキャスト化に対応</td>
+<td>・柔構造樋門の特性である施工中の沈下に対応可能。オールプレキャスト化構造となるため工期短縮となる<br/>・全構造特性、仮設、工費、工期等でLCC効果が大きい</td>
+<td>HK-030028-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>72</td>
+<td>河川維持</td>
+<td>多自然型護岸工</td>
+<td>ブロック積（張）工</td>
+<td>張りブロック</td>
+<td>ゴビマット</td>
+<td>多数のコンクリートブロックを合成繊維不織布フィルターシートに一体化したブロックマット</td>
+<td>・現場施工が省力化でき、工期の大幅な短縮が期待できる<br/>・多自然型護岸にすることができる<br/>・雨滝・流水などによる侵食に対して防止効果を発揮する</td>
+<td>KT-990407-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>73</td>
+<td>河川維持</td>
+<td>多自然型護岸工</td>
+<td>その他</td>
+<td>練石張護岸工法</td>
+<td>ストーンネット工法</td>
+<td>自然石(間知等)で鋼により自然石型護岸工法。基盤材である金網に自然石を固着させた護岸工法</td>
+<td>・自然石を用いた透水性構造により、水辺の生態系を保全<br/>・異形加工が可能で、景観性の向上が図れる。<br/>・カーブ施工が容易であるなどの地形に対応可能</td>
+<td>CB-990033-V</td>
+<td>H23推薦技術 設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>74</td>
+<td>河川維持</td>
+<td>多自然型護岸工</td>
+<td>その他</td>
+<td>コンクリートブロック施工(連節ブロック)盛土(+覆土)</td>
+<td>グリッドシーパー工</td>
+<td>芝付きジオテキスタイル多自然護岸工。河川等において、護岸の安定し、透水性をもった護岸を形成する</td>
+<td>・施工直後から流速5m/sに対応する耐浸透性をもった護岸を形成<br/>・従来工法と比較し、従来工法と比較し、工期短縮が図れる</td>
+<td>CG-040015-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>75</td>
+<td>河川維持</td>
+<td>護岸基礎ブロック設置工</td>
+<td></td>
+<td>現地で型枠組立、コンクリート打設、養生、型ばらし</td>
+<td>プレキャストコンクリート基礎工「ベースブロック」</td>
+<td>法留工に使用する基礎工のプレキャスト製品。法留工に使用される基礎工の均一品・場打ちコンクリートをプレキャスト化した技術</td>
+<td>・工期短縮、・省資源化。<br/>・作業環境の改善。<br/>・品質の向上。</td>
+<td>CB-990024-V</td>
+<td>H21推薦技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>76</td>
+<td>河川維持</td>
+<td>護岸基礎ブロック設置工</td>
+<td></td>
+<td>現場打ち河川護岸基部コンクリート(高さ70cm、上幅30cm、下幅80cm)</td>
+<td>河川護岸基礎用プレキャストコンクリートブロック</td>
+<td>品質の向上、施工の省力化、工期の短縮で設計した河川護岸基礎用プレキャストコンクリートブロック</td>
+<td>・プレキャスト製品のため大幅な工期短縮<br/>・据付け自在性があり河川の法線に沿って施工が可能<br/>・完全なドライでない箇所でも水替工の節約が可能</td>
+<td>CG-020009-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>77</td>
+<td>河川維持</td>
+<td></td>
+<td>その他</td>
+<td></td>
+<td>現場打笠コンフレックス笠コンブロック</td>
+<td>河川堤防護岸の笠コンクリートを一次製品化し、ハット形、広幅及び背面段型全体を新形で対応可能としたた技術</td>
+<td>・プレキャスト製品であり工期が短縮<br/>・全て陸上からの施工が可能<br/>・低コスト化や工期短縮等により工費低減</td>
+<td>HR-990108-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>78</td>
+<td>河川維持</td>
+<td></td>
+<td>その他</td>
+<td>ドレーン工のコンクリート被覆方式堤脚水路工</td>
+<td>DRウォール</td>
+<td>ドレーン工の排水機能を備えた堤脚保護工。堤脚排水護岸水路工と堤脚保護工を一体化した擁壁</td>
+<td>・堤体の安定を図ることが可能<br/>・水路工と柔壁工の施工費一体化による工事費低減<br/>・化粧型ブロックにより美しい景観を創出できる</td>
+<td>KT-050057-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>79</td>
+<td>河川維持</td>
+<td></td>
+<td>その他</td>
+<td>鉄骨造りALC壁上屋</td>
+<td>ひ門ハウス</td>
+<td>樋門機器部に設置する上屋。コンクリート製上屋の施行日数が約3日から約1日に短縮した。</td>
+<td>・工期の短縮<br/>・重量はコンクリート製上屋の約5の1<br/>・撤体の軽量化による解体経費の削減</td>
+<td>KT-010009-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>80</td>
+<td>河川維持</td>
+<td>沈床工</td>
+<td>木工沈床工</td>
+<td>木工沈床工</td>
+<td>ナチュラルウッド</td>
+<td>河川の規格めて使用する「木工沈床」について、「工期短縮」「設計・施工の自由度」の向上を図る技術</td>
+<td>・現場条件(河形等)に合わせた形状に対応可能<br/>・期設状地盤への施工や水中(非ドライ)施工も可能<br/>・実績により施工性向上、工期短縮、安全性向上が図れる</td>
+<td>CB-980003-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>81</td>
+<td>河川維持</td>
+<td>沈床工</td>
+<td>木工沈床工</td>
+<td></td>
+<td>木工沈床フリータイプ</td>
+<td>脚部に芯鋼複合マルチフィラメント・MELT合成木材で中間強度の充填・吊上げ、設置を行う木工沈床</td>
+<td>・大幅な施工作業向上及び工程短縮・仮設品質管理、施工精度の向上<br/>・4精度木工法までの4種類は本木工法の3層部に該当</td>
+<td>KK-050072-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>82</td>
+<td>河川維持</td>
+<td>薄層カラー舗装工</td>
+<td>薄層カラー舗装工</td>
+<td>薄層カラー舗装工（樹脂系すべり止め舗装）</td>
+<td>ミストグリップ</td>
+<td>路面に塗料を塗布することにより、視認性が向上し、車両及び歩行者及び自転車の通行の安全が向上する路面標示することが出来る技術</td>
+<td>・舗装の排水機能を損なわず雨水が逢水し、濡膜しない<br/>・舗装の凹凸に対応し、そのまま常温利用により、すべり抵抗値を向上する<br/>・速乾性であり養生時間が短い、車両交通開放に短時間が短縮される</td>
+<td>KT-010117-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>83</td>
+<td>河川維持</td>
+<td>薄層カラー舗装工</td>
+<td>薄層カラー舗装工</td>
+<td>アクリルエマルジョン系 常温薄層カラー舗装</td>
+<td>ニューカラーコート・E、P、F、C</td>
+<td>歩道、自転車道、駐車場の路面を着色を、水性塗料を意識で塗布または散布することによりカラー化する技術</td>
+<td>・車両事入群でも対応でき、耐用年数も長い<br/>・施工時間が短縮(施工作業性の改善、車両の交通解放が短縮される）<br/>・路面温度の上昇が抑制され、利用者環境が改善される</td>
+<td>SK-050017-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>84</td>
+<td>付属施設</td>
+<td>橋梁付属施設</td>
+<td>高欄設置工</td>
+<td>地震新横やり横式標準型防護柵</td>
+<td>既設防護柵型防護柵</td>
+<td>構造の既設防護柵を取り替える時に覆設防護柵の設置が出来るアンカーの設置の出来る防型防護柵</td>
+<td>・既設の地覆コンクリートを取り壊す等の構築の取替え作業が容易にする事がなく、アンカーボルトで取替え可能<br/>・大幅な経費削減が可能<br/>・地震横断を更に増せて、アンカーボルト及び防護柵の設置可能</td>
+<td>QS-080003-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>85</td>
+<td>付属施設</td>
+<td>トンネル内装板設置工</td>
+<td></td>
+<td>タイルパネル工法（大型セラミックタイルを内装板及びラメルラライト内装工を施工するもの）</td>
+<td></td>
+<td>トンネル内の視認性に優れた経済性・耐久性に優れた大型の内装タイル内壁板を主体とする内装板面接着するもので、施工するもの</td>
+<td>・表面が硬く平滑で溝掃きをしやすく、自潔浄手段も適切できるパネルに使われるため、洗浄可能性に優れる<br/>・コンクリート面に全面接着するもので、施工方法は従来と違い容易で工期短縮が可能<br/>・重量が軽く安付方法も簡単で工期短縮が鑑算になる</td>
+<td>HR-010004-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>86</td>
+<td>付属施設</td>
+<td>道路付属物工</td>
+<td></td>
+<td>中央分離帯、センターボール、ポスト、道路鏡（チャッターバー対応型）</td>
+<td>ランブルストリップス（センターライン対応型）</td>
+<td>警告型切削溝による正面衝突事故対策。車両・ドライバーに衝撃を感じさせ、衝突を低減させる技術で正面衝突等の交通事故を防止する技術</td>
+<td>・設置費用が安く、施工期間が短い<br/>・通過追記警告効果があり、<br/>・除雪作業の支障とならない</td>
+<td>HK-030032-V</td>
+<td>H21推薦技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>87</td>
+<td>付属施設</td>
+<td>道路付属物工</td>
+<td></td>
+<td>4点ボルト固定工法</td>
+<td>グレーチングダストッパーSP</td>
+<td>既設/新設の蓋目(蓋目グレーチングの二重部)、裏面上り・浮き上がり・騒音発生を防止する後付けの金具。</td>
+<td>・既設グレーチングのリニューアルによる、コスト縮減や維持費の削減<br/>・短時間施工により、交差点の減少や管理現場作業の向上<br/>・ステンレス製により、十分な防錆対策と長期耐久性がある</td>
+<td>HR-050026-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>88</td>
+<td>道路維持修繕工</td>
+<td>路面切削工</td>
+<td>舗装版カッター切り・はつり工(手はつり)</td>
+<td></td>
+<td>排水性舗装対応溝切り工法</td>
+<td>コンパクトでパワフルな専用切削機を使用した溝切り工法。排水性舗装を路面上に連ねる作業の工数を大幅に減らすことが可能</td>
+<td>・大幅な工期短縮、工事諸経費の削減となり、仕上がりも良い<br/>・透水処能の改善が従来の手はつりに比べ飛躍的に向上し、排水機能の恢復となる確保にもつながる<br/>・直接仮設の低減が図られ、交通で安全面の有効利用にも寄与</td>
+<td>SK-020015-V</td>
+<td>H19推薦技術 設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>89</td>
+<td>道路維持修繕工</td>
+<td>路面切削工</td>
+<td></td>
+<td>切削オーバーレイとレベルと巻尺による横断測量</td>
+<td>道路縦横断解析システムROPO（ロボ）</td>
+<td>切削オーバーレイの施工前に実施する縦横断測量において路面のある対象を測定する技術</td>
+<td>・規制のための手続きや準備や規制費用が経減<br/>・規制に伴う危険性が低減<br/>・交通渋滞・近隣への不自由を与えずに計測することが可能</td>
+<td>KT-050111-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>90</td>
+<td>道路維持修繕工</td>
+<td>道路打換工</td>
+<td></td>
+<td>通常舗装(上層路盤・基層+中間層)</td>
+<td>QRP工法(QUICK REPAIR PAVEMENT急速連続修復工法)</td>
+<td>QRP工法は大粒径混合物、融着工のうち、車道および上層路盤を連続しさらなる回の敷き並べて舗修する施工方法</td>
+<td>・施工時間短縮<br/>・交通規制に伴う渋滞が縮小<br/>・工程が少なく施工の合理化、省力化が可能</td>
+<td>CG-990019-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>91</td>
+<td>道路維持修繕工</td>
+<td>橋梁維持補強工</td>
+<td>表面保護工</td>
+<td>表面被覆工法(浸透型コンクリート長期耐久性塗装系表面含浸型)</td>
+<td>無溶剤タイプジェル状プラン系表面含浸材</td>
+<td>コンクリート構造物等の塗膜、表面、アルカリ骨材反応による劣化を防止し・抑制する技術。</td>
+<td>・材料費が低減しコストメリットが向上する<br/>・施工工程がの少なく、施工費が低減しコストメリットが向上する<br/>・環境への配慮から環境性を確認さき、かつコスト縮減が図れる</td>
+<td>KT-070047-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>92</td>
+<td>道路維持修繕工</td>
+<td>橋梁維持補強工</td>
+<td></td>
+<td>新素材繊維鋼板接着工法</td>
+<td>フォルカトウシート工法</td>
+<td>連続繊維シートにより・リコンクリート構造物の補修・補強をする施工製に優れた工法</td>
+<td>・軽量で薄く、手作業のみで施工でき、重機械が不要<br/>・施工条件の制約を受け難く<br/>・耐食性、耐薬品性に問題がなく、塩害対策にも有効</td>
+<td>QS-990014-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>93</td>
+<td>道路維持修繕工</td>
+<td>橋梁維持補強工</td>
+<td></td>
+<td>ガラスクロス接着工法</td>
+<td>ショーボンドハイブリッドシート工法</td>
+<td>特殊ラミネートシートを現場で一度貼り付ける工法。コンクリート片の落下を含む落下物を防止するとともに安定した品質を確保</td>
+<td>・施工性向上と作業工程減少による工期短縮とコスト縮減<br/>・工場製品のシートを使用することで安定した品質を確保<br/>・高所作業車による橋梁上での作業に最適</td>
+<td>TH-010017-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>94</td>
+<td>道路維持修繕工</td>
+<td>橋梁維持補強工</td>
+<td></td>
+<td>橋梁用伸縮装置の取替え</td>
+<td>ドーロガード維橋梁置嵩上げ工法</td>
+<td>橋梁の床版上部の面印増置等の撹拌タルに充填し嵩上げする工法で、橋梁用伸縮装置の交換に対応する</td>
+<td>・コンクリートの取り壊し工程が容易で、騒音の発生が低減<br/>・施工時期が限定されないことで、施工時期の短縮が可能<br/>・橋梁用伸縮装置は橋梁の交換で使用できるため、コストの縮減が可能</td>
+<td>KK-980028-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>95</td>
+<td>道路維持修繕工</td>
+<td>道路除草工</td>
+<td>防草工</td>
+<td>道路除草工(2回/年、10年)</td>
+<td>強壮雑草抑止用防草シート「チガヤシート」</td>
+<td>チガヤ、ススキ、アシ、ヨシ、セイタカアワダチソウ等強壮雑草を完全に抑止でき、ゴミのポイ捨ての防止やの効果も期待される防草シート</td>
+<td>・雑草を生やさない田に維持<br/>・害虫発生の防止や、ゴミのポイ捨ての抑制効果<br/>・意図的な不法排出された雑草（一般廃棄物の）の削減</td>
+<td>CB-010039-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>96</td>
+<td>道路維持修繕工</td>
+<td>トンネル補修補強工</td>
+<td>その他</td>
+<td>ウォータージェット工法</td>
+<td>バキュームブラスト工法</td>
+<td>トンネルや補強等の補修・補強工事において、コンクリート表面や飼い型塗膜等の老・研磨物等をそ削削を実削・用により処理する事が可能</td>
+<td>・劣化モルタルには排ガス由来の重金属が含有されるリサイクルに繋げて産業廃棄物の処分量が少なくなる<br/>・躯体形状に合わせた作業ができ、処理面を必要以上に傷めない作業が可能</td>
+<td>CB-050049-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>97</td>
+<td>道路維持修繕工</td>
+<td>路面補修工</td>
+<td></td>
+<td>常温アスファルト合材(カットバック・アスファルト系)による火傷を防ぎ修復修工</td>
+<td>YKパック</td>
+<td>アスファルト道路に突然発生するポットホールについて、つけたその場で即時に堅固にする材料</td>
+<td>・作業着や保全管理にキャリア作業員の汚れや交換も汚れにくくなる<br/>・施工や施工以後のメンテナンス、油膜の流出がない<br/>・従来技術に見られる硬化による材料ロスがなくなる</td>
+<td>KK-050053-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>98</td>
+<td>道路維持修繕工</td>
+<td></td>
+<td>その他</td>
+<td></td>
+<td>4点ボルト固定式グレーチングへの取換</td>
+<td>Gガード</td>
+<td>既設のグレーチングに短時間で簡単に取り付けられる、浮ね上げ防止金具</td>
+<td>・既設グレーチングを利用した製品<br/>・ボルトによる締付で外れ抵抗によるため容易・ゆるみ止めオナットを採用</td>
+<td>KK-040026-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>99</td>
+<td>道路維持修繕工</td>
+<td></td>
+<td>その他</td>
+<td></td>
+<td>4点ボルト固定式グレーチングの取替え</td>
+<td>アマグレフィットト、アマグレビュー</td>
+<td>グレーチングに跳ね上がり防止機能を持たせることで、飛び跳ね等の事故防止をする</td>
+<td>・グレーチングの跳ね上がり防止、騒音防止<br/>・グレーチング本体に必要な開口部を塞ぐ事がない<br/>・コンクリートの養生期間のための長期間の交通規制が不要</td>
+<td>QS-030011-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>100</td>
+<td>道路維持修繕工</td>
+<td></td>
+<td>その他</td>
+<td>現場打ち側溝蓋工法</td>
+<td>スチール透水蓋工法</td>
+<td>排水性構築における1/4程度スチール透水蓋を用いた側溝改造工事の構築により施工性を改善</td>
+<td>・従来工事の1/4程度に工期を短縮<br/>・単価精算による大幅な人員削減の改善<br/>・施工方法の単純化等により施工の安全性向上</td>
+<td>QS-030044-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>101</td>
+<td>共同溝工</td>
+<td>共同溝工</td>
+<td></td>
+<td>難燃性液状付硬質合成樹脂管電線(角型)TACレックス保護管</td>
+<td></td>
+<td>位置安定性が優れ管の直接投結みが可能で省スペースが実現でき材質における工法。複多条の管路まで工事で容易な施工にも対応でき優れた多条敷設用供信保護管基盤線保護管</td>
+<td>・管きょが不要でコンパクトでスピーディに多条配管が可能<br/>・埋戻しが容易でどの条件の曲り配管が容易<br/>・耐圧、強度、靭性、耐火性、耐振性に優れている</td>
+<td>KK-980008-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>102</td>
+<td>共同溝工</td>
+<td>電線共同溝工</td>
+<td></td>
+<td>1管1条および電線共同溝(通信系)共用FA方式</td>
+<td>電線共同溝(通信系・電力系の2管路造成)コンパクト化した</td>
+<td>電線共同溝共用フリーアクセス方式。超機器(50t級自走式)により管路の2管路のコンパクト化を達成した</td>
+<td>・従来方式の適用でなかった技軽作業員の歩道やの路線の細い路線の整備事業が低コストで実施可能になった<br/>・コスト削減出来、地中化促進が図れる</td>
+<td>KT-060078-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>103</td>
+<td>共同溝工</td>
+<td>電線共同溝工</td>
+<td></td>
+<td>橋梁添架情報管路・耐火防護工法</td>
+<td>施設情報耐火防護工法（金属クリップ方式）</td>
+<td>ステンレス製ダクトの内側に、貼り付けた無機繊維材をセラミックペアダクトに配管される情報管路を炎や火災から守るため技術</td>
+<td>・耐火防護と配管数設を同時に可能で施工期の短縮が可能<br/>・耐火材 T=1,000℃の耐熱性を備えている。<br/>・施工工による作業工はの製ースになく短縮可能</td>
+<td>QS-000018-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>104</td>
+<td>トンネル工</td>
+<td>アーチカルバート工</td>
+<td></td>
+<td>場所打による3点ヒンジ構造バート、短スパンテクスパン工法のアーチカルバート</td>
+<td>テクスパン工法 アーチカルバート</td>
+<td>潮解トンネルや短スパンのの構造に代わる3点ヒンジ構造によるプレキャスト・アーチカルバート工法</td>
+<td>・大幅な工期短縮が図れる<br/>・アーチ形状とアーチ断面から、経済的に優れる。<br/>・工場製作2次製品のため、信頼性に優れる</td>
+<td>CB-980117-V</td>
+<td>設計比較対象技術（h20年度〜）</td>
+</tr>
+<tr>
+<td>105</td>
+<td>トンネル工</td>
+<td>アーチカルバート工</td>
+<td></td>
+<td>現場打ちボックスカルバート</td>
+<td>モジュラーチ工法</td>
+<td>多分割化された部材を現場において布設しクレーンにて組立て、プレキャストアーチカルバートを築造する工法</td>
+<td>・工期短縮と省力・省人化・工費節減が図れる<br/>・コンクリート二次製品であることで品質が安定<br/>・アーチ形状のための景観と親和し易い</td>
+<td>TH-980002-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>106</td>
+<td>橋梁上部工</td>
+<td>鋼橋製作工</td>
+<td></td>
+<td>仮組立ならびに仮組立検査</td>
+<td>CATS</td>
+<td>仮組立作業ならびに仮組立検査を部材計測とコンピュータを用いての向上による仮組立シミュレーションをするシステム</td>
+<td>・シミュレーションで仮組立ての手間を省略できる<br/>・仮組立て作業が不要になることにより、安全を高めることが可能<br/>・シミュレーション結果を実際の組立に有効情報として提供可能</td>
+<td>CB-010018-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>107</td>
+<td>橋梁上部工</td>
+<td>鋼橋製作工</td>
+<td></td>
+<td>PC析橋(支間長30m以下)</td>
+<td>パネルHBB(パネルHBビーム)ブリッジ</td>
+<td>I形鋼合成床版と主桁を一体化し、コスト経済力・場工能を向上させた新形式の鋼製橋梁、</td>
+<td>・大幅な工期の短縮が可能<br/>・較計期間に桁設計を完了することが出来る<br/>・施工が簡単で安定した品質が得られる</td>
+<td>HR-030026-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>108</td>
+<td>橋梁上部工</td>
+<td>鋼橋製作工</td>
+<td></td>
+<td>落橋防止装置(PCケーブル工法)</td>
+<td>落橋機能を有する時間連結工法</td>
+<td>落橋防止構造ならびに変位制限構造において、縁端機能を付与するとき桁連結方式の落橋防止装置を利用し、6軸新保護基本技法新</td>
+<td>・落橋防止装置に横衝機能を付加し、横直方向への移動を抑止<br/>・コスト縮減と施工性の向上が見込める<br/>・上部工と端部における築造のための工程が不要なので工程短縮が期待できる</td>
+<td>KK-980043-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>109</td>
+<td>橋梁上部工</td>
+<td>鋼橋製作工</td>
+<td></td>
+<td>落橋防止装置と変位制限構造</td>
+<td>タイ・ブリッジシステム</td>
+<td>橋梁上部工の落橋防止装置で、一つの構造で2つの機能(落橋防止機能と変位制限機能)を有する新システム</td>
+<td>・大半なエネルギー吸収性能で橋梁上部工への地震力を緩和させ<br/>・支承の機能回復が可能で、省力化と経済性を発揮できる長距離な結果をを無くし、コンパクト化を実現した</td>
+<td>KT-000093-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>110</td>
+<td>橋梁上部工</td>
+<td>鋼橋製作工</td>
+<td></td>
+<td>RC床版</td>
+<td>TTM床版</td>
+<td>床版をユニット化した技術。足場・支持式工と型枠工が不要になり、工期50%程度短縮</td>
+<td>・型型場施工が行える<br/>・約4.61%コスト縮減と工期が50%程度短縮になる</td>
+<td>KT-050004-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>111</td>
+<td>橋梁上部工</td>
+<td>鋼橋製作工</td>
+<td></td>
+<td>PC床版</td>
+<td>SCデッキ(鋼・コンクリート合成床版)</td>
+<td>鋼橋の床版について、鋼板パネルと膨張コンクリートを合成構造とした床版工に、及長間間の床版にも適用可能とした技術</td>
+<td>・PC床版と同程度の耐荷力および耐久性を有する<br/>・工期短縮および安全な施工が期待できる<br/>・コンクリートの抜け落ち防止に効果的である</td>
+<td>KT-990362-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>112</td>
+<td>橋梁上部工</td>
+<td>PC橋架設工</td>
+<td></td>
+<td>ポストテンション方式幅組RTT打ち</td>
+<td>PCコンポ橋</td>
+<td>主けたをプレキャストセグメント工法で組立て、床版はプレキャストPC版と場所打ちコンクリートの合成による合成版とした合成った技術橋</td>
+<td>・主けたの少数化が可能<br/>・プレキャスト化による省人化や工期短縮<br/>・周辺環境への騒音・振動の緩和</td>
+<td>SK-980027-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>113</td>
+<td>橋梁上部工</td>
+<td>橋梁用伸縮継手装置設置工</td>
+<td></td>
+<td>弾性シール材充填工法</td>
+<td>プレスアドラー</td>
+<td>伸縮装置内に軟式止水材を圧縮挿入固定し、橋面上の雨水排水を遮断するよう充填し構造体を分割する技術</td>
+<td>・交通規制が不要となった<br/>・どの時期に施工を行っても引張りが不要<br/>・最大遊隙2000mmにまで対応可能である</td>
+<td>KK-020026-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>114</td>
+<td>橋梁上部工</td>
+<td>橋梁用伸縮継手装置設置工</td>
+<td></td>
+<td>弾性シール材充填、新設(新設工事)</td>
+<td>フィンガージョイント用大型型式止水材</td>
+<td>高架橋のフィンガージョイント、特に多様化や劣化により大型化した遊隙に対し、止水機能を有する技術</td>
+<td>・大型フィンガージョイント工法に対し、コストが約1割低減<br/>・新設施工時間が約1日で完了でき、50%低減<br/>・廃棄と産業廃棄物の発生がほとんど0</td>
+<td>KK-050116-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>115</td>
+<td>橋梁上部工</td>
+<td></td>
+<td>橋梁排水管設置工</td>
+<td>橋梁排水管設置工（鋼管）</td>
+<td>高気密ステンレス排水管</td>
+<td>橋梁用の排水管に新開発のステンレス・スパイラル管を用いた技術</td>
+<td>・軽量のため材料費、施工のコスト削減が期待できる<br/>・ステンレス材を使用しているのでロングライフ化が期待できる<br/>・リサイクル性の高い製品</td>
+<td>CB-980013-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>116</td>
+<td>橋梁上部工</td>
+<td></td>
+<td>その他</td>
+<td>段取筋を配置して鉄筋を溶接する方法</td>
+<td>コン天棒</td>
+<td>橋梁の床版コンクリート打設時に、天端の位置標示に必要な部材を最も簡潔に表示した</td>
+<td>・設置に現場工事は必要なく、普通作業員で可能<br/>・作業時間が短縮できる、高天候時の作業の心配も軽減<br/>・端部確認可であるため、作業員が接触しても安全</td>
+<td>KK-000005-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>117</td>
+<td>橋梁上部工</td>
+<td></td>
+<td>その他</td>
+<td>橋脚の鉄筋コンクリートを造てた工法(河川橋8径間)連結振り（9×33m)</td>
+<td>BM-Sダンバー</td>
+<td>上部構造と下部構造との間に取付けることにより、鋼やRCの衝撃耐性を体の耐震性が向上</td>
+<td>・ダンパー機能により橋の減衰性能を向上<br/>・コストを縮減することが可能<br/>・橋全体の安全性が高く、かつ性能の信頼性が高い</td>
+<td>QS-060010-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>118</td>
+<td>公園</td>
+<td>公園工</td>
+<td></td>
+<td>インターロッキングブロック(透水)</td>
+<td>上路コン・景観土壌装（透水）</td>
+<td>一般の生コン工場で一般材料を混練する品質のバラつきが少ないインドアロッキング形式の薄層舗装(透水性IL装)</td>
+<td>・生コン工場を利用し正確な配合と十分な混練で品質が向上<br/>・透水性による表面温度の上昇が抑制され<br/>・植物が発芽・生育しにくく、水たまり・泥の凸凹ためがなくなる</td>
+<td>QS-070010-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>119</td>
+<td>推進工</td>
+<td>小口径推進工</td>
+<td></td>
+<td>小口径推進工法</td>
+<td>テラ・ジェット工法</td>
+<td>パイプ、ケーブル等を先行削孔、拡孔、引込み管材引ざを敷設しない非開削で埋設する工法</td>
+<td>・機材を地上に設置するため立坑内での設設施工が不要<br/>・立坑部底に依存する大幅な工期の短縮が可能</td>
+<td>QS-990013-V</td>
+<td>H22推薦技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>120</td>
+<td>上下水道工</td>
+<td>維持管理</td>
+<td></td>
+<td>開削工法</td>
+<td>オガライナー工法</td>
+<td>既設管渠を非開削で改築・修繕する工法。(既管呼び径φ150〜水、取付管 強、流下機能回復)</td>
+<td>・交通規制等の周辺環境への影響が小さい<br/>・施工現場で化学反応が不要。品質安定が向上する<br/>・長期性能(耐食性・耐磨耗性)に優れ、耐震性を付与できる</td>
+<td>KT-050096-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>121</td>
+<td>上下水道工</td>
+<td>維持管理</td>
+<td></td>
+<td>開削工法によるヒューム管を用いた布設替え</td>
+<td>SPR工法</td>
+<td>既設管渠を非開削で改築・修繕する工法。(強度回復、止水、減下機能回復)</td>
+<td>・交通規制等の周辺環境への影響が小さい<br/>・応じ硬化不要。品質安定が向上<br/>・長期性能(耐食性・耐磨耗性に優れ、耐震性を付与しできる</td>
+<td>KT-990074-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>122</td>
+<td>上下水道工</td>
+<td>維持管理</td>
+<td></td>
+<td></td>
+<td>ダンビー工法</td>
+<td>下水道や農業用水、樋門等の損傷・老朽化した管渠きを非開削で更生する工法（呼び径600）</td>
+<td>・非開削のため、周辺環境への影響を抑制できる<br/>・コストの創減と廃業物の発生をなくすことができる<br/>・管渠の耐久年数が増す</td>
+<td>KT-990220-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>123</td>
+<td>上下水道工</td>
+<td>維持管理</td>
+<td></td>
+<td>ヒューム管の修了（推進・および止め工を含む）</td>
+<td>バルチムSZ工法</td>
+<td>下水管渠を非開削で新管と同種のFRPパイプを形成し、老朽管を更生する工法</td>
+<td>・道路を遮断しなくてよい<br/>・管路の機能回復が可能である<br/>・既設管路の寿命を延長できる</td>
+<td>SK-000010-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>124</td>
+<td>機械設備</td>
+<td>水門設備</td>
+<td></td>
+<td>樋門種管用ローラゲート 共通</td>
+<td>オーバーリングゲート</td>
+<td>坪間から全開まで全回転開閉方式とし、て門柱レス化を図ったリング機構引き上げ式のゲート</td>
+<td>・門柱レスによる効果（門柱による流下断面（害）、操作時の安全性）<br/>・ゲート開閉 プラップゲートの操作維持の信頼性が向上</td>
+<td>TH-010004-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>125</td>
+<td>機械設備</td>
+<td>水門設備</td>
+<td></td>
+<td>引上げゲートで引上げゲートで自然的な開閉操作で柱レス対応</td>
+<td>オートゲート門（柱レス自動閉門）</td>
+<td>水位の変動に合った的確なタイミングで作動する無動力自動開門ゲート</td>
+<td>・門柱及び管理橋が不要<br/>・水位の変動に合わせ自動的に開閉する<br/>・電気等の動力源が確保できない場所にも設置できる</td>
+<td>TH-990145-V</td>
+<td>H23推薦技術 設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>126</td>
+<td>機械設備</td>
+<td>水門設備</td>
+<td></td>
+<td>排水式水門(開設排水用樋門)据付・ローラーゲート(フラップゲート)</td>
+<td>オートフラップゲート(Auto Flap Gate)</td>
+<td>水門、樋門のゲート閉鎖を自動化する技術。作動制御機能による信頼性と安全性をあわせもつ</td>
+<td>・内水氾濫の危険性を低下させる<br/>・設備運用の確実性、安全性の向上が図れる<br/>・ゲート開閉作動機構の長期耐久性を確保している</td>
+<td>QS-000020-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>127</td>
+<td>環境対策工</td>
+<td>水質保全工</td>
+<td></td>
+<td>現場打ちの分離柵</td>
+<td>save</td>
+<td>路面排水を比重分離により処理することにより、周辺環境の負荷を低減（改善）するもの</td>
+<td>・現場打に比べ、コストの縮減と大幅な工期の短縮が可能<br/>・安全性の向上と施工量工は製品の据付のみにて、沿線工への依存度が少ない</td>
+<td>KK-040029-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>128</td>
+<td>環境対策工</td>
+<td>生物・生態保全対策工</td>
+<td></td>
+<td>U型水路(既場打ちコンクリート)</td>
+<td>ハイダセール</td>
+<td>道路側溝、用水路等について小動物や脱出が大水路から脱出できる構造とした技術</td>
+<td>・プレキャスト製品であるため、施工設置やリフォーム投き付けられる<br/>・小動物の落下後の脱出が可能<br/>・段差・時間設備を問わず使用可能</td>
+<td>CG-990009-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>129</td>
+<td>調査試験</td>
+<td>測量</td>
+<td>地上測量</td>
+<td>事前計算による丁張り設置作業</td>
+<td>3次元設計データを用いた計測及び誘導システム</td>
+<td>データコレクタに組み込んだ設計データを基に各種計算を現場で行うことで作業効率を向上する測量システム</td>
+<td>・正確な盛土・切土の指示がリアルタイムにおこなえる<br/>・現場における杭設置のかたちになる</td>
+<td>KT-080150-V</td>
+<td>設計比較対象技術（h21年度〜）少実績優良技術（h05年度〜）</td>
+</tr>
+<tr>
+<td>130</td>
+<td>調査試験</td>
+<td>構造物調査</td>
+<td></td>
+<td>リバウンドハンマ(反発度法）による硬度試験、調査</td>
+<td>コンクリートテスター(CTS-02)探査面接器</td>
+<td>簡便かつ迅速にコンクリートの圧縮強度推定や、表面近傍の浮きや剥離の推定。劣化と恐化を検知するコンクリート専用の非破壊検査器</td>
+<td>・特殊な技術は必要なく、誰にでも簡単に測定が可能<br/>・構造物の簡便的な全体の状況把握が可能<br/>・解析結果をもとにカルテにまとめてデータの整理、編集のスピードが飛躍的に向上</td>
+<td>HK-060013-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>131</td>
+<td>電気通信設備</td>
+<td></td>
+<td>その他</td>
+<td>ALC局房(軽量気泡コンクリート)</td>
+<td>新しい構造の軽量・高断熱型局房(収容器)</td>
+<td>雨量・水位観測設置、テレメータ装置、CCTV監視管理装置等の観場設備を収容設備を収容する器の局房(収容器)</td>
+<td>・断熱性UPによる省エネ効果<br/>・持続しないため、局房の集約の効果の統合<br/>・地盤に負担が掛かりにくくし、基壇を小さくする事が出来る</td>
+<td>HR-020004-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>132</td>
+<td>電気通信設備</td>
+<td>ハンドホール</td>
+<td>共通設備</td>
+<td>既設施設機能解錠等し施設を有するための情報通信ティ対策用 二セキュリティ取替品</td>
+<td>通信設備等特殊部セキュリティ対策二重蓋物品</td>
+<td>情報通信設備用のマンホール・ハンドホール・特殊部における、第三者の不正光ファイバーケーブル事故を防ぎするためのセキュリティ対策二重蓋重物品</td>
+<td>・セキュリティ機能付加でハンドホール内への人為的な遮入防止<br/>・ケーブル事故を通ずに多様な投下に使用でさら<br/>・経年、人口値化、緩等作業で蓋開閉作業で容易</td>
+<td>CB-030023-V</td>
+<td>設計比較対象技術（h19年度〜）</td>
+</tr>
+<tr>
+<td>133</td>
+<td>電気通信設備</td>
+<td>ハンドホール</td>
+<td>共通設備</td>
+<td>ステンレス薄鋼板プレス成型ハンドホール・シリンダー錠付中蓋</td>
+<td>情報BOXハンドホール用シリンダー錠付中蓋</td>
+<td>ハンドホール内部に「シリンダー錠付中蓋」を設ける事によって費用を低減しながらもセキュリティ対策技術</td>
+<td>・高湿多湿や塩水の加かる条件下での耐久(走性がある)<br/>・ケーブル養生等の事前準備の時間を省略<br/>・ケミカルアンカーの熱練度を必要としなくなった</td>
+<td>KK-030028-V</td>
+<td>設計比較対象技術（h23年度〜）</td>
+</tr>
+<tr>
+<td>134</td>
+<td>電気通信設備</td>
+<td>共通設備</td>
+<td>配管・配線設備</td>
+<td>ロックウール等耐火付帯工法橋梁添架防護プレキャスト工法</td>
+<td></td>
+<td>通信・情報管路防護工法。露出している光ケーブル内の硬質合を保護するとともに情報管路を火災や入的な破壊からかの守る工法</td>
+<td>・現場での加工工程を減ずることが出来る<br/>・工事期間の短縮と安全性・経済性及び品質の向上を図る<br/>・断熱材の完全包装、挿除防止で作業環境向上・周辺環境への影響が軽い</td>
+<td>KT-000034-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>135</td>
+<td>電気通信設備</td>
+<td>電気設備</td>
+<td>道路照明・トンネル照明</td>
+<td>低圧ナトリウム灯によるトンネル照明</td>
+<td>広スパン対応トンネル照明用明器具</td>
+<td>トンネル基本照明においてトンネル幅の対応まで配慮した距離の明るさムラを配慮したトンネル照明器具</td>
+<td>・約25%のトータルコスト縮減が図れる<br/>・建事物の損壊性に重なる位置・器所で設置工事・維持作業の省力化が図られる</td>
+<td>KT-050106-V</td>
+<td>設計比較対象技術（h21年度〜）</td>
+</tr>
+<tr>
+<td>136</td>
+<td>電気通信設備</td>
+<td>電子応用設備</td>
+<td>サーバー設備</td>
+<td>管理用ネットを利用するネットワークカメラ</td>
+<td>エコモバイル定点カメラ「ミルモット」</td>
+<td>現場に設置した定点カメラが撮影する写真をバッター携帯電話で確認することで、関施設にても現場の状況を把握可能</td>
+<td>・現場を見たいとき手軽に現場確認で、視察にかくて良い対比ている<br/>・市街地、山地を問わず、あらゆる工事で利用可能<br/>・より安全な管理のバックアップができる</td>
+<td>HK-090002-V</td>
+<td>設計比較対象技術（h22年度〜）</td>
+</tr>
+<tr>
+<td>137</td>
+<td></td>
+<td>その他</td>
+<td>その他</td>
+<td>手作業によるリスクアセスメント</td>
+<td>「Orpheus」オルフェウス</td>
+<td>工事における労働安全管理の効率化・専用作成を行うシステム。リスクアセスメント業務通達省のノウハウをデーター化、作業を自動化した</td>
+<td>・リスクアセスメントの作成を自動化する事により期間でかつ漏れなく、正確に、素早く作成する事が出来る<br/>・労働安全管理に掛かる労力の削減・啓発の推進に効果がある</td>
+<td>KT-060093-V</td>
+<td>設計比較対象技術（h21年度〜）少実績優良技術（h21年度〜）</td>
+</tr>
+</tbody>
+</table>
+
 </div>
 
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-02.png" alt="表1-8-2 設計比較対象技術一覧（2/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-03.png" alt="表1-8-2 設計比較対象技術一覧（3/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-04.png" alt="表1-8-2 設計比較対象技術一覧（4/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-05.png" alt="表1-8-2 設計比較対象技術一覧（5/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-06.png" alt="表1-8-2 設計比較対象技術一覧（6/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-07.png" alt="表1-8-2 設計比較対象技術一覧（7/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-08.png" alt="表1-8-2 設計比較対象技術一覧（8/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-09.png" alt="表1-8-2 設計比較対象技術一覧（9/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-10.png" alt="表1-8-2 設計比較対象技術一覧（10/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-11.png" alt="表1-8-2 設計比較対象技術一覧（11/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-12.png" alt="表1-8-2 設計比較対象技術一覧（12/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-13.png" alt="表1-8-2 設計比較対象技術一覧（13/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-14.png" alt="表1-8-2 設計比較対象技術一覧（14/15）" />
-</div>
-
-<div className="table-wrapper">
-  <img src="/content/general/design-manual/img/01-tbl-08-15.png" alt="表1-8-2 設計比較対象技術一覧（15/15）" />
 </div>
 
 ## 第9節 建設リサイクルの推進（標準）
@@ -1502,7 +5276,222 @@ $\phi$：鉄筋の直径（mm）
 <p className="figure-title">図1-9-1 建設リサイクルに対する法令と国土交通省の取組み</p>
 
 <div className="figure-wrapper">
-  <img src="/content/general/design-manual/img/01-fig-09-01.png" alt="図1-9-1 建設リサイクルに対する法令と国土交通省の取組み" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 1150" style={{maxWidth: '100%', height: 'auto', fontFamily: 'sans-serif', fontSize: '11px'}}>
+    {/* Arrowhead marker */}
+    <defs>
+      <marker id="arrowhead-recycle" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+        <polygon points="0 0, 8 3, 0 6" fill="#333" />
+      </marker>
+    </defs>
+
+    {/* === TOP ROW === */}
+    {/* Center: リサイクルプラン21 */}
+    <rect x="330" y="20" width="180" height="40" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="420" y="36" textAnchor="middle" fontSize="11">リサイクルプラン21</text>
+    <text x="420" y="50" textAnchor="middle" fontSize="9" fill="#555">H6.4.12</text>
+
+    {/* Right top: 旧リサイクル原則化ルール */}
+    <rect x="700" y="20" width="160" height="40" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="780" y="36" textAnchor="middle" fontSize="11">旧リサイクル原則化ルール</text>
+    <text x="780" y="50" textAnchor="middle" fontSize="9" fill="#555">H4.12.13</text>
+
+    {/* === ROW 2 === */}
+    {/* Center: 建設リサイクル推進懇談会提言 */}
+    <rect x="330" y="100" width="180" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="420" y="116" textAnchor="middle" fontSize="11">建設リサイクル</text>
+    <text x="420" y="130" textAnchor="middle" fontSize="11">推進懇談会提言</text>
+    <text x="420" y="142" textAnchor="middle" fontSize="9" fill="#555">H8.12.20</text>
+
+    {/* Right: 旧リサイクル原則化ルール（運用条件の修正） */}
+    <rect x="660" y="95" width="200" height="50" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="760" y="111" textAnchor="middle" fontSize="11">旧リサイクル原則化ルール</text>
+    <text x="760" y="125" textAnchor="middle" fontSize="11">（運用条件の修正）</text>
+    <text x="760" y="139" textAnchor="middle" fontSize="9" fill="#555">H4.12.25</text>
+
+    {/* === ROW 3 === */}
+    {/* Left label: 【具体施策】 */}
+    <text x="95" y="175" textAnchor="middle" fontSize="12" fontWeight="bold">【具体施策】</text>
+
+    {/* Center: 建設リサイクル推進計画97 */}
+    <rect x="330" y="170" width="180" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="420" y="186" textAnchor="middle" fontSize="11">建設リサイクル</text>
+    <text x="420" y="200" textAnchor="middle" fontSize="11">推進計画97</text>
+    <text x="420" y="212" textAnchor="middle" fontSize="9" fill="#555">H8.10.7</text>
+
+    {/* Center label: 【重点課題】 */}
+    <text x="580" y="175" textAnchor="middle" fontSize="12" fontWeight="bold">【重点課題】</text>
+
+    {/* === ROW 4 === */}
+    {/* Left: 旧建設リサイクルガイドライン */}
+    <rect x="20" y="240" width="180" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="110" y="256" textAnchor="middle" fontSize="11">旧建設リサイクル</text>
+    <text x="110" y="270" textAnchor="middle" fontSize="11">ガイドライン</text>
+    <text x="110" y="282" textAnchor="middle" fontSize="9" fill="#555">H10.4</text>
+
+    {/* Right: 解体・リサイクル制度研究会報告 */}
+    <rect x="560" y="240" width="200" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="660" y="256" textAnchor="middle" fontSize="11">解体・リサイクル制度</text>
+    <text x="660" y="270" textAnchor="middle" fontSize="11">研究会報告</text>
+    <text x="660" y="282" textAnchor="middle" fontSize="9" fill="#555">H9.10.7</text>
+
+    {/* === ROW 5 === */}
+    {/* Right: 再資源化施設・最終処分場の適正な立地に関する研究会報告 */}
+    <rect x="560" y="320" width="200" height="60" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="660" y="336" textAnchor="middle" fontSize="11">再資源化施設・最終</text>
+    <text x="660" y="350" textAnchor="middle" fontSize="11">処分場の適正な立地に</text>
+    <text x="660" y="364" textAnchor="middle" fontSize="11">関する研究会報告</text>
+    <text x="660" y="376" textAnchor="middle" fontSize="9" fill="#555">H10.6.14</text>
+
+    {/* === ROW 6 === */}
+    {/* Left: 建設副産物適正処理推進要綱の改正 */}
+    <rect x="20" y="330" width="180" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="110" y="346" textAnchor="middle" fontSize="11">建設副産物適正処理</text>
+    <text x="110" y="360" textAnchor="middle" fontSize="11">推進要綱の改正</text>
+    <text x="110" y="372" textAnchor="middle" fontSize="9" fill="#555">H13.12.1</text>
+
+    {/* === ROW 7 === */}
+    {/* Left: 建設汚泥リサイクル指針 */}
+    <rect x="20" y="415" width="180" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="110" y="431" textAnchor="middle" fontSize="11">建設汚泥</text>
+    <text x="110" y="445" textAnchor="middle" fontSize="11">リサイクル指針</text>
+    <text x="110" y="457" textAnchor="middle" fontSize="9" fill="#555">H11.1.5</text>
+
+    {/* Right: 建築解体廃棄物リサイクルプログラム */}
+    <rect x="560" y="415" width="200" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="660" y="431" textAnchor="middle" fontSize="11">建築解体廃棄物</text>
+    <text x="660" y="445" textAnchor="middle" fontSize="11">リサイクルプログラム</text>
+    <text x="660" y="457" textAnchor="middle" fontSize="9" fill="#555">H11.10.4</text>
+
+    {/* === ROW 8 === */}
+    {/* Right: 建設リサイクル法 */}
+    <rect x="560" y="500" width="200" height="40" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="660" y="516" textAnchor="middle" fontSize="11">建設リサイクル法</text>
+    <text x="660" y="530" textAnchor="middle" fontSize="9" fill="#555">H12.5.31</text>
+
+    {/* === ROW 9 === */}
+    {/* Right: 建設リサイクル法基本方針 */}
+    <rect x="560" y="580" width="200" height="40" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="660" y="596" textAnchor="middle" fontSize="11">建設リサイクル法基本方針</text>
+    <text x="660" y="610" textAnchor="middle" fontSize="9" fill="#555">H13.1.17</text>
+
+    {/* === ROW 10 === */}
+    {/* Left: 建設副産物適正処理推進要綱の改正 5.9KB */}
+    <rect x="20" y="650" width="180" height="50" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="110" y="666" textAnchor="middle" fontSize="11">建設副産物適正処理</text>
+    <text x="110" y="680" textAnchor="middle" fontSize="11">推進要綱の改正</text>
+    <text x="110" y="694" textAnchor="middle" fontSize="9" fill="#555">5.9KB　H14.5</text>
+
+    {/* Center: 建設リサイクル推進計画2002 */}
+    <rect x="330" y="650" width="180" height="50" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="420" y="666" textAnchor="middle" fontSize="11">建設リサイクル</text>
+    <text x="420" y="680" textAnchor="middle" fontSize="11">推進計画2002　37KB</text>
+    <text x="420" y="694" textAnchor="middle" fontSize="9" fill="#555">H14.5</text>
+
+    {/* Right: リサイクル原則化ルール 7KB */}
+    <rect x="660" y="650" width="160" height="50" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="740" y="666" textAnchor="middle" fontSize="11">リサイクル</text>
+    <text x="740" y="680" textAnchor="middle" fontSize="11">原則化ルール　7KB</text>
+    <text x="740" y="694" textAnchor="middle" fontSize="9" fill="#555">H14.5.20</text>
+
+    {/* === ROW 11 === */}
+    {/* Center: 建設リサイクルガイドライン 77KB */}
+    <rect x="330" y="740" width="180" height="50" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="420" y="756" textAnchor="middle" fontSize="11">建設リサイクル</text>
+    <text x="420" y="770" textAnchor="middle" fontSize="11">ガイドライン　77KB</text>
+    <text x="420" y="784" textAnchor="middle" fontSize="9" fill="#555">H14.5</text>
+
+    {/* === ROW 12 === */}
+    {/* Left: 建設発生土等の有効利用に関する報告会報告 1.6MB */}
+    <rect x="20" y="830" width="180" height="55" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="110" y="846" textAnchor="middle" fontSize="11">建設発生土等の</text>
+    <text x="110" y="860" textAnchor="middle" fontSize="11">有効利用に関する</text>
+    <text x="110" y="874" textAnchor="middle" fontSize="11">報告会報告　1.6MB</text>
+    <text x="110" y="884" textAnchor="middle" fontSize="9" fill="#555">H15.9</text>
+
+    {/* === ROW 13 === */}
+    {/* Left: 建設発生土等の有効利用に関する行動計画 41KB */}
+    <rect x="20" y="920" width="180" height="55" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="110" y="936" textAnchor="middle" fontSize="11">建設発生土等の</text>
+    <text x="110" y="950" textAnchor="middle" fontSize="11">有効利用に関する</text>
+    <text x="110" y="964" textAnchor="middle" fontSize="11">行動計画　41KB</text>
+    <text x="110" y="974" textAnchor="middle" fontSize="9" fill="#555">H15.10.3</text>
+
+    {/* === ROW 14 === */}
+    {/* Left: 発生土利用基準 226KB */}
+    <rect x="20" y="1010" width="180" height="40" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="110" y="1026" textAnchor="middle" fontSize="11">発生土利用基準　226KB</text>
+    <text x="110" y="1040" textAnchor="middle" fontSize="9" fill="#555">H16.5.24</text>
+
+    {/* === ROW 15 (bottom) === */}
+    {/* Center: 建設リサイクル推進計画2008 */}
+    <rect x="330" y="1060" width="180" height="45" fill="none" stroke="#333" strokeWidth="1.5" />
+    <text x="420" y="1076" textAnchor="middle" fontSize="11">建設リサイクル</text>
+    <text x="420" y="1090" textAnchor="middle" fontSize="11">推進計画2008</text>
+    <text x="420" y="1102" textAnchor="middle" fontSize="9" fill="#555">H20.4</text>
+
+    {/* ====== ARROWS (connections) ====== */}
+
+    {/* Center column vertical flow */}
+    {/* リサイクルプラン21 → 建設リサイクル推進懇談会提言 */}
+    <line x1="420" y1="60" x2="420" y2="100" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクル推進懇談会提言 → 建設リサイクル推進計画97 */}
+    <line x1="420" y1="145" x2="420" y2="170" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクル推進計画97 → 建設リサイクル推進計画2002 */}
+    <line x1="420" y1="215" x2="420" y2="650" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクル推進計画2002 → 建設リサイクルガイドライン */}
+    <line x1="420" y1="700" x2="420" y2="740" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクルガイドライン → 建設リサイクル推進計画2008 */}
+    <line x1="420" y1="790" x2="420" y2="1060" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+
+    {/* Right column vertical flow */}
+    {/* 旧リサイクル原則化ルール → 旧リサイクル原則化ルール（修正） */}
+    <line x1="780" y1="60" x2="760" y2="95" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 旧リサイクル原則化ルール（修正） → 解体・リサイクル制度研究会報告 */}
+    <line x1="660" y1="145" x2="660" y2="240" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 解体・リサイクル制度研究会報告 → 再資源化施設研究会報告 */}
+    <line x1="660" y1="285" x2="660" y2="320" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 再資源化施設研究会報告 → 建築解体廃棄物リサイクルプログラム */}
+    <line x1="660" y1="380" x2="660" y2="415" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建築解体廃棄物リサイクルプログラム → 建設リサイクル法 */}
+    <line x1="660" y1="460" x2="660" y2="500" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクル法 → 建設リサイクル法基本方針 */}
+    <line x1="660" y1="540" x2="660" y2="580" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクル法基本方針 → リサイクル原則化ルール 7KB */}
+    <line x1="700" y1="620" x2="740" y2="650" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+
+    {/* Left column vertical flow */}
+    {/* 旧建設リサイクルガイドライン → 建設副産物適正処理推進要綱の改正 */}
+    <line x1="110" y1="285" x2="110" y2="330" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設副産物適正処理推進要綱の改正 → 建設汚泥リサイクル指針 */}
+    <line x1="110" y1="375" x2="110" y2="415" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設汚泥リサイクル指針 → 建設副産物適正処理推進要綱の改正 5.9KB */}
+    <line x1="110" y1="460" x2="110" y2="650" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設副産物適正処理推進要綱の改正 5.9KB → 建設発生土等報告会報告 */}
+    <line x1="110" y1="700" x2="110" y2="830" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設発生土等報告会報告 → 行動計画 */}
+    <line x1="110" y1="885" x2="110" y2="920" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 行動計画 → 発生土利用基準 */}
+    <line x1="110" y1="975" x2="110" y2="1010" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+
+    {/* Cross-column connections */}
+    {/* 建設リサイクル推進計画97 → 旧建設リサイクルガイドライン (left) */}
+    <line x1="330" y1="192" x2="200" y2="255" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクル推進懇談会提言 → 解体・リサイクル制度研究会報告 (right) */}
+    <line x1="510" y1="130" x2="560" y2="255" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+
+    {/* 建設リサイクル推進計画2002 → 建設副産物適正処理推進要綱の改正 5.9KB (left) */}
+    <line x1="330" y1="675" x2="200" y2="675" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* 建設リサイクル推進計画2002 → リサイクル原則化ルール 7KB (right) */}
+    <line x1="510" y1="675" x2="660" y2="675" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+
+    {/* 建設リサイクルガイドライン 77KB → 建設発生土等報告会報告 (left) */}
+    <line x1="330" y1="765" x2="200" y2="855" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+
+    {/* 発生土利用基準 → 建設リサイクル推進計画2008 */}
+    <line x1="200" y1="1040" x2="330" y2="1080" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+    {/* リサイクル原則化ルール 7KB → 建設リサイクル推進計画2008 */}
+    <line x1="660" y1="700" x2="510" y2="1070" stroke="#333" strokeWidth="1" markerEnd="url(#arrowhead-recycle)" />
+  </svg>
 </div>
 
 ### 3．建設リサイクルガイドライン

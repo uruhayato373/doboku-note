@@ -171,10 +171,42 @@ body {
 
 /* table-wrapper */
 .table-wrapper {
-  display: flex;
-  justify-content: center;
+  overflow-x: auto;
   margin-top: 5px;
   margin-bottom: 50px;
+  max-width: 100%;
+}
+
+/* ===== Table styles ===== */
+.markdown table,
+.table-wrapper table {
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  width: 100%;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.markdown th,
+.table-wrapper th {
+  background-color: #f0f4fb;
+  font-weight: 700;
+  text-align: center;
+  padding: 0.4em 0.6em;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+}
+
+.markdown td,
+.table-wrapper td {
+  padding: 0.35em 0.6em;
+  border: 1px solid #ccc;
+  vertical-align: top;
+}
+
+.markdown tr:nth-child(even),
+.table-wrapper tr:nth-child(even) {
+  background-color: #fafbfd;
 }
 
 /* ===== 重要判例の枠 ===== */
