@@ -1,4 +1,7 @@
+'use client';
+
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 export interface BreadcrumbItem {
   label: string;
@@ -6,6 +9,8 @@ export interface BreadcrumbItem {
 }
 
 export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+  const pathname = usePathname();
+
   if (items.length === 0) return null;
 
   return (
@@ -39,7 +44,10 @@ export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
                 <span itemProp="name">{item.label}</span>
               </Link>
             ) : (
-              <span className="text-gray-700" itemProp="name">{item.label}</span>
+              <>
+                <span className="text-gray-700" itemProp="name">{item.label}</span>
+                <link itemProp="item" href={`https://doboku-note.com${pathname}`} />
+              </>
             )}
             <meta itemProp="position" content={String(i + 2)} />
           </li>
