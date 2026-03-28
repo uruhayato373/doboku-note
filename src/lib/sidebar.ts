@@ -472,6 +472,38 @@ export const generalSidebar: SidebarItem[] = [
   },
   {
     type: 'category',
+    label: '1級土木施工管理 試験対策ガイド',
+    link: {
+      type: 'generated-index',
+      title: '1級土木施工管理 試験対策ガイド',
+      slug: 'exam-guide',
+    },
+    items: [
+      'general/exam-guide/strategy',
+      'general/exam-guide/earthwork-key-points',
+      'general/exam-guide/concrete-key-points',
+      'general/exam-guide/four-management',
+      'general/exam-guide/law-key-points',
+    ],
+  },
+  {
+    type: 'category',
+    label: '技術士試験対策（建設部門）',
+    link: {
+      type: 'generated-index',
+      title: '技術士試験対策（建設部門）',
+      slug: 'pe-exam',
+    },
+    items: [
+      'general/pe-exam/primary-guide',
+      'general/pe-exam/soil-foundation',
+      'general/pe-exam/concrete-points',
+      'general/pe-exam/river-erosion',
+      'general/pe-exam/secondary-guide',
+    ],
+  },
+  {
+    type: 'category',
     label: '空間情報',
     link: {
       type: 'generated-index',
