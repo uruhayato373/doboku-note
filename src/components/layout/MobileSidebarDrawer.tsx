@@ -40,7 +40,7 @@ export default function MobileSidebarDrawer({
 
       {/* Drawer panel */}
       <div
-        className={`lg:hidden fixed top-0 left-0 z-50 h-full w-[280px] bg-white shadow-xl transform transition-transform duration-300 ${
+        className={`lg:hidden fixed top-0 left-0 z-50 h-full w-[300px] bg-white shadow-xl transform transition-transform duration-300 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
