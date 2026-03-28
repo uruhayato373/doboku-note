@@ -1363,6 +1363,129 @@ export const lowSidebar: SidebarItem[] = [
   },
   {
     type: 'category',
+    label: '行政書士テキスト 憲法',
+    items: [
+      'low/admin-scrivener-constitution/as-kenpo-01',
+      {
+        type: 'category',
+        label: '第2章 人権',
+        items: [
+          'low/admin-scrivener-constitution/as-kenpo-02-01',
+          'low/admin-scrivener-constitution/as-kenpo-02-02',
+          'low/admin-scrivener-constitution/as-kenpo-02-03',
+          'low/admin-scrivener-constitution/as-kenpo-02-04',
+          'low/admin-scrivener-constitution/as-kenpo-02-05',
+          'low/admin-scrivener-constitution/as-kenpo-02-06',
+          'low/admin-scrivener-constitution/as-kenpo-02-07',
+          'low/admin-scrivener-constitution/as-kenpo-02-08',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第3章 統治',
+        items: [
+          'low/admin-scrivener-constitution/as-kenpo-03-01',
+          'low/admin-scrivener-constitution/as-kenpo-03-02',
+          'low/admin-scrivener-constitution/as-kenpo-03-03',
+          'low/admin-scrivener-constitution/as-kenpo-03-04',
+          'low/admin-scrivener-constitution/as-kenpo-03-05',
+        ],
+      },
+    ],
+  },
+  {
+    type: 'category',
+    label: '行政書士テキスト 行政法',
+    items: [
+      {
+        type: 'category',
+        label: '第1章 行政法の一般的な法理論',
+        items: [
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-01',
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-02',
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-03',
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-04',
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-05',
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-06',
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-07',
+          'low/admin-scrivener-admin-law/as-gyosei-ch1-08',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第2章 行政手続法',
+        items: [
+          'low/admin-scrivener-admin-law/as-gyosei-ch2-01',
+          'low/admin-scrivener-admin-law/as-gyosei-ch2-02',
+          'low/admin-scrivener-admin-law/as-gyosei-ch2-03',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第3章 行政不服審査法',
+        items: [
+          'low/admin-scrivener-admin-law/as-gyosei-ch3-01',
+          'low/admin-scrivener-admin-law/as-gyosei-ch3-02',
+          'low/admin-scrivener-admin-law/as-gyosei-ch3-03',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第4章 行政事件訴訟法',
+        items: [
+          'low/admin-scrivener-admin-law/as-gyosei-ch4-01',
+          'low/admin-scrivener-admin-law/as-gyosei-ch4-02',
+          'low/admin-scrivener-admin-law/as-gyosei-ch4-03',
+          'low/admin-scrivener-admin-law/as-gyosei-ch4-04',
+          'low/admin-scrivener-admin-law/as-gyosei-ch4-05',
+          'low/admin-scrivener-admin-law/as-gyosei-ch4-06',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第5章 国家賠償法・損失補償',
+        items: [
+          'low/admin-scrivener-admin-law/as-gyosei-ch5-01',
+          'low/admin-scrivener-admin-law/as-gyosei-ch5-02',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第6章 地方自治法',
+        items: [
+          'low/admin-scrivener-admin-law/as-gyosei-ch6-01',
+          'low/admin-scrivener-admin-law/as-gyosei-ch6-02',
+          'low/admin-scrivener-admin-law/as-gyosei-ch6-03',
+          'low/admin-scrivener-admin-law/as-gyosei-ch6-04',
+          'low/admin-scrivener-admin-law/as-gyosei-ch6-05',
+        ],
+      },
+    ],
+  },
+  {
+    type: 'category',
+    label: '行政書士テキスト 商法',
+    items: [
+      'low/admin-scrivener-commercial-law/as-shoho-01',
+      'low/admin-scrivener-commercial-law/as-shoho-02',
+      'low/admin-scrivener-commercial-law/as-shoho-03',
+      'low/admin-scrivener-commercial-law/as-shoho-04',
+      'low/admin-scrivener-commercial-law/as-shoho-05',
+      'low/admin-scrivener-commercial-law/as-shoho-06',
+      'low/admin-scrivener-commercial-law/as-shoho-07',
+      'low/admin-scrivener-commercial-law/as-shoho-08',
+    ],
+  },
+  {
+    type: 'category',
+    label: '行政書士テキスト 基礎法学',
+    items: [
+      'low/admin-scrivener-basic-law/basic-law-01',
+      'low/admin-scrivener-basic-law/basic-law-02',
+    ],
+  },
+  {
+    type: 'category',
     label: '行政事件訴訟法',
     items: [
       'low/state-edress-act/01',
