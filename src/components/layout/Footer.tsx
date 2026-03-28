@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { FaInstagram, FaGithub } from 'react-icons/fa';
 
 const XIcon = () => (
@@ -27,8 +28,12 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Links placeholder */}
-          <div />
+          {/* Site Links */}
+          <div className="flex flex-col gap-1">
+            <Link href="/about" className="text-sm text-gray-300 hover:text-white no-underline transition-colors">サイト情報</Link>
+            <Link href="/about#プライバシーポリシー" className="text-sm text-gray-300 hover:text-white no-underline transition-colors">プライバシーポリシー</Link>
+            <Link href="/about#お問い合わせ" className="text-sm text-gray-300 hover:text-white no-underline transition-colors">お問い合わせ</Link>
+          </div>
 
           {/* Social Links */}
           <div>
