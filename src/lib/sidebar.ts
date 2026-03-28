@@ -1361,6 +1361,76 @@ export const lowSidebar: SidebarItem[] = [
       },
     ],
   },
+  {
+    type: 'category',
+    label: '行政事件訴訟法',
+    items: [
+      'low/state-edress-act/01',
+      'low/state-edress-act/02',
+      'low/state-edress-act/03',
+      'low/state-edress-act/04',
+      'low/state-edress-act/05',
+      'low/state-edress-act/06',
+    ],
+  },
+  {
+    type: 'category',
+    label: '行政法総論',
+    items: [
+      'low/administrative-law/admin-general-01',
+      'low/administrative-law/admin-general-02',
+      'low/administrative-law/admin-general-03',
+      'low/administrative-law/admin-general-04',
+      'low/administrative-law/admin-general-05',
+      'low/administrative-law/admin-general-06',
+      'low/administrative-law/admin-general-07',
+      'low/administrative-law/admin-general-08',
+    ],
+  },
+  {
+    type: 'category',
+    label: '行政不服審査法',
+    items: [
+      'low/administrative-appeal-act/admin-appeal-01',
+      'low/administrative-appeal-act/admin-appeal-02',
+      'low/administrative-appeal-act/admin-appeal-03',
+      'low/administrative-appeal-act/admin-appeal-04',
+    ],
+  },
+  {
+    type: 'category',
+    label: '情報公開法',
+    items: [
+      'low/information-disclosure-act/01',
+    ],
+  },
+  {
+    type: 'category',
+    label: '労働基準法',
+    items: [
+      'low/labor-standards-act/labor-01',
+      'low/labor-standards-act/labor-02',
+      'low/labor-standards-act/labor-03',
+      'low/labor-standards-act/labor-04',
+      'low/labor-standards-act/labor-05',
+      'low/labor-standards-act/labor-06',
+      'low/labor-standards-act/labor-07',
+    ],
+  },
+  {
+    type: 'category',
+    label: '地方自治法',
+    items: [
+      'low/local-autonomy-act/local-gov-01',
+      'low/local-autonomy-act/local-gov-02',
+      'low/local-autonomy-act/local-gov-03',
+      'low/local-autonomy-act/local-gov-04',
+      'low/local-autonomy-act/local-gov-05',
+      'low/local-autonomy-act/local-gov-06',
+      'low/local-autonomy-act/local-gov-07',
+      'low/local-autonomy-act/local-gov-08',
+    ],
+  },
 ];
 
 export const portSidebar: SidebarItem[] = [
