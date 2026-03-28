@@ -87,22 +87,22 @@ export function SidebarCategoryItem({
   // depth === 0: セクション見出し（常に展開、折りたたまない）
   if (depth === 0) {
     return (
-      <li className="mt-5 first:mt-0">
+      <li className="mt-6 first:mt-0">
         {linkPath ? (
           <Link
             href={linkPath}
             onClick={onNavigate}
             aria-current={isActive ? 'page' : undefined}
-            className={`block text-[11px] font-bold tracking-wider py-1.5 no-underline transition-colors ${
+            className={`block text-xs font-bold py-1.5 px-2 no-underline border-b border-gray-200 mb-1 transition-colors ${
               isActive
-                ? 'text-primary'
-                : 'text-gray-500 hover:text-primary'
+                ? 'text-primary border-primary'
+                : 'text-gray-800 hover:text-primary'
             }`}
           >
             {item.label}
           </Link>
         ) : (
-          <span className="block text-[11px] font-bold text-gray-400 tracking-wider py-1.5">
+          <span className="block text-xs font-bold text-gray-800 py-1.5 px-2 border-b border-gray-200 mb-1">
             {item.label}
           </span>
         )}
