@@ -124,6 +124,8 @@ npm run serve          # ビルド結果のプレビュー
 | `/create-import-skill` | PDFインポートスキルの自動生成 | `.claude/skills/content/create-import-skill/SKILL.md` |
 | `/exam-questions-import` | 1級土木施工管理 第1次試験問題集PDF→MDX変換 | `.claude/skills/content/exam-questions-import/SKILL.md` |
 | `/exam-questions-2-import` | 1級土木施工管理 第2次試験問題集PDF→MDX変換 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
+| `/exam-guide` | 1級土木施工管理 試験対策ガイド生成（既存資産再構成） | `.claude/skills/content/exam-guide/SKILL.md` |
+| `/pe-exam-guide` | 技術士試験対策ガイド生成（既存資産＋公開情報） | `.claude/skills/content/pe-exam-guide/SKILL.md` |
 
 ### ui — UI/UX
 
