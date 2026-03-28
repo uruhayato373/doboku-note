@@ -119,6 +119,11 @@ npm run serve          # ビルド結果のプレビュー
 | `/fix-design-manual-figures` | 設計便覧の図品質修正（テキスト映り込み・出典欠落） | `.claude/skills/content/fix-design-manual-figures/SKILL.md` |
 | `/design-manual-import` | 近畿地方整備局 設計便覧PDF→MDX変換 | `.claude/skills/content/design-manual-import/SKILL.md` |
 | `/tech-management-import` | 土木技術管理規定集PDF→MDX変換 | `.claude/skills/content/tech-management-import/SKILL.md` |
+| `/civil-general-import` | 土木施工管理技術テキスト（土木一般編）PDF→MDX変換 | `.claude/skills/content/civil-general-import/SKILL.md` |
+| `/construction-management-import` | 土木施工管理技術テキスト（施工管理・法規編）PDF→MDX変換 | `.claude/skills/content/construction-management-import/SKILL.md` |
+| `/create-import-skill` | PDFインポートスキルの自動生成 | `.claude/skills/content/create-import-skill/SKILL.md` |
+| `/exam-questions-import` | 1級土木施工管理 第1次試験問題集PDF→MDX変換 | `.claude/skills/content/exam-questions-import/SKILL.md` |
+| `/exam-questions-2-import` | 1級土木施工管理 第2次試験問題集PDF→MDX変換 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
 
 ### ui — UI/UX
 

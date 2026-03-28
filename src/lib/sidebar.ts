@@ -149,6 +149,122 @@ function flattenSidebarItems(
 export const generalSidebar: SidebarItem[] = [
   {
     type: 'category',
+    label: '土木一般',
+    link: {
+      type: 'generated-index',
+      title: '土木一般',
+      slug: 'civil-general',
+    },
+    items: [
+      {
+        type: 'category',
+        label: '土工',
+        link: {
+          type: 'generated-index',
+          title: '土工',
+          slug: 'civil-general/earthwork',
+        },
+        items: [
+          'general/civil-general/earthwork/earthwork-overview',
+          'general/civil-general/earthwork/soil-investigation',
+          'general/civil-general/earthwork/embankment',
+          'general/civil-general/earthwork/cutting',
+          'general/civil-general/earthwork/slope-protection',
+          'general/civil-general/earthwork/soft-ground',
+          'general/civil-general/earthwork/drainage',
+          'general/civil-general/earthwork/earthwork-planning',
+          'general/civil-general/earthwork/machinery-capacity',
+          'general/civil-general/earthwork/road-pavement',
+        ],
+      },
+      {
+        type: 'category',
+        label: '建設機械',
+        link: {
+          type: 'generated-index',
+          title: '建設機械',
+          slug: 'civil-general/construction-machinery',
+        },
+        items: [
+          'general/civil-general/construction-machinery/machinery-overview',
+          'general/civil-general/construction-machinery/machinery-structure',
+          'general/civil-general/construction-machinery/tractor-scraper',
+          'general/civil-general/construction-machinery/excavator',
+          'general/civil-general/construction-machinery/loading-transport',
+          'general/civil-general/construction-machinery/crane-aerial',
+          'general/civil-general/construction-machinery/grader-compaction',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'コンクリート工',
+        link: {
+          type: 'generated-index',
+          title: 'コンクリート工',
+          slug: 'civil-general/concrete',
+        },
+        items: [
+          'general/civil-general/concrete/concrete-overview',
+          'general/civil-general/concrete/materials',
+          'general/civil-general/concrete/properties',
+          'general/civil-general/concrete/mix-design',
+          'general/civil-general/concrete/ready-mixed',
+          'general/civil-general/concrete/construction',
+          'general/civil-general/concrete/reinforcement',
+          'general/civil-general/concrete/formwork',
+          'general/civil-general/concrete/special-concrete',
+          'general/civil-general/concrete/quality-inspection',
+        ],
+      },
+      {
+        type: 'category',
+        label: '基礎工',
+        link: {
+          type: 'generated-index',
+          title: '基礎工',
+          slug: 'civil-general/foundation',
+        },
+        items: [
+          'general/civil-general/foundation/foundation-overview',
+          'general/civil-general/foundation/geological-survey',
+          'general/civil-general/foundation/earth-retaining',
+          'general/civil-general/foundation/direct-foundation',
+          'general/civil-general/foundation/pile-foundation-01',
+          'general/civil-general/foundation/pile-foundation-02',
+        ],
+      },
+      {
+        type: 'category',
+        label: '測量',
+        link: {
+          type: 'generated-index',
+          title: '測量',
+          slug: 'civil-general/surveying',
+        },
+        items: [
+          'general/civil-general/surveying/surveying-basics',
+          'general/civil-general/surveying/distance-angle',
+          'general/civil-general/surveying/leveling',
+          'general/civil-general/surveying/topographic-photo',
+        ],
+      },
+      {
+        type: 'category',
+        label: '解体工事',
+        link: {
+          type: 'generated-index',
+          title: '解体工事',
+          slug: 'civil-general/demolition',
+        },
+        items: [
+          'general/civil-general/demolition/demolition-types',
+          'general/civil-general/demolition/demolition-construction',
+        ],
+      },
+    ],
+  },
+  {
+    type: 'category',
     label: '施工管理',
     link: {
       type: 'generated-index',
@@ -274,6 +390,82 @@ export const generalSidebar: SidebarItem[] = [
           'general/construction-management/related-laws/07-building-standards-act',
           'general/construction-management/related-laws/08-explosives-control-act',
           'general/construction-management/related-laws/09-port-regulations-act',
+        ],
+      },
+    ],
+  },
+  {
+    type: 'category',
+    label: '1級土木施工管理 第1次試験問題集',
+    link: {
+      type: 'generated-index',
+      title: '1級土木施工管理 第1次試験問題集',
+      slug: 'exam-questions',
+    },
+    items: [
+      'general/exam-questions/r02-a',
+      'general/exam-questions/r02-b',
+      'general/exam-questions/r01-a',
+      'general/exam-questions/r01-b',
+      'general/exam-questions/h30-a',
+      'general/exam-questions/h30-b',
+      'general/exam-questions/h29-a',
+      'general/exam-questions/h29-b',
+      'general/exam-questions/h28-a',
+      'general/exam-questions/h28-b',
+      'general/exam-questions/h27-a',
+      'general/exam-questions/h27-b',
+      'general/exam-questions/h26-a',
+      'general/exam-questions/h26-b',
+    ],
+  },
+  {
+    type: 'category',
+    label: '1級土木施工管理 第2次試験問題集',
+    link: {
+      type: 'generated-index',
+      title: '1級土木施工管理 第2次試験問題集',
+      slug: 'exam-questions-2',
+    },
+    items: [
+      {
+        type: 'category',
+        label: '施工経験記述',
+        items: [
+          'general/exam-questions-2/experience-writing/guide',
+          'general/exam-questions-2/experience-writing/examples',
+        ],
+      },
+      {
+        type: 'category',
+        label: '土工',
+        items: [
+          'general/exam-questions-2/earthwork/past-problems',
+          'general/exam-questions-2/earthwork/basics',
+        ],
+      },
+      {
+        type: 'category',
+        label: 'コンクリート工',
+        items: [
+          'general/exam-questions-2/concrete/past-problems',
+          'general/exam-questions-2/concrete/basics',
+        ],
+      },
+      {
+        type: 'category',
+        label: '施工計画',
+        items: [
+          'general/exam-questions-2/construction-plan/past-problems',
+          'general/exam-questions-2/construction-plan/basics',
+        ],
+      },
+      {
+        type: 'category',
+        label: '品質管理',
+        items: [
+          'general/exam-questions-2/quality-management/past-problems',
+          'general/exam-questions-2/quality-management/basics',
         ],
       },
     ],
