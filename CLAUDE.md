@@ -153,23 +153,35 @@ npm run serve          # ビルド結果のプレビュー
 
 ## エージェント
 
-`.claude/agents/` に定義されたサブエージェント群。
+`.claude/agents/` に定義されたサブエージェント群。Generator/Evaluator分離の原則に基づき設計。
 
-| エージェント | 役割 | 担当スキル |
-|---|---|---|
-| `strategy-advisor` | 戦略・PDCA・レビュールーティング | weekly-plan/review, growth-loops, monetization-strategy, competitor-audit, keyword-gap |
-| `seo-auditor` | SEO 監査・アナリティクス収集 | seo-audit, fetch-gsc-data, fetch-ga4-data, keyword-gap |
-| `content-planner` | コンテンツ企画の統括（トレンド→ギャップ→提案） | discover-trends-civil, discover-exam-season, exam-demand, keyword-gap, plan-affiliate |
+| エージェント | 役割 | 種別 | 担当スキル |
+|---|---|---|---|
+| `strategy-advisor` | 戦略・PDCA・レビュールーティング | Generator | weekly-plan/review, growth-loops, monetization-strategy, competitor-audit, keyword-gap |
+| `seo-auditor` | SEO 監査・アナリティクス収集 | Evaluator | seo-audit, fetch-gsc-data, fetch-ga4-data, keyword-gap |
+| `content-planner` | コンテンツ企画の統括 | Generator | discover-trends-civil, discover-exam-season, exam-demand, keyword-gap, plan-affiliate |
+| `content-qa` | コンテンツ品質評価（5軸ルーブリック） | Evaluator | check-mdx, verify-content, qa-pdf-mdx, clean-pdf-artifacts |
 
 ### チーム連携パターン
 
 | シナリオ | エージェント連携 |
 |---|---|
+| PDF→MDX変換 | Generator（変換実行）→ **content-qa**（品質評価）→ 不合格時はGeneratorに差し戻し |
 | 月次コンテンツ企画 | content-planner → seo-auditor（データ）→ strategy-advisor（レビュー） |
 | 試験シーズン対策 | content-planner（exam-demand + discover-exam-season）→ plan-affiliate |
 | 四半期戦略レビュー | strategy-advisor（competitor-audit → keyword-gap → monetization-strategy → pre-mortem） |
 | 週次 PDCA | strategy-advisor（weekly-review → discover-exam-season → weekly-plan） |
 | 広告最適化 | strategy-advisor → audit-ads → plan-affiliate |
+
+## ハーネス設計原則
+
+エージェント・スキルの設計・改修時に従う5原則:
+
+1. **GeneratorとEvaluatorを分離する** — 作る役と評価する役を同じエージェントに担わせない。PDF→MDX変換後の品質評価は `content-qa` エージェントが行う
+2. **「何を作るか」を先に合意する** — SKILL.mdの変換ルール（frontmatter、見出し構造、表・図の形式）が完成の定義。曖昧なまま変換を始めない
+3. **主観をルーブリック化する** — 品質は `content-qa` の5軸ルーブリック（構造正確性30%・テキスト忠実度25%・表図数式20%・MDX互換性15%・メタデータ品質10%）で定量評価
+4. **ハーネスはできるだけシンプルに保つ** — スキルを増やすより既存スキルのパラメータ化を優先。部品を増やすより削る
+5. **新モデルが出たらハーネスを見直す** — モデル能力の変化でスキル設計の前提が変わる。Opus 4.6ではコンテキスト1Mにより大規模PDF一括処理が可能になった
 
 ## コンテキスト管理
 

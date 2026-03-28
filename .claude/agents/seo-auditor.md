@@ -63,7 +63,7 @@ const searchconsole = google.searchconsole({ version: 'v1', auth });
 
 | チェック項目 | 確認方法 |
 |---|---|
-| sitemap.xml | docusaurus.config.js の sitemap プラグイン設定 |
+| sitemap.xml | scripts/generate-sitemap.mjs で生成 |
 | robots.txt | static/robots.txt の存在・内容 |
 | メタデータ | 全 .mdx ファイルの frontmatter（title, description） |
 | 構造化データ | JSON-LD の実装状況 |
@@ -93,7 +93,7 @@ const searchconsole = google.searchconsole({ version: 'v1', auth });
 
 | 目的 | パス |
 |---|---|
-| サイト設定 | `docusaurus.config.js` |
-| サイドバー定義 | `sidebars/` |
-| 静的ファイル | `static/` |
-| MDX コンテンツ | `docs/` |
+| サイト設定 | `next.config.ts` |
+| サイドバー定義 | `src/lib/sidebar.ts` |
+| 静的ファイル | `public/` |
+| MDX コンテンツ | `content/` |
