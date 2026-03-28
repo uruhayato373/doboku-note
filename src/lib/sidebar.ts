@@ -484,6 +484,7 @@ export const generalSidebar: SidebarItem[] = [
       'general/exam-guide/concrete-key-points',
       'general/exam-guide/four-management',
       'general/exam-guide/law-key-points',
+      'general/exam-guide/concrete-maintenance',
     ],
   },
   {
@@ -499,9 +500,19 @@ export const generalSidebar: SidebarItem[] = [
       'general/pe-exam/soil-foundation',
       'general/pe-exam/concrete-points',
       'general/pe-exam/river-erosion',
+      'general/pe-exam/construction-plan',
+      'general/pe-exam/road-points',
       'general/pe-exam/secondary-guide',
     ],
   },
+  {
+    type: 'category',
+    label: 'RCCM試験対策',
+    items: [
+      'general/rccm-exam/guide',
+    ],
+  },
+  'general/certification/index',
   {
     type: 'category',
     label: '空間情報',
