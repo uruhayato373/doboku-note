@@ -20,25 +20,13 @@ export const mdxComponents: MDXComponents = {
     );
   },
 
-  // Style tables with the wrapper
+  // Style tables with the wrapper (styles defined in globals.css)
   table: ({ children, ...props }: any) => (
     <div className="table-wrapper">
-      <table {...props} className="min-w-full border-collapse text-sm">
+      <table {...props}>
         {children}
       </table>
     </div>
-  ),
-
-  th: ({ children, ...props }: any) => (
-    <th scope="col" {...props} className="border border-gray-300 bg-gray-100 px-4 py-2 text-left font-semibold">
-      {children}
-    </th>
-  ),
-
-  td: ({ children, ...props }: any) => (
-    <td {...props} className="border border-gray-300 px-4 py-2">
-      {children}
-    </td>
   ),
 
   // Image with default styling

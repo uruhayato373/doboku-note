@@ -11,7 +11,7 @@ const config: Config = {
         mono: ['SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
       },
       fontSize: {
-        base: '14px',
+        base: '16px',
       },
       colors: {
         primary: {

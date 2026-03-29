@@ -27,6 +27,7 @@ import {
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { slugToPath } from '@/lib/url';
 import SourceCard from '@/components/content/SourceCard';
+import ArticleJsonLd from '@/components/seo/ArticleJsonLd';
 import type { SourceMeta } from '@/lib/content';
 import matter from 'gray-matter';
 
@@ -59,10 +60,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   if (doc) {
     const { data } = matter(doc.content);
+    const title = data.title || slug[slug.length - 1];
     return {
-      title: data.title || slug[slug.length - 1],
+      title,
       description: data.description,
       alternates: { canonical },
+      openGraph: {
+        title,
+        description: data.description || '',
+        url: canonical,
+        siteName: 'doboku-note',
+        locale: 'ja_JP',
+        type: 'article',
+      },
     };
   }
 
@@ -70,6 +80,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     return {
       title: generatedIndex.title,
       alternates: { canonical },
+      openGraph: {
+        title: generatedIndex.title,
+        url: canonical,
+        siteName: 'doboku-note',
+        locale: 'ja_JP',
+        type: 'website',
+      },
     };
   }
 
@@ -165,15 +182,20 @@ export default async function DocPage({ params }: PageProps) {
   let content: React.ReactNode;
   let headings: { depth: number; text: string; id: string }[] = [];
   let sources: SourceMeta[] = [];
+  let docTitle = '';
+  let docDescription = '';
 
   if (doc) {
     content = await compileMdxContent(doc);
     const { data, content: rawContent } = matter(doc.content);
     headings = extractHeadings(rawContent);
+    docTitle = data.title || '';
+    docDescription = data.description || '';
     if (data.source) {
       sources = Array.isArray(data.source) ? data.source : [data.source];
     }
   } else if (generatedIndex) {
+    docTitle = generatedIndex.title;
     content = (
       <GeneratedIndexPage title={generatedIndex.title} items={generatedIndex.items} />
     );
@@ -186,7 +208,14 @@ export default async function DocPage({ params }: PageProps) {
       <MobileSidebarDrawer items={sidebarItems} titleMap={titleMap} />
 
       {/* Main Content */}
-      <main className="flex-grow min-w-0 px-6 py-8 max-w-4xl">
+      <main className="flex-grow min-w-0 px-4 sm:px-6 lg:px-8 py-8 lg:py-10 max-w-4xl">
+        {doc && (
+          <ArticleJsonLd
+            title={docTitle}
+            description={docDescription || undefined}
+            url={`https://doboku-note.com/docs/${slug.join('/')}`}
+          />
+        )}
         <Breadcrumbs items={breadcrumbItems} />
         {sources.length > 0 && <SourceCard sources={sources} />}
         {headings.length > 0 && <MobileTableOfContents headings={headings} />}

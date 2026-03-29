@@ -11,7 +11,7 @@
 body {
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", "YuGothic",
     "Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   color: #333333;
 }
 
@@ -30,21 +30,21 @@ body {
 
 /* h1 — page title */
 .markdown > h1 {
-  font-size: 1.44rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.5;
   padding: 0.2em 0;
   color: #333333;
   border-bottom: solid 3px #1a56db;
   margin-top: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.75em;
 }
 
 /* h2 — chapter */
 .markdown > h2 {
-  font-size: 1.2rem;
+  font-size: 1.375rem;
   font-weight: 700;
-  line-height: 1.4;
+  line-height: 1.5;
   padding: 0.25em 0.5em;
   color: #1a2332;
   background-color: #f0f4fb;
@@ -57,7 +57,7 @@ body {
 
 /* h3 — section */
 .markdown > h3 {
-  font-size: 1.1rem;
+  font-size: 1.175rem;
   font-weight: 700;
   line-height: 1.4;
   padding: 0.15em 0.4em;
@@ -68,7 +68,7 @@ body {
 
 /* h4 — subsection with icon */
 .markdown > h4 {
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.4;
   position: relative;
@@ -91,7 +91,7 @@ body {
 
 /* h5 — minor heading */
 .markdown > h5 {
-  font-size: 0.9rem;
+  font-size: 0.925rem;
   font-weight: 700;
   line-height: 1.4;
   padding: 0;
@@ -101,22 +101,29 @@ body {
 
 /* p */
 .markdown > p {
-  padding: 0.1em 0.2em;
+  margin: 0.75em 0;
   color: #434343;
   line-height: 1.8;
   letter-spacing: 0.08em;
 }
 
+/* ul / ol */
+.markdown > ul,
+.markdown > ol {
+  margin: 0.75em 0;
+  line-height: 1.8;
+}
+
 /* li */
 .markdown li {
-  margin: 0.2em 1.2em;
+  margin: 0.35em 1.2em;
   font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", "YuGothic",
     "Helvetica Neue", Arial, sans-serif;
 }
 
 .markdown li ul li,
 .markdown li ol li {
-  margin: 0.1em 0.2em;
+  margin: 0.2em 0.2em;
 }
 
 /* blockquote */
@@ -183,8 +190,8 @@ body {
   border-collapse: collapse;
   border: 1px solid #ccc;
   width: 100%;
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  line-height: 1.6;
 }
 
 .markdown th,
@@ -192,14 +199,14 @@ body {
   background-color: #f0f4fb;
   font-weight: 700;
   text-align: center;
-  padding: 0.4em 0.6em;
+  padding: 0.5em 0.75em;
   border: 1px solid #ccc;
   white-space: nowrap;
 }
 
 .markdown td,
 .table-wrapper td {
-  padding: 0.35em 0.6em;
+  padding: 0.45em 0.75em;
   border: 1px solid #ccc;
   vertical-align: top;
 }

@@ -35,7 +35,7 @@ export default function MobileTableOfContents({ headings }: { headings: Heading[
             <li key={heading.id} style={{ paddingLeft: `${(heading.depth - 2) * 12}px` }}>
               <a
                 href={`#${heading.id}`}
-                className="block text-xs py-0.5 text-gray-600 hover:text-primary no-underline"
+                className="block text-[13px] py-0.5 text-gray-600 hover:text-primary no-underline"
                 onClick={() => setIsOpen(false)}
               >
                 {heading.text}

@@ -42,7 +42,7 @@ export default function TableOfContents({ headings }: { headings: Heading[] }) {
           >
             <a
               href={`#${heading.id}`}
-              className={`block text-[11px] py-0.5 no-underline transition-colors ${
+              className={`block text-xs py-0.5 no-underline transition-colors ${
                 activeId === heading.id
                   ? 'text-primary font-semibold'
                   : 'text-gray-500 hover:text-gray-700'

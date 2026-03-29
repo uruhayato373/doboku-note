@@ -59,11 +59,11 @@ export default function Admonition({
 
   return (
     <div className={`my-6 rounded-lg border-l-4 ${config.border} ${config.bg} p-4`}>
-      <div className={`font-bold text-sm mb-2 ${config.color}`}>
+      <div className={`font-bold mb-2 ${config.color}`}>
         <span className="mr-2">{config.icon}</span>
         {displayTitle}
       </div>
-      <div className={`text-sm ${config.color} [&>p]:my-1`}>{children}</div>
+      <div className={`${config.color} [&>p]:my-1`}>{children}</div>
     </div>
   );
 }
