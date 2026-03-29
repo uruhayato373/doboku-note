@@ -56,6 +56,9 @@ for (const file of files) {
   const raw = readFileSync(file, 'utf-8');
   const { data, content } = matter(raw);
 
+  // Skip draft content
+  if (data.draft) continue;
+
   const relPath = relative(CONTENT_DIR, file).replace(/\\/g, '/').replace(/\.(mdx|md)$/, '');
 
   // Build URL path

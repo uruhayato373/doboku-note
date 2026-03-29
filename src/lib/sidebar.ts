@@ -537,6 +537,7 @@ export const generalSidebar: SidebarItem[] = [
       'general/civil-planning/02-planning-theory',
       'general/civil-planning/03-mathematics',
       'general/civil-planning/04-transportation',
+      'general/civil-planning/disaster-prevention',
     ],
   },
   {
@@ -1552,6 +1553,85 @@ export const lowSidebar: SidebarItem[] = [
       'low/local-autonomy-act/local-gov-06',
       'low/local-autonomy-act/local-gov-07',
       'low/local-autonomy-act/local-gov-08',
+    ],
+  },
+  {
+    type: 'category',
+    label: '行政書士問題集',
+    link: {
+      type: 'generated-index',
+      title: '行政書士 合格革命 問題集',
+      slug: 'admin-scrivener-mondai',
+    },
+    items: [
+      'low/admin-scrivener-mondai/intro',
+      'low/admin-scrivener-mondai/technique',
+      {
+        type: 'category',
+        label: '第1部 憲法',
+        items: [
+          'low/admin-scrivener-mondai/kenpo-guidance',
+          'low/admin-scrivener-mondai/kenpo-general',
+          'low/admin-scrivener-mondai/kenpo-human-rights',
+          'low/admin-scrivener-mondai/kenpo-governance',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第2部 行政法',
+        items: [
+          'low/admin-scrivener-mondai/gyosei-guidance',
+          'low/admin-scrivener-mondai/gyosei-general',
+          'low/admin-scrivener-mondai/gyosei-procedure',
+          'low/admin-scrivener-mondai/gyosei-appeal',
+          'low/admin-scrivener-mondai/gyosei-litigation',
+          'low/admin-scrivener-mondai/gyosei-compensation',
+          'low/admin-scrivener-mondai/gyosei-local',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第3部 民法',
+        items: [
+          'low/admin-scrivener-mondai/minpo-guidance',
+          'low/admin-scrivener-mondai/minpo-general',
+          'low/admin-scrivener-mondai/minpo-real-rights',
+          'low/admin-scrivener-mondai/minpo-obligations',
+          'low/admin-scrivener-mondai/minpo-family',
+          'low/admin-scrivener-mondai/minpo-succession',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第4部 商法',
+        items: [
+          'low/admin-scrivener-mondai/shoho-guidance',
+          'low/admin-scrivener-mondai/shoho-commercial',
+          'low/admin-scrivener-mondai/shoho-company',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第5部 基礎法学',
+        items: [
+          'low/admin-scrivener-mondai/kiso-guidance',
+          'low/admin-scrivener-mondai/kiso-jurisprudence',
+          'low/admin-scrivener-mondai/kiso-dispute',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第6部 一般知識',
+        items: [
+          'low/admin-scrivener-mondai/ippan-guidance',
+          'low/admin-scrivener-mondai/ippan-politics',
+          'low/admin-scrivener-mondai/ippan-economics',
+          'low/admin-scrivener-mondai/ippan-society',
+          'low/admin-scrivener-mondai/ippan-ict',
+          'low/admin-scrivener-mondai/ippan-privacy',
+          'low/admin-scrivener-mondai/ippan-reading',
+        ],
+      },
     ],
   },
 ];

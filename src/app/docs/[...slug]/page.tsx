@@ -13,6 +13,7 @@ import {
   getDocTitle,
   getDocTitleMap,
   extractDocIds,
+  filterDraftItems,
 } from '@/lib/content';
 import {
   sidebars,
@@ -148,7 +149,7 @@ export default async function DocPage({ params }: PageProps) {
     currentPath,
     sidebars
   );
-  const sidebarItems = sidebarResult?.items || [];
+  const sidebarItems = filterDraftItems(sidebarResult?.items || []);
 
   // Build title map for sidebar and prev/next labels
   const docIds = extractDocIds(sidebarItems);

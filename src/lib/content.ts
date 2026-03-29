@@ -11,6 +11,15 @@ import { mdxComponents } from '@/components/content/mdx-components';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
+/** Draft content is hidden unless SHOW_DRAFTS=true */
+function showDrafts(): boolean {
+  return process.env.SHOW_DRAFTS === 'true';
+}
+
+function isDraft(meta: DocMeta): boolean {
+  return meta.draft === true && !showDrafts();
+}
+
 export interface SourceMeta {
   title: string;
   author?: string;
@@ -27,6 +36,7 @@ export interface DocMeta {
   toc_min_heading_level?: number;
   toc_max_heading_level?: number;
   source?: SourceMeta | SourceMeta[];
+  draft?: boolean;
 }
 
 export interface DocPage {
@@ -134,8 +144,11 @@ export function getAllDocs(): DocPage[] {
     const raw = fs.readFileSync(fullPath, 'utf-8');
     const { data } = matter(raw);
 
+    const meta = data as DocMeta;
+    if (isDraft(meta)) continue;
+
     docs.push({
-      meta: data as DocMeta,
+      meta,
       slug: docIdToSlug(docId),
       filePath: relPath,
       content: raw,
@@ -158,6 +171,12 @@ export function getAllSlugs(): string[][] {
     if (seenFiles.has(relPath)) continue;
     seenFiles.add(relPath);
 
+    // Filter drafts
+    const fullPath = path.join(CONTENT_DIR, relPath);
+    const raw = fs.readFileSync(fullPath, 'utf-8');
+    const { data } = matter(raw);
+    if (isDraft(data as DocMeta)) continue;
+
     slugs.push(docIdToSlug(docId));
   }
 
@@ -177,12 +196,9 @@ export function getDocBySlug(slug: string[]): DocPage | null {
     const fullPath = path.join(CONTENT_DIR, relPath);
     const raw = fs.readFileSync(fullPath, 'utf-8');
     const { data } = matter(raw);
-    return {
-      meta: data as DocMeta,
-      slug,
-      filePath: relPath,
-      content: raw,
-    };
+    const meta = data as DocMeta;
+    if (isDraft(meta)) return null;
+    return { meta, slug, filePath: relPath, content: raw };
   }
 
   // Try index: slug → slug/index
@@ -192,12 +208,9 @@ export function getDocBySlug(slug: string[]): DocPage | null {
     const fullPath = path.join(CONTENT_DIR, relPath);
     const raw = fs.readFileSync(fullPath, 'utf-8');
     const { data } = matter(raw);
-    return {
-      meta: data as DocMeta,
-      slug,
-      filePath: relPath,
-      content: raw,
-    };
+    const meta = data as DocMeta;
+    if (isDraft(meta)) return null;
+    return { meta, slug, filePath: relPath, content: raw };
   }
 
   return null;
@@ -258,6 +271,42 @@ export function getDocTitleMap(docIds: string[]): Record<string, string> {
     result[id] = titleMap.get(id) || id.split('/').pop() || id;
   }
   return result;
+}
+
+/**
+ * Check if a doc ID is a draft.
+ */
+export function isDocIdDraft(docId: string): boolean {
+  const map = buildDocIdMap();
+  const relPath = map.get(docId);
+  if (!relPath) return false;
+  const fullPath = path.join(CONTENT_DIR, relPath);
+  if (!fs.existsSync(fullPath)) return false;
+  const raw = fs.readFileSync(fullPath, 'utf-8');
+  const { data } = matter(raw);
+  return isDraft(data as DocMeta);
+}
+
+/**
+ * Filter draft items from sidebar tree.
+ */
+export function filterDraftItems(items: import('./sidebar').SidebarItem[]): import('./sidebar').SidebarItem[] {
+  return items
+    .filter((item) => {
+      if (typeof item === 'string') {
+        return !isDocIdDraft(item);
+      }
+      return true;
+    })
+    .map((item) => {
+      if (typeof item !== 'string' && item.type === 'category') {
+        const filtered = filterDraftItems(item.items);
+        if (filtered.length === 0 && !item.link) return null;
+        return { ...item, items: filtered };
+      }
+      return item;
+    })
+    .filter((item): item is import('./sidebar').SidebarItem => item !== null);
 }
 
 /**
