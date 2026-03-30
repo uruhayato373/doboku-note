@@ -1646,6 +1646,139 @@ export const portSidebar: SidebarItem[] = [
   },
 ];
 
+export const examSidebar: SidebarItem[] = [
+  'exam/index',
+  {
+    type: 'category',
+    label: '1級土木施工管理技士',
+    link: {
+      type: 'generated-index',
+      title: '1級土木施工管理技士',
+      slug: 'exam/civil-construction-1',
+    },
+    items: [
+      {
+        type: 'category',
+        label: '試験対策ガイド',
+        link: {
+          type: 'generated-index',
+          title: '1級土木施工管理 試験対策ガイド',
+          slug: 'exam/civil-construction-1/guide',
+        },
+        items: [
+          'exam/civil-construction-1/guide/strategy',
+          'exam/civil-construction-1/guide/earthwork-key-points',
+          'exam/civil-construction-1/guide/concrete-key-points',
+          'exam/civil-construction-1/guide/four-management',
+          'exam/civil-construction-1/guide/law-key-points',
+          'exam/civil-construction-1/guide/concrete-maintenance',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第1次試験問題集',
+        link: {
+          type: 'generated-index',
+          title: '1級土木施工管理 第1次試験問題集',
+          slug: 'exam/civil-construction-1/primary',
+        },
+        items: [
+          'exam/civil-construction-1/primary/r02-a',
+          'exam/civil-construction-1/primary/r02-b',
+          'exam/civil-construction-1/primary/r01-a',
+          'exam/civil-construction-1/primary/r01-b',
+          'exam/civil-construction-1/primary/h30-a',
+          'exam/civil-construction-1/primary/h30-b',
+          'exam/civil-construction-1/primary/h29-a',
+          'exam/civil-construction-1/primary/h29-b',
+          'exam/civil-construction-1/primary/h28-a',
+          'exam/civil-construction-1/primary/h28-b',
+          'exam/civil-construction-1/primary/h27-a',
+          'exam/civil-construction-1/primary/h27-b',
+          'exam/civil-construction-1/primary/h26-a',
+          'exam/civil-construction-1/primary/h26-b',
+        ],
+      },
+      {
+        type: 'category',
+        label: '第2次試験問題集',
+        link: {
+          type: 'generated-index',
+          title: '1級土木施工管理 第2次試験問題集',
+          slug: 'exam/civil-construction-1/secondary',
+        },
+        items: [
+          {
+            type: 'category',
+            label: '施工経験記述',
+            items: [
+              'exam/civil-construction-1/secondary/experience-writing/guide',
+              'exam/civil-construction-1/secondary/experience-writing/examples',
+            ],
+          },
+          {
+            type: 'category',
+            label: '土工',
+            items: [
+              'exam/civil-construction-1/secondary/earthwork/past-problems',
+              'exam/civil-construction-1/secondary/earthwork/basics',
+            ],
+          },
+          {
+            type: 'category',
+            label: 'コンクリート工',
+            items: [
+              'exam/civil-construction-1/secondary/concrete/past-problems',
+              'exam/civil-construction-1/secondary/concrete/basics',
+            ],
+          },
+          {
+            type: 'category',
+            label: '施工計画',
+            items: [
+              'exam/civil-construction-1/secondary/construction-plan/past-problems',
+              'exam/civil-construction-1/secondary/construction-plan/basics',
+            ],
+          },
+          {
+            type: 'category',
+            label: '品質管理',
+            items: [
+              'exam/civil-construction-1/secondary/quality-management/past-problems',
+              'exam/civil-construction-1/secondary/quality-management/basics',
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: 'category',
+    label: '技術士（建設部門）',
+    link: {
+      type: 'generated-index',
+      title: '技術士試験対策（建設部門）',
+      slug: 'exam/pe',
+    },
+    items: [
+      'exam/pe/primary-guide',
+      'exam/pe/soil-foundation',
+      'exam/pe/concrete-points',
+      'exam/pe/river-erosion',
+      'exam/pe/construction-plan',
+      'exam/pe/road-points',
+      'exam/pe/secondary-guide',
+    ],
+  },
+  {
+    type: 'category',
+    label: 'RCCM',
+    items: [
+      'exam/rccm/guide',
+    ],
+  },
+];
+
 export const environmentSidebar: SidebarItem[] = [
   'environment/noise-evaluation/general/01',
   {
@@ -1664,6 +1797,7 @@ export const environmentSidebar: SidebarItem[] = [
 ];
 
 export const sidebars: SidebarConfig = {
+  examSidebar,
   generalSidebar,
   roadSidebar,
   riverSidebar,
@@ -1674,6 +1808,7 @@ export const sidebars: SidebarConfig = {
 
 // Navbar items mapping to sidebar IDs
 export const navbarItems = [
+  { label: '資格試験', sidebarId: 'examSidebar', href: '/docs/exam/index' },
   { label: '一般', sidebarId: 'generalSidebar', href: '/docs/construction-management' },
   { label: '道路', sidebarId: 'roadSidebar', href: '/docs/road-management' },
   { label: '河川', sidebarId: 'riverSidebar', href: '/docs/river-low' },
