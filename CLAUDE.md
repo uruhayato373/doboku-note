@@ -1,6 +1,14 @@
-# doboku-note - 土木工学ドキュメントサイト
+# doboku-note - 1級土木施工管理技士 特化サイト
 
-土木工学・施工管理・河川・道路・法律の技術ノートを提供するドキュメントサイト。Next.js + MDX + Cloudflare Pages で構築。
+1級土木施工管理技士の受験者向け技術ノート・試験対策サイト。Next.js + MDX + Cloudflare Pages で構築。
+
+## 設計思想
+
+- **サイトの焦点**: 1級土木施工管理技士に特化。ユーザーが「ここだけで合格できる」体験を提供
+- **コンテンツ管理**: Obsidian（~/obsidian）で全分野を下書き・品質管理し、品質保証済みコンテンツのみ本リポジトリに配置
+- **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
+- **収益モデル**: AdSense + アフィリエイト + note有料記事 + iOSアプリ（サブスク）
+- **詳細**: `docs/00_プロジェクト管理/00_設計思想.md`
 
 ## 技術スタック
 
@@ -106,6 +114,8 @@ npm run serve          # ビルド結果のプレビュー
 
 | スキル | 用途 | 定義 |
 |---|---|---|
+| `/audit-staging` | Obsidianステージングの公開準備度監査 | `.claude/skills/content/audit-staging/SKILL.md` |
+| `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/content/promote-to-site/SKILL.md` |
 | `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |
 | `/clean-pdf-artifacts` | PDF変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
 | `/check-mdx` | MDX構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
