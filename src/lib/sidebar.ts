@@ -1807,14 +1807,14 @@ export const sidebars: SidebarConfig = {
 };
 
 // Navbar items mapping to sidebar IDs
+// 1級土木施工管理技士に特化した5項目構成
+// 非1級土木コンテンツ（道路法・河川・港湾・環境・法律等）はナビバーから除外するが、
+// ページとサイドバーは維持しSEOインデックスを保持する
 export const navbarItems = [
-  { label: '資格試験', sidebarId: 'examSidebar', href: '/docs/exam/index' },
-  { label: '一般', sidebarId: 'generalSidebar', href: '/docs/construction-management' },
-  { label: '道路', sidebarId: 'roadSidebar', href: '/docs/road-management' },
-  { label: '河川', sidebarId: 'riverSidebar', href: '/docs/river-low' },
-  { label: '港湾', sidebarId: 'portSidebar', href: '/docs/fishery-port' },
-  { label: '環境', sidebarId: 'environmentSidebar', href: '/docs/environment/noise-evaluation/general/01' },
-  { label: '法律', sidebarId: 'lowSidebar', href: '/docs/low/constitution/01' },
+  { label: '試験ガイド', sidebarId: 'examSidebar', href: '/docs/exam/civil-construction-1/guide' },
+  { label: '土木一般', sidebarId: 'generalSidebar', href: '/docs/civil-general' },
+  { label: '施工管理', sidebarId: 'generalSidebar', href: '/docs/construction-management' },
+  { label: '過去問', sidebarId: 'examSidebar', href: '/docs/exam/civil-construction-1/primary' },
 ];
 
 // Build breadcrumb trail from sidebar tree to the current path

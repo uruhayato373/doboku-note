@@ -2,34 +2,29 @@ import Link from 'next/link';
 
 const features = [
   {
+    title: '試験ガイド',
+    description: '出題傾向・得点戦略・学習ルートを解説。効率的な合格プランを提案します。',
+    link: '/docs/exam/civil-construction-1/guide',
+  },
+  {
     title: '土木一般',
-    description: '土木工学の基礎知識、施工管理、空間情報、共通仕様書について解説しています。',
+    description: '土工・コンクリート・基礎工・測量・建設機械。第1次検定の土木一般分野を体系的に解説。',
+    link: '/docs/civil-general',
+  },
+  {
+    title: '施工管理',
+    description: '施工計画・工程管理・品質管理・安全管理・環境保全・法規。施工管理の全分野をカバー。',
     link: '/docs/construction-management',
   },
   {
-    title: '道路',
-    description: '道路管理、道路設計に関する技術情報を提供しています。',
-    link: '/docs/road-management',
+    title: '過去問（第1次検定）',
+    description: '14年分の第1次検定過去問を年度別に収録。解答と詳しい解説付き。',
+    link: '/docs/exam/civil-construction-1/primary',
   },
   {
-    title: '河川',
-    description: '河川法、河川計画、河川砂防技術基準に関する情報をまとめています。',
-    link: '/docs/river-low',
-  },
-  {
-    title: '港湾',
-    description: '漁港施設の設計参考図書、地震・津波対策について解説しています。',
-    link: '/docs/fishery-port',
-  },
-  {
-    title: '環境',
-    description: '騒音評価マニュアルなど環境関連の技術情報を提供しています。',
-    link: '/docs/environment/noise-evaluation/general/01',
-  },
-  {
-    title: '法律',
-    description: '憲法、国家賠償法、民法など土木関連の法律について解説しています。',
-    link: '/docs/low/constitution/01',
+    title: '過去問（第2次検定）',
+    description: '経験記述・土工・コンクリート・施工計画・品質管理。5分野の記述問題を対策。',
+    link: '/docs/exam/civil-construction-1/secondary',
   },
 ];
 
@@ -40,9 +35,12 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">doboku-note</h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            土木技術に関する知識・経験をドキュメントとして整理した技術ノートサイトです。
-            設計基準・施工管理・法律など、実務に役立つ情報を体系的にまとめています。
+          <p className="text-xl text-gray-700 font-medium mb-2">
+            1級土木施工管理技士 試験対策サイト
+          </p>
+          <p className="text-base text-gray-500 max-w-2xl mx-auto">
+            土木一般・施工管理の体系的な技術解説と、14年分の過去問で合格をサポート。
+            ここだけで合格に必要な知識が身につきます。
           </p>
         </div>
       </section>

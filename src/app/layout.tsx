@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     template: '%s | doboku-note',
   },
   description:
-    '土木技術に関する仕事に携わる中で得られた知識・経験を可能な限りドキュメントとして整理しています。',
+    '1級土木施工管理技士の試験対策サイト。土木一般・施工管理の体系的な技術解説と14年分の過去問で合格をサポート。',
   metadataBase: new URL('https://doboku-note.com'),
   openGraph: {
-    title: 'doboku-note',
+    title: 'doboku-note | 1級土木施工管理技士 試験対策',
     description:
-      '土木技術に関する仕事に携わる中で得られた知識・経験を可能な限りドキュメントとして整理しています。',
+      '1級土木施工管理技士の試験対策サイト。土木一般・施工管理の体系的な技術解説と14年分の過去問で合格をサポート。',
     siteName: 'doboku-note',
     locale: 'ja_JP',
     type: 'website',
