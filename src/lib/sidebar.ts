@@ -412,38 +412,6 @@ export const generalSidebar: SidebarItem[] = [
   },
   {
     type: 'category',
-    label: '土木計画学',
-    items: [
-      'general/civil-planning/01-introduction',
-      'general/civil-planning/02-planning-theory',
-      'general/civil-planning/03-mathematics',
-      'general/civil-planning/04-transportation',
-      'general/civil-planning/05-related-fields',
-      {
-        type: 'category',
-        label: '第Ⅱ編 応用',
-        items: [
-          'general/civil-planning/06-land-planning',
-          'general/civil-planning/07-env-urban-planning',
-          'general/civil-planning/08-river-planning',
-          'general/civil-planning/09-water-resources',
-          'general/civil-planning/10-disaster-prevention',
-          'general/civil-planning/11-tourism',
-          'general/civil-planning/12-road-safety',
-          'general/civil-planning/13-road-facilities',
-          'general/civil-planning/14-public-transport',
-          'general/civil-planning/15-airport-planning',
-          'general/civil-planning/16-port-planning',
-          'general/civil-planning/17-community-dev',
-          'general/civil-planning/18-landscape',
-          'general/civil-planning/19-mobility-mgmt',
-          'general/civil-planning/20-logistics',
-        ],
-      },
-    ],
-  },
-  {
-    type: 'category',
     label: '土木工事共通仕様書（案）【近畿地方整備局】',
     link: {
       type: 'doc',
@@ -1813,7 +1781,7 @@ export const sidebars: SidebarConfig = {
 export const navbarItems = [
   { label: '試験ガイド', sidebarId: 'examSidebar', href: '/docs/exam/civil-construction-1/guide' },
   { label: '土木一般', sidebarId: 'generalSidebar', href: '/docs/civil-general' },
-  { label: '施工管理', sidebarId: 'generalSidebar', href: '/docs/construction-management' },
+  { label: '施工管理', sidebarId: 'constructionManagementSidebar', href: '/docs/construction-management' },
   { label: '過去問', sidebarId: 'examSidebar', href: '/docs/exam/civil-construction-1/primary' },
 ];
 
