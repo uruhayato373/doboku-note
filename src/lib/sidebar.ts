@@ -396,22 +396,6 @@ export const generalSidebar: SidebarItem[] = [
   },
   {
     type: 'category',
-    label: '空間情報',
-    link: {
-      type: 'generated-index',
-      title: '空間情報',
-      slug: 'spatial-information',
-    },
-    items: [
-      'general/spatial-information/01',
-      'general/spatial-information/02',
-      'general/spatial-information/03',
-      'general/spatial-information/04',
-      'general/spatial-information/05',
-    ],
-  },
-  {
-    type: 'category',
     label: '土木工事共通仕様書（案）【近畿地方整備局】',
     link: {
       type: 'doc',
