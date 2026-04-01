@@ -45,6 +45,7 @@ content/**/img/
 
 # Source PDFs/images (conversion input)
 /_sources/
+/_backend/
 hikkei-*.pdf
 第３部_民法.pdf
 _minpo_*.png
