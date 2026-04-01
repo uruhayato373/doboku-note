@@ -132,6 +132,24 @@ npm run serve          # ビルド結果のプレビュー
 
 ### content — コンテンツ作成
 
+#### 試験対策ガイド生成（複数資格対応・テンプレート駆動）
+
+| スキル | 用途 | 対応試験 | 汎用化 | 定義 |
+|---|---|---|---|---|
+| `/exam-guide` | 試験対策ガイド生成（既存資産再構成） | civil-construction-1 | Phase 2で `--exam {id}` パラメータ化予定 | `.claude/skills/content/exam-guide/SKILL.md` |
+| `/pe-exam-guide` | 技術士試験対策ガイド生成（既存資産＋公開情報） | pe | Phase 2で統合予定 | `.claude/skills/content/pe-exam-guide/SKILL.md` |
+
+**テンプレート管理**: `.claude/skills/content/templates/exam-guide/` （新資格追加時は設定ファイル追加のみ）
+
+#### 試験問題集インポート（複数資格対応予定）
+
+| スキル | 用途 | 対応試験 | 汎用化 | 定義 |
+|---|---|---|---|---|
+| `/exam-questions-import` | 試験第1次問題集PDF→MDX変換 | civil-construction-1 | Phase 2で汎用化検討 | `.claude/skills/content/exam-questions-import/SKILL.md` |
+| `/exam-questions-2-import` | 試験第2次問題集PDF→MDX変換 | civil-construction-1 | Phase 2で汎用化検討 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
+
+#### 汎用的なコンテンツ作成スキル
+
 | スキル | 用途 | 定義 |
 |---|---|---|
 | `/audit-staging` | Obsidianステージングの公開準備度監査 | `.claude/skills/content/audit-staging/SKILL.md` |
@@ -140,23 +158,24 @@ npm run serve          # ビルド結果のプレビュー
 | `/clean-pdf-artifacts` | PDF変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
 | `/check-mdx` | MDX構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
 | `/verify-content` | MDX内容をソースPDFと照合・検証 | `.claude/skills/content/verify-content/SKILL.md` |
+| `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
+
+#### PDF→MDX 教材インポート系スキル
+
+| スキル | 用途 | 定義 |
+|---|---|---|
+| `/create-import-skill` | **メタスキル**: PDFインポートスキルの自動生成ガイド（汎用テンプレート定義済み） | `.claude/skills/content/create-import-skill/SKILL.md` |
 | `/fishery-port-import` | 漁港設計参考図書PDF→MDX変換 | `.claude/skills/content/fishery-port-import/SKILL.md` |
 | `/noise-manual-import` | 騒音評価マニュアルPDF→MDX変換 | `.claude/skills/content/noise-manual-import/SKILL.md` |
 | `/river-design-import` | 河川砂防技術基準（設計編）技術資料PDF→MDX変換 | `.claude/skills/content/river-design-import/SKILL.md` |
 | `/common-specs-import` | 土木工事共通仕様書PDF→MDX変換 | `.claude/skills/content/common-specs-import/SKILL.md` |
 | `/civil-law-import` | 民法テキストPDF→MDX変換 | `.claude/skills/content/civil-law-import/SKILL.md` |
-| `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/fix-design-manual-figures` | 設計便覧の図品質修正（テキスト映り込み・出典欠落） | `.claude/skills/content/fix-design-manual-figures/SKILL.md` |
 | `/design-manual-import` | 近畿地方整備局 設計便覧PDF→MDX変換 | `.claude/skills/content/design-manual-import/SKILL.md` |
 | `/tech-management-import` | 土木技術管理規定集PDF→MDX変換 | `.claude/skills/content/tech-management-import/SKILL.md` |
 | `/civil-general-import` | 土木施工管理技術テキスト（土木一般編）PDF→MDX変換 | `.claude/skills/content/civil-general-import/SKILL.md` |
 | `/construction-management-import` | 土木施工管理技術テキスト（施工管理・法規編）PDF→MDX変換 | `.claude/skills/content/construction-management-import/SKILL.md` |
-| `/create-import-skill` | PDFインポートスキルの自動生成 | `.claude/skills/content/create-import-skill/SKILL.md` |
-| `/exam-questions-import` | 1級土木施工管理 第1次試験問題集PDF→MDX変換 | `.claude/skills/content/exam-questions-import/SKILL.md` |
-| `/exam-questions-2-import` | 1級土木施工管理 第2次試験問題集PDF→MDX変換 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
 | `/civil-planning-import` | 土木計画学PDF→MDX変換（20章677P） | `.claude/skills/content/civil-planning-import/SKILL.md` |
-| `/exam-guide` | 1級土木施工管理 試験対策ガイド生成（既存資産再構成） | `.claude/skills/content/exam-guide/SKILL.md` |
-| `/pe-exam-guide` | 技術士試験対策ガイド生成（既存資産＋公開情報） | `.claude/skills/content/pe-exam-guide/SKILL.md` |
 
 ### ui — UI/UX
 
@@ -175,6 +194,43 @@ npm run serve          # ビルド結果のプレビュー
 | `/discover-trends-civil` | 土木系ニュース・業界動向からトレンド発見 | `.claude/skills/strategy/discover-trends-civil/SKILL.md` |
 | `/discover-exam-season` | 試験日程に基づく季節性コンテンツ戦略 | `.claude/skills/strategy/discover-exam-season/SKILL.md` |
 | `/content-roadmap` | コンテンツ拡充ロードマップの生成（全データ統合） | `.claude/skills/strategy/content-roadmap/SKILL.md` |
+
+### 複数資格対応の進め方（Phase別）
+
+複数の土木系資格試験（1級土木・技術士・コンクリート技士・測量士等）に対応するため、以下の段階的アプローチを採用しています。
+
+#### Phase 1（現在 2026-04-01）：テンプレート外部化
+
+スキル本体は試験特化のまま。**試験固有の設定をテンプレートフォルダで管理**し、新資格追加時はスキル追加を不要に。
+
+```
+/exam-guide (1級土木施工管理技士)
+  → 設定参照: .claude/skills/content/templates/exam-guide/civil-construction-1.md
+
+/pe-exam-guide (技術士建設部門)
+  → 設定参照: .claude/skills/content/templates/exam-guide/pe.md
+```
+
+**新資格追加時の作業**:
+1. `templates/exam-guide/{exam-id}.md` を新規作成（テンプレートのコピー＋設定入力）
+2. スキル側は変更なし
+
+#### Phase 2（2026年秋予定）：スキル汎用化へリファクタリング
+
+スキル側でパラメータ化。複数試験を1つのスキルで処理。
+
+```
+/exam-guide --exam {exam-id} --topic {topic}
+  ↓ 内部で templates/exam-guide/{exam-id}.md を読み込み
+
+/pe-exam-guide → 廃止（/exam-guide に統合）
+```
+
+**メリット**: スキル数削減。ハーネス設計原則4「スキルを増やすより既存スキルのパラメータ化を優先」に完全準拠。
+
+#### Phase 3（2027年以降）：医師・弁護士など他分野対応
+
+同じテンプレート駆動アプローチで、医療系・法律系資格にも対応可能。スキル追加ゼロ。
 
 ### ads — 広告・アフィリエイト
 

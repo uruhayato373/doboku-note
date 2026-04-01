@@ -116,3 +116,53 @@ content/general/exam-guide/
   ],
 },
 ```
+
+## テンプレート設定ファイル
+
+このスキルで使用する試験固有の設定は以下のテンプレートで一元管理されます。
+
+### 設定参照
+
+**1級土木施工管理技士向けの設定:**
+→ `.claude/skills/content/templates/exam-guide/civil-construction-1.md`
+
+このファイルには以下が定義されています：
+- ソースコンテンツのパス（土工・コンクリート・施工管理テキスト等）
+- 外部情報源（著作権フリーの公開資料）
+- 試験構成テーブル（第1次・第2次の科目配置）
+- 出力先ディレクトリ
+- サイドバー登録の slug
+
+### Phase 2 への移行
+
+**2026年秋予定**: このスキルを複数試験対応の汎用化へリファクタリングします。
+
+```bash
+# Phase 1（現在）
+/exam-guide earthwork
+
+# Phase 2（予定）
+/exam-guide --exam civil-construction-1 --topic earthwork
+```
+
+新資格（コンクリート技士・測量士等）対応時は：
+1. `templates/exam-guide/{exam-id}.md` を新規作成（テンプレート参照）
+2. このスキル側の変更は **不要**（設定ファイル追加のみ）
+3. Phase 2 汎用化時に `--exam` パラメータで自動統合
+
+### テンプレートフォルダ全体
+
+`.claude/skills/content/templates/` 以下の構成：
+
+```
+templates/
+├── README.md              ← フォルダの目的と運用ルール
+└── exam-guide/
+    ├── _schema.md         ← 試験別設定ファイルの仕様定義
+    ├── civil-construction-1.md  ← 本スキルが使用（当ファイル）
+    ├── pe.md              ← /pe-exam-guide が使用
+    ├── concrete-engineer.md     ← Phase 2で対応予定
+    └── _new-exam-template.md    ← 新資格追加時のコピー用雛形
+```
+
+詳細は `templates/README.md` を参照してください。
