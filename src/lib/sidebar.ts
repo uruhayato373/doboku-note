@@ -1158,11 +1158,6 @@ export const environmentSidebar: SidebarItem[] = [
 export const sidebars: SidebarConfig = {
   examSidebar,
   generalSidebar,
-  roadSidebar,
-  riverSidebar,
-  lowSidebar,
-  portSidebar,
-  environmentSidebar,
 };
 
 // Navbar items mapping to sidebar IDs
