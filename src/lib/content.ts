@@ -36,6 +36,7 @@ export interface DocMeta {
   toc_min_heading_level?: number;
   toc_max_heading_level?: number;
   source?: SourceMeta | SourceMeta[];
+  exams?: string[];
   draft?: boolean;
 }
 

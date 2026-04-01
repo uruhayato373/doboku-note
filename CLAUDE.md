@@ -28,26 +28,46 @@
 ## ディレクトリ構成
 
 ```
-docs/                  # コンテンツ（MDX）
-  general/             # 一般（土木工学、施工管理、アセットマネジメント、空間情報）
-  road/                # 道路
-  river/               # 河川（水理学、防災計画）
-  low/                 # 法律（憲法、国家賠償法、行政事件訴訟法）
-  erosion-control/     # 砂防（非公開）
-sidebars/              # サイドバー定義
+content/               # コンテンツ（MDX）
+  general/             # 共通技術コンテンツ（複数資格で共用）
+    civil-general/     # 土木一般（土工・コンクリート・基礎工・測量・建設機械・解体工事）
+    construction-management/  # 施工管理（品質・安全・工程・法規等）
+  exam/                # 試験特化コンテンツ
+    civil-construction-1/  # 1級土木施工管理技士（guide/, primary/, secondary/）
+    pe/                # 技術士（建設部門）（primary-guide/, 選択科目別フォルダ等）
+    rccm/              # RCCM
 src/                   # カスタムコンポーネント・CSS・レイアウト
-static/                # 静的ファイル（画像、favicon）
+  lib/
+    content.ts         # DocMeta 型定義・ファイルスキャン
+    sidebar.ts         # サイドバー定義・ナビ生成
+  app/docs/[...slug]/  # 全ドキュメントページの動的ルート
+docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
 .github/workflows/     # CI/CD
 ```
 
 ## サイト構成（ナビバー）
 
-| カテゴリ | Sidebar ID | パス |
-|---|---|---|
-| 一般 | generalSidebar | docs/general/ |
-| 道路 | roadSidebar | docs/road/ |
-| 河川 | riverSidebar | docs/river/ |
-| 法律 | lowSidebar | docs/low/ |
+| カテゴリ | sidebarId | URL パス | 現状 |
+|---|---|---|---|
+| **試験ガイド（1級土木）** | examSidebar | /docs/exam/civil-construction-1 | ✅ 運用中 |
+| **土木一般** | generalSidebar | /docs/general/civil-general | ✅ 運用中 |
+| **施工管理** | generalSidebar | /docs/general/construction-management | ✅ 運用中 |
+| **過去問（1級土木）** | examSidebar | /docs/exam/civil-construction-1/primary | ✅ 運用中 |
+| コンクリート技士 | concreteEngineerSidebar | /docs/exam/concrete-engineer | ⏳ 未実装 |
+| 測量士 | surveyingSidebar | /docs/exam/surveying | ⏳ 未実装 |
+| 技術士（建設部門）* | examSidebar | /docs/exam/pe | ✅ 運用中（ナビ外） |
+
+\* 技術士は現在ナビバーに表示されていません。コンテンツは実装済み。
+
+## URL設計ルール
+
+複数資格対応を実現するため、以下のURL設計を採用しています（詳細: `docs/00_プロジェクト管理/07_URL設計ガイドライン.md`）。
+
+- **共通コンテンツ**: `content/general/{分野}/` → URL: `/docs/general/{分野}/`
+- **試験特化コンテンツ**: `content/exam/{exam-id}/` → URL: `/docs/exam/{exam-id}/`
+- **複数資格対応記事**: ファイルを複製せず、frontmatter の `exams: string[]` で関連を宣言
+
+このルールにより、新資格対応時の重複排除とSEO効率を両立します。
 
 ## コンテンツ作成規約
 
