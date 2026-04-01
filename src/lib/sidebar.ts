@@ -633,6 +633,32 @@ export const examSidebar: SidebarItem[] = [
   },
   {
     type: 'category',
+    label: '技術士（総合技術監理部門）',
+    link: {
+      type: 'generated-index',
+      title: '技術士試験対策（総合技術監理部門）',
+      slug: 'exam/cem',
+    },
+    items: [
+      'exam/cem/index',
+      'exam/cem/schedule-2025',
+      'exam/cem/exam-structure',
+      'exam/cem/study-plan',
+      {
+        type: 'category',
+        label: '5つの管理技術',
+        items: [
+          'exam/cem/five-fields/safety',
+          'exam/cem/five-fields/social-environment',
+          'exam/cem/five-fields/economics',
+          'exam/cem/five-fields/information',
+          'exam/cem/five-fields/human-resources',
+        ],
+      },
+    ],
+  },
+  {
+    type: 'category',
     label: 'RCCM',
     items: [
       'exam/rccm/guide',
