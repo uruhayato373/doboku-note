@@ -22,7 +22,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-6">
             {navbarItems.map((item) => (
               <Link
-                key={item.sidebarId}
+                key={item.href}
                 href={item.href}
                 className="text-sm text-gray-700 hover:text-primary no-underline transition-colors"
               >
@@ -70,7 +70,7 @@ export default function Navbar() {
             </div>
             {navbarItems.map((item) => (
               <Link
-                key={item.sidebarId}
+                key={item.href}
                 href={item.href}
                 className="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-50 no-underline"
                 onClick={() => setMobileMenuOpen(false)}

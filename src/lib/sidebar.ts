@@ -1168,7 +1168,7 @@ export const navbarItems = [
   { label: '試験ガイド', sidebarId: 'examSidebar', href: '/docs/exam/civil-construction-1/guide' },
   { label: '土木一般', sidebarId: 'generalSidebar', href: '/docs/civil-general' },
   { label: '施工管理', sidebarId: 'constructionManagementSidebar', href: '/docs/construction-management' },
-  { label: '過去問', sidebarId: 'examSidebar', href: '/docs/exam/civil-construction-1/primary' },
+  { label: '過去問', sidebarId: 'examPrimarySidebar', href: '/docs/exam/civil-construction-1/primary' },
 ];
 
 // Build breadcrumb trail from sidebar tree to the current path
