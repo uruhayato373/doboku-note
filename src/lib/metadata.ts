@@ -11,32 +11,31 @@ const getSlugByName = (name: string) => {
 
 export const getCommonSeoData = () => ({
   title: {
-    default: "カッコム - カッコいい公務員を目指して",
-    template: "%s | カッコム",
+    default: "doboku-note - 土木系資格試験 専門技術ノート",
+    template: "%s | doboku-note",
   },
   description:
-    "40代公務員の、もう一歩先へ。シゴデキ（仕事・資産形成・ライフスタイル最適化）とイケオジ（40代からの外見・内面磨き）の2つのカテゴリで情報発信。",
+    "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
   keywords: [
-    "公務員",
-    "ライフスタイル",
-    "40代",
-    "シゴデキ",
-    "イケオジ",
-    "ファッション",
-    "スキンケア",
-    "副業",
-    "投資",
-    "キャリア",
+    "1級土木施工管理技士",
+    "技術士",
+    "総合技術監理部門",
+    "土木施工管理",
+    "試験対策",
+    "過去問",
+    "土木一般",
+    "施工管理",
+    "建設部門",
   ],
-  authors: [{ name: "カズ（KAZU）" }],
-  creator: "カズ（KAZU）",
-  publisher: "カズ（KAZU）",
+  authors: [{ name: "doboku-note" }],
+  creator: "doboku-note",
+  publisher: "doboku-note",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://kakkom.com"),
+  metadataBase: new URL("https://doboku-note.com"),
   alternates: {
     canonical: "/",
   },
@@ -54,26 +53,26 @@ export const getCommonSeoData = () => ({
   openGraph: {
     type: "website",
     locale: "ja_JP",
-    url: "https://kakkom.com",
-    title: "カッコム - カッコいい公務員を目指して",
+    url: "https://doboku-note.com",
+    title: "doboku-note - 土木系資格試験 専門技術ノート",
     description:
-      "40代公務員の、もう一歩先へ。シゴデキ（仕事・資産形成・ライフスタイル最適化）とイケオジ（40代からの外見・内面磨き）の2つのカテゴリで情報発信。",
-    siteName: "カッコム",
+      "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+    siteName: "doboku-note",
     images: [
       {
-        url: "https://kakkom.com/ogp/home.jpg",
+        url: "https://doboku-note.com/ogp/home.jpg",
         width: 1200,
         height: 630,
-        alt: "カッコム - カッコいい公務員を目指して",
+        alt: "doboku-note - 土木系資格試験 専門技術ノート",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "カッコム - カッコいい公務員を目指して",
+    title: "doboku-note - 土木系資格試験 専門技術ノート",
     description:
-      "40代公務員の、もう一歩先へ。シゴデキ（仕事・資産形成・ライフスタイル最適化）とイケオジ（40代からの外見・内面磨き）の2つのカテゴリで情報発信。",
-    images: ["https://kakkom.com/ogp/home.jpg"],
+      "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+    images: ["https://doboku-note.com/ogp/home.jpg"],
   },
   // GSC所有権確認はDNS認証で完了済み
 });
@@ -87,7 +86,7 @@ export const getPostSeoData = (post: Post) => ({
     description: post.description,
     type: "article",
     publishedTime: new Date(post.date).toISOString(),
-    url: `https://kakkom.com/blog/${post.id}`,
+    url: `https://doboku-note.com/blog/${post.id}`,
     images: [
       {
         url: getOgpImageUrl(post.id),
@@ -112,7 +111,7 @@ export const getTagSeoData = (tag: string) => ({
   openGraph: {
     title: `#${tag} の記事一覧`,
     description: `タグ「${tag}」に関する記事一覧です。`,
-    url: `https://kakkom.com/tags/${getSlugByName(tag)}`,
+    url: `https://doboku-note.com/tags/${getSlugByName(tag)}`,
   },
   twitter: {
     card: "summary_large_image",
@@ -130,7 +129,7 @@ export const getCategoryPageSeoData = (category: { id: string }) => {
     openGraph: {
       title: categorySeoData.title,
       description: categorySeoData.description,
-      url: `https://kakkom.com/category/${category.id}`,
+      url: `https://doboku-note.com/category/${category.id}`,
     },
     twitter: {
       card: "summary_large_image",

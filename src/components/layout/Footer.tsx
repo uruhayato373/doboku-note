@@ -7,9 +7,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8">
           {/* ブランド情報 */}
           <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-primary-400 mb-4">KAKKOM</h3>
-            <p className="text-gray-300 mb-4">カッコいい公務員を目指して</p>
-            <p className="text-gray-400 text-sm">40代公務員の、もう一歩先へ</p>
+            <h3 className="text-2xl font-bold text-primary-400 mb-4">doboku-note</h3>
+            <p className="text-gray-300 mb-4">土木系資格試験 専門技術ノート</p>
+            <p className="text-gray-400 text-sm">1級土木施工管理技士・技術士の合格をサポート</p>
           </div>
 
           {/* カテゴリ */}
@@ -18,18 +18,18 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/category/shigodeki"
+                  href="/category/civil-construction-manager"
                   className="text-gray-300 hover:text-primary-400 transition-colors"
                 >
-                  シゴデキ
+                  1級土木施工管理技士
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/category/ikeoji"
+                  href="/category/professional-engineer"
                   className="text-gray-300 hover:text-primary-400 transition-colors"
                 >
-                  イケオジ
+                  技術士（総合技術監理部門）
                 </Link>
               </li>
               <li>
@@ -76,7 +76,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-gray-700 dark:border-gray-600 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© 2024 KAKKOM. All rights reserved.</p>
+          <p className="text-gray-400">© {new Date().getFullYear()} doboku-note. All rights reserved.</p>
         </div>
       </div>
     </footer>

@@ -25,7 +25,7 @@ export default function CategoryBadge({ category, subCategory }: CategoryBadgePr
   return (
     <div className="flex items-center gap-2">
       <Link
-        href={`/category/${category === "イケオジ" ? "ikeoji" : "shigodeki"}`}
+        href={`/category/${category === "1級土木施工管理技士" ? "civil-construction-manager" : "professional-engineer"}`}
         className="inline-block px-3 py-1 rounded text-sm bg-primary-500/80 text-white hover:bg-primary-600/90 transition-colors shadow-lg"
       >
         {category}

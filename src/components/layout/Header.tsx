@@ -57,7 +57,7 @@ export default function Header() {
                 href="/"
                 className="text-2xl font-bold text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 hover:scale-105 transition-all duration-200"
               >
-                KAKKOMU
+                doboku-note
               </Link>
             </div>
             {/* Mobile menu and ThemeToggle */}
