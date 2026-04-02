@@ -5,6 +5,7 @@ import Sidebar from '@/components/layout/Sidebar';
 import TableOfContents from '@/components/layout/TableOfContents';
 import MobileSidebarDrawer from '@/components/layout/MobileSidebarDrawer';
 import MobileTableOfContents from '@/components/layout/MobileTableOfContents';
+import GeneratedIndexPage from '@/components/layout/GeneratedIndexPage';
 import {
   getDocBySlug,
   getAllSlugs,
@@ -20,9 +21,7 @@ import {
   findSidebarForPath,
   getPrevNext,
   getGeneratedIndexSlugs,
-  getSidebarItemPath,
   buildBreadcrumbs,
-  SidebarItem,
 } from '@/lib/sidebar';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { slugToPath } from '@/lib/url';
@@ -91,58 +90,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return { title: slug.join('/'), alternates: { canonical } };
-}
-
-// Generated index page component
-function GeneratedIndexPage({
-  title,
-  items,
-}: {
-  title: string;
-  items: SidebarItem[];
-}) {
-  return (
-    <div className="markdown">
-      <h1>{title}</h1>
-      <div className="grid gap-3 mt-6">
-        {items.map((item, i) => {
-          if (typeof item === 'string') {
-            const parts = item.split('/');
-            const label = getDocTitle(item);
-            const href =
-              parts[parts.length - 1] === 'index'
-                ? '/docs/' + parts.slice(0, -1).join('/')
-                : '/docs/' + item;
-            return (
-              <Link
-                key={i}
-                href={href}
-                className="block p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-sm transition-all no-underline text-gray-700 hover:text-primary"
-              >
-                {label}
-              </Link>
-            );
-          }
-          if (item.type === 'category') {
-            const linkPath = getSidebarItemPath(item);
-            return (
-              <Link
-                key={i}
-                href={linkPath || '#'}
-                className="block p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-sm transition-all no-underline text-gray-700 hover:text-primary"
-              >
-                <span className="font-semibold">{item.label}</span>
-                <span className="text-sm text-gray-400 ml-2">
-                  ({item.items.length} items)
-                </span>
-              </Link>
-            );
-          }
-          return null;
-        })}
-      </div>
-    </div>
-  );
 }
 
 export default async function DocPage({ params }: PageProps) {
