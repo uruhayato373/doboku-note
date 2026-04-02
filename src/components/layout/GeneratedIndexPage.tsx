@@ -3,16 +3,17 @@
 import Link from 'next/link';
 import { getSidebarItemPath } from '@/lib/sidebar';
 import type { SidebarItem } from '@/lib/sidebar';
-import { getDocTitle } from '@/lib/content';
 
 interface GeneratedIndexPageProps {
   title: string;
   items: SidebarItem[];
+  docTitleMap: Record<string, string>;
 }
 
 export default function GeneratedIndexPage({
   title,
   items,
+  docTitleMap,
 }: GeneratedIndexPageProps) {
   return (
     <div className="markdown">
@@ -21,7 +22,7 @@ export default function GeneratedIndexPage({
         {items.map((item, i) => {
           if (typeof item === 'string') {
             const parts = item.split('/');
-            const label = getDocTitle(item);
+            const label = docTitleMap[item] || parts.pop() || item;
             const href =
               parts[parts.length - 1] === 'index'
                 ? '/docs/' + parts.slice(0, -1).join('/')

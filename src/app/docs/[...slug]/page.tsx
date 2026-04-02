@@ -144,7 +144,11 @@ export default async function DocPage({ params }: PageProps) {
   } else if (generatedIndex) {
     docTitle = generatedIndex.title;
     content = (
-      <GeneratedIndexPage title={generatedIndex.title} items={generatedIndex.items} />
+      <GeneratedIndexPage
+        title={generatedIndex.title}
+        items={generatedIndex.items}
+        docTitleMap={titleMap}
+      />
     );
   }
 
