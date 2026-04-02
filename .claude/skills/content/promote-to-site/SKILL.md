@@ -96,7 +96,31 @@ description: "{titleの内容}。1級土木施工管理技士の試験対応。"
    - 変換先: doboku-note パス
    - 変換で除去/変更した要素の一覧
 
-### Step 5: 品質チェック（オプション）
+### Step 4.5: 画像を R2 にアップロード（画像含む場合のみ）
+
+変換した MDX に `<img src="/content/...">` タグが含まれている場合:
+
+1. 対応する画像ファイルが `content/{category}/img/` に存在するか確認
+2. **存在する場合**:
+   - `node scripts/upload-images-to-r2.mjs --prefix {category}` を実行
+   - アップロード完了を確認
+   - ローカル開発環境は自動で `.local/r2/` に反映される（`npm run sync-images` 経由）
+3. **存在しない場合**:
+   - ユーザーに「以下の画像ファイルが見つかりません。Obsidian から配置してから再度実行してください」と案内：
+     - 未検出ファイルのリスト
+
+**注意:**
+- Obsidian では `![[画像.png]]` 記法で画像を埋め込みますが、MDX 変換時に `<img src="/content/{category}/img/{filename}">` に変換されます
+- 画像ファイル自体は `content/{category}/img/` に配置する必要があります（Obsidian の attachments フォルダから Obsidian vault 同期時にコピー）
+
+### Step 5: ファイル配置確認（オプション）
+
+1. `npm run sync-images` を実行（未実行時）
+2. ローカル開発サーバーで `npm run dev` を実行
+3. 変換先ページをブラウザで確認：
+   - レイアウト・画像表示・リンク等が正常であること
+
+### Step 6: 品質チェック（オプション）
 
 `/check-mdx` を呼び出して変換結果の構文チェックを実行するか確認する。
 

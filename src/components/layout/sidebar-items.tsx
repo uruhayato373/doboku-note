@@ -65,24 +65,31 @@ export function SidebarCategoryItem({
   const containsActive = isChildActive(item.items, currentPath) || isActive;
 
   const storageKey = `sidebar-${depth}-${item.label}`;
-  const [isOpen, setIsOpen] = useState(() => {
-    if (containsActive) return true;
-    if (typeof window !== 'undefined') {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Restore state after hydration
+  useEffect(() => {
+    setIsHydrated(true);
+    if (containsActive) {
+      setIsOpen(true);
+    } else {
       const saved = sessionStorage.getItem(storageKey);
-      if (saved !== null) return saved === 'true';
+      if (saved !== null) setIsOpen(saved === 'true');
     }
-    return false;
-  });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Persist open/close state
   useEffect(() => {
-    sessionStorage.setItem(storageKey, String(isOpen));
-  }, [isOpen, storageKey]);
+    if (isHydrated) {
+      sessionStorage.setItem(storageKey, String(isOpen));
+    }
+  }, [isOpen, storageKey, isHydrated]);
 
   // Auto-expand when navigating into this category
   useEffect(() => {
-    if (containsActive && !isOpen) setIsOpen(true);
-  }, [containsActive]); // eslint-disable-line react-hooks/exhaustive-deps
+    if (isHydrated && containsActive && !isOpen) setIsOpen(true);
+  }, [containsActive, isHydrated]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // depth === 0: セクション見出し（常に展開、折りたたまない）
   if (depth === 0) {

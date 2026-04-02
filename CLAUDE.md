@@ -80,7 +80,8 @@ docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
   - MDXでの参照: `<img src="/content/{カテゴリ}/img/{ファイル名}" />`（相対パス）
   - ローカル開発: `.local/r2/content/` から配信（`scripts/serve-local-r2.mjs`）
   - 本番: Cloudflare Pages `_redirects` で R2 にリダイレクト
-  - アップロード: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
+  - **ダウンロード（ローカル初期化）**: `/sync-r2-images` または `npm run download-images --prefix {カテゴリ}`
+  - **アップロード（R2反映）**: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
   - `content/**/img/` は `.gitignore` 対象
   - `static/img/` はサイト共通素材（favicon, logo等）専用
 
@@ -93,9 +94,11 @@ docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
 ## 頻用コマンド
 
 ```bash
-npm start              # ローカル開発サーバー
-npm run build          # 本番ビルド
-npm run serve          # ビルド結果のプレビュー
+npm start                 # ローカル開発サーバー
+npm run build             # 本番ビルド
+npm run serve             # ビルド結果のプレビュー
+npm run download-images   # R2から画像をローカルに取得（初回・画像追加後）
+npm run sync-images       # content/img/ → .local/r2/ にコピー（dev時に自動実行）
 ```
 
 ## スキル一覧
@@ -129,6 +132,7 @@ npm run serve          # ビルド結果のプレビュー
 | `/create-skill` | スキル作成ガイド | `.claude/skills/dev/create-skill/SKILL.md` |
 | `/reset-git-history` | Git 履歴リセット | `.claude/skills/dev/reset-git-history/SKILL.md` |
 | `/allow-tool` | ツール許可を settings.local.json に追加 | `.claude/skills/dev/allow-tool/SKILL.md` |
+| `/sync-r2-images` | R2上の画像をローカルに同期（npm run dev で画像が見えないとき） | `.claude/skills/dev/sync-r2-images/SKILL.md` |
 
 ### content — コンテンツ作成
 
