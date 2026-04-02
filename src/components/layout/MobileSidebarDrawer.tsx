@@ -65,6 +65,7 @@ export default function MobileSidebarDrawer({
                 currentPath={pathname}
                 titleMap={titleMap}
                 onNavigate={() => setIsOpen(false)}
+                maxDepth={1}
               />
             ))}
           </ul>

@@ -25,12 +25,12 @@ export default function Sidebar({ items, titleMap = {} }: { items: SidebarItem[]
   return (
     <aside
       ref={sidebarRef}
-      className="w-[270px] flex-shrink-0 hidden lg:block overflow-y-auto h-[calc(100vh-3.5rem)] sticky top-14 border-r border-gray-200 py-4 px-3"
+      className="w-[220px] flex-shrink-0 hidden lg:block overflow-y-auto h-[calc(100vh-3.5rem)] sticky top-14 border-r border-gray-200 py-4 px-3"
     >
       <nav aria-label="サイドバーナビゲーション">
         <ul className="space-y-1">
           {items.map((item, i) => (
-            <SidebarItemRenderer key={i} item={item} currentPath={pathname} titleMap={titleMap} />
+            <SidebarItemRenderer key={i} item={item} currentPath={pathname} titleMap={titleMap} maxDepth={1} />
           ))}
         </ul>
       </nav>

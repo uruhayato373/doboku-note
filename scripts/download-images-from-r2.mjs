@@ -103,24 +103,23 @@ function downloadImagesFromR2() {
           const dir = path.dirname(localPath);
           fs.mkdirSync(dir, { recursive: true });
 
-          // Download with curl (no proxy variables)
-          const cmd = `curl -s -f "${url}" -o "${localPath}"`;
+          // Download with curl
+          // Note: curl respects proxy env vars; we don't override them
+          const cmd = `curl -f -o "${localPath}" "${url}"`;
           execSync(cmd, {
-            stdio: 'pipe',
-            env: {
-              ...process.env,
-              // Disable proxy for this request
-              HTTP_PROXY: '',
-              HTTPS_PROXY: '',
-              NO_PROXY: '*',
-            },
+            stdio: 'ignore', // Suppress curl output
           });
 
-          const stat = fs.statSync(localPath);
-          console.log(`[✓] ${imgPath} (${(stat.size / 1024).toFixed(1)}KB)`);
-          downloaded++;
+          if (fs.existsSync(localPath)) {
+            const stat = fs.statSync(localPath);
+            console.log(`[✓] ${imgPath} (${(stat.size / 1024).toFixed(1)}KB)`);
+            downloaded++;
+          } else {
+            console.error(`[✗] ${imgPath} — file not written`);
+            failed++;
+          }
         } catch (err) {
-          console.error(`[✗] ${imgPath} — failed to download`);
+          console.error(`[✗] ${imgPath} — ${err.message.split('\n')[0]}`);
           failed++;
         }
       }

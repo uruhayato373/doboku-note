@@ -18,7 +18,7 @@ export default function GeneratedIndexPage({
   return (
     <div className="markdown">
       <h1>{title}</h1>
-      <div className="grid gap-3 mt-6">
+      <div className="grid gap-4 mt-8 grid-cols-1 md:grid-cols-2">
         {items.map((item, i) => {
           if (typeof item === 'string') {
             const parts = item.split('/');
@@ -31,9 +31,14 @@ export default function GeneratedIndexPage({
               <Link
                 key={i}
                 href={href}
-                className="block p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-sm transition-all no-underline text-gray-700 hover:text-primary"
+                className="group block p-5 border border-gray-200 rounded-lg hover:border-primary hover:shadow-md hover:bg-blue-50 transition-all no-underline"
               >
-                {label}
+                <h3 className="text-sm font-semibold text-gray-800 group-hover:text-primary transition-colors">
+                  {label}
+                </h3>
+                <p className="text-xs text-gray-500 mt-1">
+                  記事を読む →
+                </p>
               </Link>
             );
           }
@@ -43,12 +48,21 @@ export default function GeneratedIndexPage({
               <Link
                 key={i}
                 href={linkPath || '#'}
-                className="block p-4 border border-gray-200 rounded-lg hover:border-primary hover:shadow-sm transition-all no-underline text-gray-700 hover:text-primary"
+                className="group block p-5 border border-gray-200 rounded-lg hover:border-primary hover:shadow-md hover:bg-blue-50 transition-all no-underline"
               >
-                <span className="font-semibold">{item.label}</span>
-                <span className="text-sm text-gray-400 ml-2">
-                  ({item.items.length} items)
-                </span>
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h3 className="text-sm font-bold text-primary group-hover:text-primary-dark transition-colors">
+                      {item.label}
+                    </h3>
+                    <p className="text-xs text-gray-500 mt-2">
+                      {item.items.length} 個のトピック
+                    </p>
+                  </div>
+                  <span className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary/10 text-primary text-xs font-semibold ml-2">
+                    {item.items.length}
+                  </span>
+                </div>
               </Link>
             );
           }

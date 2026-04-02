@@ -53,12 +53,14 @@ export function SidebarCategoryItem({
   depth = 0,
   titleMap,
   onNavigate,
+  maxDepth,
 }: {
   item: SidebarItemCategory;
   currentPath: string;
   depth?: number;
   titleMap: TitleMap;
   onNavigate?: () => void;
+  maxDepth?: number;
 }) {
   const linkPath = getSidebarItemPath(item);
   const isActive = linkPath === currentPath;
@@ -122,6 +124,7 @@ export function SidebarCategoryItem({
               depth={1}
               titleMap={titleMap}
               onNavigate={onNavigate}
+              maxDepth={maxDepth}
             />
           ))}
         </ul>
@@ -130,27 +133,32 @@ export function SidebarCategoryItem({
   }
 
   // depth >= 1: 折りたたみカテゴリ（chevronとラベルを分離）
+  // maxDepth に達した場合は、アイテムリストを非表示にしてリンクのみ表示
+  const shouldHideItems = maxDepth !== undefined && depth >= maxDepth;
+
   return (
     <li>
       <div className="flex items-center">
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="p-0.5 text-gray-400 hover:text-gray-600 flex-shrink-0"
-          aria-expanded={isOpen}
-          aria-label={`${item.label}を${isOpen ? '閉じる' : '開く'}`}
-        >
-          <svg
-            className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
-            fill="currentColor"
-            viewBox="0 0 20 20"
+        {!shouldHideItems && (
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-0.5 text-gray-400 hover:text-gray-600 flex-shrink-0"
+            aria-expanded={isOpen}
+            aria-label={`${item.label}を${isOpen ? '閉じる' : '開く'}`}
           >
-            <path
-              fillRule="evenodd"
-              d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
+            <svg
+              className={`w-3 h-3 transition-transform duration-200 ${isOpen ? 'rotate-90' : ''}`}
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fillRule="evenodd"
+                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+                clipRule="evenodd"
+              />
+            </svg>
+          </button>
+        )}
         {linkPath ? (
           <Link
             href={linkPath}
@@ -179,24 +187,27 @@ export function SidebarCategoryItem({
           </button>
         )}
       </div>
-      <div
-        className={`overflow-hidden transition-all duration-200 ${
-          isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
-      >
-        <ul className="ml-3 mt-0.5 space-y-0.5 border-l border-gray-200 pl-2">
-          {item.items.map((child, i) => (
-            <SidebarItemRenderer
-              key={i}
-              item={child}
-              currentPath={currentPath}
-              depth={depth + 1}
-              titleMap={titleMap}
-              onNavigate={onNavigate}
-            />
-          ))}
-        </ul>
-      </div>
+      {!shouldHideItems && (
+        <div
+          className={`overflow-hidden transition-all duration-200 ${
+            isOpen ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'
+          }`}
+        >
+          <ul className="ml-3 mt-0.5 space-y-0.5 border-l border-gray-200 pl-2">
+            {item.items.map((child, i) => (
+              <SidebarItemRenderer
+                key={i}
+                item={child}
+                currentPath={currentPath}
+                depth={depth + 1}
+                titleMap={titleMap}
+                onNavigate={onNavigate}
+                maxDepth={maxDepth}
+              />
+            ))}
+          </ul>
+        </div>
+      )}
     </li>
   );
 }
@@ -207,18 +218,20 @@ export function SidebarItemRenderer({
   depth = 0,
   titleMap,
   onNavigate,
+  maxDepth,
 }: {
   item: SidebarItem;
   currentPath: string;
   depth?: number;
   titleMap: TitleMap;
   onNavigate?: () => void;
+  maxDepth?: number;
 }) {
   if (typeof item === 'string') {
     return <SidebarDocItem docId={item} currentPath={currentPath} titleMap={titleMap} onNavigate={onNavigate} />;
   }
   if (item.type === 'category') {
-    return <SidebarCategoryItem item={item} currentPath={currentPath} depth={depth} titleMap={titleMap} onNavigate={onNavigate} />;
+    return <SidebarCategoryItem item={item} currentPath={currentPath} depth={depth} titleMap={titleMap} onNavigate={onNavigate} maxDepth={maxDepth} />;
   }
   return null;
 }

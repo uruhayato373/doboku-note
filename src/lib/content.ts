@@ -410,10 +410,19 @@ export function extractHeadings(
   return headings;
 }
 
+// Cache MDX compilation results by file path (for dev mode re-visits)
+const mdxCache = new Map<string, React.ReactNode>();
+
 /**
  * Compile MDX content to React elements.
+ * Results are cached by file path to speed up re-visits in dev mode.
  */
 export async function compileMdxContent(doc: DocPage) {
+  // Check cache first
+  if (mdxCache.has(doc.filePath)) {
+    return mdxCache.get(doc.filePath)!;
+  }
+
   const { content: rawContent } = matter(doc.content);
   const processedSource = preprocessMdx(rawContent, doc.filePath);
 
@@ -428,5 +437,7 @@ export async function compileMdxContent(doc: DocPage) {
     components: mdxComponents,
   });
 
+  // Store in cache
+  mdxCache.set(doc.filePath, content);
   return content;
 }

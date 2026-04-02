@@ -29,10 +29,18 @@ export const mdxComponents: MDXComponents = {
     </div>
   ),
 
-  // Image with default styling
-  img: ({ src, alt, ...props }: any) => (
+  // Image with default styling and lazy loading
+  img: ({ src, alt, width, height, ...props }: any) => (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={src} alt={alt || ''} {...props} loading="lazy" />
+    <img
+      src={src}
+      alt={alt || ''}
+      width={width}
+      height={height}
+      loading="lazy"
+      style={{ maxWidth: '100%', height: 'auto', ...props.style }}
+      {...props}
+    />
   ),
 
   // Details / Summary for collapsible sections
