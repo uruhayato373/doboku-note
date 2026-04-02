@@ -1,420 +1,129 @@
-/* Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ===== Base Styles ===== */
 
-body {
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", "YuGothic",
-    "Helvetica Neue", Arial, sans-serif;
-  font-size: 16px;
-  color: #333333;
-}
 
-/* ===== Markdown / Article Content ===== */
-
-.markdown a {
-  color: #0066cc;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.markdown a:hover {
-  color: #004080;
-  text-decoration: underline;
-}
-
-/* h1 — page title */
-.markdown > h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.5;
-  padding: 0.2em 0;
-  color: #333333;
-  border-bottom: solid 3px #1a56db;
-  margin-top: 0;
-  margin-bottom: 1.75em;
-}
-
-/* h2 — chapter */
-.markdown > h2 {
-  font-size: 1.375rem;
-  font-weight: 700;
-  line-height: 1.5;
-  padding: 0.25em 0.5em;
-  color: #1a2332;
-  background-color: #f0f4fb;
-  border-left: 3px solid #1a56db;
-  box-shadow: none;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
-  border-radius: 0 4px 4px 0;
-}
-
-/* h3 — section */
-.markdown > h3 {
-  font-size: 1.175rem;
-  font-weight: 700;
-  line-height: 1.4;
-  padding: 0.15em 0.4em;
-  border-left: 3px solid #1a56db;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
-}
-
-/* h4 — subsection with icon */
-.markdown > h4 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  line-height: 1.4;
-  position: relative;
-  padding-left: 1.2em;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
-}
-
-.markdown > h4:before {
-  position: absolute;
-  content: "";
-  left: 0;
-  top: 0.35em;
-  width: 0;
-  height: 0;
-  border-top: 0.3em solid transparent;
-  border-bottom: 0.3em solid transparent;
-  border-left: 0.45em solid #1a56db;
-}
-
-/* h5 — minor heading */
-.markdown > h5 {
-  font-size: 0.925rem;
-  font-weight: 700;
-  line-height: 1.4;
-  padding: 0;
-  margin-top: 1.5em;
-  margin-bottom: 0.75em;
-}
-
-/* p */
-.markdown > p {
-  margin: 0.75em 0;
-  color: #434343;
-  line-height: 1.8;
-  letter-spacing: 0.08em;
-}
-
-/* ul / ol */
-.markdown > ul,
-.markdown > ol {
-  margin: 0.75em 0;
-  line-height: 1.8;
-}
-
-/* li */
-.markdown li {
-  margin: 0.35em 1.2em;
-  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Meiryo", "YuGothic",
-    "Helvetica Neue", Arial, sans-serif;
-}
-
-.markdown li ul li,
-.markdown li ol li {
-  margin: 0.2em 0.2em;
-}
-
-/* blockquote */
-.markdown blockquote {
-  padding: 1em 1.2em;
-  background-color: transparent;
-  border: 1px dotted #666;
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
-.markdown blockquote p {
-  margin: 0.2rem 0;
-}
-
-/* ===== Custom utility classes ===== */
-
-.text-center {
-  text-align: center;
-  margin-bottom: 40px !important;
-}
-
-/* source citation */
-.markdown .source {
-  transform: skewX(-10deg);
-  text-align: right;
-  margin-top: 20px !important;
-}
-
-.source::before {
-  content: "『";
-}
-
-.source::after {
-  content: "』";
-}
-
-/* mathematical */
-.markdown .mathmatical {
-  padding: 1rem 2rem;
-  overflow-x: auto;
-  white-space: nowrap;
-  max-width: 100%;
-  font-size: 1em;
-}
-
-/* table-title */
-.table-title {
-  text-align: center;
-  margin-top: 40px !important;
-}
-
-/* table-wrapper */
-.table-wrapper {
-  overflow-x: auto;
-  margin-top: 5px;
-  margin-bottom: 50px;
-  max-width: 100%;
-}
-
-/* ===== Table styles ===== */
-.markdown table,
-.table-wrapper table {
-  border-collapse: collapse;
-  border: 1px solid #ccc;
-  width: 100%;
-  font-size: 0.875rem;
-  line-height: 1.6;
-}
-
-.markdown th,
-.table-wrapper th {
-  background-color: #f0f4fb;
-  font-weight: 700;
-  text-align: center;
-  padding: 0.5em 0.75em;
-  border: 1px solid #ccc;
-  white-space: nowrap;
-}
-
-.markdown td,
-.table-wrapper td {
-  padding: 0.45em 0.75em;
-  border: 1px solid #ccc;
-  vertical-align: top;
-}
-
-.markdown tr:nth-child(even),
-.table-wrapper tr:nth-child(even) {
-  background-color: #fafbfd;
-}
-
-/* ===== 重要判例の枠 ===== */
-.box_important-precedent {
-  position: relative;
-  width: 100%;
-  margin: 4em auto;
-  padding: 1em 1.5em;
-  border: solid 1px #1a56db;
-}
-
-.box_important-precedent .box-title {
-  position: absolute;
-  display: inline-block;
-  top: -13px;
-  left: 10px;
-  padding: 0 9px;
-  line-height: 1;
-  font-size: 19px;
-  background: #fff;
-  color: #1a56db;
-  font-weight: bold;
-}
-
-.box_important-precedent p {
-  margin: 0;
-  padding: 0;
-}
-
-/* 最重要判例の枠 */
-.box_most-important-precedent {
-  position: relative;
-  width: 100%;
-  margin: 4em auto;
-}
-
-.box_most-important-precedent_inner {
-  padding: 0.5em;
-}
-
-.box_most-important-precedent::before,
-.box_most-important-precedent::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 8px;
-  background: linear-gradient(
-    -45deg,
-    #fff 25%,
-    #e0e0e0 25%,
-    #e0e0e0 50%,
-    #fff 50%,
-    #fff 75%,
-    #e0e0e0 75%,
-    #e0e0e0
-  );
-  background-size: 8px 8px;
-}
-
-.box_most-important-precedent::before {
-  top: 0;
-  left: 0;
-}
-
-.box_most-important-precedent::after {
-  bottom: 0;
-  left: 0;
-}
-
-.box_most-important-precedent h3 {
-  margin: 0.5em 0;
-}
-
-.box_most-important-precedent h3:first-letter {
-  font-size: 1.4em;
-  color: #1a56db;
-}
-
-.box_most-important-precedent h4 {
-  margin: 1em 0;
-  font-size: 1.2em;
-  color: #1a56db;
-}
-
-/* 最重要判例のTable */
-.table_most-important-precedent {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.table_most-important-precedent th,
-.table_most-important-precedent td {
-  border: 2px solid #fff;
-  background-color: #f0f0f0;
-  padding: 1em;
-}
-
-.table_most-important-precedent th {
-  background-color: #4d4d4d;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-  width: 20%;
-  min-width: 4em;
-}
-
-/* ===== center-image ===== */
-.center-image {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 30px;
-}
-
-/* ===== KaTeX / scroll-equation ===== */
-.scroll-equation {
-  overflow-x: auto;
-  overflow-y: visible;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-  margin-top: 40px;
-  margin-bottom: 40px;
-  padding: 10px 0;
-}
-
-.scroll-equation:not(.scrollable) {
-  overflow-x: visible;
-}
-
-.scroll-equation .katex-html .tag {
-  position: static;
-  display: inline-block;
-  margin-left: 2em;
-}
-
-.scroll-equation .katex-display {
-  margin: 0.5em 0;
-}
-
-/* ===== indent ===== */
-.indent {
-  margin-left: 30px;
-}
-
-/* ===== Responsive ===== */
-@media screen and (max-width: 1080px) {
-  .scroll-equation .katex {
-    font-size: 0.95em;
+/* 必要最小限のカスタムスタイル */
+@layer base {
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-
-  .scroll-equation .katex-html .tag {
-    position: static;
-    display: block;
-    text-align: right;
-    margin-top: 0.5em;
-  }
-}
-
-/* ===== Print ===== */
-@media print {
-  nav,
-  aside,
-  footer,
-  button {
-    display: none !important;
-  }
-
-  main {
-    max-width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
-
+  
   body {
-    font-size: 12pt;
-    color: #000;
-  }
-
-  .markdown a[href^="http"]::after {
-    content: " (" attr(href) ")";
-    font-size: 0.8em;
-    color: #666;
-  }
-
-  .markdown h2,
-  .markdown h3,
-  .markdown h4 {
-    page-break-after: avoid;
-  }
-
-  .markdown table,
-  .markdown pre,
-  .markdown blockquote {
-    page-break-inside: avoid;
-  }
-
-  .markdown > h2 {
-    background-color: transparent !important;
-    color: #000 !important;
-    border-left: 3px solid #333 !important;
-    box-shadow: none !important;
+    @apply antialiased;
   }
 }
+
+@layer components {
+  /* 極力避けるが、どうしても必要な場合のみ */
+  .prose-blog {
+    @apply prose prose-gray dark:prose-invert max-w-none;
+  }
+
+  /* 改行処理の改善 */
+  .prose-blog p {
+    @apply mb-4 leading-relaxed; /* leading-relaxed = line-height: 1.625 */
+  }
+
+  .prose-blog p:last-child {
+    @apply mb-0;
+  }
+
+  /* 箇条書きの改行処理 */
+  .prose-blog ul, .prose-blog ol {
+    @apply mb-4 leading-relaxed; /* 箇条書きの行間も統一 */
+  }
+
+  .prose-blog li {
+    @apply mb-2 leading-relaxed; /* リスト項目の行間も統一 */
+  }
+
+  .prose-blog li:last-child {
+    @apply mb-0;
+  }
+
+  /* 見出し前後の適切なスペース */
+  .prose-blog h1 + p,
+  .prose-blog h2 + p,
+  .prose-blog h3 + p,
+  .prose-blog h4 + p {
+    @apply mt-4;
+  }
+
+  /* 見出しの行間設定 */
+  .prose-blog h1,
+  .prose-blog h2,
+  .prose-blog h3,
+  .prose-blog h4 {
+    @apply leading-tight; /* leading-tight = line-height: 1.25 */
+  }
+
+  /* ブログ記事見出しのカスタムスタイル */
+  .prose-blog h1 {
+    @apply text-3xl font-bold text-gray-900 dark:text-white mb-6 mt-8;
+    @apply border-b-4 border-blue-900 dark:border-blue-600;
+    @apply pb-2;
+  }
+
+  .prose-blog h2 {
+    @apply text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 mt-8;
+    @apply border-t-2 border-b-2 border-gray-400 dark:border-gray-600;
+    @apply pt-6 pb-6;
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @screen sm {
+    .prose-blog h2 {
+      margin-left: -2rem;
+      margin-right: -2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  .prose-blog h3 {
+    @apply text-xl font-medium text-gray-700 dark:text-gray-200 mb-3 mt-6;
+    @apply border-l-4 border-blue-600 dark:border-cyan-500;
+    @apply bg-blue-50 dark:bg-blue-900/20;
+    @apply pl-4 py-2;
+  }
+
+  .prose-blog h4 {
+    @apply text-lg font-medium text-gray-600 dark:text-gray-300 mb-2 mt-4;
+    @apply border-l-2 border-gray-400 dark:border-gray-500;
+    @apply border-b border-dotted border-gray-300 dark:border-gray-600;
+    @apply pl-3 pb-1;
+  }
+
+  /* 見出しのホバー効果 */
+  .prose-blog h2:hover,
+  .prose-blog h3:hover {
+    @apply transition-colors duration-200;
+  }
+
+  .prose-blog h2:hover {
+    @apply border-blue-600 dark:border-cyan-500;
+  }
+
+  .prose-blog h3:hover {
+    @apply border-l-blue-800 dark:border-l-cyan-400;
+    @apply bg-blue-100 dark:bg-blue-900/30;
+  }
+}
+
+/* カスタムスクロールバー（Tailwindで表現困難） */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(156 163 175);
+  border-radius: 0;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgb(75 85 99);
+} 

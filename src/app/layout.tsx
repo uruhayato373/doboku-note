@@ -1,36 +1,44 @@
-import type { Metadata } from 'next';
-import Script from 'next/script';
-import Navbar from '@/components/layout/Navbar';
-import Footer from '@/components/layout/Footer';
-import '@/styles/globals.css';
+import type { Metadata } from "next";
+import { Inter, Noto_Sans_JP } from "next/font/google";
+import "../styles/globals.css";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
+import { getCommonSeoData } from "@/lib/metadata";
 
-export const metadata: Metadata = {
-  title: {
-    default: 'doboku-note',
-    template: '%s | doboku-note',
-  },
-  description:
-    '1級土木施工管理技士の試験対策サイト。土木一般・施工管理の体系的な技術解説と14年分の過去問で合格をサポート。',
-  metadataBase: new URL('https://doboku-note.com'),
-  openGraph: {
-    title: 'doboku-note | 1級土木施工管理技士 試験対策',
-    description:
-      '1級土木施工管理技士の試験対策サイト。土木一般・施工管理の体系的な技術解説と14年分の過去問で合格をサポート。',
-    siteName: 'doboku-note',
-    locale: 'ja_JP',
-    type: 'website',
-  },
-  alternates: {
-    canonical: 'https://doboku-note.com',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-  icons: {
-    icon: '/img/favicon.ico',
-  },
-};
+const StructuredData = dynamic(() => import("@/components/seo/StructuredData"));
+
+const ThemeProvider = dynamic(
+  () =>
+    import("@/components/providers/ThemeProvider").then(
+      (mod) => mod.ThemeProvider
+    ),
+  {
+    ssr: true,
+    loading: () => (
+      <div className="min-h-screen bg-neutral-50 dark:bg-gray-900">
+        {/* ローディング時のフォールバックUI */}
+      </div>
+    ),
+  }
+);
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+  preload: true,
+});
+
+const notoSansJP = Noto_Sans_JP({
+  subsets: ["latin"],
+  variable: "--font-noto-sans-jp",
+  display: "swap",
+  preload: true,
+});
+
+export const metadata: Metadata = getCommonSeoData();
 
 export default function RootLayout({
   children,
@@ -38,40 +46,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ja">
+    <html lang="ja" suppressHydrationWarning>
       <head>
-        {/* KaTeX CSS */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.13.24/dist/katex.min.css"
-          integrity="sha384-odtC+0UGzzFL/6PNoE8rX/SPcQDXBJ+uRepguP4QkPCm2LBxH3FA3y+fKSiJ+AmM"
-          crossOrigin="anonymous"
-        />
-        {/* Google AdSense */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7995274743017484"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        <StructuredData type="website" />
+        <StructuredData type="organization" />
       </head>
-      <body className="min-h-screen flex flex-col">
-        <Navbar />
-        <div className="flex-grow">{children}</div>
-        <Footer />
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-8VXJ1RL1HG"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-8VXJ1RL1HG', { anonymize_ip: true });
-          `}
-        </Script>
+      <body className={`${inter.variable} ${notoSansJP.variable} font-sans`}>
+        <GoogleAnalytics />
+        <Suspense fallback={<></>}>
+          <AnalyticsProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem={true}
+              disableTransitionOnChange={false}
+              storageKey="kakkom-theme"
+            >
+              <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
+                {children}
+              </div>
+            </ThemeProvider>
+          </AnalyticsProvider>
+        </Suspense>
       </body>
     </html>
   );

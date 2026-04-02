@@ -1,5 +1,0 @@
-# www → non-www 正規化（301）
-https://www.doboku-note.com/* https://doboku-note.com/:splat 301
-
-# 画像をR2から配信（Cloudflare Pages用）
-/content/* https://storage.doboku-note.com/content/:splat 302
