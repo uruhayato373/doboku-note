@@ -1,0 +1,70 @@
+/* 左側サイドバー全体 */
+.side-dock-panels-container {
+  font-size: 0.85em;
+}
+
+/* ナビゲーションフォルダ・ファイル */
+.nav-folder-title,
+.nav-file-title {
+  font-size: 0.85em;
+}
+
+/* Calendarプラグイン - 基本サイズ */
+.calendar {
+  font-size: 0.95em !important;
+}
+
+.calendar * {
+  font-size: 0.95em !important;
+}
+
+/* 全 datepicker 要素 */
+[class*="datepicker"] {
+  font-size: 0.95em !important;
+}
+
+[class*="datepicker"] * {
+  font-size: 0.95em !important;
+}
+
+/* calendar クラスの全子要素 */
+div.calendar,
+.calendar-wrapper,
+.calendar-view {
+  font-size: 0.95em !important;
+}
+
+/* ヘッダー部分（月・年の表示）をさらに小さく */
+.react-datepicker__header,
+.react-datepicker__current-month,
+.react-datepicker__current-month-year {
+  font-size: 0.85em !important;
+}
+
+/* ナビゲーションボタン（前月・次月） */
+.react-datepicker__navigation {
+  font-size: 0.8em !important;
+}
+
+/* 「今日」などのボタンテキスト */
+.calendar-container button,
+.react-datepicker__input-container button {
+  font-size: 0.85em !important;
+}
+
+/* パネルのタイトル（月・年・今日など） */
+.calendar-container > div > div,
+.calendar-view-header {
+  font-size: 0.85em !important;
+}
+
+/* タブのフォントサイズ */
+.workspace-tab-header-inner {
+  font-size: 0.9em;
+}
+
+/* バックリンクなどのパネル */
+.backlink-pane,
+.outgoing-link-pane {
+  font-size: 0.85em;
+}

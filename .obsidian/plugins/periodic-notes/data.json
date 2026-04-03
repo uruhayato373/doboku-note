@@ -1,0 +1,32 @@
+{
+  "showGettingStartedBanner": true,
+  "hasMigratedDailyNoteSettings": true,
+  "hasMigratedWeeklyNoteSettings": false,
+  "daily": {
+    "folder": "dairy",
+    "template": "templates/dairy.md",
+    "enabled": true
+  },
+  "weekly": {
+    "format": "",
+    "template": "templates/weekly review.md",
+    "folder": "",
+    "enabled": true
+  },
+  "monthly": {
+    "format": "",
+    "template": "templates/monthly review.md",
+    "folder": "",
+    "enabled": true
+  },
+  "quarterly": {
+    "format": "",
+    "template": "",
+    "folder": ""
+  },
+  "yearly": {
+    "format": "",
+    "template": "",
+    "folder": ""
+  }
+}

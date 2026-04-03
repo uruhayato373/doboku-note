@@ -1,0 +1,584 @@
+{
+  "workspaces": {
+    "default": {
+      "main": {
+        "id": "28d83346f6fc8366",
+        "type": "split",
+        "children": [
+          {
+            "id": "d5d0420796aca84a",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "79099bc627cdf3f0",
+                "type": "leaf",
+                "state": {
+                  "type": "home-tab-view",
+                  "state": {},
+                  "icon": "search",
+                  "title": "Home tab"
+                }
+              }
+            ]
+          },
+          {
+            "id": "19a39fc55d1fd70c",
+            "type": "split",
+            "children": [
+              {
+                "id": "167873b9da7ab0f0",
+                "type": "tabs",
+                "dimension": 60.17964071856288,
+                "children": [
+                  {
+                    "id": "79eba460ec8d324c",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "memos/総合治水条例　関連資料.md",
+                        "mode": "source",
+                        "source": false
+                      },
+                      "icon": "lucide-file",
+                      "title": "総合治水条例　関連資料"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "73264a3d0ecc4870",
+                "type": "tabs",
+                "dimension": 39.82035928143712,
+                "children": [
+                  {
+                    "id": "cb697a49bba8eea2",
+                    "type": "leaf",
+                    "state": {
+                      "type": "markdown",
+                      "state": {
+                        "file": "notes/Reading List.md",
+                        "mode": "preview",
+                        "source": true
+                      },
+                      "icon": "lucide-file",
+                      "title": "Reading List"
+                    }
+                  }
+                ]
+              }
+            ],
+            "direction": "horizontal"
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "0672440677f00e58",
+        "type": "split",
+        "children": [
+          {
+            "id": "21149527e7ea5ddb",
+            "type": "tabs",
+            "dimension": 51.21951219512195,
+            "children": [
+              {
+                "id": "dd4b4b1405000366",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": false
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "ファイルエクスプローラ"
+                }
+              },
+              {
+                "id": "997af3aeff6b4d77",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "ブックマーク"
+                }
+              },
+              {
+                "id": "6baab287a293aa09",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "検索"
+                }
+              }
+            ]
+          },
+          {
+            "id": "39f6557039d281a1",
+            "type": "tabs",
+            "dimension": 24.390243902439025,
+            "children": [
+              {
+                "id": "bd793648f21e2853",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {},
+                  "icon": "clock",
+                  "title": "Recent Files"
+                }
+              }
+            ]
+          },
+          {
+            "id": "dffa745fcaeedbb4",
+            "type": "tabs",
+            "dimension": 24.390243902439025,
+            "children": [
+              {
+                "id": "1100f7ddfb0ec6da",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 243.5
+      },
+      "right": {
+        "id": "6294de6ad30e7008",
+        "type": "split",
+        "children": [
+          {
+            "id": "ebf601da97972608",
+            "type": "tabs",
+            "dimension": 54.48028673835125,
+            "children": [
+              {
+                "id": "ea965dd349712bd6",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "file": "notes/Reading List.md",
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "Reading Listへのバックリンク"
+                }
+              },
+              {
+                "id": "dfd6606f42d4e697",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "notes/Reading List.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "Reading Listからのアウトゴーイングリンク"
+                }
+              },
+              {
+                "id": "72fa56b171c7561d",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "notes/Reading List.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "Reading Listのアウトライン"
+                }
+              },
+              {
+                "id": "06dd30ebb2577d7a",
+                "type": "leaf",
+                "state": {
+                  "type": "copilot-chat-view",
+                  "state": {},
+                  "icon": "message-square",
+                  "title": "Copilot"
+                }
+              }
+            ],
+            "currentTab": 3
+          },
+          {
+            "id": "07e7ec94e649fc83",
+            "type": "tabs",
+            "dimension": 45.51971326164875,
+            "children": [
+              {
+                "id": "24fd01d1350726e7",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-tags",
+                  "title": "タグ"
+                }
+              },
+              {
+                "id": "e966abd01b0d2d87",
+                "type": "leaf",
+                "state": {
+                  "type": "git-view",
+                  "state": {},
+                  "icon": "git-pull-request",
+                  "title": "Source Control"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 286.5
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "obsidian-custom-frames:Open DeepL": false,
+          "obsidian-kanban:カンバンボードを新規作成": false,
+          "switcher:クイックスイッチャーを開く": false,
+          "graph:グラフビューを開く": false,
+          "daily-notes:今日のデイリーノートを開く": false,
+          "templates:テンプレートを挿入": false,
+          "command-palette:コマンドパレットを開く": false,
+          "obsidian-git:Open Git source control": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "copilot:Open Copilot Chat": false,
+          "workspaces:ワークスペースレイアウトを管理": false,
+          "float-search:Search obsidian in modal view": false,
+          "obsidian-map-view:Open map view": false,
+          "periodic-notes:Open today": false
+        }
+      },
+      "active": "cb697a49bba8eea2",
+      "mtime": "2025-02-25T12:57:26+09:00"
+    },
+    "work": {
+      "main": {
+        "id": "5324373015726ba8",
+        "type": "split",
+        "children": [
+          {
+            "id": "4509724f8bf84da7",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "e7a7b303c61786dc",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新規タブ"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "vertical"
+      },
+      "left": {
+        "id": "0672440677f00e58",
+        "type": "split",
+        "children": [
+          {
+            "id": "21149527e7ea5ddb",
+            "type": "tabs",
+            "dimension": 46.392896781354054,
+            "children": [
+              {
+                "id": "dd4b4b1405000366",
+                "type": "leaf",
+                "state": {
+                  "type": "file-explorer",
+                  "state": {
+                    "sortOrder": "alphabetical",
+                    "autoReveal": true
+                  },
+                  "icon": "lucide-folder-closed",
+                  "title": "ファイルエクスプローラ"
+                }
+              },
+              {
+                "id": "997af3aeff6b4d77",
+                "type": "leaf",
+                "state": {
+                  "type": "bookmarks",
+                  "state": {},
+                  "icon": "lucide-bookmark",
+                  "title": "ブックマーク"
+                }
+              },
+              {
+                "id": "6baab287a293aa09",
+                "type": "leaf",
+                "state": {
+                  "type": "search",
+                  "state": {
+                    "query": "海岸保全基本計画",
+                    "matchingCase": false,
+                    "explainSearch": false,
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical"
+                  },
+                  "icon": "lucide-search",
+                  "title": "検索"
+                }
+              },
+              {
+                "id": "bd793648f21e2853",
+                "type": "leaf",
+                "state": {
+                  "type": "recent-files",
+                  "state": {},
+                  "icon": "clock",
+                  "title": "Recent Files"
+                }
+              },
+              {
+                "id": "72fa56b171c7561d",
+                "type": "leaf",
+                "state": {
+                  "type": "outline",
+                  "state": {
+                    "file": "dairy/2025-07-29.md",
+                    "followCursor": false,
+                    "showSearch": false,
+                    "searchQuery": ""
+                  },
+                  "icon": "lucide-list",
+                  "title": "2025-07-29のアウトライン"
+                }
+              }
+            ]
+          },
+          {
+            "id": "3ae6f7be053049a3",
+            "type": "tabs",
+            "dimension": 19.36736958934517,
+            "children": [
+              {
+                "id": "1100f7ddfb0ec6da",
+                "type": "leaf",
+                "state": {
+                  "type": "calendar",
+                  "state": {},
+                  "icon": "calendar-with-checkmark",
+                  "title": "Calendar"
+                }
+              }
+            ]
+          },
+          {
+            "id": "1338479ecfde66f6",
+            "type": "tabs",
+            "dimension": 34.23973362930078,
+            "children": [
+              {
+                "id": "24fd01d1350726e7",
+                "type": "leaf",
+                "state": {
+                  "type": "tag",
+                  "state": {
+                    "sortOrder": "frequency",
+                    "useHierarchy": true,
+                    "showSearch": true,
+                    "searchQuery": "ダイヤモンドトレイル"
+                  },
+                  "icon": "lucide-tags",
+                  "title": "タグ"
+                }
+              },
+              {
+                "id": "dfd6606f42d4e697",
+                "type": "leaf",
+                "state": {
+                  "type": "outgoing-link",
+                  "state": {
+                    "file": "dairy/2025-07-29.md",
+                    "linksCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-going-out",
+                  "title": "2025-07-29からのアウトゴーイングリンク"
+                }
+              },
+              {
+                "id": "ea965dd349712bd6",
+                "type": "leaf",
+                "state": {
+                  "type": "backlink",
+                  "state": {
+                    "collapseAll": false,
+                    "extraContext": false,
+                    "sortOrder": "alphabetical",
+                    "showSearch": false,
+                    "searchQuery": "",
+                    "backlinkCollapsed": false,
+                    "unlinkedCollapsed": true
+                  },
+                  "icon": "links-coming-in",
+                  "title": "バックリンク"
+                }
+              },
+              {
+                "id": "94410e4c21139578",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新規タブ"
+                }
+              },
+              {
+                "id": "da7b1cab22b30f9c",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新規タブ"
+                }
+              },
+              {
+                "id": "8acd9e05beaf713c",
+                "type": "leaf",
+                "state": {
+                  "type": "smart-connections-view",
+                  "state": {},
+                  "icon": "smart-connections",
+                  "title": "Connections"
+                }
+              }
+            ]
+          }
+        ],
+        "direction": "horizontal",
+        "width": 232.5
+      },
+      "right": {
+        "id": "6294de6ad30e7008",
+        "type": "split",
+        "children": [
+          {
+            "id": "e882fdf6a82b783f",
+            "type": "tabs",
+            "children": [
+              {
+                "id": "b76741870b617703",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新規タブ"
+                }
+              },
+              {
+                "id": "d2fff6c74dd00f54",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新規タブ"
+                }
+              },
+              {
+                "id": "a28d89e112dd4ff9",
+                "type": "leaf",
+                "state": {
+                  "type": "empty",
+                  "state": {},
+                  "icon": "lucide-file",
+                  "title": "新規タブ"
+                }
+              },
+              {
+                "id": "77976b8c95dabcac",
+                "type": "leaf",
+                "state": {
+                  "type": "graph-analysis",
+                  "state": {},
+                  "icon": "GA-ICON",
+                  "title": "Graph Analysis"
+                }
+              }
+            ],
+            "currentTab": 3
+          }
+        ],
+        "direction": "horizontal",
+        "width": 286.5,
+        "collapsed": true
+      },
+      "left-ribbon": {
+        "hiddenItems": {
+          "smart-connections:Smart Connections: Open connections view": false,
+          "smart-connections:Smart Lookup: Open lookup view": false,
+          "smart-connections:Smart Connections: Open random connection": false,
+          "dbfolder:Create a new database table": false,
+          "obisidian-note-linker:Note Linker": false,
+          "bases:新規ベースを作成": false,
+          "terminal:Open terminal": false,
+          "homepage:Open homepage": false,
+          "obsidian-custom-frames:Open Claude": false,
+          "switcher:クイックスイッチャーを開く": false,
+          "graph:グラフビューを開く": false,
+          "daily-notes:今日のデイリーノートを開く": false,
+          "templates:テンプレートを挿入": false,
+          "command-palette:コマンドパレットを開く": false,
+          "table-editor-obsidian:Advanced Tables Toolbar": false,
+          "workspaces:ワークスペースレイアウトを管理": false,
+          "float-search:Search obsidian in modal view": false,
+          "pdf-plus:PDF++: Toggle auto-copy": false,
+          "pdf-plus:PDF++: Toggle auto-focus": false,
+          "pdf-plus:PDF++: Toggle auto-paste": false,
+          "obsidian-kindle-plugin:Sync your Kindle highlights": false,
+          "periodic-notes:Open today": false
+        }
+      },
+      "active": "1100f7ddfb0ec6da",
+      "mtime": "2026-04-01T13:10:25+09:00"
+    }
+  },
+  "active": "work"
+}

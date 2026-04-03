@@ -1,0 +1,12 @@
+{
+  "theme": "moonstone",
+  "cssTheme": "Minimal",
+  "interfaceFontFamily": "BIZ UDPゴシック,メイリオ",
+  "baseFontSize": 14,
+  "baseFontSizeAction": true,
+  "textFontFamily": "BIZ UDPゴシック,メイリオ",
+  "enabledCssSnippets": [
+    "dbfolder-left-align",
+    "font-size-adjust"
+  ]
+}

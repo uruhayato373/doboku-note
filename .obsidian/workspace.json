@@ -1,0 +1,404 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "4509724f8bf84da7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e7a7b303c61786dc",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0672440677f00e58",
+    "type": "split",
+    "children": [
+      {
+        "id": "21149527e7ea5ddb",
+        "type": "tabs",
+        "dimension": 46.392896781354054,
+        "children": [
+          {
+            "id": "dd4b4b1405000366",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true
+              },
+              "icon": "lucide-folder-closed",
+              "title": "ファイルエクスプローラ"
+            }
+          },
+          {
+            "id": "997af3aeff6b4d77",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "ブックマーク"
+            }
+          },
+          {
+            "id": "6baab287a293aa09",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "技士試験_",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "検索"
+            }
+          },
+          {
+            "id": "bd793648f21e2853",
+            "type": "leaf",
+            "state": {
+              "type": "recent-files",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "recent-files"
+            }
+          },
+          {
+            "id": "72fa56b171c7561d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "dairy/2025-07-29.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "2025-07-29のアウトライン"
+            }
+          }
+        ]
+      },
+      {
+        "id": "3ae6f7be053049a3",
+        "type": "tabs",
+        "dimension": 19.36736958934517,
+        "children": [
+          {
+            "id": "1100f7ddfb0ec6da",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          }
+        ]
+      },
+      {
+        "id": "1338479ecfde66f6",
+        "type": "tabs",
+        "dimension": 34.23973362930078,
+        "children": [
+          {
+            "id": "24fd01d1350726e7",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": true,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "タグ"
+            }
+          },
+          {
+            "id": "dfd6606f42d4e697",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "dairy/2025-07-29.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "2025-07-29からのアウトゴーイングリンク"
+            }
+          },
+          {
+            "id": "ea965dd349712bd6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "バックリンク"
+            }
+          },
+          {
+            "id": "94410e4c21139578",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "da7b1cab22b30f9c",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 243.5
+  },
+  "right": {
+    "id": "6294de6ad30e7008",
+    "type": "split",
+    "children": [
+      {
+        "id": "e882fdf6a82b783f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b76741870b617703",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "d2fff6c74dd00f54",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "a28d89e112dd4ff9",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "77976b8c95dabcac",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "d6fbeb3c1f133c5e",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "4069ffbf5819c403",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "be46dbd197781639",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "424cc164befba8c6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "55642011be579ab3",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "4299d76dc3522bae",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "48eba17050523e1c",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
+          },
+          {
+            "id": "797c7ab822a9fc8b",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
+          }
+        ],
+        "currentTab": 11
+      }
+    ],
+    "direction": "horizontal",
+    "width": 286.5,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新規ベースを作成": false,
+      "switcher:クイックスイッチャーを開く": false,
+      "graph:グラフビューを開く": false,
+      "daily-notes:今日のデイリーノートを開く": false,
+      "templates:テンプレートを挿入": false,
+      "command-palette:コマンドパレットを開く": false,
+      "workspaces:ワークスペースレイアウトを管理": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "obsidian-custom-frames:Open Claude": false,
+      "float-search:Search obsidian in modal view": false,
+      "pdf-plus:PDF++: Toggle auto-copy": false,
+      "pdf-plus:PDF++: Toggle auto-focus": false,
+      "pdf-plus:PDF++: Toggle auto-paste": false,
+      "terminal:Open terminal": false,
+      "homepage:Open homepage": false,
+      "obsidian-kindle-plugin:Sync your Kindle highlights": false,
+      "dbfolder:Create a new database table": false,
+      "obisidian-note-linker:Note Linker": false,
+      "periodic-notes:Open today": false
+    }
+  },
+  "active": "797c7ab822a9fc8b",
+  "lastOpenFiles": [
+    "node_modules/next/dist/server/patch-error-inspect.js",
+    "node_modules/next/dist/esm/server/patch-error-inspect.js",
+    "node_modules/next/dist/server/route-modules/app-route/helpers/parsed-url-query-to-params.js",
+    "node_modules/next/dist/server/lib/parse-stack.js",
+    "node_modules/next/dist/esm/server/lib/parse-stack.js",
+    "node_modules/next/dist/esm/client/request/search-params.browser.prod.js.map",
+    "node_modules/next/dist/esm/client/request/search-params.browser.js.map",
+    "node_modules/next/dist/esm/client/request/search-params.browser.dev.js",
+    "node_modules/next/dist/esm/client/request/search-params.browser.prod.js",
+    "node_modules/next/dist/esm/client/request/params.browser.prod.js",
+    "node_modules/next/dist/esm/client/request/search-params.browser.js",
+    "node_modules/@emnapi/core/README.md",
+    "node_modules/@tybys/wasm-util/README.md",
+    "node_modules/@next/eslint-plugin-next/node_modules/fast-glob/README.md",
+    "node_modules/@next/eslint-plugin-next/node_modules/glob-parent/README.md",
+    "node_modules/@next/eslint-plugin-next/node_modules/glob-parent/CHANGELOG.md",
+    "projects/doboku-note/reviews/note-articles/N-6_2級土木_最短合格ルートマップ.md",
+    "projects/doboku-note/reviews/note-articles/N-4_技術士二次_論文テンプレート.md",
+    "projects/doboku-note/reviews/note-articles/N-3_技術士一次_科目別要点整理.md",
+    "projects/doboku-note/reviews/note-articles/N-5_行政書士_条文穴埋めドリル.md",
+    "projects/doboku-note/reviews/note-articles/M-2_技術士_論文添削ノート.md",
+    "projects/doboku-note/reviews/note-articles/N-2_1級土木_経験記述テンプレート.md",
+    "projects/doboku-note/reviews/note-articles/index.md",
+    "projects/doboku-note/reviews/note-articles/M-1_週刊ドリル.md",
+    "projects/doboku-note/reviews/note-articles/N-1_1級土木_頻出論点50選.md",
+    "projects/doboku-note/reviews/competitor-audit/2026-03-31.md",
+    "projects/doboku-note/00_プロジェクト管理/archive/paid-search-ai-chat-strategy.md",
+    "projects/doboku-note/00_プロジェクト管理/archive/implementation-design.md",
+    "projects/doboku-note/00_プロジェクト管理/04_収益化戦略.md",
+    "projects/doboku-note/00_プロジェクト管理/07_URL設計ガイドライン.md",
+    "projects/doboku-note/00_プロジェクト管理/06_note有料記事計画.md",
+    "projects/doboku-note/00_プロジェクト管理/03_成長ループ.md",
+    "projects/doboku-note/00_プロジェクト管理/02_NSMと計測指標.md",
+    "projects/doboku-note/00_プロジェクト管理/05_コンテンツロードマップ.md",
+    "projects/doboku-note/00_プロジェクト管理/01_事業戦略.md",
+    "projects/doboku-note/00_プロジェクト管理/00_設計思想.md",
+    "projects/kazu-note/active/sokyu-r08/02-｜ 飲まないと決めた夜、「苦手なもの」の輪郭が見えた/cover.png",
+    "projects/kazu-note/active/sokyu-r08/02-｜ 飲まないと決めた夜、「苦手なもの」の輪郭が見えた/cover.svg",
+    "projects/kazu-note/images/sokyu-r08-01/cover.svg",
+    "projects/kazu-note/active/sokyu-r08/01-｜ 新年度の朝、整え始める/cover.svg",
+    "projects/kazu-note/active/sokyu-r08/01-｜ 新年度の朝、整え始める/cover.png",
+    "projects/kazu-note/images/sokyu-r08-01/cover.png",
+    "サンプル.png",
+    "projects/stats47/21_ブログ記事原稿/prefectural-income-gdp-ranking/data/income-ranking.svg",
+    "projects/stats47/21_ブログ記事原稿/prefectural-income-gdp-ranking/data/gdp-ranking.svg",
+    "projects/stats47/21_ブログ記事原稿/pharmacy-count-prefecture-ranking/data/pharmacy-trend.svg"
+  ]
+}

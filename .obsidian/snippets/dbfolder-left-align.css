@@ -1,0 +1,13 @@
+.dbfolder-content-wrapper,
+.dbfolder-table-wrapper,
+.database-plugin__container {
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+}
+
+.dbfolder-cell-content,
+.dbfolder-td,
+td[class*="dbfolder"] {
+  text-align: left !important;
+}
