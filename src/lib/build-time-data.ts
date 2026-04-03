@@ -13,8 +13,8 @@ export interface BuildTimeData {
 /**
  * ビルド時に必要なデータを生成
  */
-export function generateBuildTimeData(): BuildTimeData {
-  const posts = getAllPosts();
+export async function generateBuildTimeData(): Promise<BuildTimeData> {
+  const posts = await getAllPosts();
 
   // カテゴリ別の統計
   const categoryStats = posts.reduce((acc, post) => {

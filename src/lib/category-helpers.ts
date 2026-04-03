@@ -18,11 +18,11 @@ export function getCategorySeoData(categoryId: string) {
 
 export function categorizeIkeojiPosts(posts: Post[]) {
   return posts.reduce((acc, post) => {
-    const subCategory = post.subCategory;
-    if (!acc[subCategory]) {
-      acc[subCategory] = [];
+    const category = post.category;
+    if (!acc[category]) {
+      acc[category] = [];
     }
-    acc[subCategory].push(post);
+    acc[category].push(post);
     return acc;
   }, {} as Record<string, Post[]>);
 }

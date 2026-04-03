@@ -23,9 +23,7 @@ export function calculateRelatedScore(
   }
 
   // 同じサブカテゴリ: +2点
-  if (otherPost.subCategory === currentPost.subCategory) {
-    score += 2;
-  }
+  // Note: subCategory field has been removed; only category field exists now
 
   // 共通のタグ: 1つにつき+1点
   const commonTags = otherPost.tags.filter((tag) =>
@@ -92,8 +90,7 @@ export function analyzeRelatedScore(
   commonTags: string[];
 } {
   const categoryScore = otherPost.category === currentPost.category ? 3 : 0;
-  const subCategoryScore =
-    otherPost.subCategory === currentPost.subCategory ? 2 : 0;
+  const subCategoryScore = 0; // subCategory field has been removed
 
   const commonTags = otherPost.tags.filter((tag) =>
     currentPost.tags.includes(tag)

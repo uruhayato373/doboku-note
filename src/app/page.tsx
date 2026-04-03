@@ -14,9 +14,9 @@ import { generateBuildTimeData } from "@/lib/build-time-data";
  * 3. Category Sections: イケオジ・シゴデキの記事カテゴリ紹介
  * 4. Latest Posts Section: 最新記事の表示
  */
-export default function HomePage() {
+export default async function HomePage() {
   // ビルド時に生成されるデータを取得（記事数、カテゴリ別統計など）
-  const buildData = generateBuildTimeData();
+  const buildData = await generateBuildTimeData();
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
