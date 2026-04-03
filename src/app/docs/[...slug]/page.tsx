@@ -10,12 +10,13 @@ import { Metadata } from 'next';
 
 /**
  * Generate static params for all documentation pages.
- * Creates pages for all MDX files in content/ directory.
+ * Creates pages for all MDX files in .local/r2/posts/ directory.
+ * Slugs are flattened (e.g., 'civil-construction-1-guide-strategy').
  */
 export async function generateStaticParams() {
   const slugs = await getAllDocSlugs();
   return slugs.map((slug) => ({
-    slug,
+    slug: [slug], // Convert string to array for [...slug] route
   }));
 }
 
@@ -28,7 +29,14 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const doc = await getDoc(slug);
+  const slugStr = slug?.[0];
+  if (!slugStr) {
+    return {
+      title: 'ページが見つかりません',
+      description: 'このページは存在しません。',
+    };
+  }
+  const doc = await getDoc(slugStr);
 
   if (!doc) {
     return {
@@ -46,6 +54,7 @@ export async function generateMetadata({
 /**
  * Documentation page component.
  * Displays a single MDX document with sidebar navigation.
+ * Uses flattened slug structure: /docs/{slug}
  */
 export default async function DocPage({
   params,
@@ -53,15 +62,24 @@ export default async function DocPage({
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  const doc = await getDoc(slug);
+  const slugStr = slug?.[0];
+  if (!slugStr) {
+    notFound();
+  }
+  const doc = await getDoc(slugStr);
 
   if (!doc) {
     notFound();
   }
 
-  // Determine sidebar ID based on doc category
-  // Currently all exam docs use examSidebar
-  const sidebarId = slug[0] === 'exam' ? 'examSidebar' : 'generalSidebar';
+  // Determine sidebar ID based on doc category (from frontmatter)
+  // Map categories to sidebar IDs
+  const categoryToSidebar: Record<string, string> = {
+    'civil-construction-1': 'examSidebar',
+    'pe': 'examSidebar',
+    'pe-comprehensive-management': 'examSidebar',
+  };
+  const sidebarId = categoryToSidebar[doc.meta.category || ''] || 'generalSidebar';
   const sidebar = getSidebar(sidebarId);
   const docTitleMap = await getDocTitleMap();
 

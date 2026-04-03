@@ -4,10 +4,13 @@
 
 ## 設計思想
 
-- **サイトの焦点**: 1級土木施工管理技士に特化。ユーザーが「ここだけで合格できる」体験を提供
+- **サイトの焦点**: **1級土木施工管理技士** と **技術士（総合監理技術部門）** に特化。ユーザーが「ここだけで合格できる」体験を提供
 - **コンテンツ管理**: 
-  - **ドキュメント** (exam guide など): `content/` に MDX で管理
-  - **ブログ記事**: `src/content/posts/` と `drafts/writing/` に MDX で一元管理。frontmatter の `published` フラグで公開管理（`published: false` は非表示）
+  - すべてのコンテンツ（試験対策・過去問・キーワード）を `.local/r2/posts/{slug}/article.mdx` で一元管理
+  - frontmatter の `published: true/false` フラグで公開・下書き管理
+  - frontmatter の `category` と `tags` で分類・検索対応
+  - 画像は `.local/r2/posts/{slug}/img/` に集約
+- **URL構造**: `/docs/{slug}` の完全フラット設計。category + tags でグループ化を実現
 - **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
 - **収益モデル**: AdSense + アフィリエイト + note有料記事 + iOSアプリ（サブスク）
 - **詳細**: `docs/00_プロジェクト管理/00_設計思想.md`
@@ -30,67 +33,157 @@
 ## ディレクトリ構成
 
 ```
-content/               # コンテンツ（MDX）
-  general/             # 共通技術コンテンツ（複数資格で共用）
-    civil-general/     # 土木一般（土工・コンクリート・基礎工・測量・建設機械・解体工事）
-    construction-management/  # 施工管理（品質・安全・工程・法規等）
-  exam/                # 試験特化コンテンツ
-    civil-construction-1/  # 1級土木施工管理技士（guide/, primary/, secondary/）
-    pe/                # 技術士（建設部門）（primary-guide/, 選択科目別フォルダ等）
-    rccm/              # RCCM
-drafts/                # ブログ記事の下書き（Obsidianで編集・git管理・公開前）
-  writing/             # 執筆中
-  ready/               # 公開待ち（レビュー済み）
-src/                   # カスタムコンポーネント・CSS・レイアウト
-  content/
-    posts/             # ブログ記事（MDX・公開済み）
+.local/r2/posts/                    # すべてのコンテンツ（dev環境）
+  civil-construction-1/             # 1級土木施工管理技士
+    guide/article.mdx
+    guide/img/
+    primary/article.mdx             # 第1次試験（過去問等）
+    primary/img/
+    secondary/article.mdx           # 第2次試験
+    secondary/img/
+  pe/                               # 技術士（建設部門）
+    primary-guide/article.mdx
+    primary-guide/img/
+    secondary-guide/article.mdx
+    soil-foundation/article.mdx
+    [... 他の選択科目 ...]
+  pe-comprehensive-management/      # 技術士（総合技術監理技術部門）
+    section-3-1/article.mdx
+    [... 他の出題セクション ...]
+    r01-primary/article.mdx         # 旧試験問題
+    [... 他の過去問 ...]
+  [~75 additional keyword/concept dirs]  # 土木一般・施工管理知識など
+
+src/                                # カスタムコンポーネント・CSS・レイアウト
   lib/
-    content.ts         # DocMeta 型定義・ファイルスキャン
-    sidebar.ts         # サイドバー定義・ナビ生成
-  app/docs/[...slug]/  # 全ドキュメントページの動的ルート
+    docs.ts                         # getDoc(), getAllDocSlugs()等
+    mdx.ts                          # （廃止予定・互換性のため残置）
+  app/
+    docs/[...slug]/page.tsx         # 全ドキュメントページの動的ルート（フラット）
+    api/content/[...path]/route.ts  # 画像配信API
+
 docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
 .github/workflows/     # CI/CD
 ```
 
+**注**: `.local/r2/posts/` は `.gitignore` 対象。R2（Cloudflare）またはローカルで初期化。
+
 ## サイト構成（ナビバー）
 
-| カテゴリ | sidebarId | URL パス | 現状 |
-|---|---|---|---|
-| **試験ガイド（1級土木）** | examSidebar | /docs/exam/civil-construction-1 | ✅ 運用中 |
-| **土木一般** | generalSidebar | /docs/general/civil-general | ✅ 運用中 |
-| **施工管理** | generalSidebar | /docs/general/construction-management | ✅ 運用中 |
-| **過去問（1級土木）** | examSidebar | /docs/exam/civil-construction-1/primary | ✅ 運用中 |
-| コンクリート技士 | concreteEngineerSidebar | /docs/exam/concrete-engineer | ⏳ 未実装 |
-| 測量士 | surveyingSidebar | /docs/exam/surveying | ⏳ 未実装 |
-| 技術士（建設部門）* | examSidebar | /docs/exam/pe | ✅ 運用中（ナビ外） |
+**フラット URL 設計** — すべてのコンテンツは `/docs/{slug}` でアクセス可能。カテゴリ・タグは frontmatter で管理。
 
-\* 技術士は現在ナビバーに表示されていません。コンテンツは実装済み。
+### 主要コンテンツ（フォーカス試験）
+
+| 試験名 | category | 主要 slug 例 | 現状 |
+|---|---|---|---|
+| **1級土木施工管理技士** | `civil-construction-1` | `civil-construction-1-guide`, `civil-construction-1-primary-2024` | ✅ 実装中 |
+| **技術士（総合技術監理技術部門）** | `pe-comprehensive-management` | `cem-study-guide`, `section-3-1-human-behavior`, `r01-primary` | ✅ 実装中 |
+
+### 補助コンテンツ（土木知識）
+
+| 分野 | category 例 | 主要 slug 例 | 用途 |
+|---|---|---|---|
+| 土木一般 | `civil-general` | `concrete-types`, `surveying-basics` | 両試験で共用 |
+| 施工管理 | `construction-management` | `quality-control`, `safety-management` | 両試験で共用 |
+| キーワード・法規 | `keywords-law` | `civil-engineering-law`, `construction-standards` | 受験知識 |
+
+**参考**: すべてのコンテンツは `/docs/{slug}` でアクセス。ナビゲーションは `category` 値でグループ化し、タグで検索可能。
 
 ## URL設計ルール
 
-複数資格対応を実現するため、以下のURL設計を採用しています（詳細: `docs/00_プロジェクト管理/07_URL設計ガイドライン.md`）。
+**フラット URL 戦略** — 階層的なカテゴリナビゲーションを廃止し、すべてのコンテンツを `/docs/{slug}` で直接アクセス可能に。
 
-- **共通コンテンツ**: `content/general/{分野}/` → URL: `/docs/general/{分野}/`
-- **試験特化コンテンツ**: `content/exam/{exam-id}/` → URL: `/docs/exam/{exam-id}/`
-- **複数資格対応記事**: ファイルを複製せず、frontmatter の `exams: string[]` で関連を宣言
+### ディレクトリ → URL マッピング
 
-このルールにより、新資格対応時の重複排除とSEO効率を両立します。
+```
+.local/r2/posts/{slug}/article.mdx  →  /docs/{slug}
+
+例：
+  .local/r2/posts/civil-construction-1-guide/article.mdx  →  /docs/civil-construction-1-guide
+  .local/r2/posts/cem-section-3-1/article.mdx             →  /docs/cem-section-3-1
+```
+
+### frontmatter による分類（カテゴリ + タグ）
+
+全コンテンツの frontmatter に以下を必須記載：
+
+```yaml
+---
+title: "1級土木施工管理技士 試験ガイド"
+description: "試験概要、勉強方法、過去問傾向"
+category: "civil-construction-1"           # 主要カテゴリ（試験名など）
+tags: ["guide", "exam-preparation"]        # 分類・検索用タグ
+published: true                            # 公開フラグ（false=下書き）
+---
+```
+
+**category の選択肢**:
+- `civil-construction-1` — 1級土木施工管理技士
+- `pe-comprehensive-management` — 技術士総合技術監理技術部門
+- `civil-general` — 土木一般知識（両試験共用）
+- `construction-management` — 施工管理知識（両試験共用）
+- `keywords-law` — キーワード・法規（補助）
+
+**tags の例**:
+- `guide` — 試験ガイド・勉強方法
+- `primary` — 第1次試験対策
+- `secondary` — 第2次試験対策
+- `past-questions` — 過去問
+- `keyword` — キーワード解説
+
+### 複数試験対応コンテンツ
+
+frontmatter に複数カテゴリを参照する方法（要検討）:
+```yaml
+# パターン1: category は主要試験、tags に補助試験を列挙
+category: "civil-construction-1"
+tags: ["shared-with-pe"]
+
+# パターン2: exams 配列で明示（実装に応じて）
+exams: ["civil-construction-1", "pe-comprehensive-management"]
+```
+
+このルールにより、新試験対応時の重複排除と SEO 効率を両立します。
 
 ## コンテンツ作成規約
 
+### ファイル・メタデータ
+
 - ファイル形式: MDX
 - 日本語で記述
+- slug は英数字 + ハイフン（URL にするため）
+- frontmatter には `title`, `description`, `category`, `tags`, `published` を必須記載
+
+### 数式・図表
+
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
 - 図表: Mermaid コードブロック
-- 画像: Cloudflare R2 から配信。Gitには含めない
-  - R2 URL（本番）: `https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名}`
-  - MDXでの参照: `<img src="/content/{カテゴリ}/img/{ファイル名}" />`（相対パス）
-  - ローカル開発: `.local/r2/content/` から API ルート（`src/app/api/content/[...path]/route.ts`）経由で配信
-  - 本番: Cloudflare Pages `_redirects` で R2 にリダイレクト
-  - **ダウンロード（ローカル初期化）**: `npm run download-images` または `/sync-r2-images`
-  - **アップロード（R2反映）**: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
-  - `content/**/img/` は `.gitignore` 対象
-  - `static/img/` はサイト共通素材（favicon, logo等）専用
+- スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
+
+### 画像配信
+
+画像は R2（Cloudflare）から配信。Git には含めない。
+
+- **R2 URL（本番）**: `https://storage.doboku-note.com/posts/{slug}/img/{ファイル名}`
+- **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />` または `<img src="/api/content/posts/{slug}/img/{ファイル名}" />`
+- **ローカル開発**: `.local/r2/posts/{slug}/img/` から API ルート（`src/app/api/content/[...path]/route.ts`）経由で配信
+- **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
+- **ダウンロード（ローカル初期化）**: `/sync-r2-images` または `npm run download-images`
+- **アップロード（R2反映）**: `node scripts/upload-images-to-r2.mjs` （実装予定）
+- `.local/r2/posts/**/img/` は `.gitignore` 対象
+- `static/img/` はサイト共通素材（favicon, logo等）専用
+
+### frontmatter テンプレート
+
+```yaml
+---
+title: "ページタイトル"
+description: "50〜160文字の説明"
+category: "civil-construction-1"     # 試験または分野
+tags: ["guide", "primary"]           # 分類タグ（複数可）
+published: true                      # false なら下書き・非表示
+---
+```
 
 ## デプロイ
 
@@ -101,11 +194,18 @@ docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
 ## 頻用コマンド
 
 ```bash
-npm run dev               # ローカル開発サーバー（MDX+画像をローカルR2に同期後起動）
-npm run build             # 本番ビルド
+npm run dev               # ローカル開発サーバー起動（.local/r2/posts/ から配信）
+npm run build             # 本番ビルド（generateStaticParams で /docs/{slug} を生成）
 npm run serve             # ビルド結果のプレビュー
-node scripts/sync-r2-content.mjs   # MDXファイル + 画像を .local/r2/content/ と public/content/ に同期
-node scripts/upload-images-to-r2.mjs  # MDXファイルと画像をR2にアップロード
+npm run type-check        # TypeScript チェック
+
+# 画像・コンテンツ管理
+/sync-r2-images           # R2 上の画像をローカルに同期（初回・追加時）
+node scripts/upload-images-to-r2.mjs   # .local/r2/posts/**/img/ を R2 にアップロード（実装予定）
+
+# その他
+npm run lint              # ESLint チェック
+npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ```
 
 ## スキル一覧
