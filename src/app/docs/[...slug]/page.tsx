@@ -12,12 +12,15 @@ import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
 import remarkDirective from 'remark-directive';
 import rehypeKatex from 'rehype-katex';
+import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import { extractHeadings } from '@/lib/toc';
+import TableOfContents from '@/components/ui/TableOfContents';
 
 const mdxOptions = {
   mdxOptions: {
     remarkPlugins: [remarkMath, remarkGfm, remarkDirective],
-    rehypePlugins: [rehypeKatex],
+    rehypePlugins: [rehypeHeadingIds, rehypeKatex],
   },
 };
 
@@ -113,6 +116,13 @@ export default async function DocPage({
   // Load MDX components
   const components = await getAllComponents(doc as any);
 
+  // Extract headings for Table of Contents
+  const headings = extractHeadings(
+    doc.content,
+    doc.meta.toc_min_heading_level ?? 2,
+    doc.meta.toc_max_heading_level ?? 4,
+  );
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Header />
@@ -144,14 +154,16 @@ export default async function DocPage({
           </div>
 
           {/* MDX Content */}
-          <div className="prose prose-sm md:prose-base max-w-none dark:prose-invert">
+          <div className="prose-blog prose-sm md:prose-base">
             <SafeMDXRemote source={doc.content} components={components} />
           </div>
         </main>
 
-        {/* Right Sidebar: Table of Contents (placeholder) */}
-        <aside className="hidden xl:block w-56 shrink-0 px-4 py-8">
-          {/* ToC would be rendered here in future */}
+        {/* Right Sidebar: Table of Contents */}
+        <aside className="hidden xl:block w-56 shrink-0">
+          <div className="sticky top-20 px-4 py-8">
+            <TableOfContents headings={headings} />
+          </div>
         </aside>
       </div>
 

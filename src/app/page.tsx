@@ -44,7 +44,7 @@ export default async function HomePage() {
               </Link>
 
               <Link
-                href="/docs/cem-study-guide"
+                href="/docs/pe-comprehensive-management-exam-index-article"
                 className="inline-block bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 技術士（総合技術監理）
@@ -86,7 +86,7 @@ export default async function HomePage() {
                   総合技術監理部門の試験対策。5管理技術、論文作成、事例研究を含むコンテンツ。
                 </p>
                 <Link
-                  href="/docs/cem-study-guide"
+                  href="/docs/pe-comprehensive-management-exam-index-article"
                   className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
                 >
                   コンテンツを見る →
