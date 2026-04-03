@@ -8,6 +8,38 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { Metadata } from 'next';
+import remarkMath from 'remark-math';
+import remarkGfm from 'remark-gfm';
+import remarkDirective from 'remark-directive';
+import rehypeKatex from 'rehype-katex';
+import { compileMDX } from 'next-mdx-remote/rsc';
+
+const mdxOptions = {
+  mdxOptions: {
+    remarkPlugins: [remarkMath, remarkGfm, remarkDirective],
+    rehypePlugins: [rehypeKatex],
+  },
+};
+
+async function SafeMDXRemote({ source, components }: { source: string; components: any }) {
+  try {
+    // Pre-compile to catch errors before rendering
+    await compileMDX({ source, options: mdxOptions });
+    return <MDXRemote source={source} components={components} options={mdxOptions} />;
+  } catch (error: any) {
+    console.error('MDX compile error:', error?.message?.slice(0, 200));
+    return (
+      <div className="p-4 border border-yellow-300 dark:border-yellow-700 rounded bg-yellow-50 dark:bg-yellow-900/20">
+        <p className="text-yellow-700 dark:text-yellow-400 font-semibold">
+          このページのコンテンツにフォーマットエラーがあります。
+        </p>
+        <p className="text-yellow-600 dark:text-yellow-500 text-sm mt-1">
+          管理者に報告してください。
+        </p>
+      </div>
+    );
+  }
+}
 
 /**
  * Generate static params for all documentation pages.
@@ -17,7 +49,7 @@ import { Metadata } from 'next';
 export async function generateStaticParams() {
   const slugs = await getAllDocSlugs();
   return slugs.map((slug) => ({
-    slug: [slug], // Convert string to array for [...slug] route
+    slug: [slug],
   }));
 }
 
@@ -113,7 +145,7 @@ export default async function DocPage({
 
           {/* MDX Content */}
           <div className="prose prose-sm md:prose-base max-w-none dark:prose-invert">
-            <MDXRemote source={doc.content} components={components} />
+            <SafeMDXRemote source={doc.content} components={components} />
           </div>
         </main>
 

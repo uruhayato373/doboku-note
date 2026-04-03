@@ -4,6 +4,63 @@ import matter from 'gray-matter';
 import { parseCallouts } from './mdx-callout-parser';
 import { S3Client, GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 
+/**
+ * Preprocess MDX content for compatibility with MDX v3+ strict parser.
+ * - Removes JSX comments {/* ... * /} (not supported in MDX v3)
+ * - Removes HTML comments <!-- ... --> (not supported in MDX v3)
+ * - Escapes stray { } in non-code, non-JSX-component, non-math contexts
+ */
+function preprocessMDX(content: string): string {
+  let result = content
+    .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+
+  // Escape stray curly braces in plain text lines (not inside code blocks, math blocks, or JSX components)
+  const lines = result.split('\n');
+  let inCodeBlock = false;
+  let inMathBlock = false;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (!line) continue;
+    const trimmed = line.trim();
+
+    if (trimmed.startsWith('```')) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    if (trimmed === '$$') {
+      inMathBlock = !inMathBlock;
+      continue;
+    }
+
+    if (inCodeBlock || inMathBlock) continue;
+
+    // Skip lines that look like JSX components (<Component ... > or </Component>)
+    if (/^\s*<[A-Z]/.test(line) || /^\s*<\/[A-Z]/.test(line)) continue;
+
+    // Skip lines with inline math $...$ (remark-math handles these)
+    if (/\$[^$]+\$/.test(line)) continue;
+
+    // Escape remaining { and } that are NOT part of JSX expressions
+    if (line.includes('{') && !line.match(/^\s*\{.*\}\s*$/)) {
+      lines[i] = line.replace(/(?<![<])\{(?![\/\*])/g, (_match, offset) => {
+        const before = line.substring(0, offset);
+        const dollarCount = (before.match(/\$/g) || []).length;
+        if (dollarCount % 2 === 1) return '{';
+        return '\\{';
+      }).replace(/\}(?![>])/g, (_match, offset) => {
+        const before = line.substring(0, offset);
+        const dollarCount = (before.match(/\$/g) || []).length;
+        if (dollarCount % 2 === 1) return '}';
+        return '\\}';
+      });
+    }
+  }
+
+  return lines.join('\n');
+}
+
 const localContentDirectory = path.join(process.cwd(), '.local', 'r2', 'posts');
 
 /**
@@ -95,18 +152,12 @@ function findMdxFiles(dir: string, basePath: string[] = []): string[] {
  * @returns Doc object with meta and content, or null if file doesn't exist or published=false
  */
 export async function getDoc(slug: string): Promise<Doc | null> {
-  if (process.env.NODE_ENV === 'development') {
-    // Development: Read from local filesystem
-    // Reconstruct directory path from flattened slug by searching for matching .mdx file
-    const searchResult = findMdxFileBySlug(localContentDirectory, slug);
-
-    if (!searchResult) {
-      return null;
-    }
-
-    const fileContents = fs.readFileSync(searchResult.filePath, 'utf8');
+  // Prefer local filesystem when available
+  const localResult = findMdxFileBySlug(localContentDirectory, slug);
+  if (localResult) {
+    const fileContents = fs.readFileSync(localResult.filePath, 'utf8');
     const matterResult = matter(fileContents);
-    const processedContent = parseCallouts(matterResult.content);
+    const processedContent = preprocessMDX(parseCallouts(matterResult.content));
 
     return {
       meta: {
@@ -118,55 +169,54 @@ export async function getDoc(slug: string): Promise<Doc | null> {
         sidebar_label: matterResult.data.sidebar_label,
         toc_min_heading_level: matterResult.data.toc_min_heading_level,
         toc_max_heading_level: matterResult.data.toc_max_heading_level,
-        published: matterResult.data.published !== false, // default to true
+        published: matterResult.data.published !== false,
         ...matterResult.data,
       },
       content: processedContent,
     };
-  } else {
-    // Production: Fetch from R2
-    try {
-      const s3 = getS3Client();
-      // Convert slug back to path: 'civil-construction-1-guide-strategy' → 'posts/civil-construction-1/guide/strategy.mdx'
-      const slugParts = slug.split('-');
-      const key = `posts/${slugParts.join('/')}.mdx`;
-      const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
+  }
 
-      const command = new GetObjectCommand({
-        Bucket: bucketName,
-        Key: key,
-      });
+  // Fallback: Fetch from R2
+  try {
+    const s3 = getS3Client();
+    const slugParts = slug.split('-');
+    const key = `posts/${slugParts.join('/')}.mdx`;
+    const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
 
-      const response = await s3.send(command);
-      if (!response || !response.Body) {
-        return null;
-      }
+    const command = new GetObjectCommand({
+      Bucket: bucketName,
+      Key: key,
+    });
 
-      const fileContents = await response.Body.transformToString('utf-8');
-      const matterResult = matter(fileContents);
-      const processedContent = parseCallouts(matterResult.content);
-
-      return {
-        meta: {
-          slug,
-          title: matterResult.data.title || '',
-          description: matterResult.data.description || '',
-          category: matterResult.data.category,
-          tags: matterResult.data.tags,
-          sidebar_label: matterResult.data.sidebar_label,
-          toc_min_heading_level: matterResult.data.toc_min_heading_level,
-          toc_max_heading_level: matterResult.data.toc_max_heading_level,
-          published: matterResult.data.published !== false, // default to true
-          ...matterResult.data,
-        },
-        content: processedContent,
-      };
-    } catch (error: any) {
-      if (error.name === 'NoSuchKey' || error.$metadata?.httpStatusCode === 404) {
-        return null;
-      }
-      throw error;
+    const response = await s3.send(command);
+    if (!response || !response.Body) {
+      return null;
     }
+
+    const fileContents = await response.Body.transformToString('utf-8');
+    const matterResult = matter(fileContents);
+    const processedContent = preprocessMDX(parseCallouts(matterResult.content));
+
+    return {
+      meta: {
+        slug,
+        title: matterResult.data.title || '',
+        description: matterResult.data.description || '',
+        category: matterResult.data.category,
+        tags: matterResult.data.tags,
+        sidebar_label: matterResult.data.sidebar_label,
+        toc_min_heading_level: matterResult.data.toc_min_heading_level,
+        toc_max_heading_level: matterResult.data.toc_max_heading_level,
+        published: matterResult.data.published !== false,
+        ...matterResult.data,
+      },
+      content: processedContent,
+    };
+  } catch (error: any) {
+    if (error.name === 'NoSuchKey' || error.$metadata?.httpStatusCode === 404) {
+      return null;
+    }
+    throw error;
   }
 }
 
@@ -207,49 +257,50 @@ function findMdxFileBySlug(dir: string, targetSlug: string, basePath: string[] =
  * @returns Array of flattened slug strings
  */
 export async function getAllDocSlugs(): Promise<string[]> {
-  if (process.env.NODE_ENV === 'development') {
-    // Development: Scan local filesystem
-    return findMdxFiles(localContentDirectory);
-  } else {
-    // Production: List objects from R2
-    try {
-      const s3 = getS3Client();
-      const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
-      const slugs: string[] = [];
+  // Prefer local filesystem when available (works for both dev and static export build)
+  if (fs.existsSync(localContentDirectory)) {
+    const slugs = findMdxFiles(localContentDirectory);
+    if (slugs.length > 0) {
+      return slugs;
+    }
+  }
 
-      let continuationToken: string | undefined;
+  // Fallback: List objects from R2 (CI environment where local files don't exist)
+  try {
+    const s3 = getS3Client();
+    const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
+    const slugs: string[] = [];
 
-      while (true) {
-        const command = new ListObjectsV2Command({
-          Bucket: bucketName,
-          Prefix: 'posts/',
-          ContinuationToken: continuationToken,
-        });
+    let continuationToken: string | undefined;
 
-        const response = await s3.send(command);
+    while (true) {
+      const command = new ListObjectsV2Command({
+        Bucket: bucketName,
+        Prefix: 'posts/',
+        ContinuationToken: continuationToken,
+      });
 
-        if (response.Contents) {
-          for (const obj of response.Contents) {
-            if (!obj.Key) continue;
-            // Match: posts/civil-construction-1/guide/strategy.mdx
-            const match = obj.Key.match(/^posts\/(.+)\.mdx$/);
-            if (match && match[1]) {
-              // Flatten path to slug: 'civil-construction-1/guide/strategy' → 'civil-construction-1-guide-strategy'
-              const slug = match[1].replace(/\//g, '-');
-              slugs.push(slug);
-            }
+      const response = await s3.send(command);
+
+      if (response.Contents) {
+        for (const obj of response.Contents) {
+          if (!obj.Key) continue;
+          const match = obj.Key.match(/^posts\/(.+)\.mdx$/);
+          if (match && match[1]) {
+            const slug = match[1].replace(/\//g, '-');
+            slugs.push(slug);
           }
         }
-
-        if (!response.IsTruncated) break;
-        continuationToken = response.NextContinuationToken;
       }
 
-      return slugs;
-    } catch (error) {
-      console.error('Failed to list MDX files from R2:', error);
-      throw error;
+      if (!response.IsTruncated) break;
+      continuationToken = response.NextContinuationToken;
     }
+
+    return slugs;
+  } catch (error) {
+    console.error('Failed to list MDX files from R2:', error);
+    throw error;
   }
 }
 

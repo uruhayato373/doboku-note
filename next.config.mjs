@@ -5,18 +5,6 @@ const nextConfig = {
     unoptimized: true,
   },
 
-  async rewrites() {
-    if (process.env.NODE_ENV !== 'development') {
-      return [];
-    }
-    return [
-      {
-        source: '/posts/:path*',
-        destination: '/api/content/posts/:path*',
-      },
-    ];
-  },
-
   experimental: {
     optimizePackageImports: [
       '@/components',
