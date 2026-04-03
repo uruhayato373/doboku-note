@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Briefcase, Heart, User, Menu, X } from "lucide-react";
+import { Briefcase, User, Menu, X } from "lucide-react";
 import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
-import categoriesConfig from "@/config/categories.json";
-import { CategoriesConfig } from "@/types/category";
+import categoriesData from "@/config/categories.json";
+import { CategoryDef } from "@/lib/categories";
 
-const categories = categoriesConfig as CategoriesConfig;
+const categories = categoriesData as CategoryDef[];
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -77,20 +77,16 @@ export default function Header() {
             </div>
             {/* Desktop navigation and ThemeToggle */}
             <nav className="hidden md:flex space-x-4 items-center">
-              {Object.entries(categories).map(([categoryName, config]) => {
-                const IconComponent =
-                  config.icon === "FaHeart" ? Heart : Briefcase;
-                return (
-                  <Link
-                    key={categoryName}
-                    href={`/category/${encodeURIComponent(categoryName)}`}
-                    className="flex flex-col items-center space-y-1 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
-                  >
-                    <IconComponent className="w-5 h-5" />
-                    <span className="text-xs font-medium">{categoryName}</span>
-                  </Link>
-                );
-              })}
+              {categories.map(cat => (
+                <Link
+                  key={cat.slug}
+                  href={`/category/${cat.slug}`}
+                  className="flex flex-col items-center space-y-1 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+                >
+                  <Briefcase className="w-5 h-5" />
+                  <span className="text-xs font-medium">{cat.label}</span>
+                </Link>
+              ))}
 
               <Link
                 href="/about"
@@ -136,20 +132,17 @@ export default function Header() {
           {/* ナビゲーションリンク */}
           <nav className="mt-12 space-y-4">
             {/* カテゴリリンク */}
-            {Object.entries(categories).map(([categoryName, config]) => {
-              const IconComponent = config.icon === "FaHeart" ? Heart : Briefcase;
-              return (
-                <Link
-                  key={categoryName}
-                  href={`/category/${encodeURIComponent(categoryName)}`}
-                  onClick={closeMenu}
-                  className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
-                >
-                  <IconComponent className="w-5 h-5" />
-                  <span className="font-medium">{categoryName}</span>
-                </Link>
-              );
-            })}
+            {categories.map(cat => (
+              <Link
+                key={cat.slug}
+                href={`/category/${cat.slug}`}
+                onClick={closeMenu}
+                className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+              >
+                <Briefcase className="w-5 h-5" />
+                <span className="font-medium">{cat.label}</span>
+              </Link>
+            ))}
 
             {/* Aboutリンク */}
             <Link

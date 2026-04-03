@@ -13,7 +13,7 @@
 - **URL構造**: `/docs/{slug}` の完全フラット設計。category + tags でグループ化を実現
 - **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
 - **収益モデル**: AdSense + アフィリエイト + note有料記事 + iOSアプリ（サブスク）
-- **詳細**: `docs/project/design.md`
+- **詳細**: `docs/project/01_設計思想.md`
 
 ## 技術スタック
 
@@ -194,22 +194,22 @@ published: true                      # false なら下書き・非表示
 ## 頻用コマンド
 
 ```bash
-/dev-start                # ローカル開発サーバー起動（ポート3020自動クリーンアップ）- 推奨
-npm run dev               # ローカル開発サーバー起動（.local/r2/posts/ から配信）
+npm run dev               # ローカル開発サーバー起動（ポート3020、自動ポートクリーンアップ込み）
+/dev-start                # 上記と同じ（スキルから起動する場合）
 npm run build             # 本番ビルド（generateStaticParams で /docs/{slug} を生成）
 npm run serve             # ビルド結果のプレビュー
 npm run type-check        # TypeScript チェック
 
 # 画像・コンテンツ管理
 /sync-r2-images           # R2 上の画像をローカルに同期（初回・追加時）
-node scripts/upload-images-to-r2.mjs   # .local/r2/posts/**/img/ を R2 にアップロード
+npm run upload-images-r2  # .local/r2/posts/**/img/ を R2 にアップロード
 
 # その他
 npm run lint              # ESLint チェック
 npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ```
 
-**Note**: 開発サーバーは `/dev-start` スキルで起動すると、ポート3020が使用中の場合自動的にプロセスをkillしてから起動します。
+**Note**: `npm run dev` 実行時、`predev` スクリプトが自動的に実行され、ポート3020が使用中の場合は強制終了（`taskkill /F /T`）してからサーバーを起動します。毎回ポート番号が変わることはなくなりました。
 
 ## スキル一覧
 

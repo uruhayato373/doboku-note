@@ -1,4 +1,8 @@
 import Link from "next/link";
+import categoriesData from "@/config/categories.json";
+import { CategoryDef } from "@/lib/categories";
+
+const categories = categoriesData as CategoryDef[];
 
 export default function Footer() {
   return (
@@ -16,22 +20,16 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">カテゴリ</h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/category/civil-construction-manager"
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
-                >
-                  1級土木施工管理技士
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/category/professional-engineer"
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
-                >
-                  技術士（総合技術監理部門）
-                </Link>
-              </li>
+              {categories.map(cat => (
+                <li key={cat.slug}>
+                  <Link
+                    href={`/category/${cat.slug}`}
+                    className="text-gray-300 hover:text-primary-400 transition-colors"
+                  >
+                    {cat.label}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <Link
                   href="/blog"

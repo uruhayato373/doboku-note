@@ -1,10 +1,10 @@
 ---
 name: dev-start
 description: >
-  ポート3020が使用中なら自動的にkillして、npm run devで開発サーバーを起動する。Use when user asks to [開発サーバー起動, npm run dev, /dev-start].
+  npm run dev で開発サーバーを起動（ポート3020の自動クリーンアップ込み）。Use when user asks to [開発サーバー起動, npm run dev, /dev-start].
 ---
 
-ポート3020をチェック・クリーンアップしてから、開発サーバー（Next.js）を起動する。
+開発サーバー（Next.js）をポート3020で起動します。ポート3020が使用中の場合、自動的にクリーンアップしてから起動します。
 
 ## 前提
 
@@ -13,56 +13,46 @@ description: >
 
 ## 手順
 
-### Step 1: ポート3020を使用しているプロセスをチェック・停止
-
-```bash
-# プロセスを取得
-pid=$(netstat -ano 2>/dev/null | grep ':3020' | awk '{print $NF}' | head -1)
-
-# プロセスが存在する場合はkill
-if [ -n "$pid" ] && [ "$pid" != "PID" ]; then
-  echo "ポート3020を使用しているプロセス (PID: $pid) を停止中..."
-  kill -9 "$pid" 2>/dev/null || taskkill /PID "$pid" /F 2>/dev/null
-  sleep 1
-  echo "✅ プロセス停止完了"
-else
-  echo "ポート3020は空き状態"
-fi
-```
-
-### Step 2: 開発サーバーを起動
+### Step 1: 開発サーバーを起動
 
 ```bash
 npm run dev
 ```
 
-サーバーが起動すると以下のような出力が表示される：
+このコマンド実行で以下が自動的に行われます：
+1. `predev` スクリプトが実行され、ポート3020をリッスンしているプロセスをkillします
+2. 1秒待機し、OSがポートを解放するのを待ちます
+3. Next.js 開発サーバーがポート3020で起動します
+
+サーバーが起動すると以下のような出力が表示されます：
 ```
- ⨯ Ready in 1234ms
+✅ Port 3020 is free.
+ ✓ Ready in X.Xs
  ▲ Next.js 15.5.2
  - Local:        http://localhost:3020
 ```
 
-### Step 3: ブラウザで確認
+### Step 2: ブラウザで確認
 
 http://localhost:3020 にアクセスしてサイトが表示されることを確認
 
+## kill メカニズム
+
+`scripts/kill-port.mjs` が以下を実行します：
+1. `netstat -ano` で全ネットワーク接続を取得
+2. ポート3020をリッスンしているPIDを検出
+3. `taskkill /PID <pid> /F /T` で強制終了（子プロセスも含める）
+4. OSがポートを解放するまで待機
+
 ## エラー時の対応
 
-- **EADDRINUSE が表示される場合**: 上記 Step 1 が実行されていない可能性。手動で以下を実行：
-  ```bash
-  # Windows
-  netstat -ano | find "3020"  # PIDを確認
-  taskkill /PID {PID} /F
-  
-  # macOS/Linux
-  lsof -i :3020  # PIDを確認
-  kill -9 {PID}
-  ```
+- **ERR_SOCKET_ERROR** が表示される場合：既存プロセスがまだポートを使用中の可能性があります。タスクマネージャーで `node.exe` をすべて終了してから再試行してください
+- **EACCES permission denied** が表示される場合：管理者権限が必要な可能性があります
 
-- **npm コマンドが見つからない**: Node.js/npm が PATH に含まれていることを確認
+## 開発サーバーの停止
 
-## 参考
+Ctrl+C を押してプロセスを終了します
 
-- 開発サーバーを停止するには Ctrl+C を押す
-- ホットリロードは自動的に有効（ファイル変更時に自動再読み込み）
+## ホットリロード
+
+ファイル変更時に自動的に再読み込みが行われます（`next.config.mjs` の FastRefresh が有効）

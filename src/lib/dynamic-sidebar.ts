@@ -6,6 +6,7 @@
  */
 
 import { getAllDocSlugs, getDoc } from './docs';
+import { getCategoryLabel, getTagLabel } from './categories';
 
 export type SidebarItem =
   | string
@@ -101,40 +102,4 @@ export async function generateDynamicSidebar(
   }
 
   return items;
-}
-
-/**
- * Category ID から 日本語ラベルを取得
- */
-function getCategoryLabel(categoryId: string): string {
-  const labels: Record<string, string> = {
-    'civil-construction-1': '1級土木施工管理技士',
-    'pe': '技術士（建設部門）',
-    'pe-comprehensive-management': '技術士（総合技術監理部門）',
-    'civil-general': '土木一般',
-    'construction-management': '施工管理',
-    'keywords-law': 'キーワード・法規',
-  };
-  return labels[categoryId] || categoryId;
-}
-
-/**
- * Tag ID から 日本語ラベルを取得
- */
-function getTagLabel(tagId: string): string {
-  const labels: Record<string, string> = {
-    'guide': '試験ガイド',
-    'exam-preparation': '試験対策',
-    'primary': '第1次試験',
-    'past-questions': '過去問',
-    'secondary': '第2次試験',
-    'exam-questions': '試験問題',
-    'concrete': 'コンクリート工',
-    'earthwork': '土工',
-    'construction-plan': '施工計画',
-    'quality-management': '品質管理',
-    'experience-writing': '経験記述',
-    'keyword': 'キーワード',
-  };
-  return labels[tagId] || tagId.replace(/-/g, ' ');
 }

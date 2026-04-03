@@ -6,22 +6,8 @@ import Footer from '@/components/layout/Footer';
 import GeneratedIndexPage from '@/components/layout/GeneratedIndexPage';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllComponents } from '@/lib/component-loader';
+import { getCategoryLabel } from '@/lib/categories';
 import { Metadata } from 'next';
-
-/**
- * Category ID から 日本語タイトルを取得
- */
-function getCategoryTitle(categoryId: string): string {
-  const titles: Record<string, string> = {
-    'civil-construction-1': '1級土木施工管理技士',
-    'pe': '技術士（建設部門）',
-    'pe-comprehensive-management': '技術士（総合技術監理部門）',
-    'civil-general': '土木一般',
-    'construction-management': '施工管理',
-    'keywords-law': 'キーワード・法規',
-  };
-  return titles[categoryId] || 'ドキュメント';
-}
 
 /**
  * Generate static params for all documentation pages.
@@ -104,7 +90,7 @@ export default async function DocPage({
         <aside className="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 overflow-y-auto bg-white dark:bg-gray-800 transition-colors duration-300">
           <div className="p-4">
             <GeneratedIndexPage
-              title={category ? getCategoryTitle(category) : 'ドキュメント'}
+              title={category ? getCategoryLabel(category) : 'ドキュメント'}
               items={sidebar}
               docTitleMap={docTitleMap}
             />
