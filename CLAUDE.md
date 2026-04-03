@@ -5,7 +5,9 @@
 ## 設計思想
 
 - **サイトの焦点**: 1級土木施工管理技士に特化。ユーザーが「ここだけで合格できる」体験を提供
-- **コンテンツ管理**: Obsidian（~/obsidian）で全分野を下書き・品質管理し、品質保証済みコンテンツのみ本リポジトリに配置
+- **コンテンツ管理**: 
+  - **ドキュメント** (exam guide など): Obsidian（~/obsidian）で下書き→品質管理→本リポジトリに配置
+  - **ブログ記事**: `src/content/posts/` に MDX で下書き・公開を一元管理。frontmatter の `published` フラグで公開管理（`published: false` は非表示）
 - **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
 - **収益モデル**: AdSense + アフィリエイト + note有料記事 + iOSアプリ（サブスク）
 - **詳細**: `docs/00_プロジェクト管理/00_設計思想.md`
@@ -161,7 +163,6 @@ npm run sync-images       # content/img/ → .local/r2/ にコピー（dev時に
 
 | スキル | 用途 | 定義 |
 |---|---|---|
-| `/draft-to-post` | drafts/ の下書き MD → src/content/posts/ MDX 変換・公開 | `.claude/skills/content/draft-to-post/SKILL.md` |
 | `/audit-staging` | Obsidianステージングの公開準備度監査 | `.claude/skills/content/audit-staging/SKILL.md` |
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/content/promote-to-site/SKILL.md` |
 | `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |

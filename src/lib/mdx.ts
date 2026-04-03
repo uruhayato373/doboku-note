@@ -77,6 +77,12 @@ function getPostsFromDirectory(): Post[] {
       const fullPath = path.join(contentDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
       const matterResult = matter(fileContents);
+
+      // Check published flag: default to true for backward compatibility
+      if (matterResult.data.published === false) {
+        return null;
+      }
+
       const processedContent = parseCallouts(matterResult.content);
 
       return {
@@ -94,7 +100,8 @@ function getPostsFromDirectory(): Post[] {
         headings: extractHeadingsFromMarkdown(matterResult.content), // 元のMarkdownから見出し抽出
         relatedPosts: matterResult.data.relatedPosts || [],
       };
-    });
+    })
+    .filter((post) => post !== null) as Post[];
 
   return allPostsData;
 }
@@ -108,6 +115,12 @@ export function getPost(id: string): Post | null {
 
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const matterResult = matter(fileContents);
+
+  // Check published flag: default to true for backward compatibility
+  if (matterResult.data.published === false) {
+    return null;
+  }
+
   const processedContent = parseCallouts(matterResult.content);
 
   return {
