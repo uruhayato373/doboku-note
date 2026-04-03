@@ -1,84 +1,82 @@
-'use client';
-
-import Link from 'next/link';
-import { FaInstagram, FaGithub } from 'react-icons/fa';
-
-const XIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
-  </svg>
-);
-
-const NoteIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 493 493" width="24" height="24">
-    <path
-      d="m139.57,142.06c41.19,0,97.6-2.09,138.1-1.04,54.34,1.39,74.76,25.06,75.45,83.53.69,33.06,0,127.73,0,127.73h-58.79c0-82.83.35-96.5,0-122.6-.69-22.97-7.25-33.92-24.9-36.01-18.69-2.09-71.07-.35-71.07-.35v158.96h-58.79v-210.22Z"
-      fill="currentColor"
-    />
-  </svg>
-);
+import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-primary-darkest text-white py-8">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Logo / Copyright */}
-          <div>
-            <p className="text-sm text-gray-300">
-              Copyright © {new Date().getFullYear()} doboku-note
-            </p>
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white transition-colors duration-300">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid md:grid-cols-4 gap-8">
+          {/* ブランド情報 */}
+          <div className="md:col-span-2">
+            <h3 className="text-2xl font-bold text-primary-400 mb-4">doboku-note</h3>
+            <p className="text-gray-300 mb-4">土木系資格試験 専門技術ノート</p>
+            <p className="text-gray-400 text-sm">1級土木施工管理技士・技術士の合格をサポート</p>
           </div>
 
-          {/* Site Links */}
-          <div className="flex flex-col gap-1">
-            <Link href="/about" className="text-sm text-gray-300 hover:text-white no-underline transition-colors">サイト情報</Link>
-            <Link href="/about#プライバシーポリシー" className="text-sm text-gray-300 hover:text-white no-underline transition-colors">プライバシーポリシー</Link>
-            <Link href="/about#お問い合わせ" className="text-sm text-gray-300 hover:text-white no-underline transition-colors">お問い合わせ</Link>
+          {/* カテゴリ */}
+          <div>
+            <h4 className="text-lg font-semibold mb-4">カテゴリ</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/category/civil-construction-manager"
+                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                >
+                  1級土木施工管理技士
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/category/professional-engineer"
+                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                >
+                  技術士（総合技術監理部門）
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                >
+                  すべての記事
+                </Link>
+              </li>
+            </ul>
           </div>
 
-          {/* Social Links */}
+          {/* サイト情報 */}
           <div>
-            <div className="flex items-center gap-4">
-              <h4 className="text-sm font-semibold mr-2">Follow Me</h4>
-              <a
-                href="https://x.com/uruhayato373"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="X (Twitter)"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <XIcon />
-              </a>
-              <a
-                href="https://www.instagram.com/uruhayato373"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaInstagram size={24} />
-              </a>
-              <a
-                href="https://github.com/uruhayato373"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <FaGithub size={24} />
-              </a>
-              <a
-                href="https://note.com/uruhayato373"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Note"
-                className="text-gray-300 hover:text-white transition-colors"
-              >
-                <NoteIcon />
-              </a>
-            </div>
+            <h4 className="text-lg font-semibold mb-4">サイト情報</h4>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/about"
+                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                >
+                  このサイトについて
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/privacy"
+                  className="text-gray-400 transition-colors"
+                >
+                  プライバシーポリシー
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                >
+                  お問い合わせ
+                </Link>
+              </li>
+            </ul>
           </div>
+        </div>
+
+        <div className="border-t border-gray-700 dark:border-gray-600 mt-8 pt-8 text-center">
+          <p className="text-gray-400">© {new Date().getFullYear()} doboku-note. All rights reserved.</p>
         </div>
       </div>
     </footer>

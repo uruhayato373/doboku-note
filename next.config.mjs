@@ -1,19 +1,32 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   output: 'export',
+  distDir: 'out',
+
   images: {
     unoptimized: true,
   },
-  trailingSlash: false,
+
+  // ローカル開発時: R2 コンテンツを localhost:3021 から配信
   async rewrites() {
-    // next dev 時のみ有効。ビルド後の静的出力には含まれない。
-    // /content/* へのリクエストをローカルR2サーバーにプロキシ
-    return [
-      {
-        source: '/content/:path*',
-        destination: `http://localhost:${process.env.LOCAL_R2_PORT || 3021}/content/:path*`,
-      },
-    ];
+    if (process.env.NODE_ENV === 'development') {
+      return [
+        {
+          source: '/content/:path*',
+          destination: 'http://localhost:3021/content/:path*',
+        },
+      ];
+    }
+    return [];
+  },
+
+  experimental: {
+    optimizePackageImports: [
+      '@/components',
+      '@/lib',
+      'lucide-react',
+      'react-icons',
+    ],
   },
 };
 

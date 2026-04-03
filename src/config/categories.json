@@ -1,0 +1,16 @@
+{
+  "1級土木施工管理技士": {
+    "path": "civil-construction-manager",
+    "subtitle": "第1次・第2次検定 完全対策",
+    "subCategories": ["土木一般", "専門土木", "法規", "施工管理"],
+    "variant": "civil",
+    "icon": "FaBriefcase"
+  },
+  "技術士（総合技術監理部門）": {
+    "path": "professional-engineer",
+    "subtitle": "筆記・口頭試験 論文対策",
+    "subCategories": ["試験ガイド", "択一式", "論文対策", "管理分野"],
+    "variant": "pe",
+    "icon": "FaBriefcase"
+  }
+}

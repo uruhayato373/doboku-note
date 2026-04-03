@@ -36,7 +36,12 @@ content/               # コンテンツ（MDX）
     civil-construction-1/  # 1級土木施工管理技士（guide/, primary/, secondary/）
     pe/                # 技術士（建設部門）（primary-guide/, 選択科目別フォルダ等）
     rccm/              # RCCM
+drafts/                # ブログ記事の下書き（Obsidianで編集・git管理・公開前）
+  writing/             # 執筆中
+  ready/               # 公開待ち（レビュー済み）
 src/                   # カスタムコンポーネント・CSS・レイアウト
+  content/
+    posts/             # ブログ記事（MDX・公開済み）
   lib/
     content.ts         # DocMeta 型定義・ファイルスキャン
     sidebar.ts         # サイドバー定義・ナビ生成
@@ -156,6 +161,7 @@ npm run sync-images       # content/img/ → .local/r2/ にコピー（dev時に
 
 | スキル | 用途 | 定義 |
 |---|---|---|
+| `/draft-to-post` | drafts/ の下書き MD → src/content/posts/ MDX 変換・公開 | `.claude/skills/content/draft-to-post/SKILL.md` |
 | `/audit-staging` | Obsidianステージングの公開準備度監査 | `.claude/skills/content/audit-staging/SKILL.md` |
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/content/promote-to-site/SKILL.md` |
 | `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |

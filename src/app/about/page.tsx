@@ -1,124 +1,353 @@
-import type { Metadata } from 'next';
-import { FaEnvelope, FaTwitter, FaInstagram, FaGithub } from 'react-icons/fa';
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Link from "next/link";
+import {
+  Briefcase,
+  DollarSign,
+  Target,
+  Dumbbell,
+  Shirt,
+  Coffee,
+} from "lucide-react";
+import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'サイト情報',
+  title: "カッコムについて｜40代公務員のためのライフスタイルメディア",
+  description:
+    "カッコム（kakkom.com）は40代公務員・会社員向けのライフスタイルメディアです。仕事効率化・副業・スキンケア・ファッション・健康管理など、シゴデキ×イケオジを実現する情報を発信。運営者は現役地方公務員。",
+  openGraph: {
+    title: "カッコムについて｜40代公務員のためのライフスタイルメディア",
+    description:
+      "カッコム（kakkom.com）は40代公務員・会社員向けのライフスタイルメディアです。シゴデキ×イケオジを実現する情報を発信。",
+    url: "https://kakkom.com/about",
+  },
 };
 
 export default function AboutPage() {
   return (
-    <main className="max-w-3xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-center mb-12">サイト情報</h1>
+    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+      <Header />
 
-      {/* 管理者 */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">管理者</h2>
-        <p className="leading-relaxed text-gray-700">管理者のmindy です。</p>
-        <p className="leading-relaxed text-gray-700">
-          これまで土木技術に関する仕事に携わる中で得られた知識・経験を可能な限りドキュメントとして整理したいと思い、このサイトの運営を始めました。
-        </p>
-        <div className="flex justify-center gap-8 mt-8">
-          <a href="mailto:uruhayato373@gmail.com" aria-label="Email" className="text-black hover:text-gray-600 transition-colors">
-            <FaEnvelope size={30} />
-          </a>
-          <a href="https://twitter.com/uruhayato373" target="_blank" rel="noopener noreferrer" aria-label="Twitter" className="text-black hover:text-gray-600 transition-colors">
-            <FaTwitter size={30} />
-          </a>
-          <a href="https://www.instagram.com/uruhayato373/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-black hover:text-gray-600 transition-colors">
-            <FaInstagram size={30} />
-          </a>
-          <a href="https://github.com/uruhayato373" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-black hover:text-gray-600 transition-colors">
-            <FaGithub size={30} />
-          </a>
-        </div>
-      </section>
+      <main className="flex-grow">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-primary-50 via-white to-cyan-50 dark:from-primary-950 dark:via-gray-900 dark:to-cyan-950 py-16 lg:py-24">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-gray-900 dark:text-gray-100">
+              KAKKOMU（カッコム）
+            </h1>
+            <p className="text-xl md:text-2xl mb-8 text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              カッコいい公務員を目指して
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
+              「シゴデキ（仕事ができる）×
+              イケオジ（イケてるおじさん）」をテーマに、40代の公務員が実践できる、仕事・副業・キャリア・美容・健康・ライフスタイルの情報を発信しています。
+            </p>
+          </div>
+        </section>
 
-      {/* 免責事項 */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">免責事項</h2>
-        <p className="leading-relaxed text-gray-700">
-          当サイトの情報は可能な限り正確性を保つよう努めていますが、その正確性、完全性、最新性などを保証するものではありません。当サイトの情報によって生じたいかなる損害についても、当サイトは責任を負いかねます。
-        </p>
-        <p className="leading-relaxed text-gray-700">
-          また、当サイトからリンクやバナーなどによって他のサイトに移動された場合、移動先サイトで提供される情報、サービス等について当サイトは一切の責任を負いません。
-        </p>
-      </section>
+        {/* Mission Section */}
+        <section className="py-12 bg-white dark:bg-gray-800">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 mb-6">
+              サイトコンセプト
+            </h2>
+            <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-6">
+              <p className="text-xl font-bold text-primary-600 dark:text-primary-400 mb-4">
+                「40代公務員の、もう一歩先へ」
+                <br />
+                <span className="text-base">
+                  〜安定の先に、あなたらしい人生を〜
+                </span>
+              </p>
+              <div className="space-y-3 text-left max-w-2xl mx-auto">
+                <div className="flex items-start gap-2">
+                  <span className="text-primary-600 dark:text-primary-400 mt-1">
+                    ✓
+                  </span>
+                  <p className="text-neutral-700 dark:text-gray-300">
+                    <strong>実践的</strong> → 明日から使える具体的ノウハウ
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-primary-600 dark:text-primary-400 mt-1">
+                    ✓
+                  </span>
+                  <p className="text-neutral-700 dark:text-gray-300">
+                    <strong>共感重視</strong> → 同じ立場だからこそわかる悩み
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-primary-600 dark:text-primary-400 mt-1">
+                    ✓
+                  </span>
+                  <p className="text-neutral-700 dark:text-gray-300">
+                    <strong>効率的</strong> → 忙しくても続けられる方法
+                  </p>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-primary-600 dark:text-primary-400 mt-1">
+                    ✓
+                  </span>
+                  <p className="text-neutral-700 dark:text-gray-300">
+                    <strong>現実的</strong> → 無理なく実現できる目標設定
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* プライバシーポリシー */}
-      <section className="mb-12">
-        <h2 id="プライバシーポリシー" className="text-2xl font-bold mb-4">プライバシーポリシー</h2>
+        {/* Categories Section */}
+        <section className="py-16 bg-white dark:bg-gray-800">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 text-center mb-2">
+              2つのカテゴリで発信
+            </h2>
+            <p className="text-neutral-600 dark:text-gray-400 text-center mb-12">
+              シゴデキ × イケオジで「カッコいい40代」を目指す
+            </p>
 
-        <h3 className="text-lg font-semibold mt-6 mb-2">アクセス解析ツールについて</h3>
-        <p className="leading-relaxed text-gray-700">
-          当サイトでは、Googleアナリティクス（Google LLC）を使用しています。Googleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。
-        </p>
-        <p className="leading-relaxed text-gray-700">
-          この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。詳細は
-          <a href="https://marketingplatform.google.com/about/analytics/terms/jp/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-            Googleアナリティクスサービス利用規約
-          </a>
-          および
-          <a href="https://policies.google.com/technologies/ads?hl=ja" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-            Googleポリシーと規約ページ
-          </a>
-          をご覧ください。
-        </p>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* シゴデキ */}
+              <div>
+                <h3 className="text-xl font-bold text-primary-600 dark:text-primary-400 text-center mb-6">
+                  シゴデキ（仕事ができる）
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                        <Briefcase className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                          仕事効率化
+                        </h4>
+                        <p className="text-sm text-neutral-600 dark:text-gray-400">
+                          生産性向上、時間管理、業務改善
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                        <DollarSign className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                          副業
+                        </h4>
+                        <p className="text-sm text-neutral-600 dark:text-gray-400">
+                          公務員でも可能な副業、収益化の方法
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                        <Target className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                          キャリア戦略
+                        </h4>
+                        <p className="text-sm text-neutral-600 dark:text-gray-400">
+                          キャリアデザイン、スキルアップ、転職
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-        <h3 className="text-lg font-semibold mt-6 mb-2">広告配信について</h3>
-        <p className="leading-relaxed text-gray-700">
-          当サイトでは、第三者配信の広告サービスとしてGoogle AdSense（Google LLC）を利用しています。Google AdSenseでは、ユーザーの興味に基づいた広告を表示するためにCookieを使用することがあります。
-        </p>
-        <p className="leading-relaxed text-gray-700">
-          Cookieを使用することにより、GoogleはユーザーがそのサイトやGoogleのパートナーのサイトを訪問した際の情報に基づいて、適切な広告を表示することが可能になります。ユーザーは
-          <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-            Googleの広告設定ページ
-          </a>
-          でパーソナライズ広告を無効にすることができます。また、
-          <a href="https://optout.aboutads.info/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-            www.aboutads.info
-          </a>
-          にアクセスすれば、パーソナライズ広告に使われる第三者配信事業者のCookieを無効にすることができます。
-        </p>
+              {/* イケオジ */}
+              <div>
+                <h3 className="text-xl font-bold text-cyan-600 dark:text-cyan-400 text-center mb-6">
+                  イケオジ（イケてるおじさん）
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                        <Dumbbell className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                          美容・健康
+                        </h4>
+                        <p className="text-sm text-neutral-600 dark:text-gray-400">
+                          メンズ美容、健康管理、筋トレ、体型改善
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                        <Shirt className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                          ファッション
+                        </h4>
+                        <p className="text-sm text-neutral-600 dark:text-gray-400">
+                          40代向けファッション、身だしなみ
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
+                    <div className="flex items-center gap-4">
+                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                        <Coffee className="w-6 h-6 text-white" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-neutral-900 dark:text-gray-100 mb-1">
+                          ライフスタイル
+                        </h4>
+                        <p className="text-sm text-neutral-600 dark:text-gray-400">
+                          趣味、休日の過ごし方、家族との関係
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <h3 className="text-lg font-semibold mt-6 mb-2">Amazonアソシエイトについて</h3>
-        <p className="leading-relaxed text-gray-700">
-          当サイトは、Amazon.co.jpを宣伝しリンクすることによってサイトが紹介料を獲得できる手段を提供することを目的に設定されたアフィリエイトプログラムである、Amazonアソシエイト・プログラムの参加者です。
-        </p>
+        {/* Operator Profile Section */}
+        <section className="py-16 bg-neutral-50 dark:bg-gray-700">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 text-center mb-8">
+              運営者プロフィール
+            </h2>
+            <div className="grid lg:grid-cols-2 gap-8">
+              {/* Profile Details */}
+              <div>
+                <div className="bg-white dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-6 h-full">
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-bold text-primary-600 dark:text-primary-400">
+                      カズ（KAZU）
+                    </h3>
+                    <p className="text-neutral-600 dark:text-gray-400">
+                      元地方公務員 ×
+                      フリーランスライター＆キャリアコンサルタント
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="text-neutral-700 dark:text-gray-300">
+                      <strong>年齢：</strong>44歳
+                    </p>
+                    <p className="text-neutral-700 dark:text-gray-300">
+                      <strong>経歴：</strong>
+                      元地方公務員（県庁18年勤務→2年前に円満退職）
+                    </p>
+                    <p className="text-neutral-700 dark:text-gray-300">
+                      <strong>現職：</strong>
+                      フリーランスライター＆キャリアコンサルタント
+                    </p>
+                    <p className="text-neutral-700 dark:text-gray-300">
+                      <strong>家族：</strong>既婚・子ども2人（高1・小6）
+                    </p>
+                    <p className="text-neutral-700 dark:text-gray-300">
+                      <strong>資格：</strong>
+                      FP2級、日商簿記2級、行政書士、情報処理技術者、中小企業診断士
+                    </p>
+                    <p className="text-neutral-700 dark:text-gray-300">
+                      <strong>趣味：</strong>筋トレ、読書、ブログ執筆
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-        <h3 className="text-lg font-semibold mt-6 mb-2">個人情報の取り扱いについて</h3>
-        <p className="leading-relaxed text-gray-700">
-          当サイトのお問い合わせフォームにて、名前やメールアドレス等の個人情報をご入力いただく場合があります。取得した個人情報は、お問い合わせに対する回答を電子メールなどでご連絡する場合に利用させていただくものであり、これらの目的以外では利用いたしません。
-        </p>
-      </section>
+              {/* Story */}
+              <div>
+                <div className="bg-white dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-6 h-full space-y-6">
+                  <div>
+                    <h3 className="text-lg font-bold text-neutral-900 dark:text-gray-100 mb-3">
+                      3年前の私（公務員時代）
+                    </h3>
+                    <ul className="space-y-2">
+                      <li className="text-neutral-600 dark:text-gray-400 flex items-start text-sm">
+                        <span className="text-red-500 mr-2">✗</span>
+                        <span>体重が10kg増加（メタボ判定）</span>
+                      </li>
+                      <li className="text-neutral-600 dark:text-gray-400 flex items-start text-sm">
+                        <span className="text-red-500 mr-2">✗</span>
+                        <span>貯金は増えず、将来に不安</span>
+                      </li>
+                      <li className="text-neutral-600 dark:text-gray-400 flex items-start text-sm">
+                        <span className="text-red-500 mr-2">✗</span>
+                        <span>家族との会話も減り、趣味もなし</span>
+                      </li>
+                    </ul>
+                  </div>
 
-      {/* 著作権 */}
-      <section className="mb-12">
-        <h2 className="text-2xl font-bold mb-4">著作権について</h2>
-        <p className="leading-relaxed text-gray-700">
-          当サイトに掲載されている文章・画像・図表等のコンテンツの著作権は、当サイト管理者または各権利所有者に帰属します。法律で認められた範囲を超えた無断転載・複製を禁じます。
-        </p>
-        <p className="leading-relaxed text-gray-700">
-          当サイトのコンテンツには、公共機関が公表した技術基準・法令等を基に作成した解説が含まれます。引用元の著作権は各公共機関に帰属します。
-        </p>
-      </section>
+                  <div className="border-t border-neutral-300 dark:border-gray-600 pt-4">
+                    <h3 className="text-lg font-bold text-neutral-900 dark:text-gray-100 mb-3">
+                      そこから一念発起
+                    </h3>
+                    <ul className="space-y-2">
+                      <li className="text-neutral-600 dark:text-gray-400 flex items-start text-sm">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span>筋トレで体重-12kg、体脂肪率10%達成</span>
+                      </li>
+                      <li className="text-neutral-600 dark:text-gray-400 flex items-start text-sm">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span>投資を学び資産1500万円突破</span>
+                      </li>
+                      <li className="text-neutral-600 dark:text-gray-400 flex items-start text-sm">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span>ブログで情報発信を開始、月10万円の収益化</span>
+                      </li>
+                      <li className="text-neutral-600 dark:text-gray-400 flex items-start text-sm">
+                        <span className="text-green-500 mr-2">✓</span>
+                        <span>2年前に公務員を円満退職、独立</span>
+                      </li>
+                    </ul>
+                  </div>
 
-      {/* お問い合わせ */}
-      <section className="mb-12">
-        <h2 id="お問い合わせ" className="text-2xl font-bold mb-4">お問い合わせ</h2>
-        <p className="leading-relaxed text-gray-700">
-          ご質問、ご意見、お問い合わせは以下のリンクからGoogleフォームへアクセスしてください。
-        </p>
-        <div className="text-center mt-6">
-          <a
-            href="https://docs.google.com/forms/d/1VzUAh0VgA2SVpYS3nVYEg87FD7IjSinTrJhUFRqHiNI"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block bg-primary text-white px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark transition-colors no-underline"
-          >
-            お問い合わせフォームへ
-          </a>
-        </div>
-      </section>
-    </main>
+                  <div className="bg-neutral-100 dark:bg-gray-700 border border-neutral-200 dark:border-gray-600 p-4">
+                    <p className="text-sm text-neutral-700 dark:text-gray-300 leading-relaxed">
+                      今は「元公務員」の経験を活かし、同じ悩みを持つ40代のキャリア支援と情報発信で生計を立てています。
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section className="py-16 bg-gradient-to-r from-primary-600 to-cyan-500 text-white">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold mb-6">お問い合わせ</h2>
+            <p className="text-xl mb-8 text-primary-100">
+              「40代からの賢い自己投資術」について、ご質問やご意見がございましたらお気軽にお問い合わせください。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://twitter.com/kakkomu_blog"
+                className="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+              >
+                Twitterでフォロー
+              </a>
+              <a
+                href="https://note.com/kakkomu"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-primary-600 transition-all"
+              >
+                noteでフォロー
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 }
