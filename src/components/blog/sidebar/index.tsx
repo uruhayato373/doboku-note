@@ -1,16 +1,12 @@
-import dynamic from "next/dynamic";
+"use client";
+
+import { SidebarSearch } from "@/components/search/SidebarSearch";
 import { Post } from "@/types/blog";
 import RelatedPosts from "./RelatedPosts";
 import TableOfContents from "./TableOfContents";
 import LatestPosts from "./LatestPosts";
 import TagList from "./TagList/index";
 import AuthorInfo from "./AuthorInfo";
-
-const SidebarSearch = dynamic(
-  () =>
-    import("@/components/search/SidebarSearch").then((mod) => mod.SidebarSearch),
-  { ssr: false }
-);
 
 export { RelatedPosts, TableOfContents, LatestPosts, TagList, AuthorInfo };
 
