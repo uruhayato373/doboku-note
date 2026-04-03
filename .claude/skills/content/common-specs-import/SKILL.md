@@ -1,3 +1,9 @@
+---
+name: common-specs-import
+description: >
+  土木工事共通仕様書PDFをMDX変換する。Use when user asks to [共通仕様書, /common-specs-import].
+---
+
 # /common-specs-import — 土木工事共通仕様書 PDF→MDX変換
 
 ## 概要

@@ -1,3 +1,9 @@
+---
+name: hikkei-import
+description: >
+  受験必携PDFをMDX変換する。Use when user asks to [必携, /hikkei-import].
+---
+
 # /hikkei-import — 土木請負工事必携 PDF→MDX変換
 
 ## 概要

@@ -1,3 +1,9 @@
+---
+name: growth-loops
+description: >
+  成長ループを設計・評価してフライホイール構造を明確化する。Use when user asks to [成長ループ, グロースループ, /growth-loops].
+---
+
 doboku-note の持続的成長ループ（フライホイール）を設計・評価する。
 
 原典: [phuryn/pm-skills](https://github.com/phuryn/pm-skills) (MIT License) の `growth-loops` をカスタマイズ。

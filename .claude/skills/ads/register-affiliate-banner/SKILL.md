@@ -1,3 +1,9 @@
+---
+name: register-affiliate-banner
+description: >
+  アフィリエイトバナーをコンポーネントに登録する。Use when user asks to [アフィリエイトバナー登録, /register-affiliate-banner].
+---
+
 アフィリエイトバナー広告を登録し、ブログ記事末尾にタグベースで自動表示させる。
 
 ## 用途

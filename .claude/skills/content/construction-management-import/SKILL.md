@@ -1,3 +1,9 @@
+---
+name: construction-management-import
+description: >
+  土木施工管理技術テキスト（施工管理・法規編）PDFをMDX変換する。Use when user asks to [施工管理テキスト, /construction-management-import].
+---
+
 # /construction-management-import — 土木施工管理技術テキスト（施工管理・法規編）PDF→MDX変換
 
 ## 概要

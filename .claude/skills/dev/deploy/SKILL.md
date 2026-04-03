@@ -1,3 +1,9 @@
+---
+name: deploy
+description: >
+  develop→mainブランチ経由でCloudflare Pagesにデプロイする。Use when user asks to [デプロイ, 本番反映, /deploy].
+---
+
 Cloudflare Pages へデプロイする。
 
 ## ブランチ戦略

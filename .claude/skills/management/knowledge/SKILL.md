@@ -1,3 +1,9 @@
+---
+name: knowledge
+description: >
+  過去の失敗と学びのナレッジベースを参照・追記する。Use when user asks to [ナレッジ, 失敗から学ぶ, /knowledge].
+---
+
 過去の失敗と学びを参照・追記する。
 
 ## 使い方

@@ -1,3 +1,9 @@
+---
+name: civil-planning-import
+description: >
+  土木計画学PDFをMDX変換する。Use when user asks to [土木計画学, /civil-planning-import].
+---
+
 # /civil-planning-import — 土木計画学 PDF→MDX変換
 
 ## 概要

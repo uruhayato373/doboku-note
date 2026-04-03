@@ -1,3 +1,9 @@
+---
+name: noise-manual-import
+description: >
+  騒音評価マニュアルPDFをMDX変換する。Use when user asks to [騒音マニュアル, /noise-manual-import].
+---
+
 # /noise-manual-import — 騒音に係る環境基準の評価マニュアル PDF→MDX変換
 
 ## 概要

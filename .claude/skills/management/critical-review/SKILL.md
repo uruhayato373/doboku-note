@@ -1,3 +1,9 @@
+---
+name: critical-review
+description: >
+  設計書・計画書・戦略文書を批判的に評価して改善点を提示する。Use when user asks to [批判的レビュー, クリティカルレビュー, /critical-review].
+---
+
 指定されたドキュメントに対して、連続起業家・プロPMの視点から批判的レビューを作成する。
 
 ## 引数

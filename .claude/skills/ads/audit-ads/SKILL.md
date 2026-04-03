@@ -1,7 +1,7 @@
 ---
 name: audit-ads
-description: AdSense 配置・アフィリエイトリンクの現状監査と最適化提案。収益性・UX・法令遵守を総合評価する。
-user-invocable: true
+description: >
+  AdSense・アフィリエイトの現状を監査して最適化提案する。Use when user asks to [広告監査, AdSense確認, /audit-ads].
 ---
 
 doboku-note の広告・アフィリエイトの現状を監査し、収益最適化とUX改善の提案を行う。

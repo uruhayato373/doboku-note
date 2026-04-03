@@ -1,3 +1,9 @@
+---
+name: monetization-strategy
+description: >
+  収益化戦略のブレインストーミングと施策ロードマップを生成する。Use when user asks to [収益化, マネタイズ戦略, /monetization-strategy].
+---
+
 doboku-note の収益化戦略を 3-5 案ブレインストームし、適合度・リスク・検証実験を設計する。
 
 原典: [phuryn/pm-skills](https://github.com/phuryn/pm-skills) (MIT License) の `monetization-strategy` をカスタマイズ。

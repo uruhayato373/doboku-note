@@ -1,3 +1,9 @@
+---
+name: design-review
+description: >
+  デザインシステム準拠を7カテゴリ・重大度判定でレビューする。Use when user asks to [デザインレビュー, UI確認, /design-review].
+---
+
 CSS・MDX・TSXコンポーネントを doboku-note デザインシステムに照らしてレビューし、違反を検出・分類・修正提案する。
 
 ## 引数

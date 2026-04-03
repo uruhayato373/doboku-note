@@ -1,3 +1,9 @@
+---
+name: exam-questions-import
+description: >
+  第1次試験問題集PDFをMDX変換してインポートする。Use when user asks to [第1次問題集インポート, /exam-questions-import].
+---
+
 # /exam-questions-import — 1級土木施工管理第1次試験問題集 PDF→MDX変換
 
 ## 概要

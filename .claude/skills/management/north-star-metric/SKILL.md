@@ -1,3 +1,9 @@
+---
+name: north-star-metric
+description: >
+  NSMとInput Metricsを定義してKPIツリーを設計する。Use when user asks to [北極星指標, NSM, 重要指標を決めたい, /north-star-metric].
+---
+
 doboku-note の North Star Metric（最重要指標）と 3-5 の Input Metrics を定義する。
 
 原典: [phuryn/pm-skills](https://github.com/phuryn/pm-skills) (MIT License) の `north-star-metric` をカスタマイズ。

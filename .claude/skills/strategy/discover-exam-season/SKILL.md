@@ -1,7 +1,7 @@
 ---
 name: discover-exam-season
-description: 資格試験日程に基づく季節性コンテンツ戦略を立案し、試験前の検索需要を最大限獲得するロードマップを生成する。
-user-invocable: true
+description: >
+  試験日程に基づく季節性コンテンツ戦略を立案する。Use when user asks to [試験シーズン, 季節性戦略, /discover-exam-season].
 ---
 
 土木系資格試験の日程と検索需要の季節変動を分析し、コンテンツ公開・更新の最適タイミングを設計する。

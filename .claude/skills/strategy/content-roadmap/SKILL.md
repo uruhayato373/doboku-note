@@ -1,7 +1,7 @@
 ---
 name: content-roadmap
-description: 現在のコンテンツ量・GSCデータ・試験日程・競合状況・収益化戦略を踏まえて、コンテンツ拡充ロードマップを生成する。
-user-invocable: true
+description: >
+  全データを統合してコンテンツ拡充ロードマップを生成する。Use when user asks to [コンテンツロードマップ, 拡充計画, /content-roadmap].
 ---
 
 doboku-note のコンテンツ現状・検索パフォーマンス・試験日程・競合状況・収益化戦略を総合的に分析し、期間指定のコンテンツ拡充ロードマップを生成する。

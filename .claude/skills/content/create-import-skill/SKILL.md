@@ -1,3 +1,9 @@
+---
+name: create-import-skill
+description: >
+  PDF→MDXインポートスキルのテンプレートを生成する。Use when user asks to [インポートスキルを作りたい, /create-import-skill].
+---
+
 # /create-import-skill — PDFインポートスキル自動生成
 
 ## 概要

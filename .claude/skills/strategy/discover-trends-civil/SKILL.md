@@ -1,7 +1,7 @@
 ---
 name: discover-trends-civil
-description: 土木系ニュース・建設業界動向からトレンドを取得し、コンテンツ機会を提案する。
-user-invocable: true
+description: >
+  土木系ニュース・業界動向からトレンドを発見する。Use when user asks to [土木トレンド, 業界動向, /discover-trends-civil].
 ---
 
 土木・建設業界のニュースやトレンドを収集し、doboku-note のコンテンツ機会を特定する。

@@ -1,3 +1,9 @@
+---
+name: fetch-gsc-data
+description: >
+  Google Search ConsoleからSEOデータを取得して分析する。Use when user asks to [GSC, 検索パフォーマンス, サーチコンソールのデータ, /fetch-gsc-data].
+---
+
 Google Search Console API から doboku-note.com の検索パフォーマンスデータを取得する。
 
 ## 用途

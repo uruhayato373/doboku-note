@@ -1,3 +1,9 @@
+---
+name: weekly-review
+description: >
+  前週の成果・KPI・学びを振り返るレビューを生成する。Use when user asks to [週次レビュー, 先週の振り返り, /weekly-review].
+---
+
 今週の実績を調査し、成果・課題・学びを記録する週次レビューを生成する。
 
 ## 引数

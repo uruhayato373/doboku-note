@@ -1,3 +1,9 @@
+---
+name: fetch-ga4-data
+description: >
+  Google Analytics 4からアクセスデータを取得して分析する。Use when user asks to [GA4, アクセス解析, PV数, /fetch-ga4-data].
+---
+
 Google Analytics 4 (GA4) Data API から doboku-note.com のアクセスデータを取得する。
 
 ## 用途

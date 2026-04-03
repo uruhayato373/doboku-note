@@ -1,8 +1,7 @@
 ---
-description: "Obsidian ステージングのコンテンツ公開準備度を監査する"
-user-invocable: true
-argument-hint: "[path-or-folder]"
-allowed-tools: Read, Grep, Glob, Agent
+
+description: >
+  Obsidianステージングの公開準備度を監査する。Use when user asks to [ステージング監査, 公開前チェック, /audit-staging].
 ---
 
 Obsidian（~/obsidian）内のコンテンツの公開準備度をチェックし、doboku-note への promote 可否を判定する。

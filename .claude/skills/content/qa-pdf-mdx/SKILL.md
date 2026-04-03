@@ -1,7 +1,7 @@
 ---
 name: qa-pdf-mdx
-description: PDF→MDX変換の品質検証・修正。照合agentと修正agentの2段階で、画像トリミング・挿入位置・文章化漏れ・図番号を体系的にチェック・修正する。
-argument-hint: "<MDXファイルパス> <ソースPDFパス> [ページ範囲]"
+description: >
+  PDF→MDX変換品質を5軸ルーブリックで評価・修正する。Use when user asks to [品質検証, QA, /qa-pdf-mdx].
 ---
 
 PDF→MDX変換の品質を体系的に検証し、問題を修正する。

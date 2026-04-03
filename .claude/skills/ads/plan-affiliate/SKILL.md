@@ -1,7 +1,7 @@
 ---
 name: plan-affiliate
-description: 土木系書籍・教材・通信講座のアフィリエイト記事企画。商材×コンテンツのマッチングと配置戦略を設計する。
-user-invocable: true
+description: >
+  書籍・教材・通信講座のアフィリエイト記事を企画する。Use when user asks to [アフィリエイト企画, 書籍を紹介したい, /plan-affiliate].
 ---
 
 doboku-note のコンテンツとマッチするアフィリエイト商材を調査し、記事企画・配置戦略を立案する。

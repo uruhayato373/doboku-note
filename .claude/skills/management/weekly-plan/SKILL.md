@@ -1,3 +1,9 @@
+---
+name: weekly-plan
+description: >
+  週次実行計画を並列サブエージェントで生成し `docs/reviews/weekly/` に保存する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
+---
+
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
 
 ## 引数

@@ -1,7 +1,7 @@
 ---
 name: exam-demand
-description: 資格試験（施工管理技士・技術士等）の検索需要を調査し、不足コンテンツを優先度付きで提案する。
-user-invocable: true
+description: >
+  資格試験の検索需要を調査して不足コンテンツを提案する。Use when user asks to [試験需要調査, /exam-demand].
 ---
 
 土木系資格試験の検索需要を調査し、doboku-note に不足しているコンテンツを特定・提案する。

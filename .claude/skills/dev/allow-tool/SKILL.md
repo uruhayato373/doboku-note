@@ -1,8 +1,7 @@
 ---
 name: allow-tool
-description: ツール許可プロンプトが出たとき、そのツールパターンを settings.local.json に追加して今後の確認をスキップする
-user-invocable: true
-argument-hint: "[tool-pattern]"
+description: >
+  ツール許可をsettings.local.jsonに追加する。Use when user asks to [ツールを許可したい, /allow-tool].
 ---
 
 ## 用途

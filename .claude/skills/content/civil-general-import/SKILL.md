@@ -1,3 +1,9 @@
+---
+name: civil-general-import
+description: >
+  土木施工管理技術テキスト（土木一般編）PDFをMDX変換する。Use when user asks to [土木一般テキスト, /civil-general-import].
+---
+
 # /civil-general-import — 土木施工管理技術テキスト（土木一般編）PDF→MDX変換
 
 ## 概要

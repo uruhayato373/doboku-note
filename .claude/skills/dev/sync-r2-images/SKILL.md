@@ -1,9 +1,7 @@
 ---
 name: sync-r2-images
-description: R2上の画像をローカルにダウンロードする。npm run devで画像が表示されないときに使う
-user-invocable: true
-allowed-tools: Bash
-argument-hint: "[--prefix {category}] [--dry-run]"
+description: >
+  R2上の画像をローカルに同期する。Use when user asks to [画像が見えない, R2画像を同期, /sync-r2-images].
 ---
 
 Cloudflare R2 にアップロード済みの画像を、ローカル開発環境に同期する。

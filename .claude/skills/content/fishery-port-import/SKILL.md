@@ -1,3 +1,9 @@
+---
+name: fishery-port-import
+description: >
+  漁港設計参考図書PDFをMDX変換する。Use when user asks to [漁港, /fishery-port-import].
+---
+
 # /fishery-port-import — 漁港設計参考図書PDF→MDX変換
 
 ## 概要

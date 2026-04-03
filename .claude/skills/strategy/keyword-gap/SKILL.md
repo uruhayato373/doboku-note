@@ -1,7 +1,7 @@
 ---
 name: keyword-gap
-description: GSC データ + 競合比較でコンテンツギャップを特定し、優先的に作成すべきコンテンツを提案する。
-user-invocable: true
+description: >
+  GSCデータ＋競合比較でコンテンツギャップを特定する。Use when user asks to [キーワードギャップ, 不足コンテンツを探したい, /keyword-gap].
 ---
 
 doboku-note の GSC データと競合サイトを比較し、未カバーのキーワード・コンテンツのギャップを特定する。

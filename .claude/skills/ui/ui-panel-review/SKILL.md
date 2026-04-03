@@ -1,3 +1,9 @@
+---
+name: ui-panel-review
+description: >
+  10人の専門家パネルによるUI/UX評価を実施する。Use when user asks to [UI評価, UXレビュー, /ui-panel-review].
+---
+
 Web ページの UI/UX を、10人の多様なパネリストとして評価・意見する。
 批判的・辛辣な意見も歓迎。全員が忌憚なく本音を語る。
 

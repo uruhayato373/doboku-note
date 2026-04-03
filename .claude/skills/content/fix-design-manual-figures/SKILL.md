@@ -1,7 +1,7 @@
 ---
 name: fix-design-manual-figures
-description: 設計便覧の既存MDXファイルの図品質修正。画像テキスト映り込み検出・再トリミング、出典:::note欠落の検出・追加。
-argument-hint: "<MDXファイルパス> [--dry-run]"
+description: >
+  設計便覧の図品質を修正する。Use when user asks to [設計便覧の図を修正, /fix-design-manual-figures].
 ---
 
 設計便覧の既存MDXファイルで、図の品質問題（テキスト映り込み、出典欠落）を検出・修正する。

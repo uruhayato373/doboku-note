@@ -1,3 +1,9 @@
+---
+name: river-design-import
+description: >
+  河川砂防技術基準PDFをMDX変換する。Use when user asks to [河川砂防, /river-design-import].
+---
+
 # /river-design-import — 河川砂防技術基準（設計編）技術資料 PDF→MDX変換
 
 ## 概要

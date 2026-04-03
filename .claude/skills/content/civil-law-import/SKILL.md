@@ -1,3 +1,9 @@
+---
+name: civil-law-import
+description: >
+  民法テキストPDFをMDX変換する。Use when user asks to [民法, /civil-law-import].
+---
+
 # /civil-law-import — 民法テキスト PDF→MDX変換
 
 ## 概要

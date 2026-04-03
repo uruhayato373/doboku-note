@@ -1,3 +1,9 @@
+---
+name: pdf-to-mdx
+description: >
+  PDF/画像を読み取りMDX形式に変換する。Use when user asks to [PDFをMDXに変換, PDFから記事を作りたい, /pdf-to-mdx].
+---
+
 PDF または画像ファイルからテキストを抽出し、doboku-note 用の MDX ファイルに変換する。
 
 ## 引数

@@ -1,7 +1,7 @@
 ---
 name: clean-pdf-artifacts
-description: pdf-to-mdx 変換後の MDX ファイルから PDF 変換残骸を自動除去する。重複ページヘッダー、壊れた見出し、h1誤用などを検出・修正。
-argument-hint: "<ファイルパス or ディレクトリ>"
+description: >
+  PDF変換で生じた残骸（ページ番号・ヘッダーフッター等）を除去する。Use when user asks to [PDF残骸除去, 変換ゴミを取り除く, /clean-pdf-artifacts].
 ---
 
 pdf-to-mdx で変換した MDX ファイルから、PDF 由来のアーティファクトを検出・除去する。

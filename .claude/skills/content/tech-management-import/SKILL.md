@@ -1,3 +1,9 @@
+---
+name: tech-management-import
+description: >
+  土木技術管理規定集PDFをMDX変換する。Use when user asks to [技術管理規定, /tech-management-import].
+---
+
 # /tech-management-import — 土木技術管理規定集 PDF→MDX変換
 
 ## 概要

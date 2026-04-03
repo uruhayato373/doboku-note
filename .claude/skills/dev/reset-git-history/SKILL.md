@@ -1,3 +1,9 @@
+---
+name: reset-git-history
+description: >
+  Gitの履歴をリセットする。Use when user asks to [Git履歴リセット, /reset-git-history].
+---
+
 Git 履歴をリセットして `.git` を軽量化する。
 
 ## 概要

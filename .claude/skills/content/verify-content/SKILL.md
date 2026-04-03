@@ -1,7 +1,7 @@
 ---
 name: verify-content
-description: MDX ファイルの内容をソース PDF と照合し、抽出漏れ・誤変換を検出する。pdf-to-mdx 後の品質検証に使う。
-argument-hint: "<MDXファイルパス> <ソースPDFパス> [ページ範囲]"
+description: >
+  MDX内容をソースPDFと照合・検証する。Use when user asks to [内容を検証, PDFと照合, /verify-content].
 ---
 
 MDX ファイルの内容をソース PDF と照合し、抽出の正確性を検証する。

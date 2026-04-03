@@ -1,7 +1,7 @@
 ---
 name: check-mdx
-description: MDX ファイルのマークダウン構文・Docusaurus 互換性をチェックする。ビルドエラーの予防に使う。
-argument-hint: "<ファイルパス or ディレクトリ>"
+description: >
+  MDXファイルの構文エラーを検出する。Use when user asks to [MDXチェック, 構文チェック, /check-mdx].
 ---
 
 MDX ファイルの構文チェックを行い、Docusaurus ビルドエラーを未然に防ぐ。

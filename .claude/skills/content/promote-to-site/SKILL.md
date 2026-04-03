@@ -1,8 +1,7 @@
 ---
-description: "Obsidian のステージングコンテンツを doboku-note の MDX に変換・配置する"
-user-invocable: true
-argument-hint: "[obsidian-path]"
-allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Agent
+
+description: >
+  ObsidianのMDをdoboku-noteのMDXに変換・配置する。Use when user asks to [Obsidianから移行, コンテンツを公開, /promote-to-site].
 ---
 
 Obsidian（~/obsidian）の Markdown ノートを doboku-note の MDX ファイルに変換し、適切なディレクトリに配置する。

@@ -1,6 +1,7 @@
 ---
 name: seo-audit
-description: doboku-note.com の SEO 総合監査。GSC/GA4 実データ + サイト構造を分析し、改善アクションを優先度付きで出力する。
+description: >
+  GSC/GA4実データ＋サイト構造を分析してSEO監査レポートを生成する。Use when user asks to [SEO監査, サイトのSEOを確認したい, /seo-audit].
 ---
 
 doboku-note.com の SEO を総合的に監査する。データ取得 → 分析 → 改善提案を一気通貫で行い、優先度付きのアクションリストを生成する。

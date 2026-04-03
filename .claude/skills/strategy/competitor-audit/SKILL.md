@@ -1,7 +1,7 @@
 ---
 name: competitor-audit
-description: 土木系技術サイト・資格試験サイトの競合調査。コンテンツ量・SEO強度・収益モデルを比較分析し、差別化ポイントを特定する。
-user-invocable: true
+description: >
+  競合サイトのコンテンツ・SEO・収益モデルを調査・比較する。Use when user asks to [競合調査, 競合を調べたい, /competitor-audit].
 ---
 
 doboku-note の競合サイトを調査し、コンテンツ・SEO・収益モデルの観点で比較分析する。

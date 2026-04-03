@@ -1,3 +1,9 @@
+---
+name: design-manual-import
+description: >
+  近畿地方整備局設計便覧PDFをMDX変換する。Use when user asks to [設計便覧, /design-manual-import].
+---
+
 # /design-manual-import — 近畿地方整備局 設計便覧 PDF→MDX変換
 
 ## 概要

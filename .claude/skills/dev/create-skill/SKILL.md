@@ -1,42 +1,7 @@
 ---
 name: create-skill
-description: Claude Code スキルの作成・設計ガイド。新しいスキルを作成するとき、既存スキルを改善するときに自動で参照する背景知識。
-user-invocable: false
----
-
-Claude Code スキルの設計・実装ガイド。公式ドキュメント（code.claude.com/docs/en/skills）とこのプロジェクトの規約を統合。
-
-## スキルのディレクトリ構造
-
-```
-<skill-name>/
-├── SKILL.md           # メイン指示書（必須・500行以内）
-├── reference/         # 詳細リファレンス（SKILL.md から参照）
-│   ├── spec.md        # 仕様・規約
-│   └── examples.md    # 使用例
-├── scripts/           # 実行可能スクリプト
-│   └── helper.js      # Claude が実行するスクリプト
-└── examples/          # 完成物の参考例
-    └── sample.svg     # 実際の出力サンプル
-```
-
-`SKILL.md` 以外はすべてオプション。`SKILL.md` から相対パスで参照する。
-
-## SKILL.md の書き方
-
-### frontmatter（YAML）
-
-```yaml
----
-name: skill-name              # 小文字・ハイフン区切り（省略時はディレクトリ名）
-description: 何をするスキルか  # Claude が自動呼出しを判断する根拠（必須推奨）
-disable-model-invocation: true # true → ユーザーのみ /name で呼出し可
-user-invocable: false          # false → /menu に表示しない（背景知識用）
-allowed-tools: Read, Grep      # スキル実行時に許可なく使えるツール
-context: fork                  # fork → サブエージェントで実行
-agent: Explore                 # context: fork 時のエージェント種別
-model: sonnet                  # モデル指定（省略時は親のモデル）
-argument-hint: "[slug]"        # /name の補完時に表示するヒント
+description: >
+  新しいスキルの作成ガイドを提供する。Use when user asks to [スキルを作りたい, 新しいスキル, /create-skill].
 ---
 ```
 
