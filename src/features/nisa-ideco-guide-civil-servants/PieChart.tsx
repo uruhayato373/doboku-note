@@ -88,7 +88,7 @@ export default function PieChart({
             endAngle={-270}
           >
             {chartData.map((entry, index) => (
-              <Cell key={`cell-${index}`} fill={entry.color}>
+              <Cell key={`cell-${index}`} fill={entry.color || '#666666'}>
                 <LabelList 
                   dataKey="value" 
                   position="inside" 

@@ -1,6 +1,5 @@
 import type { Post } from "@/types/blog";
 
-import { getCategorySeoData } from "./category-helpers";
 import { getOgpImageUrl } from "./r2-image-loader";
 import tags from "@/config/tags.json";
 
@@ -120,21 +119,3 @@ export const getTagSeoData = (tag: string) => ({
   },
 });
 
-export const getCategoryPageSeoData = (category: { id: string }) => {
-  const categorySeoData = getCategorySeoData(category.id);
-  return {
-    title: categorySeoData.title,
-    description: categorySeoData.description,
-    keywords: categorySeoData.keywords,
-    openGraph: {
-      title: categorySeoData.title,
-      description: categorySeoData.description,
-      url: `https://doboku-note.com/category/${category.id}`,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: categorySeoData.title,
-      description: categorySeoData.description,
-    },
-  };
-};

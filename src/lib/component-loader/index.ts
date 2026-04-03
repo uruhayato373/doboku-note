@@ -29,7 +29,6 @@ export async function getCommonComponents() {
     Timeline: (await import("@/components/ui/Timeline/Timeline")).default,
     Question: (await import("@/components/ui/ChatBubble/Question")).default,
     Answer: (await import("@/components/ui/ChatBubble/Answer")).default,
-    RelatedArticleCard: (await import("@/components/ui/RelatedArticleCard/RelatedArticleCard")).default,
   };
 }
 
