@@ -305,10 +305,10 @@
             "id": "48eba17050523e1c",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -320,9 +320,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "f4e8721fa3e2e83d",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 11
+        "currentTab": 12
       }
     ],
     "direction": "horizontal",
@@ -352,8 +362,19 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "dd4b4b1405000366",
+  "active": "f4e8721fa3e2e83d",
   "lastOpenFiles": [
+    "_pdfs/１級土木施工管理技士/１級土木施工管理第１次試験問題集.pdf",
+    "_pdfs/１級土木施工管理技士/１級土木施工管理第２次試験問題集.pdf",
+    "_pdfs/１級土木施工管理技士",
+    "_pdfs/技術士（総監）/R07_択一式.pdf",
+    "_pdfs/技術士（総監）/R07_記述式.pdf",
+    "_pdfs/技術士（総監）/R06_択一式.pdf",
+    "_pdfs/技術士（総監）/R06_記述式.pdf",
+    "_pdfs/技術士（総監）/R05_択一式.pdf",
+    "_pdfs/技術士（総監）/R05_記述式.pdf",
+    "_pdfs/技術士（総監）/R04_択一式.pdf",
+    "_pdfs/技術士（総監）/R04_記述式.pdf",
     "node_modules/playwright-core/lib/tools/cli-client/skill/references/request-mocking.md",
     "node_modules/playwright-core/lib/tools/cli-client/skill/references/storage-state.md",
     "node_modules/playwright-core/lib/tools/cli-client/skill/references/test-generation.md",
@@ -364,16 +385,6 @@
     "node_modules/playwright-core/lib/tools/cli-client/skill/references/running-code.md",
     "node_modules/playwright-core/lib/tools/cli-client/skill/references/playwright-tests.md",
     "node_modules/playwright-core/lib/tools/cli-client/skill/SKILL.md",
-    "node_modules/playwright-core/lib/tools/cli-client/skill/references",
-    "node_modules/playwright-core/lib/tools/cli-client/skill",
-    "node_modules/playwright-core/lib/server/trace/viewer/traceViewer.js",
-    "node_modules/playwright-core/lib/server/trace/recorder/tracing.js",
-    "node_modules/playwright-core/lib/server/trace/recorder/snapshotterInjected.js",
-    "node_modules/playwright-core/lib/server/trace/recorder/snapshotter.js",
-    "node_modules/playwright-core/lib/server/trace/viewer",
-    "node_modules/playwright-core/lib/server/trace/recorder",
-    "node_modules/playwright-core/lib/server/trace",
-    "node_modules/playwright-core/lib/server/webkit/wkWorkers.js",
     "node_modules/playwright-core/lib/tools/trace/SKILL.md",
     "node_modules/playwright/README.md",
     "node_modules/playwright/lib/agents/playwright-test-generator.agent.md",
@@ -389,7 +400,6 @@
     "node_modules/@next/eslint-plugin-next/node_modules/fast-glob/README.md",
     "node_modules/@next/eslint-plugin-next/node_modules/glob-parent/README.md",
     "node_modules/@next/eslint-plugin-next/node_modules/glob-parent/CHANGELOG.md",
-    "projects/doboku-note/reviews/note-articles/N-6_2級土木_最短合格ルートマップ.md",
     "projects/kazu-note/active/sokyu-r08/02-｜ 飲まないと決めた夜、「苦手なもの」の輪郭が見えた/cover.png",
     "projects/kazu-note/active/sokyu-r08/02-｜ 飲まないと決めた夜、「苦手なもの」の輪郭が見えた/cover.svg",
     "projects/kazu-note/images/sokyu-r08-01/cover.svg",
