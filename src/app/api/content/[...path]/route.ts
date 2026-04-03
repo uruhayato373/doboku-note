@@ -30,13 +30,12 @@ export async function GET(
     process.cwd(),
     '.local',
     'r2',
-    'content',
     ...pathSegments
   );
 
   // Prevent path traversal
   const resolvedPath = path.resolve(filePath);
-  const baseDir = path.resolve(process.cwd(), '.local', 'r2', 'content');
+  const baseDir = path.resolve(process.cwd(), '.local', 'r2');
 
   if (!resolvedPath.startsWith(baseDir)) {
     return NextResponse.json(

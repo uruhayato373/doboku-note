@@ -11,7 +11,7 @@ import { getAllComponents } from "@/lib/component-loader";
 
 // 静的パラメータの生成
 export async function generateStaticParams() {
-  const postIds = getAllPostIds();
+  const postIds = await getAllPostIds();
   return postIds.map((id) => ({
     id,
   }));
@@ -24,7 +24,7 @@ export async function generateMetadata({
   params: Promise<{ id: string }>;
 }): Promise<Metadata> {
   const { id } = await params;
-  const post = getPost(id);
+  const post = await getPost(id);
 
   if (!post) {
     return {
@@ -38,7 +38,7 @@ export async function generateMetadata({
 
 export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const post = getPost(id);
+  const post = await getPost(id);
 
   if (!post) {
     notFound();
@@ -46,6 +46,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
 
   // 記事に基づいて動的にコンポーネントを取得
   const components = await getAllComponents(post);
+  const allPosts = await getAllPosts();
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
@@ -63,7 +64,7 @@ export default async function BlogPost({ params }: { params: Promise<{ id: strin
 
             {/* 右側サイドバー */}
             <aside className="w-full lg:w-80 flex-shrink-0">
-              <BlogSidebar post={post} allPosts={getAllPosts()} />
+              <BlogSidebar post={post} allPosts={allPosts} />
             </aside>
           </div>
         </div>

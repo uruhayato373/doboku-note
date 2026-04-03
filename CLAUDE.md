@@ -85,9 +85,9 @@ docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
 - 画像: Cloudflare R2 から配信。Gitには含めない
   - R2 URL（本番）: `https://storage.doboku-note.com/content/{カテゴリ}/img/{ファイル名}`
   - MDXでの参照: `<img src="/content/{カテゴリ}/img/{ファイル名}" />`（相対パス）
-  - ローカル開発: `.local/r2/content/` から配信（`scripts/serve-local-r2.mjs`）
+  - ローカル開発: `.local/r2/content/` から API ルート（`src/app/api/content/[...path]/route.ts`）経由で配信
   - 本番: Cloudflare Pages `_redirects` で R2 にリダイレクト
-  - **ダウンロード（ローカル初期化）**: `/sync-r2-images` または `npm run download-images --prefix {カテゴリ}`
+  - **ダウンロード（ローカル初期化）**: `npm run download-images` または `/sync-r2-images`
   - **アップロード（R2反映）**: `node scripts/upload-images-to-r2.mjs --prefix {カテゴリ}`
   - `content/**/img/` は `.gitignore` 対象
   - `static/img/` はサイト共通素材（favicon, logo等）専用
@@ -101,11 +101,11 @@ docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
 ## 頻用コマンド
 
 ```bash
-npm start                 # ローカル開発サーバー
+npm run dev               # ローカル開発サーバー（MDX+画像をローカルR2に同期後起動）
 npm run build             # 本番ビルド
 npm run serve             # ビルド結果のプレビュー
-npm run download-images   # R2から画像をローカルに取得（初回・画像追加後）
-npm run sync-images       # content/img/ → .local/r2/ にコピー（dev時に自動実行）
+node scripts/sync-r2-content.mjs   # MDXファイル + 画像を .local/r2/content/ と public/content/ に同期
+node scripts/upload-images-to-r2.mjs  # MDXファイルと画像をR2にアップロード
 ```
 
 ## スキル一覧
@@ -171,22 +171,12 @@ npm run sync-images       # content/img/ → .local/r2/ にコピー（dev時に
 | `/verify-content` | MDX内容をソースPDFと照合・検証 | `.claude/skills/content/verify-content/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 
-#### PDF→MDX 教材インポート系スキル
+#### PDF→MDX 試験特化スキル
 
 | スキル | 用途 | 定義 |
 |---|---|---|
-| `/create-import-skill` | **メタスキル**: PDFインポートスキルの自動生成ガイド（汎用テンプレート定義済み） | `.claude/skills/content/create-import-skill/SKILL.md` |
-| `/fishery-port-import` | 漁港設計参考図書PDF→MDX変換 | `.claude/skills/content/fishery-port-import/SKILL.md` |
-| `/noise-manual-import` | 騒音評価マニュアルPDF→MDX変換 | `.claude/skills/content/noise-manual-import/SKILL.md` |
-| `/river-design-import` | 河川砂防技術基準（設計編）技術資料PDF→MDX変換 | `.claude/skills/content/river-design-import/SKILL.md` |
-| `/common-specs-import` | 土木工事共通仕様書PDF→MDX変換 | `.claude/skills/content/common-specs-import/SKILL.md` |
-| `/civil-law-import` | 民法テキストPDF→MDX変換 | `.claude/skills/content/civil-law-import/SKILL.md` |
-| `/fix-design-manual-figures` | 設計便覧の図品質修正（テキスト映り込み・出典欠落） | `.claude/skills/content/fix-design-manual-figures/SKILL.md` |
-| `/design-manual-import` | 近畿地方整備局 設計便覧PDF→MDX変換 | `.claude/skills/content/design-manual-import/SKILL.md` |
-| `/tech-management-import` | 土木技術管理規定集PDF→MDX変換 | `.claude/skills/content/tech-management-import/SKILL.md` |
-| `/civil-general-import` | 土木施工管理技術テキスト（土木一般編）PDF→MDX変換 | `.claude/skills/content/civil-general-import/SKILL.md` |
-| `/construction-management-import` | 土木施工管理技術テキスト（施工管理・法規編）PDF→MDX変換 | `.claude/skills/content/construction-management-import/SKILL.md` |
-| `/civil-planning-import` | 土木計画学PDF→MDX変換（20章677P） | `.claude/skills/content/civil-planning-import/SKILL.md` |
+| `/cem-pdf-to-mdx` | 技術士CEM用PDF→MDX変換（論文・事例特化） | `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` |
+| `/civil-construction-1-pdf-to-mdx` | 1級土木用PDF→MDX変換（過去問・基準特化） | `.claude/skills/content/civil-construction-1-pdf-to-mdx/SKILL.md` |
 
 ### ui — UI/UX
 
@@ -261,6 +251,7 @@ npm run sync-images       # content/img/ → .local/r2/ にコピー（dev時に
 | `seo-auditor` | SEO 監査・アナリティクス収集 | Evaluator | seo-audit, fetch-gsc-data, fetch-ga4-data, keyword-gap |
 | `content-planner` | コンテンツ企画の統括 | Generator | discover-trends-civil, discover-exam-season, exam-demand, keyword-gap, plan-affiliate |
 | `content-qa` | コンテンツ品質評価（5軸ルーブリック） | Evaluator | check-mdx, verify-content, qa-pdf-mdx, clean-pdf-artifacts |
+| `cem-advisor` | CEM試験対策（総合技術監理） | Generator | cem-content-generate, cem-study-plan（実装予定） |
 
 ### チーム連携パターン
 
@@ -269,6 +260,7 @@ npm run sync-images       # content/img/ → .local/r2/ にコピー（dev時に
 | PDF→MDX変換 | Generator（変換実行）→ **content-qa**（品質評価）→ 不合格時はGeneratorに差し戻し |
 | 月次コンテンツ企画 | content-planner → seo-auditor（データ）→ strategy-advisor（レビュー） |
 | 試験シーズン対策 | content-planner（exam-demand + discover-exam-season）→ plan-affiliate |
+| CEM試験対策 | cem-advisor（cem-content-generate → cem-study-plan） |
 | 四半期戦略レビュー | strategy-advisor（competitor-audit → keyword-gap → monetization-strategy → pre-mortem） |
 | 週次 PDCA | strategy-advisor（weekly-review → discover-exam-season → weekly-plan） |
 | 広告最適化 | strategy-advisor → audit-ads → plan-affiliate |

@@ -11,8 +11,8 @@ const getSlugByName = (name: string) => {
   return tagInfo ? tagInfo.slug : name;
 };
 
-export default function BlogPage() {
-  const posts = getAllPosts();
+export default async function BlogPage() {
+  const posts = await getAllPosts();
   const tags = Array.from(new Set(posts.flatMap((post) => post.tags)));
 
   return (
