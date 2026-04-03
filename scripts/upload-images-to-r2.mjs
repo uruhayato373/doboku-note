@@ -1,10 +1,12 @@
 /**
- * content/ 配下の img/ ディレクトリ内の画像を R2 (S3 API) にアップロードする。
+ * Upload MDX files and images to R2 (S3 API)
  *
  * Usage:
- *   node scripts/upload-images-to-r2.mjs              # 全画像をアップロード
- *   node scripts/upload-images-to-r2.mjs --dry-run    # プレビューのみ
- *   node scripts/upload-images-to-r2.mjs --prefix general/design-manual  # 特定ディレクトリのみ
+ *   node scripts/upload-images-to-r2.mjs                      # MDX + 画像をアップロード
+ *   node scripts/upload-images-to-r2.mjs --images-only         # 画像のみ
+ *   node scripts/upload-images-to-r2.mjs --mdx-only            # MDXのみ
+ *   node scripts/upload-images-to-r2.mjs --dry-run             # プレビューのみ
+ *   node scripts/upload-images-to-r2.mjs --prefix exam/civil   # 特定ディレクトリのみ
  */
 import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import fs from 'fs';
@@ -49,6 +51,9 @@ const dryRun = args.includes('--dry-run');
 const skipExisting = args.includes('--skip-existing');
 const prefixIdx = args.indexOf('--prefix');
 const filterPrefix = prefixIdx !== -1 ? args[prefixIdx + 1] : null;
+const imagesOnly = args.includes('--images-only');
+const mdxOnly = args.includes('--mdx-only');
+const uploadBoth = !imagesOnly && !mdxOnly;
 
 const MIME_TYPES = {
   '.png': 'image/png',
@@ -70,24 +75,54 @@ function findImages(dir, base = '') {
     } else {
       const ext = path.extname(entry.name).toLowerCase();
       if (MIME_TYPES[ext]) {
-        results.push({ full, rel, ext });
+        results.push({ full, rel, ext, type: 'image' });
       }
     }
   }
   return results;
 }
 
-let images = findImages(contentDir);
-if (filterPrefix) {
-  images = images.filter((img) => img.rel.startsWith(filterPrefix));
+function findMdxFiles(dir, base = '') {
+  const results = [];
+  if (!fs.existsSync(dir)) return results;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const rel = path.join(base, entry.name);
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...findMdxFiles(full, rel));
+    } else if (entry.name.endsWith('.mdx')) {
+      results.push({ full, rel, ext: '.mdx', type: 'mdx' });
+    }
+  }
+  return results;
 }
 
-console.log(`Found ${images.length} images${dryRun ? ' (dry-run)' : ''}`);
+let items = [];
+
+if (uploadBoth || !mdxOnly) {
+  const images = findImages(contentDir);
+  if (filterPrefix) {
+    items.push(...images.filter((img) => img.rel.startsWith(filterPrefix)));
+  } else {
+    items.push(...images);
+  }
+}
+
+if (uploadBoth || mdxOnly) {
+  const mdxFiles = findMdxFiles(contentDir);
+  if (filterPrefix) {
+    items.push(...mdxFiles.filter((mdx) => mdx.rel.startsWith(filterPrefix)));
+  } else {
+    items.push(...mdxFiles);
+  }
+}
+
+console.log(`Found ${items.length} items${dryRun ? ' (dry-run)' : ''}`);
 if (filterPrefix) console.log(`  Prefix: ${filterPrefix}`);
 
 if (dryRun) {
-  for (const img of images.slice(0, 20)) console.log(`  ${img.rel}`);
-  if (images.length > 20) console.log(`  ... and ${images.length - 20} more`);
+  for (const item of items.slice(0, 20)) console.log(`  ${item.rel}`);
+  if (items.length > 20) console.log(`  ... and ${items.length - 20} more`);
   process.exit(0);
 }
 
@@ -96,10 +131,17 @@ let skipped = 0;
 let failed = 0;
 const startTime = Date.now();
 
-async function uploadOne(img) {
-  const key = `content/${img.rel}`;
-  const contentType = MIME_TYPES[img.ext] || 'application/octet-stream';
-  const body = fs.readFileSync(img.full);
+async function uploadOne(item) {
+  const key = `content/${item.rel}`;
+  let contentType;
+
+  if (item.type === 'mdx') {
+    contentType = 'text/plain; charset=utf-8';
+  } else {
+    contentType = MIME_TYPES[item.ext] || 'application/octet-stream';
+  }
+
+  const body = fs.readFileSync(item.full);
 
   if (skipExisting) {
     try {
@@ -125,7 +167,7 @@ async function uploadOne(img) {
     uploaded++;
     if ((uploaded + skipped) % 100 === 0) {
       const elapsed = ((Date.now() - startTime) / 1000).toFixed(0);
-      console.log(`  Progress: ${uploaded + skipped}/${images.length} (${elapsed}s)`);
+      console.log(`  Progress: ${uploaded + skipped}/${items.length} (${elapsed}s)`);
     }
   } catch (e) {
     console.error(`  FAILED: ${key} - ${e.message?.slice(0, 80)}`);
@@ -134,8 +176,8 @@ async function uploadOne(img) {
 }
 
 // Process in concurrent batches
-for (let i = 0; i < images.length; i += CONCURRENCY) {
-  const batch = images.slice(i, i + CONCURRENCY);
+for (let i = 0; i < items.length; i += CONCURRENCY) {
+  const batch = items.slice(i, i + CONCURRENCY);
   await Promise.all(batch.map(uploadOne));
 }
 

@@ -13,7 +13,7 @@ import { Metadata } from 'next';
  * Creates pages for all MDX files in content/ directory.
  */
 export async function generateStaticParams() {
-  const slugs = getAllDocSlugs();
+  const slugs = await getAllDocSlugs();
   return slugs.map((slug) => ({
     slug,
   }));
@@ -28,7 +28,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string[] }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const doc = getDoc(slug);
+  const doc = await getDoc(slug);
 
   if (!doc) {
     return {
@@ -53,7 +53,7 @@ export default async function DocPage({
   params: Promise<{ slug: string[] }>;
 }) {
   const { slug } = await params;
-  const doc = getDoc(slug);
+  const doc = await getDoc(slug);
 
   if (!doc) {
     notFound();
@@ -63,7 +63,7 @@ export default async function DocPage({
   // Currently all exam docs use examSidebar
   const sidebarId = slug[0] === 'exam' ? 'examSidebar' : 'generalSidebar';
   const sidebar = getSidebar(sidebarId);
-  const docTitleMap = getDocTitleMap();
+  const docTitleMap = await getDocTitleMap();
 
   // Load MDX components
   const components = await getAllComponents(doc as any);

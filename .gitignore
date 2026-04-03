@@ -39,8 +39,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Content images (served from R2: storage.doboku-note.com)
-content/**/img/
+# Content (managed in R2: storage.doboku-note.com)
+/content/
 /public/content/
 
 # Source PDFs/images (conversion input)
