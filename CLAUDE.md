@@ -13,7 +13,7 @@
 - **URL構造**: `/docs/{slug}` の完全フラット設計。category + tags でグループ化を実現
 - **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
 - **収益モデル**: AdSense + アフィリエイト + note有料記事 + iOSアプリ（サブスク）
-- **詳細**: `docs/00_プロジェクト管理/00_設計思想.md`
+- **詳細**: `docs/project/design.md`
 
 ## 技術スタック
 
@@ -62,7 +62,7 @@ src/                                # カスタムコンポーネント・CSS・
     docs/[...slug]/page.tsx         # 全ドキュメントページの動的ルート（フラット）
     api/content/[...path]/route.ts  # 画像配信API
 
-docs/00_プロジェクト管理/  # プロジェクト管理ドキュメント
+docs/project/            # プロジェクト管理ドキュメント
 .github/workflows/     # CI/CD
 ```
 
@@ -194,6 +194,7 @@ published: true                      # false なら下書き・非表示
 ## 頻用コマンド
 
 ```bash
+/dev-start                # ローカル開発サーバー起動（ポート3020自動クリーンアップ）- 推奨
 npm run dev               # ローカル開発サーバー起動（.local/r2/posts/ から配信）
 npm run build             # 本番ビルド（generateStaticParams で /docs/{slug} を生成）
 npm run serve             # ビルド結果のプレビュー
@@ -201,12 +202,14 @@ npm run type-check        # TypeScript チェック
 
 # 画像・コンテンツ管理
 /sync-r2-images           # R2 上の画像をローカルに同期（初回・追加時）
-node scripts/upload-images-to-r2.mjs   # .local/r2/posts/**/img/ を R2 にアップロード（実装予定）
+node scripts/upload-images-to-r2.mjs   # .local/r2/posts/**/img/ を R2 にアップロード
 
 # その他
 npm run lint              # ESLint チェック
 npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ```
+
+**Note**: 開発サーバーは `/dev-start` スキルで起動すると、ポート3020が使用中の場合自動的にプロセスをkillしてから起動します。
 
 ## スキル一覧
 
@@ -235,6 +238,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 
 | スキル | 用途 | 定義 |
 |---|---|---|
+| `/dev-start` | ポート3020をクリーンアップして開発サーバー起動 | `.claude/skills/dev/dev-start/SKILL.md` |
 | `/deploy` | Cloudflare Pages へデプロイ | `.claude/skills/dev/deploy/SKILL.md` |
 | `/create-skill` | スキル作成ガイド | `.claude/skills/dev/create-skill/SKILL.md` |
 | `/reset-git-history` | Git 履歴リセット | `.claude/skills/dev/reset-git-history/SKILL.md` |
