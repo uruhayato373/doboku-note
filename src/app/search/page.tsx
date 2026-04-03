@@ -78,7 +78,7 @@ export default function SearchPage() {
             記事検索
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            カッコムの記事からお探しの情報を見つけましょう
+            doboku-noteの記事からお探しの情報を見つけましょう
           </p>
         </div>
 

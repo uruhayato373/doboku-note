@@ -3,8 +3,8 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
-  title: 'プライバシーポリシー | カッコム',
-  description: 'カッコムのプライバシーポリシーについて説明します。個人情報の収集、利用、管理について詳しく記載しています。',
+  title: 'プライバシーポリシー | doboku-note',
+  description: 'doboku-noteのプライバシーポリシーについて説明します。個人情報の収集、利用、管理について詳しく記載しています。',
 };
 
 export default function PrivacyPage() {
@@ -31,7 +31,7 @@ export default function PrivacyPage() {
               1. はじめに
             </h2>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-              カッコム（以下「当サイト」）は、ユーザーの個人情報の保護を重要な責務と考え、以下のプライバシーポリシーに従って個人情報を適切に取り扱います。
+              doboku-note（以下「当サイト」）は、ユーザーの個人情報の保護を重要な責務と考え、以下のプライバシーポリシーに従って個人情報を適切に取り扱います。
             </p>
           </section>
 
