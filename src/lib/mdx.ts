@@ -92,7 +92,6 @@ function getPostsFromDirectory(): Post[] {
           matterResult.data.description || matterResult.data.excerpt || "",
         date: matterResult.data.date || matterResult.data.publishedAt,
         category: matterResult.data.category as any, // 型アサーションで一時的に解決
-        subCategory: matterResult.data.subCategory as any,
         tags: matterResult.data.tags || [],
         readTime: calculateReadTime(matterResult.content),
         isPremium: matterResult.data.isPremium || false,
@@ -130,7 +129,6 @@ export function getPost(id: string): Post | null {
       matterResult.data.description || matterResult.data.excerpt || "",
     date: matterResult.data.date || matterResult.data.publishedAt,
     category: matterResult.data.category as any, // 型アサーションで一時的に解決
-    subCategory: matterResult.data.subCategory as any,
     tags: matterResult.data.tags || [],
     readTime: calculateReadTime(matterResult.content),
     isPremium: matterResult.data.isPremium || false,

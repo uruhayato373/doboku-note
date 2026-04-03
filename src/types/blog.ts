@@ -10,7 +10,6 @@ export interface Post {
   description: string;
   date: string;
   category: string;
-  subCategory: string;
   tags: string[];
   content: string;
   headings: {
@@ -35,7 +34,6 @@ export interface PostSummary {
   description: string;
   date: string;
   category: string;
-  subCategory: string;
   tags: string[];
   isPremium: boolean;
   readTime?: string;

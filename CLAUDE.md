@@ -6,8 +6,8 @@
 
 - **サイトの焦点**: 1級土木施工管理技士に特化。ユーザーが「ここだけで合格できる」体験を提供
 - **コンテンツ管理**: 
-  - **ドキュメント** (exam guide など): Obsidian（~/obsidian）で下書き→品質管理→本リポジトリに配置
-  - **ブログ記事**: `src/content/posts/` に MDX で下書き・公開を一元管理。frontmatter の `published` フラグで公開管理（`published: false` は非表示）
+  - **ドキュメント** (exam guide など): `content/` に MDX で管理
+  - **ブログ記事**: `src/content/posts/` と `drafts/writing/` に MDX で一元管理。frontmatter の `published` フラグで公開管理（`published: false` は非表示）
 - **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
 - **収益モデル**: AdSense + アフィリエイト + note有料記事 + iOSアプリ（サブスク）
 - **詳細**: `docs/00_プロジェクト管理/00_設計思想.md`
