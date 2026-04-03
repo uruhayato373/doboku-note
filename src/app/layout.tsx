@@ -60,7 +60,7 @@ export default function RootLayout({
               defaultTheme="system"
               enableSystem={true}
               disableTransitionOnChange={false}
-              storageKey="kakkom-theme"
+              storageKey="doboku-note-theme"
             >
               <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
                 {children}

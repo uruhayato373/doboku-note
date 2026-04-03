@@ -179,8 +179,8 @@ export default function PrivacyPage() {
                 本プライバシーポリシーに関するお問い合わせは、以下の方法でお願いします：
               </p>
               <div className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
-                <p className="font-semibold mb-2">カッコム運営事務局</p>
-                <p>Email: privacy@kakkom.com</p>
+                <p className="font-semibold mb-2">doboku-note 運営事務局</p>
+                <p>Email: privacy@doboku-note.com</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                   ※お問い合わせの際は、件名に「プライバシーポリシーに関するお問い合わせ」と記載してください。
                 </p>

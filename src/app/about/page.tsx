@@ -12,14 +12,14 @@ import {
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "カッコムについて｜40代公務員のためのライフスタイルメディア",
+  title: "doboku-noteについて｜1級土木施工管理技士 試験対策サイト",
   description:
-    "カッコム（kakkom.com）は40代公務員・会社員向けのライフスタイルメディアです。仕事効率化・副業・スキンケア・ファッション・健康管理など、シゴデキ×イケオジを実現する情報を発信。運営者は現役地方公務員。",
+    "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。過去問解説・キーワード解説・勉強方法を提供。",
   openGraph: {
-    title: "カッコムについて｜40代公務員のためのライフスタイルメディア",
+    title: "doboku-noteについて｜1級土木施工管理技士 試験対策サイト",
     description:
-      "カッコム（kakkom.com）は40代公務員・会社員向けのライフスタイルメディアです。シゴデキ×イケオジを実現する情報を発信。",
-    url: "https://kakkom.com/about",
+      "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。",
+    url: "https://doboku-note.com/about",
   },
 };
 
@@ -331,13 +331,13 @@ export default function AboutPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="https://twitter.com/kakkomu_blog"
+                href="https://twitter.com/doboku_note"
                 className="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
               >
                 Twitterでフォロー
               </a>
               <a
-                href="https://note.com/kakkomu"
+                href="https://note.com/doboku_note"
                 className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-primary-600 transition-all"
               >
                 noteでフォロー

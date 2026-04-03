@@ -39,7 +39,6 @@ export default function ArticleImage({
     >
       <div className="w-full">
         {isSvg ? (
-          /* eslint-disable-next-line @next/next/no-img-element */
           <img
             src={toR2Url(src)}
             alt={alt}

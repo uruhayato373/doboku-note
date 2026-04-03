@@ -1,8 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { cache } from 'react';
 import { parseCallouts } from './mdx-callout-parser';
-import { S3Client, GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
+import { GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
+import { getS3Client } from './r2-client';
 
 /**
  * Preprocess MDX content for compatibility with MDX v3+ strict parser.
@@ -11,7 +13,7 @@ import { S3Client, GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/clien
  * - Escapes stray { } in non-code, non-JSX-component, non-math contexts
  */
 function preprocessMDX(content: string): string {
-  let result = content
+  const result = content
     .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
     .replace(/<!--[\s\S]*?-->/g, '');
 
@@ -44,6 +46,7 @@ function preprocessMDX(content: string): string {
 
     // Escape remaining { and } that are NOT part of JSX expressions
     if (line.includes('{') && !line.match(/^\s*\{.*\}\s*$/)) {
+      // eslint-disable-next-line no-useless-escape
       lines[i] = line.replace(/(?<![<])\{(?![\/\*])/g, (_match, offset) => {
         const before = line.substring(0, offset);
         const dollarCount = (before.match(/\$/g) || []).length;
@@ -87,29 +90,6 @@ export type Doc = {
   content: string; // Markdown content with Callout syntax converted
 };
 
-/**
- * Create S3 client for R2 access in production
- */
-function getS3Client(): S3Client {
-  const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-  const accessKeyId = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
-
-  if (!accountId || !accessKeyId || !secretAccessKey) {
-    throw new Error(
-      'Missing R2 credentials: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_R2_ACCESS_KEY_ID, CLOUDFLARE_R2_SECRET_ACCESS_KEY'
-    );
-  }
-
-  return new S3Client({
-    region: 'auto',
-    endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
-    credentials: {
-      accessKeyId,
-      secretAccessKey,
-    },
-  });
-}
 
 /**
  * Recursively find all .mdx files in a directory and return their flattened slugs.
@@ -151,7 +131,7 @@ function findMdxFiles(dir: string, basePath: string[] = []): string[] {
  * @param slug - Flattened slug string, e.g., 'civil-construction-1-guide-strategy'
  * @returns Doc object with meta and content, or null if file doesn't exist or published=false
  */
-export async function getDoc(slug: string): Promise<Doc | null> {
+export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | null> {
   // Prefer local filesystem when available
   const localResult = findMdxFileBySlug(localContentDirectory, slug);
   if (localResult) {
@@ -218,7 +198,7 @@ export async function getDoc(slug: string): Promise<Doc | null> {
     }
     throw error;
   }
-}
+});
 
 /**
  * Helper function to find a file by its flattened slug.
@@ -310,12 +290,13 @@ export async function getAllDocSlugs(): Promise<string[]> {
  */
 export async function getDocTitleMap(): Promise<Record<string, string>> {
   const slugs = await getAllDocSlugs();
+  const docs = await Promise.all(slugs.map((slug) => getDoc(slug)));
   const titleMap: Record<string, string> = {};
 
-  for (const slug of slugs) {
-    const doc = await getDoc(slug);
+  for (let i = 0; i < slugs.length; i++) {
+    const doc = docs[i];
     if (doc) {
-      titleMap[slug] = doc.meta.sidebar_label || doc.meta.title || slug;
+      titleMap[slugs[i]!] = doc.meta.sidebar_label || doc.meta.title || slugs[i]!;
     }
   }
 
@@ -330,16 +311,8 @@ export async function getDocTitleMap(): Promise<Record<string, string>> {
  */
 export async function getDocsByCategory(category: string): Promise<Doc[]> {
   const slugs = await getAllDocSlugs();
-  const docs: Doc[] = [];
-
-  for (const slug of slugs) {
-    const doc = await getDoc(slug);
-    if (doc && doc.meta.category === category) {
-      docs.push(doc);
-    }
-  }
-
-  return docs;
+  const allDocs = await Promise.all(slugs.map((slug) => getDoc(slug)));
+  return allDocs.filter((doc): doc is Doc => doc !== null && doc.meta.category === category);
 }
 
 /**
@@ -349,14 +322,6 @@ export async function getDocsByCategory(category: string): Promise<Doc[]> {
  */
 export async function getDocsByTag(tag: string): Promise<Doc[]> {
   const slugs = await getAllDocSlugs();
-  const docs: Doc[] = [];
-
-  for (const slug of slugs) {
-    const doc = await getDoc(slug);
-    if (doc && doc.meta.tags?.includes(tag)) {
-      docs.push(doc);
-    }
-  }
-
-  return docs;
+  const allDocs = await Promise.all(slugs.map((slug) => getDoc(slug)));
+  return allDocs.filter((doc): doc is Doc => doc !== null && (doc.meta.tags?.includes(tag) ?? false));
 }

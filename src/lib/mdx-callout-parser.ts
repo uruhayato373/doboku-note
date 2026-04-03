@@ -83,9 +83,10 @@ export function parseCallouts(content: string): string {
  * CalloutコンポーネントのJSX文字列を生成
  */
 function generateCalloutComponent(type: string, title: string, content: string[]): string {
-  const titleAttr = title ? ` title="${title}"` : '';
+  const escapedTitle = title.replace(/"/g, '&quot;');
+  const titleAttr = escapedTitle ? ` title="${escapedTitle}"` : '';
   const contentText = content.join('\n');
-  
+
   return `<Callout type="${type}"${titleAttr}>\n${contentText}\n</Callout>`;
 }
 
@@ -100,7 +101,8 @@ export function parseInlineCallouts(content: string): string {
       const cleanTitle = (title as string)?.trim() || '';
       const supportedType = SUPPORTED_TYPES.includes(cleanType) ? cleanType : 'info';
       
-      return `<Callout type="${supportedType}" title="${cleanTitle}">`;
+      const escapedTitle = cleanTitle.replace(/"/g, '&quot;');
+      return `<Callout type="${supportedType}" title="${escapedTitle}">`;
     }
   );
 } 

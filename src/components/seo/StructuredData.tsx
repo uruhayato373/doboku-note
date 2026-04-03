@@ -7,7 +7,7 @@ interface StructuredDataProps {
 
 export default function StructuredData({ type, post }: StructuredDataProps) {
   const generateStructuredData = () => {
-    const baseUrl = "https://kakkom.com";
+    const baseUrl = "https://doboku-note.com";
 
     switch (type) {
       case "article":
@@ -21,11 +21,11 @@ export default function StructuredData({ type, post }: StructuredDataProps) {
           image: `${baseUrl}/ogp/${post.id}.jpg`,
           author: {
             "@type": "Person",
-            name: "カッコム編集部",
+            name: "doboku-note 編集部",
           },
           publisher: {
             "@type": "Organization",
-            name: "カッコム",
+            name: "doboku-note",
             logo: {
               "@type": "ImageObject",
               url: `${baseUrl}/logo.png`,
@@ -47,7 +47,7 @@ export default function StructuredData({ type, post }: StructuredDataProps) {
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "カッコム",
-          description: "カッコいい公務員を目指して",
+          description: "1級土木施工管理技士・技術士の試験対策サイト",
           url: baseUrl,
           potentialAction: {
             "@type": "SearchAction",
@@ -62,17 +62,16 @@ export default function StructuredData({ type, post }: StructuredDataProps) {
           "@type": "Organization",
           name: "カッコム",
           description:
-            "40代からの公務員・会社員をターゲットとしたライフスタイルメディア",
+            "1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイト",
           url: baseUrl,
           logo: `${baseUrl}/logo.png`,
           sameAs: [
-            "https://twitter.com/kakkomu",
-            "https://www.facebook.com/kakkomu",
+            "https://twitter.com/doboku_note",
           ],
           contactPoint: {
             "@type": "ContactPoint",
             contactType: "customer service",
-            email: "info@kakkom.com",
+            email: "info@doboku-note.com",
           },
         };
 
