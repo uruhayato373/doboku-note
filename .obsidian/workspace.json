@@ -60,7 +60,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "技士試験_",
+                "query": "キーワード",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -191,7 +191,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 243.5
+    "width": 289.5
   },
   "right": {
     "id": "6294de6ad30e7008",
@@ -352,7 +352,7 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "797c7ab822a9fc8b",
+  "active": "dd4b4b1405000366",
   "lastOpenFiles": [
     "node_modules/next/dist/server/patch-error-inspect.js",
     "node_modules/next/dist/esm/server/patch-error-inspect.js",
