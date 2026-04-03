@@ -2,7 +2,8 @@ import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSy
 import { join, relative } from 'path';
 import matter from 'gray-matter';
 
-const CONTENT_DIR = 'src/content/posts';
+// New unified content location
+const CONTENT_DIR = '.local/r2/posts';
 const OUTPUT_PATH = join('public', 'search-index.json');
 
 function scanMdxFiles(dir, files = []) {
@@ -60,21 +61,29 @@ for (const file of files) {
   const raw = readFileSync(file, 'utf-8');
   const { data, content } = matter(raw);
 
-  // Skip draft content
-  if (data.draft) continue;
+  // Skip unpublished content
+  if (data.published === false) continue;
 
   const relPath = relative(CONTENT_DIR, file).replace(/\\/g, '/').replace(/\.(mdx|md)$/, '');
 
-  // Build URL path for blog posts
-  const urlPath = `/blog/${relPath}`;
+  // Convert hierarchical path to flat slug
+  // E.g., civil-construction-1/guide/strategy.mdx → civil-construction-1-guide-strategy
+  const slug = relPath.split('/').join('-');
+
+  // Build URL path for docs (flat structure)
+  const urlPath = `/docs/${slug}`;
 
   const title = data.title || relPath.split('/').pop();
+  const category = data.category || relPath.split('/')[0];
+  const tags = data.tags || [];
   const stripped = stripMdx(content);
   const preview = stripped.slice(0, 200);
 
   index.push({
     title,
     path: urlPath,
+    category,
+    tags,
     preview,
   });
 }
