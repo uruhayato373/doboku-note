@@ -123,13 +123,13 @@ node scripts/upload-images-to-r2.mjs  # MDXファイルと画像をR2にアッ�
 | `/knowledge` | 過去の失敗と学びを参照・追記 | `.claude/skills/management/knowledge/SKILL.md` |
 | `/pre-mortem` | Pre-Mortem の実施 | `.claude/skills/management/pre-mortem/SKILL.md` |
 
-### analytics — サイト分析
+### analytics — サイト分析（Phase 2で復活）
 
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/fetch-gsc-data` | GSC から検索パフォーマンスデータを取得 | `.claude/skills/analytics/fetch-gsc-data/SKILL.md` |
-| `/fetch-ga4-data` | GA4 からアクセスデータを取得 | `.claude/skills/analytics/fetch-ga4-data/SKILL.md` |
-| `/seo-audit` | SEO 総合監査 | `.claude/skills/analytics/seo-audit/SKILL.md` |
+⏸️ **現在のスコープ**: Phase 1（試験対策webサイト作成）では不要。
+Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
+- `/fetch-gsc-data` — Google Search Console のデータ取得
+- `/fetch-ga4-data` — Google Analytics 4 のアクセスデータ取得
+- `/seo-audit` — SEO 総合監査
 
 ### dev — 開発
 
@@ -183,18 +183,17 @@ node scripts/upload-images-to-r2.mjs  # MDXファイルと画像をR2にアッ�
 | スキル | 用途 | 定義 |
 |---|---|---|
 | `/design-review` | デザインシステム準拠レビュー（7カテゴリ・重大度判定） | `.claude/skills/ui/design-review/SKILL.md` |
-| `/ui-panel-review` | 10人の専門家パネルによるUI/UX評価 | `.claude/skills/ui/ui-panel-review/SKILL.md` |
 
-### strategy — 競合調査・市場分析
+### strategy — 競合調査・市場分析（Phase 2で復活）
 
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/competitor-audit` | 競合サイト調査（コンテンツ・SEO・収益モデル比較） | `.claude/skills/strategy/competitor-audit/SKILL.md` |
-| `/keyword-gap` | GSC + 競合比較でコンテンツギャップを特定 | `.claude/skills/strategy/keyword-gap/SKILL.md` |
-| `/exam-demand` | 資格試験の検索需要調査・不足コンテンツ提案 | `.claude/skills/strategy/exam-demand/SKILL.md` |
-| `/discover-trends-civil` | 土木系ニュース・業界動向からトレンド発見 | `.claude/skills/strategy/discover-trends-civil/SKILL.md` |
-| `/discover-exam-season` | 試験日程に基づく季節性コンテンツ戦略 | `.claude/skills/strategy/discover-exam-season/SKILL.md` |
-| `/content-roadmap` | コンテンツ拡充ロードマップの生成（全データ統合） | `.claude/skills/strategy/content-roadmap/SKILL.md` |
+⏸️ **現在のスコープ**: Phase 1（試験対策webサイト作成）では不要。
+Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
+- `/keyword-gap` — GSC + 競合比較でコンテンツギャップを特定
+- `/exam-demand` — 資格試験の検索需要調査・不足コンテンツ提案
+- `/discover-exam-season` — 試験日程に基づく季節性コンテンツ戦略
+- `/plan-affiliate` — 書籍・教材・通信講座のアフィリエイト記事企画
+
+**その他のスキル** （competitor-audit, discover-trends-civil, content-roadmap）は Phase 3 で復活予定。
 
 ### 複数資格対応の進め方（Phase別）
 
@@ -233,37 +232,34 @@ node scripts/upload-images-to-r2.mjs  # MDXファイルと画像をR2にアッ�
 
 同じテンプレート駆動アプローチで、医療系・法律系資格にも対応可能。スキル追加ゼロ。
 
-### ads — 広告・アフィリエイト
+### ads — 広告・アフィリエイト（Phase 2で復活）
 
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/register-affiliate-banner` | アフィリエイトバナーの登録 | `.claude/skills/ads/register-affiliate-banner/SKILL.md` |
-| `/plan-affiliate` | 書籍・教材・通信講座のアフィリエイト記事企画 | `.claude/skills/ads/plan-affiliate/SKILL.md` |
-| `/audit-ads` | AdSense・アフィリエイトの現状監査と最適化提案 | `.claude/skills/ads/audit-ads/SKILL.md` |
+⏸️ **現在のスコープ**: Phase 1（試験対策webサイト作成）では不要。
+Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
+- `/register-affiliate-banner` — アフィリエイトバナーの登録
+- `/audit-ads` — AdSense・アフィリエイトの現状監査と最適化提案
 
 ## エージェント
 
 `.claude/agents/` に定義されたサブエージェント群。Generator/Evaluator分離の原則に基づき設計。
 
-| エージェント | 役割 | 種別 | 担当スキル |
-|---|---|---|---|
-| `strategy-advisor` | 戦略・PDCA・レビュールーティング | Generator | weekly-plan/review, growth-loops, monetization-strategy, competitor-audit, keyword-gap |
-| `seo-auditor` | SEO 監査・アナリティクス収集 | Evaluator | seo-audit, fetch-gsc-data, fetch-ga4-data, keyword-gap |
-| `content-planner` | コンテンツ企画の統括 | Generator | discover-trends-civil, discover-exam-season, exam-demand, keyword-gap, plan-affiliate |
-| `content-qa` | コンテンツ品質評価（5軸ルーブリック） | Evaluator | check-mdx, verify-content, qa-pdf-mdx, clean-pdf-artifacts |
-| `cem-advisor` | CEM試験対策（総合技術監理） | Generator | cem-content-generate, cem-study-plan（実装予定） |
+| エージェント | 役割 | 種別 | 担当スキル | Phase 1対応 |
+|---|---|---|---|---|
+| `content-qa` | コンテンツ品質評価（5軸ルーブリック） | Evaluator | check-mdx, verify-content, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
+| `strategy-advisor` | 戦略・PDCA | Generator | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap等はPhase 2で復活） |
+| `seo-auditor` | SEO 監査（Phase 2で復活） | Evaluator | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2で復活 |
+| `content-planner` | コンテンツ企画（Phase 2で復活） | Generator | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2で復活 |
+| `cem-advisor` | CEM試験対策（総合技術監理） | Generator | cem-content-generate, cem-study-plan（実装予定） | 🚧 計画段階 |
 
-### チーム連携パターン
+### チーム連携パターン（Phase 1）
 
 | シナリオ | エージェント連携 |
 |---|---|
-| PDF→MDX変換 | Generator（変換実行）→ **content-qa**（品質評価）→ 不合格時はGeneratorに差し戻し |
-| 月次コンテンツ企画 | content-planner → seo-auditor（データ）→ strategy-advisor（レビュー） |
-| 試験シーズン対策 | content-planner（exam-demand + discover-exam-season）→ plan-affiliate |
+| **Phase 1 開発フロー** | 1. PDF→MDX変換 → 2. **content-qa**（品質評価）→ 3. `/deploy`（本番反映） |
+| 週次 PDCA（簡略版） | strategy-advisor（weekly-review → weekly-plan） |
 | CEM試験対策 | cem-advisor（cem-content-generate → cem-study-plan） |
-| 四半期戦略レビュー | strategy-advisor（competitor-audit → keyword-gap → monetization-strategy → pre-mortem） |
-| 週次 PDCA | strategy-advisor（weekly-review → discover-exam-season → weekly-plan） |
-| 広告最適化 | strategy-advisor → audit-ads → plan-affiliate |
+
+**注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
 
 ## ハーネス設計原則
 
@@ -280,43 +276,32 @@ node scripts/upload-images-to-r2.mjs  # MDXファイルと画像をR2にアッ�
 - 長時間の作業（PDF→MDX変換、大量ファイル編集など）では、自然な区切り（1節完了、1ファイル完了など）ごとにユーザーへ `/compact` の実行を提案すること
 - コンテキストが逼迫していると判断した場合も同様に提案する
 
-## 推奨ワークフロー
-
-### 初回セットアップ
-
-```
-1. /north-star-metric     <- 最重要指標を決める
-2. /growth-loops           <- 成長メカニズムを設計
-3. /monetization-strategy  <- 収益化手段を検討
-4. /competitor-audit       <- 競合を把握
-5. /plan-affiliate         <- アフィリエイト商材を調査
-```
+## 推奨ワークフロー（Phase 1）
 
 ### 週次運用
 
 ```
 日曜〜月曜:
-1. /weekly-review          <- 実績を振り返る
-2. /discover-trends-civil  <- 土木系トレンドを確認
-3. /weekly-plan            <- 来週の計画を立てる
+1. /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質）
+2. /weekly-plan            <- 来週の計画を立てる（PDF→MDX変換・デプロイスケジュール）
 ```
 
-### 四半期レビュー
+### PDF→MDX変換フロー
 
 ```
-1. /competitor-audit       <- 競合状況の変化を調査
-2. /keyword-gap            <- コンテンツギャップの更新
-3. /exam-demand            <- 資格試験需要の再調査
-4. /monetization-strategy  <- 収益戦略の見直し
-5. /audit-ads              <- 広告・アフィリエイトの効果検証
-6. /pre-mortem             <- リスクの再評価
+1. PDF をスキル（/pdf-to-mdx, /civil-construction-1-pdf-to-mdx等）で MDX に変換
+2. /check-mdx で構文チェック
+3. content-qa エージェントで品質評価（5軸ルーブリック）
+4. 改善・修正（必要に応じて /verify-content で PDF と照合）
+5. /deploy で Cloudflare Pages に本番反映
 ```
 
-### 試験シーズン対応
+### リスク評価
 
 ```
-試験2-3ヶ月前:
-1. /discover-exam-season   <- 季節性戦略を立案
-2. /exam-demand --exam XX  <- 該当試験の需要調査
-3. /plan-affiliate         <- 教材アフィリエイト企画
+必要に応じて:
+1. /critical-review        <- 重大なリスクを批判的に評価
+2. /pre-mortem             <- 失敗シナリオをシミュレーション
 ```
+
+**注**: 月次企画・四半期レビュー・競合調査・試験シーズン対策は Phase 2 で開始予定。

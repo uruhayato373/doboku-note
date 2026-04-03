@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { parseCallouts } from './mdx-callout-parser';
 import { S3Client, GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 
-const localContentDirectory = path.join(process.cwd(), '.local', 'r2', 'content');
+const localContentDirectory = path.join(process.cwd(), '.local', 'r2', 'posts');
 
 /**
  * Metadata for a documentation page.
@@ -114,7 +114,7 @@ export async function getDoc(slug: string[]): Promise<Doc | null> {
     // Production: Fetch from R2
     try {
       const s3 = getS3Client();
-      const key = `content/${slug.join('/')}.mdx`;
+      const key = `posts/${slug.join('/')}.mdx`;
       const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
 
       const command = new GetObjectCommand({
@@ -175,7 +175,7 @@ export async function getAllDocSlugs(): Promise<string[][]> {
       while (true) {
         const command = new ListObjectsV2Command({
           Bucket: bucketName,
-          Prefix: 'content/',
+          Prefix: 'posts/',
           ContinuationToken: continuationToken,
         });
 
@@ -184,8 +184,8 @@ export async function getAllDocSlugs(): Promise<string[][]> {
         if (response.Contents) {
           for (const obj of response.Contents) {
             if (!obj.Key) continue;
-            // Match: content/exam/civil-construction-1/guide/strategy.mdx
-            const match = obj.Key.match(/^content\/(.+)\.mdx$/);
+            // Match: posts/exam/civil-construction-1/guide/strategy.mdx
+            const match = obj.Key.match(/^posts\/(.+)\.mdx$/);
             if (match && match[1]) {
               const slug = match[1].split('/');
               slugs.push(slug);
