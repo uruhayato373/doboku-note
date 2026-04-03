@@ -7,7 +7,6 @@ export { default as Callout } from './Callout';
 export { default as CustomUnorderedList } from './CustomUnorderedList';
 export { default as CustomOrderedList } from './CustomOrderedList';
 export { default as ThemeToggle } from './ThemeToggle';
-export { default as BlogCard } from './BlogCard';
 
 // ChatBubble関連コンポーネント
 export { ChatBubble, Question, Answer } from './ChatBubble';

@@ -26,7 +26,6 @@ export async function getCommonComponents() {
     CardList: (await import("@/components/ui/CardList/CardList")).default,
     DataTable: (await import("@/components/ui/DataTable/DataTable")).default,
     Underline: (await import("@/components/ui/Underline/Underline")).default,
-    AuthorCallout: (await import("@/components/blog/content/AuthorCallout/AuthorCallout")).default,
     Timeline: (await import("@/components/ui/Timeline/Timeline")).default,
     Question: (await import("@/components/ui/ChatBubble/Question")).default,
     Answer: (await import("@/components/ui/ChatBubble/Answer")).default,

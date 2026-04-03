@@ -35,21 +35,14 @@ export function renderDynamicComponent(
 // 記事に基づいて必要なコンポーネントを動的に読み込む
 export function getDynamicComponents(post: PostData) {
   const components: Record<string, LazyExoticComponent<ComponentType<any>>> = {};
-  
-  // 記事のカテゴリに基づいて必要なコンポーネントを追加
-  if (post.category === 'イケオジ') {
-    // イケオジカテゴリ固有のコンポーネント
-    if (post.subCategory === '投資・副業') {
-      components.RealEstateCostsTable = componentMap.RealEstateCostsTable;
-    }
-  }
-  
-  // 記事のタグに基づいて必要なコンポーネントを追加
+
+  // Phase 1: 記事のタグに基づいて必要なコンポーネントを追加
+  // Note: subCategory is no longer available (blog feature removed in Phase 1)
   if (post.tags.includes('投資')) {
     components.PieChart = componentMap.PieChart;
     components.StackedBarChart = componentMap.StackedBarChart;
   }
-  
+
   return components;
 }
 
