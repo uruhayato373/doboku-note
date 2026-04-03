@@ -1,23 +1,8 @@
-// "use server"; // 静的エクスポート用に一時的に無効化
-
-import { revalidateTag } from "next/cache";
-
 interface LinkMetadata {
   title?: string;
   description?: string;
   image?: string | null;
   siteName?: string;
-}
-
-// 特定のホストのキャッシュをクリア
-export async function revalidateLinkMetadata(url: string): Promise<void> {
-  try {
-    const urlObj = new URL(url);
-    const tag = `link-metadata-${urlObj.hostname}`;
-    revalidateTag(tag);
-  } catch (error) {
-    // キャッシュクリアエラーは静かに処理
-  }
 }
 
 // 特定のホストのメタデータを強制的に再取得

@@ -244,6 +244,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/reset-git-history` | Git 履歴リセット | `.claude/skills/dev/reset-git-history/SKILL.md` |
 | `/allow-tool` | ツール許可を settings.local.json に追加 | `.claude/skills/dev/allow-tool/SKILL.md` |
 | `/sync-r2-images` | R2上の画像をローカルに同期（npm run dev で画像が見えないとき） | `.claude/skills/dev/sync-r2-images/SKILL.md` |
+| `/code-review` | Next.jsコード品質レビュー（セキュリティ・パフォーマンス・保守性・a11y） | `.claude/skills/dev/code-review/SKILL.md` |
 
 ### content — コンテンツ作成
 

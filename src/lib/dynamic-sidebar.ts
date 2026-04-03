@@ -1,5 +1,3 @@
-'use server';
-
 /**
  * 動的 Sidebar 生成システム
  * frontmatter の category/tags から自動的にサイドバー構造を生成
