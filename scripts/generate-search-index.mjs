@@ -2,10 +2,14 @@ import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSy
 import { join, relative } from 'path';
 import matter from 'gray-matter';
 
-const CONTENT_DIR = 'content';
+const CONTENT_DIR = 'src/content/posts';
 const OUTPUT_PATH = join('public', 'search-index.json');
 
 function scanMdxFiles(dir, files = []) {
+  if (!existsSync(dir)) {
+    return files;
+  }
+
   for (const entry of readdirSync(dir)) {
     const fullPath = join(dir, entry);
     const stat = statSync(fullPath);
@@ -61,14 +65,10 @@ for (const file of files) {
 
   const relPath = relative(CONTENT_DIR, file).replace(/\\/g, '/').replace(/\.(mdx|md)$/, '');
 
-  // Build URL path
-  const parts = relPath.split('/');
-  const urlPath =
-    parts[parts.length - 1] === 'index'
-      ? '/docs/' + parts.slice(0, -1).join('/')
-      : '/docs/' + relPath;
+  // Build URL path for blog posts
+  const urlPath = `/blog/${relPath}`;
 
-  const title = data.title || parts[parts.length - 1];
+  const title = data.title || relPath.split('/').pop();
   const stripped = stripMdx(content);
   const preview = stripped.slice(0, 200);
 
