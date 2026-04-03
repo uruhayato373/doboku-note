@@ -21,9 +21,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }): Promise<Metadata> {
-  const post = getPost(params.id);
+  const { id } = await params;
+  const post = getPost(id);
 
   if (!post) {
     return {
@@ -35,8 +36,9 @@ export async function generateMetadata({
   return getPostSeoData(post);
 }
 
-export default async function BlogPost({ params }: { params: { id: string } }) {
-  const post = getPost(params.id);
+export default async function BlogPost({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const post = getPost(id);
 
   if (!post) {
     notFound();
