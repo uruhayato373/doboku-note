@@ -9,6 +9,21 @@ import { getAllComponents } from '@/lib/component-loader';
 import { Metadata } from 'next';
 
 /**
+ * Category ID から 日本語タイトルを取得
+ */
+function getCategoryTitle(categoryId: string): string {
+  const titles: Record<string, string> = {
+    'civil-construction-1': '1級土木施工管理技士',
+    'pe': '技術士（建設部門）',
+    'pe-comprehensive-management': '技術士（総合技術監理部門）',
+    'civil-general': '土木一般',
+    'construction-management': '施工管理',
+    'keywords-law': 'キーワード・法規',
+  };
+  return titles[categoryId] || 'ドキュメント';
+}
+
+/**
  * Generate static params for all documentation pages.
  * Creates pages for all MDX files in .local/r2/posts/ directory.
  * Slugs are flattened (e.g., 'civil-construction-1-guide-strategy').
@@ -125,19 +140,4 @@ export default async function DocPage({
       <Footer />
     </div>
   );
-}
-
-/**
- * Category ID から 日本語タイトルを取得
- */
-function getCategoryTitle(categoryId: string): string {
-  const titles: Record<string, string> = {
-    'civil-construction-1': '1級土木施工管理技士',
-    'pe': '技術士（建設部門）',
-    'pe-comprehensive-management': '技術士（総合技術監理部門）',
-    'civil-general': '土木一般',
-    'construction-management': '施工管理',
-    'keywords-law': 'キーワード・法規',
-  };
-  return titles[categoryId] || 'ドキュメント';
 }
