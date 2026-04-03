@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation';
 import { getDoc, getAllDocSlugs, getDocTitleMap } from '@/lib/docs';
-import { getSidebar } from '@/lib/sidebar';
+import { generateDynamicSidebar } from '@/lib/sidebar';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import GeneratedIndexPage from '@/components/layout/GeneratedIndexPage';
@@ -72,15 +72,9 @@ export default async function DocPage({
     notFound();
   }
 
-  // Determine sidebar ID based on doc category (from frontmatter)
-  // Map categories to sidebar IDs
-  const categoryToSidebar: Record<string, string> = {
-    'civil-construction-1': 'examSidebar',
-    'pe': 'examSidebar',
-    'pe-comprehensive-management': 'examSidebar',
-  };
-  const sidebarId = categoryToSidebar[doc.meta.category || ''] || 'generalSidebar';
-  const sidebar = getSidebar(sidebarId);
+  // Generate sidebar dynamically based on the document's category
+  const category = doc.meta.category;
+  const sidebar = await generateDynamicSidebar(category);
   const docTitleMap = await getDocTitleMap();
 
   // Load MDX components
@@ -95,7 +89,7 @@ export default async function DocPage({
         <aside className="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 overflow-y-auto bg-white dark:bg-gray-800 transition-colors duration-300">
           <div className="p-4">
             <GeneratedIndexPage
-              title="1級土木施工管理技士"
+              title={category ? getCategoryTitle(category) : 'ドキュメント'}
               items={sidebar}
               docTitleMap={docTitleMap}
             />
@@ -131,4 +125,19 @@ export default async function DocPage({
       <Footer />
     </div>
   );
+}
+
+/**
+ * Category ID から 日本語タイトルを取得
+ */
+function getCategoryTitle(categoryId: string): string {
+  const titles: Record<string, string> = {
+    'civil-construction-1': '1級土木施工管理技士',
+    'pe': '技術士（建設部門）',
+    'pe-comprehensive-management': '技術士（総合技術監理部門）',
+    'civil-general': '土木一般',
+    'construction-management': '施工管理',
+    'keywords-law': 'キーワード・法規',
+  };
+  return titles[categoryId] || 'ドキュメント';
 }

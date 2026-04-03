@@ -1,8 +1,13 @@
 /**
  * Sidebar configuration and utilities for documentation pages.
- * Defines sidebar structure (examSidebar) and provides helper functions
- * for GeneratedIndexPage and page routing.
+ * Provides both static (hardcoded) and dynamic (auto-generated from frontmatter) sidebars.
+ *
+ * 使い分け：
+ * - getSidebar(id): 静的なサイドバー（手動管理）
+ * - generateDynamicSidebar(category): frontmatter から自動生成
  */
+
+import { generateDynamicSidebar as genDynamicSidebar } from './dynamic-sidebar';
 
 export type SidebarItem =
   | string
@@ -78,4 +83,16 @@ export function getSidebar(sidebarId: string): SidebarItem[] {
     generalSidebar: [],
   };
   return sidebars[sidebarId] ?? [];
+}
+
+/**
+ * Category から動的に Sidebar を生成
+ * frontmatter の tags を自動的に階層化する
+ * @param category - 'civil-construction-1' | 'pe' | 'pe-comprehensive-management'
+ * @returns 動的に生成された SidebarItem[]
+ */
+export async function generateDynamicSidebar(
+  category?: string
+): Promise<SidebarItem[]> {
+  return genDynamicSidebar(category);
 }
