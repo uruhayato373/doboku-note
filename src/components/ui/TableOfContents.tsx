@@ -26,7 +26,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
         .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
 
       if (visible.length > 0) {
-        setActiveId(visible[0].target.id);
+        setActiveId(visible[0]!.target.id);
       }
     };
 

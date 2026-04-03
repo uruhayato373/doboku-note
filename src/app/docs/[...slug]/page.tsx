@@ -8,6 +8,9 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+
+const StructuredData = dynamic(() => import('@/components/seo/StructuredData'));
 import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
 import remarkDirective from 'remark-directive';
@@ -51,9 +54,16 @@ async function SafeMDXRemote({ source, components }: { source: string; component
  */
 export async function generateStaticParams() {
   const slugs = await getAllDocSlugs();
-  return slugs.map((slug) => ({
-    slug: [slug],
-  }));
+  const params: { slug: string[] }[] = [];
+
+  for (const slug of slugs) {
+    const doc = await getDoc(slug);
+    if (doc) {
+      params.push({ slug: [slug] });
+    }
+  }
+
+  return params;
 }
 
 /**
@@ -84,6 +94,21 @@ export async function generateMetadata({
   return {
     title: `${doc.meta.title} | doboku-note`,
     description: doc.meta.description || doc.meta.title,
+    alternates: {
+      canonical: `/docs/${slugStr}`,
+    },
+    openGraph: {
+      title: doc.meta.title,
+      description: doc.meta.description || doc.meta.title,
+      url: `/docs/${slugStr}`,
+      type: 'article',
+      siteName: 'doboku-note',
+    },
+    twitter: {
+      card: 'summary',
+      title: doc.meta.title,
+      description: doc.meta.description || doc.meta.title,
+    },
   };
 }
 
@@ -124,6 +149,8 @@ export default async function DocPage({
   );
 
   return (
+    <>
+    <StructuredData type="article" docMeta={doc.meta} />
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Header />
 
@@ -171,5 +198,6 @@ export default async function DocPage({
 
       <Footer />
     </div>
+    </>
   );
 }

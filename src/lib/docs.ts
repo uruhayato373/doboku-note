@@ -137,6 +137,12 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
   if (localResult) {
     const fileContents = fs.readFileSync(localResult.filePath, 'utf8');
     const matterResult = matter(fileContents);
+
+    // Filter out unpublished documents
+    if (matterResult.data.published === false) {
+      return null;
+    }
+
     const processedContent = preprocessMDX(parseCallouts(matterResult.content));
 
     return {
@@ -175,6 +181,12 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
 
     const fileContents = await response.Body.transformToString('utf-8');
     const matterResult = matter(fileContents);
+
+    // Filter out unpublished documents
+    if (matterResult.data.published === false) {
+      return null;
+    }
+
     const processedContent = preprocessMDX(parseCallouts(matterResult.content));
 
     return {

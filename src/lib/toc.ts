@@ -50,10 +50,10 @@ export function extractHeadings(
     const match = trimmed.match(/^(#{1,6})\s+(.+)$/);
     if (!match) continue;
 
-    const level = match[1].length;
+    const level = match[1]!.length;
     if (level < minLevel || level > maxLevel) continue;
 
-    const text = match[2]
+    const text = match[2]!
       .replace(/\*\*(.+?)\*\*/g, '$1') // strip bold
       .replace(/\*(.+?)\*/g, '$1')     // strip italic
       .replace(/`(.+?)`/g, '$1')       // strip inline code
