@@ -141,22 +141,24 @@ export default async function DocPage({
 
         {/* Main Content Area */}
         <main className="flex-grow min-w-0 px-4 sm:px-6 lg:px-8 py-8 lg:py-10 max-w-4xl">
-          {/* Breadcrumb-like title section */}
-          <div className="mb-6">
-            <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-              {doc.meta.title}
-            </h1>
-            {doc.meta.description && (
-              <p className="text-gray-600 dark:text-gray-400">
-                {doc.meta.description}
-              </p>
-            )}
-          </div>
+          <article className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 sm:p-8 overflow-hidden transition-colors duration-300">
+            {/* Title section */}
+            <div className="mb-6">
+              <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                {doc.meta.title}
+              </h1>
+              {doc.meta.description && (
+                <p className="text-gray-600 dark:text-gray-400">
+                  {doc.meta.description}
+                </p>
+              )}
+            </div>
 
-          {/* MDX Content */}
-          <div className="prose-blog prose-sm md:prose-base">
-            <SafeMDXRemote source={doc.content} components={components} />
-          </div>
+            {/* MDX Content */}
+            <div className="prose-blog prose-sm md:prose-base">
+              <SafeMDXRemote source={doc.content} components={components} />
+            </div>
+          </article>
         </main>
 
         {/* Right Sidebar: Table of Contents */}
