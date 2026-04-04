@@ -20,7 +20,7 @@ export default function PrivacyPage() {
             プライバシーポリシー
           </h1>
           <p className="text-lg text-gray-600 dark:text-gray-400">
-            最終更新日: 2025年10月5日
+            最終更新日: 2026年4月5日
           </p>
         </div>
 

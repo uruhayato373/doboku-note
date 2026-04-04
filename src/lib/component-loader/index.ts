@@ -13,6 +13,8 @@ import { specificComponents, SpecificComponentName } from "./specific";
  */
 export async function getCommonComponents() {
   return {
+    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
+      React.createElement("img", { ...props, loading: "lazy" }),
     ArticleImage: (await import("@/components/ui/ArticleImage/ArticleImage"))
       .default,
     Callout: (await import("@/components/ui/Callout/Callout")).default,

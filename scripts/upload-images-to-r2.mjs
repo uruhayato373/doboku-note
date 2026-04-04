@@ -24,7 +24,7 @@ if (fs.existsSync(envPath)) {
     if (match && !process.env[match[1]]) process.env[match[1]] = match[2];
   }
 }
-const contentDir = path.join(root, 'content');
+const contentDir = path.join(root, '.local', 'r2', 'posts');
 
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const ACCESS_KEY = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
@@ -132,7 +132,7 @@ let failed = 0;
 const startTime = Date.now();
 
 async function uploadOne(item) {
-  const key = `content/${item.rel}`;
+  const key = `posts/${item.rel}`;
   let contentType;
 
   if (item.type === 'mdx') {
