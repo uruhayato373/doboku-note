@@ -15,8 +15,6 @@ export default function SearchPage() {
     setQuery,
     category,
     setCategory,
-    subCategory,
-    setSubCategory,
     tags,
     setTags,
     sortBy,
@@ -50,21 +48,15 @@ export default function SearchPage() {
     switch (filterType) {
       case "category":
         setCategory(value as string);
-        updateSearchQuery({ category: value as string, subCategory: "" });
-        break;
-      case "subCategory":
-        setSubCategory(value as string);
-        updateSearchQuery({ subCategory: value as string });
+        updateSearchQuery({ category: value as string });
         break;
       case "tags":
         setTags(value as string[]);
         updateSearchQuery({ tags: value as string[] });
         break;
       case "sortBy":
-        setSortBy(value as "relevance" | "date" | "readTime");
-        updateSearchQuery({
-          sortBy: value as "relevance" | "date" | "readTime",
-        });
+        setSortBy(value as "relevance");
+        updateSearchQuery({ sortBy: value as "relevance" });
         break;
     }
   };
@@ -97,7 +89,6 @@ export default function SearchPage() {
             <div className="sticky top-8">
               <SearchFilters
                 category={category}
-                subCategory={subCategory}
                 tags={tags}
                 sortBy={sortBy}
                 onFilterChange={handleFilterChange}

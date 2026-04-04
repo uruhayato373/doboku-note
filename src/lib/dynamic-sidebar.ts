@@ -1,46 +1,42 @@
 /**
  * 動的 Sidebar 生成システム
- * frontmatter の category/tags から自動的にサイドバー構造を生成
- *
- * タグの第1要素でグループ化（重複排除）。
- * 各ドキュメントは1グループにのみ所属する。
+ * doc-classifier の共通分類ロジックでグループ化。
+ * カテゴリページと同じ分類結果をサイドバーに反映。
  */
 
 import { getAllDocSlugs, getDoc } from './docs';
-import { getTagLabel } from './categories';
+import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from './doc-classifier';
 import type { SidebarTreeItem } from './sidebar';
 
 /**
  * 全ドキュメントから動的に Sidebar ツリーを生成
- * category でフィルタし、tags[0] でグループ化
+ * category でフィルタし、classifyDoc() でグループ化
  */
 export async function generateDynamicSidebar(
   filterCategory?: string
 ): Promise<SidebarTreeItem[]> {
   const slugs = await getAllDocSlugs();
 
-  // 全ドキュメントのメタデータを取得
-  const docs: { slug: string; label: string; tag: string }[] = [];
+  const docs: { slug: string; label: string; group: DocGroupKey }[] = [];
   for (const slug of slugs) {
     const doc = await getDoc(slug);
     if (!doc || doc.meta.published === false) continue;
     if (filterCategory && doc.meta.category !== filterCategory) continue;
 
-    const tags = doc.meta.tags || [];
     docs.push({
       slug,
       label: doc.meta.sidebar_label || doc.meta.title || slug,
-      tag: tags[0] || 'general',
+      group: classifyDoc(doc.meta),
     });
   }
 
-  // tags[0] でグループ化（各ドキュメントは1グループのみ）
-  const groups = new Map<string, { slug: string; label: string }[]>();
+  // グループ化
+  const groups = new Map<DocGroupKey, { slug: string; label: string }[]>();
   for (const doc of docs) {
-    if (!groups.has(doc.tag)) {
-      groups.set(doc.tag, []);
+    if (!groups.has(doc.group)) {
+      groups.set(doc.group, []);
     }
-    groups.get(doc.tag)!.push({ slug: doc.slug, label: doc.label });
+    groups.get(doc.group)!.push({ slug: doc.slug, label: doc.label });
   }
 
   // グループが1つしかない場合はフラットリスト
@@ -50,14 +46,21 @@ export async function generateDynamicSidebar(
     return allDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label }));
   }
 
-  // 複数グループ → グループ化して返す
+  // 定義順でグループを並べる
+  const order = filterCategory ? getGroupOrder(filterCategory) : Array.from(groups.keys());
   const items: SidebarTreeItem[] = [];
-  for (const [tag, tagDocs] of groups.entries()) {
-    tagDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+
+  for (const groupKey of order) {
+    const groupDocs = groups.get(groupKey);
+    if (!groupDocs || groupDocs.length === 0) continue;
+
+    groupDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+    const label = filterCategory ? getGroupLabel(filterCategory, groupKey) : groupKey;
+
     items.push({
       type: 'group',
-      label: getTagLabel(tag),
-      items: tagDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label })),
+      label,
+      items: groupDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label })),
     });
   }
 

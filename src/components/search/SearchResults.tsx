@@ -78,52 +78,40 @@ export function SearchResults({
             key={post.id}
             className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow"
           >
-            <div className="flex items-start space-x-4">
-              <div className="flex-1 min-w-0">
-                <div className="flex items-center space-x-2 mb-2">
-                  <span
-                    className={cn(
-                      "px-2 py-1 text-xs font-medium rounded",
-                      "bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200"
-                    )}
-                  >
-                    {post.category}
-                  </span>
-                  {post.subCategory && (
-                    <span className="px-2 py-1 text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-200 rounded">
-                      {post.subCategory}
-                    </span>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center space-x-2 mb-2">
+                <span
+                  className={cn(
+                    "px-2 py-1 text-xs font-medium rounded",
+                    "bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200"
                   )}
-                </div>
+                >
+                  {post.category}
+                </span>
+              </div>
 
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-primary-600 dark:hover:text-primary-400">
-                  <Link href={`/blog/${post.id}`}>{post.title}</Link>
-                </h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-primary-600 dark:hover:text-primary-400">
+                <Link href={post.path}>{post.title}</Link>
+              </h3>
 
+              {post.description && (
                 <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
                   {post.description}
                 </p>
+              )}
 
-                <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-                  <div className="flex items-center space-x-4">
-                    <span>{post.date}</span>
-                    <span>{post.readTime}分</span>
-                  </div>
-
-                  {post.tags && post.tags.length > 0 && (
-                    <div className="flex items-center space-x-2">
-                      {post.tags.slice(0, 3).map((tag) => (
-                        <span
-                          key={tag}
-                          className="px-2 py-1 text-xs bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  )}
+              {post.tags && post.tags.length > 0 && (
+                <div className="flex flex-wrap gap-2">
+                  {post.tags.slice(0, 4).map((tag) => (
+                    <span
+                      key={tag}
+                      className="px-2 py-1 text-xs bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded"
+                    >
+                      {tag}
+                    </span>
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
           </article>
         ))}

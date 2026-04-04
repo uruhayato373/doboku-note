@@ -5,6 +5,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsByCategory, Doc } from '@/lib/docs';
+import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -37,157 +38,101 @@ type DocGroup = {
   docs: Doc[];
 };
 
-/**
- * Group docs for civil-construction-1 into exam sections.
- */
-function groupCivilDocs(docs: Doc[]): DocGroup[] {
-  const guide: Doc[] = [];
-  const primary: Doc[] = [];
-  const secondary: Doc[] = [];
+const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
+  'civil-construction-1': {
+    guide: '出題傾向の分析・得点戦略・分野別の重要ポイント',
+    primary: '年度別の過去問と解説（問題A: 土木一般・専門土木・法規 / 問題B: 施工管理）',
+    secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
+  },
+  'pe-comprehensive-management': {
+    guide: '試験の構成・出題傾向・学習ガイド',
+    pastExam: '年度別の択一式・記述式問題と解説',
+    section: '総合技術監理キーワード集に基づくセクション要約',
+    keyword: '頻出キーワードの解説',
+  },
+};
 
-  for (const doc of docs) {
-    const tags = doc.meta.tags || [];
-    if (tags.includes('guide')) {
-      guide.push(doc);
-    } else if (tags.includes('primary')) {
-      primary.push(doc);
-    } else if (tags.includes('secondary')) {
-      secondary.push(doc);
-    } else {
-      guide.push(doc);
+/** Sort functions per group */
+function sortDocs(docs: Doc[], group: DocGroupKey, category: string) {
+  if (category === 'civil-construction-1') {
+    if (group === 'guide') {
+      docs.sort((a, b) => {
+        if (a.meta.slug?.includes('strategy')) return -1;
+        if (b.meta.slug?.includes('strategy')) return 1;
+        return (a.meta.title || '').localeCompare(b.meta.title || '', 'ja');
+      });
+    } else if (group === 'primary') {
+      docs.sort((a, b) => {
+        const slugA = a.meta.slug || '';
+        const slugB = b.meta.slug || '';
+        const yearA = slugA.match(/(r|h)(\d+)/);
+        const yearB = slugB.match(/(r|h)(\d+)/);
+        if (yearA && yearB) {
+          const valA = (yearA[1] === 'r' ? 100 : 0) + parseInt(yearA[2]!);
+          const valB = (yearB[1] === 'r' ? 100 : 0) + parseInt(yearB[2]!);
+          if (valB !== valA) return valB - valA;
+        }
+        return slugA.localeCompare(slugB);
+      });
+    } else if (group === 'secondary') {
+      docs.sort((a, b) => {
+        const slugA = a.meta.slug || '';
+        const slugB = b.meta.slug || '';
+        const topicA = slugA.replace(/.*secondary-/, '').replace(/-(basics|past-problems|guide|examples)$/, '');
+        const topicB = slugB.replace(/.*secondary-/, '').replace(/-(basics|past-problems|guide|examples)$/, '');
+        if (topicA !== topicB) return topicA.localeCompare(topicB);
+        const isBasicsA = slugA.endsWith('-basics') || slugA.endsWith('-guide') ? 0 : 1;
+        const isBasicsB = slugB.endsWith('-basics') || slugB.endsWith('-guide') ? 0 : 1;
+        return isBasicsA - isBasicsB;
+      });
+    }
+  } else if (category === 'pe-comprehensive-management') {
+    if (group === 'pastExam') {
+      docs.sort((a, b) => {
+        const yearA = a.meta.slug?.match(/r(\d+)/)?.[1] || '0';
+        const yearB = b.meta.slug?.match(/r(\d+)/)?.[1] || '0';
+        if (yearB !== yearA) return parseInt(yearB) - parseInt(yearA);
+        const isPrimaryA = a.meta.tags?.includes('択一式') ? 0 : 1;
+        const isPrimaryB = b.meta.tags?.includes('択一式') ? 0 : 1;
+        return isPrimaryA - isPrimaryB;
+      });
+    } else if (group === 'section') {
+      docs.sort((a, b) => {
+        const numA = parseFloat(a.meta.section || '99');
+        const numB = parseFloat(b.meta.section || '99');
+        return numA - numB;
+      });
+    } else if (group === 'keyword') {
+      docs.sort((a, b) => (a.meta.title || '').localeCompare(b.meta.title || '', 'ja'));
     }
   }
-
-  // Sort guides: strategy first, then alphabetical
-  guide.sort((a, b) => {
-    if (a.meta.slug?.includes('strategy')) return -1;
-    if (b.meta.slug?.includes('strategy')) return 1;
-    return (a.meta.title || '').localeCompare(b.meta.title || '', 'ja');
-  });
-
-  // Sort primary past exams: newest first (r02 > r01 > h30 > ... > h26), A before B
-  primary.sort((a, b) => {
-    const slugA = a.meta.slug || '';
-    const slugB = b.meta.slug || '';
-    const yearA = slugA.match(/(r|h)(\d+)/);
-    const yearB = slugB.match(/(r|h)(\d+)/);
-    if (yearA && yearB) {
-      const valA = (yearA[1] === 'r' ? 100 : 0) + parseInt(yearA[2]!);
-      const valB = (yearB[1] === 'r' ? 100 : 0) + parseInt(yearB[2]!);
-      if (valB !== valA) return valB - valA;
-    }
-    return slugA.localeCompare(slugB);
-  });
-
-  // Sort secondary: group by topic, basics/guide before past-problems/examples
-  secondary.sort((a, b) => {
-    const slugA = a.meta.slug || '';
-    const slugB = b.meta.slug || '';
-    const topicA = slugA.replace(/.*secondary-/, '').replace(/-(basics|past-problems|guide|examples)$/, '');
-    const topicB = slugB.replace(/.*secondary-/, '').replace(/-(basics|past-problems|guide|examples)$/, '');
-    if (topicA !== topicB) return topicA.localeCompare(topicB);
-    const isBasicsA = slugA.endsWith('-basics') || slugA.endsWith('-guide') ? 0 : 1;
-    const isBasicsB = slugB.endsWith('-basics') || slugB.endsWith('-guide') ? 0 : 1;
-    return isBasicsA - isBasicsB;
-  });
-
-  const result: DocGroup[] = [];
-
-  if (guide.length > 0) {
-    result.push({
-      title: '試験ガイド',
-      description: '出題傾向の分析・得点戦略・分野別の重要ポイント',
-      docs: guide,
-    });
-  }
-  if (primary.length > 0) {
-    result.push({
-      title: '第1次検定 過去問',
-      description: '年度別の過去問と解説（問題A: 土木一般・専門土木・法規 / 問題B: 施工管理）',
-      docs: primary,
-    });
-  }
-  if (secondary.length > 0) {
-    result.push({
-      title: '第2次検定 対策',
-      description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
-      docs: secondary,
-    });
-  }
-
-  return result;
 }
 
 /**
- * Group docs for pe-comprehensive-management into logical sections.
+ * Group docs using the shared classifier logic.
  */
-function groupPeDocs(docs: Doc[]): DocGroup[] {
-  const guide: Doc[] = [];
-  const pastExam: Doc[] = [];
-  const section: Doc[] = [];
-  const keyword: Doc[] = [];
+function groupDocs(docs: Doc[], category: string): DocGroup[] {
+  const buckets = new Map<DocGroupKey, Doc[]>();
 
   for (const doc of docs) {
-    const tags = doc.meta.tags || [];
-    if (tags.includes('索引')) {
-      guide.push(doc);
-    } else if (tags.includes('択一式') || tags.includes('記述式')) {
-      pastExam.push(doc);
-    } else if (doc.meta.section || doc.meta.type === 'digest') {
-      section.push(doc);
-    } else {
-      keyword.push(doc);
-    }
+    const group = classifyDoc(doc.meta);
+    if (!buckets.has(group)) buckets.set(group, []);
+    buckets.get(group)!.push(doc);
   }
 
-  // Sort past exams: newest first, then primary before secondary
-  pastExam.sort((a, b) => {
-    const yearA = a.meta.slug?.match(/r(\d+)/)?.[1] || '0';
-    const yearB = b.meta.slug?.match(/r(\d+)/)?.[1] || '0';
-    if (yearB !== yearA) return parseInt(yearB) - parseInt(yearA);
-    const isPrimaryA = a.meta.tags?.includes('択一式') ? 0 : 1;
-    const isPrimaryB = b.meta.tags?.includes('択一式') ? 0 : 1;
-    return isPrimaryA - isPrimaryB;
-  });
-
-  // Sort sections by section number
-  section.sort((a, b) => {
-    const numA = parseFloat(a.meta.section || '99');
-    const numB = parseFloat(b.meta.section || '99');
-    return numA - numB;
-  });
-
-  // Sort keywords by title
-  keyword.sort((a, b) => (a.meta.title || '').localeCompare(b.meta.title || '', 'ja'));
-
+  const order = getGroupOrder(category);
   const result: DocGroup[] = [];
 
-  if (guide.length > 0) {
+  for (const groupKey of order) {
+    const groupDocs = buckets.get(groupKey);
+    if (!groupDocs || groupDocs.length === 0) continue;
+
+    sortDocs(groupDocs, groupKey, category);
+
     result.push({
-      title: '試験概要',
-      description: '試験の構成・出題傾向・学習ガイド',
-      docs: guide,
-    });
-  }
-  if (pastExam.length > 0) {
-    result.push({
-      title: '過去問',
-      description: '年度別の択一式・記述式問題と解説',
-      docs: pastExam,
-    });
-  }
-  if (section.length > 0) {
-    result.push({
-      title: 'セクション別解説',
-      description: '総合技術監理キーワード集に基づくセクション要約',
-      docs: section,
-    });
-  }
-  if (keyword.length > 0) {
-    result.push({
-      title: 'キーワード',
-      description: '頻出キーワードの解説',
-      docs: keyword,
+      title: getGroupLabel(category, groupKey),
+      description: GROUP_DESCRIPTIONS[category]?.[groupKey] ?? '',
+      docs: groupDocs,
     });
   }
 
@@ -261,11 +206,9 @@ export default async function CategoryPage({
   const allDocs = await getDocsByCategory(slug);
   const docs = allDocs.filter(d => d.meta.published !== false);
 
-  const groups = slug === 'civil-construction-1'
-    ? groupCivilDocs(docs)
-    : slug === 'pe-comprehensive-management'
-      ? groupPeDocs(docs)
-      : null;
+  const groups = (slug === 'civil-construction-1' || slug === 'pe-comprehensive-management')
+    ? groupDocs(docs, slug)
+    : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-white">

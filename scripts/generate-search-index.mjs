@@ -54,6 +54,19 @@ function stripMdx(content) {
     .trim();
 }
 
+/**
+ * Convert hierarchical path to flat slug.
+ * article.mdx is excluded from slug (convention B).
+ */
+function pathToSlug(relPath) {
+  const parts = relPath.replace(/\.(mdx|md)$/, '').split('/');
+  // Remove trailing "article" (convention B)
+  if (parts[parts.length - 1] === 'article') {
+    parts.pop();
+  }
+  return parts.join('-');
+}
+
 const files = scanMdxFiles(CONTENT_DIR);
 const index = [];
 
@@ -64,27 +77,25 @@ for (const file of files) {
   // Skip unpublished content
   if (data.published === false) continue;
 
-  const relPath = relative(CONTENT_DIR, file).replace(/\\/g, '/').replace(/\.(mdx|md)$/, '');
+  const relPath = relative(CONTENT_DIR, file).replace(/\\/g, '/');
+  const slug = pathToSlug(relPath);
+  const path = `/docs/${slug}`;
 
-  // Convert hierarchical path to flat slug
-  // E.g., civil-construction-1/guide/strategy.mdx → civil-construction-1-guide-strategy
-  const slug = relPath.split('/').join('-');
-
-  // Build URL path for docs (flat structure)
-  const urlPath = `/docs/${slug}`;
-
-  const title = data.title || relPath.split('/').pop();
+  const title = data.title || slug;
+  const description = data.description || '';
   const category = data.category || relPath.split('/')[0];
   const tags = data.tags || [];
   const stripped = stripMdx(content);
-  const preview = stripped.slice(0, 200);
+  const excerpt = stripped.slice(0, 500);
 
   index.push({
+    id: slug,
     title,
-    path: urlPath,
+    description,
+    path,
     category,
     tags,
-    preview,
+    excerpt,
   });
 }
 

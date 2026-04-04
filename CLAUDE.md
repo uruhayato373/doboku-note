@@ -23,7 +23,7 @@
 | 言語 | JavaScript (ESM), MDX |
 | 数式 | KaTeX (remark-math + rehype-katex) |
 | 図表 | Mermaid |
-| 検索 | Algolia DocSearch |
+| 検索 | MiniSearch (クライアントサイド全文検索) |
 | 分析 | Google Analytics (gtag: G-8VXJ1RL1HG) |
 | 広告 | Google AdSense (ca-pub-7995274743017484) |
 | 画像配信 | Cloudflare R2 (`storage.doboku-note.com`) |
@@ -67,7 +67,6 @@ src/                                # カスタムコンポーネント・CSS・
   app/
     docs/[...slug]/page.tsx         # 全ドキュメントページの動的ルート（フラット）
     category/[slug]/page.tsx        # カテゴリ一覧ページ
-    api/content/[...path]/route.ts  # 画像配信API
 
 docs/project/            # プロジェクト管理ドキュメント
 .github/workflows/     # CI/CD
@@ -191,8 +190,8 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 画像は R2（Cloudflare）から配信。Git には含めない。
 
 - **R2 URL（本番）**: `https://storage.doboku-note.com/posts/{slug}/img/{ファイル名}`
-- **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />` または `<img src="/api/content/posts/{slug}/img/{ファイル名}" />`
-- **ローカル開発**: `.local/r2/posts/{slug}/img/` から API ルート（`src/app/api/content/[...path]/route.ts`）経由で配信
+- **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />`
+- **ローカル開発**: `public/posts` → `.local/r2/posts` のシンボリックリンク経由で配信
 - **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
 - **ダウンロード（ローカル初期化）**: `/sync-r2-images` または `npm run download-images`
 - **アップロード（R2反映）**: `node scripts/upload-images-to-r2.mjs` （実装予定）
