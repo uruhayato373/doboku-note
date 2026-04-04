@@ -34,32 +34,39 @@
 
 ```
 .local/r2/posts/                    # すべてのコンテンツ（dev環境）
-  civil-construction-1/             # 1級土木施工管理技士
-    guide/article.mdx
-    guide/img/
-    primary/article.mdx             # 第1次試験（過去問等）
-    primary/img/
-    secondary/article.mdx           # 第2次試験
-    secondary/img/
-  pe/                               # 技術士（建設部門）
-    primary-guide/article.mdx
-    primary-guide/img/
-    secondary-guide/article.mdx
-    soil-foundation/article.mdx
-    [... 他の選択科目 ...]
-  pe-comprehensive-management/      # 技術士（総合技術監理技術部門）
-    section-3-1/article.mdx
+  civil-construction-1/             # 1級土木施工管理技士（個別ファイル名）
+    guide/                          #   試験ガイド（6ファイル）
+      strategy.mdx
+      four-management.mdx
+      concrete-key-points.mdx
+      earthwork-key-points.mdx
+      law-key-points.mdx
+      concrete-maintenance.mdx
+    primary/                        #   第1次試験・過去問（20ファイル）
+      h26-a.mdx, h26-b.mdx, ...
+      r01-a.mdx, r01-b.mdx, ...
+      img/                          #   過去問の図版
+    secondary/                      #   第2次試験（5分野×2ファイル）
+      concrete/basics.mdx, past-problems.mdx
+      earthwork/basics.mdx, past-problems.mdx
+      construction-plan/basics.mdx, past-problems.mdx
+      quality-management/basics.mdx, past-problems.mdx
+      experience-writing/guide.mdx, examples.mdx
+  pe-comprehensive-management/      # 技術士・総合技術監理（article.mdx 規約）
+    exam-index/article.mdx          #   試験インデックス
+    section-3-1-human-behavior/article.mdx  # 出題セクション
     [... 他の出題セクション ...]
-    r01-primary/article.mdx         # 旧試験問題
+    r01-primary/article.mdx         #   過去問
     [... 他の過去問 ...]
-  [~75 additional keyword/concept dirs]  # 土木一般・施工管理知識など
+    followership/article.mdx        #   キーワード（100トピック）
+    [... 他のキーワード ...]
 
 src/                                # カスタムコンポーネント・CSS・レイアウト
   lib/
     docs.ts                         # getDoc(), getAllDocSlugs()等
-    mdx.ts                          # （廃止予定・互換性のため残置）
   app/
     docs/[...slug]/page.tsx         # 全ドキュメントページの動的ルート（フラット）
+    category/[slug]/page.tsx        # カテゴリ一覧ページ
     api/content/[...path]/route.ts  # 画像配信API
 
 docs/project/            # プロジェクト管理ドキュメント
@@ -95,13 +102,32 @@ docs/project/            # プロジェクト管理ドキュメント
 
 ### ディレクトリ → URL マッピング
 
-```
-.local/r2/posts/{slug}/article.mdx  →  /docs/{slug}
+2つのファイル命名規約が共存する。どちらも `src/lib/docs.ts` の `findMdxFiles()` が自動処理する。
 
-例：
-  .local/r2/posts/civil-construction-1-guide/article.mdx  →  /docs/civil-construction-1-guide
-  .local/r2/posts/cem-section-3-1/article.mdx             →  /docs/cem-section-3-1
+#### Convention A: 個別ファイル名（civil-construction-1 で使用）
+1つのディレクトリに複数ファイルがある場合。ファイル名がスラッグに含まれる。
 ```
+.local/r2/posts/civil-construction-1/guide/strategy.mdx
+  → /docs/civil-construction-1-guide-strategy
+
+.local/r2/posts/civil-construction-1/primary/h26-a.mdx
+  → /docs/civil-construction-1-primary-h26-a
+
+.local/r2/posts/civil-construction-1/secondary/concrete/basics.mdx
+  → /docs/civil-construction-1-secondary-concrete-basics
+```
+
+#### Convention B: article.mdx（pe-comprehensive-management で使用、新規コンテンツ推奨）
+1トピック1ディレクトリの場合。`article.mdx` はスラッグから除外される。
+```
+.local/r2/posts/pe-comprehensive-management/followership/article.mdx
+  → /docs/pe-comprehensive-management-followership
+
+.local/r2/posts/pe-comprehensive-management/r01-primary/article.mdx
+  → /docs/pe-comprehensive-management-r01-primary
+```
+
+**新規コンテンツは Convention B（article.mdx）を推奨。** 1ディレクトリに複数ファイルが必要な場合のみ Convention A を使用。
 
 ### frontmatter による分類（カテゴリ + タグ）
 

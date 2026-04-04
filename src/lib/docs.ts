@@ -92,15 +92,25 @@ export type Doc = {
 
 
 /**
- * Recursively find all .mdx files in a directory and return their flattened slugs.
- * Converts path segments to hyphen-separated slug strings for flat URL structure.
- * E.g., civil-construction-1/guide/concrete-key-points.mdx → 'civil-construction-1-guide-concrete-key-points'
+ * Slug-to-R2-key mapping. Built by getAllDocSlugs(), used by getDoc() for R2 fallback.
+ * Needed because flattened slugs cannot be deterministically reversed to R2 keys
+ * when directory names contain hyphens (e.g., "civil-construction-1").
  */
-function findMdxFiles(dir: string, basePath: string[] = []): string[] {
-  const slugs: string[] = [];
+let slugToKeyMap: Map<string, string> | null = null;
+
+/**
+ * Recursively find all .mdx files in a directory and return slug + relative path pairs.
+ * Converts path segments to hyphen-separated slug strings for flat URL structure.
+ *
+ * Two naming conventions:
+ * - article.mdx: directory path becomes the slug (e.g., followership/article.mdx → followership)
+ * - Individual files: filename included in slug (e.g., guide/strategy.mdx → guide-strategy)
+ */
+function findMdxFiles(dir: string, basePath: string[] = []): { slug: string; relativePath: string }[] {
+  const results: { slug: string; relativePath: string }[] = [];
 
   if (!fs.existsSync(dir)) {
-    return slugs;
+    return results;
   }
 
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -108,19 +118,23 @@ function findMdxFiles(dir: string, basePath: string[] = []): string[] {
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     const fileName = entry.name.replace(/\.mdx$/, '');
-    const newPath = [...basePath, fileName];
 
     if (entry.isDirectory()) {
-      // Recursively process subdirectories
-      slugs.push(...findMdxFiles(fullPath, newPath));
+      const newPath = [...basePath, fileName];
+      results.push(...findMdxFiles(fullPath, newPath));
     } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
-      // Flatten path segments into hyphen-separated slug
-      const slug = newPath.join('-');
-      slugs.push(slug);
+      // For article.mdx, use the directory path as slug (convention: {slug}/article.mdx → {slug})
+      // For other .mdx files, include the filename in the slug
+      const slugPath = fileName === 'article' ? basePath : [...basePath, fileName];
+      if (slugPath.length > 0) {
+        const slug = slugPath.join('-');
+        const relativePath = [...basePath, entry.name].join('/');
+        results.push({ slug, relativePath });
+      }
     }
   }
 
-  return slugs;
+  return results;
 }
 
 /**
@@ -165,8 +179,16 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
   // Fallback: Fetch from R2
   try {
     const s3 = getS3Client();
-    const slugParts = slug.split('-');
-    const key = `posts/${slugParts.join('/')}.mdx`;
+    // Use slug-to-key map (built by getAllDocSlugs) for correct R2 key resolution.
+    // Naive slug.split('-') breaks directory names with hyphens (e.g., "civil-construction-1").
+    if (!slugToKeyMap) {
+      await getAllDocSlugs();
+    }
+    const relativePath = slugToKeyMap?.get(slug);
+    if (!relativePath) {
+      return null;
+    }
+    const key = `posts/${relativePath}`;
     const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
 
     const command = new GetObjectCommand({
@@ -226,12 +248,16 @@ function findMdxFileBySlug(dir: string, targetSlug: string, basePath: string[] =
   for (const entry of entries) {
     const fullPath = path.join(dir, entry.name);
     const fileName = entry.name.replace(/\.mdx$/, '');
-    const newPath = [...basePath, fileName];
-    const slug = newPath.join('-');
 
-    if (entry.isFile() && entry.name.endsWith('.mdx') && slug === targetSlug) {
-      return { filePath: fullPath, slug };
+    if (entry.isFile() && entry.name.endsWith('.mdx')) {
+      // For article.mdx, use directory path as slug; for others, include filename
+      const newPath = fileName === 'article' ? basePath : [...basePath, fileName];
+      const slug = newPath.join('-');
+      if (slug === targetSlug) {
+        return { filePath: fullPath, slug };
+      }
     } else if (entry.isDirectory()) {
+      const newPath = [...basePath, fileName];
       const result = findMdxFileBySlug(fullPath, targetSlug, newPath);
       if (result) return result;
     }
@@ -251,9 +277,14 @@ function findMdxFileBySlug(dir: string, targetSlug: string, basePath: string[] =
 export async function getAllDocSlugs(): Promise<string[]> {
   // Prefer local filesystem when available (works for both dev and static export build)
   if (fs.existsSync(localContentDirectory)) {
-    const slugs = findMdxFiles(localContentDirectory);
-    if (slugs.length > 0) {
-      return slugs;
+    const results = findMdxFiles(localContentDirectory);
+    if (results.length > 0) {
+      // Build slug-to-key map for R2 fallback
+      slugToKeyMap = new Map();
+      for (const { slug, relativePath } of results) {
+        slugToKeyMap.set(slug, relativePath);
+      }
+      return results.map(r => r.slug);
     }
   }
 
@@ -261,7 +292,7 @@ export async function getAllDocSlugs(): Promise<string[]> {
   try {
     const s3 = getS3Client();
     const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
-    const slugs: string[] = [];
+    slugToKeyMap = new Map();
 
     let continuationToken: string | undefined;
 
@@ -279,8 +310,13 @@ export async function getAllDocSlugs(): Promise<string[]> {
           if (!obj.Key) continue;
           const match = obj.Key.match(/^posts\/(.+)\.mdx$/);
           if (match && match[1]) {
-            const slug = match[1].replace(/\//g, '-');
-            slugs.push(slug);
+            const relativePath = match[1] + '.mdx';
+            // Strip /article from the end for article.mdx convention
+            const slugBase = match[1].endsWith('/article')
+              ? match[1].slice(0, -'/article'.length)
+              : match[1];
+            const slug = slugBase.replace(/\//g, '-');
+            slugToKeyMap.set(slug, relativePath);
           }
         }
       }
@@ -289,7 +325,7 @@ export async function getAllDocSlugs(): Promise<string[]> {
       continuationToken = response.NextContinuationToken;
     }
 
-    return slugs;
+    return Array.from(slugToKeyMap.keys());
   } catch (error) {
     console.error('Failed to list MDX files from R2:', error);
     throw error;

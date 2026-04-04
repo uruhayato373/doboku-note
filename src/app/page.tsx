@@ -37,14 +37,14 @@ export default async function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/docs/civil-construction-1-guide"
+                href="/category/civil-construction-1"
                 className="inline-block bg-gradient-to-r from-primary-600 to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-primary-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 1級土木施工管理技士
               </Link>
 
               <Link
-                href="/docs/pe-comprehensive-management-exam-index-article"
+                href="/docs/pe-comprehensive-management-exam-index"
                 className="inline-block bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 技術士（総合技術監理）
@@ -70,7 +70,7 @@ export default async function HomePage() {
                   土木工事の第1次・第2次試験対策コンテンツ。試験ガイド、過去問、キーワード解説を提供します。
                 </p>
                 <Link
-                  href="/docs/civil-construction-1-guide"
+                  href="/category/civil-construction-1"
                   className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
                 >
                   コンテンツを見る →
@@ -86,7 +86,7 @@ export default async function HomePage() {
                   総合技術監理部門の試験対策。5管理技術、論文作成、事例研究を含むコンテンツ。
                 </p>
                 <Link
-                  href="/docs/pe-comprehensive-management-exam-index-article"
+                  href="/docs/pe-comprehensive-management-exam-index"
                   className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
                 >
                   コンテンツを見る →

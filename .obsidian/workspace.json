@@ -315,6 +315,36 @@
             "id": "797c7ab822a9fc8b",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "f4e8721fa3e2e83d",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "10b1dc6c80ea91d1",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "6b11b07a49c304d8",
+            "type": "leaf",
+            "state": {
               "type": "graph-analysis",
               "state": {},
               "icon": "GA-ICON",
@@ -322,7 +352,7 @@
             }
           },
           {
-            "id": "f4e8721fa3e2e83d",
+            "id": "cf9fc66b07f5650a",
             "type": "leaf",
             "state": {
               "type": "graph-analysis",
@@ -332,7 +362,7 @@
             }
           }
         ],
-        "currentTab": 12
+        "currentTab": 15
       }
     ],
     "direction": "horizontal",
@@ -362,18 +392,19 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "cf9fc66b07f5650a",
   "lastOpenFiles": [
-    "CLAUDE.md.tmp.21512.1775204117141",
-    "package.json.tmp.21512.1775204100142",
-    "scripts/kill-port.mjs",
-    "scripts/kill-port.mjs.tmp.21512.1775204094442",
-    "CLAUDE.md.tmp.11164.1775204057822",
-    "docs/project/sedPPBV8R",
-    "docs/project/sedqSyAty",
-    "docs/project/sed2hAO28",
-    "docs/project/sednDYMzn",
-    "docs/project/sed4x0A0f",
+    "src/app/api/content/[...path]/route.ts",
+    "src/app/api/content/[...path]",
+    "src/app/api/content",
+    "src/app/api",
+    "out/robots.txt",
+    "out/sitemap.xml",
+    "out/_next/static/chunks/0nmhqpsro~q2c.css",
+    "out/_next/static/LMHkavRY5zEKcDi_dTdUv/_ssgManifest.js",
+    "out/_next/static/LMHkavRY5zEKcDi_dTdUv/_clientMiddlewareManifest.js",
+    "out/_next/static/LMHkavRY5zEKcDi_dTdUv/_buildManifest.js",
+    "out/_next/static/LMHkavRY5zEKcDi_dTdUv",
     "docs/project/strategy.md",
     "docs/project/06_URL設計ガイドライン.md",
     "docs/project/05_収益化戦略.md",
@@ -382,7 +413,6 @@
     "docs/project/02_事業戦略.md",
     "docs/project/01_設計思想.md",
     "docs/project/roadmap.md",
-    "docs/project/roadmap.md.tmp.11164.1775203929127",
     "docs/archive/reviews-archive/note-articles/N-5_行政書士_条文穴埋めドリル.md",
     "docs/archive/reviews-archive/note-articles/N-6_2級土木_最短合格ルートマップ.md",
     "docs/archive/reviews-archive/note-articles/N-3_技術士一次_科目別要点整理.md",

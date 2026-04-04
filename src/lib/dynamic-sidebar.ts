@@ -1,102 +1,64 @@
 /**
  * 動的 Sidebar 生成システム
  * frontmatter の category/tags から自動的にサイドバー構造を生成
+ *
+ * タグの第1要素でグループ化（重複排除）。
+ * 各ドキュメントは1グループにのみ所属する。
  */
 
 import { getAllDocSlugs, getDoc } from './docs';
-import { getCategoryLabel, getTagLabel } from './categories';
-
-export type SidebarItem =
-  | string
-  | { type: 'category'; label: string; items: SidebarItem[] };
+import { getTagLabel } from './categories';
+import type { SidebarTreeItem } from './sidebar';
 
 /**
- * 全ドキュメントから動的に Sidebar を生成
- * category 別に グループ化し、tags で細分化
+ * 全ドキュメントから動的に Sidebar ツリーを生成
+ * category でフィルタし、tags[0] でグループ化
  */
 export async function generateDynamicSidebar(
   filterCategory?: string
-): Promise<SidebarItem[]> {
+): Promise<SidebarTreeItem[]> {
   const slugs = await getAllDocSlugs();
-  const docsMap = new Map<string, any>();
 
   // 全ドキュメントのメタデータを取得
+  const docs: { slug: string; label: string; tag: string }[] = [];
   for (const slug of slugs) {
     const doc = await getDoc(slug);
-    if (doc && doc.meta.published !== false) {
-      docsMap.set(slug, doc.meta);
-    }
+    if (!doc || doc.meta.published === false) continue;
+    if (filterCategory && doc.meta.category !== filterCategory) continue;
+
+    const tags = doc.meta.tags || [];
+    docs.push({
+      slug,
+      label: doc.meta.sidebar_label || doc.meta.title || slug,
+      tag: tags[0] || 'general',
+    });
   }
 
-  // category 別に分類
-  const byCategory = new Map<string, Map<string, string[]>>();
-
-  for (const [slug, meta] of docsMap.entries()) {
-    const category = meta.category || 'uncategorized';
-
-    if (filterCategory && category !== filterCategory) {
-      continue;
+  // tags[0] でグループ化（各ドキュメントは1グループのみ）
+  const groups = new Map<string, { slug: string; label: string }[]>();
+  for (const doc of docs) {
+    if (!groups.has(doc.tag)) {
+      groups.set(doc.tag, []);
     }
-
-    if (!byCategory.has(category)) {
-      byCategory.set(category, new Map());
-    }
-
-    const categoryMap = byCategory.get(category)!;
-    const tags = meta.tags || [];
-
-    // タグベースでグループ化
-    for (const tag of tags) {
-      if (!categoryMap.has(tag)) {
-        categoryMap.set(tag, []);
-      }
-      categoryMap.get(tag)!.push(slug);
-    }
-
-    // タグがない場合は 'general' に
-    if (tags.length === 0) {
-      if (!categoryMap.has('general')) {
-        categoryMap.set('general', []);
-      }
-      categoryMap.get('general')!.push(slug);
-    }
+    groups.get(doc.tag)!.push({ slug: doc.slug, label: doc.label });
   }
 
-  // sidebar item 生成
-  const items: SidebarItem[] = [];
+  // グループが1つしかない場合はフラットリスト
+  if (groups.size <= 1) {
+    const allDocs = Array.from(groups.values()).flat();
+    allDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+    return allDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label }));
+  }
 
-  for (const [category, tagMap] of byCategory.entries()) {
-    const categoryLabel = getCategoryLabel(category);
-
-    // タグが複数ある場合はカテゴリ > タグで階層化
-    if (tagMap.size > 1) {
-      const categoryItems: SidebarItem[] = [];
-
-      for (const [tag, slugs] of tagMap.entries()) {
-        const tagLabel = getTagLabel(tag);
-        const tagItems = slugs.sort().map((slug) => slug);
-
-        categoryItems.push({
-          type: 'category',
-          label: tagLabel,
-          items: tagItems,
-        });
-      }
-
-      items.push({
-        type: 'category',
-        label: categoryLabel,
-        items: categoryItems,
-      });
-    } else {
-      // タグが1つ以下の場合は直接アイテムを追加
-      const slugs = Array.from(tagMap.values()).flat().sort();
-      items.push({
-        type: 'category',
-        label: categoryLabel,
-        items: slugs,
-      });
-    }
+  // 複数グループ → グループ化して返す
+  const items: SidebarTreeItem[] = [];
+  for (const [tag, tagDocs] of groups.entries()) {
+    tagDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+    items.push({
+      type: 'group',
+      label: getTagLabel(tag),
+      items: tagDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label })),
+    });
   }
 
   return items;

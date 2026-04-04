@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
-import { getDoc, getAllDocSlugs, getDocTitleMap } from '@/lib/docs';
+import { getDoc, getAllDocSlugs } from '@/lib/docs';
 import { generateDynamicSidebar } from '@/lib/sidebar';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import GeneratedIndexPage from '@/components/layout/GeneratedIndexPage';
+import SidebarNav from '@/components/layout/SidebarNav';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
@@ -136,7 +136,6 @@ export default async function DocPage({
   // Generate sidebar dynamically based on the document's category
   const category = doc.meta.category;
   const sidebar = await generateDynamicSidebar(category);
-  const docTitleMap = await getDocTitleMap();
 
   // Load MDX components
   const components = await getAllComponents(doc as any);
@@ -158,10 +157,10 @@ export default async function DocPage({
         {/* Left Sidebar: Navigation */}
         <aside className="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 overflow-y-auto bg-white dark:bg-gray-800 transition-colors duration-300">
           <div className="p-4">
-            <GeneratedIndexPage
+            <SidebarNav
               title={category ? getCategoryLabel(category) : 'ドキュメント'}
               items={sidebar}
-              docTitleMap={docTitleMap}
+              currentSlug={slugStr}
             />
           </div>
         </aside>

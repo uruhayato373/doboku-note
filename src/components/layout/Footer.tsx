@@ -30,14 +30,6 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
-                >
-                  すべての記事
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -63,7 +55,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/contact"
+                  href="/about"
                   className="text-gray-300 hover:text-primary-400 transition-colors"
                 >
                   お問い合わせ
