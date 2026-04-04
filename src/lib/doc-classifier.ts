@@ -5,10 +5,10 @@
  */
 import type { DocMeta } from './docs';
 
-export type DocGroupKey = 'guide' | 'pastExam' | 'section' | 'keyword' | 'primary' | 'secondary';
+export type DocGroupKey = 'guide' | 'textbook' | 'pastExam' | 'section' | 'keyword' | 'primary' | 'secondary';
 
 const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pastExam', 'section', 'keyword'];
-const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'primary', 'secondary'];
+const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
 
 export function classifyDoc(meta: DocMeta): DocGroupKey {
   const tags = meta.tags || [];
@@ -22,6 +22,7 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
   }
 
   if (category === 'civil-construction-1') {
+    if (tags.includes('textbook')) return 'textbook';
     if (tags.includes('guide')) return 'guide';
     if (tags.includes('primary')) return 'primary';
     if (tags.includes('secondary')) return 'secondary';
@@ -40,6 +41,7 @@ export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> 
   },
   'civil-construction-1': {
     guide: '試験ガイド',
+    textbook: 'テキスト（教科書）',
     primary: '第1次検定 過去問',
     secondary: '第2次検定 対策',
   },

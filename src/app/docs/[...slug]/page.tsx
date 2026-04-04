@@ -13,7 +13,7 @@ import dynamic from 'next/dynamic';
 const StructuredData = dynamic(() => import('@/components/seo/StructuredData'));
 import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
-import remarkDirective from 'remark-directive';
+// remarkDirective removed: :::directive syntax is handled by parseCallouts() in mdx-callout-parser.ts
 import rehypeKatex from 'rehype-katex';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import { compileMDX } from 'next-mdx-remote/rsc';
@@ -22,7 +22,7 @@ import TableOfContents from '@/components/ui/TableOfContents';
 
 const mdxOptions = {
   mdxOptions: {
-    remarkPlugins: [remarkMath, remarkGfm, remarkDirective],
+    remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [rehypeHeadingIds, rehypeKatex],
   },
 };

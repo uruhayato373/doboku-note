@@ -18,5 +18,13 @@
   { "name": "土工", "slug": "earthwork" },
   { "name": "コンクリート", "slug": "concrete" },
   { "name": "施工計画", "slug": "construction-plan" },
-  { "name": "経験記述", "slug": "experience-writing" }
+  { "name": "経験記述", "slug": "experience-writing" },
+  { "name": "テキスト", "slug": "textbook" },
+  { "name": "建設機械", "slug": "construction-machinery" },
+  { "name": "基礎工", "slug": "foundation-work" },
+  { "name": "測量", "slug": "surveying" },
+  { "name": "解体工事", "slug": "demolition" },
+  { "name": "工程管理", "slug": "schedule-management" },
+  { "name": "環境保全", "slug": "environmental-management" },
+  { "name": "関係法規", "slug": "related-laws" }
 ]

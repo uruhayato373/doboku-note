@@ -41,6 +41,7 @@ type DocGroup = {
 const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
   'civil-construction-1': {
     guide: '出題傾向の分析・得点戦略・分野別の重要ポイント',
+    textbook: '試験テキスト全文（土木一般編・施工管理法規編）の体系的な解説',
     primary: '年度別の過去問と解説（問題A: 土木一般・専門土木・法規 / 問題B: 施工管理）',
     secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
   },
@@ -73,6 +74,12 @@ function sortDocs(docs: Doc[], group: DocGroupKey, category: string) {
           if (valB !== valA) return valB - valA;
         }
         return slugA.localeCompare(slugB);
+      });
+    } else if (group === 'textbook') {
+      docs.sort((a, b) => {
+        const orderA = a.meta.textbook_order ?? 999;
+        const orderB = b.meta.textbook_order ?? 999;
+        return orderA - orderB;
       });
     } else if (group === 'secondary') {
       docs.sort((a, b) => {

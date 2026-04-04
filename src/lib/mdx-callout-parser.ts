@@ -3,11 +3,18 @@
 // Callout記法の正規表現パターン
 const CALLOUT_PATTERN = /^>\s*\[!(\w+)\](.*?)$/;
 
+// :::directive 記法のパターン（:::tip, :::note, :::caution 等）
+const DIRECTIVE_START_PATTERN = /^:::(\w+)\s*(.*)?$/;
+const DIRECTIVE_END_PATTERN = /^:::$/;
+
 // サポートされているCalloutタイプ
-const SUPPORTED_TYPES = ['info', 'warning', 'error', 'success', 'note', 'tip'];
+const SUPPORTED_TYPES = ['info', 'warning', 'error', 'success', 'note', 'tip', 'caution', 'danger'];
 
 /**
  * MDXコンテンツ内のCallout記法をReactコンポーネントに変換
+ * 2つの記法をサポート:
+ * - Obsidian記法: > [!tip] Title / > content
+ * - Directive記法: :::tip Title / content / :::
  * @param content MDXコンテンツ
  * @returns 変換されたコンテンツ
  */
@@ -15,6 +22,7 @@ export function parseCallouts(content: string): string {
   const lines = content.split('\n');
   const result: string[] = [];
   let inCallout = false;
+  let inDirective = false;
   let calloutType = '';
   let calloutTitle = '';
   let calloutContent: string[] = [];
@@ -25,17 +33,46 @@ export function parseCallouts(content: string): string {
     // undefinedや空行も処理する必要がある
     const lineToProcess = line ?? '';
 
-    const match = lineToProcess.match(CALLOUT_PATTERN);
+    const calloutMatch = lineToProcess.match(CALLOUT_PATTERN);
+    const directiveStartMatch = lineToProcess.match(DIRECTIVE_START_PATTERN);
+    const directiveEndMatch = lineToProcess.match(DIRECTIVE_END_PATTERN);
 
-    if (match && !inCallout) {
-      // Callout開始
-      inCallout = true;
-      calloutType = match[1]?.toLowerCase() || 'info';
-      calloutTitle = match[2]?.trim() || '';
+    // ::: directive 終了
+    if (inDirective && directiveEndMatch) {
+      inDirective = false;
+      const calloutComponent = generateCalloutComponent(calloutType, calloutTitle, calloutContent);
+      result.push(calloutComponent);
+      result.push('');
+      continue;
+    }
+
+    // ::: directive 内のコンテンツ
+    if (inDirective) {
+      calloutContent.push(lineToProcess);
+      continue;
+    }
+
+    // ::: directive 開始
+    if (directiveStartMatch && !inCallout && !inDirective) {
+      inDirective = true;
+      calloutType = directiveStartMatch[1]?.toLowerCase() || 'info';
+      calloutTitle = directiveStartMatch[2]?.trim() || '';
       calloutContent = [];
-      calloutStartIndex = result.length; // resultの現在のインデックスを使用
 
-      // サポートされていないタイプの場合はinfoにフォールバック
+      if (!SUPPORTED_TYPES.includes(calloutType)) {
+        calloutType = 'info';
+      }
+      continue;
+    }
+
+    // > [!type] Obsidian記法の開始
+    if (calloutMatch && !inCallout) {
+      inCallout = true;
+      calloutType = calloutMatch[1]?.toLowerCase() || 'info';
+      calloutTitle = calloutMatch[2]?.trim() || '';
+      calloutContent = [];
+      calloutStartIndex = result.length;
+
       if (!SUPPORTED_TYPES.includes(calloutType)) {
         calloutType = 'info';
       }
@@ -51,16 +88,9 @@ export function parseCallouts(content: string): string {
       // Callout終了
       inCallout = false;
 
-      // Calloutコンポーネントを生成
       const calloutComponent = generateCalloutComponent(calloutType, calloutTitle, calloutContent);
-
-      // Calloutコンポーネントを追加
       result.push(calloutComponent);
-
-      // 空行を追加してCalloutコンポーネントを分離
       result.push('');
-
-      // 現在の行を処理
       result.push(lineToProcess);
 
     } else {
@@ -69,8 +99,8 @@ export function parseCallouts(content: string): string {
     }
   }
 
-  // 最後のCalloutが終了していない場合の処理
-  if (inCallout) {
+  // 最後のCallout/Directiveが終了していない場合の処理
+  if (inCallout || inDirective) {
     const calloutComponent = generateCalloutComponent(calloutType, calloutTitle, calloutContent);
     result.push(calloutComponent);
     result.push('');
