@@ -6,12 +6,17 @@
   { "name": "試験対策", "slug": "exam-preparation" },
   { "name": "キーワード", "slug": "keyword" },
   { "name": "択一式", "slug": "multiple-choice" },
-  { "name": "論文対策", "slug": "essay" },
-  { "name": "管理分野", "slug": "management" },
+  { "name": "記述式", "slug": "essay" },
+  { "name": "索引", "slug": "index" },
   { "name": "総合技術監理", "slug": "comprehensive-management" },
   { "name": "経済性管理", "slug": "economic-management" },
   { "name": "人的資源管理", "slug": "human-resource-management" },
   { "name": "情報管理", "slug": "information-management" },
   { "name": "安全管理", "slug": "safety-management" },
-  { "name": "社会環境管理", "slug": "social-environment-management" }
+  { "name": "社会環境管理", "slug": "social-environment-management" },
+  { "name": "品質管理", "slug": "quality-management" },
+  { "name": "土工", "slug": "earthwork" },
+  { "name": "コンクリート", "slug": "concrete" },
+  { "name": "施工計画", "slug": "construction-plan" },
+  { "name": "経験記述", "slug": "experience-writing" }
 ]
