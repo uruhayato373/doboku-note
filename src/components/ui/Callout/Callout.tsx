@@ -15,7 +15,7 @@ import {
  * Calloutコンポーネントのプロパティ定義
  */
 interface CalloutProps {
-  type?: "info" | "warning" | "error" | "success" | "note" | "tip" | "question";
+  type?: "info" | "warning" | "error" | "success" | "note" | "tip" | "question" | "caution" | "danger";
   title?: string;
   children: ReactNode;
 }
@@ -89,10 +89,26 @@ export default function Callout({
       titleColor: "text-blue-800 dark:text-blue-200",
       textColor: "text-blue-700 dark:text-blue-300",
     },
+    caution: {
+      icon: AlertTriangle,
+      bgColor: "bg-orange-50/80 dark:bg-orange-900/80",
+      borderColor: "border-orange-500 dark:border-orange-400",
+      iconColor: "text-orange-600 dark:text-orange-400",
+      titleColor: "text-orange-800 dark:text-orange-200",
+      textColor: "text-orange-700 dark:text-orange-300",
+    },
+    danger: {
+      icon: XCircle,
+      bgColor: "bg-red-50/80 dark:bg-red-900/80",
+      borderColor: "border-red-500 dark:border-red-400",
+      iconColor: "text-red-600 dark:text-red-400",
+      titleColor: "text-red-800 dark:text-red-200",
+      textColor: "text-red-700 dark:text-red-300",
+    },
   }), []);
 
-  // useMemoで最適化
-  const config = useMemo(() => typeConfig[type], [type, typeConfig]);
+  // useMemoで最適化（未知のtypeはinfoにフォールバック）
+  const config = useMemo(() => typeConfig[type] || typeConfig.info, [type, typeConfig]);
   const defaultTitle = useMemo(() => {
     return type.charAt(0).toUpperCase() + type.slice(1);
   }, [type]);
