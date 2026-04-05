@@ -7,6 +7,43 @@ interface StructuredDataProps {
   docMeta?: DocMeta;
 }
 
+function isExamQuizPage(meta: DocMeta | PostData): boolean {
+  const tags = meta.tags || [];
+  return tags.includes("past-questions");
+}
+
+function getExamName(category: string | undefined): string {
+  switch (category) {
+    case "civil-construction-1":
+      return "1級土木施工管理技士";
+    case "pe-comprehensive-management":
+      return "技術士 総合技術監理部門";
+    default:
+      return "土木系資格試験";
+  }
+}
+
+function generateQuizSchema(meta: DocMeta | PostData, baseUrl: string) {
+  const slug = "id" in meta ? meta.id : meta.slug;
+  return {
+    "@context": "https://schema.org",
+    "@type": "Quiz",
+    name: meta.title,
+    about: {
+      "@type": "Thing",
+      name: getExamName(meta.category),
+    },
+    educationalLevel: "Professional",
+    inLanguage: "ja-JP",
+    provider: {
+      "@type": "Organization",
+      name: "doboku-note",
+    },
+    url: `${baseUrl}/docs/${slug}`,
+    learningResourceType: "Practice",
+  };
+}
+
 export default function StructuredData({ type, post, docMeta }: StructuredDataProps) {
   const generateStructuredData = () => {
     const baseUrl = "https://doboku-note.com";
@@ -108,12 +145,28 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
 
   if (!structuredData) return null;
 
+  // Check if this is a quiz page and generate additional Quiz schema
+  const meta = post || docMeta;
+  const quizData = meta && isExamQuizPage(meta as DocMeta | PostData)
+    ? generateQuizSchema(meta as DocMeta | PostData, "https://doboku-note.com")
+    : null;
+
   return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{
-        __html: JSON.stringify(structuredData, null, 2),
-      }}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData, null, 2),
+        }}
+      />
+      {quizData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(quizData, null, 2),
+          }}
+        />
+      )}
+    </>
   );
 }
