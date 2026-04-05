@@ -42,16 +42,22 @@
       earthwork-key-points.mdx
       law-key-points.mdx
       concrete-maintenance.mdx
-    primary/                        #   第1次試験・過去問（20ファイル）
+    primary/                        #   第1次試験・過去問（24ファイル: H26〜R07）
       h26-a.mdx, h26-b.mdx, ...
       r01-a.mdx, r01-b.mdx, ...
       img/                          #   過去問の図版
-    secondary/                      #   第2次試験（5分野×2ファイル）
+    secondary/                      #   第2次試験（5分野×2ファイル + R03〜R07過去問5ファイル）
       concrete/basics.mdx, past-problems.mdx
       earthwork/basics.mdx, past-problems.mdx
       construction-plan/basics.mdx, past-problems.mdx
       quality-management/basics.mdx, past-problems.mdx
       experience-writing/guide.mdx, examples.mdx
+      r03.mdx, r04.mdx, ... r07.mdx
+    textbook/                       #   テキスト教科書MDX変換（Convention B: article.mdx）
+      construction-mgmt-overview/article.mdx
+      demolition/article.mdx
+      schedule-management/article.mdx
+      surveying/article.mdx
   pe-comprehensive-management/      # 技術士・総合技術監理（article.mdx 規約）
     exam-index/article.mdx          #   試験インデックス
     section-3-1-human-behavior/article.mdx  # 出題セクション
@@ -178,6 +184,25 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 - 日本語で記述
 - slug は英数字 + ハイフン（URL にするため）
 - frontmatter には `title`, `description`, `category`, `tags`, `published` を必須記載
+
+### MDXコンポーネント
+
+MDX内で使える主要コンポーネント（`src/lib/component-loader/index.ts` で登録済み）:
+
+- `<Callout type="info|warning|tip|error" title="...">children</Callout>` — 補足・注意ボックス
+- `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
+- `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
+- `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
+
+### 過去問MDXの構造ルール
+
+択一式過去問は以下を遵守:
+- 設問番号は **H2**（`## Ⅰ-1-1` / `## 問題 No.1`）— TOCに表示される唯一の見出し
+- `toc_max_heading_level: 2` を frontmatter に設定
+- 回答・解説は `<details>/<summary>` で開閉式にする
+- details内に **H2/H3見出しを使わない**（`**太字**` で代替）
+- 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
+- 詳細テンプレートは `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` を参照
 
 ### 数式・図表
 

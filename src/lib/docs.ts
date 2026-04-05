@@ -21,6 +21,7 @@ function preprocessMDX(content: string): string {
   const lines = result.split('\n');
   let inCodeBlock = false;
   let inMathBlock = false;
+  let inJsxBlock = false;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -38,8 +39,30 @@ function preprocessMDX(content: string): string {
 
     if (inCodeBlock || inMathBlock) continue;
 
-    // Skip lines that look like JSX components (<Component ... > or </Component>)
-    if (/^\s*<[A-Z]/.test(line) || /^\s*<\/[A-Z]/.test(line)) continue;
+    // Track multi-line JSX component blocks (<Component ...\n...\n/>)
+    if (/^\s*<[A-Z]/.test(line)) {
+      // Self-closing on same line: <Component ... />
+      if (/\/>\s*$/.test(line)) continue;
+      // Opening+closing on same line: <Component ...>...</Component>
+      if (/>.*<\/[A-Z]/.test(line)) continue;
+      // Multi-line JSX starts here
+      inJsxBlock = true;
+      continue;
+    }
+    if (inJsxBlock) {
+      // End of self-closing JSX: />
+      if (/^\s*\/>/.test(trimmed)) {
+        inJsxBlock = false;
+      }
+      // End of JSX closing tag: </Component>
+      if (/^\s*<\/[A-Z]/.test(line)) {
+        inJsxBlock = false;
+      }
+      continue;
+    }
+
+    // Skip closing JSX tags
+    if (/^\s*<\/[A-Z]/.test(line)) continue;
 
     // Skip lines with inline math $...$ (remark-math handles these)
     if (/\$[^$]+\$/.test(line)) continue;

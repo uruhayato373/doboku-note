@@ -5,6 +5,8 @@ export const availableComponents = {
   ArticleHeader: "ArticleHeader",
   ArticleFooter: "ArticleFooter",
   Callout: "Callout",
+  ExamPoint: "ExamPoint",
+  RelatedKeywords: "RelatedKeywords",
   CustomUnorderedList: "CustomUnorderedList",
   CustomOrderedList: "CustomOrderedList",
   LinkCard: "LinkCard",

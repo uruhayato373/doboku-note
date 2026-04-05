@@ -135,8 +135,8 @@
 
   .prose-blog details summary {
     @apply cursor-pointer select-none;
-    @apply py-3 px-5 font-semibold text-sm text-blue-700 dark:text-cyan-400;
-    @apply hover:bg-gray-100 dark:hover:bg-gray-700/40 transition-colors;
+    @apply py-3.5 px-5 font-bold text-base text-blue-700 dark:text-cyan-400;
+    @apply hover:bg-blue-50 dark:hover:bg-gray-700/40 transition-colors;
     @apply list-none;
   }
 

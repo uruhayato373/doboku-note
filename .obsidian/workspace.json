@@ -11,10 +11,24 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "docs/project/02_事業戦略.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "新規タブ"
+              "title": "02_事業戦略"
             }
           }
         ]
@@ -345,10 +359,10 @@
             "id": "6b11b07a49c304d8",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -360,9 +374,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "58dbf6ea7916dbae",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 15
+        "currentTab": 16
       }
     ],
     "direction": "horizontal",
@@ -392,37 +416,38 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "cf9fc66b07f5650a",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "src/components/ui/RelatedKeywords/index.ts",
+    "src/components/ui/RelatedKeywords/RelatedKeywords.tsx",
+    "src/components/ui/RelatedKeywords",
     "out/robots.txt",
     "out/sitemap.xml",
+    "out/_not-found/__next._index.txt",
     "out/_not-found/__next._not-found.__PAGE__.txt",
     "out/_not-found/__next._tree.txt",
     "out/_not-found/__next._head.txt",
     "out/_not-found/__next._not-found.txt",
-    "out/_not-found/__next._index.txt",
     "out/_not-found/__next._full.txt",
-    "out/__next._full.txt",
-    "out/_next/static/chunks/0owqazl__1p58.css",
-    "out/_next/static/oA5dsziTiB18NFNtwOfc_/_ssgManifest.js",
-    "out/posts/civil-construction-1/textbook/surveying/img/photo-5-8-9.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/photo-5-7.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/photo-5-6.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/photo-5-5.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/photo-5-4.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/photo-5-2.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/photo-5-10.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/fig-5-9.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/fig-5-8.png",
-    "out/posts/civil-construction-1/textbook/surveying/img/fig-5-5-6-7.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-9.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-8.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-7.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-6.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-5.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-4.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-10.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-3.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-2.png",
+    "out/posts/civil-construction-1/textbook/quality-management-text/img/fig-4-12.png",
+    "docs/reviews/competitor-audit/2026-04-05_pe-comprehensive-management.md",
+    "docs/project/03_NSMと計測指標.md",
+    "docs/project/01_設計思想.md",
+    "docs/project/02_事業戦略.md",
     "docs/reviews/competitor-audit/2026-04-04_civil-construction-1.md",
     "docs/project/strategy.md",
     "docs/project/06_URL設計ガイドライン.md",
     "docs/project/05_収益化戦略.md",
     "docs/project/04_コンテンツロードマップ.md",
-    "docs/project/03_NSMと計測指標.md",
-    "docs/project/02_事業戦略.md",
-    "docs/project/01_設計思想.md",
     "docs/project/roadmap.md",
     "docs/archive/reviews-archive/note-articles/N-5_行政書士_条文穴埋めドリル.md",
     "docs/archive/reviews-archive/note-articles/N-6_2級土木_最短合格ルートマップ.md",
@@ -438,7 +463,6 @@
     "docs/archive/reviews-archive/affiliate-plan/2026-03.md",
     "docs/archive/reviews-archive/content-roadmap/2026-04.md",
     "docs/archive/reviews-archive/content-roadmap/2026-03.md",
-    "docs/archive/reviews-strategy/2026-Q2.md",
-    "docs/archive/reviews-keyword-gap/2026-03.md"
+    "docs/archive/reviews-strategy/2026-Q2.md"
   ]
 }

@@ -18,6 +18,8 @@ export async function getCommonComponents() {
     ArticleImage: (await import("@/components/ui/ArticleImage/ArticleImage"))
       .default,
     Callout: (await import("@/components/ui/Callout/Callout")).default,
+    ExamPoint: (await import("@/components/ui/ExamPoint/ExamPoint")).default,
+    RelatedKeywords: (await import("@/components/ui/RelatedKeywords/RelatedKeywords")).default,
     CustomUnorderedList: (
       await import("@/components/ui/CustomUnorderedList/CustomUnorderedList")
     ).default,

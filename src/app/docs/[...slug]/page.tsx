@@ -21,6 +21,8 @@ import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
 
 const mdxOptions = {
+  blockJS: false,
+  blockDangerousJS: true,
   mdxOptions: {
     remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [rehypeHeadingIds, rehypeKatex],
@@ -30,7 +32,7 @@ const mdxOptions = {
 async function SafeMDXRemote({ source, components }: { source: string; components: any }) {
   try {
     // Pre-compile to catch errors before rendering
-    await compileMDX({ source, options: mdxOptions });
+    await compileMDX({ source, options: mdxOptions, components });
     return <MDXRemote source={source} components={components} options={mdxOptions} />;
   } catch (error: any) {
     console.error('MDX compile error:', error?.message?.slice(0, 200));

@@ -230,7 +230,7 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: Doc[]; secondary
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-[15px] border-collapse">
+      <table className="w-full text-base border-collapse">
         <thead>
           <tr className="border-b-2 border-gray-200 dark:border-gray-700">
             <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
@@ -301,7 +301,7 @@ function PeExamTable({ docs }: { docs: Doc[] }) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="w-full text-[15px] border-collapse">
+      <table className="w-full text-base border-collapse">
         <thead>
           <tr className="border-b-2 border-gray-200 dark:border-gray-700">
             <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
@@ -409,7 +409,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: Doc[]; keywo
                           <Link
                             key={kw.meta.slug}
                             href={`/docs/${kw.meta.slug}`}
-                            className="text-sm px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                            className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                           >
                             {kw.meta.title}
                           </Link>
@@ -435,7 +435,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: Doc[]; keywo
               <Link
                 key={kw.meta.slug}
                 href={`/docs/${kw.meta.slug}`}
-                className="text-sm px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
                 {kw.meta.title}
               </Link>
