@@ -3,6 +3,7 @@ import { Inter, Noto_Sans_JP } from "next/font/google";
 import "../styles/globals.css";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
 import { getCommonSeoData } from "@/lib/metadata";
@@ -64,6 +65,7 @@ export default function RootLayout({
             >
               <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
                 {children}
+                <BackToTopButton />
               </div>
             </ThemeProvider>
           </AnalyticsProvider>

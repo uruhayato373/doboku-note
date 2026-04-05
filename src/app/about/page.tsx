@@ -79,14 +79,6 @@ export default function AboutPage() {
                     <strong>効率的</strong> → 忙しい実務者でも合格できる学習法
                   </p>
                 </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-primary-600 dark:text-primary-400 mt-1">
-                    ✓
-                  </span>
-                  <p className="text-neutral-700 dark:text-gray-300">
-                    <strong>無料</strong> → すべてのコンテンツに無料でアクセス
-                  </p>
-                </div>
               </div>
             </div>
           </div>

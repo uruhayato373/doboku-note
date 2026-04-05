@@ -501,9 +501,6 @@ export default async function CategoryPage({
               {cat.label}
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">{cat.subtitle}</p>
-            <p className="text-sm text-gray-400 dark:text-gray-500 mt-2">
-              全 {docs.length} 件のコンテンツ
-            </p>
           </div>
         </div>
 

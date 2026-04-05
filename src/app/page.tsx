@@ -31,25 +31,9 @@ export default async function HomePage() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto leading-relaxed">
               1級土木施工管理技士と技術士（総合技術監理）の試験対策に特化したコンテンツを提供しています。
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/category/civil-construction-1"
-                className="inline-block bg-gradient-to-r from-primary-600 to-cyan-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:from-primary-700 hover:to-cyan-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                1級土木施工管理技士
-              </Link>
-
-              <Link
-                href="/docs/pe-comprehensive-management-exam-index"
-                className="inline-block bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-8 py-4 rounded-lg font-semibold text-lg border-2 border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-              >
-                技術士（総合技術監理）
-              </Link>
-            </div>
           </div>
         </section>
 
@@ -62,36 +46,36 @@ export default async function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* 1級土木施工管理技士 */}
-              <div className="p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary-600 dark:hover:border-primary-400 transition-colors">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              <Link
+                href="/category/civil-construction-1"
+                className="group block p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary-600 dark:hover:border-primary-400 hover:shadow-lg transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                   1級土木施工管理技士
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
                   土木工事の第1次・第2次試験対策コンテンツ。試験ガイド、過去問、キーワード解説を提供します。
                 </p>
-                <Link
-                  href="/category/civil-construction-1"
-                  className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
-                >
+                <span className="text-primary-600 dark:text-primary-400 font-semibold group-hover:underline">
                   コンテンツを見る →
-                </Link>
-              </div>
+                </span>
+              </Link>
 
               {/* 技術士（総合技術監理） */}
-              <div className="p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-600 dark:hover:border-cyan-400 transition-colors">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+              <Link
+                href="/category/pe-comprehensive-management"
+                className="group block p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-600 dark:hover:border-cyan-400 hover:shadow-lg transition-all duration-300"
+              >
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
                   技術士（総合技術監理部門）
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
                   総合技術監理部門の試験対策。5管理技術、論文作成、事例研究を含むコンテンツ。
                 </p>
-                <Link
-                  href="/docs/pe-comprehensive-management-exam-index"
-                  className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
-                >
+                <span className="text-cyan-600 dark:text-cyan-400 font-semibold group-hover:underline">
                   コンテンツを見る →
-                </Link>
-              </div>
+                </span>
+              </Link>
             </div>
           </div>
         </section>
