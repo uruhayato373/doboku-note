@@ -278,3 +278,151 @@
 .dark .toc-scroll:hover::-webkit-scrollbar-thumb {
   background: rgb(75 85 99);
 }
+
+/* ===== TOC: Zenn-style ===== */
+
+.toc-container {
+  border: 1px solid #e4edf4;
+  border-radius: 4px;
+  max-height: calc(100vh - 10rem);
+  padding: 20px 20px 25px;
+  overflow: auto;
+  background: #fff;
+}
+.dark .toc-container {
+  border-color: #2a3a4e;
+  background: #0d223a;
+}
+
+.toc-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.82);
+  margin-bottom: 8px;
+}
+.dark .toc-title {
+  color: #ecf5ff;
+}
+
+.toc-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.toc-content ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.toc-content li,
+.toc-content ol {
+  position: relative;
+}
+
+/* Links */
+.toc-content a {
+  position: relative;
+  display: block;
+  display: -webkit-box;
+  max-height: 3.05em;
+  margin: 8px 0;
+  overflow: hidden;
+  color: #65717b;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  transition: none;
+  text-decoration: none;
+}
+.toc-content a.active,
+.toc-content a:hover {
+  color: rgba(0, 0, 0, 0.82);
+}
+.dark .toc-content a {
+  color: #a4bcd5;
+}
+.dark .toc-content a.active,
+.dark .toc-content a:hover {
+  color: #ecf5ff;
+}
+
+/* Vertical line */
+.toc-content .ol-depth-1::before {
+  position: absolute;
+  top: 17px;
+  bottom: 8px;
+  left: 5px;
+  width: 2px;
+  content: "";
+  background: #e0efff;
+  border-radius: 0 0 5px 5px;
+}
+.dark .toc-content .ol-depth-1::before {
+  background: #05458a;
+}
+
+/* H2 items */
+.toc-content .ol-depth-1 > li {
+  position: relative;
+  padding-left: 21px;
+  margin-top: 5px;
+  font-weight: 700;
+}
+
+/* H2 dots */
+.toc-content .ol-depth-1 > li::before {
+  position: absolute;
+  content: "";
+  border-radius: 9999px;
+  top: 4px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: #bfdcff;
+  border: 2px solid #fff;
+}
+.dark .toc-content .ol-depth-1 > li::before {
+  background: #05458a;
+  border-color: #0d223a;
+}
+
+/* Active H2 dots */
+.toc-content .ol-depth-1 > li.active::before {
+  background: #3ea8ff;
+  border-color: #e0efff;
+}
+.dark .toc-content .ol-depth-1 > li.active::before {
+  background: #0f83fd;
+  border-color: #05458a;
+}
+
+/* H3/H4 sub-list */
+.toc-content .ol-depth-2 {
+  font-weight: 400;
+}
+
+/* H3/H4 dots */
+.toc-content .ol-depth-2 li::before {
+  position: absolute;
+  content: "";
+  border-radius: 9999px;
+  top: 6px;
+  left: -19px;
+  width: 8px;
+  height: 8px;
+  background: #cfe5ff;
+  border: 2px solid #fff;
+}
+.dark .toc-content .ol-depth-2 li::before {
+  background: #05458a;
+  border-color: #0d223a;
+}
+
+/* Active H3/H4 dots */
+.toc-content .ol-depth-2 li.active::before {
+  background: #3ea8ff;
+  border-color: #3ea8ff;
+}
+.dark .toc-content .ol-depth-2 li.active::before {
+  background: #0f83fd;
+  border-color: #0f83fd;
+}

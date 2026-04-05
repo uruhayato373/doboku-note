@@ -1,11 +1,16 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 interface TocItem {
   id: string;
   text: string;
   level: number;
+}
+
+interface TocGroup {
+  heading: TocItem;
+  children: TocItem[];
 }
 
 interface TableOfContentsProps {
@@ -42,6 +47,24 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
     return () => observerRef.current?.disconnect();
   }, [headings]);
 
+  // Build nested groups: H2 → group, H3/H4 → children of last group
+  const groups = useMemo<TocGroup[]>(() => {
+    const result: TocGroup[] = [];
+    for (const h of headings) {
+      if (h.level === 2) {
+        result.push({ heading: h, children: [] });
+      } else {
+        if (result.length === 0) {
+          // Orphan H3/H4 before any H2: promote to top-level
+          result.push({ heading: h, children: [] });
+        } else {
+          result[result.length - 1]!.children.push(h);
+        }
+      }
+    }
+    return result;
+  }, [headings]);
+
   if (headings.length === 0) return null;
 
   const handleClick = (e: React.MouseEvent, id: string) => {
@@ -54,62 +77,43 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-6 rounded-lg">
-      <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">
-        目次
-      </h3>
-      <nav className="relative max-h-[calc(100vh-14rem)] overflow-y-auto toc-scroll">
-        {/* 縦線（最初のドットから最後のドットまで） */}
-        <div
-          className="absolute left-[11px] top-[16px] bottom-[16px] w-[1px] bg-gray-200 dark:bg-gray-700"
-        />
-
-        {headings.map((heading) => {
-          const isActive = activeId === heading.id;
-
-          return (
-            <div key={heading.id} className="relative flex items-start">
-              {/* 見出し点 */}
-              <div className="flex items-center justify-center w-6 h-10 flex-shrink-0">
-                <span
-                  className={`rounded border-2 border-white dark:border-gray-800 ${
-                    heading.level === 2 ? 'w-[8px] h-[8px]' : 'w-[6px] h-[6px]'
-                  } ${
-                    isActive
-                      ? 'bg-blue-600 dark:bg-blue-400'
-                      : heading.level === 2
-                      ? 'bg-blue-400 dark:bg-blue-500'
-                      : 'bg-blue-300 dark:bg-blue-600'
-                  }`}
-                />
-              </div>
-
-              {/* 見出しリンク */}
+    <div className="toc-container toc-scroll">
+      <div className="toc-title">目次</div>
+      <nav className="toc-content">
+        <ol className="ol-depth-1">
+          {groups.map((group) => (
+            <li
+              key={group.heading.id}
+              className={activeId === group.heading.id ? 'active' : undefined}
+            >
               <a
-                href={`#${heading.id}`}
-                onClick={(e) => handleClick(e, heading.id)}
-                className={`flex-1 text-left py-2 pr-3 transition-all duration-200 ${
-                  isActive
-                    ? 'text-blue-800 dark:text-blue-200 font-medium'
-                    : heading.level === 2
-                    ? 'text-gray-700 dark:text-gray-300 hover:text-blue-700 dark:hover:text-blue-300'
-                    : 'text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
-                }`}
-                style={{
-                  paddingLeft: heading.level >= 3 ? `${(heading.level - 2) * 12}px` : '0px',
-                }}
+                href={`#${group.heading.id}`}
+                onClick={(e) => handleClick(e, group.heading.id)}
+                className={activeId === group.heading.id ? 'active' : undefined}
               >
-                <span
-                  className={`text-sm leading-relaxed block ${
-                    heading.level === 2 ? 'font-medium' : 'font-normal'
-                  }`}
-                >
-                  {heading.text}
-                </span>
+                {group.heading.text}
               </a>
-            </div>
-          );
-        })}
+              {group.children.length > 0 && (
+                <ol className="ol-depth-2">
+                  {group.children.map((child) => (
+                    <li
+                      key={child.id}
+                      className={activeId === child.id ? 'active' : undefined}
+                    >
+                      <a
+                        href={`#${child.id}`}
+                        onClick={(e) => handleClick(e, child.id)}
+                        className={activeId === child.id ? 'active' : undefined}
+                      >
+                        {child.text}
+                      </a>
+                    </li>
+                  ))}
+                </ol>
+              )}
+            </li>
+          ))}
+        </ol>
       </nav>
     </div>
   );
