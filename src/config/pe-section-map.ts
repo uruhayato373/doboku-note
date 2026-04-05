@@ -16,6 +16,11 @@ export type PeChapter = {
 
 export const PE_CHAPTERS: PeChapter[] = [
   {
+    id: '1', title: '総合技術監理', sections: [
+      { id: '1', title: '総合技術監理の概要' },
+    ],
+  },
+  {
     id: '2', title: '経済性管理', sections: [
       { id: '2.1', title: '事業企画' },
       { id: '2.2', title: '品質の管理' },
