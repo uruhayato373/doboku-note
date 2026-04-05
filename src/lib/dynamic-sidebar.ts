@@ -15,15 +15,19 @@ import type { SidebarTreeItem } from './sidebar';
 export async function generateDynamicSidebar(
   filterCategory?: string
 ): Promise<SidebarTreeItem[]> {
-  const slugs = await getAllDocSlugs();
+  const allSlugs = await getAllDocSlugs();
+
+  // カテゴリ前置詞でスラッグを事前フィルタ（I/O削減）
+  // 例: filterCategory='civil-construction-1' → slug が 'civil-construction-1-' で始まるもののみ
+  const slugs = filterCategory
+    ? allSlugs.filter((s) => s.startsWith(filterCategory + '-'))
+    : allSlugs;
 
   const docs: { slug: string; label: string; group: DocGroupKey }[] = [];
   const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
   for (let i = 0; i < slugs.length; i++) {
     const meta = metas[i];
     if (!meta || meta.published === false) continue;
-    if (filterCategory && meta.category !== filterCategory) continue;
-
     docs.push({
       slug: slugs[i]!,
       label: meta.sidebar_label || meta.title || slugs[i]!,

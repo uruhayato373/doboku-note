@@ -166,38 +166,41 @@ function findMdxFiles(dir: string, basePath: string[] = []): { slug: string; rel
  * Use for sidebar generation, category listing, and other metadata-only operations.
  */
 export const getDocMeta = cache(async function getDocMeta(slug: string): Promise<DocMeta | null> {
-  const localResult = findMdxFileBySlug(localContentDirectory, slug);
-  if (localResult) {
-    const fileContents = fs.readFileSync(localResult.filePath, 'utf8');
-    const matterResult = matter(fileContents);
-
-    if (matterResult.data.published === false) {
-      return null;
-    }
-
-    return {
-      slug,
-      title: matterResult.data.title || '',
-      description: matterResult.data.description || '',
-      category: matterResult.data.category,
-      tags: matterResult.data.tags,
-      sidebar_label: matterResult.data.sidebar_label,
-      toc_min_heading_level: matterResult.data.toc_min_heading_level,
-      toc_max_heading_level: matterResult.data.toc_max_heading_level,
-      published: matterResult.data.published !== false,
-      ...matterResult.data,
-    };
+  // slugToKeyMap を使った O(1) ファイルパス解決（findMdxFileBySlug の全走査を回避）
+  if (!slugToKeyMap) {
+    await getAllDocSlugs();
   }
 
-  // Fallback: Fetch from R2 (read only enough for frontmatter)
+  const relativePath = slugToKeyMap?.get(slug);
+
+  if (relativePath && fs.existsSync(localContentDirectory)) {
+    const filePath = path.join(localContentDirectory, relativePath);
+    if (fs.existsSync(filePath)) {
+      const fileContents = fs.readFileSync(filePath, 'utf8');
+      const matterResult = matter(fileContents);
+
+      if (matterResult.data.published === false) return null;
+
+      return {
+        slug,
+        title: matterResult.data.title || '',
+        description: matterResult.data.description || '',
+        category: matterResult.data.category,
+        tags: matterResult.data.tags,
+        sidebar_label: matterResult.data.sidebar_label,
+        toc_min_heading_level: matterResult.data.toc_min_heading_level,
+        toc_max_heading_level: matterResult.data.toc_max_heading_level,
+        published: matterResult.data.published !== false,
+        ...matterResult.data,
+      };
+    }
+  }
+
+  if (!relativePath) return null;
+
+  // Fallback: Fetch from R2
   try {
     const s3 = getS3Client();
-    if (!slugToKeyMap) {
-      await getAllDocSlugs();
-    }
-    const relativePath = slugToKeyMap?.get(slug);
-    if (!relativePath) return null;
-
     const key = `posts/${relativePath}`;
     const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
     const response = await s3.send(new GetObjectCommand({ Bucket: bucketName, Key: key }));
