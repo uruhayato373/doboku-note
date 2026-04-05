@@ -46,7 +46,6 @@ writeFileSync(join(OUT_DIR, 'sitemap.xml'), sitemap);
 
 const robots = `User-agent: *
 Allow: /
-Disallow: /docs/erosion-control/
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
