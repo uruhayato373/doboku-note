@@ -153,34 +153,62 @@ export default async function DocPage({
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Header />
 
-      <div className="flex max-w-[1400px] mx-auto w-full flex-grow">
-        {/* Left Sidebar: Navigation */}
-        <aside className="hidden lg:block w-64 shrink-0 border-r border-gray-200 dark:border-gray-700 overflow-y-auto bg-white dark:bg-gray-800 transition-colors duration-300">
-          <div className="p-4">
-            <SidebarNav
-              title={category ? getCategoryLabel(category) : 'ドキュメント'}
-              items={sidebar}
-              currentSlug={slugStr}
-            />
-          </div>
-        </aside>
+      <div className="flex-grow w-full">
+        {/* Zenn-style: コンテンツ中央 + 右TOC */}
+        <div className="max-w-[1200px] mx-auto flex relative">
 
-        {/* Main Content Area */}
-        <main className="flex-grow min-w-0 px-4 sm:px-6 lg:px-8 py-8 lg:py-10 max-w-4xl">
-          <article className="bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700 p-6 sm:p-8 overflow-hidden transition-colors duration-300">
-            {/* MDX Content — title comes from the # heading in MDX */}
-            <div className="prose-blog prose-sm md:prose-base">
-              <SafeMDXRemote source={doc.content} components={components} />
+          {/* Main Content Area */}
+          <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-12 py-8 lg:py-12">
+            {/* カテゴリナビ（パンくず的） */}
+            {category && (
+              <div className="max-w-[780px] mx-auto mb-6">
+                <a
+                  href={`/category/${category}`}
+                  className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                >
+                  <span>←</span>
+                  <span>{getCategoryLabel(category)}</span>
+                </a>
+              </div>
+            )}
+
+            <article className="max-w-[780px] mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-10 lg:p-12 overflow-hidden transition-colors duration-300">
+              {/* MDX Content — title comes from the # heading in MDX */}
+              <div className="prose-blog prose-base md:prose-lg">
+                <SafeMDXRemote source={doc.content} components={components} />
+              </div>
+            </article>
+
+            {/* 前後ナビ（カテゴリ内） */}
+            {sidebar.length > 0 && (
+              <div className="max-w-[780px] mx-auto mt-8">
+                <details className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200/60 dark:border-gray-700/60 overflow-hidden">
+                  <summary className="px-6 py-4 text-sm font-medium text-gray-600 dark:text-gray-400 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors select-none list-none">
+                    <span className="flex items-center gap-2">
+                      <span>📚</span>
+                      <span>{getCategoryLabel(category || '')}</span>
+                      <span className="text-gray-400">— {sidebar.length}件</span>
+                    </span>
+                  </summary>
+                  <div className="px-6 pb-4 border-t border-gray-100 dark:border-gray-700">
+                    <SidebarNav
+                      title=""
+                      items={sidebar}
+                      currentSlug={slugStr}
+                    />
+                  </div>
+                </details>
+              </div>
+            )}
+          </main>
+
+          {/* Right Sidebar: Table of Contents (Zenn-style) */}
+          <aside className="hidden xl:block w-[280px] shrink-0">
+            <div className="sticky top-20 py-12 pr-6">
+              <TableOfContents headings={headings} />
             </div>
-          </article>
-        </main>
-
-        {/* Right Sidebar: Table of Contents */}
-        <aside className="hidden xl:block w-56 shrink-0">
-          <div className="sticky top-20 px-4 py-8">
-            <TableOfContents headings={headings} />
-          </div>
-        </aside>
+          </aside>
+        </div>
       </div>
 
       <Footer />

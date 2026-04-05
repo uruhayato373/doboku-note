@@ -41,24 +41,33 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Noto Sans JP", "Inter", "sans-serif"],
+        sans: [
+          "Inter",
+          "Noto Sans JP",
+          "Hiragino Kaku Gothic ProN",
+          "Hiragino Sans",
+          "Meiryo",
+          "sans-serif",
+        ],
         inter: ["Inter", "sans-serif"],
       },
       typography: {
         DEFAULT: {
           css: {
-            // 改行処理の改善
+            fontSize: '17px',
+            lineHeight: '1.9',
+            maxWidth: 'none',
             'p': {
               marginBottom: '1rem',
-              lineHeight: '1.8', // 行間を1.8に設定（読みやすい）
+              lineHeight: '1.9',
             },
             'ul, ol': {
               marginBottom: '1rem',
-              lineHeight: '1.8', // 箇条書きの行間も統一
+              lineHeight: '1.9',
             },
             'li': {
               marginBottom: '0.5rem',
-              lineHeight: '1.8', // リスト項目の行間も統一
+              lineHeight: '1.9',
             },
             'li:last-child': {
               marginBottom: '0',
@@ -66,15 +75,11 @@ module.exports = {
             'h1 + p, h2 + p, h3 + p, h4 + p': {
               marginTop: '1rem',
             },
-            // 見出しの適切なスペーシング
             'h1, h2, h3, h4': {
               marginTop: '2rem',
               marginBottom: '1rem',
-              lineHeight: '1.4', // 見出しは少し詰めめ
+              lineHeight: '1.4',
             },
-            // 全体的な行間設定
-            'maxWidth': 'none',
-            'lineHeight': '1.8', // デフォルト行間
           },
         },
       },
