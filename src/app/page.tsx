@@ -23,7 +23,7 @@ export default async function HomePage() {
             <div className="absolute bottom-0 left-1/3 w-20 h-20 bg-primary-300 rounded blur-2xl"></div>
           </div>
 
-          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
               土木系資格試験
               <span className="bg-gradient-to-r from-primary-600 via-cyan-600 to-primary-800 dark:from-primary-400 dark:via-cyan-400 dark:to-primary-300 bg-clip-text text-transparent">
@@ -39,7 +39,7 @@ export default async function HomePage() {
 
         {/* Exams Overview Section */}
         <section className="py-16 bg-white dark:bg-gray-800">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
               対応試験
             </h2>

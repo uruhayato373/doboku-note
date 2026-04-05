@@ -496,7 +496,7 @@ export default async function CategoryPage({
       <main className="flex-grow">
         {/* Category Header */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 border-b border-blue-100 dark:border-gray-700 py-12 px-6">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-[1200px] mx-auto">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
               {cat.label}
             </h1>
@@ -504,7 +504,7 @@ export default async function CategoryPage({
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-6 py-12 text-[17px] leading-[1.9]">
+        <div className="max-w-[1200px] mx-auto px-6 py-12 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">

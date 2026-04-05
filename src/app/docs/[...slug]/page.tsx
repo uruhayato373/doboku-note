@@ -167,7 +167,7 @@ export default async function DocPage({
         <div className="max-w-[1200px] mx-auto flex relative">
 
           {/* Main Content Area */}
-          <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-12 py-8 lg:py-12">
+          <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
             {/* カテゴリナビ（パンくず的） */}
             {category && (
               <div className="max-w-[780px] mx-auto mb-6">
