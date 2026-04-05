@@ -192,6 +192,7 @@ MDX内で使える主要コンポーネント（`src/lib/component-loader/index.
 - `<Callout type="info|warning|tip|error" title="...">children</Callout>` — 補足・注意ボックス
 - `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
 - `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
+- `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slugでキーワードページへリンク、slug省略で灰色テキスト）
 - `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
 
 ### 過去問MDXの構造ルール
@@ -201,6 +202,8 @@ MDX内で使える主要コンポーネント（`src/lib/component-loader/index.
 - `toc_max_heading_level: 2` を frontmatter に設定
 - 回答・解説は `<details>/<summary>` で開閉式にする
 - details内に **H2/H3見出しを使わない**（`**太字**` で代替）
+- 関連キーワードは `<RelatedKeywords>` コンポーネントを使用（slug指定でキーワードページへリンク）
+- キーワードページ側の「過去問での出題」セクションにバックリンクを追加する（双方向リンク）
 - 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
 - 詳細テンプレートは `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` を参照
 

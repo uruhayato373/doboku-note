@@ -184,9 +184,10 @@ toc_max_heading_level: 2
   ]}
 />
 
-> **関連キーワード**
->
-> キーワード1・キーワード2
+<RelatedKeywords items={[
+  { label: "キーワード1", slug: "keyword-1-slug" },
+  { label: "キーワード2", slug: "keyword-2-slug" },
+]} />
 
 </details>
 
@@ -201,7 +202,8 @@ toc_max_heading_level: 2
 3. **回答・解説は `<details>/<summary>` で囲む** — 開閉式にする
 4. **details内にH2/H3見出しを使わない** — `**太字**` で代替。H2を使うとTOCが汚れる
 5. **試験対策ポイントは `<ExamPoint>` コンポーネント** — ブロッククォートではなく専用コンポーネントを使う
-6. **関連キーワードはブロッククォート** — `> **関連キーワード**` のまま（コンポーネント化不要）
+6. **関連キーワードは `<RelatedKeywords>` コンポーネント** — `KEYWORD_SECTION_MAP`（`src/config/pe-section-map.ts`）からslugを特定してリンク付きタグにする
+7. **キーワードページにバックリンクを追加** — 該当キーワードページの「過去問での出題」セクションに `- [令和X年度 択一式 Ⅰ-1-Y](/docs/pe-comprehensive-management-rXX-primary#ⅰ-1-Y)` を追加（双方向リンク）
 
 ## 品質ルーブリック（content-qa 評価基準）
 

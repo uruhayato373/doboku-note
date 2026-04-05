@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { KEYWORD_SECTION_MAP } from "@/config/pe-section-map";
 
 interface KeywordItem {
   label: string;
@@ -9,6 +10,10 @@ interface KeywordItem {
 
 interface RelatedKeywordsProps {
   items: KeywordItem[];
+}
+
+function hasKeywordPage(slug: string): boolean {
+  return slug in KEYWORD_SECTION_MAP;
 }
 
 export default function RelatedKeywords({ items }: RelatedKeywordsProps) {
@@ -21,7 +26,7 @@ export default function RelatedKeywords({ items }: RelatedKeywordsProps) {
       </div>
       <div className="flex flex-wrap gap-2">
         {items.map((item, index) =>
-          item.slug ? (
+          item.slug && hasKeywordPage(item.slug) ? (
             <Link
               key={index}
               href={`/docs/pe-comprehensive-management-${item.slug}`}
