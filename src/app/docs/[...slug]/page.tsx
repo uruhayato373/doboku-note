@@ -105,11 +105,18 @@ export async function generateMetadata({
       url: `/docs/${slugStr}`,
       type: 'article',
       siteName: 'doboku-note',
+      images: [{
+        url: '/images/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: doc.meta.title,
+      }],
     },
     twitter: {
-      card: 'summary',
+      card: 'summary_large_image',
       title: doc.meta.title,
       description: doc.meta.description || doc.meta.title,
+      images: ['/images/og-default.png'],
     },
   };
 }

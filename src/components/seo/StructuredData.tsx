@@ -31,7 +31,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
             dateModified: post.date,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `${baseUrl}/blog/${post.id}`,
+              "@id": `${baseUrl}/docs/${post.id}`,
             },
             articleSection: post.category,
             keywords: post.tags?.join(", "),
@@ -53,6 +53,8 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
               "@type": "Organization",
               name: "doboku-note",
             },
+            datePublished: (docMeta as any).created || undefined,
+            dateModified: (docMeta as any).created || undefined,
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": `${baseUrl}/docs/${docMeta.slug}`,
