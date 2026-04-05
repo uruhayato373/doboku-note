@@ -4,7 +4,7 @@
  * カテゴリページと同じ分類結果をサイドバーに反映。
  */
 
-import { getAllDocSlugs, getDoc } from './docs';
+import { getAllDocSlugs, getDocMeta } from './docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from './doc-classifier';
 import type { SidebarTreeItem } from './sidebar';
 
@@ -18,15 +18,16 @@ export async function generateDynamicSidebar(
   const slugs = await getAllDocSlugs();
 
   const docs: { slug: string; label: string; group: DocGroupKey }[] = [];
-  for (const slug of slugs) {
-    const doc = await getDoc(slug);
-    if (!doc || doc.meta.published === false) continue;
-    if (filterCategory && doc.meta.category !== filterCategory) continue;
+  const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
+  for (let i = 0; i < slugs.length; i++) {
+    const meta = metas[i];
+    if (!meta || meta.published === false) continue;
+    if (filterCategory && meta.category !== filterCategory) continue;
 
     docs.push({
-      slug,
-      label: doc.meta.sidebar_label || doc.meta.title || slug,
-      group: classifyDoc(doc.meta),
+      slug: slugs[i]!,
+      label: meta.sidebar_label || meta.title || slugs[i]!,
+      group: classifyDoc(meta),
     });
   }
 

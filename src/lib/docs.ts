@@ -161,6 +161,71 @@ function findMdxFiles(dir: string, basePath: string[] = []): { slug: string; rel
 }
 
 /**
+ * Reads only the frontmatter metadata of an MDX file (no content processing).
+ * Much faster than getDoc() — skips preprocessMDX and parseCallouts.
+ * Use for sidebar generation, category listing, and other metadata-only operations.
+ */
+export const getDocMeta = cache(async function getDocMeta(slug: string): Promise<DocMeta | null> {
+  const localResult = findMdxFileBySlug(localContentDirectory, slug);
+  if (localResult) {
+    const fileContents = fs.readFileSync(localResult.filePath, 'utf8');
+    const matterResult = matter(fileContents);
+
+    if (matterResult.data.published === false) {
+      return null;
+    }
+
+    return {
+      slug,
+      title: matterResult.data.title || '',
+      description: matterResult.data.description || '',
+      category: matterResult.data.category,
+      tags: matterResult.data.tags,
+      sidebar_label: matterResult.data.sidebar_label,
+      toc_min_heading_level: matterResult.data.toc_min_heading_level,
+      toc_max_heading_level: matterResult.data.toc_max_heading_level,
+      published: matterResult.data.published !== false,
+      ...matterResult.data,
+    };
+  }
+
+  // Fallback: Fetch from R2 (read only enough for frontmatter)
+  try {
+    const s3 = getS3Client();
+    if (!slugToKeyMap) {
+      await getAllDocSlugs();
+    }
+    const relativePath = slugToKeyMap?.get(slug);
+    if (!relativePath) return null;
+
+    const key = `posts/${relativePath}`;
+    const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
+    const response = await s3.send(new GetObjectCommand({ Bucket: bucketName, Key: key }));
+    if (!response?.Body) return null;
+
+    const fileContents = await response.Body.transformToString('utf-8');
+    const matterResult = matter(fileContents);
+    if (matterResult.data.published === false) return null;
+
+    return {
+      slug,
+      title: matterResult.data.title || '',
+      description: matterResult.data.description || '',
+      category: matterResult.data.category,
+      tags: matterResult.data.tags,
+      sidebar_label: matterResult.data.sidebar_label,
+      toc_min_heading_level: matterResult.data.toc_min_heading_level,
+      toc_max_heading_level: matterResult.data.toc_max_heading_level,
+      published: matterResult.data.published !== false,
+      ...matterResult.data,
+    };
+  } catch (error: any) {
+    if (error.name === 'NoSuchKey' || error.$metadata?.httpStatusCode === 404) return null;
+    throw error;
+  }
+});
+
+/**
  * Reads an MDX file from the slug and returns its metadata and content.
  * Converts flattened slug back to directory path for file lookup.
  * Development: Read from .local/r2/posts/
@@ -361,13 +426,13 @@ export async function getAllDocSlugs(): Promise<string[]> {
  */
 export async function getDocTitleMap(): Promise<Record<string, string>> {
   const slugs = await getAllDocSlugs();
-  const docs = await Promise.all(slugs.map((slug) => getDoc(slug)));
+  const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
   const titleMap: Record<string, string> = {};
 
   for (let i = 0; i < slugs.length; i++) {
-    const doc = docs[i];
-    if (doc) {
-      titleMap[slugs[i]!] = doc.meta.sidebar_label || doc.meta.title || slugs[i]!;
+    const meta = metas[i];
+    if (meta) {
+      titleMap[slugs[i]!] = meta.sidebar_label || meta.title || slugs[i]!;
     }
   }
 
@@ -382,8 +447,11 @@ export async function getDocTitleMap(): Promise<Record<string, string>> {
  */
 export async function getDocsByCategory(category: string): Promise<Doc[]> {
   const slugs = await getAllDocSlugs();
-  const allDocs = await Promise.all(slugs.map((slug) => getDoc(slug)));
-  return allDocs.filter((doc): doc is Doc => doc !== null && doc.meta.category === category);
+  // Filter by metadata first (fast), then load full docs only for matches
+  const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
+  const matchingSlugs = slugs.filter((_, i) => metas[i] !== null && metas[i]!.category === category);
+  const docs = await Promise.all(matchingSlugs.map((slug) => getDoc(slug)));
+  return docs.filter((doc): doc is Doc => doc !== null);
 }
 
 /**
@@ -393,6 +461,8 @@ export async function getDocsByCategory(category: string): Promise<Doc[]> {
  */
 export async function getDocsByTag(tag: string): Promise<Doc[]> {
   const slugs = await getAllDocSlugs();
-  const allDocs = await Promise.all(slugs.map((slug) => getDoc(slug)));
-  return allDocs.filter((doc): doc is Doc => doc !== null && (doc.meta.tags?.includes(tag) ?? false));
+  const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
+  const matchingSlugs = slugs.filter((_, i) => metas[i] !== null && (metas[i]!.tags?.includes(tag) ?? false));
+  const docs = await Promise.all(matchingSlugs.map((slug) => getDoc(slug)));
+  return docs.filter((doc): doc is Doc => doc !== null);
 }
