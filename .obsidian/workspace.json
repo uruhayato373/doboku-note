@@ -384,6 +384,7 @@
   },
   "active": "08e285ef1f56872c",
   "lastOpenFiles": [
+    "scripts/fix-bold-brackets.py",
     "scripts/check-bold-brackets.py",
     "node_modules/is-absolute-url/readme.md",
     "node_modules/is-absolute-url/package.json",
@@ -396,7 +397,6 @@
     "node_modules/rehype-external-links/readme.md",
     "node_modules/rehype-external-links/index.js",
     "node_modules/rehype-external-links/package.json",
-    "node_modules/rehype-external-links/license",
     "public/images/og-default.png",
     "docs/reviews/competitor-audit/2026-04-05_pe-comprehensive-management.md",
     "docs/reviews/competitor-audit/2026-04-04_civil-construction-1.md",
