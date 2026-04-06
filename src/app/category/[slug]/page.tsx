@@ -6,7 +6,10 @@ import Footer from '@/components/layout/Footer';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
-import { PE_CHAPTERS, getKeywordSection, extractKeywordSlug } from '@/config/pe-section-map';
+import peChaptersData from '@/config/pe-chapters.json';
+import type { PeChapter } from '@/config/pe-chapters';
+
+const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -356,7 +359,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: DocMeta[]; k
   const keywordsBySection = new Map<string, DocMeta[]>();
   const unmapped: DocMeta[] = [];
   for (const doc of keywordDocs) {
-    const sec = getKeywordSection(doc.slug || '');
+    const sec = doc.section as string | undefined;
     if (sec) {
       if (!keywordsBySection.has(sec)) keywordsBySection.set(sec, []);
       keywordsBySection.get(sec)!.push(doc);

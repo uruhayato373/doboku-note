@@ -325,10 +325,10 @@
             "id": "f4e8721fa3e2e83d",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -340,9 +340,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "08e285ef1f56872c",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 13
+        "currentTab": 14
       }
     ],
     "direction": "horizontal",
@@ -372,8 +382,9 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "d47946a456889c35",
+  "active": "08e285ef1f56872c",
   "lastOpenFiles": [
+    "src/app/page.tsx.tmp.8032.1775448301340",
     "src/app/api/content/[...path]/route.ts",
     "src/app/api/link-metadata/route.ts",
     "src/app/api/content/[...path]",
@@ -384,7 +395,6 @@
     "public/sitemap-0.xml",
     "public/robots.txt",
     "_backup/exam/civil-construction-1/secondary/experience-writing/guide.mdx",
-    "_backup/exam/civil-construction-1/secondary/experience-writing/examples.mdx",
     "public/images/og-default.png",
     "docs/reviews/competitor-audit/2026-04-05_pe-comprehensive-management.md",
     "docs/reviews/competitor-audit/2026-04-04_civil-construction-1.md",

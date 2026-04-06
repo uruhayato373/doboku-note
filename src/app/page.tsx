@@ -55,7 +55,7 @@ export default async function HomePage() {
                   土木工事の第1次・第2次試験対策コンテンツ。試験ガイド、過去問、キーワード解説を提供します。
                 </p>
                 <Link
-                  href="/docs/civil-construction-1-guide"
+                  href="/category/civil-construction-1"
                   className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
                 >
                   コンテンツを見る →
@@ -71,7 +71,7 @@ export default async function HomePage() {
                   総合技術監理部門の試験対策。5管理技術、論文作成、事例研究を含むコンテンツ。
                 </p>
                 <Link
-                  href="/docs/cem-study-guide"
+                  href="/category/pe-comprehensive-management"
                   className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
                 >
                   コンテンツを見る →

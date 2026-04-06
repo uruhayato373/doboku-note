@@ -11,8 +11,8 @@ export default function ExamPoint({ summary, items }: ExamPointProps) {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="my-5 mx-auto ml-5 p-3 border border-gray-300 dark:border-gray-600">
-      <div className="relative -left-10 bg-blue-600 text-white py-2 px-4 m-0 text-lg font-bold dark:bg-blue-500 inline-flex items-center w-auto">
+    <div className="my-5 mx-5 p-3 border border-gray-300 dark:border-gray-600">
+      <div className="relative -left-8 bg-blue-600 text-white py-2 px-4 m-0 text-lg font-bold dark:bg-blue-500 inline-flex items-center w-auto">
         試験対策ポイント
       </div>
       <p className="text-lg font-semibold text-gray-800 dark:text-gray-200 mt-3 mb-3 ml-2">
@@ -24,12 +24,12 @@ export default function ExamPoint({ summary, items }: ExamPointProps) {
         {items.map((item, index) => (
           <li
             key={index}
-            className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed relative flex items-center pl-6"
+            className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed flex items-start pl-2"
           >
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 text-blue-600 dark:text-blue-500">
+            <span className="shrink-0 mr-3 mt-1.5 text-blue-600 dark:text-blue-500">
               <Circle className="w-2 h-2 fill-current" />
             </span>
-            {item}
+            <span>{item}</span>
           </li>
         ))}
       </ul>
