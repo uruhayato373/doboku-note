@@ -9,12 +9,21 @@ import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from './d
 import type { SidebarTreeItem } from './sidebar';
 
 /**
+ * In-memory sidebar cache (survives across requests in dev server).
+ * Keyed by category string; invalidated on server restart.
+ */
+const sidebarCache = new Map<string, SidebarTreeItem[]>();
+
+/**
  * 全ドキュメントから動的に Sidebar ツリーを生成
  * category でフィルタし、classifyDoc() でグループ化
  */
 export async function generateDynamicSidebar(
   filterCategory?: string
 ): Promise<SidebarTreeItem[]> {
+  const cacheKey = filterCategory ?? '__all__';
+  const cached = sidebarCache.get(cacheKey);
+  if (cached) return cached;
   const allSlugs = await getAllDocSlugs();
 
   // カテゴリ前置詞でスラッグを事前フィルタ（I/O削減）
@@ -48,7 +57,9 @@ export async function generateDynamicSidebar(
   if (groups.size <= 1) {
     const allDocs = Array.from(groups.values()).flat();
     allDocs.sort((a, b) => a.slug.localeCompare(b.slug));
-    return allDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label }));
+    const result = allDocs.map((d) => ({ type: 'doc' as const, slug: d.slug, label: d.label }));
+    sidebarCache.set(cacheKey, result);
+    return result;
   }
 
   // 定義順でグループを並べる
@@ -69,5 +80,6 @@ export async function generateDynamicSidebar(
     });
   }
 
+  sidebarCache.set(cacheKey, items);
   return items;
 }

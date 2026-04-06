@@ -6,7 +6,7 @@ import { Calendar, CheckCircle, Clock } from "lucide-react";
 interface TimelineItem {
   title: string;
   description: string;
-  time: string;
+  time?: string;
   icon?: "calendar" | "check" | "clock";
 }
 
@@ -43,9 +43,11 @@ export default function Timeline({ items, className = "" }: TimelineProps) {
                 <p className="mt-2 text-sm md:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
                   {item.description}
                 </p>
-                <span className="mt-2 inline-block text-sm font-semibold text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-2 py-1 rounded">
-                  {item.time}
-                </span>
+                {item.time && (
+                  <span className="mt-2 inline-block text-sm font-semibold text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-2 py-1 rounded">
+                    {item.time}
+                  </span>
+                )}
               </div>
             </div>
           );

@@ -4,7 +4,6 @@ import { generateDynamicSidebar } from '@/lib/sidebar';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SidebarNav from '@/components/layout/SidebarNav';
-import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { Metadata } from 'next';
@@ -31,9 +30,9 @@ const mdxOptions = {
 
 async function SafeMDXRemote({ source, components }: { source: string; components: any }) {
   try {
-    // Pre-compile to catch errors before rendering
-    await compileMDX({ source, options: mdxOptions, components });
-    return <MDXRemote source={source} components={components} options={mdxOptions} />;
+    // Compile once and use the result directly (avoid double compilation)
+    const { content } = await compileMDX({ source, options: mdxOptions, components });
+    return <>{content}</>;
   } catch (error: any) {
     console.error('MDX compile error:', error?.message?.slice(0, 200));
     return (
