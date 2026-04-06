@@ -8,22 +8,9 @@ import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
 import { getCommonSeoData } from "@/lib/metadata";
 
-const StructuredData = dynamic(() => import("@/components/seo/StructuredData"));
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
-const ThemeProvider = dynamic(
-  () =>
-    import("@/components/providers/ThemeProvider").then(
-      (mod) => mod.ThemeProvider
-    ),
-  {
-    ssr: true,
-    loading: () => (
-      <div className="min-h-screen bg-neutral-50 dark:bg-gray-900">
-        {/* ローディング時のフォールバックUI */}
-      </div>
-    ),
-  }
-);
+const StructuredData = dynamic(() => import("@/components/seo/StructuredData"));
 
 const inter = Inter({
   subsets: ["latin"],

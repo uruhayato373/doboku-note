@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
-import { getDocsByCategory, Doc } from '@/lib/docs';
+import { getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
 import { PE_CHAPTERS, getKeywordSection, extractKeywordSlug } from '@/config/pe-section-map';
 
@@ -36,7 +36,7 @@ export async function generateMetadata({
 type DocGroup = {
   title: string;
   description: string;
-  docs: Doc[];
+  docs: DocMeta[];
 };
 
 const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
@@ -55,18 +55,18 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
 };
 
 /** Sort functions per group */
-function sortDocs(docs: Doc[], group: DocGroupKey, category: string) {
+function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
   if (category === 'civil-construction-1') {
     if (group === 'guide') {
       docs.sort((a, b) => {
-        if (a.meta.slug?.includes('strategy')) return -1;
-        if (b.meta.slug?.includes('strategy')) return 1;
-        return (a.meta.title || '').localeCompare(b.meta.title || '', 'ja');
+        if (a.slug?.includes('strategy')) return -1;
+        if (b.slug?.includes('strategy')) return 1;
+        return (a.title || '').localeCompare(b.title || '', 'ja');
       });
     } else if (group === 'primary') {
       docs.sort((a, b) => {
-        const slugA = a.meta.slug || '';
-        const slugB = b.meta.slug || '';
+        const slugA = a.slug || '';
+        const slugB = b.slug || '';
         const yearA = slugA.match(/(r|h)(\d+)/);
         const yearB = slugB.match(/(r|h)(\d+)/);
         if (yearA && yearB) {
@@ -78,14 +78,14 @@ function sortDocs(docs: Doc[], group: DocGroupKey, category: string) {
       });
     } else if (group === 'textbook') {
       docs.sort((a, b) => {
-        const orderA = a.meta.textbook_order ?? 999;
-        const orderB = b.meta.textbook_order ?? 999;
+        const orderA = a.textbook_order ?? 999;
+        const orderB = b.textbook_order ?? 999;
         return orderA - orderB;
       });
     } else if (group === 'secondary') {
       docs.sort((a, b) => {
-        const slugA = a.meta.slug || '';
-        const slugB = b.meta.slug || '';
+        const slugA = a.slug || '';
+        const slugB = b.slug || '';
         const topicA = slugA.replace(/.*secondary-/, '').replace(/-(basics|past-problems|guide|examples)$/, '');
         const topicB = slugB.replace(/.*secondary-/, '').replace(/-(basics|past-problems|guide|examples)$/, '');
         if (topicA !== topicB) return topicA.localeCompare(topicB);
@@ -97,21 +97,21 @@ function sortDocs(docs: Doc[], group: DocGroupKey, category: string) {
   } else if (category === 'pe-comprehensive-management') {
     if (group === 'pastExam') {
       docs.sort((a, b) => {
-        const yearA = a.meta.slug?.match(/r(\d+)/)?.[1] || '0';
-        const yearB = b.meta.slug?.match(/r(\d+)/)?.[1] || '0';
+        const yearA = a.slug?.match(/r(\d+)/)?.[1] || '0';
+        const yearB = b.slug?.match(/r(\d+)/)?.[1] || '0';
         if (yearB !== yearA) return parseInt(yearB) - parseInt(yearA);
-        const isPrimaryA = a.meta.tags?.includes('択一式') ? 0 : 1;
-        const isPrimaryB = b.meta.tags?.includes('択一式') ? 0 : 1;
+        const isPrimaryA = a.tags?.includes('択一式') ? 0 : 1;
+        const isPrimaryB = b.tags?.includes('択一式') ? 0 : 1;
         return isPrimaryA - isPrimaryB;
       });
     } else if (group === 'section') {
       docs.sort((a, b) => {
-        const numA = parseFloat(a.meta.section || '99');
-        const numB = parseFloat(b.meta.section || '99');
+        const numA = parseFloat(a.section || '99');
+        const numB = parseFloat(b.section || '99');
         return numA - numB;
       });
     } else if (group === 'keyword') {
-      docs.sort((a, b) => (a.meta.title || '').localeCompare(b.meta.title || '', 'ja'));
+      docs.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'));
     }
   }
 }
@@ -119,11 +119,11 @@ function sortDocs(docs: Doc[], group: DocGroupKey, category: string) {
 /**
  * Group docs using the shared classifier logic.
  */
-function groupDocs(docs: Doc[], category: string): DocGroup[] {
-  const buckets = new Map<DocGroupKey, Doc[]>();
+function groupDocs(docs: DocMeta[], category: string): DocGroup[] {
+  const buckets = new Map<DocGroupKey, DocMeta[]>();
 
   for (const doc of docs) {
-    const group = classifyDoc(doc.meta);
+    const group = classifyDoc(doc);
     if (!buckets.has(group)) buckets.set(group, []);
     buckets.get(group)!.push(doc);
   }
@@ -147,23 +147,23 @@ function groupDocs(docs: Doc[], category: string): DocGroup[] {
   return result;
 }
 
-function DocCard({ doc }: { doc: Doc }) {
+function DocCard({ doc }: { doc: DocMeta }) {
   return (
     <Link
-      href={`/docs/${doc.meta.slug}`}
+      href={`/docs/${doc.slug}`}
       className="group relative overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all"
     >
       <div className="flex flex-col gap-2 h-full">
         <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">
-          {doc.meta.title}
+          {doc.title}
         </h3>
-        {doc.meta.description && (
+        {doc.description && (
           <p className="text-[15px] text-gray-600 dark:text-gray-400 line-clamp-2 flex-grow">
-            {doc.meta.description}
+            {doc.description}
           </p>
         )}
         <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100 dark:border-gray-700">
-          {(doc.meta.tags || []).slice(0, 2).map(tag => (
+          {(doc.tags || []).slice(0, 2).map(tag => (
             <span
               key={tag}
               className="inline-block text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded"
@@ -171,9 +171,9 @@ function DocCard({ doc }: { doc: Doc }) {
               {tag}
             </span>
           ))}
-          {doc.meta.tags && doc.meta.tags.length > 2 && (
+          {doc.tags && doc.tags.length > 2 && (
             <span className="text-xs text-gray-500 dark:text-gray-500">
-              +{doc.meta.tags.length - 2}
+              +{doc.tags.length - 2}
             </span>
           )}
         </div>
@@ -196,11 +196,11 @@ function yearLabel(code: string): string {
  * 第1次検定の過去問をテーブル形式で表示
  * 年度ごとに問題A・問題Bをまとめる
  */
-function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: Doc[]; secondaryDocs?: Doc[] | undefined }) {
+function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secondaryDocs?: DocMeta[] | undefined }) {
   // 年度コードでグループ化
-  const yearMap = new Map<string, { a?: Doc; b?: Doc }>();
+  const yearMap = new Map<string, { a?: DocMeta; b?: DocMeta }>();
   for (const doc of docs) {
-    const match = doc.meta.slug?.match(/(r|h)(\d+)-(a|b)$/);
+    const match = doc.slug?.match(/(r|h)(\d+)-(a|b)$/);
     if (!match) continue;
     const yearCode = `${match[1]}${match[2]}`;
     const part = match[3] as 'a' | 'b';
@@ -209,10 +209,10 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: Doc[]; secondary
   }
 
   // 第2次検定のマップ
-  const secondaryMap = new Map<string, Doc>();
+  const secondaryMap = new Map<string, DocMeta>();
   if (secondaryDocs) {
     for (const doc of secondaryDocs) {
-      const match = doc.meta.slug?.match(/(r|h)(\d+)$/);
+      const match = doc.slug?.match(/(r|h)(\d+)$/);
       if (match) {
         secondaryMap.set(`${match[1]}${match[2]}`, doc);
       }
@@ -250,14 +250,14 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: Doc[]; secondary
                 <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{yearLabel(yearCode)}</td>
                 <td className="py-3 px-4 text-center">
                   {pair.a ? (
-                    <Link href={`/docs/${pair.a.meta.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.a.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
                       問題A
                     </Link>
                   ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
                 </td>
                 <td className="py-3 px-4 text-center">
                   {pair.b ? (
-                    <Link href={`/docs/${pair.b.meta.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.b.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
                       問題B
                     </Link>
                   ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
@@ -265,7 +265,7 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: Doc[]; secondary
                 {hasSecondary && (
                   <td className="py-3 px-4 text-center">
                     {secondary ? (
-                      <Link href={`/docs/${secondary.meta.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      <Link href={`/docs/${secondary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
                         第2次
                       </Link>
                     ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
@@ -284,10 +284,10 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: Doc[]; secondary
  * PE過去問をテーブル形式で表示
  * 年度ごとに択一式・記述式をまとめる
  */
-function PeExamTable({ docs }: { docs: Doc[] }) {
-  const yearMap = new Map<string, { primary?: Doc; secondary?: Doc }>();
+function PeExamTable({ docs }: { docs: DocMeta[] }) {
+  const yearMap = new Map<string, { primary?: DocMeta; secondary?: DocMeta }>();
   for (const doc of docs) {
-    const match = doc.meta.slug?.match(/r(\d+)-(primary|secondary)$/);
+    const match = doc.slug?.match(/r(\d+)-(primary|secondary)$/);
     if (!match) continue;
     const yearCode = `r${match[1]}`;
     const type = match[2] as 'primary' | 'secondary';
@@ -319,14 +319,14 @@ function PeExamTable({ docs }: { docs: Doc[] }) {
                 <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{label}</td>
                 <td className="py-3 px-4 text-center">
                   {pair.primary ? (
-                    <Link href={`/docs/${pair.primary.meta.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.primary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
                       択一式
                     </Link>
                   ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
                 </td>
                 <td className="py-3 px-4 text-center">
                   {pair.secondary ? (
-                    <Link href={`/docs/${pair.secondary.meta.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                    <Link href={`/docs/${pair.secondary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
                       記述式
                     </Link>
                   ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
@@ -344,19 +344,19 @@ function PeExamTable({ docs }: { docs: Doc[] }) {
  * PE セクション別ツリー表示
  * キーワード集の5管理体系に基づきキーワードをグルーピング
  */
-function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: Doc[]; keywordDocs: Doc[] }) {
-  // セクションdigest の slug → Doc マップ（例: "section-3-1-human-behavior" → Doc）
-  const digestMap = new Map<string, Doc>();
+function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: DocMeta[]; keywordDocs: DocMeta[] }) {
+  // セクションdigest の slug → DocMeta マップ（例: "section-3-1-human-behavior" → Doc）
+  const digestMap = new Map<string, DocMeta>();
   for (const doc of sectionDocs) {
-    const sec = doc.meta.section; // "3.1" 等
+    const sec = doc.section; // "3.1" 等
     if (sec) digestMap.set(sec, doc);
   }
 
   // キーワードをセクション番号でグルーピング
-  const keywordsBySection = new Map<string, Doc[]>();
-  const unmapped: Doc[] = [];
+  const keywordsBySection = new Map<string, DocMeta[]>();
+  const unmapped: DocMeta[] = [];
   for (const doc of keywordDocs) {
-    const sec = getKeywordSection(doc.meta.slug || '');
+    const sec = getKeywordSection(doc.slug || '');
     if (sec) {
       if (!keywordsBySection.has(sec)) keywordsBySection.set(sec, []);
       keywordsBySection.get(sec)!.push(doc);
@@ -391,7 +391,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: Doc[]; keywo
                     <div className="flex items-center gap-2 mb-1">
                       {digest ? (
                         <Link
-                          href={`/docs/${digest.meta.slug}`}
+                          href={`/docs/${digest.slug}`}
                           className="text-base font-semibold text-blue-700 dark:text-blue-400 hover:underline"
                         >
                           {sec.title}
@@ -404,14 +404,14 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: Doc[]; keywo
                     {keywords.length > 0 && (
                       <div className="flex flex-wrap gap-2 ml-9 mt-1">
                         {keywords
-                          .sort((a, b) => (a.meta.title || '').localeCompare(b.meta.title || '', 'ja'))
+                          .sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'))
                           .map(kw => (
                           <Link
-                            key={kw.meta.slug}
-                            href={`/docs/${kw.meta.slug}`}
+                            key={kw.slug}
+                            href={`/docs/${kw.slug}`}
                             className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                           >
-                            {kw.meta.title}
+                            {kw.title}
                           </Link>
                         ))}
                       </div>
@@ -430,14 +430,14 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: Doc[]; keywo
           <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4">その他</h3>
           <div className="flex flex-wrap gap-2 ml-2">
             {unmapped
-              .sort((a, b) => (a.meta.title || '').localeCompare(b.meta.title || '', 'ja'))
+              .sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'))
               .map(kw => (
               <Link
-                key={kw.meta.slug}
-                href={`/docs/${kw.meta.slug}`}
+                key={kw.slug}
+                href={`/docs/${kw.slug}`}
                 className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               >
-                {kw.meta.title}
+                {kw.title}
               </Link>
             ))}
           </div>
@@ -447,7 +447,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: Doc[]; keywo
   );
 }
 
-function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'pe-exam-table'; secondaryDocs?: Doc[] | undefined }) {
+function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'pe-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
   return (
     <section>
       <div className="mb-6">
@@ -462,7 +462,7 @@ function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {group.docs.map(doc => (
-            <DocCard key={doc.meta.slug} doc={doc} />
+            <DocCard key={doc.slug} doc={doc} />
           ))}
         </div>
       )}
@@ -482,8 +482,8 @@ export default async function CategoryPage({
     notFound();
   }
 
-  const allDocs = await getDocsByCategory(slug);
-  const docs = allDocs.filter(d => d.meta.published !== false);
+  const allDocs = await getDocsMetaByCategory(slug);
+  const docs = allDocs.filter(d => d.published !== false);
 
   const groups = (slug === 'civil-construction-1' || slug === 'pe-comprehensive-management')
     ? groupDocs(docs, slug)
@@ -523,10 +523,10 @@ export default async function CategoryPage({
 
                   // secondary を年度別過去問と分野別に分離
                   const secondaryYearDocs = secondaryGroup?.docs.filter(d =>
-                    /secondary-(r|h)\d+$/.test(d.meta.slug || '')
+                    /secondary-(r|h)\d+$/.test(d.slug || '')
                   ) || [];
                   const secondaryTopicDocs = secondaryGroup?.docs.filter(d =>
-                    !/secondary-(r|h)\d+$/.test(d.meta.slug || '')
+                    !/secondary-(r|h)\d+$/.test(d.slug || '')
                   ) || [];
 
                   return (
@@ -565,8 +565,8 @@ export default async function CategoryPage({
                   const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'keyword'));
 
                   // キーワード集2026を分離（セクションツリーの「その他」から除外）
-                  const keyword2026 = keywordGroup?.docs.find(d => d.meta.slug === 'pe-comprehensive-management-keyword-2026');
-                  const keywordDocsFiltered = keywordGroup?.docs.filter(d => d.meta.slug !== 'pe-comprehensive-management-keyword-2026') || [];
+                  const keyword2026 = keywordGroup?.docs.find(d => d.slug === 'pe-comprehensive-management-keyword-2026');
+                  const keywordDocsFiltered = keywordGroup?.docs.filter(d => d.slug !== 'pe-comprehensive-management-keyword-2026') || [];
 
                   return (
                     <>
@@ -586,7 +586,7 @@ export default async function CategoryPage({
                           {/* キーワード集 2026 全文リンク */}
                           {keyword2026 && (
                             <Link
-                              href={`/docs/${keyword2026.meta.slug}`}
+                              href={`/docs/${keyword2026.slug}`}
                               className="group flex items-center gap-4 mb-10 p-5 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md transition-all"
                             >
                               <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-lg">
@@ -594,7 +594,7 @@ export default async function CategoryPage({
                               </div>
                               <div>
                                 <div className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                                  {keyword2026.meta.title}
+                                  {keyword2026.title}
                                 </div>
                                 <div className="text-sm text-gray-500 dark:text-gray-400">
                                   文部科学省公開PDFをWeb上で閲覧・検索できるようにしたものです
@@ -621,7 +621,7 @@ export default async function CategoryPage({
             /* Default flat grid for other categories */
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {docs.map(doc => (
-                <DocCard key={doc.meta.slug} doc={doc} />
+                <DocCard key={doc.slug} doc={doc} />
               ))}
             </div>
           )}

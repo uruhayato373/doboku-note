@@ -457,6 +457,12 @@ export async function getDocsByCategory(category: string): Promise<Doc[]> {
   return docs.filter((doc): doc is Doc => doc !== null);
 }
 
+export async function getDocsMetaByCategory(category: string): Promise<DocMeta[]> {
+  const slugs = await getAllDocSlugs();
+  const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
+  return metas.filter((meta): meta is DocMeta => meta !== null && meta.category === category);
+}
+
 /**
  * Gets all docs with a specific tag.
  * @param tag - Tag to filter by, e.g., 'guide'
