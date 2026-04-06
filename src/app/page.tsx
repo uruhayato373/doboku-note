@@ -23,7 +23,7 @@ export default async function HomePage() {
             <div className="absolute bottom-0 left-1/3 w-20 h-20 bg-primary-300 rounded blur-2xl"></div>
           </div>
 
-          <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
               土木系資格試験
               <span className="bg-gradient-to-r from-primary-600 via-cyan-600 to-primary-800 dark:from-primary-400 dark:via-cyan-400 dark:to-primary-300 bg-clip-text text-transparent">
@@ -31,51 +31,52 @@ export default async function HomePage() {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
               1級土木施工管理技士と技術士（総合技術監理）の試験対策に特化したコンテンツを提供しています。
             </p>
+
           </div>
         </section>
 
         {/* Exams Overview Section */}
         <section className="py-16 bg-white dark:bg-gray-800">
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
               対応試験
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* 1級土木施工管理技士 */}
-              <Link
-                href="/category/civil-construction-1"
-                className="group block p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary-600 dark:hover:border-primary-400 hover:shadow-lg transition-all duration-300"
-              >
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+              <div className="p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary-600 dark:hover:border-primary-400 transition-colors">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                   1級土木施工管理技士
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                <p className="text-gray-700 dark:text-gray-300 mb-6">
                   土木工事の第1次・第2次試験対策コンテンツ。試験ガイド、過去問、キーワード解説を提供します。
                 </p>
-                <span className="text-primary-600 dark:text-primary-400 font-semibold group-hover:underline">
+                <Link
+                  href="/docs/civil-construction-1-guide"
+                  className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
+                >
                   コンテンツを見る →
-                </span>
-              </Link>
+                </Link>
+              </div>
 
               {/* 技術士（総合技術監理） */}
-              <Link
-                href="/category/pe-comprehensive-management"
-                className="group block p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-600 dark:hover:border-cyan-400 hover:shadow-lg transition-all duration-300"
-              >
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+              <div className="p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-600 dark:hover:border-cyan-400 transition-colors">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
                   技術士（総合技術監理部門）
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                <p className="text-gray-700 dark:text-gray-300 mb-6">
                   総合技術監理部門の試験対策。5管理技術、論文作成、事例研究を含むコンテンツ。
                 </p>
-                <span className="text-cyan-600 dark:text-cyan-400 font-semibold group-hover:underline">
+                <Link
+                  href="/docs/cem-study-guide"
+                  className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
+                >
                   コンテンツを見る →
-                </span>
-              </Link>
+                </Link>
+              </div>
             </div>
           </div>
         </section>

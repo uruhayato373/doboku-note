@@ -11,24 +11,10 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/project/02_事業戦略.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "02_事業戦略"
+              "title": "新規タブ"
             }
           }
         ]
@@ -339,36 +325,6 @@
             "id": "f4e8721fa3e2e83d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新規タブ"
-            }
-          },
-          {
-            "id": "10b1dc6c80ea91d1",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新規タブ"
-            }
-          },
-          {
-            "id": "6b11b07a49c304d8",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {},
-              "icon": "lucide-file",
-              "title": "新規タブ"
-            }
-          },
-          {
-            "id": "cf9fc66b07f5650a",
-            "type": "leaf",
-            "state": {
               "type": "graph-analysis",
               "state": {},
               "icon": "GA-ICON",
@@ -376,7 +332,7 @@
             }
           },
           {
-            "id": "58dbf6ea7916dbae",
+            "id": "d47946a456889c35",
             "type": "leaf",
             "state": {
               "type": "graph-analysis",
@@ -386,7 +342,7 @@
             }
           }
         ],
-        "currentTab": 16
+        "currentTab": 13
       }
     ],
     "direction": "horizontal",
@@ -416,38 +372,38 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "d47946a456889c35",
   "lastOpenFiles": [
-    "out/robots.txt",
-    "out/sitemap.xml",
-    "out/_not-found/__next._tree.txt",
-    "out/_not-found/__next._not-found.txt",
-    "out/_not-found/__next._not-found.__PAGE__.txt",
-    "out/_not-found/__next._index.txt",
-    "out/_not-found/__next._head.txt",
-    "out/_not-found/__next._full.txt",
-    "out/_not-found",
-    "out/privacy/__next.privacy.__PAGE__.txt",
-    "out/privacy/__next.privacy.txt",
-    "out/posts/civil-construction-1/textbook/related-laws-02/img/fig-7-6.png",
-    "out/posts/civil-construction-1/textbook/related-laws-02/img/fig-7-5.png",
-    "out/posts/civil-construction-1/textbook/related-laws-02/img/fig-7-4.png",
-    "out/posts/civil-construction-1/textbook/related-laws-02/img/fig-7-3.png",
-    "out/posts/civil-construction-1/textbook/related-laws-01/img/fig-7-construction-system.png",
-    "out/posts/civil-construction-1/textbook/related-laws-01/img/fig-7-2.png",
-    "out/posts/civil-construction-1/textbook/related-laws-01/img/fig-7-1.png",
-    "out/images/og-default.png",
+    "src/app/api/content/[...path]/route.ts",
+    "src/app/api/link-metadata/route.ts",
+    "src/app/api/content/[...path]",
+    "src/app/api/link-metadata",
+    "src/app/api/content",
+    "src/app/api",
+    "public/sitemap.xml",
+    "public/sitemap-0.xml",
+    "public/robots.txt",
+    "_backup/exam/civil-construction-1/secondary/experience-writing/guide.mdx",
+    "_backup/exam/civil-construction-1/secondary/experience-writing/examples.mdx",
     "public/images/og-default.png",
-    "out/posts/civil-construction-1/textbook/construction-machinery-02/img/photo-2-31.png",
     "docs/reviews/competitor-audit/2026-04-05_pe-comprehensive-management.md",
-    "docs/project/03_NSMと計測指標.md",
-    "docs/project/01_設計思想.md",
-    "docs/project/02_事業戦略.md",
     "docs/reviews/competitor-audit/2026-04-04_civil-construction-1.md",
-    "docs/project/strategy.md",
-    "docs/project/06_URL設計ガイドライン.md",
     "docs/project/05_収益化戦略.md",
     "docs/project/04_コンテンツロードマップ.md",
+    "docs/project/02_事業戦略.md",
+    "docs/project/03_NSMと計測指標.md",
+    "docs/project/01_設計思想.md",
+    "_backup/general/construction-management/safety-management/img/0506.png",
+    "_backup/general/construction-management/safety-management/img/0505.png",
+    "_backup/general/construction-management/safety-management/img/0503.png",
+    "_backup/general/construction-management/safety-management/img/0502.png",
+    "_backup/general/design-manual/img/e11-fig-12.png",
+    "_backup/general/design-manual/img/e11-fig-11.png",
+    "_backup/general/design-manual/img/e11-fig-10.png",
+    "_backup/general/design-manual/img/e11-fig-09.png",
+    "_backup/general/design-manual/img/e11-fig-08.png",
+    "docs/project/strategy.md",
+    "docs/project/06_URL設計ガイドライン.md",
     "docs/project/roadmap.md",
     "docs/archive/reviews-archive/note-articles/N-5_行政書士_条文穴埋めドリル.md",
     "docs/archive/reviews-archive/note-articles/N-6_2級土木_最短合格ルートマップ.md",
