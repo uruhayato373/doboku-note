@@ -7,6 +7,8 @@ export const commonComponents = {
   // UI基本コンポーネント
   ArticleImage: "ArticleImage",
   Callout: "Callout",
+  ExamPoint: "ExamPoint",
+  RelatedKeywords: "RelatedKeywords",
   CustomUnorderedList: "CustomUnorderedList",
   CustomOrderedList: "CustomOrderedList",
   LinkCard: "LinkCard",

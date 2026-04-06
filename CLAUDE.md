@@ -23,7 +23,7 @@
 | 言語 | JavaScript (ESM), MDX |
 | 数式 | KaTeX (remark-math + rehype-katex) |
 | 図表 | Mermaid |
-| 検索 | Algolia DocSearch |
+| 検索 | MiniSearch (クライアントサイド全文検索) |
 | 分析 | Google Analytics (gtag: G-8VXJ1RL1HG) |
 | 広告 | Google AdSense (ca-pub-7995274743017484) |
 | 画像配信 | Cloudflare R2 (`storage.doboku-note.com`) |
@@ -34,33 +34,45 @@
 
 ```
 .local/r2/posts/                    # すべてのコンテンツ（dev環境）
-  civil-construction-1/             # 1級土木施工管理技士
-    guide/article.mdx
-    guide/img/
-    primary/article.mdx             # 第1次試験（過去問等）
-    primary/img/
-    secondary/article.mdx           # 第2次試験
-    secondary/img/
-  pe/                               # 技術士（建設部門）
-    primary-guide/article.mdx
-    primary-guide/img/
-    secondary-guide/article.mdx
-    soil-foundation/article.mdx
-    [... 他の選択科目 ...]
-  pe-comprehensive-management/      # 技術士（総合技術監理技術部門）
-    section-3-1/article.mdx
+  civil-construction-1/             # 1級土木施工管理技士（個別ファイル名）
+    guide/                          #   試験ガイド（6ファイル）
+      strategy.mdx
+      four-management.mdx
+      concrete-key-points.mdx
+      earthwork-key-points.mdx
+      law-key-points.mdx
+      concrete-maintenance.mdx
+    primary/                        #   第1次試験・過去問（24ファイル: H26〜R07）
+      h26-a.mdx, h26-b.mdx, ...
+      r01-a.mdx, r01-b.mdx, ...
+      img/                          #   過去問の図版
+    secondary/                      #   第2次試験（5分野×2ファイル + R03〜R07過去問5ファイル）
+      concrete/basics.mdx, past-problems.mdx
+      earthwork/basics.mdx, past-problems.mdx
+      construction-plan/basics.mdx, past-problems.mdx
+      quality-management/basics.mdx, past-problems.mdx
+      experience-writing/guide.mdx, examples.mdx
+      r03.mdx, r04.mdx, ... r07.mdx
+    textbook/                       #   テキスト教科書MDX変換（Convention B: article.mdx）
+      construction-mgmt-overview/article.mdx
+      demolition/article.mdx
+      schedule-management/article.mdx
+      surveying/article.mdx
+  pe-comprehensive-management/      # 技術士・総合技術監理（article.mdx 規約）
+    exam-index/article.mdx          #   試験インデックス
+    section-3-1-human-behavior/article.mdx  # 出題セクション
     [... 他の出題セクション ...]
-    r01-primary/article.mdx         # 旧試験問題
+    r01-primary/article.mdx         #   過去問
     [... 他の過去問 ...]
-  [~75 additional keyword/concept dirs]  # 土木一般・施工管理知識など
+    followership/article.mdx        #   キーワード（100トピック）
+    [... 他のキーワード ...]
 
 src/                                # カスタムコンポーネント・CSS・レイアウト
   lib/
     docs.ts                         # getDoc(), getAllDocSlugs()等
-    mdx.ts                          # （廃止予定・互換性のため残置）
   app/
     docs/[...slug]/page.tsx         # 全ドキュメントページの動的ルート（フラット）
-    api/content/[...path]/route.ts  # 画像配信API
+    category/[slug]/page.tsx        # カテゴリ一覧ページ
 
 docs/project/            # プロジェクト管理ドキュメント
 .github/workflows/     # CI/CD
@@ -95,13 +107,32 @@ docs/project/            # プロジェクト管理ドキュメント
 
 ### ディレクトリ → URL マッピング
 
-```
-.local/r2/posts/{slug}/article.mdx  →  /docs/{slug}
+2つのファイル命名規約が共存する。どちらも `src/lib/docs.ts` の `findMdxFiles()` が自動処理する。
 
-例：
-  .local/r2/posts/civil-construction-1-guide/article.mdx  →  /docs/civil-construction-1-guide
-  .local/r2/posts/cem-section-3-1/article.mdx             →  /docs/cem-section-3-1
+#### Convention A: 個別ファイル名（civil-construction-1 で使用）
+1つのディレクトリに複数ファイルがある場合。ファイル名がスラッグに含まれる。
 ```
+.local/r2/posts/civil-construction-1/guide/strategy.mdx
+  → /docs/civil-construction-1-guide-strategy
+
+.local/r2/posts/civil-construction-1/primary/h26-a.mdx
+  → /docs/civil-construction-1-primary-h26-a
+
+.local/r2/posts/civil-construction-1/secondary/concrete/basics.mdx
+  → /docs/civil-construction-1-secondary-concrete-basics
+```
+
+#### Convention B: article.mdx（pe-comprehensive-management で使用、新規コンテンツ推奨）
+1トピック1ディレクトリの場合。`article.mdx` はスラッグから除外される。
+```
+.local/r2/posts/pe-comprehensive-management/followership/article.mdx
+  → /docs/pe-comprehensive-management-followership
+
+.local/r2/posts/pe-comprehensive-management/r01-primary/article.mdx
+  → /docs/pe-comprehensive-management-r01-primary
+```
+
+**新規コンテンツは Convention B（article.mdx）を推奨。** 1ディレクトリに複数ファイルが必要な場合のみ Convention A を使用。
 
 ### frontmatter による分類（カテゴリ + タグ）
 
@@ -154,6 +185,28 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 - slug は英数字 + ハイフン（URL にするため）
 - frontmatter には `title`, `description`, `category`, `tags`, `published` を必須記載
 
+### MDXコンポーネント
+
+MDX内で使える主要コンポーネント（`src/lib/component-loader/index.ts` で登録済み）:
+
+- `<Callout type="info|warning|tip|error" title="...">children</Callout>` — 補足・注意ボックス
+- `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
+- `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
+- `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slugでキーワードページへリンク、slug省略で灰色テキスト）
+- `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
+
+### 過去問MDXの構造ルール
+
+択一式過去問は以下を遵守:
+- 設問番号は **H2**（`## Ⅰ-1-1` / `## 問題 No.1`）— TOCに表示される唯一の見出し
+- `toc_max_heading_level: 2` を frontmatter に設定
+- 回答・解説は `<details>/<summary>` で開閉式にする
+- details内に **H2/H3見出しを使わない**（`**太字**` で代替）
+- 関連キーワードは `<RelatedKeywords>` コンポーネントを使用（slug指定でキーワードページへリンク）
+- キーワードページ側の「過去問での出題」セクションにバックリンクを追加する（双方向リンク）
+- 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
+- 詳細テンプレートは `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` を参照
+
 ### 数式・図表
 
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
@@ -165,8 +218,8 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 画像は R2（Cloudflare）から配信。Git には含めない。
 
 - **R2 URL（本番）**: `https://storage.doboku-note.com/posts/{slug}/img/{ファイル名}`
-- **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />` または `<img src="/api/content/posts/{slug}/img/{ファイル名}" />`
-- **ローカル開発**: `.local/r2/posts/{slug}/img/` から API ルート（`src/app/api/content/[...path]/route.ts`）経由で配信
+- **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />`
+- **ローカル開発**: `public/posts` → `.local/r2/posts` のシンボリックリンク経由で配信
 - **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
 - **ダウンロード（ローカル初期化）**: `/sync-r2-images` または `npm run download-images`
 - **アップロード（R2反映）**: `node scripts/upload-images-to-r2.mjs` （実装予定）
@@ -244,6 +297,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/reset-git-history` | Git 履歴リセット | `.claude/skills/dev/reset-git-history/SKILL.md` |
 | `/allow-tool` | ツール許可を settings.local.json に追加 | `.claude/skills/dev/allow-tool/SKILL.md` |
 | `/sync-r2-images` | R2上の画像をローカルに同期（npm run dev で画像が見えないとき） | `.claude/skills/dev/sync-r2-images/SKILL.md` |
+| `/code-review` | Next.jsコード品質レビュー（セキュリティ・パフォーマンス・保守性・a11y） | `.claude/skills/dev/code-review/SKILL.md` |
 
 ### content — コンテンツ作成
 

@@ -18,9 +18,8 @@ export interface FacetData {
 export function useSearch() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<string>("");
-  const [subCategory, setSubCategory] = useState<string>("");
   const [tags, setTags] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<"relevance" | "date" | "readTime">(
+  const [sortBy, setSortBy] = useState<"relevance">(
     "relevance"
   );
   const [page, setPage] = useState(1);
@@ -93,7 +92,6 @@ export function useSearch() {
       const newQuery: SearchQuery = {
         q: query,
         category,
-        subCategory,
         tags,
         sortBy,
         page: 1,
@@ -103,15 +101,13 @@ export function useSearch() {
 
       if (updates.q !== undefined) setQuery(updates.q);
       if (updates.category !== undefined) setCategory(updates.category);
-      if (updates.subCategory !== undefined)
-        setSubCategory(updates.subCategory);
       if (updates.tags !== undefined) setTags(updates.tags);
       if (updates.sortBy !== undefined) setSortBy(updates.sortBy);
       if (updates.page !== undefined) setPage(updates.page);
 
       executeSearch(newQuery);
     },
-    [query, category, subCategory, tags, sortBy, limit, executeSearch]
+    [query, category, tags, sortBy, limit, executeSearch]
   );
 
   // ページ変更
@@ -123,7 +119,6 @@ export function useSearch() {
       executeSearch({
         q: query,
         category,
-        subCategory,
         tags,
         sortBy,
         page: newPage,
@@ -133,7 +128,6 @@ export function useSearch() {
     [
       query,
       category,
-      subCategory,
       tags,
       sortBy,
       limit,
@@ -146,7 +140,6 @@ export function useSearch() {
   const resetSearch = useCallback(() => {
     setQuery("");
     setCategory("");
-    setSubCategory("");
     setTags([]);
     setSortBy("relevance");
     setPage(1);
@@ -158,7 +151,6 @@ export function useSearch() {
   return {
     query,
     category,
-    subCategory,
     tags,
     sortBy,
     page,
@@ -170,7 +162,6 @@ export function useSearch() {
 
     setQuery,
     setCategory,
-    setSubCategory,
     setTags,
     setSortBy,
     updateSearchQuery,

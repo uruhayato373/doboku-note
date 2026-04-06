@@ -13,6 +13,21 @@ export type SidebarItem =
   | string
   | { type: 'category'; label: string; items: SidebarItem[] };
 
+/** Tree navigation types for SidebarNav component */
+export type SidebarDocItem = {
+  type: 'doc';
+  slug: string;
+  label: string;
+};
+
+export type SidebarGroupItem = {
+  type: 'group';
+  label: string;
+  items: SidebarTreeItem[];
+};
+
+export type SidebarTreeItem = SidebarDocItem | SidebarGroupItem;
+
 /**
  * Extracts the first path from a sidebar item tree.
  * Used by GeneratedIndexPage to generate category links.
@@ -86,13 +101,13 @@ export function getSidebar(sidebarId: string): SidebarItem[] {
 }
 
 /**
- * Category から動的に Sidebar を生成
- * frontmatter の tags を自動的に階層化する
- * @param category - 'civil-construction-1' | 'pe' | 'pe-comprehensive-management'
- * @returns 動的に生成された SidebarItem[]
+ * Category から動的に Sidebar ツリーを生成
+ * frontmatter の tags[0] でグループ化（重複排除）
+ * @param category - 'civil-construction-1' | 'pe-comprehensive-management'
+ * @returns SidebarTreeItem[] for SidebarNav component
  */
 export async function generateDynamicSidebar(
   category?: string
-): Promise<SidebarItem[]> {
+): Promise<SidebarTreeItem[]> {
   return genDynamicSidebar(category);
 }

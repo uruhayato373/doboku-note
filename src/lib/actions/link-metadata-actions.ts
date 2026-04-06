@@ -1,7 +1,3 @@
-// "use server"; // 静的エクスポート用に一時的に無効化
-
-import { revalidateTag } from "next/cache";
-
 interface LinkMetadata {
   title?: string;
   description?: string;
@@ -9,23 +5,48 @@ interface LinkMetadata {
   siteName?: string;
 }
 
-// 特定のホストのキャッシュをクリア
-export async function revalidateLinkMetadata(url: string): Promise<void> {
-  try {
-    const urlObj = new URL(url);
-    const tag = `link-metadata-${urlObj.hostname}`;
-    revalidateTag(tag);
-  } catch (error) {
-    // キャッシュクリアエラーは静かに処理
+/**
+ * Validate URL to prevent SSRF attacks.
+ * Only allows https:// URLs with public hostnames.
+ */
+function validateUrl(url: string): URL {
+  const urlObj = new URL(url);
+
+  if (urlObj.protocol !== 'https:') {
+    throw new Error('Only HTTPS URLs are allowed');
   }
+
+  const hostname = urlObj.hostname.toLowerCase();
+  const blockedPatterns = [
+    'localhost',
+    '127.0.0.1',
+    '0.0.0.0',
+    '::1',
+    '169.254.',       // link-local
+    '10.',            // private class A
+    '192.168.',       // private class C
+    'metadata.google', // cloud metadata
+  ];
+
+  if (blockedPatterns.some(p => hostname === p || hostname.startsWith(p))) {
+    throw new Error('Access to internal/private URLs is not allowed');
+  }
+
+  // Block private class B (172.16.0.0 - 172.31.255.255)
+  const classB = hostname.match(/^172\.(\d+)\./);
+  if (classB && Number(classB[1]) >= 16 && Number(classB[1]) <= 31) {
+    throw new Error('Access to internal/private URLs is not allowed');
+  }
+
+  return urlObj;
 }
 
 // 特定のホストのメタデータを強制的に再取得
 export async function refreshLinkMetadata(url: string): Promise<LinkMetadata> {
   try {
-    const urlObj = new URL(url);
+    const urlObj = validateUrl(url);
 
-    // ローカルホストや内部URLの場合はスキップ
+    // ローカルホストや内部URLの場合はスキップ（validateUrlで既にブロック済み、フォールバック）
     if (urlObj.hostname === "localhost" || urlObj.hostname === "127.0.0.1") {
       return {
         siteName: urlObj.hostname,
@@ -124,10 +145,10 @@ function extractMetadataFromHtml(html: string, urlObj: URL): LinkMetadata {
 
 export async function getLinkMetadata(url: string): Promise<LinkMetadata> {
   try {
-    // URLの検証
-    const urlObj = new URL(url);
+    // URLの検証（SSRF防止）
+    const urlObj = validateUrl(url);
 
-    // ローカルホストや内部URLの場合はスキップ
+    // ローカルホストや内部URLの場合はスキップ（validateUrlで既にブロック済み、フォールバック）
     if (urlObj.hostname === "localhost" || urlObj.hostname === "127.0.0.1") {
       return {
         siteName: urlObj.hostname,
@@ -147,7 +168,7 @@ export async function getLinkMetadata(url: string): Promise<LinkMetadata> {
       const response = await fetch(url, {
         headers: {
           "User-Agent":
-            "Mozilla/5.0 (compatible; LinkCard-Bot/1.0; +https://kakomu.com)",
+            "Mozilla/5.0 (compatible; LinkCard-Bot/1.0; +https://doboku-note.com)",
           Accept:
             "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
           "Accept-Language": "ja,en-US;q=0.7,en;q=0.3",

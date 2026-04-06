@@ -1,19 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  ...(process.env.NODE_ENV === 'production' ? { output: 'export' } : {}),
   images: {
     unoptimized: true,
-  },
-
-  async rewrites() {
-    if (process.env.NODE_ENV !== 'development') {
-      return [];
-    }
-    return [
-      {
-        source: '/posts/:path*',
-        destination: '/api/content/posts/:path*',
-      },
-    ];
   },
 
   experimental: {

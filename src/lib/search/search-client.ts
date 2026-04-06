@@ -9,22 +9,19 @@ export interface SearchIndexEntry {
   id: string;
   title: string;
   description: string;
+  path: string;
   category: string;
-  subCategory: string;
   tags: string[];
-  date: string;
-  readTime: string;
   excerpt: string;
 }
 
 export interface SearchQuery {
   q: string;
   category?: string;
-  subCategory?: string;
   tags?: string[];
   page?: number;
   limit?: number;
-  sortBy?: "relevance" | "date" | "readTime";
+  sortBy?: "relevance";
 }
 
 export interface SearchResult {
@@ -39,11 +36,9 @@ const STORE_FIELDS = [
   "id",
   "title",
   "description",
+  "path",
   "category",
-  "subCategory",
   "tags",
-  "date",
-  "readTime",
   "excerpt",
 ] as const;
 
@@ -82,9 +77,6 @@ function applyFilters(
   if (query.category) {
     filtered = filtered.filter((e) => e.category === query.category);
   }
-  if (query.subCategory) {
-    filtered = filtered.filter((e) => e.subCategory === query.subCategory);
-  }
   if (query.tags && query.tags.length > 0) {
     filtered = filtered.filter((e) =>
       query.tags!.some((tag) => e.tags?.includes(tag))
@@ -92,24 +84,6 @@ function applyFilters(
   }
 
   return filtered;
-}
-
-/** ソート */
-function applySort(
-  entries: SearchIndexEntry[],
-  sortBy: string
-): SearchIndexEntry[] {
-  if (sortBy === "date") {
-    return [...entries].sort(
-      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-    );
-  }
-  if (sortBy === "readTime") {
-    return [...entries].sort(
-      (a, b) => parseInt(a.readTime) - parseInt(b.readTime)
-    );
-  }
-  return entries;
 }
 
 /** 検索実行 */
@@ -130,21 +104,14 @@ export async function search(query: SearchQuery): Promise<SearchResult> {
     id: r.id as string,
     title: (r as Record<string, unknown>).title as string,
     description: (r as Record<string, unknown>).description as string,
+    path: (r as Record<string, unknown>).path as string,
     category: (r as Record<string, unknown>).category as string,
-    subCategory: (r as Record<string, unknown>).subCategory as string,
     tags: (r as Record<string, unknown>).tags as string[],
-    date: (r as Record<string, unknown>).date as string,
-    readTime: (r as Record<string, unknown>).readTime as string,
     excerpt: (r as Record<string, unknown>).excerpt as string,
   }));
 
   // フィルタリング
   entries = applyFilters(entries, query);
-
-  // ソート（relevance以外の場合）
-  if (query.sortBy && query.sortBy !== "relevance") {
-    entries = applySort(entries, query.sortBy);
-  }
 
   const total = entries.length;
   const totalPages = Math.ceil(total / limit);

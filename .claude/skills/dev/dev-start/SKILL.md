@@ -38,15 +38,23 @@ http://localhost:3020 にアクセスしてサイトが表示されることを�
 
 ## kill メカニズム
 
-`scripts/kill-port.mjs` が以下を実行します：
+`scripts/kill-port.mjs` がOS別に以下を実行します：
+
+### macOS / Linux
+1. `lsof -ti:3020` でポート3020をリッスンしているPIDを検出
+2. `kill -9 <pid>` で強制終了
+3. OSがポートを解放するまで1秒待機
+
+### Windows
 1. `netstat -ano` で全ネットワーク接続を取得
 2. ポート3020をリッスンしているPIDを検出
 3. `taskkill /PID <pid> /F /T` で強制終了（子プロセスも含める）
-4. OSがポートを解放するまで待機
+4. OSがポートを解放するまで1秒待機
 
 ## エラー時の対応
 
-- **ERR_SOCKET_ERROR** が表示される場合：既存プロセスがまだポートを使用中の可能性があります。タスクマネージャーで `node.exe` をすべて終了してから再試行してください
+- **Another next dev server is already running** が表示される場合：`kill -9 <PID>` で表示されたPIDを手動終了してから再試行
+- **ERR_SOCKET_ERROR** が表示される場合：`lsof -ti:3020 | xargs kill -9` で全プロセスを終了してから再試行
 - **EACCES permission denied** が表示される場合：管理者権限が必要な可能性があります
 
 ## 開発サーバーの停止

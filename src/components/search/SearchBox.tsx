@@ -129,7 +129,7 @@ export function SearchBox({
           onKeyDown={handleKeyDown}
           onFocus={() => {
             onFocus?.();
-            inputValue.trim() && setShowSuggestions(true);
+            if (inputValue.trim()) setShowSuggestions(true);
           }}
           onBlur={onBlur}
           placeholder={placeholder}

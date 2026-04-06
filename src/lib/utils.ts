@@ -42,7 +42,7 @@ export function isValidDate(dateString: string): boolean {
 export function calculateReadTime(content: string): string {
   // マークダウンの記号やHTMLタグを除去して純粋な文字数を取得
   const cleanContent = content
-    .replace(/[#*`~\[\](){}|\\\-_=+>]/g, "") // マークダウン記号を除去
+    .replace(/[#*`~[\](){}|\\\-_=+>]/g, "") // マークダウン記号を除去
     .replace(/<[^>]*>/g, "") // HTMLタグを除去
     .replace(/\s+/g, " ") // 連続する空白を単一の空白に
     .trim();
@@ -66,7 +66,7 @@ export function calculateReadTime(content: string): string {
  */
 export function getCharacterCount(content: string): number {
   const cleanContent = content
-    .replace(/[#*`~\[\](){}|\\\-_=+>]/g, "")
+    .replace(/[#*`~[\](){}|\\\-_=+>]/g, "")
     .replace(/<[^>]*>/g, "")
     .replace(/\s+/g, " ")
     .trim();

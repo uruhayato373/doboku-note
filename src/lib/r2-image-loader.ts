@@ -1,6 +1,6 @@
 import type { ImageLoaderProps } from 'next/image';
 
-const R2_PUBLIC_URL = process.env.NEXT_PUBLIC_R2_PUBLIC_URL || "https://images.kakkom.com";
+const R2_PUBLIC_URL = process.env.NEXT_PUBLIC_R2_PUBLIC_URL || "https://storage.doboku-note.com";
 
 /**
  * ローカル画像パスをR2公開URLに変換

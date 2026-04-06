@@ -4,33 +4,10 @@ import matter from "gray-matter";
 import { parseCallouts } from "./mdx-callout-parser";
 import { calculateReadTime } from "./utils";
 import type { Post, HeadingItem } from "@/types/blog";
-import { S3Client, GetObjectCommand, ListObjectsV2Command } from "@aws-sdk/client-s3";
+import { GetObjectCommand, ListObjectsV2Command } from "@aws-sdk/client-s3";
+import { getS3Client } from "./r2-client";
 
 const localPostsDirectory = path.join(process.cwd(), ".local", "r2", "posts");
-
-/**
- * Create S3 client for R2 access in production
- */
-function getS3Client(): S3Client {
-  const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
-  const accessKeyId = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
-  const secretAccessKey = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
-
-  if (!accountId || !accessKeyId || !secretAccessKey) {
-    throw new Error(
-      "Missing R2 credentials: CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_R2_ACCESS_KEY_ID, CLOUDFLARE_R2_SECRET_ACCESS_KEY"
-    );
-  }
-
-  return new S3Client({
-    region: "auto",
-    endpoint: `https://${accountId}.r2.cloudflarestorage.com`,
-    credentials: {
-      accessKeyId,
-      secretAccessKey,
-    },
-  });
-}
 
 // サーバーサイドで見出しを抽出する関数
 function extractHeadingsFromMarkdown(content: string): HeadingItem[] {

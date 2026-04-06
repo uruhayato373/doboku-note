@@ -1,104 +1,72 @@
-'use server';
-
 /**
  * 動的 Sidebar 生成システム
- * frontmatter の category/tags から自動的にサイドバー構造を生成
+ * doc-classifier の共通分類ロジックでグループ化。
+ * カテゴリページと同じ分類結果をサイドバーに反映。
  */
 
-import { getAllDocSlugs, getDoc } from './docs';
-import { getCategoryLabel, getTagLabel } from './categories';
-
-export type SidebarItem =
-  | string
-  | { type: 'category'; label: string; items: SidebarItem[] };
+import { getAllDocSlugs, getDocMeta } from './docs';
+import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from './doc-classifier';
+import type { SidebarTreeItem } from './sidebar';
 
 /**
- * 全ドキュメントから動的に Sidebar を生成
- * category 別に グループ化し、tags で細分化
+ * 全ドキュメントから動的に Sidebar ツリーを生成
+ * category でフィルタし、classifyDoc() でグループ化
  */
 export async function generateDynamicSidebar(
   filterCategory?: string
-): Promise<SidebarItem[]> {
-  const slugs = await getAllDocSlugs();
-  const docsMap = new Map<string, any>();
+): Promise<SidebarTreeItem[]> {
+  const allSlugs = await getAllDocSlugs();
 
-  // 全ドキュメントのメタデータを取得
-  for (const slug of slugs) {
-    const doc = await getDoc(slug);
-    if (doc && doc.meta.published !== false) {
-      docsMap.set(slug, doc.meta);
-    }
+  // カテゴリ前置詞でスラッグを事前フィルタ（I/O削減）
+  // 例: filterCategory='civil-construction-1' → slug が 'civil-construction-1-' で始まるもののみ
+  const slugs = filterCategory
+    ? allSlugs.filter((s) => s.startsWith(filterCategory + '-'))
+    : allSlugs;
+
+  const docs: { slug: string; label: string; group: DocGroupKey }[] = [];
+  const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
+  for (let i = 0; i < slugs.length; i++) {
+    const meta = metas[i];
+    if (!meta || meta.published === false) continue;
+    docs.push({
+      slug: slugs[i]!,
+      label: meta.sidebar_label || meta.title || slugs[i]!,
+      group: classifyDoc(meta),
+    });
   }
 
-  // category 別に分類
-  const byCategory = new Map<string, Map<string, string[]>>();
-
-  for (const [slug, meta] of docsMap.entries()) {
-    const category = meta.category || 'uncategorized';
-
-    if (filterCategory && category !== filterCategory) {
-      continue;
+  // グループ化
+  const groups = new Map<DocGroupKey, { slug: string; label: string }[]>();
+  for (const doc of docs) {
+    if (!groups.has(doc.group)) {
+      groups.set(doc.group, []);
     }
-
-    if (!byCategory.has(category)) {
-      byCategory.set(category, new Map());
-    }
-
-    const categoryMap = byCategory.get(category)!;
-    const tags = meta.tags || [];
-
-    // タグベースでグループ化
-    for (const tag of tags) {
-      if (!categoryMap.has(tag)) {
-        categoryMap.set(tag, []);
-      }
-      categoryMap.get(tag)!.push(slug);
-    }
-
-    // タグがない場合は 'general' に
-    if (tags.length === 0) {
-      if (!categoryMap.has('general')) {
-        categoryMap.set('general', []);
-      }
-      categoryMap.get('general')!.push(slug);
-    }
+    groups.get(doc.group)!.push({ slug: doc.slug, label: doc.label });
   }
 
-  // sidebar item 生成
-  const items: SidebarItem[] = [];
+  // グループが1つしかない場合はフラットリスト
+  if (groups.size <= 1) {
+    const allDocs = Array.from(groups.values()).flat();
+    allDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+    return allDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label }));
+  }
 
-  for (const [category, tagMap] of byCategory.entries()) {
-    const categoryLabel = getCategoryLabel(category);
+  // 定義順でグループを並べる
+  const order = filterCategory ? getGroupOrder(filterCategory) : Array.from(groups.keys());
+  const items: SidebarTreeItem[] = [];
 
-    // タグが複数ある場合はカテゴリ > タグで階層化
-    if (tagMap.size > 1) {
-      const categoryItems: SidebarItem[] = [];
+  for (const groupKey of order) {
+    const groupDocs = groups.get(groupKey);
+    if (!groupDocs || groupDocs.length === 0) continue;
 
-      for (const [tag, slugs] of tagMap.entries()) {
-        const tagLabel = getTagLabel(tag);
-        const tagItems = slugs.sort().map((slug) => slug);
+    groupDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+    const label = filterCategory ? getGroupLabel(filterCategory, groupKey) : groupKey;
 
-        categoryItems.push({
-          type: 'category',
-          label: tagLabel,
-          items: tagItems,
-        });
-      }
-
-      items.push({
-        type: 'category',
-        label: categoryLabel,
-        items: categoryItems,
-      });
-    } else {
-      // タグが1つ以下の場合は直接アイテムを追加
-      const slugs = Array.from(tagMap.values()).flat().sort();
-      items.push({
-        type: 'category',
-        label: categoryLabel,
-        items: slugs,
-      });
-    }
+    items.push({
+      type: 'group',
+      label,
+      items: groupDocs.map((d) => ({ type: 'doc', slug: d.slug, label: d.label })),
+    });
   }
 
   return items;

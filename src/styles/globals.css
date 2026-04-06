@@ -2,41 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-/* 必要最小限のカスタムスタイル */
+/* ===== Base Styles ===== */
 @layer base {
   html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    scroll-padding-top: 5rem;
   }
-  
+
   body {
     @apply antialiased;
   }
 }
 
 @layer components {
-  /* 極力避けるが、どうしても必要な場合のみ */
+  /* ===== prose-blog: kakkom から継承 ===== */
   .prose-blog {
     @apply prose prose-gray dark:prose-invert max-w-none;
   }
 
-  /* 改行処理の改善 */
+  /* 本文: Zenn準拠 font-size 17px / line-height 1.9 */
+  .prose-blog {
+    font-size: 17px;
+    line-height: 1.9;
+  }
+
   .prose-blog p {
-    @apply mb-4 leading-relaxed; /* leading-relaxed = line-height: 1.625 */
+    @apply mb-4;
+    line-height: 1.9;
   }
 
   .prose-blog p:last-child {
     @apply mb-0;
   }
 
-  /* 箇条書きの改行処理 */
+  /* 箇条書き */
   .prose-blog ul, .prose-blog ol {
-    @apply mb-4 leading-relaxed; /* 箇条書きの行間も統一 */
+    @apply mb-4;
+    line-height: 1.9;
   }
 
   .prose-blog li {
-    @apply mb-2 leading-relaxed; /* リスト項目の行間も統一 */
+    @apply mb-2;
+    line-height: 1.9;
   }
 
   .prose-blog li:last-child {
@@ -51,67 +58,176 @@
     @apply mt-4;
   }
 
-  /* 見出しの行間設定 */
+  /* 見出し共通: 行間 */
   .prose-blog h1,
   .prose-blog h2,
   .prose-blog h3,
   .prose-blog h4 {
-    @apply leading-tight; /* leading-tight = line-height: 1.25 */
+    @apply leading-snug;
   }
 
-  /* ブログ記事見出しのカスタムスタイル */
+  /* h1: ページタイトル — 下線アクセント */
   .prose-blog h1 {
-    @apply text-3xl font-bold text-gray-900 dark:text-white mb-6 mt-8;
-    @apply border-b-4 border-blue-900 dark:border-blue-600;
-    @apply pb-2;
+    @apply text-3xl font-bold text-gray-900 dark:text-white;
+    @apply mb-8 mt-8 pb-3;
+    @apply border-b-2 border-blue-600 dark:border-blue-500;
   }
 
+  /* h2: セクション区切り — 左アクセントバー + 広い上余白 */
   .prose-blog h2 {
-    @apply text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 mt-8;
-    @apply border-t-2 border-b-2 border-gray-400 dark:border-gray-600;
-    @apply pt-6 pb-6;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  @screen sm {
-    .prose-blog h2 {
-      margin-left: -2rem;
-      margin-right: -2rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
-    }
-  }
-
-  .prose-blog h3 {
-    @apply text-xl font-medium text-gray-700 dark:text-gray-200 mb-3 mt-6;
+    @apply text-2xl font-bold text-gray-900 dark:text-gray-100;
+    @apply mb-5 mt-16 py-2 pl-4;
     @apply border-l-4 border-blue-600 dark:border-cyan-500;
-    @apply bg-blue-50 dark:bg-blue-900/20;
-    @apply pl-4 py-2;
   }
 
+  /* h3: サブセクション — 細い左アクセント（背景なし） */
+  .prose-blog h3 {
+    @apply text-xl font-semibold text-gray-800 dark:text-gray-200;
+    @apply mb-4 mt-10 pl-3;
+    @apply border-l-[3px] border-gray-300 dark:border-gray-600;
+  }
+
+  /* h4: 小見出し — テキストのみ */
   .prose-blog h4 {
-    @apply text-lg font-medium text-gray-600 dark:text-gray-300 mb-2 mt-4;
-    @apply border-l-2 border-gray-400 dark:border-gray-500;
-    @apply border-b border-dotted border-gray-300 dark:border-gray-600;
-    @apply pl-3 pb-1;
+    @apply text-lg font-semibold text-gray-700 dark:text-gray-300;
+    @apply mb-3 mt-8;
   }
 
-  /* 見出しのホバー効果 */
-  .prose-blog h2:hover,
-  .prose-blog h3:hover {
-    @apply transition-colors duration-200;
+  /* ===== 表: 左右余白 + ボーダーで本文と区別 ===== */
+  .prose-blog table {
+    @apply mx-4 my-6 text-sm;
+    @apply border border-gray-200 dark:border-gray-700 rounded-lg;
+    @apply overflow-hidden;
+    width: calc(100% - 2rem);
   }
 
-  .prose-blog h2:hover {
-    @apply border-blue-600 dark:border-cyan-500;
+  .prose-blog thead {
+    @apply bg-gray-50 dark:bg-gray-800/60;
   }
 
-  .prose-blog h3:hover {
-    @apply border-l-blue-800 dark:border-l-cyan-400;
-    @apply bg-blue-100 dark:bg-blue-900/30;
+  .prose-blog thead th {
+    @apply text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider;
+    @apply py-3 px-4 border-b border-gray-200 dark:border-gray-700;
   }
+
+  .prose-blog tbody td {
+    @apply py-2.5 px-4 border-b border-gray-100 dark:border-gray-800;
+  }
+
+  .prose-blog tbody tr:last-child td {
+    @apply border-b-0;
+  }
+
+  .prose-blog tbody tr:hover {
+    @apply bg-gray-50/50 dark:bg-gray-800/30;
+  }
+
+  /* ===== details: 解答・解説の折りたたみボックス ===== */
+  .prose-blog details {
+    @apply mx-4 my-6 rounded-lg border border-gray-200 dark:border-gray-700;
+    @apply bg-gray-50/50 dark:bg-gray-800/30;
+    @apply overflow-hidden;
+  }
+
+  .prose-blog details[open] {
+    @apply bg-white dark:bg-gray-800/50;
+  }
+
+  .prose-blog details summary {
+    @apply cursor-pointer select-none;
+    @apply py-3.5 px-5 font-bold text-base text-blue-700 dark:text-cyan-400;
+    @apply hover:bg-blue-50 dark:hover:bg-gray-700/40 transition-colors;
+    @apply list-none;
+  }
+
+  .prose-blog details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .prose-blog details summary::before {
+    content: "▶ ";
+    @apply text-xs mr-1.5 inline-block;
+    transition: transform 0.2s;
+  }
+
+  .prose-blog details[open] summary::before {
+    content: "▼ ";
+  }
+
+  .prose-blog details[open] summary {
+    @apply border-b border-gray-200 dark:border-gray-700;
+  }
+
+  .prose-blog details > :not(summary) {
+    @apply px-5;
+  }
+
+  .prose-blog details > :not(summary):first-of-type {
+    @apply pt-4;
+  }
+
+  .prose-blog details > :not(summary):last-child {
+    @apply pb-4;
+  }
+
+  /* ===== blockquote ===== */
+  .prose-blog blockquote {
+    @apply mx-4 my-6 pl-5 py-3 pr-4;
+    @apply border-l-4 border-blue-400 dark:border-cyan-600;
+    @apply bg-blue-50/50 dark:bg-blue-900/10;
+    @apply rounded-r-lg;
+    @apply text-gray-700 dark:text-gray-300 not-italic;
+  }
+
+  .prose-blog blockquote p {
+    @apply mb-0;
+  }
+
+  /* ===== code: インラインコード ===== */
+  .prose-blog :not(pre) > code {
+    @apply text-sm px-1.5 py-0.5 rounded;
+    @apply bg-gray-100 dark:bg-gray-800;
+    @apply text-pink-600 dark:text-pink-400;
+    @apply border border-gray-200 dark:border-gray-700;
+  }
+
+  .prose-blog :not(pre) > code::before,
+  .prose-blog :not(pre) > code::after {
+    content: none;
+  }
+
+  /* ===== pre: コードブロック ===== */
+  .prose-blog pre {
+    @apply mx-4 my-6 rounded-lg;
+    @apply border border-gray-200 dark:border-gray-700;
+  }
+}
+
+/* ===== ボックスデザイン15 (kakkom) ===== */
+.box-design15 {
+  margin: 20px auto;
+}
+
+.box-design15-ttl {
+  background-color: #4c9ac0;
+  color: #fff;
+  padding: 0.5em 20px;
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.box-design15-txt {
+  padding: 10px 20px;
+  border: 2px solid #4c9ac0;
+}
+
+.dark .box-design15-ttl {
+  background-color: #3b82f6;
+}
+
+.dark .box-design15-txt {
+  border-color: #3b82f6;
 }
 
 /* カスタムスクロールバー（Tailwindで表現困難） */
@@ -126,4 +242,187 @@
 
 .dark ::-webkit-scrollbar-thumb {
   background: rgb(75 85 99);
-} 
+}
+
+/* TOC スクロールバー: 細く、ホバー時のみ表示 */
+.toc-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.toc-scroll:hover {
+  scrollbar-color: rgb(209 213 219) transparent;
+}
+
+.dark .toc-scroll:hover {
+  scrollbar-color: rgb(75 85 99) transparent;
+}
+
+.toc-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.toc-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.toc-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.toc-scroll:hover::-webkit-scrollbar-thumb {
+  background: rgb(209 213 219);
+}
+
+.dark .toc-scroll:hover::-webkit-scrollbar-thumb {
+  background: rgb(75 85 99);
+}
+
+/* ===== TOC: Zenn-style ===== */
+
+.toc-container {
+  border: 1px solid #e4edf4;
+  border-radius: 4px;
+  max-height: calc(100vh - 10rem);
+  padding: 20px 20px 25px;
+  overflow: auto;
+  background: #fff;
+}
+.dark .toc-container {
+  border-color: #2a3a4e;
+  background: #0d223a;
+}
+
+.toc-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: rgba(0, 0, 0, 0.82);
+  margin-bottom: 8px;
+}
+.dark .toc-title {
+  color: #ecf5ff;
+}
+
+.toc-content {
+  font-size: 14px;
+  line-height: 1.5;
+}
+.toc-content ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.toc-content li,
+.toc-content ol {
+  position: relative;
+}
+
+/* Links */
+.toc-content a {
+  position: relative;
+  display: block;
+  display: -webkit-box;
+  max-height: 3.05em;
+  margin: 8px 0;
+  overflow: hidden;
+  color: #65717b;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  transition: none;
+  text-decoration: none;
+}
+.toc-content a.active,
+.toc-content a:hover {
+  color: rgba(0, 0, 0, 0.82);
+}
+.dark .toc-content a {
+  color: #a4bcd5;
+}
+.dark .toc-content a.active,
+.dark .toc-content a:hover {
+  color: #ecf5ff;
+}
+
+/* Vertical line */
+.toc-content .ol-depth-1::before {
+  position: absolute;
+  top: 17px;
+  bottom: 8px;
+  left: 5px;
+  width: 2px;
+  content: "";
+  background: #e0efff;
+  border-radius: 0 0 5px 5px;
+}
+.dark .toc-content .ol-depth-1::before {
+  background: #05458a;
+}
+
+/* H2 items */
+.toc-content .ol-depth-1 > li {
+  position: relative;
+  padding-left: 21px;
+  margin-top: 5px;
+  font-weight: 700;
+}
+
+/* H2 dots */
+.toc-content .ol-depth-1 > li::before {
+  position: absolute;
+  content: "";
+  border-radius: 9999px;
+  top: 4px;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  background: #bfdcff;
+  border: 2px solid #fff;
+}
+.dark .toc-content .ol-depth-1 > li::before {
+  background: #05458a;
+  border-color: #0d223a;
+}
+
+/* Active H2 dots */
+.toc-content .ol-depth-1 > li.active::before {
+  background: #3ea8ff;
+  border-color: #e0efff;
+}
+.dark .toc-content .ol-depth-1 > li.active::before {
+  background: #0f83fd;
+  border-color: #05458a;
+}
+
+/* H3/H4 sub-list */
+.toc-content .ol-depth-2 {
+  font-weight: 400;
+}
+
+/* H3/H4 dots */
+.toc-content .ol-depth-2 li::before {
+  position: absolute;
+  content: "";
+  border-radius: 9999px;
+  top: 6px;
+  left: -19px;
+  width: 8px;
+  height: 8px;
+  background: #cfe5ff;
+  border: 2px solid #fff;
+}
+.dark .toc-content .ol-depth-2 li::before {
+  background: #05458a;
+  border-color: #0d223a;
+}
+
+/* Active H3/H4 dots */
+.toc-content .ol-depth-2 li.active::before {
+  background: #3ea8ff;
+  border-color: #3ea8ff;
+}
+.dark .toc-content .ol-depth-2 li.active::before {
+  background: #0f83fd;
+  border-color: #0f83fd;
+}
