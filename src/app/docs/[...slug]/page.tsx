@@ -15,6 +15,7 @@ import remarkGfm from 'remark-gfm';
 // remarkDirective removed: :::directive syntax is handled by parseCallouts() in mdx-callout-parser.ts
 import rehypeKatex from 'rehype-katex';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
+import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
@@ -24,7 +25,11 @@ const mdxOptions = {
   blockDangerousJS: true,
   mdxOptions: {
     remarkPlugins: [remarkMath, remarkGfm],
-    rehypePlugins: [rehypeHeadingIds, rehypeKatex],
+    rehypePlugins: [
+      rehypeHeadingIds,
+      rehypeKatex,
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
+    ],
   },
 };
 
