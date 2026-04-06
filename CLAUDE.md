@@ -185,6 +185,12 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 - slug は英数字 + ハイフン（URL にするため）
 - frontmatter には `title`, `description`, `category`, `tags`, `published` を必須記載
 
+### 日本語テキストの品質管理
+
+- MDXファイルに日本語テキストを書き込んだ後、必ず Grep で `��`（Unicode置換文字 U+FFFD）を検索し、文字化けがないことを確認すること
+- LLM出力時にマルチバイト文字が破損する場合がある（例: `バック��ップ` → `バックアップ`、`キ���ワード` → `キーワード`）
+- 文字化けが見つかった場合は即座に修正すること
+
 ### MDXコンポーネント
 
 MDX内で使える主要コンポーネント（`src/lib/component-loader/index.ts` で登録済み）:
@@ -329,6 +335,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/verify-content` | MDX内容をソースPDFと照合・検証 | `.claude/skills/content/verify-content/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/add-exam-answers` | 択一式過去問MDXの未解答設問に正答PDF準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |
+| `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/content/keyword-page/SKILL.md` |
 
 #### PDF→MDX 試験特化スキル
 

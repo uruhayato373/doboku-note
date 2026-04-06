@@ -162,6 +162,10 @@
     @apply px-5;
   }
 
+  .prose-blog details ol {
+    @apply list-decimal list-inside;
+  }
+
   .prose-blog details > :not(summary):first-of-type {
     @apply pt-4;
   }
