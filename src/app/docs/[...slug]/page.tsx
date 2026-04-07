@@ -19,17 +19,18 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
+import type { Pluggable } from 'unified';
 
 const mdxOptions = {
-  blockJS: false,
-  blockDangerousJS: true,
+  blockJS: false as const,
+  blockDangerousJS: true as const,
   mdxOptions: {
     remarkPlugins: [remarkMath, remarkGfm],
     rehypePlugins: [
       rehypeHeadingIds,
       rehypeKatex,
-      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }],
-    ],
+      [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }] satisfies Pluggable,
+    ] as Pluggable[],
   },
 };
 
