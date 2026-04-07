@@ -335,10 +335,10 @@
             "id": "d47946a456889c35",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -350,9 +350,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "6ef77799a761fd07",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 14
+        "currentTab": 15
       }
     ],
     "direction": "horizontal",
@@ -382,7 +392,7 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "08e285ef1f56872c",
+  "active": "6ef77799a761fd07",
   "lastOpenFiles": [
     "scripts/fix-bold-brackets.py",
     "scripts/check-bold-brackets.py",
