@@ -1,13 +1,84 @@
 ---
 title: "ITセキュリティ評価及び認証制度（JISEC）"
+description: "JISEC（ITセキュリティ評価及び認証制度）の概要。CC認証の日本版として、評価プロセス、認証機関、CCRAとの関係を解説。"
 category: pe-comprehensive-management
 section: "4.5"
 tags:
   - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-08"
 ---
 
 # ITセキュリティ評価及び認証制度（JISEC）
 
-（内容準備中）
+## JISECとは
+
+JISEC（Japan Information Technology Security Evaluation and Certification Scheme：ITセキュリティ評価及び認証制度）とは、IT製品のセキュリティ機能を[CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria)に基づいて評価・認証する日本の制度である。
+
+IPA（独立行政法人情報処理推進機構）が認証機関として運営し、民間の評価機関が実際の評価作業を行う。
+
+政府機関がIT製品を調達する際に、セキュリティ品質の客観的な判断基準として利用されている。
+
+### JISECの制度構成
+
+| 構成要素 | 役割 | 担当 |
+|---|---|---|
+| 認証機関 | 認証の発行・管理、制度運営 | IPA（情報処理推進機構） |
+| 評価機関 | CC基準に基づくIT製品のセキュリティ評価 | IPA認定の民間機関 |
+| 申請者 | 評価・認証の申請 | IT製品の開発者・販売者 |
+
+### 認証取得プロセス
+
+1. **申請者がST（Security Target）を作成** — 製品のセキュリティ仕様を文書化する
+2. **評価機関による評価** — CC（ISO/IEC 15408）の基準に基づきセキュリティ機能を検証する
+3. **IPAによる認証** — 評価結果を確認し、認証書を発行する
+4. **認証製品リストへの登録** — IPAのWebサイトで公開される
+
+### 対象となる製品例
+
+| 製品分野 | 例 |
+|---|---|
+| OS | サーバOS、組込みOS |
+| ネットワーク機器 | [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)、ルータ |
+| データベース | DBMS |
+| ICカード | マイナンバーカード、交通系ICカード |
+| 暗号モジュール | HSM（Hardware Security Module） |
+| 複合機 | デジタル複合機（MFP） |
+
+### CCRAとの関係
+
+JISECで取得した認証は、CCRA（コモンクライテリア承認アレンジメント）に基づき、加盟国で相互に承認される。
+
+日本はCCRAの認証国（Certificate Authorizing Participant）として参加しており、国内で取得したCC認証が海外でも有効であり、海外で取得した認証も日本で有効である。
+
+### 他の認証制度との比較
+
+| 制度 | 対象 | 評価基準 | 運営機関 |
+|---|---|---|---|
+| JISEC | IT製品 | CC（ISO/IEC 15408） | IPA |
+| [ISMS認証](/docs/pe-comprehensive-management-isms-iso27001) | 組織の管理体制 | ISO/IEC 27001 | ISMS-AC認定機関 |
+| [ISMAP](/docs/pe-comprehensive-management-ismap) | クラウドサービス | ISMAP管理基準 | ISMAP運営委員会 |
+| JCMVP | 暗号モジュール | ISO/IEC 19790 | IPA |
+
+<ExamPoint
+  summary="JISECはCC（ISO/IEC 15408）に基づく日本のIT製品セキュリティ認証制度"
+  items={[
+    "JISECはIPAが認証機関として運営する日本のCC認証制度",
+    "評価対象はIT製品（OS、FW、ICカード等）であり、組織ではない",
+    "CCRAにより加盟国間で認証の相互承認が可能",
+    "政府機関のIT製品調達におけるセキュリティ品質の判断基準として利用される",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**4.5 情報セキュリティ**」に位置づけられる。
+
+JISECは[CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria)の国内実施制度であり、政府調達におけるIT製品のセキュリティ品質確保の仕組みとして位置づけられる。
+
+[ISMS](/docs/pe-comprehensive-management-isms-iso27001)が組織の管理体制を認証し、JISECが個々のIT製品のセキュリティ機能を認証するという相互補完の関係を理解しておくことが重要である。
+
+## 過去問での出題
+
+（なし）
