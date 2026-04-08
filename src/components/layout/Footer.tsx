@@ -48,9 +48,17 @@ export default function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-gray-400 transition-colors"
+                  className="text-gray-300 hover:text-primary-400 transition-colors"
                 >
                   プライバシーポリシー
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/terms"
+                  className="text-gray-300 hover:text-primary-400 transition-colors"
+                >
+                  利用規約
                 </Link>
               </li>
               <li>
