@@ -1,9 +1,7 @@
 import { notFound } from 'next/navigation';
-import { getDoc, getAllDocSlugs } from '@/lib/docs';
-import { generateDynamicSidebar } from '@/lib/sidebar';
+import { getDoc, getAllDocSlugs, getDocsMetaByCategory } from '@/lib/docs';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import SidebarNav from '@/components/layout/SidebarNav';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { Metadata } from 'next';
@@ -19,6 +17,8 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
+import RelatedArticles from '@/components/ui/RelatedArticles/RelatedArticles';
+import { selectRelatedArticles } from '@/lib/related-articles';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -147,12 +147,16 @@ export default async function DocPage({
     notFound();
   }
 
-  // Generate sidebar dynamically based on the document's category
   const category = doc.meta.category;
-  const sidebar = await generateDynamicSidebar(category);
 
   // Load MDX components
   const components = await getAllComponents(doc as any);
+
+  // Fetch related articles (metadata only)
+  const categoryArticles = category
+    ? await getDocsMetaByCategory(category)
+    : [];
+  const relatedArticles = selectRelatedArticles(doc.meta, categoryArticles);
 
   // Extract headings for Table of Contents
   const headings = extractHeadings(
@@ -193,25 +197,10 @@ export default async function DocPage({
               </div>
             </article>
 
-            {/* 前後ナビ（カテゴリ内） */}
-            {sidebar.length > 0 && (
+            {/* 関連記事 */}
+            {relatedArticles.length > 0 && (
               <div className="max-w-[780px] mx-auto mt-8">
-                <details className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200/60 dark:border-gray-700/60 overflow-hidden">
-                  <summary className="px-6 py-4 text-sm font-medium text-gray-600 dark:text-gray-400 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700/30 transition-colors select-none list-none">
-                    <span className="flex items-center gap-2">
-                      <span>📚</span>
-                      <span>{getCategoryLabel(category || '')}</span>
-                      <span className="text-gray-400">— {sidebar.length}件</span>
-                    </span>
-                  </summary>
-                  <div className="px-6 pb-4 border-t border-gray-100 dark:border-gray-700">
-                    <SidebarNav
-                      title=""
-                      items={sidebar}
-                      currentSlug={slugStr}
-                    />
-                  </div>
-                </details>
+                <RelatedArticles articles={relatedArticles} />
               </div>
             )}
           </main>

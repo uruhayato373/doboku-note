@@ -332,6 +332,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |
 | `/clean-pdf-artifacts` | PDF変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
 | `/check-mdx` | MDX構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
+| `/check-links` | 外部リンク切れ検出（HTTP HEAD検証） | `.claude/skills/content/check-links/SKILL.md` |
 | `/verify-content` | MDX内容をソースPDFと照合・検証 | `.claude/skills/content/verify-content/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/add-exam-answers` | 択一式過去問MDXの未解答設問に正答PDF準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |

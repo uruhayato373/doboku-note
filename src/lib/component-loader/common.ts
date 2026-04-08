@@ -17,8 +17,6 @@ export const commonComponents = {
   Underline: "Underline",
   AuthorCallout: "AuthorCallout",
   Timeline: "Timeline",
-  RelatedArticleCard: "RelatedArticleCard",
-
   // 汎用コンポーネント（将来追加予定）
   // ImageGallery: 'ImageGallery',
   // TableOfContents: 'TableOfContents',
