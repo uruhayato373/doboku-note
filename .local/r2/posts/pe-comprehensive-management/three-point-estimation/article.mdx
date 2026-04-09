@@ -1,13 +1,58 @@
 ---
 title: "三点見積り"
+description: "三点見積りの定義・計算式・PERTとの関係を解説。不確実性を考慮した見積り手法と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "2.3"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # 三点見積り
 
-（内容準備中）
+## 三点見積りとは
+
+三点見積り（Three-Point Estimation）とは、**楽観値・最頻値・悲観値の3つの見積りを用いて、不確実性を考慮した期待値を算出する手法**である。
+
+PERT（Program Evaluation and Review Technique）で開発された手法である。
+
+## 計算式
+
+**PERT加重平均（ベータ分布）**：
+
+$$期待値 = \frac{楽観値 + 4 \times 最頻値 + 悲観値}{6}$$
+
+**三角分布**：
+
+$$期待値 = \frac{楽観値 + 最頻値 + 悲観値}{3}$$
+
+- 楽観値（$O$）：最も条件が良い場合の見積り
+- 最頻値（$M$）：最も起こりやすい場合の見積り
+- 悲観値（$P$）：最も条件が悪い場合の見積り
+
+## 標準偏差の算出
+
+$$\sigma = \frac{悲観値 - 楽観値}{6}$$
+
+標準偏差を用いて見積りの不確実性の大きさを定量評価できる。
+
+<ExamPoint
+  summary="三点見積りは楽観値・最頻値・悲観値から不確実性を考慮した期待値を算出する"
+  items={[
+    "PERT加重平均＝(O+4M+P)/6（最頻値に4倍の重み）",
+    "標準偏差σ＝(P−O)/6で不確実性の大きさを評価する",
+    "PERTのネットワーク工程表で作業時間の不確実性を扱う際に使用する",
+    "三角分布（単純平均）とベータ分布（加重平均）の違いに注意",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**2.3 工程管理**」に位置づけられている。
+
+三点見積りは<RelatedKeywords items={[{ label: "PERT/CPM", slug: "pert-cpm" }]} />のPERTで作業時間の確率的評価に用いられる。<RelatedKeywords items={[{ label: "類推見積り", slug: "analogous-estimation" }]} />・<RelatedKeywords items={[{ label: "パラメトリック見積り", slug: "parametric-estimation" }]} />が点推定であるのに対し、三点見積りは区間推定的なアプローチである。
+
+## 参考資料
+
+- [PMBOKガイド](https://www.pmi.org/)（PMI）
