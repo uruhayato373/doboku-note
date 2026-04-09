@@ -1,13 +1,62 @@
 ---
 title: "THERP"
+description: "THERP（人的過誤率予測法）の定義・分析手順・HEPイベントツリーの考え方を解説。人的信頼性分析の代表的手法と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "5.6"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # THERP
 
-（内容準備中）
+## THERPとは
+
+THERP（Technique for Human Error Rate Prediction：人的過誤率予測法）とは、**人間の作業を個々のタスクに分解し、各タスクにおけるヒューマンエラーの発生確率を定量的に評価する手法**である。
+
+米国サンディア国立研究所のスウェイン（A.D. Swain）らが原子力発電所の安全性評価のために開発した。人的信頼性分析（HRA）の代表的手法である。
+
+## 分析の手順
+
+| ステップ | 内容 |
+|---|---|
+| **1. タスク分析** | 対象作業を個々の操作ステップ（タスク）に分解する |
+| **2. HEPの設定** | 各タスクに<RelatedKeywords items={[{ label: "人的過誤確率（HEP）", slug: "human-error-probability" }]} />を割り当てる |
+| **3. PSFの適用** | <RelatedKeywords items={[{ label: "行動形成要因（PSF）", slug: "performance-shaping-factors" }]} />を考慮してHEPを修正する |
+| **4. イベントツリーの作成** | 各タスクの成功・失敗を分岐させたHEPイベントツリーを作成する |
+| **5. 総合確率の算出** | ツリー全体を通じた成功確率・失敗確率を算出する |
+
+## HEPイベントツリー
+
+THERPでは<RelatedKeywords items={[{ label: "ETA", slug: "eta" }]} />と同様の形式のツリーを用いるが、分岐は**人間の操作の成功・失敗**である。
+
+各タスクについて：
+- **上側の分岐**：正しい操作（成功確率 = 1 − HEP）
+- **下側の分岐**：誤った操作（失敗確率 = HEP）
+
+回復行為（エラーに気づいて修正する行為）も組み込むことができる。
+
+<ExamPoint
+  summary="THERPの位置づけとHEP・PSFとの関係を理解する"
+  items={[
+    "人間の作業をタスクに分解し、各タスクのエラー確率を定量評価",
+    "HEP（人的過誤確率）とPSF（行動形成要因）を用いて評価",
+    "ETAと類似したイベントツリー形式で分析",
+    "原子力分野で開発された人的信頼性分析（HRA）の代表的手法",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**5.6 システム安全工学手法**」に位置づけられている。
+
+THERPは<RelatedKeywords items={[{ label: "人的過誤確率（HEP）", slug: "human-error-probability" }]} />と<RelatedKeywords items={[{ label: "行動形成要因（PSF）", slug: "performance-shaping-factors" }]} />を統合して人的信頼性を定量的に評価する手法である。機械系の信頼性分析（<RelatedKeywords items={[{ label: "FTA", slug: "fta" }]} />・<RelatedKeywords items={[{ label: "FMEA", slug: "fmea" }]} />）と組み合わせることで、人間−機械系全体の安全性評価が可能となる。
+
+## 参考資料
+
+- [NUREG/CR-1278 人的信頼性分析ハンドブック](https://www.nrc.gov/)（米国原子力規制委員会）
+
+## 過去問での出題
+
+- [令和4年度 択一式 Ⅰ-1-28](/docs/pe-comprehensive-management-r04-primary#1-28)

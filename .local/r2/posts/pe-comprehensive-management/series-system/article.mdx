@@ -1,13 +1,72 @@
 ---
 title: "直列システム"
+description: "直列システムの定義・信頼度計算式・冗長性との関係を解説。システム信頼性工学の基礎概念と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "5.6"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # 直列システム
 
-（内容準備中）
+## 直列システムとは
+
+直列システムとは、**すべての構成要素が正常に機能して初めてシステム全体が機能する構成**である。いずれか1つの要素が故障すると、システム全体が停止する。
+
+<RelatedKeywords items={[{ label: "FTA", slug: "fta" }]} />においてORゲートで接続された事象群は、直列システムに対応する。
+
+## 信頼度の計算
+
+$n$ 個の要素が直列に接続されたシステムの信頼度 $R_s$ は、各要素の信頼度 $R_i$ の積で表される。
+
+$$
+R_s = R_1 \times R_2 \times \cdots \times R_n = \prod_{i=1}^{n} R_i
+$$
+
+### 計算例
+
+信頼度0.9の要素が3つ直列接続されている場合：
+
+$$
+R_s = 0.9 \times 0.9 \times 0.9 = 0.729
+$$
+
+要素数が増えるほどシステム全体の信頼度は**低下**する。
+
+## 並列システムとの比較
+
+| 項目 | 直列システム | 並列システム |
+|---|---|---|
+| **故障条件** | いずれか1つの故障でシステム停止 | すべてが故障してシステム停止 |
+| **信頼度** | $R_s = \prod R_i$（積） | $R_s = 1 - \prod (1-R_i)$（余事象） |
+| **要素数増加** | 信頼度が低下 | 信頼度が向上 |
+| **FTAゲート** | ORゲートに対応 | ANDゲートに対応 |
+
+<ExamPoint
+  summary="直列システムの信頼度計算と並列システムとの違いを理解する"
+  items={[
+    "直列系の信頼度 = 各要素の信頼度の積",
+    "1つでも故障すればシステム全体が停止する",
+    "要素数が増えるほどシステム信頼度は低下する",
+    "FTAのORゲートに対応する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**5.6 システム安全工学手法**」に位置づけられている。
+
+直列システムは<RelatedKeywords items={[{ label: "並列システム", slug: "parallel-system" }]} />と対になる信頼性工学の基本概念である。<RelatedKeywords items={[{ label: "信頼性ブロック図", slug: "reliability-block-diagram" }]} />で視覚的に表現され、システム設計における冗長構成の検討の基礎となる。
+
+## 参考資料
+
+- [JIS C 5750-2 信頼性のための用語](https://www.jisc.go.jp/)（日本産業標準調査会）
+
+## 過去問での出題
+
+- [令和2年度 択一式 Ⅰ-1-28](/docs/pe-comprehensive-management-r02-primary#1-28)
+- [令和3年度 択一式 Ⅰ-1-30](/docs/pe-comprehensive-management-r03-primary#1-30)
+- [令和5年度 択一式 Ⅰ-1-32](/docs/pe-comprehensive-management-r05-primary#1-32)
+- [令和6年度 択一式 Ⅰ-1-31](/docs/pe-comprehensive-management-r06-primary#1-31)
