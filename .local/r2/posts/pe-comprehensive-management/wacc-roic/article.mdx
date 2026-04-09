@@ -1,31 +1,55 @@
 ---
-title: 加重平均資本コスト（WACC）／投下資本利益率（ROIC）
-tags:
-  - 総合技術監理
-  - 経済性管理
-  - キーワード
-  - 技士（総合技術監理部門）
-created: 2026-04-02T00:00:00.000Z
-published: true
-publishedAt: 2026-04-02T00:00:00.000Z
+title: "加重平均資本コスト（WACC）／投下資本利益率（ROIC）"
+description: "WACC・ROICの定義・計算式・企業価値評価での活用を解説。資本コスト経営の基本指標と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "2.4"
+tags:
+  - keyword
+published: true
+publishedAt: "2026-04-09"
 ---
 
 # 加重平均資本コスト（WACC）／投下資本利益率（ROIC）
 
-## 定義
+## WACCとは
 
-（TODO）
+WACC（Weighted Average Cost of Capital）とは、**株主資本コストと負債コストを資本構成比率で加重平均した企業の総合的な資本コスト**である。
 
-## 過去問での出題
+$$WACC = r_E \times \frac{E}{E+D} + r_D \times (1-t) \times \frac{D}{E+D}$$
 
-（なし）
+- $r_E$：株主資本コスト、$r_D$：負債コスト（金利）
+- $E$：株主資本、$D$：有利子負債、$t$：法人税率
 
-## 関連概念
+## ROICとは
 
-（なし）
+ROIC（Return on Invested Capital）とは、**事業に投下した資本に対してどれだけの利益を生み出したかを示す収益性指標**である。
+
+$$ROIC = \frac{税引後営業利益（NOPAT）}{投下資本（有利子負債+株主資本）}$$
+
+## 企業価値創造の判断基準
+
+| 条件 | 意味 |
+|---|---|
+| **ROIC > WACC** | 資本コストを上回る利益を創出（企業価値を創造） |
+| **ROIC = WACC** | 資本コストと同等（価値の維持） |
+| **ROIC < WACC** | 資本コストを下回る（企業価値を毀損） |
+
+<ExamPoint
+  summary="ROIC＞WACCの実現が企業価値創造の条件であり、資本コスト経営の基本指標"
+  items={[
+    "WACCは株主資本コストと負債コストの加重平均",
+    "ROICは投下資本に対する税引後営業利益の比率",
+    "ROIC＞WACCで企業価値を創造する（EVAスプレッド）",
+    "投資判断ではWACCをハードルレート（最低要求収益率）として使用する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**2.4 原価管理**」に位置づけられている。
+
+WACC・ROICは設備投資や事業採算性の評価に用いられ、<RelatedKeywords items={[{ label: "ライフサイクルコスティング", slug: "lifecycle-costing-method" }]} />における割引率の設定や、<RelatedKeywords items={[{ label: "損益分岐点・限界利益・優劣分岐点", slug: "break-even-point" }]} />と合わせた経営判断の基礎となる。
 
 ## 参考資料
 
-## メモ
+- [企業会計原則](https://www.mof.go.jp/)（大蔵省企業会計審議会）
