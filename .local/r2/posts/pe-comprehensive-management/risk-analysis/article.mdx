@@ -1,13 +1,58 @@
 ---
 title: "リスク分析"
+description: "リスク分析の定義・定量的手法と定性的手法・リスクレベルの算定方法を解説。リスクアセスメントの第二段階と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "5.2"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # リスク分析
 
-（内容準備中）
+## リスク分析とは
+
+リスク分析（Risk Analysis）とは、**リスクの特質を理解し、リスクレベルを決定するプロセス**である（JIS Q 31000:2019）。
+
+リスクアセスメントの第二段階であり、<RelatedKeywords items={[{ label: "リスク特定", slug: "risk-identification" }]} />で洗い出されたリスクについて、<RelatedKeywords items={[{ label: "起こりやすさ", slug: "likelihood" }]} />と<RelatedKeywords items={[{ label: "影響", slug: "impact" }]} />の大きさを見積もり、リスクレベルを算定する。
+
+## 分析手法
+
+| 区分 | 手法 | 内容 |
+|---|---|---|
+| **定性的分析** | リスクマトリクス | 影響と起こりやすさをランクで評価 |
+| **半定量的分析** | リスクスコア法 | ランクに数値を割り当てて計算 |
+| **定量的分析** | <RelatedKeywords items={[{ label: "FTA", slug: "fta" }]} />・<RelatedKeywords items={[{ label: "ETA", slug: "eta" }]} /> | 確率論的手法でリスクを数値化 |
+
+## リスクレベルの算定
+
+リスクレベルは、<RelatedKeywords items={[{ label: "起こりやすさ", slug: "likelihood" }]} />と<RelatedKeywords items={[{ label: "影響", slug: "impact" }]} />の組合せで決定される。
+
+$$\text{リスクレベル} = \text{起こりやすさ} \times \text{影響の大きさ}$$
+
+<ExamPoint
+  summary="リスク分析はリスクの特質を理解しリスクレベルを決定するプロセス"
+  items={[
+    "リスク分析＝起こりやすさと影響の大きさからリスクレベルを算定",
+    "定性的・半定量的・定量的の3つのアプローチがある",
+    "FTA・ETA等のシステム安全工学手法も定量的分析に使用",
+    "「結果の大きさ」のみではなく「起こりやすさ」との組合せが必須",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**5.2 リスクマネジメント**」に位置づけられている。
+
+リスク分析は<RelatedKeywords items={[{ label: "リスク特定", slug: "risk-identification" }]} />の後、<RelatedKeywords items={[{ label: "リスク評価", slug: "risk-evaluation" }]} />の前に位置するプロセスであり、<RelatedKeywords items={[{ label: "リスクマップ／リスクマトリクス", slug: "risk-map-matrix" }]} />はリスク分析の結果を可視化するツールとして活用される。
+
+## 参考資料
+
+- [JIS Q 31000:2019 リスクマネジメント―指針](https://www.jisc.go.jp/)（日本産業標準調査会）
+
+## 過去問での出題
+
+- [令和元年度 択一式 Ⅰ-1-30](/docs/pe-comprehensive-management-r01-primary#1-30)
+- [令和3年度 択一式 Ⅰ-1-26](/docs/pe-comprehensive-management-r03-primary#1-26)
+- [令和5年度 択一式 Ⅰ-1-25](/docs/pe-comprehensive-management-r05-primary#1-25)
