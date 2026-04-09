@@ -1,13 +1,64 @@
 ---
 title: "割引率"
+description: "割引率の定義・設定方法・投資評価における役割を解説。貨幣の時間価値を反映する基本概念と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "2.1"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # 割引率
 
-（内容準備中）
+## 割引率とは
+
+割引率（Discount Rate）とは、**将来の金銭的価値を現在価値に換算する際に用いる利率**である。
+
+貨幣の時間価値（今日の1円は将来の1円より価値が高い）を反映する概念であり、投資評価や公共事業評価の基盤となる。
+
+## 基本計算式
+
+$$PV = \frac{FV}{(1+r)^n}$$
+
+- $PV$：現在価値、$FV$：将来価値、$r$：割引率（年利率）、$n$：年数
+
+## 割引率の設定方法
+
+| 方法 | 内容 |
+|---|---|
+| **資本コスト** | WACC（加重平均資本コスト）を用いる |
+| **社会的割引率** | 公共事業評価に用いる（日本では4%が標準） |
+| **機会費用** | 他の投資機会の期待収益率を基準とする |
+
+## 割引率と投資評価の関係
+
+- 割引率が**高い**ほど → 将来CFの現在価値は**低下**する
+- 割引率が**低い**ほど → 将来CFの現在価値は**上昇**する
+- NPVは割引率に大きく依存するため、感度分析が重要である
+
+<ExamPoint
+  summary="割引率は将来価値を現在価値に換算する利率で投資評価の基盤となる"
+  items={[
+    "現在価値＝将来価値÷(1+割引率)^年数で計算する",
+    "割引率が高いほど将来キャッシュフローの現在価値は低下する",
+    "公共事業の社会的割引率は日本では4%が標準",
+    "NPV計算では割引率の設定が結果を大きく左右する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**2.1 事業企画・計画**」に位置づけられている。
+
+割引率は<RelatedKeywords items={[{ label: "DCF法", slug: "dcf-method" }]} />・<RelatedKeywords items={[{ label: "NPV（正味現在価値）", slug: "npv-net-present-value" }]} />・<RelatedKeywords items={[{ label: "内部収益率法", slug: "internal-rate-of-return" }]} />の全てに共通する基本パラメータであり、<RelatedKeywords items={[{ label: "費用効果分析", slug: "cost-effectiveness-analysis" }]} />における便益の現在価値換算にも用いられる。
+
+## 参考資料
+
+- [公共事業評価の費用便益分析に関する技術指針](https://www.mlit.go.jp/)（国土交通省）
+
+## 過去問での出題
+
+- [令和元年度 択一式 Ⅰ-1-5](/docs/pe-comprehensive-management-r01-primary#1-5)
+- [令和2年度 択一式 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2)
+- [令和6年度 択一式 Ⅰ-1-2](/docs/pe-comprehensive-management-r06-primary#1-2)

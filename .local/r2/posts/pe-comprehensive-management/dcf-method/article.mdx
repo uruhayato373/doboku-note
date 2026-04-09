@@ -1,13 +1,62 @@
 ---
 title: "DCF法"
+description: "DCF法（割引キャッシュフロー法）の定義・計算方法・活用場面を解説。投資評価の基本手法と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "2.1"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # DCF法
 
-（内容準備中）
+## DCF法とは
+
+DCF法（Discounted Cash Flow法：割引キャッシュフロー法）とは、**将来発生するキャッシュフローを割引率で現在価値に換算し、投資の経済的価値を評価する手法の総称**である。
+
+NPV法（正味現在価値法）やIRR法（内部収益率法）はDCF法の代表的な適用手法である。
+
+## 基本計算式
+
+$$PV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t}$$
+
+- $PV$：現在価値、$CF_t$：$t$ 年後のキャッシュフロー、$r$：割引率、$n$：計画期間
+
+## DCF法の適用手法
+
+| 手法 | 判断基準 |
+|---|---|
+| **NPV法** | NPV＞0 なら投資価値あり |
+| **IRR法** | IRR＞資本コスト なら投資価値あり |
+| **収益性指数法** | PI＞1.0 なら投資価値あり |
+
+## 特徴と留意点
+
+- **時間価値の考慮**：貨幣の時間的価値を反映する点が単純回収期間法との違い
+- **割引率の設定**：割引率の選定が結果に大きく影響する
+- **キャッシュフロー予測**：将来CFの見積り精度が評価の信頼性を左右する
+
+<ExamPoint
+  summary="DCF法は将来キャッシュフローを割引率で現在価値に換算する投資評価手法"
+  items={[
+    "NPV法・IRR法はDCF法の代表的な適用手法",
+    "現在価値＝将来価値÷(1+割引率)^年数で計算する",
+    "割引率が高いほど将来キャッシュフローの現在価値は低下する",
+    "回収期間法と異なり貨幣の時間価値を考慮できる",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**2.1 事業企画・計画**」に位置づけられている。
+
+DCF法は<RelatedKeywords items={[{ label: "NPV（正味現在価値）", slug: "npv-net-present-value" }]} />・<RelatedKeywords items={[{ label: "内部収益率法", slug: "internal-rate-of-return" }]} />の理論的基盤であり、<RelatedKeywords items={[{ label: "割引率", slug: "discount-rate" }]} />の設定が評価結果を左右する。<RelatedKeywords items={[{ label: "投資回収計画", slug: "investment-recovery-plan" }]} />の策定においても中核的な分析手法となる。
+
+## 参考資料
+
+- [公共事業評価の費用便益分析に関する技術指針](https://www.mlit.go.jp/)（国土交通省）
+
+## 過去問での出題
+
+- [令和2年度 択一式 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2)

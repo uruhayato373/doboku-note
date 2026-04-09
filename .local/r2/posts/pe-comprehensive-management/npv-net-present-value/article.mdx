@@ -1,13 +1,67 @@
 ---
 title: "NPV（正味現在価値）"
+description: "NPV（正味現在価値）の定義・計算方法・投資判断基準を解説。投資評価の最重要手法と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "2.1"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # NPV（正味現在価値）
 
-（内容準備中）
+## NPVとは
+
+NPV（Net Present Value：正味現在価値）とは、**投資によって得られる将来のキャッシュフローの現在価値合計から、投資額を差し引いた値**である。
+
+NPV＞0であれば投資価値があると判断する。投資評価手法の中で最も理論的に優れた手法とされる。
+
+## 基本計算式
+
+$$NPV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} - I_0$$
+
+- $CF_t$：$t$ 年後のキャッシュフロー、$r$：割引率、$I_0$：初期投資額
+
+## 計算例
+
+初期投資1,000万円、年間収益400万円（3年間）、割引率5%の場合：
+
+$$NPV = \frac{400}{1.05} + \frac{400}{1.05^2} + \frac{400}{1.05^3} - 1000 \approx 89 \text{万円}$$
+
+NPV＞0のため、投資価値ありと判断する。
+
+## 他の投資評価手法との比較
+
+| 手法 | NPV法との違い |
+|---|---|
+| **IRR法** | IRRは利率で表され投資規模を反映しない |
+| **回収期間法** | 回収後のCFと貨幣の時間価値を無視する |
+| **B/C比** | 判断は同じだが投資規模の差を反映しない |
+
+<ExamPoint
+  summary="NPVは将来CFの現在価値合計から投資額を差し引いた値で投資を評価する"
+  items={[
+    "NPV＞0なら投資価値あり、複数案ではNPV最大の案を選択する",
+    "割引率が高いほどNPVは低下する",
+    "IRRとNPVの大小関係は投資規模が異なると一致しないことがある",
+    "現在価値の計算問題は択一式で頻出",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**2.1 事業企画・計画**」に位置づけられている。
+
+NPVは<RelatedKeywords items={[{ label: "DCF法", slug: "dcf-method" }]} />の代表的手法であり、<RelatedKeywords items={[{ label: "割引率", slug: "discount-rate" }]} />を用いて計算する。<RelatedKeywords items={[{ label: "内部収益率法", slug: "internal-rate-of-return" }]} />・<RelatedKeywords items={[{ label: "回収期間法", slug: "payback-period-method" }]} />と合わせて<RelatedKeywords items={[{ label: "投資回収計画", slug: "investment-recovery-plan" }]} />の策定に用いられる。
+
+## 参考資料
+
+- [公共事業評価の費用便益分析に関する技術指針](https://www.mlit.go.jp/)（国土交通省）
+
+## 過去問での出題
+
+- [令和元年度 択一式 Ⅰ-1-5](/docs/pe-comprehensive-management-r01-primary#1-5)
+- [令和2年度 択一式 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2)
+- [令和3年度 択一式 Ⅰ-1-1](/docs/pe-comprehensive-management-r03-primary#1-1)
+- [令和6年度 択一式 Ⅰ-1-2](/docs/pe-comprehensive-management-r06-primary#1-2)

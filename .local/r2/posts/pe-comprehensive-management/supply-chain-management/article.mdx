@@ -1,29 +1,60 @@
 ---
-title: サプライチェーンマネジメント（SCM）
-tags:
-  - 総合技術監理
-  - 経済性管理
-  - キーワード
-  - 技士（総合技術監理部門）
-created: 2026-04-02T00:00:00.000Z
-published: true
-publishedAt: 2026-04-02T00:00:00.000Z
+title: "サプライチェーンマネジメント（SCM）"
+description: "サプライチェーンマネジメントの定義・構成要素・主要概念を解説。供給網全体の最適化手法と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "2.1"
+tags:
+  - keyword
+published: true
+publishedAt: "2026-04-09"
 ---
 
 # サプライチェーンマネジメント（SCM）
 
-## 定義
+## SCMとは
 
-（TODO）
+サプライチェーンマネジメント（SCM: Supply Chain Management）とは、**原材料の調達から生産・流通・販売・サービスに至るサプライチェーン全体を統合的に管理し、全体最適を図るマネジメント手法**である。
 
-## 過去問での出題
+モノだけでなく情報・サービスの流れも管理対象に含む。
 
-（なし）
+## デカップリングポイントによる分類
 
-## 関連概念
+| 形態 | 正式名称 | 受注後の対応 |
+|---|---|---|
+| **MTS** | Make to Stock（見込生産） | 完成在庫から出荷 |
+| **ATO** | Assemble to Order（受注組立） | 受注後に組み立て出荷 |
+| **MTO** | Make to Order（受注生産） | 受注後に生産開始 |
+| **ETO** | Engineer to Order（受注設計） | 受注後に設計から開始 |
+
+## 主要概念
+
+- **プッシュ型**：需要予測に基づき生産・供給する方式
+- **プル型**：実需（後工程の要求）に基づき生産する方式（JIT等）
+- **TOC（制約条件の理論）**：ボトルネック工程を特定し全体最適を図る
+- **ブルウィップ効果**：需要情報が上流ほど増幅される現象
+
+<ExamPoint
+  summary="SCMは調達から販売までのサプライチェーン全体を統合管理する手法"
+  items={[
+    "モノ・情報・サービスの流れを管理対象とする（モノだけではない）",
+    "デカップリングポイント（MTS/ATO/MTO/ETO）でSCM形態が異なる",
+    "プル型は実需ベース、プッシュ型は需要予測ベース（混同に注意）",
+    "TOCではボトルネック工程の管理がスループット最大化の鍵",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**2.1 事業企画・計画**」に位置づけられている。
+
+SCMは<RelatedKeywords items={[{ label: "需要予測", slug: "demand-forecasting" }]} />に基づく生産計画と密接に関連し、<RelatedKeywords items={[{ label: "ライフサイクルマネジメント", slug: "lifecycle-management" }]} />の供給段階を担う。<RelatedKeywords items={[{ label: "リスク評価", slug: "risk-assessment" }]} />によるサプライチェーン途絶リスクへの対応も重要なテーマである。
 
 ## 参考資料
 
-## メモ
+- [サプライチェーンマネジメント](https://www.meti.go.jp/)（経済産業省）
+
+## 過去問での出題
+
+- [令和2年度 択一式 Ⅰ-1-5](/docs/pe-comprehensive-management-r02-primary#1-5)
+- [令和3年度 択一式 Ⅰ-1-5](/docs/pe-comprehensive-management-r03-primary#1-5)
+- [令和4年度 択一式 Ⅰ-1-6](/docs/pe-comprehensive-management-r04-primary#1-6)

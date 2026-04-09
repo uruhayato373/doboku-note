@@ -1,13 +1,62 @@
 ---
 title: "内部収益率法"
+description: "内部収益率法（IRR法）の定義・計算方法・NPV法との比較を解説。投資評価の基本手法と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "2.1"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # 内部収益率法
 
-（内容準備中）
+## 内部収益率法とは
+
+内部収益率法（IRR法: Internal Rate of Return）とは、**投資のNPV（正味現在価値）がゼロとなる割引率を求め、その値と資本コストを比較して投資の可否を判断する手法**である。
+
+IRRが資本コスト（ハードルレート）を上回れば投資価値があると判断する。
+
+## 基本計算式
+
+$$\sum_{t=0}^{n} \frac{CF_t}{(1+IRR)^t} = 0$$
+
+IRRは上式を満たす割引率であり、試行錯誤法や補間法で求める。
+
+## NPV法との比較
+
+| 項目 | IRR法 | NPV法 |
+|---|---|---|
+| **判断基準** | IRR＞資本コスト | NPV＞0 |
+| **結果の単位** | 利率（%） | 金額（円） |
+| **投資規模の考慮** | 考慮しない | 考慮する |
+| **複数案の比較** | 規模が異なると不適切な場合あり | 常に適切 |
+
+## IRR法の留意点
+
+- IRRとNPVの大小関係は投資規模・期間が異なる場合に**一致しないことがある**
+- 非通常型キャッシュフロー（符号が複数回変わる）では複数のIRRが存在する場合がある
+
+<ExamPoint
+  summary="IRRはNPV=0となる割引率で、資本コストとの比較で投資の可否を判断する"
+  items={[
+    "IRR＞資本コストなら投資価値ありと判断する",
+    "IRRとNPVの大小関係は投資規模が異なると一致しないことがある",
+    "IRRは利率（%）で表されるためNPVの金額と直接比較できない",
+    "複数案の比較ではNPV法の方が信頼性が高い",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**2.1 事業企画・計画**」に位置づけられている。
+
+内部収益率法は<RelatedKeywords items={[{ label: "NPV（正味現在価値）", slug: "npv-net-present-value" }]} />・<RelatedKeywords items={[{ label: "回収期間法", slug: "payback-period-method" }]} />と並ぶ投資評価手法であり、いずれも<RelatedKeywords items={[{ label: "DCF法", slug: "dcf-method" }]} />に基づく。<RelatedKeywords items={[{ label: "割引率", slug: "discount-rate" }]} />との関係を正確に理解することが重要である。
+
+## 参考資料
+
+- [公共事業評価の費用便益分析に関する技術指針](https://www.mlit.go.jp/)（国土交通省）
+
+## 過去問での出題
+
+- [令和3年度 択一式 Ⅰ-1-1](/docs/pe-comprehensive-management-r03-primary#1-1)
