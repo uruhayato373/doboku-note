@@ -1,13 +1,63 @@
 ---
 title: "フェールセーフ"
+description: "フェールセーフの定義・設計思想・具体例を解説。故障時に安全側へ動作する設計原理と総合技術監理の試験対策をカバー。"
 category: pe-comprehensive-management
 section: "5.4"
 tags:
-  - 総合技術監理
   - keyword
 published: true
+publishedAt: "2026-04-09"
 ---
 
 # フェールセーフ
 
-（内容準備中）
+## フェールセーフとは
+
+フェールセーフ（Fail Safe）とは、**システムや機器に故障・異常が発生した場合に、安全な側に動作するよう設計する考え方**である。
+
+故障の発生を前提とし、故障が起きても人身事故や重大な損害に至らないようにすることを目的とする。
+
+## 具体例
+
+| 分野 | フェールセーフの例 |
+|---|---|
+| **鉄道** | 信号機の故障時に赤信号（停止）を表示する |
+| **踏切** | 停電時に遮断かんが重力で自動的に降りる |
+| **エレベータ** | ロープ切断時に非常止め装置が作動する |
+| **ガス機器** | 炎が消えるとガス供給を自動遮断する |
+| **プレス機** | 異常検知時に自動停止する |
+
+## 関連する安全設計概念
+
+| 概念 | 考え方 |
+|---|---|
+| **フェールセーフ** | 故障時に安全側へ動作する |
+| <RelatedKeywords items={[{ label: "フェールソフト", slug: "fail-soft" }]} /> | 故障時に機能を縮退して運転を継続する |
+| <RelatedKeywords items={[{ label: "フールプルーフ", slug: "fool-proof" }]} /> | 人間の誤操作を防止する |
+| <RelatedKeywords items={[{ label: "フォールトトレランス", slug: "fault-tolerance" }]} /> | 故障が起きても機能を維持する |
+| <RelatedKeywords items={[{ label: "フォールトアボイダンス", slug: "fault-avoidance" }]} /> | そもそも故障を起こさない |
+
+<ExamPoint
+  summary="フェールセーフは故障時に安全側へ動作する設計思想"
+  items={[
+    "故障の発生を前提とし、安全側に制御する設計思想",
+    "踏切の遮断かん・信号機の停止表示が代表例",
+    "フェールソフト（縮退運転）との違いを正確に区別する",
+    "フールプルーフ・フォールトトレランスとの比較が頻出",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では「**5.4 未然防止活動**」に位置づけられている。
+
+フェールセーフは<RelatedKeywords items={[{ label: "本質安全", slug: "inherent-safety" }]} />・<RelatedKeywords items={[{ label: "機能安全", slug: "functional-safety" }]} />と並ぶ安全設計の基本概念であり、<RelatedKeywords items={[{ label: "インターロック", slug: "interlock" }]} />や<RelatedKeywords items={[{ label: "非常停止装置", slug: "emergency-stop-device" }]} />はフェールセーフを実現する具体的な安全機構である。
+
+## 参考資料
+
+- [機械の包括的な安全基準に関する指針](https://www.mhlw.go.jp/)（厚生労働省）
+
+## 過去問での出題
+
+- [令和元年度 択一式 Ⅰ-1-29](/docs/pe-comprehensive-management-r01-primary#1-29)
+- [令和6年度 択一式 Ⅰ-1-27](/docs/pe-comprehensive-management-r06-primary#1-27)
