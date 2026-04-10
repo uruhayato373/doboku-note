@@ -64,6 +64,9 @@ function preprocessMDX(content: string): string {
     // Skip closing JSX tags
     if (/^\s*<\/[A-Z]/.test(line)) continue;
 
+    // Skip lines containing inline JSX components (e.g., text<RelatedKeywords items={...} />text)
+    if (/<[A-Z]/.test(line)) continue;
+
     // Skip lines with inline math $...$ (remark-math handles these)
     if (/\$[^$]+\$/.test(line)) continue;
 
