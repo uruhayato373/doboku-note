@@ -178,6 +178,14 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 
 ## コンテンツ作成規約
 
+### ペルソナ・コンテンツ原則
+
+- 詳細は `.claude/content-principles.md` を参照
+- すべてのコンテンツは「実務経験10年以上の総監部門受験者」がスマホで読むことを前提に作成する
+- 定義や公式の前に「なぜ重要か」を1〜2文で示す
+- 表・箇条書きの前に必ず文脈を示す導入文を置く
+- ベンチマーク: BCP（事業継続計画）ページの構成を品質基準とする
+
 ### ファイル・メタデータ
 
 - ファイル形式: MDX
@@ -218,6 +226,12 @@ MDX内で使える主要コンポーネント（`src/lib/component-loader/index.
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
 - 図表: Mermaid コードブロック
 - スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
+
+### モバイル視認性
+
+- **計算手順を表（Markdown table）で表現しない** — モバイルで横スクロールが発生し、計算式が途中で折り返されて読みにくくなる。番号付きリストで1行1ステップに記述する
+- **表が適切な場面**: 情報の比較・一覧（選択肢の対比、分類表、財務三表の構成など）。データに「計算→結果」の流れがない静的な情報
+- 3列以上の表を作る場合、モバイルでの横スクロールを意識し、各セルの文字数を短く保つ
 
 ### 画像配信
 
@@ -337,6 +351,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/add-exam-answers` | 択一式過去問MDXの未解答設問に正答PDF準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |
 | `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/content/keyword-page/SKILL.md` |
+| `/review-mobile` | モバイル視認性・可読性レビュー（表の適切性・数式・簡潔性） | `.claude/skills/content/review-mobile/SKILL.md` |
 
 #### PDF→MDX 試験特化スキル
 

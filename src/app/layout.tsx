@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "../styles/globals.css";
+import "katex/dist/katex.min.css";
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";
