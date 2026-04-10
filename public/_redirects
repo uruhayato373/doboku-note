@@ -1,2 +1,11 @@
+# 削除済みコンテンツ → トップページ（301 Moved Permanently）
+/docs/river/* / 301
+/docs/general/* / 301
+/docs/port/* / 301
+/docs/low/* / 301
+/docs/environment/* / 301
+/docs/road/* / 301
+/docs/river-low / 301
+
 # Cloudflare Pages: 画像を R2 にリダイレクト
 /posts/* https://storage.doboku-note.com/posts/:splat 200
