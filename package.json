@@ -11,6 +11,7 @@
     "type-check": "tsc --noEmit",
     "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note",
     "upload-images-r2": "tsx scripts/upload-images-to-r2.mjs",
+    "fetch-gsc-data": "node scripts/fetch-gsc-data.mjs",
     "validate-mdx": "node scripts/validate-mdx.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs"
   },
@@ -24,6 +25,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "dotenv": "^17.2.3",
+    "googleapis": "^171.4.0",
     "gray-matter": "^4.0.3",
     "katex": "^0.16",
     "lucide-react": "^0.542.0",
