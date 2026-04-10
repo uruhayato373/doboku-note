@@ -1,6 +1,6 @@
 /**
  * 関連記事選択アルゴリズム
- * 3段階フォールバック: 同セクション → 同グループ → 同カテゴリ
+ * 2段階フォールバック: 同セクション → 同グループ
  * 決定的シャッフルでSSGキャッシュと両立
  */
 import type { DocMeta } from './docs';
@@ -73,12 +73,6 @@ export function selectRelatedArticles(
       (a) => classifyDoc(a) === currentGroup && !selectedSlugs.has(a.slug),
     );
     addFromPool(tier2);
-  }
-
-  // Tier 3: 同カテゴリ内の残り
-  if (selected.length < maxCount) {
-    const tier3 = candidates.filter((a) => !selectedSlugs.has(a.slug));
-    addFromPool(tier3);
   }
 
   return selected;

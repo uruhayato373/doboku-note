@@ -1,10 +1,56 @@
 import type { PostData } from "@/types/blog";
 import type { DocMeta } from "@/lib/docs";
+import categoriesData from "@/config/categories.json";
 
 interface StructuredDataProps {
   type: "article" | "website" | "organization";
   post?: PostData;
   docMeta?: DocMeta;
+}
+
+function getCategoryLabelForSchema(slug: string): string {
+  const cat = (categoriesData as { slug: string; label: string }[]).find(
+    (c) => c.slug === slug
+  );
+  return cat?.label ?? slug;
+}
+
+function generateBreadcrumbSchema(
+  meta: DocMeta | PostData,
+  baseUrl: string
+) {
+  const slug = "id" in meta ? meta.id : meta.slug;
+  const category = meta.category;
+
+  const items: object[] = [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "ホーム",
+      item: baseUrl,
+    },
+  ];
+
+  if (category) {
+    items.push({
+      "@type": "ListItem",
+      position: 2,
+      name: getCategoryLabelForSchema(category),
+      item: `${baseUrl}/category/${category}`,
+    });
+  }
+
+  items.push({
+    "@type": "ListItem",
+    position: items.length + 1,
+    name: meta.title,
+  });
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items,
+  };
 }
 
 function isExamQuizPage(meta: DocMeta | PostData): boolean {
@@ -151,6 +197,12 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
     ? generateQuizSchema(meta as DocMeta | PostData, "https://doboku-note.com")
     : null;
 
+  // Generate BreadcrumbList for article pages
+  const breadcrumbData =
+    type === "article" && meta
+      ? generateBreadcrumbSchema(meta as DocMeta | PostData, "https://doboku-note.com")
+      : null;
+
   return (
     <>
       <script
@@ -164,6 +216,14 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(quizData, null, 2),
+          }}
+        />
+      )}
+      {breadcrumbData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(breadcrumbData, null, 2),
           }}
         />
       )}
