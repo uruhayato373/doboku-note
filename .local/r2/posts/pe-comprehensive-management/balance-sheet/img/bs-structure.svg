@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="white" stroke="#ccc"/>
+  <text x="200" y="18" text-anchor="middle" font-size="13" font-weight="bold">貸借対照表（B/S）の構造</text>
+  <!-- Left side - Assets -->
+  <rect x="20" y="30" width="170" height="50" fill="#ddf" stroke="#336" stroke-width="1.5"/>
+  <text x="105" y="60" text-anchor="middle" font-size="12">流動資産</text>
+  <rect x="20" y="82" width="170" height="50" fill="#ddf" stroke="#336" stroke-width="1.5"/>
+  <text x="105" y="112" text-anchor="middle" font-size="12">固定資産</text>
+  <rect x="20" y="134" width="170" height="40" fill="#ddf" stroke="#336" stroke-width="1.5"/>
+  <text x="105" y="159" text-anchor="middle" font-size="12">繰延資産</text>
+  <text x="105" y="190" text-anchor="middle" font-size="12" font-weight="bold">資産の部</text>
+  <!-- Right side - Liabilities & Equity -->
+  <rect x="210" y="30" width="170" height="50" fill="#fdd" stroke="#633" stroke-width="1.5"/>
+  <text x="295" y="60" text-anchor="middle" font-size="12">流動負債</text>
+  <rect x="210" y="82" width="170" height="30" fill="#fdd" stroke="#633" stroke-width="1.5"/>
+  <text x="295" y="102" text-anchor="middle" font-size="12">固定負債</text>
+  <rect x="210" y="114" width="170" height="60" fill="#dfd" stroke="#363" stroke-width="1.5"/>
+  <text x="295" y="149" text-anchor="middle" font-size="12">純資産（自己資本）</text>
+  <text x="295" y="190" text-anchor="middle" font-size="12" font-weight="bold">負債・純資産の部</text>
+  <!-- Equation -->
+  <text x="200" y="212" text-anchor="middle" font-size="11" fill="#333">資産合計 ＝ 負債合計 ＋ 純資産合計</text>
+</svg>
