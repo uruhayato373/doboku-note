@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="300" viewBox="0 0 560 300">
+  <!-- Center -->
+  <rect x="200" y="118" width="160" height="64" rx="10" fill="#1a3a5c"/>
+  <text x="280" y="143" text-anchor="middle" fill="white" font-size="14" font-weight="bold">働き方改革に</text>
+  <text x="280" y="161" text-anchor="middle" fill="white" font-size="14" font-weight="bold">関する</text>
+  <text x="280" y="178" text-anchor="middle" fill="white" font-size="12">様々な課題</text>
+  <!-- Surrounding boxes -->
+  <!-- Top -->
+  <rect x="200" y="10" width="160" height="45" rx="6" fill="#cde0f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="280" y="30" text-anchor="middle" fill="#1a3a5c" font-size="12">労働生産性の向上</text>
+  <text x="280" y="47" text-anchor="middle" fill="#1a3a5c" font-size="11">女性や高齢者の労働参加の促進</text>
+  <line x1="280" y1="57" x2="280" y2="118" stroke="#2e6da4" stroke-width="1.5"/>
+  <!-- Left top -->
+  <rect x="10" y="30" width="150" height="40" rx="6" fill="#cde0f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="85" y="47" text-anchor="middle" fill="#1a3a5c" font-size="12">長時間労働の抑制</text>
+  <text x="85" y="62" text-anchor="middle" fill="#1a3a5c" font-size="11">必要人材要件の急速な変化</text>
+  <line x1="162" y1="55" x2="200" y2="135" stroke="#2e6da4" stroke-width="1.5"/>
+  <!-- Left bottom -->
+  <rect x="10" y="200" width="150" height="40" rx="6" fill="#cde0f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="85" y="218" text-anchor="middle" fill="#1a3a5c" font-size="12">多様な働き方への対応</text>
+  <text x="85" y="233" text-anchor="middle" fill="#1a3a5c" font-size="11">深夜営業を受托できない</text>
+  <line x1="162" y1="220" x2="200" y2="165" stroke="#2e6da4" stroke-width="1.5"/>
+  <!-- Bottom -->
+  <rect x="200" y="248" width="160" height="40" rx="6" fill="#cde0f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="280" y="265" text-anchor="middle" fill="#1a3a5c" font-size="12">多様な働き方への対応</text>
+  <text x="280" y="282" text-anchor="middle" fill="#1a3a5c" font-size="11">パートタイム労働者賃金の低さ</text>
+  <line x1="280" y1="248" x2="280" y2="182" stroke="#2e6da4" stroke-width="1.5"/>
+  <!-- Right top -->
+  <rect x="400" y="30" width="150" height="40" rx="6" fill="#cde0f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="475" y="47" text-anchor="middle" fill="#1a3a5c" font-size="12">就業者数の減少</text>
+  <text x="475" y="62" text-anchor="middle" fill="#1a3a5c" font-size="11">年平均労働時間の長さ</text>
+  <line x1="400" y1="55" x2="362" y2="135" stroke="#2e6da4" stroke-width="1.5"/>
+  <!-- Right bottom -->
+  <rect x="400" y="200" width="150" height="40" rx="6" fill="#cde0f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="475" y="218" text-anchor="middle" fill="#1a3a5c" font-size="12">技術革新に伴う</text>
+  <text x="475" y="233" text-anchor="middle" fill="#1a3a5c" font-size="11">雇用の変化</text>
+  <line x1="400" y1="218" x2="362" y2="165" stroke="#2e6da4" stroke-width="1.5"/>
+  <!-- Label -->
+  <text x="280" y="298" text-anchor="middle" fill="#666" font-size="11">→ テーマ：「働き方改革」</text>
+</svg>

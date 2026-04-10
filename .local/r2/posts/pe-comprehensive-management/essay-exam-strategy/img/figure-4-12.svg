@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="280" viewBox="0 0 560 280">
+  <!-- Center -->
+  <ellipse cx="280" cy="140" rx="68" ry="50" fill="#1a3a5c"/>
+  <text x="280" y="130" text-anchor="middle" fill="white" font-size="12" font-weight="bold">準備</text>
+  <text x="280" y="147" text-anchor="middle" fill="white" font-size="12" font-weight="bold">題材</text>
+  <!-- 5 items around -->
+  <!-- Top -->
+  <rect x="195" y="10" width="170" height="40" rx="6" fill="#2e6da4"/>
+  <text x="280" y="28" text-anchor="middle" fill="white" font-size="12">業務経歴1</text>
+  <text x="280" y="44" text-anchor="middle" fill="white" font-size="11">成果、目的、課題、解決策</text>
+  <line x1="280" y1="52" x2="280" y2="90" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Left top -->
+  <rect x="10" y="50" width="160" height="40" rx="6" fill="#2e6da4"/>
+  <text x="90" y="68" text-anchor="middle" fill="white" font-size="12">業務経歴2</text>
+  <text x="90" y="84" text-anchor="middle" fill="white" font-size="11">成果、目的、課題、解決策</text>
+  <line x1="172" y1="75" x2="215" y2="120" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Left bottom -->
+  <rect x="10" y="185" width="160" height="40" rx="6" fill="#2e6da4"/>
+  <text x="90" y="203" text-anchor="middle" fill="white" font-size="12">業務経歴3</text>
+  <text x="90" y="219" text-anchor="middle" fill="white" font-size="11">成果、目的、課題、解決策</text>
+  <line x1="172" y1="200" x2="215" y2="165" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Right top -->
+  <rect x="390" y="50" width="160" height="40" rx="6" fill="#2e6da4"/>
+  <text x="470" y="68" text-anchor="middle" fill="white" font-size="12">業務経歴4</text>
+  <text x="470" y="84" text-anchor="middle" fill="white" font-size="11">成果、目的、課題、解決策</text>
+  <line x1="388" y1="75" x2="348" y2="120" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Right bottom -->
+  <rect x="390" y="185" width="160" height="40" rx="6" fill="#2e6da4"/>
+  <text x="470" y="203" text-anchor="middle" fill="white" font-size="12">業務経歴5</text>
+  <text x="470" y="219" text-anchor="middle" fill="white" font-size="11">成果、目的、課題、解決策</text>
+  <line x1="388" y1="200" x2="348" y2="165" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <!-- Note -->
+  <text x="280" y="270" text-anchor="middle" fill="#666" font-size="11">※ 2〜3の題材を準備しておくことを推奨</text>
+</svg>

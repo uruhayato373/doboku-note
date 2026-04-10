@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="440" viewBox="0 0 560 440">
+  <defs>
+    <marker id="arr6" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+  <!-- 執筆の手順 -->
+  <text x="10" y="22" fill="#1a3a5c" font-size="13" font-weight="bold">図表4.26　執筆の手順</text>
+  <rect x="10" y="30" width="155" height="44" rx="6" fill="#2e6da4"/>
+  <text x="87" y="54" text-anchor="middle" fill="white" font-size="12" font-weight="bold">①総時間配分の設定</text>
+  <line x1="167" y1="52" x2="188" y2="52" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr6)"/>
+  <rect x="190" y="30" width="155" height="44" rx="6" fill="#2e6da4"/>
+  <text x="267" y="54" text-anchor="middle" fill="white" font-size="12" font-weight="bold">②ページレイアウト</text>
+  <text x="267" y="66" text-anchor="middle" fill="white" font-size="11">の作成</text>
+  <line x1="347" y1="52" x2="368" y2="52" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr6)"/>
+  <rect x="370" y="30" width="180" height="44" rx="6" fill="#c0392b"/>
+  <text x="460" y="54" text-anchor="middle" fill="white" font-size="12" font-weight="bold">③執筆と見直し</text>
+  <!-- 時間配分 -->
+  <text x="10" y="100" fill="#1a3a5c" font-size="13" font-weight="bold">図表4.27　時間配分の設定</text>
+  <!-- Table -->
+  <rect x="10" y="108" width="540" height="30" rx="4" fill="#1a3a5c"/>
+  <text x="130" y="127" text-anchor="middle" fill="white" font-size="12" font-weight="bold">執筆速度</text>
+  <text x="310" y="127" text-anchor="middle" fill="white" font-size="12" font-weight="bold">解答用紙（分/枚）</text>
+  <text x="470" y="127" text-anchor="middle" fill="white" font-size="12" font-weight="bold">ステップ1〜4の時間</text>
+  <line x1="240" y1="108" x2="240" y2="198" stroke="#1a3a5c" stroke-width="1"/>
+  <line x1="380" y1="108" x2="380" y2="198" stroke="#1a3a5c" stroke-width="1"/>
+  <rect x="10" y="140" width="540" height="28" fill="#f0f5ff" stroke="#ccc" stroke-width="1"/>
+  <text x="130" y="158" text-anchor="middle" fill="#333" font-size="12">ゆっくり</text>
+  <text x="310" y="158" text-anchor="middle" fill="#333" font-size="12">30分</text>
+  <text x="470" y="158" text-anchor="middle" fill="#333" font-size="12">45分</text>
+  <rect x="10" y="168" width="540" height="28" fill="#fff" stroke="#ccc" stroke-width="1"/>
+  <text x="130" y="186" text-anchor="middle" fill="#333" font-size="12">標準</text>
+  <text x="310" y="186" text-anchor="middle" fill="#333" font-size="12">25分</text>
+  <text x="470" y="186" text-anchor="middle" fill="#333" font-size="12">70分</text>
+  <rect x="10" y="196" width="540" height="28" fill="#f0f5ff" stroke="#ccc" stroke-width="1"/>
+  <text x="130" y="214" text-anchor="middle" fill="#333" font-size="12">速い</text>
+  <text x="310" y="214" text-anchor="middle" fill="#333" font-size="12">20分</text>
+  <text x="470" y="214" text-anchor="middle" fill="#333" font-size="12">95分</text>
+  <!-- タイムテーブル -->
+  <text x="10" y="244" fill="#1a3a5c" font-size="13" font-weight="bold">図表4.28　試験本番でのタイムテーブル例</text>
+  <rect x="10" y="252" width="540" height="30" rx="4" fill="#1a3a5c"/>
+  <text x="90" y="271" text-anchor="middle" fill="white" font-size="11" font-weight="bold">開始時刻</text>
+  <text x="200" y="271" text-anchor="middle" fill="white" font-size="11" font-weight="bold">所要時間</text>
+  <text x="380" y="271" text-anchor="middle" fill="white" font-size="11" font-weight="bold">内容</text>
+  <line x1="140" y1="252" x2="140" y2="440" stroke="#1a3a5c" stroke-width="1"/>
+  <line x1="250" y1="252" x2="250" y2="440" stroke="#1a3a5c" stroke-width="1"/>
+  <!-- Rows -->
+  <g font-size="11">
+    <rect x="10" y="284" width="540" height="24" fill="#f0f5ff" stroke="#ccc" stroke-width="1"/>
+    <text x="90" y="300" text-anchor="middle" fill="#333">13:30〜</text>
+    <text x="200" y="300" text-anchor="middle" fill="#333">60分</text>
+    <text x="380" y="300" text-anchor="middle" fill="#333">前文の分析（ステップ1）</text>
+    <rect x="10" y="308" width="540" height="24" fill="#fff" stroke="#ccc" stroke-width="1"/>
+    <text x="90" y="324" text-anchor="middle" fill="#333">14:30〜</text>
+    <text x="200" y="324" text-anchor="middle" fill="#333">10分</text>
+    <text x="380" y="324" text-anchor="middle" fill="#333">論文骨子の構成・肉付け（ステップ2〜3）</text>
+    <rect x="10" y="332" width="540" height="24" fill="#f0f5ff" stroke="#ccc" stroke-width="1"/>
+    <text x="90" y="348" text-anchor="middle" fill="#333">14:40〜</text>
+    <text x="200" y="348" text-anchor="middle" fill="#333">25分</text>
+    <text x="380" y="348" text-anchor="middle" fill="#333">論文評価基準の確認（ステップ4）</text>
+    <rect x="10" y="356" width="540" height="24" fill="#fff" stroke="#ccc" stroke-width="1"/>
+    <text x="90" y="372" text-anchor="middle" fill="#333">15:05〜</text>
+    <text x="200" y="372" text-anchor="middle" fill="#333">25分</text>
+    <text x="380" y="372" text-anchor="middle" fill="#333">解答用紙1枚目執筆</text>
+    <rect x="10" y="380" width="540" height="24" fill="#f0f5ff" stroke="#ccc" stroke-width="1"/>
+    <text x="90" y="396" text-anchor="middle" fill="#333">15:30〜</text>
+    <text x="200" y="396" text-anchor="middle" fill="#333">25分</text>
+    <text x="380" y="396" text-anchor="middle" fill="#333">解答用紙2枚目執筆</text>
+    <rect x="10" y="404" width="540" height="24" fill="#fff" stroke="#ccc" stroke-width="1"/>
+    <text x="90" y="420" text-anchor="middle" fill="#333">16:20〜</text>
+    <text x="200" y="420" text-anchor="middle" fill="#333">25分</text>
+    <text x="380" y="420" text-anchor="middle" fill="#333">解答用紙4枚目執筆</text>
+    <rect x="10" y="420" width="540" height="20" fill="#fff8e0" stroke="#c0872a" stroke-width="1"/>
+    <text x="90" y="434" text-anchor="middle" fill="#c0872a">16:45〜</text>
+    <text x="200" y="434" text-anchor="middle" fill="#c0872a">15分</text>
+    <text x="380" y="434" text-anchor="middle" fill="#c0872a">見直し（※最後の15分）</text>
+  </g>
+</svg>
