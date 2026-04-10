@@ -10,7 +10,9 @@
     "lint": "eslint src/",
     "type-check": "tsc --noEmit",
     "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note",
-    "upload-images-r2": "tsx scripts/upload-images-to-r2.mjs"
+    "upload-images-r2": "tsx scripts/upload-images-to-r2.mjs",
+    "validate-mdx": "node scripts/validate-mdx.mjs",
+    "pre-commit:install": "node scripts/install-pre-commit.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",

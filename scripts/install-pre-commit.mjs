@@ -1,0 +1,42 @@
+/**
+ * pre-commitフック設置スクリプト
+ *
+ * .git/hooks/pre-commit にMDX検証フックを設置する。
+ *
+ * Usage:
+ *   npm run pre-commit:install
+ */
+
+import { writeFileSync, chmodSync, existsSync, mkdirSync } from "fs";
+import { join } from "path";
+
+const HOOKS_DIR = join(".git", "hooks");
+const HOOK_PATH = join(HOOKS_DIR, "pre-commit");
+
+const HOOK_CONTENT = `#!/bin/sh
+# MDX validation pre-commit hook
+# Installed by: npm run pre-commit:install
+
+node scripts/pre-commit-mdx.mjs
+`;
+
+if (!existsSync(HOOKS_DIR)) {
+  mkdirSync(HOOKS_DIR, { recursive: true });
+}
+
+if (existsSync(HOOK_PATH)) {
+  console.log(`Existing pre-commit hook found at ${HOOK_PATH}.`);
+  console.log("Overwriting with MDX validation hook.");
+}
+
+writeFileSync(HOOK_PATH, HOOK_CONTENT, { mode: 0o755 });
+
+// Windows doesn't use chmod, but set it for cross-platform compatibility
+try {
+  chmodSync(HOOK_PATH, 0o755);
+} catch {
+  // Ignore chmod errors on Windows
+}
+
+console.log(`✓ pre-commit hook installed at ${HOOK_PATH}`);
+console.log("  MDX files will be validated before each commit.");
