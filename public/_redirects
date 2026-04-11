@@ -1,3 +1,6 @@
+# 壊れたURL → 正しいURLへリダイレクト
+/category/pe-comprehe%20nsive-management /category/pe-comprehensive-management 301
+
 # 削除済みコンテンツ → トップページ（301 Moved Permanently）
 /docs/river/* / 301
 /docs/general/* / 301
