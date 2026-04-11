@@ -2,16 +2,14 @@ import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
 import "../styles/globals.css";
 import "katex/dist/katex.min.css";
-import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
 import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
 import { getCommonSeoData } from "@/lib/metadata";
+import StructuredData from "@/components/seo/StructuredData";
 
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-
-const StructuredData = dynamic(() => import("@/components/seo/StructuredData"));
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,22 +40,21 @@ export default function RootLayout({
       </head>
       <body className={`${inter.variable} ${notoSansJP.variable} font-sans`}>
         <GoogleAnalytics />
-        <Suspense fallback={<></>}>
-          <AnalyticsProvider>
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem={true}
-              disableTransitionOnChange={false}
-              storageKey="doboku-note-theme"
-            >
-              <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
-                {children}
-                <BackToTopButton />
-              </div>
-            </ThemeProvider>
-          </AnalyticsProvider>
+        <Suspense fallback={null}>
+          <AnalyticsProvider />
         </Suspense>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
+          disableTransitionOnChange={false}
+          storageKey="doboku-note-theme"
+        >
+          <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
+            {children}
+            <BackToTopButton />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

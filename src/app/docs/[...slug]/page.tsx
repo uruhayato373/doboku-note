@@ -8,9 +8,7 @@ import { classifyDoc } from '@/lib/doc-classifier';
 import { generateDynamicSidebar } from '@/lib/dynamic-sidebar';
 import SidebarNav from '@/components/layout/SidebarNav';
 import { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-
-const StructuredData = dynamic(() => import('@/components/seo/StructuredData'));
+import StructuredData from '@/components/seo/StructuredData';
 import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
 // remarkDirective removed: :::directive syntax is handled by parseCallouts() in mdx-callout-parser.ts
