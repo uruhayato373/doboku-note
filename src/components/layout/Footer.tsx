@@ -63,7 +63,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/about"
+                  href="/contact"
                   className="text-gray-300 hover:text-primary-400 transition-colors"
                 >
                   お問い合わせ
