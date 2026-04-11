@@ -290,16 +290,22 @@ function PrimaryExamTable({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secon
 function PeExamTable({ docs }: { docs: DocMeta[] }) {
   const yearMap = new Map<string, { primary?: DocMeta; secondary?: DocMeta }>();
   for (const doc of docs) {
-    const match = doc.slug?.match(/r(\d+)-(primary|secondary)$/);
+    const match = doc.slug?.match(/(r|h)(\d+)-(primary|secondary)$/);
     if (!match) continue;
-    const yearCode = `r${match[1]}`;
-    const type = match[2] as 'primary' | 'secondary';
+    const yearCode = `${match[1]}${match[2]}`;
+    const type = match[3] as 'primary' | 'secondary';
     if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
     yearMap.get(yearCode)![type] = doc;
   }
 
+  const toWesternYear = (code: string) => {
+    const era = code[0];
+    const num = parseInt(code.slice(1));
+    return era === 'r' ? 2018 + num : 1988 + num;
+  };
+
   const years = Array.from(yearMap.keys()).sort((a, b) => {
-    return parseInt(b.slice(1)) - parseInt(a.slice(1));
+    return toWesternYear(b) - toWesternYear(a);
   });
 
   return (
@@ -315,8 +321,11 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
         <tbody>
           {years.map(yearCode => {
             const pair = yearMap.get(yearCode)!;
+            const era = yearCode[0];
             const yearNum = parseInt(yearCode.slice(1));
-            const label = yearNum === 1 ? '令和元年度' : `令和${yearNum}年度`;
+            const label = era === 'r'
+              ? (yearNum === 1 ? '令和元年度' : `令和${yearNum}年度`)
+              : `平成${yearNum}年度`;
             return (
               <tr key={yearCode} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
                 <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{label}</td>

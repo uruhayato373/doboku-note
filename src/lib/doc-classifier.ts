@@ -16,7 +16,7 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
 
   if (category === 'pe-comprehensive-management') {
     if (tags.includes('索引') || tags.includes('guide')) return 'guide';
-    if (tags.includes('択一式') || tags.includes('記述式')) return 'pastExam';
+    if (tags.includes('択一式') || tags.includes('記述式') || tags.includes('past-questions')) return 'pastExam';
     if (meta.section || meta.type === 'digest') return 'section';
     return 'keyword';
   }
