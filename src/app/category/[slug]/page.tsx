@@ -98,7 +98,13 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
       });
     }
   } else if (category === 'pe-comprehensive-management') {
-    if (group === 'pastExam') {
+    if (group === 'guide') {
+      docs.sort((a, b) => {
+        const orderA = a.guide_order ?? 999;
+        const orderB = b.guide_order ?? 999;
+        return orderA - orderB;
+      });
+    } else if (group === 'pastExam') {
       docs.sort((a, b) => {
         const yearA = a.slug?.match(/r(\d+)/)?.[1] || '0';
         const yearB = b.slug?.match(/r(\d+)/)?.[1] || '0';
