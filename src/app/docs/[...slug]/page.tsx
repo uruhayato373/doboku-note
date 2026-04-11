@@ -7,7 +7,9 @@ import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc } from '@/lib/doc-classifier';
 import { generateDynamicSidebar } from '@/lib/dynamic-sidebar';
 import SidebarNav from '@/components/layout/SidebarNav';
+import SectionKeywords from '@/components/ui/SectionKeywords';
 import { Metadata } from 'next';
+import { getOgpImageUrl } from '@/lib/r2-image-loader';
 import StructuredData from '@/components/seo/StructuredData';
 import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
@@ -128,7 +130,7 @@ export async function generateMetadata({
       type: 'article',
       siteName: 'doboku-note',
       images: [{
-        url: '/images/og-default.png',
+        url: getOgpImageUrl(slugStr),
         width: 1200,
         height: 630,
         alt: doc.meta.title,
@@ -138,7 +140,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: ogTitle,
       description,
-      images: ['/images/og-default.png'],
+      images: [getOgpImageUrl(slugStr)],
     },
   };
 }
@@ -236,6 +238,16 @@ export default async function DocPage({
             {relatedArticles.length > 0 && (
               <div className="max-w-[780px] mx-auto mt-8">
                 <RelatedArticles articles={relatedArticles} />
+              </div>
+            )}
+
+            {/* 同セクションのキーワード（CEM keyword/section ページのみ） */}
+            {doc.meta.category === 'pe-comprehensive-management' && doc.meta.section && (
+              <div className="max-w-[780px] mx-auto mt-8">
+                <SectionKeywords
+                  currentSlug={slugStr}
+                  section={doc.meta.section as string}
+                />
               </div>
             )}
           </main>

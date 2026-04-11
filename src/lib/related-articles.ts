@@ -62,17 +62,30 @@ export function selectRelatedArticles(
   // Tier 1: 同セクション（section フィールドが存在する場合のみ）
   if (current.section) {
     const tier1 = candidates.filter(
-      (a) => a.section === current.section && a.slug !== current.slug,
+      (a) => a.section === current.section,
     );
     addFromPool(tier1);
   }
 
-  // Tier 2: 同ドキュメントグループ（Tier 1 で未選出の記事）
-  if (selected.length < maxCount) {
+  // Tier 2: 同チャプター内の他セクション（例: 2.1→2.2, 2.3）
+  if (selected.length < maxCount && current.section) {
+    const currentChapter = (current.section as string).split('.')[0];
     const tier2 = candidates.filter(
-      (a) => classifyDoc(a) === currentGroup && !selectedSlugs.has(a.slug),
+      (a) =>
+        a.section &&
+        (a.section as string).split('.')[0] === currentChapter &&
+        a.section !== current.section &&
+        !selectedSlugs.has(a.slug),
     );
     addFromPool(tier2);
+  }
+
+  // Tier 3: 同ドキュメントグループ（Tier 1,2 で未選出の記事）
+  if (selected.length < maxCount) {
+    const tier3 = candidates.filter(
+      (a) => classifyDoc(a) === currentGroup && !selectedSlugs.has(a.slug),
+    );
+    addFromPool(tier3);
   }
 
   return selected;
