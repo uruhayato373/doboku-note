@@ -33,9 +33,11 @@ export function toR2Url(src: string): string {
 
 /**
  * OGP画像の絶対URLを生成（メタタグ用）
+ * 画像は scripts/generate-ogps.mjs で .local/r2/posts/ogp/{slug}.png に生成され、
+ * R2 にアップロードされる。
  */
-export function getOgpImageUrl(postId: string): string {
-  return `${R2_PUBLIC_URL}/blog/${postId}/ogp/ogp.png`;
+export function getOgpImageUrl(slug: string): string {
+  return `${R2_PUBLIC_URL}/posts/ogp/${slug}.png`;
 }
 
 /**

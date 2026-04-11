@@ -38,5 +38,27 @@
       "Skill"
     ],
     "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-mojibake.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-mojibake.sh"
+          }
+        ]
+      }
+    ]
   }
 }
