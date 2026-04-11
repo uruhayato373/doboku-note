@@ -4,6 +4,9 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
+import { classifyDoc } from '@/lib/doc-classifier';
+import { generateDynamicSidebar } from '@/lib/dynamic-sidebar';
+import SidebarNav from '@/components/layout/SidebarNav';
 import { Metadata } from 'next';
 import dynamic from 'next/dynamic';
 
@@ -98,15 +101,31 @@ export async function generateMetadata({
     };
   }
 
+  // SEOタイトル: CEM keyword/section ページは「｜技術士 総監キーワード」を付与
+  // （section はキーワードページに chapter 番号が付いたもの）
+  const group = classifyDoc(doc.meta);
+  const isCemKeywordOrSection =
+    doc.meta.category === 'pe-comprehensive-management' &&
+    (group === 'keyword' || group === 'section');
+  // CEM keyword/section: テンプレート無効化して独自サフィックス
+  // その他: テンプレート（"%s | doboku-note"）に任せる
+  const title = isCemKeywordOrSection
+    ? { absolute: `${doc.meta.title}｜技術士 総監キーワード` }
+    : doc.meta.title;
+  const ogTitle = isCemKeywordOrSection
+    ? `${doc.meta.title}｜技術士 総監キーワード`
+    : doc.meta.title;
+  const description = doc.meta.description || doc.meta.title;
+
   return {
-    title: `${doc.meta.title} | doboku-note`,
-    description: doc.meta.description || doc.meta.title,
+    title,
+    description,
     alternates: {
       canonical: `/docs/${slugStr}`,
     },
     openGraph: {
-      title: doc.meta.title,
-      description: doc.meta.description || doc.meta.title,
+      title: ogTitle,
+      description,
       url: `/docs/${slugStr}`,
       type: 'article',
       siteName: 'doboku-note',
@@ -119,8 +138,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: doc.meta.title,
-      description: doc.meta.description || doc.meta.title,
+      title: ogTitle,
+      description,
       images: ['/images/og-default.png'],
     },
   };
@@ -158,6 +177,11 @@ export default async function DocPage({
     : [];
   const relatedArticles = selectRelatedArticles(doc.meta, categoryArticles);
 
+  // Generate sidebar for category navigation
+  const sidebarItems = category
+    ? await generateDynamicSidebar(category)
+    : [];
+
   // Extract headings for Table of Contents
   const headings = extractHeadings(
     doc.content,
@@ -172,8 +196,21 @@ export default async function DocPage({
       <Header />
 
       <div className="flex-grow w-full">
-        {/* Zenn-style: コンテンツ中央 + 右TOC */}
-        <div className="max-w-[1200px] mx-auto flex relative">
+        {/* コンテンツ中央 + 左サイドバー + 右TOC */}
+        <div className="max-w-[1400px] mx-auto flex relative">
+
+          {/* Left Sidebar: Category Navigation */}
+          {sidebarItems.length > 0 && (
+            <aside className="hidden lg:block w-[260px] shrink-0">
+              <div className="sticky top-20 py-12 pl-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
+                <SidebarNav
+                  title={getCategoryLabel(category!)}
+                  items={sidebarItems}
+                  currentSlug={slugStr}
+                />
+              </div>
+            </aside>
+          )}
 
           {/* Main Content Area */}
           <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-8 lg:py-12">

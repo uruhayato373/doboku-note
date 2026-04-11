@@ -23,8 +23,8 @@ function hashSlug(slug: string): number {
 function deterministicShuffle<T extends { slug: string }>(items: T[], seed: number): T[] {
   const copy = [...items];
   for (let i = copy.length - 1; i > 0; i--) {
-    const j = (seed + hashSlug(copy[i].slug) + i) % (i + 1);
-    [copy[i], copy[j]] = [copy[j], copy[i]];
+    const j = (seed + hashSlug(copy[i]!.slug) + i) % (i + 1);
+    [copy[i], copy[j]] = [copy[j]!, copy[i]!];
   }
   return copy;
 }
