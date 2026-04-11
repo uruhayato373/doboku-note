@@ -101,20 +101,36 @@ export async function generateMetadata({
     };
   }
 
-  // SEOタイトル: CEM keyword/section ページは「｜技術士 総監キーワード」を付与
-  // （section はキーワードページに chapter 番号が付いたもの）
+  // SEOタイトル: カテゴリ・グループに応じたサフィックスを付与
   const group = classifyDoc(doc.meta);
   const isCemKeywordOrSection =
     doc.meta.category === 'pe-comprehensive-management' &&
     (group === 'keyword' || group === 'section');
-  // CEM keyword/section: テンプレート無効化して独自サフィックス
-  // その他: テンプレート（"%s | doboku-note"）に任せる
-  const title = isCemKeywordOrSection
-    ? { absolute: `${doc.meta.title}｜技術士 総監キーワード` }
-    : doc.meta.title;
-  const ogTitle = isCemKeywordOrSection
-    ? `${doc.meta.title}｜技術士 総監キーワード`
-    : doc.meta.title;
+  const isCemPastExam =
+    doc.meta.category === 'pe-comprehensive-management' &&
+    group === 'pastExam';
+
+  let title: string | { absolute: string };
+  let ogTitle: string;
+
+  if (isCemPastExam) {
+    // 過去問: 「技術士 総監 R07 択一式 過去問【解答解説付き】」
+    const hasDetails = (doc.meta.description || '').includes('解答解説') ||
+      (doc.meta.tags || []).includes('択一式') ||
+      (doc.meta.tags || []).includes('past-questions');
+    const suffix = hasDetails ? '【解答解説付き】' : '';
+    title = { absolute: `${doc.meta.title}${suffix}` };
+    ogTitle = `${doc.meta.title}${suffix}`;
+  } else if (isCemKeywordOrSection) {
+    // キーワード/セクション: テンプレート無効化して独自サフィックス
+    title = { absolute: `${doc.meta.title}｜技術士 総監キーワード` };
+    ogTitle = `${doc.meta.title}｜技術士 総監キーワード`;
+  } else {
+    // その他: テンプレート（"%s | doboku-note"）に任せる
+    title = doc.meta.title;
+    ogTitle = doc.meta.title;
+  }
+
   const description = doc.meta.description || doc.meta.title;
 
   return {

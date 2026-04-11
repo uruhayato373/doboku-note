@@ -370,6 +370,13 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 |---|---|---|
 | `/design-review` | デザインシステム準拠レビュー（7カテゴリ・重大度判定） | `.claude/skills/ui/design-review/SKILL.md` |
 
+### marketing — マーケティング
+
+| スキル | 用途 | 定義 |
+|---|---|---|
+| `/x-post` | X（旧Twitter）投稿テキスト生成（過去問・キーワードからサイト誘導） | `.claude/skills/marketing/x-post/SKILL.md` |
+| `/note-post` | note.com記事ドラフト生成（過去問分析・ガイド・キーワードまとめ） | `.claude/skills/marketing/note-post/SKILL.md` |
+
 ### strategy — 競合調査・市場分析（Phase 2で復活）
 
 ⏸️ **現在のスコープ**: Phase 1（試験対策webサイト作成）では不要。

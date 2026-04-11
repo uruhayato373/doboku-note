@@ -29,9 +29,21 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. プロジェクトの基本的定義として適切 ✅
+2. プロジェクトの特性（時間・コスト・資源の制約）として適切 ✅
+3. WBSによる作業分割の説明として適切 ✅
+4. **個々の仕事に対する時間やコストの管理にはアーンドバリューマネジメント（EVM）等が用いられる。過程決定計画図（PDPC）は不測事態への対応計画に用いるものであり誤り ❌**
+5. PMBOKの知識エリアの例として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "PMBOK", slug: "pmbok" },
+  { label: "PDPC法", slug: "pdpc-method" },
+  { label: "PERT・CPM", slug: "pert-cpm" },
+]} />
 
 </details>
 
@@ -53,9 +65,32 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+負荷工数と能力工数を計算する。
+
+**能力工数**（直接作業者の定時での作業時間）：
+
+$$\text{直接作業者} = 25 - 2 = 23\text{名}$$
+
+$$\text{能力工数} = 23 \times 8 \times 20 \times 0.95 = 3{,}496\text{時間}$$
+
+**負荷工数**（生産に必要な総時間）：
+
+$$\text{生産時間} = 3.6 \times 1{,}000 = 3{,}600\text{時間}$$
+
+$$\text{負荷工数} = 3{,}600 + 200 = 3{,}800\text{時間}$$
+
+**総残業時間**：
+
+$$3{,}800 - 3{,}496 = 304 \approx 300\text{時間}$$
+
+<RelatedKeywords items={[
+  { label: "負荷・能力管理", slug: "load-capacity" },
+  { label: "稼働率", slug: "utilization-rate" },
+]} />
 
 </details>
 
@@ -72,9 +107,19 @@ PFI法（民間資金等の活用による公共施設等の整備等の促進�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **PFI法第1条で民間の資金・経営能力・技術的能力の活用を規定しており適切 ✅**
+2. PFI法の対象には船舶・航空機等の輸送施設も含まれる ❌
+3. 事業による収益も考慮した上で事業スキームを設計する ❌
+4. 民間の自主性・創意工夫を尊重し、関与は必要最小限とする ❌
+5. 選定事業者は法人その他の団体であることが必要 ❌
+
+<RelatedKeywords items={[
+  { label: "PFI", slug: "pfi" },
+]} />
 
 </details>
 
@@ -93,9 +138,32 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+品質マネジメントシステムのPDCAモデルにおいて、（ア）は最上部に位置するため「経営者の責任」が入る。
+
+モデルの構成：
+- （ア）経営者の責任（Plan：方針・目標の設定）
+- （イ）資源の運用管理（Do の基盤）
+- （ウ）製品実現（Do：実行プロセス）
+- （エ）測定，分析及び改善（Check/Act）
+- （オ）製品（アウトプット）
+
+<ExamPoint
+  summary="QMSモデルの上部は「経営者の責任」"
+  items={[
+    "経営者の責任がPDCAサイクル全体を統括する位置にある",
+    "マネジメントレビューを通じて継続的改善を推進",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "品質管理", slug: "quality-control" },
+  { label: "品質方針", slug: "quality-policy" },
+  { label: "PDCAサイクル", slug: "pdca-cycle" },
+]} />
 
 </details>
 
@@ -118,9 +186,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）PL法は過失ではなく欠陥の有無で責任が判断される（無過失責任） → 不適切 ❌
+（イ）製造物は「製造又は加工された動産」であり、単体ソフトウェアは動産ではないため該当しない → 適切 ✅
+（ウ）安全性に関わらない品質上の不具合はPL法の「欠陥」に該当しない → 適切 ✅
+（エ）製造物自体の損害のみの場合はPL法の対象外（他人の生命・身体・財産への侵害が必要） → 不適切 ❌
+（オ）消費者は欠陥の存在と因果関係を証明すればよく、製造者の過失の証明は不要 → 適切 ✅
+
+適切なものは（イ）（ウ）（オ）の3つ。
+
+<RelatedKeywords items={[
+  { label: "製造物責任法", slug: "product-liability-act" },
+  { label: "製品安全", slug: "product-safety" },
+]} />
 
 </details>
 
@@ -137,9 +218,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 整備・集中・相談は5Sに含まれない ❌
+2. 再確認は5Sに含まれない ❌
+3. 正確・作法・推進は5Sに含まれない ❌
+4. 正確・相談は5Sに含まれない ❌
+5. **整理（Seiri）・整頓（Seiton）・清掃（Seiso）・清潔（Seiketsu）・しつけ（Shitsuke）が正しい5S ✅**
+
+<RelatedKeywords items={[
+  { label: "5S", slug: "five-s" },
+  { label: "品質管理", slug: "quality-control" },
+]} />
 
 </details>
 
@@ -156,9 +248,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 原価計算の基本定義として適切 ✅
+2. **原価計算の正しい順序は費目別計算→部門別計算→製品別計算であり、記述は順序が逆 ❌**
+3. 実際原価計算の説明として適切 ✅
+4. 予定原価計算での標準原価設定として適切 ✅
+5. 標準原価設定の考え方として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "標準原価計算", slug: "standard-costing" },
+  { label: "直接原価計算", slug: "direct-costing" },
+]} />
 
 </details>
 
@@ -181,9 +284,23 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）資材所要量計画（MRP）は基準生産計画を先に立て、そこから部品・原材料の所要量を展開する。順序が逆で不適切 ❌
+（イ）MRPの入力情報として製品構成・リードタイム・手持在庫量・受入確定量は正しい → 適切 ✅
+（ウ）MRPはコンピュータ化されたシステムで管理されるのが通常 → 適切 ✅
+（エ）ERPは会計・財務も含む経営資源全体を統合管理するシステムであり、別システムとする記述は不適切 ❌
+（オ）CALSは製品のライフサイクル全体にわたる情報を電子的に共有・活用する取組として適切 → 適切 ✅
+
+適切なものは（イ）（ウ）（オ）の3つ。
+
+<RelatedKeywords items={[
+  { label: "ERP", slug: "erp" },
+  { label: "SCM", slug: "scm-system" },
+  { label: "リードタイム", slug: "lead-time" },
+]} />
 
 </details>
 
@@ -200,9 +317,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. マズローの欲求5段階説で最も低次は「生理的欲求」、最も高次は「自己実現欲求」であり、物質的要求・安定要求は不正確 ❌
+2. 経済的行動は個人の利益を最大化する合理的行動であり、「組織の利益を考慮」は管理的行動の説明 ❌
+3. X理論・Y理論の説明は正しいが、現代ではY理論に基づく管理が適しているとされており、X理論とする記述は誤り ❌
+4. 科学的管理法（テイラー）は人間関係論以前の手法であり、行動科学的アプローチを包含していない ❌
+5. **理念的インセンティブは思想や価値観の追求を源泉とするインセンティブであり適切 ✅**
+
+<RelatedKeywords items={[
+  { label: "マズローの欲求階層説", slug: "maslow-hierarchy-of-needs" },
+  { label: "マグレガーのXY理論", slug: "mcgregor-xy-theory" },
+  { label: "インセンティブ", slug: "incentive" },
+  { label: "科学的管理法", slug: "scientific-management" },
+]} />
 
 </details>
 
@@ -219,9 +349,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 高年齢者雇用安定法における高年齢者は55歳以上であり、65歳以上ではない ❌
+2. 定年は60歳を下回ることができず、55歳への引き下げは不可 ❌
+3. **定年廃止または65歳以上への引き上げを行えば、継続雇用制度の導入は不要であり適切 ✅**
+4. 継続雇用制度では子法人等での雇用も認められている ❌
+5. 年齢制限を設ける場合の理由明示義務はあるが、当時の基準は65歳までであり70歳ではない ❌
+
+<RelatedKeywords items={[
+  { label: "高年齢者雇用安定法", slug: "elderly-employment-act" },
+  { label: "継続雇用制度", slug: "continued-employment-system" },
+]} />
 
 </details>
 
@@ -238,9 +379,21 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 多面評価（360度評価）の説明として適切 ✅
+2. 目標管理制度における低目標設定の問題と対策として適切 ✅
+3. 評価期間の設定方法として適切 ✅
+4. **業績評価では一次査定は絶対評価（目標達成度で判断）、二次査定で相対評価（部門間バランス調整）を行うのが一般的であり、記述は逆 ❌**
+5. ルール・基準の公開と結果のフィードバックは納得性向上に重要であり適切 ✅
+
+<RelatedKeywords items={[
+  { label: "人事考課", slug: "performance-evaluation" },
+  { label: "360度評価", slug: "360-degree-evaluation" },
+  { label: "MBO", slug: "mbo" },
+]} />
 
 </details>
 
@@ -262,9 +415,17 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+- （ア）賃金総額 ÷ 付加価値額 = **労働分配率**（付加価値に占める人件費の割合）
+- （イ）付加価値額 ÷ 従業員数 = **労働生産性**（従業員1人当たりの付加価値）
+
+<RelatedKeywords items={[
+  { label: "労働分配率", slug: "labor-share-ratio" },
+  { label: "労働生産性", slug: "labor-productivity" },
+]} />
 
 </details>
 
@@ -281,9 +442,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 法定労働時間の規定として適切 ✅
+2. 36協定の締結・届出義務として適切 ✅
+3. 時間外労働の割増賃金率25%以上として適切 ✅
+4. **有給休暇は「6ヵ月間」継続勤務し8割以上出勤した場合に10日付与される。3ヵ月・5日とする記述は誤り ❌**
+5. 育児休業制度の規定として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "労働基準法", slug: "labor-standards-act" },
+  { label: "育児・介護休業法", slug: "childcare-nursing-leave-act" },
+]} />
 
 </details>
 
@@ -307,9 +479,19 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）組織の技術的側面と人的側面の二面性の説明として適切 ✅
+（イ）非公式組織への管理側からのアプローチは、ホーソン実験以来重要視されており、望ましくないとする記述は不適切 ❌
+（ウ）人間関係管理は職場の人間関係の円滑化を重視する考え方であり適切 ✅
+（エ）非公式組織が行動規範・力関係・居心地・育成環境に影響を与えるという記述は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "公式・非公式組織", slug: "formal-informal-organization" },
+  { label: "ホーソン実験", slug: "hawthorne-experiment" },
+]} />
 
 </details>
 
@@ -326,9 +508,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. OFF-JTは職場外で組織が計画的に行う研修であり、個人主体の自己啓発とは異なる ❌
+2. OJTは実際の業務を通じて行う訓練であり、セミナー室での研修はOFF-JT ❌
+3. **課題設定能力・職務遂行能力・対人能力・問題解決能力の4つは従業員の主な能力として適切 ✅**
+4. コミュニケーション・トレーニングは対人能力開発の手法であり、問題解決能力開発にはケーススタディ等が一般的 ❌
+5. 知識教育は専門知識を理解させることが目的で、講義形式が一般的。実習は技能教育 ❌
+
+<RelatedKeywords items={[
+  { label: "OJT・Off-JT", slug: "ojt-off-jt" },
+  { label: "階層別教育訓練", slug: "hierarchical-training" },
+]} />
 
 </details>
 
@@ -351,9 +544,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）団体交渉権の説明として適切 ✅
+（イ）団体行動権（争議権）の説明として適切 ✅
+（ウ）団体交渉の対象事項として適切 ✅
+（エ）労働協約の成立要件として適切 ✅
+（オ）**記述は「あっせん」の説明であり、「調停」ではない。調停は調停委員会が調停案を作成し提示するもの** ❌
+
+不適切なものは（オ）の1つ。
+
+<RelatedKeywords items={[
+  { label: "労働組合法", slug: "labor-union-act" },
+  { label: "労働関係調整法", slug: "labor-relations-adjustment-act" },
+]} />
 
 </details>
 
@@ -370,9 +576,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. TCOは導入費用も含む総所有コストであり、導入後の費用のみとする記述は不正確 ❌
+2. データ分析の費用は業務上の運用コストでありTCOに含まれるが、選択肢4がより明確に適切 ❌
+3. ウイルス対策ソフト費用は運用管理コストとしてTCOに含まれる ❌
+4. **稼働率向上によるシステムダウン損失の削減はTCO削減に直接寄与し適切 ✅**
+5. サーバ統合は導入費用だけでなく維持・管理費用の削減にも寄与する ❌
+
+<RelatedKeywords items={[
+  { label: "ライフサイクルコスティング", slug: "lifecycle-costing-method" },
+  { label: "初期投資", slug: "initial-investment" },
+]} />
 
 </details>
 
@@ -389,9 +606,21 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 特許法は物の発明だけでなく方法の発明も保護対象であり、物の創作のみとする記述は誤り ❌
+2. 実用新案法は物品の形状・構造・組合せに係る考案が対象であり、方法は含まない ❌
+3. 当時の意匠法は物品のデザインが対象であり、不動産としての建築物は含まれていなかった（令和元年改正で追加） ❌
+4. 意匠権の保護期間は登録から20年（当時は登録から20年）であり、特許権の出願から20年とは基準が異なる。また実用新案権は出願から10年 ❌
+5. **実用新案法第46条の2により、実用新案登録に基づく特許出願が一定期間内に可能であり適切 ✅**
+
+<RelatedKeywords items={[
+  { label: "特許権", slug: "patent-rights" },
+  { label: "実用新案権", slug: "utility-model-rights" },
+  { label: "意匠権", slug: "design-rights" },
+]} />
 
 </details>
 
@@ -408,9 +637,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. オプトイン規制（事前同意なしの送信禁止）として適切 ✅
+2. ウェブサイトへの誘導目的メールも特定電子メールに該当し適切 ✅
+3. **同意取得のために送信するメール自体も広告・宣伝目的の電子メールに該当し得るため、該当しないとする記述は不適切 ❌**
+4. 受信拒否の通知手段の表示義務として適切 ✅
+5. 苦情・問合せの受付先表示義務として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "オプトイン・オプトアウト", slug: "opt-in-opt-out" },
+  { label: "個人情報保護", slug: "personal-info-protection" },
+]} />
 
 </details>
 
@@ -427,9 +667,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **SSL/TLSはデータの暗号化通信プロトコルであり適切 ✅**
+2. HTMLの説明 ❌
+3. URLの説明 ❌
+4. CGIの説明 ❌
+5. Cookieの説明 ❌
+
+<RelatedKeywords items={[
+  { label: "暗号化・デジタル署名", slug: "encryption-digital-signature" },
+  { label: "Webサービス", slug: "web-services" },
+]} />
 
 </details>
 
@@ -446,9 +697,21 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. データマイニングの説明として適切 ✅
+2. オープンデータの説明として適切 ✅
+3. M2M（Machine to Machine）の説明として適切 ✅
+4. ビッグデータの説明として適切 ✅
+5. **マイナンバーは民間企業でも税務手続きや社会保険手続きにおいて取り扱う必要があり、取り扱えないとする記述は誤り ❌**
+
+<RelatedKeywords items={[
+  { label: "データマイニング", slug: "data-mining" },
+  { label: "マイナンバー法", slug: "my-number-act" },
+  { label: "IoT", slug: "iot" },
+]} />
 
 </details>
 
@@ -470,9 +733,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）添付ファイルをウイルスチェックなしで開くのは危険 → **不適切な行動** ❌
+（イ）電話での利用者ID・パスワード教示を拒否するのはソーシャルエンジニアリング対策として適切 → 適切な行動 ✅
+（ウ）情報漏洩の即時報告は適切な対応 → 適切な行動 ✅
+（エ）不審なUSBメモリをネットワーク接続PCに挿入するのはマルウェア感染リスクがある → **不適切な行動** ❌
+
+不適切な行動は（ア）（エ）の2つ。
+
+<RelatedKeywords items={[
+  { label: "ソーシャルエンジニアリング", slug: "social-engineering" },
+  { label: "マルウェア", slug: "malware" },
+  { label: "セキュリティ教育", slug: "security-education" },
+]} />
 
 </details>
 
@@ -495,9 +771,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）緊急時の異常行動の可能性を考慮する必要性として適切 ✅
+（イ）多様な緊急事態を想定する必要性として適切 ✅
+（ウ）早期発見の仕組みの重要性として適切 ✅
+（エ）**緊急時は時間が限られるため、必要な情報を優先度に基づいて収集すべきであり、種類・内容にかかわらず多く収集するという記述は不適切** ❌
+（オ）迅速な情報収集手段の事前検討の必要性として適切 ✅
+
+不適切なものは（エ）の1つ。
+
+<RelatedKeywords items={[
+  { label: "緊急時情報処理", slug: "emergency-info-processing" },
+  { label: "緊急事態", slug: "emergency" },
+]} />
 
 </details>
 
@@ -514,9 +803,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. SDカードは紛失・盗難リスクが高く、重要データの保管先としては不適切 ❌
+2. セキュリティソフトがあってもアクセス許可の確認は必要であり、不要にはならない ❌
+3. 提供元不明の無線LANスポットは盗聴・中間者攻撃のリスクがあり不適切 ❌
+4. **業務用端末の共同利用は認証・アクセス制御の観点からセキュリティリスクとなるため、1人1台が原則 ✅**
+5. パスワードなしやデバイスロックの簡素化はセキュリティ上不適切 ❌
+
+<RelatedKeywords items={[
+  { label: "パスワードセキュリティ", slug: "password-security" },
+  { label: "多要素認証", slug: "multi-factor-authentication" },
+]} />
 
 </details>
 
@@ -539,9 +839,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+リスクマトリクスの各領域と対策の対応を検討する。
+
+1. **領域1（高確率・小被害）は頻繁に発生するが被害が小さいため、リスク保有が許容される領域として適切 ✅**
+2. 領域2（高確率・大被害）は保険移転だけでなく、リスク回避や低減が最優先。保険のみとする記述は不十分 ❌
+3. 領域3（中確率・中被害）に対する記述は一定の妥当性があるが、選択肢1がより正確 ❌
+4. 領域4（低確率・小被害）は許容できるリスクとしてリスク保有が一般的であり、回避は過剰対応 ❌
+5. 領域5（低確率・大被害）は保険によるリスク移転も有効な手段の一つであり、適さないとする記述は不正確 ❌
+
+<RelatedKeywords items={[
+  { label: "リスクマップ・マトリクス", slug: "risk-map-matrix" },
+  { label: "リスク対応", slug: "risk-treatment" },
+]} />
 
 </details>
 
@@ -564,9 +877,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）BCMの平常時メリット（取引先評価・投資家信頼）として適切 ✅
+（イ）BCMは特定部門だけでなく、全社的に取り組むべきものであり不適切 ❌
+（ウ）代替拠点やOEMなどの代替戦略はBCMの検討対象として適切 ✅
+（エ）BCMはテロ・犯罪等も含むあらゆるインシデントを対象とするため、対象外とする記述は不適切 ❌
+（オ）サプライチェーン全体を対策範囲に含む記述として適切 ✅
+
+適切なものは（ア）（ウ）（オ）の3つ。
+
+<RelatedKeywords items={[
+  { label: "BCP・BCM", slug: "business-continuity-plan" },
+  { label: "サプライチェーンマネジメント", slug: "supply-chain-management" },
+]} />
 
 </details>
 
@@ -583,9 +909,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 下請作業員への安全配慮義務の拡張は判例で認められており適切 ✅
+2. 心身の健康も安全配慮義務の対象であり適切 ✅
+3. 具体的状況によるケースバイケースの判断として適切 ✅
+4. **安全配慮義務は労働契約法第5条で明文化されており、法律に明文化されていないとする記述は誤り ❌**
+5. 労働安全衛生法令が安全配慮義務の基準として用いられることは適切 ✅
+
+<RelatedKeywords items={[
+  { label: "労働安全衛生法", slug: "occupational-safety-act" },
+  { label: "労働契約法", slug: "labor-contract-act" },
+]} />
 
 </details>
 
@@ -604,9 +941,28 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+2台のセンサを並列（OR）で使用する場合を考える。
+
+**欠報率**（危険なのに警報が出ない確率）：
+両方のセンサが「安全」と誤出力する必要がある。
+
+$$P_{\text{欠報}} = p \times p = p^2$$
+
+**誤報率**（安全なのに警報が出る確率）：
+少なくとも1台が「危険」と誤出力する確率。
+
+$$P_{\text{誤報}} = 1 - (1-p)^2 = 2p - p^2$$
+
+並列システムは欠報率を下げる（安全性向上）が、誤報率は上がるトレードオフがある。
+
+<RelatedKeywords items={[
+  { label: "並列システム", slug: "parallel-system" },
+  { label: "システム信頼性", slug: "system-reliability" },
+]} />
 
 </details>
 
@@ -623,9 +979,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 被害想定に応じた資機材備蓄の必要性として適切 ✅
+2. 緊急時対策組織の機能構成として適切 ✅
+3. **緊急時には正式なルールにこだわらず、状況に応じた柔軟で迅速な意思決定が求められる。正式なルールの徹底を優先する記述は不適切 ❌**
+4. 事前段階での復旧対策マニュアル化として適切 ✅
+5. 事後復旧段階での検証・改善として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "危機管理マニュアル", slug: "crisis-management-manual" },
+  { label: "防災訓練", slug: "disaster-drill" },
+]} />
 
 </details>
 
@@ -642,9 +1009,30 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 定期点検のチェックリスト作成時の考慮事項として適切 ✅
+2. 安全確認型インターロックの特徴として適切 ✅
+3. ヒヤリハット活動による重大事象の発見可能性として適切 ✅
+4. **記述はフールプルーフ（ポカヨケ）の説明であり、フェールセーフは故障時に安全側に移行する機能。人為的な不適切行為への対応はフールプルーフ ❌**
+5. 小集団活動による安全衛生意識向上として適切 ✅
+
+<ExamPoint
+  summary="フェールセーフとフールプルーフの違い"
+  items={[
+    "フェールセーフ：機器故障時に安全側に移行する設計",
+    "フールプルーフ：人間の誤操作を防止する設計",
+    "両者の説明を入れ替えた引っかけ問題が頻出",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "フェールセーフ", slug: "fail-safe" },
+  { label: "フールプルーフ", slug: "fool-proof" },
+  { label: "インターロック", slug: "interlock" },
+]} />
 
 </details>
 
@@ -661,9 +1049,21 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **早期相談・治療の環境づくりは二次予防（早期発見・早期対処）であり適切 ✅**
+2. 従業員のサインの読み取りと早期発見は二次予防であり、一次予防ではない ❌
+3. 日常的なメンタルヘルス啓蒙は一次予防（未然防止）であり、三次予防ではない ❌
+4. ストレス耐性を強めることは一次予防であり、二次予防ではない ❌
+5. 職場復帰支援は三次予防（復職支援・再発防止）であり、二次予防ではない ❌
+
+<RelatedKeywords items={[
+  { label: "メンタルヘルスケア", slug: "mental-health-care" },
+  { label: "メンタルヘルス", slug: "mental-health" },
+  { label: "職場復帰支援", slug: "return-to-work-support" },
+]} />
 
 </details>
 
@@ -686,9 +1086,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）リスクの発見・特定のための情報収集はリスクコミュニケーションの目的に含まれる → 適切 ✅
+（イ）受け手のバイアスを考慮し、対象に応じたコミュニケーションが必要であり、一律の広報は不適切 → 不適切 ❌
+（ウ）正負両面の公正な情報提供はリスクコミュニケーションの基本原則 → 適切 ✅
+（エ）対人的な媒体は合意形成型、マスコミは注意喚起型に適しており、記述は逆 → 不適切 ❌
+（オ）プロセス・内容・結果の記録と保存は適切 → 適切 ✅
+
+適切なものは（ア）（ウ）（オ）の3つ。
+
+<RelatedKeywords items={[
+  { label: "危機コミュニケーション", slug: "crisis-communication" },
+  { label: "リスク認知", slug: "risk-perception" },
+]} />
 
 </details>
 
@@ -710,9 +1123,23 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+各法律の制定年：
+- （イ）環境基本法：1993年（平成5年）
+- （ア）環境影響評価法：1997年（平成9年）
+- （エ）地球温暖化対策の推進に関する法律：1998年（平成10年）
+- （ウ）循環型社会形成推進基本法：2000年（平成12年）
+
+よって制定順は（イ）→（ア）→（エ）→（ウ）。
+
+<RelatedKeywords items={[
+  { label: "環境影響評価", slug: "environmental-impact-assessment" },
+  { label: "循環型社会形成推進基本法", slug: "circular-society-basic-act" },
+  { label: "気候変動・脱炭素", slug: "climate-change-decarbonization" },
+]} />
 
 </details>
 
@@ -729,9 +1156,21 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 拡大生産者責任（EPR）の基本定義として適切 ✅
+2. 費用・責任の生産者への移転として適切 ✅
+3. EPRの主要目標として適切 ✅
+4. **EPRの効果は外部の環境コストを内部化（インターナライズ）するシグナルであり、「内部化」と「外部化」が逆。外部化は不適切 ❌**
+5. EPRの具体的な政策手法の例として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "拡大生産者責任", slug: "extended-producer-responsibility" },
+  { label: "デポジット制度", slug: "deposit-system" },
+  { label: "循環型社会形成推進基本法", slug: "circular-society-basic-act" },
+]} />
 
 </details>
 
@@ -748,9 +1187,21 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. JIS Q 14031（環境パフォーマンス評価）が定められている ❌
+2. JIS Q 14020等（環境ラベル）が定められている ❌
+3. JIS Q 14001（環境マネジメントシステム）が定められている ❌
+4. JIS Q 14040等（ライフサイクルアセスメント）が定められている ❌
+5. **エコバランスはJISが定められていない ✅**
+
+<RelatedKeywords items={[
+  { label: "ISO 14000", slug: "iso-14000" },
+  { label: "ライフサイクルアセスメント", slug: "lifecycle-assessment" },
+  { label: "エコラベル", slug: "eco-label" },
+]} />
 
 </details>
 
@@ -767,9 +1218,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+環境基本法に基づく環境基準は大気汚染・水質汚濁・騒音・土壌汚染の4項目に設定されている。
+
+1. 悪臭は環境基準なし（悪臭防止法で規制） ❌
+2. 振動は環境基準なし（振動規制法で規制） ❌
+3. **大気汚染・騒音・土壌汚染の3つとも環境基準が設定されている ✅**
+4. 振動は環境基準なし ❌
+5. 悪臭は環境基準なし ❌
+
+<RelatedKeywords items={[
+  { label: "環境基準", slug: "environmental-standards" },
+  { label: "七公害", slug: "seven-types-of-pollution" },
+]} />
 
 </details>
 
@@ -792,9 +1256,22 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+（ア）容器包装リサイクル法 → 制定されている ✅
+（イ）家電リサイクル法 → 制定されている ✅
+（ウ）食品リサイクル法 → 制定されている ✅
+（エ）小型家電リサイクル法 → 制定されている ✅
+（オ）自動車リサイクル法 → 制定されている ✅
+
+5つすべてリサイクル関連法として制定されている。
+
+<RelatedKeywords items={[
+  { label: "循環型社会形成推進基本法", slug: "circular-society-basic-act" },
+  { label: "拡大生産者責任", slug: "extended-producer-responsibility" },
+]} />
 
 </details>
 
@@ -811,9 +1288,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **IPCC報告書によると過去100年間の世界平均地上気温の上昇は約0.74℃であり、約2℃は過大な数値 ❌**
+2. 過去100年間で約20cmの海面水位上昇として適切 ✅
+3. 最近50年間の上昇速度が100年平均の約2倍であるとの記述は適切 ✅
+4. 北極の気温上昇が世界平均の約2倍の速さであるとの記述は適切 ✅
+5. 熱帯・亜熱帯地域での干ばつ拡大として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "気候変動・脱炭素", slug: "climate-change-decarbonization" },
+  { label: "気候変動（国際）", slug: "climate-change-international" },
+]} />
 
 </details>
 
@@ -830,9 +1318,19 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 第一種事業に対する環境影響評価の義務として適切 ✅
+2. 都市計画に定められた事業の手続きとして適切 ✅
+3. **2011年改正により、環境大臣意見は準備書段階でも述べられるようになっており、評価書段階のみとする記述は誤り ❌**
+4. 電子縦覧の義務化として適切 ✅
+5. 事後の報告・公表義務として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "環境影響評価", slug: "environmental-impact-assessment" },
+]} />
 
 </details>
 
@@ -849,9 +1347,20 @@ JIS Q 9001「品質マネジメントシステム－要求事項」における�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. エコマークによる環境情報発信と消費者選好把握として適切 ✅
+2. 環境利用の内部化手法（環境税・課徴金）として適切 ✅
+3. 環境の経済評価手法の例として適切 ✅
+4. 表明選好型（コンジョイント分析等）と顕示選好型（ヘドニック価格法等）の分類として適切 ✅
+5. **コンジョイント分析は環境を構成する属性を詳細に分析する手法であり、包括的評価には仮想評価法（CVM）が適している。記述は両者の特徴が逆 ❌**
+
+<RelatedKeywords items={[
+  { label: "環境会計", slug: "environmental-accounting" },
+  { label: "費用便益分析", slug: "cost-effectiveness-analysis" },
+]} />
 
 </details>
 

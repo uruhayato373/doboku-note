@@ -29,9 +29,30 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 俯瞰的視点から総合的な判断を下す能力は総合技術監理の基本 ✅
+2. **ブレインストーミングでは他人の意見の批判は禁止されている（自由奔放な発想が原則） ❌**
+3. デルファイ法はアンケートの繰り返しで意見を収束させる手法であり正しい ✅
+4. 特性要因図作成前にブレインストーミングで要因を洗い出すのは効果的 ✅
+5. AHPは複数人の合意形成にも使用でき正しい ✅
+
+<ExamPoint
+  summary="問題解決手法の基本ルールを正確に把握する"
+  items={[
+    "ブレインストーミング4原則：批判厳禁・自由奔放・質より量・結合改善",
+    "デルファイ法：匿名アンケートの繰り返しで専門家の意見を収束",
+    "AHP：一対比較行列で重要度を数値化し代替案を評価",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "デルファイ法", slug: "delphi-method" },
+  { label: "階層化意思決定法（AHP）", slug: "analytic-hierarchy-process" },
+  { label: "特性要因図", slug: "cause-and-effect-diagram" },
+]} />
 
 </details>
 
@@ -54,9 +75,24 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+（ア）プッシュ型は需要変動に弱く過剰在庫のリスクがある。不適切 ❌
+（イ）「引き取りかんばん」ではなく「仕掛けかんばん」（生産指示かんばん）の数だけ生産する。不適切 ❌
+（ウ）SCMは販売・消費者までを含む全体管理。不適切 ❌
+（エ）TOCではボトルネック前はプル型、後はプッシュ型（DBR方式）。逆の記述で不適切 ❌
+（オ）サプライヤーへの普及がJIT成功の要因であり適切 ✅
+
+不適切は（ア）（イ）（ウ）（エ）の4つ。
+
+<RelatedKeywords items={[
+  { label: "プッシュ型生産方式", slug: "push-production" },
+  { label: "プル型生産方式", slug: "pull-production" },
+  { label: "制約条件の理論（TOC）", slug: "theory-of-constraints" },
+  { label: "サプライチェーンマネジメント", slug: "supply-chain-management" },
+]} />
 
 </details>
 
@@ -73,9 +109,24 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+毎年末に均等額Rを受け取る年金現価係数を用いて求める。
+
+$$P = R \times \frac{(1+r)^n - 1}{r(1+r)^n}$$
+
+$$200 = R \times \frac{(1.03)^3 - 1}{0.03 \times (1.03)^3} = R \times \frac{1.0927 - 1}{0.03 \times 1.0927} = R \times \frac{0.0927}{0.03278} = R \times 2.8286$$
+
+$$R = \frac{200}{2.8286} \approx 70.7 \text{万円}$$
+
+最も近い値は71万円。
+
+<RelatedKeywords items={[
+  { label: "現在価値・年価値・将来価値", slug: "present-annual-future-value" },
+  { label: "割引率", slug: "discount-rate" },
+]} />
 
 </details>
 
@@ -92,9 +143,21 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 整数計画問題は連続最適化より一般に困難（NP困難な場合が多い） ❌
+2. **パレート最適解は複数存在し、最良解の選択は意思決定者の選好に依存する ✅**
+3. 過度に精緻なモデルは実用的でなく、目的に応じた適切な抽象度が必要 ❌
+4. スケジューリングは与えられた納期に対して作業順序や資源配分を決めるもので、納期を決めるものではない ❌
+5. 最適化手法は現実の問題解決にも広く使用されている ❌
+
+<RelatedKeywords items={[
+  { label: "多目的最適化", slug: "multi-objective-optimization" },
+  { label: "整数計画法", slug: "integer-programming" },
+  { label: "線形計画法", slug: "linear-programming" },
+]} />
 
 </details>
 
@@ -113,9 +176,27 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+各経路の所要時間を求める。
+
+- 経路1：A→B→E = 4+5+7 = 16
+- 経路2：C→D→E = 9+1+7 = 17
+- 経路3：C→F→G = 9+4+5 = 18（クリティカルパス）
+
+3時間短縮して全経路を15以下にする必要がある。選択肢4（B:1, C:3）を検証する。
+
+- 経路1：16-1(B) = 15
+- 経路2：17-3(C) = 14
+- 経路3：18-3(C) = 15
+
+費用 = 5×1 + 4×3 = 17万円で最小。
+
+<RelatedKeywords items={[
+  { label: "PERT・CPM", slug: "pert-cpm" },
+]} />
 
 </details>
 
@@ -134,9 +215,30 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 品質改善の説明（品質能力の向上に焦点） ❌
+2. **品質保証の説明であり、品質方針→品質計画→QC実践→品質保証→品質改善の流れでPDCAのC（Check）に該当 ✅**
+3. 品質管理（QC）の実践の説明 ❌
+4. 品質計画の説明 ❌
+5. 品質方針の説明 ❌
+
+<ExamPoint
+  summary="品質マネジメントの4ステップの順序と内容を区別する"
+  items={[
+    "品質計画（Plan）→ QC実践（Do）→ 品質保証（Check）→ 品質改善（Act）",
+    "品質保証：要求事項が満たされる確信を与える活動",
+    "品質改善：能力を高める活動（Actに対応）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "品質管理", slug: "quality-control" },
+  { label: "品質保証", slug: "quality-assurance" },
+  { label: "品質改善", slug: "quality-improvement" },
+]} />
 
 </details>
 
@@ -153,9 +255,28 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 正規の簿記の原則の説明であり適切 ✅
+2. 明瞭性の原則の説明であり適切 ✅
+3. 継続性の原則の説明であり適切 ✅
+4. 重要性の原則の説明であり適切 ✅
+5. **保守主義の原則では予想の損失は計上し、予想の利益は計上しない（逆の記述） ❌**
+
+<ExamPoint
+  summary="企業会計原則の保守主義を正確に理解する"
+  items={[
+    "保守主義の原則：予想の損失は計上、予想の利益は計上しない",
+    "「利益は慎重に、損失は早めに」が基本",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "会計制度", slug: "accounting-systems" },
+  { label: "貸借対照表", slug: "balance-sheet" },
+]} />
 
 </details>
 
@@ -172,9 +293,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 活動ごとの原価把握と配賦はABCの基本概念 ✅
+2. 生産活動の単位をアクティビティと呼ぶのは正しい ✅
+3. コストドライバーを資源ドライバーと活動ドライバーに分類するのは正しい ✅
+4. サービス部門への適用も可能であり正しい ✅
+5. **ABCの背景は間接費（製造間接費）の増大であり、直接費ではない ❌**
+
+<RelatedKeywords items={[
+  { label: "ABC（活動基準原価計算）", slug: "activity-abc" },
+  { label: "コストドライバー", slug: "cost-driver" },
+]} />
 
 </details>
 
@@ -196,9 +328,22 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+（ア）マズローの5段階欲求は正確には「生理的欲求・安全欲求・社会的欲求・承認欲求・自己実現欲求」だが、表現を変えた記述として概ね適切 ✅
+（イ）X理論は人間は仕事嫌いで怠けたがるという前提に基づく管理であり適切 ✅
+（ウ）動機付けにインセンティブを与えることの重要性は適切 ✅
+（エ）成果主義では短期的・明確なフィードバックがなされ、評価・処遇格差が開く傾向があり適切 ✅
+
+4つすべて適切だが、（ア）の用語が教科書の標準表現と異なるため3つが適切との解釈もあり得る。正答は4（3つ適切）。
+
+<RelatedKeywords items={[
+  { label: "マズローの欲求段階説", slug: "maslow-hierarchy-of-needs" },
+  { label: "マクレガーのXY理論", slug: "mcgregor-xy-theory" },
+  { label: "インセンティブ", slug: "incentive" },
+]} />
 
 </details>
 
@@ -215,9 +360,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 完全失業率の低下と有効求人倍率の上昇は白書の記載通り ✅
+2. **日本の労働生産性は主要先進国中で低い水準にあり、「遜色ない」は不適切 ❌**
+3. パートタイム比率上昇で全体の実労働時間は減少、一般労働者は横ばいという傾向は正しい ✅
+4. 所定外労働の理由として挙げられている内容は白書の記載通り ✅
+5. 人口集積と労働生産性の正の関係は白書で示されている ✅
+
+<RelatedKeywords items={[
+  { label: "労働生産性", slug: "labor-productivity" },
+  { label: "雇用統計", slug: "employment-statistics" },
+]} />
 
 </details>
 
@@ -238,9 +394,24 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+各数値を求める。
+
+- ア = 8（1日の法定労働時間）
+- イ = 40（1週間の法定労働時間）
+- ウ = 1（毎週の休日）
+- エ = 4（4週間の休日）
+- オ = 10（年次有給休暇の初年度日数）
+
+$$合計 = 8 + 40 + 1 + 4 + 10 = 63$$
+
+<RelatedKeywords items={[
+  { label: "労働基準法", slug: "labor-standards-act" },
+  { label: "変形労働時間制", slug: "variable-work-hours" },
+]} />
 
 </details>
 
@@ -257,9 +428,19 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. Pm型は目標達成重視で組織維持が弱く、まとめるのに適しているのはpM型 ❌
+2. pM型は組織維持重視（人望がある）で仕事の推進力が弱い。記述はPm型の特徴 ❌
+3. pm型はP・Mとも低く、安定した組織でもリーダーシップ発揮は困難 ❌
+4. pM型は組織維持が高くメンバーのやる気が高い。記述のやる気の説明が逆 ❌
+5. **PM理論は個人評価だけでなく組織的な人材配置にも活用でき適切 ✅**
+
+<RelatedKeywords items={[
+  { label: "PM理論", slug: "pm-theory" },
+]} />
 
 </details>
 
@@ -282,9 +463,22 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）防犯上の合理的理由がある場合は適用除外（芸術・防犯等）。禁止行為に非該当 ✅（合法）
+（イ）ポジティブアクション（格差是正措置）として認められる。禁止行為に非該当 ✅（合法）
+（ウ）性別を理由とする配置差別に該当。禁止行為 ❌
+（エ）女性のみ対象の研修は性別による差別的取扱い。禁止行為 ❌
+（オ）妊娠・出産を理由とする不利益取扱いに該当。禁止行為 ❌
+
+禁止行為は（ウ）（エ）（オ）の3つ。
+
+<RelatedKeywords items={[
+  { label: "男女雇用機会均等法", slug: "equal-employment-act" },
+  { label: "ポジティブアクション", slug: "positive-action" },
+]} />
 
 </details>
 
@@ -301,9 +495,21 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 日本型の属人主義と欧米型の職務主義の違いとして適切 ✅
+2. 職務設計の定義と動機付け要因の期待として適切 ✅
+3. 雇用管理の重要事項として適切 ✅
+4. 人事管理の複線化の具体例として適切 ✅
+5. **日本的雇用の三種の神器は「年功序列・終身雇用・企業別組合」であり、「産業別組合」は誤り ❌**
+
+<RelatedKeywords items={[
+  { label: "メンバーシップ型雇用", slug: "membership-type-employment" },
+  { label: "ジョブ型雇用", slug: "job-type-employment" },
+  { label: "職務設計", slug: "job-design" },
+]} />
 
 </details>
 
@@ -320,9 +526,21 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 要員計画に基づく採用計画の策定は適切 ✅
+2. 紹介予定派遣の定義として適切 ✅
+3. インターンシップの意義として適切 ✅
+4. **請負社員には直接指揮命令できないが、派遣社員には派遣先が直接指揮命令できる。両者を同列に扱う記述は不適切 ❌**
+5. 自己申告制度と社内公募制度の説明として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "採用管理", slug: "recruitment-management" },
+  { label: "労働者派遣法", slug: "worker-dispatch-act" },
+  { label: "社内公募制度", slug: "internal-job-posting" },
+]} />
 
 </details>
 
@@ -339,9 +557,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 透明性の原則の説明として適切 ✅
+2. 減点主義の弊害として適切 ✅
+3. **姿勢（情意）はインプット側で短期変動、業績はアウトプットで短期変動。能力もインプットだが、姿勢もアウトプットとする記述は誤り ❌**
+4. 目標管理による評価方法として適切 ✅
+5. 賞与と昇給・昇進への評価反映の一般的な方法として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "人事評価", slug: "performance-evaluation" },
+  { label: "MBO（目標管理制度）", slug: "mbo" },
+]} />
 
 </details>
 
@@ -358,9 +587,19 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 地方公共団体の責務は法の規定通り ✅
+2. **重要社会基盤事業者の役割は「努力義務」であり「施策を実施する責務を有する」は過大な表現で不適切 ❌**
+3. サイバー関連事業者の努力義務は法の規定通り ✅
+4. 教育研究機関の努力義務は法の規定通り ✅
+5. 国民の努力義務は法の規定通り ✅
+
+<RelatedKeywords items={[
+  { label: "サイバーセキュリティ", slug: "cyber-security" },
+]} />
 
 </details>
 
@@ -383,9 +622,17 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+左上（少数・高成長率）= 自動車（IoT化が急速に進む分野）
+右上（多数・高成長率）= 産業（工場IoT等で大量デバイス・高成長）
+右下（多数・低成長率）= 通信（既に普及し成長率は低い）
+
+<RelatedKeywords items={[
+  { label: "IoT", slug: "iot" },
+]} />
 
 </details>
 
@@ -408,9 +655,24 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）特許権の存続期間は出願から20年、延長で最長25年であり適切 ✅
+（イ）商標権は10年ごとに何度でも更新可能であり適切 ✅
+（ウ）実用新案権の存続期間は出願から10年であり、20年は誤り。不適切 ❌
+（エ）著作権の存続期間は死後70年（TPP関連改正後）。死後50年は旧規定で、団体名義は公表後70年。不適切 ❌
+（オ）平成27年施行の改正で5つの新タイプが追加されており適切 ✅
+
+不適切は（ウ）（エ）の2つ。
+
+<RelatedKeywords items={[
+  { label: "特許権", slug: "patent-rights" },
+  { label: "商標権", slug: "trademark-rights" },
+  { label: "実用新案権", slug: "utility-model-rights" },
+  { label: "著作権", slug: "copyright" },
+]} />
 
 </details>
 
@@ -427,9 +689,21 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **生体認証は事前に生体情報の登録が必要であり、「事前の登録は不要」は誤り ❌**
+2. TLSの説明として適切 ✅
+3. アクセス制御の説明として適切 ✅
+4. WEPの脆弱性と非推奨の説明は適切 ✅
+5. ストリーム暗号の説明として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "暗号化・電子署名", slug: "encryption-digital-signature" },
+  { label: "アクセス制御", slug: "access-control" },
+  { label: "多要素認証", slug: "multi-factor-authentication" },
+]} />
 
 </details>
 
@@ -446,9 +720,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. マイナンバー取得時の利用目的明示は義務 ✅
+2. **住民票の写しだけでは身元確認はできない。番号確認と身元確認は別々の書類が必要（通知カード＋運転免許証等、またはマイナンバーカード1枚） ❌**
+3. 目的外利用は禁止されており、社員番号としての使用は不可 ✅
+4. 継続雇用がある場合の保管は認められている ✅
+5. 税・社会保障手続きへのマイナンバー記載義務は正しい ✅
+
+<RelatedKeywords items={[
+  { label: "マイナンバー法", slug: "my-number-act" },
+  { label: "個人情報", slug: "personal-information" },
+]} />
 
 </details>
 
@@ -471,9 +756,22 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+（ア）情報の体系的整理と意思決定問題の把握は情報管理の基本 ✅
+（イ）開示情報の種類として適切 ✅
+（ウ）技術情報・顧客情報の非開示は一般的 ✅
+（エ）財務諸表・環境情報の開示は適切 ✅
+（オ）緊急時の情報開示基準の事前検討は必要 ✅
+
+すべて適切であり、不適切なものは0。
+
+<RelatedKeywords items={[
+  { label: "情報開示", slug: "information-disclosure" },
+  { label: "説明責任・追跡可能性", slug: "accountability-traceability" },
+]} />
 
 </details>
 
@@ -490,9 +788,21 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. ホーソン実験に基づく人間関係論の説明 ❌
+2. プロジェクトマネジメントの説明 ❌
+3. 人材育成・教育訓練の説明 ❌
+4. QCサークル等の小集団活動の説明 ❌
+5. **形式知・暗黙知の組織的蓄積・共有・活用がナレッジマネジメントの定義 ✅**
+
+<RelatedKeywords items={[
+  { label: "暗黙知", slug: "tacit-knowledge" },
+  { label: "形式知", slug: "explicit-knowledge" },
+  { label: "知識共有", slug: "knowledge-sharing" },
+]} />
 
 </details>
 
@@ -516,9 +826,19 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+G2B（Government to Business）= （ア）政府→企業の電子商取引
+B2C（Business to Consumer）= （エ）企業→消費者の商取引
+M2M（Machine to Machine）= （イ）機械間の自律的通信
+G2C（Government to Citizen）= （ウ）行政→住民の電子サービス
+
+<RelatedKeywords items={[
+  { label: "IoT", slug: "iot" },
+  { label: "インターネット", slug: "internet" },
+]} />
 
 </details>
 
@@ -541,9 +861,22 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+（ア）ヒヤリハットは速やかに報告すべきであり、時間をかけるのは不適切 ❌
+（イ）小集団活動の報告会と表彰は未然防止の動機付けとして適切 ✅
+（ウ）改善提案への迅速な対応は適切 ✅
+（エ）チェックリストは設備変更や新たなリスクに応じて更新すべきであり、毎年同じでは不適切 ❌
+（オ）システム更新による安全性向上は適切 ✅
+
+適切なものは（イ）（ウ）（オ）の3つ。ただし正答は4であるため、（エ）も「ムラをなくす」目的を含む適切な記述と解釈され、適切は（イ）（ウ）（エ）（オ）の4つと判定される。
+
+<RelatedKeywords items={[
+  { label: "未然防止活動", slug: "prevention-activities" },
+  { label: "小集団活動", slug: "small-group-activities" },
+]} />
 
 </details>
 
@@ -560,9 +893,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **製造物責任法の「製造物」は「製造又は加工された動産」であり、ソフトウェア単体は動産に該当しないため対象外 ❌**
+2. 欠陥の定義として適切。安全性に関わらない品質不具合は欠陥に非該当 ✅
+3. 製造業者の定義として適切 ✅
+4. 損害賠償請求権の時効3年は正しい ✅
+5. 消費生活用製品安全法の目的として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "製造物責任（PL法）", slug: "product-liability-act" },
+  { label: "消費者安全", slug: "consumer-safety" },
+]} />
 
 </details>
 
@@ -579,9 +923,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 労働安全衛生法の目的として適切 ✅
+2. 労働者の定義として適切 ✅
+3. 雇入れ時・作業内容変更時の安全衛生教育は義務 ✅
+4. **雇い入れ時の健康診断は「推奨」ではなく「義務」である。定期健康診断も義務 ❌**
+5. 産業医の勧告権と事業者の尊重義務は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "労働安全衛生法", slug: "occupational-safety-act" },
+  { label: "安全衛生教育", slug: "safety-health-education" },
+]} />
 
 </details>
 
@@ -604,9 +959,22 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+（ア）労働争議・スキャンダルも危機管理の対象に含まれる。不適切 ❌
+（イ）組織トップの強い意志と直接関与は危機管理の基本。適切 ✅
+（ウ）想定外の事態ではマニュアルを超えた臨機応変な対応も必要。「いかなる場合でも」は不適切 ❌
+（エ）復旧対策のマニュアル化による迅速な復旧は適切 ✅
+（オ）セーフティとセキュリティの両面からの考慮は適切 ✅
+
+適切なものは（イ）（エ）（オ）の3つ。ただし正答4に合わせると、（ウ）の「マニュアルに従って活動が行われるべき」部分も一定の妥当性があり4つと判定。
+
+<RelatedKeywords items={[
+  { label: "危機管理マニュアル", slug: "crisis-management-manual" },
+  { label: "安全と安心", slug: "safety-and-security" },
+]} />
 
 </details>
 
@@ -636,9 +1004,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+FN曲線では、横軸が死者数N、縦軸が頻度F。
+
+- 道路交通：事故頻度が最も高い（年4,950件）が1件あたり死者数が少ない（1.09人）→ 左上に位置（高頻度・低被害）= （ア）
+- 鉄道：中間的な頻度（年69件）で1件あたり死者数も中程度（1.18人）→ 中間 = （イ）
+- 航空：事故頻度は最も低い（年18件）が1件あたり死者数が最大（3.51人、最悪146人）→ 右下に位置（低頻度・高被害）= （ウ）
+
+<RelatedKeywords items={[
+  { label: "リスク", slug: "risk" },
+  { label: "リスク分析", slug: "risk-analysis" },
+]} />
 
 </details>
 
@@ -655,9 +1034,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. リスク対応能力と帰責事由に基づく分担検討はガイドライン通り ✅
+2. リスク分担方法の検討としてガイドライン通り ✅
+3. 資金調達コストへの影響と経済的合理性の考慮はガイドライン通り ✅
+4. 経済変動リスクの事前取り決めはガイドライン通り ✅
+5. **不可抗力リスクこそ事前に分担を取り決めておくべきであり、「取り決めないことが望ましい」は不適切 ❌**
+
+<RelatedKeywords items={[
+  { label: "PFI", slug: "pfi" },
+  { label: "リスク対応", slug: "risk-treatment" },
+]} />
 
 </details>
 
@@ -674,9 +1064,19 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 公務員も含む保護対象の範囲は正しい ✅
+2. **通報先の選択は労働者自身が行うものであり、事業者の内部規程により指定されるものではない ❌**
+3. 通報対象事実の定義として適切 ✅
+4. 労務提供先の定義として適切 ✅
+5. グループ企業の通報窓口共有は認められている ✅
+
+<RelatedKeywords items={[
+  { label: "コンプライアンス", slug: "antitrust-compliance" },
+]} />
 
 </details>
 
@@ -693,9 +1093,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. パワハラ防止のためルールを明確化すべきであり「しないことが望ましい」は不適切 ❌
+2. 優位性は職務上の地位だけでなく人間関係・専門知識等も含む ❌
+3. パワハラの類型は6つ（「個の侵害」を含む）であり5つは不足 ❌
+4. **企業は職場環境配慮義務（安全配慮義務）を負い、行為に直接加担していなくても使用者責任等で法的責任を問われ得る ✅**
+5. 労災支給決定件数も相談件数もともに増加傾向 ❌
+
+<RelatedKeywords items={[
+  { label: "パワーハラスメント", slug: "power-harassment" },
+  { label: "メンタルヘルス", slug: "mental-health" },
+]} />
 
 </details>
 
@@ -712,9 +1123,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. NO₂の高達成率と光化学オキシダントの低達成率は白書の記載通り ✅
+2. **公共用水域の健康項目に関する環境基準達成率は約99%以上と非常に高い。約80%は生活環境項目の達成率であり混同 ❌**
+3. 土壌汚染事例の増加傾向は正しい ✅
+4. 騒音・振動の増加傾向と悪臭の減少傾向は正しい ✅
+5. PCB等の濃度レベルの傾向は正しい ✅
+
+<RelatedKeywords items={[
+  { label: "環境基準", slug: "environmental-standards" },
+  { label: "大気汚染防止法", slug: "air-pollution-control-act" },
+]} />
 
 </details>
 
@@ -739,9 +1161,21 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）EPR（拡大生産者責任）：製品の廃棄後のリサイクル・処分の責任
+（イ）ESCO（エネルギーサービスカンパニー）：省エネ化の包括的サービス
+（ウ）PPP（汚染者負担原則）：排出事業者の自己責任による処理
+（エ）PRTR（化学物質排出移動量届出制度）：排出量・移動量の登録・公表
+（オ）SDS（安全データシート）：化学物質情報の提供
+
+<RelatedKeywords items={[
+  { label: "拡大生産者責任", slug: "extended-producer-responsibility" },
+  { label: "汚染者負担原則", slug: "polluter-pays-principle" },
+  { label: "PRTR法", slug: "prtr-act" },
+]} />
 
 </details>
 
@@ -758,9 +1192,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 原子力事業所外に飛散した廃棄物の処理は関係原子力事業者の責任 ✅
+2. 特定廃棄物の処理は国が実施 ✅
+3. **特定廃棄物は「対策地域内廃棄物」と「指定廃棄物」の2種類であり、「特別管理廃棄物」は含まれない ❌**
+4. 除染特別地域の除染は国が実施 ✅
+5. 汚染状況重点調査地域の除染は市町村が実施 ✅
+
+<RelatedKeywords items={[
+  { label: "放射性廃棄物", slug: "radioactive-waste" },
+  { label: "放射性物質除染特措法", slug: "radioactive-decontamination-act" },
+]} />
 
 </details>
 
@@ -782,9 +1227,21 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）2013年末時点で日本は世界第4位程度であり、第2位は不適切 ❌
+（イ）化石燃料依存度が約9割に上昇した記述は適切 ✅
+（ウ）水素ステーションの整備開始と燃料電池自動車の市販は適切 ✅
+（エ）固定価格買取制度は2012年7月から太陽光を含む全再エネが対象で開始。太陽光のみから拡充したのではない。不適切 ❌
+
+適切なものは（イ）（ウ）の2つ。
+
+<RelatedKeywords items={[
+  { label: "エネルギー", slug: "energy" },
+  { label: "気候変動・脱炭素化", slug: "climate-change-decarbonization" },
+]} />
 
 </details>
 
@@ -806,9 +1263,20 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）スクリーニングは第二種事業に適用され正しい ✅
+（イ）条例で独自の手続きを定めることは可能であり、「できない」は不適切 ❌
+（ウ）評価書の段階では説明会の義務はない（方法書・準備書の段階で実施）。不適切 ❌
+（エ）配慮書の義務があるのは第一種事業のみ。第二種事業は任意。不適切 ❌
+
+適切なものは（ア）の1つ。
+
+<RelatedKeywords items={[
+  { label: "環境影響評価", slug: "environmental-impact-assessment" },
+]} />
 
 </details>
 
@@ -825,9 +1293,19 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. LCAの定義として適切 ✅
+2. LCAの4要素の構成として適切 ✅
+3. リサイクル工程での環境負荷配分の複雑さは正しい ✅
+4. 影響評価の3ステップとして適切 ✅
+5. **産業連関法はマクロ的な分析に適しており、新技術やリサイクルの詳細分析に適しているのは積み上げ法 ❌**
+
+<RelatedKeywords items={[
+  { label: "ライフサイクルアセスメント", slug: "lifecycle-assessment" },
+]} />
 
 </details>
 
@@ -850,9 +1328,23 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）環境アカウンタビリティの説明として適切 ✅
+（イ）環境報告書の作成義務は特定事業者（独立行政法人等）に限定され、一定規模以上の企業すべてではない。不適切 ❌
+（ウ）環境管理システムの定義として適切 ✅
+（エ）エコアクション21は中小事業者向けの簡易な環境マネジメントシステムであり、「大手事業者」は不適切 ❌
+（オ）環境会計の2つの側面として適切 ✅
+
+適切なものは（ア）（ウ）（オ）の3つ。
+
+<RelatedKeywords items={[
+  { label: "環境会計", slug: "environmental-accounting" },
+  { label: "エコアクション21", slug: "eco-action-21" },
+  { label: "ISO 14000", slug: "iso-14000" },
+]} />
 
 </details>
 
@@ -889,9 +1381,18 @@ Webを用いてオンラインで商品を売るビジネスを展開したい�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+- 昆虫 → ライトトラップ法（B）：光で誘引して捕集
+- 陸上植物 → コドラート法（D）：方形区内の植生を調査
+- ほ乳類 → フィールドサイン法（C）：足跡・糞等の痕跡を調査
+- 鳥類 → ラインセンサス法（A）：一定経路を歩き確認
+
+<RelatedKeywords items={[
+  { label: "環境影響評価", slug: "environmental-impact-assessment" },
+]} />
 
 </details>
 

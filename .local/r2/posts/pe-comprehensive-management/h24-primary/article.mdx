@@ -37,9 +37,27 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+（ア）工程管理は費用的側面ではなく、時間的側面（進捗・納期）から管理するもの。不適切 ❌
+（イ）作業順序の決定と予定時刻の設定は「日程計画（スケジューリング）」の機能であり、手順計画は加工方法や工程順序を定めるもの。不適切 ❌
+（ウ）製造命令を作業部署に割り当て、能力と負荷をバランスさせるのは負荷計画の機能であり適切 ✅
+
+<ExamPoint
+  summary="工程管理における手順計画・日程計画・負荷計画の区別"
+  items={[
+    "手順計画：加工方法・工程順序・使用設備を決定",
+    "日程計画：作業の開始・終了時刻を設定",
+    "負荷計画：生産能力と負荷のバランスを図る",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "工程計画", slug: "process-planning-construction" },
+  { label: "進捗管理", slug: "progress-management" },
+]} />
 
 </details>
 
@@ -64,9 +82,21 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）消費量・単価・稼働時間の積み上げは従来の原価計算の方法であり、ABCはアクティビティとコストドライバーに基づく。不適切 ❌
+（イ）アクティビティの捉え方の柔軟性の説明として適切 ✅
+（ウ）コストドライバーは「資源ドライバー」と「活動ドライバー」に分類される。マンパワードライバーは正しい分類ではない。不適切 ❌
+（エ）アクティビティ分析による付加価値活動・非付加価値活動の識別は適切 ✅
+
+適切なものは2個。
+
+<RelatedKeywords items={[
+  { label: "活動基準原価計算（ABC）", slug: "activity-abc" },
+  { label: "コストドライバー", slug: "cost-driver" },
+]} />
 
 </details>
 
@@ -85,9 +115,20 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 特性要因図は原因と結果の因果関係を魚骨型で整理する手法 ❌
+2. 集団情報構造化法は情報を構造化して整理する手法 ❌
+3. 親和図は類似情報をグルーピングする手法 ❌
+4. 連関図は複雑な因果関係を矢印で整理する手法 ❌
+5. **有向グラフで手順を示し、将来の局面と結果を想定して準備する手法はPDPC法の定義そのもの ✅**
+
+<RelatedKeywords items={[
+  { label: "PDPC法", slug: "pdpc-method" },
+  { label: "特性要因図", slug: "cause-and-effect-diagram" },
+]} />
 
 </details>
 
@@ -109,9 +150,29 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+線形計画法で解く。単位を統一すると、製品A: 1kg生産に原料X=1kg, Y=3l, Z=3l、利益=60,000円/kg。
+
+制約条件を確認し、各選択肢の実行可能性と利益を計算する。
+
+$$\text{選択肢2}: A=12, B=24$$
+
+$$X: 12 \times 1 + 24 \times 4 = 12 + 96 = 108 \leq 108 \quad \checkmark$$
+
+$$Y: 12 \times 3 + 24 \times 3 = 36 + 72 = 108 \leq 126 \quad \checkmark$$
+
+$$Z: 12 \times 3 + 24 \times 4 = 36 + 96 = 132 \leq 132 \quad \checkmark$$
+
+$$\text{利益} = 12 \times 60{,}000 + 24 \times 160{,}000 = 720{,}000 + 3{,}840{,}000 = 4{,}560{,}000 \text{円}$$
+
+他の選択肢は制約条件を満たさないか、利益がこれより小さい。
+
+<RelatedKeywords items={[
+  { label: "線形計画法", slug: "linear-programming" },
+]} />
 
 </details>
 
@@ -138,9 +199,23 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）設備投資計画の位置づけとして適切 ✅
+（イ）設備投資の目的別分類として適切 ✅
+（ウ）「産出」は収益ではなく、コスト削減効果や生産性向上等を含む経済的便益全般。不適切 ❌
+（エ）設備投資の経済性分析は現在価値法・回収期間法・内部収益率法等が主であり、価値分析（VE）は設備投資の経済性分析手法ではない。不適切 ❌
+（オ）異なる時点の資金を等価換算する必要性は適切 ✅
+
+不適切なものは2個。
+
+<RelatedKeywords items={[
+  { label: "初期投資", slug: "initial-investment" },
+  { label: "設備の経済計算", slug: "equipment-economics" },
+  { label: "NPV（正味現在価値）", slug: "npv-net-present-value" },
+]} />
 
 </details>
 
@@ -157,9 +232,21 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 調達先多様化はリスク分散として適切 ❌
+2. 生産拠点分散化はリスク分散として適切 ❌
+3. 部品標準化は代替調達を容易にするため適切 ❌
+4. **JITの徹底は在庫を極限まで減らすため、災害時に供給途絶のリスクが高まり、レジリエンス強化とは逆方向 ✅**
+5. サプライチェーン可視化はリスク把握に有効で適切 ❌
+
+<RelatedKeywords items={[
+  { label: "サプライチェーンマネジメント", slug: "supply-chain-management" },
+  { label: "JIT生産方式", slug: "jit-production" },
+  { label: "BCP・BCM", slug: "business-continuity-plan" },
+]} />
 
 </details>
 
@@ -176,9 +263,29 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+初期投資、追加投資、毎年の利益をそれぞれ現在価値に換算する。
+
+$$\text{初期投資の現在価値} = 1{,}200 \text{万円}$$
+
+追加投資は4年経過後の年初（＝5年目の年初＝4年目末）に行われる。
+
+$$\text{追加投資の現在価値} = \frac{500}{(1.06)^4} = \frac{500}{1.2625} \approx 396.2 \text{万円}$$
+
+毎年の利益300万円の年金現価（8年間）を求める。
+
+$$\text{利益の現在価値} = 300 \times \frac{1 - (1.06)^{-8}}{0.06} = 300 \times 6.2098 \approx 1{,}862.9 \text{万円}$$
+
+$$\text{NPV} = 1{,}862.9 - 1{,}200 - 396.2 \approx 266.7 \approx 267 \text{万円}$$
+
+<RelatedKeywords items={[
+  { label: "NPV（正味現在価値）", slug: "npv-net-present-value" },
+  { label: "割引率", slug: "discount-rate" },
+  { label: "現在価値・年価値・将来価値", slug: "present-annual-future-value" },
+]} />
 
 </details>
 
@@ -203,9 +310,22 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+（ア）品質保証の目的の説明として適切 ✅
+（イ）ビフォアサービス（購入前の情報提供等）とアフターサービスの実施は適切 ✅
+（ウ）品質保証が全段階に関係するという記述は適切 ✅
+（エ）顧客重視と全組織的活動、3つの品質保証方法の記述は適切 ✅
+
+不適切なものは0個。
+
+<RelatedKeywords items={[
+  { label: "品質保証", slug: "quality-assurance" },
+  { label: "ビフォアサービス", slug: "before-service" },
+  { label: "アフターサービス", slug: "after-service" },
+]} />
 
 </details>
 
@@ -234,9 +354,31 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+（ア）命令を好み責任を回避 → X理論
+（イ）仕事は人間の本性 → Y理論 ✅
+（ウ）仕事が生まれながら嫌い → X理論
+（エ）条件次第で進んで責任をとる → Y理論 ✅
+（オ）自ら身を委ねた目標のため自律的に働く → Y理論 ✅
+（カ）創意工夫の能力がたいていの人に備わる → Y理論 ✅
+
+Y理論は4個。
+
+<ExamPoint
+  summary="X理論は性悪説的、Y理論は性善説的な人間観"
+  items={[
+    "X理論：人間は仕事嫌い・命令好き・責任回避 → 強制・統制による管理",
+    "Y理論：仕事は本性・自律的・創意工夫 → 目標による管理（MBO）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "マグレガーのXY理論", slug: "mcgregor-xy-theory" },
+  { label: "内発的動機づけ", slug: "intrinsic-motivation" },
+]} />
 
 </details>
 
@@ -253,9 +395,21 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 男女雇用機会均等法の基本理念として適切 ✅
+2. 職業能力開発促進法の目的として適切 ✅
+3. 労働者派遣法の目的として適切 ✅
+4. **職業安定法は職業紹介・職業指導等を定めた法律であり、失業者への給付金支給は雇用保険法の規定。誤り ❌**
+5. 最低賃金法の趣旨として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "雇用安定法", slug: "employment-security-act" },
+  { label: "雇用保険", slug: "employment-insurance" },
+  { label: "男女雇用機会均等法", slug: "equal-employment-act" },
+]} />
 
 </details>
 
@@ -282,9 +436,20 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）変形労働時間制度の説明として適切 ✅
+（イ）有給休暇は雇入れから6ヶ月間継続勤務で10日付与が最初であり、3ヶ月で5日の規定はない。不適切 ❌
+（ウ）休憩時間の規定として適切 ✅
+（エ）育児休業の規定として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "変形労働時間制度", slug: "variable-work-hours" },
+  { label: "労働基準法", slug: "labor-standards-act" },
+  { label: "育児・介護休業法", slug: "childcare-nursing-leave-act" },
+]} />
 
 </details>
 
@@ -301,9 +466,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **QCサークル活動は自主的活動だが、経営者の支援・評価は活動の活性化に不可欠。避けるべきとする記述は誤り ❌**
+2. 成果偏重の危険性への言及は適切 ✅
+3. 柔軟な編成の必要性は適切 ✅
+4. 専門家支援の有効性は適切 ✅
+5. 発表偏重の危険性への言及は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "QCサークル", slug: "qc-circle" },
+  { label: "小集団活動", slug: "small-group-activities" },
+]} />
 
 </details>
 
@@ -330,9 +506,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+（ア）基本職能毎に部門を設けるのは「職能別組織」の説明であり、事業部制組織ではない。不適切 ❌
+（イ）マトリックス組織は2つの命令系統を持つ組織であるが、構成員を1つの部門にまとめるという記述は事業部制の説明。不適切 ❌
+（ウ）思考様式の均質化と自己保存本能は組織文化のデメリット（弊害）であり、メリットではない。不適切 ❌
+（エ）トップ主導タイプは変化への対応が迅速であることが特徴であり、硬直的とする記述は官僚的組織文化の特徴。不適切 ❌
+
+<RelatedKeywords items={[
+  { label: "職能別組織", slug: "functional-organization" },
+  { label: "マトリックス組織", slug: "matrix-organization" },
+  { label: "事業部制組織", slug: "divisional-organization" },
+]} />
 
 </details>
 
@@ -355,9 +542,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. ウ=労働協約、エ=労使協定の対応が逆 ❌
+2. **常時10人以上で就業規則の作成義務あり、労使協定は免罰効力があるが契約効力はなく事業場全体に適用、労働協約は組合員に限定される。全て正しい ✅**
+3. イ=労働協約は誤り ❌
+4. ア=50は誤り（就業規則は10人以上） ❌
+5. ア=50は誤り ❌
+
+<RelatedKeywords items={[
+  { label: "労働基準法", slug: "labor-standards-act" },
+  { label: "労働契約法", slug: "labor-contract-act" },
+]} />
 
 </details>
 
@@ -384,9 +582,23 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）あっせんは労使の一方からの申請でも開始できるため、双方の申請が要件とするのは不適切 ❌
+（イ）調停案の受諾は任意であり適切 ✅
+（ウ）仲裁裁定は両当事者を拘束する。拘束しないとする記述は不適切 ❌
+（エ）労働審判制度は個別労働紛争が対象であり、集団紛争ではない。不適切 ❌
+（オ）個別労働紛争解決制度は行政機関（都道府県労働局等）による制度であり、司法機関ではない。不適切 ❌
+
+適切なものは1個。
+
+<RelatedKeywords items={[
+  { label: "労働関係調整法", slug: "labor-relations-adjustment-act" },
+  { label: "労働審判法", slug: "labor-tribunal-act" },
+  { label: "個別労働紛争解決法", slug: "individual-labor-dispute-act" },
+]} />
 
 </details>
 
@@ -413,9 +625,19 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+（ア）採用抑制が顕著だったのは1990年代（バブル崩壊後）であり、1980年代ではない。不適切 ❌
+（イ）雇用管理と企業活動・経済成長・社会の持続的発展の関係は適切 ✅
+（ウ）業績・成果主義は見直し傾向にあり、「ますます拍車がかかっている」は不適切 ❌
+（エ）2000年代前半の労働分配率低下に平均賃金低下が大きく影響したのは適切 ✅
+
+<RelatedKeywords items={[
+  { label: "労働分配率", slug: "labor-share-ratio" },
+  { label: "雇用統計", slug: "employment-statistics" },
+]} />
 
 </details>
 
@@ -432,9 +654,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **公にされている情報であっても、利用目的の通知・公表義務は免除されない。適切 ✅**
+2. 利用目的は変更前と関連性を有する範囲内であれば変更可能 ❌
+3. 訂正請求に対しては必要な調査を行い、訂正等を行う義務がある ❌
+4. 加盟店と本部は別法人であるため第三者提供に該当する ❌
+5. 事業承継に伴う個人情報の取得は、承継前の利用目的の範囲内であれば本人同意は不要 ❌
+
+<RelatedKeywords items={[
+  { label: "個人情報保護", slug: "personal-info-protection" },
+  { label: "個人情報", slug: "personal-information" },
+]} />
 
 </details>
 
@@ -451,9 +684,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. IPv6のアドレス数はIPv4の約340澗倍であり、約1,000倍ではない ❌
+2. ファイアウォールはネットワーク間の不正アクセスを防ぐセキュリティ装置であり、ルータではない ❌
+3. **Wi-Fi Allianceの認証を受けたWi-Fiロゴは、相互接続性試験をパスした機器に付与される。適切 ✅**
+4. スマートグリッドは次世代電力送配電網であり、計算資源の結合はグリッドコンピューティング ❌
+5. クラウドサービスはインターネット経由で利用でき、専用回線は必須ではない ❌
+
+<RelatedKeywords items={[
+  { label: "インターネット", slug: "internet" },
+  { label: "ファイアウォール・IDS", slug: "firewall-ids" },
+]} />
 
 </details>
 
@@ -470,9 +714,21 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. クロスライセンスの定義として適切 ✅
+2. **パテントプールは複数の権利者が自らの権利を集約（プール）して共同でライセンスする仕組みであり、「所有者から取得した者」が第三者にライセンスする記述は不正確 ❌**
+3. 知的財産権の正当な行使は独占禁止法の適用除外であり適切 ✅
+4. 販売地域の共同取り決めは不当な取引制限に該当し得るため適切 ✅
+5. 販売価格の共同取り決めはカルテルに該当し得るため適切 ✅
+
+<RelatedKeywords items={[
+  { label: "私的独占", slug: "private-monopoly" },
+  { label: "技術ライセンス", slug: "technology-licensing" },
+  { label: "独占禁止法コンプライアンス", slug: "antitrust-compliance" },
+]} />
 
 </details>
 
@@ -489,9 +745,21 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. ソーシャルネットワーキングによる個人知の活用は適切 ✅
+2. エキスパート・システムの説明として適切 ✅
+3. 暗黙知を含むナレッジ・マネジメントの記述は適切 ✅
+4. 電子タグ（RFID等）によるSCM最適化は適切 ✅
+5. **SaaSを利用していても、データ統合やビジネスプロセスの統合作業は依然として必要であり、統合作業が不要とする記述は誤り ❌**
+
+<RelatedKeywords items={[
+  { label: "ナレッジ共有", slug: "knowledge-sharing" },
+  { label: "クラウド・オンプレミス", slug: "cloud-on-premises" },
+  { label: "SCMシステム", slug: "scm-system" },
+]} />
 
 </details>
 
@@ -516,9 +784,22 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）組織の長が関与したセキュリティポリシー策定は適切 ✅
+（イ）ソーシャル・エンジニアリングへの注意喚起は適切 ✅
+（ウ）不審メールへの返信はメールアドレスの有効性を確認させてしまい危険。不適切 ❌
+（エ）不審なUSBメモリをPCに接続するとマルウェア感染のリスクがある。不適切 ❌
+
+適切なものは2個。
+
+<RelatedKeywords items={[
+  { label: "ソーシャルエンジニアリング", slug: "social-engineering" },
+  { label: "セキュリティ教育", slug: "security-education" },
+  { label: "マルウェア", slug: "malware" },
+]} />
 
 </details>
 
@@ -545,9 +826,22 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+（ア）個人メールアドレスでも組織の情報にアクセスできる場合は脅威となる。不適切 ❌
+（イ）標的型攻撃メールは巧妙に正規の送信元を装うため、詐称を見抜きにくい。不適切 ❌
+（ウ）ファイル添付だけでなくURLリンクによる攻撃もある。必ず添付とは限らない。不適切 ❌
+（エ）疑似体験による訓練は意識向上に有効であり適切 ✅
+（オ）標的型攻撃メールはスパム（不特定多数への大量送信）とは異なる。不適切 ❌
+
+適切なものは1個。
+
+<RelatedKeywords items={[
+  { label: "標的型攻撃", slug: "targeted-attack" },
+  { label: "脅威意識向上訓練", slug: "threat-awareness-training" },
+]} />
 
 </details>
 
@@ -564,9 +858,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 業務優先度に基づいて重要なシステムから復旧すべきであり、復旧しやすい順ではない ❌
+2. 災害時には状況に応じてセキュリティ水準の一時的な調整が必要な場合がある ❌
+3. リスクの大きさに応じた対策が原則であり、極めて発生確率の低いリスクにまで詳細計画を求めるのは非現実的 ❌
+4. 同じ建物に置くと同時被災のリスクがあるため、遠隔地バックアップが基本 ❌
+5. **完璧を求めて着手が遅れるより、まず可能な範囲で策定し段階的に改善するアプローチが重要 ✅**
+
+<RelatedKeywords items={[
+  { label: "BCP・BCM", slug: "business-continuity-plan" },
+  { label: "システム可用性", slug: "system-availability" },
+]} />
 
 </details>
 
@@ -583,9 +888,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 無線LANの傍受自体を直接禁止する法令はなく、不正アクセスや通信の秘密侵害として規制される ❌
+2. httpsは通信経路の暗号化（SSL/TLS）であり、サーバ上のデータ保存の暗号化ではない ❌
+3. 有線電気通信の秘密は「個人的利用を除き」ではなく、何人も侵してはならないとされている ❌
+4. 公開鍵は複数の相手に同じ鍵を渡し、秘密鍵で復号する。「それぞれ異なる鍵」は誤り ❌
+5. **電子署名法により、本人による電子署名がなされた電磁的記録は真正に成立したものと推定される。適切 ✅**
+
+<RelatedKeywords items={[
+  { label: "暗号化・電子署名", slug: "encryption-digital-signature" },
+  { label: "VPN", slug: "vpn" },
+]} />
 
 </details>
 
@@ -612,9 +928,22 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）「設計の意図が伝わらなかった」はコミュニケーションの要因であり、ハードウエアではない。不適切 ❌
+（イ）手順書の内容が不明確であることは手順書の要因として適切 ✅
+（ウ）「日常業務で問題を長期間放置」はハウスキーピング（維持管理）の要因であり、エラー誘発条件ではない。不適切 ❌
+（エ）安全と納期の矛盾は相容れない矛盾する目標の要因として適切 ✅
+（オ）「経験者と初心者を区別しなかった」は訓練の要因であり、組織ではない。不適切 ❌
+
+不適切なものは3個。
+
+<RelatedKeywords items={[
+  { label: "トライポッド理論", slug: "tripod-theory" },
+  { label: "ヒューマンファクター", slug: "human-factors" },
+]} />
 
 </details>
 
@@ -641,9 +970,32 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+（ア）危険な作業自体をやめて機械を廃棄 → リスク回避
+（イ）リスクを認識した上で現状の対応を継続 → リスク保有
+（ウ）保険による付保 → リスク移転
+（エ）耐震補強工事による被害軽減 → リスク低減
+（オ）対策を断念してリスクをそのまま受け入れ → リスク保有
+
+リスク保有に該当する文章は（イ）と（オ）の2つ。
+
+<ExamPoint
+  summary="リスク対策4分類の具体例を正確に分類する"
+  items={[
+    "リスク回避：危険な活動自体をやめる",
+    "リスク低減：発生確率や影響度を下げる対策を講じる",
+    "リスク移転：保険や外注で第三者にリスクを転嫁する",
+    "リスク保有：リスクを認識した上で受容する",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "リスク対応", slug: "risk-treatment" },
+  { label: "リスク管理", slug: "risk-management-system" },
+]} />
 
 </details>
 
@@ -660,9 +1012,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **危機管理の対象は産業災害・自然災害だけでなく、欠陥商品・企業スキャンダル・テロ・情報漏洩等あらゆる不測事態を含む。対象外とする記述は誤り ❌**
+2. 事前作業段階での資機材備蓄・教育訓練は適切 ✅
+3. 計画マニュアルと活動チェックマニュアルの性質の違いの説明は適切 ✅
+4. 事後復旧段階での効果測定・評価は適切 ✅
+5. 緊急時の安全広報と安心広報の必要性は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "危機管理マニュアル", slug: "crisis-management-manual" },
+  { label: "クライシスコミュニケーション", slug: "crisis-communication" },
+]} />
 
 </details>
 
@@ -679,9 +1042,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 単純にp×30で求めると確率が1を超える可能性があり不適切 ❌
+2. 地震の発生確率は毎年一定ではなく、BPT分布等の時間依存モデルが用いられる ❌
+3. **地震の発生確率は基準日からの経過時間に依存するため、基準日を変えると確率値は変化する。適切 ✅**
+4. 地震発生確率は過去の地震発生記録に基づく統計的手法であり、動学的解析ではない ❌
+5. 過去1万年の正確な統計データは存在せず、歴史記録や地質調査に基づく限られたデータが基礎 ❌
+
+<RelatedKeywords items={[
+  { label: "確率的リスク評価", slug: "probabilistic-risk-assessment" },
+  { label: "災害対策基本法", slug: "disaster-countermeasures-act" },
+]} />
 
 </details>
 
@@ -698,9 +1072,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 事業者の責務の規定として適切 ✅
+2. **総括安全衛生管理者の選任は全ての事業場ではなく、一定規模以上の事業場に限られる（業種により100人以上または300人以上等）。「すべての事業場」は誤り ❌**
+3. 常時50人以上の事業場での衛生管理者・産業医の選任義務は適切 ✅
+4. 特定機械等の規制の説明は適切 ✅
+5. 雇入れ時・作業内容変更時の安全衛生教育義務は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "労働安全衛生法", slug: "occupational-safety-act" },
+  { label: "安全衛生管理体制", slug: "safety-health-org-structure" },
+]} />
 
 </details>
 
@@ -725,9 +1110,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+（ア）統計指標の作成方法・定義は各国で異なり、統一運用されていない。不適切 ❌
+（イ）度数率＝死傷者数÷延実労働時間×1,000,000＝2÷500,000×1,000,000＝4であり、2ではない。不適切 ❌
+（ウ）強度率は労働損失日数÷延実労働時間×1,000であり、頻度と重さの積ではない。不適切 ❌
+（エ）過去10年間で必ずしも連続して減少し続けたわけではなく、また1,000人以下の時期も記述と合致しない。不適切 ❌
+
+不適切なものは4個。
+
+<RelatedKeywords items={[
+  { label: "労働災害統計", slug: "accident-statistics" },
+]} />
 
 </details>
 
@@ -752,9 +1148,22 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+（ア）ハインリッヒの法則（1:29:300）に基づくヒヤリハット活動は適切 ✅
+（イ）ヒヤリハット活動は責任追及ではなく、原因究明と再発防止に焦点を当てるもの。不適切 ❌
+（ウ）人が実施する以上、実施レベルにムラが生じるのは避けられない。不適切 ❌
+（エ）小集団活動導入時のポイントとして適切 ✅
+
+適切なものは2個。
+
+<RelatedKeywords items={[
+  { label: "ハインリッヒの法則", slug: "heinrich-law" },
+  { label: "予防活動", slug: "prevention-activities" },
+  { label: "小集団活動", slug: "small-group-activities" },
+]} />
 
 </details>
 
@@ -771,9 +1180,22 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 一部の不具合を他部分がカバーするのはフォールトトレランスであり、フォールトアボイダンスは故障そのものの発生を防ぐ技術 ❌
+2. 安全制御では機械故障の発見と停止は自動化すべきとされる ❌
+3. 人間の過誤による安全性低下を防ぐのはフールプルーフであり、フォールトトレランスではない ❌
+4. **インターロックによる安全確認（人がいないこと・機械が停止していること）の説明は適切 ✅**
+5. 安全確認型は安全を確認した時にのみ運転を許可する方式であり、「危険の情報をエネルギーとして検知」は危険検出型の説明 ❌
+
+<RelatedKeywords items={[
+  { label: "インターロック", slug: "interlock" },
+  { label: "フォールトアボイダンス", slug: "fault-avoidance" },
+  { label: "フォールトトレランス", slug: "fault-tolerance" },
+  { label: "フールプルーフ", slug: "fool-proof" },
+]} />
 
 </details>
 
@@ -790,9 +1212,19 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 産業廃棄物の20種類の定義は適切 ✅
+2. 特別管理廃棄物の分類は適切 ✅
+3. **都道府県には一般廃棄物処理に関する技術的援助や広域的な見地からの調整などの責務がある。責務がないとする記述は誤り ❌**
+4. マニフェスト制度の運用の説明は適切 ✅
+5. 電子マニフェストの普及と不法投棄防止への寄与は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "廃棄物処理法", slug: "waste-management-act" },
+]} />
 
 </details>
 
@@ -809,9 +1241,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 環境負荷の情報提供による個人選好の把握は適切 ✅
+2. 外部不経済としての環境資源の過剰利用の説明は適切 ✅
+3. 環境税・課徴金・補助金による環境の内部化は適切 ✅
+4. 排出権取引の仕組みの説明は適切 ✅
+5. **市場に出ている財への支出額から間接的に環境評価をとらえるのはヘドニック法やトラベルコスト法であり、コンジョイント分析は仮想的な選択肢への回答から評価する表明選好法。誤り ❌**
+
+<RelatedKeywords items={[
+  { label: "カーボンプライシング", slug: "carbon-pricing" },
+  { label: "汚染者負担原則", slug: "polluter-pays-principle" },
+]} />
 
 </details>
 
@@ -838,9 +1281,22 @@ LCA（ライフサイクル・アセスメント）に関する次の(ア)〜(�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+（ア）LCAは資源採取から廃棄・リサイクルまでの全ライフサイクルを対象とする。資源採取を除外するのは不適切 ❌
+（イ）LCAの4要素の構成は適切 ✅
+（ウ）CO2が最も多いが他の物質も対象可能という記述は適切 ✅
+（エ）産業連関法は既存産業の平均的データに基づくため、新技術やリサイクルの分析には積み上げ法の方が適している。不適切 ❌
+（オ）環境適合設計（DfE）への展開は適切 ✅
+
+不適切なものは2個。
+
+<RelatedKeywords items={[
+  { label: "ライフサイクルアセスメント", slug: "lifecycle-assessment" },
+  { label: "環境適合設計", slug: "design-for-environment" },
+]} />
 
 </details>
 
@@ -857,9 +1313,21 @@ LCA（ライフサイクル・アセスメント）に関する次の(ア)〜(�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **CSRは「自社の利益を追求するのではなく」ではなく、自社の利益追求と社会的責任を両立させる考え方。利益追求を否定する記述は誤り ❌**
+2. 排出者責任の説明として適切 ✅
+3. 拡大生産者責任（EPR）の説明として適切 ✅
+4. 環境会計の説明として適切 ✅
+5. グリーン契約の説明として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "CSR", slug: "csr" },
+  { label: "拡大生産者責任", slug: "extended-producer-responsibility" },
+  { label: "環境会計", slug: "environmental-accounting" },
+]} />
 
 </details>
 
@@ -876,9 +1344,19 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. VOCの代表的物質の列挙は適切 ✅
+2. VOCが浮遊粒子状物質・光化学オキシダントの原因である記述は適切 ✅
+3. ベストミックスによるVOC対策は適切 ✅
+4. VOC規制の6つの施設類型は適切 ✅
+5. **大気汚染防止法によるVOC規制は排出口における濃度規制であり、敷地境界線上の濃度ではない ❌**
+
+<RelatedKeywords items={[
+  { label: "大気汚染防止法", slug: "air-pollution-control-act" },
+]} />
 
 </details>
 
@@ -895,9 +1373,19 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 第二種事業のスクリーニングにおける都道府県知事の意見聴取は適切 ✅
+2. **地方公共団体の環境影響評価条例は、対象事業だけでなく手続きについても独自の規定を設けることができる。手続きの独自規定が不可とする記述は誤り ❌**
+3. 都市計画事業における環境影響評価の手続きは適切 ✅
+4. 方法書の都道府県知事・市町村長への送付は適切 ✅
+5. 準備書の意見を踏まえた事業内容の修正は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "環境影響評価", slug: "environmental-impact-assessment" },
+]} />
 
 </details>
 
@@ -922,9 +1410,31 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. リオ（1992年）がストックホルム（1972年）より前は誤り ❌
+2. リオがストックホルムより前は誤り ❌
+3. ヨハネスブルグ（2002年）が最初は誤り ❌
+4. **ストックホルム（1972年）→リオ（1992年）→京都（1997年）→ヨハネスブルグ（2002年）の順で正しい ✅**
+5. ヨハネスブルグがストックホルムの次は誤り ❌
+
+<ExamPoint
+  summary="国際環境会議の年代順を覚える"
+  items={[
+    "1972年：ストックホルム（国連人間環境会議）",
+    "1992年：リオデジャネイロ（地球サミット）",
+    "1997年：京都（COP3、京都議定書）",
+    "2002年：ヨハネスブルグ（持続可能な開発サミット）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "国連人間環境会議", slug: "un-human-environment-conf" },
+  { label: "リオ宣言", slug: "rio-declaration" },
+  { label: "気候変動の国際枠組", slug: "climate-change-international" },
+]} />
 
 </details>
 
@@ -949,9 +1459,20 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+（ア）省エネ法のエネルギー対象と非化石エネルギーの除外は適切 ✅
+（イ）特定事業者の義務（管理者選任・中長期計画作成・提出）は適切 ✅
+（ウ）特定荷主の計画作成・提出義務は適切 ✅
+（エ）トップランナー方式の説明は適切 ✅
+
+不適切なものは0個。
+
+<RelatedKeywords items={[
+  { label: "エネルギー", slug: "energy" },
+]} />
 
 </details>
 

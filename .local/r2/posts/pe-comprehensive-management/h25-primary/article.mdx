@@ -39,9 +39,26 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+フィージビリティ・スタディ（FS）は事業化の可否を判断する調査であり、総合生産計画は需要と生産能力の均衡を図る計画である。
+
+- (ア) 需要予測量と生産能力の均衡 → 総合生産計画
+- (イ) 市場調査と需要予測 → フィージビリティ・スタディ
+- (ウ) 資金調達・予算規模の算定 → フィージビリティ・スタディ
+- (エ) 生産能力調整と需要平滑化 → 総合生産計画
+- (オ) 労働力・在庫・残業・外注の各量を決定 → 総合生産計画
+- (カ) コストと需要予測の比較・収支検討 → フィージビリティ・スタディ
+- (キ) コスト最小化・雇用水準安定化 → 総合生産計画
+
+よって **FS = イ, ウ, カ**、**総合生産計画 = ア, エ, オ, キ** で選択肢4が正答。
+
+<RelatedKeywords items={[
+  { label: "マスタースケジュール計画", slug: "master-schedule-planning" },
+  { label: "需要予測", slug: "demand-forecasting" },
+]} />
 
 </details>
 
@@ -58,9 +75,30 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. QC7つ道具は数値データ、新QC7つ道具は言語データが主対象であり適切 ✅
+2. **QC7つ道具は主にCheck段階（データ分析・現状把握）、新QC7つ道具は主にPlan段階（計画・構想）で用いられるため、逆の記述は誤り ❌**
+3. QC7つ道具の構成要素として正しい ✅
+4. 新QC7つ道具の構成要素として正しい ✅
+5. 状況に応じて適切な手法を選択するのが正しい ✅
+
+<ExamPoint
+  summary="QC7つ道具と新QC7つ道具の使い分け"
+  items={[
+    "QC7つ道具：数値データ → 主にCheck段階で現状把握・分析",
+    "新QC7つ道具：言語データ → 主にPlan段階で計画・構想",
+    "PlanとCheckの対応を逆にした引っかけ問題に注意",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "品質管理", slug: "quality-control" },
+  { label: "特性要因図", slug: "cause-and-effect-diagram" },
+  { label: "PDPC法", slug: "pdpc-method" },
+]} />
 
 </details>
 
@@ -77,9 +115,20 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 最適な生産量の決定は生産計画の範囲であり、手順計画の目的ではない ❌
+2. 5Sは職場環境の整備手法であり、手順の実現手段の主要素（人・設備・材料等）ではない ❌
+3. 標準作業を先に決め、その後に標準時間を設定するのが一般的な順序 ❌
+4. 標準時間には主体作業時間に加え余裕時間も含まれる ❌
+5. **作業標準の定義として正しい記述 ✅**
+
+<RelatedKeywords items={[
+  { label: "手順計画", slug: "method-planning" },
+  { label: "5S", slug: "five-s" },
+]} />
 
 </details>
 
@@ -96,9 +145,20 @@ toc_max_heading_level: 2
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 原価計算の基本的な定義として適切 ✅
+2. 費目別→部門別→製品別の3ステップは適切 ✅
+3. **実際原価計算は実績データに基づく原価計算であり、将来の目標に対する原価計算は予定原価計算・標準原価計算の説明であるため誤り ❌**
+4. 予定原価は予定消費量×予定単価で設定されるため適切 ✅
+5. 標準原価を目標として実際原価と比較し差異分析を行う管理手法は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "標準原価計算", slug: "standard-costing" },
+  { label: "直接原価計算", slug: "direct-costing" },
+]} />
 
 </details>
 
@@ -121,9 +181,31 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+毎年末に10万円を受け取る年金の現在価値が150万円以上となる年数 $n$ を求める。
+
+$$\frac{10}{1.02} + \frac{10}{1.02^2} + \cdots + \frac{10}{1.02^n} \geq 150$$
+
+$$\frac{10}{1.02}\left(1 + \frac{1}{1.02} + \cdots + \frac{1}{1.02^{n-1}}\right) \geq 150$$
+
+$$1 + \frac{1}{1.02} + \cdots + \frac{1}{1.02^{n-1}} \geq \frac{150 \times 1.02}{10} = 15.3$$
+
+ヒントの公式に $a = 1.02$、$X = 15.3$ を代入すると、
+
+$$1 - \frac{1}{a} = 1 - \frac{1}{1.02} = \frac{0.02}{1.02}$$
+
+$$1 - \left(\frac{0.02}{1.02}\right) \times 15.3 = 1 - \frac{0.306}{1.02} = 1 - 0.3 = 0.7$$
+
+$$n \geq \frac{-\log 0.7}{\log 1.02}$$
+
+<RelatedKeywords items={[
+  { label: "現在価値・年価値・将来価値", slug: "present-annual-future-value" },
+  { label: "割引率", slug: "discount-rate" },
+  { label: "投資回収計画", slug: "investment-recovery-plan" },
+]} />
 
 </details>
 
@@ -140,9 +222,31 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 非計画事後保全は故障発生後に計画なく対応する保全 ❌
+2. 緊急保全は突発故障への緊急対応 ❌
+3. 予知保全は設備状態を監視して故障を予知する保全 ❌
+4. **改良保全は同種の故障再発を防止するため設備の弱点を補強・改良する保全 ✅**
+5. 保全予防は設計段階から保全しやすい設備を作る考え方 ❌
+
+<ExamPoint
+  summary="保全の種類と目的の対応を正確に区別する"
+  items={[
+    "改良保全：再発防止のための弱点補強",
+    "予防保全：故障前に計画的に行う保全（定期保全・予知保全）",
+    "事後保全：故障後に行う保全",
+    "保全予防：設計段階で保全性を考慮",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "改良保全", slug: "improvement-maintenance" },
+  { label: "予知保全", slug: "predictive-maintenance" },
+  { label: "保全予防", slug: "maintenance-prevention" },
+]} />
 
 </details>
 
@@ -180,9 +284,21 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+各橋を通行止めにした場合に最短距離が変わるペアのみ比較する。橋3（A-D間、4 km）を通行止めにしても、A-D間はA→B→D（6 km）またはA→C→D（6 km）で迂回可能であり、増加距離は2 km。交通量が少ないペアの迂回で済むため、総トリップ長の増加が最小となる。
+
+橋3を通行止めにした場合の主な影響：
+- A-D：4 km → 6 km（+2 km × 40トリップ = +80）
+- A-E：24 km → 26 km（+2 km × 20トリップ = +40）
+
+他の橋を通行止めにした場合はより多くのペアの距離が増加し、総トリップ長の増加が大きくなる。
+
+<RelatedKeywords items={[
+  { label: "PERT・CPM", slug: "pert-cpm" },
+]} />
 
 </details>
 
@@ -199,9 +315,31 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. ISO 9001は品質マネジメントシステム規格であり適切 ✅
+2. ISO 14001は環境マネジメントシステム規格であり適切 ✅
+3. **OHSAS 18001は労働安全衛生マネジメントシステムに関する規格であり、プロジェクトマネジメントではない ❌**
+4. ISO/IEC 27001は情報セキュリティマネジメントシステム規格であり適切 ✅
+5. ISO 50001はエネルギーマネジメントシステム規格であり適切 ✅
+
+<ExamPoint
+  summary="主要なマネジメントシステム規格の対応を覚える"
+  items={[
+    "ISO 9001：品質、ISO 14001：環境",
+    "OHSAS 18001（→ISO 45001）：労働安全衛生",
+    "ISO/IEC 27001：情報セキュリティ",
+    "ISO 50001：エネルギー",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "ISO 14000", slug: "iso-14000" },
+  { label: "ISMS・ISO 27001", slug: "isms-iso27001" },
+  { label: "OSHMS", slug: "oshms" },
+]} />
 
 </details>
 
@@ -233,9 +371,22 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+(ア) 物質的インセンティブの説明として適切 ✅
+(イ) 評価的インセンティブの説明として適切 ✅
+(ウ) 人的インセンティブの説明として適切 ✅
+(エ) **理念的インセンティブは「思想や価値観の追求」を源泉とするもの。「組織利益や効率性の追求」は理念的インセンティブの説明として不適切** ❌
+(オ) 自己実現インセンティブの説明として適切 ✅
+
+不適切なものは(エ)の1つ。
+
+<RelatedKeywords items={[
+  { label: "インセンティブ", slug: "incentive" },
+  { label: "内発的動機づけ", slug: "intrinsic-motivation" },
+]} />
 
 </details>
 
@@ -252,9 +403,21 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 法定労働時間と36協定の説明として適切 ✅
+2. 月60時間超の割増賃金率50%以上の規定として適切 ✅
+3. 専門業務型裁量労働制の説明として適切 ✅
+4. 企画業務型裁量労働制の説明として適切 ✅
+5. **フレックスタイム制で総労働時間を超えた場合は時間外労働として割増賃金を支払う必要があり、次の清算期間に充当することはできない ❌**
+
+<RelatedKeywords items={[
+  { label: "労働基準法", slug: "labor-standards-act" },
+  { label: "フレックスタイム制", slug: "flextime-system" },
+  { label: "裁量労働制", slug: "discretionary-work-system" },
+]} />
 
 </details>
 
@@ -271,9 +434,21 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 労働者派遣法は労働権、労働関係調整法は団結権に基づくもので適切 ✅
+2. 労働三権（団結権・団体交渉権・団体行動権）の説明として適切 ✅
+3. 日本の労働組合は企業別組合が一般的で適切 ✅
+4. **団体交渉の対象事項は労働組合法で具体的に限定されておらず、労働条件その他の待遇について広く交渉できる ❌**
+5. 労働委員会による争議調整（あっせん・調停・仲裁）の説明として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "労働組合法", slug: "labor-union-act" },
+  { label: "労働関係調整法", slug: "labor-relations-adjustment-act" },
+  { label: "労働者派遣法", slug: "worker-dispatch-act" },
+]} />
 
 </details>
 
@@ -290,9 +465,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. ルールや評価基準の公開は納得性・透明性の向上に不可欠であり、非公開とする考え方は不適切 ❌
+2. **加点主義は挑戦意欲を促進する観点から重視すべきとされており適切 ✅**
+3. 賞与には主に業績評価、昇給・昇進には能力評価も反映させるのが一般的であり、記述の対応は不正確 ❌
+4. 複数評価者による多面評価は評価の公正性向上に有効であり、置くべきではないとする記述は不適切 ❌
+5. 人事考課とOJT等の能力開発は連動させることが効果的であり、分離すべきとする記述は不適切 ❌
+
+<RelatedKeywords items={[
+  { label: "人事考課", slug: "performance-evaluation" },
+  { label: "360度評価", slug: "360-degree-evaluation" },
+]} />
 
 </details>
 
@@ -309,9 +495,30 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+PM理論ではP機能（目標達成機能）とM機能（集団維持機能）に分類される。
+
+1. 指示命令はP機能（目標達成行動） ❌
+2. **優れた仕事を認めることは人間関係の維持・集団の雰囲気づくりに関わるM機能 ✅**
+3. 計画立案はP機能（目標達成行動） ❌
+4. 仕事量を厳しく言うのはP機能（目標達成行動） ❌
+5. 問題解決の仕方を示すのはP機能（目標達成行動） ❌
+
+<ExamPoint
+  summary="PM理論のP機能とM機能を区別する"
+  items={[
+    "P機能（Performance）：計画立案、指示命令、進捗管理など目標達成行動",
+    "M機能（Maintenance）：賞賛、人間関係配慮、居心地づくりなど集団維持行動",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "PM理論", slug: "pm-theory" },
+  { label: "SL理論", slug: "sl-theory" },
+]} />
 
 </details>
 
@@ -328,9 +535,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 職務設計の基本的な定義として適切 ✅
+2. 雇用管理の3つのポイントとして適切 ✅
+3. 職務明細書（Job Specification）の説明として適切 ✅
+4. 職務分析の活用範囲として適切 ✅
+5. **中核的職務特性（ハックマン＝オルダムのモデル）は、技能多様性・タスク完結性・タスク重要性・自律性・フィードバックの5つ。義務・権限・責任等は職務記述書の内容であり誤り ❌**
+
+<RelatedKeywords items={[
+  { label: "職務設計", slug: "job-design" },
+  { label: "職務分析", slug: "job-analysis" },
+]} />
 
 </details>
 
@@ -347,9 +565,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **課題設定能力・対人能力・職務遂行能力・問題解決能力の4つは従業員に求められる主な能力として適切 ✅**
+2. OFF-JTは職場外での組織的な研修・訓練であり、自己啓発（Self Development）とは異なる ❌
+3. 記述はセンシティビティ・トレーニング（ST）の説明であり、ロールプレイングは役割演技法 ❌
+4. ブレインストーミングは「質より量」を重視する。量より質という記述は逆 ❌
+5. 技能教育は実際に体を動かして技能を習得するもので、講義や見学は知識教育の方法 ❌
+
+<RelatedKeywords items={[
+  { label: "OJT・Off-JT", slug: "ojt-off-jt" },
+  { label: "階層別教育訓練", slug: "hierarchical-training" },
+]} />
 
 </details>
 
@@ -366,9 +595,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 状況に応じてスタイルを調整することはプロジェクト・マネジャーに求められる重要なスキルであり、望ましくないとする記述は誤り ❌
+2. **PMBOKにおける意思決定スタイル（命令・相談・合意・成り行き）と影響要因（時間的制約・信頼・品質・容認）の記述として適切 ✅**
+3. リーダーシップはプロジェクト初期（ビジョン設定）やチーム形成期に特に重要であり、終期に限定する記述は不適切 ❌
+4. 動機付けは参加者自身の内的な満足を高めるものであり、「他者の評価を最大化」という記述は不正確 ❌
+5. 傾聴はコミュニケーションの極めて重要な部分とされており、消極的な手法とする記述は誤り ❌
+
+<RelatedKeywords items={[
+  { label: "PMBOK", slug: "pmbok" },
+  { label: "対人スキル", slug: "interpersonal-skills" },
+]} />
 
 </details>
 
@@ -385,9 +625,22 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. 知的財産基本法における知的財産権の列挙として適切 ✅
+2. **不正競争防止法により、未登録でも需要者に広く認識されている商標は保護される（周知表示混同惹起行為等） ❌**
+3. 実用新案は無審査で登録される制度であり適切 ✅
+4. 当時の保護期間として適切（個人：死後50年、映画：公表後70年） ✅
+5. 産業財産権の保護期間として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "特許権", slug: "patent-rights" },
+  { label: "著作権", slug: "copyright" },
+  { label: "商標権", slug: "trademark-rights" },
+  { label: "不正競争防止法", slug: "unfair-competition-prevention-act" },
+]} />
 
 </details>
 
@@ -411,9 +664,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+各用語の正しい対応：
+- API = (ウ)：プログラム上の手続きを定めた規約の集合
+- HTML = (イ)：ウェブページを記述するマークアップ言語
+- ISP = (ア)：インターネット接続事業者
+- P2P = (エ)：コンピュータ同士が直接情報を送受信する利用形態
+
+<RelatedKeywords items={[
+  { label: "API", slug: "api" },
+  { label: "インターネット", slug: "internet" },
+]} />
 
 </details>
 
@@ -430,9 +694,19 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **屋外に恒常的に設置された美術作品は著作権法第46条により一定の利用が認められ、写真撮影してウェブ掲載しても違反とならない ✅**
+2. オープンソースは著作権を放棄しておらず、ライセンス条件に従う必要がある ❌
+3. 違法ダウンロードは刑事罰の対象となる（2012年改正で罰則化） ❌
+4. 契約書に記載がない場合、著作権は実際に開発した受託者に帰属するのが原則 ❌
+5. 取材番組の著作権は放送局に帰属するため、許可なく掲載すれば著作権侵害 ❌
+
+<RelatedKeywords items={[
+  { label: "著作権", slug: "copyright" },
+]} />
 
 </details>
 
@@ -453,9 +727,24 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+震災時の通信手段の輻輳状況から判断する。
+
+- 携帯（音声）は最も利用者が多く回線が集中するため「つながらなかった」割合が最も高い（65.4%）
+- 固定電話も音声通話のため輻輳が激しい（55.1%）
+- 携帯メールはパケット通信だが遅延が大きい（37.0%）
+- 公衆電話は優先電話として比較的つながりやすい（36.0%）
+- 携帯ウェブはデータ通信のため比較的つながりやすい（32.0%）
+
+選択肢④が音声通話ほどつながりにくく、データ通信は比較的つながりやすいという実態に合致する。
+
+<RelatedKeywords items={[
+  { label: "固定通信", slug: "fixed-communication" },
+  { label: "モバイル通信", slug: "mobile-communication" },
+]} />
 
 </details>
 
@@ -480,9 +769,19 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+(ア) 1ビット = 0または1の2個の値 → 適切 ✅
+(イ) 8ビット = 1バイト = 2⁸ = 256個の値 → 適切 ✅
+(ウ) 大文字26 + 小文字26 = 52種類は1バイト（256値）で表現可能 → 適切 ✅
+(エ) 3489種類は2バイト（65,536値）で十分表現可能であり、4バイトは不要 → 不適切 ❌
+(オ) 40×30 = 1,200文字 × 2バイト = 2,400バイトで足りるため、4,800バイトは過大 → 不適切 ❌
+
+<RelatedKeywords items={[
+  { label: "データ収集", slug: "data-collection" },
+]} />
 
 </details>
 
@@ -499,9 +798,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 説明責任と広告・宣伝は組織が開示する主な情報の分類として適切 ✅
+2. 財務諸表は説明責任のための開示情報として適切 ✅
+3. 環境報告書は社会的説明責任を果たす手段として適切 ✅
+4. **市場競争力に関わる技術情報は営業秘密・知的財産として保護すべきものであり、開示すべき情報とは限らない ❌**
+5. 緊急時の開示基準の事前検討は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "情報公開", slug: "information-disclosure" },
+  { label: "アカウンタビリティ・トレーサビリティ", slug: "accountability-traceability" },
+]} />
 
 </details>
 
@@ -524,9 +834,22 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+(ア) クリアデスクポリシーは基本的な情報漏洩対策 → 適切 ✅
+(イ) 窓口の一本化は混乱防止の基本対応 → 適切 ✅
+(ウ) 誤送信時は速やかに相手に連絡し削除依頼するのが適切 → 適切 ✅
+(エ) 不当な書き込みに対する削除申し入れは適切な対応 → 適切 ✅
+(オ) 個人情報漏洩時の本人通知・注意喚起は適切な対応 → 適切 ✅
+
+全5つが適切。
+
+<RelatedKeywords items={[
+  { label: "データ漏洩・改ざん・消失", slug: "data-leak-tampering-loss" },
+  { label: "データ漏洩対応", slug: "data-breach-response" },
+]} />
 
 </details>
 
@@ -552,9 +875,21 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **メール爆弾は大量のメールを送りつけてメールサーバやメールボックスをパンクさせる攻撃であり、ウイルス添付でデータ破壊する攻撃ではない ❌**
+2. ゼロデイ攻撃の説明として適切 ✅
+3. 分散DoS（DDoS）攻撃の説明として適切 ✅
+4. 標的型攻撃の説明として適切 ✅
+5. ボットネットの説明として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "DoS・DDoS", slug: "dos-ddos" },
+  { label: "標的型攻撃", slug: "targeted-attack" },
+  { label: "マルウェア", slug: "malware" },
+]} />
 
 </details>
 
@@ -571,9 +906,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 不測事態への適切な対応が危機管理の目的であり適切 ✅
+2. 危機発生後のリーダーシップの重要性は適切 ✅
+3. **危機発生時の対応は非定常的な緊急対応組織（タスクフォース）で実施するものであり、「定常的な」タスクフォースとする記述は誤り ❌**
+4. 危機管理は古くから存在する考え方であり適切 ✅
+5. 危機管理マニュアルの目的として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "危機管理マニュアル", slug: "crisis-management-manual" },
+  { label: "BCP・BCM", slug: "business-continuity-plan" },
+]} />
 
 </details>
 
@@ -595,9 +941,21 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+(ア) 感情的納得や信頼性獲得には直接対話が最も有効であり、避けるべきではない → 不適切 ❌
+(イ) 第三者の仲介は信頼性向上に有効な手段 → 適切 ✅
+(ウ) 製品欠陥の注意喚起にマスコミを活用するのは適切な対応 → 適切 ✅
+(エ) リスクコミュニケーションでは正負両面を正確に伝えることが重要 → 適切 ✅
+
+適切なものは(イ)(ウ)(エ)の3つ。
+
+<RelatedKeywords items={[
+  { label: "危機コミュニケーション", slug: "crisis-communication" },
+  { label: "リスクコミュニケーション", slug: "communication-control" },
+]} />
 
 </details>
 
@@ -618,9 +976,29 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+フォールトツリーで「停電」が発生する条件を整理する。
+
+**電源喪失の確率**（系統喪失 OR 自社事故遮断）：
+
+$$P_{\text{喪失}} = 1 - (1-0.03)(1-0.10) = 1 - 0.97 \times 0.90 = 1 - 0.873 = 0.127$$
+
+**発電機3台全故障の確率**（3台とも起動失敗）：
+
+$$P_{\text{全故障}} = 0.05^3 = 1.25 \times 10^{-4}$$
+
+**停電確率**（電源喪失 AND 発電機全故障）：
+
+$$P_{\text{停電}} = 0.127 \times 1.25 \times 10^{-4} \approx 1.6 \times 10^{-5}$$
+
+<RelatedKeywords items={[
+  { label: "FTA", slug: "fta" },
+  { label: "並列システム", slug: "parallel-system" },
+  { label: "確率論的リスク評価", slug: "probabilistic-risk-assessment" },
+]} />
 
 </details>
 
@@ -637,9 +1015,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **津波の高さ予想の区分は5段階のまま変更されておらず、8段階にしたという記述は誤り ❌**
+2. 第1報で「巨大」等の定性的表現を使用する変更は適切 ✅
+3. 不確定性が大きい場合の表現として適切 ✅
+4. 大津波警報・津波警報への名称変更は適切 ✅
+5. 観測値が予想より十分小さい場合に「観測中」とする変更は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "災害気象情報", slug: "disaster-weather-info" },
+  { label: "警戒レベル", slug: "alert-levels" },
+]} />
 
 </details>
 
@@ -656,9 +1045,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. OSHMSの導入は努力義務であり、法律による義務づけではない ❌
+2. まず安全衛生方針の表明から始め、その後に計画策定を行う ❌
+3. 実施・運用の責任は事業者（経営トップ）にあり、労働者ではない ❌
+4. **危険・有害要因の特定と除去・低減のための実施事項の特定はOSHMSの重要な手続き ✅**
+5. 日常的な点検もシステム監査も両方必要 ❌
+
+<RelatedKeywords items={[
+  { label: "OSHMS", slug: "oshms" },
+  { label: "労働安全衛生マネジメントシステム", slug: "osh-management-system" },
+]} />
 
 </details>
 
@@ -675,9 +1075,29 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 早期相談の環境づくりは二次予防（早期発見・早期対処）に該当 ❌
+2. 兆候の読み取りと早期治療は二次予防に該当 ❌
+3. ストレス耐性を強めることは一次予防（未然防止）に該当 ❌
+4. **職場復帰支援のための環境整備は三次予防（復職支援・再発防止） ✅**
+5. 気分転換は一次予防のセルフケアに含まれる ❌
+
+<ExamPoint
+  summary="メンタルヘルスの予防段階を正確に区別する"
+  items={[
+    "一次予防：未然防止（ストレス対策、啓蒙、セルフケア）",
+    "二次予防：早期発見・早期対処（相談体制、サイン発見、早期治療）",
+    "三次予防：復職支援・再発防止（職場環境整備、フォローアップ）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "メンタルヘルスケア", slug: "mental-health-care" },
+  { label: "メンタルヘルス", slug: "mental-health" },
+]} />
 
 </details>
 
@@ -700,9 +1120,22 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+(ア) 定期点検は定常業務の一部として行う → 適切 ✅
+(イ) 業務の想定通りの実施を確認するのは点検の目的 → 適切 ✅
+(ウ) グループ編成で実施レベルのムラを防止する → 適切 ✅
+(エ) 非定常の行為や事象の発見・改善も定期点検の内容 → 適切 ✅
+(オ) **チェックリストは現場の変化や改善点を反映して適宜更新すべきであり、変更を加えないとする記述は不適切** ❌
+
+不適切なものは(オ)の1つ。
+
+<RelatedKeywords items={[
+  { label: "定期点検", slug: "periodic-inspection" },
+  { label: "安全パトロール", slug: "safety-patrol" },
+]} />
 
 </details>
 
@@ -725,9 +1158,32 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+フェールセーフは故障時に安全側に停止・移行する設計、フォールトトレランスは故障しても機能を継続する設計。
+
+(ア) ガス供給停止 → 安全側に停止 → **フェールセーフ** ✅
+(イ) スライド下降停止 → 安全側に停止 → **フェールセーフ** ✅
+(ウ) エンジン故障でも飛行継続 → 機能継続 → フォールトトレランス
+(エ) 安全側に移行 → **フェールセーフ** ✅
+(オ) 補助電源に切替えて機能継続 → フォールトトレランス
+
+フェールセーフは(ア)(イ)(エ)の3つ。
+
+<ExamPoint
+  summary="フェールセーフとフォールトトレランスの違い"
+  items={[
+    "フェールセーフ：故障時に安全な状態に移行（停止・遮断）",
+    "フォールトトレランス：故障しても機能を維持・継続（冗長化）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "フェールセーフ", slug: "fail-safe" },
+  { label: "フォールトトレランス", slug: "fault-tolerance" },
+]} />
 
 </details>
 
@@ -744,9 +1200,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 直接規制的手法の説明として適切 ✅
+2. 経済的手法の説明として適切 ✅
+3. 情報的手法の説明として適切 ✅
+4. **手続的手法は、環境アセスメント等のように一定の手順や手続を踏むことを義務づける手法。「目標を提示してその達成を義務づけ」は枠組規制的手法の説明であり混同している ❌**
+5. 自主的取組手法の説明として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "環境影響評価", slug: "environmental-impact-assessment" },
+  { label: "環境基準", slug: "environmental-standards" },
+]} />
 
 </details>
 
@@ -763,9 +1230,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+1. 循環利用率は3R推進により向上傾向で適切 ✅
+2. 資源生産性は向上傾向で適切 ✅
+3. 最終処分量は処分場の逼迫もあり減少傾向で適切 ✅
+4. 一般廃棄物排出量は減少傾向で適切 ✅
+5. **産業廃棄物の排出量はほぼ横ばいから微減傾向であり、増加しているという記述は誤り ❌**
+
+<RelatedKeywords items={[
+  { label: "循環型社会形成推進基本法", slug: "circular-society-basic-act" },
+  { label: "廃棄物処理法", slug: "waste-management-act" },
+]} />
 
 </details>
 
@@ -782,9 +1260,21 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：1**
+
+1. **SATOYAMAイニシアティブは生物多様性条約（CBD）のCOP10で提唱された取組であり、最も関連が深い ✅**
+2. ラムサール条約は湿地の保全に関する条約 ❌
+3. ワシントン条約（CITES）は野生動植物の国際取引規制 ❌
+4. バーゼル条約は有害廃棄物の越境移動規制 ❌
+5. ストックホルム条約（POPs条約）は残留性有機汚染物質の規制 ❌
+
+<RelatedKeywords items={[
+  { label: "SATOYAMAイニシアティブ", slug: "satoyama-initiative" },
+  { label: "生物多様性条約", slug: "convention-on-biodiversity" },
+  { label: "バーゼル条約", slug: "basel-convention" },
+]} />
 
 </details>
 
@@ -801,9 +1291,20 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：2**
+
+1. グリーン購入法の内容として適切 ✅
+2. **環境配慮契約法は国等の公的部門における環境配慮契約を定めるものであり、民間事業者に対して環境配慮契約を努力義務とする規定は含まれていない ❌**
+3. エコアクション21の説明として適切 ✅
+4. 環境配慮促進法の説明として適切 ✅
+5. 地球温暖化対策税の説明として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "エコアクション21", slug: "eco-action-21" },
+  { label: "カーボンプライシング", slug: "carbon-pricing" },
+]} />
 
 </details>
 
@@ -823,9 +1324,34 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
-**正答：2**
+**正答：3**
+
+環境基本法第16条に基づき環境基準が設定されているのは以下の4項目：
+
+(ア) 大気の汚染 → 設定されている ✅
+(イ) 水質の汚濁 → 設定されている ✅
+(ウ) 騒音 → 設定されている ✅
+(エ) 振動 → 設定されていない（振動規制法で規制値を設定）
+(オ) 土壌の汚染 → 設定されている ✅
+(カ) 悪臭 → 設定されていない（悪臭防止法で規制値を設定）
+
+環境基準が設定されているのは4つ。
+
+<ExamPoint
+  summary="環境基準が設定されている項目は4つ"
+  items={[
+    "大気汚染、水質汚濁、騒音、土壌汚染の4項目",
+    "振動と悪臭は個別法で規制値を設定（環境基準なし）",
+    "頻出テーマ：振動・悪臭を含めた引っかけに注意",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "環境基準", slug: "environmental-standards" },
+  { label: "七公害", slug: "seven-types-of-pollution" },
+]} />
 
 </details>
 
@@ -842,9 +1368,19 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：4**
+
+1. 計画段階環境配慮書の作成・公表義務は第一種事業のみであり、第二種事業を含むとする記述は不正確だが、選択肢4がより明確に不適切 ✅
+2. 方法書の説明会開催義務の新設は適切 ✅
+3. 電子縦覧の義務化は適切 ✅
+4. **環境大臣が意見を述べることができるのは準備書・評価書の段階であり、計画段階環境配慮書について直接意見を述べる規定は改正で新設されていない ❌**
+5. 報告書の作成・公表義務の新設は適切 ✅
+
+<RelatedKeywords items={[
+  { label: "環境影響評価", slug: "environmental-impact-assessment" },
+]} />
 
 </details>
 
@@ -864,9 +1400,24 @@ $$1 + \frac{1}{a} + \frac{1}{a^2} + \cdots + \frac{1}{a^{n-1}} \geq X$$
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：5**
+
+固定価格買取制度（FIT）の対象：
+
+(ア) 太陽光 → 対象 ✅
+(イ) 風力 → 対象 ✅
+(ウ) 水力 → 対象 ✅
+(エ) 波力 → 対象外（制度開始時点では買取対象に含まれない）
+(オ) 地熱 → 対象 ✅
+(カ) バイオマス → 対象 ✅
+
+買取対象は5つ（太陽光、風力、水力、地熱、バイオマス）。
+
+<RelatedKeywords items={[
+  { label: "エネルギー", slug: "energy" },
+]} />
 
 </details>
 
@@ -883,9 +1434,20 @@ PRTR法（特定化学物質の環境への排出量の把握等及び管理の�
 
 
 <details>
-<summary>解答</summary>
+<summary>解答・解説</summary>
 
 **正答：3**
+
+1. 排出量・移動量の届出義務として適切 ✅
+2. 届出データと推計データの併せた公表として適切 ✅
+3. **PRTR法では個別事業所ごとの排出量・移動量データも開示請求に応じて開示される。企業の経営情報として非開示とする記述は誤り ❌**
+4. SDS（安全データシート）による情報提供義務として適切 ✅
+5. 集計結果に基づく調査の実施として適切 ✅
+
+<RelatedKeywords items={[
+  { label: "PRTR法", slug: "prtr-act" },
+  { label: "情報公開法", slug: "information-disclosure-act" },
+]} />
 
 </details>
 
