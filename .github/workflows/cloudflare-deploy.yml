@@ -24,6 +24,8 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NEXT_PUBLIC_GA_ID: G-8VXJ1RL1HG
 
       - name: Deploy to Cloudflare Pages
         run: npx wrangler@3 pages deploy out --project-name=doboku-note --commit-message="deploy ${{ github.sha }}"
