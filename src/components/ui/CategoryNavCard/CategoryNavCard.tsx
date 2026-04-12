@@ -19,7 +19,7 @@ interface CategoryNavCardProps {
 }
 
 /* ─── 共通: セルリンク ─── */
-function CellLink({ slug, label, currentSlug }: { slug?: string; label: string; currentSlug: string }) {
+function CellLink({ slug, label, currentSlug }: { slug: string | undefined; label: string; currentSlug: string }) {
   if (!slug) return <span className="text-gray-300 dark:text-gray-600">—</span>;
   if (slug === currentSlug) return <span className="font-bold text-gray-900 dark:text-gray-100">{label}</span>;
   return (
@@ -147,7 +147,7 @@ function PastExamCard({ variant, currentSlug, categoryArticles, category }: { va
 }
 
 /* ━━━ セクション別解説カード ━━━ */
-function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sidebar' | 'mobile'; currentSlug: string; currentSection?: string }) {
+function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sidebar' | 'mobile'; currentSlug: string; currentSection: string | undefined }) {
   const chapters = peChaptersData.chapters;
   const currentChapterId = currentSection?.split('.')[0];
 

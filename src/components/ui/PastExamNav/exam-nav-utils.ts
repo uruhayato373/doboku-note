@@ -5,17 +5,17 @@ import { classifyDoc } from '@/lib/doc-classifier';
 import type { DocMeta } from '@/lib/docs';
 
 export type ExamYear = {
-  yearCode: string;        // "r07", "h26"
-  label: string;           // "令和7年度"
-  col1?: { slug: string }; // 択一式 or 問題A
-  col2?: { slug: string }; // 記述式 or 問題B
-  col3?: { slug: string }; // 第2次（Civil のみ）
+  yearCode: string;                   // "r07", "h26"
+  label: string;                      // "令和7年度"
+  col1: { slug: string } | undefined; // 択一式 or 問題A
+  col2: { slug: string } | undefined; // 記述式 or 問題B
+  col3: { slug: string } | undefined; // 第2次（Civil のみ）
 };
 
 export type PastExamNavData = {
   col1Header: string;
   col2Header: string;
-  col3Header?: string;
+  col3Header: string | undefined;
   years: ExamYear[];
 };
 
@@ -57,10 +57,11 @@ function buildPeData(articles: DocMeta[]): PastExamNavData | null {
         label: yearLabel(code),
         col1: pair.primary ? { slug: pair.primary } : undefined,
         col2: pair.secondary ? { slug: pair.secondary } : undefined,
+        col3: undefined,
       };
     });
 
-  return { col1Header: '択一', col2Header: '記述', years };
+  return { col1Header: '択一', col2Header: '記述', col3Header: undefined, years };
 }
 
 function buildCivilData(articles: DocMeta[]): PastExamNavData | null {

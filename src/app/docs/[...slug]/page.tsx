@@ -106,7 +106,7 @@ export async function generateMetadata({
   const group = classifyDoc(doc.meta);
   const isCemKeywordOrSection =
     doc.meta.category === 'pe-comprehensive-management' &&
-    (group === 'keyword' || group === 'section');
+    group === 'keyword';
   const isCemPastExam =
     doc.meta.category === 'pe-comprehensive-management' &&
     group === 'pastExam';

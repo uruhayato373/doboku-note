@@ -112,14 +112,14 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         const isPrimaryB = b.tags?.includes('択一式') ? 0 : 1;
         return isPrimaryA - isPrimaryB;
       });
-    } else if (group === 'section') {
+    } else if (group === 'keyword') {
       docs.sort((a, b) => {
+        // section フィールドがあるものは section番号順、なければ title 50音順
         const numA = parseFloat(a.section || '99');
         const numB = parseFloat(b.section || '99');
-        return numA - numB;
+        if (numA !== numB) return numA - numB;
+        return (a.title || '').localeCompare(b.title || '', 'ja');
       });
-    } else if (group === 'keyword') {
-      docs.sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'));
     }
   }
 }
@@ -578,7 +578,6 @@ export default async function CategoryPage({
                 (() => {
                   const guideGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'guide'));
                   const pastExamGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'pastExam'));
-                  const sectionGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'section'));
                   const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'keyword'));
 
                   // キーワード集2026を分離（セクションツリーの「その他」から除外）
@@ -592,7 +591,7 @@ export default async function CategoryPage({
                         <DocSection group={pastExamGroup} layout="pe-exam-table" />
                       )}
                       {/* セクション別解説 + キーワードを統合ツリー表示 */}
-                      {(sectionGroup || keywordGroup) && (
+                      {keywordGroup && (
                         <section>
                           <div className="mb-6">
                             <h2 className="text-2xl font-bold text-gray-900 dark:text-white">セクション別解説・キーワード</h2>
@@ -620,7 +619,7 @@ export default async function CategoryPage({
                             </Link>
                           )}
                           <PeSectionTree
-                            sectionDocs={sectionGroup?.docs || []}
+                            sectionDocs={[]}
                             keywordDocs={keywordDocsFiltered}
                           />
                         </section>

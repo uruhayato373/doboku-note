@@ -127,7 +127,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
           const docGroup = classifyDoc(docMeta);
           const isCemKeyword =
             docMeta.category === "pe-comprehensive-management" &&
-            (docGroup === "keyword" || docGroup === "section");
+            docGroup === "keyword";
           const seoHeadline = isCemKeyword
             ? `${docMeta.title}｜技術士 総監キーワード`
             : docMeta.title;
