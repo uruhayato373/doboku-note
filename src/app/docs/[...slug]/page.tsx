@@ -5,8 +5,6 @@ import Footer from '@/components/layout/Footer';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
 import { classifyDoc } from '@/lib/doc-classifier';
-import { generateDynamicSidebar } from '@/lib/dynamic-sidebar';
-import SidebarNav from '@/components/layout/SidebarNav';
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import { Metadata } from 'next';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
@@ -196,14 +194,7 @@ export default async function DocPage({
 
   // Determine page classification for navigation cards
   const docGroup = classifyDoc(doc.meta);
-  const isPastExamPage = docGroup === 'pastExam' || docGroup === 'primary' || docGroup === 'secondary';
-  // PE pages use CategoryNavCard instead of left sidebar tree
   const hasCategoryNavCard = category === 'pe-comprehensive-management';
-
-  // Generate sidebar for category navigation
-  const sidebarItems = category
-    ? await generateDynamicSidebar(category)
-    : [];
 
   // Extract headings for Table of Contents
   const headings = extractHeadings(
@@ -220,37 +211,23 @@ export default async function DocPage({
 
       <div className="flex-grow w-full">
         {/* コンテンツ中央 + 左サイドバー + 右TOC */}
-        <div className="max-w-[1400px] mx-auto flex relative">
-
-          {/* Left Sidebar: Category Navigation（CategoryNavCard対応カテゴリでは非表示） */}
-          {sidebarItems.length > 0 && !hasCategoryNavCard && (
-            <aside className="hidden lg:block w-[260px] shrink-0">
-              <div className="sticky top-20 py-12 pl-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
-                <SidebarNav
-                  title={getCategoryLabel(category!)}
-                  items={sidebarItems}
-                  currentSlug={slugStr}
-                />
-              </div>
-            </aside>
-          )}
+        <div className="max-w-[1200px] mx-auto flex gap-8 relative">
 
           {/* Main Content Area */}
-          <main className="flex-1 min-w-0 px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
-            {/* カテゴリナビ（パンくず的） */}
-            {category && (
-              <div className="max-w-[780px] mx-auto mb-6">
-                <a
-                  href={`/category/${category}`}
-                  className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                >
-                  <span>←</span>
-                  <span>{getCategoryLabel(category)}</span>
-                </a>
-              </div>
-            )}
-
-            <article className="max-w-[780px] mx-auto bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-10 lg:p-12 overflow-hidden transition-colors duration-300">
+          <main className="flex-1 min-w-0 px-4 sm:px-6 py-8 lg:py-12">
+            <article className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-10 lg:p-12 overflow-hidden transition-colors duration-300">
+              {/* パンくず（カード内、タイトル上） */}
+              {category && (
+                <div className="mb-4">
+                  <a
+                    href={`/category/${category}`}
+                    className="inline-flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  >
+                    <span>{getCategoryLabel(category)}</span>
+                    <span>›</span>
+                  </a>
+                </div>
+              )}
               {/* MDX Content — title comes from the # heading in MDX */}
               <div className="prose-blog prose-base md:prose-lg">
                 <SafeMDXRemote source={doc.content} components={components} />
@@ -259,7 +236,7 @@ export default async function DocPage({
 
             {/* カテゴリナビカード（モバイル・タブレット向け — xl以上では右サイドバーに表示） */}
             {hasCategoryNavCard && category && (
-              <div className="max-w-[780px] mx-auto mt-8 xl:hidden">
+              <div className="mt-8 xl:hidden">
                 <CategoryNavCard
                   variant="mobile"
                   category={category}
@@ -272,14 +249,14 @@ export default async function DocPage({
 
             {/* 関連記事 */}
             {relatedArticles.length > 0 && (
-              <div className="max-w-[780px] mx-auto mt-8">
+              <div className="mt-8">
                 <RelatedArticles articles={relatedArticles} />
               </div>
             )}
 
             {/* 同セクションのキーワード（CEM keyword/section ページのみ） */}
             {doc.meta.category === 'pe-comprehensive-management' && doc.meta.section && (
-              <div className="max-w-[780px] mx-auto mt-8">
+              <div className="mt-8">
                 <SectionKeywords
                   currentSlug={slugStr}
                   section={doc.meta.section as string}
@@ -289,22 +266,20 @@ export default async function DocPage({
           </main>
 
           {/* Right Sidebar: Table of Contents (Zenn-style) + CategoryNavCard */}
-          <aside className="hidden xl:block w-[280px] shrink-0">
-            <div className={`sticky top-20 py-12 pr-6${hasCategoryNavCard ? ' flex flex-col max-h-[calc(100vh-5rem)]' : ''}`}>
-              {hasCategoryNavCard && category && (
-                <div className="shrink-0 mb-3">
-                  <CategoryNavCard
-                    variant="sidebar"
-                    category={category}
-                    currentSlug={slugStr}
-                    docGroup={docGroup}
-                    categoryArticles={categoryArticles}
-                  />
-                </div>
-              )}
-              <div className={hasCategoryNavCard ? 'min-h-0 flex-1 overflow-y-auto toc-scroll [&>.toc-container]:max-h-none [&>.toc-container]:overflow-visible' : ''}>
-                <TableOfContents headings={headings} />
+          <aside className="hidden xl:block w-[280px] shrink-0 py-12">
+            {hasCategoryNavCard && category && (
+              <div className="mb-3">
+                <CategoryNavCard
+                  variant="sidebar"
+                  category={category}
+                  currentSlug={slugStr}
+                  docGroup={docGroup}
+                  categoryArticles={categoryArticles}
+                />
               </div>
+            )}
+            <div className="sticky top-20">
+              <TableOfContents headings={headings} />
             </div>
           </aside>
         </div>
