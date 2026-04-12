@@ -21,6 +21,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
 import RelatedArticles from '@/components/ui/RelatedArticles/RelatedArticles';
+import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import { selectRelatedArticles } from '@/lib/related-articles';
 import type { Pluggable } from 'unified';
 
@@ -193,6 +194,12 @@ export default async function DocPage({
     : [];
   const relatedArticles = selectRelatedArticles(doc.meta, categoryArticles);
 
+  // Determine page classification for navigation cards
+  const docGroup = classifyDoc(doc.meta);
+  const isPastExamPage = docGroup === 'pastExam' || docGroup === 'primary' || docGroup === 'secondary';
+  // PE pages use CategoryNavCard instead of left sidebar tree
+  const hasCategoryNavCard = category === 'pe-comprehensive-management';
+
   // Generate sidebar for category navigation
   const sidebarItems = category
     ? await generateDynamicSidebar(category)
@@ -215,8 +222,8 @@ export default async function DocPage({
         {/* コンテンツ中央 + 左サイドバー + 右TOC */}
         <div className="max-w-[1400px] mx-auto flex relative">
 
-          {/* Left Sidebar: Category Navigation */}
-          {sidebarItems.length > 0 && (
+          {/* Left Sidebar: Category Navigation（CategoryNavCard対応カテゴリでは非表示） */}
+          {sidebarItems.length > 0 && !hasCategoryNavCard && (
             <aside className="hidden lg:block w-[260px] shrink-0">
               <div className="sticky top-20 py-12 pl-6 max-h-[calc(100vh-5rem)] overflow-y-auto">
                 <SidebarNav
@@ -250,6 +257,19 @@ export default async function DocPage({
               </div>
             </article>
 
+            {/* カテゴリナビカード（モバイル・タブレット向け — xl以上では右サイドバーに表示） */}
+            {hasCategoryNavCard && category && (
+              <div className="max-w-[780px] mx-auto mt-8 xl:hidden">
+                <CategoryNavCard
+                  variant="mobile"
+                  category={category}
+                  currentSlug={slugStr}
+                  docGroup={docGroup}
+                  categoryArticles={categoryArticles}
+                />
+              </div>
+            )}
+
             {/* 関連記事 */}
             {relatedArticles.length > 0 && (
               <div className="max-w-[780px] mx-auto mt-8">
@@ -268,10 +288,23 @@ export default async function DocPage({
             )}
           </main>
 
-          {/* Right Sidebar: Table of Contents (Zenn-style) */}
+          {/* Right Sidebar: Table of Contents (Zenn-style) + CategoryNavCard */}
           <aside className="hidden xl:block w-[280px] shrink-0">
-            <div className="sticky top-20 py-12 pr-6">
-              <TableOfContents headings={headings} />
+            <div className={`sticky top-20 py-12 pr-6${hasCategoryNavCard ? ' flex flex-col max-h-[calc(100vh-5rem)]' : ''}`}>
+              {hasCategoryNavCard && category && (
+                <div className="shrink-0 mb-3">
+                  <CategoryNavCard
+                    variant="sidebar"
+                    category={category}
+                    currentSlug={slugStr}
+                    docGroup={docGroup}
+                    categoryArticles={categoryArticles}
+                  />
+                </div>
+              )}
+              <div className={hasCategoryNavCard ? 'min-h-0 flex-1 overflow-y-auto toc-scroll [&>.toc-container]:max-h-none [&>.toc-container]:overflow-visible' : ''}>
+                <TableOfContents headings={headings} />
+              </div>
             </div>
           </aside>
         </div>

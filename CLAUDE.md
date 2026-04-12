@@ -217,6 +217,7 @@ MDX内で使える主要コンポーネント（`src/lib/component-loader/index.
 - `toc_max_heading_level: 2` を frontmatter に設定
 - 回答・解説は `<details>/<summary>` で開閉式にする
 - details内に **H2/H3見出しを使わない**（`**太字**` で代替）
+- details内に `---`（水平線）を使わない（不要な区切り線・余白の原因になる）
 - 関連キーワードは `<RelatedKeywords>` コンポーネントを使用（slug指定でキーワードページへリンク）
 - キーワードページ側の「過去問での出題」セクションにバックリンクを追加する（双方向リンク）
 - 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
