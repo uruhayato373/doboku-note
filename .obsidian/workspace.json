@@ -365,6 +365,36 @@
             "id": "da2afc8406a813f0",
             "type": "leaf",
             "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "a9174908def08318",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "60d08550841b967a",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新規タブ"
+            }
+          },
+          {
+            "id": "c27c0d7527160b6e",
+            "type": "leaf",
+            "state": {
               "type": "graph-analysis",
               "state": {},
               "icon": "GA-ICON",
@@ -372,7 +402,7 @@
             }
           },
           {
-            "id": "a9174908def08318",
+            "id": "43e41cbebe60c1d2",
             "type": "leaf",
             "state": {
               "type": "graph-analysis",
@@ -382,7 +412,7 @@
             }
           }
         ],
-        "currentTab": 17
+        "currentTab": 20
       }
     ],
     "direction": "horizontal",
@@ -412,7 +442,7 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "a9174908def08318",
+  "active": "43e41cbebe60c1d2",
   "lastOpenFiles": [
     "out/robots.txt",
     "out/sitemap.xml",
