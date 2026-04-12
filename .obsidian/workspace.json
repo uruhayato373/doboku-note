@@ -355,10 +355,10 @@
             "id": "1c41aff543d4b39f",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -370,9 +370,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "a9174908def08318",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 16
+        "currentTab": 17
       }
     ],
     "direction": "horizontal",
@@ -402,7 +412,7 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "da2afc8406a813f0",
+  "active": "a9174908def08318",
   "lastOpenFiles": [
     "out/robots.txt",
     "out/sitemap.xml",
