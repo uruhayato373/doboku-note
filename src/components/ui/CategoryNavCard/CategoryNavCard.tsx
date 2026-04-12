@@ -1,6 +1,6 @@
 /**
  * カテゴリナビカード
- * 総監カテゴリの3グループ（試験概要・過去問・セクション別解説）を
+ * PE・Civil 両カテゴリのグループナビゲーションを
  * ページの分類に応じて右サイドバーまたは記事末尾に表示する。
  */
 import Link from 'next/link';
@@ -247,23 +247,89 @@ function MobileWrapper({ title, children }: { title: string; children: React.Rea
   );
 }
 
+/* ━━━ リンクリストカード（汎用） ━━━ */
+function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar' | 'mobile'; title: string; currentSlug: string; docs: DocMeta[] }) {
+  if (docs.length === 0) return null;
+
+  if (variant === 'sidebar') {
+    return (
+      <SidebarWrapper title={title}>
+        <ul className="space-y-1.5">
+          {docs.map((d) => (
+            <li key={d.slug}>
+              {d.slug === currentSlug ? (
+                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{d.sidebar_label || d.title}</span>
+              ) : (
+                <Link href={`/docs/${d.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                  {d.sidebar_label || d.title}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </SidebarWrapper>
+    );
+  }
+
+  return (
+    <MobileWrapper title={title}>
+      <ul className="space-y-2">
+        {docs.map((d) => (
+          <li key={d.slug} className={`rounded-lg border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+            {d.slug === currentSlug ? (
+              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{d.title}</span>
+            ) : (
+              <Link href={`/docs/${d.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+                {d.title}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </MobileWrapper>
+  );
+}
+
 /* ━━━ メインコンポーネント ━━━ */
 export default function CategoryNavCard({ variant, category, currentSlug, docGroup, categoryArticles }: CategoryNavCardProps) {
-  if (category !== 'pe-comprehensive-management') return null;
+  if (category === 'pe-comprehensive-management') {
+    const currentDoc = categoryArticles.find((m) => m.slug === currentSlug);
+    const currentSection = currentDoc?.section as string | undefined;
 
-  // 現在のドキュメントのsectionフィールドを取得
-  const currentDoc = categoryArticles.find((m) => m.slug === currentSlug);
-  const currentSection = currentDoc?.section as string | undefined;
-
-  switch (docGroup) {
-    case 'guide':
-      return <GuideCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />;
-    case 'pastExam':
-      return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
-    case 'section':
-    case 'keyword':
-      return <SectionCard variant={variant} currentSlug={currentSlug} currentSection={currentSection} />;
-    default:
-      return null;
+    switch (docGroup) {
+      case 'guide':
+        return <GuideCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />;
+      case 'pastExam':
+        return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
+      case 'keyword':
+        return <SectionCard variant={variant} currentSlug={currentSlug} currentSection={currentSection} />;
+      default:
+        return null;
+    }
   }
+
+  if (category === 'civil-construction-1') {
+    switch (docGroup) {
+      case 'guide': {
+        const guides = categoryArticles.filter((m) => classifyDoc(m) === 'guide');
+        return <LinkListCard variant={variant} title="試験ガイド" currentSlug={currentSlug} docs={guides} />;
+      }
+      case 'primary':
+        return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
+      case 'secondary': {
+        const secondaryDocs = categoryArticles.filter((m) => classifyDoc(m) === 'secondary');
+        return <LinkListCard variant={variant} title="第2次検定" currentSlug={currentSlug} docs={secondaryDocs} />;
+      }
+      case 'textbook': {
+        const textbooks = categoryArticles
+          .filter((m) => classifyDoc(m) === 'textbook')
+          .sort((a, b) => ((a as any).textbook_order ?? 999) - ((b as any).textbook_order ?? 999));
+        return <LinkListCard variant={variant} title="テキスト" currentSlug={currentSlug} docs={textbooks} />;
+      }
+      default:
+        return null;
+    }
+  }
+
+  return null;
 }

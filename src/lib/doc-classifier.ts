@@ -1,23 +1,38 @@
 /**
  * ドキュメント分類ロジック
- * カテゴリページとサイドバーで共通使用。
- * 1つのDocをグループに振り分ける。
+ * カテゴリページ、ナビカード、パンくずで共通使用。
+ * frontmatter の `group` フィールドを優先し、未設定時はタグから推測（フォールバック）。
  */
 import type { DocMeta } from './docs';
 
-export type DocGroupKey = 'guide' | 'textbook' | 'pastExam' | 'section' | 'keyword' | 'primary' | 'secondary';
+export type DocGroupKey = 'guide' | 'textbook' | 'pastExam' | 'keyword' | 'primary' | 'secondary';
 
-const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pastExam', 'section', 'keyword'];
+/** frontmatter の group 値 → DocGroupKey のマッピング */
+const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
+  'guide': 'guide',
+  'past-exam': 'pastExam',
+  'keyword': 'keyword',
+  'primary': 'primary',
+  'secondary': 'secondary',
+  'textbook': 'textbook',
+};
+
+const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pastExam', 'keyword'];
 const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
 
 export function classifyDoc(meta: DocMeta): DocGroupKey {
+  // 明示的 group フィールドがあれば優先
+  if (meta.group && GROUP_FIELD_MAP[meta.group]) {
+    return GROUP_FIELD_MAP[meta.group]!;
+  }
+
+  // フォールバック: タグから推測（group 未設定の既存コンテンツ向け）
   const tags = meta.tags || [];
   const category = meta.category;
 
   if (category === 'pe-comprehensive-management') {
     if (tags.includes('索引') || tags.includes('guide')) return 'guide';
     if (tags.includes('択一式') || tags.includes('記述式') || tags.includes('past-questions')) return 'pastExam';
-    if (meta.section || meta.type === 'digest') return 'section';
     return 'keyword';
   }
 
@@ -36,14 +51,13 @@ export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> 
   'pe-comprehensive-management': {
     guide: '試験概要',
     pastExam: '過去問',
-    section: 'セクション別解説',
     keyword: 'キーワード',
   },
   'civil-construction-1': {
     guide: '試験ガイド',
     textbook: 'テキスト（教科書）',
-    primary: '第1次検定 過去問',
-    secondary: '第2次検定 対策',
+    primary: '第1次検定',
+    secondary: '第2次検定',
   },
 };
 

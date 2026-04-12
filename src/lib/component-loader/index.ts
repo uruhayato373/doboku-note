@@ -31,6 +31,9 @@ export async function getCommonComponents() {
     DataTable: (await import("@/components/ui/DataTable/DataTable")).default,
     Underline: (await import("@/components/ui/Underline/Underline")).default,
     Timeline: (await import("@/components/ui/Timeline/Timeline")).default,
+    ExamFields: (await import("@/components/ui/ExamFields/ExamFields")).default,
+    StatsCard: (await import("@/components/ui/StatsCard/StatsCard")).default,
+    PdcaCycle: (await import("@/components/ui/PdcaCycle/PdcaCycle")).default,
     Question: (await import("@/components/ui/ChatBubble/Question")).default,
     Answer: (await import("@/components/ui/ChatBubble/Answer")).default,
   };

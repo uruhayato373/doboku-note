@@ -345,10 +345,10 @@
             "id": "08e285ef1f56872c",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -360,9 +360,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "da2afc8406a813f0",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 15
+        "currentTab": 16
       }
     ],
     "direction": "horizontal",
@@ -392,21 +402,25 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "1c41aff543d4b39f",
+  "active": "da2afc8406a813f0",
   "lastOpenFiles": [
-    "scripts/fix-bold-brackets.py",
-    "scripts/check-bold-brackets.py",
+    "src/config/exam-question-keywords.json",
+    "src/config/past-exam-backlinks.json",
+    "scripts/build-exam-backlinks.mjs",
+    "src/components/ui/TextbookNav/TextbookNav.tsx",
+    "src/components/ui/TextbookNav",
+    "src/components/ui/RelatedTextbooks/RelatedTextbooks.tsx",
+    "src/components/ui/RelatedTextbooks",
+    "src/components/ui/KeywordsInExam/KeywordsInExam.tsx",
+    "src/components/ui/KeywordsInExam",
+    "src/components/ui/PastExamBacklinks/PastExamBacklinks.tsx",
+    "src/components/ui/PastExamBacklinks",
+    "docs/project/article-footer-design.md",
+    "模範論文_令和4年度_DXによる変革.md",
+    "平成24年度技術士試験_総合技術監理部門_択一問題_全問解説.md",
+    "技術士試験_解答解説.md",
     "node_modules/is-absolute-url/readme.md",
-    "node_modules/is-absolute-url/package.json",
-    "node_modules/is-absolute-url/license",
-    "node_modules/is-absolute-url/index.js",
-    "node_modules/is-absolute-url/index.d.ts",
-    "node_modules/is-absolute-url",
-    "node_modules/rehype-external-links/lib/index.js",
-    "node_modules/rehype-external-links/lib/index.d.ts",
     "node_modules/rehype-external-links/readme.md",
-    "node_modules/rehype-external-links/index.js",
-    "node_modules/rehype-external-links/package.json",
     "public/images/og-default.png",
     "docs/reviews/competitor-audit/2026-04-05_pe-comprehensive-management.md",
     "docs/reviews/competitor-audit/2026-04-04_civil-construction-1.md",
@@ -435,10 +449,6 @@
     "docs/archive/reviews-archive/note-articles/N-1_1級土木_頻出論点50選.md",
     "docs/archive/reviews-archive/note-articles/M-2_技術士_論文添削ノート.md",
     "docs/archive/reviews-archive/note-articles/M-1_週刊ドリル.md",
-    "docs/archive/reviews-archive/note-articles/index.md",
-    "docs/archive/reviews-archive/monetization/2026-03.md",
-    "docs/archive/reviews-archive/app-design/mdx-to-json.md",
-    "docs/archive/reviews-archive/affiliate-plan/2026-03.md",
-    "docs/archive/reviews-archive/content-roadmap/2026-04.md"
+    "docs/archive/reviews-archive/note-articles/index.md"
   ]
 }

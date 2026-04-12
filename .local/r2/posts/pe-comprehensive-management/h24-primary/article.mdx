@@ -2,6 +2,7 @@
 title: "技術士二次試験 総合技術監理部門 平成24年度 択一式"
 type: 技術基準
 category: pe-comprehensive-management
+group: past-exam
 tags:
   - past-questions
 created: 2026-04-11T00:00:00.000Z
@@ -57,6 +58,8 @@ toc_max_heading_level: 2
 <RelatedKeywords items={[
   { label: "工程計画", slug: "process-planning-construction" },
   { label: "進捗管理", slug: "progress-management" },
+  { label: "大日程・中日程・小日程計画", slug: "master-schedule-planning" },
+  { label: "生産管理システム", slug: "production-management-system" },
 ]} />
 
 </details>
@@ -96,6 +99,8 @@ toc_max_heading_level: 2
 <RelatedKeywords items={[
   { label: "活動基準原価計算（ABC）", slug: "activity-abc" },
   { label: "コストドライバー", slug: "cost-driver" },
+  { label: "標準原価計算", slug: "standard-costing" },
+  { label: "原価差異分析", slug: "cost-variance-analysis" },
 ]} />
 
 </details>
@@ -125,9 +130,32 @@ toc_max_heading_level: 2
 4. 連関図は複雑な因果関係を矢印で整理する手法 ❌
 5. **有向グラフで手順を示し、将来の局面と結果を想定して準備する手法はPDPC法の定義そのもの ✅**
 
+**各QC手法の比較図**:
+
+**1. 特性要因図（フィッシュボーン図）** — 原因と結果を魚骨型で整理
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/cause-effect-diagram-ii-1-3.svg" alt="特性要因図（フィッシュボーン図）" />
+
+**2. 集団情報構造化法（KJ法）** — 情報をグループ化して体系化する4段階
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/kj-method-ii-1-3.svg" alt="集団情報構造化法（KJ法）の4段階" />
+
+**3. 親和図** — カード化した情報をグループ化して統合
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/affinity-diagram-ii-1-3.svg" alt="親和図" />
+
+**4. 連関図** — 中心問題に対する要因の因果関係を矢印で可視化
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/interrelation-diagram-ii-1-3.svg" alt="連関図" />
+
+**5. 過程決定計画図（PDPC）** — 目標達成に向けた手順と、問題発生時の対策ルートを有向グラフで示す
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/pdpc-diagram-ii-1-3.svg" alt="過程決定計画図（PDPC）" />
+
 <RelatedKeywords items={[
   { label: "PDPC法", slug: "pdpc-method" },
   { label: "特性要因図", slug: "cause-and-effect-diagram" },
+  { label: "問題解決能力", slug: "problem-solving-ability" },
 ]} />
 
 </details>
@@ -172,6 +200,8 @@ $$\text{利益} = 12 \times 60{,}000 + 24 \times 160{,}000 = 720{,}000 + 3{,}840
 
 <RelatedKeywords items={[
   { label: "線形計画法", slug: "linear-programming" },
+  { label: "整数計画法", slug: "integer-programming" },
+  { label: "多目的最適化", slug: "multi-objective-optimization" },
 ]} />
 
 </details>
@@ -215,6 +245,8 @@ $$\text{利益} = 12 \times 60{,}000 + 24 \times 160{,}000 = 720{,}000 + 3{,}840
   { label: "初期投資", slug: "initial-investment" },
   { label: "設備の経済計算", slug: "equipment-economics" },
   { label: "NPV（正味現在価値）", slug: "npv-net-present-value" },
+  { label: "内部収益率法", slug: "internal-rate-of-return" },
+  { label: "回収期間法", slug: "payback-period-method" },
 ]} />
 
 </details>
@@ -246,6 +278,8 @@ $$\text{利益} = 12 \times 60{,}000 + 24 \times 160{,}000 = 720{,}000 + 3{,}840
   { label: "サプライチェーンマネジメント", slug: "supply-chain-management" },
   { label: "JIT生産方式", slug: "jit-production" },
   { label: "BCP・BCM", slug: "business-continuity-plan" },
+  { label: "レジリエンス", slug: "resilience" },
+  { label: "SCMシステム", slug: "scm-system" },
 ]} />
 
 </details>
@@ -285,6 +319,8 @@ $$\text{NPV} = 1{,}862.9 - 1{,}200 - 396.2 \approx 266.7 \approx 267 \text{万�
   { label: "NPV（正味現在価値）", slug: "npv-net-present-value" },
   { label: "割引率", slug: "discount-rate" },
   { label: "現在価値・年価値・将来価値", slug: "present-annual-future-value" },
+  { label: "DCF法", slug: "dcf-method" },
+  { label: "投資回収計画", slug: "investment-recovery-plan" },
 ]} />
 
 </details>
@@ -325,6 +361,7 @@ $$\text{NPV} = 1{,}862.9 - 1{,}200 - 396.2 \approx 266.7 \approx 267 \text{万�
   { label: "品質保証", slug: "quality-assurance" },
   { label: "ビフォアサービス", slug: "before-service" },
   { label: "アフターサービス", slug: "after-service" },
+  { label: "品質管理", slug: "quality-control" },
 ]} />
 
 </details>
@@ -375,9 +412,13 @@ Y理論は4個。
   ]}
 />
 
+<img src="/posts/pe-comprehensive-management/h24-primary/img/xy-theory-ii-1-9.svg" alt="マグレガーのX理論・Y理論 比較表" />
+
 <RelatedKeywords items={[
   { label: "マグレガーのXY理論", slug: "mcgregor-xy-theory" },
   { label: "内発的動機づけ", slug: "intrinsic-motivation" },
+  { label: "マズローの欲求5段階説", slug: "maslow-hierarchy-of-needs" },
+  { label: "ハーズバーグの二要因理論", slug: "herzberg-two-factor-theory" },
 ]} />
 
 </details>
@@ -409,6 +450,7 @@ Y理論は4個。
   { label: "雇用安定法", slug: "employment-security-act" },
   { label: "雇用保険", slug: "employment-insurance" },
   { label: "男女雇用機会均等法", slug: "equal-employment-act" },
+  { label: "職業能力開発促進法", slug: "vocational-training-act" },
 ]} />
 
 </details>
@@ -445,10 +487,15 @@ Y理論は4個。
 （ウ）休憩時間の規定として適切 ✅
 （エ）育児休業の規定として適切 ✅
 
+根拠法令: [労働基準法](https://laws.e-gov.go.jp/law/322AC0000000049)（第32条の2〜第32条の5：変形労働時間制、第34条：休憩、第39条：年次有給休暇）、育児・介護休業法（育児休業）
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/flextime-ii-1-11.svg" alt="変形労働時間制の概要" />
+
 <RelatedKeywords items={[
   { label: "変形労働時間制度", slug: "variable-work-hours" },
   { label: "労働基準法", slug: "labor-standards-act" },
   { label: "育児・介護休業法", slug: "childcare-nursing-leave-act" },
+  { label: "裁量労働制", slug: "discretionary-work-system" },
 ]} />
 
 </details>
@@ -479,6 +526,7 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "QCサークル", slug: "qc-circle" },
   { label: "小集団活動", slug: "small-group-activities" },
+  { label: "OJT/OFF-JT", slug: "ojt-off-jt" },
 ]} />
 
 </details>
@@ -519,6 +567,7 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
   { label: "職能別組織", slug: "functional-organization" },
   { label: "マトリックス組織", slug: "matrix-organization" },
   { label: "事業部制組織", slug: "divisional-organization" },
+  { label: "ネットワーク組織", slug: "network-organization" },
 ]} />
 
 </details>
@@ -552,9 +601,12 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 4. ア=50は誤り（就業規則は10人以上） ❌
 5. ア=50は誤り ❌
 
+根拠法令: [労働基準法](https://laws.e-gov.go.jp/law/322AC0000000049)（第89条：就業規則作成・届出義務、第90条：労使協定）、労働組合法 第14条（労働協約）
+
 <RelatedKeywords items={[
   { label: "労働基準法", slug: "labor-standards-act" },
   { label: "労働契約法", slug: "labor-contract-act" },
+  { label: "労働組合法", slug: "labor-union-act" },
 ]} />
 
 </details>
@@ -594,10 +646,13 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 適切なものは1個。
 
+<img src="/posts/pe-comprehensive-management/h24-primary/img/labor-dispute-resolution-ii-1-15.svg" alt="労働関係紛争の解決手段（あっせん・調停・仲裁の一覧）" />
+
 <RelatedKeywords items={[
   { label: "労働関係調整法", slug: "labor-relations-adjustment-act" },
   { label: "労働審判法", slug: "labor-tribunal-act" },
   { label: "個別労働紛争解決法", slug: "individual-labor-dispute-act" },
+  { label: "労働組合法", slug: "labor-union-act" },
 ]} />
 
 </details>
@@ -637,6 +692,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "労働分配率", slug: "labor-share-ratio" },
   { label: "雇用統計", slug: "employment-statistics" },
+  { label: "年功賃金", slug: "seniority-wage" },
+  { label: "成果主義賃金", slug: "performance-based-pay" },
 ]} />
 
 </details>
@@ -664,9 +721,13 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 4. 加盟店と本部は別法人であるため第三者提供に該当する ❌
 5. 事業承継に伴う個人情報の取得は、承継前の利用目的の範囲内であれば本人同意は不要 ❌
 
+根拠法令: [個人情報保護法](https://laws.e-gov.go.jp/law/415AC0000000057)（第18条：利用目的の通知・公表、第23条：第三者提供の制限、第26条：事業承継時の取扱い）
+
 <RelatedKeywords items={[
   { label: "個人情報保護", slug: "personal-info-protection" },
   { label: "個人情報", slug: "personal-information" },
+  { label: "個人情報の活用・流通", slug: "personal-info-utilization" },
+  { label: "個人情報の漏洩時対応", slug: "data-breach-response" },
 ]} />
 
 </details>
@@ -697,6 +758,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "インターネット", slug: "internet" },
   { label: "ファイアウォール・IDS", slug: "firewall-ids" },
+  { label: "クラウド・オンプレミス", slug: "cloud-on-premises" },
+  { label: "IoT", slug: "iot" },
 ]} />
 
 </details>
@@ -724,10 +787,14 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 4. 販売地域の共同取り決めは不当な取引制限に該当し得るため適切 ✅
 5. 販売価格の共同取り決めはカルテルに該当し得るため適切 ✅
 
+根拠法令: 独占禁止法（私的独占の禁止及び公正取引の確保に関する法律）第21条（知的財産権の行使の除外）、公正取引委員会「知的財産の利用に関する独占禁止法上の指針」「標準化に伴うパテントプールの形成等に関する独占禁止法上の考え方」
+
 <RelatedKeywords items={[
   { label: "私的独占", slug: "private-monopoly" },
   { label: "技術ライセンス", slug: "technology-licensing" },
   { label: "独占禁止法コンプライアンス", slug: "antitrust-compliance" },
+  { label: "特許権", slug: "patent-rights" },
+  { label: "標準化戦略", slug: "standardization-strategy" },
 ]} />
 
 </details>
@@ -759,6 +826,7 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
   { label: "ナレッジ共有", slug: "knowledge-sharing" },
   { label: "クラウド・オンプレミス", slug: "cloud-on-premises" },
   { label: "SCMシステム", slug: "scm-system" },
+  { label: "IoT", slug: "iot" },
 ]} />
 
 </details>
@@ -799,6 +867,7 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
   { label: "ソーシャルエンジニアリング", slug: "social-engineering" },
   { label: "セキュリティ教育", slug: "security-education" },
   { label: "マルウェア", slug: "malware" },
+  { label: "ISMS（ISO/IEC 27001）", slug: "isms-iso27001" },
 ]} />
 
 </details>
@@ -841,6 +910,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "標的型攻撃", slug: "targeted-attack" },
   { label: "脅威意識向上訓練", slug: "threat-awareness-training" },
+  { label: "フィッシング・ファーミング", slug: "phishing-pharming" },
+  { label: "セキュリティ教育", slug: "security-education" },
 ]} />
 
 </details>
@@ -871,6 +942,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "BCP・BCM", slug: "business-continuity-plan" },
   { label: "システム可用性", slug: "system-availability" },
+  { label: "情報漏洩・改ざん・消失", slug: "data-leak-tampering-loss" },
+  { label: "BCP・BCM（総合）", slug: "bcp-crisis-management" },
 ]} />
 
 </details>
@@ -898,9 +971,12 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 4. 公開鍵は複数の相手に同じ鍵を渡し、秘密鍵で復号する。「それぞれ異なる鍵」は誤り ❌
 5. **電子署名法により、本人による電子署名がなされた電磁的記録は真正に成立したものと推定される。適切 ✅**
 
+根拠法令: 電子署名及び認証業務に関する法律（電子署名法）第3条（電磁的記録の真正な成立の推定）、電気通信事業法 第4条（通信の秘密の保護）
+
 <RelatedKeywords items={[
   { label: "暗号化・電子署名", slug: "encryption-digital-signature" },
   { label: "VPN", slug: "vpn" },
+  { label: "ブロックチェーン・暗号資産", slug: "blockchain-crypto" },
 ]} />
 
 </details>
@@ -943,6 +1019,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "トライポッド理論", slug: "tripod-theory" },
   { label: "ヒューマンファクター", slug: "human-factors" },
+  { label: "人的過誤確率（HEP）", slug: "human-error-probability" },
+  { label: "標準作業手順書（SOP）", slug: "sop" },
 ]} />
 
 </details>
@@ -995,6 +1073,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "リスク対応", slug: "risk-treatment" },
   { label: "リスク管理", slug: "risk-management-system" },
+  { label: "リスク評価", slug: "risk-assessment" },
+  { label: "リスクマップ／リスクマトリクス", slug: "risk-map-matrix" },
 ]} />
 
 </details>
@@ -1025,6 +1105,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "危機管理マニュアル", slug: "crisis-management-manual" },
   { label: "クライシスコミュニケーション", slug: "crisis-communication" },
+  { label: "BCP・BCM", slug: "bcp-crisis-management" },
+  { label: "緊急時情報システム", slug: "emergency-info-systems" },
 ]} />
 
 </details>
@@ -1052,9 +1134,20 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 4. 地震発生確率は過去の地震発生記録に基づく統計的手法であり、動学的解析ではない ❌
 5. 過去1万年の正確な統計データは存在せず、歴史記録や地質調査に基づく限られたデータが基礎 ❌
 
+**BPT分布による地震発生確率モデル**:
+
+**活動時期が明らかな場合** — 最新活動時期から現在までの経過時間に基づいて残存確率を計算
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-known-ii-1-28.svg" alt="BPT分布による地震発生確率（活動時期が明らかな場合）" />
+
+**活動時期が不明な場合** — 平均活動間隔から確率分布を推定
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-unknown-ii-1-28.svg" alt="BPT分布による地震発生確率（活動時期が不明な場合）" />
+
 <RelatedKeywords items={[
   { label: "確率的リスク評価", slug: "probabilistic-risk-assessment" },
   { label: "災害対策基本法", slug: "disaster-countermeasures-act" },
+  { label: "起こりやすさ（発生確率・頻度）", slug: "likelihood" },
 ]} />
 
 </details>
@@ -1082,9 +1175,15 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 4. 特定機械等の規制の説明は適切 ✅
 5. 雇入れ時・作業内容変更時の安全衛生教育義務は適切 ✅
 
+根拠法令: [労働安全衛生法](https://laws.e-gov.go.jp/law/347AC0000000057)（第10条：総括安全衛生管理者、第11条：安全管理者、第12条：衛生管理者、第13条：産業医、第17条〜第19条：安全・衛生委員会、第59条：安全衛生教育、第66条：健康診断）
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/safety-org-structure-ii-1-29.svg" alt="総括安全衛生管理者等の選任業務（業種×事業場規模マトリクス）" />
+
 <RelatedKeywords items={[
   { label: "労働安全衛生法", slug: "occupational-safety-act" },
   { label: "安全衛生管理体制", slug: "safety-health-org-structure" },
+  { label: "安全衛生教育", slug: "safety-health-education" },
+  { label: "OSHMS", slug: "oshms" },
 ]} />
 
 </details>
@@ -1123,6 +1222,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 
 <RelatedKeywords items={[
   { label: "労働災害統計", slug: "accident-statistics" },
+  { label: "労働災害防止計画", slug: "occupational-accident-prevention-plan" },
+  { label: "安全衛生計画", slug: "safety-health-plan" },
 ]} />
 
 </details>
@@ -1163,6 +1264,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
   { label: "ハインリッヒの法則", slug: "heinrich-law" },
   { label: "予防活動", slug: "prevention-activities" },
   { label: "小集団活動", slug: "small-group-activities" },
+  { label: "危険予知訓練（KYT）", slug: "kyt" },
+  { label: "定期点検活動", slug: "periodic-inspection" },
 ]} />
 
 </details>
@@ -1195,6 +1298,7 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
   { label: "フォールトアボイダンス", slug: "fault-avoidance" },
   { label: "フォールトトレランス", slug: "fault-tolerance" },
   { label: "フールプルーフ", slug: "fool-proof" },
+  { label: "安全確認型システム", slug: "safety-confirmation-system" },
 ]} />
 
 </details>
@@ -1222,8 +1326,12 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 4. マニフェスト制度の運用の説明は適切 ✅
 5. 電子マニフェストの普及と不法投棄防止への寄与は適切 ✅
 
+根拠法令: [廃棄物処理法](https://laws.e-gov.go.jp/law/345AC0000000137)（第2条：廃棄物・産業廃棄物・特別管理廃棄物の定義、第6条：市町村の一般廃棄物処理責務、第4条：国・都道府県・市町村の責務、第12条の3：産業廃棄物管理票（マニフェスト）制度）
+
 <RelatedKeywords items={[
   { label: "廃棄物処理法", slug: "waste-management-act" },
+  { label: "放射性廃棄物", slug: "radioactive-waste" },
+  { label: "拡大生産者責任", slug: "extended-producer-responsibility" },
 ]} />
 
 </details>
@@ -1254,6 +1362,8 @@ QCサークル活動に関する次の記述のうち，最も不適切なもの
 <RelatedKeywords items={[
   { label: "カーボンプライシング", slug: "carbon-pricing" },
   { label: "汚染者負担原則", slug: "polluter-pays-principle" },
+  { label: "環境基本計画", slug: "environmental-basic-plan" },
+  { label: "環境基準", slug: "environmental-standards" },
 ]} />
 
 </details>
@@ -1296,6 +1406,8 @@ LCA（ライフサイクル・アセスメント）に関する次の(ア)〜(�
 <RelatedKeywords items={[
   { label: "ライフサイクルアセスメント", slug: "lifecycle-assessment" },
   { label: "環境適合設計", slug: "design-for-environment" },
+  { label: "ライフサイクルコスティング", slug: "lifecycle-costing-method" },
+  { label: "ライフサイクルマネジメント", slug: "lifecycle-management" },
 ]} />
 
 </details>
@@ -1327,6 +1439,8 @@ LCA（ライフサイクル・アセスメント）に関する次の(ア)〜(�
   { label: "CSR", slug: "csr" },
   { label: "拡大生産者責任", slug: "extended-producer-responsibility" },
   { label: "環境会計", slug: "environmental-accounting" },
+  { label: "ESG投資", slug: "esg-investment" },
+  { label: "SDGs", slug: "sdgs" },
 ]} />
 
 </details>
@@ -1354,8 +1468,14 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
 4. VOC規制の6つの施設類型は適切 ✅
 5. **大気汚染防止法によるVOC規制は排出口における濃度規制であり、敷地境界線上の濃度ではない ❌**
 
+根拠法令: 大気汚染防止法 第17条の3〜第17条の14（揮発性有機化合物の排出規制：対象施設・排出基準・測定義務）、同法施行令 第2条の3（VOC排出施設の6類型）
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/voc-regulation-ii-1-37.svg" alt="VOC排出規制の対象施設と排出基準" />
+
 <RelatedKeywords items={[
   { label: "大気汚染防止法", slug: "air-pollution-control-act" },
+  { label: "典型7公害", slug: "seven-types-of-pollution" },
+  { label: "公害防止管理者", slug: "pollution-control-manager" },
 ]} />
 
 </details>
@@ -1383,8 +1503,14 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
 4. 方法書の都道府県知事・市町村長への送付は適切 ✅
 5. 準備書の意見を踏まえた事業内容の修正は適切 ✅
 
+根拠法令: [環境影響評価法](https://laws.e-gov.go.jp/law/409AC0000000081)（第4条：第二種事業スクリーニング手続、第5条：方法書の作成・送付、第21条：準備書に対する都道府県知事等の意見と事業者の対応、第38条〜第46条：都市計画対象事業の特例・都道府県条例との関係）
+
+<img src="/posts/pe-comprehensive-management/h24-primary/img/eia-procedure-ii-1-38.svg" alt="環境影響評価の手続きフロー" />
+
 <RelatedKeywords items={[
   { label: "環境影響評価", slug: "environmental-impact-assessment" },
+  { label: "環境基本計画", slug: "environmental-basic-plan" },
+  { label: "自然環境保全法", slug: "nature-conservation-act" },
 ]} />
 
 </details>
@@ -1434,6 +1560,8 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
   { label: "国連人間環境会議", slug: "un-human-environment-conf" },
   { label: "リオ宣言", slug: "rio-declaration" },
   { label: "気候変動の国際枠組", slug: "climate-change-international" },
+  { label: "国連環境開発会議（UNCED）", slug: "unced-earth-summit" },
+  { label: "SDGs", slug: "sdgs" },
 ]} />
 
 </details>
@@ -1470,8 +1598,12 @@ VOC（揮発性有機化合物）の排出抑制制度に関する次の記述�
 
 不適切なものは0個。
 
+根拠法令: エネルギーの使用の合理化等に関する法律（省エネ法）第2条（エネルギー定義）、第7条の2（特定事業者のエネルギー管理統括者選任）、第63条（特定荷主の計画作成義務）、第78条（特定機器に関するトップランナー制度）
+
 <RelatedKeywords items={[
   { label: "エネルギー", slug: "energy" },
+  { label: "気候変動・脱炭素社会", slug: "climate-change-decarbonization" },
+  { label: "カーボンプライシング", slug: "carbon-pricing" },
 ]} />
 
 </details>

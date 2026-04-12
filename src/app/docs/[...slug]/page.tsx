@@ -4,7 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getAllComponents } from '@/lib/component-loader';
 import { getCategoryLabel } from '@/lib/categories';
-import { classifyDoc } from '@/lib/doc-classifier';
+import { classifyDoc, getGroupLabel } from '@/lib/doc-classifier';
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import { Metadata } from 'next';
 import { getOgpImageUrl } from '@/lib/r2-image-loader';
@@ -18,9 +18,11 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
-import RelatedArticles from '@/components/ui/RelatedArticles/RelatedArticles';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
-import { selectRelatedArticles } from '@/lib/related-articles';
+import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
+import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
+import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
+import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -186,15 +188,14 @@ export default async function DocPage({
   // Load MDX components
   const components = await getAllComponents(doc as any);
 
-  // Fetch related articles (metadata only)
+  // Fetch category articles (metadata only)
   const categoryArticles = category
     ? await getDocsMetaByCategory(category)
     : [];
-  const relatedArticles = selectRelatedArticles(doc.meta, categoryArticles);
 
   // Determine page classification for navigation cards
   const docGroup = classifyDoc(doc.meta);
-  const hasCategoryNavCard = category === 'pe-comprehensive-management';
+  const hasCategoryNavCard = category === 'pe-comprehensive-management' || category === 'civil-construction-1';
 
   // Extract headings for Table of Contents
   const headings = extractHeadings(
@@ -216,16 +217,17 @@ export default async function DocPage({
           {/* Main Content Area */}
           <main className="flex-1 min-w-0 px-4 sm:px-6 py-8 lg:py-12">
             <article className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-10 lg:p-12 overflow-hidden transition-colors duration-300">
-              {/* パンくず（カード内、タイトル上） */}
+              {/* パンくず（カード内、タイトル上）: カテゴリ名 › グループ名 */}
               {category && (
-                <div className="mb-4">
+                <div className="mb-4 text-xs text-gray-400 dark:text-gray-500">
                   <a
                     href={`/category/${category}`}
-                    className="inline-flex items-center gap-1 text-xs text-gray-400 dark:text-gray-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
-                    <span>{getCategoryLabel(category)}</span>
-                    <span>›</span>
+                    {getCategoryLabel(category)}
                   </a>
+                  <span className="mx-1">›</span>
+                  <span>{getGroupLabel(category, docGroup)}</span>
                 </div>
               )}
               {/* MDX Content — title comes from the # heading in MDX */}
@@ -234,8 +236,52 @@ export default async function DocPage({
               </div>
             </article>
 
-            {/* カテゴリナビカード（モバイル・タブレット向け — xl以上では右サイドバーに表示） */}
-            {hasCategoryNavCard && category && (
+            {/* 記事末尾の情報（ページ種別ごとの構成は docs/project/article-footer-design.md 参照） */}
+
+            {/* PE keyword: 過去問逆引き + 同セクションキーワード */}
+            {category === 'pe-comprehensive-management' && docGroup === 'keyword' && (
+              <>
+                <div className="mt-8">
+                  <PastExamBacklinks category={category} currentSlug={slugStr} />
+                </div>
+                {doc.meta.section && (
+                  <div className="mt-8">
+                    <SectionKeywords
+                      currentSlug={slugStr}
+                      section={doc.meta.section as string}
+                    />
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* PE past-exam: 扱われたキーワード一覧 */}
+            {category === 'pe-comprehensive-management' && docGroup === 'pastExam' && (
+              <div className="mt-8">
+                <KeywordsInExam
+                  currentSlug={slugStr}
+                  categoryArticles={categoryArticles}
+                  category={category}
+                />
+              </div>
+            )}
+
+            {/* Civil primary: 関連テキスト章 */}
+            {category === 'civil-construction-1' && docGroup === 'primary' && (
+              <div className="mt-8">
+                <RelatedTextbooks currentMeta={doc.meta} categoryArticles={categoryArticles} />
+              </div>
+            )}
+
+            {/* Civil textbook: 前後章ナビ */}
+            {category === 'civil-construction-1' && docGroup === 'textbook' && (
+              <div className="mt-8">
+                <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
+              </div>
+            )}
+
+            {/* guide/secondary: カテゴリナビカード（モバイル） */}
+            {hasCategoryNavCard && category && (docGroup === 'guide' || docGroup === 'secondary' || docGroup === 'textbook') && (
               <div className="mt-8 xl:hidden">
                 <CategoryNavCard
                   variant="mobile"
@@ -243,23 +289,6 @@ export default async function DocPage({
                   currentSlug={slugStr}
                   docGroup={docGroup}
                   categoryArticles={categoryArticles}
-                />
-              </div>
-            )}
-
-            {/* 関連記事 */}
-            {relatedArticles.length > 0 && (
-              <div className="mt-8">
-                <RelatedArticles articles={relatedArticles} />
-              </div>
-            )}
-
-            {/* 同セクションのキーワード（CEM keyword/section ページのみ） */}
-            {doc.meta.category === 'pe-comprehensive-management' && doc.meta.section && (
-              <div className="mt-8">
-                <SectionKeywords
-                  currentSlug={slugStr}
-                  section={doc.meta.section as string}
                 />
               </div>
             )}

@@ -52,8 +52,7 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
   'pe-comprehensive-management': {
     guide: '試験の構成・出題傾向・学習ガイド',
     pastExam: '年度別の択一式・記述式問題と解説',
-    section: '総合技術監理キーワード集に基づくセクション要約',
-    keyword: '頻出キーワードの解説',
+    keyword: 'キーワード解説',
   },
 };
 

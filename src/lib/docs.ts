@@ -100,6 +100,7 @@ export type DocMeta = {
   title: string;
   description?: string;
   category?: string; // e.g., 'civil-construction-1' (from frontmatter)
+  group?: string; // e.g., 'guide', 'past-exam', 'keyword' (explicit classification)
   tags?: string[]; // e.g., ['guide', 'primary'] (from frontmatter)
   sidebar_label?: string;
   toc_min_heading_level?: number;

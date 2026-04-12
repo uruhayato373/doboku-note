@@ -166,6 +166,10 @@
     @apply list-decimal list-inside;
   }
 
+  .prose-blog details ul {
+    @apply list-disc list-inside;
+  }
+
   .prose-blog details > :not(summary):first-of-type {
     @apply pt-4;
   }

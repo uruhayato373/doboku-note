@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/kill-port.mjs 3020",
+    "predev": "node scripts/kill-port.mjs 3020 && node scripts/build-exam-backlinks.mjs",
     "dev": "next dev -p 3020",
-    "build": "node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs",
+    "build-backlinks": "node scripts/build-exam-backlinks.mjs",
+    "build": "node scripts/build-exam-backlinks.mjs && node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs",
     "generate-ogp": "node scripts/generate-ogps.mjs",
     "start": "next start -p 3020",
     "lint": "eslint src/",
