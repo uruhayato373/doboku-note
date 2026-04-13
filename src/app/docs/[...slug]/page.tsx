@@ -308,7 +308,7 @@ export default async function DocPage({
                 />
               </div>
             )}
-            <div className="sticky top-20">
+            <div className="sticky top-6">
               <TableOfContents headings={headings} />
             </div>
           </aside>
