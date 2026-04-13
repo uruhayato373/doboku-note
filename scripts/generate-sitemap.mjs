@@ -1,82 +1,101 @@
 import { readdirSync, statSync, readFileSync, existsSync, writeFileSync } from 'fs';
 import { join, relative } from 'path';
+import matter from 'gray-matter';
 
 const SITE_URL = 'https://doboku-note.com';
 const OUT_DIR = 'out';
 const POSTS_DIR = join('.local', 'r2', 'posts');
+const REDIRECTS_FILE = join('public', '_redirects');
 
-// ---- MDXフロントマターから日付を抽出 --------------------------------
+// ---- _redirects から 301 ソース側の /docs/{slug} を抽出 -------------
+// Cloudflare Pages は物理ファイルを _redirects より優先するため、
+// sitemap には「正規側」だけを載せる。
+function parseRedirectedDocSlugs() {
+  const excluded = new Set();
+  if (!existsSync(REDIRECTS_FILE)) return excluded;
+  const content = readFileSync(REDIRECTS_FILE, 'utf8');
+  for (const rawLine of content.split('\n')) {
+    const line = rawLine.trim();
+    if (!line || line.startsWith('#')) continue;
+    const parts = line.split(/\s+/);
+    if (parts.length < 2) continue;
+    const from = parts[0];
+    // 完全一致の /docs/{slug} のみ除外対象（ワイルドカード除外は元から HTML 存在しない）
+    const m = from.match(/^\/docs\/([^/*]+)$/);
+    if (m) excluded.add(m[1]);
+  }
+  return excluded;
+}
 
-function parseFrontmatterDate(content) {
-  const fm = content.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
-
-  // 優先順位: created > publishedAt > date created > date modified
-  const patterns = [
-    /^created:\s*['"]?(.+?)['"]?\s*$/m,
-    /^publishedAt:\s*['"]?(.+?)['"]?\s*$/m,
-    /^date created:\s*['"]?(.+?)['"]?\s*$/m,
-    /^date modified:\s*['"]?(.+?)['"]?\s*$/m,
+// ---- MDX フロントマターから lastmod 候補日付を取得 -------------------
+function parseFrontmatterDate(data, fallback) {
+  const candidates = [
+    data.updated,
+    data.publishedAt,
+    data.created,
+    data['date modified'],
+    data['date created'],
   ];
-
-  for (const re of patterns) {
-    const m = fm.match(re);
-    if (m) {
-      const d = new Date(m[1].trim());
-      if (!isNaN(d.getTime())) return d;
-    }
+  for (const c of candidates) {
+    if (c == null) continue;
+    const d = new Date(typeof c === 'string' ? c : String(c));
+    if (!isNaN(d.getTime())) return d;
   }
-  return null;
+  return fallback;
 }
 
-// slug → lastmod のマップをMDXから構築
-function buildDateMap(postsDir) {
-  const map = new Map();
-  if (!existsSync(postsDir)) return map;
-
-  function walk(dir, segments = []) {
-    for (const entry of readdirSync(dir)) {
-      const full = join(dir, entry);
-      const stat = statSync(full);
-      if (stat.isDirectory()) {
-        walk(full, [...segments, entry]);
-      } else if (entry.endsWith('.mdx')) {
-        const baseName = entry.replace(/\.mdx$/, '');
-        const slugParts = baseName === 'article' ? segments : [...segments, baseName];
-        const slug = slugParts.join('-');
-        const content = readFileSync(full, 'utf8');
-        const date = parseFrontmatterDate(content) ?? stat.mtime;
-        map.set(slug, date);
-      }
+// ---- .local/r2/posts を走査して公開済み slug を列挙 ------------------
+// src/lib/docs.ts::findMdxFiles() と同じ命名規約を踏襲:
+//   Convention A: {dir}/{file}.mdx → slug = "{dir}-{file}"
+//   Convention B: {dir}/article.mdx → slug = "{dir}"
+function walkMdxFiles(dir, segments = [], results = []) {
+  if (!existsSync(dir)) return results;
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, entry.name);
+    if (entry.isDirectory()) {
+      walkMdxFiles(full, [...segments, entry.name], results);
+      continue;
     }
-  }
+    if (!entry.isFile() || !entry.name.endsWith('.mdx')) continue;
 
-  walk(postsDir);
-  return map;
+    const baseName = entry.name.replace(/\.mdx$/, '');
+    const slugParts = baseName === 'article' ? segments : [...segments, baseName];
+    if (slugParts.length === 0) continue;
+    const slug = slugParts.join('-');
+
+    const fileContents = readFileSync(full, 'utf8');
+    const { data } = matter(fileContents);
+
+    // src/lib/docs.ts::getDocMeta() と同じ公開フィルタ
+    if (data.published === false) continue;
+
+    const mtime = statSync(full).mtime;
+    const lastmod = parseFrontmatterDate(data, mtime);
+
+    results.push({ slug, lastmod, category: data.category });
+  }
+  return results;
 }
 
-// ---- priority / changefreq ロジック ---------------------------------
-
+// ---- priority / changefreq 割り当て -------------------------------
 function getUrlMeta(urlPath, slug) {
   if (urlPath === '/') {
     return { priority: '1.0', changefreq: 'weekly' };
   }
-  if (urlPath === '/about' || urlPath === '/privacy') {
+  if (urlPath === '/about' || urlPath === '/privacy' || urlPath === '/terms' || urlPath === '/contact') {
     return { priority: '0.3', changefreq: 'yearly' };
   }
   if (urlPath.startsWith('/category/')) {
     return { priority: '0.9', changefreq: 'weekly' };
   }
-  if (urlPath === '/search') {
-    return null; // サイトマップから除外
+  if (urlPath === '/search' || urlPath === '/_not-found') {
+    return null;
   }
 
-  // /docs/ 配下はslugパターンで分類
   if (slug) {
-    // 試験ガイド・テキスト（最重要コンテンツ）
     if (slug.includes('-guide-') || slug.includes('-textbook-')) {
       return { priority: '0.8', changefreq: 'monthly' };
     }
-    // 過去問（内容変化なし）
     if (
       slug.includes('-primary-') ||
       slug.includes('-secondary-') ||
@@ -84,35 +103,33 @@ function getUrlMeta(urlPath, slug) {
     ) {
       return { priority: '0.7', changefreq: 'yearly' };
     }
-    // PEセクション別解説
     if (slug.includes('section-')) {
       return { priority: '0.7', changefreq: 'monthly' };
     }
-    // PE過去問
     if (/pe-comprehensive-management-r\d+-(primary|secondary)/.test(slug)) {
       return { priority: '0.7', changefreq: 'yearly' };
     }
-    // キーワード2026全文
     if (slug.includes('keyword-2026')) {
       return { priority: '0.7', changefreq: 'yearly' };
     }
   }
 
-  // その他（キーワードページ等）
   return { priority: '0.6', changefreq: 'yearly' };
 }
 
-// ---- HTMLファイル収集 -----------------------------------------------
-
-function collectHtmlFiles(dir, files = []) {
-  for (const entry of readdirSync(dir)) {
-    const fullPath = join(dir, entry);
-    const stat = statSync(fullPath);
-    if (stat.isDirectory()) {
-      if (entry.startsWith('_') || entry === 'content') continue;
-      collectHtmlFiles(fullPath, files);
-    } else if (entry.endsWith('.html') && entry !== '404.html') {
-      files.push({ path: fullPath, mtime: stat.mtime });
+// ---- /out/ から静的ページ (非 /docs/) のみ収集 -----------------------
+// /docs/ は MDX ソース駆動にしたため、古いビルド残骸を sitemap から排除できる。
+function collectStaticHtmlFiles(dir, files = [], root = dir) {
+  if (!existsSync(dir)) return files;
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const name = entry.name;
+    if (name.startsWith('_')) continue;
+    if (name === 'content' || name === 'docs') continue;
+    const full = join(dir, name);
+    if (entry.isDirectory()) {
+      collectStaticHtmlFiles(full, files, root);
+    } else if (entry.isFile() && name.endsWith('.html') && name !== '404.html') {
+      files.push({ path: full, mtime: statSync(full).mtime });
     }
   }
   return files;
@@ -120,29 +137,41 @@ function collectHtmlFiles(dir, files = []) {
 
 // ---- メイン ---------------------------------------------------------
 
-const dateMap = buildDateMap(POSTS_DIR);
-const files = collectHtmlFiles(OUT_DIR);
+const excludedSlugs = parseRedirectedDocSlugs();
+const mdxDocs = walkMdxFiles(POSTS_DIR).filter((d) => !excludedSlugs.has(d.slug));
 
-const urls = files.map(({ path, mtime }) => {
+const urls = [];
+
+// 静的ページ (/, /about, /contact, /terms, /privacy, /category/*)
+for (const { path, mtime } of collectStaticHtmlFiles(OUT_DIR)) {
   let urlPath = '/' + relative(OUT_DIR, path).replace(/\.html$/, '').replace(/\/index$/, '');
   if (urlPath === '/index') urlPath = '/';
-  if (urlPath === '/_not-found') return null;
+  const meta = getUrlMeta(urlPath, null);
+  if (!meta) continue;
+  urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod: mtime.toISOString(), ...meta });
+}
 
-  // slugを抽出（/docs/{slug} → slug）
-  const slug = urlPath.startsWith('/docs/') ? urlPath.slice('/docs/'.length) : null;
-
+// /docs/ は MDX ソースから生成
+for (const { slug, lastmod } of mdxDocs) {
+  const urlPath = `/docs/${slug}`;
   const meta = getUrlMeta(urlPath, slug);
-  if (!meta) return null; // 除外ページ
+  if (!meta) continue;
+  urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod: lastmod.toISOString(), ...meta });
+}
 
-  // lastmod: MDXの日付 > HTMLのmtime（ビルド時刻）
-  const lastmod = (slug && dateMap.get(slug)) ?? mtime;
-
-  return { loc: `${SITE_URL}${urlPath}`, lastmod: lastmod.toISOString(), ...meta };
-}).filter(Boolean).sort((a, b) => a.loc.localeCompare(b.loc));
+// 重複排除 (loc で一意) + ソート
+const seen = new Set();
+const unique = [];
+for (const u of urls) {
+  if (seen.has(u.loc)) continue;
+  seen.add(u.loc);
+  unique.push(u);
+}
+unique.sort((a, b) => a.loc.localeCompare(b.loc));
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${urls.map(u => `<url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
+${unique.map((u) => `<url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
 </urlset>`;
 
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), sitemap);
@@ -154,10 +183,13 @@ Sitemap: ${SITE_URL}/sitemap.xml
 `;
 writeFileSync(join(OUT_DIR, 'robots.txt'), robots);
 
-// priority分布のサマリを出力
+// サマリ出力
 const pCount = {};
-for (const u of urls) pCount[u.priority] = (pCount[u.priority] ?? 0) + 1;
+for (const u of unique) pCount[u.priority] = (pCount[u.priority] ?? 0) + 1;
 const summary = Object.entries(pCount).sort().map(([p, n]) => `${p}: ${n}件`).join(', ');
 
-console.log(`✅ Generated sitemap.xml with ${urls.length} URLs`);
+console.log(`✅ Generated sitemap.xml with ${unique.length} URLs`);
 console.log(`   priority: ${summary}`);
+if (excludedSlugs.size > 0) {
+  console.log(`   excluded (via _redirects): ${excludedSlugs.size}件 — ${Array.from(excludedSlugs).join(', ')}`);
+}

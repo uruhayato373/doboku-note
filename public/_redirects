@@ -1,7 +1,15 @@
+# NOTE: これらのルールは Cloudflare Pages (apex: doboku-note.com) 上でのみ適用される。
+# 旧サブドメイン www.doboku-note.com / ww7.doboku-note.com は別サーバーへ向いていたため、
+# 2026-04-13 に DNS を Cloudflare 配下へ切替済み。切替後はこれらのサブドメイン経由でも
+# 本ルールが有効になる。
+
 # 壊れたURL → 正しいURLへリダイレクト
 /category/pe-comprehe%20nsive-management /category/pe-comprehensive-management 301
 
 # 重複キーワード統合: 社会的受容（PA）の2ページを1ページに統合（2026-04-13）
+# NOTE: Cloudflare Pages は物理 HTML ファイルを _redirects より優先するため、
+# `/out/docs/pe-comprehensive-management-public-acceptance-comm.html` が存在しないことが前提。
+# 本ルール追加と同時に MDX ソースを削除し、build 時に `rm -rf out` を実行するようにした。
 /docs/pe-comprehensive-management-public-acceptance-comm /docs/pe-comprehensive-management-public-acceptance 301
 
 # 削除済みコンテンツ → トップページ（301 Moved Permanently）
