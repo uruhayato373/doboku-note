@@ -1,0 +1,31 @@
+  <svg viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:380px;width:100%">
+    <defs>
+      <marker id="a4" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#333"/></marker>
+    </defs>
+    <!-- 軸 -->
+    <line x1="55" y1="240" x2="340" y2="240" stroke="#333" stroke-width="2" marker-end="url(#a4)"/>
+    <line x1="55" y1="240" x2="55" y2="18" stroke="#333" stroke-width="2" marker-end="url(#a4)"/>
+    <text x="210" y="260" text-anchor="middle" fill="#333" font-size="12">売上高</text>
+    <text x="24" y="130" text-anchor="middle" fill="#333" font-size="12" transform="rotate(-90,24,130)">費用・収益</text>
+    <!-- 固定費（水平） -->
+    <line x1="55" y1="195" x2="325" y2="195" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+    <text x="330" y="198" fill="#777" font-size="10">固定費</text>
+    <!-- 総費用ライン -->
+    <line x1="55" y1="195" x2="300" y2="80" stroke="#555" stroke-width="2"/>
+    <text x="305" y="80" fill="#444" font-size="10">総費用</text>
+    <text x="305" y="91" fill="#444" font-size="10">（変動費</text>
+    <text x="305" y="102" fill="#444" font-size="10">＋固定費）</text>
+    <!-- 売上高ライン -->
+    <line x1="55" y1="240" x2="300" y2="48" stroke="#222" stroke-width="2.5"/>
+    <text x="305" y="50" fill="#222" font-size="10">売上高</text>
+    <!-- 損益分岐点 -->
+    <circle cx="175" cy="162" r="5" fill="#444"/>
+    <line x1="175" y1="162" x2="175" y2="240" stroke="#666" stroke-width="1.2" stroke-dasharray="4,3"/>
+    <text x="175" y="255" text-anchor="middle" fill="#444" font-size="9">損益分岐点売上高</text>
+    <!-- ラベル -->
+    <text x="240" y="110" fill="#333" font-size="13" font-weight="bold">利益</text>
+    <text x="100" y="220" fill="#333" font-size="13" font-weight="bold">損失</text>
+    <!-- 区分ラベル -->
+    <text x="100" y="230" fill="#888" font-size="9">変動費</text>
+    <text x="100" y="202" fill="#888" font-size="9">固定費</text>
+  </svg>

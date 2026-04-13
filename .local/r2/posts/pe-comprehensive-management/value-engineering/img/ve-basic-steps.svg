@@ -1,0 +1,30 @@
+  <svg viewBox="0 0 420 110" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:420px;width:100%">
+    <defs>
+      <marker id="a2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4 z" fill="#444"/></marker>
+    </defs>
+    <!-- Box1: 機能定義 -->
+    <rect x="8" y="8" width="108" height="92" rx="6" fill="#444" stroke="#222"/>
+    <text x="62" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">機能定義</text>
+    <line x1="20" y1="36" x2="104" y2="36" stroke="#aaa" stroke-width="0.8"/>
+    <text x="62" y="50" text-anchor="middle" fill="#ddd" font-size="10">・VE対象の情報収集</text>
+    <text x="62" y="64" text-anchor="middle" fill="#ddd" font-size="10">・機能の定義</text>
+    <text x="62" y="78" text-anchor="middle" fill="#ddd" font-size="10">・機能の整理</text>
+    <!-- 矢印 -->
+    <line x1="116" y1="54" x2="152" y2="54" stroke="#444" stroke-width="2" marker-end="url(#a2)"/>
+    <!-- Box2: 機能評価 -->
+    <rect x="152" y="8" width="108" height="92" rx="6" fill="#555" stroke="#333"/>
+    <text x="206" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">機能評価</text>
+    <line x1="164" y1="36" x2="248" y2="36" stroke="#aaa" stroke-width="0.8"/>
+    <text x="206" y="50" text-anchor="middle" fill="#ddd" font-size="10">・機能別コスト分析</text>
+    <text x="206" y="64" text-anchor="middle" fill="#ddd" font-size="10">・機能の評価</text>
+    <text x="206" y="78" text-anchor="middle" fill="#ddd" font-size="10">・対象分野の選定</text>
+    <!-- 矢印 -->
+    <line x1="260" y1="54" x2="296" y2="54" stroke="#444" stroke-width="2" marker-end="url(#a2)"/>
+    <!-- Box3: 代替案作成 -->
+    <rect x="296" y="8" width="116" height="92" rx="6" fill="#666" stroke="#444"/>
+    <text x="354" y="30" text-anchor="middle" fill="white" font-size="12" font-weight="bold">代替案作成</text>
+    <line x1="308" y1="36" x2="400" y2="36" stroke="#aaa" stroke-width="0.8"/>
+    <text x="354" y="50" text-anchor="middle" fill="#ddd" font-size="10">・アイデア評価</text>
+    <text x="354" y="64" text-anchor="middle" fill="#ddd" font-size="10">・概略評価・具体化</text>
+    <text x="354" y="78" text-anchor="middle" fill="#ddd" font-size="10">・詳細評価</text>
+  </svg>

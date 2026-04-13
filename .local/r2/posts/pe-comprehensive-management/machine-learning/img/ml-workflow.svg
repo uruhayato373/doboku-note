@@ -1,0 +1,96 @@
+  <svg viewBox="0 0 560 340" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:560px;width:100%">
+    <defs>
+      <marker id="arrML" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#555"/></marker>
+    </defs>
+
+    <!-- === 学習のプロセス（上段）=== -->
+    <text x="200" y="18" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">学習のプロセス</text>
+
+    <!-- ①学習用データの収集 -->
+    <rect x="10" y="26" width="110" height="52" rx="5" fill="#555" stroke="#333"/>
+    <text x="65" y="46" text-anchor="middle" fill="white" font-size="10" font-weight="bold">①学習用データ</text>
+    <text x="65" y="58" text-anchor="middle" fill="white" font-size="10">の収集</text>
+    <text x="65" y="70" text-anchor="middle" fill="#ddd" font-size="9">社内で新たにデータを</text>
+    <text x="65" y="78" text-anchor="middle" fill="#ddd" font-size="9">取集して活用</text>
+
+    <line x1="120" y1="52" x2="138" y2="52" stroke="#555" stroke-width="1.5" marker-end="url(#arrML)"/>
+
+    <!-- ②学習用データの加工・前処理 -->
+    <rect x="138" y="26" width="110" height="52" rx="5" fill="#555" stroke="#333"/>
+    <text x="193" y="40" text-anchor="middle" fill="white" font-size="10" font-weight="bold">②学習用データの</text>
+    <text x="193" y="52" text-anchor="middle" fill="white" font-size="10">加工（前処理）</text>
+    <text x="193" y="64" text-anchor="middle" fill="#ddd" font-size="9">クレンジング</text>
+    <text x="193" y="75" text-anchor="middle" fill="#ddd" font-size="9">ノイズ除去等</text>
+
+    <line x1="248" y1="52" x2="266" y2="52" stroke="#555" stroke-width="1.5" marker-end="url(#arrML)"/>
+
+    <!-- ③学習の実施 -->
+    <rect x="266" y="14" width="110" height="76" rx="5" fill="#444" stroke="#222"/>
+    <text x="321" y="34" text-anchor="middle" fill="white" font-size="10" font-weight="bold">③学習の実施</text>
+    <text x="321" y="48" text-anchor="middle" fill="#eee" font-size="9">パターン・</text>
+    <text x="321" y="60" text-anchor="middle" fill="#eee" font-size="9">ルールを作成</text>
+    <rect x="280" y="64" width="82" height="20" rx="3" fill="#666" stroke="#888"/>
+    <text x="321" y="78" text-anchor="middle" fill="white" font-size="9">学習済みモデルの作成</text>
+
+    <line x1="376" y1="52" x2="394" y2="52" stroke="#555" stroke-width="1.5" marker-end="url(#arrML)"/>
+
+    <!-- ④結果の活用 -->
+    <rect x="394" y="26" width="110" height="52" rx="5" fill="#666" stroke="#444"/>
+    <text x="449" y="42" text-anchor="middle" fill="white" font-size="10" font-weight="bold">④結果の活用</text>
+    <text x="449" y="56" text-anchor="middle" fill="#ddd" font-size="9">業務の自動化・効率化</text>
+    <text x="449" y="67" text-anchor="middle" fill="#ddd" font-size="9">既存サービスの高度化</text>
+    <text x="449" y="78" text-anchor="middle" fill="#ddd" font-size="9">新サービスの開発</text>
+
+    <!-- 区切り線 -->
+    <line x1="10" y1="100" x2="550" y2="100" stroke="#aaa" stroke-width="1" stroke-dasharray="5,4"/>
+
+    <!-- === 推論のプロセス（下段）=== -->
+    <text x="200" y="120" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">推論のプロセス</text>
+
+    <!-- ①推論用データの収集 -->
+    <rect x="10" y="128" width="110" height="52" rx="5" fill="#666" stroke="#444"/>
+    <text x="65" y="148" text-anchor="middle" fill="white" font-size="10" font-weight="bold">①推論用データ</text>
+    <text x="65" y="160" text-anchor="middle" fill="white" font-size="10">の収集</text>
+    <text x="65" y="172" text-anchor="middle" fill="#ddd" font-size="9">外部データ（有料・無料）</text>
+    <text x="65" y="180" text-anchor="middle" fill="#ddd" font-size="9">の活用</text>
+
+    <line x1="120" y1="154" x2="138" y2="154" stroke="#555" stroke-width="1.5" marker-end="url(#arrML)"/>
+
+    <!-- ②推論用データの加工・前処理 -->
+    <rect x="138" y="128" width="110" height="52" rx="5" fill="#666" stroke="#444"/>
+    <text x="193" y="142" text-anchor="middle" fill="white" font-size="10" font-weight="bold">②推論用データの</text>
+    <text x="193" y="154" text-anchor="middle" fill="white" font-size="10">加工（前処理）</text>
+    <text x="193" y="166" text-anchor="middle" fill="#ddd" font-size="9">クレンジング</text>
+    <text x="193" y="177" text-anchor="middle" fill="#ddd" font-size="9">ノイズ除去等</text>
+
+    <line x1="248" y1="154" x2="266" y2="154" stroke="#555" stroke-width="1.5" marker-end="url(#arrML)"/>
+
+    <!-- ③推論の実施 -->
+    <rect x="266" y="116" width="110" height="76" rx="5" fill="#555" stroke="#333"/>
+    <text x="321" y="136" text-anchor="middle" fill="white" font-size="10" font-weight="bold">③推論の実施</text>
+    <text x="321" y="150" text-anchor="middle" fill="#eee" font-size="9">学習済みモデルを利用</text>
+    <text x="321" y="164" text-anchor="middle" fill="#eee" font-size="9">パターン・ルールを</text>
+    <text x="321" y="175" text-anchor="middle" fill="#eee" font-size="9">当てはめ・識別・予測</text>
+
+    <line x1="376" y1="154" x2="394" y2="154" stroke="#555" stroke-width="1.5" marker-end="url(#arrML)"/>
+
+    <!-- ④結果の活用 -->
+    <rect x="394" y="128" width="110" height="52" rx="5" fill="#777" stroke="#555"/>
+    <text x="449" y="148" text-anchor="middle" fill="white" font-size="10" font-weight="bold">④結果の活用</text>
+    <text x="449" y="163" text-anchor="middle" fill="#ddd" font-size="9">業務への適用</text>
+
+    <!-- 上から学習済みモデルを共有する矢印 -->
+    <line x1="321" y1="90" x2="321" y2="116" stroke="#888" stroke-width="1.5" marker-end="url(#arrML)" stroke-dasharray="4,3"/>
+    <text x="335" y="106" fill="#777" font-size="9">学習済みモデルを活用</text>
+
+    <!-- AI/ML/DL 同心円 -->
+    <text x="490" y="200" text-anchor="middle" fill="#222" font-weight="bold" font-size="11">AI の包含関係</text>
+    <circle cx="490" cy="248" r="72" fill="none" stroke="#888" stroke-width="2"/>
+    <text x="490" y="176" text-anchor="middle" fill="#555" font-size="10">AI（Artificial Intelligence）</text>
+    <circle cx="490" cy="260" r="50" fill="none" stroke="#777" stroke-width="2"/>
+    <text x="490" y="215" text-anchor="middle" fill="#555" font-size="10">機械学習</text>
+    <text x="490" y="226" text-anchor="middle" fill="#555" font-size="9">ML: Machine Learning</text>
+    <circle cx="490" cy="270" r="28" fill="#666" stroke="#444" stroke-width="2"/>
+    <text x="490" y="265" text-anchor="middle" fill="white" font-size="9">深層学習</text>
+    <text x="490" y="277" text-anchor="middle" fill="white" font-size="9">DL: Deep Learning</text>
+  </svg>

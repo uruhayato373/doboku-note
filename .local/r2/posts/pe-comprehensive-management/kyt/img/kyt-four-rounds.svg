@@ -1,0 +1,45 @@
+  <svg viewBox="0 0 440 185" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:440px;width:100%">
+    <!-- ヘッダー -->
+    <rect x="10" y="10" width="80" height="30" rx="3" fill="#444" stroke="#222"/>
+    <text x="50" y="29" text-anchor="middle" fill="white" font-weight="bold" font-size="12">ラウンド</text>
+    <rect x="95" y="10" width="120" height="30" rx="3" fill="#555" stroke="#333"/>
+    <text x="155" y="29" text-anchor="middle" fill="white" font-weight="bold" font-size="12">手</text>
+    <rect x="220" y="10" width="210" height="30" rx="3" fill="#555" stroke="#333"/>
+    <text x="325" y="29" text-anchor="middle" fill="white" font-weight="bold" font-size="12">どんな危険が潜んでいるか</text>
+
+    <!-- 1ラウンド -->
+    <rect x="10" y="44" width="80" height="32" fill="#dde" stroke="#aab"/>
+    <text x="50" y="58" text-anchor="middle" fill="#222" font-size="11">1ラウンド</text>
+    <text x="50" y="70" text-anchor="middle" fill="#444" font-size="10">現状把握</text>
+    <rect x="95" y="44" width="120" height="32" fill="#eef" stroke="#ccd"/>
+    <text x="155" y="64" text-anchor="middle" fill="#333" font-size="11">現状把握</text>
+    <rect x="220" y="44" width="210" height="32" fill="#eef" stroke="#ccd"/>
+    <text x="325" y="64" text-anchor="middle" fill="#333" font-size="11">どんな危険が潜んでいるか</text>
+
+    <!-- 2ラウンド -->
+    <rect x="10" y="80" width="80" height="32" fill="#dde" stroke="#aab"/>
+    <text x="50" y="94" text-anchor="middle" fill="#222" font-size="11">2ラウンド</text>
+    <text x="50" y="106" text-anchor="middle" fill="#444" font-size="10">本質追及</text>
+    <rect x="95" y="80" width="120" height="32" fill="#eef" stroke="#ccd"/>
+    <text x="155" y="100" text-anchor="middle" fill="#333" font-size="11">本質追及</text>
+    <rect x="220" y="80" width="210" height="32" fill="#eef" stroke="#ccd"/>
+    <text x="325" y="100" text-anchor="middle" fill="#333" font-size="11">これが危険のポイントだ</text>
+
+    <!-- 3ラウンド -->
+    <rect x="10" y="116" width="80" height="32" fill="#dde" stroke="#aab"/>
+    <text x="50" y="130" text-anchor="middle" fill="#222" font-size="11">3ラウンド</text>
+    <text x="50" y="142" text-anchor="middle" fill="#444" font-size="10">対策樹立</text>
+    <rect x="95" y="116" width="120" height="32" fill="#eef" stroke="#ccd"/>
+    <text x="155" y="136" text-anchor="middle" fill="#333" font-size="11">対策樹立</text>
+    <rect x="220" y="116" width="210" height="32" fill="#eef" stroke="#ccd"/>
+    <text x="325" y="136" text-anchor="middle" fill="#333" font-size="11">あなたならどうする</text>
+
+    <!-- 4ラウンド -->
+    <rect x="10" y="152" width="80" height="30" fill="#aac" stroke="#889"/>
+    <text x="50" y="166" text-anchor="middle" fill="white" font-size="11" font-weight="bold">4ラウンド</text>
+    <text x="50" y="178" text-anchor="middle" fill="#dde" font-size="10">目標設定</text>
+    <rect x="95" y="152" width="120" height="30" fill="#ccf" stroke="#aab"/>
+    <text x="155" y="171" text-anchor="middle" fill="#222" font-weight="bold" font-size="11">目標設定</text>
+    <rect x="220" y="152" width="210" height="30" fill="#ccf" stroke="#aab"/>
+    <text x="325" y="171" text-anchor="middle" fill="#222" font-weight="bold" font-size="11">私たちはこうする</text>
+  </svg>

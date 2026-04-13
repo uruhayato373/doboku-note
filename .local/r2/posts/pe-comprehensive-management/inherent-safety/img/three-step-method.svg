@@ -1,0 +1,40 @@
+  <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:480px;width:100%">
+    <defs>
+      <marker id="ar2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#555"/></marker>
+    </defs>
+
+    <!-- 縦軸ラベル -->
+    <text x="24" y="90" text-anchor="middle" fill="#444" font-size="11" transform="rotate(-90,24,160)">保護方策</text>
+
+    <!-- ステップ1 本質的安全設計方策 -->
+    <rect x="50" y="20" width="400" height="70" rx="6" fill="#444" stroke="#222"/>
+    <text x="60" y="42" fill="white" font-size="13" font-weight="bold">1</text>
+    <text x="250" y="42" text-anchor="middle" fill="white" font-size="13" font-weight="bold">本質的安全設計方策</text>
+    <text x="250" y="60" text-anchor="middle" fill="#ddd" font-size="10">設計的配置・形状、動作・自動化</text>
+    <text x="250" y="72" text-anchor="middle" fill="#ddd" font-size="10">接近不可能・接近抑制・固定不変</text>
+    <text x="60" y="85" fill="#aaa" font-size="9">優先度：最高（危険源の除去・低減）</text>
+
+    <line x1="250" y1="90" x2="250" y2="108" stroke="#666" stroke-width="1.5" marker-end="url(#ar2)"/>
+
+    <!-- ステップ2 安全防護および付加保護方策 -->
+    <rect x="50" y="108" width="400" height="78" rx="6" fill="#555" stroke="#333"/>
+    <text x="60" y="130" fill="white" font-size="13" font-weight="bold">2</text>
+    <text x="250" y="130" text-anchor="middle" fill="white" font-size="13" font-weight="bold">安全防護および付加保護方策</text>
+    <text x="250" y="148" text-anchor="middle" fill="#ddd" font-size="10">固定式ガード・可動ガード・保護装置</text>
+    <text x="250" y="160" text-anchor="middle" fill="#ddd" font-size="10">非常停止装置・非常停止（開口部あり）</text>
+    <text x="250" y="172" text-anchor="middle" fill="#ddd" font-size="10">エネルギー遮去・ロックアウト</text>
+    <text x="60" y="182" fill="#aaa" font-size="9">優先度：中（ガードや保護装置による防護）</text>
+
+    <line x1="250" y1="186" x2="250" y2="204" stroke="#666" stroke-width="1.5" marker-end="url(#ar2)"/>
+
+    <!-- ステップ3 使用上の情報 -->
+    <rect x="50" y="204" width="400" height="78" rx="6" fill="#666" stroke="#444"/>
+    <text x="60" y="226" fill="white" font-size="13" font-weight="bold">3</text>
+    <text x="250" y="226" text-anchor="middle" fill="white" font-size="13" font-weight="bold">使用上の情報</text>
+    <text x="250" y="244" text-anchor="middle" fill="#ddd" font-size="10">取説・警告ラベル・警告信号・保護具</text>
+    <text x="250" y="256" text-anchor="middle" fill="#ddd" font-size="10">環境、管理・教育・訓練</text>
+    <text x="250" y="268" text-anchor="middle" fill="#ddd" font-size="10">（機械の上を使者など、F は使用者が実施する）</text>
+    <text x="60" y="278" fill="#aaa" font-size="9">優先度：最低（人の行動・注意に依存）</text>
+
+    <text x="250" y="312" text-anchor="middle" fill="#666" font-size="10">出典：厚生労働省ホームページ</text>
+  </svg>

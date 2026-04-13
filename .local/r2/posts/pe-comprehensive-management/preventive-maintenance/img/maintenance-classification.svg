@@ -1,0 +1,29 @@
+  <svg viewBox="0 0 430 200" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:430px;width:100%">
+    <!-- ヘッダー -->
+    <rect x="10" y="10" width="60" height="30" rx="2" fill="#333" stroke="#111"/>
+    <text x="40" y="30" text-anchor="middle" fill="white" font-size="11">選択肢</text>
+    <rect x="75" y="10" width="160" height="30" rx="2" fill="#444" stroke="#222"/>
+    <text x="155" y="30" text-anchor="middle" fill="white" font-size="11">維持活動</text>
+    <rect x="240" y="10" width="180" height="30" rx="2" fill="#666" stroke="#333"/>
+    <text x="330" y="30" text-anchor="middle" fill="white" font-size="11">改善活動</text>
+    <!-- 行 -->
+    <rect x="10" y="40" width="60" height="28" fill="#eee" stroke="#ccc"/><text x="40" y="58" text-anchor="middle" fill="#222" font-size="11">①</text>
+    <rect x="75" y="40" width="160" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="155" y="58" text-anchor="middle" fill="#333" font-size="11">予知保全・改良保全</text>
+    <rect x="240" y="40" width="180" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="330" y="58" text-anchor="middle" fill="#333" font-size="11">定期保全・事後保全</text>
+
+    <rect x="10" y="68" width="60" height="28" fill="#eee" stroke="#ccc"/><text x="40" y="86" text-anchor="middle" fill="#222" font-size="11">②</text>
+    <rect x="75" y="68" width="160" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="155" y="86" text-anchor="middle" fill="#333" font-size="11">定期保全・予知保全</text>
+    <rect x="240" y="68" width="180" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="330" y="86" text-anchor="middle" fill="#333" font-size="11">改良保全・保全予防</text>
+
+    <rect x="10" y="96" width="60" height="28" fill="#444" stroke="#222"/><text x="40" y="114" text-anchor="middle" fill="white" font-size="11" font-weight="bold">③</text>
+    <rect x="75" y="96" width="160" height="28" fill="#dde" stroke="#aab"/><text x="155" y="114" text-anchor="middle" fill="#222" font-size="11" font-weight="bold">事後保全・改良保全</text>
+    <rect x="240" y="96" width="180" height="28" fill="#dde" stroke="#aab"/><text x="330" y="114" text-anchor="middle" fill="#222" font-size="11" font-weight="bold">定期保全・予防保全</text>
+
+    <rect x="10" y="124" width="60" height="28" fill="#eee" stroke="#ccc"/><text x="40" y="142" text-anchor="middle" fill="#222" font-size="11">④</text>
+    <rect x="75" y="124" width="160" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="155" y="142" text-anchor="middle" fill="#333" font-size="11">改良保全・予知保全</text>
+    <rect x="240" y="124" width="180" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="330" y="142" text-anchor="middle" fill="#333" font-size="11">改良保全・事後保全</text>
+
+    <rect x="10" y="152" width="60" height="28" fill="#eee" stroke="#ccc"/><text x="40" y="170" text-anchor="middle" fill="#222" font-size="11">⑤</text>
+    <rect x="75" y="152" width="160" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="155" y="170" text-anchor="middle" fill="#333" font-size="11">予防保全・事後保全</text>
+    <rect x="240" y="152" width="180" height="28" fill="#f5f5f5" stroke="#ccc"/><text x="330" y="170" text-anchor="middle" fill="#333" font-size="11">改良保全・予知保全</text>
+  </svg>

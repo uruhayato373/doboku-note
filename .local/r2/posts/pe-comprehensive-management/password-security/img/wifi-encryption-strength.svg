@@ -1,0 +1,49 @@
+  <svg viewBox="0 0 480 200" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:480px;width:100%">
+    <!-- 表ヘッダー -->
+    <rect x="10" y="10" width="220" height="30" rx="3" fill="#444" stroke="#222"/>
+    <text x="120" y="30" text-anchor="middle" fill="white" font-weight="bold" font-size="12">アクセスポイントの暗号化利用状況</text>
+    <rect x="235" y="10" width="100" height="30" rx="3" fill="#555" stroke="#333"/>
+    <text x="285" y="30" text-anchor="middle" fill="white" font-size="11">錠マーク</text>
+    <rect x="340" y="10" width="130" height="30" rx="3" fill="#555" stroke="#333"/>
+    <text x="405" y="30" text-anchor="middle" fill="white" font-size="11">錠マークなし</text>
+
+    <!-- WPA2行 -->
+    <rect x="10" y="45" width="220" height="38" fill="#dde" stroke="#aab"/>
+    <text x="120" y="60" text-anchor="middle" fill="#222" font-weight="bold" font-size="11">WPA2（強い・現在推奨）</text>
+    <text x="120" y="75" text-anchor="middle" fill="#444" font-size="10">「不正・暗号化強度が最も高い」</text>
+    <rect x="235" y="45" width="100" height="38" fill="#cce" stroke="#aab"/>
+    <text x="285" y="68" text-anchor="middle" fill="#222" font-size="20">[鍵]</text>
+    <rect x="340" y="45" width="130" height="38" fill="#eee" stroke="#ccc"/>
+    <text x="405" y="68" text-anchor="middle" fill="#888" font-size="11">—</text>
+
+    <!-- WPA行 -->
+    <rect x="10" y="88" width="220" height="38" fill="#eed" stroke="#bba"/>
+    <text x="120" y="103" text-anchor="middle" fill="#222" font-size="11">WPA（中程度）</text>
+    <text x="120" y="117" text-anchor="middle" fill="#555" font-size="10">「WPAで保護」と表示※</text>
+    <rect x="235" y="88" width="100" height="38" fill="#ddc" stroke="#bba"/>
+    <text x="285" y="111" text-anchor="middle" fill="#222" font-size="20">[鍵]</text>
+    <rect x="340" y="88" width="130" height="38" fill="#eee" stroke="#ccc"/>
+    <text x="405" y="111" text-anchor="middle" fill="#888" font-size="11">—</text>
+
+    <!-- WEP行 -->
+    <rect x="10" y="131" width="220" height="38" fill="#fee" stroke="#caa"/>
+    <text x="120" y="146" text-anchor="middle" fill="#800" font-weight="bold" font-size="11">WEP（弱い・非推奨）</text>
+    <text x="120" y="160" text-anchor="middle" fill="#a00" font-size="10">「WEPで保護」と表示※</text>
+    <rect x="235" y="131" width="100" height="38" fill="#edd" stroke="#caa"/>
+    <text x="285" y="154" text-anchor="middle" fill="#800" font-size="20">[鍵]</text>
+    <rect x="340" y="131" width="130" height="38" fill="#eee" stroke="#ccc"/>
+    <text x="405" y="154" text-anchor="middle" fill="#888" font-size="11">—</text>
+
+    <!-- 暗号化なし行 -->
+    <rect x="10" y="174" width="220" height="22" fill="#fdd" stroke="#daa"/>
+    <text x="120" y="189" text-anchor="middle" fill="#a00" font-weight="bold" font-size="11">暗号化なし（危険）</text>
+    <rect x="235" y="174" width="100" height="22" fill="#eee" stroke="#ccc"/>
+    <text x="285" y="189" text-anchor="middle" fill="#888" font-size="11">—</text>
+    <rect x="340" y="174" width="130" height="22" fill="#fdd" stroke="#daa"/>
+    <text x="405" y="189" text-anchor="middle" fill="#a00" font-size="11">錠マークなし（危険）</text>
+
+    <!-- 強度ラベル -->
+    <text x="6" y="62" text-anchor="end" fill="#555" font-size="9">強</text>
+    <text x="6" y="192" text-anchor="end" fill="#555" font-size="9">弱</text>
+    <line x1="8" y1="46" x2="8" y2="196" stroke="#aaa" stroke-width="1"/>
+  </svg>

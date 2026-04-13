@@ -1,0 +1,54 @@
+  <svg viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:440px;width:100%">
+    <defs>
+      <marker id="arrS" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#555"/></marker>
+    </defs>
+
+    <!-- 事故の型（最上部） -->
+    <rect x="155" y="10" width="130" height="34" rx="4" fill="#444" stroke="#222"/>
+    <text x="220" y="32" text-anchor="middle" fill="white" font-weight="bold" font-size="13">事故の型</text>
+
+    <!-- 不安全状態 → 事故 -->
+    <line x1="220" y1="44" x2="220" y2="72" stroke="#555" stroke-width="2" marker-end="url(#arrS)"/>
+
+    <!-- 人と物（機械・設備等）ボックス -->
+    <rect x="80" y="72" width="280" height="36" rx="4" fill="#555" stroke="#333"/>
+    <text x="220" y="87" text-anchor="middle" fill="white" font-size="12">人・物（機械・設備等）</text>
+    <text x="220" y="100" text-anchor="middle" fill="#ddd" font-size="10">環境</text>
+
+    <line x1="220" y1="108" x2="220" y2="130" stroke="#555" stroke-width="2" marker-end="url(#arrS)"/>
+
+    <!-- 不安全状態ボックス -->
+    <rect x="10" y="130" width="185" height="36" rx="4" fill="#777" stroke="#555"/>
+    <text x="103" y="144" text-anchor="middle" fill="white" font-size="11">不安全な状態</text>
+    <text x="103" y="158" text-anchor="middle" fill="#ddd" font-size="9">（安全衛生管理上の欠陥）</text>
+
+    <!-- 不安全行動ボックス -->
+    <rect x="245" y="130" width="185" height="36" rx="4" fill="#666" stroke="#444"/>
+    <text x="337" y="144" text-anchor="middle" fill="white" font-size="11">不安全な行動</text>
+    <text x="337" y="158" text-anchor="middle" fill="#ddd" font-size="9">（労働者の行動）</text>
+
+    <line x1="103" y1="166" x2="103" y2="188" stroke="#777" stroke-width="1.5" marker-end="url(#arrS)"/>
+    <line x1="337" y1="166" x2="337" y2="188" stroke="#666" stroke-width="1.5" marker-end="url(#arrS)"/>
+
+    <!-- 統計データ（下部の円グラフ代替表示） -->
+    <text x="220" y="210" text-anchor="middle" fill="#333" font-weight="bold" font-size="12">労働災害の発生要因割合（平成26年）</text>
+
+    <!-- 棒グラフ風 -->
+    <rect x="30" y="218" width="92" height="24" rx="3" fill="#555" stroke="#333"/>
+    <text x="76" y="234" text-anchor="middle" fill="white" font-size="10">不安全行動のみ</text>
+    <text x="76" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">92.0%</text>
+
+    <rect x="140" y="218" width="80" height="24" rx="3" fill="#777" stroke="#555"/>
+    <text x="180" y="234" text-anchor="middle" fill="white" font-size="10">状態＋行動</text>
+    <text x="180" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">3.0%</text>
+
+    <rect x="238" y="218" width="90" height="24" rx="3" fill="#888" stroke="#666"/>
+    <text x="283" y="234" text-anchor="middle" fill="white" font-size="10">不安全状態のみ</text>
+    <text x="283" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">4.8%</text>
+
+    <rect x="346" y="218" width="72" height="24" rx="3" fill="#aaa" stroke="#888"/>
+    <text x="382" y="234" text-anchor="middle" fill="white" font-size="10">両方なし</text>
+    <text x="382" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">0.2%</text>
+
+    <text x="220" y="270" text-anchor="middle" fill="#666" font-size="9">出典：（一社）中小建設業特別教育協会ホームページ</text>
+  </svg>
