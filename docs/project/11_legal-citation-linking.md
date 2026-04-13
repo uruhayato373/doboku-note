@@ -155,8 +155,17 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ | 
 |---|---|---|---|
 | 2026-04-13 | 手動対応（unfair-trade-practices, portrait-publicity-privacy） | 7 | 約 170 |
 | 2026-04-13 | **`fix-legal-citations.mjs` 自動一斉適用** | **122 edits / 50 files** | **53 (残り30%)** |
+| 2026-04-13 | **枝番付き条文の誤リンク修正** — 17件のリンクを剥がして太字のみに | 17 edits / 15 files | 39 |
 
-## 残 53 件の内訳（手動対応必要）
+## 枝番付き条文の扱い（重要）
+
+**第38条の3 のような枝番付き条文は独立した別条文**であり、第38条へのリンクは誤り。e-Gov の枝番アンカー形式（`#Mp-At_38_3` 等の可能性）が公式に確定していないため、**枝番付き条文にはリンクを付けない**方針。
+
+- `lint-mdx-mobile.mjs` ルール 8-2 は枝番パターン（`第◯条の◯`）を検出対象外とした（negative lookahead）
+- `fix-legal-citations.mjs` も枝番パターンをスキップ
+- 誤って生成されていた 17 件の枝番誤リンクは `C:/tmp/fix-branch-article-links.mjs`（使い捨てスクリプト）で剥がし、太字のみに変換済み
+
+## 残 39 件の内訳（手動対応必要）
 
 自動スクリプトで処理できなかったパターン:
 

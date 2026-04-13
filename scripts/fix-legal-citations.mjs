@@ -123,6 +123,13 @@ function findNextCitation(line, startPos = 0) {
   const articleStart = m.index;
   const articleEnd = articleStart + m[0].length;
 
+  // 枝番（第◯条の◯）はアンカー形式が不明なのでスキップ
+  // 「第38条」の直後に「の3」「の10」等が続くパターンを検出
+  const afterArticle = line.slice(articleEnd);
+  if (/^の\s*[\d０-９]+/.test(afterArticle)) {
+    return findNextCitation(line, articleEnd);
+  }
+
   // 条文の直前に法令名があるか探す
   // 前方 20 文字以内に法令名の末尾があるはず
   const searchStart = Math.max(0, articleStart - 20);

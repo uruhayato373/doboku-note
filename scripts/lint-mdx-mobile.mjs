@@ -242,7 +242,8 @@ function lintRelatedKeywordList(lines, findings, offset) {
  */
 function lintLegalCitations(lines, findings) {
   // 法令名パターン: 「◯◯法」「憲法」「民法」「刑法」「下請法」等
-  const lawCitationRe = /([一-龥ぁ-んァ-ヶー]{1,12}法|憲法|民法|刑法|下請法)\s*第\s*[\d０-９]+\s*条(?:\s*第\s*[\d０-９]+\s*項)?/g;
+  // 枝番付き（第◯条の◯）はアンカー形式が不明なので検出対象外（末尾の「のN」を negative lookahead で除外）
+  const lawCitationRe = /([一-龥ぁ-んァ-ヶー]{1,12}法|憲法|民法|刑法|下請法)\s*第\s*[\d０-９]+\s*条(?:\s*第\s*[\d０-９]+\s*項)?(?!\s*の\s*[\d０-９])/g;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
