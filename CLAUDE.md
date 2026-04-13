@@ -12,8 +12,9 @@
   - 画像は `.local/r2/posts/{slug}/img/` に集約
 - **URL構造**: `/docs/{slug}` の完全フラット設計。category + tags でグループ化を実現
 - **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
-- **収益モデル**: AdSense + アフィリエイト + note有料記事 + iOSアプリ（サブスク）
-- **詳細**: `docs/project/01_設計思想.md`
+- **収益モデル**: AdSense + アフィリエイト + note有料記事 + **YouTube** + iOSアプリ（サブスク）
+- **中核差別化（v3・2026-04-13）**: 運営者本人が 2026-07 に技術士総監2次筆記を受験。**合格体験を note 高単価商品・YouTube・iOSアプリの3本柱で活用**
+- **詳細**: `docs/project/01_設計思想.md`, `docs/project/02_事業戦略.md`（v3）, `docs/project/05_収益化戦略.md`（v3）
 
 ## 技術スタック
 
