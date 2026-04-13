@@ -215,7 +215,7 @@ export default async function DocPage({
         <div className="max-w-[1200px] mx-auto px-[14px] zenn-tiny:px-5 zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[30px] relative">
 
           {/* Main Content Area */}
-          <main className="flex-1 min-w-0">
+          <main className="flex-1 min-w-0 py-10">
             {/* Zenn View_main: rounded 4px + 1px border + py-10 px-10 / モバイル full-bleed */}
             <article className="bg-white dark:bg-gray-800 border border-gray-200/60 dark:border-gray-700/60 rounded-[4px] py-10 px-10 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
               {/* パンくず（カード内、タイトル上）: カテゴリ名 › グループ名 */}
