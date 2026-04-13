@@ -196,8 +196,7 @@
     "1-24": {
       "heading": "Ⅱ-1-24",
       "slugs": [
-        "system-availability",
-        "availability-security"
+        "system-availability"
       ]
     },
     "1-25": {
@@ -221,7 +220,7 @@
       "heading": "Ⅱ-1-27",
       "slugs": [
         "risk-treatment",
-        "risk-evaluation",
+        "risk-assessment",
         "risk-management-system",
         "probabilistic-risk-assessment"
       ]
@@ -563,7 +562,7 @@
       "slugs": [
         "oshms",
         "risk-assessment",
-        "occupational-safety-act-osh",
+        "occupational-safety-act",
         "safety-management-system"
       ]
     },
@@ -730,7 +729,7 @@
       "heading": "II-1-6",
       "slugs": [
         "gantt-chart",
-        "process-scheduling",
+        "process-planning-construction",
         "work-planning",
         "pert-cpm"
       ]
@@ -927,7 +926,7 @@
       "heading": "II-1-28",
       "slugs": [
         "safety-and-security",
-        "risk-evaluation",
+        "risk-assessment",
         "alarp-principle",
         "residual-risk"
       ]
@@ -965,7 +964,7 @@
       "heading": "II-1-32",
       "slugs": [
         "accident-statistics",
-        "occupational-safety-act-osh",
+        "occupational-safety-act",
         "accident-cost"
       ]
     },
@@ -1799,7 +1798,7 @@
       "slugs": [
         "pert-cpm",
         "gantt-chart",
-        "process-scheduling"
+        "process-planning-construction"
       ]
     },
     "1-5": {
@@ -1814,7 +1813,6 @@
       "heading": "Ⅰ-1-6",
       "slugs": [
         "product-safety",
-        "product-safety-process",
         "product-liability",
         "design-quality"
       ]
@@ -1952,7 +1950,7 @@
         "isms-iso27001",
         "confidentiality",
         "integrity-security",
-        "availability-security"
+        "system-availability"
       ]
     },
     "1-23": {
@@ -2323,7 +2321,7 @@
       "slugs": [
         "risk-map-matrix",
         "risk-treatment",
-        "risk-evaluation",
+        "risk-assessment",
         "risk-criteria"
       ]
     },
@@ -2498,7 +2496,7 @@
       "heading": "I-1-5",
       "slugs": [
         "pert-cpm",
-        "process-scheduling",
+        "process-planning-construction",
         "master-schedule-planning"
       ]
     },
@@ -3001,7 +2999,7 @@
       "slugs": [
         "confidentiality",
         "integrity-security",
-        "availability-security",
+        "system-availability",
         "security-education",
         "encryption-digital-signature"
       ]
@@ -3063,7 +3061,7 @@
       "slugs": [
         "risk-analysis",
         "probabilistic-risk-assessment",
-        "risk-evaluation"
+        "risk-assessment"
       ]
     },
     "130": {
@@ -3195,7 +3193,7 @@
       "heading": "Ⅰ－1－4",
       "slugs": [
         "pert-cpm",
-        "process-scheduling",
+        "process-planning-construction",
         "master-schedule-planning",
         "gantt-chart"
       ]
@@ -3281,7 +3279,7 @@
         "disability-employment-act",
         "employment-statistics",
         "labor-mobility",
-        "reemployment-system-labor"
+        "reemployment-system"
       ]
     },
     "115": {
@@ -3299,8 +3297,7 @@
       "slugs": [
         "labor-standards-act",
         "flextime-system",
-        "variable-work-hours",
-        "labor-standards-act-osh"
+        "variable-work-hours"
       ]
     },
     "117": {
@@ -3371,7 +3368,7 @@
         "risk",
         "risk-management-system",
         "risk-treatment",
-        "risk-evaluation",
+        "risk-assessment",
         "risk-analysis"
       ]
     },
@@ -3706,7 +3703,7 @@
       "slugs": [
         "risk-management-system",
         "risk-analysis",
-        "risk-evaluation"
+        "risk-assessment"
       ]
     },
     "1-31": {
@@ -4025,7 +4022,7 @@
       "heading": "Ⅰ-1-26",
       "slugs": [
         "worker-dispatch-act",
-        "occupational-safety-act-osh",
+        "occupational-safety-act",
         "labor-contract-act",
         "safety-health-education"
       ]
@@ -4202,7 +4199,7 @@
         "pert-cpm",
         "progress-management",
         "gantt-chart",
-        "process-scheduling"
+        "process-planning-construction"
       ]
     },
     "1-5": {
@@ -4396,7 +4393,7 @@
       "heading": "Ⅰ-1-25",
       "slugs": [
         "consumer-safety",
-        "product-safety-process",
+        "product-safety",
         "consumer-product-safety-act",
         "product-liability-act"
       ]
@@ -4407,7 +4404,6 @@
         "risk-assessment",
         "risk-analysis",
         "inherent-safety",
-        "risk-evaluation",
         "alarp-principle"
       ]
     },
@@ -4424,7 +4420,7 @@
     "1-28": {
       "heading": "Ⅰ-1-28",
       "slugs": [
-        "occupational-safety-act-osh",
+        "occupational-safety-act",
         "safety-health-org-structure",
         "oshms",
         "safety-health-policy"
@@ -4798,7 +4794,7 @@
     "1-31": {
       "heading": "Ⅰ-1-31",
       "slugs": [
-        "occupational-safety-act-osh",
+        "occupational-safety-act",
         "safety-health-education",
         "safety-health-org-structure"
       ]
@@ -4933,7 +4929,7 @@
     "1-6": {
       "heading": "Ⅰ-1-6",
       "slugs": [
-        "process-scheduling",
+        "process-planning-construction",
         "lead-time",
         "progress-management",
         "master-schedule-planning"
@@ -5112,7 +5108,7 @@
       "slugs": [
         "risk-identification",
         "risk-analysis",
-        "risk-evaluation",
+        "risk-assessment",
         "risk-treatment",
         "risk-monitoring",
         "risk-management-system"
@@ -5142,7 +5138,6 @@
         "osh-management-system",
         "risk-assessment",
         "inherent-safety",
-        "risk-evaluation",
         "safety-management-system"
       ]
     },
@@ -5314,7 +5309,7 @@
         "pert-cpm",
         "progress-management",
         "gantt-chart",
-        "process-scheduling"
+        "process-planning-construction"
       ]
     },
     "1-7": {
@@ -5439,7 +5434,7 @@
         "isms-iso27001",
         "confidentiality",
         "integrity-security",
-        "availability-security"
+        "system-availability"
       ]
     },
     "1-20": {
@@ -5713,7 +5708,7 @@
       "slugs": [
         "pert-cpm",
         "gantt-chart",
-        "process-scheduling"
+        "process-planning-construction"
       ]
     },
     "1-9": {

@@ -142,20 +142,20 @@ grep -rn "B" src/ .local/r2/posts/pe-comprehensive-management/ --include="*.mdx"
 
 `pe-chapters.json` 全体で検出された duplicate-title ペアは以下の10組（2026-04-13 時点）。
 
-| 順 | タイトル | スラグ1 | スラグ2 | 状態 |
+| 順 | タイトル | 正規スラグ (A) | 削除スラグ (B) | 状態 |
 |---|---|---|---|---|
 | 1 | 社会的受容（PA） | public-acceptance | public-acceptance-comm | ✅ **統合済み** (2026-04-13) |
-| 2 | リスク評価 | risk-assessment | risk-evaluation | 未着手 |
-| 3 | 安全管理 | — | — | 未着手 |
-| 4 | 可用性（Availability） | — | — | 未着手 |
-| 5 | 工程計画 | process-planning-construction | — | 未着手 |
-| 6 | 再雇用制度 | reemployment-system | reemployment-system-labor | 未着手 |
-| 7 | 信頼性（Reliability） | — | — | 未着手 |
-| 8 | 製品安全 | — | — | 未着手 |
-| 9 | 労働安全衛生法 | — | — | 未着手 |
-| 10 | 労働基準法 | — | — | 未着手 |
+| 2 | リスク評価 | risk-assessment | risk-evaluation | ✅ **統合済み** (2026-04-13) |
+| 3 | 安全管理 | — | — | ⚠️ **対象外（誤検出）** — `pe-chapters.json` には `safety-control` 単一エントリのみ。id=5 は章タイトルでありキーワードではない |
+| 4 | 可用性（Availability） | system-availability | availability-security | ✅ **統合済み** (2026-04-13) |
+| 5 | 工程計画 | process-planning-construction | process-scheduling | ✅ **統合済み** (2026-04-13) |
+| 6 | 再雇用制度 | reemployment-system | reemployment-system-labor | ✅ **統合済み** (2026-04-13) |
+| 7 | 信頼性（Reliability） | system-reliability | reliability-security | ✅ **統合済み** (2026-04-13) |
+| 8 | 製品安全 | product-safety | product-safety-process | ✅ **統合済み** (2026-04-13) |
+| 9 | 労働安全衛生法 | occupational-safety-act | occupational-safety-act-osh | ✅ **統合済み** (2026-04-13) |
+| 10 | 労働基準法 | labor-standards-act | labor-standards-act-osh | ✅ **統合済み** (2026-04-13) |
 
-スラグ未調査の項目は、着手時に pe-chapters.json を grep して特定すること。
+**2026-04-13 の一括統合で全件完了**。追加の重複が見つかった場合は本表に追記すること。
 
 ## 注意点
 

@@ -553,6 +553,12 @@
       "anchor": "1-26"
     },
     {
+      "examSlug": "pe-comprehensive-management-r03-primary",
+      "year": "令和3年度",
+      "question": "Ⅰ-1-25",
+      "anchor": "1-25"
+    },
+    {
       "examSlug": "pe-comprehensive-management-r02-primary",
       "year": "令和2年度",
       "question": "Ⅰ-1-32",
@@ -3517,16 +3523,34 @@
   ],
   "system-availability": [
     {
+      "examSlug": "pe-comprehensive-management-r06-primary",
+      "year": "令和6年度",
+      "question": "Ⅰ-1-19",
+      "anchor": "1-19"
+    },
+    {
       "examSlug": "pe-comprehensive-management-r02-primary",
       "year": "令和2年度",
       "question": "Ⅰ-1-19",
       "anchor": "1-19"
     },
     {
+      "examSlug": "pe-comprehensive-management-h29-primary",
+      "year": "平成29年度",
+      "question": "Ⅰ－1－22",
+      "anchor": "122"
+    },
+    {
       "examSlug": "pe-comprehensive-management-h27-primary",
       "year": "平成27年度",
       "question": "I-1-17",
       "anchor": "i-1-17"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h26-primary",
+      "year": "平成26年度",
+      "question": "Ⅰ-1-22",
+      "anchor": "1-22"
     },
     {
       "examSlug": "pe-comprehensive-management-h24-primary",
@@ -3539,32 +3563,6 @@
       "year": "平成23年度",
       "question": "II-1-20",
       "anchor": "ii-1-20"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h21-primary",
-      "year": "平成21年度",
-      "question": "Ⅱ-1-24",
-      "anchor": "1-24"
-    }
-  ],
-  "availability-security": [
-    {
-      "examSlug": "pe-comprehensive-management-r06-primary",
-      "year": "令和6年度",
-      "question": "Ⅰ-1-19",
-      "anchor": "1-19"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h29-primary",
-      "year": "平成29年度",
-      "question": "Ⅰ－1－22",
-      "anchor": "122"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h26-primary",
-      "year": "平成26年度",
-      "question": "Ⅰ-1-22",
-      "anchor": "1-22"
     },
     {
       "examSlug": "pe-comprehensive-management-h21-primary",
@@ -3681,10 +3679,28 @@
       "anchor": "1-12"
     },
     {
+      "examSlug": "pe-comprehensive-management-r04-primary",
+      "year": "令和4年度",
+      "question": "Ⅰ-1-31",
+      "anchor": "1-31"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-r03-primary",
+      "year": "令和3年度",
+      "question": "Ⅰ-1-28",
+      "anchor": "1-28"
+    },
+    {
       "examSlug": "pe-comprehensive-management-r02-primary",
       "year": "令和2年度",
       "question": "Ⅰ-1-10",
       "anchor": "1-10"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-r02-primary",
+      "year": "令和2年度",
+      "question": "Ⅰ-1-26",
+      "anchor": "1-26"
     },
     {
       "examSlug": "pe-comprehensive-management-r01-primary",
@@ -3751,6 +3767,18 @@
       "year": "平成23年度",
       "question": "II-1-10",
       "anchor": "ii-1-10"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h23-primary",
+      "year": "平成23年度",
+      "question": "II-1-32",
+      "anchor": "ii-1-32"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h22-primary",
+      "year": "平成22年度",
+      "question": "Ⅱ-1-27",
+      "anchor": "1-27"
     },
     {
       "examSlug": "pe-comprehensive-management-h21-primary",
@@ -4087,7 +4115,7 @@
       "anchor": "1-27"
     }
   ],
-  "risk-evaluation": [
+  "risk-assessment": [
     {
       "examSlug": "pe-comprehensive-management-r05-primary",
       "year": "令和5年度",
@@ -4107,6 +4135,12 @@
       "anchor": "1-26"
     },
     {
+      "examSlug": "pe-comprehensive-management-r03-primary",
+      "year": "令和3年度",
+      "question": "Ⅰ-1-29",
+      "anchor": "1-29"
+    },
+    {
       "examSlug": "pe-comprehensive-management-r01-primary",
       "year": "令和元年度",
       "question": "Ⅰ-1-30",
@@ -4115,6 +4149,12 @@
     {
       "examSlug": "pe-comprehensive-management-h30-primary",
       "year": "平成30年度",
+      "question": "Ⅰ－1－25",
+      "anchor": "125"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h29-primary",
+      "year": "平成29年度",
       "question": "Ⅰ－1－25",
       "anchor": "125"
     },
@@ -4131,16 +4171,46 @@
       "anchor": "i-1-25"
     },
     {
+      "examSlug": "pe-comprehensive-management-h24-primary",
+      "year": "平成24年度",
+      "question": "II-1-26",
+      "anchor": "ii-1-26"
+    },
+    {
       "examSlug": "pe-comprehensive-management-h23-primary",
       "year": "平成23年度",
       "question": "II-1-28",
       "anchor": "ii-1-28"
     },
     {
+      "examSlug": "pe-comprehensive-management-h22-primary",
+      "year": "平成22年度",
+      "question": "Ⅱ-1-25",
+      "anchor": "1-25"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h22-primary",
+      "year": "平成22年度",
+      "question": "Ⅱ-1-27",
+      "anchor": "1-27"
+    },
+    {
       "examSlug": "pe-comprehensive-management-h21-primary",
       "year": "平成21年度",
       "question": "Ⅱ-1-27",
       "anchor": "1-27"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h21-primary",
+      "year": "平成21年度",
+      "question": "Ⅱ-1-30",
+      "anchor": "1-30"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h21-primary",
+      "year": "平成21年度",
+      "question": "Ⅱ-1-32",
+      "anchor": "1-32"
     }
   ],
   "risk-management-system": [
@@ -4569,62 +4639,6 @@
       "year": "平成21年度",
       "question": "Ⅱ-1-30",
       "anchor": "1-30"
-    }
-  ],
-  "risk-assessment": [
-    {
-      "examSlug": "pe-comprehensive-management-r05-primary",
-      "year": "令和5年度",
-      "question": "Ⅰ-1-28",
-      "anchor": "1-28"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-r03-primary",
-      "year": "令和3年度",
-      "question": "Ⅰ-1-26",
-      "anchor": "1-26"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-r03-primary",
-      "year": "令和3年度",
-      "question": "Ⅰ-1-29",
-      "anchor": "1-29"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h29-primary",
-      "year": "平成29年度",
-      "question": "Ⅰ－1－25",
-      "anchor": "125"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h24-primary",
-      "year": "平成24年度",
-      "question": "II-1-26",
-      "anchor": "ii-1-26"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h22-primary",
-      "year": "平成22年度",
-      "question": "Ⅱ-1-25",
-      "anchor": "1-25"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h22-primary",
-      "year": "平成22年度",
-      "question": "Ⅱ-1-27",
-      "anchor": "1-27"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h21-primary",
-      "year": "平成21年度",
-      "question": "Ⅱ-1-30",
-      "anchor": "1-30"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h21-primary",
-      "year": "平成21年度",
-      "question": "Ⅱ-1-32",
-      "anchor": "1-32"
     }
   ],
   "fta": [
@@ -8119,38 +8133,6 @@
       "anchor": "1-26"
     }
   ],
-  "occupational-safety-act-osh": [
-    {
-      "examSlug": "pe-comprehensive-management-r04-primary",
-      "year": "令和4年度",
-      "question": "Ⅰ-1-31",
-      "anchor": "1-31"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-r03-primary",
-      "year": "令和3年度",
-      "question": "Ⅰ-1-28",
-      "anchor": "1-28"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-r02-primary",
-      "year": "令和2年度",
-      "question": "Ⅰ-1-26",
-      "anchor": "1-26"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h23-primary",
-      "year": "平成23年度",
-      "question": "II-1-32",
-      "anchor": "ii-1-32"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h22-primary",
-      "year": "平成22年度",
-      "question": "Ⅱ-1-27",
-      "anchor": "1-27"
-    }
-  ],
   "bcp-crisis-management": [
     {
       "examSlug": "pe-comprehensive-management-r07-primary",
@@ -9301,7 +9283,7 @@
       "anchor": "ii-1-5"
     }
   ],
-  "process-scheduling": [
+  "process-planning-construction": [
     {
       "examSlug": "pe-comprehensive-management-r07-primary",
       "year": "令和7年度",
@@ -9333,6 +9315,12 @@
       "anchor": "14"
     },
     {
+      "examSlug": "pe-comprehensive-management-h29-primary",
+      "year": "平成29年度",
+      "question": "Ⅰ－1－7",
+      "anchor": "17"
+    },
+    {
       "examSlug": "pe-comprehensive-management-h28-primary",
       "year": "平成28年度",
       "question": "I-1-5",
@@ -9343,6 +9331,12 @@
       "year": "平成26年度",
       "question": "Ⅰ-1-4",
       "anchor": "1-4"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h24-primary",
+      "year": "平成24年度",
+      "question": "II-1-1",
+      "anchor": "ii-1-1"
     },
     {
       "examSlug": "pe-comprehensive-management-h23-primary",
@@ -10801,20 +10795,6 @@
       "year": "平成23年度",
       "question": "II-1-39",
       "anchor": "ii-1-39"
-    }
-  ],
-  "process-planning-construction": [
-    {
-      "examSlug": "pe-comprehensive-management-h29-primary",
-      "year": "平成29年度",
-      "question": "Ⅰ－1－7",
-      "anchor": "17"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h24-primary",
-      "year": "平成24年度",
-      "question": "II-1-1",
-      "anchor": "ii-1-1"
     }
   ],
   "activity-abc": [
@@ -13343,20 +13323,6 @@
       "anchor": "1-2"
     }
   ],
-  "product-safety-process": [
-    {
-      "examSlug": "pe-comprehensive-management-r03-primary",
-      "year": "令和3年度",
-      "question": "Ⅰ-1-25",
-      "anchor": "1-25"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-h26-primary",
-      "year": "平成26年度",
-      "question": "Ⅰ-1-6",
-      "anchor": "1-6"
-    }
-  ],
   "design-quality": [
     {
       "examSlug": "pe-comprehensive-management-h26-primary",
@@ -13915,6 +13881,12 @@
       "year": "令和6年度",
       "question": "Ⅰ-1-10",
       "anchor": "1-10"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-h30-primary",
+      "year": "平成30年度",
+      "question": "Ⅰ－1－14",
+      "anchor": "114"
     },
     {
       "examSlug": "pe-comprehensive-management-h27-primary",
@@ -14839,28 +14811,12 @@
       "anchor": "114"
     }
   ],
-  "reemployment-system-labor": [
-    {
-      "examSlug": "pe-comprehensive-management-h30-primary",
-      "year": "平成30年度",
-      "question": "Ⅰ－1－14",
-      "anchor": "114"
-    }
-  ],
   "relative-absolute-evaluation": [
     {
       "examSlug": "pe-comprehensive-management-h30-primary",
       "year": "平成30年度",
       "question": "Ⅰ－1－15",
       "anchor": "115"
-    }
-  ],
-  "labor-standards-act-osh": [
-    {
-      "examSlug": "pe-comprehensive-management-h30-primary",
-      "year": "平成30年度",
-      "question": "Ⅰ－1－16",
-      "anchor": "116"
     }
   ],
   "international-filing-system": [
