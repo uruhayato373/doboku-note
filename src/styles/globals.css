@@ -26,36 +26,57 @@
     line-height: 1.9;
   }
 
+  /* 段落: Zenn方式（p+pでのみ間隔をとる） */
   .prose-blog p {
-    @apply mb-4;
     line-height: 1.9;
   }
-
-  .prose-blog p:last-child {
-    @apply mb-0;
+  .prose-blog p + p {
+    margin-top: 1.5em;
   }
 
-  /* 箇条書き */
-  .prose-blog ul, .prose-blog ol {
-    @apply mb-4;
-    line-height: 1.9;
+  /* 箇条書き: Zenn実測値に準拠（line-height 1.7、margin 1.4rem） */
+  .prose-blog ul,
+  .prose-blog ol {
+    margin: 1.4rem 0;
+    line-height: 1.7;
   }
-
+  .prose-blog ul {
+    padding-left: 1.8em;
+  }
+  .prose-blog ol {
+    padding-left: 1.7em;
+  }
   .prose-blog li {
-    @apply mb-2;
-    line-height: 1.9;
+    margin: 0.4rem 0;
+    line-height: 1.7;
+  }
+  .prose-blog ul ul,
+  .prose-blog ul ol,
+  .prose-blog ol ul,
+  .prose-blog ol ol {
+    margin: 0.2em 0;
+  }
+  .prose-blog ol p,
+  .prose-blog ul p {
+    margin: 0;
   }
 
-  .prose-blog li:last-child {
-    @apply mb-0;
-  }
-
-  /* 見出し前後の適切なスペース */
+  /* 見出し直後の段落: Zenn実測値0.3emでほぼ密着させる */
   .prose-blog h1 + p,
   .prose-blog h2 + p,
   .prose-blog h3 + p,
-  .prose-blog h4 + p {
-    @apply mt-4;
+  .prose-blog h4 + p,
+  .prose-blog h5 + p,
+  .prose-blog h6 + p {
+    margin-top: 0.3em;
+  }
+
+  /* リンク: Zenn方式（常時色のみ、hoverで下線） */
+  .prose-blog a {
+    text-decoration: none;
+  }
+  .prose-blog a:hover {
+    text-decoration: underline;
   }
 
   /* 見出し共通: 行間 */
@@ -80,17 +101,18 @@
     @apply border-l-4 border-blue-600 dark:border-cyan-500;
   }
 
-  /* h3: サブセクション — 細い左アクセント（背景なし） */
+  /* h3: サブセクション — 中間色の左アクセントバー */
   .prose-blog h3 {
     @apply text-xl font-semibold text-gray-800 dark:text-gray-200;
-    @apply mb-4 mt-10 pl-3;
-    @apply border-l-[3px] border-gray-300 dark:border-gray-600;
+    @apply mb-4 mt-12 pl-4 py-1;
+    @apply border-l-4 border-blue-400 dark:border-cyan-400;
   }
 
-  /* h4: 小見出し — テキストのみ */
+  /* h4: 小見出し — 細いグレーの左アクセント */
   .prose-blog h4 {
     @apply text-lg font-semibold text-gray-700 dark:text-gray-300;
-    @apply mb-3 mt-8;
+    @apply mb-3 mt-8 pl-3;
+    @apply border-l-2 border-gray-300 dark:border-gray-600;
   }
 
   /* ===== 表: 左右余白 + ボーダーで本文と区別 ===== */

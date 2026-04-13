@@ -236,6 +236,38 @@ function lintRelatedKeywordList(lines, findings, offset) {
 }
 
 /**
+ * 8-2: 法令条文への未リンクを検出
+ * 「◯◯法第◯条」のパターンが e-Gov へのインラインリンクになっていない場合に LOW で警告する。
+ * 既存の Markdown リンク [text](url) 内にあるパターンは対象外。
+ */
+function lintLegalCitations(lines, findings) {
+  // 法令名パターン: 「◯◯法」「憲法」「民法」「刑法」「下請法」等
+  const lawCitationRe = /([一-龥ぁ-んァ-ヶー]{1,12}法|憲法|民法|刑法|下請法)\s*第\s*[\d０-９]+\s*条(?:\s*第\s*[\d０-９]+\s*項)?/g;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    let m;
+    lawCitationRe.lastIndex = 0;
+    while ((m = lawCitationRe.exec(line)) !== null) {
+      const matchStart = m.index;
+      // 該当マッチが既存の Markdown リンク [...](url) 内にあるかチェック
+      // 簡易判定: マッチ位置より前の「[」と「]」の数を数え、開き括弧が閉じ括弧より多ければリンクテキスト内
+      const before = line.slice(0, matchStart);
+      const opens = (before.match(/\[/g) || []).length;
+      const closes = (before.match(/\]/g) || []).length;
+      if (opens > closes) continue; // リンクテキスト内はスキップ
+      findings.push({
+        severity: 'LOW',
+        rule: '8-2',
+        line: i + 1,
+        endLine: i + 1,
+        message: `法令条文「${m[0]}」が e-Gov へのインラインリンクになっていない`,
+      });
+    }
+  }
+}
+
+/**
  * 6-1: 表の直前行が見出しのみで導入文がない
  * 表開始行の直前にある非空行が `##` / `###` で始まる場合は違反。
  */
@@ -274,6 +306,7 @@ function lintFile(filePath) {
   }
 
   lintRelatedKeywordList(lines, findings);
+  lintLegalCitations(lines, findings);
 
   // 行番号を frontmatter 分シフト
   for (const f of findings) {

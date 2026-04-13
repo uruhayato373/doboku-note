@@ -1,0 +1,85 @@
+# Zenn タイポグラフィとの意図的逸脱リスト
+#
+# このファイルに登録された項目は /typography-audit の比較対象から除外される。
+# 新しく意図的逸脱を追加する場合は、必ず reason を明記すること。
+#
+# 書式:
+#   - key: "一意な識別子"
+#     doboku: "doboku-noteの値"
+#     zenn: "Zennの値"
+#     reason: "なぜ逸脱するか（1-2行）"
+
+- key: font_size_body
+  doboku: "17px"
+  zenn: "16px"
+  reason: "日本語可読性優先。Zennより+1pxで、技術士試験受験者がスマホで長文を読む際の疲労を軽減する"
+
+- key: h1_margin_top
+  doboku: "mt-8 (2rem = 32px)"
+  zenn: "2.3em (≒37px)"
+  reason: "H1はページタイトルとしてヘッダー直下に配置されるため、Zenn比で若干狭い設計。記事上部の余白はレイアウトコンポーネントで別途確保"
+
+- key: h2_margin_top
+  doboku: "mt-16 (4rem = 64px)"
+  zenn: "2.3em (≒37px)"
+  reason: "左アクセントバー設計（border-l-4 blue-600）のため、Zennの下線スタイルより広い上余白が必要。セクション区切りを強調する"
+
+- key: h3_margin_top
+  doboku: "mt-12 (3rem = 48px)"
+  zenn: "2.25em (≒36px)"
+  reason: "H3も左アクセントバー（border-l-4 blue-400）のため広めに取る。H2とH4の中間階層として視覚的に分離"
+
+- key: h4_margin_top
+  doboku: "mt-8 (2rem = 32px)"
+  zenn: "2.25em (≒36px)"
+  reason: "H4は細いグレー左ボーダー（border-l-2 gray-300）で、Zenn比でやや狭いが階層感は保つ"
+
+- key: h1_style
+  doboku: "border-bottom 2px blue-600 (左アクセントなし)"
+  zenn: "border-bottom 1px gray"
+  reason: "H1はページタイトルとして青下線で強調。ブランディング色"
+
+- key: h2_style
+  doboku: "border-l-4 blue-600"
+  zenn: "border-bottom 1px gray"
+  reason: "H2以下は全て左アクセントバーで統一。Zennの下線スタイルを採用しない"
+
+- key: h3_style
+  doboku: "border-l-4 blue-400"
+  zenn: "なし（text size のみ）"
+  reason: "H3にもアクセントバーを付与。長文記事でのランドマーク機能を強化"
+
+- key: h4_style
+  doboku: "border-l-2 gray-300"
+  zenn: "なし（text size のみ）"
+  reason: "H4に細いグレーバー。H2→H3→H4 の視覚階段を作る"
+
+- key: blockquote_style
+  doboku: "border-l-4 blue-400 + bg-blue-50/50 + rounded-r-lg + px-5 py-3"
+  zenn: "border-l-3 gray-700 + padding 2px 0 2px 0.7em + font-size 0.97em"
+  reason: "doboku-note の blockquote は callout 的に使われる。薄青背景＋角丸で注目ボックスとして機能させる設計"
+
+- key: table_style
+  doboku: "border + rounded-lg + thead bg + modern design"
+  zenn: "全ボーダー + font-size 0.95em + line-height 1.5"
+  reason: "doboku-note は modern table design を採用。thead 背景色・角丸・ホバー効果で視認性を高める"
+
+- key: code_inline_color
+  doboku: "text-pink-600 dark:text-pink-400 + bg-gray-100"
+  zenn: "text 通常 + background gray"
+  reason: "インラインコードをピンク系で強調し、本文中で即座に識別できるようにする。ブランディングカラー"
+
+- key: code_inline_border
+  doboku: "border border-gray-200 あり"
+  zenn: "ボーダーなし"
+  reason: "背景色だけでは弱いためボーダーでコード領域を明示"
+
+- key: html_font_size_responsive
+  doboku: "16px 固定（tailwind default）"
+  zenn: "16px → 15px（ブレイクポイント別）"
+  reason: "doboku-note は本文17px固定でモバイル時の縮小を行わない。レスポンシブは `prose-base md:prose-lg` で対応"
+
+- key: text_autospace
+  doboku: "未設定（CSS標準）"
+  zenn: "text-autospace: normal（.znc ルート）, no-autospace（code/pre）"
+  reason: "text-autospace は Chrome 120+ でのみ有効な比較的新しいプロパティ。将来的に追加検討する項目だが現時点では未対応"
