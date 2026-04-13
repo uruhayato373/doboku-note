@@ -87,11 +87,14 @@
     @apply leading-snug;
   }
 
-  /* h1: ページタイトル — 下線アクセント */
+  /* h1: ページタイトル — 下線アクセント + Zenn準拠 max-width 780px 中央寄せ */
   .prose-blog h1 {
     @apply text-3xl font-bold text-gray-900 dark:text-white;
     @apply mb-8 mt-8 pb-3;
     @apply border-b-2 border-blue-600 dark:border-blue-500;
+    max-width: 780px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* h2: セクション区切り — 左アクセントバー + 広い上余白 */

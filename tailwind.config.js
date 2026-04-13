@@ -8,6 +8,13 @@ module.exports = {
   darkMode: 'class', // ダークモードをクラスベースで有効化
   theme: {
     extend: {
+      screens: {
+        // Zenn-aligned breakpoints（Zenn本番CSSの max-width 式に一致する min-width 値）
+        'zenn-tiny': '401px',      // ≥401 （Zenn ≤400 の反転）
+        'zenn-sp': '577px',        // ≥577 （Zenn ≤576 の反転）
+        'zenn-tablet': '769px',    // ≥769 （Zenn ≤768 の反転）
+        'zenn-desktop': '993px',   // ≥993 （Zenn ≤992 の反転、サイドバー可視化境界）
+      },
       colors: {
         // カッコム専用カラーパレット（青系統一）
         primary: {

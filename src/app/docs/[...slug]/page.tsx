@@ -210,13 +210,14 @@ export default async function DocPage({
     <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
       <Header />
 
-      <div className="flex-grow w-full">
-        {/* コンテンツ中央 + 左サイドバー + 右TOC */}
-        <div className="max-w-[1200px] mx-auto flex gap-8 relative">
+      <div className="flex-grow w-full pb-16">
+        {/* Zenn Container_wide: max-width 1200px + responsive padding */}
+        <div className="max-w-[1200px] mx-auto px-[14px] zenn-tiny:px-5 zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[30px] relative">
 
           {/* Main Content Area */}
-          <main className="flex-1 min-w-0 px-4 sm:px-6 py-8 lg:py-12">
-            <article className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-10 lg:p-12 overflow-hidden transition-colors duration-300">
+          <main className="flex-1 min-w-0">
+            {/* Zenn View_main: rounded 4px + 1px border + py-10 px-10 / モバイル full-bleed */}
+            <article className="bg-white dark:bg-gray-800 border border-gray-200/60 dark:border-gray-700/60 rounded-[4px] py-10 px-10 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
               {/* パンくず（カード内、タイトル上）: カテゴリ名 › グループ名 */}
               {category && (
                 <div className="mb-4 text-xs text-gray-400 dark:text-gray-500">
@@ -282,7 +283,7 @@ export default async function DocPage({
 
             {/* guide/secondary: カテゴリナビカード（モバイル） */}
             {hasCategoryNavCard && category && (docGroup === 'guide' || docGroup === 'secondary' || docGroup === 'textbook') && (
-              <div className="mt-8 xl:hidden">
+              <div className="mt-8 zenn-desktop:hidden">
                 <CategoryNavCard
                   variant="mobile"
                   category={category}
@@ -294,8 +295,8 @@ export default async function DocPage({
             )}
           </main>
 
-          {/* Right Sidebar: Table of Contents (Zenn-style) + CategoryNavCard */}
-          <aside className="hidden xl:block w-[280px] shrink-0 py-12">
+          {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
+          <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
             {hasCategoryNavCard && category && (
               <div className="mb-3">
                 <CategoryNavCard

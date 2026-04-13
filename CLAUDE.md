@@ -324,7 +324,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/generate-ogp` | OGP画像の一括生成・個別生成（satori + resvg-js） | `.claude/skills/dev/generate-ogp/SKILL.md` |
 | `/code-review` | Next.jsコード品質レビュー（セキュリティ・パフォーマンス・保守性・a11y） | `.claude/skills/dev/code-review/SKILL.md` |
 | `/monitor` | Monitor toolでバックグラウンド監視（dev/mojibake/ci/build/r2/frontmatter/health/mdx-validation） | `.claude/skills/dev/monitor/SKILL.md` |
-| `/typography-audit` | Zenn本番CSSと`.prose-blog`を比較し差分をCritical/Warning/Matches/Intentionalで報告 | `.claude/skills/dev/typography-audit/SKILL.md` |
+| `/zenn-audit` | Zenn本番CSSと記事ページのタイポグラフィ＋レイアウトを比較し差分をCritical/Warning/Matches/Intentionalで報告 | `.claude/skills/dev/zenn-audit/SKILL.md` |
 
 ### content — コンテンツ作成
 
