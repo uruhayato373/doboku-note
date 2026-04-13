@@ -1,6 +1,9 @@
 # 壊れたURL → 正しいURLへリダイレクト
 /category/pe-comprehe%20nsive-management /category/pe-comprehensive-management 301
 
+# 重複キーワード統合: 社会的受容（PA）の2ページを1ページに統合（2026-04-13）
+/docs/pe-comprehensive-management-public-acceptance-comm /docs/pe-comprehensive-management-public-acceptance 301
+
 # 削除済みコンテンツ → トップページ（301 Moved Permanently）
 /docs/river/* / 301
 /docs/general/* / 301

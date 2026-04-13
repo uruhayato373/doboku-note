@@ -115,12 +115,14 @@ function splitRow(row) {
 /**
  * セル内テキストの実質文字数。
  * - `$...$` を除外（KaTeX 数式は別ルールで検出）
+ * - Markdown リンク `[text](url)` は表示テキスト `text` のみ残す
  * - Markdown 記号 `**`, `*`, `` ` `` を除外
  * - 空白は1文字としてカウント（全角半角区別なし）
  */
 function cellLength(cell) {
   const withoutMath = cell.replace(/\$[^$]*\$/g, '');
-  const withoutMd = withoutMath
+  const withoutLinks = withoutMath.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
+  const withoutMd = withoutLinks
     .replace(/\*\*/g, '')
     .replace(/\*/g, '')
     .replace(/`/g, '');
