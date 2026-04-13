@@ -12,6 +12,16 @@
 # 本ルール追加と同時に MDX ソースを削除し、build 時に `rm -rf out` を実行するようにした。
 /docs/pe-comprehensive-management-public-acceptance-comm /docs/pe-comprehensive-management-public-acceptance 301
 
+# 重複キーワード統合（2026-04-13）— 8組を一括統合
+/docs/pe-comprehensive-management-risk-evaluation /docs/pe-comprehensive-management-risk-assessment 301
+/docs/pe-comprehensive-management-availability-security /docs/pe-comprehensive-management-system-availability 301
+/docs/pe-comprehensive-management-process-scheduling /docs/pe-comprehensive-management-process-planning-construction 301
+/docs/pe-comprehensive-management-reemployment-system-labor /docs/pe-comprehensive-management-reemployment-system 301
+/docs/pe-comprehensive-management-reliability-security /docs/pe-comprehensive-management-system-reliability 301
+/docs/pe-comprehensive-management-product-safety-process /docs/pe-comprehensive-management-product-safety 301
+/docs/pe-comprehensive-management-occupational-safety-act-osh /docs/pe-comprehensive-management-occupational-safety-act 301
+/docs/pe-comprehensive-management-labor-standards-act-osh /docs/pe-comprehensive-management-labor-standards-act 301
+
 # 削除済みコンテンツ → トップページ（301 Moved Permanently）
 /docs/river/* / 301
 /docs/general/* / 301
