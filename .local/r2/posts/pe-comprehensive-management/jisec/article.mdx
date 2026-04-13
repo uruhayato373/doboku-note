@@ -23,11 +23,11 @@ IPA（独立行政法人情報処理推進機構）が認証機関として運�
 
 ### JISECの制度構成
 
-| 構成要素 | 役割 | 担当 |
-|---|---|---|
-| 認証機関 | 認証の発行・管理、制度運営 | IPA（情報処理推進機構） |
-| 評価機関 | CC基準に基づくIT製品のセキュリティ評価 | IPA認定の民間機関 |
-| 申請者 | 評価・認証の申請 | IT製品の開発者・販売者 |
+JISECは3つの役割を持つプレイヤーで構成される。
+
+- **認証機関**: 認証の発行・管理と制度運営を担う。IPA（情報処理推進機構）
+- **評価機関**: CC基準に基づきIT製品のセキュリティを実際に評価する。IPA認定の民間機関
+- **申請者**: 評価・認証を申請するIT製品の開発者・販売者
 
 ### 認証取得プロセス
 
@@ -38,14 +38,14 @@ IPA（独立行政法人情報処理推進機構）が認証機関として運�
 
 ### 対象となる製品例
 
-| 製品分野 | 例 |
-|---|---|
-| OS | サーバOS、組込みOS |
-| ネットワーク機器 | [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)、ルータ |
-| データベース | DBMS |
-| ICカード | マイナンバーカード、交通系ICカード |
-| 暗号モジュール | HSM（Hardware Security Module） |
-| 複合機 | デジタル複合機（MFP） |
+JISEC の評価対象となる製品分野は幅広く、政府調達で用いられる以下のような IT 製品が典型例である。
+
+- **OS**: サーバOS、組込みOS
+- **ネットワーク機器**: [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)、ルータ
+- **データベース**: DBMS
+- **ICカード**: マイナンバーカード、交通系ICカード
+- **暗号モジュール**: HSM（Hardware Security Module）
+- **複合機**: デジタル複合機（MFP）
 
 ### CCRAとの関係
 
@@ -55,12 +55,12 @@ JISECで取得した認証は、CCRA（コモンクライテリア承認アレ�
 
 ### 他の認証制度との比較
 
-| 制度 | 対象 | 評価基準 | 運営機関 |
-|---|---|---|---|
-| JISEC | IT製品 | CC（ISO/IEC 15408） | IPA |
-| [ISMS認証](/docs/pe-comprehensive-management-isms-iso27001) | 組織の管理体制 | ISO/IEC 27001 | ISMS-AC認定機関 |
-| [ISMAP](/docs/pe-comprehensive-management-ismap) | クラウドサービス | ISMAP管理基準 | ISMAP運営委員会 |
-| JCMVP | 暗号モジュール | ISO/IEC 19790 | IPA |
+日本の情報セキュリティ関連の認証制度は、対象（製品・組織・サービス）と評価基準によって使い分けられる。
+
+- **JISEC**: IT製品が対象。CC（ISO/IEC 15408）に基づき評価。IPAが運営
+- **[ISMS認証](/docs/pe-comprehensive-management-isms-iso27001)**: 組織の管理体制が対象。ISO/IEC 27001 に基づく。ISMS-AC認定機関が運営
+- **[ISMAP](/docs/pe-comprehensive-management-ismap)**: クラウドサービスが対象。ISMAP管理基準に基づく。ISMAP運営委員会が運営
+- **JCMVP**: 暗号モジュールが対象。ISO/IEC 19790 に基づく。IPAが運営
 
 <ExamPoint
   summary="JISECはCC（ISO/IEC 15408）に基づく日本のIT製品セキュリティ認証制度"
@@ -79,3 +79,8 @@ JISECで取得した認証は、CCRA（コモンクライテリア承認アレ�
 JISECは[CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria)の国内実施制度であり、政府調達におけるIT製品のセキュリティ品質確保の仕組みとして位置づけられる。
 
 [ISMS](/docs/pe-comprehensive-management-isms-iso27001)が組織の管理体制を認証し、JISECが個々のIT製品のセキュリティ機能を認証するという相互補完の関係を理解しておくことが重要である。
+
+## 参考資料
+
+- [ITセキュリティ評価及び認証制度（JISEC）](https://www.ipa.go.jp/security/jisec/index.html)（IPA 情報処理推進機構）
+- [評価認証制度（JISEC）概要](https://www.ipa.go.jp/security/jisec/about/jisec.html)（IPA 情報処理推進機構）

@@ -21,28 +21,26 @@ ISMS（Information Security Management System：情報セキュリティマネ�
 
 国際規格ISO/IEC 27001は、ISMSの要求事項を定めた認証規格であり、第三者機関による認証（ISMS適合性評価制度）を取得することで、組織の情報セキュリティ管理体制が国際水準にあることを証明できる。
 
-ISMSは情報セキュリティの3要素である**機密性（Confidentiality）**、**完全性（Integrity）**、**可用性（Availability）**をバランスよく確保することを目的とする。
+ISMSは情報セキュリティの3要素である **機密性**（Confidentiality）、**完全性**（Integrity）、**可用性**（Availability）をバランスよく確保することを目的とする。
 
 ### ISO/IEC 27000シリーズの構成
 
-| 規格番号 | 名称 | 内容 |
-|---|---|---|
-| ISO/IEC 27000 | 概要と用語 | ISMS関連の用語定義 |
-| ISO/IEC 27001 | 要求事項 | ISMS構築の**認証基準**（must） |
-| ISO/IEC 27002 | 実践規範 | 管理策の選択・実装のガイドライン（should） |
-| ISO/IEC 27005 | リスクマネジメント | 情報セキュリティリスクの管理手法 |
-| ISO/IEC 27017 | クラウドセキュリティ | クラウド環境向けの追加管理策 |
+ISMSに関連する ISO/IEC 27000 シリーズは複数の規格で構成され、それぞれ役割が異なる。主要な規格を以下に整理する。
+
+- **ISO/IEC 27000**（概要と用語）: ISMS関連の用語定義
+- **ISO/IEC 27001**（要求事項）: ISMS構築の**認証基準**（must）
+- **ISO/IEC 27002**（実践規範）: 管理策の選択・実装のガイドライン（should）
+- **ISO/IEC 27005**（リスクマネジメント）: 情報セキュリティリスクの管理手法
+- **ISO/IEC 27017**（クラウドセキュリティ）: クラウド環境向けの追加管理策
 
 ### ISMSのPDCAサイクル
 
-ISMSはPDCAサイクルに基づく継続的改善を基本としている。
+ISMSは[PDCAサイクル](/docs/pe-comprehensive-management-pdca-cycle)に基づく継続的改善を基本としており、一度認証を取得すれば終わりではなく、運用しながら繰り返し改善する仕組みである。
 
-| フェーズ | 活動内容 |
-|---|---|
-| Plan（計画） | リスクアセスメントの実施、情報セキュリティ方針の策定、管理策の選択 |
-| Do（実施） | 管理策の導入、従業員教育、運用手順の整備 |
-| Check（点検） | 内部監査の実施、パフォーマンス評価、インシデントの分析 |
-| Act（改善） | 是正処置、マネジメントレビュー、ISMS全体の改善 |
+- **Plan（計画）**: リスクアセスメントの実施、情報セキュリティ方針の策定、管理策の選択
+- **Do（実施）**: 管理策の導入、従業員教育、運用手順の整備
+- **Check（点検）**: 内部監査の実施、パフォーマンス評価、インシデントの分析
+- **Act（改善）**: 是正処置、マネジメントレビュー、ISMS全体の改善
 
 ### ISMS認証の取得プロセス
 
@@ -56,13 +54,13 @@ ISMSはPDCAサイクルに基づく継続的改善を基本としている。
 
 ### 他の情報セキュリティ認証制度との比較
 
-| 制度 | 対象 | 規格・基準 | 認証対象 |
-|---|---|---|---|
-| ISMS（ISO/IEC 27001） | 組織の管理体制 | ISO/IEC 27001 | 組織 |
-| [CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria) | IT製品・システム | ISO/IEC 15408 | 製品 |
-| [JISEC](/docs/pe-comprehensive-management-jisec) | IT製品（日本） | ISO/IEC 15408準拠 | 製品 |
-| [ISMAP](/docs/pe-comprehensive-management-ismap) | クラウドサービス（政府調達） | ISMAP管理基準 | クラウドサービス |
-| [プライバシーマーク](/docs/pe-comprehensive-management-privacy-mark) | 個人情報保護体制 | JIS Q 15001 | 組織 |
+情報セキュリティ関連の認証制度は、**組織を認証するもの**と**製品・サービスを認証するもの**に大別される。主要な制度を以下に整理する。
+
+- **ISMS（ISO/IEC 27001）**: 組織の情報セキュリティ管理体制を認証
+- **[CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria)**: IT製品・システムのセキュリティ機能を認証する国際規格
+- **[JISEC](/docs/pe-comprehensive-management-jisec)**: ISO/IEC 15408 に準拠した日本国内のIT製品認証制度
+- **[ISMAP](/docs/pe-comprehensive-management-ismap)**: 政府調達対象のクラウドサービスの安全性を評価
+- **[プライバシーマーク](/docs/pe-comprehensive-management-privacy-mark)**: JIS Q 15001 に基づく個人情報保護体制の認証（組織単位）
 
 <ExamPoint
   summary="ISMSは組織の情報セキュリティ管理体制を認証する国際規格"
@@ -80,4 +78,9 @@ ISMSはPDCAサイクルに基づく継続的改善を基本としている。
 
 ISMSは情報セキュリティの**マネジメント基盤**であり、[アクセス制御](/docs/pe-comprehensive-management-access-control)、[ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)、[暗号化](/docs/pe-comprehensive-management-encryption-digital-signature)などの個別対策を組織的に統合・管理する枠組みである。
 
-総合技術監理では、ISMSのPDCAサイクルと他の管理分野（品質管理のISO 9001、環境管理のISO 14001等）との統合的な運用が求められる。
+総合技術監理では、ISMSの[PDCAサイクル](/docs/pe-comprehensive-management-pdca-cycle)と他の管理分野（品質管理のISO 9001、環境管理のISO 14001等）との統合的な運用が求められる。
+
+## 参考資料
+
+- [ISMS（情報セキュリティマネジメントシステム）とは](https://isms.jp/isms/)（情報マネジメントシステム認定センター ISMS-AC）
+- [ISO/IEC 27001（情報セキュリティ）](https://www.jqa.jp/service_list/management/service/iso27001/)（日本品質保証機構 JQA）

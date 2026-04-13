@@ -25,17 +25,25 @@ publishedAt: '2026-04-08'
 
 ### 3つの期間の特徴
 
-バスタブカーブは、初期故障期・偶発故障期・摩耗故障期の3つの期間に区分される。
+バスタブカーブは、初期故障期・偶発故障期・摩耗故障期の3つの期間に区分される。各期間は故障率の傾向と適した保全方式が大きく異なる。
 
-| 期間 | 故障率の傾向 | 主な故障原因 | 適切な保全方式 |
-|---|---|---|---|
-| 初期故障期（DFR） | 時間とともに減少 | 設計不良、製造欠陥、組立ミス | デバッギング、バーンイン、慣らし運転 |
-| 偶発故障期（CFR） | ほぼ一定（低水準） | 偶発的・突発的要因 | 事後保全（BM）、予知保全（CBM） |
-| 摩耗故障期（IFR） | 時間とともに増加 | 摩耗、劣化、疲労、腐食 | 予防保全（TBM）、設備更新 |
+**初期故障期（DFR: Decreasing Failure Rate）**
 
-- DFR: Decreasing Failure Rate（減少型故障率）
-- CFR: Constant Failure Rate（一定型故障率）
-- IFR: Increasing Failure Rate（増加型故障率）
+- 故障率の傾向: 時間とともに**減少**
+- 主な故障原因: 設計不良、製造欠陥、組立ミス
+- 適した保全方式: デバッギング、バーンイン、慣らし運転
+
+**偶発故障期（CFR: Constant Failure Rate）**
+
+- 故障率の傾向: ほぼ一定（低水準）で推移
+- 主な故障原因: 偶発的・突発的要因
+- 適した保全方式: 事後保全（BM）、予知保全（CBM）
+
+**摩耗故障期（IFR: Increasing Failure Rate）**
+
+- 故障率の傾向: 時間とともに**増加**
+- 主な故障原因: 摩耗、劣化、疲労、腐食
+- 適した保全方式: 予防保全（TBM）、設備更新
 
 ### 各期間と保全戦略の関係
 
@@ -79,6 +87,11 @@ publishedAt: '2026-04-08'
 
 総合技術監理キーワード集では「**2.6 設備管理**」に位置づけられる。
 
-バスタブカーブは設備の信頼性工学における基本概念であり、設備の管理特性（MTBF・MTTR）や設備総合効率（OEE）の理解と密接に関連する。
+バスタブカーブは信頼性工学の基本概念であり、[設備信頼性](/docs/pe-comprehensive-management-equipment-reliability)や[設備保全性](/docs/pe-comprehensive-management-equipment-maintainability)、[設備総合効率（OEE）](/docs/pe-comprehensive-management-overall-equipment-effectiveness)の理解と密接に関連する。
 
-保全方式の選択（予防保全・事後保全・予知保全）は、設備がバスタブカーブのどの期間にあるかを判断した上で決定される。
+保全方式の選択は設備がバスタブカーブのどの期間にあるかによって決まる。初期故障期では[事後保全](/docs/pe-comprehensive-management-corrective-maintenance)で初期不良を潰し、偶発故障期では[予知保全](/docs/pe-comprehensive-management-predictive-maintenance)や事後保全、摩耗故障期では[予防保全](/docs/pe-comprehensive-management-preventive-maintenance)による計画的な部品交換・更新が有効となる。
+
+## 参考資料
+
+- [バスタブ曲線（信頼度曲線）](https://anzeninfo.mhlw.go.jp/yougo/yougo59_1.html)（厚生労働省「職場のあんぜんサイト」）
+- [バスタブ曲線](https://www.jsme.or.jp/jsme-medwiki/doku.php?id=19:1010172)（日本機械学会 機械工学事典）
