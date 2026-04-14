@@ -71,12 +71,15 @@
     margin-top: 0.3em;
   }
 
-  /* リンク: Zenn方式（常時色のみ、hoverで下線） */
+  /* リンク: 常時アンダーライン（note風、半透明 + offset 4px、hoverで濃く） */
   .prose-blog a {
-    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: rgba(37, 99, 235, 0.4);
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
   }
   .prose-blog a:hover {
-    text-decoration: underline;
+    text-decoration-color: rgba(37, 99, 235, 1);
   }
 
   /* 見出し共通: 行間 */
