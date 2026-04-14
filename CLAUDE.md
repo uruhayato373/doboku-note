@@ -181,7 +181,9 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 
 ### ペルソナ・コンテンツ原則
 
-- 詳細は `.claude/content-principles.md` を参照
+> **品質ルールの単一真実源**: `.claude/content-principles.md`
+> ExamPoint 個数・配置・禁止パターン（§5）、参考資料の構成（§9）など、すべてのコンテンツ品質ルールはこのファイルが真実源。SKILL.md・lint スクリプト・cem-qa エージェントはこのファイルを参照する。**ルール変更時はまず content-principles.md を更新し、他は参照に揃える。**
+
 - すべてのコンテンツは「実務経験10年以上の総監部門受験者」がスマホで読むことを前提に作成する
 - 冒頭は概念の本質を簡潔に。試験での重要性は「総合技術監理における位置づけ」に集約する
 - 表・箇条書きの前に必ず文脈を示す導入文を置く
@@ -491,10 +493,27 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 ```
 1. PDF をスキル（/pdf-to-mdx, /civil-construction-1-pdf-to-mdx等）で MDX に変換
 2. /check-mdx で構文チェック
-3. content-qa エージェントで品質評価（5軸ルーブリック）
-4. 改善・修正（必要に応じて /verify-content で PDF と照合）
+3. content-qa エージェントで品質評価（5軸ルーブリック、内部で /qa-pdf-mdx を使用）
+4. 改善・修正
 5. /deploy で Cloudflare Pages に本番反映
 ```
+
+### キーワードページ作成・校正フロー
+
+技術士総合技術監理（pe-comprehensive-management）のキーワードページは **Generator/Evaluator 分離原則** を厳守する。
+
+```
+1. /keyword-page create or revise              <- Generator: コンテンツ作成・校正
+2. node scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
+                                                  HIGH/MEDIUM ゼロまで修正→再実行ループ
+3. cem-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
+4. 加重スコア ≥ 2.0 → 完了 / < 2.0 → 指摘事項に沿って修正して 2 に戻る
+```
+
+**重要**:
+- ステップ3の `cem-qa` を**省略してはならない**（自己評価バイアス回避のため）
+- 品質ルールの真実源は `.claude/content-principles.md`。ルール変更時はまずここを更新
+- リンターのカテゴリ9（ExamPoint個数・位置・誤り選択肢パターン・参考資料多様性）は HIGH なのでブロッカー
 
 ### リスク評価
 

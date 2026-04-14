@@ -4,17 +4,32 @@
  *
  * review-mobile スキルのチェック項目のうち、機械判定可能なものを強制する。
  *
+ * ルール根拠の単一真実源: `.claude/content-principles.md`
+ *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-5)
+ *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-1〜9-6)
+ *   - §7 過剰装飾を避ける               → カテゴリ7 (将来追加)
+ *   - §8 リンクの使い分け               → カテゴリ8 (8-1, 8-2)
+ *   - §9 参考資料の構成                 → カテゴリ9-4
+ *
  * Usage:
  *   node scripts/lint-mdx-mobile.mjs <file.mdx>
  *   node scripts/lint-mdx-mobile.mjs <dir>
  *   node scripts/lint-mdx-mobile.mjs                # git diff で変更された MDX を対象
  *
- * 検出ルール（MVP）:
- *   1-1 HIGH   表セル内に KaTeX 数式（$...$）が含まれる
+ * 検出ルール:
+ *   1-1 HIGH   表セル内に長いKaTeX数式
  *   1-3 MEDIUM 4列以上の表
- *   1-4 MEDIUM 3列以上の表でセル内テキストが15文字超
- *   1-5 HIGH   キーバリュー表（ヘッダーが項目/内容、正式名称/目的 等）
+ *   1-4 MEDIUM 3列以上の表でセル内テキスト15文字超
+ *   1-5 HIGH   キーバリュー表
  *   6-1 MEDIUM 表の直前行が見出しのみで導入文がない
+ *   8-1 MEDIUM 末尾の「関連キーワード:」列挙行
+ *   8-2 LOW    法令条文の未リンク
+ *   9-1 HIGH   <ExamPoint> が3個以上（過去問MDX除外）
+ *   9-2 MEDIUM 最初の<ExamPoint>が記事の上位60%以内
+ *   9-3 HIGH   <ExamPoint>のsummaryに「誤り選択肢」等を含む
+ *   9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン
+ *   9-5 LOW    「とは」H2セクション直下に<ExamPoint>
+ *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -288,6 +303,164 @@ function lintHeadingBeforeTable(table, lines, findings) {
   }
 }
 
+/**
+ * カテゴリ9: コンポーネント原則（content-principles.md §5・§9）
+ *
+ * 過去問MDX（r*-primary, h*-primary, r*-secondary）は ExamPoint 多数や ❌✅ が正常なため除外。
+ *
+ * 9-1 HIGH   <ExamPoint> が3個以上
+ * 9-2 MEDIUM 最初の <ExamPoint> が記事の上位60%以内
+ * 9-3 HIGH   <ExamPoint> の summary/items に「誤り選択肢」「代表的な誤り」等を含む
+ * 9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン100%
+ * 9-5 LOW    「とは」を含む H2 の直下に <ExamPoint> がある
+ * 9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現
+ */
+function isExamArchive(filePath) {
+  return /[\\\/](?:r|h)\d{2}-(?:primary|secondary)[\\\/]/.test(filePath);
+}
+
+function lintComponentPrinciples(lines, filePath, findings) {
+  if (isExamArchive(filePath)) return;
+
+  // ExamPoint 開始行を全て収集
+  const examPointStarts = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (/<ExamPoint(\s|$|\/)/.test(lines[i])) {
+      examPointStarts.push(i + 1); // 1-based
+    }
+  }
+
+  // 9-1: ExamPoint 3個以上
+  if (examPointStarts.length >= 3) {
+    findings.push({
+      severity: 'HIGH',
+      rule: '9-1',
+      line: examPointStarts[0],
+      endLine: examPointStarts[examPointStarts.length - 1],
+      message: `<ExamPoint> が ${examPointStarts.length} 個。原則1個・最大2個（content-principles.md §5）`,
+    });
+  }
+
+  // 9-2: 総括 ExamPoint（記事末尾60%以降）が存在しない
+  // 「最後の」ExamPoint が60%地点以降にない = 総括ExamPointが欠落、または前に偏っている
+  if (examPointStarts.length > 0 && lines.length > 0) {
+    const lastEpRatio = examPointStarts[examPointStarts.length - 1] / lines.length;
+    if (lastEpRatio < 0.6) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '9-2',
+        line: examPointStarts[examPointStarts.length - 1],
+        endLine: examPointStarts[examPointStarts.length - 1],
+        message: `総括 <ExamPoint> が記事の ${(lastEpRatio * 100).toFixed(0)}% 地点。記事末尾「総合技術監理における位置づけ」の総括ExamPointを必須とする（§5）`,
+      });
+    }
+  }
+
+  // 9-3: ExamPoint summary/items に「誤り選択肢」等
+  // ExamPointブロック全体（開始タグから自己終了 /> または </ExamPoint> まで）を結合してチェック
+  for (const startLine of examPointStarts) {
+    const startIdx = startLine - 1;
+    let endIdx = startIdx;
+    while (endIdx < lines.length) {
+      if (/\/>\s*$/.test(lines[endIdx]) || /<\/ExamPoint>/.test(lines[endIdx])) break;
+      endIdx++;
+    }
+    const block = lines.slice(startIdx, endIdx + 1).join('\n');
+    if (/誤り選択肢|選択肢パターン|代表的な誤り|頻出の誤り/.test(block)) {
+      findings.push({
+        severity: 'HIGH',
+        rule: '9-3',
+        line: startLine,
+        endLine: endIdx + 1,
+        message: '<ExamPoint> に「誤り選択肢」「代表的な誤り」等の過去問解説に属する内容を書かない（過去問MDXの <details> へ移管）',
+      });
+    }
+  }
+
+  // 9-4: ## 参考資料 配下の外部リンク数とドメイン
+  const refStartIdx = lines.findIndex((l) => /^##\s+参考資料/.test(l));
+  if (refStartIdx >= 0) {
+    let refEnd = refStartIdx + 1;
+    while (refEnd < lines.length && !/^##\s/.test(lines[refEnd])) refEnd++;
+    const refSection = lines.slice(refStartIdx + 1, refEnd).join('\n');
+    const urls = [...refSection.matchAll(/\]\((https?:\/\/[^)]+)\)/g)].map((m) => m[1]);
+    const domains = new Set(urls.map((u) => {
+      try {
+        return new URL(u).hostname;
+      } catch {
+        return u;
+      }
+    }));
+    if (urls.length < 2) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '9-4',
+        line: refStartIdx + 1,
+        endLine: refEnd,
+        message: `参考資料の外部リンクが ${urls.length} 件（公的＋民間 各最低1件 = 2件以上必要、§9）`,
+      });
+    } else if (domains.size === 1) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '9-4',
+        line: refStartIdx + 1,
+        endLine: refEnd,
+        message: `参考資料が単一ドメイン（${[...domains][0]}）。公的＋民間の組み合わせが必要（§9）`,
+      });
+    } else {
+      // 公的（go.jp/ac.jp/or.jp）と民間の両方があるか判定
+      const hasOfficial = [...domains].some((d) => /\.(go|ac|or)\.jp$/.test(d));
+      const hasPrivate = [...domains].some((d) => !/\.(go|ac|or)\.jp$/.test(d));
+      if (!hasOfficial || !hasPrivate) {
+        findings.push({
+          severity: 'MEDIUM',
+          rule: '9-4',
+          line: refStartIdx + 1,
+          endLine: refEnd,
+          message: `参考資料が${hasOfficial ? '公的のみ' : '民間のみ'}。公的＋民間 各1件以上が必要（§9）`,
+        });
+      }
+    }
+  }
+
+  // 9-5: 「とは」H2 の直下（最初のH3より前）に <ExamPoint>
+  // H3 サブセクション内の ExamPoint は対象外（BCPページ等で正常パターン）
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+.*とは/.test(lines[i])) {
+      for (let j = i + 1; j < lines.length; j++) {
+        // 次の H2 または H3 が来たら打ち切り（H3 サブセクション以降は対象外）
+        if (/^##\s/.test(lines[j]) || /^###\s/.test(lines[j])) break;
+        if (/<ExamPoint(\s|$|\/)/.test(lines[j])) {
+          findings.push({
+            severity: 'LOW',
+            rule: '9-5',
+            line: j + 1,
+            endLine: j + 1,
+            message: `「とは」H2 の直下（H3前）に <ExamPoint>。概念説明の前に試験ポイントを置かない（§5）`,
+          });
+          break;
+        }
+      }
+    }
+  }
+
+  // 9-6: 本文に過去問判定記号
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    // <ExamPoint> ブロック内・details ブロック内は別ルール（9-3）でカバー
+    const m = line.match(/(正答[：:]|代表的な誤り|❌|✅)/);
+    if (m) {
+      findings.push({
+        severity: 'HIGH',
+        rule: '9-6',
+        line: i + 1,
+        endLine: i + 1,
+        message: `本文に過去問判定記号「${m[0]}」。キーワードページは概念解説に専念し、判定記号は過去問MDXのみに（§5）`,
+      });
+    }
+  }
+}
+
 // ── メイン ───────────────────────────────────────────────────────────────────
 
 function lintFile(filePath) {
@@ -308,6 +481,7 @@ function lintFile(filePath) {
 
   lintRelatedKeywordList(lines, findings);
   lintLegalCitations(lines, findings);
+  lintComponentPrinciples(lines, filePath, findings);
 
   // 行番号を frontmatter 分シフト
   for (const f of findings) {

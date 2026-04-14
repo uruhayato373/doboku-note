@@ -156,17 +156,28 @@ publishedAt: "{YYYY-MM-DD}"
 - `section` が未設定の場合、`src/config/pe-chapters.json` を参照して付与
 - `description` は検索結果に表示されるため、キーワードの定義を簡潔にまとめる
 
-### Step 5: 品質チェック
+### Step 5: 品質チェック（2段階ゲート）
+
+**Generator/Evaluator 分離原則**: keyword-page スキル自身は Generator。完成判定は **機械リンター（Step 5a）** と **cem-qa エージェント（Step 5b）** の2段階ゲートで行う。両方を通過しないと完了とみなさない。
+
+#### Step 5a: 機械リンター（必須）
 
 1. **文字化け検出**: Grep で `U+FFFD`（`��`）を検索し、文字化けがないことを確認
 2. **リンク確認**: 過去問リンクのアンカー形式が正しいか確認（`#ⅰ-1-1` 等、小文字ローマ数字）
-3. **参考資料リンクの存在確認**: WebFetch で各URLにアクセスし、404やリダイレクトループがないことを確認。存在しないリンクは削除する
-4. **コンポーネント構文**: `<ExamPoint>`, `<Timeline>` 等の props が正しいか確認
-5. **section 整合性**: frontmatter の `section` と「総合技術監理における位置づけ」の記述が一致しているか
-6. **モバイル視認性レビュー（必須）**: `/review-mobile <file>` を **連続実行** する。HIGH/MEDIUM 違反ゼロを確認してから完了とする
-   - 省略不可。`keyword-page` の成果物は必ず `review-mobile` のチェックを通す
-   - `review-mobile` は内部で `node scripts/lint-mdx-mobile.mjs` を走らせて表セル字数・KaTeX混入・4列以上・キーバリュー表・導入文欠落を機械判定する
-   - 違反が残った場合は `keyword-page` に戻って修正 → 再レビュー
+3. **section 整合性**: frontmatter の `section` と「総合技術監理における位置づけ」の記述が一致しているか
+4. **lint-mdx-mobile 実行**: `node scripts/lint-mdx-mobile.mjs <file>` を実行
+   - カテゴリ1（表）・6（導入文）・8（リンク）・**9（コンポーネント原則）** をチェック
+   - HIGH/MEDIUM 違反があれば修正 → 再実行 → **ゼロまでループ**
+   - 9-1（ExamPoint 3個以上）・9-3（誤り選択肢パターン）・9-6（過去問判定記号）は HIGH なのでブロッカー
+
+#### Step 5b: cem-qa エージェント評価（必須）
+
+1. `cem-qa` エージェントを呼び出し、対象 slug または mdx パスを渡す
+2. 5軸ルーブリック（構造30% / モバイル25% / 原則20% / 参考資料15% / 関連付け10%）で採点
+3. **加重スコア < 2.0 なら指摘事項リストに沿って修正 → Step 5a に戻る**
+4. **加重スコア ≥ 2.0 で完了**
+5. いずれかの軸が 0 点なら即不合格
+6. 参考資料軸の合格には `.claude/content-principles.md` §9 準拠（公的＋民間 各1件以上）が必要
 
 ## 品質基準
 
