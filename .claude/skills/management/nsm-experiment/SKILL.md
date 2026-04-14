@@ -24,7 +24,7 @@ Check      : measure で前後比較
 Act        : close で learnings 記録 → roadmap にフィードバック
 ```
 
-詳細は `docs/project/03_NSMと計測指標.md` と `docs/pdfs/guide.pdf`（Chapter 3）を参照。
+詳細は `.claude/skills/management/nsm-experiment/references/definition.md` と `docs/pdfs/guide.pdf`（Chapter 3）を参照。
 
 ## 引数
 
@@ -145,7 +145,7 @@ abandoned  abandoned  running (re-measure)
 | **`.claude/skills/management/weekly-review/SKILL.md`** | 実験進捗セクションで running を自動表示 |
 | **`.claude/skills/management/nsm-experiment/references/playbook.md`** | 実験パターンカタログ |
 | **`.claude/skills/management/nsm-experiment/references/rubric.md`** | 優先順位評価軸 |
-| **`docs/project/03_NSMと計測指標.md`** | NSM 定義の真実源 |
+| **`.claude/skills/management/nsm-experiment/references/definition.md`** | NSM 定義の真実源 |
 | **`docs/project/04_コンテンツロードマップ.md`** | close 時の learnings フィードバック先 |
 
 ## 使い方の例
@@ -174,7 +174,7 @@ abandoned  abandoned  running (re-measure)
 ## 参照
 
 - `.claude/pdfs/guide.pdf` Chapter 3 (Testing and iteration) ── Pattern 3 Iterative refinement の出典
-- `docs/project/03_NSMと計測指標.md` ── NSM 定義と目標値
+- `.claude/skills/management/nsm-experiment/references/definition.md` ── NSM 定義と目標値
 - `scripts/lib/experiments-state.mjs` ── state 実装
 - `scripts/lib/metrics-reader.mjs` ── 計測実装
 - `references/playbook.md` ── 実験パターンカタログ

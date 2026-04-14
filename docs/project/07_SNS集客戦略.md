@@ -196,6 +196,6 @@ doboku-note（1級土木施工管理技士 / 技術士総合技術監理部門 �
 ## 関連ドキュメント
 
 - `docs/project/02_事業戦略.md` — 全体戦略
-- `docs/project/03_NSMと計測指標.md` — NSM 定義
+- `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義（2026-04-14 に skill 層へ移管）
 - `docs/project/04_コンテンツロードマップ.md` — コンテンツ計画
 - `.claude/skills/marketing/x-post/SKILL.md` — X 投稿下書き生成スキル

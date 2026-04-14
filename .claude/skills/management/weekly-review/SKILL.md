@@ -47,20 +47,32 @@ description: >
 - 「更新したページ」
 ```
 
-#### Agent C: NSM / パフォーマンス指標
+#### Agent C: NSM / パフォーマンス指標 + 実験進捗
 
 ```
-調査方法:
+調査方法 (2 段階):
+
+A. NSM 指標取得:
 - `node scripts/lib/metrics-reader.mjs` を実行（markdown 出力）
   → GA4 と GSC から今週 vs 前週の NSM 関連メトリクスを取得
-  → Organic Search users（NSM）、全体 sessions、CTR、検索順位、トップクエリ を自動取得
+  → Organic Search users（NSM）、全体 sessions、CTR、検索順位、トップクエリ
 - 出力をそのまま「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
 
-補助:
-- `node scripts/lib/metrics-reader.mjs --json` で生データを取りたい場合は JSON モード
-- 追加のディメンション別データが欲しい場合は以下を個別実行:
-  - `npm run fetch-ga4-data -- --dimension page --days 7 --limit 20` (ページ別)
-  - `npm run fetch-gsc-data -- --dimension page --days 7` (ページ別検索流入)
+B. 実験進捗レポート:
+- `data/experiments.json` を読み、status 別にグループ化:
+  - running: 経過日数、baseline との gap（metrics-reader で再取得）
+  - measuring: baseline vs current の前後比較
+  - 今週 close したもの: result + learnings
+- 各 running 実験について:
+  - started_at から 10 日以上経過していれば「measure 実施推奨」を明記
+  - baseline の metric が現状でどう動いたか数値表示
+- 出力を「## 実験の進捗」セクションとして埋め込む
+
+補助コマンド:
+- `node scripts/lib/metrics-reader.mjs --json` で生データ
+- 追加のディメンション別データ:
+  - `npm run fetch-ga4-data -- --dimension page --days 7 --limit 20`
+  - `npm run fetch-gsc-data -- --dimension page --days 7`
 
 前提条件:
 - .env.local に GOOGLE_SERVICE_ACCOUNT_KEY_PATH と GA4_PROPERTY_ID が設定されている
@@ -68,9 +80,23 @@ description: >
 - 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
 
 出力形式:
-- metrics-reader.mjs の markdown 出力をそのまま採用
-- コメント: NSM トレンドについての洞察（Organic 増減の背景、注目クエリなど）
-- 改善候補: 検索順位が上位だが CTR が低いクエリ → title/description 改善候補
+- A の markdown 出力をそのまま「## NSM（オーガニック検索流入）」に
+- B を新規セクション「## 実験の進捗」として以下構造で:
+
+## 実験の進捗
+
+### Running ({n} 件)
+| ID | title | 経過日数 | baseline → current | 次アクション |
+|---|---|---|---|---|
+| EXP-001 | title改善 | 12 日 | pos 7.4 → 4.2 | measure 推奨 |
+
+### Measuring ({n} 件)
+| ID | title | baseline | current | 効果判定 |
+
+### 今週 close ({n} 件)
+- EXP-XXX: {result} — {learnings}
+
+コメント: 次サイクルで試すべき仮説を 1-2 個提示
 ```
 
 #### Agent D: 計画との差分
@@ -141,6 +167,27 @@ generatedAt: "YYYY-MM-DD"
 - Organic Search users の増減: ...（コンテンツ追加・SEO 改善・試験シーズン影響などの要因）
 - 注目クエリ: 順位上位だが CTR が低い → title/description 改善候補
 
+## 実験の進捗
+
+<!-- Agent C が data/experiments.json から running/measuring/今週 close を自動生成。
+     running 実験の baseline → current 比較、measure 推奨の警告、
+     close 実験の learnings を出力。 -->
+
+### Running
+| ID | title | 経過日数 | baseline → current | 次アクション |
+|---|---|---|---|---|
+
+### Measuring
+| ID | title | baseline | current | 効果判定 |
+|---|---|---|---|---|
+
+### 今週 close
+
+- なし
+
+### 次サイクルへの仮説
+- （Agent C が running/closed の学びから提示）
+
 ## その他パフォーマンス（必要に応じて）
 
 ページ別 PV・内部リンク導線・リファラーなど、NSM 以外で注目すべき指標があれば記録。
@@ -164,7 +211,9 @@ generatedAt: "YYYY-MM-DD"
 ## 参照
 
 - `.claude/skills/management/weekly-plan/SKILL.md` — 週次計画
+- `.claude/skills/management/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
 - `scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
+- `scripts/lib/experiments-state.mjs` — experiments.json I/O
 - `scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
 - `scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
-- `docs/project/03_NSMと計測指標.md` — NSM 定義の真実源
+- `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

@@ -22,6 +22,7 @@
 | `/growth-loops` | 成長ループの設計 |
 | `/monetization-strategy` | 収益化戦略のブレスト |
 | `/north-star-metric` | NSM + Input Metrics の定義 |
+| `/nsm-experiment` | NSM 改善の実験ライフサイクル管理（propose/start/measure/close）|
 | `/knowledge` | 失敗と学びの参照・追記 |
 | `/competitor-audit` | 競合サイト調査の実行 |
 | `/keyword-gap` | コンテンツギャップ分析 |
@@ -35,6 +36,20 @@
 - 広告・収益 → 自身（/audit-ads 委譲）
 - 戦略・計画 → 自身（/critical-review）
 - UI/デザイン → /design-review, /ui-panel-review
+
+### NSM 改善リクエストのルーティング
+
+「NSM 上げたい」「オーガニック流入を増やしたい」「実験したい」等の依頼:
+
+1. **NSM 定義そのものを見直したい** → `/north-star-metric` （指標の再定義）
+2. **具体の改善実験を回したい** → `/nsm-experiment` （PDCA サイクル）
+   - 候補提案: `/nsm-experiment propose`
+   - 実行開始: `/nsm-experiment start <id>`
+   - 計測: `/nsm-experiment measure <id>`
+   - 学び記録: `/nsm-experiment close <id>`
+3. **週次で自動追跡したい** → `/weekly-plan` + `/weekly-review` （実験情報が自動統合される）
+
+`/north-star-metric` は戦略レベル、`/nsm-experiment` は実行レベル。両者は重複せず補完関係。
 
 ## 担当外
 
@@ -72,5 +87,7 @@
 ## 出力先
 
 - `docs/reviews/weekly/` — 週次計画・レビュー
+- `docs/reviews/weekly-metrics/` — 週次 NSM スナップショット（時系列）
 - `docs/reviews/competitor-audit/` — 競合調査
 - `docs/reviews/` — 批判的レビュー・その他
+- `data/experiments.json` — NSM 実験の状態遷移履歴

@@ -197,4 +197,10 @@ generatedAt: "YYYY-MM-DD"
 ## 参照
 
 - `.claude/skills/management/weekly-review/SKILL.md` — 週次レビュー
-- `.claude/skills/management/north-star-metric/SKILL.md` — NSM
+- `.claude/skills/management/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
+- `.claude/skills/management/nsm-experiment/references/playbook.md` — 実験パターン
+- `.claude/skills/management/nsm-experiment/references/rubric.md` — 実験優先順位
+- `scripts/snapshot-weekly-metrics.mjs` — Phase 0 スナップショット
+- `scripts/lib/metrics-reader.mjs` — NSM 計測本体
+- `scripts/lib/experiments-state.mjs` — experiments.json I/O
+- `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義

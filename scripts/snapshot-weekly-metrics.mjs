@@ -6,7 +6,7 @@
  * docs/reviews/weekly-metrics/YYYY-Www.json に保存する。
  * index.json を追記して時系列トラッキング可能にする。
  *
- * 参照: docs/project/03_NSMと計測指標.md
+ * 参照: .claude/skills/management/nsm-experiment/references/definition.md
  *       scripts/lib/metrics-reader.mjs
  *       .claude/skills/management/weekly-plan/SKILL.md (Phase 0)
  *
