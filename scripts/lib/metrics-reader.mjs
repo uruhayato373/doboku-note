@@ -1,16 +1,17 @@
 /**
  * NSM メトリクスリーダー（週次レビュー用）
  *
- * GA4 と GSC から今週・前週のデータを取得し、週次レビューに組み込むための
- * サマリ + 差分を計算する。`/weekly-review` スキル Phase 1 / Agent C から呼ばれる。
+ * GA4 + GSC + PageSpeed Insights から今週・前週のデータを取得し、週次レビューに
+ * 組み込むためのサマリ + 差分を計算する。`/weekly-review` スキル Phase 1 / Agent C から呼ばれる。
  *
  * 参照:
  *   - .claude/skills/management/nsm-experiment/references/definition.md
- *   - scripts/fetch-ga4-data.mjs / scripts/fetch-gsc-data.mjs
+ *   - scripts/fetch-ga4-data.mjs / scripts/fetch-gsc-data.mjs / scripts/fetch-psi-data.mjs
  *
  * 必要な環境変数 (.env.local):
  *   GOOGLE_SERVICE_ACCOUNT_KEY_PATH
  *   GA4_PROPERTY_ID
+ *   PSI_API_KEY                        (任意、指定すれば PSI を取得)
  */
 
 import { BetaAnalyticsDataClient } from "@google-analytics/data";
@@ -22,6 +23,7 @@ dotenv.config({ path: ".env.local" });
 
 const GSC_SITE_URL = "sc-domain:doboku-note.com";
 const GSC_DELAY_DAYS = 3; // GSC data has ~3 day delay
+const PSI_TARGET_URL = "https://doboku-note.com/"; // デフォルトは root 1 URL のみ計測
 
 // ── Date helpers ─────────────────────────────────────────────────
 
@@ -231,29 +233,76 @@ async function fetchGscWeekly(credentials, ranges) {
   };
 }
 
+// ── PSI ──────────────────────────────────────────────────────────
+
+async function fetchPsiSummary(targetUrl = PSI_TARGET_URL) {
+  if (!process.env.PSI_API_KEY) {
+    return { skipped: true, reason: "PSI_API_KEY 未設定" };
+  }
+  const params = new URLSearchParams({
+    url: targetUrl,
+    strategy: "mobile",
+    key: process.env.PSI_API_KEY,
+  });
+  ["performance", "accessibility", "best-practices", "seo"].forEach((c) =>
+    params.append("category", c),
+  );
+  const endpoint = `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?${params.toString()}`;
+  const res = await fetch(endpoint);
+  if (!res.ok) throw new Error(`PSI ${res.status}`);
+  const data = await res.json();
+
+  const categories = data.lighthouseResult?.categories || {};
+  const audits = data.lighthouseResult?.audits || {};
+  const pick = (k) =>
+    categories[k]?.score != null ? Math.round(categories[k].score * 100) : null;
+  const lab = (k) => audits[k]?.numericValue ?? null;
+
+  return {
+    url: targetUrl,
+    strategy: "mobile",
+    scores: {
+      performance: pick("performance"),
+      accessibility: pick("accessibility"),
+      best_practices: pick("best-practices"),
+      seo: pick("seo"),
+    },
+    lab_data: {
+      LCP_ms: lab("largest-contentful-paint"),
+      TBT_ms: lab("total-blocking-time"),
+      CLS: lab("cumulative-layout-shift"),
+      FCP_ms: lab("first-contentful-paint"),
+      TTI_ms: lab("interactive"),
+    },
+  };
+}
+
 // ── Main entry ────────────────────────────────────────────────────
 
 export async function fetchWeeklyNsmMetrics() {
   const credentials = getCredentials();
   const ranges = computeWeekRanges();
 
-  const [ga4, gsc] = await Promise.all([
+  const [ga4, gsc, psi] = await Promise.all([
     fetchGa4Weekly(credentials, ranges.ga4).catch((e) => ({
       error: `GA4 取得失敗: ${e.message}`,
     })),
     fetchGscWeekly(credentials, ranges.gsc).catch((e) => ({
       error: `GSC 取得失敗: ${e.message}`,
     })),
+    fetchPsiSummary().catch((e) => ({ error: `PSI 取得失敗: ${e.message}` })),
   ]);
 
   return {
     generated_at: new Date().toISOString(),
     ranges,
     ga4,
+    psi,
     gsc,
     notes: [
       `GSC データは 3 日遅延のため、直近期間は ${ranges.gsc.this.start} 〜 ${ranges.gsc.this.end} を採用`,
-      "NSM = Organic Search の activeUsers（doc 03 準拠）",
+      "NSM = Organic Search の activeUsers (definition.md 準拠)",
+      "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）",
     ],
   };
 }
@@ -337,6 +386,36 @@ export function formatNsmSection(metrics) {
           `| ${i + 1} | ${q.query} | ${q.clicks} | ${q.impressions} | ${(q.ctr * 100).toFixed(1)}% | ${q.position.toFixed(1)} |`,
         );
       });
+      lines.push("");
+    }
+  }
+
+  // PSI セクション
+  if (metrics.psi) {
+    if (metrics.psi.error) {
+      lines.push(`⚠️ PSI: ${metrics.psi.error}`);
+    } else if (metrics.psi.skipped) {
+      lines.push(`_PSI: ${metrics.psi.reason}_`);
+    } else {
+      lines.push(`### PageSpeed Insights (${metrics.psi.url}, ${metrics.psi.strategy})`);
+      lines.push("");
+      lines.push("| カテゴリ | スコア |");
+      lines.push("|---|---:|");
+      const s = metrics.psi.scores;
+      lines.push(`| Performance | ${s.performance ?? "N/A"} |`);
+      lines.push(`| Accessibility | ${s.accessibility ?? "N/A"} |`);
+      lines.push(`| Best Practices | ${s.best_practices ?? "N/A"} |`);
+      lines.push(`| SEO | ${s.seo ?? "N/A"} |`);
+      lines.push("");
+      const lab = metrics.psi.lab_data;
+      lines.push("| Core Web Vitals (Lab) | 値 | 判定 |");
+      lines.push("|---|---:|---|");
+      const lcpVerdict = lab.LCP_ms == null ? "N/A" : lab.LCP_ms <= 2500 ? "✓" : lab.LCP_ms <= 4000 ? "⚠" : "✗";
+      const clsVerdict = lab.CLS == null ? "N/A" : lab.CLS <= 0.1 ? "✓" : lab.CLS <= 0.25 ? "⚠" : "✗";
+      const tbtVerdict = lab.TBT_ms == null ? "N/A" : lab.TBT_ms <= 200 ? "✓" : lab.TBT_ms <= 600 ? "⚠" : "✗";
+      lines.push(`| LCP | ${lab.LCP_ms != null ? Math.round(lab.LCP_ms) + " ms" : "N/A"} | ${lcpVerdict} |`);
+      lines.push(`| TBT | ${lab.TBT_ms != null ? Math.round(lab.TBT_ms) + " ms" : "N/A"} | ${tbtVerdict} |`);
+      lines.push(`| CLS | ${lab.CLS != null ? lab.CLS.toFixed(3) : "N/A"} | ${clsVerdict} |`);
       lines.push("");
     }
   }

@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-14T13:17:28.361Z",
+  "results": [
+    {
+      "url": "https://doboku-note.com/",
+      "inspected_at": "2026-04-14T13:17:28.356Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-14T10:55:16Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/",
+        "user_canonical": "https://doboku-note.com/",
+        "referring_urls": [
+          "https://note.com/uruhayato373/n/n4afefec64e4b",
+          "https://www.doboku-note.com/",
+          "http://doboku-note.com/"
+        ],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=masPZaopgy2yqZq-Ymeuhw&utm_medium=link&utm_source=api"
+    }
+  ]
+}

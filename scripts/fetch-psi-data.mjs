@@ -1,0 +1,291 @@
+/**
+ * PageSpeed Insights API 取得スクリプト
+ *
+ * Core Web Vitals（LCP, INP, CLS）と Lighthouse スコアを取得し
+ * .local/psi/ に時系列で保存する。
+ *
+ * 認証方針:
+ *   PSI API v5 は公開エンドポイント。低量の呼び出しは API キー不要。
+ *   より高い quota (25,000/日) が必要な場合は GCP Console で API キーを作成し
+ *   .env.local に PSI_API_KEY=<key> を追加する。
+ *   --top を使う場合のみ GSC サービスアカウント認証が必要。
+ *
+ * 参照: .claude/skills/management/nsm-experiment/references/definition.md
+ *       scripts/fetch-gsc-data.mjs / scripts/fetch-ga4-data.mjs (パターンの参考)
+ *
+ * Usage:
+ *   npm run fetch-psi-data -- --url https://doboku-note.com/
+ *   npm run fetch-psi-data -- --url https://doboku-note.com/ --strategy mobile
+ *   npm run fetch-psi-data -- --url https://doboku-note.com/ --strategy desktop
+ *   npm run fetch-psi-data -- --file urls.txt                         # 複数 URL をファイルから
+ *   npm run fetch-psi-data -- --top 10                                # GSC 上位ページ自動選択（要 GSC 認証）
+ *   npm run fetch-psi-data -- --url <url> --json                      # JSON のみ出力
+ *
+ * 必要な環境変数 (.env.local):
+ *   PSI_API_KEY                          (任意、quota を上げたい場合)
+ *   GOOGLE_SERVICE_ACCOUNT_KEY_PATH      (--top 使用時のみ)
+ */
+
+import { google } from "googleapis";
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
+import { join } from "path";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.local" });
+
+// ── Config ──
+
+const OUTPUT_DIR = ".local/psi";
+const DEFAULT_STRATEGY = "mobile";
+const DEFAULT_CATEGORIES = ["performance", "accessibility", "best-practices", "seo"];
+
+// ── CLI args ──
+
+function parseArgs() {
+  const args = process.argv.slice(2);
+  const opts = {
+    url: null,
+    file: null,
+    top: null,
+    strategy: DEFAULT_STRATEGY,
+    categories: DEFAULT_CATEGORIES,
+    json: false,
+  };
+  for (let i = 0; i < args.length; i++) {
+    switch (args[i]) {
+      case "--url":
+        opts.url = args[++i];
+        break;
+      case "--file":
+        opts.file = args[++i];
+        break;
+      case "--top":
+        opts.top = parseInt(args[++i], 10);
+        break;
+      case "--strategy":
+        opts.strategy = args[++i];
+        break;
+      case "--categories":
+        opts.categories = args[++i].split(",").map((c) => c.trim());
+        break;
+      case "--json":
+        opts.json = true;
+        break;
+    }
+  }
+  return opts;
+}
+
+// ── Auth ──
+// PSI は認証不要。--top 使用時のみ GSC のサービスアカウントを使う
+
+function getGscAuth() {
+  const keyPath = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH;
+  if (!keyPath || !existsSync(keyPath)) {
+    console.error(
+      "Error: --top には GSC サービスアカウント鍵が必要。GOOGLE_SERVICE_ACCOUNT_KEY_PATH を確認。",
+    );
+    process.exit(1);
+  }
+  const credentials = JSON.parse(readFileSync(keyPath, "utf-8"));
+  return new google.auth.GoogleAuth({
+    credentials,
+    scopes: ["https://www.googleapis.com/auth/webmasters.readonly"],
+  });
+}
+
+// ── URL list 取得 ──
+
+function readUrlsFromFile(path) {
+  return readFileSync(path, "utf-8")
+    .split("\n")
+    .map((l) => l.trim())
+    .filter((l) => l && !l.startsWith("#"));
+}
+
+async function getTopUrlsFromGsc(auth, top) {
+  const searchconsole = google.searchconsole({ version: "v1", auth });
+  const end = new Date();
+  end.setDate(end.getDate() - 3);
+  const start = new Date(end);
+  start.setDate(start.getDate() - 28);
+  const fmt = (d) => d.toISOString().split("T")[0];
+
+  const res = await searchconsole.searchanalytics.query({
+    siteUrl: "sc-domain:doboku-note.com",
+    requestBody: {
+      startDate: fmt(start),
+      endDate: fmt(end),
+      dimensions: ["page"],
+      rowLimit: top,
+    },
+  });
+  return (res.data.rows || []).map((r) => r.keys[0]);
+}
+
+// ── Fetch ──
+
+async function fetchPsi(url, opts) {
+  // PSI 公開エンドポイントを直接叩く。API キーがあれば quota 拡張、無くても動く
+  const params = new URLSearchParams();
+  params.append("url", url);
+  params.append("strategy", opts.strategy);
+  for (const cat of opts.categories) params.append("category", cat);
+  if (process.env.PSI_API_KEY) params.append("key", process.env.PSI_API_KEY);
+
+  const endpoint = `https://pagespeedonline.googleapis.com/pagespeedonline/v5/runPagespeed?${params.toString()}`;
+  const res = await fetch(endpoint);
+  if (!res.ok) {
+    const body = await res.text();
+    throw new Error(`PSI API ${res.status}: ${body.slice(0, 300)}`);
+  }
+  return res.json();
+}
+
+// ── 結果整形 ──
+
+function extractSummary(data, url, strategy) {
+  const lighthouse = data.lighthouseResult || {};
+  const categories = lighthouse.categories || {};
+  const audits = lighthouse.audits || {};
+  const loadingExperience = data.loadingExperience || {};
+  const metrics = loadingExperience.metrics || {};
+
+  const pick = (key) => (categories[key]?.score != null ? Math.round(categories[key].score * 100) : null);
+  const lab = (key) => audits[key]?.numericValue ?? null;
+  const field = (key) => {
+    const m = metrics[key];
+    if (!m) return null;
+    return {
+      percentile: m.percentile,
+      distributions: m.distributions,
+      category: m.category, // FAST / AVERAGE / SLOW
+    };
+  };
+
+  return {
+    url,
+    strategy,
+    fetched_at: new Date().toISOString(),
+    scores: {
+      performance: pick("performance"),
+      accessibility: pick("accessibility"),
+      best_practices: pick("best-practices"),
+      seo: pick("seo"),
+    },
+    lab_data: {
+      LCP_ms: lab("largest-contentful-paint"),
+      TBT_ms: lab("total-blocking-time"),
+      CLS: lab("cumulative-layout-shift"),
+      FCP_ms: lab("first-contentful-paint"),
+      TTI_ms: lab("interactive"),
+      SI_ms: lab("speed-index"),
+    },
+    field_data: {
+      LCP: field("LARGEST_CONTENTFUL_PAINT_MS"),
+      INP: field("INTERACTION_TO_NEXT_PAINT"),
+      CLS: field("CUMULATIVE_LAYOUT_SHIFT_SCORE"),
+      FCP: field("FIRST_CONTENTFUL_PAINT_MS"),
+      TTFB: field("EXPERIMENTAL_TIME_TO_FIRST_BYTE"),
+    },
+    analysis_utc: lighthouse.fetchTime || null,
+    final_url: lighthouse.finalUrl || url,
+  };
+}
+
+// ── 出力 ──
+
+function printSummary(summary) {
+  console.log(`\n=== ${summary.url} (${summary.strategy}) ===`);
+  console.log("Scores (0-100):");
+  for (const [k, v] of Object.entries(summary.scores)) {
+    console.log(`  ${k.padEnd(16)}: ${v ?? "N/A"}`);
+  }
+  console.log("Lab data:");
+  const lab = summary.lab_data;
+  if (lab.LCP_ms != null) console.log(`  LCP: ${Math.round(lab.LCP_ms)} ms`);
+  if (lab.TBT_ms != null) console.log(`  TBT: ${Math.round(lab.TBT_ms)} ms`);
+  if (lab.CLS != null) console.log(`  CLS: ${lab.CLS.toFixed(3)}`);
+  if (lab.FCP_ms != null) console.log(`  FCP: ${Math.round(lab.FCP_ms)} ms`);
+  if (lab.TTI_ms != null) console.log(`  TTI: ${Math.round(lab.TTI_ms)} ms`);
+
+  console.log("Field data (実ユーザー計測, 過去 28 日):");
+  const f = summary.field_data;
+  const fmtField = (m) => (m ? `${m.percentile} (${m.category})` : "N/A");
+  console.log(`  LCP:  ${fmtField(f.LCP)}`);
+  console.log(`  INP:  ${fmtField(f.INP)}`);
+  console.log(`  CLS:  ${fmtField(f.CLS)}`);
+  console.log(`  FCP:  ${fmtField(f.FCP)}`);
+  console.log(`  TTFB: ${fmtField(f.TTFB)}`);
+}
+
+function saveJson(summaries) {
+  if (!existsSync(OUTPUT_DIR)) mkdirSync(OUTPUT_DIR, { recursive: true });
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-").slice(0, 19);
+  const filename = `psi-${summaries.length > 1 ? "batch" : "single"}-${timestamp}.json`;
+  const filepath = join(OUTPUT_DIR, filename);
+  writeFileSync(filepath, JSON.stringify({ version: 1, generated_at: new Date().toISOString(), results: summaries }, null, 2), "utf-8");
+  return filepath;
+}
+
+// ── メイン ──
+
+async function main() {
+  const opts = parseArgs();
+
+  if (!opts.url && !opts.file && !opts.top) {
+    console.error("Usage: --url <URL> | --file <list.txt> | --top <N>");
+    process.exit(2);
+  }
+
+  // URL リスト構築
+  let urls = [];
+  if (opts.url) urls.push(opts.url);
+  if (opts.file) urls.push(...readUrlsFromFile(opts.file));
+  if (opts.top) {
+    console.log(`GSC 上位 ${opts.top} ページを取得中...`);
+    const gscAuth = getGscAuth();
+    urls.push(...(await getTopUrlsFromGsc(gscAuth, opts.top)));
+  }
+  urls = [...new Set(urls)];
+
+  console.log(`PSI 計測対象: ${urls.length} URL (strategy: ${opts.strategy})`);
+
+  // 各 URL を順次計測（PSI はレスポンス時間が長い、並列は避ける）
+  const summaries = [];
+  for (const url of urls) {
+    try {
+      console.log(`\n[${summaries.length + 1}/${urls.length}] ${url}`);
+      const data = await fetchPsi(url, opts);
+      const summary = extractSummary(data, url, opts.strategy);
+      summaries.push(summary);
+      if (!opts.json) printSummary(summary);
+    } catch (e) {
+      console.error(`  Error: ${e.message?.slice(0, 200)}`);
+      summaries.push({ url, strategy: opts.strategy, error: e.message?.slice(0, 200) });
+    }
+  }
+
+  const filepath = saveJson(summaries);
+  console.log(`\n出力: ${filepath}`);
+
+  if (opts.json) {
+    console.log(JSON.stringify(summaries, null, 2));
+  }
+}
+
+main().catch((e) => {
+  const code = e.code || e.details?.code;
+  if (code === 7 || e.message?.includes("PERMISSION_DENIED")) {
+    console.error(
+      "Error: アクセス権がありません。\n" +
+        "PageSpeed Insights API がプロジェクトで有効化されているか確認してください。",
+    );
+  } else if (code === 16 || e.message?.includes("UNAUTHENTICATED")) {
+    console.error("Error: 認証に失敗しました。鍵ファイルを確認してください。");
+  } else {
+    console.error("Error:", e.message);
+    if (e.details) console.error("Details:", e.details);
+  }
+  process.exit(1);
+});

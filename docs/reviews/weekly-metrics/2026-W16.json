@@ -2,7 +2,7 @@
   "week_id": "2026-W16",
   "year": 2026,
   "week": 16,
-  "generated_at": "2026-04-14T12:57:12.390Z",
+  "generated_at": "2026-04-14T13:27:58.196Z",
   "ranges": {
     "ga4": {
       "this": {
@@ -65,6 +65,23 @@
       "thisSessions": 37,
       "prevSessions": 137,
       "thisEngagementRate": 0.4594594594594595
+    }
+  },
+  "psi": {
+    "url": "https://doboku-note.com/",
+    "strategy": "mobile",
+    "scores": {
+      "performance": 61,
+      "accessibility": 92,
+      "best_practices": 100,
+      "seo": 92
+    },
+    "lab_data": {
+      "LCP_ms": 6628.512260805277,
+      "TBT_ms": 177,
+      "CLS": 0,
+      "FCP_ms": 5100.870381897812,
+      "TTI_ms": 6629.537021949614
     }
   },
   "gsc": {
@@ -156,6 +173,7 @@
   },
   "notes": [
     "GSC データは 3 日遅延のため、直近期間は 2026-04-05 〜 2026-04-11 を採用",
-    "NSM = Organic Search の activeUsers（doc 03 準拠）"
+    "NSM = Organic Search の activeUsers (definition.md 準拠)",
+    "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）"
   ]
 }

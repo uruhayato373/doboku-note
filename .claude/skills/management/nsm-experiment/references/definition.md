@@ -62,12 +62,15 @@ NSM を駆動する入力指標。施策の優先順位はこれらへの貢献�
 
 | # | 指標 | 定義 | データソース | 実装 |
 |---|---|---|---|---|
-| 1 | インデックス済みページ数 | GSC「有効」ステータスのページ数 | Google Search Console | `scripts/fetch-gsc-data.mjs` |
+| 1 | インデックス済みページ数 | GSC「有効」ステータスのページ数 | Google Search Console | `scripts/fetch-gsc-data.mjs` + `scripts/inspect-url.mjs` |
 | 2 | 検索 CTR | GSC 平均クリック率 | Google Search Console | `metrics-reader.mjs` の `gsc.total.thisCtr` |
 | 3 | セッションあたりページ閲覧数 | GA4 の平均ページ/セッション | Google Analytics 4 | `fetch-ga4-data.mjs` の `screenPageViewsPerSession` |
 | 4 | 週間リピーター率 | 週内に 2 回以上訪問したユーザーの割合 | Google Analytics 4 | GA4 Data API (未実装) |
-| ★5 | **YouTube UTM 流入** | YouTube 経由のセッション数 | GA4 + UTM | Q3 以降 |
-| ★6 | **note 商品ページ遷移数** | 記事末尾 CTA から note 商品ページへの遷移 | GA4 イベント | note 商品発行後 |
+| **5** | **Core Web Vitals (LCP / INP / CLS)** | 実ユーザー計測の 75th percentile、モバイル基準 | PageSpeed Insights API | `scripts/fetch-psi-data.mjs` |
+| **6** | **Lighthouse Performance スコア** | ラボ環境での総合スコア 0-100 | PageSpeed Insights API | `scripts/fetch-psi-data.mjs` |
+| ★7 | **YouTube UTM 流入** | YouTube 経由のセッション数 | GA4 + UTM | Q3 以降 |
+| ★8 | **note 商品ページ遷移数** | 記事末尾 CTA から note 商品ページへの遷移 | GA4 イベント | note 商品発行後 |
+| ★9 | **ページ別 AdSense RPM** | 1,000 PV あたりの収益 | AdSense Management API | AdSense 再申請通過後 |
 
 ---
 
@@ -116,9 +119,13 @@ NSM = 検索表示回数 × CTR
 
 - GA4: `G-8VXJ1RL1HG` で計測中、Data API アクセス権あり
 - GSC: `sc-domain:doboku-note.com` へサービスアカウント `mac-145@doboku-note-492906.iam.gserviceaccount.com` が閲覧者権限を持つ
-- `scripts/fetch-gsc-data.mjs`, `scripts/fetch-ga4-data.mjs`, `scripts/lib/metrics-reader.mjs`, `scripts/snapshot-weekly-metrics.mjs` が動作
+- PageSpeed Insights API: 同サービスアカウント経由で呼び出し可能、Core Web Vitals + Lighthouse スコア取得
+- URL Inspection API: GSC と同スコープで呼び出し、インデックス状態診断
+- `scripts/fetch-gsc-data.mjs`, `scripts/fetch-ga4-data.mjs`, `scripts/fetch-psi-data.mjs`, `scripts/inspect-url.mjs`, `scripts/lib/metrics-reader.mjs`, `scripts/snapshot-weekly-metrics.mjs` が動作
 - `/weekly-plan` と `/weekly-review` の Agent C が自動取得
 - 週次スナップショット: `docs/reviews/weekly-metrics/YYYY-Www.json`
+
+**AdSense Management API は別途**: doc 12 (AdSense 再申請戦略) の審査通過後に `scripts/fetch-adsense-data.mjs` を追加予定。同サービスアカウント流用可。
 
 ---
 

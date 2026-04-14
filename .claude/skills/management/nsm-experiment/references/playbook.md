@@ -143,6 +143,54 @@
 
 **ROI**: 中（実装コスト中、効果は大）
 
+### 4-C. Core Web Vitals (CWV) 改善
+
+**適用条件**:
+- `npm run fetch-psi-data -- --top 10 --strategy mobile` で field_data (実ユーザー計測) を取得
+- 上位ページの LCP (Largest Contentful Paint) > 2.5 秒、INP > 200ms、CLS > 0.1 のいずれかに該当
+- 特に page_fetch_state が SUCCESSFUL でも LCP が遅いページが狙い目
+
+**計測指標**: `psi_lcp_ms`, `psi_inp_ms`, `psi_cls`, `psi_performance_score`
+
+**アクション**:
+1. PSI レポートで LCP 遅延の主因を特定（画像未最適化 / JS blocking / フォント読み込み 等）
+2. 対策実施:
+   - 画像: R2 配信済みだが `loading="lazy"` 追加、適切な width/height 指定、WebP 変換
+   - フォント: `font-display: swap`、サブセット化
+   - JS: 不要ライブラリ削除、Next.js の code splitting 徹底
+3. デプロイ → 14-28 日待機（field_data は 28 日移動平均）
+
+**効果判定の期間**: 28 日以上（CrUX が実ユーザーデータを蓄積する時間）
+
+**期待 delta**: Performance score +10-20 点、LCP -500ms 以上
+
+**ROI**: 中（実装は軽いが効果測定が長い）。ただし Core Web Vitals は検索順位の直接的シグナルなので、**複数ページでまとめて改善する価値が大きい**。
+
+### 4-D. インデックス未登録ページの原因特定と解消
+
+**適用条件**:
+- 新規追加したページが公開後 14 日経過しても GSC で検索表示されない
+- `npm run inspect-url -- --url <URL>` で `coverage_state` が "未登録" or "除外"
+
+**計測指標**: インデックス済みページ数
+
+**アクション**:
+1. `inspect-url` でインデックス状態の詳細を取得
+2. 問題別の対応:
+   - `CRAWLED_CURRENTLY_NOT_INDEXED` → 内部リンク追加、コンテンツ拡充
+   - `DISCOVERED_CURRENTLY_NOT_INDEXED` → クロール頻度が低い、内部リンク強化
+   - `NOT_ON_SELECTED_PROPERTY` → プロパティ設定確認
+   - `PAGE_WITH_REDIRECT` → リダイレクトチェーンを解消
+   - `BLOCKED_BY_ROBOTS_TXT` → robots.txt 修正
+3. 修正後、GSC 画面で「インデックス登録リクエスト」を手動送信
+4. 再度 `inspect-url` で PASS 確認
+
+**効果判定の期間**: 手動リクエスト後 3-10 日
+
+**期待 delta**: 該当ページがインデックス済みに遷移
+
+**ROI**: 高（新規ページ 1 件につき長期的な impressions 獲得）
+
 ### 4-B. sitemap 優先度の調整
 
 **適用条件**:
