@@ -15,6 +15,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
+import { lintFrontmatter, loadTagAllowlist } from "./lint-frontmatter.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -47,7 +48,9 @@ async function main() {
 
   console.log(`pre-commit: Validating ${files.length} MDX file(s)...`);
 
-  const errors = [];
+  const errors = []; // HIGH 相当（コミットブロック）
+  const warnings = []; // MEDIUM/LOW（警告表示のみ）
+  const allowlist = loadTagAllowlist();
 
   for (const file of files) {
     const raw = readFileSync(file, "utf-8");
@@ -58,9 +61,26 @@ async function main() {
       continue;
     }
 
+    let data, content;
+    try {
+      const parsed = matter(raw);
+      data = parsed.data;
+      content = parsed.content;
+    } catch (e) {
+      errors.push({ file, error: `frontmatter parse: ${e.message?.split("\n")[0]}` });
+      continue;
+    }
+
+    // Frontmatter lint (HIGH/MEDIUM/LOW)
+    const issues = lintFrontmatter(file, data, allowlist);
+    for (const issue of issues) {
+      const entry = { file, error: `[${issue.code}] ${issue.message}` };
+      if (issue.severity === "HIGH") errors.push(entry);
+      else warnings.push({ ...entry, severity: issue.severity });
+    }
+
     // MDX compile check
     try {
-      const { content } = matter(raw);
       await compileMDX({
         source: content,
         options: {
@@ -78,15 +98,23 @@ async function main() {
     }
   }
 
+  // 警告を先に出す（警告はブロックしない）
+  if (warnings.length > 0) {
+    console.warn(`\npre-commit: ⚠ ${warnings.length} warning(s) (MEDIUM/LOW):`);
+    for (const { file, error, severity } of warnings) {
+      console.warn(`  [${severity}] ${file}: ${error}`);
+    }
+  }
+
   if (errors.length === 0) {
     console.log(`pre-commit: ✓ All ${files.length} MDX file(s) OK.`);
     process.exit(0);
   } else {
-    console.error(`\npre-commit: ✗ ${errors.length} error(s):\n`);
+    console.error(`\npre-commit: ✗ ${errors.length} HIGH error(s):\n`);
     for (const { file, error } of errors) {
       console.error(`  ${file}: ${error}`);
     }
-    console.error("\nCommit aborted. Fix the errors and try again.");
+    console.error("\nCommit aborted. Fix the HIGH errors and try again.");
     process.exit(1);
   }
 }

@@ -107,9 +107,14 @@ export default function AboutPage() {
                   </li>
                 </ul>
               </div>
-              <p className="mt-4 text-xs text-neutral-500 dark:text-gray-500">
-                ※ 本プロフィールは仮の経歴を含みます。運営者本人による実プロフィールへ随時差し替えていきます。
-              </p>
+              <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-gray-700">
+                <h4 className="text-sm font-bold text-neutral-700 dark:text-gray-300 mb-2">
+                  今後の展開
+                </h4>
+                <p className="text-sm text-neutral-600 dark:text-gray-400 leading-relaxed">
+                  現在は<strong>1級土木施工管理技士</strong>・<strong>技術士（総合技術監理部門）</strong>を中心にコンテンツを整備していますが、運営者が取得してきた<strong>コンクリート主任技士・コンクリート診断士・技術士（建設部門）・行政書士・応用情報技術者</strong>などの受験経験を活かし、土木・建設・法務・IT にまたがる多様な資格試験の対策コンテンツを順次展開していく予定です。
+                </p>
+              </div>
             </div>
           </div>
         </section>
