@@ -1,0 +1,312 @@
+{
+  "version": 1,
+  "scored_at": "2026-04-14T06:42:11.582Z",
+  "pages": {
+    "balance-sheet": {
+      "slug": "balance-sheet",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則・関連付けは良好。3列表セル17字の軽微超過と、参考資料が公的のみで民間解説欠落（§9違反）。民間解説1件追加で合格水準到達。",
+      "scored_at": "2026-04-14T06:42:11.582Z",
+      "before_score": 1.65,
+      "before_scored_at": "2026-04-14T06:32:45.550Z"
+    },
+    "income-statement": {
+      "slug": "income-statement",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "リライト後は表撤廃で箇条書き化、ExamPoint位置適正、参考資料3件（公的＋民間2）、実務具体例で著者の声も明瞭。",
+      "scored_at": "2026-04-14T06:42:11.582Z",
+      "before_score": 1.85,
+      "before_scored_at": "2026-04-14T06:32:45.550Z"
+    },
+    "antitrust-compliance": {
+      "slug": "antitrust-compliance",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、概念→制裁→制度→位置づけの流れが明快。ExamPoint1個・総括位置で原則準拠。公的（公取委・消費者庁）と民間（弁護士事務所）解説をバランスよく配置し、双方向リンクも整備されている。",
+      "scored_at": "2026-04-14T06:32:45.550Z"
+    },
+    "portrait-publicity-privacy": {
+      "slug": "portrait-publicity-privacy",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "3権利の比較が明快で、判例引用と実務場面の対応も適切。ExamPoint位置・個数も原則準拠。参考資料は民間1+総務省Kids向け1で、より専門的な公的解説（文化庁・法務省等）への差し替え余地あり。",
+      "scored_at": "2026-04-14T06:33:44.153Z"
+    },
+    "descriptive-statistics": {
+      "slug": "descriptive-statistics",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "構成順序・導入文・数式・ExamPoint位置すべて適切。代表値5種を平均の大小関係でつなぐ流れと尺度水準の整理が秀逸。参考資料は公的＋民間揃うが各1件のみで僅かに薄い。",
+      "scored_at": "2026-04-14T06:33:44.153Z"
+    },
+    "agile": {
+      "slug": "agile",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "構成順序・導入文・ExamPoint配置すべて適切。スクラム3要素の整理が明快で、ウォーターフォール・デザイン思考との対比も的確。公的（IPA）と公式（Agile Manifesto）の参考資料も揃い完成度が高い。",
+      "scored_at": "2026-04-14T06:33:44.153Z"
+    },
+    "estimation-testing": {
+      "slug": "estimation-testing",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "構造・モバイル・原則は完備。数式と用語整理が明快で、ExamPointも総括位置で適切。参考資料が公的1+民間1で最低限だが、もう一段の専門解説があると尚良い。",
+      "scored_at": "2026-04-14T06:33:44.153Z"
+    },
+    "ecrs-principle": {
+      "slug": "ecrs-principle",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "リライトで参考資料の公的・民間両立と実務具体例の追加が達成され、構成・モバイル・原則・関連付けすべて優秀。",
+      "scored_at": "2026-04-14T06:42:11.582Z",
+      "before_score": 0.85,
+      "before_scored_at": "2026-04-14T06:33:44.153Z"
+    },
+    "design-thinking": {
+      "slug": "design-thinking",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "構造・モバイル・原則は完備。5ステップの反復性強調と他手法比較が秀逸。参考資料は公的(IPA)+Wikipediaで民間専門解説がやや弱い。",
+      "scored_at": "2026-04-14T06:34:43.519Z"
+    },
+    "citizen-participation": {
+      "slug": "citizen-participation",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "全セクション完備でlint違反ゼロ。アーンスタインの梯子を3カテゴリで整理し参加手法と建設段階を箇条書きで示す構成は読みやすい。ExamPoint位置・個数も適切。参考資料は公的(MLIT)＋原典論文で多様性ありだが民間解説がない点のみ軽微。",
+      "scored_at": "2026-04-14T06:34:43.519Z"
+    },
+    "occupational-safety-act": {
+      "slug": "occupational-safety-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則・関連付けは良好。ExamPointは総括位置で適切。参考資料が公的のみ（§9違反）で要追加。末尾の関連キーワード列挙行も本文インライン化が必要。",
+      "scored_at": "2026-04-14T06:34:43.519Z"
+    },
+    "system-reliability": {
+      "slug": "system-reliability",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則・関連付けは良好でExamPoint位置も適切。ただし参考資料セクションが完全欠落しており§9違反。末尾の関連キーワード列挙はインライン化推奨（lint 8-1）。",
+      "scored_at": "2026-04-14T06:34:43.519Z"
+    },
+    "labor-standards-act": {
+      "slug": "labor-standards-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.45,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構成・ExamPoint配置・横断概念の説明は良好。参考資料が公的のみで§9違反、末尾の関連キーワード列挙もインライン化が必要。",
+      "scored_at": "2026-04-14T06:34:43.519Z"
+    },
+    "reliability-maintainability-design": {
+      "slug": "reliability-maintainability-design",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則良好。MTBF/MTTR計算手順と直列並列の数式整理が明快で独自性あり。参考資料が公的（J-STAGE）と大学教材のみで民間解説サイトが不足、§9違反でMEDIUM指摘あり。",
+      "scored_at": "2026-04-14T06:36:07.283Z"
+    },
+    "business-continuity-plan": {
+      "slug": "business-continuity-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.45,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構成・ExamPoint配置・双方向リンクとも良好で読みやすい。防災計画との対比表とTimeline/PDCAコンポーネントが学習効果を高めている。参考資料が公的2件のみで民間解説が欠落（§9違反）、要追加。",
+      "scored_at": "2026-04-14T06:36:07.283Z"
+    },
+    "copyright": {
+      "slug": "copyright",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・体系記述が明快で人格権/財産権の対比も適切。ExamPointも総括位置で原則準拠。ただし参考資料が公的機関のみで民間解説が欠落しており§9違反。",
+      "scored_at": "2026-04-14T06:36:07.283Z"
+    },
+    "public-acceptance": {
+      "slug": "public-acceptance",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "3レベル・要因・阻害・促進の構成が明快で横断概念の本質を捉える。ExamPoint位置・導入文・双方向リンク良好。参考資料が公的のみで民間1件追加が必要。",
+      "scored_at": "2026-04-14T06:36:07.283Z"
+    },
+    "process-planning-construction": {
+      "slug": "process-planning-construction",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "3要素・階層・工程表・CPM・短縮手法を導入文＋箇条書きで整理。実務例（橋梁架設）が具体的で著者の声が立つ。",
+      "scored_at": "2026-04-14T06:42:11.582Z",
+      "before_score": 1.85,
+      "before_scored_at": "2026-04-14T06:36:07.283Z"
+    },
+    "risk-assessment": {
+      "slug": "risk-assessment",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・横断概念の説明は明快で2.1と5.2の双方向位置づけも適切。ただし参考資料がJIS公的1件のみで§9違反、末尾の関連キーワード列挙行(8-1)も要修正。民間解説の追加が必須。",
+      "scored_at": "2026-04-14T06:36:07.283Z"
+    },
+    "reemployment-system": {
+      "slug": "reemployment-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "リライトで参考資料が公的3件＋民間1件へ強化され、実務での具体例（A社運用）も加筆。全軸合格。",
+      "scored_at": "2026-04-14T06:42:11.582Z",
+      "before_score": 1,
+      "before_scored_at": "2026-04-14T06:36:07.283Z"
+    }
+  }
+}

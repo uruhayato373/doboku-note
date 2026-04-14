@@ -1,0 +1,88 @@
+{
+  "version": 1,
+  "cycle": 1,
+  "started_at": "2026-04-14T06:40:59.581Z",
+  "pages": {
+    "ecrs-principle": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-14T06:40:59.581Z",
+          "action": "rewritten",
+          "cycle": 1
+        },
+        {
+          "date": "2026-04-14T06:42:11.582Z",
+          "action": "verified",
+          "cycle": 1,
+          "weighted": 3
+        }
+      ]
+    },
+    "reemployment-system": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-14T06:40:59.581Z",
+          "action": "rewritten",
+          "cycle": 1
+        },
+        {
+          "date": "2026-04-14T06:42:11.582Z",
+          "action": "verified",
+          "cycle": 1,
+          "weighted": 3
+        }
+      ]
+    },
+    "balance-sheet": {
+      "status": "needs-rework",
+      "history": [
+        {
+          "date": "2026-04-14T06:40:59.581Z",
+          "action": "rewritten",
+          "cycle": 1
+        },
+        {
+          "date": "2026-04-14T06:42:11.582Z",
+          "action": "verified",
+          "cycle": 1,
+          "weighted": 2.4,
+          "note": "民間解説欠落"
+        }
+      ]
+    },
+    "income-statement": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-14T06:40:59.581Z",
+          "action": "rewritten",
+          "cycle": 1
+        },
+        {
+          "date": "2026-04-14T06:42:11.582Z",
+          "action": "verified",
+          "cycle": 1,
+          "weighted": 3
+        }
+      ]
+    },
+    "process-planning-construction": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-14T06:40:59.581Z",
+          "action": "rewritten",
+          "cycle": 1
+        },
+        {
+          "date": "2026-04-14T06:42:11.582Z",
+          "action": "verified",
+          "cycle": 1,
+          "weighted": 3
+        }
+      ]
+    }
+  }
+}
