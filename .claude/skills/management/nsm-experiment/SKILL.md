@@ -3,9 +3,10 @@ name: nsm-experiment
 description: >
   NSM（月間オーガニック検索流入ユーザー数）改善の実験ライフサイクルを管理する。
   propose（候補提案）→ start（実行開始）→ measure（前後比較）→ close（学び記録）の
-  PDCA ループを回す。data/experiments.json を状態保存先に使い、playbook + rubric で
-  意思決定を支援する。
-  Use when user asks to [NSM 実験, 仮説検証, /nsm-experiment, 実験提案, 効果測定, PDCA サイクル].
+  PDCA ループを回す。セッション間で継続作業を持越す場合は pending/resume で復帰可能。
+  data/experiments.json を状態保存先に使い、playbook + rubric で意思決定を支援する。
+  Use when user asks to [NSM 実験, 仮説検証, /nsm-experiment, 実験提案, 効果測定,
+  PDCA サイクル, 作業継続, 残作業確認, pending 作業, GSC インデックスリクエスト].
 user-invocable: true
 ---
 
@@ -29,13 +30,16 @@ Act        : close で learnings 記録 → roadmap にフィードバック
 ## 引数
 
 ```
-/nsm-experiment propose                 # 現状メトリクスから候補 3-5 件を提案
-/nsm-experiment list [--status <s>]     # 実験一覧（status フィルタ可）
-/nsm-experiment start <id>              # 実行開始（proposed → running）
-/nsm-experiment measure <id>            # 前後比較（running → measuring）
-/nsm-experiment close <id> [--result]   # 学び記録（measuring → done）
-/nsm-experiment abandon <id>            # 中止（→ abandoned）
-/nsm-experiment show <id>               # 1 件の詳細表示
+/nsm-experiment                          # 引数なしは pending の alias
+/nsm-experiment pending                  # 継続作業が必要な実験を surface（セッション継続時の第 1 候補）
+/nsm-experiment resume <id>              # 特定実験の残作業を step-by-step で guide
+/nsm-experiment propose                  # 現状メトリクスから候補 3-5 件を提案
+/nsm-experiment list [--status <s>]      # 実験一覧（status フィルタ可）
+/nsm-experiment start <id>               # 実行開始（proposed → running）
+/nsm-experiment measure <id>             # 前後比較（running → measuring）
+/nsm-experiment close <id> [--result]    # 学び記録（measuring → done）
+/nsm-experiment abandon <id>             # 中止（→ abandoned）
+/nsm-experiment show <id>                # 1 件の詳細表示
 ```
 
 ## 状態遷移
@@ -53,6 +57,62 @@ abandoned  abandoned  running (re-measure)
 - **abandoned**: 中止（理由を history に記録）
 
 ## サブモードの実行手順
+
+### pending: 継続作業の surface（セッション継続時の第 1 候補）
+
+**目的**: 新セッション or 作業再開時に、中断中の実験と残作業を即座に把握する。
+
+1. `scripts/lib/experiments-state.mjs` の `listByStatus('running')` と `listByStatus('measuring')` を呼び、active な実験を全件取得
+2. 各 experiment について以下をチェック:
+   - `pending_user_actions` フィールドが存在して配列が空でないか
+   - `next_check_date` が今日以前か（期限超過）or 3 日以内（近接）or 未来
+3. 何もなければ「継続作業なし。`/nsm-experiment propose` で次の候補を見ますか？」と返す
+4. ある場合は以下のフォーマットで markdown 出力:
+
+```
+=== 継続作業が必要な実験 (N 件) ===
+
+🔴 EXP-001 統合ハウスキーピング (running, 経過 X 日)
+   次確認日: 2026-04-16 (期限超過 or 今日 or あと N 日)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   【保留中アクション】
+   GSC 手動 indexing リクエスト (残 3 件)
+     ・civil-construction-1-primary-r05-a
+     ・civil-construction-1-textbook-construction-mgmt-overview
+     ・civil-construction-1-guide-earthwork-key-points
+   理由: GSC 1 日クォータ上限到達
+   参照: .local/gsc-indexing-requests-2026-04-15.md
+```
+
+5. ユーザーに「どの action から進めるか」を問う。「EXP-001 を resume して」等の返答があれば `resume` サブモードへ遷移。
+
+**絵文字の意味**:
+- 🔴 期限超過 or 今日が next_check_date
+- 🟡 3 日以内の近接
+- 🟢 未来（継続作業はあるが急ぎではない）
+
+### resume: 特定実験の継続作業を guide
+
+**目的**: 単一実験の残 actions をステップバイステップで完了させる。
+
+1. 指定 `id` の experiment を `getExperiment(id)` で取得
+2. `pending_user_actions` が空 or 未定義なら「継続作業なし」と返す
+3. 各 `pending_user_actions[]` について順に:
+   a. action 名と参照ファイル（`reference`）を表示
+   b. 残 URL / sub-items を 1 つずつ surface
+   c. ユーザーに完了確認を取る（「完了」「スキップ」「中止」）
+   d. 完了した項目を pending から削除（`updateExperiment` で書き戻す）
+4. 全 action 完了後、`experiments.json` の history に以下を追加:
+
+```json
+{
+  "date": "<ISO timestamp>",
+  "action": "manual_action_completed",
+  "summary": "GSC 手動 indexing リクエスト 残 3 件を完了、pending_user_actions からクリア"
+}
+```
+
+5. 残作業がなくなれば「pending 作業はすべて完了。次は `/nsm-experiment measure` で効果計測に移れます」と誘導
 
 ### propose: 候補提案
 

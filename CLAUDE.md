@@ -79,7 +79,7 @@ docs/project/            # プロジェクト管理ドキュメント
 .github/workflows/     # CI/CD
 ```
 
-**注**: `.local/r2/posts/` は `.gitignore` 対象。R2（Cloudflare）またはローカルで初期化。
+**注**: `.local/r2/posts/` は **git 追跡下**（MDX・画像ともに）。複数PC間での同期を git 経由で行うため。R2（Cloudflare）は本番配信用のミラー。
 
 ## サイト構成（ナビバー）
 
@@ -333,15 +333,15 @@ MDX内で使える主要コンポーネント（`src/lib/component-loader/index.
 
 ### 画像配信
 
-画像は R2（Cloudflare）から配信。Git には含めない。
+画像は **git 追跡下の `.local/r2/posts/{slug}/img/` にマスターを置き、R2（Cloudflare）を本番配信ミラーとして使う** 二重管理方式。複数PCでの作業同期を git 経由で行う。
 
 - **R2 URL（本番）**: `https://storage.doboku-note.com/posts/{slug}/img/{ファイル名}`
 - **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />`
 - **ローカル開発**: `public/posts` → `.local/r2/posts` のシンボリックリンク経由で配信
 - **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
-- **ダウンロード（ローカル初期化）**: `/sync-r2-images` または `npm run download-images`
-- **アップロード（R2反映）**: `node scripts/upload-images-to-r2.mjs` （実装予定）
-- `.local/r2/posts/**/img/` は `.gitignore` 対象
+- **マスター**: `.local/r2/posts/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数PC間で git pull により同期される
+- **R2 へのアップロード（本番反映）**: `node scripts/upload-images-to-r2.mjs`
+- **R2 からのダウンロード（新規PC初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - `static/img/` はサイト共通素材（favicon, logo等）専用
 
 ### frontmatter テンプレート
