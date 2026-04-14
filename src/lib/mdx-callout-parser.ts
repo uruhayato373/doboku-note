@@ -19,7 +19,10 @@ const SUPPORTED_TYPES = ['info', 'warning', 'error', 'success', 'note', 'tip', '
  * @returns 変換されたコンテンツ
  */
 export function parseCallouts(content: string): string {
-  const lines = content.split('\n');
+  // CRLF/CR を LF に正規化（Windows改行のMDXで :::directive の終端 /^:::$/ が
+  // 末尾 \r のためマッチせず、Calloutブロック全体が生テキストで残る不具合への対策）
+  const normalized = content.replace(/\r\n?/g, '\n');
+  const lines = normalized.split('\n');
   const result: string[] = [];
   let inCallout = false;
   let inDirective = false;
