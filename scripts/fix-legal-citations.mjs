@@ -16,6 +16,7 @@
  */
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, mkdirSync } from 'node:fs';
 import { join, resolve, dirname, relative } from 'node:path';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 
 const POSTS_ROOT = 'C:/Users/m004195/doboku-note/.local/r2/posts/pe-comprehensive-management';
 const BACKUP_ROOT = 'C:/tmp/fix-legal-citations-backup';
@@ -176,7 +177,7 @@ function generateReplacement(citation) {
 // ── メイン処理 ────────────────────────────────────────────────
 
 function processFile(filePath) {
-  const raw = readFileSync(filePath, 'utf8');
+  const { raw, eol } = readMdxFile(filePath);
   // frontmatter を分離
   const fmMatch = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/);
   const fm = fmMatch ? fmMatch[0] : '';
@@ -237,13 +238,10 @@ function processFile(filePath) {
 
   if (changes.length === 0) return { filePath, changes: [] };
 
-  const newBody = newLines.join('\n');
-  // 元の改行コードを維持（CRLF/LF 判定）
-  const isCRLF = raw.includes('\r\n');
-  const finalBody = isCRLF ? newBody.replace(/\n/g, '\r\n') : newBody;
-  const newRaw = fm + finalBody;
+  // 改行は LF で組み立て、書き込み時に writeMdxFile が eol へ正規化する
+  const newRaw = fm + newLines.join('\n');
 
-  return { filePath, changes, newRaw };
+  return { filePath, changes, newRaw, eol };
 }
 
 // ── 実行 ───────────────────────────────────────────────────────
@@ -264,12 +262,13 @@ for (const filePath of targets) {
   fileReports.push(result);
 
   if (!DRY_RUN) {
-    // バックアップを作成
+    // バックアップを作成（バイナリコピーなので元の改行コードがそのまま保持される）
     const rel = relative(POSTS_ROOT, filePath);
     const backupPath = join(BACKUP_ROOT, rel);
     if (!existsSync(dirname(backupPath))) mkdirSync(dirname(backupPath), { recursive: true });
     writeFileSync(backupPath, readFileSync(filePath));
-    writeFileSync(filePath, result.newRaw, 'utf8');
+    // 元ファイルの改行コードに揃えて書き込む（混在防止）
+    writeMdxFile(filePath, result.newRaw, result.eol);
   }
 }
 

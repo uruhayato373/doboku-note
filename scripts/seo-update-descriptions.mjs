@@ -5,9 +5,10 @@
  *   node scripts/seo-update-descriptions.mjs --dry-run   # プレビューのみ
  *   node scripts/seo-update-descriptions.mjs              # 実行
  */
-import { readdirSync, readFileSync, writeFileSync, statSync, existsSync } from 'fs';
+import { readdirSync, statSync, existsSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 
 const BASE_DIR = '.local/r2/posts/pe-comprehensive-management';
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -46,7 +47,7 @@ let errors = 0;
 
 for (const filePath of files) {
   try {
-    const raw = readFileSync(filePath, 'utf-8');
+    const { raw, eol } = readMdxFile(filePath);
     const { data, content } = matter(raw);
 
     if (!isKeywordOrSectionPage(data)) {
@@ -99,7 +100,7 @@ for (const filePath of files) {
       continue;
     }
 
-    writeFileSync(filePath, output, 'utf-8');
+    writeMdxFile(filePath, output, eol);
     updated++;
   } catch (err) {
     console.error(`[ERROR] ${filePath}: ${err.message}`);

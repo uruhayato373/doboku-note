@@ -17,6 +17,7 @@
  *   node scripts/lint-mdx-mobile.mjs                # git diff で変更された MDX を対象
  *
  * 検出ルール:
+ *   0-1 HIGH   改行コードの混在（CRLF + LF）— pre-commit hook と同等のガード
  *   1-1 HIGH   表セル内に長いKaTeX数式
  *   1-3 MEDIUM 4列以上の表
  *   1-4 MEDIUM 3列以上の表でセル内テキスト15文字超
@@ -465,13 +466,38 @@ function lintComponentPrinciples(lines, filePath, findings) {
 
 function lintFile(filePath) {
   const raw = readFileSync(filePath, 'utf8');
+  const findings = [];
+
+  // 0-1: 改行コードの混在（CRLF + LF）
+  // pre-commit hook と同じロジックで早期検出
+  if (raw.includes('\r\n')) {
+    const afterCRLFRemoval = raw.split('\r\n').join('');
+    if (afterCRLFRemoval.includes('\n') || afterCRLFRemoval.includes('\r')) {
+      findings.push({
+        severity: 'HIGH',
+        rule: '0-1',
+        line: 1,
+        endLine: 1,
+        message: '改行コードの混在（CRLF + LF）。scripts/lib/mdx-io.mjs を経由して書き込むこと',
+      });
+    }
+  } else if (raw.includes('\r')) {
+    // 純粋な CR のみ（旧Mac）
+    findings.push({
+      severity: 'HIGH',
+      rule: '0-1',
+      line: 1,
+      endLine: 1,
+      message: '改行コードに CR が混入。scripts/lib/mdx-io.mjs を経由して書き込むこと',
+    });
+  }
+
   // frontmatter を除外
   const content = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n?/, '');
   const offset = (raw.length - content.length > 0)
     ? raw.slice(0, raw.length - content.length).split(/\r?\n/).length - 1
     : 0;
   const lines = content.split(/\r?\n/);
-  const findings = [];
 
   const tables = extractTables(lines);
   for (const t of tables) {
@@ -483,8 +509,9 @@ function lintFile(filePath) {
   lintLegalCitations(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
 
-  // 行番号を frontmatter 分シフト
+  // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）
   for (const f of findings) {
+    if (f.rule === '0-1') continue;
     f.line += offset;
     f.endLine += offset;
   }

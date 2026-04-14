@@ -5,9 +5,10 @@
  *   node scripts/add-related-keywords.mjs --dry-run   # プレビューのみ
  *   node scripts/add-related-keywords.mjs              # 実行
  */
-import { readdirSync, readFileSync, writeFileSync, existsSync } from 'fs';
+import { readdirSync, readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import matter from 'gray-matter';
+import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 
 const BASE_DIR = '.local/r2/posts/pe-comprehensive-management';
 const CHAPTERS_PATH = 'src/config/pe-chapters.json';
@@ -35,7 +36,7 @@ const dirs = readdirSync(BASE_DIR).filter(entry => {
 for (const entry of dirs) {
   const filePath = join(BASE_DIR, entry, 'article.mdx');
   try {
-    const raw = readFileSync(filePath, 'utf-8');
+    const { raw, eol } = readMdxFile(filePath);
 
     // 既に RelatedKeywords がある → スキップ
     if (raw.includes('RelatedKeywords')) {
@@ -94,7 +95,7 @@ for (const entry of dirs) {
       continue;
     }
 
-    writeFileSync(filePath, newContent, 'utf-8');
+    writeMdxFile(filePath, newContent, eol);
     updated++;
   } catch (err) {
     console.error(`[ERROR] ${filePath}: ${err.message}`);
