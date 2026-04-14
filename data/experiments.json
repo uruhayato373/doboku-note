@@ -1,5 +1,72 @@
 {
   "version": 1,
-  "updated_at": null,
-  "experiments": []
+  "updated_at": "2026-04-14T22:15:08.872Z",
+  "experiments": [
+    {
+      "id": "EXP-001",
+      "title": "統合ハウスキーピング: GSC クリーン + 現行サイト インデックス解放",
+      "hypothesis": "現行 748 ページの大半がインデックス未登録 or 未評価で、GSC impressions 62/28d に留まっている。sitemap 検証 + URL Inspection 一括監査 + 未インデックスページへの手動リクエストで indexed 率を上げ、current-site impressions を 62 → 200+ (3x) に回復する。同時に 2026-04-13 に実装済みの旧 URL 301 の効果が時間経過で Google に反映されることを確認する。",
+      "target_metric": "gsc_current_site_impressions_28d",
+      "target_delta": ">= 200",
+      "baseline": {
+        "gsc_current_impr_28d": 66,
+        "gsc_current_clicks_28d": 2,
+        "gsc_ghost_impr_28d": 190,
+        "gsc_ghost_clicks_28d": 4,
+        "current_site_pages": 748,
+        "gsc_visible_pages": 17,
+        "current_visibility_ratio": 0.023,
+        "psi_lcp_range_ms": "2866-6629",
+        "psi_performance_range": "61-95",
+        "created_at": "2026-04-15",
+        "source": "fetch-gsc-data 28d / fetch-psi-data mobile"
+      },
+      "status": "running",
+      "created_at": "2026-04-14T22:06:02.245Z",
+      "started_at": "2026-04-14T22:06:02.249Z",
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "1. sitemap.xml の内容検証（旧 URL 除外 + 現行 748 URL 網羅の確認）",
+        "2. 現行サイト全 URL を .local/r2/posts/ から slug ベースで列挙",
+        "3. scripts/inspect-url.mjs で上位 30-50 ページを一括 URL Inspection",
+        "4. indexed / not-indexed / excluded の比率算出、未 indexed 上位リスト作成",
+        "5. （ユーザー作業）GSC UI で sitemap 再送信",
+        "6. （ユーザー作業）未 indexed 上位 10 ページへの手動 indexing リクエスト",
+        "7. 28 日後に再監査、指標 delta 確認"
+      ],
+      "history": [
+        {
+          "date": "2026-04-14T22:06:02.245Z",
+          "action": "proposed"
+        },
+        {
+          "date": "2026-04-14T22:06:02.249Z",
+          "action": "running"
+        },
+        {
+          "date": "2026-04-14T22:15:08.872Z",
+          "action": "interim_audit",
+          "summary": "サンプル 20 ページ監査: 45% indexed。5 件 published:false は意図的 hide と判明、indexing request から除外。10 件を手動リクエスト対象に確定。"
+        }
+      ],
+      "interim_findings": {
+        "date": "2026-04-15",
+        "sample_size": 20,
+        "indexed": 9,
+        "not_indexed": 11,
+        "indexed_rate": 0.45,
+        "root_causes": {
+          "published_false": 1,
+          "detected_not_indexed": 9,
+          "not_discovered": 2
+        },
+        "key_insight_1": "sitemap は旧 URL 除外 + 未公開 5 件除外 で正しく機能。748 URL を正しく網羅",
+        "key_insight_2": "5 件の published:false は AdSense 戦略 (commit 7ca3342a) による意図的 hide で、放置が正解",
+        "key_insight_3": "Google は published:false を 404 で見るが、Google 認識は自然減衰に委ねる",
+        "key_insight_4": "business-continuity-plan など 10 件は 200 OK だが GSC 上は未認識。sitemap 未登録 + indexing request 未実施が原因と推定"
+      }
+    }
+  ]
 }
