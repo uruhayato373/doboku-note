@@ -1,0 +1,12 @@
+# data/ — Quality Cycle と関連スクリプトのデータファイル置き場
+#
+# このディレクトリは git 管理対象。各種 JSON / Markdown ファイルが
+# scripts/quality-cycle.mjs 等から生成・更新される。
+#
+# - mechanical-screen.json   : 全ページの機械的指標（screen mode 出力）
+# - quality-scores.json      : Tier 2 質的評価結果（score mode 出力）
+# - quality-cycle-state.json : 各ページの状態遷移履歴
+# - flagship-100.json        : スコア上位 100 件のリスト
+# - review-queue.md          : 人間レビュー待ちリスト（review mode 出力）
+#
+# 詳細は docs/project/13_quality-cycle-architecture.md を参照。
