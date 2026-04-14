@@ -26,6 +26,8 @@ user-invocable: true
 | パスパターン | 実行するスキル | 備考 |
 |---|---|---|
 | `.local/r2/posts/**/r[0-9]*-*/article.mdx` `.local/r2/posts/**/h[0-9]*-*/article.mdx` | `/check-mdx` のみ | 過去問MDX。review-mobile の対象ルール外 |
+| `.local/r2/posts/civil-construction-1/textbook/**/*.mdx` | `/review-mobile` → `/check-mdx` → **`/verify-pdf-mdx`** | 1級土木教科書。PDF原本との視覚＋網羅率検証込み |
+| `.local/r2/posts/civil-construction-1/guide/**/*.mdx` | `/review-mobile` → `/check-mdx` → **`/verify-pdf-mdx`** | 1級土木ガイド。出題傾向＋過去問バックリンクチェック |
 | `.local/r2/posts/**/keyword-*/article.mdx` `.local/r2/posts/**/keyword-2026/article.mdx` | `/review-mobile` → `/check-mdx` → `/check-links` | 外部リンクが多いページ |
 | `.local/r2/posts/**/*.mdx`（上記以外の MDX） | `/review-mobile` → `/check-mdx` | 通常のキーワード/ガイドページ |
 | `src/app/**/*.tsx` `src/components/**/*.tsx` | `/code-review` → `/design-review` | UI コンポーネントは両面チェック |

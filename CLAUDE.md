@@ -375,6 +375,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/check-mdx` | MDX構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
 | `/check-links` | 外部リンク切れ検出（HTTP HEAD検証） | `.claude/skills/content/check-links/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（PDF照合＋修正の2段階） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
+| `/verify-pdf-mdx` | MDXのcategory/groupを判定し、視覚検証・テキスト網羅率・5軸ルーブリック評価を適切なEvaluatorエージェント（civil-construction-qa / cem-qa / content-qa）へルーティング | `.claude/skills/content/verify-pdf-mdx/SKILL.md` |
 | `/add-exam-answers` | 択一式過去問MDXの未解答設問に正答PDF準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |
 | `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/content/keyword-page/SKILL.md` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成・品質改善 | `.claude/skills/content/exam-backlinks/SKILL.md` |
@@ -464,6 +465,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 |---|---|---|---|---|
 | `content-qa` | PDF→MDX変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | check-mdx, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
 | `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
+| `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF原本との3モード5軸ルーブリック） | Evaluator | verify-pdf-mdx, check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
 | `strategy-advisor` | 戦略・PDCA | Generator | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap等はPhase 2で復活） |
 | `seo-auditor` | SEO 監査（Phase 2で復活） | Evaluator | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2で復活 |
 | `content-planner` | コンテンツ企画（Phase 2で復活） | Generator | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2で復活 |
@@ -478,6 +480,27 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | CEM試験対策 | cem-advisor（cem-content-generate → cem-study-plan） |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
+
+## コンテンツ別レビュー視点
+
+試験ごとに「正しい状態」の定義が異なるため、レビュー時に評価軸を自動で切り替える。新資格を追加する際の指針にもなる。
+
+| 観点 | 総監キーワード（cem-qa）| 1級土木 textbook（civil-construction-qa）| 1級土木 guide（civil-construction-qa）|
+|---|---|---|---|
+| **真実源** | キーワード集2026 + content-principles.md | 元の教科書PDF原本（章節構造） | 複数PDFを編集統合した記事 |
+| **テキスト網羅性** | 不要（要約が正解） | **95%以上必須**（教科書を切り捨てない） | 不要（出題範囲を抽出） |
+| **図の標準量** | **ほぼゼロ**（テキスト中心） | **多数**（断面・配筋・施工写真） | 少なめ（重要箇所を図示） |
+| **図の検証** | しない（False Positive多発する） | **視覚比較 + 寸法 + 切れ・ノイズ検出** | あるものだけチェック |
+| **コンポーネント原則** | ExamPoint最大2個・特殊ルール多数 | 一般MDXルール（特殊なし） | guide固有要素（出題頻度表など）|
+| **数式** | 少ない | **頻出**（W/C比・配合計算・力学）| 限定的 |
+| **表** | 2軸比較のみ厳格 | **規格表・配合表など4列以上も許容** | 出題頻度表 |
+| **参考資料** | 公的＋民間の両方必須 | 教科書PDFが原本 | 公的資料 + 過去問へのリンク |
+| **過去問バックリンク** | 双方向必須 | 不要 | **過去問への誘導が重要** |
+| **モバイル視認性** | review-mobile厳格 | 図のレスポンシブが課題 | review-mobile適用 |
+
+**判定方法**: `/verify-pdf-mdx` スキルが MDX の `category` と `group` から自動判定し、適切な Evaluator エージェントへ振り分ける（cem-qa / civil-construction-qa / content-qa）。詳細は各エージェント定義 `.claude/agents/*.md` を参照。
+
+**新資格を追加するとき**: 上の表に列を1つ追加し、その資格に固有の評価軸を整理する。必要なら `{exam-id}-qa` エージェントを新設して `/verify-pdf-mdx` のディスパッチ表に行を追加する（命名規則を統一）。
 
 ## ハーネス設計原則
 

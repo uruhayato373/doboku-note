@@ -265,3 +265,38 @@ content/exam/civil-construction-1/
   ],
 },
 ```
+
+## Phase 5: 品質検証（必須）
+
+変換完了後は **必ず** `/verify-pdf-mdx` を実行して品質を確認する。これにより以下が自動チェックされる:
+
+- **テキスト網羅率**: PDF 章節見出しの 95% 以上が MDX に含まれているか
+- **図の完全性**: `<img>` 参照ファイルが全て存在し、natural ≥ display か
+- **視覚一致**: 代表画像が PDF 原本と一致しているか（Playwright + LLM 視覚判定）
+- **数式・表正確性**: KaTeX 数式と表の本数が PDF と整合しているか
+- **MDX 互換性**: `/check-mdx` のビルドエラー有無
+
+### 実行手順
+
+```bash
+# dev server を起動（別ターミナル）
+npm run dev
+
+# 検証実行
+/verify-pdf-mdx .local/r2/posts/civil-construction-1/{group}/{slug}/article.mdx
+```
+
+### 不合格時の対応
+
+- **テキスト網羅率不足** → missing topics リストを参考に、漏れている章節を本文に追記
+- **図のファイル欠落** → 該当ページから再抽出して `img/` に配置
+- **画像のぼかしリスク** → 300dpi 以上で再抽出
+- **視覚不一致** → 該当画像を手動で確認し、必要なら再抽出
+- **数式欠落** → PDF の該当箇所から KaTeX で本文に取り込む
+- **SVG 復元候補** → Phase 2 の `/reconstruct-figure`（未実装）で SVG 化を検討
+
+### 連携先
+
+`/verify-pdf-mdx` は内部で **`civil-construction-qa`** サブエージェント（Evaluator）を呼び出し、3 モード（textbook / guide / past-exam）で 5 軸ルーブリック評価を行う。
+
+詳細: `.claude/agents/civil-construction-qa.md` および `CLAUDE.md` の「コンテンツ別レビュー視点」セクションを参照。
