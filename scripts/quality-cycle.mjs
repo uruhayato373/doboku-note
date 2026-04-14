@@ -67,6 +67,9 @@ function parseArgs(argv) {
     if (a === '--mode') args.mode = argv[++i];
     else if (a === '--top') args.top = parseInt(argv[++i], 10);
     else if (a === '--threshold') args.threshold = parseFloat(argv[++i]);
+    else if (a === '--min-weighted') args.minWeighted = parseFloat(argv[++i]);
+    else if (a === '--max') args.max = parseInt(argv[++i], 10);
+    else if (a === '--flagship-only') args.flagshipOnly = true;
     else if (a === '--batch') args.batch = parseInt(argv[++i], 10);
     else if (a === '--order') args.order = argv[++i];
     else if (a === '--slug') args.slug = argv[++i];
@@ -96,7 +99,10 @@ Modes (subagent 必要):
 
 Options:
   --top <N>              score モードの対象件数 (default: ${DEFAULT_TOP})
-  --threshold <X.X>      rewrite モードのスコア閾値 (default: ${DEFAULT_THRESHOLD})
+  --threshold <X.X>      rewrite モードのスコア上限 (weighted < threshold) (default: ${DEFAULT_THRESHOLD})
+  --min-weighted <X.X>   rewrite モードのスコア下限 (weighted ≥ value)
+  --max <N>              rewrite モードの 1 セッション処理上限
+  --flagship-only        rewrite を flagship 100 内に限定 (default: 全 644 件対象)
   --batch <N>            並列バッチサイズ (default: ${DEFAULT_BATCH})
   --order <weakest|newest>  rewrite モードの選定順序 (default: weakest)
   --slug <slug>          特定スラッグのみ対象
@@ -308,19 +314,43 @@ function runRewrite(args) {
     process.exit(1);
   }
 
-  // flagship 100 内で weighted < threshold のページ
+  // flagship 100 内で weighted < threshold のページ（--flagship-only 指定時）
+  // または全 644 件で weighted < threshold のページ
   const flagship = readFlagship();
   const flagshipSet = new Set(flagship.slugs);
+  const state = readState();
+
+  // state が rewritten/verified/approved のページはデフォルトでスキップ
+  const alreadyHandled = new Set(
+    Object.entries(state.pages || {})
+      .filter(([, p]) => ['rewritten', 'verified', 'approved'].includes(p.status))
+      .map(([slug]) => slug),
+  );
 
   let candidates = Object.entries(scores.pages)
-    .filter(([slug, p]) => flagshipSet.has(slug) && p.weighted < threshold)
+    .filter(([slug, p]) => {
+      if (alreadyHandled.has(slug)) return false;
+      if (args.flagshipOnly && !flagshipSet.has(slug)) return false;
+      if (p.weighted >= threshold) return false;
+      if (args.minWeighted !== undefined && p.weighted < args.minWeighted) return false;
+      return true;
+    })
     .sort(([, a], [, b]) => a.weighted - b.weighted);
 
   if (args.slug) {
     candidates = [[args.slug, scores.pages[args.slug]]].filter(([, p]) => p);
   }
 
+  // --max でセッション上限を切る
+  if (args.max && candidates.length > args.max) {
+    console.log(`[rewrite] 候補 ${candidates.length} 件のうち先頭 ${args.max} 件を選定（--max）`);
+    candidates = candidates.slice(0, args.max);
+  }
+
   console.log(`[rewrite] 対象: ${candidates.length} 件 (バッチサイズ ${batch})`);
+  if (alreadyHandled.size > 0) {
+    console.log(`[rewrite] 既処理スキップ: ${alreadyHandled.size} 件`);
+  }
 
   if (args.dryRun) {
     console.log('\n[DRY-RUN] リライト対象:');

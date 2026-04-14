@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-14T06:42:11.582Z",
+  "scored_at": "2026-04-14T07:43:44.811Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -307,6 +307,174 @@
       "scored_at": "2026-04-14T06:42:11.582Z",
       "before_score": 1,
       "before_scored_at": "2026-04-14T06:36:07.283Z"
+    },
+    "isms-iso27001": {
+      "slug": "isms-iso27001",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・関連付けは良好。ExamPointが中盤配置でやや早い。参考資料が民間ISMS-AC＋JQAのみで政府・大学等の公的リソースが欠落。",
+      "weighted": 2.25,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "iso-14000": {
+      "slug": "iso-14000",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "表セルが15字超（6件）・導入文欠落（2箇所）でモバイル視認性低下。ExamPoint配置が早すぎる。最大の課題は参考資料が公的のみ（環境省2件）で民間解説欠落。",
+      "weighted": 1,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "correlation-analysis": {
+      "slug": "correlation-analysis",
+      "scores": {
+        "structure": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "reference",
+        "structure"
+      ],
+      "qualitative_comment": "参考資料セクションが完全欠落（§9違反）。ExamPointが本文早期に配置（37%地点）。末尾の関連キーワード列挙形式も非推奨。",
+      "weighted": 1,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "generative-ai": {
+      "slug": "generative-ai",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "reference",
+        "mobile"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（§9違反）。表セル超過（19〜34字）と導入文不足で4件のモバイル可読性違反。概念説明と構造は良好。",
+      "weighted": 1,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "employment-insurance": {
+      "slug": "employment-insurance",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表の導入文欠落2件が視認性を損なう。参考資料が公的のみで民間解説記事がない。双方向リンク強化で合格圏到達可能。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "product-safety": {
+      "slug": "product-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "L74参考資料列挙形式違反・参考資料セクションが根本的に不完全（URL付きは1件のみ、民間解説記事ゼロ）。§9要件未達。",
+      "weighted": 1,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "alps-treated-water": {
+      "slug": "alps-treated-water",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "構造は適切だが、表前の導入文欠落と参考資料が1件のみで要修正。ExamPointがトリチウム特性段階で早い配置。公的機関資料を最低1件追加必須。",
+      "weighted": 1.95,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "environmental-basic-plan": {
+      "slug": "environmental-basic-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
+      },
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "3列表のセル超過（最大42字）と導入文欠落（2箇所）でモバイル視認性が低下。参考資料が公的1件のみで民間解説記事が必要。内容の正確性と独自性は優秀。",
+      "weighted": 2.15,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "zero-trust": {
+      "slug": "zero-trust",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "構造と関連付けは完備だが、モバイル視認性（表セル上限超過・導入文欠落）と参考資料（公的1件のみ、民間必須）に改善が必要。ExamPoint配置は適切。",
+      "weighted": 2,
+      "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "firewall-ids": {
+      "slug": "firewall-ids",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造と原則は完全準拠。モバイル視認性も良好。ただし参考資料が公的資料（IPA）のみで民間解説記事が欠落。民間リソース1件追加で合格圏。",
+      "weighted": 2.45,
+      "scored_at": "2026-04-14T07:43:44.811Z"
     }
   }
 }
