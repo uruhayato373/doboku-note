@@ -358,8 +358,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 | `/clean-pdf-artifacts` | PDF変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
 | `/check-mdx` | MDX構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
 | `/check-links` | 外部リンク切れ検出（HTTP HEAD検証） | `.claude/skills/content/check-links/SKILL.md` |
-| `/verify-content` | MDX内容をソースPDFと照合・検証 | `.claude/skills/content/verify-content/SKILL.md` |
-| `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（照合agent＋修正agent） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
+| `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（PDF照合＋修正の2段階） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/add-exam-answers` | 択一式過去問MDXの未解答設問に正答PDF準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |
 | `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/content/keyword-page/SKILL.md` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成・品質改善 | `.claude/skills/content/exam-backlinks/SKILL.md` |
@@ -447,7 +446,8 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 
 | エージェント | 役割 | 種別 | 担当スキル | Phase 1対応 |
 |---|---|---|---|---|
-| `content-qa` | コンテンツ品質評価（5軸ルーブリック） | Evaluator | check-mdx, verify-content, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
+| `content-qa` | PDF→MDX変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | check-mdx, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
+| `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
 | `strategy-advisor` | 戦略・PDCA | Generator | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap等はPhase 2で復活） |
 | `seo-auditor` | SEO 監査（Phase 2で復活） | Evaluator | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2で復活 |
 | `content-planner` | コンテンツ企画（Phase 2で復活） | Generator | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2で復活 |
