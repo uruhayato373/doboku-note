@@ -10,6 +10,7 @@ import {
   Search,
 } from "lucide-react";
 import type { Metadata } from "next";
+import { AUTHOR } from "@/config/author";
 
 export const metadata: Metadata = {
   title: "doboku-noteについて｜1級土木施工管理技士 試験対策サイト",
@@ -41,6 +42,75 @@ export default function AboutPage() {
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
               1級土木施工管理技士・技術士（総合技術監理部門）の受験者に向けて、体系的な技術解説・過去問分析・勉強方法を提供する試験対策サイトです。
             </p>
+          </div>
+        </section>
+
+        {/* Author Profile Section */}
+        <section className="py-12 bg-white dark:bg-gray-800">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 text-center mb-8">
+              運営者プロフィール
+            </h2>
+            <div className="bg-neutral-50 dark:bg-gray-900 border border-neutral-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+              <div className="flex flex-col sm:flex-row gap-6 items-start">
+                <img
+                  src={AUTHOR.imageUrl}
+                  alt={`${AUTHOR.name}のプロフィール画像`}
+                  width={120}
+                  height={120}
+                  className="w-28 h-28 rounded-full border-2 border-primary-200 dark:border-primary-800 mx-auto sm:mx-0"
+                />
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-xl font-bold text-neutral-900 dark:text-gray-100">
+                    {AUTHOR.name}
+                  </h3>
+                  <p className="text-sm text-primary-600 dark:text-primary-400 mt-1">
+                    {AUTHOR.jobTitle}
+                  </p>
+                  <p className="mt-4 text-neutral-700 dark:text-gray-300 leading-relaxed">
+                    {AUTHOR.bio}
+                  </p>
+                  <div className="mt-4">
+                    <h4 className="text-sm font-bold text-neutral-700 dark:text-gray-300 mb-2">
+                      保有資格・受験予定
+                    </h4>
+                    <ul className="space-y-1">
+                      {AUTHOR.qualifications.map((q) => (
+                        <li
+                          key={q}
+                          className="text-sm text-neutral-600 dark:text-gray-400 flex items-start gap-2"
+                        >
+                          <CheckCircle className="w-4 h-4 text-primary-600 dark:text-primary-400 mt-0.5 shrink-0" />
+                          <span>{q}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-6 pt-6 border-t border-neutral-200 dark:border-gray-700">
+                <h4 className="text-sm font-bold text-neutral-700 dark:text-gray-300 mb-2">
+                  編集方針
+                </h4>
+                <ul className="text-sm text-neutral-600 dark:text-gray-400 space-y-2">
+                  <li>
+                    ・出題範囲を体系的に整理し、実務での適用例を必ず併記する
+                  </li>
+                  <li>
+                    ・公式試験機関の公表内容（過去問・正答）を一次情報として参照する
+                  </li>
+                  <li>
+                    ・誤りを発見した場合はXまたは問い合わせフォームから連絡を受け付け、可能な限り速やかに修正する
+                  </li>
+                  <li>
+                    ・キーワード解説は実務経験に基づく具体例を意識して執筆する
+                  </li>
+                </ul>
+              </div>
+              <p className="mt-4 text-xs text-neutral-500 dark:text-gray-500">
+                ※ 本プロフィールは仮の経歴を含みます。運営者本人による実プロフィールへ随時差し替えていきます。
+              </p>
+            </div>
           </div>
         </section>
 

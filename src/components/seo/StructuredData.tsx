@@ -2,6 +2,7 @@ import type { PostData } from "@/types/blog";
 import type { DocMeta } from "@/lib/docs";
 import { classifyDoc } from "@/lib/doc-classifier";
 import categoriesData from "@/config/categories.json";
+import { AUTHOR } from "@/config/author";
 
 interface StructuredDataProps {
   type: "article" | "website" | "organization";
@@ -105,7 +106,10 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
             description: post.description,
             author: {
               "@type": "Person",
-              name: "doboku-note 編集部",
+              name: AUTHOR.name,
+              url: AUTHOR.url,
+              jobTitle: AUTHOR.jobTitle,
+              knowsAbout: AUTHOR.knowsAbout,
             },
             publisher: {
               "@type": "Organization",
@@ -137,8 +141,11 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
             headline: seoHeadline,
             description: docMeta.description || docMeta.title,
             author: {
-              "@type": "Organization",
-              name: "doboku-note",
+              "@type": "Person",
+              name: AUTHOR.name,
+              url: AUTHOR.url,
+              jobTitle: AUTHOR.jobTitle,
+              knowsAbout: AUTHOR.knowsAbout,
             },
             publisher: {
               "@type": "Organization",

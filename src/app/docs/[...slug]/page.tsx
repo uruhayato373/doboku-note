@@ -23,6 +23,7 @@ import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklin
 import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
+import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -293,6 +294,12 @@ export default async function DocPage({
                 />
               </div>
             )}
+
+            {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
+            <AuthorCard
+              publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
+              updatedAt={(doc.meta as any).updatedAt}
+            />
           </main>
 
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
