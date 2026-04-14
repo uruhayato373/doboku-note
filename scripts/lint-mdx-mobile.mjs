@@ -285,6 +285,64 @@ function lintLegalCitations(lines, findings) {
 }
 
 /**
+ * 7-1: 太字スコープ過大
+ *
+ * `**...**` の中身が30字超 → MEDIUM、50字超 → HIGH。
+ * 「○○とは…である」概念定義文で長文全体を太字にする失敗を防ぐ。
+ * content-principles.md §7「過剰装飾を避ける」に対応。
+ *
+ * 除外:
+ * - コードブロック（```...```）内
+ * - frontmatter は呼び出し側で既に除外済み
+ *
+ * 太字内のマークダウンリンク `[text](url)` はテキスト部分だけを文字数カウント。
+ */
+function lintBoldScope(lines, findings) {
+  const MEDIUM_THRESHOLD = 30;
+  const HIGH_THRESHOLD = 50;
+  let inFenced = false;
+
+  // 簡易パターン: `**...**` で間に `*` を含まないもの
+  const boldRe = /\*\*([^*\n]+?)\*\*/g;
+
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.startsWith('```')) {
+      inFenced = !inFenced;
+      continue;
+    }
+    if (inFenced) continue;
+
+    boldRe.lastIndex = 0;
+    let m;
+    while ((m = boldRe.exec(line)) !== null) {
+      const inner = m[1];
+      // マークダウンリンクのテキスト部分のみカウント
+      const stripped = inner.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+      const len = [...stripped].length; // 絵文字・サロゲートペアを正しく数える
+
+      if (len > HIGH_THRESHOLD) {
+        findings.push({
+          severity: 'HIGH',
+          rule: '7-1',
+          line: i + 1,
+          endLine: i + 1,
+          message: `太字スコープが ${len} 字（${HIGH_THRESHOLD} 字超）。核心キーワードのみに絞ること: 「${trimPreview(stripped, 30)}」`,
+        });
+      } else if (len > MEDIUM_THRESHOLD) {
+        findings.push({
+          severity: 'MEDIUM',
+          rule: '7-1',
+          line: i + 1,
+          endLine: i + 1,
+          message: `太字スコープが ${len} 字（${MEDIUM_THRESHOLD} 字超）。核心キーワードのみに絞ることを推奨: 「${trimPreview(stripped, 30)}」`,
+        });
+      }
+    }
+  }
+}
+
+/**
  * 6-1: 表の直前行が見出しのみで導入文がない
  * 表開始行の直前にある非空行が `##` / `###` で始まる場合は違反。
  */
@@ -507,6 +565,7 @@ function lintFile(filePath) {
 
   lintRelatedKeywordList(lines, findings);
   lintLegalCitations(lines, findings);
+  lintBoldScope(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）
