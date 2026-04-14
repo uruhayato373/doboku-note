@@ -4,7 +4,7 @@
   "started_at": "2026-04-14T06:40:59.581Z",
   "pages": {
     "ecrs-principle": {
-      "status": "verified",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-14T06:40:59.581Z",
@@ -16,11 +16,16 @@
           "action": "verified",
           "cycle": 1,
           "weighted": 3
+        },
+        {
+          "date": "2026-04-14T06:51:03.649Z",
+          "action": "approved",
+          "cycle": 1
         }
       ]
     },
     "reemployment-system": {
-      "status": "verified",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-14T06:40:59.581Z",
@@ -32,11 +37,16 @@
           "action": "verified",
           "cycle": 1,
           "weighted": 3
+        },
+        {
+          "date": "2026-04-14T06:51:03.649Z",
+          "action": "approved",
+          "cycle": 1
         }
       ]
     },
     "balance-sheet": {
-      "status": "needs-rework",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-14T06:40:59.581Z",
@@ -49,11 +59,16 @@
           "cycle": 1,
           "weighted": 2.4,
           "note": "民間解説欠落"
+        },
+        {
+          "date": "2026-04-14T06:51:03.649Z",
+          "action": "approved",
+          "cycle": 1
         }
       ]
     },
     "income-statement": {
-      "status": "verified",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-14T06:40:59.581Z",
@@ -65,11 +80,16 @@
           "action": "verified",
           "cycle": 1,
           "weighted": 3
+        },
+        {
+          "date": "2026-04-14T06:51:03.649Z",
+          "action": "approved",
+          "cycle": 1
         }
       ]
     },
     "process-planning-construction": {
-      "status": "verified",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-14T06:40:59.581Z",
@@ -81,6 +101,11 @@
           "action": "verified",
           "cycle": 1,
           "weighted": 3
+        },
+        {
+          "date": "2026-04-14T06:51:03.649Z",
+          "action": "approved",
+          "cycle": 1
         }
       ]
     }

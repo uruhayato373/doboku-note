@@ -571,7 +571,7 @@
       "slugs": [
         "crisis-management-manual",
         "emergency",
-        "bcp-crisis-management",
+        "business-continuity-plan",
         "crisis-priority"
       ]
     },
@@ -1243,8 +1243,7 @@
       "slugs": [
         "business-continuity-plan",
         "system-availability",
-        "data-leak-tampering-loss",
-        "bcp-crisis-management"
+        "data-leak-tampering-loss"
       ]
     },
     "ii-1-24": {
@@ -1278,7 +1277,7 @@
       "slugs": [
         "crisis-management-manual",
         "crisis-communication",
-        "bcp-crisis-management",
+        "business-continuity-plan",
         "emergency-info-systems"
       ]
     },
@@ -2330,7 +2329,6 @@
       "slugs": [
         "business-continuity-plan",
         "supply-chain-management",
-        "bcp-crisis-management",
         "resilience"
       ]
     },
@@ -2696,7 +2694,7 @@
         "crisis-management-manual",
         "safety-and-security",
         "crisis-communication",
-        "bcp-crisis-management"
+        "business-continuity-plan"
       ]
     },
     "i-1-29": {
@@ -3304,7 +3302,7 @@
       "heading": "Ⅰ－1－17",
       "slugs": [
         "workers-compensation-insurance",
-        "bcp-crisis-management",
+        "business-continuity-plan",
         "cyber-security"
       ]
     },
@@ -5128,7 +5126,7 @@
       "slugs": [
         "emergency",
         "disaster-countermeasures-act",
-        "bcp-crisis-management",
+        "business-continuity-plan",
         "disaster-prevention"
       ]
     },
@@ -5165,7 +5163,6 @@
       "heading": "Ⅰ-1-31",
       "slugs": [
         "business-continuity-plan",
-        "bcp-crisis-management",
         "resilience"
       ]
     },
@@ -5562,7 +5559,6 @@
         "national-resilience-act",
         "resilience",
         "business-continuity-plan",
-        "bcp-crisis-management",
         "all-hazard-approach"
       ]
     },
@@ -5652,7 +5648,6 @@
       "heading": "Ⅰ-1-1",
       "slugs": [
         "business-continuity-plan",
-        "bcp-crisis-management",
         "risk-management-plan"
       ]
     },
