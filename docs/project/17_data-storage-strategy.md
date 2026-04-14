@@ -142,76 +142,30 @@ D1 を真実源にすると:
 
 ---
 
-## 5. 採用すべき次の一手（DB 不要のロードマップ）
+## 5. 実装ステータス（2026-04-14 完了）
 
-複数試験対応に向けて、以下を順次実施する。これらは DB なしで完結する。
+複数試験対応の DB 不要ロードマップは全て実装済み。**具体のルール・スキーマ・検証ロジックは本ドキュメントでは管理しない**（実装ファイルが真実源）。ここには実装の入口だけを記す。
 
-### 5.1 frontmatter スキーマ拡張（最優先）
+| 項目 | 実装ファイル | 参照すべき真実源 |
+|---|---|---|
+| **zod スキーマ** | `scripts/lib/frontmatter-schema.mjs` + `src/lib/frontmatter-schema.ts` | スキーマ定義・enum 値・型 |
+| **タグ辞書ビルダー** | `scripts/build-tag-index.mjs` → `src/config/tag-dictionary.json` | 全 MDX から集計、allowlist (`src/config/tags.json`) とのドリフト検出 |
+| **試験横断キーワード** | `scripts/build-cross-exam-keyword-index.mjs` → `src/config/cross-exam-keywords.json` | `exams:` 配列の集計、真のクロス試験 entry 検出 |
+| **frontmatter lint** | `scripts/lint-frontmatter.mjs` | HIGH/MEDIUM/LOW ルール本体 |
+| **pre-commit 検証** | `scripts/pre-commit-mdx.mjs` | HIGH ブロック、MEDIUM/LOW 警告 |
+| **スキル** | `.claude/skills/content/check-frontmatter/SKILL.md` | **ルール一覧の真実源**、ユーザー向けドキュメント |
 
-`src/lib/docs.ts` または新規 `src/lib/frontmatter-schema.ts` で zod スキーマを定義:
+### ルールの追加・変更はどうするか
 
-```typescript
-import { z } from 'zod';
+frontmatter 検査ルールの変更は以下の順で行う:
 
-export const ExamId = z.enum([
-  'civil-construction-1',
-  'pe-comprehensive-management',
-  'pe-construction',         // 将来追加
-  'concrete-chief-engineer', // 将来追加
-  'surveying',
-]);
+1. `.claude/skills/content/check-frontmatter/SKILL.md` のルール表を更新（ユーザー向け説明の真実源）
+2. `scripts/lint-frontmatter.mjs` に実装を追加
+3. 必要なら `scripts/lib/frontmatter-schema.mjs` の zod スキーマを更新
+4. `node scripts/lint-frontmatter.mjs --all` で既存 MDX 全件への影響を測定
+5. 既存コンテンツを壊さないようルールの重大度（HIGH/MEDIUM/LOW）を調整
 
-export const FrontmatterSchema = z.object({
-  title: z.string(),
-  description: z.string().min(50).max(160),
-  category: z.string(),                          // 主試験
-  exams: z.array(ExamId).optional(),             // 複数試験対応
-  sections: z.record(ExamId, z.string()).optional(),  // 試験別セクション ID
-  tags: z.array(z.string()),
-  group: z.enum(['guide', 'primary', 'secondary', 'keyword', 'past-exam', 'textbook']),
-  published: z.boolean(),
-  publishedAt: z.string(),
-  reviewStatus: z.enum(['needs-review', 'approved', 'rejected']).optional(),
-});
-```
-
-### 5.2 build-time タグ辞書生成スクリプト
-
-新規 `scripts/build-tag-index.mjs`:
-
-- 全 MDX をスキャン
-- frontmatter の tags を集計
-- typo 候補・重複候補を警告
-- 出力: `src/config/tag-dictionary.json`
-- 用途: タグ一覧ページ、タグの正規化
-
-### 5.3 試験横断キーワードリゾルバ
-
-新規 `scripts/build-cross-exam-keyword-index.mjs`:
-
-- frontmatter の `exams` 配列を読む
-- 各試験のセクション別にキーワードリストを集計
-- 出力: `src/config/cross-exam-keywords.json`
-- 用途: 「PDCA サイクル」のページが 1 級土木のセクション 4-3 と総監のセクション 2.1 の両方に位置づけられていることをページ内に表示
-
-### 5.4 frontmatter validation を pre-commit hook に組み込み
-
-`scripts/pre-commit-mdx.mjs` に zod スキーマ検証を追加:
-
-- スキーマ違反があればコミットをブロック
-- typo・必須フィールド漏れ・無効な enum 値を検出
-- 既存の改行コード検証と統合
-
-### 5.5 試験追加時の手順を文書化
-
-新規 `docs/project/18_adding-new-exam-checklist.md`（将来）:
-
-1. `src/config/categories.json` に新試験の category を追加
-2. zod スキーマの `ExamId` enum に追加
-3. ナビゲーションメニューに追加
-4. 新試験用ディレクトリ `.local/r2/posts/{exam-id}/` を作成
-5. 試験横断キーワードの `exams` 配列に新試験を追記
-6. テストビルドで全リンクが正しく解決されることを確認
+本ドキュメント（doc 17）は ADR のため、ルールの詳細やコードサンプルを書かない。doc 17 が変わるのは **判断を覆すとき**（D1 採用への方針転換など）のみ。
 
 ---
 
@@ -282,3 +236,4 @@ export const FrontmatterSchema = z.object({
 **改訂履歴**:
 
 - 2026-04-14: 初版作成。複数試験対応の議論を経て D1 不採用を決定。
+- 2026-04-14: Section 5 を完了ステータス + 実装ファイルへのポインタに圧縮。詳細ルールは `.claude/skills/content/check-frontmatter/SKILL.md` と `scripts/lint-frontmatter.mjs` に移管し二重管理を解消。

@@ -20,6 +20,16 @@ description: >
 
 ## 手順
 
+### Phase 0: 週次メトリクス スナップショット
+
+```bash
+node scripts/snapshot-weekly-metrics.mjs
+```
+
+現在の週の NSM データ（GA4 + GSC の前週比較）を `docs/reviews/weekly-metrics/YYYY-Www.json` に保存し、index.json に追記する。既に実行済みの週は skip（`--force` で上書き可）。
+
+この出力が Phase 1 Agent C のインプットになる。計測基盤が未整備なら skip 可（警告を表示）。
+
 ### Phase 1: コンテキスト収集（並列サブエージェント）
 
 #### Agent A: 開発状況
@@ -44,16 +54,47 @@ description: >
 出力形式: 「コンテンツの充実度」「不足しているカテゴリ」「ボトルネック」
 ```
 
-#### Agent C: アクセス・パフォーマンス
+#### Agent C: NSM / 実験サイクル
 
 ```
-調査項目:
-- GA4 データ（利用可能な場合: PV・流入経路・人気ページ）
-- GSC データ（利用可能な場合: 検索クエリ・順位・CTR）
-- docs/reviews/weekly-metrics/ から最新ファイルを読み込み
+調査方法:
+1. Phase 0 で生成された docs/reviews/weekly-metrics/YYYY-Www.json を読む
+   - 無ければ metrics-reader を直接呼ぶ fallback
+2. data/experiments.json を読んで以下を把握:
+   - running 実験: 経過日数、baseline との gap
+   - measuring 実験: 前後比較の中間サマリ
+   - proposed 実験: 優先順位（次に start すべきもの）
+3. 時系列 index.json から直近 4 週分のトレンドを読む（運用中の場合）
+4. 上記を統合して次の実験候補を 3-5 件提案
+   - .claude/skills/management/nsm-experiment/references/playbook.md の典型パターンから
+   - .claude/skills/management/nsm-experiment/references/rubric.md で優先順位付け
 
-出力形式: 「直近のパフォーマンス概況」「成長/停滞の兆候」
+出力形式:
+## NSM 現況
+- Organic Search users: {今週} (前週比 {delta})
+- GSC clicks: {今週} (前週比 {delta})
+- 直近 4 週トレンド: (運用中の場合) 図表
+
+## 実験の状態
+| ID | title | status | 経過日数 | 進捗 |
+|---|---|---|---|---|
+
+### running の警告
+- EXP-??? は started_at から 10 日超、そろそろ /nsm-experiment measure を実行
+
+## 次の実験候補（rubric 順）
+1. [加重 2.7] title 改善: ...
+2. [加重 2.0] description 改訂: ...
+
+### 提案アクション
+- Must: 候補 1 を /nsm-experiment start で開始
+- Should: 候補 2 を backlog に追加（experiments.json に proposed で残す）
 ```
+
+**前提条件**:
+- Step 1-3 の計測基盤が有効（.env.local の GOOGLE_SERVICE_ACCOUNT_KEY_PATH と GA4_PROPERTY_ID）
+- サービスアカウントが GSC/GA4 両方で閲覧者権限を持つ
+- 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
 
 #### Agent D: トレンド・検索需要
 
@@ -120,6 +161,14 @@ generatedAt: "YYYY-MM-DD"
 
 | トレンド | 関連コンテンツ | アクション |
 |---|---|---|
+
+## 今週の実験
+
+<!-- Agent C が experiments.json と nsm-experiment の rubric 評価から自動生成。
+     running / measuring / 新規 start 候補 を一覧で表示。 -->
+
+| ID | title | status | 次のアクション |
+|---|---|---|---|
 
 ## 今週のタスク
 

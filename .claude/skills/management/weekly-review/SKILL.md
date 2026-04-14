@@ -47,22 +47,30 @@ description: >
 - 「更新したページ」
 ```
 
-#### Agent C: パフォーマンス指標
+#### Agent C: NSM / パフォーマンス指標
 
 ```
-調査項目:
-- GA4 データ取得（`/fetch-ga4-data` 利用可能な場合）
-  - overview: PV・ユーザー数・セッション・直帰率
-  - channels: 流入経路別
-  - pages: ページ別 PV 上位
-- GSC データ取得（`/fetch-gsc-data` 利用可能な場合）
-  - query: 検索クエリ上位
-  - page: ページ別
+調査方法:
+- `node scripts/lib/metrics-reader.mjs` を実行（markdown 出力）
+  → GA4 と GSC から今週 vs 前週の NSM 関連メトリクスを取得
+  → Organic Search users（NSM）、全体 sessions、CTR、検索順位、トップクエリ を自動取得
+- 出力をそのまま「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
+
+補助:
+- `node scripts/lib/metrics-reader.mjs --json` で生データを取りたい場合は JSON モード
+- 追加のディメンション別データが欲しい場合は以下を個別実行:
+  - `npm run fetch-ga4-data -- --dimension page --days 7 --limit 20` (ページ別)
+  - `npm run fetch-gsc-data -- --dimension page --days 7` (ページ別検索流入)
+
+前提条件:
+- .env.local に GOOGLE_SERVICE_ACCOUNT_KEY_PATH と GA4_PROPERTY_ID が設定されている
+- サービスアカウントが GSC と GA4 の両方で閲覧者権限を持つ
+- 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
 
 出力形式:
-- 「パフォーマンス概況」
-- 「注目すべきトレンド」
-- 「改善候補」
+- metrics-reader.mjs の markdown 出力をそのまま採用
+- コメント: NSM トレンドについての洞察（Organic 増減の背景、注目クエリなど）
+- 改善候補: 検索順位が上位だが CTR が低いクエリ → title/description 改善候補
 ```
 
 #### Agent D: 計画との差分
@@ -123,15 +131,19 @@ generatedAt: "YYYY-MM-DD"
 | カテゴリ | 今週 | 先週 | 増減 |
 |---|---|---|---|
 
-## パフォーマンス
+## NSM（オーガニック検索流入）
 
-### GA4（過去 28 日）
-| 指標 | 値 | 前期比 |
-|---|---|---|
+<!-- Agent C の metrics-reader.mjs 出力をここに埋め込む。
+     GA4 週次（Organic Search users ★NSM、全体 users/sessions、チャネル別）と
+     GSC 週次（clicks/impressions/CTR/平均順位、トップクエリ）の前週比較表。 -->
 
-### GSC（過去 28 日）
-| 指標 | 値 |
-|---|---|
+### NSM トレンドの洞察
+- Organic Search users の増減: ...（コンテンツ追加・SEO 改善・試験シーズン影響などの要因）
+- 注目クエリ: 順位上位だが CTR が低い → title/description 改善候補
+
+## その他パフォーマンス（必要に応じて）
+
+ページ別 PV・内部リンク導線・リファラーなど、NSM 以外で注目すべき指標があれば記録。
 
 ## 課題・ブロッカー
 1. ...
@@ -152,5 +164,7 @@ generatedAt: "YYYY-MM-DD"
 ## 参照
 
 - `.claude/skills/management/weekly-plan/SKILL.md` — 週次計画
-- `.claude/skills/analytics/fetch-ga4-data/SKILL.md` — GA4 データ取得
-- `.claude/skills/analytics/fetch-gsc-data/SKILL.md` — GSC データ取得
+- `scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
+- `scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
+- `scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
+- `docs/project/03_NSMと計測指標.md` — NSM 定義の真実源

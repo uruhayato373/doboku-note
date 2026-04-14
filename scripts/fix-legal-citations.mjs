@@ -12,14 +12,20 @@
  * - 同一ファイル内で「初出のみリンク」
  * - 「同法」「未知の法律」はスキップ
  * - 既に [...](...) 内にあるものはスキップ
- * - バックアップを C:/tmp/fix-legal-citations-backup/ に保存
+ * - バックアップを /tmp/fix-legal-citations-backup/ に保存
+ *
+ * ── 実行環境 ──
+ *   macOS only。パスはスクリプト位置からプロジェクトルートを解決する。
  */
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, mkdirSync } from 'node:fs';
 import { join, resolve, dirname, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
 
-const POSTS_ROOT = 'C:/Users/m004195/doboku-note/.local/r2/posts/pe-comprehensive-management';
-const BACKUP_ROOT = 'C:/tmp/fix-legal-citations-backup';
+const __filename = fileURLToPath(import.meta.url);
+const ROOT = dirname(dirname(__filename));
+const POSTS_ROOT = join(ROOT, '.local/r2/posts/pe-comprehensive-management');
+const BACKUP_ROOT = '/tmp/fix-legal-citations-backup';
 
 const args = process.argv.slice(2);
 const DRY_RUN = !args.includes('--apply');

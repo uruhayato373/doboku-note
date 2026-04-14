@@ -16,12 +16,14 @@
     "upload-images-r2": "tsx scripts/upload-images-to-r2.mjs",
     "diff-r2": "node scripts/diff-r2.mjs",
     "fetch-gsc-data": "node scripts/fetch-gsc-data.mjs",
+    "fetch-ga4-data": "node scripts/fetch-ga4-data.mjs",
     "validate-mdx": "node scripts/validate-mdx.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",
     "@aws-sdk/lib-storage": "^3.908.0",
+    "@google-analytics/data": "^5.2.1",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^16.0.0",

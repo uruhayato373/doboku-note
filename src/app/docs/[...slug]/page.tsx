@@ -212,8 +212,8 @@ export default async function DocPage({
       <Header />
 
       <div className="flex-grow w-full pb-16">
-        {/* Zenn Container_wide: max-width 1200px + responsive padding */}
-        <div className="max-w-[1200px] mx-auto px-[14px] zenn-tiny:px-5 zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[30px] relative">
+        {/* Zenn Container_wide: max-width 1200px + responsive padding（モバイル ≤576px はカードフルブリードのため padding 0） */}
+        <div className="max-w-[1200px] mx-auto zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[30px] relative">
 
           {/* Main Content Area */}
           <main className="flex-1 min-w-0 py-10">

@@ -1,0 +1,362 @@
+/**
+ * NSM メトリクスリーダー（週次レビュー用）
+ *
+ * GA4 と GSC から今週・前週のデータを取得し、週次レビューに組み込むための
+ * サマリ + 差分を計算する。`/weekly-review` スキル Phase 1 / Agent C から呼ばれる。
+ *
+ * 参照:
+ *   - docs/project/03_NSMと計測指標.md
+ *   - scripts/fetch-ga4-data.mjs / scripts/fetch-gsc-data.mjs
+ *
+ * 必要な環境変数 (.env.local):
+ *   GOOGLE_SERVICE_ACCOUNT_KEY_PATH
+ *   GA4_PROPERTY_ID
+ */
+
+import { BetaAnalyticsDataClient } from "@google-analytics/data";
+import { google } from "googleapis";
+import { readFileSync, existsSync } from "node:fs";
+import dotenv from "dotenv";
+
+dotenv.config({ path: ".env.local" });
+
+const GSC_SITE_URL = "sc-domain:doboku-note.com";
+const GSC_DELAY_DAYS = 3; // GSC data has ~3 day delay
+
+// ── Date helpers ─────────────────────────────────────────────────
+
+function formatDate(d) {
+  return d.toISOString().split("T")[0];
+}
+
+/**
+ * 今週と前週の期間を計算する。
+ * - this: 昨日から遡る 7 日間 (GA4 基準)
+ * - prev: さらに遡る 7 日間
+ * GSC 用には delay を考慮した別範囲も返す。
+ */
+export function computeWeekRanges() {
+  const today = new Date();
+  const ga4End = new Date(today);
+  ga4End.setDate(ga4End.getDate() - 1);
+  const ga4Start = new Date(ga4End);
+  ga4Start.setDate(ga4Start.getDate() - 6);
+  const ga4PrevEnd = new Date(ga4Start);
+  ga4PrevEnd.setDate(ga4PrevEnd.getDate() - 1);
+  const ga4PrevStart = new Date(ga4PrevEnd);
+  ga4PrevStart.setDate(ga4PrevStart.getDate() - 6);
+
+  const gscEnd = new Date(today);
+  gscEnd.setDate(gscEnd.getDate() - GSC_DELAY_DAYS);
+  const gscStart = new Date(gscEnd);
+  gscStart.setDate(gscStart.getDate() - 6);
+  const gscPrevEnd = new Date(gscStart);
+  gscPrevEnd.setDate(gscPrevEnd.getDate() - 1);
+  const gscPrevStart = new Date(gscPrevEnd);
+  gscPrevStart.setDate(gscPrevStart.getDate() - 6);
+
+  return {
+    ga4: {
+      this: { start: formatDate(ga4Start), end: formatDate(ga4End) },
+      prev: { start: formatDate(ga4PrevStart), end: formatDate(ga4PrevEnd) },
+    },
+    gsc: {
+      this: { start: formatDate(gscStart), end: formatDate(gscEnd) },
+      prev: { start: formatDate(gscPrevStart), end: formatDate(gscPrevEnd) },
+    },
+  };
+}
+
+// ── Credentials ───────────────────────────────────────────────────
+
+function getCredentials() {
+  const keyPath = process.env.GOOGLE_SERVICE_ACCOUNT_KEY_PATH;
+  if (!keyPath || !existsSync(keyPath)) {
+    throw new Error(
+      `GOOGLE_SERVICE_ACCOUNT_KEY_PATH が未設定 or ファイル不在: ${keyPath || "(unset)"}`,
+    );
+  }
+  return JSON.parse(readFileSync(keyPath, "utf-8"));
+}
+
+// ── GA4 ───────────────────────────────────────────────────────────
+
+async function fetchGa4Weekly(credentials, ranges) {
+  const propertyId = process.env.GA4_PROPERTY_ID;
+  if (!propertyId) throw new Error("GA4_PROPERTY_ID 未設定");
+
+  const client = new BetaAnalyticsDataClient({ credentials });
+
+  // 期間比較: 2 つの dateRanges を渡すと、行ごとに dateRange ごとの metric が返る
+  const [response] = await client.runReport({
+    property: `properties/${propertyId}`,
+    dateRanges: [
+      { startDate: ranges.this.start, endDate: ranges.this.end, name: "this" },
+      { startDate: ranges.prev.start, endDate: ranges.prev.end, name: "prev" },
+    ],
+    dimensions: [{ name: "sessionDefaultChannelGroup" }],
+    metrics: [
+      { name: "activeUsers" },
+      { name: "sessions" },
+      { name: "engagementRate" },
+    ],
+    limit: 20,
+  });
+
+  // dateRanges を 2 つ渡した場合、行ごとに dateRange が区別されて返る
+  // 各行に dimensionValues[-1] = 'date_range_0' or 'date_range_1' が自動付与される
+  const byChannel = {};
+  for (const row of response.rows || []) {
+    const channel = row.dimensionValues[0]?.value || "(unknown)";
+    // 最後の dimensionValue が dateRange 識別子
+    const rangeIdx = row.dimensionValues[row.dimensionValues.length - 1]?.value;
+    const bucket =
+      rangeIdx === "date_range_0" || rangeIdx === "this" ? "this" : "prev";
+
+    if (!byChannel[channel]) {
+      byChannel[channel] = {
+        this: { users: 0, sessions: 0, engagementRate: 0 },
+        prev: { users: 0, sessions: 0, engagementRate: 0 },
+      };
+    }
+    byChannel[channel][bucket] = {
+      users: parseFloat(row.metricValues[0]?.value || "0"),
+      sessions: parseFloat(row.metricValues[1]?.value || "0"),
+      engagementRate: parseFloat(row.metricValues[2]?.value || "0"),
+    };
+  }
+
+  // チャネル別集計 + 合計計算
+  const channels = Object.entries(byChannel).map(([channel, data]) => ({
+    channel,
+    thisUsers: data.this.users,
+    prevUsers: data.prev.users,
+    userDelta: data.this.users - data.prev.users,
+    userDeltaPct:
+      data.prev.users > 0
+        ? ((data.this.users - data.prev.users) / data.prev.users) * 100
+        : null,
+    thisSessions: data.this.sessions,
+    prevSessions: data.prev.sessions,
+    thisEngagementRate: data.this.engagementRate,
+  }));
+  channels.sort((a, b) => b.thisUsers - a.thisUsers);
+
+  const total = channels.reduce(
+    (acc, c) => ({
+      thisUsers: acc.thisUsers + c.thisUsers,
+      prevUsers: acc.prevUsers + c.prevUsers,
+      thisSessions: acc.thisSessions + c.thisSessions,
+      prevSessions: acc.prevSessions + c.prevSessions,
+    }),
+    { thisUsers: 0, prevUsers: 0, thisSessions: 0, prevSessions: 0 },
+  );
+  total.userDelta = total.thisUsers - total.prevUsers;
+  total.userDeltaPct =
+    total.prevUsers > 0 ? (total.userDelta / total.prevUsers) * 100 : null;
+
+  const organic = channels.find((c) => c.channel === "Organic Search") || null;
+
+  return { channels, total, organic };
+}
+
+// ── GSC ───────────────────────────────────────────────────────────
+
+async function fetchGscAnalytics(auth, siteUrl, startDate, endDate, opts = {}) {
+  const searchconsole = google.searchconsole({ version: "v1", auth });
+  const res = await searchconsole.searchanalytics.query({
+    siteUrl,
+    requestBody: {
+      startDate,
+      endDate,
+      dimensions: opts.dimensions || [],
+      rowLimit: opts.rowLimit || 10,
+    },
+  });
+  return res.data.rows || [];
+}
+
+async function fetchGscWeekly(credentials, ranges) {
+  const auth = new google.auth.GoogleAuth({
+    credentials,
+    scopes: ["https://www.googleapis.com/auth/webmasters.readonly"],
+  });
+
+  const [thisTotal, prevTotal, topQueries] = await Promise.all([
+    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.this.start, ranges.this.end),
+    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.prev.start, ranges.prev.end),
+    fetchGscAnalytics(auth, GSC_SITE_URL, ranges.this.start, ranges.this.end, {
+      dimensions: ["query"],
+      rowLimit: 10,
+    }),
+  ]);
+
+  const normalize = (row) =>
+    row
+      ? {
+          clicks: row.clicks || 0,
+          impressions: row.impressions || 0,
+          ctr: row.ctr || 0,
+          position: row.position || 0,
+        }
+      : { clicks: 0, impressions: 0, ctr: 0, position: 0 };
+
+  const thisData = normalize(thisTotal[0]);
+  const prevData = normalize(prevTotal[0]);
+
+  return {
+    total: {
+      thisClicks: thisData.clicks,
+      prevClicks: prevData.clicks,
+      clickDelta: thisData.clicks - prevData.clicks,
+      clickDeltaPct:
+        prevData.clicks > 0
+          ? ((thisData.clicks - prevData.clicks) / prevData.clicks) * 100
+          : null,
+      thisImpressions: thisData.impressions,
+      prevImpressions: prevData.impressions,
+      impressionDelta: thisData.impressions - prevData.impressions,
+      thisCtr: thisData.ctr,
+      prevCtr: prevData.ctr,
+      thisPosition: thisData.position,
+      prevPosition: prevData.position,
+    },
+    topQueries: topQueries.map((r) => ({
+      query: r.keys[0],
+      clicks: r.clicks,
+      impressions: r.impressions,
+      ctr: r.ctr,
+      position: r.position,
+    })),
+  };
+}
+
+// ── Main entry ────────────────────────────────────────────────────
+
+export async function fetchWeeklyNsmMetrics() {
+  const credentials = getCredentials();
+  const ranges = computeWeekRanges();
+
+  const [ga4, gsc] = await Promise.all([
+    fetchGa4Weekly(credentials, ranges.ga4).catch((e) => ({
+      error: `GA4 取得失敗: ${e.message}`,
+    })),
+    fetchGscWeekly(credentials, ranges.gsc).catch((e) => ({
+      error: `GSC 取得失敗: ${e.message}`,
+    })),
+  ]);
+
+  return {
+    generated_at: new Date().toISOString(),
+    ranges,
+    ga4,
+    gsc,
+    notes: [
+      `GSC データは 3 日遅延のため、直近期間は ${ranges.gsc.this.start} 〜 ${ranges.gsc.this.end} を採用`,
+      "NSM = Organic Search の activeUsers（doc 03 準拠）",
+    ],
+  };
+}
+
+// ── Markdown formatter ───────────────────────────────────────────
+
+function fmtDelta(delta, pct) {
+  if (delta == null) return "-";
+  const sign = delta > 0 ? "+" : "";
+  const pctStr = pct != null ? ` (${sign}${pct.toFixed(1)}%)` : "";
+  return `${sign}${delta}${pctStr}`;
+}
+
+export function formatNsmSection(metrics) {
+  const lines = [];
+  lines.push("## NSM（オーガニック検索流入）");
+  lines.push("");
+
+  // GA4
+  if (metrics.ga4.error) {
+    lines.push(`⚠️ GA4: ${metrics.ga4.error}`);
+  } else {
+    const r = metrics.ranges.ga4;
+    lines.push(`### GA4 (${r.this.start} 〜 ${r.this.end} vs ${r.prev.start} 〜 ${r.prev.end})`);
+    lines.push("");
+    lines.push("| 指標 | 今週 | 前週 | 増減 |");
+    lines.push("|---|---:|---:|---:|");
+    const t = metrics.ga4.total;
+    lines.push(
+      `| 全体 activeUsers | ${t.thisUsers} | ${t.prevUsers} | ${fmtDelta(t.userDelta, t.userDeltaPct)} |`,
+    );
+    lines.push(
+      `| 全体 sessions | ${t.thisSessions} | ${t.prevSessions} | ${fmtDelta(t.thisSessions - t.prevSessions, t.prevSessions > 0 ? ((t.thisSessions - t.prevSessions) / t.prevSessions) * 100 : null)} |`,
+    );
+    if (metrics.ga4.organic) {
+      const o = metrics.ga4.organic;
+      lines.push(
+        `| **Organic Search users (★NSM)** | **${o.thisUsers}** | ${o.prevUsers} | ${fmtDelta(o.userDelta, o.userDeltaPct)} |`,
+      );
+    }
+    lines.push("");
+    lines.push("#### チャネル別");
+    lines.push("| channel | users | prev | delta | engagement |");
+    lines.push("|---|---:|---:|---:|---:|");
+    for (const c of metrics.ga4.channels) {
+      lines.push(
+        `| ${c.channel} | ${c.thisUsers} | ${c.prevUsers} | ${fmtDelta(c.userDelta, c.userDeltaPct)} | ${(c.thisEngagementRate * 100).toFixed(1)}% |`,
+      );
+    }
+    lines.push("");
+  }
+
+  // GSC
+  if (metrics.gsc.error) {
+    lines.push(`⚠️ GSC: ${metrics.gsc.error}`);
+  } else {
+    const r = metrics.ranges.gsc;
+    lines.push(`### GSC (${r.this.start} 〜 ${r.this.end} vs ${r.prev.start} 〜 ${r.prev.end})`);
+    lines.push("");
+    lines.push("| 指標 | 今週 | 前週 | 増減 |");
+    lines.push("|---|---:|---:|---:|");
+    const t = metrics.gsc.total;
+    lines.push(`| clicks | ${t.thisClicks} | ${t.prevClicks} | ${fmtDelta(t.clickDelta, t.clickDeltaPct)} |`);
+    lines.push(
+      `| impressions | ${t.thisImpressions} | ${t.prevImpressions} | ${fmtDelta(t.impressionDelta, t.prevImpressions > 0 ? (t.impressionDelta / t.prevImpressions) * 100 : null)} |`,
+    );
+    lines.push(
+      `| CTR | ${(t.thisCtr * 100).toFixed(2)}% | ${(t.prevCtr * 100).toFixed(2)}% | ${((t.thisCtr - t.prevCtr) * 100).toFixed(2)}pt |`,
+    );
+    lines.push(
+      `| 平均順位 | ${t.thisPosition.toFixed(1)} | ${t.prevPosition.toFixed(1)} | ${(t.thisPosition - t.prevPosition).toFixed(1)} |`,
+    );
+    lines.push("");
+
+    if (metrics.gsc.topQueries.length > 0) {
+      lines.push("#### トップクエリ（今週）");
+      lines.push("| # | query | clicks | impr | CTR | pos |");
+      lines.push("|---:|---|---:|---:|---:|---:|");
+      metrics.gsc.topQueries.forEach((q, i) => {
+        lines.push(
+          `| ${i + 1} | ${q.query} | ${q.clicks} | ${q.impressions} | ${(q.ctr * 100).toFixed(1)}% | ${q.position.toFixed(1)} |`,
+        );
+      });
+      lines.push("");
+    }
+  }
+
+  if (metrics.notes?.length) {
+    lines.push("> 備考:");
+    for (const n of metrics.notes) lines.push(`> - ${n}`);
+    lines.push("");
+  }
+
+  return lines.join("\n");
+}
+
+// CLI 直接実行時は JSON or markdown を標準出力に
+if (import.meta.url === `file://${process.argv[1]}`) {
+  const mode = process.argv.includes("--json") ? "json" : "markdown";
+  const metrics = await fetchWeeklyNsmMetrics();
+  if (mode === "json") {
+    console.log(JSON.stringify(metrics, null, 2));
+  } else {
+    console.log(formatNsmSection(metrics));
+  }
+}
