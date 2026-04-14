@@ -333,6 +333,7 @@ Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
 
 | スキル | 用途 | 定義 |
 |---|---|---|
+| `/review` | 対象ファイルの種類を自動判定し、適切なレビュースキル（review-mobile/check-mdx/code-review/design-review/critical-review 等）を実行して結果を集約する統一エントリーポイント | `.claude/skills/dev/review/SKILL.md` |
 | `/dev-start` | ポート3020をクリーンアップして開発サーバー起動 | `.claude/skills/dev/dev-start/SKILL.md` |
 | `/deploy` | Cloudflare Pages へデプロイ | `.claude/skills/dev/deploy/SKILL.md` |
 | `/create-skill` | スキル作成ガイド | `.claude/skills/dev/create-skill/SKILL.md` |
