@@ -24,6 +24,13 @@
   .prose-blog {
     font-size: 17px;
     line-height: 1.9;
+    text-autospace: normal;
+  }
+
+  .prose-blog :not(pre) > code,
+  .prose-blog pre,
+  .prose-blog pre code {
+    text-autospace: no-autospace;
   }
 
   /* 段落: Zenn方式（p+pでのみ間隔をとる） */
@@ -236,6 +243,54 @@
   .prose-blog pre {
     @apply mx-4 my-6 rounded-lg;
     @apply border border-gray-200 dark:border-gray-700;
+  }
+
+  /* ========================================
+   * モバイル最適化 (≤576px) — Zenn 準拠
+   * Phase 0: 本文 font-size を 16px に
+   * Phase A: table/blockquote/pre/details のフルブリード化
+   * Phase B: 見出し font-size を em で縮小
+   * Phase C-1: line-height を 1.8 に
+   * ======================================== */
+  @media (max-width: 576px) {
+    /* Phase 0 + C-1: 本文 */
+    .prose-blog {
+      font-size: 16px;
+      line-height: 1.8;
+    }
+    .prose-blog p {
+      line-height: 1.8;
+    }
+
+    /* Phase B: 見出し — em 単位で本文サイズ比例 */
+    .prose-blog h1 {
+      font-size: 1.6em;
+    }
+    .prose-blog h2 {
+      font-size: 1.4em;
+    }
+    .prose-blog h3 {
+      font-size: 1.2em;
+    }
+
+    /* Phase A: 内包要素フルブリード化（カード内 padding いっぱいに広げる） */
+    .prose-blog table {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+    .prose-blog blockquote {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .prose-blog pre {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .prose-blog details {
+      margin-left: 0;
+      margin-right: 0;
+    }
   }
 }
 

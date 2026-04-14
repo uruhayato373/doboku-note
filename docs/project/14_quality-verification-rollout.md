@@ -1,7 +1,9 @@
 # PDF⇔MDX 整合性検証ツールの導入と次フェーズ作業計画
 
 **策定日**: 2026-04-14
+**最終更新**: 2026-04-14（mac-only 前提で再設計・Phase A を完遂）
 **対象**: doboku-note の品質検証フェーズ（A → C → B）
+**実行環境**: **macOS only**。Homebrew 経由の poppler を前提とし、Windows/Xpdf/代替案は考慮しない。
 **関連**:
 - `13_quality-cycle-architecture.md`（品質サイクルの全体像）
 - `10_keyword-duplicate-consolidation.md`（重複統合の進捗）
@@ -34,135 +36,102 @@
 
 ---
 
-## 2. ドッグフードで判明した状況（重要）
+## 2. ドッグフード結果サマリ（2026-04-14 完遂）
 
-`/verify-pdf-mdx` を `concrete-key-points.mdx` で初回実行した結果、以下が判明:
+mac-only 前提で再設計した後に 2 ターゲットで検証を実施:
 
-### 2.1 動作した部分（収穫）
+### 2.1 concrete-key-points.mdx (guide モード)
 
-`scripts/verify-pdf-mdx.mjs` 本体は正常動作:
+| 指標 | 値 |
+|---|---|
+| PDF 自動発見 | `第３章_コンクリート工.pdf` （slug ヒント経由、1 発） |
+| PDF ページ数 | 89 |
+| OCR suspected | `true`（artifact 430 件。スキャン PDF） |
+| heading_rate | 9%（OCR ノイズで不信頼、参考値） |
+| **topic_rate** | **90%** ← 主指標として採用 |
+| MDX text_chars | 8,036 相当 |
 
-- frontmatter 解析 OK（`category=civil-construction-1`, `group=guide`）
-- 見出し抽出 OK（49 件）
-- 表カウント OK（23 件）
-- テキスト文字数 OK（8,036 字）
-- `<img>` 抽出 OK（concrete-key-points は画像ゼロという正しい結果）
-- 数式カウント OK（0 件）
+### 2.2 construction-mgmt-overview/article.mdx (textbook モード)
 
-### 2.2 ボトルネック
+| 指標 | 値 |
+|---|---|
+| PDF 自動発見 | `第１章_施工管理の概要.pdf` （title キーワード経由） |
+| PDF ページ数 | 6 |
+| OCR suspected | `false`（デジタル PDF） |
+| **heading_rate** | **100%** (4/4) ← 主指標として採用 |
+| topic_rate | 80% |
+| image_count | 4/4 存在 |
+| 画像 natural | fig-1-1〜1-4 全て取得（1500-1900px） |
 
-PATH にある `pdftotext` は **Xpdf 4.00 製**（Mingw64 経由でインストール）で、Adobe-Japan1 文字集合に対応していないため日本語 PDF が読めない:
+### 2.3 得られた知見
 
-```
-Syntax Error: Unknown character collection 'Adobe-Japan1'
-Syntax Error: Couldn't find '90ms-RKSJ-H' CMap file
-Syntax Error: Failed to parse font object for 'MSGothic'
-```
-
-結果として `/verify-pdf-mdx` の Step 7（テキスト網羅率計算）と Step 4（PDF ページ画像化、pdftoppm）が事実上機能しない。
-
-### 2.3 解決方法
-
-**Poppler 系ユーティリティ** をインストールすれば、両ツール（`pdftotext` + `pdftoppm`）が一括で導入され、日本語 PDF も標準で扱える。
+1. **OCR PDF と digital PDF を区別する必要がある**: スキャン PDF では heading ベースの coverage は使い物にならない。`pdf.ocr_suspected` フラグで切り替える設計とし、textbook/guide ともに対応。
+2. **guide モードは topic_rate 80% 以上を合格ラインに**: 編集記事なので 95% coverage は意味がない。
+3. **PDF 自動発見は slug ヒント + title キーワードで十分機能**: `--pdf` 明示指定は通常不要。
 
 ---
 
-## 3. Phase A: ドッグフード検証の完遂
+## 3. Phase A: ドッグフード検証の完遂 ✅ 完了（2026-04-14）
 
-### A-1: Poppler 導入（ユーザ作業）
+### A-1: Poppler の前提確認（macOS only）
 
-以下のいずれかで導入する:
-
-```powershell
-# 推奨: Scoop の場合
-scoop install poppler
-
-# Chocolatey の場合
-choco install poppler
-```
-
-導入後、新しいターミナルで以下が成功することを確認:
+macOS では `brew install poppler` で一括導入できる（mac 前提なので Xpdf 衝突や PATH 調整は不要）。
 
 ```bash
-pdftotext -v   # version 22.x or later (poppler) と表示されること
+brew install poppler
+pdftotext -v   # poppler 26.x+
+pdfinfo -v
 pdftoppm -v
-which pdftotext  # /c/.../poppler/.../pdftotext.exe を指していること
 ```
 
-**注意点**: Mingw64 経由で入っている Xpdf 製 `pdftotext` が PATH の優先順位で先に来ている可能性がある。`which pdftotext` の出力を確認し、Xpdf 由来なら PATH 順序を調整するか、Mingw64 版を退避させる。
+未導入なら `scripts/verify-pdf-mdx.mjs` は exit code 3 で停止し、インストール案内を stderr に出す。
 
-### A-2: 再ドッグフード（assistant 作業）
+### A-2: ドッグフード実行
 
-Poppler 導入後、以下を実行:
+スクリプトは `--pdf` を省略すれば自動発見する:
 
 ```bash
-# 1. 直接実行で日本語抽出を確認
-pdftotext -layout ".claude/pdfs/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf" - | head -50
+# guide モード（slug ヒント経由で PDF 自動発見）
+node scripts/verify-pdf-mdx.mjs .local/r2/posts/civil-construction-1/guide/concrete-key-points.mdx
 
-# 2. スクリプトで前処理
-node scripts/verify-pdf-mdx.mjs \
-  .local/r2/posts/civil-construction-1/guide/concrete-key-points.mdx \
-  --pdf ".claude/pdfs/１級土木施工管理技士/テキスト（土木一般編）/第３章_コンクリート工.pdf" \
-  > C:/tmp/verify-result.json
+# textbook モード（title キーワードで PDF 自動発見）
+node scripts/verify-pdf-mdx.mjs .local/r2/posts/civil-construction-1/textbook/construction-mgmt-overview/article.mdx
 
-# 3. JSON 結果を確認（heading_count と coverage が正常に計算されているか）
+# PDF ページを PNG 化（視覚比較用、/tmp/verify-pdf-mdx/<slug>/page-N.png）
+node scripts/verify-pdf-mdx.mjs <mdx> --render --dpi 150
 ```
 
-期待される結果:
+結果は 2 章（本文 Section 2）にサマリを記載。
 
-- `pdf.heading_count > 0`
-- `pdf.text_chars` が数千〜数万に増加
-- `coverage.rate` が 0.X の数値で出る
-- `coverage.missing` に PDF にあって MDX にない章節がリストされる
+### A-3: 設計検証 — 得られた結論
 
-### A-3: 設計検証（assistant 作業）
+1. **heading_rate は OCR 品質に依存するため主指標にはできない**: スキャン PDF だと false positive が混入し heading_rate が低く出る。
+2. **topic_rate を guide モードの主指標に採用**: 冒頭 5000 字から頻出する漢字/カタカナ複合語をトピックとして抽出し、MDX 本文での出現率で測る。OCR ノイズに頑健。
+3. **ルーブリック閾値の分離**:
+   - textbook (OCR 無し): heading_rate ≥ 95%
+   - textbook (OCR 有り): topic_rate に fallback
+   - guide: topic_rate ≥ 80%（concrete-key-points 実測 90% を根拠に 80% を合格ライン）
 
-ドッグフード結果から以下を判定:
+### A-4: スクリプト実装の要点（mac-only 最適化）
 
-1. **網羅率の閾値（95%）が妥当か**
-   - guide ページは編集記事なので 95% は厳しすぎる可能性
-   - 実測値を見て、guide モードの閾値を 60-70% 程度に緩和することを検討
-2. **見出しマッチングロジックの精度**
-   - PDF 側の見出しが「`第3章 コンクリート工`」「`3.1 セメント`」のような形式で抽出できているか
-   - MDX 側の見出しと文字列ベースで対応付けられているか
-   - 部分一致が False Negative を起こしていないか
-3. **スクリプト出力 JSON のスキーマが civil-construction-qa の入力として十分か**
-   - 不足があれば `verify-pdf-mdx.mjs` を改訂
+- **PDF 自動発見**: `SLUG_PDF_HINTS` テーブル + title 日本語キーワード glob で `.claude/pdfs/１級土木施工管理技士/テキスト` 配下を検索
+- **pdfinfo でページ数**: poppler 同梱、追加コストゼロ
+- **pdftoppm で --render**: `/tmp/verify-pdf-mdx/<slug>/page-N.png` に展開、`--dpi` 指定可（デフォルト 150）
+- **OCR 誤字吸収**: `卜→ト`, `Jレ→ル` 等の正規化でマッチング率を上げる
+- **全角/半角正規化**: `normalizeText()` で統一
+- **第N章パターン**: 改行で分離された `第\n3章` を前処理で 1 行に連結
+- **N xxx パターン**: `1概 説` のような数字+日本語（ドットなし）形式を追加
 
-### A-4: 第2のターゲットでの検証（assistant 作業）
+### A-5: civil-construction-qa の呼び出し（次セッション対応）
 
-textbook モードでも検証する:
+ドッグフード完遂により、`civil-construction-qa` サブエージェントへ引き渡す JSON は十分な情報を含むようになった。実際の 5 軸評価はエージェントを Task ツールで呼ぶ必要があるが、これはコンテキスト消費が大きいため次セッションに回す。
 
-```bash
-node scripts/verify-pdf-mdx.mjs \
-  .local/r2/posts/civil-construction-1/textbook/construction-mgmt-overview/article.mdx \
-  --pdf ".claude/pdfs/１級土木施工管理技士/テキスト（施工管理・法規編）/第１章_施工管理.pdf"
-```
+### A-6: 結果に基づく調整 ✅ 完了
 
-期待される結果:
-- `image_count = 4`（fig-1-1〜fig-1-4 が抽出される）
-- `image_missing = 0`
-- `naturalWidth/Height` が各画像で取得されている
-
-### A-5: civil-construction-qa の手動呼び出し（assistant 作業）
-
-スクリプトで JSON が取れたら、`civil-construction-qa` サブエージェントを `Task` ツールで呼び出して 5 軸ルーブリック評価を実行。
-
-サブエージェントが Playwright MCP を使って:
-- `http://localhost:3020/docs/civil-construction-1-textbook-construction-mgmt-overview` を開く
-- Desktop / Mobile スクショを取得
-- 各 `<img>` の natural/display 寸法を取得
-- 視覚一致サンプルを 3 件実行
-- 5 軸スコアと指摘事項リストを返す
-
-### A-6: 結果に基づく調整（assistant 作業）
-
-ドッグフードで発見した問題を修正:
-
-- ルーブリックの閾値調整（textbook 95% / guide 60% など）
-- スクリプトのバグ修正
-- サブエージェント定義の workflow 修正
-- 必要なら `civil-construction-qa.md` の出力フォーマット改訂
+- `civil-construction-qa.md` Mode A/B のルーブリックを `coverage.rate` / `coverage.topic_rate` / `pdf.ocr_suspected` 対応に更新
+- `civil-construction-qa.md` 制約事項を mac 前提に書き換え
+- `verify-pdf-mdx` SKILL.md の Step 1 を「pdftotext 必須」化
+- Step 2 出力に `pdf.ocr_suspected` フラグを追加して後段への引き渡しを強化
 
 ---
 
@@ -324,15 +293,14 @@ Phase A/C 完了後、本業のコンテンツ拡充に戻る。
 
 ---
 
-## 7. 推奨する進め方（合意済み）
+## 7. 推奨する進め方（2026-04-14 更新・mac 前提）
 
-1. **A の Poppler 導入はユーザ作業**として並行実施
-2. **その間に C の B-1/B-2（タイトル明確化）に着手** ── 5〜10 分で完了する軽作業
-3. **Poppler 導入後に A を再開** ── ドッグフード検証を完遂し、ルーブリック調整
-4. **C の残件（C-3〜C-5）に進む** ── 本文精査
-5. **B（コンテンツ拡充）に戻る** ── R03 → 1級土木 guide → 頻出テーマ記事
-
-各ステップで詰まったら本ドキュメントを再読して状況を整理する。
+1. ~~**A の Poppler 導入**~~ → **完了**（mac 前提で `brew install poppler` のみ、今後の検証も同じ）
+2. ~~**A-2〜A-6 のドッグフード**~~ → **完了**（2 ターゲットで実測、ルーブリック閾値調整も実施）
+3. **C-1/C-2（タイトル明確化）に着手** ── 各 5 分の軽作業（system-integrity / system-reliability）
+4. **C-3〜C-5（本文精査）に進む** ── 各 30 分（product-liability / disability-employment / mental-health）
+5. **A-5 civil-construction-qa 実呼び出し** ── 次セッションで Task ツール経由で実行（コンテキスト消費大のため分離）
+6. **B（コンテンツ拡充）に戻る** ── R03 → 1級土木 guide → 頻出テーマ記事
 
 ---
 
@@ -365,42 +333,17 @@ Phase A/C 完了後、本業のコンテンツ拡充に戻る。
 
 ---
 
-## 9. 補足: 視覚比較の代替案（Poppler が入らない場合）
+## 9. 補足: mac-only 前提で削除した事項（履歴）
 
-万一 Poppler が導入できない場合の代替手段:
+本ドキュメントは 2026-04-14 の再設計で **macOS only** 前提に統合された。以下の旧セクションは不要として削除:
 
-### 代替案 A: PDF.js + Node ベースの抽出
+- **旧 A-1 Poppler 導入手順（Windows/Scoop/Chocolatey 版）** — mac では `brew install poppler` 1 コマンドで済むため不要
+- **旧 2.2 ボトルネック（Xpdf Mingw64）** — 2.1/2.2/2.3 の発見記録は Section 2 のサマリに集約
+- **旧 9 代替案 (A: pdfjs-dist / B: Xpdf 言語パック / C: ImageMagick + Tesseract)** — mac 前提なら poppler が常に使えるため代替案は考慮しない
+- **Windows パス pathlib / PATH 順序調整** — mac では不要
 
-`pdfjs-dist` を使って Node から直接 PDF を読む:
-
-```bash
-npm install --save-dev pdfjs-dist
-```
-
-`scripts/verify-pdf-mdx.mjs` を改訂し、`pdftotext` の代わりに `pdfjs-dist` で全文抽出する。日本語フォントへの依存が少なく、Mingw64 環境でも動くはず。
-
-### 代替案 B: Xpdf 日本語サポートパックの導入
-
-Xpdf-Japanese 言語パック（CMaps）をダウンロードして Xpdf のインストールパスに展開:
-
-- https://www.xpdfreader.com/download.html → Xpdf language support packages
-- 設定ファイル `xpdfrc` で `cidToUnicode` `unicodeMap` `cMapDir` を指定
-
-ただし設定が煩雑で、CI で再現するのが難しい。
-
-### 代替案 C: ImageMagick + Tesseract OCR
-
-PDF を ImageMagick で PNG に変換し、Tesseract 日本語 OCR でテキスト抽出:
-
-```bash
-magick convert -density 300 input.pdf input-%d.png
-tesseract input-1.png stdout -l jpn
-```
-
-精度は劣るが、外部依存は確保できる。
-
-**推奨は Poppler。代替案は Poppler が入らないことが確定した場合のみ検討する。**
+mac 以外の環境で動かす必要が発生した場合は、このドキュメントとは別に環境差分ドキュメントを立てる。
 
 ---
 
-**完了判定**: 本ドキュメントは作業計画書であり、各 Phase の進捗に応じて随時更新する。
+**完了判定**: 本ドキュメントは作業計画書であり、各 Phase の進捗に応じて随時更新する。Phase A は 2026-04-14 完了。

@@ -57,3 +57,9 @@ credentials/
 public/posts
 .aidesigner/*
 !.aidesigner/.gitkeep
+
+# Playwright MCP (screenshots, console logs, page snapshots)
+.playwright-mcp/
+/mobile-*.png
+/page-*.png
+/screenshot-*.png

@@ -8,6 +8,8 @@ description: >
 user-invocable: true
 ---
 
+**実行環境**: macOS only (Homebrew `poppler` 前提)。`pdftotext` / `pdfinfo` / `pdftoppm` が PATH にあることを必須とする。未導入なら `brew install poppler` を案内する。
+
 MDX ファイルの **category と group を判定** し、適切な Evaluator エージェントへ振り分ける薄いルーター。試験別にレビュー視点が異なるため、単一の検証ロジックではなく **複数エージェントへの自動振り分け** を行う。
 
 ## なぜルーター方式か
@@ -26,12 +28,15 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 ## 引数
 
 ```
-/verify-pdf-mdx <mdx-path> [--deep] [--mode <auto|textbook|guide|past-exam>]
+/verify-pdf-mdx <mdx-path> [--deep] [--render] [--mode <auto|textbook|guide|past-exam>]
 ```
 
 - `<mdx-path>`: 検証対象 MDX ファイルパス（必須、複数指定可）
 - `--deep`: 視覚比較を全件実行（デフォルトは3件サンプル）
+- `--render`: PDF ページを `/tmp/verify-pdf-mdx/<slug>/page-N.png` へ展開（視覚比較の精度向上）
 - `--mode`: モードを強制指定（デバッグ用、通常は `auto` で frontmatter から判定）
+
+なお `scripts/verify-pdf-mdx.mjs` は slug/title から PDF 原本を自動発見するため、通常は `--pdf` 指定不要。
 
 ## ディスパッチルール
 
@@ -53,16 +58,17 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 1. 入力ファイルの存在を確認
 2. `dev server` の起動を確認: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3020`
 3. 起動していなければ「`npm run dev` を別ターミナルで実行してください」と案内
-4. `pdftotext --version` が PATH にあるか確認（civil-construction-qa の textbook モードに必要）。なければ警告を出すが処理は継続
+4. `pdftotext -v` と `pdfinfo -v` が成功するか確認（macOS では必須）。失敗時は `brew install poppler` を案内して処理を中止
 
 ### Step 2: frontmatter 読み込みとディスパッチ
 
 各 MDX ファイルについて:
 
-1. `node scripts/verify-pdf-mdx.mjs <mdx-path>` を実行（PDF パスはこの段階では渡さない）
+1. `node scripts/verify-pdf-mdx.mjs <mdx-path>` を実行（`--pdf` 省略で PDF 自動発見、textbook/guide の場合）
 2. JSON 出力から `mdx.category` と `mdx.group` を取得
 3. 上のディスパッチ表に従い、呼び出し先エージェントを決定
 4. `--mode` が指定されていれば、それでオーバーライド
+5. `pdf.ocr_suspected === true` の場合は「OCR 品質が低い」旨をエージェントへの引き継ぎプロンプトに明記する
 
 ### Step 3: エージェント呼び出し
 

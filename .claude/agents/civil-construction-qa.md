@@ -33,25 +33,31 @@ PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-t
 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
-| **テキスト網羅率** | 30% | PDF 見出し95%以上カバー | 85-95% | 70-85% | 70%未満 |
+| **テキスト網羅率** | 30% | 主指標≥95% | 85-95% | 70-85% | 70%未満 |
 | **図の完全性** | 30% | 全 `<img>` ファイル存在・natural ≥ display | 1件不足 or 軽微 | 2-3件不足 | 4件以上不足 or ファイル欠落 |
 | **視覚一致** | 20% | サンプル全件 PDF と完全一致 | 部分一致1件 | 部分一致2件 | 不一致あり |
 | **数式・表正確性** | 15% | KaTeX 数式と PDF 一致、規格表完備 | 軽微な誤字 | 数式1件欠落 | 数式・表大量欠落 |
 | **MDX 互換性** | 5% | check-mdx OK | 警告あり | エラー1件 | ビルド不能 |
 
+**主指標の選び方** (textbook):
+- `pdf.ocr_suspected === false` → `coverage.rate`（heading-based）を使う
+- `pdf.ocr_suspected === true` → `coverage.topic_rate`（topic-based）を使う（heading は OCR ノイズで不正確）
+
 合格ライン: **加重合計 2.0 / 3.0 以上**
 
 ### Mode B: guide（`group: guide`）
 
-編集記事として扱う。PDF 原本の有無に応じて柔軟に。
+編集記事として扱う。原本との網羅率は **topic 一致率** を使う（heading 一致率は guide 記事では意味がない）。
 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
+| **主要トピック網羅** | 20% | `coverage.topic_rate ≥ 80%` | 60-80% | 40-60% | 40%未満 |
 | **出題傾向の正確性** | 25% | 過去問データに基づく頻度表あり、年度カバー | 軽微な誤差 | 頻度の根拠なし | 誤情報 |
-| **過去問バックリンク** | 25% | 全主要トピックに過去問リンクあり | 一部欠如 | リンクほぼなし | バックリンクなし |
+| **過去問バックリンク** | 20% | 全主要トピックに過去問リンクあり | 一部欠如 | リンクほぼなし | バックリンクなし |
 | **モバイル視認性** | 20% | review-mobile HIGH ゼロ | MEDIUM 1件 | HIGH 1件 | HIGH 2件以上 |
-| **図の品質**（あれば）| 15% | 全 `<img>` 高解像度 | 軽微なぼかし | 切れ・歪み | ファイル欠落 |
 | **MDX 互換性** | 15% | check-mdx OK | 警告 | エラー1件 | ビルド不能 |
+
+**guide モードの閾値根拠**: textbook の 95% は編集記事には厳しすぎる。guide は過去問分析から要点を抽出する記事なので、PDF の主要トピックを 80% 以上カバーすれば十分。2026-04-14 のドッグフード (`concrete-key-points.mdx` → `第３章_コンクリート工.pdf`) で実測 topic_rate = 90% だったため 80% を合格ラインとした。
 
 合格ライン: 加重合計 2.0 / 3.0 以上
 
@@ -91,13 +97,15 @@ PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-t
 
 ### Step 2: PDF 原本特定
 
-1. `.claude/pdfs/１級土木施工管理技士/` 配下を Glob で列挙
-2. slug や title からファイル名類似度で推定:
-   - `concrete-key-points` → `第３章_コンクリート工.pdf`
-   - `earthwork-key-points` → `第１章_土工.pdf`
-   - `construction-machinery-01` → `第２章_建設機械.pdf`
-   - `construction-mgmt-overview` → `テキスト（施工管理・法規編）/第１章_施工管理.pdf`
-3. 推定が複数該当 or 該当なしならユーザに確認
+`scripts/verify-pdf-mdx.mjs` 側で slug/title から PDF を自動発見する。エージェント側では原則何もしない。
+
+- 自動発見のソース: `scripts/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` テーブル + title 日本語キーワード glob
+- 曖昧 or 失敗時: JSON の `pdf.error` と `pdf.hint_candidates` を見て、ユーザに `--pdf` 明示指定を案内
+- 代表的な対応（参考、実際のファイル名は 2026-04-14 時点）:
+  - `concrete-key-points` → `テキスト（土木一般編）/第３章_コンクリート工.pdf`
+  - `earthwork-key-points` → `テキスト（土木一般編）/第１章_土工.pdf`
+  - `construction-machinery-01` → `テキスト（土木一般編）/第２章_建設機械.pdf`
+  - `construction-mgmt-overview` → `テキスト（施工管理・法規編）/第１章_施工管理の概要.pdf`
 
 ### Step 3: 決定論的前処理スクリプトの実行
 
@@ -266,10 +274,11 @@ dev server: http://localhost:3020 ✓
 
 ## 制約事項
 
+- **実行環境**: macOS only
 - **dev server 必須**: `npm run dev` が起動していないと Playwright レンダリング不可
-- **poppler-utils 必須**: `pdftotext` / `pdftoppm` が PATH にあること（Windows なら `scoop install poppler` or `choco install poppler`）
-- **Windows パス**: `pathlib` ベースで処理（`scripts/verify-pdf-mdx.mjs` が吸収）
+- **poppler 必須**: `pdftotext` / `pdfinfo` / `pdftoppm` が PATH にあること。未導入なら `brew install poppler`
 - **トークン消費**: Step 5（視覚比較）は LLM の視覚処理を使うためコスト高。デフォルトは3件サンプル
+- **OCR 品質の低い PDF**: `verify-pdf-mdx.mjs` の出力で `pdf.ocr_suspected === true` の場合、heading coverage は参考値として扱い、topic coverage を主指標とする
 
 ## 出力
 

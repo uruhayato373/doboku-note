@@ -16,9 +16,9 @@
 
 - key: font_size_body
   category: typography
-  doboku: "17px"
-  zenn: "16px"
-  reason: "日本語可読性優先。Zennより+1pxで、技術士試験受験者がスマホで長文を読む際の疲労を軽減する"
+  doboku: "desktop 17px / mobile (≤576px) 16px"
+  zenn: "16px 一律"
+  reason: "デスクトップのみ+1px（17px）で日本語長文の可読性を優先。モバイルは Zenn 準拠 16px に落とし、狭幅での情報密度を確保する"
 
 - key: h1_border_bottom
   category: typography
@@ -94,9 +94,9 @@
 
 - key: text_autospace
   category: typography
-  doboku: "未設定"
+  doboku: "text-autospace: normal（.prose-blog ルート）、no-autospace（code/pre）"
   zenn: "text-autospace: normal（.znc ルート）、no-autospace（code/pre）"
-  reason: "text-autospace は Chrome 120+ でのみ有効な比較的新しいプロパティ。将来的に追加検討する項目だが現時点では未対応"
+  reason: "Zenn 実装に準拠。Chrome 120+ で和欧混在のスペーシングが自動調整される。未対応ブラウザは無視する"
 
 # ==========================================
 # Layout — ページ構造・カラム幅・ブレイクポイントの逸脱
