@@ -1582,41 +1582,48 @@
     },
     "access-control": {
       "scores": {
-        "structure": 1,
+        "structure": 3,
         "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
+        "principle": 3,
+        "reference": 3,
+        "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference",
-        "linking"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（0点）。モバイルHIGH1件+MEDIUM8件。関連キーワード列挙形式。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 リライト後: HIGH解消、MEDIUM6件残（L41-55太字スコープ超過複数）。参考資料完備。weighted=2.40。",
+      "weighted": 2.4,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "access-log-analysis": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM3件。ExamPointは位置づけ節前に配置。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 リライト後: MEDIUM1件のみ。公的2+民間1完備。weighted=2.65。",
+      "weighted": 2.65,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "accident-cost": {
       "scores": {
@@ -1658,22 +1665,28 @@
     },
     "accountability-traceability": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
         "structure",
         "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。表8件MEDIUM違反。関連キーワード列挙形式。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 リライト後: 歴史的背景節が位置づけ→参考資料間に配置。農水省リンクは食品分野でやや距離あり。weighted=2.20。",
+      "weighted": 2.2,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "accounting-systems": {
       "scores": {
@@ -1772,24 +1785,27 @@
     },
     "agenda-21": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 1
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
         "principle",
         "reference",
         "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件キーバリュー表。4列表。全軸要改善。",
-      "weighted": 0.85,
+      "qualitative_comment": "Phase G-4 リライト後: lint ゼロ・構造3。ExamPoint位置軽微ズレ・民間リンクWikipediaで2点・双方向確認不完全。weighted=2.55。",
+      "weighted": 2.55,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 0.85,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "aging-infrastructure": {
       "scores": {
@@ -1898,23 +1914,26 @@
     },
     "annual-salary-system": {
       "scores": {
-        "structure": 1,
-        "mobile": 0,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
+        "structure": 2,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 2
       },
       "weak_axes": [
         "structure",
-        "mobile",
-        "reference",
         "linking"
       ],
-      "qualitative_comment": "HIGH2件（キーバリュー表2個）でmobile=0。参考資料セクション完全欠落。4列表あり。全軸要改善。",
-      "weighted": 0.8,
+      "qualitative_comment": "Phase G-4 リライト後: lint ゼロ・参考資料公的+民間揃い。成立背景節が位置づけ→参考資料間に配置（構造2）。weighted=2.60。",
+      "weighted": 2.6,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 0.8,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "anonymized-information": {
       "scores": {
@@ -2477,23 +2496,23 @@
     },
     "chemical-substances-review-act": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM19件（4列表・導入文なし・リンク列挙）。ExamPoint位置づけ節前配置。",
-      "weighted": 0.95,
+      "weak_axes": [],
+      "qualitative_comment": "Phase G-4 リライト後: 全軸3点の完全合格。lint ゼロ、参考資料公的3+民間2、POPs/GFCへの双方向リンク完備。weighted=3.00。",
+      "weighted": 3,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 0.95,
+          "at": "2026-04-15"
+        }
+      ]
     }
   }
 }

@@ -9,6 +9,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-08'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
 ---
 
 # アクセスログ分析
@@ -19,7 +22,7 @@ publishedAt: '2026-04-08'
 
 ログはシステムの「行動記録」であり、「いつ」「誰が」「何に」「どのような操作を」行ったかを事後的に追跡するための基盤となる。
 
-近年は大量のログを統合的に分析する**SIEM（Security Information and Event Management）** の導入が進んでおり、リアルタイムでの脅威検知と迅速なインシデント対応を実現している。
+近年は大量のログを統合的に分析する **SIEM**（Security Information and Event Management）の導入が進んでおり、リアルタイムでの脅威検知と迅速なインシデント対応を実現している。
 
 ## 仕組み
 
@@ -49,7 +52,7 @@ publishedAt: '2026-04-08'
 
 ### SIEM（Security Information and Event Management）
 
-**SIEM**は、組織内の多様なシステムからログを一元的に収集・統合し、リアルタイムの相関分析・脅威検知・アラート発報を行うプラットフォームである。
+SIEMは、組織内の多様なシステムからログを一元的に収集・統合し、**リアルタイムの相関分析・脅威検知** を行うプラットフォームである。
 
 SIEMが提供する主な機能は以下のとおりである。
 
@@ -70,7 +73,7 @@ SIEM・SOC・CSIRTは、セキュリティ監視とインシデント対応に�
 
 ### フォレンジック調査
 
-**デジタルフォレンジック**は、セキュリティインシデント発生後にログやデータの保全・分析を行い、原因究明・証拠保全・再発防止策の策定を行う調査手法である。
+**デジタルフォレンジック**は、セキュリティインシデント発生後にログやデータを保全・分析し、**原因究明・証拠保全** を行う調査手法である。
 
 フォレンジック調査は、以下の工程で進められる。
 
@@ -89,6 +92,14 @@ SIEM・SOC・CSIRTは、セキュリティ監視とインシデント対応に�
 - **アラート疲れの防止**: SIEMのルールを適切にチューニングし、誤検知（False Positive）を削減
 - **ログの時刻同期**: NTPによる全機器の時刻同期（相関分析の精度確保に不可欠）
 
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+アクセスログ分析は、情報管理（インシデント検知・証跡管理）の基盤であると同時に、経済性管理（SIEM導入・運用の費用対効果）、人的資源管理（SOC・CSIRT要員の確保・育成）、社会環境管理（[個人情報](/docs/pe-comprehensive-management-personal-information)保護法への対応）と関連する。
+
+ログの保存・分析に要するコストとセキュリティ水準のバランスを、組織の[リスク](/docs/pe-comprehensive-management-risk)評価に基づいて最適化することが、総合技術監理の視点では重要となる。
+
 <ExamPoint
   summary="アクセスログ分析はSIEMによる一元管理とリアルタイム相関分析が主流"
   items={[
@@ -99,12 +110,15 @@ SIEM・SOC・CSIRTは、セキュリティ監視とインシデント対応に�
   ]}
 />
 
-## 総合技術監理における位置づけ
+## 参考資料
 
-総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+アクセスログ分析の背景・手法については、以下の公的資料および民間解説を参照されたい。
 
-アクセスログ分析は、情報管理（インシデント検知・証跡管理）の基盤であると同時に、経済性管理（SIEM導入・運用の費用対効果）、人的資源管理（SOC・CSIRT要員の確保・育成）、社会環境管理（個人情報保護法への対応）と関連する。
+### 公的資料
 
-ログの保存・分析に要するコストとセキュリティ水準のバランスを、組織のリスク評価に基づいて最適化することが、総合技術監理の視点では重要となる。
+- [ウェブサイトの攻撃兆候検出ツール iLogScanner](https://www.ipa.go.jp/security/vuln/ilogscanner/index.html)（IPA 独立行政法人情報処理推進機構）
+- [高度サイバー攻撃への対処におけるログの活用と分析方法](https://www.jpcert.or.jp/research/apt-loganalysis.html)（JPCERT/CC 一般社団法人JPCERTコーディネーションセンター）
 
-関連キーワード: [個人情報](/docs/pe-comprehensive-management-personal-information)、[リスク](/docs/pe-comprehensive-management-risk)
+### 民間解説記事
+
+- [SIEMとは？ SIEMの意味・メリットをわかりやすく解説](https://www.splunk.com/ja_jp/blog/security/siem-security-information-event-management.html)（Splunk）
