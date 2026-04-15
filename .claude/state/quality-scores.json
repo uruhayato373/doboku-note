@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T04:22:26.888Z",
+  "scored_at": "2026-04-15T04:29:06.277Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -156,15 +156,18 @@
         "structure": 3,
         "mobile": 2,
         "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.4,
       "weak_axes": [
-        "reference"
+        "mobile",
+        "linking"
       ],
-      "qualitative_comment": "構造・原則・関連付けは良好。ExamPointは総括位置で適切。参考資料が公的のみ（§9違反）で要追加。末尾の関連キーワード列挙行も本文インライン化が必要。",
-      "scored_at": "2026-04-14T06:34:43.519Z"
+      "qualitative_comment": "D Polish: 2.40→2.65。太字+列挙行残存。",
+      "weighted": 2.65,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "system-reliability": {
       "slug": "system-reliability",
@@ -191,65 +194,73 @@
       "slug": "labor-standards-act",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.45,
       "weak_axes": [
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "構成・ExamPoint配置・横断概念の説明は良好。参考資料が公的のみで§9違反、末尾の関連キーワード列挙もインライン化が必要。",
-      "scored_at": "2026-04-14T06:34:43.519Z"
+      "qualitative_comment": "D Polish: 2.45→2.90。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "reliability-maintainability-design": {
       "slug": "reliability-maintainability-design",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 1,
         "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.4,
       "weak_axes": [
-        "reference"
+        "mobile"
       ],
-      "qualitative_comment": "構造・原則良好。MTBF/MTTR計算手順と直列並列の数式整理が明快で独自性あり。参考資料が公的（J-STAGE）と大学教材のみで民間解説サイトが不足、§9違反でMEDIUM指摘あり。",
-      "scored_at": "2026-04-14T06:36:07.283Z"
+      "qualitative_comment": "D Polish: 2.40→2.40。HIGH太字スコープ未解消、Phase 4候補。",
+      "weighted": 2.4,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "business-continuity-plan": {
       "slug": "business-continuity-plan",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.45,
       "weak_axes": [
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "構成・ExamPoint配置・双方向リンクとも良好で読みやすい。防災計画との対比表とTimeline/PDCAコンポーネントが学習効果を高めている。参考資料が公的2件のみで民間解説が欠落（§9違反）、要追加。",
-      "scored_at": "2026-04-14T06:36:07.283Z"
+      "qualitative_comment": "D Polish: 2.45→2.90。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "copyright": {
       "slug": "copyright",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.4,
       "weak_axes": [
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "構造・体系記述が明快で人格権/財産権の対比も適切。ExamPointも総括位置で原則準拠。ただし参考資料が公的機関のみで民間解説が欠落しており§9違反。",
-      "scored_at": "2026-04-14T06:36:07.283Z"
+      "qualitative_comment": "D Polish: 2.40→2.90。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "public-acceptance": {
       "slug": "public-acceptance",
@@ -484,15 +495,18 @@
         "structure": 3,
         "mobile": 2,
         "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
       "weak_axes": [
-        "reference"
+        "mobile",
+        "linking"
       ],
-      "qualitative_comment": "構造と原則は完全準拠。モバイル視認性も良好。ただし参考資料が公的資料（IPA）のみで民間解説記事が欠落。民間リソース1件追加で合格圏。",
-      "weighted": 2.45,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "D Polish: 2.45→2.65。L55/L63太字残存。",
+      "weighted": 2.65,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "jisec": {
       "slug": "jisec",
@@ -504,11 +518,14 @@
         "linking": 2
       },
       "weak_axes": [
-        "reference"
+        "reference",
+        "principle"
       ],
-      "qualitative_comment": "構造・モバイルは問題なし。参考資料がIPAのみ（公的2件・民間0件）で§9違反。民間解説サイト等を1件以上追加が必要。ExamPoint1個・位置適切。",
+      "qualitative_comment": "D Polish: 2.40→2.40。NRIセキュアURL 404、Phase 4候補。",
       "weighted": 2.4,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "bathtub-curve": {
       "slug": "bathtub-curve",
@@ -534,17 +551,17 @@
       "slug": "preventive-maintenance",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "構造・原則・関連付けは良好。参考資料は公的（厚労省）＋民間（tebiki）で構成済み。モバイル軸はMEDIUM6件（太字スコープ30字超）が集中しており要修正。",
-      "weighted": 2.35,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "weak_axes": [],
+      "qualitative_comment": "Polish: 2.35→3.00 完全合格。太字スコープ短縮で全軸満点。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "encryption-digital-signature": {
       "slug": "encryption-digital-signature",
@@ -714,16 +731,18 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 2,
-        "reference": 1,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "構造・モバイルは完備。参考資料がIPA単一ドメインのみで民間解説が欠落。ExamPoint1個・位置は適切だがCCRA節後に配置でやや早め。関連キーワードリンクは単方向。",
-      "weighted": 2.4,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "D Polish: 2.40→2.90。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "ismap": {
       "slug": "ismap",
@@ -1275,15 +1294,17 @@
         "structure": 3,
         "mobile": 2,
         "principle": 3,
-        "reference": 1,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "reference"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料が厚労省公的URL1件のみで民間解説記事欠落。4列表もMEDIUM1件。",
-      "weighted": 2.35,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "D Polish: 2.35→2.75。4列表のみ残課題。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "data-cleansing": {
       "slug": "data-cleansing",
@@ -1451,15 +1472,17 @@
       "slug": "safety-health-policy",
       "scores": {
         "structure": 3,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 3
       },
       "weak_axes": [],
-      "qualitative_comment": "構造・関連付けは優秀。参考資料に民間解説記事が欠落（公的3件のみ）。加重2.40で合格。",
-      "weighted": 2.4,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "D+Polish: 2.40→3.00 完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T04:29:06.277Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "phase3"
     },
     "job-grade-system": {
       "slug": "job-grade-system",
