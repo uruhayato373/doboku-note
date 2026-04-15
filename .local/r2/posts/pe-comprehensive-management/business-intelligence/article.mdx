@@ -11,6 +11,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-08'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
 ---
 
 # ビジネスインテリジェンス（BI）
@@ -25,18 +28,20 @@ BIは単なるデータ分析ツールではなく、データウェアハウス
 
 ### BIの主要機能と構成要素
 
-| 構成要素 | 役割 | 具体例 |
-|---|---|---|
-| ETL | データの抽出・変換・ロード | Talend, Informatica |
-| データウェアハウス（DWH） | 分析用データの統合蓄積基盤 | Snowflake, BigQuery, Redshift |
-| OLAP | 多次元分析（スライス・ダイス・ドリルダウン） | SSAS, Mondrian |
-| レポーティング | 定型帳票・定期レポートの自動生成 | Crystal Reports, SSRS |
-| ダッシュボード | KPIの可視化・リアルタイム監視 | Tableau, Power BI, Looker |
-| データマイニング | パターン発見・予測分析 | R, Python, SAS |
+BIはETLによるデータ収集からダッシュボードによる可視化まで、一連のパイプラインで構成される。代表的な製品として ETL は Talend・Informatica、DWH は Snowflake・BigQuery、ダッシュボードは Tableau・Power BI が挙げられる。
+
+| 構成要素 | 役割 |
+|---|---|
+| ETL | データの抽出・変換・ロード |
+| データウェアハウス（DWH） | 分析用データの統合蓄積基盤 |
+| OLAP | 多次元分析（スライス・ダイス・ドリルダウン） |
+| レポーティング | 定型帳票・定期レポートの自動生成 |
+| ダッシュボード | KPIの可視化・リアルタイム監視 |
+| データマイニング | パターン発見・予測分析 |
 
 ### OLAP分析の操作
 
-OLAP（Online Analytical Processing）はBIの中核的な分析手法であり、多次元データベースを用いた以下の操作が特徴である。
+**OLAP**（Online Analytical Processing）はBIの中核的な分析手法であり、多次元データベースを用いた以下の操作が特徴である。製品ごと・地域ごと・時期ごとなど、複数の軸を組み合わせて自在に切り口を変えられる点が、従来の定型レポートとの最大の違いである。
 
 | 操作 | 内容 |
 |---|---|
@@ -47,6 +52,8 @@ OLAP（Online Analytical Processing）はBIの中核的な分析手法であり�
 | ピボット | 分析軸を入れ替えてデータを別の角度から観察する |
 
 ### BIとデータ分析の発展段階
+
+データ活用の成熟度は、「起きたことを把握する」段階から「最適な行動を導く」段階へと発展する。総監の視点では、組織がどの段階にあるかを把握し、次の段階へ移行するための管理体制を整備することが求められる。
 
 | 段階 | 分析の問い | 代表的手法 |
 |---|---|---|
@@ -68,6 +75,26 @@ OLAP（Online Analytical Processing）はBIの中核的な分析手法であり�
 
 総合技術監理キーワード集では[**4.4 情報通信技術動向**](/docs/pe-comprehensive-management-keyword-2026#44-情報通信技術動向)に位置づけられる。
 
-データベース管理やデータマイニングと連携し、経営層の意思決定支援から現場の業務改善まで幅広く活用される情報活用技術である。
+データベース管理や[データマイニング](/docs/pe-comprehensive-management-data-mining)と連携し、経営層の意思決定支援から現場の業務改善まで幅広く活用される情報活用技術である。
 
-関連キーワード: [データマイニング](/docs/pe-comprehensive-management-data-mining)、[集中化と分散化](/docs/pe-comprehensive-management-centralization-decentralization)
+総監の試験では、情報管理の観点からBIの役割を問う問題が見られる。BIはデータの一元化・可視化・分析という情報管理の基盤に位置づけられるため、[集中化と分散化](/docs/pe-comprehensive-management-centralization-decentralization)の文脈でも出題されうる。組織がデータ活用成熟度を高めるための管理的アプローチとして整理しておくことが重要である。
+
+<ExamPoint
+  summary="BIは情報管理の基盤として、データパイプラインの構造と分析成熟度の段階を押さえる"
+  items={[
+    "ETL→DWH→OLAP→ダッシュボードの一連のパイプライン構造を理解する",
+    "記述的・診断的・予測的・処方的分析の4段階と、組織の成熟度向上への管理的関与",
+    "セルフサービスBIの普及は分散化の潮流と結びつくが、データガバナンス（集中管理）との両立が課題",
+  ]}
+/>
+
+## 参考資料
+
+### 公的資料
+
+- [DX動向2024 ― 進む取組、求められる成果と変革](https://www.ipa.go.jp/digital/chousa/dx-trend/dx-trend-2024.html)（IPA独立行政法人情報処理推進機構）
+
+### 民間解説記事
+
+- [BI（ビジネスインテリジェンス）とは ― IT用語辞典 e-Words](https://e-words.jp/w/BI.html)（e-Words）
+- [ビジネスアナリティクス ― デジタルトランスフォーメーション](https://www.nri.com/jp/service/scs/dx/digital_analytics)（野村総合研究所）

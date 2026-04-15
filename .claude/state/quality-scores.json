@@ -1627,41 +1627,46 @@
     },
     "accident-cost": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
         "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM5件。ExamPointが位置づけ末尾になく、参考資料は公的1件のみ。",
-      "weighted": 1.4,
+      "qualitative_comment": "Phase G-4 Wave4: lint ゼロ。ExamPoint2個でH3末尾配置が微妙。参考資料厚労省2+学術+民間1。weighted=2.70。",
+      "weighted": 2.7,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.4,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "accident-response-drill": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "表前導入文なし、ExamPoint位置違反、参考資料公的1件のみ。",
-      "weighted": 1.4,
+      "weak_axes": [],
+      "qualitative_comment": "Phase G-4 Wave4: 全軸3点完全合格。lint ゼロ、参考資料消防庁×2+内閣府+民間。weighted=3.00。",
+      "weighted": 3,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.4,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "accountability-traceability": {
       "scores": {
@@ -2303,41 +2308,51 @@
     },
     "blockchain-crypto": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
-      },
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "reference",
-        "linking"
-      ],
-      "qualitative_comment": "参考資料セクション完全欠落。MEDIUM8件（5列表あり）。関連キーワードリンクなし。",
-      "weighted": 1,
-      "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
-    },
-    "bottom-up-estimation": {
-      "scores": {
         "structure": 3,
-        "mobile": 0,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "HIGH2件（キーバリュー表+太字53字）でmobile=0クランプ不合格。参考資料PMIトップ1件のみ。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave4: セクション順序逆転を手動修正（位置づけ→参考資料順に戻す）。ExamPoint位置づけ節末尾へ。公的3+民間1。weighted=2.35。",
+      "weighted": 2.5,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
+    },
+    "bottom-up-estimation": {
+      "scores": {
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
+        "linking": 3
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "principle"
+      ],
+      "qualitative_comment": "Phase G-4 Wave4: ExamPoint46%地点で§5配置鉄則違反。参考資料IPA+国交省+Promapedia。weighted=2.25。",
+      "weighted": 2.25,
+      "scored_at": "2026-04-15",
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "bowtie-analysis": {
       "scores": {
@@ -2398,23 +2413,25 @@
     },
     "business-intelligence": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference",
-        "linking"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM11件（3列表セル超過8件）。関連キーワード列挙形式。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave4: MEDIUM1件（L63 3列表セル18字）のみ。参考資料IPA+e-Words+NRI。weighted=2.75。",
+      "weighted": 2.75,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "capacity-management": {
       "scores": {
@@ -2529,22 +2546,25 @@
     },
     "cdp-sbt-re100": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "structure": 2,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "structure"
       ],
-      "qualitative_comment": "参考資料1件が404（環境省URL消滅）でreference=0。MEDIUM13件。表2つ導入文欠落+4列表。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave4: 冒頭が「概要」で構造2。lint ゼロ。参考資料環境省+民間4件差し替え成功。weighted=2.70。",
+      "weighted": 2.7,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "chemical-substances-review-act": {
       "scores": {
