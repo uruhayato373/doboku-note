@@ -1768,41 +1768,50 @@
     },
     "activity-abc": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "HIGH1件（L30キーバリュー表）。ExamPointが位置づけ節末尾にない。参考資料mof.go.jpトップページ1件のみ。",
-      "weighted": 1.4,
+      "qualitative_comment": "Phase G-4 Wave5: 全セクション揃い・lint ゼロ・ExamPoint1個適切・参考資料JREC-IN+PMAJ+Wikipedia+グロービス。weighted=2.90。",
+      "weighted": 2.9,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.4,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "after-service": {
       "scores": {
         "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
+        "structure",
         "mobile",
         "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "ExamPoint配置ズレ。参考資料jisc.go.jpトップページ1件のみ。民間解説欠落。",
-      "weighted": 1.4,
+      "qualitative_comment": "Phase G-4 Wave5: 歴史節が位置づけ後で構造2、MEDIUM1件、ExamPoint位置ズレ。参考資料消費者庁+民間2。weighted=2.15。",
+      "weighted": 2.15,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.4,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "agenda-21": {
       "scores": {
@@ -2375,22 +2384,26 @@
     },
     "break-even-point": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
       "weak_axes": [
         "mobile",
-        "principle",
-        "reference"
+        "principle"
       ],
-      "qualitative_comment": "MEDIUM4件。末尾総括ExamPoint欠落。参考資料mof.go.jpトップページ1件のみ。",
-      "weighted": 1.5,
+      "qualitative_comment": "Phase G-4 Wave5: 参考資料差し替え成功（J-Net21+マネフォ+freee）。L20太字32字、計算式直前導入文欠落。weighted=2.55。",
+      "weighted": 2.55,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.5,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "budget-planning": {
       "scores": {
@@ -2491,58 +2504,69 @@
     "career-path": {
       "scores": {
         "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
-        "linking": 2
-      },
-      "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "3列表セル最大20字で上限超過。ExamPoint位置づけ節前配置。参考資料mhlw.go.jp 1件のみ。",
-      "weighted": 1.4,
-      "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
-    },
-    "catastrophe-bias": {
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
-        "linking": 2
-      },
-      "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "MEDIUM4件。ExamPoint位置づけ節前配置。参考資料1件のみ（公的のみ）。",
-      "weighted": 1.4,
-      "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
-    },
-    "cause-and-effect-diagram": {
-      "scores": {
-        "structure": 1,
         "mobile": 2,
         "principle": 2,
-        "reference": 1,
-        "linking": 2
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
         "structure",
+        "mobile",
+        "principle",
         "reference"
       ],
-      "qualitative_comment": "見出しが「定義」（「とは」推奨）、非標準メモ節残存、ExamPoint欠落。参考資料は書籍1件のみでURL無し。",
-      "weighted": 1.55,
+      "qualitative_comment": "Phase G-4 Wave5: 制度背景節が位置づけ後で構造2。参考資料厚労省トップ+JILPT+民間1。weighted=2.10。",
+      "weighted": 2.1,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.4,
+          "at": "2026-04-15"
+        }
+      ]
+    },
+    "catastrophe-bias": {
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "Phase G-4 Wave5: lint ゼロ・ExamPoint位置づけ末尾・双方向リンク成立。公的リンクがキーワード直結度やや低い。weighted=2.85。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-15",
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.4,
+          "at": "2026-04-15"
+        }
+      ]
+    },
+    "cause-and-effect-diagram": {
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "Phase G-4 Wave5: 完全リライト（rewriter失敗→手動）。全セクション整備、ExamPoint適正、JUSE+JIS+民間2+書籍。weighted=3.00。",
+      "weighted": 3,
+      "scored_at": "2026-04-15",
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.55,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "cdp-sbt-re100": {
       "scores": {
