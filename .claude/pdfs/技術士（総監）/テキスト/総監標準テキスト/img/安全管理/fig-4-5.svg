@@ -1,0 +1,61 @@
+<svg viewBox="0 0 540 380" xmlns="http://www.w3.org/2000/svg" style="max-width:540px;width:100%;font-family:sans-serif;font-size:12px;">
+  <defs>
+    <marker id="arr2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#555"/>
+    </marker>
+    <marker id="arr3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#3366aa"/>
+    </marker>
+  </defs>
+  <!-- Top box: 事業者による安全衛生方針の表明 -->
+  <rect x="120" y="5" width="200" height="35" rx="3" fill="#b0c8e8" stroke="#3366aa" stroke-width="1.5"/>
+  <text x="220" y="27" text-anchor="middle" font-weight="bold">事業者による安全衛生方針の表明</text>
+  <!-- Left side labels -->
+  <!-- PDCAサイクル box -->
+  <rect x="10" y="60" width="330" height="240" rx="4" fill="none" stroke="#3366aa" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="175" y="75" text-anchor="middle" font-weight="bold">PDCAサイクル</text>
+  <!-- P boxes -->
+  <rect x="20" y="85" width="150" height="35" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="95" y="107" text-anchor="middle">危険性又は有害性等の調査実施（P）</text>
+  <rect x="20" y="130" width="150" height="35" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="95" y="152" text-anchor="middle">安全衛生目標の設定（P）</text>
+  <!-- Two boxes side by side -->
+  <rect x="20" y="175" width="70" height="50" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="55" y="194" text-anchor="middle">緊急事態への</text>
+  <text x="55" y="208" text-anchor="middle">対応等（P）</text>
+  <rect x="100" y="175" width="70" height="50" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="135" y="194" text-anchor="middle">安全衛生企画の</text>
+  <text x="135" y="208" text-anchor="middle">作成（P）</text>
+  <!-- D box -->
+  <rect x="20" y="235" width="150" height="35" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="95" y="257" text-anchor="middle">安全衛生計画の実施等（D）</text>
+  <!-- C・A boxes -->
+  <rect x="20" y="280" width="150" height="28" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="95" y="298" text-anchor="middle">日常的な点検、改善等（C・A）</text>
+  <rect x="20" y="310" width="150" height="28" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="95" y="328" text-anchor="middle">労働災害発生原因の調査等（C・A）</text>
+  <!-- System audit C -->
+  <rect x="185" y="280" width="80" height="28" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="225" y="298" text-anchor="middle">システム監査の実施（C）</text>
+  <!-- 改善 A -->
+  <rect x="275" y="280" width="55" height="28" rx="3" fill="#d8eaf8" stroke="#3366aa" stroke-width="1"/>
+  <text x="302" y="298" text-anchor="middle">改善（A）</text>
+  <!-- システムの見直し -->
+  <rect x="120" y="340" width="200" height="30" rx="3" fill="#b0c8e8" stroke="#3366aa" stroke-width="1.5"/>
+  <text x="220" y="360" text-anchor="middle" font-weight="bold">システムの見直し</text>
+  <!-- Right side boxes -->
+  <rect x="380" y="85" width="80" height="60" rx="3" fill="#e8d8f8" stroke="#6633aa" stroke-width="1"/>
+  <text x="420" y="110" text-anchor="middle" font-weight="bold">体制の</text>
+  <text x="420" y="128" text-anchor="middle" font-weight="bold">整備</text>
+  <rect x="380" y="165" width="80" height="60" rx="3" fill="#e8d8f8" stroke="#6633aa" stroke-width="1"/>
+  <text x="420" y="190" text-anchor="middle" font-weight="bold">労働者の</text>
+  <text x="420" y="208" text-anchor="middle" font-weight="bold">意見の反映</text>
+  <rect x="380" y="245" width="80" height="50" rx="3" fill="#e8d8f8" stroke="#6633aa" stroke-width="1"/>
+  <text x="420" y="272" text-anchor="middle" font-weight="bold">明文化</text>
+  <rect x="380" y="305" width="80" height="50" rx="3" fill="#e8d8f8" stroke="#6633aa" stroke-width="1"/>
+  <text x="420" y="333" text-anchor="middle" font-weight="bold">記録</text>
+  <!-- Arrows from top to PDCA -->
+  <line x1="220" y1="40" x2="220" y2="58" stroke="#555" stroke-width="1.5" marker-end="url(#arr2)"/>
+  <!-- Arrow from bottom -->
+  <line x1="220" y1="340" x2="220" y2="312" stroke="#555" stroke-width="1.5" marker-end="url(#arr2)"/>
+</svg>
