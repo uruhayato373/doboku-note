@@ -1,0 +1,42 @@
+{
+  "$schema": "./ogp-templates.schema.json",
+  "version": 1,
+  "description": "OGP テンプレートレジストリ。ID は見た目由来で固定。用途はカテゴリ/タグ変更に追従できるよう ogp-rules.json 側で管理する。",
+  "templates": {
+    "navy-white": {
+      "name": "深ネイビー×白タイトル",
+      "category": "汎用",
+      "backgroundImage": null,
+      "promptSource": "第5章51",
+      "notes": "迷ったらこれ。editorial magazine feel。"
+    },
+    "dark-wood": {
+      "name": "ダークウッド×白タイトル",
+      "category": "信頼性系",
+      "backgroundImage": "scripts/fonts/ogp-backgrounds/dark-wood.png",
+      "promptSource": "第5章57",
+      "notes": "guide/textbook 向け。背景画像未配置時はダーク茶グラデにフォールバック。"
+    },
+    "red-line": {
+      "name": "ダークグレー×赤い一本線×白タイトル",
+      "category": "体系・構造系",
+      "backgroundImage": null,
+      "promptSource": "第6章66",
+      "notes": "過去問解説・体系ページ。CSS のみで完結。"
+    },
+    "blackboard": {
+      "name": "黒板×チョークタイトル",
+      "category": "教育・解説系",
+      "backgroundImage": "scripts/fonts/ogp-backgrounds/blackboard.png",
+      "promptSource": "第6章73",
+      "notes": "guide 全般。背景画像未配置時はダーク緑グラデにフォールバック。"
+    },
+    "dark-grid": {
+      "name": "ダーク×グリッド線×白タイトル",
+      "category": "分析・データ系",
+      "backgroundImage": null,
+      "promptSource": "第6章77",
+      "notes": "分析・統計・データ系ページ。CSS のみで完結。"
+    }
+  }
+}

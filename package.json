@@ -8,7 +8,7 @@
     "build-backlinks": "node scripts/build-exam-backlinks.mjs",
     "build-indexes": "node scripts/build-cross-exam-keyword-index.mjs && node scripts/build-tag-index.mjs",
     "build": "rm -rf out && node scripts/build-exam-backlinks.mjs && node scripts/build-cross-exam-keyword-index.mjs && node scripts/build-tag-index.mjs && node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs",
-    "generate-ogp": "node scripts/generate-ogps.mjs",
+    "ogp": "node scripts/ogp-create.mjs",
     "start": "next start -p 3020",
     "lint": "eslint src/",
     "type-check": "tsc --noEmit",
