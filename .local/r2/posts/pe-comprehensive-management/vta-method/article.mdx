@@ -10,6 +10,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-09'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
 ---
 
 # VTA法
@@ -21,6 +24,8 @@ VTA法（Variation Tree Analysis：変動要因分析法）とは、**事故・�
 スウェーデンの労働安全衛生研究所で開発された。事後的な事故分析手法であり、事故に至る過程でどの時点で「いつもと違う状態」が発生したかを明確にすることが目的である。
 
 ## 分析の手順
+
+VTA法による分析は 5 つのステップで構成される。各ステップで「通常との差異」に着目することが、手法の核心である。
 
 | ステップ | 内容 |
 |---|---|
@@ -40,6 +45,20 @@ VTA法では、各事象を以下のように分類して図示する。
 | **◇** | バリエーション | 通常からの逸脱 |
 | **△** | 前提条件 | 逸脱が生じる背景条件 |
 
+## 開発の背景と歴史
+
+VTA法は、1980年代にスウェーデンの国立労働安全衛生研究所（National Board of Occupational Safety and Health）が開発した手法である。背景には、産業災害の事後分析において、従来の「誰が悪かったか」という責任追及型のアプローチが、再発防止に十分機能しないという認識があった。
+
+スウェーデンでは当時、ヒューマンエラー研究の蓄積から「人は誰でも間違える」という前提に立ち、システムとして安全を設計する考え方が広まっていた。VTA法は、こうした**ヒューマンファクターズ研究**の流れの中で、「逸脱の連鎖」を時系列で可視化するツールとして生まれた。
+
+日本への普及は 1990 年代以降で、建設現場における労働災害分析や、宇宙開発事業団（現 JAXA）でのヒューマンエラー分析に活用された実績がある。医療安全分野でも RCA（根本原因分析）と並ぶ事後分析手法として定着しており、[根本原因分析（RCA）](/docs/pe-comprehensive-management-root-cause-analysis)との併用により、逸脱の特定から根本原因の追究まで一貫した分析が可能となる。
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では[**5.6 システム安全工学手法**](/docs/pe-comprehensive-management-keyword-2026#56-システム安全工学手法)に位置づけられている。
+
+VTA法は[根本原因分析（RCA）](/docs/pe-comprehensive-management-root-cause-analysis)とともに事故の事後分析に用いられる手法である。[FTA](/docs/pe-comprehensive-management-fta)や[ETA](/docs/pe-comprehensive-management-eta)が設計段階での事前分析に主に用いられるのに対し、VTA法は発生した事故の原因究明に活用される。
+
 <ExamPoint
   summary="VTA法の特徴と他の分析手法との違いを理解する"
   items={[
@@ -50,12 +69,8 @@ VTA法では、各事象を以下のように分類して図示する。
   ]}
 />
 
-## 総合技術監理における位置づけ
-
-総合技術監理キーワード集では[**5.6 システム安全工学手法**](/docs/pe-comprehensive-management-keyword-2026#56-システム安全工学手法)に位置づけられている。
-
-VTA法は[根本原因分析（RCA）](/docs/pe-comprehensive-management-root-cause-analysis)とともに事故の事後分析に用いられる手法である。[FTA](/docs/pe-comprehensive-management-fta)や[ETA](/docs/pe-comprehensive-management-eta)が設計段階での事前分析に主に用いられるのに対し、VTA法は発生した事故の原因究明に活用される。
-
 ## 参考資料
 
-- [職場の安全サイト](https://anzeninfo.mhlw.go.jp/)（厚生労働省）
+- [ヒューマンエラーによる失敗・事故の分析手法（先進的な設計・検証技術の適用事例報告書2017年度版）](https://www.ipa.go.jp/archive/files/000064279.pdf)（独立行政法人情報処理推進機構）
+- [事故＆インシデントを分析するVTA法とは何か？](https://studying.jp/engineer/blog/20250522.html)（スタディング 技術士応援ブログ）
+- [VTA／ETA の解説と実務活用](https://www.monodukuri.com/gihou/article_list/60/VTA%EF%BC%8FETA)（モノづくり.com）
