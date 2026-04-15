@@ -25,33 +25,22 @@ export function buildCemQaPrompt(slug) {
   3. node scripts/lint-mdx-mobile.mjs <評価対象ファイル> を Bash で実行
   4. 5 軸ルーブリック（構造30% / モバイル25% / 原則20% / 参考資料15% / 関連付け10%）で
      各軸を 0〜3 点で採点
-  5. 加重スコア = Σ(score × weight) を算出（最大 3.00）
-  6. 弱点軸（1 点以下の軸）を特定
-  7. 質的コメント（30〜100字）を付与
+  5. weak_axes（score ≤ 1 の軸）を特定
+  6. 質的コメント（30〜100字）を付与
 
-最終出力は **必ず以下の JSON 形式のみ** で返してください。前置き・後置きは不要。
+**重要な出力ルール（必ず守る）**:
+- reasoning や説明文を一切書かない
+- 最終出力は **JSON 1 行のみ**
+- weighted は出力しない（呼び出し側で再計算する）
+- 前置き・後置き・コードブロックフェンス（\`\`\`）は禁止
+- 思考過程を書き出さず、Read/Bash 実行後は即座に JSON を返す
 
-\`\`\`json
-{
-  "slug": "${slug}",
-  "scores": {
-    "structure": <0-3>,
-    "mobile": <0-3>,
-    "principle": <0-3>,
-    "reference": <0-3>,
-    "linking": <0-3>
-  },
-  "weighted": <0.00-3.00>,
-  "weak_axes": ["<弱い軸名>", ...],
-  "qualitative_comment": "<30-100字の質的コメント>"
-}
-\`\`\`
+最終出力フォーマット（このまま 1 行で返す）:
+{"slug":"${slug}","scores":{"structure":N,"mobile":N,"principle":N,"reference":N,"linking":N},"weak_axes":[...],"qualitative_comment":"..."}
 
 注意:
 - スコアは整数 (0/1/2/3) のみ
-- weighted は小数第2位まで
-- weak_axes は score <= 1 の軸
-- いずれかの軸が 0 点なら全体不合格として weighted ≤ 1.0 とする
+- weak_axes は score <= 1 の軸名（"structure"/"mobile"/"principle"/"reference"/"linking"）
 - 機械的判定不能な質的観点（独自性・読みやすさ・著者の声）も評価に含める`;
 }
 

@@ -2,18 +2,30 @@
 
 1級土木施工管理技士の受験者向け技術ノート・試験対策サイト。Next.js + MDX + Cloudflare Pages で構築。
 
+## リファレンス索引
+
+プロジェクトの判断に必要な情報は本ファイルに集約。詳細・手順・一覧は `.claude/reference/` 配下と `docs/project/` 配下の各ファイルを都度 Read する。
+
+| 参照先 | 内容 | いつ読むか |
+|---|---|---|
+| [.claude/reference/content-authoring.md](.claude/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
+| [.claude/reference/exam-content-policy.md](.claude/reference/exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
+| [.claude/reference/skills-registry.md](.claude/reference/skills-registry.md) | 全スキル一覧（management / dev / content / ui / marketing / analytics / strategy / ads）＋Phase 別運用メモ | 利用可能なスキル探索・新スキル重複チェック |
+| [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) | エージェント詳細表＋チーム連携パターン＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認 |
+| [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・Phase 別ロードマップ | 週次 PDCA・変換作業・キーワードページ作成時 |
+| [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成等） | キーワードページ執筆・評価時 |
+| `docs/project/01_設計思想.md` | プロジェクトの設計思想の詳細 | 長期方針・コンテンツ戦略検討時 |
+| `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
+| `docs/project/05_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
+
 ## 設計思想
 
 - **サイトの焦点**: **1級土木施工管理技士** と **技術士（総合監理技術部門）** に特化。ユーザーが「ここだけで合格できる」体験を提供
-- **コンテンツ管理**: 
-  - すべてのコンテンツ（試験対策・過去問・キーワード）を `.local/r2/posts/{slug}/article.mdx` で一元管理
-  - frontmatter の `published: true/false` フラグで公開・下書き管理
-  - frontmatter の `category` と `tags` で分類・検索対応
-  - 画像は `.local/r2/posts/{slug}/img/` に集約
-- **URL構造**: `/docs/{slug}` の完全フラット設計。category + tags でグループ化を実現
-- **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOSアプリ（過去問演習）
-- **収益モデル**: AdSense + アフィリエイト + note有料記事 + **YouTube** + iOSアプリ（サブスク）
-- **中核差別化（v3・2026-04-13）**: 運営者本人が 2026-07 に技術士総監2次筆記を受験。**合格体験を note 高単価商品・YouTube・iOSアプリの3本柱で活用**
+- **コンテンツ管理**: すべてのコンテンツを `.local/r2/posts/{slug}/article.mdx`（または Convention A の個別ファイル）で一元管理。frontmatter の `published` で公開管理、`category`/`tags` で分類
+- **URL 構造**: `/docs/{slug}` の完全フラット設計。category + tags でグループ化
+- **コンテンツの流れ**: Obsidian（ステージング）→ doboku-note（プロダクション）→ iOS アプリ（過去問演習）
+- **収益モデル**: AdSense + アフィリエイト + note 有料記事 + **YouTube** + iOS アプリ（サブスク）
+- **中核差別化（v3・2026-04-13）**: 運営者本人が 2026-07 に技術士総監 2 次筆記を受験。**合格体験を note 高単価商品・YouTube・iOS アプリの3本柱で活用**
 - **詳細**: `docs/project/01_設計思想.md`, `docs/project/02_事業戦略.md`（v3）, `docs/project/05_収益化戦略.md`（v3）
 
 ## 技術スタック
@@ -34,259 +46,88 @@
 ## ディレクトリ構成
 
 ```
-.local/r2/posts/                    # すべてのコンテンツ（dev環境）
-  civil-construction-1/             # 1級土木施工管理技士（個別ファイル名）
-    guide/                          #   試験ガイド（6ファイル）
-      strategy.mdx
-      four-management.mdx
-      concrete-key-points.mdx
-      earthwork-key-points.mdx
-      law-key-points.mdx
-      concrete-maintenance.mdx
-    primary/                        #   第1次試験・過去問（24ファイル: H26〜R07）
-      h26-a.mdx, h26-b.mdx, ...
-      r01-a.mdx, r01-b.mdx, ...
-      img/                          #   過去問の図版
-    secondary/                      #   第2次試験（5分野×2ファイル + R03〜R07過去問5ファイル）
-      concrete/basics.mdx, past-problems.mdx
-      earthwork/basics.mdx, past-problems.mdx
-      construction-plan/basics.mdx, past-problems.mdx
-      quality-management/basics.mdx, past-problems.mdx
-      experience-writing/guide.mdx, examples.mdx
-      r03.mdx, r04.mdx, ... r07.mdx
-    textbook/                       #   テキスト教科書MDX変換（Convention B: article.mdx）
-      construction-mgmt-overview/article.mdx
-      demolition/article.mdx
-      schedule-management/article.mdx
-      surveying/article.mdx
-  pe-comprehensive-management/      # 技術士・総合技術監理（article.mdx 規約）
+.local/r2/posts/                    # すべてのコンテンツ（git 追跡下）
+  civil-construction-1/             # 1級土木施工管理技士（Convention A: 個別ファイル名）
+    guide/                          #   試験ガイド
+    primary/                        #   第1次試験・過去問（H26〜R07）
+    secondary/                      #   第2次試験（5分野 + R03〜R07）
+    textbook/                       #   教科書 MDX（Convention B: article.mdx）
+  pe-comprehensive-management/      # 技術士・総合技術監理（Convention B: article.mdx）
     exam-index/article.mdx          #   試験インデックス
-    section-3-1-human-behavior/article.mdx  # 出題セクション
-    [... 他の出題セクション ...]
-    r01-primary/article.mdx         #   過去問
-    [... 他の過去問 ...]
-    followership/article.mdx        #   キーワード（100トピック）
-    [... 他のキーワード ...]
+    section-*/article.mdx           #   出題セクション
+    r**-primary/article.mdx         #   過去問
+    {keyword}/article.mdx           #   キーワード（100トピック）
 
 src/                                # カスタムコンポーネント・CSS・レイアウト
-  lib/
-    docs.ts                         # getDoc(), getAllDocSlugs()等
-  app/
-    docs/[...slug]/page.tsx         # 全ドキュメントページの動的ルート（フラット）
-    category/[slug]/page.tsx        # カテゴリ一覧ページ
+  lib/docs.ts                       # getDoc(), getAllDocSlugs() 等
+  app/docs/[...slug]/page.tsx       # 全ドキュメントページの動的ルート（フラット）
 
-docs/project/            # プロジェクト管理ドキュメント
-.github/workflows/     # CI/CD
+docs/project/                       # プロジェクト管理ドキュメント
+.claude/reference/                  # 作業マニュアル（詳細・一覧・手順）
+.claude/skills/                     # スキル定義
+.claude/agents/                     # サブエージェント定義
+.github/workflows/                  # CI/CD
 ```
 
-**注**: `.local/r2/posts/` は **git 追跡下**（MDX・画像ともに）。複数PC間での同期を git 経由で行うため。R2（Cloudflare）は本番配信用のミラー。
+**注**: `.local/r2/posts/` は git 追跡下（MDX・画像ともに）。複数 PC 間の同期を git 経由で行う。R2 は本番配信用ミラー。
 
-## サイト構成（ナビバー）
+## URL 設計ルール
 
-**フラット URL 設計** — すべてのコンテンツは `/docs/{slug}` でアクセス可能。カテゴリ・タグは frontmatter で管理。
-
-### 主要コンテンツ（フォーカス試験）
-
-| 試験名 | category | 主要 slug 例 | 現状 |
-|---|---|---|---|
-| **1級土木施工管理技士** | `civil-construction-1` | `civil-construction-1-guide`, `civil-construction-1-primary-2024` | ✅ 実装中 |
-| **技術士（総合技術監理技術部門）** | `pe-comprehensive-management` | `cem-study-guide`, `section-3-1-human-behavior`, `r01-primary` | ✅ 実装中 |
-
-### 補助コンテンツ（土木知識）
-
-| 分野 | category 例 | 主要 slug 例 | 用途 |
-|---|---|---|---|
-| 土木一般 | `civil-general` | `concrete-types`, `surveying-basics` | 両試験で共用 |
-| 施工管理 | `construction-management` | `quality-control`, `safety-management` | 両試験で共用 |
-| キーワード・法規 | `keywords-law` | `civil-engineering-law`, `construction-standards` | 受験知識 |
-
-**参考**: すべてのコンテンツは `/docs/{slug}` でアクセス。ナビゲーションは `category` 値でグループ化し、タグで検索可能。
-
-## URL設計ルール
-
-**フラット URL 戦略** — 階層的なカテゴリナビゲーションを廃止し、すべてのコンテンツを `/docs/{slug}` で直接アクセス可能に。
+**フラット URL 戦略** — すべてのコンテンツを `/docs/{slug}` で直接アクセス可能に。
 
 ### ディレクトリ → URL マッピング
 
-2つのファイル命名規約が共存する。どちらも `src/lib/docs.ts` の `findMdxFiles()` が自動処理する。
+2 つのファイル命名規約が共存する。どちらも `src/lib/docs.ts` の `findMdxFiles()` が自動処理する。
 
-#### Convention A: 個別ファイル名（civil-construction-1 で使用）
-1つのディレクトリに複数ファイルがある場合。ファイル名がスラッグに含まれる。
+**Convention A: 個別ファイル名**（civil-construction-1 で使用）
 ```
 .local/r2/posts/civil-construction-1/guide/strategy.mdx
   → /docs/civil-construction-1-guide-strategy
 
 .local/r2/posts/civil-construction-1/primary/h26-a.mdx
   → /docs/civil-construction-1-primary-h26-a
-
-.local/r2/posts/civil-construction-1/secondary/concrete/basics.mdx
-  → /docs/civil-construction-1-secondary-concrete-basics
 ```
 
-#### Convention B: article.mdx（pe-comprehensive-management で使用、新規コンテンツ推奨）
-1トピック1ディレクトリの場合。`article.mdx` はスラッグから除外される。
+**Convention B: article.mdx**（pe-comprehensive-management で使用、新規コンテンツ推奨）
 ```
 .local/r2/posts/pe-comprehensive-management/followership/article.mdx
   → /docs/pe-comprehensive-management-followership
-
-.local/r2/posts/pe-comprehensive-management/r01-primary/article.mdx
-  → /docs/pe-comprehensive-management-r01-primary
 ```
 
-**新規コンテンツは Convention B（article.mdx）を推奨。** 1ディレクトリに複数ファイルが必要な場合のみ Convention A を使用。
+**新規コンテンツは Convention B（article.mdx）を推奨。** 1 ディレクトリに複数ファイルが必要な場合のみ Convention A を使用。
 
-### frontmatter による分類（カテゴリ + タグ）
-
-全コンテンツの frontmatter に以下を必須記載：
+### frontmatter（必須項目）
 
 ```yaml
 ---
-title: "1級土木施工管理技士 試験ガイド"
-description: "試験概要、勉強方法、過去問傾向"
-category: "civil-construction-1"           # 主要カテゴリ（試験名など）
-tags: ["guide", "exam-preparation"]        # 分類・検索用タグ
-published: true                            # 公開フラグ（false=下書き）
+title: "ページタイトル"
+description: "50〜160文字の説明"
+category: "civil-construction-1"     # civil-construction-1 | pe-comprehensive-management | civil-general | construction-management | keywords-law
+tags: ["guide", "primary"]           # guide | primary | secondary | past-questions | keyword 等
+published: true                      # false なら下書き・非表示
 ---
 ```
 
-**category の選択肢**:
-- `civil-construction-1` — 1級土木施工管理技士
-- `pe-comprehensive-management` — 技術士総合技術監理技術部門
-- `civil-general` — 土木一般知識（両試験共用）
-- `construction-management` — 施工管理知識（両試験共用）
-- `keywords-law` — キーワード・法規（補助）
+テンプレート詳細・複数試験対応パターン・MDX コンポーネント仕様は [.claude/reference/content-authoring.md](.claude/reference/content-authoring.md) を参照。
 
-**tags の例**:
-- `guide` — 試験ガイド・勉強方法
-- `primary` — 第1次試験対策
-- `secondary` — 第2次試験対策
-- `past-questions` — 過去問
-- `keyword` — キーワード解説
+## コンテンツ作成の必須ルール
 
-### 複数試験対応コンテンツ
-
-frontmatter に複数カテゴリを参照する方法（要検討）:
-```yaml
-# パターン1: category は主要試験、tags に補助試験を列挙
-category: "civil-construction-1"
-tags: ["shared-with-pe"]
-
-# パターン2: exams 配列で明示（実装に応じて）
-exams: ["civil-construction-1", "pe-comprehensive-management"]
-```
-
-このルールにより、新試験対応時の重複排除と SEO 効率を両立します。
-
-## 試験別コンテンツ整備方針
-
-doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / どこまで / どの粒度で書くか**」が異なる。デザインの一貫性は保ちつつ、コンテンツ密度・忠実性・出題反映度は試験ごとに方針を変える。
-
-このセクションは **執筆フェーズ（Generator 側）** の判断基準。レビューフェーズ（Evaluator 側）の視点は後段の「[コンテンツ別レビュー視点](#コンテンツ別レビュー視点)」を参照。
-
-### 試験別の整備方針差分
-
-| 観点 | 1級土木 textbook | 1級土木 guide | 総監キーワード | 総監過去問 |
-|---|---|---|---|---|
-| **目的** | 教科書の電子化 | 出題傾向の要約 | キーワード集の概念解説 | 過去問の解説 |
-| **真実源** | 教科書PDF原本 | 過去問+編集判断 | キーワード集2026 | 過去問PDF |
-| **コンテンツ密度** | 高（網羅95%以上） | 中（ポイント抽出） | 低（要約中心） | 高（逐条+解説） |
-| **典型的な長さ** | 5,000-15,000字 | 2,000-5,000字 | 800-2,500字 | 3,000-8,000字 |
-| **図の標準量** | 多数（断面・配筋・施工写真） | 少数（重要箇所のみ） | ほぼゼロ（テキスト中心） | 原本準拠（あれば） |
-| **数式** | 頻出（W/C比・配合・力学） | 限定的 | 少ない | 問題文に応じて |
-| **Generator スキル** | `/civil-construction-1-pdf-to-mdx` | 手動編集 | `/keyword-page` | `/pdf-to-mdx` `/cem-pdf-to-mdx` |
-| **Evaluator エージェント** | `civil-construction-qa` (textbook mode) | `civil-construction-qa` (guide mode) | `cem-qa` | `content-qa` |
-
-### 試験別の判断ガイド
-
-#### 1級土木 textbook（`group: textbook`）
-
-- **整備の目標**: 元教科書 PDF をモバイルで読める形に電子化する
-- **網羅率**: PDF の章節見出しを **95% 以上** カバーすること（切り捨てしない）
-- **図**: PDF にある図はすべて取り込む。300dpi 以上、natural ≥ display を維持
-- **数式・規格表**: 教科書通りに正確に転記。KaTeX で記述
-- **執筆ツール**: `/civil-construction-1-pdf-to-mdx` を使い、Phase 5 で `/verify-pdf-mdx` を必ず実行
-
-#### 1級土木 guide（`group: guide`）
-
-- **整備の目標**: 過去問データに基づき、受験者が「ここを押さえれば得点できる」要点を抽出
-- **網羅率**: 教科書全部ではなく、**頻出トピックのみ**（出題頻度表を冒頭に置く）
-- **過去問バックリンク**: 主要セクションごとに対応する過去問へのリンクを張る（双方向）
-- **図**: 重要な概念のみ図示。過剰に貼らない
-- **執筆ツール**: 手動編集（Generator スキルなし）。テンプレートとしては `essay-exam-strategy` 等を参照
-
-#### 総監キーワード（`group: keyword`）
-
-- **整備の目標**: キーワード集2026 の各キーワードを **1 ページ 800-2,500 字** で完結させる
-- **網羅率**: 教科書ではなくキーワード集を真実源とし、「冒頭定義 → サブ概念 → 総合技術監理における位置づけ → 参考資料」の構造で要約
-- **コンポーネント原則**: ExamPoint 最大 2 個、参考資料は公的 + 民間の両方必須、過去問への双方向バックリンク
-- **図**: 原則ゼロ。テキストとコンポーネントで表現
-- **執筆ツール**: `/keyword-page` スキル
-
-#### 総監過去問（`group: past-exam`）
-
-- **整備の目標**: 公開済み過去問を逐条解説する
-- **網羅率**: 設問単位で 100%（漏らさない）
-- **構造**: 設問ごとに H2、解答・解説は `<details>` で開閉式。`<RelatedKeywords>` で関連キーワードへ
-- **執筆ツール**: `/pdf-to-mdx` `/cem-pdf-to-mdx` `/civil-construction-1-pdf-to-mdx`
-
-### 全試験で共通のデザイン制約（守る）
-
-試験を問わず、以下は **必ず統一** する。これによりサイト全体のデザイン一貫性が保たれる:
-
-- **frontmatter スキーマ**: `title`, `description`, `category`, `tags`, `group`, `published`, `publishedAt`（必須項目）
-- **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<CustomUnorderedList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
-- **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
-- **数式**: KaTeX 一択（他のレンダラを混在させない）
-- **図表**: Mermaid（フロー・タイムライン・PDCA）/ PNG（写真・複雑なイラスト）/ SVG（模式図、Phase 2）
-- **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
-- **URL**: フラット `/docs/{slug}` 設計
-- **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない
-- **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない（Callout の type で表現する）
-- **MDX書き込み**: `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持
-
-### 新資格を追加するときの手順
-
-1. 上記「試験別の整備方針差分」表に新しい列を追加して整備方針を決定
-2. 後段の「コンテンツ別レビュー視点」表にも対応する列を追加
-3. 必要なら `{exam-id}-pdf-to-mdx`（Generator スキル）と `{exam-id}-qa`（Evaluator エージェント）を新設
-4. `/review` のディスパッチ表（`.claude/skills/dev/review/SKILL.md`）に行を追加
-5. `/verify-pdf-mdx` のルートテーブル（`.claude/skills/content/verify-pdf-mdx/SKILL.md`）に行を追加
-6. CLAUDE.md のエージェント表とスキル表を更新
-
-## コンテンツ作成規約
-
-### ペルソナ・コンテンツ原則
-
-> **品質ルールの単一真実源**: `.claude/content-principles.md`
-> ExamPoint 個数・配置・禁止パターン（§5）、参考資料の構成（§9）など、すべてのコンテンツ品質ルールはこのファイルが真実源。SKILL.md・lint スクリプト・cem-qa エージェントはこのファイルを参照する。**ルール変更時はまず content-principles.md を更新し、他は参照に揃える。**
-
-- すべてのコンテンツは「実務経験10年以上の総監部門受験者」がスマホで読むことを前提に作成する
-- 冒頭は概念の本質を簡潔に。試験での重要性は「総合技術監理における位置づけ」に集約する
-- 表・箇条書きの前に必ず文脈を示す導入文を置く
-- ベンチマーク: BCP（事業継続計画）ページの構成を品質基準とする
-- **品質レベル**: L1（構造）/ L2（学習）/ L3（体験）の3層定義。詳細は `.claude/content-principles.md` の「コンテンツ品質レベル」セクション。Wave方式（全体を浅く→中→深く）で進める
-
-### ファイル・メタデータ
-
-- ファイル形式: MDX
-- 日本語で記述
-- slug は英数字 + ハイフン（URL にするため）
-- frontmatter には `title`, `description`, `category`, `tags`, `published` を必須記載
+MDX を書くときに **毎回守るべき最低限** のルール。詳細な規約（ペルソナ・コンポーネント仕様・過去問構造・モバイル視認性詳細）は [.claude/reference/content-authoring.md](.claude/reference/content-authoring.md)、品質ルールの真実源は [.claude/content-principles.md](.claude/content-principles.md)。
 
 ### 日本語テキストの品質管理
 
-- MDXファイルに日本語テキストを書き込んだ後、必ず Grep で `��`（Unicode置換文字 U+FFFD）を検索し、文字化けがないことを確認すること
-- LLM出力時にマルチバイト文字が破損する場合がある（例: `バック��ップ` → `バックアップ`、`キ���ワード` → `キーワード`）
+- MDX ファイルに日本語テキストを書き込んだ後、必ず Grep で `��`（Unicode 置換文字 U+FFFD）を検索し、文字化けがないことを確認すること
+- LLM 出力時にマルチバイト文字が破損する場合がある（例: `バック��ップ` → `バックアップ`）
 - 文字化けが見つかった場合は即座に修正すること
 
-### MDXファイル書き込みの規約
+### MDX ファイル書き込みの規約
 
-- `.local/r2/posts/` 配下の MDX は **CRLF（Windows改行）** が事実上の標準（691ファイル中99.9%）
+- `.local/r2/posts/` 配下の MDX は **CRLF（Windows 改行）** が事実上の標準（691 ファイル中 99.9%）
 - `pre-commit` フック（`scripts/pre-commit-mdx.mjs`）が改行コード混在（CRLF + LF）を検出して reject する
 - スクリプトで MDX ファイルを書き込む場合は **必ず `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` / `transformMdxFile` を使用すること**
-  - 直接 `readFileSync` / `writeFileSync` を使うと改行コード混在が発生し、pre-commit で 100ファイル単位で reject される（過去事例あり）
-  - `gray-matter` の `matter.stringify` や `raw + '\n' + ...` の文字列連結は LF のみを出力するため、必ず `writeMdxFile` を経由すること
-- 推奨パターン：
+  - 直接 `readFileSync` / `writeFileSync` を使うと改行コード混在が発生し、pre-commit で 100 ファイル単位で reject される（過去事例あり）
+  - `gray-matter` の `matter.stringify` や文字列連結は LF のみを出力するため、必ず `writeMdxFile` を経由すること
+- 推奨パターン:
   ```javascript
   import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
   const { raw, eol } = readMdxFile(filePath);
@@ -294,67 +135,13 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
   writeMdxFile(filePath, newRaw, eol); // 元の改行コードを維持
   ```
 
-### MDXコンポーネント
+### その他の必須ルール
 
-MDX内で使える主要コンポーネント（`src/lib/component-loader/index.ts` で登録済み）:
-
-- `<Callout type="info|warning|tip|error" title="...">children</Callout>` — 補足・注意ボックス
-- `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
-- `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
-- `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slugでキーワードページへリンク、slug省略で灰色テキスト）
-- `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
-
-### 過去問MDXの構造ルール
-
-択一式過去問は以下を遵守:
-- 設問番号は **H2**（`## Ⅰ-1-1` / `## 問題 No.1`）— TOCに表示される唯一の見出し
-- `toc_max_heading_level: 2` を frontmatter に設定
-- 回答・解説は `<details>/<summary>` で開閉式にする
-- details内に **H2/H3見出しを使わない**（`**太字**` で代替）
-- details内に `---`（水平線）を使わない（不要な区切り線・余白の原因になる）
-- 関連キーワードは `<RelatedKeywords>` コンポーネントを使用（slug指定でキーワードページへリンク）
-- キーワードページ側の「過去問での出題」セクションにバックリンクを追加する（双方向リンク）
-- 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
-- 詳細テンプレートは `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` を参照
-
-### 数式・図表
-
-- 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
-- 図表: Mermaid コードブロック
-- スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
-
-### モバイル視認性
-
-- **表は2軸比較にのみ使う** — 「行と列の両方向に読む」データだけが表にふさわしい。各行が独立した説明なら箇条書き（`- **用語**: 説明`）を使う
-- **キーバリュー表を作らない** — 正式名称・目的・所管・施行などの基本情報は散文として冒頭セクションに統合する
-- **計算手順を表で表現しない** — 番号付きリストで1行1ステップに記述する
-- **4列以上の表は原則禁止** — 比較として不可欠な場合のみ、各セル15文字以内
-- **表が適切な場面**: BCP vs 防災計画のような2軸比較、短いセルの分類一覧、マトリクス（SWOT等）
-
-### 画像配信
-
-画像は **git 追跡下の `.local/r2/posts/{slug}/img/` にマスターを置き、R2（Cloudflare）を本番配信ミラーとして使う** 二重管理方式。複数PCでの作業同期を git 経由で行う。
-
-- **R2 URL（本番）**: `https://storage.doboku-note.com/posts/{slug}/img/{ファイル名}`
-- **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />`
-- **ローカル開発**: `public/posts` → `.local/r2/posts` のシンボリックリンク経由で配信
-- **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
-- **マスター**: `.local/r2/posts/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数PC間で git pull により同期される
-- **R2 へのアップロード（本番反映）**: `node scripts/upload-images-to-r2.mjs`
-- **R2 からのダウンロード（新規PC初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
-- `static/img/` はサイト共通素材（favicon, logo等）専用
-
-### frontmatter テンプレート
-
-```yaml
----
-title: "ページタイトル"
-description: "50〜160文字の説明"
-category: "civil-construction-1"     # 試験または分野
-tags: ["guide", "primary"]           # 分類タグ（複数可）
-published: true                      # false なら下書き・非表示
----
-```
+- **frontmatter 必須項目**: `title`, `description`, `category`, `tags`, `published`
+- **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない。`<Callout type="...">` で表現する
+- **数式**: KaTeX 一択（`$$...$$` / `$...$`）
+- **表は 2 軸比較のみ**: 4 列以上禁止、キーバリュー表は散文化、計算手順は番号付きリスト
+- **見出し階層**: H1 = ページタイトル（frontmatter から自動生成）、本文は H2 以下
 
 ## デプロイ
 
@@ -380,262 +167,40 @@ npm run lint              # ESLint チェック
 npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ```
 
-**Note**: `npm run dev` 実行時、`predev` スクリプトが自動的に実行され、ポート3020が使用中の場合は強制終了（`taskkill /F /T`）してからサーバーを起動します。毎回ポート番号が変わることはなくなりました。
-
-## スキル一覧
-
-### management — 計画・分析・戦略
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/weekly-plan` | 週次計画を生成 | `.claude/skills/management/weekly-plan/SKILL.md` |
-| `/weekly-review` | 週次レビューを生成 | `.claude/skills/management/weekly-review/SKILL.md` |
-| `/north-star-metric` | NSM と Input Metrics を定義 | `.claude/skills/management/north-star-metric/SKILL.md` |
-| `/growth-loops` | 成長ループの設計・評価 | `.claude/skills/management/growth-loops/SKILL.md` |
-| `/monetization-strategy` | 収益化戦略のブレインストーム | `.claude/skills/management/monetization-strategy/SKILL.md` |
-| `/critical-review` | 批判的レビュー | `.claude/skills/management/critical-review/SKILL.md` |
-| `/knowledge` | 過去の失敗と学びを参照・追記 | `.claude/skills/management/knowledge/SKILL.md` |
-| `/pre-mortem` | Pre-Mortem の実施 | `.claude/skills/management/pre-mortem/SKILL.md` |
-
-### analytics — サイト分析（Phase 2で復活）
-
-⏸️ **現在のスコープ**: Phase 1（試験対策webサイト作成）では不要。
-Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
-- `/fetch-gsc-data` — Google Search Console のデータ取得
-- `/fetch-ga4-data` — Google Analytics 4 のアクセスデータ取得
-- `/seo-audit` — SEO 総合監査
-
-### dev — 開発
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/review` | 対象ファイルの種類を自動判定し、適切なレビュースキル（review-mobile/check-mdx/code-review/design-review/critical-review 等）を実行して結果を集約する統一エントリーポイント | `.claude/skills/dev/review/SKILL.md` |
-| `/dev-start` | ポート3020をクリーンアップして開発サーバー起動 | `.claude/skills/dev/dev-start/SKILL.md` |
-| `/deploy` | Cloudflare Pages へデプロイ | `.claude/skills/dev/deploy/SKILL.md` |
-| `/create-skill` | スキル作成ガイド | `.claude/skills/dev/create-skill/SKILL.md` |
-| `/reset-git-history` | Git 履歴リセット | `.claude/skills/dev/reset-git-history/SKILL.md` |
-| `/allow-tool` | ツール許可を settings.local.json に追加 | `.claude/skills/dev/allow-tool/SKILL.md` |
-| `/sync-r2-images` | R2上の画像をローカルに同期（npm run dev で画像が見えないとき） | `.claude/skills/dev/sync-r2-images/SKILL.md` |
-| `/diff-r2` | ローカル`.local/r2/posts/`とR2バケットの双方向差分を検出（only-local/only-remote/size-mismatch） | `.claude/skills/dev/diff-r2/SKILL.md` |
-| `/generate-ogp` | OGP画像の一括生成・個別生成（satori + resvg-js） | `.claude/skills/dev/generate-ogp/SKILL.md` |
-| `/code-review` | Next.jsコード品質レビュー（セキュリティ・パフォーマンス・保守性・a11y） | `.claude/skills/dev/code-review/SKILL.md` |
-| `/monitor` | Monitor toolでバックグラウンド監視（dev/mojibake/ci/build/r2/frontmatter/health/mdx-validation） | `.claude/skills/dev/monitor/SKILL.md` |
-| `/zenn-audit` | Zenn本番CSSと記事ページのタイポグラフィ＋レイアウトを比較し差分をCritical/Warning/Matches/Intentionalで報告 | `.claude/skills/dev/zenn-audit/SKILL.md` |
-
-### content — コンテンツ作成
-
-#### 試験対策ガイド生成（複数資格対応・テンプレート駆動）
-
-| スキル | 用途 | 対応試験 | 汎用化 | 定義 |
-|---|---|---|---|---|
-| `/exam-guide` | 試験対策ガイド生成（既存資産再構成） | civil-construction-1 | Phase 2で `--exam {id}` パラメータ化予定 | `.claude/skills/content/exam-guide/SKILL.md` |
-| `/pe-exam-guide` | 技術士試験対策ガイド生成（既存資産＋公開情報） | pe | Phase 2で統合予定 | `.claude/skills/content/pe-exam-guide/SKILL.md` |
-
-**テンプレート管理**: `.claude/skills/content/templates/exam-guide/` （新資格追加時は設定ファイル追加のみ）
-
-#### 試験問題集インポート（複数資格対応予定）
-
-| スキル | 用途 | 対応試験 | 汎用化 | 定義 |
-|---|---|---|---|---|
-| `/exam-questions-import` | 試験第1次問題集PDF→MDX変換 | civil-construction-1 | Phase 2で汎用化検討 | `.claude/skills/content/exam-questions-import/SKILL.md` |
-| `/exam-questions-2-import` | 試験第2次問題集PDF→MDX変換 | civil-construction-1 | Phase 2で汎用化検討 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
-
-#### 汎用的なコンテンツ作成スキル
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/audit-staging` | Obsidianステージングの公開準備度監査 | `.claude/skills/content/audit-staging/SKILL.md` |
-| `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/content/promote-to-site/SKILL.md` |
-| `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |
-| `/clean-pdf-artifacts` | PDF変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
-| `/check-mdx` | MDX構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
-| `/check-links` | 外部リンク切れ検出（HTTP HEAD検証） | `.claude/skills/content/check-links/SKILL.md` |
-| `/qa-pdf-mdx` | PDF→MDX変換の品質検証・修正（PDF照合＋修正の2段階） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
-| `/verify-pdf-mdx` | MDXのcategory/groupを判定し、視覚検証・テキスト網羅率・5軸ルーブリック評価を適切なEvaluatorエージェント（civil-construction-qa / cem-qa / content-qa）へルーティング | `.claude/skills/content/verify-pdf-mdx/SKILL.md` |
-| `/add-exam-answers` | 択一式過去問MDXの未解答設問に正答PDF準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |
-| `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/content/keyword-page/SKILL.md` |
-| `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成・品質改善 | `.claude/skills/content/exam-backlinks/SKILL.md` |
-| `/review-mobile` | モバイル視認性・可読性レビュー（表の適切性・数式・簡潔性） | `.claude/skills/content/review-mobile/SKILL.md` |
-
-#### PDF→MDX 試験特化スキル
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/cem-pdf-to-mdx` | 技術士CEM用PDF→MDX変換（論文・事例特化） | `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` |
-| `/civil-construction-1-pdf-to-mdx` | 1級土木用PDF→MDX変換（過去問・基準特化） | `.claude/skills/content/civil-construction-1-pdf-to-mdx/SKILL.md` |
-
-### ui — UI/UX
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/design-review` | デザインシステム準拠レビュー（7カテゴリ・重大度判定） | `.claude/skills/ui/design-review/SKILL.md` |
-
-### marketing — マーケティング
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/x-post` | X（旧Twitter）投稿テキスト生成（過去問・キーワードからサイト誘導） | `.claude/skills/marketing/x-post/SKILL.md` |
-| `/note-post` | note.com記事ドラフト生成（過去問分析・ガイド・キーワードまとめ） | `.claude/skills/marketing/note-post/SKILL.md` |
-| `/find-x-accounts` | Xでトピック別発信アカウント調査（Playwright半自動・要手動ログイン） | `.claude/skills/marketing/find-x-accounts/SKILL.md` |
-
-### strategy — 競合調査・市場分析（Phase 2で復活）
-
-⏸️ **現在のスコープ**: Phase 1（試験対策webサイト作成）では不要。
-Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
-- `/keyword-gap` — GSC + 競合比較でコンテンツギャップを特定
-- `/exam-demand` — 資格試験の検索需要調査・不足コンテンツ提案
-- `/discover-exam-season` — 試験日程に基づく季節性コンテンツ戦略
-- `/plan-affiliate` — 書籍・教材・通信講座のアフィリエイト記事企画
-
-**その他のスキル** （competitor-audit, discover-trends-civil, content-roadmap）は Phase 3 で復活予定。
-
-### 複数資格対応の進め方（Phase別）
-
-複数の土木系資格試験（1級土木・技術士・コンクリート技士・測量士等）に対応するため、以下の段階的アプローチを採用しています。
-
-#### Phase 1（現在 2026-04-01）：テンプレート外部化
-
-スキル本体は試験特化のまま。**試験固有の設定をテンプレートフォルダで管理**し、新資格追加時はスキル追加を不要に。
-
-```
-/exam-guide (1級土木施工管理技士)
-  → 設定参照: .claude/skills/content/templates/exam-guide/civil-construction-1.md
-
-/pe-exam-guide (技術士建設部門)
-  → 設定参照: .claude/skills/content/templates/exam-guide/pe.md
-```
-
-**新資格追加時の作業**:
-1. `templates/exam-guide/{exam-id}.md` を新規作成（テンプレートのコピー＋設定入力）
-2. スキル側は変更なし
-
-#### Phase 2（2026年秋予定）：スキル汎用化へリファクタリング
-
-スキル側でパラメータ化。複数試験を1つのスキルで処理。
-
-```
-/exam-guide --exam {exam-id} --topic {topic}
-  ↓ 内部で templates/exam-guide/{exam-id}.md を読み込み
-
-/pe-exam-guide → 廃止（/exam-guide に統合）
-```
-
-**メリット**: スキル数削減。ハーネス設計原則4「スキルを増やすより既存スキルのパラメータ化を優先」に完全準拠。
-
-#### Phase 3（2027年以降）：医師・弁護士など他分野対応
-
-同じテンプレート駆動アプローチで、医療系・法律系資格にも対応可能。スキル追加ゼロ。
-
-### ads — 広告・アフィリエイト（Phase 2で復活）
-
-⏸️ **現在のスコープ**: Phase 1（試験対策webサイト作成）では不要。
-Phase 2（note記事展開・iOSアプリ開発）時に以下を復活：
-- `/register-affiliate-banner` — アフィリエイトバナーの登録
-- `/audit-ads` — AdSense・アフィリエイトの現状監査と最適化提案
-
-## エージェント
-
-`.claude/agents/` に定義されたサブエージェント群。Generator/Evaluator分離の原則に基づき設計。
-
-| エージェント | 役割 | 種別 | 担当スキル | Phase 1対応 |
-|---|---|---|---|---|
-| `content-qa` | PDF→MDX変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | check-mdx, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
-| `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
-| `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF原本との3モード5軸ルーブリック） | Evaluator | verify-pdf-mdx, check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
-| `strategy-advisor` | 戦略・PDCA | Generator | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap等はPhase 2で復活） |
-| `seo-auditor` | SEO 監査（Phase 2で復活） | Evaluator | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2で復活 |
-| `content-planner` | コンテンツ企画（Phase 2で復活） | Generator | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2で復活 |
-| `cem-advisor` | CEM試験対策（総合技術監理） | Generator | cem-content-generate, cem-study-plan（実装予定） | 🚧 計画段階 |
-
-### チーム連携パターン（Phase 1）
-
-| シナリオ | エージェント連携 |
-|---|---|
-| **Phase 1 開発フロー** | 1. PDF→MDX変換 → 2. **content-qa**（品質評価）→ 3. `/deploy`（本番反映） |
-| 週次 PDCA（簡略版） | strategy-advisor（weekly-review → weekly-plan） |
-| CEM試験対策 | cem-advisor（cem-content-generate → cem-study-plan） |
-
-**注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
-
-## コンテンツ別レビュー視点
-
-試験ごとに「正しい状態」の定義が異なるため、レビュー時に評価軸を自動で切り替える。新資格を追加する際の指針にもなる。
-
-| 観点 | 総監キーワード（cem-qa）| 1級土木 textbook（civil-construction-qa）| 1級土木 guide（civil-construction-qa）|
-|---|---|---|---|
-| **真実源** | キーワード集2026 + content-principles.md | 元の教科書PDF原本（章節構造） | 複数PDFを編集統合した記事 |
-| **テキスト網羅性** | 不要（要約が正解） | **95%以上必須**（教科書を切り捨てない） | 不要（出題範囲を抽出） |
-| **図の標準量** | **ほぼゼロ**（テキスト中心） | **多数**（断面・配筋・施工写真） | 少なめ（重要箇所を図示） |
-| **図の検証** | しない（False Positive多発する） | **視覚比較 + 寸法 + 切れ・ノイズ検出** | あるものだけチェック |
-| **コンポーネント原則** | ExamPoint最大2個・特殊ルール多数 | 一般MDXルール（特殊なし） | guide固有要素（出題頻度表など）|
-| **数式** | 少ない | **頻出**（W/C比・配合計算・力学）| 限定的 |
-| **表** | 2軸比較のみ厳格 | **規格表・配合表など4列以上も許容** | 出題頻度表 |
-| **参考資料** | 公的＋民間の両方必須 | 教科書PDFが原本 | 公的資料 + 過去問へのリンク |
-| **過去問バックリンク** | 双方向必須 | 不要 | **過去問への誘導が重要** |
-| **モバイル視認性** | review-mobile厳格 | 図のレスポンシブが課題 | review-mobile適用 |
-
-**判定方法**: `/verify-pdf-mdx` スキルが MDX の `category` と `group` から自動判定し、適切な Evaluator エージェントへ振り分ける（cem-qa / civil-construction-qa / content-qa）。詳細は各エージェント定義 `.claude/agents/*.md` を参照。
-
-**新資格を追加するとき**: 上の表に列を1つ追加し、その資格に固有の評価軸を整理する。必要なら `{exam-id}-qa` エージェントを新設して `/verify-pdf-mdx` のディスパッチ表に行を追加する（命名規則を統一）。
+**Note**: `npm run dev` 実行時、`predev` スクリプトが自動的に実行され、ポート 3020 が使用中の場合は強制終了してからサーバーを起動する。
 
 ## ハーネス設計原則
 
-エージェント・スキルの設計・改修時に従う5原則:
+エージェント・スキルの設計・改修時に従う 6 原則:
 
-1. **GeneratorとEvaluatorを分離する** — 作る役と評価する役を同じエージェントに担わせない。PDF→MDX変換後の品質評価は `content-qa` エージェントが行う
-2. **「何を作るか」を先に合意する** — SKILL.mdの変換ルール（frontmatter、見出し構造、表・図の形式）が完成の定義。曖昧なまま変換を始めない
-3. **主観をルーブリック化する** — 品質は `content-qa` の5軸ルーブリック（構造正確性30%・テキスト忠実度25%・表図数式20%・MDX互換性15%・メタデータ品質10%）で定量評価
+1. **Generator と Evaluator を分離する** — 作る役と評価する役を同じエージェントに担わせない。PDF→MDX 変換後の品質評価は `content-qa` エージェントが行う
+2. **「何を作るか」を先に合意する** — SKILL.md の変換ルール（frontmatter、見出し構造、表・図の形式）が完成の定義。曖昧なまま変換を始めない
+3. **主観をルーブリック化する** — 品質は `content-qa` の5軸ルーブリック（構造正確性 30%・テキスト忠実度 25%・表図数式 20%・MDX 互換性 15%・メタデータ品質 10%）で定量評価
 4. **ハーネスはできるだけシンプルに保つ** — スキルを増やすより既存スキルのパラメータ化を優先。部品を増やすより削る
-5. **新モデルが出たらハーネスを見直す** — モデル能力の変化でスキル設計の前提が変わる。Opus 4.6ではコンテキスト1Mにより大規模PDF一括処理が可能になった
+5. **新モデルが出たらハーネスを見直す** — モデル能力の変化でスキル設計の前提が変わる。Opus 4.6 ではコンテキスト 1M により大規模 PDF 一括処理が可能になった
+6. **Opus で考え、Sonnet で実行する** — 親エージェント（Claude Code 本体）は Opus で計画・判断・統合を行い、サブエージェントは **原則 Sonnet** で高速・低コストに実行する。新規エージェントの `model:` 指定ルール:
+   - **`model: sonnet`（デフォルト）** — Generator（コンテンツ生成・リライト・データ収集）および手順化されたルーブリック評価を行う Evaluator。ほぼ全てのサブエージェントはここに該当する
+   - **`model: inherit`** — 深い戦略判断・批判的レビュー・事前検死など、親の思考力を借りる必要があるオーケストレーター（例: `strategy-advisor`）。親が Opus のとき Opus で動く
+   - **`model: opus` を直接指定しない** — Opus で走らせたいなら親が直接やればよい。サブエージェントに Opus を固定するのは、親が Sonnet のときでも Opus を使いたい特殊ケースのみ
+   - **例外を作るときは frontmatter の description と本文「モデル方針」欄に理由を明記する**
+
+### サブエージェント `model:` クイックリファレンス
+
+| エージェント | model | 種別 |
+|---|---|---|
+| cem-advisor | sonnet | Generator |
+| cem-qa | sonnet | Evaluator |
+| civil-construction-qa | sonnet | Evaluator |
+| content-planner | sonnet | Generator |
+| content-qa | sonnet | Evaluator |
+| keyword-rewriter | sonnet | Generator |
+| seo-auditor | sonnet | Evaluator |
+| aidesigner-frontend | sonnet | Generator |
+| strategy-advisor | inherit | Orchestrator |
+
+エージェント詳細（担当範囲・連携パターン・Phase 対応）は [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) を参照。
 
 ## コンテキスト管理
 
-- 長時間の作業（PDF→MDX変換、大量ファイル編集など）では、自然な区切り（1節完了、1ファイル完了など）ごとにユーザーへ `/compact` の実行を提案すること
+- 長時間の作業（PDF→MDX 変換、大量ファイル編集など）では、自然な区切り（1 節完了、1 ファイル完了など）ごとにユーザーへ `/compact` の実行を提案すること
 - コンテキストが逼迫していると判断した場合も同様に提案する
-
-## 推奨ワークフロー（Phase 1）
-
-### 週次運用
-
-```
-日曜〜月曜:
-1. /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質）
-2. /weekly-plan            <- 来週の計画を立てる（PDF→MDX変換・デプロイスケジュール）
-```
-
-### PDF→MDX変換フロー
-
-```
-1. PDF をスキル（/pdf-to-mdx, /civil-construction-1-pdf-to-mdx等）で MDX に変換
-2. /check-mdx で構文チェック
-3. content-qa エージェントで品質評価（5軸ルーブリック、内部で /qa-pdf-mdx を使用）
-4. 改善・修正
-5. /deploy で Cloudflare Pages に本番反映
-```
-
-### キーワードページ作成・校正フロー
-
-技術士総合技術監理（pe-comprehensive-management）のキーワードページは **Generator/Evaluator 分離原則** を厳守する。
-
-```
-1. /keyword-page create or revise              <- Generator: コンテンツ作成・校正
-2. node scripts/lint-mdx-mobile.mjs <file>     <- 機械リンター（カテゴリ1・6・8・9）
-                                                  HIGH/MEDIUM ゼロまで修正→再実行ループ
-3. cem-qa エージェント呼び出し                 <- Evaluator: 5軸ルーブリック評価
-4. 加重スコア ≥ 2.0 → 完了 / < 2.0 → 指摘事項に沿って修正して 2 に戻る
-```
-
-**重要**:
-- ステップ3の `cem-qa` を**省略してはならない**（自己評価バイアス回避のため）
-- 品質ルールの真実源は `.claude/content-principles.md`。ルール変更時はまずここを更新
-- リンターのカテゴリ9（ExamPoint個数・位置・誤り選択肢パターン・参考資料多様性）は HIGH なのでブロッカー
-
-### リスク評価
-
-```
-必要に応じて:
-1. /critical-review        <- 重大なリスクを批判的に評価
-2. /pre-mortem             <- 失敗シナリオをシミュレーション
-```
-
-**注**: 月次企画・四半期レビュー・競合調査・試験シーズン対策は Phase 2 で開始予定。

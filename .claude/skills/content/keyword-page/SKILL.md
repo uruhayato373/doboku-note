@@ -196,7 +196,7 @@ publishedAt: "{YYYY-MM-DD}"
 ## 参照
 
 - `.claude/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
-- `CLAUDE.md` — コンテンツ作成規約、MDXコンポーネント一覧
+- `.claude/reference/content-authoring.md` — MDX 作成詳細ルール、MDXコンポーネント一覧
 - `src/config/pe-chapters.json` — 章・節構造
 - `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` — 過去問MDXの構造ルール（RelatedKeywords の仕様）
 - `.claude/skills/content/check-mdx/SKILL.md` — MDX構文チェック（作成後に実行推奨）

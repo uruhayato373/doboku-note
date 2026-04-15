@@ -155,5 +155,5 @@ templates/
 ## 参照リンク
 
 - URL設計ガイドライン: `docs/00_プロジェクト管理/07_URL設計ガイドライン.md`
-- スキル一覧: `CLAUDE.md` の「スキル一覧」セクション
+- スキル一覧: `.claude/reference/skills-registry.md`
 - 各スキルの詳細: `.claude/skills/content/{skill-name}/SKILL.md`

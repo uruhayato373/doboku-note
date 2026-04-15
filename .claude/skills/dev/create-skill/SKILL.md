@@ -117,6 +117,45 @@ node "${CLAUDE_SKILL_DIR}/scripts/helper.js" $ARGUMENTS
 6. **`context: fork` は明確なタスクがあるときのみ**: ガイドラインだけのスキルをforkすると空の結果が返る
 7. **`allowed-tools` で最小権限**: 読み取り専用スキルには `Read, Grep, Glob` のみ
 
+## サブエージェント作成時の model 指定ルール
+
+新しいサブエージェント（`.claude/agents/*.md`）を作成・改修するときは、frontmatter の `model:` を必ず決める。既定値は **`sonnet`**。
+
+### 判定フロー
+
+1. **Generator か？**（コンテンツ生成・変換・リライト・データ収集・ルーブリック適用）
+   → `model: sonnet`
+2. **Evaluator で、評価基準が定型化されているか？**（5軸ルーブリック・チェックリスト・HIGH/MEDIUM/LOW 判定）
+   → `model: sonnet`
+3. **オーケストレーターで、親の思考力を借りたいか？**（戦略判断・批判的レビュー・事前検死）
+   → `model: inherit`
+4. **上記に当てはまらず、サブエージェント側で Opus が必要な理由があるか？**
+   → frontmatter の description と本文「モデル方針」欄に理由を明記した上で `model: opus`。これは例外扱い
+
+### テンプレート frontmatter
+
+```yaml
+---
+name: {agent-name}
+description: {一行説明 — 種別（Generator/Evaluator/Orchestrator）を含める}
+model: sonnet  # または inherit（オーケストレーターのみ）
+---
+
+# {Agent Name}
+
+{本文}
+
+> **モデル方針**: このエージェントは `model: {sonnet|inherit}` で動作します。{理由を1-2文で}。詳細は CLAUDE.md「ハーネス設計原則」参照。
+```
+
+### 既存エージェントの model 指定一覧
+
+CLAUDE.md「ハーネス設計原則」のクイックリファレンス表を参照。エージェントを追加したら同表も更新すること。
+
+### なぜこうするか
+
+親エージェント（Claude Code 本体）が Opus で計画・判断・統合を担い、サブエージェントは Sonnet で高速・低コストに実行する。これによりコスト効率と判断の質を両立できる。Opus を固定指定するのはサブエージェント側で深い推論が不可欠なケースのみで、原則は親の Opus がレビューする前提で Sonnet に任せる。詳細は CLAUDE.md「ハーネス設計原則」§6。
+
 ## このプロジェクト固有の規約
 
 詳細は [reference/project-conventions.md](reference/project-conventions.md) を参照。

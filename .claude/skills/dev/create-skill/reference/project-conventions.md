@@ -20,13 +20,15 @@
 
 新しいスキルは適切なカテゴリに配置する。
 
-## CLAUDE.md への登録
+## スキルレジストリへの登録
 
-スキル作成後、`CLAUDE.md` のスキル一覧テーブルに追加する:
+スキル作成後、`.claude/reference/skills-registry.md` の該当カテゴリ表に追加する:
 
 ```markdown
 | `/skill-name` | 用途の説明 | `.claude/skills/<category>/<name>/SKILL.md` |
 ```
+
+CLAUDE.md 本体には索引表のみ置いており、個別スキル一覧は持たないので、CLAUDE.md の編集は不要。
 
 ## 命名規則
 

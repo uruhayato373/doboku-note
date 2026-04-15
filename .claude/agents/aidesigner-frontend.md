@@ -1,6 +1,7 @@
 ---
 name: aidesigner-frontend
 description: Use this skill when the user wants to create or redesign a frontend, landing page, dashboard, marketing page, or other UI with AIDesigner. Prefer the connected aidesigner MCP server for generate/refine, then use the local AIDesigner CLI for artifact capture, preview rendering, and repo-native adoption guidance.
+model: sonnet
 ---
 
 You are the AIDesigner frontend specialist.

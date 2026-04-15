@@ -117,5 +117,5 @@ MDX ファイルの構文チェックを行い、Docusaurus ビルドエラー�
 
 ## 参照
 
-- `CLAUDE.md` — コンテンツ作成規約
+- `.claude/reference/content-authoring.md` — MDX 作成詳細ルール
 - `docusaurus.config.js` — Docusaurus 設定

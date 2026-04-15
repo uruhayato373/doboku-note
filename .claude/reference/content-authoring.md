@@ -1,0 +1,133 @@
+# コンテンツ作成詳細ルール
+
+MDX コンテンツを書く・編集するときの詳細ルール集。
+
+**いつ読むか**: MDX を新規作成するとき、既存 MDX を編集するとき、`/pdf-to-mdx` / `/keyword-page` / `/review-mobile` などコンテンツ系スキルを実行するとき。
+
+**真実源の関係**:
+- コンテンツ品質ルール（ExamPoint 個数・参考資料構成など）の**真実源は `.claude/content-principles.md`**
+- このファイルは技術的な書き方ガイド（コンポーネント・構造・画像配信）が主
+- CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・CRLF 改行・絵文字禁止）のみ残している
+
+## ペルソナ・コンテンツ原則
+
+> **品質ルールの単一真実源**: `.claude/content-principles.md`
+> ExamPoint 個数・配置・禁止パターン（§5）、参考資料の構成（§9）など、すべてのコンテンツ品質ルールはこのファイルが真実源。SKILL.md・lint スクリプト・cem-qa エージェントはこのファイルを参照する。**ルール変更時はまず content-principles.md を更新し、他は参照に揃える。**
+
+- すべてのコンテンツは「実務経験10年以上の総監部門受験者」がスマホで読むことを前提に作成する
+- 冒頭は概念の本質を簡潔に。試験での重要性は「総合技術監理における位置づけ」に集約する
+- 表・箇条書きの前に必ず文脈を示す導入文を置く
+- ベンチマーク: BCP（事業継続計画）ページの構成を品質基準とする
+- **品質レベル**: L1（構造）/ L2（学習）/ L3（体験）の3層定義。詳細は `.claude/content-principles.md` の「コンテンツ品質レベル」セクション。Wave方式（全体を浅く→中→深く）で進める
+
+## MDX コンポーネント
+
+MDX 内で使える主要コンポーネント（`src/lib/component-loader/index.ts` で登録済み）:
+
+- `<Callout type="info|warning|tip|error" title="...">children</Callout>` — 補足・注意ボックス
+- `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
+- `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
+- `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slug でキーワードページへリンク、slug 省略で灰色テキスト）
+- `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
+- `<Timeline>`, `<PdcaCycle>` — 時系列・サイクル表示
+
+## 過去問 MDX の構造ルール
+
+択一式過去問は以下を遵守:
+
+- 設問番号は **H2**（`## Ⅰ-1-1` / `## 問題 No.1`）— TOC に表示される唯一の見出し
+- `toc_max_heading_level: 2` を frontmatter に設定
+- 回答・解説は `<details>/<summary>` で開閉式にする
+- details 内に **H2/H3 見出しを使わない**（`**太字**` で代替）
+- details 内に `---`（水平線）を使わない（不要な区切り線・余白の原因になる）
+- 関連キーワードは `<RelatedKeywords>` コンポーネントを使用（slug 指定でキーワードページへリンク）
+- キーワードページ側の「過去問での出題」セクションにバックリンクを追加する（双方向リンク）
+- 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
+- 詳細テンプレートは `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` を参照
+
+## 数式・図表
+
+- 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
+- 図表: Mermaid コードブロック
+- スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
+
+## モバイル視認性（詳細ルール）
+
+CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
+
+- **表は2軸比較にのみ使う** — 「行と列の両方向に読む」データだけが表にふさわしい。各行が独立した説明なら箇条書き（`- **用語**: 説明`）を使う
+- **キーバリュー表を作らない** — 正式名称・目的・所管・施行などの基本情報は散文として冒頭セクションに統合する
+- **計算手順を表で表現しない** — 番号付きリストで 1 行 1 ステップに記述する
+- **4列以上の表は原則禁止** — 比較として不可欠な場合のみ、各セル15文字以内
+- **表が適切な場面**: BCP vs 防災計画のような2軸比較、短いセルの分類一覧、マトリクス（SWOT 等）
+
+機械チェックは `scripts/lint-mdx-mobile.mjs` と `/review-mobile` スキルで実施。
+
+## 画像配信
+
+画像は **git 追跡下の `.local/r2/posts/{slug}/img/` にマスターを置き、R2（Cloudflare）を本番配信ミラーとして使う** 二重管理方式。複数 PC での作業同期を git 経由で行う。
+
+- **R2 URL（本番）**: `https://storage.doboku-note.com/posts/{slug}/img/{ファイル名}`
+- **MDX での参照**: `<img src="/posts/{slug}/img/{ファイル名}" />`
+- **ローカル開発**: `public/posts` → `.local/r2/posts` のシンボリックリンク経由で配信
+- **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
+- **マスター**: `.local/r2/posts/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数 PC 間で git pull により同期される
+- **R2 へのアップロード（本番反映）**: `node scripts/upload-images-to-r2.mjs`
+- **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
+- `static/img/` はサイト共通素材（favicon, logo 等）専用
+
+## frontmatter テンプレート
+
+```yaml
+---
+title: "ページタイトル"
+description: "50〜160文字の説明"
+category: "civil-construction-1"     # 試験または分野
+tags: ["guide", "primary"]           # 分類タグ（複数可）
+published: true                      # false なら下書き・非表示
+---
+```
+
+**category の選択肢**:
+- `civil-construction-1` — 1級土木施工管理技士
+- `pe-comprehensive-management` — 技術士総合技術監理技術部門
+- `civil-general` — 土木一般知識（両試験共用）
+- `construction-management` — 施工管理知識（両試験共用）
+- `keywords-law` — キーワード・法規（補助）
+
+**tags の例**:
+- `guide` — 試験ガイド・勉強方法
+- `primary` — 第1次試験対策
+- `secondary` — 第2次試験対策
+- `past-questions` — 過去問
+- `keyword` — キーワード解説
+
+## 複数試験対応コンテンツ
+
+frontmatter に複数カテゴリを参照する方法（要検討）:
+
+```yaml
+# パターン1: category は主要試験、tags に補助試験を列挙
+category: "civil-construction-1"
+tags: ["shared-with-pe"]
+
+# パターン2: exams 配列で明示（実装に応じて）
+exams: ["civil-construction-1", "pe-comprehensive-management"]
+```
+
+このルールにより、新試験対応時の重複排除と SEO 効率を両立する。
+
+## 全試験で共通のデザイン制約
+
+試験を問わず、以下は **必ず統一** する。サイト全体のデザイン一貫性を保つため。
+
+- **frontmatter スキーマ**: `title`, `description`, `category`, `tags`, `group`, `published`, `publishedAt`（必須項目）
+- **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<CustomUnorderedList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
+- **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
+- **数式**: KaTeX 一択（他のレンダラを混在させない）
+- **図表**: Mermaid（フロー・タイムライン・PDCA）/ PNG（写真・複雑なイラスト）/ SVG（模式図、Phase 2）
+- **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
+- **URL**: フラット `/docs/{slug}` 設計
+- **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない
+- **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない（Callout の type で表現する）
+- **MDX 書き込み**: `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持

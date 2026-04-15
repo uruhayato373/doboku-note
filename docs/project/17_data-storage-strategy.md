@@ -5,7 +5,7 @@
 **関連**:
 - `01_設計思想.md`（フラット URL・MDX 一元管理）
 - `13_quality-cycle-architecture.md`（品質サイクル全体像）
-- `CLAUDE.md`（試験別コンテンツ整備方針）
+- `.claude/reference/exam-content-policy.md`（試験別コンテンツ整備方針＋レビュー視点）
 
 ## 1. 背景
 

@@ -1,6 +1,14 @@
+---
+name: content-qa
+description: PDF→MDX変換の品質評価を5軸ルーブリックで担当するEvaluatorエージェント（過去問・基準書中心）。
+model: sonnet
+---
+
 # Content QA Agent
 
 PDF→MDX変換の品質評価を専門に担当するEvaluatorエージェント。**生成（Generator）とは独立した評価者**として機能する。
+
+> **モデル方針**: このエージェントは `model: sonnet` で動作します。ルーブリックは定型化されているため Sonnet で実行し、最終判断は親エージェント（Opus）が行います。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
 ## 設計原則
 

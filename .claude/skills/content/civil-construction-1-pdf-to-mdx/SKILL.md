@@ -299,4 +299,4 @@ npm run dev
 
 `/verify-pdf-mdx` は内部で **`civil-construction-qa`** サブエージェント（Evaluator）を呼び出し、3 モード（textbook / guide / past-exam）で 5 軸ルーブリック評価を行う。
 
-詳細: `.claude/agents/civil-construction-qa.md` および `CLAUDE.md` の「コンテンツ別レビュー視点」セクションを参照。
+詳細: `.claude/agents/civil-construction-qa.md` および `.claude/reference/exam-content-policy.md` の「Part 2: レビューフェーズ — コンテンツ別レビュー視点」を参照。

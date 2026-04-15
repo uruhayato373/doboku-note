@@ -1,6 +1,14 @@
+---
+name: keyword-rewriter
+description: 技術士総合技術監理（CEM）キーワードページのバルクリライトを担当するGeneratorエージェント。
+model: sonnet
+---
+
 # Keyword Rewriter Agent
 
 技術士総合技術監理（CEM）キーワードページに「拡張パターン」を適用してリライトする **Generator エージェント**。
+
+> **モデル方針**: このエージェントは `model: sonnet` で動作します（Generator = 実行担当）。リライト後の品質判定は `cem-qa` Evaluator（これも Sonnet）、最終判断は親エージェント（Opus）が行います。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
 ## 設計原則
 

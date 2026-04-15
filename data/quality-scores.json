@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-14T07:43:44.811Z",
+  "scored_at": "2026-04-15T01:15:34.911Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -475,6 +475,519 @@
       "qualitative_comment": "構造と原則は完全準拠。モバイル視認性も良好。ただし参考資料が公的資料（IPA）のみで民間解説記事が欠落。民間リソース1件追加で合格圏。",
       "weighted": 2.45,
       "scored_at": "2026-04-14T07:43:44.811Z"
+    },
+    "jisec": {
+      "slug": "jisec",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・モバイルは問題なし。参考資料がIPAのみ（公的2件・民間0件）で§9違反。民間解説サイト等を1件以上追加が必要。ExamPoint1個・位置適切。",
+      "weighted": 2.4,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "bathtub-curve": {
+      "slug": "bathtub-curve",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "モバイル軸が5件のMEDIUM違反でブロック。参考資料は公的のみで民間解説が未追加。ExamPoint配置は52%地点でやや早いが許容範囲内。",
+      "weighted": 2.05,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "preventive-maintenance": {
+      "slug": "preventive-maintenance",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "構造・原則・関連付けは良好。参考資料は公的（厚労省）＋民間（tebiki）で構成済み。モバイル軸はMEDIUM6件（太字スコープ30字超）が集中しており要修正。",
+      "weighted": 2.35,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "encryption-digital-signature": {
+      "slug": "encryption-digital-signature",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM8件（5列表・長セル多数）とquiz-figures節内5列表が課題。参考資料セクション自体が存在せず公的・民間リンクともにゼロ。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "overall-equipment-effectiveness": {
+      "slug": "overall-equipment-effectiveness",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則・モバイル良好。参考資料が公的1件のみで民間リンクが欠落しており要修正。関連キーワードリンクは単方向の可能性あり。",
+      "weighted": 2.6,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "pert-cpm": {
+      "slug": "pert-cpm",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM6件（表前導入文欠落2箇所・3列セル超過2箇所・ExamPoint位置・参考資料不足）。参考資料は公的1件のみで民間リンク欠落、要修正。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "industrial-property-rights": {
+      "slug": "industrial-property-rights",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全に欠落しており reference=0 で即不合格。MEDIUM違反9件（5列表・導入文なし）でモバイル軸も1点。構造も参考資料欠落により1点。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "data-collection": {
+      "slug": "data-collection",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全に欠落。ExamPointが記事40%地点（総括位置でない）、導入文2箇所欠落、セル文字数超過が多数。MEDIUM15件は要修正レベル。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "doughnut-economics": {
+      "slug": "doughnut-economics",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM6件（導入文欠落2・セル長超過3・末尾列挙リンク1）。参考資料セクション自体が存在せず公的・民間リンクともに欠落。モバイルと参考資料が要修正。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "planetary-boundaries": {
+      "slug": "planetary-boundaries",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全に欠落（0点・即不合格）。モバイルはMEDIUM11件（3列表セル超過多数・導入文2箇所欠落・末尾リンク列挙形式）で要修正。構造・原則・関連付けは概ね合格水準。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:12:42.854Z"
+    },
+    "ozone-layer-protection": {
+      "slug": "ozone-layer-protection",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表の導入文欠落が4箇所・3列表セル超過が5箇所・4列表1箇所でMEDIUM12件。参考資料セクション自体が存在せず、公的・民間リンクが双方ともゼロ。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "three-c-analysis": {
+      "slug": "three-c-analysis",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落で即不合格。構造は参考資料節なし。モバイルはMEDIUM4件（3列表セル超過+導入文欠落）。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "common-criteria": {
+      "slug": "common-criteria",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "構造・モバイルは完備。参考資料がIPA単一ドメインのみで民間解説が欠落。ExamPoint1個・位置は適切だがCCRA節後に配置でやや早め。関連キーワードリンクは単方向。",
+      "weighted": 2.4,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "ismap": {
+      "slug": "ismap",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全欠落（0点クランプ・即不合格）。MEDIUM3件・参考資料なし・構造不完全の3軸が弱点。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "kunming-montreal-framework": {
+      "slug": "kunming-montreal-framework",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "構造・原則は整合。表前の導入文欠落2件とリンク列挙行でMEDIUM3件、モバイル軸1点。参考資料節が存在しない（公的資料リンクのみインラインで言及）。",
+      "weighted": 2.25,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "oshms": {
+      "slug": "oshms",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "PDCA表セル超過が4件・導入文欠落など MEDIUM11件でモバイル軸1点。参考資料が公的1件のみで民間欠落のため参考資料軸1点。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "safety-2-0": {
+      "slug": "safety-2-0",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料に外部URLが0件（書籍名のみ）で参考資料軸0点→即不合格。MEDIUM9件・関連キーワードが末尾列挙行も要修正。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "data-mining": {
+      "slug": "data-mining",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落で即不合格。4列表でMEDIUM7件。構造は参考資料節なしでセクション欠落1箇所。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "cash-flow-statement": {
+      "slug": "cash-flow-statement",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "3列表セル超過が多発、ExamPointが中盤配置で末尾総括なし、参考資料が公的1件のみで民間欠落。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "swot-analysis": {
+      "slug": "swot-analysis",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全欠落（0点クランプ・即不合格）。モバイルはMEDIUM6件（4列表・セル超過）。構造はセクション欠落1箇所。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:14:08.425Z"
+    },
+    "ifrs": {
+      "slug": "ifrs",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料が公的1件のみで民間リンク欠落。日本基準比較表に導入文なし・セル超過4件でMEDIUM6件。構造・ExamPoint位置は適切。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "multi-factor-authentication": {
+      "slug": "multi-factor-authentication",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "モバイル軸はMEDIUM11件で要修正。参考資料セクション自体が存在しない（0件）。構造は概ね揃うが参考資料節が欠落のため2点。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "occupational-disease": {
+      "slug": "occupational-disease",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "モバイル軸はMEDIUM11件（表前導入文3件・セル超過6件）で1点。参考資料は民間のみ1件で1点。ExamPointは1個で位置も許容範囲内。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "vpn": {
+      "slug": "vpn",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "構造・リンク・モバイル全て優秀。ExamPointはセクション末尾配置で1個、参考資料は公的2件＋民間1件で合格水準。概念説明が主体で試験対策の混在なし。",
+      "weighted": 2.65,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "disclosure-standards": {
+      "slug": "disclosure-standards",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 1
+      },
+      "weak_axes": [
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "表前導入文5箇所欠落・3列表セル超過・参考資料リンクゼロ・関連キーワード列挙行方式が不適切で複数軸に違反あり。",
+      "weighted": 1.5,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "npv-net-present-value": {
+      "slug": "npv-net-present-value",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料1件のみ（公的のみ、民間なし）、ExamPoint位置が記事中盤（44%）、7列表あり、導入文欠落と複数軸で要修正。",
+      "weighted": 1.1,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "sl-theory": {
+      "slug": "sl-theory",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "4列表とMEDIUM5件でモバイル軸1点。参考資料が外部リンク1件のみで公的+民間の両方が揃っていない。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "survey-analysis": {
+      "slug": "survey-analysis",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料H2セクションが完全欠落（0点クランプ）。モバイルはMEDIUM9件。構造は参考資料セクション欠落で1点。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "knowledge-sharing": {
+      "slug": "knowledge-sharing",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料に外部URLが1件もなく即不合格。3列表の多数セルが15字超（MEDIUM17件）でモバイル軸も1点。構造・関連付けは概ね問題なし。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "safety-health-org-structure": {
+      "slug": "safety-health-org-structure",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "モバイル軸は4列表・導入文欠落でMEDIUM4件（要修正）。参考資料は公的1件のみで民間解説リンクが欠落。構造・関連付けは良好。",
+      "weighted": 2,
+      "scored_at": "2026-04-15T01:15:34.911Z"
     }
   }
 }

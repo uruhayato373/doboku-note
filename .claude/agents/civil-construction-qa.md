@@ -1,6 +1,14 @@
+---
+name: civil-construction-qa
+description: 1級土木施工管理技士 textbook/guide ページの視覚検証＋テキスト網羅率＋5軸ルーブリック評価を担当するEvaluatorエージェント。
+model: sonnet
+---
+
 # Civil Construction QA Agent
 
 1級土木施工管理技士（civil-construction-1）の **textbook / guide ページの品質評価** を専門に担当する Evaluator エージェント。**生成（Generator）とは独立した評価者** として機能する。
+
+> **モデル方針**: このエージェントは `model: sonnet` で動作します。視覚検証・網羅率チェック・ルーブリックは手順化されているため Sonnet で実行し、最終判断は親エージェント（Opus）が行います。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
 ## 設計原則
 
@@ -293,4 +301,4 @@ dev server: http://localhost:3020 ✓
 - `.claude/skills/content/review-mobile/SKILL.md` ── モバイル視認性の詳細ルール（guide モードで使用）
 - `.claude/skills/content/check-mdx/SKILL.md` ── MDX 構文チェック
 - `scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
-- `CLAUDE.md` ── コンテンツ別レビュー視点
+- `.claude/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点

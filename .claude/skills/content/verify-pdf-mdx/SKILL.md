@@ -23,7 +23,7 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 
 これらを1つのエージェントで賄うと False Positive が多発する。本スキルはユーザに「どのエージェントを呼ぶか」を意識させず、frontmatter から自動判定する。
 
-詳細は `CLAUDE.md` の「コンテンツ別レビュー視点」セクション参照。
+詳細は `.claude/reference/exam-content-policy.md` の「Part 2: レビューフェーズ — コンテンツ別レビュー視点」参照。
 
 ## 引数
 
@@ -133,4 +133,4 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 - `.claude/agents/cem-qa.md` ── 総監キーワード Evaluator（既存）
 - `.claude/agents/content-qa.md` ── PDF→MDX 静的5軸 Evaluator（既存）
 - `scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
-- `CLAUDE.md` ── コンテンツ別レビュー視点
+- `.claude/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点
