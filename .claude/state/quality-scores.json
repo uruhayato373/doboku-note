@@ -209,22 +209,19 @@
       "polishRound": "phase3"
     },
     "reliability-maintainability-design": {
-      "slug": "reliability-maintainability-design",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
         "reference": 3,
-        "linking": 2
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "D Polish: 2.40→2.40。HIGH太字スコープ未解消、Phase 4候補。",
-      "weighted": 2.4,
-      "scored_at": "2026-04-15T04:29:06.277Z",
-      "verifyAfterRewrite": true,
-      "polishRound": "phase3"
+      "weak_axes": [],
+      "qualitative_comment": "Polish 後: 太字スコープ短縮で lint クリーン。全軸3点で完全合格（3.00）。",
+      "weighted": 3,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "business-continuity-plan": {
       "slug": "business-continuity-plan",
@@ -397,7 +394,6 @@
       "verifyAfterRewrite": true
     },
     "employment-insurance": {
-      "slug": "employment-insurance",
       "scores": {
         "structure": 2,
         "mobile": 3,
@@ -410,11 +406,11 @@
         "principle",
         "linking"
       ],
-      "qualitative_comment": "G+D: 1.90→2.40。Phase 4候補。",
+      "qualitative_comment": "再採点: 「成立と主な改正」節が 位置づけ→参考資料 間に挟まる構造ズレ。L79 本文直書き「〜は誤り」で原則軸 2。weighted=2.40 維持。",
       "weighted": 2.4,
-      "scored_at": "2026-04-15T04:04:38.348Z",
-      "verifyAfterRewrite": true,
-      "rewriteWave": "Wave9"
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "product-safety": {
       "slug": "product-safety",
@@ -452,23 +448,21 @@
       "rewriteWave": "Wave10"
     },
     "environmental-basic-plan": {
-      "slug": "environmental-basic-plan",
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 2,
-        "reference": 1,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "reference",
-        "principle"
+        "linking"
       ],
-      "qualitative_comment": "G: 2.15→2.40。環境ビジネスURL DNS失敗。",
-      "weighted": 2.4,
-      "scored_at": "2026-04-15T04:18:03.354Z",
-      "verifyAfterRewrite": true,
-      "rewriteWave": "Wave11"
+      "qualitative_comment": "Polish 後: L28 ExamPoint（とは直下 9-5 違反）を削除し、その内容を本文に統合。lint クリーン・原則軸3点到達。weighted=2.90。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "zero-trust": {
       "slug": "zero-trust",
@@ -509,23 +503,19 @@
       "polishRound": "phase3"
     },
     "jisec": {
-      "slug": "jisec",
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 2,
-        "reference": 1,
-        "linking": 2
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "reference",
-        "principle"
-      ],
-      "qualitative_comment": "D Polish: 2.40→2.40。NRIセキュアURL 404、Phase 4候補。",
-      "weighted": 2.4,
-      "scored_at": "2026-04-15T04:29:06.277Z",
-      "verifyAfterRewrite": true,
-      "polishRound": "phase3"
+      "weak_axes": [],
+      "qualitative_comment": "再採点: 参考資料 IPA 公式2件+NRIセキュア1件で完全準拠。全軸3点で完全合格（3.00）。",
+      "weighted": 3,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "bathtub-curve": {
       "slug": "bathtub-curve",
@@ -994,24 +984,24 @@
       "polishRound": "phase4"
     },
     "survey-analysis": {
-      "slug": "survey-analysis",
       "scores": {
         "structure": 3,
         "mobile": 2,
         "principle": 2,
-        "reference": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
         "principle",
+        "reference",
         "linking"
       ],
-      "qualitative_comment": "G+D: 1.00→2.45。ExamPoint 44%地点で位置づけ前、末尾関連キーワード列挙形式残存。Phase 4候補。",
-      "weighted": 2.45,
-      "scored_at": "2026-04-15T03:41:43.171Z",
-      "verifyAfterRewrite": true,
-      "rewriteWave": "Wave5"
+      "qualitative_comment": "再採点: L90 リンク列挙行、ExamPoint 位置ズレ、e-Stat トップページ リンク。weighted=2.30。",
+      "weighted": 2.3,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "knowledge-sharing": {
       "slug": "knowledge-sharing",
@@ -1113,22 +1103,21 @@
       "polishRound": true
     },
     "game-theory": {
-      "slug": "game-theory",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 3,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile"
+        "reference"
       ],
-      "qualitative_comment": "D: 2.15→2.20。3列表セル超過残存、Phase 4候補。",
-      "weighted": 2.2,
-      "scored_at": "2026-04-15T04:18:03.354Z",
-      "verifyAfterRewrite": true,
-      "rewriteWave": "Wave11"
+      "qualitative_comment": "Polish 後: G パターン表箇条書き化 + ExamPoint 位置づけ節末尾移動で lint クリーン。書籍参照が URL なしのみ reference=2。weighted=2.85。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "osh-management-system": {
       "slug": "osh-management-system",
@@ -1323,24 +1312,22 @@
       "rewriteWave": "Wave6"
     },
     "emergency-info-processing": {
-      "slug": "emergency-info-processing",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 3,
         "principle": 2,
         "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "principle",
         "linking"
       ],
-      "qualitative_comment": "G+D: 1.90→2.40。ExamPoint位置づけ前配置、Phase 4 候補。",
-      "weighted": 2.4,
-      "scored_at": "2026-04-15T04:14:07.023Z",
-      "verifyAfterRewrite": true,
-      "rewriteWave": "Wave10"
+      "qualitative_comment": "再採点: ExamPoint が建設現場節末尾で位置づけ節末尾にない。参考資料は公的2+民間1で完全準拠。weighted=2.70。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "tacit-knowledge": {
       "slug": "tacit-knowledge",
@@ -1519,24 +1506,23 @@
       "rewriteWave": "Wave7"
     },
     "monte-carlo-simulation": {
-      "slug": "monte-carlo-simulation",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
         "principle": 2,
         "reference": 3,
-        "linking": 2
+        "linking": 3
       },
       "weak_axes": [
+        "structure",
         "mobile",
-        "principle",
-        "linking"
+        "principle"
       ],
-      "qualitative_comment": "G+D: 1.65→2.45。Phase 4候補。",
-      "weighted": 2.45,
-      "scored_at": "2026-04-15T04:04:38.348Z",
-      "verifyAfterRewrite": true,
-      "rewriteWave": "Wave9"
+      "qualitative_comment": "再採点: 「発展の背景」節が 位置づけ→参考資料 間に挟まる構造ズレ。ExamPoint が適用分野節末尾で §5 違反。weighted=2.25。",
+      "weighted": 2.25,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     },
     "safety-health-education": {
       "slug": "safety-health-education",
