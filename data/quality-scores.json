@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T01:15:34.911Z",
+  "scored_at": "2026-04-15T02:03:36.807Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -328,19 +328,17 @@
       "slug": "iso-14000",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "表セルが15字超（6件）・導入文欠落（2箇所）でモバイル視認性低下。ExamPoint配置が早すぎる。最大の課題は参考資料が公的のみ（環境省2件）で民間解説欠落。",
-      "weighted": 1,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "weak_axes": [],
+      "qualitative_comment": "G パターン適用後: lint違反ゼロ、全軸3点の完全合格。主要規格表を箇条書き化、参考資料・実務例も完備。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T02:03:36.807Z",
+      "verifyAfterRewrite": true,
+      "rewriteRound": "G"
     },
     "correlation-analysis": {
       "slug": "correlation-analysis",
@@ -803,20 +801,19 @@
     "swot-analysis": {
       "slug": "swot-analysis",
       "scores": {
-        "structure": 1,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 0,
-        "linking": 2
+        "principle": 2,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料セクションが完全欠落（0点クランプ・即不合格）。モバイルはMEDIUM6件（4列表・セル超過）。構造はセクション欠落1箇所。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "リライト後: MEDIUM6件（クロスSWOT4列表・セル超過）がモバイル軸を押し下げ。参考資料は公的+民間で3点、構造は位置づけ後に実務例追加で2点。",
+      "weighted": 2,
+      "scored_at": "2026-04-15T01:47:37.469Z",
+      "verifyAfterRewrite": true
     },
     "ifrs": {
       "slug": "ifrs",
