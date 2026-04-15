@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:48:52.507Z",
+  "scored_at": "2026-04-15T03:54:00.846Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -783,20 +783,20 @@
     "cash-flow-statement": {
       "slug": "cash-flow-statement",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 1,
-        "reference": 1,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
+        "principle"
       ],
-      "qualitative_comment": "3列表セル超過が多発、ExamPointが中盤配置で末尾総括なし、参考資料が公的1件のみで民間欠落。",
-      "weighted": 1.4,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "G+D: 1.40→2.60。位置づけ末尾総括ExamPoint欠落で原則1点。",
+      "weighted": 2.6,
+      "scored_at": "2026-04-15T03:54:00.846Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave7"
     },
     "swot-analysis": {
       "slug": "swot-analysis",
@@ -900,21 +900,21 @@
     "npv-net-present-value": {
       "slug": "npv-net-present-value",
       "scores": {
-        "structure": 1,
+        "structure": 2,
         "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "principle",
-        "reference"
+        "structure"
       ],
-      "qualitative_comment": "参考資料1件のみ（公的のみ、民間なし）、ExamPoint位置が記事中盤（44%）、7列表あり、導入文欠落と複数軸で要修正。",
-      "weighted": 1.1,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "qualitative_comment": "G+D: 1.10→1.90。MEDIUM3件残存（太字・導入文・ExamPoint位置）。Phase 4候補。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15T03:54:00.846Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave7"
     },
     "sl-theory": {
       "slug": "sl-theory",
@@ -1121,20 +1121,18 @@
     "fta": {
       "slug": "fta",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "MEDIUM7件（導入文欠落・論理ゲート表セル過長・ExamPoint位置不正・参考資料1件のみ）が集中。",
-      "weighted": 1.4,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+D: 1.40→3.00 完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:54:00.846Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave7"
     },
     "urban-flood": {
       "slug": "urban-flood",
@@ -1349,20 +1347,20 @@
     "prevention-activities": {
       "slug": "prevention-activities",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM4件集中。参考資料は組織トップページ1件のみ。ExamPoint位置づけ末尾配置が急務。",
-      "weighted": 1.4,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 1.40→2.90。双方向未確認で linking 2点。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:54:00.846Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave7"
     },
     "cluster-analysis": {
       "slug": "cluster-analysis",
@@ -1434,20 +1432,20 @@
     "mobile-communication": {
       "slug": "mobile-communication",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（0点クランプ）。MEDIUM6件（4列表・導入文なし・関連キーワード列挙）。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 1.00→2.90。2表箇条書き化、RelatedKeywords未使用。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:54:00.846Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave7"
     },
     "monte-carlo-simulation": {
       "slug": "monte-carlo-simulation",
@@ -1487,19 +1485,20 @@
     "all-hazard-approach": {
       "slug": "all-hazard-approach",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "structure": 2,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure"
       ],
-      "qualitative_comment": "参考資料URLが0件で即不合格クランプ。MEDIUM7件（導入文欠落3・太字超過・セル超過）。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 1.00→2.70。歴史背景H2が位置づけ後に挿入で構造2点。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T03:54:00.846Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave7"
     }
   }
 }
