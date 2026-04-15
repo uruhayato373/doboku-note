@@ -115,7 +115,23 @@
         {
           "date": "2026-04-15T21:36:30.174Z",
           "action": "rewritten",
-          "wave": "G-5-W1"
+          "wave": "G-5-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 参考資料"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1720,
+          "after_chars": 2451,
+          "added_chars": 731,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -125,7 +141,23 @@
         {
           "date": "2026-04-15T21:36:30.174Z",
           "action": "rewritten",
-          "wave": "G-5-W1"
+          "wave": "G-5-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## フェールセーフ概念の成立と規格化の経緯"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1643,
+          "after_chars": 2738,
+          "added_chars": 1095,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -135,7 +167,24 @@
         {
           "date": "2026-04-15T21:36:30.174Z",
           "action": "rewritten",
-          "wave": "G-5-W1"
+          "wave": "G-5-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 定期保全が重視されるようになった背景",
+            "## 参考資料"
+          ],
+          "converted_tables": 2,
+          "before_chars": 1656,
+          "after_chars": 2557,
+          "added_chars": 901,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 6,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -145,7 +194,24 @@
         {
           "date": "2026-04-15T21:36:30.174Z",
           "action": "rewritten",
-          "wave": "G-5-W1"
+          "wave": "G-5-W1",
+          "applied_patterns": [
+            "D",
+            "C"
+          ],
+          "added_sections": [
+            "## 総合技術監理における位置づけ",
+            "## 参考資料"
+          ],
+          "converted_tables": 0,
+          "before_chars": 4217,
+          "after_chars": 7332,
+          "added_chars": 3115,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -155,7 +221,23 @@
         {
           "date": "2026-04-15T21:36:30.174Z",
           "action": "rewritten",
-          "wave": "G-5-W1"
+          "wave": "G-5-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 信頼性工学の発展と歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1499,
+          "after_chars": 2506,
+          "added_chars": 1007,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -165,7 +247,21 @@
         {
           "date": "2026-04-15T21:36:30.174Z",
           "action": "rewritten",
-          "wave": "G-5-W1"
+          "wave": "G-5-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "before_chars": 1496,
+          "after_chars": 1752,
+          "added_chars": 256,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -175,7 +271,23 @@
         {
           "date": "2026-04-15T21:41:45.396Z",
           "action": "rewritten",
-          "wave": "G-5-W2"
+          "wave": "G-5-W2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 歴史的背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1483,
+          "after_chars": 2197,
+          "added_chars": 714,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -185,7 +297,22 @@
         {
           "date": "2026-04-15T21:41:45.396Z",
           "action": "rewritten",
-          "wave": "G-5-W2"
+          "wave": "G-5-W2",
+          "applied_patterns": [
+            "G",
+            "D",
+            "C"
+          ],
+          "added_sections": [],
+          "converted_tables": 1,
+          "before_chars": 890,
+          "after_chars": 2342,
+          "added_chars": 1452,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 7,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -195,7 +322,21 @@
         {
           "date": "2026-04-15T21:41:45.396Z",
           "action": "rewritten",
-          "wave": "G-5-W2"
+          "wave": "G-5-W2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 1,
+          "before_chars": 1463,
+          "after_chars": 1851,
+          "added_chars": 388,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -205,7 +346,24 @@
         {
           "date": "2026-04-15T21:41:45.396Z",
           "action": "rewritten",
-          "wave": "G-5-W2"
+          "wave": "G-5-W2",
+          "applied_patterns": [
+            "G",
+            "D",
+            "C"
+          ],
+          "added_sections": [
+            "## 規格制定の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1229,
+          "after_chars": 2309,
+          "added_chars": 1080,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -215,7 +373,20 @@
         {
           "date": "2026-04-15T21:41:45.396Z",
           "action": "rewritten",
-          "wave": "G-5-W2"
+          "wave": "G-5-W2",
+          "applied_patterns": [
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "before_chars": 820,
+          "after_chars": 1130,
+          "added_chars": 310,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -225,7 +396,23 @@
         {
           "date": "2026-04-15T21:41:45.396Z",
           "action": "rewritten",
-          "wave": "G-5-W2"
+          "wave": "G-5-W2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 概念の歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1460,
+          "after_chars": 2389,
+          "added_chars": 929,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -235,7 +422,24 @@
         {
           "date": "2026-04-15T21:46:25.806Z",
           "action": "rewritten",
-          "wave": "G-5-W3"
+          "wave": "G-5-W3",
+          "applied_patterns": [
+            "G",
+            "D",
+            "C"
+          ],
+          "added_sections": [
+            "## 採用管理の歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1440,
+          "after_chars": 2897,
+          "added_chars": 1457,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -245,7 +449,23 @@
         {
           "date": "2026-04-15T21:46:25.806Z",
           "action": "rewritten",
-          "wave": "G-5-W3"
+          "wave": "G-5-W3",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## PPPが生まれた歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 980,
+          "after_chars": 2478,
+          "added_chars": 1498,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -255,7 +475,23 @@
         {
           "date": "2026-04-15T21:46:25.806Z",
           "action": "rewritten",
-          "wave": "G-5-W3"
+          "wave": "G-5-W3",
+          "applied_patterns": [
+            "D",
+            "A"
+          ],
+          "added_sections": [
+            "## 建設部門における活用実務"
+          ],
+          "converted_tables": 0,
+          "before_chars": 895,
+          "after_chars": 2922,
+          "added_chars": 2027,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -265,7 +501,24 @@
         {
           "date": "2026-04-15T21:46:25.806Z",
           "action": "rewritten",
-          "wave": "G-5-W3"
+          "wave": "G-5-W3",
+          "applied_patterns": [
+            "G",
+            "D",
+            "C"
+          ],
+          "added_sections": [
+            "## 費用便益分析の歴史的経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1511,
+          "after_chars": 2552,
+          "added_chars": 1041,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 11,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -275,7 +528,24 @@
         {
           "date": "2026-04-15T21:46:25.806Z",
           "action": "rewritten",
-          "wave": "G-5-W3"
+          "wave": "G-5-W3",
+          "applied_patterns": [
+            "G",
+            "C",
+            "D"
+          ],
+          "added_sections": [
+            "## 安全衛生教育制度の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1665,
+          "after_chars": 2849,
+          "added_chars": 1184,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -285,7 +555,23 @@
         {
           "date": "2026-04-15T21:46:25.806Z",
           "action": "rewritten",
-          "wave": "G-5-W3"
+          "wave": "G-5-W3",
+          "applied_patterns": [
+            "C",
+            "D"
+          ],
+          "added_sections": [
+            "## 規格・制度の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1463,
+          "after_chars": 2487,
+          "added_chars": 1024,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -295,7 +581,23 @@
         {
           "date": "2026-04-15T21:53:39.527Z",
           "action": "rewritten",
-          "wave": "G-5-W4"
+          "wave": "G-5-W4",
+          "applied_patterns": [
+            "D",
+            "C"
+          ],
+          "added_sections": [
+            "## 背景・制定経緯"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1433,
+          "after_chars": 2483,
+          "added_chars": 1050,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -305,7 +607,24 @@
         {
           "date": "2026-04-15T21:53:39.527Z",
           "action": "rewritten",
-          "wave": "G-5-W4"
+          "wave": "G-5-W4",
+          "applied_patterns": [
+            "G",
+            "C",
+            "D"
+          ],
+          "added_sections": [
+            "### 歴史・背景：なぜベテランバイアスが注目されるようになったか"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1451,
+          "after_chars": 2705,
+          "added_chars": 1254,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -315,7 +634,24 @@
         {
           "date": "2026-04-15T21:53:39.527Z",
           "action": "rewritten",
-          "wave": "G-5-W4"
+          "wave": "G-5-W4",
+          "applied_patterns": [
+            "G",
+            "C",
+            "D"
+          ],
+          "added_sections": [
+            "## 参考資料"
+          ],
+          "converted_tables": 1,
+          "before_chars": 947,
+          "after_chars": 2361,
+          "added_chars": 1414,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -325,7 +661,24 @@
         {
           "date": "2026-04-15T21:53:39.527Z",
           "action": "rewritten",
-          "wave": "G-5-W4"
+          "wave": "G-5-W4",
+          "applied_patterns": [
+            "G",
+            "D",
+            "C"
+          ],
+          "added_sections": [
+            "## 残留リスク概念の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1496,
+          "after_chars": 2904,
+          "added_chars": 1408,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -335,7 +688,23 @@
         {
           "date": "2026-04-15T21:53:39.527Z",
           "action": "rewritten",
-          "wave": "G-5-W4"
+          "wave": "G-5-W4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 開発の経緯と歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1791,
+          "after_chars": 2988,
+          "added_chars": 1197,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -345,7 +714,23 @@
         {
           "date": "2026-04-15T21:53:39.527Z",
           "action": "rewritten",
-          "wave": "G-5-W4"
+          "wave": "G-5-W4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 職務分析の背景と制度的位置づけ"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1739,
+          "after_chars": 2678,
+          "added_chars": 939,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -355,7 +740,21 @@
         {
           "date": "2026-04-15T21:59:53.392Z",
           "action": "rewritten",
-          "wave": "G-5-W5"
+          "wave": "G-5-W5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 1,
+          "before_chars": 1727,
+          "after_chars": 2110,
+          "added_chars": 383,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -365,7 +764,23 @@
         {
           "date": "2026-04-15T21:59:53.392Z",
           "action": "rewritten",
-          "wave": "G-5-W5"
+          "wave": "G-5-W5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスク概念の国際標準化の経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1686,
+          "after_chars": 2881,
+          "added_chars": 1195,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -375,7 +790,23 @@
         {
           "date": "2026-04-15T21:59:53.392Z",
           "action": "rewritten",
-          "wave": "G-5-W5"
+          "wave": "G-5-W5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## RCAの発展経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1699,
+          "after_chars": 2372,
+          "added_chars": 673,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 5,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -385,7 +816,23 @@
         {
           "date": "2026-04-15T21:59:53.392Z",
           "action": "rewritten",
-          "wave": "G-5-W5"
+          "wave": "G-5-W5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 小集団活動の歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1551,
+          "after_chars": 2603,
+          "added_chars": 1052,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -395,7 +842,23 @@
         {
           "date": "2026-04-15T21:59:53.392Z",
           "action": "rewritten",
-          "wave": "G-5-W5"
+          "wave": "G-5-W5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 人間工学原則の発展と規格化の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1521,
+          "after_chars": 2380,
+          "added_chars": 859,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -405,7 +868,21 @@
         {
           "date": "2026-04-15T21:59:53.392Z",
           "action": "rewritten",
-          "wave": "G-5-W5"
+          "wave": "G-5-W5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 1,
+          "before_chars": 1050,
+          "after_chars": 1281,
+          "added_chars": 231,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -415,7 +892,23 @@
         {
           "date": "2026-04-15T22:07:14.752Z",
           "action": "rewritten",
-          "wave": "G-5-W6"
+          "wave": "G-5-W6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 5S活動の歴史と背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1531,
+          "after_chars": 2237,
+          "added_chars": 706,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 7,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -425,7 +918,23 @@
         {
           "date": "2026-04-15T22:07:14.752Z",
           "action": "rewritten",
-          "wave": "G-5-W6"
+          "wave": "G-5-W6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## ポカヨケの誕生と国際規格への発展"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1534,
+          "after_chars": 2313,
+          "added_chars": 779,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 5,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -435,7 +944,23 @@
         {
           "date": "2026-04-15T22:07:14.752Z",
           "action": "rewritten",
-          "wave": "G-5-W6"
+          "wave": "G-5-W6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## HAZIDの背景と成立経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1709,
+          "after_chars": 2557,
+          "added_chars": 848,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 7,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -445,7 +970,23 @@
         {
           "date": "2026-04-15T22:07:14.752Z",
           "action": "rewritten",
-          "wave": "G-5-W6"
+          "wave": "G-5-W6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 規格の成立と背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1514,
+          "after_chars": 2461,
+          "added_chars": 947,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -455,7 +996,23 @@
         {
           "date": "2026-04-15T22:07:14.752Z",
           "action": "rewritten",
-          "wave": "G-5-W6"
+          "wave": "G-5-W6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスクマトリクスの標準化と建設分野への普及"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1440,
+          "after_chars": 2120,
+          "added_chars": 680,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -465,7 +1022,23 @@
         {
           "date": "2026-04-15T22:07:14.752Z",
           "action": "rewritten",
-          "wave": "G-5-W6"
+          "wave": "G-5-W6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 開発の背景と歴史"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1506,
+          "after_chars": 2434,
+          "added_chars": 928,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -475,7 +1048,21 @@
         {
           "date": "2026-04-15T22:12:23.654Z",
           "action": "rewritten",
-          "wave": "G-5-W7"
+          "wave": "G-5-W7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "before_chars": 900,
+          "after_chars": 1000,
+          "added_chars": 100,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
         }
       ]
     },
@@ -485,7 +1072,23 @@
         {
           "date": "2026-04-15T22:12:23.654Z",
           "action": "rewritten",
-          "wave": "G-5-W7"
+          "wave": "G-5-W7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 規格・制度の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1461,
+          "after_chars": 2267,
+          "added_chars": 806,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 5,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -495,7 +1098,21 @@
         {
           "date": "2026-04-15T22:12:23.654Z",
           "action": "rewritten",
-          "wave": "G-5-W7"
+          "wave": "G-5-W7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "before_chars": 1461,
+          "after_chars": 1860,
+          "added_chars": 399,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -505,7 +1122,21 @@
         {
           "date": "2026-04-15T22:12:23.654Z",
           "action": "rewritten",
-          "wave": "G-5-W7"
+          "wave": "G-5-W7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "before_chars": 1398,
+          "after_chars": 1814,
+          "added_chars": 416,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -515,7 +1146,24 @@
         {
           "date": "2026-04-15T22:12:23.654Z",
           "action": "rewritten",
-          "wave": "G-5-W7"
+          "wave": "G-5-W7",
+          "applied_patterns": [
+            "G",
+            "C",
+            "D"
+          ],
+          "added_sections": [
+            "## CRM・ノンテクニカルスキルの歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1561,
+          "after_chars": 2720,
+          "added_chars": 1159,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -525,7 +1173,23 @@
         {
           "date": "2026-04-15T22:12:23.654Z",
           "action": "rewritten",
-          "wave": "G-5-W7"
+          "wave": "G-5-W7",
+          "applied_patterns": [
+            "D",
+            "C"
+          ],
+          "added_sections": [
+            "## 品質管理の歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1407,
+          "after_chars": 2674,
+          "added_chars": 1267,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     }
