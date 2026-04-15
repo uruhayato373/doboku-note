@@ -4,7 +4,7 @@ description: >
   OGP画像（Open Graph Protocol）を一括生成またはslug指定で個別生成する。Use when user asks to [OGP生成, OGP画像, generate-ogp, /generate-ogp].
 ---
 
-satori + @resvg/resvg-js で全記事のOGP画像（1200x630 PNG）を生成し、`.local/r2/posts/ogp/{slug}.png` に出力する。
+satori + @resvg/resvg-js で全記事のOGP画像（1200x630 PNG）を生成し、各記事ディレクトリに `ogp.png` としてコロケーション出力する。
 
 ## コマンド
 
@@ -31,12 +31,12 @@ node scripts/generate-ogps.mjs --force --slug <slug>
 
 ## 動作フロー
 
-1. `.local/r2/posts/` 配下の全MDXファイルを探索
+1. `.local/r2/posts/` 配下の全MDXファイル（`article.mdx`）を探索
 2. frontmatterから `title`, `category`, `published` を読み取り
 3. `published: false` の記事はスキップ
 4. 差分チェック: MDXの更新日時 > OGP画像の更新日時 の場合のみ生成（`--force` で無視）
 5. satori でJSXオブジェクト → SVG、resvg-js で SVG → PNG に変換
-6. `.local/r2/posts/ogp/{slug}.png` に出力
+6. 該当記事ディレクトリ配下に `ogp.png` として出力（例: `.local/r2/posts/pe-comprehensive-management/iso-14000/ogp.png`）
 
 ## デザイン仕様
 
@@ -60,8 +60,10 @@ node scripts/generate-ogps.mjs --force --slug <slug>
 
 ## 出力パス
 
-- **ローカル**: `.local/r2/posts/ogp/{slug}.png`
-- **本番URL**: `https://storage.doboku-note.com/posts/ogp/{slug}.png`
+- **ローカル**: `.local/r2/posts/{category}/{local-slug}/ogp.png`（記事ディレクトリにコロケーション）
+- **本番URL**: `https://storage.doboku-note.com/posts/{category}/{local-slug}/ogp.png`
+
+`{local-slug}` は category prefix を除いた slug（例: slug `pe-comprehensive-management-iso-14000` の local-slug は `iso-14000`）。各カテゴリの直下はフラット1階層（`textbook/foo` のようなネストは不可）。
 
 ## R2アップロード
 

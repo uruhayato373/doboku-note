@@ -4,13 +4,14 @@
  * .local/r2/posts/ 配下の全MDXファイルからfrontmatterを読み取り、
  * satori + @resvg/resvg-js でOGP画像（1200x630 PNG）を生成する。
  *
- * 出力先: .local/r2/posts/ogp/{slug}.png
- * 本番URL: https://storage.doboku-note.com/posts/ogp/{slug}.png
+ * 出力先: 各記事ディレクトリに ogp.png を書き出す（コロケーション方式）
+ *   例: .local/r2/posts/pe-comprehensive-management/iso-14000/ogp.png
+ * 本番URL: https://storage.doboku-note.com/posts/{category}/{localSlug}/ogp.png
  *
  * Usage:
  *   node scripts/generate-ogps.mjs [--force] [--slug <slug>]
  *   --force: 既存画像があっても再生成
- *   --slug:  特定のslugのみ生成
+ *   --slug:  特定のslugのみ生成（slug は category prefix 付きのフルスラグ）
  */
 
 import fs from 'fs';
@@ -23,7 +24,6 @@ import matter from 'gray-matter';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const POSTS_DIR = path.join(PROJECT_ROOT, '.local', 'r2', 'posts');
-const OGP_DIR = path.join(POSTS_DIR, 'ogp');
 const FONTS_DIR = path.join(__dirname, 'fonts');
 
 // カテゴリ表示名
@@ -52,6 +52,8 @@ function loadFonts() {
 }
 
 // --- MDXファイル探索 ---
+// コロケーション方式では OGP は `{記事dir}/ogp.png` に置くため、
+// findMdxFiles は `img` と `ogp` ディレクトリ（レガシー）をスキップする。
 function findMdxFiles(dir) {
   const results = [];
 
@@ -183,9 +185,6 @@ async function main() {
   // フォント読み込み
   const fonts = loadFonts();
 
-  // OGP出力ディレクトリ作成
-  fs.mkdirSync(OGP_DIR, { recursive: true });
-
   // MDXファイル探索
   const mdxFiles = findMdxFiles(POSTS_DIR);
   console.log(`  MDXファイル: ${mdxFiles.length}件`);
@@ -200,7 +199,12 @@ async function main() {
     // 特定slug指定時のフィルタ
     if (targetSlug && slug !== targetSlug) continue;
 
-    const outputPath = path.join(OGP_DIR, `${slug}.png`);
+    // 出力先は記事ディレクトリ直下の ogp.png
+    // article.mdx → 同じ dir / 個別 .mdx → ファイル名と同名のサブ dir は作らず dir 直下に置く
+    const articleDir = fileName === 'article.mdx'
+      ? path.dirname(fullPath)
+      : path.dirname(fullPath); // Convention A は既に存在しないが念のため同じ dir 扱い
+    const outputPath = path.join(articleDir, 'ogp.png');
 
     // 差分チェック（--force でない場合）
     if (!force && fs.existsSync(outputPath)) {
@@ -257,7 +261,7 @@ async function main() {
   console.log(`  生成: ${generated}件`);
   console.log(`  スキップ: ${skipped}件`);
   if (errors > 0) console.log(`  エラー: ${errors}件`);
-  console.log(`  出力先: ${OGP_DIR}`);
+  console.log(`  出力先: 各記事ディレクトリの ogp.png`);
 }
 
 main().catch(err => {

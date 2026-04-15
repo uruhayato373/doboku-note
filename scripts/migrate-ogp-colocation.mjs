@@ -71,23 +71,19 @@ async function main() {
 
   const files = fs.readdirSync(OGP_DIR).filter(n => n.endsWith('.png'));
   console.log(`対象ファイル: ${files.length} 件`);
+
+  const slugToDir = buildSlugToDirMap();
+  console.log(`記事ディレクトリ: ${slugToDir.size} 件（posts/ 配下の article.mdx を走査）`);
   console.log('');
 
   const plan = []; // { oldAbs, newAbs, oldDisplay, newDisplay }
-  const unresolved = [];
-  const missingTargetDir = [];
+  const missingArticle = []; // OGP はあるが対応する article.mdx が存在しない
 
   for (const name of files) {
-    const fileBase = name.replace(/\.png$/, '');
-    const resolved = resolveCategoryAndLocal(fileBase);
-    if (!resolved) {
-      unresolved.push(name);
-      continue;
-    }
-    const targetDir = path.join(POSTS_DIR, resolved.category, resolved.localSlug);
-    if (!fs.existsSync(targetDir)) {
-      // 対応する記事ディレクトリが存在しない → 記事が削除された孤児 OGP
-      missingTargetDir.push({ name, expectedDir: path.relative(POSTS_DIR, targetDir) });
+    const fullSlug = name.replace(/\.png$/, '');
+    const targetDir = slugToDir.get(fullSlug);
+    if (!targetDir) {
+      missingArticle.push(name);
       continue;
     }
     const oldAbs = path.join(OGP_DIR, name);
@@ -96,7 +92,7 @@ async function main() {
       oldAbs,
       newAbs,
       oldDisplay: `ogp/${name}`,
-      newDisplay: `${resolved.category}/${resolved.localSlug}/ogp.png`,
+      newDisplay: path.relative(POSTS_DIR, newAbs),
     });
   }
 
@@ -109,16 +105,10 @@ async function main() {
   }
   console.log('');
 
-  if (unresolved.length > 0) {
-    console.warn(`[WARN] category が判定できないファイル: ${unresolved.length} 件`);
-    for (const n of unresolved.slice(0, 5)) console.warn(`  ${n}`);
-    if (unresolved.length > 5) console.warn(`  ...`);
-  }
-
-  if (missingTargetDir.length > 0) {
-    console.warn(`[WARN] 記事ディレクトリが存在しないファイル（孤児 OGP）: ${missingTargetDir.length} 件`);
-    for (const m of missingTargetDir.slice(0, 10)) console.warn(`  ${m.name} (期待 dir: ${m.expectedDir})`);
-    if (missingTargetDir.length > 10) console.warn(`  ...(残り ${missingTargetDir.length - 10} 件)`);
+  if (missingArticle.length > 0) {
+    console.warn(`[WARN] 対応する article.mdx が存在しない OGP: ${missingArticle.length} 件（削除された記事の孤児）`);
+    for (const n of missingArticle.slice(0, 10)) console.warn(`  ${n}`);
+    if (missingArticle.length > 10) console.warn(`  ...(残り ${missingArticle.length - 10} 件)`);
   }
   console.log('');
 
