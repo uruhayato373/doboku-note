@@ -1923,20 +1923,26 @@
     "analogous-estimation": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 2,
-        "reference": 1,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle",
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "HIGH1件（L23-28キーバリュー表）。参考資料PMI.org 1件のみ（9-4）。構造は良好。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave7: HIGH解消、参考資料PMI+IPA+Nulab。L20太字46字、PMI403。weighted=2.55。",
+      "weighted": 2.55,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "analytic-hierarchy-process": {
       "scores": {
@@ -2029,20 +2035,26 @@
     "appraisal-three-principles": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM9件（3列表セル超過5件）。参考資料mhlw.go.jpトップページ1件のみ。構造良好。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave7: ExamPoint移動失敗（L36 43%地点残）、参考資料内閣人事局+リクルートMS+アヴァンティ。weighted=2.25。",
+      "weighted": 2.25,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "asbestos-issue": {
       "scores": {
@@ -2182,19 +2194,25 @@
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "principle": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "HIGH1件（L54-61キーバリュー表）+MEDIUM17件。参考資料は外務省1件のみ。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave7: HIGH解消、歴史背景節追加、参考資料env.go.jp×2+Wikipedia。改正表MEDIUM残、ExamPoint位置ズレ。weighted=2.00。",
+      "weighted": 2,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "before-service": {
       "scores": {
@@ -2223,20 +2241,25 @@
     "behavioral-regulation": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM4件（表前導入文なし）。参考資料env.go.jpトップページ1件のみ。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave7: 表前導入文追加、参考資料EICネット2+環境省白書。民間解説Wikipedia欠落。weighted=2.75。",
+      "weighted": 2.75,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "bid-rigging": {
       "scores": {
@@ -2436,21 +2459,26 @@
     "budget-planning": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
         "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料mof.go.jpトップページ1件のみ。ExamPoint位置づけ節前配置。MEDIUM4件。構造は良好。",
-      "weighted": 1.7,
+      "qualitative_comment": "Phase G-4 Wave7: 予算制度背景節追加、公的2+民間1。L20太字40字残。weighted=2.45。",
+      "weighted": 2.45,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.7,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "business-intelligence": {
       "scores": {
@@ -2477,21 +2505,26 @@
     "capacity-management": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 1,
+        "mobile": 2,
+        "principle": 3,
         "reference": 1,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "principle",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM4件。ExamPoint位置づけ節末尾欠落。参考資料jisc.go.jpトップページ1件のみ。",
-      "weighted": 1.7,
+      "qualitative_comment": "Phase G-4 Wave7: JIS歴史背景節追加、jisc.go.jpトップページ残で参考資料1。weighted=2.35。",
+      "weighted": 2.35,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.7,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "carbon-pricing": {
       "scores": {
