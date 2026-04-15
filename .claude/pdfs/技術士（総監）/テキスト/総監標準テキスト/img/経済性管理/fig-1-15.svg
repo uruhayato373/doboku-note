@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 280" width="500" height="280">
+  <!-- 総合評価 (top) -->
+  <rect x="200" y="10" width="100" height="30" rx="3" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="250" y="30" text-anchor="middle" font-size="12" fill="#333" font-family="sans-serif">総合評価</text>
+
+  <!-- W1 and W2 labels on lines from top -->
+  <line x1="250" y1="40" x2="140" y2="90" stroke="#333" stroke-width="1.2"/>
+  <text x="178" y="64" font-size="10" fill="#333" font-family="sans-serif">W₁</text>
+  <line x1="250" y1="40" x2="360" y2="90" stroke="#333" stroke-width="1.2"/>
+  <text x="315" y="64" font-size="10" fill="#333" font-family="sans-serif">W₂</text>
+
+  <!-- 要因1 -->
+  <rect x="90" y="90" width="100" height="30" rx="3" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="140" y="110" text-anchor="middle" font-size="12" fill="#333" font-family="sans-serif">要因1</text>
+
+  <!-- 要因2 -->
+  <rect x="310" y="90" width="100" height="30" rx="3" fill="none" stroke="#333" stroke-width="1.5"/>
+  <text x="360" y="110" text-anchor="middle" font-size="12" fill="#333" font-family="sans-serif">要因2</text>
+
+  <!-- 要因11 -->
+  <rect x="30" y="160" width="70" height="28" rx="2" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="65" y="178" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">要因11</text>
+  <!-- 要因12 -->
+  <rect x="130" y="160" width="70" height="28" rx="2" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="165" y="178" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">要因12</text>
+  <!-- 要因21 -->
+  <rect x="250" y="160" width="70" height="28" rx="2" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="285" y="178" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">要因21</text>
+  <!-- 要因22 -->
+  <rect x="360" y="160" width="70" height="28" rx="2" fill="none" stroke="#333" stroke-width="1.2"/>
+  <text x="395" y="178" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">要因22</text>
+
+  <!-- Lines from 要因1 to 要因11, 要因12 -->
+  <line x1="120" y1="120" x2="75" y2="160" stroke="#333" stroke-width="1.2"/>
+  <text x="88" y="142" font-size="9" fill="#555" font-family="sans-serif">W₁₁</text>
+  <line x1="160" y1="120" x2="165" y2="160" stroke="#333" stroke-width="1.2"/>
+  <text x="165" y="142" font-size="9" fill="#555" font-family="sans-serif">W₁₂</text>
+
+  <!-- Lines from 要因2 to 要因21, 要因22 -->
+  <line x1="340" y1="120" x2="295" y2="160" stroke="#333" stroke-width="1.2"/>
+  <text x="306" y="142" font-size="9" fill="#555" font-family="sans-serif">W₂₁</text>
+  <line x1="380" y1="120" x2="395" y2="160" stroke="#333" stroke-width="1.2"/>
+  <text x="388" y="142" font-size="9" fill="#555" font-family="sans-serif">W₂₂</text>
+
+  <!-- A案, B案, C案 (bottom row) -->
+  <rect x="20" y="220" width="50" height="28" rx="2" fill="#eee" stroke="#333" stroke-width="1.2"/>
+  <text x="45" y="238" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">A案</text>
+  <rect x="195" y="220" width="50" height="28" rx="2" fill="#eee" stroke="#333" stroke-width="1.2"/>
+  <text x="220" y="238" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">B案</text>
+  <rect x="400" y="220" width="50" height="28" rx="2" fill="#eee" stroke="#333" stroke-width="1.2"/>
+  <text x="425" y="238" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">C案</text>
+
+  <!-- Lines from factors to alternatives (A,B,C) with small labels -->
+  <!-- 要因11 -> A案 -->
+  <line x1="55" y1="188" x2="45" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="36" y="208" font-size="8" fill="#555" font-family="sans-serif">A₁</text>
+  <!-- 要因11 -> B案 -->
+  <line x1="70" y1="188" x2="210" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="130" y="214" font-size="8" fill="#555" font-family="sans-serif">B₁</text>
+  <!-- 要因11 -> C案 -->
+  <line x1="80" y1="188" x2="410" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="240" y="208" font-size="8" fill="#555" font-family="sans-serif">C₁</text>
+  <!-- 要因12 -> A案 -->
+  <line x1="148" y1="188" x2="55" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="90" y="214" font-size="8" fill="#555" font-family="sans-serif">A₂</text>
+  <!-- 要因12 -> B案 -->
+  <line x1="165" y1="188" x2="220" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="192" y="212" font-size="8" fill="#555" font-family="sans-serif">B₂</text>
+  <!-- 要因12 -> C案 -->
+  <line x1="182" y1="188" x2="415" y2="220" stroke="#555" stroke-width="0.8"/>
+  <!-- 要因22 -> C案 -->
+  <line x1="390" y1="188" x2="425" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="416" y="212" font-size="8" fill="#555" font-family="sans-serif">C₄</text>
+  <!-- 要因21 -> B案 -->
+  <line x1="275" y1="188" x2="225" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="244" y="214" font-size="8" fill="#555" font-family="sans-serif">B₃</text>
+  <!-- 要因22 -> B案 -->
+  <line x1="372" y1="188" x2="235" y2="220" stroke="#555" stroke-width="0.8"/>
+  <text x="302" y="212" font-size="8" fill="#555" font-family="sans-serif">B₄</text>
+</svg>
