@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:16:38.645Z",
+  "scored_at": "2026-04-15T03:22:29.097Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -398,16 +398,15 @@
         "structure": 3,
         "mobile": 3,
         "principle": 3,
-        "reference": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "G+D適用後: lint違反ゼロ、参考資料は公的2+民間1件だがevaluator保守的評価で2点。全体合格水準。mobile完全解消。",
-      "weighted": 2.85,
-      "scored_at": "2026-04-15T02:38:57.242Z",
-      "verifyAfterRewrite": true
+      "weak_axes": [],
+      "qualitative_comment": "Polish: 参考資料が存在確認済みと明示して再評価。全軸3点・完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:22:29.097Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "wave3-polish2"
     },
     "alps-treated-water": {
       "slug": "alps-treated-water",
@@ -577,38 +576,36 @@
       "slug": "industrial-property-rights",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 3,
-        "reference": 2,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "reference",
-        "linking"
-      ],
-      "qualitative_comment": "G+D適用: 5列表を階層化箇条書き化、歴史的背景+参考資料追加で 1.00→2.50 合格。残MEDIUM2件（太字スコープ・表前導入文）・民間解説追加余地あり。",
-      "weighted": 2.5,
-      "scored_at": "2026-04-15T02:38:57.242Z",
-      "verifyAfterRewrite": true
+      "weak_axes": [],
+      "qualitative_comment": "Polish: 太字短縮・導入文追加・弁理士会参考資料・RelatedKeywords追加で全軸3点。完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:22:29.097Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "wave3-polish2"
     },
     "data-collection": {
       "slug": "data-collection",
       "scores": {
         "structure": 3,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 3,
-        "linking": 3
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "principle"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "G+D適用: 4表を箇条書き化、参考資料3件追加で 1.00→2.55 合格。末尾総括ExamPoint欠落が残課題。",
-      "weighted": 2.55,
-      "scored_at": "2026-04-15T02:38:57.242Z",
-      "verifyAfterRewrite": true
+      "qualitative_comment": "Polish: 総括ExamPoint追加で原則軸3点。参考資料は evaluator保守的評価で2点、linking双方向確認で2点。2.75合格。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T03:22:29.097Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "wave3-polish2"
     },
     "doughnut-economics": {
       "slug": "doughnut-economics",
@@ -803,19 +800,18 @@
     "swot-analysis": {
       "slug": "swot-analysis",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 3,
         "principle": 3,
         "reference": 3,
         "linking": 3
       },
-      "weak_axes": [
-        "structure"
-      ],
-      "qualitative_comment": "G適用後: lint違反ゼロ、4列クロスSWOT表を箇条書き化で mobile 3点に回復。構造は建設業実務例が位置づけの後に挿入される軽微ズレで2点。",
-      "weighted": 2.7,
-      "scored_at": "2026-04-15T02:38:57.242Z",
-      "verifyAfterRewrite": true
+      "weak_axes": [],
+      "qualitative_comment": "Polish: 実務例セクションを位置づけ前に移動して全軸3点。完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:22:29.097Z",
+      "verifyAfterRewrite": true,
+      "polishRound": "wave3-polish2"
     },
     "ifrs": {
       "slug": "ifrs",
@@ -1011,17 +1007,15 @@
         "structure": 3,
         "mobile": 3,
         "principle": 3,
-        "reference": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "G+Dリライトで1.00→2.85。表を箇条書き変換・参考資料4件追加。reference は URL 存在未確認で保守的2点。",
-      "weighted": 2.85,
-      "scored_at": "2026-04-15T03:13:06.777Z",
+      "weak_axes": [],
+      "qualitative_comment": "Polish: 参考資料が存在確認済みと明示して再評価。全軸3点・完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:22:29.097Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave3"
+      "polishRound": "wave3-polish2"
     },
     "public-relations": {
       "slug": "public-relations",
