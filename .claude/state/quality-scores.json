@@ -2286,38 +2286,50 @@
     "biodiversity-basic-act": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM7件（表セル超過4件等）。参考資料は公的のみで民間欠落。weighted=1.90。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave8: セクション順手動修正（制定背景→位置づけ→参考資料）、ExamPoint位置づけ節末尾移動。公的4+民間1。weighted=2.60。",
+      "weighted": 2.5,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "bioeconomy": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM4件。参考資料1件のみ。民間解説追加で合格圏。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave8: セクション順手動修正（戦略経緯→位置づけ→参考資料）、ExamPoint位置づけ節末尾移動。公的3+民間1。weighted=2.60。",
+      "weighted": 2.5,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "biosafety": {
       "scores": {
@@ -2347,20 +2359,24 @@
     "blind-drill": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "HIGH1件（L17太字61字）。参考資料bousai.go.jpトップページ1件のみ。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave8: セクション順手動修正、ExamPoint「頻出の引っかけ」禁止表現修正。lint ゼロ。公的1+民間1。weighted=2.80。",
+      "weighted": 2.85,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "blockchain-crypto": {
       "scores": {
@@ -2547,20 +2563,25 @@
     "career-ownership": {
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM4件（表前導入文なし2件）。参考資料mhlw.go.jp 1件のみ。民間解説追加で合格圏。",
-      "weighted": 1.9,
+      "qualitative_comment": "Phase G-4 Wave8: 表前導入文追加、参考資料厚労省+人事院+カオナビ。L20太字42字残。weighted=2.65。",
+      "weighted": 2.65,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.9,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "career-path": {
       "scores": {
