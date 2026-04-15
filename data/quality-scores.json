@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:01:40.466Z",
+  "scored_at": "2026-04-15T03:13:06.777Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -1008,56 +1008,56 @@
     "edge-computing": {
       "slug": "edge-computing",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）、MEDIUM9件（導入文2箇所・3列表セル超過6箇所）。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "G+Dリライトで1.00→2.85。表を箇条書き変換・参考資料4件追加。reference は URL 存在未確認で保守的2点。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-15T03:13:06.777Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave3"
     },
     "public-relations": {
       "slug": "public-relations",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料URLが0件（書籍名のみ）で0軸クランプ不合格。ExamPoint位置ズレ。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "G+Dリライトで1.00→2.75。参考資料公的+民間揃い。L21太字スコープ34字のMEDIUM 1件のみ残存。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T03:13:06.777Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave3"
     },
     "dmz": {
       "slug": "dmz",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落。3列表セル超過6件・導入文なし2件でMEDIUM8件。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "G+Dリライトで1.00→2.90。lint違反ゼロ・参考資料IPA+Fortinet+Wikipedia。RelatedKeywords未使用で関連付けが2点。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:13:06.777Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave3"
     },
     "game-theory": {
       "slug": "game-theory",
@@ -1110,19 +1110,20 @@
     "unconscious-bias": {
       "slug": "unconscious-bias",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料URLが0件で即不合格クランプ。モバイルはMEDIUM11件で要修正水準。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "G+Dリライトで1.00→2.75。主な種類表を箇条書き化、参考資料内閣府+人事部追加。L21太字37字のみ残存。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T03:13:06.777Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave3"
     },
     "fta": {
       "slug": "fta",
@@ -1289,35 +1290,36 @@
       "slug": "tacit-knowledge",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "qualitative_comment": "参考資料にURLが1件もなく§9違反で即不合格クランプ。MEDIUM6件で要修正。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+Dリライトで1.00→3.00完全合格。暗黙知の構成要素表を箇条書き化、国総研+富士フイルムで参考資料揃い。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:13:06.777Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave3"
     },
     "data-visualization": {
       "slug": "data-visualization",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクションが完全欠落（0点・即不合格）。MEDIUM3件（3列表セル超過）。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "G+Dリライトで1.00→2.75。lint違反ゼロ。参考資料は総務省+Wikipedia+Qiitaで2点、RelatedKeywords未使用で2点。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T03:13:06.777Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave3"
     },
     "disclosure-request": {
       "slug": "disclosure-request",
