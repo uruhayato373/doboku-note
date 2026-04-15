@@ -151,8 +151,16 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
               "@type": "Organization",
               name: "doboku-note",
             },
-            datePublished: (docMeta as any).created || (docMeta as any).publishedAt || undefined,
-            dateModified: (docMeta as any).updatedAt || (docMeta as any).publishedAt || (docMeta as any).created || undefined,
+            datePublished:
+              (docMeta as any).publishedAt ||
+              (docMeta as any).created ||
+              undefined,
+            dateModified:
+              (docMeta as any).lastRewrittenAt ||
+              (docMeta as any).updatedAt ||
+              (docMeta as any).publishedAt ||
+              (docMeta as any).created ||
+              undefined,
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": `${baseUrl}/docs/${docMeta.slug}`,

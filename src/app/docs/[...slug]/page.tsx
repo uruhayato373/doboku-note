@@ -79,6 +79,19 @@ export async function generateStaticParams() {
 }
 
 /**
+ * frontmatter の日付値を RFC3339 ISO 文字列に正規化する。
+ * OGP (article:published_time / article:modified_time) 用。
+ * - `'2026-04-14'` → `'2026-04-14T00:00:00.000Z'`
+ * - 既に ISO 文字列ならそのまま
+ * - 無効な値なら undefined
+ */
+function toISOStringSafe(value: unknown): string | undefined {
+  if (!value) return undefined;
+  const d = new Date(value as string);
+  return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
+}
+
+/**
  * Generate metadata for each documentation page.
  */
 export async function generateMetadata({
@@ -135,6 +148,13 @@ export async function generateMetadata({
 
   const description = doc.meta.description || doc.meta.title;
 
+  const publishedTime = toISOStringSafe((doc.meta as any).publishedAt);
+  const modifiedTime = toISOStringSafe(
+    (doc.meta as any).lastRewrittenAt ||
+    (doc.meta as any).updatedAt ||
+    (doc.meta as any).publishedAt
+  );
+
   return {
     title,
     description,
@@ -153,6 +173,8 @@ export async function generateMetadata({
         height: 630,
         alt: doc.meta.title,
       }],
+      ...(publishedTime && { publishedTime }),
+      ...(modifiedTime && { modifiedTime }),
     },
     twitter: {
       card: 'summary_large_image',
@@ -298,7 +320,7 @@ export default async function DocPage({
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
             <AuthorCard
               publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
-              updatedAt={(doc.meta as any).updatedAt}
+              updatedAt={(doc.meta as any).lastRewrittenAt || (doc.meta as any).updatedAt}
             />
           </main>
 
