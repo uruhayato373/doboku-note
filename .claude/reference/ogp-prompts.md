@@ -6,6 +6,7 @@ doboku-note で採用する OGP テンプレ 5 種類の Midjourney プロンプ
 - **出力先**: `scripts/fonts/ogp-backgrounds/{template-id}.png`
 - **文字なし** で生成すること。タイトル文字は satori 側で合成する
 - プロンプトから `Enormous text "【タイトルをここに入力してください】"...` の行を削除して使う
+- **セーフティゾーン意識**: 中央 630×630 の正方形は 1:1 クロップされる可能性があるプラットフォーム（note モバイル・Slack・Discord 等）で全要素が表示される領域。**被写体・重要なテクスチャは中央寄せ** にすること。左右 285px ずつは装飾専用でよい（クロップで消えて問題ない）
 - 運用: 背景を差し替えたい場合はこのファイルを更新してから再生成
 
 ## テンプレ一覧
@@ -80,7 +81,7 @@ A dark green blackboard texture filling the entire frame, chalk dust visible, sl
 新しいテンプレを追加するときは以下を更新する:
 
 1. このファイル（出典プロンプトと用途）
-2. `src/config/ogp-templates.json`（レジストリ）
-3. `scripts/ogp-create.mjs` の `templates/{id}.mjs` に renderer 関数を追加
-4. 必要なら `src/config/ogp-rules.json` にルール追加
+2. `.claude/config/ogp/templates.json`（レジストリ）
+3. `scripts/lib/ogp-templates.mjs` の `renderers` に render 関数を追加
+4. 必要なら `.claude/config/ogp/rules.json` にルール追加
 5. 背景画像が必要なら `scripts/fonts/ogp-backgrounds/{id}.png` に配置
