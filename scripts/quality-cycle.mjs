@@ -394,10 +394,14 @@ function pickPatterns(weakAxes) {
     principle: ['A', 'E'], // 具体例 + 試験での問われ方
     structure: ['C', 'F'], // 比較表 + mermaid
     reference: ['D'], // 歴史・背景
-    mobile: [], // 表は慎重に
+    mobile: ['G'], // 既存の4列以上/長セル表を階層化箇条書きに変換（既存構造の in-place 変更）
     linking: ['A'], // 具体例で内部リンク追加
   };
   const picks = new Set();
+  // mobile 弱点時は G を最優先で確保する（weak_axes の順序に関わらず slice(0,2) で落とさない）
+  if (weakAxes.includes('mobile')) picks.add('G');
+  // reference も参考資料は構造的欠落が多く優先度高
+  if (weakAxes.includes('reference')) picks.add('D');
   for (const axis of weakAxes) {
     for (const p of map[axis] || []) picks.add(p);
   }

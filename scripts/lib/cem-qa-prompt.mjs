@@ -53,6 +53,36 @@ export function buildCemQaPrompt(slug) {
  * @returns {string}
  */
 export function buildRewriterPrompt(slug, weakAxes, expansionPatterns) {
+  const hasG = expansionPatterns.includes('G');
+  const gInstructions = hasG ? `
+
+**G パターン（モバイル視認性修正）の実行ルール**:
+
+mobile 軸が weak_axes に含まれているため、既存の以下の表を **情報量を保持したまま** 階層化箇条書きに変換すること:
+
+変換の対象:
+- 4列以上の表
+- 3列表のいずれかのセルが 15字超のもの
+
+変換の対象外（触らない）:
+- 2列の表
+- 3列表で全セルが 15字以内（2軸比較として成立）
+- コード例や数式を含む表
+
+変換形式:
+- 1行目のセル 1 をマーカー化: \`- **{セル1}**: {セル2} — {セル3}\`
+- 列が 4 つ以上ある場合は 2 階層箇条書き（親: 列1 + 列2、子: 列3 + 列4）
+- 情報量を 1対1 で保持する（セル文言を要約・削除しない）
+- 変換後の直前に導入文を入れる
+- 表ヘッダーの列名情報は導入文や階層マーカーで補う
+
+G パターン時の禁止事項:
+- 2軸比較として成立する表を壊さない（列ヘッダが「観点/A/B」で全セル15字以内のもの）
+- セル内容の要約や削除は禁止
+- 列数が減った場合、削られた列の情報を近接する箇条書きに必ず含める
+- 既存の ExamPoint・参考資料・H3 見出しは無改変
+` : '';
+
   return `あなたは keyword-rewriter エージェントです。
 完全な定義は \`.claude/agents/keyword-rewriter.md\` を Read で読み、それに従ってください。
 コンテンツ原則の真実源は \`.claude/content-principles.md\` です。
@@ -62,25 +92,26 @@ export function buildRewriterPrompt(slug, weakAxes, expansionPatterns) {
   ファイル: .local/r2/posts/pe-comprehensive-management/${slug}/article.mdx
   弱点軸: ${JSON.stringify(weakAxes)}
   推奨拡張パターン: ${JSON.stringify(expansionPatterns)}
-
+${gInstructions}
 実行手順:
   1. .claude/agents/keyword-rewriter.md を Read で読む
   2. 対象ファイルを Read で読む
   3. 既存本文を尊重しつつ、推奨拡張パターン（1〜2 個）を適用
-  4. ページ末尾の「総合技術監理における位置づけ」と「参考資料」の間に
-     新セクション（H2）を追加
-  5. frontmatter に以下を追加（既存値があれば上書き）:
+  4. A/D/E/F 等の追加系パターン: ページ末尾の「総合技術監理における位置づけ」と「参考資料」の間に新セクション（H2）を追加
+  5. G パターン: 既存の該当する表を箇条書きに変換（既存構造の in-place 変更）
+  6. frontmatter に以下を追加（既存値があれば上書き）:
      - reviewStatus: needs-review
      - lastRewrittenAt: ${new Date().toISOString().split('T')[0]}
      - revisionCycle: 1（既存値があれば +1）
-  6. 改行コードは元ファイルを保持（scripts/lib/mdx-io.mjs を必ず使う）
-  7. Edit ツールで書き戻し
-  8. 文字化け（U+FFFD）が混入していないか Grep で確認
+  7. 改行コードは元ファイルを保持（scripts/lib/mdx-io.mjs を必ず使う）
+  8. Edit ツールで書き戻し
+  9. 文字化け（U+FFFD）が混入していないか Grep で確認
+  10. 再度 node scripts/lint-mdx-mobile.mjs を実行し、G 適用時は mobile 関連 MEDIUM が減っていることを確認
 
 絶対にしてはいけないこと:
   - 既存本文を一から書き直す
   - frontmatter の title/category/section/published を変更
-  - 既存の表・コード・<ExamPoint>・<details> を削除
+  - 既存の 2軸比較表（3列×全セル15字以内）を削除または変換
   - <ExamPoint> を新規追加（content-principles.md §5: 1ページ最大2個）
   - 「誤り選択肢パターン」のような禁止表現
   - 過去問判定記号（❌、✅、正答：）を本文に書く
@@ -90,12 +121,18 @@ export function buildRewriterPrompt(slug, weakAxes, expansionPatterns) {
 \`\`\`json
 {
   "slug": "${slug}",
-  "applied_patterns": ["A", "E"],
-  "added_sections": ["## 実務での具体例", "## 試験での問われ方"],
-  "added_chars": 850,
-  "before_chars": 1234,
-  "after_chars": 2084,
-  "frontmatter_changes": ["reviewStatus", "lastRewrittenAt", "revisionCycle"]
+  "applied_patterns": ${JSON.stringify(expansionPatterns)},
+  "added_sections": [],
+  "converted_tables": 0,
+  "added_chars": 0,
+  "before_chars": 0,
+  "after_chars": 0,
+  "frontmatter_changes": [],
+  "lint_high_before": 0,
+  "lint_high_after": 0,
+  "lint_medium_before": 0,
+  "lint_medium_after": 0,
+  "mojibake": false
 }
 \`\`\``;
 }
