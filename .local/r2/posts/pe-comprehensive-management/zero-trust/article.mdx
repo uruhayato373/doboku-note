@@ -8,6 +8,9 @@ tags:
   - keyword
 published: true
 publishedAt: "2026-04-06"
+reviewStatus: needs-review
+lastRewrittenAt: "2026-04-15"
+revisionCycle: 1
 ---
 
 # ゼロトラスト
@@ -24,13 +27,13 @@ publishedAt: "2026-04-06"
 
 ## 境界型防御との比較
 
-| 観点 | 境界型防御 | ゼロトラスト |
-|---|---|---|
-| 基本思想 | 内部は信頼、外部は遮断 | すべてを信頼しない |
-| 防御の起点 | ネットワーク境界（ファイアウォール等） | 個々のアクセスリクエスト |
-| 内部からの脅威 | 想定が弱い | 内部も検証対象 |
-| クラウド対応 | 境界の外にあるため防御が困難 | リソースの場所に依存しない |
-| 代表的手段 | [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)、[VPN](/docs/pe-comprehensive-management-vpn)、[DMZ](/docs/pe-comprehensive-management-dmz) | 多要素認証、マイクロセグメンテーション、最小権限の原則 |
+境界型防御とゼロトラストは、防御の起点と脅威の想定範囲において本質的に異なる。以下に主要な観点を示す。
+
+- **基本思想**: 境界型防御 = 内部は信頼、外部は遮断 — ゼロトラスト = すべてを信頼しない
+- **防御の起点**: 境界型防御 = ネットワーク境界（ファイアウォール等） — ゼロトラスト = 個々のアクセスリクエスト
+- **内部からの脅威**: 境界型防御 = 想定が弱い — ゼロトラスト = 内部も検証対象
+- **クラウド対応**: 境界型防御 = 境界の外にあるため防御が困難 — ゼロトラスト = リソースの場所に依存しない
+- **代表的手段**: 境界型防御 = [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)・[VPN](/docs/pe-comprehensive-management-vpn)・[DMZ](/docs/pe-comprehensive-management-dmz) — ゼロトラスト = 多要素認証・マイクロセグメンテーション・最小権限の原則
 
 ## ゼロトラストの基本原則
 
@@ -52,6 +55,8 @@ NIST SP800-207では、ゼロトラストアーキテクチャの基本的な考
 />
 
 ## 主要な実現技術
+
+ゼロトラストアーキテクチャを実現するために使われる主要な技術を示す。
 
 | 技術 | 役割 |
 |---|---|
@@ -79,4 +84,10 @@ NIST SP800-207では、ゼロトラストアーキテクチャの基本的な考
 
 ## 参考資料
 
-- [ゼロトラストという戦術の使い方](https://www.ipa.go.jp/jinzai/ics/core_human_resource/final_project/2021/zero-trust.html)（IPA）
+公的機関の指針と民間ベンダーのフレームワーク文書の両方を参照することで、ゼロトラストの技術的な全体像を把握できる。
+
+- [NIST SP 800-207 Zero Trust Architecture](https://csrc.nist.gov/publications/detail/sp/800-207/final)（NIST）— ゼロトラストアーキテクチャの国際標準文書。2020年発行。7つの基本原則と実装シナリオを規定しており、各国の政府・民間のゼロトラスト導入指針の基礎となっている
+- [ゼロトラストという戦術の使い方](https://www.ipa.go.jp/jinzai/ics/core_human_resource/final_project/2021/zero-trust.html)（IPA）— 日本語で読める実務的な解説。境界型防御との比較、導入アプローチ、国内企業向けの考慮事項を整理している
+- [ゼロトラストセキュリティ実践ガイドブック](https://www.soumu.go.jp/main_content/000771515.pdf)（総務省）— 地方公共団体向けゼロトラスト移行の実践的指針。調達・設計・運用の各フェーズで参照される公的ガイドライン
+- [Zero Trust Architecture（Palo Alto Networks）](https://www.paloaltonetworks.jp/zero-trust)（Palo Alto Networks）— ゼロトラストの提唱者 John Kindervag が同社に在籍した経緯もあり、ZTNA の概念解説と製品実装の関係を理解するうえで参考になる民間資料
+- [What is Zero Trust Security?（Cloudflare）](https://www.cloudflare.com/ja-jp/learning/security/glossary/what-is-zero-trust/)（Cloudflare）— SASEやZTNAとの関係、マイクロセグメンテーションの実装方法について分かりやすく解説した民間技術資料

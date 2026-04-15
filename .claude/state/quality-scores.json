@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T04:14:07.023Z",
+  "scored_at": "2026-04-15T04:18:03.354Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -434,34 +434,39 @@
       "slug": "environmental-basic-plan",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 2,
-        "reference": 2,
-        "linking": 3
+        "reference": 1,
+        "linking": 2
       },
       "weak_axes": [
-        "mobile"
+        "reference",
+        "principle"
       ],
-      "qualitative_comment": "3列表のセル超過（最大42字）と導入文欠落（2箇所）でモバイル視認性が低下。参考資料が公的1件のみで民間解説記事が必要。内容の正確性と独自性は優秀。",
-      "weighted": 2.15,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "G: 2.15→2.40。環境ビジネスURL DNS失敗。",
+      "weighted": 2.4,
+      "scored_at": "2026-04-15T04:18:03.354Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave11"
     },
     "zero-trust": {
       "slug": "zero-trust",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 2,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "構造と関連付けは完備だが、モバイル視認性（表セル上限超過・導入文欠落）と参考資料（公的1件のみ、民間必須）に改善が必要。ExamPoint配置は適切。",
-      "weighted": 2,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "G+D: 2.00→2.70。ExamPoint2個目が位置づけ節内配置。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T04:18:03.354Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave11"
     },
     "firewall-ids": {
       "slug": "firewall-ids",
@@ -499,17 +504,21 @@
       "slug": "bathtub-curve",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 2,
         "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile"
+        "principle",
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "モバイル軸が5件のMEDIUM違反でブロック。参考資料は公的のみで民間解説が未追加。ExamPoint配置は52%地点でやや早いが許容範囲内。",
-      "weighted": 2.05,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "qualitative_comment": "G: 2.05→2.55。キーエンス404・RelatedKeywords未使用。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-15T04:18:03.354Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave11"
     },
     "preventive-maintenance": {
       "slug": "preventive-maintenance",
@@ -995,18 +1004,17 @@
       "slug": "safety-health-org-structure",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "qualitative_comment": "モバイル軸は4列表・導入文欠落でMEDIUM4件（要修正）。参考資料は公的1件のみで民間解説リンクが欠落。構造・関連付けは良好。",
-      "weighted": 2,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+D: 2.00→3.00 完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T04:18:03.354Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave11"
     },
     "stakeholder": {
       "slug": "stakeholder",
@@ -1079,17 +1087,19 @@
       "slug": "game-theory",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 1,
         "principle": 2,
-        "reference": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "reference"
+        "mobile"
       ],
-      "qualitative_comment": "参考資料が公的機関2件のみで民間解説記事ゼロ。3列表のセル超過とExamPoint位置ズレも要修正。",
-      "weighted": 2.15,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "D: 2.15→2.20。3列表セル超過残存、Phase 4候補。",
+      "weighted": 2.2,
+      "scored_at": "2026-04-15T04:18:03.354Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave11"
     },
     "osh-management-system": {
       "slug": "osh-management-system",
