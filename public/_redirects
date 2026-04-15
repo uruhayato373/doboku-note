@@ -32,4 +32,7 @@
 /docs/river-low / 301
 
 # Cloudflare Pages: 画像を R2 にリダイレクト
-/posts/* https://storage.doboku-note.com/posts/:splat 200
+# NOTE: Cloudflare Pages の _redirects は 200 ステータス（内部 rewrite）で外部オリジンへのプロキシに
+# 対応していないため、必ず 301 を使う。`<img>` タグはブラウザがリダイレクトを自動追従するので
+# URL バーには影響しない（実害なし）。
+/posts/* https://storage.doboku-note.com/posts/:splat 301
