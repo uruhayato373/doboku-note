@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:34:23.732Z",
+  "scored_at": "2026-04-15T03:41:43.171Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -765,20 +765,20 @@
     "data-mining": {
       "slug": "data-mining",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落で即不合格。4列表でMEDIUM7件。構造は参考資料節なしでセクション欠落1箇所。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "G+D: 1.00→2.90。RelatedKeywordsブロック未設置で linking 2点。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:41:43.171Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave5"
     },
     "cash-flow-statement": {
       "slug": "cash-flow-statement",
@@ -936,37 +936,38 @@
     "survey-analysis": {
       "slug": "survey-analysis",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 2,
         "principle": 2,
-        "reference": 0,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "参考資料H2セクションが完全欠落（0点クランプ）。モバイルはMEDIUM9件。構造は参考資料セクション欠落で1点。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "qualitative_comment": "G+D: 1.00→2.45。ExamPoint 44%地点で位置づけ前、末尾関連キーワード列挙形式残存。Phase 4候補。",
+      "weighted": 2.45,
+      "scored_at": "2026-04-15T03:41:43.171Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave5"
     },
     "knowledge-sharing": {
       "slug": "knowledge-sharing",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "qualitative_comment": "参考資料に外部URLが1件もなく即不合格。3列表の多数セルが15字超（MEDIUM17件）でモバイル軸も1点。構造・関連付けは概ね問題なし。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+D: 1.00→3.00 完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:41:43.171Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave5"
     },
     "safety-health-org-structure": {
       "slug": "safety-health-org-structure",
@@ -1083,20 +1084,23 @@
     "recommendation-systems": {
       "slug": "recommendation-systems",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 2,
         "principle": 2,
-        "reference": 0,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "principle",
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクションが完全欠落で即不合格。4列表と長セル、ExamPointの位置ズレ。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "G+D: 1.00→2.30。ExamPoint位置・民間資料がレポート一覧・関連キーワード列挙形式。Phase 4候補。",
+      "weighted": 2.3,
+      "scored_at": "2026-04-15T03:41:43.171Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave5"
     },
     "unconscious-bias": {
       "slug": "unconscious-bias",
@@ -1153,39 +1157,36 @@
     "centralization-decentralization": {
       "slug": "centralization-decentralization",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "reference",
-        "linking"
-      ],
-      "qualitative_comment": "参考資料セクション完全欠落（0点クランプ）。MEDIUM4件・表前導入文なし・セル字数超過・RelatedKeywords未使用が重複。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+D: 1.00→3.00 完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:41:43.171Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave5"
     },
     "forests-villages-rivers-seas": {
       "slug": "forests-villages-rivers-seas",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクションが完全欠落で即不合格。表3か所に導入文なし・リンク列挙形式違反でMEDIUM4件。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "G+D: 1.00→2.90。双方向未確認で linking 2点。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:41:43.171Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave5"
     },
     "machinery-safety-guidelines": {
       "slug": "machinery-safety-guidelines",

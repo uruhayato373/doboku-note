@@ -9,6 +9,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-08'
+revisionCycle: 1
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-15'
 ---
 
 # 集中化と分散化
@@ -23,15 +26,15 @@ publishedAt: '2026-04-08'
 
 ### 集中処理と分散処理の比較
 
-| 評価項目 | 集中処理 | 分散処理 |
-|---|---|---|
-| **処理性能** | 大型コンピュータの高い処理能力 | 複数マシンで並列処理が可能 |
-| **信頼性** | 単一障害点（SPOF）のリスク | 一部障害時も他で継続可能 |
-| **拡張性** | スケールアップ（垂直拡張）が中心 | スケールアウト（水平拡張）が容易 |
-| **管理性** | 一元管理が容易 | 管理が複雑化しやすい |
-| **コスト** | 初期投資が大きい | 段階的な投資が可能 |
-| **セキュリティ** | 集中管理で統制しやすい | 各拠点のセキュリティ確保が必要 |
-| **ネットワーク依存** | ホスト-端末間の通信に依存 | ノード間通信の帯域・遅延が課題 |
+集中処理と分散処理の主な評価軸を以下に整理する。各評価項目について、両方式の特徴を把握しておくことが設計判断の基本となる。
+
+- **処理性能**: 集中処理 — 大型コンピュータの高い処理能力 / 分散処理 — 複数マシンで並列処理が可能
+- **信頼性**: 集中処理 — 単一障害点（SPOF）のリスク / 分散処理 — 一部障害時も他で継続可能
+- **拡張性**: 集中処理 — スケールアップ（垂直拡張）が中心 / 分散処理 — スケールアウト（水平拡張）が容易
+- **管理性**: 集中処理 — 一元管理が容易 / 分散処理 — 管理が複雑化しやすい
+- **コスト**: 集中処理 — 初期投資が大きい / 分散処理 — 段階的な投資が可能
+- **セキュリティ**: 集中処理 — 集中管理で統制しやすい / 分散処理 — 各拠点のセキュリティ確保が必要
+- **ネットワーク依存**: 集中処理 — ホスト-端末間の通信に依存 / 分散処理 — ノード間通信の帯域・遅延が課題
 
 ### 分散処理の形態
 
@@ -66,4 +69,15 @@ publishedAt: '2026-04-08'
 
 集中化と分散化の選択は、クラウドコンピューティング／オンプレミスやエッジコンピューティングの導入判断と密接に関連し、RASIS（信頼性・可用性・保守性・保全性・安全性）の各指標による評価が不可欠である。
 
-関連キーワード: [可用性（Availability）](/docs/pe-comprehensive-management-system-availability)、[クラウドコンピューティング／オンプレミス](/docs/pe-comprehensive-management-cloud-on-premises)、[エッジコンピューティング](/docs/pe-comprehensive-management-edge-computing)
+<RelatedKeywords items={[
+  { label: "可用性（Availability）", slug: "pe-comprehensive-management-system-availability" },
+  { label: "クラウドコンピューティング／オンプレミス", slug: "pe-comprehensive-management-cloud-on-premises" },
+  { label: "エッジコンピューティング", slug: "pe-comprehensive-management-edge-computing" },
+  { label: "RASIS", slug: "pe-comprehensive-management-rasis" },
+  { label: "情報セキュリティ", slug: "pe-comprehensive-management-information-security" },
+]} />
+
+## 参考資料
+
+- [クラウドサービスの概要](https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/h30/html/nd133210.html)（総務省 情報通信白書 平成30年版）— IaaS/PaaS/SaaS の3分類とクラウドの位置づけを解説。集中処理から分散処理へ移行する現代の情報システム設計を理解する基礎資料。
+- [エッジコンピューティング 用語解説](https://www.nri.com/jp/knowledge/glossary/edge_computing.html)（野村総合研究所）— クラウド（集中）とエッジ（分散）の関係を低レイテンシ・通信コスト・セキュリティの観点から整理。集中化と分散化の現代的なトレードオフを把握するのに適している。
