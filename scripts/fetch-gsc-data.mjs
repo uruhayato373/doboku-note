@@ -21,7 +21,7 @@ dotenv.config({ path: ".env.local" });
 // ── Config ──
 
 const SITE_URL = "sc-domain:doboku-note.com";
-const OUTPUT_DIR = ".local/gsc";
+const OUTPUT_DIR = ".local/metrics/gsc";
 const DEFAULT_DAYS = 28;
 const DEFAULT_LIMIT = 100;
 const DEFAULT_DIMENSION = "query";

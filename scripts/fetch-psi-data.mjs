@@ -2,7 +2,7 @@
  * PageSpeed Insights API 取得スクリプト
  *
  * Core Web Vitals（LCP, INP, CLS）と Lighthouse スコアを取得し
- * .local/psi/ に時系列で保存する。
+ * .local/metrics/psi/ に時系列で保存する。
  *
  * 認証方針:
  *   PSI API v5 は公開エンドポイント。低量の呼び出しは API キー不要。
@@ -35,7 +35,7 @@ dotenv.config({ path: ".env.local" });
 
 // ── Config ──
 
-const OUTPUT_DIR = ".local/psi";
+const OUTPUT_DIR = ".local/metrics/psi";
 const DEFAULT_STRATEGY = "mobile";
 const DEFAULT_CATEGORIES = ["performance", "accessibility", "best-practices", "seo"];
 

@@ -81,7 +81,7 @@ abandoned  abandoned  running (re-measure)
      ・civil-construction-1-textbook-construction-mgmt-overview
      ・civil-construction-1-guide-earthwork-key-points
    理由: GSC 1 日クォータ上限到達
-   参照: .local/gsc-indexing-requests-2026-04-15.md
+   参照: .local/metrics/notes/gsc-indexing-requests-2026-04-15.md
 ```
 
 5. ユーザーに「どの action から進めるか」を問う。「EXP-001 を resume して」等の返答があれば `resume` サブモードへ遷移。

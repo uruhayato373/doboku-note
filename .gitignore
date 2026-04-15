@@ -52,7 +52,7 @@ doboku-note-*.json
 credentials/
 
 # GSC data output
-.local/gsc/
+.local/metrics/gsc/
 
 public/posts
 .aidesigner/*
