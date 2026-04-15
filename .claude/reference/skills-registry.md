@@ -53,8 +53,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 
 | スキル | 用途 | 対応試験 | 汎用化 | 定義 |
 |---|---|---|---|---|
-| `/exam-guide` | 試験対策ガイド生成（既存資産再構成） | civil-construction-1 | Phase 2 で `--exam {id}` パラメータ化予定 | `.claude/skills/content/exam-guide/SKILL.md` |
-| `/pe-exam-guide` | 技術士試験対策ガイド生成（既存資産＋公開情報） | pe | Phase 2 で統合予定 | `.claude/skills/content/pe-exam-guide/SKILL.md` |
+| `/exam-guide --exam {exam-id}` | 試験対策ガイド生成（既存資産再構成、試験別設定ファイルでパラメタライズ） | civil-construction-1 / pe | 対応済み | `.claude/skills/content/exam-guide/SKILL.md` |
 
 **テンプレート管理**: `.claude/skills/content/templates/exam-guide/` （新資格追加時は設定ファイル追加のみ）
 
@@ -127,32 +126,25 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 
 複数の土木系資格試験（1級土木・技術士・コンクリート技士・測量士等）に対応するため、以下の段階的アプローチを採用している。
 
-### Phase 1（現在 2026-04-01）: テンプレート外部化
+### Phase 1（2026-04-01〜）: テンプレート外部化
 
-スキル本体は試験特化のまま。**試験固有の設定をテンプレートフォルダで管理**し、新資格追加時はスキル追加を不要に。
+スキル本体は汎用のまま。**試験固有の設定をテンプレートフォルダで管理**し、新資格追加時はスキル追加を不要に。
 
 ```
-/exam-guide (1級土木施工管理技士)
-  → 設定参照: .claude/skills/content/templates/exam-guide/civil-construction-1.md
+/exam-guide --exam {exam-id}
+  → 設定参照: .claude/skills/content/templates/exam-guide/{exam-id}.md
 
-/pe-exam-guide (技術士建設部門)
-  → 設定参照: .claude/skills/content/templates/exam-guide/pe.md
+対応済み:
+  - civil-construction-1.md（1級土木施工管理技士）
+  - pe.md（技術士建設部門 / pe-comprehensive-management）
 ```
 
 **新資格追加時の作業**:
 1. `templates/exam-guide/{exam-id}.md` を新規作成（テンプレートのコピー＋設定入力）
 2. スキル側は変更なし
 
-### Phase 2（2026年秋予定）: スキル汎用化へリファクタリング
-
-スキル側でパラメータ化。複数試験を1つのスキルで処理。
-
-```
-/exam-guide --exam {exam-id} --topic {topic}
-  ↓ 内部で templates/exam-guide/{exam-id}.md を読み込み
-
-/pe-exam-guide → 廃止（/exam-guide に統合）
-```
+**退役済み**:
+- `/pe-exam-guide`（2026-04-15 削除）: 試験別個別スキルの廃止方針に従い `/exam-guide --exam pe` に統合
 
 **メリット**: スキル数削減。ハーネス設計原則4「スキルを増やすより既存スキルのパラメータ化を優先」に完全準拠。
 

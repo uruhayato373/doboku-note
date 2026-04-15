@@ -2,7 +2,7 @@
 
 最終更新: 2026-04-01
 
-各試験対策ガイドスキル（`/exam-guide`, `/pe-exam-guide` など）で使用される設定変数の定義。
+各試験対策ガイドスキル（`/exam-guide`, `/exam-guide --exam pe` など）で使用される設定変数の定義。
 
 ---
 
@@ -204,6 +204,5 @@ sidebar_slug: exam-guide
 ## 参考リンク
 
 - テンプレートフォルダ: `.claude/skills/content/templates/`
-- `exam-guide` スキル詳細: `.claude/skills/content/exam-guide/SKILL.md`
-- `pe-exam-guide` スキル詳細: `.claude/skills/content/pe-exam-guide/SKILL.md`
+- `exam-guide` スキル詳細: `.claude/skills/content/exam-guide/SKILL.md`（全試験共通・`--exam` でパラメタライズ）
 - URL設計ガイドライン: `docs/00_プロジェクト管理/07_URL設計ガイドライン.md`

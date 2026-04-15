@@ -59,33 +59,21 @@ templates/
 
 ## Phase 別の進化ロードマップ
 
-### Phase 1（現在 2026-04-01）：テンプレート外部化
+### Phase 1（2026-04-15 時点）: テンプレート外部化 + 単一スキル化完了
 
-**状態**: 設定ファイルは外部化されるが、スキルSKILL.md本体はまだ試験固有。
+**状態**: `/exam-guide` 単一スキルで全試験をカバー。`--exam {exam-id}` で設定ファイルを切り替え。
 
 ```
-/exam-guide （1級土木施工管理技士向け）
+/exam-guide --exam civil-construction-1
   ↓ templates/exam-guide/civil-construction-1.md を参照
 
-/pe-exam-guide （技術士向け）
-  ↓ templates/exam-guide/pe.md を参照
+/exam-guide --exam pe
+  ↓ templates/exam-guide/pe.md を参照（旧 /pe-exam-guide から統合）
 ```
 
 **メリット**: 新資格追加時、設定ファイル追加のみ。スキル追加なし。
 
-**デメリット**: スキル本体は複数存在（DRY原則的には不十分）。
-
-### Phase 2（2026年秋予定）：スキル汎用化へリファクタリング
-
-**目標**: スキルを1つに集約し、パラメータで試験を指定。
-
-```
-/exam-guide --exam {exam-id}
-  ↓ 内部で templates/exam-guide/{exam-id}.md を読み込み
-  ↓ スキルは1つのみ
-
-/pe-exam-guide → 廃止（/exam-guide --exam pe に統合）
-```
+**退役済み**: `/pe-exam-guide` は 2026-04-15 に削除。`/exam-guide --exam pe` に統合
 
 **このフォルダの役割**:
 - Phase 2 実装時の参照実装
@@ -97,7 +85,7 @@ templates/
 
 ### `exam-guide/`
 
-試験対策ガイド生成スキル（`/exam-guide`, `/pe-exam-guide` 等）が参照する設定の集約。
+試験対策ガイド生成スキル（`/exam-guide --exam {exam-id}`）が参照する設定の集約。
 
 **ファイル一覧**
 
@@ -128,9 +116,9 @@ templates/
   **Phase 2**: `--exam civil-construction-1` パラメータ化予定
   ```
 
-### `/pe-exam-guide` （技術士建設部門）
+### `/exam-guide --exam pe`（技術士建設部門）
 
-- **スキルファイル**: `.claude/skills/content/pe-exam-guide/SKILL.md`
+- **スキルファイル**: `.claude/skills/content/exam-guide/SKILL.md`（`/exam-guide` に統合）
 - **参照テンプレート**: `templates/exam-guide/pe.md`
 
 ### （未実装）新資格のガイド生成

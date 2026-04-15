@@ -27,8 +27,7 @@ model: sonnet
 | `/exam-demand` | 資格試験需要調査 |
 | `/keyword-gap` | コンテンツギャップ分析（seo-auditor と共同） |
 | `/plan-affiliate` | アフィリエイト企画（ads 連携） |
-| `/exam-guide` | 1級土木施工管理 試験対策ガイド生成（既存資産再構成） |
-| `/pe-exam-guide` | 技術士試験対策ガイド生成（既存資産＋公開情報） |
+| `/exam-guide` | 試験対策ガイド生成（1級土木・技術士等、試験別設定ファイルでパラメタライズ） |
 | `/content-roadmap` | コンテンツ拡充ロードマップ生成 |
 
 ## 担当外

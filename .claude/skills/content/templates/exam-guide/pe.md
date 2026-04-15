@@ -6,7 +6,7 @@ created: 2026-04-01
 
 # 技術士（建設部門） — exam-guide テンプレート設定
 
-このファイルは `/pe-exam-guide` スキルで使用される設定値を定義します。
+このファイルは `/exam-guide --exam pe` スキルで使用される設定値を定義します。
 スキルはここに記載された値を参照して、技術士試験対策ガイドを生成します。
 
 ---
@@ -165,7 +165,7 @@ exams:
 
 ```bash
 # Phase 1（現在）
-/pe-exam-guide soil
+/exam-guide --exam pe soil
 
 # Phase 2（2026年秋予定）
 /exam-guide --exam pe --topic soil

@@ -1,9 +1,9 @@
 ---
 name: exam-guide
 description: >
-  既存テキスト・問題集から試験対策ガイドを生成する。Use when user asks to [試験対策ガイドを作りたい, /exam-guide].
+  既存テキスト・問題集から試験対策ガイドを生成する。1級土木・技術士など試験別の設定ファイル（.claude/skills/content/templates/exam-guide/{exam}.md）を参照しパラメタライズ。
+  Use when user asks to [試験対策ガイドを作りたい, 頻出テーマ抽出, ガイド生成, /exam-guide].
 ---
-```
 
 ### 構成テンプレート
 
@@ -119,7 +119,7 @@ templates/
 └── exam-guide/
     ├── _schema.md         ← 試験別設定ファイルの仕様定義
     ├── civil-construction-1.md  ← 本スキルが使用（当ファイル）
-    ├── pe.md              ← /pe-exam-guide が使用
+    ├── pe.md              ← /exam-guide --exam pe が使用
     ├── concrete-engineer.md     ← Phase 2で対応予定
     └── _new-exam-template.md    ← 新資格追加時のコピー用雛形
 ```
