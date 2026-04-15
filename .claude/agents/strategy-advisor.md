@@ -98,4 +98,4 @@ model: inherit
 - `docs/reviews/weekly-metrics/` — 週次 NSM スナップショット（時系列）
 - `docs/reviews/competitor-audit/` — 競合調査
 - `docs/reviews/` — 批判的レビュー・その他
-- `data/experiments.json` — NSM 実験の状態遷移履歴
+- `.claude/state/experiments.json` — NSM 実験の状態遷移履歴

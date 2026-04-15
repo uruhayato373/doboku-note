@@ -58,7 +58,7 @@ Quality Cycle 第1サイクル（5 件リライト + デプロイ）が完了し
 - **cem-qa 採点済**: 30 / 644 件
   - Cycle 1 で採点した 20 件
   - Cycle 2 で本セッションに採点した 10 件（isms-iso27001, iso-14000, correlation-analysis, generative-ai, employment-insurance, product-safety, alps-treated-water, environmental-basic-plan, zero-trust, firewall-ids）
-  - データは `data/quality-scores.json` に保存済
+  - データは `.claude/state/quality-scores.json` に保存済
 - **リライト候補（weighted < 2.5）**: 30 件中 18 件
 
 ---
@@ -115,7 +115,7 @@ node scripts/quality-cycle.mjs --mode score --top 1000 --dry-run | head -20
 1. **モデル選択**: Sonnet（haiku より概して概念理解が安定する。verbose 性は同程度）
    - もし haiku のままで進めるなら、プロンプトに「**JSON 1行のみ。reasoning 禁止**」を強調
 2. **バッチサイズ**: 5 件並列（duration_ms 平均 ~30 秒）
-3. **保存タイミング**: 5-10 件ごとに `data/quality-scores.json` に追記
+3. **保存タイミング**: 5-10 件ごとに `.claude/state/quality-scores.json` に追記
 4. **weighted の正規化**: 必ず scores から再計算する（subagent 出力の weighted は信頼しない）
 
 ### 5.3 推奨されるコード snippet
@@ -131,7 +131,7 @@ function recomputeWeighted(s) {
 // quality-scores.json に追記する node ワンライナー
 node -e "
 const fs = require('fs');
-const path = 'data/quality-scores.json';
+const path = '.claude/state/quality-scores.json';
 const data = JSON.parse(fs.readFileSync(path, 'utf-8'));
 const now = new Date().toISOString();
 const results = [
@@ -260,18 +260,18 @@ function isRewriteCandidate(p) {
 
 | パス | 内容 | 更新タイミング |
 |---|---|---|
-| `data/mechanical-screen.json` | 全 644 件の機械的指標（Phase F 出力） | screen mode 実行時 |
-| `data/quality-scores.json` | Tier 2 採点結果（30 件） | score / verify 実行時 |
-| `data/flagship-100.json` | 上位 100 件 | flagship mode 実行時 |
-| `data/quality-cycle-state.json` | 各ページの state 履歴 | rewrite / verify / approve 時 |
-| `data/review-queue.md` | 人間レビュー待ちリスト | review mode 実行時 |
+| `.claude/state/mechanical-screen.json` | 全 644 件の機械的指標（Phase F 出力） | screen mode 実行時 |
+| `.claude/state/quality-scores.json` | Tier 2 採点結果（30 件） | score / verify 実行時 |
+| `.claude/state/flagship-100.json` | 上位 100 件 | flagship mode 実行時 |
+| `.claude/state/quality-cycle-state.json` | 各ページの state 履歴 | rewrite / verify / approve 時 |
+| `.claude/state/review-queue.md` | 人間レビュー待ちリスト | review mode 実行時 |
 
 ### 8.2 ロジックを持つファイル
 
 | パス | 役割 |
 |---|---|
 | `scripts/quality-cycle.mjs` | オーケストレータ（screen / score / rewrite / verify / review / report / flagship） |
-| `scripts/lib/quality-state.mjs` | data/*.json の I/O |
+| `scripts/lib/quality-state.mjs` | .claude/state/*.json の I/O |
 | `scripts/lib/cem-qa-prompt.mjs` | subagent プロンプトテンプレート |
 | `scripts/lib/mdx-io.mjs` | 改行コード保持 I/O |
 | `scripts/lint-mdx-mobile.mjs` | カテゴリ 0-9 の機械的検証 |
@@ -429,7 +429,7 @@ export function buildCemQaPrompt(slug) {
    ```bash
    node -e "
    const fs = require('fs');
-   const path = 'data/quality-scores.json';
+   const path = '.claude/state/quality-scores.json';
    const data = JSON.parse(fs.readFileSync(path, 'utf-8'));
    const now = new Date().toISOString();
    const results = [
@@ -450,7 +450,7 @@ export function buildCemQaPrompt(slug) {
 
 5. **セッション終了時**:
    ```bash
-   git add data/quality-scores.json
+   git add .claude/state/quality-scores.json
    git commit -m "content: Quality Cycle 第2サイクル F-2 採点 ${累計}/644 件"
    git push origin main
    ```

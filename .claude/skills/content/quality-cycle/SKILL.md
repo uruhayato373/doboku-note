@@ -17,17 +17,17 @@ description: >
 2. **2 段階スコアリング**: Tier 1（機械的・全件） → Tier 2（質的・選抜）
 3. **Generator/Evaluator 厳密分離**: `keyword-rewriter` ≠ `cem-qa`
 4. **人間ゲート必須**: AI リライト後は `reviewStatus: needs-review` でマーク
-5. **データは git 管理**: `data/*.json` をリポジトリにコミット
+5. **データは git 管理**: `.claude/state/*.json` をリポジトリにコミット
 
 ## サブモード一覧
 
 | モード | 役割 | 出力 |
 |---|---|---|
-| `screen` | Tier 1 機械的事前ふるい（lint + 文字数 + frontmatter）| `data/mechanical-screen.json` |
-| `score` | Tier 2 質的評価（cem-qa subagent 並列呼び出し）| `data/quality-scores.json` |
+| `screen` | Tier 1 機械的事前ふるい（lint + 文字数 + frontmatter）| `.claude/state/mechanical-screen.json` |
+| `score` | Tier 2 質的評価（cem-qa subagent 並列呼び出し）| `.claude/state/quality-scores.json` |
 | `rewrite` | 弱いページを keyword-rewriter で改訂 | 改訂された article.mdx + state 更新 |
 | `verify` | リライト後を cem-qa で再評価 | state 更新 |
-| `review` | 人間レビュー待ちリスト出力 | `data/review-queue.md` |
+| `review` | 人間レビュー待ちリスト出力 | `.claude/state/review-queue.md` |
 | `report` | ダッシュボード出力 | コンソール |
 
 ## 引数
@@ -49,11 +49,11 @@ description: >
 ```bash
 # Step 1: 全ページを機械的にふるい
 node scripts/quality-cycle.mjs --mode screen
-# → data/mechanical-screen.json (全 700 件)
+# → .claude/state/mechanical-screen.json (全 700 件)
 
 # Step 2: 上位 200 件を質的評価
 node scripts/quality-cycle.mjs --mode score --top 200
-# → data/quality-scores.json (200 件 × 5 軸)
+# → .claude/state/quality-scores.json (200 件 × 5 軸)
 
 # Step 3: weighted < 2.5 のページをリライト（並列 3）
 node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5 --batch 3
@@ -61,11 +61,11 @@ node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5 --batch 3
 
 # Step 4: リライト後を再評価
 node scripts/quality-cycle.mjs --mode verify
-# → data/quality-cycle-state.json 更新
+# → .claude/state/quality-cycle-state.json 更新
 
 # Step 5: 人間向けレビュー待ちリスト
 node scripts/quality-cycle.mjs --mode review
-# → data/review-queue.md
+# → .claude/state/review-queue.md
 
 # Step 6: ダッシュボード確認
 node scripts/quality-cycle.mjs --mode report
@@ -94,11 +94,11 @@ node scripts/quality-cycle.mjs --mode verify --slug pdca-cycle
 
 | ファイル | 内容 | 生成タイミング |
 |---|---|---|
-| `data/mechanical-screen.json` | 全 700 件の機械的指標 | `--mode screen` |
-| `data/quality-scores.json` | Tier 2 評価結果 | `--mode score` |
-| `data/quality-cycle-state.json` | 各ページの状態遷移履歴 | `--mode rewrite/verify` |
-| `data/flagship-100.json` | スコア上位 100 件のリスト | `--mode score` |
-| `data/review-queue.md` | 人間向けレビュー待ちリスト | `--mode review` |
+| `.claude/state/mechanical-screen.json` | 全 700 件の機械的指標 | `--mode screen` |
+| `.claude/state/quality-scores.json` | Tier 2 評価結果 | `--mode score` |
+| `.claude/state/quality-cycle-state.json` | 各ページの状態遷移履歴 | `--mode rewrite/verify` |
+| `.claude/state/flagship-100.json` | スコア上位 100 件のリスト | `--mode score` |
+| `.claude/state/review-queue.md` | 人間向けレビュー待ちリスト | `--mode review` |
 
 ## 状態遷移
 

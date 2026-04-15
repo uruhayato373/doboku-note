@@ -60,7 +60,7 @@ node scripts/snapshot-weekly-metrics.mjs
 調査方法:
 1. Phase 0 で生成された docs/reviews/weekly-metrics/YYYY-Www.json を読む
    - 無ければ metrics-reader を直接呼ぶ fallback
-2. data/experiments.json を読んで以下を把握:
+2. .claude/state/experiments.json を読んで以下を把握:
    - running 実験: 経過日数、baseline との gap
    - measuring 実験: 前後比較の中間サマリ
    - proposed 実験: 優先順位（次に start すべきもの）

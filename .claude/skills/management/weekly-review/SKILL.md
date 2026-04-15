@@ -59,7 +59,7 @@ A. NSM 指標取得:
 - 出力をそのまま「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
 
 B. 実験進捗レポート:
-- `data/experiments.json` を読み、status 別にグループ化:
+- `.claude/state/experiments.json` を読み、status 別にグループ化:
   - running: 経過日数、baseline との gap（metrics-reader で再取得）
   - measuring: baseline vs current の前後比較
   - 今週 close したもの: result + learnings
@@ -169,7 +169,7 @@ generatedAt: "YYYY-MM-DD"
 
 ## 実験の進捗
 
-<!-- Agent C が data/experiments.json から running/measuring/今週 close を自動生成。
+<!-- Agent C が .claude/state/experiments.json から running/measuring/今週 close を自動生成。
      running 実験の baseline → current 比較、measure 推奨の警告、
      close 実験の learnings を出力。 -->
 

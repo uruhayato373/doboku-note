@@ -3,17 +3,17 @@
 // Quality Cycle の state JSON を読み書きするユーティリティ。
 //
 // 対象ファイル:
-//   - data/mechanical-screen.json  : Tier 1 機械的指標
-//   - data/quality-scores.json     : Tier 2 質的評価結果
-//   - data/quality-cycle-state.json: 各ページの状態遷移履歴
-//   - data/flagship-100.json       : 上位 100 件のリスト
+//   - .claude/state/mechanical-screen.json  : Tier 1 機械的指標
+//   - .claude/state/quality-scores.json     : Tier 2 質的評価結果
+//   - .claude/state/quality-cycle-state.json: 各ページの状態遷移履歴
+//   - .claude/state/flagship-100.json       : 上位 100 件のリスト
 //
 // 全ファイル LF 改行で書き込む（gitattributes 不要・git diff ノイズ最小）。
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
-const DATA_DIR = 'data';
+const DATA_DIR = '.claude/state';
 const SCREEN_PATH = `${DATA_DIR}/mechanical-screen.json`;
 const SCORES_PATH = `${DATA_DIR}/quality-scores.json`;
 const STATE_PATH = `${DATA_DIR}/quality-cycle-state.json`;

@@ -230,7 +230,7 @@ function runFlagship() {
   console.log('[flagship] スコア上位 100 件を選定');
   const screen = readScreen();
   if (Object.keys(screen.pages).length === 0) {
-    console.error('[flagship] data/mechanical-screen.json が空です。先に --mode screen を実行してください。');
+    console.error('[flagship] .claude/state/mechanical-screen.json が空です。先に --mode screen を実行してください。');
     process.exit(1);
   }
 
@@ -257,7 +257,7 @@ function runScore(args) {
 
   const screen = readScreen();
   if (Object.keys(screen.pages).length === 0) {
-    console.error('[score] data/mechanical-screen.json が空です。先に --mode screen を実行してください。');
+    console.error('[score] .claude/state/mechanical-screen.json が空です。先に --mode screen を実行してください。');
     process.exit(1);
   }
 
@@ -296,7 +296,7 @@ function runScore(args) {
   console.log(`  1. このスクリプトの出力 JSON をファイル (/tmp/score-tasks.json) に保存`);
   console.log(`  2. Claude Code 側から /quality-cycle --mode score を呼び出して`);
   console.log(`     subagent を並列で起動`);
-  console.log(`  3. 各 subagent の結果を data/quality-scores.json にマージ`);
+  console.log(`  3. 各 subagent の結果を .claude/state/quality-scores.json にマージ`);
   console.log(`\n=== タスクリスト (JSON) ===`);
   console.log(JSON.stringify({ tasks: tasks.map((t) => ({ slug: t.slug })) }, null, 2));
 }
@@ -310,7 +310,7 @@ function runRewrite(args) {
 
   const scores = readScores();
   if (Object.keys(scores.pages).length === 0) {
-    console.error('[rewrite] data/quality-scores.json が空です。先に --mode score を実行してください。');
+    console.error('[rewrite] .claude/state/quality-scores.json が空です。先に --mode score を実行してください。');
     process.exit(1);
   }
 

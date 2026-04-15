@@ -33,7 +33,7 @@
    AI がリライトしたら必ず `frontmatter.reviewStatus = "needs-review"` を付与。承認は人間のみ。`reviewStatus = "approved"` になるまで「未完成」とみなす。
 
 5. **データは git 管理**  
-   `data/*.json` はリポジトリにコミット。スコアの履歴・状態遷移を追跡可能にする。
+   `.claude/state/*.json` はリポジトリにコミット。スコアの履歴・状態遷移を追跡可能にする。
 
 6. **べき等性**  
    何度実行しても同じ結果。再実行コストが低い（キャッシュ活用）。
@@ -53,14 +53,14 @@
        │     - lint-mdx-mobile.mjs を全ページに実行
        │     - 文字数・lint違反を集計
        │     - 候補スコアを算出
-       │     → data/mechanical-screen.json
+       │     → .claude/state/mechanical-screen.json
        │
        ├─► [Tier 2] 質的詳細評価
        │     scripts/quality-cycle.mjs (mode: score)
        │     - 候補上位 N 件 (デフォルト200) を選抜
        │     - 各ページに対し Task subagent で cem-qa 呼び出し
        │     - バッチ並列実行
-       │     → data/quality-scores.json
+       │     → .claude/state/quality-scores.json
        │
        ├─► [Generator] keyword-rewriter エージェント (新規)
        │     .claude/agents/keyword-rewriter.md
@@ -76,7 +76,7 @@
        │
        └─► [Output]
              scripts/quality-cycle.mjs (mode: review)
-             → data/review-queue.md (人間レビュー待ちリスト)
+             → .claude/state/review-queue.md (人間レビュー待ちリスト)
 ```
 
 ---
@@ -84,13 +84,13 @@
 ## データフロー
 
 ```
-700 article.mdx ── lint ──> data/mechanical-screen.json (全件)
+700 article.mdx ── lint ──> .claude/state/mechanical-screen.json (全件)
                               │
                               ▼ 上位 200 件選抜
                           cem-qa subagent
                               │
                               ▼
-                  data/quality-scores.json (200件の質的評価)
+                  .claude/state/quality-scores.json (200件の質的評価)
                               │
                               ▼ 弱いものから 100 件選抜（flagship）
                        keyword-rewriter
@@ -102,10 +102,10 @@
                           cem-qa 再評価
                               │
                               ▼
-              data/quality-cycle-state.json (state 更新)
+              .claude/state/quality-cycle-state.json (state 更新)
                               │
                               ▼
-                  data/review-queue.md (人間向け出力)
+                  .claude/state/review-queue.md (人間向け出力)
 ```
 
 ---
@@ -153,7 +153,7 @@ candidate_score = log10(body_chars / 100) * 2.0
                 + (related_keyword_links > 3 ? 1.0 : 0.0)
 ```
 
-**出力**: `data/mechanical-screen.json`
+**出力**: `.claude/state/mechanical-screen.json`
 
 ```json
 {
@@ -203,7 +203,7 @@ candidate_score = log10(body_chars / 100) * 2.0
    }
 ```
 
-**出力**: `data/quality-scores.json`
+**出力**: `.claude/state/quality-scores.json`
 
 ```json
 {
@@ -262,7 +262,7 @@ quality-cycle の `score` モードと `verify` モードの両方で使う。
 
 ### F. Workflow State
 
-**場所**: `data/quality-cycle-state.json`
+**場所**: `.claude/state/quality-cycle-state.json`
 
 **スキーマ**:
 
@@ -295,7 +295,7 @@ unscored → scored → rewriting → needs-review → verified → approved
 
 ### G. Human Review Queue
 
-**場所**: `data/review-queue.md`（自動生成）
+**場所**: `.claude/state/review-queue.md`（自動生成）
 
 **例**:
 
@@ -326,11 +326,11 @@ unscored → scored → rewriting → needs-review → verified → approved
 ```bash
 # Step 1: 全ページに機械的事前ふるい
 node scripts/quality-cycle.mjs --mode screen
-# → data/mechanical-screen.json (全 700 件)
+# → .claude/state/mechanical-screen.json (全 700 件)
 
 # Step 2: 上位 200 件を質的評価
 node scripts/quality-cycle.mjs --mode score --top 200
-# → data/quality-scores.json (200 件)
+# → .claude/state/quality-scores.json (200 件)
 
 # Step 3: weighted < 2.5 のページをリライト
 node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5
@@ -342,7 +342,7 @@ node scripts/quality-cycle.mjs --mode verify
 
 # Step 5: 人間向けレビュー待ちリスト出力
 node scripts/quality-cycle.mjs --mode review
-# → data/review-queue.md
+# → .claude/state/review-queue.md
 ```
 
 ### 継続的サイクル
@@ -373,7 +373,7 @@ node scripts/quality-cycle.mjs --mode review
 
 ### スコアの履歴可視化
 
-`data/quality-scores.json` を時系列で蓄積していけば、品質改善の進捗を時系列グラフで可視化できる（将来）。
+`.claude/state/quality-scores.json` を時系列で蓄積していけば、品質改善の進捗を時系列グラフで可視化できる（将来）。
 
 ### CI 連携
 
@@ -399,7 +399,7 @@ node scripts/quality-cycle.mjs --mode review
 - `scripts/lib/cem-qa-prompt.mjs`（subagent プロンプトテンプレート）
 - `.claude/agents/keyword-rewriter.md`
 - `.claude/skills/content/quality-cycle/SKILL.md`
-- `data/*.json` 各種
+- `.claude/state/*.json` 各種
 
 ---
 
@@ -424,7 +424,7 @@ node scripts/quality-cycle.mjs --mode review
 - AdSense 不合格の根因の一つが「AI 一括生成 + 自己評価」パターンの可能性
 - ハーネス設計原則 1（CLAUDE.md）に準拠
 
-### Q4. なぜ data/ を git 管理するか
+### Q4. なぜ .claude/state/ を git 管理するか
 
 - スコアの履歴を追跡可能
 - 「いつ・誰が・何を承認したか」を git log で見られる

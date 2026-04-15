@@ -106,8 +106,8 @@ D1 を真実源にすると:
 |---|---|
 | `src/config/past-exam-backlinks.json` | 過去問⇔キーワード双方向リンク |
 | `src/config/exam-question-keywords.json` | 過去問の出題キーワード一覧 |
-| `data/mechanical-screen.json` | 全 MDX の機械的指標 |
-| `data/quality-scores.json` | cem-qa 採点結果 |
+| `.claude/state/mechanical-screen.json` | 全 MDX の機械的指標 |
+| `.claude/state/quality-scores.json` | cem-qa 採点結果 |
 | `public/search-index.json` | MiniSearch 用全文インデックス |
 
 これらは build script で MDX を一括スキャンして生成しており、DB と同等の機能を build-time で提供している。
@@ -129,7 +129,7 @@ D1 を真実源にすると:
 
 ### 4.2 Quality Cycle のダッシュボード Web UI
 
-- `data/quality-scores.json` が 5MB を超えてきたら DB 移行を検討
+- `.claude/state/quality-scores.json` が 5MB を超えてきたら DB 移行を検討
 - グラフ表示・期間集計・diff 比較などの動的ビューが欲しくなったら検討
 
 ### 4.3 ユーザー生成コンテンツ
@@ -179,7 +179,7 @@ frontmatter 検査ルールの変更は以下の順で行う:
 |---|---|
 | iOS アプリの本格開発が始まる | ユーザーデータ専用の D1 |
 | MDX ファイル数が 10,000 を超える | コンテンツ DB は依然不要、検索のみ別系統検討 |
-| `data/quality-scores.json` が 5MB を超える | Quality Cycle 専用の D1 |
+| `.claude/state/quality-scores.json` が 5MB を超える | Quality Cycle 専用の D1 |
 | 編集者が 3 名以上になる | Decap CMS or Git ベース CMS |
 | ユーザー認証機能を実装する | D1 + Workers Auth |
 | 試験を 5 種類以上扱う | frontmatter 拡張で対応継続、ただし規約厳格化 |
@@ -219,7 +219,7 @@ frontmatter 検査ルールの変更は以下の順で行う:
 | **タグ・キーワード** | frontmatter 規約整備 + build-time JSON |
 | **検索** | MiniSearch（クライアント全文検索）継続 |
 | **試験横断キーワード** | frontmatter の `exams` 配列で対応 |
-| **品質指標** | data/*.json 継続 |
+| **品質指標** | .claude/state/*.json 継続 |
 | **ユーザーデータ** | 将来必要になったら D1（コンテンツとは別系統） |
 | **編集ワークフロー** | git ベース継続 |
 

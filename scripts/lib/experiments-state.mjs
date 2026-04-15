@@ -3,7 +3,7 @@
 // NSM 実験ライフサイクルの state JSON を読み書きするユーティリティ。
 //
 // 対象ファイル:
-//   - data/experiments.json        : 実験リスト + 状態遷移履歴
+//   - .claude/state/experiments.json        : 実験リスト + 状態遷移履歴
 //
 // 状態遷移:
 //   proposed → running → measuring → done / abandoned
@@ -14,7 +14,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
-const EXPERIMENTS_PATH = 'data/experiments.json';
+const EXPERIMENTS_PATH = '.claude/state/experiments.json';
 
 export const PATHS = {
   EXPERIMENTS: EXPERIMENTS_PATH,

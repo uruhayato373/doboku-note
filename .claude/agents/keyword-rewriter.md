@@ -139,7 +139,7 @@ frontmatter 変更: reviewStatus=needs-review, lastRewrittenAt=2026-04-14
 ```
 [/quality-cycle --mode rewrite]
         ↓
-data/quality-scores.json から弱いページを抽出
+.claude/state/quality-scores.json から弱いページを抽出
         ↓
 バッチ並列で keyword-rewriter を呼び出し（Task subagent）
         ↓
@@ -153,7 +153,7 @@ cem-qa で再評価
         ↓
 [/quality-cycle --mode review]
         ↓
-data/review-queue.md（人間向け）
+.claude/state/review-queue.md（人間向け）
         ↓
 人間が承認 → reviewStatus: approved
 ```

@@ -275,11 +275,11 @@ node scripts/quality-cycle.mjs --mode screen        # Tier1 機械的事前ふ�
 node scripts/quality-cycle.mjs --mode score --top 200  # Tier2 質的評価（上位200件）
 ```
 
-→ `data/quality-scores.json` に 200 件の 5 軸スコア + 弱点軸 + 質的コメント
+→ `.claude/state/quality-scores.json` に 200 件の 5 軸スコア + 弱点軸 + 質的コメント
 
 ### 3-2. flagship 100 を選定
 
-スコア降順で上位 100 件を抽出。これが**公開維持＆優先改善対象**。`data/flagship-100.json` に保存。
+スコア降順で上位 100 件を抽出。これが**公開維持＆優先改善対象**。`.claude/state/flagship-100.json` に保存。
 
 ### 3-3. 弱いページに拡張パターンを適用
 
@@ -295,12 +295,12 @@ node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5
 
 ```bash
 node scripts/quality-cycle.mjs --mode verify   # cem-qa で再評価
-node scripts/quality-cycle.mjs --mode review   # data/review-queue.md 出力
+node scripts/quality-cycle.mjs --mode review   # .claude/state/review-queue.md 出力
 ```
 
 ### 3-5. 人間レビュー（実装スコープ外）
 
-- `data/review-queue.md` を見ながらブラウザで該当ページを確認
+- `.claude/state/review-queue.md` を見ながらブラウザで該当ページを確認
 - 1 日 10〜20 ページずつ手直し
 - frontmatter の `reviewStatus` を `approved` / `rejected` に書き換え
 - 30〜50 件レビュー完了時点で AdSense 再申請

@@ -4,7 +4,7 @@ description: >
   NSM（月間オーガニック検索流入ユーザー数）改善の実験ライフサイクルを管理する。
   propose（候補提案）→ start（実行開始）→ measure（前後比較）→ close（学び記録）の
   PDCA ループを回す。セッション間で継続作業を持越す場合は pending/resume で復帰可能。
-  data/experiments.json を状態保存先に使い、playbook + rubric で意思決定を支援する。
+  .claude/state/experiments.json を状態保存先に使い、playbook + rubric で意思決定を支援する。
   Use when user asks to [NSM 実験, 仮説検証, /nsm-experiment, 実験提案, 効果測定,
   PDCA サイクル, 作業継続, 残作業確認, pending 作業, GSC インデックスリクエスト].
 user-invocable: true
