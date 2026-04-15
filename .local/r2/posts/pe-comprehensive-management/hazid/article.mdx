@@ -1,5 +1,5 @@
 ---
-title: HAZID
+title: "HAZID ｜ 総合技術監理 キーワード集 2026"
 description: >-
   HAZID（Hazard Identification
   Study）の定義・実施手順・PHAとの関係を解説。プロジェクト初期のハザード特定手法と総合技術監理の試験対策をカバー。
@@ -10,6 +10,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-09'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
 ---
 
 # HAZID
@@ -22,6 +25,8 @@ HAZID（Hazard Identification Study：ハザード同定調査）とは、**プ�
 
 ## 実施手順
 
+HAZIDは以下の5ステップで進め、最後のステップで特定されたハザードをHAZOPやFMEA等の詳細分析へ引き継ぐ。
+
 | ステップ | 内容 |
 |---|---|
 | **1. 対象の定義** | 分析対象のシステム・プロセス・作業の範囲を定義する |
@@ -32,12 +37,12 @@ HAZID（Hazard Identification Study：ハザード同定調査）とは、**プ�
 
 ## PHAとの比較
 
-| 項目 | HAZID | PHA |
-|---|---|---|
-| **主な目的** | ハザードの網羅的な特定 | ハザードの特定＋リスク分類 |
-| **分析の深さ** | 概略的（特定が主） | やや詳細（リスクマトリクス使用） |
-| **起源** | 石油・ガス産業 | 軍事規格（MIL-STD-882） |
-| **共通点** | 設計初期段階で実施、詳細分析の前段階 | 同左 |
+HAZIDとPHAはいずれも設計初期段階で実施する前段階的な手法だが、目的・深さ・起源で違いがある。
+
+- **主な目的**: HAZID = ハザードの網羅的な特定 — PHA = ハザードの特定＋リスク分類
+- **分析の深さ**: HAZID = 概略的（特定が主） — PHA = やや詳細（リスクマトリクス使用）
+- **起源**: HAZID = 石油・ガス産業 — PHA = 軍事規格（MIL-STD-882）
+- **共通点**: HAZID = 設計初期段階で実施、詳細分析の前段階 — PHA = 同左
 
 <ExamPoint
   summary="HAZIDの位置づけと他手法との関係を理解する"
@@ -55,6 +60,16 @@ HAZID（Hazard Identification Study：ハザード同定調査）とは、**プ�
 
 HAZIDは[PHA](/docs/pe-comprehensive-management-pha)とともに、安全分析プロセスの最初のステップに位置する。特定されたハザードは、[HAZOP](/docs/pe-comprehensive-management-hazop)や[FTA](/docs/pe-comprehensive-management-fta)等の詳細分析手法へ引き継がれる。
 
+## HAZIDの背景と成立経緯
+
+HAZIDは1970〜80年代の北海油田開発を契機に体系化された手法である。石油・ガス産業では設計後期のHAZOP適用に伴う手戻りが深刻な問題となっており、プロジェクト初期段階で立地・外部ハザード・プロセス大分類を俯瞰的に洗い出すニーズが高まった。
+
+この経緯から、HAZIDはHAZOPの「前段階スクリーニング」として位置づけられるようになった。1990年代には英国の石油会社が標準化し、ISO 17776（2000年制定）によって石油・ガス産業における推奨ガイドラインとして国際規格化された。日本では高圧ガスプラントの安全審査や大規模インフラのPM（プロジェクトマネジメント）初期フェーズに取り入れられ、経済産業省の高圧ガス保安分野でも参照されている。
+
+総合技術監理の文脈では、安全管理の「先取り型」アプローチとして評価されており、設計変更コストが低い初期段階にリスクを特定することが経済性管理の観点からも合理的であることが強調される。
+
 ## 参考資料
 
-- [ISO 17776 石油・ガス産業 ハザード特定](https://www.iso.org/)（国際標準化機構）
+- [リスクアセスメント・ガイドライン（Ver.2）](https://www.khk.or.jp/public_information/public_introduction/raguideline/raguideline_ver2.html)（高圧ガス保安協会）
+- [HAZID（Hazard Identification Study）：事業全体を通してのリスク調査](https://www.bureauveritas.jp/our-business/industry/qaqc/safety-assessment/hazid)（ビューローベリタスジャパン）
+- [HAZID, HAZOP, SILとは？プラントのリスク評価、安全管理手法の概要について解説](https://yuruyuru-plantengineer.com/plant-engineering-risk-management-summary/)（プラントエンジニアのおどりば）

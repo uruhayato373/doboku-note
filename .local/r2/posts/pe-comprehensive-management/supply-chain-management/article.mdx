@@ -1,11 +1,14 @@
 ---
-title: サプライチェーンマネジメント（SCM）
+title: "サプライチェーンマネジメント（SCM） ｜ 総合技術監理 キーワード集 2026"
 description: サプライチェーンマネジメントの定義・構成要素・主要概念を解説。供給網全体の最適化手法と総合技術監理の試験対策をカバー。
 category: pe-comprehensive-management
 group: keyword
 section: '2.1'
 tags:
   - keyword
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
 published: true
 publishedAt: '2026-04-09'
 ---
@@ -14,18 +17,18 @@ publishedAt: '2026-04-09'
 
 ## SCMとは
 
-サプライチェーンマネジメント（SCM: Supply Chain Management）とは、**原材料の調達から生産・流通・販売・サービスに至るサプライチェーン全体を統合的に管理し、全体最適を図るマネジメント手法**である。
+サプライチェーンマネジメント（SCM: Supply Chain Management）とは、**サプライチェーン全体を統合的に管理し、全体最適を図る**マネジメント手法である。
 
 モノだけでなく情報・サービスの流れも管理対象に含む。
 
 ## デカップリングポイントによる分類
 
-| 形態 | 正式名称 | 受注後の対応 |
-|---|---|---|
-| **MTS** | Make to Stock（見込生産） | 完成在庫から出荷 |
-| **ATO** | Assemble to Order（受注組立） | 受注後に組み立て出荷 |
-| **MTO** | Make to Order（受注生産） | 受注後に生産開始 |
-| **ETO** | Engineer to Order（受注設計） | 受注後に設計から開始 |
+デカップリングポイントとは、受注前（見込み）と受注後（確定）の生産活動の境界点を指す。この位置によってSCMの形態が4種に分類される。
+
+- **MTS**（Make to Stock・見込生産）: 完成在庫から出荷
+- **ATO**（Assemble to Order・受注組立）: 受注後に組み立て出荷
+- **MTO**（Make to Order・受注生産）: 受注後に生産開始
+- **ETO**（Engineer to Order・受注設計）: 受注後に設計から開始
 
 ## 主要概念
 
@@ -48,8 +51,28 @@ publishedAt: '2026-04-09'
 
 総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
 
-SCMは[需要予測](/docs/pe-comprehensive-management-demand-forecasting)に基づく生産計画と密接に関連し、[ライフサイクルマネジメント](/docs/pe-comprehensive-management-lifecycle-management)の供給段階を担う。[リスク評価](/docs/pe-comprehensive-management-risk-assessment)によるサプライチェーン途絶リスクへの対応も重要なテーマである。
+SCMは5管理すべてに関わる横断的概念として出題される。
+
+- **経済性管理**: 在庫コスト・リードタイム・調達コストの最適化がSCMの主目的であり、ライフサイクルコスト低減と直結する
+- **情報管理**: ブルウィップ効果の抑制には上流から下流まで需要情報をリアルタイム共有することが不可欠。EDI・ERP・IoTによる情報連携が鍵となる
+- **安全管理**: 自然災害・地政学リスクによるサプライチェーン途絶は事業継続上の重大リスクであり、[リスク評価](/docs/pe-comprehensive-management-risk-assessment)と[BCP](/docs/pe-comprehensive-management-business-continuity-plan)の文脈で問われる
+- **社会環境管理**: 近年は人権デュー・ディリジェンスや温室効果ガス排出量の可視化など、持続可能なサプライチェーンへの対応が求められている
+- **人的資源管理**: SCM推進には部門横断チームの形成と取引先との関係構築力が必要であり、組織能力の観点から評価される
+
+[需要予測](/docs/pe-comprehensive-management-demand-forecasting)に基づく生産計画との連携、[ライフサイクルマネジメント](/docs/pe-comprehensive-management-lifecycle-management)の供給段階を担う視点も重要である。
+
+<ExamPoint
+  summary="SCMは経済性管理の最適化手法であると同時に、情報・安全・社会環境管理との交差点として出題される"
+  items={[
+    "ブルウィップ効果は情報管理の問題（需要情報の歪み拡大）として整理する",
+    "サプライチェーン途絶リスクはBCP・リスク評価と組み合わせて出題される",
+    "人権デュー・ディリジェンス・Scope3排出量など社会環境管理との交差が近年の出題傾向",
+    "デカップリングポイント（MTS/ATO/MTO/ETO）は経済性管理（リードタイム・在庫水準）との関係で問われる",
+  ]}
+/>
 
 ## 参考資料
 
-- [サプライチェーンマネジメント](https://www.meti.go.jp/)（経済産業省）
+- [第3節 サプライチェーン管理における考慮事項の多角化（通商白書2021年版）](https://www.meti.go.jp/report/tsuhaku2021/2021honbun/i2130000.html)（経済産業省）
+- [第17回 SCM（サプライチェーンマネジメント）の課題と解決〜中小企業のSCMに視点を〜](https://logistics.shinwart.co.jp/column/logistic_it_consultation/hachisu17/)（シンワートロジスティクスITコンサルティング）
+- [サプライチェーン・マネジメント](https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88)（Wikipedia）

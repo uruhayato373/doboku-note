@@ -1,5 +1,5 @@
 ---
-title: THERP
+title: "THERP ｜ 総合技術監理 キーワード集 2026"
 description: THERP（人的過誤率予測法）の定義・分析手順・HEPイベントツリーの考え方を解説。人的信頼性分析の代表的手法と総合技術監理の試験対策をカバー。
 category: pe-comprehensive-management
 group: keyword
@@ -7,6 +7,9 @@ section: '5.6'
 tags:
   - keyword
 published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
 publishedAt: '2026-04-09'
 ---
 
@@ -19,6 +22,8 @@ THERP（Technique for Human Error Rate Prediction：人的過誤率予測法）�
 米国サンディア国立研究所のスウェイン（A.D. Swain）らが原子力発電所の安全性評価のために開発した。人的信頼性分析（HRA）の代表的手法である。
 
 ## 分析の手順
+
+THERPの分析は以下の5ステップで進む。タスク分析から始まり、HEPの設定、PSFによる修正、イベントツリーの構築、総合確率の算出という順序で体系的に評価する。
 
 | ステップ | 内容 |
 |---|---|
@@ -54,6 +59,16 @@ THERPでは[ETA](/docs/pe-comprehensive-management-eta)と同様の形式のツ�
 
 THERPは[人的過誤確率（HEP）](/docs/pe-comprehensive-management-human-error-probability)と[行動形成要因（PSF）](/docs/pe-comprehensive-management-performance-shaping-factors)を統合して人的信頼性を定量的に評価する手法である。機械系の信頼性分析（[FTA](/docs/pe-comprehensive-management-fta)・[FMEA](/docs/pe-comprehensive-management-fmea)）と組み合わせることで、人間−機械系全体の安全性評価が可能となる。
 
+
+## 開発の経緯と歴史的背景
+
+THERPは1962年、米国サンディア国立研究所（Sandia National Laboratories）のアラン・スウェイン（Alan D. Swain）が発表した論文でその概念が初めて示された。当初は核兵器システムの信頼性評価に応用されていたが、1960年代後半には原子力発電所の安全評価への適用が検討されるようになった。
+
+1979年のスリーマイル島原子力発電所事故は、機械系の信頼性だけでなく**人間の操作エラー**が重大事故の引き金となりうることを世界に示した。この教訓を受けて、米国原子力規制委員会（NRC）はヒューマンエラーの定量評価手法の整備を急ぎ、1983年にスウェインとガットマン（H.E. Guttmann）が共著で発行した NUREG/CR-1278「Handbook of Human Reliability Analysis with Emphasis on Nuclear Power Plant Applications」がその集大成となった。
+
+この報告書はタスク分析・HEP・PSF・イベントツリーといった人的信頼性分析（HRA）の基礎概念を体系化し、その後の HRA 手法開発の出発点となった。THERPは第一世代 HRA 手法に分類され、1990年代以降に開発された第二世代手法（CREAM・ATHEANA等）の礎となっている。日本では原子力分野での確率論的リスク評価（PRA）に組み込まれており、電力中央研究所等が国内運転実績に基づく HEP データベースの整備を進めている。
+
 ## 参考資料
 
-- [NUREG/CR-1278 人的信頼性分析ハンドブック](https://www.nrc.gov/)（米国原子力規制委員会）
+- [人間信頼性評価のための解析支援システム使用マニュアル（JAERI-Data/Code 95-013）](https://jopss.jaea.go.jp/search/servlet/search?2074355=)（日本原子力研究所 — THERP を含む HRA 手法と支援システムの技術報告書）
+- [人間信頼性アセスメント — Wikipedia](https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E4%BF%A1%E9%A0%BC%E6%80%A7%E3%82%A2%E3%82%BB%E3%82%B9%E3%83%A1%E3%83%B3%E3%83%88)（第一世代・第二世代 HRA 手法の比較概説）

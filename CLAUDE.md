@@ -58,7 +58,7 @@
     exam-index/article.mdx          #   試験インデックス
     section-*/article.mdx           #   出題セクション
     r**-primary/article.mdx         #   過去問
-    {keyword}/article.mdx           #   キーワード（100トピック）
+    {keyword}/article.mdx           #   キーワード（649トピック）
 
 src/                                # カスタムコンポーネント・CSS・レイアウト
   lib/docs.ts                       # getDoc(), getAllDocSlugs() 等

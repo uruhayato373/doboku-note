@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T04:34:40.553Z",
+  "scored_at": "2026-04-15T11:47:20.768Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -2691,6 +2691,1431 @@
           "at": "2026-04-15"
         }
       ]
+    },
+    "therp": {
+      "slug": "therp",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料が公的機関1件のみで民間解説が欠落。表直前の導入文なし・太字スコープ超過の計MEDIUM3件でモバイル軸が1点。構造・原則・関連付けは合格水準。",
+      "scored_at": "2026-04-15T11:04:00.869Z"
+    },
+    "explicit-knowledge": {
+      "slug": "explicit-knowledge",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "構造・順序は完備。SECIモデル4列表のセル超過が多数（MEDIUM 12件）でモバイル軸が低い。参考資料に外部リンクゼロ（書籍名のみ）で公的・民間URL双方欠落。ExamPoint位置・個数は適切。",
+      "scored_at": "2026-04-15T11:04:00.869Z"
+    },
+    "risk-perception": {
+      "slug": "risk-perception",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "構造・順序は完備。ExamPoint位置・個数は適切。モバイルはMEDIUM5件（導入文欠落2件・表セル超過1件）で要修正。参考資料は公的機関URLのみ1件で民間解説が欠落。インラインリンクは存在するが双方向確認は不完全。",
+      "scored_at": "2026-04-15T11:04:00.869Z"
+    },
+    "job-analysis": {
+      "slug": "job-analysis",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表が3か所で導入文なし・関連キーワード列挙方式が不適切・参考資料にURLなし。ExamPointは適切に配置されており構造・原則は概ね良好だが、モバイル可読性と参考資料が要修正。",
+      "scored_at": "2026-04-15T11:04:00.869Z"
+    },
+    "collective-intelligence": {
+      "slug": "collective-intelligence",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.35,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "構造・コンテンツ原則・関連付けは良好。参考資料は公的リンクのみ確認でき民間解説が弱い可能性。モバイル軸はMEDIUM 16件（表セル超過・導入文欠落）で要修正。",
+      "scored_at": "2026-04-15T11:04:00.869Z"
+    },
+    "kyt": {
+      "slug": "kyt",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "3列表セルが最大20字で上限15字超過2件、ExamPointが記事44%地点（末尾ではない）、参考資料は公的1件のみで民間解説が欠落している。",
+      "scored_at": "2026-04-15T11:04:00.869Z"
+    },
+    "heat-island-effect": {
+      "slug": "heat-island-effect",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全に欠落しており参考資料軸0点。表3件すべてに導入文なし（MEDIUM 3件以上）でモバイル軸1点。構造・原則・関連付けは概ね良好だが、参考資料0点のため加重スコアは1.00にクランプされ不合格。",
+      "scored_at": "2026-04-15T11:05:10.506Z"
+    },
+    "risk": {
+      "slug": "risk",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "構成順序は正しいがExamPointが分類表直後に配置されており位置がやや早い。参考資料はJISC組織トップページのみで民間解説が欠落。表前導入文なし2件・3列表セル超過2件でモバイル違反MEDIUMが5件。",
+      "scored_at": "2026-04-15T11:05:10.506Z"
+    },
+    "risk-management-system": {
+      "slug": "risk-management-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "モバイル違反4件（MEDIUM）でスコア1点。参考資料は公的1件のみで民間解説リンクが欠落。ExamPointは「位置づけ」節末尾に移動が必要。",
+      "scored_at": "2026-04-15T11:05:10.506Z"
+    },
+    "root-cause-analysis": {
+      "slug": "root-cause-analysis",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "モバイル軸はHIGH 1件（太字63字超）＋MEDIUM 5件で深刻。参考資料は公的1件のみで民間解説が欠落。ExamPoint配置・セクション順序は概ね適切。",
+      "scored_at": "2026-04-15T11:05:10.506Z"
+    },
+    "four-m-analysis": {
+      "slug": "four-m-analysis",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.65,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPointの位置が57%地点と早く、末尾への移動が望ましい。参考資料はWikipedia+厚生労働省+現場コンパスの3件。構造・リンク・モバイル視認性は問題なし。",
+      "scored_at": "2026-04-15T11:05:10.506Z"
+    },
+    "inherent-safety": {
+      "slug": "inherent-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "全軸クリア。参考資料は公的（厚労省）+民間（ミスミ）+Wikipedia で構成。ExamPoint1個・総括位置・禁止パターンなし。",
+      "scored_at": "2026-04-15T11:05:10.506Z"
+    },
+    "risk-analysis": {
+      "slug": "risk-analysis",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.15,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "モバイル違反MEDIUM4件（表前導入文欠落・3列表セル超過）が集中。参考資料は公的のみで民間解説リンクが欠落。",
+      "scored_at": "2026-04-15T11:06:33.531Z"
+    },
+    "safety-education": {
+      "slug": "safety-education",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.4,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPointが位置づけ前58%地点で末尾総括欠落。参考資料は厚労省トップページのみで民間解説なし。MEDIUM4件でモバイル要修正。",
+      "scored_at": "2026-04-15T11:06:33.531Z"
+    },
+    "fail-safe": {
+      "slug": "fail-safe",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料がmhlw.go.jpトップページ1件のみで民間解説ゼロ（§9違反）。表前導入文2箇所欠落・MEDIUM4件でモバイルも1点。reference=0で即不合格。",
+      "scored_at": "2026-04-15T11:06:33.531Z"
+    },
+    "human-error-probability": {
+      "slug": "human-error-probability",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM3件（表前導入文欠落2件・セル17字）とリンク1件のみ（公的機関トップ）が弱点。",
+      "scored_at": "2026-04-15T11:06:33.531Z"
+    },
+    "periodic-maintenance": {
+      "slug": "periodic-maintenance",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（0点クランプ）、MEDIUM6件でモバイル低評価、表直前の導入文なし・長いセル多数。",
+      "scored_at": "2026-04-15T11:06:33.531Z"
+    },
+    "general-overview": {
+      "slug": "general-overview",
+      "scores": {
+        "structure": 1,
+        "mobile": 3,
+        "principle": 1,
+        "reference": 0,
+        "linking": 0
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "structure",
+        "principle",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "位置づけ・参考資料セクション完全欠落。RelatedKeywordsなし。ExamPointなし。lintは全クリアだが骨格が未完成。参考資料0点によりweighted=1.00クランプ。",
+      "scored_at": "2026-04-15T11:06:33.531Z"
+    },
+    "human-factors": {
+      "slug": "human-factors",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則良好。MEDIUM3件と参考資料mlit.go.jpトップページのみで1点。加重2.10で合格ラインちょうど。",
+      "scored_at": "2026-04-15T11:08:07.615Z"
+    },
+    "four-e-countermeasures": {
+      "slug": "four-e-countermeasures",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPointが46%地点で末尾総括欠落。参考資料は公的+民間揃うが中災防がトップページ。",
+      "scored_at": "2026-04-15T11:08:07.615Z"
+    },
+    "personnel-management": {
+      "slug": "personnel-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM8件（表前導入文3箇所・セル超過3箇所・太字超過）と参考資料厚労省1件のみで1.90不合格。",
+      "scored_at": "2026-04-15T11:08:07.615Z"
+    },
+    "lopa": {
+      "slug": "lopa",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（太字81字）+MEDIUM3件。参考資料meti.go.jpトップ1件のみ。2.00ちょうど合格。",
+      "scored_at": "2026-04-15T11:08:07.615Z"
+    },
+    "safety-instrumented-system": {
+      "slug": "safety-instrumented-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM5件と参考資料meti.go.jp1件のみで2.00ちょうど合格。",
+      "scored_at": "2026-04-15T11:08:07.615Z"
+    },
+    "ojt-off-jt": {
+      "slug": "ojt-off-jt",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則良好。MEDIUM4件（表前導入文2箇所・セル超過・参考資料1件）と厚労省のみで2.10合格。",
+      "scored_at": "2026-04-15T11:08:07.615Z"
+    },
+    "second-career": {
+      "slug": "second-career",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM3件・参考資料公的1件のみで1.90不合格。",
+      "scored_at": "2026-04-15T11:09:22.266Z"
+    },
+    "small-group-activities": {
+      "slug": "small-group-activities",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件・公的資料欠落で1.60不合格。",
+      "scored_at": "2026-04-15T11:09:22.266Z"
+    },
+    "haccp": {
+      "slug": "haccp",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（太字68字）MEDIUM4件・参考資料公的1件のみで1.90不合格。",
+      "scored_at": "2026-04-15T11:09:22.266Z"
+    },
+    "ergonomic-principles": {
+      "slug": "ergonomic-principles",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "導入文欠落・太字超過・参考資料公的1件のみ。ExamPoint総括位置ずれ。",
+      "scored_at": "2026-04-15T11:09:22.266Z"
+    },
+    "fault-tolerance": {
+      "slug": "fault-tolerance",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH太字違反・3列表セル超過・参考資料公的1件のみ。",
+      "scored_at": "2026-04-15T11:09:22.266Z"
+    },
+    "five-s": {
+      "slug": "five-s",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表セル超過5件・JISCトップページのみ・ExamPoint総括欠落。",
+      "scored_at": "2026-04-15T11:09:22.266Z"
+    },
+    "safety-confirmation-system": {
+      "slug": "safety-confirmation-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM7件・参考資料1件のみ。表セル超過と民間リンク追加が急務。2.00合格ライン。",
+      "scored_at": "2026-04-15T11:39:13.826Z"
+    },
+    "employment-statistics": {
+      "slug": "employment-statistics",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM8件・参考資料公的のみで民間欠落。加重1.90不合格。",
+      "scored_at": "2026-04-15T11:39:13.826Z"
+    },
+    "fail-soft": {
+      "slug": "fail-soft",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件(太字61字)・参考資料mhlw.go.jpトップのみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:39:13.826Z"
+    },
+    "fool-proof": {
+      "slug": "fool-proof",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件(太字52字)・参考資料トップページのみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:39:13.826Z"
+    },
+    "risk-treatment": {
+      "slug": "risk-treatment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件・参考資料jisc公的1件のみ。2.00合格ライン。",
+      "scored_at": "2026-04-15T11:39:13.826Z"
+    },
+    "technical-nontechnical-skills": {
+      "slug": "technical-nontechnical-skills",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.7,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料トップページ1件のみ・ExamPoint位置ズレ・導入文欠落。1.70不合格。",
+      "scored_at": "2026-04-15T11:39:13.826Z"
+    },
+    "virgin-bias": {
+      "slug": "virgin-bias",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件(太字52字)・ExamPoint位置ズレ・参考資料mext公的1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:40:17.467Z"
+    },
+    "economic-comparison-principle": {
+      "slug": "economic-comparison-principle",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.1,
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPoint位置づけ前・導入文欠落・セル超過多数・参考資料公的1件のみ。全軸要修正。1.10不合格。",
+      "scored_at": "2026-04-15T11:40:17.467Z"
+    },
+    "fault-avoidance": {
+      "slug": "fault-avoidance",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料公的1件のみ(9-4違反)、表前導入文2箇所欠落、ExamPoint位置ズレ。reference=0でクランプ。",
+      "scored_at": "2026-04-15T11:40:17.467Z"
+    },
+    "hazard": {
+      "slug": "hazard",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "reference",
+        "mobile"
+      ],
+      "qualitative_comment": "参考資料公的1件のみで民間解説なし(§9違反)。表前導入文欠落とExamPoint位置ズレ。reference=0クランプ。",
+      "scored_at": "2026-04-15T11:40:17.467Z"
+    },
+    "hazid": {
+      "slug": "hazid",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM7件・参考資料ISOトップページ1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:40:17.467Z"
+    },
+    "interlock": {
+      "slug": "interlock",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表前導入文欠落・ExamPoint位置ズレ・参考資料公的1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:40:17.467Z"
+    },
+    "residual-risk": {
+      "slug": "residual-risk",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1.5,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPoint位置ズレ・参考資料公的1件のみ・表前導入文欠落。1.50不合格。",
+      "scored_at": "2026-04-15T11:41:18.947Z"
+    },
+    "risk-map-matrix": {
+      "slug": "risk-map-matrix",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM5件・参考資料jisc公的1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:41:18.947Z"
+    },
+    "safety-patrol": {
+      "slug": "safety-patrol",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料中災防トップ・Wikipedia混在。ExamPoint位置ズレ。2.25合格。",
+      "scored_at": "2026-04-15T11:41:18.947Z"
+    },
+    "eta": {
+      "slug": "eta",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件(太字56字)・MEDIUM3件・参考資料JIS公的1件のみ。2.10合格。",
+      "scored_at": "2026-04-15T11:41:18.947Z"
+    },
+    "performance-shaping-factors": {
+      "slug": "performance-shaping-factors",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表前導入文2箇所欠落・参考資料NRC1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:41:18.947Z"
+    },
+    "pha": {
+      "slug": "pha",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "MEDIUM4件・5列表構成要整理・参考資料dau.edu1件のみ。2.25合格。",
+      "scored_at": "2026-04-15T11:41:18.947Z"
+    },
+    "prevention-principle": {
+      "slug": "prevention-principle",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料env.go.jpトップ1件のみでreference=0クランプ。MEDIUM5件。",
+      "scored_at": "2026-04-15T11:42:15.069Z"
+    },
+    "isolation-stop-safety": {
+      "slug": "isolation-stop-safety",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.4,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPoint位置ズレ・参考資料公的1件のみ・表前導入文欠落。1.40不合格。",
+      "scored_at": "2026-04-15T11:42:15.069Z"
+    },
+    "parallel-system": {
+      "slug": "parallel-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 2.05,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "MEDIUM3件・ExamPointが位置づけ末尾でなく§5違反。参考資料公的のみ。2.05合格。",
+      "scored_at": "2026-04-15T11:42:15.069Z"
+    },
+    "supply-chain-management": {
+      "slug": "supply-chain-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料meti.go.jpトップ1件のみで0クランプ。ExamPoint§5違反。セル幅超過4件。",
+      "scored_at": "2026-04-15T11:42:15.069Z"
+    },
+    "csr": {
+      "slug": "csr",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料METIトップ1件のみで0クランプ。HIGH太字53字・導入文欠落×2。",
+      "scored_at": "2026-04-15T11:42:15.069Z"
+    },
+    "dcf-method": {
+      "slug": "dcf-method",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料mlit.go.jpトップ1件のみ・MEDIUM3件。1.90不合格。",
+      "scored_at": "2026-04-15T11:42:15.069Z"
+    },
+    "emergency-stop-device": {
+      "slug": "emergency-stop-device",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料mhlw.go.jpトップ1件のみ。ExamPoint位置ズレ・導入文欠落2箇所。reference=0クランプ。",
+      "scored_at": "2026-04-15T11:43:17.211Z"
+    },
+    "process-capability-index": {
+      "slug": "process-capability-index",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料jisc組織トップ1件のみ・民間解説なしで0クランプ。ExamPoint位置ズレ。",
+      "scored_at": "2026-04-15T11:43:17.211Z"
+    },
+    "risk-identification": {
+      "slug": "risk-identification",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 2.05,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "MEDIUM3件・参考資料jisc単一ドメイン2件。2.05薄氷合格。",
+      "scored_at": "2026-04-15T11:43:17.211Z"
+    },
+    "risk-management-plan": {
+      "slug": "risk-management-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件・参考資料JIS Q 31000公的1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:43:17.211Z"
+    },
+    "talent-management": {
+      "slug": "talent-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH太字違反・参考資料jil.go.jpトップ1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:43:17.211Z"
+    },
+    "unsafe-conditions-behavior": {
+      "slug": "unsafe-conditions-behavior",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "reference",
+        "mobile"
+      ],
+      "qualitative_comment": "参考資料mhlw.go.jpトップ1件のみで0クランプ。ExamPoint位置ズレ・導入文欠落。",
+      "scored_at": "2026-04-15T11:43:17.211Z"
+    },
+    "vta-method": {
+      "slug": "vta-method",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH太字51字・MEDIUM2件・参考資料公的1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:44:16.883Z"
+    },
+    "internal-rate-of-return": {
+      "slug": "internal-rate-of-return",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM3件・参考資料mlit.go.jpトップ1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:44:16.883Z"
+    },
+    "optimism-bias": {
+      "slug": "optimism-bias",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件・参考資料mext公的1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:44:16.883Z"
+    },
+    "recruitment-management": {
+      "slug": "recruitment-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料mhlwトップ1件のみで0クランプ。ExamPoint位置ズレ・MEDIUM4件。",
+      "scored_at": "2026-04-15T11:44:16.883Z"
+    },
+    "redundancy-safety": {
+      "slug": "redundancy-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH太字59字・3列表セル超過4件・参考資料公的1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:44:16.883Z"
+    },
+    "risk-criteria": {
+      "slug": "risk-criteria",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.4,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM5件・ExamPoint60%地点・参考資料jisc1件のみ。1.40不合格。",
+      "scored_at": "2026-04-15T11:44:16.883Z"
+    },
+    "risk-monitoring": {
+      "slug": "risk-monitoring",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH太字54字・導入文欠落2箇所・参考資料jisc公的1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:45:16.518Z"
+    },
+    "veteran-bias": {
+      "slug": "veteran-bias",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.4,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "導入文欠落×2・ExamPoint位置ズレ・参考資料mextトップ1件のみ。1.40不合格。",
+      "scored_at": "2026-04-15T11:45:16.518Z"
+    },
+    "esg-investment": {
+      "slug": "esg-investment",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH太字61字・ExamPoint位置ズレ・参考資料env公的1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:45:16.518Z"
+    },
+    "impact": {
+      "slug": "impact",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "導入文欠落2箇所・参考資料jisc1件のみ。2.20合格。",
+      "scored_at": "2026-04-15T11:45:16.518Z"
+    },
+    "labor-mobility": {
+      "slug": "labor-mobility",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM7件・参考資料公的1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:45:16.518Z"
+    },
+    "normalcy-bias": {
+      "slug": "normalcy-bias",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件・参考資料内閣府1件のみ。2.00ちょうど合格。",
+      "scored_at": "2026-04-15T11:45:16.518Z"
+    },
+    "service-quality": {
+      "slug": "service-quality",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "SERVQUAL表に導入文なし・参考資料公的1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:46:20.726Z"
+    },
+    "consensus-instruments": {
+      "slug": "consensus-instruments",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.9,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表3枚導入文なし・参考資料envトップ1件のみ。1.90不合格。",
+      "scored_at": "2026-04-15T11:46:20.726Z"
+    },
+    "cost-effectiveness-analysis": {
+      "slug": "cost-effectiveness-analysis",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.4,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPoint56%地点・参考資料mlitトップ1件のみ。1.40不合格。",
+      "scored_at": "2026-04-15T11:46:20.726Z"
+    },
+    "polluter-pays-principle": {
+      "slug": "polluter-pays-principle",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "reference",
+        "mobile"
+      ],
+      "qualitative_comment": "参考資料envトップ1件のみで0クランプ。1.00不合格。",
+      "scored_at": "2026-04-15T11:46:20.726Z"
+    },
+    "disaster-drill": {
+      "slug": "disaster-drill",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.6,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH太字51字・導入文欠落2件・参考資料bousai公的1件のみ。1.60不合格。",
+      "scored_at": "2026-04-15T11:46:20.726Z"
+    },
+    "discount-rate": {
+      "slug": "discount-rate",
+      "scores": {
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.85,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料mlit公的1件のみ・ExamPoint位置ズレ。1.85不合格。",
+      "scored_at": "2026-04-15T11:46:20.726Z"
+    },
+    "integer-programming": {
+      "slug": "integer-programming",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.15,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料OR学会1件のみ・ExamPoint位置ズレ・表導入文欠落。2.15合格。",
+      "scored_at": "2026-04-15T11:47:20.767Z"
+    },
+    "output-indicators": {
+      "slug": "output-indicators",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "reference",
+        "principle"
+      ],
+      "qualitative_comment": "参考資料soumu組織トップ1件のみで0クランプ。ExamPoint位置鉄則違反。",
+      "scored_at": "2026-04-15T11:47:20.767Z"
+    },
+    "quality-control": {
+      "slug": "quality-control",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.7,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPoint位置ズレ・参考資料jiscトップ1件のみ・MEDIUM4件。1.70不合格。",
+      "scored_at": "2026-04-15T11:47:20.767Z"
+    },
+    "competency-evaluation": {
+      "slug": "competency-evaluation",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 2.05,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "MEDIUM5件・参考資料厚労省公的のみ。2.05薄氷合格。",
+      "scored_at": "2026-04-15T11:47:20.767Z"
+    },
+    "product-liability": {
+      "slug": "product-liability",
+      "scores": {
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.85,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料e-Gov公的1件のみ・ExamPoint位置ズレ。1.85不合格。",
+      "scored_at": "2026-04-15T11:47:20.767Z"
+    },
+    "demand-forecasting": {
+      "slug": "demand-forecasting",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1.7,
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM6件・ExamPoint位置ズレ・参考資料jisc公的1件のみ。1.70不合格。",
+      "scored_at": "2026-04-15T11:47:20.767Z"
     }
   }
 }
