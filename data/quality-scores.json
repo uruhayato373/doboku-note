@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T02:38:57.242Z",
+  "scored_at": "2026-04-15T03:01:40.466Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -987,6 +987,530 @@
       "qualitative_comment": "モバイル軸は4列表・導入文欠落でMEDIUM4件（要修正）。参考資料は公的1件のみで民間解説リンクが欠落。構造・関連付けは良好。",
       "weighted": 2,
       "scored_at": "2026-04-15T01:15:34.911Z"
+    },
+    "stakeholder": {
+      "slug": "stakeholder",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表5個すべてに導入文なし・3列表セル超過・参考資料URLゼロが主因。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "edge-computing": {
+      "slug": "edge-computing",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）、MEDIUM9件（導入文2箇所・3列表セル超過6箇所）。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "public-relations": {
+      "slug": "public-relations",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料URLが0件（書籍名のみ）で0軸クランプ不合格。ExamPoint位置ズレ。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "dmz": {
+      "slug": "dmz",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。3列表セル超過6件・導入文なし2件でMEDIUM8件。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "game-theory": {
+      "slug": "game-theory",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料が公的機関2件のみで民間解説記事ゼロ。3列表のセル超過とExamPoint位置ズレも要修正。",
+      "weighted": 2.15,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "osh-management-system": {
+      "slug": "osh-management-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weak_axes": [],
+      "qualitative_comment": "参考資料が公的機関3件のみで民間解説記事が欠落。加重2.50で合格。",
+      "weighted": 2.5,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "recommendation-systems": {
+      "slug": "recommendation-systems",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全欠落で即不合格。4列表と長セル、ExamPointの位置ズレ。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "unconscious-bias": {
+      "slug": "unconscious-bias",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料URLが0件で即不合格クランプ。モバイルはMEDIUM11件で要修正水準。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "fta": {
+      "slug": "fta",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM7件（導入文欠落・論理ゲート表セル過長・ExamPoint位置不正・参考資料1件のみ）が集中。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "urban-flood": {
+      "slug": "urban-flood",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落で0点クランプ。表3つすべてに導入文なし・3列表セル超過。",
+      "weighted": 0.95,
+      "scored_at": "2026-04-15T02:58:43.376Z"
+    },
+    "centralization-decentralization": {
+      "slug": "centralization-decentralization",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（0点クランプ）。MEDIUM4件・表前導入文なし・セル字数超過・RelatedKeywords未使用が重複。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "forests-villages-rivers-seas": {
+      "slug": "forests-villages-rivers-seas",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全欠落で即不合格。表3か所に導入文なし・リンク列挙形式違反でMEDIUM4件。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "machinery-safety-guidelines": {
+      "slug": "machinery-safety-guidelines",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料にURLが1件もなく即不合格。MEDIUM7件（表セル超過・導入文欠落）。ExamPointが位置づけ前配置で§5違反。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "rio-declaration": {
+      "slug": "rio-declaration",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落で参照軸0点。ExamPointが「とは」節末尾で§5違反。MEDIUM11件はセル文字数超過多数と導入文欠如。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "accident-statistics": {
+      "slug": "accident-statistics",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料が厚労省公的URL1件のみで民間解説記事欠落。4列表もMEDIUM1件。",
+      "weighted": 2.35,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "data-cleansing": {
+      "slug": "data-cleansing",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（0点・即不合格）。3列表のセル超過MEDIUM3件。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "emergency-info-processing": {
+      "slug": "emergency-info-processing",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表4つ全てに導入文なし・3列表セル超過3件・参考資料URLが全件欠落が主因。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "tacit-knowledge": {
+      "slug": "tacit-knowledge",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料にURLが1件もなく§9違反で即不合格クランプ。MEDIUM6件で要修正。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "data-visualization": {
+      "slug": "data-visualization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクションが完全欠落（0点・即不合格）。MEDIUM3件（3列表セル超過）。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "disclosure-request": {
+      "slug": "disclosure-request",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料のURLが完全欠落でreference=0クランプ。表直前導入文なし4箇所とExamPoint配置ズレ。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:00:13.518Z"
+    },
+    "information-disclosure": {
+      "slug": "information-disclosure",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料に外部リンクが皆無。導入文欠落4箇所・セル超過3件・関連キーワード列挙誤り・ExamPoint配置ズレ。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "prevention-activities": {
+      "slug": "prevention-activities",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件集中。参考資料は組織トップページ1件のみ。ExamPoint位置づけ末尾配置が急務。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "cluster-analysis": {
+      "slug": "cluster-analysis",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。3列表セル15字超MEDIUM3件。ExamPoint総括欠落。",
+      "weighted": 0.95,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "right-to-know": {
+      "slug": "right-to-know",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料に外部リンクが皆無で即不合格。HIGH太字・導入文4件未挿入・関連キーワード形式誤り。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "safety-health-policy": {
+      "slug": "safety-health-policy",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "構造・関連付けは優秀。参考資料に民間解説記事が欠落（公的3件のみ）。加重2.40で合格。",
+      "weighted": 2.4,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "job-grade-system": {
+      "slug": "job-grade-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM7件（表導入文3箇所・4列表・セル超過・関連KW列挙・参考資料リンク不備）。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "mobile-communication": {
+      "slug": "mobile-communication",
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（0点クランプ）。MEDIUM6件（4列表・導入文なし・関連キーワード列挙）。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "monte-carlo-simulation": {
+      "slug": "monte-carlo-simulation",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 1
+      },
+      "weak_axes": [
+        "mobile",
+        "linking"
+      ],
+      "qualitative_comment": "MEDIUM5件（表3箇所導入文なし・太字41字・参考資料1件）。RelatedKeywordsなしで関連付け単方向。",
+      "weighted": 1.65,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "safety-health-education": {
+      "slug": "safety-health-education",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM6件（4列表・導入文欠落・ExamPoint位置・参考資料1件のみ）で加重1.70不合格。",
+      "weighted": 1.7,
+      "scored_at": "2026-04-15T03:01:40.466Z"
+    },
+    "all-hazard-approach": {
+      "slug": "all-hazard-approach",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料URLが0件で即不合格クランプ。MEDIUM7件（導入文欠落3・太字超過・セル超過）。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T03:01:40.466Z"
     }
   }
 }
