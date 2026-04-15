@@ -11,7 +11,7 @@ published: true
 publishedAt: '2026-04-08'
 reviewStatus: needs-review
 lastRewrittenAt: '2026-04-15'
-revisionCycle: 1
+revisionCycle: 2
 ---
 
 # 暗号化・電子署名
@@ -103,6 +103,14 @@ PKIにより、電子署名の信頼性が担保され、電子商取引や行�
 
 {/* quiz-figures:end */}
 
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+暗号化は[VPN](/docs/pe-comprehensive-management-vpn)における通信の秘匿性確保、電子署名は[アクセス制御](/docs/pe-comprehensive-management-access-control)における本人認証の基盤技術として、多くのセキュリティ対策と関連する。
+
+[ISMS（ISO/IEC 27001）](/docs/pe-comprehensive-management-isms-iso27001)の管理策においても、暗号化ポリシーの策定や鍵管理が要求事項として含まれている。
+
 ## 参考資料
 
 暗号化・電子署名の理解を深めるための公的資料および民間資料を以下に示す。
@@ -116,12 +124,4 @@ PKIにより、電子署名の信頼性が担保され、電子商取引や行�
 ### 民間資料
 
 - VeriSign / DigiCert [「SSL/TLS とPKIの仕組み（日本語解説）」](https://www.digicert.com/jp/tls-ssl/tls-ssl-certificates) — 世界最大手のCA事業者による証明書の種類（DV・OV・EV）と信頼チェーンの解説。実務でのPKI運用イメージをつかむのに有用。
-- GlobalSign（GMOグローバルサイン）[「電子証明書とPKIガイド」](https://jp.globalsign.com/service/ssl/knowledge/) — 国内大手CA事業者による認証局の構造・CRL/OCSPの違い・証明書有効期限管理の実務解説。CPS（認証局運用規程）の概念も含む。
-
-## 総合技術監理における位置づけ
-
-総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
-
-暗号化は[VPN](/docs/pe-comprehensive-management-vpn)における通信の秘匿性確保、電子署名は[アクセス制御](/docs/pe-comprehensive-management-access-control)における本人認証の基盤技術として、多くのセキュリティ対策と関連する。
-
-[ISMS（ISO/IEC 27001）](/docs/pe-comprehensive-management-isms-iso27001)の管理策においても、暗号化ポリシーの策定や鍵管理が要求事項として含まれている。
+- GMOグローバルサインカレッジ [「PKIとは」](https://college.globalsign.com/ssl-pki-info/pki/) — 国内大手CA事業者による公開鍵基盤（PKI）の仕組み、認証局の構造、電子証明書との関係を図解で解説。CRL/OCSPの役割や証明書有効期限管理の実務的な理解に有用。

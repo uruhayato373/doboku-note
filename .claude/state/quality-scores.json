@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T04:29:06.277Z",
+  "scored_at": "2026-04-15T04:34:40.553Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -296,20 +296,20 @@
       "slug": "risk-assessment",
       "scores": {
         "structure": 2,
-        "mobile": 1,
-        "principle": 1,
+        "mobile": 3,
+        "principle": 2,
         "reference": 3,
-        "linking": 2
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
+        "structure",
         "principle"
       ],
-      "qualitative_comment": "D: 2.25→1.70。追加で相対位置が変わりExamPoint位置違反。Phase 4 候補。",
-      "weighted": 1.7,
-      "scored_at": "2026-04-15T04:22:26.888Z",
+      "qualitative_comment": "Phase 4: 1.70→2.50。太字短縮+ExamPoint移動+列挙行修正。",
+      "weighted": 2.5,
+      "scored_at": "2026-04-15T04:34:40.553Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave12"
+      "polishRound": "phase4"
     },
     "reemployment-system": {
       "slug": "reemployment-system",
@@ -566,20 +566,21 @@
     "encryption-digital-signature": {
       "slug": "encryption-digital-signature",
       "scores": {
-        "structure": 2,
-        "mobile": 2,
+        "structure": 3,
+        "mobile": 3,
         "principle": 2,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
       "weak_axes": [
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "G+D: 1.60→1.95。セクション順ズレ+GlobalSinkリンク切れ。Phase 4候補。",
-      "weighted": 1.95,
-      "scored_at": "2026-04-15T03:59:01.063Z",
+      "qualitative_comment": "Phase 4: 1.95→2.70。セクション順序入替+死リンク差替。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T04:34:40.553Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave8"
+      "polishRound": "phase4"
     },
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
@@ -784,22 +785,21 @@
     "oshms": {
       "slug": "oshms",
       "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 1,
-        "reference": 3,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "principle",
+        "reference",
         "linking"
       ],
-      "qualitative_comment": "A+D: 1.60→1.95。建設現場セクションが位置づけ後に配置で構造2点、総括ExamPoint欠落。Phase 4候補。",
-      "weighted": 1.95,
-      "scored_at": "2026-04-15T03:59:01.063Z",
+      "qualitative_comment": "Phase 4: 1.95→2.75。建設現場セクション移動+ExamPoint総括配置。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T04:34:40.553Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave8"
+      "polishRound": "phase4"
     },
     "safety-2-0": {
       "slug": "safety-2-0",
@@ -959,41 +959,39 @@
     "npv-net-present-value": {
       "slug": "npv-net-present-value",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 3,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "structure"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "G+D: 1.10→1.90。MEDIUM3件残存（太字・導入文・ExamPoint位置）。Phase 4候補。",
-      "weighted": 1.9,
-      "scored_at": "2026-04-15T03:54:00.846Z",
+      "qualitative_comment": "Phase 4: 1.90→2.75。太字短縮+導入文+ExamPoint移動。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T04:34:40.553Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave7"
+      "polishRound": "phase4"
     },
     "sl-theory": {
       "slug": "sl-theory",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 3,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
-        "principle",
-        "linking"
+        "reference"
       ],
-      "qualitative_comment": "G+D: 1.90→2.00。太字スコープ超過とExamPoint位置。Phase 4 候補。",
-      "weighted": 2,
-      "scored_at": "2026-04-15T04:14:07.023Z",
+      "qualitative_comment": "Phase 4: 2.00→2.70。太字短縮+ExamPoint移動+RelatedKeywords追加（民間リンク切れ残存）。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T04:34:40.553Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave10"
+      "polishRound": "phase4"
     },
     "survey-analysis": {
       "slug": "survey-analysis",
@@ -1490,17 +1488,17 @@
         "structure": 3,
         "mobile": 3,
         "principle": 3,
-        "reference": 0,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
       "weak_axes": [
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "G+D: 1.60→1.00。参考資料のURL死リンク。Phase 4候補。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T04:04:38.348Z",
+      "qualitative_comment": "Phase 4: 1.00→2.90。参考資料2件を有効URLに差替え。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T04:34:40.553Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave9"
+      "polishRound": "phase4"
     },
     "mobile-communication": {
       "slug": "mobile-communication",

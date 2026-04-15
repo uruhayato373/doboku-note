@@ -10,14 +10,14 @@ published: true
 publishedAt: '2026-04-09'
 reviewStatus: needs-review
 lastRewrittenAt: '2026-04-15'
-revisionCycle: 1
+revisionCycle: 2
 ---
 
 # NPV
 
 ## NPVとは
 
-NPV（Net Present Value：正味現在価値）とは、**投資によって得られる将来のキャッシュフローの現在価値合計から、投資額を差し引いた値**である。
+NPV（Net Present Value：**正味現在価値**）とは、投資によって得られる将来のキャッシュフローの現在価値合計から、投資額を差し引いた値である。
 
 NPV＞0であれば投資価値があると判断する。投資評価手法の中で最も理論的に優れた手法とされる。
 
@@ -37,21 +37,13 @@ NPV＞0のため、投資価値ありと判断する。
 
 ## 他の投資評価手法との比較
 
+NPVと同種の投資評価指標には、判断基準の軸が異なる3手法がある。
+
 | 手法 | NPV法との違い |
 |---|---|
 | **IRR法** | IRRは利率で表され投資規模を反映しない |
 | **回収期間法** | 回収後のCFと貨幣の時間価値を無視する |
 | **B/C比** | 判断は同じだが投資規模の差を反映しない |
-
-<ExamPoint
-  summary="NPVは将来CFの現在価値合計から投資額を差し引いた値で投資を評価する"
-  items={[
-    "NPV＞0なら投資価値あり、複数案ではNPV最大の案を選択する",
-    "割引率が高いほどNPVは低下する",
-    "IRRとNPVの大小関係は投資規模が異なると一致しないことがある",
-    "現在価値の計算問題は択一式で頻出",
-  ]}
-/>
 
 {/* quiz-figures:start */}
 ## 図解
@@ -88,6 +80,16 @@ NPV＞0のため、投資価値ありと判断する。
 総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
 
 NPVは[DCF法](/docs/pe-comprehensive-management-dcf-method)の代表的手法であり、[割引率](/docs/pe-comprehensive-management-discount-rate)を用いて計算する。[内部収益率法](/docs/pe-comprehensive-management-internal-rate-of-return)・[回収期間法](/docs/pe-comprehensive-management-payback-period-method)と合わせて[投資回収計画](/docs/pe-comprehensive-management-investment-recovery-plan)の策定に用いられる。
+
+<ExamPoint
+  summary="NPVは将来CFの現在価値合計から投資額を差し引いた値で投資を評価する"
+  items={[
+    "NPV＞0なら投資価値あり、複数案ではNPV最大の案を選択する",
+    "割引率が高いほどNPVは低下する",
+    "IRRとNPVの大小関係は投資規模が異なると一致しないことがある",
+    "現在価値の計算問題は択一式で頻出",
+  ]}
+/>
 
 ## 参考資料
 
