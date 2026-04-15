@@ -7,6 +7,9 @@ section: '4.5'
 tags:
   - 総合技術監理
   - keyword
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
 published: true
 publishedAt: '2026-04-08'
 ---
@@ -23,23 +26,27 @@ publishedAt: '2026-04-08'
 
 ### 認証の3要素
 
-| 要素 | 概要 | 例 |
-|---|---|---|
-| 記憶情報（Something You Know） | 本人だけが知っている情報 | パスワード、PIN、秘密の質問 |
-| 所持情報（Something You Have） | 本人だけが持っている物 | ICカード、スマートフォン、ハードウェアトークン、セキュリティキー |
-| 生体情報（Something You Are） | 本人の身体的特徴 | 指紋、顔、虹彩、静脈パターン、声紋 |
+認証要素は次の3種類に分類される。
+
+- **記憶情報（Something You Know）** — 本人だけが知っている情報。パスワード、PIN、秘密の質問など
+- **所持情報（Something You Have）** — 本人だけが持っている物。ICカード、スマートフォン、ハードウェアトークン、セキュリティキーなど
+- **生体情報（Something You Are）** — 本人の身体的特徴。指紋、顔、虹彩、静脈パターン、声紋など
 
 ### 多要素認証と二段階認証の違い
 
-| 項目 | 多要素認証（MFA） | 二段階認証（2-Step Verification） |
+2つの概念は混同されやすいが、定義が異なる。
+
+| 項目 | MFA | 二段階認証 |
 |---|---|---|
-| 定義 | **異なる種類の要素**を2つ以上使用 | 認証を**2回のステップ**で実施 |
-| 例 | パスワード（記憶）＋指紋（生体） | パスワード（記憶）＋秘密の質問（記憶） |
-| セキュリティ | 高い（異なる攻撃手法が必要） | 同一種類の場合はMFAより低い |
+| 定義 | **異なる種類**の要素を2つ以上使用 | 認証を**2回のステップ**で実施 |
+| 例 | PW（記憶）＋指紋（生体） | PW＋秘密の質問（同種） |
+| セキュリティ | 高い（異なる攻撃手法が必要） | 同種の場合はMFAより低い |
 
 パスワード＋秘密の質問は、いずれも「記憶情報」であるため、二段階認証ではあるが多要素認証ではない。
 
 ### 生体認証の精度指標
+
+生体認証の性能は2つのエラー率で評価される。
 
 | 指標 | 内容 |
 |---|---|
@@ -75,3 +82,8 @@ FRRとFARはトレードオフの関係にあり、セキュリティ要件に�
 多要素認証は[アクセス制御](/docs/pe-comprehensive-management-access-control)における認証（Authentication）の強化手段であり、[ゼロトラスト](/docs/pe-comprehensive-management-zero-trust)アーキテクチャの主要な実現技術でもある。
 
 [VPN](/docs/pe-comprehensive-management-vpn)のリモートアクセスや[暗号化・電子署名](/docs/pe-comprehensive-management-encryption-digital-signature)と組み合わせた多層的な本人確認が、組織の情報セキュリティ対策として求められている。
+
+## 参考資料
+
+- [不正ログイン対策特集ページ](https://www.ipa.go.jp/security/anshin/measures/account_security.html)（IPA 独立行政法人 情報処理推進機構）— 多要素認証の概要、記憶情報・所持情報・生体情報の3要素の分類、主要サービス別の設定手順を公開
+- [多要素認証 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%A6%81%E7%B4%A0%E8%AA%8D%E8%A8%BC)（Wikipedia）— 認証要素の種類、二段階認証との違い、フィッシング耐性の課題、金融機関・行政サービスでの実装事例を網羅的に解説

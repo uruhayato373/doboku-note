@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:59:01.063Z",
+  "scored_at": "2026-04-15T04:04:38.348Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -378,19 +378,22 @@
     "employment-insurance": {
       "slug": "employment-insurance",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
+        "structure": 2,
+        "mobile": 3,
         "principle": 2,
-        "reference": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure",
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "表の導入文欠落2件が視認性を損なう。参考資料が公的のみで民間解説記事がない。双方向リンク強化で合格圏到達可能。",
-      "weighted": 1.9,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "G+D: 1.90→2.40。Phase 4候補。",
+      "weighted": 2.4,
+      "scored_at": "2026-04-15T04:04:38.348Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave9"
     },
     "product-safety": {
       "slug": "product-safety",
@@ -828,35 +831,39 @@
       "slug": "ifrs",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "参考資料が公的1件のみで民間リンク欠落。日本基準比較表に導入文なし・セル超過4件でMEDIUM6件。構造・ExamPoint位置は適切。",
-      "weighted": 1.9,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "qualitative_comment": "G+D: 1.90→2.75。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T04:04:38.348Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave9"
     },
     "multi-factor-authentication": {
       "slug": "multi-factor-authentication",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 2,
-        "reference": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "モバイル軸はMEDIUM11件で要修正。参考資料セクション自体が存在しない（0件）。構造は概ね揃うが参考資料節が欠落のため2点。",
-      "weighted": 1.6,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "qualitative_comment": "G+D: 1.60→2.70。総括ExamPoint欠落・双方向未確認。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T04:04:38.348Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave9"
     },
     "occupational-disease": {
       "slug": "occupational-disease",
@@ -1423,19 +1430,20 @@
     "job-grade-system": {
       "slug": "job-grade-system",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "MEDIUM7件（表導入文3箇所・4列表・セル超過・関連KW列挙・参考資料リンク不備）。",
-      "weighted": 1.6,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 1.60→1.00。参考資料のURL死リンク。Phase 4候補。",
+      "weighted": 1,
+      "scored_at": "2026-04-15T04:04:38.348Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave9"
     },
     "mobile-communication": {
       "slug": "mobile-communication",
@@ -1458,37 +1466,42 @@
     "monte-carlo-simulation": {
       "slug": "monte-carlo-simulation",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 1
-      },
-      "weak_axes": [
-        "mobile",
-        "linking"
-      ],
-      "qualitative_comment": "MEDIUM5件（表3箇所導入文なし・太字41字・参考資料1件）。RelatedKeywordsなしで関連付け単方向。",
-      "weighted": 1.65,
-      "scored_at": "2026-04-15T03:01:40.466Z"
-    },
-    "safety-health-education": {
-      "slug": "safety-health-education",
-      "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
         "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM6件（4列表・導入文欠落・ExamPoint位置・参考資料1件のみ）で加重1.70不合格。",
-      "weighted": 1.7,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 1.65→2.45。Phase 4候補。",
+      "weighted": 2.45,
+      "scored_at": "2026-04-15T04:04:38.348Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave9"
+    },
+    "safety-health-education": {
+      "slug": "safety-health-education",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
+      },
+      "weak_axes": [
+        "principle",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "G+D: 1.70→2.55。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-15T04:04:38.348Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave9"
     },
     "all-hazard-approach": {
       "slug": "all-hazard-approach",
