@@ -1575,6 +1575,939 @@
       "scored_at": "2026-04-15T03:54:00.846Z",
       "verifyAfterRewrite": true,
       "rewriteWave": "Wave7"
+    },
+    "360-degree-evaluation": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件で mobile 軸要修正。参考資料は厚労省トップページ1件のみで民間解説が欠落。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "access-control": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（0点）。モバイルHIGH1件+MEDIUM8件。関連キーワード列挙形式。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "access-log-analysis": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM3件。ExamPointは位置づけ節前に配置。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "accident-cost": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM5件。ExamPointが位置づけ末尾になく、参考資料は公的1件のみ。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "accident-response-drill": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "表前導入文なし、ExamPoint位置違反、参考資料公的1件のみ。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "accountability-traceability": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。表8件MEDIUM違反。関連キーワード列挙形式。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "accounting-systems": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（0点）。MEDIUM6件。関連キーワード列挙行形式。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "achievement-organization": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（0点）。表多数のMEDIUM違反。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "acid-rain": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM14件。表の導入文不足・セル文字超過・末尾関連キーワード列挙形式。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "activity-abc": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（L30キーバリュー表）。ExamPointが位置づけ節末尾にない。参考資料mof.go.jpトップページ1件のみ。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "after-service": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPoint配置ズレ。参考資料jisc.go.jpトップページ1件のみ。民間解説欠落。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "agenda-21": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "principle",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件キーバリュー表。4列表。全軸要改善。",
+      "weighted": 0.85,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "aging-infrastructure": {
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "参考資料がmlit.go.jp3件のみで民間解説欠落。ExamPoint位置が位置づけ前。weighted=2.50で合格ライン。",
+      "weighted": 2.5,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "air-pollution-control-act": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM6件。ExamPoint配置は良好。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "alarp-principle": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（L17太字67字）。3列表セル超過。参考資料jisc.go.jpトップページ1件のみ。",
+      "weighted": 1.7,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "alert-levels": {
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
+        "linking": 2
+      },
+      "weak_axes": [],
+      "qualitative_comment": "参考資料公的2件+民間1件で良好。ExamPoint位置づけ節末尾への移動のみで完全合格。weighted=2.45。",
+      "weighted": 2.45,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "analogous-estimation": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（L23-28キーバリュー表）。参考資料PMI.org 1件のみ（9-4）。構造は良好。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "analytic-hierarchy-process": {
+      "scores": {
+        "structure": 2,
+        "mobile": 2,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "ExamPoint 0個（試験対策要素皆無）。参考資料は書籍1件のみでURL無し。メモセクション残存。",
+      "weighted": 1.65,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "annual-salary-system": {
+      "scores": {
+        "structure": 1,
+        "mobile": 0,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "HIGH2件（キーバリュー表2個）でmobile=0。参考資料セクション完全欠落。4列表あり。全軸要改善。",
+      "weighted": 0.8,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "anonymized-information": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。MEDIUM3件。関連キーワード列挙形式。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "api": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM7件。コンテンツ原則は良好。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "appraisal-three-principles": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM9件（3列表セル超過5件）。参考資料mhlw.go.jpトップページ1件のみ。構造良好。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "asbestos-issue": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件+MEDIUM13件。全体的に要改善。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "asch-conformity-experiment": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件（L26-32キーバリュー表）+MEDIUM7件。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "attitude-appraisal": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "表2箇所に導入文なし。参考資料mhlw.go.jp 1件のみ（民間欠落）。ExamPoint位置づけ節前配置。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "authenticity": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM8件。関連キーワード列挙形式。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "autonomous-maintenance": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。MEDIUM11件（7ステップ表のセル超過）。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "backcasting": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "HIGH1件（L17太字51字）。参考資料は公的1件のみで民間欠落。構造は良好。",
+      "weighted": 2.05,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "basel-convention": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（L54-61キーバリュー表）+MEDIUM17件。参考資料は外務省1件のみ。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "before-service": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件（導入文欠落・ExamPoint位置）。参考資料jisc.go.jp 1件のみ。",
+      "weighted": 1.6,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "behavioral-regulation": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件（表前導入文なし）。参考資料env.go.jpトップページ1件のみ。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "bid-rigging": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件（L47太字55字）+MEDIUM5件。コンテンツ原則は良好。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "biodiversity-basic-act": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM7件（表セル超過4件等）。参考資料は公的のみで民間欠落。weighted=1.90。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "bioeconomy": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件。参考資料1件のみ。民間解説追加で合格圏。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "biosafety": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件（L26-33キーバリュー表）+MEDIUM5件。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "blind-drill": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（L17太字61字）。参考資料bousai.go.jpトップページ1件のみ。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "blockchain-crypto": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落。MEDIUM8件（5列表あり）。関連キーワードリンクなし。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "bottom-up-estimation": {
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH2件（キーバリュー表+太字53字）でmobile=0クランプ不合格。参考資料PMIトップ1件のみ。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "bowtie-analysis": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "HIGH1件（L19太字72字）。§5必須の位置づけ節末尾総括ExamPoint欠落。参考資料ISO 31010 1件のみ。",
+      "weighted": 1.7,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "break-even-point": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 3
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件。末尾総括ExamPoint欠落。参考資料mof.go.jpトップページ1件のみ。",
+      "weighted": 1.5,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "budget-planning": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料mof.go.jpトップページ1件のみ。ExamPoint位置づけ節前配置。MEDIUM4件。構造は良好。",
+      "weighted": 1.7,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "business-intelligence": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 1
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM11件（3列表セル超過8件）。関連キーワード列挙形式。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "capacity-management": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件。ExamPoint位置づけ節末尾欠落。参考資料jisc.go.jpトップページ1件のみ。",
+      "weighted": 1.7,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "carbon-pricing": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "構造・原則良好。表2箇所導入文欠落。参考資料env.go.jp 1件のみ。weighted=2.10で合格ライン。",
+      "weighted": 2.1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "career-ownership": {
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件（表前導入文なし2件）。参考資料mhlw.go.jp 1件のみ。民間解説追加で合格圏。",
+      "weighted": 1.9,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "career-path": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "3列表セル最大20字で上限超過。ExamPoint位置づけ節前配置。参考資料mhlw.go.jp 1件のみ。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "catastrophe-bias": {
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "MEDIUM4件。ExamPoint位置づけ節前配置。参考資料1件のみ（公的のみ）。",
+      "weighted": 1.4,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "cause-and-effect-diagram": {
+      "scores": {
+        "structure": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 1,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "reference"
+      ],
+      "qualitative_comment": "見出しが「定義」（「とは」推奨）、非標準メモ節残存、ExamPoint欠落。参考資料は書籍1件のみでURL無し。",
+      "weighted": 1.55,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "cdp-sbt-re100": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料1件が404（環境省URL消滅）でreference=0。MEDIUM13件。表2つ導入文欠落+4列表。",
+      "weighted": 1,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
+    },
+    "chemical-substances-review-act": {
+      "scores": {
+        "structure": 1,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 0,
+        "linking": 2
+      },
+      "weak_axes": [
+        "structure",
+        "mobile",
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM19件（4列表・導入文なし・リンク列挙）。ExamPoint位置づけ節前配置。",
+      "weighted": 0.95,
+      "scored_at": "2026-04-15",
+      "state": "scored",
+      "history": []
     }
   }
 }
