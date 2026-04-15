@@ -2018,42 +2018,51 @@
     },
     "asbestos-issue": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
-      },
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "reference",
-        "linking"
-      ],
-      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件+MEDIUM13件。全体的に要改善。",
-      "weighted": 1,
-      "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
-    },
-    "asch-conformity-experiment": {
-      "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 2,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "structure",
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件（L26-32キーバリュー表）+MEDIUM7件。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave3: 歴史的背景H2が独立節で構造2。lint ゼロ。参考資料公的3+民間2。weighted=2.60。",
+      "weighted": 2.6,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
+    },
+    "asch-conformity-experiment": {
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
+      },
+      "weak_axes": [
+        "mobile",
+        "principle",
+        "reference",
+        "linking"
+      ],
+      "qualitative_comment": "Phase G-4 Wave3: MEDIUM2件（太字31字・関連キーワード列挙）。参考資料公的2+民間3。weighted=2.30。",
+      "weighted": 2.3,
+      "scored_at": "2026-04-15",
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "attitude-appraisal": {
       "scores": {
@@ -2075,41 +2084,50 @@
     },
     "authenticity": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM8件。関連キーワード列挙形式。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave3: L95関連キーワード列挙行のみ。参考資料JIPDEC+民間2件。weighted=2.65。",
+      "weighted": 2.65,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "autonomous-maintenance": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 2,
         "principle": 2,
-        "reference": 0,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落。MEDIUM11件（7ステップ表のセル超過）。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave3: MEDIUM2件（ExamPoint位置+リンク列挙）。参考資料JIPM公的2+民間1。weighted=2.45。",
+      "weighted": 2.45,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "backcasting": {
       "scores": {
@@ -2184,22 +2202,25 @@
     },
     "bid-rigging": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件（L47太字55字）+MEDIUM5件。コンテンツ原則は良好。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave3: lint ゼロ。参考資料JFTC公的3+民間1。双方向リンク確認のみ残。weighted=2.90。",
+      "weighted": 2.9,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "biodiversity-basic-act": {
       "scores": {
@@ -2239,22 +2260,28 @@
     },
     "biosafety": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 2,
         "principle": 2,
-        "reference": 0,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "principle",
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落。HIGH1件（L26-33キーバリュー表）+MEDIUM5件。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave3: MEDIUM2件（太字34字+ExamPoint位置58%）。参考資料J-BCH+Wikipedia。weighted=2.30。",
+      "weighted": 2.3,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "blind-drill": {
       "scores": {
