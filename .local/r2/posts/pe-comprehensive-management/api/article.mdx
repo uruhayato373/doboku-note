@@ -11,6 +11,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-08'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
 ---
 
 # API
@@ -25,48 +28,47 @@ APIを公開することで、自社のサービスや機能を外部の開発�
 
 ### APIの種類
 
-| 分類基準 | 種類 | 説明 |
-|---|---|---|
-| 公開範囲 | オープンAPI（Public API） | 外部の開発者に公開されたAPI |
-| 公開範囲 | パートナーAPI | 提携企業のみに公開されたAPI |
-| 公開範囲 | プライベートAPI（Internal API） | 組織内部でのみ利用されるAPI |
-| アーキテクチャ | REST API | HTTP/HTTPSを利用した軽量なWebAPI（現在の主流） |
-| アーキテクチャ | SOAP API | XMLベースの厳密なプロトコル（レガシーシステムで利用） |
-| アーキテクチャ | GraphQL | クライアントが必要なデータ構造を指定できるクエリ言語 |
+公開範囲とアーキテクチャの2軸でAPIを分類すると以下のようになる。
+
+**公開範囲による分類**
+
+- **オープンAPI（Public API）**: 外部の開発者に公開されたAPI
+- **パートナーAPI**: 提携企業のみに公開されたAPI
+- **プライベートAPI（Internal API）**: 組織内部でのみ利用されるAPI
+
+**アーキテクチャによる分類**
+
+- **REST API**: HTTP/HTTPSを利用した軽量なWebAPI（現在の主流）
+- **SOAP API**: XMLベースの厳密なプロトコル（レガシーシステムで利用）
+- **GraphQL**: クライアントが必要なデータ構造を指定できるクエリ言語
 
 ### REST APIの設計原則
 
-REST（Representational State Transfer）は、Webサービスの設計思想であり、現在のAPI設計の主流である。
+REST（Representational State Transfer）は、Webサービスの設計思想であり、現在のAPI設計の主流である。RESTが規定する主要な原則は以下の5点である。
 
-| 原則 | 内容 |
-|---|---|
-| ステートレス | 各リクエストが独立しており、サーバーはセッション状態を保持しない |
-| リソース指向 | URL（URI）でリソースを一意に識別する |
-| HTTPメソッド | GET（取得）、POST（作成）、PUT（更新）、DELETE（削除）を使い分ける |
-| 統一インターフェース | 一貫した操作方法でリソースにアクセスする |
-| JSON形式 | データ交換にJSON（JavaScript Object Notation）を標準的に使用 |
+- **ステートレス**: 各リクエストが独立しており、サーバーはセッション状態を保持しない
+- **リソース指向**: URL（URI）でリソースを一意に識別する
+- **HTTPメソッド**: GET（取得）、POST（作成）、PUT（更新）、DELETE（削除）を使い分ける
+- **統一インターフェース**: 一貫した操作方法でリソースにアクセスする
+- **JSON形式**: データ交換にJSON（JavaScript Object Notation）を標準的に使用
 
 ### APIエコノミーとオープンAPI
 
-APIエコノミーとは、APIを介して企業間でサービス・データを連携し、新たなビジネス価値を創出する経済圏を指す。
+APIエコノミーとは、APIを介して企業間でサービス・データを連携し、新たなビジネス価値を創出する経済圏を指す。関連する主要概念は以下のとおりである。
 
-| 概念 | 内容 |
-|---|---|
-| APIエコノミー | API公開により外部企業がサービスを組み合わせて新たな価値を創出 |
-| オープンバンキング | 金融機関がAPIを公開し、フィンテック企業と連携するサービス |
-| マッシュアップ | 複数のAPIを組み合わせて新しいサービスを構築する手法 |
-| APIゲートウェイ | API呼び出しの認証・流量制御・ログ管理を一元的に行う仕組み |
+- **APIエコノミー**: API公開により外部企業がサービスを組み合わせて新たな価値を創出
+- **オープンバンキング**: 金融機関がAPIを公開し、フィンテック企業と連携するサービス
+- **マッシュアップ**: 複数のAPIを組み合わせて新しいサービスを構築する手法
+- **APIゲートウェイ**: API呼び出しの認証・流量制御・ログ管理を一元的に行う仕組み
 
 ### APIのセキュリティ
 
-APIを公開する際には、不正アクセスやデータ漏洩を防ぐためのセキュリティ対策が不可欠である。
+APIを公開する際には、不正アクセスやデータ漏洩を防ぐためのセキュリティ対策が不可欠である。主要なセキュリティ要素は以下のとおりである。
 
-| セキュリティ要素 | 内容 |
-|---|---|
-| 認証（Authentication） | APIキー、OAuth 2.0、JWTによるアクセス元の確認 |
-| 認可（Authorization） | アクセス権限の制御（読取のみ、書込可等） |
-| レート制限 | 単位時間あたりのAPI呼び出し回数を制限 |
-| 暗号化 | HTTPS（TLS）によるデータの暗号化通信 |
+- **認証（Authentication）**: APIキー、OAuth 2.0、JWTによるアクセス元の確認
+- **認可（Authorization）**: アクセス権限の制御（読取のみ、書込可等）
+- **レート制限**: 単位時間あたりのAPI呼び出し回数を制限
+- **暗号化**: HTTPS（TLS）によるデータの暗号化通信
 
 <ExamPoint
   summary="REST APIの設計原則とオープンAPIによるシステム連携の仕組みを理解する"
@@ -83,4 +85,14 @@ APIを公開する際には、不正アクセスやデータ漏洩を防ぐた�
 
 システム間連携の標準技術として、IoTプラットフォームやクラウドサービスの基盤を支えており、情報セキュリティの観点からも重要なキーワードである。
 
-関連キーワード: [IoT（Internet of Things）](/docs/pe-comprehensive-management-iot)、[ブロックチェーン・暗号資産](/docs/pe-comprehensive-management-blockchain-crypto)
+<RelatedKeywords items={[
+  { label: "IoT（Internet of Things）", slug: "pe-comprehensive-management-iot" },
+  { label: "ブロックチェーン・暗号資産", slug: "pe-comprehensive-management-blockchain-crypto" },
+]} />
+
+## 参考資料
+
+APIの概念・設計原則・活用事例を深掘りするための参考資料を示す。
+
+- [APIとは？ 今さら聞けないDX関連用語をわかりやすく解説](https://dx.ipa.go.jp/api)（IPA DX SQUARE）
+- [Web APIやREST APIがわかりやすいコラム3選！](https://www.ashisuto.co.jp/eai_blog/article/202407-APIcolumn.html)（アシスト株式会社）

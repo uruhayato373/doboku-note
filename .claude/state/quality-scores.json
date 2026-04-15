@@ -1690,60 +1690,76 @@
     },
     "accounting-systems": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 2,
+        "mobile": 2,
         "principle": 2,
-        "reference": 0,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "structure",
         "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（0点）。MEDIUM6件。関連キーワード列挙行形式。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave2: 「導入の背景と歴史」H2が位置づけ前に挿入で構造2。MEDIUM1件（セル17字）。参考資料金融庁+民間2件。weighted=2.15。",
+      "weighted": 2.15,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "achievement-organization": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 2,
         "principle": 2,
-        "reference": 0,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "principle",
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（0点）。表多数のMEDIUM違反。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave2: MEDIUM2件（4列表+セル16字）。4列表がプリンシプル抵触。参考資料人事院+民間2件。weighted=2.30。",
+      "weighted": 2.3,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "acid-rain": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 2,
+        "mobile": 3,
         "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
         "structure",
-        "mobile",
-        "reference"
+        "principle"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM14件。表の導入文不足・セル文字超過・末尾関連キーワード列挙形式。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave2: 「歴史・背景」節が位置づけ→参考資料間に挿入で構造2。lint ゼロ。公的3+民間1。weighted=2.60。",
+      "weighted": 2.5,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "activity-abc": {
       "scores": {
@@ -1826,22 +1842,27 @@
     },
     "air-pollution-control-act": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM6件。ExamPoint配置は良好。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave2: MEDIUM2件（関連キーワード列挙+9-4誤検知）。ExamPoint位置づけ節前配置で原則2。weighted=2.45。",
+      "weighted": 2.45,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "alarp-principle": {
       "scores": {
@@ -1937,41 +1958,45 @@
     },
     "anonymized-information": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落。MEDIUM3件。関連キーワード列挙形式。",
-      "weighted": 1,
+      "qualitative_comment": "Phase G-4 Wave2: lint ゼロ、全セクション正順、ExamPoint1個適切配置、参考資料PPC+民間1件。双方向確認のみ残課題。weighted=2.90。",
+      "weighted": 2.9,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "api": {
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "reference"
-      ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。MEDIUM7件。コンテンツ原則は良好。",
-      "weighted": 1,
+      "weak_axes": [],
+      "qualitative_comment": "Phase G-4 Wave2: 全軸3点の完全合格。lint ゼロ、参考資料IPA+アシスト。weighted=3.00。",
+      "weighted": 3,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "appraisal-three-principles": {
       "scores": {
