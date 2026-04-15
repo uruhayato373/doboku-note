@@ -7,6 +7,9 @@ section: "4.4"
 tags:
   - 総合技術監理
   - keyword
+reviewStatus: needs-review
+lastRewrittenAt: "2026-04-15"
+revisionCycle: 1
 published: true
 publishedAt: "2026-04-09"
 ---
@@ -124,3 +127,21 @@ $$
 信頼性は情報通信技術の文脈だけでなく、安全管理（フェールセーフ設計）、経済性管理（品質コスト・テストコスト）、社会環境管理（重要インフラの安定運用）と密接に関連する。総合技術監理者には、MTBF/MTTR による定量評価と設計思想の選択を通じて、経済性と安定運用を両立させる能力が求められる。
 
 関連キーワード: [可用性（Availability）](/docs/pe-comprehensive-management-system-availability)、[信頼性設計・保全性設計](/docs/pe-comprehensive-management-reliability-maintainability-design)、[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)、[安全管理](/docs/pe-comprehensive-management-safety-control)
+
+## 信頼性工学の成立と規格化の歴史
+
+信頼性を工学的に扱うという発想は、1950年代の米軍の電子機器問題に端を発する。当時、南極や熱帯など過酷な環境で運用された電子機器の故障率が高く、任務遂行に支障をきたすことが相次いだ。これを受けて米国防総省は**信頼性工学（Reliability Engineering）**を体系化し、1957年に「Advisory Group on the Reliability of Electronic Equipment（AGREE）」報告書を公表した。以後、MIL規格（軍用規格）として MTBF の定義や試験手法が標準化され、民間の電子・航空産業へと波及した。
+
+日本への導入は1960年代前半で、高度経済成長期の電機・自動車産業が品質向上の文脈で取り込んだ。1978年には日本信頼性学会（REAJ）の前身である日本信頼性技術協会が設立され、MTBF・MTTR を中心とした指標の定着が進んだ。
+
+国際標準化の面では、IEC（国際電気標準会議）が IEC 60050-192 としてディペンダビリティ（Dependability：総合信頼性）用語を整備し、日本では JIS Z 8115:2019（ディペンダビリティ用語）が対応規格として制定されている。JIS Z 8115:2019 では「信頼性（Reliability）」を「アイテムが要求された機能を規定の条件下で規定の期間遂行できる能力」と定義しており、キーワード集の定義と整合する。
+
+情報セキュリティの文脈における信頼性の位置づけは、ISO/IEC 27001（JIS Q 27001）が CIA（機密性・完全性・可用性）を核としつつも、信頼性・真正性・責任追跡性・否認防止性を拡張要素として列挙したことで明確化された。2005年版改訂以降、この拡張 CIA モデルが情報セキュリティ管理の国際的な共通語となり、総監キーワード集の4.5節もこの体系を踏まえている。
+
+
+## 参考資料
+
+- [JIS Z 8115:2019 ディペンダビリティ（総合信頼性）用語](https://webdesk.jsa.or.jp/books/W11M0090/index/?bunsyo_id=JIS+Z+8115:2019)（日本規格協会 JSA）— 信頼性・保全性・安全性に関する用語を定義する国際規格（IEC 60050-192）の国内対応規格。MTBF・ディペンダビリティの公式定義を確認できる
+- [ディペンダビリティの確保](https://www.ipa.go.jp/archive/digital/iot-en-ci/dependability/dependability.html)（IPA 独立行政法人情報処理推進機構）— IoT時代の製品・システムにおける信頼性・安全性・セキュリティの確保に関する取り組みを解説した公的ページ
+- [MTBFとMTTRってなんだ？～信頼性と保守性の話～](https://sibucho-laboratory.com/mtbf-mttr/)（しぶちょー技術研究所）— MTBF・MTTRの計算例と稼働率の関係を平易に解説した民間技術ブログ。計算例の補助資料として有用
+

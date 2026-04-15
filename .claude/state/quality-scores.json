@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T04:18:03.354Z",
+  "scored_at": "2026-04-15T04:22:26.888Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -169,18 +169,23 @@
     "system-reliability": {
       "slug": "system-reliability",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
-        "principle": 3,
-        "reference": 0,
-        "linking": 3
+        "principle": 2,
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.25,
       "weak_axes": [
-        "reference"
+        "structure",
+        "mobile",
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "構造・原則・関連付けは良好でExamPoint位置も適切。ただし参考資料セクションが完全欠落しており§9違反。末尾の関連キーワード列挙はインライン化推奨（lint 8-1）。",
-      "scored_at": "2026-04-14T06:34:43.519Z"
+      "qualitative_comment": "D: 2.25→2.15。歴史セクションが位置づけ後配置で構造軸下降。Phase 4候補。",
+      "weighted": 2.15,
+      "scored_at": "2026-04-15T04:22:26.888Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave12"
     },
     "labor-standards-act": {
       "slug": "labor-standards-act",
@@ -279,18 +284,21 @@
     "risk-assessment": {
       "slug": "risk-assessment",
       "scores": {
-        "structure": 3,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
+        "structure": 2,
+        "mobile": 1,
+        "principle": 1,
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.25,
       "weak_axes": [
-        "reference"
+        "mobile",
+        "principle"
       ],
-      "qualitative_comment": "構造・横断概念の説明は明快で2.1と5.2の双方向位置づけも適切。ただし参考資料がJIS公的1件のみで§9違反、末尾の関連キーワード列挙行(8-1)も要修正。民間解説の追加が必須。",
-      "scored_at": "2026-04-14T06:36:07.283Z"
+      "qualitative_comment": "D: 2.25→1.70。追加で相対位置が変わりExamPoint位置違反。Phase 4 候補。",
+      "weighted": 1.7,
+      "scored_at": "2026-04-15T04:22:26.888Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave12"
     },
     "reemployment-system": {
       "slug": "reemployment-system",
@@ -312,17 +320,19 @@
       "slug": "isms-iso27001",
       "scores": {
         "structure": 3,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 2
       },
       "weak_axes": [
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "構造・関連付けは良好。ExamPointが中盤配置でやや早い。参考資料が民間ISMS-AC＋JQAのみで政府・大学等の公的リソースが欠落。",
-      "weighted": 2.25,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "D: 2.25→2.90。参考資料拡充完了。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T04:22:26.888Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave12"
     },
     "iso-14000": {
       "slug": "iso-14000",
@@ -738,17 +748,19 @@
       "slug": "kunming-montreal-framework",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile"
+        "linking"
       ],
-      "qualitative_comment": "構造・原則は整合。表前の導入文欠落2件とリンク列挙行でMEDIUM3件、モバイル軸1点。参考資料節が存在しない（公的資料リンクのみインラインで言及）。",
-      "weighted": 2.25,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "G: 2.25→2.90。導入文・RelatedKeywords・参考資料整備完了。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T04:22:26.888Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave12"
     },
     "oshms": {
       "slug": "oshms",
