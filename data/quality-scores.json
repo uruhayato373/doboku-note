@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:13:06.777Z",
+  "scored_at": "2026-04-15T03:16:38.645Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -1027,19 +1027,17 @@
       "slug": "public-relations",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 3,
         "reference": 3,
         "linking": 3
       },
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "G+Dリライトで1.00→2.75。参考資料公的+民間揃い。L21太字スコープ34字のMEDIUM 1件のみ残存。",
-      "weighted": 2.75,
-      "scored_at": "2026-04-15T03:13:06.777Z",
+      "weak_axes": [],
+      "qualitative_comment": "Polish 後: 全軸満点。L21太字スコープ短縮で mobile 3点へ。完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:16:38.645Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave3"
+      "polishRound": true
     },
     "dmz": {
       "slug": "dmz",
@@ -1048,16 +1046,14 @@
         "mobile": 3,
         "principle": 3,
         "reference": 3,
-        "linking": 2
+        "linking": 3
       },
-      "weak_axes": [
-        "linking"
-      ],
-      "qualitative_comment": "G+Dリライトで1.00→2.90。lint違反ゼロ・参考資料IPA+Fortinet+Wikipedia。RelatedKeywords未使用で関連付けが2点。",
-      "weighted": 2.9,
-      "scored_at": "2026-04-15T03:13:06.777Z",
+      "weak_axes": [],
+      "qualitative_comment": "Polish 後: 全軸満点。RelatedKeywords追加で linking 3点へ。lint違反ゼロ、完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:16:38.645Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave3"
+      "polishRound": true
     },
     "game-theory": {
       "slug": "game-theory",
@@ -1111,19 +1107,17 @@
       "slug": "unconscious-bias",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 3,
         "reference": 3,
         "linking": 3
       },
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "G+Dリライトで1.00→2.75。主な種類表を箇条書き化、参考資料内閣府+人事部追加。L21太字37字のみ残存。",
-      "weighted": 2.75,
-      "scored_at": "2026-04-15T03:13:06.777Z",
+      "weak_axes": [],
+      "qualitative_comment": "Polish 後: 全軸満点。L21太字スコープ短縮で mobile 3点へ。完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:16:38.645Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave3"
+      "polishRound": true
     },
     "fta": {
       "slug": "fta",
@@ -1308,18 +1302,15 @@
         "structure": 3,
         "mobile": 3,
         "principle": 3,
-        "reference": 2,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "reference",
-        "linking"
-      ],
-      "qualitative_comment": "G+Dリライトで1.00→2.75。lint違反ゼロ。参考資料は総務省+Wikipedia+Qiitaで2点、RelatedKeywords未使用で2点。",
-      "weighted": 2.75,
-      "scored_at": "2026-04-15T03:13:06.777Z",
+      "weak_axes": [],
+      "qualitative_comment": "Polish 後: 全軸満点。RelatedKeywords追加で linking 3点、参考資料 3 点に回復。完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:16:38.645Z",
       "verifyAfterRewrite": true,
-      "rewriteWave": "Wave3"
+      "polishRound": true
     },
     "disclosure-request": {
       "slug": "disclosure-request",
