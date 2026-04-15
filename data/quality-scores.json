@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:54:00.846Z",
+  "scored_at": "2026-04-15T03:59:01.063Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -526,18 +526,19 @@
       "slug": "encryption-digital-signature",
       "scores": {
         "structure": 2,
-        "mobile": 1,
+        "mobile": 2,
         "principle": 2,
         "reference": 1,
-        "linking": 2
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "MEDIUM8件（5列表・長セル多数）とquiz-figures節内5列表が課題。参考資料セクション自体が存在せず公的・民間リンクともにゼロ。",
-      "weighted": 1.6,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "qualitative_comment": "G+D: 1.60→1.95。セクション順ズレ+GlobalSinkリンク切れ。Phase 4候補。",
+      "weighted": 1.95,
+      "scored_at": "2026-04-15T03:59:01.063Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave8"
     },
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
@@ -558,19 +559,22 @@
     "pert-cpm": {
       "slug": "pert-cpm",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 2,
-        "reference": 1,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle",
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM6件（表前導入文欠落2箇所・3列セル超過2箇所・ExamPoint位置・参考資料不足）。参考資料は公的1件のみで民間リンク欠落、要修正。",
-      "weighted": 1.6,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "qualitative_comment": "G+D: 1.60→2.55。ExamPoint 26%地点・JIS直結リンクなし。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-15T03:59:01.063Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave8"
     },
     "industrial-property-rights": {
       "slug": "industrial-property-rights",
@@ -610,19 +614,21 @@
     "doughnut-economics": {
       "slug": "doughnut-economics",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM6件（導入文欠落2・セル長超過3・末尾列挙リンク1）。参考資料セクション自体が存在せず公的・民間リンクともに欠落。モバイルと参考資料が要修正。",
-      "weighted": 1.6,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "qualitative_comment": "G+D: 1.60→2.75。参考資料がやや間接的。",
+      "weighted": 2.75,
+      "scored_at": "2026-04-15T03:59:01.063Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave8"
     },
     "planetary-boundaries": {
       "slug": "planetary-boundaries",
@@ -646,19 +652,20 @@
     "ozone-layer-protection": {
       "slug": "ozone-layer-protection",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "表の導入文欠落が4箇所・3列表セル超過が5箇所・4列表1箇所でMEDIUM12件。参考資料セクション自体が存在せず、公的・民間リンクが双方ともゼロ。",
-      "weighted": 1.6,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "G+D: 1.60→2.90。双方向未確認。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:59:01.063Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave8"
     },
     "three-c-analysis": {
       "slug": "three-c-analysis",
@@ -733,18 +740,21 @@
       "slug": "oshms",
       "scores": {
         "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure",
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "PDCA表セル超過が4件・導入文欠落など MEDIUM11件でモバイル軸1点。参考資料が公的1件のみで民間欠落のため参考資料軸1点。",
-      "weighted": 1.6,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "A+D: 1.60→1.95。建設現場セクションが位置づけ後に配置で構造2点、総括ExamPoint欠落。Phase 4候補。",
+      "weighted": 1.95,
+      "scored_at": "2026-04-15T03:59:01.063Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave8"
     },
     "safety-2-0": {
       "slug": "safety-2-0",
@@ -882,20 +892,18 @@
     "disclosure-standards": {
       "slug": "disclosure-standards",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
-        "linking": 1
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "reference",
-        "linking"
-      ],
-      "qualitative_comment": "表前導入文5箇所欠落・3列表セル超過・参考資料リンクゼロ・関連キーワード列挙行方式が不適切で複数軸に違反あり。",
-      "weighted": 1.5,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+D: 1.50→3.00 完全合格。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:59:01.063Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave8"
     },
     "npv-net-present-value": {
       "slug": "npv-net-present-value",
