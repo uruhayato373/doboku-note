@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T02:03:36.807Z",
+  "scored_at": "2026-04-15T02:38:57.242Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -343,36 +343,37 @@
     "correlation-analysis": {
       "slug": "correlation-analysis",
       "scores": {
-        "structure": 1,
+        "structure": 2,
         "mobile": 2,
         "principle": 2,
-        "reference": 0,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "reference",
-        "structure"
+        "structure",
+        "mobile",
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクションが完全欠落（§9違反）。ExamPointが本文早期に配置（37%地点）。末尾の関連キーワード列挙形式も非推奨。",
-      "weighted": 1,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "C+D適用: 相関係数の種類と使い分け + 参考資料4件追加で 1.00→2.15 に合格。末尾総括ExamPointなし・関連キーワード列挙行形式が残課題。",
+      "weighted": 2.15,
+      "scored_at": "2026-04-15T02:38:57.242Z",
+      "verifyAfterRewrite": true
     },
     "generative-ai": {
       "slug": "generative-ai",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "reference",
-        "mobile"
-      ],
-      "qualitative_comment": "参考資料セクション完全欠落（§9違反）。表セル超過（19〜34字）と導入文不足で4件のモバイル可読性違反。概念説明と構造は良好。",
-      "weighted": 1,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+D適用後完全合格: lint違反ゼロ、公的2件+民間2件で参考資料3点、構造も全セクション揃い。前回のmobile/reference完全解消。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T02:38:57.242Z",
+      "verifyAfterRewrite": true
     },
     "employment-insurance": {
       "slug": "employment-insurance",
@@ -395,18 +396,18 @@
       "slug": "product-safety",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "L74参考資料列挙形式違反・参考資料セクションが根本的に不完全（URL付きは1件のみ、民間解説記事ゼロ）。§9要件未達。",
-      "weighted": 1,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "G+D適用後: lint違反ゼロ、参考資料は公的2+民間1件だがevaluator保守的評価で2点。全体合格水準。mobile完全解消。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-15T02:38:57.242Z",
+      "verifyAfterRewrite": true
     },
     "alps-treated-water": {
       "slug": "alps-treated-water",
@@ -575,38 +576,39 @@
     "industrial-property-rights": {
       "slug": "industrial-property-rights",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
+        "reference": 2,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクションが完全に欠落しており reference=0 で即不合格。MEDIUM違反9件（5列表・導入文なし）でモバイル軸も1点。構造も参考資料欠落により1点。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "qualitative_comment": "G+D適用: 5列表を階層化箇条書き化、歴史的背景+参考資料追加で 1.00→2.50 合格。残MEDIUM2件（太字スコープ・表前導入文）・民間解説追加余地あり。",
+      "weighted": 2.5,
+      "scored_at": "2026-04-15T02:38:57.242Z",
+      "verifyAfterRewrite": true
     },
     "data-collection": {
       "slug": "data-collection",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
         "mobile",
-        "principle",
-        "reference"
+        "principle"
       ],
-      "qualitative_comment": "参考資料セクションが完全に欠落。ExamPointが記事40%地点（総括位置でない）、導入文2箇所欠落、セル文字数超過が多数。MEDIUM15件は要修正レベル。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "qualitative_comment": "G+D適用: 4表を箇条書き化、参考資料3件追加で 1.00→2.55 合格。末尾総括ExamPoint欠落が残課題。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-15T02:38:57.242Z",
+      "verifyAfterRewrite": true
     },
     "doughnut-economics": {
       "slug": "doughnut-economics",
@@ -802,17 +804,17 @@
       "slug": "swot-analysis",
       "scores": {
         "structure": 2,
-        "mobile": 1,
-        "principle": 2,
+        "mobile": 3,
+        "principle": 3,
         "reference": 3,
         "linking": 3
       },
       "weak_axes": [
-        "mobile"
+        "structure"
       ],
-      "qualitative_comment": "リライト後: MEDIUM6件（クロスSWOT4列表・セル超過）がモバイル軸を押し下げ。参考資料は公的+民間で3点、構造は位置づけ後に実務例追加で2点。",
-      "weighted": 2,
-      "scored_at": "2026-04-15T01:47:37.469Z",
+      "qualitative_comment": "G適用後: lint違反ゼロ、4列クロスSWOT表を箇条書き化で mobile 3点に回復。構造は建設業実務例が位置づけの後に挿入される軽微ズレで2点。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T02:38:57.242Z",
       "verifyAfterRewrite": true
     },
     "ifrs": {

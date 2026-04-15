@@ -9,6 +9,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-08'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
 ---
 
 # 相関分析
@@ -113,5 +116,24 @@ $$
 相関分析は記述統計でデータの概要を把握した後、変数間の関連を探索する段階で用いる。
 
 相関が確認された変数については、回帰分析（線形回帰・ロジスティック回帰）によって予測モデルを構築する流れが一般的である。
+
+## 相関係数の種類と使い分け
+
+相関係数には複数の種類があり、データの特性に応じて使い分けることが重要である。
+
+以下に主要な3種類の相関係数を整理する。
+
+- **ピアソンの積率相関係数（$r$）**: 2つの連続変数が正規分布に従う場合に用いる。変数間の線形関係を評価する。外れ値の影響を受けやすい点に注意が必要。
+- **スピアマンの順位相関係数（$r_s$）**: データを順位に変換して計算するため、正規分布を仮定しないノンパラメトリック手法。順序尺度のデータや外れ値が多い場合に適する。線形でない単調関係も捉えられる。
+- **ケンドールの順位相関係数（$\tau$）**: スピアマンと同様にノンパラメトリックな手法で、データ対の順位の一致・不一致の比率をもとに算出する。サンプルサイズが小さい場合にスピアマンより安定した推定が得られるとされる。
+
+また、相関係数は「線形・単調関係の強さ」を測る指標であり、曲線的な関係（U字型など）は相関係数が0に近くなっても関係性が存在するという点を見落とさないことが重要である。散布図で視覚確認を怠らないことが、相関分析の基本姿勢である。
+
+## 参考資料
+
+- [Data StaRt「相関と回帰」](https://www.stat.go.jp/dstart/point/seminar/02/3-3-2.html)（総務省統計局）——散布図・相関係数・回帰分析の基礎を体系的に解説した公的教材。
+- [なるほど統計学園「複数の変数の関係性を見る」](https://www.stat.go.jp/naruhodo/10_tokucho/hukusu.html)（総務省統計局）——相関係数の定義、擬似相関の落とし穴、Excelでの算出方法まで初学者向けに整理されている。
+- [ピアソンの相関の方法とスピアマンの相関の方法の比較](https://support.minitab.com/ja-jp/minitab/help-and-how-to/statistics/basic-statistics/supporting-topics/correlation-and-covariance/a-comparison-of-the-pearson-and-spearman-correlation-methods/)（Minitab）——2種類の相関係数の特性の違いを実例とともに解説する民間技術資料。
+- [ノンパラメトリック検定 – 順位相関係数](https://bellcurve.jp/statistics/course/26041.html)（統計WEB）——スピアマン・ケンドールの順位相関係数の計算方法と使い分けを分かりやすく説明する民間解説。
 
 関連キーワード: [線形回帰と最小二乗法](/docs/pe-comprehensive-management-linear-regression)、[ロジスティック回帰](/docs/pe-comprehensive-management-logistic-regression)、[記述統計](/docs/pe-comprehensive-management-descriptive-statistics)、[推定・検定](/docs/pe-comprehensive-management-estimation-testing)
