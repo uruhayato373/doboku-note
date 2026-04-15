@@ -1,7 +1,6 @@
 {
-  "$schema": "./ogp-templates.schema.json",
   "version": 1,
-  "description": "OGP テンプレートレジストリ。ID は見た目由来で固定。用途はカテゴリ/タグ変更に追従できるよう ogp-rules.json 側で管理する。",
+  "description": "OGP テンプレートレジストリ。ID は見た目由来で固定。用途はカテゴリ/タグ変更に追従できるよう rules.json 側で管理する。backgroundImage のパスはプロジェクトルートからの相対パス。",
   "templates": {
     "navy-white": {
       "name": "深ネイビー×白タイトル",

@@ -1,34 +1,32 @@
 /**
  * OGP テンプレートレンダラ。
- * 各テンプレは (title, categoryLabel, backgroundImage) を受け取って satori element を返す純関数。
- * テンプレ追加時は 1) renderers に関数追加 2) src/config/ogp-templates.json に定義追加 3) .claude/reference/ogp-prompts.md に出典記録 の3点セット。
+ * 各テンプレは (props) を受け取って satori element を返す純関数。
+ * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) .claude/reference/ogp-prompts.md に出典記録 の3点セット。
+ *
+ * セーフティゾーン: 中央 630×630 が 1:1 クロップ時にも残る領域。タイトル・カテゴリラベル・サイト名は
+ * この内側（幅 SAFETY_WIDTH / 高さ SAFETY_HEIGHT 相当）に収まるよう描画する。
+ * 装飾要素（グラデーション・グリッド・バー）は全幅 OK。クロップされても問題ない前提。
  */
 
 const WIDTH = 1200;
 const HEIGHT = 630;
+const SAFETY_WIDTH = 560;
 const SITE_NAME = 'doboku-note';
-
-// タイトル長に応じたフォントサイズ（全テンプレ共通の基準）
-function titleFontSize(title) {
-  const len = title.length;
-  if (len <= 20) return 84;
-  if (len <= 30) return 72;
-  if (len <= 40) return 64;
-  if (len <= 55) return 52;
-  if (len <= 75) return 44;
-  return 36;
-}
 
 // ---- 共通要素 ----
 
 function siteBadge({ color = '#94a3b8' } = {}) {
+  // セーフティゾーン内に収めるため中央下に配置（従来は右下コーナー）。
   return {
     type: 'div',
     props: {
       style: {
         position: 'absolute',
-        bottom: '36px',
-        right: '56px',
+        bottom: '32px',
+        left: '0',
+        right: '0',
+        display: 'flex',
+        justifyContent: 'center',
         fontSize: '22px',
         color,
         fontWeight: 700,
@@ -46,32 +44,47 @@ function categoryLabel(text, { color = '#60a5fa' } = {}) {
     type: 'div',
     props: {
       style: {
+        display: 'flex',
         fontSize: '26px',
         color,
         fontWeight: 700,
         letterSpacing: '0.08em',
-        marginBottom: '32px',
+        marginBottom: '24px',
       },
       children: text,
     },
   };
 }
 
-function titleBlock(title, { color = '#ffffff', maxWidth = 1040 } = {}) {
+/**
+ * タイトルブロック。行配列を受け取り、1 行ずつ div で描画する。
+ * フォントサイズは呼び出し側で `scripts/lib/ogp-text.mjs` の pickFontSize() で決定済みの前提。
+ */
+function titleBlock(lines, { color = '#ffffff', fontSize = 64 } = {}) {
   return {
     type: 'div',
     props: {
       style: {
-        fontSize: `${titleFontSize(title)}px`,
-        fontWeight: 700,
-        color,
-        textAlign: 'center',
-        lineHeight: 1.35,
-        maxWidth: `${maxWidth}px`,
-        wordBreak: 'break-word',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: `${SAFETY_WIDTH}px`,
         fontFamily: '"Noto Sans JP", Inter, sans-serif',
       },
-      children: title,
+      children: lines.map(line => ({
+        type: 'div',
+        props: {
+          style: {
+            display: 'flex',
+            fontSize: `${fontSize}px`,
+            fontWeight: 700,
+            color,
+            lineHeight: 1.3,
+            textAlign: 'center',
+          },
+          children: line,
+        },
+      })),
     },
   };
 }
@@ -135,12 +148,33 @@ function overlay(color) {
   };
 }
 
-// ---- テンプレート 1: navy-white ----
-// 深ネイビー×白タイトル。汎用・既定。
+/**
+ * デバッグ用の中央 630×630 セーフティゾーン赤枠。
+ * --debug-safety フラグ時のみ overlay として追加される。
+ */
+function debugSafetyOverlay() {
+  return {
+    type: 'div',
+    props: {
+      style: {
+        position: 'absolute',
+        top: 0,
+        left: '285px',
+        width: '630px',
+        height: '630px',
+        display: 'flex',
+        border: '3px solid #ff0000',
+        boxSizing: 'border-box',
+      },
+      children: [],
+    },
+  };
+}
 
-function renderNavyWhite({ title, categoryLabel: cat }) {
+// ---- テンプレート 1: navy-white ----
+
+function renderNavyWhite({ lines, categoryLabel: cat, fontSize }) {
   const children = [
-    // 上部アクセントライン
     {
       type: 'div',
       props: {
@@ -150,12 +184,13 @@ function renderNavyWhite({ title, categoryLabel: cat }) {
           left: 0,
           right: 0,
           height: '6px',
+          display: 'flex',
           background: 'linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%)',
         },
       },
     },
     categoryLabel(cat, { color: '#93c5fd' }),
-    titleBlock(title, { color: '#ffffff', maxWidth: 1040 }),
+    titleBlock(lines, { color: '#ffffff', fontSize }),
     siteBadge({ color: '#64748b' }),
   ].filter(Boolean);
   return baseContainer(children, {
@@ -164,9 +199,8 @@ function renderNavyWhite({ title, categoryLabel: cat }) {
 }
 
 // ---- テンプレート 2: dark-wood ----
-// ダークウッド×白タイトル。信頼性系。背景画像が無い場合はダーク茶グラデにフォールバック。
 
-function renderDarkWood({ title, categoryLabel: cat, backgroundImage }) {
+function renderDarkWood({ lines, categoryLabel: cat, fontSize, backgroundImage }) {
   const children = [];
   if (backgroundImage) {
     children.push(backgroundImageLayer(backgroundImage));
@@ -174,7 +208,7 @@ function renderDarkWood({ title, categoryLabel: cat, backgroundImage }) {
   }
   children.push(
     categoryLabel(cat, { color: '#fcd34d' }),
-    titleBlock(title, { color: '#ffffff', maxWidth: 1040 }),
+    titleBlock(lines, { color: '#ffffff', fontSize }),
     siteBadge({ color: '#d6bd9a' }),
   );
   return baseContainer(children.filter(Boolean), {
@@ -185,11 +219,9 @@ function renderDarkWood({ title, categoryLabel: cat, backgroundImage }) {
 }
 
 // ---- テンプレート 3: red-line ----
-// ダークグレー×赤い一本線×白タイトル。体系・構造系。
 
-function renderRedLine({ title, categoryLabel: cat }) {
+function renderRedLine({ lines, categoryLabel: cat, fontSize }) {
   const children = [
-    // 中央の赤い水平バー
     {
       type: 'div',
       props: {
@@ -200,21 +232,21 @@ function renderRedLine({ title, categoryLabel: cat }) {
           right: 0,
           height: '8px',
           marginTop: '-4px',
+          display: 'flex',
           background: '#dc2626',
         },
       },
     },
     categoryLabel(cat, { color: '#fca5a5' }),
-    titleBlock(title, { color: '#ffffff', maxWidth: 1000 }),
+    titleBlock(lines, { color: '#ffffff', fontSize }),
     siteBadge({ color: '#9ca3af' }),
   ].filter(Boolean);
   return baseContainer(children, { background: '#1f2937' });
 }
 
 // ---- テンプレート 4: blackboard ----
-// 黒板×白チョーク。教育・解説系。背景画像が無い場合はダーク緑にフォールバック。
 
-function renderBlackboard({ title, categoryLabel: cat, backgroundImage }) {
+function renderBlackboard({ lines, categoryLabel: cat, fontSize, backgroundImage }) {
   const children = [];
   if (backgroundImage) {
     children.push(backgroundImageLayer(backgroundImage));
@@ -222,7 +254,7 @@ function renderBlackboard({ title, categoryLabel: cat, backgroundImage }) {
   }
   children.push(
     categoryLabel(cat, { color: '#fde68a' }),
-    titleBlock(title, { color: '#f8fafc', maxWidth: 1040 }),
+    titleBlock(lines, { color: '#f8fafc', fontSize }),
     siteBadge({ color: '#d1d5db' }),
   );
   return baseContainer(children.filter(Boolean), {
@@ -233,10 +265,8 @@ function renderBlackboard({ title, categoryLabel: cat, backgroundImage }) {
 }
 
 // ---- テンプレート 5: dark-grid ----
-// ダーク×グリッド線×白タイトル。分析・データ系。
 
-function renderDarkGrid({ title, categoryLabel: cat }) {
-  // グリッドは SVG パターンで実装。satori は background-image に data URL SVG を許容する。
+function renderDarkGrid({ lines, categoryLabel: cat, fontSize }) {
   const gridSvg = `<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(148,163,184,0.18)' stroke-width='1'/></svg>`;
   const gridUrl = `data:image/svg+xml;base64,${Buffer.from(gridSvg).toString('base64')}`;
 
@@ -258,7 +288,7 @@ function renderDarkGrid({ title, categoryLabel: cat }) {
       },
     },
     categoryLabel(cat, { color: '#67e8f9' }),
-    titleBlock(title, { color: '#ffffff', maxWidth: 1040 }),
+    titleBlock(lines, { color: '#ffffff', fontSize }),
     siteBadge({ color: '#64748b' }),
   ].filter(Boolean);
 
@@ -275,14 +305,25 @@ const renderers = {
   'dark-grid': renderDarkGrid,
 };
 
+/**
+ * テンプレート描画のエントリポイント。
+ * @param {string} templateId
+ * @param {object} props - { lines, categoryLabel, fontSize, backgroundImage?, debugSafety? }
+ */
 export function renderTemplate(templateId, props) {
   const fn = renderers[templateId];
   if (!fn) {
     throw new Error(`未知のテンプレ ID: ${templateId}`);
   }
-  return fn(props);
+  const element = fn(props);
+  if (props.debugSafety) {
+    element.props.children = [...element.props.children, debugSafetyOverlay()];
+  }
+  return element;
 }
 
 export function availableTemplates() {
   return Object.keys(renderers);
 }
+
+export const LAYOUT_CONSTANTS = { WIDTH, HEIGHT, SAFETY_WIDTH };

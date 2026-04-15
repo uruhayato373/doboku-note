@@ -1,5 +1,4 @@
 {
-  "$schema": "./ogp-rules.schema.json",
   "version": 1,
   "description": "OGP テンプレートの自動選定ルール。rules は上から評価し、最初に match したものを採用する。全て外れた場合は default。カテゴリ名が変わったらここだけ更新すれば追従できる。",
   "default": "navy-white",

@@ -3,25 +3,29 @@
  *
  * ルールベース + テンプレートシステム:
  *   1. MDX frontmatter からタイトル・カテゴリ・タグを読む
- *   2. frontmatter.ogp.template > --template > src/config/ogp-rules.json の順でテンプレを決定
- *   3. テンプレ定義（src/config/ogp-templates.json）に従い satori で SVG 生成
- *   4. sharp で PNG 化して所定パスに書き出す
+ *   2. frontmatter.ogp.template > --template > .claude/config/ogp/rules.json の順でテンプレを決定
+ *   3. .claude/config/ogp/text.json で改行・フォントサイズ・セーフティ幅を決定
+ *   4. テンプレ定義（.claude/config/ogp/templates.json）に従い satori で SVG 生成
+ *   5. sharp で PNG 化して所定パスに書き出す
  *
  * 出力先: .local/r2/posts/{category}/{localSlug}/ogp.png
  *   （R2 公開 URL と 1:1 対応。src/lib/r2-image-loader.ts の getOgpImageUrl と整合）
  *
  * Usage:
- *   node scripts/ogp-create.mjs <fullSlug>                  # 単一生成（既存あればスキップ）
- *   node scripts/ogp-create.mjs <fullSlug> --force           # 単一・強制上書き
+ *   node scripts/ogp-create.mjs <fullSlug>                   # 単一生成（既存あればスキップ）
+ *   node scripts/ogp-create.mjs <fullSlug> --force            # 単一・強制上書き
  *   node scripts/ogp-create.mjs <fullSlug> --template navy-white  # テンプレ強制
- *   node scripts/ogp-create.mjs --all                        # 全件生成
- *   node scripts/ogp-create.mjs --all --force                # 全件強制上書き
- *   node scripts/ogp-create.mjs --all --dry-run              # マッピング結果のみ表示
+ *   node scripts/ogp-create.mjs --all                         # 全件生成
+ *   node scripts/ogp-create.mjs --all --force                 # 全件強制上書き
+ *   node scripts/ogp-create.mjs --all --dry-run               # マッピング結果のみ表示
+ *   node scripts/ogp-create.mjs <slug> --debug-safety --force # 中央 630×630 の赤枠を重ねた PNG を出力
+ *   node scripts/ogp-create.mjs --all --debug-wrap            # 改行戦略の適用結果を一覧表示
  *
  * frontmatter での個別制御:
  *   ---
  *   ogp:
  *     template: dark-wood   # ルールを無視して指定
+ *     title: "MBOと\n運用上の課題"  # OGP 専用タイトル。\n で明示改行
  *     skip: true            # 生成スキップ（手動 OGP 保護）
  *   ---
  */
@@ -34,27 +38,37 @@ import sharp from 'sharp';
 import matter from 'gray-matter';
 
 import categories from '../src/config/categories.json' with { type: 'json' };
-import templatesConfig from '../src/config/ogp-templates.json' with { type: 'json' };
-import rulesConfig from '../src/config/ogp-rules.json' with { type: 'json' };
+import templatesConfig from '../.claude/config/ogp/templates.json' with { type: 'json' };
+import rulesConfig from '../.claude/config/ogp/rules.json' with { type: 'json' };
+import textConfig from '../.claude/config/ogp/text.json' with { type: 'json' };
 
-import { renderTemplate } from './lib/ogp-templates.mjs';
+import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
+import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');
 const POSTS_DIR = path.join(PROJECT_ROOT, '.local', 'r2', 'posts');
 const FONTS_DIR = path.join(__dirname, 'fonts');
-const OGP_WIDTH = 1200;
-const OGP_HEIGHT = 630;
 
 // ---- CLI 引数パース ----
 
 function parseArgs(argv) {
-  const args = { slug: null, all: false, force: false, dryRun: false, template: null };
+  const args = {
+    slug: null,
+    all: false,
+    force: false,
+    dryRun: false,
+    debugSafety: false,
+    debugWrap: false,
+    template: null,
+  };
   for (let i = 0; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--all') args.all = true;
     else if (a === '--force') args.force = true;
     else if (a === '--dry-run') args.dryRun = true;
+    else if (a === '--debug-safety') args.debugSafety = true;
+    else if (a === '--debug-wrap') args.debugWrap = true;
     else if (a === '--template') args.template = argv[++i];
     else if (!a.startsWith('--') && !args.slug) args.slug = a;
   }
@@ -147,7 +161,7 @@ function loadBackgroundImage(templateDef) {
   return `data:image/${ext};base64,${buf.toString('base64')}`;
 }
 
-// ---- メイン処理 ----
+// ---- 単一ページの生成処理 ----
 
 async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   const raw = fs.readFileSync(fullPath, 'utf-8');
@@ -170,6 +184,21 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
     return;
   }
 
+  // 改行戦略: frontmatter.ogp.title があればそれを優先（Layer 1）
+  const sourceTitle = data.ogp?.title || data.title || fullSlug;
+  const lines = await wrapTitle(sourceTitle, textConfig);
+  const fontSize = pickFontSize(lines, textConfig);
+
+  if (args.debugWrap) {
+    console.log(`${fullSlug}`);
+    console.log(`  title: ${sourceTitle}`);
+    console.log(`  lines: [${lines.map(l => `"${l}"`).join(', ')}]`);
+    console.log(`  longest: ${Math.max(...lines.map(l => l.length))} chars → fontSize ${fontSize}`);
+    console.log(`  template: ${templateId}`);
+    stats.resolved++;
+    return;
+  }
+
   const outputPath = resolveOutputPath(fullSlug);
 
   if (args.dryRun) {
@@ -187,12 +216,18 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   const backgroundImage = loadBackgroundImage(templateDef);
 
   const element = renderTemplate(templateId, {
-    title: data.title || fullSlug,
+    lines,
     categoryLabel,
+    fontSize,
     backgroundImage,
+    debugSafety: args.debugSafety,
   });
 
-  const svg = await satori(element, { width: OGP_WIDTH, height: OGP_HEIGHT, fonts });
+  const svg = await satori(element, {
+    width: LAYOUT_CONSTANTS.WIDTH,
+    height: LAYOUT_CONSTANTS.HEIGHT,
+    fonts,
+  });
   const pngBuffer = await sharp(Buffer.from(svg)).png().toBuffer();
 
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
@@ -203,11 +238,13 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   }
 }
 
+// ---- メイン ----
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
 
   if (!args.slug && !args.all) {
-    console.error('Usage: node scripts/ogp-create.mjs <fullSlug> | --all [--force] [--dry-run] [--template <id>]');
+    console.error('Usage: node scripts/ogp-create.mjs <fullSlug> | --all [--force] [--dry-run] [--template <id>] [--debug-safety] [--debug-wrap]');
     process.exit(1);
   }
 
@@ -223,7 +260,12 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`[ogp-create] 対象 ${targets.length} 件 / mode=${args.dryRun ? 'dry-run' : (args.force ? 'force' : 'normal')}`);
+  const mode =
+    args.debugWrap ? 'debug-wrap' :
+    args.dryRun ? 'dry-run' :
+    args.debugSafety ? 'debug-safety' :
+    args.force ? 'force' : 'normal';
+  console.log(`[ogp-create] 対象 ${targets.length} 件 / mode=${mode}`);
 
   const stats = { generated: 0, skipped: 0, errors: 0, resolved: 0 };
   for (const t of targets) {
@@ -236,7 +278,7 @@ async function main() {
   }
 
   console.log('\n[ogp-create] 完了');
-  if (args.dryRun) {
+  if (args.dryRun || args.debugWrap) {
     console.log(`  解決: ${stats.resolved}件`);
   } else {
     console.log(`  生成: ${stats.generated}件`);

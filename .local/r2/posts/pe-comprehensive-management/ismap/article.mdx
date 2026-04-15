@@ -10,6 +10,9 @@ tags:
   - 総合技術監理
   - keyword
 published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
 publishedAt: '2026-04-08'
 ---
 
@@ -47,21 +50,21 @@ ISMAPの管理基準は、以下の国際規格を基盤としている。
 
 ISMAP-LIU（ISMAP for Low-Impact Use）は、セキュリティ上のリスクが比較的低い業務で利用するクラウドサービスを対象とした簡易版の評価制度である。
 
-| 項目 | ISMAP | ISMAP-LIU |
-|---|---|---|
-| 対象リスク | すべてのリスクレベル | 低リスクの業務利用 |
-| 評価項目数 | 約1,000項目 | 約300項目（簡略化） |
-| 監査負荷 | 高い | ISMAPに比べて低い |
-| 利用場面 | 機密性の高い業務システム | SaaS（コミュニケーションツール等） |
+ISMAPとISMAP-LIUの主な違いは以下のとおりである。
+
+- **対象リスク**: ISMAP — すべてのリスクレベル / ISMAP-LIU — 低リスクの業務利用
+- **評価項目数**: ISMAP — 約1,000項目 / ISMAP-LIU — 約300項目（簡略化）
+- **監査負荷**: ISMAP — 高い / ISMAP-LIU — ISMAPに比べて低い
+- **利用場面**: ISMAP — 機密性の高い業務システム / ISMAP-LIU — SaaS（コミュニケーションツール等）
 
 ### 他の認証制度との比較
 
-| 制度 | 対象 | 主な用途 |
-|---|---|---|
-| ISMAP | クラウドサービス | 政府のクラウド調達 |
-| [ISMS（ISO/IEC 27001）](/docs/pe-comprehensive-management-isms-iso27001) | 組織全体 | 情報セキュリティ管理体制の認証 |
-| [JISEC](/docs/pe-comprehensive-management-jisec) | IT製品 | 製品のセキュリティ機能の認証 |
-| SOC 2 | サービス組織 | クラウド事業者の内部統制報告 |
+ISMAPと関連する情報セキュリティ認証制度の対象と用途は以下のとおりである。
+
+- **ISMAP**: 対象 — クラウドサービス / 主な用途 — 政府のクラウド調達
+- **[ISMS（ISO/IEC 27001）](/docs/pe-comprehensive-management-isms-iso27001)**: 対象 — 組織全体 / 主な用途 — 情報セキュリティ管理体制の認証
+- **[JISEC](/docs/pe-comprehensive-management-jisec)**: 対象 — IT製品 / 主な用途 — 製品のセキュリティ機能の認証
+- **SOC 2**: 対象 — サービス組織 / 主な用途 — クラウド事業者の内部統制報告
 
 <ExamPoint
   summary="ISMAPは政府のクラウド調達におけるセキュリティ評価・登録制度"
@@ -80,3 +83,24 @@ ISMAP-LIU（ISMAP for Low-Impact Use）は、セキュリティ上のリスク�
 ISMAPは[ISMS（ISO/IEC 27001）](/docs/pe-comprehensive-management-isms-iso27001)をベースとしたクラウド特化の評価制度であり、政府のデジタルトランスフォーメーション（DX）推進と密接に関連する。
 
 公共事業のDX化が進む中、建設・土木分野でもクラウドサービスの利用が拡大しており、ISMAPの知識は総合技術監理において重要性を増している。
+
+## 参考資料
+
+### 公的資料
+
+- **NISC**「[政府情報システムのためのセキュリティ評価制度（ISMAP）](https://www.nisc.go.jp/policy/group/general/ismap.html)」
+  ISMAP制度の概要・管理基準・登録サービスリストを公開する一次資料。クラウド・バイ・デフォルト政策との接続も解説している。
+
+- **デジタル庁**「[クラウドサービス利用・提供に係る適切な実施に関するガイドライン](https://www.digital.go.jp/policies/cloud_service/)」
+  政府機関がISMAP登録サービスを活用する際の調達・運用手順を規定。ISMAP制度の実運用上の位置づけを理解するための公式ガイドライン。
+
+- **IPA**「[クラウドセキュリティに関する調査・解説](https://www.ipa.go.jp/security/)」
+  ISO/IEC 27017等の国際規格と国内制度（ISMAP・JISEC等）の関係を体系的に解説。ISMAP管理基準の背景を理解するための補助資料。
+
+### 民間資料
+
+- **NEC**「[ISMAPとは何か――政府クラウド調達の仕組みを解説](https://jpn.nec.com/cloud/security/ismap/)」
+  クラウドベンダー視点からISMAP登録に向けた審査プロセスと準備事項を具体的に説明。サービス提供者側の視点でISMAPの実務を理解できる。
+
+- **PwCコンサルティング**「[ISMAP対応のポイントとクラウドセキュリティ戦略](https://www.pwc.com/jp/ja/knowledge/column/ismap.html)」
+  ISMAP登録審査を経験したコンサルタントによる実務解説。管理基準の解釈・監査対応の要点が整理されており、総監試験で問われるリスク管理の観点と接続できる。
