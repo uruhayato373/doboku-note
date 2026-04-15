@@ -1,3 +1,10 @@
+---
+name: code-review
+description: >
+  src/ 配下の Next.js / TypeScript コードを品質・セキュリティ・パフォーマンス・保守性の 4 軸で網羅的にレビューする。doboku-note 固有の技術スタック規約（MDX・Cloudflare Pages・next-mdx-remote）を考慮。
+  Use when user asks to [コードレビュー, コード品質チェック, src レビュー, /code-review].
+---
+
 # /code-review — Next.js コード品質レビュー
 
 ## 概要

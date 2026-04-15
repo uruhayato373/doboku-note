@@ -1,3 +1,10 @@
+---
+name: zenn-audit
+description: >
+  doboku-note の記事ページ（globals.css / page.tsx / tailwind.config.js）を Zenn 本番 CSS と比較し、タイポグラフィとレイアウトの drift を Critical / Warning / Matches / Intentional の 4 段階で報告する半年〜1年スパンの監査用途。日常レビュー（/review）とは独立した稀な drift 監査で、/review dispatcher には含まれない。
+  Use when user asks to [Zenn 監査, Zenn 比較, タイポグラフィ監査, CSS drift チェック, /zenn-audit].
+---
+
 # /zenn-audit — Zenn準拠監査（タイポグラフィ + レイアウト）
 
 ## 概要

@@ -1,3 +1,10 @@
+---
+name: x-post
+description: >
+  既存 MDX コンテンツ（過去問 1 問・キーワード）を元に、X（旧 Twitter）投稿用テキスト 140〜280 字を生成する。短文・長文（スレッド用）を選択可能。
+  Use when user asks to [X 投稿, Twitter 投稿, ツイート生成, /x-post].
+---
+
 # /x-post — X（旧Twitter）投稿テキスト生成
 
 既存コンテンツ（過去問・キーワードページ）からX投稿用テキストを生成する。

@@ -1,7 +1,8 @@
 ---
-
+name: promote-to-site
 description: >
-  ObsidianのMDをdoboku-noteのMDXに変換・配置する。Use when user asks to [Obsidianから移行, コンテンツを公開, /promote-to-site].
+  Obsidian vault の Markdown ノートを doboku-note の MDX に変換・配置する。frontmatter 整形・category/tags 付与・画像パス変換を自動化。
+  Use when user asks to [Obsidian から移行, コンテンツを公開, 昇格, promote, /promote-to-site].
 ---
 
 Obsidian（~/obsidian）の Markdown ノートを doboku-note の MDX ファイルに変換し、適切なディレクトリに配置する。

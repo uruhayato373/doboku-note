@@ -1,3 +1,10 @@
+---
+name: note-post
+description: >
+  doboku-note の既存 MDX コンテンツ（過去問・キーワード）を元ネタに、note.com 向けの記事ドラフト（分析記事・学習ガイド・キーワードまとめ）を生成する。サイトへの誘導導線つき。
+  Use when user asks to [note 記事, note ドラフト, note 投稿, /note-post].
+---
+
 # /note-post — note記事ドラフト生成
 
 doboku-noteの既存コンテンツを活用して、note.com向けの記事ドラフトを生成する。

@@ -1,3 +1,10 @@
+---
+name: seo-audit
+description: >
+  doboku-note の SEO 健全性を技術・コンテンツ・内部リンクの 3 軸で総合監査し、改善アクションリストを出力する。sitemap 整合性・meta タグ・構造化データ・タイトル重複・内部リンク構造をチェック。
+  Use when user asks to [SEO 監査, SEO チェック, サイト監査, /seo-audit].
+---
+
 # /seo-audit — SEO 総合監査
 
 サイト全体の SEO 健全性を監査し、改善アクションリストを生成するスキル。
