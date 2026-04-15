@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:22:29.097Z",
+  "scored_at": "2026-04-15T03:34:23.732Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -628,18 +628,20 @@
       "slug": "planetary-boundaries",
       "scores": {
         "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure",
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクションが完全に欠落（0点・即不合格）。モバイルはMEDIUM11件（3列表セル超過多数・導入文2箇所欠落・末尾リンク列挙形式）で要修正。構造・原則・関連付けは概ね合格水準。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:12:42.854Z"
+      "qualitative_comment": "G+D: 1.00→2.60。D パターンのセクションが位置づけ後に配置され構造2点、RelatedKeywords未使用で linking 2点。",
+      "weighted": 2.6,
+      "scored_at": "2026-04-15T03:34:23.732Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave4"
     },
     "ozone-layer-protection": {
       "slug": "ozone-layer-protection",
@@ -661,20 +663,20 @@
     "three-c-analysis": {
       "slug": "three-c-analysis",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落で即不合格。構造は参考資料節なし。モバイルはMEDIUM4件（3列表セル超過+導入文欠落）。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "G+D: 0.95→2.85。参考資料WebFetch未確認で保守評価。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-15T03:34:23.732Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave4"
     },
     "common-criteria": {
       "slug": "common-criteria",
@@ -695,20 +697,21 @@
     "ismap": {
       "slug": "ismap",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 2,
         "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
         "mobile",
-        "reference"
+        "principle"
       ],
-      "qualitative_comment": "参考資料セクションが完全欠落（0点クランプ・即不合格）。MEDIUM3件・参考資料なし・構造不完全の3軸が弱点。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "qualitative_comment": "G+D: 1.00→2.55。ExamPoint 58%地点で総括配置なし、3列表の一部セル超過で mobile/principle 2点。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-15T03:34:23.732Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave4"
     },
     "kunming-montreal-framework": {
       "slug": "kunming-montreal-framework",
@@ -747,19 +750,17 @@
       "slug": "safety-2-0",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weak_axes": [
-        "mobile",
-        "reference",
-        "linking"
-      ],
-      "qualitative_comment": "参考資料に外部URLが0件（書籍名のみ）で参考資料軸0点→即不合格。MEDIUM9件・関連キーワードが末尾列挙行も要修正。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T01:14:08.425Z"
+      "weak_axes": [],
+      "qualitative_comment": "G+D: 1.00→3.00 完全合格。全軸満点。",
+      "weighted": 3,
+      "scored_at": "2026-04-15T03:34:23.732Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave4"
     },
     "data-mining": {
       "slug": "data-mining",
@@ -1134,21 +1135,20 @@
     "urban-flood": {
       "slug": "urban-flood",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "principle",
         "reference"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落で0点クランプ。表3つすべてに導入文なし・3列表セル超過。",
-      "weighted": 0.95,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "G+D: 0.95→2.85。lint完全クリア、参考資料は一部組織トップページ寄りで2点。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-15T03:34:23.732Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave4"
     },
     "centralization-decentralization": {
       "slug": "centralization-decentralization",
@@ -1364,21 +1364,20 @@
     "cluster-analysis": {
       "slug": "cluster-analysis",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "structure",
-        "mobile",
-        "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（即不合格）。3列表セル15字超MEDIUM3件。ExamPoint総括欠落。",
-      "weighted": 0.95,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 0.95→2.90。lint違反ゼロ、双方向性未確認のため linking 2点。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:34:23.732Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave4"
     },
     "right-to-know": {
       "slug": "right-to-know",
