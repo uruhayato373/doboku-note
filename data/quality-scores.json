@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T03:41:43.171Z",
+  "scored_at": "2026-04-15T03:48:52.507Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -1191,38 +1191,39 @@
     "machinery-safety-guidelines": {
       "slug": "machinery-safety-guidelines",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "参考資料にURLが1件もなく即不合格。MEDIUM7件（表セル超過・導入文欠落）。ExamPointが位置づけ前配置で§5違反。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "G+D: 1.00→2.90。4表を箇条書き化、公的2+民間1。linking は双方向未確認。",
+      "weighted": 2.9,
+      "scored_at": "2026-04-15T03:48:52.507Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave6"
     },
     "rio-declaration": {
       "slug": "rio-declaration",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
         "mobile",
-        "principle",
-        "reference"
+        "principle"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落で参照軸0点。ExamPointが「とは」節末尾で§5違反。MEDIUM11件はセル文字数超過多数と導入文欠如。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "G+D: 1.00→2.55。ExamPoint 55%地点で末尾配置ズレ残存。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-15T03:48:52.507Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave6"
     },
     "accident-statistics": {
       "slug": "accident-statistics",
@@ -1243,20 +1244,20 @@
     "data-cleansing": {
       "slug": "data-cleansing",
       "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
       },
       "weak_axes": [
-        "structure",
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "参考資料セクション完全欠落（0点・即不合格）。3列表のセル超過MEDIUM3件。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "G+D: 1.00→2.70。参考資料のURL存在確認で一部 NG、Phase 4で差し替え候補。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T03:48:52.507Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave6"
     },
     "emergency-info-processing": {
       "slug": "emergency-info-processing",
@@ -1311,38 +1312,39 @@
       "slug": "disclosure-request",
       "scores": {
         "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
-        "principle",
+        "structure",
         "reference"
       ],
-      "qualitative_comment": "参考資料のURLが完全欠落でreference=0クランプ。表直前導入文なし4箇所とExamPoint配置ズレ。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "G+D: 1.00→2.55。成立背景H2が位置づけの後に挿入で構造2点、民間URL直結性要改善。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-15T03:48:52.507Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave6"
     },
     "information-disclosure": {
       "slug": "information-disclosure",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 0,
-        "linking": 1
+        "structure": 3,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
         "principle",
-        "reference",
-        "linking"
+        "reference"
       ],
-      "qualitative_comment": "参考資料に外部リンクが皆無。導入文欠落4箇所・セル超過3件・関連キーワード列挙誤り・ExamPoint配置ズレ。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 1.00→2.65。ExamPoint位置づけ前配置、参考資料にURL無しテキスト1件残存。",
+      "weighted": 2.65,
+      "scored_at": "2026-04-15T03:48:52.507Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave6"
     },
     "prevention-activities": {
       "slug": "prevention-activities",
@@ -1383,20 +1385,20 @@
     "right-to-know": {
       "slug": "right-to-know",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 0,
-        "linking": 1
+        "structure": 2,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
       "weak_axes": [
-        "mobile",
-        "reference",
-        "linking"
+        "structure"
       ],
-      "qualitative_comment": "参考資料に外部リンクが皆無で即不合格。HIGH太字・導入文4件未挿入・関連キーワード形式誤り。",
-      "weighted": 1,
-      "scored_at": "2026-04-15T03:01:40.466Z"
+      "qualitative_comment": "G+D: 1.00→2.70。歴史背景H2が位置づけ後に挿入で構造2点。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T03:48:52.507Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave6"
     },
     "safety-health-policy": {
       "slug": "safety-health-policy",
