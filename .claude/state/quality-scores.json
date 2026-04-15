@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T04:04:38.348Z",
+  "scored_at": "2026-04-15T04:14:07.023Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -415,18 +415,20 @@
       "slug": "alps-treated-water",
       "scores": {
         "structure": 3,
-        "mobile": 2,
-        "principle": 1,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "principle",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "構造は適切だが、表前の導入文欠落と参考資料が1件のみで要修正。ExamPointがトリチウム特性段階で早い配置。公的機関資料を最低1件追加必須。",
-      "weighted": 1.95,
-      "scored_at": "2026-04-14T07:43:44.811Z"
+      "qualitative_comment": "A+D: 1.95→2.70。ExamPoint位置・RelatedKeywords未設置。",
+      "weighted": 2.7,
+      "scored_at": "2026-04-15T04:14:07.023Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave10"
     },
     "environmental-basic-plan": {
       "slug": "environmental-basic-plan",
@@ -869,18 +871,20 @@
       "slug": "occupational-disease",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
+        "mobile": 3,
+        "principle": 3,
         "reference": 1,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "モバイル軸はMEDIUM11件（表前導入文3件・セル超過6件）で1点。参考資料は民間のみ1件で1点。ExamPointは1個で位置も許容範囲内。",
-      "weighted": 1.9,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "qualitative_comment": "G+D: 1.90→2.60。参考資料 404/認証壁リンク、要差替。",
+      "weighted": 2.6,
+      "scored_at": "2026-04-15T04:14:07.023Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave10"
     },
     "vpn": {
       "slug": "vpn",
@@ -936,17 +940,20 @@
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "principle": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "4列表とMEDIUM5件でモバイル軸1点。参考資料が外部リンク1件のみで公的+民間の両方が揃っていない。",
-      "weighted": 1.9,
-      "scored_at": "2026-04-15T01:15:34.911Z"
+      "qualitative_comment": "G+D: 1.90→2.00。太字スコープ超過とExamPoint位置。Phase 4 候補。",
+      "weighted": 2,
+      "scored_at": "2026-04-15T04:14:07.023Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave10"
     },
     "survey-analysis": {
       "slug": "survey-analysis",
@@ -1005,18 +1012,20 @@
       "slug": "stakeholder",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 2,
+        "mobile": 3,
+        "principle": 3,
         "reference": 1,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "表5個すべてに導入文なし・3列表セル超過・参考資料URLゼロが主因。",
-      "weighted": 1.9,
-      "scored_at": "2026-04-15T02:58:43.376Z"
+      "qualitative_comment": "G+D: 1.90→2.60。全参考資料リンク切れ、Phase 4で差替必須。",
+      "weighted": 2.6,
+      "scored_at": "2026-04-15T04:14:07.023Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave10"
     },
     "edge-computing": {
       "slug": "edge-computing",
@@ -1275,19 +1284,22 @@
     "emergency-info-processing": {
       "slug": "emergency-info-processing",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
+        "structure": 2,
+        "mobile": 3,
         "principle": 2,
-        "reference": 1,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure",
+        "principle",
+        "linking"
       ],
-      "qualitative_comment": "表4つ全てに導入文なし・3列表セル超過3件・参考資料URLが全件欠落が主因。",
-      "weighted": 1.9,
-      "scored_at": "2026-04-15T03:00:13.518Z"
+      "qualitative_comment": "G+D: 1.90→2.40。ExamPoint位置づけ前配置、Phase 4 候補。",
+      "weighted": 2.4,
+      "scored_at": "2026-04-15T04:14:07.023Z",
+      "verifyAfterRewrite": true,
+      "rewriteWave": "Wave10"
     },
     "tacit-knowledge": {
       "slug": "tacit-knowledge",
