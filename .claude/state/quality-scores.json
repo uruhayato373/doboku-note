@@ -1564,21 +1564,25 @@
     },
     "360-degree-evaluation": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
         "reference": 1,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "qualitative_comment": "MEDIUM4件で mobile 軸要修正。参考資料は厚労省トップページ1件のみで民間解説が欠落。",
-      "weighted": 1.6,
+      "qualitative_comment": "Phase G-4 Wave6: 全セクション揃い・lint ゼロ。参考資料民間2件のみ（公的欠落）。weighted=2.60。",
+      "weighted": 2.6,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.6,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "access-control": {
       "scores": {
@@ -1880,21 +1884,26 @@
     },
     "alarp-principle": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "HIGH1件（L17太字67字）。3列表セル超過。参考資料jisc.go.jpトップページ1件のみ。",
-      "weighted": 1.7,
+      "qualitative_comment": "Phase G-4 Wave6: HIGH解消・ExamPoint位置移動。参考資料はJISCトップ問題・Wikipedia重複。weighted=2.75。",
+      "weighted": 2.75,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.7,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "alert-levels": {
       "scores": {
@@ -1931,21 +1940,26 @@
     },
     "analytic-hierarchy-process": {
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 2,
-        "principle": 1,
-        "reference": 1,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "principle",
-        "reference"
+        "mobile",
+        "linking"
       ],
-      "qualitative_comment": "ExamPoint 0個（試験対策要素皆無）。参考資料は書籍1件のみでURL無し。メモセクション残存。",
-      "weighted": 1.65,
+      "qualitative_comment": "Phase G-4 Wave6: ExamPoint新規追加・見出し修正・参考資料3件。L68リンク列挙行のみ残。weighted=2.65。",
+      "weighted": 2.65,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.65,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "annual-salary-system": {
       "scores": {
@@ -2080,21 +2094,25 @@
     },
     "attitude-appraisal": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
         "linking": 2
       },
       "weak_axes": [
-        "mobile",
-        "reference"
+        "linking"
       ],
-      "qualitative_comment": "表2箇所に導入文なし。参考資料mhlw.go.jp 1件のみ（民間欠落）。ExamPoint位置づけ節前配置。",
-      "weighted": 1.6,
+      "qualitative_comment": "Phase G-4 Wave6: 全軸良好。参考資料人事院+リクルートMS+doda。weighted=2.90。",
+      "weighted": 2.9,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.6,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "authenticity": {
       "scores": {
@@ -2180,21 +2198,27 @@
     },
     "before-service": {
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
+        "structure": 3,
+        "mobile": 2,
+        "principle": 3,
         "reference": 1,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "reference"
+        "reference",
+        "linking"
       ],
-      "qualitative_comment": "MEDIUM4件（導入文欠落・ExamPoint位置）。参考資料jisc.go.jp 1件のみ。",
-      "weighted": 1.6,
+      "qualitative_comment": "Phase G-4 Wave6: jisc.go.jpトップ残存で参考資料1、L20太字41字。weighted=2.35。",
+      "weighted": 2.35,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.6,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "behavioral-regulation": {
       "scores": {
@@ -2367,20 +2391,24 @@
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 1,
+        "principle": 3,
         "reference": 1,
         "linking": 2
       },
       "weak_axes": [
         "mobile",
-        "principle",
         "reference"
       ],
-      "qualitative_comment": "HIGH1件（L19太字72字）。§5必須の位置づけ節末尾総括ExamPoint欠落。参考資料ISO 31010 1件のみ。",
-      "weighted": 1.7,
+      "qualitative_comment": "Phase G-4 Wave6: HIGH解消・ExamPoint位置移動。構成要素表セル20字超過残・公的リンク欠落。weighted=2.10。",
+      "weighted": 2.1,
       "scored_at": "2026-04-15",
-      "state": "scored",
-      "history": []
+      "state": "verified",
+      "history": [
+        {
+          "prev_weighted": 1.7,
+          "at": "2026-04-15"
+        }
+      ]
     },
     "break-even-point": {
       "scores": {
