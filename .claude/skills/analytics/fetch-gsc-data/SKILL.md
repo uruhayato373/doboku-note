@@ -60,7 +60,7 @@ npm run fetch-gsc-data -- --dimension date --days 90
 
 取得したデータは以下に出力される:
 - **コンソール**: サマリー（上位30件）
-- **JSONファイル**: `.local/metrics/gsc/gsc-{dimension}-{timestamp}.json`（全件）
+- **JSONファイル**: `.claude/state/metrics/gsc/gsc-{dimension}-{timestamp}.json`（全件）
 
 JSONファイルを Read ツールで読み込み、以下の観点で分析する:
 - **高インプレッション低CTR**: タイトル・ディスクリプションの改善候補
