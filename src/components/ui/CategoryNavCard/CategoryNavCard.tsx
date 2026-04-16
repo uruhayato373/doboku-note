@@ -152,34 +152,35 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
   const currentChapterId = currentSection?.split('.')[0];
 
   if (variant === 'sidebar') {
+    const chapter = chapters.find(c => c.id === currentChapterId);
+    const section = chapter?.sections.find(s => s.id === currentSection);
+    const keywords = (section as any)?.keywords as { slug: string; title: string }[] | undefined;
+    const currentSuffix = currentSlug.replace('pe-comprehensive-management-', '');
+
+    if (!section || !keywords || keywords.length === 0) return null;
+
     return (
-      <SidebarWrapper title="セクション別解説">
-        <ul className="space-y-2">
-          {chapters.map((ch) => {
-            const isCurrentChapter = ch.id === currentChapterId;
-            return (
-              <li key={ch.id}>
-                <div className={`text-xs font-semibold mb-1 ${isCurrentChapter ? 'text-blue-600 dark:text-blue-400' : 'text-gray-500 dark:text-gray-400'}`}>
-                  {ch.title}
-                </div>
-                {isCurrentChapter && (
-                  <ul className="space-y-0.5 ml-2">
-                    {ch.sections.map((sec) => {
-                      const isCurrentSection = sec.id === currentSection;
-                      return (
-                        <li key={sec.id}>
-                          <span className={`text-xs ${isCurrentSection ? 'font-bold text-gray-900 dark:text-gray-100' : 'text-gray-600 dark:text-gray-400'}`}>
-                            {sec.id} {sec.title}
-                            {sec.keywords && <span className="text-gray-400 dark:text-gray-500 ml-1">({sec.keywords.length})</span>}
-                          </span>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                )}
-              </li>
-            );
-          })}
+      <SidebarWrapper title="同セクションのキーワード">
+        <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
+          {section.id} {section.title}
+        </p>
+        <ul className="space-y-0.5 max-h-[280px] overflow-y-auto toc-scroll">
+          {keywords.map(kw => (
+            <li key={kw.slug}>
+              {kw.slug === currentSuffix ? (
+                <span className="block text-xs py-0.5 pl-2 border-l-2 border-blue-500 font-bold text-gray-900 dark:text-gray-100">
+                  {kw.title}
+                </span>
+              ) : (
+                <Link
+                  href={`/docs/pe-comprehensive-management-${kw.slug}`}
+                  className="block text-xs py-0.5 pl-2 border-l-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-colors"
+                >
+                  {kw.title}
+                </Link>
+              )}
+            </li>
+          ))}
         </ul>
       </SidebarWrapper>
     );
