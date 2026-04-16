@@ -22,6 +22,17 @@
 /docs/pe-comprehensive-management-occupational-safety-act-osh /docs/pe-comprehensive-management-occupational-safety-act 301
 /docs/pe-comprehensive-management-labor-standards-act-osh /docs/pe-comprehensive-management-labor-standards-act 301
 
+# テキストブック再構成: 旧slug → 新slug（2026-04-16）— 11→34ページ分割
+/docs/civil-construction-1-textbook-construction-machinery-01 /docs/civil-construction-1-textbook-machinery-overview 301
+/docs/civil-construction-1-textbook-construction-machinery-02 /docs/civil-construction-1-textbook-loader 301
+/docs/civil-construction-1-textbook-surveying /docs/civil-construction-1-textbook-surveying-basics 301
+/docs/civil-construction-1-textbook-construction-plan-text-01 /docs/civil-construction-1-textbook-construction-plan-overview 301
+/docs/civil-construction-1-textbook-construction-plan-text-02 /docs/civil-construction-1-textbook-management-subplans 301
+/docs/civil-construction-1-textbook-schedule-management /docs/civil-construction-1-textbook-schedule-overview 301
+/docs/civil-construction-1-textbook-quality-management-text /docs/civil-construction-1-textbook-quality-overview 301
+/docs/civil-construction-1-textbook-related-laws-01 /docs/civil-construction-1-textbook-law-compliance 301
+/docs/civil-construction-1-textbook-related-laws-02 /docs/civil-construction-1-textbook-road-act 301
+
 # 削除済みコンテンツ → トップページ（301 Moved Permanently）
 /docs/river/* / 301
 /docs/general/* / 301

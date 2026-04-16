@@ -537,10 +537,48 @@ export default async function CategoryPage({
                     !/secondary-(r|h)\d+$/.test(d.slug || '')
                   ) || [];
 
+                  // テキストブックをエリア別にグループ化
+                  const TEXTBOOK_AREAS = [
+                    { label: '建設機械', min: 100, max: 149 },
+                    { label: '測量', min: 150, max: 169 },
+                    { label: '解体工事', min: 170, max: 179 },
+                    { label: '施工管理・施工計画', min: 200, max: 230 },
+                    { label: '工程管理', min: 250, max: 269 },
+                    { label: '品質管理', min: 300, max: 320 },
+                    { label: '関係法規', min: 400, max: 449 },
+                  ];
+                  const textbookAreas = textbookGroup ? TEXTBOOK_AREAS.map(area => ({
+                    ...area,
+                    docs: textbookGroup.docs.filter(d => {
+                      const order = (d as any).textbook_order ?? 999;
+                      return order >= area.min && order <= area.max;
+                    }),
+                  })).filter(a => a.docs.length > 0) : [];
+
                   return (
                     <>
                       {guideGroup && <DocSection group={guideGroup} />}
-                      {textbookGroup && <DocSection group={textbookGroup} />}
+                      {textbookGroup && (
+                        <section>
+                          <div className="mb-6">
+                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{textbookGroup.title}</h2>
+                            <p className="text-base text-gray-500 dark:text-gray-400 mt-1">{textbookGroup.description}</p>
+                            <span className="text-sm text-gray-400 dark:text-gray-500">{textbookGroup.docs.length} 件</span>
+                          </div>
+                          <div className="space-y-8">
+                            {textbookAreas.map(area => (
+                              <div key={area.label}>
+                                <h3 className="text-lg font-semibold text-gray-700 dark:text-gray-300 mb-3 border-b border-gray-200 dark:border-gray-700 pb-2">{area.label}</h3>
+                                <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                                  {area.docs.map(doc => (
+                                    <DocCard key={doc.slug} doc={doc} />
+                                  ))}
+                                </div>
+                              </div>
+                            ))}
+                          </div>
+                        </section>
+                      )}
                       {primaryGroup && (
                         <DocSection
                           group={{

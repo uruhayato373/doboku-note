@@ -32,7 +32,7 @@ export async function generateDynamicSidebar(
     ? allSlugs.filter((s) => s.startsWith(filterCategory + '-'))
     : allSlugs;
 
-  const docs: { slug: string; label: string; group: DocGroupKey }[] = [];
+  const docs: { slug: string; label: string; group: DocGroupKey; textbook_order: number }[] = [];
   const metas = await Promise.all(slugs.map((slug) => getDocMeta(slug)));
   for (let i = 0; i < slugs.length; i++) {
     const meta = metas[i];
@@ -41,16 +41,17 @@ export async function generateDynamicSidebar(
       slug: slugs[i]!,
       label: meta.sidebar_label || meta.title || slugs[i]!,
       group: classifyDoc(meta),
+      textbook_order: Number(meta.textbook_order) || 999,
     });
   }
 
   // グループ化
-  const groups = new Map<DocGroupKey, { slug: string; label: string }[]>();
+  const groups = new Map<DocGroupKey, { slug: string; label: string; textbook_order: number }[]>();
   for (const doc of docs) {
     if (!groups.has(doc.group)) {
       groups.set(doc.group, []);
     }
-    groups.get(doc.group)!.push({ slug: doc.slug, label: doc.label });
+    groups.get(doc.group)!.push({ slug: doc.slug, label: doc.label, textbook_order: doc.textbook_order });
   }
 
   // グループが1つしかない場合はフラットリスト
@@ -70,7 +71,11 @@ export async function generateDynamicSidebar(
     const groupDocs = groups.get(groupKey);
     if (!groupDocs || groupDocs.length === 0) continue;
 
-    groupDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+    if (groupKey === 'textbook') {
+      groupDocs.sort((a, b) => a.textbook_order - b.textbook_order);
+    } else {
+      groupDocs.sort((a, b) => a.slug.localeCompare(b.slug));
+    }
     const label = filterCategory ? getGroupLabel(filterCategory, groupKey) : groupKey;
 
     items.push({

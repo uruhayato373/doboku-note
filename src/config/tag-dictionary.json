@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-04-16T08:30:02.777Z",
+  "generated_at": "2026-04-16T11:21:42.969Z",
   "summary": {
-    "total_mdx_files": 746,
-    "total_unique_tags": 39,
+    "total_mdx_files": 769,
+    "total_unique_tags": 40,
     "allowlist_size": 56,
-    "known_count": 24,
-    "unknown_count": 15,
+    "known_count": 21,
+    "unknown_count": 19,
     "typo_candidates_count": 1
   },
   "tags": [
@@ -1101,6 +1101,47 @@
       ]
     },
     {
+      "name": "textbook",
+      "count": 34,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-crane",
+        "civil-construction-1-textbook-demolition",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-grader-compaction",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-loader",
+        "civil-construction-1-textbook-machinery-overview",
+        "civil-construction-1-textbook-machinery-structure",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-network-schedule",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-schedule-overview",
+        "civil-construction-1-textbook-scraper",
+        "civil-construction-1-textbook-shovel-excavator",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-standard-contract",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-construction-1-textbook-tractor-bulldozer",
+        "civil-construction-1-textbook-transport-machinery",
+        "civil-construction-1-textbook-work-scheduling"
+      ]
+    },
+    {
       "name": "primary",
       "count": 24,
       "inAllowlist": true,
@@ -1179,24 +1220,6 @@
       ]
     },
     {
-      "name": "textbook",
-      "count": 11,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-construction-machinery-01",
-        "civil-construction-1-textbook-construction-machinery-02",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-text-01",
-        "civil-construction-1-textbook-construction-plan-text-02",
-        "civil-construction-1-textbook-demolition",
-        "civil-construction-1-textbook-quality-management-text",
-        "civil-construction-1-textbook-related-laws-01",
-        "civil-construction-1-textbook-related-laws-02",
-        "civil-construction-1-textbook-schedule-management",
-        "civil-construction-1-textbook-surveying"
-      ]
-    },
-    {
       "name": "exam-questions",
       "count": 10,
       "inAllowlist": false,
@@ -1228,6 +1251,52 @@
         "pe-comprehensive-management-essay-question-trends-timeline",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy"
+      ]
+    },
+    {
+      "name": "law",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-standard-contract"
+      ]
+    },
+    {
+      "name": "machinery",
+      "count": 9,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-construction-1-textbook-crane",
+        "civil-construction-1-textbook-grader-compaction",
+        "civil-construction-1-textbook-loader",
+        "civil-construction-1-textbook-machinery-overview",
+        "civil-construction-1-textbook-machinery-structure",
+        "civil-construction-1-textbook-scraper",
+        "civil-construction-1-textbook-shovel-excavator",
+        "civil-construction-1-textbook-tractor-bulldozer",
+        "civil-construction-1-textbook-transport-machinery"
+      ]
+    },
+    {
+      "name": "construction-plan",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling"
       ]
     },
     {
@@ -1286,25 +1355,34 @@
       ]
     },
     {
-      "name": "construction-plan",
-      "count": 5,
-      "inAllowlist": true,
+      "name": "quality",
+      "count": 4,
+      "inAllowlist": false,
       "usedIn": [
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-text-01",
-        "civil-construction-1-textbook-construction-plan-text-02"
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview"
       ]
     },
     {
-      "name": "quality-management",
+      "name": "schedule",
+      "count": 3,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-construction-1-textbook-network-schedule",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-schedule-overview"
+      ]
+    },
+    {
+      "name": "surveying",
       "count": 3,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-1-textbook-quality-management-text"
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-surveying-basics"
       ]
     },
     {
@@ -1314,15 +1392,6 @@
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
         "civil-construction-1-secondary-concrete-past-problems"
-      ]
-    },
-    {
-      "name": "construction-machinery",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-construction-machinery-01",
-        "civil-construction-1-textbook-construction-machinery-02"
       ]
     },
     {
@@ -1344,12 +1413,12 @@
       ]
     },
     {
-      "name": "related-laws",
+      "name": "quality-management",
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-textbook-related-laws-01",
-        "civil-construction-1-textbook-related-laws-02"
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems"
       ]
     },
     {
@@ -1383,22 +1452,6 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-demolition"
-      ]
-    },
-    {
-      "name": "schedule-management",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-schedule-management"
-      ]
-    },
-    {
-      "name": "surveying",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-surveying"
       ]
     },
     {
@@ -1509,6 +1562,10 @@
   "unknown": [
     "技士（総合技術監理部門）",
     "exam-questions",
+    "law",
+    "machinery",
+    "quality",
+    "schedule",
     "2026年版",
     "5管理",
     "キーワード集",
