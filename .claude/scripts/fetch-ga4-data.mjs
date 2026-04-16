@@ -27,7 +27,7 @@ dotenv.config({ path: ".env.local" });
 
 // ── Config ──
 
-const OUTPUT_DIR = ".local/metrics/ga4";
+const OUTPUT_DIR = ".claude/state/metrics/ga4";
 const DEFAULT_DAYS = 28;
 const DEFAULT_LIMIT = 100;
 const DEFAULT_DIMENSION = "channel";
