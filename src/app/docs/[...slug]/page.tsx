@@ -199,7 +199,7 @@ export default async function DocPage({
   const headings = extractHeadings(
     doc.content,
     doc.meta.toc_min_heading_level ?? 2,
-    doc.meta.toc_max_heading_level ?? 4,
+    doc.meta.toc_max_heading_level ?? 3,
   );
 
   return (
