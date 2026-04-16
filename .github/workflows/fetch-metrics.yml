@@ -1,0 +1,92 @@
+name: Fetch metrics weekly
+
+on:
+  schedule:
+    - cron: "0 11 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Restore service account key
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY_JSON }}
+        run: |
+          mkdir -p credentials
+          printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
+          chmod 600 credentials/gsc-service-account.json
+
+      - name: Fetch GA4
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data
+
+      - name: Fetch GSC
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data
+
+      - name: Stage outputs
+        run: |
+          mkdir -p /tmp/metrics-publish
+          cp -r .local/metrics/* /tmp/metrics-publish/ 2>/dev/null || true
+          ls -la /tmp/metrics-publish
+
+      - name: Publish to metrics-data branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --heads origin metrics-data | grep -q metrics-data; then
+            git fetch origin metrics-data
+            git checkout metrics-data
+            git rm -rf ga4 gsc 2>/dev/null || true
+          else
+            git checkout --orphan metrics-data
+            git rm -rf . 2>/dev/null || true
+          fi
+
+          cp -r /tmp/metrics-publish/ga4 ./ga4 2>/dev/null || mkdir -p ga4
+          cp -r /tmp/metrics-publish/gsc ./gsc 2>/dev/null || mkdir -p gsc
+
+          cat > README.md <<'EOF'
+          # metrics-data branch
+
+          GA4 / GSC raw JSON exports. Auto-generated weekly by
+          `.github/workflows/fetch-metrics.yml`. Do not edit by hand.
+
+          - `ga4/` — fetch-ga4-data.mjs output
+          - `gsc/` — fetch-gsc-data.mjs output
+
+          Consumed by the weekly PDCA remote trigger.
+          EOF
+
+          git add ga4 gsc README.md
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+
+          git commit -m "metrics: weekly fetch $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push origin metrics-data
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f credentials/gsc-service-account.json
