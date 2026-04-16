@@ -146,6 +146,22 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
 - **表は 2 軸比較のみ**: 4 列以上禁止、キーバリュー表は散文化、計算手順は番号付きリスト
 - **見出し階層**: H1 = ページタイトル（frontmatter から自動生成）、本文は H2 以下
 
+### UI コンポーネントの必須ルール
+
+- **カードのスタイルはデザイントークンを使う**: `rounded-lg` / `rounded-xl` 等の生の Tailwind 値ではなく、以下のトークンを使用する
+  | 用途 | border-radius | box-shadow | hover |
+  |---|---|---|---|
+  | インライン（Badge 等） | `rounded-card-inline` | なし | - |
+  | コンテンツカード（Callout, LinkCard 等） | `rounded-card-content` | `shadow-card-content` | `hover:shadow-card-hover` |
+  | セクションカード（RelatedTextbooks 等） | `rounded-card-section` | `shadow-card-section` | - |
+  | ヒーロー（CategoryHeader） | `rounded-card-hero` | なし | - |
+  - トークンの値は `src/styles/globals.css` の `:root` で定義。変更は CSS 変数のみで全カードに反映される
+- **ダークモードのボーダー色を必ず書く**: `border-gray-*` を使う場合、必ず `dark:border-gray-*` を同じ className に含めること。インラインの `borderColor` は dark クラスを上書きするため使用禁止
+  - 良い例: `border border-gray-200 dark:border-gray-700`
+  - 悪い例: `border border-gray-200`（dark 指定なし）
+  - 悪い例: `style={{ borderColor: '#e4edf4' }}`（dark クラスを上書き）
+- **pre-commit フック**（`scripts/lint-dark-mode.mjs`）がステージされた `.tsx` ファイルのダークモード未指定ボーダーを検出し、コミットをブロックする
+
 ## デプロイ
 
 - **本番**: `main` ブランチへの push で GitHub Actions → Cloudflare Pages に自動デプロイ

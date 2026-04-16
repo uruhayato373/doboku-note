@@ -23,7 +23,7 @@ type SectionCardProps = {
 
 function SectionCard({ icon, title, children }: SectionCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-card-section p-6 hover:shadow-card-hover transition-shadow">
       <div className="flex items-center gap-3 mb-4">
         <div className="bg-primary-100 dark:bg-primary-900/30 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
           {icon}

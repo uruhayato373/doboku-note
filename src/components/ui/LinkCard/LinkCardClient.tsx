@@ -63,7 +63,7 @@ export default function LinkCardClient({
     <span className="inline-block p-4">
       <span
         onClick={handleClick}
-        className="group cursor-pointer border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 bg-white dark:bg-gray-800 max-w-2xl inline-block"
+        className="group cursor-pointer border border-gray-200 dark:border-gray-700 rounded-card-content overflow-hidden shadow-card-content hover:shadow-card-hover transition-all duration-300 bg-white dark:bg-gray-800 max-w-2xl inline-block"
       >
         <span className="flex">
           {(imageUrl || metadata?.image) && (

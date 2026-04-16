@@ -11,7 +11,7 @@ export default function WritingTip({ summary, items }: WritingTipProps) {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="my-5 mx-5 p-3 border border-gray-300 dark:border-gray-600">
+    <div className="my-5 mx-5 p-3 border border-gray-300 dark:border-gray-700">
       <div className="relative -left-8 bg-emerald-600 text-white py-2 px-4 m-0 text-lg font-bold dark:bg-emerald-500 inline-flex items-center w-auto">
         論文での書き方
       </div>

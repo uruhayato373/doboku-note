@@ -27,7 +27,7 @@ export default function StatsCard({ title, items }: StatsCardProps) {
         {items.map((item, i) => (
           <div
             key={i}
-            className="rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 text-center"
+            className="rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-4 text-center"
           >
             <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{item.label}</div>
             <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">{item.value}</div>

@@ -225,8 +225,8 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 function SidebarWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div
-      className="border rounded bg-white dark:bg-[#0d223a] dark:border-[#2a3a4e]"
-      style={{ borderColor: '#e4edf4', borderRadius: '4px', padding: '16px 16px 20px' }}
+      className="border border-[#e4edf4] dark:border-[#2a3a4e] rounded bg-white dark:bg-[#0d223a]"
+      style={{ borderRadius: '4px', padding: '16px 16px 20px' }}
     >
       <div
         className="text-gray-900 dark:text-[#ecf5ff]"
@@ -241,7 +241,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
 
 function MobileWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8">
+    <section className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8">
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
       {children}
     </section>

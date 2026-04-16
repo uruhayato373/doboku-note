@@ -4,6 +4,24 @@
 
 /* ===== Base Styles ===== */
 @layer base {
+  /* Card design tokens — single source of truth */
+  :root {
+    --radius-card-inline: 4px;
+    --radius-card-content: 8px;
+    --radius-card-section: 16px;
+    --radius-card-hero: 24px;
+
+    --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.15);
+    --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.15);
+    --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25);
+  }
+
   html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     scroll-padding-top: 5rem;

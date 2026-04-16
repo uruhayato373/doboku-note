@@ -29,12 +29,12 @@ export default function CategoryBadge({ category, subCategory }: CategoryBadgePr
     <div className="flex items-center gap-2">
       <Link
         href={`/category/${category}`}
-        className="inline-block px-3 py-1 rounded text-sm bg-primary-500/80 text-white hover:bg-primary-600/90 transition-colors shadow-lg"
+        className="inline-block px-3 py-1 rounded-card-inline text-sm bg-primary-500/80 text-white hover:bg-primary-600/90 transition-colors shadow-lg"
       >
         {categoryLabel}
       </Link>
       {subCategory && (
-        <span className="text-sm text-white font-medium bg-black/30 px-2 py-1 rounded">
+        <span className="text-sm text-white font-medium bg-black/30 px-2 py-1 rounded-card-inline">
           {subCategory}
         </span>
       )}

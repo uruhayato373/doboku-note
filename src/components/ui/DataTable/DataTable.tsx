@@ -63,7 +63,7 @@ const DataTable: React.FC<DataTableProps> = ({
       )}
 
       <div className="overflow-x-auto">
-        <table className="border border-gray-300 dark:border-gray-600 shadow-sm w-full text-sm leading-5">
+        <table className="border border-gray-300 dark:border-gray-600 shadow-card-content w-full text-sm leading-5">
           <thead className="bg-gray-100 dark:bg-gray-700">
             <tr>
               {columns.map((column) => (

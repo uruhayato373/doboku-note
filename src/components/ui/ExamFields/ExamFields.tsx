@@ -32,7 +32,7 @@ export default function ExamFields({ items }: ExamFieldsProps) {
       {items.map((field) => {
         const colors = COLOR_CLASSES[field.color || 'default'] || COLOR_CLASSES.default!;
         const content = (
-          <div className={`rounded-xl border-l-4 ${colors.border} ${colors.bg} p-4 transition-shadow hover:shadow-md`}>
+          <div className={`rounded-card-content border-l-4 ${colors.border} ${colors.bg} p-4 transition-shadow hover:shadow-card-hover`}>
             <div className={`text-base font-bold mb-2 ${colors.text}`}>
               {field.name}
             </div>

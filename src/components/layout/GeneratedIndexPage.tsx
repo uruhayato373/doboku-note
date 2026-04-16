@@ -29,7 +29,7 @@ export default function GeneratedIndexPage({
               <Link
                 key={i}
                 href={href}
-                className="group block p-5 border border-gray-200 rounded-lg hover:border-primary hover:shadow-md hover:bg-blue-50 transition-all no-underline"
+                className="group block p-5 border border-gray-200 dark:border-gray-700 rounded-card-content hover:border-primary hover:shadow-card-hover hover:bg-blue-50 dark:hover:bg-gray-800 transition-all no-underline"
               >
                 <h3 className="text-sm font-semibold text-gray-800 group-hover:text-primary transition-colors">
                   {label}
@@ -46,7 +46,7 @@ export default function GeneratedIndexPage({
               <Link
                 key={i}
                 href={linkPath || '#'}
-                className="group block p-5 border border-gray-200 rounded-lg hover:border-primary hover:shadow-md hover:bg-blue-50 transition-all no-underline"
+                className="group block p-5 border border-gray-200 dark:border-gray-700 rounded-card-content hover:border-primary hover:shadow-card-hover hover:bg-blue-50 dark:hover:bg-gray-800 transition-all no-underline"
               >
                 <div className="flex items-start justify-between">
                   <div className="flex-1">

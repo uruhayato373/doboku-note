@@ -50,7 +50,7 @@ function SidebarGroup({
                   className={`block py-1 pl-3 text-sm leading-snug border-l-2 transition-colors duration-150 truncate ${
                     isActive
                       ? 'border-blue-500 text-blue-600 dark:text-blue-400 font-medium bg-blue-50/50 dark:bg-blue-900/20'
-                      : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300'
+                      : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600'
                   }`}
                 >
                   {item.label}
@@ -86,7 +86,7 @@ export default function SidebarNav({ title, items, currentSlug }: SidebarNavProp
                 className={`block py-1 pl-3 text-sm leading-snug border-l-2 transition-colors duration-150 truncate ${
                   isActive
                     ? 'border-blue-500 text-blue-600 dark:text-blue-400 font-medium bg-blue-50/50 dark:bg-blue-900/20'
-                    : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300'
+                    : 'border-transparent text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 hover:border-gray-300 dark:hover:border-gray-600'
                 }`}
               >
                 {item.label}

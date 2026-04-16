@@ -124,7 +124,7 @@ export default function Callout({
 
   return (
     <div
-      className={`relative border rounded-lg p-4 my-4 shadow-sm ${config.bgColor} ${config.borderColor}`}
+      className={`relative border rounded-card-content p-4 my-4 shadow-card-content ${config.bgColor} ${config.borderColor}`}
     >
       {/* アイコンとタイトル（上の枠線の途中に配置） */}
       <div className="absolute -top-2 left-4 bg-white dark:bg-gray-900 px-1 flex items-center gap-2">

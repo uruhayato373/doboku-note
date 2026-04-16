@@ -26,7 +26,7 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
   return (
     <section
       aria-label="同じセクションのキーワード"
-      className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8"
+      className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8"
     >
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
         {sec.title}

@@ -14,10 +14,20 @@ const HOOKS_DIR = join(".git", "hooks");
 const HOOK_PATH = join(HOOKS_DIR, "pre-commit");
 
 const HOOK_CONTENT = `#!/bin/sh
-# MDX validation pre-commit hook
+# Pre-commit hooks
 # Installed by: npm run pre-commit:install
 
+# MDX validation
 node scripts/pre-commit-mdx.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# Dark mode border lint (TSX)
+node scripts/lint-dark-mode.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {

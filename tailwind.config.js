@@ -90,6 +90,17 @@ module.exports = {
           },
         },
       },
+      borderRadius: {
+        'card-inline': 'var(--radius-card-inline)',
+        'card-content': 'var(--radius-card-content)',
+        'card-section': 'var(--radius-card-section)',
+        'card-hero': 'var(--radius-card-hero)',
+      },
+      boxShadow: {
+        'card-content': 'var(--shadow-card-content)',
+        'card-section': 'var(--shadow-card-section)',
+        'card-hover': 'var(--shadow-card-hover)',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':

@@ -160,7 +160,7 @@ function DocCard({ doc }: { doc: DocMeta }) {
   return (
     <Link
       href={`/docs/${doc.slug}`}
-      className="group relative overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all"
+      className="group relative overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-card-hover transition-all"
     >
       <div className="flex flex-col gap-1 h-full">
         <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">

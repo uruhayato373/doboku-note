@@ -66,7 +66,7 @@ export default function CardList({
 
   if (layout === 'simple') {
     return (
-      <div className="w-full bg-gray-50 dark:bg-gray-900 rounded-lg p-4">
+      <div className="w-full bg-gray-50 dark:bg-gray-900 rounded-card-content p-4">
         {title && (
           <h5 className="font-medium text-gray-900 dark:text-white mb-3">
             {title}
@@ -97,7 +97,7 @@ export default function CardList({
       )}
       <ul className="space-y-3">
         {dataWithPercentage.map((item, index) => (
-          <li key={index} className="bg-white dark:bg-gray-800 rounded-lg p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+          <li key={index} className="bg-white dark:bg-gray-800 rounded-card-content p-4 shadow-card-content border border-gray-100 dark:border-gray-700">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 {showColorIndicator && (

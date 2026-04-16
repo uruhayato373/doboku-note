@@ -13,7 +13,7 @@ export default function CategoryHeader({
   icon,
 }: CategoryHeaderProps) {
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-cyan-50 dark:from-primary-950 dark:via-gray-900 dark:to-cyan-950 rounded-3xl p-8 md:p-12 mb-16 transition-all duration-500 hover:shadow-2xl dark:hover:shadow-primary-900/20">
+    <div className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-cyan-50 dark:from-primary-950 dark:via-gray-900 dark:to-cyan-950 rounded-card-hero p-8 md:p-12 mb-16 transition-all duration-500 hover:shadow-2xl dark:hover:shadow-primary-900/20">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10 dark:opacity-20">
         <div className="absolute top-0 left-0 w-32 h-32 bg-primary-400 rounded blur-3xl"></div>
