@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-15T11:47:20.768Z",
+  "scored_at": "2026-04-16T11:36:42.019Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -4116,6 +4116,7212 @@
       ],
       "qualitative_comment": "MEDIUM6件・ExamPoint位置ズレ・参考資料jisc公的1件のみ。1.70不合格。",
       "scored_at": "2026-04-15T11:47:20.767Z"
+    },
+    "career-track-system": {
+      "slug": "career-track-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:30.881Z",
+      "scoring_method": "auto"
+    },
+    "child-rearing-support-act": {
+      "slug": "child-rearing-support-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:30.907Z",
+      "scoring_method": "auto"
+    },
+    "child-support-act": {
+      "slug": "child-support-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:30.933Z",
+      "scoring_method": "auto"
+    },
+    "childcare-nursing-leave-act": {
+      "slug": "childcare-nursing-leave-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:30.960Z",
+      "scoring_method": "auto"
+    },
+    "circular-economy": {
+      "slug": "circular-economy",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:30.986Z",
+      "scoring_method": "auto"
+    },
+    "circular-society-basic-act": {
+      "slug": "circular-society-basic-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.012Z",
+      "scoring_method": "auto"
+    },
+    "cites": {
+      "slug": "cites",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.037Z",
+      "scoring_method": "auto"
+    },
+    "civil-protection-act": {
+      "slug": "civil-protection-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.063Z",
+      "scoring_method": "auto"
+    },
+    "clearance-level": {
+      "slug": "clearance-level",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.090Z",
+      "scoring_method": "auto"
+    },
+    "climate-change-decarbonization": {
+      "slug": "climate-change-decarbonization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.117Z",
+      "scoring_method": "auto"
+    },
+    "climate-change-international": {
+      "slug": "climate-change-international",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.143Z",
+      "scoring_method": "auto"
+    },
+    "cloud-on-premises": {
+      "slug": "cloud-on-premises",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.169Z",
+      "scoring_method": "auto"
+    },
+    "club-of-rome": {
+      "slug": "club-of-rome",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.194Z",
+      "scoring_method": "auto"
+    },
+    "communication-control": {
+      "slug": "communication-control",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.220Z",
+      "scoring_method": "auto"
+    },
+    "communication-planning": {
+      "slug": "communication-planning",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.246Z",
+      "scoring_method": "auto"
+    },
+    "competency-hr": {
+      "slug": "competency-hr",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.271Z",
+      "scoring_method": "auto"
+    },
+    "concurrent-engineering": {
+      "slug": "concurrent-engineering",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.296Z",
+      "scoring_method": "auto"
+    },
+    "confidentiality": {
+      "slug": "confidentiality",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.322Z",
+      "scoring_method": "auto"
+    },
+    "conformity-bias": {
+      "slug": "conformity-bias",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.347Z",
+      "scoring_method": "auto"
+    },
+    "construction-plan": {
+      "slug": "construction-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.372Z",
+      "scoring_method": "auto"
+    },
+    "consumer-product-safety-act": {
+      "slug": "consumer-product-safety-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.398Z",
+      "scoring_method": "auto"
+    },
+    "consumer-safety": {
+      "slug": "consumer-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.423Z",
+      "scoring_method": "auto"
+    },
+    "content-process": {
+      "slug": "content-process",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.449Z",
+      "scoring_method": "auto"
+    },
+    "contingency": {
+      "slug": "contingency",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.474Z",
+      "scoring_method": "auto"
+    },
+    "continued-employment-system": {
+      "slug": "continued-employment-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.500Z",
+      "scoring_method": "auto"
+    },
+    "control-limits": {
+      "slug": "control-limits",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.524Z",
+      "scoring_method": "auto"
+    },
+    "convention-on-biodiversity": {
+      "slug": "convention-on-biodiversity",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.550Z",
+      "scoring_method": "auto"
+    },
+    "corrective-maintenance": {
+      "slug": "corrective-maintenance",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.575Z",
+      "scoring_method": "auto"
+    },
+    "cost-driver": {
+      "slug": "cost-driver",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.600Z",
+      "scoring_method": "auto"
+    },
+    "cost-maintenance": {
+      "slug": "cost-maintenance",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.625Z",
+      "scoring_method": "auto"
+    },
+    "cost-variance-analysis": {
+      "slug": "cost-variance-analysis",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.650Z",
+      "scoring_method": "auto"
+    },
+    "cpd": {
+      "slug": "cpd",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.676Z",
+      "scoring_method": "auto"
+    },
+    "crisis-communication": {
+      "slug": "crisis-communication",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.701Z",
+      "scoring_method": "auto"
+    },
+    "crisis-management-manual": {
+      "slug": "crisis-management-manual",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.726Z",
+      "scoring_method": "auto"
+    },
+    "crisis-priority": {
+      "slug": "crisis-priority",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.752Z",
+      "scoring_method": "auto"
+    },
+    "crm-system": {
+      "slug": "crm-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.778Z",
+      "scoring_method": "auto"
+    },
+    "csv": {
+      "slug": "csv",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.802Z",
+      "scoring_method": "auto"
+    },
+    "cyber-security": {
+      "slug": "cyber-security",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.828Z",
+      "scoring_method": "auto"
+    },
+    "cybersecurity-safety": {
+      "slug": "cybersecurity-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.853Z",
+      "scoring_method": "auto"
+    },
+    "data-breach-response": {
+      "slug": "data-breach-response",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.878Z",
+      "scoring_method": "auto"
+    },
+    "data-governance": {
+      "slug": "data-governance",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.934Z",
+      "scoring_method": "auto"
+    },
+    "data-leak-tampering-loss": {
+      "slug": "data-leak-tampering-loss",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.969Z",
+      "scoring_method": "auto"
+    },
+    "data-warehouse": {
+      "slug": "data-warehouse",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:31.998Z",
+      "scoring_method": "auto"
+    },
+    "de-facto-standard": {
+      "slug": "de-facto-standard",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.034Z",
+      "scoring_method": "auto"
+    },
+    "de-jure-standard": {
+      "slug": "de-jure-standard",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.065Z",
+      "scoring_method": "auto"
+    },
+    "decision-tree-analysis": {
+      "slug": "decision-tree-analysis",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.093Z",
+      "scoring_method": "auto"
+    },
+    "decoupling": {
+      "slug": "decoupling",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.122Z",
+      "scoring_method": "auto"
+    },
+    "defense-in-depth": {
+      "slug": "defense-in-depth",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.153Z",
+      "scoring_method": "auto"
+    },
+    "delphi-method": {
+      "slug": "delphi-method",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.180Z",
+      "scoring_method": "auto"
+    },
+    "deposit-system": {
+      "slug": "deposit-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.206Z",
+      "scoring_method": "auto"
+    },
+    "depreciation": {
+      "slug": "depreciation",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:32.232Z",
+      "scoring_method": "auto"
+    },
+    "depreciation-residual-value": {
+      "slug": "depreciation-residual-value",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.257Z",
+      "scoring_method": "auto"
+    },
+    "design-for-environment": {
+      "slug": "design-for-environment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.283Z",
+      "scoring_method": "auto"
+    },
+    "design-in": {
+      "slug": "design-in",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.308Z",
+      "scoring_method": "auto"
+    },
+    "design-quality": {
+      "slug": "design-quality",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.334Z",
+      "scoring_method": "auto"
+    },
+    "design-review": {
+      "slug": "design-review",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.359Z",
+      "scoring_method": "auto"
+    },
+    "design-rights": {
+      "slug": "design-rights",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.385Z",
+      "scoring_method": "auto"
+    },
+    "diagnostic-od": {
+      "slug": "diagnostic-od",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.411Z",
+      "scoring_method": "auto"
+    },
+    "dialogic-od": {
+      "slug": "dialogic-od",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.437Z",
+      "scoring_method": "auto"
+    },
+    "digital-rights": {
+      "slug": "digital-rights",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.463Z",
+      "scoring_method": "auto"
+    },
+    "digital-twin-cps": {
+      "slug": "digital-twin-cps",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.489Z",
+      "scoring_method": "auto"
+    },
+    "dioxin-countermeasures-act": {
+      "slug": "dioxin-countermeasures-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.515Z",
+      "scoring_method": "auto"
+    },
+    "direct-costing": {
+      "slug": "direct-costing",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.540Z",
+      "scoring_method": "auto"
+    },
+    "direct-manufacturing-cost": {
+      "slug": "direct-manufacturing-cost",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.565Z",
+      "scoring_method": "auto"
+    },
+    "disability-discrimination-act": {
+      "slug": "disability-discrimination-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.591Z",
+      "scoring_method": "auto"
+    },
+    "disability-employment": {
+      "slug": "disability-employment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.616Z",
+      "scoring_method": "auto"
+    },
+    "disability-employment-act": {
+      "slug": "disability-employment-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.642Z",
+      "scoring_method": "auto"
+    },
+    "disaster-countermeasures-act": {
+      "slug": "disaster-countermeasures-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 3,
+        "linking": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:32.668Z",
+      "scoring_method": "auto"
+    },
+    "disaster-prevention": {
+      "slug": "disaster-prevention",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.694Z",
+      "scoring_method": "auto"
+    },
+    "disaster-weather-info": {
+      "slug": "disaster-weather-info",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.720Z",
+      "scoring_method": "auto"
+    },
+    "discretionary-work-system": {
+      "slug": "discretionary-work-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.746Z",
+      "scoring_method": "auto"
+    },
+    "divisional-organization": {
+      "slug": "divisional-organization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.772Z",
+      "scoring_method": "auto"
+    },
+    "dos-ddos": {
+      "slug": "dos-ddos",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.797Z",
+      "scoring_method": "auto"
+    },
+    "e-learning": {
+      "slug": "e-learning",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.822Z",
+      "scoring_method": "auto"
+    },
+    "e-waste": {
+      "slug": "e-waste",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.848Z",
+      "scoring_method": "auto"
+    },
+    "eco-action-21": {
+      "slug": "eco-action-21",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.873Z",
+      "scoring_method": "auto"
+    },
+    "eco-drr": {
+      "slug": "eco-drr",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.899Z",
+      "scoring_method": "auto"
+    },
+    "eco-label": {
+      "slug": "eco-label",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.926Z",
+      "scoring_method": "auto"
+    },
+    "ecological-footprint": {
+      "slug": "ecological-footprint",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.952Z",
+      "scoring_method": "auto"
+    },
+    "ecosystem-services": {
+      "slug": "ecosystem-services",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:32.978Z",
+      "scoring_method": "auto"
+    },
+    "elderly-employment-act": {
+      "slug": "elderly-employment-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.003Z",
+      "scoring_method": "auto"
+    },
+    "elsi": {
+      "slug": "elsi",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.029Z",
+      "scoring_method": "auto"
+    },
+    "emergency": {
+      "slug": "emergency",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.053Z",
+      "scoring_method": "auto"
+    },
+    "emergency-info-systems": {
+      "slug": "emergency-info-systems",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.079Z",
+      "scoring_method": "auto"
+    },
+    "employee-benefits": {
+      "slug": "employee-benefits",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.104Z",
+      "scoring_method": "auto"
+    },
+    "employment-security-act": {
+      "slug": "employment-security-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.130Z",
+      "scoring_method": "auto"
+    },
+    "end-of-pipe": {
+      "slug": "end-of-pipe",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.156Z",
+      "scoring_method": "auto"
+    },
+    "energy": {
+      "slug": "energy",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 2.5,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:33.181Z",
+      "scoring_method": "auto"
+    },
+    "enterprise-portal-intranet": {
+      "slug": "enterprise-portal-intranet",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.207Z",
+      "scoring_method": "auto"
+    },
+    "environmental-accounting": {
+      "slug": "environmental-accounting",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.232Z",
+      "scoring_method": "auto"
+    },
+    "environmental-communication": {
+      "slug": "environmental-communication",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.257Z",
+      "scoring_method": "auto"
+    },
+    "environmental-impact-assessment": {
+      "slug": "environmental-impact-assessment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.35,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:33.282Z",
+      "scoring_method": "auto"
+    },
+    "environmental-standards": {
+      "slug": "environmental-standards",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:33.314Z",
+      "scoring_method": "auto"
+    },
+    "equal-employment-act": {
+      "slug": "equal-employment-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.344Z",
+      "scoring_method": "auto"
+    },
+    "equal-pay-for-equal-work": {
+      "slug": "equal-pay-for-equal-work",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.370Z",
+      "scoring_method": "auto"
+    },
+    "equipment-characteristics": {
+      "slug": "equipment-characteristics",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.395Z",
+      "scoring_method": "auto"
+    },
+    "equipment-economics": {
+      "slug": "equipment-economics",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.420Z",
+      "scoring_method": "auto"
+    },
+    "equipment-maintainability": {
+      "slug": "equipment-maintainability",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.446Z",
+      "scoring_method": "auto"
+    },
+    "equipment-reliability": {
+      "slug": "equipment-reliability",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.471Z",
+      "scoring_method": "auto"
+    },
+    "erp": {
+      "slug": "erp",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.497Z",
+      "scoring_method": "auto"
+    },
+    "esd": {
+      "slug": "esd",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.521Z",
+      "scoring_method": "auto"
+    },
+    "esg-environmental-assessment": {
+      "slug": "esg-environmental-assessment",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.545Z",
+      "scoring_method": "auto"
+    },
+    "evaluation-bias": {
+      "slug": "evaluation-bias",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.570Z",
+      "scoring_method": "auto"
+    },
+    "extended-producer-responsibility": {
+      "slug": "extended-producer-responsibility",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.596Z",
+      "scoring_method": "auto"
+    },
+    "extreme-events": {
+      "slug": "extreme-events",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.621Z",
+      "scoring_method": "auto"
+    },
+    "extrinsic-motivation": {
+      "slug": "extrinsic-motivation",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.647Z",
+      "scoring_method": "auto"
+    },
+    "fire-service-act": {
+      "slug": "fire-service-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.673Z",
+      "scoring_method": "auto"
+    },
+    "fixed-communication": {
+      "slug": "fixed-communication",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.699Z",
+      "scoring_method": "auto"
+    },
+    "flat-organization": {
+      "slug": "flat-organization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.725Z",
+      "scoring_method": "auto"
+    },
+    "flextime-system": {
+      "slug": "flextime-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.752Z",
+      "scoring_method": "auto"
+    },
+    "fmea": {
+      "slug": "fmea",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.779Z",
+      "scoring_method": "auto"
+    },
+    "followership": {
+      "slug": "followership",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.805Z",
+      "scoring_method": "auto"
+    },
+    "foreign-trainee-program": {
+      "slug": "foreign-trainee-program",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.831Z",
+      "scoring_method": "auto"
+    },
+    "formal-informal-organization": {
+      "slug": "formal-informal-organization",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.858Z",
+      "scoring_method": "auto"
+    },
+    "forum-standard": {
+      "slug": "forum-standard",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.884Z",
+      "scoring_method": "auto"
+    },
+    "four-m-of-production": {
+      "slug": "four-m-of-production",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.909Z",
+      "scoring_method": "auto"
+    },
+    "four-major-pollution-diseases": {
+      "slug": "four-major-pollution-diseases",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.935Z",
+      "scoring_method": "auto"
+    },
+    "four-p-analysis": {
+      "slug": "four-p-analysis",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.962Z",
+      "scoring_method": "auto"
+    },
+    "front-loading": {
+      "slug": "front-loading",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:33.988Z",
+      "scoring_method": "auto"
+    },
+    "functional-organization": {
+      "slug": "functional-organization",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.013Z",
+      "scoring_method": "auto"
+    },
+    "functional-safety": {
+      "slug": "functional-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.039Z",
+      "scoring_method": "auto"
+    },
+    "gantt-chart": {
+      "slug": "gantt-chart",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.065Z",
+      "scoring_method": "auto"
+    },
+    "gender-equality-act": {
+      "slug": "gender-equality-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.091Z",
+      "scoring_method": "auto"
+    },
+    "gender-gap": {
+      "slug": "gender-gap",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.117Z",
+      "scoring_method": "auto"
+    },
+    "gfc-chemicals-framework": {
+      "slug": "gfc-chemicals-framework",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.143Z",
+      "scoring_method": "auto"
+    },
+    "global-compact": {
+      "slug": "global-compact",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.168Z",
+      "scoring_method": "auto"
+    },
+    "global-hr-development": {
+      "slug": "global-hr-development",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.194Z",
+      "scoring_method": "auto"
+    },
+    "green-bond": {
+      "slug": "green-bond",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.219Z",
+      "scoring_method": "auto"
+    },
+    "green-infrastructure": {
+      "slug": "green-infrastructure",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.245Z",
+      "scoring_method": "auto"
+    },
+    "groupware": {
+      "slug": "groupware",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.270Z",
+      "scoring_method": "auto"
+    },
+    "halo-effect-errors": {
+      "slug": "halo-effect-errors",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.296Z",
+      "scoring_method": "auto"
+    },
+    "hawthorne-experiment": {
+      "slug": "hawthorne-experiment",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.322Z",
+      "scoring_method": "auto"
+    },
+    "hazard-map": {
+      "slug": "hazard-map",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.347Z",
+      "scoring_method": "auto"
+    },
+    "hazardous-facility-disaster-prevention": {
+      "slug": "hazardous-facility-disaster-prevention",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.372Z",
+      "scoring_method": "auto"
+    },
+    "hazop": {
+      "slug": "hazop",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.398Z",
+      "scoring_method": "auto"
+    },
+    "health-management": {
+      "slug": "health-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.423Z",
+      "scoring_method": "auto"
+    },
+    "heinrich-law": {
+      "slug": "heinrich-law",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.448Z",
+      "scoring_method": "auto"
+    },
+    "herzberg-two-factor-theory": {
+      "slug": "herzberg-two-factor-theory",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.473Z",
+      "scoring_method": "auto"
+    },
+    "hierarchical-training": {
+      "slug": "hierarchical-training",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.499Z",
+      "scoring_method": "auto"
+    },
+    "high-pressure-gas-act": {
+      "slug": "high-pressure-gas-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.524Z",
+      "scoring_method": "auto"
+    },
+    "highly-professional-system": {
+      "slug": "highly-professional-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.549Z",
+      "scoring_method": "auto"
+    },
+    "hr-systems": {
+      "slug": "hr-systems",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.573Z",
+      "scoring_method": "auto"
+    },
+    "human-capital-disclosure": {
+      "slug": "human-capital-disclosure",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.599Z",
+      "scoring_method": "auto"
+    },
+    "human-development-index": {
+      "slug": "human-development-index",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.625Z",
+      "scoring_method": "auto"
+    },
+    "human-resource-assessment": {
+      "slug": "human-resource-assessment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.651Z",
+      "scoring_method": "auto"
+    },
+    "ics": {
+      "slug": "ics",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.676Z",
+      "scoring_method": "auto"
+    },
+    "idea-generation-methods": {
+      "slug": "idea-generation-methods",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.701Z",
+      "scoring_method": "auto"
+    },
+    "immigration-control-act": {
+      "slug": "immigration-control-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.727Z",
+      "scoring_method": "auto"
+    },
+    "improvement-maintenance": {
+      "slug": "improvement-maintenance",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.754Z",
+      "scoring_method": "auto"
+    },
+    "incentive": {
+      "slug": "incentive",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.780Z",
+      "scoring_method": "auto"
+    },
+    "indefinite-conversion-rule": {
+      "slug": "indefinite-conversion-rule",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.806Z",
+      "scoring_method": "auto"
+    },
+    "indirect-manufacturing-cost": {
+      "slug": "indirect-manufacturing-cost",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.831Z",
+      "scoring_method": "auto"
+    },
+    "individual-labor-dispute-act": {
+      "slug": "individual-labor-dispute-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.857Z",
+      "scoring_method": "auto"
+    },
+    "individual-wage-management": {
+      "slug": "individual-wage-management",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.882Z",
+      "scoring_method": "auto"
+    },
+    "infectious-disease-pandemic": {
+      "slug": "infectious-disease-pandemic",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.907Z",
+      "scoring_method": "auto"
+    },
+    "information-disclosure-act": {
+      "slug": "information-disclosure-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.934Z",
+      "scoring_method": "auto"
+    },
+    "information-retrieval": {
+      "slug": "information-retrieval",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.960Z",
+      "scoring_method": "auto"
+    },
+    "initial-investment": {
+      "slug": "initial-investment",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:34.985Z",
+      "scoring_method": "auto"
+    },
+    "input-indicators": {
+      "slug": "input-indicators",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.011Z",
+      "scoring_method": "auto"
+    },
+    "inspection-methods": {
+      "slug": "inspection-methods",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.036Z",
+      "scoring_method": "auto"
+    },
+    "integrity-security": {
+      "slug": "integrity-security",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.062Z",
+      "scoring_method": "auto"
+    },
+    "interim-storage-facility": {
+      "slug": "interim-storage-facility",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.088Z",
+      "scoring_method": "auto"
+    },
+    "internal-job-posting": {
+      "slug": "internal-job-posting",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.114Z",
+      "scoring_method": "auto"
+    },
+    "international-filing-system": {
+      "slug": "international-filing-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.141Z",
+      "scoring_method": "auto"
+    },
+    "internet": {
+      "slug": "internet",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.167Z",
+      "scoring_method": "auto"
+    },
+    "internship": {
+      "slug": "internship",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.192Z",
+      "scoring_method": "auto"
+    },
+    "interpersonal-skills": {
+      "slug": "interpersonal-skills",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.218Z",
+      "scoring_method": "auto"
+    },
+    "intrinsic-motivation": {
+      "slug": "intrinsic-motivation",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.244Z",
+      "scoring_method": "auto"
+    },
+    "invasive-alien-species": {
+      "slug": "invasive-alien-species",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.270Z",
+      "scoring_method": "auto"
+    },
+    "inventory-control": {
+      "slug": "inventory-control",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.295Z",
+      "scoring_method": "auto"
+    },
+    "investment-recovery-plan": {
+      "slug": "investment-recovery-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.321Z",
+      "scoring_method": "auto"
+    },
+    "iot": {
+      "slug": "iot",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.347Z",
+      "scoring_method": "auto"
+    },
+    "ip-creation": {
+      "slug": "ip-creation",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.373Z",
+      "scoring_method": "auto"
+    },
+    "ip-protection": {
+      "slug": "ip-protection",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.400Z",
+      "scoring_method": "auto"
+    },
+    "ip-utilization": {
+      "slug": "ip-utilization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.426Z",
+      "scoring_method": "auto"
+    },
+    "ipbes": {
+      "slug": "ipbes",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.452Z",
+      "scoring_method": "auto"
+    },
+    "iso-26000": {
+      "slug": "iso-26000",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.478Z",
+      "scoring_method": "auto"
+    },
+    "jit-production": {
+      "slug": "jit-production",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.504Z",
+      "scoring_method": "auto"
+    },
+    "job-based-pay": {
+      "slug": "job-based-pay",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.530Z",
+      "scoring_method": "auto"
+    },
+    "job-design": {
+      "slug": "job-design",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.556Z",
+      "scoring_method": "auto"
+    },
+    "job-execution-ability": {
+      "slug": "job-execution-ability",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.581Z",
+      "scoring_method": "auto"
+    },
+    "job-order-costing": {
+      "slug": "job-order-costing",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.606Z",
+      "scoring_method": "auto"
+    },
+    "job-rotation": {
+      "slug": "job-rotation",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.631Z",
+      "scoring_method": "auto"
+    },
+    "job-type-employment": {
+      "slug": "job-type-employment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 2.5,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:35.658Z",
+      "scoring_method": "auto"
+    },
+    "key-performance-indicators": {
+      "slug": "key-performance-indicators",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.682Z",
+      "scoring_method": "auto"
+    },
+    "labor-contract-act": {
+      "slug": "labor-contract-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.709Z",
+      "scoring_method": "auto"
+    },
+    "labor-policy-act": {
+      "slug": "labor-policy-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.735Z",
+      "scoring_method": "auto"
+    },
+    "labor-productivity": {
+      "slug": "labor-productivity",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.766Z",
+      "scoring_method": "auto"
+    },
+    "labor-relations-adjustment-act": {
+      "slug": "labor-relations-adjustment-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.793Z",
+      "scoring_method": "auto"
+    },
+    "labor-share-ratio": {
+      "slug": "labor-share-ratio",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.819Z",
+      "scoring_method": "auto"
+    },
+    "labor-tribunal-act": {
+      "slug": "labor-tribunal-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.845Z",
+      "scoring_method": "auto"
+    },
+    "labor-union-act": {
+      "slug": "labor-union-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.871Z",
+      "scoring_method": "auto"
+    },
+    "lead-time": {
+      "slug": "lead-time",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.897Z",
+      "scoring_method": "auto"
+    },
+    "lgbt-understanding-act": {
+      "slug": "lgbt-understanding-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.923Z",
+      "scoring_method": "auto"
+    },
+    "lgbtq": {
+      "slug": "lgbtq",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.949Z",
+      "scoring_method": "auto"
+    },
+    "lifecycle-assessment": {
+      "slug": "lifecycle-assessment",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:35.976Z",
+      "scoring_method": "auto"
+    },
+    "lifecycle-costing-method": {
+      "slug": "lifecycle-costing-method",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.001Z",
+      "scoring_method": "auto"
+    },
+    "lifecycle-management": {
+      "slug": "lifecycle-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.026Z",
+      "scoring_method": "auto"
+    },
+    "likelihood": {
+      "slug": "likelihood",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.052Z",
+      "scoring_method": "auto"
+    },
+    "linear-programming": {
+      "slug": "linear-programming",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.078Z",
+      "scoring_method": "auto"
+    },
+    "linear-regression": {
+      "slug": "linear-regression",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.104Z",
+      "scoring_method": "auto"
+    },
+    "liquefaction": {
+      "slug": "liquefaction",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.130Z",
+      "scoring_method": "auto"
+    },
+    "load-capacity": {
+      "slug": "load-capacity",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.155Z",
+      "scoring_method": "auto"
+    },
+    "load-leveling": {
+      "slug": "load-leveling",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.180Z",
+      "scoring_method": "auto"
+    },
+    "location-limited-employee": {
+      "slug": "location-limited-employee",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.206Z",
+      "scoring_method": "auto"
+    },
+    "logistic-regression": {
+      "slug": "logistic-regression",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.233Z",
+      "scoring_method": "auto"
+    },
+    "machine-learning": {
+      "slug": "machine-learning",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.261Z",
+      "scoring_method": "auto"
+    },
+    "maintenance-cost": {
+      "slug": "maintenance-cost",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.288Z",
+      "scoring_method": "auto"
+    },
+    "maintenance-prevention": {
+      "slug": "maintenance-prevention",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.314Z",
+      "scoring_method": "auto"
+    },
+    "malware": {
+      "slug": "malware",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.342Z",
+      "scoring_method": "auto"
+    },
+    "mandatory-management-retirement": {
+      "slug": "mandatory-management-retirement",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.368Z",
+      "scoring_method": "auto"
+    },
+    "manufacturing-quality": {
+      "slug": "manufacturing-quality",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.393Z",
+      "scoring_method": "auto"
+    },
+    "market-research": {
+      "slug": "market-research",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.420Z",
+      "scoring_method": "auto"
+    },
+    "maslow-hierarchy-of-needs": {
+      "slug": "maslow-hierarchy-of-needs",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.447Z",
+      "scoring_method": "auto"
+    },
+    "mass-communication": {
+      "slug": "mass-communication",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.474Z",
+      "scoring_method": "auto"
+    },
+    "master-schedule-planning": {
+      "slug": "master-schedule-planning",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.500Z",
+      "scoring_method": "auto"
+    },
+    "matrix-organization": {
+      "slug": "matrix-organization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.527Z",
+      "scoring_method": "auto"
+    },
+    "mbo": {
+      "slug": "mbo",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.552Z",
+      "scoring_method": "auto"
+    },
+    "mcgregor-xy-theory": {
+      "slug": "mcgregor-xy-theory",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.578Z",
+      "scoring_method": "auto"
+    },
+    "meeting-design": {
+      "slug": "meeting-design",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 2.5,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:36.605Z",
+      "scoring_method": "auto"
+    },
+    "membership-type-employment": {
+      "slug": "membership-type-employment",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:36.631Z",
+      "scoring_method": "auto"
+    },
+    "mental-health": {
+      "slug": "mental-health",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:36.658Z",
+      "scoring_method": "auto"
+    },
+    "mental-health-care": {
+      "slug": "mental-health-care",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.684Z",
+      "scoring_method": "auto"
+    },
+    "mentor": {
+      "slug": "mentor",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:36.710Z",
+      "scoring_method": "auto"
+    },
+    "merit-demerit-system": {
+      "slug": "merit-demerit-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.736Z",
+      "scoring_method": "auto"
+    },
+    "method-planning": {
+      "slug": "method-planning",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.763Z",
+      "scoring_method": "auto"
+    },
+    "millennium-ecosystem-assessment": {
+      "slug": "millennium-ecosystem-assessment",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.789Z",
+      "scoring_method": "auto"
+    },
+    "minamata-convention": {
+      "slug": "minamata-convention",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.816Z",
+      "scoring_method": "auto"
+    },
+    "minimum-wage-act": {
+      "slug": "minimum-wage-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.841Z",
+      "scoring_method": "auto"
+    },
+    "multi-objective-optimization": {
+      "slug": "multi-objective-optimization",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.867Z",
+      "scoring_method": "auto"
+    },
+    "multi-track-hr-system": {
+      "slug": "multi-track-hr-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.892Z",
+      "scoring_method": "auto"
+    },
+    "my-number-act": {
+      "slug": "my-number-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.919Z",
+      "scoring_method": "auto"
+    },
+    "nagoya-protocol": {
+      "slug": "nagoya-protocol",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.945Z",
+      "scoring_method": "auto"
+    },
+    "natech": {
+      "slug": "natech",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.971Z",
+      "scoring_method": "auto"
+    },
+    "national-resilience-act": {
+      "slug": "national-resilience-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:36.997Z",
+      "scoring_method": "auto"
+    },
+    "natural-parks-act": {
+      "slug": "natural-parks-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.023Z",
+      "scoring_method": "auto"
+    },
+    "nature-conservation-act": {
+      "slug": "nature-conservation-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.049Z",
+      "scoring_method": "auto"
+    },
+    "nature-positive": {
+      "slug": "nature-positive",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.076Z",
+      "scoring_method": "auto"
+    },
+    "nature-restoration-act": {
+      "slug": "nature-restoration-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.101Z",
+      "scoring_method": "auto"
+    },
+    "network-organization": {
+      "slug": "network-organization",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.127Z",
+      "scoring_method": "auto"
+    },
+    "non-repudiation": {
+      "slug": "non-repudiation",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.153Z",
+      "scoring_method": "auto"
+    },
+    "nonconformity-rate": {
+      "slug": "nonconformity-rate",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.178Z",
+      "scoring_method": "auto"
+    },
+    "nuclear-disaster-act": {
+      "slug": "nuclear-disaster-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.204Z",
+      "scoring_method": "auto"
+    },
+    "occupational-accident-prevention-plan": {
+      "slug": "occupational-accident-prevention-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.230Z",
+      "scoring_method": "auto"
+    },
+    "ocean-plastic": {
+      "slug": "ocean-plastic",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.255Z",
+      "scoring_method": "auto"
+    },
+    "online-meetings": {
+      "slug": "online-meetings",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.282Z",
+      "scoring_method": "auto"
+    },
+    "operation-errors": {
+      "slug": "operation-errors",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.307Z",
+      "scoring_method": "auto"
+    },
+    "opportunity-cost": {
+      "slug": "opportunity-cost",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.332Z",
+      "scoring_method": "auto"
+    },
+    "opt-in-opt-out": {
+      "slug": "opt-in-opt-out",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.358Z",
+      "scoring_method": "auto"
+    },
+    "organizational-commitment": {
+      "slug": "organizational-commitment",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.385Z",
+      "scoring_method": "auto"
+    },
+    "outcome-indicators": {
+      "slug": "outcome-indicators",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.411Z",
+      "scoring_method": "auto"
+    },
+    "parametric-estimation": {
+      "slug": "parametric-estimation",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.436Z",
+      "scoring_method": "auto"
+    },
+    "part-time-fixed-term-act": {
+      "slug": "part-time-fixed-term-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.462Z",
+      "scoring_method": "auto"
+    },
+    "partnership": {
+      "slug": "partnership",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.487Z",
+      "scoring_method": "auto"
+    },
+    "password-security": {
+      "slug": "password-security",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.514Z",
+      "scoring_method": "auto"
+    },
+    "patent-rights": {
+      "slug": "patent-rights",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.540Z",
+      "scoring_method": "auto"
+    },
+    "payback-period-method": {
+      "slug": "payback-period-method",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.566Z",
+      "scoring_method": "auto"
+    },
+    "pdca-cycle": {
+      "slug": "pdca-cycle",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.592Z",
+      "scoring_method": "auto"
+    },
+    "pdpc-method": {
+      "slug": "pdpc-method",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.619Z",
+      "scoring_method": "auto"
+    },
+    "pension-system": {
+      "slug": "pension-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.648Z",
+      "scoring_method": "auto"
+    },
+    "performance-based-pay": {
+      "slug": "performance-based-pay",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.674Z",
+      "scoring_method": "auto"
+    },
+    "performance-evaluation": {
+      "slug": "performance-evaluation",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.701Z",
+      "scoring_method": "auto"
+    },
+    "performance-linked-bonus": {
+      "slug": "performance-linked-bonus",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.728Z",
+      "scoring_method": "auto"
+    },
+    "performance-regulation": {
+      "slug": "performance-regulation",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.756Z",
+      "scoring_method": "auto"
+    },
+    "periodic-inspection": {
+      "slug": "periodic-inspection",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.783Z",
+      "scoring_method": "auto"
+    },
+    "personal-communication": {
+      "slug": "personal-communication",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.35,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:37.810Z",
+      "scoring_method": "auto"
+    },
+    "personal-info-protection": {
+      "slug": "personal-info-protection",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.837Z",
+      "scoring_method": "auto"
+    },
+    "personal-info-utilization": {
+      "slug": "personal-info-utilization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.868Z",
+      "scoring_method": "auto"
+    },
+    "personal-information": {
+      "slug": "personal-information",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.896Z",
+      "scoring_method": "auto"
+    },
+    "pfi": {
+      "slug": "pfi",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.922Z",
+      "scoring_method": "auto"
+    },
+    "phishing-pharming": {
+      "slug": "phishing-pharming",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.951Z",
+      "scoring_method": "auto"
+    },
+    "planned-usage-period": {
+      "slug": "planned-usage-period",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:37.980Z",
+      "scoring_method": "auto"
+    },
+    "pm-theory": {
+      "slug": "pm-theory",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:38.009Z",
+      "scoring_method": "auto"
+    },
+    "pmbok": {
+      "slug": "pmbok",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.35,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:38.038Z",
+      "scoring_method": "auto"
+    },
+    "pollution-control-manager": {
+      "slug": "pollution-control-manager",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.068Z",
+      "scoring_method": "auto"
+    },
+    "pops-convention": {
+      "slug": "pops-convention",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.095Z",
+      "scoring_method": "auto"
+    },
+    "positive-action": {
+      "slug": "positive-action",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.122Z",
+      "scoring_method": "auto"
+    },
+    "power-harassment": {
+      "slug": "power-harassment",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.150Z",
+      "scoring_method": "auto"
+    },
+    "ppm-analysis": {
+      "slug": "ppm-analysis",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.178Z",
+      "scoring_method": "auto"
+    },
+    "pqcdsme": {
+      "slug": "pqcdsme",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.204Z",
+      "scoring_method": "auto"
+    },
+    "precautionary-principle": {
+      "slug": "precautionary-principle",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.231Z",
+      "scoring_method": "auto"
+    },
+    "predictive-maintenance": {
+      "slug": "predictive-maintenance",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.256Z",
+      "scoring_method": "auto"
+    },
+    "present-annual-future-value": {
+      "slug": "present-annual-future-value",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.283Z",
+      "scoring_method": "auto"
+    },
+    "prior-use-rights": {
+      "slug": "prior-use-rights",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.309Z",
+      "scoring_method": "auto"
+    },
+    "privacy-mark": {
+      "slug": "privacy-mark",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.335Z",
+      "scoring_method": "auto"
+    },
+    "private-monopoly": {
+      "slug": "private-monopoly",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.361Z",
+      "scoring_method": "auto"
+    },
+    "probabilistic-risk-assessment": {
+      "slug": "probabilistic-risk-assessment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.387Z",
+      "scoring_method": "auto"
+    },
+    "problem-setting-ability": {
+      "slug": "problem-setting-ability",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.413Z",
+      "scoring_method": "auto"
+    },
+    "problem-solving-ability": {
+      "slug": "problem-solving-ability",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.438Z",
+      "scoring_method": "auto"
+    },
+    "process-costing": {
+      "slug": "process-costing",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.464Z",
+      "scoring_method": "auto"
+    },
+    "process-safety-mgmt": {
+      "slug": "process-safety-mgmt",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.489Z",
+      "scoring_method": "auto"
+    },
+    "product-liability-act": {
+      "slug": "product-liability-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.514Z",
+      "scoring_method": "auto"
+    },
+    "production-management-system": {
+      "slug": "production-management-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.541Z",
+      "scoring_method": "auto"
+    },
+    "progress-management": {
+      "slug": "progress-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.567Z",
+      "scoring_method": "auto"
+    },
+    "prtr-act": {
+      "slug": "prtr-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.594Z",
+      "scoring_method": "auto"
+    },
+    "psychological-safety": {
+      "slug": "psychological-safety",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.620Z",
+      "scoring_method": "auto"
+    },
+    "public-private-data-act": {
+      "slug": "public-private-data-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.646Z",
+      "scoring_method": "auto"
+    },
+    "public-safety": {
+      "slug": "public-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.673Z",
+      "scoring_method": "auto"
+    },
+    "pull-production": {
+      "slug": "pull-production",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.699Z",
+      "scoring_method": "auto"
+    },
+    "push-production": {
+      "slug": "push-production",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.724Z",
+      "scoring_method": "auto"
+    },
+    "pyramid-organization": {
+      "slug": "pyramid-organization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.751Z",
+      "scoring_method": "auto"
+    },
+    "qc-circle": {
+      "slug": "qc-circle",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.778Z",
+      "scoring_method": "auto"
+    },
+    "quality-assurance": {
+      "slug": "quality-assurance",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.804Z",
+      "scoring_method": "auto"
+    },
+    "quality-characteristics": {
+      "slug": "quality-characteristics",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.829Z",
+      "scoring_method": "auto"
+    },
+    "quality-costing": {
+      "slug": "quality-costing",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.855Z",
+      "scoring_method": "auto"
+    },
+    "quality-improvement": {
+      "slug": "quality-improvement",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.881Z",
+      "scoring_method": "auto"
+    },
+    "quality-objectives": {
+      "slug": "quality-objectives",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.906Z",
+      "scoring_method": "auto"
+    },
+    "quality-planning": {
+      "slug": "quality-planning",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.933Z",
+      "scoring_method": "auto"
+    },
+    "quality-policy": {
+      "slug": "quality-policy",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:38.966Z",
+      "scoring_method": "auto"
+    },
+    "radioactive-decontamination-act": {
+      "slug": "radioactive-decontamination-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.032Z",
+      "scoring_method": "auto"
+    },
+    "radioactive-waste": {
+      "slug": "radioactive-waste",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.060Z",
+      "scoring_method": "auto"
+    },
+    "ramsar-convention": {
+      "slug": "ramsar-convention",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 2.1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.086Z",
+      "scoring_method": "auto"
+    },
+    "reach-regulation": {
+      "slug": "reach-regulation",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.111Z",
+      "scoring_method": "auto"
+    },
+    "red-list": {
+      "slug": "red-list",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.137Z",
+      "scoring_method": "auto"
+    },
+    "regional-circular-symbiosis": {
+      "slug": "regional-circular-symbiosis",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.163Z",
+      "scoring_method": "auto"
+    },
+    "relative-absolute-evaluation": {
+      "slug": "relative-absolute-evaluation",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.188Z",
+      "scoring_method": "auto"
+    },
+    "reliability-block-diagram": {
+      "slug": "reliability-block-diagram",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.215Z",
+      "scoring_method": "auto"
+    },
+    "replacement-cost": {
+      "slug": "replacement-cost",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.240Z",
+      "scoring_method": "auto"
+    },
+    "required-quality": {
+      "slug": "required-quality",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.266Z",
+      "scoring_method": "auto"
+    },
+    "resilience": {
+      "slug": "resilience",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.291Z",
+      "scoring_method": "auto"
+    },
+    "reskilling": {
+      "slug": "reskilling",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.317Z",
+      "scoring_method": "auto"
+    },
+    "return-to-work-support": {
+      "slug": "return-to-work-support",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.343Z",
+      "scoring_method": "auto"
+    },
+    "risk-management-policy": {
+      "slug": "risk-management-policy",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.368Z",
+      "scoring_method": "auto"
+    },
+    "rohs-weee": {
+      "slug": "rohs-weee",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.393Z",
+      "scoring_method": "auto"
+    },
+    "role-grade-system": {
+      "slug": "role-grade-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.419Z",
+      "scoring_method": "auto"
+    },
+    "rpa": {
+      "slug": "rpa",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.445Z",
+      "scoring_method": "auto"
+    },
+    "safety-and-security": {
+      "slug": "safety-and-security",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.470Z",
+      "scoring_method": "auto"
+    },
+    "safety-case": {
+      "slug": "safety-case",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.495Z",
+      "scoring_method": "auto"
+    },
+    "safety-control": {
+      "slug": "safety-control",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.521Z",
+      "scoring_method": "auto"
+    },
+    "safety-culture": {
+      "slug": "safety-culture",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.546Z",
+      "scoring_method": "auto"
+    },
+    "safety-health-plan": {
+      "slug": "safety-health-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.571Z",
+      "scoring_method": "auto"
+    },
+    "safety-investment": {
+      "slug": "safety-investment",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.597Z",
+      "scoring_method": "auto"
+    },
+    "safety-management-system": {
+      "slug": "safety-management-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.623Z",
+      "scoring_method": "auto"
+    },
+    "safety-objectives": {
+      "slug": "safety-objectives",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.650Z",
+      "scoring_method": "auto"
+    },
+    "sales-management-system": {
+      "slug": "sales-management-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.675Z",
+      "scoring_method": "auto"
+    },
+    "satoyama-initiative": {
+      "slug": "satoyama-initiative",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.702Z",
+      "scoring_method": "auto"
+    },
+    "scientific-management": {
+      "slug": "scientific-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.729Z",
+      "scoring_method": "auto"
+    },
+    "scm-system": {
+      "slug": "scm-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.755Z",
+      "scoring_method": "auto"
+    },
+    "sdgs": {
+      "slug": "sdgs",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.781Z",
+      "scoring_method": "auto"
+    },
+    "security-education": {
+      "slug": "security-education",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.807Z",
+      "scoring_method": "auto"
+    },
+    "security-software": {
+      "slug": "security-software",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.833Z",
+      "scoring_method": "auto"
+    },
+    "self-declaration-system": {
+      "slug": "self-declaration-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.859Z",
+      "scoring_method": "auto"
+    },
+    "self-development": {
+      "slug": "self-development",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.884Z",
+      "scoring_method": "auto"
+    },
+    "seniority-wage": {
+      "slug": "seniority-wage",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.910Z",
+      "scoring_method": "auto"
+    },
+    "series-system": {
+      "slug": "series-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.935Z",
+      "scoring_method": "auto"
+    },
+    "servant-leadership": {
+      "slug": "servant-leadership",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.962Z",
+      "scoring_method": "auto"
+    },
+    "seven-types-of-pollution": {
+      "slug": "seven-types-of-pollution",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:39.987Z",
+      "scoring_method": "auto"
+    },
+    "sexual-harassment": {
+      "slug": "sexual-harassment",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.014Z",
+      "scoring_method": "auto"
+    },
+    "sfa-system": {
+      "slug": "sfa-system",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.039Z",
+      "scoring_method": "auto"
+    },
+    "side-jobs": {
+      "slug": "side-jobs",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.065Z",
+      "scoring_method": "auto"
+    },
+    "skill-based-pay": {
+      "slug": "skill-based-pay",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.092Z",
+      "scoring_method": "auto"
+    },
+    "skill-qualification-system": {
+      "slug": "skill-qualification-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.118Z",
+      "scoring_method": "auto"
+    },
+    "skill-standards": {
+      "slug": "skill-standards",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.144Z",
+      "scoring_method": "auto"
+    },
+    "smart-safety": {
+      "slug": "smart-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.170Z",
+      "scoring_method": "auto"
+    },
+    "social-engineering": {
+      "slug": "social-engineering",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.196Z",
+      "scoring_method": "auto"
+    },
+    "soil-contamination-act": {
+      "slug": "soil-contamination-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.222Z",
+      "scoring_method": "auto"
+    },
+    "sop": {
+      "slug": "sop",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.247Z",
+      "scoring_method": "auto"
+    },
+    "sound-water-cycle": {
+      "slug": "sound-water-cycle",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.273Z",
+      "scoring_method": "auto"
+    },
+    "source-control-principle": {
+      "slug": "source-control-principle",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.299Z",
+      "scoring_method": "auto"
+    },
+    "specialist-system": {
+      "slug": "specialist-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:40.324Z",
+      "scoring_method": "auto"
+    },
+    "specialized-training": {
+      "slug": "specialized-training",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.350Z",
+      "scoring_method": "auto"
+    },
+    "species-preservation-act": {
+      "slug": "species-preservation-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.377Z",
+      "scoring_method": "auto"
+    },
+    "sri": {
+      "slug": "sri",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.402Z",
+      "scoring_method": "auto"
+    },
+    "standard-costing": {
+      "slug": "standard-costing",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.427Z",
+      "scoring_method": "auto"
+    },
+    "standardization-strategy": {
+      "slug": "standardization-strategy",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.454Z",
+      "scoring_method": "auto"
+    },
+    "state-secrets-act": {
+      "slug": "state-secrets-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.479Z",
+      "scoring_method": "auto"
+    },
+    "stress-check-system": {
+      "slug": "stress-check-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 2
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:40.505Z",
+      "scoring_method": "auto"
+    },
+    "subcontracting-act": {
+      "slug": "subcontracting-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.530Z",
+      "scoring_method": "auto"
+    },
+    "subsidiarity-principle": {
+      "slug": "subsidiarity-principle",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.555Z",
+      "scoring_method": "auto"
+    },
+    "surcharge": {
+      "slug": "surcharge",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.581Z",
+      "scoring_method": "auto"
+    },
+    "sustainable-fashion": {
+      "slug": "sustainable-fashion",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.607Z",
+      "scoring_method": "auto"
+    },
+    "system-availability": {
+      "slug": "system-availability",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.632Z",
+      "scoring_method": "auto"
+    },
+    "system-integrity": {
+      "slug": "system-integrity",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.659Z",
+      "scoring_method": "auto"
+    },
+    "system-outage-degradation": {
+      "slug": "system-outage-degradation",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.684Z",
+      "scoring_method": "auto"
+    },
+    "system-safety": {
+      "slug": "system-safety",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.711Z",
+      "scoring_method": "auto"
+    },
+    "system-security": {
+      "slug": "system-security",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.737Z",
+      "scoring_method": "auto"
+    },
+    "system-serviceability": {
+      "slug": "system-serviceability",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.763Z",
+      "scoring_method": "auto"
+    },
+    "target-cost": {
+      "slug": "target-cost",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.790Z",
+      "scoring_method": "auto"
+    },
+    "targeted-attack": {
+      "slug": "targeted-attack",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.822Z",
+      "scoring_method": "auto"
+    },
+    "task-based-training": {
+      "slug": "task-based-training",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.848Z",
+      "scoring_method": "auto"
+    },
+    "tbm-toolbox-meeting": {
+      "slug": "tbm-toolbox-meeting",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.873Z",
+      "scoring_method": "auto"
+    },
+    "tcfd": {
+      "slug": "tcfd",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.899Z",
+      "scoring_method": "auto"
+    },
+    "teal-organization": {
+      "slug": "teal-organization",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.925Z",
+      "scoring_method": "auto"
+    },
+    "technology-licensing": {
+      "slug": "technology-licensing",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.952Z",
+      "scoring_method": "auto"
+    },
+    "temporary-works-plan": {
+      "slug": "temporary-works-plan",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:40.978Z",
+      "scoring_method": "auto"
+    },
+    "terrorism": {
+      "slug": "terrorism",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.003Z",
+      "scoring_method": "auto"
+    },
+    "theory-of-constraints": {
+      "slug": "theory-of-constraints",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.029Z",
+      "scoring_method": "auto"
+    },
+    "threat-awareness-training": {
+      "slug": "threat-awareness-training",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.055Z",
+      "scoring_method": "auto"
+    },
+    "three-point-estimation": {
+      "slug": "three-point-estimation",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.080Z",
+      "scoring_method": "auto"
+    },
+    "timeline-disaster": {
+      "slug": "timeline-disaster",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.105Z",
+      "scoring_method": "auto"
+    },
+    "tnfd": {
+      "slug": "tnfd",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.131Z",
+      "scoring_method": "auto"
+    },
+    "total-wage-management": {
+      "slug": "total-wage-management",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.157Z",
+      "scoring_method": "auto"
+    },
+    "trademark-rights": {
+      "slug": "trademark-rights",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.183Z",
+      "scoring_method": "auto"
+    },
+    "training-techniques": {
+      "slug": "training-techniques",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.209Z",
+      "scoring_method": "auto"
+    },
+    "tripod-theory": {
+      "slug": "tripod-theory",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.234Z",
+      "scoring_method": "auto"
+    },
+    "un-human-environment-conf": {
+      "slug": "un-human-environment-conf",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.259Z",
+      "scoring_method": "auto"
+    },
+    "unauthorized-access": {
+      "slug": "unauthorized-access",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.285Z",
+      "scoring_method": "auto"
+    },
+    "unced-earth-summit": {
+      "slug": "unced-earth-summit",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-04-16T11:36:41.311Z",
+      "scoring_method": "auto"
+    },
+    "unfair-competition-prevention-act": {
+      "slug": "unfair-competition-prevention-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.337Z",
+      "scoring_method": "auto"
+    },
+    "unfair-trade-practices": {
+      "slug": "unfair-trade-practices",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.35,
+      "weak_axes": [
+        "mobile"
+      ],
+      "scored_at": "2026-04-16T11:36:41.363Z",
+      "scoring_method": "auto"
+    },
+    "unreasonable-trade-restraint": {
+      "slug": "unreasonable-trade-restraint",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.389Z",
+      "scoring_method": "auto"
+    },
+    "utility-model-rights": {
+      "slug": "utility-model-rights",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.415Z",
+      "scoring_method": "auto"
+    },
+    "utilization-rate": {
+      "slug": "utilization-rate",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.450Z",
+      "scoring_method": "auto"
+    },
+    "value-chain-analysis": {
+      "slug": "value-chain-analysis",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.476Z",
+      "scoring_method": "auto"
+    },
+    "value-engineering": {
+      "slug": "value-engineering",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 2,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.502Z",
+      "scoring_method": "auto"
+    },
+    "variable-work-hours": {
+      "slug": "variable-work-hours",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.528Z",
+      "scoring_method": "auto"
+    },
+    "verbal-nonverbal-communication": {
+      "slug": "verbal-nonverbal-communication",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.553Z",
+      "scoring_method": "auto"
+    },
+    "visual-management": {
+      "slug": "visual-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.578Z",
+      "scoring_method": "auto"
+    },
+    "vocational-training-act": {
+      "slug": "vocational-training-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.604Z",
+      "scoring_method": "auto"
+    },
+    "vr-ar-metaverse": {
+      "slug": "vr-ar-metaverse",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.630Z",
+      "scoring_method": "auto"
+    },
+    "vulnerability": {
+      "slug": "vulnerability",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.656Z",
+      "scoring_method": "auto"
+    },
+    "wacc-roic": {
+      "slug": "wacc-roic",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.681Z",
+      "scoring_method": "auto"
+    },
+    "waste-management-act": {
+      "slug": "waste-management-act",
+      "scores": {
+        "structure": 3,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.708Z",
+      "scoring_method": "auto"
+    },
+    "water-pollution-control-act": {
+      "slug": "water-pollution-control-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.733Z",
+      "scoring_method": "auto"
+    },
+    "waterfall": {
+      "slug": "waterfall",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.760Z",
+      "scoring_method": "auto"
+    },
+    "wced": {
+      "slug": "wced",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.786Z",
+      "scoring_method": "auto"
+    },
+    "web-services": {
+      "slug": "web-services",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.812Z",
+      "scoring_method": "auto"
+    },
+    "wellbeing-org": {
+      "slug": "wellbeing-org",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.838Z",
+      "scoring_method": "auto"
+    },
+    "wildlife-protection-act": {
+      "slug": "wildlife-protection-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.863Z",
+      "scoring_method": "auto"
+    },
+    "women-empowerment-act": {
+      "slug": "women-empowerment-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.889Z",
+      "scoring_method": "auto"
+    },
+    "work-life-balance": {
+      "slug": "work-life-balance",
+      "scores": {
+        "structure": 2,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.915Z",
+      "scoring_method": "auto"
+    },
+    "work-planning": {
+      "slug": "work-planning",
+      "scores": {
+        "structure": 3,
+        "mobile": 1,
+        "principle": 3,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.940Z",
+      "scoring_method": "auto"
+    },
+    "worker-dispatch-act": {
+      "slug": "worker-dispatch-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.966Z",
+      "scoring_method": "auto"
+    },
+    "workers-compensation-insurance": {
+      "slug": "workers-compensation-insurance",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 3
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:41.992Z",
+      "scoring_method": "auto"
+    },
+    "youth-employment-act": {
+      "slug": "youth-employment-act",
+      "scores": {
+        "structure": 2,
+        "mobile": 0,
+        "principle": 3,
+        "reference": 0,
+        "linking": 2
+      },
+      "weighted": 1,
+      "weak_axes": [
+        "mobile",
+        "reference"
+      ],
+      "scored_at": "2026-04-16T11:36:42.017Z",
+      "scoring_method": "auto"
     }
   }
 }
