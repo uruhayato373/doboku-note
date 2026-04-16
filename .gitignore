@@ -51,9 +51,6 @@ _minpo_*.png
 doboku-note-*.json
 credentials/
 
-# GSC data output
-.local/metrics/gsc/
-
 public/posts
 .aidesigner/*
 !.aidesigner/.gitkeep
