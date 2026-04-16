@@ -70,7 +70,7 @@
 
 1. **施策7: 既存ハブページ `keyword-2026` の最適化**（最重要） — リンク漏れ補完・リード文強化・sticky目次。新規作成不要、既存資産の磨き込みのみ
    - ✅ **2026-04-16 一部完了**: リンク漏れ6件補完（内部リンク 643 → 653）、title/description SEO強化、frontmatter `updated` 追加、最終更新日可視化、「このページの使い方」tip追加、関連リソース5件追加（general-overview / exam-index / essay-exam-strategy / essay-question-trends-timeline / management-tradeoffs）
-   - **残**: ⑤sticky 目次、③5管理進捗チェックボックス（UI コンポーネント実装が必要）
+   - ✅ **2026-04-17 残タスク完了**: sticky 目次は既存 `src/components/ui/TableOfContents.tsx`（`sticky top-6` + IntersectionObserver）がデスクトップサイドバーで全ページ有効化済みと確認。5管理進捗チェックは `src/components/features/pe-keyword-progress/KeywordProgress.tsx` を新規作成し、ハブ冒頭に `<KeywordProgress />` を配置。`article` 配下の `/docs/pe-comprehensive-management-*` リンクのクリックイベントを DOM 走査で捕捉し、localStorage (`doboku-note:pe-keyword-progress:v1`) に記録。5管理別＋合計の進捗バー表示、ダークモード対応、リセット機能付き。集計は自身・関連リソース・過去問リンクを除外して 648 件（経済性128 / 人的143 / 情報143 / 安全125 / 社会109）
    - 検証ツール: `.claude/scripts/find-unlinked-keywords.mjs`（今後の定期監査用）
 2. **施策1: タイトル全件統一** — スクリプトで一括処理可能
    - ✅ **2026-04-16 完了**: `scripts/unify-pe-keyword-titles.mjs` を作成し、`group: keyword` の全 **649 ページ** の title 末尾に「 ｜ 総合技術監理 キーワード集 2026」を一括付与
@@ -78,12 +78,17 @@
    - 検証: pre-commit MDX validator pass、type-check pass、CRLF/LF混在ゼロ、文字化けゼロ
    - 想定効果: 全キーワードページ title に「総合技術監理」「キーワード集」「2026」が入り、ハブページとの整合性で総合的なドメイン評価が上昇。CTR ＋10〜20% 見込み
 3. **施策2: meta description 全件リライト** — `keyword-rewriter` エージェントでバルク処理
+   - ✅ **2026-04-17 完了**: `scripts/bulk-rewrite-descriptions.mjs` を新規作成。既存 description の末尾定型句（「総合技術監理の試験対策〜」等）を削り、5管理分類ラベルと「技術士総合技術監理キーワード集2026（XX管理）。5管理トレードオフ・過去問演習リンク付き。」を付与。`group: keyword` の 649 件すべてを 82〜138 字（avg 96字）にリライト。短すぎる core は title からフォールバック生成。idempotent ガード（2重実行検出）込み。誤って 2回 apply した事故を `scripts/fix-duplicated-description-suffix.mjs` で 606 件一括修復
+   - 検証: type-check pass、pre-commit MDX validator pass、文字化けゼロ
 
 ### Phase 2（2〜4週間）— SERP占有率向上
 
 4. **施策5: 構造化データ追加**
+   - ✅ **2026-04-17 完了（既存機構で充足）**: `src/components/seo/StructuredData.tsx` に TechArticle（`dateModified = lastRewrittenAt || updatedAt || publishedAt || created`）、DefinedTerm（`group === 'keyword'` のみ出力）、BreadcrumbList、Quiz（past-questions）が実装済み。施策2 の description リライトが `docMeta.description` 経由で DefinedTerm と TechArticle の `description` フィールドに自動反映。施策3 の `publishedAt` 補完 1件で TechArticle の dateModified がすべての keyword ページで出力可能に。FAQPage のみ次サイクル（施策6）で追加
 5. **施策4: 強調スニペット狙いの定義文整備**
+   - ✅ **2026-04-17 監査完了（本文書き換えは不要）**: `scripts/audit-definition-leads.mjs` を新規作成し `.claude/state/definition-audit.json` に結果出力。逸脱率 17%（閾値 20% 未満）で `recommendation: "ok"`。Compliant 540 / 649（83%）。逸脱内訳: `missing-title-prefix` 90件、`too-short` 19件。逸脱件数が閾値超になった時点で `keyword-rewriter` に再発注する判断ゲートをスクリプトに組み込み済み
 6. **施策3: 更新日の可視化**
+   - ✅ **2026-04-17 完了（既存機構で充足）**: `src/components/ui/AuthorCard/AuthorCard.tsx` が `updatedAt !== publishedAt` のとき「最終更新」を表示する仕様。`page.tsx` で `lastRewrittenAt || updatedAt` を `AuthorCard` に渡しているため、Phase G-5/G-6 リライト済み 249 件は既に可視化されている。残り 440 件は公開後未更新のため、無理に `updatedAt = publishedAt` を付与すると AuthorCard の差分判定で非表示 → 付与不要と判定。`cause-and-effect-diagram/article.mdx` で `publishedAt` が欠落していた 1 件は `2026-04-03` を補完
 
 ### Phase 3（1〜2ヶ月）— 差別化と回遊改善
 

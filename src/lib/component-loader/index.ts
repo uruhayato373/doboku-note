@@ -81,6 +81,11 @@ export async function getSpecificComponents(componentNames: string[]) {
             await import("@/features/time-management-techniques/TimeBlockChart")
           ).default;
           break;
+        case "KeywordProgress":
+          components[componentName] = (
+            await import("@/components/features/pe-keyword-progress/KeywordProgress")
+          ).default;
+          break;
         default:
           console.warn(`Unknown specific component: ${componentName}`);
       }
