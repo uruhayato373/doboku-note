@@ -200,6 +200,10 @@
   .prose-blog details ol {
     @apply list-decimal list-inside;
   }
+  .prose-blog details ol > li {
+    padding-left: 1.2em;
+    text-indent: -1.2em;
+  }
 
   .prose-blog details ul {
     @apply list-disc list-inside;

@@ -99,6 +99,8 @@ const localContentDirectory = path.join(process.cwd(), '.local', 'r2', 'posts');
 export type DocMeta = {
   slug: string; // e.g., 'civil-construction-1-guide-strategy' (flattened)
   title: string;
+  shortTitle?: string; // カード表示用の短縮タイトル
+  subtitle?: string;   // カード表示用のサブタイトル
   description?: string;
   category?: string; // e.g., 'civil-construction-1' (from frontmatter)
   group?: string; // e.g., 'guide', 'past-exam', 'keyword' (explicit classification)

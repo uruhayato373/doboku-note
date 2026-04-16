@@ -7,6 +7,8 @@ import { SearchBox } from "@/components/search/SearchBox";
 import { SearchResults } from "@/components/search/SearchResults";
 import { SearchFilters } from "@/components/search/SearchFilters";
 import { SearchPagination } from "@/components/search/SearchPagination";
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
 
 export default function SearchPageClient() {
   const searchParams = useSearchParams();
@@ -62,69 +64,66 @@ export default function SearchPageClient() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* 検索ヘッダー */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            記事検索
-          </h1>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            doboku-noteの記事からお探しの情報を見つけましょう
-          </p>
-        </div>
+    <>
+      <Header />
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          {/* 検索ヘッダー */}
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              記事検索
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400">
+              キーワードを入力して記事を探す
+            </p>
+          </div>
 
-        {/* 検索ボックス */}
-        <div className="max-w-2xl mx-auto mb-8">
-          <SearchBox
-            placeholder="キーワードを入力して検索..."
-            onSearch={handleSearch}
-          />
-        </div>
+          {/* 検索ボックス */}
+          <div className="mb-4">
+            <SearchBox
+              placeholder="キーワードを入力して検索..."
+              onSearch={handleSearch}
+            />
+          </div>
 
-        {/* フィルターと結果 */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* フィルターサイドバー */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8">
-              <SearchFilters
-                category={category}
-                tags={tags}
-                sortBy={sortBy}
-                onFilterChange={handleFilterChange}
-                onReset={resetSearch}
-                showFilters={showFilters}
-                onToggleFilters={() => setShowFilters(!showFilters)}
-              />
-            </div>
+          {/* フィルター（インライン） */}
+          <div className="mb-8">
+            <SearchFilters
+              category={category}
+              tags={tags}
+              sortBy={sortBy}
+              onFilterChange={handleFilterChange}
+              onReset={resetSearch}
+              showFilters={showFilters}
+              onToggleFilters={() => setShowFilters(!showFilters)}
+            />
           </div>
 
           {/* 検索結果 */}
-          <div className="lg:col-span-3">
-            {error && (
-              <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-6">
-                <p className="text-red-800 dark:text-red-200">{error}</p>
-              </div>
-            )}
+          {error && (
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 mb-6">
+              <p className="text-red-800 dark:text-red-200">{error}</p>
+            </div>
+          )}
 
-            <SearchResults
-              results={results}
-              isLoading={isLoading}
-              error={error}
-              query={query}
+          <SearchResults
+            results={results}
+            isLoading={isLoading}
+            error={error}
+            query={query}
+          />
+
+          {/* ページネーション */}
+          {results.totalPages > 1 && (
+            <SearchPagination
+              currentPage={results.page}
+              totalPages={results.totalPages}
+              onPageChange={changePage}
             />
-
-            {/* ページネーション */}
-            {results.totalPages > 1 && (
-              <SearchPagination
-                currentPage={results.page}
-                totalPages={results.totalPages}
-                onPageChange={changePage}
-              />
-            )}
-          </div>
+          )}
         </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

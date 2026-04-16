@@ -8,6 +8,7 @@ export const commonComponents = {
   ArticleImage: "ArticleImage",
   Callout: "Callout",
   ExamPoint: "ExamPoint",
+  WritingTip: "WritingTip",
   RelatedKeywords: "RelatedKeywords",
   CustomUnorderedList: "CustomUnorderedList",
   CustomOrderedList: "CustomOrderedList",

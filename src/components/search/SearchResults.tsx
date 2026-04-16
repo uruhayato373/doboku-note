@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { cn } from "@/lib/cn";
 import { SearchResult } from "@/hooks/useSearch";
 
 interface SearchResultsProps {
@@ -79,17 +78,6 @@ export function SearchResults({
             className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow"
           >
             <div className="flex-1 min-w-0">
-              <div className="flex items-center space-x-2 mb-2">
-                <span
-                  className={cn(
-                    "px-2 py-1 text-xs font-medium rounded",
-                    "bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-200"
-                  )}
-                >
-                  {post.category}
-                </span>
-              </div>
-
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-primary-600 dark:hover:text-primary-400">
                 <Link href={post.path}>{post.title}</Link>
               </h3>

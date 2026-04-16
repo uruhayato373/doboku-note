@@ -156,35 +156,26 @@ function groupDocs(docs: DocMeta[], category: string): DocGroup[] {
 }
 
 function DocCard({ doc }: { doc: DocMeta }) {
+  const displayTitle = doc.shortTitle || doc.title;
   return (
     <Link
       href={`/docs/${doc.slug}`}
       className="group relative overflow-hidden rounded-lg border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-lg transition-all"
     >
-      <div className="flex flex-col gap-2 h-full">
-        <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">
-          {doc.title}
+      <div className="flex flex-col gap-1 h-full">
+        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">
+          {displayTitle}
         </h3>
+        {doc.subtitle && (
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            {doc.subtitle}
+          </p>
+        )}
         {doc.description && (
-          <p className="text-[15px] text-gray-600 dark:text-gray-400 line-clamp-2 flex-grow">
+          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 flex-grow mt-1">
             {doc.description}
           </p>
         )}
-        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-gray-100 dark:border-gray-700">
-          {(doc.tags || []).slice(0, 2).map(tag => (
-            <span
-              key={tag}
-              className="inline-block text-xs px-2 py-0.5 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-400 rounded"
-            >
-              {tag}
-            </span>
-          ))}
-          {doc.tags && doc.tags.length > 2 && (
-            <span className="text-xs text-gray-500 dark:text-gray-500">
-              +{doc.tags.length - 2}
-            </span>
-          )}
-        </div>
       </div>
     </Link>
   );

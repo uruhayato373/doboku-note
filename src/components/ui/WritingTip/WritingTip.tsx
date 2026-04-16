@@ -1,0 +1,38 @@
+"use client";
+
+import { Circle } from "lucide-react";
+
+interface WritingTipProps {
+  summary: string;
+  items: string[];
+}
+
+export default function WritingTip({ summary, items }: WritingTipProps) {
+  if (!items || items.length === 0) return null;
+
+  return (
+    <div className="my-5 mx-5 p-3 border border-gray-300 dark:border-gray-600">
+      <div className="relative -left-8 bg-emerald-600 text-white py-2 px-4 m-0 text-lg font-bold dark:bg-emerald-500 inline-flex items-center w-auto">
+        論文での書き方
+      </div>
+      <p className="text-lg font-semibold text-gray-800 dark:text-gray-200 mt-3 mb-3 ml-2">
+        <span style={{ background: "linear-gradient(transparent 60%, rgba(16, 185, 129, 0.3) 60%)" }}>
+          {summary}
+        </span>
+      </p>
+      <ul className="space-y-2 list-none">
+        {items.map((item, index) => (
+          <li
+            key={index}
+            className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed flex items-start pl-2"
+          >
+            <span className="shrink-0 mr-3 mt-1.5 text-emerald-600 dark:text-emerald-500">
+              <Circle className="w-2 h-2 fill-current" />
+            </span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}

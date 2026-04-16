@@ -1,6 +1,6 @@
 import type { PostData } from "@/types/blog";
 import type { DocMeta } from "@/lib/docs";
-import { classifyDoc } from "@/lib/doc-classifier";
+
 import categoriesData from "@/config/categories.json";
 import { AUTHOR } from "@/config/author";
 
@@ -128,13 +128,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
         }
 
         if (docMeta) {
-          const docGroup = classifyDoc(docMeta);
-          const isCemKeyword =
-            docMeta.category === "pe-comprehensive-management" &&
-            docGroup === "keyword";
-          const seoHeadline = isCemKeyword
-            ? `${docMeta.title}｜技術士 総監キーワード`
-            : docMeta.title;
+          const seoHeadline = (docMeta as any).seoTitle || docMeta.title;
           return {
             "@context": "https://schema.org",
             "@type": "TechArticle",

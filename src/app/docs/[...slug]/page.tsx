@@ -116,35 +116,10 @@ export async function generateMetadata({
     };
   }
 
-  // SEOタイトル: カテゴリ・グループに応じたサフィックスを付与
-  const group = classifyDoc(doc.meta);
-  const isCemKeywordOrSection =
-    doc.meta.category === 'pe-comprehensive-management' &&
-    group === 'keyword';
-  const isCemPastExam =
-    doc.meta.category === 'pe-comprehensive-management' &&
-    group === 'pastExam';
-
-  let title: string | { absolute: string };
-  let ogTitle: string;
-
-  if (isCemPastExam) {
-    // 過去問: 「技術士 総監 R07 択一式 過去問【解答解説付き】」
-    const hasDetails = (doc.meta.description || '').includes('解答解説') ||
-      (doc.meta.tags || []).includes('択一式') ||
-      (doc.meta.tags || []).includes('past-questions');
-    const suffix = hasDetails ? '【解答解説付き】' : '';
-    title = { absolute: `${doc.meta.title}${suffix}` };
-    ogTitle = `${doc.meta.title}${suffix}`;
-  } else if (isCemKeywordOrSection) {
-    // キーワード/セクション: テンプレート無効化して独自サフィックス
-    title = { absolute: `${doc.meta.title}｜技術士 総監キーワード` };
-    ogTitle = `${doc.meta.title}｜技術士 総監キーワード`;
-  } else {
-    // その他: テンプレート（"%s | doboku-note"）に任せる
-    title = doc.meta.title;
-    ogTitle = doc.meta.title;
-  }
+  // SEOタイトル: frontmatter の seoTitle をそのまま使用
+  const seoTitle = (doc.meta as any).seoTitle || doc.meta.title;
+  const title: string | { absolute: string } = { absolute: seoTitle };
+  const ogTitle = seoTitle;
 
   const description = doc.meta.description || doc.meta.title;
 
@@ -326,19 +301,19 @@ export default async function DocPage({
 
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
-            {hasCategoryNavCard && category && (
-              <div className="mb-3">
-                <CategoryNavCard
-                  variant="sidebar"
-                  category={category}
-                  currentSlug={slugStr}
-                  docGroup={docGroup}
-                  categoryArticles={categoryArticles}
-                />
-              </div>
-            )}
             <div className="sticky top-6">
               <TableOfContents headings={headings} />
+              {hasCategoryNavCard && category && (
+                <div className="mt-3">
+                  <CategoryNavCard
+                    variant="sidebar"
+                    category={category}
+                    currentSlug={slugStr}
+                    docGroup={docGroup}
+                    categoryArticles={categoryArticles}
+                  />
+                </div>
+              )}
             </div>
           </aside>
         </div>

@@ -48,10 +48,10 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
           {guides.map((g) => (
             <li key={g.slug}>
               {g.slug === currentSlug ? (
-                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || g.title}</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || (g as any).shortTitle || g.title}</span>
               ) : (
                 <Link href={`/docs/${g.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
-                  {g.sidebar_label || g.title}
+                  {g.sidebar_label || (g as any).shortTitle || g.title}
                 </Link>
               )}
             </li>
