@@ -102,7 +102,8 @@ docs/project/                       # プロジェクト管理ドキュメント
 
 ```yaml
 ---
-title: "ページタイトル"
+title: "ページタイトル"              # 表示用（概念名のみ、SEOサフィックスなし）
+seoTitle: "ページタイトル | doboku-note"  # <title>タグに出力する完全なSEOタイトル
 description: "50〜160文字の説明"
 category: "civil-construction-1"     # civil-construction-1 | pe-comprehensive-management | civil-general | construction-management | keywords-law
 tags: ["guide", "primary"]           # guide | primary | secondary | past-questions | keyword 等
@@ -139,7 +140,7 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
 
 ### その他の必須ルール
 
-- **frontmatter 必須項目**: `title`, `description`, `category`, `tags`, `published`
+- **frontmatter 必須項目**: `title`, `seoTitle`, `description`, `category`, `tags`, `published`
 - **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない。`<Callout type="...">` で表現する
 - **数式**: KaTeX 一択（`$$...$$` / `$...$`）
 - **表は 2 軸比較のみ**: 4 列以上禁止、キーバリュー表は散文化、計算手順は番号付きリスト

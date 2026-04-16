@@ -34,6 +34,8 @@ export const Category = z.string();
 export const FrontmatterSchema = z
   .object({
     title: z.string().min(1),
+    shortTitle: z.string().optional(),
+    subtitle: z.string().optional(),
     description: z.string().min(1).max(500).optional(),
     category: Category.optional(),
     exams: z.array(ExamId).optional(),

@@ -156,6 +156,7 @@ description: >
 ```yaml
 ---
 title: "{キーワード名}"
+seoTitle: "{キーワード名} ｜ 総合技術監理 キーワード集 2026"
 description: "{50〜100文字の説明}"
 category: pe-comprehensive-management
 section: "{X.Y}"
@@ -165,6 +166,9 @@ published: true
 publishedAt: "{YYYY-MM-DD}"
 ---
 ```
+
+- `title`: 表示用の概念名のみ（サフィックスなし）
+- `seoTitle`: `<title>` タグに出力する完全な SEO タイトル（必須）
 
 - `section` が未設定の場合、`src/config/pe-chapters.json` を参照して付与
 - `description` は検索結果に表示されるため、キーワードの定義を簡潔にまとめる

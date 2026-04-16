@@ -68,7 +68,7 @@ model: sonnet
 - ❌ 既存本文を一から書き直す
 - ❌ 「実務での観点」など同じセクション名を全ページで使う
 - ❌ 1 ページに 3 つ以上の拡張パターンを詰め込む
-- ❌ frontmatter の他のフィールド（title, category, section, published 等）を変更する
+- ❌ frontmatter の他のフィールド（title, seoTitle, category, section, published 等）を変更する
 - ❌ 既存の表・コード・コンポーネントを削除する — **ただし、mobile が weak_axes に含まれ、かつ G パターンが選択されている場合に限り、以下の例外を許可する**:
   - **変換してよい表**:
     - 4列以上の表（§コンテンツ原則で 4 列以上禁止）
