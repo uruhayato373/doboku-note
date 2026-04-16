@@ -405,10 +405,10 @@
             "id": "43e41cbebe60c1d2",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -420,9 +420,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "164763cde4119ea7",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 21
+        "currentTab": 22
       }
     ],
     "direction": "horizontal",
@@ -452,20 +462,22 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "dd4b4b1405000366",
+  "active": "164763cde4119ea7",
   "lastOpenFiles": [
+    "src/components/features/pe-keyword-progress/KeywordProgress.tsx",
+    "src/components/features/pe-keyword-progress",
+    "src/components/features",
+    "scripts/lint-ui.mjs",
+    "scripts/fix-duplicated-description-suffix.mjs",
+    "scripts/bulk-score.mjs",
+    "scripts/bulk-rewrite-descriptions.mjs",
+    "scripts/audit-definition-leads.mjs",
+    "docs/project/20_primary-exam-figure-restoration.md",
+    "docs/project/19_note-content-runway-2026.md",
     "src/app/docs/[...slug]/page.tsx.tmp.20564.1776329344733",
     "docs/project/19_civil-exam-answer-style-migration.md",
     "CLAUDE.md.tmp.3696.1776328165550",
     "CLAUDE.md.tmp.3696.1776328160530",
-    "src/components/ui/WritingTip/WritingTip.tsx",
-    "src/components/ui/WritingTip",
-    "src/lib/docs.ts.tmp.20564.1776325752944",
-    "package.json.tmp.3696.1776322598366",
-    "src/lib/docs.ts.tmp.3696.1776322565385",
-    "src/lib/docs.ts.tmp.3696.1776322535546",
-    "src/config/doc-meta-index.json",
-    "out/robots.txt",
     "out/posts/pe-comprehensive-management/h26-primary/img/event-tree-i-1-32.svg",
     "out/posts/pe-comprehensive-management/h25-primary/img/fault-tree-i-1-27.svg",
     "out/posts/pe-comprehensive-management/h24-primary/img/xy-theory-ii-1-9.svg",
@@ -497,8 +509,6 @@
     "docs/archive/reviews-archive/note-articles/N-3_技術士一次_科目別要点整理.md",
     "docs/archive/reviews-archive/note-articles/N-4_技術士二次_論文テンプレート.md",
     "docs/archive/reviews-archive/note-articles/N-2_1級土木_経験記述テンプレート.md",
-    "docs/archive/reviews-archive/note-articles/N-1_1級土木_頻出論点50選.md",
-    "docs/archive/reviews-archive/note-articles/M-2_技術士_論文添削ノート.md",
-    "docs/archive/reviews-archive/note-articles/M-1_週刊ドリル.md"
+    "docs/archive/reviews-archive/note-articles/N-1_1級土木_頻出論点50選.md"
   ]
 }
