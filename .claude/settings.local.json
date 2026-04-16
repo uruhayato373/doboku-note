@@ -18,7 +18,15 @@
       "mcp__playwright__browser_navigate",
       "mcp__playwright__browser_take_screenshot",
       "mcp__playwright__browser_evaluate",
-      "Bash(gh run *)"
+      "Bash(gh run *)",
+      "Bash(mkdir -p .claude/skills/content/check-links/scripts)",
+      "Bash(mkdir -p .claude/skills/content/verify-pdf-mdx/scripts)",
+      "Bash(mkdir -p .claude/skills/content/consolidate-duplicate-keyword/scripts)",
+      "Bash(mv scripts/lib/quality-state.mjs .claude/skills/content/quality-cycle/scripts/lib/)",
+      "Bash(mv scripts/lib/cem-qa-prompt.mjs .claude/skills/content/quality-cycle/scripts/lib/)",
+      "Bash(mv scripts/quality-cycle.mjs .claude/skills/content/quality-cycle/scripts/)",
+      "Bash(mv scripts/log-rewrite.mjs .claude/skills/content/quality-cycle/scripts/)",
+      "Bash(mv scripts/merge-scores.mjs .claude/skills/content/quality-cycle/scripts/)"
     ],
     "defaultMode": "bypassPermissions"
   }

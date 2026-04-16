@@ -2,6 +2,9 @@
   "name": "doboku-note",
   "version": "1.0.0",
   "private": true,
+  "imports": {
+    "#lib/*": "./scripts/lib/*"
+  },
   "scripts": {
     "predev": "node scripts/kill-port.mjs 3020 && node scripts/build-exam-backlinks.mjs && node scripts/build-cross-exam-keyword-index.mjs && node scripts/build-tag-index.mjs",
     "dev": "next dev -p 3020",

@@ -17,7 +17,7 @@
 import { readdirSync, statSync } from 'node:fs';
 import { join, basename, dirname } from 'node:path';
 import matter from 'gray-matter';
-import { transformMdxFile, readMdxFile } from './lib/mdx-io.mjs';
+import { transformMdxFile, readMdxFile } from '#lib/mdx-io.mjs';
 
 const BASE = '.local/r2/posts/pe-comprehensive-management';
 const MIN_LEN = 50;

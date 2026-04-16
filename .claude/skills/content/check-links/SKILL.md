@@ -18,7 +18,7 @@ description: >
 ### Step 1: 外部リンクチェック実行
 
 ```bash
-node scripts/check-external-links.mjs
+node .claude/skills/content/check-links/scripts/check-external-links.mjs
 ```
 
 スクリプトが以下を実行する:
@@ -50,7 +50,7 @@ node scripts/check-external-links.mjs
 内部リンク（`/docs/` パス）のチェックは別スクリプト:
 
 ```bash
-node scripts/check-links.mjs
+node .claude/skills/content/check-links/scripts/check-links.mjs
 ```
 
 ## 推奨運用

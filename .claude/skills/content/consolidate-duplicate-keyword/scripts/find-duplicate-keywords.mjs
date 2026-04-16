@@ -13,11 +13,9 @@
  *   node scripts/find-duplicate-keywords.mjs --json
  */
 import { readFileSync } from 'node:fs';
-import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 
-const __filename = fileURLToPath(import.meta.url);
-const ROOT = dirname(dirname(__filename));
+const ROOT = process.cwd();
 const CHAPTERS_PATH = join(ROOT, 'src/config/pe-chapters.json');
 
 const SUFFIXES = ['-osh', '-security', '-labor', '-process', '-comm'];

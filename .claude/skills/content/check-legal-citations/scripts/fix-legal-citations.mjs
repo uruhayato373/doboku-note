@@ -19,11 +19,9 @@
  */
 import { readdirSync, readFileSync, writeFileSync, statSync, existsSync, mkdirSync } from 'node:fs';
 import { join, resolve, dirname, relative } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { readMdxFile, writeMdxFile } from './lib/mdx-io.mjs';
+import { readMdxFile, writeMdxFile } from '#lib/mdx-io.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const ROOT = dirname(dirname(__filename));
+const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, '.local/r2/posts/pe-comprehensive-management');
 const BACKUP_ROOT = '/tmp/fix-legal-citations-backup';
 

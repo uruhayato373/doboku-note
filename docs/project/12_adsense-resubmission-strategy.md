@@ -271,8 +271,8 @@ frontmatter に `author` を追加するか、layout 側で固定値を表示。
 ### 3-1. Quality Cycle で全ページをスコアリング
 
 ```bash
-node scripts/quality-cycle.mjs --mode screen        # Tier1 機械的事前ふるい（全件）
-node scripts/quality-cycle.mjs --mode score --top 200  # Tier2 質的評価（上位200件）
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode screen        # Tier1 機械的事前ふるい（全件）
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 200  # Tier2 質的評価（上位200件）
 ```
 
 → `.claude/state/quality-scores.json` に 200 件の 5 軸スコア + 弱点軸 + 質的コメント
@@ -284,7 +284,7 @@ node scripts/quality-cycle.mjs --mode score --top 200  # Tier2 質的評価（�
 ### 3-3. 弱いページに拡張パターンを適用
 
 ```bash
-node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --threshold 2.5
 ```
 
 → flagship 100 のうち weighted < 2.5 のページに対して `keyword-rewriter` エージェントが拡張パターン（A〜F）を適用
@@ -294,8 +294,8 @@ node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5
 ### 3-4. リライト後の再評価と人間レビュー待ちリスト
 
 ```bash
-node scripts/quality-cycle.mjs --mode verify   # cem-qa で再評価
-node scripts/quality-cycle.mjs --mode review   # .claude/state/review-queue.md 出力
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode verify   # cem-qa で再評価
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode review   # .claude/state/review-queue.md 出力
 ```
 
 ### 3-5. 人間レビュー（実装スコープ外）

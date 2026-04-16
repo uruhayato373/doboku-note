@@ -18,7 +18,7 @@
 
 import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import { fetchWeeklyNsmMetrics, formatNsmSection } from './lib/metrics-reader.mjs';
+import { fetchWeeklyNsmMetrics, formatNsmSection } from '#lib/metrics-reader.mjs';
 
 const OUT_DIR = 'docs/reviews/weekly-metrics';
 const INDEX_PATH = join(OUT_DIR, 'index.json');

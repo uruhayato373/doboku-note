@@ -36,7 +36,7 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 - `--render`: PDF ページを `/tmp/verify-pdf-mdx/<slug>/page-N.png` へ展開（視覚比較の精度向上）
 - `--mode`: モードを強制指定（デバッグ用、通常は `auto` で frontmatter から判定）
 
-なお `scripts/verify-pdf-mdx.mjs` は slug/title から PDF 原本を自動発見するため、通常は `--pdf` 指定不要。
+なお `.claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs` は slug/title から PDF 原本を自動発見するため、通常は `--pdf` 指定不要。
 
 ## ディスパッチルール
 
@@ -64,7 +64,7 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 
 各 MDX ファイルについて:
 
-1. `node scripts/verify-pdf-mdx.mjs <mdx-path>` を実行（`--pdf` 省略で PDF 自動発見、textbook/guide の場合）
+1. `node .claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs <mdx-path>` を実行（`--pdf` 省略で PDF 自動発見、textbook/guide の場合）
 2. JSON 出力から `mdx.category` と `mdx.group` を取得
 3. 上のディスパッチ表に従い、呼び出し先エージェントを決定
 4. `--mode` が指定されていれば、それでオーバーライド
@@ -132,5 +132,5 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 - `.claude/agents/civil-construction-qa.md` ── 1級土木向け Evaluator
 - `.claude/agents/cem-qa.md` ── 総監キーワード Evaluator（既存）
 - `.claude/agents/content-qa.md` ── PDF→MDX 静的5軸 Evaluator（既存）
-- `scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
+- `.claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
 - `.claude/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点

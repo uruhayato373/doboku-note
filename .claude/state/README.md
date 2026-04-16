@@ -15,7 +15,7 @@
 
 ## 消費者
 
-- **スクリプト**: `scripts/quality-cycle.mjs` / `scripts/lib/quality-state.mjs` / `scripts/lib/experiments-state.mjs`
+- **スクリプト**: `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` / `.claude/skills/content/quality-cycle/scripts/lib/quality-state.mjs`
 - **エージェント**: `keyword-rewriter` / `strategy-advisor`
 - **スキル**: `quality-cycle` / `weekly-plan` / `weekly-review` / `nsm-experiment`
 

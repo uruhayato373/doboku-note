@@ -10,7 +10,7 @@ user-invocable: true
 
 **実行環境**: macOS only（`fix-legal-citations.mjs` は Homebrew 前提のパス解決に移行済み）。
 
-MDX 本文中で「〇〇法第◯条」のように法令条文を引用している箇所について、e-Gov 法令検索の該当条文へのインラインリンクを付与することを強制する。機械検出は `lint-mdx-mobile.mjs` のルール 8-2 が、自動修正は `scripts/fix-legal-citations.mjs` が担う。
+MDX 本文中で「〇〇法第◯条」のように法令条文を引用している箇所について、e-Gov 法令検索の該当条文へのインラインリンクを付与することを強制する。機械検出は `lint-mdx-mobile.mjs` のルール 8-2 が、自動修正は `.claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs` が担う。
 
 ## なぜこのスキルがあるのか
 
@@ -24,7 +24,7 @@ https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}
 
 例: 労働基準法 第36条 → `https://laws.e-gov.go.jp/law/322AC0000000049#Mp-At_36`
 
-**法令番号の根拠**: `scripts/fix-legal-citations.mjs` の `LAW_ID_MAP` に登録されている法令のみ自動リンク化可能。2026-04-13 時点で 31 件の base URL を HTTP 200 で検証済み（e-Gov は SPA のため curl では内部 anchor が見えないが、ブラウザでは正しく遷移することを確認）。
+**法令番号の根拠**: `.claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs` の `LAW_ID_MAP` に登録されている法令のみ自動リンク化可能。2026-04-13 時点で 31 件の base URL を HTTP 200 で検証済み（e-Gov は SPA のため curl では内部 anchor が見えないが、ブラウザでは正しく遷移することを確認）。
 
 ## 枝番条文の扱い（重要な設計判断）
 
@@ -70,7 +70,7 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 ### Step 2: 自動修正（dry-run）
 
 ```bash
-node scripts/fix-legal-citations.mjs --dry-run
+node .claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs --dry-run
 ```
 
 変換候補を diff 形式で確認。同一ファイル内で「初出のみリンク」ルールで動くため、2 回目以降の言及はスキップされる。
@@ -78,7 +78,7 @@ node scripts/fix-legal-citations.mjs --dry-run
 ### Step 3: 自動修正の適用
 
 ```bash
-node scripts/fix-legal-citations.mjs --apply
+node .claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs --apply
 ```
 
 バックアップは `/tmp/fix-legal-citations-backup/` に自動保存される（macOS パス）。
@@ -102,7 +102,7 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 
 ### Step 6: `LAW_ID_MAP` の拡充
 
-新しい法律を扱うときは `scripts/fix-legal-citations.mjs` の `LAW_ID_MAP` に `'{法令名}': '{法令番号}'` を追加する。法令番号は e-Gov で該当法令を開き URL の `law/{番号}` 部分から取得。
+新しい法律を扱うときは `.claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs` の `LAW_ID_MAP` に `'{法令名}': '{法令番号}'` を追加する。法令番号は e-Gov で該当法令を開き URL の `law/{番号}` 部分から取得。
 
 ## 担当外
 
@@ -116,7 +116,7 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 | 連携先 | 役割 |
 |---|---|
 | **`scripts/lint-mdx-mobile.mjs`** ルール 8-2 | 機械検出ロジック本体 |
-| **`scripts/fix-legal-citations.mjs`** | 自動修正ロジック本体、`LAW_ID_MAP` の真実源 |
+| **`.claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs`** | 自動修正ロジック本体、`LAW_ID_MAP` の真実源 |
 | **`.claude/skills/content/keyword-page/SKILL.md`** L121-127 | 「法令条文には e-Gov リンク」の原則を明記 |
 | **`.claude/skills/content/review-mobile/SKILL.md`** | モバイル視認性の一環として 8-2 も検出 |
 
@@ -135,7 +135,7 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 
 ## 参照
 
-- `scripts/fix-legal-citations.mjs` ── 自動修正実装（`LAW_ID_MAP` と枝番スキップロジックの真実源）
+- `.claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs` ── 自動修正実装（`LAW_ID_MAP` と枝番スキップロジックの真実源）
 - `scripts/lint-mdx-mobile.mjs` L255-281 ── ルール 8-2 実装
 - `scripts/lib/mdx-io.mjs` ── CRLF 保持 I/O
 - [note: e-Gov URL 形式の法曹実務解説](https://note.com/lovely_moose206/n/n99fea17e4db8) ── `#Mp-At_{条番号}` の根拠

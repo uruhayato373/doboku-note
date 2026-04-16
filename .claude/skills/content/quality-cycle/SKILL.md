@@ -48,46 +48,46 @@ description: >
 
 ```bash
 # Step 1: 全ページを機械的にふるい
-node scripts/quality-cycle.mjs --mode screen
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode screen
 # → .claude/state/mechanical-screen.json (全 700 件)
 
 # Step 2: 上位 200 件を質的評価
-node scripts/quality-cycle.mjs --mode score --top 200
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 200
 # → .claude/state/quality-scores.json (200 件 × 5 軸)
 
 # Step 3: weighted < 2.5 のページをリライト（並列 3）
-node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5 --batch 3
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --threshold 2.5 --batch 3
 # → 50〜100 件の article.mdx に reviewStatus: needs-review
 
 # Step 4: リライト後を再評価
-node scripts/quality-cycle.mjs --mode verify
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode verify
 # → .claude/state/quality-cycle-state.json 更新
 
 # Step 5: 人間向けレビュー待ちリスト
-node scripts/quality-cycle.mjs --mode review
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode review
 # → .claude/state/review-queue.md
 
 # Step 6: ダッシュボード確認
-node scripts/quality-cycle.mjs --mode report
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode report
 ```
 
 ### 継続的サイクル
 
 ```bash
 # 月次 or 新規ページ追加後
-node scripts/quality-cycle.mjs --mode screen
-node scripts/quality-cycle.mjs --mode score --top 50  # 差分のみ
-node scripts/quality-cycle.mjs --mode rewrite --threshold 2.0
-node scripts/quality-cycle.mjs --mode verify
-node scripts/quality-cycle.mjs --mode review
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode screen
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 50  # 差分のみ
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --threshold 2.0
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode verify
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode review
 ```
 
 ### 単一スラッグの再評価・再リライト
 
 ```bash
-node scripts/quality-cycle.mjs --mode score --slug pdca-cycle
-node scripts/quality-cycle.mjs --mode rewrite --slug pdca-cycle
-node scripts/quality-cycle.mjs --mode verify --slug pdca-cycle
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --slug pdca-cycle
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --slug pdca-cycle
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode verify --slug pdca-cycle
 ```
 
 ## データファイル

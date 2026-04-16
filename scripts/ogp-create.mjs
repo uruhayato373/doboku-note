@@ -42,8 +42,8 @@ import templatesConfig from '../.claude/config/ogp/templates.json' with { type: 
 import rulesConfig from '../.claude/config/ogp/rules.json' with { type: 'json' };
 import textConfig from '../.claude/config/ogp/text.json' with { type: 'json' };
 
-import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
-import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
+import { renderTemplate, LAYOUT_CONSTANTS } from '#lib/ogp-templates.mjs';
+import { wrapTitle, pickFontSize } from '#lib/ogp-text.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = path.resolve(__dirname, '..');

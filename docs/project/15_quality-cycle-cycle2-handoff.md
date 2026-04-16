@@ -50,7 +50,7 @@ Quality Cycle 第1サイクル（5 件リライト + デプロイ）が完了し
 
 ### 3.2 Cycle 2 の現在地
 
-- **scripts/quality-cycle.mjs に新フラグ追加**（commit `c2cc91c8`）
+- **.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs に新フラグ追加**（commit `c2cc91c8`）
   - `--max <N>`: rewrite モードの 1 セッション処理上限
   - `--min-weighted <X.X>`: rewrite モードのスコア下限
   - `--flagship-only`: rewrite を flagship 100 内に限定
@@ -96,7 +96,7 @@ Quality Cycle 第1サイクル（5 件リライト + デプロイ）が完了し
 
 ```bash
 # 1. 状態確認
-node scripts/quality-cycle.mjs --mode report
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode report
 
 # 期待出力:
 #   Total keyword pages : 644
@@ -104,7 +104,7 @@ node scripts/quality-cycle.mjs --mode report
 #   Score distribution  : 上記サンプル分
 
 # 2. 残スラッグの一覧
-node scripts/quality-cycle.mjs --mode score --top 1000 --dry-run | head -20
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 1000 --dry-run | head -20
 # 評価対象の先頭 N 件が出る（既評価はスキップされる）
 ```
 
@@ -196,7 +196,7 @@ console.log('saved:', results.length, 'total:', Object.keys(data.pages).length);
 ### 6.1 リライト対象抽出
 
 ```bash
-node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5 --max 50 --dry-run
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --threshold 2.5 --max 50 --dry-run
 # 弱い順 50 件が表示される
 ```
 
@@ -234,7 +234,7 @@ cem-qa スコアリングのコスト問題に対する代替案だったが、�
 cem-qa スコアリングをスキップし、mechanical signals で直接リライト候補を抽出する。
 
 ```javascript
-// scripts/quality-cycle.mjs の screen mode を改良
+// .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs の screen mode を改良
 // MEDIUM の内訳をカテゴリ別に保存
 //   { '1-4': N, '6-1': N, '8-1': N, '9-4': N, ... }
 
@@ -270,7 +270,7 @@ function isRewriteCandidate(p) {
 
 | パス | 役割 |
 |---|---|
-| `scripts/quality-cycle.mjs` | オーケストレータ（screen / score / rewrite / verify / review / report / flagship） |
+| `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` | オーケストレータ（screen / score / rewrite / verify / review / report / flagship） |
 | `scripts/lib/quality-state.mjs` | .claude/state/*.json の I/O |
 | `scripts/lib/cem-qa-prompt.mjs` | subagent プロンプトテンプレート |
 | `scripts/lib/mdx-io.mjs` | 改行コード保持 I/O |
@@ -409,13 +409,13 @@ export function buildCemQaPrompt(slug) {
 
 1. **状況確認**:
    ```bash
-   node scripts/quality-cycle.mjs --mode report
+   node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode report
    # 期待: Tier 2 scored: 30（または前回までの累計）
    ```
 
 2. **次の対象を取得**:
    ```bash
-   node scripts/quality-cycle.mjs --mode score --top 1000 --dry-run | head -60
+   node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 1000 --dry-run | head -60
    # 表示された slug の上から 30〜50 件を採点対象とする
    ```
 
@@ -643,7 +643,7 @@ T3 で 644 件採点が完了したら、Phase G-2 へ進む。詳細はセク�
 
 **1 波の流れ（再掲）**:
 
-1. `node scripts/quality-cycle.mjs --mode rewrite --threshold X.Y --max 50 --dry-run` で対象確認
+1. `node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --threshold X.Y --max 50 --dry-run` で対象確認
 2. dry-run なしで実行し、subagent タスク列を取得
 3. keyword-rewriter subagent をバッチ並列 3-5 で起動
 4. リライト後の lint チェック
@@ -697,10 +697,10 @@ cat docs/project/15_quality-cycle-cycle2-handoff.md
 #    -> scripts/lib/cem-qa-prompt.mjs を編集
 
 # 4. 状況確認
-node scripts/quality-cycle.mjs --mode report
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode report
 
 # 5. T3（Phase F-2 採点）を再開
-node scripts/quality-cycle.mjs --mode score --top 1000 --dry-run | head -30
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 1000 --dry-run | head -30
 # → 表示されたスラッグから順に subagent を起動
 
 # 6. セッション終了時に commit + push

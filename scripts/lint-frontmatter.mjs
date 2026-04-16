@@ -26,7 +26,7 @@ import { execSync } from 'node:child_process';
 import { join, relative, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
-import { FrontmatterSchema } from './lib/frontmatter-schema.mjs';
+import { FrontmatterSchema } from '#lib/frontmatter-schema.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = dirname(dirname(__filename));

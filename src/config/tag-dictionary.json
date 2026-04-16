@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-04-15T06:07:50.459Z",
+  "generated_at": "2026-04-16T05:52:43.213Z",
   "summary": {
     "total_mdx_files": 746,
-    "total_unique_tags": 37,
+    "total_unique_tags": 39,
     "allowlist_size": 56,
     "known_count": 24,
-    "unknown_count": 13,
-    "typo_candidates_count": 0
+    "unknown_count": 15,
+    "typo_candidates_count": 1
   },
   "tags": [
     {
@@ -1364,6 +1364,14 @@
       ]
     },
     {
+      "name": "2026年版",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-keyword-2026"
+      ]
+    },
+    {
       "name": "5管理",
       "count": 1,
       "inAllowlist": false,
@@ -1393,6 +1401,14 @@
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-surveying"
+      ]
+    },
+    {
+      "name": "キーワード集",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-keyword-2026"
       ]
     },
     {
@@ -1495,7 +1511,9 @@
   "unknown": [
     "技士（総合技術監理部門）",
     "exam-questions",
+    "2026年版",
     "5管理",
+    "キーワード集",
     "トレードオフ",
     "記述式対策",
     "出願",
@@ -1507,5 +1525,11 @@
     "令和6年度",
     "令和7年度"
   ],
-  "typo_candidates": []
+  "typo_candidates": [
+    {
+      "tag": "キーワード集",
+      "suggestion": "キーワード",
+      "distance": 1
+    }
+  ]
 }

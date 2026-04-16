@@ -49,14 +49,14 @@
 └──────────────────────────────────────────────────────┘
        │
        ├─► [Tier 1] 機械的事前ふるい
-       │     scripts/quality-cycle.mjs (mode: screen)
+       │     .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs (mode: screen)
        │     - lint-mdx-mobile.mjs を全ページに実行
        │     - 文字数・lint違反を集計
        │     - 候補スコアを算出
        │     → .claude/state/mechanical-screen.json
        │
        ├─► [Tier 2] 質的詳細評価
-       │     scripts/quality-cycle.mjs (mode: score)
+       │     .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs (mode: score)
        │     - 候補上位 N 件 (デフォルト200) を選抜
        │     - 各ページに対し Task subagent で cem-qa 呼び出し
        │     - バッチ並列実行
@@ -64,18 +64,18 @@
        │
        ├─► [Generator] keyword-rewriter エージェント (新規)
        │     .claude/agents/keyword-rewriter.md
-       │     scripts/quality-cycle.mjs (mode: rewrite)
+       │     .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs (mode: rewrite)
        │     - 入力: slug + 弱点軸 + 拡張パターン候補
        │     - 出力: 改訂版 article.mdx
        │     - frontmatter に reviewStatus: needs-review 付与
        │
        ├─► [Evaluator 再実行] cem-qa
-       │     scripts/quality-cycle.mjs (mode: verify)
+       │     .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs (mode: verify)
        │     - リライト後を再評価
        │     - 改善確認 → state 更新
        │
        └─► [Output]
-             scripts/quality-cycle.mjs (mode: review)
+             .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs (mode: review)
              → .claude/state/review-queue.md (人間レビュー待ちリスト)
 ```
 
@@ -118,7 +118,7 @@
 |---|---|
 | 場所 | `.claude/skills/content/quality-cycle/SKILL.md` |
 | タイプ | オーケストレータスキル |
-| 内部実装 | `scripts/quality-cycle.mjs` を呼び出す |
+| 内部実装 | `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` を呼び出す |
 
 **サブモード一覧**:
 
@@ -133,7 +133,7 @@
 
 ### B. Tier 1: Mechanical Screen
 
-**実装**: `scripts/quality-cycle.mjs` の `runScreen()` 関数
+**実装**: `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` の `runScreen()` 関数
 
 **動作**:
 1. `lint-mdx-mobile.mjs` を全ページに実行
@@ -177,7 +177,7 @@ candidate_score = log10(body_chars / 100) * 2.0
 
 ### C. Tier 2: Quality Score
 
-**実装**: `scripts/quality-cycle.mjs` の `runScore()` 関数
+**実装**: `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` の `runScore()` 関数
 
 **動作**:
 1. `mechanical-screen.json` から候補上位 N 件（デフォルト 200）を選抜
@@ -325,23 +325,23 @@ unscored → scored → rewriting → needs-review → verified → approved
 
 ```bash
 # Step 1: 全ページに機械的事前ふるい
-node scripts/quality-cycle.mjs --mode screen
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode screen
 # → .claude/state/mechanical-screen.json (全 700 件)
 
 # Step 2: 上位 200 件を質的評価
-node scripts/quality-cycle.mjs --mode score --top 200
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 200
 # → .claude/state/quality-scores.json (200 件)
 
 # Step 3: weighted < 2.5 のページをリライト
-node scripts/quality-cycle.mjs --mode rewrite --threshold 2.5
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --threshold 2.5
 # → 50〜100 件の article.mdx に reviewStatus: needs-review
 
 # Step 4: リライト後を再評価
-node scripts/quality-cycle.mjs --mode verify
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode verify
 # → state 更新
 
 # Step 5: 人間向けレビュー待ちリスト出力
-node scripts/quality-cycle.mjs --mode review
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode review
 # → .claude/state/review-queue.md
 ```
 
@@ -350,11 +350,11 @@ node scripts/quality-cycle.mjs --mode review
 サイクル完了後は、新規キーワードページが追加されるたび or 月次で：
 
 ```bash
-node scripts/quality-cycle.mjs --mode screen
-node scripts/quality-cycle.mjs --mode score --top 50  # 差分のみ
-node scripts/quality-cycle.mjs --mode rewrite --threshold 2.0
-node scripts/quality-cycle.mjs --mode verify
-node scripts/quality-cycle.mjs --mode review
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode screen
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode score --top 50  # 差分のみ
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode rewrite --threshold 2.0
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode verify
+node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode review
 ```
 
 ---
@@ -394,7 +394,7 @@ node scripts/quality-cycle.mjs --mode review
 | `pre-commit-mdx.mjs` | 影響なし（コミット時の構文・改行チェック） |
 
 新規追加するのは：
-- `scripts/quality-cycle.mjs`（オーケストレータ）
+- `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs`（オーケストレータ）
 - `scripts/lib/quality-state.mjs`（state I/O ヘルパー）
 - `scripts/lib/cem-qa-prompt.mjs`（subagent プロンプトテンプレート）
 - `.claude/agents/keyword-rewriter.md`
