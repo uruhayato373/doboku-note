@@ -102,7 +102,7 @@ description: "{titleの内容}。1級土木施工管理技士の試験対応。"
 
 1. 対応する画像ファイルが `content/{category}/img/` に存在するか確認
 2. **存在する場合**:
-   - `node scripts/upload-images-to-r2.mjs --prefix {category}` を実行
+   - `node .claude/scripts/upload-images-to-r2.mjs --prefix {category}` を実行
    - アップロード完了を確認
    - ローカル開発環境は自動で `.local/r2/` に反映される（`npm run sync-images` 経由）
 3. **存在しない場合**:

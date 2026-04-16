@@ -62,7 +62,7 @@ https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}
 ### Step 1: 検査モード
 
 ```bash
-node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-2"
+node .claude/scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-2"
 ```
 
 残 LOW 8-2 の件数が現状。2026-04-13 時点では 179 件 → 自動修正で 53 件 → 枝番誤リンク剥離で 39 件まで削減済み。
@@ -86,7 +86,7 @@ node .claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mj
 ### Step 4: 適用後の再検査
 
 ```bash
-node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-2" | wc -l
+node .claude/scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-2" | wc -l
 ```
 
 ### Step 5: 残件の手動対応
@@ -115,7 +115,7 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 
 | 連携先 | 役割 |
 |---|---|
-| **`scripts/lint-mdx-mobile.mjs`** ルール 8-2 | 機械検出ロジック本体 |
+| **`.claude/scripts/lint-mdx-mobile.mjs`** ルール 8-2 | 機械検出ロジック本体 |
 | **`.claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs`** | 自動修正ロジック本体、`LAW_ID_MAP` の真実源 |
 | **`.claude/skills/content/keyword-page/SKILL.md`** L121-127 | 「法令条文には e-Gov リンク」の原則を明記 |
 | **`.claude/skills/content/review-mobile/SKILL.md`** | モバイル視認性の一環として 8-2 も検出 |
@@ -136,8 +136,8 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 ## 参照
 
 - `.claude/skills/content/check-legal-citations/scripts/fix-legal-citations.mjs` ── 自動修正実装（`LAW_ID_MAP` と枝番スキップロジックの真実源）
-- `scripts/lint-mdx-mobile.mjs` L255-281 ── ルール 8-2 実装
-- `scripts/lib/mdx-io.mjs` ── CRLF 保持 I/O
+- `.claude/scripts/lint-mdx-mobile.mjs` L255-281 ── ルール 8-2 実装
+- `.claude/scripts/lib/mdx-io.mjs` ── CRLF 保持 I/O
 - [note: e-Gov URL 形式の法曹実務解説](https://note.com/lovely_moose206/n/n99fea17e4db8) ── `#Mp-At_{条番号}` の根拠
 
 ## 履歴（2026-04-13 時点の一斉移行）

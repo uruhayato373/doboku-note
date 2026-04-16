@@ -3,18 +3,16 @@
  * curl を使用してプロキシ環境に対応。
  *
  * Usage:
- *   node scripts/download-images-from-r2.mjs              # 全 MDX をスキャン・ダウンロード
- *   node scripts/download-images-from-r2.mjs --dry-run    # プレビューのみ
- *   node scripts/download-images-from-r2.mjs --prefix general/construction-management
- *   node scripts/download-images-from-r2.mjs --prefix general/construction-management --dry-run
+ *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs              # 全 MDX をスキャン・ダウンロード
+ *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --dry-run    # プレビューのみ
+ *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --prefix general/construction-management
+ *   node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs --prefix general/construction-management --dry-run
  */
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { execSync } from 'child_process';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(__dirname, '..');
+const root = process.cwd();
 
 // Parse command line args
 const args = process.argv.slice(2);

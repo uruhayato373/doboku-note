@@ -45,7 +45,7 @@ MDX ファイルから参照画像を自動スキャンしてダウンロード�
 
 ### Phase 3: ダウンロード
 
-1. `node scripts/download-images-from-r2.mjs` を実行（--dry-run の場合は --dry-run を渡す）
+1. `node .claude/skills/dev/sync-r2-images/scripts/download-images-from-r2.mjs` を実行（--dry-run の場合は --dry-run を渡す）
 2. 各画像を `https://storage.doboku-note.com/content/{path}` からダウンロード
 3. `content/{category}/img/` に配置
 

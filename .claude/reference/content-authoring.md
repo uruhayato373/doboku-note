@@ -61,7 +61,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - **4列以上の表は原則禁止** — 比較として不可欠な場合のみ、各セル15文字以内
 - **表が適切な場面**: BCP vs 防災計画のような2軸比較、短いセルの分類一覧、マトリクス（SWOT 等）
 
-機械チェックは `scripts/lint-mdx-mobile.mjs` と `/review-mobile` スキルで実施。
+機械チェックは `.claude/scripts/lint-mdx-mobile.mjs` と `/review-mobile` スキルで実施。
 
 ## 画像配信
 
@@ -72,7 +72,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - **ローカル開発**: `public/posts` → `.local/r2/posts` のシンボリックリンク経由で配信
 - **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
 - **マスター**: `.local/r2/posts/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数 PC 間で git pull により同期される
-- **R2 へのアップロード（本番反映）**: `node scripts/upload-images-to-r2.mjs`
+- **R2 へのアップロード（本番反映）**: `node .claude/scripts/upload-images-to-r2.mjs`
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - `static/img/` はサイト共通素材（favicon, logo 等）専用
 
@@ -130,4 +130,4 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 - **URL**: フラット `/docs/{slug}` 設計
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない
 - **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない（Callout の type で表現する）
-- **MDX 書き込み**: `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持
+- **MDX 書き込み**: `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持

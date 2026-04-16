@@ -80,7 +80,7 @@ PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-t
 | `node .claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs <mdx>` | 決定論的な前処理（frontmatter, img, 網羅率を JSON 出力）| 評価開始時 |
 | `mcp__playwright__browser_navigate` | dev server のページに遷移 | Step 5 |
 | `mcp__playwright__browser_take_screenshot` | Desktop / Mobile スクショ取得 | Step 5 |
-| `node scripts/lint-mdx-mobile.mjs <mdx>` | モバイル視認性の機械チェック | guide モードのみ |
+| `node .claude/scripts/lint-mdx-mobile.mjs <mdx>` | モバイル視認性の機械チェック | guide モードのみ |
 | `/check-mdx <mdx>` | MDX 構文チェック | 評価開始時 |
 
 ## 共通ワークフロー（textbook モード基準）
@@ -249,7 +249,7 @@ dev server: http://localhost:3020 ✓
 - **過去問ページの評価** ── `content-qa` の担当
 - **PDF→MDX 変換そのもの** ── `civil-construction-1-pdf-to-mdx`（Generator）の担当
 - **SVG 復元の実行** ── Phase 2 の別スキル `/reconstruct-figure`（未実装）
-- **R2 へのアップロード** ── `scripts/upload-images-to-r2.mjs`
+- **R2 へのアップロード** ── `.claude/scripts/upload-images-to-r2.mjs`
 
 ## 連携パターン
 

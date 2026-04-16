@@ -176,7 +176,7 @@ npm run build-backlinks
 
 ```bash
 # MDX コンパイル
-node scripts/validate-mdx.mjs .local/r2/posts/pe-comprehensive-management/A/article.mdx
+node .claude/scripts/validate-mdx.mjs .local/r2/posts/pe-comprehensive-management/A/article.mdx
 
 # 文字化け
 grep -r "��" .local/r2/posts/pe-comprehensive-management/A/

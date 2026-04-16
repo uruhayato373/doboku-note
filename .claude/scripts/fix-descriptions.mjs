@@ -7,7 +7,7 @@
 // 適したテンプレートで生成する。元の description は破棄せず、不足分のみ
 // 追加するフォールバック方式。
 //
-// 改行コードは scripts/lib/mdx-io.mjs 経由で保持する。
+// 改行コードは .claude/scripts/lib/mdx-io.mjs 経由で保持する。
 //
 // 使い方:
 //   node scripts/fix-descriptions.mjs            # 全件 dry-run

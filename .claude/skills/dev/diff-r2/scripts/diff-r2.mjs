@@ -2,22 +2,20 @@
  * Diff local `.local/r2/posts/` against R2 bucket `doboku-note` (prefix `posts/`).
  *
  * Usage:
- *   node scripts/diff-r2.mjs                        # 全件を比較
- *   node scripts/diff-r2.mjs --prefix civil-...     # 特定プレフィックスのみ
- *   node scripts/diff-r2.mjs --images-only          # 画像のみ
- *   node scripts/diff-r2.mjs --mdx-only             # MDX のみ
- *   node scripts/diff-r2.mjs --verbose              # 全差分をリスト出力（デフォルトは上位20件）
- *   node scripts/diff-r2.mjs --json                 # JSON 出力
+ *   node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs                        # 全件を比較
+ *   node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --prefix civil-...     # 特定プレフィックスのみ
+ *   node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --images-only          # 画像のみ
+ *   node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --mdx-only             # MDX のみ
+ *   node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --verbose              # 全差分をリスト出力（デフォルトは上位20件）
+ *   node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --json                 # JSON 出力
  *
  * Exit code: 0 if in sync, 1 if any diff found.
  */
 import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const root = path.resolve(__dirname, '..');
+const root = process.cwd();
 
 // Load .env.local
 const envPath = path.join(root, '.env.local');

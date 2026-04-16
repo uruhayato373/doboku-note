@@ -1,4 +1,4 @@
-// scripts/lib/cem-qa-prompt.mjs
+// .claude/skills/content/quality-cycle/scripts/lib/cem-qa-prompt.mjs
 //
 // Quality Cycle の subagent 呼び出し用プロンプトテンプレート。
 //
@@ -22,7 +22,7 @@ export function buildCemQaPrompt(slug) {
 実行手順:
   1. .claude/agents/cem-qa.md を Read で読む
   2. 評価対象ファイルを Read で読む
-  3. node scripts/lint-mdx-mobile.mjs <評価対象ファイル> を Bash で実行
+  3. node .claude/scripts/lint-mdx-mobile.mjs <評価対象ファイル> を Bash で実行
   4. 5 軸ルーブリック（構造30% / モバイル25% / 原則20% / 参考資料15% / 関連付け10%）で
      各軸を 0〜3 点で採点
   5. weak_axes（score ≤ 1 の軸）を特定
@@ -103,10 +103,10 @@ ${gInstructions}
      - reviewStatus: needs-review
      - lastRewrittenAt: ${new Date().toISOString().split('T')[0]}
      - revisionCycle: 1（既存値があれば +1）
-  7. 改行コードは元ファイルを保持（scripts/lib/mdx-io.mjs を必ず使う）
+  7. 改行コードは元ファイルを保持（.claude/scripts/lib/mdx-io.mjs を必ず使う）
   8. Edit ツールで書き戻し
   9. 文字化け（U+FFFD）が混入していないか Grep で確認
-  10. 再度 node scripts/lint-mdx-mobile.mjs を実行し、G 適用時は mobile 関連 MEDIUM が減っていることを確認
+  10. 再度 node .claude/scripts/lint-mdx-mobile.mjs を実行し、G 適用時は mobile 関連 MEDIUM が減っていることを確認
 
 絶対にしてはいけないこと:
   - 既存本文を一から書き直す

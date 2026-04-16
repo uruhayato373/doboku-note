@@ -29,9 +29,9 @@ MDX ページの OGP 画像（1200×630 PNG）を、カテゴリ・タグに応�
 | ID | 用途 | 背景画像 |
 |---|---|---|
 | `navy-white` | 汎用・既定（迷ったらこれ） | 不要 |
-| `dark-wood` | 信頼性系（guide/textbook） | `scripts/fonts/ogp-backgrounds/dark-wood.png`（任意） |
+| `dark-wood` | 信頼性系（guide/textbook） | `.claude/skills/content/ogp-create/assets/fonts/ogp-backgrounds/dark-wood.png`（任意） |
 | `red-line` | 体系・構造系（過去問解説等） | 不要 |
-| `blackboard` | 教育・解説系 | `scripts/fonts/ogp-backgrounds/blackboard.png`（任意） |
+| `blackboard` | 教育・解説系 | `.claude/skills/content/ogp-create/assets/fonts/ogp-backgrounds/blackboard.png`（任意） |
 | `dark-grid` | 分析・データ系（過去問・統計） | 不要 |
 
 背景画像が未配置の場合はダーク単色にフォールバックするため、5 テンプレ全て即使用可能。
@@ -45,7 +45,7 @@ OGP 画像は `1200×630`（1.91:1）で配信するが、一部プラットフ�
 **目視検証**:
 
 ```bash
-node scripts/ogp-create.mjs <slug> --debug-safety --force
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <slug> --debug-safety --force
 ```
 
 生成 PNG に中央 630×630 の赤枠が重なった状態で出力される。タイトル・サイト名・カテゴリラベルが赤枠の内側に収まっていることを確認する。本番では `--debug-safety` を外して再生成する。
@@ -65,7 +65,7 @@ node scripts/ogp-create.mjs <slug> --debug-safety --force
 `--debug-wrap` で各ページの実際の改行結果を確認できる:
 
 ```bash
-node scripts/ogp-create.mjs pe-comprehensive-management-mbo --debug-wrap
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs pe-comprehensive-management-mbo --debug-wrap
 # → lines: ["目標管理制度", "（MBO）"] / fontSize 80 / template navy-white
 ```
 
@@ -85,7 +85,7 @@ node scripts/ogp-create.mjs pe-comprehensive-management-mbo --debug-wrap
 ### ケース1: 単一ページの OGP 生成
 
 ```bash
-node scripts/ogp-create.mjs pe-comprehensive-management-mbo
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs pe-comprehensive-management-mbo
 ```
 
 既存 `ogp.png` があればスキップ。強制上書きは `--force`。
@@ -93,14 +93,14 @@ node scripts/ogp-create.mjs pe-comprehensive-management-mbo
 ### ケース2: 全ページ生成
 
 ```bash
-node scripts/ogp-create.mjs --all          # 未生成分のみ
-node scripts/ogp-create.mjs --all --force  # 全て再生成
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all          # 未生成分のみ
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --force  # 全て再生成
 ```
 
 ### ケース3: マッピング確認（ファイル生成なし）
 
 ```bash
-node scripts/ogp-create.mjs --all --dry-run
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --dry-run
 ```
 
 各ページがどのテンプレに割り当てられるかを標準出力に一覧表示する。ルール変更後の動作確認に使う。
@@ -108,17 +108,17 @@ node scripts/ogp-create.mjs --all --dry-run
 ### ケース4: 特定テンプレで強制生成
 
 ```bash
-node scripts/ogp-create.mjs pe-comprehensive-management-mbo --template dark-wood --force
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs pe-comprehensive-management-mbo --template dark-wood --force
 ```
 
 ### ケース5: タイトル改行のチューニング
 
 ```bash
 # 1 枚で改行結果を確認
-node scripts/ogp-create.mjs pe-comprehensive-management-management-tradeoffs --debug-wrap
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs pe-comprehensive-management-management-tradeoffs --debug-wrap
 
 # 全ページの改行結果を概観
-node scripts/ogp-create.mjs --all --debug-wrap | less
+node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --debug-wrap | less
 ```
 
 気に入らないページは `frontmatter.ogp.title` で上書きする（下記参照）。
@@ -173,7 +173,7 @@ ogp:
 
 ## テンプレート追加手順
 
-1. `scripts/lib/ogp-templates.mjs` の `renderers` に新しい render 関数を追加
+1. `.claude/skills/content/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に新しい render 関数を追加
 2. `.claude/config/ogp/templates.json` にテンプレ定義を追加（ID・説明・背景画像の要否）
 3. `.claude/reference/ogp-prompts.md` に出典プロンプトと用途を記録
 4. 必要なら `.claude/config/ogp/rules.json` にルールを追加
@@ -188,7 +188,7 @@ ogp:
 
 ## 事前条件
 
-- `scripts/fonts/NotoSansJP-Bold.ttf` と `scripts/fonts/Inter-Bold.ttf` が配置済みであること
+- `.claude/skills/content/ogp-create/assets/fonts/NotoSansJP-Bold.ttf` と `.claude/skills/content/ogp-create/assets/fonts/Inter-Bold.ttf` が配置済みであること
 - `satori` と `sharp` が依存関係に含まれていること（既存済み）
 
 ## トラブルシューティング
@@ -198,7 +198,7 @@ ogp:
 | `未知のカテゴリ` エラー | `src/config/categories.json` にカテゴリを追加、または frontmatter の `category` を修正 |
 | タイトルがセーフティゾーンからはみ出す | `--debug-safety` で確認。`text.json` の `fontSizeTable` を小さめに調整 |
 | 長タイトルで単語が途中で破断 | `frontmatter.ogp.title` で `\n` を使い明示改行、または BudouX を有効化（`text.json` + `npm i budoux`） |
-| 背景画像が反映されない | `scripts/fonts/ogp-backgrounds/{id}.png` が存在するか確認、`--force` で強制上書き |
+| 背景画像が反映されない | `.claude/skills/content/ogp-create/assets/fonts/ogp-backgrounds/{id}.png` が存在するか確認、`--force` で強制上書き |
 | ルールが効かない | `--dry-run` で実際の解決結果を確認。ルールは上から評価・最初に match したものが採用 |
 
 ## 参照
@@ -207,6 +207,6 @@ ogp:
 - テンプレ定義: `.claude/config/ogp/templates.json`
 - ルール: `.claude/config/ogp/rules.json`
 - 改行・フォント設定: `.claude/config/ogp/text.json`
-- レンダラ: `scripts/lib/ogp-templates.mjs`
-- 改行・フォント計算: `scripts/lib/ogp-text.mjs`
-- エントリポイント: `scripts/ogp-create.mjs`
+- レンダラ: `.claude/skills/content/ogp-create/scripts/lib/ogp-templates.mjs`
+- 改行・フォント計算: `.claude/skills/content/ogp-create/scripts/lib/ogp-text.mjs`
+- エントリポイント: `.claude/skills/content/ogp-create/scripts/ogp-create.mjs`

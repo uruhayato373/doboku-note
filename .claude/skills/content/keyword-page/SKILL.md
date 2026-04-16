@@ -165,7 +165,7 @@ publishedAt: "{YYYY-MM-DD}"
 1. **文字化け検出**: Grep で `U+FFFD`（`��`）を検索し、文字化けがないことを確認
 2. **リンク確認**: 過去問リンクのアンカー形式が正しいか確認（`#ⅰ-1-1` 等、小文字ローマ数字）
 3. **section 整合性**: frontmatter の `section` と「総合技術監理における位置づけ」の記述が一致しているか
-4. **lint-mdx-mobile 実行**: `node scripts/lint-mdx-mobile.mjs <file>` を実行
+4. **lint-mdx-mobile 実行**: `node .claude/scripts/lint-mdx-mobile.mjs <file>` を実行
    - カテゴリ1（表）・6（導入文）・8（リンク）・**9（コンポーネント原則）** をチェック
    - HIGH/MEDIUM 違反があれば修正 → 再実行 → **ゼロまでループ**
    - 9-1（ExamPoint 3個以上）・9-3（誤り選択肢パターン）・9-6（過去問判定記号）は HIGH なのでブロッカー
@@ -191,7 +191,7 @@ publishedAt: "{YYYY-MM-DD}"
 | 過去問リンク | Step 2 で特定した過去問は `<RelatedKeywords>` 側で紐付け（自動バックリンクカードに委ねる）。**本文に `## 過去問での出題` を手書きしない** |
 | 導入文 | 表・箇条書き・コンポーネントの前に1〜2文の文脈説明があるか |
 | 関連リンク配置 | 本文中にインラインで埋め込む。末尾に `関連キーワード: ...` の列挙行を作らない |
-| モバイル視認性 | `/review-mobile` で HIGH/MEDIUM 違反ゼロ（`scripts/lint-mdx-mobile.mjs` が裏で走る） |
+| モバイル視認性 | `/review-mobile` で HIGH/MEDIUM 違反ゼロ（`.claude/scripts/lint-mdx-mobile.mjs` が裏で走る） |
 
 ## 参照
 

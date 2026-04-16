@@ -26,7 +26,7 @@ model: sonnet
 
 | スキル | 役割 | タイミング |
 |---|---|---|
-| `node scripts/lint-mdx-mobile.mjs` | カテゴリ1（表）・6（導入文）・8（リンク）・**9（コンポーネント原則）** の機械チェック | 評価時 |
+| `node .claude/scripts/lint-mdx-mobile.mjs` | カテゴリ1（表）・6（導入文）・8（リンク）・**9（コンポーネント原則）** の機械チェック | 評価時 |
 | `/review-mobile` | 上記リンターのスキルラッパー | 評価時 |
 | `/check-mdx` | MDX 構文チェック（ビルドエラー予防） | 評価時 |
 | `/check-links` | 参考資料リンクの存在確認（HTTP HEAD） | 評価時 |
@@ -75,7 +75,7 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 ```
 入力: slug（例: estimation-testing）または mdx パス
 
-1. node scripts/lint-mdx-mobile.mjs <file>
+1. node .claude/scripts/lint-mdx-mobile.mjs <file>
    → モバイル軸（カテゴリ1・6・8）と コンテンツ原則軸（カテゴリ9-1〜9-6）のスコア根拠を取得
    → 9-1/9-3/9-5/9-6 が出たら原則軸を1点以下に強制
 
@@ -142,7 +142,7 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 
 ```
 [人間] → cem-qa（ディレクトリ単位で評価）
-         ├─ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/
+         ├─ node .claude/scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/
          └─ 優先順位付きの不合格リスト返却 → 個別に修正
 ```
 
@@ -157,5 +157,5 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 - `.claude/skills/content/keyword-page/SKILL.md` — Generator 側のルール（テンプレート、文体、モバイル視認性）
 - `.claude/skills/content/review-mobile/SKILL.md` — モバイル視認性の詳細ルール
 - `.claude/content-principles.md` — ペルソナ定義・コンテンツ原則
-- `scripts/lint-mdx-mobile.mjs` — 機械チェッカー
+- `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー
 - `src/config/pe-chapters.json` — キーワード集の章・節構造

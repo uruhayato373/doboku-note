@@ -7,13 +7,13 @@ description: >
 user-invocable: true
 ---
 
-`scripts/lint-frontmatter.mjs` を呼び出すオーケストレータスキル。MDX の frontmatter を構造面（zod）と内容面（独自ルール）の両方で検証する。
+`.claude/scripts/lint-frontmatter.mjs` を呼び出すオーケストレータスキル。MDX の frontmatter を構造面（zod）と内容面（独自ルール）の両方で検証する。
 
 ## なぜこのスキルがあるのか
 
 `pre-commit-mdx.mjs` の zod 検証は **構造的な欠陥**（必須フィールド欠落、enum 値不正）しか捕まえない。description 長さ不足・publishedAt 欠落・未来日 publishedAt・allowlist 外タグのような **内容面の品質** は別のレイヤーが必要で、このスキルがそこを担う。
 
-設計上は `/check-frontmatter` は薄いラッパーで、実ロジックは `scripts/lint-frontmatter.mjs` にある。スキルは CLI の呼び出し方をユーザーに隠蔽するだけ。
+設計上は `/check-frontmatter` は薄いラッパーで、実ロジックは `.claude/scripts/lint-frontmatter.mjs` にある。スキルは CLI の呼び出し方をユーザーに隠蔽するだけ。
 
 ## 引数
 
@@ -53,7 +53,7 @@ user-invocable: true
 ### Step 2: スクリプト実行
 
 ```bash
-node scripts/lint-frontmatter.mjs <target>
+node .claude/scripts/lint-frontmatter.mjs <target>
 ```
 
 成功/失敗は exit code で判定:
@@ -69,7 +69,7 @@ node scripts/lint-frontmatter.mjs <target>
 
 HIGH → MEDIUM → LOW の順でユーザーに提示し、以下の修正方針を示す:
 
-- **`zod`**: 該当 enum の候補を `scripts/lib/frontmatter-schema.mjs` から抽出して示す
+- **`zod`**: 該当 enum の候補を `.claude/scripts/lib/frontmatter-schema.mjs` から抽出して示す
 - **`desc-short`**: 本文から要約材料を拾い、50-160 文字の description 案を提案
 - **`publishedAt-missing`**: 近接の作成日 (`date`) や git log から推定日を提案
 - **`tags-unknown`**: 類似する allowlist タグを Levenshtein 距離で示す（`src/config/tag-dictionary.json` の `typo_candidates` を参照）
@@ -102,7 +102,7 @@ HIGH → MEDIUM → LOW の順でユーザーに提示し、以下の修正方�
 | **`/review`** | `dev/review/SKILL.md` のディスパッチ表で MDX 編集検出時に呼び出す |
 | **`/check-mdx`** | MDX 構文検証（内容の検証）、`/check-frontmatter` は frontmatter 専任 |
 | **`scripts/pre-commit-mdx.mjs`** | HIGH 違反を commit 時にブロック（内部的に同じ検証ロジックを使用） |
-| **`scripts/lib/frontmatter-schema.mjs`** | zod スキーマ実体 |
+| **`.claude/scripts/lib/frontmatter-schema.mjs`** | zod スキーマ実体 |
 | **`scripts/build-tag-index.mjs`** | `tag-dictionary.json` を生成し、`tags-unknown` 検出の参考に |
 | **`src/config/tags.json`** | タグ allowlist（手動メンテ） |
 
@@ -116,7 +116,7 @@ HIGH → MEDIUM → LOW の順でユーザーに提示し、以下の修正方�
 ## 参照
 
 - `docs/project/17_data-storage-strategy.md` §5.4 ── pre-commit validation の方針
-- `scripts/lint-frontmatter.mjs` ── 本スキルの実体
-- `scripts/lib/frontmatter-schema.mjs` ── zod スキーマ
+- `.claude/scripts/lint-frontmatter.mjs` ── 本スキルの実体
+- `.claude/scripts/lib/frontmatter-schema.mjs` ── zod スキーマ
 - `src/config/tags.json` ── タグ allowlist
 - `src/config/tag-dictionary.json` ── 実使用タグ集計（`build-tag-index.mjs` 出力）

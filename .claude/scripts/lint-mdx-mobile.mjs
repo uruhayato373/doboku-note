@@ -536,7 +536,7 @@ function lintFile(filePath) {
         rule: '0-1',
         line: 1,
         endLine: 1,
-        message: '改行コードの混在（CRLF + LF）。scripts/lib/mdx-io.mjs を経由して書き込むこと',
+        message: '改行コードの混在（CRLF + LF）。.claude/scripts/lib/mdx-io.mjs を経由して書き込むこと',
       });
     }
   } else if (raw.includes('\r')) {
@@ -546,7 +546,7 @@ function lintFile(filePath) {
       rule: '0-1',
       line: 1,
       endLine: 1,
-      message: '改行コードに CR が混入。scripts/lib/mdx-io.mjs を経由して書き込むこと',
+      message: '改行コードに CR が混入。.claude/scripts/lib/mdx-io.mjs を経由して書き込むこと',
     });
   }
 

@@ -12,14 +12,14 @@
  *   （R2 公開 URL と 1:1 対応。src/lib/r2-image-loader.ts の getOgpImageUrl と整合）
  *
  * Usage:
- *   node scripts/ogp-create.mjs <fullSlug>                   # 単一生成（既存あればスキップ）
- *   node scripts/ogp-create.mjs <fullSlug> --force            # 単一・強制上書き
- *   node scripts/ogp-create.mjs <fullSlug> --template navy-white  # テンプレ強制
- *   node scripts/ogp-create.mjs --all                         # 全件生成
- *   node scripts/ogp-create.mjs --all --force                 # 全件強制上書き
- *   node scripts/ogp-create.mjs --all --dry-run               # マッピング結果のみ表示
- *   node scripts/ogp-create.mjs <slug> --debug-safety --force # 中央 630×630 の赤枠を重ねた PNG を出力
- *   node scripts/ogp-create.mjs --all --debug-wrap            # 改行戦略の適用結果を一覧表示
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug>                   # 単一生成（既存あればスキップ）
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug> --force            # 単一・強制上書き
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug> --template navy-white  # テンプレ強制
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all                         # 全件生成
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --force                 # 全件強制上書き
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --dry-run               # マッピング結果のみ表示
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <slug> --debug-safety --force # 中央 630×630 の赤枠を重ねた PNG を出力
+ *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --debug-wrap            # 改行戦略の適用結果を一覧表示
  *
  * frontmatter での個別制御:
  *   ---
@@ -37,18 +37,20 @@ import satori from 'satori';
 import sharp from 'sharp';
 import matter from 'gray-matter';
 
-import categories from '../src/config/categories.json' with { type: 'json' };
-import templatesConfig from '../.claude/config/ogp/templates.json' with { type: 'json' };
-import rulesConfig from '../.claude/config/ogp/rules.json' with { type: 'json' };
-import textConfig from '../.claude/config/ogp/text.json' with { type: 'json' };
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const categories = require(path.join(process.cwd(), 'src/config/categories.json'));
+const templatesConfig = require(path.join(process.cwd(), '.claude/config/ogp/templates.json'));
+const rulesConfig = require(path.join(process.cwd(), '.claude/config/ogp/rules.json'));
+const textConfig = require(path.join(process.cwd(), '.claude/config/ogp/text.json'));
 
-import { renderTemplate, LAYOUT_CONSTANTS } from '#lib/ogp-templates.mjs';
-import { wrapTitle, pickFontSize } from '#lib/ogp-text.mjs';
+import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
+import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const PROJECT_ROOT = path.resolve(__dirname, '..');
+const PROJECT_ROOT = process.cwd();
 const POSTS_DIR = path.join(PROJECT_ROOT, '.local', 'r2', 'posts');
-const FONTS_DIR = path.join(__dirname, 'fonts');
+const FONTS_DIR = path.join(__dirname, '..', 'assets', 'fonts');
 
 // ---- CLI 引数パース ----
 
@@ -244,7 +246,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
 
   if (!args.slug && !args.all) {
-    console.error('Usage: node scripts/ogp-create.mjs <fullSlug> | --all [--force] [--dry-run] [--template <id>] [--debug-safety] [--debug-wrap]');
+    console.error('Usage: node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug> | --all [--force] [--dry-run] [--template <id>] [--debug-safety] [--debug-wrap]');
     process.exit(1);
   }
 

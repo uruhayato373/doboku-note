@@ -71,7 +71,7 @@
 1. **施策7: 既存ハブページ `keyword-2026` の最適化**（最重要） — リンク漏れ補完・リード文強化・sticky目次。新規作成不要、既存資産の磨き込みのみ
    - ✅ **2026-04-16 一部完了**: リンク漏れ6件補完（内部リンク 643 → 653）、title/description SEO強化、frontmatter `updated` 追加、最終更新日可視化、「このページの使い方」tip追加、関連リソース5件追加（general-overview / exam-index / essay-exam-strategy / essay-question-trends-timeline / management-tradeoffs）
    - **残**: ⑤sticky 目次、③5管理進捗チェックボックス（UI コンポーネント実装が必要）
-   - 検証ツール: `scripts/find-unlinked-keywords.mjs`（今後の定期監査用）
+   - 検証ツール: `.claude/scripts/find-unlinked-keywords.mjs`（今後の定期監査用）
 2. **施策1: タイトル全件統一** — スクリプトで一括処理可能
    - ✅ **2026-04-16 完了**: `scripts/unify-pe-keyword-titles.mjs` を作成し、`group: keyword` の全 **649 ページ** の title 末尾に「 ｜ 総合技術監理 キーワード集 2026」を一括付与
    - 除外: `group: guide`（7件）、`past-exam`（34件）

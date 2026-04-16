@@ -92,7 +92,7 @@ model: sonnet
 - 拡張後のページが `lint-mdx-mobile.mjs` のカテゴリ 0/1/9 HIGH 違反を新たに引き起こさないこと
 - 文字化け（U+FFFD）を含めない
 - MDX 構文を壊さない（既存の `<details>`、`<ExamPoint>`、表を尊重）
-- 改行コードは元ファイルを保持（`scripts/lib/mdx-io.mjs` 経由で書き込み）
+- 改行コードは元ファイルを保持（`.claude/scripts/lib/mdx-io.mjs` 経由で書き込み）
 - **G パターン適用時は追加で**:
   - **情報量ゼロロス**: 元の表の全セルの文言が、変換後の箇条書きのいずれかに 1対1 で出現すること（セル内容の要約・削除を禁止）
   - **リスクのある表は温存**: 2列表、3列×全セル15字以内の表、2軸比較表は触らない
@@ -164,4 +164,4 @@ cem-qa で再評価
 - `.claude/skills/content/keyword-page/SKILL.md` — 個別ページ作成のテンプレート
 - `.claude/agents/cem-qa.md` — Evaluator 側の評価ルーブリック
 - `docs/project/13_quality-cycle-architecture.md` — システム全体設計
-- `scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）
+- `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

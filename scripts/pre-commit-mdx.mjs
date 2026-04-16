@@ -15,7 +15,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
-import { lintFrontmatter, loadTagAllowlist } from "./lint-frontmatter.mjs";
+import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {

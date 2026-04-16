@@ -74,7 +74,7 @@ find .local/r2/posts/pe-comprehensive-management -name article.mdx -exec \
 ### Step 1: 全体の残違反数を測定
 
 ```bash
-node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-1" | wc -l
+node .claude/scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-1" | wc -l
 ```
 
 2026-04-13 時点では 293 件（手動 2 件処理済み、残 291 件）。現時点の数は再測定する。
@@ -82,7 +82,7 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 ### Step 2: 違反ファイルのリスト化
 
 ```bash
-node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | \
+node .claude/scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | \
   grep -B1 "8-1" | grep "=== .*\.mdx" | \
   sed 's/=== //;s/ ===//' > /tmp/related-keyword-files.txt
 ```
@@ -102,7 +102,7 @@ node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>
 
 ```bash
 # 違反数が減っていることを確認
-node scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-1" | wc -l
+node .claude/scripts/lint-mdx-mobile.mjs .local/r2/posts/pe-comprehensive-management/ 2>&1 | grep "8-1" | wc -l
 
 # ビルドが通ることを確認
 npm run build
@@ -128,14 +128,14 @@ npm run build
 
 | 連携先 | 役割 |
 |---|---|
-| **`scripts/lint-mdx-mobile.mjs`** ルール 8-1 | 機械検出ロジック本体 |
+| **`.claude/scripts/lint-mdx-mobile.mjs`** ルール 8-1 | 機械検出ロジック本体 |
 | **`.claude/skills/content/keyword-page/SKILL.md`** | 作成規約（末尾リスト禁止を明記） |
 | **`.claude/skills/content/review-mobile/SKILL.md`** | モバイル視認性の一環として 8-1 も検出 |
 | **`/keyword-page revise`** モード | バッチ編集時の実作業スキル |
 
 ## 参照
 
-- `scripts/lint-mdx-mobile.mjs` L??? ── ルール 8-1 実装
+- `.claude/scripts/lint-mdx-mobile.mjs` L??? ── ルール 8-1 実装
 - `.claude/skills/content/keyword-page/SKILL.md` ── 作成規約の真実源
 
 ## 履歴

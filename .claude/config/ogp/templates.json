@@ -12,7 +12,7 @@
     "dark-wood": {
       "name": "ダークウッド×白タイトル",
       "category": "信頼性系",
-      "backgroundImage": "scripts/fonts/ogp-backgrounds/dark-wood.png",
+      "backgroundImage": ".claude/skills/content/ogp-create/assets/fonts/ogp-backgrounds/dark-wood.png",
       "promptSource": "第5章57",
       "notes": "guide/textbook 向け。背景画像未配置時はダーク茶グラデにフォールバック。"
     },
@@ -26,7 +26,7 @@
     "blackboard": {
       "name": "黒板×チョークタイトル",
       "category": "教育・解説系",
-      "backgroundImage": "scripts/fonts/ogp-backgrounds/blackboard.png",
+      "backgroundImage": ".claude/skills/content/ogp-create/assets/fonts/ogp-backgrounds/blackboard.png",
       "promptSource": "第6章73",
       "notes": "guide 全般。背景画像未配置時はダーク緑グラデにフォールバック。"
     },

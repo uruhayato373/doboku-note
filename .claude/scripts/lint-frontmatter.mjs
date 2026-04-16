@@ -24,12 +24,10 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import { join, relative, dirname, extname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 import { FrontmatterSchema } from '#lib/frontmatter-schema.mjs';
 
-const __filename = fileURLToPath(import.meta.url);
-const ROOT = dirname(dirname(__filename));
+const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, '.local/r2/posts');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
 

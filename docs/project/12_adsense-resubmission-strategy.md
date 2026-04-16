@@ -168,14 +168,14 @@ Google AdSense / Web Search Quality Guidelines が厳しく見るパターン:
 
 - **48 件の重複 description**（`>-` から始まる、YAML 壊れ）を個別書き直し
 - **86 件の 50字未満 description** を 80〜120字に書き直し
-- スクリプト `scripts/fix-descriptions.mjs` で自動生成（テンプレート方式）
+- スクリプト `.claude/scripts/fix-descriptions.mjs` で自動生成（テンプレート方式）
 
 ### 1-4. 549 件の keyword ページは公開維持
 
 旧プランの hide 戦略はここでは**実施しない**。代わりに Phase 3 で Quality Cycle を回して質を上げる。
 
 **Phase 1 修正対象ファイル**:
-- `scripts/fix-descriptions.mjs`（新規）
+- `.claude/scripts/fix-descriptions.mjs`（新規）
 - `.local/r2/posts/pe-comprehensive-management/{5 stubs}/article.mdx`（published: false）
 - `.local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx`（5 件のリンク削除）
 - `.local/r2/posts/pe-comprehensive-management/{27 h*-primary/secondary}/article.mdx`（published: false）

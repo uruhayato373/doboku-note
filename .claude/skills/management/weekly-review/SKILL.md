@@ -53,7 +53,7 @@ description: >
 調査方法 (2 段階):
 
 A. NSM 指標取得:
-- `node scripts/lib/metrics-reader.mjs` を実行（markdown 出力）
+- `node .claude/scripts/lib/metrics-reader.mjs` を実行（markdown 出力）
   → GA4 と GSC から今週 vs 前週の NSM 関連メトリクスを取得
   → Organic Search users（NSM）、全体 sessions、CTR、検索順位、トップクエリ
 - 出力をそのまま「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
@@ -69,7 +69,7 @@ B. 実験進捗レポート:
 - 出力を「## 実験の進捗」セクションとして埋め込む
 
 補助コマンド:
-- `node scripts/lib/metrics-reader.mjs --json` で生データ
+- `node .claude/scripts/lib/metrics-reader.mjs --json` で生データ
 - 追加のディメンション別データ:
   - `npm run fetch-ga4-data -- --dimension page --days 7 --limit 20`
   - `npm run fetch-gsc-data -- --dimension page --days 7`
@@ -212,8 +212,7 @@ generatedAt: "YYYY-MM-DD"
 
 - `.claude/skills/management/weekly-plan/SKILL.md` — 週次計画
 - `.claude/skills/management/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
-- `scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
-- `scripts/lib/experiments-state.mjs` — experiments.json I/O
-- `scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
-- `scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
+- `.claude/scripts/lib/metrics-reader.mjs` — NSM 週次メトリクス取得（本スキル Agent C の中核）
+- `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — GSC 個別取得（ページ別・フィルタ付き）
+- `.claude/scripts/fetch-ga4-data.mjs` — GA4 個別取得（ディメンション・メトリクス指定）
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

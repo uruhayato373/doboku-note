@@ -92,7 +92,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **URL**: フラット `/docs/{slug}` 設計
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造
 - **絵文字禁止**: 装飾絵文字は本文に使わない（Callout の type で表現）
-- **MDX 書き込み**: `scripts/lib/mdx-io.mjs` 経由で改行コード保持
+- **MDX 書き込み**: `.claude/scripts/lib/mdx-io.mjs` 経由で改行コード保持
 
 詳細は [content-authoring.md](./content-authoring.md) を参照。
 

@@ -7,7 +7,7 @@
  * index.json を追記して時系列トラッキング可能にする。
  *
  * 参照: .claude/skills/management/nsm-experiment/references/definition.md
- *       scripts/lib/metrics-reader.mjs
+ *       .claude/scripts/lib/metrics-reader.mjs
  *       .claude/skills/management/weekly-plan/SKILL.md (Phase 0)
  *
  * Usage:

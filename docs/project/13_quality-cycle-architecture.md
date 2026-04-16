@@ -192,7 +192,7 @@ candidate_score = log10(body_chars / 100) * 2.0
 
 手順:
 1. 該当ファイルを Read で読む
-2. node scripts/lint-mdx-mobile.mjs <file> を実行
+2. node .claude/scripts/lint-mdx-mobile.mjs <file> を実行
 3. ファイル内容と lint 結果を踏まえて 5 軸を 0-3 点で採点
 4. 結果を JSON で返す:
    {
@@ -395,8 +395,8 @@ node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode revie
 
 新規追加するのは：
 - `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs`（オーケストレータ）
-- `scripts/lib/quality-state.mjs`（state I/O ヘルパー）
-- `scripts/lib/cem-qa-prompt.mjs`（subagent プロンプトテンプレート）
+- `.claude/skills/content/quality-cycle/scripts/lib/quality-state.mjs`（state I/O ヘルパー）
+- `.claude/skills/content/quality-cycle/scripts/lib/cem-qa-prompt.mjs`（subagent プロンプトテンプレート）
 - `.claude/agents/keyword-rewriter.md`
 - `.claude/skills/content/quality-cycle/SKILL.md`
 - `.claude/state/*.json` 各種
@@ -458,4 +458,4 @@ node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode revie
 - `01_設計思想.md` — サイト全体のコンテンツ品質方針
 - `.claude/agents/cem-qa.md` — Tier 2 評価ルーブリックの真実源
 - `.claude/content-principles.md` — コンテンツ原則の真実源
-- `scripts/lint-mdx-mobile.mjs` — Tier 1 機械的判定
+- `.claude/scripts/lint-mdx-mobile.mjs` — Tier 1 機械的判定

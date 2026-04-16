@@ -1,4 +1,4 @@
-// scripts/lib/mdx-io.mjs
+// .claude/scripts/lib/mdx-io.mjs
 //
 // MDX ファイルの読み書き共通ユーティリティ。
 //

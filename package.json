@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "imports": {
-    "#lib/*": "./scripts/lib/*"
+    "#lib/*": "./.claude/scripts/lib/*",
+    "#shared/*": "./.claude/scripts/*"
   },
   "scripts": {
     "predev": "node scripts/kill-port.mjs 3020 && node scripts/build-exam-backlinks.mjs && node scripts/build-cross-exam-keyword-index.mjs && node scripts/build-tag-index.mjs",
@@ -11,18 +12,18 @@
     "build-backlinks": "node scripts/build-exam-backlinks.mjs",
     "build-indexes": "node scripts/build-cross-exam-keyword-index.mjs && node scripts/build-tag-index.mjs",
     "build": "rm -rf out && node scripts/build-exam-backlinks.mjs && node scripts/build-cross-exam-keyword-index.mjs && node scripts/build-tag-index.mjs && node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs",
-    "ogp": "node scripts/ogp-create.mjs",
+    "ogp": "node .claude/skills/content/ogp-create/scripts/ogp-create.mjs",
     "start": "next start -p 3020",
     "lint": "eslint src/",
     "type-check": "tsc --noEmit",
     "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note",
-    "upload-images-r2": "tsx scripts/upload-images-to-r2.mjs",
-    "diff-r2": "node scripts/diff-r2.mjs",
-    "fetch-gsc-data": "node scripts/fetch-gsc-data.mjs",
-    "fetch-ga4-data": "node scripts/fetch-ga4-data.mjs",
-    "fetch-psi-data": "node scripts/fetch-psi-data.mjs",
-    "inspect-url": "node scripts/inspect-url.mjs",
-    "validate-mdx": "node scripts/validate-mdx.mjs",
+    "upload-images-r2": "tsx .claude/scripts/upload-images-to-r2.mjs",
+    "diff-r2": "node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs",
+    "fetch-gsc-data": "node .claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs",
+    "fetch-ga4-data": "node .claude/scripts/fetch-ga4-data.mjs",
+    "fetch-psi-data": "node .claude/scripts/fetch-psi-data.mjs",
+    "inspect-url": "node .claude/scripts/inspect-url.mjs",
+    "validate-mdx": "node .claude/scripts/validate-mdx.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs"
   },
   "dependencies": {

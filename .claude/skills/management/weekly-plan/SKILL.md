@@ -23,7 +23,7 @@ description: >
 ### Phase 0: 週次メトリクス スナップショット
 
 ```bash
-node scripts/snapshot-weekly-metrics.mjs
+node .claude/scripts/snapshot-weekly-metrics.mjs
 ```
 
 現在の週の NSM データ（GA4 + GSC の前週比較）を `docs/reviews/weekly-metrics/YYYY-Www.json` に保存し、index.json に追記する。既に実行済みの週は skip（`--force` で上書き可）。
@@ -200,7 +200,6 @@ generatedAt: "YYYY-MM-DD"
 - `.claude/skills/management/nsm-experiment/SKILL.md` — 実験ライフサイクル管理
 - `.claude/skills/management/nsm-experiment/references/playbook.md` — 実験パターン
 - `.claude/skills/management/nsm-experiment/references/rubric.md` — 実験優先順位
-- `scripts/snapshot-weekly-metrics.mjs` — Phase 0 スナップショット
-- `scripts/lib/metrics-reader.mjs` — NSM 計測本体
-- `scripts/lib/experiments-state.mjs` — experiments.json I/O
+- `.claude/scripts/snapshot-weekly-metrics.mjs` — Phase 0 スナップショット
+- `.claude/scripts/lib/metrics-reader.mjs` — NSM 計測本体
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義

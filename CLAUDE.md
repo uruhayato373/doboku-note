@@ -126,7 +126,7 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
 
 - `.local/r2/posts/` 配下の MDX は **CRLF（Windows 改行）** が事実上の標準（691 ファイル中 99.9%）
 - `pre-commit` フック（`scripts/pre-commit-mdx.mjs`）が改行コード混在（CRLF + LF）を検出して reject する
-- スクリプトで MDX ファイルを書き込む場合は **必ず `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` / `transformMdxFile` を使用すること**
+- スクリプトで MDX ファイルを書き込む場合は **必ず `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` / `transformMdxFile` を使用すること**
   - 直接 `readFileSync` / `writeFileSync` を使うと改行コード混在が発生し、pre-commit で 100 ファイル単位で reject される（過去事例あり）
   - `gray-matter` の `matter.stringify` や文字列連結は LF のみを出力するため、必ず `writeMdxFile` を経由すること
 - 推奨パターン:

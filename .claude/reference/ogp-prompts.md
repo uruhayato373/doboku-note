@@ -3,7 +3,7 @@
 doboku-note で採用する OGP テンプレ 5 種類の Midjourney プロンプト。背景画像を手動で生成する際に使用する。
 
 - **OGP サイズ**: 1200×630（`--ar 1200:630`）
-- **出力先**: `scripts/fonts/ogp-backgrounds/{template-id}.png`
+- **出力先**: `.claude/skills/content/ogp-create/assets/fonts/ogp-backgrounds/{template-id}.png`
 - **文字なし** で生成すること。タイトル文字は satori 側で合成する
 - プロンプトから `Enormous text "【タイトルをここに入力してください】"...` の行を削除して使う
 - **セーフティゾーン意識**: 中央 630×630 の正方形は 1:1 クロップされる可能性があるプラットフォーム（note モバイル・Slack・Discord 等）で全要素が表示される領域。**被写体・重要なテクスチャは中央寄せ** にすること。左右 285px ずつは装飾専用でよい（クロップで消えて問題ない）
@@ -45,7 +45,7 @@ A dark green blackboard texture filling the entire frame, chalk dust visible, sl
 
 ## CSS のみで再現するテンプレ（背景画像なし）
 
-以下の 3 テンプレは `scripts/ogp-create.mjs` 内の satori element で完結する。Midjourney 生成は不要。
+以下の 3 テンプレは `.claude/skills/content/ogp-create/scripts/ogp-create.mjs` 内の satori element で完結する。Midjourney 生成は不要。
 
 ### navy-white（テンプレ ID: `navy-white`）
 
@@ -82,6 +82,6 @@ A dark green blackboard texture filling the entire frame, chalk dust visible, sl
 
 1. このファイル（出典プロンプトと用途）
 2. `.claude/config/ogp/templates.json`（レジストリ）
-3. `scripts/lib/ogp-templates.mjs` の `renderers` に render 関数を追加
+3. `.claude/skills/content/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に render 関数を追加
 4. 必要なら `.claude/config/ogp/rules.json` にルール追加
-5. 背景画像が必要なら `scripts/fonts/ogp-backgrounds/{id}.png` に配置
+5. 背景画像が必要なら `.claude/skills/content/ogp-create/assets/fonts/ogp-backgrounds/{id}.png` に配置

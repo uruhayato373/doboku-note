@@ -293,10 +293,10 @@ MDXでの参照:
 ### R2アップロードスクリプト
 
 ```bash
-node scripts/upload-images-to-r2.mjs                          # 全画像
-node scripts/upload-images-to-r2.mjs --prefix general/design-manual  # 特定ディレクトリ
-node scripts/upload-images-to-r2.mjs --dry-run                # プレビュー
-node scripts/upload-images-to-r2.mjs --skip-existing          # 差分のみ
+node .claude/scripts/upload-images-to-r2.mjs                          # 全画像
+node .claude/scripts/upload-images-to-r2.mjs --prefix general/design-manual  # 特定ディレクトリ
+node .claude/scripts/upload-images-to-r2.mjs --dry-run                # プレビュー
+node .claude/scripts/upload-images-to-r2.mjs --skip-existing          # 差分のみ
 ```
 
 ### 注意
@@ -310,4 +310,4 @@ node scripts/upload-images-to-r2.mjs --skip-existing          # 差分のみ
 - `src/css/custom.css` — スタイル定義（見出し、判例枠、数式スクロール等）
 - `docs/` — 既存コンテンツの形式を参考にする
 - `sidebars/` — サイドバー定義
-- `scripts/upload-images-to-r2.mjs` — R2画像アップロードスクリプト
+- `.claude/scripts/upload-images-to-r2.mjs` — R2画像アップロードスクリプト

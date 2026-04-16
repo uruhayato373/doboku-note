@@ -161,7 +161,7 @@ console.log('saved:', results.length, 'total:', Object.keys(data.pages).length);
 実行手順:
 1. .claude/agents/cem-qa.md を Read
 2. 評価対象ファイルを Read
-3. node scripts/lint-mdx-mobile.mjs <file> を Bash で実行
+3. node .claude/scripts/lint-mdx-mobile.mjs <file> を Bash で実行
 4. 5軸（構造30/モバイル25/原則20/参考資料15/関連付け10）を 0-3 点で採点
 5. weak_axes は score≤1
 6. 質的コメント30-100字
@@ -271,10 +271,10 @@ function isRewriteCandidate(p) {
 | パス | 役割 |
 |---|---|
 | `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` | オーケストレータ（screen / score / rewrite / verify / review / report / flagship） |
-| `scripts/lib/quality-state.mjs` | .claude/state/*.json の I/O |
-| `scripts/lib/cem-qa-prompt.mjs` | subagent プロンプトテンプレート |
-| `scripts/lib/mdx-io.mjs` | 改行コード保持 I/O |
-| `scripts/lint-mdx-mobile.mjs` | カテゴリ 0-9 の機械的検証 |
+| `.claude/skills/content/quality-cycle/scripts/lib/quality-state.mjs` | .claude/state/*.json の I/O |
+| `.claude/skills/content/quality-cycle/scripts/lib/cem-qa-prompt.mjs` | subagent プロンプトテンプレート |
+| `.claude/scripts/lib/mdx-io.mjs` | 改行コード保持 I/O |
+| `.claude/scripts/lint-mdx-mobile.mjs` | カテゴリ 0-9 の機械的検証 |
 
 ### 8.3 真実源
 
@@ -357,7 +357,7 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 
 **手順**:
 
-1. `scripts/lib/cem-qa-prompt.mjs` を Read
+1. `.claude/skills/content/quality-cycle/scripts/lib/cem-qa-prompt.mjs` を Read
 2. `buildCemQaPrompt(slug)` 内の prompt 文字列を以下の形に変更:
 
 ```javascript
@@ -372,7 +372,7 @@ export function buildCemQaPrompt(slug) {
 実行手順:
   1. .claude/agents/cem-qa.md を Read で読む
   2. 評価対象ファイルを Read で読む
-  3. node scripts/lint-mdx-mobile.mjs <評価対象ファイル> を Bash で実行
+  3. node .claude/scripts/lint-mdx-mobile.mjs <評価対象ファイル> を Bash で実行
   4. 5 軸ルーブリック（構造30% / モバイル25% / 原則20% / 参考資料15% / 関連付け10%）で
      各軸を 0〜3 点で採点
   5. weak_axes（score ≤ 1 の軸）を特定
@@ -500,7 +500,7 @@ export function buildCemQaPrompt(slug) {
 
 ### rewriter プロンプトへのフィードバック
 
-これらの学びを `.claude/agents/keyword-rewriter.md` または `scripts/lib/cem-qa-prompt.mjs` の
+これらの学びを `.claude/agents/keyword-rewriter.md` または `.claude/skills/content/quality-cycle/scripts/lib/cem-qa-prompt.mjs` の
 `buildRewriterPrompt()` に反映する余地がある。特に:
 
 - 「拡張パターン A の場合は建設業を題材にする」を明示
@@ -694,7 +694,7 @@ cat docs/project/15_quality-cycle-cycle2-handoff.md
 
 # 3. T1 と T2 を実施（次セッション冒頭で必須）
 #    -> .claude/agents/cem-qa.md を編集
-#    -> scripts/lib/cem-qa-prompt.mjs を編集
+#    -> .claude/skills/content/quality-cycle/scripts/lib/cem-qa-prompt.mjs を編集
 
 # 4. 状況確認
 node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode report

@@ -62,7 +62,7 @@ abandoned  abandoned  running (re-measure)
 
 **目的**: 新セッション or 作業再開時に、中断中の実験と残作業を即座に把握する。
 
-1. `scripts/lib/experiments-state.mjs` の `listByStatus('running')` と `listByStatus('measuring')` を呼び、active な実験を全件取得
+1. `.claude/scripts/lib/experiments-state.mjs` の `listByStatus('running')` と `listByStatus('measuring')` を呼び、active な実験を全件取得
 2. 各 experiment について以下をチェック:
    - `pending_user_actions` フィールドが存在して配列が空でないか
    - `next_check_date` が今日以前か（期限超過）or 3 日以内（近接）or 未来
@@ -116,7 +116,7 @@ abandoned  abandoned  running (re-measure)
 
 ### propose: 候補提案
 
-1. `node -e "import('./scripts/lib/metrics-reader.mjs').then(async m => console.log(JSON.stringify(await m.fetchWeeklyNsmMetrics(), null, 2)))"` で現状取得
+1. `node -e "import('./.claude/scripts/lib/metrics-reader.mjs').then(async m => console.log(JSON.stringify(await m.fetchWeeklyNsmMetrics(), null, 2)))"` で現状取得
 2. `references/playbook.md` を Read してパターンカタログを読み込む
 3. `references/rubric.md` を Read して評価軸を読み込む
 4. 現状メトリクスと playbook を突き合わせ、適用可能な実験を洗い出す
@@ -198,9 +198,9 @@ abandoned  abandoned  running (re-measure)
 
 | 連携先 | 役割 |
 |---|---|
-| **`scripts/lib/experiments-state.mjs`** | state I/O 本体 |
-| **`scripts/lib/metrics-reader.mjs`** | baseline と current の計測 |
-| **`scripts/snapshot-weekly-metrics.mjs`** | 週次スナップショット（propose 時の背景データ）|
+| **`.claude/scripts/lib/experiments-state.mjs`** | state I/O 本体 |
+| **`.claude/scripts/lib/metrics-reader.mjs`** | baseline と current の計測 |
+| **`.claude/scripts/snapshot-weekly-metrics.mjs`** | 週次スナップショット（propose 時の背景データ）|
 | **`.claude/skills/management/weekly-plan/SKILL.md`** | Phase 1 Agent C で実験提案を自動化 |
 | **`.claude/skills/management/weekly-review/SKILL.md`** | 実験進捗セクションで running を自動表示 |
 | **`.claude/skills/management/nsm-experiment/references/playbook.md`** | 実験パターンカタログ |
@@ -235,7 +235,7 @@ abandoned  abandoned  running (re-measure)
 
 - `.claude/pdfs/guide.pdf` Chapter 3 (Testing and iteration) ── Pattern 3 Iterative refinement の出典
 - `.claude/skills/management/nsm-experiment/references/definition.md` ── NSM 定義と目標値
-- `scripts/lib/experiments-state.mjs` ── state 実装
-- `scripts/lib/metrics-reader.mjs` ── 計測実装
+- `.claude/scripts/lib/experiments-state.mjs` ── state 実装
+- `.claude/scripts/lib/metrics-reader.mjs` ── 計測実装
 - `references/playbook.md` ── 実験パターンカタログ
 - `references/rubric.md` ── 優先順位評価軸

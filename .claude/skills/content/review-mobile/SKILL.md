@@ -37,7 +37,7 @@ $ARGUMENTS — レビュー対象のファイルパスまたはディレクト�
 |---|---|---|---|
 | 0-1 | 改行コードの混在（CRLF + LF）がないか | HIGH | `\r\n` と単独 `\n` の共存判定 |
 
-**修正提案**: スクリプトで MDX を書き込む場合は必ず `scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` / `transformMdxFile` を経由する。直接 `writeFileSync` を使うと混在が発生する。詳細は `CLAUDE.md` の「MDXファイル書き込みの規約」を参照。
+**修正提案**: スクリプトで MDX を書き込む場合は必ず `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` / `transformMdxFile` を経由する。直接 `writeFileSync` を使うと混在が発生する。詳細は `CLAUDE.md` の「MDXファイル書き込みの規約」を参照。
 
 ### 1. テーブルの適切性
 
@@ -191,7 +191,7 @@ keyword-page スキルのテンプレートで定義された必須セクショ�
 まず以下のスクリプトを実行して、機械判定可能な違反を網羅的に検出する。**このステップを省略して目視判定だけで済ませてはならない**。
 
 ```bash
-node scripts/lint-mdx-mobile.mjs <target>
+node .claude/scripts/lint-mdx-mobile.mjs <target>
 ```
 
 - 引数: ファイルパス・ディレクトリ・省略（`git diff` 対象）
@@ -226,7 +226,7 @@ HIGHが1件以上ある場合は修正を促すメッセージを追加する。
 
 ### Step 6: 修正実行（ユーザー確認後）
 
-ユーザーが同意した修正案を Edit ツールで適用する。修正後に再度 `node scripts/lint-mdx-mobile.mjs` を実行し、違反ゼロを確認してから `/check-mdx` で構文チェックを実行する。
+ユーザーが同意した修正案を Edit ツールで適用する。修正後に再度 `node .claude/scripts/lint-mdx-mobile.mjs` を実行し、違反ゼロを確認してから `/check-mdx` で構文チェックを実行する。
 
 ## アンチパターン（やってはいけない）
 
