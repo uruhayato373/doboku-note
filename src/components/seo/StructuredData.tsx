@@ -55,6 +55,35 @@ function generateBreadcrumbSchema(
   };
 }
 
+function isKeywordPage(meta: DocMeta | PostData): boolean {
+  return (meta as any).group === "keyword" || (meta.tags || []).includes("keyword");
+}
+
+function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
+  const slug = "id" in meta ? meta.id : meta.slug;
+  const category = meta.category;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "DefinedTerm",
+    name: meta.title,
+    description: meta.description || meta.title,
+    url: `${baseUrl}/docs/${slug}`,
+    inDefinedTermSet: {
+      "@type": "DefinedTermSet",
+      name: category === "pe-comprehensive-management"
+        ? "技術士 総合技術監理部門 キーワード集 2026"
+        : category === "civil-construction-1"
+          ? "1級土木施工管理技士 キーワード集"
+          : "土木系資格試験 キーワード集",
+      url: category === "pe-comprehensive-management"
+        ? `${baseUrl}/docs/pe-comprehensive-management-keyword-2026`
+        : `${baseUrl}/category/${category}`,
+    },
+    inLanguage: "ja-JP",
+  };
+}
+
 function isExamQuizPage(meta: DocMeta | PostData): boolean {
   const tags = meta.tags || [];
   return tags.includes("past-questions");
@@ -208,16 +237,21 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
 
   if (!structuredData) return null;
 
-  // Check if this is a quiz page and generate additional Quiz schema
   const meta = post || docMeta;
+  const baseUrl = "https://doboku-note.com";
+
+  // Additional schemas for specific page types
   const quizData = meta && isExamQuizPage(meta as DocMeta | PostData)
-    ? generateQuizSchema(meta as DocMeta | PostData, "https://doboku-note.com")
+    ? generateQuizSchema(meta as DocMeta | PostData, baseUrl)
     : null;
 
-  // Generate BreadcrumbList for article pages
+  const definedTermData = meta && isKeywordPage(meta as DocMeta | PostData)
+    ? generateDefinedTermSchema(meta as DocMeta | PostData, baseUrl)
+    : null;
+
   const breadcrumbData =
     type === "article" && meta
-      ? generateBreadcrumbSchema(meta as DocMeta | PostData, "https://doboku-note.com")
+      ? generateBreadcrumbSchema(meta as DocMeta | PostData, baseUrl)
       : null;
 
   return (
@@ -233,6 +267,14 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(quizData, null, 2),
+          }}
+        />
+      )}
+      {definedTermData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(definedTermData, null, 2),
           }}
         />
       )}
