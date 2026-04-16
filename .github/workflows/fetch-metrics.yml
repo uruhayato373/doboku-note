@@ -46,7 +46,7 @@ jobs:
       - name: Stage outputs
         run: |
           mkdir -p /tmp/metrics-publish
-          cp -r .local/metrics/* /tmp/metrics-publish/ 2>/dev/null || true
+          cp -r .claude/state/metrics/* /tmp/metrics-publish/ 2>/dev/null || true
           ls -la /tmp/metrics-publish
 
       - name: Publish to metrics-data branch

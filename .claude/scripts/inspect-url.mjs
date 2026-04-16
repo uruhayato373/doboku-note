@@ -28,7 +28,7 @@ dotenv.config({ path: ".env.local" });
 
 const SITE_URL = "sc-domain:doboku-note.com";
 const SITE_URL_FOR_INSPECTION = "https://doboku-note.com/"; // URL Inspection は URL プレフィックス形式が必要な場合あり
-const OUTPUT_DIR = ".local/metrics/url-inspection";
+const OUTPUT_DIR = ".claude/state/metrics/url-inspection";
 
 // ── CLI args ──
 
