@@ -5,6 +5,7 @@ import { cache } from 'react';
 import { parseCallouts } from './mdx-callout-parser';
 import { GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import { getS3Client } from './r2-client';
+import docMetaIndex from '@/config/doc-meta-index.json';
 
 /**
  * Preprocess MDX content for compatibility with MDX v3+ strict parser.
@@ -126,12 +127,6 @@ export type Doc = {
 let slugToKeyMap: Map<string, string> | null = null;
 
 /**
- * Module-level metadata cache (survives across requests in dev server).
- * Invalidated on server restart. Same pattern as sidebarCache in dynamic-sidebar.ts.
- */
-const docMetaCache = new Map<string, DocMeta | null>();
-
-/**
  * Recursively find all .mdx files in a directory and return slug + relative path pairs.
  * Converts path segments to hyphen-separated slug strings for flat URL structure.
  *
@@ -172,92 +167,41 @@ function findMdxFiles(dir: string, basePath: string[] = []): { slug: string; rel
 
 /**
  * Reads only the frontmatter metadata of an MDX file (no content processing).
- * Much faster than getDoc() — skips preprocessMDX and parseCallouts.
- * Use for sidebar generation, category listing, and other metadata-only operations.
+ * Primary: static JSON lookup from doc-meta-index.json (zero I/O).
+ * Fallback: filesystem read for newly created files not yet in the index.
  */
 export async function getDocMeta(slug: string): Promise<DocMeta | null> {
-  // モジュールレベルキャッシュ（dev リクエスト間で永続）
-  if (docMetaCache.has(slug)) return docMetaCache.get(slug)!;
+  // 高速パス: 静的 JSON lookup（ビルド済みインデックス）
+  const entry = (docMetaIndex as any).docs[slug];
+  if (entry) {
+    return { slug, ...entry } as DocMeta;
+  }
 
-  // slugToKeyMap を使った O(1) ファイルパス解決
+  // Fallback: インデックスにない = 新規追加ファイル or published:false
   if (!slugToKeyMap) {
     await getAllDocSlugs();
   }
-
   const relativePath = slugToKeyMap?.get(slug);
+  if (!relativePath) return null;
 
-  if (relativePath && fs.existsSync(localContentDirectory)) {
+  if (fs.existsSync(localContentDirectory)) {
     const filePath = path.join(localContentDirectory, relativePath);
     if (fs.existsSync(filePath)) {
       const fileContents = fs.readFileSync(filePath, 'utf8');
       const matterResult = matter(fileContents);
+      if (matterResult.data.published === false) return null;
 
-      if (matterResult.data.published === false) {
-        docMetaCache.set(slug, null);
-        return null;
-      }
-
-      const meta: DocMeta = {
+      return {
         slug,
         title: matterResult.data.title || '',
         description: matterResult.data.description || '',
-        category: matterResult.data.category,
-        tags: matterResult.data.tags,
-        sidebar_label: matterResult.data.sidebar_label,
-        toc_min_heading_level: matterResult.data.toc_min_heading_level,
-        toc_max_heading_level: matterResult.data.toc_max_heading_level,
         published: matterResult.data.published !== false,
         ...matterResult.data,
-      };
-      docMetaCache.set(slug, meta);
-      return meta;
+      } as DocMeta;
     }
   }
 
-  if (!relativePath) {
-    docMetaCache.set(slug, null);
-    return null;
-  }
-
-  // Fallback: Fetch from R2
-  try {
-    const s3 = getS3Client();
-    const key = `posts/${relativePath}`;
-    const bucketName = process.env.CLOUDFLARE_R2_BUCKET_NAME || 'doboku-note';
-    const response = await s3.send(new GetObjectCommand({ Bucket: bucketName, Key: key }));
-    if (!response?.Body) {
-      docMetaCache.set(slug, null);
-      return null;
-    }
-
-    const fileContents = await response.Body.transformToString('utf-8');
-    const matterResult = matter(fileContents);
-    if (matterResult.data.published === false) {
-      docMetaCache.set(slug, null);
-      return null;
-    }
-
-    const meta: DocMeta = {
-      slug,
-      title: matterResult.data.title || '',
-      description: matterResult.data.description || '',
-      category: matterResult.data.category,
-      tags: matterResult.data.tags,
-      sidebar_label: matterResult.data.sidebar_label,
-      toc_min_heading_level: matterResult.data.toc_min_heading_level,
-      toc_max_heading_level: matterResult.data.toc_max_heading_level,
-      published: matterResult.data.published !== false,
-      ...matterResult.data,
-    };
-    docMetaCache.set(slug, meta);
-    return meta;
-  } catch (error: any) {
-    if (error.name === 'NoSuchKey' || error.$metadata?.httpStatusCode === 404) {
-      docMetaCache.set(slug, null);
-      return null;
-    }
-    throw error;
-  }
+  return null;
 }
 
 /**
@@ -425,11 +369,14 @@ export async function getAllDocSlugs(): Promise<string[]> {
   }
 }
 
-export async function getDocsMetaByCategory(category: string): Promise<DocMeta[]> {
-  const slugs = await getAllDocSlugs();
-  // slug プレフィックスで事前フィルタ（ディレクトリ構造 = category の 1:1 対応を利用）
-  const filtered = slugs.filter(s => s.startsWith(category + '-'));
-  const metas = await Promise.all(filtered.map(slug => getDocMeta(slug)));
-  return metas.filter((m): m is DocMeta => m !== null);
+/**
+ * Gets all document metadata for a specific category.
+ * Pure in-memory filter on the static JSON index (zero I/O).
+ */
+export function getDocsMetaByCategory(category: string): DocMeta[] {
+  const docs = (docMetaIndex as any).docs as Record<string, any>;
+  return Object.entries(docs)
+    .filter(([, meta]) => meta.category === category)
+    .map(([slug, meta]) => ({ slug, ...meta } as DocMeta));
 }
 

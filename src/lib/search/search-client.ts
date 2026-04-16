@@ -63,7 +63,7 @@ async function getMiniSearch(): Promise<MiniSearch<SearchIndexEntry>> {
   if (!res.ok) throw new Error("検索インデックスの読み込みに失敗しました");
 
   const json = await res.json();
-  miniSearchInstance = MiniSearch.loadJS(json, MINISEARCH_OPTIONS);
+  miniSearchInstance = MiniSearch.loadJSON(JSON.stringify(json), MINISEARCH_OPTIONS);
   return miniSearchInstance;
 }
 

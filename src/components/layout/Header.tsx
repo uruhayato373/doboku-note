@@ -2,12 +2,17 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Briefcase, User, Menu, X } from "lucide-react";
+import { Search, HardHat, GraduationCap, User, Menu, X } from "lucide-react";
 import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
 
 const categories = categoriesData as CategoryDef[];
+
+function CategoryIcon({ variant, className }: { variant: string; className?: string }) {
+  const cn = className || "w-5 h-5";
+  return variant === "civil" ? <HardHat className={cn} /> : <GraduationCap className={cn} />;
+}
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,6 +67,13 @@ export default function Header() {
             </div>
             {/* Mobile menu and ThemeToggle */}
             <div className="flex items-center gap-2 md:hidden">
+              <Link
+                href="/search"
+                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                aria-label="検索"
+              >
+                <Search className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+              </Link>
               {mounted && (
                 <button
                   onClick={toggleMenu}
@@ -77,13 +89,20 @@ export default function Header() {
             </div>
             {/* Desktop navigation and ThemeToggle */}
             <nav className="hidden md:flex space-x-4 items-center">
+              <Link
+                href="/search"
+                className="flex flex-col items-center space-y-1 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+              >
+                <Search className="w-5 h-5" />
+                <span className="text-xs font-medium">検索</span>
+              </Link>
               {categories.map(cat => (
                 <Link
                   key={cat.slug}
                   href={`/category/${cat.slug}`}
                   className="flex flex-col items-center space-y-1 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
                 >
-                  <Briefcase className="w-5 h-5" />
+                  <CategoryIcon variant={cat.variant} />
                   <span className="text-xs font-medium">{cat.label}</span>
                 </Link>
               ))}
@@ -131,6 +150,15 @@ export default function Header() {
 
           {/* ナビゲーションリンク */}
           <nav className="mt-12 space-y-4">
+            {/* 検索リンク */}
+            <Link
+              href="/search"
+              onClick={closeMenu}
+              className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+            >
+              <Search className="w-5 h-5" />
+              <span className="font-medium">検索</span>
+            </Link>
             {/* カテゴリリンク */}
             {categories.map(cat => (
               <Link
@@ -139,7 +167,7 @@ export default function Header() {
                 onClick={closeMenu}
                 className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
               >
-                <Briefcase className="w-5 h-5" />
+                <CategoryIcon variant={cat.variant} />
                 <span className="font-medium">{cat.label}</span>
               </Link>
             ))}

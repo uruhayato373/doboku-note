@@ -10,7 +10,7 @@
     "predev": "node scripts/kill-port.mjs 3020",
     "dev": "next dev -p 3020",
     "build-backlinks": "node .claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs",
-    "build-indexes": "node .claude/scripts/build-cross-exam-keyword-index.mjs && node .claude/scripts/build-tag-index.mjs",
+    "build-indexes": "node .claude/scripts/build-doc-meta-index.mjs && node .claude/scripts/build-cross-exam-keyword-index.mjs && node .claude/scripts/build-tag-index.mjs",
     "refresh-indexes": "npm run build-backlinks && npm run build-indexes",
     "build": "rm -rf out && npm run refresh-indexes && node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs",
     "ogp": "node .claude/skills/content/ogp-create/scripts/ogp-create.mjs",

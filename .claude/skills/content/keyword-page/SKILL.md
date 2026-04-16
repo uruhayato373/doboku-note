@@ -119,13 +119,26 @@ description: >
 | `<Callout>` | 注意・補足 | 誤解しやすいポイントや重要な注意事項がある場合のみ |
 | `<CustomUnorderedList>` | スタイル付きリスト | 通常のMarkdownリストで十分な場合は使わない |
 
-#### 法令条文へのリンクルール
+#### 内部リンク・法令リンクの設置ルール
 
-- 本文中で法律の条文に言及する場合、e-Gov法令検索の該当条文へのアンカーリンクを付与する
-- URL形式: `https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}`
-  - 例: `[**環境基本法第15条**](https://laws.e-gov.go.jp/law/405AC0000000091#Mp-At_15)`
-- MDXでは `**[text](url)**` が正しくパースされないため、太字はリンクテキストの内側に置く: `[**text**](url)`
-- 法令番号は e-Gov法令検索で対象法令を検索して確認する
+本文中で法令名や他のキーワード概念に言及する場合、対応するリンクを設置する。
+
+**法令名への言及**:
+- 法令名が出たら `.local/r2/posts/pe-comprehensive-management/` に該当キーワードページが存在するか確認し、存在すれば内部リンクを設置する
+  - 例: `[災害対策基本法](/docs/pe-comprehensive-management-disaster-countermeasures-act)`
+- 条文番号まで言及する場合は e-Gov 法令検索の該当条文へのアンカーリンクも設置する
+  - URL形式: `https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}`
+  - 例: `[**消防法第8条**](https://laws.e-gov.go.jp/law/323AC1000000186#Mp-At_8)`
+  - 法令番号は e-Gov 法令検索で対象法令を検索して確認する
+- MDX では `**[text](url)**` が正しくパースされないため、太字はリンクテキストの内側に置く: `[**text**](url)`
+
+**他キーワード概念への言及**:
+- BCP、PDCA、リスクアセスメント等の概念を本文で言及する場合、対応するキーワードページが存在するか確認する
+  - 確認方法: `ls .local/r2/posts/pe-comprehensive-management/{想定slug}/article.mdx`
+- 存在すれば初出箇所に内部リンクを設置する
+  - 例: `[BCP（事業継続計画）](/docs/pe-comprehensive-management-business-continuity-plan)`
+- 同一ページ内での 2 回目以降の言及にはリンク不要（過剰リンクを避ける）
+- `<RelatedKeywords>` にも関連概念を含める（本文のインラインリンクと補完関係）
 
 #### 参考資料の記載ルール
 

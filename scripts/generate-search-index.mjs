@@ -1,6 +1,16 @@
 import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSync } from 'fs';
 import { join, relative } from 'path';
 import matter from 'gray-matter';
+import MiniSearch from 'minisearch';
+
+// tokenize: search-client.ts と同一ロジック（Intl.Segmenter 日本語分かち書き）
+const segmenter = new Intl.Segmenter('ja', { granularity: 'word' });
+function tokenize(text) {
+  if (!text || typeof text !== 'string') return [];
+  return [...segmenter.segment(text)]
+    .filter(s => s.isWordLike)
+    .map(s => s.segment);
+}
 
 // New unified content location
 const CONTENT_DIR = '.local/r2/posts';
@@ -99,10 +109,24 @@ for (const file of files) {
   });
 }
 
+// MiniSearch インスタンスを構築してシリアライズ
+const ms = new MiniSearch({
+  fields: ['title', 'description', 'excerpt'],
+  storeFields: ['id', 'title', 'description', 'path', 'category', 'tags', 'excerpt'],
+  tokenize,
+  searchOptions: {
+    boost: { title: 3, description: 2 },
+    fuzzy: 0.2,
+    prefix: true,
+  },
+});
+
+ms.addAll(index);
+
 // Ensure public directory exists
 if (!existsSync('public')) {
   mkdirSync('public', { recursive: true });
 }
 
-writeFileSync(OUTPUT_PATH, JSON.stringify(index, null, 0));
-console.log(`Generated search index with ${index.length} entries`);
+writeFileSync(OUTPUT_PATH, JSON.stringify(ms.toJSON()));
+console.log(`Generated search index with ${index.length} entries (MiniSearch serialized)`);
