@@ -24,7 +24,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Dark mode border lint (TSX)
-node scripts/lint-dark-mode.mjs
+node scripts/lint-ui.mjs
 if [ $? -ne 0 ]; then
   exit 1
 fi

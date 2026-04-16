@@ -160,7 +160,7 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
   - 良い例: `border border-gray-200 dark:border-gray-700`
   - 悪い例: `border border-gray-200`（dark 指定なし）
   - 悪い例: `style={{ borderColor: '#e4edf4' }}`（dark クラスを上書き）
-- **pre-commit フック**（`scripts/lint-dark-mode.mjs`）がステージされた `.tsx` ファイルのダークモード未指定ボーダーを検出し、コミットをブロックする
+- **pre-commit フック**（`scripts/lint-ui.mjs`）がステージされた `.tsx` ファイルのダークモード未指定ボーダーを検出し、コミットをブロックする
 
 ## デプロイ
 

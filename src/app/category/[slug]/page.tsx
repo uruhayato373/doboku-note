@@ -594,7 +594,7 @@ export default async function CategoryPage({
                           {keyword2026 && (
                             <Link
                               href={`/docs/${keyword2026.slug}`}
-                              className="group flex items-center gap-4 mb-10 p-5 rounded-xl border-2 border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-md transition-all"
+                              className="group flex items-center gap-4 mb-10 p-5 rounded-card-content border-2 border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-card-hover transition-all"
                             >
                               <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-lg">
                                 K

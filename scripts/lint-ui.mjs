@@ -1,28 +1,43 @@
 /**
- * Dark mode border lint
+ * UI lint — ダークモードボーダー + デザイントークン検証
  *
  * ステージされた .tsx ファイル（または --all で全ファイル）を走査し、
- * ダークモード対応が欠けているボーダー指定を検出する。
+ * UI 品質ルール違反を検出する。
  *
  * 検出対象:
- *   1. border-gray-{100,200,300} があるのに同じ行に dark:border が無い
+ *   1. border-gray-{100,200,300} があるのに dark:border が無い
  *   2. インラインの borderColor 指定（dark クラスを上書きするため禁止）
+ *   3. カード要素で生の rounded-{xl,2xl,3xl} + shadow を使用（デザイントークンを使うべき）
  *
  * Usage:
- *   node scripts/lint-dark-mode.mjs          # ステージされた .tsx のみ
- *   node scripts/lint-dark-mode.mjs --all    # src/ 配下の全 .tsx
+ *   node scripts/lint-ui.mjs          # ステージされた .tsx のみ
+ *   node scripts/lint-ui.mjs --all    # src/ 配下の全 .tsx
  */
 
 import { execSync } from "child_process";
 import { readFileSync, existsSync } from "fs";
 import { resolve } from "path";
 
+// --- Check 1: Dark mode border ---
 const BORDER_PATTERN = /border-gray-[123]00/;
 const DARK_BORDER_PATTERN = /dark:(hover:)?border/;
 
-// インライン borderColor だが、Tailwind クラス文字列を値として持つもの（例: borderColor: "border-primary-500"）は除外
+// --- Check 2: Inline borderColor ---
 const INLINE_BORDER_COLOR = /borderColor\s*[:=]/;
 const TAILWIND_CLASS_VALUE = /borderColor\s*:\s*["'`]border-/;
+
+// --- Check 3: Raw card radius (should use design tokens) ---
+// rounded-{xl,2xl,3xl} と shadow が同じ行にある = カード要素 → トークンを使うべき
+// shadow サイズクラス (shadow-sm, shadow-md, shadow-lg, shadow-xl, shadow-2xl) のみマッチ。
+// shadow-gray-* (色) や素の shadow は対象外（ChatBubble 等の独自 UI）
+const SHADOW_SIZE = /(?:^|[\s"'])shadow-(sm|md|lg|xl|2xl)\b/;
+const RAW_CARD_PATTERNS = [
+  { radius: /rounded-2xl/, token: "rounded-card-section shadow-card-section" },
+  { radius: /rounded-xl/, token: "rounded-card-content shadow-card-content" },
+  { radius: /rounded-3xl/, token: "rounded-card-hero" },
+];
+// デザイントークンを既に使っている行は除外
+const CARD_TOKEN_PATTERN = /rounded-card-/;
 
 // Storybook ファイルは除外
 const EXCLUDE_PATTERN = /\.stories\.tsx$/;
@@ -83,27 +98,37 @@ function lintFile(filePath) {
     if (SKIP_LINE_PATTERN.test(line)) continue;
 
     // Check 1: border-gray-{100,200,300} without dark:border
-    // 同じ行になくても、cn() 等で近隣行（±5行）に dark:border があれば OK
     if (BORDER_PATTERN.test(line) && !DARK_BORDER_PATTERN.test(line)) {
       if (!hasDarkBorderNearby(lines, i)) {
         violations.push({
           line: i + 1,
           rule: "dark-border-missing",
           message: `border-gray-* without dark:border-* variant`,
-          content: line.trim(),
         });
       }
     }
 
     // Check 2: inline borderColor (overrides dark mode classes)
-    // ただし borderColor: "border-xxx" のような Tailwind クラス文字列の格納は除外
     if (INLINE_BORDER_COLOR.test(line) && !TAILWIND_CLASS_VALUE.test(line)) {
       violations.push({
         line: i + 1,
         rule: "inline-border-color",
-        message: `inline borderColor overrides dark mode classes — use Tailwind border-[color] + dark:border-[color] instead`,
-        content: line.trim(),
+        message: `inline borderColor overrides dark mode classes — use Tailwind classes instead`,
       });
+    }
+
+    // Check 3: raw card radius + shadow size (should use design tokens)
+    if (!CARD_TOKEN_PATTERN.test(line) && SHADOW_SIZE.test(line)) {
+      for (const { radius, token } of RAW_CARD_PATTERNS) {
+        if (radius.test(line)) {
+          violations.push({
+            line: i + 1,
+            rule: "raw-card-radius",
+            message: `use design token: ${token}`,
+          });
+          break;
+        }
+      }
     }
   }
 
@@ -115,15 +140,14 @@ function main() {
 
   if (files.length === 0) {
     if (process.argv.includes("--all")) {
-      console.log("lint-dark-mode: No .tsx files found.");
+      console.log("lint-ui: No .tsx files found.");
     }
-    // ステージモードでファイルなしは正常終了
     process.exit(0);
   }
 
   const allMode = process.argv.includes("--all");
   console.log(
-    `lint-dark-mode: Checking ${files.length} .tsx file(s)${allMode ? " (--all)" : ""}...`
+    `lint-ui: Checking ${files.length} .tsx file(s)${allMode ? " (--all)" : ""}...`
   );
 
   let totalViolations = 0;
@@ -139,14 +163,11 @@ function main() {
   }
 
   if (totalViolations === 0) {
-    console.log(`lint-dark-mode: ✓ All ${files.length} file(s) OK.`);
+    console.log(`lint-ui: ✓ All ${files.length} file(s) OK.`);
     process.exit(0);
   } else {
-    console.error(
-      `\nlint-dark-mode: ✗ ${totalViolations} violation(s) found.\n`
-    );
-    console.error("Fix: Add dark:border-* variant to each border-gray-* class.");
-    console.error("Fix: Replace inline borderColor with Tailwind classes.\n");
+    console.error(`\nlint-ui: ✗ ${totalViolations} violation(s) found.\n`);
+    console.error("See CLAUDE.md 'UI コンポーネントの必須ルール' for token reference.\n");
     process.exit(1);
   }
 }
