@@ -305,6 +305,10 @@ node .claude/scripts/upload-images-to-r2.mjs --skip-existing          # 差分�
 - R2バケット: `doboku-note`、カスタムドメイン: `storage.doboku-note.com`
 - S3互換API使用（`@aws-sdk/client-s3`、20並行アップロード）
 
+## コンテンツ変更後のインデックス再生成
+
+変換完了後は `npm run refresh-indexes` で静的インデックスを更新すること（本番 `npm run build` では自動）。詳細は `.claude/reference/workflows.md` を参照。
+
 ## 参照
 
 - `src/css/custom.css` — スタイル定義（見出し、判例枠、数式スクロール等）

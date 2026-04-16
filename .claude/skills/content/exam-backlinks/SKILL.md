@@ -22,7 +22,7 @@ description: >
 過去問MDX (.local/r2/posts/pe-comprehensive-management/{year}-primary/article.mdx)
   └ <RelatedKeywords items={[{ slug: "xxx" }]} /> （設問ごと）
      ↓
-scripts/build-exam-backlinks.mjs （解析）
+.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs （解析）
      ↓
 src/config/past-exam-backlinks.json    （キーワード→過去問 逆引き）
 src/config/exam-question-keywords.json （過去問→キーワード 正引き）
@@ -31,10 +31,18 @@ src/components/ui/PastExamBacklinks/  （キーワードページで表示）
 src/components/ui/KeywordsInExam/     （過去問ページで表示）
 ```
 
-### 自動実行
+### 実行タイミング
 
-- `npm run dev` / `npm run build` の前に `build-exam-backlinks.mjs` が自動実行される
-- 過去問MDX更新後に手動で実行したい場合は `npm run build-backlinks`
+- **本番ビルド時**: `npm run build` に含まれるため、デプロイ時は自動で最新化される
+- **開発中**: `predev` からは除外済み（dev 起動を高速化）。過去問 MDX を更新したら手動で実行:
+
+```bash
+npm run build-backlinks
+git add src/config/past-exam-backlinks.json src/config/exam-question-keywords.json
+git commit -m "content: 過去問バックリンク再生成"
+```
+
+- **一括再生成**: 全静的インデックスをまとめて再生成する場合は `npm run refresh-indexes`
 
 ## サブコマンド
 
@@ -173,7 +181,7 @@ for (const e of entries) {
 - `## II-1-1` (ASCII II) — H21〜H24
 - `## Ⅱ-1-1` (U+2161 ROMAN NUMERAL TWO) — H21-H22
 
-`scripts/build-exam-backlinks.mjs` の抽出正規表現は `/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/` でこれらをカバーしている。新しいフォーマットが出現したら正規表現を拡張する。
+`.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs` の抽出正規表現は `/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/` でこれらをカバーしている。新しいフォーマットが出現したら正規表現を拡張する。
 
 ## 品質チェック観点
 
@@ -217,7 +225,7 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 
 ## 関連ファイル
 
-- `scripts/build-exam-backlinks.mjs` — 生成スクリプト
+- `.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs` — 生成スクリプト
 - `src/config/past-exam-backlinks.json` — キーワード→過去問 逆引き
 - `src/config/exam-question-keywords.json` — 過去問→キーワード 正引き
 - `src/components/ui/PastExamBacklinks/PastExamBacklinks.tsx` — キーワードページ表示

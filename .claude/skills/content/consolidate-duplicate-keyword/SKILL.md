@@ -151,10 +151,10 @@ rm -rf .local/r2/posts/pe-comprehensive-management/B/
 
 ディレクトリ内の `img/` 等付属ファイルも含めて完全削除。**画像が A 側にもコピーされていることを事前確認**すること（SVG 等の図版を B 側にだけ置いているケースがある）。
 
-### フェーズ 5: 自動生成ファイルの再生成
+### フェーズ 5: 静的インデックスの再生成
 
 ```bash
-npm run build-backlinks
+npm run refresh-indexes
 ```
 
 これで以下が自動更新される:
@@ -197,7 +197,7 @@ npm run lint
 ## 重要な注意点
 
 - **slug 名称の意味が失われる場合**: 例えば `public-acceptance-comm` の `-comm` サフィックスは「コミュニケーション文脈」を示す意図だが、統合後は不要になる。残された slug が汎用的な名前であることが望ましい
-- **`exam-question-keywords.json` / `past-exam-backlinks.json` は触らない**: `build-exam-backlinks.mjs` の自動出力、手で書き換えても次回 build で消える
+- **`exam-question-keywords.json` / `past-exam-backlinks.json` は触らない**: `build-exam-backlinks.mjs` の自動出力、手で書き換えても次回 `npm run build-backlinks` で消える
 - **dev 環境での `_redirects`**: Next.js dev server は Cloudflare の `_redirects` を解釈しないため、旧 URL アクセスは dev では 404 のまま。本番デプロイ後に初めて 301 が機能する
 - **物理 HTML と `_redirects` の優先順**: Cloudflare Pages は物理 HTML ファイルを `_redirects` より優先する。`package.json` の build スクリプトに `rm -rf out` が含まれていることで B スラグの古い HTML が残らないようになっている
 
@@ -212,7 +212,7 @@ npm run lint
 | 連携先 | 役割 |
 |---|---|
 | **`.claude/skills/content/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs`** | Step 0 の候補検出 |
-| **`scripts/build-exam-backlinks.mjs`** | Phase 5 の自動生成 |
+| **`.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs`** | Phase 5 の自動生成 |
 | **`/keyword-page revise`** モード | Phase 1 の統合リライト時の編集スキル |
 | **`public/_redirects`** | Phase 6 の 301 リダイレクト定義 |
 
@@ -240,6 +240,6 @@ npm run lint
 
 - `src/config/pe-chapters.json` — キーワード集の構造化データ
 - `.claude/skills/content/consolidate-duplicate-keyword/scripts/find-duplicate-keywords.mjs` — 重複検出（本スキルの入口）
-- `scripts/build-exam-backlinks.mjs` — 自動生成スクリプト
+- `.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs` — 自動生成スクリプト
 - `public/_redirects` — Cloudflare Pages リダイレクト定義
 - `.claude/reference/content-authoring.md` — モバイル視認性ルール（表 → 箇条書きの判断基準）

@@ -16,15 +16,13 @@
  *   }
  *
  * Usage:
- *   node scripts/build-tag-index.mjs
+ *   node .claude/scripts/build-tag-index.mjs
  */
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, dirname, extname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 
-const __filename = fileURLToPath(import.meta.url);
-const ROOT = dirname(dirname(__filename));
+const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, '.local/r2/posts');
 const TAGS_ALLOWLIST_PATH = join(ROOT, 'src/config/tags.json');
 const OUT_PATH = join(ROOT, 'src/config/tag-dictionary.json');

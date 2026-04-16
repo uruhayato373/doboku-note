@@ -126,6 +126,10 @@ unscored → scored → rewriting → needs-review → verified → approved
 | `mdx-io.mjs` | ファイル I/O（CRLF 保持）|
 | `keyword-page` スキル | 個別ページ作成は別系統。quality-cycle はバルク改訂専用 |
 
+## コンテンツ変更後のインデックス再生成
+
+rewrite モード完了後は `npm run refresh-indexes` で静的インデックスを更新すること（本番 `npm run build` では自動）。詳細は `.claude/reference/workflows.md` を参照。
+
 ## 参照
 
 - `docs/project/13_quality-cycle-architecture.md` — システム全体設計（このスキルの真実源）

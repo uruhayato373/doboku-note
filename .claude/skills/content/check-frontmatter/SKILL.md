@@ -103,7 +103,7 @@ HIGH → MEDIUM → LOW の順でユーザーに提示し、以下の修正方�
 | **`/check-mdx`** | MDX 構文検証（内容の検証）、`/check-frontmatter` は frontmatter 専任 |
 | **`scripts/pre-commit-mdx.mjs`** | HIGH 違反を commit 時にブロック（内部的に同じ検証ロジックを使用） |
 | **`.claude/scripts/lib/frontmatter-schema.mjs`** | zod スキーマ実体 |
-| **`scripts/build-tag-index.mjs`** | `tag-dictionary.json` を生成し、`tags-unknown` 検出の参考に |
+| **`.claude/scripts/build-tag-index.mjs`** | `tag-dictionary.json` を生成し、`tags-unknown` 検出の参考に |
 | **`src/config/tags.json`** | タグ allowlist（手動メンテ） |
 
 ## 担当外

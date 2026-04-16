@@ -124,6 +124,14 @@ description: "{titleの内容}。1級土木施工管理技士の試験対応。"
 
 `/check-mdx` を呼び出して変換結果の構文チェックを実行するか確認する。
 
+### Step 7: 静的インデックス再生成
+
+```bash
+npm run refresh-indexes
+```
+
+本番 `npm run build` では自動実行されるが、開発中は手動で実行すること。詳細は `.claude/reference/workflows.md` を参照。
+
 ## 出力フォーマット
 
 ```

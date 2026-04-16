@@ -193,6 +193,10 @@ publishedAt: "{YYYY-MM-DD}"
 | 関連リンク配置 | 本文中にインラインで埋め込む。末尾に `関連キーワード: ...` の列挙行を作らない |
 | モバイル視認性 | `/review-mobile` で HIGH/MEDIUM 違反ゼロ（`.claude/scripts/lint-mdx-mobile.mjs` が裏で走る） |
 
+## コンテンツ変更後のインデックス再生成
+
+開発中にキーワードページを作成・改訂した後は `npm run refresh-indexes` で静的インデックスを更新すること（本番 `npm run build` では自動）。詳細は `.claude/reference/workflows.md`「コンテンツ変更後の静的インデックス再生成」を参照。
+
 ## 参照
 
 - `.claude/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）

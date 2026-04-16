@@ -151,8 +151,8 @@ D1 を真実源にすると:
 | 項目 | 実装ファイル | 参照すべき真実源 |
 |---|---|---|
 | **zod スキーマ** | `.claude/scripts/lib/frontmatter-schema.mjs` + `src/lib/frontmatter-schema.ts` | スキーマ定義・enum 値・型 |
-| **タグ辞書ビルダー** | `scripts/build-tag-index.mjs` → `src/config/tag-dictionary.json` | 全 MDX から集計、allowlist (`src/config/tags.json`) とのドリフト検出 |
-| **試験横断キーワード** | `scripts/build-cross-exam-keyword-index.mjs` → `src/config/cross-exam-keywords.json` | `exams:` 配列の集計、真のクロス試験 entry 検出 |
+| **タグ辞書ビルダー** | `.claude/scripts/build-tag-index.mjs` → `src/config/tag-dictionary.json` | 全 MDX から集計、allowlist (`src/config/tags.json`) とのドリフト検出 |
+| **試験横断キーワード** | `.claude/scripts/build-cross-exam-keyword-index.mjs` → `src/config/cross-exam-keywords.json` | `exams:` 配列の集計、真のクロス試験 entry 検出 |
 | **frontmatter lint** | `.claude/scripts/lint-frontmatter.mjs` | HIGH/MEDIUM/LOW ルール本体 |
 | **pre-commit 検証** | `scripts/pre-commit-mdx.mjs` | HIGH ブロック、MEDIUM/LOW 警告 |
 | **スキル** | `.claude/skills/content/check-frontmatter/SKILL.md` | **ルール一覧の真実源**、ユーザー向けドキュメント |

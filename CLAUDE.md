@@ -164,12 +164,17 @@ npm run type-check        # TypeScript チェック
 /sync-r2-images           # R2 上の画像をローカルに同期（初回・追加時）
 npm run upload-images-r2  # .local/r2/posts/**/img/ を R2 にアップロード
 
+# 静的インデックス再生成（build に含まれるが、開発中にオンデマンドでも実行可）
+npm run refresh-indexes   # 全静的インデックス一括再生成（backlinks + cross-exam + tags）
+npm run build-backlinks   # 過去問⇔キーワード紐付けJSON再生成
+npm run build-indexes     # 試験横断キーワード + タグ辞書の再生成
+
 # その他
 npm run lint              # ESLint チェック
 npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ```
 
-**Note**: `npm run dev` 実行時、`predev` スクリプトが自動的に実行され、ポート 3020 が使用中の場合は強制終了してからサーバーを起動する。
+**Note**: `npm run dev` 実行時、`predev` スクリプトがポート 3020 のクリーンアップのみ実行する（高速起動）。静的インデックス（backlinks・cross-exam・tags）は `npm run build` 時に自動再生成されるため、本番デプロイ時は常に最新。開発中に過去問やタグを変更した場合は `npm run refresh-indexes` で手動再生成。
 
 ## 実装時の行動原則
 

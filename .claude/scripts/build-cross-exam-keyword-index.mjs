@@ -8,15 +8,13 @@
  * 参照: docs/project/17_data-storage-strategy.md §5.3
  *
  * Usage:
- *   node scripts/build-cross-exam-keyword-index.mjs
+ *   node .claude/scripts/build-cross-exam-keyword-index.mjs
  */
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, dirname, basename, extname } from 'node:path';
-import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
 
-const __filename = fileURLToPath(import.meta.url);
-const ROOT = dirname(dirname(__filename));
+const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, '.local/r2/posts');
 const OUT_PATH = join(ROOT, 'src/config/cross-exam-keywords.json');
 

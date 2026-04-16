@@ -51,6 +51,44 @@
 
 ---
 
+## コンテンツ変更後の静的インデックス再生成
+
+MDX を作成・編集・削除した後、以下の静的 JSON インデックスが影響を受ける可能性がある。
+
+| インデックス | トリガー | npm コマンド |
+|---|---|---|
+| `past-exam-backlinks.json` | 過去問の `<RelatedKeywords>` 追加・変更 | `npm run build-backlinks` |
+| `exam-question-keywords.json` | 同上 | 同上 |
+| `cross-exam-keywords.json` | frontmatter `exams` フィールド変更 | `npm run build-indexes` |
+| `tag-dictionary.json` | frontmatter `tags` フィールド変更 | 同上 |
+
+### 本番ビルド（自動）
+
+`npm run build` に `refresh-indexes` が含まれているため、**本番デプロイ時は自動で全インデックスが最新化される**。実行忘れによるデプロイ事故は発生しない。
+
+### 開発中（手動）
+
+`npm run dev` ではインデックス再生成をスキップして高速起動する。コンテンツ変更後に開発環境で最新のインデックスが必要な場合:
+
+```bash
+npm run refresh-indexes   # 全 3 インデックスを一括再生成
+```
+
+### どのスキル実行後に必要か
+
+以下のスキルでコンテンツを作成・変更した後は、開発中なら `npm run refresh-indexes` を実行すること:
+
+- `/keyword-page` — キーワードページ作成・改訂
+- `/exam-backlinks rebuild` — 過去問バックリンク再構築
+- `/quality-cycle --mode rewrite` — キーワードページ一括リライト
+- `/consolidate-duplicate-keyword` — 重複キーワード統合
+- `/pdf-to-mdx`, `/civil-construction-1-pdf-to-mdx` — PDF→MDX 変換
+- `/promote-to-site` — コンテンツ本番移行
+
+**検索インデックス**（`public/search-index.json`）は `npm run build` 時に常に再生成されるため、手動管理不要。
+
+---
+
 ## リスク評価
 
 ```
