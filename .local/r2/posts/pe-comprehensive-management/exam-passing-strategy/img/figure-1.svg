@@ -37,8 +37,8 @@
 
   <!-- Step 4 -->
   <text x="15" y="348" font-size="11" fill="#888">STEP 4</text>
-  <rect x="15" y="355" width="350" height="70" rx="8" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="1.5"/>
-  <text x="190" y="385" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">俯瞰的な解決策</text>
-  <text x="190" y="408" text-anchor="middle" font-size="13" fill="#e8f0fe">第三の管理を活用し全体最適を導く</text>
+  <rect x="15" y="355" width="350" height="70" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="190" y="385" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">俯瞰的な解決策</text>
+  <text x="190" y="408" text-anchor="middle" font-size="13" fill="#555">第三の管理を活用し全体最適を導く</text>
 
 </svg>

@@ -41,8 +41,8 @@
   <line x1="190" y1="296" x2="190" y2="316" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr2)"/>
 
   <!-- Step 5 -->
-  <rect x="15" y="318" width="350" height="55" rx="8" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="1.5"/>
-  <text x="190" y="341" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">Step 5: 5つの業務に絞り込み</text>
-  <text x="190" y="360" text-anchor="middle" font-size="13" fill="#e8f0fe">バランスと成長ストーリーを意識</text>
+  <rect x="15" y="318" width="350" height="55" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="190" y="341" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">Step 5: 5つの業務に絞り込み</text>
+  <text x="190" y="360" text-anchor="middle" font-size="13" fill="#555">バランスと成長ストーリーを意識</text>
 
 </svg>
