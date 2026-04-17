@@ -170,9 +170,10 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 <ArticleImage
   src="/posts/{slug}/img/figure-{N}.svg"
   alt="図の説明"
-  caption="図: キャプション"
 />
 ```
+
+**`caption` 属性は使用しない。** `.claude/content-principles.md` 「`<ArticleImage>` の caption は使わない」ルールに従い、`alt` のみ設定する。図の内容は本文で説明する。
 
 ### Step 5: コミット
 

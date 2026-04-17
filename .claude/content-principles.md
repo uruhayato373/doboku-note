@@ -189,6 +189,41 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 - URL形式: `https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}`
 - MDX では `**[text](url)**` が正しくパースされないため、太字はリンクテキストの内側に置く: `[**法律名第◯条**](url)`
 
+### 13. 計算例・具体例で概念を補強する（条件付き）
+
+概念の理解を深めるために計算例・適用例を記載するかどうかは、キーワードごとに判断する。**以下の 3 条件を全て満たすキーワードにのみ記載** し、満たさないキーワードには書かない（冗長・論点拡散の原因となる）。
+
+**適用条件**（全て満たす必要あり）:
+
+- **条件 A**: 過去問で具体的な数値問題・計算問題として出題される
+- **条件 B**: 条件・順序・配分等で結果が変わり、直感と一致しない側面を持つ
+- **条件 C**: 式または数値表で「なぜそうなるか」の根拠を示せる
+
+**書き方**:
+
+- 数式は原則 10 に従い KaTeX（`$$...$$` または `$...$`）または SVG を使う。**コードブロック（\`\`\`）は使わない**
+- 計算例は 1 つに絞る（複数並べると冗長）
+- 出題源の過去問へインラインリンクを張り、計算例の出所を明示する
+- 変数を使う場合は必ず定義を添える（例: 「ここで $C_i$ は $i$ 番目に処理した作業の完了時刻」）
+- 計算過程は番号付きリストまたは箇条書きで示す（表セル内に KaTeX は入れない）
+
+**該当する例**（計算例を記載すべきキーワード）:
+
+- [リードタイム](/docs/pe-comprehensive-management-lead-time) — SPT ルールと平均フロータイム計算
+- [工程能力指数](/docs/pe-comprehensive-management-process-capability-index) — Cp/Cpk の数値例
+- [損益分岐点](/docs/pe-comprehensive-management-break-even-point) — 売上高・費用の数値例
+- [正味現在価値](/docs/pe-comprehensive-management-npv-net-present-value) — 割引率と NPV 計算
+- [線形計画法](/docs/pe-comprehensive-management-linear-programming) — 実行可能領域と目的関数
+- [PERT/CPM](/docs/pe-comprehensive-management-pert-cpm) — クリティカルパスの計算
+
+**該当しない例**（計算例を記載すべきでないキーワード）:
+
+- [フォロワーシップ](/docs/pe-comprehensive-management-followership) — 定性概念
+- [組織コミットメント](/docs/pe-comprehensive-management-organizational-commitment) — 定性概念
+- [サーバントリーダーシップ](/docs/pe-comprehensive-management-servant-leadership) — 定性概念
+
+**判断に迷ったときの自己チェック**: 「この概念を過去問で問われたとき、計算なしで正解が導けるか？」── Yes なら記載不要、No なら条件 A/B/C を改めて検証する。
+
 ## コンテンツ品質レベル（L1 / L2 / L3）
 
 コンテンツの品質を3層に分け、対象ごとに到達すべきレベルを明確にする。すべてのコンテンツにL3を求めない。
