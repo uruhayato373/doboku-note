@@ -8,6 +8,9 @@ tags:
   - 総合技術監理
   - keyword
 published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
 publishedAt: '2026-04-08'
 seoTitle: フィッシング詐欺・ファーミング詐欺 ｜ 総合技術監理 キーワード集 2026
 ---
@@ -44,12 +47,18 @@ seoTitle: フィッシング詐欺・ファーミング詐欺 ｜ 総合技術�
 
 ### フィッシングとファーミングの比較
 
-| 項目 | フィッシング | ファーミング |
-|---|---|---|
-| **誘導方法** | 偽メール・SMSで利用者を騙す | DNS改ざんで自動転送 |
-| **利用者の行動** | 偽リンクをクリックする | 正しいURLを入力しても偽サイトへ |
-| **検知の難易度** | 注意すれば偽メールに気づける | 利用者が気づきにくい |
-| **攻撃対象** | 個人単位 | ネットワーク・DNS単位で広範囲 |
+- **誘導方法**
+  - フィッシング: 偽メール・SMSで利用者を騙して偽サイトに誘導
+  - ファーミング: DNS改ざんにより正規URL入力でも自動転送
+- **利用者の行動**
+  - フィッシング: 偽リンクをクリックして偽サイトへ遷移
+  - ファーミング: 正しいURLを入力しても偽サイトへ転送される
+- **検知の難易度**
+  - フィッシング: 注意すれば偽メールに気づける
+  - ファーミング: URLが正規のまま表示されるため利用者が気づきにくい
+- **攻撃対象**
+  - フィッシング: 個人単位
+  - ファーミング: ネットワーク・DNS単位で広範囲
 
 ## 被害例
 
@@ -88,3 +97,9 @@ DNSキャッシュポイズニングにより、正規のURLを入力した多�
 技術的対策（多要素認証・DNSSEC）と利用者のリテラシー向上を組み合わせた対策が、総合技術監理の視点では重要となる。
 
 関連キーワード: [多要素認証](/docs/pe-comprehensive-management-multi-factor-authentication)、[個人情報](/docs/pe-comprehensive-management-personal-information)
+
+## 参考資料
+
+- [フィッシング詐欺とは？ | 国民のためのサイバーセキュリティサイト（総務省）](https://www.soumu.go.jp/main_sosiki/cybersecurity/kokumin/basic/risk/04/)
+- [フィッシング対策 | 警察庁](https://www.npa.go.jp/bureau/cyber/countermeasures/phishing.html)
+- [ファーミングとは？フィッシングとの違いや有効な対策を解説 | wiz LANSCOPE ブログ](https://www.lanscope.jp/blogs/cyber_attack_cp_blog/20240131_18795/)
