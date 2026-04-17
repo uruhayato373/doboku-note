@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 445 370" role="img" aria-label="5管理10ペアの出題頻度マトリクス">
+<svg width="445" height="370" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 445 370" role="img" aria-label="5管理10ペアの出題頻度マトリクス" style="max-width:445px;width:100%">
   <style>
     .label { fill: #1f2937; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; font-weight: bold; }
     .cell-main { fill: #ffffff; font-family: sans-serif; font-weight: bold; }

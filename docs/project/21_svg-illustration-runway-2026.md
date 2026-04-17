@@ -125,6 +125,14 @@
 - [ ] `npm run build` が成功する
 - [ ] 本番デプロイ後、`storage.doboku-note.com` 配下に SVG がミラーされる（`npm run upload-images-r2`）
 
+## Tier 2（Tier 1 完走後の候補・随時追加）
+
+校正作業の流れで追加した、あるいは追加が望ましいと判明したキーワードを記録する。優先度は Tier 1 より低いが、個別依頼があれば即対応する。
+
+| # | slug | 図解の核心 | 管理分野 | ステータス |
+|---|---|---|---|---|
+| T2-1 | `progress-management` | バナナ曲線（出来高累積）+ EVM グラフ（PV/EV/AC） | 工程管理 (2.3) | ✅ 完了（2026-04-17） |
+
 ## Out of Scope
 
 以下は本プランでは扱わない（将来別プラン化）：
@@ -132,5 +140,4 @@
 - civil-construction-1（1級土木）キーワードの SVG 図版化
 - 過去問 MDX の図復元（`20_primary-exam-figure-restoration.md` で別管理）
 - 既存 SVG のリデザイン
-- Tier 2 キーワード（Tier 1 完走後に別途策定）
 - SVG の多言語対応

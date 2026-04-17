@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 375" style="max-width:400px;width:100%" role="img" aria-label="TBM（時間基準保全）とCBM（状態基準保全）の比較：契機・特徴・長所・短所">
+<!-- source: https://en.musashi-engineering.co.jp/blog/column/mt008 (構図着想のみ・独自作図) -->
+<style>
+  text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1a3a5c; }
+  .main-title { font-size: 16px; font-weight: bold; }
+  .main-sub { font-size: 12px; fill: #555; }
+  .col-title { font-size: 14px; font-weight: bold; }
+  .col-sub { font-size: 12px; fill: #555; }
+  .axis-label { font-size: 12px; font-weight: bold; }
+  .axis-value { font-size: 13px; }
+</style>
+
+<!-- Hook section: TBM vs CBM headline -->
+<rect x="5" y="5" width="390" height="60" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="200" y="30" text-anchor="middle" class="main-title">TBM vs CBM</text>
+<text x="200" y="52" text-anchor="middle" class="main-sub">「推測」か「実測」か — 保全の契機を分ける</text>
+
+<!-- Left column: TBM -->
+<rect x="5" y="75" width="192" height="290" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="101" y="102" text-anchor="middle" class="col-title">定期保全（TBM）</text>
+<text x="101" y="122" text-anchor="middle" class="col-sub">時間基準 — 推測で交換</text>
+<line x1="15" y1="135" x2="187" y2="135" stroke="#2e6da4" stroke-width="1"/>
+
+<text x="20" y="158" class="axis-label">契機</text>
+<text x="20" y="178" class="axis-value">時間・使用量</text>
+
+<text x="20" y="208" class="axis-label">特徴</text>
+<text x="20" y="228" class="axis-value">周期的に交換・整備</text>
+
+<text x="20" y="258" class="axis-label">長所</text>
+<text x="20" y="278" class="axis-value">計画が立てやすい</text>
+
+<text x="20" y="308" class="axis-label">短所</text>
+<text x="20" y="328" class="axis-value">部品を無駄に交換</text>
+
+<!-- Right column: CBM -->
+<rect x="203" y="75" width="192" height="290" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="299" y="102" text-anchor="middle" class="col-title">予知保全（CBM）</text>
+<text x="299" y="122" text-anchor="middle" class="col-sub">状態基準 — 実測で判断</text>
+<line x1="213" y1="135" x2="385" y2="135" stroke="#3a7d44" stroke-width="1"/>
+
+<text x="218" y="158" class="axis-label">契機</text>
+<text x="218" y="178" class="axis-value">設備の状態・劣化兆候</text>
+
+<text x="218" y="208" class="axis-label">特徴</text>
+<text x="218" y="228" class="axis-value">状態監視で最適化</text>
+
+<text x="218" y="258" class="axis-label">長所</text>
+<text x="218" y="278" class="axis-value">残存寿命を最大活用</text>
+
+<text x="218" y="308" class="axis-label">短所</text>
+<text x="218" y="328" class="axis-value">初期投資が必要</text>
+</svg>
