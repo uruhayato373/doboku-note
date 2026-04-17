@@ -3508,12 +3508,19 @@
       ]
     },
     "equipment-reliability": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.074Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.65,
+          "method": "batch-approve"
         }
       ]
     },
@@ -3562,12 +3569,19 @@
       ]
     },
     "fire-service-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.150Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -4666,82 +4680,138 @@
       ]
     },
     "extrinsic-motivation": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.862Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "fixed-communication": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.079Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.65,
+          "method": "batch-approve"
         }
       ]
     },
     "followership": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.084Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.65,
+          "method": "batch-approve"
         }
       ]
     },
     "formal-informal-organization": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.761Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "forum-standard": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.768Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "four-m-of-production": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.068Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.7,
+          "method": "batch-approve"
         }
       ]
     },
     "four-major-pollution-diseases": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.772Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "four-p-analysis": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.929Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
@@ -4756,212 +4826,359 @@
       ]
     },
     "gender-equality-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.777Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "gender-gap": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.781Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "gfc-chemicals-framework": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.786Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "green-infrastructure": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.868Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "groupware": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.791Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "hawthorne-experiment": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.090Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.65,
+          "method": "batch-approve"
         }
       ]
     },
     "hazard-map": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.919Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.85,
+          "method": "batch-approve"
         }
       ]
     },
     "herzberg-two-factor-theory": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.795Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "high-pressure-gas-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.800Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "highly-professional-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.873Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "hr-systems": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.877Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "human-capital-disclosure": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.883Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "human-development-index": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.805Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "idea-generation-methods": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.924Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.8,
+          "method": "batch-approve"
         }
       ]
     },
     "immigration-control-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.888Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "improvement-maintenance": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.893Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "incentive": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.809Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "indefinite-conversion-rule": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.813Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "individual-labor-dispute-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.819Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "individual-wage-management": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.826Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "information-disclosure-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.833Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
@@ -4976,42 +5193,70 @@
       ]
     },
     "initial-investment": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.838Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "integrity-security": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.934Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "interim-storage-facility": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.842Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "internal-job-posting": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.156Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5026,42 +5271,70 @@
       ]
     },
     "internet": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.161Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "intrinsic-motivation": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.939Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "invasive-alien-species": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.943Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "iot": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.898Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5076,62 +5349,104 @@
       ]
     },
     "ip-protection": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.948Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "ip-utilization": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.954Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "ipbes": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.959Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "job-based-pay": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.167Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "job-design": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.963Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "key-performance-indicators": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.134Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.55,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5146,22 +5461,36 @@
       ]
     },
     "labor-policy-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.848Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "labor-productivity": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.172Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5176,22 +5505,36 @@
       ]
     },
     "labor-share-ratio": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.177Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "labor-tribunal-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.182Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5206,52 +5549,87 @@
       ]
     },
     "lgbt-understanding-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.187Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "lgbtq": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.193Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "linear-programming": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.197Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "linear-regression": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.969Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "location-limited-employee": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.203Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5286,72 +5664,121 @@
       ]
     },
     "maintenance-prevention": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.904Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "malware": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.208Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "maslow-hierarchy-of-needs": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.214Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "mass-communication": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.220Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "matrix-organization": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.225Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "mcgregor-xy-theory": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.974Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "mental-health-care": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.230Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5366,12 +5793,19 @@
       ]
     },
     "millennium-ecosystem-assessment": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.978Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5396,22 +5830,36 @@
       ]
     },
     "multi-track-hr-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.237Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "my-number-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.247Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5426,82 +5874,138 @@
       ]
     },
     "national-resilience-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.256Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "natural-parks-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.984Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "nature-conservation-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.988Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "nature-positive": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.264Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "nature-restoration-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.272Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "network-organization": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.993Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "non-repudiation": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.279Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "nuclear-disaster-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.288Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5516,52 +6020,87 @@
       ]
     },
     "ocean-plastic": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.295Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "online-meetings": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.998Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "operation-errors": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.302Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "opt-in-opt-out": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.003Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "organizational-commitment": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.307Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5576,32 +6115,53 @@
       ]
     },
     "part-time-fixed-term-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.908Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
     "password-security": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.312Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "payback-period-method": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.111Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.6,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5626,112 +6186,189 @@
       ]
     },
     "performance-based-pay": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.318Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "performance-linked-bonus": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.323Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "personal-info-utilization": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.328Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "personal-information": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.008Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "pfi": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.139Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.55,
+          "method": "batch-approve"
         }
       ]
     },
     "phishing-pharming": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.335Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "planned-usage-period": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.012Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "positive-action": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.340Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "power-harassment": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.345Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "ppm-analysis": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.853Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
         }
       ]
     },
     "predictive-maintenance": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.094Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.65,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5746,12 +6383,19 @@
       ]
     },
     "privacy-mark": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.351Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5766,32 +6410,53 @@
       ]
     },
     "process-safety-mgmt": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.356Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "product-liability-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.362Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "production-management-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.017Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5816,12 +6481,19 @@
       ]
     },
     "public-private-data-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.913Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.9,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5866,12 +6538,19 @@
       ]
     },
     "red-list": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.118Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.6,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5906,12 +6585,19 @@
       ]
     },
     "resilience": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.370Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5936,32 +6622,53 @@
       ]
     },
     "role-grade-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.377Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "rpa": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.101Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.65,
+          "method": "batch-approve"
         }
       ]
     },
     "safety-and-security": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.385Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5976,12 +6683,19 @@
       ]
     },
     "safety-culture": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.393Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -5996,32 +6710,53 @@
       ]
     },
     "safety-investment": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.400Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "safety-management-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.405Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "safety-objectives": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.411Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6046,12 +6781,19 @@
       ]
     },
     "scientific-management": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.417Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6066,12 +6808,19 @@
       ]
     },
     "sdgs": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.424Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6096,32 +6845,53 @@
       ]
     },
     "self-declaration-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.430Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "seniority-wage": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.436Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "series-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.022Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6146,82 +6916,138 @@
       ]
     },
     "sexual-harassment": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.441Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "sfa-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.446Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "side-jobs": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.027Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "skill-based-pay": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.453Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "skill-qualification-system": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.032Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "smart-safety": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.459Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "social-engineering": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.123Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.6,
+          "method": "batch-approve"
         }
       ]
     },
     "soil-contamination-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.037Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6236,22 +7062,36 @@
       ]
     },
     "species-preservation-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.466Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "standardization-strategy": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.474Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6266,22 +7106,36 @@
       ]
     },
     "subcontracting-act": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.042Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "sustainable-fashion": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.483Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6296,52 +7150,87 @@
       ]
     },
     "system-integrity": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.106Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.65,
+          "method": "batch-approve"
         }
       ]
     },
     "system-outage-degradation": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.491Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "system-safety": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.499Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "system-security": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.047Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
     "system-serviceability": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.053Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6366,22 +7255,36 @@
       ]
     },
     "teal-organization": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.506Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
     "technology-licensing": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.513Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6396,12 +7299,19 @@
       ]
     },
     "threat-awareness-training": {
-      "status": "rewritten",
+      "status": "approved",
       "history": [
         {
           "date": "2026-04-17T00:00:00.000Z",
           "action": "rewritten",
           "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.128Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.6,
+          "method": "batch-approve"
         }
       ]
     },
@@ -6416,6 +7326,312 @@
       ]
     },
     "trademark-rights": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.519Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "tripod-theory": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "un-human-environment-conf": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.525Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "unauthorized-access": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "unfair-competition-prevention-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "unreasonable-trade-restraint": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.541Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "utility-model-rights": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "value-chain-analysis": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:39.858Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 3,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "value-engineering": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.144Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.55,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "variable-work-hours": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "verbal-nonverbal-communication": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.552Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.5,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "vocational-training-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "vr-ar-metaverse": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "vulnerability": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "waste-management-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "water-pollution-control-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "waterfall": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.058Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "wced": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "web-services": {
+      "status": "approved",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        },
+        {
+          "date": "2026-04-17T05:58:40.062Z",
+          "action": "approved",
+          "wave": "G-7-batch",
+          "weighted": 2.75,
+          "method": "batch-approve"
+        }
+      ]
+    },
+    "wellbeing-org": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "wildlife-protection-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "women-empowerment-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "work-life-balance": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "worker-dispatch-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "workers-compensation-insurance": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-04-17T00:00:00.000Z",
+          "action": "rewritten",
+          "wave": "backfill"
+        }
+      ]
+    },
+    "youth-employment-act": {
       "status": "rewritten",
       "history": [
         {
