@@ -11,10 +11,24 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "新規タブ"
+              "title": "安全管理"
             }
           }
         ]
@@ -415,10 +429,10 @@
             "id": "efd5cea0b04657c7",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -430,9 +444,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "b90d4fde392a28e5",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 22
+        "currentTab": 23
       }
     ],
     "direction": "horizontal",
@@ -462,8 +486,9 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "164763cde4119ea7",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "rewrite-indefinite-conversion-rule.mjs",
     "scripts/batch-approve.mjs",
     "docs/textbook/行政書士/行政書士問題集その２.pdf",
     "docs/textbook/行政書士/行政書士問題集その１.pdf",
@@ -474,7 +499,6 @@
     "docs/textbook/行政書士",
     "docs/textbook/技術士（建設部門）/論文対策キーワード/2-5-持続可能で活力ある国土・地域づくり.pdf",
     "docs/textbook/技術士（建設部門）/論文対策キーワード",
-    "docs/textbook/技術士（建設部門）",
     "docs/textbook/技術士（総監）/テキスト/総監受験万全対策/総監_第1章.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-6.svg",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/安全管理/fig-4-15.svg",
