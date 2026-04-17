@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-04-17T05:59:23.720Z",
+  "generated_at": "2026-04-17T06:50:41.477Z",
   "summary": {
     "total_mdx_files": 769,
     "total_unique_tags": 40,
@@ -660,7 +660,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 371,
+      "count": 373,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -948,6 +948,8 @@
         "pe-comprehensive-management-right-to-know",
         "pe-comprehensive-management-rio-declaration",
         "pe-comprehensive-management-risk-assessment",
+        "pe-comprehensive-management-risk-perception",
+        "pe-comprehensive-management-risk-treatment",
         "pe-comprehensive-management-rohs-weee",
         "pe-comprehensive-management-role-grade-system",
         "pe-comprehensive-management-rpa",
