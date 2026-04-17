@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 200" role="img" aria-label="日常業務での5管理マッピングフロー">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 480" role="img" aria-label="日常業務での5管理マッピングフロー">
   <defs>
     <marker id="arrow1" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
@@ -9,44 +9,39 @@
   </style>
 
   <!-- Step 1 -->
-  <rect x="10" y="60" width="130" height="80" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-  <text x="75" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">日常業務の課題</text>
-  <text x="75" y="112" text-anchor="middle" font-size="11" fill="#555">橋梁補修、施工計画</text>
-  <text x="75" y="128" text-anchor="middle" font-size="11" fill="#555">DX推進 など</text>
+  <text x="15" y="18" font-size="11" fill="#888">STEP 1</text>
+  <rect x="15" y="25" width="350" height="70" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="190" y="55" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">日常業務の課題</text>
+  <text x="190" y="78" text-anchor="middle" font-size="13" fill="#555">橋梁補修、施工計画、DX推進 など</text>
 
   <!-- Arrow 1→2 -->
-  <line x1="140" y1="100" x2="170" y2="100" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow1)"/>
+  <line x1="190" y1="95" x2="190" y2="115" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow1)"/>
 
   <!-- Step 2 -->
-  <rect x="172" y="60" width="140" height="80" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
-  <text x="242" y="88" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">キーワード集の</text>
-  <text x="242" y="105" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">用語に置き換え</text>
-  <text x="242" y="128" text-anchor="middle" font-size="11" fill="#555">「この課題は何管理？」</text>
+  <text x="15" y="128" font-size="11" fill="#888">STEP 2</text>
+  <rect x="15" y="135" width="350" height="70" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="190" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">キーワード集の用語に置き換え</text>
+  <text x="190" y="188" text-anchor="middle" font-size="13" fill="#555">「この課題は何管理に該当するか？」</text>
 
   <!-- Arrow 2→3 -->
-  <line x1="312" y1="100" x2="342" y2="100" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow1)"/>
+  <line x1="190" y1="205" x2="190" y2="225" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow1)"/>
 
   <!-- Step 3 -->
-  <rect x="344" y="60" width="140" height="80" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <text x="414" y="88" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">トレードオフを</text>
-  <text x="414" y="105" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">特定</text>
-  <text x="414" y="128" text-anchor="middle" font-size="11" fill="#555">管理間の対立を発見</text>
+  <text x="15" y="238" font-size="11" fill="#888">STEP 3</text>
+  <rect x="15" y="245" width="350" height="70" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="190" y="275" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">トレードオフを特定</text>
+  <text x="190" y="298" text-anchor="middle" font-size="13" fill="#555">管理間の対立構造を発見する</text>
 
   <!-- Arrow 3→4 -->
-  <line x1="484" y1="100" x2="514" y2="100" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow1)"/>
+  <line x1="190" y1="315" x2="190" y2="335" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow1)"/>
 
   <!-- Step 4 -->
-  <rect x="516" y="60" width="150" height="80" rx="8" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="1.5"/>
-  <text x="591" y="90" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">俯瞰的な解決策</text>
-  <text x="591" y="112" text-anchor="middle" font-size="11" fill="#e8f0fe">第三の管理を活用し</text>
-  <text x="591" y="128" text-anchor="middle" font-size="11" fill="#e8f0fe">全体最適を導く</text>
-
-  <!-- Labels -->
-  <text x="155" y="45" text-anchor="middle" font-size="10" fill="#888">STEP 1</text>
-  <text x="242" y="45" text-anchor="middle" font-size="10" fill="#888">STEP 2</text>
-  <text x="414" y="45" text-anchor="middle" font-size="10" fill="#888">STEP 3</text>
-  <text x="591" y="45" text-anchor="middle" font-size="10" fill="#888">STEP 4</text>
+  <text x="15" y="348" font-size="11" fill="#888">STEP 4</text>
+  <rect x="15" y="355" width="350" height="70" rx="8" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="1.5"/>
+  <text x="190" y="385" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">俯瞰的な解決策</text>
+  <text x="190" y="408" text-anchor="middle" font-size="13" fill="#e8f0fe">第三の管理を活用し全体最適を導く</text>
 
   <!-- Bottom note -->
-  <text x="340" y="175" text-anchor="middle" font-size="11" fill="#888">このサイクルを日常業務で繰り返すことで、記述式の「総監的視点」が身につく</text>
+  <text x="190" y="460" text-anchor="middle" font-size="11" fill="#888">このサイクルを日常業務で繰り返すことで</text>
+  <text x="190" y="475" text-anchor="middle" font-size="11" fill="#888">記述式の「総監的視点」が身につく</text>
 </svg>

@@ -50,6 +50,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
 - 図表: Mermaid コードブロック
 - スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
+- SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/content/create-svg/SKILL.md`）を参照
 
 ## モバイル視認性（詳細ルール）
 
