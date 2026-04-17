@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-17T00:48:20.590Z",
+  "scored_at": "2026-04-17T00:57:12.409Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -13,7 +13,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.165Z",
+      "scored_at": "2026-04-17T00:56:11.983Z",
       "scoring_method": "auto"
     },
     "income-statement": {
@@ -27,7 +27,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:43.452Z",
+      "scored_at": "2026-04-17T00:56:34.882Z",
       "scoring_method": "auto"
     },
     "antitrust-compliance": {
@@ -41,7 +41,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.328Z",
+      "scored_at": "2026-04-17T00:56:11.239Z",
       "scoring_method": "auto"
     },
     "portrait-publicity-privacy": {
@@ -55,7 +55,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:00.280Z",
+      "scored_at": "2026-04-17T00:56:51.657Z",
       "scoring_method": "auto"
     },
     "descriptive-statistics": {
@@ -69,7 +69,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:28.839Z",
+      "scored_at": "2026-04-17T00:56:21.254Z",
       "scoring_method": "auto"
     },
     "agile": {
@@ -83,7 +83,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.298Z",
+      "scored_at": "2026-04-17T00:56:10.336Z",
       "scoring_method": "auto"
     },
     "estimation-testing": {
@@ -97,7 +97,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:36.168Z",
+      "scored_at": "2026-04-17T00:56:27.754Z",
       "scoring_method": "auto"
     },
     "ecrs-principle": {
@@ -111,7 +111,7 @@
       },
       "weighted": 2.85,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:32.856Z",
+      "scored_at": "2026-04-17T00:56:24.824Z",
       "scoring_method": "auto"
     },
     "design-thinking": {
@@ -125,7 +125,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:29.380Z",
+      "scored_at": "2026-04-17T00:56:21.821Z",
       "scoring_method": "auto"
     },
     "citizen-participation": {
@@ -139,7 +139,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:22.643Z",
+      "scored_at": "2026-04-17T00:56:15.082Z",
       "scoring_method": "auto"
     },
     "occupational-safety-act": {
@@ -153,7 +153,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:55.569Z",
+      "scored_at": "2026-04-17T00:56:46.876Z",
       "scoring_method": "auto"
     },
     "system-reliability": {
@@ -167,7 +167,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:14.210Z",
+      "scored_at": "2026-04-17T00:57:06.157Z",
       "scoring_method": "auto"
     },
     "labor-standards-act": {
@@ -181,7 +181,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:49.310Z",
+      "scored_at": "2026-04-17T00:56:40.504Z",
       "scoring_method": "auto"
     },
     "reliability-maintainability-design": {
@@ -195,7 +195,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:05.695Z",
+      "scored_at": "2026-04-17T00:56:57.268Z",
       "scoring_method": "auto"
     },
     "business-continuity-plan": {
@@ -209,7 +209,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.671Z",
+      "scored_at": "2026-04-17T00:56:13.349Z",
       "scoring_method": "auto"
     },
     "copyright": {
@@ -223,7 +223,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:25.154Z",
+      "scored_at": "2026-04-17T00:56:17.978Z",
       "scoring_method": "auto"
     },
     "public-acceptance": {
@@ -237,7 +237,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:02.992Z",
+      "scored_at": "2026-04-17T00:56:54.477Z",
       "scoring_method": "auto"
     },
     "process-planning-construction": {
@@ -253,7 +253,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:02.047Z",
+      "scored_at": "2026-04-17T00:56:53.554Z",
       "scoring_method": "auto"
     },
     "risk-assessment": {
@@ -267,7 +267,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:06.683Z",
+      "scored_at": "2026-04-17T00:56:58.496Z",
       "scoring_method": "auto"
     },
     "reemployment-system": {
@@ -281,7 +281,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:05.348Z",
+      "scored_at": "2026-04-17T00:56:56.875Z",
       "scoring_method": "auto"
     },
     "isms-iso27001": {
@@ -295,7 +295,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:47.091Z",
+      "scored_at": "2026-04-17T00:56:38.213Z",
       "scoring_method": "auto"
     },
     "iso-14000": {
@@ -309,7 +309,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:47.187Z",
+      "scored_at": "2026-04-17T00:56:38.301Z",
       "scoring_method": "auto"
     },
     "correlation-analysis": {
@@ -323,7 +323,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:25.370Z",
+      "scored_at": "2026-04-17T00:56:18.186Z",
       "scoring_method": "auto"
     },
     "generative-ai": {
@@ -337,7 +337,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:40.048Z",
+      "scored_at": "2026-04-17T00:56:31.464Z",
       "scoring_method": "auto"
     },
     "employment-insurance": {
@@ -351,7 +351,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:33.823Z",
+      "scored_at": "2026-04-17T00:56:25.614Z",
       "scoring_method": "auto"
     },
     "product-safety": {
@@ -365,7 +365,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:02.509Z",
+      "scored_at": "2026-04-17T00:56:53.991Z",
       "scoring_method": "auto"
     },
     "alps-treated-water": {
@@ -379,7 +379,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.872Z",
+      "scored_at": "2026-04-17T00:56:10.836Z",
       "scoring_method": "auto"
     },
     "environmental-basic-plan": {
@@ -393,7 +393,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:34.615Z",
+      "scored_at": "2026-04-17T00:56:26.368Z",
       "scoring_method": "auto"
     },
     "zero-trust": {
@@ -407,7 +407,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:20.586Z",
+      "scored_at": "2026-04-17T00:57:12.407Z",
       "scoring_method": "auto"
     },
     "firewall-ids": {
@@ -421,7 +421,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:37.318Z",
+      "scored_at": "2026-04-17T00:56:28.930Z",
       "scoring_method": "auto"
     },
     "jisec": {
@@ -435,7 +435,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:47.442Z",
+      "scored_at": "2026-04-17T00:56:38.602Z",
       "scoring_method": "auto"
     },
     "bathtub-curve": {
@@ -449,7 +449,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.345Z",
+      "scored_at": "2026-04-17T00:56:12.142Z",
       "scoring_method": "auto"
     },
     "preventive-maintenance": {
@@ -463,7 +463,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:01.220Z",
+      "scored_at": "2026-04-17T00:56:52.641Z",
       "scoring_method": "auto"
     },
     "encryption-digital-signature": {
@@ -477,7 +477,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:34.131Z",
+      "scored_at": "2026-04-17T00:56:25.896Z",
       "scoring_method": "auto"
     },
     "overall-equipment-effectiveness": {
@@ -493,7 +493,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.010Z",
+      "scored_at": "2026-04-17T00:56:48.158Z",
       "scoring_method": "auto"
     },
     "pert-cpm": {
@@ -507,7 +507,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:59.178Z",
+      "scored_at": "2026-04-17T00:56:50.374Z",
       "scoring_method": "auto"
     },
     "industrial-property-rights": {
@@ -521,7 +521,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:44.013Z",
+      "scored_at": "2026-04-17T00:56:35.393Z",
       "scoring_method": "auto"
     },
     "data-collection": {
@@ -535,7 +535,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:26.952Z",
+      "scored_at": "2026-04-17T00:56:19.800Z",
       "scoring_method": "auto"
     },
     "doughnut-economics": {
@@ -549,7 +549,7 @@
       },
       "weighted": 2.85,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:31.965Z",
+      "scored_at": "2026-04-17T00:56:23.903Z",
       "scoring_method": "auto"
     },
     "planetary-boundaries": {
@@ -563,7 +563,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:59.569Z",
+      "scored_at": "2026-04-17T00:56:50.729Z",
       "scoring_method": "auto"
     },
     "ozone-layer-protection": {
@@ -577,7 +577,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:57.113Z",
+      "scored_at": "2026-04-17T00:56:48.240Z",
       "scoring_method": "auto"
     },
     "three-c-analysis": {
@@ -591,7 +591,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:16.023Z",
+      "scored_at": "2026-04-17T00:57:07.983Z",
       "scoring_method": "auto"
     },
     "common-criteria": {
@@ -605,7 +605,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:23.476Z",
+      "scored_at": "2026-04-17T00:56:15.850Z",
       "scoring_method": "auto"
     },
     "ismap": {
@@ -619,7 +619,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:46.998Z",
+      "scored_at": "2026-04-17T00:56:38.105Z",
       "scoring_method": "auto"
     },
     "kunming-montreal-framework": {
@@ -633,7 +633,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:48.598Z",
+      "scored_at": "2026-04-17T00:56:39.761Z",
       "scoring_method": "auto"
     },
     "oshms": {
@@ -647,7 +647,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:56.641Z",
+      "scored_at": "2026-04-17T00:56:47.901Z",
       "scoring_method": "auto"
     },
     "safety-2-0": {
@@ -661,7 +661,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:08.026Z",
+      "scored_at": "2026-04-17T00:56:59.906Z",
       "scoring_method": "auto"
     },
     "data-mining": {
@@ -675,7 +675,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:27.278Z",
+      "scored_at": "2026-04-17T00:56:20.050Z",
       "scoring_method": "auto"
     },
     "cash-flow-statement": {
@@ -689,7 +689,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:21.446Z",
+      "scored_at": "2026-04-17T00:56:13.948Z",
       "scoring_method": "auto"
     },
     "swot-analysis": {
@@ -703,7 +703,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:13.762Z",
+      "scored_at": "2026-04-17T00:57:05.789Z",
       "scoring_method": "auto"
     },
     "ifrs": {
@@ -717,7 +717,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:42.962Z",
+      "scored_at": "2026-04-17T00:56:34.371Z",
       "scoring_method": "auto"
     },
     "multi-factor-authentication": {
@@ -731,7 +731,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:53.724Z",
+      "scored_at": "2026-04-17T00:56:44.883Z",
       "scoring_method": "auto"
     },
     "occupational-disease": {
@@ -745,7 +745,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:55.459Z",
+      "scored_at": "2026-04-17T00:56:46.782Z",
       "scoring_method": "auto"
     },
     "vpn": {
@@ -759,7 +759,7 @@
       },
       "weighted": 2.85,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:18.672Z",
+      "scored_at": "2026-04-17T00:57:10.729Z",
       "scoring_method": "auto"
     },
     "disclosure-standards": {
@@ -773,7 +773,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:31.350Z",
+      "scored_at": "2026-04-17T00:56:23.304Z",
       "scoring_method": "auto"
     },
     "npv-net-present-value": {
@@ -787,7 +787,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:55.192Z",
+      "scored_at": "2026-04-17T00:56:46.488Z",
       "scoring_method": "auto"
     },
     "sl-theory": {
@@ -801,7 +801,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:11.532Z",
+      "scored_at": "2026-04-17T00:57:03.514Z",
       "scoring_method": "auto"
     },
     "survey-analysis": {
@@ -815,7 +815,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:13.526Z",
+      "scored_at": "2026-04-17T00:57:05.595Z",
       "scoring_method": "auto"
     },
     "knowledge-sharing": {
@@ -829,7 +829,7 @@
       },
       "weighted": 2.85,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:48.497Z",
+      "scored_at": "2026-04-17T00:56:39.667Z",
       "scoring_method": "auto"
     },
     "safety-health-org-structure": {
@@ -843,7 +843,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:08.877Z",
+      "scored_at": "2026-04-17T00:57:00.666Z",
       "scoring_method": "auto"
     },
     "stakeholder": {
@@ -857,7 +857,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:12.675Z",
+      "scored_at": "2026-04-17T00:57:04.737Z",
       "scoring_method": "auto"
     },
     "edge-computing": {
@@ -871,7 +871,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:32.950Z",
+      "scored_at": "2026-04-17T00:56:24.902Z",
       "scoring_method": "auto"
     },
     "public-relations": {
@@ -885,7 +885,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:03.189Z",
+      "scored_at": "2026-04-17T00:56:54.683Z",
       "scoring_method": "auto"
     },
     "dmz": {
@@ -899,7 +899,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:31.764Z",
+      "scored_at": "2026-04-17T00:56:23.684Z",
       "scoring_method": "auto"
     },
     "game-theory": {
@@ -913,7 +913,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:39.491Z",
+      "scored_at": "2026-04-17T00:56:31.038Z",
       "scoring_method": "auto"
     },
     "osh-management-system": {
@@ -927,7 +927,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:56.513Z",
+      "scored_at": "2026-04-17T00:56:47.766Z",
       "scoring_method": "auto"
     },
     "recommendation-systems": {
@@ -941,7 +941,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:04.931Z",
+      "scored_at": "2026-04-17T00:56:56.471Z",
       "scoring_method": "auto"
     },
     "unconscious-bias": {
@@ -955,7 +955,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:17.112Z",
+      "scored_at": "2026-04-17T00:57:09.067Z",
       "scoring_method": "auto"
     },
     "fta": {
@@ -969,7 +969,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:39.142Z",
+      "scored_at": "2026-04-17T00:56:30.740Z",
       "scoring_method": "auto"
     },
     "urban-flood": {
@@ -983,7 +983,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:17.680Z",
+      "scored_at": "2026-04-17T00:57:09.653Z",
       "scoring_method": "auto"
     },
     "centralization-decentralization": {
@@ -997,7 +997,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:21.910Z",
+      "scored_at": "2026-04-17T00:56:14.344Z",
       "scoring_method": "auto"
     },
     "forests-villages-rivers-seas": {
@@ -1011,7 +1011,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.179Z",
+      "scored_at": "2026-04-17T00:56:29.888Z",
       "scoring_method": "auto"
     },
     "machinery-safety-guidelines": {
@@ -1025,7 +1025,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:51.226Z",
+      "scored_at": "2026-04-17T00:56:42.426Z",
       "scoring_method": "auto"
     },
     "rio-declaration": {
@@ -1039,7 +1039,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:06.429Z",
+      "scored_at": "2026-04-17T00:56:58.128Z",
       "scoring_method": "auto"
     },
     "accident-statistics": {
@@ -1053,7 +1053,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.572Z",
+      "scored_at": "2026-04-17T00:56:09.661Z",
       "scoring_method": "auto"
     },
     "data-cleansing": {
@@ -1067,7 +1067,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:26.859Z",
+      "scored_at": "2026-04-17T00:56:19.710Z",
       "scoring_method": "auto"
     },
     "emergency-info-processing": {
@@ -1081,7 +1081,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:33.382Z",
+      "scored_at": "2026-04-17T00:56:25.267Z",
       "scoring_method": "auto"
     },
     "tacit-knowledge": {
@@ -1095,7 +1095,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:14.600Z",
+      "scored_at": "2026-04-17T00:57:06.531Z",
       "scoring_method": "auto"
     },
     "data-visualization": {
@@ -1109,7 +1109,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:27.403Z",
+      "scored_at": "2026-04-17T00:56:20.144Z",
       "scoring_method": "auto"
     },
     "disclosure-request": {
@@ -1123,7 +1123,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:31.238Z",
+      "scored_at": "2026-04-17T00:56:23.198Z",
       "scoring_method": "auto"
     },
     "information-disclosure": {
@@ -1137,7 +1137,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:44.259Z",
+      "scored_at": "2026-04-17T00:56:35.612Z",
       "scoring_method": "auto"
     },
     "prevention-activities": {
@@ -1151,7 +1151,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:00.992Z",
+      "scored_at": "2026-04-17T00:56:52.440Z",
       "scoring_method": "auto"
     },
     "cluster-analysis": {
@@ -1165,7 +1165,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:23.305Z",
+      "scored_at": "2026-04-17T00:56:15.676Z",
       "scoring_method": "auto"
     },
     "right-to-know": {
@@ -1179,7 +1179,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:06.340Z",
+      "scored_at": "2026-04-17T00:56:58.018Z",
       "scoring_method": "auto"
     },
     "safety-health-policy": {
@@ -1193,7 +1193,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:09.045Z",
+      "scored_at": "2026-04-17T00:57:00.857Z",
       "scoring_method": "auto"
     },
     "job-grade-system": {
@@ -1207,7 +1207,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:47.993Z",
+      "scored_at": "2026-04-17T00:56:39.176Z",
       "scoring_method": "auto"
     },
     "mobile-communication": {
@@ -1221,7 +1221,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:53.526Z",
+      "scored_at": "2026-04-17T00:56:44.679Z",
       "scoring_method": "auto"
     },
     "monte-carlo-simulation": {
@@ -1235,7 +1235,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:53.638Z",
+      "scored_at": "2026-04-17T00:56:44.780Z",
       "scoring_method": "auto"
     },
     "safety-health-education": {
@@ -1249,7 +1249,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:08.778Z",
+      "scored_at": "2026-04-17T00:57:00.582Z",
       "scoring_method": "auto"
     },
     "all-hazard-approach": {
@@ -1263,7 +1263,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.781Z",
+      "scored_at": "2026-04-17T00:56:10.742Z",
       "scoring_method": "auto"
     },
     "360-degree-evaluation": {
@@ -1277,7 +1277,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.098Z",
+      "scored_at": "2026-04-17T00:56:09.256Z",
       "scoring_method": "auto"
     },
     "access-control": {
@@ -1293,7 +1293,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:16.186Z",
+      "scored_at": "2026-04-17T00:56:09.344Z",
       "scoring_method": "auto"
     },
     "access-log-analysis": {
@@ -1307,7 +1307,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.269Z",
+      "scored_at": "2026-04-17T00:56:09.420Z",
       "scoring_method": "auto"
     },
     "accident-cost": {
@@ -1321,7 +1321,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.370Z",
+      "scored_at": "2026-04-17T00:56:09.500Z",
       "scoring_method": "auto"
     },
     "accident-response-drill": {
@@ -1335,7 +1335,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.466Z",
+      "scored_at": "2026-04-17T00:56:09.581Z",
       "scoring_method": "auto"
     },
     "accountability-traceability": {
@@ -1349,7 +1349,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.663Z",
+      "scored_at": "2026-04-17T00:56:09.738Z",
       "scoring_method": "auto"
     },
     "accounting-systems": {
@@ -1363,7 +1363,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.757Z",
+      "scored_at": "2026-04-17T00:56:09.821Z",
       "scoring_method": "auto"
     },
     "achievement-organization": {
@@ -1377,7 +1377,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.849Z",
+      "scored_at": "2026-04-17T00:56:09.904Z",
       "scoring_method": "auto"
     },
     "acid-rain": {
@@ -1391,7 +1391,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:16.942Z",
+      "scored_at": "2026-04-17T00:56:10.004Z",
       "scoring_method": "auto"
     },
     "activity-abc": {
@@ -1405,7 +1405,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.033Z",
+      "scored_at": "2026-04-17T00:56:10.087Z",
       "scoring_method": "auto"
     },
     "after-service": {
@@ -1419,7 +1419,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.124Z",
+      "scored_at": "2026-04-17T00:56:10.171Z",
       "scoring_method": "auto"
     },
     "agenda-21": {
@@ -1433,7 +1433,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.210Z",
+      "scored_at": "2026-04-17T00:56:10.245Z",
       "scoring_method": "auto"
     },
     "aging-infrastructure": {
@@ -1447,7 +1447,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.387Z",
+      "scored_at": "2026-04-17T00:56:10.414Z",
       "scoring_method": "auto"
     },
     "air-pollution-control-act": {
@@ -1461,7 +1461,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.472Z",
+      "scored_at": "2026-04-17T00:56:10.495Z",
       "scoring_method": "auto"
     },
     "alarp-principle": {
@@ -1475,7 +1475,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.599Z",
+      "scored_at": "2026-04-17T00:56:10.572Z",
       "scoring_method": "auto"
     },
     "alert-levels": {
@@ -1489,7 +1489,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.686Z",
+      "scored_at": "2026-04-17T00:56:10.661Z",
       "scoring_method": "auto"
     },
     "analogous-estimation": {
@@ -1503,7 +1503,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:17.965Z",
+      "scored_at": "2026-04-17T00:56:10.915Z",
       "scoring_method": "auto"
     },
     "analytic-hierarchy-process": {
@@ -1517,7 +1517,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.054Z",
+      "scored_at": "2026-04-17T00:56:10.996Z",
       "scoring_method": "auto"
     },
     "annual-salary-system": {
@@ -1531,7 +1531,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.141Z",
+      "scored_at": "2026-04-17T00:56:11.071Z",
       "scoring_method": "auto"
     },
     "anonymized-information": {
@@ -1545,7 +1545,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.236Z",
+      "scored_at": "2026-04-17T00:56:11.158Z",
       "scoring_method": "auto"
     },
     "api": {
@@ -1559,7 +1559,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.418Z",
+      "scored_at": "2026-04-17T00:56:11.327Z",
       "scoring_method": "auto"
     },
     "appraisal-three-principles": {
@@ -1573,7 +1573,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.509Z",
+      "scored_at": "2026-04-17T00:56:11.412Z",
       "scoring_method": "auto"
     },
     "asbestos-issue": {
@@ -1587,7 +1587,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.602Z",
+      "scored_at": "2026-04-17T00:56:11.493Z",
       "scoring_method": "auto"
     },
     "asch-conformity-experiment": {
@@ -1601,7 +1601,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.695Z",
+      "scored_at": "2026-04-17T00:56:11.572Z",
       "scoring_method": "auto"
     },
     "attitude-appraisal": {
@@ -1615,7 +1615,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.789Z",
+      "scored_at": "2026-04-17T00:56:11.651Z",
       "scoring_method": "auto"
     },
     "authenticity": {
@@ -1629,7 +1629,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.884Z",
+      "scored_at": "2026-04-17T00:56:11.737Z",
       "scoring_method": "auto"
     },
     "autonomous-maintenance": {
@@ -1643,7 +1643,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:18.977Z",
+      "scored_at": "2026-04-17T00:56:11.820Z",
       "scoring_method": "auto"
     },
     "backcasting": {
@@ -1660,7 +1660,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:19.074Z",
+      "scored_at": "2026-04-17T00:56:11.903Z",
       "scoring_method": "auto"
     },
     "basel-convention": {
@@ -1676,7 +1676,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:19.249Z",
+      "scored_at": "2026-04-17T00:56:12.064Z",
       "scoring_method": "auto"
     },
     "before-service": {
@@ -1690,7 +1690,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.427Z",
+      "scored_at": "2026-04-17T00:56:12.232Z",
       "scoring_method": "auto"
     },
     "behavioral-regulation": {
@@ -1704,7 +1704,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.510Z",
+      "scored_at": "2026-04-17T00:56:12.310Z",
       "scoring_method": "auto"
     },
     "bid-rigging": {
@@ -1718,7 +1718,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.629Z",
+      "scored_at": "2026-04-17T00:56:12.402Z",
       "scoring_method": "auto"
     },
     "biodiversity-basic-act": {
@@ -1732,7 +1732,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.727Z",
+      "scored_at": "2026-04-17T00:56:12.500Z",
       "scoring_method": "auto"
     },
     "bioeconomy": {
@@ -1746,7 +1746,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.833Z",
+      "scored_at": "2026-04-17T00:56:12.608Z",
       "scoring_method": "auto"
     },
     "biosafety": {
@@ -1760,7 +1760,7 @@
       },
       "weighted": 2.35,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:19.932Z",
+      "scored_at": "2026-04-17T00:56:12.710Z",
       "scoring_method": "auto"
     },
     "blind-drill": {
@@ -1774,7 +1774,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.031Z",
+      "scored_at": "2026-04-17T00:56:12.812Z",
       "scoring_method": "auto"
     },
     "blockchain-crypto": {
@@ -1788,7 +1788,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.149Z",
+      "scored_at": "2026-04-17T00:56:12.912Z",
       "scoring_method": "auto"
     },
     "bottom-up-estimation": {
@@ -1802,7 +1802,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.268Z",
+      "scored_at": "2026-04-17T00:56:13.009Z",
       "scoring_method": "auto"
     },
     "bowtie-analysis": {
@@ -1818,7 +1818,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:20.388Z",
+      "scored_at": "2026-04-17T00:56:13.099Z",
       "scoring_method": "auto"
     },
     "break-even-point": {
@@ -1832,7 +1832,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.485Z",
+      "scored_at": "2026-04-17T00:56:13.178Z",
       "scoring_method": "auto"
     },
     "budget-planning": {
@@ -1846,7 +1846,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.588Z",
+      "scored_at": "2026-04-17T00:56:13.258Z",
       "scoring_method": "auto"
     },
     "business-intelligence": {
@@ -1860,7 +1860,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.764Z",
+      "scored_at": "2026-04-17T00:56:13.433Z",
       "scoring_method": "auto"
     },
     "capacity-management": {
@@ -1874,7 +1874,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:20.861Z",
+      "scored_at": "2026-04-17T00:56:13.517Z",
       "scoring_method": "auto"
     },
     "carbon-pricing": {
@@ -1891,7 +1891,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:20.966Z",
+      "scored_at": "2026-04-17T00:56:13.605Z",
       "scoring_method": "auto"
     },
     "career-ownership": {
@@ -1905,7 +1905,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:21.100Z",
+      "scored_at": "2026-04-17T00:56:13.695Z",
       "scoring_method": "auto"
     },
     "career-path": {
@@ -1919,7 +1919,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:21.211Z",
+      "scored_at": "2026-04-17T00:56:13.772Z",
       "scoring_method": "auto"
     },
     "catastrophe-bias": {
@@ -1933,7 +1933,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:21.580Z",
+      "scored_at": "2026-04-17T00:56:14.046Z",
       "scoring_method": "auto"
     },
     "cause-and-effect-diagram": {
@@ -1947,7 +1947,7 @@
       },
       "weighted": 2.85,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:21.691Z",
+      "scored_at": "2026-04-17T00:56:14.143Z",
       "scoring_method": "auto"
     },
     "cdp-sbt-re100": {
@@ -1961,7 +1961,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:21.805Z",
+      "scored_at": "2026-04-17T00:56:14.241Z",
       "scoring_method": "auto"
     },
     "chemical-substances-review-act": {
@@ -1975,7 +1975,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:22.021Z",
+      "scored_at": "2026-04-17T00:56:14.434Z",
       "scoring_method": "auto"
     },
     "therp": {
@@ -1989,7 +1989,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:15.820Z",
+      "scored_at": "2026-04-17T00:57:07.783Z",
       "scoring_method": "auto"
     },
     "explicit-knowledge": {
@@ -2003,7 +2003,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:36.447Z",
+      "scored_at": "2026-04-17T00:56:28.066Z",
       "scoring_method": "auto"
     },
     "risk-perception": {
@@ -2019,7 +2019,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:07.424Z",
+      "scored_at": "2026-04-17T00:56:59.315Z",
       "scoring_method": "auto"
     },
     "job-analysis": {
@@ -2033,7 +2033,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:47.622Z",
+      "scored_at": "2026-04-17T00:56:38.788Z",
       "scoring_method": "auto"
     },
     "collective-intelligence": {
@@ -2049,7 +2049,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:23.391Z",
+      "scored_at": "2026-04-17T00:56:15.756Z",
       "scoring_method": "auto"
     },
     "kyt": {
@@ -2063,7 +2063,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:48.683Z",
+      "scored_at": "2026-04-17T00:56:39.848Z",
       "scoring_method": "auto"
     },
     "heat-island-effect": {
@@ -2077,7 +2077,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:41.571Z",
+      "scored_at": "2026-04-17T00:56:32.979Z",
       "scoring_method": "auto"
     },
     "risk": {
@@ -2091,7 +2091,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:06.511Z",
+      "scored_at": "2026-04-17T00:56:58.241Z",
       "scoring_method": "auto"
     },
     "risk-management-system": {
@@ -2107,7 +2107,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:07.161Z",
+      "scored_at": "2026-04-17T00:56:58.997Z",
       "scoring_method": "auto"
     },
     "root-cause-analysis": {
@@ -2123,7 +2123,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:07.795Z",
+      "scored_at": "2026-04-17T00:56:59.721Z",
       "scoring_method": "auto"
     },
     "four-m-analysis": {
@@ -2137,7 +2137,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.602Z",
+      "scored_at": "2026-04-17T00:56:30.272Z",
       "scoring_method": "auto"
     },
     "inherent-safety": {
@@ -2151,7 +2151,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:44.549Z",
+      "scored_at": "2026-04-17T00:56:35.917Z",
       "scoring_method": "auto"
     },
     "risk-analysis": {
@@ -2168,7 +2168,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:06.599Z",
+      "scored_at": "2026-04-17T00:56:58.389Z",
       "scoring_method": "auto"
     },
     "safety-education": {
@@ -2182,7 +2182,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:08.696Z",
+      "scored_at": "2026-04-17T00:57:00.489Z",
       "scoring_method": "auto"
     },
     "fail-safe": {
@@ -2196,7 +2196,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:36.845Z",
+      "scored_at": "2026-04-17T00:56:28.490Z",
       "scoring_method": "auto"
     },
     "human-error-probability": {
@@ -2213,7 +2213,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:42.466Z",
+      "scored_at": "2026-04-17T00:56:33.913Z",
       "scoring_method": "auto"
     },
     "periodic-maintenance": {
@@ -2227,7 +2227,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:58.629Z",
+      "scored_at": "2026-04-17T00:56:49.834Z",
       "scoring_method": "auto"
     },
     "general-overview": {
@@ -2241,7 +2241,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:39.933Z",
+      "scored_at": "2026-04-17T00:56:31.364Z",
       "scoring_method": "auto"
     },
     "human-factors": {
@@ -2258,7 +2258,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:42.555Z",
+      "scored_at": "2026-04-17T00:56:34.004Z",
       "scoring_method": "auto"
     },
     "four-e-countermeasures": {
@@ -2272,7 +2272,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.499Z",
+      "scored_at": "2026-04-17T00:56:30.182Z",
       "scoring_method": "auto"
     },
     "personnel-management": {
@@ -2288,7 +2288,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:59.090Z",
+      "scored_at": "2026-04-17T00:56:50.282Z",
       "scoring_method": "auto"
     },
     "lopa": {
@@ -2305,7 +2305,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.977Z",
+      "scored_at": "2026-04-17T00:56:42.224Z",
       "scoring_method": "auto"
     },
     "safety-instrumented-system": {
@@ -2322,7 +2322,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.136Z",
+      "scored_at": "2026-04-17T00:57:00.954Z",
       "scoring_method": "auto"
     },
     "ojt-off-jt": {
@@ -2339,7 +2339,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:55.763Z",
+      "scored_at": "2026-04-17T00:56:47.053Z",
       "scoring_method": "auto"
     },
     "second-career": {
@@ -2356,7 +2356,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.034Z",
+      "scored_at": "2026-04-17T00:57:01.973Z",
       "scoring_method": "auto"
     },
     "small-group-activities": {
@@ -2370,7 +2370,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:11.619Z",
+      "scored_at": "2026-04-17T00:57:03.623Z",
       "scoring_method": "auto"
     },
     "haccp": {
@@ -2386,7 +2386,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:40.719Z",
+      "scored_at": "2026-04-17T00:56:32.110Z",
       "scoring_method": "auto"
     },
     "ergonomic-principles": {
@@ -2402,7 +2402,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:35.649Z",
+      "scored_at": "2026-04-17T00:56:27.292Z",
       "scoring_method": "auto"
     },
     "fault-tolerance": {
@@ -2416,7 +2416,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:37.138Z",
+      "scored_at": "2026-04-17T00:56:28.758Z",
       "scoring_method": "auto"
     },
     "five-s": {
@@ -2430,7 +2430,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:37.400Z",
+      "scored_at": "2026-04-17T00:56:29.029Z",
       "scoring_method": "auto"
     },
     "safety-confirmation-system": {
@@ -2447,7 +2447,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:08.359Z",
+      "scored_at": "2026-04-17T00:57:00.212Z",
       "scoring_method": "auto"
     },
     "employment-statistics": {
@@ -2461,7 +2461,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:34.026Z",
+      "scored_at": "2026-04-17T00:56:25.804Z",
       "scoring_method": "auto"
     },
     "fail-soft": {
@@ -2477,7 +2477,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:36.943Z",
+      "scored_at": "2026-04-17T00:56:28.584Z",
       "scoring_method": "auto"
     },
     "fool-proof": {
@@ -2493,7 +2493,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:37.956Z",
+      "scored_at": "2026-04-17T00:56:29.658Z",
       "scoring_method": "auto"
     },
     "risk-treatment": {
@@ -2510,7 +2510,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:07.521Z",
+      "scored_at": "2026-04-17T00:56:59.428Z",
       "scoring_method": "auto"
     },
     "technical-nontechnical-skills": {
@@ -2524,7 +2524,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:15.374Z",
+      "scored_at": "2026-04-17T00:57:07.324Z",
       "scoring_method": "auto"
     },
     "virgin-bias": {
@@ -2540,7 +2540,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:18.415Z",
+      "scored_at": "2026-04-17T00:57:10.429Z",
       "scoring_method": "auto"
     },
     "economic-comparison-principle": {
@@ -2554,7 +2554,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:32.657Z",
+      "scored_at": "2026-04-17T00:56:24.651Z",
       "scoring_method": "auto"
     },
     "fault-avoidance": {
@@ -2568,7 +2568,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:37.039Z",
+      "scored_at": "2026-04-17T00:56:28.668Z",
       "scoring_method": "auto"
     },
     "hazard": {
@@ -2582,7 +2582,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:41.021Z",
+      "scored_at": "2026-04-17T00:56:32.399Z",
       "scoring_method": "auto"
     },
     "hazid": {
@@ -2596,7 +2596,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:41.303Z",
+      "scored_at": "2026-04-17T00:56:32.697Z",
       "scoring_method": "auto"
     },
     "interlock": {
@@ -2610,7 +2610,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:45.316Z",
+      "scored_at": "2026-04-17T00:56:36.581Z",
       "scoring_method": "auto"
     },
     "residual-risk": {
@@ -2624,7 +2624,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:05.962Z",
+      "scored_at": "2026-04-17T00:56:57.550Z",
       "scoring_method": "auto"
     },
     "risk-map-matrix": {
@@ -2638,7 +2638,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:07.250Z",
+      "scored_at": "2026-04-17T00:56:59.107Z",
       "scoring_method": "auto"
     },
     "safety-patrol": {
@@ -2652,7 +2652,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:09.498Z",
+      "scored_at": "2026-04-17T00:57:01.349Z",
       "scoring_method": "auto"
     },
     "eta": {
@@ -2669,7 +2669,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:36.265Z",
+      "scored_at": "2026-04-17T00:56:27.867Z",
       "scoring_method": "auto"
     },
     "performance-shaping-factors": {
@@ -2685,7 +2685,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:58.455Z",
+      "scored_at": "2026-04-17T00:56:49.669Z",
       "scoring_method": "auto"
     },
     "pha": {
@@ -2702,7 +2702,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:59.368Z",
+      "scored_at": "2026-04-17T00:56:50.555Z",
       "scoring_method": "auto"
     },
     "prevention-principle": {
@@ -2716,7 +2716,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:01.127Z",
+      "scored_at": "2026-04-17T00:56:52.546Z",
       "scoring_method": "auto"
     },
     "isolation-stop-safety": {
@@ -2730,7 +2730,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:47.360Z",
+      "scored_at": "2026-04-17T00:56:38.516Z",
       "scoring_method": "auto"
     },
     "parallel-system": {
@@ -2747,7 +2747,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.222Z",
+      "scored_at": "2026-04-17T00:56:48.327Z",
       "scoring_method": "auto"
     },
     "supply-chain-management": {
@@ -2761,7 +2761,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:13.311Z",
+      "scored_at": "2026-04-17T00:57:05.415Z",
       "scoring_method": "auto"
     },
     "csr": {
@@ -2775,7 +2775,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:26.363Z",
+      "scored_at": "2026-04-17T00:56:19.205Z",
       "scoring_method": "auto"
     },
     "dcf-method": {
@@ -2791,7 +2791,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:27.655Z",
+      "scored_at": "2026-04-17T00:56:20.312Z",
       "scoring_method": "auto"
     },
     "emergency-stop-device": {
@@ -2805,7 +2805,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:33.593Z",
+      "scored_at": "2026-04-17T00:56:25.445Z",
       "scoring_method": "auto"
     },
     "process-capability-index": {
@@ -2819,7 +2819,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:01.867Z",
+      "scored_at": "2026-04-17T00:56:53.328Z",
       "scoring_method": "auto"
     },
     "risk-identification": {
@@ -2836,7 +2836,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:06.885Z",
+      "scored_at": "2026-04-17T00:56:58.694Z",
       "scoring_method": "auto"
     },
     "risk-management-plan": {
@@ -2852,7 +2852,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:06.978Z",
+      "scored_at": "2026-04-17T00:56:58.785Z",
       "scoring_method": "auto"
     },
     "talent-management": {
@@ -2868,7 +2868,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:14.691Z",
+      "scored_at": "2026-04-17T00:57:06.620Z",
       "scoring_method": "auto"
     },
     "unsafe-conditions-behavior": {
@@ -2882,7 +2882,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:17.586Z",
+      "scored_at": "2026-04-17T00:57:09.558Z",
       "scoring_method": "auto"
     },
     "vta-method": {
@@ -2898,7 +2898,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:18.862Z",
+      "scored_at": "2026-04-17T00:57:10.915Z",
       "scoring_method": "auto"
     },
     "internal-rate-of-return": {
@@ -2914,7 +2914,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:45.533Z",
+      "scored_at": "2026-04-17T00:56:36.765Z",
       "scoring_method": "auto"
     },
     "optimism-bias": {
@@ -2928,7 +2928,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:56.268Z",
+      "scored_at": "2026-04-17T00:56:47.532Z",
       "scoring_method": "auto"
     },
     "recruitment-management": {
@@ -2942,7 +2942,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:05.032Z",
+      "scored_at": "2026-04-17T00:56:56.577Z",
       "scoring_method": "auto"
     },
     "redundancy-safety": {
@@ -2958,7 +2958,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:05.246Z",
+      "scored_at": "2026-04-17T00:56:56.775Z",
       "scoring_method": "auto"
     },
     "risk-criteria": {
@@ -2972,7 +2972,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:06.782Z",
+      "scored_at": "2026-04-17T00:56:58.612Z",
       "scoring_method": "auto"
     },
     "risk-monitoring": {
@@ -2988,7 +2988,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:07.343Z",
+      "scored_at": "2026-04-17T00:56:59.205Z",
       "scoring_method": "auto"
     },
     "veteran-bias": {
@@ -3002,7 +3002,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:18.324Z",
+      "scored_at": "2026-04-17T00:57:10.330Z",
       "scoring_method": "auto"
     },
     "esg-investment": {
@@ -3018,7 +3018,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:36.072Z",
+      "scored_at": "2026-04-17T00:56:27.657Z",
       "scoring_method": "auto"
     },
     "impact": {
@@ -3035,7 +3035,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:43.164Z",
+      "scored_at": "2026-04-17T00:56:34.567Z",
       "scoring_method": "auto"
     },
     "labor-mobility": {
@@ -3051,7 +3051,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:48.857Z",
+      "scored_at": "2026-04-17T00:56:40.038Z",
       "scoring_method": "auto"
     },
     "normalcy-bias": {
@@ -3068,7 +3068,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:55.084Z",
+      "scored_at": "2026-04-17T00:56:46.379Z",
       "scoring_method": "auto"
     },
     "service-quality": {
@@ -3084,7 +3084,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:10.796Z",
+      "scored_at": "2026-04-17T00:57:02.718Z",
       "scoring_method": "auto"
     },
     "consensus-instruments": {
@@ -3100,7 +3100,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:24.261Z",
+      "scored_at": "2026-04-17T00:56:17.038Z",
       "scoring_method": "auto"
     },
     "cost-effectiveness-analysis": {
@@ -3114,7 +3114,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:25.588Z",
+      "scored_at": "2026-04-17T00:56:18.401Z",
       "scoring_method": "auto"
     },
     "polluter-pays-principle": {
@@ -3128,7 +3128,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:59.980Z",
+      "scored_at": "2026-04-17T00:56:51.138Z",
       "scoring_method": "auto"
     },
     "disaster-drill": {
@@ -3142,7 +3142,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:30.716Z",
+      "scored_at": "2026-04-17T00:56:22.920Z",
       "scoring_method": "auto"
     },
     "discount-rate": {
@@ -3158,7 +3158,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:31.457Z",
+      "scored_at": "2026-04-17T00:56:23.407Z",
       "scoring_method": "auto"
     },
     "integer-programming": {
@@ -3175,7 +3175,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:44.978Z",
+      "scored_at": "2026-04-17T00:56:36.283Z",
       "scoring_method": "auto"
     },
     "output-indicators": {
@@ -3189,7 +3189,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:56.894Z",
+      "scored_at": "2026-04-17T00:56:48.072Z",
       "scoring_method": "auto"
     },
     "quality-control": {
@@ -3203,7 +3203,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:03.946Z",
+      "scored_at": "2026-04-17T00:56:55.465Z",
       "scoring_method": "auto"
     },
     "competency-evaluation": {
@@ -3220,7 +3220,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:23.772Z",
+      "scored_at": "2026-04-17T00:56:16.571Z",
       "scoring_method": "auto"
     },
     "product-liability": {
@@ -3234,7 +3234,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:02.274Z",
+      "scored_at": "2026-04-17T00:56:53.764Z",
       "scoring_method": "auto"
     },
     "demand-forecasting": {
@@ -3248,7 +3248,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:28.449Z",
+      "scored_at": "2026-04-17T00:56:20.904Z",
       "scoring_method": "auto"
     },
     "career-track-system": {
@@ -3264,7 +3264,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:21.334Z",
+      "scored_at": "2026-04-17T00:56:13.862Z",
       "scoring_method": "auto"
     },
     "child-rearing-support-act": {
@@ -3280,7 +3280,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:22.112Z",
+      "scored_at": "2026-04-17T00:56:14.530Z",
       "scoring_method": "auto"
     },
     "child-support-act": {
@@ -3296,7 +3296,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:22.198Z",
+      "scored_at": "2026-04-17T00:56:14.627Z",
       "scoring_method": "auto"
     },
     "childcare-nursing-leave-act": {
@@ -3312,7 +3312,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:22.294Z",
+      "scored_at": "2026-04-17T00:56:14.717Z",
       "scoring_method": "auto"
     },
     "circular-economy": {
@@ -3329,7 +3329,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:22.383Z",
+      "scored_at": "2026-04-17T00:56:14.800Z",
       "scoring_method": "auto"
     },
     "circular-society-basic-act": {
@@ -3345,7 +3345,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:22.472Z",
+      "scored_at": "2026-04-17T00:56:14.889Z",
       "scoring_method": "auto"
     },
     "cites": {
@@ -3362,7 +3362,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:22.558Z",
+      "scored_at": "2026-04-17T00:56:14.988Z",
       "scoring_method": "auto"
     },
     "civil-protection-act": {
@@ -3379,7 +3379,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:22.731Z",
+      "scored_at": "2026-04-17T00:56:15.174Z",
       "scoring_method": "auto"
     },
     "clearance-level": {
@@ -3395,7 +3395,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:22.823Z",
+      "scored_at": "2026-04-17T00:56:15.263Z",
       "scoring_method": "auto"
     },
     "climate-change-decarbonization": {
@@ -3409,7 +3409,7 @@
       },
       "weighted": 2.2,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:22.937Z",
+      "scored_at": "2026-04-17T00:56:15.351Z",
       "scoring_method": "auto"
     },
     "climate-change-international": {
@@ -3425,7 +3425,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:23.044Z",
+      "scored_at": "2026-04-17T00:56:15.432Z",
       "scoring_method": "auto"
     },
     "cloud-on-premises": {
@@ -3441,7 +3441,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:23.135Z",
+      "scored_at": "2026-04-17T00:56:15.511Z",
       "scoring_method": "auto"
     },
     "club-of-rome": {
@@ -3457,7 +3457,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:23.222Z",
+      "scored_at": "2026-04-17T00:56:15.598Z",
       "scoring_method": "auto"
     },
     "communication-control": {
@@ -3473,7 +3473,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:23.574Z",
+      "scored_at": "2026-04-17T00:56:15.985Z",
       "scoring_method": "auto"
     },
     "communication-planning": {
@@ -3489,7 +3489,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:23.673Z",
+      "scored_at": "2026-04-17T00:56:16.470Z",
       "scoring_method": "auto"
     },
     "competency-hr": {
@@ -3505,7 +3505,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:23.870Z",
+      "scored_at": "2026-04-17T00:56:16.665Z",
       "scoring_method": "auto"
     },
     "concurrent-engineering": {
@@ -3522,7 +3522,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:23.967Z",
+      "scored_at": "2026-04-17T00:56:16.758Z",
       "scoring_method": "auto"
     },
     "confidentiality": {
@@ -3538,7 +3538,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:24.062Z",
+      "scored_at": "2026-04-17T00:56:16.853Z",
       "scoring_method": "auto"
     },
     "conformity-bias": {
@@ -3555,7 +3555,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:24.157Z",
+      "scored_at": "2026-04-17T00:56:16.946Z",
       "scoring_method": "auto"
     },
     "construction-plan": {
@@ -3572,7 +3572,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:24.359Z",
+      "scored_at": "2026-04-17T00:56:17.132Z",
       "scoring_method": "auto"
     },
     "consumer-product-safety-act": {
@@ -3588,7 +3588,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:24.460Z",
+      "scored_at": "2026-04-17T00:56:17.232Z",
       "scoring_method": "auto"
     },
     "consumer-safety": {
@@ -3604,7 +3604,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:24.558Z",
+      "scored_at": "2026-04-17T00:56:17.330Z",
       "scoring_method": "auto"
     },
     "content-process": {
@@ -3620,7 +3620,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:24.656Z",
+      "scored_at": "2026-04-17T00:56:17.448Z",
       "scoring_method": "auto"
     },
     "contingency": {
@@ -3637,7 +3637,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:24.750Z",
+      "scored_at": "2026-04-17T00:56:17.563Z",
       "scoring_method": "auto"
     },
     "continued-employment-system": {
@@ -3653,7 +3653,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:24.852Z",
+      "scored_at": "2026-04-17T00:56:17.664Z",
       "scoring_method": "auto"
     },
     "control-limits": {
@@ -3667,7 +3667,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:24.956Z",
+      "scored_at": "2026-04-17T00:56:17.769Z",
       "scoring_method": "auto"
     },
     "convention-on-biodiversity": {
@@ -3683,7 +3683,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:25.056Z",
+      "scored_at": "2026-04-17T00:56:17.879Z",
       "scoring_method": "auto"
     },
     "corrective-maintenance": {
@@ -3699,7 +3699,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:25.262Z",
+      "scored_at": "2026-04-17T00:56:18.084Z",
       "scoring_method": "auto"
     },
     "cost-driver": {
@@ -3716,7 +3716,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:25.473Z",
+      "scored_at": "2026-04-17T00:56:18.293Z",
       "scoring_method": "auto"
     },
     "cost-maintenance": {
@@ -3733,7 +3733,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:25.671Z",
+      "scored_at": "2026-04-17T00:56:18.506Z",
       "scoring_method": "auto"
     },
     "cost-variance-analysis": {
@@ -3750,7 +3750,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:25.775Z",
+      "scored_at": "2026-04-17T00:56:18.612Z",
       "scoring_method": "auto"
     },
     "cpd": {
@@ -3767,7 +3767,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:25.875Z",
+      "scored_at": "2026-04-17T00:56:18.722Z",
       "scoring_method": "auto"
     },
     "crisis-communication": {
@@ -3784,7 +3784,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:25.984Z",
+      "scored_at": "2026-04-17T00:56:18.818Z",
       "scoring_method": "auto"
     },
     "crisis-management-manual": {
@@ -3801,7 +3801,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:26.081Z",
+      "scored_at": "2026-04-17T00:56:18.912Z",
       "scoring_method": "auto"
     },
     "crisis-priority": {
@@ -3818,7 +3818,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:26.180Z",
+      "scored_at": "2026-04-17T00:56:19.010Z",
       "scoring_method": "auto"
     },
     "crm-system": {
@@ -3834,7 +3834,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:26.264Z",
+      "scored_at": "2026-04-17T00:56:19.106Z",
       "scoring_method": "auto"
     },
     "csv": {
@@ -3851,7 +3851,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:26.461Z",
+      "scored_at": "2026-04-17T00:56:19.308Z",
       "scoring_method": "auto"
     },
     "cyber-security": {
@@ -3867,7 +3867,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:26.568Z",
+      "scored_at": "2026-04-17T00:56:19.418Z",
       "scoring_method": "auto"
     },
     "cybersecurity-safety": {
@@ -3883,7 +3883,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:26.664Z",
+      "scored_at": "2026-04-17T00:56:19.524Z",
       "scoring_method": "auto"
     },
     "data-breach-response": {
@@ -3899,7 +3899,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:26.770Z",
+      "scored_at": "2026-04-17T00:56:19.616Z",
       "scoring_method": "auto"
     },
     "data-governance": {
@@ -3915,7 +3915,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:27.061Z",
+      "scored_at": "2026-04-17T00:56:19.881Z",
       "scoring_method": "auto"
     },
     "data-leak-tampering-loss": {
@@ -3931,7 +3931,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:27.174Z",
+      "scored_at": "2026-04-17T00:56:19.964Z",
       "scoring_method": "auto"
     },
     "data-warehouse": {
@@ -3947,7 +3947,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:27.520Z",
+      "scored_at": "2026-04-17T00:56:20.226Z",
       "scoring_method": "auto"
     },
     "de-facto-standard": {
@@ -3963,7 +3963,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:27.789Z",
+      "scored_at": "2026-04-17T00:56:20.398Z",
       "scoring_method": "auto"
     },
     "de-jure-standard": {
@@ -3979,7 +3979,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:27.925Z",
+      "scored_at": "2026-04-17T00:56:20.478Z",
       "scoring_method": "auto"
     },
     "decision-tree-analysis": {
@@ -3996,7 +3996,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:28.052Z",
+      "scored_at": "2026-04-17T00:56:20.559Z",
       "scoring_method": "auto"
     },
     "decoupling": {
@@ -4012,7 +4012,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:28.158Z",
+      "scored_at": "2026-04-17T00:56:20.641Z",
       "scoring_method": "auto"
     },
     "defense-in-depth": {
@@ -4029,7 +4029,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:28.267Z",
+      "scored_at": "2026-04-17T00:56:20.729Z",
       "scoring_method": "auto"
     },
     "delphi-method": {
@@ -4045,7 +4045,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:28.353Z",
+      "scored_at": "2026-04-17T00:56:20.818Z",
       "scoring_method": "auto"
     },
     "deposit-system": {
@@ -4062,7 +4062,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:28.551Z",
+      "scored_at": "2026-04-17T00:56:20.992Z",
       "scoring_method": "auto"
     },
     "depreciation": {
@@ -4078,7 +4078,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:28.646Z",
+      "scored_at": "2026-04-17T00:56:21.070Z",
       "scoring_method": "auto"
     },
     "depreciation-residual-value": {
@@ -4095,7 +4095,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:28.746Z",
+      "scored_at": "2026-04-17T00:56:21.160Z",
       "scoring_method": "auto"
     },
     "design-for-environment": {
@@ -4112,7 +4112,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:28.936Z",
+      "scored_at": "2026-04-17T00:56:21.348Z",
       "scoring_method": "auto"
     },
     "design-in": {
@@ -4129,7 +4129,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:29.029Z",
+      "scored_at": "2026-04-17T00:56:21.433Z",
       "scoring_method": "auto"
     },
     "design-quality": {
@@ -4146,7 +4146,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:29.122Z",
+      "scored_at": "2026-04-17T00:56:21.522Z",
       "scoring_method": "auto"
     },
     "design-review": {
@@ -4163,7 +4163,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:29.217Z",
+      "scored_at": "2026-04-17T00:56:21.612Z",
       "scoring_method": "auto"
     },
     "design-rights": {
@@ -4179,7 +4179,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:29.299Z",
+      "scored_at": "2026-04-17T00:56:21.720Z",
       "scoring_method": "auto"
     },
     "diagnostic-od": {
@@ -4195,7 +4195,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:29.473Z",
+      "scored_at": "2026-04-17T00:56:21.910Z",
       "scoring_method": "auto"
     },
     "dialogic-od": {
@@ -4211,7 +4211,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:29.565Z",
+      "scored_at": "2026-04-17T00:56:22.006Z",
       "scoring_method": "auto"
     },
     "digital-rights": {
@@ -4227,7 +4227,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:29.665Z",
+      "scored_at": "2026-04-17T00:56:22.108Z",
       "scoring_method": "auto"
     },
     "digital-twin-cps": {
@@ -4243,7 +4243,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:29.777Z",
+      "scored_at": "2026-04-17T00:56:22.200Z",
       "scoring_method": "auto"
     },
     "dioxin-countermeasures-act": {
@@ -4260,7 +4260,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:29.891Z",
+      "scored_at": "2026-04-17T00:56:22.288Z",
       "scoring_method": "auto"
     },
     "direct-costing": {
@@ -4277,7 +4277,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:29.999Z",
+      "scored_at": "2026-04-17T00:56:22.379Z",
       "scoring_method": "auto"
     },
     "direct-manufacturing-cost": {
@@ -4294,7 +4294,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:30.110Z",
+      "scored_at": "2026-04-17T00:56:22.460Z",
       "scoring_method": "auto"
     },
     "disability-discrimination-act": {
@@ -4308,7 +4308,7 @@
       },
       "weighted": 2.3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:30.221Z",
+      "scored_at": "2026-04-17T00:56:22.560Z",
       "scoring_method": "auto"
     },
     "disability-employment": {
@@ -4324,7 +4324,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:30.326Z",
+      "scored_at": "2026-04-17T00:56:22.653Z",
       "scoring_method": "auto"
     },
     "disability-employment-act": {
@@ -4338,7 +4338,7 @@
       },
       "weighted": 2.45,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:30.440Z",
+      "scored_at": "2026-04-17T00:56:22.739Z",
       "scoring_method": "auto"
     },
     "disaster-countermeasures-act": {
@@ -4352,7 +4352,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:30.555Z",
+      "scored_at": "2026-04-17T00:56:22.839Z",
       "scoring_method": "auto"
     },
     "disaster-prevention": {
@@ -4368,7 +4368,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:30.999Z",
+      "scored_at": "2026-04-17T00:56:23.017Z",
       "scoring_method": "auto"
     },
     "disaster-weather-info": {
@@ -4385,7 +4385,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:31.137Z",
+      "scored_at": "2026-04-17T00:56:23.109Z",
       "scoring_method": "auto"
     },
     "discretionary-work-system": {
@@ -4401,7 +4401,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:31.557Z",
+      "scored_at": "2026-04-17T00:56:23.502Z",
       "scoring_method": "auto"
     },
     "divisional-organization": {
@@ -4417,7 +4417,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:31.661Z",
+      "scored_at": "2026-04-17T00:56:23.596Z",
       "scoring_method": "auto"
     },
     "dos-ddos": {
@@ -4433,7 +4433,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:31.866Z",
+      "scored_at": "2026-04-17T00:56:23.786Z",
       "scoring_method": "auto"
     },
     "e-learning": {
@@ -4450,7 +4450,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:32.077Z",
+      "scored_at": "2026-04-17T00:56:24.022Z",
       "scoring_method": "auto"
     },
     "e-waste": {
@@ -4466,7 +4466,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:32.179Z",
+      "scored_at": "2026-04-17T00:56:24.140Z",
       "scoring_method": "auto"
     },
     "eco-action-21": {
@@ -4483,7 +4483,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:32.272Z",
+      "scored_at": "2026-04-17T00:56:24.267Z",
       "scoring_method": "auto"
     },
     "eco-drr": {
@@ -4499,7 +4499,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:32.364Z",
+      "scored_at": "2026-04-17T00:56:24.372Z",
       "scoring_method": "auto"
     },
     "eco-label": {
@@ -4516,7 +4516,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:32.456Z",
+      "scored_at": "2026-04-17T00:56:24.469Z",
       "scoring_method": "auto"
     },
     "ecological-footprint": {
@@ -4532,7 +4532,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:32.548Z",
+      "scored_at": "2026-04-17T00:56:24.565Z",
       "scoring_method": "auto"
     },
     "ecosystem-services": {
@@ -4549,7 +4549,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:32.760Z",
+      "scored_at": "2026-04-17T00:56:24.732Z",
       "scoring_method": "auto"
     },
     "elderly-employment-act": {
@@ -4563,7 +4563,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:33.056Z",
+      "scored_at": "2026-04-17T00:56:24.995Z",
       "scoring_method": "auto"
     },
     "elsi": {
@@ -4579,7 +4579,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:33.169Z",
+      "scored_at": "2026-04-17T00:56:25.081Z",
       "scoring_method": "auto"
     },
     "emergency": {
@@ -4596,7 +4596,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:33.279Z",
+      "scored_at": "2026-04-17T00:56:25.174Z",
       "scoring_method": "auto"
     },
     "emergency-info-systems": {
@@ -4612,7 +4612,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:33.490Z",
+      "scored_at": "2026-04-17T00:56:25.351Z",
       "scoring_method": "auto"
     },
     "employee-benefits": {
@@ -4629,7 +4629,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:33.709Z",
+      "scored_at": "2026-04-17T00:56:25.533Z",
       "scoring_method": "auto"
     },
     "employment-security-act": {
@@ -4645,7 +4645,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:33.930Z",
+      "scored_at": "2026-04-17T00:56:25.708Z",
       "scoring_method": "auto"
     },
     "end-of-pipe": {
@@ -4662,7 +4662,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:34.230Z",
+      "scored_at": "2026-04-17T00:56:25.978Z",
       "scoring_method": "auto"
     },
     "energy": {
@@ -4678,7 +4678,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:34.331Z",
+      "scored_at": "2026-04-17T00:56:26.077Z",
       "scoring_method": "auto"
     },
     "enterprise-portal-intranet": {
@@ -4692,7 +4692,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:34.423Z",
+      "scored_at": "2026-04-17T00:56:26.164Z",
       "scoring_method": "auto"
     },
     "environmental-accounting": {
@@ -4709,7 +4709,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:34.520Z",
+      "scored_at": "2026-04-17T00:56:26.261Z",
       "scoring_method": "auto"
     },
     "environmental-communication": {
@@ -4726,7 +4726,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:34.711Z",
+      "scored_at": "2026-04-17T00:56:26.478Z",
       "scoring_method": "auto"
     },
     "environmental-impact-assessment": {
@@ -4742,7 +4742,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:34.809Z",
+      "scored_at": "2026-04-17T00:56:26.560Z",
       "scoring_method": "auto"
     },
     "environmental-standards": {
@@ -4758,7 +4758,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:34.906Z",
+      "scored_at": "2026-04-17T00:56:26.645Z",
       "scoring_method": "auto"
     },
     "equal-employment-act": {
@@ -4772,7 +4772,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:34.999Z",
+      "scored_at": "2026-04-17T00:56:26.744Z",
       "scoring_method": "auto"
     },
     "equal-pay-for-equal-work": {
@@ -4788,7 +4788,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:35.100Z",
+      "scored_at": "2026-04-17T00:56:26.827Z",
       "scoring_method": "auto"
     },
     "equipment-characteristics": {
@@ -4802,7 +4802,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:35.200Z",
+      "scored_at": "2026-04-17T00:56:26.929Z",
       "scoring_method": "auto"
     },
     "equipment-economics": {
@@ -4816,7 +4816,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:35.301Z",
+      "scored_at": "2026-04-17T00:56:27.011Z",
       "scoring_method": "auto"
     },
     "equipment-maintainability": {
@@ -4830,7 +4830,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:35.407Z",
+      "scored_at": "2026-04-17T00:56:27.096Z",
       "scoring_method": "auto"
     },
     "equipment-reliability": {
@@ -4844,7 +4844,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:35.512Z",
+      "scored_at": "2026-04-17T00:56:27.195Z",
       "scoring_method": "auto"
     },
     "erp": {
@@ -4860,7 +4860,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:35.754Z",
+      "scored_at": "2026-04-17T00:56:27.389Z",
       "scoring_method": "auto"
     },
     "esd": {
@@ -4877,7 +4877,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:35.862Z",
+      "scored_at": "2026-04-17T00:56:27.485Z",
       "scoring_method": "auto"
     },
     "esg-environmental-assessment": {
@@ -4894,7 +4894,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:35.963Z",
+      "scored_at": "2026-04-17T00:56:27.573Z",
       "scoring_method": "auto"
     },
     "evaluation-bias": {
@@ -4911,7 +4911,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:36.357Z",
+      "scored_at": "2026-04-17T00:56:27.970Z",
       "scoring_method": "auto"
     },
     "extended-producer-responsibility": {
@@ -4928,7 +4928,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:36.545Z",
+      "scored_at": "2026-04-17T00:56:28.194Z",
       "scoring_method": "auto"
     },
     "extreme-events": {
@@ -4945,7 +4945,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:36.645Z",
+      "scored_at": "2026-04-17T00:56:28.304Z",
       "scoring_method": "auto"
     },
     "extrinsic-motivation": {
@@ -4959,7 +4959,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:36.745Z",
+      "scored_at": "2026-04-17T00:56:28.404Z",
       "scoring_method": "auto"
     },
     "fire-service-act": {
@@ -4975,7 +4975,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:37.226Z",
+      "scored_at": "2026-04-17T00:56:28.849Z",
       "scoring_method": "auto"
     },
     "fixed-communication": {
@@ -4989,7 +4989,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:37.496Z",
+      "scored_at": "2026-04-17T00:56:29.105Z",
       "scoring_method": "auto"
     },
     "flat-organization": {
@@ -5006,7 +5006,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:37.591Z",
+      "scored_at": "2026-04-17T00:56:29.192Z",
       "scoring_method": "auto"
     },
     "flextime-system": {
@@ -5023,7 +5023,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:37.681Z",
+      "scored_at": "2026-04-17T00:56:29.301Z",
       "scoring_method": "auto"
     },
     "fmea": {
@@ -5040,7 +5040,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:37.775Z",
+      "scored_at": "2026-04-17T00:56:29.409Z",
       "scoring_method": "auto"
     },
     "followership": {
@@ -5054,7 +5054,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:37.860Z",
+      "scored_at": "2026-04-17T00:56:29.534Z",
       "scoring_method": "auto"
     },
     "foreign-trainee-program": {
@@ -5071,7 +5071,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:38.056Z",
+      "scored_at": "2026-04-17T00:56:29.774Z",
       "scoring_method": "auto"
     },
     "formal-informal-organization": {
@@ -5085,7 +5085,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.290Z",
+      "scored_at": "2026-04-17T00:56:30.000Z",
       "scoring_method": "auto"
     },
     "forum-standard": {
@@ -5099,7 +5099,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.394Z",
+      "scored_at": "2026-04-17T00:56:30.093Z",
       "scoring_method": "auto"
     },
     "four-m-of-production": {
@@ -5113,7 +5113,7 @@
       },
       "weighted": 2.7,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.703Z",
+      "scored_at": "2026-04-17T00:56:30.375Z",
       "scoring_method": "auto"
     },
     "four-major-pollution-diseases": {
@@ -5127,7 +5127,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.800Z",
+      "scored_at": "2026-04-17T00:56:30.470Z",
       "scoring_method": "auto"
     },
     "four-p-analysis": {
@@ -5141,7 +5141,7 @@
       },
       "weighted": 2.75,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:38.915Z",
+      "scored_at": "2026-04-17T00:56:30.573Z",
       "scoring_method": "auto"
     },
     "front-loading": {
@@ -5158,7 +5158,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:39.033Z",
+      "scored_at": "2026-04-17T00:56:30.661Z",
       "scoring_method": "auto"
     },
     "functional-organization": {
@@ -5175,7 +5175,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:39.259Z",
+      "scored_at": "2026-04-17T00:56:30.834Z",
       "scoring_method": "auto"
     },
     "functional-safety": {
@@ -5191,7 +5191,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:39.375Z",
+      "scored_at": "2026-04-17T00:56:30.936Z",
       "scoring_method": "auto"
     },
     "gantt-chart": {
@@ -5208,7 +5208,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:39.632Z",
+      "scored_at": "2026-04-17T00:56:31.115Z",
       "scoring_method": "auto"
     },
     "gender-equality-act": {
@@ -5222,7 +5222,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:39.737Z",
+      "scored_at": "2026-04-17T00:56:31.197Z",
       "scoring_method": "auto"
     },
     "gender-gap": {
@@ -5236,7 +5236,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:39.829Z",
+      "scored_at": "2026-04-17T00:56:31.285Z",
       "scoring_method": "auto"
     },
     "gfc-chemicals-framework": {
@@ -5250,7 +5250,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:40.151Z",
+      "scored_at": "2026-04-17T00:56:31.561Z",
       "scoring_method": "auto"
     },
     "global-compact": {
@@ -5267,7 +5267,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:40.251Z",
+      "scored_at": "2026-04-17T00:56:31.647Z",
       "scoring_method": "auto"
     },
     "global-hr-development": {
@@ -5284,7 +5284,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:40.359Z",
+      "scored_at": "2026-04-17T00:56:31.740Z",
       "scoring_method": "auto"
     },
     "green-bond": {
@@ -5301,7 +5301,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:40.461Z",
+      "scored_at": "2026-04-17T00:56:31.835Z",
       "scoring_method": "auto"
     },
     "green-infrastructure": {
@@ -5315,7 +5315,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:40.553Z",
+      "scored_at": "2026-04-17T00:56:31.925Z",
       "scoring_method": "auto"
     },
     "groupware": {
@@ -5329,7 +5329,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:40.636Z",
+      "scored_at": "2026-04-17T00:56:32.012Z",
       "scoring_method": "auto"
     },
     "halo-effect-errors": {
@@ -5346,7 +5346,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:40.815Z",
+      "scored_at": "2026-04-17T00:56:32.199Z",
       "scoring_method": "auto"
     },
     "hawthorne-experiment": {
@@ -5360,7 +5360,7 @@
       },
       "weighted": 2.65,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:40.922Z",
+      "scored_at": "2026-04-17T00:56:32.296Z",
       "scoring_method": "auto"
     },
     "hazard-map": {
@@ -5374,7 +5374,7 @@
       },
       "weighted": 2.85,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:41.121Z",
+      "scored_at": "2026-04-17T00:56:32.499Z",
       "scoring_method": "auto"
     },
     "hazardous-facility-disaster-prevention": {
@@ -5391,7 +5391,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:41.206Z",
+      "scored_at": "2026-04-17T00:56:32.595Z",
       "scoring_method": "auto"
     },
     "hazop": {
@@ -5408,7 +5408,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:41.394Z",
+      "scored_at": "2026-04-17T00:56:32.798Z",
       "scoring_method": "auto"
     },
     "health-management": {
@@ -5425,7 +5425,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:41.480Z",
+      "scored_at": "2026-04-17T00:56:32.882Z",
       "scoring_method": "auto"
     },
     "heinrich-law": {
@@ -5442,7 +5442,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:41.667Z",
+      "scored_at": "2026-04-17T00:56:33.069Z",
       "scoring_method": "auto"
     },
     "herzberg-two-factor-theory": {
@@ -5456,7 +5456,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:41.763Z",
+      "scored_at": "2026-04-17T00:56:33.162Z",
       "scoring_method": "auto"
     },
     "hierarchical-training": {
@@ -5473,7 +5473,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:41.860Z",
+      "scored_at": "2026-04-17T00:56:33.257Z",
       "scoring_method": "auto"
     },
     "high-pressure-gas-act": {
@@ -5487,7 +5487,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:41.955Z",
+      "scored_at": "2026-04-17T00:56:33.350Z",
       "scoring_method": "auto"
     },
     "highly-professional-system": {
@@ -5501,7 +5501,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:42.059Z",
+      "scored_at": "2026-04-17T00:56:33.490Z",
       "scoring_method": "auto"
     },
     "hr-systems": {
@@ -5515,7 +5515,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:42.167Z",
+      "scored_at": "2026-04-17T00:56:33.598Z",
       "scoring_method": "auto"
     },
     "human-capital-disclosure": {
@@ -5529,7 +5529,7 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:42.270Z",
+      "scored_at": "2026-04-17T00:56:33.700Z",
       "scoring_method": "auto"
     },
     "human-development-index": {
@@ -5543,7 +5543,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:42.366Z",
+      "scored_at": "2026-04-17T00:56:33.808Z",
       "scoring_method": "auto"
     },
     "human-resource-assessment": {
@@ -5560,7 +5560,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:42.666Z",
+      "scored_at": "2026-04-17T00:56:34.099Z",
       "scoring_method": "auto"
     },
     "ics": {
@@ -5577,7 +5577,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:42.762Z",
+      "scored_at": "2026-04-17T00:56:34.178Z",
       "scoring_method": "auto"
     },
     "idea-generation-methods": {
@@ -5591,7 +5591,7 @@
       },
       "weighted": 2.8,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:42.861Z",
+      "scored_at": "2026-04-17T00:56:34.275Z",
       "scoring_method": "auto"
     },
     "immigration-control-act": {
@@ -5605,58 +5605,49 @@
       },
       "weighted": 2.9,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:47:43.061Z",
+      "scored_at": "2026-04-17T00:56:34.471Z",
       "scoring_method": "auto"
     },
     "improvement-maintenance": {
       "slug": "improvement-maintenance",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 2
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T00:47:43.262Z",
+      "weighted": 2.9,
+      "weak_axes": [],
+      "scored_at": "2026-04-17T00:56:34.683Z",
       "scoring_method": "auto"
     },
     "incentive": {
       "slug": "incentive",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T00:47:43.355Z",
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-04-17T00:56:34.785Z",
       "scoring_method": "auto"
     },
     "indefinite-conversion-rule": {
       "slug": "indefinite-conversion-rule",
       "scores": {
-        "structure": 2,
-        "mobile": 0,
+        "structure": 3,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T00:47:43.558Z",
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-04-17T00:56:34.965Z",
       "scoring_method": "auto"
     },
     "indirect-manufacturing-cost": {
@@ -5673,41 +5664,35 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:43.666Z",
+      "scored_at": "2026-04-17T00:56:35.072Z",
       "scoring_method": "auto"
     },
     "individual-labor-dispute-act": {
       "slug": "individual-labor-dispute-act",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T00:47:43.801Z",
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-04-17T00:56:35.178Z",
       "scoring_method": "auto"
     },
     "individual-wage-management": {
       "slug": "individual-wage-management",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
+        "structure": 3,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T00:47:43.904Z",
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-04-17T00:56:35.288Z",
       "scoring_method": "auto"
     },
     "infectious-disease-pandemic": {
@@ -5723,57 +5708,51 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:44.136Z",
+      "scored_at": "2026-04-17T00:56:35.506Z",
       "scoring_method": "auto"
     },
     "information-disclosure-act": {
       "slug": "information-disclosure-act",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T00:47:44.361Z",
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-04-17T00:56:35.715Z",
       "scoring_method": "auto"
     },
     "information-retrieval": {
       "slug": "information-retrieval",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 0,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 3
       },
       "weighted": 1,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:44.453Z",
+      "scored_at": "2026-04-17T00:56:35.821Z",
       "scoring_method": "auto"
     },
     "initial-investment": {
       "slug": "initial-investment",
       "scores": {
-        "structure": 2,
-        "mobile": 2,
+        "structure": 3,
+        "mobile": 3,
         "principle": 3,
-        "reference": 0,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 1,
-      "weak_axes": [
-        "reference"
-      ],
-      "scored_at": "2026-04-17T00:47:44.648Z",
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-04-17T00:56:36.011Z",
       "scoring_method": "auto"
     },
     "input-indicators": {
@@ -5790,7 +5769,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:44.762Z",
+      "scored_at": "2026-04-17T00:56:36.104Z",
       "scoring_method": "auto"
     },
     "inspection-methods": {
@@ -5807,7 +5786,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:44.872Z",
+      "scored_at": "2026-04-17T00:56:36.198Z",
       "scoring_method": "auto"
     },
     "integrity-security": {
@@ -5824,7 +5803,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:45.093Z",
+      "scored_at": "2026-04-17T00:56:36.377Z",
       "scoring_method": "auto"
     },
     "interim-storage-facility": {
@@ -5841,7 +5820,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:45.205Z",
+      "scored_at": "2026-04-17T00:56:36.476Z",
       "scoring_method": "auto"
     },
     "internal-job-posting": {
@@ -5858,7 +5837,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:45.431Z",
+      "scored_at": "2026-04-17T00:56:36.670Z",
       "scoring_method": "auto"
     },
     "international-filing-system": {
@@ -5875,7 +5854,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:45.627Z",
+      "scored_at": "2026-04-17T00:56:36.859Z",
       "scoring_method": "auto"
     },
     "internet": {
@@ -5892,7 +5871,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:45.756Z",
+      "scored_at": "2026-04-17T00:56:36.944Z",
       "scoring_method": "auto"
     },
     "internship": {
@@ -5909,7 +5888,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:45.855Z",
+      "scored_at": "2026-04-17T00:56:37.038Z",
       "scoring_method": "auto"
     },
     "interpersonal-skills": {
@@ -5926,7 +5905,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:45.947Z",
+      "scored_at": "2026-04-17T00:56:37.130Z",
       "scoring_method": "auto"
     },
     "intrinsic-motivation": {
@@ -5943,7 +5922,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.046Z",
+      "scored_at": "2026-04-17T00:56:37.223Z",
       "scoring_method": "auto"
     },
     "invasive-alien-species": {
@@ -5960,7 +5939,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.136Z",
+      "scored_at": "2026-04-17T00:56:37.311Z",
       "scoring_method": "auto"
     },
     "inventory-control": {
@@ -5977,7 +5956,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.218Z",
+      "scored_at": "2026-04-17T00:56:37.424Z",
       "scoring_method": "auto"
     },
     "investment-recovery-plan": {
@@ -5994,7 +5973,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.317Z",
+      "scored_at": "2026-04-17T00:56:37.531Z",
       "scoring_method": "auto"
     },
     "iot": {
@@ -6011,7 +5990,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.414Z",
+      "scored_at": "2026-04-17T00:56:37.632Z",
       "scoring_method": "auto"
     },
     "ip-creation": {
@@ -6028,7 +6007,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.505Z",
+      "scored_at": "2026-04-17T00:56:37.725Z",
       "scoring_method": "auto"
     },
     "ip-protection": {
@@ -6045,7 +6024,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.604Z",
+      "scored_at": "2026-04-17T00:56:37.817Z",
       "scoring_method": "auto"
     },
     "ip-utilization": {
@@ -6062,7 +6041,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.800Z",
+      "scored_at": "2026-04-17T00:56:37.912Z",
       "scoring_method": "auto"
     },
     "ipbes": {
@@ -6079,7 +6058,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:46.896Z",
+      "scored_at": "2026-04-17T00:56:38.010Z",
       "scoring_method": "auto"
     },
     "iso-26000": {
@@ -6096,7 +6075,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:47.275Z",
+      "scored_at": "2026-04-17T00:56:38.411Z",
       "scoring_method": "auto"
     },
     "jit-production": {
@@ -6113,7 +6092,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:47.534Z",
+      "scored_at": "2026-04-17T00:56:38.696Z",
       "scoring_method": "auto"
     },
     "job-based-pay": {
@@ -6130,7 +6109,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:47.712Z",
+      "scored_at": "2026-04-17T00:56:38.888Z",
       "scoring_method": "auto"
     },
     "job-design": {
@@ -6147,7 +6126,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:47.808Z",
+      "scored_at": "2026-04-17T00:56:38.989Z",
       "scoring_method": "auto"
     },
     "job-execution-ability": {
@@ -6164,7 +6143,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:47.893Z",
+      "scored_at": "2026-04-17T00:56:39.079Z",
       "scoring_method": "auto"
     },
     "job-order-costing": {
@@ -6181,7 +6160,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:48.087Z",
+      "scored_at": "2026-04-17T00:56:39.268Z",
       "scoring_method": "auto"
     },
     "job-rotation": {
@@ -6198,7 +6177,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:48.181Z",
+      "scored_at": "2026-04-17T00:56:39.358Z",
       "scoring_method": "auto"
     },
     "job-type-employment": {
@@ -6214,7 +6193,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:48.270Z",
+      "scored_at": "2026-04-17T00:56:39.477Z",
       "scoring_method": "auto"
     },
     "key-performance-indicators": {
@@ -6230,7 +6209,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:48.396Z",
+      "scored_at": "2026-04-17T00:56:39.570Z",
       "scoring_method": "auto"
     },
     "labor-contract-act": {
@@ -6247,7 +6226,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:48.778Z",
+      "scored_at": "2026-04-17T00:56:39.949Z",
       "scoring_method": "auto"
     },
     "labor-policy-act": {
@@ -6264,7 +6243,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:48.935Z",
+      "scored_at": "2026-04-17T00:56:40.149Z",
       "scoring_method": "auto"
     },
     "labor-productivity": {
@@ -6281,7 +6260,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.028Z",
+      "scored_at": "2026-04-17T00:56:40.245Z",
       "scoring_method": "auto"
     },
     "labor-relations-adjustment-act": {
@@ -6298,7 +6277,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.126Z",
+      "scored_at": "2026-04-17T00:56:40.326Z",
       "scoring_method": "auto"
     },
     "labor-share-ratio": {
@@ -6315,7 +6294,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.217Z",
+      "scored_at": "2026-04-17T00:56:40.410Z",
       "scoring_method": "auto"
     },
     "labor-tribunal-act": {
@@ -6332,7 +6311,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.394Z",
+      "scored_at": "2026-04-17T00:56:40.594Z",
       "scoring_method": "auto"
     },
     "labor-union-act": {
@@ -6349,7 +6328,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.483Z",
+      "scored_at": "2026-04-17T00:56:40.698Z",
       "scoring_method": "auto"
     },
     "lead-time": {
@@ -6366,7 +6345,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.573Z",
+      "scored_at": "2026-04-17T00:56:40.808Z",
       "scoring_method": "auto"
     },
     "lgbt-understanding-act": {
@@ -6383,7 +6362,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.651Z",
+      "scored_at": "2026-04-17T00:56:40.913Z",
       "scoring_method": "auto"
     },
     "lgbtq": {
@@ -6400,7 +6379,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.740Z",
+      "scored_at": "2026-04-17T00:56:41.028Z",
       "scoring_method": "auto"
     },
     "lifecycle-assessment": {
@@ -6417,7 +6396,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.830Z",
+      "scored_at": "2026-04-17T00:56:41.139Z",
       "scoring_method": "auto"
     },
     "lifecycle-costing-method": {
@@ -6434,7 +6413,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:49.925Z",
+      "scored_at": "2026-04-17T00:56:41.249Z",
       "scoring_method": "auto"
     },
     "lifecycle-management": {
@@ -6451,7 +6430,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.023Z",
+      "scored_at": "2026-04-17T00:56:41.349Z",
       "scoring_method": "auto"
     },
     "likelihood": {
@@ -6468,7 +6447,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.117Z",
+      "scored_at": "2026-04-17T00:56:41.466Z",
       "scoring_method": "auto"
     },
     "linear-programming": {
@@ -6485,7 +6464,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.213Z",
+      "scored_at": "2026-04-17T00:56:41.572Z",
       "scoring_method": "auto"
     },
     "linear-regression": {
@@ -6502,7 +6481,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.305Z",
+      "scored_at": "2026-04-17T00:56:41.667Z",
       "scoring_method": "auto"
     },
     "liquefaction": {
@@ -6519,7 +6498,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.399Z",
+      "scored_at": "2026-04-17T00:56:41.761Z",
       "scoring_method": "auto"
     },
     "load-capacity": {
@@ -6536,7 +6515,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.500Z",
+      "scored_at": "2026-04-17T00:56:41.851Z",
       "scoring_method": "auto"
     },
     "load-leveling": {
@@ -6553,7 +6532,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.608Z",
+      "scored_at": "2026-04-17T00:56:41.944Z",
       "scoring_method": "auto"
     },
     "location-limited-employee": {
@@ -6570,7 +6549,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.728Z",
+      "scored_at": "2026-04-17T00:56:42.037Z",
       "scoring_method": "auto"
     },
     "logistic-regression": {
@@ -6587,7 +6566,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:50.850Z",
+      "scored_at": "2026-04-17T00:56:42.130Z",
       "scoring_method": "auto"
     },
     "machine-learning": {
@@ -6604,7 +6583,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.096Z",
+      "scored_at": "2026-04-17T00:56:42.317Z",
       "scoring_method": "auto"
     },
     "maintenance-cost": {
@@ -6621,7 +6600,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.322Z",
+      "scored_at": "2026-04-17T00:56:42.534Z",
       "scoring_method": "auto"
     },
     "maintenance-prevention": {
@@ -6638,7 +6617,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.416Z",
+      "scored_at": "2026-04-17T00:56:42.631Z",
       "scoring_method": "auto"
     },
     "malware": {
@@ -6655,7 +6634,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.524Z",
+      "scored_at": "2026-04-17T00:56:42.718Z",
       "scoring_method": "auto"
     },
     "mandatory-management-retirement": {
@@ -6672,7 +6651,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.651Z",
+      "scored_at": "2026-04-17T00:56:42.811Z",
       "scoring_method": "auto"
     },
     "manufacturing-quality": {
@@ -6689,7 +6668,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.758Z",
+      "scored_at": "2026-04-17T00:56:42.905Z",
       "scoring_method": "auto"
     },
     "market-research": {
@@ -6706,7 +6685,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.864Z",
+      "scored_at": "2026-04-17T00:56:42.996Z",
       "scoring_method": "auto"
     },
     "maslow-hierarchy-of-needs": {
@@ -6723,7 +6702,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:51.969Z",
+      "scored_at": "2026-04-17T00:56:43.090Z",
       "scoring_method": "auto"
     },
     "mass-communication": {
@@ -6740,7 +6719,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:52.075Z",
+      "scored_at": "2026-04-17T00:56:43.181Z",
       "scoring_method": "auto"
     },
     "master-schedule-planning": {
@@ -6757,7 +6736,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:52.182Z",
+      "scored_at": "2026-04-17T00:56:43.274Z",
       "scoring_method": "auto"
     },
     "matrix-organization": {
@@ -6774,7 +6753,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:52.269Z",
+      "scored_at": "2026-04-17T00:56:43.370Z",
       "scoring_method": "auto"
     },
     "mbo": {
@@ -6791,7 +6770,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:52.363Z",
+      "scored_at": "2026-04-17T00:56:43.477Z",
       "scoring_method": "auto"
     },
     "mcgregor-xy-theory": {
@@ -6808,7 +6787,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:52.452Z",
+      "scored_at": "2026-04-17T00:56:43.576Z",
       "scoring_method": "auto"
     },
     "meeting-design": {
@@ -6824,7 +6803,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:52.538Z",
+      "scored_at": "2026-04-17T00:56:43.681Z",
       "scoring_method": "auto"
     },
     "membership-type-employment": {
@@ -6840,7 +6819,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:52.635Z",
+      "scored_at": "2026-04-17T00:56:43.782Z",
       "scoring_method": "auto"
     },
     "mental-health": {
@@ -6856,7 +6835,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:52.724Z",
+      "scored_at": "2026-04-17T00:56:43.882Z",
       "scoring_method": "auto"
     },
     "mental-health-care": {
@@ -6873,7 +6852,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:52.824Z",
+      "scored_at": "2026-04-17T00:56:43.982Z",
       "scoring_method": "auto"
     },
     "mentor": {
@@ -6889,7 +6868,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:52.926Z",
+      "scored_at": "2026-04-17T00:56:44.081Z",
       "scoring_method": "auto"
     },
     "merit-demerit-system": {
@@ -6906,7 +6885,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.026Z",
+      "scored_at": "2026-04-17T00:56:44.172Z",
       "scoring_method": "auto"
     },
     "method-planning": {
@@ -6923,7 +6902,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.131Z",
+      "scored_at": "2026-04-17T00:56:44.259Z",
       "scoring_method": "auto"
     },
     "millennium-ecosystem-assessment": {
@@ -6940,7 +6919,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.227Z",
+      "scored_at": "2026-04-17T00:56:44.345Z",
       "scoring_method": "auto"
     },
     "minamata-convention": {
@@ -6957,7 +6936,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.324Z",
+      "scored_at": "2026-04-17T00:56:44.448Z",
       "scoring_method": "auto"
     },
     "minimum-wage-act": {
@@ -6974,7 +6953,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.421Z",
+      "scored_at": "2026-04-17T00:56:44.561Z",
       "scoring_method": "auto"
     },
     "multi-objective-optimization": {
@@ -6991,7 +6970,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.826Z",
+      "scored_at": "2026-04-17T00:56:44.979Z",
       "scoring_method": "auto"
     },
     "multi-track-hr-system": {
@@ -7008,7 +6987,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.908Z",
+      "scored_at": "2026-04-17T00:56:45.080Z",
       "scoring_method": "auto"
     },
     "my-number-act": {
@@ -7025,7 +7004,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:53.994Z",
+      "scored_at": "2026-04-17T00:56:45.182Z",
       "scoring_method": "auto"
     },
     "nagoya-protocol": {
@@ -7042,7 +7021,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.097Z",
+      "scored_at": "2026-04-17T00:56:45.295Z",
       "scoring_method": "auto"
     },
     "natech": {
@@ -7059,7 +7038,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.204Z",
+      "scored_at": "2026-04-17T00:56:45.403Z",
       "scoring_method": "auto"
     },
     "national-resilience-act": {
@@ -7076,7 +7055,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.298Z",
+      "scored_at": "2026-04-17T00:56:45.501Z",
       "scoring_method": "auto"
     },
     "natural-parks-act": {
@@ -7093,7 +7072,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.396Z",
+      "scored_at": "2026-04-17T00:56:45.617Z",
       "scoring_method": "auto"
     },
     "nature-conservation-act": {
@@ -7110,7 +7089,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.479Z",
+      "scored_at": "2026-04-17T00:56:45.738Z",
       "scoring_method": "auto"
     },
     "nature-positive": {
@@ -7127,7 +7106,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.574Z",
+      "scored_at": "2026-04-17T00:56:45.860Z",
       "scoring_method": "auto"
     },
     "nature-restoration-act": {
@@ -7144,7 +7123,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.674Z",
+      "scored_at": "2026-04-17T00:56:45.965Z",
       "scoring_method": "auto"
     },
     "network-organization": {
@@ -7161,7 +7140,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.793Z",
+      "scored_at": "2026-04-17T00:56:46.073Z",
       "scoring_method": "auto"
     },
     "non-repudiation": {
@@ -7178,7 +7157,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.884Z",
+      "scored_at": "2026-04-17T00:56:46.173Z",
       "scoring_method": "auto"
     },
     "nonconformity-rate": {
@@ -7195,7 +7174,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:54.975Z",
+      "scored_at": "2026-04-17T00:56:46.271Z",
       "scoring_method": "auto"
     },
     "nuclear-disaster-act": {
@@ -7212,7 +7191,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:55.282Z",
+      "scored_at": "2026-04-17T00:56:46.585Z",
       "scoring_method": "auto"
     },
     "occupational-accident-prevention-plan": {
@@ -7229,7 +7208,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:55.373Z",
+      "scored_at": "2026-04-17T00:56:46.685Z",
       "scoring_method": "auto"
     },
     "ocean-plastic": {
@@ -7246,7 +7225,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:55.668Z",
+      "scored_at": "2026-04-17T00:56:46.960Z",
       "scoring_method": "auto"
     },
     "online-meetings": {
@@ -7263,7 +7242,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:55.850Z",
+      "scored_at": "2026-04-17T00:56:47.139Z",
       "scoring_method": "auto"
     },
     "operation-errors": {
@@ -7280,7 +7259,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:55.972Z",
+      "scored_at": "2026-04-17T00:56:47.232Z",
       "scoring_method": "auto"
     },
     "opportunity-cost": {
@@ -7297,7 +7276,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:56.075Z",
+      "scored_at": "2026-04-17T00:56:47.330Z",
       "scoring_method": "auto"
     },
     "opt-in-opt-out": {
@@ -7314,7 +7293,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:56.173Z",
+      "scored_at": "2026-04-17T00:56:47.436Z",
       "scoring_method": "auto"
     },
     "organizational-commitment": {
@@ -7331,7 +7310,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:56.396Z",
+      "scored_at": "2026-04-17T00:56:47.621Z",
       "scoring_method": "auto"
     },
     "outcome-indicators": {
@@ -7348,7 +7327,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:56.778Z",
+      "scored_at": "2026-04-17T00:56:47.987Z",
       "scoring_method": "auto"
     },
     "parametric-estimation": {
@@ -7365,7 +7344,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.312Z",
+      "scored_at": "2026-04-17T00:56:48.457Z",
       "scoring_method": "auto"
     },
     "part-time-fixed-term-act": {
@@ -7382,7 +7361,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.397Z",
+      "scored_at": "2026-04-17T00:56:48.557Z",
       "scoring_method": "auto"
     },
     "partnership": {
@@ -7399,7 +7378,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.491Z",
+      "scored_at": "2026-04-17T00:56:48.655Z",
       "scoring_method": "auto"
     },
     "password-security": {
@@ -7416,7 +7395,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.585Z",
+      "scored_at": "2026-04-17T00:56:48.744Z",
       "scoring_method": "auto"
     },
     "patent-rights": {
@@ -7433,7 +7412,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.672Z",
+      "scored_at": "2026-04-17T00:56:48.839Z",
       "scoring_method": "auto"
     },
     "payback-period-method": {
@@ -7450,7 +7429,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.752Z",
+      "scored_at": "2026-04-17T00:56:48.928Z",
       "scoring_method": "auto"
     },
     "pdca-cycle": {
@@ -7466,7 +7445,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.837Z",
+      "scored_at": "2026-04-17T00:56:49.013Z",
       "scoring_method": "auto"
     },
     "pdpc-method": {
@@ -7483,7 +7462,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:57.923Z",
+      "scored_at": "2026-04-17T00:56:49.098Z",
       "scoring_method": "auto"
     },
     "pension-system": {
@@ -7500,7 +7479,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.007Z",
+      "scored_at": "2026-04-17T00:56:49.190Z",
       "scoring_method": "auto"
     },
     "performance-based-pay": {
@@ -7517,7 +7496,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.109Z",
+      "scored_at": "2026-04-17T00:56:49.283Z",
       "scoring_method": "auto"
     },
     "performance-evaluation": {
@@ -7534,7 +7513,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.192Z",
+      "scored_at": "2026-04-17T00:56:49.382Z",
       "scoring_method": "auto"
     },
     "performance-linked-bonus": {
@@ -7551,7 +7530,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.283Z",
+      "scored_at": "2026-04-17T00:56:49.479Z",
       "scoring_method": "auto"
     },
     "performance-regulation": {
@@ -7568,7 +7547,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.373Z",
+      "scored_at": "2026-04-17T00:56:49.582Z",
       "scoring_method": "auto"
     },
     "periodic-inspection": {
@@ -7585,7 +7564,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.550Z",
+      "scored_at": "2026-04-17T00:56:49.745Z",
       "scoring_method": "auto"
     },
     "personal-communication": {
@@ -7601,7 +7580,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:58.720Z",
+      "scored_at": "2026-04-17T00:56:49.933Z",
       "scoring_method": "auto"
     },
     "personal-info-protection": {
@@ -7618,7 +7597,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.802Z",
+      "scored_at": "2026-04-17T00:56:50.024Z",
       "scoring_method": "auto"
     },
     "personal-info-utilization": {
@@ -7635,7 +7614,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.898Z",
+      "scored_at": "2026-04-17T00:56:50.112Z",
       "scoring_method": "auto"
     },
     "personal-information": {
@@ -7652,7 +7631,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:58.991Z",
+      "scored_at": "2026-04-17T00:56:50.202Z",
       "scoring_method": "auto"
     },
     "pfi": {
@@ -7668,7 +7647,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:59.270Z",
+      "scored_at": "2026-04-17T00:56:50.459Z",
       "scoring_method": "auto"
     },
     "phishing-pharming": {
@@ -7685,7 +7664,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:59.471Z",
+      "scored_at": "2026-04-17T00:56:50.642Z",
       "scoring_method": "auto"
     },
     "planned-usage-period": {
@@ -7702,7 +7681,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:47:59.647Z",
+      "scored_at": "2026-04-17T00:56:50.822Z",
       "scoring_method": "auto"
     },
     "pm-theory": {
@@ -7718,7 +7697,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:59.766Z",
+      "scored_at": "2026-04-17T00:56:50.926Z",
       "scoring_method": "auto"
     },
     "pmbok": {
@@ -7734,7 +7713,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:47:59.848Z",
+      "scored_at": "2026-04-17T00:56:51.031Z",
       "scoring_method": "auto"
     },
     "pollution-control-manager": {
@@ -7751,7 +7730,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.089Z",
+      "scored_at": "2026-04-17T00:56:51.254Z",
       "scoring_method": "auto"
     },
     "pops-convention": {
@@ -7768,7 +7747,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.191Z",
+      "scored_at": "2026-04-17T00:56:51.565Z",
       "scoring_method": "auto"
     },
     "positive-action": {
@@ -7785,7 +7764,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.369Z",
+      "scored_at": "2026-04-17T00:56:51.750Z",
       "scoring_method": "auto"
     },
     "power-harassment": {
@@ -7802,7 +7781,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.458Z",
+      "scored_at": "2026-04-17T00:56:51.835Z",
       "scoring_method": "auto"
     },
     "ppm-analysis": {
@@ -7819,7 +7798,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.562Z",
+      "scored_at": "2026-04-17T00:56:51.930Z",
       "scoring_method": "auto"
     },
     "pqcdsme": {
@@ -7836,7 +7815,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.641Z",
+      "scored_at": "2026-04-17T00:56:52.029Z",
       "scoring_method": "auto"
     },
     "precautionary-principle": {
@@ -7853,7 +7832,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.731Z",
+      "scored_at": "2026-04-17T00:56:52.130Z",
       "scoring_method": "auto"
     },
     "predictive-maintenance": {
@@ -7869,7 +7848,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.814Z",
+      "scored_at": "2026-04-17T00:56:52.233Z",
       "scoring_method": "auto"
     },
     "present-annual-future-value": {
@@ -7886,7 +7865,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:00.895Z",
+      "scored_at": "2026-04-17T00:56:52.337Z",
       "scoring_method": "auto"
     },
     "prior-use-rights": {
@@ -7903,7 +7882,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:01.312Z",
+      "scored_at": "2026-04-17T00:56:52.741Z",
       "scoring_method": "auto"
     },
     "privacy-mark": {
@@ -7920,7 +7899,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:01.420Z",
+      "scored_at": "2026-04-17T00:56:52.832Z",
       "scoring_method": "auto"
     },
     "private-monopoly": {
@@ -7937,7 +7916,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:01.516Z",
+      "scored_at": "2026-04-17T00:56:52.934Z",
       "scoring_method": "auto"
     },
     "probabilistic-risk-assessment": {
@@ -7954,7 +7933,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:01.610Z",
+      "scored_at": "2026-04-17T00:56:53.032Z",
       "scoring_method": "auto"
     },
     "problem-setting-ability": {
@@ -7971,7 +7950,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:01.692Z",
+      "scored_at": "2026-04-17T00:56:53.130Z",
       "scoring_method": "auto"
     },
     "problem-solving-ability": {
@@ -7988,7 +7967,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:01.773Z",
+      "scored_at": "2026-04-17T00:56:53.226Z",
       "scoring_method": "auto"
     },
     "process-costing": {
@@ -8005,7 +7984,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:01.955Z",
+      "scored_at": "2026-04-17T00:56:53.437Z",
       "scoring_method": "auto"
     },
     "process-safety-mgmt": {
@@ -8022,7 +8001,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:02.168Z",
+      "scored_at": "2026-04-17T00:56:53.659Z",
       "scoring_method": "auto"
     },
     "product-liability-act": {
@@ -8039,7 +8018,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:02.380Z",
+      "scored_at": "2026-04-17T00:56:53.871Z",
       "scoring_method": "auto"
     },
     "production-management-system": {
@@ -8056,7 +8035,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:02.620Z",
+      "scored_at": "2026-04-17T00:56:54.089Z",
       "scoring_method": "auto"
     },
     "progress-management": {
@@ -8073,7 +8052,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:02.728Z",
+      "scored_at": "2026-04-17T00:56:54.189Z",
       "scoring_method": "auto"
     },
     "prtr-act": {
@@ -8090,7 +8069,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:02.830Z",
+      "scored_at": "2026-04-17T00:56:54.287Z",
       "scoring_method": "auto"
     },
     "psychological-safety": {
@@ -8107,7 +8086,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:02.909Z",
+      "scored_at": "2026-04-17T00:56:54.384Z",
       "scoring_method": "auto"
     },
     "public-private-data-act": {
@@ -8124,7 +8103,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.101Z",
+      "scored_at": "2026-04-17T00:56:54.584Z",
       "scoring_method": "auto"
     },
     "public-safety": {
@@ -8141,7 +8120,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.293Z",
+      "scored_at": "2026-04-17T00:56:54.780Z",
       "scoring_method": "auto"
     },
     "pull-production": {
@@ -8158,7 +8137,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.385Z",
+      "scored_at": "2026-04-17T00:56:54.872Z",
       "scoring_method": "auto"
     },
     "push-production": {
@@ -8175,7 +8154,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.472Z",
+      "scored_at": "2026-04-17T00:56:54.967Z",
       "scoring_method": "auto"
     },
     "pyramid-organization": {
@@ -8192,7 +8171,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.568Z",
+      "scored_at": "2026-04-17T00:56:55.070Z",
       "scoring_method": "auto"
     },
     "qc-circle": {
@@ -8209,7 +8188,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.659Z",
+      "scored_at": "2026-04-17T00:56:55.176Z",
       "scoring_method": "auto"
     },
     "quality-assurance": {
@@ -8226,7 +8205,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.760Z",
+      "scored_at": "2026-04-17T00:56:55.268Z",
       "scoring_method": "auto"
     },
     "quality-characteristics": {
@@ -8243,7 +8222,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:03.851Z",
+      "scored_at": "2026-04-17T00:56:55.360Z",
       "scoring_method": "auto"
     },
     "quality-costing": {
@@ -8260,7 +8239,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.050Z",
+      "scored_at": "2026-04-17T00:56:55.589Z",
       "scoring_method": "auto"
     },
     "quality-improvement": {
@@ -8277,7 +8256,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.166Z",
+      "scored_at": "2026-04-17T00:56:55.690Z",
       "scoring_method": "auto"
     },
     "quality-objectives": {
@@ -8294,7 +8273,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.262Z",
+      "scored_at": "2026-04-17T00:56:55.791Z",
       "scoring_method": "auto"
     },
     "quality-planning": {
@@ -8311,7 +8290,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.361Z",
+      "scored_at": "2026-04-17T00:56:55.892Z",
       "scoring_method": "auto"
     },
     "quality-policy": {
@@ -8328,7 +8307,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.468Z",
+      "scored_at": "2026-04-17T00:56:55.984Z",
       "scoring_method": "auto"
     },
     "radioactive-decontamination-act": {
@@ -8345,7 +8324,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.570Z",
+      "scored_at": "2026-04-17T00:56:56.096Z",
       "scoring_method": "auto"
     },
     "radioactive-waste": {
@@ -8362,7 +8341,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.662Z",
+      "scored_at": "2026-04-17T00:56:56.195Z",
       "scoring_method": "auto"
     },
     "ramsar-convention": {
@@ -8379,7 +8358,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.762Z",
+      "scored_at": "2026-04-17T00:56:56.282Z",
       "scoring_method": "auto"
     },
     "reach-regulation": {
@@ -8396,7 +8375,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:04.849Z",
+      "scored_at": "2026-04-17T00:56:56.377Z",
       "scoring_method": "auto"
     },
     "red-list": {
@@ -8413,7 +8392,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:05.135Z",
+      "scored_at": "2026-04-17T00:56:56.677Z",
       "scoring_method": "auto"
     },
     "regional-circular-symbiosis": {
@@ -8430,7 +8409,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:05.431Z",
+      "scored_at": "2026-04-17T00:56:56.972Z",
       "scoring_method": "auto"
     },
     "relative-absolute-evaluation": {
@@ -8447,7 +8426,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:05.525Z",
+      "scored_at": "2026-04-17T00:56:57.067Z",
       "scoring_method": "auto"
     },
     "reliability-block-diagram": {
@@ -8464,7 +8443,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:05.617Z",
+      "scored_at": "2026-04-17T00:56:57.174Z",
       "scoring_method": "auto"
     },
     "replacement-cost": {
@@ -8480,7 +8459,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:05.793Z",
+      "scored_at": "2026-04-17T00:56:57.360Z",
       "scoring_method": "auto"
     },
     "required-quality": {
@@ -8497,7 +8476,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:05.876Z",
+      "scored_at": "2026-04-17T00:56:57.454Z",
       "scoring_method": "auto"
     },
     "resilience": {
@@ -8514,7 +8493,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:06.057Z",
+      "scored_at": "2026-04-17T00:56:57.669Z",
       "scoring_method": "auto"
     },
     "reskilling": {
@@ -8531,7 +8510,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:06.151Z",
+      "scored_at": "2026-04-17T00:56:57.790Z",
       "scoring_method": "auto"
     },
     "return-to-work-support": {
@@ -8548,7 +8527,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:06.251Z",
+      "scored_at": "2026-04-17T00:56:57.910Z",
       "scoring_method": "auto"
     },
     "risk-management-policy": {
@@ -8565,7 +8544,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:07.066Z",
+      "scored_at": "2026-04-17T00:56:58.885Z",
       "scoring_method": "auto"
     },
     "rohs-weee": {
@@ -8582,7 +8561,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:07.608Z",
+      "scored_at": "2026-04-17T00:56:59.531Z",
       "scoring_method": "auto"
     },
     "role-grade-system": {
@@ -8599,7 +8578,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:07.700Z",
+      "scored_at": "2026-04-17T00:56:59.637Z",
       "scoring_method": "auto"
     },
     "rpa": {
@@ -8616,7 +8595,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:07.901Z",
+      "scored_at": "2026-04-17T00:56:59.813Z",
       "scoring_method": "auto"
     },
     "safety-and-security": {
@@ -8633,7 +8612,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:08.140Z",
+      "scored_at": "2026-04-17T00:57:00.004Z",
       "scoring_method": "auto"
     },
     "safety-case": {
@@ -8650,7 +8629,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:08.244Z",
+      "scored_at": "2026-04-17T00:57:00.107Z",
       "scoring_method": "auto"
     },
     "safety-control": {
@@ -8667,7 +8646,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:08.487Z",
+      "scored_at": "2026-04-17T00:57:00.306Z",
       "scoring_method": "auto"
     },
     "safety-culture": {
@@ -8684,7 +8663,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:08.602Z",
+      "scored_at": "2026-04-17T00:57:00.390Z",
       "scoring_method": "auto"
     },
     "safety-health-plan": {
@@ -8701,7 +8680,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:08.956Z",
+      "scored_at": "2026-04-17T00:57:00.762Z",
       "scoring_method": "auto"
     },
     "safety-investment": {
@@ -8718,7 +8697,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.225Z",
+      "scored_at": "2026-04-17T00:57:01.049Z",
       "scoring_method": "auto"
     },
     "safety-management-system": {
@@ -8735,7 +8714,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.318Z",
+      "scored_at": "2026-04-17T00:57:01.140Z",
       "scoring_method": "auto"
     },
     "safety-objectives": {
@@ -8752,7 +8731,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.408Z",
+      "scored_at": "2026-04-17T00:57:01.251Z",
       "scoring_method": "auto"
     },
     "sales-management-system": {
@@ -8769,7 +8748,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.582Z",
+      "scored_at": "2026-04-17T00:57:01.441Z",
       "scoring_method": "auto"
     },
     "satoyama-initiative": {
@@ -8786,7 +8765,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.676Z",
+      "scored_at": "2026-04-17T00:57:01.552Z",
       "scoring_method": "auto"
     },
     "scientific-management": {
@@ -8803,7 +8782,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.759Z",
+      "scored_at": "2026-04-17T00:57:01.669Z",
       "scoring_method": "auto"
     },
     "scm-system": {
@@ -8820,7 +8799,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.854Z",
+      "scored_at": "2026-04-17T00:57:01.772Z",
       "scoring_method": "auto"
     },
     "sdgs": {
@@ -8837,7 +8816,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:09.943Z",
+      "scored_at": "2026-04-17T00:57:01.864Z",
       "scoring_method": "auto"
     },
     "security-education": {
@@ -8854,7 +8833,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.135Z",
+      "scored_at": "2026-04-17T00:57:02.075Z",
       "scoring_method": "auto"
     },
     "security-software": {
@@ -8871,7 +8850,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.226Z",
+      "scored_at": "2026-04-17T00:57:02.171Z",
       "scoring_method": "auto"
     },
     "self-declaration-system": {
@@ -8888,7 +8867,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.327Z",
+      "scored_at": "2026-04-17T00:57:02.265Z",
       "scoring_method": "auto"
     },
     "self-development": {
@@ -8905,7 +8884,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.426Z",
+      "scored_at": "2026-04-17T00:57:02.356Z",
       "scoring_method": "auto"
     },
     "seniority-wage": {
@@ -8922,7 +8901,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.516Z",
+      "scored_at": "2026-04-17T00:57:02.443Z",
       "scoring_method": "auto"
     },
     "series-system": {
@@ -8939,7 +8918,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.615Z",
+      "scored_at": "2026-04-17T00:57:02.537Z",
       "scoring_method": "auto"
     },
     "servant-leadership": {
@@ -8956,7 +8935,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.702Z",
+      "scored_at": "2026-04-17T00:57:02.631Z",
       "scoring_method": "auto"
     },
     "seven-types-of-pollution": {
@@ -8973,7 +8952,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.895Z",
+      "scored_at": "2026-04-17T00:57:02.808Z",
       "scoring_method": "auto"
     },
     "sexual-harassment": {
@@ -8990,7 +8969,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:10.979Z",
+      "scored_at": "2026-04-17T00:57:02.910Z",
       "scoring_method": "auto"
     },
     "sfa-system": {
@@ -9007,7 +8986,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.075Z",
+      "scored_at": "2026-04-17T00:57:03.008Z",
       "scoring_method": "auto"
     },
     "side-jobs": {
@@ -9024,7 +9003,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.169Z",
+      "scored_at": "2026-04-17T00:57:03.110Z",
       "scoring_method": "auto"
     },
     "skill-based-pay": {
@@ -9041,7 +9020,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.263Z",
+      "scored_at": "2026-04-17T00:57:03.206Z",
       "scoring_method": "auto"
     },
     "skill-qualification-system": {
@@ -9058,7 +9037,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.352Z",
+      "scored_at": "2026-04-17T00:57:03.302Z",
       "scoring_method": "auto"
     },
     "skill-standards": {
@@ -9075,7 +9054,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.454Z",
+      "scored_at": "2026-04-17T00:57:03.407Z",
       "scoring_method": "auto"
     },
     "smart-safety": {
@@ -9092,7 +9071,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.698Z",
+      "scored_at": "2026-04-17T00:57:03.745Z",
       "scoring_method": "auto"
     },
     "social-engineering": {
@@ -9109,7 +9088,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.788Z",
+      "scored_at": "2026-04-17T00:57:03.852Z",
       "scoring_method": "auto"
     },
     "soil-contamination-act": {
@@ -9126,7 +9105,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.884Z",
+      "scored_at": "2026-04-17T00:57:03.956Z",
       "scoring_method": "auto"
     },
     "sop": {
@@ -9143,7 +9122,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:11.968Z",
+      "scored_at": "2026-04-17T00:57:04.057Z",
       "scoring_method": "auto"
     },
     "sound-water-cycle": {
@@ -9160,7 +9139,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.064Z",
+      "scored_at": "2026-04-17T00:57:04.152Z",
       "scoring_method": "auto"
     },
     "source-control-principle": {
@@ -9177,7 +9156,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.153Z",
+      "scored_at": "2026-04-17T00:57:04.246Z",
       "scoring_method": "auto"
     },
     "specialist-system": {
@@ -9193,7 +9172,7 @@
       "weak_axes": [
         "mobile"
       ],
-      "scored_at": "2026-04-17T00:48:12.251Z",
+      "scored_at": "2026-04-17T00:57:04.343Z",
       "scoring_method": "auto"
     },
     "specialized-training": {
@@ -9210,7 +9189,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.356Z",
+      "scored_at": "2026-04-17T00:57:04.434Z",
       "scoring_method": "auto"
     },
     "species-preservation-act": {
@@ -9227,7 +9206,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.457Z",
+      "scored_at": "2026-04-17T00:57:04.528Z",
       "scoring_method": "auto"
     },
     "sri": {
@@ -9244,7 +9223,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.578Z",
+      "scored_at": "2026-04-17T00:57:04.635Z",
       "scoring_method": "auto"
     },
     "standard-costing": {
@@ -9261,7 +9240,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.769Z",
+      "scored_at": "2026-04-17T00:57:04.822Z",
       "scoring_method": "auto"
     },
     "standardization-strategy": {
@@ -9278,7 +9257,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.849Z",
+      "scored_at": "2026-04-17T00:57:04.926Z",
       "scoring_method": "auto"
     },
     "state-secrets-act": {
@@ -9295,7 +9274,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:12.941Z",
+      "scored_at": "2026-04-17T00:57:05.028Z",
       "scoring_method": "auto"
     },
     "stress-check-system": {
@@ -9309,7 +9288,7 @@
       },
       "weighted": 2.5,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:13.024Z",
+      "scored_at": "2026-04-17T00:57:05.123Z",
       "scoring_method": "auto"
     },
     "subcontracting-act": {
@@ -9326,7 +9305,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:13.111Z",
+      "scored_at": "2026-04-17T00:57:05.252Z",
       "scoring_method": "auto"
     },
     "subsidiarity-principle": {
@@ -9343,7 +9322,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:13.211Z",
+      "scored_at": "2026-04-17T00:57:05.336Z",
       "scoring_method": "auto"
     },
     "surcharge": {
@@ -9360,7 +9339,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:13.412Z",
+      "scored_at": "2026-04-17T00:57:05.498Z",
       "scoring_method": "auto"
     },
     "sustainable-fashion": {
@@ -9377,7 +9356,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:13.648Z",
+      "scored_at": "2026-04-17T00:57:05.684Z",
       "scoring_method": "auto"
     },
     "system-availability": {
@@ -9394,7 +9373,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:13.873Z",
+      "scored_at": "2026-04-17T00:57:05.871Z",
       "scoring_method": "auto"
     },
     "system-integrity": {
@@ -9411,7 +9390,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:13.988Z",
+      "scored_at": "2026-04-17T00:57:05.970Z",
       "scoring_method": "auto"
     },
     "system-outage-degradation": {
@@ -9428,7 +9407,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:14.099Z",
+      "scored_at": "2026-04-17T00:57:06.059Z",
       "scoring_method": "auto"
     },
     "system-safety": {
@@ -9445,7 +9424,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:14.316Z",
+      "scored_at": "2026-04-17T00:57:06.257Z",
       "scoring_method": "auto"
     },
     "system-security": {
@@ -9462,7 +9441,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:14.426Z",
+      "scored_at": "2026-04-17T00:57:06.347Z",
       "scoring_method": "auto"
     },
     "system-serviceability": {
@@ -9479,7 +9458,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:14.514Z",
+      "scored_at": "2026-04-17T00:57:06.434Z",
       "scoring_method": "auto"
     },
     "target-cost": {
@@ -9496,7 +9475,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:14.789Z",
+      "scored_at": "2026-04-17T00:57:06.712Z",
       "scoring_method": "auto"
     },
     "targeted-attack": {
@@ -9513,7 +9492,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:14.899Z",
+      "scored_at": "2026-04-17T00:57:06.800Z",
       "scoring_method": "auto"
     },
     "task-based-training": {
@@ -9530,7 +9509,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:14.995Z",
+      "scored_at": "2026-04-17T00:57:06.901Z",
       "scoring_method": "auto"
     },
     "tbm-toolbox-meeting": {
@@ -9547,7 +9526,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.092Z",
+      "scored_at": "2026-04-17T00:57:07.015Z",
       "scoring_method": "auto"
     },
     "tcfd": {
@@ -9564,7 +9543,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.192Z",
+      "scored_at": "2026-04-17T00:57:07.114Z",
       "scoring_method": "auto"
     },
     "teal-organization": {
@@ -9581,7 +9560,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.287Z",
+      "scored_at": "2026-04-17T00:57:07.227Z",
       "scoring_method": "auto"
     },
     "technology-licensing": {
@@ -9598,7 +9577,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.470Z",
+      "scored_at": "2026-04-17T00:57:07.424Z",
       "scoring_method": "auto"
     },
     "temporary-works-plan": {
@@ -9615,7 +9594,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.556Z",
+      "scored_at": "2026-04-17T00:57:07.521Z",
       "scoring_method": "auto"
     },
     "terrorism": {
@@ -9632,7 +9611,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.651Z",
+      "scored_at": "2026-04-17T00:57:07.611Z",
       "scoring_method": "auto"
     },
     "theory-of-constraints": {
@@ -9649,7 +9628,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.731Z",
+      "scored_at": "2026-04-17T00:57:07.697Z",
       "scoring_method": "auto"
     },
     "threat-awareness-training": {
@@ -9666,7 +9645,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:15.916Z",
+      "scored_at": "2026-04-17T00:57:07.878Z",
       "scoring_method": "auto"
     },
     "three-point-estimation": {
@@ -9682,7 +9661,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.120Z",
+      "scored_at": "2026-04-17T00:57:08.089Z",
       "scoring_method": "auto"
     },
     "timeline-disaster": {
@@ -9699,7 +9678,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.230Z",
+      "scored_at": "2026-04-17T00:57:08.199Z",
       "scoring_method": "auto"
     },
     "tnfd": {
@@ -9716,7 +9695,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.329Z",
+      "scored_at": "2026-04-17T00:57:08.301Z",
       "scoring_method": "auto"
     },
     "total-wage-management": {
@@ -9733,7 +9712,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.446Z",
+      "scored_at": "2026-04-17T00:57:08.391Z",
       "scoring_method": "auto"
     },
     "trademark-rights": {
@@ -9750,7 +9729,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.550Z",
+      "scored_at": "2026-04-17T00:57:08.482Z",
       "scoring_method": "auto"
     },
     "training-techniques": {
@@ -9767,7 +9746,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.646Z",
+      "scored_at": "2026-04-17T00:57:08.580Z",
       "scoring_method": "auto"
     },
     "tripod-theory": {
@@ -9784,7 +9763,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.748Z",
+      "scored_at": "2026-04-17T00:57:08.680Z",
       "scoring_method": "auto"
     },
     "un-human-environment-conf": {
@@ -9801,7 +9780,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.836Z",
+      "scored_at": "2026-04-17T00:57:08.779Z",
       "scoring_method": "auto"
     },
     "unauthorized-access": {
@@ -9818,7 +9797,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:16.937Z",
+      "scored_at": "2026-04-17T00:57:08.871Z",
       "scoring_method": "auto"
     },
     "unced-earth-summit": {
@@ -9832,7 +9811,7 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:17.023Z",
+      "scored_at": "2026-04-17T00:57:08.964Z",
       "scoring_method": "auto"
     },
     "unfair-competition-prevention-act": {
@@ -9849,7 +9828,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:17.216Z",
+      "scored_at": "2026-04-17T00:57:09.184Z",
       "scoring_method": "auto"
     },
     "unfair-trade-practices": {
@@ -9863,7 +9842,7 @@
       },
       "weighted": 2.6,
       "weak_axes": [],
-      "scored_at": "2026-04-17T00:48:17.314Z",
+      "scored_at": "2026-04-17T00:57:09.314Z",
       "scoring_method": "auto"
     },
     "unreasonable-trade-restraint": {
@@ -9880,7 +9859,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:17.443Z",
+      "scored_at": "2026-04-17T00:57:09.440Z",
       "scoring_method": "auto"
     },
     "utility-model-rights": {
@@ -9897,7 +9876,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:17.776Z",
+      "scored_at": "2026-04-17T00:57:09.758Z",
       "scoring_method": "auto"
     },
     "utilization-rate": {
@@ -9914,7 +9893,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:17.867Z",
+      "scored_at": "2026-04-17T00:57:09.858Z",
       "scoring_method": "auto"
     },
     "value-chain-analysis": {
@@ -9930,7 +9909,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:17.957Z",
+      "scored_at": "2026-04-17T00:57:09.945Z",
       "scoring_method": "auto"
     },
     "value-engineering": {
@@ -9946,7 +9925,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:18.048Z",
+      "scored_at": "2026-04-17T00:57:10.044Z",
       "scoring_method": "auto"
     },
     "variable-work-hours": {
@@ -9963,7 +9942,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:18.137Z",
+      "scored_at": "2026-04-17T00:57:10.144Z",
       "scoring_method": "auto"
     },
     "verbal-nonverbal-communication": {
@@ -9980,7 +9959,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:18.234Z",
+      "scored_at": "2026-04-17T00:57:10.237Z",
       "scoring_method": "auto"
     },
     "visual-management": {
@@ -9997,7 +9976,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:18.500Z",
+      "scored_at": "2026-04-17T00:57:10.516Z",
       "scoring_method": "auto"
     },
     "vocational-training-act": {
@@ -10014,7 +9993,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:18.586Z",
+      "scored_at": "2026-04-17T00:57:10.626Z",
       "scoring_method": "auto"
     },
     "vr-ar-metaverse": {
@@ -10031,7 +10010,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:18.763Z",
+      "scored_at": "2026-04-17T00:57:10.825Z",
       "scoring_method": "auto"
     },
     "vulnerability": {
@@ -10048,7 +10027,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:18.977Z",
+      "scored_at": "2026-04-17T00:57:11.005Z",
       "scoring_method": "auto"
     },
     "wacc-roic": {
@@ -10065,7 +10044,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.075Z",
+      "scored_at": "2026-04-17T00:57:11.102Z",
       "scoring_method": "auto"
     },
     "waste-management-act": {
@@ -10082,7 +10061,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.165Z",
+      "scored_at": "2026-04-17T00:57:11.193Z",
       "scoring_method": "auto"
     },
     "water-pollution-control-act": {
@@ -10099,7 +10078,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.257Z",
+      "scored_at": "2026-04-17T00:57:11.283Z",
       "scoring_method": "auto"
     },
     "waterfall": {
@@ -10116,7 +10095,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.350Z",
+      "scored_at": "2026-04-17T00:57:11.375Z",
       "scoring_method": "auto"
     },
     "wced": {
@@ -10133,7 +10112,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.456Z",
+      "scored_at": "2026-04-17T00:57:11.456Z",
       "scoring_method": "auto"
     },
     "web-services": {
@@ -10150,7 +10129,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.596Z",
+      "scored_at": "2026-04-17T00:57:11.551Z",
       "scoring_method": "auto"
     },
     "wellbeing-org": {
@@ -10167,7 +10146,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.725Z",
+      "scored_at": "2026-04-17T00:57:11.662Z",
       "scoring_method": "auto"
     },
     "wildlife-protection-act": {
@@ -10184,7 +10163,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.839Z",
+      "scored_at": "2026-04-17T00:57:11.757Z",
       "scoring_method": "auto"
     },
     "women-empowerment-act": {
@@ -10200,7 +10179,7 @@
       "weak_axes": [
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:19.954Z",
+      "scored_at": "2026-04-17T00:57:11.837Z",
       "scoring_method": "auto"
     },
     "work-life-balance": {
@@ -10217,7 +10196,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:20.079Z",
+      "scored_at": "2026-04-17T00:57:11.926Z",
       "scoring_method": "auto"
     },
     "work-planning": {
@@ -10234,7 +10213,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:20.192Z",
+      "scored_at": "2026-04-17T00:57:12.020Z",
       "scoring_method": "auto"
     },
     "worker-dispatch-act": {
@@ -10251,7 +10230,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:20.293Z",
+      "scored_at": "2026-04-17T00:57:12.115Z",
       "scoring_method": "auto"
     },
     "workers-compensation-insurance": {
@@ -10268,7 +10247,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:20.395Z",
+      "scored_at": "2026-04-17T00:57:12.215Z",
       "scoring_method": "auto"
     },
     "youth-employment-act": {
@@ -10285,7 +10264,7 @@
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T00:48:20.501Z",
+      "scored_at": "2026-04-17T00:57:12.311Z",
       "scoring_method": "auto"
     }
   }
