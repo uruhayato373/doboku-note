@@ -9,13 +9,16 @@ tags:
 published: true
 publishedAt: '2026-04-09'
 seoTitle: 機能安全 ｜ 総合技術監理 キーワード集 2026
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
 ---
 
 # 機能安全
 
 ## 機能安全とは
 
-機能安全（Functional Safety）とは、**安全関連系（安全装置・制御システム）が正しく動作することによって達成される安全**である。
+機能安全（Functional Safety）とは、**安全関連系**（安全装置・制御システム）が正しく動作することによって達成される安全である。
 
 本質安全が危険源そのものを除去するのに対し、機能安全は安全装置の機能によってリスクを許容可能なレベルまで低減する。IEC 61508（JIS C 0508）が国際規格として体系を定めている。
 
@@ -31,6 +34,8 @@ seoTitle: 機能安全 ｜ 総合技術監理 キーワード集 2026
 | **SIL 1** | $10^{-6}$ 〜 $10^{-5}$ | 一般産業機械の安全系 |
 
 ## 本質安全との比較
+
+機能安全と[本質安全](/docs/pe-comprehensive-management-inherent-safety)はリスク低減の優先順位と安全確保の根拠が異なる。いずれを適用するかは、危険源の性質とシステム設計の段階によって判断する。
 
 | 項目 | 機能安全 | [本質安全](/docs/pe-comprehensive-management-inherent-safety) |
 |---|---|---|
@@ -54,6 +59,15 @@ seoTitle: 機能安全 ｜ 総合技術監理 キーワード集 2026
 
 機能安全は[本質安全](/docs/pe-comprehensive-management-inherent-safety)と対比される安全概念であり、[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)・[インターロック](/docs/pe-comprehensive-management-interlock)・[非常停止装置](/docs/pe-comprehensive-management-emergency-stop-device)等は機能安全を実現する具体的な安全機構である。[安全計装システム](/docs/pe-comprehensive-management-safety-instrumented-system)は機能安全の中核をなすシステムである。
 
+## 規格制定の背景
+
+機能安全という概念が国際規格として体系化された背景には、1970〜1980年代に相次いだ大規模プラント事故がある。1976年のセベソ事故（イタリア、化学プラントからのダイオキシン漏洩）、1984年のボパール事故（インド、農薬工場からのイソシアン酸メチル大量漏洩）、1986年のチェルノブイリ原子力発電所事故はいずれも、制御システムの誤動作・人的操作ミスが複合した事例であった。
+
+これらの事故を契機に、「安全装置そのものの信頼性をどう評価・保証するか」という問題意識が高まった。1998年に IEC 61508 第1版が策定され、E/E/PE（電気・電子・プログラマブル電子）システムに対して安全ライフサイクル全体を通じた管理を義務づける枠組みが確立した。2010年には第2版が発行され、自動車（ISO 26262）・鉄道（EN 50128）・プロセス制御（IEC 61511）など分野別派生規格の基盤規格として機能している。
+
+建設分野においても、建設機械の遠隔制御システムや斜面監視のセンサ系に機能安全の考え方が適用されるようになっており、安全管理の定量的評価手法として今後の重要性が高まる領域である。
+
 ## 参考資料
 
-- [機能安全規格 IEC 61508の概要](https://www.meti.go.jp/)（経済産業省）
+- [機能安全による機械等の安全確保について](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000140176.html)（厚生労働省）
+- [機能安全 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%A9%9F%E8%83%BD%E5%AE%89%E5%85%A8)（Wikipedia日本語版）
