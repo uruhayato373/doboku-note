@@ -8,6 +8,9 @@ tags:
   - 総合技術監理
   - keyword
 published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
 publishedAt: '2026-04-08'
 seoTitle: 線形回帰と最小二乗法 ｜ 総合技術監理 キーワード集 2026
 ---
@@ -79,12 +82,12 @@ $R^2$ は 0 から 1 の値をとり、1 に近いほどモデルの説明力が
 
 ### 回帰分析の実務的留意点
 
-| 項目 | 内容 |
-|---|---|
-| 多重共線性 | 説明変数間に強い相関があると係数の推定が不安定になる。VIF（分散拡大係数）で診断 |
-| 残差分析 | 残差の正規性・等分散性・独立性を確認し、モデルの妥当性を検証 |
-| 外れ値の影響 | 最小二乗法は外れ値の影響を受けやすい。ロバスト回帰の検討も必要 |
-| 過学習 | 変数を増やしすぎると訓練データへの過適合が生じる。AIC・BIC で変数選択 |
+回帰分析を実務で適用する際は、以下の4点に注意が必要である。
+
+- **多重共線性**: 説明変数間に強い相関があると係数の推定が不安定になる。VIF（分散拡大係数）で診断する
+- **残差分析**: 残差の正規性・等分散性・独立性を確認し、モデルの妥当性を検証する
+- **外れ値の影響**: 最小二乗法は外れ値の影響を受けやすい。ロバスト回帰の検討も必要である
+- **過学習**: 変数を増やしすぎると訓練データへの過適合が生じる。AIC・BIC で変数選択を行う
 
 ## 総合技術監理における位置づけ
 
@@ -95,3 +98,10 @@ $R^2$ は 0 から 1 の値をとり、1 に近いほどモデルの説明力が
 目的変数が二値（有・無、合格・不合格など）の場合はロジスティック回帰を用いる。
 
 関連キーワード: [ロジスティック回帰](/docs/pe-comprehensive-management-logistic-regression)、[相関分析](/docs/pe-comprehensive-management-correlation-analysis)、[記述統計](/docs/pe-comprehensive-management-descriptive-statistics)、[推定・検定](/docs/pe-comprehensive-management-estimation-testing)
+
+## 参考資料
+
+線形回帰と最小二乗法の理解を深めるための参考資料を示す。
+
+- [線形回帰と最小二乗法](https://ocw.u-tokyo.ac.jp/lecture_2451/)（東京大学 OpenCourseWare）
+- [27-2. 最小二乗法](https://bellcurve.jp/statistics/course/24375.html)（統計WEB）
