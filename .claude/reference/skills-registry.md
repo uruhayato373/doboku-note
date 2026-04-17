@@ -81,6 +81,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成・品質改善 | `.claude/skills/content/exam-backlinks/SKILL.md` |
 | `/review-mobile` | モバイル視認性・可読性レビュー（表の適切性・数式・簡潔性） | `.claude/skills/content/review-mobile/SKILL.md` |
 | `/create-svg` | MDX 記事用 SVG 図版の作成（モバイル視認性・デザイントークン準拠） | `.claude/skills/content/create-svg/SKILL.md` |
+| `/illustrate-concept` | 概念図の視覚的メタファーを Web 画像から調査・提示し、合意後に `/create-svg` へ引き渡す着想スキル | `.claude/skills/content/illustrate-concept/SKILL.md` |
 
 ### PDF→MDX 試験特化スキル
 
