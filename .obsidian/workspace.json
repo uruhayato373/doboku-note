@@ -11,24 +11,10 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "安全管理"
+              "title": "新規タブ"
             }
           }
         ]
@@ -439,10 +425,10 @@
             "id": "164763cde4119ea7",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -454,9 +440,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "ff3a2bd474a43344",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 23
+        "currentTab": 24
       }
     ],
     "direction": "horizontal",
@@ -486,19 +482,25 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "ff3a2bd474a43344",
   "lastOpenFiles": [
-    "rewrite-indefinite-conversion-rule.mjs",
-    "scripts/batch-approve.mjs",
-    "docs/textbook/行政書士/行政書士問題集その２.pdf",
-    "docs/textbook/行政書士/行政書士問題集その１.pdf",
-    "docs/textbook/行政書士/第５部_基礎法学.pdf",
-    "docs/textbook/行政書士/第４部_商法.pdf",
-    "docs/textbook/行政書士/第２部_行政法.pdf",
-    "docs/textbook/行政書士/第１部_憲法.pdf",
-    "docs/textbook/行政書士",
-    "docs/textbook/技術士（建設部門）/論文対策キーワード/2-5-持続可能で活力ある国土・地域づくり.pdf",
-    "docs/textbook/技術士（建設部門）/論文対策キーワード",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理③.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理②.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理①.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理④.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理③.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理①.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/安全管理/fig-4-5.svg",
+    "docs/pe-comprehensive-management-safety-culture.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/図表4-5.png",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/図4-2.png",
     "docs/textbook/技術士（総監）/テキスト/総監受験万全対策/総監_第1章.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-6.svg",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/安全管理/fig-4-15.svg",
@@ -507,13 +509,8 @@
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-4.svg",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-17.svg",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-19.svg",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-18.svg",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-16.svg",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-15.svg",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.md",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.md",
     "docs/textbook/総監標準テキスト/安全管理.md",
     "docs/project/20_primary-exam-figure-restoration.md",
@@ -532,7 +529,6 @@
     "docs/project/03_NSMと計測指標.md",
     "data/review-queue.md",
     "docs/project/19_civil-exam-answer-style-migration.md",
-    "模範論文_令和4年度_DXによる変革.md",
-    "平成24年度技術士試験_総合技術監理部門_択一問題_全問解説.md"
+    "模範論文_令和4年度_DXによる変革.md"
   ]
 }
