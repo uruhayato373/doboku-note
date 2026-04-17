@@ -20,7 +20,7 @@ description: >
 | 引数 | 必須 | 説明 |
 |------|------|------|
 | MDXファイルパス | ✅ | 対象の択一式過去問 MDX（例: `.local/r2/posts/pe-comprehensive-management/r07-primary/article.mdx`） |
-| 正答PDFパス | 任意 | 正答表 PDF。省略時は `.claude/pdfs/技術士（総監）/` から年度を推定して自動選択 |
+| 正答PDFパス | 任意 | 正答表 PDF。省略時は `docs/textbook/技術士（総監）/` から年度を推定して自動選択 |
 
 ## 実行手順
 
@@ -165,8 +165,8 @@ RelatedKeywords
 ## 正答 PDF の配置場所
 
 ```
-.claude/pdfs/技術士（総監）/
-  R01_試験問題_択一式_正答.pdf
+docs/textbook/技術士（総監）/過去問/
+  R01/R01_試験問題_択一式_正答.pdf
   R02_試験問題_択一式_正答.pdf
   ...
   R07_試験問題_択一式_正答.pdf

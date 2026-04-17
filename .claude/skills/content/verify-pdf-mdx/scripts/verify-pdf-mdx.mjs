@@ -35,7 +35,7 @@ import sharp from 'sharp';
 // 定数
 // ----------------------------------------------------------------
 
-const PDF_ROOT = '.claude/pdfs/１級土木施工管理技士';
+const PDF_ROOT = 'docs/textbook/１級土木施工管理技士';
 const TMP_ROOT = '/tmp/verify-pdf-mdx';
 const DEFAULT_DPI = 150;
 

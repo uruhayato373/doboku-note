@@ -66,6 +66,7 @@ src/                                # カスタムコンポーネント・CSS・
   app/docs/[...slug]/page.tsx       # 全ドキュメントページの動的ルート（フラット）
 
 docs/project/                       # プロジェクト管理ドキュメント
+docs/textbook/                      # 教材PDF・変換済みMarkdown（試験種別ごと）
 .claude/reference/                  # 作業マニュアル（詳細・一覧・手順）
 .claude/skills/                     # スキル定義
 .claude/agents/                     # サブエージェント定義
