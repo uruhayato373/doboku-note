@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 370" role="img" aria-label="再受験対策フロー">
+  <defs>
+    <marker id="arrow3" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1f2937; }
+  </style>
+
+  <!-- Top: 不合格要因の把握 -->
+  <rect x="200" y="10" width="220" height="44" rx="8" fill="#1a3a5c"/>
+  <text x="310" y="37" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">前回不合格の要因・課題の把握</text>
+
+  <!-- Arrows down to 3 branches -->
+  <line x1="230" y1="54" x2="100" y2="90" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow3)"/>
+  <line x1="310" y1="54" x2="310" y2="90" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow3)"/>
+  <line x1="390" y1="54" x2="520" y2="90" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+  <!-- Branch 1: 択一式 -->
+  <rect x="10" y="92" width="180" height="36" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="100" y="115" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">択一式が不十分</text>
+
+  <rect x="10" y="148" width="180" height="130" rx="6" fill="#f9fafb" stroke="#ddd" stroke-width="1"/>
+  <text x="25" y="172" font-size="11" fill="#555">・分野別正答率を自己採点</text>
+  <text x="25" y="192" font-size="11" fill="#555">・弱点分野を特定し</text>
+  <text x="25" y="212" font-size="11" fill="#555">　キーワード集を再通読</text>
+  <text x="25" y="232" font-size="11" fill="#555">・計算問題の反復演習</text>
+  <text x="25" y="252" font-size="11" fill="#555">・社会動向への関心を</text>
+  <text x="25" y="268" font-size="11" fill="#555">　高める</text>
+
+  <!-- Branch 2: 記述式 -->
+  <rect x="220" y="92" width="180" height="36" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="310" y="115" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">記述式が不十分</text>
+
+  <rect x="220" y="148" width="180" height="130" rx="6" fill="#f9fafb" stroke="#ddd" stroke-width="1"/>
+  <text x="235" y="168" font-size="10" font-weight="bold" fill="#d4a017">B判定（惜しい）</text>
+  <text x="235" y="186" font-size="11" fill="#555">・トレードオフの掘り下げ</text>
+  <text x="235" y="202" font-size="11" fill="#555">・解決フレームの適用</text>
+  <text x="235" y="224" font-size="10" font-weight="bold" fill="#c0392b">C判定（大幅不足）</text>
+  <text x="235" y="242" font-size="11" fill="#555">・5管理フレーム自体の</text>
+  <text x="235" y="258" font-size="11" fill="#555">　再習得が必要</text>
+  <text x="235" y="274" font-size="11" fill="#555">・キーワード集を再通読</text>
+
+  <!-- Branch 3: 口頭試験 -->
+  <rect x="430" y="92" width="180" height="36" rx="6" fill="#f8d7da" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="520" y="115" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">口頭試験で不合格</text>
+
+  <rect x="430" y="148" width="180" height="130" rx="6" fill="#f9fafb" stroke="#ddd" stroke-width="1"/>
+  <text x="445" y="172" font-size="11" fill="#555">・業務経歴を総監視点で</text>
+  <text x="445" y="192" font-size="11" fill="#555">　整備し直す</text>
+  <text x="445" y="212" font-size="11" fill="#555">・5管理の適用事例を</text>
+  <text x="445" y="232" font-size="11" fill="#555">　3〜5件準備</text>
+  <text x="445" y="252" font-size="11" fill="#555">・模擬口頭試験で</text>
+  <text x="445" y="268" font-size="11" fill="#555">　回答を磨く</text>
+
+  <!-- Arrows down to 合格 -->
+  <line x1="100" y1="278" x2="260" y2="320" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow3)"/>
+  <line x1="310" y1="278" x2="310" y2="320" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow3)"/>
+  <line x1="520" y1="278" x2="360" y2="320" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow3)"/>
+
+  <!-- 合格 -->
+  <rect x="260" y="322" width="100" height="36" rx="8" fill="#3a7d44"/>
+  <text x="310" y="345" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">合格</text>
+</svg>

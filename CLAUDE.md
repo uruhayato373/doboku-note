@@ -296,6 +296,13 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 
 エージェント詳細（担当範囲・連携パターン・Phase 対応）は [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) を参照。
 
+## コンテンツ編集時のコミット運用
+
+- `.local/r2/posts/` 配下の MDX を編集したら、**その記事の修正が一区切りついた時点で即コミットする**
+- 複数記事をまとめて編集する場合でも、1記事の修正が完了するたびにコミットする
+- 理由: 未コミットの変更は git merge / stash / checkout で失われるリスクがある（過去事例: exam-index の修正を複数回行ったが未コミットのまま失われた）
+- コミットメッセージ例: `content(pe): exam-index 試験ガイド記事の改善`
+
 ## コンテキスト管理
 
 - 長時間の作業（PDF→MDX 変換、大量ファイル編集など）では、自然な区切り（1 節完了、1 ファイル完了など）ごとにユーザーへ `/compact` の実行を提案すること
