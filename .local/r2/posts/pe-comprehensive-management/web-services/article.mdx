@@ -9,6 +9,9 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-08'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
 seoTitle: WEBサービス ｜ 総合技術監理 キーワード集 2026
 ---
 
@@ -26,15 +29,13 @@ WEBサービスは企業の業務システム統合、公共データの公開�
 
 WEBサービスの実装方式として、SOAPとRESTが代表的である。
 
-| 項目 | SOAP | REST |
-|---|---|---|
-| **プロトコル** | 独自のSOAPプロトコル（XML） | HTTPメソッド（GET, POST, PUT, DELETE） |
-| **データ形式** | XML | JSON（XML も可） |
-| **記述の複雑さ** | WSDLによる厳密な定義が必要 | シンプルなURL設計で記述容易 |
-| **トランザクション** | WS-Transactionで対応 | 標準的な仕組みなし |
-| **セキュリティ** | WS-Securityで標準化 | HTTPS + OAuthなど |
-| **適用場面** | 金融・医療など厳密性が求められる分野 | Web・モバイルアプリケーション全般 |
-| **現在の主流度** | レガシーシステムで残存 | 新規開発の主流 |
+- **プロトコル**: SOAP = 独自のSOAPプロトコル（XML） ／ REST = HTTPメソッド（GET, POST, PUT, DELETE）
+- **データ形式**: SOAP = XML ／ REST = JSON（XML も可）
+- **記述の複雑さ**: SOAP = WSDLによる厳密な定義が必要 ／ REST = シンプルなURL設計で記述容易
+- **トランザクション**: SOAP = WS-Transactionで対応 ／ REST = 標準的な仕組みなし
+- **セキュリティ**: SOAP = WS-Securityで標準化 ／ REST = HTTPS + OAuthなど
+- **適用場面**: SOAP = 金融・医療など厳密性が求められる分野 ／ REST = Web・モバイルアプリケーション全般
+- **現在の主流度**: SOAP = レガシーシステムで残存 ／ REST = 新規開発の主流
 
 ### API エコノミーとマイクロサービス
 
@@ -72,3 +73,9 @@ APIを外部に公開し、他社サービスと連携することで新たな�
 WEBサービスはクラウドコンピューティングやインターネットの基盤技術であり、情報システムの集中化と分散化の選択にも影響を与える重要な概念である。
 
 関連キーワード: [集中化と分散化](/docs/pe-comprehensive-management-centralization-decentralization)、[インターネット](/docs/pe-comprehensive-management-internet)
+
+## 参考資料
+
+- [デジタル・ガバメント推進標準ガイドライン（デジタル庁）](https://www.digital.go.jp/policies/servicedesign/designguideline) — API設計・WebサービスのWebの標準
+- [OpenAPI Specification（Swagger）](https://swagger.io/specification/) — REST API仕様記述の国際標準
+- [SOAとマイクロサービス（ITmedia）](https://www.itmedia.co.jp/) — SOA/マイクロサービスの比較と実務的解説
