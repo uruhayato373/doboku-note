@@ -5,9 +5,6 @@
   <rect width="1280" height="90" fill="#e8f0fe"/>
   <!-- 左縦アクセント -->
   <rect x="0" y="0" width="14" height="670" fill="#2e6da4"/>
-  <!-- 下部アクセントゾーン（装飾） -->
-  <rect x="0" y="610" width="1280" height="60" fill="#e8f0fe"/>
-  <rect x="0" y="664" width="1280" height="6" fill="#2e6da4"/>
 
   <!-- ブランド名 -->
   <text x="60" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#1a3a5c">doboku-note</text>
@@ -16,18 +13,15 @@
 
   
   <!-- フック -->
-  <rect x="60" y="238" width="328" height="56" rx="6" fill="#2e6da4"/>
-  <text x="84" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff">17年分を解いた実感</text>
+  <rect x="60" y="253" width="328" height="56" rx="6" fill="#2e6da4"/>
+  <text x="84" y="291" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff">17年分を解いた実感</text>
   
 
   <!-- メインタイトル -->
   
-  <text x="60" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="72" font-weight="800" fill="#222222" letter-spacing="-1">総監択一式 年度別難易度ランキング</text>
+  <text x="60" y="407" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="72" font-weight="800" fill="#222222" letter-spacing="-1">総監択一式 年度別難易度ランキング</text>
 
   <!-- サブタイトル -->
   
-  <text x="60" y="462" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="500" fill="#555555">初受験者が優先して解くべき過去問がわかる</text>
-
-  <!-- 下部装飾: URL -->
-  <text x="640" y="648" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c" text-anchor="middle">doboku-note.com</text>
+  <text x="60" y="477" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="500" fill="#555555">初受験者が優先して解くべき過去問がわかる</text>
 </svg>

@@ -77,6 +77,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/clean-pdf-artifacts` | PDF 変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
 | `/check-mdx` | MDX 構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
 | `/check-links` | 外部リンク切れ検出（HTTP HEAD 検証） | `.claude/skills/content/check-links/SKILL.md` |
+| `/verify-exam-coverage` | キーワードページが過去問論点をカバーできているか検証し、未カバー論点と補強方針を提示（Evaluator+Generator） | `.claude/skills/content/verify-exam-coverage/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX 変換の品質検証・修正（PDF 照合＋修正の2段階） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/verify-pdf-mdx` | MDX の category/group を判定し、視覚検証・テキスト網羅率・5軸ルーブリック評価を適切な Evaluator エージェント（civil-construction-qa / cem-qa / content-qa）へルーティング | `.claude/skills/content/verify-pdf-mdx/SKILL.md` |
 | `/add-exam-answers` | 択一式過去問 MDX の未解答設問に正答 PDF 準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |

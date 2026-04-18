@@ -5,9 +5,6 @@
   <rect width="1280" height="90" fill="#e8f0fe"/>
   <!-- 左縦アクセント -->
   <rect x="0" y="0" width="14" height="670" fill="#2e6da4"/>
-  <!-- 下部アクセントゾーン（装飾） -->
-  <rect x="0" y="610" width="1280" height="60" fill="#e8f0fe"/>
-  <rect x="0" y="664" width="1280" height="6" fill="#2e6da4"/>
 
   <!-- ブランド名 -->
   <text x="60" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#1a3a5c">doboku-note</text>
@@ -18,13 +15,10 @@
 
   <!-- メインタイトル -->
   
-  <text x="60" y="307" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="64" font-weight="800" fill="#222222" letter-spacing="-1">総監口頭試験20分で落ちない「業</text>
-  <text x="60" y="387" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="64" font-weight="800" fill="#222222" letter-spacing="-1">務経歴」の語り方</text>
+  <text x="60" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="64" font-weight="800" fill="#222222" letter-spacing="-1">総監口頭試験20分で落ちない「業</text>
+  <text x="60" y="402" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="64" font-weight="800" fill="#222222" letter-spacing="-1">務経歴」の語り方</text>
 
   <!-- サブタイトル -->
   
-  <text x="60" y="457" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="500" fill="#555555">5管理で再構成する実演例と想定質問対策</text>
-
-  <!-- 下部装飾: URL -->
-  <text x="640" y="648" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c" text-anchor="middle">doboku-note.com</text>
+  <text x="60" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="500" fill="#555555">5管理で再構成する実演例と想定質問対策</text>
 </svg>

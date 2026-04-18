@@ -58,10 +58,10 @@ function parseTitle(h1) {
 }
 
 function makeSvg({ hook, main, sub, tag = '技術士 総合技術監理部門' }) {
-  // コンテンツエリア: y=100（ブランドバンド下）〜 y=600（フッター手前、下アクセント用余白）
+  // コンテンツエリア: y=100（ブランドバンド下）〜 y=H
   const AREA_TOP = 100;
-  const AREA_BOTTOM = 600;
-  const AREA_CENTER = (AREA_TOP + AREA_BOTTOM) / 2;  // 350
+  const AREA_BOTTOM = H - 40;
+  const AREA_CENTER = (AREA_TOP + AREA_BOTTOM) / 2;
 
   // 折り返し: 2〜3行に収めるため、文字数に応じて改行幅を動的調整
   const mainMax = main.length > 28 ? 15 : main.length > 18 ? 16 : 17;
@@ -94,9 +94,6 @@ function makeSvg({ hook, main, sub, tag = '技術士 総合技術監理部門' }
   <rect width="${W}" height="90" fill="${BRAND_FILL}"/>
   <!-- 左縦アクセント -->
   <rect x="0" y="0" width="14" height="${H}" fill="${BRAND}"/>
-  <!-- 下部アクセントゾーン（装飾） -->
-  <rect x="0" y="${H - 60}" width="${W}" height="60" fill="${BRAND_FILL}"/>
-  <rect x="0" y="${H - 6}" width="${W}" height="6" fill="${BRAND}"/>
 
   <!-- ブランド名 -->
   <text x="60" y="58" font-family="${FONT}" font-size="28" font-weight="700" fill="${BRAND_DEEP}">doboku-note</text>
@@ -116,9 +113,6 @@ function makeSvg({ hook, main, sub, tag = '技術士 総合技術監理部門' }
   <!-- サブタイトル -->
   ${subLines.map((line, i) => `
   <text x="60" y="${subTop + i * subLH}" font-family="${FONT}" font-size="${subSize}" font-weight="500" fill="${INK_BODY}">${xml(line)}</text>`).join('')}
-
-  <!-- 下部装飾: URL -->
-  <text x="${W / 2}" y="${H - 22}" font-family="${FONT}" font-size="18" font-weight="500" fill="${BRAND_DEEP}" text-anchor="middle">doboku-note.com</text>
 </svg>`;
 }
 
