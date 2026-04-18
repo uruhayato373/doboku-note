@@ -1,7 +1,78 @@
 {
   "version": 1,
-  "updated_at": "2026-04-14T22:52:16.760Z",
+  "updated_at": "2026-04-18T00:00:00.000Z",
   "experiments": [
+    {
+      "id": "EXP-002",
+      "title": "Group 1 S評価 2件の復活 + 1級土木 textbook からの双方向内部リンク",
+      "hypothesis": "削除済みだが GSC impressions のある common-specs-hyogo/02-03-materials-port (44 impr / 7.48位 / CTR 0%) と river/river-management/04 (74 impr / 6.88位 / clicks 3) を civil-construction-1-reference-* として復活し、frontmatter を試験文脈に書き直し、1級土木 textbook-port-regulations / textbook-river-act から双方向リンクを張ることで、両ページの combined clicks を 3 → 8+ に引き上げ、かつハブ側の engagement も底上げする。",
+      "target_metric": "combined_clicks_28d",
+      "target_delta": "3 -> 8",
+      "baseline": {
+        "common-specs-hyogo/02-03-materials-port": {
+          "impr": 44,
+          "clicks": 0,
+          "ctr": 0.0,
+          "position": 7.48
+        },
+        "river/river-management/04": {
+          "impr": 74,
+          "clicks": 3,
+          "position": 6.88
+        },
+        "combined_impr": 118,
+        "combined_clicks": 3,
+        "source": "gsc-page-2026-04-18T02-03-37.json",
+        "strategy_doc": "docs/project/22_content-resurrection-plan.md"
+      },
+      "status": "running",
+      "created_at": "2026-04-18T00:00:00.000Z",
+      "started_at": "2026-04-18T00:00:00.000Z",
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "1. git show 808aa327^ で削除直前の content/general/common-specs-hyogo/02-03-materials-port.mdx と content/river/river-management/04.mdx を復元",
+        "2. .local/r2/posts/civil-construction-1-reference-hyogo-port-materials/article.mdx と .local/r2/posts/civil-construction-1-reference-river-abandonment/article.mdx に配置",
+        "3. frontmatter を試験文脈 (category: civil-construction-1, tags: reference, exam_relevance) で書き直し",
+        "4. 1級土木 textbook-port-regulations から hyogo-port-materials へ、textbook-river-act から river-abandonment への参照リンクを追加",
+        "5. 各復活ページから textbook への back-link を冒頭に追加（双方向リンク完成）",
+        "6. commit + push → Cloudflare Pages デプロイ",
+        "7. GSC sitemap 再送信 + 新 2 URL の手動 indexing リクエスト（ユーザー作業）",
+        "8. 14 日後に fetch-gsc-data で 2 URL の impr / clicks / position delta 計測"
+      ],
+      "restored_urls": [
+        "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
+        "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment"
+      ],
+      "inbound_link_from": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-port-regulations",
+        "https://doboku-note.com/docs/civil-construction-1-textbook-river-act"
+      ],
+      "history": [
+        {
+          "date": "2026-04-18T00:00:00.000Z",
+          "action": "proposed"
+        },
+        {
+          "date": "2026-04-18T00:00:00.000Z",
+          "action": "running",
+          "summary": "Phase 1 の Group 1 S評価 2件復活を commit 直前まで実施。双方向リンクも同時整備済み。"
+        }
+      ],
+      "pending_user_actions": [
+        {
+          "action": "GSC 手動 indexing リクエスト",
+          "urls": [
+            "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
+            "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment"
+          ],
+          "added_at": "2026-04-18",
+          "blocked_reason": "Cloudflare Pages デプロイ完了待ち + GSC 1 日クォータ管理"
+        }
+      ],
+      "next_check_date": "2026-05-02"
+    },
     {
       "id": "EXP-001",
       "title": "統合ハウスキーピング: GSC クリーン + 現行サイト インデックス解放",
