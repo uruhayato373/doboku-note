@@ -44,6 +44,8 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/diff-r2` | ローカル `.local/r2/posts/` と R2 バケットの双方向差分を検出（only-local/only-remote/size-mismatch） | `.claude/skills/dev/diff-r2/SKILL.md` |
 | `/generate-ogp` | OGP 画像の一括生成・個別生成（satori + resvg-js） | `.claude/skills/dev/generate-ogp/SKILL.md` |
 | `/code-review` | Next.js コード品質レビュー（セキュリティ・パフォーマンス・保守性・a11y） | `.claude/skills/dev/code-review/SKILL.md` |
+| `/simplify` | 変更 diff を再利用/品質/効率の3観点で点検し、ユーザ承認後に最小差分で修正→lint→/pr-create までのチェーン | `.claude/skills/dev/simplify/SKILL.md` |
+| `/pr-create` | 現ブランチから GitHub PR を作成（title/body 自動生成、HEREDOC body、Co-Authored-By 付与、git add 明示指定） | `.claude/skills/dev/pr-create/SKILL.md` |
 | `/monitor` | Monitor tool でバックグラウンド監視（dev/mojibake/ci/build/r2/frontmatter/health/mdx-validation） | `.claude/skills/dev/monitor/SKILL.md` |
 | `/zenn-audit` | Zenn 本番 CSS と記事ページのタイポグラフィ＋レイアウトを比較し差分を Critical/Warning/Matches/Intentional で報告 | `.claude/skills/dev/zenn-audit/SKILL.md` |
 
@@ -81,6 +83,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成・品質改善 | `.claude/skills/content/exam-backlinks/SKILL.md` |
 | `/review-mobile` | モバイル視認性・可読性レビュー（表の適切性・数式・簡潔性） | `.claude/skills/content/review-mobile/SKILL.md` |
 | `/create-svg` | MDX 記事用 SVG 図版の作成（モバイル視認性・デザイントークン準拠） | `.claude/skills/content/create-svg/SKILL.md` |
+| `/illustrate-concept` | Discovery First 方式で Web 画像検索を並行実行し、標準視覚パターンのある概念のみトリアージして複数 SVG を一括生成・MDX 挿入する | `.claude/skills/content/illustrate-concept/SKILL.md` |
 
 ### PDF→MDX 試験特化スキル
 

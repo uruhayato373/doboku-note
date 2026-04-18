@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-04-17T05:59:17.966Z",
+  "generated_at": "2026-04-17T06:50:37.611Z",
   "summary": {
     "total": 769,
     "published": 769,
@@ -2912,6 +2912,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2,
       "seoTitle": "危機管理マニュアル ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-crisis-priority": {
@@ -3573,6 +3576,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-07",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2,
       "seoTitle": "災害対策基本法 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-disaster-drill": {
@@ -4582,8 +4588,8 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2,
       "seoTitle": "フェールセーフ ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-fail-soft": {
@@ -4866,7 +4872,10 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "seoTitle": "事故の4M要因分析 ｜ 総合技術監理 キーワード集 2026"
+      "seoTitle": "事故の4M要因分析 ｜ 総合技術監理 キーワード集 2026",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-four-m-of-production": {
       "title": "生産の4M",
@@ -5646,7 +5655,10 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "seoTitle": "ハインリッヒの法則 ｜ 総合技術監理 キーワード集 2026"
+      "seoTitle": "ハインリッヒの法則 ｜ 総合技術監理 キーワード集 2026",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-herzberg-two-factor-theory": {
       "title": "ハーズバーグの二要因理論",
@@ -6748,8 +6760,8 @@
         "keyword"
       ],
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2,
       "published": true,
       "publishedAt": "2026-04-09",
       "seoTitle": "危険予知訓練（KYT） ｜ 総合技術監理 キーワード集 2026"
@@ -7654,7 +7666,7 @@
       "seoTitle": "国土強靱化基本法 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-natural-parks-act": {
       "title": "自然公園法",
@@ -7845,8 +7857,8 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2,
       "seoTitle": "職業病 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-occupational-safety-act": {
@@ -7862,8 +7874,8 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2,
       "seoTitle": "労働安全衛生法 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-ocean-plastic": {
@@ -9862,8 +9874,8 @@
       ],
       "published": true,
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 2,
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 3,
       "publishedAt": "2026-04-09",
       "seoTitle": "リスク評価 ｜ 総合技術監理 キーワード集 2026"
     },
@@ -9938,8 +9950,8 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "リスクマネジメントシステム ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-risk-map-matrix": {
       "title": "リスクマップ／リスクマトリクス",
@@ -9980,13 +9992,14 @@
       "group": "keyword",
       "section": "5.2",
       "tags": [
+        "総合技術監理",
         "keyword"
       ],
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 2,
       "seoTitle": "リスク認知 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-risk-treatment": {
@@ -9996,9 +10009,13 @@
       "group": "keyword",
       "section": "5.2",
       "tags": [
+        "総合技術監理",
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-17",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "リスク対応 ｜ 総合技術監理 キーワード集 2026"
     },
@@ -10144,7 +10161,7 @@
       "seoTitle": "安全管理 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-safety-culture": {
       "title": "安全文化",

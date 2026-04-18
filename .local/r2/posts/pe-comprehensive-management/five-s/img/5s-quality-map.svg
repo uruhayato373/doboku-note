@@ -1,4 +1,4 @@
-  <svg viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:360px;width:100%">
+  <svg width="360" height="360" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:360px;width:100%">
     <!-- 外側方向ラベル -->
     <text x="180" y="16" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">品質向上</text>
     <text x="180" y="354" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">安全性向上</text>

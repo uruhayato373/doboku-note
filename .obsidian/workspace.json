@@ -11,10 +11,24 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
               "icon": "lucide-file",
-              "title": "新規タブ"
+              "title": "安全管理"
             }
           }
         ]
@@ -482,21 +496,22 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "ff3a2bd474a43344",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "docs/project/21_svg-illustration-runway-2026.md.tmp.24164.1776413710468",
+    "docs/project/21_svg-illustration-runway-2026.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理③.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理②.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理①.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理④.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理③.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理①.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/安全管理/fig-4-5.svg",
     "docs/pe-comprehensive-management-safety-culture.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/図表4-5.png",
@@ -528,7 +543,6 @@
     "docs/project/06_table-review-progress.md",
     "docs/project/03_NSMと計測指標.md",
     "data/review-queue.md",
-    "docs/project/19_civil-exam-answer-style-migration.md",
-    "模範論文_令和4年度_DXによる変革.md"
+    "docs/project/19_civil-exam-answer-style-migration.md"
   ]
 }

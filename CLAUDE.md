@@ -297,6 +297,7 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 | content-qa | sonnet | Evaluator |
 | keyword-rewriter | sonnet | Generator |
 | seo-auditor | sonnet | Evaluator |
+| ui-visual-qa | sonnet | Evaluator |
 | aidesigner-frontend | sonnet | Generator |
 | strategy-advisor | inherit | Orchestrator |
 

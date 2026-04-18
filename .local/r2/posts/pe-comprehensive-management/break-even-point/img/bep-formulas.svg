@@ -1,0 +1,14 @@
+<svg width="440" height="130" viewBox="0 0 440 130" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" style="max-width:440px;width:100%">
+  <text x="15" y="30" font-size="15" fill="#333">
+    <tspan font-weight="bold">限界利益</tspan>
+    <tspan> ＝ 売上高 − 変動費</tspan>
+  </text>
+  <text x="15" y="75" font-size="15" fill="#333">
+    <tspan font-weight="bold">限界利益率</tspan>
+    <tspan> ＝ 限界利益 ÷ 売上高 ＝ 1 − 変動費率</tspan>
+  </text>
+  <text x="15" y="120" font-size="15" fill="#333">
+    <tspan font-weight="bold">損益分岐点売上高</tspan>
+    <tspan> ＝ 固定費 ÷ 限界利益率</tspan>
+  </text>
+</svg>

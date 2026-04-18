@@ -42,7 +42,7 @@ export default function ArticleImage({
           <img
             src={toR2Url(src)}
             alt={alt}
-            className="w-full h-auto"
+            className="h-auto block mx-auto"
             style={{
               maxWidth: "100%",
               height: "auto",

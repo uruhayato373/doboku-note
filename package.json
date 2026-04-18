@@ -25,7 +25,10 @@
     "fetch-psi-data": "node .claude/scripts/fetch-psi-data.mjs",
     "inspect-url": "node .claude/scripts/inspect-url.mjs",
     "validate-mdx": "node .claude/scripts/validate-mdx.mjs",
-    "pre-commit:install": "node scripts/install-pre-commit.mjs"
+    "pre-commit:install": "node scripts/install-pre-commit.mjs",
+    "pre-push:install": "node scripts/install-pre-push.mjs",
+    "test": "node --test tests/",
+    "test:watch": "node --test --watch tests/"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",
