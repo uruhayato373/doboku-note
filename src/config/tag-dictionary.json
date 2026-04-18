@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-04-17T06:50:41.477Z",
+  "generated_at": "2026-04-18T07:09:34.309Z",
   "summary": {
-    "total_mdx_files": 769,
-    "total_unique_tags": 40,
-    "allowlist_size": 56,
-    "known_count": 21,
+    "total_mdx_files": 774,
+    "total_unique_tags": 53,
+    "allowlist_size": 82,
+    "known_count": 34,
     "unknown_count": 19,
     "typo_candidates_count": 1
   },
@@ -1357,6 +1357,18 @@
       ]
     },
     {
+      "name": "reference",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-floodgate",
+        "civil-construction-1-reference-hyogo-port-materials",
+        "civil-construction-1-reference-inverted-siphon",
+        "civil-construction-1-reference-river-abandonment",
+        "civil-construction-1-reference-tunnel-02"
+      ]
+    },
+    {
       "name": "quality",
       "count": 4,
       "inAllowlist": false,
@@ -1365,6 +1377,16 @@
         "civil-construction-1-textbook-histogram",
         "civil-construction-1-textbook-quality-inspection",
         "civil-construction-1-textbook-quality-overview"
+      ]
+    },
+    {
+      "name": "kinki-design-manual",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-floodgate",
+        "civil-construction-1-reference-inverted-siphon",
+        "civil-construction-1-reference-tunnel-02"
       ]
     },
     {
@@ -1424,6 +1446,15 @@
       ]
     },
     {
+      "name": "river-structure",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-floodgate",
+        "civil-construction-1-reference-inverted-siphon"
+      ]
+    },
+    {
       "name": "記述式",
       "count": 2,
       "inAllowlist": true,
@@ -1449,11 +1480,91 @@
       ]
     },
     {
+      "name": "administration",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-river-abandonment"
+      ]
+    },
+    {
       "name": "demolition",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-demolition"
+      ]
+    },
+    {
+      "name": "floodgate",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-floodgate"
+      ]
+    },
+    {
+      "name": "hyogo-common-specs",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-hyogo-port-materials"
+      ]
+    },
+    {
+      "name": "inverted-siphon",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-inverted-siphon"
+      ]
+    },
+    {
+      "name": "materials",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-hyogo-port-materials"
+      ]
+    },
+    {
+      "name": "port",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-hyogo-port-materials"
+      ]
+    },
+    {
+      "name": "river",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-river-abandonment"
+      ]
+    },
+    {
+      "name": "river-act",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-river-abandonment"
+      ]
+    },
+    {
+      "name": "road",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-tunnel-02"
+      ]
+    },
+    {
+      "name": "tunnel",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-reference-tunnel-02"
       ]
     },
     {
