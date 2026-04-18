@@ -29,6 +29,7 @@ user-invocable: true
 | `.local/r2/posts/civil-construction-1/textbook/**/*.mdx` | `/review-mobile` → `/check-mdx` → **`/verify-pdf-mdx`** | 1級土木教科書。PDF原本との視覚＋網羅率検証込み |
 | `.local/r2/posts/civil-construction-1/guide/**/*.mdx` | `/review-mobile` → `/check-mdx` → **`/verify-pdf-mdx`** | 1級土木ガイド。出題傾向＋過去問バックリンクチェック |
 | `.local/r2/posts/**/keyword-*/article.mdx` `.local/r2/posts/**/keyword-2026/article.mdx` | `/review-mobile` → `/check-mdx` → `/check-links` | 外部リンクが多いページ |
+| `.local/r2/posts/pe-comprehensive-management/**/article.mdx`（キーワードページ）| `/review-mobile` → `/check-mdx` → **`/verify-exam-coverage`** | 総監キーワードページ。過去問論点カバー率の検証込み |
 | `.local/r2/posts/**/*.mdx`（上記以外の MDX） | `/review-mobile` → `/check-mdx` | 通常のキーワード/ガイドページ |
 | `src/components/ui/**/*.tsx` `src/app/globals.css` | `/code-review` → `/design-review` → `ui-visual-qa` エージェント呼出 | UI コンポーネント変更は視覚回帰（light/dark × desktop/mobile）まで実施 |
 | `src/app/**/*.tsx` `src/components/**/*.tsx`（ui 以外） | `/code-review` → `/design-review` | UI コンポーネントは両面チェック |
