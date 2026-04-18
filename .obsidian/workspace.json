@@ -30,8 +30,33 @@
               "icon": "lucide-file",
               "title": "安全管理"
             }
+          },
+          {
+            "id": "60d1ab423183bdca",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": true,
+                "backlinkOpts": {
+                  "collapseAll": false,
+                  "extraContext": false,
+                  "sortOrder": "alphabetical",
+                  "showSearch": false,
+                  "searchQuery": "",
+                  "backlinkCollapsed": false,
+                  "unlinkedCollapsed": true
+                }
+              },
+              "icon": "lucide-file",
+              "title": "情報管理"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -449,10 +474,10 @@
             "id": "b90d4fde392a28e5",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -464,9 +489,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "ac0d4996ddf97aaf",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 24
+        "currentTab": 25
       }
     ],
     "direction": "horizontal",
@@ -496,22 +531,23 @@
       "periodic-notes:Open today": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "dd4b4b1405000366",
   "lastOpenFiles": [
+    "scripts/audit-svg-colors.mjs",
+    "docs/project/22_content-resurrection-plan.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
     "docs/project/21_svg-illustration-runway-2026.md.tmp.24164.1776413710468",
     "docs/project/21_svg-illustration-runway-2026.md",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理③.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理②.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理①.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理④.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理③.pdf",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/安全管理/fig-4-5.svg",
     "docs/pe-comprehensive-management-safety-culture.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/図表4-5.png",
@@ -524,7 +560,6 @@
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-4.svg",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-17.svg",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/img/経済性管理/fig-1-19.svg",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.md",
     "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.md",
     "docs/textbook/総監標準テキスト/安全管理.md",
@@ -542,7 +577,6 @@
     "docs/project/09_related-keyword-inline-migration.md",
     "docs/project/06_table-review-progress.md",
     "docs/project/03_NSMと計測指標.md",
-    "data/review-queue.md",
-    "docs/project/19_civil-exam-answer-style-migration.md"
+    "data/review-queue.md"
   ]
 }
