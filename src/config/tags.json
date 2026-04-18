@@ -26,5 +26,18 @@
   { "name": "解体工事", "slug": "demolition" },
   { "name": "工程管理", "slug": "schedule-management" },
   { "name": "環境保全", "slug": "environmental-management" },
-  { "name": "関係法規", "slug": "related-laws" }
+  { "name": "関係法規", "slug": "related-laws" },
+  { "name": "参考資料", "slug": "reference" },
+  { "name": "近畿地整 設計便覧", "slug": "kinki-design-manual" },
+  { "name": "兵庫県 共通仕様書", "slug": "hyogo-common-specs" },
+  { "name": "港湾", "slug": "port" },
+  { "name": "材料", "slug": "materials" },
+  { "name": "河川", "slug": "river" },
+  { "name": "河川法", "slug": "river-act" },
+  { "name": "行政手続き", "slug": "administration" },
+  { "name": "河川構造物", "slug": "river-structure" },
+  { "name": "伏越工", "slug": "inverted-siphon" },
+  { "name": "水門", "slug": "floodgate" },
+  { "name": "道路", "slug": "road" },
+  { "name": "トンネル", "slug": "tunnel" }
 ]

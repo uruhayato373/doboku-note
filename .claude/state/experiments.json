@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-18T00:00:00.000Z",
+  "updated_at": "2026-04-18T12:00:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -77,23 +77,26 @@
           "date": "2026-04-18T00:00:00.000Z",
           "action": "running",
           "summary": "Phase 1 の Group 1 S評価 2件復活を commit 直前まで実施。双方向リンクも同時整備済み。"
-        }
-      ],
-      "pending_user_actions": [
+        },
         {
-          "action": "GSC 手動 indexing リクエスト",
-          "urls": [
+          "date": "2026-04-18T07:00:00.000Z",
+          "action": "scope_expanded",
+          "summary": "Phase 1 拡張で Group 1 A評価 3件（inverted-siphon / floodgate / tunnel-02）を追加復活。baseline を 2→5 URL、target を 3→8 から 4→15 clicks に更新。"
+        },
+        {
+          "date": "2026-04-18T12:00:00.000Z",
+          "action": "manual_indexing_completed",
+          "summary": "運営者が sitemap 再送信 + 5 URL の GSC 手動 indexing を完了。Google による再クロールと順位反映を待機する段階に入る。",
+          "completed_urls": [
             "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
             "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment",
             "https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon",
             "https://doboku-note.com/docs/civil-construction-1-reference-floodgate",
             "https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02"
-          ],
-          "reference": ".local/gsc-indexing-requests-2026-04-18.md",
-          "added_at": "2026-04-18",
-          "blocked_reason": "GSC 1 日クォータ管理（11件/日が経験則）"
+          ]
         }
       ],
+      "pending_user_actions": [],
       "next_check_date": "2026-05-02"
     },
     {
@@ -184,6 +187,16 @@
           "gsc_daily_quota_observation": "実測 11 件で上限到達。Google 公表値はないが経験則と一致",
           "next_action": "2026-04-16 以降に残り 3 件をリクエスト + sitemap 再送信実施",
           "measure_scheduled": "2026-04-29 前後（14 日後に再 inspect-url + metrics-reader で delta 計測）"
+        },
+        {
+          "date": "2026-04-18T12:00:00.000Z",
+          "action": "manual_indexing_completed",
+          "summary": "運営者が残 3 URL の GSC 手動 indexing を完了（EXP-002 の 5 URL と合わせて同日実施）。measure 予定日は当初 2026-04-29 のまま。",
+          "completed_urls": [
+            "civil-construction-1-primary-r05-a",
+            "civil-construction-1-textbook-construction-mgmt-overview",
+            "civil-construction-1-guide-earthwork-key-points"
+          ]
         }
       ],
       "interim_findings": {
@@ -202,20 +215,8 @@
         "key_insight_3": "Google は published:false を 404 で見るが、Google 認識は自然減衰に委ねる",
         "key_insight_4": "business-continuity-plan など 10 件は 200 OK だが GSC 上は未認識。sitemap 未登録 + indexing request 未実施が原因と推定"
       },
-      "pending_user_actions": [
-        {
-          "action": "GSC 手動 indexing リクエスト",
-          "urls": [
-            "https://doboku-note.com/docs/civil-construction-1-primary-r05-a",
-            "https://doboku-note.com/docs/civil-construction-1-textbook-construction-mgmt-overview",
-            "https://doboku-note.com/docs/civil-construction-1-guide-earthwork-key-points"
-          ],
-          "reference": ".local/gsc-indexing-requests-2026-04-15.md",
-          "added_at": "2026-04-15",
-          "blocked_reason": "GSC 1 日クォータ上限到達（実測 11 件で停止）"
-        }
-      ],
-      "next_check_date": "2026-04-16"
+      "pending_user_actions": [],
+      "next_check_date": "2026-04-29"
     }
   ]
 }

@@ -3,6 +3,8 @@ date: 2026-04-18
 type: gsc-indexing-request
 related_experiments: EXP-001, EXP-002
 total_urls: 8
+completed_at: 2026-04-18T12:00:00.000Z
+status: completed
 ---
 
 # GSC 手動 indexing リクエスト（2026-04-18 デプロイ分）
@@ -29,19 +31,19 @@ Cloudflare Pages デプロイ完了後（2026-04-18 11:55 JST 以降）、以下
 
 新規公開なので early indexing が最重要。Cloudflare Pages デプロイ完了（200 OK 確認済み）後に順次:
 
-- [ ] `https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials`
+- [x] `https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials`
   - 兵庫県土木工事共通仕様書 第2編 第3章 港湾工事材料
   - 元 GSC: 44 impr / 7.48位 / CTR 0%（復活前）
-- [ ] `https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment`
+- [x] `https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment`
   - 廃川処理事務（河川区域変更・廃止時の手続き）
   - 元 GSC: 74 impr / 6.88位（復活前）
-- [ ] `https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon`
+- [x] `https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon`
   - 伏せ越しの設計（近畿地整 設計便覧 第2編 第10章）
   - 元 GSC: 17 impr / 6.65位
-- [ ] `https://doboku-note.com/docs/civil-construction-1-reference-floodgate`
+- [x] `https://doboku-note.com/docs/civil-construction-1-reference-floodgate`
   - 水門の設計（近畿地整 設計便覧 第2編 第7章）
   - 元 GSC: 16 impr / 9.13位
-- [ ] `https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02`
+- [x] `https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02`
   - トンネルの坑口・換気・補助工法（近畿地整 設計便覧 第3編 第8章）
   - 元 GSC: 11 impr / 9.55位
 
@@ -49,9 +51,9 @@ Cloudflare Pages デプロイ完了後（2026-04-18 11:55 JST 以降）、以下
 
 2026-04-14 の初回リクエスト時にクォータ上限で持ち越しになった分:
 
-- [ ] `https://doboku-note.com/docs/civil-construction-1-primary-r05-a`
-- [ ] `https://doboku-note.com/docs/civil-construction-1-textbook-construction-mgmt-overview`
-- [ ] `https://doboku-note.com/docs/civil-construction-1-guide-earthwork-key-points`
+- [x] `https://doboku-note.com/docs/civil-construction-1-primary-r05-a`
+- [x] `https://doboku-note.com/docs/civil-construction-1-textbook-construction-mgmt-overview`
+- [x] `https://doboku-note.com/docs/civil-construction-1-guide-earthwork-key-points`
 
 ## 完了後の作業
 
