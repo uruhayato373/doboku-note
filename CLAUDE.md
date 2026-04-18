@@ -15,6 +15,7 @@
 | [.claude/reference/skills-design-guide.md](.claude/reference/skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・Phase 別ロードマップ | 週次 PDCA・変換作業・キーワードページ作成時 |
 | [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成等） | キーワードページ執筆・評価時 |
+| [.claude/design-system/principles.md](.claude/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
 | `.claude/config/` | ツール設定（OGP テンプレ/ルール/改行設定等、エージェント編集領域） | OGP・自動化ツールのルール・閾値を調整するとき |
 | `docs/project/01_設計思想.md` | プロジェクトの設計思想の詳細 | 長期方針・コンテンツ戦略検討時 |
 | `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
@@ -163,6 +164,17 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
   - 悪い例: `border border-gray-200`（dark 指定なし）
   - 悪い例: `style={{ borderColor: '#e4edf4' }}`（dark クラスを上書き）
 - **pre-commit フック**（`scripts/lint-ui.mjs`）がステージされた `.tsx` ファイルのダークモード未指定ボーダーを検出し、コミットをブロックする
+- **色はセマンティックトークンを使う**（UI・SVG 共通）。新規コードは `brand` / `ink-strong` / `ink-body` / `ink-muted` / `positive` / `warn` / `danger` / `surface` を使用する
+  | トークン | UI 使用例 | SVG 使用例（リテラル hex） |
+  |---|---|---|
+  | `brand` | `bg-brand`、`text-brand-deep`、`bg-brand-fill` | `#2e6da4` / `#e8f0fe` / `#1a3a5c` |
+  | `ink-strong` | `text-ink-strong` | `#222` |
+  | `ink-body` | `text-ink-body` | `#555` |
+  | `ink-muted` | `text-ink-muted` | `#8a8a8a` |
+  | `positive` / `warn` / `danger` | `bg-positive-fill text-positive` 等 | `#3a7d44`/`#d4a017`/`#b22234` + fill |
+  - 真実源は `src/styles/globals.css` の `--color-*` CSS 変数。SVG は `<img src>` で配信されるため CSS 変数は効かず、リテラル hex を書いてコメントでトークン名を併記する（例: `<rect fill="#e8f0fe" />  <!-- brand-fill -->`）
+  - 既存の `primary-*` / `accent-*` / `neutral-*` は互換性のため残すが、**新規コードでは使わない**
+  - SVG 作成の詳細ルールは [.claude/skills/content/create-svg/SKILL.md](.claude/skills/content/create-svg/SKILL.md)、デザイン原則は [.claude/design-system/principles.md](.claude/design-system/principles.md) 参照
 
 ## デプロイ
 
@@ -296,6 +308,7 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 | content-planner | sonnet | Generator |
 | content-qa | sonnet | Evaluator |
 | keyword-rewriter | sonnet | Generator |
+| metrics-analyzer | sonnet | Evaluator |
 | seo-auditor | sonnet | Evaluator |
 | ui-visual-qa | sonnet | Evaluator |
 | aidesigner-frontend | sonnet | Generator |
