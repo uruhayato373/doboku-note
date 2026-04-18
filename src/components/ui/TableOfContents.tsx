@@ -77,7 +77,7 @@ export default function TableOfContents({ headings }: TableOfContentsProps) {
   };
 
   return (
-    <div className="toc-container toc-scroll">
+    <div className="toc-scroll bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-5 pb-6 max-h-[calc(100vh-10rem)] overflow-auto">
       <div className="toc-title">目次</div>
       <nav className="toc-content">
         <ol className="ol-depth-1">

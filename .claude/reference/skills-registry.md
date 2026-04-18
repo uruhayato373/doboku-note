@@ -14,6 +14,7 @@
 |---|---|---|
 | `/weekly-plan` | 週次計画を生成 | `.claude/skills/management/weekly-plan/SKILL.md` |
 | `/weekly-review` | 週次レビューを生成 | `.claude/skills/management/weekly-review/SKILL.md` |
+| `/weekly-improve` | 週次 計測→改善候補抽出→実験登録の軽量オーケストレータ | `.claude/skills/management/weekly-improve/SKILL.md` |
 | `/north-star-metric` | NSM と Input Metrics を定義 | `.claude/skills/management/north-star-metric/SKILL.md` |
 | `/growth-loops` | 成長ループの設計・評価 | `.claude/skills/management/growth-loops/SKILL.md` |
 | `/monetization-strategy` | 収益化戦略のブレインストーム | `.claude/skills/management/monetization-strategy/SKILL.md` |

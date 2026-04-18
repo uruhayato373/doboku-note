@@ -224,12 +224,9 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 /* ─── ラッパー（デザイン統一） ─── */
 function SidebarWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div
-      className="border border-[#e4edf4] dark:border-[#2a3a4e] rounded bg-white dark:bg-[#0d223a]"
-      style={{ borderRadius: '4px', padding: '16px 16px 20px' }}
-    >
+    <div className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-4 pb-5">
       <div
-        className="text-gray-900 dark:text-[#ecf5ff]"
+        className="text-gray-900 dark:text-white"
         style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px' }}
       >
         {title}

@@ -33,7 +33,9 @@
       "Bash(node *)",
       "Bash(gh auth *)",
       "Bash(mkdir -p .claude/state/metrics)",
-      "Bash(rmdir .local/metrics)"
+      "Bash(rmdir .local/metrics)",
+      "mcp__playwright__browser_tabs",
+      "Bash(awk -F'/' '{print $2\"/\"$3}')"
     ],
     "defaultMode": "bypassPermissions"
   }

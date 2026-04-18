@@ -23,7 +23,7 @@ export default function AuthorCard({ publishedAt, updatedAt }: AuthorCardProps) 
 
   return (
     <aside
-      className="mt-10 rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 sm:p-6"
+      className="mt-10 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 bg-white dark:bg-gray-800 p-5 sm:p-6"
       aria-label="執筆者情報"
     >
       <div className="flex items-start gap-4">

@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "startDate": "2026-03-21",
+    "endDate": "2026-04-17",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Organic Search",
+      "activeUsers": 385,
+      "sessions": 478,
+      "screenPageViewsPerSession": 1.391213389121339,
+      "averageSessionDuration": 167.08997678870296,
+      "engagementRate": 0.5941422594142259,
+      "bounceRate": 0.40585774058577406
+    },
+    {
+      "channel": "Direct",
+      "activeUsers": 154,
+      "sessions": 209,
+      "screenPageViewsPerSession": 2.8325358851674642,
+      "averageSessionDuration": 317.0185706411483,
+      "engagementRate": 0.49760765550239233,
+      "bounceRate": 0.5023923444976076
+    }
+  ]
+}

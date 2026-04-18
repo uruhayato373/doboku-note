@@ -46,6 +46,31 @@ module.exports = {
           50: "#f8fafc", // 背景色
           900: "#0f172a", // テキスト色
         },
+        // Semantic color tokens — UI・SVG 共通（globals.css の CSS 変数を参照）
+        ink: {
+          strong: 'var(--color-ink-strong)',
+          body: 'var(--color-ink-body)',
+          muted: 'var(--color-ink-muted)',
+        },
+        brand: {
+          DEFAULT: 'var(--color-brand)',
+          fill: 'var(--color-brand-fill)',
+          deep: 'var(--color-brand-deep)',
+        },
+        positive: {
+          DEFAULT: 'var(--color-positive)',
+          fill: 'var(--color-positive-fill)',
+        },
+        warn: {
+          DEFAULT: 'var(--color-warn)',
+          fill: 'var(--color-warn-fill)',
+        },
+        danger: {
+          DEFAULT: 'var(--color-danger)',
+          fill: 'var(--color-danger-fill)',
+        },
+        surface: 'var(--color-surface)',
+        'token-border': 'var(--color-border)',
       },
       fontFamily: {
         sans: [
