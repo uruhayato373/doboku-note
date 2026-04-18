@@ -66,7 +66,7 @@
 
 ## SVG スタイルガイド
 
-既存 SVG 群（特に `bathtub-curve`, `balance-sheet`, `break-even-point`, `quality-control/qc-seven-tools`）の配色・サイズ規約を踏襲する。
+**カラーパレットの真実源は [`.claude/skills/content/create-svg/SKILL.md`](../../.claude/skills/content/create-svg/SKILL.md) の「デザイントークン」セクション**。本ドキュメントでは独自パレットを定義せず、そちらを参照する。SVG 内の色は UI（`src/styles/globals.css` の CSS 変数）と同じセマンティックトークンに揃える。
 
 ### 共通仕様
 
@@ -74,12 +74,14 @@
 |---|---|---|
 | viewBox | 図タイプに応じ柔軟（横長 420×240、正方形 400×400 等） | width/height 属性は省き `style="max-width:Xpx;width:100%"` を付与 |
 | font-family | `sans-serif` | OS 標準フォントに委ねる |
-| 本線 stroke | `#333` | 軸・主要線 |
-| 補助線 stroke | `#666` | 破線・参照線 |
-| グレーフィル | `#8a8a8a` | バー・ボックス |
-| 赤アクセント | `#b22234` | 強調線・重要点・凡例 |
+| 本線 stroke | `#222`（= `ink-strong`） | 軸・主要線 |
+| 補助線 stroke | `#555`（= `ink-body`） | 破線・参照線 |
+| グレーフィル | `#8a8a8a`（= `ink-muted`） | バー・ボックス |
+| 赤アクセント | `#b22234`（= `danger`） | 強調線・重要点・凡例 |
 | 破線 | `stroke-dasharray="4,3"` | UCL/LCL 等 |
 | 文字サイズ | 本文 9〜12px、見出し 13〜16px | モバイル可読性優先 |
+
+各色には必ず SVG 内にセマンティック名のコメントを付ける（例: `<rect fill="#e8f0fe" />  <!-- brand-fill -->`）。パレット外の色は使わない。
 
 ### 配置ルール
 

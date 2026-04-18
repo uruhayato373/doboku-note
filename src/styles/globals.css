@@ -6,20 +6,56 @@
 @layer base {
   /* Card design tokens — single source of truth */
   :root {
-    --radius-card-inline: 4px;
-    --radius-card-content: 8px;
-    --radius-card-section: 16px;
-    --radius-card-hero: 24px;
+    --radius-card-inline: 2px;
+    --radius-card-content: 2px;
+    --radius-card-section: 2px;
+    --radius-card-hero: 2px;
 
     --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    /* Color tokens — single source of truth for UI + SVG figures */
+    --color-ink-strong: #222222;
+    --color-ink-body: #555555;
+    --color-ink-muted: #8a8a8a;
+    --color-border: #d7d7d7;
+    --color-surface: #f5f5f5;
+
+    --color-brand: #2e6da4;
+    --color-brand-fill: #e8f0fe;
+    --color-brand-deep: #1a3a5c;
+
+    --color-positive: #3a7d44;
+    --color-positive-fill: #d0e8d0;
+    --color-warn: #d4a017;
+    --color-warn-fill: #fff3cd;
+    --color-danger: #b22234;
+    --color-danger-fill: #f8d7da;
   }
 
   .dark {
     --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.15);
     --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.15);
     --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25);
+
+    /* Color tokens — dark mode */
+    --color-ink-strong: #f3f4f6;
+    --color-ink-body: #cbd5e1;
+    --color-ink-muted: #94a3b8;
+    --color-border: #374151;
+    --color-surface: #1f2937;
+
+    --color-brand: #60a5fa;
+    --color-brand-fill: #1e3a5f;
+    --color-brand-deep: #bfdbfe;
+
+    --color-positive: #86efac;
+    --color-positive-fill: #14532d;
+    --color-warn: #fcd34d;
+    --color-warn-fill: #713f12;
+    --color-danger: #fca5a5;
+    --color-danger-fill: #7f1d1d;
   }
 
   html {
@@ -393,19 +429,6 @@
 }
 
 /* ===== TOC: Zenn-style ===== */
-
-.toc-container {
-  border: 1px solid #e4edf4;
-  border-radius: 4px;
-  max-height: calc(100vh - 10rem);
-  padding: 20px 20px 25px;
-  overflow: auto;
-  background: #fff;
-}
-.dark .toc-container {
-  border-color: #2a3a4e;
-  background: #0d223a;
-}
 
 .toc-title {
   font-size: 16px;
