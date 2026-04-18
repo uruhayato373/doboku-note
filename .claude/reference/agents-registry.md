@@ -15,6 +15,7 @@
 | `content-qa` | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | sonnet | check-mdx, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
 | `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | sonnet | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
 | `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック） | Evaluator | sonnet | verify-pdf-mdx, check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
+| `ui-visual-qa` | `src/components/ui/**/*.tsx` 変更時の視覚回帰（lint-ui + light/dark × desktop/mobile スクショ） | Evaluator | sonnet | lint-ui, Playwright MCP | ✅ 運用中 |
 | `strategy-advisor` | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
 | `seo-auditor` | SEO 監査（Phase 2 で復活） | Evaluator | sonnet | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2 で復活 |
 | `content-planner` | コンテンツ企画（Phase 2 で復活） | Generator | sonnet | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2 で復活 |
@@ -36,9 +37,14 @@
 
 ### Evaluator エージェントの区別
 
-- **content-qa**: PDF→MDX 一般的な静的5軸（過去問・基準書中心、視覚検証なし）
-- **cem-qa**: 総監キーワードページの評価（5管理体系・コンポーネント原則・参考資料）
-- **civil-construction-qa**: 1級土木 textbook + guide ページの **視覚検証 + テキスト網羅率** を含む評価
+| エージェント | 対象ファイル | 主な軸 | 起動タイミング |
+|---|---|---|---|
+| **content-qa** | `.mdx`（過去問・基準書） | 静的5軸（視覚検証なし） | PDF→MDX 変換後 |
+| **cem-qa** | `.mdx`（総監キーワード） | 5管理体系・コンポーネント原則・参考資料 | キーワードページ執筆後 |
+| **civil-construction-qa** | `.mdx`（1級土木 textbook/guide） | 視覚検証 + テキスト網羅率（3モード5軸） | 1級土木 MDX 生成後 |
+| **ui-visual-qa** | `.tsx`（`src/components/ui/**`）+ `globals.css` | 静的 lint + light/dark × desktop/mobile 視覚回帰 | UI コンポーネント変更後 |
+
+**対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
 
 ---
 
@@ -51,6 +57,7 @@
 | CEM 試験対策 | cem-advisor（cem-content-generate → cem-study-plan） |
 | キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
 | 1級土木 textbook 変換 | `/civil-construction-1-pdf-to-mdx`（Generator） → `civil-construction-qa`（Evaluator） → `/verify-pdf-mdx` |
+| UI コンポーネント変更 | 親エージェント or `/aidesigner-frontend`（Generator） → `ui-visual-qa`（Evaluator） → `/simplify` で修正 |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
 
