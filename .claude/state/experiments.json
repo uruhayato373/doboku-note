@@ -4,10 +4,10 @@
   "experiments": [
     {
       "id": "EXP-002",
-      "title": "Group 1 S評価 2件の復活 + 1級土木 textbook からの双方向内部リンク",
-      "hypothesis": "削除済みだが GSC impressions のある common-specs-hyogo/02-03-materials-port (44 impr / 7.48位 / CTR 0%) と river/river-management/04 (74 impr / 6.88位 / clicks 3) を civil-construction-1-reference-* として復活し、frontmatter を試験文脈に書き直し、1級土木 textbook-port-regulations / textbook-river-act から双方向リンクを張ることで、両ページの combined clicks を 3 → 8+ に引き上げ、かつハブ側の engagement も底上げする。",
+      "title": "Group 1 S+A評価 5件の復活 + 1級土木 textbook からの双方向内部リンク",
+      "hypothesis": "削除済みだが GSC impressions のある 5 ページ（S評価2件: common-specs-hyogo/02-03-materials-port 44 impr / river-management/04 74 impr、A評価3件: design-manual の 02-10 伏越工 17 impr / 02-07 水門 16 impr / 03-08 トンネル 11 impr）を civil-construction-1-reference-* として復活し、frontmatter を試験文脈に書き直し、1級土木 textbook-port-regulations / textbook-river-act / textbook-road-act から双方向リンクを張ることで、5ページの combined clicks を 4 → 15+ に引き上げる。",
       "target_metric": "combined_clicks_28d",
-      "target_delta": "3 -> 8",
+      "target_delta": "4 -> 15",
       "baseline": {
         "common-specs-hyogo/02-03-materials-port": {
           "impr": 44,
@@ -20,8 +20,23 @@
           "clicks": 3,
           "position": 6.88
         },
-        "combined_impr": 118,
-        "combined_clicks": 3,
+        "design-manual/02-10-inverted-siphon": {
+          "impr": 17,
+          "clicks": 0,
+          "position": 6.65
+        },
+        "design-manual/02-07-floodgate": {
+          "impr": 16,
+          "clicks": 0,
+          "position": 9.13
+        },
+        "design-manual/03-08-tunnel-02": {
+          "impr": 11,
+          "clicks": 1,
+          "position": 9.55
+        },
+        "combined_impr": 162,
+        "combined_clicks": 4,
         "source": "gsc-page-2026-04-18T02-03-37.json",
         "strategy_doc": "docs/project/22_content-resurrection-plan.md"
       },
@@ -43,11 +58,15 @@
       ],
       "restored_urls": [
         "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
-        "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment"
+        "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment",
+        "https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon",
+        "https://doboku-note.com/docs/civil-construction-1-reference-floodgate",
+        "https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02"
       ],
       "inbound_link_from": [
         "https://doboku-note.com/docs/civil-construction-1-textbook-port-regulations",
-        "https://doboku-note.com/docs/civil-construction-1-textbook-river-act"
+        "https://doboku-note.com/docs/civil-construction-1-textbook-river-act",
+        "https://doboku-note.com/docs/civil-construction-1-textbook-road-act"
       ],
       "history": [
         {
@@ -65,10 +84,14 @@
           "action": "GSC 手動 indexing リクエスト",
           "urls": [
             "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
-            "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment"
+            "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment",
+            "https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon",
+            "https://doboku-note.com/docs/civil-construction-1-reference-floodgate",
+            "https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02"
           ],
+          "reference": ".local/gsc-indexing-requests-2026-04-18.md",
           "added_at": "2026-04-18",
-          "blocked_reason": "Cloudflare Pages デプロイ完了待ち + GSC 1 日クォータ管理"
+          "blocked_reason": "GSC 1 日クォータ管理（11件/日が経験則）"
         }
       ],
       "next_check_date": "2026-05-02"
