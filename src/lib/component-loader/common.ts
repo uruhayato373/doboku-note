@@ -14,6 +14,8 @@ export const commonComponents = {
   CustomOrderedList: "CustomOrderedList",
   LinkCard: "LinkCard",
   CardList: "CardList",
+  ReferenceLinks: "ReferenceLinks",
+  ExamContext: "ExamContext",
   DataTable: "DataTable",
   Underline: "Underline",
   AuthorCallout: "AuthorCallout",

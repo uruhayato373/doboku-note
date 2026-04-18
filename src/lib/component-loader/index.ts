@@ -29,6 +29,8 @@ export async function getCommonComponents() {
     ).default,
     LinkCard: (await import("@/components/ui/LinkCard/LinkCard")).default,
     CardList: (await import("@/components/ui/CardList/CardList")).default,
+    ReferenceLinks: (await import("@/components/ui/ReferenceLinks")).default,
+    ExamContext: (await import("@/components/ui/ExamContext")).default,
     DataTable: (await import("@/components/ui/DataTable/DataTable")).default,
     Underline: (await import("@/components/ui/Underline/Underline")).default,
     Timeline: (await import("@/components/ui/Timeline/Timeline")).default,
