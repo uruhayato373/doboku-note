@@ -40,9 +40,11 @@
         "source": "gsc-page-2026-04-18T02-03-37.json",
         "strategy_doc": "docs/project/22_content-resurrection-plan.md"
       },
-      "status": "running",
+      "status": "paused",
       "created_at": "2026-04-18T00:00:00.000Z",
       "started_at": "2026-04-18T00:00:00.000Z",
+      "paused_at": "2026-04-19T00:00:00.000Z",
+      "paused_reason": "運営者判断で 5 URL を一時非公開 + カテゴリ/内部リンクを完全分離（精度向上後に再公開予定）",
       "result": null,
       "learnings": null,
       "closed_at": null,
@@ -96,6 +98,25 @@
           "summary": "reference-materials カテゴリ独立に伴い URL を civil-construction-1-reference-* から reference-materials-* へ変更、301 redirect を public/_redirects に追加。GSC 側は 301 追従で新URLに集約される想定だが、再 indexing request を推奨。"
         },
         {
+          "date": "2026-04-19T01:00:00.000Z",
+          "action": "paused_for_quality_rework",
+          "summary": "運営者判断で 5 記事すべてを published: false に、textbook 側 <ReferenceLinks> と reference 側 <ExamContext> を削除してカテゴリ間を完全分離。精度向上後に再公開予定のため実験は paused。",
+          "decoupling": {
+            "textbook_reference_links_removed": [
+              "civil-construction-1/textbook-port-regulations",
+              "civil-construction-1/textbook-river-act",
+              "civil-construction-1/textbook-road-act"
+            ],
+            "reference_exam_context_removed_and_unpublished": [
+              "reference-materials-hyogo-port-materials",
+              "reference-materials-river-abandonment",
+              "reference-materials-inverted-siphon",
+              "reference-materials-floodgate",
+              "reference-materials-tunnel-02"
+            ]
+          }
+        },
+        {
           "date": "2026-04-18T12:00:00.000Z",
           "action": "manual_indexing_completed",
           "summary": "運営者が sitemap 再送信 + 5 URL の GSC 手動 indexing を完了。Google による再クロールと順位反映を待機する段階に入る。",
@@ -108,21 +129,9 @@
           ]
         }
       ],
-      "pending_user_actions": [
-        {
-          "action": "GSC 再 indexing リクエスト（URL 移行後）",
-          "urls": [
-            "https://doboku-note.com/docs/reference-materials-hyogo-port-materials",
-            "https://doboku-note.com/docs/reference-materials-river-abandonment",
-            "https://doboku-note.com/docs/reference-materials-inverted-siphon",
-            "https://doboku-note.com/docs/reference-materials-floodgate",
-            "https://doboku-note.com/docs/reference-materials-tunnel-02"
-          ],
-          "added_at": "2026-04-19",
-          "blocked_reason": "Cloudflare Pages デプロイ後、301 が Google に認識されるまで 1〜数日。その後の新URL手動 indexing で加速可能"
-        }
-      ],
-      "next_check_date": "2026-05-02"
+      "pending_user_actions": [],
+      "next_check_date": null,
+      "resume_criteria": "5 記事の精度を向上（運営者判断）してから published: true + 必要ならカテゴリ間リンク復活、その後新 baseline で再計測"
     },
     {
       "id": "EXP-001",
