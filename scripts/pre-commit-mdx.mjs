@@ -16,6 +16,7 @@ import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs";
+import { detectBrokenExplanations } from "../.claude/skills/content/audit-exam-explanations/scripts/detect.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -165,6 +166,18 @@ async function main() {
     // Image existence + mime check (warnings only, does not block commit)
     for (const w of checkImages(file, content)) {
       warnings.push({ ...w, severity: "MEDIUM" });
+    }
+
+    // 過去問解説の破損パターン検出（警告のみ、ブロックしない）
+    // primary/secondary の article.mdx のみ対象（他カテゴリはスキップ）
+    if (/\/(primary|secondary)-[^/]+\/article\.mdx$/.test(file)) {
+      for (const f of detectBrokenExplanations(content)) {
+        warnings.push({
+          file,
+          severity: "MEDIUM",
+          error: `[${f.pattern}] line ${f.line}: ${f.snippet}`,
+        });
+      }
     }
   }
 

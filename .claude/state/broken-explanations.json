@@ -1,0 +1,394 @@
+{
+  "meta": {
+    "generated_at": "2026-04-19T05:05:25.728Z",
+    "category": "civil-construction-1",
+    "topic": null
+  },
+  "summary": {
+    "scanned_files": 39,
+    "files_with_issues": 12,
+    "total_findings": 61,
+    "by_pattern": {
+      "P1-headless": 17,
+      "P2-examPoint-empty": 44
+    },
+    "patterns": [
+      {
+        "id": "P1-headless",
+        "description": "解説の文頭が閉じカギから始まる（本文欠落）"
+      },
+      {
+        "id": "P2-examPoint-empty",
+        "description": "ExamPoint の summary が欠落・閉じカギだけで始まる"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 667,
+      "snippet": "2. 」と定義されている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 672,
+      "snippet": "  summary=\"」と定義されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 699,
+      "snippet": "3. 」と規定されている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 703,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1656,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-a/article.mdx",
+      "pattern": "P1-headless",
+      "line": 1681,
+      "snippet": "1. 」と定められている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1687,
+      "snippet": "  summary=\"」と定められている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-a/article.mdx",
+      "pattern": "P1-headless",
+      "line": 1813,
+      "snippet": "4. 」と規定されている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r02-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1816,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 62,
+      "snippet": "  summary=\"」と（約款第1条（総則）第3項）に規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 96,
+      "snippet": "  summary=\"」と記されているが，頂版の内側主鉄筋はD19，側壁の内側主鉄筋はD13である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 464,
+      "snippet": "4. 」とあり，この現場で注文者として安全措置義務を負うのはA社のみである ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 467,
+      "snippet": "  summary=\"」とあり，この現場で注文者として安全措置義務を負うのはA社のみである\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 657,
+      "snippet": "4. 」と規定されている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 660,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 722,
+      "snippet": "  summary=\"」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 787,
+      "snippet": "  summary=\"」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1117,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1709,
+      "snippet": "  summary=\"」と定められている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-r01-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1843,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 31,
+      "snippet": "  summary=\"」とされており，最大値を用いるとはされていない\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 67,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 551,
+      "snippet": "  summary=\"」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 618,
+      "snippet": "  summary=\"」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 675,
+      "snippet": "1. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 681,
+      "snippet": "  summary=\"」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 708,
+      "snippet": "3. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 712,
+      "snippet": "  summary=\"」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1146,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1177,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-a/article.mdx",
+      "pattern": "P1-headless",
+      "line": 1665,
+      "snippet": "1. 」と定められている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1671,
+      "snippet": "  summary=\"」と定められている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1702,
+      "snippet": "  summary=\"」と定められている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1862,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h30-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1958,
+      "snippet": "  summary=\"」と規定されている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 66,
+      "snippet": "  summary=\"」と規定されている。通知先は「発注者」ではなく「監督員」である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 132,
+      "snippet": "  summary=\"」と規定されている。原則として通路面において使用してはならないとされており，設問の記述は原則と例外を混同している\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 232,
+      "snippet": "  summary=\"」とされており，一般には，コンクリートおよび型枠の重量と支柱などの自重（固定荷重）のほかに，型わくに対し150kg/m2を加えたものを設計荷重とすることとされている。コンクリート打込みに必要な機械・器具などの質量による"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 469,
+      "snippet": "1. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 545,
+      "snippet": "  summary=\"」とされている。「点検と並行しながら」ではなく「入念に点検を行ってから」作業を再開しなければならない\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 609,
+      "snippet": "3. 」とされ，第一号に「玉掛け技能講習を修了した者」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 688,
+      "snippet": "  summary=\"」とされている。番線による緊結は認められていない\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 787,
+      "snippet": "  summary=\"」とされている。防護作業にあっても，誘導員ではなく，指揮する者を指名しなくてはならない\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h29-a/article.mdx",
+      "pattern": "P1-headless",
+      "line": 1960,
+      "snippet": "3. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h28-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 551,
+      "snippet": "4. 」とあり，この現場で注文者として安全措置義務を負うのはA社のみである ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h28-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 554,
+      "snippet": "  summary=\"」とあり，この現場で注文者として安全措置義務を負うのはA社のみである\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h28-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 586,
+      "snippet": "  summary=\"」とされている。設問では「免除」としているが，正しくは「省略」である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h27-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 584,
+      "snippet": "  summary=\"」とされている。設問は「使用してはならない」としているが，正しくは努力義務である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h27-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 612,
+      "snippet": "2. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h27-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 819,
+      "snippet": "  summary=\"」と規定されている。設問の「1月以内ごとに1回」は誤りで，正しくは「6月以内ごとに1回」である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 586,
+      "snippet": "1. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 592,
+      "snippet": "  summary=\"」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 619,
+      "snippet": "3. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 623,
+      "snippet": "  summary=\"」そして第2項には，「前項の組立図は，支柱，はり，つなぎ，筋かい等の部材の配置，接合の方法及び寸法が示されているものでなければならない。」とされている\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 731,
+      "snippet": "  summary=\"」とされている。正しくは「2m」ではなく「1.5m」をこえる箇所である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P1-headless",
+      "line": 760,
+      "snippet": "4. 」とされている ✅"
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 795,
+      "snippet": "  summary=\"」とされている。当該箇所では，酸素濃度も測定することが義務づけられており，硫化水素のみの測定では不十分である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 829,
+      "snippet": "  summary=\"」とされている。都道府県知事への届出ではなく労働基準監督署長への報告であり，また報告時期は「作業開始前」ではなく「作業開始後」である\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1168,
+      "snippet": "  summary=\"」と規定されている。都道府県知事ではなく発注者に報告するものである\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1200,
+      "snippet": "  summary=\"」とされており，非常災害時の応急措置の場合は（あらかじめではなく）14日以内に届け出なければならない。届出が不要となるのではなく，届出の時期が異なる\""
+    },
+    {
+      "file": ".local/r2/posts/civil-construction-1/primary-h26-a/article.mdx",
+      "pattern": "P2-examPoint-empty",
+      "line": 1793,
+      "snippet": "  summary=\"」と定めている。巡視は特定元方事業者自らが行わなければならず，関係請負人に代わって行わせることはできない\""
+    }
+  ]
+}
