@@ -297,6 +297,68 @@ function lintLegalCitations(lines, findings) {
  *
  * 太字内のマークダウンリンク `[text](url)` はテキスト部分だけを文字数カウント。
  */
+/**
+ * 7-2: 太字デリミタ境界のレンダリング破綻
+ *
+ * CommonMark の強調（`**`）は「閉じ側の直前文字と直後文字」で境界判定される。
+ * `**...（X）**の` のように閉じ `**` の直前が全角パンクチュエーション、直後が
+ * 非パンクチュエーション（日本語助詞・漢字等）の場合、太字として認識されず
+ * 生の `**` がそのまま表示される既知の罠。
+ *
+ * 検出パターン:
+ *   `**.*?[全角パンクチュエーション]\*\*[日本語非パンクチュエーション]`
+ *
+ * 修正方針: 全角括弧などを太字の外へ出す（例: `**X**（Y）の` or `X（**Y**）の`）
+ */
+function lintBoldDelimiterBoundary(lines, findings) {
+  // 閉じ `**` 直前にあるとレンダリング失敗を引き起こす全角パンクチュエーション
+  const CLOSING_PUNCT = '）」』】〕］｝〉》、。・：；！？';
+  // `**` 直後で右フランキングを無効化する日本語文字（助詞・漢字等）
+  const NON_PUNCT_JP_RE = /[ぁ-んァ-ン一-龥々ー]/;
+  const closingPunctRe = new RegExp(`[${CLOSING_PUNCT}]`);
+
+  let inFenced = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (line.startsWith('```')) {
+      inFenced = !inFenced;
+      continue;
+    }
+    if (inFenced) continue;
+
+    // 行内の `**` 出現位置を収集し、前から順にペアリング（0-1=1st bold, 2-3=2nd bold ...）
+    const positions = [];
+    let idx = 0;
+    while ((idx = line.indexOf('**', idx)) !== -1) {
+      positions.push(idx);
+      idx += 2;
+    }
+
+    for (let p = 0; p + 1 < positions.length; p += 2) {
+      const openIdx = positions[p];
+      const closeIdx = positions[p + 1];
+      const charBefore = line[closeIdx - 1];
+      const charAfter = line[closeIdx + 2];
+      if (
+        charBefore &&
+        charAfter &&
+        closingPunctRe.test(charBefore) &&
+        NON_PUNCT_JP_RE.test(charAfter)
+      ) {
+        const preview = line.slice(openIdx, closeIdx + 2);
+        const shortPreview = preview.length > 30 ? preview.slice(0, 30) + '…' : preview;
+        findings.push({
+          severity: 'MEDIUM',
+          rule: '7-2',
+          line: i + 1,
+          endLine: i + 1,
+          message: `太字デリミタが CommonMark 規則違反でレンダリングされない可能性: 「${shortPreview}${charAfter}」。全角パンクチュエーションを太字の外へ出す（例: \`**X**（Y）の\`）`,
+        });
+      }
+    }
+  }
+}
+
 function lintBoldScope(lines, findings) {
   const MEDIUM_THRESHOLD = 30;
   const HIGH_THRESHOLD = 50;
@@ -566,6 +628,7 @@ function lintFile(filePath) {
   lintRelatedKeywordList(lines, findings);
   lintLegalCitations(lines, findings);
   lintBoldScope(lines, findings);
+  lintBoldDelimiterBoundary(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）

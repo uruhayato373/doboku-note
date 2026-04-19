@@ -34,6 +34,6 @@ export const AUTHOR = {
     "安全管理",
     "建設法務",
   ],
-  imageUrl: "/img/author-placeholder.svg",
+  imageUrl: "/img/admin-avatar-flat.png",
   twitterUrl: "https://twitter.com/doboku_note",
 } as const;
