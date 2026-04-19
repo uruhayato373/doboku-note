@@ -14,6 +14,20 @@ seoTitle: "ネットワーク式工程表 | doboku-note"
 
 # ネットワーク式工程表
 
+1級土木施工管理技士の試験では、**ネットワーク計算**（EST・LFT・CP・フロート）が第 1 次試験・第 2 次試験ともに毎年必出。計算問題は年によって出題形式が変わるが、**4 時刻の算出 → クリティカルパス特定 → フロート計算** の流れは共通。
+
+<Callout type="warning" title="頻出論点：4 時刻とフロートの計算手順">
+- **最早開始時刻（EST）**: 左 → 右に **加算**、合流点は **最大値** を選ぶ
+- **最遅完了時刻（LFT）**: 右 → 左に **減算**、合流点は **最小値** を選ぶ
+- **最早完了時刻（EFT）= EST + 所要時間**
+- **最遅開始時刻（LST）= LFT − 所要時間**
+- **クリティカルパス（CP）**: 開始から終了までの **最長経路**。この経路上の作業は遅延すると全体工期に影響
+- **トータルフロート（TF）**: `LFT − EFT = LST − EST`。その作業で取れる最大の余裕
+- **フリーフロート（FF）**: 後続作業に影響を与えずに使える余裕
+- **インターフェアリングフロート（IF）= TF − FF**
+- **CP 上の作業は TF = 0**
+</Callout>
+
 ## ネットワーク式工程表の作成手順
 
 ### 基本用語
@@ -28,19 +42,34 @@ seoTitle: "ネットワーク式工程表 | doboku-note"
 
 ④ 一般的に、作業の所要時間を矢線の下に書き、作業名または作業内容を上に書く。
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-13.svg" alt="図3.13 作業（アクティビティ）：矢線上に作業名、下に所要時間" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-13.svg"
+  alt="図3.13 作業（アクティビティ）：矢線上に作業名、下に所要時間"
+  width={380}
+  height={160}
+/>
 
 #### イベント（結合点）（図3.14）
 
 イベントは、○で示し、○の中に0または正整数を書き込み、これを**イベント番号**と呼ぶ。工程表では、作業の前後関係（次作業の開始条件となる前作業の完了）を明らかにする役割を持つ。
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-14.svg" alt="図3.14 イベント（結合点）：○にイベント番号を記入する記法" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-14.svg"
+  alt="図3.14 イベント（結合点）：○にイベント番号を記入する記法"
+  width={380}
+  height={170}
+/>
 
 #### ダミー（疑似作業）（図3.15）
 
 ダミーは、同一の作業が複数発生する場合に、起終点のイベントを区別するために使われる所要時間ゼロの疑似作業である。点線の矢印で表記する。
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-15.svg" alt="図3.15 ダミー（疑似作業）：点線矢印で表記する所要時間ゼロの疑似作業" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-15.svg"
+  alt="図3.15 ダミー（疑似作業）：点線矢印で表記する所要時間ゼロの疑似作業"
+  width={380}
+  height={220}
+/>
 
 #### 所要時間
 
@@ -52,7 +81,12 @@ seoTitle: "ネットワーク式工程表 | doboku-note"
 
 ある結合点において、入ってくる矢線（先行作業B、C）が**すべて完了した後**でないと、結合点から出る矢線（後続作業D）は開始できない。
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-16.svg" alt="図3.16 先行作業と後続作業：B・C が完了して初めて D が開始できる" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-16.svg"
+  alt="図3.16 先行作業と後続作業：B・C が完了して初めて D が開始できる"
+  width={380}
+  height={220}
+/>
 
 #### イベント（結合点）番号
 
@@ -70,7 +104,12 @@ seoTitle: "ネットワーク式工程表 | doboku-note"
 
 「最早開始日」と呼ぶこともあるが、この場合便宜上すべての先行作業の終了した日を指し、1日足してはならない。
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-17.svg" alt="図3.17 最早開始時刻（EST）の計算例：左から右に加算、合流は最大値" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-17.svg"
+  alt="図3.17 最早開始時刻（EST）の計算例：左から右に加算、合流は最大値"
+  width={400}
+  height={250}
+/>
 
 #### 最遅完了時刻（Latest Finish Time：LFT）（図3.18）
 
@@ -78,7 +117,12 @@ seoTitle: "ネットワーク式工程表 | doboku-note"
 
 最終イベントの最早開始時刻をその工事の最遅完了時刻とし、右から左に各作業の所要時間を引き算する。ただし、イベントに複数の作業（矢線）が戻る場合は、引き算の結果が最も小さいものが、そのイベントの先行作業の最遅完了時刻となる（□数字で表わし、各イベントの上に記入する）。
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-18.svg" alt="図3.18 最遅完了時刻（LFT）の計算例：右から左に減算、合流は最小値" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-18.svg"
+  alt="図3.18 最遅完了時刻（LFT）の計算例：右から左に減算、合流は最小値"
+  width={400}
+  height={250}
+/>
 
 #### 最早完了時刻（Earliest Finish Time：EFT）
 
@@ -94,13 +138,23 @@ seoTitle: "ネットワーク式工程表 | doboku-note"
 
 $$\text{（ノード4 の最遅完了時刻）} - \text{（ノード3 からノード4 の作業日数）} = \boxed{22} - 6 = 16\text{日となる。}$$
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-19.svg" alt="図3.19 4時刻の確認：EST（緑）と LFT（黄）から EFT・LST を導出" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-19.svg"
+  alt="図3.19 4時刻の確認：EST（緑）と LFT（黄）から EFT・LST を導出"
+  width={400}
+  height={280}
+/>
 
 ### クリティカルパス（Critical Path：CP）
 
 クリティカルパスは、ネットワーク上の各経路のうち最も日数が長く、各作業に余裕がない経路で、通常太線で表す（図3.20）。この経路の通算作業日数が、**全体工期**となる。
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-20.svg" alt="図3.20 クリティカルパス：最長経路が全体工期を決定する（赤太線）" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-20.svg"
+  alt="図3.20 クリティカルパス：最長経路が全体工期を決定する（赤太線）"
+  width={400}
+  height={260}
+/>
 
 #### クリティカルパスの求め方
 
@@ -138,7 +192,12 @@ $$\text{（ノード4 の最遅完了時刻）} - \text{（ノード3 からノ�
 
 #### 3種類のフロートの関係（図3.21〜23）
 
-<img src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-21-23.svg" alt="図3.21〜23 3種類のフロートの関係：TF=5日、FF=3日、IF=2日の例" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-21-23.svg"
+  alt="図3.21〜23 3種類のフロートの関係：TF=5日、FF=3日、IF=2日の例"
+  width={400}
+  height={340}
+/>
 
 上図は、ある作業のトータルフロートが 5 日、フリーフロートが 3 日、残る 2 日が干渉余裕時間となる典型例を示している。TF = FF + IF の関係が成立し、フリーフロートの 3 日以内なら後続作業に影響を与えずに使える。
 
@@ -175,3 +234,11 @@ $$\text{（ノード4 の最遅完了時刻）} - \text{（ノード3 からノ�
 配員計画では、日程計画の実行可能性を検討するとともに、工事のコストダウンを図るべく、資源の最も合理的な仕様計画を作成する。
 
 実施手順は、人、物などの資源を各作業について考え、日々の累計を算出する。この場合、大きなピーク（ある日、特に多人数が必要となる）を生じた場合は、ネットワーク式工程表上のフロートを使用して、人員、資機材の量を平準化する。
+
+## 参考資料
+
+- [国土交通省「土木工事共通仕様書」](https://www.mlit.go.jp/tec/it/doboku.html) — 工程管理の公的基準
+- [一般社団法人 日本建設業連合会「工程管理ガイドブック」](https://www.nikkenren.com/) — 建設業界団体の実務解説（民間資料）
+- [JIS Z 8141（生産管理用語）](https://www.jisc.go.jp/) — アクティビティ・クリティカルパス等の用語定義
+- [PMBOK（プロジェクトマネジメント知識体系）](https://www.pmi.org/) — ネットワーク工程の国際標準（民間資料）
+- [CPM（Critical Path Method）— Wikipedia 日本語版](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%86%E3%82%A3%E3%82%AB%E3%83%AB%E3%83%91%E3%82%B9%E6%B3%95) — 手法の歴史と理論背景
