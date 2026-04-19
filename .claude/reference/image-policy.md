@@ -114,6 +114,52 @@ CC/PD 写真を使うときは、**画像直前の MDX コメント** で出典�
 
 SVG は自前制作が前提のため、出典コメントは不要。代わりに SVG ファイル内の先頭に `<!-- Created by doboku-note, <YYYY-MM-DD> -->` を付けておく（任意）。
 
+## 推奨コンポーネント: `<ArticleImage>`
+
+**新規記事は `<ArticleImage>` を使う**（`src/components/ui/ArticleImage/ArticleImage.tsx`）。`<figure>` セマンティクスを自動で付与し、Next.js `<Image>` の最適化も効く。
+
+### caption 属性は使わない
+
+**真実源**: [.claude/content-principles.md §8](../content-principles.md) L146
+
+> `<ArticleImage>` の caption は使わない。図の説明は本文で行う。caption に図の内容を繰り返すと、本文と重複して冗長になる。`alt` 属性のみ設定する。
+
+`alt` には簡潔な識別情報（60〜80 字以内）だけ入れ、機種名・特徴・出典は **本文の直前段落** または **画像直前の `{/* source: */}` コメント** に記載する。
+
+### 良い例
+
+```mdx
+#### クローラクレーン
+
+クローラ式走行体で不整地走破性に優れるクレーン。日立 CX900HD のように
+ラチス構造のブームと全油圧駆動が主流。
+
+{/* source: Wikimedia Commons, CC0, https://commons.wikimedia.org/wiki/File:Hitachi_CX900HD_crawler_crane_at_IJmuiden,_pic1.JPG */}
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
+  alt="クローラクレーン（日立 CX900HD）"
+  width={960}
+  height={720}
+/>
+```
+
+### 悪い例（caption で詳細説明）
+
+```mdx
+{/* 本文が薄く、caption に詳細を押し込んでいる */}
+<ArticleImage
+  src="..."
+  alt="..."
+  caption="日立 CX900HD。ラチス構造のブームとクローラ式走行体（Wikimedia Commons, CC0）"
+/>
+```
+
+### 既存 `<img>` との棲み分け
+
+- **新規記事・新規画像**: `<ArticleImage>` で統一
+- **既存の生 `<img>` 記事**: リライト時に順次 `<ArticleImage>` へ移行（互換性維持）
+- `{/* source: */}` コメントは両者とも必須（CC/PD 写真の場合）
+
 ## 実装ガイドライン
 
 ### ファイル配置

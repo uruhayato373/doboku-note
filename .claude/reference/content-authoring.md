@@ -28,6 +28,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
 - `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
 - `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slug でキーワードページへリンク、slug 省略で灰色テキスト）
+- `<ArticleImage src="..." alt="..." width={N} height={N} />` — 画像（`<figure>` セマンティクス付き）。**`caption` は使わない** — [content-principles §8](../content-principles.md) 参照。詳細は「画像コンポーネントの使い分け」
 - `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
 - `<Timeline>`, `<PdcaCycle>` — 時系列・サイクル表示
 
@@ -76,6 +77,36 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - **R2 へのアップロード（本番反映）**: `node .claude/scripts/upload-images-to-r2.mjs`
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - `static/img/` はサイト共通素材（favicon, logo 等）専用
+
+## 画像コンポーネントの使い分け
+
+**真実源**: [.claude/content-principles.md §8](../content-principles.md) L146 — *`<ArticleImage>` の caption は使わない。図の説明は本文で行う。`alt` 属性のみ設定する。*
+
+### 新規記事: `<ArticleImage>` を使う
+
+```mdx
+{/* source: Wikimedia Commons, CC0, https://commons.wikimedia.org/wiki/File:... */}
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
+  alt="クローラクレーン（日立 CX900HD）"
+  width={960}
+  height={720}
+/>
+```
+
+- `<figure>` セマンティクスと Next.js `<Image>` 最適化が自動で効く
+- **`caption` 属性は禁止**（本文と重複して冗長になる）
+- `alt` は簡潔な識別情報のみ、**80 字以内**
+- 機種名・特徴・出典は **直前の段落** または **`{/* source: */}` コメント** に書く
+
+### 既存 `<img>` との互換
+
+- 既存の生 `<img>` を使った記事はリライト時に順次 `<ArticleImage>` へ移行
+- 移行が未完了の記事で `<img>` を使う場合も `alt` と `{/* source: */}` コメントは必須
+
+### CC/PD 写真の取得・出典表記
+
+詳細は [image-policy.md](./image-policy.md) 参照（Wikimedia Commons からの取得、ライセンス判定、出典コメントフォーマット）。
 
 ## frontmatter テンプレート
 
