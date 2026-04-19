@@ -32,7 +32,7 @@
  *   9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン
  *   9-5 LOW    「とは」H2セクション直下に<ExamPoint>
  *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
- *  10-1 HIGH   <ArticleImage caption="..."> を検出（§8 違反、alt のみにする）
+ *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§8 違反）
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
  *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
@@ -596,8 +596,11 @@ function lintComponentPrinciples(lines, filePath, findings) {
  * 10-5 HIGH   画像ファイル不在 or mime が拡張子と不一致（HTML エラーページ偽 JPG 等）
  *
  * 真実源: .claude/content-principles.md §8 L146
- *   「<ArticleImage> の caption は使わない。alt 属性のみ設定する」
+ *   「caption は『図の説明』には使わない。ただし出典・帰属・機種名などの
+ *   短い帰属情報（60字以内）は caption に書いてよい」
  */
+const CAPTION_MAX = 60;
+
 function lintImages(lines, findings) {
   const content = lines.join('\n');
 
@@ -611,15 +614,22 @@ function lintImages(lines, findings) {
     // frontmatter 除去後の相対行番号
     const lineNum = content.slice(0, match.index).split('\n').length;
 
-    // 10-1: <ArticleImage> に caption 属性
-    if (tagName === 'ArticleImage' && /\bcaption\s*=/.test(attrs)) {
-      findings.push({
-        severity: 'HIGH',
-        rule: '10-1',
-        line: lineNum,
-        endLine: lineNum,
-        message: `<ArticleImage caption="..."> を検出。content-principles §8: caption は使わず alt のみ設定する`,
-      });
+    // 10-1: <ArticleImage> の caption が長すぎる（説明型 caption を検出）
+    // 短文（≤60字）の帰属情報は OK、長文は §8 違反として HIGH
+    if (tagName === 'ArticleImage') {
+      const captionMatch = attrs.match(/\bcaption\s*=\s*["']([^"']*)["']/);
+      if (captionMatch) {
+        const captionLen = [...captionMatch[1]].length;
+        if (captionLen > CAPTION_MAX) {
+          findings.push({
+            severity: 'HIGH',
+            rule: '10-1',
+            line: lineNum,
+            endLine: lineNum,
+            message: `<ArticleImage caption="..."> が ${captionLen} 字（帰属情報のみ、上限 ${CAPTION_MAX} 字）。図の説明は本文に移す（content-principles §8）`,
+          });
+        }
+      }
     }
 
     // 10-2: 生 <img> タグ
