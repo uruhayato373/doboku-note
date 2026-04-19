@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="トラクタの走行装置：クローラ式とホイール式の比較">
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#222">トラクタの走行装置：2 形式の比較</text>
+
+  <!-- クローラ式 -->
+  <g transform="translate(10,40)">
+    <rect x="0" y="0" width="185" height="210" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <text x="92" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">クローラ式</text>
+
+    <!-- クローラ概念図 -->
+    <g transform="translate(15,35)">
+      <rect x="10" y="15" width="130" height="20" fill="#555"/>
+      <circle cx="25" cy="50" r="16" fill="#222"/>
+      <circle cx="75" cy="50" r="16" fill="#222"/>
+      <circle cx="125" cy="50" r="16" fill="#222"/>
+      <rect x="10" y="55" width="130" height="12" fill="#222"/>
+      <path d="M 14 67 L 20 67 L 18 72 Z M 28 67 L 34 67 L 32 72 Z M 42 67 L 48 67 L 46 72 Z M 56 67 L 62 67 L 60 72 Z M 70 67 L 76 67 L 74 72 Z M 84 67 L 90 67 L 88 72 Z M 98 67 L 104 67 L 102 72 Z M 112 67 L 118 67 L 116 72 Z M 126 67 L 132 67 L 130 72 Z" fill="#222"/>
+    </g>
+
+    <!-- 特徴 -->
+    <text x="10" y="140" font-family="sans-serif" font-size="12" fill="#222">• 接地面積大 → 軟弱地 ◎</text>
+    <text x="10" y="158" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ = 0.80〜0.90</text>
+    <text x="10" y="176" font-family="sans-serif" font-size="12" fill="#222">• 登坂能力 約 30°</text>
+    <text x="10" y="194" font-family="sans-serif" font-size="12" fill="#222">• 走行速度 3〜16 km/h（遅い）</text>
+  </g>
+
+  <!-- ホイール式 -->
+  <g transform="translate(205,40)">
+    <rect x="0" y="0" width="185" height="210" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <text x="92" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">ホイール式</text>
+
+    <!-- ホイール概念図 -->
+    <g transform="translate(15,35)">
+      <rect x="20" y="15" width="125" height="30" fill="#555"/>
+      <rect x="35" y="5" width="65" height="20" fill="#777"/>
+      <circle cx="40" cy="58" r="20" fill="#222"/>
+      <circle cx="40" cy="58" r="10" fill="#888"/>
+      <circle cx="125" cy="58" r="20" fill="#222"/>
+      <circle cx="125" cy="58" r="10" fill="#888"/>
+    </g>
+
+    <!-- 特徴 -->
+    <text x="10" y="140" font-family="sans-serif" font-size="12" fill="#222">• 接地圧大 → 舗装路 ◎</text>
+    <text x="10" y="158" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ = 0.50〜0.70</text>
+    <text x="10" y="176" font-family="sans-serif" font-size="12" fill="#222">• 機動性 ◎（長距離自走可）</text>
+    <text x="10" y="194" font-family="sans-serif" font-size="12" fill="#222">• 軟弱地・傾斜地は不得手</text>
+  </g>
+</svg>
