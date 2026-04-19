@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 240" style="max-width:400px;width:100%" role="img" aria-label="水平距離と斜距離の関係">
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#222">水平距離 と 斜距離</text>
+
+  <!-- Ground baseline (horizontal) -->
+  <line x1="40" y1="180" x2="360" y2="180" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="200" y="210" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">水平面（投影面）</text>
+
+  <!-- Point A on left -->
+  <circle cx="60" cy="180" r="5" fill="#2e6da4"/>
+  <text x="60" y="170" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#222">A</text>
+
+  <!-- Point B on slope (upper right) -->
+  <circle cx="330" cy="80" r="5" fill="#2e6da4"/>
+  <text x="342" y="78" font-family="sans-serif" font-size="14" fill="#222">B</text>
+
+  <!-- B projected onto horizontal (B') -->
+  <circle cx="330" cy="180" r="4" fill="#8a8a8a"/>
+  <text x="330" y="200" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#555">B'</text>
+
+  <!-- Slant distance S (A→B, brand color) -->
+  <line x1="60" y1="180" x2="330" y2="80" stroke="#b22234" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="195" y="115" font-family="sans-serif" font-size="14" font-weight="bold" fill="#b22234">斜距離 S</text>
+
+  <!-- Horizontal distance D (A→B', brand color) -->
+  <line x1="60" y1="180" x2="326" y2="180" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#arr)"/>
+  <text x="175" y="172" font-family="sans-serif" font-size="14" font-weight="bold" fill="#2e6da4">水平距離 D</text>
+
+  <!-- Height h (B→B') -->
+  <line x1="330" y1="80" x2="330" y2="178" stroke="#3a7d44" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="340" y="135" font-family="sans-serif" font-size="13" fill="#3a7d44">高低差 h</text>
+
+  <!-- Angle indicator at A -->
+  <path d="M 92 180 A 32 32 0 0 0 86 168" fill="none" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="100" y="165" font-family="sans-serif" font-size="13" fill="#d4a017">θ</text>
+</svg>

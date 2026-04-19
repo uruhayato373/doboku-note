@@ -32,20 +32,22 @@ seoTitle: "測距と測角 | doboku-note"
 
 **水平距離**とは、2点間を水平面上に投影した距離をいう。**斜距離**とは、2点間の直線距離をいう。
 
+{/* source: doboku-note による自作 SVG（水平距離と斜距離の関係） */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-1.png"
-  alt="図5.1 距離"
-  width={500}
-  height={350}
+  src="/posts/civil-construction-1/textbook-distance-angle/img/distance-types.svg"
+  alt="水平距離 D と斜距離 S の関係（高低差 h、傾斜角 θ）"
+  width={400}
+  height={240}
 />
 
 **水平角**とは、2方向の鉛直面がなす角を水平面上に投影した角度をいう。**鉛直角**とは、水平面と視準方向のなす角度をいい、水平面より上を仰角（＋）、下を俯角（−）という。
 
+{/* source: doboku-note による自作 SVG（水平角と鉛直角の概念） */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-2.png"
-  alt="図5.2 水平角と鉛直角"
-  width={1750}
-  height={900}
+  src="/posts/civil-construction-1/textbook-distance-angle/img/angle-types.svg"
+  alt="水平角（2 方向の鉛直面がなす角）と鉛直角（仰角 + / 俯角 −）"
+  width={400}
+  height={260}
 />
 
 ### 距離の測定（測距）
@@ -90,11 +92,12 @@ $$D = S + \frac{\Delta l}{l} S + \alpha (t - t_0) \cdot S + [C_i] + C_h + C_s$$
 
 光波測距儀は、**GaAs（ガリウム砒素）半導体レーザー**や**HeNe（ヘリウムネオン）レーザー**等の変調光を発射し、目標点に設置した**反射プリズム**で反射させ、往復に要した時間から距離を算出する機器である。
 
+{/* source: Wikimedia Commons, CC BY 2.0, https://commons.wikimedia.org/wiki/File:Surveying_Prism_Reflector_(5562048512).jpg */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-3.png"
-  alt="図5.3 光波測距儀による距離測定の原理"
-  width={1500}
-  height={730}
+  src="/posts/civil-construction-1/textbook-distance-angle/img/edm-rangefinder.jpg"
+  alt="光波測距儀の目標点に設置する反射プリズム（ポール付き）"
+  width={800}
+  height={1202}
 />
 
 光波測距儀による距離の計算式は以下のとおりである。
@@ -112,11 +115,12 @@ $$L = \frac{1}{2}(n\lambda + l)$$
 
 **セオドライト**（トランシット）は、**水平角**および**鉛直角**を測定する器械である。
 
+{/* source: Wikimedia Commons, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:A_student_using_a_Theodolite_in_field.jpg */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-4-photo-5-1.png"
-  alt="写真5.1 セオドライトの外観と各部の名称 / 図5.4 セオドライトの構造"
-  width={1900}
-  height={1000}
+  src="/posts/civil-construction-1/textbook-distance-angle/img/theodolite.jpg"
+  alt="三脚に据え付けたセオドライトで視準する様子（望遠鏡・水平目盛盤・鉛直目盛盤を備える）"
+  width={960}
+  height={1707}
 />
 
 セオドライトの構造には、以下の**4軸の条件**がある。
@@ -158,11 +162,12 @@ $$L = \frac{1}{2}(n\lambda + l)$$
 - **鉛直軸と水平目盛盤中心の不一致**: 鉛直軸と水平目盛盤の中心がずれている誤差 → 対称位置の読みの平均で消去
 - **外心誤差**: 望遠鏡の視準軸が水平軸と交わらないために生じる誤差 → 正・反の対回観測で消去
 
+{/* source: doboku-note による自作 SVG（対回観測で視準軸誤差が打ち消される原理） */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-5-6-7.png"
-  alt="図5.5〜5.7 鉛直軸・水平軸・視準軸誤差の消去"
-  width={1800}
-  height={900}
+  src="/posts/civil-construction-1/textbook-distance-angle/img/error-cancellation.svg"
+  alt="対回観測（正位 R ＋ 反位 L）で視準軸誤差が打ち消される原理"
+  width={400}
+  height={280}
 />
 
 #### セオドライトを用いた角観測に伴う誤差
@@ -182,18 +187,12 @@ $$L = \frac{1}{2}(n\lambda + l)$$
 
 **トータルステーション**（TS）は、セオドライトと光波測距儀を一体化した器械であり、**水平角**、**鉛直角**および**斜距離**を同時に測定できる。測定データは内蔵コンピュータで処理され、水平距離、高低差、座標値等が自動計算される。
 
+{/* source: Wikimedia Commons, Public Domain, https://commons.wikimedia.org/wiki/File:Leica_TC305_total_station.JPG */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/photo-5-2.png"
-  alt="写真5.2 トータルステーション"
-  width={850}
-  height={850}
-/>
-
-<ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-8.png"
-  alt="図5.8 トータルステーションによる測量"
-  width={1800}
-  height={950}
+  src="/posts/civil-construction-1/textbook-distance-angle/img/total-station.jpg"
+  alt="トータルステーション（Leica TC305）。セオドライトと光波測距儀を一体化した器械"
+  width={960}
+  height={720}
 />
 
 #### 距離の測定
@@ -257,11 +256,12 @@ GNSSによる測量の特徴は、以下の5つである。
 
 GNSSによる測量には、**単独測位**と**相対測位**がある。
 
+{/* source: Wikimedia Commons, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:Geodetic_survey_instruments_03.jpg */}
 <ArticleImage
-  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-9.png"
-  alt="図5.9 GNSSを利用した測量のイメージ"
-  width={1800}
-  height={950}
+  src="/posts/civil-construction-1/textbook-distance-angle/img/gnss-receiver.jpg"
+  alt="GNSS 測量用のアンテナとローバー受信機（三脚に据え付け、衛星電波を受信）"
+  width={960}
+  height={720}
 />
 
 **単独測位**（1 台の受信機で 4 個以上の衛星からの電波を受信して位置を求める方法）は、精度が数 m 程度のためカーナビゲーション等に用いられ、測量用途には適さない。
