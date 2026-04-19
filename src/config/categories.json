@@ -12,5 +12,12 @@
     "subtitle": "筆記・口頭試験 論文対策",
     "variant": "pe",
     "order": 2
+  },
+  {
+    "slug": "reference-materials",
+    "label": "実務参照資料",
+    "subtitle": "近畿地整 設計便覧・兵庫県 共通仕様書",
+    "variant": "reference",
+    "order": 3
   }
 ]
