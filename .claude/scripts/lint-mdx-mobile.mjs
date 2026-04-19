@@ -8,6 +8,7 @@
  *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-5)
  *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-1〜9-6)
  *   - §7 過剰装飾を避ける               → カテゴリ7 (将来追加)
+ *   - §8 図表は説明の流れの中に配置     → カテゴリ10 (10-1〜10-5, ArticleImage 規約)
  *   - §8 リンクの使い分け               → カテゴリ8 (8-1, 8-2)
  *   - §9 参考資料の構成                 → カテゴリ9-4
  *
@@ -31,6 +32,10 @@
  *   9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン
  *   9-5 LOW    「とは」H2セクション直下に<ExamPoint>
  *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
+ *  10-1 HIGH   <ArticleImage caption="..."> を検出（§8 違反、alt のみにする）
+ *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
+ *  10-3 MEDIUM 画像 alt 属性が 80 字超過
+ *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -582,6 +587,132 @@ function lintComponentPrinciples(lines, filePath, findings) {
   }
 }
 
+// ── カテゴリ10: 画像・<ArticleImage> 規約 ──────────────────────────────────
+
+/**
+ * 10-1 HIGH   <ArticleImage caption="..."> の caption 属性（§8 違反）
+ * 10-2 MEDIUM 生 <img> タグ（<ArticleImage> への移行推奨）
+ * 10-3 MEDIUM alt 属性が 80 字超過
+ * 10-5 HIGH   画像ファイル不在 or mime が拡張子と不一致（HTML エラーページ偽 JPG 等）
+ *
+ * 真実源: .claude/content-principles.md §8 L146
+ *   「<ArticleImage> の caption は使わない。alt 属性のみ設定する」
+ */
+function lintImages(lines, findings) {
+  const content = lines.join('\n');
+
+  // マルチライン JSX タグに対応（属性が複数行にまたがる場合あり）
+  // `<img ... />` または `<ArticleImage ... />` を検出
+  const tagRegex = /<(img|ArticleImage)\b([\s\S]*?)\/?>/g;
+
+  for (const match of content.matchAll(tagRegex)) {
+    const tagName = match[1];
+    const attrs = match[2];
+    // frontmatter 除去後の相対行番号
+    const lineNum = content.slice(0, match.index).split('\n').length;
+
+    // 10-1: <ArticleImage> に caption 属性
+    if (tagName === 'ArticleImage' && /\bcaption\s*=/.test(attrs)) {
+      findings.push({
+        severity: 'HIGH',
+        rule: '10-1',
+        line: lineNum,
+        endLine: lineNum,
+        message: `<ArticleImage caption="..."> を検出。content-principles §8: caption は使わず alt のみ設定する`,
+      });
+    }
+
+    // 10-2: 生 <img> タグ
+    if (tagName === 'img') {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '10-2',
+        line: lineNum,
+        endLine: lineNum,
+        message: `生 <img> タグを検出。<ArticleImage> への移行を推奨（image-policy.md「推奨コンポーネント」参照）`,
+      });
+    }
+
+    // 10-3: alt 80 字超過
+    const altMatch = attrs.match(/\balt\s*=\s*["']([^"']*)["']/);
+    if (altMatch) {
+      const altLen = [...altMatch[1]].length;
+      if (altLen > 80) {
+        findings.push({
+          severity: 'MEDIUM',
+          rule: '10-3',
+          line: lineNum,
+          endLine: lineNum,
+          message: `alt 属性が ${altLen} 字（上限 80）。機種名・特徴は本文 or {/* source: */} コメントに移す`,
+        });
+      }
+    }
+
+    // 10-5: 画像ファイル実在＋mime チェック（/posts/... で始まる内部参照のみ）
+    const srcMatch = attrs.match(/\bsrc\s*=\s*["']([^"']+)["']/);
+    if (srcMatch && srcMatch[1].startsWith('/posts/')) {
+      const localPath = 'public' + srcMatch[1];
+      if (!existsSync(localPath)) {
+        findings.push({
+          severity: 'HIGH',
+          rule: '10-5',
+          line: lineNum,
+          endLine: lineNum,
+          message: `画像ファイルが存在しない: ${localPath}`,
+        });
+      } else {
+        try {
+          const buf = readFileSync(localPath);
+          const head = buf.slice(0, 200).toString('utf8');
+          const first4 = buf.slice(0, 4);
+          const isJPEG = first4[0] === 0xff && first4[1] === 0xd8 && first4[2] === 0xff;
+          const isPNG =
+            first4[0] === 0x89 &&
+            first4[1] === 0x50 &&
+            first4[2] === 0x4e &&
+            first4[3] === 0x47;
+          const isGIF = /^GIF8/.test(head);
+          const isWebP =
+            buf.slice(0, 4).toString() === 'RIFF' &&
+            buf.slice(8, 12).toString() === 'WEBP';
+          const isSVG = /<svg[\s>]|<\?xml[\s\S]{0,200}<svg/.test(head);
+          const looksHTMLerror =
+            !isSVG && /^<(!DOCTYPE|!doctype|html|HTML|\?xml[\s\S]{0,200}<(html|body))/i.test(head.trim());
+
+          const ext = srcMatch[1].toLowerCase().split('.').pop();
+          let mimeOk = true;
+          if (ext === 'jpg' || ext === 'jpeg') mimeOk = isJPEG;
+          else if (ext === 'png') mimeOk = isPNG;
+          else if (ext === 'gif') mimeOk = isGIF;
+          else if (ext === 'webp') mimeOk = isWebP;
+          else if (ext === 'svg') mimeOk = isSVG;
+
+          if (looksHTMLerror) {
+            findings.push({
+              severity: 'HIGH',
+              rule: '10-5',
+              line: lineNum,
+              endLine: lineNum,
+              message: `画像ファイルが HTML/テキスト（エラーページの可能性）: ${localPath} (${buf.length} bytes)`,
+            });
+          } else if (!mimeOk) {
+            const headerHex = [...first4].map((b) => b.toString(16).padStart(2, '0')).join(' ');
+            findings.push({
+              severity: 'HIGH',
+              rule: '10-5',
+              line: lineNum,
+              endLine: lineNum,
+              message: `画像の mime が拡張子と不一致: ${localPath} (ext=${ext}, 先頭バイト=${headerHex})`,
+            });
+          }
+        } catch {
+          // 読み取り失敗は握り潰す（権限エラー等）
+        }
+      }
+    }
+  }
+}
+
 // ── メイン ───────────────────────────────────────────────────────────────────
 
 function lintFile(filePath) {
@@ -630,6 +761,7 @@ function lintFile(filePath) {
   lintBoldScope(lines, findings);
   lintBoldDelimiterBoundary(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
+  lintImages(lines, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）
   for (const f of findings) {
