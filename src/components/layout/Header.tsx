@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Search, HardHat, GraduationCap, User, Menu, X } from "lucide-react";
+import { Search, HardHat, GraduationCap, BookOpen, User, Menu, X } from "lucide-react";
 import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
@@ -11,7 +11,9 @@ const categories = categoriesData as CategoryDef[];
 
 function CategoryIcon({ variant, className }: { variant: string; className?: string }) {
   const cn = className || "w-5 h-5";
-  return variant === "civil" ? <HardHat className={cn} /> : <GraduationCap className={cn} />;
+  if (variant === "civil") return <HardHat className={cn} />;
+  if (variant === "reference") return <BookOpen className={cn} />;
+  return <GraduationCap className={cn} />;
 }
 
 export default function Header() {

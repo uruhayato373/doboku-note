@@ -5,7 +5,7 @@ export type CategoryDef = {
   slug: string;
   label: string;
   subtitle: string;
-  variant: 'civil' | 'pe';
+  variant: 'civil' | 'pe' | 'reference';
   order: number;
 };
 
