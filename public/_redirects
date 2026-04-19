@@ -22,6 +22,14 @@
 /docs/pe-comprehensive-management-occupational-safety-act-osh /docs/pe-comprehensive-management-occupational-safety-act 301
 /docs/pe-comprehensive-management-labor-standards-act-osh /docs/pe-comprehensive-management-labor-standards-act 301
 
+# reference-materials カテゴリ分離: 旧 slug → 新 slug（2026-04-19）
+# 近畿地整 設計便覧・兵庫県 共通仕様書を civil-construction-1 から独立カテゴリへ
+/docs/civil-construction-1-reference-hyogo-port-materials /docs/reference-materials-hyogo-port-materials 301
+/docs/civil-construction-1-reference-river-abandonment /docs/reference-materials-river-abandonment 301
+/docs/civil-construction-1-reference-inverted-siphon /docs/reference-materials-inverted-siphon 301
+/docs/civil-construction-1-reference-floodgate /docs/reference-materials-floodgate 301
+/docs/civil-construction-1-reference-tunnel-02 /docs/reference-materials-tunnel-02 301
+
 # テキストブック再構成: 旧slug → 新slug（2026-04-16）— 11→34ページ分割
 /docs/civil-construction-1-textbook-construction-machinery-01 /docs/civil-construction-1-textbook-machinery-overview 301
 /docs/civil-construction-1-textbook-construction-machinery-02 /docs/civil-construction-1-textbook-loader 301

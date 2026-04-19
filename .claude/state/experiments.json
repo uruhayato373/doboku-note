@@ -57,6 +57,13 @@
         "8. 14 日後に fetch-gsc-data で 2 URL の impr / clicks / position delta 計測"
       ],
       "restored_urls": [
+        "https://doboku-note.com/docs/reference-materials-hyogo-port-materials",
+        "https://doboku-note.com/docs/reference-materials-river-abandonment",
+        "https://doboku-note.com/docs/reference-materials-inverted-siphon",
+        "https://doboku-note.com/docs/reference-materials-floodgate",
+        "https://doboku-note.com/docs/reference-materials-tunnel-02"
+      ],
+      "restored_urls_old": [
         "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
         "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment",
         "https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon",
@@ -84,6 +91,11 @@
           "summary": "Phase 1 拡張で Group 1 A評価 3件（inverted-siphon / floodgate / tunnel-02）を追加復活。baseline を 2→5 URL、target を 3→8 から 4→15 clicks に更新。"
         },
         {
+          "date": "2026-04-19T00:00:00.000Z",
+          "action": "url_migration",
+          "summary": "reference-materials カテゴリ独立に伴い URL を civil-construction-1-reference-* から reference-materials-* へ変更、301 redirect を public/_redirects に追加。GSC 側は 301 追従で新URLに集約される想定だが、再 indexing request を推奨。"
+        },
+        {
           "date": "2026-04-18T12:00:00.000Z",
           "action": "manual_indexing_completed",
           "summary": "運営者が sitemap 再送信 + 5 URL の GSC 手動 indexing を完了。Google による再クロールと順位反映を待機する段階に入る。",
@@ -96,7 +108,20 @@
           ]
         }
       ],
-      "pending_user_actions": [],
+      "pending_user_actions": [
+        {
+          "action": "GSC 再 indexing リクエスト（URL 移行後）",
+          "urls": [
+            "https://doboku-note.com/docs/reference-materials-hyogo-port-materials",
+            "https://doboku-note.com/docs/reference-materials-river-abandonment",
+            "https://doboku-note.com/docs/reference-materials-inverted-siphon",
+            "https://doboku-note.com/docs/reference-materials-floodgate",
+            "https://doboku-note.com/docs/reference-materials-tunnel-02"
+          ],
+          "added_at": "2026-04-19",
+          "blocked_reason": "Cloudflare Pages デプロイ後、301 が Google に認識されるまで 1〜数日。その後の新URL手動 indexing で加速可能"
+        }
+      ],
       "next_check_date": "2026-05-02"
     },
     {
