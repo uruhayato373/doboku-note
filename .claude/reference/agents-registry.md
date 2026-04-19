@@ -15,6 +15,7 @@
 | `content-qa` | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | sonnet | check-mdx, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
 | `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | sonnet | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
 | `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック） | Evaluator | sonnet | verify-pdf-mdx, check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
+| `civil-construction-review` | 1級土木 textbook/guide の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質） | Evaluator | inherit | lint-mdx-mobile, check-mdx, check-links | ✅ 運用中 |
 | `ui-visual-qa` | `src/components/ui/**/*.tsx` 変更時の視覚回帰（lint-ui + light/dark × desktop/mobile スクショ） | Evaluator | sonnet | lint-ui, Playwright MCP | ✅ 運用中 |
 | `strategy-advisor` | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
 | `seo-auditor` | SEO 監査（Phase 2 で復活） | Evaluator | sonnet | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2 で復活 |
@@ -43,6 +44,7 @@
 | **content-qa** | `.mdx`（過去問・基準書） | 静的5軸（視覚検証なし） | PDF→MDX 変換後 |
 | **cem-qa** | `.mdx`（総監キーワード） | 5管理体系・コンポーネント原則・参考資料 | キーワードページ執筆後 |
 | **civil-construction-qa** | `.mdx`（1級土木 textbook/guide） | 視覚検証 + テキスト網羅率（3モード5軸） | 1級土木 MDX 生成後 |
+| **civil-construction-review** | `.mdx`（1級土木 textbook/guide） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
 | **ui-visual-qa** | `.tsx`（`src/components/ui/**`）+ `globals.css` | 静的 lint + light/dark × desktop/mobile 視覚回帰 | UI コンポーネント変更後 |
 | **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query） | `/weekly-improve` 実行時 |
 
