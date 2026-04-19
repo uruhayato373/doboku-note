@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "generated_at": "2026-04-19T09:01:20.349Z",
+    "path": ".local/r2/posts/**/img/*.svg",
+    "file": null
+  },
+  "summary": {
+    "scanned_files": 97,
+    "files_with_issues": 14,
+    "total_findings": 19,
+    "by_severity": {
+      "HIGH": 19,
+      "MEDIUM": 0,
+      "LOW": 0
+    },
+    "by_pattern": {
+      "P1-text-clip": 19
+    }
+  },
+  "findings": [
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/banana-curve.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "出来高 (%)",
+      "detail": "「出来高 (%)」が viewBox 外（bbox x=-9〜49, viewBox 幅 440, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/password-security/img/wifi-encryption-strength.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "強",
+      "detail": "「強」が viewBox 外（bbox x=-3〜6, viewBox 幅 480, anchor=end）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/password-security/img/wifi-encryption-strength.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "弱",
+      "detail": "「弱」が viewBox 外（bbox x=-3〜6, viewBox 幅 480, anchor=end）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/unskilled-worker-accident-types.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "※全体 41.7%　それはそれ 65%　動作の反動等 49.0%",
+      "detail": "「※全体 41.7%　それはそれ 65%　」が viewBox 外（bbox x=190〜434, viewBox 幅 380, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/unskilled-worker-accident-types.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "出典：厚生労働省安全衛生教育マニュアル（平成25年）",
+      "detail": "「出典：厚生労働省安全衛生教育マニュアル（」が viewBox 外（bbox x=190〜416, viewBox 幅 380, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/machine-learning/img/ml-workflow.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "AI（Artificial Intelligence）",
+      "detail": "「AI（Artificial Intell」が viewBox 外（bbox x=411〜569, viewBox 幅 560, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/breakeven-point.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "売上高",
+      "detail": "「売上高」が viewBox 外（bbox x=355〜388, viewBox 幅 380, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/h25-primary/img/fault-tree-i-1-27.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "停電確率: P = 0.127 x 1.25 x 10&#x207B;&#x20",
+      "detail": "「停電確率: P = 0.127 x 1.」が viewBox 外（bbox x=40〜526, viewBox 幅 520, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "今後30年以内に地震が発生する確率（%）",
+      "detail": "「今後30年以内に地震が発生する確率（%）」が viewBox 外（bbox x=-70〜98, viewBox 幅 580, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "確率密度",
+      "detail": "「確率密度」が viewBox 外（bbox x=-8〜32, viewBox 幅 580, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/five-s/img/5s-quality-map.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "多品種化",
+      "detail": "「多品種化」が viewBox 外（bbox x=-10〜42, viewBox 幅 360, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/five-s/img/5s-quality-map.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "納期厳守",
+      "detail": "「納期厳守」が viewBox 外（bbox x=318〜370, viewBox 幅 360, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-29.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "枚目",
+      "detail": "「枚目」が viewBox 外（bbox x=542〜562, viewBox 幅 560, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/correlation-scatter-patterns.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "右肩下がり",
+      "detail": "「右肩下がり」が viewBox 外（bbox x=472〜517, viewBox 幅 500, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-decarbonization/img/heavy-rainfall-trend.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "気象庁",
+      "detail": "「気象庁」が viewBox 外（bbox x=480〜507, viewBox 幅 500, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-decarbonization/img/heavy-rainfall-trend.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "（回）発生件数（年間）",
+      "detail": "「（回）発生件数（年間）」が viewBox 外（bbox x=-25〜85, viewBox 幅 500, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-decarbonization/img/heavy-rainfall-trend.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "（棒グラフは各年の年間発生件数を示す。直線は5年移動平均値、黒線は比較期間の平均",
+      "detail": "「（棒グラフは各年の年間発生件数を示す。直」が viewBox 外（bbox x=20〜520, viewBox 幅 500, anchor=middle）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-maintenance-effect.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "設置",
+      "detail": "「設置」が viewBox 外（bbox x=424〜444, viewBox 幅 440, anchor=start）"
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-curve-phases.svg",
+      "pattern": "P1-text-clip",
+      "severity": "HIGH",
+      "text": "時間",
+      "detail": "「時間」が viewBox 外（bbox x=400〜424, viewBox 幅 420, anchor=start）"
+    }
+  ]
+}

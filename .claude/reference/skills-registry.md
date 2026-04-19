@@ -88,6 +88,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/illustrate-concept` | Discovery First 方式で Web 画像検索を並行実行し、標準視覚パターンのある概念のみトリアージして複数 SVG を一括生成・MDX 挿入する | `.claude/skills/content/illustrate-concept/SKILL.md` |
 | `/improve-article` | 単一記事を対話的に継続改善する Orchestrator。QA エージェント 5 軸評価 → 指摘構造化 → 修正方針提示 → Edit / create-svg / 本文補強を合格ライン到達までループ | `.claude/skills/content/improve-article/SKILL.md` |
 | `/audit-exam-explanations` | 過去問 MDX の破損解説（文頭欠落・ExamPoint summary 欠落）を正規表現で検出し JSON 出力する Evaluator。修正は行わない | `.claude/skills/content/audit-exam-explanations/SKILL.md` |
+| `/audit-svg` | SVG の品質問題（文字クリップ・必須属性欠落・viewBox 超過・font-size 過小・テキスト重なり）を静的解析で検出する Evaluator。修正は行わない | `.claude/skills/content/audit-svg/SKILL.md` |
 | `/note-desumasu` | `docs/note-drafts/` 配下の note 下書きを だ・である調 から ですます調 へ変換（note 媒体の親しみやすさに特化） | `.claude/skills/content/note-desumasu/SKILL.md` |
 
 ### PDF→MDX 試験特化スキル
