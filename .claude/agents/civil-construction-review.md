@@ -62,7 +62,7 @@ model: inherit
 | **構造** | 20% | frontmatter 必須6項目完備・H2/H3 階層整合・check-mdx OK（本文 H1 の有無は問わない — textbook 群の既存慣行） | 軽微な階層ズレ1箇所 | 必須 frontmatter 1項目欠落 or H3→H5 のような飛び | frontmatter 複数欠落 or ビルドエラー |
 | **テキスト原則** | 20% | content-principles.md §1-5,7 完全準拠（絵文字なし、太字 ≤30字、1文1段落、ExamPoint 位置OK）| 軽微違反1件 | lint カテゴリ9-1/9-3/9-5/9-6 HIGH 1件 or MEDIUM 3件以上 | HIGH 2件以上 |
 | **モバイル視認性** | 30% | `lint-mdx-mobile` HIGH/MEDIUM ゼロ、4列以上表なし、3列表セル ≤15字、表前に導入文あり | MEDIUM 1〜3件 | MEDIUM 4〜9件 or HIGH 1件 | MEDIUM 10件以上 or HIGH 2件以上 |
-| **図表の適切性** | 15% | 全画像が `<ArticleImage>` 使用（**caption 属性なし**、alt のみ）、alt ≤80字、出典コメント `{/* source: */}` 完備（CC写真時）、画像ファイル実在（JPG/PNG/SVG、HTML エラーページでない） | 生 `<img>` が 1 箇所（移行途中）or `caption=` 属性 1 件（§8 違反） | 生 `<img>` 多数 or `caption=` 多用 or alt 1件 >120字 or 出典コメント欠落 | **壊れた画像ファイル**（HTML エラーページ等）or 画像が全て caption で説明されている |
+| **図表の適切性** | 15% | 全画像が `<ArticleImage>` 使用（caption は **帰属情報のみ ≤60字**）、alt ≤80字、出典コメント `{/* source: */}` 完備（CC写真時）、画像ファイル実在（JPG/PNG/SVG、HTML エラーページでない） | 生 `<img>` が 1 箇所（移行途中）or caption が 60〜100 字で説明型に近い | 生 `<img>` 多数 or caption が >100 字の説明型（§8 違反）or alt 1件 >120字 or 出典コメント欠落 | **壊れた画像ファイル**（HTML エラーページ等）or 画像の説明を全て caption に詰め込んでいる |
 | **参考資料・関連付け** | 15% | `/check-links` 全件OK、`## 参考資料` 節に公的＋民間の両方（`.or/.go/.ac.jp` と `.com/.co.jp` 等）、関連テキスト誘導あり、法令名に e-Gov 内部リンク、過去問バックリンクあり（guide時）| 公的or民間片方のみ or 死リンク1件 | 死リンク2件以上 or 関連誘導なし | `## 参考資料` 節そのものが欠落 |
 
 ### 加重スコア計算（cem-qa と同じ数式）
@@ -135,7 +135,7 @@ Grep pattern="\{/\* source:" path=<mdx>
 **判定基準**（図表の適切性軸、真実源: content-principles §8 L146）:
 - 画像総数 = 生 img + ArticleImage
 - 生 img の比率 0%（全て `<ArticleImage>`）→ 3点満点候補
-- **`<ArticleImage caption="...">` の caption 属性 → §8 違反で減点**（alt のみにすべき）
+- **caption の使い分け**: 帰属情報（60字以内、出典・ライセンス・機種名）は OK、60字超の説明型 caption は §8 違反で減点
 - 出典コメント `{/* source: */}` が CC/PD 画像で欠落 → 減点
 - 画像ファイル（public/posts/... 配下）の存在確認と mime-type チェック（HTML エラーページ等の偽 JPG は 0点）
 
@@ -202,8 +202,8 @@ Mode: textbook | guide
 [4. 図表の適切性] 15%
   画像総数: 7
     生 <img>: 7 件（L66-L105 付近）← 改善余地（<ArticleImage> へ移行）
-    <ArticleImage>（caption なし）: 0 件
-    <ArticleImage caption="...">: 0 件（§8 違反につき存在すれば減点）
+    <ArticleImage>: 0 件
+  caption: — （帰属情報の短文 caption は OK、長文は §8 違反）
   出典コメント {/* source: */}: 7/7 件 ✓
   alt 長（≤80字）: 全件 OK
   画像ファイル実在・mime: 7/7 正規 JPEG ✓
@@ -223,9 +223,10 @@ Mode: textbook | guide
 修正推奨（優先度順）:
   1. [HIGH] L45-50, L125-128: 3列表のセルを15字以内に短縮
      → 表を潰さず散文化 or 列ごとに分割
-  2. [HIGH] 全 <img> を <ArticleImage> に置換（caption なし、alt のみ）
-     → 機種名・特徴・出典は直前段落 or {/* source: */} コメントに書く
-     → content-principles §8: caption 属性は使わない
+  2. [HIGH] 全 <img> を <ArticleImage> に置換
+     → 帰属情報（Wikimedia Commons, CC BY-SA 4.0 等）は短い caption に
+     → 機種の詳細・図の読み方は本文に書く
+     → content-principles §8: caption は帰属情報のみ（60字以内）
   3. [MEDIUM] L115, L123: 表の直前に 1 文の導入を追加
   4. [MEDIUM] `## 参考資料` 節を新設（クレーン等安全規則 e-Gov リンク等）
 ```
