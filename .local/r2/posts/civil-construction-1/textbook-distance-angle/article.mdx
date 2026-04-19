@@ -18,11 +18,21 @@ seoTitle: "測距と測角 | doboku-note"
 
 **水平距離**とは、2点間を水平面上に投影した距離をいう。**斜距離**とは、2点間の直線距離をいう。
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/fig-5-1.png" alt="図5.1 距離" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-1.png"
+  alt="図5.1 距離"
+  width={500}
+  height={350}
+/>
 
 **水平角**とは、2方向の鉛直面がなす角を水平面上に投影した角度をいう。**鉛直角**とは、水平面と視準方向のなす角度をいい、水平面より上を仰角（＋）、下を俯角（−）という。
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/fig-5-2.png" alt="図5.2 水平角と鉛直角" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-2.png"
+  alt="図5.2 水平角と鉛直角"
+  width={1750}
+  height={900}
+/>
 
 ### 距離の測定（測距）
 
@@ -67,7 +77,12 @@ $$D = S + \frac{\Delta l}{l} S + \alpha (t - t_0) \cdot S + [C_i] + C_h + C_s$$
 
 光波測距儀は、**GaAs（ガリウム砒素）半導体レーザー**や**HeNe（ヘリウムネオン）レーザー**等の変調光を発射し、目標点に設置した**反射プリズム**で反射させ、往復に要した時間から距離を算出する機器である。
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/fig-5-3.png" alt="図5.3 光波測距儀による距離測定の原理" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-3.png"
+  alt="図5.3 光波測距儀による距離測定の原理"
+  width={1500}
+  height={730}
+/>
 
 光波測距儀による距離の計算式は以下のとおりである。
 
@@ -84,7 +99,12 @@ $$L = \frac{1}{2}(n\lambda + l)$$
 
 **セオドライト**（トランシット）は、**水平角**および**鉛直角**を測定する器械である。
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/fig-5-4-photo-5-1.png" alt="写真5.1 セオドライトの外観と各部の名称 / 図5.4 セオドライトの構造" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-4-photo-5-1.png"
+  alt="写真5.1 セオドライトの外観と各部の名称 / 図5.4 セオドライトの構造"
+  width={1900}
+  height={1000}
+/>
 
 セオドライトの構造には、以下の**4軸の条件**がある。
 
@@ -128,7 +148,12 @@ $$L = \frac{1}{2}(n\lambda + l)$$
 | 鉛直軸と水平目盛盤中心の不一致 | 鉛直軸と水平目盛盤の中心がずれている誤差 | 対称位置の読みの平均で消去 |
 | 外心誤差 | 望遠鏡の視準軸が水平軸と交わらないために生じる誤差 | 正・反の対回観測で消去 |
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/fig-5-5-6-7.png" alt="図5.5〜5.7 鉛直軸・水平軸・視準軸誤差の消去" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-5-6-7.png"
+  alt="図5.5〜5.7 鉛直軸・水平軸・視準軸誤差の消去"
+  width={1800}
+  height={900}
+/>
 
 #### セオドライトを用いた角観測に伴う誤差
 
@@ -147,9 +172,19 @@ $$L = \frac{1}{2}(n\lambda + l)$$
 
 **トータルステーション**（TS）は、セオドライトと光波測距儀を一体化した器械であり、**水平角**、**鉛直角**および**斜距離**を同時に測定できる。測定データは内蔵コンピュータで処理され、水平距離、高低差、座標値等が自動計算される。
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/photo-5-2.png" alt="写真5.2 トータルステーション" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/photo-5-2.png"
+  alt="写真5.2 トータルステーション"
+  width={850}
+  height={850}
+/>
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/fig-5-8.png" alt="図5.8 トータルステーションによる測量" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-8.png"
+  alt="図5.8 トータルステーションによる測量"
+  width={1800}
+  height={950}
+/>
 
 #### 距離の測定
 
@@ -212,7 +247,12 @@ GNSSによる測量の特徴は、以下の5つである。
 
 GNSSによる測量には、**単独測位**と**相対測位**がある。
 
-<img src="/posts/civil-construction-1/textbook-surveying/img/fig-5-9.png" alt="図5.9 GNSSを利用した測量のイメージ" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-surveying/img/fig-5-9.png"
+  alt="図5.9 GNSSを利用した測量のイメージ"
+  width={1800}
+  height={950}
+/>
 
 **単独測位**は、1台の受信機で4個以上の衛星からの電波を受信し、位置を求める方法である。精度は数m程度であり、カーナビゲーション等に利用される。
 
@@ -251,3 +291,12 @@ GNSSによる測量には、**単独測位**と**相対測位**がある。
 | 短縮スタティック法 | 5衛星以上 |
 | キネマティック法 | 5衛星以上 |
 | RTK法 | 5衛星以上 |
+
+## 参考資料
+
+- [国土交通省「公共測量作業規程の準則」](https://psgsv2.gsi.go.jp/koukyou/public/jyunsoku/index.html) — 公共測量の公的規定
+- [国土地理院](https://www.gsi.go.jp/) — 測量の基準機関
+- [一般財団法人 日本測量協会](https://www.jsurvey.jp/) — 測量業界団体
+- [株式会社トプコン](https://www.topcon.co.jp/) — 測量機メーカー（民間資料）
+- [株式会社ニコン・トリンブル](https://www.nikon-trimble.co.jp/) — 測量機メーカー（民間資料）
+- [株式会社ライカ ジオシステムズ](https://leica-geosystems.com/ja) — 測量機メーカー（民間資料）
