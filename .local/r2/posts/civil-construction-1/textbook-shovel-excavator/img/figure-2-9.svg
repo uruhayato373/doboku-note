@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" style="max-width:400px;width:100%" role="img" aria-label="バケット容量の概念図。バックホゥ・ショベル（安息角 1:1）とローディングショベル（安息角 1:2）における山積容量と平積容量の比較">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .bucket { fill: none; stroke: #222; stroke-width: 1.5; }
+    .top-hashes { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    .flat { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+    .label { font-size: 12px; fill: #222; text-anchor: middle; }
+    .ratio { font-size: 11px; fill: #b22234; text-anchor: middle; font-weight: bold; }
+    .title { font-size: 13px; fill: #1a3a5c; text-anchor: middle; font-weight: bold; }
+  </style>
+
+  <!-- LEFT: バックホゥ・ショベル（安息角 1:1） -->
+  <text x="100" y="20" class="title">バックホゥ・ショベル</text>
+
+  <!-- 山積（mountain, 1:1） -->
+  <text x="55" y="40" font-size="11" fill="#555" text-anchor="middle">山積容量</text>
+  <!-- mountain slope (安息角 1:1) on top of bucket; bucket = 40 wide, mountain peak at center, height = 20 -->
+  <polygon points="25,90 55,65 85,90" class="top-hashes"/>
+  <!-- slope labels 1:1 -->
+  <text x="18" y="70" class="ratio">1</text>
+  <text x="30" y="95" class="ratio">1</text>
+  <text x="80" y="70" class="ratio">1</text>
+  <text x="92" y="95" class="ratio">1</text>
+  <!-- bucket -->
+  <path d="M 25 90 L 25 135 Q 55 150 85 135 L 85 90 L 25 90" class="bucket"/>
+
+  <!-- 平積（flat） -->
+  <text x="150" y="40" font-size="11" fill="#555" text-anchor="middle">平積容量</text>
+  <rect x="120" y="85" width="60" height="5" class="flat"/>
+  <path d="M 120 90 L 120 135 Q 150 150 180 135 L 180 90 L 120 90" class="bucket"/>
+
+  <!-- RIGHT: ローディングショベル（安息角 1:2） -->
+  <text x="300" y="20" class="title">ローディングショベル</text>
+
+  <!-- 山積（mountain, 1:2 — flatter） -->
+  <text x="255" y="40" font-size="11" fill="#555" text-anchor="middle">山積容量</text>
+  <!-- mountain slope 1:2, bucket = 50 wide (lower profile) -->
+  <polygon points="225,90 260,78 295,90" class="top-hashes"/>
+  <!-- slope labels 1:2 — width twice of height -->
+  <text x="218" y="82" class="ratio">1</text>
+  <text x="238" y="97" class="ratio">2</text>
+  <text x="282" y="82" class="ratio">1</text>
+  <text x="302" y="97" class="ratio">2</text>
+  <!-- box-like bucket (wider, shorter) -->
+  <rect x="225" y="90" width="70" height="45" class="bucket"/>
+
+  <!-- 平積（flat） -->
+  <text x="360" y="40" font-size="11" fill="#555" text-anchor="middle">平積容量</text>
+  <rect x="325" y="85" width="70" height="5" class="flat"/>
+  <rect x="325" y="90" width="70" height="45" class="bucket"/>
+
+  <!-- Footer notes -->
+  <line x1="20" y1="175" x2="380" y2="175" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="198" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">山積：安息角 1:1（バックホゥ/ショベル）／ 1:2（ローディング）</text>
+  <text x="200" y="218" font-size="11" fill="#555" text-anchor="middle">JIS は定格山積容量を表示し、平積容量を併記する</text>
+  <text x="200" y="236" font-size="11" fill="#b22234" text-anchor="middle">※ クラムシェルは平積容量のみで表示</text>
+
+  <!-- Legend -->
+  <g transform="translate(30,255)">
+    <rect x="0" y="0" width="14" height="8" class="top-hashes"/>
+    <text x="20" y="8" font-size="11" fill="#555">山積（安息角で盛り上げ）</text>
+    <rect x="180" y="0" width="14" height="8" class="flat"/>
+    <text x="200" y="8" font-size="11" fill="#555">平積（上縁で平らに）</text>
+  </g>
+</svg>
