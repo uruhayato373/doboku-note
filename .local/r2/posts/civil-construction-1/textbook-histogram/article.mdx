@@ -32,7 +32,12 @@ seoTitle: "ヒストグラム・工程能力図 | doboku-note"
 4. 飛び離れたデータの有無
 5. 規格値との関係
 
-<img src="/posts/civil-construction-1/textbook-histogram/img/figure-4-7.svg" alt="ヒストグラムの概念図。5 本のバーで山型の分布を示し、両側に下限・上限規格値の破線、両端に 'ゆとり' の矢印、上部に分布幅（バラツキ）と目標値を配置" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-histogram/img/figure-4-7.svg"
+  alt="ヒストグラムの概念図。5 本のバーで山型の分布を示し、両側に下限・上限規格値の破線、両端に 'ゆとり' の矢印、上部に分布幅（バラツキ）と目標値を配置"
+  width={400}
+  height={320}
+/>
 
 ### ヒストグラムの作り方
 
@@ -77,7 +82,12 @@ seoTitle: "ヒストグラム・工程能力図 | doboku-note"
 | 24.5〜26.5 | 25.5 | 3 |
 | 26.5〜28.5 | 27.5 | 1 |
 
-<img src="/posts/civil-construction-1/textbook-histogram/img/figure-4-8.svg" alt="演習データ（n=44）のヒストグラム。度数 1・17・22・3・1 の 5 本のバーと下限規格値 S_L=17 の注記" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-histogram/img/figure-4-8.svg"
+  alt="演習データ（n=44）のヒストグラム。度数 1・17・22・3・1 の 5 本のバーと下限規格値 S_L=17 の注記"
+  width={400}
+  height={300}
+/>
 
 ### ヒストグラムの見方
 
@@ -87,7 +97,12 @@ seoTitle: "ヒストグラム・工程能力図 | doboku-note"
 
 規格や目標値が決まっている場合には、ヒストグラムに**規格値**（上限、下限）、**目標値**を線で記入し、ヒストグラムが規格値に対して十分なゆとりをもっておさまっているかどうかを見る。
 
-<img src="/posts/civil-construction-1/textbook-histogram/img/figure-4-9.svg" alt="ヒストグラムの 10 分布パターン a〜j: 左右対称・ゆとり不足・下限割れ・バラツキ大・左偏り・右偏り・二山・端切れ・端異常高・飛び離れ山" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-histogram/img/figure-4-9.svg"
+  alt="ヒストグラムの 10 分布パターン a〜j: 左右対称・ゆとり不足・下限割れ・バラツキ大・左偏り・右偏り・二山・端切れ・端異常高・飛び離れ山"
+  width={400}
+  height={870}
+/>
 
 図4.9 に示す分布形状と品質管理・工程管理との一般的な関係は次のとおり。
 
@@ -215,11 +230,9 @@ $$
 
 判定の目安は次のとおり。
 
-| $C_{pk}$ の値 | 判定 |
-|:--|:--|
-| $C_{pk} \geq 1.33$ | 十分（工程能力は十分ある） |
-| $1.00 \leq C_{pk} < 1.33$ | まあまあ（規格は満たすが改善余地あり） |
-| $C_{pk} < 1.00$ | 不足（規格を満たさないおそれがある） |
+- $C_{pk} \geq 1.33$ — **十分**（工程能力は十分ある）
+- $1.00 \leq C_{pk} < 1.33$ — **まあまあ**（規格は満たすが改善余地あり）
+- $C_{pk} < 1.00$ — **不足**（規格を満たさないおそれがある）
 
 なお、式4.1 の $|S_U - \bar{X}| / \sigma \geq 3$ は $C_{pk} \geq 1$ と同等であり、「できれば 4」は $C_{pk} \geq 1.33$ に相当する。
 
@@ -238,7 +251,12 @@ $$
 - **工程能力図** — データを**規格値**と対比するために用いる
 - **管理図** — データが統計的手法により定めた**管理限界線**の内側に入っているかどうかを調べるために用いる
 
-<img src="/posts/civil-construction-1/textbook-histogram/img/figure-4-6.svg" alt="工程能力図の例。時間軸に沿って測定された品質特性値が規格中心付近で変動する様子を折れ線で示し、上下限規格値の破線と対比" loading="lazy" />
+<ArticleImage
+  src="/posts/civil-construction-1/textbook-histogram/img/figure-4-6.svg"
+  alt="工程能力図の例。時間軸に沿って測定された品質特性値が規格中心付近で変動する様子を折れ線で示し、上下限規格値の破線と対比"
+  width={400}
+  height={260}
+/>
 
 ### 工程能力図の作り方
 
@@ -249,3 +267,11 @@ $$
 3. 上下限規格値を示す線を引く
 4. 各群の中で時間順序に従い、各データを 1 点ずつ打点する
 5. 各点を実線で結ぶ
+
+## 参考資料
+
+- [JIS Z 9020-1（管理図―第 1 部：一般指針）](https://www.jisc.go.jp/) — 管理図・工程能力図の日本工業規格
+- [JIS Z 8101（統計―用語及び記号）](https://www.jisc.go.jp/) — 平均値・分散・標準偏差・工程能力指数の用語定義
+- [日本品質管理学会](https://www.jsqc.org/) — 品質管理の学術団体（民間資料）
+- [一般財団法人 日本規格協会「QC 七つ道具」](https://www.jsa.or.jp/) — ヒストグラムを含む QC 手法の解説（民間資料）
+- [経済産業省「統計に用いる用語解説」](https://www.meti.go.jp/statistics/) — 統計用語の公的解説
