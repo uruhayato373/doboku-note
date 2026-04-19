@@ -59,4 +59,13 @@ public/posts
 .playwright-mcp/
 /*.png
 /*.jpeg
+/*.jpg
+/*.svg
+/*.gif
+/*.webp
 /test.md
+
+# 一時出力置き場（.tmp/ 配下はすべて untracked、.gitkeep と README.md のみ追跡）
+/.tmp/*
+!/.tmp/.gitkeep
+!/.tmp/README.md

@@ -59,6 +59,16 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-stray-files.sh"
+          }
+        ]
+      }
     ]
   }
 }

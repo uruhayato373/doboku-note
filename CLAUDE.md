@@ -177,6 +177,14 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
   - 既存の `primary-*` / `accent-*` / `neutral-*` は互換性のため残すが、**新規コードでは使わない**
   - SVG 作成の詳細ルールは [.claude/skills/content/create-svg/SKILL.md](.claude/skills/content/create-svg/SKILL.md)、デザイン原則は [.claude/design-system/principles.md](.claude/design-system/principles.md) 参照
 
+## 一時ファイルの置き場所
+
+- 視覚検証・図版確認・アドホックな出力（Playwright スクショ、SVG→PNG レンダー、PDF 抽出の中間ファイル等）は **必ず `.tmp/` 配下に出す**
+- リポジトリ直下に `*.png` / `*.jpg` / `*.svg` 等を直接出さない（散らかる原因）
+- `Stop` フック（`.claude/hooks/check-stray-files.sh`）がリポジトリ直下の untracked 画像ファイルを検知して警告する（ブロックはしない）
+- `.tmp/` 配下は gitignore 済み。不要になったら `rm -rf .tmp/*` で一掃してよい
+- 詳細: `.tmp/README.md`
+
 ## デプロイ
 
 - **本番**: `main` ブランチへの push で GitHub Actions → Cloudflare Pages に自動デプロイ
@@ -306,6 +314,7 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 | cem-advisor | sonnet | Generator |
 | cem-qa | sonnet | Evaluator |
 | civil-construction-qa | sonnet | Evaluator |
+| civil-construction-review | inherit | Evaluator |
 | content-planner | sonnet | Generator |
 | content-qa | sonnet | Evaluator |
 | keyword-rewriter | sonnet | Generator |
