@@ -86,6 +86,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/review-mobile` | モバイル視認性・可読性レビュー（表の適切性・数式・簡潔性） | `.claude/skills/content/review-mobile/SKILL.md` |
 | `/create-svg` | MDX 記事用 SVG 図版の作成（モバイル視認性・デザイントークン準拠） | `.claude/skills/content/create-svg/SKILL.md` |
 | `/illustrate-concept` | Discovery First 方式で Web 画像検索を並行実行し、標準視覚パターンのある概念のみトリアージして複数 SVG を一括生成・MDX 挿入する | `.claude/skills/content/illustrate-concept/SKILL.md` |
+| `/improve-article` | 単一記事を対話的に継続改善する Orchestrator。QA エージェント 5 軸評価 → 指摘構造化 → 修正方針提示 → Edit / create-svg / 本文補強を合格ライン到達までループ | `.claude/skills/content/improve-article/SKILL.md` |
 | `/note-desumasu` | `docs/note-drafts/` 配下の note 下書きを だ・である調 から ですます調 へ変換（note 媒体の親しみやすさに特化） | `.claude/skills/content/note-desumasu/SKILL.md` |
 
 ### PDF→MDX 試験特化スキル
