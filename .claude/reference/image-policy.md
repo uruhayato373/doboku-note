@@ -118,13 +118,16 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 
 **新規記事は `<ArticleImage>` を使う**（`src/components/ui/ArticleImage/ArticleImage.tsx`）。`<figure>` セマンティクスを自動で付与し、Next.js `<Image>` の最適化も効く。
 
-### caption 属性は使わない
+### caption の使い方
 
 **真実源**: [.claude/content-principles.md §8](../content-principles.md) L146
 
-> `<ArticleImage>` の caption は使わない。図の説明は本文で行う。caption に図の内容を繰り返すと、本文と重複して冗長になる。`alt` 属性のみ設定する。
+> `<ArticleImage>` の caption は「図の説明」には使わない。ただし、**出典・著作権帰属・機種名などの短い帰属情報**（目安 60 字以内）は caption に書いてよい。
 
-`alt` には簡潔な識別情報（60〜80 字以内）だけ入れ、機種名・特徴・出典は **本文の直前段落** または **画像直前の `{/* source: */}` コメント** に記載する。
+- **NG**: caption で図の内容・構造・関係を説明する（本文と重複する）
+- **OK**: caption で **出典（Wikimedia Commons, CC BY-SA 4.0 等）・機種名（Leica TC305 等）** を短く示す
+
+`alt` には簡潔な識別情報（60〜80 字以内）を入れる。機種の詳細説明・図の読み方は **本文** に書く。
 
 ### 良い例
 
@@ -138,6 +141,7 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 <ArticleImage
   src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
   alt="クローラクレーン（日立 CX900HD）"
+  caption="Wikimedia Commons, CC0"
   width={960}
   height={720}
 />
@@ -146,11 +150,11 @@ SVG は自前制作が前提のため、出典コメントは不要。代わり�
 ### 悪い例（caption で詳細説明）
 
 ```mdx
-{/* 本文が薄く、caption に詳細を押し込んでいる */}
+{/* 本文が薄く、caption に図の内容を詰め込んでいる */}
 <ArticleImage
   src="..."
   alt="..."
-  caption="日立 CX900HD。ラチス構造のブームとクローラ式走行体（Wikimedia Commons, CC0）"
+  caption="日立 CX900HD。ラチス構造のブームとクローラ式走行体が特徴で、不整地走破性に優れる。Wikimedia Commons, CC0"
 />
 ```
 

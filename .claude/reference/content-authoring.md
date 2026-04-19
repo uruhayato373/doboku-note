@@ -80,7 +80,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 
 ## 画像コンポーネントの使い分け
 
-**真実源**: [.claude/content-principles.md §8](../content-principles.md) L146 — *`<ArticleImage>` の caption は使わない。図の説明は本文で行う。`alt` 属性のみ設定する。*
+**真実源**: [.claude/content-principles.md §8](../content-principles.md) L146 — *caption は「図の説明」には使わない。ただし出典・帰属・機種名などの短い帰属情報（60 字以内）は caption に書いてよい。*
 
 ### 新規記事: `<ArticleImage>` を使う
 
@@ -89,15 +89,17 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 <ArticleImage
   src="/posts/civil-construction-1/textbook-crane/img/crawler-crane.jpg"
   alt="クローラクレーン（日立 CX900HD）"
+  caption="Wikimedia Commons, CC0"
   width={960}
   height={720}
 />
 ```
 
 - `<figure>` セマンティクスと Next.js `<Image>` 最適化が自動で効く
-- **`caption` 属性は禁止**（本文と重複して冗長になる）
+- **caption の用途は帰属情報のみ**（出典ライセンス・機種名など、60 字以内）
+- caption に **図の説明・構造の解説を書くのは禁止**（本文と重複するため）
 - `alt` は簡潔な識別情報のみ、**80 字以内**
-- 機種名・特徴・出典は **直前の段落** または **`{/* source: */}` コメント** に書く
+- 機種の詳細・図の読み方は **本文** で説明する
 
 ### 既存 `<img>` との互換
 

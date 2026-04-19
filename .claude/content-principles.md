@@ -143,10 +143,13 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 
 `{/* quiz-figures:start */}` / `{/* quiz-figures:end */}` マーカーは図の出典管理用であり、見出しの要否とは無関係。マーカーは残しつつ、図を本文中の適切な位置に配置する。
 
-**`<ArticleImage>` の caption は使わない。** 図の説明は本文で行う。caption に図の内容を繰り返すと、本文と重複して冗長になる。`alt` 属性のみ設定する。
+**`<ArticleImage>` の caption は「図の説明」には使わない。** 図の内容は本文で説明する（caption に書くと本文と重複して冗長になる）。
 
-- 悪い例: `<ArticleImage caption="図: 実行可能領域（青）と等利益線（赤の破線）。等利益線を z 増加方向へ平行移動し…" />`
-- 良い例: `<ArticleImage alt="線形計画法の図解法" />` + 本文で図の読み方を説明
+ただし、**出典・著作権帰属・機種名などの短い帰属情報は caption に書いてよい**（目安 60 字以内）。CC 写真の出典表示やメーカー機種名は、本文に織り込むと文章が不自然になるため、caption の方が自然な置き場所となる。読者にも「誰の撮影か」「どの機種か」が伝わる。
+
+- 悪い例（説明型 caption）: `<ArticleImage caption="図: 実行可能領域（青）と等利益線（赤の破線）。等利益線を z 増加方向へ平行移動し…" />`
+- 良い例（説明は本文、帰属は caption）: `<ArticleImage alt="線形計画法の図解法" caption="Wikimedia Commons, CC BY-SA 4.0" />` + 本文で図の読み方を説明
+- 良い例（機種名のみ）: `<ArticleImage alt="トータルステーション" caption="Leica TC305（Public Domain）" />`
 
 ### 9. 試験に直結しない情報は省く
 
