@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-04-18T07:09:34.309Z",
+  "generated_at": "2026-04-19T00:42:08.175Z",
   "summary": {
     "total_mdx_files": 774,
     "total_unique_tags": 53,
@@ -1361,11 +1361,11 @@
       "count": 5,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-floodgate",
-        "civil-construction-1-reference-hyogo-port-materials",
-        "civil-construction-1-reference-inverted-siphon",
-        "civil-construction-1-reference-river-abandonment",
-        "civil-construction-1-reference-tunnel-02"
+        "reference-materials-floodgate",
+        "reference-materials-hyogo-port-materials",
+        "reference-materials-inverted-siphon",
+        "reference-materials-river-abandonment",
+        "reference-materials-tunnel-02"
       ]
     },
     {
@@ -1384,9 +1384,9 @@
       "count": 3,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-floodgate",
-        "civil-construction-1-reference-inverted-siphon",
-        "civil-construction-1-reference-tunnel-02"
+        "reference-materials-floodgate",
+        "reference-materials-inverted-siphon",
+        "reference-materials-tunnel-02"
       ]
     },
     {
@@ -1450,8 +1450,8 @@
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-floodgate",
-        "civil-construction-1-reference-inverted-siphon"
+        "reference-materials-floodgate",
+        "reference-materials-inverted-siphon"
       ]
     },
     {
@@ -1484,7 +1484,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-river-abandonment"
+        "reference-materials-river-abandonment"
       ]
     },
     {
@@ -1500,7 +1500,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-floodgate"
+        "reference-materials-floodgate"
       ]
     },
     {
@@ -1508,7 +1508,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-hyogo-port-materials"
+        "reference-materials-hyogo-port-materials"
       ]
     },
     {
@@ -1516,7 +1516,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-inverted-siphon"
+        "reference-materials-inverted-siphon"
       ]
     },
     {
@@ -1524,7 +1524,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-hyogo-port-materials"
+        "reference-materials-hyogo-port-materials"
       ]
     },
     {
@@ -1532,7 +1532,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-hyogo-port-materials"
+        "reference-materials-hyogo-port-materials"
       ]
     },
     {
@@ -1540,7 +1540,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-river-abandonment"
+        "reference-materials-river-abandonment"
       ]
     },
     {
@@ -1548,7 +1548,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-river-abandonment"
+        "reference-materials-river-abandonment"
       ]
     },
     {
@@ -1556,7 +1556,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-tunnel-02"
+        "reference-materials-tunnel-02"
       ]
     },
     {
@@ -1564,7 +1564,7 @@
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-reference-tunnel-02"
+        "reference-materials-tunnel-02"
       ]
     },
     {

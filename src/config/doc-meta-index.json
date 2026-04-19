@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-04-18T07:09:33.926Z",
+  "generated_at": "2026-04-19T00:42:07.440Z",
   "summary": {
     "total": 774,
-    "published": 774,
-    "unpublished": 0,
+    "published": 769,
+    "unpublished": 5,
     "by_category": {
-      "civil-construction-1": 84,
+      "civil-construction-1": 79,
       "pe-comprehensive-management": 690
     }
   },
@@ -562,112 +562,6 @@
       ],
       "published": true,
       "seoTitle": "令和7年度 第1次検定 問題B | doboku-note"
-    },
-    "civil-construction-1-reference-floodgate": {
-      "title": "水門の設計（近畿地整 設計便覧 第2編 第7章）",
-      "description": "1級土木施工管理技士・技術士建設部門で問われる河川構造物のうち、水門の定義・設計手順・構造形式・門柱・ゲート設備・翼壁・水叩き・遮水工・護床工・管理橋の設計基準を近畿地方整備局 設計便覧より整理。",
-      "seoTitle": "水門の設計 | 近畿地整 設計便覧 | doboku-note",
-      "category": "civil-construction-1",
-      "tags": [
-        "reference",
-        "kinki-design-manual",
-        "river-structure",
-        "floodgate"
-      ],
-      "exam_relevance": [
-        "civil-construction-1-primary-river",
-        "civil-construction-1-secondary-construction-mgmt"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-18",
-      "source": {
-        "title": "設計便覧",
-        "author": "近畿地方整備局"
-      }
-    },
-    "civil-construction-1-reference-hyogo-port-materials": {
-      "title": "港湾工事材料の規格（兵庫県 土木工事共通仕様書 第2編 第3章）",
-      "description": "1級土木施工管理技士 港湾分野で問われる港湾工事材料（土・石材・骨材・鋼材・セメント・防食材料・防舷材）の品質規格を、兵庫県土木工事共通仕様書 第2編 材料編 第3章より整理。",
-      "seoTitle": "港湾工事材料の規格 | 兵庫県 土木工事共通仕様書 | doboku-note",
-      "category": "civil-construction-1",
-      "tags": [
-        "reference",
-        "hyogo-common-specs",
-        "port",
-        "materials"
-      ],
-      "exam_relevance": [
-        "civil-construction-1-primary-port",
-        "civil-construction-1-secondary-construction-mgmt"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-18",
-      "source": {
-        "title": "土木工事共通仕様書",
-        "author": "兵庫県土木部",
-        "date": "令和6年10月改定"
-      }
-    },
-    "civil-construction-1-reference-inverted-siphon": {
-      "title": "伏せ越しの設計（近畿地整 設計便覧 第2編 第10章）",
-      "description": "1級土木施工管理技士・技術士建設部門で問われる河川構造物のうち、伏せ越し（逆サイホン）の定義・設置位置・深さ・函渠構造・マンホール・制水ゲート・基礎の設計基準を近畿地方整備局 設計便覧より整理。",
-      "seoTitle": "伏せ越し（逆サイホン）の設計 | 近畿地整 設計便覧 | doboku-note",
-      "category": "civil-construction-1",
-      "tags": [
-        "reference",
-        "kinki-design-manual",
-        "river-structure",
-        "inverted-siphon"
-      ],
-      "exam_relevance": [
-        "civil-construction-1-primary-river",
-        "civil-construction-1-secondary-construction-mgmt"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-18",
-      "source": {
-        "title": "設計便覧",
-        "author": "近畿地方整備局"
-      }
-    },
-    "civil-construction-1-reference-river-abandonment": {
-      "title": "廃川処理事務（河川区域変更・廃止時の手続き）",
-      "description": "河川法・河川法施行令に基づく廃川告示、廃川敷地等の管理、公示、境界協定、譲与・売払等の事務フローを整理。1級土木施工管理技士 河川分野・技術士建設部門 河川砂防の参考資料。",
-      "seoTitle": "廃川処理事務 | 廃川敷地の告示・管理・処分 | doboku-note",
-      "category": "civil-construction-1",
-      "tags": [
-        "reference",
-        "river",
-        "river-act",
-        "administration"
-      ],
-      "exam_relevance": [
-        "civil-construction-1-primary-river"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-18"
-    },
-    "civil-construction-1-reference-tunnel-02": {
-      "title": "トンネルの坑口・換気・補助工法（近畿地整 設計便覧 第3編 第8章）",
-      "description": "1級土木施工管理技士・技術士建設部門で問われる道路トンネルの坑口、非常駐車帯、補助工法、工事計画、計測工、諸構造物、換気、内装工の標準設計を近畿地方整備局 設計便覧より整理。",
-      "seoTitle": "トンネルの坑口・換気・補助工法 | 近畿地整 設計便覧 | doboku-note",
-      "category": "civil-construction-1",
-      "tags": [
-        "reference",
-        "kinki-design-manual",
-        "road",
-        "tunnel"
-      ],
-      "exam_relevance": [
-        "civil-construction-1-primary-road",
-        "civil-construction-1-secondary-construction-mgmt"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-18",
-      "source": {
-        "title": "設計便覧",
-        "author": "近畿地方整備局"
-      }
     },
     "civil-construction-1-secondary-concrete-basics": {
       "title": "コンクリート工 基礎解説",
@@ -2449,8 +2343,8 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "循環型社会形成推進基本法 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-cites": {
       "title": "ワシントン条約（CITES）",
@@ -2606,9 +2500,9 @@
         "keyword"
       ],
       "published": true,
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2,
       "publishedAt": "2026-04-08",
       "seoTitle": "集合知 ｜ 総合技術監理 キーワード集 2026"
     },
@@ -2746,9 +2640,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2,
       "seoTitle": "合意的手法 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-construction-plan": {
@@ -2776,8 +2670,8 @@
       ],
       "published": true,
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2,
       "publishedAt": "2026-04-08",
       "seoTitle": "消費生活用製品安全法 ｜ 総合技術監理 キーワード集 2026"
     },
@@ -3266,9 +3160,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2,
       "seoTitle": "DCF法 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-de-facto-standard": {
@@ -3372,9 +3266,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2,
       "seoTitle": "需要予測 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-deposit-system": {
@@ -3788,9 +3682,9 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "seoTitle": "割引率 ｜ 総合技術監理 キーワード集 2026",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-discretionary-work-system": {
       "title": "裁量労働制",
@@ -4646,9 +4540,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-08",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2,
       "seoTitle": "形式知 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-extended-producer-responsibility": {
@@ -4721,9 +4615,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-18",
+      "revisionCycle": 2,
       "seoTitle": "フェールソフト ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-fault-avoidance": {
@@ -5976,7 +5870,7 @@
     },
     "pe-comprehensive-management-ifrs": {
       "title": "国際会計基準（IFRS）",
-      "description": "国際会計基準（IFRS）の概要・日本基準との主要な違い（のれん償却・包括利益等）を解説。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "国際会計基準（IFRS）の概要・日本基準との主要な違い（のれん償却・包括利益・公正価値等）を解説。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "2.5",
@@ -5985,9 +5879,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-19",
+      "revisionCycle": 2,
       "seoTitle": "国際会計基準（IFRS） ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-immigration-control-act": {
@@ -6614,7 +6508,7 @@
     },
     "pe-comprehensive-management-iso-14000": {
       "title": "ISO 14000シリーズ",
-      "description": "ISO 14000シリーズの概要。ISO 14001を中心とした環境マネジメントシステム（EMS）の仕組み・PDCAサイクル・認証制度・主要規格を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレー。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "ISO 14000シリーズの概要。ISO 14001を中心とした環境マネジメントシステム（EMS）の仕組み・PDCAサイクル・認証制度・主要規格を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "6.4",
@@ -6623,9 +6517,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-06",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 3,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-19",
+      "revisionCycle": 4,
       "seoTitle": "ISO 14000シリーズ ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-iso-26000": {
@@ -10710,7 +10604,7 @@
     },
     "pe-comprehensive-management-seven-types-of-pollution": {
       "title": "典型７公害",
-      "description": "環境基本法に規定される典型7公害（大気汚染・水質汚濁・土壌汚染・騒音・振動・地盤沈下・悪臭）の定義と規制法体系を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "環境基本法に規定される典型7公害（大気汚染・水質汚濁・土壌汚染・騒音・振動・地盤沈下・悪臭）の定義・規制法体系・環境基準を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "6.2",
@@ -10722,8 +10616,8 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "典型７公害 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1
+      "lastRewrittenAt": "2026-04-19",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-sexual-harassment": {
       "title": "セクシャルハラスメント",
