@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 870" style="max-width:400px;width:100%" role="img" aria-label="ヒストグラムの 10 分布パターン (a〜j)。左右対称・ゆとり不足・下限規格値割れ・バラツキ大・左偏り・右偏り・二山・端切れ・端異常高・飛び離れ山。各セルの 2 本の破線は下限規格値・上限規格値">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .bar { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }  /* brand-fill / brand */
+    .bar-out { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }  /* danger-fill / danger (out-of-spec emphasis) */
+    .spec { stroke: #555; stroke-width: 1; stroke-dasharray: 4,2; fill: none; }  /* ink-body */
+    .base { stroke: #222; stroke-width: 1; fill: none; }  /* ink-strong */
+    .label { font-size: 13px; fill: #222; text-anchor: middle; }
+  </style>
+
+  <!-- Legend note at top -->
+  <text x="200" y="14" font-size="11" fill="#555" text-anchor="middle">破線：下限規格値（左）・上限規格値（右）</text>
+
+  <!-- ===== Row 1 ===== -->
+  <!-- a) 左右対称 -->
+  <g transform="translate(15,25)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="115" width="13" height="10"/>
+      <rect x="45" y="100" width="13" height="25"/>
+      <rect x="60" y="75" width="13" height="50"/>
+      <rect x="75" y="45" width="13" height="80"/>
+      <rect x="90" y="45" width="13" height="80"/>
+      <rect x="105" y="75" width="13" height="50"/>
+      <rect x="120" y="100" width="13" height="25"/>
+      <rect x="135" y="115" width="13" height="10"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">a）左右対称</text>
+  </g>
+
+  <!-- b) ゆとり不足 -->
+  <g transform="translate(205,25)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="95" width="13" height="30"/>
+      <rect x="45" y="70" width="13" height="55"/>
+      <rect x="60" y="55" width="13" height="70"/>
+      <rect x="75" y="45" width="13" height="80"/>
+      <rect x="90" y="45" width="13" height="80"/>
+      <rect x="105" y="55" width="13" height="70"/>
+      <rect x="120" y="70" width="13" height="55"/>
+      <rect x="135" y="95" width="13" height="30"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">b）ゆとり不足</text>
+  </g>
+
+  <!-- ===== Row 2 ===== -->
+  <!-- c) 下限規格値を割る -->
+  <g transform="translate(15,195)">
+    <line class="spec" x1="45" y1="10" x2="45" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <!-- Bars straddling/exceeding lower spec (in danger color) -->
+    <g class="bar-out">
+      <rect x="15" y="95" width="13" height="30"/>
+      <rect x="30" y="70" width="13" height="55"/>
+    </g>
+    <g class="bar">
+      <rect x="45" y="45" width="13" height="80"/>
+      <rect x="60" y="50" width="13" height="75"/>
+      <rect x="75" y="70" width="13" height="55"/>
+      <rect x="90" y="90" width="13" height="35"/>
+      <rect x="105" y="107" width="13" height="18"/>
+      <rect x="120" y="117" width="13" height="8"/>
+    </g>
+    <line class="base" x1="10" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">c）下限規格値を割る</text>
+  </g>
+
+  <!-- d) バラツキが大きい -->
+  <g transform="translate(205,195)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="105" width="13" height="20"/>
+      <rect x="45" y="90" width="13" height="35"/>
+      <rect x="60" y="80" width="13" height="45"/>
+      <rect x="75" y="70" width="13" height="55"/>
+      <rect x="90" y="70" width="13" height="55"/>
+      <rect x="105" y="80" width="13" height="45"/>
+      <rect x="120" y="90" width="13" height="35"/>
+      <rect x="135" y="105" width="13" height="20"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">d）バラツキが大きい</text>
+  </g>
+
+  <!-- ===== Row 3 ===== -->
+  <!-- e) 左に偏り -->
+  <g transform="translate(15,365)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="60" width="13" height="65"/>
+      <rect x="45" y="45" width="13" height="80"/>
+      <rect x="60" y="60" width="13" height="65"/>
+      <rect x="75" y="80" width="13" height="45"/>
+      <rect x="90" y="100" width="13" height="25"/>
+      <rect x="105" y="110" width="13" height="15"/>
+      <rect x="120" y="117" width="13" height="8"/>
+      <rect x="135" y="121" width="13" height="4"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">e）左に偏り</text>
+  </g>
+
+  <!-- f) 右に偏り -->
+  <g transform="translate(205,365)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="121" width="13" height="4"/>
+      <rect x="45" y="117" width="13" height="8"/>
+      <rect x="60" y="110" width="13" height="15"/>
+      <rect x="75" y="100" width="13" height="25"/>
+      <rect x="90" y="80" width="13" height="45"/>
+      <rect x="105" y="60" width="13" height="65"/>
+      <rect x="120" y="45" width="13" height="80"/>
+      <rect x="135" y="60" width="13" height="65"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">f）右に偏り</text>
+  </g>
+
+  <!-- ===== Row 4 ===== -->
+  <!-- g) 二山 -->
+  <g transform="translate(15,535)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="110" width="13" height="15"/>
+      <rect x="45" y="85" width="13" height="40"/>
+      <rect x="60" y="70" width="13" height="55"/>
+      <rect x="75" y="100" width="13" height="25"/>
+      <rect x="90" y="100" width="13" height="25"/>
+      <rect x="105" y="70" width="13" height="55"/>
+      <rect x="120" y="85" width="13" height="40"/>
+      <rect x="135" y="110" width="13" height="15"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">g）二山</text>
+  </g>
+
+  <!-- h) 端が切れたもの -->
+  <g transform="translate(205,535)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="115" width="13" height="10"/>
+      <rect x="45" y="95" width="13" height="30"/>
+      <rect x="60" y="70" width="13" height="55"/>
+      <rect x="75" y="45" width="13" height="80"/>
+      <rect x="90" y="60" width="13" height="65"/>
+      <rect x="105" y="80" width="13" height="45"/>
+      <rect x="120" y="105" width="13" height="20"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">h）端が切れている</text>
+  </g>
+
+  <!-- ===== Row 5 ===== -->
+  <!-- i) 端の区間が異常に高い -->
+  <g transform="translate(15,705)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="110" width="13" height="15"/>
+      <rect x="45" y="95" width="13" height="30"/>
+      <rect x="60" y="75" width="13" height="50"/>
+      <rect x="75" y="55" width="13" height="70"/>
+      <rect x="90" y="80" width="13" height="45"/>
+      <rect x="105" y="100" width="13" height="25"/>
+      <rect x="120" y="115" width="13" height="10"/>
+      <rect x="135" y="50" width="13" height="75"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">i）端が異常に高い</text>
+  </g>
+
+  <!-- j) 飛び離れた山をもつもの -->
+  <g transform="translate(205,705)">
+    <line class="spec" x1="25" y1="10" x2="25" y2="125"/>
+    <line class="spec" x1="153" y1="10" x2="153" y2="125"/>
+    <g class="bar">
+      <rect x="30" y="115" width="13" height="10"/>
+      <rect x="45" y="85" width="13" height="40"/>
+      <rect x="60" y="55" width="13" height="70"/>
+      <rect x="75" y="80" width="13" height="45"/>
+      <rect x="90" y="110" width="13" height="15"/>
+      <rect x="120" y="105" width="13" height="20"/>
+      <rect x="135" y="115" width="13" height="10"/>
+    </g>
+    <line class="base" x1="20" y1="125" x2="158" y2="125"/>
+    <text x="89" y="155" class="label">j）飛び離れた山</text>
+  </g>
+</svg>
