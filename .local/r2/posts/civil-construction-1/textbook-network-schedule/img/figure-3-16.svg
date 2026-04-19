@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 220" style="max-width:380px;width:100%" role="img" aria-label="先行作業 B・C がすべて完了しないと、後続作業 D は開始できない">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <style>
+    .label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #222; font-weight: 600; }
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
+    .emph { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #b22234; font-weight: 600; }
+  </style>
+
+  <text x="190" y="22" text-anchor="middle" class="title">先行作業の B・C がすべて完了して初めて後続作業 D が開始</text>
+
+  <!-- start nodes on left -->
+  <circle cx="50" cy="70" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="50" y="75" text-anchor="middle" class="node-num">①</text>
+
+  <circle cx="50" cy="150" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="50" y="155" text-anchor="middle" class="node-num">②</text>
+
+  <!-- center node (junction) -->
+  <circle cx="200" cy="110" r="22" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text x="200" y="115" text-anchor="middle" class="node-num">③</text>
+
+  <!-- end node on right -->
+  <circle cx="340" cy="110" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="340" y="115" text-anchor="middle" class="node-num">④</text>
+
+  <!-- arrows in -->
+  <line x1="70" y1="80" x2="180" y2="100" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="115" y="82" class="label">B</text>
+
+  <line x1="70" y1="142" x2="180" y2="122" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="115" y="150" class="label">C</text>
+
+  <!-- arrow out -->
+  <line x1="222" y1="110" x2="320" y2="110" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="270" y="100" class="label">D</text>
+
+  <!-- caption -->
+  <text x="190" y="200" text-anchor="middle" class="emph">B と C が両方完了 → D が開始できる</text>
+</svg>

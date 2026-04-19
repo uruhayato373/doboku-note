@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 170" style="max-width:380px;width:100%" role="img" aria-label="イベント（結合点）は○で示し、中にイベント番号を書き込む">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <style>
+    .label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 18px; fill: #1a3a5c; font-weight: 600; }
+    .annotation { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #2e6da4; }
+  </style>
+
+  <text x="190" y="22" text-anchor="middle" class="title">イベント（結合点）は○で表し、イベント番号を記入する</text>
+
+  <!-- left node -->
+  <circle cx="110" cy="95" r="26" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="110" y="102" text-anchor="middle" class="node-num">1</text>
+
+  <!-- arrow -->
+  <line x1="138" y1="95" x2="242" y2="95" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="190" y="88" text-anchor="middle" class="label">作業</text>
+
+  <!-- right node -->
+  <circle cx="270" cy="95" r="26" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="270" y="102" text-anchor="middle" class="node-num">2</text>
+
+  <!-- annotations -->
+  <text x="110" y="148" text-anchor="middle" class="annotation">イベント番号</text>
+  <text x="270" y="148" text-anchor="middle" class="annotation">イベント番号</text>
+</svg>

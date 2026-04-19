@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 250" style="max-width:400px;width:100%" role="img" aria-label="最早開始時刻（EST）の計算例：左から右に所要時間を加算し、複数経路がある場合は最大値を採る">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+    .activity { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; font-weight: 600; }
+    .duration { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
+    .est { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #3a7d44; font-weight: 700; }
+    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
+  </style>
+
+  <text x="200" y="20" text-anchor="middle" class="title">最早開始時刻（EST）：左→右に加算、合流は最大値</text>
+
+  <!-- nodes -->
+  <circle cx="40" cy="150" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="40" y="155" text-anchor="middle" class="node-num">①</text>
+  <text x="40" y="125" text-anchor="middle" class="est">0</text>
+
+  <circle cx="145" cy="150" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="145" y="155" text-anchor="middle" class="node-num">②</text>
+  <text x="145" y="125" text-anchor="middle" class="est">5</text>
+
+  <circle cx="255" cy="70" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="255" y="75" text-anchor="middle" class="node-num">③</text>
+  <text x="255" y="45" text-anchor="middle" class="est">12</text>
+
+  <circle cx="360" cy="150" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="360" y="155" text-anchor="middle" class="node-num">④</text>
+  <text x="360" y="125" text-anchor="middle" class="est">22</text>
+
+  <!-- arrows -->
+  <line x1="58" y1="150" x2="127" y2="150" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="92" y="143" text-anchor="middle" class="activity">A</text>
+  <text x="92" y="165" text-anchor="middle" class="duration">5</text>
+
+  <line x1="158" y1="136" x2="243" y2="84" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="188" y="100" class="activity">B</text>
+  <text x="205" y="120" class="duration">7</text>
+
+  <line x1="163" y1="150" x2="342" y2="150" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="252" y="143" text-anchor="middle" class="activity">D</text>
+  <text x="252" y="165" text-anchor="middle" class="duration">17</text>
+
+  <line x1="267" y1="84" x2="347" y2="136" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="320" y="100" class="activity">C</text>
+  <text x="303" y="125" class="duration">6</text>
+
+  <!-- bottom explanation -->
+  <text x="200" y="210" text-anchor="middle" class="sub">ノード④には B+C = 12+6=18 と D=5+17=22 の両経路</text>
+  <text x="200" y="228" text-anchor="middle" class="sub">→ 最大値 22 を採用（遅い方で全作業完了）</text>
+</svg>

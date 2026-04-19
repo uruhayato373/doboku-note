@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 220" style="max-width:380px;width:100%" role="img" aria-label="ダミー（疑似作業）は点線矢印で表記し、所要時間ゼロの疑似作業として起終点イベントを区別する">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+    <marker id="arrow-dash" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <style>
+    .label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; }
+    .label-dummy { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #8a8a8a; }
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
+  </style>
+
+  <text x="190" y="22" text-anchor="middle" class="title">ダミー（点線）：所要時間ゼロの疑似作業</text>
+
+  <!-- node 1 -->
+  <circle cx="60" cy="110" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="60" y="115" text-anchor="middle" class="node-num">①</text>
+
+  <!-- node 2 -->
+  <circle cx="200" cy="60" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="200" y="65" text-anchor="middle" class="node-num">②</text>
+
+  <!-- node 3 -->
+  <circle cx="200" cy="160" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="200" y="165" text-anchor="middle" class="node-num">③</text>
+
+  <!-- node 4 -->
+  <circle cx="320" cy="110" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="320" y="115" text-anchor="middle" class="node-num">④</text>
+
+  <!-- activity arrows -->
+  <line x1="78" y1="102" x2="182" y2="68" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="120" y="80" class="label">A</text>
+
+  <line x1="78" y1="118" x2="182" y2="152" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="120" y="150" class="label">B</text>
+
+  <line x1="220" y1="68" x2="302" y2="102" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="270" y="80" class="label">C</text>
+
+  <!-- dummy (dashed) -->
+  <line x1="200" y1="80" x2="200" y2="140" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="5,4" marker-end="url(#arrow-dash)"/>
+  <text x="210" y="115" class="label-dummy">ダミー</text>
+
+  <!-- footer explanation -->
+  <text x="190" y="200" text-anchor="middle" class="sub">A・B が別作業でも終点を区別できるよう、ダミーで接続</text>
+</svg>

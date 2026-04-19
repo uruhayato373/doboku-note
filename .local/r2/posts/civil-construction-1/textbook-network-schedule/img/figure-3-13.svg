@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 160" style="max-width:380px;width:100%" role="img" aria-label="作業（アクティビティ）の記法：矢線上に作業名、下に所要時間を書く">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <style>
+    .label-main { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #222; font-weight: 600; }
+    .label-sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+  </style>
+
+  <text x="190" y="22" text-anchor="middle" class="title">作業は矢線で表す（上に作業名、下に所要時間）</text>
+
+  <!-- nodes -->
+  <circle cx="80" cy="90" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="80" y="95" text-anchor="middle" class="node-num">①</text>
+
+  <circle cx="300" cy="90" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="300" y="95" text-anchor="middle" class="node-num">②</text>
+
+  <!-- arrow -->
+  <line x1="102" y1="90" x2="276" y2="90" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- labels -->
+  <text x="190" y="80" text-anchor="middle" class="label-main">作業 A</text>
+  <text x="190" y="108" text-anchor="middle" class="label-sub">5 日</text>
+
+  <!-- footer hint -->
+  <text x="80" y="140" text-anchor="middle" class="label-sub">開始</text>
+  <text x="300" y="140" text-anchor="middle" class="label-sub">終了</text>
+</svg>

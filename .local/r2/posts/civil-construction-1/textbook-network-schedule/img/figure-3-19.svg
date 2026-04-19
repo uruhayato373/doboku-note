@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 280" style="max-width:400px;width:100%" role="img" aria-label="4つの作業時刻（EST・LFT・EFT・LST）を1つのネットワークで確認する例">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+    .activity { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; font-weight: 600; }
+    .duration { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
+    .est { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #3a7d44; font-weight: 700; }
+    .lft-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #8a6d00; font-weight: 700; }
+    .lft-box { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+    .legend-label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #222; }
+    .legend-sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
+    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
+  </style>
+
+  <text x="200" y="20" text-anchor="middle" class="title">EST（緑）と LFT（黄）の両方を同時に表記したネットワーク</text>
+
+  <!-- nodes with EST + LFT -->
+  <circle cx="40" cy="150" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="40" y="155" text-anchor="middle" class="node-num">①</text>
+  <text x="40" y="130" text-anchor="middle" class="est">0</text>
+  <rect x="26" y="100" width="28" height="16" rx="2" class="lft-box"/>
+  <text x="40" y="112" text-anchor="middle" class="lft-num">0</text>
+
+  <circle cx="145" cy="150" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="145" y="155" text-anchor="middle" class="node-num">②</text>
+  <text x="145" y="130" text-anchor="middle" class="est">5</text>
+  <rect x="131" y="100" width="28" height="16" rx="2" class="lft-box"/>
+  <text x="145" y="112" text-anchor="middle" class="lft-num">5</text>
+
+  <circle cx="255" cy="70" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="255" y="75" text-anchor="middle" class="node-num">③</text>
+  <text x="255" y="50" text-anchor="middle" class="est">12</text>
+  <rect x="241" y="20" width="28" height="16" rx="2" class="lft-box"/>
+  <text x="255" y="32" text-anchor="middle" class="lft-num">16</text>
+
+  <circle cx="360" cy="150" r="18" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="360" y="155" text-anchor="middle" class="node-num">④</text>
+  <text x="360" y="130" text-anchor="middle" class="est">22</text>
+  <rect x="346" y="100" width="28" height="16" rx="2" class="lft-box"/>
+  <text x="360" y="112" text-anchor="middle" class="lft-num">22</text>
+
+  <!-- arrows -->
+  <line x1="58" y1="150" x2="127" y2="150" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="92" y="143" text-anchor="middle" class="activity">A</text>
+  <text x="92" y="165" text-anchor="middle" class="duration">5</text>
+
+  <line x1="158" y1="136" x2="243" y2="84" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="188" y="100" class="activity">B</text>
+  <text x="205" y="120" class="duration">7</text>
+
+  <line x1="163" y1="150" x2="342" y2="150" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="252" y="143" text-anchor="middle" class="activity">D</text>
+  <text x="252" y="165" text-anchor="middle" class="duration">17</text>
+
+  <line x1="267" y1="84" x2="347" y2="136" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="320" y="100" class="activity">C</text>
+  <text x="303" y="125" class="duration">6</text>
+
+  <!-- Legend for derived times -->
+  <rect x="20" y="195" width="360" height="75" rx="4" fill="#f5f8fc" stroke="#d7d7d7"/>
+  <text x="32" y="215" class="legend-label">作業 C（③→④・6日）の4時刻</text>
+
+  <text x="32" y="235" class="legend-sub">• 最早開始（EST₃）= 12日　• 最早完了（EFT）= 12+6 = 18日</text>
+  <text x="32" y="252" class="legend-sub">• 最遅完了（LFT₄）= 22日　• 最遅開始（LST）= 22-6 = <tspan fill="#b22234" font-weight="700">16日</tspan></text>
+</svg>
