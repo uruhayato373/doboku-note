@@ -20,7 +20,7 @@ export default function ArticleImage({
   className = "",
   width = 800,
   height = 600,
-  size = "default",
+  size = "medium",
 }: ArticleImageProps) {
   // サイズプリセットの定義
   const sizeClasses = {
