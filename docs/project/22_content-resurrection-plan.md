@@ -113,41 +113,15 @@ GSC/GA4 計測で以下が判明:
 | `exam/civil-construction-1` | 60 | 既存と重複の可能性、要調査 |
 | `exam/cem`, `exam/rccm`, `exam/pe` | 10+ | 既存 pe-comprehensive-management と被る |
 
-## ロードマップ
+## ロードマップ（初期構想・Pivot で一部凍結）
 
-### Phase 1: 基盤構築（Week 1-2）
+> 冒頭 Pivot サマリーのとおり、2026-04-19 に軌道修正。Phase 1-2 で復活した 5 記事は `published: false`、EXP-002 は paused。以下は初期構想として**設計思想の記録**のみ残す。再開時は新 Umbrella Issue を切り直す。
 
-- [ ] Group 1 S評価 2件復活（common-specs-hyogo/02-03, river-management/04）
-- [ ] frontmatter を試験文脈で書き直し（category, tags, exam_relevance 追加）
-- [ ] 1級土木 textbook から復活ページへの内部リンク追加
-- [ ] EXP-002 として実験登録 → baseline 固定
+- **Phase 1 基盤**: Group 1 S/A 評価記事の復活、frontmatter 試験文脈化、EXP-002 登録（→ 実装済 / Pivot で paused）
+- **Phase 2 コンポーネント**: `<ReferenceLinks>` / `<ExamContext>` 設計（→ 実装済 / Pivot で deactivate、コード残置）
+- **Phase 3-5 計測・バルク復活・整理**: Pattern 6 追加、NSM 再定義、design-manual/common-specs/tech-management のバルク復活、効果測定（→ Pivot で保留）
 
-### Phase 2: コンポーネント化（Week 2-3）
-
-- [ ] `<ReferenceLinks>` コンポーネント設計（ハブ → スポーク）
-- [ ] `<ExamContext>` コンポーネント設計（スポーク → ハブ）
-- [ ] frontmatter スキーマ拡張（`exam_relevance: string[]`）
-- [ ] Group 1 A評価 3件復活 + 双方向リンク
-
-### Phase 3: 計測基盤拡張（Week 3-4）
-
-- [ ] metrics-analyzer に Pattern 6 (Spoke-Link-Opportunity) 追加
-- [ ] NSM 再定義（Primary / Secondary / Funnel Metric の3層化）
-- [ ] GA4 イベント計測: スポーク → ハブの内部リンクCTR
-- [ ] `/weekly-improve` が Funnel Metric を含むように拡張
-
-### Phase 4: バルク復活（Week 4-8）
-
-- [ ] Group 2-A design-manual を章単位で復活（80件 → 4-6章に分割）
-- [ ] Group 2-B common-specs 系（76件）を復活
-- [ ] Group 2-C tech-management / construction-management（125件）を復活
-- [ ] 各セクション復活時に試験ページへの内部リンクを同時整備
-
-### Phase 5: 効果測定・整理（月次）
-
-- [ ] Funnel Metric の前後比較
-- [ ] 効果の薄いスポーク（impressions 増加なし）を `published: false`
-- [ ] 学びを `docs/project/04_コンテンツロードマップ.md` にフィードバック
+再開判断は「5 記事の精度向上完了」後。それまで本セクションは設計履歴として参照。
 
 ## 計測戦略
 

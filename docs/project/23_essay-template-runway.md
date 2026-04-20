@@ -12,22 +12,11 @@
 2. **note P-04「骨組みテンプレ 20 パターン」（¥1,980）の主材料** — 5 本 + 汎用テンプレ 15 本で構成
 3. **note E-1（解答全文再現 ¥1,980）/ E-2（私はこう書いた ¥2,480）の下地** — 試験後に本テンプレで構築した骨子をそのまま解答再現に展開
 
-## 完了作業
+## 進捗トラッキング
 
-| # | 管理 | 記事 slug | 完了日 |
-|---|---|---|---|
-| 1 | 安全管理 | [pe-comprehensive-management-essay-template-safety](/docs/pe-comprehensive-management-essay-template-safety) | 2026-04-20 |
+5 本（安全・経済性・人的資源・情報・社会環境）の執筆進捗と目標日付は Umbrella Issue で追跡（`.claude/reference/docs-issue-separation.md`）。着手時に Issue を切り、本 md 冒頭に「追跡 Issue: #N」を記す。
 
-## 残作業
-
-| # | 管理 | 想定 slug | 目標着手 | 目標完了 |
-|---|---|---|---|---|
-| 2 | 経済性管理 | essay-template-economy | 2026-04-22 | 2026-04-27 |
-| 3 | 人的資源管理 | essay-template-human-resource | 2026-04-28 | 2026-05-03 |
-| 4 | 情報管理 | essay-template-information | 2026-05-04 | 2026-05-09 |
-| 5 | 社会環境管理 | essay-template-social-environment | 2026-05-10 | 2026-05-15 |
-
-合計 5 本を **2026-05-15 までに完成** させる。残り半月を過去問 3 題への当てはめ検証に充て、6 月以降は本試験対策に集中する。
+**全体目標**: 2026-05-15 までに 5 本完成。残り半月を過去問 3 題への当てはめ検証、6 月以降は本試験対策に集中。
 
 ## テンプレート共通構造
 
