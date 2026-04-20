@@ -35,7 +35,9 @@
       "Bash(mkdir -p .claude/state/metrics)",
       "Bash(rmdir .local/metrics)",
       "mcp__playwright__browser_tabs",
-      "Bash(awk -F'/' '{print $2\"/\"$3}')"
+      "Bash(awk -F'/' '{print $2\"/\"$3}')",
+      "Bash(mkdir -p .local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img)",
+      "Bash(cp \"C:/Users/m004195/.claude/projects/C--Users-m004195-doboku-note/d8fdd0f8-ab92-4853-9f4c-f3fc7109a8c7/tool-results/webfetch-1776650577716-bcdq3l.gif\" .local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/eia-procedure-flow.gif)"
     ],
     "defaultMode": "bypassPermissions"
   }

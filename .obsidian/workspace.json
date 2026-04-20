@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
+                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -28,16 +28,16 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "安全管理"
+              "title": "経済性管理"
             }
           },
           {
-            "id": "60d1ab423183bdca",
+            "id": "477d53ded8ac43c3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.md",
+                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": true,
@@ -52,7 +52,7 @@
                 }
               },
               "icon": "lucide-file",
-              "title": "情報管理"
+              "title": "経済性管理"
             }
           }
         ],
@@ -484,10 +484,10 @@
             "id": "ff3a2bd474a43344",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -499,9 +499,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "5fc07b2461750886",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 25
+        "currentTab": 26
       }
     ],
     "direction": "horizontal",
@@ -510,6 +520,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "periodic-notes:Open today": false,
       "bases:新規ベースを作成": false,
       "switcher:クイックスイッチャーを開く": false,
       "graph:グラフビューを開く": false,
@@ -527,12 +538,24 @@
       "homepage:Open homepage": false,
       "obsidian-kindle-plugin:Sync your Kindle highlights": false,
       "dbfolder:Create a new database table": false,
-      "obisidian-note-linker:Note Linker": false,
-      "periodic-notes:Open today": false
+      "obisidian-note-linker:Note Linker": false
     }
   },
-  "active": "dd4b4b1405000366",
+  "active": "477d53ded8ac43c3",
   "lastOpenFiles": [
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md.tmp.24456.1776652343319",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md.tmp.24456.1776651834081",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md.tmp.24456.1776651821441",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md.tmp.24456.1776651511285",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md.tmp.24456.1776651498245",
+    "docs/textbook/技術士（総監）/過去問/R03/令和３年度記述式_解答と解説.pdf",
+    "docs/textbook/技術士（総監）/過去問/R04/令和３年度記述式_解答と解説.pdf",
+    "docs/textbook/技術士（総監）/過去問/R04/令和４年度記述式_解答と解説.pdf",
+    "docs/textbook/技術士（総監）/過去問/R05/令和５年度記述式_解答と解説.pdf",
+    "docs/textbook/技術士（総監）/過去問/R06/令和６年度記述式_解答と解説.pdf",
+    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.md",
     "cp-figure.png",
     "float-consolidated.png",
     "network-light-viewport.png",
@@ -541,19 +564,8 @@
     "fig-3-13-rendered.png",
     "est-figure.png",
     "network-schedule-mobile-top.png",
-    "out/docs/pe-comprehensive-management-right-to-know/__next.docs.$c$slug.__PAGE__.txt",
-    "out/docs/pe-comprehensive-management-right-to-know/__next._head.txt",
-    "out/docs/pe-comprehensive-management-right-to-know/__next._tree.txt",
-    "out/docs/pe-comprehensive-management-terrorism/__next._head.txt",
-    "out/docs/pe-comprehensive-management-value-chain-analysis/__next.docs.$c$slug.__PAGE__.txt",
-    "out/docs/pe-comprehensive-management-value-chain-analysis/__next.docs.txt",
-    "out/docs/pe-comprehensive-management-value-chain-analysis/__next.docs.$c$slug.txt",
-    "out/docs/pe-comprehensive-management-value-chain-analysis/__next._index.txt",
-    "out/docs/pe-comprehensive-management-value-chain-analysis/__next._tree.txt",
-    "out/docs/pe-comprehensive-management-value-chain-analysis/__next._head.txt",
     "out/posts/pe-comprehensive-management/value-engineering/img/ve-function-tree.svg",
     "out/posts/pe-comprehensive-management/value-engineering/img/ve-basic-steps.svg",
-    "out/posts/pe-comprehensive-management/system-reliability/img/series-parallel-formulas.svg",
     "docs/note-drafts/90-総監択一式17年分分析/article.md",
     "docs/note-drafts/12-再受験対策/article.md",
     "docs/note-drafts/11-年度別難易度ランキング/article.md",
@@ -575,9 +587,6 @@
     "docs/note-drafts/08_記述式テーマ分析.md",
     "docs/note-drafts/07_計算問題パターン集.md",
     "docs/note-drafts/06_4フェーズ学習法.md",
-    "docs/note-drafts/05_記述式の書き方.md",
-    "docs/note-drafts/04_1問1答チェックリスト20問.md",
-    "docs/note-drafts/03_キーワード集2026変更点.md",
-    "docs/note-drafts/02_一般部門との違い.md"
+    "docs/note-drafts/05_記述式の書き方.md"
   ]
 }
