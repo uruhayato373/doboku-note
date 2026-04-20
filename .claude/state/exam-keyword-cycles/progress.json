@@ -1,6 +1,15 @@
 {
   "version": 1,
   "description": "過去問起点の校正サイクル進捗。/exam-keyword-cycle スキルが読み書きする。",
-  "covered": {},
-  "last_cycle": null
+  "covered": {
+    "pe-comprehensive-management-r07-primary": {
+      "1-1": {
+        "date": "2026-04-20",
+        "pr": null,
+        "status": "in_review",
+        "keywords": ["business-continuity-plan", "risk-management-plan"]
+      }
+    }
+  },
+  "last_cycle": { "exam": "r07-primary", "question": "1-1" }
 }

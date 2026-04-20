@@ -1,0 +1,70 @@
+name: Exam keyword cycle (weekly)
+
+# 過去問起点のキーワード校正サイクル (/exam-keyword-cycle) を週 2 回走らせる。
+# - schedule: JST 22:00 Mon / Thu
+# - workflow_dispatch: 手動起動用（remote trigger 実装完了までは主にこちら）
+#
+# NOTE: GitHub Actions 内から /exam-keyword-cycle スキルを呼び出す仕組みは
+# 現時点（2026-04-20）未確定。Claude Code remote trigger 仕様が固まり次第、
+# 「Run exam-keyword-cycle via remote trigger」ステップに接続する。
+# それまでは workflow_dispatch で起動し、事前準備（build-backlinks 等）のみ実行する。
+
+on:
+  schedule:
+    - cron: "0 13 * * 1,4" # JST 22:00 Mon / Thu (UTC 13:00)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Refresh backlinks index
+        run: npm run build-backlinks
+
+      - name: Dry-run select-next-question
+        id: select
+        run: |
+          node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty | tee /tmp/next-question.json
+
+      # TODO (remote trigger): 次のステップで実際に /exam-keyword-cycle --auto を起動する
+      # - Claude Code remote trigger 仕様が確定したらここに uses: anthropics/claude-code-action@... を追加
+      # - Auth token は secrets.CLAUDE_CODE_TOKEN に保管する想定
+      # - 失敗時（MDX パース失敗・PR 作成失敗等）は下の Open issue ステップで起票する
+
+      - name: Placeholder - notify selection only
+        if: github.event_name == 'schedule'
+        run: |
+          echo "::notice::exam-keyword-cycle: selected next question"
+          cat /tmp/next-question.json
+
+      - name: Open issue on critical failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          TITLE="[exam-keyword-cycle] 自動サイクル失敗 ${DATE}"
+          BODY="ワークフロー: ${{ github.workflow }}%0ARun: ${{ github.run_id }}%0Aコミット: ${{ github.sha }}"
+          gh issue create \
+            --title "$TITLE" \
+            --label "content-quality,auto-generated" \
+            --body "$BODY"

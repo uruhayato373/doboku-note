@@ -130,6 +130,52 @@ B. 実験進捗レポート:
 - 「計画タスク vs 実績」の対照表
 ```
 
+#### Agent F: 校正サイクル進捗
+
+```
+目的: /exam-keyword-cycle の実施状況をトラッキングし、年度別カバレッジ・未カバー過去問・次週の候補を可視化する
+
+調査項目:
+- docs/reviews/exam-keyword-cycle/index.json（過去サイクルの履歴）
+- .claude/state/exam-keyword-cycles/progress.json（カバー状況）
+- src/config/exam-question-keywords.json（過去問カタログ）
+- 今週実施分の抽出: index.json.cycles の date が直近 7 日以内のもの
+
+分析項目:
+- 今週のサイクル数・対象キーワード数・PR リンク
+- 年度別カバレッジ率（covered[exam] の設問数 / catalog[exam] の設問数）
+- 未カバーバックログ件数
+- 次週の推奨 3 件（select-next-question.mjs を 3 回分シミュレートするか、若番順上位 3 件）
+
+次週候補の取得方法:
+  node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
+
+出力形式: 「## 過去問起点の校正サイクル」セクションに以下を埋め込む
+
+## 過去問起点の校正サイクル
+
+### 今週のサイクル実施
+| 日付 | 過去問 | 対象キーワード | PR |
+|---|---|---|---|
+| YYYY-MM-DD | R07 Ⅰ-1-N | N 件 | #N |
+
+### カバレッジ
+| 年度 | カバー / 全問 | 進捗 |
+|---|---|---|
+| R07 | N/40 | N% |
+| R06 | N/40 | N% |
+| ... | ... | ... |
+
+### 次週の候補
+1. R07 Ⅰ-1-X（未カバー最優先）
+2. R07 Ⅰ-1-Y
+3. R06 Ⅰ-1-Z
+
+注意:
+- 今週のサイクルが 0 件なら「今週の実施: なし」と記録し、次週候補のみ surface
+- カバー率 100% の年度は「全問カバー済み」と明記し、再訪候補の有無を付記
+```
+
 #### Agent E: 校正学習の蒸留
 
 ```
@@ -263,6 +309,23 @@ generatedAt: "YYYY-MM-DD"
 
 ### 洞察
 - 改善が見える領域・退行した領域・次週の焦点
+
+## 過去問起点の校正サイクル
+
+<!-- Agent F が docs/reviews/exam-keyword-cycle/index.json と
+     .claude/state/exam-keyword-cycles/progress.json から自動生成。
+     今週実施分、年度別カバレッジ、次週候補を出力。 -->
+
+### 今週のサイクル実施
+| 日付 | 過去問 | 対象キーワード | PR |
+|---|---|---|---|
+
+### カバレッジ
+| 年度 | カバー / 全問 | 進捗 |
+|---|---|---|
+
+### 次週の候補
+1. （select-next-question.mjs の出力）
 
 ## 校正学習の蒸留
 

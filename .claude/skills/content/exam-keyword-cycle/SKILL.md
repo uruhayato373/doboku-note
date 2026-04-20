@@ -39,6 +39,32 @@ description: >
 
 いずれも任意。引数なしで呼ばれた場合は、会話内で対象を特定する。
 
+### `--auto` の動作
+
+`--auto` 指定時は `scripts/select-next-question.mjs` を実行し、次に扱う過去問を自動決定する:
+
+```bash
+node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
+```
+
+出力（JSON）:
+
+```json
+{
+  "exam": "pe-comprehensive-management-r07-primary",
+  "question": "1-1",
+  "reason": "未カバー最優先: pe-comprehensive-management-r07-primary の若番 1-1"
+}
+```
+
+選択アルゴリズム:
+1. `.claude/state/exam-keyword-cycles/progress.json` の `covered` を走査
+2. 最新年度（R07 → R06 → ...）で未カバーの設問を若番順に探索
+3. 全設問がカバー済みなら、`date` が 180 日以上前の設問を再訪候補として選ぶ
+4. 該当なしなら `{ exam: null }` を返す（その場合は手動指定を促す）
+
+選択結果をユーザーに提示し、承認後に Phase 1 へ進む。
+
 ## 前提条件
 
 - `src/config/exam-question-keywords.json` と `src/config/past-exam-backlinks.json` が最新（必要なら `npm run build-backlinks` で再生成）
@@ -293,16 +319,15 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 
 ## 段階実装計画
 
-### MVP（現在のスコープ）
-- 手動起動のみ（`--auto` は未実装）
-- 引数指定 or 会話内での対象特定
+### MVP（実装済み）
+- 手動起動・引数指定 or 会話内での対象特定
 - 1 サイクル実施→ PR 作成まで通す
 
-### Phase 2（運用実績後）
-- `--auto` の自動選択ロジック（scripts/select-next-question.mjs）
-- weekly-review に Agent F として組込み
-- `/distill-proofread-learnings --since "1cycle"` との連動
+### Phase 2（実装済み 2026-04-20）
+- `--auto` 自動選択ロジック: `scripts/select-next-question.mjs`
+- weekly-review Agent F として組込み済み
+- `/distill-proofread-learnings --since "1cycle"` 連動済み
 
-### Phase 3（受験直前 2026-06 頃）
-- GitHub Actions でスケジュール化（週 2〜3 回）
-- 自動 PR 作成
+### Phase 3（GitHub Actions スケジュール化）
+- ワークフロー定義: `.github/workflows/exam-keyword-cycle.yml`（週 2 回、月・木 JST 22:00）
+- remote trigger 実装は Claude Code remote trigger 仕様確定後に接続（現状は workflow_dispatch 手動のみ稼働）
