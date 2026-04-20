@@ -33,7 +33,29 @@ description: >
   - `7d` — 直近 7 日のコミット
   - `1session` — 今セッションの編集分（デフォルト）
   - `HEAD~5` — 直近 5 コミット
+  - `1cycle` — 最新の `/exam-keyword-cycle` サイクル（開始コミットから HEAD まで）
 - `--pages`（任意）: 特定ページに絞る。カンマ区切りスラグ
+
+### `--since "1cycle"` の動作
+
+`/exam-keyword-cycle` 完了直後に呼ばれることを想定。最新サイクルの範囲に絞って学習抽出する:
+
+1. `docs/reviews/exam-keyword-cycle/index.json` の `cycles[-1]` を読む（最新サイクル）
+2. そのサイクルのログ（`docs/reviews/exam-keyword-cycle/YYYY-MM-DD-*.md`）から:
+   - 視点タグ（網羅性・正確性・わかりやすさ・試験適合・関連付け）を抽出 → Phase 2 の分類ヒント
+   - 対象キーワード slug を抽出 → `--pages` と同等に絞込対象にする
+3. 開始コミットを特定: `git log --grep="claude/exam-keyword-cycle-" --format=%H | head -1` の親コミット、または サイクルログ作成時点のコミット
+4. `git diff <開始コミット>..HEAD -- .local/r2/posts/` で差分を取得
+5. 視点タグを Phase 2 の分類に重み付けして surface（同一タグが複数キーワードで適用されたら新規ルール候補に昇格）
+
+出力は通常の `--since` と同じフォーマットだが、「サイクル」フィールドを冒頭に追記:
+
+```markdown
+## 分析対象
+- 対象サイクル: R06 Ⅰ-1-35（2026-04-20）
+- 対象視点タグ: 網羅性、関連付け
+- 対象ページ: 6 件（nagoya-protocol, biosafety, ...）
+```
 
 ## 前提条件
 

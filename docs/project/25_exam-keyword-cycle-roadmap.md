@@ -1,7 +1,8 @@
 # 過去問起点の校正サイクル — 次の実装ロードマップ
 
 **策定日**: 2026-04-20
-**ステータス**: MVP 実装済み、Phase 2/3 未着手
+**ステータス**: MVP + Phase 2 実装済み、Phase 3 骨組実装済み（remote trigger 接続待ち）
+**最終更新**: 2026-04-20（Phase 2/3 骨組実装完了）
 **関連**:
 - 元プラン: `C:\Users\m004195\.claude\plans\starry-enchanting-crown.md`
 - 実装スキル: `.claude/skills/content/exam-keyword-cycle/SKILL.md`
@@ -151,14 +152,14 @@ PSI 日次監査と同パターン:
 
 ## 5. 優先順位
 
-| # | 項目 | 所要 | 前提 |
+| # | 項目 | 状態 | 実装物 |
 |---|---|---|---|
-| 1 | MVP の実サイクル試運転（R06 Ⅰ-1-35 等） | 1 時間 | 現状で可能 |
-| 2 | `--auto` 選択ロジック（select-next-question.mjs） | 2 時間 | 試運転で MVP 動作確認後 |
-| 3 | weekly-review Agent F 組込み | 1 時間 | `--auto` 完成後 |
-| 4 | `/distill-proofread-learnings --since "1cycle"` | 1 時間 | Agent F と並行可 |
-| 5 | GitHub Actions Workflow | 2-3 時間 | Claude Code remote trigger の仕組み調査要 |
-| 6 | サイクル横断ダッシュボード | 3-4 時間 | 数サイクル蓄積後に着手 |
+| 1 | MVP の実サイクル試運転（R06 Ⅰ-1-35 等） | ⏳ 未実施 | — |
+| 2 | `--auto` 選択ロジック | ✅ 実装済 | `.claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs` |
+| 3 | weekly-review Agent F 組込み | ✅ 実装済 | `.claude/skills/management/weekly-review/SKILL.md` Agent F |
+| 4 | `/distill-proofread-learnings --since "1cycle"` | ✅ 実装済 | `.claude/skills/management/distill-proofread-learnings/SKILL.md` |
+| 5 | GitHub Actions Workflow | 🟡 骨組完成 | `.github/workflows/exam-keyword-cycle.yml`（remote trigger 接続待ち） |
+| 6 | サイクル横断ダッシュボード | ⏳ 未着手 | 数サイクル蓄積後に着手 |
 
 ## 6. 中止判定基準
 
