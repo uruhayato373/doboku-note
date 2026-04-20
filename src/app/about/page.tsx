@@ -42,6 +42,9 @@ export default function AboutPage() {
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
               1級土木施工管理技士・技術士（総合技術監理部門）の受験者に向けて、体系的な技術解説・過去問分析・勉強方法を提供する試験対策サイトです。
             </p>
+            <p className="mt-8 text-lg md:text-xl italic text-primary-700 dark:text-primary-300 max-w-3xl mx-auto leading-relaxed">
+              <strong className="font-bold not-italic">橋を架ける。</strong>受験者と合格のあいだに、実務と試験のあいだに、現役と次世代のあいだに。
+            </p>
           </div>
         </section>
 
@@ -72,7 +75,7 @@ export default function AboutPage() {
                   </p>
                   <div className="mt-4">
                     <h4 className="text-sm font-bold text-neutral-700 dark:text-gray-300 mb-2">
-                      保有資格・受験予定
+                      保有資格
                     </h4>
                     <ul className="space-y-1">
                       {AUTHOR.qualifications.map((q) => (
@@ -131,25 +134,19 @@ export default function AboutPage() {
               </p>
               <div className="space-y-3 text-left max-w-2xl mx-auto">
                 <div className="flex items-start gap-2">
-                  <span className="text-primary-600 dark:text-primary-400 mt-1">
-                    ✓
-                  </span>
+                  <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 shrink-0 mt-1" />
                   <p className="text-neutral-700 dark:text-gray-300">
                     <strong>体系的</strong> → 試験範囲を網羅した技術解説
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-primary-600 dark:text-primary-400 mt-1">
-                    ✓
-                  </span>
+                  <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 shrink-0 mt-1" />
                   <p className="text-neutral-700 dark:text-gray-300">
                     <strong>実践的</strong> → 過去問の傾向分析と得点戦略
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-primary-600 dark:text-primary-400 mt-1">
-                    ✓
-                  </span>
+                  <CheckCircle className="w-5 h-5 text-primary-600 dark:text-primary-400 shrink-0 mt-1" />
                   <p className="text-neutral-700 dark:text-gray-300">
                     <strong>効率的</strong> → 忙しい実務者でも合格できる学習法
                   </p>
@@ -281,6 +278,32 @@ export default function AboutPage() {
           </div>
         </section>
 
+        {/* Start Learning Section */}
+        <section className="py-16 bg-gradient-to-br from-primary-50 to-cyan-50 dark:from-primary-950 dark:to-cyan-950">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+              学習を始める
+            </h2>
+            <p className="text-xl mb-8 text-gray-700 dark:text-gray-300">
+              まずは各試験のカテゴリ目次から、必要な分野にアクセスしてください。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/category/civil-construction-1"
+                className="bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105"
+              >
+                1級土木施工管理技士
+              </Link>
+              <Link
+                href="/category/pe-comprehensive-management"
+                className="bg-cyan-600 hover:bg-cyan-700 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105"
+              >
+                技術士（総合技術監理部門）
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section className="py-16 bg-gradient-to-r from-primary-600 to-cyan-500 text-white">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -289,18 +312,20 @@ export default function AboutPage() {
               ご質問やご意見がございましたらお気軽にお問い合わせください。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://twitter.com/doboku_note"
+              <Link
+                href="/contact"
                 className="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+              >
+                お問い合わせフォーム
+              </Link>
+              <a
+                href={AUTHOR.twitterUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-primary-600 transition-all"
               >
                 Xでフォロー
               </a>
-              <Link
-                href="/docs/civil-construction-1-guide-strategy"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-primary-600 transition-all"
-              >
-                学習を始める
-              </Link>
             </div>
           </div>
         </section>

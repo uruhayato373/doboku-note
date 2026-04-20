@@ -4,11 +4,11 @@
 // About ページ・記事末尾・Article schema など複数箇所で参照される。
 
 export const AUTHOR = {
-  name: "土木ノート編集部",
-  penName: "土木ノート編集部",
+  name: "架（かける）",
+  penName: "架（かける）",
   url: "https://doboku-note.com/about",
   jobTitle: "ゼネコン土木技術者／技術士（建設部門・総合技術監理部門）",
-  bio: "ゼネコン勤務の土木技術者。現場施工管理・設計・コンクリート技術・建設法務・社内DXまで横断的に従事。土木・建設・法務・IT にまたがる資格を取得してきた経験を活かし、本サイトでは土木を中心に多様な資格試験の対策コンテンツを順次展開している。",
+  bio: "ゼネコン勤務の土木技術者。現場施工管理・設計・コンクリート技術・建設法務・社内DXを横断的に経験。ペンネーム「架（かける）」には、橋を架けるように、受験者と合格・実務と試験・現役と次世代のあいだに橋渡しをするというコンセプトを込めている。土木・建設・法務・ITにまたがる資格取得の経験を、これから受験に向かう技術者へ架け渡していく。",
   qualifications: [
     "1級土木施工管理技士",
     "コンクリート主任技士",
@@ -35,5 +35,5 @@ export const AUTHOR = {
     "建設法務",
   ],
   imageUrl: "/img/admin-avatar-flat.png",
-  twitterUrl: "https://twitter.com/doboku_note",
+  twitterUrl: "https://x.com/dobokunotecom",
 } as const;

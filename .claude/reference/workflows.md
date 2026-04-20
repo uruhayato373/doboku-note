@@ -40,14 +40,22 @@
 │  /weekly-review                                                 │
 │    │ Agent C2: psi/ の 7 日分を読み前週比を出力                   │
 │    │            gh issue list で解消/継続 Issue を surface       │
+│    │ Agent E:  /distill-proofread-learnings を呼び出し           │
+│    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │
 │    ▼                                                            │
 │  docs/reviews/weekly/YYYY-Www-review.md                         │
+│    │ PSI 推移 + 校正学習候補を本文に記載                          │
 │                                                                 │
 │  /weekly-plan                                                   │
 │    │ Agent C2: open の performance Issue を Must/Should に組込   │
 │    ▼                                                            │
 │  docs/reviews/weekly/YYYY-Www.md                                │
 │    │ 対応タスクを計画に明示                                      │
+│                                                                 │
+│  ユーザーが校正学習候補を承認 → 適用                              │
+│    │ content-principles.md / memory / workflows.md 等を更新      │
+│    ▼                                                            │
+│  次週以降の校正品質が底上げされる                                  │
 └─────────────────────────────────────────────────────────────────┘
                            │
                            ▼
@@ -58,6 +66,25 @@
 │    │                                                            │
 │    ▼                                                            │
 │  翌日の psi-audit で効果を測定 → 改善なら Issue close             │
+└─────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────┐
+│ コンテンツ品質ループ（過去問起点の校正サイクル）                  │
+│                                                                 │
+│  /exam-keyword-cycle --exam RXX-primary --question NN-NN        │
+│    │                                                            │
+│    ├─ Phase 1: 起点過去問から論点と関連キーワードを抽出           │
+│    ├─ Phase 2: cem-qa で 5 軸評価＋論点カバレッジ判定             │
+│    ├─ Phase 3: 視点タグ付き修正提案                              │
+│    │           (網羅性 / 正確性 / わかりやすさ / 試験適合 / 関連付け) │
+│    ├─ Phase 4: ユーザー一括承認                                  │
+│    ├─ Phase 5: 実装＋ログ記録                                    │
+│    │           (docs/reviews/exam-keyword-cycle/YYYY-MM-DD-*.md) │
+│    │           (.claude/state/exam-keyword-cycles/progress.json) │
+│    └─ Phase 6: PR 作成（claude/exam-keyword-cycle-* ブランチ）   │
+│       │                                                         │
+│       ▼                                                         │
+│  ユーザーが GitHub PR 上でレビュー → merge → 本番反映             │
 └─────────────────────────────────────────────────────────────────┘
 ```
 
@@ -82,6 +109,32 @@
 ```
 
 試験別の整備方針・レビュー視点は [exam-content-policy.md](./exam-content-policy.md) を参照。
+
+### 過去問 MDX の OCR エラー修正フロー
+
+既存の過去問 MDX に OCR エラー（誤字・脱字・文字列破損）が疑われる場合、**原典 PDF と突合してから修正する**。推測で書き換えない。
+
+```
+1. 疑わしい箇所を特定（ユーザー指摘・Grep での異常パターン検出）
+      ↓
+2. 原典 PDF を特定
+      docs/textbook/技術士（総監）/過去問/RXX/RXX_試験問題_択一式.pdf
+      docs/textbook/技術士（建設部門）/...（部門別）
+      ↓
+3. PyMuPDF で該当ページをレンダリング（dpi 180 推奨）
+      python -c "import fitz; doc=fitz.open(<pdf>); page=doc[<index>];
+                 page.get_pixmap(dpi=180).save(<out>.png)"
+      ↓
+4. Read ツールで PNG を表示し、視覚的に原文と現状 MDX を突合
+      疑わしい箇所 1 箇所だけでなく周辺もチェック（同じ設問で他の OCR エラーが潜むことが多い）
+      ↓
+5. 修正箇所を列挙してユーザーに承認
+      ↓
+6. Edit で修正 → pre-commit hook 通過確認 → コミット
+      コミットメッセージに「PDF 原文と突合して修正」と明示
+```
+
+**過去事例**: R06 Ⅰ-1-38 で「第 3 次環境基本計画」の指摘から、原典 PDF 突合により「避守事項→遵守事項」「業務つけ→義務づけ」「選択肢 ④ の後半破損」など同設問内の 4 OCR エラーを同時発見した。
 
 ---
 
