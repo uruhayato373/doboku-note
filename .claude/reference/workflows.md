@@ -40,14 +40,22 @@
 │  /weekly-review                                                 │
 │    │ Agent C2: psi/ の 7 日分を読み前週比を出力                   │
 │    │            gh issue list で解消/継続 Issue を surface       │
+│    │ Agent E:  /distill-proofread-learnings を呼び出し           │
+│    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │
 │    ▼                                                            │
 │  docs/reviews/weekly/YYYY-Www-review.md                         │
+│    │ PSI 推移 + 校正学習候補を本文に記載                          │
 │                                                                 │
 │  /weekly-plan                                                   │
 │    │ Agent C2: open の performance Issue を Must/Should に組込   │
 │    ▼                                                            │
 │  docs/reviews/weekly/YYYY-Www.md                                │
 │    │ 対応タスクを計画に明示                                      │
+│                                                                 │
+│  ユーザーが校正学習候補を承認 → 適用                              │
+│    │ content-principles.md / memory / workflows.md 等を更新      │
+│    ▼                                                            │
+│  次週以降の校正品質が底上げされる                                  │
 └─────────────────────────────────────────────────────────────────┘
                            │
                            ▼
