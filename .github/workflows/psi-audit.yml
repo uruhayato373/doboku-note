@@ -1,4 +1,4 @@
-name: PSI audit daily
+name: Audit performance (PSI)
 
 on:
   schedule:
@@ -68,7 +68,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "psi: daily audit $(date -u +%Y-%m-%dT%H:%MZ)"
+          git commit -m "metrics(psi): daily audit $(date -u +%Y-%m-%dT%H:%MZ)"
           git push origin metrics-data
 
       - name: Open issue on threshold violations
