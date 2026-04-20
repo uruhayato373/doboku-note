@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-04-19T08:55:16.819Z",
+  "generated_at": "2026-04-20T22:18:09.500Z",
   "summary": {
-    "total_mdx_files": 774,
-    "total_unique_tags": 53,
+    "total_mdx_files": 775,
+    "total_unique_tags": 55,
     "allowlist_size": 82,
-    "known_count": 34,
-    "unknown_count": 19,
+    "known_count": 35,
+    "unknown_count": 20,
     "typo_candidates_count": 1
   },
   "tags": [
@@ -1176,12 +1176,13 @@
     },
     {
       "name": "技士（総合技術監理部門）",
-      "count": 18,
+      "count": 19,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
         "pe-comprehensive-management-essay-exam-strategy",
         "pe-comprehensive-management-essay-question-trends-timeline",
+        "pe-comprehensive-management-essay-template-safety",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-index",
         "pe-comprehensive-management-four-m-of-production",
@@ -1464,6 +1465,15 @@
       ]
     },
     {
+      "name": "記述式対策",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-template-safety",
+        "pe-comprehensive-management-management-tradeoffs"
+      ]
+    },
+    {
       "name": "2026年版",
       "count": 1,
       "inAllowlist": false,
@@ -1584,19 +1594,19 @@
       ]
     },
     {
+      "name": "安全管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-template-safety"
+      ]
+    },
+    {
       "name": "過去問",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-question-trends-timeline"
-      ]
-    },
-    {
-      "name": "記述式対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs"
       ]
     },
     {
@@ -1670,6 +1680,14 @@
       "usedIn": [
         "pe-comprehensive-management-r07-primary"
       ]
+    },
+    {
+      "name": "論文テンプレート",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-template-safety"
+      ]
     }
   ],
   "unknown": [
@@ -1679,11 +1697,11 @@
     "machinery",
     "quality",
     "schedule",
+    "記述式対策",
     "2026年版",
     "5管理",
     "キーワード集",
     "トレードオフ",
-    "記述式対策",
     "出願",
     "出題傾向",
     "令和2年度",
@@ -1691,7 +1709,8 @@
     "令和4年度",
     "令和5年度",
     "令和6年度",
-    "令和7年度"
+    "令和7年度",
+    "論文テンプレート"
   ],
   "typo_candidates": [
     {
