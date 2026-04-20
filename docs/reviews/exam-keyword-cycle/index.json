@@ -1,5 +1,15 @@
 {
   "version": 1,
   "description": "過去問起点の校正サイクル履歴。/exam-keyword-cycle スキルが追記する。",
-  "cycles": []
+  "cycles": [
+    {
+      "date": "2026-04-20",
+      "exam": "r07-primary",
+      "question": "1-1",
+      "theme": "BCP・BCM とサプライチェーン",
+      "keywords": ["business-continuity-plan", "risk-management-plan"],
+      "pr": null,
+      "log": "2026-04-20-r07-primary-1-1.md"
+    }
+  ]
 }
