@@ -219,7 +219,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
             "1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイト",
           url: baseUrl,
           sameAs: [
-            "https://twitter.com/doboku_note",
+            AUTHOR.twitterUrl,
           ],
           contactPoint: {
             "@type": "ContactPoint",
