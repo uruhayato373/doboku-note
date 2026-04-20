@@ -1,0 +1,139 @@
+# パフォーマンス監視と継続的改善ループ — アーキテクチャ
+
+**策定日**: 2026-04-20
+**ステータス**: 採用・運用開始
+**関連**:
+- `17_data-storage-strategy.md`（データストレージ戦略）
+- `.claude/reference/workflows.md`（継続的改善ループ図の真実源）
+- `.claude/config/psi-config.json`（しきい値・対象・頻度の真実源）
+
+## 1. 背景
+
+サイトの性能（Core Web Vitals・Lighthouse スコア）は SEO とユーザー体験に直結するが、以下が課題だった:
+
+- **見えない**: 本番の実測値が継続計測されていない
+- **忘れられる**: 問題を発見しても対応漏れが起こる
+- **ループが閉じない**: 修正した改善が効いたか検証する仕組みがない
+
+本ドキュメントは PageSpeed Insights API を軸にした**日次計測 → 週次レビュー → 実装 → 再計測**の継続的改善ループを記録する Architecture Decision Record (ADR)。
+
+---
+
+## 2. 結論
+
+**PSI API の日次自動計測を中核に、3 層のデータ分離と週次 PDCA への統合で継続的改善ループを回す。**
+
+- データ層、通知層、ナラティブ層を分離する
+- Must アラート（しきい値違反）は GitHub Issue、生データは専用ブランチ、分析は docs/ に蓄積
+- 週次レビュー・計画に PSI 結果を織り込み、対応漏れを防ぐ
+
+---
+
+## 3. 3 層データ構造
+
+| 層 | 格納場所 | 保存対象 | 誰が見る |
+|---|---|---|---|
+| **生データ** | `metrics-data` branch の `psi/`, `gsc/`, `ga4/` 配下 | 計測結果 JSON 全量・時系列 | ツール・エージェント（機械処理） |
+| **アクション** | GitHub Issue（label: `performance`, `auto-generated`） | しきい値違反のみ | 人間（即対応要） |
+| **ナラティブ** | `docs/reviews/weekly/YYYY-Www*.md` / `.claude/state/improvements/psi-*.md` | 推移・分析・改善候補 | 人間・Claude（判断時の参照） |
+
+### 設計原則
+
+- **生データは漏れなく蓄積**: PSI は 20 代表 URL × mobile+desktop を毎日。769 ページ全件は PSI API の制約（1 URL 30 秒）で非現実的
+- **Issue は対応が必要なときだけ**: 正常値を通知するとノイズになる
+- **docs/ は履歴と意思決定**: 数字そのものでなく「何が起きた・どう対応した」を残す
+
+---
+
+## 4. 継続的改善ループ
+
+```
+日次（自動）
+  psi-audit.yml (JST 02:00)
+    ├─ 計測       → metrics-data/psi/*.json に追記
+    ├─ しきい値判定 → 違反あり: Issue 自動起票
+    └─ レポート生成 → metrics-data/psi/latest-report.md
+
+週次（人間 + 自動）
+  /weekly-review（日曜〜月曜）
+    ├─ Agent C2: 過去 7 日の PSI 推移を集計
+    ├─ gh issue list で解消/継続 Issue を surface
+    └─ docs/reviews/weekly/YYYY-Www-review.md に記録
+
+  /weekly-plan（同）
+    ├─ Agent C2: open の performance Issue を Must/Should に組込
+    └─ docs/reviews/weekly/YYYY-Www.md に今週の対応タスクを明示
+
+実装
+  Issue を参照しながら修正 → PR → main merge → 本番反映
+  翌日の psi-audit で効果を測定 → Issue close
+```
+
+図の真実源は `.claude/reference/workflows.md`（変更時はそちらを先に更新）。
+
+---
+
+## 5. しきい値の真実源
+
+すべての運用パラメータは `.claude/config/psi-config.json` に集約:
+
+```json
+{
+  "thresholds": {
+    "performance_score_min": 70,
+    "LCP_ms_max": 2500,
+    "CLS_max": 0.1,
+    "INP_ms_max": 200,
+    ...
+  }
+}
+```
+
+サイトが改善されたら閾値を引き上げて継続改善する。URL 追加・変更は `.claude/config/psi-urls.txt`。
+
+---
+
+## 6. スキル・エージェント構成
+
+| 種別 | 名前 | 役割 | model |
+|---|---|---|---|
+| スキル | `/psi-audit` | 計測＋分析のユーザー入口 | — |
+| Evaluator エージェント | `performance-auditor` | 違反を既知パターン（LCP 肥大・CLS 発生等）にマッピング | sonnet |
+| スクリプト | `.claude/scripts/fetch-psi-data.mjs` | PSI API 呼び出し | — |
+| スクリプト | `.claude/scripts/psi-threshold-check.mjs` | しきい値比較・Markdown 出力 | — |
+| workflow | `.github/workflows/psi-audit.yml` | 日次自動実行・Issue 起票 | — |
+
+Generator / Evaluator 分離原則に従い、`performance-auditor` は**評価専任**（実装はしない）。実装は親エージェント（Claude Code 本体）が判断。
+
+---
+
+## 7. 代替案と見送った理由
+
+### 全ページ計測
+- 却下理由: 769 ページ × 30 秒 × 2 strategy = 12 時間超。PSI API クォータ・実行時間で非現実的
+- 代替採用: カテゴリ × タグの代表 20 URL に絞る（同テンプレのページは性能がほぼ同じ前提）
+
+### ローカル Lighthouse CLI による自動計測
+- 却下理由: localhost は field data（実ユーザー計測）が取れない。本番測定は PSI で行う
+- ただし開発中の反復確認には Lighthouse CLI 有用（手動実行前提）
+
+### 違反を PR に載せる案
+- 却下理由: PR は「変更提案」の場。通知は Issue が本流
+- PR には**分析成果物**（週次レビュー）のみ乗せる（`claude/weekly-pdca-*` ブランチ）
+
+---
+
+## 8. 運用の継続改善
+
+- しきい値は 3 ヶ月に 1 度見直す（サイト改善で引き上げ、難しくなれば引き下げ）
+- 代表 URL リストは新試験追加・主要テンプレ変更時に更新
+- パターンマッピング（performance-auditor の既知パターン）は新しいボトルネック発見時に追記
+
+---
+
+## 9. 関連コミット
+
+- `9251bfad` ops: PSI daily audit workflow + performance-auditor agent
+- `611cc4fe` ops: unify workflow names and commit message prefixes
+- `58dc2043` ops: close continuous-improvement loop (PSI → review → plan → fix → PSI)
+- `93c3a458` ops: register 10 missing skills and clarify Phase 2 agent descriptions
