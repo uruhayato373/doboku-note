@@ -1,8 +1,8 @@
-name: Fetch metrics weekly
+name: Fetch SEO metrics (GSC + GA4)
 
 on:
   schedule:
-    - cron: "0 11 * * 0"
+    - cron: "0 11 * * 0" # JST 20:00 Sunday (UTC 11:00)
   workflow_dispatch:
 
 permissions:
@@ -84,7 +84,7 @@ jobs:
             exit 0
           fi
 
-          git commit -m "metrics: weekly fetch $(date -u +%Y-%m-%dT%H:%MZ)"
+          git commit -m "metrics(gsc+ga4): weekly fetch $(date -u +%Y-%m-%dT%H:%MZ)"
           git push origin metrics-data
 
       - name: Cleanup credentials
