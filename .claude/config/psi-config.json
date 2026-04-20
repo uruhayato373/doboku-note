@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "description": "PageSpeed Insights 定期計測の設定。しきい値・対象URL・スケジュールの真実源。",
+  "api_key_env": "PSI_API_KEY",
+  "strategies": ["mobile", "desktop"],
+  "categories": ["performance", "accessibility", "best-practices", "seo"],
+  "url_list_file": ".claude/config/psi-urls.txt",
+  "output_dir": ".claude/state/metrics/psi",
+  "thresholds": {
+    "performance_score_min": 70,
+    "accessibility_score_min": 90,
+    "best_practices_score_min": 85,
+    "seo_score_min": 90,
+    "LCP_ms_max": 2500,
+    "CLS_max": 0.1,
+    "INP_ms_max": 200,
+    "FCP_ms_max": 1800,
+    "TTFB_ms_max": 800,
+    "TBT_ms_max": 300
+  },
+  "regression": {
+    "performance_score_drop": 10,
+    "LCP_ms_increase": 500,
+    "CLS_increase": 0.05
+  },
+  "schedule": {
+    "cron_utc": "0 17 * * *",
+    "timezone_note": "JST 02:00 daily (UTC 17:00)"
+  },
+  "notify": {
+    "github_issue_on_threshold": true,
+    "issue_labels": ["performance", "auto-generated"],
+    "issue_title_prefix": "[PSI] しきい値割れ検知"
+  },
+  "publish": {
+    "branch": "metrics-data",
+    "subdir": "psi"
+  }
+}

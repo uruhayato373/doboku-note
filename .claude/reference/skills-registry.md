@@ -31,6 +31,10 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 - `/fetch-ga4-data` — Google Analytics 4 のアクセスデータ取得
 - `/seo-audit` — SEO 総合監査
 
+**運用中（Phase 1）**:
+
+- `/psi-audit` — PageSpeed Insights で代表ページを日次計測し、Core Web Vitals のしきい値違反と改善候補を出力（performance-auditor エージェント連携）
+
 ## dev — 開発
 
 | スキル | 用途 | 定義 |
