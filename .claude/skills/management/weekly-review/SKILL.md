@@ -213,6 +213,47 @@ B. 実験進捗レポート:
 - 候補がなければ「今週の学習候補: なし」と記録して次週へ
 ```
 
+#### Agent G: Umbrella Issue 棚卸し
+
+```
+目的: `.claude/reference/docs-issue-separation.md` で定義した
+      「md は Why / Issue は実行タスク」の分離ルールを週次で drift 検出する。
+      open Umbrella Issue の進捗・停滞・完了漏れを surface する
+
+調査項目:
+- gh issue list --label umbrella --state open --json number,title,body,updatedAt,labels
+- gh issue list --label umbrella --state closed --search "closed:>{7日前}" --json number,title,closedAt
+- 各 open Issue の body 内チェックリスト集計: [ ] / [x] の数
+- updatedAt が 14 日以上前の Issue（停滞）
+- checklist が全 [x] なのに open のまま（close 漏れ）
+- body 内の「関連ロードマップ」リンクが docs/project/ に実在するか（孤立 Umbrella 検出）
+
+出力形式: 「## GitHub Umbrella Issue 棚卸し」セクションに以下を埋め込む
+
+## GitHub Umbrella Issue 棚卸し
+
+### Open Umbrella ({n} 件)
+| # | タイトル | 進捗 | 最終更新 | 状態 |
+|---|---|---|---|---|
+| #27 | [Umbrella] exam-keyword-cycle Phase 3 & 補強候補 | 0/6 | 2026-04-20 | 正常 |
+
+- 進捗: checklist の [x] / 全 checkbox 数
+- 状態: 正常 / 停滞（14d+ 更新なし） / close 漏れ（全 [x]） / 孤立（ロードマップ欠落）
+
+### 今週 close された Umbrella ({n} 件)
+- #N: タイトル — 後継 Umbrella があればリンク
+
+### アクション提案
+- 停滞 Umbrella: 着手 or 中止判定が必要
+- close 漏れ: Issue を close し、対応する md の「追跡 Issue」行を更新
+- 孤立: ロードマップ md を作成 or Umbrella を close
+
+注意:
+- Open Umbrella が 0 件なら「追跡中の Umbrella なし」と記録し、次節をスキップ
+- 本エージェントは surface のみ。close や close 漏れ修正はユーザー判断
+- PSI 違反 Issue（`performance` / `auto-generated`）や個別 Issue は本エージェントの対象外
+```
+
 ### Phase 2: 分析・統合
 
 1. **達成率**: 計画タスクの完了率
@@ -347,6 +388,23 @@ generatedAt: "YYYY-MM-DD"
 
 ### 学習ログ
 - `.claude/state/proofread-learnings/YYYY-MM-DD.md` に詳細記録
+
+## GitHub Umbrella Issue 棚卸し
+
+<!-- Agent G が gh issue list --label umbrella で取得した open / 今週 close された
+     Umbrella Issue の進捗・停滞・close 漏れ・孤立を surface する。
+     docs-issue-separation.md ルールの drift 検出用。 -->
+
+### Open Umbrella
+
+| # | タイトル | 進捗 | 最終更新 | 状態 |
+|---|---|---|---|---|
+
+### 今週 close された Umbrella
+- なし
+
+### アクション提案
+- （停滞・close 漏れ・孤立が surface されていれば対応指示）
 
 ## その他パフォーマンス（必要に応じて）
 
