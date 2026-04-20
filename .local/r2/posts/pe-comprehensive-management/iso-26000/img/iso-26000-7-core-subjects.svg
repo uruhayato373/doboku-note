@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="580" height="520" viewBox="0 0 580 520" style="max-width:580px;width:100%" role="img" aria-label="ISO 26000 の 7 つの中核主題のホイール図：組織統治を中心に、人権・労働慣行・環境・公正な事業慣行・消費者課題・コミュニティへの参画が取り囲む">
+  <rect width="580" height="520" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="290" y="24" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a1a">ISO 26000 の 7 つの中核主題</text>
+
+  <!-- Connecting lines (drawn first, behind circles) -->
+  <g stroke="#cccccc" stroke-width="1.2">
+    <line x1="290" y1="275" x2="290" y2="130"/>
+    <line x1="290" y1="275" x2="415" y2="200"/>
+    <line x1="290" y1="275" x2="415" y2="350"/>
+    <line x1="290" y1="275" x2="290" y2="420"/>
+    <line x1="290" y1="275" x2="165" y2="350"/>
+    <line x1="290" y1="275" x2="165" y2="200"/>
+  </g>
+
+  <!-- Central: 組織統治 -->
+  <circle cx="290" cy="275" r="70" fill="#1a56db" stroke="#0f3c99" stroke-width="2"/>
+  <text x="290" y="270" text-anchor="middle" font-size="15" font-weight="bold" fill="#ffffff">組織統治</text>
+  <text x="290" y="292" text-anchor="middle" font-size="10" fill="#d8e3f5">Organizational</text>
+  <text x="290" y="306" text-anchor="middle" font-size="10" fill="#d8e3f5">Governance</text>
+
+  <!-- Top: 人権 -->
+  <circle cx="290" cy="130" r="55" fill="#fef2e9" stroke="#cc6600" stroke-width="1.5"/>
+  <text x="290" y="125" text-anchor="middle" font-size="13" font-weight="bold" fill="#cc6600">人権</text>
+  <text x="290" y="146" text-anchor="middle" font-size="10" fill="#666666">Human Rights</text>
+
+  <!-- Top-right: 労働慣行 -->
+  <circle cx="415" cy="200" r="55" fill="#fef2e9" stroke="#cc6600" stroke-width="1.5"/>
+  <text x="415" y="196" text-anchor="middle" font-size="13" font-weight="bold" fill="#cc6600">労働慣行</text>
+  <text x="415" y="216" text-anchor="middle" font-size="9" fill="#666666">Labour Practices</text>
+
+  <!-- Bottom-right: 環境 -->
+  <circle cx="415" cy="350" r="55" fill="#e6f4e6" stroke="#2f7a2f" stroke-width="1.5"/>
+  <text x="415" y="346" text-anchor="middle" font-size="13" font-weight="bold" fill="#2f7a2f">環境</text>
+  <text x="415" y="366" text-anchor="middle" font-size="10" fill="#666666">Environment</text>
+
+  <!-- Bottom: 公正な事業慣行 -->
+  <circle cx="290" cy="420" r="55" fill="#e6ecfa" stroke="#1a56db" stroke-width="1.5"/>
+  <text x="290" y="410" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a56db">公正な</text>
+  <text x="290" y="427" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a56db">事業慣行</text>
+  <text x="290" y="445" text-anchor="middle" font-size="9" fill="#666666">Fair Operating</text>
+
+  <!-- Bottom-left: 消費者課題 -->
+  <circle cx="165" cy="350" r="55" fill="#e6ecfa" stroke="#1a56db" stroke-width="1.5"/>
+  <text x="165" y="346" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a56db">消費者課題</text>
+  <text x="165" y="366" text-anchor="middle" font-size="9" fill="#666666">Consumer Issues</text>
+
+  <!-- Top-left: コミュニティ -->
+  <circle cx="165" cy="200" r="55" fill="#fef2e9" stroke="#cc6600" stroke-width="1.5"/>
+  <text x="165" y="190" text-anchor="middle" font-size="12" font-weight="bold" fill="#cc6600">コミュニティ</text>
+  <text x="165" y="208" text-anchor="middle" font-size="12" font-weight="bold" fill="#cc6600">への参画</text>
+  <text x="165" y="224" text-anchor="middle" font-size="9" fill="#666666">Community</text>
+
+  <!-- Legend -->
+  <text x="290" y="500" text-anchor="middle" font-size="11" fill="#666666">組織統治（中心）が他の 6 主題を統合的に支える構造</text>
+</svg>
