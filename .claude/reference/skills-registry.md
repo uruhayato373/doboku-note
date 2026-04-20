@@ -21,6 +21,7 @@
 | `/critical-review` | 批判的レビュー | `.claude/skills/management/critical-review/SKILL.md` |
 | `/knowledge` | 過去の失敗と学びを参照・追記 | `.claude/skills/management/knowledge/SKILL.md` |
 | `/pre-mortem` | Pre-Mortem の実施 | `.claude/skills/management/pre-mortem/SKILL.md` |
+| `/nsm-experiment` | NSM 改善の実験ライフサイクル管理（propose → start → measure → close、state: `.claude/state/experiments.json`） | `.claude/skills/management/nsm-experiment/SKILL.md` |
 
 ## analytics — サイト分析（Phase 2で復活）
 
@@ -94,6 +95,13 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/audit-exam-explanations` | 過去問 MDX の破損解説（文頭欠落・ExamPoint summary 欠落）を正規表現で検出し JSON 出力する Evaluator。修正は行わない | `.claude/skills/content/audit-exam-explanations/SKILL.md` |
 | `/audit-svg` | SVG の品質問題（文字クリップ・必須属性欠落・viewBox 超過・font-size 過小・テキスト重なり）を静的解析で検出する Evaluator。修正は行わない | `.claude/skills/content/audit-svg/SKILL.md` |
 | `/note-desumasu` | `docs/note-drafts/` 配下の note 下書きを だ・である調 から ですます調 へ変換（note 媒体の親しみやすさに特化） | `.claude/skills/content/note-desumasu/SKILL.md` |
+| `/check-frontmatter` | MDX frontmatter の構造（zod）と内容（独自ルール）を検証し HIGH/MEDIUM/LOW でレポート | `.claude/skills/content/check-frontmatter/SKILL.md` |
+| `/check-legal-citations` | MDX 本文中の法令条文が e-Gov 法令検索へのインラインリンクになっているか検査・一斉修正 | `.claude/skills/content/check-legal-citations/SKILL.md` |
+| `/check-related-keyword-inline` | キーワードページ末尾の「関連キーワード: [A]、[B]」列挙パターンを検出、インラインリンク移行を支援 | `.claude/skills/content/check-related-keyword-inline/SKILL.md` |
+| `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ 1 ページ統合（7 フェーズ・redirects 込み） | `.claude/skills/content/consolidate-duplicate-keyword/SKILL.md` |
+| `/fix-design-manual-figures` | 設計便覧 MDX の図品質問題（テキスト映り込み・出典欠落）を検出・修正 | `.claude/skills/content/fix-design-manual-figures/SKILL.md` |
+| `/ogp-create` | カテゴリ別テンプレートで OGP 画像を生成（セーフティゾーン対応・日本語改行戦略） | `.claude/skills/content/ogp-create/SKILL.md` |
+| `/quality-cycle` | キーワードページの品質サイクル（スコア → リライト → 検証 → 人間レビュー）を統合 | `.claude/skills/content/quality-cycle/SKILL.md` |
 
 ### PDF→MDX 試験特化スキル
 
@@ -107,6 +115,8 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | スキル | 用途 | 定義 |
 |---|---|---|
 | `/design-review` | デザインシステム準拠レビュー（7カテゴリ・重大度判定） | `.claude/skills/ui/design-review/SKILL.md` |
+| `/related-articles` | 関連記事カード自動生成の設計リファレンス（アルゴリズム・スタイリング・拡張方針） | `.claude/skills/ui/related-articles/SKILL.md` |
+| `/aidesigner-frontend` | AIDesigner MCP + CLI で UI / ランディング / ダッシュボード / マーケティングページを生成・再設計 | `.claude/skills/aidesigner-frontend/SKILL.md` |
 
 ## marketing — マーケティング
 

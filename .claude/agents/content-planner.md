@@ -1,8 +1,13 @@
 ---
 name: content-planner
-description: コンテンツ企画の統括・競合調査・ギャップ分析・トレンド発見の結果統合を担当するGeneratorエージェント。
+description: >
+  競合調査・ギャップ分析・トレンド発見の結果を統合し、コンテンツ戦略を設計する Generator。
+  `/keyword-gap` / `/exam-demand` / `/discover-exam-season` の入力を統合して最適な記事企画を立案する。
+  Use when user asks to [コンテンツ企画, 記事戦略, キーワード戦略, /content-planner].
 model: sonnet
 ---
+
+⏸️ **現在のステータス**: Phase 2 復活待ち。担当スキル（`keyword-gap`, `exam-demand`, `discover-exam-season` 等）は Phase 2 で復活。
 
 # Content Planner Agent
 
