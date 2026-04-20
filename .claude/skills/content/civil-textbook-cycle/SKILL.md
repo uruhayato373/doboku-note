@@ -76,6 +76,21 @@ node .claude/skills/content/civil-textbook-cycle/scripts/civil-textbook-cycle.mj
 # → .claude/state/civil-review-queue.md
 ```
 
+### umbrella issue の生成
+
+```bash
+# draft 生成のみ（dry-run・stdout 出力）
+node .claude/skills/content/civil-textbook-cycle/scripts/civil-textbook-cycle.mjs --mode issue --round 1 --dry-run
+
+# draft をファイルに保存（.claude/state/civil-issue-draft.md）
+node .claude/skills/content/civil-textbook-cycle/scripts/civil-textbook-cycle.mjs --mode issue --round 1
+
+# gh CLI で GitHub に実際に issue 作成（gh auth login 済み前提）
+node .claude/skills/content/civil-textbook-cycle/scripts/civil-textbook-cycle.mjs --mode issue --round 1 --create
+```
+
+gh CLI が未インストール or 未認証の場合は draft のみ生成。`.claude/state/civil-issue-draft.md` を GitHub issues/new に手動で貼り付けて作成する。
+
 ### 単一スラッグの再評価・再リライト
 
 ```bash
