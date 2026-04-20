@@ -20,6 +20,7 @@
 | `strategy-advisor` | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
 | `seo-auditor` | SEO 監査（Phase 2 で復活） | Evaluator | sonnet | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2 で復活 |
 | `metrics-analyzer` | GSC/GA4 計測データから改善機会を5パターン抽出（High-Impr-Low-CTR 等） | Evaluator | sonnet | weekly-improve | ✅ 運用中 |
+| `performance-auditor` | PSI 計測データからしきい値違反・回帰を検出し、LCP 肥大・CLS 発生等の既知パターンに改善候補をマッピング | Evaluator | sonnet | psi-audit | ✅ 運用中 |
 | `content-planner` | コンテンツ企画（Phase 2 で復活） | Generator | sonnet | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2 で復活 |
 | `cem-advisor` | CEM 試験対策（総合技術監理） | Generator | sonnet | cem-content-generate, cem-study-plan（実装予定） | 🚧 計画段階 |
 | `keyword-rewriter` | CEM キーワードページのバルクリライト | Generator | sonnet | quality-cycle 連携 | ✅ 運用中 |
@@ -47,6 +48,7 @@
 | **civil-construction-review** | `.mdx`（1級土木 textbook/guide） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
 | **ui-visual-qa** | `.tsx`（`src/components/ui/**`）+ `globals.css` | 静的 lint + light/dark × desktop/mobile 視覚回帰 | UI コンポーネント変更後 |
 | **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query） | `/weekly-improve` 実行時 |
+| **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
 
