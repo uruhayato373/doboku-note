@@ -104,6 +104,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/fix-design-manual-figures` | 設計便覧 MDX の図品質問題（テキスト映り込み・出典欠落）を検出・修正 | `.claude/skills/content/fix-design-manual-figures/SKILL.md` |
 | `/ogp-create` | カテゴリ別テンプレートで OGP 画像を生成（セーフティゾーン対応・日本語改行戦略） | `.claude/skills/content/ogp-create/SKILL.md` |
 | `/quality-cycle` | キーワードページの品質サイクル（スコア → リライト → 検証 → 人間レビュー）を統合 | `.claude/skills/content/quality-cycle/SKILL.md` |
+| `/civil-textbook-cycle` | 1級土木 textbook/guide の品質サイクル（評価 → リライト → 再評価 → 人間レビュー）を統合。40件前提で CEM 版から screen/flagship を省略した4モード＋report 構成 | `.claude/skills/content/civil-textbook-cycle/SKILL.md` |
 
 ### PDF→MDX 試験特化スキル
 

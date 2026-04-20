@@ -24,6 +24,7 @@
 | `content-planner` | コンテンツ企画（Phase 2 で復活） | Generator | sonnet | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2 で復活 |
 | `cem-advisor` | CEM 試験対策（総合技術監理） | Generator | sonnet | cem-content-generate, cem-study-plan（実装予定） | 🚧 計画段階 |
 | `keyword-rewriter` | CEM キーワードページのバルクリライト | Generator | sonnet | quality-cycle 連携 | ✅ 運用中 |
+| `civil-textbook-rewriter` | 1級土木 textbook/guide ページのバルクリライト | Generator | sonnet | civil-textbook-cycle 連携 | ✅ 運用中 |
 | `aidesigner-frontend` | AIDesigner を使った UI 生成（ランディング・ダッシュボード等） | Generator | sonnet | AIDesigner MCP + CLI | ✅ 運用中 |
 
 ## Generator と Evaluator の分離原則
@@ -62,7 +63,9 @@
 | 週次 PDCA（簡略版） | strategy-advisor（weekly-review → weekly-plan） |
 | CEM 試験対策 | cem-advisor（cem-content-generate → cem-study-plan） |
 | キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
+| キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
 | 1級土木 textbook 変換 | `/civil-construction-1-pdf-to-mdx`（Generator） → `civil-construction-qa`（Evaluator） → `/verify-pdf-mdx` |
+| 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-review`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
 | UI コンポーネント変更 | 親エージェント or `/aidesigner-frontend`（Generator） → `ui-visual-qa`（Evaluator） → `/simplify` で修正 |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
