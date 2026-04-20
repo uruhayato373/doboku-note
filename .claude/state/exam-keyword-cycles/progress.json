@@ -9,7 +9,22 @@
         "status": "in_review",
         "keywords": ["business-continuity-plan", "risk-management-plan"]
       }
+    },
+    "pe-comprehensive-management-r06-primary": {
+      "1-35": {
+        "date": "2026-04-20",
+        "pr": null,
+        "status": "in_review",
+        "keywords": [
+          "nagoya-protocol",
+          "biosafety",
+          "convention-on-biodiversity",
+          "cites",
+          "ipbes",
+          "kunming-montreal-framework"
+        ]
+      }
     }
   },
-  "last_cycle": { "exam": "r07-primary", "question": "1-1" }
+  "last_cycle": { "exam": "r06-primary", "question": "1-35" }
 }
