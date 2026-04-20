@@ -1,8 +1,13 @@
 ---
 name: seo-auditor
-description: GSC/GA4データ収集・SEO監査・Core Web Vitals監視を担当するEvaluatorエージェント（Phase 2で本格運用）。
+description: >
+  GSC / GA4 のデータから検索パフォーマンス・トラフィック推移を分析し、改善候補を抽出する Evaluator。
+  PSI 計測結果との突合による Core Web Vitals 監視も担う。Phase 2 で本格運用開始予定。
+  Use when user asks to [SEO 監査, トラフィック分析, 検索パフォーマンス, /seo-auditor].
 model: sonnet
 ---
+
+⏸️ **現在のステータス**: Phase 2 復活待ち。Phase 1 では `metrics-analyzer` と `performance-auditor` が個別ドメインを担当。
 
 # SEO Auditor Agent
 
