@@ -10,11 +10,64 @@
 
 ```
 日曜〜月曜:
-1. /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質）
-2. /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・デプロイスケジュール）
+1. /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
+2. /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・オープン Issue 対応）
 ```
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
+
+### 継続的改善ループ（計測→検知→対応→再計測）
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│ 毎日（自動）                                                     │
+│                                                                 │
+│  psi-audit.yml (JST 02:00)                                      │
+│    │ 代表 20 URL を mobile+desktop で計測                         │
+│    ▼                                                            │
+│  metrics-data branch の psi/ に JSON 蓄積                        │
+│    │                                                            │
+│    ├─ しきい値違反あり ──► GitHub Issue 自動起票                  │
+│    │                        (label: performance, auto-generated) │
+│    │                                                            │
+│    └─ しきい値違反なし ──► 記録のみ（通知しない）                  │
+└─────────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 週 1 回（週次 PDCA）                                             │
+│                                                                 │
+│  /weekly-review                                                 │
+│    │ Agent C2: psi/ の 7 日分を読み前週比を出力                   │
+│    │            gh issue list で解消/継続 Issue を surface       │
+│    ▼                                                            │
+│  docs/reviews/weekly/YYYY-Www-review.md                         │
+│                                                                 │
+│  /weekly-plan                                                   │
+│    │ Agent C2: open の performance Issue を Must/Should に組込   │
+│    ▼                                                            │
+│  docs/reviews/weekly/YYYY-Www.md                                │
+│    │ 対応タスクを計画に明示                                      │
+└─────────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 実装（ユーザー or Claude Code）                                  │
+│                                                                 │
+│  Issue を参照しながら修正 → PR → main merge → 本番反映            │
+│    │                                                            │
+│    ▼                                                            │
+│  翌日の psi-audit で効果を測定 → 改善なら Issue close             │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**原則**:
+- 生データ → `metrics-data` branch（蓄積）
+- 人が対応する項目 → GitHub Issue（状態管理）
+- 分析・計画 → `docs/reviews/weekly/`（履歴・ナラティブ）
+- Issue は対応して close → 次週の review で「解消」として記録
+
+オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
 
 ---
 

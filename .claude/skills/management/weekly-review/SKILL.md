@@ -99,6 +99,26 @@ B. 実験進捗レポート:
 コメント: 次サイクルで試すべき仮説を 1-2 個提示
 ```
 
+#### Agent C2: PSI パフォーマンス推移
+
+```
+調査項目:
+- .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions が毎日生成）
+  - metrics-data ブランチの psi/ サブディレクトリに蓄積されたもの
+- .claude/config/psi-config.json のしきい値
+- gh issue list --label performance --state open --json number,title,createdAt（完了済み・継続中の Issue 確認用）
+- gh issue list --label performance --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
+
+分析項目:
+- 今週の違反件数 vs 先週
+- 各 URL の Performance スコア・LCP の前週比
+- 今週新規発生した違反
+- 今週解消した違反（closed Issue から抽出）
+- 放置されている Issue（7 日以上 open）
+
+出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む
+```
+
 #### Agent D: 計画との差分
 
 ```
@@ -187,6 +207,25 @@ generatedAt: "YYYY-MM-DD"
 
 ### 次サイクルへの仮説
 - （Agent C が running/closed の学びから提示）
+
+## PSI パフォーマンス推移
+
+<!-- Agent C2 が metrics-data branch の psi/ と open/closed Issues から自動生成。
+     今週の違反件数、スコア前週比、新規/解消した違反を記録。 -->
+
+### Core Web Vitals 前週比
+
+| URL | Perf | LCP | CLS | 違反状態 |
+|---|---|---|---|---|
+
+### 今週の変動
+
+- **新規発生**: （件数）件 — 例: `/docs/xxx` で LCP 4.2s (Issue #N)
+- **解消**: （件数）件 — 例: `/docs/yyy` Perf 62→78 (Issue #N closed)
+- **継続放置**: （件数）件 — 7 日以上 open の Issue 一覧
+
+### 洞察
+- 改善が見える領域・退行した領域・次週の焦点
 
 ## その他パフォーマンス（必要に応じて）
 

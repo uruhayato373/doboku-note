@@ -96,6 +96,36 @@ node .claude/scripts/snapshot-weekly-metrics.mjs
 - サービスアカウントが GSC/GA4 両方で閲覧者権限を持つ
 - 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
 
+#### Agent C2: オープンの改善 Issue
+
+```
+調査方法:
+- gh issue list --label performance --state open --json number,title,createdAt,url --limit 50
+- gh issue list --label auto-generated --state open --json number,title,createdAt,url --limit 50
+- `.claude/state/improvements/psi-*.md` の直近 7 日分（performance-auditor の改善候補レポート）
+  - 違反パターン別（LCP 肥大・CLS 発生等）の Critical / High 候補
+
+分析項目:
+- open 期間（放置期間）— 7 日以上は Must 候補
+- Critical 優先度の改善候補は件数多くても上位 2-3 件を Should に入れる
+- 同一 URL に複数 Issue が立っている場合はまとめて 1 タスク化
+
+出力形式: 「## オープンの改善 Issue」セクションとして以下構造で:
+
+## オープンの改善 Issue
+
+### Critical（放置 7 日以上 または LCP/CLS 大幅超過）
+| Issue | 内容 | 放置日数 | 対応方針 |
+|---|---|---|---|
+| #N | /docs/xxx LCP 4.2s | 10 日 | Hero 画像 priority 指定 |
+
+### High（PSI 改善候補から）
+| 候補 | 対象 URL | 改善パターン |
+|---|---|---|
+
+これらを Phase 3 の Must / Should 候補として組み込む。
+```
+
 #### Agent D: トレンド・検索需要
 
 ```
@@ -169,6 +199,20 @@ generatedAt: "YYYY-MM-DD"
 
 | ID | title | status | 次のアクション |
 |---|---|---|---|
+
+## オープンの改善 Issue（前週からの継続）
+
+<!-- Agent C2 が gh issue list（performance ラベル）と
+     .claude/state/improvements/psi-*.md から自動生成。
+     Must/Should 候補の根拠となる。 -->
+
+### Critical（放置 7 日以上）
+| Issue | 内容 | 放置日数 |
+|---|---|---|
+
+### High（今週対応候補）
+| 候補 | 対象 URL | 改善パターン |
+|---|---|---|
 
 ## 今週のタスク
 
