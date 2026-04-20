@@ -22,6 +22,7 @@
 | `/knowledge` | 過去の失敗と学びを参照・追記 | `.claude/skills/management/knowledge/SKILL.md` |
 | `/pre-mortem` | Pre-Mortem の実施 | `.claude/skills/management/pre-mortem/SKILL.md` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理（propose → start → measure → close、state: `.claude/state/experiments.json`） | `.claude/skills/management/nsm-experiment/SKILL.md` |
+| `/distill-proofread-learnings` | 直近の校正作業（git 差分＋ユーザー指示）から新規ルール・既存原則精緻化・ユーザー嗜好を抽出し、content-principles.md / memory / 関連スキルに反映するメタスキル | `.claude/skills/management/distill-proofread-learnings/SKILL.md` |
 
 ## analytics — サイト分析（Phase 2で復活）
 
