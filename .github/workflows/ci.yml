@@ -1,4 +1,4 @@
-name: CI
+name: Pre-merge check (type + test + build)
 
 on:
   pull_request:

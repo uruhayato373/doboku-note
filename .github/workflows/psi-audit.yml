@@ -1,0 +1,85 @@
+name: Audit performance (PSI)
+
+on:
+  schedule:
+    - cron: "0 17 * * *" # JST 02:00 daily (UTC 17:00)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Run PSI audit (mobile + desktop)
+        env:
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+        run: npm run fetch-psi-audit
+
+      - name: Threshold check and report
+        id: check
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/psi-report
+          npm run psi-audit:check -- --output /tmp/psi-report/report.md
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+
+      - name: Stage outputs
+        run: |
+          mkdir -p /tmp/psi-publish
+          cp -r .claude/state/metrics/psi/* /tmp/psi-publish/ 2>/dev/null || true
+          cp /tmp/psi-report/report.md /tmp/psi-publish/latest-report.md 2>/dev/null || true
+          ls -la /tmp/psi-publish
+
+      - name: Publish to metrics-data branch (psi/ subdir)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          if git ls-remote --heads origin metrics-data | grep -q metrics-data; then
+            git fetch origin metrics-data
+            git checkout metrics-data
+            git rm -rf psi 2>/dev/null || true
+          else
+            git checkout --orphan metrics-data
+            git rm -rf . 2>/dev/null || true
+          fi
+
+          mkdir -p psi
+          cp -r /tmp/psi-publish/* psi/ 2>/dev/null || true
+
+          git add psi
+          if git diff --cached --quiet; then
+            echo "No PSI changes to publish"
+            exit 0
+          fi
+
+          git commit -m "metrics(psi): daily audit $(date -u +%Y-%m-%dT%H:%MZ)"
+          git push origin metrics-data
+
+      - name: Open issue on threshold violations
+        if: steps.check.outputs.exit_code == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          TITLE="[PSI] しきい値割れ検知 ${DATE}"
+          BODY_FILE=/tmp/psi-report/report.md
+          gh issue create \
+            --title "$TITLE" \
+            --label "performance,auto-generated" \
+            --body-file "$BODY_FILE"

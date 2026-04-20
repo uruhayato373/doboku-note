@@ -23,6 +23,8 @@
     "fetch-gsc-data": "node .claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs",
     "fetch-ga4-data": "node .claude/scripts/fetch-ga4-data.mjs",
     "fetch-psi-data": "node .claude/scripts/fetch-psi-data.mjs",
+    "fetch-psi-audit": "node .claude/scripts/fetch-psi-data.mjs --file .claude/config/psi-urls.txt --strategy mobile && node .claude/scripts/fetch-psi-data.mjs --file .claude/config/psi-urls.txt --strategy desktop",
+    "psi-audit:check": "node .claude/scripts/psi-threshold-check.mjs",
     "inspect-url": "node .claude/scripts/inspect-url.mjs",
     "validate-mdx": "node .claude/scripts/validate-mdx.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs",
