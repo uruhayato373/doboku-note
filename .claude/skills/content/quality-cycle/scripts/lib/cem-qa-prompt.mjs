@@ -101,7 +101,7 @@ ${gInstructions}
   5. G パターン: 既存の該当する表を箇条書きに変換（既存構造の in-place 変更）
   6. frontmatter に以下を追加（既存値があれば上書き）:
      - reviewStatus: needs-review
-     - lastRewrittenAt: ${new Date().toISOString().split('T')[0]}
+     - lastRewrittenAt: ${new Date().toISOString()}  // ISO 8601 秒単位（並行作業検出用）
      - revisionCycle: 1（既存値があれば +1）
   7. 改行コードは元ファイルを保持（.claude/scripts/lib/mdx-io.mjs を必ず使う）
   8. Edit ツールで書き戻し
