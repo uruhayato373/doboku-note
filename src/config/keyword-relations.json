@@ -1,23 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-04-21T02:05:46.638Z",
+  "generated_at": "2026-04-21T02:22:02.341Z",
   "summary": {
-    "total_keywords": 640,
-    "published_keywords": 639,
-    "keywords_with_relations": 639,
+    "total_keywords": 649,
+    "published_keywords": 648,
+    "keywords_with_relations": 648,
     "keywords_below_target": 0,
     "isolated_keywords": [],
     "orphan_slugs_warned": [
-      "analytic-hierarchy-process",
-      "business-continuity-plan",
-      "cause-and-effect-diagram",
-      "four-m-of-production",
-      "general-overview",
-      "idea-generation-methods",
-      "key-performance-indicators",
-      "pdca-cycle",
-      "pfi",
-      "value-engineering"
+      "general-overview"
     ],
     "missing_mdx_slugs": [
       "bcp-crisis-management"
@@ -104,6 +95,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -114,14 +113,6 @@
       {
         "slug": "construction-plan",
         "label": "工事計画",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -185,6 +176,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -203,14 +202,6 @@
       {
         "slug": "cost-effectiveness-analysis",
         "label": "費用効果分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -227,6 +218,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -245,14 +244,6 @@
       {
         "slug": "cost-effectiveness-analysis",
         "label": "費用効果分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -269,6 +260,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -287,14 +286,6 @@
       {
         "slug": "cost-effectiveness-analysis",
         "label": "費用効果分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -311,6 +302,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -329,14 +328,6 @@
       {
         "slug": "cost-effectiveness-analysis",
         "label": "費用効果分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -391,6 +382,15 @@
     ],
     "supply-chain-management": [
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "jit-production",
         "label": "JIT生産方式",
         "score": 13,
@@ -424,14 +424,6 @@
         "signals": [
           "chapter",
           "exam"
-        ]
-      },
-      {
-        "slug": "budget-planning",
-        "label": "予算計画",
-        "score": 10,
-        "signals": [
-          "section"
         ]
       }
     ],
@@ -575,6 +567,15 @@
     ],
     "lifecycle-management": [
       {
+        "slug": "pfi",
+        "label": "PFI",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "lifecycle-costing-method",
         "label": "ライフサイクルコスティング",
         "score": 13,
@@ -601,16 +602,8 @@
         ]
       },
       {
-        "slug": "concurrent-engineering",
-        "label": "コンカレントエンジニアリング",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "construction-plan",
-        "label": "工事計画",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
@@ -666,6 +659,15 @@
     ],
     "safety-health-plan": [
       {
+        "slug": "pdca-cycle",
+        "label": "PDCAサイクル",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "risk-assessment",
         "label": "リスク評価",
         "score": 12,
@@ -683,24 +685,16 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "construction-plan",
-        "label": "工事計画",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
         "score": 10,
         "signals": [
           "section"
@@ -717,6 +711,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -735,14 +737,6 @@
       {
         "slug": "cost-effectiveness-analysis",
         "label": "費用効果分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -854,6 +848,15 @@
         ]
       },
       {
+        "slug": "pfi",
+        "label": "PFI",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "budget-planning",
         "label": "予算計画",
         "score": 10,
@@ -862,24 +865,16 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "cost-effectiveness-analysis",
-        "label": "費用効果分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -943,6 +938,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -961,14 +964,6 @@
       {
         "slug": "cost-effectiveness-analysis",
         "label": "費用効果分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "dcf-method",
-        "label": "DCF法",
         "score": 10,
         "signals": [
           "section"
@@ -1003,16 +998,16 @@
         ]
       },
       {
-        "slug": "concurrent-engineering",
-        "label": "コンカレントエンジニアリング",
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
         "score": 10,
         "signals": [
           "section"
         ]
       },
       {
-        "slug": "construction-plan",
-        "label": "工事計画",
+        "slug": "concurrent-engineering",
+        "label": "コンカレントエンジニアリング",
         "score": 10,
         "signals": [
           "section"
@@ -1255,6 +1250,14 @@
     ],
     "budget-planning": [
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
         "score": 10,
@@ -1285,13 +1288,232 @@
         "signals": [
           "section"
         ]
+      }
+    ],
+    "business-continuity-plan": [
+      {
+        "slug": "supply-chain-management",
+        "label": "サプライチェーンマネジメント（SCM）",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
       },
       {
-        "slug": "demand-forecasting",
-        "label": "需要予測",
+        "slug": "crisis-management-manual",
+        "label": "危機管理マニュアル",
+        "score": 16,
+        "signals": [
+          "exam"
+        ]
+      },
+      {
+        "slug": "emergency",
+        "label": "緊急事態",
+        "score": 12,
+        "signals": [
+          "exam"
+        ]
+      },
+      {
+        "slug": "budget-planning",
+        "label": "予算計画",
         "score": 10,
         "signals": [
           "section"
+        ]
+      },
+      {
+        "slug": "concurrent-engineering",
+        "label": "コンカレントエンジニアリング",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "four-m-of-production": [
+      {
+        "slug": "key-performance-indicators",
+        "label": "KGI・KSF・KPI",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pdca-cycle",
+        "label": "PDCAサイクル",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pfi",
+        "label": "PFI",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "budget-planning",
+        "label": "予算計画",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "key-performance-indicators": [
+      {
+        "slug": "four-m-of-production",
+        "label": "生産の4M",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pdca-cycle",
+        "label": "PDCAサイクル",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pfi",
+        "label": "PFI",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "budget-planning",
+        "label": "予算計画",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "pdca-cycle": [
+      {
+        "slug": "four-m-of-production",
+        "label": "生産の4M",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "key-performance-indicators",
+        "label": "KGI・KSF・KPI",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pfi",
+        "label": "PFI",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "risk-assessment",
+        "label": "リスク評価",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "safety-health-plan",
+        "label": "安全衛生計画",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      }
+    ],
+    "pfi": [
+      {
+        "slug": "investment-recovery-plan",
+        "label": "投資回収計画",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "lifecycle-management",
+        "label": "ライフサイクルマネジメント",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "four-m-of-production",
+        "label": "生産の4M",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "key-performance-indicators",
+        "label": "KGI・KSF・KPI",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pdca-cycle",
+        "label": "PDCAサイクル",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
         ]
       }
     ],
@@ -5013,6 +5235,15 @@
         ]
       },
       {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "delphi-method",
         "label": "デルファイ法",
         "score": 12,
@@ -5029,18 +5260,27 @@
           "section",
           "exam"
         ]
-      },
+      }
+    ],
+    "delphi-method": [
       {
-        "slug": "monte-carlo-simulation",
-        "label": "モンテカルロシミュレーション",
-        "score": 12,
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 16,
         "signals": [
           "section",
           "exam"
         ]
-      }
-    ],
-    "delphi-method": [
+      },
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
       {
         "slug": "game-theory",
         "label": "ゲーム理論",
@@ -5067,23 +5307,6 @@
           "section",
           "exam"
         ]
-      },
-      {
-        "slug": "pdpc-method",
-        "label": "過程決定計画図（PDPC法）",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "economic-comparison-principle",
-        "label": "経済性の比較の原則",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
       }
     ],
     "monte-carlo-simulation": [
@@ -5106,24 +5329,24 @@
         ]
       },
       {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "delphi-method",
         "label": "デルファイ法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "economic-comparison-principle",
-        "label": "経済性の比較の原則",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "integer-programming",
-        "label": "整数計画法",
         "score": 10,
         "signals": [
           "section"
@@ -5131,6 +5354,24 @@
       }
     ],
     "pdpc-method": [
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 18,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
       {
         "slug": "delphi-method",
         "label": "デルファイ法",
@@ -5155,25 +5396,25 @@
         "signals": [
           "section"
         ]
-      },
-      {
-        "slug": "integer-programming",
-        "label": "整数計画法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "linear-programming",
-        "label": "線形計画法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
       }
     ],
     "opportunity-cost": [
+      {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
       {
         "slug": "delphi-method",
         "label": "デルファイ法",
@@ -5193,22 +5434,6 @@
       {
         "slug": "game-theory",
         "label": "ゲーム理論",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "integer-programming",
-        "label": "整数計画法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "linear-programming",
-        "label": "線形計画法",
         "score": 10,
         "signals": [
           "section"
@@ -5226,6 +5451,22 @@
         ]
       },
       {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
         "slug": "delphi-method",
         "label": "デルファイ法",
         "score": 10,
@@ -5236,22 +5477,6 @@
       {
         "slug": "game-theory",
         "label": "ゲーム理論",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "integer-programming",
-        "label": "整数計画法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "linear-programming",
-        "label": "線形計画法",
         "score": 10,
         "signals": [
           "section"
@@ -5334,16 +5559,16 @@
         ]
       },
       {
-        "slug": "delphi-method",
-        "label": "デルファイ法",
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
         "score": 10,
         "signals": [
           "section"
         ]
       },
       {
-        "slug": "economic-comparison-principle",
-        "label": "経済性の比較の原則",
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
         "score": 10,
         "signals": [
           "section"
@@ -5379,8 +5604,8 @@
         ]
       },
       {
-        "slug": "delphi-method",
-        "label": "デルファイ法",
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
         "score": 12,
         "signals": [
           "section",
@@ -5388,8 +5613,8 @@
         ]
       },
       {
-        "slug": "monte-carlo-simulation",
-        "label": "モンテカルロシミュレーション",
+        "slug": "delphi-method",
+        "label": "デルファイ法",
         "score": 12,
         "signals": [
           "section",
@@ -5426,12 +5651,195 @@
         ]
       },
       {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "delphi-method",
         "label": "デルファイ法",
         "score": 12,
         "signals": [
           "section",
           "exam"
+        ]
+      }
+    ],
+    "analytic-hierarchy-process": [
+      {
+        "slug": "delphi-method",
+        "label": "デルファイ法",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "idea-generation-methods",
+        "label": "発想法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "value-engineering",
+        "label": "VE・VA",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "game-theory",
+        "label": "ゲーム理論",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      }
+    ],
+    "cause-and-effect-diagram": [
+      {
+        "slug": "pdpc-method",
+        "label": "過程決定計画図（PDPC法）",
+        "score": 18,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "delphi-method",
+        "label": "デルファイ法",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "quality-control",
+        "label": "品質管理",
+        "score": 11,
+        "signals": [
+          "chapter",
+          "exam"
+        ]
+      },
+      {
+        "slug": "quality-improvement",
+        "label": "品質改善活動",
+        "score": 11,
+        "signals": [
+          "chapter",
+          "exam"
+        ]
+      }
+    ],
+    "idea-generation-methods": [
+      {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "value-engineering",
+        "label": "VE・VA",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "delphi-method",
+        "label": "デルファイ法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "economic-comparison-principle",
+        "label": "経済性の比較の原則",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "value-engineering": [
+      {
+        "slug": "analytic-hierarchy-process",
+        "label": "階層分析法（AHP）",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "idea-generation-methods",
+        "label": "発想法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cause-and-effect-diagram",
+        "label": "特性要因図",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "delphi-method",
+        "label": "デルファイ法",
+        "score": 10,
+        "signals": [
+          "section"
         ]
       },
       {
@@ -22631,6 +23039,14 @@
         ]
       },
       {
+        "slug": "business-continuity-plan",
+        "label": "BCP・BCM",
+        "score": 16,
+        "signals": [
+          "exam"
+        ]
+      },
+      {
         "slug": "contingency",
         "label": "不測事態",
         "score": 12,
@@ -22642,15 +23058,6 @@
       {
         "slug": "crisis-priority",
         "label": "優先順位",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "disaster-countermeasures-act",
-        "label": "災害対策基本法",
         "score": 12,
         "signals": [
           "section",
