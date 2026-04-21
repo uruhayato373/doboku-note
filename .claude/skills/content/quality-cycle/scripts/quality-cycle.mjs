@@ -111,6 +111,33 @@ Options:
 `);
 }
 
+// ── 共通: 並行作業検出（lastRewrittenAt が直近に更新された slug を skip） ──
+
+// bulk 処理の最小インターバル（分）。この範囲内に lastRewrittenAt が更新された
+// slug は別プロセス（個別リライト、並行サイクル等）が触っている可能性があるため skip。
+const MIN_REWRITE_INTERVAL_MINUTES = 240; // 4 時間
+
+function getLastRewrittenAt(slug) {
+  const filePath = join(BASE_DIR, slug, 'article.mdx');
+  if (!existsSync(filePath)) return null;
+  try {
+    const raw = readFileSync(filePath, 'utf-8');
+    const { data } = matter(raw);
+    return data.lastRewrittenAt || null;
+  } catch {
+    return null;
+  }
+}
+
+function isRecentlyRewritten(slug, minIntervalMinutes = MIN_REWRITE_INTERVAL_MINUTES) {
+  const ts = getLastRewrittenAt(slug);
+  if (!ts) return false;
+  const d = new Date(ts);
+  if (Number.isNaN(d.getTime())) return false;
+  const ageMs = Date.now() - d.getTime();
+  return ageMs < minIntervalMinutes * 60 * 1000;
+}
+
 // ── 共通: keyword ページ列挙 ────────────────────────────────────
 
 function listKeywordPages() {
@@ -327,12 +354,21 @@ function runRewrite(args) {
       .map(([slug]) => slug),
   );
 
+  // 並行作業検出で skip された slug を記録（ログ用）
+  const skippedRecent = [];
+
   let candidates = Object.entries(scores.pages)
     .filter(([slug, p]) => {
       if (alreadyHandled.has(slug)) return false;
       if (args.flagshipOnly && !flagshipSet.has(slug)) return false;
       if (p.weighted >= threshold) return false;
       if (args.minWeighted !== undefined && p.weighted < args.minWeighted) return false;
+      // 直近 MIN_REWRITE_INTERVAL_MINUTES 以内に更新された slug は別プロセスが
+      // 触っている可能性があるため skip（並行作業の差分衝突を防ぐ）
+      if (isRecentlyRewritten(slug)) {
+        skippedRecent.push(slug);
+        return false;
+      }
       return true;
     })
     .sort(([, a], [, b]) => a.weighted - b.weighted);
@@ -350,6 +386,9 @@ function runRewrite(args) {
   console.log(`[rewrite] 対象: ${candidates.length} 件 (バッチサイズ ${batch})`);
   if (alreadyHandled.size > 0) {
     console.log(`[rewrite] 既処理スキップ: ${alreadyHandled.size} 件`);
+  }
+  if (skippedRecent.length > 0) {
+    console.log(`[rewrite] 並行作業検出スキップ: ${skippedRecent.length} 件 (直近 ${MIN_REWRITE_INTERVAL_MINUTES} 分以内に lastRewrittenAt 更新)`);
   }
 
   if (args.dryRun) {

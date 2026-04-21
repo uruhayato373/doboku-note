@@ -64,7 +64,7 @@ model: sonnet
   - 短い一文で済む事実を Callout 化すると強調が希薄化するため、2〜4 文の実質的な内容にまとめる
 - frontmatter に以下を追加:
   - `reviewStatus: needs-review`
-  - `lastRewrittenAt: YYYY-MM-DD`
+  - `lastRewrittenAt: ISO 8601 秒単位`（例: `'2026-04-21T12:34:56.789Z'`、並行作業検出と品質劣化の可視化に使用。UI では日付部分のみ「最終レビュー: YYYY年M月D日」で表示）
   - `revisionCycle: 1`（既存値があれば +1）
 
 ### やってはいけないこと

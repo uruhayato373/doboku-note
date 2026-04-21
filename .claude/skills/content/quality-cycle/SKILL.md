@@ -115,6 +115,7 @@ unscored → scored → rewriting → needs-review → verified → approved
 - **拡張パターンの多様化**: `keyword-rewriter` は各ページに違うパターンを選ぶよう設計されているが、念のため目視確認推奨
 - **コスト**: Tier 2 評価は LLM 呼び出しを伴う。200 件で約 5〜15 分。コスト発生
 - **べき等**: 一度評価したページはキャッシュされる。再実行で重複しない
+- **並行作業検出**（rewrite モード）: frontmatter `lastRewrittenAt` が直近 4 時間以内に更新された slug は自動 skip される（`MIN_REWRITE_INTERVAL_MINUTES`）。個別リライトや exam-keyword-cycle と並行実行しても差分衝突を防ぐ。`lastRewrittenAt` は ISO 8601 秒単位（例: `'2026-04-21T12:34:56Z'`）で記録される
 
 ## 連携スキル・エージェント
 
