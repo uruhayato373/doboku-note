@@ -587,3 +587,16 @@
 .katex .cjk_fallback {
   font-family: inherit;
 }
+
+/* KaTeX display 数式ブロックを視覚区別する
+   - 薄い surface 色で「ここは式ブロック」と即認識可能に
+   - 既存 Callout・カードと同じ design language で統一
+   - overflow-x: auto でモバイル幅の長い式（分数行列等）に対応
+   背景: Issue #52 継続改善 */
+.katex-display {
+  background: var(--color-surface);
+  border-radius: var(--radius-card-content);
+  padding: 1rem 1.25rem;
+  margin: 1.5em 0;
+  overflow-x: auto;
+}
