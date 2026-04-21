@@ -1,7 +1,7 @@
 ---
 name: weekly-plan
 description: >
-  週次実行計画を並列サブエージェントで生成し `docs/reviews/weekly/` に保存する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
+  週次実行計画を並列サブエージェントで生成し、同週の `[PDCA] YYYY-Www` Issue の body に「来週の計画」セクションとして追記する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
 ---
 
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
@@ -161,21 +161,31 @@ node .claude/scripts/snapshot-weekly-metrics.mjs
 2. 「先週と同じ失敗を繰り返してないか？」— 前週の計画と照合
 3. 「今週やらないと機会損失になるものは？」— 試験シーズン等のタイミング
 
-### Phase 5: 出力
+### Phase 5: 出力（GitHub Issue に追記）
 
-`docs/reviews/weekly/YYYY-Www.md` に保存する。
+生成した markdown を、同週の `[PDCA] YYYY-Www` Issue の body に「---」区切りで追記する。
 
-## 出力フォーマット
+```bash
+# 1. 既存 Issue の body を取得
+ISSUE_NUM=$(gh issue list --label weekly-pdca --search "[PDCA] YYYY-Www in:title" --state open --json number --jq '.[0].number')
+
+# 2. 既存 body + 計画セクション を合成して更新
+gh issue view $ISSUE_NUM --json body --jq .body > /tmp/existing-body.md
+cat /tmp/existing-body.md > /tmp/updated-body.md
+echo "" >> /tmp/updated-body.md
+echo "---" >> /tmp/updated-body.md
+cat /tmp/weekly-plan-section.md >> /tmp/updated-body.md
+gh issue edit $ISSUE_NUM --body-file /tmp/updated-body.md
+```
+
+先に `/weekly-review` が Issue を作成している前提。Issue が存在しない場合は `gh issue create` で計画のみで新規作成してよい（この場合 body 冒頭に「# 来週の計画」の見出しを追加）。
+
+## 出力フォーマット（Issue body の追記セクション）
 
 ```markdown
----
-week: "YYYY-Www"
-generatedAt: "YYYY-MM-DD"
----
+## 来週の計画
 
-# 週次計画 YYYY-Www
-
-## 前週の振り返り (W-1)
+### 前週の振り返り (W-1)
 
 | タスク | 分類 | 状態 | メモ |
 |---|---|---|---|

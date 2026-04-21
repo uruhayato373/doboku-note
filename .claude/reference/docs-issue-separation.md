@@ -1,10 +1,40 @@
-# docs/project と GitHub Issue の役割分離ルール
+# 情報蓄積の 3 層分離ルール（md / Issue / JSON）
 
-`docs/project/*.md` に「Why/戦略」と「実行タスク TODO」が混在すると、進捗把握と更新コストが跳ね上がる。真実源を分離し、週次メンテで同期する。
+doboku-note では情報を 3 層に分離して管理する。状態（open/close の概念）を持つ情報が md に埋もれて棚卸しが起きない状態を防ぐため、情報の性質に応じて置き場を固定する。
 
 - **真実源を一箇所に固定**し、反対側は参照リンクのみにする（転記禁止）
 - 週次の `/weekly-review` Agent G が Umbrella Issue を棚卸しして drift を検出する
-- 新規に「やるべきこと」を書きたくなったら、まず Issue（Umbrella の checklist 項目）として追加する
+- 新規に「やるべきこと」を書きたくなったら、まず Issue として追加する
+
+## 3 層モデル
+
+| Tier | 置き場 | 用途 | 典型例 |
+|---|---|---|---|
+| **Tier 1** | GitHub Issue | 状態を持つ action item（open/close したい） | 週次 PDCA、session-handoff、棚卸しフォロー、レビュー待ち、単発タスク、PSI 違反、Umbrella |
+| **Tier 2** | Markdown (`docs/project/`, `.claude/reference/`, `.claude/skills/**/SKILL.md`) | 固定的知識・戦略・ADR・スキル定義 | 設計思想、収益化戦略、ロードマップの Why、作業マニュアル |
+| **Tier 3** | JSON (`.claude/state/*.json`, `.claude/config/*.json`) | 機械可読な構造化データ | 計測結果（PSI/GA4/GSC）、品質スコア、実験状態、サイクル進捗 |
+
+### 判断フロー
+
+1. 「2 ヶ月後も参照価値があるか」→ Yes なら Tier 2（md）
+2. 「エージェントが programmatic に読むか」→ Yes なら Tier 3（JSON）
+3. 「open/close したいか、誰かが完了判定するか」→ Yes なら Tier 1（Issue）
+
+**md を禁止する場所**: `.claude/state/*.md`（README.md を除く）。状態を持つ情報はすべて Issue へ。
+
+## ラベル体系
+
+| ラベル | 用途 | Issue 例 | テンプレート |
+|---|---|---|---|
+| `umbrella` | 親 Issue（長期計画・複数子 Issue 追跡） | `[Umbrella] civil-textbook Round 1` | `.github/ISSUE_TEMPLATE/umbrella.md` |
+| `weekly-pdca` | 週次 PDCA（計画 + レビュー一本化） | `[PDCA] 2026-W17` | `.github/ISSUE_TEMPLATE/weekly-pdca.md` |
+| `session-handoff` | セッション引き継ぎ | `[Handoff] 2026-04-21 exam-keyword-cycle` | `.github/ISSUE_TEMPLATE/session-handoff.md` |
+| `performance` | PSI しきい値違反 | `[PSI] しきい値割れ検知 2026-04-21` | （`psi-audit.yml` が自動起票） |
+| `content-cycle` | 過去問起点の校正サイクル | `[Cycle] R07 Ⅰ-1-1` | Umbrella 流用 |
+| `inventory` | 棚卸し結果のフォロー | `[Inventory] docs/project 2026-04` | Umbrella 流用 |
+| `queue` | レビュー待ち・キュー | `[Queue] pe-comprehensive レビュー待ち` | `.github/ISSUE_TEMPLATE/queue.md` |
+| `task` | 単発作業 | `[Task] AdSense 再申請 2026-04` | `.github/ISSUE_TEMPLATE/task.md` |
+| `auto-generated` | 自動起票（必ず人がトリアージ） | 付属ラベル | - |
 
 ## 真実源マトリクス
 
@@ -15,6 +45,9 @@
 | 実行タスクの状態（open / closed） | **Issue** | md には `追跡 Issue: #N` を 1 行書く。個別 checklist は md に書かない |
 | 進捗率 / 完了タイミング | **Issue の checkbox と close** | md では言及しない |
 | 実装詳細（コード・テストコマンド等） | **Issue の checklist 項目 or PR** | md は方針のみ |
+| 週次 PDCA（計画 + レビュー） | **Issue** `[PDCA] YYYY-Www`（`weekly-pdca` label） | 旧 `docs/reviews/weekly/*.md` は `archive/` のみに残す |
+| セッション引き継ぎ | **Issue** `[Handoff] YYYY-MM-DD <ctx>`（`session-handoff` label） | `.claude/state/session-handoff-*.md` は作らない |
+| 計測生データ（PSI/GA4/GSC） | **JSON** `.claude/state/metrics/*.json`（CI が develop に直接 commit） | Issue 化しない（機械可読性が落ちる） |
 
 迷ったら: 「2 ヶ月後も残すべき文書的価値があるか」→ Yes なら md、No なら Issue。
 
@@ -77,6 +110,28 @@
 - `/civil-textbook-cycle` は既に `gh issue create --body-file` で Umbrella Issue を作成している。本ルールに沿わせる場合、タイトルを `[Umbrella] civil-textbook Round N` に、ラベルを `umbrella` に統一
 - PSI 違反 Issue（`auto-generated`, `performance` ラベル）は個別 Issue であり Umbrella ではない。対象外
 
-## Pilot
+## 週次 PDCA Issue 運用（2026-04 〜）
 
-本ルールはまず `docs/project/25_exam-keyword-cycle-roadmap.md` で Pilot 運用する。2-3 週間様子を見てから他 `docs/project/*.md` に展開する。摩擦が出た場合のみスキル化（`/docs-issue-sync` 等）を検討する（現時点では手運用で十分）。
+`/weekly-review` が毎週日曜に `[PDCA] YYYY-Www` Issue を 1 本作成する。
+
+- **タイトル**: `[PDCA] YYYY-Www`（例: `[PDCA] 2026-W17`）
+- **ラベル**: `weekly-pdca`（+ 任意で `auto-generated`）
+- **Body**: Agent A〜G（weekly-review SKILL.md の 7 サブエージェント）の出力を見出し別に統合。`/weekly-plan` は同じ Issue に「来週の計画」セクションを追記
+- **close 条件**: 翌週の新 `[PDCA]` Issue が作成されたら自動的に前週は close（または手動 close）。未完了アクションは次 Issue の「計画」セクションへ引き継ぐ
+- **archive**: `docs/reviews/weekly/` は Issue 一本化後は新規書き込みをしない。W16 以前は `docs/reviews/weekly/archive/` に移動
+- **テンプレート**: `.github/ISSUE_TEMPLATE/weekly-pdca.md`
+
+## Session-handoff Issue 運用
+
+長時間タスクの途中停止時、次セッションに状態を引き継ぐ場合は md でなく Issue を使う。
+
+- **タイトル**: `[Handoff] YYYY-MM-DD <context 短名>`
+- **ラベル**: `session-handoff`
+- **Body**: 前提・現状・未コミット差分・次 Read すべきファイル・次アクション・ブロッカー
+- **close 条件**: 次セッションが Issue を Read して作業を引き継いだタイミング（または `supersedes` 新 Issue が作成されたタイミング）
+- **禁止事項**: `.claude/state/session-handoff-*.md` の新規作成（既存はすべて Issue へ移行済み・削除済み）
+- **テンプレート**: `.github/ISSUE_TEMPLATE/session-handoff.md`
+
+## Pilot → 全面運用（2026-04-21 〜）
+
+本ルールは 2026-04-21 より全 `docs/project/*.md` と `.claude/state/` 配下で運用開始。摩擦が出た場合のみスキル化（`/docs-issue-sync` 等）を検討する（現時点では手運用で十分）。

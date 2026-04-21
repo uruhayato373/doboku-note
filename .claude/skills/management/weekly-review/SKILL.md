@@ -260,25 +260,39 @@ B. 実験進捗レポート:
 3. **課題・ブロッカー**: 未達タスクの原因分析
 4. **学び**: 発見・改善点
 
-### Phase 3: 出力
+### Phase 3: 出力（GitHub Issue 一本化）
 
-`docs/reviews/weekly/YYYY-Www-review.md` に保存する。
+下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、**GitHub Issue** に投稿する。
+
+```bash
+# 1. Issue body を /tmp に生成
+cat > /tmp/weekly-pdca-YYYY-Www.md <<'EOF'
+（セクション 1〜N を順に埋め込む）
+EOF
+
+# 2. Issue 作成
+gh issue create \
+  --title "[PDCA] YYYY-Www" \
+  --label "weekly-pdca" \
+  --body-file /tmp/weekly-pdca-YYYY-Www.md
+```
+
+既存 Issue があり更新する場合は `gh issue edit <N> --body-file /tmp/weekly-pdca-YYYY-Www.md`。
+
+**重要**:
+- `docs/reviews/weekly/YYYY-Www-review.md` は作らない（W16 以前は `docs/reviews/weekly/archive/` 参照）
+- frontmatter は Issue body に不要（title/label/日付は Issue のメタデータで管理）
+- 前週の `[PDCA]` Issue は、本週 Issue 作成時に close する
 
 ### Phase 4: 週次計画の自動生成
 
-レビュー完了後、**自動的に `/weekly-plan` を実行**して来週の計画を生成する。
+レビュー完了後、**自動的に `/weekly-plan` を実行**して同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する（`gh issue edit --body-file` で更新）。
 
-## 出力フォーマット
+## 出力フォーマット（Issue body）
+
+Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 markdown 全体を `--body-file` で投稿。
 
 ```markdown
----
-week: "YYYY-Www"
-type: review
-generatedAt: "YYYY-MM-DD"
----
-
-# 週次レビュー YYYY-Www
-
 ## サマリー
 - 計画タスク達成率: N/M（N%）
 - 主な成果: ...
@@ -422,8 +436,10 @@ generatedAt: "YYYY-MM-DD"
 ## 運用ルール
 
 - **毎週日曜〜月曜に実行**
-- レビュー完了後に `/weekly-plan` が自動実行される
-- レビューファイルは蓄積する（削除しない）
+- レビュー完了後に `/weekly-plan` が自動実行され、同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する
+- 前週の `[PDCA]` Issue は本週 Issue 作成時に close
+- 未完了アクションは次週 Issue の「計画」セクションに引き継ぐ
+- `docs/reviews/weekly/` は W17 以降は書き込まない（archive/ のみ残す）
 
 ## 参照
 
