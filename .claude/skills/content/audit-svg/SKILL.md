@@ -110,6 +110,35 @@ node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<作成した .sv
 
 リポジトリ全体の SVG 健全性を把握（Phase 2 以降のクリーンアップ計画）。
 
+### Issue ギャラリーコメント生成（build-gallery-comment.mjs）
+
+Issue #64「[SVG] デザイン一貫性の継続改善」に、全 SVG をブラウザプレビュー付きで一覧するコメントを生成する副ツール。
+
+```bash
+# 1. audit を最新化
+node .claude/skills/content/audit-svg/scripts/audit.mjs
+
+# 2. ギャラリーコメント生成
+node .claude/skills/content/audit-svg/scripts/build-gallery-comment.mjs
+
+# 3. Issue #64 にコメント投稿（初回）
+gh issue comment 64 --body-file .tmp/svg-gallery-comment.md
+```
+
+**出力**: `.tmp/svg-gallery-comment.md`（Markdown 形式、35KB 前後）
+
+**構造**:
+- カテゴリ（civil-construction-1 / pe-comprehensive-management）別
+- 各 SVG に 🔴 HIGH / 🟡 MEDIUM / ✅ clean のアイコン
+- ファイル名、違反 pattern、R2 経由の現物プレビュー画像
+
+**URL 形式の注意**: 画像は **`storage.doboku-note.com/posts/...`（R2 直接）** を使用する。`doboku-note.com/posts/...` は Next.js が 301 redirect を返すため GitHub camo プロキシが画像を取得できない。
+
+**運用**:
+- リライト完了 → 再生成でアイコンが ✅ に変化、進捗可視化
+- 新規 SVG 追加もリストに反映
+- 古いギャラリーコメントは手動削除 or `gh issue comment --edit`
+
 ## 制約・前提
 
 - Node.js 20 以上（`import.meta`, `globSync` 対応）
