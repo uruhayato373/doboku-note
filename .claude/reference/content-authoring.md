@@ -53,6 +53,24 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
 - SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/content/create-svg/SKILL.md`）を参照
 
+### 分数（`\frac` vs `\dfrac`）— CJK 縮小問題
+
+**ルール**: 分数の分子または分母に `\text{}`（CJK テキスト）を含めるときは、`\frac` ではなく **`\dfrac`** を使う。
+
+**理由**: KaTeX は `\frac{A}{B}` の分子・分母に `size3`（0.7em = 70%）CSS クラスを付与する。Latin 文字（`x`, `y`, `F/M` 等）では気にならない程度だが、CJK フォールバックフォント描画と組み合わさると視覚的に「半分」に見える。`\dfrac` は displaystyle を強制するため、縮小を回避できる。
+
+```
+# 良い例（分子・分母の CJK が等倍で表示される）
+$$\text{価値} = \dfrac{\text{機能}}{\text{コスト}}$$
+
+# 悪い例（機能・コストが 70% で縮小表示される）
+$$\text{価値} = \frac{\text{機能}}{\text{コスト}}$$
+```
+
+**例外**: **インライン数式（`$...$`）では `\dfrac` を使わない**。行内に displaystyle の分数が入ると高さが異常に増え、行間レイアウトが崩れる。インラインの `$\frac{1}{2}$` のような Latin/数字の短い分数は `\frac` のままで OK。
+
+**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-1（MEDIUM）で、`\frac{}` 内に `\text{}` を含む箇所が検出され警告される。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。本ルールの継続改善は [KaTeX 品質 Issue](https://github.com/uruhayato373/doboku-note/issues?q=label%3Amath+label%3Aquality) で追跡。
+
 ## モバイル視認性（詳細ルール）
 
 CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
