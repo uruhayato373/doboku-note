@@ -138,20 +138,6 @@
     margin-bottom: 0;
   }
 
-  /* KaTeX 数式のフォントを本文（Inter + Noto Sans JP）に揃える
-     - .katex { font-size: 1.21em } の既定拡大を解除し、本文基準に戻す
-     - .mord.text と .cjk_fallback は本文フォントチェーンを継承（日本語を Noto Sans JP で描画）
-     - 数学記号（x, y, ∫, ∑ 等）は KaTeX_Math の italic serif を保持（数学慣習を維持）
-     背景: Issue #52 の CJK 縮小問題への追加対応。\dfrac でサイズは揃ったが、本文との
-     font-family・font-size の差異が残っていたため均質化する */
-  .katex {
-    font-size: inherit;
-  }
-  .katex .mord.text,
-  .katex .cjk_fallback {
-    font-family: inherit;
-  }
-
   /* リンク: 常時アンダーライン（note風、半透明 + offset 4px、hoverで濃く） */
   .prose-blog a {
     text-decoration: underline;
@@ -581,4 +567,23 @@
 .dark .toc-content .ol-depth-2 li.active::before {
   background: #0f83fd;
   border-color: #0f83fd;
+}
+
+/* =====================================================================
+   KaTeX 数式フォントを本文に揃える
+   注: @layer components 内だと katex.min.css（無 layer）の既定に負けて
+   効かない。CSS カスケード上 @layer 内のルールは layer 外のルールより
+   優先度が低い仕様。ここでは layer 外に配置して katex.min.css と同等の
+   カスケード層に置き、後勝ちで上書きする。
+
+   - .katex { font-size: 1.21em } の既定拡大を解除、本文基準に
+   - .mord.text と .cjk_fallback は本文フォントチェーン（Inter + Noto Sans JP）を継承
+   - 数学記号（x, y, ∫, ∑ 等）は KaTeX_Math の italic serif を保持（数学慣習）
+   背景: Issue #52 */
+.katex {
+  font-size: inherit;
+}
+.katex .mord.text,
+.katex .cjk_fallback {
+  font-family: inherit;
 }
