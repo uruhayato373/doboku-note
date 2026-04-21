@@ -120,13 +120,55 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ### タイポグラフィ
 
+**font-family は必ず明示指定する**（未指定だとブラウザのデフォルト serif に落ちて本文と不整合になる）。本文は Inter + Noto Sans JP のため、SVG も同じチェーンを揃える:
+
 ```xml
 <style>
-  text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1f2937; }
+  text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; }
 </style>
 ```
 
 - font-weight: **bold**（見出し・ボックスタイトル）、**normal**（本文・補足）
+- font-size: 本文 13px、ラベル 12px、見出し 14px、補足 11px（最小）
+
+### 推奨テンプレート（defs + class 方式）
+
+インラインで色を書くと保守が難しい。**`<defs><style>` に class を定義し、`<rect class="...">` で参照する**:
+
+```xml
+<svg width="400" height="260" viewBox="0 0 400 260"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="[図の目的を 40-80 字で]">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }  /* ink-strong */
+      .t-label { font-size: 12px; fill: #555; }                     /* ink-body */
+      .t-text  { font-size: 13px; fill: #222; }                     /* ink-strong */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 本体 -->
+  <rect class="box-brand" x="20" y="20" width="180" height="60" rx="6"/>
+  <text class="t-title" x="110" y="55" text-anchor="middle">見出し</text>
+</svg>
+```
+
+### 禁止事項
+
+- **濃色背景 + 白/薄色文字の組合せ**（例: `<rect fill="#444"/><text fill="white">`）は `prohibited.md` 違反。淡色 bg（`box-brand` 等）+ 濃色文字（`t-title` / `t-text`）を使う
+- **svg-tokens.json の colorsAllowList 外の hex 使用禁止**（サイト特色の維持）
+- **font-family 未指定禁止**（ブラウザデフォルト serif で描画され本文と不整合）
 
 ### 形状
 
