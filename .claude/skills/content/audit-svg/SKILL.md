@@ -22,6 +22,9 @@ description: >
 | **P3-missing-maxwidth** | HIGH | ルート `<svg>` に `style="max-width:Xpx;width:100%"` が無い | PC で viewBox 幅を超えて拡大表示されるリスク |
 | **P4-tiny-font** | LOW | `font-size < 11px` | モバイル 375px での可読性下限割れ |
 | **P5-wide-viewbox** | MEDIUM | `viewBox` 幅が 400px 超過 | create-svg の原則違反（モバイル縮小率低下） |
+| **P6-color-drift** | MEDIUM | `svg-tokens.json` の colorsAllowList 外の hex 使用 | サイト特色・ブランド一貫性の崩壊 |
+| **P7-missing-font-family** | MEDIUM | `font-family` が SVG 内のどこにも未指定 | ブラウザデフォルト serif に落ちて本文と不整合 |
+| **P8-dark-bg** | **HIGH** | 濃色 fill（輝度 < 0.3）+ 内部に白/薄色テキスト（輝度 > 0.8 or "white"） | `prohibited.md` 違反（淡色 bg + 濃色文字を使う） |
 
 ## 制限事項
 

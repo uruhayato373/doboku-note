@@ -7,6 +7,9 @@
  *   P3: ルート <svg> に必須属性（role="img" / aria-label / style max-width）が欠落
  *   P4: フォントサイズが 11px 未満（モバイル視認性下限）
  *   P5: viewBox 幅が 400px 超過（create-svg 原則違反）
+ *   P6: svg-tokens.json の colorsAllowList 外の hex 使用（色ドリフト）
+ *   P7: font-family が未指定（ブラウザデフォルト serif に落ちる）
+ *   P8: 濃色 fill + 内部に白/薄色テキスト（prohibited.md 違反）
  *
  * 制限事項:
  *   - 正規表現ベースのため、ネストされた <tspan> や transform 付き <text> は
@@ -17,6 +20,22 @@
  */
 
 import { readFileSync } from "fs";
+import { fileURLToPath } from "url";
+import { dirname, resolve } from "path";
+
+// svg-tokens.json の colorsAllowList をロード（P6 用）
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const TOKENS_PATH = resolve(__dirname, "../../../../design-system/svg-tokens.json");
+let SVG_TOKENS = null;
+try {
+  SVG_TOKENS = JSON.parse(readFileSync(TOKENS_PATH, "utf-8"));
+} catch {
+  SVG_TOKENS = { colorsAllowList: [] };
+}
+const ALLOWED_COLORS = new Set(
+  (SVG_TOKENS.colorsAllowList || []).map((c) => c.toLowerCase())
+);
 
 /** 日本語（CJK）文字かどうか判定 */
 function isCjk(code) {
@@ -262,9 +281,122 @@ export function detectSvgIssues(svg) {
   return findings;
 }
 
+/** hex 文字列を正規化（短縮 #fff → #ffffff、小文字統一） */
+function normalizeHex(hex) {
+  if (!hex) return null;
+  let h = hex.toLowerCase().trim();
+  if (!h.startsWith("#")) return h; // 名前色 or "none" 等
+  if (h.length === 4) {
+    // #abc → #aabbcc
+    h = "#" + h[1] + h[1] + h[2] + h[2] + h[3] + h[3];
+  }
+  return h;
+}
+
+/** hex の輝度（0-1）を計算。P8 の濃色判定に使う */
+function luminance(hex) {
+  if (!hex || !hex.startsWith("#") || hex.length !== 7) return null;
+  const r = parseInt(hex.slice(1, 3), 16) / 255;
+  const g = parseInt(hex.slice(3, 5), 16) / 255;
+  const b = parseInt(hex.slice(5, 7), 16) / 255;
+  // 近似（sRGB の相対輝度）
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+
+/**
+ * colorsAllowList に含まれるか判定。
+ * svg-tokens.json の allowlist は短縮形（#fff）と正式形（#ffffff）の両方を含むため、
+ * 両方を試す。
+ */
+function isAllowedColor(raw) {
+  if (!raw) return true; // 未指定は検出対象外
+  const lower = raw.toLowerCase().trim();
+  if (ALLOWED_COLORS.has(lower)) return true;
+  const norm = normalizeHex(raw);
+  if (norm && ALLOWED_COLORS.has(norm)) return true;
+  // 短縮形 #fff を #ffffff に展開した上で再照合
+  return false;
+}
+
+/**
+ * 追加検出ルール: P6 (color drift), P7 (missing font), P8 (dark bg + light text)
+ * 正規表現ベースで SVG 全文を走査。
+ */
+function detectColorAndFontIssues(content) {
+  const findings = [];
+
+  // P7: font-family 未指定
+  // <svg> ルート or <style> 内 or どこかに font-family 指定があるかを広く検出
+  const hasFontFamily = /font-family\s*[:=]/.test(content);
+  if (!hasFontFamily) {
+    findings.push({
+      pattern: "P7-missing-font-family",
+      severity: "MEDIUM",
+      detail: "font-family が未指定（ブラウザデフォルト serif に落ちて本文と不整合）",
+    });
+  }
+
+  // P6: 使用中の hex 色を全抽出し、allowlist 外を報告
+  // fill / stroke 属性、style 属性、<style> 内の fill:/stroke:/color: 値
+  const colorRe = /(?:fill|stroke|color)\s*[:=]\s*"?(#[0-9a-fA-F]{3,6}|[a-zA-Z]+)"?/g;
+  const seenOutliers = new Set();
+  let m;
+  while ((m = colorRe.exec(content)) !== null) {
+    const raw = m[1];
+    // url(...) 参照や CSS 変数は除外
+    if (!raw || raw === "none" || raw.startsWith("url(") || raw.startsWith("var(")) continue;
+    if (!isAllowedColor(raw)) {
+      const key = raw.toLowerCase();
+      if (seenOutliers.has(key)) continue;
+      seenOutliers.add(key);
+      findings.push({
+        pattern: "P6-color-drift",
+        severity: "MEDIUM",
+        detail: `allowlist 外の色: ${raw}（svg-tokens.json の colorsAllowList 参照）`,
+      });
+    }
+  }
+
+  // P8: 濃色 fill + 白/薄色テキストの組合せ（prohibited.md 違反）
+  // <rect ... fill="#444">（輝度 < 0.3）+ 同 SVG 内に <text ... fill="white|#fff|#xxxx" 輝度 > 0.8>
+  const darkRects = [];
+  const rectRe = /<rect[^>]*fill\s*=\s*"([^"]+)"[^>]*>/g;
+  while ((m = rectRe.exec(content)) !== null) {
+    const raw = normalizeHex(m[1]);
+    const lum = luminance(raw);
+    if (lum !== null && lum < 0.3) darkRects.push({ fill: raw, lum });
+  }
+  if (darkRects.length > 0) {
+    // 白/薄色テキストの存在
+    const lightTextRe = /<text[^>]*fill\s*=\s*"([^"]+)"/g;
+    const lightTextColors = [];
+    while ((m = lightTextRe.exec(content)) !== null) {
+      const raw = normalizeHex(m[1]);
+      if (raw === "white" || raw === "#ffffff") {
+        lightTextColors.push(raw);
+        continue;
+      }
+      const lum = luminance(raw);
+      if (lum !== null && lum > 0.8) lightTextColors.push(raw);
+    }
+    if (lightTextColors.length > 0) {
+      findings.push({
+        pattern: "P8-dark-bg",
+        severity: "HIGH",
+        detail: `濃色 bg (例: ${darkRects[0].fill}) + 白/薄色テキスト (例: ${lightTextColors[0]}) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ`,
+      });
+    }
+  }
+
+  return findings;
+}
+
 /** ファイルパスから監査結果を取得する便利関数 */
 export function auditSvgFile(path) {
   const content = readFileSync(path, "utf-8");
   const svg = parseSvg(content);
-  return detectSvgIssues(svg);
+  const findings = detectSvgIssues(svg);
+  // P6/P7/P8 は content 全文を直接走査（parseSvg の対象外）
+  findings.push(...detectColorAndFontIssues(content));
+  return findings;
 }
