@@ -37,6 +37,7 @@
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
  *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
  *  11-1 MEDIUM \frac{} の分子 or 分母に \text{} を含む（CJK 縮小回避のため \dfrac を推奨）
+ *  11-2 MEDIUM 単行 $$<content>$$ を検出（remark-math v6 で inline 扱い、複数行化推奨）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -770,6 +771,39 @@ function lintMathFractions(lines, findings) {
 }
 
 /**
+ * 11-2: 単行 `$$<content>$$` を検出。
+ *
+ * 理由: remark-math v6 は単行 `$$X$$` を inline math として解釈する。
+ *   display math にするには開始/終了 `$$` を別行に配置する必要がある。
+ *   inline mode では `\frac` が scriptstyle で分子・分母を 70% に縮小し、
+ *   `.katex-display` クラスも生成されないためブロック数式のスタイルが効かない。
+ *
+ * コードブロック内の `$$` は skip（誤検出防止）。
+ */
+function lintMathSingleLineDisplay(lines, findings) {
+  let inCodeFence = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^```/.test(line)) {
+      inCodeFence = !inCodeFence;
+      continue;
+    }
+    if (inCodeFence) continue;
+    const m = line.match(/^\s*\$\$(.+?)\$\$\s*$/);
+    if (m) {
+      const snippet = line.trim().slice(0, 80);
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '11-2',
+        line: i + 1,
+        endLine: i + 1,
+        message: `単行 $$...$$ は remark-math v6 で inline 扱いになる。開始/終了を別行に配置して display math にする（content-authoring.md §数式・図表 参照）: ${snippet}`,
+      });
+    }
+  }
+}
+
+/**
  * content[openIdx] が '{' の前提で、対応する '}' までを抽出。
  * 戻り値: { inner: '{' と '}' の間, endIdx: '}' のインデックス } or null
  */
@@ -842,6 +876,7 @@ function lintFile(filePath) {
   lintComponentPrinciples(lines, filePath, findings);
   lintImages(lines, findings);
   lintMathFractions(lines, findings);
+  lintMathSingleLineDisplay(lines, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）
   for (const f of findings) {
