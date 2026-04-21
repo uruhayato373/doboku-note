@@ -49,43 +49,27 @@ jobs:
           cp -r .claude/state/metrics/* /tmp/metrics-publish/ 2>/dev/null || true
           ls -la /tmp/metrics-publish
 
-      - name: Publish to metrics-data branch
+      - name: Publish to develop branch (.claude/state/metrics/{ga4,gsc}/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if git ls-remote --heads origin metrics-data | grep -q metrics-data; then
-            git fetch origin metrics-data
-            git checkout metrics-data
-            git rm -rf ga4 gsc 2>/dev/null || true
-          else
-            git checkout --orphan metrics-data
-            git rm -rf . 2>/dev/null || true
-          fi
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
 
-          cp -r /tmp/metrics-publish/ga4 ./ga4 2>/dev/null || mkdir -p ga4
-          cp -r /tmp/metrics-publish/gsc ./gsc 2>/dev/null || mkdir -p gsc
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc
+          cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
 
-          cat > README.md <<'EOF'
-          # metrics-data branch
-
-          GA4 / GSC raw JSON exports. Auto-generated weekly by
-          `.github/workflows/fetch-metrics.yml`. Do not edit by hand.
-
-          - `ga4/` — fetch-ga4-data.mjs output
-          - `gsc/` — fetch-gsc-data.mjs output
-
-          Consumed by the weekly PDCA remote trigger.
-          EOF
-
-          git add ga4 gsc README.md
+          git add .claude/state/metrics/ga4 .claude/state/metrics/gsc
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
           fi
 
-          git commit -m "metrics(gsc+ga4): weekly fetch $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push origin metrics-data
+          git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
 
       - name: Cleanup credentials
         if: always()

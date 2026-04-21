@@ -53,7 +53,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 `.github/workflows/psi-audit.yml` が JST 02:00 に以下を実行:
 1. `npm run fetch-psi-audit` で代表ページを計測
 2. `npm run psi-audit:check` でしきい値判定
-3. 結果を `metrics-data` ブランチの `psi/` に push
+3. 結果を `develop` ブランチの `.claude/state/metrics/psi/` に直接 commit（`[skip ci]` 付き、ci.yml を回さない）
 4. しきい値違反があれば Issue を自動起票（`performance` / `auto-generated` ラベル）
 
 必要な GitHub Secret:
