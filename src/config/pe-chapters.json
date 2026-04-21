@@ -119,6 +119,26 @@
             {
               "slug": "budget-planning",
               "title": "予算計画"
+            },
+            {
+              "slug": "business-continuity-plan",
+              "title": "BCP・BCM"
+            },
+            {
+              "slug": "four-m-of-production",
+              "title": "生産の4M"
+            },
+            {
+              "slug": "key-performance-indicators",
+              "title": "KGI・KSF・KPI"
+            },
+            {
+              "slug": "pdca-cycle",
+              "title": "PDCAサイクル"
+            },
+            {
+              "slug": "pfi",
+              "title": "PFI"
             }
           ]
         },
@@ -523,6 +543,22 @@
             {
               "slug": "multi-objective-optimization",
               "title": "多目的最適化"
+            },
+            {
+              "slug": "analytic-hierarchy-process",
+              "title": "階層分析法（AHP）"
+            },
+            {
+              "slug": "cause-and-effect-diagram",
+              "title": "特性要因図"
+            },
+            {
+              "slug": "idea-generation-methods",
+              "title": "発想法"
+            },
+            {
+              "slug": "value-engineering",
+              "title": "VE・VA"
             }
           ]
         }
