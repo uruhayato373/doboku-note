@@ -39,6 +39,11 @@ export default function ArticleImage({
     >
       <div className="w-full">
         {isSvg ? (
+          // SVG は intrinsic 幅（viewBox 幅）で描画する（w-full を付けない）。
+          // 理由: SVG ファイル側で `style="max-width:{viewBox}px;width:100%"` を持つ前提で、
+          // img 要素に w-full を付けると SVG が container 幅まで拡大され、
+          // テキスト・図形が PC 上で 1.5〜1.8x に拡大されて巨大化する。
+          // 詳細: .claude/skills/content/create-svg/SKILL.md §最大表示幅の固定
           <img
             src={toR2Url(src)}
             alt={alt}

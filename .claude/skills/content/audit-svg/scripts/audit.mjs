@@ -9,6 +9,7 @@
  *   node .claude/skills/content/audit-svg/scripts/audit.mjs
  *   node .claude/skills/content/audit-svg/scripts/audit.mjs --path=<glob>
  *   node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<single.svg>
+ *   node .claude/skills/content/audit-svg/scripts/audit.mjs --fail-on=HIGH   # exit 1 if any HIGH finding
  */
 
 import { writeFileSync, existsSync, mkdirSync } from "fs";
@@ -20,12 +21,14 @@ function parseArgs(argv) {
     path: ".local/r2/posts/**/img/*.svg",
     file: null,
     severity: "ALL",
+    failOn: null,
   };
   for (const a of argv.slice(2)) {
     const [k, v] = a.split("=");
     if (k === "--path") args.path = v;
     else if (k === "--file") args.file = v;
     else if (k === "--severity") args.severity = v.toUpperCase();
+    else if (k === "--fail-on") args.failOn = v.toUpperCase();
   }
   return args;
 }
@@ -87,6 +90,23 @@ function main() {
     console.log(`    ${p}: ${n}`);
   }
   console.log(`  report: ${outPath}`);
+
+  if (args.failOn) {
+    const order = { LOW: 0, MEDIUM: 1, HIGH: 2 };
+    const threshold = order[args.failOn];
+    if (threshold === undefined) {
+      console.error(`invalid --fail-on value: ${args.failOn} (expected HIGH|MEDIUM|LOW)`);
+      process.exit(2);
+    }
+    const triggering = allFindings.filter((f) => order[f.severity] >= threshold);
+    if (triggering.length > 0) {
+      console.error(`audit-svg: FAIL — ${triggering.length} finding(s) at severity >= ${args.failOn}`);
+      for (const f of triggering) {
+        console.error(`  ${f.severity} ${f.pattern} ${f.file}${f.line ? `:${f.line}` : ""}`);
+      }
+      process.exit(1);
+    }
+  }
 }
 
 main();

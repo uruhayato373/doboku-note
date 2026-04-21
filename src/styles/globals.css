@@ -132,6 +132,12 @@
     margin-top: 0.3em;
   }
 
+  /* Callout 内の最終段落の margin-bottom をリセット（prose の 1.25em が外側 p-4 と合算されて下余白が過大になるのを防ぐ）
+     top 側はタイトルが絶対配置（-top-2）で外枠に重なっており、prose の margin-top がタイトルとのクリアランスを確保しているため残す */
+  .callout-body > p:last-child {
+    margin-bottom: 0;
+  }
+
   /* リンク: 常時アンダーライン（note風、半透明 + offset 4px、hoverで濃く） */
   .prose-blog a {
     text-decoration: underline;
