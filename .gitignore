@@ -69,3 +69,6 @@ public/posts
 /.tmp/*
 !/.tmp/.gitkeep
 !/.tmp/README.md
+
+# exam-keyword-cycle Umbrella Issue drafts (ephemeral, regenerable)
+.claude/state/exam-keyword-cycles/umbrella-drafts/*.md

@@ -340,3 +340,16 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 
 - 長時間の作業（PDF→MDX 変換、大量ファイル編集など）では、自然な区切り（1 節完了、1 ファイル完了など）ごとにユーザーへ `/compact` の実行を提案すること
 - コンテキストが逼迫していると判断した場合も同様に提案する
+- セッション終了時に状態を引き継ぐ必要があれば、**md ファイルを作らず GitHub Issue** `[Handoff] YYYY-MM-DD <context>`（label: `session-handoff`）を作成する。運用ルールは [.claude/reference/docs-issue-separation.md](.claude/reference/docs-issue-separation.md#session-handoff-issue-運用) 参照
+
+## 情報蓄積の 3 層モデル
+
+状態を持つ情報（open/close したい・誰かが完了判定する）は **GitHub Issue** に一本化する。詳細は [.claude/reference/docs-issue-separation.md](.claude/reference/docs-issue-separation.md) 参照。
+
+| Tier | 置き場 | 例 |
+|---|---|---|
+| 1. 状態あり | GitHub Issue（`weekly-pdca`, `session-handoff`, `queue`, `task`, `umbrella` 等のラベル） | 週次 PDCA、引き継ぎ、レビュー待ち |
+| 2. 固定的知識 | `docs/project/` `.claude/reference/` `.claude/skills/**/SKILL.md` | 戦略、ADR、作業マニュアル、スキル定義 |
+| 3. 機械可読データ | `.claude/state/*.json` `.claude/config/*.json` | 計測結果、品質スコア、実験状態 |
+
+**禁止**: `.claude/state/*.md` の新規作成（README.md を除く）

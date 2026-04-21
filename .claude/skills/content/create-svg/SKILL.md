@@ -10,6 +10,16 @@ description: >
 
 MDX 記事に埋め込む SVG 図版（フロー図・比較図・マトリクス・カード等）を作成する。モバイル（375px 幅）での視認性を最優先に設計する。
 
+## 事前チェック（省略禁止）
+
+**既存記事で raw `<img>` を見ても真似しない**。既存の `<img>` は移行未完了の遺物であり、新規追加では必ず `<ArticleImage>` を使う。理由:
+
+- MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `className` 属性を**すべて剥がす**（sanitizer 仕様）
+- SVG ファイル内部の `style="width:100%"` も `<img src>` 経由では効かない（ブラウザの replaced element 扱い）
+- `<ArticleImage>` は SVG 用に `w-full max-w-2xl mx-auto` コンテナと `max-width:100%;height:auto` inline style を自動付与しレスポンシブ表示する
+
+**コミット前に `/audit-svg` を必ず走らせる**。Step 3.5 で詳細。過去事例: raw `<img>` + `style="width:100%"`（`max-width:{viewBox}px` 欠落）で commit 後、ブラウザで SVG が固定サイズ表示される問題が発生し再リライト（PR #43）。スキルに書いてあったルールを守っていれば起きなかった。
+
 ## 図と文章の役割分担（必読）
 
 SVG は**全体の流れ・構造を一目で把握させる**ためのもの。詳細な説明は本文（H2/H3 + 箇条書き）に任せる。
@@ -110,13 +120,55 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ### タイポグラフィ
 
+**font-family は必ず明示指定する**（未指定だとブラウザのデフォルト serif に落ちて本文と不整合になる）。本文は Inter + Noto Sans JP のため、SVG も同じチェーンを揃える:
+
 ```xml
 <style>
-  text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1f2937; }
+  text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; fill: #222; }
 </style>
 ```
 
 - font-weight: **bold**（見出し・ボックスタイトル）、**normal**（本文・補足）
+- font-size: 本文 13px、ラベル 12px、見出し 14px、補足 11px（最小）
+
+### 推奨テンプレート（defs + class 方式）
+
+インラインで色を書くと保守が難しい。**`<defs><style>` に class を定義し、`<rect class="...">` で参照する**:
+
+```xml
+<svg width="400" height="260" viewBox="0 0 400 260"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="[図の目的を 40-80 字で]">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }  /* ink-strong */
+      .t-label { font-size: 12px; fill: #555; }                     /* ink-body */
+      .t-text  { font-size: 13px; fill: #222; }                     /* ink-strong */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 本体 -->
+  <rect class="box-brand" x="20" y="20" width="180" height="60" rx="6"/>
+  <text class="t-title" x="110" y="55" text-anchor="middle">見出し</text>
+</svg>
+```
+
+### 禁止事項
+
+- **濃色背景 + 白/薄色文字の組合せ**（例: `<rect fill="#444"/><text fill="white">`）は `prohibited.md` 違反。淡色 bg（`box-brand` 等）+ 濃色文字（`t-title` / `t-text`）を使う
+- **svg-tokens.json の colorsAllowList 外の hex 使用禁止**（サイト特色の維持）
+- **font-family 未指定禁止**（ブラウザデフォルト serif で描画され本文と不整合）
 
 ### 形状
 
@@ -201,16 +253,21 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 - [ ] **原典の図番号参照（図 N.N）を SVG 内に書かない** — SVG 内のタイトルや補足に「図 7.6」のような PDF 表記を残さない（目次・SEO を汚染しない）
 - [ ] **text-anchor と x 座標の整合** — `text-anchor="end"` を使う場合、text が viewBox の左端を超えないか確認（長い日本語ラベルで `x="55"` end-anchored にすると viewBox 外にクリップされる）
 
-### Step 3.5: 自動監査（必須）
+### Step 3.5: 自動監査（必須・pre-commit で機械的に強制）
 
-作成した SVG を `/audit-svg` で検証し、**HIGH 件数 0** を確認する。
+**pre-commit フック**（`scripts/pre-commit-mdx.mjs`）が staged の `.local/r2/posts/**/img/*.svg` に対して `auditSvgFile` を自動実行し、**HIGH 検出でコミットをブロック**する。MEDIUM/LOW は warning として表示（ブロックしない）。
+
+手動で事前確認したい場合:
 
 ```bash
-node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<作成した .svg> --severity=HIGH
-# findings == 0 なら合格、検出されたら修正して再実行
+# 単一ファイル（fail-on=HIGH で exit 1）
+node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<作成した .svg> --fail-on=HIGH
+
+# プロジェクト全体
+node .claude/skills/content/audit-svg/scripts/audit.mjs --severity=HIGH
 ```
 
-検出対象: 文字クリップ（P1）・必須属性欠落（P3）・viewBox 超過（P5）等。詳細は `/audit-svg` の SKILL.md を参照。
+検出対象: 文字クリップ（P1）・必須属性欠落（P3: role / aria-label / max-width）・viewBox 超過（P5）・フォント過小（P4）等。詳細は `/audit-svg` の SKILL.md を参照。
 
 ### Step 4: MDX への配置
 

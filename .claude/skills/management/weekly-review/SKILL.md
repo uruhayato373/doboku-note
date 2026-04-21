@@ -103,8 +103,7 @@ B. 実験進捗レポート:
 
 ```
 調査項目:
-- .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions が毎日生成）
-  - metrics-data ブランチの psi/ サブディレクトリに蓄積されたもの
+- .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
 - .claude/config/psi-config.json のしきい値
 - gh issue list --label performance,weekly-pdca --state open --json number,title,createdAt（Umbrella #82 配下の open を含む）
 - gh issue list --label performance,weekly-pdca --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
@@ -137,18 +136,24 @@ B. 実験進捗レポート:
 
 調査項目:
 - .claude/state/exam-keyword-cycles/logs/index.json（過去サイクルの履歴）
-- .claude/state/exam-keyword-cycles/progress.json（カバー状況）
+- .claude/state/exam-keyword-cycles/progress.json（カバー状況 + umbrella_issues の Issue 番号）
 - src/config/exam-question-keywords.json（過去問カタログ）
 - 今週実施分の抽出: index.json.cycles の date が直近 7 日以内のもの
+- 年度別 Umbrella Issue の状態: `gh issue view <番号> --json state,body`
 
 分析項目:
 - 今週のサイクル数・対象キーワード数・PR リンク
 - 年度別カバレッジ率（covered[exam] の設問数 / catalog[exam] の設問数）
 - 未カバーバックログ件数
 - 次週の推奨 3 件（select-next-question.mjs を 3 回分シミュレートするか、若番順上位 3 件）
+- 年度別 Umbrella Issue の進捗と停滞検知
 
 次週候補の取得方法:
   node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
+
+**Umbrella 同期**: 今週サイクルが 1 件以上あれば、レビュー末尾で `sync-umbrella.mjs --all` を呼び出して Umbrella の checkbox・進捗・完了サイクルリストを最新化する（`/exam-keyword-cycle` 側でも毎サイクル呼ぶが、週次でも安全網として実行）。
+
+次週候補 3 件を親 Umbrella `<!-- sync marker: next-candidates -->` セクションに反映（親 Umbrella の body を編集、または本週の [PDCA] Issue に記載）。
 
 出力形式: 「## 過去問起点の校正サイクル」セクションに以下を埋め込む
 
@@ -159,12 +164,17 @@ B. 実験進捗レポート:
 |---|---|---|---|
 | YYYY-MM-DD | R07 Ⅰ-1-N | N 件 | #N |
 
-### カバレッジ
-| 年度 | カバー / 全問 | 進捗 |
-|---|---|---|
-| R07 | N/40 | N% |
-| R06 | N/40 | N% |
-| ... | ... | ... |
+### 年度別 Umbrella
+<!-- progress.json.umbrella_issues から Issue 番号・状態・進捗% を surface -->
+
+| 年度 | Umbrella | 状態 | 進捗 | 先週比 |
+|---|---|---|---|---|
+| R07-primary | #36 | open | N/40 (N%) | +M |
+| R06-primary | #37 | open | N/40 (N%) | +M |
+| R05-primary | #38 | open | N/40 (N%) | +M |
+| R04-primary | #39 | open | N/40 (N%) | +M |
+| R03-primary | #40 | open | N/40 (N%) | +M |
+| **全体** | **#41 (親)** | **open** | **N/200 (N%)** | **+M** |
 
 ### 次週の候補
 1. R07 Ⅰ-1-X（未カバー最優先）
@@ -173,7 +183,7 @@ B. 実験進捗レポート:
 
 注意:
 - 今週のサイクルが 0 件なら「今週の実施: なし」と記録し、次週候補のみ surface
-- カバー率 100% の年度は「全問カバー済み」と明記し、再訪候補の有無を付記
+- カバー率 100% の年度は「全問カバー済み」と明記し、年度 Umbrella を close する（次年度 Umbrella を generate-umbrella.mjs で作成）
 ```
 
 #### Agent E: 校正学習の蒸留
@@ -261,25 +271,39 @@ B. 実験進捗レポート:
 3. **課題・ブロッカー**: 未達タスクの原因分析
 4. **学び**: 発見・改善点
 
-### Phase 3: 出力
+### Phase 3: 出力（GitHub Issue 一本化）
 
-`.claude/state/weekly-reports/YYYY-Www-review.md` に保存する。
+下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、**GitHub Issue** に投稿する。
+
+```bash
+# 1. Issue body を /tmp に生成
+cat > /tmp/weekly-pdca-YYYY-Www.md <<'EOF'
+（セクション 1〜N を順に埋め込む）
+EOF
+
+# 2. Issue 作成
+gh issue create \
+  --title "[PDCA] YYYY-Www" \
+  --label "weekly-pdca" \
+  --body-file /tmp/weekly-pdca-YYYY-Www.md
+```
+
+既存 Issue があり更新する場合は `gh issue edit <N> --body-file /tmp/weekly-pdca-YYYY-Www.md`。
+
+**重要**:
+- レビュー md は作らない（W16 以前は `docs/reviews/weekly/archive/` 参照、現在は Issue 一本化）
+- frontmatter は Issue body に不要（title/label/日付は Issue のメタデータで管理）
+- 前週の `[PDCA]` Issue は、本週 Issue 作成時に close する
 
 ### Phase 4: 週次計画の自動生成
 
-レビュー完了後、**自動的に `/weekly-plan` を実行**して来週の計画を生成する。
+レビュー完了後、**自動的に `/weekly-plan` を実行**して同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する（`gh issue edit --body-file` で更新）。
 
-## 出力フォーマット
+## 出力フォーマット（Issue body）
+
+Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 markdown 全体を `--body-file` で投稿。
 
 ```markdown
----
-week: "YYYY-Www"
-type: review
-generatedAt: "YYYY-MM-DD"
----
-
-# 週次レビュー YYYY-Www
-
 ## サマリー
 - 計画タスク達成率: N/M（N%）
 - 主な成果: ...
@@ -334,7 +358,7 @@ generatedAt: "YYYY-MM-DD"
 
 ## PSI パフォーマンス推移
 
-<!-- Agent C2 が metrics-data branch の psi/ と open/closed Issues から自動生成。
+<!-- Agent C2 が .claude/state/metrics/psi/ と open/closed Issues から自動生成。
      今週の違反件数、スコア前週比、新規/解消した違反を記録。 -->
 
 ### Core Web Vitals 前週比
@@ -423,8 +447,10 @@ generatedAt: "YYYY-MM-DD"
 ## 運用ルール
 
 - **毎週日曜〜月曜に実行**
-- レビュー完了後に `/weekly-plan` が自動実行される
-- レビューファイルは蓄積する（削除しない）
+- レビュー完了後に `/weekly-plan` が自動実行され、同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する
+- 前週の `[PDCA]` Issue は本週 Issue 作成時に close
+- 未完了アクションは次週 Issue の「計画」セクションに引き継ぐ
+- `docs/reviews/weekly/` は W17 以降は書き込まない（archive/ のみ残す）
 
 ## 参照
 

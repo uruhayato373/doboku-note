@@ -140,7 +140,7 @@ ${extraInstructions}
   3. 既存本文を尊重しつつ、推奨拡張パターン（最大2個）を適用
   4. frontmatter に以下を追加（既存値があれば上書き）:
      - reviewStatus: needs-review
-     - lastRewrittenAt: ${new Date().toISOString().split('T')[0]}
+     - lastRewrittenAt: ${new Date().toISOString()}  // ISO 8601 秒単位（並行作業検出用）
      - revisionCycle: 1（既存値があれば +1）
   5. 改行コードは元ファイルを保持（\`.claude/scripts/lib/mdx-io.mjs\` の readMdxFile/writeMdxFile を使う）
   6. Edit ツールまたは Write + mdx-io で書き戻し（after_chars を記録）

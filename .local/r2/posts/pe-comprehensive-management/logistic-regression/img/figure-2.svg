@@ -1,0 +1,49 @@
+<svg viewBox="0 0 380 280" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:380px;width:100%"
+     role="img"
+     aria-label="シグモイド関数と閾値0.5による陽性・陰性の分類境界を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 11px; fill: #555; }
+      .t-text  { font-size: 12px; fill: #222; }
+    </style>
+  </defs>
+
+  <text x="190" y="20" class="t-title" text-anchor="middle">シグモイド関数と閾値 0.5 による分類</text>
+
+  <!-- 背景領域 -->
+  <rect x="55" y="45" width="145" height="180" fill="#f8d7da" opacity="0.35"/>
+  <rect x="200" y="45" width="150" height="180" fill="#d0e8d0" opacity="0.35"/>
+
+  <!-- 軸 -->
+  <line x1="55" y1="225" x2="355" y2="225" stroke="#222" stroke-width="1"/>
+  <line x1="55" y1="40" x2="55" y2="225" stroke="#222" stroke-width="1"/>
+
+  <!-- y 軸ラベル -->
+  <text x="50" y="229" class="t-label" text-anchor="end">0</text>
+  <text x="50" y="139" class="t-label" text-anchor="end">0.5</text>
+  <text x="50" y="49" class="t-label" text-anchor="end">1</text>
+  <line x1="53" y1="135" x2="57" y2="135" stroke="#222" stroke-width="1"/>
+  <line x1="53" y1="45" x2="57" y2="45" stroke="#222" stroke-width="1"/>
+
+  <text x="55" y="38" class="t-label" text-anchor="middle">p</text>
+  <text x="360" y="229" class="t-label">x</text>
+
+  <!-- 閾値 0.5 の水平線 -->
+  <line x1="55" y1="135" x2="355" y2="135" stroke="#d4a017" stroke-dasharray="4,3" stroke-width="1.5"/>
+  <text x="352" y="130" class="t-label" text-anchor="end" fill="#d4a017">閾値 0.5</text>
+
+  <!-- 決定境界（垂直）-->
+  <line x1="200" y1="45" x2="200" y2="225" stroke="#b22234" stroke-dasharray="3,2" stroke-width="1"/>
+
+  <!-- シグモイド曲線 -->
+  <path d="M 58 221 C 125 221, 160 195, 200 135 C 240 75, 275 49, 352 49"
+        stroke="#2e6da4" stroke-width="2.5" fill="none"/>
+
+  <!-- 領域ラベル -->
+  <text x="127" y="245" class="t-text" text-anchor="middle" fill="#b22234">陰性（予測: 0）</text>
+  <text x="275" y="245" class="t-text" text-anchor="middle" fill="#3a7d44">陽性（予測: 1）</text>
+  <text x="200" y="263" class="t-label" text-anchor="middle" fill="#b22234">↑ 決定境界</text>
+</svg>

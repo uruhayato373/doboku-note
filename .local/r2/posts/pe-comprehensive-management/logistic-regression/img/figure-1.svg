@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="線形回帰とロジスティック回帰の出力範囲と関数形を左右に並べた比較図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 11px; fill: #555; }
+      .t-text  { font-size: 12px; fill: #222; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text x="200" y="20" class="t-title" text-anchor="middle">出力範囲と関数形の比較</text>
+
+  <!-- 線形回帰 -->
+  <rect class="box-brand" x="10" y="35" width="185" height="275" rx="8"/>
+  <text x="102" y="58" class="t-head" text-anchor="middle">線形回帰</text>
+
+  <line x1="30" y1="75" x2="30" y2="225" stroke="#555" stroke-width="1"/>
+  <line x1="30" y1="225" x2="180" y2="225" stroke="#555" stroke-width="1"/>
+  <text x="26" y="80" class="t-label" text-anchor="end">y</text>
+  <text x="182" y="229" class="t-label">x</text>
+
+  <line x1="40" y1="210" x2="175" y2="85" stroke="#2e6da4" stroke-width="2.2"/>
+
+  <text x="102" y="255" class="t-text" text-anchor="middle">y = β₀ + β₁x</text>
+  <text x="102" y="275" class="t-label" text-anchor="middle">出力: 実数全体</text>
+  <text x="102" y="291" class="t-label" text-anchor="middle">推定: 最小二乗法</text>
+
+  <!-- ロジスティック回帰 -->
+  <rect class="box-positive" x="205" y="35" width="185" height="275" rx="8"/>
+  <text x="297" y="58" class="t-head" text-anchor="middle">ロジスティック回帰</text>
+
+  <line x1="225" y1="75" x2="225" y2="225" stroke="#555" stroke-width="1"/>
+  <line x1="225" y1="225" x2="375" y2="225" stroke="#555" stroke-width="1"/>
+  <line x1="225" y1="85" x2="375" y2="85" stroke="#8a8a8a" stroke-dasharray="2,2" stroke-width="0.8"/>
+
+  <text x="221" y="80" class="t-label" text-anchor="end">p</text>
+  <text x="377" y="229" class="t-label">x</text>
+  <text x="221" y="89" class="t-label" text-anchor="end">1</text>
+  <text x="221" y="229" class="t-label" text-anchor="end">0</text>
+
+  <path d="M 230 220 C 265 220, 285 195, 300 150 C 315 105, 335 85, 370 85"
+        stroke="#3a7d44" stroke-width="2.2" fill="none"/>
+
+  <text x="297" y="255" class="t-text" text-anchor="middle">p = 1 / (1 + e⁻ᶻ)</text>
+  <text x="297" y="275" class="t-label" text-anchor="middle">出力: 0〜1 の確率</text>
+  <text x="297" y="291" class="t-label" text-anchor="middle">推定: 最尤推定法</text>
+</svg>

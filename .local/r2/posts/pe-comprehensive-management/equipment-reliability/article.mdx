@@ -29,7 +29,9 @@ revisionCycle: 1
 
 信頼性を定量的に評価する代表的指標がMTBF（Mean Time Between Failures：平均故障間隔）である。
 
-$$MTBF = \frac{\text{総稼働時間}}{\text{故障件数}}$$
+$$
+MTBF = \dfrac{\text{総稼働時間}}{\text{故障件数}}
+$$
 
 MTBFが大きいほど、故障と故障の間隔が長い、すなわち信頼性が高いことを意味する。
 
@@ -55,7 +57,9 @@ MTBFが大きいほど、故障と故障の間隔が長い、すなわち信頼�
 
 信頼度 $R(t)$ は時刻 $t$ まで故障しない確率であり、指数分布に従う場合は以下で表される。
 
-$$R(t) = e^{-\lambda t}$$
+$$
+R(t) = e^{-\lambda t}
+$$
 
 ここで $\lambda$ は故障率（単位時間あたりの故障発生確率）であり、偶発故障期には一定値をとる。
 
@@ -89,6 +93,14 @@ JIS Z 8115（ディペンダビリティ用語）は2000年に制定（2019年�
 信頼性の向上はMTBFの増大を意味し、設備総合効率（OEE）の時間稼働率の改善に直結する。
 
 また、バスタブカーブの理解は設備のライフサイクルコスト（LCC）を最適化する上で不可欠であり、初期投資・取替費用・維持費用の判断に影響を与える。
+
+<RelatedKeywords items={[
+  { label: "バスタブカーブ", slug: "bathtub-curve" },
+  { label: "自主保全", slug: "autonomous-maintenance" },
+  { label: "設備の保全性", slug: "equipment-maintainability" },
+  { label: "改良保全", slug: "improvement-maintenance" },
+  { label: "設備総合効率", slug: "overall-equipment-effectiveness" },
+]} />
 
 ## 参考資料
 

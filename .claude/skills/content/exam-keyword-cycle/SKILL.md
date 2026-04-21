@@ -259,6 +259,38 @@ keywords_count: 6
 }
 ```
 
+### Phase 5.5: Umbrella Issue 同期
+
+Phase 5 で `progress.json` を更新した直後に、該当年度の Umbrella Issue と親 Umbrella の checkbox・進捗%を同期する。
+
+```bash
+# 対象年度の Umbrella を更新（該当行が [x] に変わる）
+node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam <exam-slug>
+
+# 親 Umbrella の全体進捗%・年度別進捗を更新
+node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
+```
+
+- `progress.json.umbrella_issues.<exam-slug>` に Issue 番号が記録されている必要がある（未記録なら警告スキップ）
+- body は毎回丸ごと再生成される。人間が手動で触った checkbox は上書きされる（手動編集禁止の注意書きを body に載せてある）
+- 差分なしなら gh API を叩かない
+
+**初回セットアップ**（Umbrella Issue がまだ無い場合）:
+
+```bash
+# 年度 Umbrella 5 本を作成（R07〜R03 primary）
+for exam in r07 r06 r05 r04 r03; do
+  node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs \
+    --exam pe-comprehensive-management-${exam}-primary --create
+done
+
+# 親 Umbrella を作成（年度 Issue 番号を参照するため最後）
+node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs --parent --create
+
+# 既存の covered を初期反映
+node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
+```
+
 ### Phase 6: PR 作成
 
 `/pr-create --base main` を呼出。PR body は HEREDOC で以下のテンプレに従う:

@@ -26,7 +26,9 @@ revisionCycle: 2
 
 **毎年のCFが均等な場合**：
 
-$$\text{回収期間} = \frac{\text{投資額}}{\text{年間キャッシュフロー}}$$
+$$
+\text{回収期間} = \dfrac{\text{投資額}}{\text{年間キャッシュフロー}}
+$$
 
 **毎年のCFが不均等な場合**：累積CFが投資額に達する年数を計算する。
 
@@ -34,11 +36,15 @@ $$\text{回収期間} = \frac{\text{投資額}}{\text{年間キャッシュフ�
 
 より厳密には、金利（割引率 $r$）を考慮して $n$ 年後の元利合計 $S$ を計算する必要がある。現在の資金額 $I$ と均等資金年額 $M$（毎年同額の回収額）で表すと:
 
-$$S = I(1+r)^n = M + M(1+r) + M(1+r)^2 + \cdots + M(1+r)^{n-1}$$
+$$
+S = I(1+r)^n = M + M(1+r) + M(1+r)^2 + \cdots + M(1+r)^{n-1}
+$$
 
 この式から均等資金年額 $M$ を求めると:
 
-$$M = I \cdot \frac{r(1+r)^n}{(1+r)^n - 1}$$
+$$
+M = I \cdot \frac{r(1+r)^n}{(1+r)^n - 1}
+$$
 
 この $M$ が年間の純現金流入額を上回っていれば、金利を考慮しても投資回収が可能と判断できる。
 
@@ -76,6 +82,14 @@ $$M = I \cdot \frac{r(1+r)^n}{(1+r)^n - 1}$$
     "割引回収期間法は時間価値を考慮した改良版",
   ]}
 />
+
+<RelatedKeywords items={[
+  { label: "内部収益率法", slug: "internal-rate-of-return" },
+  { label: "割引率", slug: "discount-rate" },
+  { label: "投資回収計画", slug: "investment-recovery-plan" },
+  { label: "NPV", slug: "npv-net-present-value" },
+  { label: "費用効果分析", slug: "cost-effectiveness-analysis" },
+]} />
 
 ## 参考資料
 

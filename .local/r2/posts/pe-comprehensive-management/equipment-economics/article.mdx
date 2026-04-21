@@ -50,7 +50,9 @@ LCCには初期投資だけでなく、運転・保全・廃却の費用も含�
 
 将来のキャッシュフローを現在の価値に換算する基本式：
 
-$$PV = \frac{M_t}{(1+r)^t}$$
+$$
+PV = \frac{M_t}{(1+r)^t}
+$$
 
 - $M_t$：$t$ 年後の支払い額（またはキャッシュフロー）
 - $r$：年間利率（割引率）
@@ -59,13 +61,17 @@ $$PV = \frac{M_t}{(1+r)^t}$$
 
 初期投資額 $I$、利子率 $r$、$t$ 年後の正味現金流入額 $C_t$、期間 $n$ 年のとき：
 
-$$V = \sum_{t=1}^{n} \frac{C_t}{(1+r)^t} - I$$
+$$
+V = \sum_{t=1}^{n} \frac{C_t}{(1+r)^t} - I
+$$
 
 $V > 0$ であれば投資採算ありと判断する。NPV法は貨幣の時間価値を反映できるため、最も理論的に優れた手法とされる。
 
 #### ROI（投資利益率法）の計算式
 
-$$ROI = \frac{\text{利益額}}{\text{投資額}} \times 100 [\%]$$
+$$
+ROI = \dfrac{\text{利益額}}{\text{投資額}} \times 100 [\%]
+$$
 
 複数年の場合は平均利益額を用いる。$ROI > \text{平均借入率}$ であれば採算性のある投資といえる。
 
@@ -111,6 +117,14 @@ $$ROI = \frac{\text{利益額}}{\text{投資額}} \times 100 [\%]$$
 設備の経済性は、初期投資・使用計画期間・取替費用・設備維持費用といったLCC構成要素と密接に関連する。
 
 また、設備の信頼性（MTBF）や保全性（MTTR）の改善は保全費の削減につながるため、技術的特性と経済性は不可分の関係にある。
+
+<RelatedKeywords items={[
+  { label: "初期投資", slug: "initial-investment" },
+  { label: "設備維持費用", slug: "maintenance-cost" },
+  { label: "予防保全", slug: "preventive-maintenance" },
+  { label: "自主保全", slug: "autonomous-maintenance" },
+  { label: "バスタブカーブ", slug: "bathtub-curve" },
+]} />
 
 ## 参考資料
 

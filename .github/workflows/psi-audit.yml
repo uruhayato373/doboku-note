@@ -45,31 +45,26 @@ jobs:
           cp /tmp/psi-report/report.md /tmp/psi-publish/latest-report.md 2>/dev/null || true
           ls -la /tmp/psi-publish
 
-      - name: Publish to metrics-data branch (psi/ subdir)
+      - name: Publish to develop branch (.claude/state/metrics/psi/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          if git ls-remote --heads origin metrics-data | grep -q metrics-data; then
-            git fetch origin metrics-data
-            git checkout metrics-data
-            git rm -rf psi 2>/dev/null || true
-          else
-            git checkout --orphan metrics-data
-            git rm -rf . 2>/dev/null || true
-          fi
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
 
-          mkdir -p psi
-          cp -r /tmp/psi-publish/* psi/ 2>/dev/null || true
+          mkdir -p .claude/state/metrics/psi
+          cp -r /tmp/psi-publish/* .claude/state/metrics/psi/ 2>/dev/null || true
 
-          git add psi
+          git add .claude/state/metrics/psi
           if git diff --cached --quiet; then
             echo "No PSI changes to publish"
             exit 0
           fi
 
-          git commit -m "metrics(psi): daily audit $(date -u +%Y-%m-%dT%H:%MZ)"
-          git push origin metrics-data
+          git commit -m "chore(metrics): psi daily audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
 
       - name: Open issue on threshold violations
         if: steps.check.outputs.exit_code == '1'

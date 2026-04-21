@@ -53,6 +53,54 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
 - SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/content/create-svg/SKILL.md`）を参照
 
+### ブロック数式は必ず複数行 `$$`（最重要）
+
+**ルール**: display math（ブロック数式）は **開始 `$$` と終了 `$$` を必ず別々の行**に置く。
+
+```
+# 正しい
+$$
+\text{価値} = \dfrac{\text{機能}}{\text{コスト}}
+$$
+
+# 間違い（remark-math v6 で inline math 扱いになる）
+$$\text{価値} = \dfrac{\text{機能}}{\text{コスト}}$$
+```
+
+**理由**: 本サイトの remark-math は v6 系で、**単行 `$$X$$` は inline math として解釈**される。display math として描画するには開始・終了 `$$` を別行に配置する必要がある。
+
+**単行で書いた場合の実害**:
+- `\frac` の分子・分母が scriptstyle（70% サイズ）で描画され小さくなる
+- `.katex-display` クラスが付与されず、ブロック数式の背景色・中央揃え等のスタイルが一切効かない
+- 本文中にインライン扱いで埋め込まれ、視覚的に式ブロックと認識できない
+
+**補足**: 式番号を付ける場合は `\tag{N}` を使う（行末に `(1)` を付けない）:
+```
+$$
+FI_{t+1} = \frac{1}{k}(Y_t + \cdots + Y_{t-k+1}) \tag{1}
+$$
+```
+
+**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-2（MEDIUM）で単行 `$$...$$` が検出され警告。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。
+
+### 分数（`\frac` vs `\dfrac`）— CJK 縮小問題
+
+**ルール**: 分数の分子または分母に `\text{}`（CJK テキスト）を含めるときは、`\frac` ではなく **`\dfrac`** を使う。
+
+**理由**: KaTeX は `\frac{A}{B}` の分子・分母に `size3`（0.7em = 70%）CSS クラスを付与する。Latin 文字（`x`, `y`, `F/M` 等）では気にならない程度だが、CJK フォールバックフォント描画と組み合わさると視覚的に「半分」に見える。`\dfrac` は displaystyle を強制するため、縮小を回避できる。
+
+```
+# 良い例（分子・分母の CJK が等倍で表示される）
+$$\text{価値} = \dfrac{\text{機能}}{\text{コスト}}$$
+
+# 悪い例（機能・コストが 70% で縮小表示される）
+$$\text{価値} = \frac{\text{機能}}{\text{コスト}}$$
+```
+
+**例外**: **インライン数式（`$...$`）では `\dfrac` を使わない**。行内に displaystyle の分数が入ると高さが異常に増え、行間レイアウトが崩れる。インラインの `$\frac{1}{2}$` のような Latin/数字の短い分数は `\frac` のままで OK。
+
+**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-1（MEDIUM）で、`\frac{}` 内に `\text{}` を含む箇所が検出され警告される。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。本ルールの継続改善は [KaTeX 品質 Issue](https://github.com/uruhayato373/doboku-note/issues?q=label%3Amath+label%3Aquality) で追跡。
+
 ## モバイル視認性（詳細ルール）
 
 CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
@@ -105,6 +153,18 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 
 - 既存の生 `<img>` を使った記事はリライト時に順次 `<ArticleImage>` へ移行
 - 移行が未完了の記事で `<img>` を使う場合も `alt` と `{/* source: */}` コメントは必須
+
+**重要 — 新規 SVG/画像で raw `<img>` を絶対に使わない**:
+
+MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `className` 等の属性を**すべて剥がす**（sanitizer の仕様）。このため:
+
+- `<img style="width:100%">` → style が消えて SVG の自然サイズ（viewBox 幅）で固定表示
+- `<img width="800">` → width が消えてコンテナ幅を無視
+- SVG ファイル内部の `style="width:100%"` も `<img src>` 経由では効かない（ブラウザ仕様：SVG が replaced element として扱われるため）
+
+既存記事に raw `<img>` が残っていても、それは移行未完了の遺物であり、**真似をしない**。新規追加は必ず `<ArticleImage>` を使う。`<ArticleImage>` は SVG 用に `w-full max-w-2xl mx-auto px-6` コンテナと `max-width:100%;height:auto` inline style を付与してレスポンシブ表示する。
+
+SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/audit-svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/content/create-svg/SKILL.md](../skills/content/create-svg/SKILL.md) §最大表示幅の固定。
 
 ### CC/PD 写真の取得・出典表記
 

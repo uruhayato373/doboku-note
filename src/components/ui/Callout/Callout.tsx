@@ -139,7 +139,7 @@ export default function Callout({
       {/* コンテンツ部分 */}
       <div className="-mt-1.5 pl-2">
         {/* 本文部分 */}
-        <div className={`${config.textColor} leading-relaxed`}>
+        <div className={`callout-body ${config.textColor} leading-relaxed`}>
           {children}
         </div>
       </div>

@@ -4,6 +4,7 @@ import { AUTHOR } from "@/config/author";
 interface AuthorCardProps {
   publishedAt?: string;
   updatedAt?: string;
+  lastRewrittenAt?: string;
 }
 
 function formatDate(iso?: string): string | null {
@@ -17,9 +18,14 @@ function formatDate(iso?: string): string | null {
   }
 }
 
-export default function AuthorCard({ publishedAt, updatedAt }: AuthorCardProps) {
+export default function AuthorCard({
+  publishedAt,
+  updatedAt,
+  lastRewrittenAt,
+}: AuthorCardProps) {
   const published = formatDate(publishedAt);
   const updated = formatDate(updatedAt);
+  const lastReviewed = formatDate(lastRewrittenAt);
 
   return (
     <aside
@@ -51,10 +57,15 @@ export default function AuthorCard({ publishedAt, updatedAt }: AuthorCardProps) 
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
             {AUTHOR.bio}
           </p>
-          {(published || updated) && (
+          {(published || updated || lastReviewed) && (
             <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 flex flex-wrap gap-x-4 gap-y-1">
               {published && <span>公開日: {published}</span>}
               {updated && updated !== published && <span>最終更新: {updated}</span>}
+              {lastReviewed &&
+                lastReviewed !== published &&
+                lastReviewed !== updated && (
+                  <span>最終レビュー: {lastReviewed}</span>
+                )}
             </div>
           )}
           <Link

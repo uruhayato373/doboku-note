@@ -23,11 +23,15 @@ PERT（Program Evaluation and Review Technique）で開発された手法であ�
 
 **PERT加重平均（ベータ分布）**：
 
-$$\text{期待値} = \frac{\text{楽観値} + 4 \times \text{最頻値} + \text{悲観値}}{6}$$
+$$
+\text{期待値} = \dfrac{\text{楽観値} + 4 \times \text{最頻値} + \text{悲観値}}{6}
+$$
 
 **三角分布**：
 
-$$\text{期待値} = \frac{\text{楽観値} + \text{最頻値} + \text{悲観値}}{3}$$
+$$
+\text{期待値} = \dfrac{\text{楽観値} + \text{最頻値} + \text{悲観値}}{3}
+$$
 
 - 楽観値（$O$）：最も条件が良い場合の見積り
 - 最頻値（$M$）：最も起こりやすい場合の見積り
@@ -35,7 +39,9 @@ $$\text{期待値} = \frac{\text{楽観値} + \text{最頻値} + \text{悲観値
 
 ## 標準偏差の算出
 
-$$\sigma = \frac{\text{悲観値} - \text{楽観値}}{6}$$
+$$
+\sigma = \dfrac{\text{悲観値} - \text{楽観値}}{6}
+$$
 
 標準偏差を用いて見積りの不確実性の大きさを定量評価できる。
 
@@ -54,6 +60,14 @@ $$\sigma = \frac{\text{悲観値} - \text{楽観値}}{6}$$
 総合技術監理キーワード集では[**2.3 工程管理**](/docs/pe-comprehensive-management-keyword-2026#23-工程管理)に位置づけられている。
 
 三点見積りは[PERT/CPM](/docs/pe-comprehensive-management-pert-cpm)のPERTで作業時間の確率的評価に用いられる。[類推見積り](/docs/pe-comprehensive-management-analogous-estimation)・[パラメトリック見積り](/docs/pe-comprehensive-management-parametric-estimation)が点推定であるのに対し、三点見積りは区間推定的なアプローチである。
+
+<RelatedKeywords items={[
+  { label: "PERT/CPM", slug: "pert-cpm" },
+  { label: "ガントチャート", slug: "gantt-chart" },
+  { label: "大日程計画・中日程計画・小日程計画", slug: "master-schedule-planning" },
+  { label: "パラメトリック見積り", slug: "parametric-estimation" },
+  { label: "工程計画", slug: "process-planning-construction" },
+]} />
 
 ## 参考資料
 

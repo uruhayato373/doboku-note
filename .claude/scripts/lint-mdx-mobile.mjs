@@ -36,6 +36,8 @@
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
  *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
+ *  11-1 MEDIUM \frac{} の分子 or 分母に \text{} を含む（CJK 縮小回避のため \dfrac を推奨）
+ *  11-2 MEDIUM 単行 $$<content>$$ を検出（remark-math v6 で inline 扱い、複数行化推奨）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -723,6 +725,107 @@ function lintImages(lines, findings) {
   }
 }
 
+/**
+ * カテゴリ 11: 数式（KaTeX）の可読性
+ *
+ * 11-1 MEDIUM: `\frac{A}{B}` の分子 A または分母 B に `\text{...}` が含まれる。
+ *   KaTeX は `\frac` の分子・分母を size3 (0.7em) で縮小するため、CJK テキスト
+ *   （`\text{}` 内）が視覚的に読みにくくなる。`\dfrac` は displaystyle で
+ *   固定するため縮小を回避する。
+ *
+ * 注: インライン数式（$...$）では `\dfrac` は行内高さを異常に増やすため、
+ *   display 数式（$$...$$）内の `\frac{\text{...}}` のみ検出対象とする。
+ *   ただし実装の簡潔性から、$$..$$ か $..$ かの厳密判定はせず、
+ *   `\frac{...\text{...}...}` パターン全般を警告（実害は MEDIUM 止まり）。
+ */
+function lintMathFractions(lines, findings) {
+  const content = lines.join('\n');
+  // \frac{...} のバランスマッチング（簡易版: 最初の `{` から対応する `}` まで）
+  const fracRe = /\\frac(?=\{)/g;
+  let m;
+  while ((m = fracRe.exec(content)) !== null) {
+    const offset = m.index;
+    const firstArg = extractBraced(content, offset + 5); // '\frac'.length = 5
+    if (!firstArg) continue;
+    const secondOpen = firstArg.endIdx + 1;
+    if (content[secondOpen] !== '{') continue;
+    const secondArg = extractBraced(content, secondOpen);
+    if (!secondArg) continue;
+
+    const hasTextNum = /\\text\{/.test(firstArg.inner);
+    const hasTextDen = /\\text\{/.test(secondArg.inner);
+    if (!hasTextNum && !hasTextDen) continue;
+
+    // 行番号を算出
+    const upTo = content.slice(0, offset);
+    const line = upTo.split('\n').length;
+    const snippet = content.slice(offset, Math.min(offset + 80, content.length)).replace(/\n/g, ' ');
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '11-1',
+      line,
+      endLine: line,
+      message: `"\\frac{...\\text{...}...}" を "\\dfrac" に置換を推奨（KaTeX の size3 縮小回避、content-authoring.md §数式 参照）: ${snippet}`,
+    });
+  }
+}
+
+/**
+ * 11-2: 単行 `$$<content>$$` を検出。
+ *
+ * 理由: remark-math v6 は単行 `$$X$$` を inline math として解釈する。
+ *   display math にするには開始/終了 `$$` を別行に配置する必要がある。
+ *   inline mode では `\frac` が scriptstyle で分子・分母を 70% に縮小し、
+ *   `.katex-display` クラスも生成されないためブロック数式のスタイルが効かない。
+ *
+ * コードブロック内の `$$` は skip（誤検出防止）。
+ */
+function lintMathSingleLineDisplay(lines, findings) {
+  let inCodeFence = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^```/.test(line)) {
+      inCodeFence = !inCodeFence;
+      continue;
+    }
+    if (inCodeFence) continue;
+    const m = line.match(/^\s*\$\$(.+?)\$\$\s*$/);
+    if (m) {
+      const snippet = line.trim().slice(0, 80);
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '11-2',
+        line: i + 1,
+        endLine: i + 1,
+        message: `単行 $$...$$ は remark-math v6 で inline 扱いになる。開始/終了を別行に配置して display math にする（content-authoring.md §数式・図表 参照）: ${snippet}`,
+      });
+    }
+  }
+}
+
+/**
+ * content[openIdx] が '{' の前提で、対応する '}' までを抽出。
+ * 戻り値: { inner: '{' と '}' の間, endIdx: '}' のインデックス } or null
+ */
+function extractBraced(content, openIdx) {
+  if (content[openIdx] !== '{') return null;
+  let depth = 1;
+  let i = openIdx + 1;
+  while (i < content.length && depth > 0) {
+    const ch = content[i];
+    const prev = content[i - 1];
+    if (prev !== '\\') {
+      if (ch === '{') depth++;
+      else if (ch === '}') depth--;
+    }
+    i++;
+    if (depth === 0) {
+      return { inner: content.slice(openIdx + 1, i - 1), endIdx: i - 1 };
+    }
+  }
+  return null;
+}
+
 // ── メイン ───────────────────────────────────────────────────────────────────
 
 function lintFile(filePath) {
@@ -772,6 +875,8 @@ function lintFile(filePath) {
   lintBoldDelimiterBoundary(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
   lintImages(lines, findings);
+  lintMathFractions(lines, findings);
+  lintMathSingleLineDisplay(lines, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）
   for (const f of findings) {

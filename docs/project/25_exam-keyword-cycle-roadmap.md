@@ -2,7 +2,17 @@
 
 **策定日**: 2026-04-20
 **ステータス**: MVP + Phase 2 実装済み、Phase 3-1 骨組完成（remote trigger 接続・3-2/3-3 が残タスク）
-**追跡 Issue**: [#27 [Umbrella] exam-keyword-cycle Phase 3 & 補強候補](https://github.com/uruhayato373/doboku-note/issues/27)
+**追跡 Issue**:
+- 計画追跡（Phase 3 & 補強候補）: [#27 [Umbrella] exam-keyword-cycle Phase 3 & 補強候補](https://github.com/uruhayato373/doboku-note/issues/27)
+- **進捗管理（全体）**: [#41 [Umbrella] exam-keyword-cycle 全体進捗](https://github.com/uruhayato373/doboku-note/issues/41)
+- 年度別 Umbrella:
+  | 年度 | Umbrella |
+  |---|---|
+  | R07-primary | [#36](https://github.com/uruhayato373/doboku-note/issues/36) |
+  | R06-primary | [#37](https://github.com/uruhayato373/doboku-note/issues/37) |
+  | R05-primary | [#38](https://github.com/uruhayato373/doboku-note/issues/38) |
+  | R04-primary | [#39](https://github.com/uruhayato373/doboku-note/issues/39) |
+  | R03-primary | [#40](https://github.com/uruhayato373/doboku-note/issues/40) |
 
 **関連**:
 - 実装スキル: `.claude/skills/content/exam-keyword-cycle/SKILL.md`

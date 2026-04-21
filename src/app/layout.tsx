@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
-import "../styles/globals.css";
+// katex.min.css を先に import して、後続の globals.css で上書きできるようにする
+// （CSS カスケードは後勝ちのため、import 順で決まる）
 import "katex/dist/katex.min.css";
+import "../styles/globals.css";
 import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";

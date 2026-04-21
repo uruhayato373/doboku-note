@@ -54,15 +54,21 @@ FTAのツリーは**トップダウン**に3層で構成される。
 
 - **ORゲートでの結合**（独立な2事象 $A$、$B$）
 
-$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
 
 $P(A)$ と $P(B)$ がいずれも小さい場合（稀少事象の近似）：
 
-$$P(A \cup B) \approx P(A) + P(B)$$
+$$
+P(A \cup B) \approx P(A) + P(B)
+$$
 
 - **ANDゲートでの結合**（独立な2事象 $A$、$B$）
 
-$$P(A \cap B) = P(A) \times P(B)$$
+$$
+P(A \cap B) = P(A) \times P(B)
+$$
 
 ANDゲートで接続された経路は確率が掛け算で小さくなるため、ORゲート接続経路より発生確率が低くなる。
 
@@ -106,7 +112,9 @@ OR回路（ORゲート）は、**入力端子のどれか1つが1であれば出
 
 2つの基本事象 $A$、$B$ に対して：
 
-$$P(A \cup B) = P(A) + P(B) - P(A \cap B)$$
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
 
 $A$ と $B$ が独立かつ稀少（発生確率が十分に小さい）場合は近似式 $P(A \cup B) \approx P(A) + P(B)$ を用いることが多い。
 
@@ -118,7 +126,9 @@ AND回路（ANDゲート）は、**入力端子のすべてに1が入ったと�
 
 2つの基本事象 $A$、$B$ が独立のとき：
 
-$$P(A \cap B) = P(A) \times P(B)$$
+$$
+P(A \cap B) = P(A) \times P(B)
+$$
 
 積算により確率は大幅に小さくなる。FTAでは、ANDゲートで結合された経路が[並列システム](/docs/pe-comprehensive-management-parallel-system)に対応し、**冗長化（二重化・多重化）による安全確保の効果**を表現できる。複数の基本事象が同時に発生しなければトップ事象に至らないため、OR経路より相対的にリスクが低い。
 
@@ -143,6 +153,14 @@ FTAは[FMEA](/docs/pe-comprehensive-management-fmea)や[ETA](/docs/pe-comprehens
     "ETAとは分析方向が逆（FTA：トップダウン、ETA：ボトムアップ）",
   ]}
 />
+
+<RelatedKeywords items={[
+  { label: "イベントツリー分析（ETA）", slug: "eta" },
+  { label: "FMEA", slug: "fmea" },
+  { label: "HAZOP", slug: "hazop" },
+  { label: "信頼性ブロック図", slug: "reliability-block-diagram" },
+  { label: "並列システム", slug: "parallel-system" },
+]} />
 
 ## 参考資料
 

@@ -30,33 +30,8 @@
               "icon": "lucide-file",
               "title": "経済性管理"
             }
-          },
-          {
-            "id": "477d53ded8ac43c3",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
-                "mode": "source",
-                "source": false,
-                "backlinks": true,
-                "backlinkOpts": {
-                  "collapseAll": false,
-                  "extraContext": false,
-                  "sortOrder": "alphabetical",
-                  "showSearch": false,
-                  "searchQuery": "",
-                  "backlinkCollapsed": false,
-                  "unlinkedCollapsed": true
-                }
-              },
-              "icon": "lucide-file",
-              "title": "経済性管理"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -494,10 +469,10 @@
             "id": "ac0d4996ddf97aaf",
             "type": "leaf",
             "state": {
-              "type": "graph-analysis",
+              "type": "empty",
               "state": {},
-              "icon": "GA-ICON",
-              "title": "Graph Analysis"
+              "icon": "lucide-file",
+              "title": "新規タブ"
             }
           },
           {
@@ -509,9 +484,19 @@
               "icon": "GA-ICON",
               "title": "Graph Analysis"
             }
+          },
+          {
+            "id": "b6402ccf99bdf70f",
+            "type": "leaf",
+            "state": {
+              "type": "graph-analysis",
+              "state": {},
+              "icon": "GA-ICON",
+              "title": "Graph Analysis"
+            }
           }
         ],
-        "currentTab": 26
+        "currentTab": 27
       }
     ],
     "direction": "horizontal",
@@ -541,24 +526,44 @@
       "obisidian-note-linker:Note Linker": false
     }
   },
-  "active": "477d53ded8ac43c3",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "docs/textbook/技術士（総監）/過去問/R07/令和７年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/過去問/R06/令和６年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/過去問/R05/令和５年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/過去問/R04/令和４年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/過去問/R03/令和３年度記述式_解答と解説.pdf",
-    "docs/reviews/exam-keyword-cycle/index.json",
-    "docs/reviews/exam-keyword-cycle/README.md",
-    "docs/reviews/exam-keyword-cycle",
-    "docs/project/25_exam-keyword-cycle-roadmap.md",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/令和７年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/令和６年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/令和５年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/令和４年度記述式_解答と解説.pdf",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md",
-    "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.md",
+    "node_modules/yargs-parser/build/lib/yargs-parser-types.js",
+    "node_modules/yargs-parser/build/lib/yargs-parser.js",
+    "node_modules/yargs-parser/build/lib/string-utils.js",
+    "node_modules/yargs-parser/build/lib/index.js",
+    "node_modules/yargs-parser/build/lib/tokenize-arg-string.js",
+    "node_modules/yargs-parser/build/lib",
+    "node_modules/unicode-trie/test/test.js",
+    "node_modules/unicode-trie/test/mocha.opts",
+    "node_modules/unicode-trie/test",
+    "node_modules/signal-exit/dist/mjs/signals.js",
+    "node_modules/signal-exit/dist/mjs/signals.js.map",
+    "node_modules/@google-analytics/data/README.md",
+    "node_modules/is-fullwidth-code-point/readme.md",
+    "node_modules/get-caller-file/README.md",
+    "node_modules/get-caller-file/LICENSE.md",
+    "node_modules/foreground-child/README.md",
+    "node_modules/eastasianwidth/README.md",
+    "node_modules/camelize/README.md",
+    "node_modules/camelize/CHANGELOG.md",
+    "node_modules/@alloc/quick-lru/readme.md",
+    "node_modules/@resvg/resvg-js/README.md",
+    "node_modules/@resvg/resvg-js-win32-x64-msvc/README.md",
+    "node_modules/astring/README.md",
+    "node_modules/astring/CHANGELOG.md",
+    "node_modules/@pkgjs/parseargs/CHANGELOG.md",
+    "node_modules/@pkgjs/parseargs/README.md",
+    "node_modules/ansi-regex/readme.md",
+    "node_modules/strip-ansi-cjs/node_modules/ansi-regex/readme.md",
+    "node_modules/strip-ansi-cjs/readme.md",
+    "node_modules/wrap-ansi/node_modules/ansi-styles/readme.md",
+    "node_modules/wrap-ansi/readme.md",
+    "node_modules/string-width/readme.md",
+    "node_modules/strip-ansi/readme.md",
+    "node_modules/y18n/README.md",
+    "node_modules/y18n/CHANGELOG.md",
+    "node_modules/@img/sharp-win32-x64/README.md",
     "cp-figure.png",
     "float-consolidated.png",
     "network-light-viewport.png",
@@ -568,26 +573,6 @@
     "est-figure.png",
     "network-schedule-mobile-top.png",
     "out/posts/pe-comprehensive-management/value-engineering/img/ve-function-tree.svg",
-    "out/posts/pe-comprehensive-management/value-engineering/img/ve-basic-steps.svg",
-    "docs/note-drafts/90-総監択一式17年分分析/article.md",
-    "docs/note-drafts/12-再受験対策/article.md",
-    "docs/note-drafts/11-年度別難易度ランキング/article.md",
-    "docs/note-drafts/10-トレードオフ思考/article.md",
-    "docs/note-drafts/09-口頭試験対策/article.md",
-    "docs/note-drafts/08-記述式テーマ分析/article.md",
-    "docs/note-drafts/07-計算問題パターン集/article.md",
-    "docs/note-drafts/06-4フェーズ学習法/article.md",
-    "docs/note-drafts/05-記述式の書き方/article.md",
-    "docs/note-drafts/04-1問1答チェックリスト20問/article.md",
-    "docs/note-drafts/03-キーワード集2026変更点/article.md",
-    "docs/note-drafts/02-一般部門との違い/article.md",
-    "docs/note-drafts/00-企画立案-総監/article.md",
-    "docs/note-drafts/総監択一式17年分分析.md",
-    "docs/note-drafts/12_再受験対策.md",
-    "docs/note-drafts/11_年度別難易度ランキング.md",
-    "docs/note-drafts/10_トレードオフ思考.md",
-    "docs/note-drafts/09_口頭試験対策.md",
-    "docs/note-drafts/08_記述式テーマ分析.md",
-    "docs/note-drafts/07_計算問題パターン集.md"
+    "out/posts/pe-comprehensive-management/value-engineering/img/ve-basic-steps.svg"
   ]
 }

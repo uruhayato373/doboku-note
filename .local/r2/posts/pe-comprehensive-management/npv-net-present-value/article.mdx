@@ -24,13 +24,17 @@ NPV＞0であれば投資価値があると判断する。投資評価手法の�
 
 ## 基本計算式
 
-$$NPV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} - I_0$$
+$$
+NPV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} - I_0
+$$
 
 - $CF_t$：$t$ 年後のキャッシュフロー、$r$：割引率、$I_0$：初期投資額
 
 展開して書くと次のようになる。初期投資額を $I$、$t$ 年後の正味現金流入額を $C_t$、期間を $n$ 年とすると:
 
-$$NPV = \frac{C_1}{1+r} + \frac{C_2}{(1+r)^2} + \cdots + \frac{C_n}{(1+r)^n} - I$$
+$$
+NPV = \frac{C_1}{1+r} + \frac{C_2}{(1+r)^2} + \cdots + \frac{C_n}{(1+r)^n} - I
+$$
 
 **採択基準**: NPV > 0 であれば投資価値があると判断する。複数案を比較する場合はNPVが最大の案を選択する。NPVが同額であれば投資規模の小さい案（効率が高い案）を優先する。
 
@@ -38,7 +42,9 @@ $$NPV = \frac{C_1}{1+r} + \frac{C_2}{(1+r)^2} + \cdots + \frac{C_n}{(1+r)^n} - I
 
 初期投資1,000万円、年間収益400万円（3年間）、割引率5%の場合：
 
-$$NPV = \frac{400}{1.05} + \frac{400}{1.05^2} + \frac{400}{1.05^3} - 1000 \approx 89 \text{万円}$$
+$$
+NPV = \frac{400}{1.05} + \frac{400}{1.05^2} + \frac{400}{1.05^3} - 1000 \approx 89 \text{万円}
+$$
 
 NPV＞0のため、投資価値ありと判断する。
 
@@ -97,6 +103,14 @@ NPVは[DCF法](/docs/pe-comprehensive-management-dcf-method)の代表的手法�
     "現在価値の計算問題は択一式で頻出",
   ]}
 />
+
+<RelatedKeywords items={[
+  { label: "DCF法", slug: "dcf-method" },
+  { label: "割引率", slug: "discount-rate" },
+  { label: "内部収益率法", slug: "internal-rate-of-return" },
+  { label: "投資回収計画", slug: "investment-recovery-plan" },
+  { label: "回収期間法", slug: "payback-period-method" },
+]} />
 
 ## 参考資料
 

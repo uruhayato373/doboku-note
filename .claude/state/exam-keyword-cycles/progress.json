@@ -1,13 +1,24 @@
 {
   "version": 1,
   "description": "過去問起点の校正サイクル進捗。/exam-keyword-cycle スキルが読み書きする。",
+  "umbrella_issues": {
+    "pe-comprehensive-management-r07-primary": 36,
+    "pe-comprehensive-management-r06-primary": 37,
+    "pe-comprehensive-management-r05-primary": 38,
+    "pe-comprehensive-management-r04-primary": 39,
+    "pe-comprehensive-management-r03-primary": 40,
+    "parent": 41
+  },
   "covered": {
     "pe-comprehensive-management-r07-primary": {
       "1-1": {
         "date": "2026-04-20",
         "pr": null,
         "status": "in_review",
-        "keywords": ["business-continuity-plan", "risk-management-plan"]
+        "keywords": [
+          "business-continuity-plan",
+          "risk-management-plan"
+        ]
       }
     },
     "pe-comprehensive-management-r06-primary": {
@@ -24,7 +35,20 @@
           "kunming-montreal-framework"
         ]
       }
+    },
+    "pe-comprehensive-management-r04-primary": {
+      "1-1": {
+        "date": "2026-04-21",
+        "pr": 43,
+        "status": "in_review",
+        "keywords": [
+          "cash-flow-statement"
+        ]
+      }
     }
   },
-  "last_cycle": { "exam": "r06-primary", "question": "1-35" }
+  "last_cycle": {
+    "exam": "r04-primary",
+    "question": "1-1"
+  }
 }
