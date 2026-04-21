@@ -132,6 +132,15 @@
     margin-top: 0.3em;
   }
 
+  /* Callout 内の段落マージンを上下端のみリセット（prose の 1.25em マージンが外側 padding と合算されて余白が過大になるのを防ぐ）
+     複数段落の場合、段落間のマージンは残るため視覚的区切りは維持される */
+  .callout-body > p:first-child {
+    margin-top: 0;
+  }
+  .callout-body > p:last-child {
+    margin-bottom: 0;
+  }
+
   /* リンク: 常時アンダーライン（note風、半透明 + offset 4px、hoverで濃く） */
   .prose-blog a {
     text-decoration: underline;
