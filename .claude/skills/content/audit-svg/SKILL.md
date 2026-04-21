@@ -22,6 +22,9 @@ description: >
 | **P3-missing-maxwidth** | HIGH | ルート `<svg>` に `style="max-width:Xpx;width:100%"` が無い | PC で viewBox 幅を超えて拡大表示されるリスク |
 | **P4-tiny-font** | LOW | `font-size < 11px` | モバイル 375px での可読性下限割れ |
 | **P5-wide-viewbox** | MEDIUM | `viewBox` 幅が 400px 超過 | create-svg の原則違反（モバイル縮小率低下） |
+| **P6-color-drift** | MEDIUM | `svg-tokens.json` の colorsAllowList 外の hex 使用 | サイト特色・ブランド一貫性の崩壊 |
+| **P7-missing-font-family** | MEDIUM | `font-family` が SVG 内のどこにも未指定 | ブラウザデフォルト serif に落ちて本文と不整合 |
+| **P8-dark-bg** | **HIGH** | 濃色 fill（輝度 < 0.3）+ 内部に白/薄色テキスト（輝度 > 0.8 or "white"） | `prohibited.md` 違反（淡色 bg + 濃色文字を使う） |
 
 ## 制限事項
 
@@ -106,6 +109,35 @@ node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<作成した .sv
 ### バルク品質監査
 
 リポジトリ全体の SVG 健全性を把握（Phase 2 以降のクリーンアップ計画）。
+
+### Issue ギャラリーコメント生成（build-gallery-comment.mjs）
+
+Issue #64「[SVG] デザイン一貫性の継続改善」に、全 SVG をブラウザプレビュー付きで一覧するコメントを生成する副ツール。
+
+```bash
+# 1. audit を最新化
+node .claude/skills/content/audit-svg/scripts/audit.mjs
+
+# 2. ギャラリーコメント生成
+node .claude/skills/content/audit-svg/scripts/build-gallery-comment.mjs
+
+# 3. Issue #64 にコメント投稿（初回）
+gh issue comment 64 --body-file .tmp/svg-gallery-comment.md
+```
+
+**出力**: `.tmp/svg-gallery-comment.md`（Markdown 形式、35KB 前後）
+
+**構造**:
+- カテゴリ（civil-construction-1 / pe-comprehensive-management）別
+- 各 SVG に 🔴 HIGH / 🟡 MEDIUM / ✅ clean のアイコン
+- ファイル名、違反 pattern、R2 経由の現物プレビュー画像
+
+**URL 形式の注意**: 画像は **`storage.doboku-note.com/posts/...`（R2 直接）** を使用する。`doboku-note.com/posts/...` は Next.js が 301 redirect を返すため GitHub camo プロキシが画像を取得できない。
+
+**運用**:
+- リライト完了 → 再生成でアイコンが ✅ に変化、進捗可視化
+- 新規 SVG 追加もリストに反映
+- 古いギャラリーコメントは手動削除 or `gh issue comment --edit`
 
 ## 制約・前提
 

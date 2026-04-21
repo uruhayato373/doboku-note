@@ -53,6 +53,36 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
 - SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/content/create-svg/SKILL.md`）を参照
 
+### ブロック数式は必ず複数行 `$$`（最重要）
+
+**ルール**: display math（ブロック数式）は **開始 `$$` と終了 `$$` を必ず別々の行**に置く。
+
+```
+# 正しい
+$$
+\text{価値} = \dfrac{\text{機能}}{\text{コスト}}
+$$
+
+# 間違い（remark-math v6 で inline math 扱いになる）
+$$\text{価値} = \dfrac{\text{機能}}{\text{コスト}}$$
+```
+
+**理由**: 本サイトの remark-math は v6 系で、**単行 `$$X$$` は inline math として解釈**される。display math として描画するには開始・終了 `$$` を別行に配置する必要がある。
+
+**単行で書いた場合の実害**:
+- `\frac` の分子・分母が scriptstyle（70% サイズ）で描画され小さくなる
+- `.katex-display` クラスが付与されず、ブロック数式の背景色・中央揃え等のスタイルが一切効かない
+- 本文中にインライン扱いで埋め込まれ、視覚的に式ブロックと認識できない
+
+**補足**: 式番号を付ける場合は `\tag{N}` を使う（行末に `(1)` を付けない）:
+```
+$$
+FI_{t+1} = \frac{1}{k}(Y_t + \cdots + Y_{t-k+1}) \tag{1}
+$$
+```
+
+**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-2（MEDIUM）で単行 `$$...$$` が検出され警告。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。
+
 ### 分数（`\frac` vs `\dfrac`）— CJK 縮小問題
 
 **ルール**: 分数の分子または分母に `\text{}`（CJK テキスト）を含めるときは、`\frac` ではなく **`\dfrac`** を使う。
