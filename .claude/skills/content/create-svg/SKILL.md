@@ -10,6 +10,16 @@ description: >
 
 MDX 記事に埋め込む SVG 図版（フロー図・比較図・マトリクス・カード等）を作成する。モバイル（375px 幅）での視認性を最優先に設計する。
 
+## 事前チェック（省略禁止）
+
+**既存記事で raw `<img>` を見ても真似しない**。既存の `<img>` は移行未完了の遺物であり、新規追加では必ず `<ArticleImage>` を使う。理由:
+
+- MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `className` 属性を**すべて剥がす**（sanitizer 仕様）
+- SVG ファイル内部の `style="width:100%"` も `<img src>` 経由では効かない（ブラウザの replaced element 扱い）
+- `<ArticleImage>` は SVG 用に `w-full max-w-2xl mx-auto` コンテナと `max-width:100%;height:auto` inline style を自動付与しレスポンシブ表示する
+
+**コミット前に `/audit-svg` を必ず走らせる**。Step 3.5 で詳細。過去事例: raw `<img>` + `style="width:100%"`（`max-width:{viewBox}px` 欠落）で commit 後、ブラウザで SVG が固定サイズ表示される問題が発生し再リライト（PR #43）。スキルに書いてあったルールを守っていれば起きなかった。
+
 ## 図と文章の役割分担（必読）
 
 SVG は**全体の流れ・構造を一目で把握させる**ためのもの。詳細な説明は本文（H2/H3 + 箇条書き）に任せる。
