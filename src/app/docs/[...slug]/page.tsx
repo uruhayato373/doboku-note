@@ -295,7 +295,8 @@ export default async function DocPage({
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
             <AuthorCard
               publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
-              updatedAt={(doc.meta as any).lastRewrittenAt || (doc.meta as any).updatedAt}
+              updatedAt={(doc.meta as any).updatedAt}
+              lastRewrittenAt={(doc.meta as any).lastRewrittenAt}
             />
           </main>
 
