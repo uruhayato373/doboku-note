@@ -132,11 +132,8 @@
     margin-top: 0.3em;
   }
 
-  /* Callout 内の段落マージンを上下端のみリセット（prose の 1.25em マージンが外側 padding と合算されて余白が過大になるのを防ぐ）
-     複数段落の場合、段落間のマージンは残るため視覚的区切りは維持される */
-  .callout-body > p:first-child {
-    margin-top: 0;
-  }
+  /* Callout 内の最終段落の margin-bottom をリセット（prose の 1.25em が外側 p-4 と合算されて下余白が過大になるのを防ぐ）
+     top 側はタイトルが絶対配置（-top-2）で外枠に重なっており、prose の margin-top がタイトルとのクリアランスを確保しているため残す */
   .callout-body > p:last-child {
     margin-bottom: 0;
   }
