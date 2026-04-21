@@ -43,7 +43,21 @@ $$
 
 $p/(1-p)$ をオッズ（事象が起こる確率と起こらない確率の比）という。
 
+シグモイド関数は下図のような S 字曲線を描き、確率 $p$ が閾値 0.5 を超えるかどうかで陽性（予測: 1）・陰性（予測: 0）を分類する。決定境界は $p = 0.5$ となる位置（ロジットが 0 となる $x$）に現れる。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/logistic-regression/img/figure-2.svg"
+  alt="シグモイド関数と閾値0.5による陽性・陰性の分類境界"
+/>
+
 ### 線形回帰との比較
+
+線形回帰とロジスティック回帰は、目的変数の種類・出力範囲・関数形・係数推定法が根本的に異なる。以下の図で両者の関数形と出力範囲を視覚的に対比する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/logistic-regression/img/figure-1.svg"
+  alt="線形回帰とロジスティック回帰の出力範囲と関数形の比較"
+/>
 
 | 項目 | 線形回帰 | ロジスティック回帰 |
 |---|---|---|
