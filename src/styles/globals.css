@@ -138,6 +138,20 @@
     margin-bottom: 0;
   }
 
+  /* KaTeX 数式のフォントを本文（Inter + Noto Sans JP）に揃える
+     - .katex { font-size: 1.21em } の既定拡大を解除し、本文基準に戻す
+     - .mord.text と .cjk_fallback は本文フォントチェーンを継承（日本語を Noto Sans JP で描画）
+     - 数学記号（x, y, ∫, ∑ 等）は KaTeX_Math の italic serif を保持（数学慣習を維持）
+     背景: Issue #52 の CJK 縮小問題への追加対応。\dfrac でサイズは揃ったが、本文との
+     font-family・font-size の差異が残っていたため均質化する */
+  .katex {
+    font-size: inherit;
+  }
+  .katex .mord.text,
+  .katex .cjk_fallback {
+    font-family: inherit;
+  }
+
   /* リンク: 常時アンダーライン（note風、半透明 + offset 4px、hoverで濃く） */
   .prose-blog a {
     text-decoration: underline;
