@@ -35,10 +35,20 @@
           "kunming-montreal-framework"
         ]
       }
+    },
+    "pe-comprehensive-management-r04-primary": {
+      "1-1": {
+        "date": "2026-04-21",
+        "pr": null,
+        "status": "in_review",
+        "keywords": [
+          "cash-flow-statement"
+        ]
+      }
     }
   },
   "last_cycle": {
-    "exam": "r06-primary",
-    "question": "1-35"
+    "exam": "r04-primary",
+    "question": "1-1"
   }
 }
