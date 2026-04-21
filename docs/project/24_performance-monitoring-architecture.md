@@ -35,7 +35,7 @@
 |---|---|---|---|
 | **生データ** | `metrics-data` branch の `psi/`, `gsc/`, `ga4/` 配下 | 計測結果 JSON 全量・時系列 | ツール・エージェント（機械処理） |
 | **アクション** | GitHub Issue（label: `performance`, `auto-generated`） | しきい値違反のみ | 人間（即対応要） |
-| **ナラティブ** | `docs/reviews/weekly/YYYY-Www*.md` / `.claude/state/improvements/psi-*.md` | 推移・分析・改善候補 | 人間・Claude（判断時の参照） |
+| **ナラティブ** | `.claude/state/weekly-reports/YYYY-Www*.md` / `.claude/state/improvements/psi-*.md` | 推移・分析・改善候補 | 人間・Claude（判断時の参照） |
 
 ### 設計原則
 
@@ -58,11 +58,11 @@
   /weekly-review（日曜〜月曜）
     ├─ Agent C2: 過去 7 日の PSI 推移を集計
     ├─ gh issue list で解消/継続 Issue を surface
-    └─ docs/reviews/weekly/YYYY-Www-review.md に記録
+    └─ .claude/state/weekly-reports/YYYY-Www-review.md に記録
 
   /weekly-plan（同）
     ├─ Agent C2: open の performance Issue を Must/Should に組込
-    └─ docs/reviews/weekly/YYYY-Www.md に今週の対応タスクを明示
+    └─ .claude/state/weekly-reports/YYYY-Www.md に今週の対応タスクを明示
 
 実装
   Issue を参照しながら修正 → PR → main merge → 本番反映

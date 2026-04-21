@@ -94,8 +94,7 @@ model: inherit
 
 ## 出力先
 
-- `docs/reviews/weekly/` — 週次計画・レビュー
-- `docs/reviews/weekly-metrics/` — 週次 NSM スナップショット（時系列）
-- `docs/reviews/competitor-audit/` — 競合調査
-- `docs/reviews/` — 批判的レビュー・その他
+- `.claude/state/weekly-reports/` — 週次計画・レビュー
+- `.claude/state/weekly-metrics/` — 週次 NSM スナップショット（時系列）
+- `docs/project/competitor-audit/` — 競合調査
 - `.claude/state/experiments.json` — NSM 実験の状態遷移履歴

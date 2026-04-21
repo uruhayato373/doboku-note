@@ -78,9 +78,14 @@ description: >
 ### 出力先
 
 - 画面表示（会話内）
-- `docs/reviews/seo-audit/` にレポート保存（オプション）
+- **GitHub Issue 化**: 監査結果は md では保存せず、GitHub Issue として起票し継続的に追跡する
+  - 初回監査は Umbrella Issue を起票し、優先度別アクション（P1〜）を子 Issue として分解
+  - 再監査時は新規 Issue `[SEO Audit] YYYY-MM-DD` として起票し、既存 Umbrella の comment にリンク
+  - 既存 Umbrella: #72 （2026-04-08 監査ベース）
+  - label: `seo`, `umbrella`（初回のみ）
 
 ## 注意事項
 
 - GSC / GA4 データは別スキル（`/fetch-gsc-data`, `/fetch-ga4-data`）で取得。本スキルはコードベース・設定ファイルの静的監査に集中
 - 外部ツール（PageSpeed Insights, Lighthouse等）は参考情報として言及するが、API呼び出しは行わない
+- **監査 md は `docs/reviews/seo-audit/` に残さない**（2026-04-22 運用変更）。継続改善は Issue で管理する

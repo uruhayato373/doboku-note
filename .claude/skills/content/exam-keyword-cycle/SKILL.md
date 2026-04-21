@@ -185,7 +185,7 @@ MDX 編集は `.claude/scripts/lib/mdx-io.mjs` の `writeMdxFile` を使用（CR
 
 #### 5.3 サイクルログ作成
 
-`docs/reviews/exam-keyword-cycle/YYYY-MM-DD-{exam-slug}-{question-anchor}.md`:
+`.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-{exam-slug}-{question-anchor}.md`:
 
 ```markdown
 ---
@@ -226,7 +226,7 @@ keywords_count: 6
 
 #### 5.4 インデックス更新
 
-`docs/reviews/exam-keyword-cycle/index.json` に追加:
+`.claude/state/exam-keyword-cycles/logs/index.json` に追加:
 
 ```json
 {
@@ -272,7 +272,7 @@ keywords_count: 6
 
 | キーワード | 視点タグ | cem-qa スコア | ログ |
 |---|---|---|---|
-| nagoya-protocol | 網羅性・関連付け | 2.1 → 2.6 | [詳細](docs/reviews/exam-keyword-cycle/YYYY-MM-DD-r06-primary-1-35.md#1-nagoya-protocol) |
+| nagoya-protocol | 網羅性・関連付け | 2.1 → 2.6 | [詳細](.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-r06-primary-1-35.md#1-nagoya-protocol) |
 
 ## 変更サマリー（視点別）
 - 網羅性: N 件
@@ -313,7 +313,7 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 - `.claude/skills/management/distill-proofread-learnings/SKILL.md` — サイクル完了後の学習抽出
 - `.claude/scripts/lib/mdx-io.mjs` — MDX 読み書き（CRLF 保持）
 - `.claude/content-principles.md` — 校正ルールの真実源
-- `docs/reviews/exam-keyword-cycle/` — 本サイクルのログ蓄積先
+- `.claude/state/exam-keyword-cycles/logs/` — 本サイクルのログ蓄積先
 - `.claude/state/exam-keyword-cycles/progress.json` — カバー状況の永続化
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離（本スキルは Orchestrator）
 

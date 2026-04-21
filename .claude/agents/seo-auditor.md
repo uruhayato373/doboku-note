@@ -99,8 +99,8 @@ const searchconsole = google.searchconsole({ version: 'v1', auth });
 
 ## 出力先
 
-- `docs/reviews/seo-audit/` — SEO 監査レポート
-- `docs/reviews/keyword-gap/` — キーワードギャップ分析
+- **SEO 監査**: GitHub Issue として起票（Umbrella #72 配下、label `seo`）
+- **キーワードギャップ分析**: 会話内で surface し、必要に応じて `/weekly-plan` や関連 Issue に反映
 
 ## 関連ファイル
 

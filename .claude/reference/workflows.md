@@ -43,13 +43,13 @@
 │    │ Agent E:  /distill-proofread-learnings を呼び出し           │
 │    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │
 │    ▼                                                            │
-│  docs/reviews/weekly/YYYY-Www-review.md                         │
+│  .claude/state/weekly-reports/YYYY-Www-review.md                         │
 │    │ PSI 推移 + 校正学習候補を本文に記載                          │
 │                                                                 │
 │  /weekly-plan                                                   │
 │    │ Agent C2: open の performance Issue を Must/Should に組込   │
 │    ▼                                                            │
-│  docs/reviews/weekly/YYYY-Www.md                                │
+│  .claude/state/weekly-reports/YYYY-Www.md                                │
 │    │ 対応タスクを計画に明示                                      │
 │                                                                 │
 │  ユーザーが校正学習候補を承認 → 適用                              │
@@ -79,7 +79,7 @@
 │    │           (網羅性 / 正確性 / わかりやすさ / 試験適合 / 関連付け) │
 │    ├─ Phase 4: ユーザー一括承認                                  │
 │    ├─ Phase 5: 実装＋ログ記録                                    │
-│    │           (docs/reviews/exam-keyword-cycle/YYYY-MM-DD-*.md) │
+│    │           (.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-*.md) │
 │    │           (.claude/state/exam-keyword-cycles/progress.json) │
 │    └─ Phase 6: PR 作成（claude/exam-keyword-cycle-* ブランチ）   │
 │       │                                                         │
@@ -91,7 +91,7 @@
 **原則**:
 - 生データ → `metrics-data` branch（蓄積）
 - 人が対応する項目 → GitHub Issue（状態管理）
-- 分析・計画 → `docs/reviews/weekly/`（履歴・ナラティブ）
+- 分析・計画 → `.claude/state/weekly-reports/`（履歴・ナラティブ）
 - Issue は対応して close → 次週の review で「解消」として記録
 
 オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。

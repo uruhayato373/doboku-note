@@ -117,7 +117,7 @@ doboku-note は土木工学ドキュメントサイト（Docusaurus + Cloudflare
 |---|---|---|---|
 ```
 
-`docs/reviews/` に保存する。
+会話内で出力する（恒久保存が必要な結論は `docs/project/02_事業戦略.md` の「成長ループ」節を更新）。
 
 ## 参照
 

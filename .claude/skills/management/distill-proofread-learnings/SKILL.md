@@ -40,8 +40,8 @@ description: >
 
 `/exam-keyword-cycle` 完了直後に呼ばれることを想定。最新サイクルの範囲に絞って学習抽出する:
 
-1. `docs/reviews/exam-keyword-cycle/index.json` の `cycles[-1]` を読む（最新サイクル）
-2. そのサイクルのログ（`docs/reviews/exam-keyword-cycle/YYYY-MM-DD-*.md`）から:
+1. `.claude/state/exam-keyword-cycles/logs/index.json` の `cycles[-1]` を読む（最新サイクル）
+2. そのサイクルのログ（`.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-*.md`）から:
    - 視点タグ（網羅性・正確性・わかりやすさ・試験適合・関連付け）を抽出 → Phase 2 の分類ヒント
    - 対象キーワード slug を抽出 → `--pages` と同等に絞込対象にする
 3. 開始コミットを特定: `git log --grep="claude/exam-keyword-cycle-" --format=%H | head -1` の親コミット、または サイクルログ作成時点のコミット

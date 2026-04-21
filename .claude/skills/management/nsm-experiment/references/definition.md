@@ -123,7 +123,7 @@ NSM = 検索表示回数 × CTR
 - URL Inspection API: GSC と同スコープで呼び出し、インデックス状態診断
 - `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs`, `.claude/scripts/fetch-ga4-data.mjs`, `.claude/scripts/fetch-psi-data.mjs`, `.claude/scripts/inspect-url.mjs`, `.claude/scripts/lib/metrics-reader.mjs`, `.claude/scripts/snapshot-weekly-metrics.mjs` が動作
 - `/weekly-plan` と `/weekly-review` の Agent C が自動取得
-- 週次スナップショット: `docs/reviews/weekly-metrics/YYYY-Www.json`
+- 週次スナップショット: `.claude/state/weekly-metrics/YYYY-Www.json`
 
 **AdSense Management API は別途**: doc 12 (AdSense 再申請戦略) の審査通過後に `scripts/fetch-adsense-data.mjs` を追加予定。同サービスアカウント流用可。
 

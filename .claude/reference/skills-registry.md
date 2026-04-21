@@ -95,7 +95,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/improve-article` | 単一記事を対話的に継続改善する Orchestrator。QA エージェント 5 軸評価 → 指摘構造化 → 修正方針提示 → Edit / create-svg / 本文補強を合格ライン到達までループ | `.claude/skills/content/improve-article/SKILL.md` |
 | `/audit-exam-explanations` | 過去問 MDX の破損解説（文頭欠落・ExamPoint summary 欠落）を正規表現で検出し JSON 出力する Evaluator。修正は行わない | `.claude/skills/content/audit-exam-explanations/SKILL.md` |
 | `/audit-svg` | SVG の品質問題（文字クリップ・必須属性欠落・viewBox 超過・font-size 過小・テキスト重なり）を静的解析で検出する Evaluator。修正は行わない | `.claude/skills/content/audit-svg/SKILL.md` |
-| `/exam-keyword-cycle` | 過去問 1 問を起点に関連キーワード群を横断校正し、視点タグ（網羅性/正確性/わかりやすさ/試験適合/関連付け）付きの 1 PR にまとめる Orchestrator。docs/reviews/exam-keyword-cycle/ にログ蓄積 | `.claude/skills/content/exam-keyword-cycle/SKILL.md` |
+| `/exam-keyword-cycle` | 過去問 1 問を起点に関連キーワード群を横断校正し、視点タグ（網羅性/正確性/わかりやすさ/試験適合/関連付け）付きの 1 PR にまとめる Orchestrator。.claude/state/exam-keyword-cycles/logs/ にログ蓄積 | `.claude/skills/content/exam-keyword-cycle/SKILL.md` |
 | `/note-desumasu` | `docs/note-drafts/` 配下の note 下書きを だ・である調 から ですます調 へ変換（note 媒体の親しみやすさに特化） | `.claude/skills/content/note-desumasu/SKILL.md` |
 | `/check-frontmatter` | MDX frontmatter の構造（zod）と内容（独自ルール）を検証し HIGH/MEDIUM/LOW でレポート | `.claude/skills/content/check-frontmatter/SKILL.md` |
 | `/check-legal-citations` | MDX 本文中の法令条文が e-Gov 法令検索へのインラインリンクになっているか検査・一斉修正 | `.claude/skills/content/check-legal-citations/SKILL.md` |

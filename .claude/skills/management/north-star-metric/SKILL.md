@@ -120,7 +120,7 @@ NSM
 | NSM | GA4 / GSC | 週次 |
 ```
 
-`docs/reviews/` に保存する。
+会話内で出力する（恒久保存は `.claude/skills/management/nsm-experiment/references/definition.md` を更新）。
 
 ## 参照
 

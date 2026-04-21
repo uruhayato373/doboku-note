@@ -75,10 +75,7 @@ model: sonnet
 
 ## 出力先
 
-- `docs/reviews/trends/` — トレンドレポート
-- `docs/reviews/exam-demand/` — 資格試験需要調査
-- `docs/reviews/exam-season/` — 試験季節性戦略
-- `docs/reviews/keyword-gap/` — キーワードギャップ分析（seo-auditor と共同）
+会話内で surface する。恒久保存が必要な分析は `/weekly-plan` の本文に反映するか、個別 GitHub Issue として起票する。
 
 ## コンテンツ優先度の評価基準
 

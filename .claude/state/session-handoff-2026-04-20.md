@@ -14,7 +14,7 @@ status: mvp_trial_done_pr_pending
 
 1. **本ファイル** — 2026-04-20 終了時点のスナップショット
 2. **`docs/project/25_exam-keyword-cycle-roadmap.md`** — ロードマップ本体（実装状況を反映済み）
-3. **`docs/reviews/exam-keyword-cycle/2026-04-20-r07-primary-1-1.md`** — MVP 試運転の詳細ログ
+3. **`.claude/state/exam-keyword-cycles/logs/2026-04-20-r07-primary-1-1.md`** — MVP 試運転の詳細ログ
 
 ## 現在の状態
 
@@ -62,7 +62,7 @@ feat(exam-keyword-cycle): Phase 2/3 骨組実装（--auto, Agent F, 1cycle, work
 
 **state 更新済**:
 - `.claude/state/exam-keyword-cycles/progress.json` に R07 1-1 が covered 追加（status: in_review）
-- `docs/reviews/exam-keyword-cycle/index.json` に 1 件目のサイクル追記
+- `.claude/state/exam-keyword-cycles/logs/index.json` に 1 件目のサイクル追記
 
 **PR 作成 URL**: https://github.com/uruhayato373/doboku-note/pull/new/claude/exam-keyword-cycle-2026-04-20-r07-primary-1-1
 
@@ -138,7 +138,7 @@ echo <TOKEN> | "/c/Program Files/GitHub CLI/gh.exe" auth login --with-token
 - `r07-primary/article.mdx` 行 25 の OCR エラー疑い: 「取機的手象」→ 原典 PDF 突合後に別途修正
 
 ## サイクル記録
-- サイクルログ: `docs/reviews/exam-keyword-cycle/2026-04-20-r07-primary-1-1.md`
+- サイクルログ: `.claude/state/exam-keyword-cycles/logs/2026-04-20-r07-primary-1-1.md`
 - 本 PR は MVP 試運転の 1 サイクル目
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
@@ -169,7 +169,7 @@ echo <TOKEN> | "/c/Program Files/GitHub CLI/gh.exe" auth login --with-token
 
 ## 参考
 
-- サイクルログ: `docs/reviews/exam-keyword-cycle/2026-04-20-r07-primary-1-1.md`
+- サイクルログ: `.claude/state/exam-keyword-cycles/logs/2026-04-20-r07-primary-1-1.md`
 - 発見元サイクル PR: （上の PR URL を本 Issue 登録後に追記）
 ```
 
@@ -186,8 +186,8 @@ echo <TOKEN> | "/c/Program Files/GitHub CLI/gh.exe" auth login --with-token
 ## 関連ファイル
 
 - `docs/project/25_exam-keyword-cycle-roadmap.md` — ロードマップ本体
-- `docs/reviews/exam-keyword-cycle/2026-04-20-r07-primary-1-1.md` — 試運転ログ
-- `docs/reviews/exam-keyword-cycle/index.json` — サイクル履歴
+- `.claude/state/exam-keyword-cycles/logs/2026-04-20-r07-primary-1-1.md` — 試運転ログ
+- `.claude/state/exam-keyword-cycles/logs/index.json` — サイクル履歴
 - `.claude/state/exam-keyword-cycles/progress.json` — カバレッジ状態
 - `.claude/skills/content/exam-keyword-cycle/SKILL.md` — スキル本体
 - `.claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs` — `--auto` 実装

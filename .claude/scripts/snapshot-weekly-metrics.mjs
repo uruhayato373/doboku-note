@@ -3,7 +3,7 @@
  * Weekly Metrics Snapshot
  *
  * metrics-reader から週次 NSM メトリクスを取得して
- * docs/reviews/weekly-metrics/YYYY-Www.json に保存する。
+ * .claude/state/weekly-metrics/YYYY-Www.json に保存する。
  * index.json を追記して時系列トラッキング可能にする。
  *
  * 参照: .claude/skills/management/nsm-experiment/references/definition.md
@@ -20,7 +20,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from 
 import { dirname, join } from 'node:path';
 import { fetchWeeklyNsmMetrics, formatNsmSection } from '#lib/metrics-reader.mjs';
 
-const OUT_DIR = 'docs/reviews/weekly-metrics';
+const OUT_DIR = '.claude/state/weekly-metrics';
 const INDEX_PATH = join(OUT_DIR, 'index.json');
 
 // ── ISO 8601 週番号計算 ────────────────────────────────────────

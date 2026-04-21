@@ -1,7 +1,7 @@
 ---
 name: weekly-plan
 description: >
-  週次実行計画を並列サブエージェントで生成し `docs/reviews/weekly/` に保存する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
+  週次実行計画を並列サブエージェントで生成し `.claude/state/weekly-reports/` に保存する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
 ---
 
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
@@ -26,9 +26,49 @@ description: >
 node .claude/scripts/snapshot-weekly-metrics.mjs
 ```
 
-現在の週の NSM データ（GA4 + GSC の前週比較）を `docs/reviews/weekly-metrics/YYYY-Www.json` に保存し、index.json に追記する。既に実行済みの週は skip（`--force` で上書き可）。
+現在の週の NSM データ（GA4 + GSC の前週比較）を `.claude/state/weekly-metrics/YYYY-Www.json` に保存し、index.json に追記する。既に実行済みの週は skip（`--force` で上書き可）。
 
 この出力が Phase 1 Agent C のインプットになる。計測基盤が未整備なら skip 可（警告を表示）。
+
+### Phase 0.5: 閾値違反の Issue 起票（Weekly Metrics PDCA）
+
+Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を読み、以下の閾値ルールで違反項目を抽出し、**Umbrella #82 配下に子 Issue として起票**する。
+
+#### 起票対象の閾値
+
+| ソース | メトリクス | 閾値 | 優先度 |
+|---|---|---|---|
+| GA4 | チャネル別 sessions 前週比 | -20% 以上 かつ 前週 ≥10 | **High** (Traffic-Drop) |
+| GSC | 全体 CTR 前週比 | -30% 以上 | Medium |
+| GSC | position ≤ 3 クエリの CTR | < 5% | Medium |
+| PSI | LCP (lab) | > 2500ms | **Critical** |
+| PSI | CLS (lab) | > 0.1 | **Critical** |
+| PSI | Performance スコア | < 70 | High |
+| PSI | 前回比 Performance | -10 以上 | **Critical**（回帰） |
+| PSI | 前回比 LCP | +500ms 以上 | **Critical**（回帰） |
+
+詳細な条件式は `.claude/agents/metrics-analyzer.md` および `.claude/agents/performance-auditor.md` 参照。
+
+#### 起票手順
+
+1. 既存の Umbrella #82 [Umbrella] Weekly Metrics PDCA の open 子 Issue を `gh issue list --label weekly-pdca --state open` で取得
+2. 同じ週・同じ URL・同じメトリクスの重複 Issue が既にあればスキップ
+3. 重複なければ以下テンプレで `gh issue create`:
+
+```
+title: [Weekly/YYYY-Www][パターン名] <メトリクス概要>
+label: weekly-pdca,(performance|seo|content 等)
+body:
+  Umbrella: #82
+  Week: YYYY-Www
+  Snapshot: .claude/state/weekly-metrics/YYYY-Www.json
+  ## 検出内容 / 原因仮説 / 対処 TODO / 検証方法
+```
+
+4. 起票後、Umbrella #82 本文の「追跡中 Issue」リストに `- [ ] #N <概要>` を追記（`gh issue edit 82 --body`）
+5. 起票件数を Phase 1 Agent C の出力に含める（「今週新規起票: N 件」）
+
+**起票しない場合**: 「閾値違反なし」と明示的にログに残す。
 
 ### Phase 1: コンテキスト収集（並列サブエージェント）
 
@@ -58,7 +98,7 @@ node .claude/scripts/snapshot-weekly-metrics.mjs
 
 ```
 調査方法:
-1. Phase 0 で生成された docs/reviews/weekly-metrics/YYYY-Www.json を読む
+1. Phase 0 で生成された .claude/state/weekly-metrics/YYYY-Www.json を読む
    - 無ければ metrics-reader を直接呼ぶ fallback
 2. .claude/state/experiments.json を読んで以下を把握:
    - running 実験: 経過日数、baseline との gap
@@ -163,7 +203,7 @@ node .claude/scripts/snapshot-weekly-metrics.mjs
 
 ### Phase 5: 出力
 
-`docs/reviews/weekly/YYYY-Www.md` に保存する。
+`.claude/state/weekly-reports/YYYY-Www.md` に保存する。
 
 ## 出力フォーマット
 

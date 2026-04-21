@@ -106,8 +106,8 @@ B. 実験進捗レポート:
 - .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions が毎日生成）
   - metrics-data ブランチの psi/ サブディレクトリに蓄積されたもの
 - .claude/config/psi-config.json のしきい値
-- gh issue list --label performance --state open --json number,title,createdAt（完了済み・継続中の Issue 確認用）
-- gh issue list --label performance --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
+- gh issue list --label performance,weekly-pdca --state open --json number,title,createdAt（Umbrella #82 配下の open を含む）
+- gh issue list --label performance,weekly-pdca --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
 
 分析項目:
 - 今週の違反件数 vs 先週
@@ -123,7 +123,7 @@ B. 実験進捗レポート:
 
 ```
 調査項目:
-- docs/reviews/weekly/ の当週計画ファイルを読み込み
+- .claude/state/weekly-reports/ の当週計画ファイルを読み込み
 - 計画タスクの完了/未達を判定
 
 出力形式:
@@ -136,7 +136,7 @@ B. 実験進捗レポート:
 目的: /exam-keyword-cycle の実施状況をトラッキングし、年度別カバレッジ・未カバー過去問・次週の候補を可視化する
 
 調査項目:
-- docs/reviews/exam-keyword-cycle/index.json（過去サイクルの履歴）
+- .claude/state/exam-keyword-cycles/logs/index.json（過去サイクルの履歴）
 - .claude/state/exam-keyword-cycles/progress.json（カバー状況）
 - src/config/exam-question-keywords.json（過去問カタログ）
 - 今週実施分の抽出: index.json.cycles の date が直近 7 日以内のもの
@@ -263,7 +263,7 @@ B. 実験進捗レポート:
 
 ### Phase 3: 出力
 
-`docs/reviews/weekly/YYYY-Www-review.md` に保存する。
+`.claude/state/weekly-reports/YYYY-Www-review.md` に保存する。
 
 ### Phase 4: 週次計画の自動生成
 
@@ -353,7 +353,7 @@ generatedAt: "YYYY-MM-DD"
 
 ## 過去問起点の校正サイクル
 
-<!-- Agent F が docs/reviews/exam-keyword-cycle/index.json と
+<!-- Agent F が .claude/state/exam-keyword-cycles/logs/index.json と
      .claude/state/exam-keyword-cycles/progress.json から自動生成。
      今週実施分、年度別カバレッジ、次週候補を出力。 -->
 

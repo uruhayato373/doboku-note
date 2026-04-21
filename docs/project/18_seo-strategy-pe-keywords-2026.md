@@ -117,7 +117,7 @@
 
 ## 参考
 
-- 競合分析: `docs/reviews/competitor-audit/2026-04-05_pe-comprehensive-management.md`
+- 競合分析: `docs/project/competitor-audit/2026-04-05_pe-comprehensive-management.md`
 - v3事業戦略: `docs/project/02_事業戦略.md`
 - 収益化戦略: `docs/project/05_収益化戦略.md`
 - 品質サイクル完結状態: `.claude/state/quality-cycle-state.json`

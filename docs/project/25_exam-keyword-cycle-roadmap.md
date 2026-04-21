@@ -22,7 +22,7 @@
 |---|---|
 | 手動起動 `/exam-keyword-cycle` | `.claude/skills/content/exam-keyword-cycle/SKILL.md` |
 | 6 Phase オーケストレーション | 同上 |
-| サイクルログ永続化 | `docs/reviews/exam-keyword-cycle/YYYY-MM-DD-*.md` |
+| サイクルログ永続化 | `.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-*.md` |
 | 進捗状態管理 | `.claude/state/exam-keyword-cycles/progress.json` |
 | PR 作成経路 | 既存 `/pr-create` を再利用 |
 | **MVP 実サイクル試運転** | R07 Ⅰ-1-1（PR マージ済）・R06 Ⅰ-1-35（PR #26 マージ済） |
@@ -63,8 +63,8 @@
 | 記録先 | 対象 | 生成タイミング |
 |---|---|---|
 | Git コミット | キーワード MDX の実変更 | 各キーワード修正時 |
-| `docs/reviews/exam-keyword-cycle/YYYY-MM-DD-*.md` | 視点タグ・Before/After・スコア推移 | Phase 5 |
-| `docs/reviews/exam-keyword-cycle/index.json` | サイクルメタ情報（日付・対象・PR 番号） | Phase 5 |
+| `.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-*.md` | 視点タグ・Before/After・スコア推移 | Phase 5 |
+| `.claude/state/exam-keyword-cycles/logs/index.json` | サイクルメタ情報（日付・対象・PR 番号） | Phase 5 |
 | `.claude/state/exam-keyword-cycles/progress.json` | カバー状況 | Phase 5 |
 | GitHub PR | 差分とレビューコメント | Phase 6 |
 
