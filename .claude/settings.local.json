@@ -37,7 +37,12 @@
       "mcp__playwright__browser_tabs",
       "Bash(awk -F'/' '{print $2\"/\"$3}')",
       "Bash(mkdir -p .local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img)",
-      "Bash(cp \"C:/Users/m004195/.claude/projects/C--Users-m004195-doboku-note/d8fdd0f8-ab92-4853-9f4c-f3fc7109a8c7/tool-results/webfetch-1776650577716-bcdq3l.gif\" .local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/eia-procedure-flow.gif)"
+      "Bash(cp \"C:/Users/m004195/.claude/projects/C--Users-m004195-doboku-note/d8fdd0f8-ab92-4853-9f4c-f3fc7109a8c7/tool-results/webfetch-1776650577716-bcdq3l.gif\" .local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/eia-procedure-flow.gif)",
+      "Bash(mkdir -p /Users/minamidaisuke/doboku-note/.claude/state/weekly-metrics)",
+      "Bash(mv /Users/minamidaisuke/doboku-note/docs/reviews/weekly-metrics/*.json /Users/minamidaisuke/doboku-note/.claude/state/weekly-metrics/)",
+      "Bash(mkdir -p /Users/minamidaisuke/doboku-note/.claude/state/exam-keyword-cycles/logs)",
+      "Bash(mv /Users/minamidaisuke/doboku-note/docs/reviews/exam-keyword-cycle/* /Users/minamidaisuke/doboku-note/.claude/state/exam-keyword-cycles/logs/)",
+      "Bash(rmdir /Users/minamidaisuke/doboku-note/docs/reviews/exam-keyword-cycle)"
     ],
     "defaultMode": "bypassPermissions"
   }
