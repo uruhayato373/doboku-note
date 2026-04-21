@@ -25,7 +25,7 @@
 │  psi-audit.yml (JST 02:00)                                      │
 │    │ 代表 20 URL を mobile+desktop で計測                         │
 │    ▼                                                            │
-│  metrics-data branch の psi/ に JSON 蓄積                        │
+│  develop: .claude/state/metrics/psi/ に JSON 蓄積 [skip ci]     │
 │    │                                                            │
 │    ├─ しきい値違反あり ──► GitHub Issue 自動起票                  │
 │    │                        (label: performance, auto-generated) │
@@ -38,19 +38,20 @@
 │ 週 1 回（週次 PDCA）                                             │
 │                                                                 │
 │  /weekly-review                                                 │
-│    │ Agent C2: psi/ の 7 日分を読み前週比を出力                   │
+│    │ Agent C2: .claude/state/metrics/psi/ の 7 日分を読み         │
+│    │            前週比を出力                                     │
 │    │            gh issue list で解消/継続 Issue を surface       │
 │    │ Agent E:  /distill-proofread-learnings を呼び出し           │
 │    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │
 │    ▼                                                            │
-│  docs/reviews/weekly/YYYY-Www-review.md                         │
-│    │ PSI 推移 + 校正学習候補を本文に記載                          │
+│  GitHub Issue: [PDCA] YYYY-Www (label: weekly-pdca)            │
+│    │ PSI 推移 + 校正学習候補 + 計画を Issue body に統合           │
 │                                                                 │
 │  /weekly-plan                                                   │
 │    │ Agent C2: open の performance Issue を Must/Should に組込   │
 │    ▼                                                            │
-│  docs/reviews/weekly/YYYY-Www.md                                │
-│    │ 対応タスクを計画に明示                                      │
+│  同じ [PDCA] Issue の body 更新 or コメント追記                   │
+│    │ 対応タスクを計画として明示                                  │
 │                                                                 │
 │  ユーザーが校正学習候補を承認 → 適用                              │
 │    │ content-principles.md / memory / workflows.md 等を更新      │
@@ -88,10 +89,11 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**原則**:
-- 生データ → `metrics-data` branch（蓄積）
-- 人が対応する項目 → GitHub Issue（状態管理）
-- 分析・計画 → `docs/reviews/weekly/`（履歴・ナラティブ）
+**原則**（3 層モデル）:
+- **Tier 3 機械可読データ** → `.claude/state/metrics/*.json`（develop に CI が直接 commit）
+- **Tier 1 状態あり・アクション item** → GitHub Issue（`performance`, `weekly-pdca`, `session-handoff`, `queue`, `task`, `umbrella` 等のラベルで分類）
+- **Tier 2 固定的知識・設計** → `docs/project/*.md`, `.claude/reference/*.md`
+- 週次 PDCA は `[PDCA] YYYY-Www` Issue に計画とレビューを集約（`docs/reviews/weekly/` は archive のみ）
 - Issue は対応して close → 次週の review で「解消」として記録
 
 オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。

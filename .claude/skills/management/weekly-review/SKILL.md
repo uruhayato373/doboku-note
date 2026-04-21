@@ -103,8 +103,7 @@ B. 実験進捗レポート:
 
 ```
 調査項目:
-- .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions が毎日生成）
-  - metrics-data ブランチの psi/ サブディレクトリに蓄積されたもの
+- .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
 - .claude/config/psi-config.json のしきい値
 - gh issue list --label performance --state open --json number,title,createdAt（完了済み・継続中の Issue 確認用）
 - gh issue list --label performance --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
@@ -334,7 +333,7 @@ generatedAt: "YYYY-MM-DD"
 
 ## PSI パフォーマンス推移
 
-<!-- Agent C2 が metrics-data branch の psi/ と open/closed Issues から自動生成。
+<!-- Agent C2 が .claude/state/metrics/psi/ と open/closed Issues から自動生成。
      今週の違反件数、スコア前週比、新規/解消した違反を記録。 -->
 
 ### Core Web Vitals 前週比
