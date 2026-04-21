@@ -211,16 +211,21 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 - [ ] **原典の図番号参照（図 N.N）を SVG 内に書かない** — SVG 内のタイトルや補足に「図 7.6」のような PDF 表記を残さない（目次・SEO を汚染しない）
 - [ ] **text-anchor と x 座標の整合** — `text-anchor="end"` を使う場合、text が viewBox の左端を超えないか確認（長い日本語ラベルで `x="55"` end-anchored にすると viewBox 外にクリップされる）
 
-### Step 3.5: 自動監査（必須）
+### Step 3.5: 自動監査（必須・pre-commit で機械的に強制）
 
-作成した SVG を `/audit-svg` で検証し、**HIGH 件数 0** を確認する。
+**pre-commit フック**（`scripts/pre-commit-mdx.mjs`）が staged の `.local/r2/posts/**/img/*.svg` に対して `auditSvgFile` を自動実行し、**HIGH 検出でコミットをブロック**する。MEDIUM/LOW は warning として表示（ブロックしない）。
+
+手動で事前確認したい場合:
 
 ```bash
-node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<作成した .svg> --severity=HIGH
-# findings == 0 なら合格、検出されたら修正して再実行
+# 単一ファイル（fail-on=HIGH で exit 1）
+node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<作成した .svg> --fail-on=HIGH
+
+# プロジェクト全体
+node .claude/skills/content/audit-svg/scripts/audit.mjs --severity=HIGH
 ```
 
-検出対象: 文字クリップ（P1）・必須属性欠落（P3）・viewBox 超過（P5）等。詳細は `/audit-svg` の SKILL.md を参照。
+検出対象: 文字クリップ（P1）・必須属性欠落（P3: role / aria-label / max-width）・viewBox 超過（P5）・フォント過小（P4）等。詳細は `/audit-svg` の SKILL.md を参照。
 
 ### Step 4: MDX への配置
 

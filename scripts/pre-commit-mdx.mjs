@@ -17,12 +17,29 @@ import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs";
 import { detectBrokenExplanations } from "../.claude/skills/content/audit-exam-explanations/scripts/detect.mjs";
+import { auditSvgFile } from "../.claude/skills/content/audit-svg/scripts/detect.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
   try {
     const output = execSync(
       'git diff --cached --name-only --diff-filter=ACM -- "*.mdx"',
+      { encoding: "utf-8" }
+    );
+    return output
+      .trim()
+      .split("\n")
+      .filter((f) => f && existsSync(f));
+  } catch {
+    return [];
+  }
+}
+
+// Get staged SVG files under .local/r2/posts/**/img/
+function getStagedSvgFiles() {
+  try {
+    const output = execSync(
+      'git diff --cached --name-only --diff-filter=ACM -- ".local/r2/posts/**/img/*.svg"',
       { encoding: "utf-8" }
     );
     return output
@@ -107,12 +124,18 @@ function checkImages(file, content) {
 
 async function main() {
   const files = getStagedMdxFiles();
+  const svgFiles = getStagedSvgFiles();
 
-  if (files.length === 0) {
-    process.exit(0); // No MDX files staged
+  if (files.length === 0 && svgFiles.length === 0) {
+    process.exit(0); // Nothing to validate
   }
 
-  console.log(`pre-commit: Validating ${files.length} MDX file(s)...`);
+  if (files.length > 0) {
+    console.log(`pre-commit: Validating ${files.length} MDX file(s)...`);
+  }
+  if (svgFiles.length > 0) {
+    console.log(`pre-commit: Auditing ${svgFiles.length} SVG file(s)...`);
+  }
 
   const errors = []; // HIGH 相当（コミットブロック）
   const warnings = []; // MEDIUM/LOW（警告表示のみ）
@@ -181,6 +204,23 @@ async function main() {
     }
   }
 
+  // SVG 監査: staged SVG に対して audit-svg の detect を実行
+  // HIGH は errors（コミットブロック）、MEDIUM/LOW は warnings
+  for (const svgFile of svgFiles) {
+    let findings;
+    try {
+      findings = auditSvgFile(svgFile);
+    } catch (e) {
+      errors.push({ file: svgFile, error: `SVG parse: ${e.message}` });
+      continue;
+    }
+    for (const f of findings) {
+      const entry = { file: svgFile, error: `[${f.pattern}] ${f.severity}` };
+      if (f.severity === "HIGH") errors.push(entry);
+      else warnings.push({ ...entry, severity: f.severity });
+    }
+  }
+
   // 警告を先に出す（警告はブロックしない）
   if (warnings.length > 0) {
     console.warn(`\npre-commit: ⚠ ${warnings.length} warning(s) (MEDIUM/LOW):`);
@@ -190,7 +230,10 @@ async function main() {
   }
 
   if (errors.length === 0) {
-    console.log(`pre-commit: ✓ All ${files.length} MDX file(s) OK.`);
+    const parts = [];
+    if (files.length > 0) parts.push(`${files.length} MDX`);
+    if (svgFiles.length > 0) parts.push(`${svgFiles.length} SVG`);
+    console.log(`pre-commit: ✓ All ${parts.join(" + ")} file(s) OK.`);
     process.exit(0);
   } else {
     console.error(`\npre-commit: ✗ ${errors.length} HIGH error(s):\n`);
