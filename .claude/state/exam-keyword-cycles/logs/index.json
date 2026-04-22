@@ -7,7 +7,10 @@
       "exam": "r07-primary",
       "question": "1-1",
       "theme": "BCP・BCM とサプライチェーン",
-      "keywords": ["business-continuity-plan", "risk-management-plan"],
+      "keywords": [
+        "business-continuity-plan",
+        "risk-management-plan"
+      ],
       "pr": null,
       "log": "2026-04-20-r07-primary-1-1.md"
     },
@@ -32,7 +35,9 @@
       "exam": "r04-primary",
       "question": "1-1",
       "theme": "キャッシュ・フロー計算書の3区分と財務活動",
-      "keywords": ["cash-flow-statement"],
+      "keywords": [
+        "cash-flow-statement"
+      ],
       "pr": 43,
       "log": "2026-04-21-r04-primary-1-1.md"
     },
@@ -41,7 +46,11 @@
       "exam": "r04-primary",
       "question": "1-8",
       "theme": "PERT 計算（最早／最遅開始時刻・トータルフロート・クリティカルパス）",
-      "keywords": ["pert-cpm", "progress-management", "gantt-chart"],
+      "keywords": [
+        "pert-cpm",
+        "progress-management",
+        "gantt-chart"
+      ],
       "pr": 99,
       "log": "2026-04-22-r04-primary-1-8.md"
     },
@@ -50,7 +59,11 @@
       "exam": "r04-primary",
       "question": "1-9",
       "theme": "労務管理（変形労働時間制 vs フレックスタイム制・就業規則・年休時季指定）",
-      "keywords": ["flextime-system", "variable-work-hours", "labor-standards-act"],
+      "keywords": [
+        "flextime-system",
+        "variable-work-hours",
+        "labor-standards-act"
+      ],
       "pr": 100,
       "log": "2026-04-22-r04-primary-1-9.md"
     },
@@ -59,8 +72,11 @@
       "exam": "r04-primary",
       "question": "1-10",
       "theme": "パートタイム・有期雇用労働法（法的義務の強度: 禁止規定 > 義務 > 努力義務）",
-      "keywords": ["part-time-fixed-term-act", "equal-pay-for-equal-work"],
-      "pr": null,
+      "keywords": [
+        "part-time-fixed-term-act",
+        "equal-pay-for-equal-work"
+      ],
+      "pr": 102,
       "log": "2026-04-22-r04-primary-1-10.md"
     }
   ]
