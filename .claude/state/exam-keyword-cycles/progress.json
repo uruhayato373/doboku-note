@@ -44,11 +44,89 @@
         "keywords": [
           "cash-flow-statement"
         ]
+      },
+      "1-2": {
+        "date": "2026-04-22",
+        "pr": 86,
+        "status": "in_review",
+        "keywords": [
+          "value-engineering"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-22",
+        "pr": 88,
+        "status": "in_review",
+        "keywords": [
+          "demand-forecasting",
+          "linear-regression",
+          "estimation-testing"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-22",
+        "pr": 90,
+        "status": "in_review",
+        "keywords": [
+          "predictive-maintenance",
+          "maintenance-prevention",
+          "improvement-maintenance",
+          "preventive-maintenance"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-22",
+        "pr": 92,
+        "status": "in_review",
+        "keywords": [
+          "service-quality",
+          "quality-characteristics"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-22",
+        "pr": 93,
+        "status": "in_review",
+        "keywords": [
+          "theory-of-constraints",
+          "supply-chain-management",
+          "jit-production"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-22",
+        "pr": 95,
+        "status": "in_review",
+        "keywords": [
+          "agile",
+          "waterfall",
+          "pmbok"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-22",
+        "pr": 99,
+        "status": "in_review",
+        "keywords": [
+          "pert-cpm",
+          "progress-management",
+          "gantt-chart"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "in_review",
+        "keywords": [
+          "flextime-system",
+          "variable-work-hours",
+          "labor-standards-act"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-1"
+    "question": "1-9"
   }
 }
