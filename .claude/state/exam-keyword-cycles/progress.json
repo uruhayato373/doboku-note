@@ -178,7 +178,9 @@
         "date": "2026-04-22",
         "pr": null,
         "status": "committed",
-        "keywords": ["discretionary-work-system"]
+        "keywords": ["work-life-balance", "discretionary-work-system", "labor-standards-act"],
+        "cem_qa_before": {"work-life-balance": 1.40},
+        "redone": "2026-04-22 proper cycle"
       },
       "1-12": {
         "date": "2026-04-22",
