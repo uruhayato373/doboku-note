@@ -1,16 +1,26 @@
 {
   "version": 1,
-  "generated_at": "2026-04-22T05:22:42.435Z",
+  "generated_at": "2026-04-22T07:59:48.123Z",
   "summary": {
-    "total": 773,
-    "published": 768,
+    "total": 774,
+    "published": 769,
     "unpublished": 5,
     "by_category": {
       "civil-construction-1": 79,
-      "pe-comprehensive-management": 689
+      "pe-comprehensive-management": 690
     }
   },
   "docs": {
+    "_dev-speclist-gallery": {
+      "title": "SpecSheetList ギャラリー（dev only）",
+      "description": "SpecSheetList コンポーネントの全バリエーションを一覧表示する開発用ギャラリー。スクリーンショット生成用。",
+      "seoTitle": "SpecSheetList ギャラリー",
+      "category": "pe-comprehensive-management",
+      "tags": [
+        "keyword"
+      ],
+      "published": true
+    },
     "civil-construction-1-guide-concrete-key-points": {
       "title": "コンクリートの重要ポイント — 1級土木施工管理技士試験対策",
       "description": "1級土木施工管理技士試験で頻出のコンクリート分野（骨材・混和材料・打込み・養生・鉄筋・ひび割れ対策）の重要ポイントを整理。過去問の出題傾向に基づく学習の優先順位付き。",
