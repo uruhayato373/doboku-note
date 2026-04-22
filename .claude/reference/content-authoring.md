@@ -24,7 +24,7 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 
 MDX 内で使える主要コンポーネント（`src/lib/component-loader/index.ts` で登録済み）:
 
-- `<Callout type="info|warning|tip|error" title="...">children</Callout>` — 補足・注意ボックス
+- `<Callout type="note|tip|warn|danger|success|exam|formula|standard|example|reference|faq|quote" title="...">children</Callout>` — 12 種のセマンティックボックス（左アクセントバー + 円形アイコン + 任意タイトル）。視覚ギャラリー: [`docs/ui/callout-gallery.md`](../../docs/ui/callout-gallery.md)
 - `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
 - `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
 - `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slug でキーワードページへリンク、slug 省略で灰色テキスト）

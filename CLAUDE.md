@@ -16,8 +16,10 @@
 | [.claude/reference/skills-design-guide.md](.claude/reference/skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・Phase 別ロードマップ | 週次 PDCA・変換作業・キーワードページ作成時 |
 | [.claude/reference/docs-issue-separation.md](.claude/reference/docs-issue-separation.md) | `docs/project/` md（Why/戦略）と GitHub Umbrella Issue（実行タスク）の役割分離ルール | ロードマップ md 作成・更新時／Umbrella Issue 作成時 |
-| [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成等） | キーワードページ執筆・評価時 |
+| [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
 | [.claude/design-system/principles.md](.claude/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
+| [docs/ui/callout-gallery.md](docs/ui/callout-gallery.md) | Callout 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）。GitHub 画面で視覚確認可能 | MDX で `<Callout type="...">` を選ぶとき |
+| [src/components/ui/Callout/README.md](src/components/ui/Callout/README.md) | Callout コンポーネント直下リファレンス（12 種一覧表・デザイン仕様・旧 type 移行表） | Callout を実装・改修・MDX で使うとき |
 | `.claude/config/` | ツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト等、エージェント編集領域） | OGP・PSI・自動化ツールのルール・閾値を調整するとき |
 | `docs/project/01_設計思想.md` | プロジェクトの設計思想の詳細 | 長期方針・コンテンツ戦略検討時 |
 | `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
