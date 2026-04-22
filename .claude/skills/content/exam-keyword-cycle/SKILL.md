@@ -72,6 +72,16 @@ node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs 
 - `cem-qa` エージェントが利用可能
 - dev server が起動している（`npm run dev` で 3020 ポート）— 視覚検証に使用
 
+### 運用方針: 新規キーワードページは作らない
+
+総監キーワードページ（pe-comprehensive-management/ 配下）の **新規作成は禁止**。既存ページの補強・統合で対応する（2026-04-18 決定、memory: no-new-keyword-pages）。
+
+- **キーワード集 2026 の真実源**: `.local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx`
+- 過去問で言及されるが既存ページに無い用語を発見した場合:
+  - **カタログに存在する** → 既存ページで補強（通常のサイクル対象）
+  - **カタログに存在しない** → 既存ページ本文内で触れるか、過去問解説側の言及で済ませる。**新規ページは起こさない**
+- 本スキルの Phase 3 / 重大な発見のいずれでも「新規キーワードページ追加」を提案してはならない
+
 ## フェーズ構成（6 段階）
 
 ### Phase 1: 起点過去問の特定と論点抽出
@@ -329,9 +339,13 @@ PR 作成後、`index.json` と `progress.json` の `pr` フィールドに PR �
 
 - 過去問 MDX 自体に OCR エラーがある（設問文・選択肢の破損）
 - 過去問の解答表（`/add-exam-answers`）の反映漏れ
-- キーワードページが存在すべきなのにない
+- **カタログに存在するのにキーワードページが欠落している**（`keyword-2026/article.mdx` を先に検索して確認すること）
 
 Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同パターン）
+
+### 起こしてはならない Issue / 提案
+
+- 「新規キーワードページ追加を検討」—— 運用方針により新規作成は禁止。カタログ外の用語は既存ページ本文での言及で済ませる（前提条件「運用方針: 新規キーワードページは作らない」参照）
 
 ## 参照
 
