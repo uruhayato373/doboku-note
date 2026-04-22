@@ -52,11 +52,21 @@
         "keywords": [
           "value-engineering"
         ]
+      },
+      "1-3": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "in_review",
+        "keywords": [
+          "demand-forecasting",
+          "linear-regression",
+          "estimation-testing"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-2"
+    "question": "1-3"
   }
 }
