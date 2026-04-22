@@ -186,7 +186,9 @@
         "date": "2026-04-22",
         "pr": null,
         "status": "committed",
-        "keywords": ["stress-check-system"]
+        "keywords": ["stress-check-system"],
+        "cem_qa_before": {"stress-check-system": 1.65},
+        "redone": "2026-04-22 proper cycle"
       },
       "1-13": {
         "date": "2026-04-22",
