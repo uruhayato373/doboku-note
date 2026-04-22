@@ -73,11 +73,20 @@
           "improvement-maintenance",
           "preventive-maintenance"
         ]
+      },
+      "1-5": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "in_review",
+        "keywords": [
+          "service-quality",
+          "quality-characteristics"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-4"
+    "question": "1-5"
   }
 }
