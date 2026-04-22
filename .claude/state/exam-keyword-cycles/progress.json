@@ -194,7 +194,9 @@
         "date": "2026-04-22",
         "pr": null,
         "status": "committed",
-        "keywords": ["teal-organization"]
+        "keywords": ["teal-organization"],
+        "cem_qa_before": {"teal-organization": 1.00},
+        "redone": "2026-04-22 proper cycle"
       },
       "1-14": {
         "date": "2026-04-22",
