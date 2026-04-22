@@ -35,6 +35,15 @@
       "keywords": ["cash-flow-statement"],
       "pr": 43,
       "log": "2026-04-21-r04-primary-1-1.md"
+    },
+    {
+      "date": "2026-04-22",
+      "exam": "r04-primary",
+      "question": "1-8",
+      "theme": "PERT 計算（最早／最遅開始時刻・トータルフロート・クリティカルパス）",
+      "keywords": ["pert-cpm", "progress-management", "gantt-chart"],
+      "pr": null,
+      "log": "2026-04-22-r04-primary-1-8.md"
     }
   ]
 }
