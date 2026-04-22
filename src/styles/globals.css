@@ -157,7 +157,8 @@
     @apply leading-snug;
   }
 
-  /* h1: ページタイトル — 下線アクセント + Zenn準拠 max-width 780px 中央寄せ */
+  /* h1: ページタイトル — 下線アクセント + Zenn準拠 max-width 780px 中央寄せ
+     letter-spacing -0.02em（Claude Design 提案、2026-04-22 追加） */
   .prose-blog h1 {
     @apply text-3xl font-bold text-gray-900 dark:text-white;
     @apply mb-8 mt-8 pb-3;
@@ -165,13 +166,16 @@
     max-width: 780px;
     margin-left: auto;
     margin-right: auto;
+    letter-spacing: -0.02em;
   }
 
-  /* h2: セクション区切り — 左アクセントバー + 広い上余白 */
+  /* h2: セクション区切り — 左アクセントバー + 広い上余白
+     letter-spacing -0.01em（Claude Design 提案） */
   .prose-blog h2 {
     @apply text-2xl font-bold text-gray-900 dark:text-gray-100;
     @apply mb-5 mt-16 py-2 pl-4;
     @apply border-l-4 border-blue-600 dark:border-cyan-500;
+    letter-spacing: -0.01em;
   }
 
   /* h3: サブセクション — 中間色の左アクセントバー */
@@ -179,6 +183,7 @@
     @apply text-xl font-semibold text-gray-800 dark:text-gray-200;
     @apply mb-4 mt-12 pl-4 py-1;
     @apply border-l-4 border-blue-400 dark:border-cyan-400;
+    letter-spacing: -0.01em;
   }
 
   /* h4: 小見出し — 細いグレーの左アクセント */
@@ -186,6 +191,20 @@
     @apply text-lg font-semibold text-gray-700 dark:text-gray-300;
     @apply mb-3 mt-8 pl-3;
     @apply border-l-2 border-gray-300 dark:border-gray-600;
+    letter-spacing: -0.01em;
+  }
+
+  /* ===== フォントファミリー切替（opt-in）=====
+     2026-04-22 Claude Design ハンドオフ追加。body に以下のクラスを付けると切替可能。
+     デフォルトは Sans（Inter + Noto Sans JP）。UI 露出は別 PR で検討。
+     - `body.font-serif-book`: Source Serif 4 + Noto Serif JP（書籍感）
+     - `body.font-mincho`: Noto Serif JP + Hiragino Mincho（和文明朝）
+     Tailwind の `font-sans/serif` クラス名とは衝突しないよう `font-serif-book` を使用。 */
+  body.font-serif-book {
+    font-family: var(--font-source-serif), var(--font-noto-serif-jp), Georgia, "Yu Mincho", serif;
+  }
+  body.font-mincho {
+    font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
   }
 
   /* ===== 表: 左右余白 + ボーダーで本文と区別 ===== */

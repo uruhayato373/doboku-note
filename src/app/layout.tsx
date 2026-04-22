@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP } from "next/font/google";
+import { Inter, Noto_Sans_JP, Source_Serif_4, Noto_Serif_JP } from "next/font/google";
 // katex.min.css を先に import して、後続の globals.css で上書きできるようにする
 // （CSS カスケードは後勝ちのため、import 順で決まる）
 import "katex/dist/katex.min.css";
@@ -27,6 +27,26 @@ const notoSansJP = Noto_Sans_JP({
   preload: true,
 });
 
+// Serif/Mincho フォント（2026-04-22 追加）: 本文フォント切替の基盤として導入。
+// デフォルトは Sans（Inter + Noto Sans JP）のまま。`body.font-serif` / `body.font-mincho`
+// クラスで opt-in 可能にし、UI 露出（Tweaks トグル等）は別 PR で段階導入する。
+// preload は false（デフォルトで読み込まないため、初期バンドルへの影響を最小化）。
+const sourceSerif = Source_Serif_4({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-source-serif",
+  display: "swap",
+  preload: false,
+});
+
+const notoSerifJP = Noto_Serif_JP({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-noto-serif-jp",
+  display: "swap",
+  preload: false,
+});
+
 export const metadata: Metadata = getCommonSeoData();
 
 export default function RootLayout({
@@ -40,7 +60,7 @@ export default function RootLayout({
         <StructuredData type="website" />
         <StructuredData type="organization" />
       </head>
-      <body className={`${inter.variable} ${notoSansJP.variable} font-sans`}>
+      <body className={`${inter.variable} ${notoSansJP.variable} ${sourceSerif.variable} ${notoSerifJP.variable} font-sans`}>
         <GoogleAnalytics />
         <Suspense fallback={null}>
           <AnalyticsProvider />
