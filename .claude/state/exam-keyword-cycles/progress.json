@@ -137,11 +137,17 @@
         "pr": null,
         "status": "committed",
         "keywords": ["discretionary-work-system"]
+      },
+      "1-12": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "committed",
+        "keywords": ["stress-check-system"]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-11"
+    "question": "1-12"
   }
 }
