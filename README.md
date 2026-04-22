@@ -16,8 +16,10 @@
 
 ### UI コンポーネント視覚リファレンス
 
-- **[`docs/ui/callout-gallery.md`](./docs/ui/callout-gallery.md)** — Callout 全 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）。GitHub 画面で直接視覚確認可能
+- **[`docs/ui/callout-gallery.md`](./docs/ui/callout-gallery.md)** — Callout 全 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）
+- **[`docs/ui/speclist-gallery.md`](./docs/ui/speclist-gallery.md)** — SpecSheetList 全 5 バリエーションの視覚ギャラリー（仕様書調リスト）
 - [`src/components/ui/Callout/README.md`](./src/components/ui/Callout/README.md) — Callout コンポーネントの実装リファレンス
+- [`src/components/ui/SpecSheetList/README.md`](./src/components/ui/SpecSheetList/README.md) — SpecSheetList コンポーネントの実装リファレンス
 
 ### プロジェクト管理
 

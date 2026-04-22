@@ -26,7 +26,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 
 - `<Callout type="note|tip|warn|danger|success|exam|formula|standard|example|reference|faq|quote" title="...">children</Callout>` — 12 種のセマンティックボックス（左アクセントバー + 円形アイコン + 任意タイトル）。視覚ギャラリー: [`docs/ui/callout-gallery.md`](../../docs/ui/callout-gallery.md)
 - `<ExamPoint summary="要約文" items={["項目1", "項目2"]} />` — 試験対策ポイント専用ボックス（青タイトル + マーカー付き要約 + 箇条書き）
-- `<CustomUnorderedList title="..." style="modern|elegant|checklist|summary" items={[...]} />` — スタイル付きリスト
+- `<SpecSheetList title="..." items={[...]} ordered={true|false} marker="dot|dash|square" />` — 仕様書調リスト（ordered / unordered 両対応）。視覚ギャラリー: [`docs/ui/speclist-gallery.md`](../../docs/ui/speclist-gallery.md)
 - `<RelatedKeywords items={[{ label: "名前", slug: "slug" }]} />` — 関連キーワードリンクタグ（slug でキーワードページへリンク、slug 省略で灰色テキスト）
 - `<ArticleImage src="..." alt="..." width={N} height={N} />` — 画像（`<figure>` セマンティクス付き）。**`caption` は使わない** — [content-principles §8](../content-principles.md) 参照。詳細は「画像コンポーネントの使い分け」
 - `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
@@ -216,7 +216,7 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 試験を問わず、以下は **必ず統一** する。サイト全体のデザイン一貫性を保つため。
 
 - **frontmatter スキーマ**: `title`, `description`, `category`, `tags`, `group`, `published`, `publishedAt`（必須項目）
-- **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<CustomUnorderedList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
+- **MDX コンポーネント**: `<Callout>`, `<ExamPoint>`, `<SpecSheetList>`, `<RelatedKeywords>`, `<Timeline>`, `<PdcaCycle>`, `<details>` を試験横断で使用
 - **モバイル視認性ルール**: 表は2軸比較のみ、4列以上禁止、計算手順は番号付きリスト、3列以上の表はセル15字以内
 - **数式**: KaTeX 一択（他のレンダラを混在させない）
 - **図表**: Mermaid（フロー・タイムライン・PDCA）/ PNG（写真・複雑なイラスト）/ SVG（模式図、Phase 2）
