@@ -89,7 +89,6 @@ export default function KeywordProgress() {
       if (slug === 'pe-comprehensive-management-general-overview') continue;
       if (slug === 'pe-comprehensive-management-exam-index') continue;
       if (slug === 'pe-comprehensive-management-essay-exam-strategy') continue;
-      if (slug === 'pe-comprehensive-management-essay-question-trends-timeline') continue;
       if (slug === 'pe-comprehensive-management-management-tradeoffs') continue;
       if (slug.startsWith('pe-comprehensive-management-r') && slug.includes('-primary')) continue;
 

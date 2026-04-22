@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-04-20T22:18:09.500Z",
+  "generated_at": "2026-04-22T05:22:46.680Z",
   "summary": {
-    "total_mdx_files": 775,
-    "total_unique_tags": 55,
+    "total_mdx_files": 773,
+    "total_unique_tags": 51,
     "allowlist_size": 82,
-    "known_count": 35,
-    "unknown_count": 20,
+    "known_count": 33,
+    "unknown_count": 18,
     "typo_candidates_count": 1
   },
   "tags": [
@@ -1176,13 +1176,11 @@
     },
     {
       "name": "技士（総合技術監理部門）",
-      "count": 19,
+      "count": 17,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
         "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-essay-question-trends-timeline",
-        "pe-comprehensive-management-essay-template-safety",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-index",
         "pe-comprehensive-management-four-m-of-production",
@@ -1241,7 +1239,7 @@
     },
     {
       "name": "guide",
-      "count": 10,
+      "count": 9,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -1251,7 +1249,6 @@
         "civil-construction-1-guide-law-key-points",
         "civil-construction-1-guide-strategy",
         "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-essay-question-trends-timeline",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy"
       ]
@@ -1456,24 +1453,6 @@
       ]
     },
     {
-      "name": "記述式",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-essay-question-trends-timeline"
-      ]
-    },
-    {
-      "name": "記述式対策",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-template-safety",
-        "pe-comprehensive-management-management-tradeoffs"
-      ]
-    },
-    {
       "name": "2026年版",
       "count": 1,
       "inAllowlist": false,
@@ -1594,19 +1573,19 @@
       ]
     },
     {
-      "name": "安全管理",
+      "name": "記述式",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-essay-template-safety"
+        "pe-comprehensive-management-essay-exam-strategy"
       ]
     },
     {
-      "name": "過去問",
+      "name": "記述式対策",
       "count": 1,
-      "inAllowlist": true,
+      "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-essay-question-trends-timeline"
+        "pe-comprehensive-management-management-tradeoffs"
       ]
     },
     {
@@ -1623,14 +1602,6 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "出題傾向",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-question-trends-timeline"
       ]
     },
     {
@@ -1680,14 +1651,6 @@
       "usedIn": [
         "pe-comprehensive-management-r07-primary"
       ]
-    },
-    {
-      "name": "論文テンプレート",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-template-safety"
-      ]
     }
   ],
   "unknown": [
@@ -1697,20 +1660,18 @@
     "machinery",
     "quality",
     "schedule",
-    "記述式対策",
     "2026年版",
     "5管理",
     "キーワード集",
     "トレードオフ",
+    "記述式対策",
     "出願",
-    "出題傾向",
     "令和2年度",
     "令和3年度",
     "令和4年度",
     "令和5年度",
     "令和6年度",
-    "令和7年度",
-    "論文テンプレート"
+    "令和7年度"
   ],
   "typo_candidates": [
     {

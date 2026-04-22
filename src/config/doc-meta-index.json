@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-04-20T22:18:09.216Z",
+  "generated_at": "2026-04-22T05:22:42.435Z",
   "summary": {
-    "total": 775,
-    "published": 770,
+    "total": 773,
+    "published": 768,
     "unpublished": 5,
     "by_category": {
       "civil-construction-1": 79,
-      "pe-comprehensive-management": 691
+      "pe-comprehensive-management": 689
     }
   },
   "docs": {
@@ -1851,8 +1851,8 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-14",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-21",
+      "revisionCycle": 2,
       "seoTitle": "貸借対照表（B/S） ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-basel-convention": {
@@ -4426,10 +4426,10 @@
       "seoTitle": "ESG投資・ESG金融 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-essay-exam-strategy": {
-      "title": "総合技術監理部門 記述式試験の解答戦略 ――解答工程5ステップ――",
-      "description": "技術士二次試験 総合技術監理部門の記述式試験（論文）の解き方を5ステップで解説。前文の分析、論文骨子の構成、業務経歴からの題材活用、評価基準の確認、時間配分まで。",
+      "title": "総合技術監理部門 記述式試験の解答戦略",
+      "description": "総合技術監理部門の記述式試験（必須科目 I-2）を「(1) 設計図→(2) 施策→(3) 将来展望」の三層構造で設計し、5 枚×600 字を 30 分／枚で書き切るための戦略。問題文のヒントの読み方、因果構造・トレードオフ・最大リスクの整理法、試験時間 210 分のタイムテーブルを解説。",
       "shortTitle": "記述式試験の解答戦略",
-      "subtitle": "解答工程5ステップ",
+      "subtitle": "三層構造で設計し、5 枚×30 分で書き切る",
       "guide_order": 4,
       "category": "pe-comprehensive-management",
       "group": "guide",
@@ -4441,46 +4441,7 @@
       "created": "2026-04-10T00:00:00.000Z",
       "published": true,
       "publishedAt": "2026-04-10T00:00:00.000Z",
-      "seoTitle": "総合技術監理部門 記述式試験の解答戦略 ――解答工程5ステップ―― | doboku-note"
-    },
-    "pe-comprehensive-management-essay-question-trends-timeline": {
-      "title": "総監記述式 出題傾向の変遷マップ ──H21〜R07 17年分を俯瞰する",
-      "description": "技術士第二次試験 総合技術監理部門 記述式問題（必須科目I-2）の17年分の出題傾向を時系列で整理。作問委員の任期と連動した3〜5年周期の形式変化と、各期のテーマ・問題構造の違いを受験者目線で解説する。",
-      "shortTitle": "出題傾向の変遷マップ",
-      "subtitle": "H21〜R07 17年分を俯瞰",
-      "guide_order": 10,
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "tags": [
-        "技士（総合技術監理部門）",
-        "guide",
-        "記述式",
-        "過去問",
-        "出題傾向"
-      ],
-      "created": "2026-04-14T00:00:00.000Z",
-      "published": true,
-      "publishedAt": "2026-04-14T00:00:00.000Z",
-      "seoTitle": "総監記述式 出題傾向の変遷マップ ──H21〜R07 17年分を俯瞰する | doboku-note"
-    },
-    "pe-comprehensive-management-essay-template-safety": {
-      "title": "総合技術監理 論文骨子テンプレート ――安全管理を軸にする――",
-      "description": "総合技術監理部門の記述式試験で安全管理が主軸になる設問向けの骨子テンプレート。5枚3,000字の章立て、トレードオフ解決フレーム（ALARP・リスクベース判断）の展開パターン、定型フレーズ集、過去問への当てはめ例を整理。",
-      "shortTitle": "論文骨子テンプレート（安全管理）",
-      "subtitle": "5枚構成の骨子・定型フレーズ・トレードオフ展開",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 11,
-      "tags": [
-        "技士（総合技術監理部門）",
-        "記述式対策",
-        "安全管理",
-        "論文テンプレート"
-      ],
-      "created": "2026-04-20T00:00:00.000Z",
-      "published": true,
-      "publishedAt": "2026-04-20T00:00:00.000Z",
-      "seoTitle": "総合技術監理 論文骨子テンプレート（安全管理） | doboku-note"
+      "seoTitle": "総合技術監理部門 記述式試験の解答戦略 | doboku-note"
     },
     "pe-comprehensive-management-estimation-testing": {
       "title": "推定・検定",
@@ -7197,9 +7158,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-08",
-      "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-21",
+      "revisionCycle": 2,
       "seoTitle": "ロジスティック回帰 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-lopa": {
@@ -7832,8 +7793,8 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "ネットワーク組織 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1
+      "lastRewrittenAt": "2026-04-21",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-non-repudiation": {
       "title": "否認防止（Non-repudiation）",
@@ -11377,8 +11338,8 @@
       ],
       "published": true,
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-21",
+      "revisionCycle": 2,
       "publishedAt": "2026-04-08",
       "seoTitle": "ティール組織 ｜ 総合技術監理 キーワード集 2026"
     },
@@ -11805,8 +11766,8 @@
       "seoTitle": "バリューチェーン分析 ｜ 総合技術監理 キーワード集 2026"
     },
     "pe-comprehensive-management-value-engineering": {
-      "title": "VE・VA",
-      "description": "VE・VAの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "title": "価値工学（VE）",
+      "description": "価値工学（VE）の定義、機能分類（使用機能／貴重機能）、基本 3 ステップ、機能系統図（FAST ダイアグラム）を技術士総合技術監理の視点で整理。過去問演習リンク付き。",
       "tags": [
         "総合技術監理",
         "経済性管理",
@@ -11819,10 +11780,10 @@
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "2.7",
-      "seoTitle": "VE・VA ｜ 総合技術監理 キーワード集2026",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1
+      "seoTitle": "価値工学（VE） ｜ 総合技術監理 キーワード集2026",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-04-21T06:45:00Z",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-variable-work-hours": {
       "title": "変形労働時間制度",
