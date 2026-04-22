@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-04-22T05:22:46.680Z",
+  "generated_at": "2026-04-22T07:59:53.185Z",
   "summary": {
-    "total_mdx_files": 773,
+    "total_mdx_files": 774,
     "total_unique_tags": 51,
     "allowlist_size": 82,
     "known_count": 33,
@@ -12,9 +12,10 @@
   "tags": [
     {
       "name": "keyword",
-      "count": 641,
+      "count": 642,
       "inAllowlist": true,
       "usedIn": [
+        "_dev-speclist-gallery",
         "pe-comprehensive-management-360-degree-evaluation",
         "pe-comprehensive-management-access-control",
         "pe-comprehensive-management-access-log-analysis",

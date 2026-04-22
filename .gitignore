@@ -79,3 +79,6 @@ public/posts
 .obsidian/workspace-mobile.json
 .obsidian/workspaces.json
 .obsidian/plugins/*/data.json
+
+# Handoff archives（Box / docs 一括エクスポート用 zip、リポジトリには含めない）
+/*.zip

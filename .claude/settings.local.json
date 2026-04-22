@@ -42,7 +42,9 @@
       "Bash(mv /Users/minamidaisuke/doboku-note/docs/reviews/weekly-metrics/*.json /Users/minamidaisuke/doboku-note/.claude/state/weekly-metrics/)",
       "Bash(mkdir -p /Users/minamidaisuke/doboku-note/.claude/state/exam-keyword-cycles/logs)",
       "Bash(mv /Users/minamidaisuke/doboku-note/docs/reviews/exam-keyword-cycle/* /Users/minamidaisuke/doboku-note/.claude/state/exam-keyword-cycles/logs/)",
-      "Bash(rmdir /Users/minamidaisuke/doboku-note/docs/reviews/exam-keyword-cycle)"
+      "Bash(rmdir /Users/minamidaisuke/doboku-note/docs/reviews/exam-keyword-cycle)",
+      "mcp__github__create_pull_request",
+      "mcp__github__merge_pull_request"
     ],
     "defaultMode": "bypassPermissions"
   }
