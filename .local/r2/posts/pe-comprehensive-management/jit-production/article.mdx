@@ -21,6 +21,8 @@ JIT生産方式（Just In Time Production）とは、**必要なものを、必�
 
 ## 7つのムダ
 
+JIT が排除対象とするムダは次の 7 種類に分類される。
+
 | ムダ | 内容 |
 |---|---|
 | **作りすぎのムダ** | 必要以上に生産する（最大のムダ） |
@@ -67,6 +69,18 @@ JIT の実装基盤となるのが **かんばん方式**（JIS Z 8141）であ�
 
 JIT生産方式は[プル型生産方式](/docs/pe-comprehensive-management-pull-production)を具体化した手法であり、[リードタイム](/docs/pe-comprehensive-management-lead-time)の短縮と在庫最小化を実現する。[5S](/docs/pe-comprehensive-management-five-s)はJITの基盤となる職場環境整備手法である。
 
+### TOC（制約条件の理論）との対比
+
+JIT と [TOC](/docs/pe-comprehensive-management-theory-of-constraints) は同じ生産改善のアプローチだが、哲学が異なる。試験でも両者の区別が問われる。
+
+<Callout type="tip" title="JIT vs TOC の哲学的違い">
+**JIT**: 全工程で「在庫ゼロ」を志向し、ムダの徹底排除と平準化で全体を同期。前提条件（平準化・段取替え短縮等）の厳守が成立要件。
+
+**TOC**: ボトルネック（制約）に資源を集中し、制約前のバッファは**積極的に許容**してスループットを守る。前提条件の事前整備は要求しない。
+
+JIT は「全工程の改善で総合力向上」、TOC は「制約 1 点突破で全体最適」という違い。R04 Ⅰ-1-6 の「非ボトルネック工程の改善は全体スループットに貢献しない」は TOC の核心で、この点で JIT とは視座が異なる。
+</Callout>
+
 <RelatedKeywords items={[
   { label: "プル型生産方式", slug: "pull-production" },
   { label: "プッシュ型生産方式", slug: "push-production" },
@@ -77,5 +91,6 @@ JIT生産方式は[プル型生産方式](/docs/pe-comprehensive-management-pull
 
 ## 参考資料
 
-- 村松林太郎『新版 生産管理の基礎』国元書房, 1970
-- [JIS Z 8141 生産管理用語](https://www.jisc.go.jp/)
+- [JIS Z 8141:2001 生産管理用語（全文）](https://kikakurui.com/z8/Z8141-2001-01.html) — JIT（2201「必要な時に必要な量だけ生産する方式」）・かんばん方式（2203）の正式な用語定義を収録
+- [『ザ・ゴール』シリーズ公式ページ](https://promo.diamond.jp/books/the-goal/series/)（ダイヤモンド社） — JIT の対比軸として TOC を理解する際の原典シリーズ
+- 村松林太郎『新版 生産管理の基礎』国元書房, 1970 — 日本の生産管理における古典的教科書
