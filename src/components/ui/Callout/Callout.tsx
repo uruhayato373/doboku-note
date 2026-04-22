@@ -171,16 +171,17 @@ const CALLOUT_CONFIG: Record<CalloutKind, ToneConfig> = {
 };
 
 /**
- * Callout コンポーネント（2026-04-22 全面リデザイン、Claude Design ハンドオフ厳密準拠）
+ * Callout コンポーネント（2026-04-22 全面リデザイン、Claude Design ハンドオフ準拠）
  *
  * デザイン:
  * - 左アクセントボーダー 3px（トーン別）
  * - 左上に円形アイコン（22px, トーンの強色背景 + 白アイコン）
- * - 任意タイトル（ink-strong、title prop があれば表示）
+ * - 任意タイトル（トーン色 bold、title prop があれば表示）
  * - 本文は通常 ink-body 色
  *
  * zip 原設計に合わせ、LABEL（"NOTE"/"ポイント" 等）は描画しない。
- * 型の識別はアイコン + 色で行う。スクリーンリーダー向けには aria-label で補完。
+ * 型の識別はアイコン + 色で行い、タイトル色も Callout のトーン色に揃える
+ * ことで視覚的一体感を強める。スクリーンリーダー向けには aria-label で補完。
  *
  * 使い分けガイドは `.claude/content-principles.md` を参照。
  */
@@ -205,9 +206,9 @@ export default function Callout({ type = "note", title, children }: CalloutProps
         <IconComponent className="h-3.5 w-3.5" />
       </div>
 
-      {/* 任意タイトル（指定時のみ描画） */}
+      {/* 任意タイトル（指定時のみ描画、トーン色で強調） */}
       {title && (
-        <div className="mb-1.5 text-sm font-bold text-gray-900 dark:text-gray-100">
+        <div className={`mb-1.5 text-sm font-bold ${config.tag}`}>
           {title}
         </div>
       )}
