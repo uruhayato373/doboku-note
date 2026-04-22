@@ -44,11 +44,19 @@
         "keywords": [
           "cash-flow-statement"
         ]
+      },
+      "1-2": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "in_review",
+        "keywords": [
+          "value-engineering"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-1"
+    "question": "1-2"
   }
 }
