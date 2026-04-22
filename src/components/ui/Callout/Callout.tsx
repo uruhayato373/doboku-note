@@ -8,14 +8,39 @@ import {
   CheckCircle,
   FileText,
   Lightbulb,
-  HelpCircle
+  HelpCircle,
+  Sigma,
+  BookOpen,
+  Beaker,
+  Link2,
+  MessageSquare,
+  Quote
 } from "lucide-react";
 
 /**
  * Calloutコンポーネントのプロパティ定義
+ *
+ * 既存 9 種（info/warning/error/success/note/tip/question/caution/danger）は後方互換のため保持。
+ * 2026-04-22: doboku-note ドメイン特化の 6 種（formula/standard/example/reference/faq/quote）を追加。
+ * 詳細な使い分けは .claude/content-principles.md を参照。
  */
 interface CalloutProps {
-  type?: "info" | "warning" | "error" | "success" | "note" | "tip" | "question" | "caution" | "danger";
+  type?:
+    | "info"
+    | "warning"
+    | "error"
+    | "success"
+    | "note"
+    | "tip"
+    | "question"
+    | "caution"
+    | "danger"
+    | "formula"
+    | "standard"
+    | "example"
+    | "reference"
+    | "faq"
+    | "quote";
   title?: string;
   children: ReactNode;
 }
@@ -104,6 +129,55 @@ export default function Callout({
       iconColor: "text-red-600 dark:text-red-400",
       titleColor: "text-red-800 dark:text-red-200",
       textColor: "text-red-700 dark:text-red-300",
+    },
+    // ─── ドメイン特化 6 種（2026-04-22 追加） ───
+    formula: {
+      icon: Sigma,
+      bgColor: "bg-violet-50/80 dark:bg-violet-900/80",
+      borderColor: "border-violet-500 dark:border-violet-400",
+      iconColor: "text-violet-600 dark:text-violet-400",
+      titleColor: "text-violet-800 dark:text-violet-200",
+      textColor: "text-violet-700 dark:text-violet-300",
+    },
+    standard: {
+      icon: BookOpen,
+      bgColor: "bg-slate-50/80 dark:bg-slate-800/80",
+      borderColor: "border-slate-500 dark:border-slate-400",
+      iconColor: "text-slate-600 dark:text-slate-400",
+      titleColor: "text-slate-800 dark:text-slate-200",
+      textColor: "text-slate-700 dark:text-slate-300",
+    },
+    example: {
+      icon: Beaker,
+      bgColor: "bg-teal-50/80 dark:bg-teal-900/80",
+      borderColor: "border-teal-500 dark:border-teal-400",
+      iconColor: "text-teal-600 dark:text-teal-400",
+      titleColor: "text-teal-800 dark:text-teal-200",
+      textColor: "text-teal-700 dark:text-teal-300",
+    },
+    reference: {
+      icon: Link2,
+      bgColor: "bg-stone-50/80 dark:bg-stone-800/80",
+      borderColor: "border-stone-500 dark:border-stone-400",
+      iconColor: "text-stone-600 dark:text-stone-400",
+      titleColor: "text-stone-800 dark:text-stone-200",
+      textColor: "text-stone-700 dark:text-stone-300",
+    },
+    faq: {
+      icon: MessageSquare,
+      bgColor: "bg-amber-50/80 dark:bg-amber-900/80",
+      borderColor: "border-amber-500 dark:border-amber-400",
+      iconColor: "text-amber-600 dark:text-amber-400",
+      titleColor: "text-amber-800 dark:text-amber-200",
+      textColor: "text-amber-700 dark:text-amber-300",
+    },
+    quote: {
+      icon: Quote,
+      bgColor: "bg-neutral-50/80 dark:bg-neutral-800/80",
+      borderColor: "border-neutral-500 dark:border-neutral-400",
+      iconColor: "text-neutral-600 dark:text-neutral-400",
+      titleColor: "text-neutral-800 dark:text-neutral-200",
+      textColor: "text-neutral-700 dark:text-neutral-300",
     },
   }), []);
 
