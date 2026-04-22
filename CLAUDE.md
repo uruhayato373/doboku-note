@@ -211,6 +211,20 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
 - **feature ブランチでの作業完了（最終コミット完了）後、必ず `develop` に戻る**。未コミット変更が残る場合は戻らず、その旨をユーザーに報告してから判断を仰ぐ
 - **`develop` に戻ることは「変更確認」ではなく「ブランチ状態のリセット」が目的**。変更の目視確認は feature ブランチ上（localhost）または PR プレビューで行う（merge 前の変更は `develop` には乗っていない）
 
+### 並行作業時は Git Worktree を使う
+
+2 人以上のエージェント（または人間＋エージェント）が同時並行で作業する場合、同じ working tree を共有せず、必ず Git Worktree で物理分離する。Git は 1 つの working tree に 1 つの HEAD しか持てない設計のため、共有すると `git checkout` の競合・`git stash` の untracked 衝突・working tree の予測不能な状態変化が必ず発生する（ルールで回避できない物理構造の問題）。
+
+- **新セッション開始時**: `git worktree add C:/tmp/doboku-note-wt/<task-name> -b claude/<task-name> develop`
+- **作業完了時（merge 済み後）**: `git worktree remove C:/tmp/doboku-note-wt/<task-name>` および必要ならローカルブランチ削除
+- **メイン worktree**（`C:\Users\m004195\doboku-note`）は人間・dev server・commit 確認用として常に `develop` を維持
+- **dev server** は worktree ごとに別ポートで起動（例: `npm run dev -- -p 3021`）。メイン worktree が 3020 を占有するので新 worktree は 3021, 3022...
+- **node_modules** は worktree ごとに必要。**junction で共有する方法**が最速: `cmd //c "mklink /J C:\tmp\doboku-note-wt\<task-name>\node_modules C:\Users\m004195\doboku-note\node_modules"`（ジャンクションは同じボリューム内のみ、管理者権限不要）
+- **pre-commit フック** は `.git/hooks/` が worktree 間で共有されるため、上記の node_modules junction 作成で `gray-matter` 等の依存が解決すれば通る
+- **Claude Code 起動時** は対応する worktree ディレクトリで起動し、`git branch --show-current` で自分が正しい feature ブランチにいることを確認
+
+このルールにより `git checkout` の HEAD 競合、stash の untracked 衝突、working tree の予測不可能な状態変化を物理的に排除する。並行作業が 1 件だけの場合（メインエージェントのみ）は worktree 不要、メインを直接使う。
+
 このルールは並行エージェント作業時の衝突を減らし、main の安定性を担保し、deploy タイミングをユーザー判断下に置くための運用則。SKILL.md 内で base 指定を書く場合もこのルールに従う。
 
 ## 頻用コマンド
