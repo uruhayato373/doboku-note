@@ -7,6 +7,7 @@ import {
   AlertTriangle,
   Ban,
   CheckCircle,
+  Flag,
   Sigma,
   BookOpen,
   Beaker,
@@ -16,11 +17,18 @@ import {
 } from "lucide-react";
 
 /**
- * Callout の 11 種（2026-04-22 Claude Design ハンドオフで定義）
+ * Callout の 12 種（2026-04-22 Claude Design ハンドオフ準拠）
  *
- * zip `CALLOUT_KINDS` 準拠。12 種から exam を除外（ExamPoint コンポーネントと役割重複のため）。
+ * zip `CALLOUT_KINDS` の 12 種を 1:1 で実装。
+ * デザインは zip 原設計に厳密準拠し、アイコン + 色 + 任意タイトルのみで型を識別する
+ * （ラベルテキスト「NOTE」「ポイント」等は描画しない。metadata は a11y 用に保持）。
+ *
  * 旧 9 種（info/warning/error/success/note/tip/question/caution/danger）は本 PR で削除。
  * 既存 MDX の移行マッピング: info→note / warning→warn / caution→warn
+ *
+ * exam と ExamPoint の役割分離:
+ * - <ExamPoint summary items={[]}/>: 記事末尾の構造化総括
+ * - <Callout type="exam" title>: 本文中の単発アクセント
  */
 export type CalloutKind =
   | "note"
@@ -28,6 +36,7 @@ export type CalloutKind =
   | "warn"
   | "danger"
   | "success"
+  | "exam"
   | "formula"
   | "standard"
   | "example"
@@ -97,6 +106,15 @@ const CALLOUT_CONFIG: Record<CalloutKind, ToneConfig> = {
       "bg-green-50/70 dark:bg-green-950/40 border-green-500 dark:border-green-400",
     tag: "text-green-700 dark:text-green-300",
   },
+  exam: {
+    label: "EXAM",
+    jp: "出題頻度",
+    icon: Flag,
+    accent: "bg-pink-600 dark:bg-pink-400",
+    panel:
+      "bg-pink-50/70 dark:bg-pink-950/40 border-pink-600 dark:border-pink-400",
+    tag: "text-pink-700 dark:text-pink-300",
+  },
   formula: {
     label: "FORMULA",
     jp: "公式",
@@ -153,13 +171,16 @@ const CALLOUT_CONFIG: Record<CalloutKind, ToneConfig> = {
 };
 
 /**
- * Callout コンポーネント（2026-04-22 全面リデザイン、Claude Design ハンドオフ準拠）
+ * Callout コンポーネント（2026-04-22 全面リデザイン、Claude Design ハンドオフ厳密準拠）
  *
  * デザイン:
  * - 左アクセントボーダー 3px（トーン別）
  * - 左上に円形アイコン（22px, トーンの強色背景 + 白アイコン）
- * - 小タグ「LABEL · jp」が先頭に並び、タイトル（任意）は ink-strong で続く
+ * - 任意タイトル（ink-strong、title prop があれば表示）
  * - 本文は通常 ink-body 色
+ *
+ * zip 原設計に合わせ、LABEL（"NOTE"/"ポイント" 等）は描画しない。
+ * 型の識別はアイコン + 色で行う。スクリーンリーダー向けには aria-label で補完。
  *
  * 使い分けガイドは `.claude/content-principles.md` を参照。
  */
@@ -173,6 +194,7 @@ export default function Callout({ type = "note", title, children }: CalloutProps
   return (
     <aside
       data-callout={type}
+      aria-label={`${config.label}: ${config.jp}`}
       className={`relative my-6 border-l-[3px] rounded-md pl-14 pr-5 py-4 ${config.panel}`}
     >
       {/* 円形アイコン（左上固定） */}
@@ -183,22 +205,12 @@ export default function Callout({ type = "note", title, children }: CalloutProps
         <IconComponent className="h-3.5 w-3.5" />
       </div>
 
-      {/* ラベル行: タグ（英） · jp · 任意タイトル */}
-      <div className="mb-1.5 flex flex-wrap items-baseline gap-x-2 gap-y-1">
-        <span
-          className={`text-[11px] font-bold uppercase tracking-[0.1em] ${config.tag}`}
-        >
-          {config.label}
-        </span>
-        <span className="text-[11px] font-medium text-gray-500 dark:text-gray-400">
-          {config.jp}
-        </span>
-        {title && (
-          <span className="text-sm font-bold text-gray-900 dark:text-gray-100">
-            {title}
-          </span>
-        )}
-      </div>
+      {/* 任意タイトル（指定時のみ描画） */}
+      {title && (
+        <div className="mb-1.5 text-sm font-bold text-gray-900 dark:text-gray-100">
+          {title}
+        </div>
+      )}
 
       {/* 本文 */}
       <div className="callout-body text-[0.95em] leading-7 text-gray-700 dark:text-gray-300">
