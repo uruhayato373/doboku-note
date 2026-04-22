@@ -20,9 +20,9 @@ user-invocable: true
 /pr-create [--base <branch>] [--draft]
 ```
 
-- **`--base`**: PR の base ブランチ（省略時は `main`）
+- **`--base`**: PR の base ブランチ（省略時は `develop` — CLAUDE.md「ブランチ運用ルール」に準拠）
 - **`--draft`**: Draft PR として作成
-- 引数省略時: 現在の branch から `main` への PR を作成
+- 引数省略時: 現在の branch から `develop` への PR を作成。`main` 直指定は本番障害 hotfix のみ
 
 ## 実行手順
 
@@ -85,26 +85,36 @@ EOF
 ### Step 5: URL 返却 + 次アクション提示
 
 - gh CLI が返した PR URL を報告
-- CI が走る場合はその旨を案内（`ci.yml` が PR on main で実行）
+- CI が走る場合はその旨を案内（`ci.yml` が PR on main/develop で実行）
 - draft で作成した場合は「準備できたら `gh pr ready <number>` で ready に変更」と案内
 
 ## 例
 
-### 例 1: develop から main への PR
+### 例 1: feature ブランチから develop への PR（デフォルト）
 
 ```bash
 /pr-create
 ```
 
-→ base = main、現在の develop との差分でタイトル・body 生成、`gh pr create` 実行。
+→ base = develop、現在のブランチとの差分でタイトル・body 生成、`gh pr create` 実行。
 
-### 例 2: feature/ui-tokens ブランチから develop へ
+### 例 2: develop から main への PR（リリース時のみ、通常は `/deploy` を使う）
 
 ```bash
-/pr-create --base develop
+/pr-create --base main
 ```
 
-→ base = develop、feature/ui-tokens との差分で PR 作成。
+→ base = main、develop との差分で PR 作成。リリース用。
+
+### 例 3: 本番障害 hotfix
+
+feature ブランチを main から直接切って:
+
+```bash
+/pr-create --base main
+```
+
+→ hotfix 用の緊急 PR。merge 後は main → develop 逆 merge を忘れない。
 
 ### 例 3: Draft PR
 

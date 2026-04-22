@@ -293,7 +293,7 @@ node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
 
 ### Phase 6: PR 作成
 
-`/pr-create --base main` を呼出。PR body は HEREDOC で以下のテンプレに従う:
+`/pr-create --base develop` を呼出（CLAUDE.md「ブランチ運用ルール」に準拠）。PR body は HEREDOC で以下のテンプレに従う:
 
 ```markdown
 ## 起点過去問

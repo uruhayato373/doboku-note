@@ -192,6 +192,19 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
 - **手動**: `npm run build && npx wrangler pages deploy build --project-name=doboku-note`
 - **Secrets**: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`
 
+## ブランチ運用ルール
+
+複数エージェント・複数セッションが並行して作業することを前提に、以下を**常に**守る。
+
+- **全 PR のデフォルト base は `develop`**。feature ブランチ（`claude/*` や `feat/*`）から `develop` へ PR を出し、レビュー後 `develop` に merge する
+- **`main` は常にデプロイ済みの安定版**。`develop` → `main` への merge は `/deploy` スキル経由でユーザーがタイミングを判断（= deploy の発火）
+- **例外: 本番障害の hotfix のみ `--base main` 直 PR を認める**。merge 後は必ず `main` → `develop` へ逆 merge して差分を解消する
+- **小修正のたびに main へ push しない**。`develop` に複数機能・修正を蓄積し、機能まとまり or 週次の単位でまとめて main merge
+- **`develop` は週 1 回 `main` から rebase/merge して追従**（`git checkout develop && git merge origin/main`）。長命化によるコンフリクト膨張を防ぐ
+- スキル側の扱い: `/pr-create` の `--base` 省略時は `develop`、`/deploy` は `develop` → `main` 経路を担当、`/exam-keyword-cycle` 等のコンテンツサイクル PR も `--base develop` で作る
+
+このルールは並行エージェント作業時の衝突を減らし、main の安定性を担保し、deploy タイミングをユーザー判断下に置くための運用則。SKILL.md 内で base 指定を書く場合もこのルールに従う。
+
 ## 頻用コマンド
 
 ```bash
