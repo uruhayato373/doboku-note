@@ -46,9 +46,42 @@ export type SpecSheetListProps = {
   className?: string;
 };
 
+/**
+ * `**bold**` と `` `code` `` のインライン記法を React ノードに変換する簡易パーサ。
+ * MDX では items が ReactNode 配列として渡せるが、文字列で渡されたときに
+ * markdown の太字が literal 表示される問題を避けるための最小対応。
+ * ネスト（例: `**太字内の*斜体*`）や複雑な markdown は扱わない。
+ */
+function parseInlineMarkdown(text: string): ReactNode {
+  // `**bold**` を先に分割、内側で `\`code\`` を処理
+  const boldRegex = /(\*\*[^*]+\*\*)/g;
+  const parts = text.split(boldRegex);
+  return parts.map((part, i) => {
+    if (part.startsWith("**") && part.endsWith("**") && part.length > 4) {
+      return <strong key={`b-${i}`}>{parseInlineCode(part.slice(2, -2), i)}</strong>;
+    }
+    return parseInlineCode(part, i);
+  });
+}
+
+function parseInlineCode(text: string, parentIdx: number): ReactNode {
+  const codeRegex = /(`[^`]+`)/g;
+  const parts = text.split(codeRegex);
+  if (parts.length === 1) return text;
+  return parts.map((p, i) => {
+    if (p.startsWith("`") && p.endsWith("`") && p.length > 2) {
+      return <code key={`c-${parentIdx}-${i}`}>{p.slice(1, -1)}</code>;
+    }
+    return p;
+  });
+}
+
 function getContent(item: ListItem): ReactNode {
   if (typeof item === "object" && item !== null && "content" in (item as any)) {
     return (item as { content: ReactNode }).content;
+  }
+  if (typeof item === "string") {
+    return parseInlineMarkdown(item);
   }
   return item as ReactNode;
 }
