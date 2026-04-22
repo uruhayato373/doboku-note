@@ -176,11 +176,16 @@
       "1-22": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["four-p-analysis"]},
       "1-23": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["digital-twin-cps"]},
       "1-24": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["encryption-digital-signature"]},
-      "1-25": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["accident-statistics"]}
+      "1-25": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["accident-statistics"]},
+      "1-26": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["unsafe-conditions-behavior"]},
+      "1-27": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["national-resilience-act"]},
+      "1-28": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["vta-method"]},
+      "1-29": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["generative-ai"]},
+      "1-30": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["product-liability"]}
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-25"
+    "question": "1-30"
   }
 }
