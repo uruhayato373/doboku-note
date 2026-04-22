@@ -25,24 +25,6 @@
 - [`docs/project/02_事業戦略.md`](./docs/project/02_事業戦略.md) — 事業戦略
 - [`docs/project/05_収益化戦略.md`](./docs/project/05_収益化戦略.md) — 収益化戦略
 
-## 主要なコマンド
-
-```bash
-npm run dev               # ローカル開発サーバー（ポート 3020）
-npm run build             # 本番ビルド
-npm run type-check        # TypeScript チェック
-npm run lint              # ESLint チェック
-npm run refresh-indexes   # 静的インデックス再生成
-```
-
-詳細は [`CLAUDE.md`](./CLAUDE.md) の「頻用コマンド」節を参照。
-
-## プロンプト集
-
-### e-Gov 法令検索へのリンク付与
-
-河川法第〇〇条の部分すべてについて、リンクを設定したい。URL は `https://elaws.e-gov.go.jp/document?lawid=339AC0000000167#Mp-At_〇〇` 形式。例えば第 1 条の場合は URL は `https://elaws.e-gov.go.jp/document?lawid=339AC0000000167#Mp-At_1`、第 12 条の場合は URL は `https://elaws.e-gov.go.jp/document?lawid=339AC0000000167#Mp-At_12` となる。
-
 ## ライセンス
 
 本プロジェクトのコードは個人運営のため、明示的なライセンスを設定していません。コンテンツの引用・参照は出典明記の上お願いします。
