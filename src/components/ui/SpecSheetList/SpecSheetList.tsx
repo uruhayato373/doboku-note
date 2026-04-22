@@ -105,7 +105,12 @@ export default function SpecSheetList({
     <section className={`${styles.root} ${className}`}>
       {title && (
         <header className={styles.head}>
-          <h3 className={styles.title}>{title}</h3>
+          {/* 意図的に h* タグではなく div を使用: これはコンポーネント内部の
+              ラベルであり、記事の見出し階層（TOC / a11y heading navigation）
+              とは別概念。MDX の `###` 見出しと混在しないようにする。 */}
+          <div className={styles.title} role="heading" aria-level={4}>
+            {title}
+          </div>
           <span className={styles.count}>
             {String(items.length).padStart(2, "0")} items
           </span>
