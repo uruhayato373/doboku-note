@@ -10,6 +10,18 @@
     "parent": 41
   },
   "covered": {
+    "pe-comprehensive-management-r03-primary": {
+      "1-1": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["payback-period-method"]},
+      "1-2": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["pfi"]},
+      "1-3": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["quality-control"]},
+      "1-4": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["pert-cpm"]},
+      "1-5": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["supply-chain-management"]},
+      "1-6": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["break-even-point"]},
+      "1-7": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["cash-flow-statement"]},
+      "1-8": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["maintenance-cost"]},
+      "1-9": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["labor-union-act"]},
+      "1-10": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["worker-dispatch-act"]}
+    },
     "pe-comprehensive-management-r07-primary": {
       "1-1": {
         "date": "2026-04-20",
