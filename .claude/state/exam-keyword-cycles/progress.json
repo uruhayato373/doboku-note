@@ -181,11 +181,21 @@
       "1-27": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["national-resilience-act"]},
       "1-28": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["vta-method"]},
       "1-29": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["generative-ai"]},
-      "1-30": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["product-liability"]}
+      "1-30": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["product-liability"]},
+      "1-31": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["occupational-safety-act"]},
+      "1-32": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["risk-management-system"]},
+      "1-33": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["climate-change-decarbonization"]},
+      "1-34": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["energy"]},
+      "1-35": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["invasive-alien-species"]},
+      "1-36": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["basel-convention"]},
+      "1-37": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["alert-levels"]},
+      "1-38": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["air-pollution-control-act"]},
+      "1-39": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["environmental-impact-assessment"]},
+      "1-40": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["esg-investment"]}
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-30"
+    "question": "1-40"
   }
 }
