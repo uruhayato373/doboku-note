@@ -1,365 +1,149 @@
 ---
 name: exam-keyword-cycle
 description: >
-  過去問 1 問を起点に、その問題が参照している関連キーワード群を横断的に校正し、
-  変更の視点（網羅性・正確性・わかりやすさ・試験適合・関連付け）を明示した PR として
-  ユーザーレビューに回す Orchestrator。受験者視点での品質を系統的に底上げする。
-  Use when user asks to [過去問起点の校正, キーワードサイクル, 過去問で校正, /exam-keyword-cycle, 論点カバレッジ校正].
+  過去問 1 問を起点に、関連キーワード群を cem-qa 評価・相互リンク網羅・本文リライト
+  を含む一定品質で補強する Orchestrator スキル。PR・サイクルログ・Umbrella sync
+  など運用オーバーヘッドは持たず、直接コミットに集約する。`--year <slug> --batch`
+  で 1 年度分の全問を一気通貫処理できる。
+  Use when user asks to [過去問起点の校正, キーワードサイクル, 過去問で校正, /exam-keyword-cycle, 夜間バッチ校正].
 ---
 
-# /exam-keyword-cycle — 過去問起点のキーワード校正サイクル
+# /exam-keyword-cycle — 過去問起点キーワード校正サイクル
 
-過去問 1 問を起点に関連キーワード群をまとめて校正し、1 つの PR で記録・ユーザーレビューする Orchestrator スキル。
+## 目的と粒度
 
-> **モデル方針**: このスキルは Orchestrator として動作し、評価・生成は既存のサブエージェント・スキルに委譲する。親エージェントの判断力が必要なため Opus inherit で動作。
+**「最低限の品質向上」** の正しい解釈:
 
-## 用途
+- **実施する（削らない）品質作業**:
+  - `cem-qa` エージェントによる 5 軸ルーブリック評価（構造 30% / モバイル 25% / 原則 20% / 参考資料 15% / 関連付け 10%）
+  - 視覚検証（Playwright ブラウザで実レンダリングの確認）
+  - 関連キーワード間の相互リンク網羅（過去問 MDX の `<RelatedKeywords>` に挙がる複数キーワードを扱う）
+  - 既存本文のリライト（論点不備・誤答パターンの明示化・既存記述の不足補強）
 
-ランダムな校正ではなく **「試験で問われた論点」を起点**にすることで、受験者にとって実用的な品質向上を系統的に進める。関連キーワード群をまとめて扱い、PR でユーザーが一括レビューできる形にする。
-
-### 解決する問題
-
-- 個別キーワード校正では「試験でどう問われるか」視点が抜けがち
-- 1 つの論点に関わる複数キーワードの整合性が取れない
-- 変更の根拠（どの過去問起点か、どの視点か）が記録に残らない
-- キーワードごとの承認は重すぎる → PR 単位で軽量化
+- **省く（運用オーバーヘッド）**:
+  - PR 作成（直接コミット）
+  - サイクルログ md（`logs/YYYY-MM-DD-*.md`）
+  - `logs/index.json` 更新
+  - Umbrella Issue 同期
+  - キーワード別コミット（1 サイクル = 1 コミットに集約）
 
 ## 引数
 
 ```
-/exam-keyword-cycle [--exam <exam-slug>] [--question <anchor>] [--auto] [--dry-run]
+/exam-keyword-cycle [--exam <slug>] [--question <anchor>] [--year <slug>] [--batch] [--auto]
 ```
 
-| 引数 | 用途 | 例 |
-|---|---|---|
-| `--exam` | 起点過去問の exam slug | `r06-primary`, `r07-primary` |
-| `--question` | 起点過去問の anchor（設問番号） | `1-35`, `1-38` |
-| `--auto` | state ファイルから自動選択 | 未カバー優先 |
-| `--dry-run` | 変更を加えず候補リストのみ出力 | 計画確認用 |
+| 引数 | 用途 |
+|---|---|
+| `--exam` + `--question` | 単一サイクル。`--exam r04-primary --question 1-11` |
+| `--year <slug>` + `--batch` | 年度バッチ。未カバー全問を順次処理 |
+| `--auto` | state から次の未カバー 1 問を自動選択 |
 
-いずれも任意。引数なしで呼ばれた場合は、会話内で対象を特定する。
+## 運用方針（必読）
 
-### `--auto` の動作
+- **新規キーワードページは作らない**。`keyword-2026/article.mdx` のカタログが真実源。カタログ外の用語が過去問で出現しても、既存ページでの言及で済ませる（memory: no-new-keyword-pages, 2026-04-18）
+- **PR は作らない**。develop または main ブランチに直接 push
+- **ログ md は作らない**。commit message と diff + cem-qa スコアで十分
+- **Umbrella Issue 同期は行わない**。GitHub Issue での進捗管理から撤退済
 
-`--auto` 指定時は `scripts/select-next-question.mjs` を実行し、次に扱う過去問を自動決定する:
+## フェーズ構成（5 段階）
 
-```bash
-node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
+### Phase 1: 起点過去問の読取
+
+1. `.local/r2/posts/pe-comprehensive-management/{exam-slug}/article.mdx` から `## Ⅰ-{anchor}` セクションを抽出
+2. 問題文・選択肢 5 つ・正答・解説・誤答トラップを構造化
+3. `<RelatedKeywords items={[...]}>` から対象キーワード slug を取得（**複数全部を扱う**、primary 1 つに絞らない）
+4. 論点配列を作成（過去問解説の核心論点を配列化）
+
+### Phase 2: キーワード別 cem-qa 評価
+
+対象キーワードごとに並列で実施（**複数の Agent subagent を単一メッセージで並列起動**）:
+
+```
+Agent(subagent_type: cem-qa, prompt: "Evaluate .local/r2/posts/pe-comprehensive-management/{slug}/article.mdx against 5-axis rubric. Return scores + specific improvement points.")
 ```
 
-出力（JSON）:
+各キーワードに対し:
+- 5 軸スコア（構造 30% / モバイル 25% / 原則 20% / 参考資料 15% / 関連付け 10%）
+- 合格閾値 2.0 を下回る軸の特定
+- 論点カバレッジ判定（過去問で問われた論点 × キーワード本文）
+- 相互リンクの欠落検出
 
-```json
-{
-  "exam": "pe-comprehensive-management-r07-primary",
-  "question": "1-1",
-  "reason": "未カバー最優先: pe-comprehensive-management-r07-primary の若番 1-1"
-}
+### Phase 3: リライト計画
+
+各キーワードの修正候補に視点タグを付与:
+
+| タグ | 修正例 |
+|---|---|
+| **網羅性** | 過去問で問われた論点が欠けている → 具体例・定義追加 |
+| **正確性** | 事実誤認・OCR エラー → PDF 原文突合で修正 |
+| **わかりやすさ** | 構造・表・図で改善 → 比較表化・段落分割 |
+| **試験適合** | 誤答選択肢の罠の明示 → ExamPoint や本文へ誤答パターン追記 |
+| **関連付け** | 過去問インラインリンク・相互リンク欠落 → 追加 |
+
+**リライトの粒度**:
+- cem-qa スコア < 2.0 の軸は必ず改善
+- 新規節追加は論点整理のため必要な範囲で実施（比較表・対比節など）
+- 相互リンクは対称的に（A→B と B→A の両方）
+
+### Phase 4: 実装と視覚検証
+
+1. MDX 編集（`.claude/scripts/lib/mdx-io.mjs` の writeMdxFile 相当で CRLF 保持）
+2. 絵文字禁止（CLAUDE.md）、`<Callout>` で代替
+3. **過去問へのインラインリンク形式**: `[R04 Ⅰ-1-N](/docs/pe-comprehensive-management-r04-primary#N-N)` （アンカー先頭ハイフン無し、本日修正）
+4. mojibake チェック: `grep -c "$(printf '\xef\xbf\xbd')"` で 0 確認
+5. dev server（`npm run dev` で 3020 ポート）で実ページを確認:
+   - HTTP 200
+   - 新追記内容が描画されている
+   - 過去問リンクのアンカーが target の `id="N-N"` と一致
+
+### Phase 5: 記録とコミット
+
+1. `.claude/state/exam-keyword-cycles/progress.json` の `covered` に該当エントリを追加
+   ```json
+   {"1-N": {"date": "YYYY-MM-DD", "pr": null, "status": "committed", "keywords": [...], "cem_qa_before": [...], "cem_qa_after": [...]}}
+   ```
+2. **1 サイクル = 1 コミット** で直接 push
+   - コミットメッセージ: `content(pe): R04 Ⅰ-1-N — {核心論点の一言} [{keywords カンマ区切り}]`
+   - 本文にキーワード別変更サマリ（視点タグ + cem-qa スコア before→after）
+
+## バッチモード（`--year <slug> --batch`）
+
+```
+year_slug="r04-primary"
+while true:
+  next = select_next_uncovered(year_slug)
+  if next is null: break
+  run_cycle(year_slug, next.question)  # Phase 1-5 フルセット
+  if cem_qa_failed_after_rewrite: break  # 品質維持のため停止
 ```
 
-選択アルゴリズム:
-1. `.claude/state/exam-keyword-cycles/progress.json` の `covered` を走査
-2. 最新年度（R07 → R06 → ...）で未カバーの設問を若番順に探索
-3. 全設問がカバー済みなら、`date` が 180 日以上前の設問を再訪候補として選ぶ
-4. 該当なしなら `{ exam: null }` を返す（その場合は手動指定を促す）
-
-選択結果をユーザーに提示し、承認後に Phase 1 へ進む。
+- **失敗時停止**: cem-qa 再評価で全キーワードが ≥ 2.0 にならなければ停止
+- **並行実行禁止**: 同一ブランチへのバッチは同時 1 本のみ
+- **中断しても再開可能**: progress.json を見て未カバーから継続
 
 ## 前提条件
 
-- `src/config/exam-question-keywords.json` と `src/config/past-exam-backlinks.json` が最新（必要なら `npm run build-backlinks` で再生成）
-- 対象過去問の MDX が存在し、`<RelatedKeywords>` が設定されている
-- `cem-qa` エージェントが利用可能
-- dev server が起動している（`npm run dev` で 3020 ポート）— 視覚検証に使用
-
-## フェーズ構成（6 段階）
-
-### Phase 1: 起点過去問の特定と論点抽出
-
-1. **対象過去問 MDX を Read**:
-   ```
-   .local/r2/posts/pe-comprehensive-management/{exam-slug}/article.mdx
-   の `## Ⅰ-1-{NN-NN}` セクションを抽出
-   ```
-
-2. **本文構造化**: 問題文・選択肢 5 つ・正答・解説・誤答トラップを抽出
-
-3. **対象キーワード slug を特定**:
-   - 優先: 過去問 MDX 内の `<RelatedKeywords items={[...]}>` から抽出
-   - 補助: `src/config/exam-question-keywords.json` とも突合（欠落検出）
-
-4. **論点配列の作成**: 解説から「試験で問われている具体論点」を配列化
-   - 例: R06 Ⅰ-1-35 なら `["名古屋議定書の採択年", "CITES と LMO の違い", "昆明・モントリオール枠組の目標"]`
-
-**出力**: 構造化コンテキスト（問 + 選択肢 + 正答 + 論点配列 + キーワード slug 配列）
-
-### Phase 2: キーワード別ギャップ分析
-
-対象キーワードごとに以下を並列で実施（複数の Agent 並列起動は独立性確保のため推奨）:
-
-1. **cem-qa 評価**:
-   - `cem-qa` エージェントを呼出
-   - 5 軸スコア（構造 30% / モバイル 25% / 原則 20% / 参考資料 15% / 関連付け 10%）を取得
-   - 合格閾値 2.0 を下回るなら要修正
-
-2. **論点カバレッジ判定**:
-   - 過去問の論点配列 × キーワード本文を Grep で照合
-   - 「本文に該当キーワードが含まれるか」「具体例として説明されているか」を確認
-   - 欠落論点を surface
-
-3. **相互リンクチェック**:
-   - キーワード本文に対象過去問への参照（インラインリンク）があるか
-   - 過去問側の `<RelatedKeywords>` に当該キーワードが含まれるか（双方向確認）
-
-**出力**: キーワードごとの分析レポート
-```
-{
-  "keyword": "nagoya-protocol",
-  "cem_qa_score": 2.1,
-  "missing_points": ["遺伝資源の利用の具体例"],
-  "broken_links": [],
-  "needs_link_to": "pe-comprehensive-management-r06-primary#1-35"
-}
-```
-
-### Phase 3: 修正方針の提案（視点タグ付き）
-
-各修正候補に以下の**視点タグ**を付与して一覧化:
-
-| タグ | 意味 | 修正例 |
-|---|---|---|
-| **網羅性** | 過去問で問われた論点が本文に欠けている | 具体例・定義・周辺概念の追加 |
-| **正確性** | 事実誤認・OCR エラー・年号間違い | PDF 原文突合による修正 |
-| **わかりやすさ** | 構造・表・図で改善可能 | 比較表化・SVG 追加・段落分割 |
-| **試験適合** | 誤答選択肢の罠の明示 | ExamPoint に誤答パターンを明記 |
-| **関連付け** | インラインリンク・RelatedKeywords 欠落 | 相互リンク追加 |
-
-### Phase 4: ユーザー一括承認
-
-**個別ではなくサイクル全体を 1 PR で承認**する方式。会話内で以下のサマリを提示:
-
-```markdown
-## サイクル承認 — R06 Ⅰ-1-35「生物多様性・CITES」
-
-### 対象キーワード（6 件）
-| # | キーワード | 現状スコア | 視点タグ | 変更量 |
-|---|---|---|---|---|
-| 1 | nagoya-protocol | 2.1 → 2.6 | 網羅性・関連付け | 中 |
-| 2 | biosafety | 1.9 → 2.5 | 網羅性・正確性 | 大 |
-| 3 | convention-on-biodiversity | 2.3 → 2.7 | わかりやすさ | 小 |
-| ... | ... | ... | ... | ... |
-
-### 承認: 一括 OK / 個別修正指示 / 却下
-```
-
-- **一括 OK** → Phase 5 へ
-- **個別修正指示** → 該当キーワードのみ方針を調整して再提示
-- **却下** → Phase 5 スキップ、サイクル終了（state 更新なし）
-
-### Phase 5: 実装と記録
-
-#### 5.1 ブランチ作成
-
-```
-claude/exam-keyword-cycle-YYYY-MM-DD-{exam-slug}-{question-anchor}
-```
-
-例: `claude/exam-keyword-cycle-2026-04-20-r06-primary-1-35`
-
-#### 5.2 キーワードごとにコミット
-
-視点タグをコミットメッセージに明記（1 キーワード = 1 コミット）:
-
-```
-content(pe): nagoya-protocol を校正（R06 Ⅰ-1-35 起点）
-
-視点: 網羅性・関連付け
-- 遺伝資源の利用に関する具体例を追加（原則 1）
-- R06 Ⅰ-1-35 へのインラインリンク追加（原則 11）
-- cem-qa スコア: 2.1 → 2.6
-
-Co-Authored-By: Claude Opus 4.7 (1M context) <noreply@anthropic.com>
-```
-
-MDX 編集は `.claude/scripts/lib/mdx-io.mjs` の `writeMdxFile` を使用（CRLF 保持、CLAUDE.md の MDX 書込規約に準拠）。
-
-#### 5.3 サイクルログ作成
-
-`.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-{exam-slug}-{question-anchor}.md`:
-
-```markdown
----
-date: YYYY-MM-DD
-exam: r06-primary
-question: 1-35
-theme: 生物多様性・CITES
-keywords_count: 6
----
-
-# 過去問起点校正サイクル: R06 Ⅰ-1-35
-
-## 起点過去問の論点
-- 名古屋議定書の採択年・発効年
-- CITES と LMO の違い
-- ...
-
-## キーワード別ログ
-
-### 1. nagoya-protocol
-
-**視点タグ**: 網羅性・関連付け
-**cem-qa スコア**: 2.1 → 2.6
-
-**Before**:
-> （現状の本文抜粋）
-
-**After**:
-> （修正後の本文抜粋）
-
-**根拠**: R06 Ⅰ-1-35 では「遺伝資源の利用」が問われるが、本文に具体例がなかった。
-
----
-
-### 2. biosafety
-...
-```
-
-#### 5.4 インデックス更新
-
-`.claude/state/exam-keyword-cycles/logs/index.json` に追加:
-
-```json
-{
-  "cycles": [
-    {
-      "date": "YYYY-MM-DD",
-      "exam": "r06-primary",
-      "question": "1-35",
-      "theme": "生物多様性・CITES",
-      "keywords": ["nagoya-protocol", "biosafety", ...],
-      "pr": null,
-      "log": "YYYY-MM-DD-r06-primary-1-35.md"
-    }
-  ]
-}
-```
-
-#### 5.5 state 更新
-
-`.claude/state/exam-keyword-cycles/progress.json` に追加:
-
-```json
-{
-  "covered": {
-    "pe-comprehensive-management-r06-primary": {
-      "1-35": { "date": "YYYY-MM-DD", "pr": null, "status": "in_review" }
-    }
-  },
-  "last_cycle": { "exam": "r06-primary", "question": "1-35" }
-}
-```
-
-### Phase 5.5: Umbrella Issue 同期
-
-Phase 5 で `progress.json` を更新した直後に、該当年度の Umbrella Issue と親 Umbrella の checkbox・進捗%を同期する。
-
-```bash
-# 対象年度の Umbrella を更新（該当行が [x] に変わる）
-node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam <exam-slug>
-
-# 親 Umbrella の全体進捗%・年度別進捗を更新
-node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
-```
-
-- `progress.json.umbrella_issues.<exam-slug>` に Issue 番号が記録されている必要がある（未記録なら警告スキップ）
-- body は毎回丸ごと再生成される。人間が手動で触った checkbox は上書きされる（手動編集禁止の注意書きを body に載せてある）
-- 差分なしなら gh API を叩かない
-
-**初回セットアップ**（Umbrella Issue がまだ無い場合）:
-
-```bash
-# 年度 Umbrella 5 本を作成（R07〜R03 primary）
-for exam in r07 r06 r05 r04 r03; do
-  node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs \
-    --exam pe-comprehensive-management-${exam}-primary --create
-done
-
-# 親 Umbrella を作成（年度 Issue 番号を参照するため最後）
-node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs --parent --create
-
-# 既存の covered を初期反映
-node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
-```
-
-### Phase 6: PR 作成
-
-`/pr-create --base develop` を呼出（CLAUDE.md「ブランチ運用ルール」に準拠）。PR body は HEREDOC で以下のテンプレに従う:
-
-```markdown
-## 起点過去問
-- **R06 Ⅰ-1-35**: 生物多様性・CITES・LMO 等を扱う問題
-- [該当過去問ページ](/docs/pe-comprehensive-management-r06-primary#1-35)
-
-## 対象キーワードと視点
-
-| キーワード | 視点タグ | cem-qa スコア | ログ |
-|---|---|---|---|
-| nagoya-protocol | 網羅性・関連付け | 2.1 → 2.6 | [詳細](.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-r06-primary-1-35.md#1-nagoya-protocol) |
-
-## 変更サマリー（視点別）
-- 網羅性: N 件
-- 正確性: N 件
-- わかりやすさ: N 件
-- 試験適合: N 件
-- 関連付け: N 件
-
-## 検証
-- [ ] `npm run build` 通過
-- [ ] cem-qa 再評価で全キーワード ≥ 2.0
-- [ ] 過去問側の `<RelatedKeywords>` と突合（欠落なし）
-
-🤖 Generated with [Claude Code](https://claude.com/claude-code)
-```
-
-PR 作成後、`index.json` と `progress.json` の `pr` フィールドに PR 番号を追記。
-
-## 重大な発見の扱い
-
-サイクル中に以下のような**重大な問題**を発見した場合、PR とは別に Issue を起こす:
-
-- 過去問 MDX 自体に OCR エラーがある（設問文・選択肢の破損）
-- 過去問の解答表（`/add-exam-answers`）の反映漏れ
-- キーワードページが存在すべきなのにない
-
-Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同パターン）
+- `src/config/exam-question-keywords.json` と `past-exam-backlinks.json` が最新
+- 対象過去問 MDX に `<RelatedKeywords>` が設定されている
+- develop または main ブランチ上、作業ツリー clean
+- `keyword-2026/article.mdx`（カタログ真実源）が最新
+- dev server が 3020 ポートで起動（視覚検証用）
+- `cem-qa` エージェントが呼出可能
+
+## 状態ファイル
+
+| ファイル | 役割 |
+|---|---|
+| `.claude/state/exam-keyword-cycles/progress.json` | `covered` マップで重複処理を防ぐ + cem-qa スコア before/after 記録 |
+
+他（`logs/*.md`, `logs/index.json`, `umbrella-drafts/*.md`）は新規作成しない。
 
 ## 参照
 
-- `src/config/exam-question-keywords.json` — 過去問→キーワード slug 一覧（Phase 1 の入力）
-- `src/config/past-exam-backlinks.json` — キーワード→過去問一覧（双方向確認）
-- `.claude/skills/content/exam-backlinks/SKILL.md` — exam-backlinks の保守スキル
-- `.claude/skills/content/verify-exam-coverage/SKILL.md` — 論点カバレッジ監査（Phase 2 で利用）
-- `.claude/skills/content/improve-article/SKILL.md` — 単一記事の校正ループ
-- `.claude/agents/cem-qa.md` — 5 軸ルーブリック評価
-- `.claude/skills/dev/pr-create/SKILL.md` — PR 自動作成
-- `.claude/skills/management/distill-proofread-learnings/SKILL.md` — サイクル完了後の学習抽出
-- `.claude/scripts/lib/mdx-io.mjs` — MDX 読み書き（CRLF 保持）
 - `.claude/content-principles.md` — 校正ルールの真実源
-- `.claude/state/exam-keyword-cycles/logs/` — 本サイクルのログ蓄積先
-- `.claude/state/exam-keyword-cycles/progress.json` — カバー状況の永続化
-- CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離（本スキルは Orchestrator）
-
-## 段階実装計画
-
-### MVP（実装済み）
-- 手動起動・引数指定 or 会話内での対象特定
-- 1 サイクル実施→ PR 作成まで通す
-
-### Phase 2（実装済み 2026-04-20）
-- `--auto` 自動選択ロジック: `scripts/select-next-question.mjs`
-- weekly-review Agent F として組込み済み
-- `/distill-proofread-learnings --since "1cycle"` 連動済み
-
-### Phase 3（GitHub Actions スケジュール化）
-- ワークフロー定義: `.github/workflows/exam-keyword-cycle.yml`（週 2 回、月・木 JST 22:00）
-- remote trigger 実装は Claude Code remote trigger 仕様確定後に接続（現状は workflow_dispatch 手動のみ稼働）
+- `.claude/scripts/lib/mdx-io.mjs` — MDX 読み書き（CRLF 保持）
+- `.local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx` — キーワードカタログ真実源
+- `.claude/state/exam-keyword-cycles/progress.json` — 重複処理防止
+- `.claude/agents/cem-qa.md` — 5 軸ルーブリック評価エージェント
+- `.claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs` — 次の未カバー問を選択
