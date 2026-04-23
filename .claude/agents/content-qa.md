@@ -20,7 +20,7 @@ PDF→MDX変換の品質評価を専門に担当するEvaluatorエージェン�
 
 | スキル | 役割 | タイミング |
 |---|---|---|
-| `/check-mdx` | 構文チェック（ビルドエラー予防） | 変換直後 |
+| `/check-mdx --rules syntax` | 構文チェック（ビルドエラー予防） | 変換直後 |
 | `/qa-pdf-mdx` | 体系的QA（PDF照合+修正の2段階） | 変換後 |
 | `/clean-pdf-artifacts` | PDF変換残骸の検出・除去 | 変換後 |
 
@@ -39,7 +39,7 @@ PDF→MDX変換の品質評価を専門に担当するEvaluatorエージェン�
 ## QAワークフロー
 
 ```
-1. /check-mdx           → 構文チェック（MDX互換性の軸）
+1. /check-mdx --rules syntax   → 構文チェック（MDX互換性の軸）
 2. /qa-pdf-mdx           → ソースPDF照合（テキスト忠実度の軸、内部で照合機能を実装）
 3. /clean-pdf-artifacts  → 残骸除去（構造正確性の軸）
 4. ルーブリック採点       → 5軸スコアリング → 合否判定

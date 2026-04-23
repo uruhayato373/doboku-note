@@ -205,7 +205,7 @@ npm run lint
 
 - **キーワードの新規作成**: `/keyword-page create` モードの担当
 - **重複ではない類似キーワードの棲み分け**: 上記「統合判断基準」で「別ページ維持」と判定されたケースは手動で相互参照を整理
-- **タグや frontmatter の検証**: `/check-frontmatter` の担当
+- **タグや frontmatter の検証**: `/check-mdx --rules frontmatter` の担当
 
 ## 連携スキル・コンポーネント
 

@@ -69,6 +69,6 @@
     "designPrinciples": ".claude/design-system/principles.md",
     "prohibitedRules":  ".claude/design-system/prohibited.md",
     "createSkill":      ".claude/skills/content/create-svg/SKILL.md",
-    "auditSkill":       ".claude/skills/content/audit-svg/SKILL.md"
+    "auditSkill":       ".claude/skills/quality/check-mdx/SKILL.md"
   }
 }

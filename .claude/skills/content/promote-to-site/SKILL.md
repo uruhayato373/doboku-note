@@ -122,7 +122,7 @@ description: "{titleの内容}。1級土木施工管理技士の試験対応。"
 
 ### Step 6: 品質チェック（オプション）
 
-`/check-mdx` を呼び出して変換結果の構文チェックを実行するか確認する。
+`/check-mdx --rules syntax` を呼び出して変換結果の構文チェックを実行するか確認する。
 
 ### Step 7: 静的インデックス再生成
 
@@ -147,6 +147,6 @@ npm run refresh-indexes
 
 次のステップ:
 - [ ] sidebar.ts の更新（必要な場合）
-- [ ] `/check-mdx {path}` で構文チェック
+- [ ] `/check-mdx {path} --rules syntax` で構文チェック
 - [ ] ブラウザでプレビュー確認
 ```

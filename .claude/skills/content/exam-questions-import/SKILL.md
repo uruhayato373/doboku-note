@@ -235,7 +235,7 @@ content/general/exam-questions/
 1. テキスト抽出（良好な年度）or ページ画像化（不良な年度）
 2. エージェントでMDX変換
 3. `[問題 No.XX]` `[正解]` パターンで構造を検証
-4. `/check-mdx` で構文チェック
+4. `/check-mdx --rules syntax` で構文チェック
 5. SKILL.md の状態欄を更新
 
 ## 進捗管理
@@ -252,4 +252,4 @@ content/general/exam-questions/
 - `.claude/skills/content/civil-general-import/SKILL.md` — テキスト変換スキル（同じ試験対応教科書）
 - `.claude/skills/content/construction-management-import/SKILL.md` — 施工管理編テキスト
 - `.claude/skills/content/pdf-to-mdx/SKILL.md` — 汎用PDF→MDX変換ルール
-- `.claude/skills/content/check-mdx/SKILL.md` — MDX構文チェック
+- `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（`--rules syntax` で構文チェック）

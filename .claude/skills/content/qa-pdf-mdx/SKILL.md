@@ -203,7 +203,7 @@ from PIL import Image
 |--------|------|----------------------|
 | `/fishery-port-import` | PDF→MDX変換（新規作成） | 変換後に `/qa-pdf-mdx` で検証 |
 | `/clean-pdf-artifacts` | PDF残骸除去 | `/qa-pdf-mdx` に統合（図番号チェック追加） |
-| `/check-mdx` | MDX構文チェック | `/qa-pdf-mdx` の修正後に実行推奨 |
+| `/check-mdx --rules syntax` | MDX構文チェック | `/qa-pdf-mdx` の修正後に実行推奨 |
 
 > **注**: 旧 `/verify-content`（PDF照合用サンプリング検証）は `/qa-pdf-mdx` の全量PDF照合機能に統合済みのため廃止。
 

@@ -121,11 +121,11 @@ node .claude/skills/content/civil-textbook-cycle/scripts/civil-textbook-cycle.mj
 
 | 軸 | 重み | 判定の要点 |
 |---|---|---|
-| **構造 (structure)** | 20% | frontmatter 必須6項目・H2/H3 階層整合・check-mdx OK |
+| **構造 (structure)** | 20% | frontmatter 必須6項目・H2/H3 階層整合・`/check-mdx --rules syntax` OK |
 | **テキスト原則 (principle)** | 20% | content-principles.md §1-5,7 準拠（絵文字なし、太字 ≤30字、1文1段落、ExamPoint 位置OK）|
 | **モバイル視認性 (mobile)** | 30% | `lint-mdx-mobile` HIGH/MEDIUM 件数、4列以上表なし、3列表セル ≤15字、表前導入文 |
 | **図表の適切性 (figures)** | 15% | `<ArticleImage>` 使用、caption は帰属情報のみ ≤60字、alt ≤80字、出典コメント、画像ファイル実在 |
-| **参考資料・関連付け (reference)** | 15% | `/check-links` OK、`## 参考資料` 節に公的＋民間両方、法令 e-Gov リンク、過去問バックリンク（guide） |
+| **参考資料・関連付け (reference)** | 15% | `/check-mdx --rules links` OK、`## 参考資料` 節に公的＋民間両方、法令 e-Gov リンク、過去問バックリンク（guide） |
 
 加重合計 ≥ 2.0 で合格、< 2.5 でリライト候補。0 点軸があれば即不合格（weighted を 1.0 にクランプ）。
 

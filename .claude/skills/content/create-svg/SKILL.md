@@ -18,7 +18,7 @@ MDX 記事に埋め込む SVG 図版（フロー図・比較図・マトリク�
 - SVG ファイル内部の `style="width:100%"` も `<img src>` 経由では効かない（ブラウザの replaced element 扱い）
 - `<ArticleImage>` は SVG 用に `w-full max-w-2xl mx-auto` コンテナと `max-width:100%;height:auto` inline style を自動付与しレスポンシブ表示する
 
-**コミット前に `/audit-svg` を必ず走らせる**。Step 3.5 で詳細。過去事例: raw `<img>` + `style="width:100%"`（`max-width:{viewBox}px` 欠落）で commit 後、ブラウザで SVG が固定サイズ表示される問題が発生し再リライト（PR #43）。スキルに書いてあったルールを守っていれば起きなかった。
+**コミット前に `/check-mdx --rules svg` を必ず走らせる**。Step 3.5 で詳細。過去事例: raw `<img>` + `style="width:100%"`（`max-width:{viewBox}px` 欠落）で commit 後、ブラウザで SVG が固定サイズ表示される問題が発生し再リライト（PR #43）。スキルに書いてあったルールを守っていれば起きなかった。
 
 ## 図と文章の役割分担（必読）
 
@@ -261,13 +261,13 @@ SVG は**全体の流れ・構造を一目で把握させる**ためのもの。
 
 ```bash
 # 単一ファイル（fail-on=HIGH で exit 1）
-node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<作成した .svg> --fail-on=HIGH
+node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --file=<作成した .svg> --fail-on=HIGH
 
 # プロジェクト全体
-node .claude/skills/content/audit-svg/scripts/audit.mjs --severity=HIGH
+node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --severity=HIGH
 ```
 
-検出対象: 文字クリップ（P1）・必須属性欠落（P3: role / aria-label / max-width）・viewBox 超過（P5）・フォント過小（P4）等。詳細は `/audit-svg` の SKILL.md を参照。
+検出対象: 文字クリップ（P1）・必須属性欠落（P3: role / aria-label / max-width）・viewBox 超過（P5）・フォント過小（P4）等。詳細は `/check-mdx --rules svg`（`.claude/skills/quality/check-mdx/SKILL.md`）を参照。
 
 ### Step 4: MDX への配置
 

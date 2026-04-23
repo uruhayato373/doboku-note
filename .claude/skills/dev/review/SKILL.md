@@ -25,12 +25,12 @@ user-invocable: true
 
 | パスパターン | 実行するスキル | 備考 |
 |---|---|---|
-| `.local/r2/posts/**/r[0-9]*-*/article.mdx` `.local/r2/posts/**/h[0-9]*-*/article.mdx` | `/check-mdx` のみ | 過去問MDX。review-mobile の対象ルール外 |
-| `.local/r2/posts/civil-construction-1/textbook/**/*.mdx` | `/review-mobile` → `/check-mdx` → **`/verify-pdf-mdx`** | 1級土木教科書。PDF原本との視覚＋網羅率検証込み |
-| `.local/r2/posts/civil-construction-1/guide/**/*.mdx` | `/review-mobile` → `/check-mdx` → **`/verify-pdf-mdx`** | 1級土木ガイド。出題傾向＋過去問バックリンクチェック |
-| `.local/r2/posts/**/keyword-*/article.mdx` `.local/r2/posts/**/keyword-2026/article.mdx` | `/review-mobile` → `/check-mdx` → `/check-links` | 外部リンクが多いページ |
-| `.local/r2/posts/pe-comprehensive-management/**/article.mdx`（キーワードページ）| `/review-mobile` → `/check-mdx` → **`/verify-exam-coverage`** | 総監キーワードページ。過去問論点カバー率の検証込み |
-| `.local/r2/posts/**/*.mdx`（上記以外の MDX） | `/review-mobile` → `/check-mdx` | 通常のキーワード/ガイドページ |
+| `.local/r2/posts/**/r[0-9]*-*/article.mdx` `.local/r2/posts/**/h[0-9]*-*/article.mdx` | `/check-mdx --rules syntax` のみ | 過去問MDX。review-mobile の対象ルール外 |
+| `.local/r2/posts/civil-construction-1/textbook/**/*.mdx` | `/review-mobile` → `/check-mdx --rules syntax` → **`/verify-pdf-mdx`** | 1級土木教科書。PDF原本との視覚＋網羅率検証込み |
+| `.local/r2/posts/civil-construction-1/guide/**/*.mdx` | `/review-mobile` → `/check-mdx --rules syntax` → **`/verify-pdf-mdx`** | 1級土木ガイド。出題傾向＋過去問バックリンクチェック |
+| `.local/r2/posts/**/keyword-*/article.mdx` `.local/r2/posts/**/keyword-2026/article.mdx` | `/review-mobile` → `/check-mdx --rules syntax,links` | 外部リンクが多いページ |
+| `.local/r2/posts/pe-comprehensive-management/**/article.mdx`（キーワードページ）| `/review-mobile` → `/check-mdx --rules syntax` → **`/verify-exam-coverage`** | 総監キーワードページ。過去問論点カバー率の検証込み |
+| `.local/r2/posts/**/*.mdx`（上記以外の MDX） | `/review-mobile` → `/check-mdx --rules syntax` | 通常のキーワード/ガイドページ |
 | `src/components/ui/**/*.tsx` `src/app/globals.css` | `/code-review` → `/design-review --visual` | UI コンポーネント変更は視覚回帰（light/dark × desktop/mobile）まで実施 |
 | `src/app/**/*.tsx` `src/components/**/*.tsx`（ui 以外） | `/code-review` → `/design-review` | UI コンポーネントは両面チェック |
 | `src/**/*.ts` `src/**/*.tsx`（UI以外） | `/code-review` | ロジック・ユーティリティは品質のみ |
@@ -45,13 +45,14 @@ user-invocable: true
 
 ```
 レビュー対象のスキルを選択してください:
-  1. /review-mobile    ── MDX モバイル可読性
-  2. /check-mdx        ── MDX 構文チェック
-  3. /code-review      ── Next.js コード品質
-  4. /design-review    ── デザインシステム準拠
-  5. /critical-review  ── 設計書・計画書の批判的レビュー
-  6. /check-links      ── 外部リンク切れ検出
-  7. キャンセル
+  1. /review-mobile              ── MDX モバイル可読性
+  2. /check-mdx --rules syntax   ── MDX 構文チェック
+  3. /check-mdx --rules links    ── 外部リンク切れ検出
+  4. /check-mdx --rules all      ── 全 rule で MDX 監査
+  5. /code-review                ── Next.js コード品質
+  6. /design-review              ── デザインシステム準拠
+  7. /critical-review            ── 設計書・計画書の批判的レビュー
+  8. キャンセル
 ```
 
 ## 実行手順
@@ -157,8 +158,7 @@ OK: 1 (/check-mdx on file1)
 ## 参照
 
 - `.claude/skills/content/review-mobile/SKILL.md` ── MDX モバイル可読性
-- `.claude/skills/content/check-mdx/SKILL.md` ── MDX 構文チェック
-- `.claude/skills/content/check-links/SKILL.md` ── 外部リンク切れ
+- `.claude/skills/quality/check-mdx/SKILL.md` ── MDX 検査統合（8 rules）
 - `.claude/skills/dev/code-review/SKILL.md` ── Next.js コード品質
 - `.claude/skills/ui/design-review/SKILL.md` ── デザインシステム準拠
 - `.claude/skills/management/critical-review/SKILL.md` ── 批判的レビュー

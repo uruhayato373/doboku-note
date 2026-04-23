@@ -190,7 +190,7 @@ abandoned  abandoned  running (re-measure)
 ## 担当外
 
 - **NSM 定義の変更**: `/north-star-metric` スキル（既存、未実装）の担当
-- **コンテンツそのものの編集**: `/keyword-page`, `/check-frontmatter` など専任スキルの担当
+- **コンテンツそのものの編集**: `/keyword-page`, `/check-mdx --rules frontmatter` など専任スキルの担当
 - **週次レポート生成**: `/weekly-review` の担当（本スキルは experiments-state を提供するのみ）
 - **月次集計**: 別スキル（Phase 2 以降）
 
