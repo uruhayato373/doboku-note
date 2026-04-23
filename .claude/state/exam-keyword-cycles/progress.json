@@ -280,11 +280,21 @@
           "confidentiality",
           "non-repudiation"
         ]
+      },
+      "1-25": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "accident-statistics",
+          "osh-management-system",
+          "oshms"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-24"
+    "question": "1-25"
   }
 }
