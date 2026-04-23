@@ -72,6 +72,16 @@ node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs 
 - `cem-qa` エージェントが利用可能
 - dev server が起動している（`npm run dev` で 3020 ポート）— 視覚検証に使用
 
+### cem-qa 閾値（exam 別）
+
+| exam | 閾値 | 理由 |
+|---|---|---|
+| `pe-comprehensive-management-r03-primary` | **2.5** | 2026-07 受験直結、運営者自身が直接使用する |
+| `pe-comprehensive-management-r04-primary` | **2.5** | 同上 |
+| その他 | 2.0 | 合格水準 |
+
+閾値は `scripts/lib/umbrella-builder.mjs` の `STRICT_THRESHOLD_EXAMS` が真実源。変更はそこで行う。
+
 ## フェーズ構成（6 段階）
 
 ### Phase 1: 起点過去問の特定と論点抽出
@@ -93,23 +103,30 @@ node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs 
 
 **出力**: 構造化コンテキスト（問 + 選択肢 + 正答 + 論点配列 + キーワード slug 配列）
 
-### Phase 2: キーワード別ギャップ分析
+### Phase 2: キーワード別ギャップ分析（全 slugs 対象・必須）
 
-対象キーワードごとに以下を並列で実施（複数の Agent 並列起動は独立性確保のため推奨）:
+> **重要**: Phase 1 で特定した `exam-question-keywords.json[exam][anchor].slugs` の **全件**が Phase 2〜5 の処理対象となる。1 件だけ・数件だけの処理は **禁止**（後段 `verify-cycle-completeness.mjs` で `partial` 扱いとなりサイクル未完了）。全 slugs を cem-qa 閾値（R03/R04 は 2.5、他は 2.0）に到達させるまでサイクルは完了しない。
+
+catalog slugs 全件ごとに以下を並列で実施（複数の Agent 並列起動は独立性確保のため推奨）:
 
 1. **cem-qa 評価**:
    - `cem-qa` エージェントを呼出
    - 5 軸スコア（構造 30% / モバイル 25% / 原則 20% / 参考資料 15% / 関連付け 10%）を取得
-   - 合格閾値 2.0 を下回るなら要修正
+   - 合格閾値（R03/R04 は **2.5**、他年度は **2.0**）を下回るなら要修正
 
-2. **論点カバレッジ判定**:
-   - 過去問の論点配列 × キーワード本文を Grep で照合
-   - 「本文に該当キーワードが含まれるか」「具体例として説明されているか」を確認
-   - 欠落論点を surface
+2. **論点カバレッジ判定（4 カテゴリ別 grep）**:
+   - Phase 1 で抽出した論点配列を以下 4 カテゴリに分解し、各キーワード MDX に対し `Grep` で存在確認する
+     | カテゴリ | 例 | パターン |
+     |---|---|---|
+     | 年号 | 1999, 2015 | `(19\|20)\d{2}` |
+     | 法令番号 | 第 12 条, 法律第 56 号 | `第\s*\d+\s*条\|法律第\s*\d+\s*号` |
+     | 数値 | 50%, 100 億円, 30 日 | `\d+(\.\d+)?\s*(%\|円\|億\|日\|年\|件\|名)` |
+     | 比較軸 | 論点配列で名指しされた固有名 | 各設問個別 |
+   - 欠落カテゴリを surface。全カテゴリ grep ヒットまたは「該当なし」と判断されれば coverage OK
 
 3. **相互リンクチェック**:
-   - キーワード本文に対象過去問への参照（インラインリンク）があるか
-   - 過去問側の `<RelatedKeywords>` に当該キーワードが含まれるか（双方向確認）
+   - 過去問側の `<RelatedKeywords>` に catalog slugs が全件含まれるか（過去問 MDX の欠落検出）
+   - キーワード本文から過去問への参照は `<PastExamBacklinks>`（`past-exam-backlinks.json` から自動レンダリング）に任せ、インラインリンクの有無は問わない
 
 **出力**: キーワードごとの分析レポート
 ```
@@ -136,24 +153,28 @@ node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs 
 
 ### Phase 4: ユーザー一括承認
 
-**個別ではなくサイクル全体を 1 PR で承認**する方式。会話内で以下のサマリを提示:
+**個別ではなくサイクル全体を 1 PR で承認**する方式。catalog slugs **全件**分のキーワードをテーブルに並べる。件数不足（partial）で承認する場合はユーザーの明示的な同意が必要。会話内で以下のサマリを提示:
 
 ```markdown
 ## サイクル承認 — R06 Ⅰ-1-35「生物多様性・CITES」
 
-### 対象キーワード（6 件）
-| # | キーワード | 現状スコア | 視点タグ | 変更量 |
+**catalog slugs**: 6 件 ／ **処理対象**: 6 件（全件）
+**目標スコア**: 2.0（R06 は通常閾値）
+
+### 対象キーワード（全 6 件）
+| # | キーワード | 現状 → 目標 | 視点タグ | 変更量 |
 |---|---|---|---|---|
 | 1 | nagoya-protocol | 2.1 → 2.6 | 網羅性・関連付け | 中 |
 | 2 | biosafety | 1.9 → 2.5 | 網羅性・正確性 | 大 |
 | 3 | convention-on-biodiversity | 2.3 → 2.7 | わかりやすさ | 小 |
 | ... | ... | ... | ... | ... |
 
-### 承認: 一括 OK / 個別修正指示 / 却下
+### 承認: 一括 OK / 個別修正指示 / partial 承認 / 却下
 ```
 
-- **一括 OK** → Phase 5 へ
+- **一括 OK** → Phase 5 へ（全 slugs 処理）
 - **個別修正指示** → 該当キーワードのみ方針を調整して再提示
+- **partial 承認** → 全件に満たない件数で進める。Phase 5.6 の verify gate で `status = 'partial'` が記録され Umbrella に `_(partial)_` 表示。次回追加処理が前提。**ユーザーが理由を添えて承認した場合に限り許可**
 - **却下** → Phase 5 スキップ、サイクル終了（state 更新なし）
 
 ### Phase 5: 実装と記録
@@ -252,12 +273,23 @@ keywords_count: 6
 {
   "covered": {
     "pe-comprehensive-management-r06-primary": {
-      "1-35": { "date": "YYYY-MM-DD", "pr": null, "status": "in_review" }
+      "1-35": {
+        "date": "YYYY-MM-DD",
+        "pr": null,
+        "status": "in_review",
+        "keywords": ["nagoya-protocol", "biosafety", "convention-on-biodiversity", "cites", "ipbes", "kunming-montreal-framework"]
+      }
     }
   },
   "last_cycle": { "exam": "r06-primary", "question": "1-35" }
 }
 ```
+
+`status` enum:
+- `in_review` — PR 作成済・未マージ（Phase 5.6 の verify 前）
+- `committed` — ローカルコミットのみ
+- `partial` — catalog slugs 全件ではなく一部のみ処理（追加処理待ち）
+- `full_cycle_complete` — Phase 5.6 で verify 通過済（Umbrella で `[x]` 表示対象）
 
 ### Phase 5.5: Umbrella Issue 同期
 
@@ -291,6 +323,28 @@ node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs --p
 node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
 ```
 
+### Phase 5.6: 完了検証（full-cycle gate）
+
+`progress.json` と Umbrella 同期が終わった直後、完了状態を機械的に検証する。
+
+```bash
+node .claude/skills/content/exam-keyword-cycle/scripts/verify-cycle-completeness.mjs \
+  --exam <exam-slug> --question <anchor> --json
+```
+
+検査内容:
+1. **slugs 突合**: catalog `exam-question-keywords.json[exam][anchor].slugs` ⊆ `progress.json.covered[exam][anchor].keywords`
+2. **status 突合**: `status === 'full_cycle_complete'`
+3. **cem-qa 突合**: logs 内の記録値 ≥ 閾値（R03/R04 は 2.5、他は 2.0）
+
+判定:
+- `completed: true`（exit 0）→ そのまま Phase 6 へ
+- `completed: false`（exit 1）→ `missing_slugs` を surface し、ユーザーに以下 2 択を問う
+  - (a) `status = 'partial'` で確定してサイクル終了（Umbrella に `_(partial)_` 表示、次回追加処理対象）
+  - (b) Phase 2 に戻って `missing_slugs` を追加処理する
+
+初回処理で verify が `true` になるのは、**全 catalog slugs の MDX が cem-qa 閾値に到達し、status が `full_cycle_complete` に更新されている場合のみ**。status 更新は本 Phase の `true` 判定を確認してから手動で書き換える（自動更新は行わず、ユーザー承認後に反映）。
+
 ### Phase 6: PR 作成
 
 `/pr-create --base develop` を呼出（CLAUDE.md「ブランチ運用ルール」に準拠）。PR body は HEREDOC で以下のテンプレに従う:
@@ -315,8 +369,9 @@ node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
 
 ## 検証
 - [ ] `npm run build` 通過
-- [ ] cem-qa 再評価で全キーワード ≥ 2.0
+- [ ] cem-qa 再評価で全キーワード ≥ 閾値（R03/R04 は 2.5、他は 2.0）
 - [ ] 過去問側の `<RelatedKeywords>` と突合（欠落なし）
+- [ ] `verify-cycle-completeness.mjs --exam <slug> --question <anchor>` が exit 0 で通過（full_cycle_complete）
 
 🤖 Generated with [Claude Code](https://claude.com/claude-code)
 ```
@@ -336,7 +391,9 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 ## 参照
 
 - `src/config/exam-question-keywords.json` — 過去問→キーワード slug 一覧（Phase 1 の入力）
-- `src/config/past-exam-backlinks.json` — キーワード→過去問一覧（双方向確認）
+- `src/config/past-exam-backlinks.json` — キーワード→過去問一覧（双方向確認、自動生成）
+- `.claude/skills/content/exam-keyword-cycle/scripts/lib/umbrella-builder.mjs` — Umbrella body 共通ビルダー＋ catalog/progress 読込 util（閾値定義 `STRICT_THRESHOLD_EXAMS` の真実源）
+- `.claude/skills/content/exam-keyword-cycle/scripts/verify-cycle-completeness.mjs` — Phase 5.6 の full-cycle gate
 - `.claude/skills/content/exam-backlinks/SKILL.md` — exam-backlinks の保守スキル
 - `.claude/skills/content/verify-exam-coverage/SKILL.md` — 論点カバレッジ監査（Phase 2 で利用）
 - `.claude/skills/content/improve-article/SKILL.md` — 単一記事の校正ループ
@@ -363,3 +420,10 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 ### Phase 3（GitHub Actions スケジュール化）
 - ワークフロー定義: `.github/workflows/exam-keyword-cycle.yml`（週 2 回、月・木 JST 22:00）
 - remote trigger 実装は Claude Code remote trigger 仕様確定後に接続（現状は workflow_dispatch 手動のみ稼働）
+
+### Phase 4（full-cycle 化・実装済 2026-04-23）
+- 「過去問 1 問 = 全 catalog slugs を処理するまで未完了」ルールを明文化
+- `status` enum を拡張（`full_cycle_complete` / `partial` を追加）
+- `verify-cycle-completeness.mjs` で Phase 5.6 の gate を自動化
+- R03/R04 は cem-qa 閾値 2.5（受験直結）
+- `umbrella-builder.mjs` で DRY 化（checkbox 判定・進捗計算の共通化）

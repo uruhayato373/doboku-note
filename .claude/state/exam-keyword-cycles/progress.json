@@ -40,7 +40,7 @@
       "1-1": {
         "date": "2026-04-21",
         "pr": 43,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "cash-flow-statement"
         ]
@@ -48,7 +48,7 @@
       "1-2": {
         "date": "2026-04-22",
         "pr": 86,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "value-engineering"
         ]
@@ -56,7 +56,7 @@
       "1-3": {
         "date": "2026-04-22",
         "pr": 88,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "demand-forecasting",
           "linear-regression",
@@ -66,7 +66,7 @@
       "1-4": {
         "date": "2026-04-22",
         "pr": 90,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "predictive-maintenance",
           "maintenance-prevention",
@@ -77,7 +77,7 @@
       "1-5": {
         "date": "2026-04-22",
         "pr": 92,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "service-quality",
           "quality-characteristics"
@@ -86,7 +86,7 @@
       "1-6": {
         "date": "2026-04-22",
         "pr": 93,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "theory-of-constraints",
           "supply-chain-management",
@@ -96,7 +96,7 @@
       "1-7": {
         "date": "2026-04-22",
         "pr": 95,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "agile",
           "waterfall",
@@ -106,7 +106,7 @@
       "1-8": {
         "date": "2026-04-22",
         "pr": 99,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "pert-cpm",
           "progress-management",
@@ -116,7 +116,7 @@
       "1-9": {
         "date": "2026-04-22",
         "pr": 100,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "flextime-system",
           "variable-work-hours",
@@ -126,7 +126,7 @@
       "1-10": {
         "date": "2026-04-22",
         "pr": 102,
-        "status": "in_review",
+        "status": "partial",
         "keywords": [
           "part-time-fixed-term-act",
           "equal-pay-for-equal-work"
@@ -135,63 +135,243 @@
       "1-11": {
         "date": "2026-04-22",
         "pr": null,
-        "status": "committed",
-        "keywords": ["discretionary-work-system"]
+        "status": "partial",
+        "keywords": [
+          "discretionary-work-system"
+        ]
       },
       "1-12": {
         "date": "2026-04-22",
         "pr": null,
-        "status": "committed",
-        "keywords": ["stress-check-system"]
+        "status": "partial",
+        "keywords": [
+          "stress-check-system"
+        ]
       },
       "1-13": {
         "date": "2026-04-22",
         "pr": null,
-        "status": "committed",
-        "keywords": ["teal-organization"]
+        "status": "partial",
+        "keywords": [
+          "teal-organization"
+        ]
       },
       "1-14": {
         "date": "2026-04-22",
         "pr": null,
-        "status": "committed",
-        "keywords": ["organizational-commitment"]
+        "status": "partial",
+        "keywords": [
+          "organizational-commitment"
+        ]
       },
       "1-15": {
         "date": "2026-04-22",
         "pr": null,
-        "status": "committed",
-        "keywords": ["job-type-employment"]
+        "status": "partial",
+        "keywords": [
+          "job-type-employment"
+        ]
       },
       "1-16": {
         "date": "2026-04-22",
         "pr": null,
-        "status": "committed",
-        "keywords": ["performance-evaluation"]
+        "status": "partial",
+        "keywords": [
+          "performance-evaluation"
+        ]
       },
-      "1-17": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["cluster-analysis"]},
-      "1-18": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["copyright"]},
-      "1-19": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["equipment-reliability"]},
-      "1-20": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["information-disclosure"]},
-      "1-21": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["descriptive-statistics"]},
-      "1-22": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["four-p-analysis"]},
-      "1-23": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["digital-twin-cps"]},
-      "1-24": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["encryption-digital-signature"]},
-      "1-25": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["accident-statistics"]},
-      "1-26": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["unsafe-conditions-behavior"]},
-      "1-27": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["national-resilience-act"]},
-      "1-28": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["vta-method"]},
-      "1-29": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["generative-ai"]},
-      "1-30": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["product-liability"]},
-      "1-31": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["occupational-safety-act"]},
-      "1-32": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["risk-management-system"]},
-      "1-33": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["climate-change-decarbonization"]},
-      "1-34": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["energy"]},
-      "1-35": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["invasive-alien-species"]},
-      "1-36": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["basel-convention"]},
-      "1-37": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["alert-levels"]},
-      "1-38": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["air-pollution-control-act"]},
-      "1-39": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["environmental-impact-assessment"]},
-      "1-40": {"date": "2026-04-22", "pr": null, "status": "committed", "keywords": ["esg-investment"]}
+      "1-17": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "cluster-analysis"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "copyright"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "equipment-reliability"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "information-disclosure"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "descriptive-statistics"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "four-p-analysis"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "digital-twin-cps"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "encryption-digital-signature"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "accident-statistics"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "unsafe-conditions-behavior"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "national-resilience-act"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "vta-method"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "generative-ai"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "product-liability"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "occupational-safety-act"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "risk-management-system"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "climate-change-decarbonization"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "energy"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "invasive-alien-species"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "basel-convention"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "alert-levels"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "air-pollution-control-act"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "environmental-impact-assessment"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-22",
+        "pr": null,
+        "status": "partial",
+        "keywords": [
+          "esg-investment"
+        ]
+      }
     }
   },
   "last_cycle": {
