@@ -724,11 +724,22 @@
           "isms-iso27001",
           "zero-trust"
         ]
+      },
+      "1-25": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "consumer-safety",
+          "product-safety",
+          "consumer-product-safety-act",
+          "product-liability-act"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-24"
+    "question": "1-25"
   }
 }
