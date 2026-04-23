@@ -28,6 +28,8 @@ export const TARGET_YEARS = [
   'pe-comprehensive-management-r05-primary',
   'pe-comprehensive-management-r04-primary',
   'pe-comprehensive-management-r03-primary',
+  'pe-comprehensive-management-r02-primary',
+  'pe-comprehensive-management-r01-primary',
 ];
 
 /** 受験直結のため cem-qa 閾値を引き上げる exam。未指定は 2.0。 */
@@ -227,7 +229,7 @@ export function buildParentUmbrellaBody(progress, catalog) {
   body += `- 本 Issue は **永続**（close しない）\n`;
   body += `- 各年度 Umbrella は全問 full-cycle で close → 次年度 Umbrella を作成\n`;
   body += `- 週次 \`/weekly-review\` Agent F が本 Issue のサマリを \`[PDCA] YYYY-Www\` に埋め込む\n`;
-  body += `- 対象年度は直近 5 年（R07〜R03 primary）。追加年度が必要なら \`umbrella-builder.mjs\` の \`TARGET_YEARS\` を拡張\n\n`;
+  body += `- 対象年度は直近 7 年（R07〜R01 primary）。追加年度が必要なら \`umbrella-builder.mjs\` の \`TARGET_YEARS\` を拡張\n\n`;
 
   body += `## 参照\n\n`;
   body += `- スキル: \`.claude/skills/content/exam-keyword-cycle/SKILL.md\`\n`;

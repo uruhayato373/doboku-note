@@ -58,41 +58,11 @@ NPVと同種の投資評価指標には、判断基準の軸が異なる3手法�
 | **回収期間法** | 回収後のCFと貨幣の時間価値を無視する |
 | **B/C比** | 判断は同じだが投資規模の差を反映しない |
 
-{/* quiz-figures:start */}
-## 図解
-
-択一過去問の解説に掲載されていた図表。同キーワードの理解を補助する。
-
-<ArticleImage
-  src="/posts/pe-comprehensive-management/npv-net-present-value/img/normal-distribution-sigma.svg"
-  alt="正規分布と標準偏差"
-  caption="図: 正規分布と±σの関係（投資判断における不確実性）"
-/>
-
-追加投資の有無でキャッシュフローがどう変わるかを年度別に示す。
-
-- **追加投資を行わない場合**（初期支出 −1,500万円）
-  - 0年目: 支出 −1,500
-  - 1年目: 収入 400
-  - 2年目: 収入 400
-  - 3年目: 収入 400
-  - 4年目: 収入 400
-  - 5年目: 収入 400
-- **追加投資を行う場合**（追加投資額を加味）
-  - 0年目: 支出 −1,500
-  - 1年目: 収入 400
-  - 2年目: 収入 400
-  - 3年目: 支出 −300 / 収入 400+x（追加投資実施）
-  - 4年目: 収入 400+x
-  - 5年目: 収入 400+x
-
-{/* quiz-figures:end */}
-
 ## 総合技術監理における位置づけ
 
 総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
 
-NPVは[DCF法](/docs/pe-comprehensive-management-dcf-method)の代表的手法であり、[割引率](/docs/pe-comprehensive-management-discount-rate)を用いて計算する。[内部収益率法](/docs/pe-comprehensive-management-internal-rate-of-return)・[回収期間法](/docs/pe-comprehensive-management-payback-period-method)と合わせて[投資回収計画](/docs/pe-comprehensive-management-investment-recovery-plan)の策定に用いられる。
+NPVは[DCF法](/docs/pe-comprehensive-management-dcf-method)の代表的手法であり、[割引率](/docs/pe-comprehensive-management-discount-rate)を用いて計算する。[内部収益率法](/docs/pe-comprehensive-management-internal-rate-of-return)・[回収期間法](/docs/pe-comprehensive-management-payback-period-method)と合わせて[投資回収計画](/docs/pe-comprehensive-management-investment-recovery-plan)の策定に用いられる。過去問 **[R02 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2)** では 5 投資先の 4 年間 CF を割引率 3% で現価換算して合計を比較する計算問題が出題され、NPV の定義式 $\sum CF_t / (1+r)^t$ を年ごとに適用して最大値を選ぶ実務計算力が問われた。
 
 <ExamPoint
   summary="NPVは将来CFの現在価値合計から投資額を差し引いた値で投資を評価する"
@@ -100,7 +70,7 @@ NPVは[DCF法](/docs/pe-comprehensive-management-dcf-method)の代表的手法�
     "NPV＞0なら投資価値あり、複数案ではNPV最大の案を選択する",
     "割引率が高いほどNPVは低下する",
     "IRRとNPVの大小関係は投資規模が異なると一致しないことがある",
-    "現在価値の計算問題は択一式で頻出",
+    "R02 Ⅰ-1-2 のような複数投資先の現価比較は頻出計算問題",
   ]}
 />
 
@@ -115,5 +85,5 @@ NPVは[DCF法](/docs/pe-comprehensive-management-dcf-method)の代表的手法�
 ## 参考資料
 
 - [公共事業評価の費用便益分析に関する技術指針](https://www.mlit.go.jp/sogoseisaku/environment/sosei_environment_tk_000011.html)（国土交通省）：道路・河川など公共インフラのB/C算定でDCF法・NPVの適用方法を規定する公式技術指針。
-- [中小企業のための経営力強化の手引き―投資評価指標の活用](https://www.chusho.meti.go.jp/)（中小企業庁）：NPV・IRR・回収期間法を事業計画書の文脈で解説。民間設備投資への適用例を多数収録。
+- [正味現在価値 — Wikipedia](https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%91%B3%E7%8F%BE%E5%9C%A8%E4%BE%A1%E5%80%A4)（ウィキペディア）：NPV の定義・計算手順・IRR との比較・感度分析の包括解説。
 - [プロジェクト投資評価のDCF分析入門](https://moneyforward.com/blog/accounting/)（マネーフォワードクラウド会計コラム）：割引率の設定根拠（WACC・リスクプレミアム）とNPV感度分析の実務的な解説。建設部門の事業採算性評価への応用例あり。
