@@ -354,11 +354,22 @@
           "safety-health-education",
           "safety-health-org-structure"
         ]
+      },
+      "1-32": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-management-plan",
+          "risk-management-system",
+          "stakeholder",
+          "risk-management-policy"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-31"
+    "question": "1-32"
   }
 }
