@@ -982,11 +982,23 @@
           "direct-costing",
           "direct-manufacturing-cost"
         ]
+      },
+      "1-7": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "depreciation",
+          "income-statement",
+          "ifrs"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-6"
+    "question": "1-7"
   }
 }
