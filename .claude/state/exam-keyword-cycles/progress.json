@@ -520,11 +520,23 @@
           "standard-costing",
           "cost-variance-analysis"
         ]
+      },
+      "1-7": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "income-statement",
+          "accounting-systems",
+          "dcf-method"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-6"
+    "question": "1-7"
   }
 }
