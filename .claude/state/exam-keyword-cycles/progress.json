@@ -839,11 +839,23 @@
           "carbon-pricing",
           "cdp-sbt-re100"
         ]
+      },
+      "1-35": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "convention-on-biodiversity",
+          "nagoya-protocol",
+          "ramsar-convention",
+          "biodiversity-basic-act",
+          "kunming-montreal-framework"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-34"
+    "question": "1-35"
   }
 }
