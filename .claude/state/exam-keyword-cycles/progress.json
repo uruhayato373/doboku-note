@@ -599,11 +599,22 @@
           "safety-culture",
           "formal-informal-organization"
         ]
+      },
+      "1-14": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-productivity",
+          "labor-share-ratio",
+          "employment-statistics",
+          "performance-based-pay"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-13"
+    "question": "1-14"
   }
 }
