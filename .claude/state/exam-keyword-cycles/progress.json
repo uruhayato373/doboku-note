@@ -679,11 +679,125 @@
           "zero-trust",
           "confidentiality"
         ]
+      },
+      "1-21": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "correlation-analysis",
+          "linear-regression",
+          "estimation-testing",
+          "descriptive-statistics",
+          "logistic-regression"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "verbal-nonverbal-communication",
+          "information-disclosure",
+          "crisis-communication",
+          "social-engineering"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cloud-on-premises",
+          "edge-computing",
+          "digital-twin-cps",
+          "iot"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "multi-factor-authentication",
+          "access-control",
+          "isms-iso27001",
+          "zero-trust"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "consumer-safety",
+          "product-safety",
+          "consumer-product-safety-act",
+          "product-liability-act"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-assessment",
+          "risk-analysis",
+          "inherent-safety",
+          "alarp-principle"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "kyt",
+          "tbm-toolbox-meeting",
+          "stress-check-system",
+          "mental-health",
+          "safety-education"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-health-org-structure",
+          "oshms",
+          "safety-health-policy"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "oshms",
+          "safety-health-policy",
+          "pdca-cycle",
+          "safety-health-plan",
+          "risk-assessment"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "reliability-block-diagram",
+          "series-system",
+          "parallel-system",
+          "system-reliability",
+          "redundancy-safety"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-20"
+    "question": "1-30"
   }
 }
