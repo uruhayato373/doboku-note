@@ -691,11 +691,22 @@
           "descriptive-statistics",
           "logistic-regression"
         ]
+      },
+      "1-22": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "verbal-nonverbal-communication",
+          "information-disclosure",
+          "crisis-communication",
+          "social-engineering"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-21"
+    "question": "1-22"
   }
 }
