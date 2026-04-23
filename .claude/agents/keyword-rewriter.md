@@ -171,7 +171,7 @@ cem-qa で再評価
 ## 参照ドキュメント
 
 - `.claude/content-principles.md` — コンテンツ原則の真実源（特に §5: ExamPoint, §9: 参考資料）
-- `.claude/skills/content/keyword-page/SKILL.md` — 個別ページ作成のテンプレート
+- `.claude/skills/authoring/keyword-page/SKILL.md` — 個別ページ作成のテンプレート
 - `.claude/agents/cem-qa.md` — Evaluator 側の評価ルーブリック
 - `docs/project/13_quality-cycle-architecture.md` — システム全体設計
 - `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

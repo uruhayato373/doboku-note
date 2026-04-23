@@ -3,7 +3,7 @@
 > melta-ui の 5 設計原則を doboku-note に適応。
 > ブランドパーソナリティ: 「正確・明快・信頼」
 
-**本ドキュメントは UI（React/Tailwind コンポーネント）と SVG 図版の両方に適用されるカラー・レイアウト原則の真実源**。カラートークンは `src/styles/globals.css` の `--color-*` 変数で定義され、Tailwind には `brand` / `ink` / `positive` / `warn` / `danger` / `surface` として登録されている。SVG 側は同じ値をリテラル hex で書き、コメントでトークン名を併記する（詳細は `.claude/skills/content/create-svg/SKILL.md`）。
+**本ドキュメントは UI（React/Tailwind コンポーネント）と SVG 図版の両方に適用されるカラー・レイアウト原則の真実源**。カラートークンは `src/styles/globals.css` の `--color-*` 変数で定義され、Tailwind には `brand` / `ink` / `positive` / `warn` / `danger` / `surface` として登録されている。SVG 側は同じ値をリテラル hex で書き、コメントでトークン名を併記する（詳細は `.claude/skills/authoring/create-svg/SKILL.md`）。
 
 ---
 

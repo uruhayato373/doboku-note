@@ -296,9 +296,9 @@ dev server: http://localhost:3020 ✓
 
 ## 参照ドキュメント
 
-- `.claude/skills/content/pdf-to-mdx --exam civil-construction-1/SKILL.md` ── Generator 側のルール
-- `.claude/skills/content/improve-article/SKILL.md (--mode verify)` ── 本エージェントを呼び出すスキル
-- `.claude/skills/content/review-mobile/SKILL.md` ── モバイル視認性の詳細ルール（guide モードで使用）
+- `.claude/skills/conversion/pdf-to-mdx/templates/civil-construction-1.md` ── Generator 側のルール
+- `.claude/skills/authoring/improve-article/SKILL.md (--mode verify)` ── 本エージェントを呼び出すスキル
+- `.claude/skills/quality/review-mobile/SKILL.md` ── モバイル視認性の詳細ルール（guide モードで使用）
 - `.claude/skills/quality/check-mdx/SKILL.md` ── MDX 検査統合スキル（`--rules syntax` で構文チェック）
 - `.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
 - `.claude/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点

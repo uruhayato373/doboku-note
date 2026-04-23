@@ -157,8 +157,8 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 
 ## 参照ドキュメント
 
-- `.claude/skills/content/keyword-page/SKILL.md` — Generator 側のルール（テンプレート、文体、モバイル視認性）
-- `.claude/skills/content/review-mobile/SKILL.md` — モバイル視認性の詳細ルール
+- `.claude/skills/authoring/keyword-page/SKILL.md` — Generator 側のルール（テンプレート、文体、モバイル視認性）
+- `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性の詳細ルール
 - `.claude/content-principles.md` — ペルソナ定義・コンテンツ原則
 - `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー
 - `src/config/pe-chapters.json` — キーワード集の章・節構造

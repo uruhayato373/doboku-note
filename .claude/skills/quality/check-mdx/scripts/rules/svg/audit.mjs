@@ -6,10 +6,10 @@
  * viewBox 超過・font-size 過小・テキスト重なりを検出。
  *
  * Usage:
- *   node .claude/skills/content/audit-svg/scripts/audit.mjs
- *   node .claude/skills/content/audit-svg/scripts/audit.mjs --path=<glob>
- *   node .claude/skills/content/audit-svg/scripts/audit.mjs --file=<single.svg>
- *   node .claude/skills/content/audit-svg/scripts/audit.mjs --fail-on=HIGH   # exit 1 if any HIGH finding
+ *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs
+ *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --path=<glob>
+ *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --file=<single.svg>
+ *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --fail-on=HIGH   # exit 1 if any HIGH finding
  */
 
 import { writeFileSync, existsSync, mkdirSync } from "fs";

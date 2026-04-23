@@ -16,10 +16,10 @@
  *
  * Usage:
  *   # 1. audit 実行で state 更新
- *   node .claude/skills/content/audit-svg/scripts/audit.mjs
+ *   node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs
  *
  *   # 2. ギャラリー生成
- *   node .claude/skills/content/audit-svg/scripts/build-gallery-comment.mjs
+ *   node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs
  *
  *   # 3. Issue #64 にコメント投稿（初回 or 差し替え）
  *   gh issue comment 64 --body-file .tmp/svg-gallery-comment.md
@@ -39,7 +39,7 @@ const IMAGE_HOST = "https://storage.doboku-note.com";
 
 if (!existsSync(AUDIT_STATE)) {
   console.error(`audit state not found: ${AUDIT_STATE}`);
-  console.error(`先に audit を実行: node .claude/skills/content/audit-svg/scripts/audit.mjs`);
+  console.error(`先に audit を実行: node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs`);
   process.exit(1);
 }
 
@@ -132,7 +132,7 @@ lines.push("- 🟡 MEDIUM 違反あり（計画的改善）");
 lines.push("- ✅ audit クリア");
 lines.push("");
 lines.push(
-  `**再生成コマンド**: \`node .claude/skills/content/audit-svg/scripts/audit.mjs && node .claude/skills/content/audit-svg/scripts/build-gallery-comment.mjs && gh issue comment 64 --body-file .tmp/svg-gallery-comment.md\``
+  `**再生成コマンド**: \`node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs && node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs && gh issue comment 64 --body-file .tmp/svg-gallery-comment.md\``
 );
 lines.push("");
 lines.push("---");

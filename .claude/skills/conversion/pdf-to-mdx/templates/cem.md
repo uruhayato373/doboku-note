@@ -123,4 +123,4 @@ publishedAt: "YYYY-MM-DD"
 - `.claude/content-principles.md` — コンテンツ原則（真実源）
 - `.claude/reference/content-authoring.md` — MDX コンポーネント仕様
 - `src/config/pe-chapters.json` — 5 管理体系の章・節構造
-- `.claude/skills/content/keyword-page/SKILL.md` — キーワードページ作成（PDF 変換ではなく対話型作成）
+- `.claude/skills/authoring/keyword-page/SKILL.md` — キーワードページ作成（PDF 変換ではなく対話型作成）

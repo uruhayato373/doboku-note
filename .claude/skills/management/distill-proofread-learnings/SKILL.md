@@ -182,7 +182,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 
 ### 1. [改善点]
 
-**対象**: `.claude/skills/content/<skill>/SKILL.md`
+**対象**: `.claude/skills/{category}/<skill>/SKILL.md`
 **変更**: [手順の追加・修正]
 
 ---
@@ -218,8 +218,8 @@ CLAUDE.md「ハーネス設計原則」との整合:
 
 - `.claude/content-principles.md` — 校正ルールの真実源（主な更新対象）
 - `.claude/reference/skills-design-guide.md` — スキル改訂のガイドライン
-- `.claude/skills/content/keyword-page/SKILL.md` — 総監キーワードの校正ルールを参照
-- `.claude/skills/content/improve-article/SKILL.md` — 校正オーケストレータ
-- `.claude/skills/content/review-mobile/SKILL.md` — モバイル視認性ルール
+- `.claude/skills/authoring/keyword-page/SKILL.md` — 総監キーワードの校正ルールを参照
+- `.claude/skills/authoring/improve-article/SKILL.md` — 校正オーケストレータ
+- `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性ルール
 - `.claude/state/proofread-learnings/` — 過去の学習ログ蓄積先
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離・パラメタ化優先

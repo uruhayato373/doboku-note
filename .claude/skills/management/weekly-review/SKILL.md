@@ -149,7 +149,7 @@ B. 実験進捗レポート:
 - 年度別 Umbrella Issue の進捗と停滞検知
 
 次週候補の取得方法:
-  node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
+  node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
 
 **Umbrella 同期**: 今週サイクルが 1 件以上あれば、レビュー末尾で `sync-umbrella.mjs --all` を呼び出して Umbrella の checkbox・進捗・完了サイクルリストを最新化する（`/exam-keyword-cycle` 側でも毎サイクル呼ぶが、週次でも安全網として実行）。
 

@@ -68,7 +68,7 @@
     "cssVars":          "src/styles/globals.css の --color-* と整合",
     "designPrinciples": ".claude/design-system/principles.md",
     "prohibitedRules":  ".claude/design-system/prohibited.md",
-    "createSkill":      ".claude/skills/content/create-svg/SKILL.md",
+    "createSkill":      ".claude/skills/authoring/create-svg/SKILL.md",
     "auditSkill":       ".claude/skills/quality/check-mdx/SKILL.md"
   }
 }
