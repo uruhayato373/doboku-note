@@ -544,11 +544,22 @@
           "preventive-maintenance",
           "lifecycle-management"
         ]
+      },
+      "1-9": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-union-act",
+          "labor-relations-adjustment-act",
+          "labor-standards-act",
+          "minimum-wage-act"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-8"
+    "question": "1-9"
   }
 }
