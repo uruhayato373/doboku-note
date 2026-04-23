@@ -667,11 +667,23 @@
           "generative-ai",
           "digital-twin-cps"
         ]
+      },
+      "1-20": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "encryption-digital-signature",
+          "isms-iso27001",
+          "online-meetings",
+          "zero-trust",
+          "confidentiality"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-19"
+    "question": "1-20"
   }
 }
