@@ -702,11 +702,22 @@
           "crisis-communication",
           "social-engineering"
         ]
+      },
+      "1-23": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cloud-on-premises",
+          "edge-computing",
+          "digital-twin-cps",
+          "iot"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-22"
+    "question": "1-23"
   }
 }
