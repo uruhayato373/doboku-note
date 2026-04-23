@@ -1006,11 +1006,22 @@
           "predictive-maintenance",
           "corrective-maintenance"
         ]
+      },
+      "1-9": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equal-employment-act",
+          "elderly-employment-act",
+          "continued-employment-system",
+          "employment-insurance"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-8"
+    "question": "1-9"
   }
 }
