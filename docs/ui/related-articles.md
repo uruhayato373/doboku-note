@@ -1,11 +1,6 @@
----
-name: related-articles
-description: >
-  関連記事カード自動生成の設計リファレンス。アルゴリズム・スタイリング・拡張方針を参照する。
-  Use when modifying related articles section, adding new categories, or reviewing UI component patterns.
----
+# RelatedArticles 設計リファレンス
 
-関連記事セクションの設計方針・アルゴリズム・スタイリングルールのリファレンス。
+関連記事セクションの設計方針・アルゴリズム・スタイリングルール。`src/lib/related-articles.ts` や `src/components/ui/RelatedArticles/` を触るときに参照する。
 
 ## 設計思想
 

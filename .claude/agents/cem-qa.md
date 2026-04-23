@@ -19,7 +19,7 @@ model: sonnet
 類似エージェントとの差別化:
 
 - `content-qa`: PDF→MDX 変換結果の評価（スコープ: 過去問MDX、基準書MDX）
-- `cem-advisor`: CEM コンテンツの生成・試験情報更新・学習計画策定（Generator）
+- `keyword-rewriter`: CEM キーワードページのバルクリライト（Generator）
 - `cem-qa`（このエージェント）: CEM **キーワードページ** の品質評価のみ（Evaluator）
 
 ## 担当スキル
@@ -122,7 +122,6 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 - **キーワードページの作成・修正** — `/keyword-page` スキル or 人間が担当（Generator と Evaluator の分離）
 - **過去問ページ・論文ページの評価** — スコープ外（別途 `content-qa` が PDF→MDX 変換に限定で担当）
 - **PDF→MDX 変換の品質評価** — `content-qa` が担当
-- **試験情報の更新・学習計画策定** — `cem-advisor` が担当
 - **SEO 最適化・検索インデックス** — `seo-auditor` が担当
 
 ## 連携パターン

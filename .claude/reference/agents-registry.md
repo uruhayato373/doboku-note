@@ -16,16 +16,21 @@
 | `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | sonnet | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
 | `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック） | Evaluator | sonnet | verify-pdf-mdx, check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
 | `civil-construction-review` | 1級土木 textbook/guide の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質） | Evaluator | inherit | lint-mdx-mobile, check-mdx, check-links | ✅ 運用中 |
-| `ui-visual-qa` | `src/components/ui/**/*.tsx` 変更時の視覚回帰（lint-ui + light/dark × desktop/mobile スクショ） | Evaluator | sonnet | lint-ui, Playwright MCP | ✅ 運用中 |
 | `strategy-advisor` | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
-| `seo-auditor` | SEO 監査（Phase 2 で復活） | Evaluator | sonnet | seo-audit, fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2 で復活 |
+| `seo-auditor` | SEO 監査（Phase 2 で復活） | Evaluator | sonnet | fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2 で復活 |
 | `metrics-analyzer` | GSC/GA4 計測データから改善機会を5パターン抽出（High-Impr-Low-CTR 等） | Evaluator | sonnet | weekly-improve | ✅ 運用中 |
 | `performance-auditor` | PSI 計測データからしきい値違反・回帰を検出し、LCP 肥大・CLS 発生等の既知パターンに改善候補をマッピング | Evaluator | sonnet | psi-audit | ✅ 運用中 |
 | `content-planner` | コンテンツ企画（Phase 2 で復活） | Generator | sonnet | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2 で復活 |
-| `cem-advisor` | CEM 試験対策（総合技術監理） | Generator | sonnet | cem-content-generate, cem-study-plan（実装予定） | 🚧 計画段階 |
 | `keyword-rewriter` | CEM キーワードページのバルクリライト | Generator | sonnet | quality-cycle 連携 | ✅ 運用中 |
 | `civil-textbook-rewriter` | 1級土木 textbook/guide ページのバルクリライト | Generator | sonnet | civil-textbook-cycle 連携 | ✅ 運用中 |
-| `aidesigner-frontend` | AIDesigner を使った UI 生成（ランディング・ダッシュボード等） | Generator | sonnet | AIDesigner MCP + CLI | ✅ 運用中 |
+
+### 退役したエージェント（2026-04-23 Phase A）
+
+| エージェント | 役割 | 代替 |
+|---|---|---|
+| `aidesigner-frontend` | AIDesigner 連携の UI 生成 | 直接 Claude 指示 or AIDesigner MCP 直接 |
+| `ui-visual-qa` | UI 視覚 Evaluator（`.tsx` 視覚回帰） | `/design-review --visual`（同機能を design-review スキルに統合） |
+| `cem-advisor` | CEM 試験対策 Generator（placeholder） | Generator は `keyword-rewriter`、Evaluator は `cem-qa`、orchestration は `strategy-advisor` |
 
 ## Generator と Evaluator の分離原則
 
@@ -47,11 +52,12 @@
 | **cem-qa** | `.mdx`（総監キーワード） | 5管理体系・コンポーネント原則・参考資料 | キーワードページ執筆後 |
 | **civil-construction-qa** | `.mdx`（1級土木 textbook/guide） | 視覚検証 + テキスト網羅率（3モード5軸） | 1級土木 MDX 生成後 |
 | **civil-construction-review** | `.mdx`（1級土木 textbook/guide） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
-| **ui-visual-qa** | `.tsx`（`src/components/ui/**`）+ `globals.css` | 静的 lint + light/dark × desktop/mobile 視覚回帰 | UI コンポーネント変更後 |
 | **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query） | `/weekly-improve` 実行時 |
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
+
+**UI コンポーネント（`.tsx`）の視覚回帰**は `/design-review --visual` スキル（旧 `ui-visual-qa` エージェントを統合）で実施する。スキル層で完結するためサブエージェント化不要。
 
 ---
 
@@ -61,12 +67,11 @@
 |---|---|
 | **Phase 1 開発フロー** | 1. PDF→MDX 変換 → 2. **content-qa**（品質評価） → 3. `/deploy`（本番反映） |
 | 週次 PDCA（簡略版） | strategy-advisor（weekly-review → weekly-plan） |
-| CEM 試験対策 | cem-advisor（cem-content-generate → cem-study-plan） |
 | キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
 | キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
 | 1級土木 textbook 変換 | `/civil-construction-1-pdf-to-mdx`（Generator） → `civil-construction-qa`（Evaluator） → `/verify-pdf-mdx` |
 | 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-review`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
-| UI コンポーネント変更 | 親エージェント or `/aidesigner-frontend`（Generator） → `ui-visual-qa`（Evaluator） → `/simplify` で修正 |
+| UI コンポーネント変更 | 親エージェント（Generator） → `/design-review --visual`（視覚検証・スキル層で完結） → `/simplify` で修正 |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
 
