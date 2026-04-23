@@ -769,11 +769,23 @@
           "oshms",
           "safety-health-policy"
         ]
+      },
+      "1-29": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "oshms",
+          "safety-health-policy",
+          "pdca-cycle",
+          "safety-health-plan",
+          "risk-assessment"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-28"
+    "question": "1-29"
   }
 }
