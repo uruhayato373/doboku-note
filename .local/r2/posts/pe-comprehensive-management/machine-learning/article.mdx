@@ -25,6 +25,8 @@ seoTitle: 機械学習 ｜ 総合技術監理 キーワード集 2026
 
 Society 5.0やDXの推進において、機械学習は意思決定の高度化・業務の自動化・新たな価値創出の基盤技術として位置づけられている。
 
+モデルの性能評価では **混同行列** から正解率・適合率・再現率・F 値を算出する。正解率＝(TP+TN)/全データ、適合率＝TP/(TP+FP)、再現率＝TP/(TP+FN)、F 値＝適合率と再現率の調和平均。**偽陽性の増加は適合率・正解率に影響するが再現率には影響しない**（過去問 **[R03 Ⅰ-1-17](/docs/pe-comprehensive-management-r03-primary#1-17)** で混同行列の計算問題として出題）。また **[R03 Ⅰ-1-19](/docs/pe-comprehensive-management-r03-primary#1-19)** では画像認識のクラウドサービス提供状況（Google・Amazon・Microsoft から既に提供済み）が問われた。
+
 ### 機械学習の基本プロセス
 
 機械学習によるデータ活用は、以下のプロセスで実施される。
@@ -157,7 +159,7 @@ Society 5.0やDXの推進において、機械学習は意思決定の高度化�
 
 教師なし学習の代表手法である[クラスター分析](/docs/pe-comprehensive-management-cluster-analysis)は、機械学習の重要なサブカテゴリである。
 
-また、[IoT](/docs/pe-comprehensive-management-iot)によるセンサーデータの収集と、[デジタルツイン・CPS](/docs/pe-comprehensive-management-digital-twin-cps)によるシミュレーションは、機械学習の適用領域をさらに拡大している。
+また、[IoT](/docs/pe-comprehensive-management-iot) によるセンサーデータの収集と、[デジタルツイン・CPS](/docs/pe-comprehensive-management-digital-twin-cps) によるシミュレーションは、機械学習の適用領域をさらに拡大している。過去問 **[R04 Ⅰ-1-29](/docs/pe-comprehensive-management-r04-primary#1-29)** では AI 利活用ガイドラインの文脈で機械学習におけるバイアス（多数派が尊重され少数派が反映されにくい傾向）が論点として取り上げられた。
 
 <RelatedKeywords items={[
   { label: "生成AI", slug: "generative-ai" },

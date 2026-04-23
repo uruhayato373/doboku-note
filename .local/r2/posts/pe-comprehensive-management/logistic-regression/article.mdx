@@ -25,6 +25,8 @@ seoTitle: ロジスティック回帰 ｜ 総合技術監理 キーワード集 
 
 土木分野では、構造物の損傷有無の判別、事故発生の有無と要因の関係分析、入札の成功・失敗の予測などに適用される。
 
+**手法選択の判断基準**は「目的変数の型」で決まる。連続量は [重回帰分析](/docs/pe-comprehensive-management-linear-regression)、**二値（陽性/陰性・発生有無）はロジスティック回帰**、顧客分類は [クラスター分析](/docs/pe-comprehensive-management-cluster-analysis)。過去問 **[R04 Ⅰ-1-17](/docs/pe-comprehensive-management-r04-primary#1-17)** で「情報漏洩などの事件発生の有無に対して従業員数や訓練実施回数の影響を調べる」事例でロジスティック回帰が正答となった。
+
 ### 数理モデル
 
 ロジスティック回帰では、事象が発生する確率 $p$ を以下のロジスティック関数（シグモイド関数）でモデル化する。
@@ -63,9 +65,10 @@ $p/(1-p)$ をオッズ（事象が起こる確率と起こらない確率の比�
 |---|---|---|
 | 目的変数 | 連続量（売上、強度など） | 二値（有/無、合格/不合格） |
 | 出力 | 予測値（実数全体） | 確率（0〜1） |
-| 関数形 | $y = \beta_0 + \beta_1 x$ | $p = 1/(1 + e^{-z})$ |
 | 推定法 | 最小二乗法（OLS） | 最尤推定法（MLE） |
-| 評価指標 | 決定係数 $R^2$ | 正解率・AUC・適合率・再現率 |
+| 評価指標 | 決定係数 | 正解率・AUC・適合率・再現率 |
+
+**関数形の比較**: 線形回帰は $y = \beta_0 + \beta_1 x$、ロジスティック回帰は $p = 1/(1 + e^{-z})$。
 
 ### 最尤推定法
 
@@ -97,7 +100,9 @@ $p/(1-p)$ をオッズ（事象が起こる確率と起こらない確率の比�
 
 過去問では、データ分析事例に対して適切な手法を選ぶ問題で出題されている。
 
-関連キーワード: [線形回帰と最小二乗法](/docs/pe-comprehensive-management-linear-regression)、[相関分析](/docs/pe-comprehensive-management-correlation-analysis)、[推定・検定](/docs/pe-comprehensive-management-estimation-testing)、[記述統計](/docs/pe-comprehensive-management-descriptive-statistics)
+<Callout type="warn" title="名前の引っかけ: 回帰と付いても分類手法">
+ロジスティック回帰は名前に「回帰」と付くが、実質的には **分類問題に用いる手法** である。過去問 [R04 Ⅰ-1-17](/docs/pe-comprehensive-management-r04-primary#1-17) では「情報漏洩などの事件発生の有無」という二値目的変数に対してロジスティック回帰が正答となった。連続量なら [重回帰分析](/docs/pe-comprehensive-management-linear-regression)、分類（クラス分け）なら [クラスター分析](/docs/pe-comprehensive-management-cluster-analysis) と使い分ける。
+</Callout>
 
 <ExamPoint
   summary="線形回帰との使い分けとオッズ比の解釈が問われやすい"
@@ -120,4 +125,4 @@ $p/(1-p)$ をオッズ（事象が起こる確率と起こらない確率の比�
 ## 参考資料
 
 - [第15章：多変量解析 ロジスティック回帰分析（統計講義動画 | 看護・保健系大学院生のための統計学習サイト）](https://plaza.umin.ac.jp/~health-stat/lecture/chapter15/)（東京大学・公共健康医学専攻）
-- [ロジスティック回帰 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%AD%E3%82%B8%E3%82%B9%E3%83%86%E3%82%A3%E3%83%83%E3%82%AF%E5%9B%9E%E5%B8%B0)（Wikipedia）
+- [ロジスティック回帰分析とは？実装方法や実例・応用事例も解説（AIsmiley）](https://aismiley.co.jp/ai_news/logistic-regression/) — ロジスティック回帰の実装と土木・マーケティング等の応用事例を実務目線で解説
