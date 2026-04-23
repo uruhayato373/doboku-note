@@ -4,11 +4,11 @@
  * generate-umbrella.mjs / sync-umbrella.mjs / verify-cycle-completeness.mjs から import する。
  *
  * progress.json.covered[exam][anchor].status enum:
- *   - "full_cycle_complete"  ← 全 slugs 処理済み × cem-qa 閾値達成（checkbox [x] 対象）
- *   - "partial"              ← catalog slugs の一部のみ処理（追加処理待ち）
- *   - "in_review"            ← PR 作成済・未マージ（従来互換）
- *   - "committed"            ← ローカルコミットのみ（従来互換）
- *   - その他／未設定         ← 存在すれば partial 相当として扱う
+ *   - "full_cycle_complete"  ← 全 slugs 処理済み × cem-qa 閾値達成（checkbox [x] の唯一の条件）
+ *   - "in_review"            ← PR 作成済・未マージ（作業メタデータ）
+ *   - "committed"            ← ローカルコミットのみ（作業メタデータ）
+ *
+ * 完了判定は status === 'full_cycle_complete' のバイナリ。それ以外はすべて「未完了」扱い。
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
@@ -88,18 +88,16 @@ export function groupByHeadAnchor(anchors) {
 /**
  * 1 設問の進捗状態を分類する。UI 表示と集計の両方で使う。
  *
- * @returns {{ isFullCycle: boolean, isPartial: boolean, processed: number, total: number }}
+ * @returns {{ isFullCycle: boolean, processed: number, total: number }}
  */
 export function classifyQuestionCoverage(examSlug, anchor, catalog, coveredEntry) {
   const total = catalog[examSlug]?.[anchor]?.slugs?.length ?? 0;
   if (!coveredEntry) {
-    return { isFullCycle: false, isPartial: false, processed: 0, total };
+    return { isFullCycle: false, processed: 0, total };
   }
   const processed = coveredEntry.keywords?.length ?? 0;
   const isFullCycle = coveredEntry.status === 'full_cycle_complete';
-  // status が partial 明示、もしくは legacy（in_review/committed）で processed < total ならすべて partial 扱い
-  const isPartial = !isFullCycle && processed > 0;
-  return { isFullCycle, isPartial, processed, total };
+  return { isFullCycle, processed, total };
 }
 
 export function buildYearUmbrellaBody(examSlug, progress, catalog) {
@@ -108,11 +106,9 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
   const total = anchors.length;
 
   let fullCount = 0;
-  let partialCount = 0;
   for (const a of anchors) {
     const c = classifyQuestionCoverage(examSlug, a, catalog, covered[a]);
     if (c.isFullCycle) fullCount++;
-    else if (c.isPartial) partialCount++;
   }
   const percent = total > 0 ? Math.round((fullCount / total) * 1000) / 10 : 0;
   const label = yearLabel(examSlug);
@@ -126,10 +122,9 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
     body += `**親 Umbrella**: #${parentIssue}\n\n`;
   }
   body += `## 進捗\n`;
-  const partialText = partialCount > 0 ? `、${partialCount} partial` : '';
-  body += `**${fullCount}/${total} full-cycle (${percent}%)${partialText}** <!-- sync marker: progress -->\n\n`;
-  body += `> 完了判定: 全 slugs 処理済み × cem-qa ≥ ${threshold}（full-cycle のみ [x]）。`;
-  body += `partial は catalog slugs の一部しか処理していない状態で追加処理が必要。\n\n`;
+  body += `**${fullCount}/${total} full-cycle (${percent}%)** <!-- sync marker: progress -->\n\n`;
+  body += `> 完了判定: 全 slugs 処理済み × cem-qa ≥ ${threshold}。`;
+  body += `full-cycle のみ [x]（中間状態なし、バイナリ判定）。\n\n`;
 
   body += `## 問題（checkbox は自動同期 — 手動チェック禁止）\n\n`;
   const groups = groupByHeadAnchor(anchors);
@@ -139,13 +134,12 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
       const entry = covered[a];
       const c = classifyQuestionCoverage(examSlug, a, catalog, entry);
       const checked = c.isFullCycle ? 'x' : ' ';
-      const partialTag = c.isPartial ? ' _(partial)_' : '';
       const coverageTag = entry && c.processed < c.total
         ? ` — 二次キーワード ${c.processed}/${c.total}`
         : '';
       const prText = entry?.pr ? ` — PR #${entry.pr}` : '';
       const dateText = entry?.date ? ` (${entry.date})` : '';
-      body += `- [${checked}] ${anchorToRomanLabel(a)}${partialTag}${coverageTag}${prText}${dateText} <!-- anchor: ${a} -->\n`;
+      body += `- [${checked}] ${anchorToRomanLabel(a)}${coverageTag}${prText}${dateText} <!-- anchor: ${a} -->\n`;
     }
     body += `\n`;
   }
@@ -171,7 +165,7 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
   body += `<!-- sync marker: completed-cycles -->\n\n`;
 
   body += `## 運用\n\n`;
-  body += `- 1 サイクル = 1 過去問 + **全 RelatedKeywords** + 1 PR（全 slugs 処理しない限り partial 扱い）\n`;
+  body += `- 1 サイクル = 1 過去問 + **全 RelatedKeywords** + 1 PR（全 slugs 処理しない限り完了扱いにしない）\n`;
   body += `- checkbox は \`/exam-keyword-cycle\` が自動で更新する（手動で触らない）\n`;
   body += `- 進捗状態の真実源: \`.claude/state/exam-keyword-cycles/progress.json\`\n`;
   body += `- cem-qa 閾値: R03/R04 は **2.5**、他年度は 2.0\n`;
@@ -186,7 +180,6 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
     title: `[Umbrella] exam-keyword-cycle ${label} (${total} 問)`,
     body,
     coveredCount: fullCount,
-    partialCount,
     total,
   };
 }
@@ -198,34 +191,28 @@ export function buildParentUmbrellaBody(progress, catalog) {
 
   let totalAll = 0;
   let fullAll = 0;
-  let partialAll = 0;
   const rows = [];
   for (const exam of TARGET_YEARS) {
     if (!catalog[exam]) continue;
     const anchors = Object.keys(catalog[exam]);
     const covered = progress.covered?.[exam] ?? {};
     let fullCount = 0;
-    let partialCount = 0;
     for (const a of anchors) {
       const c = classifyQuestionCoverage(exam, a, catalog, covered[a]);
       if (c.isFullCycle) fullCount++;
-      else if (c.isPartial) partialCount++;
     }
     const t = anchors.length;
     totalAll += t;
     fullAll += fullCount;
-    partialAll += partialCount;
     const p = t > 0 ? Math.round((fullCount / t) * 1000) / 10 : 0;
     const issueNum = progress.umbrella_issues?.[exam];
     const link = issueNum ? `#${issueNum}` : '_未作成_';
-    const partialText = partialCount > 0 ? ` / ${partialCount} partial` : '';
-    rows.push(`| ${yearLabel(exam)} | ${link} | ${fullCount}/${t} full (${p}%)${partialText} |`);
+    rows.push(`| ${yearLabel(exam)} | ${link} | ${fullCount}/${t} full (${p}%) |`);
   }
   const percentAll = totalAll > 0 ? Math.round((fullAll / totalAll) * 1000) / 10 : 0;
 
   body += `## 全体進捗\n`;
-  const partialAllText = partialAll > 0 ? `、${partialAll} partial` : '';
-  body += `**${fullAll}/${totalAll} full-cycle (${percentAll}%)${partialAllText}** <!-- sync marker: overall-progress -->\n\n`;
+  body += `**${fullAll}/${totalAll} full-cycle (${percentAll}%)** <!-- sync marker: overall-progress -->\n\n`;
 
   body += `## 年度別 Umbrella\n\n`;
   body += `| 年度 | Umbrella | 進捗 |\n`;
@@ -251,7 +238,6 @@ export function buildParentUmbrellaBody(progress, catalog) {
     title: `[Umbrella] exam-keyword-cycle 全体進捗`,
     body,
     coveredCount: fullAll,
-    partialCount: partialAll,
     total: totalAll,
   };
 }

@@ -111,8 +111,7 @@ function main() {
 
   const draftPath = saveDraft(key, result.title, result.body);
   console.log(`[generate-umbrella] ${result.title}`);
-  const partial = result.partialCount ? `（partial: ${result.partialCount}）` : '';
-  console.log(`[generate-umbrella] 進捗: ${result.coveredCount}/${result.total} full-cycle${partial}`);
+  console.log(`[generate-umbrella] 進捗: ${result.coveredCount}/${result.total} full-cycle`);
   console.log(`[generate-umbrella] draft 保存: ${draftPath}`);
 
   if (args.dryRun || !args.create) {

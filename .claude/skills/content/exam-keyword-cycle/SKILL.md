@@ -105,7 +105,7 @@ node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs 
 
 ### Phase 2: キーワード別ギャップ分析（全 slugs 対象・必須）
 
-> **重要**: Phase 1 で特定した `exam-question-keywords.json[exam][anchor].slugs` の **全件**が Phase 2〜5 の処理対象となる。1 件だけ・数件だけの処理は **禁止**（後段 `verify-cycle-completeness.mjs` で `partial` 扱いとなりサイクル未完了）。全 slugs を cem-qa 閾値（R03/R04 は 2.5、他は 2.0）に到達させるまでサイクルは完了しない。
+> **重要**: Phase 1 で特定した `exam-question-keywords.json[exam][anchor].slugs` の **全件**が Phase 2〜5 の処理対象となる。1 件だけ・数件だけの処理は **禁止**（verify gate が未完了と判定し `[x]` 付与されない）。全 slugs を cem-qa 閾値（R03/R04 は 2.5、他は 2.0）に到達させるまでサイクルは完了しない。中間状態はスキルに存在しない（`full_cycle_complete` or 未完了のバイナリ判定）。
 
 catalog slugs 全件ごとに以下を並列で実施（複数の Agent 並列起動は独立性確保のため推奨）:
 
@@ -153,12 +153,12 @@ catalog slugs 全件ごとに以下を並列で実施（複数の Agent 並列�
 
 ### Phase 4: ユーザー一括承認
 
-**個別ではなくサイクル全体を 1 PR で承認**する方式。catalog slugs **全件**分のキーワードをテーブルに並べる。件数不足（partial）で承認する場合はユーザーの明示的な同意が必要。会話内で以下のサマリを提示:
+**個別ではなくサイクル全体を 1 PR で承認**する方式。catalog slugs **全件**分のキーワードをテーブルに並べる。件数不足での承認オプションは存在しない（中間状態なし）。会話内で以下のサマリを提示:
 
 ```markdown
 ## サイクル承認 — R06 Ⅰ-1-35「生物多様性・CITES」
 
-**catalog slugs**: 6 件 ／ **処理対象**: 6 件（全件）
+**catalog slugs**: 6 件 ／ **処理対象**: 6 件（全件、必須）
 **目標スコア**: 2.0（R06 は通常閾値）
 
 ### 対象キーワード（全 6 件）
@@ -169,12 +169,11 @@ catalog slugs 全件ごとに以下を並列で実施（複数の Agent 並列�
 | 3 | convention-on-biodiversity | 2.3 → 2.7 | わかりやすさ | 小 |
 | ... | ... | ... | ... | ... |
 
-### 承認: 一括 OK / 個別修正指示 / partial 承認 / 却下
+### 承認: 一括 OK / 個別修正指示 / 却下
 ```
 
 - **一括 OK** → Phase 5 へ（全 slugs 処理）
 - **個別修正指示** → 該当キーワードのみ方針を調整して再提示
-- **partial 承認** → 全件に満たない件数で進める。Phase 5.6 の verify gate で `status = 'partial'` が記録され Umbrella に `_(partial)_` 表示。次回追加処理が前提。**ユーザーが理由を添えて承認した場合に限り許可**
 - **却下** → Phase 5 スキップ、サイクル終了（state 更新なし）
 
 ### Phase 5: 実装と記録
@@ -286,10 +285,11 @@ keywords_count: 6
 ```
 
 `status` enum:
-- `in_review` — PR 作成済・未マージ（Phase 5.6 の verify 前）
-- `committed` — ローカルコミットのみ
-- `partial` — catalog slugs 全件ではなく一部のみ処理（追加処理待ち）
-- `full_cycle_complete` — Phase 5.6 で verify 通過済（Umbrella で `[x]` 表示対象）
+- `in_review` — PR 作成済・未マージ（作業メタデータ）
+- `committed` — ローカルコミットのみ（作業メタデータ）
+- `full_cycle_complete` — Phase 5.6 で verify 通過済（Umbrella で `[x]` 表示対象、完了判定の唯一の条件）
+
+`full_cycle_complete` 以外はすべて「未完了」扱い。中間状態（partial 等）は存在しない。
 
 ### Phase 5.5: Umbrella Issue 同期
 
@@ -339,9 +339,7 @@ node .claude/skills/content/exam-keyword-cycle/scripts/verify-cycle-completeness
 
 判定:
 - `completed: true`（exit 0）→ そのまま Phase 6 へ
-- `completed: false`（exit 1）→ `missing_slugs` を surface し、ユーザーに以下 2 択を問う
-  - (a) `status = 'partial'` で確定してサイクル終了（Umbrella に `_(partial)_` 表示、次回追加処理対象）
-  - (b) Phase 2 に戻って `missing_slugs` を追加処理する
+- `completed: false`（exit 1）→ `missing_slugs` を surface し、**Phase 2 に戻って不足分を追加処理する**（中間状態での完了扱いは不可）
 
 初回処理で verify が `true` になるのは、**全 catalog slugs の MDX が cem-qa 閾値に到達し、status が `full_cycle_complete` に更新されている場合のみ**。status 更新は本 Phase の `true` 判定を確認してから手動で書き換える（自動更新は行わず、ユーザー承認後に反映）。
 
@@ -423,7 +421,7 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 
 ### Phase 4（full-cycle 化・実装済 2026-04-23）
 - 「過去問 1 問 = 全 catalog slugs を処理するまで未完了」ルールを明文化
-- `status` enum を拡張（`full_cycle_complete` / `partial` を追加）
+- `status` に `full_cycle_complete` を追加（完了判定の唯一のシグナル、中間状態なし）
 - `verify-cycle-completeness.mjs` で Phase 5.6 の gate を自動化
 - R03/R04 は cem-qa 閾値 2.5（受験直結）
 - `umbrella-builder.mjs` で DRY 化（checkbox 判定・進捗計算の共通化）
