@@ -935,11 +935,23 @@
           "present-annual-future-value",
           "economic-comparison-principle"
         ]
+      },
+      "1-3": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pmbok",
+          "pert-cpm",
+          "gantt-chart",
+          "three-point-estimation",
+          "parametric-estimation"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-2"
+    "question": "1-3"
   }
 }
