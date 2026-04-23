@@ -239,11 +239,116 @@
           "income-statement",
           "disclosure-standards"
         ]
+      },
+      "1-21": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "descriptive-statistics",
+          "data-collection",
+          "survey-analysis"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "four-p-analysis",
+          "swot-analysis",
+          "three-c-analysis",
+          "ppm-analysis"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "digital-twin-cps",
+          "iot",
+          "blockchain-crypto"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "encryption-digital-signature",
+          "confidentiality",
+          "non-repudiation"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "accident-statistics",
+          "osh-management-system",
+          "oshms"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "unsafe-conditions-behavior",
+          "heinrich-law",
+          "four-e-countermeasures",
+          "four-m-analysis"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "national-resilience-act",
+          "resilience",
+          "crisis-management-manual",
+          "disaster-countermeasures-act"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fmea",
+          "vta-method",
+          "hazop",
+          "therp",
+          "fta",
+          "eta"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "generative-ai",
+          "machine-learning",
+          "iot"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "product-liability",
+          "consumer-product-safety-act"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-20"
+    "question": "1-30"
   }
 }
