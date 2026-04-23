@@ -1062,11 +1062,93 @@
           "career-path",
           "multi-track-hr-system"
         ]
+      },
+      "1-14": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "foreign-trainee-program",
+          "minimum-wage-act",
+          "immigration-control-act",
+          "labor-standards-act"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "ojt-off-jt",
+          "self-development",
+          "hierarchical-training",
+          "training-techniques"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "competency-hr",
+          "servant-leadership",
+          "halo-effect-errors",
+          "content-process",
+          "pm-theory",
+          "diagnostic-od"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "patent-rights",
+          "utility-model-rights",
+          "international-filing-system",
+          "design-rights",
+          "trademark-rights"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "mobile-communication",
+          "safety-2-0",
+          "machinery-safety-guidelines"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "system-reliability",
+          "system-availability",
+          "equipment-reliability",
+          "bathtub-curve",
+          "reliability-block-diagram"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "correlation-analysis",
+          "linear-regression",
+          "descriptive-statistics",
+          "estimation-testing",
+          "cluster-analysis"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-13"
+    "question": "1-20"
   }
 }
