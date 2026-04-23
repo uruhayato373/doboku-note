@@ -463,11 +463,22 @@
           "dcf-method",
           "cost-effectiveness-analysis"
         ]
+      },
+      "1-2": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pfi",
+          "construction-plan",
+          "economic-comparison-principle",
+          "investment-recovery-plan"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-1"
+    "question": "1-2"
   }
 }
