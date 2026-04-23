@@ -793,11 +793,23 @@
           "system-reliability",
           "redundancy-safety"
         ]
+      },
+      "1-31": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "biosafety",
+          "convention-on-biodiversity",
+          "elsi",
+          "biodiversity-basic-act",
+          "precautionary-principle"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-30"
+    "question": "1-31"
   }
 }
