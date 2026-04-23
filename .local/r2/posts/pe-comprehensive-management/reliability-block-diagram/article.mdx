@@ -70,6 +70,8 @@ RBDとFTAは同じシステムを異なる視点で分析する相互補完的�
 
 過去問 **[R02 Ⅰ-1-19](/docs/pe-comprehensive-management-r02-primary#1-19)** ではサーバの MTBF 実測値とカタログ値の比較が問われ、各機種単体の信頼性評価が出題された。信頼性ブロック図を用いれば**冗長化による可用性向上**（並列構成での故障確率低減）を評価でき、MTBF 計算と組み合わせることでシステム全体の稼働率を定量的に設計できる。
 
+過去問 **[R02 Ⅰ-1-28](/docs/pe-comprehensive-management-r02-primary#1-28)** では電源システム（主要 3 系統 + 予備緊急 2 台）の階層的信頼性計算が出題され、信頼性ブロック図の並列・直列組合せと余事象計算の使い分けが核心論点となった（正答 $p^3 \\{1-(1-q)^2\\}$）。
+
 <RelatedKeywords items={[
   { label: "並列システム", slug: "parallel-system" },
   { label: "直列システム", slug: "series-system" },

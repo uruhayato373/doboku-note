@@ -1144,11 +1144,104 @@
           "estimation-testing",
           "cluster-analysis"
         ]
+      },
+      "1-21": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "digital-twin-cps",
+          "machine-learning",
+          "generative-ai",
+          "edge-computing"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "opt-in-opt-out",
+          "personal-info-protection",
+          "personal-information",
+          "anonymized-information"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "machine-learning",
+          "generative-ai",
+          "data-mining",
+          "data-cleansing"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "encryption-digital-signature",
+          "cyber-security",
+          "authenticity",
+          "non-repudiation"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fta",
+          "eta",
+          "fmea",
+          "vta-method",
+          "hazop",
+          "root-cause-analysis"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "worker-dispatch-act",
+          "occupational-safety-act",
+          "labor-contract-act",
+          "safety-health-education"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "cyber-security",
+          "machinery-safety-guidelines",
+          "functional-safety",
+          "safety-2-0"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "series-system",
+          "parallel-system",
+          "reliability-block-diagram",
+          "redundancy-safety",
+          "probabilistic-risk-assessment"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-20"
+    "question": "1-28"
   }
 }
