@@ -566,11 +566,22 @@
           "part-time-fixed-term-act",
           "labor-standards-act"
         ]
+      },
+      "1-11": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "childcare-nursing-leave-act",
+          "work-life-balance",
+          "child-rearing-support-act",
+          "labor-standards-act"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-10"
+    "question": "1-11"
   }
 }
