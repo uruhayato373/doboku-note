@@ -1039,11 +1039,22 @@
           "disability-discrimination-act",
           "positive-action"
         ]
+      },
+      "1-12": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "work-life-balance",
+          "positive-action",
+          "lgbtq",
+          "unconscious-bias"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-11"
+    "question": "1-12"
   }
 }
