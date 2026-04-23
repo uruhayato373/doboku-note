@@ -713,11 +713,22 @@
           "digital-twin-cps",
           "iot"
         ]
+      },
+      "1-24": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "multi-factor-authentication",
+          "access-control",
+          "isms-iso27001",
+          "zero-trust"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-23"
+    "question": "1-24"
   }
 }
