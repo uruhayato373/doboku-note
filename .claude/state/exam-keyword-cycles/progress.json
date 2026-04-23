@@ -971,11 +971,22 @@
           "resilience",
           "risk-treatment"
         ]
+      },
+      "1-6": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "standard-costing",
+          "cost-variance-analysis",
+          "direct-costing",
+          "direct-manufacturing-cost"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-5"
+    "question": "1-6"
   }
 }
