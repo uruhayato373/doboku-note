@@ -746,11 +746,23 @@
           "inherent-safety",
           "alarp-principle"
         ]
+      },
+      "1-27": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "kyt",
+          "tbm-toolbox-meeting",
+          "stress-check-system",
+          "mental-health",
+          "safety-education"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-26"
+    "question": "1-27"
   }
 }
