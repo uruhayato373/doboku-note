@@ -114,11 +114,22 @@
           "progress-management",
           "gantt-chart"
         ]
+      },
+      "1-9": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "flextime-system",
+          "variable-work-hours",
+          "labor-standards-act",
+          "labor-contract-act"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-8"
+    "question": "1-9"
   }
 }
