@@ -450,10 +450,24 @@
           "sri"
         ]
       }
+    },
+    "pe-comprehensive-management-r03-primary": {
+      "1-1": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "npv-net-present-value",
+          "internal-rate-of-return",
+          "payback-period-method",
+          "dcf-method",
+          "cost-effectiveness-analysis"
+        ]
+      }
     }
   },
   "last_cycle": {
-    "exam": "r04-primary",
-    "question": "1-40"
+    "exam": "r03-primary",
+    "question": "1-1"
   }
 }
