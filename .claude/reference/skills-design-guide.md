@@ -28,7 +28,7 @@ description: >
 
 - **kebab-case のみ** — `my-skill` ✓ / `my_skill` ✗ / `MySkill` ✗ / `My Skill` ✗
 - **スペース・大文字・アンダースコア禁止**
-- **ディレクトリ名と完全一致**（例: `.claude/skills/content/check-mdx/` → `name: check-mdx`）
+- **ディレクトリ名と完全一致**（例: `.claude/skills/quality/check-mdx/` → `name: check-mdx`）
 - `claude` または `anthropic` を含む名前は禁止（予約語）
 
 ### description フィールド（Critical）

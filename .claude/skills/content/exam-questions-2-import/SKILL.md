@@ -195,4 +195,4 @@ content/general/exam-questions-2/
 - `.claude/skills/content/exam-questions-import/SKILL.md` — 第1次試験問題集スキル
 - `.claude/skills/content/civil-general-import/SKILL.md` — テキスト変換スキル
 - `.claude/skills/content/pdf-to-mdx/SKILL.md` — 汎用PDF→MDX変換ルール
-- `.claude/skills/content/check-mdx/SKILL.md` — MDX構文チェック
+- `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（`--rules syntax` で構文チェック）

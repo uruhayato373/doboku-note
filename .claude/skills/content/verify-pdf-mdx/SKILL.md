@@ -124,7 +124,7 @@ MDX ファイルの **category と group を判定** し、適切な Evaluator �
 |---|---|
 | **`/review`** | dev/review/SKILL.md のディスパッチ表で textbook/guide → `/verify-pdf-mdx` を呼ぶよう設定 |
 | **`/civil-construction-1-pdf-to-mdx`** | Phase 5 として変換完了後に `/verify-pdf-mdx` を実行する |
-| **`/check-mdx`** | 構文チェック（civil-construction-qa の MDX 互換性軸で内部呼び出し）|
+| **`/check-mdx --rules syntax`** | 構文チェック（civil-construction-qa の MDX 互換性軸で内部呼び出し）|
 | **`/review-mobile`** | モバイル視認性チェック（civil-construction-qa の guide モードで使用）|
 
 ## 参照

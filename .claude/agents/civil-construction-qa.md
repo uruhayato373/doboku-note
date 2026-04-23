@@ -81,7 +81,7 @@ PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-t
 | `mcp__playwright__browser_navigate` | dev server のページに遷移 | Step 5 |
 | `mcp__playwright__browser_take_screenshot` | Desktop / Mobile スクショ取得 | Step 5 |
 | `node .claude/scripts/lint-mdx-mobile.mjs <mdx>` | モバイル視認性の機械チェック | guide モードのみ |
-| `/check-mdx <mdx>` | MDX 構文チェック | 評価開始時 |
+| `/check-mdx <mdx> --rules syntax` | MDX 構文チェック | 評価開始時 |
 
 ## 共通ワークフロー（textbook モード基準）
 
@@ -276,7 +276,7 @@ dev server: http://localhost:3020 ✓
 
 ```
 [人間] /review .local/r2/posts/civil-construction-1/textbook/.../article.mdx
-    → /review-mobile → /check-mdx → /verify-pdf-mdx
+    → /review-mobile → /check-mdx --rules syntax → /verify-pdf-mdx
     → civil-construction-qa が最終評価
 ```
 
@@ -299,6 +299,6 @@ dev server: http://localhost:3020 ✓
 - `.claude/skills/content/civil-construction-1-pdf-to-mdx/SKILL.md` ── Generator 側のルール
 - `.claude/skills/content/verify-pdf-mdx/SKILL.md` ── 本エージェントを呼び出すスキル
 - `.claude/skills/content/review-mobile/SKILL.md` ── モバイル視認性の詳細ルール（guide モードで使用）
-- `.claude/skills/content/check-mdx/SKILL.md` ── MDX 構文チェック
+- `.claude/skills/quality/check-mdx/SKILL.md` ── MDX 検査統合スキル（`--rules syntax` で構文チェック）
 - `.claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
 - `.claude/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点

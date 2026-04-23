@@ -16,8 +16,8 @@ import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
 import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs";
-import { detectBrokenExplanations } from "../.claude/skills/content/audit-exam-explanations/scripts/detect.mjs";
-import { auditSvgFile } from "../.claude/skills/content/audit-svg/scripts/detect.mjs";
+import { detectBrokenExplanations } from "../.claude/skills/quality/check-mdx/scripts/rules/explanations/detect.mjs";
+import { auditSvgFile } from "../.claude/skills/quality/check-mdx/scripts/rules/svg/detect.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {

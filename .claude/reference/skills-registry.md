@@ -76,8 +76,6 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/content/promote-to-site/SKILL.md` |
 | `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX 変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |
 | `/clean-pdf-artifacts` | PDF 変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
-| `/check-mdx` | MDX 構文チェック | `.claude/skills/content/check-mdx/SKILL.md` |
-| `/check-links` | 外部リンク切れ検出（HTTP HEAD 検証） | `.claude/skills/content/check-links/SKILL.md` |
 | `/verify-exam-coverage` | キーワードページが過去問論点をカバーできているか検証し、未カバー論点と補強方針を提示（Evaluator+Generator） | `.claude/skills/content/verify-exam-coverage/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX 変換の品質検証・修正（PDF 照合＋修正の2段階） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/verify-pdf-mdx` | MDX の category/group を判定し、視覚検証・テキスト網羅率・5軸ルーブリック評価を適切な Evaluator エージェント（civil-construction-qa / cem-qa / content-qa）へルーティング | `.claude/skills/content/verify-pdf-mdx/SKILL.md` |
@@ -87,12 +85,7 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/create-svg` | MDX 記事用 SVG 図版の作成（モバイル視認性・デザイントークン準拠） | `.claude/skills/content/create-svg/SKILL.md` |
 | `/illustrate-concept` | Discovery First 方式で Web 画像検索を並行実行し、標準視覚パターンのある概念のみトリアージして複数 SVG を一括生成・MDX 挿入する | `.claude/skills/content/illustrate-concept/SKILL.md` |
 | `/improve-article` | 単一記事を対話的に継続改善する Orchestrator。QA エージェント 5 軸評価 → 指摘構造化 → 修正方針提示 → Edit / create-svg / 本文補強を合格ライン到達までループ | `.claude/skills/content/improve-article/SKILL.md` |
-| `/audit-exam-explanations` | 過去問 MDX の破損解説（文頭欠落・ExamPoint summary 欠落）を正規表現で検出し JSON 出力する Evaluator。修正は行わない | `.claude/skills/content/audit-exam-explanations/SKILL.md` |
-| `/audit-svg` | SVG の品質問題（文字クリップ・必須属性欠落・viewBox 超過・font-size 過小・テキスト重なり）を静的解析で検出する Evaluator。修正は行わない | `.claude/skills/content/audit-svg/SKILL.md` |
 | `/exam-keyword-cycle` | 過去問 1 問を起点に関連キーワード群を横断校正し、視点タグ（網羅性/正確性/わかりやすさ/試験適合/関連付け）付きの 1 PR にまとめる Orchestrator。.claude/state/exam-keyword-cycles/logs/ にログ蓄積 | `.claude/skills/content/exam-keyword-cycle/SKILL.md` |
-| `/check-frontmatter` | MDX frontmatter の構造（zod）と内容（独自ルール）を検証し HIGH/MEDIUM/LOW でレポート | `.claude/skills/content/check-frontmatter/SKILL.md` |
-| `/check-legal-citations` | MDX 本文中の法令条文が e-Gov 法令検索へのインラインリンクになっているか検査・一斉修正 | `.claude/skills/content/check-legal-citations/SKILL.md` |
-| `/check-related-keyword-inline` | キーワードページ末尾の「関連キーワード: [A]、[B]」列挙パターンを検出、インラインリンク移行を支援 | `.claude/skills/content/check-related-keyword-inline/SKILL.md` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ 1 ページ統合（7 フェーズ・redirects 込み） | `.claude/skills/content/consolidate-duplicate-keyword/SKILL.md` |
 | `/ogp-create` | カテゴリ別テンプレートで OGP 画像を生成（セーフティゾーン対応・日本語改行戦略） | `.claude/skills/content/ogp-create/SKILL.md` |
 | `/quality-cycle` | キーワードページの品質サイクル（スコア → リライト → 検証 → 人間レビュー）を統合 | `.claude/skills/content/quality-cycle/SKILL.md` |
@@ -104,6 +97,22 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 |---|---|---|
 | `/cem-pdf-to-mdx` | 技術士 CEM 用 PDF→MDX 変換（論文・事例特化） | `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` |
 | `/civil-construction-1-pdf-to-mdx` | 1級土木用 PDF→MDX 変換（過去問・基準特化） | `.claude/skills/content/civil-construction-1-pdf-to-mdx/SKILL.md` |
+
+## quality — MDX 品質検査
+
+| スキル | 用途 | 定義 |
+|---|---|---|
+| `/check-mdx --rules <rule>` | MDX 品質検査の統合 Evaluator。8 ルール（syntax / frontmatter / links / svg / staging / explanations / related-keyword / legal-citations）を `--rules` で選択。pre-commit hook からも利用される | `.claude/skills/quality/check-mdx/SKILL.md` |
+
+**内蔵ルール**:
+- `syntax` — MDX 構文（Docusaurus 3.x / MDX v3 互換性、JSX エスケープ、見出し階層、テーブル、数式）
+- `frontmatter` — zod スキーマ + 内容検証（description 長・publishedAt・tags allowlist）
+- `links` — 外部リンク（HTTP HEAD）+ 内部リンク存在確認（旧 `/check-links`）
+- `svg` — SVG 静的解析（文字クリップ・必須属性・viewBox 幅・font-size・色トークン、旧 `/audit-svg`）
+- `staging` — Obsidian ステージング公開準備度（5 軸ルーブリック、旧 `/audit-staging`）
+- `explanations` — 過去問破損解説（P1-headless / P2-examPoint-empty、旧 `/audit-exam-explanations`）
+- `related-keyword` — 関連キーワード末尾列挙（lint-mdx-mobile ルール 8-1、旧 `/check-related-keyword-inline`）
+- `legal-citations` — e-Gov 法令リンク化（ルール 8-2、旧 `/check-legal-citations`）
 
 ## ui — UI/UX
 
@@ -160,11 +169,11 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 
 **メリット**: スキル数削減。ハーネス設計原則4「スキルを増やすより既存スキルのパラメータ化を優先」に完全準拠。
 
-### Phase C（2026-Q2 計画中・`.claude/` 最適化 Phase C）: PDF→MDX / MDX 検査のテンプレ駆動化
+### Phase C（2026-Q2 計画中・`.claude/` 最適化）: PDF→MDX / 品質サイクルのテンプレ駆動化
 
-- `/pdf-to-mdx --exam {general|cem|civil-construction-1}` で 4 スキル統合予定
-- `/check-mdx --rules {syntax|frontmatter|links|svg|...}` で 8 スキル統合予定
-- `/quality-cycle --profile {cem|civil-textbook}` で 2 スキル統合予定
+- `/pdf-to-mdx --exam {general|cem|civil-construction-1}` で 4 スキル統合予定（Phase C で実施）
+- `/check-mdx --rules {syntax|frontmatter|links|svg|staging|explanations|related-keyword|legal-citations}` で 8 スキル統合**済み**（Phase B で実施、2026-04-24）
+- `/quality-cycle --profile {cem|civil-textbook}` で 2 スキル統合予定（Phase D で実施）
 
 ### Phase 3（2027年以降）: 医師・弁護士など他分野対応
 
@@ -190,6 +199,14 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | 2026-04-23 | `/x-post` | marketing | 新 `/social-post` に統合 | `/social-post x {question\|keyword} ...` |
 | 2026-04-23 | `/note-post` | marketing | 新 `/social-post` に統合 | `/social-post note {analysis\|guide\|keywords} ...` |
 | 2026-04-23 | `/aidesigner-frontend` | — (カテゴリ外) | 参照 2 回・実運用なし | （UI 生成は直接 Claude 指示または AIDesigner MCP 直接） |
+| 2026-04-24 | `/check-mdx`（旧 content 配下） | content | Phase B で quality/ に移動・統合 | `/check-mdx --rules syntax`（新 `.claude/skills/quality/check-mdx/`） |
+| 2026-04-24 | `/check-frontmatter` | content | Phase B で `/check-mdx --rules frontmatter` に統合 | `/check-mdx <target> --rules frontmatter` |
+| 2026-04-24 | `/check-links` | content | Phase B で `/check-mdx --rules links` に統合 | `/check-mdx --rules links` |
+| 2026-04-24 | `/audit-staging` | content | Phase B で `/check-mdx --rules staging` に統合 | `/check-mdx [path] --rules staging` |
+| 2026-04-24 | `/audit-exam-explanations` | content | Phase B で `/check-mdx --rules explanations` に統合 | `/check-mdx --rules explanations` |
+| 2026-04-24 | `/audit-svg` | content | Phase B で `/check-mdx --rules svg` に統合 | `/check-mdx --rules svg` |
+| 2026-04-24 | `/check-related-keyword-inline` | content | Phase B で `/check-mdx --rules related-keyword` に統合 | `/check-mdx --rules related-keyword` |
+| 2026-04-24 | `/check-legal-citations` | content | Phase B で `/check-mdx --rules legal-citations` に統合 | `/check-mdx --rules legal-citations` |
 
 エージェントの退役も同時に記録。
 

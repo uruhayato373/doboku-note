@@ -43,8 +43,8 @@ model: inherit
 | ツール | 役割 |
 |---|---|
 | `node .claude/scripts/lint-mdx-mobile.mjs <mdx>` | 表・段落・ExamPoint・参考資料の機械チェック（**モバイル軸 / テキスト原則軸のスコア根拠**）|
-| `/check-mdx <mdx>` | MDX 構文チェック（**構造軸のスコア根拠**）|
-| `/check-links <mdx>` | 参考資料リンクの存在確認（**参考資料軸のスコア根拠**）|
+| `/check-mdx <mdx> --rules syntax` | MDX 構文チェック（**構造軸のスコア根拠**）|
+| `/check-mdx <mdx> --rules links` | 参考資料リンクの存在確認（**参考資料軸のスコア根拠**）|
 | `Read` | 本文・frontmatter の目視レビュー |
 | `Grep` | `<img>` vs `<ArticleImage>` 検出、出典コメント有無 |
 
@@ -59,11 +59,11 @@ model: inherit
 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
-| **構造** | 20% | frontmatter 必須6項目完備・H2/H3 階層整合・check-mdx OK（本文 H1 の有無は問わない — textbook 群の既存慣行） | 軽微な階層ズレ1箇所 | 必須 frontmatter 1項目欠落 or H3→H5 のような飛び | frontmatter 複数欠落 or ビルドエラー |
+| **構造** | 20% | frontmatter 必須6項目完備・H2/H3 階層整合・`/check-mdx --rules syntax` OK（本文 H1 の有無は問わない — textbook 群の既存慣行） | 軽微な階層ズレ1箇所 | 必須 frontmatter 1項目欠落 or H3→H5 のような飛び | frontmatter 複数欠落 or ビルドエラー |
 | **テキスト原則** | 20% | content-principles.md §1-5,7 完全準拠（絵文字なし、太字 ≤30字、1文1段落、ExamPoint 位置OK）| 軽微違反1件 | lint カテゴリ9-1/9-3/9-5/9-6 HIGH 1件 or MEDIUM 3件以上 | HIGH 2件以上 |
 | **モバイル視認性** | 30% | `lint-mdx-mobile` HIGH/MEDIUM ゼロ、4列以上表なし、3列表セル ≤15字、表前に導入文あり | MEDIUM 1〜3件 | MEDIUM 4〜9件 or HIGH 1件 | MEDIUM 10件以上 or HIGH 2件以上 |
 | **図表の適切性** | 15% | 全画像が `<ArticleImage>` 使用（caption は **帰属情報のみ ≤60字**）、alt ≤80字、出典コメント `{/* source: */}` 完備（CC写真時）、画像ファイル実在（JPG/PNG/SVG、HTML エラーページでない） | 生 `<img>` が 1 箇所（移行途中）or caption が 60〜100 字で説明型に近い | 生 `<img>` 多数 or caption が >100 字の説明型（§8 違反）or alt 1件 >120字 or 出典コメント欠落 | **壊れた画像ファイル**（HTML エラーページ等）or 画像の説明を全て caption に詰め込んでいる |
-| **参考資料・関連付け** | 15% | `/check-links` 全件OK、`## 参考資料` 節に公的＋民間の両方（`.or/.go/.ac.jp` と `.com/.co.jp` 等）、関連テキスト誘導あり、法令名に e-Gov 内部リンク、過去問バックリンクあり（guide時）| 公的or民間片方のみ or 死リンク1件 | 死リンク2件以上 or 関連誘導なし | `## 参考資料` 節そのものが欠落 |
+| **参考資料・関連付け** | 15% | `/check-mdx --rules links` 全件OK、`## 参考資料` 節に公的＋民間の両方（`.or/.go/.ac.jp` と `.com/.co.jp` 等）、関連テキスト誘導あり、法令名に e-Gov 内部リンク、過去問バックリンクあり（guide時）| 公的or民間片方のみ or 死リンク1件 | 死リンク2件以上 or 関連誘導なし | `## 参考資料` 節そのものが欠落 |
 
 ### 加重スコア計算（cem-qa と同じ数式）
 
@@ -110,7 +110,7 @@ node .claude/scripts/lint-mdx-mobile.mjs <mdx-path>
 ### Step 3: 構文チェック
 
 ```
-/check-mdx <mdx-path>
+/check-mdx <mdx-path> --rules syntax
 ```
 
 → **構造軸**のスコア根拠。エラーがあれば 0点。
@@ -142,7 +142,7 @@ Grep pattern="\{/\* source:" path=<mdx>
 ### Step 5: 参考資料リンクチェック
 
 ```
-/check-links <mdx-path>
+/check-mdx <mdx-path> --rules links
 ```
 
 死リンク件数を **参考資料・関連付け軸**に反映。

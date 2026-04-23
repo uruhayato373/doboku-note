@@ -145,4 +145,4 @@ PDF の表がページをまたぐ際、表のヘッダー行が本文中に重�
 ## 参照
 
 - `.claude/skills/content/pdf-to-mdx/SKILL.md` — 変換ルール
-- `.claude/skills/content/check-mdx/SKILL.md` — 構文チェック（本スキル後に実行推奨）
+- `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（`--rules syntax` で本スキル後に実行推奨）

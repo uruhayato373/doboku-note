@@ -180,8 +180,8 @@ user-invocable: true
 ## 関連スキル・エージェント
 
 - `/review-mobile` — モバイル視認性（表・太字・導入文）
-- `/check-mdx` — MDX 構文・ビルド検証
-- `/check-links` — 外部/内部リンクの生存確認
+- `/check-mdx --rules syntax` — MDX 構文・ビルド検証
+- `/check-mdx --rules links` — 外部/内部リンクの生存確認
 - `/exam-backlinks` — 過去問 ↔ キーワードの双方向リンク整備（本スキルの前提）
 - `cem-qa` エージェント — 5 軸ルーブリック総合評価（本スキルは「解説網羅性」軸の深堀り）
 - `/simplify` — 変更 diff の reuse/quality/efficiency レビュー（本スキルは過去問対応に特化）

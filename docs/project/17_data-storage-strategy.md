@@ -155,13 +155,13 @@ D1 を真実源にすると:
 | **試験横断キーワード** | `.claude/scripts/build-cross-exam-keyword-index.mjs` → `src/config/cross-exam-keywords.json` | `exams:` 配列の集計、真のクロス試験 entry 検出 |
 | **frontmatter lint** | `.claude/scripts/lint-frontmatter.mjs` | HIGH/MEDIUM/LOW ルール本体 |
 | **pre-commit 検証** | `scripts/pre-commit-mdx.mjs` | HIGH ブロック、MEDIUM/LOW 警告 |
-| **スキル** | `.claude/skills/content/check-frontmatter/SKILL.md` | **ルール一覧の真実源**、ユーザー向けドキュメント |
+| **スキル** | `.claude/skills/quality/check-mdx/SKILL.md` | **ルール一覧の真実源**、ユーザー向けドキュメント |
 
 ### ルールの追加・変更はどうするか
 
 frontmatter 検査ルールの変更は以下の順で行う:
 
-1. `.claude/skills/content/check-frontmatter/SKILL.md` のルール表を更新（ユーザー向け説明の真実源）
+1. `.claude/skills/quality/check-mdx/SKILL.md` のルール表を更新（ユーザー向け説明の真実源）
 2. `.claude/scripts/lint-frontmatter.mjs` に実装を追加
 3. 必要なら `.claude/scripts/lib/frontmatter-schema.mjs` の zod スキーマを更新
 4. `node .claude/scripts/lint-frontmatter.mjs --all` で既存 MDX 全件への影響を測定
@@ -238,4 +238,4 @@ frontmatter 検査ルールの変更は以下の順で行う:
 **改訂履歴**:
 
 - 2026-04-14: 初版作成。複数試験対応の議論を経て D1 不採用を決定。
-- 2026-04-14: Section 5 を完了ステータス + 実装ファイルへのポインタに圧縮。詳細ルールは `.claude/skills/content/check-frontmatter/SKILL.md` と `.claude/scripts/lint-frontmatter.mjs` に移管し二重管理を解消。
+- 2026-04-14: Section 5 を完了ステータス + 実装ファイルへのポインタに圧縮。詳細ルールは `.claude/skills/quality/check-mdx/SKILL.md` と `.claude/scripts/lint-frontmatter.mjs` に移管し二重管理を解消。

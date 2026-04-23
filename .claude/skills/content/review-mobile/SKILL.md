@@ -7,7 +7,7 @@ description: >
 
 MDX コンテンツをモバイル視認性・可読性の観点でレビューし、問題を検出・分類・修正提案する。
 
-check-mdx（構文チェック）やdesign-review（デザインシステム準拠）とは別レイヤーであり、**コンテンツの「読みやすさ・わかりやすさ」**に焦点を当てる。
+`/check-mdx --rules syntax`（構文チェック）やdesign-review（デザインシステム準拠）とは別レイヤーであり、**コンテンツの「読みやすさ・わかりやすさ」**に焦点を当てる。
 
 ## 引数
 
@@ -281,7 +281,7 @@ HIGHが1件以上ある場合は修正を促すメッセージを追加する。
 
 ### Step 6: 修正実行（ユーザー確認後）
 
-ユーザーが同意した修正案を Edit ツールで適用する。修正後に再度 `node .claude/scripts/lint-mdx-mobile.mjs` を実行し、違反ゼロを確認してから `/check-mdx` で構文チェックを実行する。
+ユーザーが同意した修正案を Edit ツールで適用する。修正後に再度 `node .claude/scripts/lint-mdx-mobile.mjs` を実行し、違反ゼロを確認してから `/check-mdx --rules syntax` で構文チェックを実行する。
 
 ## アンチパターン（やってはいけない）
 
@@ -297,4 +297,4 @@ HIGHが1件以上ある場合は修正を促すメッセージを追加する。
 - `.claude/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
 - `.claude/reference/content-authoring.md` — MDX 作成詳細ルール（モバイル視認性セクション）
 - `.claude/skills/content/keyword-page/SKILL.md` — モバイル視認性ルール、コンポーネント使用ガイドライン
-- `.claude/skills/content/check-mdx/SKILL.md` — MDX構文チェック（本スキルとは別レイヤー）
+- `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（本スキルとは別レイヤー、`--rules syntax` で構文チェック）

@@ -274,7 +274,7 @@ content/exam/civil-construction-1/
 - **図の完全性**: `<img>` 参照ファイルが全て存在し、natural ≥ display か
 - **視覚一致**: 代表画像が PDF 原本と一致しているか（Playwright + LLM 視覚判定）
 - **数式・表正確性**: KaTeX 数式と表の本数が PDF と整合しているか
-- **MDX 互換性**: `/check-mdx` のビルドエラー有無
+- **MDX 互換性**: `/check-mdx --rules syntax` のビルドエラー有無
 
 ### 実行手順
 

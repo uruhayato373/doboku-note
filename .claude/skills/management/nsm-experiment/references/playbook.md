@@ -92,7 +92,7 @@
 
 **アクション**:
 1. `/keyword-page create` でページを新規作成
-2. `/check-frontmatter --all` で品質確認
+2. `/check-mdx --all --rules frontmatter` で品質確認
 3. デプロイ → 21-28 日待機（インデックスから評価まで）
 
 **効果判定の期間**: 21-28 日
@@ -104,13 +104,13 @@
 ### 3-B. 関連キーワード内部リンクのインライン化
 
 **適用条件**:
-- `/check-related-keyword-inline` で 8-1 違反を持つページ
+- `/check-mdx --rules related-keyword` で 8-1 違反を持つページ
 - 既存の内部リンク導線が薄い（ページ/セッション < 2）
 
 **計測指標**: `ga4_pages_per_session`、`ga4_engagement_rate`
 
 **アクション**:
-1. `/check-related-keyword-inline --all` で違反検出
+1. `/check-mdx --all --rules related-keyword` で違反検出
 2. 1 バッチ 10 ページ単位でインライン化実施
 3. デプロイ → 7 日待機
 
