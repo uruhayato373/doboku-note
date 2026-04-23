@@ -344,11 +344,116 @@
           "product-liability",
           "consumer-product-safety-act"
         ]
+      },
+      "1-31": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-health-education",
+          "safety-health-org-structure"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-management-plan",
+          "risk-management-system",
+          "stakeholder",
+          "risk-management-policy"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-decarbonization",
+          "green-infrastructure",
+          "sdgs"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization",
+          "carbon-pricing"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "invasive-alien-species",
+          "biodiversity-basic-act",
+          "convention-on-biodiversity"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "basel-convention",
+          "ocean-plastic",
+          "waste-management-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "alert-levels",
+          "hazard-map",
+          "disaster-countermeasures-act",
+          "timeline-disaster",
+          "disaster-prevention"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "air-pollution-control-act",
+          "soil-contamination-act",
+          "asbestos-issue",
+          "seven-types-of-pollution"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment",
+          "environmental-standards"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "esg-investment",
+          "green-bond",
+          "csr",
+          "tcfd",
+          "sri"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-30"
+    "question": "1-40"
   }
 }
