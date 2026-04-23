@@ -911,10 +911,23 @@
           "environmental-communication"
         ]
       }
+    },
+    "pe-comprehensive-management-r02-primary": {
+      "1-1": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "quality-control",
+          "process-capability-index",
+          "quality-improvement",
+          "quality-characteristics"
+        ]
+      }
     }
   },
   "last_cycle": {
-    "exam": "r03-primary",
-    "question": "1-40"
+    "exam": "r02-primary",
+    "question": "1-1"
   }
 }
