@@ -634,11 +634,22 @@
           "network-organization",
           "flat-organization"
         ]
+      },
+      "1-17": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "machine-learning",
+          "descriptive-statistics",
+          "logistic-regression",
+          "linear-regression"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-16"
+    "question": "1-17"
   }
 }
