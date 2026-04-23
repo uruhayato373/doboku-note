@@ -622,11 +622,23 @@
           "talent-management",
           "career-path"
         ]
+      },
+      "1-16": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "functional-organization",
+          "divisional-organization",
+          "matrix-organization",
+          "network-organization",
+          "flat-organization"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-15"
+    "question": "1-16"
   }
 }
