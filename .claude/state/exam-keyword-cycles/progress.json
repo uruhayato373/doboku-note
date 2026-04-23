@@ -385,11 +385,21 @@
           "climate-change-decarbonization",
           "carbon-pricing"
         ]
+      },
+      "1-35": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "invasive-alien-species",
+          "biodiversity-basic-act",
+          "convention-on-biodiversity"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-34"
+    "question": "1-35"
   }
 }
