@@ -532,11 +532,23 @@
           "accounting-systems",
           "dcf-method"
         ]
+      },
+      "1-8": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equipment-economics",
+          "maintenance-cost",
+          "lifecycle-costing-method",
+          "preventive-maintenance",
+          "lifecycle-management"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-7"
+    "question": "1-8"
   }
 }
