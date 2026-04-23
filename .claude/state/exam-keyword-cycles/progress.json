@@ -36,10 +36,110 @@
         ]
       }
     },
-    "pe-comprehensive-management-r04-primary": {}
+    "pe-comprehensive-management-r04-primary": {
+      "1-1": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "income-statement"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "value-engineering"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "demand-forecasting",
+          "linear-regression",
+          "estimation-testing"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "predictive-maintenance",
+          "maintenance-prevention",
+          "improvement-maintenance",
+          "preventive-maintenance"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "service-quality",
+          "quality-characteristics"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "theory-of-constraints",
+          "supply-chain-management",
+          "jit-production"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "agile",
+          "waterfall",
+          "pmbok"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pert-cpm",
+          "progress-management",
+          "gantt-chart"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "flextime-system",
+          "variable-work-hours",
+          "labor-standards-act",
+          "labor-contract-act"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equal-pay-for-equal-work",
+          "part-time-fixed-term-act",
+          "worker-dispatch-act"
+        ]
+      }
+    }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-40"
+    "question": "1-10"
   }
 }

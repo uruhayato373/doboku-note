@@ -1,6 +1,6 @@
 ---
 title: 線形回帰と最小二乗法
-description: "線形回帰分析の基本モデル（単回帰・重回帰）と最小二乗法による係数推定を解説。決定係数、残差分析、多重共線性などの実務的留意点も整理する。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。"
+description: "線形回帰分析の基本モデル（単回帰・重回帰）と最小二乗法による係数推定を解説。決定係数、残差分析、多重共線性などの実務的留意点も整理。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。"
 category: pe-comprehensive-management
 group: keyword
 section: '4.1'
@@ -89,15 +89,22 @@ $R^2$ は 0 から 1 の値をとり、1 に近いほどモデルの説明力が
 - **外れ値の影響**: 最小二乗法は外れ値の影響を受けやすい。ロバスト回帰の検討も必要である
 - **過学習**: 変数を増やしすぎると訓練データへの過適合が生じる。AIC・BIC で変数選択を行う
 
+<Callout type="warn">
+試験で問われやすい引っかけ点：
+- **多重共線性**がある状態で係数を個別解釈してはいけない（符号反転・過大推定が起こる）
+- **外れ値 1 点**で最小二乗回帰線が大きくゆがむ（ロバスト回帰・残差プロット確認が必須）
+- 決定係数 $R^2$ は**変数を増やすほど自動的に上がる**ため、自由度調整済み $R^2_{\text{adj}}$ で比較する
+</Callout>
+
 ## 総合技術監理における位置づけ
 
 総合技術監理キーワード集では[**4.1 情報分析と情報活用**](/docs/pe-comprehensive-management-keyword-2026#41-情報分析と情報活用)に位置づけられる。
 
 線形回帰は相関分析と密接に関連するが、相関分析が「2変数の関連の強さ」を測るのに対し、回帰分析は「一方から他方を予測する式を求める」点で異なる。
 
-目的変数が二値（有・無、合格・不合格など）の場合はロジスティック回帰を用いる。
+目的変数が二値（有・無、合格・不合格など）の場合は[ロジスティック回帰](/docs/pe-comprehensive-management-logistic-regression)を用いる。
 
-関連キーワード: [ロジスティック回帰](/docs/pe-comprehensive-management-logistic-regression)、[相関分析](/docs/pe-comprehensive-management-correlation-analysis)、[記述統計](/docs/pe-comprehensive-management-descriptive-statistics)、[推定・検定](/docs/pe-comprehensive-management-estimation-testing)
+[需要予測](/docs/pe-comprehensive-management-demand-forecasting)の文脈では、時系列回帰（傾向変動モデル）として移動平均法・指数平滑法と並ぶ代表的な定量手法の一つである。移動平均法・指数平滑法が「時間的な平滑化」で短期変動を吸収するのに対し、回帰モデルは「説明変数との関係式」でトレンドを抽出する点が異なる。
 
 <RelatedKeywords items={[
   { label: "相関分析", slug: "correlation-analysis" },
