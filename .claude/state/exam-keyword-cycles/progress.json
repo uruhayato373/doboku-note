@@ -1237,11 +1237,80 @@
           "redundancy-safety",
           "probabilistic-risk-assessment"
         ]
+      },
+      "1-29": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "public-acceptance",
+          "risk-perception",
+          "stakeholder",
+          "crisis-communication",
+          "public-relations"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "normalcy-bias",
+          "catastrophe-bias",
+          "veteran-bias",
+          "optimism-bias",
+          "virgin-bias"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "safety-culture",
+          "safety-management-system",
+          "tripod-theory",
+          "human-factors"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "consumer-product-safety-act",
+          "product-safety",
+          "product-liability-act",
+          "consumer-safety"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-international",
+          "climate-change-decarbonization",
+          "environmental-basic-plan",
+          "regional-circular-symbiosis"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cites",
+          "ramsar-convention",
+          "invasive-alien-species",
+          "convention-on-biodiversity",
+          "red-list"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-28"
+    "question": "1-34"
   }
 }
