@@ -1028,11 +1028,22 @@
           "occupational-safety-act",
           "health-management"
         ]
+      },
+      "1-11": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disability-employment-act",
+          "disability-employment",
+          "disability-discrimination-act",
+          "positive-action"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-10"
+    "question": "1-11"
   }
 }
