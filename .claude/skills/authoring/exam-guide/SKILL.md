@@ -1,7 +1,7 @@
 ---
 name: exam-guide
 description: >
-  既存テキスト・問題集から試験対策ガイドを生成する。1級土木・技術士など試験別の設定ファイル（.claude/skills/content/templates/exam-guide/{exam}.md）を参照しパラメタライズ。
+  既存テキスト・問題集から試験対策ガイドを生成する。1級土木・技術士など試験別の設定ファイル（.claude/skills/authoring/templates/exam-guide/{exam}.md）を参照しパラメタライズ。
   Use when user asks to [試験対策ガイドを作りたい, 頻出テーマ抽出, ガイド生成, /exam-guide].
 ---
 
@@ -83,7 +83,7 @@ content/general/exam-guide/
 ### 設定参照
 
 **1級土木施工管理技士向けの設定:**
-→ `.claude/skills/content/templates/exam-guide/civil-construction-1.md`
+→ `.claude/skills/authoring/templates/exam-guide/civil-construction-1.md`
 
 このファイルには以下が定義されています：
 - ソースコンテンツのパス（土工・コンクリート・施工管理テキスト等）
@@ -111,7 +111,7 @@ content/general/exam-guide/
 
 ### テンプレートフォルダ全体
 
-`.claude/skills/content/templates/` 以下の構成：
+`.claude/skills/authoring/templates/` 以下の構成：
 
 ```
 templates/

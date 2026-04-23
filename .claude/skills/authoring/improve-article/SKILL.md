@@ -279,7 +279,7 @@ JSON 出力をパースして以下を取得:
 - [.claude/agents/cem-qa.md](../../../agents/cem-qa.md) — CEM 記事の評価基準
 - [.claude/agents/content-qa.md](../../../agents/content-qa.md) — 汎用（過去問）の評価基準
 - [.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs](../../conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
-- [.claude/skills/content/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成
-- [.claude/skills/content/quality-cycle/SKILL.md](../quality-cycle/SKILL.md) — CEM バルク処理（本スキルと補完関係）
+- [.claude/skills/authoring/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成
+- [.claude/skills/quality/quality-cycle/SKILL.md](../quality-cycle/SKILL.md) — CEM バルク処理（本スキルと補完関係）
 - [.claude/reference/image-policy.md](../../../reference/image-policy.md) — 図/写真の判定フロー
 - [CLAUDE.md](../../../../CLAUDE.md) — MDX 書き込み規約・コミット運用

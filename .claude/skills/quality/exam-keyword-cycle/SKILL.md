@@ -44,7 +44,7 @@ description: >
 `--auto` 指定時は `scripts/select-next-question.mjs` を実行し、次に扱う過去問を自動決定する:
 
 ```bash
-node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
+node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
 ```
 
 出力（JSON）:
@@ -297,10 +297,10 @@ Phase 5 で `progress.json` を更新した直後に、該当年度の Umbrella 
 
 ```bash
 # 対象年度の Umbrella を更新（該当行が [x] に変わる）
-node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam <exam-slug>
+node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam <exam-slug>
 
 # 親 Umbrella の全体進捗%・年度別進捗を更新
-node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
+node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
 ```
 
 - `progress.json.umbrella_issues.<exam-slug>` に Issue 番号が記録されている必要がある（未記録なら警告スキップ）
@@ -312,15 +312,15 @@ node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --paren
 ```bash
 # 年度 Umbrella 5 本を作成（R07〜R03 primary）
 for exam in r07 r06 r05 r04 r03; do
-  node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs \
+  node .claude/skills/quality/exam-keyword-cycle/scripts/generate-umbrella.mjs \
     --exam pe-comprehensive-management-${exam}-primary --create
 done
 
 # 親 Umbrella を作成（年度 Issue 番号を参照するため最後）
-node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs --parent --create
+node .claude/skills/quality/exam-keyword-cycle/scripts/generate-umbrella.mjs --parent --create
 
 # 既存の covered を初期反映
-node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
+node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
 ```
 
 ### Phase 5.6: 完了検証（full-cycle gate）
@@ -328,7 +328,7 @@ node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
 `progress.json` と Umbrella 同期が終わった直後、完了状態を機械的に検証する。
 
 ```bash
-node .claude/skills/content/exam-keyword-cycle/scripts/verify-cycle-completeness.mjs \
+node .claude/skills/quality/exam-keyword-cycle/scripts/verify-cycle-completeness.mjs \
   --exam <exam-slug> --question <anchor> --json
 ```
 
@@ -390,11 +390,11 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 
 - `src/config/exam-question-keywords.json` — 過去問→キーワード slug 一覧（Phase 1 の入力）
 - `src/config/past-exam-backlinks.json` — キーワード→過去問一覧（双方向確認、自動生成）
-- `.claude/skills/content/exam-keyword-cycle/scripts/lib/umbrella-builder.mjs` — Umbrella body 共通ビルダー＋ catalog/progress 読込 util（閾値定義 `STRICT_THRESHOLD_EXAMS` の真実源）
-- `.claude/skills/content/exam-keyword-cycle/scripts/verify-cycle-completeness.mjs` — Phase 5.6 の full-cycle gate
-- `.claude/skills/content/exam-backlinks/SKILL.md` — exam-backlinks の保守スキル
-- `.claude/skills/content/verify-exam-coverage/SKILL.md` — 論点カバレッジ監査（Phase 2 で利用）
-- `.claude/skills/content/improve-article/SKILL.md` — 単一記事の校正ループ
+- `.claude/skills/quality/exam-keyword-cycle/scripts/lib/umbrella-builder.mjs` — Umbrella body 共通ビルダー＋ catalog/progress 読込 util（閾値定義 `STRICT_THRESHOLD_EXAMS` の真実源）
+- `.claude/skills/quality/exam-keyword-cycle/scripts/verify-cycle-completeness.mjs` — Phase 5.6 の full-cycle gate
+- `.claude/skills/quality/exam-backlinks/SKILL.md` — exam-backlinks の保守スキル
+- `.claude/skills/quality/verify-exam-coverage/SKILL.md` — 論点カバレッジ監査（Phase 2 で利用）
+- `.claude/skills/authoring/improve-article/SKILL.md` — 単一記事の校正ループ
 - `.claude/agents/cem-qa.md` — 5 軸ルーブリック評価
 - `.claude/skills/dev/pr-create/SKILL.md` — PR 自動作成
 - `.claude/skills/management/distill-proofread-learnings/SKILL.md` — サイクル完了後の学習抽出

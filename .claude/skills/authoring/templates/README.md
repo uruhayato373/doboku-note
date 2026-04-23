@@ -103,7 +103,7 @@ templates/
 
 ### `/exam-guide` （1級土木施工管理技士）
 
-- **スキルファイル**: `.claude/skills/content/exam-guide/SKILL.md`
+- **スキルファイル**: `.claude/skills/authoring/exam-guide/SKILL.md`
 - **参照テンプレート**: `templates/exam-guide/civil-construction-1.md`
 - **記載例**: SKILL.md の末尾に以下を記載
 
@@ -111,14 +111,14 @@ templates/
   ## テンプレート設定ファイル
   
   このスキルで使用する試験固有設定：
-  → `.claude/skills/content/templates/exam-guide/civil-construction-1.md`
+  → `.claude/skills/authoring/templates/exam-guide/civil-construction-1.md`
   
   **Phase 2**: `--exam civil-construction-1` パラメータ化予定
   ```
 
 ### `/exam-guide --exam pe`（技術士建設部門）
 
-- **スキルファイル**: `.claude/skills/content/exam-guide/SKILL.md`（`/exam-guide` に統合）
+- **スキルファイル**: `.claude/skills/authoring/exam-guide/SKILL.md`（`/exam-guide` に統合）
 - **参照テンプレート**: `templates/exam-guide/pe.md`
 
 ### （未実装）新資格のガイド生成
@@ -144,4 +144,4 @@ templates/
 
 - URL設計ガイドライン: `docs/00_プロジェクト管理/07_URL設計ガイドライン.md`
 - スキル一覧: `.claude/reference/skills-registry.md`
-- 各スキルの詳細: `.claude/skills/content/{skill-name}/SKILL.md`
+- 各スキルの詳細: `各カテゴリ配下の {skill-name}/SKILL.md`

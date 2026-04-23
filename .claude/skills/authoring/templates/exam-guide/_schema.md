@@ -203,6 +203,6 @@ sidebar_slug: exam-guide
 
 ## 参考リンク
 
-- テンプレートフォルダ: `.claude/skills/content/templates/`
-- `exam-guide` スキル詳細: `.claude/skills/content/exam-guide/SKILL.md`（全試験共通・`--exam` でパラメタライズ）
+- テンプレートフォルダ: `.claude/skills/authoring/templates/`
+- `exam-guide` スキル詳細: `.claude/skills/authoring/exam-guide/SKILL.md`（全試験共通・`--exam` でパラメタライズ）
 - URL設計ガイドライン: `docs/00_プロジェクト管理/07_URL設計ガイドライン.md`

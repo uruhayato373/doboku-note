@@ -24,7 +24,7 @@ description: >
 過去問MDX (.local/r2/posts/pe-comprehensive-management/{year}-primary/article.mdx)
   └ <RelatedKeywords items={[{ slug: "xxx" }]} /> （設問ごと）
      ↓
-.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs （解析）
+.claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs （解析）
      ↓
 src/config/past-exam-backlinks.json    （キーワード→過去問 逆引き）
 src/config/exam-question-keywords.json （過去問→キーワード 正引き）
@@ -242,7 +242,7 @@ for (const e of entries) {
 - `## II-1-1` (ASCII II) — H21〜H24
 - `## Ⅱ-1-1` (U+2161 ROMAN NUMERAL TWO) — H21-H22
 
-`.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs` の抽出正規表現は `/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/` でこれらをカバーしている。新しいフォーマットが出現したら正規表現を拡張する。
+`.claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs` の抽出正規表現は `/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/` でこれらをカバーしている。新しいフォーマットが出現したら正規表現を拡張する。
 
 ## 品質チェック観点
 
@@ -286,9 +286,9 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 
 ## 関連ファイル
 
-- `.claude/skills/content/exam-backlinks/scripts/build-exam-backlinks.mjs` — 過去問⇔キーワード生成スクリプト
-- `.claude/skills/content/exam-backlinks/scripts/build-keyword-relations.mjs` — キーワード⇔キーワード関連生成スクリプト
-- `.claude/skills/content/exam-backlinks/scripts/insert-keyword-relations.mjs` — 関連 JSON を MDX へバッチ挿入するスクリプト
+- `.claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs` — 過去問⇔キーワード生成スクリプト
+- `.claude/skills/quality/exam-backlinks/scripts/build-keyword-relations.mjs` — キーワード⇔キーワード関連生成スクリプト
+- `.claude/skills/quality/exam-backlinks/scripts/insert-keyword-relations.mjs` — 関連 JSON を MDX へバッチ挿入するスクリプト
 - `src/config/past-exam-backlinks.json` — キーワード→過去問 逆引き
 - `src/config/exam-question-keywords.json` — 過去問→キーワード 正引き
 - `src/config/keyword-relations.json` — キーワード→関連キーワード top-5
@@ -301,5 +301,5 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 ## 参照
 
 - `.claude/reference/content-authoring.md` — MDX 作成詳細ルール（コンポーネント・過去問構造・frontmatter）
-- `.claude/skills/content/keyword-page/SKILL.md` — キーワードページ作成
-- `.claude/skills/content/pdf-to-mdx --exam cem/SKILL.md` — PDF→MDX変換（過去問取り込み時）
+- `.claude/skills/authoring/keyword-page/SKILL.md` — キーワードページ作成
+- `.claude/skills/conversion/pdf-to-mdx/templates/cem.md` — PDF→MDX変換（過去問取り込み時）

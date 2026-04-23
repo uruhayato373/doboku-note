@@ -224,7 +224,7 @@ Step 2/3/5 は **必ず 1 メッセージで複数ツール呼出** して並行
 
 ## 参照
 
-- `.claude/skills/content/create-svg/SKILL.md` — SVG 作図ルール・デザイントークン
+- `.claude/skills/authoring/create-svg/SKILL.md` — SVG 作図ルール・デザイントークン
 - `.claude/design-system/principles.md` — コントラスト比 4.5:1・禁止パターン
 - `.claude/content-principles.md` — `<ArticleImage>` の caption 禁止ルールなど真実源
 - `.claude/reference/content-authoring.md` — MDX コンポーネント・画像配信規約
