@@ -168,7 +168,7 @@ unscored → scored → rewriting → needs-review → verified → approved
 | `civil-construction-qa` エージェント | PDF 照合は別系統。本サイクルには含まない |
 | `lint-mdx-mobile.mjs` | review/rewriter が内部実行（機械的指標）|
 | `mdx-io.mjs` | ファイル I/O（CRLF 保持）|
-| `/civil-construction-1-pdf-to-mdx` | 新規変換は別系統。サイクルはバルク改訂専用 |
+| `/pdf-to-mdx --exam civil-construction-1` | 新規変換は別系統。サイクルはバルク改訂専用 |
 
 ## コンテンツ変更後のインデックス再生成
 

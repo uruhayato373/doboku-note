@@ -103,9 +103,9 @@
 ## PDF→MDX 変換フロー
 
 ```
-1. PDF をスキル（/pdf-to-mdx, /civil-construction-1-pdf-to-mdx 等）で MDX に変換
+1. PDF をスキル（/pdf-to-mdx, /pdf-to-mdx --exam civil-construction-1 等）で MDX に変換
 2. /check-mdx で構文チェック
-3. content-qa エージェントで品質評価（5軸ルーブリック、内部で /qa-pdf-mdx を使用）
+3. content-qa エージェントで品質評価（5軸ルーブリック、内部で /improve-article --mode verify を使用）
 4. 改善・修正
 5. /deploy で Cloudflare Pages に本番反映
 ```
@@ -190,7 +190,7 @@ npm run refresh-indexes   # 全 3 インデックスを一括再生成
 - `/exam-backlinks rebuild` — 過去問バックリンク再構築
 - `/quality-cycle --mode rewrite` — キーワードページ一括リライト
 - `/consolidate-duplicate-keyword` — 重複キーワード統合
-- `/pdf-to-mdx`, `/civil-construction-1-pdf-to-mdx` — PDF→MDX 変換
+- `/pdf-to-mdx`, `/pdf-to-mdx --exam civil-construction-1` — PDF→MDX 変換
 - `/promote-to-site` — コンテンツ本番移行
 
 **検索インデックス**（`public/search-index.json`）は `npm run build` 時に常に再生成されるため、手動管理不要。

@@ -12,9 +12,9 @@
 
 | エージェント | 役割 | 種別 | model | 担当スキル | Phase 1 対応 |
 |---|---|---|---|---|---|
-| `content-qa` | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | sonnet | check-mdx, qa-pdf-mdx, clean-pdf-artifacts | ✅ 運用中 |
+| `content-qa` | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | sonnet | check-mdx, （Phase C で削除） | ✅ 運用中 |
 | `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | sonnet | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
-| `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック） | Evaluator | sonnet | verify-pdf-mdx, check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
+| `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック） | Evaluator | sonnet | check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
 | `civil-construction-review` | 1級土木 textbook/guide の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質） | Evaluator | inherit | lint-mdx-mobile, check-mdx, check-links | ✅ 運用中 |
 | `strategy-advisor` | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
 | `seo-auditor` | SEO 監査（Phase 2 で復活） | Evaluator | sonnet | fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2 で復活 |
@@ -42,7 +42,7 @@
 
 - **PDF→MDX 変換**: `/pdf-to-mdx`（Generator スキル）→ `content-qa`（Evaluator エージェント）
 - **キーワードページ**: `/keyword-page`（Generator スキル）→ `cem-qa`（Evaluator エージェント）
-- **1級土木 textbook/guide**: `/civil-construction-1-pdf-to-mdx`（Generator スキル）→ `civil-construction-qa`（Evaluator エージェント）
+- **1級土木 textbook/guide**: `/pdf-to-mdx --exam civil-construction-1`（Generator スキル）→ `civil-construction-qa`（Evaluator エージェント）
 
 ### Evaluator エージェントの区別
 
@@ -69,7 +69,7 @@
 | 週次 PDCA（簡略版） | strategy-advisor（weekly-review → weekly-plan） |
 | キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
 | キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
-| 1級土木 textbook 変換 | `/civil-construction-1-pdf-to-mdx`（Generator） → `civil-construction-qa`（Evaluator） → `/verify-pdf-mdx` |
+| 1級土木 textbook 変換 | `/pdf-to-mdx --exam civil-construction-1`（Generator） → `civil-construction-qa`（Evaluator） → `/improve-article --mode verify` |
 | 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-review`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
 | UI コンポーネント変更 | 親エージェント（Generator） → `/design-review --visual`（視覚検証・スキル層で完結） → `/simplify` で修正 |
 

@@ -62,41 +62,36 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 
 **テンプレート管理**: `.claude/skills/content/templates/exam-guide/` （新資格追加時は設定ファイル追加のみ）
 
-### 試験問題集インポート（Phase C でテンプレ駆動化予定）
-
-| スキル | 用途 | 対応試験 | 定義 |
-|---|---|---|---|
-| `/exam-questions-import` | 試験第1次問題集 PDF→MDX 変換 | civil-construction-1 | `.claude/skills/content/exam-questions-import/SKILL.md` |
-| `/exam-questions-2-import` | 試験第2次問題集 PDF→MDX 変換 | civil-construction-1 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
-
 ### 汎用的なコンテンツ作成スキル
 
 | スキル | 用途 | 定義 |
 |---|---|---|
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/content/promote-to-site/SKILL.md` |
-| `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX 変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |
-| `/clean-pdf-artifacts` | PDF 変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
 | `/verify-exam-coverage` | キーワードページが過去問論点をカバーできているか検証し、未カバー論点と補強方針を提示（Evaluator+Generator） | `.claude/skills/content/verify-exam-coverage/SKILL.md` |
-| `/qa-pdf-mdx` | PDF→MDX 変換の品質検証・修正（PDF 照合＋修正の2段階） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
-| `/verify-pdf-mdx` | MDX の category/group を判定し、視覚検証・テキスト網羅率・5軸ルーブリック評価を適切な Evaluator エージェント（civil-construction-qa / cem-qa / content-qa）へルーティング | `.claude/skills/content/verify-pdf-mdx/SKILL.md` |
 | `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/content/keyword-page/SKILL.md` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成・品質改善 | `.claude/skills/content/exam-backlinks/SKILL.md` |
 | `/review-mobile` | モバイル視認性・可読性レビュー（表の適切性・数式・簡潔性） | `.claude/skills/content/review-mobile/SKILL.md` |
 | `/create-svg` | MDX 記事用 SVG 図版の作成（モバイル視認性・デザイントークン準拠） | `.claude/skills/content/create-svg/SKILL.md` |
 | `/illustrate-concept` | Discovery First 方式で Web 画像検索を並行実行し、標準視覚パターンのある概念のみトリアージして複数 SVG を一括生成・MDX 挿入する | `.claude/skills/content/illustrate-concept/SKILL.md` |
-| `/improve-article` | 単一記事を対話的に継続改善する Orchestrator。QA エージェント 5 軸評価 → 指摘構造化 → 修正方針提示 → Edit / create-svg / 本文補強を合格ライン到達までループ | `.claude/skills/content/improve-article/SKILL.md` |
+| `/improve-article` | 単一記事を対話的に継続改善する Orchestrator。`--mode verify` で PDF 照合 QA（旧 /verify-pdf-mdx, /qa-pdf-mdx 吸収） | `.claude/skills/content/improve-article/SKILL.md` |
 | `/exam-keyword-cycle` | 過去問 1 問を起点に関連キーワード群を横断校正し、視点タグ（網羅性/正確性/わかりやすさ/試験適合/関連付け）付きの 1 PR にまとめる Orchestrator。.claude/state/exam-keyword-cycles/logs/ にログ蓄積 | `.claude/skills/content/exam-keyword-cycle/SKILL.md` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ 1 ページ統合（7 フェーズ・redirects 込み） | `.claude/skills/content/consolidate-duplicate-keyword/SKILL.md` |
-| `/ogp-create` | カテゴリ別テンプレートで OGP 画像を生成（セーフティゾーン対応・日本語改行戦略） | `.claude/skills/content/ogp-create/SKILL.md` |
 | `/quality-cycle` | キーワードページの品質サイクル（スコア → リライト → 検証 → 人間レビュー）を統合 | `.claude/skills/content/quality-cycle/SKILL.md` |
 | `/civil-textbook-cycle` | 1級土木 textbook/guide の品質サイクル（評価 → リライト → 再評価 → 人間レビュー）を統合。40件前提で CEM 版から screen/flagship を省略した4モード＋report 構成 | `.claude/skills/content/civil-textbook-cycle/SKILL.md` |
 
-### PDF→MDX 試験特化スキル（Phase C でテンプレ駆動化予定）
+## conversion — 外部形式から MDX への変換
 
 | スキル | 用途 | 定義 |
 |---|---|---|
-| `/cem-pdf-to-mdx` | 技術士 CEM 用 PDF→MDX 変換（論文・事例特化） | `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` |
-| `/civil-construction-1-pdf-to-mdx` | 1級土木用 PDF→MDX 変換（過去問・基準特化） | `.claude/skills/content/civil-construction-1-pdf-to-mdx/SKILL.md` |
+| `/pdf-to-mdx --exam {general\|cem\|civil-construction-1}` | PDF/画像 → MDX 変換の統合スキル。試験別ルールは `templates/{exam}.md` で管理。旧 `/pdf-to-mdx` `/cem-pdf-to-mdx` `/civil-construction-1-pdf-to-mdx` `/clean-pdf-artifacts` を統合 | `.claude/skills/conversion/pdf-to-mdx/SKILL.md` |
+| `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary} --year <year>` | 過去問集 PDF→MDX の統合スキル。`--mode add-answers` で既存 MDX の未解答追加（旧 `/add-exam-answers` 吸収）。旧 `/exam-questions-import` `/exam-questions-2-import` を統合 | `.claude/skills/conversion/exam-questions-import/SKILL.md` |
+| `/ogp-create` | カテゴリ別テンプレートで OGP 画像を生成（セーフティゾーン対応・日本語改行戦略） | `.claude/skills/conversion/ogp-create/SKILL.md` |
+
+**テンプレート管理**:
+- `conversion/pdf-to-mdx/templates/{general,cem,civil-construction-1}.md` — PDF→MDX 試験別ルール
+- `conversion/exam-questions-import/templates/{civil-primary,civil-secondary,pe-primary}.md` — 過去問取込ルール
+
+新試験を追加する場合は該当テンプレートを新規作成するのみ（スキル本体は変更不要）。
 
 ## quality — MDX 品質検査
 
@@ -207,6 +202,15 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | 2026-04-24 | `/audit-svg` | content | Phase B で `/check-mdx --rules svg` に統合 | `/check-mdx --rules svg` |
 | 2026-04-24 | `/check-related-keyword-inline` | content | Phase B で `/check-mdx --rules related-keyword` に統合 | `/check-mdx --rules related-keyword` |
 | 2026-04-24 | `/check-legal-citations` | content | Phase B で `/check-mdx --rules legal-citations` に統合 | `/check-mdx --rules legal-citations` |
+| 2026-04-24 | `/pdf-to-mdx`（旧 content 配下） | content | Phase C で conversion/ に移動・統合 | `/pdf-to-mdx --exam general`（新 `.claude/skills/conversion/pdf-to-mdx/`） |
+| 2026-04-24 | `/cem-pdf-to-mdx` | content | Phase C で `/pdf-to-mdx --exam cem` に統合 | `/pdf-to-mdx --exam cem` |
+| 2026-04-24 | `/civil-construction-1-pdf-to-mdx` | content | Phase C で `/pdf-to-mdx --exam civil-construction-1` に統合 | `/pdf-to-mdx --exam civil-construction-1` |
+| 2026-04-24 | `/clean-pdf-artifacts` | content | Phase C で `/pdf-to-mdx` の Step 6 に吸収 | `/pdf-to-mdx` 自動実行、または `references/clean-pdf-artifacts.md` の手順を手動適用 |
+| 2026-04-24 | `/exam-questions-import`（旧 content 配下） | content | Phase C で conversion/ に移動・統合 | `/exam-questions-import --exam civil-primary --year <year>`（新 `.claude/skills/conversion/exam-questions-import/`） |
+| 2026-04-24 | `/exam-questions-2-import` | content | Phase C で `/exam-questions-import --exam civil-secondary` に統合 | `/exam-questions-import --exam civil-secondary --year <year>` |
+| 2026-04-24 | `/qa-pdf-mdx` | content | Phase C で `/improve-article --mode verify` に吸収 | `/improve-article <path> --mode verify` |
+| 2026-04-24 | `/verify-pdf-mdx` | content | Phase C で `/improve-article --mode verify` に吸収 | `/improve-article <path> --mode verify` |
+| 2026-04-24 | `/ogp-create`（旧 content 配下） | content | Phase C で conversion/ に移動（機能は維持） | `/ogp-create`（新 `.claude/skills/conversion/ogp-create/`） |
 
 エージェントの退役も同時に記録。
 
