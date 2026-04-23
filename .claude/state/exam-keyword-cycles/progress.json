@@ -365,11 +365,21 @@
           "stakeholder",
           "risk-management-policy"
         ]
+      },
+      "1-33": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-decarbonization",
+          "green-infrastructure",
+          "sdgs"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-32"
+    "question": "1-33"
   }
 }
