@@ -18,7 +18,7 @@ seoTitle: 損益計算書（P/L） ｜ 総合技術監理 キーワード集 202
 
 ## 損益計算書とは
 
-損益計算書（Profit and Loss Statement: P/L）とは、**一会計期間における企業の経営成績を表す財務諸表**である。
+損益計算書（Profit and Loss Statement: P/L）とは、一会計期間における**企業の経営成績を表す財務諸表**である。
 
 収益（売上高等）から費用（売上原価・販売費等）を差し引いて利益を算出する構造になっており、企業が「いくら稼いで、いくら使い、いくら残ったか」を示す。
 
@@ -50,7 +50,10 @@ seoTitle: 損益計算書（P/L） ｜ 総合技術監理 キーワード集 202
 
 **損益分岐点**（BEP: Break Even Point）とは、売上高と費用（固定費＋変動費）が等しくなり、利益がゼロになる売上高のことである。
 
-<img src="/posts/pe-comprehensive-management/income-statement/img/breakeven-point.svg" alt="損益分岐点図" />
+<ArticleImage
+  src="/posts/pe-comprehensive-management/income-statement/img/breakeven-point.svg"
+  alt="損益分岐点図：縦軸に売上高・費用、横軸に売上高をとり、固定費と変動費の合計線と売上高線の交点で利益ゼロとなる位置を示す"
+/>
 
 $$
 \text{損益分岐点売上高} = \dfrac{\text{固定費}}{1 - \text{変動費率}} = \dfrac{\text{固定費}}{\text{限界利益率}}
@@ -68,6 +71,13 @@ $$
 損益計算書は**一期間のフロー情報**（どれだけ稼いだか）を示し、貸借対照表は**一時点のストック情報**（どれだけ持っているか）を示す。
 
 当期純利益は貸借対照表の利益剰余金を増加させ、キャッシュ・フロー計算書の営業活動CFの起点となる。
+
+<Callout type="warning">
+P/L の区分と C/F の区分は一致しない項目がある（R04 Ⅰ-1-1 の引っかけ核心）。
+- **受取利息・受取配当金**：P/L では **営業外収益**、C/F では**営業活動**（日本基準）に区分される
+- **固定資産売却益**：P/L では **特別損益**、C/F では**投資活動**による収入に区分される
+- **財貨・用役の販売による収入**：P/L の売上高と C/F の**営業活動**による収入が対応する
+</Callout>
 
 ## 実務での具体例
 
@@ -103,6 +113,5 @@ $$
 
 ## 参考資料
 
-- [企業会計原則（第二 損益計算書原則）](https://www.mof.go.jp/policy/council/old_report/other/a_3_1.htm)（金融庁企業会計審議会）
-- [損益計算書の見方を初心者向けにわかりやすく解説](https://u-ks.jp/column/company-management/profit-loss)（税理士法人上原会計事務所）
-- [5つの利益とは？それぞれの違いと計算方法をわかりやすく解説](https://suzuki-tax.net/shacho-kyokasho/how-to-5rieki)（ビジョン税理士法人）
+- [企業会計審議会](https://www.fsa.go.jp/singi/singi_kigyou/top.html)（金融庁：会計基準・監査基準等を審議する公的機関）
+- [損益計算書とは？項目別の見方やチェックポイントを解説](https://www.freee.co.jp/kb/kb-accounting/pl/)（freee：5 つの利益を含む項目別の実務解説）

@@ -8,8 +8,7 @@ export const availableComponents = {
   ExamPoint: "ExamPoint",
   WritingTip: "WritingTip",
   RelatedKeywords: "RelatedKeywords",
-  CustomUnorderedList: "CustomUnorderedList",
-  CustomOrderedList: "CustomOrderedList",
+  SpecSheetList: "SpecSheetList",
   LinkCard: "LinkCard",
 
   // 投資関連コンポーネント

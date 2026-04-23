@@ -1,27 +1,45 @@
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import Callout from './Callout';
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
+import Callout from "./Callout";
 
 const meta = {
-  title: 'UI/Callout',
+  title: "UI/Callout",
   component: Callout,
   parameters: {
-    layout: 'centered',
+    layout: "centered",
     docs: {
       description: {
-        component: 'ブログ記事内で重要な情報を強調表示するためのコールアウトコンポーネント。type により色とアイコンが変わります。',
+        component:
+          "MDX 記事本文中で論点を視覚分離するためのコンポーネント。12 種のセマンティック type（note / tip / warn / danger / success / exam / formula / standard / example / reference / faq / quote）から選ぶ。デザインは Claude Design ハンドオフ（2026-04-22）準拠で、左アクセントバー + 円形アイコン + 任意タイトルのミニマル構成。",
       },
     },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      description: 'コールアウトのタイプ',
-      control: 'select',
-      options: ['info', 'warning', 'success', 'error'],
+      description: "Callout の種別（12 種）",
+      control: "select",
+      options: [
+        "note",
+        "tip",
+        "warn",
+        "danger",
+        "success",
+        "exam",
+        "formula",
+        "standard",
+        "example",
+        "reference",
+        "faq",
+        "quote",
+      ],
+    },
+    title: {
+      description: "任意タイトル（トーン色で強調表示）",
+      control: "text",
     },
     children: {
-      description: 'コールアウト内に表示するコンテンツ',
-      control: 'text',
+      description: "Callout 内に表示するコンテンツ",
+      control: "text",
     },
   },
   decorators: [
@@ -36,174 +54,200 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// 情報タイプ（デフォルト）
-export const Info: Story = {
+// ─── 汎用種別（5 種） ───
+
+export const Note: Story = {
   args: {
-    type: 'info',
-    children: 'これは重要な情報をユーザーに伝えるためのインフォメーションコールアウトです。ブログ記事内で補足情報や参考情報を提供する際に使用します。',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '一般的な情報や補足説明に使用するinfoタイプのコールアウト',
-      },
-    },
+    type: "note",
+    title: "この記事の目的",
+    children: "事実の強調・補足情報に使う。旧 info / note の統合先。",
   },
 };
 
-// 警告タイプ
-export const Warning: Story = {
+export const Tip: Story = {
   args: {
-    type: 'warning',
-    children: '注意が必要な内容や、ユーザーが気をつけるべきポイントを伝える警告コールアウトです。重要な注意事項がある場合に使用します。',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '注意喚起や警告メッセージに使用するwarningタイプ',
-      },
-    },
+    type: "tip",
+    title: "覚え方のコツ",
+    children: "学習コツ・覚え方のヒントに使う。",
   },
 };
 
-// 成功タイプ
+export const Warn: Story = {
+  args: {
+    type: "warn",
+    title: "変動性を逆転させた誤答に注意",
+    children: "行動への警告・頻出引っかけに使う。旧 warning / caution の統合先。",
+  },
+};
+
+export const Danger: Story = {
+  args: {
+    type: "danger",
+    title: "この誤答は致命的",
+    children: "致命的な誤解・重大な誤答に使う。",
+  },
+};
+
 export const Success: Story = {
   args: {
-    type: 'success',
-    children: 'タスクの完了や成功した事例、ポジティブな情報を伝える際に使用する成功コールアウトです。達成感や満足感を演出できます。',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: '成功メッセージやポジティブな情報に使用するsuccessタイプ',
-      },
-    },
+    type: "success",
+    title: "合格ラインの目安",
+    children: "到達水準・達成条件の明示に使う。",
   },
 };
 
-// エラータイプ
-export const Error: Story = {
+// ─── ドメイン特化種別（7 種） ───
+
+export const Exam: Story = {
   args: {
-    type: 'error',
-    children: 'エラーや失敗例、避けるべき行動について伝えるエラーコールアウトです。重要な警告や禁止事項を明確に示すことができます。',
-  },
-  parameters: {
-    docs: {
-      description: {
-        story: 'エラーメッセージや重要な警告に使用するerrorタイプ',
-      },
-    },
+    type: "exam",
+    title: "頻出：直近 5 年で 3 回出題",
+    children:
+      "本文中の出題頻度アクセント。ExamPoint（記事末尾総括）とは役割が異なる。",
   },
 };
 
-// 短いテキスト
-export const ShortText: Story = {
+export const Formula: Story = {
   args: {
-    type: 'info',
-    children: 'これは短いメッセージです。',
+    type: "formula",
+    title: "価値工学（VE）の基本公式",
+    children: "V = F / C — 価値は機能をコストで割った比率。",
+  },
+};
+
+export const Standard: Story = {
+  args: {
+    type: "standard",
+    title: "JIS Z 8141 生産管理用語",
+    children: "JIT: 必要なときに必要な量だけ生産・供給する方式。",
+  },
+};
+
+export const Example: Story = {
+  args: {
+    type: "example",
+    title: "R04 Ⅰ-1-3 の逆算",
+    children: "FS₃ = 354, Y₂ = 340, α = 0.3 → FS₂ = 360。",
+  },
+};
+
+export const Reference: Story = {
+  args: {
+    type: "reference",
+    title: "参考文献",
+    children: "ゴールドラット著『ザ・ゴール』（ダイヤモンド社、2001）",
+  },
+};
+
+export const Faq: Story = {
+  args: {
+    type: "faq",
+    title: "Q: αと k の違いは？",
+    children:
+      "A: αは指数平滑法の平滑化定数（0〜1）、k は移動平均法の次数（期間数）。",
+  },
+};
+
+export const Quote: Story = {
+  args: {
+    type: "quote",
+    title: "建設業法 第 1 条",
+    children:
+      "この法律は、建設業を営む者の資質の向上、建設工事の請負契約の適正化等を図ることを目的とする。",
+  },
+};
+
+// ─── 追加バリエーション ───
+
+export const WithoutTitle: Story = {
+  args: {
+    type: "note",
+    children: "タイトルなし。アイコン + 色だけのミニマル表示。",
   },
   parameters: {
     docs: {
       description: {
-        story: '短いテキストでのコールアウト表示',
+        story: "タイトルを省略した場合はアイコン + 色 + 本文のみで表示される",
       },
     },
   },
 };
 
-// 長いテキスト
 export const LongText: Story = {
   args: {
-    type: 'warning',
-    children: `これは非常に長いテキストのコールアウトです。複数の段落にわたる場合や、詳細な説明を含む場合の表示を確認するためのサンプルです。
+    type: "warn",
+    title: "長文 Callout の例",
+    children: `これは非常に長いテキストの Callout です。複数の段落にわたる場合や詳細な説明を含む場合の表示を確認するためのサンプルです。
 
 このように複数行にわたるテキストでも適切に表示されることを確認します。改行や段落も含めて、読みやすいレイアウトが保たれているかをチェックしましょう。
 
 長いテキストの場合でも、適切な余白とタイポグラフィが維持されることが重要です。`,
   },
-  parameters: {
-    docs: {
-      description: {
-        story: '長いテキストや複数段落でのコールアウト表示',
-      },
-    },
-  },
 };
 
-// リスト付きコールアウト
 export const WithList: Story = {
   args: {
-    type: 'info',
+    type: "tip",
+    title: "チェックリスト",
     children: (
       <>
-        <p>以下のポイントに注意してください：</p>
+        <p>以下のポイントに注意する：</p>
         <ul>
-          <li>定期的にバックアップを取る</li>
-          <li>パスワードは複雑なものを使用する</li>
-          <li>二段階認証を有効にする</li>
-          <li>ソフトウェアを最新に保つ</li>
+          <li>太字は 30 字以下に絞る</li>
+          <li>Callout は 1 記事 3 個以内</li>
+          <li>絵文字は使わない</li>
+          <li>参考資料は WebFetch で実在確認する</li>
         </ul>
       </>
     ),
   },
-  parameters: {
-    docs: {
-      description: {
-        story: 'リストやその他のHTML要素を含むコールアウト',
-      },
-    },
-  },
 };
 
-// ダークモード
-export const DarkMode: Story = {
-  args: {
-    type: 'info',
-    children: 'ダークモードでのコールアウト表示を確認するためのサンプルテキストです。',
-  },
-  parameters: {
-    backgrounds: { default: 'dark' },
-    docs: {
-      description: {
-        story: 'ダークモードでのコールアウト表示',
-      },
-    },
-  },
-  decorators: [
-    (Story) => (
-      <div className="max-w-2xl mx-auto p-6 bg-gray-800 dark">
-        <Story />
-      </div>
-    ),
-  ],
-};
-
-// 全タイプ比較
 export const AllTypes: Story = {
-  args: {
-    type: 'info',
-    children: '全てのタイプのコールアウトを一覧で表示',
-  },
   render: () => (
     <div className="space-y-4">
-      <Callout type="info">
-        <strong>Info:</strong> 一般的な情報や補足説明に使用します。
+      <Callout type="note" title="note（メモ）">
+        事実の強調・補足情報
       </Callout>
-      <Callout type="warning">
-        <strong>Warning:</strong> 注意が必要な内容に使用します。
+      <Callout type="tip" title="tip（ポイント）">
+        学習コツ・覚え方のヒント
       </Callout>
-      <Callout type="success">
-        <strong>Success:</strong> 成功メッセージやポジティブな情報に使用します。
+      <Callout type="warn" title="warn（注意）">
+        行動への警告・頻出引っかけ
       </Callout>
-      <Callout type="error">
-        <strong>Error:</strong> エラーや重要な警告に使用します。
+      <Callout type="danger" title="danger（重大リスク）">
+        致命的な誤解・重大な誤答
+      </Callout>
+      <Callout type="success" title="success（合格ライン）">
+        到達水準・達成条件の明示
+      </Callout>
+      <Callout type="exam" title="exam（出題頻度）">
+        本文中の出題頻度アクセント
+      </Callout>
+      <Callout type="formula" title="formula（公式）">
+        公式・計算原理
+      </Callout>
+      <Callout type="standard" title="standard（基準・規格）">
+        JIS / ISO / 法令条文
+      </Callout>
+      <Callout type="example" title="example（実例）">
+        具体的な計算例・事例
+      </Callout>
+      <Callout type="reference" title="reference（参考文献）">
+        書籍・論文・URL への誘導
+      </Callout>
+      <Callout type="faq" title="faq（よくある質問）">
+        Q&A 形式の補足
+      </Callout>
+      <Callout type="quote" title="quote（引用）">
+        原典文献の直接引用
       </Callout>
     </div>
   ),
   parameters: {
     docs: {
       description: {
-        story: '全てのタイプのコールアウトを一覧で表示',
+        story: "全 12 種の Callout を一覧表示。デザインの統一感を確認する用",
       },
     },
   },
