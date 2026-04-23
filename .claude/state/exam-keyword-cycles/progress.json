@@ -187,11 +187,22 @@
           "membership-type-employment",
           "personnel-management"
         ]
+      },
+      "1-16": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "performance-evaluation",
+          "competency-evaluation",
+          "attitude-appraisal",
+          "mbo"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-15"
+    "question": "1-16"
   }
 }
