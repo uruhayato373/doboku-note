@@ -911,10 +911,162 @@
           "environmental-communication"
         ]
       }
+    },
+    "pe-comprehensive-management-r02-primary": {
+      "1-1": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "quality-control",
+          "process-capability-index",
+          "quality-improvement",
+          "quality-characteristics"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "npv-net-present-value",
+          "discount-rate",
+          "dcf-method",
+          "present-annual-future-value",
+          "economic-comparison-principle"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pmbok",
+          "pert-cpm",
+          "gantt-chart",
+          "three-point-estimation",
+          "parametric-estimation"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "game-theory",
+          "delphi-method",
+          "analytic-hierarchy-process",
+          "linear-programming",
+          "multi-objective-optimization"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "supply-chain-management",
+          "business-continuity-plan",
+          "lead-time",
+          "resilience",
+          "risk-treatment"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "standard-costing",
+          "cost-variance-analysis",
+          "direct-costing",
+          "direct-manufacturing-cost"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "depreciation",
+          "income-statement",
+          "ifrs"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "preventive-maintenance",
+          "improvement-maintenance",
+          "maintenance-prevention",
+          "predictive-maintenance",
+          "corrective-maintenance"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equal-employment-act",
+          "elderly-employment-act",
+          "continued-employment-system",
+          "employment-insurance"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "stress-check-system",
+          "mental-health-care",
+          "occupational-safety-act",
+          "health-management"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disability-employment-act",
+          "disability-employment",
+          "disability-discrimination-act",
+          "positive-action"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "work-life-balance",
+          "positive-action",
+          "lgbtq",
+          "unconscious-bias"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "job-rotation",
+          "job-based-pay",
+          "skill-based-pay",
+          "career-path",
+          "multi-track-hr-system"
+        ]
+      }
     }
   },
   "last_cycle": {
-    "exam": "r03-primary",
-    "question": "1-40"
+    "exam": "r02-primary",
+    "question": "1-13"
   }
 }
