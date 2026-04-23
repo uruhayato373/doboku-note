@@ -21,11 +21,8 @@ export async function getCommonComponents() {
     ExamPoint: (await import("@/components/ui/ExamPoint/ExamPoint")).default,
     WritingTip: (await import("@/components/ui/WritingTip/WritingTip")).default,
     RelatedKeywords: (await import("@/components/ui/RelatedKeywords/RelatedKeywords")).default,
-    CustomUnorderedList: (
-      await import("@/components/ui/CustomUnorderedList/CustomUnorderedList")
-    ).default,
-    CustomOrderedList: (
-      await import("@/components/ui/CustomOrderedList/CustomOrderedList")
+    SpecSheetList: (
+      await import("@/components/ui/SpecSheetList/SpecSheetList")
     ).default,
     LinkCard: (await import("@/components/ui/LinkCard/LinkCard")).default,
     CardList: (await import("@/components/ui/CardList/CardList")).default,

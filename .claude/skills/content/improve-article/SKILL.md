@@ -79,7 +79,7 @@ Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象
 - **「(1)」「1)」の太字段落が見出し化していないか** — `**(1) 〜**` 形式の太字段落は H4/H5 へ昇格。目次生成・ページ内ジャンプに乗る
 - **本文参照されている表/図が欠落していないか** — 「**表 N.N のとおりである**」「**図 N.N に示す**」と本文が参照しているのに該当コンテンツが無い場合はコンテンツ HIGH。PDF→MDX 変換で表が脱落するケースが多い
 - **description と本文の整合** — description で謳っているトピックが本文に含まれているか
-- **Callout 化されていない試験頻出ポイント** — 過去問で繰り返し問われる数値・区分は `<Callout type="warning" title="頻出論点：...">` でハイライト
+- **Callout 化されていない試験頻出ポイント** — 過去問で繰り返し問われる数値・区分は `<Callout type="exam" title="頻出論点：...">` でハイライト（全 12 種と使い分けは [`docs/ui/callout-gallery.md`](../../../../docs/ui/callout-gallery.md) 参照）
 - **過去問バックリンクはアンカー付きにする** — `/docs/civil-construction-1-primary-r07-a` のように URL だけで終わらず、**必ず `#問題-no{N}` を付けて該当設問に直接ジャンプさせる**（例: `/docs/civil-construction-1-primary-r07-a#問題-no66`）。問題 ID は H2 見出し「問題 No.N」から自動生成される（ドット `.` は削除、スペースは `-` に置換、日本語は URL エンコードで突合）。バックリンクが多いほど全文検索・内部リンク強度・回遊率が上がる
 - **過去問解説の破損検出** — primary / secondary の MDX を扱う場合は `node .claude/skills/content/audit-exam-explanations/scripts/audit.mjs --topic=<テーマ>` を走らせ、`」と規定されている` 文頭欠落や `summary="」..."` ExamPoint 欠落がないか確認。検出されたら `/improve-article` の修正案に必ず組み込む。意味矛盾（設問肢と同じ内容なのに ❌）は読者視点で拾う
 - **SVG 品質の静的検査** — 記事に SVG を含む場合は `node .claude/skills/content/audit-svg/scripts/audit.mjs --path=<img dir>/*.svg` を走らせ、文字クリップ（P1）・必須属性欠落（P3）・テキスト重なり（P2）等を検出。HIGH は必ず修正、MEDIUM は視覚検証（Playwright スクリーンショット）と合わせて判断

@@ -1,0 +1,97 @@
+/* =============================================================================
+   SpecSheetList.module.css
+   土木ノート仕様書調リスト — design system tokens (globals.css) 準拠
+
+   必要なトークン:
+     --color-ink-strong / --color-ink-body / --color-ink-muted
+     --color-border
+     --color-brand
+   ダークモードは .dark スコープで自動切替 (doboku-note の既存機構に乗る)
+   ============================================================================= */
+
+.root {
+  border-top: 2px solid var(--color-ink-strong);
+  border-bottom: 1px solid var(--color-border);
+  margin: 1.5rem 0;
+}
+
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 12px 0 10px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-ink-strong);
+  letter-spacing: 0.02em;
+}
+
+.count {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  column-gap: 8px;
+  align-items: baseline;
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.idx {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--color-brand);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 1.6em;
+}
+
+.idxGlyph {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.idxDot {
+  position: relative;
+}
+
+.idxDot::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  margin-left: 2px;
+}
+
+.text {
+  color: var(--color-ink-body);
+  font-size: 15px;
+  line-height: 1.7;
+}
