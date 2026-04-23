@@ -816,11 +816,23 @@
           "mental-health-care",
           "employment-statistics"
         ]
+      },
+      "1-33": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sdgs",
+          "stakeholder",
+          "csr",
+          "esg-investment",
+          "iso-26000"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-32"
+    "question": "1-33"
   }
 }
