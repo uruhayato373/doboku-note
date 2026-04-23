@@ -1017,11 +1017,22 @@
           "continued-employment-system",
           "employment-insurance"
         ]
+      },
+      "1-10": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "stress-check-system",
+          "mental-health-care",
+          "occupational-safety-act",
+          "health-management"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-9"
+    "question": "1-10"
   }
 }
