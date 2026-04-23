@@ -12,14 +12,14 @@
  *   （R2 公開 URL と 1:1 対応。src/lib/r2-image-loader.ts の getOgpImageUrl と整合）
  *
  * Usage:
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug>                   # 単一生成（既存あればスキップ）
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug> --force            # 単一・強制上書き
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug> --template navy-white  # テンプレ強制
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all                         # 全件生成
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --force                 # 全件強制上書き
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --dry-run               # マッピング結果のみ表示
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <slug> --debug-safety --force # 中央 630×630 の赤枠を重ねた PNG を出力
- *   node .claude/skills/content/ogp-create/scripts/ogp-create.mjs --all --debug-wrap            # 改行戦略の適用結果を一覧表示
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs <fullSlug>                   # 単一生成（既存あればスキップ）
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs <fullSlug> --force            # 単一・強制上書き
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs <fullSlug> --template navy-white  # テンプレ強制
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs --all                         # 全件生成
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs --all --force                 # 全件強制上書き
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs --all --dry-run               # マッピング結果のみ表示
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs <slug> --debug-safety --force # 中央 630×630 の赤枠を重ねた PNG を出力
+ *   node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs --all --debug-wrap            # 改行戦略の適用結果を一覧表示
  *
  * frontmatter での個別制御:
  *   ---
@@ -246,7 +246,7 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
 
   if (!args.slug && !args.all) {
-    console.error('Usage: node .claude/skills/content/ogp-create/scripts/ogp-create.mjs <fullSlug> | --all [--force] [--dry-run] [--template <id>] [--debug-safety] [--debug-wrap]');
+    console.error('Usage: node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs <fullSlug> | --all [--force] [--dry-run] [--template <id>] [--debug-safety] [--debug-wrap]');
     process.exit(1);
   }
 

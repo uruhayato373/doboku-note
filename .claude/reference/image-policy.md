@@ -5,7 +5,7 @@ doboku-note の記事に図・写真を載せるときのルール集。PDF ス�
 **いつ読むか**: textbook 記事のリライト時、新規 keyword ページに図を追加するとき、既存 PNG スキャンを置き換えるとき。
 
 **関連文書**:
-- 図版作成スキル: `.claude/skills/content/create-svg/SKILL.md`
+- 図版作成スキル: `.claude/skills/authoring/create-svg/SKILL.md`
 - 画像配信フロー: `.claude/reference/content-authoring.md` § 画像配信
 - デザイン原則: `.claude/design-system/principles.md`
 

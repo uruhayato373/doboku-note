@@ -5,9 +5,9 @@
  * 過去問 MDX の破損解説を全件スキャンし、.claude/state/broken-explanations.json を出力。
  *
  * Usage:
- *   node .claude/skills/content/audit-exam-explanations/scripts/audit.mjs
- *   node .claude/skills/content/audit-exam-explanations/scripts/audit.mjs --category=civil-construction-1
- *   node .claude/skills/content/audit-exam-explanations/scripts/audit.mjs --topic=港則法
+ *   node .claude/skills/quality/check-mdx/scripts/rules/explanations/audit.mjs
+ *   node .claude/skills/quality/check-mdx/scripts/rules/explanations/audit.mjs --category=civil-construction-1
+ *   node .claude/skills/quality/check-mdx/scripts/rules/explanations/audit.mjs --topic=港則法
  */
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from "fs";

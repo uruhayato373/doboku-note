@@ -104,7 +104,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加
 3. 必要なら `{exam-id}-pdf-to-mdx`（Generator スキル）と `{exam-id}-qa`（Evaluator エージェント）を新設
 4. `/review` のディスパッチ表（`.claude/skills/dev/review/SKILL.md`）に行を追加
-5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/content/improve-article --mode verify/SKILL.md`）に行を追加
+5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/authoring/improve-article --mode verify/SKILL.md`）に行を追加
 6. このファイル（exam-content-policy.md）と `agents-registry.md` を更新
 
 ---

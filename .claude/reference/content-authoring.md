@@ -44,14 +44,14 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - 関連キーワードは `<RelatedKeywords>` コンポーネントを使用（slug 指定でキーワードページへリンク）
 - キーワードページ側の「過去問での出題」セクションにバックリンクを追加する（双方向リンク）
 - 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
-- 詳細テンプレートは `.claude/skills/content/pdf-to-mdx --exam cem/SKILL.md` を参照
+- 詳細テンプレートは `.claude/skills/conversion/pdf-to-mdx/templates/cem.md` を参照
 
 ## 数式・図表
 
 - 数式: `$$...$$` (ブロック) / `$...$` (インライン) + KaTeX
 - 図表: Mermaid コードブロック
 - スクリーンショット・図版: `.local/r2/posts/{slug}/img/` に配置
-- SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/content/create-svg/SKILL.md`）を参照
+- SVG 図版: モバイル視認性を最優先。作成ルールは `/create-svg` スキル（`.claude/skills/authoring/create-svg/SKILL.md`）を参照
 
 ### ブロック数式は必ず複数行 `$$`（最重要）
 
@@ -164,7 +164,7 @@ MDX パイプラインは raw `<img>` の `style` / `width` / `height` / `classN
 
 既存記事に raw `<img>` が残っていても、それは移行未完了の遺物であり、**真似をしない**。新規追加は必ず `<ArticleImage>` を使う。`<ArticleImage>` は SVG 用に `w-full max-w-2xl mx-auto px-6` コンテナと `max-width:100%;height:auto` inline style を付与してレスポンシブ表示する。
 
-SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/content/create-svg/SKILL.md](../skills/content/create-svg/SKILL.md) §最大表示幅の固定。
+SVG 自体のルート要素にも `style="max-width:{viewBox width}px;width:100%"` が必須（`/check-mdx --rules svg` の P3-missing-maxwidth HIGH 違反）。詳細は [.claude/skills/authoring/create-svg/SKILL.md](../skills/authoring/create-svg/SKILL.md) §最大表示幅の固定。
 
 ### CC/PD 写真の取得・出典表記
 
