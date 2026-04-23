@@ -437,11 +437,23 @@
           "environmental-impact-assessment",
           "environmental-standards"
         ]
+      },
+      "1-40": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "esg-investment",
+          "green-bond",
+          "csr",
+          "tcfd",
+          "sri"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-39"
+    "question": "1-40"
   }
 }
