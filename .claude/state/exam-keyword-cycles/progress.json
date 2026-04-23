@@ -474,11 +474,23 @@
           "economic-comparison-principle",
           "investment-recovery-plan"
         ]
+      },
+      "1-3": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "quality-control",
+          "process-capability-index",
+          "inspection-methods",
+          "descriptive-statistics",
+          "quality-assurance"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-2"
+    "question": "1-3"
   }
 }
