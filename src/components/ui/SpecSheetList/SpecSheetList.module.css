@@ -10,8 +10,10 @@
    ============================================================================= */
 
 .root {
+  border: 1px solid var(--color-border);
   border-top: 2px solid var(--color-ink-strong);
-  border-bottom: 1px solid var(--color-border);
+  border-radius: 2px;
+  padding: 4px 16px;
   margin: 1.5rem 0;
 }
 
@@ -50,7 +52,7 @@
   grid-template-columns: 28px 1fr;
   column-gap: 8px;
   align-items: baseline;
-  padding: 10px 0;
+  padding: 6px 0;
   border-bottom: 1px dashed var(--color-border);
 }
 
