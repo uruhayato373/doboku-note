@@ -135,11 +135,21 @@
           "part-time-fixed-term-act",
           "worker-dispatch-act"
         ]
+      },
+      "1-11": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "work-life-balance",
+          "discretionary-work-system",
+          "labor-standards-act"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-10"
+    "question": "1-11"
   }
 }
