@@ -198,11 +198,22 @@
           "attitude-appraisal",
           "mbo"
         ]
+      },
+      "1-17": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cluster-analysis",
+          "logistic-regression",
+          "correlation-analysis",
+          "linear-regression"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-16"
+    "question": "1-17"
   }
 }
