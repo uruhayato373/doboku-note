@@ -4,13 +4,13 @@
  *
  * 使用例:
  *   # 指定年度の Umbrella を同期
- *   node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam pe-comprehensive-management-r07-primary
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam pe-comprehensive-management-r07-primary
  *
  *   # 親 Umbrella を同期
- *   node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
  *
  *   # 全 Umbrella を一括同期
- *   node .claude/skills/content/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
  *
  * 動作:
  *   1. progress.json.umbrella_issues から Issue 番号を取得

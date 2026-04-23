@@ -16,8 +16,8 @@
  *   4. 該当なしなら { exam: null } を返す
  *
  * 使用例:
- *   node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs
- *   node .claude/skills/content/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
  */
 
 import { readFileSync } from 'node:fs';

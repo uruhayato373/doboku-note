@@ -178,7 +178,7 @@ function runScore(args) {
   console.log(`  1. Claude Code 側から /civil-textbook-cycle --mode score を呼び出し`);
   console.log(`     各タスクの prompt で civil-construction-review subagent を並列起動`);
   console.log(`  2. 各 subagent の返す JSON 配列を /tmp/civil-score-results.json に保存`);
-  console.log(`  3. node .claude/skills/content/civil-textbook-cycle/scripts/merge-scores.mjs /tmp/civil-score-results.json`);
+  console.log(`  3. node .claude/skills/quality/quality-cycle/scripts/merge-scores.mjs /tmp/civil-score-results.json`);
   console.log(`     で ${PATHS.SCORES} にマージ`);
   console.log(`\n=== タスクリスト (JSON) ===`);
   console.log(

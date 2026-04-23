@@ -1,4 +1,4 @@
-// .claude/skills/content/quality-cycle/scripts/lib/quality-state.mjs
+// .claude/skills/quality/quality-cycle/scripts/lib/quality-state.mjs
 //
 // Quality Cycle の state JSON を読み書きするユーティリティ。
 //

@@ -174,7 +174,7 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
   body += `- 全 checkbox が full-cycle で close → 次年度 Umbrella へ\n\n`;
 
   body += `## 参照\n\n`;
-  body += `- スキル: \`.claude/skills/content/exam-keyword-cycle/SKILL.md\`\n`;
+  body += `- スキル: \`.claude/skills/quality/exam-keyword-cycle/SKILL.md\`\n`;
   body += `- 生成: \`generate-umbrella.mjs\` / 同期: \`sync-umbrella.mjs\` / 検証: \`verify-cycle-completeness.mjs\`\n`;
   body += `- カタログ: \`src/config/exam-question-keywords.json\`\n`;
 
@@ -232,7 +232,7 @@ export function buildParentUmbrellaBody(progress, catalog) {
   body += `- 対象年度は直近 7 年（R07〜R01 primary）。追加年度が必要なら \`umbrella-builder.mjs\` の \`TARGET_YEARS\` を拡張\n\n`;
 
   body += `## 参照\n\n`;
-  body += `- スキル: \`.claude/skills/content/exam-keyword-cycle/SKILL.md\`\n`;
+  body += `- スキル: \`.claude/skills/quality/exam-keyword-cycle/SKILL.md\`\n`;
   body += `- ロードマップ: \`docs/project/25_exam-keyword-cycle-roadmap.md\`\n`;
   body += `- 進捗 JSON: \`.claude/state/exam-keyword-cycles/progress.json\`\n`;
 

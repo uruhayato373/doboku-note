@@ -1,4 +1,4 @@
-// .claude/skills/content/quality-cycle/scripts/lib/cem-qa-prompt.mjs
+// .claude/skills/quality/quality-cycle/scripts/lib/cem-qa-prompt.mjs
 //
 // Quality Cycle の subagent 呼び出し用プロンプトテンプレート。
 //

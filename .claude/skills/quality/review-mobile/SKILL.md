@@ -296,5 +296,5 @@ HIGHが1件以上ある場合は修正を促すメッセージを追加する。
 
 - `.claude/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
 - `.claude/reference/content-authoring.md` — MDX 作成詳細ルール（モバイル視認性セクション）
-- `.claude/skills/content/keyword-page/SKILL.md` — モバイル視認性ルール、コンポーネント使用ガイドライン
+- `.claude/skills/authoring/keyword-page/SKILL.md` — モバイル視認性ルール、コンポーネント使用ガイドライン
 - `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（本スキルとは別レイヤー、`--rules syntax` で構文チェック）

@@ -4,13 +4,13 @@
  *
  * 使用例:
  *   # R07 primary の年度 Umbrella を生成（dry-run、draft のみ）
- *   node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs --exam pe-comprehensive-management-r07-primary
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/generate-umbrella.mjs --exam pe-comprehensive-management-r07-primary
  *
  *   # 親 Umbrella を生成
- *   node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs --parent
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/generate-umbrella.mjs --parent
  *
  *   # 実際に gh で Issue を作成
- *   node .claude/skills/content/exam-keyword-cycle/scripts/generate-umbrella.mjs --exam pe-comprehensive-management-r07-primary --create
+ *   node .claude/skills/quality/exam-keyword-cycle/scripts/generate-umbrella.mjs --exam pe-comprehensive-management-r07-primary --create
  *
  * 出力:
  *   draft: .claude/state/exam-keyword-cycles/umbrella-drafts/<exam>.md（または parent.md）

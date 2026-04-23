@@ -1,4 +1,4 @@
-// .claude/skills/content/civil-textbook-cycle/scripts/lib/civil-state.mjs
+// .claude/skills/quality/quality-cycle/scripts/lib/civil-state.mjs
 //
 // Civil Textbook Cycle の state JSON を読み書きするユーティリティ。
 //
@@ -7,7 +7,7 @@
 //   - .claude/state/civil-quality-cycle-state.json: 各ページの状態遷移履歴
 //   - .claude/state/civil-review-queue.md         : 人間レビュー待ちリスト
 //
-// CEM 版 (.claude/skills/content/quality-cycle/scripts/lib/quality-state.mjs) の civil 版。
+// CEM 版 (.claude/skills/quality/quality-cycle/scripts/lib/quality-state.mjs) の civil 版。
 // 全ファイル LF 改行で書き込む（gitattributes 不要・git diff ノイズ最小）。
 
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';

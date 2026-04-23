@@ -1,4 +1,4 @@
-// .claude/skills/content/civil-textbook-cycle/scripts/lib/civil-prompts.mjs
+// .claude/skills/quality/quality-cycle/scripts/lib/civil-prompts.mjs
 //
 // Civil Textbook Cycle の subagent 呼び出し用プロンプトテンプレート。
 //
