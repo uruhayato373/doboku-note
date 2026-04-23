@@ -947,11 +947,23 @@
           "three-point-estimation",
           "parametric-estimation"
         ]
+      },
+      "1-4": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "game-theory",
+          "delphi-method",
+          "analytic-hierarchy-process",
+          "linear-programming",
+          "multi-objective-optimization"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-3"
+    "question": "1-4"
   }
 }
