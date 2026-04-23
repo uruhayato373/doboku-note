@@ -290,11 +290,22 @@
           "osh-management-system",
           "oshms"
         ]
+      },
+      "1-26": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "unsafe-conditions-behavior",
+          "heinrich-law",
+          "four-e-countermeasures",
+          "four-m-analysis"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-25"
+    "question": "1-26"
   }
 }
