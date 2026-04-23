@@ -156,11 +156,23 @@
           "occupational-safety-act",
           "health-management"
         ]
+      },
+      "1-13": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "teal-organization",
+          "network-organization",
+          "matrix-organization",
+          "pyramid-organization",
+          "functional-organization"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-12"
+    "question": "1-13"
   }
 }
