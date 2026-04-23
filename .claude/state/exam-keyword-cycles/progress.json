@@ -793,11 +793,126 @@
           "system-reliability",
           "redundancy-safety"
         ]
+      },
+      "1-31": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "biosafety",
+          "convention-on-biodiversity",
+          "elsi",
+          "biodiversity-basic-act",
+          "precautionary-principle"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "osh-management-system",
+          "safety-health-education",
+          "mental-health-care",
+          "employment-statistics"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sdgs",
+          "stakeholder",
+          "csr",
+          "esg-investment",
+          "iso-26000"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization",
+          "carbon-pricing",
+          "cdp-sbt-re100"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "convention-on-biodiversity",
+          "nagoya-protocol",
+          "ramsar-convention",
+          "biodiversity-basic-act",
+          "kunming-montreal-framework"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-society-basic-act",
+          "circular-economy",
+          "extended-producer-responsibility",
+          "waste-management-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "air-pollution-control-act",
+          "water-pollution-control-act",
+          "soil-contamination-act",
+          "dioxin-countermeasures-act",
+          "seven-types-of-pollution"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-basic-plan",
+          "eco-label",
+          "prtr-act",
+          "carbon-pricing",
+          "environmental-impact-assessment"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment",
+          "environmental-standards",
+          "environmental-basic-plan",
+          "citizen-participation"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "esd",
+          "environmental-basic-plan",
+          "citizen-participation",
+          "environmental-communication"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-30"
+    "question": "1-40"
   }
 }
