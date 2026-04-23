@@ -351,7 +351,6 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 
 | エージェント | model | 種別 |
 |---|---|---|
-| cem-advisor | sonnet | Generator |
 | cem-qa | sonnet | Evaluator |
 | civil-construction-qa | sonnet | Evaluator |
 | civil-construction-review | inherit | Evaluator |
@@ -362,11 +361,14 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 | metrics-analyzer | sonnet | Evaluator |
 | performance-auditor | sonnet | Evaluator |
 | seo-auditor | sonnet | Evaluator |
-| ui-visual-qa | sonnet | Evaluator |
-| aidesigner-frontend | sonnet | Generator |
 | strategy-advisor | inherit | Orchestrator |
 
 エージェント詳細（担当範囲・連携パターン・Phase 対応）は [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) を参照。
+
+**2026-04-23 Phase A で退役**:
+- `cem-advisor`（placeholder・未実装スキル）→ Generator は `keyword-rewriter`、Evaluator は `cem-qa`、orchestration は `strategy-advisor`
+- `ui-visual-qa` → `/design-review --visual` スキルに統合（視覚回帰をスキル層で完結）
+- `aidesigner-frontend` → 直接 Claude 指示 or AIDesigner MCP 直接
 
 ## コンテンツ編集時のコミット運用
 

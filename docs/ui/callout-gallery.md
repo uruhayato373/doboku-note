@@ -227,6 +227,6 @@ doboku-note の `<Callout>` コンポーネントは、2026-04-22 の Claude Des
 
 1. `.local/r2/posts/_dev-callout-gallery/article.mdx`（一時）に全 12 種を記述
 2. `npm run dev` → `/docs/_dev-callout-gallery` で表示
-3. Playwright（`ui-visual-qa` スキル）で各 `aside[data-callout]` を個別撮影
+3. Playwright（`/design-review --visual`）で各 `aside[data-callout]` を個別撮影
 4. `docs/ui/images/callout-{type}.png` に保存・コミット
 5. 一時 MDX を削除

@@ -31,7 +31,6 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 
 - `/fetch-gsc-data` — Google Search Console のデータ取得
 - `/fetch-ga4-data` — Google Analytics 4 のアクセスデータ取得
-- `/seo-audit` — SEO 総合監査
 
 **運用中（Phase 1）**:
 
@@ -45,11 +44,8 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/dev-start` | ポート3020をクリーンアップして開発サーバー起動 | `.claude/skills/dev/dev-start/SKILL.md` |
 | `/deploy` | Cloudflare Pages へデプロイ | `.claude/skills/dev/deploy/SKILL.md` |
 | `/create-skill` | スキル作成ガイド | `.claude/skills/dev/create-skill/SKILL.md` |
-| `/reset-git-history` | Git 履歴リセット | `.claude/skills/dev/reset-git-history/SKILL.md` |
-| `/allow-tool` | ツール許可を settings.local.json に追加 | `.claude/skills/dev/allow-tool/SKILL.md` |
 | `/sync-r2-images` | R2 上の画像をローカルに同期（npm run dev で画像が見えないとき） | `.claude/skills/dev/sync-r2-images/SKILL.md` |
 | `/diff-r2` | ローカル `.local/r2/posts/` と R2 バケットの双方向差分を検出（only-local/only-remote/size-mismatch） | `.claude/skills/dev/diff-r2/SKILL.md` |
-| `/generate-ogp` | OGP 画像の一括生成・個別生成（satori + resvg-js） | `.claude/skills/dev/generate-ogp/SKILL.md` |
 | `/code-review` | Next.js コード品質レビュー（セキュリティ・パフォーマンス・保守性・a11y） | `.claude/skills/dev/code-review/SKILL.md` |
 | `/simplify` | 変更 diff を再利用/品質/効率の3観点で点検し、ユーザ承認後に最小差分で修正→lint→/pr-create までのチェーン | `.claude/skills/dev/simplify/SKILL.md` |
 | `/pr-create` | 現ブランチから GitHub PR を作成（title/body 自動生成、HEREDOC body、Co-Authored-By 付与、git add 明示指定） | `.claude/skills/dev/pr-create/SKILL.md` |
@@ -66,18 +62,17 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 
 **テンプレート管理**: `.claude/skills/content/templates/exam-guide/` （新資格追加時は設定ファイル追加のみ）
 
-### 試験問題集インポート（複数資格対応予定）
+### 試験問題集インポート（Phase C でテンプレ駆動化予定）
 
-| スキル | 用途 | 対応試験 | 汎用化 | 定義 |
-|---|---|---|---|---|
-| `/exam-questions-import` | 試験第1次問題集 PDF→MDX 変換 | civil-construction-1 | Phase 2 で汎用化検討 | `.claude/skills/content/exam-questions-import/SKILL.md` |
-| `/exam-questions-2-import` | 試験第2次問題集 PDF→MDX 変換 | civil-construction-1 | Phase 2 で汎用化検討 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
+| スキル | 用途 | 対応試験 | 定義 |
+|---|---|---|---|
+| `/exam-questions-import` | 試験第1次問題集 PDF→MDX 変換 | civil-construction-1 | `.claude/skills/content/exam-questions-import/SKILL.md` |
+| `/exam-questions-2-import` | 試験第2次問題集 PDF→MDX 変換 | civil-construction-1 | `.claude/skills/content/exam-questions-2-import/SKILL.md` |
 
 ### 汎用的なコンテンツ作成スキル
 
 | スキル | 用途 | 定義 |
 |---|---|---|
-| `/audit-staging` | Obsidian ステージングの公開準備度監査 | `.claude/skills/content/audit-staging/SKILL.md` |
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/content/promote-to-site/SKILL.md` |
 | `/pdf-to-mdx` | PDF/画像からテキスト抽出→MDX 変換 | `.claude/skills/content/pdf-to-mdx/SKILL.md` |
 | `/clean-pdf-artifacts` | PDF 変換残骸の自動検出・除去 | `.claude/skills/content/clean-pdf-artifacts/SKILL.md` |
@@ -86,7 +81,6 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/verify-exam-coverage` | キーワードページが過去問論点をカバーできているか検証し、未カバー論点と補強方針を提示（Evaluator+Generator） | `.claude/skills/content/verify-exam-coverage/SKILL.md` |
 | `/qa-pdf-mdx` | PDF→MDX 変換の品質検証・修正（PDF 照合＋修正の2段階） | `.claude/skills/content/qa-pdf-mdx/SKILL.md` |
 | `/verify-pdf-mdx` | MDX の category/group を判定し、視覚検証・テキスト網羅率・5軸ルーブリック評価を適切な Evaluator エージェント（civil-construction-qa / cem-qa / content-qa）へルーティング | `.claude/skills/content/verify-pdf-mdx/SKILL.md` |
-| `/add-exam-answers` | 択一式過去問 MDX の未解答設問に正答 PDF 準拠の解答・解説を追加 | `.claude/skills/content/add-exam-answers/SKILL.md` |
 | `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/content/keyword-page/SKILL.md` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成・品質改善 | `.claude/skills/content/exam-backlinks/SKILL.md` |
 | `/review-mobile` | モバイル視認性・可読性レビュー（表の適切性・数式・簡潔性） | `.claude/skills/content/review-mobile/SKILL.md` |
@@ -96,17 +90,15 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 | `/audit-exam-explanations` | 過去問 MDX の破損解説（文頭欠落・ExamPoint summary 欠落）を正規表現で検出し JSON 出力する Evaluator。修正は行わない | `.claude/skills/content/audit-exam-explanations/SKILL.md` |
 | `/audit-svg` | SVG の品質問題（文字クリップ・必須属性欠落・viewBox 超過・font-size 過小・テキスト重なり）を静的解析で検出する Evaluator。修正は行わない | `.claude/skills/content/audit-svg/SKILL.md` |
 | `/exam-keyword-cycle` | 過去問 1 問を起点に関連キーワード群を横断校正し、視点タグ（網羅性/正確性/わかりやすさ/試験適合/関連付け）付きの 1 PR にまとめる Orchestrator。.claude/state/exam-keyword-cycles/logs/ にログ蓄積 | `.claude/skills/content/exam-keyword-cycle/SKILL.md` |
-| `/note-desumasu` | `docs/note-drafts/` 配下の note 下書きを だ・である調 から ですます調 へ変換（note 媒体の親しみやすさに特化） | `.claude/skills/content/note-desumasu/SKILL.md` |
 | `/check-frontmatter` | MDX frontmatter の構造（zod）と内容（独自ルール）を検証し HIGH/MEDIUM/LOW でレポート | `.claude/skills/content/check-frontmatter/SKILL.md` |
 | `/check-legal-citations` | MDX 本文中の法令条文が e-Gov 法令検索へのインラインリンクになっているか検査・一斉修正 | `.claude/skills/content/check-legal-citations/SKILL.md` |
 | `/check-related-keyword-inline` | キーワードページ末尾の「関連キーワード: [A]、[B]」列挙パターンを検出、インラインリンク移行を支援 | `.claude/skills/content/check-related-keyword-inline/SKILL.md` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ 1 ページ統合（7 フェーズ・redirects 込み） | `.claude/skills/content/consolidate-duplicate-keyword/SKILL.md` |
-| `/fix-design-manual-figures` | 設計便覧 MDX の図品質問題（テキスト映り込み・出典欠落）を検出・修正 | `.claude/skills/content/fix-design-manual-figures/SKILL.md` |
 | `/ogp-create` | カテゴリ別テンプレートで OGP 画像を生成（セーフティゾーン対応・日本語改行戦略） | `.claude/skills/content/ogp-create/SKILL.md` |
 | `/quality-cycle` | キーワードページの品質サイクル（スコア → リライト → 検証 → 人間レビュー）を統合 | `.claude/skills/content/quality-cycle/SKILL.md` |
 | `/civil-textbook-cycle` | 1級土木 textbook/guide の品質サイクル（評価 → リライト → 再評価 → 人間レビュー）を統合。40件前提で CEM 版から screen/flagship を省略した4モード＋report 構成 | `.claude/skills/content/civil-textbook-cycle/SKILL.md` |
 
-### PDF→MDX 試験特化スキル
+### PDF→MDX 試験特化スキル（Phase C でテンプレ駆動化予定）
 
 | スキル | 用途 | 定義 |
 |---|---|---|
@@ -117,17 +109,13 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 
 | スキル | 用途 | 定義 |
 |---|---|---|
-| `/design-review` | デザインシステム準拠レビュー（7カテゴリ・重大度判定） | `.claude/skills/ui/design-review/SKILL.md` |
-| `/related-articles` | 関連記事カード自動生成の設計リファレンス（アルゴリズム・スタイリング・拡張方針） | `.claude/skills/ui/related-articles/SKILL.md` |
-| `/aidesigner-frontend` | AIDesigner MCP + CLI で UI / ランディング / ダッシュボード / マーケティングページを生成・再設計 | `.claude/skills/aidesigner-frontend/SKILL.md` |
+| `/design-review` | デザインシステム準拠レビュー（7カテゴリ・重大度判定）＋ `--visual` で Playwright 視覚検証（light/dark × desktop/mobile、旧 `ui-visual-qa` エージェント統合） | `.claude/skills/ui/design-review/SKILL.md` |
 
-## marketing — マーケティング
+## social — SNS 投稿
 
 | スキル | 用途 | 定義 |
 |---|---|---|
-| `/x-post` | X（旧 Twitter）投稿テキスト生成（過去問・キーワードからサイト誘導） | `.claude/skills/marketing/x-post/SKILL.md` |
-| `/note-post` | note.com 記事ドラフト生成（過去問分析・ガイド・キーワードまとめ） | `.claude/skills/marketing/note-post/SKILL.md` |
-| `/find-x-accounts` | X でトピック別発信アカウント調査（Playwright 半自動・要手動ログイン） | `.claude/skills/marketing/find-x-accounts/SKILL.md` |
+| `/social-post` | note / X 投稿テキスト生成の統合スキル。`note {analysis\|guide\|keywords\|desumasu}` / `x {question\|keyword}` のタイプ別。旧 `/note-post` `/x-post` `/note-desumasu` を一本化 | `.claude/skills/social/social-post/SKILL.md` |
 
 ## strategy — 競合調査・市場分析（Phase 2で復活）
 
@@ -170,11 +158,43 @@ Phase 2（note 記事展開・iOS アプリ開発）時に以下を復活:
 1. `templates/exam-guide/{exam-id}.md` を新規作成（テンプレートのコピー＋設定入力）
 2. スキル側は変更なし
 
-**退役済み**:
-- `/pe-exam-guide`（2026-04-15 削除）: 試験別個別スキルの廃止方針に従い `/exam-guide --exam pe` に統合
-
 **メリット**: スキル数削減。ハーネス設計原則4「スキルを増やすより既存スキルのパラメータ化を優先」に完全準拠。
+
+### Phase C（2026-Q2 計画中・`.claude/` 最適化 Phase C）: PDF→MDX / MDX 検査のテンプレ駆動化
+
+- `/pdf-to-mdx --exam {general|cem|civil-construction-1}` で 4 スキル統合予定
+- `/check-mdx --rules {syntax|frontmatter|links|svg|...}` で 8 スキル統合予定
+- `/quality-cycle --profile {cem|civil-textbook}` で 2 スキル統合予定
 
 ### Phase 3（2027年以降）: 医師・弁護士など他分野対応
 
 同じテンプレート駆動アプローチで、医療系・法律系資格にも対応可能。スキル追加ゼロ。
+
+---
+
+## 退役記録
+
+削除したスキルの最小ログ。代替コマンドがある場合は明記。
+
+| 退役日 | スキル | カテゴリ | 理由 | 代替 |
+|---|---|---|---|---|
+| 2026-04-15 | `/pe-exam-guide` | content | 試験別個別スキル廃止 | `/exam-guide --exam pe` |
+| 2026-04-23 | `/allow-tool` | dev | ワンライナー指示で十分、スキル化不要 | ユーザー直接指示「この Bash パターンを `.claude/settings.local.json` に追加して」 |
+| 2026-04-23 | `/reset-git-history` | dev | 年 1 回未満の緊急用途、スキル化不要 | `docs/project/` のランブック移譲予定 |
+| 2026-04-23 | `/find-x-accounts` | marketing | 参照 2 回・実運用なし。Playwright 半自動で重い設計 | Playwright MCP 直接指示 or ChatGPT 等で手動調査 |
+| 2026-04-23 | `/related-articles` | ui | スキルではなく UI 設計リファレンス | `docs/ui/related-articles.md` に移動 |
+| 2026-04-23 | `/seo-audit` | analytics | Phase 2 復活待ちだったが、より具体的な機能に分解 | Phase C の `/check-mdx --rules seo` + `/fetch-gsc-data` 連携へ統合予定 |
+| 2026-04-23 | `/add-exam-answers` | content | Phase C で `/exam-questions-import --mode add-answers` に統合予定 | （Phase C で復活、暫定で直接 Claude 指示） |
+| 2026-04-23 | `/fix-design-manual-figures` | content | 設計便覧専用、`/improve-article` の category 分岐に吸収予定 | （Phase C で復活、暫定で直接 Claude 指示） |
+| 2026-04-23 | `/note-desumasu` | content | 新 `/social-post note desumasu` に吸収 | `/social-post note desumasu {path}` |
+| 2026-04-23 | `/x-post` | marketing | 新 `/social-post` に統合 | `/social-post x {question\|keyword} ...` |
+| 2026-04-23 | `/note-post` | marketing | 新 `/social-post` に統合 | `/social-post note {analysis\|guide\|keywords} ...` |
+| 2026-04-23 | `/aidesigner-frontend` | — (カテゴリ外) | 参照 2 回・実運用なし | （UI 生成は直接 Claude 指示または AIDesigner MCP 直接） |
+
+エージェントの退役も同時に記録。
+
+| 退役日 | エージェント | 役割 | 代替 |
+|---|---|---|---|
+| 2026-04-23 | `aidesigner-frontend` | AIDesigner 連携 | （同上） |
+| 2026-04-23 | `ui-visual-qa` | UI 視覚 Evaluator | `/design-review --visual` （旧エージェント機能を design-review スキルに統合） |
+| 2026-04-23 | `cem-advisor` | CEM 試験対策 Generator（placeholder） | Generator は `keyword-rewriter`、Evaluator は `cem-qa`。orchestration は `strategy-advisor` |

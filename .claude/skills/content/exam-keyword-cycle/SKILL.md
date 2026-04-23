@@ -381,7 +381,7 @@ PR 作成後、`index.json` と `progress.json` の `pr` フィールドに PR �
 サイクル中に以下のような**重大な問題**を発見した場合、PR とは別に Issue を起こす:
 
 - 過去問 MDX 自体に OCR エラーがある（設問文・選択肢の破損）
-- 過去問の解答表（`/add-exam-answers`）の反映漏れ
+- 過去問の解答表の反映漏れ（Phase C の `/exam-questions-import --mode add-answers` 予定、暫定で直接 Claude 指示）
 - キーワードページが存在すべきなのにない
 
 Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同パターン）

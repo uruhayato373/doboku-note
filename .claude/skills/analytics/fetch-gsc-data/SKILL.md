@@ -94,4 +94,4 @@ JSONファイルを Read ツールで読み込み、以下の観点で分析す�
 
 - `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — 実装
 - `CLAUDE.md` — プロジェクト概要
-- `/seo-audit` — SEO監査スキル（GSCデータと組み合わせて使用）
+- `seo-auditor` エージェント — GSC データを使って SEO 監査を実施
