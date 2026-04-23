@@ -344,11 +344,21 @@
           "product-liability",
           "consumer-product-safety-act"
         ]
+      },
+      "1-31": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-health-education",
+          "safety-health-org-structure"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-30"
+    "question": "1-31"
   }
 }
