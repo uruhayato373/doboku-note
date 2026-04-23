@@ -1050,11 +1050,23 @@
           "lgbtq",
           "unconscious-bias"
         ]
+      },
+      "1-13": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "job-rotation",
+          "job-based-pay",
+          "skill-based-pay",
+          "career-path",
+          "multi-track-hr-system"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-12"
+    "question": "1-13"
   }
 }
