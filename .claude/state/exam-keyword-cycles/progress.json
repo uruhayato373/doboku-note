@@ -94,11 +94,21 @@
           "supply-chain-management",
           "jit-production"
         ]
+      },
+      "1-7": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "agile",
+          "waterfall",
+          "pmbok"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-6"
+    "question": "1-7"
   }
 }
