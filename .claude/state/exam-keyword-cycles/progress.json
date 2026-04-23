@@ -645,11 +645,22 @@
           "logistic-regression",
           "linear-regression"
         ]
+      },
+      "1-18": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "personal-info-protection",
+          "anonymized-information",
+          "personal-information",
+          "data-breach-response"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-17"
+    "question": "1-18"
   }
 }
