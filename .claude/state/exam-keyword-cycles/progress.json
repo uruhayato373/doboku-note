@@ -994,11 +994,23 @@
           "income-statement",
           "ifrs"
         ]
+      },
+      "1-8": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "preventive-maintenance",
+          "improvement-maintenance",
+          "maintenance-prevention",
+          "predictive-maintenance",
+          "corrective-maintenance"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-7"
+    "question": "1-8"
   }
 }
