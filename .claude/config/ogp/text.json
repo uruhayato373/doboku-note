@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "description": "OGP タイトルの改行戦略・フォントサイズ・セーフティゾーン設定。.claude/skills/content/ogp-create/scripts/lib/ogp-text.mjs が消費する。カテゴリ/ルール変更時はここだけ触れば追従できる。",
+  "description": "OGP タイトルの改行戦略・フォントサイズ・セーフティゾーン設定。.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs が消費する。カテゴリ/ルール変更時はここだけ触れば追従できる。",
   "safetyWidth": 560,
   "safetyHeightForTitle": 380,
   "maxLines": 3,

@@ -28,10 +28,11 @@ SEO 監視・アナリティクスデータ収集・パフォーマンス監査�
 
 | スキル | 用途 |
 |---|---|
-| `/seo-audit` | SEO 総合監査（GSC/GA4 + サイト構造 → アクションリスト） |
 | `/fetch-gsc-data` | Google Search Console データ取得 |
 | `/fetch-ga4-data` | Google Analytics 4 データ取得 |
 | `/keyword-gap` | キーワードギャップ分析（strategy-advisor と共同） |
+
+**退役**: `/seo-audit`（2026-04-23）— より具体的な機能に分解。Phase C で `/check-mdx --rules seo` + `/fetch-gsc-data` 連携に統合予定。
 
 ## 担当外
 
@@ -93,7 +94,7 @@ const searchconsole = google.searchconsole({ version: 'v1', auth });
 
 ## 推奨実行頻度
 
-- **月次**: `/seo-audit`（フルレポート）
+- **月次**: GSC データ + 手動分析でフルレポート作成（Phase C 以降は `/check-mdx --rules seo` + `/fetch-gsc-data` を組み合わせて自動化予定）
 - **隔週**: `/fetch-gsc-data` + `/keyword-gap`（定点観測）
 - **週次**: `/fetch-ga4-data`（トラフィック確認、`/weekly-plan` への入力）
 

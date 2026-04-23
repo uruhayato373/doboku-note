@@ -19,7 +19,7 @@ model: sonnet
 類似エージェントとの差別化:
 
 - `content-qa`: PDF→MDX 変換結果の評価（スコープ: 過去問MDX、基準書MDX）
-- `cem-advisor`: CEM コンテンツの生成・試験情報更新・学習計画策定（Generator）
+- `keyword-rewriter`: CEM キーワードページのバルクリライト（Generator）
 - `cem-qa`（このエージェント）: CEM **キーワードページ** の品質評価のみ（Evaluator）
 
 ## 担当スキル
@@ -28,8 +28,8 @@ model: sonnet
 |---|---|---|
 | `node .claude/scripts/lint-mdx-mobile.mjs` | カテゴリ1（表）・6（導入文）・8（リンク）・**9（コンポーネント原則）** の機械チェック | 評価時 |
 | `/review-mobile` | 上記リンターのスキルラッパー | 評価時 |
-| `/check-mdx` | MDX 構文チェック（ビルドエラー予防） | 評価時 |
-| `/check-links` | 参考資料リンクの存在確認（HTTP HEAD） | 評価時 |
+| `/check-mdx --rules syntax` | MDX 構文チェック（ビルドエラー予防） | 評価時 |
+| `/check-mdx --rules links` | 参考資料リンクの存在確認（HTTP HEAD） | 評価時 |
 | `/exam-backlinks` | 過去問⇔キーワードの紐付け確認（片方向） | 評価時 |
 
 ## 品質ルーブリック
@@ -79,7 +79,7 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
    → モバイル軸（カテゴリ1・6・8）と コンテンツ原則軸（カテゴリ9-1〜9-6）のスコア根拠を取得
    → 9-1/9-3/9-5/9-6 が出たら原則軸を1点以下に強制
 
-2. /check-mdx <file>
+2. /check-mdx <file> --rules syntax
    → MDX 互換性の根拠を取得（構造軸に反映）
 
 3. ファイル本文を Read
@@ -92,7 +92,7 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 4. frontmatter の section と本文の「総合技術監理における位置づけ」節を照合
    → 関連付け軸のスコア
 
-5. 参考資料リンクを WebFetch または /check-links で存在確認
+5. 参考資料リンクを WebFetch または /check-mdx --rules links で存在確認
    → 参考資料軸のスコア
 
 6. 5軸ルーブリックで採点 → 加重合計 → 合否判定
@@ -122,7 +122,6 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 - **キーワードページの作成・修正** — `/keyword-page` スキル or 人間が担当（Generator と Evaluator の分離）
 - **過去問ページ・論文ページの評価** — スコープ外（別途 `content-qa` が PDF→MDX 変換に限定で担当）
 - **PDF→MDX 変換の品質評価** — `content-qa` が担当
-- **試験情報の更新・学習計画策定** — `cem-advisor` が担当
 - **SEO 最適化・検索インデックス** — `seo-auditor` が担当
 
 ## 連携パターン
@@ -158,8 +157,8 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 
 ## 参照ドキュメント
 
-- `.claude/skills/content/keyword-page/SKILL.md` — Generator 側のルール（テンプレート、文体、モバイル視認性）
-- `.claude/skills/content/review-mobile/SKILL.md` — モバイル視認性の詳細ルール
+- `.claude/skills/authoring/keyword-page/SKILL.md` — Generator 側のルール（テンプレート、文体、モバイル視認性）
+- `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性の詳細ルール
 - `.claude/content-principles.md` — ペルソナ定義・コンテンツ原則
 - `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー
 - `src/config/pe-chapters.json` — キーワード集の章・節構造

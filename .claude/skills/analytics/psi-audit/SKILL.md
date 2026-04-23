@@ -126,4 +126,4 @@ High
 - `.github/workflows/psi-audit.yml` — 日次自動計測
 - `.claude/config/psi-config.json` — 設定の真実源
 - `.claude/config/psi-urls.txt` — 計測対象 URL リスト
-- `/seo-audit` — 静的 SEO 監査（PSI とは独立して実行）
+- `seo-auditor` エージェント — 静的 SEO 監査（PSI とは独立して実行）

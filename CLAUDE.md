@@ -75,8 +75,16 @@ src/                                # カスタムコンポーネント・CSS・
 docs/project/                       # プロジェクト管理ドキュメント
 docs/textbook/                      # 教材PDF・変換済みMarkdown（試験種別ごと）
 .claude/reference/                  # 作業マニュアル（詳細・一覧・手順）
-.claude/skills/                     # スキル定義
-.claude/agents/                     # サブエージェント定義
+.claude/skills/                     # スキル定義（42 スキル、8 カテゴリ）
+  authoring/                        #   記事を作る（6）
+  conversion/                       #   外部形式から MDX への変換（3）
+  quality/                          #   MDX 品質検査・改善サイクル（7）
+  management/                       #   計画・分析・戦略（11）
+  dev/                              #   開発・CI/CD（11）
+  analytics/                        #   サイト分析（2）
+  social/                           #   SNS 投稿（1）
+  ui/                               #   UI/UX デザイン（1）
+.claude/agents/                     # サブエージェント定義（11）
 .github/workflows/                  # CI/CD
 ```
 
@@ -180,7 +188,7 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
   | `positive` / `warn` / `danger` | `bg-positive-fill text-positive` 等 | `#3a7d44`/`#d4a017`/`#b22234` + fill |
   - 真実源は `src/styles/globals.css` の `--color-*` CSS 変数。SVG は `<img src>` で配信されるため CSS 変数は効かず、リテラル hex を書いてコメントでトークン名を併記する（例: `<rect fill="#e8f0fe" />  <!-- brand-fill -->`）
   - 既存の `primary-*` / `accent-*` / `neutral-*` は互換性のため残すが、**新規コードでは使わない**
-  - SVG 作成の詳細ルールは [.claude/skills/content/create-svg/SKILL.md](.claude/skills/content/create-svg/SKILL.md)、デザイン原則は [.claude/design-system/principles.md](.claude/design-system/principles.md) 参照
+  - SVG 作成の詳細ルールは [.claude/skills/authoring/create-svg/SKILL.md](.claude/skills/authoring/create-svg/SKILL.md)、デザイン原則は [.claude/design-system/principles.md](.claude/design-system/principles.md) 参照
 
 ## 一時ファイルの置き場所
 
@@ -351,7 +359,6 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 
 | エージェント | model | 種別 |
 |---|---|---|
-| cem-advisor | sonnet | Generator |
 | cem-qa | sonnet | Evaluator |
 | civil-construction-qa | sonnet | Evaluator |
 | civil-construction-review | inherit | Evaluator |
@@ -362,11 +369,14 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 | metrics-analyzer | sonnet | Evaluator |
 | performance-auditor | sonnet | Evaluator |
 | seo-auditor | sonnet | Evaluator |
-| ui-visual-qa | sonnet | Evaluator |
-| aidesigner-frontend | sonnet | Generator |
 | strategy-advisor | inherit | Orchestrator |
 
 エージェント詳細（担当範囲・連携パターン・Phase 対応）は [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) を参照。
+
+**2026-04-23 Phase A で退役**:
+- `cem-advisor`（placeholder・未実装スキル）→ Generator は `keyword-rewriter`、Evaluator は `cem-qa`、orchestration は `strategy-advisor`
+- `ui-visual-qa` → `/design-review --visual` スキルに統合（視覚回帰をスキル層で完結）
+- `aidesigner-frontend` → 直接 Claude 指示 or AIDesigner MCP 直接
 
 ## コンテンツ編集時のコミット運用
 

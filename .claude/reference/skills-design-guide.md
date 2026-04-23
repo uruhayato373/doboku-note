@@ -28,7 +28,7 @@ description: >
 
 - **kebab-case のみ** — `my-skill` ✓ / `my_skill` ✗ / `MySkill` ✗ / `My Skill` ✗
 - **スペース・大文字・アンダースコア禁止**
-- **ディレクトリ名と完全一致**（例: `.claude/skills/content/check-mdx/` → `name: check-mdx`）
+- **ディレクトリ名と完全一致**（例: `.claude/skills/quality/check-mdx/` → `name: check-mdx`）
 - `claude` または `anthropic` を含む名前は禁止（予約語）
 
 ### description フィールド（Critical）
@@ -36,7 +36,7 @@ description: >
 - **最大 1024 文字**
 - **必須の 2 要素**: 「何をするか（WHAT）」と「いつ使うか（WHEN）」
 - **トリガーフレーズを具体的に含める**: ユーザーが実際に口にしそうな言葉を複数記載
-  - ✓ `Use when user asks to [SEO 監査, SEO チェック, サイト監査, /seo-audit]`
+  - ✓ `Use when user asks to [MDX 検査, lint MDX, 構文チェック, /check-mdx]`
   - ✗ `Helps with SEO.`（抽象的すぎる・トリガー無し）
 - **必要ならファイル種別を明記**: `PDF ファイルを受け取る`、`MDX を編集する`、等
 - **曖昧な表現を避ける**: `Helps with...` ✗ / `Implements...` ✗ / `Creates sophisticated multi-page...` ✗

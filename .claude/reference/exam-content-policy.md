@@ -2,7 +2,7 @@
 
 doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / どこまで / どの粒度で書くか**」が異なる。デザインの一貫性は保ちつつ、コンテンツ密度・忠実性・出題反映度は試験ごとに方針を変える。
 
-**いつ読むか**: PDF→MDX 変換時（`/civil-construction-1-pdf-to-mdx`, `/cem-pdf-to-mdx`, `/pdf-to-mdx`）、品質レビュー時（`/verify-pdf-mdx`, `/review`）、新資格追加時。
+**いつ読むか**: PDF→MDX 変換時（`/pdf-to-mdx --exam civil-construction-1`, `/pdf-to-mdx --exam cem`, `/pdf-to-mdx`）、品質レビュー時（`/improve-article --mode verify`, `/review`）、新資格追加時。
 
 このファイルは **執筆フェーズ（Generator 側）** と **レビューフェーズ（Evaluator 側）** の両方の判断基準を統合している。
 
@@ -20,7 +20,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 | **典型的な長さ** | 5,000-15,000字 | 2,000-5,000字 | 800-2,500字 | 3,000-8,000字 |
 | **図の標準量** | 多数（断面・配筋・施工写真） | 少数（重要箇所のみ） | ほぼゼロ（テキスト中心） | 原本準拠（あれば） |
 | **数式** | 頻出（W/C 比・配合・力学） | 限定的 | 少ない | 問題文に応じて |
-| **Generator スキル** | `/civil-construction-1-pdf-to-mdx` | 手動編集 | `/keyword-page` | `/pdf-to-mdx` `/cem-pdf-to-mdx` |
+| **Generator スキル** | `/pdf-to-mdx --exam civil-construction-1` | 手動編集 | `/keyword-page` | `/pdf-to-mdx` `/pdf-to-mdx --exam cem` |
 | **Evaluator エージェント** | `civil-construction-qa` (textbook mode) | `civil-construction-qa` (guide mode) | `cem-qa` | `content-qa` |
 
 ### 試験別の判断ガイド
@@ -31,7 +31,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **網羅率**: PDF の章節見出しを **95% 以上** カバーすること（切り捨てしない）
 - **図**: PDF にある図はすべて取り込む。300dpi 以上、natural ≥ display を維持
 - **数式・規格表**: 教科書通りに正確に転記。KaTeX で記述
-- **執筆ツール**: `/civil-construction-1-pdf-to-mdx` を使い、Phase 5 で `/verify-pdf-mdx` を必ず実行
+- **執筆ツール**: `/pdf-to-mdx --exam civil-construction-1` を使い、Phase 5 で `/improve-article --mode verify` を必ず実行
 
 #### 1級土木 guide（`group: guide`）
 
@@ -54,7 +54,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **整備の目標**: 公開済み過去問を逐条解説する
 - **網羅率**: 設問単位で 100%（漏らさない）
 - **構造**: 設問ごとに H2、解答・解説は `<details>` で開閉式。`<RelatedKeywords>` で関連キーワードへ
-- **執筆ツール**: `/pdf-to-mdx` `/cem-pdf-to-mdx` `/civil-construction-1-pdf-to-mdx`
+- **執筆ツール**: `/pdf-to-mdx` `/pdf-to-mdx --exam cem` `/pdf-to-mdx --exam civil-construction-1`
 
 ---
 
@@ -75,7 +75,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 | **過去問バックリンク** | 双方向必須 | 不要 | **過去問への誘導が重要** |
 | **モバイル視認性** | review-mobile 厳格 | 図のレスポンシブが課題 | review-mobile 適用 |
 
-**判定方法**: `/verify-pdf-mdx` スキルが MDX の `category` と `group` から自動判定し、適切な Evaluator エージェントへ振り分ける（cem-qa / civil-construction-qa / content-qa）。詳細は各エージェント定義 `.claude/agents/*.md` を参照。
+**判定方法**: `/improve-article --mode verify` スキルが MDX の `category` と `group` から自動判定し、適切な Evaluator エージェントへ振り分ける（cem-qa / civil-construction-qa / content-qa）。詳細は各エージェント定義 `.claude/agents/*.md` を参照。
 
 ---
 
@@ -104,7 +104,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 2. Part 2 の「コンテンツ別レビュー視点」表にも対応する列を追加
 3. 必要なら `{exam-id}-pdf-to-mdx`（Generator スキル）と `{exam-id}-qa`（Evaluator エージェント）を新設
 4. `/review` のディスパッチ表（`.claude/skills/dev/review/SKILL.md`）に行を追加
-5. `/verify-pdf-mdx` のルートテーブル（`.claude/skills/content/verify-pdf-mdx/SKILL.md`）に行を追加
+5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/authoring/improve-article --mode verify/SKILL.md`）に行を追加
 6. このファイル（exam-content-policy.md）と `agents-registry.md` を更新
 
 ---
