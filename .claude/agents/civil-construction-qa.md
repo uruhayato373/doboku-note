@@ -14,7 +14,7 @@ model: sonnet
 
 > Generator と Evaluator を分離する — 自己評価バイアスは構造で解決する
 
-PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-to-mdx`）が自ら品質を評価すると、自分の出力を「良い」と判断するバイアスが生じる。本エージェントは生成・修正には一切関与せず、**完成物の品質評価のみ** を行う。
+PDF 教科書から MDX を生成した Generator（`/pdf-to-mdx --exam civil-construction-1`）が自ら品質を評価すると、自分の出力を「良い」と判断するバイアスが生じる。本エージェントは生成・修正には一切関与せず、**完成物の品質評価のみ** を行う。
 
 類似エージェントとの差別化:
 
@@ -77,7 +77,7 @@ PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-t
 
 | スキル | 役割 | タイミング |
 |---|---|---|
-| `node .claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs <mdx>` | 決定論的な前処理（frontmatter, img, 網羅率を JSON 出力）| 評価開始時 |
+| `node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs <mdx>` | 決定論的な前処理（frontmatter, img, 網羅率を JSON 出力）| 評価開始時 |
 | `mcp__playwright__browser_navigate` | dev server のページに遷移 | Step 5 |
 | `mcp__playwright__browser_take_screenshot` | Desktop / Mobile スクショ取得 | Step 5 |
 | `node .claude/scripts/lint-mdx-mobile.mjs <mdx>` | モバイル視認性の機械チェック | guide モードのみ |
@@ -105,9 +105,9 @@ PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-t
 
 ### Step 2: PDF 原本特定
 
-`.claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs` 側で slug/title から PDF を自動発見する。エージェント側では原則何もしない。
+`.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` 側で slug/title から PDF を自動発見する。エージェント側では原則何もしない。
 
-- 自動発見のソース: `.claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` テーブル + title 日本語キーワード glob
+- 自動発見のソース: `.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` の `SLUG_PDF_HINTS` テーブル + title 日本語キーワード glob
 - 曖昧 or 失敗時: JSON の `pdf.error` と `pdf.hint_candidates` を見て、ユーザに `--pdf` 明示指定を案内
 - 代表的な対応（参考、実際のファイル名は 2026-04-14 時点）:
   - `concrete-key-points` → `テキスト（土木一般編）/第３章_コンクリート工.pdf`
@@ -118,7 +118,7 @@ PDF 教科書から MDX を生成した Generator（`/civil-construction-1-pdf-t
 ### Step 3: 決定論的前処理スクリプトの実行
 
 ```bash
-node .claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs <mdx-path> --pdf <pdf-path>
+node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs <mdx-path> --pdf <pdf-path>
 ```
 
 JSON 出力をパースして、以下を取得:
@@ -247,7 +247,7 @@ dev server: http://localhost:3020 ✓
 - **修正の実行** ── Evaluator 専任。検出した問題を指摘するだけで、MDX や画像には手を加えない
 - **総監ページの評価** ── `cem-qa` の担当
 - **過去問ページの評価** ── `content-qa` の担当
-- **PDF→MDX 変換そのもの** ── `civil-construction-1-pdf-to-mdx`（Generator）の担当
+- **PDF→MDX 変換そのもの** ── `/pdf-to-mdx --exam civil-construction-1`（Generator）の担当
 - **SVG 復元の実行** ── Phase 2 の別スキル `/reconstruct-figure`（未実装）
 - **R2 へのアップロード** ── `.claude/scripts/upload-images-to-r2.mjs`
 
@@ -256,7 +256,7 @@ dev server: http://localhost:3020 ✓
 ### 新規 textbook 作成フロー
 
 ```
-[Generator] /civil-construction-1-pdf-to-mdx
+[Generator] /pdf-to-mdx --exam civil-construction-1
     → MDX 生成 + 画像抽出
     → civil-construction-qa（評価）
         ├─ 合格 → 完了
@@ -266,7 +266,7 @@ dev server: http://localhost:3020 ✓
 ### 既存ページ監査フロー
 
 ```
-[人間] /verify-pdf-mdx <mdx-path>
+[人間] /improve-article <mdx-path> --mode verify
     → ルーターが civil-construction-qa を呼ぶ
     → 5軸スコア + 指摘リスト返却
     → 必要に応じて手動修正 or Generator に再変換依頼
@@ -276,7 +276,7 @@ dev server: http://localhost:3020 ✓
 
 ```
 [人間] /review .local/r2/posts/civil-construction-1/textbook/.../article.mdx
-    → /review-mobile → /check-mdx --rules syntax → /verify-pdf-mdx
+    → /review-mobile → /check-mdx --rules syntax → /improve-article --mode verify
     → civil-construction-qa が最終評価
 ```
 
@@ -296,9 +296,9 @@ dev server: http://localhost:3020 ✓
 
 ## 参照ドキュメント
 
-- `.claude/skills/content/civil-construction-1-pdf-to-mdx/SKILL.md` ── Generator 側のルール
-- `.claude/skills/content/verify-pdf-mdx/SKILL.md` ── 本エージェントを呼び出すスキル
+- `.claude/skills/content/pdf-to-mdx --exam civil-construction-1/SKILL.md` ── Generator 側のルール
+- `.claude/skills/content/improve-article/SKILL.md (--mode verify)` ── 本エージェントを呼び出すスキル
 - `.claude/skills/content/review-mobile/SKILL.md` ── モバイル視認性の詳細ルール（guide モードで使用）
 - `.claude/skills/quality/check-mdx/SKILL.md` ── MDX 検査統合スキル（`--rules syntax` で構文チェック）
-- `.claude/skills/content/verify-pdf-mdx/scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
+- `.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs` ── 決定論的前処理スクリプト
 - `.claude/reference/exam-content-policy.md` ── 試験別コンテンツ整備方針＋コンテンツ別レビュー視点

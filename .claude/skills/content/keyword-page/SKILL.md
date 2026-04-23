@@ -223,5 +223,5 @@ publishedAt: "{YYYY-MM-DD}"
 - `.claude/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
 - `.claude/reference/content-authoring.md` — MDX 作成詳細ルール、MDXコンポーネント一覧
 - `src/config/pe-chapters.json` — 章・節構造
-- `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` — 過去問MDXの構造ルール（RelatedKeywords の仕様）
+- `.claude/skills/content/pdf-to-mdx --exam cem/SKILL.md` — 過去問MDXの構造ルール（RelatedKeywords の仕様）
 - `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（`--rules syntax` で作成後に実行推奨）

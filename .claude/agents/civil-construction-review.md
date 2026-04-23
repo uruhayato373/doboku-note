@@ -264,7 +264,7 @@ Mode: textbook | guide
 ### 変換直後フロー（`civil-construction-qa` 合格後）
 
 ```
-/civil-construction-1-pdf-to-mdx → MDX 生成
+/pdf-to-mdx --exam civil-construction-1 → MDX 生成
   → civil-construction-qa（PDF 網羅率）→ 合格
   → civil-construction-review（校正）→ 合格
   → 完了

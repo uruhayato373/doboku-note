@@ -3,8 +3,8 @@ name: improve-article
 description: >
   単一記事の品質を対話的に継続改善するオーケストレータ。QA エージェントの 5 軸評価を走らせ、
   指摘項目ごとに修正方針を提示し、承認を得てから Edit / create-svg / 本文補強を実行して
-  合格ライン到達まで評価→修正→再評価のループを回す。
-  Use when user asks to [品質を高めて, 記事を改善, QA通して直して, /improve-article].
+  合格ライン到達まで評価→修正→再評価のループを回す。`--mode verify` で PDF 照合 QA（旧 verify-pdf-mdx / qa-pdf-mdx）も実行可能。
+  Use when user asks to [品質を高めて, 記事を改善, QA通して直して, PDF検証, MDX整合性, /improve-article, /verify-pdf-mdx, /qa-pdf-mdx].
 ---
 
 ## 用途
@@ -18,7 +18,7 @@ description: >
 | 役割 | 担当 | 性質 |
 |---|---|---|
 | **評価（5軸ルーブリック）** | `civil-construction-qa` / `cem-qa` / `content-qa` | Evaluator 専任（修正しない） |
-| **PDF→MDX 変換** | `civil-construction-1-pdf-to-mdx` / `cem-pdf-to-mdx` | Generator（初回変換） |
+| **PDF→MDX 変換** | `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}` | Generator（初回変換） |
 | **キーワードページリライト** | `keyword-rewriter` | Generator（バルク改訂） |
 | **SVG 図版作成** | `/create-svg` | Generator（図版） |
 | **バルク品質サイクル** | `/quality-cycle`（CEM 専用） | Orchestrator（700 件回す） |
@@ -29,14 +29,17 @@ Generator / Evaluator 分離原則は維持する。本スキルは「評価を�
 ## 引数
 
 ```
-/improve-article <slug-or-path> [--auto] [--max-iter N]
+/improve-article <slug-or-path> [--mode improve|verify] [--auto] [--max-iter N] [--pdf <path>] [--deep]
 ```
 
 | 引数 | 必須 | 説明 |
 |---|---|---|
 | `<slug-or-path>` | 必須 | `civil-construction-1-textbook-histogram` のような slug、`/docs/...` URL、または `.local/r2/posts/.../article.mdx` 絶対パス |
-| `--auto` | 任意 | 各修正ステップで承認を求めず一気に進む（失敗リスクを受け入れる場合のみ） |
-| `--max-iter N` | 任意 | 評価→修正ループの最大回数（既定: 3） |
+| `--mode` | 任意 | `improve`（デフォルト: 対話的品質改善ループ）/ `verify`（PDF 照合 QA、旧 `/verify-pdf-mdx` / `/qa-pdf-mdx`） |
+| `--auto` | 任意 | 各修正ステップで承認を求めず一気に進む（failure リスクを受け入れる場合のみ） |
+| `--max-iter N` | 任意 | 評価→修正ループの最大回数（既定: 3、improve mode のみ） |
+| `--pdf <path>` | 任意 | verify mode 時の PDF 原本パス（省略時は slug/title から自動発見） |
+| `--deep` | 任意 | verify mode で視覚比較を全件実行（既定は 3 件サンプル） |
 
 ## 実行フロー
 
@@ -50,7 +53,7 @@ Generator / Evaluator 分離原則は維持する。本スキルは「評価を�
 
 ### Step 1: 評価エージェントのルーティング
 
-`category` に応じて QA エージェントを呼び分ける。`/verify-pdf-mdx` 経由で routing させてもよい。
+`category` に応じて QA エージェントを呼び分ける。内部の routing で振り分け。
 
 | category | group | エージェント |
 |---|---|---|
@@ -159,12 +162,110 @@ Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象
 3. **図版の扱い**: 視覚 HIGH/MED で SVG 化候補が出たら、**原 PNG を Read で目視確認**してから SVG 化すべきかを判断する。写真は SVG 化禁止（`.claude/reference/image-policy.md`）
 4. **--auto でも破壊的操作は確認**: 画像ファイルの削除、多数ファイルの一括リネーム、他記事への影響がある変更は必ず確認
 
+## --mode verify（旧 `/verify-pdf-mdx` / `/qa-pdf-mdx` 吸収）
+
+PDF 原本と MDX を照合する QA モード。**修正ループは回さず、レポートのみ返す**。修正は別途 `--mode improve` を使う。
+
+### 実行環境
+
+- macOS only（Homebrew `poppler` 前提）
+- `pdftotext` / `pdfinfo` / `pdftoppm` が PATH にあることが必須。未導入なら `brew install poppler`
+
+### ディスパッチルール（旧 verify-pdf-mdx のルーター機能）
+
+frontmatter の `category` / `group` から呼び出す Evaluator を決定:
+
+| category | group | Evaluator | モード |
+|---|---|---|---|
+| `civil-construction-1` | `textbook` | `civil-construction-qa` | textbook（視覚検証＋網羅率 95%）|
+| `civil-construction-1` | `guide` | `civil-construction-qa` | guide（topic_rate 80%）|
+| `civil-construction-1` | `primary` / `secondary` / `past-exam` | `content-qa` | 静的 5 軸 |
+| `pe-comprehensive-management` | `keyword` | `cem-qa` | — |
+| `pe-comprehensive-management` | `past-exam` / `guide` / `r*-primary` | `content-qa` | — |
+| その他 | — | 「対応するエージェントがありません」と案内 | — |
+
+### 実行手順（verify mode）
+
+#### Step 1: 前提確認
+
+1. 入力ファイルの存在確認
+2. dev server 起動確認: `curl -s -o /dev/null -w "%{http_code}" http://localhost:3020` が `200`
+3. 起動していなければ「`/dev-start` を実行してください」と報告して中止
+4. `pdftotext -v` と `pdfinfo -v` が成功するか確認。失敗時は `brew install poppler`
+
+#### Step 2: 決定論的前処理（旧 verify-pdf-mdx scripts）
+
+```bash
+node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs <mdx-path>
+```
+
+JSON 出力をパースして以下を取得:
+- frontmatter（category, group, slug, title）
+- MDX 内 `<img>` の属性と存在確認
+- テキスト文字数・KaTeX 数式数・表数
+- PDF 章節見出しリスト
+- テキスト網羅率（heading-based / topic-based）と missing topics
+
+#### Step 3: Evaluator 呼び出し
+
+該当エージェントを Task ツールで呼び出す。プロンプトに含める:
+- 検証対象 MDX パス
+- frontmatter（category/group/slug/title）
+- 推定 PDF パス（civil-construction-qa の場合）
+- `--deep` フラグの有無
+
+#### Step 4: 照合レポート（旧 qa-pdf-mdx Phase 1）
+
+6 カテゴリの問題を検出（全件 PDF 照合）:
+
+1. **コンテンツ完全性**: PDF 各見出し・各段落の冒頭文が MDX に存在するか
+2. **図の完全性**: PDF の図番号が MDX に全て反映されているか
+3. **画像トリミング**: 本文テキスト・別図キャプションの映り込みがないか
+4. **表**: PDF の表が Markdown テーブルに変換されているか、表と同内容の画像が重複していないか
+5. **数式**: PDF の数式が KaTeX 記法で反映されているか、`\tag{}` で式番号が一致するか
+6. **キャプション・参照**: 本文「図 X-X」「表 X-X」参照が実在するか
+
+#### Step 5: 結果返却
+
+5 軸スコア + 指摘リスト（HIGH/MEDIUM/LOW、重大度別）を返す。**修正は行わない**。
+
+修正が必要なら:
+- **自動ループ型**: `/improve-article <slug> --mode improve --auto`
+- **対話型**: `/improve-article <slug> --mode improve`
+
+### verify mode の引数
+
+```
+/improve-article <slug-or-path> --mode verify [--pdf <path>] [--deep]
+```
+
+- `<slug-or-path>`: MDX パス or slug（必須）
+- `--pdf`: PDF 原本を明示指定（省略時は scripts/verify-pdf-mdx.mjs の `SLUG_PDF_HINTS` + title glob で自動発見）
+- `--deep`: 視覚比較を全件実行（既定は 3 件サンプル）
+
+### verify mode の使い方の例
+
+```bash
+# auto モード（category/group から Evaluator を自動振り分け）
+/improve-article civil-construction-1-textbook-construction-mgmt-overview --mode verify
+
+# guide ページ
+/improve-article .local/r2/posts/civil-construction-1/guide/concrete-key-points.mdx --mode verify
+
+# 視覚比較を全件実行
+/improve-article civil-construction-1-textbook-construction-machinery-01 --mode verify --deep
+
+# PDF を明示指定
+/improve-article <path> --mode verify --pdf _sources/foo.pdf
+```
+
 ## 制約・前提
 
 - dev server（port 3020）が起動中であること
 - 対象 MDX は既存で `published: true` または `false` のどちらでもよい
 - 評価エージェントは Sonnet で走るため、1 イテレーションあたり数分〜十数分かかる
 - 本スキル自身は親 Opus の判断で動く。`--max-iter` を超えて「あと少し」のときに暴走しないよう、ユーザー確認を優先する
+- verify mode は Evaluator 専任（旧 verify-pdf-mdx 同様）。修正ループは improve mode で行う
 
 ## 失敗時の振る舞い
 
@@ -177,7 +278,7 @@ Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象
 - [.claude/agents/civil-construction-qa.md](../../../agents/civil-construction-qa.md) — civil 記事の評価基準
 - [.claude/agents/cem-qa.md](../../../agents/cem-qa.md) — CEM 記事の評価基準
 - [.claude/agents/content-qa.md](../../../agents/content-qa.md) — 汎用（過去問）の評価基準
-- [.claude/skills/content/verify-pdf-mdx/SKILL.md](../verify-pdf-mdx/SKILL.md) — QA ルーター（本スキルは内部的にこれを呼んでもよい）
+- [.claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs](../../conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs) — verify mode の決定論的前処理スクリプト
 - [.claude/skills/content/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成
 - [.claude/skills/content/quality-cycle/SKILL.md](../quality-cycle/SKILL.md) — CEM バルク処理（本スキルと補完関係）
 - [.claude/reference/image-policy.md](../../../reference/image-policy.md) — 図/写真の判定フロー

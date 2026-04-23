@@ -302,4 +302,4 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 
 - `.claude/reference/content-authoring.md` — MDX 作成詳細ルール（コンポーネント・過去問構造・frontmatter）
 - `.claude/skills/content/keyword-page/SKILL.md` — キーワードページ作成
-- `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` — PDF→MDX変換（過去問取り込み時）
+- `.claude/skills/content/pdf-to-mdx --exam cem/SKILL.md` — PDF→MDX変換（過去問取り込み時）

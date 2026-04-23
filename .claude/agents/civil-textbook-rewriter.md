@@ -144,7 +144,7 @@ model: sonnet
 - **スコアリング・品質判定**: `civil-construction-review` が担当
 - **PDF 原典との網羅率検証**: `civil-construction-qa` が担当
 - **公開判定**: 人間が担当（`reviewStatus: approved` への変更は人間のみ）
-- **新規ページ作成・PDF→MDX 変換**: `/civil-construction-1-pdf-to-mdx` が担当
+- **新規ページ作成・PDF→MDX 変換**: `/pdf-to-mdx --exam civil-construction-1` が担当
 - **過去問・総監の評価/改訂**: `content-qa` / `cem-qa` / `keyword-rewriter`
 
 ## 連携パターン

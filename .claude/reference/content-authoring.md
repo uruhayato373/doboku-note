@@ -44,7 +44,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - 関連キーワードは `<RelatedKeywords>` コンポーネントを使用（slug 指定でキーワードページへリンク）
 - キーワードページ側の「過去問での出題」セクションにバックリンクを追加する（双方向リンク）
 - 試験対策ポイントは `<ExamPoint>` コンポーネントを使用
-- 詳細テンプレートは `.claude/skills/content/cem-pdf-to-mdx/SKILL.md` を参照
+- 詳細テンプレートは `.claude/skills/content/pdf-to-mdx --exam cem/SKILL.md` を参照
 
 ## 数式・図表
 
