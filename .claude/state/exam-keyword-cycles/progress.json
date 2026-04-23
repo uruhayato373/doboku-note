@@ -805,11 +805,22 @@
           "biodiversity-basic-act",
           "precautionary-principle"
         ]
+      },
+      "1-32": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "osh-management-system",
+          "safety-health-education",
+          "mental-health-care",
+          "employment-statistics"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-31"
+    "question": "1-32"
   }
 }
