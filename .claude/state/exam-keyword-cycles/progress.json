@@ -886,11 +886,22 @@
           "carbon-pricing",
           "environmental-impact-assessment"
         ]
+      },
+      "1-39": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment",
+          "environmental-standards",
+          "environmental-basic-plan",
+          "citizen-participation"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-38"
+    "question": "1-39"
   }
 }
