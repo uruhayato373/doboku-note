@@ -16,7 +16,7 @@
 | [.claude/reference/skills-design-guide.md](.claude/reference/skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・Phase 別ロードマップ | 週次 PDCA・変換作業・キーワードページ作成時 |
 | [.claude/reference/docs-issue-separation.md](.claude/reference/docs-issue-separation.md) | `docs/project/` md（Why/戦略）と GitHub Umbrella Issue（実行タスク）の役割分離ルール | ロードマップ md 作成・更新時／Umbrella Issue 作成時 |
-| [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成等） | キーワードページ執筆・評価時 |
+| [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（コンポーネント役割境界・ExamPoint 配置・参考資料構成等） | キーワードページ執筆・評価時 |
 | [.claude/design-system/principles.md](.claude/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
 | `.claude/config/` | ツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト等、エージェント編集領域） | OGP・PSI・自動化ツールのルール・閾値を調整するとき |
 | `docs/project/01_設計思想.md` | プロジェクトの設計思想の詳細 | 長期方針・コンテンツ戦略検討時 |
@@ -196,11 +196,27 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
 
 複数エージェント・複数セッションが並行して作業することを前提に、以下を**常に**守る。
 
-- **全 PR のデフォルト base は `develop`**。feature ブランチ（`claude/*` や `feat/*`）から `develop` へ PR を出し、レビュー後 `develop` に merge する
+### 性質別運用ガイド（個人開発のオーバーヘッド削減）
+
+PR・worktree のオーバーヘッドが内容に対して過剰にならないよう、変更の性質で運用を切り分ける。原則は「**履歴・CI・衝突回避が必要な変更だけ PR を作る**」。
+
+| 変更の性質 | 運用 | 理由 |
+|---|---|---|
+| ドキュメント改訂（`docs/project/`、`.claude/reference/`、`CLAUDE.md`、`content-principles.md`、スキル/エージェント定義） | **`develop` 直 push（PR 不要）** | 自分レビューに品質向上効果がない・pre-commit が CI 代替・broken リスク低 |
+| 1 ファイルの typo 修正・小規模 UI fix | **`develop` 直 push** | PR オーバーヘッド > 価値 |
+| バルクコンテンツ生成（`/exam-keyword-cycle` 等の並行作業） | **PR 必須**（バッチ単位で集約） | 衝突回避が主目的、レビュー単位が小さすぎないよう 1 サイクル = 1 PR |
+| 新規スキル・コンポーネント追加 | **PR 必須** | 設計判断の履歴を残す |
+| スキーマ変更（frontmatter ルール、URL 構造、CI 設定、依存追加） | **PR 必須** | revert 単位の確保、レビュー単位の確保 |
+| 本番障害の hotfix | **PR 必須・`--base main` 直 PR** | 例外運用、merge 後 `main` → `develop` 逆 merge |
+
+**判断に迷ったとき**: 「このコミットを将来 revert する可能性が 5% 以上あるか」「他人（Claude 含む）の作業と衝突する可能性があるか」のいずれかが Yes なら PR、両方とも No なら直 push。
+
+### 共通ルール
+
 - **`main` は常にデプロイ済みの安定版**。`develop` → `main` への merge は `/deploy` スキル経由でユーザーがタイミングを判断（= deploy の発火）
-- **例外: 本番障害の hotfix のみ `--base main` 直 PR を認める**。merge 後は必ず `main` → `develop` へ逆 merge して差分を解消する
 - **小修正のたびに main へ push しない**。`develop` に複数機能・修正を蓄積し、機能まとまり or 週次の単位でまとめて main merge
 - **`develop` は週 1 回 `main` から rebase/merge して追従**（`git checkout develop && git merge origin/main`）。長命化によるコンフリクト膨張を防ぐ
+- PR を作る場合のデフォルト base は `develop`。feature ブランチ（`claude/*` や `feat/*`）から `develop` へ PR を出し、レビュー後 `develop` に merge する
 - スキル側の扱い: `/pr-create` の `--base` 省略時は `develop`、`/deploy` は `develop` → `main` 経路を担当、`/exam-keyword-cycle` 等のコンテンツサイクル PR も `--base develop` で作る
 
 ### エージェントのブランチ取り扱い
