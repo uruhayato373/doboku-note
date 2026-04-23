@@ -897,11 +897,22 @@
           "environmental-basic-plan",
           "citizen-participation"
         ]
+      },
+      "1-40": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "esd",
+          "environmental-basic-plan",
+          "citizen-participation",
+          "environmental-communication"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r03-primary",
-    "question": "1-39"
+    "question": "1-40"
   }
 }
