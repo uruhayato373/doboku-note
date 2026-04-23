@@ -64,11 +64,22 @@
           "linear-regression",
           "estimation-testing"
         ]
+      },
+      "1-4": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "predictive-maintenance",
+          "maintenance-prevention",
+          "improvement-maintenance",
+          "preventive-maintenance"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r04-primary",
-    "question": "1-3"
+    "question": "1-4"
   }
 }
