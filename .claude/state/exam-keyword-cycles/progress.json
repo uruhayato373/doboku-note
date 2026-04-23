@@ -959,11 +959,23 @@
           "linear-programming",
           "multi-objective-optimization"
         ]
+      },
+      "1-5": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "supply-chain-management",
+          "business-continuity-plan",
+          "lead-time",
+          "resilience",
+          "risk-treatment"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r02-primary",
-    "question": "1-4"
+    "question": "1-5"
   }
 }
