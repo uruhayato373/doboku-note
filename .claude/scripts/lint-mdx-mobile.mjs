@@ -6,11 +6,12 @@
  *
  * ルール根拠の単一真実源: `.claude/content-principles.md`
  *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-5)
- *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-1〜9-6)
- *   - §7 過剰装飾を避ける               → カテゴリ7 (将来追加)
- *   - §8 図表は説明の流れの中に配置     → カテゴリ10 (10-1〜10-5, ArticleImage 規約)
- *   - §8 リンクの使い分け               → カテゴリ8 (8-1, 8-2)
- *   - §9 参考資料の構成                 → カテゴリ9-4
+ *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-2〜9-6、配置・禁止内容のみ。個数ルールは §7 で廃止)
+ *   - §7 コンポーネントの役割境界       → 機械検出対象外（cem-qa の目視判定）
+ *   - §8 過剰装飾を避ける               → カテゴリ7 (7-1, 7-2 太字スコープ)
+ *   - §9 図表は説明の流れの中に配置     → カテゴリ10 (10-1〜10-5, ArticleImage 規約)
+ *   - §12 リンクの使い分け              → カテゴリ8 (8-1, 8-2)
+ *   - §13 参考資料の構成                → カテゴリ9-4
  *
  * Usage:
  *   node scripts/lint-mdx-mobile.mjs <file.mdx>
@@ -26,13 +27,12 @@
  *   6-1 MEDIUM 表の直前行が見出しのみで導入文がない
  *   8-1 MEDIUM 末尾の「関連キーワード:」列挙行
  *   8-2 LOW    法令条文の未リンク
- *   9-1 HIGH   <ExamPoint> が3個以上（過去問MDX除外）
  *   9-2 MEDIUM 最初の<ExamPoint>が記事の上位60%以内
  *   9-3 HIGH   <ExamPoint>のsummaryに「誤り選択肢」等を含む
  *   9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン
  *   9-5 LOW    「とは」H2セクション直下に<ExamPoint>
  *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
- *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§8 違反）
+ *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§9 違反）
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
  *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
@@ -432,11 +432,13 @@ function lintHeadingBeforeTable(table, lines, findings) {
 }
 
 /**
- * カテゴリ9: コンポーネント原則（content-principles.md §5・§9）
+ * カテゴリ9: ExamPoint 配置・参考資料（content-principles.md §5・§13）
  *
  * 過去問MDX（r*-primary, h*-primary, r*-secondary）は ExamPoint 多数や ❌✅ が正常なため除外。
  *
- * 9-1 HIGH   <ExamPoint> が3個以上
+ * 注: ExamPoint の個数ルール（旧 9-1）は §7「コンポーネントの役割境界」改訂で廃止。
+ *     役割境界からの逸脱は cem-qa の目視判定で評価する。
+ *
  * 9-2 MEDIUM 最初の <ExamPoint> が記事の上位60%以内
  * 9-3 HIGH   <ExamPoint> の summary/items に「誤り選択肢」「代表的な誤り」等を含む
  * 9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン100%
@@ -456,17 +458,6 @@ function lintComponentPrinciples(lines, filePath, findings) {
     if (/<ExamPoint(\s|$|\/)/.test(lines[i])) {
       examPointStarts.push(i + 1); // 1-based
     }
-  }
-
-  // 9-1: ExamPoint 3個以上
-  if (examPointStarts.length >= 3) {
-    findings.push({
-      severity: 'HIGH',
-      rule: '9-1',
-      line: examPointStarts[0],
-      endLine: examPointStarts[examPointStarts.length - 1],
-      message: `<ExamPoint> が ${examPointStarts.length} 個。原則1個・最大2個（content-principles.md §5）`,
-    });
   }
 
   // 9-2: 総括 ExamPoint（記事末尾60%以降）が存在しない
@@ -525,7 +516,7 @@ function lintComponentPrinciples(lines, filePath, findings) {
         rule: '9-4',
         line: refStartIdx + 1,
         endLine: refEnd,
-        message: `参考資料の外部リンクが ${urls.length} 件（公的＋民間 各最低1件 = 2件以上必要、§9）`,
+        message: `参考資料の外部リンクが ${urls.length} 件（公的＋民間 各最低1件 = 2件以上必要、§13）`,
       });
     } else if (domains.size === 1) {
       findings.push({
@@ -533,7 +524,7 @@ function lintComponentPrinciples(lines, filePath, findings) {
         rule: '9-4',
         line: refStartIdx + 1,
         endLine: refEnd,
-        message: `参考資料が単一ドメイン（${[...domains][0]}）。公的＋民間の組み合わせが必要（§9）`,
+        message: `参考資料が単一ドメイン（${[...domains][0]}）。公的＋民間の組み合わせが必要（§13）`,
       });
     } else {
       // 公的（go.jp/ac.jp/or.jp）と民間の両方があるか判定
@@ -545,7 +536,7 @@ function lintComponentPrinciples(lines, filePath, findings) {
           rule: '9-4',
           line: refStartIdx + 1,
           endLine: refEnd,
-          message: `参考資料が${hasOfficial ? '公的のみ' : '民間のみ'}。公的＋民間 各1件以上が必要（§9）`,
+          message: `参考資料が${hasOfficial ? '公的のみ' : '民間のみ'}。公的＋民間 各1件以上が必要（§13）`,
         });
       }
     }
@@ -592,12 +583,12 @@ function lintComponentPrinciples(lines, filePath, findings) {
 // ── カテゴリ10: 画像・<ArticleImage> 規約 ──────────────────────────────────
 
 /**
- * 10-1 HIGH   <ArticleImage caption="..."> の caption 属性（§8 違反）
+ * 10-1 HIGH   <ArticleImage caption="..."> の caption 属性（§9 違反）
  * 10-2 MEDIUM 生 <img> タグ（<ArticleImage> への移行推奨）
  * 10-3 MEDIUM alt 属性が 80 字超過
  * 10-5 HIGH   画像ファイル不在 or mime が拡張子と不一致（HTML エラーページ偽 JPG 等）
  *
- * 真実源: .claude/content-principles.md §8 L146
+ * 真実源: .claude/content-principles.md §9（旧 §8）
  *   「caption は『図の説明』には使わない。ただし出典・帰属・機種名などの
  *   短い帰属情報（60字以内）は caption に書いてよい」
  */
@@ -617,7 +608,7 @@ function lintImages(lines, findings) {
     const lineNum = content.slice(0, match.index).split('\n').length;
 
     // 10-1: <ArticleImage> の caption が長すぎる（説明型 caption を検出）
-    // 短文（≤60字）の帰属情報は OK、長文は §8 違反として HIGH
+    // 短文（≤60字）の帰属情報は OK、長文は §9 違反として HIGH
     if (tagName === 'ArticleImage') {
       const captionMatch = attrs.match(/\bcaption\s*=\s*["']([^"']*)["']/);
       if (captionMatch) {
@@ -628,7 +619,7 @@ function lintImages(lines, findings) {
             rule: '10-1',
             line: lineNum,
             endLine: lineNum,
-            message: `<ArticleImage caption="..."> が ${captionLen} 字（帰属情報のみ、上限 ${CAPTION_MAX} 字）。図の説明は本文に移す（content-principles §8）`,
+            message: `<ArticleImage caption="..."> が ${captionLen} 字（帰属情報のみ、上限 ${CAPTION_MAX} 字）。図の説明は本文に移す（content-principles §9）`,
           });
         }
       }
