@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-24T23:22:14.738Z",
+  "results": [
+    {
+      "url": "https://doboku-note.com/",
+      "strategy": "mobile",
+      "fetched_at": "2026-04-24T23:22:14.734Z",
+      "scores": {
+        "performance": 64,
+        "accessibility": 92,
+        "best_practices": 100,
+        "seo": 92
+      },
+      "lab_data": {
+        "LCP_ms": 6968.867944619091,
+        "TBT_ms": 66,
+        "CLS": 0,
+        "FCP_ms": 4765.077326681796,
+        "TTI_ms": 6968.867944619091,
+        "SI_ms": 4765.077326681796
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "analysis_utc": "2026-04-24T23:22:04.376Z",
+      "final_url": "https://doboku-note.com/"
+    }
+  ]
+}
