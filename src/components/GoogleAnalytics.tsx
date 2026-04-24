@@ -12,15 +12,18 @@ export default function GoogleAnalytics() {
     return null;
   }
 
+  // Issue #84 Wave 1: strategy を "afterInteractive" から "lazyOnload" へ変更。
+  // gtag.js のダウンロードと実行を LCP 発火後に遅延させ、mobile main thread の
+  // 占有を解消して LCP / TBT を短縮する。
   return (
     <>
       <Script
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
       />
       <Script
         id="google-analytics"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
