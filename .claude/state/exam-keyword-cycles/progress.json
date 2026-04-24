@@ -1386,11 +1386,21 @@
         "keywords": [
           "pqcdsme"
         ]
+      },
+      "1-2": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "front-loading",
+          "concurrent-engineering",
+          "design-review"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r01-primary",
-    "question": "1-1"
+    "question": "1-2"
   }
 }
