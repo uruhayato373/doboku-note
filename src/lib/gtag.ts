@@ -20,8 +20,13 @@ declare global {
 }
 
 // ページビューを送信
+// Issue #84 hotfix (2026-04-25): gtag.js 未ロード時のガードを追加。
+// 将来 Script strategy を lazyOnload 等に変更しても、hydration 直後の
+// AnalyticsProvider から呼ばれる本関数が TypeError を投げて React tree を
+// クラッシュさせないようにする。
 export const pageview = (url: string) => {
   if (!GA_ID) return;
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
   window.gtag("config", GA_ID, {
     page_path: url,
   });
@@ -52,5 +57,6 @@ export const event = ({
     eventParams.value = value;
   }
 
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
   window.gtag("event", action, eventParams);
 };
