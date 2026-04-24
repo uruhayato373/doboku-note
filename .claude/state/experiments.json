@@ -299,16 +299,52 @@
             "runs_consistent": "3 連続同値確認"
           },
           "delta_lcp_ms": 302,
-          "result": "failed_to_improve",
-          "verdict": "GA4 lazyOnload は mobile LCP のボトルネックに効かず、+302ms 軽微悪化。Before TBT 78ms が既に閾値 300ms の 1/4 で JS main thread 占有は主因ではなかった。desktop LCP 983ms は正常のため mobile 固有要因（CSS/font/image/critical rendering path）が真因と推定。変更はそのまま残し、Wave 2 で bundle-analyzer + DevTools mobile emulation による真因特定へ進む。"
+          "result": "rolled_back_critical_incident",
+          "incident_summary": "Wave 1 の lazyOnload 化は mobile で AnalyticsProvider の useEffect が gtag.js 未ロード状態で gtag() を呼ぶパスを作り、TypeError: window.gtag is not a function で React tree がクラッシュ、本番 mobile サイトが 17 分間エラー画面に置換された。",
+          "after_was_error_ui": true,
+          "verdict": "5130ms の PSI 計測値は正常レンダー下の値ではなく Next.js error UI の軽量 H1 を LCP として拾っていた。正常レンダー下の真の mobile LCP baseline は 6969ms（hotfix 後の計測）。Wave 1 は改善でも悪化でもなく、計測対象が別のページ（エラー画面）に置き換わっていたのが 3 回同値の正体。",
+          "hotfix": {
+            "pr": 136,
+            "deploy_pr": 137,
+            "deploy_commit": "f22e9433",
+            "deployed_at": "2026-04-24T23:21:02Z",
+            "changes": [
+              "src/components/GoogleAnalytics.tsx: Script strategy lazyOnload -> afterInteractive (revert)",
+              "src/lib/gtag.ts: pageview / event に typeof window.gtag !== 'function' 早期 return ガードを追加"
+            ],
+            "outage_duration_min": 17,
+            "outage_start": "2026-04-24T23:04Z",
+            "outage_end": "2026-04-24T23:21Z",
+            "affected": "mobile users only (desktop は hydration 順序の差で TypeError 回避)"
+          }
         }
       ],
+      "real_baseline_after_hotfix": {
+        "lcp_ms": 6969,
+        "fcp_ms": 4765,
+        "tbt_ms": 66,
+        "cls": 0.000,
+        "tti_ms": 6969,
+        "performance": 64,
+        "measured_at": "2026-04-24T23:22:14Z",
+        "source": ".claude/state/metrics/psi/psi-single-2026-04-24T23-22-14.json",
+        "note": "gtag ガード追加後、初めて確実に正常レンダー下で計測された値。Wave 2 はここから改善を測る。"
+      },
+      "lcp_element_identified": {
+        "tag": "h1",
+        "text": "土木系資格試験対策サイト",
+        "size_px": 25632,
+        "has_gradient_clip_text": true,
+        "render_time_ms_on_fast_network": 720,
+        "tool": "mcp__playwright__browser_evaluate with PerformanceObserver buffered"
+      },
       "learnings": [
-        "GA4 `afterInteractive` は既に LCP ブロックに寄与していなかった（TBT 78ms 基準）",
-        "mobile/desktop の LCP 非対称（mobile 4828ms vs desktop 1318ms）は JS 量ではなく mobile 固有の critical rendering path に起因する可能性が高い",
-        "PSI API は短時間連続計測で同値を返す。3 回同値 = 真の値 と判断してよい"
+        "GA4 Script strategy 変更は hydration 依存コードとセットで検証必要。useEffect で呼ばれる API は Script の load タイミングと React の実行順序を必ず突合する",
+        "Deploy 後の確認は PSI スコアだけでは不十分。error UI が混入していても PSI は測ってしまう。Playwright mobile viewport での実体ビュー検証（DOM 構造 + console errors）を必須化すべき",
+        "PSI Lab data の同値連続は『真の値』ではなく『確定的な壊れ方』の可能性もある。error UI なら毎回同じ軽量要素で LCP が固定される",
+        "Noto Sans JP (preload: true, subsets: latin) は日本語サイトで preload 帯域を無駄に占有し、真の LCP bottleneck の第一候補"
       ],
-      "next_wave": "Wave 2: @next/bundle-analyzer 導入 → chunk 内訳可視化 → LCP candidate element 特定 → Noto Sans JP / Hero image / KaTeX CSS の真因候補を絞り込む"
+      "next_wave": "Wave 2: src/app/layout.tsx:23-28 の Noto Sans JP を preload: false に変更。LCP element が H1 の日本語テキストで CJK グリフの crossorigin fetch が render ブロックする仮説を検証。目標: 真 baseline 6969ms → 4000ms 以下、Performance 64 → 75 以上。"
     }
   ]
 }
