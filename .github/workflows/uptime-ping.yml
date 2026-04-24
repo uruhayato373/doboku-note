@@ -24,10 +24,13 @@ jobs:
         run: |
           set +e
 
+          # 注: doboku-note.com は Cloudflare Bot Protection が GitHub Actions IP を
+          # 403 でブロックするため、直 URL（doboku-note.pages.dev）で SSR / body を検証する。
+          # カスタムドメイン (doboku-note.com) の DNS / CF 設定の問題は別系統で監視する想定。
           URLS=(
-            "https://doboku-note.com/"
-            "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026"
-            "https://doboku-note.com/category/civil-construction-1"
+            "https://doboku-note.pages.dev/"
+            "https://doboku-note.pages.dev/docs/pe-comprehensive-management-keyword-2026"
+            "https://doboku-note.pages.dev/category/civil-construction-1"
           )
 
           UA_DESKTOP="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
