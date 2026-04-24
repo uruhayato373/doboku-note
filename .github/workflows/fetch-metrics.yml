@@ -7,6 +7,7 @@ on:
 
 permissions:
   contents: write
+  issues: write
 
 jobs:
   fetch:
@@ -32,16 +33,30 @@ jobs:
           printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
           chmod 600 credentials/gsc-service-account.json
 
-      - name: Fetch GA4
+      - name: Fetch GA4 (channel)
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-data
 
+      - name: Fetch GA4 (date, for data-integrity-gate)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension date
+
       - name: Fetch GSC
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data
+
+      - name: Check data integrity (Issue #130-A)
+        id: integrity
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/metrics-report
+          node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
 
       - name: Stage outputs
         run: |
@@ -70,6 +85,35 @@ jobs:
 
           git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
+
+      - name: Open or update data-integrity Issue
+        if: steps.integrity.outputs.exit_code == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 既存の open な data-integrity Issue があれば続報コメント、なければ新規作成
+          EXISTING=$(gh issue list \
+            --repo ${{ github.repository }} \
+            --label "data-integrity,auto-generated" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          DATE=$(date -u +%Y-%m-%d)
+
+          if [ -n "$EXISTING" ]; then
+            echo "既存 Issue #$EXISTING に続報コメントを追加"
+            gh issue comment "$EXISTING" \
+              --repo ${{ github.repository }} \
+              --body-file /tmp/metrics-report/integrity.md
+          else
+            echo "新規 Issue を起票"
+            gh issue create \
+              --repo ${{ github.repository }} \
+              --title "[Data-Integrity] GA4 date 欠損検出 ${DATE}" \
+              --label "data-integrity,auto-generated,weekly-pdca" \
+              --body-file /tmp/metrics-report/integrity.md
+          fi
 
       - name: Cleanup credentials
         if: always()
