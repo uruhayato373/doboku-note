@@ -1,0 +1,142 @@
+name: Uptime ping
+
+# Issue #130-C: サイト健全性監視。
+# BAILOUT_TO_CLIENT_SIDE_RENDERING（2026-W16 事件）のような「200 だが body 空」
+# パターンも検出する。失敗時は Issue を自動起票（同一 Issue に続報コメント）。
+
+on:
+  schedule:
+    # JST 08:00 / 14:00 / 20:00 (UTC 23:00 / 05:00 / 11:00)
+    - cron: "0 23,5,11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check site health
+        id: check
+        continue-on-error: true
+        run: |
+          set +e
+
+          URLS=(
+            "https://doboku-note.com/"
+            "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026"
+            "https://doboku-note.com/category/civil-construction-1"
+          )
+
+          UA_DESKTOP="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+          UA_MOBILE="Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+
+          FAILURES=()
+
+          for URL in "${URLS[@]}"; do
+            for UA_LABEL in desktop mobile; do
+              if [ "$UA_LABEL" = "mobile" ]; then
+                UA="$UA_MOBILE"
+              else
+                UA="$UA_DESKTOP"
+              fi
+
+              RESULT=$(curl -sS -o /tmp/body.html -w "%{http_code}|%{size_download}" \
+                --max-time 15 -A "$UA" "$URL" 2>/dev/null)
+              CURL_CODE=$?
+              CODE=$(echo "$RESULT" | cut -d'|' -f1)
+              SIZE=$(echo "$RESULT" | cut -d'|' -f2)
+
+              if [ $CURL_CODE -ne 0 ]; then
+                FAILURES+=("$URL [$UA_LABEL] curl failed (exit $CURL_CODE)")
+                continue
+              fi
+
+              if [ "$CODE" != "200" ]; then
+                FAILURES+=("$URL [$UA_LABEL] HTTP $CODE (size=$SIZE)")
+                continue
+              fi
+
+              # SSR 検証: <main> タグと body 内の実コンテンツを確認
+              # BAILOUT_TO_CLIENT_SIDE_RENDERING 対策として、単なる status/size だけでなく
+              # 実際にコンテンツがレンダリングされているかをチェック
+              if [ "$SIZE" -lt 10000 ]; then
+                FAILURES+=("$URL [$UA_LABEL] body too small (size=$SIZE < 10000)")
+                continue
+              fi
+
+              if ! grep -q '<main' /tmp/body.html; then
+                FAILURES+=("$URL [$UA_LABEL] no <main> element (size=$SIZE)")
+                continue
+              fi
+
+              # 主要コンテンツキーワードが body に含まれるか
+              if ! grep -qE '土木|doboku-note|技術士|1級' /tmp/body.html; then
+                FAILURES+=("$URL [$UA_LABEL] no content keywords matched (size=$SIZE)")
+                continue
+              fi
+
+              echo "OK: $URL [$UA_LABEL] size=$SIZE"
+            done
+          done
+
+          if [ ${#FAILURES[@]} -gt 0 ]; then
+            {
+              echo "## Uptime ping 失敗検出"
+              echo ""
+              echo "**検出時刻**: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+              echo ""
+              echo "### 失敗項目"
+              for F in "${FAILURES[@]}"; do
+                echo "- $F"
+              done
+              echo ""
+              echo "### 判定ロジック"
+              echo "- HTTP 200 以外"
+              echo "- response body < 10KB（空に近い HTML）"
+              echo "- \`<main>\` タグ不在"
+              echo "- 主要キーワード（土木/doboku-note/技術士/1級）非含有 = SSR 壊れの兆候"
+              echo ""
+              echo "### 参考"
+              echo "- 2026-W16 事件（BAILOUT_TO_CLIENT_SIDE_RENDERING / 6 日データ欠損）の再発防止"
+              echo "- 関連 Umbrella: #130"
+              echo "- workflow: \`.github/workflows/uptime-ping.yml\`"
+            } > /tmp/failure-report.md
+
+            echo "failed=true" >> $GITHUB_OUTPUT
+            cat /tmp/failure-report.md
+            exit 1
+          fi
+
+          echo "failed=false" >> $GITHUB_OUTPUT
+
+      - name: Open or update uptime Issue
+        if: steps.check.outputs.failed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # 既存の open な uptime Issue があれば続報コメント、なければ新規作成
+          EXISTING=$(gh issue list \
+            --repo ${{ github.repository }} \
+            --label "uptime,auto-generated" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          DATE=$(date -u +%Y-%m-%d)
+
+          if [ -n "$EXISTING" ]; then
+            echo "既存 Issue #$EXISTING に続報コメントを追加"
+            gh issue comment "$EXISTING" \
+              --repo ${{ github.repository }} \
+              --body-file /tmp/failure-report.md
+          else
+            echo "新規 Issue を起票"
+            gh issue create \
+              --repo ${{ github.repository }} \
+              --title "[Uptime] サイト健全性チェック失敗 ${DATE}" \
+              --label "critical,uptime,auto-generated" \
+              --body-file /tmp/failure-report.md
+          fi
