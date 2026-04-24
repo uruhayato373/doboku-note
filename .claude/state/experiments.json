@@ -251,6 +251,64 @@
       },
       "pending_user_actions": [],
       "next_check_date": "2026-04-29"
+    },
+    {
+      "id": "perf-lcp-mobile-2026-W17",
+      "title": "Mobile LCP 改善 — Wave 1 (GA4 lazyOnload)",
+      "hypothesis": "GA4 Script strategy を afterInteractive → lazyOnload に変更し、gtag.js の実行を LCP 発火後まで遅延させることで mobile main thread の占有を解消し、site root の mobile LCP を 4828ms → 4000ms 以下、Performance 76 → 80 以上に引き上げる。",
+      "target_metric": "site_root_mobile_lcp_ms",
+      "target_delta": "4828 -> 4000",
+      "status": "completed",
+      "started_at": "2026-04-25",
+      "completed_at": "2026-04-25",
+      "related_issue": 84,
+      "related_prs": [133, 134],
+      "baseline": {
+        "lcp_ms": 4828,
+        "fcp_ms": 3168,
+        "tbt_ms": 78,
+        "cls": 0.009,
+        "tti_ms": 6504,
+        "performance": 76,
+        "measured_at": "2026-04-24T22:58:23Z",
+        "source": ".claude/state/metrics/psi/psi-single-2026-04-24T22-58-23.json"
+      },
+      "target": {
+        "lcp_ms": 4000,
+        "performance": 80
+      },
+      "history": [
+        {
+          "wave": 1,
+          "date": "2026-04-25",
+          "pr": 133,
+          "deploy_pr": 134,
+          "deploy_commit": "e9d2881f",
+          "changes": [
+            "src/components/GoogleAnalytics.tsx: Script strategy afterInteractive -> lazyOnload"
+          ],
+          "after": {
+            "lcp_ms": 5130,
+            "fcp_ms": 3168,
+            "tbt_ms": 91,
+            "cls": 0.009,
+            "tti_ms": 7069,
+            "performance": 74,
+            "measured_at": "2026-04-24T23:05:01Z",
+            "source": ".claude/state/metrics/psi/psi-single-2026-04-24T23-05-01.json",
+            "runs_consistent": "3 連続同値確認"
+          },
+          "delta_lcp_ms": 302,
+          "result": "failed_to_improve",
+          "verdict": "GA4 lazyOnload は mobile LCP のボトルネックに効かず、+302ms 軽微悪化。Before TBT 78ms が既に閾値 300ms の 1/4 で JS main thread 占有は主因ではなかった。desktop LCP 983ms は正常のため mobile 固有要因（CSS/font/image/critical rendering path）が真因と推定。変更はそのまま残し、Wave 2 で bundle-analyzer + DevTools mobile emulation による真因特定へ進む。"
+        }
+      ],
+      "learnings": [
+        "GA4 `afterInteractive` は既に LCP ブロックに寄与していなかった（TBT 78ms 基準）",
+        "mobile/desktop の LCP 非対称（mobile 4828ms vs desktop 1318ms）は JS 量ではなく mobile 固有の critical rendering path に起因する可能性が高い",
+        "PSI API は短時間連続計測で同値を返す。3 回同値 = 真の値 と判断してよい"
+      ],
+      "next_wave": "Wave 2: @next/bundle-analyzer 導入 → chunk 内訳可視化 → LCP candidate element 特定 → Noto Sans JP / Hero image / KaTeX CSS の真因候補を絞り込む"
     }
   ]
 }
