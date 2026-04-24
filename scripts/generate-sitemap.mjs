@@ -1,6 +1,7 @@
 import { readdirSync, statSync, readFileSync, existsSync, writeFileSync } from 'fs';
 import { join, relative } from 'path';
 import matter from 'gray-matter';
+import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
 
 const SITE_URL = 'https://doboku-note.com';
 const OUT_DIR = 'out';
@@ -27,9 +28,21 @@ function parseRedirectedDocSlugs() {
   return excluded;
 }
 
-// ---- MDX フロントマターから lastmod 候補日付を取得 -------------------
-function parseFrontmatterDate(data, fallback) {
+// ---- lastmod 解決（優先順: git log > frontmatter > mtime） -----------
+// git log は build-doc-meta-index.mjs と共有の lib/git-dates.mjs を使い、
+// 1 プロセスで全ファイル分を解析する（per-file 呼出を避ける）。
+function resolveLastmod(data, fullPath, gitDates) {
+  // 1. git log から取得（最も信頼できる、編集のたびに自動追随）
+  const relPath = relative(process.cwd(), fullPath);
+  const gd = lookupGitDates(gitDates, relPath);
+  if (gd?.dateModified) {
+    const d = new Date(gd.dateModified);
+    if (!isNaN(d.getTime())) return d;
+  }
+
+  // 2. frontmatter 候補（後方互換）
   const candidates = [
+    data.dateModified,
     data.updated,
     data.publishedAt,
     data.created,
@@ -41,19 +54,21 @@ function parseFrontmatterDate(data, fallback) {
     const d = new Date(typeof c === 'string' ? c : String(c));
     if (!isNaN(d.getTime())) return d;
   }
-  return fallback;
+
+  // 3. filesystem mtime（最終フォールバック）
+  return statSync(fullPath).mtime;
 }
 
 // ---- .local/r2/posts を走査して公開済み slug を列挙 ------------------
 // src/lib/docs.ts::findMdxFiles() と同じ命名規約を踏襲:
 //   Convention A: {dir}/{file}.mdx → slug = "{dir}-{file}"
 //   Convention B: {dir}/article.mdx → slug = "{dir}"
-function walkMdxFiles(dir, segments = [], results = []) {
+function walkMdxFiles(dir, gitDates, segments = [], results = []) {
   if (!existsSync(dir)) return results;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
-      walkMdxFiles(full, [...segments, entry.name], results);
+      walkMdxFiles(full, gitDates, [...segments, entry.name], results);
       continue;
     }
     if (!entry.isFile() || !entry.name.endsWith('.mdx')) continue;
@@ -69,8 +84,7 @@ function walkMdxFiles(dir, segments = [], results = []) {
     // src/lib/docs.ts::getDocMeta() と同じ公開フィルタ
     if (data.published === false) continue;
 
-    const mtime = statSync(full).mtime;
-    const lastmod = parseFrontmatterDate(data, mtime);
+    const lastmod = resolveLastmod(data, full, gitDates);
 
     results.push({ slug, lastmod, category: data.category });
   }
@@ -138,7 +152,9 @@ function collectStaticHtmlFiles(dir, files = [], root = dir) {
 // ---- メイン ---------------------------------------------------------
 
 const excludedSlugs = parseRedirectedDocSlugs();
-const mdxDocs = walkMdxFiles(POSTS_DIR).filter((d) => !excludedSlugs.has(d.slug));
+const gitDates = loadGitDates();
+console.log(`[sitemap] git-dates: ${gitDates.size} ファイルを解析`);
+const mdxDocs = walkMdxFiles(POSTS_DIR, gitDates).filter((d) => !excludedSlugs.has(d.slug));
 
 const urls = [];
 

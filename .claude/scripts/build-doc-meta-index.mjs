@@ -14,6 +14,7 @@
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
+import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
 
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, '.local/r2/posts');
@@ -52,6 +53,10 @@ function main() {
   const files = walkMdx(POSTS_ROOT);
   console.log(`[doc-meta] ${files.length} MDX を走査`);
 
+  // git log 全体走査で created / dateModified を上書き（frontmatter の値より優先）
+  const gitDates = loadGitDates();
+  console.log(`[doc-meta] git-dates: ${gitDates.size} ファイルを解析`);
+
   const docs = {};
   const byCategory = {};
   let unpublished = 0;
@@ -89,6 +94,14 @@ function main() {
       if (value instanceof Date) {
         meta[key] = value.toISOString();
       }
+    }
+
+    // git log 由来の created / dateModified で上書き（frontmatter が古くなっても追随する）
+    const relPath = relative(ROOT, filePath);
+    const gd = lookupGitDates(gitDates, relPath);
+    if (gd) {
+      meta.created = gd.created;
+      meta.dateModified = gd.dateModified;
     }
 
     docs[slug] = meta;

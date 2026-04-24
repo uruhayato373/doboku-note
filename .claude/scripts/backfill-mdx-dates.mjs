@@ -14,10 +14,10 @@
  *   node .claude/scripts/backfill-mdx-dates.mjs --limit 10   # 最初の N 件だけ処理
  */
 
-import { execSync } from "node:child_process";
 import { readdirSync } from "node:fs";
-import { join } from "node:path";
+import { join, relative } from "node:path";
 import { readMdxFile, writeMdxFile } from "./lib/mdx-io.mjs";
+import { loadGitDates, lookupGitDates } from "./lib/git-dates.mjs";
 
 const POSTS_DIR = ".local/r2/posts";
 
@@ -43,26 +43,7 @@ function findMdxFiles(dir) {
   return results;
 }
 
-function gitDate(cmd) {
-  try {
-    const out = execSync(cmd, { encoding: "utf-8", stdio: ["pipe", "pipe", "ignore"] });
-    const line = out.split("\n").filter(Boolean)[0];
-    // git log %ai フォーマット: "2026-04-24 15:22:19 +0900"
-    return line?.split(" ")[0] || null;
-  } catch {
-    return null;
-  }
-}
-
-function gitFirstCommitDate(file) {
-  // git log --reverse: 古い順。--follow: rename を追跡
-  // POSIX shell でファイルパスをそのまま渡すのでパス内特殊文字には注意
-  return gitDate(`git log --follow --format=%ai --reverse -- "${file}"`);
-}
-
-function gitLastCommitDate(file) {
-  return gitDate(`git log -1 --format=%ai -- "${file}"`);
-}
+// git log の呼出は共通 lib `./lib/git-dates.mjs` に委譲（全ファイル一括解析）
 
 function addFrontmatterFields(raw, created, dateModified) {
   const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
@@ -95,14 +76,18 @@ console.log(`=== backfill-mdx-dates ${DRY_RUN ? "(DRY RUN)" : ""} ===`);
 const files = findMdxFiles(POSTS_DIR).slice(0, LIMIT);
 console.log(`対象ファイル: ${files.length}`);
 
+const gitDates = loadGitDates();
+console.log(`git-dates: ${gitDates.size} ファイルを解析`);
+
 let updated = 0;
 let skipped = 0;
 let noGit = 0;
 let noFrontmatter = 0;
 
 for (const file of files) {
-  const created = gitFirstCommitDate(file);
-  const dateModified = gitLastCommitDate(file);
+  const gd = lookupGitDates(gitDates, relative(process.cwd(), file));
+  const created = gd?.created || null;
+  const dateModified = gd?.dateModified || null;
 
   if (!created || !dateModified) {
     noGit++;
