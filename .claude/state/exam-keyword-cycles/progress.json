@@ -1440,11 +1440,19 @@
           "income-statement",
           "cash-flow-statement"
         ]
+      },
+      "1-8": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "bathtub-curve"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r01-primary",
-    "question": "1-7"
+    "question": "1-8"
   }
 }
