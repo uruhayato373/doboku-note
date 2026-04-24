@@ -69,7 +69,7 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem={true}
-          disableTransitionOnChange={false}
+          disableTransitionOnChange={true}
           storageKey="doboku-note-theme"
         >
           <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
