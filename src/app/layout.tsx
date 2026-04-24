@@ -20,11 +20,14 @@ const inter = Inter({
   preload: true,
 });
 
+// Wave 2 (#84): preload: false に変更。日本語サブセット指定のない Noto Sans JP は
+// mobile で巨大ペイロードを critical path に乗せ LCP の主要ボトルネックとなっていた。
+// preload off + display:swap で system font フォールバックによる早期描画を狙う（FOUT 許容）。
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
   variable: "--font-noto-sans-jp",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
 // Serif/Mincho フォント（2026-04-22 追加）: 本文フォント切替の基盤として導入。
