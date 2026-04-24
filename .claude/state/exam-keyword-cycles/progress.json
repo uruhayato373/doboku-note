@@ -1421,11 +1421,20 @@
           "present-annual-future-value",
           "dcf-method"
         ]
+      },
+      "1-6": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "activity-abc",
+          "target-cost"
+        ]
       }
     }
   },
   "last_cycle": {
     "exam": "r01-primary",
-    "question": "1-5"
+    "question": "1-6"
   }
 }
