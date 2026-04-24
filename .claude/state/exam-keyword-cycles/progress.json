@@ -1377,10 +1377,20 @@
           "tcfd"
         ]
       }
+    },
+    "pe-comprehensive-management-r01-primary": {
+      "1-1": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pqcdsme"
+        ]
+      }
     }
   },
   "last_cycle": {
-    "exam": "r02-primary",
-    "question": "1-40"
+    "exam": "r01-primary",
+    "question": "1-1"
   }
 }
