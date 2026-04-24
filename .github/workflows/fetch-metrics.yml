@@ -58,6 +58,14 @@ jobs:
           node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
           echo "exit_code=$?" >> $GITHUB_OUTPUT
 
+      - name: Check daily anomaly (Issue #130-B)
+        id: anomaly
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/metrics-report
+          node .claude/scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+
       - name: Stage outputs
         run: |
           mkdir -p /tmp/metrics-publish
@@ -113,6 +121,34 @@ jobs:
               --title "[Data-Integrity] GA4 date 欠損検出 ${DATE}" \
               --label "data-integrity,auto-generated,weekly-pdca" \
               --body-file /tmp/metrics-report/integrity.md
+          fi
+
+      - name: Open or update daily-anomaly Issue
+        if: steps.anomaly.outputs.exit_code == '1'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          EXISTING=$(gh issue list \
+            --repo ${{ github.repository }} \
+            --label "daily-anomaly,auto-generated" \
+            --state open \
+            --json number \
+            --jq '.[0].number // empty')
+
+          DATE=$(date -u +%Y-%m-%d)
+
+          if [ -n "$EXISTING" ]; then
+            echo "既存 Issue #$EXISTING に続報コメントを追加"
+            gh issue comment "$EXISTING" \
+              --repo ${{ github.repository }} \
+              --body-file /tmp/metrics-report/anomaly.md
+          else
+            echo "新規 Issue を起票"
+            gh issue create \
+              --repo ${{ github.repository }} \
+              --title "[Daily-Anomaly] GA4 日次異常検出 ${DATE}" \
+              --label "daily-anomaly,auto-generated,weekly-pdca" \
+              --body-file /tmp/metrics-report/anomaly.md
           fi
 
       - name: Cleanup credentials
