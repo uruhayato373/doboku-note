@@ -16,6 +16,7 @@
 | [.claude/reference/skills-design-guide.md](.claude/reference/skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・Phase 別ロードマップ | 週次 PDCA・変換作業・キーワードページ作成時 |
 | [.claude/reference/docs-issue-separation.md](.claude/reference/docs-issue-separation.md) | `docs/project/` md（Why/戦略）と GitHub Umbrella Issue（実行タスク）の役割分離ルール | ロードマップ md 作成・更新時／Umbrella Issue 作成時 |
+| [.claude/reference/measurement-incidents.md](.claude/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合事例と再発防止策（2026-W16 BAILOUT 事件等） | 計測スキル/エージェント設計時・自動起票 Issue を評価するとき |
 | [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
 | [.claude/design-system/principles.md](.claude/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
 | [docs/ui/callout-gallery.md](docs/ui/callout-gallery.md) | Callout 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）。GitHub 画面で視覚確認可能 | MDX で `<Callout type="...">` を選ぶとき |
@@ -349,6 +350,7 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 - 「バグを直す」→「バグを再現するテストを書き、それを通す」
 - 「X をリファクタリング」→「リファクタ前後でテストが通ることを確認」
 - 「MDX を PDF から変換」→「`/verify-pdf-mdx` でルーブリック ≥ 2.0 に到達」
+- 「UI / SSR 構造を大規模に変更」→「deploy 後に `curl https://doboku-note.com/` で body が 10KB 以上 + `<main>` + 主要キーワード（土木/技術士 等）を含むことを確認。Lighthouse の Performance スコアだけでは SSR 壊れを捕捉できない」（出典: [計測事故記録](.claude/reference/measurement-incidents.md) 2026-W16 BAILOUT 事件）
 
 複数ステップのタスクはプランを先に提示する:
 ```
