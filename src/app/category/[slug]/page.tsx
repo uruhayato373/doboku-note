@@ -167,13 +167,8 @@ function DocCard({ doc }: { doc: DocMeta }) {
           {displayTitle}
         </h3>
         {doc.subtitle && (
-          <p className="text-sm text-gray-500 dark:text-gray-400">
+          <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
             {doc.subtitle}
-          </p>
-        )}
-        {doc.description && (
-          <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-2 flex-grow mt-1">
-            {doc.description}
           </p>
         )}
       </div>
