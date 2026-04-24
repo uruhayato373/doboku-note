@@ -178,7 +178,16 @@ catalog slugs 全件ごとに以下を並列で実施（複数の Agent 並列�
 
 ### Phase 5: 実装と記録
 
-#### 5.1 ブランチ作成
+#### 5.1 作業ブランチ（既定: develop 直接）
+
+**既定**: `develop` で直接作業する（feature ブランチ不要）。CLAUDE.md「性質別運用ガイド」でバルク content は develop 直 push が既定。worktree / feature ブランチ / PR のオーバーヘッドを排除する。
+
+```bash
+git switch develop  # 既に develop にいることを確認
+git pull --ff-only  # origin/develop を最新化
+```
+
+**例外: `--pr` オプション指定時のみ** feature ブランチを切る。複数サイクルをまとめて視覚確認したい、変更範囲が想定より大きい、等の場合に使用:
 
 ```
 claude/exam-keyword-cycle-YYYY-MM-DD-{exam-slug}-{question-anchor}
@@ -343,9 +352,23 @@ node .claude/skills/quality/exam-keyword-cycle/scripts/verify-cycle-completeness
 
 初回処理で verify が `true` になるのは、**全 catalog slugs の MDX が cem-qa 閾値に到達し、status が `full_cycle_complete` に更新されている場合のみ**。status 更新は本 Phase の `true` 判定を確認してから手動で書き換える（自動更新は行わず、ユーザー承認後に反映）。
 
-### Phase 6: PR 作成
+### Phase 6: 反映（既定: origin/develop push / 例外: PR）
 
-`/pr-create --base develop` を呼出（CLAUDE.md「ブランチ運用ルール」に準拠）。PR body は HEREDOC で以下のテンプレに従う:
+#### 既定: develop に直接 push
+
+Phase 5.6 の verify で `completed: true` を確認してから:
+
+```bash
+git push origin develop
+```
+
+- `index.json` / `progress.json` の `pr` フィールドは `null` のまま（PR 無しのため）
+- 検証は Phase 5.6 の `verify-cycle-completeness.mjs` が担う（cem-qa スコア + catalog 突合）
+- 視覚確認は develop ブランチの localhost（`npm run dev`）で実施
+
+#### 例外: `--pr` 指定時のみ PR 作成
+
+複数サイクルをまとめて視覚確認したい場合や変更範囲が想定より大きい場合に限り、`/pr-create --base develop` を呼出。PR body は HEREDOC で以下のテンプレに従う:
 
 ```markdown
 ## 起点過去問

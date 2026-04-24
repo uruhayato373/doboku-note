@@ -206,38 +206,64 @@ MDX を書くときに **毎回守るべき最低限** のルール。詳細な�
 
 ## ブランチ運用ルール
 
-複数エージェント・複数セッションが並行して作業することを前提に、以下を**常に**守る。
+単独作業（1 ユーザー + 1 エージェント）を既定とし、以下を**常に**守る。
 
-- **全 PR のデフォルト base は `develop`**。feature ブランチ（`claude/*` や `feat/*`）から `develop` へ PR を出し、レビュー後 `develop` に merge する
+### 基本ルール
+
+- **メイン working tree を直接使う**。worktree は原則使わない（後述の「worktree は例外」参照）
 - **`main` は常にデプロイ済みの安定版**。`develop` → `main` への merge は `/deploy` スキル経由でユーザーがタイミングを判断（= deploy の発火）
 - **例外: 本番障害の hotfix のみ `--base main` 直 PR を認める**。merge 後は必ず `main` → `develop` へ逆 merge して差分を解消する
-- **小修正のたびに main へ push しない**。`develop` に複数機能・修正を蓄積し、機能まとまり or 週次の単位でまとめて main merge
-- **`develop` は週 1 回 `main` から rebase/merge して追従**（`git checkout develop && git merge origin/main`）。長命化によるコンフリクト膨張を防ぐ
-- スキル側の扱い: `/pr-create` の `--base` 省略時は `develop`、`/deploy` は `develop` → `main` 経路を担当、`/exam-keyword-cycle` 等のコンテンツサイクル PR も `--base develop` で作る
+- **小修正のたびに main へ push しない**。`develop` に蓄積し、機能まとまり or 週次の単位でまとめて main merge
+- **`develop` は週 1 回 `main` から rebase/merge して追従**（`git checkout develop && git merge origin/main`）
+
+### 性質別運用ガイド（粒度の真実源）
+
+変更の性質により PR 要否と粒度を切り替える。「revert 可能性 5% 以上」または「他人/他エージェントとの衝突可能性あり」のいずれかが Yes なら PR、両方とも No なら直 push。
+
+| 性質 | 例 | 運用 |
+|---|---|---|
+| **ドキュメント系** | `.claude/`, `docs/project/`, `CLAUDE.md`, `content-principles.md`, MDX の小修正 | `develop` 直 commit & push（PR 不要） |
+| **バルク content** | `/exam-keyword-cycle` のキーワード群校正、10-15 件規模 | `develop` 直 push を既定。複数サイクルをまとめて視覚確認したい場合のみ週次 1 PR |
+| **コード系** | `src/`, `scripts/`, `package.json`, CI 設定、新規スキル、スキーマ変更 | feature ブランチ + PR（base = `develop`） |
+| **hotfix** | 本番障害対応 | feature ブランチ + PR（base = `main`、merge 後 main→develop 逆 merge） |
+
+**禁止**: 「キーワード 1 件 = 1 PR」のような過小粒度 PR。PR/ブランチ作成の overhead が作業本体を上回り、worktree 増殖・review 疲弊・自己承認化を招く。
+
+スキル側の扱い: `/pr-create` の `--base` 省略時は `develop`、`/deploy` は `develop` → `main` 経路を担当、`/exam-keyword-cycle` は既定で develop 直 push（PR は `--pr` オプション指定時のみ）。
 
 ### エージェントのブランチ取り扱い
 
-並行エージェント環境でブランチ状態が予測不能になるのを防ぐため、各エージェントは次を守る。
-
-- **作業開始時に `git branch --show-current` で現在ブランチを確認する**。ユーザー指示のブランチと異なれば、作業を止めて状況をユーザーに報告する（他エージェントが先にブランチ切替している可能性があるため、勝手に `git checkout` で戻さない）
+- **作業開始時に `git branch --show-current` で現在ブランチを確認する**。ユーザー指示のブランチと異なれば、作業を止めて状況をユーザーに報告する（勝手に `git checkout` で戻さない）
 - **feature ブランチでの作業完了（最終コミット完了）後、必ず `develop` に戻る**。未コミット変更が残る場合は戻らず、その旨をユーザーに報告してから判断を仰ぐ
-- **`develop` に戻ることは「変更確認」ではなく「ブランチ状態のリセット」が目的**。変更の目視確認は feature ブランチ上（localhost）または PR プレビューで行う（merge 前の変更は `develop` には乗っていない）
+- **`develop` に戻ることは「変更確認」ではなく「ブランチ状態のリセット」が目的**。変更の目視確認は feature ブランチ上（localhost）または PR プレビューで行う
 
-### 並行作業時は Git Worktree を使う
+### worktree は例外（原則使わない）
 
-2 人以上のエージェント（または人間＋エージェント）が同時並行で作業する場合、同じ working tree を共有せず、必ず Git Worktree で物理分離する。Git は 1 つの working tree に 1 つの HEAD しか持てない設計のため、共有すると `git checkout` の競合・`git stash` の untracked 衝突・working tree の予測不能な状態変化が必ず発生する（ルールで回避できない物理構造の問題）。
+worktree は **ローカル I/O を数倍に膨らませる**（AV スキャナの scan 対象ファイル数が `.next` + `node_modules` の複製分だけ倍増する）。過去、worktree 多発時に Kernel-Power 41 / BugCheck=0 クラスの OS フリーズが発生した実績がある。
 
-- **新セッション開始時**: `git worktree add C:/tmp/doboku-note-wt/<task-name> -b claude/<task-name> develop`
-- **作業完了時（merge 済み後）**: `git worktree remove C:/tmp/doboku-note-wt/<task-name>` および必要ならローカルブランチ削除
-- **メイン worktree**（`C:\Users\m004195\doboku-note`）は人間・dev server・commit 確認用として常に `develop` を維持
-- **dev server** は worktree ごとに別ポートで起動（例: `npm run dev -- -p 3021`）。メイン worktree が 3020 を占有するので新 worktree は 3021, 3022...
-- **node_modules** は worktree ごとに必要。**junction で共有する方法**が最速: `cmd //c "mklink /J C:\tmp\doboku-note-wt\<task-name>\node_modules C:\Users\m004195\doboku-note\node_modules"`（ジャンクションは同じボリューム内のみ、管理者権限不要）
-- **pre-commit フック** は `.git/hooks/` が worktree 間で共有されるため、上記の node_modules junction 作成で `gray-matter` 等の依存が解決すれば通る
-- **Claude Code 起動時** は対応する worktree ディレクトリで起動し、`git branch --show-current` で自分が正しい feature ブランチにいることを確認
+**既定: worktree を使わない**。単独作業では `git switch -c claude/<task> develop` でブランチだけ切って作業、merge 後 `git switch develop && git branch -d claude/<task>`。これで HEAD 競合は発生しない（直列作業なので）。
 
-このルールにより `git checkout` の HEAD 競合、stash の untracked 衝突、working tree の予測不可能な状態変化を物理的に排除する。並行作業が 1 件だけの場合（メインエージェントのみ）は worktree 不要、メインを直接使う。
+**例外で worktree を使う条件**（すべて満たすときのみ）:
 
-このルールは並行エージェント作業時の衝突を減らし、main の安定性を担保し、deploy タイミングをユーザー判断下に置くための運用則。SKILL.md 内で base 指定を書く場合もこのルールに従う。
+1. 2 エージェント以上が **物理的に同時実行** する（単に「並行っぽい」ではなく、同じ瞬間に 2 プロセスが git 操作する）
+2. 同時実行の継続時間が 30 分以上（短時間なら直列化の方が安い）
+3. 本当に wall-clock 短縮が必要（量産バッチなど）
+
+上記を満たさないなら worktree は作らない。「念のため」「なんとなく」での作成は禁止。
+
+**例外時の運用**:
+
+- 新規: `git worktree add C:/tmp/doboku-note-wt/<task-name> -b claude/<task-name> develop`
+- 完了時（**必須・即時**）: `git worktree remove C:/tmp/doboku-note-wt/<task-name>`
+- 同時 worktree 数の上限 = **2**（メイン + 例外 1 つ）。超えるなら古い方を先に片付ける
+- node_modules 共有: `cmd //c "mklink /J C:\tmp\doboku-note-wt\<task-name>\node_modules C:\Users\m004195\doboku-note\node_modules"`
+- dev server ポート分離: メイン 3020、worktree は 3021 以降
+
+**量産バッチ（多数キーワードの並列校正など）は remote agent を使う**。`/schedule` で Cloud 側に投げれば、ローカル I/O はゼロ。これが worktree 多発の正しい代替策。
+
+### 週次チェック（worktree 孤児防止）
+
+週次 PDCA で `git worktree list` を確認し、使っていない worktree があれば即 `git worktree remove` する。`C:/tmp/doboku-note-wt/` の物理ディレクトリも同時に掃除する（`git worktree prune` では物理削除されない）。
 
 ## 頻用コマンド
 
