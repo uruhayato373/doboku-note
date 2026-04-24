@@ -278,6 +278,8 @@ npm run type-check        # TypeScript チェック
 # 画像・コンテンツ管理
 /sync-r2-images           # R2 上の画像をローカルに同期（初回・追加時）
 npm run upload-images-r2  # .local/r2/posts/**/img/ を R2 にアップロード
+npm run generate-webp     # 全 png/jpg を webp 化（skip-exists、新規のみ処理）
+npm run update-image-refs # MDX の <img src="...png"> を .webp 参照へ一括置換
 
 # 静的インデックス再生成（build に含まれるが、開発中にオンデマンドでも実行可）
 npm run refresh-indexes   # 全静的インデックス一括再生成（backlinks + cross-exam + tags）
@@ -290,6 +292,21 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ```
 
 **Note**: `npm run dev` 実行時、`predev` スクリプトがポート 3020 のクリーンアップのみ実行する（高速起動）。静的インデックス（backlinks・cross-exam・tags）は `npm run build` 時に自動再生成されるため、本番デプロイ時は常に最新。開発中に過去問やタグを変更した場合は `npm run refresh-indexes` で手動再生成。
+
+### 画像追加時のワークフロー
+
+新しい画像（png / jpg）を追加したとき:
+
+1. `.local/r2/posts/{category}/{slug}/img/foo.png` を配置
+2. MDX に `<img src="/posts/{category}/{slug}/img/foo.webp">` で参照（png ではなく **webp を直接指定**）
+3. `npm run generate-webp` で webp を生成（または `npm run build` を走らせると `prebuild` が自動実行する）
+4. commit + push
+
+**忘れ防止**: `prebuild` が `generate-webp` + `update-image-refs` を自動実行するため、誤って MDX に `.png` 参照を書いても次回 build 時に自動修正される（local build も CI build も同じ動作）。
+
+**R2 アップロード**: `.github/workflows/r2-sync.yml` が main push 時に `.local/r2/posts/**/img/**` の変更を自動で R2 に同期する。手動アップロードは不要。
+
+**OGP 画像は例外**: `ogp.png` は `r2-image-loader.ts` が明示的に `.png` を参照するので webp に書き換えない（`update-image-refs` は `<img src>` のみ対象なので安全）。
 
 ## 実装時の行動原則
 
