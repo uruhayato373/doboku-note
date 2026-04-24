@@ -1377,10 +1377,375 @@
           "tcfd"
         ]
       }
+    },
+    "pe-comprehensive-management-r01-primary": {
+      "1-1": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pqcdsme"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "front-loading",
+          "concurrent-engineering",
+          "design-review"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "linear-programming"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "demand-forecasting"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "present-annual-future-value",
+          "dcf-method"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "activity-abc",
+          "target-cost"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "balance-sheet",
+          "income-statement",
+          "cash-flow-statement"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "bathtub-curve"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "worker-dispatch-act",
+          "indefinite-conversion-rule"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-standards-act",
+          "labor-policy-act"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-union-act",
+          "labor-relations-adjustment-act"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "power-harassment",
+          "labor-policy-act"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "halo-effect-errors",
+          "360-degree-evaluation"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "mcgregor-xy-theory",
+          "maslow-hierarchy-of-needs",
+          "herzberg-two-factor-theory"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "training-techniques"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "diagnostic-od",
+          "dialogic-od",
+          "content-process"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "trademark-rights"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "descriptive-statistics"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "de-facto-standard",
+          "forum-standard",
+          "de-jure-standard"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "multi-factor-authentication",
+          "access-control"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "three-c-analysis",
+          "swot-analysis",
+          "ppm-analysis"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "groupware",
+          "online-meetings"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "targeted-attack",
+          "malware",
+          "encryption-digital-signature"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "rpa"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "stress-check-system",
+          "occupational-safety-act"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disaster-countermeasures-act",
+          "civil-protection-act",
+          "nuclear-disaster-act"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disaster-prevention",
+          "hazard-map"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-education"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fault-tolerance",
+          "fail-safe",
+          "fool-proof"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-management-system",
+          "risk-analysis",
+          "risk-assessment"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "four-m-analysis",
+          "four-e-countermeasures",
+          "alarp-principle"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fta"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sdgs"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-society-basic-act",
+          "circular-economy"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "radioactive-decontamination-act",
+          "radioactive-waste"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "subsidiarity-principle",
+          "prevention-principle",
+          "precautionary-principle"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sri",
+          "environmental-accounting",
+          "iso-14000"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "air-pollution-control-act",
+          "environmental-standards"
+        ]
+      }
     }
   },
   "last_cycle": {
-    "exam": "r02-primary",
+    "exam": "r01-primary",
     "question": "1-40"
   }
 }
