@@ -179,6 +179,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
               (docMeta as any).created ||
               undefined,
             dateModified:
+              (docMeta as any).dateModified ||
               (docMeta as any).lastRewrittenAt ||
               (docMeta as any).updatedAt ||
               (docMeta as any).publishedAt ||
