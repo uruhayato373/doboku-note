@@ -7,7 +7,10 @@
       "exam": "r07-primary",
       "question": "1-1",
       "theme": "BCP・BCM とサプライチェーン",
-      "keywords": ["business-continuity-plan", "risk-management-plan"],
+      "keywords": [
+        "business-continuity-plan",
+        "risk-management-plan"
+      ],
       "pr": null,
       "log": "2026-04-20-r07-primary-1-1.md"
     },
@@ -32,7 +35,9 @@
       "exam": "r04-primary",
       "question": "1-1",
       "theme": "キャッシュ・フロー計算書の3区分と財務活動",
-      "keywords": ["cash-flow-statement"],
+      "keywords": [
+        "cash-flow-statement"
+      ],
       "pr": 43,
       "log": "2026-04-21-r04-primary-1-1.md"
     },
@@ -41,8 +46,10 @@
       "exam": "r01-primary",
       "question": "1-1",
       "theme": "PQCDSMEの7要素と管理指標",
-      "keywords": ["pqcdsme"],
-      "pr": null,
+      "keywords": [
+        "pqcdsme"
+      ],
+      "pr": 132,
       "log": "2026-04-25-r01-primary-1-1.md"
     }
   ]
