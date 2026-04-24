@@ -35,8 +35,8 @@ doboku-note の記事本文中に表示される、色 + アイコン + 任意�
 
 - 左アクセントバー: `border-l-[3px]` + トーン色
 - 円形アイコン: 22px、左上絶対配置、トーン色背景 + 白アイコン
-- タイトル: `text-sm font-bold` + トーン色（`config.tag`）
-- 本文: `text-[0.95em] leading-7 text-gray-700 dark:text-gray-300`
+- タイトル: `text-[15px] font-bold` + トーン色（`config.tag`）
+- 本文: `text-sm leading-7 text-gray-700 dark:text-gray-300`（タイトルより 1px 小さい、周囲 prose 18/16px より明確に小さく「傍論」として読ませる）
 - パネル背景: `bg-{tone}-50/70 dark:bg-{tone}-950/40`
 - 角丸: `rounded-md`（6px）
 

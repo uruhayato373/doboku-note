@@ -36,12 +36,16 @@ type ListItem = { content: ReactNode } | string | ReactNode;
 export type SpecSheetListProps = {
   /** リストのタイトル。省略可能。 */
   title?: string;
+  /** 任意のサブタイトル。title 直下にマーカー風ハイライトで表示される。title 省略時は描画されない。 */
+  subtitle?: string;
   /** リストアイテム。string / ReactNode / { content: ReactNode } を受け付ける。 */
   items: ListItem[];
   /** true なら <ol> + 連番 (01, 02, ...)、false なら <ul> + marker。 */
   ordered?: boolean;
   /** unordered 時のマーカー形状。ordered 時は無視される。 */
   marker?: "dot" | "dash" | "square";
+  /** 上罫線の色アクセント。default（既定=ink-strong）または brand（ブランド色）。 */
+  accent?: "default" | "brand";
   /** 追加クラス名。 */
   className?: string;
 };
@@ -88,9 +92,11 @@ function getContent(item: ListItem): ReactNode {
 
 export default function SpecSheetList({
   title,
+  subtitle,
   items,
   ordered = true,
   marker = "dot",
+  accent = "default",
   className = "",
 }: SpecSheetListProps) {
   if (!items || !Array.isArray(items) || items.length === 0) return null;
@@ -134,19 +140,28 @@ export default function SpecSheetList({
     );
   };
 
+  const accentClass = accent === "brand" ? styles.rootAccentBrand : "";
+
   return (
-    <section className={`${styles.root} ${className}`}>
+    <section className={`${styles.root} ${accentClass} ${className}`}>
       {title && (
         <header className={styles.head}>
-          {/* 意図的に h* タグではなく div を使用: これはコンポーネント内部の
-              ラベルであり、記事の見出し階層（TOC / a11y heading navigation）
-              とは別概念。MDX の `###` 見出しと混在しないようにする。 */}
-          <div className={styles.title} role="heading" aria-level={4}>
-            {title}
+          <div className={styles.headRow}>
+            {/* 意図的に h* タグではなく div を使用: これはコンポーネント内部の
+                ラベルであり、記事の見出し階層（TOC / a11y heading navigation）
+                とは別概念。MDX の `###` 見出しと混在しないようにする。 */}
+            <div className={styles.title} role="heading" aria-level={4}>
+              {title}
+            </div>
+            <span className={styles.count}>
+              {String(items.length).padStart(2, "0")} items
+            </span>
           </div>
-          <span className={styles.count}>
-            {String(items.length).padStart(2, "0")} items
-          </span>
+          {subtitle && (
+            <p className={styles.subtitle}>
+              <span className={styles.subtitleHighlight}>{subtitle}</span>
+            </p>
+          )}
         </header>
       )}
       <ListTag className={styles.list}>

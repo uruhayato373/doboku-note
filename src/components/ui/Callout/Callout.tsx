@@ -196,7 +196,7 @@ export default function Callout({ type = "note", title, children }: CalloutProps
     <aside
       data-callout={type}
       aria-label={`${config.label}: ${config.jp}`}
-      className={`relative my-6 border-l-[3px] rounded-md pl-14 pr-5 py-4 ${config.panel}`}
+      className={`relative my-6 border-l-[3px] rounded-md pl-5 pr-5 py-4 ${config.panel}`}
     >
       {/* 円形アイコン（左上固定） */}
       <div
@@ -206,15 +206,17 @@ export default function Callout({ type = "note", title, children }: CalloutProps
         <IconComponent className="h-3.5 w-3.5" />
       </div>
 
-      {/* 任意タイトル（指定時のみ描画、トーン色で強調） */}
+      {/* 任意タイトル（指定時のみ描画、トーン色で強調）。pl-9 でアイコン右にオフセット */}
       {title && (
-        <div className={`mb-1.5 text-sm font-bold ${config.tag}`}>
+        <div className={`mb-1.5 pl-9 text-[15px] font-bold ${config.tag}`}>
           {title}
         </div>
       )}
 
-      {/* 本文 */}
-      <div className="callout-body text-[0.95em] leading-7 text-gray-700 dark:text-gray-300">
+      {/* 本文。title があるときは aside 左端に揃える（広い横幅）、ないときはアイコン右へ pl-9 */}
+      <div
+        className={`callout-body text-sm leading-7 text-gray-700 dark:text-gray-300 ${title ? "" : "pl-9"}`}
+      >
         {children}
       </div>
     </aside>

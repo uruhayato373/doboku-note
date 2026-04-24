@@ -1,38 +1,31 @@
-"use client";
-
-import { Circle } from "lucide-react";
+import SpecSheetList from "../SpecSheetList/SpecSheetList";
 
 interface ExamPointProps {
   summary: string;
   items: string[];
 }
 
+/**
+ * ExamPoint — 記事末尾の試験対策ポイント総括ボックス。
+ *
+ * 2026-04-24 から SpecSheetList のラッパーとして再実装（コンポーネント統一）。
+ * 「試験対策ポイント」固定ラベル + ブランド色上罫線アクセントで視覚的ポジションを維持しつつ、
+ * 仕様書調デザインに統合されている。
+ *
+ * 旧実装（浮きカード + 左にはみ出す青チップ）はモバイル視認性の問題があったため廃止。
+ * API（summary + items）は 690 MDX 呼び出しと完全互換。
+ */
 export default function ExamPoint({ summary, items }: ExamPointProps) {
   if (!items || items.length === 0) return null;
 
   return (
-    <div className="my-5 mx-5 p-3 rounded-card-content shadow-card-content border border-gray-300 dark:border-gray-700">
-      <div className="relative -left-8 bg-blue-600 text-white py-2 px-4 m-0 text-lg font-bold dark:bg-blue-500 inline-flex items-center w-auto">
-        試験対策ポイント
-      </div>
-      <p className="text-lg font-semibold text-gray-800 dark:text-gray-200 mt-3 mb-3 ml-2">
-        <span style={{ background: "linear-gradient(transparent 60%, rgba(6, 182, 212, 0.3) 60%)" }}>
-          {summary}
-        </span>
-      </p>
-      <ul className="space-y-2 list-none">
-        {items.map((item, index) => (
-          <li
-            key={index}
-            className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed flex items-start pl-2"
-          >
-            <span className="shrink-0 mr-3 mt-1.5 text-blue-600 dark:text-blue-500">
-              <Circle className="w-2 h-2 fill-current" />
-            </span>
-            <span>{item}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <SpecSheetList
+      title="試験対策ポイント"
+      subtitle={summary}
+      items={items}
+      ordered={false}
+      marker="dot"
+      accent="brand"
+    />
   );
 }

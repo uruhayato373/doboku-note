@@ -30,14 +30,17 @@ doboku-note の記事本文中で使う**仕様書調リスト**。点検項目�
 | Prop | Type | Default | 説明 |
 |---|---|---|---|
 | `title` | `string` | - | リストのタイトル（省略可） |
+| `subtitle` | `string` | - | title 直下にマーカー風ハイライトで表示する補足文。title 省略時は描画されない |
 | `items` | `ListItem[]` | 必須 | `string` / `ReactNode` / `{ content: ReactNode }` |
 | `ordered` | `boolean` | `true` | `true` = `<ol>` 連番（01, 02, ...）、`false` = `<ul>` マーカー |
 | `marker` | `"dot" \| "dash" \| "square"` | `"dot"` | unordered 時のマーカー形状 |
+| `accent` | `"default" \| "brand"` | `"default"` | 上罫線の色アクセント。`brand` でブランド色（ExamPoint 用） |
 | `className` | `string` | `""` | 追加クラス名 |
 
 ## デザイン仕様
 
-- 上罫 **2px 実線**（`--color-ink-strong`）+ 下罫 1px（`--color-border`）
+- 上罫 **2px 実線**（`--color-ink-strong`、または `accent="brand"` で `--color-brand`）+ 下罫 1px（`--color-border`）
+- `subtitle` 指定時: title 下に 14px semibold で表示、背景に `--color-brand-fill` のマーカーペン風グラデ
 - ヘッダー: タイトル（15px bold）+ 右にモノスペースで「`05 items`」カウント
 - 各行: `grid-template-columns: 38px 1fr` — 左マーカー + 右本文
 - 行間の区切りは **破線 1px**（最終行のみ破線なし）
