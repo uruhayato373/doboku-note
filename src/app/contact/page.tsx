@@ -10,66 +10,70 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
 
       <main className="flex-grow">
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 border-b border-blue-100 dark:border-gray-700 py-12 px-6">
+        <div className="border-b border-[var(--rule-soft)] bg-[var(--paper)] py-10 sm:py-12 px-4 sm:px-6 lg:px-10">
           <div className="max-w-[780px] mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
+              <span>Home</span>
+              <span aria-hidden className="opacity-60">›</span>
+              <span>Contact</span>
+            </nav>
+            <h1 className="font-serif font-black text-[var(--ink)] text-[32px] sm:text-[40px] tracking-tight mb-3">
               お問い合わせ
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
+            <p className="text-[15px] text-[var(--ink-body)]">
               ご質問・ご意見・コンテンツに関するご指摘をお待ちしております
             </p>
           </div>
         </div>
 
-        <div className="max-w-[780px] mx-auto px-6 py-12">
-          {/* メールでのお問い合わせ */}
-          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 mb-8">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
-                <Mail className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+        <div className="max-w-[780px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
+          {/* メール */}
+          <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-6 sm:p-8 mb-6 shadow-soft">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="bg-[var(--accent-fill)] w-12 h-12 rounded-card-content flex items-center justify-center shrink-0">
+                <Mail className="w-6 h-6 text-[var(--accent)]" />
               </div>
               <div>
-                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100">
+                <h2 className="font-serif font-bold text-[var(--ink)] text-lg">
                   メールでのお問い合わせ
                 </h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
+                <p className="text-sm text-[var(--ink-muted)]">
                   以下のメールアドレスまでお気軽にご連絡ください
                 </p>
               </div>
             </div>
-
             <a
               href="mailto:info@doboku-note.com"
-              className="inline-flex items-center gap-2 text-xl font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors"
+              className="inline-flex items-center gap-2 font-mono text-lg text-[var(--accent)] hover:underline"
             >
-              <span>info@doboku-note.com</span>
+              info@doboku-note.com
             </a>
           </div>
 
           {/* お問い合わせの種類 */}
-          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-8 mb-8">
-            <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4">
+          <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-6 sm:p-8 mb-6 shadow-soft">
+            <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-4">
               お問い合わせの例
             </h2>
-            <ul className="space-y-3 text-[15px] text-gray-700 dark:text-gray-300">
+            <ul className="space-y-2 text-[15px] text-[var(--ink-body)]">
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-1 shrink-0">&#9679;</span>
+                <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
                 <span>コンテンツの誤り・古い情報のご指摘</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-1 shrink-0">&#9679;</span>
+                <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
                 <span>試験対策に関するご質問</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-1 shrink-0">&#9679;</span>
+                <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
                 <span>サイトの不具合・表示の問題</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-blue-500 mt-1 shrink-0">&#9679;</span>
+                <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
                 <span>その他のご意見・ご要望</span>
               </li>
             </ul>
@@ -77,25 +81,25 @@ export default function ContactPage() {
 
           {/* 注意事項 */}
           <div className="grid gap-4 md:grid-cols-2">
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-6 shadow-soft">
               <div className="flex items-center gap-2 mb-3">
-                <Clock className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                <Clock className="w-5 h-5 text-[var(--ink-muted)]" />
+                <h3 className="font-serif font-bold text-[var(--ink)]">
                   返信について
                 </h3>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-[var(--ink-body)] leading-relaxed">
                 お問い合わせいただいた内容には、通常3営業日以内にご返信いたします。内容によってはお時間をいただく場合がございます。
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+            <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-6 shadow-soft">
               <div className="flex items-center gap-2 mb-3">
-                <AlertCircle className="w-5 h-5 text-gray-500 dark:text-gray-400" />
-                <h3 className="font-semibold text-gray-900 dark:text-gray-100">
+                <AlertCircle className="w-5 h-5 text-[var(--ink-muted)]" />
+                <h3 className="font-serif font-bold text-[var(--ink)]">
                   ご了承事項
                 </h3>
               </div>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-[var(--ink-body)] leading-relaxed">
                 個別の試験問題の解答や、合否に関するご質問にはお答えできかねます。あらかじめご了承ください。
               </p>
             </div>

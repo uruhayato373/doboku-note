@@ -6,25 +6,29 @@ const categories = categoriesData as CategoryDef[];
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white transition-colors duration-300">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+    <footer className="border-t border-[var(--rule-soft)] bg-[var(--paper)] mt-10 transition-colors duration-300">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
           {/* ブランド情報 */}
-          <div className="md:col-span-2">
-            <h3 className="text-2xl font-bold text-primary-400 mb-4">doboku-note</h3>
-            <p className="text-gray-300 mb-4">土木系資格試験 専門技術ノート</p>
-            <p className="text-gray-400 text-sm">1級土木施工管理技士・技術士の合格をサポート</p>
+          <div className="col-span-2">
+            <Link href="/" className="flex items-baseline gap-2">
+              <span className="font-serif text-2xl font-black tracking-tight text-[var(--ink)]">doboku</span>
+              <span className="font-mono text-[10px] text-[var(--ink-muted)] tracking-widest uppercase">— note</span>
+            </Link>
+            <p className="mt-3 text-[var(--ink-muted)] text-[13px] leading-relaxed max-w-[40ch]">
+              土木系資格試験の対策ノート。1級土木施工管理技士および技術士（総合技術監理部門）の学習コンテンツを公開。
+            </p>
           </div>
 
           {/* カテゴリ */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">カテゴリ</h4>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] mb-3">Categories</div>
             <ul className="space-y-2">
               {categories.map(cat => (
                 <li key={cat.slug}>
                   <Link
                     href={`/category/${cat.slug}`}
-                    className="text-gray-300 hover:text-primary-400 transition-colors"
+                    className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors"
                   >
                     {cat.label}
                   </Link>
@@ -35,46 +39,35 @@ export default function Footer() {
 
           {/* サイト情報 */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">サイト情報</h4>
+            <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] mb-3">Site</div>
             <ul className="space-y-2">
               <li>
-                <Link
-                  href="/about"
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
-                >
-                  このサイトについて
+                <Link href="/about" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                  About
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/privacy"
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
-                >
-                  プライバシーポリシー
+                <Link href="/privacy" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                  Privacy
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/terms"
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
-                >
-                  利用規約
+                <Link href="/terms" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                  Terms
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="text-gray-300 hover:text-primary-400 transition-colors"
-                >
-                  お問い合わせ
+                <Link href="/contact" className="text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                  Contact
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="border-t border-gray-700 dark:border-gray-600 mt-8 pt-8 text-center">
-          <p className="text-gray-400">© {new Date().getFullYear()} doboku-note. All rights reserved.</p>
+        <div className="mt-8 pt-4 border-t border-[var(--rule-soft)] flex justify-between text-[11px] font-mono text-[var(--ink-muted)] flex-wrap gap-2">
+          <span>© {new Date().getFullYear()} doboku-note</span>
+          <span>Built with Next.js · Tailwind · MDX</span>
         </div>
       </div>
     </footer>

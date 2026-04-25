@@ -23,14 +23,14 @@ type SectionCardProps = {
 
 function SectionCard({ icon, title, children }: SectionCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-card-section p-6 hover:shadow-card-hover transition-shadow">
+    <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-6 hover:shadow-soft transition-shadow">
       <div className="flex items-center gap-3 mb-4">
-        <div className="bg-primary-100 dark:bg-primary-900/30 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+        <div className="bg-[var(--accent-fill)] w-10 h-10 rounded-card-content flex items-center justify-center shrink-0">
           {icon}
         </div>
-        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 leading-tight">{title}</h2>
+        <h2 className="font-serif text-lg font-bold text-[var(--ink)] leading-tight">{title}</h2>
       </div>
-      <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
+      <div className="text-[15px] text-[var(--ink-body)] leading-relaxed">
         {children}
       </div>
     </div>
@@ -39,18 +39,23 @@ function SectionCard({ icon, title, children }: SectionCardProps) {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
 
-      <main className="flex-grow w-full max-w-3xl mx-auto px-4 sm:px-6 py-8 lg:py-12">
+      <main className="flex-grow w-full max-w-[780px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12">
         <div className="mb-8">
-          <h1 className="text-3xl font-extrabold text-gray-900 dark:text-white mb-2">
+          <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span>Home</span>
+            <span aria-hidden className="opacity-60">›</span>
+            <span>Terms</span>
+          </nav>
+          <h1 className="font-serif text-[32px] sm:text-[40px] font-black text-[var(--ink)] tracking-tight mb-2">
             利用規約
           </h1>
-          <p className="text-gray-500 dark:text-gray-400 text-sm">最終更新日: 2026年4月8日</p>
+          <p className="font-mono text-[11px] text-[var(--ink-muted)]">最終更新日 2026.04.08</p>
         </div>
 
-        <p className="text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+        <p className="text-[var(--ink-body)] mb-8 leading-relaxed">
           本利用規約（以下「本規約」）は、doboku-note（以下「当サイト」）の利用に関する条件を定めるものです。
           当サイトを利用されることにより、本規約に同意したものとみなします。
         </p>

@@ -6,14 +6,19 @@
 @layer base {
   /* Card design tokens — single source of truth */
   :root {
-    --radius-card-inline: 2px;
-    --radius-card-content: 2px;
-    --radius-card-section: 2px;
-    --radius-card-hero: 2px;
+    /* Card radius — graded scale (handoff: 6/8/12/16) */
+    --radius-card-inline: 6px;
+    --radius-card-content: 8px;
+    --radius-card-section: 12px;
+    --radius-card-hero: 16px;
 
     --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    /* Editorial shadows (handoff) */
+    --shadow-soft: 0 1px 2px rgba(10, 15, 30, 0.04);
+    --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.04);
 
     /* Color tokens — single source of truth for UI + SVG figures */
     --color-ink-strong: #222222;
@@ -32,12 +37,40 @@
     --color-warn-fill: #fff3cd;
     --color-danger: #b22234;
     --color-danger-fill: #f8d7da;
+
+    /* Editorial palette (handoff) — added alongside legacy --color-brand */
+    --accent: #1a3a5c;
+    --accent-fill: #eef3f8;
+    --paper: #ffffff;
+    --bg: #fafafa;
+    --ink: #0a0a0a;
+    --ink-body: #2d2d30;
+    --ink-muted: #6a6a6a;
+    --rule: #1a1a1a;
+    --rule-soft: #e8e8eb;
+
+    /* Callout palette (12 kinds × bg / border / foreground) */
+    --ct-note-bg: #eff6ff;     --ct-note-bd: #3b82f6;     --ct-note-fg: #1d4ed8;
+    --ct-tip-bg: #ecfdf5;      --ct-tip-bd: #10b981;      --ct-tip-fg: #047857;
+    --ct-warn-bg: #fffbeb;     --ct-warn-bd: #f59e0b;     --ct-warn-fg: #b45309;
+    --ct-danger-bg: #fef2f2;   --ct-danger-bd: #ef4444;   --ct-danger-fg: #b91c1c;
+    --ct-success-bg: #f0fdf4;  --ct-success-bd: #22c55e;  --ct-success-fg: #15803d;
+    --ct-exam-bg: #fdf2f8;     --ct-exam-bd: #db2777;     --ct-exam-fg: #9d174d;
+    --ct-formula-bg: #eef2ff;  --ct-formula-bd: #6366f1;  --ct-formula-fg: #3730a3;
+    --ct-standard-bg: #f5f3ff; --ct-standard-bd: #8b5cf6; --ct-standard-fg: #5b21b6;
+    --ct-example-bg: #ecfeff;  --ct-example-bd: #0891b2;  --ct-example-fg: #155e75;
+    --ct-reference-bg: #f8fafc;--ct-reference-bd: #64748b;--ct-reference-fg: #334155;
+    --ct-faq-bg: #fefce8;      --ct-faq-bd: #ca8a04;      --ct-faq-fg: #854d0e;
+    --ct-quote-bg: #fafafa;    --ct-quote-bd: #a1a1aa;    --ct-quote-fg: #52525b;
   }
 
   .dark {
     --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.15);
     --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.15);
     --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25);
+
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.3);
 
     /* Color tokens — dark mode */
     --color-ink-strong: #f3f4f6;
@@ -56,6 +89,31 @@
     --color-warn-fill: #713f12;
     --color-danger: #fca5a5;
     --color-danger-fill: #7f1d1d;
+
+    /* Editorial palette (handoff dark) */
+    --accent: #8fb4d8;
+    --accent-fill: #1a2632;
+    --paper: #141516;
+    --bg: #141516;
+    --ink: #ececea;
+    --ink-body: #b8b5ac;
+    --ink-muted: #7a7770;
+    --rule: #3a3a3a;
+    --rule-soft: #2a2a2a;
+
+    /* Callout palette — dark mode (deeper bg, lighter fg) */
+    --ct-note-bg: #172554;     --ct-note-bd: #3b82f6;     --ct-note-fg: #93c5fd;
+    --ct-tip-bg: #022c22;      --ct-tip-bd: #10b981;      --ct-tip-fg: #6ee7b7;
+    --ct-warn-bg: #422006;     --ct-warn-bd: #f59e0b;     --ct-warn-fg: #fcd34d;
+    --ct-danger-bg: #450a0a;   --ct-danger-bd: #ef4444;   --ct-danger-fg: #fca5a5;
+    --ct-success-bg: #052e16;  --ct-success-bd: #22c55e;  --ct-success-fg: #86efac;
+    --ct-exam-bg: #500724;     --ct-exam-bd: #db2777;     --ct-exam-fg: #f9a8d4;
+    --ct-formula-bg: #1e1b4b;  --ct-formula-bd: #6366f1;  --ct-formula-fg: #a5b4fc;
+    --ct-standard-bg: #2e1065; --ct-standard-bd: #8b5cf6; --ct-standard-fg: #c4b5fd;
+    --ct-example-bg: #083344;  --ct-example-bd: #0891b2;  --ct-example-fg: #67e8f9;
+    --ct-reference-bg: #0f172a;--ct-reference-bd: #64748b;--ct-reference-fg: #cbd5e1;
+    --ct-faq-bg: #422006;      --ct-faq-bd: #ca8a04;      --ct-faq-fg: #fde047;
+    --ct-quote-bg: #18181b;    --ct-quote-bd: #71717a;    --ct-quote-fg: #d4d4d8;
   }
 
   html {
@@ -138,15 +196,19 @@
     margin-bottom: 0;
   }
 
-  /* リンク: 常時アンダーライン（note風、半透明 + offset 4px、hoverで濃く） */
+  /* リンク: editorial アンダーライン（半透明 accent + offset 4px、hoverで濃く） */
   .prose-blog a {
+    color: var(--accent);
     text-decoration: underline;
-    text-decoration-color: rgba(37, 99, 235, 0.4);
+    text-decoration-color: rgba(26, 58, 92, 0.35);
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
   }
+  .dark .prose-blog a {
+    text-decoration-color: rgba(143, 180, 216, 0.45);
+  }
   .prose-blog a:hover {
-    text-decoration-color: rgba(37, 99, 235, 1);
+    text-decoration-color: var(--accent);
   }
 
   /* 見出し共通: 行間 */
@@ -157,25 +219,31 @@
     @apply leading-snug;
   }
 
-  /* h1: ページタイトル — 下線アクセント + Zenn準拠 max-width 780px 中央寄せ
-     letter-spacing -0.02em（Claude Design 提案、2026-04-22 追加） */
+  /* h1: ページタイトル — editorial serif (Noto Serif JP, weight 900) */
   .prose-blog h1 {
-    @apply text-3xl font-bold text-gray-900 dark:text-white;
-    @apply mb-8 mt-8 pb-3;
-    @apply border-b-2 border-blue-600 dark:border-blue-500;
-    max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
+    font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    font-weight: 900;
+    color: var(--ink);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.25;
     letter-spacing: -0.02em;
+    margin: 0 0 0.9em;
+    padding-bottom: 0;
+    border-bottom: none;
+    max-width: none;
   }
 
-  /* h2: セクション区切り — 左アクセントバー + 広い上余白
-     letter-spacing -0.01em（Claude Design 提案） */
+  /* h2: セクション区切り — editorial serif (Noto Serif JP, weight 800), 装飾なし */
   .prose-blog h2 {
-    @apply text-2xl font-bold text-gray-900 dark:text-gray-100;
-    @apply mb-5 mt-16 py-2 pl-4;
-    @apply border-l-4 border-blue-600 dark:border-cyan-500;
+    font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    font-weight: 800;
+    color: var(--ink);
+    font-size: clamp(20px, 2.5vw, 26px);
+    line-height: 1.35;
     letter-spacing: -0.01em;
+    margin: 2.4em 0 0.8em;
+    padding: 0;
+    border-left: none;
   }
 
   /* h3: サブセクション — 中間色の左アクセントバー */
@@ -207,51 +275,61 @@
     font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", YuMincho, serif;
   }
 
-  /* ===== 表: 左右余白 + ボーダーで本文と区別 ===== */
+  /* ===== 表: editorial — soft border + accent thead ===== */
   .prose-blog table {
-    @apply mx-4 my-6 text-sm;
-    @apply border border-gray-200 dark:border-gray-700 rounded-lg;
-    @apply overflow-hidden;
+    @apply mx-4 my-6 text-sm rounded-card-content overflow-hidden;
+    border: 1px solid var(--rule-soft);
     width: calc(100% - 2rem);
   }
 
   .prose-blog thead {
-    @apply bg-gray-50 dark:bg-gray-800/60;
+    background: var(--accent-fill);
   }
 
   .prose-blog thead th {
-    @apply text-xs font-semibold text-gray-600 dark:text-gray-400 uppercase tracking-wider;
-    @apply py-3 px-4 border-b border-gray-200 dark:border-gray-700;
+    @apply font-semibold py-3 px-4;
+    color: var(--accent);
+    border-bottom: 1px solid var(--rule-soft);
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
   }
 
   .prose-blog tbody td {
-    @apply py-2.5 px-4 border-b border-gray-100 dark:border-gray-800;
+    @apply py-2.5 px-4;
+    color: var(--ink-body);
+    border-bottom: 1px solid var(--rule-soft);
   }
 
   .prose-blog tbody tr:last-child td {
-    @apply border-b-0;
+    border-bottom: none;
   }
 
   .prose-blog tbody tr:hover {
-    @apply bg-gray-50/50 dark:bg-gray-800/30;
+    background: rgba(238, 243, 248, 0.5);
+  }
+  .dark .prose-blog tbody tr:hover {
+    background: rgba(26, 38, 50, 0.5);
   }
 
-  /* ===== details: 解答・解説の折りたたみボックス ===== */
+  /* ===== details: editorial accent ===== */
   .prose-blog details {
-    @apply mx-4 my-6 rounded-lg border border-gray-200 dark:border-gray-700;
-    @apply bg-gray-50/50 dark:bg-gray-800/30;
-    @apply overflow-hidden;
+    @apply mx-4 my-6 rounded-card-content overflow-hidden;
+    border: 1px solid var(--rule-soft);
+    background: var(--paper);
   }
 
   .prose-blog details[open] {
-    @apply bg-white dark:bg-gray-800/50;
+    background: var(--paper);
   }
 
   .prose-blog details summary {
-    @apply cursor-pointer select-none;
-    @apply py-3.5 px-5 font-bold text-base text-blue-700 dark:text-cyan-400;
-    @apply hover:bg-blue-50 dark:hover:bg-gray-700/40 transition-colors;
-    @apply list-none;
+    @apply cursor-pointer select-none py-3.5 px-5 font-bold text-base list-none transition-colors;
+    color: var(--accent);
+  }
+  .prose-blog details summary:hover {
+    background: var(--accent-fill);
   }
 
   .prose-blog details summary::-webkit-details-marker {
@@ -269,7 +347,7 @@
   }
 
   .prose-blog details[open] summary {
-    @apply border-b border-gray-200 dark:border-gray-700;
+    border-bottom: 1px solid var(--rule-soft);
   }
 
   .prose-blog details > :not(summary) {
@@ -296,25 +374,28 @@
     @apply pb-4;
   }
 
-  /* ===== blockquote ===== */
+  /* ===== blockquote: editorial soft rule ===== */
   .prose-blog blockquote {
-    @apply mx-4 my-6 pl-5 py-3 pr-4;
-    @apply border-l-4 border-blue-400 dark:border-cyan-600;
-    @apply bg-blue-50/50 dark:bg-blue-900/10;
-    @apply rounded-r-lg;
-    @apply text-gray-700 dark:text-gray-300 not-italic;
+    @apply mx-4 my-6 pl-5 py-2 pr-4;
+    border-left: 3px solid var(--rule-soft);
+    background: transparent;
+    color: var(--ink-muted);
+    font-style: italic;
   }
 
   .prose-blog blockquote p {
     @apply mb-0;
   }
 
-  /* ===== code: インラインコード ===== */
+  /* ===== code: インラインコード — accent fill */
   .prose-blog :not(pre) > code {
-    @apply text-sm px-1.5 py-0.5 rounded;
-    @apply bg-gray-100 dark:bg-gray-800;
-    @apply text-pink-600 dark:text-pink-400;
-    @apply border border-gray-200 dark:border-gray-700;
+    font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+    font-size: 0.92em;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: var(--accent-fill);
+    color: var(--accent);
+    border: 1px solid var(--rule-soft);
   }
 
   .prose-blog :not(pre) > code::before,
@@ -324,8 +405,8 @@
 
   /* ===== pre: コードブロック ===== */
   .prose-blog pre {
-    @apply mx-4 my-6 rounded-lg;
-    @apply border border-gray-200 dark:border-gray-700;
+    @apply mx-4 my-6 rounded-card-content;
+    border: 1px solid var(--rule-soft);
   }
 
   /* ========================================

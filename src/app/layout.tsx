@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP, Source_Serif_4, Noto_Serif_JP } from "next/font/google";
+import { Inter, Noto_Sans_JP, Source_Serif_4, Noto_Serif_JP, JetBrains_Mono } from "next/font/google";
 // katex.min.css を先に import して、後続の globals.css で上書きできるようにする
 // （CSS カスケードは後勝ちのため、import 順で決まる）
 import "katex/dist/katex.min.css";
@@ -41,10 +41,18 @@ const sourceSerif = Source_Serif_4({
 
 const notoSerifJP = Noto_Serif_JP({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "500", "700", "900"],
   variable: "--font-noto-serif-jp",
   display: "swap",
-  preload: false,
+  preload: true,
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-jetbrains-mono",
+  display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = getCommonSeoData();
@@ -60,7 +68,7 @@ export default function RootLayout({
         <StructuredData type="website" />
         <StructuredData type="organization" />
       </head>
-      <body className={`${inter.variable} ${notoSansJP.variable} ${sourceSerif.variable} ${notoSerifJP.variable} font-sans`}>
+      <body className={`${inter.variable} ${notoSansJP.variable} ${sourceSerif.variable} ${notoSerifJP.variable} ${jetbrainsMono.variable} font-sans`}>
         <GoogleAnalytics />
         <Suspense fallback={null}>
           <AnalyticsProvider />

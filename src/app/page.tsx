@@ -1,97 +1,105 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import Link from "next/link";
+import { Hero, ExamCards, ReferenceCardLink, LatestArticles, AboutSection } from "@/components/home";
+import type { LatestArticle } from "@/components/home";
+import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
+import categoriesData from "@/config/categories.json";
+import { CategoryDef } from "@/lib/categories";
 
-/**
- * ホームページのメインコンポーネント
- *
- * Phase 1: 試験対策コンテンツ特化
- * - 1級土木施工管理技士対策
- * - 技術士（総合技術監理）対策
- */
+const categories = categoriesData as CategoryDef[];
+
+const EXAM_DATA = [
+  {
+    slug: "civil-construction-1",
+    label: "1級土木施工管理技士",
+    en: "CCCE Grade 1",
+    subtitle: "第1次・第2次検定 完全対策",
+    description: "土木工事の施工計画・品質管理・安全管理を体系的に整理。過去問題、キーワード解説、記述式の要点を収録。",
+    nextExam: "2026年7月 第1次 / 10月 第2次",
+    variant: "civil" as const,
+  },
+  {
+    slug: "pe-comprehensive-management",
+    label: "技術士（総合技術監理部門）",
+    en: "PE Comprehensive Management",
+    subtitle: "筆記・口頭試験 論文対策",
+    description: "5つの管理技術（経済性・人的資源・情報・安全・社会環境）を軸に、青本の体系整理と論文事例を提供。",
+    nextExam: "2026年7月 筆記 / 12月 口頭",
+    variant: "pe" as const,
+  },
+];
+
+function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
+  const labelByCategory = new Map<string, string>();
+  categories.forEach((c) => labelByCategory.set(c.slug, c.label));
+  return allMeta
+    .filter((m) => m.published !== false)
+    .filter((m) => m.title && !m.title.startsWith("§"))
+    .map((m) => {
+      const dateStr =
+        (m as any).updatedAt ||
+        (m as any).dateModified ||
+        (m as any).publishedAt ||
+        (m as any).created;
+      const date = dateStr ? new Date(dateStr) : null;
+      return { meta: m, ts: date && !Number.isNaN(date.getTime()) ? date.getTime() : 0 };
+    })
+    .filter((x) => x.ts > 0)
+    .sort((a, b) => b.ts - a.ts)
+    .slice(0, n)
+    .map(({ meta }) => ({
+      slug: meta.slug,
+      title: meta.shortTitle || meta.title,
+      category: meta.category,
+      categoryLabel: meta.category ? labelByCategory.get(meta.category) : undefined,
+      date: (meta as any).updatedAt || (meta as any).dateModified || (meta as any).publishedAt || (meta as any).created,
+      tags: (meta.tags || []).filter(
+        (t) => !["primary", "secondary", "past-questions", "guide", "textbook", "keyword"].includes(t),
+      ),
+    }));
+}
+
 export default async function HomePage() {
+  const allMeta = getAllDocsMeta();
+  const civil = getDocsMetaByCategory("civil-construction-1");
+  const pe = getDocsMetaByCategory("pe-comprehensive-management");
+
+  const exams = [
+    {
+      ...EXAM_DATA[0]!,
+      stats: [
+        { k: "記事", v: civil.length.toLocaleString() },
+        { k: "過去問", v: civil.filter((m) => m.tags?.includes("past-questions") || m.group === "primary" || m.group === "secondary").length.toLocaleString() },
+        { k: "教科書", v: civil.filter((m) => m.tags?.includes("textbook") || m.group === "textbook").length.toLocaleString() },
+      ],
+    },
+    {
+      ...EXAM_DATA[1]!,
+      stats: [
+        { k: "記事", v: pe.length.toLocaleString() },
+        { k: "キーワード", v: pe.filter((m) => m.group === "keyword" || m.tags?.includes("keyword")).length.toLocaleString() },
+        { k: "過去問", v: pe.filter((m) => m.group === "pastExam" || m.tags?.includes("past-questions")).length.toLocaleString() },
+      ],
+    },
+  ];
+
+  const articleCount = allMeta.filter((m) => m.published !== false).length;
+
+  const latest = pickRecent(allMeta, 4);
+  const lastUpdated = latest[0]?.date
+    ? new Date(latest[0].date).toLocaleDateString("ja-JP", { year: "numeric", month: "2-digit", day: "2-digit" }).replace(/\//g, ".")
+    : undefined;
+
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
-
       <main className="flex-grow">
-        {/* Hero Section */}
-        {/* Issue #84 Wave 3: 装飾用 blur orb 3 つを削除して mobile GPU 負荷を低減。
-            背景グラデーション (bg-gradient-to-br) は維持。視覚影響は最小、LCP 改善が目的。 */}
-        <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-cyan-50 dark:from-primary-950 dark:via-gray-900 dark:to-cyan-950 py-20 lg:py-32">
-          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
-              土木系資格試験
-              <span className="bg-gradient-to-r from-primary-600 via-cyan-600 to-primary-800 dark:from-primary-400 dark:via-cyan-400 dark:to-primary-300 bg-clip-text text-transparent">
-                対策サイト
-              </span>
-            </h1>
-
-            <p className="text-lg md:text-xl text-gray-700 dark:text-gray-200 mb-8 max-w-3xl mx-auto leading-relaxed">
-              1級土木施工管理技士と技術士（総合技術監理）の試験対策に特化したコンテンツを提供しています。
-            </p>
-
-          </div>
-        </section>
-
-        {/* Exams Overview Section */}
-        <section className="py-16 bg-white dark:bg-gray-800">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-gray-100 mb-12">
-              対応試験
-            </h2>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* 1級土木施工管理技士 */}
-              <div className="p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-primary-600 dark:hover:border-primary-400 transition-colors">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                  1級土木施工管理技士
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
-                  土木工事の第1次・第2次試験対策コンテンツ。試験ガイド、過去問、キーワード解説を提供します。
-                </p>
-                <Link
-                  href="/category/civil-construction-1"
-                  className="text-primary-600 dark:text-primary-400 hover:underline font-semibold"
-                >
-                  コンテンツを見る →
-                </Link>
-              </div>
-
-              {/* 技術士（総合技術監理） */}
-              <div className="p-8 rounded-lg border-2 border-gray-200 dark:border-gray-700 hover:border-cyan-600 dark:hover:border-cyan-400 transition-colors">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                  技術士（総合技術監理部門）
-                </h3>
-                <p className="text-gray-700 dark:text-gray-300 mb-6">
-                  総合技術監理部門の試験対策。5管理技術、論文作成、事例研究を含むコンテンツ。
-                </p>
-                <Link
-                  href="/category/pe-comprehensive-management"
-                  className="text-cyan-600 dark:text-cyan-400 hover:underline font-semibold"
-                >
-                  コンテンツを見る →
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* About Section */}
-        <section className="py-16 bg-gray-50 dark:bg-gray-900">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-6">
-              このサイトについて
-            </h2>
-            <p className="text-lg text-gray-700 dark:text-gray-300">
-              doboku-noteは、土木系資格試験の合格を目指す受験者向けの対策サイトです。
-              <br />
-              確かな知識とわかりやすい解説で、皆様の合格をサポートします。
-            </p>
-          </div>
-        </section>
+        <Hero articleCount={articleCount} lastUpdated={lastUpdated} />
+        <ExamCards exams={exams} />
+        <ReferenceCardLink />
+        <LatestArticles articles={latest} />
+        <AboutSection />
       </main>
-
       <Footer />
     </div>
   );

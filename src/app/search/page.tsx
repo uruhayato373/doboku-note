@@ -5,8 +5,8 @@ export default function SearchPage() {
   return (
     <Suspense
       fallback={
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-          <p className="text-gray-500">読み込み中...</p>
+        <div className="min-h-screen bg-[var(--bg)] flex items-center justify-center">
+          <p className="font-mono text-[12px] text-[var(--ink-muted)]">Loading…</p>
         </div>
       }
     >
