@@ -4,7 +4,7 @@
   "started_at": null,
   "pages": {
     "guide-concrete-key-points": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -27,11 +27,23 @@
           "lint_medium_before": 55,
           "lint_medium_after": 7,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.55,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 2
+          }
         }
       ]
     },
     "guide-concrete-maintenance": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -54,11 +66,23 @@
           "lint_medium_before": 58,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.85,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 2,
+            "reference": 3
+          }
         }
       ]
     },
     "guide-earthwork-key-points": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -81,11 +105,23 @@
           "lint_medium_before": 47,
           "lint_medium_after": 6,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.5,
+          "scores": {
+            "structure": 3,
+            "principle": 2,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     },
     "guide-four-management": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -108,11 +144,23 @@
           "lint_medium_before": 52,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     },
     "guide-law-key-points": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -135,11 +183,23 @@
           "lint_medium_before": 24,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     },
     "guide-strategy": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -162,11 +222,23 @@
           "lint_medium_before": 48,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     },
     "textbook-explosives-act": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -188,11 +260,23 @@
           "lint_medium_before": 0,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     },
     "textbook-law-compliance": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -214,11 +298,23 @@
           "lint_medium_before": 0,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     },
     "textbook-standard-contract": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -240,11 +336,23 @@
           "lint_medium_before": 0,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.85,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 2,
+            "reference": 3
+          }
         }
       ]
     },
     "textbook-surveying-basics": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -266,11 +374,23 @@
           "lint_medium_before": 0,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     },
     "textbook-quality-overview": {
-      "status": "rewritten",
+      "status": "verified",
       "history": [
         {
           "date": "2026-04-20T11:39:36.817Z",
@@ -293,6 +413,18 @@
           "lint_medium_before": 0,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.5,
+          "scores": {
+            "structure": 3,
+            "principle": 2,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 3
+          }
         }
       ]
     }
