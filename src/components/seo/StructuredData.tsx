@@ -100,6 +100,38 @@ function getExamName(category: string | undefined): string {
   }
 }
 
+type FAQEntry = { q: string; a: string };
+
+function getFAQs(meta: DocMeta | PostData): FAQEntry[] {
+  const raw = (meta as any).faqs;
+  if (!Array.isArray(raw)) return [];
+  return raw.filter(
+    (item): item is FAQEntry =>
+      item != null &&
+      typeof item === "object" &&
+      typeof item.q === "string" &&
+      typeof item.a === "string" &&
+      item.q.trim().length > 0 &&
+      item.a.trim().length > 0
+  );
+}
+
+function generateFAQSchema(faqs: FAQEntry[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((entry) => ({
+      "@type": "Question",
+      name: entry.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: entry.a,
+      },
+    })),
+    inLanguage: "ja-JP",
+  };
+}
+
 function generateQuizSchema(meta: DocMeta | PostData, baseUrl: string) {
   const slug = "id" in meta ? meta.id : meta.slug;
   return {
@@ -255,6 +287,9 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
       ? generateBreadcrumbSchema(meta as DocMeta | PostData, baseUrl)
       : null;
 
+  const faqEntries = meta ? getFAQs(meta as DocMeta | PostData) : [];
+  const faqData = faqEntries.length > 0 ? generateFAQSchema(faqEntries) : null;
+
   return (
     <>
       <script
@@ -284,6 +319,14 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(breadcrumbData, null, 2),
+          }}
+        />
+      )}
+      {faqData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqData, null, 2),
           }}
         />
       )}
