@@ -382,3 +382,12 @@ export function getDocsMetaByCategory(category: string): DocMeta[] {
     .map(([slug, meta]) => ({ slug, ...meta } as DocMeta));
 }
 
+/**
+ * Gets all document metadata (all categories).
+ * Pure in-memory read on the static JSON index (zero I/O).
+ */
+export function getAllDocsMeta(): DocMeta[] {
+  const docs = (docMetaIndex as any).docs as Record<string, any>;
+  return Object.entries(docs).map(([slug, meta]) => ({ slug, ...meta } as DocMeta));
+}
+
