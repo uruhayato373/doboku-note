@@ -1,8 +1,66 @@
-# 計測事故の記録
+# 計測・検証事故の記録
 
-計測データの欠損・誤報・不整合が発生した過去事例を記録する。**再発防止のための教訓を蓄積**し、新規スキル・エージェント設計時に同じ落とし穴を避ける。
+計測データの欠損・誤報・不整合、および外部検証サービスとのアクセス罠が発生した過去事例を記録する。**再発防止のための教訓を蓄積**し、新規スキル・エージェント設計時に同じ落とし穴を避ける。
 
-個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由 / 適用した対策 / 教訓」を明記する。
+個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
+
+## 2026-04-25: Cloudflare Bot 保護で外部 RSS/Atom Validator が 403
+
+### 現象
+
+Issue [#80](https://github.com/uruhayato373/doboku-note/issues/80)（RSS/Atom フィード生成）の本番デプロイ後、生成物の妥当性確認で外部 Validator がアクセス拒否された。
+
+| 検証手段 | 結果 |
+|---|---|
+| `curl https://doboku-note.com/feed.xml`（UA: `curl/8.x.x`） | HTTP 200, well-formed RSS 2.0 |
+| `curl https://doboku-note.com/atom.xml` | HTTP 200, well-formed Atom 1.0 |
+| [W3C Feed Validation Service](https://validator.w3.org/feed/) | HTTP 403 Forbidden |
+| [RSS Board Validator](https://www.rssboard.org/rss-validator/) | Cloudflare チャレンジページに到達 |
+
+フィード XML 自体は技術的に正しく、Bot 保護がアクセスを阻害しているだけ。
+
+### 根本原因
+
+Cloudflare Pages の **Bot Fight Mode** が `Validator/*` 系の User-Agent を「不審なボット」と判定して 403 を返す。これは Cloudflare の Verified Bots（Googlebot / Feedly / Inoreader 等）以外を保護対象にする標準動作で、設定変更しない限り解消しない。
+
+### 検出経緯（致命度: 低）
+
+- デプロイ完了直後の検証ステップで即座に検出（curl 200 / Validator 403 の食い違い）
+- 計測の「気づきの遅延」事象ではなく、**検証フェーズで前提が崩れた**ケース
+
+### 影響範囲（同種で躓きうるケース）
+
+Cloudflare Bot 保護下では以下も 403 になる可能性がある:
+
+- Schema.org Validator / Google Rich Results Test（独自ボット側）
+- OGP / Twitter Card Validator
+- AMP Validator
+- Ahrefs / SEMrush 等の独自クローラ（Verified Bot 登録のないもの）
+
+逆に通る経路:
+
+- `curl` / `wget` のデフォルト UA、ブラウザ
+- Cloudflare Verified Bots 一覧（Googlebot / Bingbot / Feedly / Inoreader 等）
+- `gh api`（GitHub の Verified UA）
+
+### 適用した対策
+
+- 本セッション内: Issue [#159](https://github.com/uruhayato373/doboku-note/issues/159) を fork して **WAF カスタムルールで Validator 系 UA をホワイトリスト** する案を起票（実利用者報告まで保留方針）
+- フィード生成完了は #80 で close、**「外部 Validator 通過」は完了条件から外し** インフラ調整スコープに分離
+
+### 教訓
+
+1. **外部 Validator から本番 URL に到達できないことは「コンテンツが invalid」を意味しない**。フィード / 構造化データ / sitemap の妥当性は **ローカル検証**（`python xml.etree.ElementTree.parse()` 等）で先に確認する。外部 Validator は補助
+2. **公開エンドポイント（feed.xml / sitemap.xml / robots.txt / OGP 画像）は 3 種類の到達性を意識する**: 人間ブラウザ・主要 Verified Bot・各種 Validator。Cloudflare Bot Fight Mode は 3 番目を弾く
+3. **PR の完了条件に「外部 Validator 通過」を含めない**。代わりに「ローカル well-formed 検証」+「本番 curl 200 + body 検証」を完了条件にし、Validator はベストエフォート扱い
+4. **計測 / 監視スクリプトが本番 URL を叩く設計のときは UA 偽装の必要性を検討**。Cloudflare 側の Verified Bot 一覧と照合して、自前ボットなら UA 偽装 or `User-Agent: Mozilla/5.0 ...` で回避可能
+
+### 関連
+
+- Issue [#80](https://github.com/uruhayato373/doboku-note/issues/80) - RSS/Atom フィード生成（close 済）
+- Issue [#159](https://github.com/uruhayato373/doboku-note/issues/159) - Cloudflare Bot 保護調整（バックログ）
+- PR [#158](https://github.com/uruhayato373/doboku-note/pull/158) - フィード実装（merged）
+- `scripts/generate-rss.mjs` - フィード生成スクリプト
 
 ## 2026-W16: BAILOUT_TO_CLIENT_SIDE_RENDERING による 6 日間 GA4 完全欠損
 
