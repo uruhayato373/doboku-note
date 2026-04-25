@@ -12,7 +12,7 @@
         "common-specs-hyogo/02-03-materials-port": {
           "impr": 44,
           "clicks": 0,
-          "ctr": 0.0,
+          "ctr": 0,
           "position": 7.48
         },
         "river/river-management/04": {
@@ -262,7 +262,10 @@
       "started_at": "2026-04-25",
       "completed_at": "2026-04-25",
       "related_issue": 84,
-      "related_prs": [133, 134],
+      "related_prs": [
+        133,
+        134
+      ],
       "baseline": {
         "lcp_ms": 4828,
         "fcp_ms": 3168,
@@ -317,13 +320,52 @@
             "outage_end": "2026-04-24T23:21Z",
             "affected": "mobile users only (desktop は hydration 順序の差で TypeError 回避)"
           }
+        },
+        {
+          "wave": 2,
+          "date": "2026-04-25",
+          "pr": 143,
+          "deploy_pr": 144,
+          "changes": [
+            "src/app/layout.tsx: notoSansJP の preload: true -> false（display: swap は維持）"
+          ],
+          "hypothesis": "preload off + display:swap で system font に早期フォールバック → h1 (LCP element) を system font で先行描画させ LCP 短縮。FOUT を許容。",
+          "after": {
+            "lcp_ms": 7955,
+            "fcp_ms": 5289,
+            "tbt_ms": 113,
+            "cls": 0,
+            "tti_ms": 8035,
+            "performance": 60,
+            "measured_at": "2026-04-25T00:02:27Z",
+            "source": ".claude/state/metrics/psi/psi-single-2026-04-25T00-02-27.json",
+            "runs_consistent": "3 連続同値確認"
+          },
+          "delta_lcp_ms": 986,
+          "result": "rolled_back_regression",
+          "incident_summary": "preload off により Noto Sans JP 読込が遅延し、Tailwind font-sans に日本語 system font fallback がないため display:swap 効かず h1 の最終描画が遅れた。LCP は最終フォントでの安定描画時点で fire し悪化。",
+          "rollback": {
+            "pr": 146,
+            "deploy_pr": 147,
+            "deployed_at": "2026-04-25T00:08:47Z",
+            "after_revert": {
+              "lcp_ms": 7298,
+              "fcp_ms": 4785,
+              "tbt_ms": 94,
+              "cls": 0,
+              "performance": 64,
+              "measured_at": "2026-04-25T00:11:50Z",
+              "source": ".claude/state/metrics/psi/psi-single-2026-04-25T00-11-50.json"
+            },
+            "note": "PSI variance 範囲内で baseline 6969ms 水準に復帰。Performance 64 も復帰確認。"
+          }
         }
       ],
       "real_baseline_after_hotfix": {
         "lcp_ms": 6969,
         "fcp_ms": 4765,
         "tbt_ms": 66,
-        "cls": 0.000,
+        "cls": 0,
         "tti_ms": 6969,
         "performance": 64,
         "measured_at": "2026-04-24T23:22:14Z",
@@ -342,9 +384,11 @@
         "GA4 Script strategy 変更は hydration 依存コードとセットで検証必要。useEffect で呼ばれる API は Script の load タイミングと React の実行順序を必ず突合する",
         "Deploy 後の確認は PSI スコアだけでは不十分。error UI が混入していても PSI は測ってしまう。Playwright mobile viewport での実体ビュー検証（DOM 構造 + console errors）を必須化すべき",
         "PSI Lab data の同値連続は『真の値』ではなく『確定的な壊れ方』の可能性もある。error UI なら毎回同じ軽量要素で LCP が固定される",
-        "Noto Sans JP (preload: true, subsets: latin) は日本語サイトで preload 帯域を無駄に占有し、真の LCP bottleneck の第一候補"
+        "Noto Sans JP (preload: true, subsets: latin) は日本語サイトで preload 帯域を無駄に占有し、真の LCP bottleneck の第一候補",
+        "preload: false の単独適用は逆効果。Tailwind の font-sans に日本語 system font fallback (例: 'Hiragino Sans', 'Yu Gothic' 等) を含めない限り、display:swap でもブラウザはフォント読込まで描画を待つ可能性がある",
+        "LCP element が日本語テキストの場合、フォント読込タイミングが LCP に直結する。フォント関連の打ち手は『preload 設定』『fallback stack』『font-display』を一体で設計する必要がある"
       ],
-      "next_wave": "Wave 2: src/app/layout.tsx:23-28 の Noto Sans JP を preload: false に変更。LCP element が H1 の日本語テキストで CJK グリフの crossorigin fetch が render ブロックする仮説を検証。目標: 真 baseline 6969ms → 4000ms 以下、Performance 64 → 75 以上。"
+      "next_wave": "Wave 3 候補（優先順）: (1) Tailwind font-sans に日本語 system font fallback を追加し preload: false の正しい挙動を実装、(2) DevTools mobile emulation で Hero LCP element を実測再特定（Wave 2 ロールバック後の状態）、(3) KaTeX CSS の docs 限定読込、(4) bundle-analyzer 導入、(5) Hero gradient/blur 等の重い CSS 簡素化。Wave 1/2 双方の失敗を踏まえ実測ベースに切替。"
     }
   ]
 }
