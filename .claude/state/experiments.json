@@ -386,9 +386,50 @@
         "PSI Lab data の同値連続は『真の値』ではなく『確定的な壊れ方』の可能性もある。error UI なら毎回同じ軽量要素で LCP が固定される",
         "Noto Sans JP (preload: true, subsets: latin) は日本語サイトで preload 帯域を無駄に占有し、真の LCP bottleneck の第一候補",
         "preload: false の単独適用は逆効果。Tailwind の font-sans に日本語 system font fallback (例: 'Hiragino Sans', 'Yu Gothic' 等) を含めない限り、display:swap でもブラウザはフォント読込まで描画を待つ可能性がある",
-        "LCP element が日本語テキストの場合、フォント読込タイミングが LCP に直結する。フォント関連の打ち手は『preload 設定』『fallback stack』『font-display』を一体で設計する必要がある"
+        "LCP element が日本語テキストの場合、フォント読込タイミングが LCP に直結する。フォント関連の打ち手は『preload 設定』『fallback stack』『font-display』を一体で設計する必要がある",
+        "Wave 3 で初の成功 (LCP -1407ms): 副作用のない DOM 表層削除 (装飾用 blur orb 3 つ) が効いた。mobile GPU で blur filter は重く、装飾レイヤーですら paint を遅らせる",
+        "推測ベースの最適化は失敗率が高い (Wave 1/2 連続失敗)。実測ベース (Playwright PerformanceObserver) で真因特定 → 副作用ゼロの最小変更が正解"
       ],
-      "next_wave": "Wave 3 候補（優先順）: (1) Tailwind font-sans に日本語 system font fallback を追加し preload: false の正しい挙動を実装、(2) DevTools mobile emulation で Hero LCP element を実測再特定（Wave 2 ロールバック後の状態）、(3) KaTeX CSS の docs 限定読込、(4) bundle-analyzer 導入、(5) Hero gradient/blur 等の重い CSS 簡素化。Wave 1/2 双方の失敗を踏まえ実測ベースに切替。"
+      "wave3": {
+        "wave": 3,
+        "date": "2026-04-25",
+        "pr": 155,
+        "deploy_pr": 156,
+        "deploy_commit": "a6c14662",
+        "changes": [
+          "src/app/page.tsx: Hero セクションの装飾用 blur orb 3 つを削除 (blur-3xl primary-400, blur-2xl cyan-400, blur-2xl primary-300)"
+        ],
+        "before": {
+          "lcp_ms": 8524,
+          "fcp_ms": 4753,
+          "tbt_ms": 66,
+          "cls": 0,
+          "performance": 53,
+          "source": "Wave 2 ロールバック後の最新計測"
+        },
+        "after": {
+          "lcp_ms": 7117,
+          "fcp_ms": 4753,
+          "tbt_ms": 26,
+          "cls": 0.047,
+          "tti_ms": 7117,
+          "performance": 64,
+          "measured_at": "2026-04-25T03:41:48Z",
+          "source": ".claude/state/metrics/psi/psi-single-2026-04-25T03-41-48.json"
+        },
+        "delta_lcp_ms": -1407,
+        "delta_performance": 11,
+        "result": "improved",
+        "verdict": "初の Wave 成功。LCP -1407ms (-16.5%)、Performance +11。Hero の装飾 blur orb 削除という DOM 表層変更だけで mobile GPU 負荷を低減し、結果として LCP テキストの paint 時間が短縮された。CLS 0 → 0.047 はやや悪化したが閾値 0.1 以下で問題なし。"
+      },
+      "current_state_after_wave3": {
+        "lcp_ms": 7117,
+        "performance": 64,
+        "target_lcp_ms": 2500,
+        "remaining_gap_ms": 4617,
+        "remaining_gap_ratio": "2.85x"
+      },
+      "next_wave": "Wave 4 候補（実測ベースで優先順）: (1) H1 の bg-gradient + bg-clip-text を簡素化（GPU 負荷の更なる低減、~500ms 期待）、(2) KaTeX CSS の docs ページ限定読込（CSS chunk 削減、~500-1000ms 期待）、(3) CategoryHeader にも同型 blur orb があれば削除、(4) Critical CSS インライン化、(5) bundle analyzer で他のボトルネック特定。Wave 3 の方法論（実測 → 副作用ゼロの軽量化）を継続。"
     }
   ]
 }
