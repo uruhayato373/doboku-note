@@ -39,20 +39,24 @@ const sourceSerif = Source_Serif_4({
   preload: false,
 });
 
+// Noto Serif JP: editorial 見出し用。weights を 700/900 に絞り、preload は false に戻す。
+// 理由: Phase 1 で preload:true + 4 weights にした結果、homepage LCP が 7116ms → 11412ms に悪化（60% 後退、#84）。
+// LCP 候補となるのは hero H1 のみ。display:swap で読み込み待ちは避けられるため、初期 preload は不要。
 const notoSerifJP = Noto_Serif_JP({
   subsets: ["latin"],
-  weight: ["400", "500", "700", "900"],
+  weight: ["700", "900"],
   variable: "--font-noto-serif-jp",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
+// JetBrains Mono: ラベル・日付・コード用。LCP 要素にならないため preload は false。
 const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
   variable: "--font-jetbrains-mono",
   display: "swap",
-  preload: true,
+  preload: false,
 });
 
 export const metadata: Metadata = getCommonSeoData();
