@@ -196,6 +196,27 @@ published: true                      # false なら下書き・非表示
 - `past-questions` — 過去問
 - `keyword` — キーワード解説
 
+## FAQ オプション（任意）
+
+ガイドページやキーワード解説ページに FAQ セクションを持たせる場合、frontmatter に `faqs` を追加すると `<StructuredData>` が `@type: FAQPage` を出力する。Google の Rich Results で SERP 占有面積拡大が狙える。
+
+```yaml
+faqs:
+  - q: "1級土木施工管理技士の合格率はどれくらい？"
+    a: "第1次試験 約60%、第2次試験 約30%（過去5年平均）。"
+  - q: "学習期間の目安は？"
+    a: "実務2年以上の受験者で、第1次は3〜4ヶ月、第2次は4〜6ヶ月が目安。"
+```
+
+**ルール**:
+- `q` / `a` は **プレーンテキスト**（HTML タグや Markdown は書かない）。Schema.org 仕様上 HTML も許容されるが、Google のリッチリザルト表示でエスケープされるケースがあるため避ける
+- `q` は質問形（疑問符で終える）、`a` は 1〜3 文程度で簡潔に
+- 1 ページあたり **3〜10 件** が目安。多すぎると Google から spam 判定の懸念
+- frontmatter の FAQ と本文の FAQ セクション（`## よくある質問` 等）は内容を一致させる
+- 配列が空 / 不正な形（`q` か `a` が文字列でない等）の場合は FAQPage スキーマを出力しない
+
+実装は `src/components/seo/StructuredData.tsx` の `generateFAQSchema()`。
+
 ## 複数試験対応コンテンツ
 
 frontmatter に複数カテゴリを参照する方法（要検討）:
