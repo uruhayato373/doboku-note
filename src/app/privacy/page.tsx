@@ -27,14 +27,14 @@ type PolicyCardProps = {
 
 function PolicyCard({ icon, title, children }: PolicyCardProps) {
   return (
-    <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-card-section p-6 hover:shadow-card-hover transition-shadow">
+    <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-6 hover:shadow-soft transition-shadow">
       <div className="flex items-center gap-3 mb-4">
-        <div className="bg-primary-100 dark:bg-primary-900/30 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+        <div className="bg-[var(--accent-fill)] w-10 h-10 rounded-card-content flex items-center justify-center shrink-0">
           {icon}
         </div>
-        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 leading-tight">{title}</h2>
+        <h2 className="font-serif text-lg font-bold text-[var(--ink)] leading-tight">{title}</h2>
       </div>
-      <div className="text-[15px] text-gray-700 dark:text-gray-300 leading-relaxed">
+      <div className="text-[15px] text-[var(--ink-body)] leading-relaxed">
         {children}
       </div>
     </div>
@@ -43,21 +43,23 @@ function PolicyCard({ icon, title, children }: PolicyCardProps) {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
 
       <main className="flex-grow">
-        {/* Header */}
-        <section className="bg-gradient-to-br from-gray-100 via-white to-primary-50 dark:from-gray-900 dark:via-gray-900 dark:to-primary-950 py-16">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary-100 dark:bg-primary-900/30 mb-6">
-              <Shield className="w-8 h-8 text-primary-600 dark:text-primary-400" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+        {/* Header — editorial */}
+        <section className="border-b border-[var(--rule-soft)] bg-[var(--paper)] py-10 sm:py-14 px-4 sm:px-6 lg:px-10">
+          <div className="max-w-[780px] mx-auto">
+            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
+              <span>Home</span>
+              <span aria-hidden className="opacity-60">›</span>
+              <span>Privacy</span>
+            </nav>
+            <h1 className="font-serif font-black text-[var(--ink)] text-[32px] sm:text-[44px] tracking-tight mb-2">
               プライバシーポリシー
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-400">
-              最終更新日: 2026年4月5日
+            <p className="font-mono text-[11px] text-[var(--ink-muted)]">
+              最終更新日 2026.04.05
             </p>
           </div>
         </section>

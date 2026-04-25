@@ -26,35 +26,40 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
 
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary-50 via-white to-cyan-50 dark:from-primary-950 dark:via-gray-900 dark:to-cyan-950 py-16 lg:py-24">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-gray-900 dark:text-gray-100">
+        {/* Hero Section — editorial */}
+        <section className="border-b border-[var(--rule-soft)] bg-[var(--paper)] py-12 sm:py-16">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
+            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
+              <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
+              <span aria-hidden className="opacity-60">›</span>
+              <span>About</span>
+            </nav>
+            <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
+              About
+            </div>
+            <h1 className="font-serif font-black text-[var(--ink)] text-[32px] sm:text-[44px] md:text-[56px] tracking-tight leading-[1.2] mb-5">
               doboku-note
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-700 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              土木系資格試験 専門技術ノート
+            <p className="text-[16px] sm:text-[17px] leading-[1.95] text-[var(--ink-body)] max-w-[60ch]">
+              <strong className="text-[var(--ink)]">1級土木施工管理技士</strong>・<strong className="text-[var(--ink)]">技術士（総合技術監理部門）</strong>の受験者に向けて、体系的な技術解説・過去問分析・勉強方法を提供する試験対策サイトです。
             </p>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-              1級土木施工管理技士・技術士（総合技術監理部門）の受験者に向けて、体系的な技術解説・過去問分析・勉強方法を提供する試験対策サイトです。
-            </p>
-            <p className="mt-8 text-lg md:text-xl italic text-primary-700 dark:text-primary-300 max-w-3xl mx-auto leading-relaxed">
-              <strong className="font-bold not-italic">橋を架ける。</strong>受験者と合格のあいだに、実務と試験のあいだに、現役と次世代のあいだに。
+            <p className="mt-5 italic text-[15px] text-[var(--accent)] max-w-[60ch]">
+              <strong className="not-italic font-bold text-[var(--ink)]">橋を架ける。</strong>受験者と合格のあいだに、実務と試験のあいだに、現役と次世代のあいだに。
             </p>
           </div>
         </section>
 
         {/* Author Profile Section */}
-        <section className="py-12 bg-white dark:bg-gray-800">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-gray-100 text-center mb-8">
+        <section className="py-10 sm:py-12">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
+            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-8">
               運営者プロフィール
             </h2>
-            <div className="bg-neutral-50 dark:bg-gray-900 border border-neutral-200 dark:border-gray-700 rounded-lg p-6 sm:p-8">
+            <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft p-6 sm:p-8">
               <div className="flex flex-col sm:flex-row gap-6 items-start">
                 <img
                   src={AUTHOR.imageUrl}
@@ -279,42 +284,42 @@ export default function AboutPage() {
         </section>
 
         {/* Start Learning Section */}
-        <section className="py-16 bg-gradient-to-br from-primary-50 to-cyan-50 dark:from-primary-950 dark:to-cyan-950">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-gray-100">
+        <section className="py-10 sm:py-12 border-t border-[var(--rule-soft)]">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
+            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-3">
               学習を始める
             </h2>
-            <p className="text-xl mb-8 text-gray-700 dark:text-gray-300">
+            <p className="text-[15px] text-[var(--ink-body)] mb-6">
               まずは各試験のカテゴリ目次から、必要な分野にアクセスしてください。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <Link
                 href="/category/civil-construction-1"
-                className="bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105"
+                className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all font-serif font-bold text-[var(--ink)] text-lg"
               >
-                1級土木施工管理技士
+                1級土木施工管理技士 →
               </Link>
               <Link
                 href="/category/pe-comprehensive-management"
-                className="bg-cyan-600 hover:bg-cyan-700 dark:bg-cyan-500 dark:hover:bg-cyan-600 text-white px-8 py-4 rounded-lg font-bold text-lg transition-all transform hover:scale-105"
+                className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all font-serif font-bold text-[var(--ink)] text-lg"
               >
-                技術士（総合技術監理部門）
+                技術士（総合技術監理部門） →
               </Link>
             </div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section className="py-16 bg-gradient-to-r from-primary-600 to-cyan-500 text-white">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold mb-6">お問い合わせ</h2>
-            <p className="text-xl mb-8 text-primary-100">
+        <section className="py-10 sm:py-12 border-t border-[var(--rule-soft)]">
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
+            <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-3">お問い合わせ</h2>
+            <p className="text-[15px] text-[var(--ink-body)] mb-6">
               ご質問やご意見がございましたらお気軽にお問い合わせください。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex flex-wrap gap-3">
               <Link
                 href="/contact"
-                className="bg-white text-primary-600 px-8 py-4 rounded-lg font-bold text-lg hover:bg-gray-100 transition-all transform hover:scale-105"
+                className="inline-flex items-center gap-2 bg-[var(--accent)] text-white px-5 py-2.5 rounded-card-content font-medium hover:opacity-90 transition-opacity"
               >
                 お問い合わせフォーム
               </Link>
@@ -322,7 +327,7 @@ export default function AboutPage() {
                 href={AUTHOR.twitterUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-white hover:text-primary-600 transition-all"
+                className="inline-flex items-center gap-2 border border-[var(--rule-soft)] text-[var(--ink-body)] px-5 py-2.5 rounded-card-content font-medium hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
               >
                 Xでフォロー
               </a>

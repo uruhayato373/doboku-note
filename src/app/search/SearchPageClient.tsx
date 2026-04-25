@@ -66,17 +66,20 @@ export default function SearchPageClient() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* 検索ヘッダー */}
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-              記事検索
-            </h1>
-            <p className="text-gray-600 dark:text-gray-400">
-              キーワードを入力して記事を探す
-            </p>
-          </div>
+      <div className="min-h-screen bg-[var(--bg)]">
+        <div className="max-w-[880px] mx-auto px-4 sm:px-6 lg:px-10 py-10">
+          {/* 検索ヘッダー（editorial） */}
+          <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
+            <span>Home</span>
+            <span aria-hidden className="opacity-60">›</span>
+            <span>Search</span>
+          </nav>
+          <h1 className="font-serif font-black text-[var(--ink)] text-[32px] sm:text-[40px] tracking-tight mb-2">
+            記事検索
+          </h1>
+          <p className="text-[14px] text-[var(--ink-muted)] mb-6">
+            キーワードを入力して記事・キーワードページを探す
+          </p>
 
           {/* 検索ボックス */}
           <div className="mb-4">

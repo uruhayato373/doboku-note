@@ -160,14 +160,14 @@ function DocCard({ doc }: { doc: DocMeta }) {
   return (
     <Link
       href={`/docs/${doc.slug}`}
-      className="group relative overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 p-5 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-card-hover transition-all"
+      className="group relative overflow-hidden rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all"
     >
       <div className="flex flex-col gap-1 h-full">
-        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">
+        <h3 className="font-serif text-lg font-bold text-[var(--ink)] group-hover:text-[var(--accent)] line-clamp-2 transition-colors">
           {displayTitle}
         </h3>
         {doc.subtitle && (
-          <p className="text-sm text-gray-500 dark:text-gray-400 line-clamp-2">
+          <p className="text-sm text-[var(--ink-muted)] line-clamp-2">
             {doc.subtitle}
           </p>
         )}
@@ -454,9 +454,11 @@ function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?
   return (
     <section>
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{group.title}</h2>
-        <p className="text-base text-gray-500 dark:text-gray-400 mt-1">{group.description}</p>
-        <span className="text-sm text-gray-400 dark:text-gray-500">{group.docs.length} 件</span>
+        <div className="flex items-baseline justify-between gap-2 flex-wrap">
+          <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">{group.title}</h2>
+          <span className="font-mono text-[11px] text-[var(--ink-muted)]">{group.docs.length} docs</span>
+        </div>
+        <p className="text-[14px] text-[var(--ink-muted)] mt-1">{group.description}</p>
       </div>
       {layout === 'exam-table' ? (
         <PrimaryExamTable docs={group.docs} secondaryDocs={secondaryDocs} />
@@ -493,21 +495,32 @@ export default async function CategoryPage({
     : null;
 
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
 
       <main className="flex-grow">
-        {/* Category Header */}
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-800 border-b border-blue-100 dark:border-gray-700 py-12 px-6">
-          <div className="max-w-[1200px] mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-3">
+        {/* Category Header — editorial */}
+        <div className="border-b border-[var(--rule-soft)] py-10 sm:py-12 px-4 sm:px-6 lg:px-10 bg-[var(--paper)]">
+          <div className="max-w-[1280px] mx-auto">
+            <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
+              <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
+              <span aria-hidden className="opacity-60">›</span>
+              <span>Category</span>
+            </nav>
+            <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
+              CATEGORY
+            </div>
+            <h1 className="font-serif font-black tracking-tight text-[var(--ink)] text-[32px] sm:text-[40px] md:text-[48px] leading-[1.2] mb-3">
               {cat.label}
             </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{cat.subtitle}</p>
+            <p className="text-[16px] leading-[1.9] text-[var(--ink-body)] max-w-[60ch]">{cat.subtitle}</p>
+            <div className="mt-5 flex gap-4 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
+              <span>{docs.length.toLocaleString()} docs</span>
+            </div>
           </div>
         </div>
 
-        <div className="max-w-[1200px] mx-auto px-6 py-12 text-[17px] leading-[1.9]">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
