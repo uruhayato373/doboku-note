@@ -16,13 +16,9 @@ export default async function HomePage() {
 
       <main className="flex-grow">
         {/* Hero Section */}
+        {/* Issue #84 Wave 3: 装飾用 blur orb 3 つを削除して mobile GPU 負荷を低減。
+            背景グラデーション (bg-gradient-to-br) は維持。視覚影響は最小、LCP 改善が目的。 */}
         <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-cyan-50 dark:from-primary-950 dark:via-gray-900 dark:to-cyan-950 py-20 lg:py-32">
-          <div className="absolute inset-0 opacity-10 dark:opacity-20">
-            <div className="absolute top-0 left-0 w-32 h-32 bg-primary-400 rounded blur-3xl"></div>
-            <div className="absolute top-1/2 right-0 w-24 h-24 bg-cyan-400 rounded blur-2xl"></div>
-            <div className="absolute bottom-0 left-1/3 w-20 h-20 bg-primary-300 rounded blur-2xl"></div>
-          </div>
-
           <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-gray-100 mb-6 leading-tight">
               土木系資格試験
