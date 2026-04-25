@@ -71,6 +71,18 @@ module.exports = {
         },
         surface: 'var(--color-surface)',
         'token-border': 'var(--color-border)',
+        // Editorial tokens (handoff)
+        editorial: {
+          accent: 'var(--accent)',
+          'accent-fill': 'var(--accent-fill)',
+          paper: 'var(--paper)',
+          bg: 'var(--bg)',
+          ink: 'var(--ink)',
+          'ink-body': 'var(--ink-body)',
+          'ink-muted': 'var(--ink-muted)',
+          rule: 'var(--rule)',
+          'rule-soft': 'var(--rule-soft)',
+        },
       },
       fontFamily: {
         sans: [
@@ -80,6 +92,21 @@ module.exports = {
           "Hiragino Sans",
           "Meiryo",
           "sans-serif",
+        ],
+        serif: [
+          'var(--font-noto-serif-jp)',
+          'Noto Serif JP',
+          'Hiragino Mincho ProN',
+          'Yu Mincho',
+          'Georgia',
+          'serif',
+        ],
+        mono: [
+          'var(--font-jetbrains-mono)',
+          'JetBrains Mono',
+          'ui-monospace',
+          'SFMono-Regular',
+          'monospace',
         ],
         inter: ["Inter", "sans-serif"],
       },
@@ -125,6 +152,8 @@ module.exports = {
         'card-content': 'var(--shadow-card-content)',
         'card-section': 'var(--shadow-card-section)',
         'card-hover': 'var(--shadow-card-hover)',
+        'soft': 'var(--shadow-soft)',
+        'lift': 'var(--shadow-lift)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

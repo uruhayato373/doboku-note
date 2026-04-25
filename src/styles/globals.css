@@ -6,14 +6,19 @@
 @layer base {
   /* Card design tokens — single source of truth */
   :root {
-    --radius-card-inline: 2px;
-    --radius-card-content: 2px;
-    --radius-card-section: 2px;
-    --radius-card-hero: 2px;
+    /* Card radius — graded scale (handoff: 6/8/12/16) */
+    --radius-card-inline: 6px;
+    --radius-card-content: 8px;
+    --radius-card-section: 12px;
+    --radius-card-hero: 16px;
 
     --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    /* Editorial shadows (handoff) */
+    --shadow-soft: 0 1px 2px rgba(10, 15, 30, 0.04);
+    --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.04);
 
     /* Color tokens — single source of truth for UI + SVG figures */
     --color-ink-strong: #222222;
@@ -32,12 +37,40 @@
     --color-warn-fill: #fff3cd;
     --color-danger: #b22234;
     --color-danger-fill: #f8d7da;
+
+    /* Editorial palette (handoff) — added alongside legacy --color-brand */
+    --accent: #1a3a5c;
+    --accent-fill: #eef3f8;
+    --paper: #ffffff;
+    --bg: #fafafa;
+    --ink: #0a0a0a;
+    --ink-body: #2d2d30;
+    --ink-muted: #6a6a6a;
+    --rule: #1a1a1a;
+    --rule-soft: #e8e8eb;
+
+    /* Callout palette (12 kinds × bg / border / foreground) */
+    --ct-note-bg: #eff6ff;     --ct-note-bd: #3b82f6;     --ct-note-fg: #1d4ed8;
+    --ct-tip-bg: #ecfdf5;      --ct-tip-bd: #10b981;      --ct-tip-fg: #047857;
+    --ct-warn-bg: #fffbeb;     --ct-warn-bd: #f59e0b;     --ct-warn-fg: #b45309;
+    --ct-danger-bg: #fef2f2;   --ct-danger-bd: #ef4444;   --ct-danger-fg: #b91c1c;
+    --ct-success-bg: #f0fdf4;  --ct-success-bd: #22c55e;  --ct-success-fg: #15803d;
+    --ct-exam-bg: #fdf2f8;     --ct-exam-bd: #db2777;     --ct-exam-fg: #9d174d;
+    --ct-formula-bg: #eef2ff;  --ct-formula-bd: #6366f1;  --ct-formula-fg: #3730a3;
+    --ct-standard-bg: #f5f3ff; --ct-standard-bd: #8b5cf6; --ct-standard-fg: #5b21b6;
+    --ct-example-bg: #ecfeff;  --ct-example-bd: #0891b2;  --ct-example-fg: #155e75;
+    --ct-reference-bg: #f8fafc;--ct-reference-bd: #64748b;--ct-reference-fg: #334155;
+    --ct-faq-bg: #fefce8;      --ct-faq-bd: #ca8a04;      --ct-faq-fg: #854d0e;
+    --ct-quote-bg: #fafafa;    --ct-quote-bd: #a1a1aa;    --ct-quote-fg: #52525b;
   }
 
   .dark {
     --shadow-card-content: 0 1px 2px 0 rgb(0 0 0 / 0.15);
     --shadow-card-section: 0 1px 2px 0 rgb(0 0 0 / 0.15);
     --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.25), 0 2px 4px -2px rgb(0 0 0 / 0.25);
+
+    --shadow-soft: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.3);
 
     /* Color tokens — dark mode */
     --color-ink-strong: #f3f4f6;
@@ -56,6 +89,31 @@
     --color-warn-fill: #713f12;
     --color-danger: #fca5a5;
     --color-danger-fill: #7f1d1d;
+
+    /* Editorial palette (handoff dark) */
+    --accent: #8fb4d8;
+    --accent-fill: #1a2632;
+    --paper: #141516;
+    --bg: #141516;
+    --ink: #ececea;
+    --ink-body: #b8b5ac;
+    --ink-muted: #7a7770;
+    --rule: #3a3a3a;
+    --rule-soft: #2a2a2a;
+
+    /* Callout palette — dark mode (deeper bg, lighter fg) */
+    --ct-note-bg: #172554;     --ct-note-bd: #3b82f6;     --ct-note-fg: #93c5fd;
+    --ct-tip-bg: #022c22;      --ct-tip-bd: #10b981;      --ct-tip-fg: #6ee7b7;
+    --ct-warn-bg: #422006;     --ct-warn-bd: #f59e0b;     --ct-warn-fg: #fcd34d;
+    --ct-danger-bg: #450a0a;   --ct-danger-bd: #ef4444;   --ct-danger-fg: #fca5a5;
+    --ct-success-bg: #052e16;  --ct-success-bd: #22c55e;  --ct-success-fg: #86efac;
+    --ct-exam-bg: #500724;     --ct-exam-bd: #db2777;     --ct-exam-fg: #f9a8d4;
+    --ct-formula-bg: #1e1b4b;  --ct-formula-bd: #6366f1;  --ct-formula-fg: #a5b4fc;
+    --ct-standard-bg: #2e1065; --ct-standard-bd: #8b5cf6; --ct-standard-fg: #c4b5fd;
+    --ct-example-bg: #083344;  --ct-example-bd: #0891b2;  --ct-example-fg: #67e8f9;
+    --ct-reference-bg: #0f172a;--ct-reference-bd: #64748b;--ct-reference-fg: #cbd5e1;
+    --ct-faq-bg: #422006;      --ct-faq-bd: #ca8a04;      --ct-faq-fg: #fde047;
+    --ct-quote-bg: #18181b;    --ct-quote-bd: #71717a;    --ct-quote-fg: #d4d4d8;
   }
 
   html {
