@@ -26,6 +26,7 @@ import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
+import { generateHeadingId } from '@/lib/toc';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -40,6 +41,23 @@ const mdxOptions = {
     ] as Pluggable[],
   },
 };
+
+/**
+ * MDX content の先頭にある単一の `# title` 行（および直後の空行）を削除する。
+ * page.tsx 側で frontmatter から server-side に H1 を描画するため、本文 H1 を二重描画させないための前処理。
+ * H1 が無い記事（reference-materials 等で `## ` から始まる）はそのまま返す。
+ */
+function stripLeadingH1(content: string): string {
+  const lines = content.split('\n');
+  let i = 0;
+  while (i < lines.length && lines[i]!.trim() === '') i++;
+  if (i < lines.length && /^#\s+/.test(lines[i]!)) {
+    const rest = lines.slice(i + 1);
+    while (rest.length > 0 && rest[0]!.trim() === '') rest.shift();
+    return [...lines.slice(0, i), ...rest].join('\n');
+  }
+  return content;
+}
 
 async function SafeMDXRemote({ source, components }: { source: string; components: any }) {
   try {
@@ -231,11 +249,29 @@ export default async function DocPage({
                   <span>{getGroupLabel(category, docGroup)}</span>
                 </nav>
               )}
-              {/* MDX Content — title comes from the # heading in MDX */}
+              {/* タイトル: frontmatter から server-side で描画。MDX 内 H1 は下で strip する */}
+              <h1
+                id={generateHeadingId(doc.meta.title)}
+                className="font-serif font-black text-[var(--ink)] leading-[1.25] tracking-tight m-0 mb-0"
+                style={{
+                  fontSize: 'clamp(28px, 4vw, 40px)',
+                  letterSpacing: '-0.02em',
+                }}
+              >
+                {doc.meta.title}
+              </h1>
+              {/* タイトル直下 byline: 日付 + 読了時間（タグなし） */}
+              <MetaRow
+                variant="byline"
+                publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
+                updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
+              />
+              {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip */}
               <div className="prose-blog prose-base md:prose-lg">
-                <SafeMDXRemote source={doc.content} components={components} />
+                <SafeMDXRemote source={stripLeadingH1(doc.content)} components={components} />
               </div>
               <MetaRow
+                variant="footer"
                 tags={doc.meta.tags as string[] | undefined}
                 publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
                 updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
