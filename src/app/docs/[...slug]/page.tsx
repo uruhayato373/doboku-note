@@ -25,6 +25,7 @@ import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks'
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
+import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -206,34 +207,40 @@ export default async function DocPage({
   return (
     <>
     <StructuredData type="article" docMeta={doc.meta} />
-    <div className="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
 
       <div className="flex-grow w-full pb-16">
-        {/* Zenn Container_wide: max-width 1200px + responsive padding（モバイル ≤576px はカードフルブリードのため padding 0） */}
-        <div className="max-w-[1200px] mx-auto zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[30px] relative">
+        {/* Editorial Container: max-width 1200px + responsive padding（モバイル ≤576px はカードフルブリードのため padding 0） */}
+        <div className="max-w-[1200px] mx-auto zenn-sp:px-[25px] zenn-tablet:px-10 flex gap-[32px] relative">
 
           {/* Main Content Area */}
           <main className="flex-1 min-w-0 py-10">
-            {/* Zenn View_main: rounded 4px + 1px border + py-10 px-10 / モバイル full-bleed */}
-            <article className="bg-white dark:bg-gray-800 border border-gray-200/60 dark:border-gray-700/60 rounded-card-section shadow-card-section py-10 px-10 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
-              {/* パンくず（カード内、タイトル上）: カテゴリ名 › グループ名 */}
+            {/* Editorial article card: 12px radius, soft border + shadow */}
+            <article className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft py-12 px-12 overflow-hidden transition-colors duration-300 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:py-[35px] max-zenn-sp:px-5 max-zenn-tiny:px-[14px]">
+              {/* パンくず（カード内、タイトル上）: mono uppercase tracking-widest */}
               {category && (
-                <div className="mb-4 text-xs text-gray-400 dark:text-gray-500">
+                <nav aria-label="breadcrumb" className="mb-6 font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest flex items-center gap-2">
                   <a
                     href={`/category/${category}`}
-                    className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    className="hover:text-[var(--accent)] transition-colors"
                   >
                     {getCategoryLabel(category)}
                   </a>
-                  <span className="mx-1">›</span>
+                  <span aria-hidden className="opacity-60">›</span>
                   <span>{getGroupLabel(category, docGroup)}</span>
-                </div>
+                </nav>
               )}
               {/* MDX Content — title comes from the # heading in MDX */}
               <div className="prose-blog prose-base md:prose-lg">
                 <SafeMDXRemote source={doc.content} components={components} />
               </div>
+              <MetaRow
+                tags={doc.meta.tags as string[] | undefined}
+                publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
+                updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
+                category={category}
+              />
             </article>
 
             {/* 記事末尾の情報（ページ種別ごとの構成は docs/project/article-footer-design.md 参照） */}

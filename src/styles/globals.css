@@ -196,15 +196,19 @@
     margin-bottom: 0;
   }
 
-  /* リンク: 常時アンダーライン（note風、半透明 + offset 4px、hoverで濃く） */
+  /* リンク: editorial アンダーライン（半透明 accent + offset 4px、hoverで濃く） */
   .prose-blog a {
+    color: var(--accent);
     text-decoration: underline;
-    text-decoration-color: rgba(37, 99, 235, 0.4);
+    text-decoration-color: rgba(26, 58, 92, 0.35);
     text-decoration-thickness: 1px;
     text-underline-offset: 4px;
   }
+  .dark .prose-blog a {
+    text-decoration-color: rgba(143, 180, 216, 0.45);
+  }
   .prose-blog a:hover {
-    text-decoration-color: rgba(37, 99, 235, 1);
+    text-decoration-color: var(--accent);
   }
 
   /* 見出し共通: 行間 */
@@ -215,25 +219,31 @@
     @apply leading-snug;
   }
 
-  /* h1: ページタイトル — 下線アクセント + Zenn準拠 max-width 780px 中央寄せ
-     letter-spacing -0.02em（Claude Design 提案、2026-04-22 追加） */
+  /* h1: ページタイトル — editorial serif (Noto Serif JP, weight 900) */
   .prose-blog h1 {
-    @apply text-3xl font-bold text-gray-900 dark:text-white;
-    @apply mb-8 mt-8 pb-3;
-    @apply border-b-2 border-blue-600 dark:border-blue-500;
-    max-width: 780px;
-    margin-left: auto;
-    margin-right: auto;
+    font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    font-weight: 900;
+    color: var(--ink);
+    font-size: clamp(28px, 4vw, 40px);
+    line-height: 1.25;
     letter-spacing: -0.02em;
+    margin: 0 0 0.9em;
+    padding-bottom: 0;
+    border-bottom: none;
+    max-width: none;
   }
 
-  /* h2: セクション区切り — 左アクセントバー + 広い上余白
-     letter-spacing -0.01em（Claude Design 提案） */
+  /* h2: セクション区切り — editorial serif (Noto Serif JP, weight 800), 装飾なし */
   .prose-blog h2 {
-    @apply text-2xl font-bold text-gray-900 dark:text-gray-100;
-    @apply mb-5 mt-16 py-2 pl-4;
-    @apply border-l-4 border-blue-600 dark:border-cyan-500;
+    font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", Georgia, serif;
+    font-weight: 800;
+    color: var(--ink);
+    font-size: clamp(20px, 2.5vw, 26px);
+    line-height: 1.35;
     letter-spacing: -0.01em;
+    margin: 2.4em 0 0.8em;
+    padding: 0;
+    border-left: none;
   }
 
   /* h3: サブセクション — 中間色の左アクセントバー */
