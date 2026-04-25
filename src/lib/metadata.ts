@@ -37,6 +37,14 @@ export const getCommonSeoData = () => ({
   metadataBase: new URL("https://doboku-note.com"),
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": [
+        { url: "/feed.xml", title: "doboku-note RSS フィード" },
+      ],
+      "application/atom+xml": [
+        { url: "/atom.xml", title: "doboku-note Atom フィード" },
+      ],
+    },
   },
   robots: {
     index: true,
