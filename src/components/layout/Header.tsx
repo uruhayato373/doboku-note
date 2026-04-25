@@ -57,68 +57,76 @@ export default function Header() {
   return (
     <>
       <header
-        className="sticky top-0 z-30 bg-white/85 dark:bg-gray-800/85 shadow-sm border-b border-gray-200 dark:border-gray-700 transition-colors duration-300 backdrop-blur-md backdrop-saturate-150 supports-[backdrop-filter]:bg-white/75 dark:supports-[backdrop-filter]:bg-gray-800/75"
+        className="sticky top-0 z-30 bg-[var(--paper)]/90 backdrop-blur-md backdrop-saturate-150 border-b border-[var(--rule-soft)] transition-colors duration-300"
       >
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
+          <div className="flex justify-between items-center h-16 sm:h-[72px]">
             <div className="flex items-center">
               <Link
                 href="/"
-                className="text-2xl font-bold text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-300 hover:scale-105 transition-all duration-200"
+                className="flex items-baseline gap-2 sm:gap-3 hover:opacity-80 transition-opacity"
+                aria-label="doboku-note ホーム"
               >
-                doboku-note
+                <span className="font-serif text-[26px] sm:text-[32px] font-black tracking-tight leading-none text-[var(--ink)]">
+                  doboku
+                </span>
+                <span className="font-mono text-[10px] sm:text-xs text-[var(--ink-muted)] tracking-widest uppercase">
+                  — note
+                </span>
               </Link>
             </div>
             {/* Mobile menu and ThemeToggle */}
             <div className="flex items-center gap-2 md:hidden">
               <Link
                 href="/search"
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                className="p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
                 aria-label="検索"
               >
-                <Search className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                <Search className="w-6 h-6 text-[var(--ink-body)]" />
               </Link>
               {mounted && (
                 <button
                   onClick={toggleMenu}
-                  className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                  className="p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
                   aria-label="メニューを開く"
                   aria-expanded={isMenuOpen}
                   aria-haspopup="true"
                 >
-                  <Menu className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                  <Menu className="w-6 h-6 text-[var(--ink-body)]" />
                 </button>
               )}
               <ThemeToggle />
             </div>
             {/* Desktop navigation and ThemeToggle */}
-            <nav className="hidden md:flex space-x-4 items-center">
+            <nav className="hidden md:flex items-center gap-1">
               <Link
                 href="/search"
-                className="flex flex-col items-center space-y-1 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+                className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
               >
                 <Search className="w-5 h-5" />
-                <span className="text-xs font-medium">検索</span>
+                <span className="text-[11px] font-medium">検索</span>
               </Link>
               {categories.map(cat => (
                 <Link
                   key={cat.slug}
                   href={`/category/${cat.slug}`}
-                  className="flex flex-col items-center space-y-1 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+                  className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
                 >
                   <CategoryIcon variant={cat.variant} />
-                  <span className="text-xs font-medium">{cat.label}</span>
+                  <span className="text-[11px] font-medium">{cat.label}</span>
                 </Link>
               ))}
 
               <Link
                 href="/about"
-                className="flex flex-col items-center space-y-1 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+                className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
               >
                 <User className="w-5 h-5" />
-                <span className="text-xs font-medium">About</span>
+                <span className="text-[11px] font-medium">About</span>
               </Link>
-              <ThemeToggle />
+              <div className="ml-2 pl-2 border-l border-[var(--rule-soft)]">
+                <ThemeToggle />
+              </div>
             </nav>
           </div>
         </div>
@@ -136,7 +144,7 @@ export default function Header() {
       {/* ドロワーメニュー */}
       {mounted && (
         <div
-          className={`fixed top-0 right-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          className={`fixed top-0 right-0 h-full w-64 bg-[var(--paper)] shadow-lift z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
             isMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           role="dialog"
@@ -146,19 +154,19 @@ export default function Header() {
           {/* 閉じるボタン */}
           <button
             onClick={closeMenu}
-            className="absolute top-4 right-4 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            className="absolute top-4 right-4 p-2 rounded-card-inline hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
             aria-label="メニューを閉じる"
           >
             <X className="w-6 h-6" />
           </button>
 
           {/* ナビゲーションリンク */}
-          <nav className="mt-12 space-y-4">
+          <nav className="mt-12 space-y-2">
             {/* 検索リンク */}
             <Link
               href="/search"
               onClick={closeMenu}
-              className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+              className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <Search className="w-5 h-5" />
               <span className="font-medium">検索</span>
@@ -169,7 +177,7 @@ export default function Header() {
                 key={cat.slug}
                 href={`/category/${cat.slug}`}
                 onClick={closeMenu}
-                className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+                className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
               >
                 <CategoryIcon variant={cat.variant} />
                 <span className="font-medium">{cat.label}</span>
@@ -180,7 +188,7 @@ export default function Header() {
             <Link
               href="/about"
               onClick={closeMenu}
-              className="flex items-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 rounded-md transition-colors"
+              className="flex items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
             >
               <User className="w-5 h-5" />
               <span className="font-medium">About</span>
