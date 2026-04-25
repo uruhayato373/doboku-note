@@ -24,6 +24,7 @@ import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
+import FAQCard from '@/components/ui/FAQCard/FAQCard';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -289,6 +290,13 @@ export default async function DocPage({
                   docGroup={docGroup}
                   categoryArticles={categoryArticles}
                 />
+              </div>
+            )}
+
+            {/* よくある質問（frontmatter faqs を持つ記事のみ表示） */}
+            {Array.isArray((doc.meta as any).faqs) && (doc.meta as any).faqs.length > 0 && (
+              <div className="mt-8">
+                <FAQCard faqs={(doc.meta as any).faqs} />
               </div>
             )}
 
