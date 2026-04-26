@@ -1,17 +1,16 @@
-import dynamic from "next/dynamic";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Hero, ExamCards, ReferenceCardLink } from "@/components/home";
+import { Hero, ExamCards, ReferenceCardLink, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
 
-// 2026-04-26 #84 LCP 改善: below-fold の LatestArticles / AboutSection を dynamic import で
-// 別 chunk に分離。SSR は維持（ssr: true）し、初期 SSR HTML 縮小と JS 読み込み分散を狙う。
-// 全コンポーネントが server component（"use client" 無し）のため hydration mismatch リスク低い。
-const LatestArticles = dynamic(() => import("@/components/home/LatestArticles"), { loading: () => null });
-const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { loading: () => null });
+// 2026-04-26 #84 LCP 追加改善（Task B-2 revert）:
+// LatestArticles / AboutSection を next/dynamic でラップしたが、これらは React Server Component
+// （"use client" 無し）であり、Next.js 16 の RSC モデルではそもそもクライアント JS を出さない。
+// next/dynamic でラップすると逆にクライアント境界扱いとなり JS 増・LCP 悪化（PSI 8072ms 計測）。
+// 本コミットで通常 import に戻す。katex の docs 限定化（Task B-1）は維持。
 
 const categories = categoriesData as CategoryDef[];
 
