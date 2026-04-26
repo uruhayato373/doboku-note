@@ -2,9 +2,18 @@
 
 技術士（総合技術監理部門）向け Instagram 運用を「サイト・iOS アプリ・note への動線」として立ち上げるための画像・動画生成基盤の設計書。
 
-- 最終更新: 2026-04-23
+- 最終更新: 2026-04-26（v2: API 連携を Phase 1 に前倒し、共通基盤 sns-common に依存）
 - 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v3）
-- 関連: [05_収益化戦略.md](./05_収益化戦略.md)（iOS・note・YouTube 3 本柱）
+- 関連: [05_収益化戦略.md](./05_収益化戦略.md)（iOS・note・YouTube 3 本柱）, [07_YouTube戦略_技術士総監.md](./07_YouTube戦略_技術士総監.md)（v4・SNS 量産型）, [Umbrella Issue #161](https://github.com/uruhayato373/doboku-note/issues/161)
+
+## v1 からの変更点（2026-04-26 v2）
+
+| 項目 | v1（撤回） | v2（採用） | 理由 |
+|---|---|---|---|
+| Meta API 連携 | Phase 5 で任意実施 | Phase 1 から実施（必須） | 手動運用前提を撤回。共通基盤 `media-uploader.mjs` で抽象化 |
+| 共通基盤 | 未定義 | `.claude/scripts/lib/sns-common/` で YouTube と共有 | チャネル独立ではなく 1 ソース → 多チャネル派生 |
+| Meta Business Suite 手動投稿 | 主運用 | 緊急時フォールバックのみ | API 完全自動化を主軸に |
+| Phase 数 | 1〜5 | 1〜4 | 旧 Phase 5（API 連携）を Phase 1 に統合
 
 ## 1. 目的とスコープ
 
@@ -15,8 +24,8 @@
 
 ### やらないこと
 - Meta 広告出稿（オーガニックのみ）
-- 投稿 API 連携（Phase 1〜3 は Meta Business Suite で手動予約投稿）
-- 他 SNS（X・YouTube・TikTok）との共通基盤化（各 SNS は独立設計）
+- ~~投稿 API 連携（Phase 1〜3 は Meta Business Suite で手動予約投稿）~~ → **v2 で撤回**: Phase 1 から API 連携を実施。Meta Business Suite は障害時のフォールバックのみ
+- ~~他 SNS（X・YouTube・TikTok）との共通基盤化（各 SNS は独立設計）~~ → **v2 で撤回**: YouTube とは `.claude/scripts/lib/sns-common/` で基盤を共有（X・TikTok は引き続き独立）
 
 ### 07_SNS集客戦略との関係
 親戦略では Instagram は「Q3 以降・YouTube 軌道後の補助チャネル」と位置づけられていた。本書は **Q3 を待たずに Phase 1 基盤だけ先行整備し、いつでも着手できる状態を作る** ためのインフラ設計に特化する。運用開始の時期判断は親戦略側に委ねる。
@@ -60,9 +69,10 @@
 │   meta.json（キャプション・ハッシュタグ・在 bio リンク）       │
 └───────────────────────────────────────────────────────────────┘
               ↓
-Meta Business Suite で手動予約投稿
+Meta Graph API v18+ で自動投稿（共通基盤 media-uploader.mjs 経由）
+  - /media → /media_publish の 2 段階（カルーセル/Reels）
               ↓
-.claude/state/ig-post/published.json（公開済みマーク）
+.claude/state/sns-post/published.json（API レスポンスの URL/ID 永続化）
 ```
 
 ## 4. ディレクトリ構成
@@ -198,10 +208,10 @@ export const SLIDE_TYPES = {
           ↓
 3. 目視確認（Phase 初期は全件、慣れたら 5 投稿に 1 本サンプリング）
           ↓
-4. Meta Business Suite で手動予約投稿
-     meta.json のキャプションをコピペ、PNG をドラッグ
+4. media-uploader.mjs が Meta Graph API へ自動投稿
+     /media コンテナ作成 → /media_publish で公開（カルーセル/Reels 共通）
           ↓
-5. .claude/state/ig-post/published.json に記録（手動 or 後続 Phase で API 連携）
+5. API レスポンスを .claude/state/sns-post/published.json に自動記録
 ```
 
 ### キャプション自動生成ルール
@@ -229,13 +239,13 @@ export const SLIDE_TYPES = {
 
 | Phase | 期間目安 | 内容 | 完了判定 |
 |---|---|---|---|
-| **1 MVP** | 2-3 日 | `ig-post-create` スキル新設・型1(定義)+型3(5択) の 2 型・10 キーワードで試走 | カルーセル PNG 生成と Meta Business Suite 予約投稿が 1 周できる |
+| **0 共通基盤** | 4-6 日 | `.claude/scripts/lib/sns-common/` の 6 ファイル整備（jp-text-wrap / design-tokens / mdx-extract / slide-render / tts-client / media-uploader） | YouTube と共通の素材生成・API 投稿基盤が動作 |
+| **1 MVP + API** | 3-4 日 | `ig-post-create` スキル新設・型1(定義)+型3(5択) の 2 型・10 キーワードで試走・**Meta Graph API で実投稿** | カルーセル PNG 生成と API 自動投稿が 1 周できる |
 | **2 型拡充** | 3-5 日 | 型2(図解・既存 SVG 連携)+型4(比較)+型5(過去問逆引き)+型6(覚え方) 追加 | 6 型で 50 キーワード分の素材バンク |
-| **3 Reels 着手** | 2-3 日 | ffmpeg でカルーセル PNG を縦動画化（型7 = スキマ時間） | 静止画連結 Reel が投稿できる |
+| **3 Reels 着手** | 2-3 日 | ffmpeg でカルーセル PNG を縦動画化（型7 = スキマ時間） | 静止画連結 Reel が API 投稿できる |
 | **4 本格 Reel** | 必要時 | Remotion 導入・型8 週次 Top5（数字カウント等） | アニメ付き Reel 投稿 |
-| **5 API 連携** | 任意 | Meta Graph API で予約投稿自動化 | キュー投入だけで予約まで完結 |
 
-Phase 1+2 で「運用インフラ完成」、Phase 3-5 は試験後（2026-08 以降）の継続運用で段階追加する想定。Phase 1 着手時期は親戦略 [07_SNS集客戦略.md](./07_SNS集客戦略.md) の Q3 判断に委ねるが、**インフラだけは 2026-04〜05 に整備しておく**価値がある（2026-07 試験後にすぐ稼働できる）。
+Phase 0 を YouTube と並行で先行整備（Issue #164 SNS-0）。Phase 1+2 で「運用インフラ完成」、Phase 3-4 は試験後（2026-08 以降）の継続運用で段階追加する想定。Phase 0 と Phase 1 は 2026-04〜05 に整備（2026-07 試験前に稼働可能）。
 
 ### 実行タスクの管理場所
 
@@ -253,8 +263,9 @@ Phase 1+2 で「運用インフラ完成」、Phase 3-5 は試験後（2026-08 �
 | 1 日の投稿数 | A: 1 投稿 / B: 週 3 / C: 週 2 | Phase 1 試走後 |
 | Reels vs カルーセル比率 | A: カルーセル 8:Reels 2 / B: 5:5 / C: 運用で決める | Phase 3 着手時 |
 | 在 bio リンクの着地点 | A: doboku-note トップ / B: 技術士総監トップ / C: Linktree 的 LP | Phase 1 着手時 |
-| Meta Graph API 連携 | A: Phase 5 で実施 / B: 手動運用継続 | Phase 3 完了時 |
 | Reels 生成技術 | A: ffmpeg（軽量）/ B: Remotion（表現力）/ C: ハイブリッド | Phase 3 着手時 |
+
+**v2 で削除された未決事項**: Meta Graph API 連携 → Phase 1 で実施に決定（2026-04-26）
 
 ## 10. リスクと対策
 
