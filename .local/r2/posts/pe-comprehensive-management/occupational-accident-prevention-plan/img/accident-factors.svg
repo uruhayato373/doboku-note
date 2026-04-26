@@ -1,54 +1,77 @@
-  <svg width="440" height="280" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:440px;width:100%">
-    <defs>
-      <marker id="arrS" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#555"/></marker>
-    </defs>
+<svg width="400" height="290" viewBox="0 0 400 290"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="労働災害の発生要因：事故の型は人・物・環境を経由して不安全な状態と不安全な行動から発生。平成 26 年統計では不安全行動のみが 92% を占め、行動への対策が最重要">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-page-title { font-size: 13px; font-weight: bold; fill: #222; }      /* ink-strong */
+      .t-section    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-bar-label  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-bar-pct    { font-size: 12px; font-weight: bold; fill: #222; }     /* ink-strong */
+      .t-detail     { font-size: 11px; fill: #555; }                        /* ink-body */
+      .t-source     { font-size: 11px; fill: #555; }                        /* ink-body */
+      .box-top      { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger（事故） */
+      .box-mid      { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn（人物環境） */
+      .box-state    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand（不安全状態） */
+      .box-action   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger（不安全行動＝主因） */
+      .bar-action   { fill: #b22234; stroke: #b22234; }                    /* danger 主役 */
+      .bar-mixed    { fill: #d4a017; stroke: #d4a017; }                    /* warn */
+      .bar-state    { fill: #2e6da4; stroke: #2e6da4; }                    /* brand */
+      .bar-none     { fill: #d7d7d7; stroke: #d7d7d7; }                    /* surface */
+      .arrow        { stroke: #555; stroke-width: 1.5; fill: none; }       /* ink-body */
+    </style>
+    <marker id="acc-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
 
-    <!-- 事故の型（最上部） -->
-    <rect x="155" y="10" width="130" height="34" rx="4" fill="#444" stroke="#222"/>
-    <text x="220" y="32" text-anchor="middle" fill="white" font-weight="bold" font-size="13">事故の型</text>
+  <!-- 上：事故の型 -->
+  <rect class="box-top" x="135" y="10" width="130" height="32" rx="5"/>
+  <text class="t-page-title" x="200" y="32" text-anchor="middle">事故の型（労働災害）</text>
 
-    <!-- 不安全状態 → 事故 -->
-    <line x1="220" y1="44" x2="220" y2="72" stroke="#555" stroke-width="2" marker-end="url(#arrS)"/>
+  <line class="arrow" x1="200" y1="44" x2="200" y2="62" marker-end="url(#acc-arr)"/>
 
-    <!-- 人と物（機械・設備等）ボックス -->
-    <rect x="80" y="72" width="280" height="36" rx="4" fill="#555" stroke="#333"/>
-    <text x="220" y="87" text-anchor="middle" fill="white" font-size="12">人・物（機械・設備等）</text>
-    <text x="220" y="100" text-anchor="middle" fill="#ddd" font-size="10">環境</text>
+  <!-- 中：人・物・環境 -->
+  <rect class="box-mid" x="65" y="66" width="270" height="34" rx="5"/>
+  <text class="t-page-title" x="200" y="86" text-anchor="middle">人・物（機械・設備）・環境</text>
 
-    <line x1="220" y1="108" x2="220" y2="130" stroke="#555" stroke-width="2" marker-end="url(#arrS)"/>
+  <line class="arrow" x1="120" y1="102" x2="120" y2="120" marker-end="url(#acc-arr)"/>
+  <line class="arrow" x1="280" y1="102" x2="280" y2="120" marker-end="url(#acc-arr)"/>
 
-    <!-- 不安全状態ボックス -->
-    <rect x="10" y="130" width="185" height="36" rx="4" fill="#777" stroke="#555"/>
-    <text x="103" y="144" text-anchor="middle" fill="white" font-size="11">不安全な状態</text>
-    <text x="103" y="158" text-anchor="middle" fill="#ddd" font-size="9">（安全衛生管理上の欠陥）</text>
+  <!-- 不安全状態 / 不安全行動 -->
+  <rect class="box-state" x="20" y="124" width="180" height="38" rx="5"/>
+  <text class="t-bar-label" x="110" y="142" text-anchor="middle">不安全な状態</text>
+  <text class="t-detail"   x="110" y="156" text-anchor="middle">（管理上の欠陥）</text>
 
-    <!-- 不安全行動ボックス -->
-    <rect x="245" y="130" width="185" height="36" rx="4" fill="#666" stroke="#444"/>
-    <text x="337" y="144" text-anchor="middle" fill="white" font-size="11">不安全な行動</text>
-    <text x="337" y="158" text-anchor="middle" fill="#ddd" font-size="9">（労働者の行動）</text>
+  <rect class="box-action" x="200" y="124" width="180" height="38" rx="5"/>
+  <text class="t-bar-label" x="290" y="142" text-anchor="middle">不安全な行動</text>
+  <text class="t-detail"    x="290" y="156" text-anchor="middle">（労働者の行動）</text>
 
-    <line x1="103" y1="166" x2="103" y2="188" stroke="#777" stroke-width="1.5" marker-end="url(#arrS)"/>
-    <line x1="337" y1="166" x2="337" y2="188" stroke="#666" stroke-width="1.5" marker-end="url(#arrS)"/>
+  <!-- 統計：労働災害の発生要因割合 -->
+  <text class="t-section" x="200" y="186" text-anchor="middle">発生要因割合（平成 26 年）</text>
 
-    <!-- 統計データ（下部の円グラフ代替表示） -->
-    <text x="220" y="210" text-anchor="middle" fill="#333" font-weight="bold" font-size="12">労働災害の発生要因割合（平成26年）</text>
+  <!-- バー（4 群） -->
+  <rect class="bar-action" x="20"  y="200" width="86" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="63"  y="218" text-anchor="middle" fill="#ffffff">92.0%</text>
+  <text class="t-detail"   x="63"  y="240" text-anchor="middle">不安全行動</text>
+  <text class="t-detail"   x="63"  y="254" text-anchor="middle">のみ</text>
 
-    <!-- 棒グラフ風 -->
-    <rect x="30" y="218" width="92" height="24" rx="3" fill="#555" stroke="#333"/>
-    <text x="76" y="234" text-anchor="middle" fill="white" font-size="10">不安全行動のみ</text>
-    <text x="76" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">92.0%</text>
+  <rect class="bar-state"  x="116" y="200" width="86" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="159" y="218" text-anchor="middle" fill="#ffffff">4.8%</text>
+  <text class="t-detail"   x="159" y="240" text-anchor="middle">不安全状態</text>
+  <text class="t-detail"   x="159" y="254" text-anchor="middle">のみ</text>
 
-    <rect x="140" y="218" width="80" height="24" rx="3" fill="#777" stroke="#555"/>
-    <text x="180" y="234" text-anchor="middle" fill="white" font-size="10">状態＋行動</text>
-    <text x="180" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">3.0%</text>
+  <rect class="bar-mixed"  x="212" y="200" width="86" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="255" y="218" text-anchor="middle" fill="#1a3a5c">3.0%</text>
+  <text class="t-detail"   x="255" y="240" text-anchor="middle">状態 + 行動</text>
+  <text class="t-detail"   x="255" y="254" text-anchor="middle">複合</text>
 
-    <rect x="238" y="218" width="90" height="24" rx="3" fill="#888" stroke="#666"/>
-    <text x="283" y="234" text-anchor="middle" fill="white" font-size="10">不安全状態のみ</text>
-    <text x="283" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">4.8%</text>
+  <rect class="bar-none"   x="308" y="200" width="72" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="344" y="218" text-anchor="middle" fill="#222">0.2%</text>
+  <text class="t-detail"   x="344" y="240" text-anchor="middle">両方</text>
+  <text class="t-detail"   x="344" y="254" text-anchor="middle">なし</text>
 
-    <rect x="346" y="218" width="72" height="24" rx="3" fill="#aaa" stroke="#888"/>
-    <text x="382" y="234" text-anchor="middle" fill="white" font-size="10">両方なし</text>
-    <text x="382" y="250" text-anchor="middle" fill="#333" font-size="11" font-weight="bold">0.2%</text>
-
-    <text x="220" y="270" text-anchor="middle" fill="#666" font-size="9">出典：（一社）中小建設業特別教育協会ホームページ</text>
-  </svg>
+  <text class="t-source" x="200" y="282" text-anchor="middle">出典：（一社）中小建設業特別教育協会</text>
+</svg>
