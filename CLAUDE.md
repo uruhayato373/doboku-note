@@ -28,6 +28,8 @@
 | `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/project/05_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
 | `docs/project/19_note-content-runway-2026.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
+| `docs/project/07_YouTube戦略_技術士総監.md` | YouTube 戦略 v4（TTS 完全自動・SNS 量産チャネル、共通基盤 sns-common 依存） | YouTube 投稿設計・SNS 自動化検討時 |
+| `docs/project/26_instagram-post-automation.md` | Instagram 投稿自動化アーキテクチャ v2（API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
 
 ## 設計思想
 

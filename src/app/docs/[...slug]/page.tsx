@@ -13,6 +13,10 @@ import remarkMath from 'remark-math';
 import remarkGfm from 'remark-gfm';
 // remarkDirective removed: :::directive syntax is handled by parseCallouts() in mdx-callout-parser.ts
 import rehypeKatex from 'rehype-katex';
+// 2026-04-26 #84 LCP 改善: katex.min.css は数式を扱う docs ページのみで読み込む。
+// 元は src/app/layout.tsx で全ページに注入していたが、render-blocking CSS を home/category/about
+// 等から除去するため、MDXRemote + rehype-katex を使うこのファイルのみに局所化。
+import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
