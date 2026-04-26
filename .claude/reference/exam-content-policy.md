@@ -55,6 +55,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **網羅率**: 設問単位で 100%（漏らさない）
 - **構造**: 設問ごとに H2、解答・解説は `<details>` で開閉式。`<RelatedKeywords>` で関連キーワードへ
 - **執筆ツール**: `/pdf-to-mdx` `/pdf-to-mdx --exam cem` `/pdf-to-mdx --exam civil-construction-1`
+- **図版反映時の caption / alt**: **問題文に無い情報を一切追加しない**。構造・関係・分類など受験者が判断すべき情報を漏らさない。詳細・NG/OK 例は [.claude/reference/image-policy.md §過去問図の caption / alt](./image-policy.md#過去問図の-caption--alt--問題文に無い情報を絶対に追加しない) 参照（2026-04-26 追加、Issue #128 起因）
 
 ---
 

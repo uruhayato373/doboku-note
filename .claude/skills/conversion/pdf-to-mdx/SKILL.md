@@ -188,6 +188,8 @@ magick raw.png -fill white -draw "rectangle 0,0 300,700" out.png
 
 MDX での参照は `<ArticleImage src="/posts/{category}/{slug}/img/fig-X-Y.png" alt="..." />`（raw `<img>` は禁止、`.claude/reference/content-authoring.md` 参照）。
 
+**過去問図の場合は caption / alt に注意**: 問題文に無い情報（構造説明、並列/直列、PDCA など）を絶対に書かない。受験者の判断材料を奪わない。詳細は [.claude/reference/image-policy.md §過去問図の caption / alt](../../reference/image-policy.md#過去問図の-caption--alt--問題文に無い情報を絶対に追加しない) 参照。
+
 #### Step F: R2 アップロード
 
 ```bash

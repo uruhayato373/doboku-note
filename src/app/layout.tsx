@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP, Source_Serif_4, Noto_Serif_JP, JetBrains_Mono } from "next/font/google";
+import { Inter, Noto_Sans_JP } from "next/font/google";
 // katex.min.css を先に import して、後続の globals.css で上書きできるようにする
 // （CSS カスケードは後勝ちのため、import 順で決まる）
 import "katex/dist/katex.min.css";
@@ -27,37 +27,11 @@ const notoSansJP = Noto_Sans_JP({
   preload: true,
 });
 
-// Serif/Mincho フォント（2026-04-22 追加）: 本文フォント切替の基盤として導入。
-// デフォルトは Sans（Inter + Noto Sans JP）のまま。`body.font-serif` / `body.font-mincho`
-// クラスで opt-in 可能にし、UI 露出（Tweaks トグル等）は別 PR で段階導入する。
-// preload は false（デフォルトで読み込まないため、初期バンドルへの影響を最小化）。
-const sourceSerif = Source_Serif_4({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-source-serif",
-  display: "swap",
-  preload: false,
-});
-
-// Noto Serif JP: editorial 見出し用。weights を 700/900 に絞り、preload は false に戻す。
-// 理由: Phase 1 で preload:true + 4 weights にした結果、homepage LCP が 7116ms → 11412ms に悪化（60% 後退、#84）。
-// LCP 候補となるのは hero H1 のみ。display:swap で読み込み待ちは避けられるため、初期 preload は不要。
-const notoSerifJP = Noto_Serif_JP({
-  subsets: ["latin"],
-  weight: ["700", "900"],
-  variable: "--font-noto-serif-jp",
-  display: "swap",
-  preload: false,
-});
-
-// JetBrains Mono: ラベル・日付・コード用。LCP 要素にならないため preload は false。
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-jetbrains-mono",
-  display: "swap",
-  preload: false,
-});
+// 2026-04-26 #84 LCP 改善: Source_Serif_4 / Noto_Serif_JP / JetBrains_Mono を削除。
+// next/font は preload:false でも @font-face CSS（unicode-range 宣言群）を render-blocking で
+// 注入するため、3 ファイル合計 ~410KB の CSS が LCP/FCP を 7350ms 遅らせていた（PSI 計測）。
+// hero H1 / mono ラベルは tailwind.config の system font fallback（Hiragino Mincho ProN, Yu Mincho,
+// ui-monospace, SFMono-Regular 等）で代替する。視覚差は OS 標準フォントへの置き換えのみ。
 
 export const metadata: Metadata = getCommonSeoData();
 
@@ -72,7 +46,7 @@ export default function RootLayout({
         <StructuredData type="website" />
         <StructuredData type="organization" />
       </head>
-      <body className={`${inter.variable} ${notoSansJP.variable} ${sourceSerif.variable} ${notoSerifJP.variable} ${jetbrainsMono.variable} font-sans`}>
+      <body className={`${inter.variable} ${notoSansJP.variable} font-sans`}>
         <GoogleAnalytics />
         <Suspense fallback={null}>
           <AnalyticsProvider />
