@@ -10,7 +10,7 @@
     .activity { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; font-weight: 600; }
     .duration { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
     .lft-box { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
-    .lft-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #8a6d00; font-weight: 700; }
+    .lft-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #d4a017; font-weight: 700; }
     .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
   </style>
 

@@ -44,10 +44,10 @@
   <circle cx="215" cy="295" r="6" fill="#3a7d44"/>
   <circle cx="315" cy="295" r="6" fill="#3a7d44"/>
 
-  <!-- Boom (blue, diagonal up-left) -->
+  <!-- Boom (#2e6da4, diagonal up-left) -->
   <polygon points="235,240 130,120 120,135 225,250" class="boom"/>
 
-  <!-- Arm (yellow, diagonal down from boom tip) -->
+  <!-- Arm (#d4a017, diagonal down from boom tip) -->
   <polygon points="125,125 115,140 85,220 95,228" class="arm"/>
 
   <!-- Bucket (with storable hook) -->

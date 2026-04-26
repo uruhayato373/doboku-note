@@ -3,32 +3,32 @@
   <path d="M 55 230 C 130 120 230 60 405 50 C 310 50 200 210 55 230 Z" fill="#f2f2f2" opacity="0.8"/>
 
   <!-- Axes -->
-  <line x1="55" y1="230" x2="415" y2="230" stroke="#333" stroke-width="1.5"/>
-  <line x1="55" y1="40" x2="55" y2="230" stroke="#333" stroke-width="1.5"/>
+  <line x1="55" y1="230" x2="415" y2="230" stroke="#222" stroke-width="1.5"/>
+  <line x1="55" y1="40" x2="55" y2="230" stroke="#222" stroke-width="1.5"/>
 
   <!-- Y-axis ticks and labels -->
-  <line x1="52" y1="50" x2="55" y2="50" stroke="#333" stroke-width="1"/>
-  <line x1="52" y1="140" x2="55" y2="140" stroke="#333" stroke-width="1"/>
+  <line x1="52" y1="50" x2="55" y2="50" stroke="#222" stroke-width="1"/>
+  <line x1="52" y1="140" x2="55" y2="140" stroke="#222" stroke-width="1"/>
   <text x="48" y="54" text-anchor="end" font-size="10" fill="#555">100</text>
   <text x="48" y="144" text-anchor="end" font-size="10" fill="#555">50</text>
   <text x="48" y="234" text-anchor="end" font-size="10" fill="#555">0</text>
-  <text x="20" y="135" font-size="11" fill="#333" transform="rotate(-90 20 135)" text-anchor="middle">出来高 (%)</text>
+  <text x="20" y="135" font-size="11" fill="#222" transform="rotate(-90 20 135)" text-anchor="middle">出来高 (%)</text>
 
   <!-- X-axis labels -->
   <text x="55" y="248" text-anchor="middle" font-size="10" fill="#555">着工</text>
   <text x="405" y="248" text-anchor="middle" font-size="10" fill="#555">竣工</text>
-  <text x="230" y="275" text-anchor="middle" font-size="11" fill="#333">工期</text>
+  <text x="230" y="275" text-anchor="middle" font-size="11" fill="#222">工期</text>
 
   <!-- Upper limit (dashed gray) -->
-  <path d="M 55 230 C 130 120 230 60 405 50" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <path d="M 55 230 C 130 120 230 60 405 50" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="6,3"/>
 
   <!-- Lower limit (dashed gray) -->
-  <path d="M 55 230 C 200 230 310 160 405 50" fill="none" stroke="#888" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <path d="M 55 230 C 200 230 310 160 405 50" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="6,3"/>
 
   <!-- Planned (solid dark) -->
-  <path d="M 55 230 C 170 200 260 90 405 50" fill="none" stroke="#333" stroke-width="2.5"/>
+  <path d="M 55 230 C 170 200 260 90 405 50" fill="none" stroke="#222" stroke-width="2.5"/>
 
-  <!-- Actual (red dashed, up to current time) -->
+  <!-- Actual (#b22234 dashed, up to current time) -->
   <path d="M 55 230 L 90 225 L 130 215 L 170 195 L 210 165 L 245 140" fill="none" stroke="#b22234" stroke-width="2.5" stroke-dasharray="5,2"/>
   <circle cx="245" cy="140" r="3.8" fill="#b22234"/>
   <text x="252" y="136" font-size="10" fill="#b22234" font-weight="bold">現在</text>
@@ -36,6 +36,6 @@
   <!-- Legend labels -->
   <text x="318" y="80" font-size="10" fill="#555">上方許容限界</text>
   <text x="318" y="180" font-size="10" fill="#555">下方許容限界</text>
-  <text x="295" y="125" font-size="10" fill="#333" font-weight="bold">予定</text>
+  <text x="295" y="125" font-size="10" fill="#222" font-weight="bold">予定</text>
   <text x="150" y="180" font-size="10" fill="#b22234" font-weight="bold">実績</text>
 </svg>

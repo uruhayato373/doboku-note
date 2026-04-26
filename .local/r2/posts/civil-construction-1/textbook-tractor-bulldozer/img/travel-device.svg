@@ -31,11 +31,11 @@
     <!-- ホイール概念図 -->
     <g transform="translate(15,35)">
       <rect x="20" y="15" width="125" height="30" fill="#555"/>
-      <rect x="35" y="5" width="65" height="20" fill="#777"/>
+      <rect x="35" y="5" width="65" height="20" fill="#555"/>
       <circle cx="40" cy="58" r="20" fill="#222"/>
-      <circle cx="40" cy="58" r="10" fill="#888"/>
+      <circle cx="40" cy="58" r="10" fill="#8a8a8a"/>
       <circle cx="125" cy="58" r="20" fill="#222"/>
-      <circle cx="125" cy="58" r="10" fill="#888"/>
+      <circle cx="125" cy="58" r="10" fill="#8a8a8a"/>
     </g>
 
     <!-- 特徴 -->

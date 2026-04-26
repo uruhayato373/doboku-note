@@ -1,16 +1,16 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="680" height="340" viewBox="0 0 680 340" style="max-width:680px;width:100%" role="img" aria-label="イベントツリー図（可燃性液体の漏洩事故）">
-  <rect width="680" height="340" fill="white"/>
+  <rect width="680" height="340" fill="#ffffff"/>
   <style>
     text { font-family: sans-serif; }
     .title { font-size: 13px; font-weight: bold; fill: #222; }
-    .header { font-size: 10px; font-weight: bold; fill: #444; }
-    .label { font-size: 9px; fill: #333; }
-    .prob { font-size: 9px; fill: #c62828; }
+    .header { font-size: 10px; font-weight: bold; fill: #222; }
+    .label { font-size: 9px; fill: #222; }
+    .prob { font-size: 9px; fill: #b22234; }
     .result { font-size: 9px; font-weight: bold; }
-    .line { stroke: #444; stroke-width: 1.2; fill: none; }
-    .highlight { stroke: #c62828; stroke-width: 2; fill: none; }
-    .node { fill: #f0f4ff; stroke: #336; stroke-width: 1; }
-    .end { font-size: 9px; fill: #1565c0; }
+    .line { stroke: #222; stroke-width: 1.2; fill: none; }
+    .highlight { stroke: #b22234; stroke-width: 2; fill: none; }
+    .node { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    .end { font-size: 9px; fill: #2e6da4; }
   </style>
 
   <text class="title" x="340" y="18" text-anchor="middle">イベントツリー図（可燃性液体の漏洩事故）</text>
@@ -84,10 +84,10 @@
   <line class="line" x1="560" y1="245" x2="600" y2="242"/>
   <text class="end" x="605" y="245">中規模火災</text>
   <line class="highlight" x1="560" y1="275" x2="600" y2="272"/>
-  <text class="result" x="605" y="275" fill="#c62828">大規模火災</text>
+  <text class="result" x="605" y="275" fill="#b22234">大規模火災</text>
 
   <!-- Calculation box -->
-  <rect x="15" y="295" width="650" height="35" rx="5" fill="#f5f5f5" stroke="#ccc"/>
+  <rect x="15" y="295" width="650" height="35" rx="5" fill="#f5f5f5" stroke="#d7d7d7"/>
   <text class="label" x="25" y="310">P1 = 0.01 x (0.0001 x 0.1 x 0.3 + 0.9999 x 0.001 x 0.1 x 0.3) &#x2248; 3.3 x 10&#x207B;&#x2077;</text>
   <text class="label" x="25" y="324">検知失敗10倍: P2 &#x2248; 6.0 x 10&#x207B;&#x2077;   &#x2192;   P2/P1 &#x2248; 1.8 &#x2248; 2</text>
 </svg>

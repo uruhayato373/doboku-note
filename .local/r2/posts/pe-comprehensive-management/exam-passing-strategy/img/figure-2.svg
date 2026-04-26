@@ -5,7 +5,7 @@
     </marker>
   </defs>
   <style>
-    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1f2937; }
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1a3a5c; }
   </style>
 
   <!-- Phase 1 -->
@@ -33,7 +33,7 @@
   <line x1="190" y1="264" x2="190" y2="284" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow2)"/>
 
   <!-- Phase 4 -->
-  <rect x="15" y="286" width="350" height="70" rx="8" fill="#f8d7da" stroke="#c0392b" stroke-width="1.5"/>
+  <rect x="15" y="286" width="350" height="70" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
   <text x="190" y="311" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ4: 口頭試験対策（10〜12月）</text>
   <text x="190" y="336" text-anchor="middle" font-size="13" fill="#555">経歴を総監視点で説明できる</text>
 

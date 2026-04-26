@@ -10,7 +10,7 @@
     .activity { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; font-weight: 600; }
     .duration { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
     .est { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #3a7d44; font-weight: 700; }
-    .lft-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #8a6d00; font-weight: 700; }
+    .lft-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #d4a017; font-weight: 700; }
     .lft-box { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
     .legend-label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #222; }
     .legend-sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
@@ -62,7 +62,7 @@
   <text x="303" y="125" class="duration">6</text>
 
   <!-- Legend for derived times -->
-  <rect x="20" y="195" width="360" height="75" rx="4" fill="#f5f8fc" stroke="#d7d7d7"/>
+  <rect x="20" y="195" width="360" height="75" rx="4" fill="#e8f0fe" stroke="#d7d7d7"/>
   <text x="32" y="215" class="legend-label">作業 C（③→④・6日）の4時刻</text>
 
   <text x="32" y="235" class="legend-sub">• 最早開始（EST₃）= 12日　• 最早完了（EFT）= 12+6 = 18日</text>
