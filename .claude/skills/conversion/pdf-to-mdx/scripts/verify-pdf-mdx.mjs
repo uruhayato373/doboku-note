@@ -66,12 +66,19 @@ const SLUG_PDF_HINTS = {
 // ----------------------------------------------------------------
 
 function parseArgs(argv) {
-  const args = { mdx: null, pdf: null, render: false, dpi: DEFAULT_DPI };
+  const args = {
+    mdx: null,
+    pdf: null,
+    render: false,
+    dpi: DEFAULT_DPI,
+    expectedFigures: null,
+  };
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
     if (a === '--pdf') args.pdf = argv[++i];
     else if (a === '--render') args.render = true;
     else if (a === '--dpi') args.dpi = parseInt(argv[++i], 10);
+    else if (a === '--expected-figures') args.expectedFigures = parseInt(argv[++i], 10);
     else if (!args.mdx) args.mdx = a;
   }
   return args;
@@ -81,7 +88,7 @@ const args = parseArgs(process.argv);
 
 if (!args.mdx) {
   process.stderr.write(
-    'Usage: node scripts/verify-pdf-mdx.mjs <mdx-path> [--pdf <pdf-path>] [--render] [--dpi N]\n',
+    'Usage: node scripts/verify-pdf-mdx.mjs <mdx-path> [--pdf <pdf-path>] [--render] [--dpi N] [--expected-figures N]\n',
   );
   process.exit(2);
 }
@@ -128,7 +135,8 @@ const slug = frontmatter.id || basename(dirname(args.mdx)) || basename(args.mdx,
 const title = frontmatter.title || null;
 
 // <img src="..." alt="..." /> を抽出
-const imgRe = /<img\s+([^>]*?)\/?>/g;
+// `<img>` と `<ArticleImage>` の両方を検出（Phase 4 対応、Issue #128）
+const imgRe = /<(?:img|ArticleImage)\s+([^>]*?)\/?>/g;
 const attrRe = /(\w+)\s*=\s*["']([^"']*)["']/g;
 const lines = mdxRaw.split('\n');
 
@@ -538,10 +546,32 @@ if (pdfPath && existsSync(pdfPath)) {
 // 出力
 // ----------------------------------------------------------------
 
+// figures_check: --expected-figures が指定された場合のみ算出
+// Phase 4 (import script ガード) で利用される。未指定時は null（既存挙動維持）
+let figuresCheck = null;
+if (args.expectedFigures !== null && !Number.isNaN(args.expectedFigures)) {
+  const actual = images.length;
+  const expected = args.expectedFigures;
+  let status;
+  if (actual === expected) status = 'ok';
+  else if (actual < expected) status = 'missing';
+  else status = 'extra';
+  figuresCheck = { expected, actual, status, diff: actual - expected };
+}
+
+// ocr_recommendation: 閾値超え警告（既存 ocr_artifact_count を使用）
+let ocrRecommendation = null;
+if (pdfInfo && typeof pdfInfo.ocr_artifact_count === 'number') {
+  const n = pdfInfo.ocr_artifact_count;
+  if (n >= 10) ocrRecommendation = { level: 'error', threshold: 10, count: n, hint: 'OCR 品質が著しく低い。pdftoppm + Tesseract での再 OCR を推奨' };
+  else if (n >= 5) ocrRecommendation = { level: 'warn', threshold: 5, count: n, hint: 'OCR ノイズが多い。視覚突合を必ず行う' };
+  else ocrRecommendation = { level: 'ok', threshold: 5, count: n };
+}
+
 const result = {
   meta: {
     script: 'scripts/verify-pdf-mdx.mjs',
-    version: 2,
+    version: 3,
     platform: 'mac-only',
     tools: { pdftotext: hasPdftotext, pdfinfo: hasPdfinfo, pdftoppm: hasPdftoppm },
     generated_at: new Date().toISOString(),
@@ -564,6 +594,8 @@ const result = {
   pdf: pdfInfo,
   coverage,
   render: renderResult,
+  figures_check: figuresCheck,
+  ocr_recommendation: ocrRecommendation,
 };
 
 process.stdout.write(JSON.stringify(result, null, 2) + '\n');
