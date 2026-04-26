@@ -30,9 +30,11 @@ export async function generateMetadata({
       title: 'カテゴリが見つかりません',
     };
   }
+  // SEO description は cat.description（50〜160 文字）を優先、未指定なら subtitle に fallback。
+  // UI の <p> は subtitle を使うため、SEO 用の description と分離している。
   return {
     title: cat.label,
-    description: cat.subtitle,
+    description: cat.description ?? cat.subtitle,
   };
 }
 
