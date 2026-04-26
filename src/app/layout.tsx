@@ -14,6 +14,10 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
+  // 2026-04-26 #84 LCP 改善: variable font の weight 範囲を実使用分のみに絞る。
+  // 本文 400 / 強調 600 / 見出し 700 で全画面の font-weight 指定を網羅。
+  // weight 範囲を切ると woff2 サイズが ~10〜20KB 削減される（network 経由の LCP 微改善）。
+  weight: ["400", "600", "700"],
   variable: "--font-inter",
   display: "swap",
   preload: true,
