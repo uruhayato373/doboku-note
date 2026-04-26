@@ -93,7 +93,7 @@
 - **Tier 3 機械可読データ** → `.claude/state/metrics/*.json`（develop に CI が直接 commit）
 - **Tier 1 状態あり・アクション item** → GitHub Issue（`performance`, `weekly-pdca`, `session-handoff`, `queue`, `task`, `umbrella` 等のラベルで分類）
 - **Tier 2 固定的知識・設計** → `docs/project/*.md`, `.claude/reference/*.md`
-- 週次 PDCA は `[PDCA] YYYY-Www` Issue に計画とレビューを集約（`docs/reviews/weekly/` は archive のみ）
+- 週次 PDCA は `[PDCA] YYYY-Www` Issue に計画とレビューを集約（旧 `docs/reviews/weekly/` は 2026-04-27 に削除）
 - Issue は対応して close → 次週の review で「解消」として記録
 
 オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。

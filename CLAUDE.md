@@ -17,6 +17,7 @@
 | [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・Phase 別ロードマップ | 週次 PDCA・変換作業・キーワードページ作成時 |
 | [.claude/reference/docs-issue-separation.md](.claude/reference/docs-issue-separation.md) | `docs/project/` md（Why/戦略）と GitHub Umbrella Issue（実行タスク）の役割分離ルール | ロードマップ md 作成・更新時／Umbrella Issue 作成時 |
 | [.claude/reference/measurement-incidents.md](.claude/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合 + 外部検証アクセスの罠（2026-W16 BAILOUT、2026-04-25 Cloudflare Bot 等） | 計測スキル/エージェント設計時・自動起票 Issue 評価時・外部 Validator/ボットを使う作業時 |
+| [.claude/reference/data-storage-decision.md](.claude/reference/data-storage-decision.md) | データストレージ判断 ADR（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー条件） | DB 導入を検討するとき／iOS アプリ着手時／コンテンツ規模が大きく変わるとき |
 | [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
 | [.claude/design-system/principles.md](.claude/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
 | [docs/ui/callout-gallery.md](docs/ui/callout-gallery.md) | Callout 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）。GitHub 画面で視覚確認可能 | MDX で `<Callout type="...">` を選ぶとき |
@@ -27,9 +28,9 @@
 | `docs/project/01_設計思想.md` | プロジェクトの設計思想の詳細 | 長期方針・コンテンツ戦略検討時 |
 | `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/project/05_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
-| `docs/project/19_note-content-runway-2026.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
-| `docs/project/07_YouTube戦略_技術士総監.md` | YouTube 戦略 v4（TTS 完全自動・SNS 量産チャネル、共通基盤 sns-common 依存） | YouTube 投稿設計・SNS 自動化検討時 |
-| `docs/project/26_instagram-post-automation.md` | Instagram 投稿自動化アーキテクチャ v2（API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
+| `docs/project/07_SNS集客戦略.md` | SNS 集客戦略 v4（X / YouTube / Instagram 統合、TTS 完全自動・SNS 量産・共通基盤 sns-common 依存） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
+| `docs/project/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
+| `docs/project/26_Instagram投稿自動化アーキテクチャ.md` | Instagram 投稿自動化アーキテクチャ v2（API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
 
 ## 設計思想
 

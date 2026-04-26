@@ -192,5 +192,5 @@
 ## 参考
 
 - 親戦略: [05_収益化戦略.md](./05_収益化戦略.md)
-- SEO 戦略: [18_seo-strategy-pe-keywords-2026.md](./18_seo-strategy-pe-keywords-2026.md)
+- SEO 継続改善: [Issue #72 [Umbrella] SEO 継続改善](https://github.com/uruhayato373/doboku-note/issues/72)
 - v3 事業戦略: [02_事業戦略.md](./02_事業戦略.md)

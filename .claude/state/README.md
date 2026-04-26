@@ -53,7 +53,7 @@
 
 - **git 管理対象**: 状態遷移の履歴を追跡可能にするため、差分コミットを許容
 - **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域）
-- **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `docs/project/17_data-storage-strategy.md`）
+- **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `.claude/reference/data-storage-decision.md`）
 - **Issue 一本化**: 2026-04-21 に `.claude/state/*.md`（session-handoff, review-queue 等）を GitHub Issue に全面移行
 
-詳細なアーキテクチャは `docs/project/13_quality-cycle-architecture.md` と `.claude/reference/docs-issue-separation.md` を参照。
+詳細なアーキテクチャは `.claude/skills/quality/quality-cycle/DESIGN.md` と `.claude/reference/docs-issue-separation.md` を参照。

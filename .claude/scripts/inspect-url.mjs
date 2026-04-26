@@ -4,7 +4,7 @@
  * 単一 URL のインデックス状態・最終クロール日・モバイル適合性を確認。
  * 既存の GSC サービスアカウント鍵を流用（同じ scopes で動作）。
  *
- * 参照: docs/project/17_data-storage-strategy.md (週次スナップショットの方針)
+ * 参照: .claude/reference/data-storage-decision.md (データ保存方針)
  *       scripts/fetch-gsc-data.mjs (認証パターンの参考)
  *
  * Usage:

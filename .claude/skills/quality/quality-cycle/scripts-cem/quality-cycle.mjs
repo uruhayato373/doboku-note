@@ -2,7 +2,7 @@
 /**
  * Quality Cycle オーケストレータ
  *
- * 詳細アーキテクチャは docs/project/13_quality-cycle-architecture.md 参照。
+ * 詳細アーキテクチャは .claude/skills/quality/quality-cycle/DESIGN.md 参照。
  *
  * Usage:
  *   node scripts/quality-cycle.mjs --mode screen
