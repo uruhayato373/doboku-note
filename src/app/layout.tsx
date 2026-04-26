@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Noto_Sans_JP } from "next/font/google";
-// katex.min.css を先に import して、後続の globals.css で上書きできるようにする
-// （CSS カスケードは後勝ちのため、import 順で決まる）
-import "katex/dist/katex.min.css";
+// 2026-04-26 #84 LCP 改善: katex.min.css は src/app/docs/[...slug]/page.tsx に移動。
+// home/category/about/contact/privacy/terms から render-blocking CSS を除去。
 import "../styles/globals.css";
 import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";

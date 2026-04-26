@@ -1,10 +1,17 @@
+import dynamic from "next/dynamic";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Hero, ExamCards, ReferenceCardLink, LatestArticles, AboutSection } from "@/components/home";
+import { Hero, ExamCards, ReferenceCardLink } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
+
+// 2026-04-26 #84 LCP 改善: below-fold の LatestArticles / AboutSection を dynamic import で
+// 別 chunk に分離。SSR は維持（ssr: true）し、初期 SSR HTML 縮小と JS 読み込み分散を狙う。
+// 全コンポーネントが server component（"use client" 無し）のため hydration mismatch リスク低い。
+const LatestArticles = dynamic(() => import("@/components/home/LatestArticles"), { loading: () => null });
+const AboutSection = dynamic(() => import("@/components/home/AboutSection"), { loading: () => null });
 
 const categories = categoriesData as CategoryDef[];
 
