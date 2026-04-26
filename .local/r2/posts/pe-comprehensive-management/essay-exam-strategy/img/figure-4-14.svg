@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="360" viewBox="0 0 560 360" style="max-width:560px;width:100%">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="360" viewBox="0 0 560 360" style="max-width:560px;width:100%" role="img" aria-label="figure 4 14" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
   <defs>
     <marker id="arr5" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0 0, 8 3, 0 6" fill="#1a3a5c"/>
@@ -8,40 +8,40 @@
   <text x="280" y="24" text-anchor="middle" fill="#1a3a5c" font-size="14" font-weight="bold">論文ストーリーの全体像（過去→現在→将来）</text>
   <!-- Column headers -->
   <rect x="10" y="34" width="165" height="30" rx="4" fill="#6c8ebf"/>
-  <text x="92" y="53" text-anchor="middle" fill="white" font-size="12" font-weight="bold">過去と比べ変化した事例</text>
+  <text x="92" y="53" text-anchor="middle" fill="#1a3a5c" font-size="12" font-weight="bold">過去と比べ変化した事例</text>
   <rect x="195" y="34" width="165" height="30" rx="4" fill="#6c8ebf"/>
-  <text x="277" y="53" text-anchor="middle" fill="white" font-size="12" font-weight="bold">現状の課題</text>
+  <text x="277" y="53" text-anchor="middle" fill="#1a3a5c" font-size="12" font-weight="bold">現状の課題</text>
   <rect x="380" y="34" width="170" height="30" rx="4" fill="#6c8ebf"/>
-  <text x="465" y="53" text-anchor="middle" fill="white" font-size="12" font-weight="bold">将来への解決策</text>
+  <text x="465" y="53" text-anchor="middle" fill="#1a3a5c" font-size="12" font-weight="bold">将来への解決策</text>
   <!-- Row: 設問 -->
-  <rect x="10" y="70" width="165" height="50" rx="4" fill="#dce8f5" stroke="#2e6da4" stroke-width="1"/>
+  <rect x="10" y="70" width="165" height="50" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
   <text x="92" y="90" text-anchor="middle" fill="#1a3a5c" font-size="11">①目的</text>
   <text x="92" y="106" text-anchor="middle" fill="#1a3a5c" font-size="11">②創出する成果物</text>
-  <text x="92" y="118" text-anchor="middle" fill="#666" font-size="10">③働き方が変化した事例</text>
-  <rect x="195" y="70" width="165" height="50" rx="4" fill="#dce8f5" stroke="#2e6da4" stroke-width="1"/>
+  <text x="92" y="118" text-anchor="middle" fill="#555" font-size="10">③働き方が変化した事例</text>
+  <rect x="195" y="70" width="165" height="50" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
   <text x="277" y="90" text-anchor="middle" fill="#1a3a5c" font-size="11">①課題1</text>
   <text x="277" y="106" text-anchor="middle" fill="#1a3a5c" font-size="11">②課題2</text>
-  <rect x="380" y="70" width="170" height="50" rx="4" fill="#dce8f5" stroke="#2e6da4" stroke-width="1"/>
+  <rect x="380" y="70" width="170" height="50" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
   <text x="465" y="90" text-anchor="middle" fill="#1a3a5c" font-size="11">①解決策1</text>
   <text x="465" y="106" text-anchor="middle" fill="#1a3a5c" font-size="11">②解決策2</text>
   <!-- Arrows between columns -->
   <line x1="178" y1="95" x2="193" y2="95" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr5)"/>
   <line x1="363" y1="95" x2="378" y2="95" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arr5)"/>
   <!-- Timeline arrow -->
-  <line x1="10" y1="140" x2="550" y2="140" stroke="#888" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr5)"/>
-  <text x="10" y="155" fill="#888" font-size="11">過去</text>
-  <text x="270" y="155" text-anchor="middle" fill="#888" font-size="11">現在</text>
-  <text x="540" y="155" text-anchor="middle" fill="#888" font-size="11">将来</text>
+  <line x1="10" y1="140" x2="550" y2="140" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr5)"/>
+  <text x="10" y="155" fill="#8a8a8a" font-size="11">過去</text>
+  <text x="270" y="155" text-anchor="middle" fill="#8a8a8a" font-size="11">現在</text>
+  <text x="540" y="155" text-anchor="middle" fill="#8a8a8a" font-size="11">将来</text>
   <!-- 5管理 -->
-  <rect x="10" y="168" width="540" height="60" rx="6" fill="#fff8e0" stroke="#c0872a" stroke-width="1.5"/>
-  <text x="280" y="188" text-anchor="middle" fill="#5a3000" font-size="12" font-weight="bold">5つの管理を意識した論述（設問2〜3）</text>
-  <text x="280" y="208" text-anchor="middle" fill="#5a3000" font-size="11">経済性管理　安全管理　情報管理　人的資源管理　社会環境管理</text>
-  <text x="280" y="222" text-anchor="middle" fill="#888" font-size="10">+ 管理間のトレードオフへの対応も記述</text>
+  <rect x="10" y="168" width="540" height="60" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="280" y="188" text-anchor="middle" fill="#d4a017" font-size="12" font-weight="bold">5つの管理を意識した論述（設問2〜3）</text>
+  <text x="280" y="208" text-anchor="middle" fill="#d4a017" font-size="11">経済性管理　安全管理　情報管理　人的資源管理　社会環境管理</text>
+  <text x="280" y="222" text-anchor="middle" fill="#8a8a8a" font-size="10">+ 管理間のトレードオフへの対応も記述</text>
   <!-- Tradeoff box -->
-  <rect x="10" y="244" width="540" height="108" rx="6" fill="#f5e6cc" stroke="#c0872a" stroke-width="1.5"/>
-  <text x="280" y="264" text-anchor="middle" fill="#5a3000" font-size="12" font-weight="bold">トレードオフの例</text>
-  <text x="30" y="285" fill="#5a3000" font-size="11">a) 実現した場合の効果　……　課題解決で得られる働き方の改善</text>
-  <text x="30" y="303" fill="#5a3000" font-size="11">b) 実現するために乗り越えなければならない障害</text>
-  <text x="30" y="321" fill="#5a3000" font-size="11">c) 付随して生じる留意すべき影響（管理同士のトレードオフ）</text>
-  <text x="30" y="339" fill="#5a3000" font-size="11">d) 総合的・経営的・俯瞰的な分析の視点</text>
+  <rect x="10" y="244" width="540" height="108" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="280" y="264" text-anchor="middle" fill="#d4a017" font-size="12" font-weight="bold">トレードオフの例</text>
+  <text x="30" y="285" fill="#d4a017" font-size="11">a) 実現した場合の効果　……　課題解決で得られる働き方の改善</text>
+  <text x="30" y="303" fill="#d4a017" font-size="11">b) 実現するために乗り越えなければならない障害</text>
+  <text x="30" y="321" fill="#d4a017" font-size="11">c) 付随して生じる留意すべき影響（管理同士のトレードオフ）</text>
+  <text x="30" y="339" fill="#d4a017" font-size="11">d) 総合的・経営的・俯瞰的な分析の視点</text>
 </svg>

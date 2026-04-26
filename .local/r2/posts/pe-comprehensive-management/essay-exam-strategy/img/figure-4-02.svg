@@ -1,28 +1,28 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="500" height="280" viewBox="0 0 500 280" style="max-width:500px;width:100%">
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="280" viewBox="0 0 500 280" style="max-width:500px;width:100%" role="img" aria-label="前文分析で抽出すべき 4 要素（テーマ・設定条件・要求事項・評価項目）の関係図" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
   <!-- Center circle -->
   <ellipse cx="250" cy="140" rx="60" ry="40" fill="#1a3a5c"/>
-  <text x="250" y="135" text-anchor="middle" fill="white" font-size="13" font-weight="bold">前文</text>
-  <text x="250" y="152" text-anchor="middle" fill="white" font-size="13" font-weight="bold">の分析</text>
+  <text x="250" y="135" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">前文</text>
+  <text x="250" y="152" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">の分析</text>
   <!-- Top: テーマ -->
-  <rect x="170" y="10" width="160" height="50" rx="8" fill="#2e6da4"/>
-  <text x="250" y="32" text-anchor="middle" fill="white" font-size="13" font-weight="bold">テーマ</text>
-  <text x="250" y="50" text-anchor="middle" fill="white" font-size="11">論文のキーワード</text>
-  <line x1="250" y1="62" x2="250" y2="100" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="170" y="10" width="160" height="50" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="250" y="32" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">テーマ</text>
+  <text x="250" y="50" text-anchor="middle" fill="#1a3a5c" font-size="11">論文のキーワード</text>
+  <line x1="250" y1="62" x2="250" y2="100" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3"/>
   <!-- Bottom: 評価項目 -->
-  <rect x="170" y="218" width="160" height="50" rx="8" fill="#2e6da4"/>
-  <text x="250" y="240" text-anchor="middle" fill="white" font-size="13" font-weight="bold">評価項目</text>
-  <text x="250" y="258" text-anchor="middle" fill="white" font-size="11">採点の基準となる観点</text>
-  <line x1="250" y1="180" x2="250" y2="216" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="170" y="218" width="160" height="50" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="250" y="240" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">評価項目</text>
+  <text x="250" y="258" text-anchor="middle" fill="#1a3a5c" font-size="11">採点の基準となる観点</text>
+  <line x1="250" y1="180" x2="250" y2="216" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3"/>
   <!-- Left: 設定条件 -->
-  <rect x="10" y="110" width="150" height="60" rx="8" fill="#2e6da4"/>
-  <text x="85" y="132" text-anchor="middle" fill="white" font-size="13" font-weight="bold">設定条件</text>
-  <text x="85" y="150" text-anchor="middle" fill="white" font-size="11">解答の前提・制約</text>
-  <text x="85" y="164" text-anchor="middle" fill="white" font-size="11">となる事項</text>
-  <line x1="162" y1="140" x2="188" y2="140" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="10" y="110" width="150" height="60" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="85" y="132" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">設定条件</text>
+  <text x="85" y="150" text-anchor="middle" fill="#1a3a5c" font-size="11">解答の前提・制約</text>
+  <text x="85" y="164" text-anchor="middle" fill="#1a3a5c" font-size="11">となる事項</text>
+  <line x1="162" y1="140" x2="188" y2="140" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3"/>
   <!-- Right: 要求事項 -->
-  <rect x="340" y="110" width="150" height="60" rx="8" fill="#2e6da4"/>
-  <text x="415" y="132" text-anchor="middle" fill="white" font-size="13" font-weight="bold">要求事項</text>
-  <text x="415" y="150" text-anchor="middle" fill="white" font-size="11">何を答えれば</text>
-  <text x="415" y="164" text-anchor="middle" fill="white" font-size="11">よいか</text>
-  <line x1="312" y1="140" x2="338" y2="140" stroke="#888" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <rect x="340" y="110" width="150" height="60" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="415" y="132" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">要求事項</text>
+  <text x="415" y="150" text-anchor="middle" fill="#1a3a5c" font-size="11">何を答えれば</text>
+  <text x="415" y="164" text-anchor="middle" fill="#1a3a5c" font-size="11">よいか</text>
+  <line x1="312" y1="140" x2="338" y2="140" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4,3"/>
 </svg>

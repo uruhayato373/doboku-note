@@ -1,15 +1,15 @@
 {
   "meta": {
-    "generated_at": "2026-04-26T04:41:05.352Z",
+    "generated_at": "2026-04-26T04:54:52.663Z",
     "path": ".local/r2/posts/**/img/*.svg",
     "file": null
   },
   "summary": {
     "scanned_files": 112,
     "files_with_issues": 72,
-    "total_findings": 689,
+    "total_findings": 676,
     "by_severity": {
-      "HIGH": 13,
+      "HIGH": 0,
       "MEDIUM": 152,
       "LOW": 524
     },
@@ -17,8 +17,7 @@
       "P5-wide-viewbox": 60,
       "P4-tiny-font": 524,
       "P6-color-drift": 83,
-      "P2-text-overlap": 9,
-      "P8-dark-bg": 13
+      "P2-text-overlap": 9
     }
   },
   "findings": [
@@ -2832,12 +2831,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-40.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-36.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -2912,12 +2905,6 @@
       "severity": "LOW",
       "text": "トレードオフへの対応",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-36.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-33.svg",
@@ -3031,12 +3018,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-33.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-30.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -3134,12 +3115,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-30.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-29.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -3213,22 +3188,10 @@
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-26.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #b22234) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-25.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-25.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-22.svg",
@@ -3321,12 +3284,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-22.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-14.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -3357,12 +3314,6 @@
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-13.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-12.svg",
@@ -3440,12 +3391,6 @@
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-09.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-08.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -3470,12 +3415,6 @@
       "detail": "allowlist 外の色: #e8f4e8（svg-tokens.json の colorsAllowList 参照）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-06.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-05.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -3488,12 +3427,6 @@
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-04.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-03.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -3504,12 +3437,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #cde0f5（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-03.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-02.svg",
@@ -3599,12 +3526,6 @@
       "severity": "LOW",
       "text": "執筆！",
       "detail": "font-size 10px < 11px（モバイル視認性下限）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-01.svg",
-      "pattern": "P8-dark-bg",
-      "severity": "HIGH",
-      "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: #ffffff) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/eia-target-categories.svg",
