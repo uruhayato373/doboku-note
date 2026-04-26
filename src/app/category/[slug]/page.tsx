@@ -27,11 +27,11 @@ export async function generateMetadata({
   const cat = getCategoryBySlug(slug);
   if (!cat) {
     return {
-      title: 'カテゴリが見つかりません | doboku-note',
+      title: 'カテゴリが見つかりません',
     };
   }
   return {
-    title: `${cat.label} | doboku-note`,
+    title: cat.label,
     description: cat.subtitle,
   };
 }

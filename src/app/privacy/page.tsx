@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'プライバシーポリシー | doboku-note',
+  title: 'プライバシーポリシー',
   description: 'doboku-noteのプライバシーポリシーについて説明します。個人情報の収集、利用、管理について詳しく記載しています。',
 };
 

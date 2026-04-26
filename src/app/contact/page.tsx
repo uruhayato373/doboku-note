@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import { Mail, Clock, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'お問い合わせ | doboku-note',
+  title: 'お問い合わせ',
   description: 'doboku-noteへのご質問・ご意見・コンテンツに関するご指摘はこちらからお問い合わせください。',
 };
 
