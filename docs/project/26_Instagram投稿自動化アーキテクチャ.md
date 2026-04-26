@@ -3,8 +3,8 @@
 技術士（総合技術監理部門）向け Instagram 運用を「サイト・iOS アプリ・note への動線」として立ち上げるための画像・動画生成基盤の設計書。
 
 - 最終更新: 2026-04-26（v2: API 連携を Phase 1 に前倒し、共通基盤 sns-common に依存）
-- 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v3）
-- 関連: [05_収益化戦略.md](./05_収益化戦略.md)（iOS・note・YouTube 3 本柱）, [07_YouTube戦略_技術士総監.md](./07_YouTube戦略_技術士総監.md)（v4・SNS 量産型）, [Umbrella Issue #161](https://github.com/uruhayato373/doboku-note/issues/161)
+- 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v4・X / YouTube / Instagram 統合、SNS 量産型）
+- 関連: [05_収益化戦略.md](./05_収益化戦略.md)（iOS・note・YouTube 3 本柱）, [Umbrella Issue #161](https://github.com/uruhayato373/doboku-note/issues/161)
 
 ## v1 からの変更点（2026-04-26 v2）
 
@@ -279,8 +279,7 @@ Phase 0 を YouTube と並行で先行整備（Issue #164 SNS-0）。Phase 1+2 �
 
 ## 11. 参照
 
-- 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v3）
-- YouTube 戦略: [07_YouTube戦略_技術士総監.md](./07_YouTube戦略_技術士総監.md)（Instagram は YouTube の補助チャネル位置づけ）
+- 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v4・X / YouTube / Instagram 統合）— YouTube 戦略は本書と同 doc 内に統合済み（Instagram は YouTube と共通基盤を共有）
 - 収益化戦略: [05_収益化戦略.md](./05_収益化戦略.md)（動線先の note・iOS アプリ）
 - 既存 OGP スキル: `.claude/skills/content/ogp-create/SKILL.md`（本書の設計ベース）
 - Tier 分離ルール: [.claude/reference/docs-issue-separation.md](../.claude/reference/docs-issue-separation.md)

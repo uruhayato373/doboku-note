@@ -308,8 +308,8 @@ doboku-ios/
 
 - `docs/project/02_事業戦略.md`（v3） — 3 本柱戦略
 - `docs/project/05_収益化戦略.md`（v3） — iOS アプリ位置づけ
-- `docs/project/19_note-content-runway-2026.md` — note 連携
-- `docs/project/27_essay-pattern-extraction-plan.md` — 2 次記述式（v1.2 で組み込み予定）
+- `docs/project/19_note段階投下プラン.md` — note 連携
+- `docs/project/27_記述式パターン抽出計画.md` — 2 次記述式（v1.2 で組み込み予定）
 
 ## 次のアクション
 

@@ -4,7 +4,7 @@
 > **改訂日**: 2026-04-14（hide 戦略を撤回、Quality Cycle 連携に変更）
 > **背景**: Google AdSense 審査で「有用性の低いコンテンツ」によりポリシー違反判定。次回審査の合格を目指す。
 > **参照**: <https://support.google.com/adsense/answer/10502938>
-> **関連ドキュメント**: `01_設計思想.md`, `02_事業戦略.md`, `05_収益化戦略.md`, **`13_quality-cycle-architecture.md`（実装基盤）**
+> **関連ドキュメント**: `01_設計思想.md`, `02_事業戦略.md`, `05_収益化戦略.md`, **`.claude/skills/quality/quality-cycle/DESIGN.md`（実装基盤）**
 
 ---
 
@@ -19,7 +19,7 @@
 > - 549件を非公開化すると、そのうち約500件のリンクが **404 Not Found** になる
 > - サイト全体のリンク切れは AdSense 審査で更に悪化
 >
-> **新しい戦略**: hide ではなく「**質的リライト**」で正面突破。`13_quality-cycle-architecture.md` で定義する **Quality Cycle** を使い、機械的にスコアリング→弱いページをリライト→人間レビュー→再申請、という継続的改善サイクルで対応する。
+> **新しい戦略**: hide ではなく「**質的リライト**」で正面突破。`.claude/skills/quality/quality-cycle/DESIGN.md` で定義する **Quality Cycle** を使い、機械的にスコアリング→弱いページをリライト→人間レビュー→再申請、という継続的改善サイクルで対応する。
 
 ---
 
@@ -132,7 +132,7 @@ Google AdSense / Web Search Quality Guidelines が厳しく見るパターン:
 
 具体的には：
 
-1. **Quality Cycle で全ページの品質を可視化**: `13_quality-cycle-architecture.md` のシステムで全 700 ページをスコアリング
+1. **Quality Cycle で全ページの品質を可視化**: `.claude/skills/quality/quality-cycle/DESIGN.md` のシステムで全 700 ページをスコアリング
 2. **スコアの低いページを AI でリライト**: 拡張パターン（具体例・計算例・比較・歴史・出題傾向・図解）で深さを追加
 3. **人間ゲートで品質保証**: 全リライトは `reviewStatus: needs-review` でマーク、人間が承認するまで「未完成」
 4. **E-A-T を確立**: About 著者情報、執筆者ブロック、Article schema author
@@ -311,7 +311,7 @@ node .claude/skills/content/quality-cycle/scripts/quality-cycle.mjs --mode revie
 - 新規エッセイを 3 本（合格戦略・差分分析・頻出論点）作成
 - これは Quality Cycle の対象外で、人間が書く必要あり
 
-詳細は `13_quality-cycle-architecture.md` 参照。
+詳細は `.claude/skills/quality/quality-cycle/DESIGN.md` 参照。
 
 **Phase 3 修正対象ファイル**:
 - `.local/r2/posts/pe-comprehensive-management/{guide 7件}/article.mdx`（増量）

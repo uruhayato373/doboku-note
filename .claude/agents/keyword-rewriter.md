@@ -173,5 +173,5 @@ cem-qa で再評価
 - `.claude/content-principles.md` — コンテンツ原則の真実源（特に §5: ExamPoint, §9: 参考資料）
 - `.claude/skills/authoring/keyword-page/SKILL.md` — 個別ページ作成のテンプレート
 - `.claude/agents/cem-qa.md` — Evaluator 側の評価ルーブリック
-- `docs/project/13_quality-cycle-architecture.md` — システム全体設計
+- `.claude/skills/quality/quality-cycle/DESIGN.md` — システム全体設計（ADR・拡張パターンカタログ）
 - `.claude/scripts/lib/mdx-io.mjs` — ファイル I/O（改行コード保持）

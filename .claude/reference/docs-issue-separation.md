@@ -45,7 +45,7 @@ doboku-note では情報を 3 層に分離して管理する。状態（open/clo
 | 実行タスクの状態（open / closed） | **Issue** | md には `追跡 Issue: #N` を 1 行書く。個別 checklist は md に書かない |
 | 進捗率 / 完了タイミング | **Issue の checkbox と close** | md では言及しない |
 | 実装詳細（コード・テストコマンド等） | **Issue の checklist 項目 or PR** | md は方針のみ |
-| 週次 PDCA（計画 + レビュー） | **Issue** `[PDCA] YYYY-Www`（`weekly-pdca` label） | 旧 `docs/reviews/weekly/*.md` は `archive/` のみに残す |
+| 週次 PDCA（計画 + レビュー） | **Issue** `[PDCA] YYYY-Www`（`weekly-pdca` label） | 旧 `docs/reviews/weekly/*.md` は 2026-04-27 に削除（W16 以前は git history 参照） |
 | セッション引き継ぎ | **Issue** `[Handoff] YYYY-MM-DD <ctx>`（`session-handoff` label） | `.claude/state/session-handoff-*.md` は作らない |
 | 計測生データ（PSI/GA4/GSC） | **JSON** `.claude/state/metrics/*.json`（CI が develop に直接 commit） | Issue 化しない（機械可読性が落ちる） |
 
@@ -118,7 +118,7 @@ doboku-note では情報を 3 層に分離して管理する。状態（open/clo
 - **ラベル**: `weekly-pdca`（+ 任意で `auto-generated`）
 - **Body**: Agent A〜G（weekly-review SKILL.md の 7 サブエージェント）の出力を見出し別に統合。`/weekly-plan` は同じ Issue に「来週の計画」セクションを追記
 - **close 条件**: 翌週の新 `[PDCA]` Issue が作成されたら自動的に前週は close（または手動 close）。未完了アクションは次 Issue の「計画」セクションへ引き継ぐ
-- **archive**: `docs/reviews/weekly/` は Issue 一本化後は新規書き込みをしない。W16 以前は `docs/reviews/weekly/archive/` に移動
+- **archive**: 旧 `docs/reviews/weekly/` は 2026-04-27 に削除済み。W16 以前の生メモは git history、アクションアイテムは closed `weekly-pdca` Issue（#83-#85 等）から辿る
 - **テンプレート**: `.github/ISSUE_TEMPLATE/weekly-pdca.md`
 
 ## Session-handoff Issue 運用
