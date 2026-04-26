@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="445" height="370" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 445 370" role="img" aria-label="5管理10ペアの出題頻度マトリクス" style="max-width:445px;width:100%">
   <style>
-    .label { fill: #1f2937; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; font-weight: bold; }
+    .label { fill: #1a3a5c; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; font-weight: bold; }
     .cell-main { fill: #ffffff; font-family: sans-serif; font-weight: bold; }
     .cell-sub { fill: #ffffff; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
-    .legend { fill: #1f2937; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .legend { fill: #1a3a5c; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
   </style>
 
   <line x1="105" y1="60" x2="435" y2="60" stroke="#d1d5db" stroke-width="1"/>
@@ -20,19 +20,19 @@
   <text x="98" y="220" text-anchor="end" font-size="14" class="label">情報</text>
   <text x="98" y="280" text-anchor="end" font-size="14" class="label">安全</text>
 
-  <rect x="110" y="65" width="80" height="60" fill="#ea580c" rx="2"/>
+  <rect x="110" y="65" width="80" height="60" fill="#b22234" rx="2"/>
   <text x="150" y="100" text-anchor="middle" font-size="24" class="cell-main">A</text>
   <text x="150" y="117" text-anchor="middle" font-size="10" class="cell-sub">働き方</text>
 
-  <rect x="190" y="65" width="80" height="60" fill="#ea580c" rx="2"/>
+  <rect x="190" y="65" width="80" height="60" fill="#b22234" rx="2"/>
   <text x="230" y="100" text-anchor="middle" font-size="24" class="cell-main">A</text>
   <text x="230" y="117" text-anchor="middle" font-size="10" class="cell-sub">DX投資</text>
 
-  <rect x="270" y="65" width="80" height="60" fill="#dc2626" rx="2"/>
+  <rect x="270" y="65" width="80" height="60" fill="#b22234" rx="2"/>
   <text x="310" y="100" text-anchor="middle" font-size="24" class="cell-main">S</text>
   <text x="310" y="117" text-anchor="middle" font-size="10" class="cell-sub">リスク</text>
 
-  <rect x="350" y="65" width="80" height="60" fill="#dc2626" rx="2"/>
+  <rect x="350" y="65" width="80" height="60" fill="#b22234" rx="2"/>
   <text x="390" y="100" text-anchor="middle" font-size="24" class="cell-main">S</text>
   <text x="390" y="117" text-anchor="middle" font-size="10" class="cell-sub">環境コスト</text>
 
@@ -40,11 +40,11 @@
   <text x="230" y="160" text-anchor="middle" font-size="24" class="cell-main">B</text>
   <text x="230" y="177" text-anchor="middle" font-size="10" class="cell-sub">人事DX</text>
 
-  <rect x="270" y="125" width="80" height="60" fill="#ea580c" rx="2"/>
+  <rect x="270" y="125" width="80" height="60" fill="#b22234" rx="2"/>
   <text x="310" y="160" text-anchor="middle" font-size="24" class="cell-main">A</text>
   <text x="310" y="177" text-anchor="middle" font-size="10" class="cell-sub">労働安全</text>
 
-  <rect x="350" y="125" width="80" height="60" fill="#9ca3af" rx="2"/>
+  <rect x="350" y="125" width="80" height="60" fill="#8a8a8a" rx="2"/>
   <text x="390" y="160" text-anchor="middle" font-size="24" class="cell-main">C</text>
   <text x="390" y="177" text-anchor="middle" font-size="10" class="cell-sub">多様性</text>
 
@@ -56,21 +56,21 @@
   <text x="390" y="220" text-anchor="middle" font-size="24" class="cell-main">B</text>
   <text x="390" y="237" text-anchor="middle" font-size="10" class="cell-sub">倫理</text>
 
-  <rect x="350" y="245" width="80" height="60" fill="#ea580c" rx="2"/>
+  <rect x="350" y="245" width="80" height="60" fill="#b22234" rx="2"/>
   <text x="390" y="280" text-anchor="middle" font-size="24" class="cell-main">A</text>
   <text x="390" y="297" text-anchor="middle" font-size="10" class="cell-sub">防災×景観</text>
 
   <g transform="translate(55, 335)">
-    <rect x="0" y="0" width="22" height="14" fill="#dc2626" rx="2"/>
+    <rect x="0" y="0" width="22" height="14" fill="#b22234" rx="2"/>
     <text x="28" y="12" font-size="12" class="legend">S 最頻出</text>
 
-    <rect x="90" y="0" width="22" height="14" fill="#ea580c" rx="2"/>
+    <rect x="90" y="0" width="22" height="14" fill="#b22234" rx="2"/>
     <text x="118" y="12" font-size="12" class="legend">A 頻出</text>
 
     <rect x="175" y="0" width="22" height="14" fill="#0284c7" rx="2"/>
     <text x="203" y="12" font-size="12" class="legend">B 中</text>
 
-    <rect x="250" y="0" width="22" height="14" fill="#9ca3af" rx="2"/>
+    <rect x="250" y="0" width="22" height="14" fill="#8a8a8a" rx="2"/>
     <text x="278" y="12" font-size="12" class="legend">C 低</text>
   </g>
 </svg>

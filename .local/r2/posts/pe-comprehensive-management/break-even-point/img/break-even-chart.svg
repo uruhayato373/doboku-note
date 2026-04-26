@@ -1,43 +1,43 @@
-<svg width="420" height="300" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:420px;width:100%">
+<svg width="420" height="300" viewBox="0 0 420 300" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:420px;width:100%" role="img" aria-label="損益分岐点グラフ">
   <defs>
     <marker id="bep-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L7,3.5 z" fill="#333"/>
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#222"/>
     </marker>
   </defs>
 
   <!-- 軸 -->
-  <line x1="60" y1="250" x2="360" y2="250" stroke="#333" stroke-width="1.5" marker-end="url(#bep-arrow)"/>
-  <line x1="60" y1="250" x2="60" y2="20" stroke="#333" stroke-width="1.5" marker-end="url(#bep-arrow)"/>
+  <line x1="60" y1="250" x2="360" y2="250" stroke="#222" stroke-width="1.5" marker-end="url(#bep-arrow)"/>
+  <line x1="60" y1="250" x2="60" y2="20" stroke="#222" stroke-width="1.5" marker-end="url(#bep-arrow)"/>
   <text x="355" y="270" text-anchor="end" fill="#555" font-size="11">売上高（数量）</text>
   <text x="28" y="135" text-anchor="middle" fill="#555" font-size="11" transform="rotate(-90,28,135)">金額</text>
   <text x="48" y="264" fill="#555" font-size="10">0</text>
 
   <!-- 固定費（水平破線） -->
-  <line x1="60" y1="170" x2="340" y2="170" stroke="#bbb" stroke-width="1" stroke-dasharray="5,4"/>
+  <line x1="60" y1="170" x2="340" y2="170" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="5,4"/>
 
   <!-- 総費用ライン: (60,170)→(340,110) -->
   <line x1="60" y1="170" x2="340" y2="110" stroke="#e74c3c" stroke-width="2"/>
 
   <!-- 売上高ライン: (60,250)→(340,40) -->
-  <line x1="60" y1="250" x2="340" y2="40" stroke="#2980b9" stroke-width="2.5"/>
+  <line x1="60" y1="250" x2="340" y2="40" stroke="#2e6da4" stroke-width="2.5"/>
 
   <!-- 損益分岐点マーカー: 2線の交点 (209, 138) -->
-  <circle cx="209" cy="138" r="5" fill="#fff" stroke="#333" stroke-width="2"/>
-  <line x1="209" y1="143" x2="209" y2="250" stroke="#888" stroke-width="1" stroke-dasharray="4,3"/>
-  <text x="209" y="268" text-anchor="middle" fill="#333" font-size="10" font-weight="bold">損益分岐点</text>
+  <circle cx="209" cy="138" r="5" fill="#fff" stroke="#222" stroke-width="2"/>
+  <line x1="209" y1="143" x2="209" y2="250" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="209" y="268" text-anchor="middle" fill="#222" font-size="10" font-weight="bold">損益分岐点</text>
 
   <!-- ライン凡例（右端、十分な間隔） -->
-  <text x="343" y="42" fill="#2980b9" font-size="10" font-weight="bold">売上高</text>
+  <text x="343" y="42" fill="#2e6da4" font-size="10" font-weight="bold">売上高</text>
   <text x="343" y="113" fill="#e74c3c" font-size="10" font-weight="bold">総費用</text>
-  <text x="343" y="174" fill="#999" font-size="10">固定費</text>
+  <text x="343" y="174" fill="#8a8a8a" font-size="10">固定費</text>
 
   <!-- 利益ラベル: BEP右側、売上高線と総費用線の間 -->
-  <text x="270" y="108" fill="#2980b9" font-size="13" font-weight="bold">利益</text>
+  <text x="270" y="108" fill="#2e6da4" font-size="13" font-weight="bold">利益</text>
 
   <!-- 損失ラベル: BEP左側、総費用線と売上高線の間 -->
   <text x="125" y="178" fill="#e74c3c" font-size="13" font-weight="bold">損失</text>
 
   <!-- 費用構成ラベル: 総費用線の内訳 -->
-  <text x="295" y="147" fill="#aaa" font-size="9">変動費</text>
-  <text x="295" y="215" fill="#aaa" font-size="9">固定費</text>
+  <text x="295" y="147" fill="#8a8a8a" font-size="9">変動費</text>
+  <text x="295" y="215" fill="#8a8a8a" font-size="9">固定費</text>
 </svg>

@@ -1,10 +1,10 @@
-<svg width="400" height="340" viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" style="max-width:400px;width:100%">
+<svg width="400" height="340" viewBox="0 0 400 340" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" style="max-width:400px;width:100%" role="img" aria-label="線形計画法の図解法">
   <defs>
     <marker id="lp-ax" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
-      <path d="M0,0 L0,7 L7,3.5 z" fill="#333"/>
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#222"/>
     </marker>
     <marker id="lp-zdir" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-      <path d="M0,0 L0,8 L8,4 z" fill="#c0392b"/>
+      <path d="M0,0 L0,8 L8,4 z" fill="#b22234"/>
     </marker>
   </defs>
 
@@ -17,8 +17,8 @@
   <text x="125" y="220" fill="#3498db" font-size="11" font-weight="bold">領域</text>
 
   <!-- 軸 -->
-  <line x1="60" y1="270" x2="345" y2="270" stroke="#333" stroke-width="1.5" marker-end="url(#lp-ax)"/>
-  <line x1="60" y1="270" x2="60" y2="12" stroke="#333" stroke-width="1.5" marker-end="url(#lp-ax)"/>
+  <line x1="60" y1="270" x2="345" y2="270" stroke="#222" stroke-width="1.5" marker-end="url(#lp-ax)"/>
+  <line x1="60" y1="270" x2="60" y2="12" stroke="#222" stroke-width="1.5" marker-end="url(#lp-ax)"/>
   <text x="350" y="290" text-anchor="end" fill="#555" font-size="13" font-style="italic">x₁</text>
   <text x="40" y="20" text-anchor="middle" fill="#555" font-size="13" font-style="italic">x₂</text>
   <text x="48" y="283" fill="#555" font-size="10">O</text>
@@ -46,34 +46,34 @@
   <text x="48" y="24" text-anchor="end" fill="#555" font-size="10">5</text>
 
   <!-- 制約線1: 3x₁ + x₂ = 9  (0,9)→(3,0) clipped -->
-  <line x1="135" y1="20" x2="228" y2="270" stroke="#e67e22" stroke-width="1.8"/>
-  <text x="240" y="258" fill="#e67e22" font-size="10">3x₁+x₂=9</text>
+  <line x1="135" y1="20" x2="228" y2="270" stroke="#d4a017" stroke-width="1.8"/>
+  <text x="240" y="258" fill="#d4a017" font-size="10">3x₁+x₂=9</text>
 
   <!-- 制約線2: x₁ + 2x₂ = 8  (0,4)→(8,0) clipped -->
-  <line x1="60" y1="70" x2="330" y2="195" stroke="#27ae60" stroke-width="1.8"/>
-  <text x="280" y="213" fill="#27ae60" font-size="10">x₁+2x₂=8</text>
+  <line x1="60" y1="70" x2="330" y2="195" stroke="#3a7d44" stroke-width="1.8"/>
+  <text x="280" y="213" fill="#3a7d44" font-size="10">x₁+2x₂=8</text>
 
   <!-- 等利益線 z=6 (破線, 薄め) -->
-  <line x1="60" y1="120" x2="172" y2="270" stroke="#c0392b" stroke-width="1" stroke-dasharray="5,4" opacity="0.5"/>
-  <text x="68" y="115" fill="#c0392b" font-size="9" opacity="0.6">z=6</text>
+  <line x1="60" y1="120" x2="172" y2="270" stroke="#b22234" stroke-width="1" stroke-dasharray="5,4" opacity="0.5"/>
+  <text x="68" y="115" fill="#b22234" font-size="9" opacity="0.6">z=6</text>
 
   <!-- 等利益線 z=12 (破線, 最適解を通過) -->
-  <line x1="97" y1="20" x2="284" y2="270" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="6,3"/>
-  <text x="260" y="230" fill="#c0392b" font-size="10" font-weight="bold">z=12</text>
+  <line x1="97" y1="20" x2="284" y2="270" stroke="#b22234" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="260" y="230" fill="#b22234" font-size="10" font-weight="bold">z=12</text>
 
   <!-- z増加方向の矢印 -->
-  <line x1="115" y1="210" x2="145" y2="185" stroke="#c0392b" stroke-width="1.5" marker-end="url(#lp-zdir)"/>
-  <text x="148" y="182" fill="#c0392b" font-size="9">z 増加</text>
+  <line x1="115" y1="210" x2="145" y2="185" stroke="#b22234" stroke-width="1.5" marker-end="url(#lp-zdir)"/>
+  <text x="148" y="182" fill="#b22234" font-size="9">z 増加</text>
 
   <!-- 頂点マーカー -->
-  <circle cx="228" cy="270" r="3" fill="#333"/>
-  <text x="218" y="262" fill="#333" font-size="9" text-anchor="end">(3, 0)</text>
+  <circle cx="228" cy="270" r="3" fill="#222"/>
+  <text x="218" y="262" fill="#222" font-size="9" text-anchor="end">(3, 0)</text>
 
-  <circle cx="60" cy="70" r="3" fill="#333"/>
-  <text x="68" y="62" fill="#333" font-size="9">(0, 4)</text>
+  <circle cx="60" cy="70" r="3" fill="#222"/>
+  <text x="68" y="62" fill="#222" font-size="9">(0, 4)</text>
 
   <!-- 最適解マーカー -->
-  <circle cx="172" cy="120" r="6" fill="#fff" stroke="#c0392b" stroke-width="2.5"/>
-  <text x="182" y="110" fill="#c0392b" font-size="11" font-weight="bold">最適解</text>
-  <text x="182" y="125" fill="#c0392b" font-size="10">(2, 3)</text>
+  <circle cx="172" cy="120" r="6" fill="#fff" stroke="#b22234" stroke-width="2.5"/>
+  <text x="182" y="110" fill="#b22234" font-size="11" font-weight="bold">最適解</text>
+  <text x="182" y="125" fill="#b22234" font-size="10">(2, 3)</text>
 </svg>

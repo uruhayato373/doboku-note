@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="300" viewBox="0 0 560 300" style="max-width:560px;width:100%">
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="300" viewBox="0 0 560 300" style="max-width:560px;width:100%" role="img" aria-label="figure 4 03" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
   <!-- Center -->
-  <rect x="200" y="118" width="160" height="64" rx="10" fill="#1a3a5c"/>
-  <text x="280" y="143" text-anchor="middle" fill="white" font-size="14" font-weight="bold">働き方改革に</text>
-  <text x="280" y="161" text-anchor="middle" fill="white" font-size="14" font-weight="bold">関する</text>
-  <text x="280" y="178" text-anchor="middle" fill="white" font-size="12">様々な課題</text>
+  <rect x="200" y="118" width="160" height="64" rx="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="280" y="143" text-anchor="middle" fill="#1a3a5c" font-size="14" font-weight="bold">働き方改革に</text>
+  <text x="280" y="161" text-anchor="middle" fill="#1a3a5c" font-size="14" font-weight="bold">関する</text>
+  <text x="280" y="178" text-anchor="middle" fill="#1a3a5c" font-size="12">様々な課題</text>
   <!-- Surrounding boxes -->
   <!-- Top -->
   <rect x="200" y="10" width="160" height="45" rx="6" fill="#cde0f5" stroke="#2e6da4" stroke-width="1.5"/>
@@ -36,5 +36,5 @@
   <text x="475" y="233" text-anchor="middle" fill="#1a3a5c" font-size="11">雇用の変化</text>
   <line x1="400" y1="218" x2="362" y2="165" stroke="#2e6da4" stroke-width="1.5"/>
   <!-- Label -->
-  <text x="280" y="298" text-anchor="middle" fill="#666" font-size="11">→ テーマ：「働き方改革」</text>
+  <text x="280" y="298" text-anchor="middle" fill="#555" font-size="11">→ テーマ：「働き方改革」</text>
 </svg>

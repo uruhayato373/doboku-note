@@ -1,17 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="520" height="380" viewBox="0 0 520 380" style="max-width:520px;width:100%">
-  <rect width="520" height="380" fill="white"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="380" viewBox="0 0 520 380" style="max-width:520px;width:100%" role="img" aria-label="フォールトツリー図（電源システムの停電確率）">
+  <rect width="520" height="380" fill="#ffffff"/>
   <style>
     text { font-family: sans-serif; }
-    .event { fill: #f0f4ff; stroke: #336; stroke-width: 1.5; }
-    .gate-and { fill: #d4e6ff; stroke: #336; stroke-width: 1.5; }
-    .gate-or { fill: #ffe4e4; stroke: #633; stroke-width: 1.5; }
-    .basic { fill: #e8f5e9; stroke: #2e7d32; stroke-width: 1.5; }
-    .line { stroke: #444; stroke-width: 1.5; fill: none; }
-    .label { font-size: 11px; fill: #333; }
-    .prob { font-size: 10px; fill: #c62828; font-weight: bold; }
+    .event { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    .gate-and { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    .gate-or { fill: #f8d7da; stroke: #633; stroke-width: 1.5; }
+    .basic { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    .line { stroke: #222; stroke-width: 1.5; fill: none; }
+    .label { font-size: 11px; fill: #222; }
+    .prob { font-size: 10px; fill: #b22234; font-weight: bold; }
     .gate-label { font-size: 9px; fill: #555; font-weight: bold; }
     .title { font-size: 13px; font-weight: bold; fill: #222; }
-    .result { font-size: 11px; fill: #1565c0; font-weight: bold; }
+    .result { font-size: 11px; fill: #2e6da4; font-weight: bold; }
   </style>
 
   <!-- Title -->
@@ -79,7 +79,7 @@
   <text class="prob" x="470" y="278" text-anchor="middle">0.05</text>
 
   <!-- Calculation summary -->
-  <rect x="30" y="300" width="460" height="70" rx="6" fill="#f5f5f5" stroke="#ccc"/>
+  <rect x="30" y="300" width="460" height="70" rx="6" fill="#f5f5f5" stroke="#d7d7d7"/>
   <text class="label" x="40" y="318">電源喪失: P = 1-(1-0.03)(1-0.10) = 0.127</text>
   <text class="label" x="40" y="336">全台故障: P = 0.05 x 0.05 x 0.05 = 1.25 x 10&#x207B;&#x2074;</text>
   <text class="result" x="40" y="358">停電確率: P = 0.127 × 1.25 × 10⁻⁴ ≈ 1.6 × 10⁻⁵</text>

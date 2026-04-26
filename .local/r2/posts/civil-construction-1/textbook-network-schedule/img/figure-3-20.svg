@@ -32,7 +32,7 @@
   <circle cx="360" cy="150" r="18" fill="#f8d7da" stroke="#b22234" stroke-width="2.5"/>
   <text x="360" y="155" text-anchor="middle" class="node-num-cp">④</text>
 
-  <!-- CP arrows (bold red) -->
+  <!-- CP arrows (bold #b22234) -->
   <line x1="58" y1="150" x2="127" y2="150" stroke="#b22234" stroke-width="4" marker-end="url(#arrow-cp)"/>
   <text x="92" y="143" text-anchor="middle" class="activity">A</text>
   <text x="92" y="165" text-anchor="middle" class="duration">5</text>
@@ -51,7 +51,7 @@
   <text x="303" y="125" class="duration">6</text>
 
   <!-- path summary -->
-  <rect x="20" y="195" width="360" height="55" rx="4" fill="#f5f8fc" stroke="#d7d7d7"/>
+  <rect x="20" y="195" width="360" height="55" rx="4" fill="#e8f0fe" stroke="#d7d7d7"/>
   <text x="32" y="213" class="cp-label">① → ② → ④（A+D = 5+17 = 22 日）</text>
   <text x="32" y="230" class="sub">最長経路 → 全体工期 22 日を決定。CP 上のフロートはゼロ</text>
   <text x="32" y="245" class="sub">迂回路 ①→②→③→④（A+B+C = 18 日）は 4 日の余裕あり</text>

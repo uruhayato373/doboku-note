@@ -9,6 +9,7 @@ export const commonComponents = {
   Callout: "Callout",
   ExamPoint: "ExamPoint",
   RelatedKeywords: "RelatedKeywords",
+  RelatedExamQuestions: "RelatedExamQuestions",
   SpecSheetList: "SpecSheetList",
   LinkCard: "LinkCard",
   CardList: "CardList",

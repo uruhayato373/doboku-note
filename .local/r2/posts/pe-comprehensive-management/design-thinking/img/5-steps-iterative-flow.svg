@@ -1,36 +1,36 @@
-<svg width="600" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" font-family="sans-serif" style="max-width:600px;width:100%">
+<svg width="600" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" font-family="sans-serif" style="max-width:600px;width:100%" role="img" aria-label="デザイン思考の5ステップとイテレーティブフロー">
   <defs>
     <marker id="arrowSolid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
       <path d="M0,0 L10,5 L0,10 Z" fill="#374151"/>
     </marker>
     <marker id="arrowDash" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
-      <path d="M0,0 L10,5 L0,10 Z" fill="#9ca3af"/>
+      <path d="M0,0 L10,5 L0,10 Z" fill="#8a8a8a"/>
     </marker>
   </defs>
 
   <!-- 5 step boxes -->
   <g>
-    <rect x="15" y="95" width="100" height="65" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-    <text x="65" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a8a">① 共感</text>
-    <text x="65" y="142" text-anchor="middle" font-size="11" fill="#1e40af">Empathize</text>
+    <rect x="15" y="95" width="100" height="65" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="65" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">① 共感</text>
+    <text x="65" y="142" text-anchor="middle" font-size="11" fill="#2e6da4">Empathize</text>
   </g>
   <g>
-    <rect x="135" y="95" width="100" height="65" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-    <text x="185" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a8a">② 定義</text>
-    <text x="185" y="142" text-anchor="middle" font-size="11" fill="#1e40af">Define</text>
+    <rect x="135" y="95" width="100" height="65" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="185" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">② 定義</text>
+    <text x="185" y="142" text-anchor="middle" font-size="11" fill="#2e6da4">Define</text>
   </g>
   <g>
-    <rect x="255" y="95" width="100" height="65" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-    <text x="305" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a8a">③ 創造</text>
-    <text x="305" y="142" text-anchor="middle" font-size="11" fill="#1e40af">Ideate</text>
+    <rect x="255" y="95" width="100" height="65" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="305" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">③ 創造</text>
+    <text x="305" y="142" text-anchor="middle" font-size="11" fill="#2e6da4">Ideate</text>
   </g>
   <g>
-    <rect x="375" y="95" width="100" height="65" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
-    <text x="425" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1e3a8a">④ 試作</text>
-    <text x="425" y="142" text-anchor="middle" font-size="11" fill="#1e40af">Prototype</text>
+    <rect x="375" y="95" width="100" height="65" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="425" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">④ 試作</text>
+    <text x="425" y="142" text-anchor="middle" font-size="11" fill="#2e6da4">Prototype</text>
   </g>
   <g>
-    <rect x="495" y="95" width="100" height="65" rx="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+    <rect x="495" y="95" width="100" height="65" rx="8" fill="#fff3cd" stroke="#d97706" stroke-width="2"/>
     <text x="545" y="120" text-anchor="middle" font-size="15" font-weight="bold" fill="#78350f">⑤ 検証</text>
     <text x="545" y="142" text-anchor="middle" font-size="11" fill="#92400e">Test</text>
   </g>
@@ -42,11 +42,11 @@
   <line x1="475" y1="127.5" x2="493" y2="127.5" stroke="#374151" stroke-width="2" marker-end="url(#arrowSolid)"/>
 
   <!-- Dashed return arrow: from Test top, curving up and over, to Empathize top -->
-  <path d="M 545 95 C 545 20, 65 20, 65 93" fill="none" stroke="#9ca3af" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowDash)"/>
+  <path d="M 545 95 C 545 20, 65 20, 65 93" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowDash)"/>
 
   <!-- Label for return arrow -->
   <text x="305" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="#4b5563">問題発見時は前段階に戻る（反復）</text>
 
   <!-- Caption below boxes -->
-  <text x="300" y="185" text-anchor="middle" font-size="11" fill="#6b7280">5段階は直線ではなく、検証での気づきを前段階に還流する反復プロセス</text>
+  <text x="300" y="185" text-anchor="middle" font-size="11" fill="#555">5段階は直線ではなく、検証での気づきを前段階に還流する反復プロセス</text>
 </svg>

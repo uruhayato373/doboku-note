@@ -20,6 +20,7 @@ export async function getCommonComponents() {
     Callout: (await import("@/components/ui/Callout/Callout")).default,
     ExamPoint: (await import("@/components/ui/ExamPoint/ExamPoint")).default,
     RelatedKeywords: (await import("@/components/ui/RelatedKeywords/RelatedKeywords")).default,
+    RelatedExamQuestions: (await import("@/components/ui/RelatedExamQuestions/RelatedExamQuestions")).default,
     SpecSheetList: (
       await import("@/components/ui/SpecSheetList/SpecSheetList")
     ).default,
