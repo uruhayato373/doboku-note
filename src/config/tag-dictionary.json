@@ -1,21 +1,20 @@
 {
   "version": 1,
-  "generated_at": "2026-04-22T07:59:53.185Z",
+  "generated_at": "2026-04-26T01:45:50.014Z",
   "summary": {
-    "total_mdx_files": 774,
-    "total_unique_tags": 51,
+    "total_mdx_files": 780,
+    "total_unique_tags": 56,
     "allowlist_size": 82,
-    "known_count": 33,
-    "unknown_count": 18,
+    "known_count": 37,
+    "unknown_count": 19,
     "typo_candidates_count": 1
   },
   "tags": [
     {
       "name": "keyword",
-      "count": 642,
+      "count": 641,
       "inAllowlist": true,
       "usedIn": [
-        "_dev-speclist-gallery",
         "pe-comprehensive-management-360-degree-evaluation",
         "pe-comprehensive-management-access-control",
         "pe-comprehensive-management-access-log-analysis",
@@ -661,7 +660,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 373,
+      "count": 378,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -759,6 +758,7 @@
         "pe-comprehensive-management-e-waste",
         "pe-comprehensive-management-eco-drr",
         "pe-comprehensive-management-ecological-footprint",
+        "pe-comprehensive-management-economic-management-pillar",
         "pe-comprehensive-management-ecosystem-services",
         "pe-comprehensive-management-ecrs-principle",
         "pe-comprehensive-management-edge-computing",
@@ -810,6 +810,7 @@
         "pe-comprehensive-management-hr-systems",
         "pe-comprehensive-management-human-capital-disclosure",
         "pe-comprehensive-management-human-development-index",
+        "pe-comprehensive-management-human-resource-management-pillar",
         "pe-comprehensive-management-idea-generation-methods",
         "pe-comprehensive-management-immigration-control-act",
         "pe-comprehensive-management-improvement-maintenance",
@@ -820,6 +821,7 @@
         "pe-comprehensive-management-industrial-property-rights",
         "pe-comprehensive-management-information-disclosure",
         "pe-comprehensive-management-information-disclosure-act",
+        "pe-comprehensive-management-information-management-pillar",
         "pe-comprehensive-management-information-retrieval",
         "pe-comprehensive-management-initial-investment",
         "pe-comprehensive-management-integrity-security",
@@ -960,6 +962,7 @@
         "pe-comprehensive-management-safety-culture",
         "pe-comprehensive-management-safety-health-plan",
         "pe-comprehensive-management-safety-investment",
+        "pe-comprehensive-management-safety-management-pillar",
         "pe-comprehensive-management-safety-management-system",
         "pe-comprehensive-management-safety-objectives",
         "pe-comprehensive-management-sales-management-system",
@@ -981,6 +984,7 @@
         "pe-comprehensive-management-sl-theory",
         "pe-comprehensive-management-smart-safety",
         "pe-comprehensive-management-social-engineering",
+        "pe-comprehensive-management-social-environment-management-pillar",
         "pe-comprehensive-management-soil-contamination-act",
         "pe-comprehensive-management-sound-water-cycle",
         "pe-comprehensive-management-specialist-system",
@@ -1222,6 +1226,24 @@
       ]
     },
     {
+      "name": "guide",
+      "count": 11,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "pe-comprehensive-management-essay-exam-strategy",
+        "pe-comprehensive-management-exam-application-guide",
+        "pe-comprehensive-management-exam-passing-strategy"
+      ]
+    },
+    {
       "name": "exam-questions",
       "count": 10,
       "inAllowlist": false,
@@ -1239,7 +1261,7 @@
       ]
     },
     {
-      "name": "guide",
+      "name": "exam-preparation",
       "count": 9,
       "inAllowlist": true,
       "usedIn": [
@@ -1248,9 +1270,9 @@
         "civil-construction-1-guide-earthwork-key-points",
         "civil-construction-1-guide-four-management",
         "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
@@ -1287,6 +1309,21 @@
       ]
     },
     {
+      "name": "経済性管理",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-analytic-hierarchy-process",
+        "pe-comprehensive-management-economic-management-pillar",
+        "pe-comprehensive-management-four-m-of-production",
+        "pe-comprehensive-management-idea-generation-methods",
+        "pe-comprehensive-management-key-performance-indicators",
+        "pe-comprehensive-management-pdca-cycle",
+        "pe-comprehensive-management-pfi",
+        "pe-comprehensive-management-value-engineering"
+      ]
+    },
+    {
       "name": "construction-plan",
       "count": 7,
       "inAllowlist": true,
@@ -1301,35 +1338,21 @@
       ]
     },
     {
-      "name": "exam-preparation",
+      "name": "pillar",
       "count": 7,
-      "inAllowlist": true,
+      "inAllowlist": false,
       "usedIn": [
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-strategy",
-        "pe-comprehensive-management-exam-passing-strategy"
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "pe-comprehensive-management-economic-management-pillar",
+        "pe-comprehensive-management-human-resource-management-pillar",
+        "pe-comprehensive-management-information-management-pillar",
+        "pe-comprehensive-management-safety-management-pillar",
+        "pe-comprehensive-management-social-environment-management-pillar"
       ]
     },
     {
       "name": "キーワード",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-analytic-hierarchy-process",
-        "pe-comprehensive-management-four-m-of-production",
-        "pe-comprehensive-management-idea-generation-methods",
-        "pe-comprehensive-management-key-performance-indicators",
-        "pe-comprehensive-management-pdca-cycle",
-        "pe-comprehensive-management-pfi",
-        "pe-comprehensive-management-value-engineering"
-      ]
-    },
-    {
-      "name": "経済性管理",
       "count": 7,
       "inAllowlist": true,
       "usedIn": [
@@ -1574,35 +1597,11 @@
       ]
     },
     {
-      "name": "記述式",
+      "name": "人的資源管理",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy"
-      ]
-    },
-    {
-      "name": "記述式対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs"
-      ]
-    },
-    {
-      "name": "索引",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
-      "name": "出願",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
+        "pe-comprehensive-management-human-resource-management-pillar"
       ]
     },
     {
@@ -1652,6 +1651,62 @@
       "usedIn": [
         "pe-comprehensive-management-r07-primary"
       ]
+    },
+    {
+      "name": "出願",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "安全管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-safety-management-pillar"
+      ]
+    },
+    {
+      "name": "情報管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-information-management-pillar"
+      ]
+    },
+    {
+      "name": "社会環境管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
+      "name": "索引",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
+      "name": "記述式",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-exam-strategy"
+      ]
+    },
+    {
+      "name": "記述式対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs"
+      ]
     }
   ],
   "unknown": [
@@ -1659,20 +1714,21 @@
     "exam-questions",
     "law",
     "machinery",
+    "pillar",
     "quality",
     "schedule",
     "2026年版",
     "5管理",
     "キーワード集",
     "トレードオフ",
-    "記述式対策",
-    "出願",
     "令和2年度",
     "令和3年度",
     "令和4年度",
     "令和5年度",
     "令和6年度",
-    "令和7年度"
+    "令和7年度",
+    "出願",
+    "記述式対策"
   ],
   "typo_candidates": [
     {
