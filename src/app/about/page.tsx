@@ -13,11 +13,12 @@ import type { Metadata } from "next";
 import { AUTHOR } from "@/config/author";
 
 export const metadata: Metadata = {
-  title: "doboku-noteについて｜1級土木施工管理技士 試験対策サイト",
+  // title template `%s | doboku-note` で自動付与されるため "doboku-note" を重ねない
+  title: "1級土木施工管理技士・技術士 試験対策サイトについて",
   description:
     "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。過去問解説・キーワード解説・勉強方法を提供。",
   openGraph: {
-    title: "doboku-noteについて｜1級土木施工管理技士 試験対策サイト",
+    title: "doboku-noteについて — 1級土木施工管理技士・技術士 試験対策サイト",
     description:
       "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。",
     url: "https://doboku-note.com/about",
