@@ -82,5 +82,5 @@
   <rect x="30" y="300" width="460" height="70" rx="6" fill="#f5f5f5" stroke="#ccc"/>
   <text class="label" x="40" y="318">電源喪失: P = 1-(1-0.03)(1-0.10) = 0.127</text>
   <text class="label" x="40" y="336">全台故障: P = 0.05 x 0.05 x 0.05 = 1.25 x 10&#x207B;&#x2074;</text>
-  <text class="result" x="40" y="358">停電確率: P = 0.127 x 1.25 x 10&#x207B;&#x2074; &#x2248; 1.6 x 10&#x207B;&#x2075;</text>
+  <text class="result" x="40" y="358">停電確率: P = 0.127 × 1.25 × 10⁻⁴ ≈ 1.6 × 10⁻⁵</text>
 </svg>

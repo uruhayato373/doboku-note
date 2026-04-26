@@ -11,7 +11,7 @@
   <rect x="430" y="16" width="40" height="18" rx="2" fill="white" stroke="#999" stroke-width="1"/>
   <text x="478" y="28" fill="#333" font-size="10">枚中</text>
   <rect x="498" y="16" width="40" height="18" rx="2" fill="white" stroke="#999" stroke-width="1"/>
-  <text x="542" y="28" fill="#333" font-size="10">枚目</text>
+  <text x="555" y="28" text-anchor="end" fill="#333" font-size="10">枚目</text>
   <text x="30" y="52" fill="#333" font-size="9">取り上げる業務の内容：</text>
   <!-- Columns header -->
   <line x1="10" y1="60" x2="550" y2="60" stroke="#333" stroke-width="1"/>

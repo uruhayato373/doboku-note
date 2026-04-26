@@ -1,24 +1,78 @@
-  <svg width="480" height="230" viewBox="0 0 480 230" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:480px;width:100%">
-    <!-- B→O→O方式 -->
-    <text x="140" y="18" text-anchor="middle" fill="#222" font-weight="bold" font-size="12">B→O→O 方式</text>
-    <rect x="10" y="24" width="90" height="36" rx="3" fill="#555" stroke="#333"/><text x="55" y="39" text-anchor="middle" fill="white" font-size="11">Build</text><text x="55" y="52" text-anchor="middle" fill="white" font-size="10">（建てて）</text>
-    <rect x="105" y="24" width="90" height="36" rx="3" fill="#555" stroke="#333"/><text x="150" y="39" text-anchor="middle" fill="white" font-size="11">Own</text><text x="150" y="52" text-anchor="middle" fill="white" font-size="10">（所有して）</text>
-    <rect x="200" y="24" width="90" height="36" rx="3" fill="#555" stroke="#333"/><text x="245" y="39" text-anchor="middle" fill="white" font-size="11">Operate</text><text x="245" y="52" text-anchor="middle" fill="white" font-size="10">（管理・運営する）</text>
+<svg width="400" height="320" viewBox="0 0 400 320"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="PFI 事業の 4 つの方式：BOO（建設→所有→運営）、BTO（建設→移転→運営）、BOT（建設→運営→移転）、RO（改修→運営）。所有権の移転タイミングが各方式の違い">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-method-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-step-en      { font-size: 12px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-step-jp      { font-size: 11px; fill: #555; }                       /* ink-body */
+      .t-note         { font-size: 11px; fill: #555; }                       /* ink-body */
+      .box-build    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand（建設） */
+      .box-own      { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn（所有） */
+      .box-operate  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive（運営） */
+      .box-transfer { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger（移転） */
+      .box-rehab    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface（改修） */
+      .arrow        { stroke: #555; stroke-width: 1.5; fill: none; }       /* ink-body */
+    </style>
+    <marker id="pfi-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
 
-    <!-- R→O方式 -->
-    <text x="400" y="18" text-anchor="middle" fill="#222" font-weight="bold" font-size="12">R→O 方式</text>
-    <rect x="310" y="24" width="80" height="36" rx="3" fill="#777" stroke="#444"/><text x="350" y="39" text-anchor="middle" fill="white" font-size="10">Rehabilitate</text><text x="350" y="52" text-anchor="middle" fill="white" font-size="10">（改修して）</text>
-    <rect x="395" y="24" width="80" height="36" rx="3" fill="#777" stroke="#444"/><text x="435" y="39" text-anchor="middle" fill="white" font-size="11">Operate</text><text x="435" y="52" text-anchor="middle" fill="white" font-size="10">（管理・運営する）</text>
+  <!-- BOO 方式 -->
+  <text class="t-method-title" x="10" y="22">B → O → O 方式</text>
+  <rect class="box-build"   x="10"  y="30" width="100" height="46" rx="5"/>
+  <text class="t-step-en"   x="60"  y="50" text-anchor="middle">Build</text>
+  <text class="t-step-jp"   x="60"  y="68" text-anchor="middle">建てて</text>
+  <line class="arrow" x1="112" y1="53" x2="125" y2="53" marker-end="url(#pfi-arr)"/>
+  <rect class="box-own"     x="127" y="30" width="100" height="46" rx="5"/>
+  <text class="t-step-en"   x="177" y="50" text-anchor="middle">Own</text>
+  <text class="t-step-jp"   x="177" y="68" text-anchor="middle">所有して</text>
+  <line class="arrow" x1="229" y1="53" x2="242" y2="53" marker-end="url(#pfi-arr)"/>
+  <rect class="box-operate" x="244" y="30" width="100" height="46" rx="5"/>
+  <text class="t-step-en"   x="294" y="50" text-anchor="middle">Operate</text>
+  <text class="t-step-jp"   x="294" y="68" text-anchor="middle">運営する</text>
 
-    <!-- B→T→O方式 -->
-    <text x="140" y="88" text-anchor="middle" fill="#222" font-weight="bold" font-size="12">B→T→O 方式</text>
-    <rect x="10" y="94" width="90" height="36" rx="3" fill="#444" stroke="#222"/><text x="55" y="109" text-anchor="middle" fill="white" font-size="11">Build</text><text x="55" y="122" text-anchor="middle" fill="white" font-size="10">（建てて）</text>
-    <rect x="105" y="94" width="90" height="36" rx="3" fill="#444" stroke="#222"/><text x="150" y="109" text-anchor="middle" fill="white" font-size="11">Transfer</text><text x="150" y="122" text-anchor="middle" fill="white" font-size="10">（移転する）</text>
-    <rect x="200" y="94" width="90" height="36" rx="3" fill="#444" stroke="#222"/><text x="245" y="109" text-anchor="middle" fill="white" font-size="11">Operate</text><text x="245" y="122" text-anchor="middle" fill="white" font-size="10">（管理・運営する）</text>
+  <!-- BTO 方式 -->
+  <text class="t-method-title" x="10" y="100">B → T → O 方式（公共所有）</text>
+  <rect class="box-build"    x="10"  y="108" width="100" height="46" rx="5"/>
+  <text class="t-step-en"    x="60"  y="128" text-anchor="middle">Build</text>
+  <text class="t-step-jp"    x="60"  y="146" text-anchor="middle">建てて</text>
+  <line class="arrow" x1="112" y1="131" x2="125" y2="131" marker-end="url(#pfi-arr)"/>
+  <rect class="box-transfer" x="127" y="108" width="100" height="46" rx="5"/>
+  <text class="t-step-en"    x="177" y="128" text-anchor="middle">Transfer</text>
+  <text class="t-step-jp"    x="177" y="146" text-anchor="middle">所有権移転</text>
+  <line class="arrow" x1="229" y1="131" x2="242" y2="131" marker-end="url(#pfi-arr)"/>
+  <rect class="box-operate"  x="244" y="108" width="100" height="46" rx="5"/>
+  <text class="t-step-en"    x="294" y="128" text-anchor="middle">Operate</text>
+  <text class="t-step-jp"    x="294" y="146" text-anchor="middle">運営する</text>
 
-    <!-- B→O→T方式 -->
-    <text x="140" y="158" text-anchor="middle" fill="#222" font-weight="bold" font-size="12">B→O→T 方式</text>
-    <rect x="10" y="164" width="90" height="36" rx="3" fill="#666" stroke="#333"/><text x="55" y="179" text-anchor="middle" fill="white" font-size="11">Build</text><text x="55" y="192" text-anchor="middle" fill="white" font-size="10">（建てて）</text>
-    <rect x="105" y="164" width="90" height="36" rx="3" fill="#666" stroke="#333"/><text x="150" y="179" text-anchor="middle" fill="white" font-size="11">Operate</text><text x="150" y="192" text-anchor="middle" fill="white" font-size="10">（管理・運営する）</text>
-    <rect x="200" y="164" width="90" height="36" rx="3" fill="#666" stroke="#333"/><text x="245" y="179" text-anchor="middle" fill="white" font-size="11">Transfer</text><text x="245" y="192" text-anchor="middle" fill="white" font-size="10">（移転する）</text>
-  </svg>
+  <!-- BOT 方式 -->
+  <text class="t-method-title" x="10" y="178">B → O → T 方式</text>
+  <rect class="box-build"    x="10"  y="186" width="100" height="46" rx="5"/>
+  <text class="t-step-en"    x="60"  y="206" text-anchor="middle">Build</text>
+  <text class="t-step-jp"    x="60"  y="224" text-anchor="middle">建てて</text>
+  <line class="arrow" x1="112" y1="209" x2="125" y2="209" marker-end="url(#pfi-arr)"/>
+  <rect class="box-operate"  x="127" y="186" width="100" height="46" rx="5"/>
+  <text class="t-step-en"    x="177" y="206" text-anchor="middle">Operate</text>
+  <text class="t-step-jp"    x="177" y="224" text-anchor="middle">運営して</text>
+  <line class="arrow" x1="229" y1="209" x2="242" y2="209" marker-end="url(#pfi-arr)"/>
+  <rect class="box-transfer" x="244" y="186" width="100" height="46" rx="5"/>
+  <text class="t-step-en"    x="294" y="206" text-anchor="middle">Transfer</text>
+  <text class="t-step-jp"    x="294" y="224" text-anchor="middle">移転</text>
+
+  <!-- RO 方式 -->
+  <text class="t-method-title" x="10" y="256">R → O 方式（改修型）</text>
+  <rect class="box-rehab"   x="10"  y="264" width="100" height="46" rx="5"/>
+  <text class="t-step-en"   x="60"  y="284" text-anchor="middle">Rehabilitate</text>
+  <text class="t-step-jp"   x="60"  y="302" text-anchor="middle">改修して</text>
+  <line class="arrow" x1="112" y1="287" x2="125" y2="287" marker-end="url(#pfi-arr)"/>
+  <rect class="box-operate" x="127" y="264" width="100" height="46" rx="5"/>
+  <text class="t-step-en"   x="177" y="284" text-anchor="middle">Operate</text>
+  <text class="t-step-jp"   x="177" y="302" text-anchor="middle">運営する</text>
+  <text class="t-note"      x="244" y="290">既存施設の</text>
+  <text class="t-note"      x="244" y="305">運営委託</text>
+</svg>

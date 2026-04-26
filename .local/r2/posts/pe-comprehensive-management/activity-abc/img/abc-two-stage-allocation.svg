@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" width="100%" role="img" aria-label="ABC の 2 段階配賦（資源 → 活動 → 製品）">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 200" style="max-width:520px;width:100%" role="img" aria-label="ABC の 2 段階配賦（資源 → 活動 → 製品）">
   <rect x="20" y="70" width="120" height="50" fill="none" stroke="#333" stroke-width="1.5"/>
   <text x="80" y="92" text-anchor="middle" font-size="13" fill="#333" font-family="sans-serif">資源</text>
   <text x="80" y="110" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">人件費・設備費等</text>
