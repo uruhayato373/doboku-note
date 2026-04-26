@@ -5,6 +5,9 @@ export type CategoryDef = {
   slug: string;
   label: string;
   subtitle: string;
+  // SEO description（50〜160 文字）。未指定時は subtitle にフォールバック。
+  // UI の <p> は subtitle、HTML <meta name="description"> は description を使う。
+  description?: string;
   variant: 'civil' | 'pe' | 'reference';
   order: number;
 };
