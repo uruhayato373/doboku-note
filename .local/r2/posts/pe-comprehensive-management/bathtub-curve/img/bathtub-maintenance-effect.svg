@@ -5,7 +5,7 @@
     <!-- 軸 -->
     <line x1="48" y1="180" x2="420" y2="180" stroke="#333" stroke-width="1.5" marker-end="url(#a6)"/>
     <line x1="48" y1="180" x2="48" y2="18" stroke="#333" stroke-width="1.5" marker-end="url(#a6)"/>
-    <text x="424" y="184" fill="#333" font-size="10">設置</text>
+    <text x="435" y="184" text-anchor="end" fill="#333" font-size="10">設置</text>
     <text x="22" y="14" fill="#333" font-size="10">故障率</text>
     <!-- バスタブ（初期） -->
     <path d="M 52 42 C 68 42 80 162 110 166" stroke="#555" stroke-width="2.5" fill="none"/>

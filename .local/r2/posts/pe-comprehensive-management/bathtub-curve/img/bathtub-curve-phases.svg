@@ -5,7 +5,7 @@
     <!-- 軸 -->
     <line x1="50" y1="195" x2="395" y2="195" stroke="#333" stroke-width="2" marker-end="url(#a5)"/>
     <line x1="50" y1="195" x2="50" y2="18" stroke="#333" stroke-width="2" marker-end="url(#a5)"/>
-    <text x="400" y="199" fill="#333" font-size="12">時間</text>
+    <text x="415" y="199" text-anchor="end" fill="#333" font-size="12">時間</text>
     <text x="28" y="14" fill="#333" font-size="12">故障率</text>
     <!-- バスタブカーブ -->
     <!-- A期間（初期故障：右下がり） -->
