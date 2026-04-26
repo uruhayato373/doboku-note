@@ -1,40 +1,54 @@
-  <svg width="480" height="320" viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:480px;width:100%">
-    <defs>
-      <marker id="ar2" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#555"/></marker>
-    </defs>
+<svg width="400" height="320" viewBox="0 0 400 320"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="本質的安全設計の 3 ステップ方策：危険源の除去・低減（最高優先）→ ガード・保護装置（中優先）→ 使用上の情報・教育（最低優先）の段階的安全方策">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-num    { font-size: 16px; font-weight: bold; fill: #1a3a5c; }    /* brand-text */
+      .t-title  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }    /* brand-text */
+      .t-desc   { font-size: 11px; fill: #222; }                          /* ink-strong */
+      .t-prio   { font-size: 11px; fill: #555; }                          /* ink-body */
+      .t-source { font-size: 11px; fill: #8a8a8a; }                       /* ink-muted */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive（最高優先） */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn（中優先） */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface（最低優先） */
+      .arrow        { stroke: #555; stroke-width: 1.5; fill: none; }       /* ink-body */
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
 
-    <!-- 縦軸ラベル -->
-    <text x="24" y="90" text-anchor="middle" fill="#444" font-size="11" transform="rotate(-90,24,160)">保護方策</text>
+  <!-- ステップ 1：本質的安全設計方策（最高優先） -->
+  <rect class="box-positive" x="30" y="20" width="360" height="74" rx="6"/>
+  <text class="t-num"   x="48" y="44">1</text>
+  <text class="t-title" x="210" y="44" text-anchor="middle">本質的安全設計方策</text>
+  <text class="t-desc"  x="210" y="62" text-anchor="middle">設計的配置・形状、動作・自動化</text>
+  <text class="t-desc"  x="210" y="76" text-anchor="middle">接近不可能・接近抑制・固定不変</text>
+  <text class="t-prio"  x="210" y="90" text-anchor="middle">優先度：最高（危険源の除去・低減）</text>
 
-    <!-- ステップ1 本質的安全設計方策 -->
-    <rect x="50" y="20" width="400" height="70" rx="6" fill="#444" stroke="#222"/>
-    <text x="60" y="42" fill="white" font-size="13" font-weight="bold">1</text>
-    <text x="250" y="42" text-anchor="middle" fill="white" font-size="13" font-weight="bold">本質的安全設計方策</text>
-    <text x="250" y="60" text-anchor="middle" fill="#ddd" font-size="10">設計的配置・形状、動作・自動化</text>
-    <text x="250" y="72" text-anchor="middle" fill="#ddd" font-size="10">接近不可能・接近抑制・固定不変</text>
-    <text x="60" y="85" fill="#aaa" font-size="9">優先度：最高（危険源の除去・低減）</text>
+  <line class="arrow" x1="210" y1="94" x2="210" y2="112" marker-end="url(#arr)"/>
 
-    <line x1="250" y1="90" x2="250" y2="108" stroke="#666" stroke-width="1.5" marker-end="url(#ar2)"/>
+  <!-- ステップ 2：安全防護および付加保護方策（中優先） -->
+  <rect class="box-warn" x="30" y="116" width="360" height="84" rx="6"/>
+  <text class="t-num"   x="48" y="140">2</text>
+  <text class="t-title" x="210" y="140" text-anchor="middle">安全防護および付加保護方策</text>
+  <text class="t-desc"  x="210" y="158" text-anchor="middle">固定式ガード・可動ガード・保護装置</text>
+  <text class="t-desc"  x="210" y="172" text-anchor="middle">非常停止装置・エネルギー遮断</text>
+  <text class="t-desc"  x="210" y="186" text-anchor="middle">ロックアウト・タグアウト</text>
+  <text class="t-prio"  x="210" y="196" text-anchor="middle">優先度：中（ガード・保護装置による防護）</text>
 
-    <!-- ステップ2 安全防護および付加保護方策 -->
-    <rect x="50" y="108" width="400" height="78" rx="6" fill="#555" stroke="#333"/>
-    <text x="60" y="130" fill="white" font-size="13" font-weight="bold">2</text>
-    <text x="250" y="130" text-anchor="middle" fill="white" font-size="13" font-weight="bold">安全防護および付加保護方策</text>
-    <text x="250" y="148" text-anchor="middle" fill="#ddd" font-size="10">固定式ガード・可動ガード・保護装置</text>
-    <text x="250" y="160" text-anchor="middle" fill="#ddd" font-size="10">非常停止装置・非常停止（開口部あり）</text>
-    <text x="250" y="172" text-anchor="middle" fill="#ddd" font-size="10">エネルギー遮去・ロックアウト</text>
-    <text x="60" y="182" fill="#aaa" font-size="9">優先度：中（ガードや保護装置による防護）</text>
+  <line class="arrow" x1="210" y1="200" x2="210" y2="218" marker-end="url(#arr)"/>
 
-    <line x1="250" y1="186" x2="250" y2="204" stroke="#666" stroke-width="1.5" marker-end="url(#ar2)"/>
+  <!-- ステップ 3：使用上の情報（最低優先） -->
+  <rect class="box-surface" x="30" y="222" width="360" height="74" rx="6"/>
+  <text class="t-num"   x="48" y="246">3</text>
+  <text class="t-title" x="210" y="246" text-anchor="middle">使用上の情報</text>
+  <text class="t-desc"  x="210" y="264" text-anchor="middle">取説・警告ラベル・警告信号・保護具</text>
+  <text class="t-desc"  x="210" y="278" text-anchor="middle">管理・教育・訓練</text>
+  <text class="t-prio"  x="210" y="292" text-anchor="middle">優先度：最低（人の行動・注意に依存）</text>
 
-    <!-- ステップ3 使用上の情報 -->
-    <rect x="50" y="204" width="400" height="78" rx="6" fill="#666" stroke="#444"/>
-    <text x="60" y="226" fill="white" font-size="13" font-weight="bold">3</text>
-    <text x="250" y="226" text-anchor="middle" fill="white" font-size="13" font-weight="bold">使用上の情報</text>
-    <text x="250" y="244" text-anchor="middle" fill="#ddd" font-size="10">取説・警告ラベル・警告信号・保護具</text>
-    <text x="250" y="256" text-anchor="middle" fill="#ddd" font-size="10">環境、管理・教育・訓練</text>
-    <text x="250" y="268" text-anchor="middle" fill="#ddd" font-size="10">（機械の上を使者など、F は使用者が実施する）</text>
-    <text x="60" y="278" fill="#aaa" font-size="9">優先度：最低（人の行動・注意に依存）</text>
-
-    <text x="250" y="312" text-anchor="middle" fill="#666" font-size="10">出典：厚生労働省ホームページ</text>
-  </svg>
+  <text class="t-source" x="210" y="314" text-anchor="middle">出典：ISO 12100「機械類の安全性」3 ステップメソッド</text>
+</svg>
