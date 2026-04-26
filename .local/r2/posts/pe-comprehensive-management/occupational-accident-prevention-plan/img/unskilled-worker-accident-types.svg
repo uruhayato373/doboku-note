@@ -22,7 +22,6 @@
     <rect x="200" y="130" width="14" height="12" fill="#bbb"/><text x="218" y="141" fill="#333" font-size="11">その他 約25%</text>
 
     <!-- 全体の動作の反動等の数値 -->
-    <text x="190" y="175" fill="#555" font-size="10">※全体 41.7%　それはそれ 65%　動作の反動等 49.0%</text>
-    <text x="190" y="188" fill="#555" font-size="10">　全未熟練 35.9%　未熟練労働者 39.0%</text>
-    <text x="190" y="205" fill="#666" font-size="9">出典：厚生労働省安全衛生教育マニュアル（平成25年）</text>
+    <text x="190" y="175" text-anchor="middle" fill="#555" font-size="10">※動作の反動等 49.0% / 全未熟練 35.9% / 未熟練労働者 39.0%</text>
+    <text x="190" y="205" text-anchor="middle" fill="#666" font-size="9">出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）</text>
   </svg>
