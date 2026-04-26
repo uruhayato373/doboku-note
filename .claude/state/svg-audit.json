@@ -1,23 +1,21 @@
 {
   "meta": {
-    "generated_at": "2026-04-26T04:24:28.561Z",
+    "generated_at": "2026-04-26T04:31:13.461Z",
     "path": ".local/r2/posts/**/img/*.svg",
     "file": null
   },
   "summary": {
     "scanned_files": 112,
     "files_with_issues": 81,
-    "total_findings": 1222,
+    "total_findings": 1107,
     "by_severity": {
       "HIGH": 13,
-      "MEDIUM": 685,
+      "MEDIUM": 570,
       "LOW": 524
     },
     "by_pattern": {
       "P5-wide-viewbox": 60,
       "P6-color-drift": 475,
-      "P3-missing-role": 57,
-      "P3-missing-aria": 58,
       "P4-tiny-font": 524,
       "P2-text-overlap": 9,
       "P7-missing-font-family": 26,
@@ -36,18 +34,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #333（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-formulas.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-formulas.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-formulas.svg",
@@ -116,18 +102,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #777（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-configuration.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-configuration.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-configuration.svg",
@@ -206,18 +180,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #666（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/evm-chart.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/evm-chart.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/evm-chart.svg",
@@ -355,18 +317,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/banana-curve.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/banana-curve.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/progress-management/img/banana-curve.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
@@ -486,18 +436,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/pert-cpm/img/pert-network-diagram.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/pert-cpm/img/pert-network-diagram.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/pert-cpm/img/pert-network-diagram.svg",
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #444（svg-tokens.json の colorsAllowList 参照）"
@@ -525,18 +463,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #666（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/unskilled-worker-accident-types.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/unskilled-worker-accident-types.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/unskilled-worker-accident-types.svg",
@@ -599,18 +525,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #333（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/npv-net-present-value/img/normal-distribution-sigma.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/npv-net-present-value/img/normal-distribution-sigma.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/npv-net-present-value/img/normal-distribution-sigma.svg",
@@ -831,18 +745,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #9ca3af（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/lp-graphical-method.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/lp-graphical-method.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/lp-graphical-method.svg",
@@ -1182,18 +1084,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/breakeven-point.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/breakeven-point.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/income-statement/img/breakeven-point.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "固定費",
@@ -1281,18 +1171,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: red（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h26-primary/img/event-tree-i-1-32.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h26-primary/img/event-tree-i-1-32.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h26-primary/img/event-tree-i-1-32.svg",
@@ -1553,18 +1431,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h25-primary/img/fault-tree-i-1-27.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h25-primary/img/fault-tree-i-1-27.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h25-primary/img/fault-tree-i-1-27.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 520px > 400px（モバイル視認性）"
@@ -1702,18 +1568,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #ccc（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/xy-theory-ii-1-9.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/xy-theory-ii-1-9.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/xy-theory-ii-1-9.svg",
@@ -2056,18 +1910,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/voc-regulation-ii-1-37.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/voc-regulation-ii-1-37.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/voc-regulation-ii-1-37.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 680px > 400px（モバイル視認性）"
@@ -2154,18 +1996,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #cccc88（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/safety-org-structure-ii-1-29.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/safety-org-structure-ii-1-29.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/safety-org-structure-ii-1-29.svg",
@@ -2381,18 +2211,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/pdpc-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/pdpc-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/pdpc-diagram-ii-1-3.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
@@ -2474,18 +2292,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #228822（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/labor-dispute-resolution-ii-1-15.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/labor-dispute-resolution-ii-1-15.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/labor-dispute-resolution-ii-1-15.svg",
@@ -2617,18 +2423,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #cccc88（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/kj-method-ii-1-3.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/kj-method-ii-1-3.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/kj-method-ii-1-3.svg",
@@ -2771,18 +2565,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/interrelation-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/interrelation-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/interrelation-diagram-ii-1-3.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
@@ -2853,18 +2635,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #888（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/flextime-ii-1-11.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/flextime-ii-1-11.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/flextime-ii-1-11.svg",
@@ -3044,18 +2814,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/eia-procedure-ii-1-38.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/eia-procedure-ii-1-38.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/eia-procedure-ii-1-38.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -3207,18 +2965,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/cause-effect-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/cause-effect-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/cause-effect-diagram-ii-1-3.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 600px > 400px（モバイル視認性）"
@@ -3309,18 +3055,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #888（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-unknown-ii-1-28.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-unknown-ii-1-28.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-unknown-ii-1-28.svg",
@@ -3486,18 +3220,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-known-ii-1-28.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-known-ii-1-28.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/bpt-distribution-known-ii-1-28.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 580px > 400px（モバイル視認性）"
@@ -3655,18 +3377,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #2222cc（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/affinity-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/affinity-diagram-ii-1-3.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/h24-primary/img/affinity-diagram-ii-1-3.svg",
@@ -3868,12 +3578,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/four-e-countermeasures/img/four-e-overview.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/four-e-countermeasures/img/four-e-overview.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 420px > 400px（モバイル視認性）"
@@ -3986,18 +3690,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #64748b（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/five-s/img/5s-quality-map.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/five-s/img/5s-quality-map.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/five-s/img/5s-quality-map.svg",
@@ -4116,18 +3808,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #888（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-4.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-4.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-4.svg",
@@ -4284,18 +3964,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-1.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-1.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-2-1.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 720px > 400px（モバイル視認性）"
@@ -4384,18 +4052,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #333（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-40.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-40.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-40.svg",
@@ -4558,18 +4214,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-36.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-36.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-36.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -4691,18 +4335,6 @@
       "pattern": "P8-dark-bg",
       "severity": "HIGH",
       "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: white) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-33.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-33.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-33.svg",
@@ -4865,18 +4497,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-30.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-30.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-30.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -5022,18 +4642,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-29.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-29.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-29.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -5155,18 +4763,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-26.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-26.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-26.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -5224,18 +4820,6 @@
       "pattern": "P8-dark-bg",
       "severity": "HIGH",
       "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: white) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-25.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-25.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-25.svg",
@@ -5308,18 +4892,6 @@
       "pattern": "P8-dark-bg",
       "severity": "HIGH",
       "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: white) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-22.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-22.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-22.svg",
@@ -5461,18 +5033,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-14.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-14.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-14.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -5553,18 +5113,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-13.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-13.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-13.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -5619,18 +5167,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-12.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-12.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-12.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -5652,18 +5188,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #666（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-09.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-09.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-09.svg",
@@ -5796,18 +5320,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-08.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-08.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-08.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 540px > 400px（モバイル視認性）"
@@ -5844,18 +5356,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-07.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-07.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-07.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
@@ -5871,18 +5371,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: white（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-06.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-06.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-06.svg",
@@ -5928,18 +5416,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-05.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-05.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-05.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
@@ -5961,18 +5437,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #333（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-04.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-04.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-04.svg",
@@ -6009,18 +5473,6 @@
       "pattern": "P8-dark-bg",
       "severity": "HIGH",
       "detail": "濃色 bg (例: #1a3a5c) + 白/薄色テキスト (例: white) の組合せを検出。prohibited.md 違反、淡色 bg + 濃色文字に修正せよ"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-03.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-03.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-03.svg",
@@ -6060,18 +5512,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-02.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-02.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-02.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
@@ -6093,18 +5533,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #888（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-01.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-01.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/img/figure-4-01.svg",
@@ -6408,18 +5836,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/design-thinking/img/5-steps-iterative-flow.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/design-thinking/img/5-steps-iterative-flow.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/design-thinking/img/5-steps-iterative-flow.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 600px > 400px（モバイル視認性）"
@@ -6565,18 +5981,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/regression-line.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/regression-line.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/regression-line.svg",
       "pattern": "P4-tiny-font",
       "severity": "LOW",
       "text": "u",
@@ -6642,18 +6046,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/correlation-scatter-patterns.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/correlation-scatter-patterns.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/correlation-scatter-patterns.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
@@ -6698,18 +6090,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #333（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-decarbonization/img/heavy-rainfall-trend.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/climate-change-decarbonization/img/heavy-rainfall-trend.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/climate-change-decarbonization/img/heavy-rainfall-trend.svg",
@@ -6867,18 +6247,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/citizen-participation/img/arnstein-ladder.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/citizen-participation/img/arnstein-ladder.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/citizen-participation/img/arnstein-ladder.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 460px > 400px（モバイル視認性）"
@@ -6961,18 +6329,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #7f1d1d（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/cause-and-effect-diagram/img/fishbone-4m.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/cause-and-effect-diagram/img/fishbone-4m.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/cause-and-effect-diagram/img/fishbone-4m.svg",
@@ -7092,18 +6448,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/break-even-chart.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/break-even-chart.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/break-even-chart.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 420px > 400px（モバイル視認性）"
@@ -7201,18 +6545,6 @@
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/bep-formulas.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/bep-formulas.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/break-even-point/img/bep-formulas.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
@@ -7222,18 +6554,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #333（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-maintenance-effect.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-maintenance-effect.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-maintenance-effect.svg",
@@ -7341,18 +6661,6 @@
       "pattern": "P6-color-drift",
       "severity": "MEDIUM",
       "detail": "allowlist 外の色: #666（svg-tokens.json の colorsAllowList 参照）"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-curve-phases.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-curve-phases.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
     },
     {
       "file": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-curve-phases.svg",
