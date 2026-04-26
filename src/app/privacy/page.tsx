@@ -17,6 +17,20 @@ import {
 export const metadata: Metadata = {
   title: 'プライバシーポリシー',
   description: 'doboku-noteのプライバシーポリシーについて説明します。個人情報の収集、利用、管理について詳しく記載しています。',
+  openGraph: {
+    type: 'website',
+    title: 'プライバシーポリシー | doboku-note',
+    description: 'doboku-noteのプライバシーポリシーについて説明します。個人情報の収集、利用、管理について詳しく記載しています。',
+    url: 'https://doboku-note.com/privacy',
+    images: [
+      {
+        url: 'https://doboku-note.com/images/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'doboku-note - 土木系資格試験 専門技術ノート',
+      },
+    ],
+  },
 };
 
 type PolicyCardProps = {

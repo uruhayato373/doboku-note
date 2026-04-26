@@ -13,6 +13,20 @@ import {
 export const metadata: Metadata = {
   title: '利用規約',
   description: 'doboku-noteの利用規約について。コンテンツの利用条件、免責事項、知的財産権についてご案内します。',
+  openGraph: {
+    type: 'website',
+    title: '利用規約 | doboku-note',
+    description: 'doboku-noteの利用規約について。コンテンツの利用条件、免責事項、知的財産権についてご案内します。',
+    url: 'https://doboku-note.com/terms',
+    images: [
+      {
+        url: 'https://doboku-note.com/images/og-default.png',
+        width: 1200,
+        height: 630,
+        alt: 'doboku-note - 土木系資格試験 専門技術ノート',
+      },
+    ],
+  },
 };
 
 type SectionCardProps = {
