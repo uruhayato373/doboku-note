@@ -5,8 +5,9 @@
  * フォントは OGP と共有（NotoSansJP-Bold + Inter-Bold）。
  *
  * スライド型は段階的に追加する:
- *   - Phase 1（本コミット）: cover
- *   - Phase 2（#165/#166）: definition / context / example / points / related / cta / quiz-*
+ *   - Phase 1: cover
+ *   - Phase 2: definition / examPoint / cta（YouTube Shorts MVP 用）
+ *   - 将来: context / example / points / related / quiz-*（IG カルーセル拡張時）
  */
 
 import satori from 'satori';
@@ -104,6 +105,12 @@ async function buildElement({ width, height, slide, config }) {
   switch (slide.type) {
     case 'cover':
       return buildCoverElement({ width, height, data: slide.data || {}, config });
+    case 'definition':
+      return buildDefinitionElement({ width, height, data: slide.data || {}, config });
+    case 'examPoint':
+      return buildExamPointElement({ width, height, data: slide.data || {}, config });
+    case 'cta':
+      return buildCtaElement({ width, height, data: slide.data || {}, config });
     default:
       throw new Error(`Unknown slide type: ${slide.type}`);
   }
@@ -198,6 +205,307 @@ async function buildCoverElement({ width, height, data, config }) {
           },
         },
       ].filter(Boolean),
+    },
+  };
+}
+
+const DEFINITION_BODY_CONFIG = {
+  breakBefore: ['（', '：', '〜', '。', '、'],
+  breakAt: [],
+  charCountFallback: 18,
+  fontSizeTable: [56, 48, 40, 36, 32],
+  safetyWidth: 920,
+  budouX: { enabled: false },
+};
+
+async function buildDefinitionElement({ width, height, data, config }) {
+  const term = data.title || data.term || '';
+  const body = data.body || data.definition || '';
+  const titleLines = await wrapTitle(term, config);
+  const titleSize = pickFontSize(titleLines, config);
+  const bodyLines = await wrapTitle(body, DEFINITION_BODY_CONFIG);
+  const bodySize = pickFontSize(bodyLines, DEFINITION_BODY_CONFIG);
+
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        backgroundColor: COLORS.white,
+        padding: '120px 80px 80px',
+        position: 'relative',
+        fontFamily: FONTS.heading,
+      },
+      children: [
+        // 上部ラベル
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              backgroundColor: COLORS.brand,
+              color: COLORS.white,
+              fontSize: '28px',
+              padding: '12px 32px',
+              borderRadius: '999px',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              marginBottom: '60px',
+            },
+            children: '定義',
+          },
+        },
+        // 用語（タイトル）
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: '8px',
+              marginBottom: '60px',
+            },
+            children: titleLines.map(line => ({
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  color: COLORS.brandDeep,
+                  fontSize: `${titleSize}px`,
+                  fontWeight: 700,
+                  lineHeight: 1.2,
+                },
+                children: line || ' ',
+              },
+            })),
+          },
+        },
+        // 本文
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              gap: '12px',
+              maxWidth: '900px',
+              padding: '40px',
+              borderLeft: `8px solid ${COLORS.brand}`,
+              backgroundColor: COLORS.brandFill,
+            },
+            children: bodyLines.map(line => ({
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  color: COLORS.inkStrong,
+                  fontSize: `${bodySize}px`,
+                  fontWeight: 700,
+                  lineHeight: 1.4,
+                },
+                children: line || ' ',
+              },
+            })),
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '64px',
+              fontSize: '28px',
+              color: COLORS.inkMuted,
+              fontWeight: 700,
+            },
+            children: 'doboku-note.com',
+          },
+        },
+      ],
+    },
+  };
+}
+
+const EXAM_POINT_BODY_CONFIG = {
+  breakBefore: ['（', '：', '〜', '、'],
+  breakAt: [],
+  charCountFallback: 16,
+  fontSizeTable: [64, 56, 48, 40, 36],
+  safetyWidth: 920,
+  budouX: { enabled: false },
+};
+
+async function buildExamPointElement({ width, height, data, config: _config }) {
+  const index = Number.isInteger(data.index) ? data.index : 1;
+  const body = data.body || data.point || '';
+  const lines = await wrapTitle(body, EXAM_POINT_BODY_CONFIG);
+  const fontSize = pickFontSize(lines, EXAM_POINT_BODY_CONFIG);
+
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        backgroundColor: COLORS.white,
+        padding: '120px 80px 80px',
+        position: 'relative',
+        fontFamily: FONTS.heading,
+      },
+      children: [
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              backgroundColor: COLORS.warn,
+              color: COLORS.white,
+              fontSize: '32px',
+              padding: '12px 32px',
+              borderRadius: '999px',
+              fontWeight: 700,
+              letterSpacing: '0.1em',
+              marginBottom: '40px',
+            },
+            children: `試験ポイント ${index}`,
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+              flexGrow: 1,
+              maxWidth: '900px',
+              padding: '40px',
+              gap: '16px',
+            },
+            children: lines.map(line => ({
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  color: COLORS.inkStrong,
+                  fontSize: `${fontSize}px`,
+                  fontWeight: 700,
+                  lineHeight: 1.4,
+                },
+                children: line || ' ',
+              },
+            })),
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '64px',
+              fontSize: '28px',
+              color: COLORS.inkMuted,
+              fontWeight: 700,
+            },
+            children: 'doboku-note.com',
+          },
+        },
+      ],
+    },
+  };
+}
+
+async function buildCtaElement({ width, height, data, config: _config }) {
+  const headline = data.headline || 'もっと詳しく';
+  const subline = data.subline || 'doboku-note で全文を読む';
+  const url = data.url || 'doboku-note.com';
+
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundImage: `linear-gradient(180deg, ${COLORS.brandDeep} 0%, ${COLORS.brand} 100%)`,
+        padding: '80px',
+        position: 'relative',
+        fontFamily: FONTS.heading,
+      },
+      children: [
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              fontSize: '64px',
+              color: COLORS.white,
+              fontWeight: 700,
+              marginBottom: '32px',
+            },
+            children: headline,
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              fontSize: '40px',
+              color: COLORS.brandFill,
+              fontWeight: 700,
+              marginBottom: '64px',
+            },
+            children: subline,
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              backgroundColor: COLORS.white,
+              color: COLORS.brandDeep,
+              fontSize: '36px',
+              padding: '24px 48px',
+              borderRadius: '16px',
+              fontWeight: 700,
+            },
+            children: url,
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '64px',
+              fontSize: '28px',
+              color: COLORS.brandFill,
+              fontWeight: 700,
+            },
+            children: '概要欄のリンクから',
+          },
+        },
+      ],
     },
   };
 }

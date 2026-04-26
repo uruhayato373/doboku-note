@@ -78,10 +78,22 @@ function extractSections(content) {
 
 /**
  * <ExamPoint> ブロックの箇条書きを抽出。
- * 1) <ExamPoint>...</ExamPoint> のリストアイテムを優先
- * 2) 「## 試験ポイント」配下の箇条書きにフォールバック
+ * 優先順:
+ *   1) self-closing <ExamPoint items={[ "...", "..." ]} /> 形式（doboku-note 標準）
+ *   2) 囲み <ExamPoint>...</ExamPoint> 形式
+ *   3) 「## 試験ポイント」配下の箇条書きにフォールバック
  */
 function extractExamPoints(content) {
+  // 1) self-closing <ExamPoint items={[...]} />
+  const selfClosing = content.match(/<ExamPoint\b[^>]*?items=\{\[([\s\S]*?)\]\}[^>]*?\/?>/);
+  if (selfClosing) {
+    const items = [...selfClosing[1].matchAll(/"((?:[^"\\]|\\.)*)"|'((?:[^'\\]|\\.)*)'/g)]
+      .map(m => (m[1] ?? m[2] ?? '').replace(/\\(["'\\])/g, '$1'))
+      .filter(Boolean);
+    if (items.length > 0) return items;
+  }
+
+  // 2) 囲み <ExamPoint>...</ExamPoint>
   const epMatches = [...content.matchAll(/<ExamPoint[^>]*>([\s\S]*?)<\/ExamPoint>/g)];
   if (epMatches.length > 0) {
     return epMatches
@@ -89,6 +101,8 @@ function extractExamPoints(content) {
       .map(l => l.replace(/^\s*[-*]\s+/, '').trim())
       .filter(Boolean);
   }
+
+  // 3) ## 試験ポイント 見出し配下の箇条書き
   const fallback = content.match(/##\s+試験ポイント\s*\n([\s\S]*?)(?:\n##|$)/);
   if (!fallback) return [];
   return fallback[1]
