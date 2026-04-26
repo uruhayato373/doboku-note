@@ -43,7 +43,10 @@ const args = process.argv.slice(2);
 const SKIP_OCR = args.includes('--skip-ocr');
 const ONLY_YEARS = args.filter((a) => /^R\d+|^H\d+$/i.test(a)).map((a) => a.toUpperCase());
 
-const TARGET_YEARS = ['R07', 'R06', 'R05', 'R04', 'R03', 'R02', 'R01'];
+const TARGET_YEARS = [
+  'R07', 'R06', 'R05', 'R04', 'R03', 'R02', 'R01',
+  'H30', 'H29', 'H28', 'H27', 'H26', 'H25', 'H24', 'H23', 'H22', 'H21',
+];
 const KINDS = [
   { name: 'primary', pdf_name: '択一式', mdx_dir_suffix: '-primary' },
   { name: 'secondary', pdf_name: '記述式', mdx_dir_suffix: '-secondary' },
