@@ -1,0 +1,147 @@
+{
+  "meta": {
+    "generated_at": "2026-04-27T11:50:08.311Z",
+    "total_inspected": 756,
+    "categories": {
+      "ex0": 670,
+      "ex1": 3,
+      "ex2": 22,
+      "ex3": 41,
+      "ex4": 20,
+      "unknown": 0
+    }
+  },
+  "A_last_crawl": {
+    "ex0": {
+      "never": 253,
+      "ge30d": 0,
+      "7-30d": 0,
+      "lt7d": 414
+    }
+  },
+  "B_page_fetch_state": {
+    "SUCCESSFUL": 475,
+    "PAGE_FETCH_STATE_UNSPECIFIED": 257,
+    "NOT_FOUND": 20
+  },
+  "C_referring_urls": {
+    "all": {
+      "0": 710,
+      "1-2": 41,
+      "3-5": 1,
+      "6+": 0
+    },
+    "ex0": {
+      "0": 663,
+      "1-2": 4,
+      "3-5": 0,
+      "6+": 0
+    }
+  },
+  "D_canonical": {
+    "mismatch_total": 0,
+    "mismatch_to_other_url": 0,
+    "samples": []
+  },
+  "E_phantom_pages": {
+    "indexed_total": 407,
+    "with_impressions_gt0": 45,
+    "zero_impressions": 362,
+    "phantom_rate": 89,
+    "note": "対象は今回検査した URL のうち PASS のもののみ。サイト全体の幽霊率はサイトマップ全件で再計算が必要。"
+  },
+  "F_brand_query": {
+    "total_clicks": 0,
+    "total_impressions": 19,
+    "queries": [
+      {
+        "query": "doboku",
+        "clicks": 0,
+        "impressions": 19,
+        "ctr": 0,
+        "position": 7.105263157894737
+      }
+    ]
+  },
+  "G_pattern_x_category": {
+    "pe-keyword": {
+      "ex0": 596,
+      "ex2": 2
+    },
+    "pe-past-exam": {
+      "ex0": 24
+    },
+    "civil-guide": {
+      "ex0": 4
+    },
+    "civil-primary": {
+      "ex0": 19
+    },
+    "civil-secondary": {
+      "ex0": 14
+    },
+    "civil-textbook": {
+      "ex0": 10,
+      "ex4": 1
+    },
+    "other": {
+      "ex1": 3,
+      "ex2": 20,
+      "ex3": 40,
+      "ex4": 19
+    }
+  },
+  "H_verdict": {
+    "PASS": 407,
+    "NEUTRAL": 345
+  },
+  "I_high_referring_ex0": [],
+  "errors": [
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-inspection-methods",
+      "error": "request to https://searchconsole.googleapis.com/v1/urlInspection/index:inspect failed, reason: read ECONNRESET"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cost-maintenance",
+      "error": "request to https://searchconsole.googleapis.com/v1/urlInspection/index:inspect failed, reason: read ECONNRESET"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r05-primary",
+      "error": "request to https://searchconsole.googleapis.com/v1/urlInspection/index:inspect failed, reason: read ECONNRESET"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/basic-plan",
+      "error": "request to https://searchconsole.googleapis.com/v1/urlInspection/index:inspect failed, reason: read ECONNRESET"
+    }
+  ],
+  "diagnosis": [
+    {
+      "code": "B",
+      "severity": "high",
+      "title": "SSR / レンダリング問題の可能性",
+      "evidence": "756 件中 SUCCESSFUL は 475 件 (62.8%)",
+      "action": "page_fetch_state ≠ SUCCESSFUL の URL を curl で確認、構造修正"
+    },
+    {
+      "code": "C",
+      "severity": "high",
+      "title": "内部リンク到達不全（Issue #29 続行で正解）",
+      "evidence": "ex0 670 件中 663 件 (99.0%) が referring_urls=0",
+      "action": "Issue #29 (内部リンク拡充) の Phase 4 計測待機を継続"
+    },
+    {
+      "code": "E",
+      "severity": "medium",
+      "title": "戦略資産集中の根拠確定",
+      "evidence": "インデックス済 407 件中 362 件 (89%) が 90 日 impressions=0",
+      "action": "low-value ページ noindex 化を検討（200-400 ページ目安）"
+    },
+    {
+      "code": "F",
+      "severity": "high",
+      "title": "ブランド認知不足（ドメイン権威性問題）",
+      "evidence": "ブランドクエリ \"doboku\" の月間 impressions ≒ 6.3（90日で19件）",
+      "action": "外部被リンク獲得、SNS / X 戦略強化、note 連携、合格体験記による独自データ構築"
+    }
+  ]
+}
