@@ -122,6 +122,35 @@ function checkImages(file, content) {
   return warnings;
 }
 
+/**
+ * MDX 内の生 <img src="/posts/..."> が width/height を持っているか検証。
+ * width/height なしの img はレイアウトシフト（CLS）の主因。Issue #84 / 2026-04-28
+ * 一括対応（207 imgs / 37 files）の再発防止。
+ *
+ * 戻り値: { file, error: "..." } の配列（HIGH 相当、commit ブロック）
+ */
+function checkImageDimensions(file, content) {
+  const errors = [];
+  const tagRegex = /<img\b([\s\S]*?)\/?>/g;
+  for (const match of content.matchAll(tagRegex)) {
+    const attrs = match[1];
+    const srcMatch = attrs.match(/\bsrc\s*=\s*["']([^"']+)["']/);
+    if (!srcMatch) continue;
+    const src = srcMatch[1];
+    // /posts/ 配下の img のみ対象（avatar や外部 URL は対象外）
+    if (!src.startsWith("/posts/")) continue;
+    const hasWidth = /\bwidth\s*=/.test(attrs);
+    const hasHeight = /\bheight\s*=/.test(attrs);
+    if (!hasWidth || !hasHeight) {
+      errors.push({
+        file,
+        error: `<img src="${src}"> needs width/height (CLS prevention). Run: node .claude/scripts/add-img-dimensions.mjs`,
+      });
+    }
+  }
+  return errors;
+}
+
 async function main() {
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
@@ -189,6 +218,11 @@ async function main() {
     // Image existence + mime check (warnings only, does not block commit)
     for (const w of checkImages(file, content)) {
       warnings.push({ ...w, severity: "MEDIUM" });
+    }
+
+    // Image dimensions check (HIGH - blocks commit, CLS prevention)
+    for (const e of checkImageDimensions(file, content)) {
+      errors.push(e);
     }
 
     // 過去問解説の破損パターン検出（警告のみ、ブロックしない）
