@@ -117,11 +117,15 @@ async function main() {
   // 簡易サマリ表示
   if (metrics.ga4?.organic) {
     const o = metrics.ga4.organic;
-    console.log(`\n  Organic users: ${o.thisUsers} (前週 ${o.prevUsers}, delta ${o.userDelta > 0 ? '+' : ''}${o.userDelta})`);
+    console.log(`\n  Organic users:        ${o.thisUsers} (前週 ${o.prevUsers}, delta ${o.userDelta > 0 ? '+' : ''}${o.userDelta})`);
+  }
+  if (metrics.ga4_jp?.organic) {
+    const o = metrics.ga4_jp.organic;
+    console.log(`  Organic users (JP):   ${o.thisUsers} (前週 ${o.prevUsers}, delta ${o.userDelta > 0 ? '+' : ''}${o.userDelta})`);
   }
   if (metrics.gsc?.total) {
     const t = metrics.gsc.total;
-    console.log(`  GSC clicks:    ${t.thisClicks} (前週 ${t.prevClicks}, delta ${t.clickDelta > 0 ? '+' : ''}${t.clickDelta})`);
+    console.log(`  GSC clicks:           ${t.thisClicks} (前週 ${t.prevClicks}, delta ${t.clickDelta > 0 ? '+' : ''}${t.clickDelta})`);
   }
 }
 
