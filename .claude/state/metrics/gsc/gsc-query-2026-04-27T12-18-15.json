@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "startDate": "2026-01-24",
+    "endDate": "2026-04-24",
+    "dimension": "query",
+    "limit": 30
+  },
+  "rows": [
+    {
+      "keys": [
+        "総合技術監理 キーワード集 2026"
+      ],
+      "clicks": 2,
+      "impressions": 45,
+      "ctr": 0.044444444444444446,
+      "position": 6.511111111111111
+    },
+    {
+      "keys": [
+        "総監キーワード2026"
+      ],
+      "clicks": 1,
+      "impressions": 12,
+      "ctr": 0.08333333333333333,
+      "position": 7.333333333333333
+    },
+    {
+      "keys": [
+        "総監 キーワード 2026"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 9
+    }
+  ]
+}
