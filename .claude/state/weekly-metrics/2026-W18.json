@@ -1,0 +1,262 @@
+{
+  "week_id": "2026-W18",
+  "year": 2026,
+  "week": 18,
+  "generated_at": "2026-04-27T22:06:14.992Z",
+  "ranges": {
+    "ga4": {
+      "this": {
+        "start": "2026-04-20",
+        "end": "2026-04-26"
+      },
+      "prev": {
+        "start": "2026-04-13",
+        "end": "2026-04-19"
+      }
+    },
+    "gsc": {
+      "this": {
+        "start": "2026-04-18",
+        "end": "2026-04-24"
+      },
+      "prev": {
+        "start": "2026-04-11",
+        "end": "2026-04-17"
+      }
+    }
+  },
+  "ga4": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 154,
+        "prevUsers": 83,
+        "userDelta": 71,
+        "userDeltaPct": 85.54216867469879,
+        "thisSessions": 222,
+        "prevSessions": 123,
+        "thisEngagementRate": 0.5585585585585585
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 97,
+        "prevUsers": 41,
+        "userDelta": 56,
+        "userDeltaPct": 136.58536585365854,
+        "thisSessions": 111,
+        "prevSessions": 66,
+        "thisEngagementRate": 0.46846846846846846
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 6,
+        "prevUsers": 0,
+        "userDelta": 6,
+        "userDeltaPct": null,
+        "thisSessions": 8,
+        "prevSessions": 0,
+        "thisEngagementRate": 0.5
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 5,
+        "prevUsers": 0,
+        "userDelta": 5,
+        "userDeltaPct": null,
+        "thisSessions": 8,
+        "prevSessions": 0,
+        "thisEngagementRate": 0.625
+      }
+    ],
+    "total": {
+      "thisUsers": 262,
+      "prevUsers": 124,
+      "thisSessions": 349,
+      "prevSessions": 189,
+      "userDelta": 138,
+      "userDeltaPct": 111.29032258064515
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 154,
+      "prevUsers": 83,
+      "userDelta": 71,
+      "userDeltaPct": 85.54216867469879,
+      "thisSessions": 222,
+      "prevSessions": 123,
+      "thisEngagementRate": 0.5585585585585585
+    }
+  },
+  "ga4_jp": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 123,
+        "prevUsers": 83,
+        "userDelta": 40,
+        "userDeltaPct": 48.19277108433735,
+        "thisSessions": 187,
+        "prevSessions": 123,
+        "thisEngagementRate": 0.6256684491978609
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 16,
+        "prevUsers": 8,
+        "userDelta": 8,
+        "userDeltaPct": 100,
+        "thisSessions": 30,
+        "prevSessions": 33,
+        "thisEngagementRate": 0.5666666666666667
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 6,
+        "prevUsers": 0,
+        "userDelta": 6,
+        "userDeltaPct": null,
+        "thisSessions": 8,
+        "prevSessions": 0,
+        "thisEngagementRate": 0.5
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 5,
+        "prevUsers": 0,
+        "userDelta": 5,
+        "userDeltaPct": null,
+        "thisSessions": 8,
+        "prevSessions": 0,
+        "thisEngagementRate": 0.625
+      }
+    ],
+    "total": {
+      "thisUsers": 150,
+      "prevUsers": 91,
+      "thisSessions": 233,
+      "prevSessions": 156,
+      "userDelta": 59,
+      "userDeltaPct": 64.83516483516483
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 123,
+      "prevUsers": 83,
+      "userDelta": 40,
+      "userDeltaPct": 48.19277108433735,
+      "thisSessions": 187,
+      "prevSessions": 123,
+      "thisEngagementRate": 0.6256684491978609
+    }
+  },
+  "psi": {
+    "url": "https://doboku-note.com/",
+    "strategy": "mobile",
+    "scores": {
+      "performance": 73,
+      "accessibility": 96,
+      "best_practices": 100,
+      "seo": 92
+    },
+    "lab_data": {
+      "LCP_ms": 4978.886531813842,
+      "TBT_ms": 60.5,
+      "CLS": 0.013068999999999999,
+      "FCP_ms": 3620.7904419324036,
+      "TTI_ms": 6338.933056152901
+    }
+  },
+  "gsc": {
+    "total": {
+      "thisClicks": 19,
+      "prevClicks": 12,
+      "clickDelta": 7,
+      "clickDeltaPct": 58.333333333333336,
+      "thisImpressions": 609,
+      "prevImpressions": 221,
+      "impressionDelta": 388,
+      "thisCtr": 0.031198686371100164,
+      "prevCtr": 0.05429864253393665,
+      "thisPosition": 16.19704433497537,
+      "prevPosition": 12.452488687782806
+    },
+    "topQueries": [
+      {
+        "query": "総合技術監理部門",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 7
+      },
+      {
+        "query": "総監キーワード2026",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 7.6
+      },
+      {
+        "query": "bcm bcp",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 92
+      },
+      {
+        "query": "bcm bcp 違い",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 95
+      },
+      {
+        "query": "bcp bcm",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 87
+      },
+      {
+        "query": "bcp/bcm",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "bcpとbcmの違いは何ですか",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 99
+      },
+      {
+        "query": "business continuity management",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 89
+      },
+      {
+        "query": "conformity bias",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "query": "doboku",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 11
+      }
+    ]
+  },
+  "notes": [
+    "GSC データは 3 日遅延のため、直近期間は 2026-04-18 〜 2026-04-24 を採用",
+    "NSM = Organic Search の activeUsers (definition.md 準拠)",
+    "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
+    "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）"
+  ]
+}
