@@ -83,11 +83,22 @@ function getCredentials() {
 
 // ── GA4 ───────────────────────────────────────────────────────────
 
-async function fetchGa4Weekly(credentials, ranges) {
+async function fetchGa4Weekly(credentials, ranges, opts = {}) {
   const propertyId = process.env.GA4_PROPERTY_ID;
   if (!propertyId) throw new Error("GA4_PROPERTY_ID 未設定");
 
   const client = new BetaAnalyticsDataClient({ credentials });
+
+  // bot 流入対策: country=Japan に絞り込めるオプション。
+  // .claude/reference/measurement-incidents.md 2026-04-26 incident 参照。
+  const dimensionFilter = opts.country
+    ? {
+        filter: {
+          fieldName: "country",
+          stringFilter: { matchType: "EXACT", value: opts.country },
+        },
+      }
+    : undefined;
 
   // 期間比較: 2 つの dateRanges を渡すと、行ごとに dateRange ごとの metric が返る
   const [response] = await client.runReport({
@@ -102,6 +113,7 @@ async function fetchGa4Weekly(credentials, ranges) {
       { name: "sessions" },
       { name: "engagementRate" },
     ],
+    ...(dimensionFilter ? { dimensionFilter } : {}),
     limit: 20,
   });
 
@@ -283,9 +295,12 @@ export async function fetchWeeklyNsmMetrics() {
   const credentials = getCredentials();
   const ranges = computeWeekRanges();
 
-  const [ga4, gsc, psi] = await Promise.all([
+  const [ga4, ga4Jp, gsc, psi] = await Promise.all([
     fetchGa4Weekly(credentials, ranges.ga4).catch((e) => ({
       error: `GA4 取得失敗: ${e.message}`,
+    })),
+    fetchGa4Weekly(credentials, ranges.ga4, { country: "Japan" }).catch((e) => ({
+      error: `GA4 (Japan) 取得失敗: ${e.message}`,
     })),
     fetchGscWeekly(credentials, ranges.gsc).catch((e) => ({
       error: `GSC 取得失敗: ${e.message}`,
@@ -297,11 +312,13 @@ export async function fetchWeeklyNsmMetrics() {
     generated_at: new Date().toISOString(),
     ranges,
     ga4,
+    ga4_jp: ga4Jp,
     psi,
     gsc,
     notes: [
       `GSC データは 3 日遅延のため、直近期間は ${ranges.gsc.this.start} 〜 ${ranges.gsc.this.end} を採用`,
       "NSM = Organic Search の activeUsers (definition.md 準拠)",
+      "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
       "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）",
     ],
   };
@@ -353,6 +370,30 @@ export function formatNsmSection(metrics) {
       );
     }
     lines.push("");
+  }
+
+  // GA4 (Japan only) — bot 流入を除いた実ユーザー寄りの母数
+  if (metrics.ga4_jp) {
+    if (metrics.ga4_jp.error) {
+      lines.push(`⚠️ GA4 (Japan): ${metrics.ga4_jp.error}`);
+      lines.push("");
+    } else {
+      lines.push("### GA4 (Japan only / bot 影響を抑えた母数)");
+      lines.push("");
+      lines.push("| 指標 | 今週 | 前週 | 増減 |");
+      lines.push("|---|---:|---:|---:|");
+      const t = metrics.ga4_jp.total;
+      lines.push(
+        `| 全体 activeUsers (JP) | ${t.thisUsers} | ${t.prevUsers} | ${fmtDelta(t.userDelta, t.userDeltaPct)} |`,
+      );
+      if (metrics.ga4_jp.organic) {
+        const o = metrics.ga4_jp.organic;
+        lines.push(
+          `| **Organic Search users (JP, ★NSM)** | **${o.thisUsers}** | ${o.prevUsers} | ${fmtDelta(o.userDelta, o.userDeltaPct)} |`,
+        );
+      }
+      lines.push("");
+    }
   }
 
   // GSC

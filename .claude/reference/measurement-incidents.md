@@ -4,6 +4,66 @@
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-04-26: GA4 direct US bot スパイクと weekly-metrics 母数汚染
+
+### 現象
+
+2026-W17（4/20–4/26）の GA4 weekly metrics で、**direct activeUsers が w/e 04-26 で 102（前週 49 / 4 週平均 41 から +2.5x）に急増**。同時に bing source も 126 users（前週 72）と高水準。
+
+| 週末 | bing | google | (direct) |
+|---|---:|---:|---:|
+| 04-12 | 6 | 4 | 10 |
+| 04-19 | 72 | 11 | 49 |
+| **04-26** | **126** | **30** | **102** |
+
+### 根本原因（bot 流入）
+
+過去 14 日の direct を切り分けた結果、**ほぼ bot 由来**:
+
+| 指標 | 値 | 解釈 |
+|---|---:|---|
+| 国別 United States | 88 / 130 (68%) | 日本語の土木試験対策サイトに US から direct = bot |
+| 国別 Japan | 21 | これがおそらく実ユーザー |
+| 国別 (not set) | 23 | 国判定不能 = bot 典型 |
+| device | desktop 130 / mobile 8 (94%) | 受験者は mobile 主体のはず |
+| landing | `/` ホーム直行 76 (59%) | 検索由来なら個別記事に着地 |
+| 日次 4/24→25→26 | 12→25→32 | 2 日で 2.6 倍のスパイク |
+
+`mobilesecurity.trendmicro.com` のスキャナー referral が source 上位に出ており、bot トラフィックが現に到達している。先行する 2026-04-25 Cloudflare Bot incident と時期が一致。Bing source も同様の bot 疑いを残す（過去 28 日 bing 338 / google 41 という日本語サイトとして異常な比率）。
+
+### 検出経緯（致命度: 中）
+
+- ユーザーから「ダイレクトが増えている理由は」と問われたことが起点
+- 通常の weekly-metrics サイクルでは「direct +108%」を **トラフィック増の好シグナル** として誤読する設計欠陥が露呈
+- GA4 source 単独では bot/human を区別できないため、country × device × landing を交差させて初めて bot 確定
+
+### 影響範囲
+
+- weekly metrics の direct/bing/google 比率が歪み、**実ユーザー動向の判断を汚染**
+- Bing Webmaster Tools 登録（2026-04-27, Issue #173）の効果計測も、実ユーザー流入かボット流入かで意味が逆転する
+- 過去の weekly-metrics スナップショット（2026-W14 以降）にも同種の bot が混入していた可能性。retroactive な再評価が必要
+
+### 適用した対策
+
+- Issue [#172](https://github.com/uruhayato373/doboku-note/issues/172) を起票（weekly-pdca, Umbrella #82 配下）
+- Issue [#173](https://github.com/uruhayato373/doboku-note/issues/173) で Bing Webmaster データと GA4 bing source の整合性確認を計画
+- `weekly-metrics` 集計を **Japan フィルタ版に切り替える方針** を提示（実装は #172 で追跡）
+
+### 教訓
+
+1. **「source 別 user 数」の単純な前週比だけでは bot/human を区別できない**。country × device × landing を最低限の判定ディメンションとして併用する
+2. **日本語ニッチサイトで US が direct トップは即 bot 疑い**。地理的な需要分布と乖離する流入はまず計測ノイズと仮定する
+3. **Cloudflare Bot Fight Mode は完全防御ではない**。Validator 系 UA は弾くが、direct 計上される自動化トラフィックは通過する。GA4 母数の Japan フィルタ運用が現実的な救済策
+4. **「増えた = 良い」を起点に分析しない**。スパイクは「実ユーザー増」「bot 増」「計測バグ」「重複 utm」のどれかで、最頻値は後ろ 3 つ
+5. **新たな計測ツール導入時（Bing Webmaster 等）は、最初に bot/human の比率を確認してから施策効果計測に進む**。計測ツール側の数字が「実ユーザー」基準になっていないと施策評価が成立しない
+
+### 関連
+
+- Issue [#172](https://github.com/uruhayato373/doboku-note/issues/172) - Bot inflation incident（追跡中）
+- Issue [#173](https://github.com/uruhayato373/doboku-note/issues/173) - Bing Webmaster 運用追跡
+- Umbrella [#82](https://github.com/uruhayato373/doboku-note/issues/82) - Weekly Metrics PDCA
+- 2026-04-25 Cloudflare Bot incident（同根の可能性、本ファイル下方）
+
 ## 2026-04-25: Cloudflare Bot 保護で外部 RSS/Atom Validator が 403
 
 ### 現象

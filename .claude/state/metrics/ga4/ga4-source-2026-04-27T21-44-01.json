@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "startDate": "2026-03-30",
+    "endDate": "2026-04-26",
+    "dimension": "source",
+    "dimensionApiName": "sessionSource",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 30,
+    "organicOnly": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "activeUsers": 338,
+      "sessions": 452,
+      "screenPageViewsPerSession": 2.2411504424778763,
+      "averageSessionDuration": 272.7215550818584,
+      "engagementRate": 0.5508849557522124,
+      "bounceRate": 0.4491150442477876
+    },
+    {
+      "source": "(direct)",
+      "activeUsers": 179,
+      "sessions": 244,
+      "screenPageViewsPerSession": 2.9549180327868854,
+      "averageSessionDuration": 308.21546861885247,
+      "engagementRate": 0.5860655737704918,
+      "bounceRate": 0.4139344262295082
+    },
+    {
+      "source": "google",
+      "activeUsers": 41,
+      "sessions": 65,
+      "screenPageViewsPerSession": 5.153846153846154,
+      "averageSessionDuration": 313.4548858769231,
+      "engagementRate": 0.5692307692307692,
+      "bounceRate": 0.4307692307692308
+    },
+    {
+      "source": "yahoo",
+      "activeUsers": 12,
+      "sessions": 18,
+      "screenPageViewsPerSession": 3.2222222222222223,
+      "averageSessionDuration": 623.0608807777777,
+      "engagementRate": 0.8333333333333334,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "source": "copilot.com",
+      "activeUsers": 6,
+      "sessions": 11,
+      "screenPageViewsPerSession": 4.909090909090909,
+      "averageSessionDuration": 556.8415679090908,
+      "engagementRate": 0.5454545454545454,
+      "bounceRate": 0.45454545454545453
+    },
+    {
+      "source": "openai",
+      "activeUsers": 5,
+      "sessions": 5,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 36.0433926,
+      "engagementRate": 0.6,
+      "bounceRate": 0.4
+    },
+    {
+      "source": "search.google.com",
+      "activeUsers": 2,
+      "sessions": 8,
+      "screenPageViewsPerSession": 4.5,
+      "averageSessionDuration": 588.997746375,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "source": "chatgpt.com",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "source": "cn.bing.com",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 22.418982,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "source": "duckduckgo",
+      "activeUsers": 1,
+      "sessions": 3,
+      "screenPageViewsPerSession": 0.6666666666666666,
+      "averageSessionDuration": 9.811946333333333,
+      "engagementRate": 0.3333333333333333,
+      "bounceRate": 0.6666666666666666
+    },
+    {
+      "source": "github.com",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 4.5,
+      "averageSessionDuration": 288.8930935,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "source": "mobilesecurity.trendmicro.com",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 4,
+      "averageSessionDuration": 41.525489,
+      "engagementRate": 1,
+      "bounceRate": 0
+    }
+  ]
+}
