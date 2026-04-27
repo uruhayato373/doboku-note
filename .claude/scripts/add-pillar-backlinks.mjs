@@ -128,7 +128,7 @@ function processFile(filePath, area) {
   }
 
   // 挿入する文字列
-  const insertion = `> 📘 **[${pillar.label} ピラーガイド](/docs/${pillar.slug})** — ${pillar.sub}`;
+  const insertion = `> 📘 **[${pillar.label} 学習ガイド](/docs/${pillar.slug})** — ${pillar.sub}`;
 
   // 「## 総合技術監理における位置づけ」セクションの直下に挿入
   // セクションが無い場合は body 末尾（最初の <RelatedKeywords> または "## 参考資料" の前）に追加
