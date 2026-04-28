@@ -73,6 +73,9 @@ public/posts
 # exam-keyword-cycle Umbrella Issue drafts (ephemeral, regenerable)
 .claude/state/exam-keyword-cycles/umbrella-drafts/*.md
 
+# Claude Code harness runtime state（マシンごとに生成される lock ファイル）
+.claude/scheduled_tasks.lock
+
 # Obsidian - individual workspace/session state（各 PC 固有、同期不要）
 # コア設定（app.json 等）・プラグイン本体・アイコン素材は引き続き追跡する
 .obsidian/workspace.json
