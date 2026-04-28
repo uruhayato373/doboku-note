@@ -45,6 +45,15 @@ dateModified: 2026-04-20
 | **4. 多数回の反復** | 上記試行を数千〜数万回繰り返す（大数の法則により試行回数が多いほど精度が向上） |
 | **5. 統計分析** | 得られた結果の分布・平均・分散・信頼区間等を分析する |
 
+### シミュレーション結果の典型的な表示
+
+業務管理（特にスケジュール管理）では、結果を**累積完了確率の S 字曲線**として提示することが多い。横軸が作業完了日数、縦軸が累積完了可能性（0〜100%）で、特定日数までに完了する確率や、目標確率に対応する所要日数を読み取れる。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/monte-carlo-simulation/img/monte-carlo-s-curve.svg"
+  alt="モンテカルロ結果 S 字累積確率カーブ：作業完了日数 × 累積可能性で目標確率に対する所要日数を読み取る"
+/>
+
 ## 確定的手法との比較
 
 確率的手法であるモンテカルロシミュレーションと、線形計画法に代表される確定的手法の主な違いを以下に整理する。
@@ -67,6 +76,15 @@ dateModified: 2026-04-20
 | **投資評価** | NPVの確率分布、投資のリスク・リターン分析 |
 | **信頼性工学** | システム故障確率の推定 |
 
+## 総合技術監理における位置づけ
+
+
+> 📘 **[経済性管理 学習ガイド](/docs/pe-comprehensive-management-economic-management-pillar)** — 7 サブカテゴリの体系・頻出論点・学習導線
+
+総合技術監理キーワード集では[**2.7 計画・管理の数理的手法**](/docs/pe-comprehensive-management-keyword-2026#27-計画・管理の数理的手法)に位置づけられている。
+
+モンテカルロシミュレーションは[線形計画法](/docs/pe-comprehensive-management-linear-programming)（確定的手法）や[ゲーム理論](/docs/pe-comprehensive-management-game-theory)（戦略的分析）とともに、数理的手法の代表例として出題される。不確実性下での意思決定を支援する手法として、[デルファイ法](/docs/pe-comprehensive-management-delphi-method)（専門家の主観的判断）とも対比される。
+
 <ExamPoint
   summary="モンテカルロシミュレーションは乱数を用いた確率的手法（R07出題）"
   items={[
@@ -76,15 +94,6 @@ dateModified: 2026-04-20
     "線形計画法（確定的手法）・デルファイ法（主観的手法）との違いを整理",
   ]}
 />
-
-## 総合技術監理における位置づけ
-
-
-> 📘 **[経済性管理 学習ガイド](/docs/pe-comprehensive-management-economic-management-pillar)** — 7 サブカテゴリの体系・頻出論点・学習導線
-
-総合技術監理キーワード集では[**2.7 計画・管理の数理的手法**](/docs/pe-comprehensive-management-keyword-2026#27-計画・管理の数理的手法)に位置づけられている。
-
-モンテカルロシミュレーションは[線形計画法](/docs/pe-comprehensive-management-linear-programming)（確定的手法）や[ゲーム理論](/docs/pe-comprehensive-management-game-theory)（戦略的分析）とともに、数理的手法の代表例として出題される。不確実性下での意思決定を支援する手法として、[デルファイ法](/docs/pe-comprehensive-management-delphi-method)（専門家の主観的判断）とも対比される。
 
 ## 発展の背景と建設分野での応用
 
