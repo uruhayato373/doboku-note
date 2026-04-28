@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="670" viewBox="0 0 1280 670">
+  <!-- 背景 -->
+  <rect width="1280" height="670" fill="#ffffff"/>
+  <!-- 上部ブランドバンド -->
+  <rect width="1280" height="90" fill="#e8f0fe"/>
+  <!-- 左縦アクセント -->
+  <rect x="0" y="0" width="14" height="670" fill="#2e6da4"/>
+
+  <!-- ブランド名 -->
+  <text x="60" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#1a3a5c">doboku-note</text>
+  <!-- カテゴリタグ -->
+  <text x="1220" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#2e6da4" text-anchor="end">技術士 総合技術監理部門</text>
+
+  
+
+  <!-- メインタイトル -->
+  
+  <text x="60" y="366" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="72" font-weight="800" fill="#222222" letter-spacing="-1">総監記述式 出題傾向の変遷マップ</text>
+
+  <!-- サブタイトル -->
+  
+  <text x="60" y="436" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="500" fill="#555555">H21〜R07 17年分を3期に区分して読み解く完全ガイド</text>
+</svg>
