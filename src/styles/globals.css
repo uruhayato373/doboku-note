@@ -132,9 +132,9 @@
     @apply prose prose-gray dark:prose-invert max-w-none;
   }
 
-  /* 本文: Zenn準拠 font-size 17px / line-height 1.9 */
+  /* 本文: Zenn準拠 font-size 16px / line-height 1.9 */
   .prose-blog {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.9;
     text-autospace: normal;
   }
