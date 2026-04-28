@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-04-27T21:38:43.509Z",
+  "generated_at": "2026-04-28T08:14:48.151Z",
   "summary": {
-    "total": 780,
-    "published": 775,
+    "total": 785,
+    "published": 780,
     "unpublished": 5,
     "by_category": {
       "civil-construction-1": 81,
-      "pe-comprehensive-management": 694
+      "pe-comprehensive-management": 699
     }
   },
   "docs": {
@@ -2858,7 +2858,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "警戒レベル ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-all-hazard-approach": {
       "title": "オールハザードアプローチ",
@@ -2877,7 +2877,7 @@
       "revisionCycle": 1,
       "seoTitle": "オールハザードアプローチ ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-alps-treated-water": {
       "title": "ALPS処理水",
@@ -2934,7 +2934,7 @@
       "lastRewrittenAt": "2026-04-15T00:00:00.000Z",
       "revisionCycle": 1,
       "seoTitle": "階層分析法（階層化意思決定法：AHP） ｜ 総合技術監理 キーワード集 2026",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-annual-salary-system": {
       "title": "年俸制",
@@ -3482,7 +3482,8 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境税・カーボンプライシング ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28",
+      "lastRewrittenAt": "2026-04-28"
     },
     "pe-comprehensive-management-career-ownership": {
       "title": "キャリアオーナーシップ",
@@ -3721,7 +3722,8 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "サーキュラーエコノミー ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28",
+      "lastRewrittenAt": "2026-04-28"
     },
     "pe-comprehensive-management-circular-society-basic-act": {
       "title": "循環型社会形成推進基本法",
@@ -3737,10 +3739,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "循環型社会形成推進基本法 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-cites": {
       "title": "ワシントン条約（CITES）",
@@ -3808,6 +3810,25 @@
       "created": "2026-04-05",
       "dateModified": "2026-04-27"
     },
+    "pe-comprehensive-management-climate-change-adaptation-act": {
+      "title": "気候変動適応法",
+      "description": "気候変動適応法の制度（適応計画 / 地域適応センター）と異常気象（ヒートアイランド / 流域治水 / ハザードマップ / 警戒レベル / グリーンインフラ）の適応策を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-04-28",
+      "seoTitle": "気候変動適応法 ｜ 総合技術監理 キーワード集 2026",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-28",
+      "revisionCycle": 1,
+      "created": "2026-04-28",
+      "dateModified": "2026-04-28"
+    },
     "pe-comprehensive-management-climate-change-decarbonization": {
       "title": "気候変動・脱炭素社会",
       "description": "脱炭素社会の実現に向けた国内法制度・政策を解説。地球温暖化対策推進法、GX、カーボンニュートラル、CCS、Scope1/2/3等。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リン。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
@@ -3819,13 +3840,13 @@
         "keyword"
       ],
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-16",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 1,
       "published": true,
       "publishedAt": "2026-04-08",
       "seoTitle": "気候変動・脱炭素社会 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-climate-change-international": {
       "title": "気候変動・国際対応",
@@ -3841,10 +3862,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "気候変動・国際対応 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-16",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-cloud-on-premises": {
       "title": "クラウドコンピューティング／オンプレミス",
@@ -3901,7 +3922,7 @@
       "revisionCycle": 1,
       "seoTitle": "クラスター分析 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-collective-intelligence": {
       "title": "集合知",
@@ -3958,7 +3979,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "コミュニケーション・コントロール ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-communication-planning": {
       "title": "コミュニケーション計画",
@@ -3977,7 +3998,7 @@
       "lastRewrittenAt": "2026-04-16",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-competency-evaluation": {
       "title": "能力考課",
@@ -4239,7 +4260,7 @@
       "revisionCycle": 1,
       "seoTitle": "著作権（著作権法） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-corrective-maintenance": {
       "title": "事後保全",
@@ -4370,7 +4391,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "危機広報 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-crisis-management-manual": {
       "title": "危機管理マニュアル",
@@ -4607,7 +4628,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "データマイニング ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-data-visualization": {
       "title": "データ可視化",
@@ -4851,7 +4872,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "記述統計 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-design-for-environment": {
       "title": "環境適合設計",
@@ -4936,7 +4957,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "意匠権（意匠法） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-design-thinking": {
       "title": "デザイン思考",
@@ -5481,7 +5502,7 @@
       "shortTitle": "経済性管理",
       "subtitle": "事業企画・品質・工程・原価・財務・設備・数理的手法の 7 カテゴリを横断",
       "category": "pe-comprehensive-management",
-      "group": "guide",
+      "group": "pillar",
       "section": "2",
       "tags": [
         "総合技術監理",
@@ -5659,7 +5680,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "緊急時情報システム・サービス ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-emergency-stop-device": {
       "title": "非常停止装置",
@@ -5796,10 +5817,10 @@
       "published": true,
       "publishedAt": "2026-04-08",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
+      "lastRewrittenAt": "2026-04-28",
       "seoTitle": "エネルギー ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-enterprise-portal-intranet": {
       "title": "企業内ポータル・イントラネット",
@@ -5833,7 +5854,29 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境会計 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28",
+      "lastRewrittenAt": "2026-04-28T10:00:00.000Z",
+      "reviewStatus": "needs-review",
+      "revisionCycle": 1
+    },
+    "pe-comprehensive-management-environmental-basic-act": {
+      "title": "環境基本法",
+      "description": "環境基本法の基本理念・各主体の責務・施策・5 つの基本原則（予防・順応・源流・協働・補完）を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "6.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-04-28",
+      "seoTitle": "環境基本法 ｜ 総合技術監理 キーワード集 2026",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-04-28",
+      "revisionCycle": 1,
+      "created": "2026-04-28",
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-environmental-basic-plan": {
       "title": "環境基本計画",
@@ -5847,11 +5890,11 @@
       "published": true,
       "publishedAt": "2026-04-06",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 1,
       "seoTitle": "環境基本計画 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-environmental-communication": {
       "title": "環境コミュニケーション",
@@ -5866,7 +5909,8 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境コミュニケーション ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28",
+      "lastRewrittenAt": "2026-04-28"
     },
     "pe-comprehensive-management-environmental-impact-assessment": {
       "title": "環境影響評価法",
@@ -5896,7 +5940,8 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境基準 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28",
+      "lastRewrittenAt": "2026-04-28"
     },
     "pe-comprehensive-management-equal-employment-act": {
       "title": "男女雇用機会均等法",
@@ -6091,11 +6136,11 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 1,
       "seoTitle": "ESG投資・ESG金融 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-essay-exam-strategy": {
       "title": "総合技術監理部門 記述式試験の解答戦略",
@@ -6152,7 +6197,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "推定・検定 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-eta": {
       "title": "イベントツリー分析（ETA）",
@@ -6170,7 +6215,7 @@
       "lastRewrittenAt": "2026-04-18",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-evaluation-bias": {
       "title": "バイアス",
@@ -6287,7 +6332,7 @@
       "published": true,
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "総合技術監理部門 合格戦略 — トレードオフ思考と学習計画 | doboku-note",
-      "dateModified": "2026-04-25",
+      "dateModified": "2026-04-28",
       "faqs": [
         {
           "q": "総監で合格を分ける最大の思考方法は？",
@@ -6343,7 +6388,8 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "拡大生産者責任（EPR） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28",
+      "lastRewrittenAt": "2026-04-28"
     },
     "pe-comprehensive-management-extreme-events": {
       "title": "極端現象",
@@ -6577,7 +6623,7 @@
       "lastRewrittenAt": "2026-04-18",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-followership": {
       "title": "フォロワーシップ",
@@ -6814,7 +6860,7 @@
       "revisionCycle": 2,
       "seoTitle": "フォールトツリー分析（FTA） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-functional-organization": {
       "title": "職能別組織",
@@ -7066,7 +7112,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "グループウェア ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-h21-primary": {
       "title": "技術士二次試験 総合技術監理部門 平成21年度 択一式",
@@ -7533,7 +7579,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "HAZOP ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-health-management": {
       "title": "健康経営",
@@ -7585,7 +7631,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-herzberg-two-factor-theory": {
       "title": "ハーズバーグの二要因理論",
@@ -7732,7 +7778,7 @@
       "lastRewrittenAt": "2026-04-18",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-human-factors": {
       "title": "ヒューマンファクタ",
@@ -7748,6 +7794,22 @@
       "seoTitle": "ヒューマンファクタ ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
       "dateModified": "2026-04-27"
+    },
+    "pe-comprehensive-management-human-relations-management": {
+      "title": "人間関係管理",
+      "description": "人間関係管理の概念と理論的源流。ホーソン実験・非公式組織・組織文化・アッシュ同調実験・心理的安全性を統合した人材活用計画の基礎。技術士総合技術監理キーワード集2026（人的資源管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-04-28",
+      "seoTitle": "人間関係管理 ｜ 総合技術監理 キーワード集 2026",
+      "created": "2026-04-05",
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-human-resource-assessment": {
       "title": "人材アセスメント",
@@ -7770,7 +7832,7 @@
       "shortTitle": "人的資源管理",
       "subtitle": "人の行動と組織・労働関係法・人材活用・人材開発の 4 カテゴリを横断",
       "category": "pe-comprehensive-management",
-      "group": "guide",
+      "group": "pillar",
       "section": "3",
       "tags": [
         "総合技術監理",
@@ -7933,7 +7995,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-income-statement": {
       "title": "損益計算書（P/L）",
@@ -8042,7 +8104,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "産業財産権 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-infectious-disease-pandemic": {
       "title": "感染症・パンデミック",
@@ -8103,7 +8165,7 @@
       "shortTitle": "情報管理",
       "subtitle": "情報分析・コミュニケーション・知財・ICT 動向・情報セキュリティの 5 カテゴリを横断",
       "category": "pe-comprehensive-management",
-      "group": "guide",
+      "group": "pillar",
       "section": "4",
       "tags": [
         "総合技術監理",
@@ -8211,7 +8273,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "インプット指標 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-inspection-methods": {
       "title": "全数検査／抜取検査",
@@ -8620,11 +8682,11 @@
       "published": true,
       "publishedAt": "2026-04-06",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-19",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 4,
       "seoTitle": "ISO 14000シリーズ ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-iso-26000": {
       "title": "ISO 26000",
@@ -8748,7 +8810,7 @@
       "revisionCycle": 1,
       "seoTitle": "職務設計 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-job-execution-ability": {
       "title": "職務遂行能力",
@@ -8890,7 +8952,7 @@
       "revisionCycle": 1,
       "seoTitle": "知識共有化 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-kunming-montreal-framework": {
       "title": "昆明・モントリオール生物多様性枠組",
@@ -8947,6 +9009,22 @@
       "revisionCycle": 1,
       "created": "2026-04-05",
       "dateModified": "2026-04-27"
+    },
+    "pe-comprehensive-management-labor-cost-ratio": {
+      "title": "労務費率",
+      "description": "労務費率の定義と計算式、建設業の労災保険料算定における役割を解説。技術士総合技術監理キーワード集2026（人的資源管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-04-28",
+      "seoTitle": "労務費率 ｜ 総合技術監理 キーワード集 2026",
+      "created": "2026-04-28",
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-labor-mobility": {
       "title": "人材流動化",
@@ -9165,7 +9243,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "ライフサイクルアセスメント ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28",
+      "lastRewrittenAt": "2026-04-28T10:00:00.000Z",
+      "reviewStatus": "needs-review",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-lifecycle-costing-method": {
       "title": "ライフサイクルコスティング",
@@ -9247,7 +9328,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "線形回帰と最小二乗法 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-liquefaction": {
       "title": "液状化現象",
@@ -9311,7 +9392,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-logistic-regression": {
       "title": "ロジスティック回帰",
@@ -9549,7 +9630,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-mass-communication": {
       "title": "マス・コミュニケーション",
@@ -9568,7 +9649,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-master-schedule-planning": {
       "title": "大日程計画・中日程計画・小日程計画",
@@ -9683,7 +9764,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "メンタルヘルス ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-mental-health-care": {
       "title": "メンタルヘルスケア",
@@ -9845,7 +9926,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "モンテカルロシミュレーション ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-multi-factor-authentication": {
       "title": "多要素認証",
@@ -9901,7 +9982,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-my-number-act": {
       "title": "マイナンバー法",
@@ -10189,7 +10270,7 @@
       "revisionCycle": 2,
       "seoTitle": "職業病 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-occupational-safety-act": {
       "title": "労働安全衛生法",
@@ -10402,7 +10483,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "アウトカム指標 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-output-indicators": {
       "title": "アウトプット指標",
@@ -10420,7 +10501,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "アウトプット指標 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-overall-equipment-effectiveness": {
       "title": "設備総合効率",
@@ -10557,7 +10638,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "特許権（特許法） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-payback-period-method": {
       "title": "回収期間法",
@@ -10766,7 +10847,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "パーソナル・コミュニケーション ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-personal-info-protection": {
       "title": "個人情報の保護措置",
@@ -10801,7 +10882,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "個人情報の活用・流通 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-personal-information": {
       "title": "個人情報",
@@ -10926,11 +11007,11 @@
       "published": true,
       "publishedAt": "2026-04-08",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 1,
       "seoTitle": "プラネタリー・バウンダリー（地球の限界） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-planned-usage-period": {
       "title": "使用計画期間",
@@ -10965,7 +11046,7 @@
       "publishedAt": "2026-04-07",
       "seoTitle": "PM理論 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-03",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-pmbok": {
       "title": "PMBOK",
@@ -10997,11 +11078,11 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 1,
       "seoTitle": "汚染者負担原則（PPP） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-pollution-control-manager": {
       "title": "公害防止管理者",
@@ -11434,7 +11515,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "製造物責任法（PL法） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-product-safety": {
       "title": "製品安全",
@@ -11503,10 +11584,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "化管法／PRTR法 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-04-28T10:00:00.000Z",
+      "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-psychological-safety": {
       "title": "心理的安全性",
@@ -11662,7 +11743,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "QCサークル ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-quality-assurance": {
       "title": "品質保証",
@@ -12135,7 +12216,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "採用管理 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-red-list": {
       "title": "レッドリスト",
@@ -12457,7 +12538,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "リスク評価 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-03",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-risk-criteria": {
       "title": "リスク基準",
@@ -12709,7 +12790,7 @@
       "revisionCycle": 1,
       "seoTitle": "Safety2.0 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-safety-and-security": {
       "title": "安全／安心",
@@ -12929,7 +13010,7 @@
       "shortTitle": "安全管理",
       "subtitle": "安全の概念・リスクマネジメント・労安衛・未然防止・危機管理・システム安全工学の 6 カテゴリを横断",
       "category": "pe-comprehensive-management",
-      "group": "guide",
+      "group": "pillar",
       "section": "5",
       "tags": [
         "総合技術監理",
@@ -13111,10 +13192,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "持続可能な開発目標（SDGs） ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
+      "lastRewrittenAt": "2026-04-28",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-second-career": {
       "title": "セカンドキャリア",
@@ -13487,7 +13568,7 @@
       "shortTitle": "社会環境管理",
       "subtitle": "地球規模環境問題・地域環境問題・環境保全原則・組織の社会的責任の 4 カテゴリを横断",
       "category": "pe-comprehensive-management",
-      "group": "guide",
+      "group": "pillar",
       "section": "6",
       "tags": [
         "総合技術監理",
@@ -13869,7 +13950,7 @@
       "revisionCycle": 2,
       "seoTitle": "SWOT分析 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-system-availability": {
       "title": "可用性（Availability）",
@@ -14179,6 +14260,22 @@
       "created": "2026-04-05",
       "dateModified": "2026-04-27"
     },
+    "pe-comprehensive-management-telework": {
+      "title": "テレワーク",
+      "description": "テレワークの定義・3 形態（在宅・サテライト・モバイル）・労働法令の適用・労働時間制度・長時間労働防止策・BYOD とシンクライアント。技術士総合技術監理キーワード集2026（人的資源管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-04-28",
+      "seoTitle": "テレワーク ｜ 総合技術監理 キーワード集 2026",
+      "created": "2026-04-28",
+      "dateModified": "2026-04-28"
+    },
     "pe-comprehensive-management-temporary-works-plan": {
       "title": "仮設計画",
       "description": "仮設計画の定義と構成を解説。指定仮設と任意仮設、仮設構造物の設計、安全管理との連携。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
@@ -14368,7 +14465,7 @@
       "revisionCycle": 1,
       "seoTitle": "商標権（商標法） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-training-techniques": {
       "title": "教育訓練技法",
@@ -14510,7 +14607,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "不公正な取引方法 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-unreasonable-trade-restraint": {
       "title": "不当な取引制限",
@@ -14529,7 +14626,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "不当な取引制限 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-unsafe-conditions-behavior": {
       "title": "不安全状態・不安全行動",
@@ -14585,7 +14682,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "実用新案権（実用新案法） ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-utilization-rate": {
       "title": "稼働率",
@@ -14678,7 +14775,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "言語／非言語コミュニケーション ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-veteran-bias": {
       "title": "ベテランバイアス",
@@ -14854,7 +14951,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "廃棄物処理法 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-water-pollution-control-act": {
       "title": "水質汚濁防止法",
