@@ -1,0 +1,78 @@
+<svg width="400" height="340" viewBox="0 0 400 340"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="PM 理論の 4 象限図。縦軸が P 機能（目標達成機能）、横軸が M 機能（集団維持機能）。右上が PM 型（両機能強・最も効果的）、左上が Pm 型（成果重視・人望薄）、右下が pM 型（人望厚・成果弱）、左下が pm 型（両機能弱）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis-label { font-size: 11px; fill: #555; }
+      .t-axis-mark { font-size: 12px; fill: #555; }
+      .t-quad-name { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-quad-desc { font-size: 10px; fill: #1a3a5c; }
+      .quad-best { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .quad-mid { fill: #2e6da4; fill-opacity: 0.15; stroke: #2e6da4; stroke-width: 1.2; }
+      .quad-low { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.2; }
+    </style>
+    <marker id="arr-pm" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0 8, 8 4, 0 0" fill="#555" />
+    </marker>
+  </defs>
+
+  <!-- 4 象限の枠（グリッド） -->
+  <!-- 左上 Pm型 -->
+  <rect x="60" y="40" width="140" height="120" class="quad-mid" />
+  <!-- 右上 PM型（最も効果的） -->
+  <rect x="200" y="40" width="140" height="120" class="quad-best" />
+  <!-- 左下 pm型（最も低い） -->
+  <rect x="60" y="160" width="140" height="120" class="quad-low" />
+  <!-- 右下 pM型 -->
+  <rect x="200" y="160" width="140" height="120" class="quad-mid" />
+
+  <!-- 縦軸（P機能） -->
+  <line x1="200" y1="295" x2="200" y2="30" stroke="#555" stroke-width="1.5" marker-end="url(#arr-pm)" />
+  <!-- 横軸（M機能） -->
+  <line x1="50" y1="160" x2="350" y2="160" stroke="#555" stroke-width="1.5" marker-end="url(#arr-pm)" />
+
+  <!-- 軸目盛 -->
+  <text x="195" y="22" class="t-axis-mark" text-anchor="end">高</text>
+  <text x="195" y="305" class="t-axis-mark" text-anchor="end">低</text>
+  <text x="48" y="156" class="t-axis-mark" text-anchor="end">弱</text>
+  <text x="352" y="156" class="t-axis-mark" text-anchor="start">強</text>
+
+  <!-- 軸ラベル -->
+  <text x="200" y="14" class="t-axis-label" text-anchor="middle">P 機能（目標達成）</text>
+  <text x="370" y="170" class="t-axis-label" text-anchor="end">M 機能（集団維持）</text>
+
+  <!-- 左上: Pm型 -->
+  <text x="130" y="65" class="t-quad-name" text-anchor="middle">Pm 型</text>
+  <text x="130" y="85" class="t-quad-desc" text-anchor="middle">成果は上げるが</text>
+  <text x="130" y="100" class="t-quad-desc" text-anchor="middle">人望が薄く</text>
+  <text x="130" y="115" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
+  <text x="130" y="130" class="t-quad-desc" text-anchor="middle">のが苦手</text>
+
+  <!-- 右上: PM型（最も効果的） -->
+  <text x="270" y="65" class="t-quad-name" text-anchor="middle">PM 型</text>
+  <text x="270" y="85" class="t-quad-desc" text-anchor="middle">成果も人望もあり</text>
+  <text x="270" y="100" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
+  <text x="270" y="115" class="t-quad-desc" text-anchor="middle">力もある</text>
+  <text x="270" y="135" class="t-quad-desc" text-anchor="middle" font-weight="bold">最も効果的</text>
+
+  <!-- 左下: pm型 -->
+  <text x="130" y="190" class="t-quad-name" text-anchor="middle">pm 型</text>
+  <text x="130" y="210" class="t-quad-desc" text-anchor="middle">成果を上げる力も</text>
+  <text x="130" y="225" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
+  <text x="130" y="240" class="t-quad-desc" text-anchor="middle">力もいずれも</text>
+  <text x="130" y="255" class="t-quad-desc" text-anchor="middle">低い</text>
+
+  <!-- 右下: pM型 -->
+  <text x="270" y="190" class="t-quad-name" text-anchor="middle">pM 型</text>
+  <text x="270" y="210" class="t-quad-desc" text-anchor="middle">成果は弱いが</text>
+  <text x="270" y="225" class="t-quad-desc" text-anchor="middle">人望があり</text>
+  <text x="270" y="240" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
+  <text x="270" y="255" class="t-quad-desc" text-anchor="middle">力がある</text>
+
+  <!-- タイトル -->
+  <text x="200" y="325" class="t-title" text-anchor="middle">PM 理論の 4 象限</text>
+</svg>
