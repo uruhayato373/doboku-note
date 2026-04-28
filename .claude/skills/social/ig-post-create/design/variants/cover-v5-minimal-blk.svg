@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" role="img" aria-label="cover v5 minimal black">
+  <style>text{font-family:'Noto Sans JP','Hiragino Sans','Hiragino Kaku Gothic ProN',sans-serif;}</style>
+  <rect width="1080" height="1350" fill="#0a0a0a"/>
+  <text x="1000" y="64" text-anchor="end" font-size="22" fill="#666">01 / 07</text>
+
+  <!-- 細線アクセント -->
+  <line x1="80" y1="200" x2="200" y2="200" stroke="#d4a017" stroke-width="3"/>
+  <text x="80" y="250" font-size="22" fill="#d4a017" letter-spacing="6">FOLLOWERSHIP</text>
+
+  <!-- メイン -->
+  <text x="80" y="675" font-size="120" font-weight="200" fill="#ffffff" letter-spacing="-2">フォロワー</text>
+  <text x="80" y="805" font-size="120" font-weight="900" fill="#ffffff" letter-spacing="-2">シップ</text>
+
+  <line x1="80" y1="875" x2="1000" y2="875" stroke="#333" stroke-width="1"/>
+
+  <text x="80" y="945" font-size="32" font-weight="300" fill="#999">Robert E. Kelley, 1992</text>
+  <text x="80" y="995" font-size="32" font-weight="300" fill="#999">2 axes × 5 types.</text>
+
+  <text x="80" y="1262" font-size="26" font-weight="600" fill="#ffffff" letter-spacing="2">doboku-note</text>
+  <text x="80" y="1298" font-size="18" fill="#666">no.31 / 技術士総監</text>
+</svg>
