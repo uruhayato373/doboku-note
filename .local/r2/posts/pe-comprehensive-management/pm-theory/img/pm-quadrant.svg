@@ -10,7 +10,7 @@
       .t-axis-label { font-size: 11px; fill: #555; }
       .t-axis-mark { font-size: 12px; fill: #555; }
       .t-quad-name { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
-      .t-quad-desc { font-size: 10px; fill: #1a3a5c; }
+      .t-quad-desc { font-size: 11px; fill: #1a3a5c; }
       .quad-best { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .quad-mid { fill: #2e6da4; fill-opacity: 0.15; stroke: #2e6da4; stroke-width: 1.2; }
       .quad-low { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.2; }
@@ -46,32 +46,24 @@
   <text x="370" y="170" class="t-axis-label" text-anchor="end">M 機能（集団維持）</text>
 
   <!-- 左上: Pm型 -->
-  <text x="130" y="65" class="t-quad-name" text-anchor="middle">Pm 型</text>
-  <text x="130" y="85" class="t-quad-desc" text-anchor="middle">成果は上げるが</text>
-  <text x="130" y="100" class="t-quad-desc" text-anchor="middle">人望が薄く</text>
-  <text x="130" y="115" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
-  <text x="130" y="130" class="t-quad-desc" text-anchor="middle">のが苦手</text>
+  <text x="130" y="75" class="t-quad-name" text-anchor="middle">Pm 型</text>
+  <text x="130" y="100" class="t-quad-desc" text-anchor="middle">成果重視</text>
+  <text x="130" y="120" class="t-quad-desc" text-anchor="middle">人望が薄い</text>
 
   <!-- 右上: PM型（最も効果的） -->
-  <text x="270" y="65" class="t-quad-name" text-anchor="middle">PM 型</text>
-  <text x="270" y="85" class="t-quad-desc" text-anchor="middle">成果も人望もあり</text>
-  <text x="270" y="100" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
-  <text x="270" y="115" class="t-quad-desc" text-anchor="middle">力もある</text>
-  <text x="270" y="135" class="t-quad-desc" text-anchor="middle" font-weight="bold">最も効果的</text>
+  <text x="270" y="75" class="t-quad-name" text-anchor="middle">PM 型</text>
+  <text x="270" y="100" class="t-quad-desc" text-anchor="middle">成果・人望ともに高い</text>
+  <text x="270" y="125" class="t-quad-desc" text-anchor="middle" font-weight="bold">最も効果的</text>
 
   <!-- 左下: pm型 -->
-  <text x="130" y="190" class="t-quad-name" text-anchor="middle">pm 型</text>
-  <text x="130" y="210" class="t-quad-desc" text-anchor="middle">成果を上げる力も</text>
-  <text x="130" y="225" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
-  <text x="130" y="240" class="t-quad-desc" text-anchor="middle">力もいずれも</text>
-  <text x="130" y="255" class="t-quad-desc" text-anchor="middle">低い</text>
+  <text x="130" y="195" class="t-quad-name" text-anchor="middle">pm 型</text>
+  <text x="130" y="220" class="t-quad-desc" text-anchor="middle">成果・人望</text>
+  <text x="130" y="240" class="t-quad-desc" text-anchor="middle">いずれも低い</text>
 
   <!-- 右下: pM型 -->
-  <text x="270" y="190" class="t-quad-name" text-anchor="middle">pM 型</text>
-  <text x="270" y="210" class="t-quad-desc" text-anchor="middle">成果は弱いが</text>
-  <text x="270" y="225" class="t-quad-desc" text-anchor="middle">人望があり</text>
-  <text x="270" y="240" class="t-quad-desc" text-anchor="middle">集団をまとめる</text>
-  <text x="270" y="255" class="t-quad-desc" text-anchor="middle">力がある</text>
+  <text x="270" y="195" class="t-quad-name" text-anchor="middle">pM 型</text>
+  <text x="270" y="220" class="t-quad-desc" text-anchor="middle">人望は厚い</text>
+  <text x="270" y="240" class="t-quad-desc" text-anchor="middle">成果が弱い</text>
 
   <!-- タイトル -->
   <text x="200" y="325" class="t-title" text-anchor="middle">PM 理論の 4 象限</text>
