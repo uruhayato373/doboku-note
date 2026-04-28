@@ -327,8 +327,8 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* guide/secondary: カテゴリナビカード（モバイル） */}
-            {hasCategoryNavCard && category && (docGroup === 'guide' || docGroup === 'secondary' || docGroup === 'textbook') && (
+            {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
+            {hasCategoryNavCard && category && (docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'secondary' || docGroup === 'textbook') && (
               <div className="mt-8 zenn-desktop:hidden">
                 <CategoryNavCard
                   variant="mobile"

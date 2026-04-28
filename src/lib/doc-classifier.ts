@@ -5,11 +5,12 @@
  */
 import type { DocMeta } from './docs';
 
-export type DocGroupKey = 'guide' | 'textbook' | 'pastExam' | 'keyword' | 'primary' | 'secondary';
+export type DocGroupKey = 'guide' | 'pillar' | 'textbook' | 'pastExam' | 'keyword' | 'primary' | 'secondary';
 
 /** frontmatter の group 値 → DocGroupKey のマッピング */
 const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
   'guide': 'guide',
+  'pillar': 'pillar',
   'past-exam': 'pastExam',
   'keyword': 'keyword',
   'primary': 'primary',
@@ -17,7 +18,7 @@ const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
   'textbook': 'textbook',
 };
 
-const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pastExam', 'keyword'];
+const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pillar', 'pastExam', 'keyword'];
 const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
 
 export function classifyDoc(meta: DocMeta): DocGroupKey {
@@ -50,6 +51,7 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
 export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
   'pe-comprehensive-management': {
     guide: '試験概要',
+    pillar: '5 管理学習ガイド',
     pastExam: '過去問',
     keyword: 'キーワード',
   },
