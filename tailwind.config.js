@@ -113,7 +113,7 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
-            fontSize: '17px',
+            fontSize: '16px',
             lineHeight: '1.9',
             maxWidth: 'none',
             'p': {

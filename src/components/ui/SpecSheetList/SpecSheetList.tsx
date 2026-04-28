@@ -153,9 +153,6 @@ export default function SpecSheetList({
             <div className={styles.title} role="heading" aria-level={4}>
               {title}
             </div>
-            <span className={styles.count}>
-              {String(items.length).padStart(2, "0")} items
-            </span>
           </div>
           {subtitle && (
             <p className={styles.subtitle}>

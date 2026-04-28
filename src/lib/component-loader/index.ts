@@ -29,6 +29,7 @@ export async function getCommonComponents() {
     ReferenceLinks: (await import("@/components/ui/ReferenceLinks")).default,
     ExamContext: (await import("@/components/ui/ExamContext")).default,
     DataTable: (await import("@/components/ui/DataTable/DataTable")).default,
+    Nowrap: (await import("@/components/ui/Nowrap/Nowrap")).default,
     Underline: (await import("@/components/ui/Underline/Underline")).default,
     Timeline: (await import("@/components/ui/Timeline/Timeline")).default,
     ExamFields: (await import("@/components/ui/ExamFields/ExamFields")).default,
