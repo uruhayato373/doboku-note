@@ -40,12 +40,13 @@ function preprocessMDX(content: string): string {
 
     if (inCodeBlock || inMathBlock) continue;
 
-    // Track multi-line JSX component blocks (<Component ...\n...\n/>)
-    if (/^\s*<[A-Z]/.test(line)) {
-      // Self-closing on same line: <Component ... />
+    // Track multi-line JSX/HTML element blocks (<Component ...\n...\n/> or <img .../>)
+    // 小文字 HTML 要素（<img width={N} /> 等）も JSX 式属性を持つため同じ扱いにする
+    if (/^\s*<[a-zA-Z]/.test(line)) {
+      // Self-closing on same line: <Component ... /> / <img ... />
       if (/\/>\s*$/.test(line)) continue;
       // Opening+closing on same line: <Component ...>...</Component>
-      if (/>.*<\/[A-Z]/.test(line)) continue;
+      if (/>.*<\/[a-zA-Z]/.test(line)) continue;
       // Multi-line JSX starts here
       inJsxBlock = true;
       continue;
@@ -55,18 +56,18 @@ function preprocessMDX(content: string): string {
       if (/^\s*\/>/.test(trimmed)) {
         inJsxBlock = false;
       }
-      // End of JSX closing tag: </Component>
-      if (/^\s*<\/[A-Z]/.test(line)) {
+      // End of JSX closing tag: </Component> / </a>
+      if (/^\s*<\/[a-zA-Z]/.test(line)) {
         inJsxBlock = false;
       }
       continue;
     }
 
-    // Skip closing JSX tags
-    if (/^\s*<\/[A-Z]/.test(line)) continue;
+    // Skip closing JSX/HTML tags
+    if (/^\s*<\/[a-zA-Z]/.test(line)) continue;
 
-    // Skip lines containing inline JSX components (e.g., text<RelatedKeywords items={...} />text)
-    if (/<[A-Z]/.test(line)) continue;
+    // Skip lines containing inline JSX/HTML components (text<RelatedKeywords ... /> や <img width={N} />)
+    if (/<[a-zA-Z]/.test(line)) continue;
 
     // Skip lines with inline math $...$ (remark-math handles these)
     if (/\$[^$]+\$/.test(line)) continue;

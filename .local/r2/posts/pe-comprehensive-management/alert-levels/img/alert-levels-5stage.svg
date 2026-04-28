@@ -1,0 +1,60 @@
+<svg width="400" height="380" viewBox="0 0 400 380"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="災害警戒レベル 5 段階：レベル 5 緊急安全確保（既に災害発生）／レベル 4 避難指示（危険な場所から全員避難）／レベル 3 高齢者等避難／レベル 2 注意報・避難行動確認／レベル 1 早期注意情報。色は上層が赤系、下層が緑系で危険度を表す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-level-num-w { font-size: 22px; font-weight: bold; fill: #ffffff; }
+      .t-level-num-d { font-size: 22px; font-weight: bold; fill: #1a3a5c; }
+      .t-action-w { font-size: 12px; font-weight: bold; fill: #ffffff; }
+      .t-action-d { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc-w { font-size: 10px; fill: #ffffff; }
+      .t-desc-d { font-size: 10px; fill: #1a3a5c; }
+      .t-cap { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text x="200" y="22" class="t-title" text-anchor="middle">災害警戒レベル 5 段階</text>
+
+  <!-- レベル 5（最上位・既に災害発生）: danger -->
+  <rect x="20" y="40" width="360" height="55" fill="#b22234" stroke="#1a3a5c" stroke-width="0.8" />
+  <text x="48" y="74" class="t-level-num-w" text-anchor="middle">5</text>
+  <line x1="76" y1="50" x2="76" y2="85" stroke="#ffffff" stroke-width="0.8" />
+  <text x="86" y="62" class="t-action-w">緊急安全確保</text>
+  <text x="86" y="78" class="t-desc-w">既に災害発生／命を守る最善の行動</text>
+
+  <!-- レベル 4（避難指示）: danger fill-opacity 0.55 -->
+  <rect x="20" y="100" width="360" height="55" fill="#b22234" fill-opacity="0.55" stroke="#1a3a5c" stroke-width="0.8" />
+  <text x="48" y="134" class="t-level-num-w" text-anchor="middle">4</text>
+  <line x1="76" y1="110" x2="76" y2="145" stroke="#ffffff" stroke-width="0.8" />
+  <text x="86" y="122" class="t-action-w">避難指示</text>
+  <text x="86" y="138" class="t-desc-w">危険な場所から全員避難</text>
+
+  <!-- レベル 3（高齢者等避難）: warn -->
+  <rect x="20" y="160" width="360" height="55" fill="#d4a017" stroke="#1a3a5c" stroke-width="0.8" />
+  <text x="48" y="194" class="t-level-num-w" text-anchor="middle">3</text>
+  <line x1="76" y1="170" x2="76" y2="205" stroke="#ffffff" stroke-width="0.8" />
+  <text x="86" y="182" class="t-action-w">高齢者等避難</text>
+  <text x="86" y="198" class="t-desc-w">高齢者・要配慮者は立退き避難</text>
+
+  <!-- レベル 2（注意報・避難行動確認）: warn-fill -->
+  <rect x="20" y="220" width="360" height="55" fill="#fff3cd" stroke="#1a3a5c" stroke-width="0.8" />
+  <text x="48" y="254" class="t-level-num-d" text-anchor="middle">2</text>
+  <line x1="76" y1="230" x2="76" y2="265" stroke="#1a3a5c" stroke-width="0.8" />
+  <text x="86" y="242" class="t-action-d">注意報・避難行動確認</text>
+  <text x="86" y="258" class="t-desc-d">ハザードマップ等で避難経路を再確認</text>
+
+  <!-- レベル 1（早期注意情報）: positive-fill -->
+  <rect x="20" y="280" width="360" height="55" fill="#d0e8d0" stroke="#1a3a5c" stroke-width="0.8" />
+  <text x="48" y="314" class="t-level-num-d" text-anchor="middle">1</text>
+  <line x1="76" y1="290" x2="76" y2="325" stroke="#1a3a5c" stroke-width="0.8" />
+  <text x="86" y="302" class="t-action-d">早期注意情報</text>
+  <text x="86" y="318" class="t-desc-d">最新の防災気象情報に注意</text>
+
+  <!-- 出典 -->
+  <text x="380" y="365" class="t-cap" text-anchor="end">出典：避難情報に関するガイドライン（内閣府）</text>
+</svg>
