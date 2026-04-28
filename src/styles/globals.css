@@ -301,6 +301,14 @@
     border-bottom: 1px solid var(--rule-soft);
   }
 
+  /* MDX 表の最初列 = ラベル列という慣習に基づき、デフォルトで折り返さない。
+     例外（最初列に長文が来る表）は対象 td に opt-out クラスを付与するか
+     <Nowrap> を中立列で使う。詳細は CLAUDE.md / Nowrap コンポーネント README 参照。 */
+  .prose-blog table thead th:first-child,
+  .prose-blog table tbody td:first-child {
+    white-space: nowrap;
+  }
+
   .prose-blog tbody tr:last-child td {
     border-bottom: none;
   }

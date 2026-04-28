@@ -16,6 +16,7 @@ export const commonComponents = {
   ReferenceLinks: "ReferenceLinks",
   ExamContext: "ExamContext",
   DataTable: "DataTable",
+  Nowrap: "Nowrap",
   Underline: "Underline",
   AuthorCallout: "AuthorCallout",
   Timeline: "Timeline",
