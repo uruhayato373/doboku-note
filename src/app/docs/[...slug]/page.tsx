@@ -23,6 +23,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
+import PillarNavCard from '@/components/ui/PillarNavCard';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
 import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
@@ -218,6 +219,8 @@ export default async function DocPage({
   // Determine page classification for navigation cards
   const docGroup = classifyDoc(doc.meta);
   const hasCategoryNavCard = category === 'pe-comprehensive-management' || category === 'civil-construction-1';
+  const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
+  const sectionStr = doc.meta.section as string | undefined;
 
   // Extract headings for Table of Contents
   const headings = extractHeadings(
@@ -299,6 +302,10 @@ export default async function DocPage({
                     />
                   </div>
                 )}
+                {/* モバイル: 5 管理ピラーナビ（デスクトップではサイドバーで表示済み） */}
+                <div className="mt-8 zenn-desktop:hidden">
+                  <PillarNavCard variant="mobile" currentSection={sectionStr} />
+                </div>
               </>
             )}
 
@@ -368,6 +375,11 @@ export default async function DocPage({
                     docGroup={docGroup}
                     categoryArticles={categoryArticles}
                   />
+                </div>
+              )}
+              {showPillarNav && (
+                <div className="mt-3">
+                  <PillarNavCard variant="sidebar" currentSection={sectionStr} />
                 </div>
               )}
             </div>
