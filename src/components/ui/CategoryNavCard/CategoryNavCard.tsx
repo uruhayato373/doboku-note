@@ -349,7 +349,14 @@ export default function CategoryNavCard({ variant, category, currentSlug, docGro
       case 'guide':
         return <GuideCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />;
       case 'pillar':
-        return <PillarCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />;
+        return (
+          <>
+            <PillarCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />
+            <div className={variant === 'sidebar' ? 'mt-3' : 'mt-6'}>
+              <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />
+            </div>
+          </>
+        );
       case 'pastExam':
         return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
       case 'keyword':
