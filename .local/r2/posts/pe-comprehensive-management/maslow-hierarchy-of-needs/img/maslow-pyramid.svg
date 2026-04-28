@@ -43,7 +43,7 @@
 
   <!-- 区分ラベル -->
   <text x="375" y="240" class="t-axis" text-anchor="end">欠乏欲求</text>
-  <line x1="378" y1="80" x2="378" y2="280" stroke="#999" stroke-width="0.5" stroke-dasharray="3,2" />
+  <line x1="378" y1="80" x2="378" y2="280" stroke="#8a8a8a" stroke-width="0.5" stroke-dasharray="3,2" />
   <text x="375" y="55" class="t-axis" text-anchor="end">成長欲求</text>
 
   <!-- タイトル -->
