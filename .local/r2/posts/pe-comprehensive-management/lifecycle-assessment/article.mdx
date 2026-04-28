@@ -11,16 +11,20 @@ publishedAt: '2026-04-09'
 seoTitle: ライフサイクルアセスメント ｜ 総合技術監理 キーワード集 2026
 created: 2026-04-05
 dateModified: 2026-04-28
-lastRewrittenAt: '2026-04-28'
+lastRewrittenAt: '2026-04-28T10:00:00.000Z'
+reviewStatus: needs-review
+revisionCycle: 1
 ---
 
 # ライフサイクルアセスメント
 
 ## ライフサイクルアセスメントとは
 
-ライフサイクルアセスメント（LCA: Life Cycle Assessment）とは、**製品・サービスの原材料調達から製造・使用・廃棄に至るライフサイクル全体の環境負荷を定量的に評価する手法**である。
+ライフサイクルアセスメント（LCA: Life Cycle Assessment）とは、**ライフサイクル全体の環境負荷を定量評価する手法**である。製品・サービスの原材料調達から製造・使用・廃棄に至る全段階を対象とし、ISO 14040/14044で国際規格化されている。
 
 ## ISO規格
+
+LCAは以下の2つのISO規格で体系化されている。
 
 | 規格 | 内容 |
 |---|---|
@@ -28,6 +32,8 @@ lastRewrittenAt: '2026-04-28'
 | **ISO 14044** | LCAの要求事項と指針 |
 
 ## 実施の4段階
+
+LCAは次の4段階の手順で実施する。
 
 | 段階 | 内容 |
 |---|---|
@@ -38,7 +44,7 @@ lastRewrittenAt: '2026-04-28'
 
 ## ライフサイクル段階とループ
 
-LCA が対象とする「ライフサイクル」は、製品の **資源採取 → 原材料製造 → 製品製造 → 流通 → 使用 → 廃棄／リサイクル** の各段階を含む。各段階の環境負荷を積算することで全体像を把握する。
+LCA が対象とする「ライフサイクル」は、製品の資源採取から原材料製造・製品製造・流通・使用・**廃棄／リサイクル**に至る各段階を含む。各段階の環境負荷を積算することで全体像を把握する。
 
 リサイクルの仕組みによって LCA のシステム境界の取り方が異なる。
 
@@ -54,6 +60,19 @@ ISO 14044 では境界設定とリサイクル便益の配分手順を規定し�
 - **資源消費**: 化石燃料・鉱物資源の使用量
 - **富栄養化**: 窒素・リン等の排出量
 
+## 総合技術監理における位置づけ
+
+
+> 📘 **[社会環境管理 学習ガイド](/docs/pe-comprehensive-management-social-environment-management-pillar)** — 4 サブカテゴリの体系・頻出論点・学習導線
+
+総合技術監理キーワード集では[**6.3 環境保全の基本原則**](/docs/pe-comprehensive-management-keyword-2026#63-環境保全の基本原則)に位置づけられている。
+
+LCAは[環境ラベル](/docs/pe-comprehensive-management-eco-label)（特にタイプIII）の基盤手法であり、[拡大生産者責任（EPR）](/docs/pe-comprehensive-management-extended-producer-responsibility)に基づく製品設計の環境配慮にも活用される。
+
+<Callout type="exam">
+クローズドループ（閉鎖系リサイクル）はPETボトル→PETボトルのように同一製品系で素材を循環させるため、LCAのシステム境界は1つの製品系で完結する。一方オープンループ（開放系リサイクル）はPETボトル→衣類繊維のように異なる製品系へ素材が流れるため、環境負荷の配分ルール（カットオフ法・リサイクル便益配分等）が必要になる。試験では両者の境界設定の違いを問う出題がある。
+</Callout>
+
 <ExamPoint
   summary="LCAは製品のライフサイクル全体の環境負荷を定量的に評価する手法であり、ISO 14040で規格化"
   items={[
@@ -63,15 +82,6 @@ ISO 14044 では境界設定とリサイクル便益の配分手順を規定し�
     "環境ラベル（タイプIII）やカーボンフットプリントの基盤手法",
   ]}
 />
-
-## 総合技術監理における位置づけ
-
-
-> 📘 **[社会環境管理 学習ガイド](/docs/pe-comprehensive-management-social-environment-management-pillar)** — 4 サブカテゴリの体系・頻出論点・学習導線
-
-総合技術監理キーワード集では[**6.3 環境保全の基本原則**](/docs/pe-comprehensive-management-keyword-2026#63-環境保全の基本原則)に位置づけられている。
-
-LCAは[環境ラベル](/docs/pe-comprehensive-management-eco-label)（特にタイプIII）の基盤手法であり、[拡大生産者責任（EPR）](/docs/pe-comprehensive-management-extended-producer-responsibility)に基づく製品設計の環境配慮にも活用される。
 
 <RelatedKeywords items={[
   { label: "環境ラベル", slug: "eco-label" },
@@ -83,4 +93,5 @@ LCAは[環境ラベル](/docs/pe-comprehensive-management-eco-label)（特にタ
 
 ## 参考資料
 
-- [LCA（ライフサイクルアセスメント）](https://www.env.go.jp/policy/assess/)（環境省）
+- [LCA（ライフサイクルアセスメント）](https://www.env.go.jp/policy/assess/)（環境省） — LCAの概要と活用事例。環境配慮設計・カーボンフットプリントとの関連を説明
+- [ライフサイクルアセスメント（LCA）とは？企業の事例や研究について紹介](https://sdgs.media/blog/6072/) — LCAの定義・企業事例（キヤノン・マツダ等）・ISO 14040規格への準拠を解説
