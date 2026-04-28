@@ -32,6 +32,7 @@
  *   9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン
  *   9-5 LOW    「とは」H2セクション直下に<ExamPoint>
  *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
+ *   9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定）
  *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§8 違反）
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
@@ -442,6 +443,7 @@ function lintHeadingBeforeTable(table, lines, findings) {
  * 9-4 MEDIUM ## 参考資料 配下の外部リンクが2件未満 or 単一ドメイン100%
  * 9-5 LOW    「とは」を含む H2 の直下に <ExamPoint> がある
  * 9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現
+ * 9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定、§15）
  */
 function isExamArchive(filePath) {
   return /[\\\/](?:r|h)\d{2}-(?:primary|secondary)[\\\/]/.test(filePath);
@@ -587,6 +589,34 @@ function lintComponentPrinciples(lines, filePath, findings) {
       });
     }
   }
+
+  // 9-7: 総監ページに教材外の実務応用セクション禁止（pe-comprehensive-management/ 限定）
+  // 真実源: content-principles.md §15
+  // H2 が「建設」「業務」「実務」「現場」で始まり、内に「活用 / 適用 / 応用 / 留意点 / 事例 / 実例」を含む場合を検知。
+  // 観測されたパターン例: 建設現場での適用 / 建設プロジェクトでの適用 / 建設分野での活用 /
+  // 建設部門における活用実務 / 建設部門での活用 / 建設部門における実務上の留意点 /
+  // 建設・インフラ分野での活用事例 / 建設部門における事例 / 建設部門における適用事例 /
+  // 建設部門における実務での活用例 / 建設現場での留意点
+  if (isPeComprehensiveManagement(filePath)) {
+    const forbiddenH2 = /^##\s+(建設|業務|実務|現場)[^#\n]*?(活用|適用|応用|留意点|事例|実例)/;
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i];
+      const m = line.match(forbiddenH2);
+      if (m) {
+        findings.push({
+          severity: 'MEDIUM',
+          rule: '9-7',
+          line: i + 1,
+          endLine: i + 1,
+          message: `総監ページに教材外の実務応用セクション「${line.trim()}」。教材原典に無い独自セクションは追加しない（content-principles.md §15）。校正時は原則削除`,
+        });
+      }
+    }
+  }
+}
+
+function isPeComprehensiveManagement(filePath) {
+  return /[\\\/]pe-comprehensive-management[\\\/]/.test(filePath);
 }
 
 // ── カテゴリ10: 画像・<ArticleImage> 規約 ──────────────────────────────────
