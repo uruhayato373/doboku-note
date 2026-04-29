@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="780" viewBox="0 0 1200 780">
+    <rect width="1200" height="780" fill="#ffffff"/>
+    <rect x="0" y="0" width="14" height="780" fill="#2e6da4"/>
+
+    <!-- タイトル -->
+    <text x="60" y="56" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">「少子高齢化」× 5 管理 論点マッピング</text>
+    <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#555555">R07 記述式テーマ — 5 管理それぞれの切り口と相互関係</text>
+
+    <!-- 管理を描画 -->
+    
+      <!-- 接続線 -->
+      <line x1="600" y1="220" x2="600" y2="150" stroke="#3a7d44" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+      <!-- 管理ボックス -->
+      <rect x="490" y="102" width="220" height="96" rx="8" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+
+      <!-- 管理ラベル -->
+      <rect x="520" y="84" width="160" height="32" rx="6" fill="#3a7d44"/>
+      <text x="600" y="101" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">人的資源管理</text>
+
+      <!-- 論点テキスト -->
+      <text x="600" y="136" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#1b5e20" text-anchor="middle">高齢者活用・若手育成</text><text x="600" y="164" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#1b5e20" text-anchor="middle">技術継承・多様な人材確保</text>
+    
+      <!-- 接続線 -->
+      <line x1="790.2113032590307" y1="358.19660112501055" x2="856.7852593996914" y2="336.5654115187642" stroke="#7b3f99" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+      <!-- 管理ボックス -->
+      <rect x="746.7852593996914" y="288.5654115187642" width="220" height="96" rx="8" fill="#f3e5f5" stroke="#7b3f99" stroke-width="2"/>
+
+      <!-- 管理ラベル -->
+      <rect x="776.7852593996914" y="270.5654115187642" width="160" height="32" rx="6" fill="#7b3f99"/>
+      <text x="856.7852593996914" y="287.5654115187642" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">情報管理</text>
+
+      <!-- 論点テキスト -->
+      <text x="856.7852593996914" y="322.5654115187642" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#4a148c" text-anchor="middle">AI・ICT活用</text><text x="856.7852593996914" y="350.5654115187642" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#4a148c" text-anchor="middle">ナレッジ共有・DX推進</text>
+    
+      <!-- 接続線 -->
+      <line x1="717.5570504584946" y1="581.8033988749895" x2="758.7020181189678" y2="638.4345884812358" stroke="#d4a017" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+      <!-- 管理ボックス -->
+      <rect x="648.7020181189678" y="590.4345884812358" width="220" height="96" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+
+      <!-- 管理ラベル -->
+      <rect x="678.7020181189678" y="572.4345884812358" width="160" height="32" rx="6" fill="#d4a017"/>
+      <text x="758.7020181189678" y="589.4345884812358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">社会環境管理</text>
+
+      <!-- 論点テキスト -->
+      <text x="758.7020181189678" y="624.4345884812358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#6d4c00" text-anchor="middle">社会インフラ維持</text><text x="758.7020181189678" y="652.4345884812358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#6d4c00" text-anchor="middle">持続可能な地域社会</text>
+    
+      <!-- 接続線 -->
+      <line x1="482.4429495415054" y1="581.8033988749895" x2="441.2979818810323" y2="638.4345884812358" stroke="#b22234" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+      <!-- 管理ボックス -->
+      <rect x="331.2979818810323" y="590.4345884812358" width="220" height="96" rx="8" fill="#fdecea" stroke="#b22234" stroke-width="2"/>
+
+      <!-- 管理ラベル -->
+      <rect x="361.2979818810323" y="572.4345884812358" width="160" height="32" rx="6" fill="#b22234"/>
+      <text x="441.2979818810323" y="589.4345884812358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">安全管理</text>
+
+      <!-- 論点テキスト -->
+      <text x="441.2979818810323" y="624.4345884812358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#7f0000" text-anchor="middle">高齢作業員の安全確保</text><text x="441.2979818810323" y="652.4345884812358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#7f0000" text-anchor="middle">現場リスク管理強化</text>
+    
+      <!-- 接続線 -->
+      <line x1="409.78869674096927" y1="358.19660112501043" x2="343.2147406003086" y2="336.5654115187641" stroke="#2e6da4" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+      <!-- 管理ボックス -->
+      <rect x="233.21474060030857" y="288.5654115187641" width="220" height="96" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+
+      <!-- 管理ラベル -->
+      <rect x="263.2147406003086" y="270.5654115187641" width="160" height="32" rx="6" fill="#2e6da4"/>
+      <text x="343.2147406003086" y="287.5654115187641" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">経済性管理</text>
+
+      <!-- 論点テキスト -->
+      <text x="343.2147406003086" y="322.5654115187641" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#1a3a5c" text-anchor="middle">ICT投資・コスト最適化</text><text x="343.2147406003086" y="350.5654115187641" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#1a3a5c" text-anchor="middle">生産性向上・財務持続性</text>
+    
+
+    <!-- 中央円 -->
+    <circle cx="600" cy="420" r="200" fill="#e8f0fe" stroke="#2e6da4" stroke-width="3"/>
+    <text x="600" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="middle">少子高齢化</text>
+    <text x="600" y="424" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555" text-anchor="middle">縮小する労働力の中で</text>
+    <text x="600" y="448" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555" text-anchor="middle">いかに事業を継続するか</text>
+    <text x="600" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="600" fill="#2e6da4" text-anchor="middle">R07 記述式テーマ</text>
+
+    <!-- フッター -->
+    <text x="1140" y="756" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>
