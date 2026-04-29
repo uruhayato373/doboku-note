@@ -1,140 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-    <rect width="1200" height="900" fill="#ffffff"/>
-    <rect x="0" y="0" width="14" height="900" fill="#2e6da4"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1020" viewBox="0 0 1200 1020">
+    <rect width="1200" height="1020" fill="#ffffff"/>
+    <rect x="0" y="0" width="14" height="1020" fill="#2e6da4"/>
 
-    <text x="60" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222">5 枚構成の骨子テンプレート（安全管理主軸）</text>
-    <text x="60" y="94" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">600 字×5 枚を「分析 2 枚・評価 1 枚・解決 2 枚」で構成する</text>
-
-    <!-- 三層構造ヘッダ -->
-    <rect x="60" y="120" width="180" height="36" rx="6" fill="#fce8eb" stroke="#b22234" stroke-width="1.5"/>
-    <text x="150" y="143" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#b22234" text-anchor="middle">Ⅰ 課題（2 枚）</text>
-
-    <rect x="260" y="120" width="180" height="36" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-    <text x="350" y="143" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#2e6da4" text-anchor="middle">Ⅱ 解決策（2 枚）</text>
-
-    <rect x="460" y="120" width="200" height="36" rx="6" fill="#e6f4ea" stroke="#3a7d44" stroke-width="1.5"/>
-    <text x="560" y="143" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#3a7d44" text-anchor="middle">Ⅲ 波及効果（1 枚）</text>
+    <text x="60" y="56" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222">答案 5 枚（3,000字）の三層構造</text>
+    <text x="60" y="88" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">どのテーマでも変わらない答案設計の骨格</text>
 
     
-      <!-- Sheet 1 -->
-      <rect x="60" y="180" width="1080" height="118" rx="8"
-            fill="#fce8eb" stroke="#b22234" stroke-width="2"/>
-
-      <!-- 層ラベル -->
-      <rect x="60" y="180" width="120" height="118" rx="8"
-            fill="#b22234"/>
-      <text x="120" y="225" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">Ⅰ 課題</text>
-      <text x="120" y="249" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">1枚目</text>
-
-      <!-- タイトル -->
-      <text x="208" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="24" font-weight="700" fill="#222222">テーマ特定と前提条件の整理</text>
-      <text x="208" y="255" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" fill="#555555">前文のテーマ・設定条件・対象業務を明示し、</text>
-      <text x="208" y="277" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#555555">総合技術監理の観点が必要な理由を 1 段落で示す</text>
-
-      <!-- 字数表示 -->
-      <text x="1124" y="247" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="20" font-weight="700" fill="#b22234" text-anchor="end">〜600字</text>
+      <rect x="60" y="160" width="1080" height="220" rx="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+      <rect x="60" y="160" width="10" height="220" rx="5" fill="#2e6da4"/>
+      <text x="84" y="206" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4">Ⅰ. 課題抽出フェーズ</text>
+      <text x="84" y="232" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#555555">現状認識と問題の特定</text>
+      <rect x="950" y="170" width="155" height="38" rx="19" fill="#2e6da4"/>
+       <text x="1027" y="195" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">1枚目（600字）</text>
+      <text x="100" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・5 管理の観点から現状を多面的に分析</text><text x="100" y="288" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・管理上の重点課題を 2〜3 点に絞り定量評価</text><text x="100" y="326" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・課題間のトレードオフ関係を明示</text>
     
-      <!-- Sheet 2 -->
-      <rect x="60" y="314" width="1080" height="118" rx="8"
-            fill="#fce8eb" stroke="#b22234" stroke-width="2"/>
-
-      <!-- 層ラベル -->
-      <rect x="60" y="314" width="120" height="118" rx="8"
-            fill="#b22234"/>
-      <text x="120" y="359" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">Ⅰ 課題</text>
-      <text x="120" y="383" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">2枚目</text>
-
-      <!-- タイトル -->
-      <text x="208" y="352" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="24" font-weight="700" fill="#222222">5 管理視点の課題抽出</text>
-      <text x="208" y="389" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" fill="#555555">5 管理（経済性・人的資源・情報・安全・社会環境）の</text>
-      <text x="208" y="411" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#555555">各視点から課題を抽出し、トレードオフの構造を宣言する</text>
-
-      <!-- 字数表示 -->
-      <text x="1124" y="381" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="20" font-weight="700" fill="#b22234" text-anchor="end">〜600字</text>
+      <rect x="60" y="400" width="1080" height="220" rx="10" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+      <rect x="60" y="400" width="10" height="220" rx="5" fill="#3a7d44"/>
+      <text x="84" y="446" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44">Ⅱ. 解決策フェーズ</text>
+      <text x="84" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#555555">統合的な解決策の提示</text>
+      <rect x="780" y="410" width="155" height="38" rx="19" fill="#3a7d44"/>
+       <text x="857" y="435" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">2枚目（600字）</text><rect x="950" y="410" width="155" height="38" rx="19" fill="#3a7d44"/>
+       <text x="1027" y="435" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">3枚目（600字）</text>
+      <text x="100" y="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・2枚目: 各課題への具体的対応策（管理別に整理）</text><text x="100" y="528" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・3枚目: 対立する管理のトレードオフを調整する統合解</text><text x="100" y="566" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・実現可能性・コスト・効果の観点を含める</text>
     
-      <!-- Sheet 3 -->
-      <rect x="60" y="448" width="1080" height="118" rx="8"
-            fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
-
-      <!-- 層ラベル -->
-      <rect x="60" y="448" width="120" height="118" rx="8"
-            fill="#2e6da4"/>
-      <text x="120" y="493" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">Ⅱ 解決策</text>
-      <text x="120" y="517" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">3枚目</text>
-
-      <!-- タイトル -->
-      <text x="208" y="486" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="24" font-weight="700" fill="#222222">安全管理上の重点課題と定量評価</text>
-      <text x="208" y="523" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" fill="#555555">リスクの定量軸（発生確率×影響度・期待損失）で整理。</text>
-      <text x="208" y="545" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#555555">「残余リスクの存在を前提」とする総監らしい姿勢を示す</text>
-
-      <!-- 字数表示 -->
-      <text x="1124" y="515" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="20" font-weight="700" fill="#2e6da4" text-anchor="end">〜600字</text>
+      <rect x="60" y="640" width="1080" height="220" rx="10" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+      <rect x="60" y="640" width="10" height="220" rx="5" fill="#d4a017"/>
+      <text x="84" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#d4a017">Ⅲ. 波及効果フェーズ</text>
+      <text x="84" y="712" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#555555">効果の波及と残留リスク</text>
+      <rect x="780" y="650" width="155" height="38" rx="19" fill="#d4a017"/>
+       <text x="857" y="675" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">4枚目（600字）</text><rect x="950" y="650" width="155" height="38" rx="19" fill="#d4a017"/>
+       <text x="1027" y="675" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">5枚目（600字）</text>
+      <text x="100" y="730" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・4枚目: 解決策がもたらす 5 管理全体への効果</text><text x="100" y="768" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・5枚目: 残留リスクへの対応・継続的改善の仕組み</text><text x="100" y="806" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">・事業・組織全体への中長期的インパクトを示す</text>
     
-      <!-- Sheet 4 -->
-      <rect x="60" y="582" width="1080" height="118" rx="8"
-            fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <polygon points="584,386 616,386 600,406" fill="#8a8a8a"/><polygon points="584,626 616,626 600,646" fill="#8a8a8a"/>
 
-      <!-- 層ラベル -->
-      <rect x="60" y="582" width="120" height="118" rx="8"
-            fill="#2e6da4"/>
-      <text x="120" y="627" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">Ⅱ 解決策</text>
-      <text x="120" y="651" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">4枚目</text>
+    <!-- 合計表示 -->
+    <rect x="60" y="888" width="1080" height="60" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+    <text x="600" y="928" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#1a3a5c" text-anchor="middle">合計 600字 × 5枚 ＝ 3,000字（論文全体）</text>
 
-      <!-- タイトル -->
-      <text x="208" y="620" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="24" font-weight="700" fill="#222222">トレードオフの解決フレーム適用</text>
-      <text x="208" y="657" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" fill="#555555">論文の核心。ALARP 原則 / ミティゲーション階層 / HFACS から</text>
-      <text x="208" y="679" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#555555">1〜2 個選び、具体的な調整メカニズムを記述する</text>
-
-      <!-- 字数表示 -->
-      <text x="1124" y="649" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="20" font-weight="700" fill="#2e6da4" text-anchor="end">〜600字</text>
-    
-      <!-- Sheet 5 -->
-      <rect x="60" y="716" width="1080" height="118" rx="8"
-            fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
-
-      <!-- 層ラベル -->
-      <rect x="60" y="716" width="120" height="118" rx="8"
-            fill="#3a7d44"/>
-      <text x="120" y="761" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">Ⅲ 波及効果</text>
-      <text x="120" y="785" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">5枚目</text>
-
-      <!-- タイトル -->
-      <text x="208" y="754" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="24" font-weight="700" fill="#222222">実行計画と残余リスク監視</text>
-      <text x="208" y="791" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="16" fill="#555555">時間軸（短期・中期・長期）の実行計画と</text>
-      <text x="208" y="813" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#555555">PDCA で回す残余リスク監視体制を示す</text>
-
-      <!-- 字数表示 -->
-      <text x="1124" y="783" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
-            font-size="20" font-weight="700" fill="#3a7d44" text-anchor="end">〜600字</text>
-    
-
-    <!-- 合計字数 -->
-    <rect x="60" y="870" width="1080" height="40" rx="6" fill="#e8f0fe"/>
-    <text x="600" y="896" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c" text-anchor="middle">合計 3,000 字（600 字 × 5 枚）— 書き始める前に 5 枚分の見出しを余白に書き出す</text>
-
-    <text x="1140" y="880" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+    <text x="1140" y="1000" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
   </svg>
