@@ -9,6 +9,14 @@ note.com に PNG 化して掲載する図解（`docs/note-drafts/{NN}/img/figure
 
 doboku-note 本体（`.local/r2/posts/**/img/*.svg`）は本ポリシー対象外。SVG inline 配信なので別ルール。
 
+## cover.png のセーフティゾーン（参考）
+
+`docs/note-drafts/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の T06 Mono Tag テンプレで生成する（OGP と共通テンプレ）。サイズは note 推奨の 1280×670。
+
+**セーフティゾーン**: 中央 **630×630** 厳守（SAFE_L=325〜SAFE_R=955）。タイトル・カテゴリチップ・ワードマーク・下部メタはすべてこの内側。装飾（グリッド・アクセントバー）は全幅 OK（クロップで欠けても問題なし）。
+
+note の記事一覧・SNS 自動共有は中央正方形クロップのケースが多いため、**主要コンテンツが中央 630×630 から外れると意味が伝わらなくなる**。テンプレ実装はこの制約を満たすよう設計されているので、独自に SVG/PNG を作る場合も同じ範囲を踏襲する。
+
 ## なぜ note 専用ルールが必要か
 
 note は **inline SVG が使えず、PNG 必須**。さらに以下の制約がある:

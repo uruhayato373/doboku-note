@@ -1,15 +1,15 @@
 {
-  "version": 1,
-  "description": "OGP タイトルの改行戦略・フォントサイズ・セーフティゾーン設定。.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs が消費する。カテゴリ/ルール変更時はここだけ触れば追従できる。",
-  "safetyWidth": 560,
-  "safetyHeightForTitle": 380,
-  "maxLines": 3,
-  "fontSizeTable": [96, 80, 68, 56, 46, 38, 32],
-  "_fontSizeTable_note": "大きい順に並んだ候補サイズ。pickFontSize は最長行が safetyWidth に収まる最大サイズを選ぶ。全滅時は最後の値で描画継続（多少はみ出すが破綻はしない）。",
+  "version": 2,
+  "description": "OGP / note カバー共通テンプレ（T06 Mono Tag）のタイトル改行・フォントサイズ・セーフティゾーン設定。.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs が消費する。",
+  "safetyWidth": 590,
+  "safetyHeightForTitle": 320,
+  "maxLines": 4,
+  "fontSizeTable": [54, 48, 42, 38, 34, 30],
+  "_fontSizeTable_note": "T06 Mono Tag の最大 54px ベース。pickFontSize は最長行が safetyWidth(590px) に収まる最大サイズを選ぶ。全滅時は最後の値で描画継続。",
   "breakBefore": ["（", "(", "【", "：", ":", "〜", "──", "——", "—", "–"],
   "breakAt": [" ", "　"],
   "_breakAt_note": "breakBefore は直前で分割してマーカーを次行に残す。breakAt は位置で分割してマーカーを破棄する（スペース類）。",
-  "charCountFallback": 16,
+  "charCountFallback": 18,
   "budouX": {
     "enabled": false,
     "_comment": "true にすると Layer 3 で budoux を使用。事前に `npm i budoux` 必須。未インストール時は自動で Layer 4 にフォールバック"
