@@ -1,119 +1,129 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
-    <rect width="1200" height="720" fill="#ffffff"/>
-    <rect x="0" y="0" width="14" height="720" fill="#2e6da4"/><!-- brand -->
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+    <rect width="1200" height="820" fill="#ffffff"/>
+    <rect x="0" y="0" width="14" height="820" fill="#2e6da4"/><!-- brand -->
 
     <text x="60" y="56" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#222222">初受験者が優先して解くべき年度 Top 5</text>
-    <text x="60" y="86" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555">基礎固め→本番想定の順に演習し、自信をつけながら学習範囲を広げる</text>
+    <text x="60" y="86" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">基礎固め→本番想定の順に演習し、自信をつけながら学習範囲を広げる</text>
 
-    <rect x="60" y="108" width="1080" height="34" rx="6" fill="#e6f4ea"/>
-    <text x="80" y="130" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="600" fill="#3a7d44">1〜3位 は基礎定着に最適。4〜5位 は確認用。R05・R07 は直前期に回す。</text>
+    <rect x="60" y="108" width="1080" height="42" rx="6" fill="#e6f4ea"/>
+    <text x="80" y="136" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#3a7d44">1〜3位 は基礎定着に最適。4〜5位 は確認用。R05・R07 は直前期に回す。</text>
 
     
-      <rect x="60" y="170" width="209.6" height="460" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-      <!-- ランク番号 -->
-      <rect x="60" y="170" width="209.6" height="48" rx="8" fill="#3a7d44"/>
-      <rect x="60" y="210" width="209.6" height="8" fill="#3a7d44"/>
-      <text x="164.8" y="202" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 1位</text>
+      <rect x="60" y="180" width="209.6" height="580" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <!-- ランク番号ヘッダー -->
+      <rect x="60" y="180" width="209.6" height="56" rx="8" fill="#3a7d44"/>
+      <rect x="60" y="228" width="209.6" height="8" fill="#3a7d44"/>
+      <text x="164.8" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 1位</text>
       <!-- 年度 -->
-      <text x="164.8" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#1a3a5c" text-anchor="middle">H26（平成26年）</text>
+      <text x="164.8" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">H26（平成26年）</text>
       <!-- バッジ -->
-      <rect x="72" y="262" width="185.6" height="26" rx="6" fill="#3a7d4422"/>
-      <text x="164.8" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#3a7d44" text-anchor="middle">難易度 E</text>
-      <!-- 推奨理由 -->
-      <text x="164.8" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
-      <text x="164.8" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="600" fill="#3a7d44" text-anchor="middle">頻出テーマのオンパレード</text>
-      <!-- 主な出題テーマ -->
-      <text x="76" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
-      <text x="76" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">AHP・デルファイ法・NPV計</text><text x="76" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">算・原価企画</text>
-      <!-- アドバイス -->
-      <line x1="72" y1="480" x2="257.6" y2="480" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="76" y="502" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">使い方</text>
-      <text x="76" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">引っかけが素直で過去問演習の入</text><text x="76" y="537" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">門に最適</text>
+      <rect x="72" y="288" width="185.6" height="32" rx="6" fill="#3a7d4422"/>
+      <text x="164.8" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44" text-anchor="middle">難易度 E</text>
+      <!-- 推奨理由ラベル -->
+      <text x="164.8" y="358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
+      <!-- 推奨理由テキスト -->
+      <text x="164.8" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#3a7d44" text-anchor="middle">頻出テーマのオンパレード</text>
+      <!-- 主な出題テーマラベル -->
+      <text x="76" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
+      <text x="76" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">AHP・デルファイ法・</text><text x="76" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">NPV計算・原価企画</text>
+      <!-- 区切り線 -->
+      <line x1="72" y1="580" x2="257.6" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- 使い方ラベル -->
+      <text x="76" y="610" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">使い方</text>
+      <text x="76" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">引っかけが素直で過去問</text><text x="76" y="658" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">演習の入門に最適</text>
     
-      <rect x="277.6" y="170" width="209.6" height="460" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-      <!-- ランク番号 -->
-      <rect x="277.6" y="170" width="209.6" height="48" rx="8" fill="#2e6da4"/>
-      <rect x="277.6" y="210" width="209.6" height="8" fill="#2e6da4"/>
-      <text x="382.40000000000003" y="202" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 2位</text>
+      <rect x="277.6" y="180" width="209.6" height="580" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <!-- ランク番号ヘッダー -->
+      <rect x="277.6" y="180" width="209.6" height="56" rx="8" fill="#2e6da4"/>
+      <rect x="277.6" y="228" width="209.6" height="8" fill="#2e6da4"/>
+      <text x="382.40000000000003" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 2位</text>
       <!-- 年度 -->
-      <text x="382.40000000000003" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#1a3a5c" text-anchor="middle">R01（令和元年）</text>
+      <text x="382.40000000000003" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">R01（令和元年）</text>
       <!-- バッジ -->
-      <rect x="289.6" y="262" width="185.6" height="26" rx="6" fill="#2e6da422"/>
-      <text x="382.40000000000003" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#2e6da4" text-anchor="middle">難易度 C</text>
-      <!-- 推奨理由 -->
-      <text x="382.40000000000003" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
-      <text x="382.40000000000003" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="600" fill="#2e6da4" text-anchor="middle">バランスのよい標準難易度</text>
-      <!-- 主な出題テーマ -->
-      <text x="293.6" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
-      <text x="293.6" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">PQCDSME・フロントローデ</text><text x="293.6" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">ィング・VE</text>
-      <!-- アドバイス -->
-      <line x1="289.6" y1="480" x2="475.20000000000005" y2="480" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="293.6" y="502" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">使い方</text>
-      <text x="293.6" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">現在も出題される定番テーマが揃</text><text x="293.6" y="537" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">っている</text>
+      <rect x="289.6" y="288" width="185.6" height="32" rx="6" fill="#2e6da422"/>
+      <text x="382.40000000000003" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4" text-anchor="middle">難易度 C</text>
+      <!-- 推奨理由ラベル -->
+      <text x="382.40000000000003" y="358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
+      <!-- 推奨理由テキスト -->
+      <text x="382.40000000000003" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">バランスのよい標準難易度</text>
+      <!-- 主な出題テーマラベル -->
+      <text x="293.6" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
+      <text x="293.6" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">PQCDSME・フロン</text><text x="293.6" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">トローディング・VE</text>
+      <!-- 区切り線 -->
+      <line x1="289.6" y1="580" x2="475.20000000000005" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- 使い方ラベル -->
+      <text x="293.6" y="610" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">使い方</text>
+      <text x="293.6" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">現在も出題される定番テ</text><text x="293.6" y="658" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">ーマが揃っている</text>
     
-      <rect x="495.2" y="170" width="209.6" height="460" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-      <!-- ランク番号 -->
-      <rect x="495.2" y="170" width="209.6" height="48" rx="8" fill="#2e6da4"/>
-      <rect x="495.2" y="210" width="209.6" height="8" fill="#2e6da4"/>
-      <text x="600" y="202" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 3位</text>
+      <rect x="495.2" y="180" width="209.6" height="580" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <!-- ランク番号ヘッダー -->
+      <rect x="495.2" y="180" width="209.6" height="56" rx="8" fill="#2e6da4"/>
+      <rect x="495.2" y="228" width="209.6" height="8" fill="#2e6da4"/>
+      <text x="600" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 3位</text>
       <!-- 年度 -->
-      <text x="600" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#1a3a5c" text-anchor="middle">R04（令和4年）</text>
+      <text x="600" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">R04（令和4年）</text>
       <!-- バッジ -->
-      <rect x="507.2" y="262" width="185.6" height="26" rx="6" fill="#2e6da422"/>
-      <text x="600" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#2e6da4" text-anchor="middle">難易度 C</text>
-      <!-- 推奨理由 -->
-      <text x="600" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
-      <text x="600" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="600" fill="#2e6da4" text-anchor="middle">法令が現行に近く学習効率が高い</text>
-      <!-- 主な出題テーマ -->
-      <text x="511.2" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
-      <text x="511.2" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">CF計算書・VE基本公式・基本</text><text x="511.2" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">忠実な出題</text>
-      <!-- アドバイス -->
-      <line x1="507.2" y1="480" x2="692.8" y2="480" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="511.2" y="502" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">使い方</text>
-      <text x="511.2" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">現在の出題傾向を知るのに適した</text><text x="511.2" y="537" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">比較的新しい年度</text>
+      <rect x="507.2" y="288" width="185.6" height="32" rx="6" fill="#2e6da422"/>
+      <text x="600" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4" text-anchor="middle">難易度 C</text>
+      <!-- 推奨理由ラベル -->
+      <text x="600" y="358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
+      <!-- 推奨理由テキスト -->
+      <text x="600" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">法令が現行に近く学習効率が高い</text>
+      <!-- 主な出題テーマラベル -->
+      <text x="511.2" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
+      <text x="511.2" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">CF計算書・VE基本公</text><text x="511.2" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">式・基本忠実な出題</text>
+      <!-- 区切り線 -->
+      <line x1="507.2" y1="580" x2="692.8" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- 使い方ラベル -->
+      <text x="511.2" y="610" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">使い方</text>
+      <text x="511.2" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">現在の出題傾向を知るの</text><text x="511.2" y="658" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">に適した比較的新しい年</text><text x="511.2" y="680" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">度</text>
     
-      <rect x="712.8" y="170" width="209.6" height="460" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-      <!-- ランク番号 -->
-      <rect x="712.8" y="170" width="209.6" height="48" rx="8" fill="#0284c7"/>
-      <rect x="712.8" y="210" width="209.6" height="8" fill="#0284c7"/>
-      <text x="817.5999999999999" y="202" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 4位</text>
+      <rect x="712.8" y="180" width="209.6" height="580" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <!-- ランク番号ヘッダー -->
+      <rect x="712.8" y="180" width="209.6" height="56" rx="8" fill="#0284c7"/>
+      <rect x="712.8" y="228" width="209.6" height="8" fill="#0284c7"/>
+      <text x="817.5999999999999" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 4位</text>
       <!-- 年度 -->
-      <text x="817.5999999999999" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#1a3a5c" text-anchor="middle">H24（平成24年）</text>
+      <text x="817.5999999999999" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">H24（平成24年）</text>
       <!-- バッジ -->
-      <rect x="724.8" y="262" width="185.6" height="26" rx="6" fill="#0284c722"/>
-      <text x="817.5999999999999" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#0284c7" text-anchor="middle">難易度 D</text>
-      <!-- 推奨理由 -->
-      <text x="817.5999999999999" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
-      <text x="817.5999999999999" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="600" fill="#0284c7" text-anchor="middle">キーワード集に忠実な出題</text>
-      <!-- 主な出題テーマ -->
-      <text x="728.8" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
-      <text x="728.8" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">工程管理・ABCのコストドライ</text><text x="728.8" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">バー・能力工数計算</text>
-      <!-- アドバイス -->
-      <line x1="724.8" y1="480" x2="910.4" y2="480" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="728.8" y="502" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">使い方</text>
-      <text x="728.8" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">学習の成果が直接点数に反映され</text><text x="728.8" y="537" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">る</text>
+      <rect x="724.8" y="288" width="185.6" height="32" rx="6" fill="#0284c722"/>
+      <text x="817.5999999999999" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#0284c7" text-anchor="middle">難易度 D</text>
+      <!-- 推奨理由ラベル -->
+      <text x="817.5999999999999" y="358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
+      <!-- 推奨理由テキスト -->
+      <text x="817.5999999999999" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#0284c7" text-anchor="middle">キーワード集に忠実な出題</text>
+      <!-- 主な出題テーマラベル -->
+      <text x="728.8" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
+      <text x="728.8" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">工程管理・ABCのコス</text><text x="728.8" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">トドライバー・能力工数</text>
+      <!-- 区切り線 -->
+      <line x1="724.8" y1="580" x2="910.4" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- 使い方ラベル -->
+      <text x="728.8" y="610" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">使い方</text>
+      <text x="728.8" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">学習の成果が直接点数に</text><text x="728.8" y="658" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">反映される</text>
     
-      <rect x="930.4" y="170" width="209.6" height="460" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-      <!-- ランク番号 -->
-      <rect x="930.4" y="170" width="209.6" height="48" rx="8" fill="#2e6da4"/>
-      <rect x="930.4" y="210" width="209.6" height="8" fill="#2e6da4"/>
-      <text x="1035.2" y="202" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 5位</text>
+      <rect x="930.4" y="180" width="209.6" height="580" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <!-- ランク番号ヘッダー -->
+      <rect x="930.4" y="180" width="209.6" height="56" rx="8" fill="#2e6da4"/>
+      <rect x="930.4" y="228" width="209.6" height="8" fill="#2e6da4"/>
+      <text x="1035.2" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">推奨 5位</text>
       <!-- 年度 -->
-      <text x="1035.2" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#1a3a5c" text-anchor="middle">H27（平成27年）</text>
+      <text x="1035.2" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">H27（平成27年）</text>
       <!-- バッジ -->
-      <rect x="942.4" y="262" width="185.6" height="26" rx="6" fill="#2e6da422"/>
-      <text x="1035.2" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#2e6da4" text-anchor="middle">難易度 C</text>
-      <!-- 推奨理由 -->
-      <text x="1035.2" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
-      <text x="1035.2" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="600" fill="#2e6da4" text-anchor="middle">教科書的出題のバランス年度</text>
-      <!-- 主な出題テーマ -->
-      <text x="946.4" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
-      <text x="946.4" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">PMBOK・WBS・PDPC・</text><text x="946.4" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">EVM・負荷工数計算</text>
-      <!-- アドバイス -->
-      <line x1="942.4" y1="480" x2="1128" y2="480" stroke="#e5e7eb" stroke-width="1"/>
-      <text x="946.4" y="502" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="12" font-weight="700" fill="#8a8a8a">使い方</text>
-      <text x="946.4" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">条件を丁寧に読めば計算問題も解</text><text x="946.4" y="537" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">ける標準難易度</text>
+      <rect x="942.4" y="288" width="185.6" height="32" rx="6" fill="#2e6da422"/>
+      <text x="1035.2" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4" text-anchor="middle">難易度 C</text>
+      <!-- 推奨理由ラベル -->
+      <text x="1035.2" y="358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#222222" text-anchor="middle">推奨理由</text>
+      <!-- 推奨理由テキスト -->
+      <text x="1035.2" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">教科書的出題のバランス年度</text>
+      <!-- 主な出題テーマラベル -->
+      <text x="946.4" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">主な出題テーマ</text>
+      <text x="946.4" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">PMBOK・WBS・P</text><text x="946.4" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">DPC・EVM・負荷工</text>
+      <!-- 区切り線 -->
+      <line x1="942.4" y1="580" x2="1128" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+      <!-- 使い方ラベル -->
+      <text x="946.4" y="610" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#8a8a8a">使い方</text>
+      <text x="946.4" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">条件を丁寧に読めば計算</text><text x="946.4" y="658" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">問題も解ける標準難易度</text>
     
 
-    <text x="1140" y="708" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+    <text x="1140" y="804" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
   </svg>
