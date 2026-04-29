@@ -39,9 +39,9 @@
           fill="#555555" text-anchor="middle" transform="rotate(-90, 100, 390)">↑ 所要時間</text>
 
     <!-- ゾーンキャプション -->
-    <text x="196" y="588" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700"
+    <text x="196" y="588" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700"
           fill="#3a7d44" opacity="0.8">優先演習ゾーン</text>
-    <text x="964" y="204" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700"
+    <text x="964" y="204" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700"
           fill="#b22234" text-anchor="end" opacity="0.8">時間がかかるゾーン</text>
 
     <!-- データポイント -->
@@ -75,10 +75,10 @@
     
       <circle cx="580" cy="348" r="32" fill="#fef9e7" stroke="#d4a017" stroke-width="3"/>
       
-        <text x="596" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+        <text x="596" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
               font-weight="700" fill="#d4a017" text-anchor="start">パターン5</text>
       
-        <text x="596" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+        <text x="596" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
               font-weight="700" fill="#d4a017" text-anchor="start">負荷工数</text>
       
     
