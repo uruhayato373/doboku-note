@@ -30,9 +30,11 @@ export async function generateMetadata({
       title: 'カテゴリが見つかりません',
     };
   }
+  // SEO description は cat.description（50〜160 文字）を優先、未指定なら subtitle に fallback。
+  // UI の <p> は subtitle を使うため、SEO 用の description と分離している。
   return {
     title: cat.label,
-    description: cat.subtitle,
+    description: cat.description ?? cat.subtitle,
   };
 }
 
@@ -51,6 +53,7 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
   },
   'pe-comprehensive-management': {
     guide: '試験の構成・出題傾向・学習ガイド',
+    pillar: '5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）の体系学習ガイド',
     pastExam: '年度別の択一式・記述式問題と解説',
     keyword: 'キーワード解説',
   },
@@ -102,6 +105,12 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         const orderA = a.guide_order ?? 999;
         const orderB = b.guide_order ?? 999;
         return orderA - orderB;
+      });
+    } else if (group === 'pillar') {
+      docs.sort((a, b) => {
+        const sa = parseFloat((a.section as string | undefined) ?? '99');
+        const sb = parseFloat((b.section as string | undefined) ?? '99');
+        return sa - sb;
       });
     } else if (group === 'pastExam') {
       docs.sort((a, b) => {
@@ -614,51 +623,44 @@ export default async function CategoryPage({
               ) : slug === 'pe-comprehensive-management' ? (
                 (() => {
                   const guideGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'guide'));
+                  const pillarGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'pillar'));
                   const pastExamGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'pastExam'));
                   const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'keyword'));
-
-                  // キーワード集2026を分離（セクションツリーの「その他」から除外）
-                  const keyword2026 = keywordGroup?.docs.find(d => d.slug === 'pe-comprehensive-management-keyword-2026');
-                  const keywordDocsFiltered = keywordGroup?.docs.filter(d => d.slug !== 'pe-comprehensive-management-keyword-2026') || [];
+                  const keywordCount = keywordGroup?.docs.length ?? 0;
 
                   return (
                     <>
                       {guideGroup && <DocSection group={guideGroup} />}
+                      {pillarGroup && <DocSection group={pillarGroup} />}
                       {pastExamGroup && (
                         <DocSection group={pastExamGroup} layout="pe-exam-table" />
                       )}
-                      {/* セクション別解説 + キーワードを統合ツリー表示 */}
-                      {keywordGroup && (
+                      {/* キーワード索引へのナビゲーション（本体は /sitemap-keywords に移動） */}
+                      {keywordCount > 0 && (
                         <section>
                           <div className="mb-6">
-                            <h2 className="text-2xl font-bold text-gray-900 dark:text-white">セクション別解説・キーワード</h2>
-                            <p className="text-base text-gray-500 dark:text-gray-400 mt-1">
-                              <a href="https://www.mext.go.jp/b_menu/shingi/gijyutu/gijyutu7/toushin/1411203_00007.htm" target="_blank" rel="noopener noreferrer" className="text-blue-600 dark:text-blue-400 hover:underline">文部科学省「総合技術監理 キーワード集 2026」</a>に基づき、5管理分野の体系で整理しています
+                            <h2 className="font-serif text-[22px] sm:text-[26px] font-black text-[var(--ink)]">キーワードを探す</h2>
+                            <p className="text-[14px] text-[var(--ink-muted)] mt-1">
+                              5 管理 × 26 セクションで体系化された全 {keywordCount} キーワードの索引
                             </p>
                           </div>
-                          {/* キーワード集 2026 全文リンク */}
-                          {keyword2026 && (
-                            <Link
-                              href={`/docs/${keyword2026.slug}`}
-                              className="group flex items-center gap-4 mb-10 p-5 rounded-card-content border-2 border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-card-hover transition-all"
-                            >
-                              <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-lg">
-                                K
+                          <Link
+                            href="/sitemap-keywords"
+                            className="group flex items-center gap-4 p-5 rounded-card-content border-2 border-blue-200 dark:border-blue-800 bg-blue-50/50 dark:bg-blue-900/20 hover:border-blue-400 dark:hover:border-blue-500 hover:shadow-card-hover transition-all"
+                          >
+                            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-blue-600 dark:bg-blue-500 flex items-center justify-center text-white font-bold text-lg">
+                              ≡
+                            </div>
+                            <div className="flex-1">
+                              <div className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
+                                キーワードを全件見る（{keywordCount} 件）
                               </div>
-                              <div>
-                                <div className="font-bold text-lg text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">
-                                  {keyword2026.title}
-                                </div>
-                                <div className="text-sm text-gray-500 dark:text-gray-400">
-                                  文部科学省公開PDFをWeb上で閲覧・検索できるようにしたものです
-                                </div>
+                              <div className="text-sm text-gray-500 dark:text-gray-400">
+                                文部科学省「総合技術監理 キーワード集 2026」に基づくセクション別索引へ
                               </div>
-                            </Link>
-                          )}
-                          <PeSectionTree
-                            sectionDocs={[]}
-                            keywordDocs={keywordDocsFiltered}
-                          />
+                            </div>
+                            <span className="text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
+                          </Link>
                         </section>
                       )}
                     </>

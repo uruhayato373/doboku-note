@@ -10,6 +10,8 @@
 |---|---|---|
 | [.claude/reference/content-authoring.md](.claude/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
 | [.claude/reference/image-policy.md](.claude/reference/image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
+| [.claude/reference/note-svg-policy.md](.claude/reference/note-svg-policy.md) | note 記事用 図解 SVG/PNG ポリシー（キャンバス・最小フォント・余白・密度上限・失敗パターン） | `docs/note-drafts/**/img/figure-*` を作成・修正するとき |
+| [.claude/reference/sns-image-policy.md](.claude/reference/sns-image-policy.md) | SNS 投稿画像ポリシー（IG/X/Shorts のキャンバス・スワイプ方向・記号統一・wrap 算法・長文選択肢自動切替） | `docs/sns-drafts/**/{instagram-carousel,x,youtube-shorts}/img/` を作成・修正するとき |
 | [.claude/reference/exam-content-policy.md](.claude/reference/exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
 | [.claude/reference/skills-registry.md](.claude/reference/skills-registry.md) | 全スキル一覧（management / dev / content / ui / marketing / analytics / strategy / ads）＋Phase 別運用メモ | 利用可能なスキル探索・新スキル重複チェック |
 | [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) | エージェント詳細表＋チーム連携パターン＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認 |
@@ -17,6 +19,7 @@
 | [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・Phase 別ロードマップ | 週次 PDCA・変換作業・キーワードページ作成時 |
 | [.claude/reference/docs-issue-separation.md](.claude/reference/docs-issue-separation.md) | `docs/project/` md（Why/戦略）と GitHub Umbrella Issue（実行タスク）の役割分離ルール | ロードマップ md 作成・更新時／Umbrella Issue 作成時 |
 | [.claude/reference/measurement-incidents.md](.claude/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合 + 外部検証アクセスの罠（2026-W16 BAILOUT、2026-04-25 Cloudflare Bot 等） | 計測スキル/エージェント設計時・自動起票 Issue 評価時・外部 Validator/ボットを使う作業時 |
+| [.claude/reference/data-storage-decision.md](.claude/reference/data-storage-decision.md) | データストレージ判断 ADR（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー条件） | DB 導入を検討するとき／iOS アプリ着手時／コンテンツ規模が大きく変わるとき |
 | [.claude/content-principles.md](.claude/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
 | [.claude/design-system/principles.md](.claude/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
 | [docs/ui/callout-gallery.md](docs/ui/callout-gallery.md) | Callout 12 種の視覚ギャラリー（PNG スクショ + MDX 用例）。GitHub 画面で視覚確認可能 | MDX で `<Callout type="...">` を選ぶとき |
@@ -27,9 +30,10 @@
 | `docs/project/01_設計思想.md` | プロジェクトの設計思想の詳細 | 長期方針・コンテンツ戦略検討時 |
 | `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/project/05_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
-| `docs/project/19_note-content-runway-2026.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
-| `docs/project/07_YouTube戦略_技術士総監.md` | YouTube 戦略 v4（TTS 完全自動・SNS 量産チャネル、共通基盤 sns-common 依存） | YouTube 投稿設計・SNS 自動化検討時 |
-| `docs/project/26_instagram-post-automation.md` | Instagram 投稿自動化アーキテクチャ v2（API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
+| `docs/project/07_SNS集客戦略.md` | SNS 集客戦略 v5（X / YouTube / Instagram 統合、TTS 完全自動・SNS 量産・共通基盤 sns-common 依存、IG は Carousel + Reels 両軸） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
+| `docs/project/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
+| `docs/project/26_Instagram投稿自動化アーキテクチャ.md` | Instagram 投稿自動化アーキテクチャ v3（Carousel + Reels 両軸、YT Shorts mp4 を IG Reels に流用、API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
+| `docs/project/27_5チャネル動線設計.md` | 5 チャネル動線設計 v1（X / YouTube / Instagram / note / サイトの統合ファネル設計、UTM 統一フォーマット、季節 × チャネルマトリクス、4 Phase 実装ロードマップ） | チャネル間動線・UTM 設計・季節調整検討時、note ↔ サイト境界ルール確認時 |
 
 ## 設計思想
 
@@ -78,16 +82,16 @@ src/                                # カスタムコンポーネント・CSS・
 docs/project/                       # プロジェクト管理ドキュメント
 docs/textbook/                      # 教材PDF・変換済みMarkdown（試験種別ごと）
 .claude/reference/                  # 作業マニュアル（詳細・一覧・手順）
-.claude/skills/                     # スキル定義（42 スキル、8 カテゴリ）
+.claude/skills/                     # スキル定義（44 スキル、8 カテゴリ）
   authoring/                        #   記事を作る（6）
   conversion/                       #   外部形式から MDX への変換（3）
-  quality/                          #   MDX 品質検査・改善サイクル（7）
+  quality/                          #   MDX・note 公開前品質検査（8）
   management/                       #   計画・分析・戦略（11）
   dev/                              #   開発・CI/CD（11）
   analytics/                        #   サイト分析（2）
-  social/                           #   SNS 投稿（1）
+  social/                           #   SNS 投稿（2）
   ui/                               #   UI/UX デザイン（1）
-.claude/agents/                     # サブエージェント定義（11）
+.claude/agents/                     # サブエージェント定義（14）
 .github/workflows/                  # CI/CD
 ```
 
@@ -414,6 +418,9 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 | keyword-rewriter | sonnet | Generator |
 | civil-textbook-rewriter | sonnet | Generator |
 | metrics-analyzer | sonnet | Evaluator |
+| note-link-injector | sonnet | Generator |
+| note-figure-auditor | sonnet | Evaluator |
+| note-fact-checker | sonnet | Evaluator |
 | performance-auditor | sonnet | Evaluator |
 | seo-auditor | sonnet | Evaluator |
 | strategy-advisor | inherit | Orchestrator |

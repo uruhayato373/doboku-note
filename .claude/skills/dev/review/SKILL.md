@@ -76,7 +76,7 @@ user-invocable: true
 src/app/docs/[...slug]/page.tsx
   → [code-review, design-review]
 
-docs/project/08_記述式コンテンツ執筆計画.md
+docs/project/08_記述式コンテンツ戦略.md
   → [critical-review]
 ```
 
@@ -143,7 +143,7 @@ OK: 1 (/check-mdx on file1)
 /review src/app/docs/[...slug]/page.tsx .local/r2/posts/pe-comprehensive-management/risk/article.mdx
 
 # 5. docs/ 配下の設計書
-/review docs/project/08_記述式コンテンツ執筆計画.md
+/review docs/project/08_記述式コンテンツ戦略.md
 ```
 
 ## アンチパターン

@@ -20,14 +20,17 @@ export async function getCommonComponents() {
     Callout: (await import("@/components/ui/Callout/Callout")).default,
     ExamPoint: (await import("@/components/ui/ExamPoint/ExamPoint")).default,
     RelatedKeywords: (await import("@/components/ui/RelatedKeywords/RelatedKeywords")).default,
+    RelatedExamQuestions: (await import("@/components/ui/RelatedExamQuestions/RelatedExamQuestions")).default,
     SpecSheetList: (
       await import("@/components/ui/SpecSheetList/SpecSheetList")
     ).default,
     LinkCard: (await import("@/components/ui/LinkCard/LinkCard")).default,
+    SeeAlso: (await import("@/components/ui/SeeAlso/SeeAlso")).default,
     CardList: (await import("@/components/ui/CardList/CardList")).default,
     ReferenceLinks: (await import("@/components/ui/ReferenceLinks")).default,
     ExamContext: (await import("@/components/ui/ExamContext")).default,
     DataTable: (await import("@/components/ui/DataTable/DataTable")).default,
+    Nowrap: (await import("@/components/ui/Nowrap/Nowrap")).default,
     Underline: (await import("@/components/ui/Underline/Underline")).default,
     Timeline: (await import("@/components/ui/Timeline/Timeline")).default,
     ExamFields: (await import("@/components/ui/ExamFields/ExamFields")).default,

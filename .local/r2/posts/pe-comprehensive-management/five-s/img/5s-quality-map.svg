@@ -1,17 +1,17 @@
-  <svg width="360" height="360" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:360px;width:100%">
+  <svg width="360" height="360" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:360px;width:100%" role="img" aria-label="5Sと品質・安全・納期の関連図">
     <!-- 外側方向ラベル -->
     <text x="180" y="16" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">品質向上</text>
     <text x="180" y="354" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">安全性向上</text>
     <text x="16" y="185" text-anchor="middle" fill="#222" font-weight="bold" font-size="13" transform="rotate(-90,16,185)">多品種化</text>
     <text x="344" y="185" text-anchor="middle" fill="#222" font-weight="bold" font-size="13" transform="rotate(90,344,185)">納期厳守</text>
     <!-- 外大円 -->
-    <circle cx="180" cy="183" r="148" fill="none" stroke="#bbb" stroke-width="1.5"/>
+    <circle cx="180" cy="183" r="148" fill="none" stroke="#d7d7d7" stroke-width="1.5"/>
     <!-- セクター分割ライン（5分割） -->
-    <line x1="180" y1="183" x2="180" y2="35" stroke="#ccc" stroke-width="1.2"/>
-    <line x1="180" y1="183" x2="321" y2="268" stroke="#ccc" stroke-width="1.2"/>
-    <line x1="180" y1="183" x2="267" y2="323" stroke="#ccc" stroke-width="1.2"/>
-    <line x1="180" y1="183" x2="93" y2="323" stroke="#ccc" stroke-width="1.2"/>
-    <line x1="180" y1="183" x2="39" y2="268" stroke="#ccc" stroke-width="1.2"/>
+    <line x1="180" y1="183" x2="180" y2="35" stroke="#d7d7d7" stroke-width="1.2"/>
+    <line x1="180" y1="183" x2="321" y2="268" stroke="#d7d7d7" stroke-width="1.2"/>
+    <line x1="180" y1="183" x2="267" y2="323" stroke="#d7d7d7" stroke-width="1.2"/>
+    <line x1="180" y1="183" x2="93" y2="323" stroke="#d7d7d7" stroke-width="1.2"/>
+    <line x1="180" y1="183" x2="39" y2="268" stroke="#d7d7d7" stroke-width="1.2"/>
     <!-- 各5Sラベル（扇の中央付近） -->
     <text x="180" y="95" text-anchor="middle" fill="#222" font-size="14" font-weight="bold">整理</text>
     <text x="276" y="155" text-anchor="middle" fill="#222" font-size="14" font-weight="bold">整頓</text>
@@ -30,7 +30,7 @@
     <text x="86" y="170" text-anchor="middle" fill="#555" font-size="9">決められたことを</text>
     <text x="86" y="181" text-anchor="middle" fill="#555" font-size="9">守る習慣をつける</text>
     <!-- 内円 -->
-    <circle cx="180" cy="183" r="52" fill="#444" stroke="#222" stroke-width="2"/>
-    <text x="180" y="178" text-anchor="middle" fill="white" font-size="14" font-weight="bold">5S</text>
-    <text x="180" y="196" text-anchor="middle" fill="#ccc" font-size="11">継続</text>
+    <circle cx="180" cy="183" r="52" fill="#222" stroke="#222" stroke-width="2"/>
+    <text x="180" y="178" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="bold">5S</text>
+    <text x="180" y="196" text-anchor="middle" fill="#d7d7d7" font-size="11">継続</text>
   </svg>

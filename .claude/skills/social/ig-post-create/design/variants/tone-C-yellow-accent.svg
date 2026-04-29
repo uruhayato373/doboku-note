@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" role="img" aria-label="tone C accent yellow">
+  <style>text{font-family:'Noto Sans JP','Hiragino Sans','Hiragino Kaku Gothic ProN',sans-serif;}</style>
+  <rect width="1080" height="1350" fill="#ffffff"/>
+  <text x="1000" y="64" text-anchor="end" font-size="22" fill="#8a8a8a">2 / 7</text>
+
+  <!-- 黄色ラベル -->
+  <rect x="80" y="92" width="240" height="56" fill="#d4a017"/>
+  <text x="200" y="130" text-anchor="middle" font-size="26" font-weight="800" fill="#1a3a5c" letter-spacing="2">DEFINITION</text>
+
+  <text x="80" y="240" font-size="64" font-weight="800" fill="#222">とは</text>
+
+  <!-- ハイライト箇所を黄色マーカー風 -->
+  <rect x="76" y="305" width="690" height="50" fill="#fff3cd"/>
+  <text x="80" y="345" font-size="52" font-weight="800" fill="#222">部下側の視点</text>
+  <text x="80" y="425" font-size="52" font-weight="700" fill="#222">からリーダーシップを</text>
+  <text x="80" y="505" font-size="52" font-weight="700" fill="#222">捉えるアプローチ。</text>
+
+  <rect x="80" y="970" width="920" height="200" rx="8" fill="#fff3cd"/>
+  <rect x="80" y="970" width="6" height="200" fill="#d4a017"/>
+  <text x="112" y="1020" font-size="24" font-weight="800" fill="#1a3a5c" letter-spacing="2">提唱者</text>
+  <text x="112" y="1070" font-size="28" fill="#222">ロバート・ケリー（1992）</text>
+  <text x="112" y="1110" font-size="28" fill="#222">『The Power of</text>
+  <text x="112" y="1150" font-size="28" fill="#222">Followership』で体系化</text>
+</svg>

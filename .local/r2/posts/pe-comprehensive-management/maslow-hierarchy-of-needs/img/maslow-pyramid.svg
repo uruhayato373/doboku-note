@@ -1,0 +1,51 @@
+<svg width="400" height="340" viewBox="0 0 400 340"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="マズローの欲求 5 段階説のピラミッド図。底辺から順に生理的欲求・安全欲求・社会的欲求・尊厳欲求（承認欲求）・自己実現欲求が積み上がり、低次欲求が満たされると高次欲求が動機づけの源泉となることを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-level { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-level-top { font-size: 12px; font-weight: bold; fill: #ffffff; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .arrow-line { stroke: #555; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker id="arrow-up" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0 8, 8 4, 0 0" fill="#555" />
+    </marker>
+  </defs>
+
+  <!-- 縦軸（低次→高次の方向） -->
+  <line x1="20" y1="290" x2="20" y2="40" class="arrow-line" marker-end="url(#arrow-up)" />
+  <text x="14" y="170" class="t-axis" transform="rotate(-90,14,170)" text-anchor="middle">低次 → 高次</text>
+
+  <!-- 第1段（底辺）：生理的欲求 -->
+  <polygon points="72,230 328,230 360,280 40,280" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" />
+  <text x="200" y="260" class="t-level" text-anchor="middle">生理的欲求</text>
+
+  <!-- 第2段：安全・安定欲求（brand 30% opacity） -->
+  <polygon points="104,180 296,180 328,230 72,230" fill="#2e6da4" fill-opacity="0.3" stroke="#2e6da4" stroke-width="1.5" />
+  <text x="200" y="210" class="t-level" text-anchor="middle">安全・安定欲求</text>
+
+  <!-- 第3段：社会的欲求（brand 55% opacity） -->
+  <polygon points="136,130 264,130 296,180 104,180" fill="#2e6da4" fill-opacity="0.55" stroke="#2e6da4" stroke-width="1.5" />
+  <text x="200" y="160" class="t-level" text-anchor="middle">社会的欲求</text>
+
+  <!-- 第4段：尊厳欲求（brand 80% opacity） -->
+  <polygon points="168,80 232,80 264,130 136,130" fill="#2e6da4" fill-opacity="0.8" stroke="#2e6da4" stroke-width="1.5" />
+  <text x="200" y="110" class="t-level-top" text-anchor="middle">尊厳欲求</text>
+
+  <!-- 第5段（頂点）：自己実現欲求 -->
+  <polygon points="200,30 232,80 168,80" fill="#2e6da4" stroke="#1a3a5c" stroke-width="1.5" />
+  <text x="200" y="65" class="t-level-top" text-anchor="middle" font-size="11">自己実現</text>
+
+  <!-- 区分ラベル -->
+  <text x="375" y="240" class="t-axis" text-anchor="end">欠乏欲求</text>
+  <line x1="378" y1="80" x2="378" y2="280" stroke="#8a8a8a" stroke-width="0.5" stroke-dasharray="3,2" />
+  <text x="375" y="55" class="t-axis" text-anchor="end">成長欲求</text>
+
+  <!-- タイトル -->
+  <text x="200" y="320" class="t-title" text-anchor="middle">マズローの欲求 5 段階説</text>
+</svg>

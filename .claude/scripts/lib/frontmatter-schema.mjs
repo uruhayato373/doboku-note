@@ -18,6 +18,7 @@ export const ExamId = z.enum([
 
 export const GroupId = z.enum([
   'guide',
+  'pillar',
   'primary',
   'secondary',
   'keyword',

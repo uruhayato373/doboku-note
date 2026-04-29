@@ -3,6 +3,7 @@
     "slug": "civil-construction-1",
     "label": "1級土木施工管理技士",
     "subtitle": "第1次・第2次検定 完全対策",
+    "description": "1級土木施工管理技士 第1次・第2次検定の試験対策。土工・コンクリート・品質管理・工程管理・法規の重要ポイントと過去問解説、経験記述ガイドを体系化したノート。",
     "variant": "civil",
     "order": 1
   },
@@ -10,6 +11,7 @@
     "slug": "pe-comprehensive-management",
     "label": "技術士（総合技術監理部門）",
     "subtitle": "筆記・口頭試験 論文対策",
+    "description": "技術士・総合技術監理部門の試験対策。経済性・人的資源・情報・安全・社会環境の5管理キーワード集、過去問解説、記述式・口頭試験の解答戦略を体系化。",
     "variant": "pe",
     "order": 2
   },
@@ -17,6 +19,7 @@
     "slug": "reference-materials",
     "label": "実務参照資料",
     "subtitle": "近畿地整 設計便覧・兵庫県 共通仕様書",
+    "description": "土木実務で参照する公的資料の要点抜粋。近畿地方整備局 設計便覧、兵庫県 土木工事共通仕様書 等から、設計・施工の判断基準となる規定を整理した実務向けノート。",
     "variant": "reference",
     "order": 3
   }

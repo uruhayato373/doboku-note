@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" role="img" aria-label="related: 関連キーワード">
+  <style>
+    text { font-family: 'Noto Sans JP','Hiragino Sans','Hiragino Kaku Gothic ProN',sans-serif; }
+  </style>
+  <rect width="1080" height="1350" fill="#ffffff"/>
+
+  
+  <text x="1000" y="64" text-anchor="end" font-size="22" font-weight="500" fill="#8a8a8a">6 / 7</text>
+  
+  <text x="80" y="120" font-size="26" font-weight="700" fill="#2e6da4" letter-spacing="2">RELATED</text>
+  <line x1="80" y1="144" x2="160" y2="144" stroke="#2e6da4" stroke-width="3"/>
+
+  <text x="80" y="236" font-size="60" font-weight="800" fill="#222">関連キーワード</text>
+  <text x="80" y="296" font-size="28" font-weight="400" fill="#555">人的資源管理ピラーで深掘りする</text>
+
+  
+    <g transform="translate(80, 376)">
+      <rect width="920" height="110" rx="12" fill="#ffffff" stroke="#d7d7d7" stroke-width="2"/>
+      <rect x="20" y="32" width="80" height="46" rx="6" fill="#e8f0fe"/>
+      <text x="60" y="64" text-anchor="middle" font-size="24" font-weight="700" fill="#2e6da4">3.1</text>
+      <text x="124" y="68" font-size="40" font-weight="700" fill="#222">リーダーシップ</text>
+      <text x="880" y="68" text-anchor="end" font-size="36" fill="#2e6da4">→</text>
+    </g>
+    <g transform="translate(80, 516)">
+      <rect width="920" height="110" rx="12" fill="#ffffff" stroke="#d7d7d7" stroke-width="2"/>
+      <rect x="20" y="32" width="80" height="46" rx="6" fill="#e8f0fe"/>
+      <text x="60" y="64" text-anchor="middle" font-size="24" font-weight="700" fill="#2e6da4">3.1</text>
+      <text x="124" y="68" font-size="40" font-weight="700" fill="#222">エンゲージメント</text>
+      <text x="880" y="68" text-anchor="end" font-size="36" fill="#2e6da4">→</text>
+    </g>
+    <g transform="translate(80, 656)">
+      <rect width="920" height="110" rx="12" fill="#ffffff" stroke="#d7d7d7" stroke-width="2"/>
+      <rect x="20" y="32" width="80" height="46" rx="6" fill="#e8f0fe"/>
+      <text x="60" y="64" text-anchor="middle" font-size="24" font-weight="700" fill="#2e6da4">3.1</text>
+      <text x="124" y="68" font-size="40" font-weight="700" fill="#222">動機づけ理論</text>
+      <text x="880" y="68" text-anchor="end" font-size="36" fill="#2e6da4">→</text>
+    </g>
+    <g transform="translate(80, 796)">
+      <rect width="920" height="110" rx="12" fill="#ffffff" stroke="#d7d7d7" stroke-width="2"/>
+      <rect x="20" y="32" width="80" height="46" rx="6" fill="#e8f0fe"/>
+      <text x="60" y="64" text-anchor="middle" font-size="24" font-weight="700" fill="#2e6da4">3.2</text>
+      <text x="124" y="68" font-size="40" font-weight="700" fill="#222">OJT・人材育成</text>
+      <text x="880" y="68" text-anchor="end" font-size="36" fill="#2e6da4">→</text>
+    </g>
+</svg>

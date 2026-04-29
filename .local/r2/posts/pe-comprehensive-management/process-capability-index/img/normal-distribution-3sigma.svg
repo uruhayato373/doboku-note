@@ -1,38 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" width="100%" role="img" aria-label="正規分布と 3σ 則">
-  <line x1="60" y1="30" x2="420" y2="30" stroke="#333" stroke-width="1"/>
-  <line x1="60" y1="24" x2="60" y2="36" stroke="#333" stroke-width="1"/>
-  <line x1="420" y1="24" x2="420" y2="36" stroke="#333" stroke-width="1"/>
-  <text x="240" y="22" text-anchor="middle" font-size="12" fill="#333" font-family="sans-serif">±3σ : 99.7%</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 260" style="max-width:480px;width:100%" role="img" aria-label="正規分布と 3σ 則">
+  <line x1="60" y1="30" x2="420" y2="30" stroke="#222" stroke-width="1"/>
+  <line x1="60" y1="24" x2="60" y2="36" stroke="#222" stroke-width="1"/>
+  <line x1="420" y1="24" x2="420" y2="36" stroke="#222" stroke-width="1"/>
+  <text x="240" y="22" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">±3σ : 99.7%</text>
 
-  <line x1="120" y1="50" x2="360" y2="50" stroke="#333" stroke-width="1"/>
-  <line x1="120" y1="44" x2="120" y2="56" stroke="#333" stroke-width="1"/>
-  <line x1="360" y1="44" x2="360" y2="56" stroke="#333" stroke-width="1"/>
-  <text x="240" y="42" text-anchor="middle" font-size="12" fill="#333" font-family="sans-serif">±2σ : 95.4%</text>
+  <line x1="120" y1="50" x2="360" y2="50" stroke="#222" stroke-width="1"/>
+  <line x1="120" y1="44" x2="120" y2="56" stroke="#222" stroke-width="1"/>
+  <line x1="360" y1="44" x2="360" y2="56" stroke="#222" stroke-width="1"/>
+  <text x="240" y="42" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">±2σ : 95.4%</text>
 
-  <line x1="180" y1="70" x2="300" y2="70" stroke="#333" stroke-width="1"/>
-  <line x1="180" y1="64" x2="180" y2="76" stroke="#333" stroke-width="1"/>
-  <line x1="300" y1="64" x2="300" y2="76" stroke="#333" stroke-width="1"/>
-  <text x="240" y="62" text-anchor="middle" font-size="12" fill="#333" font-family="sans-serif">±σ : 68.3%</text>
+  <line x1="180" y1="70" x2="300" y2="70" stroke="#222" stroke-width="1"/>
+  <line x1="180" y1="64" x2="180" y2="76" stroke="#222" stroke-width="1"/>
+  <line x1="300" y1="64" x2="300" y2="76" stroke="#222" stroke-width="1"/>
+  <text x="240" y="62" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">±σ : 68.3%</text>
 
-  <path d="M 60 220 Q 90 218 120 210 Q 150 200 180 175 Q 210 140 240 90 Q 270 140 300 175 Q 330 200 360 210 Q 390 218 420 220" fill="none" stroke="#333" stroke-width="2"/>
+  <path d="M 60 220 Q 90 218 120 210 Q 150 200 180 175 Q 210 140 240 90 Q 270 140 300 175 Q 330 200 360 210 Q 390 218 420 220" fill="none" stroke="#222" stroke-width="2"/>
 
-  <line x1="60" y1="88" x2="60" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="120" y1="88" x2="120" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="180" y1="88" x2="180" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="60" y1="88" x2="60" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="120" y1="88" x2="120" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="180" y1="88" x2="180" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
   <line x1="240" y1="84" x2="240" y2="220" stroke="#555" stroke-width="1.5"/>
-  <line x1="300" y1="88" x2="300" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="360" y1="88" x2="360" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
-  <line x1="420" y1="88" x2="420" y2="220" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="300" y1="88" x2="300" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="360" y1="88" x2="360" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="420" y1="88" x2="420" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
 
-  <line x1="40" y1="220" x2="440" y2="220" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="220" x2="440" y2="220" stroke="#222" stroke-width="1.5"/>
 
-  <text x="60" y="236" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">-3σ</text>
-  <text x="120" y="236" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">-2σ</text>
-  <text x="180" y="236" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">-σ</text>
-  <text x="240" y="236" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">μ</text>
-  <text x="300" y="236" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">+σ</text>
-  <text x="360" y="236" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">+2σ</text>
-  <text x="420" y="236" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">+3σ</text>
+  <text x="60" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">-3σ</text>
+  <text x="120" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">-2σ</text>
+  <text x="180" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">-σ</text>
+  <text x="240" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">μ</text>
+  <text x="300" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">+σ</text>
+  <text x="360" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">+2σ</text>
+  <text x="420" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">+3σ</text>
 
   <text x="240" y="254" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">N(μ, σ²) における標準偏差基準の包含確率</text>
 </svg>

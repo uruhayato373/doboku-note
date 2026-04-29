@@ -1,49 +1,19 @@
 {
   "meta": {
-    "generated_at": "2026-04-21T04:21:28.664Z",
+    "generated_at": "2026-04-28T03:33:37.954Z",
     "path": ".local/r2/posts/**/img/*.svg",
-    "file": ".tmp/bad-test.svg"
+    "file": "C:/Users/m004195/doboku-note/.local/r2/posts/pe-comprehensive-management/personal-communication/img/push-pull-communication.svg"
   },
   "summary": {
     "scanned_files": 1,
-    "files_with_issues": 1,
-    "total_findings": 4,
+    "files_with_issues": 0,
+    "total_findings": 0,
     "by_severity": {
-      "HIGH": 1,
-      "MEDIUM": 3,
+      "HIGH": 0,
+      "MEDIUM": 0,
       "LOW": 0
     },
-    "by_pattern": {
-      "P3-missing-role": 1,
-      "P3-missing-aria": 1,
-      "P3-missing-maxwidth": 1,
-      "P5-wide-viewbox": 1
-    }
+    "by_pattern": {}
   },
-  "findings": [
-    {
-      "file": ".tmp/bad-test.svg",
-      "pattern": "P3-missing-role",
-      "severity": "MEDIUM",
-      "detail": "role=\"img\" が未設定"
-    },
-    {
-      "file": ".tmp/bad-test.svg",
-      "pattern": "P3-missing-aria",
-      "severity": "MEDIUM",
-      "detail": "aria-label が未設定"
-    },
-    {
-      "file": ".tmp/bad-test.svg",
-      "pattern": "P3-missing-maxwidth",
-      "severity": "HIGH",
-      "detail": "style=\"max-width:{viewBox width}px;width:100%\" が未設定（PC で拡大表示されるリスク）"
-    },
-    {
-      "file": ".tmp/bad-test.svg",
-      "pattern": "P5-wide-viewbox",
-      "severity": "MEDIUM",
-      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
-    }
-  ]
+  "findings": []
 }

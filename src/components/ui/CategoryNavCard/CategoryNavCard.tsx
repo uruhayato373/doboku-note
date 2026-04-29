@@ -80,6 +80,57 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
   );
 }
 
+/* ━━━ 5 管理学習ガイド（pillar）カード ━━━ */
+function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'sidebar' | 'mobile'; currentSlug: string; categoryArticles: DocMeta[] }) {
+  const pillars = categoryArticles
+    .filter((m) => classifyDoc(m) === 'pillar')
+    .sort((a, b) => {
+      const sa = parseFloat(((a as any).section as string | undefined) ?? '99');
+      const sb = parseFloat(((b as any).section as string | undefined) ?? '99');
+      return sa - sb;
+    });
+
+  if (pillars.length === 0) return null;
+
+  if (variant === 'sidebar') {
+    return (
+      <SidebarWrapper title="5 管理学習ガイド">
+        <ul className="space-y-1.5">
+          {pillars.map((p) => (
+            <li key={p.slug}>
+              {p.slug === currentSlug ? (
+                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || (p as any).shortTitle || p.title}</span>
+              ) : (
+                <Link href={`/docs/${p.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                  {p.sidebar_label || (p as any).shortTitle || p.title}
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </SidebarWrapper>
+    );
+  }
+
+  return (
+    <MobileWrapper title="5 管理学習ガイド">
+      <ul className="space-y-2">
+        {pillars.map((p) => (
+          <li key={p.slug} className={`rounded-lg border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+            {p.slug === currentSlug ? (
+              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.title}</span>
+            ) : (
+              <Link href={`/docs/${p.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+                {p.title}
+              </Link>
+            )}
+          </li>
+        ))}
+      </ul>
+    </MobileWrapper>
+  );
+}
+
 /* ━━━ 過去問カード ━━━ */
 function PastExamCard({ variant, currentSlug, categoryArticles, category }: { variant: 'sidebar' | 'mobile'; currentSlug: string; categoryArticles: DocMeta[]; category: string }) {
   const data = buildPastExamNavData(category, categoryArticles);
@@ -297,6 +348,15 @@ export default function CategoryNavCard({ variant, category, currentSlug, docGro
     switch (docGroup) {
       case 'guide':
         return <GuideCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />;
+      case 'pillar':
+        return (
+          <>
+            <PillarCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} />
+            <div className={variant === 'sidebar' ? 'mt-3' : 'mt-6'}>
+              <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />
+            </div>
+          </>
+        );
       case 'pastExam':
         return <PastExamCard variant={variant} currentSlug={currentSlug} categoryArticles={categoryArticles} category={category} />;
       case 'keyword':

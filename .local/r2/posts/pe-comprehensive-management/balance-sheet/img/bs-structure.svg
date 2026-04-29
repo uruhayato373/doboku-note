@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280" style="max-width:400px;width:100%" role="img" aria-label="貸借対照表の構造：左に資産（流動・固定）、右に負債（流動・固定）と純資産を対置し、資産合計＝負債合計＋純資産合計の等式を示す">
-  <rect width="400" height="280" fill="white" stroke="#d7d7d7"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="280" viewBox="0 0 400 280" style="max-width:400px;width:100%" role="img" aria-label="貸借対照表の構造：左に資産（流動・固定）、右に負債（流動・固定）と純資産を対置し、資産合計＝負債合計＋純資産合計の等式を示す" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="280" fill="#ffffff" stroke="#d7d7d7"/>
 
   <!-- Title -->
   <text x="200" y="22" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">貸借対照表（B/S）の構造</text>

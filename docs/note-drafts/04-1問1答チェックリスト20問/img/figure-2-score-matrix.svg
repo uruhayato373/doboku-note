@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+    <rect width="1200" height="720" fill="#ffffff"/>
+
+    <!-- タイトル -->
+    <text x="36" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">スコア帯別 判定マトリクス</text>
+    <text x="36" y="92" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">正答数から弱点を診断し、次のアクションを決める</text>
+
+    <!-- 情報バー -->
+    <rect x="36" y="118" width="1128" height="44" rx="6" fill="#e8f0fe"/>
+    <text x="56" y="146" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#1a3a5c">合格ライン = 16問以上（80%）。12問未満は基礎固めを優先。間違えた分野のピラーで重点補強してください。</text>
+
+    
+      <!-- row 0 -->
+      <rect x="36" y="200" width="1128" height="124" rx="8" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+
+      <!-- バッジ -->
+      <rect x="52" y="220" width="180" height="40" rx="6" fill="#3a7d44"/>
+      <text x="142" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">合格圏・上位安定</text>
+
+      <!-- スコア範囲（バッジ右端 + 24px から開始） -->
+      <text x="256" y="238" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44">16〜20問正解</text>
+      <text x="256" y="266" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="600" fill="#8a8a8a">80〜100%</text>
+
+      <!-- アクション（スコア列の右側から開始） -->
+      <text x="560" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 択一式の地力は十分です</text><text x="560" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 記述式（600字×5枚）の完成度に集中しましょう</text><text x="560" y="308" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ トレードオフ思考の深化が残る課題です</text>
+    
+      <!-- row 1 -->
+      <rect x="36" y="336" width="1128" height="124" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+
+      <!-- バッジ -->
+      <rect x="52" y="356" width="180" height="40" rx="6" fill="#2e6da4"/>
+      <text x="142" y="382" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">合格圏・要補強</text>
+
+      <!-- スコア範囲（バッジ右端 + 24px から開始） -->
+      <text x="256" y="374" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#2e6da4">12〜15問正解</text>
+      <text x="256" y="402" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="600" fill="#8a8a8a">60〜75%</text>
+
+      <!-- アクション（スコア列の右側から開始） -->
+      <text x="560" y="372" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 基礎知識はある程度整っています</text><text x="560" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 間違えた分野のピラーページを重点復習</text><text x="560" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 過去問5年分で出題パターンを確認しましょう</text>
+    
+      <!-- row 2 -->
+      <rect x="36" y="472" width="1128" height="124" rx="8" fill="#fef9e7" stroke="#d4a017" stroke-width="2"/>
+
+      <!-- バッジ -->
+      <rect x="52" y="492" width="180" height="40" rx="6" fill="#d4a017"/>
+      <text x="142" y="518" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">要対策</text>
+
+      <!-- スコア範囲（バッジ右端 + 24px から開始） -->
+      <text x="256" y="510" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#d4a017">8〜11問正解</text>
+      <text x="256" y="538" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="600" fill="#8a8a8a">40〜55%</text>
+
+      <!-- アクション（スコア列の右側から開始） -->
+      <text x="560" y="508" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 複数分野に知識の抜け漏れがあります</text><text x="560" y="544" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ キーワード集の通読から再スタートしましょう</text><text x="560" y="580" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 苦手分野のピラーページで体系的に整理しましょう</text>
+    
+      <!-- row 3 -->
+      <rect x="36" y="608" width="1128" height="124" rx="8" fill="#fce8ea" stroke="#b22234" stroke-width="2"/>
+
+      <!-- バッジ -->
+      <rect x="52" y="628" width="180" height="40" rx="6" fill="#b22234"/>
+      <text x="142" y="654" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">危険域・基礎固め必須</text>
+
+      <!-- スコア範囲（バッジ右端 + 24px から開始） -->
+      <text x="256" y="646" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#b22234">7問以下</text>
+      <text x="256" y="674" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="600" fill="#8a8a8a">35%以下</text>
+
+      <!-- アクション（スコア列の右側から開始） -->
+      <text x="560" y="644" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 択一式での得点が厳しい状況です</text><text x="560" y="680" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ まずキーワード集を5管理すべて通読しましょう</text><text x="560" y="716" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">▶ 過去問より先に基礎固めを優先してください</text>
+    
+
+    <!-- ウォーターマーク -->
+    <text x="1164" y="700" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

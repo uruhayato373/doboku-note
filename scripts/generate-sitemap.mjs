@@ -107,7 +107,8 @@ function getUrlMeta(urlPath, slug) {
   }
 
   if (slug) {
-    if (slug.includes('-guide-') || slug.includes('-textbook-')) {
+    // Pillar pages: hub topical authority、PE は `-pillar` 末尾、civil は `-guide-` 接頭で識別
+    if (slug.endsWith('-pillar') || slug.includes('-guide-') || slug.includes('-textbook-')) {
       return { priority: '0.8', changefreq: 'monthly' };
     }
     if (

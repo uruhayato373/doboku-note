@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="670" viewBox="0 0 1280 670">
+  <!-- 背景 -->
+  <rect width="1280" height="670" fill="#ffffff"/>
+  <!-- 上部ブランドバンド -->
+  <rect width="1280" height="90" fill="#e8f0fe"/>
+
+  <!-- ブランド名 -->
+  <text x="60" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#1a3a5c">doboku-note</text>
+  <!-- カテゴリタグ -->
+  <text x="1220" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#2e6da4" text-anchor="end">技術士 総合技術監理部門</text>
+
+  
+
+  <!-- メインタイトル -->
+  
+  <text x="60" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="64" font-weight="800" fill="#222222" letter-spacing="-1">総監記述式 5枚構成 論文骨子テ</text>
+  <text x="60" y="402" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="64" font-weight="800" fill="#222222" letter-spacing="-1">ンプレート</text>
+
+  <!-- サブタイトル -->
+  
+  <text x="60" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="500" fill="#555555">どんなテーマでも 5 管理を横串で書く完全フレームワーク</text>
+</svg>

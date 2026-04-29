@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+    <rect width="1280" height="720" fill="#ffffff"/>
+
+    <!-- タイトル -->
+    <text x="36" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">5管理 × 4問 = 20問の出題配分マップ</text>
+    <text x="36" y="92" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">各分野から満遍なく出題 — 苦手分野の特定に使ってください</text>
+
+    <!-- 情報バー -->
+    <rect x="36" y="118" width="1208" height="44" rx="6" fill="#e8f0fe"/>
+    <text x="56" y="145" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#1a3a5c">各分野4問ずつ、合計20問を収録。間違えた問題の分野を確認し、弱点ピラーページで重点補強しましょう。</text>
+
+    
+      <rect x="66" y="190" width="220" height="60" rx="8" fill="#2e6da4"/>
+      <text x="176" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">経済性管理</text>
+      <text x="176" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="500" fill="#ffffff" text-anchor="middle">4問</text>
+    
+        <rect x="66" y="258" width="220" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="176" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#2e6da4" text-anchor="middle">Q1. 損益分岐点．</text>
+        <text x="176" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="66" y="338" width="220" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="176" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#2e6da4" text-anchor="middle">Q2. 管理限界．</text>
+        <text x="176" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="66" y="418" width="220" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="176" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#2e6da4" text-anchor="middle">Q3. VE（価値工学）．</text>
+        <text x="176" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="66" y="498" width="220" height="72" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="176" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#2e6da4" text-anchor="middle">Q4. PERT/CPM．</text>
+        <text x="176" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+      <rect x="298" y="190" width="220" height="60" rx="8" fill="#3a7d44"/>
+      <text x="408" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">人的資源管理</text>
+      <text x="408" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="500" fill="#ffffff" text-anchor="middle">4問</text>
+    
+        <rect x="298" y="258" width="220" height="72" rx="6" fill="#e6f4ea" stroke="#3a7d44" stroke-width="1.5"/>
+        <text x="408" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#3a7d44" text-anchor="middle">Q5. リーダーシップ．</text>
+        <text x="408" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="298" y="338" width="220" height="72" rx="6" fill="#e6f4ea" stroke="#3a7d44" stroke-width="1.5"/>
+        <text x="408" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#3a7d44" text-anchor="middle">Q6. 情意考課．</text>
+        <text x="408" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="298" y="418" width="220" height="72" rx="6" fill="#e6f4ea" stroke="#3a7d44" stroke-width="1.5"/>
+        <text x="408" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#3a7d44" text-anchor="middle">Q7. 労働基準法．</text>
+        <text x="408" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="298" y="498" width="220" height="72" rx="6" fill="#e6f4ea" stroke="#3a7d44" stroke-width="1.5"/>
+        <text x="408" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#3a7d44" text-anchor="middle">Q8. メンター制度．</text>
+        <text x="408" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+      <rect x="530" y="190" width="220" height="60" rx="8" fill="#7b3f99"/>
+      <text x="640" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">情報管理</text>
+      <text x="640" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="500" fill="#ffffff" text-anchor="middle">4問</text>
+    
+        <rect x="530" y="258" width="220" height="72" rx="6" fill="#f3e8ff" stroke="#7b3f99" stroke-width="1.5"/>
+        <text x="640" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#7b3f99" text-anchor="middle">Q9. 3種類の平均．</text>
+        <text x="640" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="530" y="338" width="220" height="72" rx="6" fill="#f3e8ff" stroke="#7b3f99" stroke-width="1.5"/>
+        <text x="640" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#7b3f99" text-anchor="middle">Q10. 肖像権．</text>
+        <text x="640" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="530" y="418" width="220" height="72" rx="6" fill="#f3e8ff" stroke="#7b3f99" stroke-width="1.5"/>
+        <text x="640" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#7b3f99" text-anchor="middle">Q11. ゼロトラスト．</text>
+        <text x="640" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="530" y="498" width="220" height="72" rx="6" fill="#f3e8ff" stroke="#7b3f99" stroke-width="1.5"/>
+        <text x="640" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#7b3f99" text-anchor="middle">Q12. デザイン思考．</text>
+        <text x="640" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+      <rect x="762" y="190" width="220" height="60" rx="8" fill="#b22234"/>
+      <text x="872" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">安全管理</text>
+      <text x="872" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="500" fill="#ffffff" text-anchor="middle">4問</text>
+    
+        <rect x="762" y="258" width="220" height="72" rx="6" fill="#fce8ea" stroke="#b22234" stroke-width="1.5"/>
+        <text x="872" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#b22234" text-anchor="middle">Q13. 4E対策．</text>
+        <text x="872" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="762" y="338" width="220" height="72" rx="6" fill="#fce8ea" stroke="#b22234" stroke-width="1.5"/>
+        <text x="872" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#b22234" text-anchor="middle">Q14. 労働安全衛生法．</text>
+        <text x="872" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="762" y="418" width="220" height="72" rx="6" fill="#fce8ea" stroke="#b22234" stroke-width="1.5"/>
+        <text x="872" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#b22234" text-anchor="middle">Q15. ストレスチェック．</text>
+        <text x="872" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="762" y="498" width="220" height="72" rx="6" fill="#fce8ea" stroke="#b22234" stroke-width="1.5"/>
+        <text x="872" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#b22234" text-anchor="middle">Q16. BCP．</text>
+        <text x="872" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+      <rect x="994" y="190" width="220" height="60" rx="8" fill="#d4a017"/>
+      <text x="1104" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#ffffff" text-anchor="middle">社会環境管理</text>
+      <text x="1104" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="500" fill="#ffffff" text-anchor="middle">4問</text>
+    
+        <rect x="994" y="258" width="220" height="72" rx="6" fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="1104" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#d4a017" text-anchor="middle">Q17. 環境影響評価．</text>
+        <text x="1104" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="994" y="338" width="220" height="72" rx="6" fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="1104" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#d4a017" text-anchor="middle">Q18. 廃棄物処理．</text>
+        <text x="1104" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="994" y="418" width="220" height="72" rx="6" fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="1104" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#d4a017" text-anchor="middle">Q19. インフラ老朽化．</text>
+        <text x="1104" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+        <rect x="994" y="498" width="220" height="72" rx="6" fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="1104" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#d4a017" text-anchor="middle">Q20. 予防保全．</text>
+        <text x="1104" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#555555" text-anchor="middle"></text>
+      
+
+    <!-- ウォーターマーク -->
+    <text x="1244" y="700" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

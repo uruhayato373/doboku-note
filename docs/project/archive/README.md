@@ -16,4 +16,5 @@
 
 ## 収録ファイル
 
+- `12_adsense-resubmission-strategy.md` — AdSense 再申請の戦略 doc。実行タスクは Issue #33 に移管済（2026-04-21）。本書は 2026-04-14 時点の実測値・hide→質的リライト pivot の経緯・Google 基準マッピングの一次資料として保存。
 - `15_quality-cycle-cycle2-handoff.md` — 品質サイクル第 2 サイクル handoff 文書。Phase G-7（2026-04-19）で完結済み。

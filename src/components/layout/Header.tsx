@@ -2,12 +2,87 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Search, HardHat, GraduationCap, BookOpen, User, Menu, X } from "lucide-react";
 import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
 
 const categories = categoriesData as CategoryDef[];
+
+// 2026-04-26 #84 LCP 改善: above-fold の Header から lucide-react を除去し inline SVG 化。
+// SVG path は lucide v0.542.0（MIT、ISC は除外）の各アイコンから抽出。
+// 共通属性は SvgIcon ラッパーに集約してマークアップを簡潔に保つ。
+type IconProps = { className?: string };
+
+function SvgIcon({ className, children, viewBox = "0 0 24 24" }: { className?: string | undefined; children: React.ReactNode; viewBox?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={viewBox}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className || "w-5 h-5"}
+      aria-hidden="true"
+    >
+      {children}
+    </svg>
+  );
+}
+
+const Search = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <circle cx="11" cy="11" r="8" />
+    <path d="m21 21-4.3-4.3" />
+  </SvgIcon>
+);
+
+const HardHat = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="M2 18a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1Z" />
+    <path d="M10 10V5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v5" />
+    <path d="M4 15v-3a6 6 0 0 1 6-6" />
+    <path d="M14 6a6 6 0 0 1 6 6v3" />
+  </SvgIcon>
+);
+
+const GraduationCap = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+    <path d="M22 10v6" />
+    <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+  </SvgIcon>
+);
+
+const BookOpen = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="M12 7v14" />
+    <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
+  </SvgIcon>
+);
+
+const User = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
+    <circle cx="12" cy="7" r="4" />
+  </SvgIcon>
+);
+
+const Menu = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="M4 12h16" />
+    <path d="M4 18h16" />
+    <path d="M4 6h16" />
+  </SvgIcon>
+);
+
+const X = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="M18 6 6 18" />
+    <path d="m6 6 12 12" />
+  </SvgIcon>
+);
 
 function CategoryIcon({ variant, className }: { variant: string; className?: string }) {
   const cn = className || "w-5 h-5";

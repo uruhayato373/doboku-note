@@ -132,9 +132,9 @@
     @apply prose prose-gray dark:prose-invert max-w-none;
   }
 
-  /* 本文: Zenn準拠 font-size 17px / line-height 1.9 */
+  /* 本文: Zenn準拠 font-size 16px / line-height 1.9 */
   .prose-blog {
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.9;
     text-autospace: normal;
   }
@@ -249,6 +249,7 @@
 
   /* h3: サブセクション — 中間色の左アクセントバー */
   .prose-blog h3 {
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, Georgia, serif;
     @apply text-xl font-semibold text-gray-800 dark:text-gray-200;
     @apply mb-4 mt-12 pl-4 py-1;
     @apply border-l-4 border-blue-400 dark:border-cyan-400;
@@ -299,6 +300,15 @@
     @apply py-2.5 px-4;
     color: var(--ink-body);
     border-bottom: 1px solid var(--rule-soft);
+    font-size: 16px;
+  }
+
+  /* MDX 表の最初列 = ラベル列という慣習に基づき、デフォルトで折り返さない。
+     例外（最初列に長文が来る表）は対象 td に opt-out クラスを付与するか
+     <Nowrap> を中立列で使う。詳細は CLAUDE.md / Nowrap コンポーネント README 参照。 */
+  .prose-blog table thead th:first-child,
+  .prose-blog table tbody td:first-child {
+    white-space: nowrap;
   }
 
   .prose-blog tbody tr:last-child td {

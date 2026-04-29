@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "generated_at": "2026-04-26T02:44:33.489Z",
+  "generated_at": "2026-04-29T01:39:42.843Z",
   "summary": {
-    "total_mdx_files": 780,
+    "total_mdx_files": 785,
     "total_unique_tags": 56,
-    "allowlist_size": 82,
-    "known_count": 37,
-    "unknown_count": 19,
+    "allowlist_size": 84,
+    "known_count": 38,
+    "unknown_count": 18,
     "typo_candidates_count": 1
   },
   "tags": [
     {
       "name": "keyword",
-      "count": 641,
+      "count": 646,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-360-degree-evaluation",
@@ -84,6 +84,7 @@
         "pe-comprehensive-management-citizen-participation",
         "pe-comprehensive-management-civil-protection-act",
         "pe-comprehensive-management-clearance-level",
+        "pe-comprehensive-management-climate-change-adaptation-act",
         "pe-comprehensive-management-climate-change-decarbonization",
         "pe-comprehensive-management-climate-change-international",
         "pe-comprehensive-management-cloud-on-premises",
@@ -196,6 +197,7 @@
         "pe-comprehensive-management-energy",
         "pe-comprehensive-management-enterprise-portal-intranet",
         "pe-comprehensive-management-environmental-accounting",
+        "pe-comprehensive-management-environmental-basic-act",
         "pe-comprehensive-management-environmental-basic-plan",
         "pe-comprehensive-management-environmental-communication",
         "pe-comprehensive-management-environmental-impact-assessment",
@@ -274,6 +276,7 @@
         "pe-comprehensive-management-human-development-index",
         "pe-comprehensive-management-human-error-probability",
         "pe-comprehensive-management-human-factors",
+        "pe-comprehensive-management-human-relations-management",
         "pe-comprehensive-management-human-resource-assessment",
         "pe-comprehensive-management-ics",
         "pe-comprehensive-management-ifrs",
@@ -333,6 +336,7 @@
         "pe-comprehensive-management-kunming-montreal-framework",
         "pe-comprehensive-management-kyt",
         "pe-comprehensive-management-labor-contract-act",
+        "pe-comprehensive-management-labor-cost-ratio",
         "pe-comprehensive-management-labor-mobility",
         "pe-comprehensive-management-labor-policy-act",
         "pe-comprehensive-management-labor-productivity",
@@ -606,6 +610,7 @@
         "pe-comprehensive-management-teal-organization",
         "pe-comprehensive-management-technical-nontechnical-skills",
         "pe-comprehensive-management-technology-licensing",
+        "pe-comprehensive-management-telework",
         "pe-comprehensive-management-temporary-works-plan",
         "pe-comprehensive-management-terrorism",
         "pe-comprehensive-management-theory-of-constraints",
@@ -660,7 +665,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 378,
+      "count": 383,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -702,6 +707,7 @@
         "pe-comprehensive-management-cites",
         "pe-comprehensive-management-citizen-participation",
         "pe-comprehensive-management-clearance-level",
+        "pe-comprehensive-management-climate-change-adaptation-act",
         "pe-comprehensive-management-climate-change-decarbonization",
         "pe-comprehensive-management-climate-change-international",
         "pe-comprehensive-management-cloud-on-premises",
@@ -770,6 +776,7 @@
         "pe-comprehensive-management-employment-security-act",
         "pe-comprehensive-management-encryption-digital-signature",
         "pe-comprehensive-management-enterprise-portal-intranet",
+        "pe-comprehensive-management-environmental-basic-act",
         "pe-comprehensive-management-equal-employment-act",
         "pe-comprehensive-management-equal-pay-for-equal-work",
         "pe-comprehensive-management-equipment-characteristics",
@@ -810,6 +817,7 @@
         "pe-comprehensive-management-hr-systems",
         "pe-comprehensive-management-human-capital-disclosure",
         "pe-comprehensive-management-human-development-index",
+        "pe-comprehensive-management-human-relations-management",
         "pe-comprehensive-management-human-resource-management-pillar",
         "pe-comprehensive-management-idea-generation-methods",
         "pe-comprehensive-management-immigration-control-act",
@@ -849,6 +857,7 @@
         "pe-comprehensive-management-knowledge-sharing",
         "pe-comprehensive-management-kunming-montreal-framework",
         "pe-comprehensive-management-labor-contract-act",
+        "pe-comprehensive-management-labor-cost-ratio",
         "pe-comprehensive-management-labor-policy-act",
         "pe-comprehensive-management-labor-productivity",
         "pe-comprehensive-management-labor-relations-adjustment-act",
@@ -1008,6 +1017,7 @@
         "pe-comprehensive-management-targeted-attack",
         "pe-comprehensive-management-teal-organization",
         "pe-comprehensive-management-technology-licensing",
+        "pe-comprehensive-management-telework",
         "pe-comprehensive-management-temporary-works-plan",
         "pe-comprehensive-management-threat-awareness-training",
         "pe-comprehensive-management-three-c-analysis",
@@ -1180,9 +1190,9 @@
       ]
     },
     {
-      "name": "技士（総合技術監理部門）",
+      "name": "技術士（総合技術監理部門）",
       "count": 17,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
         "pe-comprehensive-management-essay-exam-strategy",
@@ -1597,6 +1607,62 @@
       ]
     },
     {
+      "name": "安全管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-safety-management-pillar"
+      ]
+    },
+    {
+      "name": "記述式",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-exam-strategy"
+      ]
+    },
+    {
+      "name": "記述式対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs"
+      ]
+    },
+    {
+      "name": "索引",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
+      "name": "社会環境管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
+      "name": "出願",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "情報管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-information-management-pillar"
+      ]
+    },
+    {
       "name": "人的資源管理",
       "count": 1,
       "inAllowlist": true,
@@ -1651,66 +1717,9 @@
       "usedIn": [
         "pe-comprehensive-management-r07-primary"
       ]
-    },
-    {
-      "name": "出願",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "安全管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-safety-management-pillar"
-      ]
-    },
-    {
-      "name": "情報管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-information-management-pillar"
-      ]
-    },
-    {
-      "name": "社会環境管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-social-environment-management-pillar"
-      ]
-    },
-    {
-      "name": "索引",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
-      "name": "記述式",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy"
-      ]
-    },
-    {
-      "name": "記述式対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs"
-      ]
     }
   ],
   "unknown": [
-    "技士（総合技術監理部門）",
     "exam-questions",
     "law",
     "machinery",
@@ -1721,14 +1730,14 @@
     "5管理",
     "キーワード集",
     "トレードオフ",
+    "記述式対策",
+    "出願",
     "令和2年度",
     "令和3年度",
     "令和4年度",
     "令和5年度",
     "令和6年度",
-    "令和7年度",
-    "出願",
-    "記述式対策"
+    "令和7年度"
   ],
   "typo_candidates": [
     {

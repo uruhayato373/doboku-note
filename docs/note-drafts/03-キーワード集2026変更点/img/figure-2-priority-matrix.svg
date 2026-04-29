@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+    <rect width="1200" height="720" fill="#ffffff"/>
+
+    <text x="60" y="52" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#222222">新キーワード 学び直し優先度マトリクス</text>
+    <text x="60" y="78" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555">縦軸: 択一式の出題頻度  横軸: 変更による学習インパクト</text>
+
+    <!-- 軸ラベル -->
+    <text x="630" y="143" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="600" fill="#8a8a8a" text-anchor="middle">&#9650; 出題頻度 高</text>
+    <text x="630" y="667" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="600" fill="#8a8a8a" text-anchor="middle">出題頻度 低 &#9660;</text>
+    <text x="108" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="600" fill="#8a8a8a" text-anchor="middle" transform="rotate(-90, 108, 400)">&#9664; 変更影響 大</text>
+    <text x="1156" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="600" fill="#8a8a8a" text-anchor="middle" transform="rotate(90, 1156, 400)">変更影響 小 &#9654;</text>
+
+    <!-- 中央軸線 -->
+    <line x1="630" y1="155" x2="630" y2="645" stroke="#d1d5db" stroke-width="2" stroke-dasharray="6,4"/>
+    <line x1="120" y1="400" x2="1140" y2="400" stroke="#d1d5db" stroke-width="2" stroke-dasharray="6,4"/>
+
+    
+      <rect x="122" y="157" width="506" height="241" rx="8" fill="#fdecea"/>
+      <rect x="122" y="157" width="506" height="46" rx="8" fill="#b22234"/>
+      <text x="375" y="187" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">最優先</text>
+      
+        <rect x="140" y="201" width="10" height="10" rx="2" fill="#b22234"/>
+        <text x="158" y="211" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">生成AI・LLM</text>
+      
+        <rect x="140" y="239" width="10" height="10" rx="2" fill="#b22234"/>
+        <text x="158" y="249" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">ゼロトラスト</text>
+      
+        <rect x="140" y="277" width="10" height="10" rx="2" fill="#b22234"/>
+        <text x="158" y="287" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">人的資本経営</text>
+      
+        <rect x="140" y="315" width="10" height="10" rx="2" fill="#b22234"/>
+        <text x="158" y="325" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">Safety 2.0</text>
+      
+    
+      <rect x="632" y="157" width="506" height="241" rx="8" fill="#fff8e1"/>
+      <rect x="632" y="157" width="506" height="46" rx="8" fill="#d4a017"/>
+      <text x="885" y="187" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">要確認</text>
+      
+        <rect x="650" y="201" width="10" height="10" rx="2" fill="#d4a017"/>
+        <text x="668" y="211" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">リスキリング</text>
+      
+        <rect x="650" y="239" width="10" height="10" rx="2" fill="#d4a017"/>
+        <text x="668" y="249" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">カーボンニュートラル</text>
+      
+        <rect x="650" y="277" width="10" height="10" rx="2" fill="#d4a017"/>
+        <text x="668" y="287" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">ESG評価</text>
+      
+        <rect x="650" y="315" width="10" height="10" rx="2" fill="#d4a017"/>
+        <text x="668" y="325" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">BCP・BCM</text>
+      
+    
+      <rect x="122" y="402" width="506" height="241" rx="8" fill="#e8f0fe"/>
+      <rect x="122" y="402" width="506" height="46" rx="8" fill="#2e6da4"/>
+      <text x="375" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">後回し</text>
+      
+        <rect x="140" y="446" width="10" height="10" rx="2" fill="#2e6da4"/>
+        <text x="158" y="456" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">デザイン思考</text>
+      
+        <rect x="140" y="484" width="10" height="10" rx="2" fill="#2e6da4"/>
+        <text x="158" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">キャリアオーナーシップ</text>
+      
+        <rect x="140" y="522" width="10" height="10" rx="2" fill="#2e6da4"/>
+        <text x="158" y="532" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">サーキュラーエコノミー</text>
+      
+        <rect x="140" y="560" width="10" height="10" rx="2" fill="#2e6da4"/>
+        <text x="158" y="570" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">LGBT理解増進法</text>
+      
+    
+      <rect x="632" y="402" width="506" height="241" rx="8" fill="#f3f4f6"/>
+      <rect x="632" y="402" width="506" height="46" rx="8" fill="#8a8a8a"/>
+      <text x="885" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">余裕があれば</text>
+      
+        <rect x="650" y="446" width="10" height="10" rx="2" fill="#8a8a8a"/>
+        <text x="668" y="456" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">データ可視化</text>
+      
+        <rect x="650" y="484" width="10" height="10" rx="2" fill="#8a8a8a"/>
+        <text x="668" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">ウェルビーイング</text>
+      
+        <rect x="650" y="522" width="10" height="10" rx="2" fill="#8a8a8a"/>
+        <text x="668" y="532" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">GX推進</text>
+      
+        <rect x="650" y="560" width="10" height="10" rx="2" fill="#8a8a8a"/>
+        <text x="668" y="570" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#222222">ライフサイクルMGT</text>
+      
+    
+
+    <text x="1140" y="696" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

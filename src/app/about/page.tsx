@@ -18,10 +18,19 @@ export const metadata: Metadata = {
   description:
     "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。過去問解説・キーワード解説・勉強方法を提供。",
   openGraph: {
+    type: "website",
     title: "doboku-noteについて — 1級土木施工管理技士・技術士 試験対策サイト",
     description:
       "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。",
     url: "https://doboku-note.com/about",
+    images: [
+      {
+        url: "https://doboku-note.com/images/og-default.png",
+        width: 1200,
+        height: 630,
+        alt: "doboku-note - 土木系資格試験 専門技術ノート",
+      },
+    ],
   },
 };
 

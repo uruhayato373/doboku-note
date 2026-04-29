@@ -291,7 +291,7 @@ gh issue create \
 既存 Issue があり更新する場合は `gh issue edit <N> --body-file /tmp/weekly-pdca-YYYY-Www.md`。
 
 **重要**:
-- レビュー md は作らない（W16 以前は `docs/reviews/weekly/archive/` 参照、現在は Issue 一本化）
+- レビュー md は作らない（Issue 一本化。W16 以前は `gh issue list --label weekly-pdca --state all` および git history を参照）
 - frontmatter は Issue body に不要（title/label/日付は Issue のメタデータで管理）
 - 前週の `[PDCA]` Issue は、本週 Issue 作成時に close する
 
@@ -450,7 +450,7 @@ Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 mark
 - レビュー完了後に `/weekly-plan` が自動実行され、同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する
 - 前週の `[PDCA]` Issue は本週 Issue 作成時に close
 - 未完了アクションは次週 Issue の「計画」セクションに引き継ぐ
-- `docs/reviews/weekly/` は W17 以降は書き込まない（archive/ のみ残す）
+- 週次レビューの md は作らない（W17 以降は Issue 一本化、W16 以前の旧 md archive は 2026-04-27 に削除）
 
 ## 参照
 

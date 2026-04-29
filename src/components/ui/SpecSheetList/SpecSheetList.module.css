@@ -41,14 +41,6 @@
   letter-spacing: 0.02em;
 }
 
-.count {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-ink-muted);
-}
-
 /* サブタイトル: summary 相当。マーカーペン風グラデで下線強調 */
 .subtitle {
   margin: 6px 0 0;
@@ -124,6 +116,6 @@
 
 .text {
   color: var(--color-ink-body);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.8;
 }

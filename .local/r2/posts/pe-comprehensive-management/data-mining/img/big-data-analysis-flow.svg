@@ -1,0 +1,86 @@
+<svg width="400" height="540" viewBox="0 0 400 540"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="ビッグデータ分析プロセスの 5 段階フロー：①データ収集→②データウェアハウス格納→③データクレンジング→④データマイニング→⑤活用。データマイニング段階は仮説の有無で「機械学習（仮説なし）」と「統計分析（仮説あり）」に分岐する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-stage { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-branch-title { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-branch { font-size: 11px; fill: #1a3a5c; }
+      .stage-box { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .stage-mining { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.8; }
+      .branch-box { fill: #fff; stroke: #3a7d44; stroke-width: 1.2; }
+      .arrow { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .arrow-branch { stroke: #3a7d44; stroke-width: 1.5; fill: none; stroke-dasharray: 4,2; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+    <marker id="arb" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto">
+      <polygon points="0,0 6,2.5 0,5" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="22" text-anchor="middle">ビッグデータ分析の 5 段階プロセス</text>
+
+  <!-- Stage 1: データ収集 -->
+  <rect class="stage-box" x="80" y="40" width="240" height="50" rx="6"/>
+  <text class="t-stage" x="200" y="62" text-anchor="middle">① データ収集</text>
+  <text class="t-desc" x="200" y="80" text-anchor="middle">広く散在する多種多様なデータを収集</text>
+
+  <line class="arrow" x1="200" y1="92" x2="200" y2="108" marker-end="url(#ar)"/>
+
+  <!-- Stage 2: DWH 格納 -->
+  <rect class="stage-box" x="80" y="110" width="240" height="50" rx="6"/>
+  <text class="t-stage" x="200" y="132" text-anchor="middle">② データウェアハウス格納</text>
+  <text class="t-desc" x="200" y="150" text-anchor="middle">時系列・内容別に整理して保管</text>
+
+  <line class="arrow" x1="200" y1="162" x2="200" y2="178" marker-end="url(#ar)"/>
+
+  <!-- Stage 3: クレンジング -->
+  <rect class="stage-box" x="80" y="180" width="240" height="50" rx="6"/>
+  <text class="t-stage" x="200" y="202" text-anchor="middle">③ データクレンジング</text>
+  <text class="t-desc" x="200" y="220" text-anchor="middle">重複削除・誤記修正・表記の正規化</text>
+
+  <line class="arrow" x1="200" y1="232" x2="200" y2="248" marker-end="url(#ar)"/>
+
+  <!-- Stage 4: データマイニング (highlighted) -->
+  <rect class="stage-mining" x="80" y="250" width="240" height="50" rx="6"/>
+  <text class="t-stage" x="200" y="272" text-anchor="middle" fill="#3a7d44">④ データマイニング</text>
+  <text class="t-desc" x="200" y="290" text-anchor="middle">データから規則性・傾向・知見を発見</text>
+
+  <!-- Branches: 仮説の有無 -->
+  <text class="t-branch-title" x="200" y="320" text-anchor="middle">↓ アプローチは仮説の有無で分岐 ↓</text>
+
+  <!-- Left branch: 仮説なし → 機械学習 -->
+  <rect class="branch-box" x="20" y="332" width="170" height="76" rx="6"/>
+  <text class="t-branch-title" x="105" y="352" text-anchor="middle">仮説なし</text>
+  <text class="t-branch" x="105" y="372" text-anchor="middle">機械学習</text>
+  <text class="t-desc" x="105" y="390" text-anchor="middle">コンピュータが反復学習し</text>
+  <text class="t-desc" x="105" y="403" text-anchor="middle">自ら相関・パターンを発見</text>
+
+  <!-- Right branch: 仮説あり → 統計分析 -->
+  <rect class="branch-box" x="210" y="332" width="170" height="76" rx="6"/>
+  <text class="t-branch-title" x="295" y="352" text-anchor="middle">仮説あり</text>
+  <text class="t-branch" x="295" y="372" text-anchor="middle">統計分析</text>
+  <text class="t-desc" x="295" y="390" text-anchor="middle">事前に立てた仮説を</text>
+  <text class="t-desc" x="295" y="403" text-anchor="middle">標本データで検証</text>
+
+  <!-- Lines connecting branches back to mining -->
+  <path class="arrow-branch" d="M 105 332 Q 105 320 165 305" marker-end="url(#arb)"/>
+  <path class="arrow-branch" d="M 295 332 Q 295 320 235 305" marker-end="url(#arb)"/>
+
+  <!-- Continue arrow to stage 5 -->
+  <line class="arrow" x1="200" y1="420" x2="200" y2="442" marker-end="url(#ar)"/>
+
+  <!-- Stage 5: 活用 -->
+  <rect class="stage-box" x="80" y="445" width="240" height="50" rx="6"/>
+  <text class="t-stage" x="200" y="467" text-anchor="middle">⑤ 活用</text>
+  <text class="t-desc" x="200" y="485" text-anchor="middle">意思決定・新ビジネス創出</text>
+
+  <text class="t-desc" x="200" y="520" text-anchor="middle">※ 教材『情報管理』§1-(2) ビッグデータ分析プロセスより</text>
+</svg>

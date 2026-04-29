@@ -1,28 +1,27 @@
-  <svg width="380" height="220" viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:380px;width:100%">
+  <svg width="380" height="220" viewBox="0 0 380 220" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:380px;width:100%" role="img" aria-label="未熟練労働者の事故種別">
     <!-- 円グラフ（概略） -->
     <!-- 挟まれ・巻き込まれ 約30% (108度) -->
-    <path d="M 110 110 L 110 40 A 70 70 0 0 1 171 153 Z" fill="#444" stroke="white" stroke-width="1.5"/>
+    <path d="M 110 110 L 110 40 A 70 70 0 0 1 171 153 Z" fill="#222" stroke="#ffffff" stroke-width="1.5"/>
     <!-- 転倒 約15% (54度) -->
-    <path d="M 110 110 L 171 153 A 70 70 0 0 1 110 180 Z" fill="#666" stroke="white" stroke-width="1.5"/>
+    <path d="M 110 110 L 171 153 A 70 70 0 0 1 110 180 Z" fill="#555" stroke="#ffffff" stroke-width="1.5"/>
     <!-- 転落・墜落 約12% (43度) -->
-    <path d="M 110 110 L 110 180 A 70 70 0 0 1 62 163 Z" fill="#777" stroke="white" stroke-width="1.5"/>
+    <path d="M 110 110 L 110 180 A 70 70 0 0 1 62 163 Z" fill="#555" stroke="#ffffff" stroke-width="1.5"/>
     <!-- 切れ・擦れ 約10% (36度) -->
-    <path d="M 110 110 L 62 163 A 70 70 0 0 1 45 110 Z" fill="#888" stroke="white" stroke-width="1.5"/>
+    <path d="M 110 110 L 62 163 A 70 70 0 0 1 45 110 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
     <!-- 激突 約8% (29度) -->
-    <path d="M 110 110 L 45 110 A 70 70 0 0 1 56 70 Z" fill="#999" stroke="white" stroke-width="1.5"/>
+    <path d="M 110 110 L 45 110 A 70 70 0 0 1 56 70 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
     <!-- その他 約25% (90度) -->
-    <path d="M 110 110 L 56 70 A 70 70 0 0 1 110 40 Z" fill="#bbb" stroke="white" stroke-width="1.5"/>
+    <path d="M 110 110 L 56 70 A 70 70 0 0 1 110 40 Z" fill="#d7d7d7" stroke="#ffffff" stroke-width="1.5"/>
 
     <!-- 凡例 -->
-    <rect x="200" y="30" width="14" height="12" fill="#444"/><text x="218" y="41" fill="#333" font-size="11">挟まれ・巻き込まれ 約30%</text>
-    <rect x="200" y="50" width="14" height="12" fill="#666"/><text x="218" y="61" fill="#333" font-size="11">転倒 約15%</text>
-    <rect x="200" y="70" width="14" height="12" fill="#777"/><text x="218" y="81" fill="#333" font-size="11">転落・墜落 約12%</text>
-    <rect x="200" y="90" width="14" height="12" fill="#888"/><text x="218" y="101" fill="#333" font-size="11">切れ・擦れ 約10%</text>
-    <rect x="200" y="110" width="14" height="12" fill="#999"/><text x="218" y="121" fill="#333" font-size="11">激突 約8%</text>
-    <rect x="200" y="130" width="14" height="12" fill="#bbb"/><text x="218" y="141" fill="#333" font-size="11">その他 約25%</text>
+    <rect x="200" y="30" width="14" height="12" fill="#222"/><text x="218" y="41" fill="#222" font-size="11">挟まれ・巻き込まれ 約30%</text>
+    <rect x="200" y="50" width="14" height="12" fill="#555"/><text x="218" y="61" fill="#222" font-size="11">転倒 約15%</text>
+    <rect x="200" y="70" width="14" height="12" fill="#555"/><text x="218" y="81" fill="#222" font-size="11">転落・墜落 約12%</text>
+    <rect x="200" y="90" width="14" height="12" fill="#8a8a8a"/><text x="218" y="101" fill="#222" font-size="11">切れ・擦れ 約10%</text>
+    <rect x="200" y="110" width="14" height="12" fill="#8a8a8a"/><text x="218" y="121" fill="#222" font-size="11">激突 約8%</text>
+    <rect x="200" y="130" width="14" height="12" fill="#d7d7d7"/><text x="218" y="141" fill="#222" font-size="11">その他 約25%</text>
 
     <!-- 全体の動作の反動等の数値 -->
-    <text x="190" y="175" fill="#555" font-size="10">※全体 41.7%　それはそれ 65%　動作の反動等 49.0%</text>
-    <text x="190" y="188" fill="#555" font-size="10">　全未熟練 35.9%　未熟練労働者 39.0%</text>
-    <text x="190" y="205" fill="#666" font-size="9">出典：厚生労働省安全衛生教育マニュアル（平成25年）</text>
+    <text x="190" y="175" text-anchor="middle" fill="#555" font-size="10">※動作の反動等 49.0% / 全未熟練 35.9% / 未熟練労働者 39.0%</text>
+    <text x="190" y="205" text-anchor="middle" fill="#555" font-size="9">出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）</text>
   </svg>

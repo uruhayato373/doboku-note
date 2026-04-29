@@ -71,6 +71,31 @@ template で定義された問題フォーマットに従って抽出:
 3. 解説を既存フォーマットに合わせて追記
 4. 正答バッジ `❌` / `✅` を選択肢解説に付与
 
+### Step 5.5: Post-import OCR / figure 検証ガード（Phase 4、Issue #128 起因）
+
+import 完了後、生成された MDX を `verify-pdf-mdx.mjs` で機械的に検証する:
+
+```bash
+node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
+  {output-mdx-path} \
+  --pdf {source-pdf-path} \
+  --expected-figures {N}
+```
+
+`{N}` はテンプレート（例: `templates/civil-primary.md`）の `expected_figures` 列を参照。出力 JSON の以下フィールドを確認し、警告レベルで対応:
+
+| フィールド | 値 | 対応 |
+|---|---|---|
+| `ocr_recommendation.level` | `error` (count ≥ 10) | 視覚突合で全行確認、Tesseract 再 OCR を検討 |
+| `ocr_recommendation.level` | `warn` (count ≥ 5) | サンプリング視覚突合で品質確認 |
+| `figures_check.status` | `missing` | PDF にある図版が MDX に欠落、`<ArticleImage>` 追加 |
+| `figures_check.status` | `extra` | MDX に余分な画像参照、要削除確認 |
+| `coverage.rate` | `< 0.8` | 章節見出し網羅率が低い、本文抜け確認 |
+
+すべて ok なら Step 6 へ進む。warn / error がある場合はユーザーに表示して判断を仰ぐ。
+
+**過去の具体例**（Issue #128 で発見）: R02 primary で keyword audit が見落とした図版欠損 2 件、R01 primary で「데이터」というハングル文字混入の OCR バグ等。本ガードで早期検出できるようにする。
+
 ### Step 6: 品質検証
 
 ```bash

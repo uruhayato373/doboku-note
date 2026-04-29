@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" fill="#ffffff" />
+
+  <!-- top label -->
+  
+    <rect x="80" y="60" width="380" height="64" rx="32" fill="#3a7d44" />
+    <text x="270" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">A14 安全管理</text>
+  
+
+  <!-- topic -->
+  <text x="80" y="220" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="38" font-weight="700" fill="#555555">労働安全衛生法の主たる義務者</text>
+
+  <!-- big "正答" headline -->
+  <text x="80" y="320" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="56" font-weight="800" fill="#3a7d44">✓ 正答</text>
+
+  <!-- answer block: (N) + label -->
+  <rect x="60" y="380" width="960" height="280" rx="20" fill="#e6f4ea" />
+  <text x="540" y="540" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="160" font-weight="900" fill="#3a7d44" text-anchor="middle">③</text>
+  <text x="540" y="620" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="44" font-weight="700" fill="#222222" text-anchor="middle">事業者</text>
+
+  <!-- divider -->
+  <line x1="80" y1="740" x2="1000" y2="740" stroke="#e5e7eb" stroke-width="2" />
+  <text x="80" y="810" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="700" fill="#555555">解説</text>
+
+  <!-- explanation -->
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="34" fill="#555555">
+    <tspan x="80" y="880">労安法第3条により事業者が主たる義務者。</tspan><tspan x="80" y="936">職場の長・管理監督者は補助的な立場。</tspan><tspan x="80" y="992">義務者の階層を正確に！</tspan>
+  </text>
+
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

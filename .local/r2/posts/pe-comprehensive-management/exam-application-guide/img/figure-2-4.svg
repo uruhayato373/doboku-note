@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380" font-family="sans-serif" style="max-width:600px;width:100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="600" height="380" font-family="sans-serif" style="max-width:600px;width:100%" role="img" aria-label="図表2.4 業務内容の詳細の記載項目">
   <defs>
     <marker id="arr4" markerWidth="8" markerHeight="8" refX="3" refY="6" orient="auto">
-      <path d="M0,0 L6,0 L3,8 z" fill="#4a6fa5"/>
+      <path d="M0,0 L6,0 L3,8 z" fill="#2e6da4"/>
     </marker>
   </defs>
 
   <!-- Title header -->
-  <rect x="20" y="15" width="560" height="40" rx="6" fill="#4a6fa5" stroke="#2c3e6b" stroke-width="1.5"/>
-  <text x="300" y="41" text-anchor="middle" font-size="14" fill="white" font-weight="bold">総監技術士として相応しい立場・役割</text>
+  <rect x="20" y="15" width="560" height="40" rx="6" fill="#2e6da4" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="300" y="41" text-anchor="middle" font-size="14" fill="#ffffff" font-weight="bold">総監技術士として相応しい立場・役割</text>
 
   <!-- Row 1: Two boxes side by side -->
   <!-- Box 1: 総監の背景を踏まえた業務 -->
-  <rect x="20" y="75" width="265" height="60" rx="6" fill="#d0e8f8" stroke="#4a6fa5" stroke-width="1.5"/>
+  <rect x="20" y="75" width="265" height="60" rx="6" fill="#d0e8f8" stroke="#2e6da4" stroke-width="1.5"/>
   <text x="152" y="98" text-anchor="middle" font-size="13" fill="#1a3a6b" font-weight="bold">総監の背景を踏まえた業務</text>
-  <text x="152" y="118" text-anchor="middle" font-size="11" fill="#4a6fa5">5つの管理の視点で記述した業務内容</text>
+  <text x="152" y="118" text-anchor="middle" font-size="11" fill="#2e6da4">5つの管理の視点で記述した業務内容</text>
 
   <!-- Box 2: 最重点管理項目 -->
   <rect x="315" y="75" width="265" height="60" rx="6" fill="#fde8cc" stroke="#e07820" stroke-width="1.5"/>
@@ -21,16 +21,16 @@
   <text x="447" y="118" text-anchor="middle" font-size="11" fill="#a05a20">5つの管理の中で最も重視した管理</text>
 
   <!-- Arrows down from Row 1 -->
-  <line x1="152" y1="135" x2="152" y2="155" stroke="#4a6fa5" stroke-width="2" marker-end="url(#arr4)"/>
-  <line x1="447" y1="135" x2="447" y2="155" stroke="#4a6fa5" stroke-width="2" marker-end="url(#arr4)"/>
+  <line x1="152" y1="135" x2="152" y2="155" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr4)"/>
+  <line x1="447" y1="135" x2="447" y2="155" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr4)"/>
 
   <!-- Row 2: トレードオフ (wide) -->
-  <rect x="60" y="158" width="480" height="55" rx="6" fill="#e8f5e8" stroke="#3a7a3a" stroke-width="1.5"/>
+  <rect x="60" y="158" width="480" height="55" rx="6" fill="#e8f5e8" stroke="#3a7d44" stroke-width="1.5"/>
   <text x="300" y="182" text-anchor="middle" font-size="13" fill="#1a4a1a" font-weight="bold">管理間のトレードオフ</text>
-  <text x="300" y="202" text-anchor="middle" font-size="11" fill="#3a7a3a">5つの管理のうち、2つの管理間の対立・調整（経済性管理同士は除外）</text>
+  <text x="300" y="202" text-anchor="middle" font-size="11" fill="#3a7d44">5つの管理のうち、2つの管理間の対立・調整（経済性管理同士は除外）</text>
 
   <!-- Arrow down -->
-  <line x1="300" y1="213" x2="300" y2="238" stroke="#4a6fa5" stroke-width="2" marker-end="url(#arr4)"/>
+  <line x1="300" y1="213" x2="300" y2="238" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr4)"/>
 
   <!-- Row 3: 改善案・解決策 -->
   <rect x="60" y="240" width="480" height="50" rx="6" fill="#f0e8f8" stroke="#7030a0" stroke-width="1.5"/>
@@ -38,15 +38,15 @@
   <text x="300" y="280" text-anchor="middle" font-size="11" fill="#6a3a8a">トレードオフの調整方法、管理技術の適用</text>
 
   <!-- Arrow down -->
-  <line x1="300" y1="290" x2="300" y2="310" stroke="#4a6fa5" stroke-width="2" marker-end="url(#arr4)"/>
+  <line x1="300" y1="290" x2="300" y2="310" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr4)"/>
 
   <!-- Row 4: 成果 (highlighted) -->
   <rect x="40" y="313" width="520" height="50" rx="6" fill="#fff3cd" stroke="#b08000" stroke-width="2"/>
   <text x="300" y="335" text-anchor="middle" font-size="13" fill="#5a4000" font-weight="bold">成果</text>
-  <text x="300" y="353" text-anchor="middle" font-size="11" fill="#7a6a00">プロジェクト完遂・効果的な仕組みの構築・担当技術者のスキル向上 等</text>
+  <text x="300" y="353" text-anchor="middle" font-size="11" fill="#d4a017">プロジェクト完遂・効果的な仕組みの構築・担当技術者のスキル向上 等</text>
 
   <!-- Side note -->
-  <rect x="4" y="158" width="50" height="55" rx="4" fill="none" stroke="#888" stroke-width="1" stroke-dasharray="4"/>
+  <rect x="4" y="158" width="50" height="55" rx="4" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4"/>
   <text x="29" y="178" text-anchor="middle" font-size="9" fill="#555">改善案に</text>
   <text x="29" y="192" text-anchor="middle" font-size="9" fill="#555">トレードオフ</text>
   <text x="29" y="206" text-anchor="middle" font-size="9" fill="#555">の解消を</text>

@@ -1,13 +1,13 @@
-  <svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:400px;width:100%">
+  <svg width="400" height="120" viewBox="0 0 400 120" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:400px;width:100%" role="img" aria-label="直列・並列信頼度の計算式">
     <!-- 直列 -->
     <rect x="10" y="10" width="180" height="100" rx="6" fill="#eef" stroke="#aab"/>
     <text x="100" y="32" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">直列</text>
-    <text x="100" y="55" text-anchor="middle" fill="#333" font-size="12">信頼度 = a₁ × a₂</text>
+    <text x="100" y="55" text-anchor="middle" fill="#222" font-size="12">信頼度 = a₁ × a₂</text>
     <!-- 直列図 -->
-    <rect x="20" y="66" width="50" height="28" rx="3" fill="#666" stroke="#444"/>
-    <text x="45" y="84" text-anchor="middle" fill="white" font-size="11">a₁</text>
-    <rect x="130" y="66" width="50" height="28" rx="3" fill="#666" stroke="#444"/>
-    <text x="155" y="84" text-anchor="middle" fill="white" font-size="11">a₂</text>
+    <rect x="20" y="66" width="50" height="28" rx="3" fill="#555" stroke="#222"/>
+    <text x="45" y="84" text-anchor="middle" fill="#ffffff" font-size="11">a₁</text>
+    <rect x="130" y="66" width="50" height="28" rx="3" fill="#555" stroke="#222"/>
+    <text x="155" y="84" text-anchor="middle" fill="#ffffff" font-size="11">a₂</text>
     <line x1="10" y1="80" x2="20" y2="80" stroke="#555" stroke-width="1.5"/>
     <line x1="70" y1="80" x2="130" y2="80" stroke="#555" stroke-width="1.5"/>
     <line x1="180" y1="80" x2="190" y2="80" stroke="#555" stroke-width="1.5"/>
@@ -15,21 +15,21 @@
     <!-- 並列 -->
     <rect x="210" y="10" width="180" height="100" rx="6" fill="#ffe" stroke="#bba"/>
     <text x="300" y="32" text-anchor="middle" fill="#222" font-weight="bold" font-size="13">並列</text>
-    <text x="300" y="52" text-anchor="middle" fill="#333" font-size="11">信頼度 = 1－(1－a₁)×(1－a₂)</text>
+    <text x="300" y="52" text-anchor="middle" fill="#222" font-size="11">信頼度 = 1－(1－a₁)×(1－a₂)</text>
     <!-- 並列図 -->
     <line x1="218" y1="80" x2="240" y2="80" stroke="#555" stroke-width="1.5"/>
-    <circle cx="240" cy="80" r="3" fill="#444"/>
+    <circle cx="240" cy="80" r="3" fill="#222"/>
     <line x1="240" y1="80" x2="240" y2="64" stroke="#555" stroke-width="1.2"/>
     <line x1="240" y1="64" x2="260" y2="64" stroke="#555" stroke-width="1.2"/>
-    <rect x="260" y="56" width="40" height="18" rx="3" fill="#777" stroke="#555"/>
-    <text x="280" y="68" text-anchor="middle" fill="white" font-size="10">a₁</text>
+    <rect x="260" y="56" width="40" height="18" rx="3" fill="#555" stroke="#555"/>
+    <text x="280" y="68" text-anchor="middle" fill="#ffffff" font-size="10">a₁</text>
     <line x1="300" y1="64" x2="350" y2="64" stroke="#555" stroke-width="1.2"/>
     <line x1="240" y1="80" x2="240" y2="96" stroke="#555" stroke-width="1.2"/>
     <line x1="240" y1="96" x2="260" y2="96" stroke="#555" stroke-width="1.2"/>
-    <rect x="260" y="88" width="40" height="18" rx="3" fill="#777" stroke="#555"/>
-    <text x="280" y="100" text-anchor="middle" fill="white" font-size="10">a₂</text>
+    <rect x="260" y="88" width="40" height="18" rx="3" fill="#555" stroke="#555"/>
+    <text x="280" y="100" text-anchor="middle" fill="#ffffff" font-size="10">a₂</text>
     <line x1="300" y1="96" x2="350" y2="96" stroke="#555" stroke-width="1.2"/>
     <line x1="350" y1="64" x2="350" y2="96" stroke="#555" stroke-width="1.2"/>
-    <circle cx="350" cy="80" r="3" fill="#444"/>
+    <circle cx="350" cy="80" r="3" fill="#222"/>
     <line x1="350" y1="80" x2="388" y2="80" stroke="#555" stroke-width="1.5"/>
   </svg>

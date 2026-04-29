@@ -1,45 +1,59 @@
-  <svg width="440" height="185" viewBox="0 0 440 185" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="12" style="max-width:440px;width:100%">
-    <!-- ヘッダー -->
-    <rect x="10" y="10" width="80" height="30" rx="3" fill="#444" stroke="#222"/>
-    <text x="50" y="29" text-anchor="middle" fill="white" font-weight="bold" font-size="12">ラウンド</text>
-    <rect x="95" y="10" width="120" height="30" rx="3" fill="#555" stroke="#333"/>
-    <text x="155" y="29" text-anchor="middle" fill="white" font-weight="bold" font-size="12">手</text>
-    <rect x="220" y="10" width="210" height="30" rx="3" fill="#555" stroke="#333"/>
-    <text x="325" y="29" text-anchor="middle" fill="white" font-weight="bold" font-size="12">どんな危険が潜んでいるか</text>
+<svg width="400" height="180" viewBox="0 0 400 180"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="KYT 4 ラウンド法：現状把握・本質追及・対策樹立・目標設定の 4 段階と各ラウンドで問う質問">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head    { font-size: 12px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-round   { font-size: 12px; font-weight: bold; fill: #222; }      /* ink-strong */
+      .t-phase   { font-size: 11px; fill: #555; }                         /* ink-body */
+      .t-cell    { font-size: 12px; fill: #222; }                         /* ink-strong */
+      .t-cell-em { font-size: 12px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .head-cell { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand */
+      .row-cell  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }     /* surface */
+      .row-em    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive (4ラウンド = 完了/合意) */
+    </style>
+  </defs>
 
-    <!-- 1ラウンド -->
-    <rect x="10" y="44" width="80" height="32" fill="#dde" stroke="#aab"/>
-    <text x="50" y="58" text-anchor="middle" fill="#222" font-size="11">1ラウンド</text>
-    <text x="50" y="70" text-anchor="middle" fill="#444" font-size="10">現状把握</text>
-    <rect x="95" y="44" width="120" height="32" fill="#eef" stroke="#ccd"/>
-    <text x="155" y="64" text-anchor="middle" fill="#333" font-size="11">現状把握</text>
-    <rect x="220" y="44" width="210" height="32" fill="#eef" stroke="#ccd"/>
-    <text x="325" y="64" text-anchor="middle" fill="#333" font-size="11">どんな危険が潜んでいるか</text>
+  <!-- ヘッダー行 -->
+  <rect class="head-cell" x="10" y="10" width="70"  height="28" rx="4"/>
+  <text class="t-head"    x="45" y="29" text-anchor="middle">ラウンド</text>
+  <rect class="head-cell" x="84" y="10" width="100" height="28" rx="4"/>
+  <text class="t-head"    x="134" y="29" text-anchor="middle">手順の名称</text>
+  <rect class="head-cell" x="188" y="10" width="202" height="28" rx="4"/>
+  <text class="t-head"    x="289" y="29" text-anchor="middle">問う質問</text>
 
-    <!-- 2ラウンド -->
-    <rect x="10" y="80" width="80" height="32" fill="#dde" stroke="#aab"/>
-    <text x="50" y="94" text-anchor="middle" fill="#222" font-size="11">2ラウンド</text>
-    <text x="50" y="106" text-anchor="middle" fill="#444" font-size="10">本質追及</text>
-    <rect x="95" y="80" width="120" height="32" fill="#eef" stroke="#ccd"/>
-    <text x="155" y="100" text-anchor="middle" fill="#333" font-size="11">本質追及</text>
-    <rect x="220" y="80" width="210" height="32" fill="#eef" stroke="#ccd"/>
-    <text x="325" y="100" text-anchor="middle" fill="#333" font-size="11">これが危険のポイントだ</text>
+  <!-- 1ラウンド -->
+  <rect class="row-cell" x="10" y="42" width="70"  height="28" rx="4"/>
+  <text class="t-round"  x="45" y="61" text-anchor="middle">1R</text>
+  <rect class="row-cell" x="84" y="42" width="100" height="28" rx="4"/>
+  <text class="t-cell"   x="134" y="61" text-anchor="middle">現状把握</text>
+  <rect class="row-cell" x="188" y="42" width="202" height="28" rx="4"/>
+  <text class="t-cell"   x="289" y="61" text-anchor="middle">どんな危険が潜んでいるか</text>
 
-    <!-- 3ラウンド -->
-    <rect x="10" y="116" width="80" height="32" fill="#dde" stroke="#aab"/>
-    <text x="50" y="130" text-anchor="middle" fill="#222" font-size="11">3ラウンド</text>
-    <text x="50" y="142" text-anchor="middle" fill="#444" font-size="10">対策樹立</text>
-    <rect x="95" y="116" width="120" height="32" fill="#eef" stroke="#ccd"/>
-    <text x="155" y="136" text-anchor="middle" fill="#333" font-size="11">対策樹立</text>
-    <rect x="220" y="116" width="210" height="32" fill="#eef" stroke="#ccd"/>
-    <text x="325" y="136" text-anchor="middle" fill="#333" font-size="11">あなたならどうする</text>
+  <!-- 2ラウンド -->
+  <rect class="row-cell" x="10" y="74" width="70"  height="28" rx="4"/>
+  <text class="t-round"  x="45" y="93" text-anchor="middle">2R</text>
+  <rect class="row-cell" x="84" y="74" width="100" height="28" rx="4"/>
+  <text class="t-cell"   x="134" y="93" text-anchor="middle">本質追及</text>
+  <rect class="row-cell" x="188" y="74" width="202" height="28" rx="4"/>
+  <text class="t-cell"   x="289" y="93" text-anchor="middle">これが危険のポイントだ</text>
 
-    <!-- 4ラウンド -->
-    <rect x="10" y="152" width="80" height="30" fill="#aac" stroke="#889"/>
-    <text x="50" y="166" text-anchor="middle" fill="white" font-size="11" font-weight="bold">4ラウンド</text>
-    <text x="50" y="178" text-anchor="middle" fill="#dde" font-size="10">目標設定</text>
-    <rect x="95" y="152" width="120" height="30" fill="#ccf" stroke="#aab"/>
-    <text x="155" y="171" text-anchor="middle" fill="#222" font-weight="bold" font-size="11">目標設定</text>
-    <rect x="220" y="152" width="210" height="30" fill="#ccf" stroke="#aab"/>
-    <text x="325" y="171" text-anchor="middle" fill="#222" font-weight="bold" font-size="11">私たちはこうする</text>
-  </svg>
+  <!-- 3ラウンド -->
+  <rect class="row-cell" x="10" y="106" width="70"  height="28" rx="4"/>
+  <text class="t-round"  x="45" y="125" text-anchor="middle">3R</text>
+  <rect class="row-cell" x="84" y="106" width="100" height="28" rx="4"/>
+  <text class="t-cell"   x="134" y="125" text-anchor="middle">対策樹立</text>
+  <rect class="row-cell" x="188" y="106" width="202" height="28" rx="4"/>
+  <text class="t-cell"   x="289" y="125" text-anchor="middle">あなたならどうする</text>
+
+  <!-- 4ラウンド（合意・行動目標） -->
+  <rect class="row-em"  x="10" y="138" width="70"  height="32" rx="4"/>
+  <text class="t-cell-em" x="45" y="158" text-anchor="middle">4R</text>
+  <rect class="row-em"  x="84" y="138" width="100" height="32" rx="4"/>
+  <text class="t-cell-em" x="134" y="158" text-anchor="middle">目標設定</text>
+  <rect class="row-em"  x="188" y="138" width="202" height="32" rx="4"/>
+  <text class="t-cell-em" x="289" y="158" text-anchor="middle">私たちはこうする</text>
+</svg>

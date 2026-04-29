@@ -1,5 +1,5 @@
 ---
-title: イベントツリー分析（ETA）
+title: イベントツリー分析
 description: "ETA（Event Tree Analysis）の定義・手順・成功/失敗分岐の考え方を解説。技術士総合技術監理キーワード集2026（安全管理）。5管理トレードオフ・過去問演習リンク付き。"
 category: pe-comprehensive-management
 group: keyword
@@ -8,7 +8,7 @@ tags:
   - keyword
 published: true
 publishedAt: '2026-04-09'
-seoTitle: イベントツリー分析（ETA） ｜ 総合技術監理 キーワード集 2026
+seoTitle: イベントツリー分析 ｜ 総合技術監理 キーワード集 2026
 reviewStatus: needs-review
 lastRewrittenAt: '2026-04-18'
 revisionCycle: 1
@@ -16,7 +16,7 @@ created: 2026-04-05
 dateModified: 2026-04-23
 ---
 
-# イベントツリー分析（ETA）
+# イベントツリー分析
 
 ## ETAとは
 
@@ -57,6 +57,11 @@ ETAでは、初期事象に対して順に機能する**セーフガード**（�
 
 各分岐に確率を設定することで、最終的な結果事象の発生確率を算出できる。計算は**各分岐確率の積**で行う。
 
+<ArticleImage
+  src="/posts/pe-comprehensive-management/eta/img/eta-gas-leak-example.svg"
+  alt="ETA 例：ガス漏れ→4 層セーフガード（早期発見・計器・検査・着火しない）→ガス爆発、各層失敗で確率 0.0005"
+/>
+
 例として、初期事象の発生確率を $P_0 = 0.01$、セーフガード A の失敗確率を $P_A = 0.1$、セーフガード B の失敗確率を $P_B = 0.2$ とすると、A・B がともに失敗して重大事故に至る経路の確率は次のとおりである。
 
 $$
@@ -66,6 +71,7 @@ $$
 この結果を用いて、どのセーフガードの信頼性改善が最もリスク低減に効果的かを評価できる。FTAで各セーフガードの故障確率を事前に求め、ETAに入力する手順が実務では一般的である。
 
 ## 総合技術監理における位置づけ
+
 
 総合技術監理キーワード集では[**5.6 システム安全工学手法**](/docs/pe-comprehensive-management-keyword-2026#56-システム安全工学手法)に位置づけられている。
 

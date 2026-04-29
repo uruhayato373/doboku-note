@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+    <rect width="1200" height="900" fill="#ffffff"/>
+
+    <text x="60" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">R08 出題テーマ予測 TOP5</text>
+    <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#555555">過去頻度 × 時事性スコアで評価 — 法則1（同分類3連続なし）を適用</text>
+
+    <rect x="60" y="110" width="1080" height="56" rx="6" fill="#e8f0fe"/>
+    <text x="80" y="134" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#1a3a5c">R07 は社会課題型（少子高齢化）→ R08 は技術動向型 or 組織管理型が有力</text>
+    <text x="80" y="158" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a">※スコアは頻度・政策動向・前回出題間隔・設問設定のしやすさ等を総合評価（筆者判断）</text>
+
+    <!-- バーヘッダ -->
+    <text x="800" y="180" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="middle">予測スコア（100点満点）</text>
+
+    
+      <!-- 順位バッジ -->
+      <rect x="20" y="200" width="52" height="52" rx="26" fill="#3a7d44"/>
+      <text x="46" y="234" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+
+      <!-- テーマ名 -->
+      <text x="90" y="220" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">生成AI・自律システムの事業活用</text>
+      <text x="90" y="244" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">技術動向型</text>
+
+      <!-- バー -->
+      <rect x="540" y="200" width="520" height="36" rx="4" fill="#f3f4f6"/>
+      <rect x="540" y="200" width="478.40000000000003" height="36" rx="4" fill="#3a7d44"/>
+      <text x="1006.4000000000001" y="224" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="end">92pt</text>
+
+      
+        <rect x="540" y="248" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#3a7d44" stroke-width="1.5"/>
+        <text x="680" y="270" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44" text-anchor="middle">DX の延長</text>
+      
+        <rect x="840" y="248" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#3a7d44" stroke-width="1.5"/>
+        <text x="980" y="270" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44" text-anchor="middle">政府AI戦略あり</text>
+      
+
+      <!-- 区切り線 -->
+      <line x1="20" y1="318" x2="1180" y2="318" stroke="#e5e7eb" stroke-width="1"/>
+    
+      <!-- 順位バッジ -->
+      <rect x="20" y="330" width="52" height="52" rx="26" fill="#2e6da4"/>
+      <text x="46" y="364" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+
+      <!-- テーマ名 -->
+      <text x="90" y="350" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">サプライチェーン・リスク管理</text>
+      <text x="90" y="374" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">組織管理型</text>
+
+      <!-- バー -->
+      <rect x="540" y="330" width="520" height="36" rx="4" fill="#f3f4f6"/>
+      <rect x="540" y="330" width="442" height="36" rx="4" fill="#2e6da4"/>
+      <text x="970" y="354" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="end">85pt</text>
+
+      
+        <rect x="540" y="378" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="680" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4" text-anchor="middle">経済安全保障法(R04成立)</text>
+      
+        <rect x="840" y="378" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="980" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4" text-anchor="middle">R02BCP から5年</text>
+      
+
+      <!-- 区切り線 -->
+      <line x1="20" y1="448" x2="1180" y2="448" stroke="#e5e7eb" stroke-width="1"/>
+    
+      <!-- 順位バッジ -->
+      <rect x="20" y="460" width="52" height="52" rx="26" fill="#d4a017"/>
+      <text x="46" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+
+      <!-- テーマ名 -->
+      <text x="90" y="480" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">人的資本経営・リスキリング</text>
+      <text x="90" y="504" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">社会課題型</text>
+
+      <!-- バー -->
+      <rect x="540" y="460" width="520" height="36" rx="4" fill="#f3f4f6"/>
+      <rect x="540" y="460" width="405.6" height="36" rx="4" fill="#d4a017"/>
+      <text x="933.6" y="484" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="end">78pt</text>
+
+      
+        <rect x="540" y="508" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="680" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#d4a017" text-anchor="middle">情報開示義務化(R05〜)</text>
+      
+        <rect x="840" y="508" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="980" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#d4a017" text-anchor="middle">H30働き方改革の発展</text>
+      
+
+      <!-- 区切り線 -->
+      <line x1="20" y1="578" x2="1180" y2="578" stroke="#e5e7eb" stroke-width="1"/>
+    
+      <!-- 順位バッジ -->
+      <rect x="20" y="590" width="52" height="52" rx="26" fill="#7b3f99"/>
+      <text x="46" y="624" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+
+      <!-- テーマ名 -->
+      <text x="90" y="610" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">インフラ老朽化・予防保全</text>
+      <text x="90" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">技術動向型 or 社会課題型</text>
+
+      <!-- バー -->
+      <rect x="540" y="590" width="520" height="36" rx="4" fill="#f3f4f6"/>
+      <rect x="540" y="590" width="364" height="36" rx="4" fill="#7b3f99"/>
+      <text x="892" y="614" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="end">70pt</text>
+
+      
+        <rect x="540" y="638" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#7b3f99" stroke-width="1.5"/>
+        <text x="680" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7b3f99" text-anchor="middle">H25から10年超経過</text>
+      
+        <rect x="840" y="638" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#7b3f99" stroke-width="1.5"/>
+        <text x="980" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7b3f99" text-anchor="middle">5か年加速化対策完了後</text>
+      
+
+      <!-- 区切り線 -->
+      <line x1="20" y1="708" x2="1180" y2="708" stroke="#e5e7eb" stroke-width="1"/>
+    
+      <!-- 順位バッジ -->
+      <rect x="20" y="720" width="52" height="52" rx="26" fill="#b22234"/>
+      <text x="46" y="754" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">5</text>
+
+      <!-- テーマ名 -->
+      <text x="90" y="740" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">気候変動適応策（レジリエンス）</text>
+      <text x="90" y="764" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">社会課題型</text>
+
+      <!-- バー -->
+      <rect x="540" y="720" width="520" height="36" rx="4" fill="#f3f4f6"/>
+      <rect x="540" y="720" width="312" height="36" rx="4" fill="#b22234"/>
+      <text x="840" y="744" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="end">60pt</text>
+
+      
+        <rect x="540" y="768" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#b22234" stroke-width="1.5"/>
+        <text x="680" y="790" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234" text-anchor="middle">R06カーボンニュートラルの裏面</text>
+      
+        <rect x="840" y="768" width="280" height="32" rx="14" fill="#e8f0fe" stroke="#b22234" stroke-width="1.5"/>
+        <text x="980" y="790" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234" text-anchor="middle">能登半島地震の教訓</text>
+      
+
+      <!-- 区切り線 -->
+      <line x1="20" y1="838" x2="1180" y2="838" stroke="#e5e7eb" stroke-width="1"/>
+    
+
+    <text x="1140" y="884" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

@@ -1,66 +1,66 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440" style="max-width:640px;width:100%" role="img" aria-label="環境影響評価法の対象 13 事業を 5 カテゴリに分類した図：交通インフラ（道路・鉄道・飛行場）、河川・水（ダム/堰・埋立て干拓）、エネルギー（発電所 6 種）、廃棄物（最終処分場）、面的開発（土地区画整理など 6 事業）">
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="440" viewBox="0 0 640 440" style="max-width:640px;width:100%" role="img" aria-label="環境影響評価法の対象 13 事業を 5 カテゴリに分類した図：交通インフラ（道路・鉄道・飛行場）、河川・水（ダム/堰・埋立て干拓）、エネルギー（発電所 6 種）、廃棄物（最終処分場）、面的開発（土地区画整理など 6 事業）" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
   <rect width="640" height="440" fill="#ffffff"/>
 
   <!-- Title -->
-  <text x="320" y="22" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a1a">環境影響評価法の対象 13 事業</text>
-  <text x="320" y="40" text-anchor="middle" font-size="11" fill="#666666">5 分野に分類して整理</text>
+  <text x="320" y="22" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">環境影響評価法の対象 13 事業</text>
+  <text x="320" y="40" text-anchor="middle" font-size="11" fill="#555">5 分野に分類して整理</text>
 
   <!-- Row 1: 4 small boxes -->
   <!-- 交通インフラ -->
-  <rect x="20" y="56" width="150" height="160" fill="#e6ecfa" stroke="#1a56db" stroke-width="1.5" rx="4"/>
-  <text x="95" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a56db">交通インフラ</text>
-  <line x1="40" y1="88" x2="150" y2="88" stroke="#1a56db" stroke-width="0.8"/>
-  <text x="35" y="112" font-size="11" fill="#434343">1. 道路</text>
-  <text x="45" y="130" font-size="10" fill="#666666">（高速・国道・林道）</text>
-  <text x="35" y="154" font-size="11" fill="#434343">3. 鉄道</text>
-  <text x="45" y="172" font-size="10" fill="#666666">（新幹線・軌道）</text>
-  <text x="35" y="196" font-size="11" fill="#434343">4. 飛行場</text>
+  <rect x="20" y="56" width="150" height="160" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="95" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e6da4">交通インフラ</text>
+  <line x1="40" y1="88" x2="150" y2="88" stroke="#2e6da4" stroke-width="0.8"/>
+  <text x="35" y="112" font-size="11" fill="#555">1. 道路</text>
+  <text x="45" y="130" font-size="10" fill="#555">（高速・国道・林道）</text>
+  <text x="35" y="154" font-size="11" fill="#555">3. 鉄道</text>
+  <text x="45" y="172" font-size="10" fill="#555">（新幹線・軌道）</text>
+  <text x="35" y="196" font-size="11" fill="#555">4. 飛行場</text>
 
   <!-- 河川・水 -->
   <rect x="180" y="56" width="150" height="160" fill="#e3f0f7" stroke="#2b6cb0" stroke-width="1.5" rx="4"/>
   <text x="255" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#2b6cb0">河川・水</text>
   <line x1="200" y1="88" x2="310" y2="88" stroke="#2b6cb0" stroke-width="0.8"/>
-  <text x="195" y="112" font-size="11" fill="#434343">2. 河川</text>
-  <text x="205" y="130" font-size="10" fill="#666666">（ダム・堰・放水路</text>
-  <text x="205" y="146" font-size="10" fill="#666666">　湖沼開発）</text>
-  <text x="195" y="176" font-size="11" fill="#434343">7. 埋立て・干拓</text>
+  <text x="195" y="112" font-size="11" fill="#555">2. 河川</text>
+  <text x="205" y="130" font-size="10" fill="#555">（ダム・堰・放水路</text>
+  <text x="205" y="146" font-size="10" fill="#555">　湖沼開発）</text>
+  <text x="195" y="176" font-size="11" fill="#555">7. 埋立て・干拓</text>
 
   <!-- エネルギー -->
-  <rect x="340" y="56" width="150" height="160" fill="#fdf0e4" stroke="#cc6600" stroke-width="1.5" rx="4"/>
-  <text x="415" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#cc6600">エネルギー</text>
-  <line x1="360" y1="88" x2="470" y2="88" stroke="#cc6600" stroke-width="0.8"/>
-  <text x="355" y="112" font-size="11" fill="#434343">5. 発電所</text>
-  <text x="365" y="130" font-size="10" fill="#666666">水力・火力・地熱</text>
-  <text x="365" y="146" font-size="10" fill="#666666">原子力</text>
-  <text x="365" y="162" font-size="10" fill="#666666">太陽電池・風力</text>
+  <rect x="340" y="56" width="150" height="160" fill="#fdf0e4" stroke="#d4a017" stroke-width="1.5" rx="4"/>
+  <text x="415" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#d4a017">エネルギー</text>
+  <line x1="360" y1="88" x2="470" y2="88" stroke="#d4a017" stroke-width="0.8"/>
+  <text x="355" y="112" font-size="11" fill="#555">5. 発電所</text>
+  <text x="365" y="130" font-size="10" fill="#555">水力・火力・地熱</text>
+  <text x="365" y="146" font-size="10" fill="#555">原子力</text>
+  <text x="365" y="162" font-size="10" fill="#555">太陽電池・風力</text>
   <text x="355" y="196" font-size="10" fill="#555555" font-style="italic">（原子力はすべて）</text>
 
   <!-- 廃棄物 -->
-  <rect x="500" y="56" width="120" height="160" fill="#f0f0f0" stroke="#555555" stroke-width="1.5" rx="4"/>
-  <text x="560" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#333333">廃棄物</text>
+  <rect x="500" y="56" width="120" height="160" fill="#f5f5f5" stroke="#555555" stroke-width="1.5" rx="4"/>
+  <text x="560" y="78" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">廃棄物</text>
   <line x1="515" y1="88" x2="605" y2="88" stroke="#555555" stroke-width="0.8"/>
-  <text x="512" y="115" font-size="11" fill="#434343">6. 廃棄物</text>
-  <text x="522" y="133" font-size="10" fill="#666666">最終処分場</text>
+  <text x="512" y="115" font-size="11" fill="#555">6. 廃棄物</text>
+  <text x="522" y="133" font-size="10" fill="#555">最終処分場</text>
   <text x="512" y="165" font-size="10" fill="#555555" font-style="italic">30ha 以上が</text>
   <text x="512" y="181" font-size="10" fill="#555555" font-style="italic">第一種事業</text>
 
   <!-- Row 2: full-width 面的開発 -->
-  <rect x="20" y="236" width="600" height="160" fill="#e6f4e6" stroke="#2f7a2f" stroke-width="1.5" rx="4"/>
-  <text x="320" y="258" text-anchor="middle" font-size="13" font-weight="bold" fill="#2f7a2f">面的開発（いずれも第一種は 100ha 以上、第二種は 75〜100ha）</text>
-  <line x1="50" y1="268" x2="590" y2="268" stroke="#2f7a2f" stroke-width="0.8"/>
+  <rect x="20" y="236" width="600" height="160" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="4"/>
+  <text x="320" y="258" text-anchor="middle" font-size="13" font-weight="bold" fill="#3a7d44">面的開発（いずれも第一種は 100ha 以上、第二種は 75〜100ha）</text>
+  <line x1="50" y1="268" x2="590" y2="268" stroke="#3a7d44" stroke-width="0.8"/>
 
   <!-- Left column (3 items) -->
-  <text x="40" y="294" font-size="12" fill="#434343">8. 土地区画整理事業</text>
-  <text x="40" y="322" font-size="12" fill="#434343">9. 新住宅市街地開発事業</text>
-  <text x="40" y="350" font-size="12" fill="#434343">10. 工業団地造成事業</text>
+  <text x="40" y="294" font-size="12" fill="#555">8. 土地区画整理事業</text>
+  <text x="40" y="322" font-size="12" fill="#555">9. 新住宅市街地開発事業</text>
+  <text x="40" y="350" font-size="12" fill="#555">10. 工業団地造成事業</text>
 
   <!-- Right column (3 items) -->
-  <text x="330" y="294" font-size="12" fill="#434343">11. 新都市基盤整備事業</text>
-  <text x="330" y="322" font-size="12" fill="#434343">12. 流通業務団地造成事業</text>
-  <text x="330" y="350" font-size="12" fill="#434343">13. 宅地の造成の事業</text>
+  <text x="330" y="294" font-size="12" fill="#555">11. 新都市基盤整備事業</text>
+  <text x="330" y="322" font-size="12" fill="#555">12. 流通業務団地造成事業</text>
+  <text x="330" y="350" font-size="12" fill="#555">13. 宅地の造成の事業</text>
 
   <text x="320" y="380" text-anchor="middle" font-size="10" fill="#555555" font-style="italic">※ 宅地には工場用地なども含む</text>
 
   <!-- Footer legend -->
-  <text x="320" y="420" text-anchor="middle" font-size="10" fill="#888888">第一種/第二種の規模基準（面積・延長・出力等）は環境省パンフレット参照</text>
+  <text x="320" y="420" text-anchor="middle" font-size="10" fill="#8a8a8a">第一種/第二種の規模基準（面積・延長・出力等）は環境省パンフレット参照</text>
 </svg>

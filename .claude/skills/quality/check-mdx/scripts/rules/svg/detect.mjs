@@ -26,7 +26,7 @@ import { dirname, resolve } from "path";
 // svg-tokens.json の colorsAllowList をロード（P6 用）
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const TOKENS_PATH = resolve(__dirname, "../../../../../design-system/svg-tokens.json");
+const TOKENS_PATH = resolve(__dirname, "../../../../../../design-system/svg-tokens.json");
 let SVG_TOKENS = null;
 try {
   SVG_TOKENS = JSON.parse(readFileSync(TOKENS_PATH, "utf-8"));
@@ -150,6 +150,7 @@ export function parseSvg(content) {
 
     const trAttr = textAttrs?.match(/transform="([^"]+)"/)?.[1];
     const ownTr = parseTranslate(trAttr);
+    const isRotated = trAttr ? /\brotate\s*\(/.test(trAttr) : false;
     const parent = stack[stack.length - 1];
 
     const xRaw = parseFloat(textAttrs?.match(/\bx="([\d.-]+)"/)?.[1] || 0);
@@ -181,7 +182,7 @@ export function parseSvg(content) {
     if (!fontSize) fontSize = 12;
     if (!textAnchor) textAnchor = "start";
 
-    texts.push({ x, y, fontSize, textAnchor, text: textContent });
+    texts.push({ x, y, fontSize, textAnchor, text: textContent, isRotated });
   }
 
   return { viewBox, hasRole, ariaLabel, hasMaxWidth, texts };
@@ -242,7 +243,8 @@ export function detectSvgIssues(svg) {
   for (let i = 0; i < bboxes.length; i++) {
     const bb = bboxes[i];
     const t = svg.texts[i];
-    if (bb.x < -1 || bb.x + bb.width > svg.viewBox.w + 1) {
+    // 回転テキスト（軸ラベル等）は bbox 計算が rotation を考慮しないため P1 をスキップ
+    if (!t.isRotated && (bb.x < -1 || bb.x + bb.width > svg.viewBox.w + 1)) {
       findings.push({
         pattern: "P1-text-clip",
         severity: "HIGH",

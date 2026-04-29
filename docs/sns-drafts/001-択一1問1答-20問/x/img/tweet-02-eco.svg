@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect x="0" y="0" width="1200" height="675" fill="#ffffff" />
+  
+
+  <!-- top label -->
+  
+    <rect x="60" y="40" width="360" height="56" rx="28" fill="#2e6da4" />
+    <text x="240" y="68" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">Q2 経済性管理</text>
+  
+  <text x="1160" y="74" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+
+  <!-- topic -->
+  <text x="60" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="800" fill="#222222">管理限界と規格値</text>
+  <line x1="60" y1="160" x2="1140" y2="160" stroke="#2e6da4" stroke-width="2" />
+
+  <!-- question body -->
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="500" fill="#222222">
+    <tspan x="60" y="200">品質管理における「管理限界」の説明として正しいものは？</tspan>
+  </text>
+
+  <!-- 2x2 choice grid -->
+  
+        <g>
+          <rect x="60" y="250" width="1080" height="70" rx="10" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+          
+    <circle cx="96" cy="285" r="22" fill="#2e6da4" />
+    <text x="96" y="285" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24.200000000000003" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">1</text>
+  
+          <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#222222" dominant-baseline="central">
+            <tspan x="140" y="285">製品の規格値に基づく値</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <rect x="60" y="330" width="1080" height="70" rx="10" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+          
+    <circle cx="96" cy="365" r="22" fill="#2e6da4" />
+    <text x="96" y="365" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24.200000000000003" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">2</text>
+  
+          <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#222222" dominant-baseline="central">
+            <tspan x="140" y="365">統計的に計算される工程監視用の値</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <rect x="60" y="410" width="1080" height="70" rx="10" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+          
+    <circle cx="96" cy="445" r="22" fill="#2e6da4" />
+    <text x="96" y="445" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24.200000000000003" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">3</text>
+  
+          <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#222222" dominant-baseline="central">
+            <tspan x="140" y="445">顧客が要求する許容範囲</tspan>
+          </text>
+        </g>
+      
+        <g>
+          <rect x="60" y="490" width="1080" height="70" rx="10" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+          
+    <circle cx="96" cy="525" r="22" fill="#2e6da4" />
+    <text x="96" y="525" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24.200000000000003" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">4</text>
+  
+          <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#222222" dominant-baseline="central">
+            <tspan x="140" y="525">管理図の中心線と同じ意味</tspan>
+          </text>
+        </g>
+      
+
+  <!-- footer -->
+  <text x="600" y="655" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#2e6da4" text-anchor="middle">↓ 答えはリプライツリーに ↓</text>
+</svg>

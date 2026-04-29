@@ -5,7 +5,7 @@
  * そのまま import するため）。このファイルは Next.js 側からも同じ schema を
  * 使えるようにし、zod の型推論で `Frontmatter` 型を提供する。
  *
- * 真実源: docs/project/17_data-storage-strategy.md §5.1
+ * 真実源: .claude/reference/data-storage-decision.md
  */
 import {
   FrontmatterSchema,
