@@ -191,7 +191,9 @@ node .tmp/gen-sns-{NNN}.mjs
 | 長文選択肢が cell 外にはみ出す | X 投稿で 2×2 固定 | longestChoice > 14 で縦切替 |
 | 中央数字 + ヘッドラインが重なる | 「正答」と「(2)」が縦に近い | 60px 以上の vertical gap |
 | 最終要素がフッターと重なる | choices と「↓ スワイプ」テキスト | choicesEndY + 50px = footerY 以上 |
-| 中央寄せテキストが chip の中心からズレる | `dominant-baseline="central"` 付き text の y がチップ中心と一致しない（y を見栄えで決めると外す） | **必ず `y = chipY + chipH/2` で計算**（ハードコード禁止）。例: chip y=380, h=180 → text y=470 |
+| 中央寄せテキストが chip の中心からズレる | `dominant-baseline="central"` 付き text の y がチップ中心と一致しない（y を見栄えで決めると外す） | **必ず `y = chipY + chipH/2` で計算**（ハードコード禁止）。例: chip y=380, h=180 → text y=470。複数箇所で再発しやすい（cover title chip、X answer block 等） |
+| 答え画像で管理色が消える | 答えスライド/画像の stripe/badge を成功色（positive 緑）固定にすると、質問画像との視覚連続性が切れタイムライン上で「同じシリーズ」と認識されない | 質問・答え両方で **stripe/badge は m.color（管理色）を維持**、成功シグナルは「✓ 正答」テキストや ②③④ 数字を positive 緑で表現 |
+| 解説テキストが右端ギリギリ | wrap maxChars が広すぎ（フォント幅 × maxChars が canvas 使用領域の 95% 超） | maxChars × fontSize ≦ 使用幅の 85% を目安。例: 1200 幅 / margin 60×2 / font 26 → maxChars=36（行幅 ≈ 900px = 83%） |
 
 ## 10. 雛形リファレンス
 
