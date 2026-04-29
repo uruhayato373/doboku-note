@@ -9,25 +9,25 @@
 
     <!-- 列ヘッダ -->
     
-        <rect x="284" y="140" width="227" height="92" rx="8" fill="#3a7d44"/>
+        <rect x="284" y="140" width="227" height="92" rx="8" fill="#1a3a5c"/>
         <text x="397.5" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800"
               fill="#ffffff" text-anchor="middle">社会問題系</text>
         <text x="397.5" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500"
               fill="rgba(255,255,255,0.92)" text-anchor="middle">少子化・環境・SDGs</text>
       
-        <rect x="519" y="140" width="227" height="92" rx="8" fill="#7b3f99"/>
+        <rect x="519" y="140" width="227" height="92" rx="8" fill="#1a3a5c"/>
         <text x="632.5" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800"
               fill="#ffffff" text-anchor="middle">技術・DX系</text>
         <text x="632.5" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500"
               fill="rgba(255,255,255,0.92)" text-anchor="middle">ICT・DX・BIM</text>
       
-        <rect x="754" y="140" width="227" height="92" rx="8" fill="#b22234"/>
+        <rect x="754" y="140" width="227" height="92" rx="8" fill="#1a3a5c"/>
         <text x="867.5" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800"
               fill="#ffffff" text-anchor="middle">リスク・BCP系</text>
         <text x="867.5" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500"
               fill="rgba(255,255,255,0.92)" text-anchor="middle">災害・HE・BCP</text>
       
-        <rect x="989" y="140" width="227" height="92" rx="8" fill="#d4a017"/>
+        <rect x="989" y="140" width="227" height="92" rx="8" fill="#1a3a5c"/>
         <text x="1102.5" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800"
               fill="#ffffff" text-anchor="middle">組織・人材系</text>
         <text x="1102.5" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500"
@@ -36,7 +36,7 @@
 
     <!-- データ行 -->
     
-        <rect x="20" y="254" width="248" height="148" rx="8" fill="#9ca3af"/>
+        <rect x="20" y="254" width="248" height="148" rx="8" fill="#1a3a5c"/>
         <text x="144" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800"
               fill="#ffffff" text-anchor="middle">第1期 実験期</text>
         <text x="144" y="346" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600"
@@ -74,7 +74,7 @@
                 font-weight="500" fill="rgba(255,255,255,0.92)"
                 text-anchor="middle">H26: 人口減少</text>
         
-        <rect x="20" y="414" width="248" height="148" rx="8" fill="#d4a017"/>
+        <rect x="20" y="414" width="248" height="148" rx="8" fill="#1a3a5c"/>
         <text x="144" y="470" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800"
               fill="#ffffff" text-anchor="middle">第2期 転換期</text>
         <text x="144" y="506" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600"
@@ -112,7 +112,7 @@
                 font-weight="500" fill="rgba(255,255,255,0.92)"
                 text-anchor="middle">H28: 事業変化</text>
         
-        <rect x="20" y="574" width="248" height="148" rx="8" fill="#2e6da4"/>
+        <rect x="20" y="574" width="248" height="148" rx="8" fill="#1a3a5c"/>
         <text x="144" y="630" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800"
               fill="#ffffff" text-anchor="middle">第3期 定着期</text>
         <text x="144" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600"
