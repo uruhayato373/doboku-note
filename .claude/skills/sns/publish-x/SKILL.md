@@ -5,7 +5,16 @@ description: X (旧 Twitter) に Playwright 経由で予約投稿する。`docs/
 
 # publish-x
 
-X (Twitter) 予約投稿を Playwright で自動化する。stats47 の同名スキルを doboku-note に移植したもの。
+X (Twitter) 予約投稿 + リプライ自動化を Playwright で実装。stats47 の同名スキルを doboku-note に移植 + 拡張。
+
+## 同梱スクリプト
+
+| ファイル | 役割 |
+|---|---|
+| `publish-x.ts` | 新規 tweet を予約投稿 / 即時投稿 |
+| `publish-x-reply.ts` | 自分の最新 original tweet にリプライ投稿（即時） |
+
+reply は X の構造的制約で予約不可（親 tweet が未投稿だと reply 不可）。代わりに「親が posted された後に動かす」スクリプトとして提供。
 
 ## なぜ Playwright か
 
@@ -35,6 +44,25 @@ npx tsx .claude/skills/sns/publish-x/publish-x.ts \
 npx tsx .claude/skills/sns/publish-x/publish-x.ts \
   tweet-01-eco 2026-04-30T07:00 --dry-run
 ```
+
+### リプライ投稿（親が posted されてから）
+
+毎朝 7:00 にメイン tweet が posted された後、~7:05 〜 任意のタイミングで:
+
+```bash
+# dry-run で照合確認
+npx tsx .claude/skills/sns/publish-x/publish-x-reply.ts tweet-01-eco --dry-run
+
+# 本番（即時投稿）
+npx tsx .claude/skills/sns/publish-x/publish-x-reply.ts tweet-01-eco
+```
+
+スクリプトは:
+1. 自分のプロフィール（ハンドルは SideNav から自動取得）の最新 original tweet を特定
+2. 親 tweet の本文と main caption の冒頭を照合（誤爆防止）
+3. reply icon クリック → answer-NN.png + reply caption を貼って即時投稿
+
+**禁止**: 複数件を 1 回で渡さない（`tweet-01 tweet-02`）。各 reply 後に「最新」が更新されるが、安全のため 1 回 1 件で運用する。
 
 予約モード検出まで動かして、本番投稿はせずに screenshot を `.tmp/playwright-x-debug/` に保存する。X UI 変更がないか初回確認するために必ず通すこと。
 
