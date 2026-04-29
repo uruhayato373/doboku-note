@@ -78,10 +78,18 @@ function extractSections(content) {
 
 /**
  * <ExamPoint> ブロックの箇条書きを抽出。
- * 1) <ExamPoint>...</ExamPoint> のリストアイテムを優先
- * 2) 「## 試験ポイント」配下の箇条書きにフォールバック
+ * 1) JSX 形式 `<ExamPoint items={["...", "..."]} />`（現行 MDX の主流）
+ * 2) ブロック形式 `<ExamPoint>- ...</ExamPoint>`（レガシー）
+ * 3) 「## 試験ポイント」配下の箇条書き（最終フォールバック）
  */
 function extractExamPoints(content) {
+  const jsxItems = [];
+  for (const m of content.matchAll(/<ExamPoint\b[\s\S]*?items=\{\[([\s\S]*?)\]\}/g)) {
+    const items = [...m[1].matchAll(/"([^"]*)"|'([^']*)'/g)].map(x => x[1] ?? x[2]);
+    jsxItems.push(...items.map(s => s.trim()).filter(Boolean));
+  }
+  if (jsxItems.length > 0) return jsxItems;
+
   const epMatches = [...content.matchAll(/<ExamPoint[^>]*>([\s\S]*?)<\/ExamPoint>/g)];
   if (epMatches.length > 0) {
     return epMatches
@@ -89,6 +97,7 @@ function extractExamPoints(content) {
       .map(l => l.replace(/^\s*[-*]\s+/, '').trim())
       .filter(Boolean);
   }
+
   const fallback = content.match(/##\s+試験ポイント\s*\n([\s\S]*?)(?:\n##|$)/);
   if (!fallback) return [];
   return fallback[1]
