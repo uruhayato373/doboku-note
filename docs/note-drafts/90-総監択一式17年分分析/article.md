@@ -103,7 +103,7 @@
 
 **1. 用語の定義を逆にする**（同一カテゴリ内で対立する2概念を入れ替える）
 - [信頼性設計 ↔ 保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design) — 設計段階での予防と故障後の保全を逆に（[R05 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary#1-3)）
-- QC7つ道具 ↔ 新QC7つ道具 — マトリックスデータ解析法は新QC側
+- [QC7つ道具 ↔ 新QC7つ道具](https://doboku-note.com/docs/pe-comprehensive-management-quality-control#七つ道具の見分け方) — マトリックスデータ解析法は新QC側
 - [X理論 ↔ Y理論](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory) — マグレガー
 - 系統図法（目的→手段の展開）↔ 連関図法（要因の因果関係）— 新QC七つ道具内の混同（[R06 Ⅰ-1-8](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary#1-8)）
 
