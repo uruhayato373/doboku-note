@@ -1,40 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Sans_JP } from "next/font/google";
-// 2026-04-26 #84 LCP 改善: katex.min.css は src/app/docs/[...slug]/page.tsx に移動。
-// home/category/about/contact/privacy/terms から render-blocking CSS を除去。
+// 2026-04-29 #84 LCP 改善 + AdSense 合格対策: Inter / Noto_Sans_JP を削除。
+// 既に 2026-04-26 で Source_Serif_4 / Noto_Serif_JP / JetBrains_Mono を削除済み（~7350ms 削減実績）。
+// 本文・見出し用の Inter / Noto_Sans_JP も system font fallback（Hiragino Kaku Gothic ProN /
+// Yu Gothic UI / Meiryo 等、tailwind.config.js の font-sans 定義）で代替する。
+// 全 next/font 削除で render-blocking @font-face CSS を完全除去し、AdSense 審査に必要な
+// PSI Performance ≥ 70 達成を狙う。
 import "../styles/globals.css";
 import { Suspense } from "react";
 import BackToTopButton from "@/components/ui/BackToTopButton";
 import GoogleAnalytics from "@/components/GoogleAnalytics";
+import AdSenseScript from "@/components/AdSenseScript";
 import AnalyticsProvider from "@/components/providers/AnalyticsProvider";
 import { getCommonSeoData } from "@/lib/metadata";
 import StructuredData from "@/components/seo/StructuredData";
 
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
-
-const inter = Inter({
-  subsets: ["latin"],
-  // 2026-04-26 #84 LCP 改善: variable font の weight 範囲を実使用分のみに絞る。
-  // 本文 400 / 強調 600 / 見出し 700 で全画面の font-weight 指定を網羅。
-  // weight 範囲を切ると woff2 サイズが ~10〜20KB 削減される（network 経由の LCP 微改善）。
-  weight: ["400", "600", "700"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
-
-const notoSansJP = Noto_Sans_JP({
-  subsets: ["latin"],
-  variable: "--font-noto-sans-jp",
-  display: "swap",
-  preload: true,
-});
-
-// 2026-04-26 #84 LCP 改善: Source_Serif_4 / Noto_Serif_JP / JetBrains_Mono を削除。
-// next/font は preload:false でも @font-face CSS（unicode-range 宣言群）を render-blocking で
-// 注入するため、3 ファイル合計 ~410KB の CSS が LCP/FCP を 7350ms 遅らせていた（PSI 計測）。
-// hero H1 / mono ラベルは tailwind.config の system font fallback（Hiragino Mincho ProN, Yu Mincho,
-// ui-monospace, SFMono-Regular 等）で代替する。視覚差は OS 標準フォントへの置き換えのみ。
 
 export const metadata: Metadata = getCommonSeoData();
 
@@ -49,8 +29,9 @@ export default function RootLayout({
         <StructuredData type="website" />
         <StructuredData type="organization" />
       </head>
-      <body className={`${inter.variable} ${notoSansJP.variable} font-sans`}>
+      <body className="font-sans">
         <GoogleAnalytics />
+        <AdSenseScript />
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>

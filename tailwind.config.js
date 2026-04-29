@@ -85,12 +85,15 @@ module.exports = {
         },
       },
       fontFamily: {
+        // 2026-04-29 #84 LCP 改善: next/font (Inter / Noto_Sans_JP) を全削除し system font に統一。
+        // render-blocking @font-face CSS の除去で AdSense 審査に必要な PSI Performance ≥ 70 を狙う。
         sans: [
-          "Inter",
-          "Noto Sans JP",
           "Hiragino Kaku Gothic ProN",
           "Hiragino Sans",
+          "Yu Gothic UI",
+          "Yu Gothic",
           "Meiryo",
+          "system-ui",
           "sans-serif",
         ],
         serif: [
@@ -108,7 +111,6 @@ module.exports = {
           'Liberation Mono',
           'monospace',
         ],
-        inter: ["Inter", "sans-serif"],
       },
       typography: {
         DEFAULT: {
