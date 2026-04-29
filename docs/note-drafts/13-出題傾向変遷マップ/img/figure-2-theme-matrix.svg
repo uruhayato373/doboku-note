@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1280" height="960" viewBox="0 0 1280 960">
     <rect width="1280" height="960" fill="#ffffff"/>
 
-    <!-- タイトル（行ラベルが左側アンカーとして機能するため、ブランドアクセント縦線は省略） -->
+    <!-- タイトル -->
     <text x="34" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">期別 × テーマ系統 出題マトリクス</text>
     <text x="34" y="94" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">3期 × 4テーマ系統 — 塗り強度が強いほど出題比重が高い</text>
 

@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
     <rect width="1200" height="900" fill="#ffffff"/>
-    <rect x="0" y="0" width="14" height="900" fill="#2e6da4"/><!-- brand -->
 
     <text x="60" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">R08 出題テーマ予測 TOP5</text>
     <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#555555">過去頻度 × 時事性スコアで評価 — 法則1（同分類3連続なし）を適用</text>
