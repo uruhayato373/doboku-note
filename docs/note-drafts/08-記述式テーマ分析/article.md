@@ -13,6 +13,8 @@
 
 テーマ分析は「山を張る」ためではなく、どのテーマが出ても対応できる準備体制を整えるためにあります。過去のテーマを俯瞰することで、出題者が受験者に求めている思考の型が見えてきます。
 
+> 記述式全体の答案構成・時間配分・採点基準については doboku-note の解説が参考になります → [記述式試験の解答戦略（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)
+
 ---
 
 【ここから有料】
@@ -34,6 +36,8 @@
 
 
 ## 過去13年分の出題テーマ一覧
+
+![記述式テーマ年表（H25〜R07 全13年）](img/figure-1-theme-timeline.png)
 
 | 年度 | テーマ | 分類 |
 |:---:|:---|:---:|
@@ -83,6 +87,8 @@
 - 自分の組織への適用力が問われる
 - 5つの管理間のトレードオフを具体的に記述させる設問が多い
 
+> どの分類でも「5 管理間のトレードオフを特定し、俯瞰的に調整する」力が問われます。管理間の典型的な対立構造については → [5 管理間トレードオフ 頻出パターンと解決フレーム（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)
+
 
 ## 出題パターンの法則
 
@@ -110,6 +116,10 @@ R05以降、設問は(1)(2)(3)の3問構成で、(2)と(3)でそれぞれ2つの
 ## 次年度（令和8年度）の出題テーマ予測
 
 以上の法則を踏まえ、R08の出題テーマとして可能性が高いものを5つ挙げます。
+
+> R07 記述式の前文・設問構成は doboku-note で全文を確認できます → [R07 記述式（2025年度）過去問（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary)
+
+![R08 出題テーマ予測 TOP5](img/figure-2-r08-prediction.png)
 
 ### 予測1: サプライチェーン・リスクマネジメント
 
@@ -143,7 +153,7 @@ R05以降、設問は(1)(2)(3)の3問構成で、(2)と(3)でそれぞれ2つの
 
 この思考プロセスは、テーマが「少子高齢化」でも「DX」でも「サプライチェーン」でも同じです。過去問を使った前文分析と骨子構成の練習を繰り返すことが、最も確実な対策となります。
 
-各年度の記述式問題の全文と、択一式の全問解答解説は[doboku-note](https://doboku-note.com/category/pe-comprehensive-management)に収録しています。
+各年度の記述式問題の全文と、択一式の全問解答解説は doboku-note に収録しています。H21〜R07 の 17 年分を網羅しているので、まずは直近 3 年（R05〜R07）から前文を読み込んでみてください → [総合技術監理部門 試験インデックス（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-exam-index)
 
 
 ## 参考: 出題テーマと前文分析の対応表
