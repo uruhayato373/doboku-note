@@ -97,22 +97,41 @@
 
 ---
 
-## 引っかけパターンTOP3
+## 引っかけパターン6種
 
-17年分を通じて繰り返し使われる「引っかけ」のパターンがあります。
+17年分を通じて繰り返し使われる引っかけパターンを整理しました。これを知っておくと、選択肢を絞り込む速度が上がります。R03〜R07 の解答解説から実例を抽出しています。
 
-**1. 用語の定義を逆にする**
-- [信頼性設計 ↔ 保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design)
-- QC7つ道具 ↔ 新QC7つ道具
-- [X理論 ↔ Y理論](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory)
+**1. 用語の定義を逆にする**（同一カテゴリ内で対立する2概念を入れ替える）
+- [信頼性設計 ↔ 保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design) — 設計段階での予防と故障後の保全を逆に
+- QC7つ道具 ↔ 新QC7つ道具 — マトリックスデータ解析法は新QC側
+- [X理論 ↔ Y理論](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory) — マグレガー
+- 系統図法（目的→手段の展開）↔ 連関図法（要因の因果関係）— 新QC七つ道具内の混同
 
-**2. 数式の要素を入れ替える**
+**2. 数式・指標の要素を入れ替える**（演算子・分子分母・計算式の取替え）
 - 管理限界を「規格値に設定する」→ 誤り
 - [損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point)の分子と分母を逆にする
+- VEの価値 = 機能 ÷ コストを「機能 × コスト」に
+- 線形計画法の目的関数を「線形結合（和）」ではなく「積」と書く
 
 **3. 法令の数値を微妙にずらす**
 - 有給休暇「6ヶ月」を「1年」にする
 - 労働時間「40時間/週」を「44時間/週」にする
+- [労働基準法](https://doboku-note.com/docs/pe-comprehensive-management-labor-standards-act) 36協定の上限（45h/月、360h/年）を別の数値にする
+
+**4. 範囲・構成要素を入れ替える**（包含関係の操作）
+- [BCM](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan)の対象範囲「委託先・調達先・供給先も含む」を「含まない」に
+- [CF計算書](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement)の3区分（営業・投資・財務）に「社会貢献活動」を加える
+- 減価償却資産は建物附属設備・機械装置・器具備品・車両運搬具すべて対象（一部のみと書くと誤り）
+
+**5. 「すべて」「のみ」「常に」など絶対化表現で例外を無視する**
+- 「BCMの対象は自社の人的・物的被害のみ」→ 実は委託先・調達先も含む
+- 「不合理な待遇差禁止は努力義務」→ 実は法的禁止規定（強度の誤認）
+- 「変形労働時間制で労働者が労働時間を自由決定できる」→ フレックスタイム制との混同（変形労働時間制は労使協定で事前に定める）
+
+**6. 手順・順序や責任主体を入れ替える**
+- PDCA の C（Check）と A（Action）を逆にする／プロセス完了後に修正と書く
+- スケジュール計算式（最遅開始時刻 = 最早開始時刻 + 全余裕時間）の式を逆転させる
+- 健康診断「[事業者](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act)が個々の労働者の検査結果を直接入手」→ 実はプライバシー保護で集計結果のみ
 
 ---
 
@@ -124,7 +143,7 @@
 2. **計算問題を3パターン練習** — [NPV](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value)、[PERT](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm)、[損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point) は出れば確実に解ける形にしておく
 3. **動機づけ理論と労働法規の数値** — 暗記の質で得点が決まる定番領域
 4. **直近5年の過去問を解く** — 時事問題（BCP、カーボンニュートラル等）の傾向を把握
-5. **引っかけパターンを覚える** — 用語逆転・数式入れ替え・法令数値ずらしの3パターン（後述）
+5. **引っかけパターンを覚える** — 用語逆転・数式入れ替え・法令数値ずらし・範囲操作・絶対化表現・順序入替の6パターン（後述）
 
 24問正答（60%）を確実に取るには、各分野で6〜7割（5問前後）取る安定型の学習が現実的です。
 
