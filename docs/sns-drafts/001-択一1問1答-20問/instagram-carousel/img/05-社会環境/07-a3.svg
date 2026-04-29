@@ -8,10 +8,6 @@
     <rect x="80" y="60" width="380" height="64" rx="32" fill="#3a7d44" />
     <text x="270" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">A19 社会環境管理</text>
   
-  
-    <rect x="800" y="60" width="200" height="64" rx="32" fill="#fff8e1" />
-    <text x="900" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#d4a017" text-anchor="middle" dominant-baseline="central">R7 出題</text>
-  
 
   <!-- topic -->
   <text x="80" y="220" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="38" font-weight="700" fill="#555555">インフラ老朽化</text>
@@ -21,7 +17,7 @@
 
   <!-- answer block: (N) + label -->
   <rect x="60" y="380" width="960" height="280" rx="20" fill="#e6f4ea" />
-  <text x="540" y="540" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="120" font-weight="900" fill="#3a7d44" text-anchor="middle">(2)</text>
+  <text x="540" y="540" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="160" font-weight="900" fill="#3a7d44" text-anchor="middle">②</text>
   <text x="540" y="620" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="44" font-weight="700" fill="#222222" text-anchor="middle">道路橋</text>
 
   <!-- divider -->
