@@ -1,9 +1,10 @@
-# 【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜毎年出る頻出テーマと捨てていい問題の見分け方
+# 【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜5管理分野別の頻出テーマと学習戦略
 
-> **この記事でわかること**
-> - 総監択一式40問の管理分野別配分（固定パターン）
-> - 17年間で毎年出題されるテーマのランキング
-> - 学習の優先順位と効率的な進め方
+**この記事でわかること**
+
+- 総監択一式40問の管理分野別配分（固定パターン）
+- 5管理分野ごとの頻出テーマ一覧
+- 学習の優先順位と効率的な進め方
 
 ---
 
@@ -19,103 +20,80 @@
 
 ## 40問の配分は完全に固定されている
 
-まず知っておくべき基本構造があります。40問は5つの管理分野に**8問ずつ均等配分**されています。これは17年間で例外がありません。
+まず知っておくべき基本構造があります。40問は5つの管理分野に**8問ずつ均等配分**されており、問題番号と分野の対応も17年間ほぼ共通です。境界的な問題で年度により ±1〜2 問の揺らぎはありますが、ブロック構造そのものは固定されています。
 
-| 問番号 | 管理分野 |
-|---|---|
-| 問1〜8 | 経済性管理 |
-| 問9〜16 | 人的資源管理 |
-| 問17〜24 | 情報管理 |
-| 問25〜32 | 安全管理 |
-| 問33〜40 | 社会環境管理 |
+![問1〜8が経済性管理、問9〜16が人的資源管理、問17〜24が情報管理、問25〜32が安全管理、問33〜40が社会環境管理に割り当てられた40問均等配分図](./img/figure-distribution-40q.png)
 
-つまり、苦手な分野があっても最大8問の失点で済みます。逆に得意分野で8問中7〜8問取れれば、他の分野に余裕が生まれます。
+つまり、苦手な分野があっても最大8問の失点で済みます。逆に得意分野で8問中7〜8問取れれば、他の分野に余裕が生まれます。**問題番号を見れば分野が即座に分かる**ので、本番では得意分野から先に解くという時間配分も可能です。
 
 ---
 
-## 毎年出るテーマ10選
+## 5管理分野別 頻出テーマ
 
-17年分を分析した結果、**ほぼ毎年出題される鉄板テーマ**を特定できました。これらを確実に押さえれば、40問中10問以上を安定して得点できます。
+17年分の出題を分析すると、各管理分野ごとに繰り返し問われる定番テーマが見えてきます。以下、5つの管理分野ごとに頻出テーマを整理します。
 
-### 経済性管理
+### 経済性管理（問1〜8）
 
-**1. 投資評価・NPV・現在価値計算**
-17年中15年以上で出題されています。割引現在価値の計算問題として出ることが多く、年金現価係数の使い方を覚えておけば確実に解けます。
+経済性管理の8問は過半が計算問題で、算術系を確実に押さえれば得点源になる分野です。事業企画・品質管理・工程管理・財務会計・設備管理・原価管理を横断的にカバーします。
 
-**2. 品質管理・QC7つ道具**
-管理限界と規格値の違い、新QC7つ道具との区別が定番の引っかけです。管理図の基本を理解していれば対応できます。
+- **投資評価・[NPV](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value)・現在価値計算** — 割引現在価値と年金現価係数の使い方
+- **[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control)・QC7つ道具** — [管理限界](https://doboku-note.com/docs/pe-comprehensive-management-control-limits)と規格値の違い、新QC7つ道具との区別
+- **[PERT/CPM](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm)・クリティカルパス** — ネットワーク工程表・アロー・ダイアグラムからの計算
+- **[工程能力指数](https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index) Cpk** — 公式と判定基準
+- **財務諸表（[貸借対照表](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet)・[損益計算書](https://doboku-note.com/docs/pe-comprehensive-management-income-statement)・[CF計算書](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement)）** — 3表の役割と構造、減価償却、CF計算書の3区分（営業・投資・財務）の区別
+- **設備保全（[予防保全](https://doboku-note.com/docs/pe-comprehensive-management-preventive-maintenance)・[事後保全](https://doboku-note.com/docs/pe-comprehensive-management-corrective-maintenance)・[改良保全](https://doboku-note.com/docs/pe-comprehensive-management-improvement-maintenance)）** — 種類と適用場面、[バスタブカーブ](https://doboku-note.com/docs/pe-comprehensive-management-bathtub-curve)との関連
+- **[PFI](https://doboku-note.com/docs/pe-comprehensive-management-pfi)・官民連携事業** — VFM（Value for Money）の概念、PFI事業のスキーム
+- **[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan)・事業継続計画** — R05以降は連続出題、内閣府ガイドラインが土台
+- **[ABC（活動基準原価計算）](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc)** — 直接費と間接費の配賦方法
+- **[損益分岐点分析](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point)** — BEP = 固定費 ÷（1 − 変動費率）の計算
+- **[デルファイ法](https://doboku-note.com/docs/pe-comprehensive-management-delphi-method)・[AHP](https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process)** — 問題解決手法の名称と手順の対応
+- **[HACCP](https://doboku-note.com/docs/pe-comprehensive-management-haccp)** — 食品衛生分野の品質管理体系
 
-### 人的資源管理
+### 人的資源管理（問9〜16）
 
-**3. 動機づけ理論（マズロー・マグレガー・ハーズバーグ）**
-ほぼ毎年出題されます。X理論とY理論の逆転、マズローの5段階の順序、ハーズバーグの衛生要因と動機づけ要因の区別が問われます。
+人的資源管理は**動機づけ理論と労働法規**が二大柱です。動機づけ理論は組み合わせの逆転（X理論とY理論を入れ替える等）が定番の引っかけ、労働法規は数値（時間・日数）の正確な記憶が問われます。
 
-**4. 労働基準法の数値規定**
-法定労働時間（8時間/日、40時間/週）、有給休暇日数、時間外労働の上限。数値を正確に覚えているかが問われます。
+- **動機づけ理論（[マズロー](https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs)・[マグレガー](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory)・[ハーズバーグ](https://doboku-note.com/docs/pe-comprehensive-management-herzberg-two-factor-theory)）** — [X理論とY理論](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory)の逆転、[マズロー](https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs)の5段階、[ハーズバーグ](https://doboku-note.com/docs/pe-comprehensive-management-herzberg-two-factor-theory)の衛生要因と動機づけ要因の区別
+- **[労働基準法](https://doboku-note.com/docs/pe-comprehensive-management-labor-standards-act)の数値規定** — 法定労働時間（8時間/日、40時間/週）、有給休暇日数、時間外労働の上限
+- **組織形態** — [職能別](https://doboku-note.com/docs/pe-comprehensive-management-functional-organization)・[事業部制](https://doboku-note.com/docs/pe-comprehensive-management-divisional-organization)・[マトリックス組織](https://doboku-note.com/docs/pe-comprehensive-management-matrix-organization)の特徴比較
+- **[職務設計](https://doboku-note.com/docs/pe-comprehensive-management-job-design)** — ハックマン・オルダムモデルの5要素
 
-### 情報管理
+### 情報管理（問17〜24）
 
-**5. PERT/CPM・クリティカルパス**
-ネットワーク工程表からクリティカルパスを求める計算問題が毎年のように出題されます。アロー・ダイアグラムの読み方を練習しておきましょう。
+情報管理は**統計手法・情報セキュリティ・知的財産**の3系統が定番です。算術平均と幾何平均・調和平均の使い分け、ゼロトラストなど近年の概念、著作権と産業財産権の区別が重点です。
 
-**6. 統計的手法（正規分布・工程能力指数）**
-標準偏差と正規分布を使った計算問題が出ます。工程能力指数Cpkの公式と判定基準を覚えておいてください。
+- **[記述統計](https://doboku-note.com/docs/pe-comprehensive-management-descriptive-statistics)・統計手法** — 算術平均・幾何平均・調和平均の使い分け、標準偏差、正規分布
+- **情報セキュリティ・[ISMS](https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001)・[ゼロトラスト](https://doboku-note.com/docs/pe-comprehensive-management-zero-trust)** — 認証制度、境界型セキュリティとゼロトラストの違い
+- **知的財産（[産業財産権](https://doboku-note.com/docs/pe-comprehensive-management-industrial-property-rights)・[著作権](https://doboku-note.com/docs/pe-comprehensive-management-copyright)）** — 制度の概要、保護期間
 
-### 安全管理
+### 安全管理（問25〜32）
 
-**7. 労働安全衛生法・リスクアセスメント**
-安全管理体制、リスク評価手法（FMEA、FTA、ETA）が毎年出ます。手法名と用途の対応を正確に覚えましょう。
+安全管理は**労働安全衛生法と安全工学手法**が中心です。FMEA/FTA/ETA は名称と用途を取り違える引っかけが頻出、信頼性設計と保全性設計の用語逆転も定番です。製造物責任法（PL法）も安全分野として扱われます。
 
-**8. 設備保全（予防保全・事後保全・改良保全）**
-保全の種類と適用場面の区別が問われます。バスタブカーブとの関連も頻出です。
+- **[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act)・[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment)** — 安全管理体制、[リスク評価](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment)の流れ
+- **[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea)・[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta)・[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta)** — 故障モード影響解析・フォールトツリー・イベントツリーの違い
+- **[信頼性設計・保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design)** — 用語の対応関係（引っかけ頻出）
+- **[PL法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act)・製造物責任** — 免責要件、対象範囲
 
-### 社会環境管理
+### 社会環境管理（問33〜40）
 
-**9. 財務諸表（貸借対照表・損益計算書・CF計算書）**
-3つの財務諸表の役割と構造が問われます。経済性管理ではなく社会環境管理の枠で出題されることが多い点に注意してください。
+社会環境管理は**環境法規と地球環境問題**が中心です。R01以降はカーボンニュートラルや循環型社会など時事テーマが急増しており、白書（環境白書等）に目を通しておくと取りこぼしを防げます。
 
-**10. PFI・官民連携事業**
-VFM（Value for Money）の概念、PFI事業のスキームが繰り返し問われます。
-
----
-
-## 隔年で出るテーマ（準頻出）
-
-毎年ではありませんが、2年に1回程度出題されるテーマです。これらも押さえれば合格圏が安定します。
-
-- **原価計算・ABC（活動基準原価計算）** — 直接費と間接費の配賦方法
-- **損益分岐点分析** — BEP = 固定費 ÷ (1 - 変動費率) の計算
-- **組織形態** — 職能別・事業部制・マトリックス組織の特徴比較
-- **デルファイ法・AHP** — 問題解決手法の名称と手順の対応
-- **BCP・事業継続計画** — 近年急増。R03以降は毎年出題
-- **PL法・製造物責任** — 免責要件、対象範囲
-- **入札・契約制度** — 総合評価方式、品確法
-
----
-
-## 3年に1回以下のテーマ（時間があれば）
-
-限られた学習時間では後回しにしてよいテーマです。
-
-- 事業企画・フィージビリティスタディ
-- 職務設計（ハックマン・オルダムモデル）
-- 需要予測（移動平均法・指数平滑法）
-- 食品衛生・HACCP
-- 知的財産制度の細部
+- **[環境影響評価](https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment)（EIA）** — 制度の概要、対象事業、手続きの流れ
+- **[環境基本法](https://doboku-note.com/docs/pe-comprehensive-management-environmental-basic-act)・[環境基本計画](https://doboku-note.com/docs/pe-comprehensive-management-environmental-basic-plan)** — 基本理念、第六次環境基本計画
+- **[循環型社会形成推進基本法](https://doboku-note.com/docs/pe-comprehensive-management-circular-society-basic-act)・[廃棄物処理法](https://doboku-note.com/docs/pe-comprehensive-management-waste-management-act)** — 3R、廃棄物の分類
+- **[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-pricing)・カーボンプライシング** — 環境税、排出権取引
+- **[気候変動・脱炭素社会](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-decarbonization)** — パリ協定、温対法
 
 ---
 
 ## 年度による出題傾向の変化
 
-17年間で出題の「質」も変化しています。
+出題分野の配分は固定でも、17年間で出題の「質」は3段階で変化してきました。
 
-| 時期 | 特徴 |
-|---|---|
-| H21〜H26 | 用語の定義を正確に覚えているかを問う問題が中心 |
-| H27〜H30 | 計算問題の増加。複数の概念を組み合わせた複合問題が増える |
-| R01〜R07 | 時事的テーマの出題が増加。BCP、働き方改革、DX、カーボンニュートラルなど |
+![H21〜H26は用語定義中心、H27〜H30は計算・複合問題が定着、R01〜R07は時事テーマが急増という3フェーズで出題傾向が変化したタイムライン](./img/figure-trend-timeline.png)
 
-特にR01以降は**キーワード集だけでは対応しきれない時事問題**が増えています。関係省庁の白書（情報通信白書、環境白書等）にも目を通しておくとよいでしょう。
+特にR01以降は**キーワード集だけでは対応しきれない時事問題**が増えています。[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan)、働き方改革、DX、[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-pricing)といった近年のキーワードは、関係省庁の白書（情報通信白書、環境白書等）にも目を通しておくと取りこぼしを防げます。
 
 ---
 
@@ -124,13 +102,13 @@ VFM（Value for Money）の概念、PFI事業のスキームが繰り返し問�
 17年分を通じて繰り返し使われる「引っかけ」のパターンがあります。
 
 **1. 用語の定義を逆にする**
-- 信頼性設計 ↔ 保全性設計
+- [信頼性設計 ↔ 保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design)
 - QC7つ道具 ↔ 新QC7つ道具
-- X理論 ↔ Y理論
+- [X理論 ↔ Y理論](https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory)
 
 **2. 数式の要素を入れ替える**
 - 管理限界を「規格値に設定する」→ 誤り
-- 損益分岐点の分子と分母を逆にする
+- [損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point)の分子と分母を逆にする
 
 **3. 法令の数値を微妙にずらす**
 - 有給休暇「6ヶ月」を「1年」にする
@@ -142,13 +120,13 @@ VFM（Value for Money）の概念、PFI事業のスキームが繰り返し問�
 
 まとめると、効率的な学習順序は以下の通りです。
 
-1. **毎年出る10テーマを完全に押さえる**（これだけで10問以上確保）
-2. **隔年テーマを一通り学習**（さらに5〜8問上乗せ）
-3. **計算問題を3パターン練習**（NPV、PERT、損益分岐点）
-4. **直近5年の過去問を解く**（時事問題の傾向を把握）
-5. 残りの時間で3年に1回テーマを補完
+1. **苦手分野の頻出テーマから先に潰す** — 5管理のうちスコアが伸び悩む分野の上記リスト上位を優先
+2. **計算問題を3パターン練習** — [NPV](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value)、[PERT](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm)、[損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point) は出れば確実に解ける形にしておく
+3. **動機づけ理論と労働法規の数値** — 暗記の質で得点が決まる定番領域
+4. **直近5年の過去問を解く** — 時事問題（BCP、カーボンニュートラル等）の傾向を把握
+5. **引っかけパターンを覚える** — 用語逆転・数式入れ替え・法令数値ずらしの3パターン（後述）
 
-24問正答（60%）を確実に取るには、上記の1〜3で十分です。
+24問正答（60%）を確実に取るには、各分野で6〜7割（5問前後）取る安定型の学習が現実的です。
 
 ---
 
@@ -166,6 +144,6 @@ https://doboku-note.com/category/pe-comprehensive-management
 各設問の解説からキーワードページへのリンクが付いているので、不明点をすぐに確認できます。
 
 **note のおすすめ続編**
-- 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 — NPV・PERT・損益分岐点・工程能力指数・負荷工数の解法
+- 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 — [NPV](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value)・[PERT](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm)・[損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point)・[工程能力指数](https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index)・負荷工数の解法
 - 【17 年分を解いた実感】年度別難易度ランキング（無料） — 初受験者が優先して解くべき過去問
 - 【2026 年最新】総監キーワード集 2026 の変更点と学び直す優先順位（無料）
