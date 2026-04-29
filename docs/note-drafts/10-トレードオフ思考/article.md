@@ -46,23 +46,23 @@
 
 ### 例2: ベテラン活用と情報漏洩リスク（人的資源管理 vs 情報管理）
 
-経験豊富なベテラン技術者に重要な業務を任せたい。しかし、アクセス権限を広く付与すればするほど、情報漏洩のリスクが高まります。
+経験豊富なベテラン技術者に重要な業務を任せたい。しかし、[アクセス権限](https://doboku-note.com/docs/pe-comprehensive-management-access-control)を広く付与すればするほど、[情報漏洩](https://doboku-note.com/docs/pe-comprehensive-management-data-leak-tampering-loss)のリスクが高まります。
 
 - **人的資源管理の要求**: ベテランの知識・経験を最大限に活用したい
 - **情報管理の要求**: 情報セキュリティを確保し、漏洩リスクを最小化したい
 - **対立の本質**: 人材活用と情報管理の厳格化が相反する
 
-近年のDX推進やテレワーク普及に伴い、この種のトレードオフは増加傾向にあります。択一式でも出題されやすいテーマです。
+近年のDX推進やテレワーク普及に伴い、この種のトレードオフは増加傾向にあります。択一式でも出題されやすいテーマです。実例として [令和4年度 記述式（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary)・[令和3年度 記述式（データ利活用）](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary) は、この対立構造を直球で問うた典型例です。
 
 ### 例3: エネルギーの安定供給と環境負荷（経済性管理 vs 社会環境管理）
 
 社会インフラの維持にはエネルギーの安定供給が不可欠ですが、化石燃料への依存は環境負荷を増大させます。
 
 - **経済性管理の要求**: エネルギーの安定かつ経済的な供給
-- **社会環境管理の要求**: 環境負荷の低減・脱炭素
+- **社会環境管理の要求**: 環境負荷の低減・[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-decarbonization)
 - **対立の本質**: 短期的な経済合理性と長期的な環境保全が対立する
 
-このトレードオフは社会全体のスケールで議論されるものですが、総監の記述式では個別のプロジェクトレベルに落とし込んで論じることが求められます。
+このトレードオフは社会全体のスケールで議論されるものですが、総監の記述式では個別のプロジェクトレベルに落とし込んで論じることが求められます。[令和6年度 記述式（カーボンニュートラル）](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary)・[令和7年度 記述式（少子高齢化）](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary) はこの対立構造を真正面から問う典型例です。
 
 
 ## 3. 5 管理間トレードオフマトリクス
@@ -83,7 +83,7 @@
 
 このマトリクスを「暗記する」必要はありません。重要なのは、**自分の業務経験の中にこの10通りのどれが当てはまるかを考えられるようになること**です。記述式では、与えられた事例に対してこのマトリクスのどの部分が問われているかを素早く判断し、論述に組み込むことが求められます。
 
-このマトリクスの詳細な解説や過去問出題パターンは、[doboku-note の 5 管理間トレードオフ解説ページ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)で確認できます。doboku-note では 17 年分の択一式・記述式データをもとに各ペアの頻出パターンを整理しています。
+このマトリクスの詳細な解説や過去問出題パターンは、[doboku-note の 5 管理間トレードオフ解説ページ](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)で確認できます。doboku-note では 17 年分の択一式・記述式データをもとに各ペアの頻出パターンを整理しています。直近では [令和5年度（SWOT・組織戦略）](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary)・[令和2年度（異常気象 BCP）](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary)・[令和元年度（ヒューマンエラー）](https://doboku-note.com/docs/pe-comprehensive-management-r01-secondary) などで本マトリクスのパターンが顕著に問われています。
 
 
 ## 4. トレードオフ改善の考え方 --- 第三の管理で解決する
@@ -105,7 +105,7 @@
 - **[ALARP](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle)**（As Low As Reasonably Practicable）: リスクを合理的に可能な限り低減する。安全管理と経済性管理の対立に最も有効
 - **LCA / LCC**: [LCA](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-management)（Life Cycle Assessment、ライフサイクル全体の環境負荷評価）と LCC（Life Cycle Cost、初期コストから維持管理・廃棄まで含めた総コスト評価）を組み合わせて、経済性管理と社会環境管理の対立に有効
 - **段階的実施**: 小規模な試行から始め、効果を確認しながら拡大。経済性管理と人的資源管理・情報管理の対立に有効
-- **合意形成**: ステークホルダーを巻き込み、納得のもとで意思決定。人的資源管理・社会環境管理との対立に有効
+- **[合意形成](https://doboku-note.com/docs/pe-comprehensive-management-consensus-instruments)**: ステークホルダーを巻き込み、納得のもとで意思決定。人的資源管理・社会環境管理との対立に有効
 - **リスクベース意思決定**: リスクの大きさに応じて資源を優先配分。経済性管理と安全管理の対立に有効
 
 下図は、この 5 つのフレームが 10 の管理ペアに対してどう適用できるかをまとめたものです。
@@ -124,7 +124,7 @@
 2. **対立の原因を分析する** --- なぜ対立が生じているのか、制約条件は何か
 3. **第三の管理を検討する** --- 残り3つの管理のうち、この対立を緩和できる視点はないか
 4. **具体的な対策を提示する** --- 解決フレーム（ALARP / LCA / 段階的実施 等）を名指しして適用方法を示す
-5. **残留リスクを評価する** --- 改善策を講じてもなお残るリスクを認識する
+5. **[残留リスク](https://doboku-note.com/docs/pe-comprehensive-management-residual-risk)を評価する** --- 改善策を講じてもなお残るリスクを認識する
 
 このステップは、記述式の答案構成にそのまま使えます。
 
@@ -142,7 +142,7 @@
 - 「人手不足」→ 人的資源管理における人材活用計画の課題
 - 「残業を増やして対応しよう」→ 経済性管理（原価管理）との間にトレードオフが発生
 - 「新人に任せるのは不安」→ 人的資源管理と安全管理のトレードオフ
-- 「外注に出すか」→ 人的資源管理のアウトソーシング。ただし情報管理（機密保持）との対立も
+- 「外注に出すか」→ 人的資源管理のアウトソーシング。ただし情報管理（[機密保持](https://doboku-note.com/docs/pe-comprehensive-management-confidentiality)）との対立も
 
 日常のあらゆる業務判断には、意識すれば5つの管理間のトレードオフが潜んでいます。これを見つける目を養うことが、試験対策の最も効果的な方法です。
 
@@ -186,7 +186,7 @@
 
 **第3段階: 第三の管理で解決策を提示する**
 
-選んだトレードオフに対し、前述の「第三の管理で解決する」アプローチを適用します。具体的な管理技術の名称（PERT、リスクアセスメント、OJT等）を挙げながら、実現可能な対策を示します。
+選んだトレードオフに対し、前述の「第三の管理で解決する」アプローチを適用します。具体的な管理技術の名称（PERT、[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment)、OJT等）を挙げながら、実現可能な対策を示します。
 
 **第4段階: 残留リスクと継続的改善**
 
