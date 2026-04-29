@@ -191,6 +191,7 @@ node .tmp/gen-sns-{NNN}.mjs
 | 長文選択肢が cell 外にはみ出す | X 投稿で 2×2 固定 | longestChoice > 14 で縦切替 |
 | 中央数字 + ヘッドラインが重なる | 「正答」と「(2)」が縦に近い | 60px 以上の vertical gap |
 | 最終要素がフッターと重なる | choices と「↓ スワイプ」テキスト | choicesEndY + 50px = footerY 以上 |
+| 中央寄せテキストが chip の中心からズレる | `dominant-baseline="central"` 付き text の y がチップ中心と一致しない（y を見栄えで決めると外す） | **必ず `y = chipY + chipH/2` で計算**（ハードコード禁止）。例: chip y=380, h=180 → text y=470 |
 
 ## 10. 雛形リファレンス
 
