@@ -1,167 +1,54 @@
 /**
- * OGP テンプレートレンダラ。
- * 各テンプレは (props) を受け取って satori element を返す純関数。
+ * OGP テンプレートレンダラ（T06 Mono Tag 統一版）。
+ *
+ * 各テンプレは (props, sizeOpts) を受け取って satori element を返す純関数。
  * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) .claude/reference/ogp-prompts.md に出典記録 の3点セット。
  *
- * セーフティゾーン: 中央 630×630 が 1:1 クロップ時にも残る領域。タイトル・カテゴリラベル・サイト名は
- * この内側（幅 SAFETY_WIDTH / 高さ SAFETY_HEIGHT 相当）に収まるよう描画する。
- * 装飾要素（グラデーション・グリッド・バー）は全幅 OK。クロップされても問題ない前提。
+ * セーフティゾーン: 中央 630×630 が 1:1 クロップ時にも残る領域。
+ *   タイトル・カテゴリチップ・ワードマーク・メタはこの内側に収まるよう描画する。
+ *   装飾要素（グリッド・アクセントバー）は全幅 OK。クロップされても問題ない前提。
+ *
+ * サイズパラメータ: renderTemplate(id, props, { width, height }) で OGP=1200×630 と
+ *   note カバー=1280×670 の両方をサポート。SAFE_L = (W - 630) / 2 で求める。
  */
 
-const WIDTH = 1200;
-const HEIGHT = 630;
-const SAFETY_WIDTH = 560;
+const DEFAULT_WIDTH = 1200;
+const DEFAULT_HEIGHT = 630;
+const SAFETY_ZONE_WIDTH = 630; // 中央正方形の幅（両サイズ共通）
+const SAFETY_WIDTH = 590; // タイトルが収まる横幅の上限（pickFontSize が消費する）
+
 const SITE_NAME = 'doboku-note';
+const SITE_TAGLINE = '土木系資格試験ノート';
+const SITE_DOMAIN = 'doboku-note.com';
 
-// ---- 共通要素 ----
+// --- T06 Mono Tag color tokens ---
+const C_BG = '#fdfcf8';
+const C_INK_DEEP = '#0a1428';
+const C_INK_NAVY = '#0f1e3f';
+const C_INK_MUTED = 'rgba(15, 30, 63, 0.5)';
+const C_INK_RULE = 'rgba(15, 30, 63, 0.12)';
+const C_CYAN = '#06b6d4';
+const C_CYAN_ACCENT = '#22d3ee';
+const C_NAVY_ACCENT = '#1e3a8a';
 
-function siteBadge({ color = '#94a3b8' } = {}) {
-  // セーフティゾーン内に収めるため中央下に配置（従来は右下コーナー）。
-  return {
-    type: 'div',
-    props: {
-      style: {
-        position: 'absolute',
-        bottom: '32px',
-        left: '0',
-        right: '0',
-        display: 'flex',
-        justifyContent: 'center',
-        fontSize: '22px',
-        color,
-        fontWeight: 700,
-        letterSpacing: '0.04em',
-        fontFamily: 'Inter, "Noto Sans JP", sans-serif',
-      },
-      children: SITE_NAME,
-    },
-  };
+// --- helpers ---
+
+function gridDataUrl(stepPx, color, strokeWidth) {
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' width='${stepPx}' height='${stepPx}'><path d='M ${stepPx} 0 L 0 0 0 ${stepPx}' fill='none' stroke='${color}' stroke-width='${strokeWidth}'/></svg>`;
+  return `data:image/svg+xml;base64,${Buffer.from(svg).toString('base64')}`;
 }
 
-function categoryLabel(text, { color = '#60a5fa' } = {}) {
-  if (!text) return null;
-  return {
-    type: 'div',
-    props: {
-      style: {
-        display: 'flex',
-        fontSize: '26px',
-        color,
-        fontWeight: 700,
-        letterSpacing: '0.08em',
-        marginBottom: '24px',
-      },
-      children: text,
-    },
-  };
-}
-
-/**
- * タイトルブロック。行配列を受け取り、1 行ずつ div で描画する。
- * フォントサイズは呼び出し側で `scripts/lib/ogp-text.mjs` の pickFontSize() で決定済みの前提。
- */
-function titleBlock(lines, { color = '#ffffff', fontSize = 64 } = {}) {
-  return {
-    type: 'div',
-    props: {
-      style: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        maxWidth: `${SAFETY_WIDTH}px`,
-        fontFamily: '"Noto Sans JP", Inter, sans-serif',
-      },
-      children: lines.map(line => ({
-        type: 'div',
-        props: {
-          style: {
-            display: 'flex',
-            fontSize: `${fontSize}px`,
-            fontWeight: 700,
-            color,
-            lineHeight: 1.3,
-            textAlign: 'center',
-          },
-          children: line,
-        },
-      })),
-    },
-  };
-}
-
-function baseContainer(children, { background }) {
-  return {
-    type: 'div',
-    props: {
-      style: {
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: '60px 80px',
-        position: 'relative',
-        background,
-        fontFamily: '"Noto Sans JP", Inter, sans-serif',
-      },
-      children,
-    },
-  };
-}
-
-function backgroundImageLayer(src) {
+function debugSafetyOverlay(width) {
+  const safeL = Math.round((width - SAFETY_ZONE_WIDTH) / 2);
   return {
     type: 'div',
     props: {
       style: {
         position: 'absolute',
         top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        backgroundImage: `url(${src})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      },
-      children: [],
-    },
-  };
-}
-
-function overlay(color) {
-  return {
-    type: 'div',
-    props: {
-      style: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        background: color,
-      },
-      children: [],
-    },
-  };
-}
-
-/**
- * デバッグ用の中央 630×630 セーフティゾーン赤枠。
- * --debug-safety フラグ時のみ overlay として追加される。
- */
-function debugSafetyOverlay() {
-  return {
-    type: 'div',
-    props: {
-      style: {
-        position: 'absolute',
-        top: 0,
-        left: '285px',
-        width: '630px',
-        height: '630px',
+        left: `${safeL}px`,
+        width: `${SAFETY_ZONE_WIDTH}px`,
+        height: `${SAFETY_ZONE_WIDTH}px`,
         display: 'flex',
         border: '3px solid #ff0000',
         boxSizing: 'border-box',
@@ -171,106 +58,163 @@ function debugSafetyOverlay() {
   };
 }
 
-// ---- テンプレート 1: navy-white ----
+// ---- テンプレート: mono-tag (T06) ----
 
-function renderNavyWhite({ lines, categoryLabel: cat, fontSize }) {
-  const children = [
-    {
-      type: 'div',
-      props: {
-        style: {
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '6px',
-          display: 'flex',
-          background: 'linear-gradient(90deg, #60a5fa 0%, #a78bfa 100%)',
-        },
+function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height }) {
+  const safeL = Math.round((width - SAFETY_ZONE_WIDTH) / 2);
+  const innerWidth = SAFETY_ZONE_WIDTH;
+
+  const fineGridUrl = gridDataUrl(30, 'rgba(15,30,63,0.04)', 1);
+  const majorGridUrl = gridDataUrl(120, 'rgba(15,30,63,0.09)', 1.25);
+
+  // 上下パディング: 110px top / 80px bottom（handoff 仕様 L455-456）
+  const contentTop = 110;
+  const contentBottom = 80;
+  const contentHeight = height - contentTop - contentBottom;
+
+  const wordmark = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        alignItems: 'baseline',
+        marginBottom: '28px',
+        fontFamily: 'Inter, "Noto Sans JP", sans-serif',
       },
-    },
-    categoryLabel(cat, { color: '#93c5fd' }),
-    titleBlock(lines, { color: '#ffffff', fontSize }),
-    siteBadge({ color: '#64748b' }),
-  ].filter(Boolean);
-  return baseContainer(children, {
-    background: 'linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%)',
-  });
-}
-
-// ---- テンプレート 2: dark-wood ----
-
-function renderDarkWood({ lines, categoryLabel: cat, fontSize, backgroundImage }) {
-  const children = [];
-  if (backgroundImage) {
-    children.push(backgroundImageLayer(backgroundImage));
-    children.push(overlay('rgba(20, 12, 6, 0.55)'));
-  }
-  children.push(
-    categoryLabel(cat, { color: '#fcd34d' }),
-    titleBlock(lines, { color: '#ffffff', fontSize }),
-    siteBadge({ color: '#d6bd9a' }),
-  );
-  return baseContainer(children.filter(Boolean), {
-    background: backgroundImage
-      ? 'transparent'
-      : 'linear-gradient(135deg, #3e2f1f 0%, #1c140b 100%)',
-  });
-}
-
-// ---- テンプレート 3: red-line ----
-
-function renderRedLine({ lines, categoryLabel: cat, fontSize }) {
-  const children = [
-    {
-      type: 'div',
-      props: {
-        style: {
-          position: 'absolute',
-          top: '50%',
-          left: 0,
-          right: 0,
-          height: '8px',
-          marginTop: '-4px',
-          display: 'flex',
-          background: '#dc2626',
+      children: [
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              fontSize: '22px',
+              fontWeight: 800,
+              letterSpacing: '-0.6px',
+              color: C_INK_NAVY,
+              marginRight: '16px',
+            },
+            children: [
+              { type: 'span', props: { style: { display: 'flex' }, children: 'doboku' } },
+              { type: 'span', props: { style: { display: 'flex', color: C_CYAN }, children: '-' } },
+              { type: 'span', props: { style: { display: 'flex' }, children: 'note' } },
+            ],
+          },
         },
-      },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              fontSize: '14px',
+              color: C_INK_MUTED,
+              letterSpacing: '1.5px',
+              fontFamily: '"Noto Sans JP", Inter, sans-serif',
+            },
+            children: SITE_TAGLINE,
+          },
+        },
+      ],
     },
-    categoryLabel(cat, { color: '#fca5a5' }),
-    titleBlock(lines, { color: '#ffffff', fontSize }),
-    siteBadge({ color: '#9ca3af' }),
-  ].filter(Boolean);
-  return baseContainer(children, { background: '#1f2937' });
-}
+  };
 
-// ---- テンプレート 4: blackboard ----
+  const categoryChip = cat
+    ? {
+        type: 'div',
+        props: {
+          style: {
+            display: 'flex',
+            alignItems: 'center',
+            alignSelf: 'flex-start',
+            padding: '6px 14px',
+            background: C_INK_NAVY,
+            color: '#ffffff',
+            fontFamily: '"Noto Sans JP", Inter, sans-serif',
+            fontSize: '17px',
+            fontWeight: 600,
+            letterSpacing: '0.5px',
+            marginBottom: '28px',
+          },
+          children: [
+            {
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  color: C_CYAN_ACCENT,
+                  fontSize: '14px',
+                  marginRight: '10px',
+                  fontFamily: 'Inter, "Noto Sans JP", sans-serif',
+                },
+                children: '▶',
+              },
+            },
+            {
+              type: 'div',
+              props: { style: { display: 'flex' }, children: cat },
+            },
+          ],
+        },
+      }
+    : null;
 
-function renderBlackboard({ lines, categoryLabel: cat, fontSize, backgroundImage }) {
-  const children = [];
-  if (backgroundImage) {
-    children.push(backgroundImageLayer(backgroundImage));
-    children.push(overlay('rgba(10, 25, 15, 0.40)'));
-  }
-  children.push(
-    categoryLabel(cat, { color: '#fde68a' }),
-    titleBlock(lines, { color: '#f8fafc', fontSize }),
-    siteBadge({ color: '#d1d5db' }),
-  );
-  return baseContainer(children.filter(Boolean), {
-    background: backgroundImage
-      ? 'transparent'
-      : 'linear-gradient(135deg, #1a2e1f 0%, #0a1811 100%)',
-  });
-}
+  const titleBlock = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        flexDirection: 'column',
+        flex: 1,
+        fontFamily: '"Noto Sans JP", Inter, sans-serif',
+      },
+      children: lines.map((line) => ({
+        type: 'div',
+        props: {
+          style: {
+            display: 'flex',
+            fontSize: `${fontSize}px`,
+            fontWeight: 800,
+            lineHeight: 1.35,
+            color: C_INK_DEEP,
+            letterSpacing: '-0.4px',
+          },
+          children: line,
+        },
+      })),
+    },
+  };
 
-// ---- テンプレート 5: dark-grid ----
+  const metaRow = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        borderTop: `1px solid ${C_INK_RULE}`,
+        paddingTop: '14px',
+        fontFamily: 'Inter, "Noto Sans JP", sans-serif',
+        fontSize: '12px',
+        color: C_INK_MUTED,
+        letterSpacing: '1.5px',
+        textTransform: 'uppercase',
+      },
+      children: [
+        {
+          type: 'div',
+          props: { style: { display: 'flex' }, children: `READ ON ${SITE_DOMAIN}` },
+        },
+        {
+          type: 'div',
+          props: { style: { display: 'flex' }, children: `${width} × ${height} · OG` },
+        },
+      ],
+    },
+  };
 
-function renderDarkGrid({ lines, categoryLabel: cat, fontSize }) {
-  const gridSvg = `<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60'><path d='M 60 0 L 0 0 0 60' fill='none' stroke='rgba(148,163,184,0.18)' stroke-width='1'/></svg>`;
-  const gridUrl = `data:image/svg+xml;base64,${Buffer.from(gridSvg).toString('base64')}`;
+  const innerStack = [wordmark, categoryChip, titleBlock, metaRow].filter(Boolean);
 
   const children = [
+    // 背景グリッド（major + fine 重ね）
     {
       type: 'div',
       props: {
@@ -281,43 +225,100 @@ function renderDarkGrid({ lines, categoryLabel: cat, fontSize }) {
           width: '100%',
           height: '100%',
           display: 'flex',
-          backgroundImage: `url(${gridUrl})`,
-          backgroundRepeat: 'repeat',
+          backgroundImage: `url(${majorGridUrl}), url(${fineGridUrl})`,
+          backgroundRepeat: 'repeat, repeat',
         },
         children: [],
       },
     },
-    categoryLabel(cat, { color: '#67e8f9' }),
-    titleBlock(lines, { color: '#ffffff', fontSize }),
-    siteBadge({ color: '#64748b' }),
-  ].filter(Boolean);
+    // 左上シアンバー（装飾、安全領域外 OK）
+    {
+      type: 'div',
+      props: {
+        style: {
+          position: 'absolute',
+          top: '80px',
+          left: 0,
+          width: '80px',
+          height: '4px',
+          display: 'flex',
+          background: C_CYAN,
+        },
+        children: [],
+      },
+    },
+    // 右下紺バー
+    {
+      type: 'div',
+      props: {
+        style: {
+          position: 'absolute',
+          bottom: '80px',
+          right: 0,
+          width: '80px',
+          height: '4px',
+          display: 'flex',
+          background: C_NAVY_ACCENT,
+        },
+        children: [],
+      },
+    },
+    // セーフティゾーン内主コンテンツ
+    {
+      type: 'div',
+      props: {
+        style: {
+          position: 'absolute',
+          left: `${safeL}px`,
+          top: `${contentTop}px`,
+          width: `${innerWidth}px`,
+          height: `${contentHeight}px`,
+          display: 'flex',
+          flexDirection: 'column',
+        },
+        children: innerStack,
+      },
+    },
+  ];
 
-  return baseContainer(children, { background: '#0f172a' });
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
+        display: 'flex',
+        position: 'relative',
+        background: C_BG,
+        fontFamily: '"Noto Sans JP", Inter, sans-serif',
+      },
+      children,
+    },
+  };
 }
 
 // ---- ディスパッチ ----
 
 const renderers = {
-  'navy-white': renderNavyWhite,
-  'dark-wood': renderDarkWood,
-  'red-line': renderRedLine,
-  blackboard: renderBlackboard,
-  'dark-grid': renderDarkGrid,
+  'mono-tag': renderMonoTag,
 };
 
 /**
  * テンプレート描画のエントリポイント。
- * @param {string} templateId
- * @param {object} props - { lines, categoryLabel, fontSize, backgroundImage?, debugSafety? }
+ * @param {string} templateId - テンプレ ID（現状 'mono-tag' のみ）
+ * @param {object} props - { lines, categoryLabel, fontSize }
+ * @param {object} [sizeOpts] - { width, height } 省略時は 1200×630
  */
-export function renderTemplate(templateId, props) {
+export function renderTemplate(templateId, props, sizeOpts = {}) {
   const fn = renderers[templateId];
   if (!fn) {
     throw new Error(`未知のテンプレ ID: ${templateId}`);
   }
-  const element = fn(props);
+  const width = sizeOpts.width || DEFAULT_WIDTH;
+  const height = sizeOpts.height || DEFAULT_HEIGHT;
+  const element = fn(props, { width, height });
   if (props.debugSafety) {
-    element.props.children = [...element.props.children, debugSafetyOverlay()];
+    element.props.children = [...element.props.children, debugSafetyOverlay(width)];
   }
   return element;
 }
@@ -326,4 +327,9 @@ export function availableTemplates() {
   return Object.keys(renderers);
 }
 
-export const LAYOUT_CONSTANTS = { WIDTH, HEIGHT, SAFETY_WIDTH };
+export const LAYOUT_CONSTANTS = {
+  WIDTH: DEFAULT_WIDTH,
+  HEIGHT: DEFAULT_HEIGHT,
+  SAFETY_WIDTH,
+  SAFETY_ZONE_WIDTH,
+};

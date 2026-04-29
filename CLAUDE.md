@@ -10,6 +10,8 @@
 |---|---|---|
 | [.claude/reference/content-authoring.md](.claude/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
 | [.claude/reference/image-policy.md](.claude/reference/image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
+| [.claude/reference/note-svg-policy.md](.claude/reference/note-svg-policy.md) | note 記事用 図解 SVG/PNG ポリシー（キャンバス・最小フォント・余白・密度上限・失敗パターン） | `docs/note-drafts/**/img/figure-*` を作成・修正するとき |
+| [.claude/reference/sns-image-policy.md](.claude/reference/sns-image-policy.md) | SNS 投稿画像ポリシー（IG/X/Shorts のキャンバス・スワイプ方向・記号統一・wrap 算法・長文選択肢自動切替） | `docs/sns-drafts/**/{instagram-carousel,x,youtube-shorts}/img/` を作成・修正するとき |
 | [.claude/reference/exam-content-policy.md](.claude/reference/exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
 | [.claude/reference/skills-registry.md](.claude/reference/skills-registry.md) | 全スキル一覧（management / dev / content / ui / marketing / analytics / strategy / ads）＋Phase 別運用メモ | 利用可能なスキル探索・新スキル重複チェック |
 | [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) | エージェント詳細表＋チーム連携パターン＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認 |
@@ -80,16 +82,16 @@ src/                                # カスタムコンポーネント・CSS・
 docs/project/                       # プロジェクト管理ドキュメント
 docs/textbook/                      # 教材PDF・変換済みMarkdown（試験種別ごと）
 .claude/reference/                  # 作業マニュアル（詳細・一覧・手順）
-.claude/skills/                     # スキル定義（42 スキル、8 カテゴリ）
+.claude/skills/                     # スキル定義（44 スキル、8 カテゴリ）
   authoring/                        #   記事を作る（6）
   conversion/                       #   外部形式から MDX への変換（3）
-  quality/                          #   MDX 品質検査・改善サイクル（7）
+  quality/                          #   MDX・note 公開前品質検査（8）
   management/                       #   計画・分析・戦略（11）
   dev/                              #   開発・CI/CD（11）
   analytics/                        #   サイト分析（2）
-  social/                           #   SNS 投稿（1）
+  social/                           #   SNS 投稿（2）
   ui/                               #   UI/UX デザイン（1）
-.claude/agents/                     # サブエージェント定義（11）
+.claude/agents/                     # サブエージェント定義（14）
 .github/workflows/                  # CI/CD
 ```
 
@@ -416,6 +418,9 @@ Andrej Karpathy が指摘した LLM コーディングの典型的失敗（勝�
 | keyword-rewriter | sonnet | Generator |
 | civil-textbook-rewriter | sonnet | Generator |
 | metrics-analyzer | sonnet | Evaluator |
+| note-link-injector | sonnet | Generator |
+| note-figure-auditor | sonnet | Evaluator |
+| note-fact-checker | sonnet | Evaluator |
 | performance-auditor | sonnet | Evaluator |
 | seo-auditor | sonnet | Evaluator |
 | strategy-advisor | inherit | Orchestrator |

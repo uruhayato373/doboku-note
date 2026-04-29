@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-04-28T07:20:06.195Z",
+  "generated_at": "2026-04-29T01:39:42.843Z",
   "summary": {
     "total_mdx_files": 785,
     "total_unique_tags": 56,
-    "allowlist_size": 82,
-    "known_count": 37,
-    "unknown_count": 19,
+    "allowlist_size": 84,
+    "known_count": 38,
+    "unknown_count": 18,
     "typo_candidates_count": 1
   },
   "tags": [
@@ -1190,9 +1190,9 @@
       ]
     },
     {
-      "name": "技士（総合技術監理部門）",
+      "name": "技術士（総合技術監理部門）",
       "count": 17,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
         "pe-comprehensive-management-essay-exam-strategy",
@@ -1720,7 +1720,6 @@
     }
   ],
   "unknown": [
-    "技士（総合技術監理部門）",
     "exam-questions",
     "law",
     "machinery",

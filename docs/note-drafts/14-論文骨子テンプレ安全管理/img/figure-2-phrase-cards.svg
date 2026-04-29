@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860">
+    <rect width="1200" height="860" fill="#ffffff"/>
+
+    <text x="60" y="56" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222">セクション別 定型フレーズ配置例</text>
+    <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">○○に自分の業務事例を入れれば骨子が 30 分で完成する</text>
+
+    
+      <!-- Section 1 -->
+      <rect x="60" y="160" width="1080" height="280" rx="8"
+            fill="#fce8eb" stroke="#b22234" stroke-width="2"/>
+
+      <!-- ラベル -->
+      <rect x="60" y="160" width="1080" height="44" rx="8" fill="#b22234"/>
+      <rect x="60" y="196" width="1080" height="8" fill="#b22234"/>
+      <text x="80" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="20" font-weight="800" fill="#ffffff">課題抽出フェーズ（2〜3 枚目）</text>
+
+      <!-- フレーズリスト -->
+      
+        <text x="88" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・安全管理上の課題は、○○に起因する○○リスクの顕在化である（低頻度・高影響）</text>
+      
+        <text x="88" y="282" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・経済性管理の観点では、対策費用が○○億円規模に達し、単年度予算では対応不能</text>
+      
+        <text x="88" y="318" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・本リスクは発生確率○○/年・被害想定○○億円 → 期待損失（PML）は年○○百万円</text>
+      
+        <text x="88" y="354" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・許容リスク水準を 10⁻⁴/年と設定すると、現状は許容域を 1 桁超過している</text>
+      
+        <text x="88" y="390" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・これらの課題は、特に 経済性×安全・人的資源×安全 の 2 軸で顕著なトレードオフを構成する</text>
+      
+    
+      <!-- Section 2 -->
+      <rect x="60" y="424" width="1080" height="244" rx="8"
+            fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+
+      <!-- ラベル -->
+      <rect x="60" y="424" width="1080" height="44" rx="8" fill="#2e6da4"/>
+      <rect x="60" y="460" width="1080" height="8" fill="#2e6da4"/>
+      <text x="80" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="20" font-weight="800" fill="#ffffff">解決策提案フェーズ（4 枚目）</text>
+
+      <!-- フレーズリスト -->
+      
+        <text x="88" y="510" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・経済性×安全 → ALARP 原則を適用。限界費用を指標に段階的投資を行う</text>
+      
+        <text x="88" y="546" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・安全×社会環境 → ミティゲーション階層。回避→低減→代替→補償の順で対策を積み上げる</text>
+      
+        <text x="88" y="582" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・人的資源×安全 → HFACS で 4 層分析（不安全行為・前提条件・監督・組織）を実施</text>
+      
+        <text x="88" y="618" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・安全ゼロは物理的に達成不能 — 残余リスクの継続監視体制を併せて設計する</text>
+      
+    
+      <!-- Section 3 -->
+      <rect x="60" y="688" width="1080" height="280" rx="8"
+            fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+
+      <!-- ラベル -->
+      <rect x="60" y="688" width="1080" height="44" rx="8" fill="#3a7d44"/>
+      <rect x="60" y="724" width="1080" height="8" fill="#3a7d44"/>
+      <text x="80" y="718" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="20" font-weight="800" fill="#ffffff">波及効果フェーズ（5 枚目）</text>
+
+      <!-- フレーズリスト -->
+      
+        <text x="88" y="774" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・短期（1 年以内）: ○○の緊急対策を実施</text>
+      
+        <text x="88" y="810" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・中期（3 年）: ○○の体系的整備・PDCA を年次で回す</text>
+      
+        <text x="88" y="846" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・長期（5〜10 年）: ○○の抜本更新 → KPI として○○指標・○○指標の 2 軸で測定</text>
+      
+        <text x="88" y="882" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・閾値超過時の意思決定権者と対応手順を文書化し、残余リスクをモニタリング体制で管理</text>
+      
+        <text x="88" y="918" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+              font-size="16" fill="#222222">・総合技術監理の観点はこの継続的調整プロセスそのものに宿る</text>
+      
+    
+
+    <text x="1140" y="840" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

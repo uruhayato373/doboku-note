@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" fill="#ffffff" />
+  
+
+  <!-- Top decoration: light fill banner -->
+  <rect x="14" y="60" width="1066" height="200" fill="#fdecea" />
+
+  <!-- header text -->
+  <text x="540" y="180" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="48" font-weight="700" fill="#222222" text-anchor="middle">総監択一クイズ</text>
+
+  <!-- Big mgmt title chip -->
+  <rect x="180" y="380" width="720" height="180" rx="20" fill="#b22234" />
+  <text x="540" y="470" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="92" font-weight="800" fill="#ffffff" text-anchor="middle" dominant-baseline="central">安全管理</text>
+
+  <!-- 4 問パック -->
+  <text x="540" y="660" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="64" font-weight="700" fill="#222222" text-anchor="middle">4 問パック</text>
+
+  <!-- save tagline -->
+  <text x="540" y="800" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="44" fill="#555555" text-anchor="middle">保存して何度も解こう</text>
+  <text x="540" y="860" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" fill="#8a8a8a" text-anchor="middle">スワイプで Q1 → A1 → Q2 → ...</text>
+
+  <!-- 5 mgmt chips -->
+  <text x="540" y="980" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#8a8a8a" text-anchor="middle">5 管理シリーズ 4/5</text>
+  
+      <g>
+        <rect x="58" y="1000" width="180" height="90" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+        <text x="148" y="1045" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#8a8a8a" text-anchor="middle" dominant-baseline="central">経済性</text>
+      </g>
+    
+      <g>
+        <rect x="254" y="1000" width="180" height="90" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+        <text x="344" y="1045" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#8a8a8a" text-anchor="middle" dominant-baseline="central">人的資源</text>
+      </g>
+    
+      <g>
+        <rect x="450" y="1000" width="180" height="90" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+        <text x="540" y="1045" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#8a8a8a" text-anchor="middle" dominant-baseline="central">情報</text>
+      </g>
+    
+      <g>
+        <rect x="646" y="1000" width="180" height="90" rx="14" fill="#b22234"  />
+        <text x="736" y="1045" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">安全</text>
+      </g>
+    
+      <g>
+        <rect x="842" y="1000" width="180" height="90" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+        <text x="932" y="1045" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#8a8a8a" text-anchor="middle" dominant-baseline="central">社会環境</text>
+      </g>
+    
+
+  <!-- footer -->
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

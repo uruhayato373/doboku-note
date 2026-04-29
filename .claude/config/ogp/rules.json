@@ -1,45 +1,6 @@
 {
-  "version": 1,
-  "description": "OGP テンプレートの自動選定ルール。rules は上から評価し、最初に match したものを採用する。全て外れた場合は default。カテゴリ名が変わったらここだけ更新すれば追従できる。",
-  "default": "navy-white",
-  "rules": [
-    {
-      "_comment": "1級土木の過去問: 分析・データ系",
-      "match": {
-        "category": "civil-construction-1",
-        "tags_any": ["past-questions", "primary", "secondary"]
-      },
-      "template": "dark-grid"
-    },
-    {
-      "_comment": "1級土木の教科書・ガイド: 信頼性系（ダークウッド）",
-      "match": {
-        "category": "civil-construction-1",
-        "tags_any": ["guide", "textbook"]
-      },
-      "template": "dark-wood"
-    },
-    {
-      "_comment": "技術士総監の過去問: 体系・構造系",
-      "match": {
-        "category": "pe-comprehensive-management",
-        "tags_any": ["past-exam", "past-questions"]
-      },
-      "template": "red-line"
-    },
-    {
-      "_comment": "試験を問わず guide タグが付いているもの: 黒板（教育系）",
-      "match": {
-        "tags_any": ["guide"]
-      },
-      "template": "blackboard"
-    },
-    {
-      "_comment": "技術士総監のキーワード・その他: 汎用（ネイビー）",
-      "match": {
-        "category": "pe-comprehensive-management"
-      },
-      "template": "navy-white"
-    }
-  ]
+  "version": 2,
+  "description": "OGP テンプレートの自動選定ルール。T06 Mono Tag 統一以降は default のみ。カテゴリ別出し分けが必要になったら rules 配列に上から順に評価するルールを追加する。",
+  "default": "mono-tag",
+  "rules": []
 }

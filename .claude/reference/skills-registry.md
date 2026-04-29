@@ -14,15 +14,15 @@
 .claude/skills/
 ├── authoring/       # 6 — 記事を作る
 ├── conversion/      # 3 — 外部形式から MDX への変換
-├── quality/         # 7 — MDX 品質検査・改善サイクル
+├── quality/         # 8 — MDX・note 公開前品質検査
 ├── management/      # 11 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 1 — SNS 投稿
+├── social/          # 2 — SNS 投稿
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **42 スキル**（Phase A 開始時の 66 から −36%）。
+合計 **43 スキル**（Phase A 開始時の 66 から −35%）。
 
 ---
 
@@ -97,12 +97,14 @@
 | `/verify-exam-coverage` | キーワードページが過去問論点を十分カバーしているか検証 | `.claude/skills/quality/verify-exam-coverage/SKILL.md` |
 | `/review-mobile` | モバイル視認性・可読性レビュー | `.claude/skills/quality/review-mobile/SKILL.md` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `.claude/skills/quality/consolidate-duplicate-keyword/SKILL.md` |
+| `/note-prepublish-review` | note 公開前の統合品質ゲート（inline checks + 3 並列 agent: link-injector / figure-auditor / fact-checker） | `.claude/skills/quality/note-prepublish-review/SKILL.md` |
 
 ## social — SNS 投稿
 
 | スキル | 用途 | 定義 |
 |---|---|---|
 | `/social-post --platform {note\|x}` | note / X 投稿テキスト生成の統合スキル | `.claude/skills/social/social-post/SKILL.md` |
+| `/note-hashtags {NN-...}` | note 公開用ドラフトのハッシュタグ 99 個を生成し `hashtags.txt` に保存 | `.claude/skills/social/note-hashtags/SKILL.md` |
 
 ## ui — UI/UX
 

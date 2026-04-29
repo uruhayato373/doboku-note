@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect x="0" y="0" width="1200" height="675" fill="#ffffff" />
+
+  <!-- top label (管理色を維持して質問画像との視覚連続性を確保) -->
+  
+    <rect x="60" y="30" width="360" height="56" rx="28" fill="#d4a017" />
+    <text x="240" y="58" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">A18 社会環境管理</text>
+  
+  <text x="1160" y="64" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+
+  <!-- topic -->
+  <text x="60" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#555555">廃棄物処理の優先順位</text>
+  <line x1="60" y1="160" x2="1140" y2="160" stroke="#d4a017" stroke-width="2" />
+
+  <!-- ✓ 正答 small headline (answer block により近づける) -->
+  <text x="60" y="230" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="800" fill="#3a7d44">✓ 正答</text>
+
+  <!-- answer block: bg + ① ② ③ ④ + answerShort
+       縦中心: blockCenterY = blockY + blockH/2 で計算（ハードコード禁止） -->
+  <rect x="40" y="270" width="1120" height="160" rx="16" fill="#e6f4ea" />
+  <text x="160" y="350" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="120" font-weight="900" fill="#3a7d44" text-anchor="middle" dominant-baseline="central">②</text>
+  <text x="260" y="350" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="48" font-weight="700" fill="#222222" dominant-baseline="central">リデュースが最優先</text>
+
+  <!-- 解説 label -->
+  <text x="60" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="700" fill="#555555">解説</text>
+
+  <!-- explanation -->
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#555555">
+    <tspan x="60" y="510">リデュース（発生抑制）が最優先！順序: リデュース → リユース → </tspan><tspan x="60" y="552">リサイクル → 熱回収 → 適正処分。3R の順序を入れ替えた引っかけに注意。</tspan>
+  </text>
+</svg>

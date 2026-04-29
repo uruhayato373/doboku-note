@@ -23,6 +23,9 @@
 | `content-planner` | コンテンツ企画（Phase 2 で復活） | Generator | sonnet | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2 で復活 |
 | `keyword-rewriter` | CEM キーワードページのバルクリライト | Generator | sonnet | quality-cycle 連携 | ✅ 運用中 |
 | `civil-textbook-rewriter` | 1級土木 textbook/guide ページのバルクリライト | Generator | sonnet | civil-textbook-cycle 連携 | ✅ 運用中 |
+| `note-link-injector` | note ドラフトに doboku-note キーワードページへのインラインリンクを全 occurrence 注入（synonym 判断を含む semantic マッチ） | Generator | sonnet | note-prepublish-review 連携、辞書 `src/config/pe-chapters.json` 参照 | ✅ 運用中（2026-04-29 起動） |
+| `note-figure-auditor` | note ドラフトの図版を `note-svg-policy.md` 準拠で 4 軸監査（キャンバス・フォント・ブランド・密度） | Evaluator | sonnet | note-prepublish-review 連携 | ✅ 運用中（2026-04-29 起動） |
+| `note-fact-checker` | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）でファクトチェック | Evaluator | sonnet | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照 | ✅ 運用中（2026-04-29 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
