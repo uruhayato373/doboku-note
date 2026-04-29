@@ -82,14 +82,14 @@ src/                                # カスタムコンポーネント・CSS・
 docs/project/                       # プロジェクト管理ドキュメント
 docs/textbook/                      # 教材PDF・変換済みMarkdown（試験種別ごと）
 .claude/reference/                  # 作業マニュアル（詳細・一覧・手順）
-.claude/skills/                     # スキル定義（43 スキル、8 カテゴリ）
+.claude/skills/                     # スキル定義（44 スキル、8 カテゴリ）
   authoring/                        #   記事を作る（6）
   conversion/                       #   外部形式から MDX への変換（3）
   quality/                          #   MDX・note 公開前品質検査（8）
   management/                       #   計画・分析・戦略（11）
   dev/                              #   開発・CI/CD（11）
   analytics/                        #   サイト分析（2）
-  social/                           #   SNS 投稿（1）
+  social/                           #   SNS 投稿（2）
   ui/                               #   UI/UX デザイン（1）
 .claude/agents/                     # サブエージェント定義（14）
 .github/workflows/                  # CI/CD

@@ -35,7 +35,8 @@ user-invocable: true
   │   ├ markdown 互換性: pipe 表 0 / blockquote 0 / U+FFFD 0
   │   ├ frontmatter（あれば）: 必須項目
   │   ├ リンク 404 防止: 各 slug が `.local/r2/posts/.../{slug}/article.mdx` で `published: true`
-  │   └ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
+  │   ├ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
+  │   └ ハッシュタグ: hashtags.txt 存在 / 99 行以下 / 純粋ハッシュタグ / 重複なし（未生成は warn）
   │
   ├─ Phase 2: 3 エージェント並列実行
   │   ├ note-link-injector（Generator, Sonnet）— 全 occurrence リンク化（--audit-only 指定時はスキップ）
@@ -82,6 +83,24 @@ done
 # 5. 文字数（参考）
 chars=$(wc -m < "$F")
 echo "文字数: $chars"
+
+# 6. ハッシュタグ（hashtags.txt）
+H="$ART_DIR/hashtags.txt"
+if [ ! -f "$H" ]; then
+  echo "HASHTAGS WARN: hashtags.txt 未生成 → /note-hashtags {NN-...} で生成"
+else
+  total=$(wc -l < "$H" | tr -d ' ')
+  hashlines=$(grep -cE '^#' "$H")
+  blanks=$(grep -c '^$' "$H")
+  comments=$(grep -cE '^#[[:space:]]' "$H")
+  dups=$(sort "$H" | uniq -d | wc -l | tr -d ' ')
+  echo "HASHTAGS: 行数=$total / # 開始=$hashlines / 空行=$blanks / コメント=$comments / 重複=$dups"
+  if [ "$hashlines" -gt 99 ]; then echo "HASHTAGS WARN: 99 個超え（$hashlines 個）"; fi
+  if [ "$blanks" -gt 0 ] || [ "$comments" -gt 0 ]; then
+    echo "HASHTAGS WARN: 純粋ハッシュタグになっていない（空行/コメント混入）→ コピペで失敗する可能性"
+  fi
+  if [ "$dups" -gt 0 ]; then echo "HASHTAGS WARN: 重複 $dups 件"; fi
+fi
 ```
 
 **注意**: `cd` を使うと `.local/r2/` への相対パスが壊れるので、必ず `$ROOT` を絶対パスで保持する。
