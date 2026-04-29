@@ -21,7 +21,7 @@
 - **自然災害・気候変動適応** --- 想定外力の引き上げとハード／ソフト対策の組み合わせ。代表例は [令和 2 年度 記述式](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary) の自然災害対策
 - **品質・施工事故の再発防止** --- ヒューマンエラー・組織文化・技術伝承が絡む根本原因分析。近年は [令和 5 年度](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary) の働き方改革と接続した形で問われる
 
-設問冒頭で「安全」「防災」「事故」「老朽化」「災害」のキーワードが前文に 3 回以上登場したら、本テンプレの適用対象と判断してください。
+設問冒頭で「安全」「防災」「事故」「老朽化」「災害」のキーワードが前文に 3 回以上登場したら、本テンプレの適用対象と判断してください。安全管理の 5 管理内での位置づけやキーワード体系は doboku-note の解説ページで確認できます → [安全管理ピラー（リスクマネジメント・労働安全・危機管理）](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar)
 
 本記事では、**5 枚構成の骨子テンプレート → 各枚で使える定型フレーズ集 → トレードオフ展開の標準パターン → 令和 2 年度を題材にした当てはめ例** までを順に提示します。骨子と定型フレーズを写経すれば、初学者でも 30 分で 1 題の論文骨子が完成するレベルまで持っていけます。
 
@@ -32,6 +32,8 @@
 ## 2. 5 枚構成の骨子テンプレート
 
 600 字×5 枚の配分は **分析 2 枚・評価 1 枚・解決 2 枚** を原則とします。書き始める前に 5 枚分の見出しを余白に書き出し、書きながら他の枚に戻らないことが時間管理の肝となります。
+
+![5 枚構成の章立て図（三層構造：Ⅰ 課題 / Ⅱ 解決策 / Ⅲ 波及効果）](img/figure-1-five-sheets-structure.png)
 
 ### 2.1 1 枚目：テーマ特定と前提条件の整理（〜600 字）
 
@@ -97,6 +99,10 @@
 
 安全管理を軸にした論文では、以下の 3 ペアのいずれかが必ず登場します。各ペアの解決フレームは [5 管理間トレードオフ 頻出パターン](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs) に詳述しているため、本テンプレでは **論文上の展開順序** のみ示します。
 
+下図は「課題抽出・解決策提案・波及効果」の 3 フェーズごとに、枚で使える定型フレーズをまとめたものです。○○の部分を自分の業務事例に差し替えれば骨子が 30 分で完成します。
+
+![セクション別 定型フレーズ配置例（課題抽出 / 解決策提案 / 波及効果）](img/figure-2-phrase-cards.png)
+
 - **経済性×安全** --- 定量評価（3 枚目）→ ALARP 原則（4 枚目）→ 段階投資計画（5 枚目）の順に展開。B/C 分析と期待損失の両輪で根拠を示すのが定石
 - **人的資源×安全** --- 事故事例の人的要因分析（2〜3 枚目）→ HFACS による組織層への遡及（4 枚目）→ 勤務間インターバル・VR 訓練・多言語対応（5 枚目）の順に展開
 - **安全×社会環境** --- 防災と環境保全の価値対立の明示（2 枚目）→ ミティゲーション階層（4 枚目）→ 代替案 2〜3 案の住民合意プロセス（5 枚目）の順に展開
@@ -128,6 +134,7 @@
 
 - [記述式試験の解答戦略（三層構造と時間配分）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)
+- [安全管理ピラー（リスクマネジメント・労働安全・危機管理）](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar)
 - [ALARP 原則](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle)
 - [リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment)
 - [インフラ老朽化](https://doboku-note.com/docs/pe-comprehensive-management-aging-infrastructure)
