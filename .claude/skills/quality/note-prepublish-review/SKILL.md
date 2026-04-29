@@ -170,13 +170,59 @@ fi
 2. ...
 ```
 
+## 公開後の管理
+
+note 公開直後に以下の手順で「公開済み記事」として記録する。
+
+### 1. UTM パラメータ付与（公開直前 or 直後に実行）
+
+```bash
+node scripts/add-note-utm.mjs 90        # 90- 始まりのドラフトに UTM 付与
+node scripts/add-note-utm.mjs 90 --dry-run  # 変更内容のプレビュー
+```
+
+`docs/note-drafts/{NN}/article.md` 内の `https://doboku-note.com/...` 全リンクに以下を付与:
+- `utm_source=note`
+- `utm_medium=referral`
+- `utm_campaign={frontmatter.utmCampaign}`
+
+note → doboku-note の流入が GA4 で「Referral / note」として計測可能になる。
+
+### 2. frontmatter に公開メタデータを記録
+
+```yaml
+---
+notePublishedAt: 2026-04-29
+noteUrl: https://note.com/dobokunote/n/n3bcb87efddad
+noteId: n3bcb87efddad
+notePricing: free                # free | paid
+noteSeries: 総監択一式分析         # 任意
+utmCampaign: 90-soukan-analysis   # add-note-utm.mjs が消費
+---
+```
+
+### 3. 公開済みインデックスを再生成
+
+```bash
+node .claude/scripts/build-note-published-index.mjs
+```
+
+`.claude/state/note-published.json` に集計が出力される。`pricing: paid` を含む将来の有料記事や series まとめページの参照源として利用。
+
+### 4. doboku-note サイト側に動線追加（任意・記事性質に応じて）
+
+特に効果が大きい場合は、関連するハブページ（exam-index / category 概要など）に `<Callout type="reference">` で note 記事へのリンクを追加する。
+
 ## 既存スキル・エージェントとの関係
 
 | 関連 | 役割 |
 |---|---|
 | `/social-post note analysis|guide|keywords` | note ドラフトの **生成** |
 | `/social-post note desumasu` | 既存ドラフトの **トーン変換** |
+| `/note-hashtags` | 公開前のハッシュタグ生成 |
 | **`/note-prepublish-review`（本スキル）** | 公開前の **統合品質ゲート** |
+| `scripts/add-note-utm.mjs` | 公開直前の UTM 一括付与 |
+| `.claude/scripts/build-note-published-index.mjs` | 公開済み記事インデックス生成 |
 | `note-link-injector` agent | リンク注入の Generator |
 | `note-figure-auditor` agent | 図版品質の Evaluator |
 | `note-fact-checker` agent | 事実性の Evaluator |
