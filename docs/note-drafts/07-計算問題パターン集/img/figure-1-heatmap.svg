@@ -1,0 +1,495 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760">
+    <rect width="1280" height="760" fill="#ffffff"/>
+    <rect x="0" y="0" width="14" height="760" fill="#2e6da4"/><!-- brand -->
+
+    <text x="60" y="58" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">計算問題 5パターン — 記事確認済み出題年度</text>
+    <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#555555">● = 記事本文で実際の問題を引用した年度（H21〜R07）</text>
+
+    <!-- 注記 -->
+    <rect x="60" y="112" width="1160" height="40" rx="6" fill="#fef9e7"/>
+    <text x="80" y="137" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="600" fill="#d4a017">● 以外の年度も実際には出題されている可能性があります（本記事での確認済み年度のみ表示）</text>
+
+    <text x="288" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H21</text><text x="344" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H22</text><text x="400" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H23</text><text x="456" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H24</text><text x="512" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H25</text><text x="568" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H26</text><text x="624" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H27</text><text x="680" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H28</text><text x="736" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H29</text><text x="792" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">H30</text><text x="848" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">R01</text><text x="904" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">R02</text><text x="960" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">R03</text><text x="1016" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">R04</text><text x="1072" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">R05</text><text x="1128" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">R06</text><text x="1184" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15"
+                  font-weight="600" fill="#555555" text-anchor="middle">R07</text>
+    
+      <text x="244" y="227" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">パターン1</text>
+    
+      <text x="244" y="249" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">NPV/現在価値</text>
+    
+      <text x="244" y="303" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">パターン2</text>
+    
+      <text x="244" y="325" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">PERT</text>
+    
+      <text x="244" y="379" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">パターン3</text>
+    
+      <text x="244" y="401" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">損益分岐点</text>
+    
+      <text x="244" y="455" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">パターン4</text>
+    
+      <text x="244" y="477" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">工程能力指数</text>
+    
+      <text x="244" y="531" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">パターン5</text>
+    
+      <text x="244" y="553" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="18" font-weight="600" fill="#1a3a5c" text-anchor="end">負荷工数</text>
+    
+    
+      <rect x="262" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="288" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="318" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="344" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="374" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="400" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="430" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="456" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="486" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="512" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="542" y="204" width="52" height="68" rx="6"
+            fill="#2e6da4" stroke="#2e6da4" stroke-width="1.2"/>
+      <text x="568" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">●</text>
+    
+      <rect x="598" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="624" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="654" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="680" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="710" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="736" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="766" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="792" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="822" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="848" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="878" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="904" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="934" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="960" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="990" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1016" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1046" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1072" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1102" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1128" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1158" y="204" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1184" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="262" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="288" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="318" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="344" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="374" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="400" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="430" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="456" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="486" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="512" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="542" y="280" width="52" height="68" rx="6"
+            fill="#2e6da4" stroke="#2e6da4" stroke-width="1.2"/>
+      <text x="568" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">●</text>
+    
+      <rect x="598" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="624" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="654" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="680" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="710" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="736" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="766" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="792" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="822" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="848" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="878" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="904" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="934" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="960" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="990" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1016" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1046" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1072" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1102" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1128" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1158" y="280" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1184" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="262" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="288" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="318" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="344" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="374" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="400" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="430" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="456" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="486" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="512" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="542" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="568" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="598" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="624" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="654" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="680" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="710" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="736" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="766" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="792" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="822" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="848" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="878" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="904" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="934" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="960" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="990" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1016" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1046" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1072" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1102" y="356" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1128" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1158" y="356" width="52" height="68" rx="6"
+            fill="#2e6da4" stroke="#2e6da4" stroke-width="1.2"/>
+      <text x="1184" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">●</text>
+    
+      <rect x="262" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="288" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="318" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="344" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="374" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="400" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="430" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="456" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="486" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="512" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="542" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="568" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="598" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="624" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="654" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="680" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="710" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="736" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="766" y="432" width="52" height="68" rx="6"
+            fill="#2e6da4" stroke="#2e6da4" stroke-width="1.2"/>
+      <text x="792" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">●</text>
+    
+      <rect x="822" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="848" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="878" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="904" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="934" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="960" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="990" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1016" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1046" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1072" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1102" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1128" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1158" y="432" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1184" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="262" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="288" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="318" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="344" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="374" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="400" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="430" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="456" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="486" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="512" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="542" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="568" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="598" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="624" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="654" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="680" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="710" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="736" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="766" y="508" width="52" height="68" rx="6"
+            fill="#2e6da4" stroke="#2e6da4" stroke-width="1.2"/>
+      <text x="792" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">●</text>
+    
+      <rect x="822" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="848" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="878" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="904" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="934" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="960" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="990" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1016" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1046" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1072" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1102" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1128" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+      <rect x="1158" y="508" width="52" height="68" rx="6"
+            fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+      <text x="1184" y="550" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif"
+            font-size="22" font-weight="700" fill="#cccccc" text-anchor="middle"></text>
+    
+
+    <!-- 凡例 -->
+    <rect x="60" y="690" width="24" height="24" rx="4" fill="#2e6da4"/>
+    <text x="92" y="708" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#555555">記事で確認済み</text>
+    <rect x="240" y="690" width="24" height="24" rx="4" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.2"/>
+    <text x="272" y="708" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a">未確認（他年度も出題の可能性あり）</text>
+
+    <text x="1220" y="744" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

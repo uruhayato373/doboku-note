@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+    <rect width="1200" height="720" fill="#ffffff"/>
+    <rect x="0" y="0" width="14" height="720" fill="#2e6da4"/><!-- brand -->
+
+    <text x="60" y="56" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">計算問題 5パターン — 難易度と所要時間の目安</text>
+    <text x="60" y="86" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#555555">得点効率の高いパターンから優先的に練習する</text>
+
+    <!-- プロットエリア枠 -->
+    
+    <rect x="180" y="390" width="400" height="210"
+          rx="0" fill="#e6f4ea" opacity="0.4"/>
+    <rect x="580" y="180" width="400" height="210"
+          rx="0" fill="#fdecea" opacity="0.4"/>
+  
+    <rect x="180" y="180" width="800" height="420"
+          fill="none" stroke="#e5e7eb" stroke-width="2"/>
+
+    <!-- 中央グリッド線 -->
+    <line x1="580" y1="180" x2="580" y2="600"
+          stroke="#e5e7eb" stroke-width="1" stroke-dasharray="6,4"/>
+    <line x1="180" y1="390" x2="980" y2="390"
+          stroke="#e5e7eb" stroke-width="1" stroke-dasharray="6,4"/>
+
+    <!-- 軸ラベル -->
+    <!-- X軸（難易度） -->
+    <text x="180" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700"
+          fill="#3a7d44" text-anchor="middle">易</text>
+    <text x="980" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700"
+          fill="#b22234" text-anchor="middle">難</text>
+    <text x="580" y="656" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="600"
+          fill="#555555" text-anchor="middle">→ 難易度（公式の複雑さ・条件読み取りの負荷）</text>
+
+    <!-- Y軸（所要時間） -->
+    <text x="148" y="600" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700"
+          fill="#3a7d44" text-anchor="middle">短</text>
+    <text x="148" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700"
+          fill="#b22234" text-anchor="middle">長</text>
+    <text x="100" y="390" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="600"
+          fill="#555555" text-anchor="middle" transform="rotate(-90, 100, 390)">↑ 所要時間</text>
+
+    <!-- ゾーンキャプション -->
+    <text x="196" y="588" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700"
+          fill="#3a7d44" opacity="0.8">優先演習ゾーン</text>
+    <text x="964" y="204" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700"
+          fill="#b22234" text-anchor="end" opacity="0.8">時間がかかるゾーン</text>
+
+    <!-- データポイント -->
+    
+      <circle cx="380" cy="495" r="32" fill="#e6f4ea" stroke="#3a7d44" stroke-width="3"/>
+      
+        <text x="396" y="539" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#3a7d44" text-anchor="start">パターン3</text>
+      
+        <text x="396" y="561" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#3a7d44" text-anchor="start">損益分岐点(BEP)</text>
+      
+    
+      <circle cx="300" cy="549.6" r="32" fill="#e6f4ea" stroke="#3a7d44" stroke-width="3"/>
+      
+        <text x="316" y="593.6" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#3a7d44" text-anchor="start">パターン4</text>
+      
+        <text x="316" y="615.6" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#3a7d44" text-anchor="start">工程能力指数(Cp)</text>
+      
+    
+      <circle cx="620" cy="390" r="32" fill="#fef9e7" stroke="#d4a017" stroke-width="3"/>
+      
+        <text x="604" y="434" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#d4a017" text-anchor="end">パターン2</text>
+      
+        <text x="604" y="456" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#d4a017" text-anchor="end">PERT</text>
+      
+    
+      <circle cx="580" cy="348" r="32" fill="#fef9e7" stroke="#d4a017" stroke-width="3"/>
+      
+        <text x="596" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#d4a017" text-anchor="start">パターン5</text>
+      
+        <text x="596" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#d4a017" text-anchor="start">負荷工数</text>
+      
+    
+      <circle cx="740" cy="327" r="32" fill="#fdecea" stroke="#b22234" stroke-width="3"/>
+      
+        <text x="724" y="299" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#b22234" text-anchor="end">パターン1</text>
+      
+        <text x="724" y="321" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17"
+              font-weight="700" fill="#b22234" text-anchor="end">NPV・現在価値</text>
+      
+    
+
+    <text x="1140" y="704" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>
