@@ -41,12 +41,9 @@ function xml(s) {
     .replace(/"/g, '&quot;');
 }
 
-/** 共通の左端 brand アクセント + 右下 doboku-note.com ブランディング */
+/** 右下 doboku-note.com ブランディングのみ（左端 brand アクセント縦線は note-svg-policy 改訂で廃止） */
 function brandFrame(H) {
   return `
-  <!-- 左端 brand アクセント縦線（note-svg-policy §4） -->
-  <rect x="0" y="0" width="14" height="${H}" fill="${BRAND}"/>
-  <!-- 右下ブランディング（note-svg-policy §4） -->
   <text x="${W - 28}" y="${H - 22}" font-family="${FONT}" font-size="18" font-weight="500" fill="${INK_MUTED}" text-anchor="end">doboku-note.com</text>`;
 }
 

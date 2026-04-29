@@ -49,7 +49,6 @@ const svgHead = (ariaLabel) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox=
 const svgEnd = `</svg>`;
 
 // 左サイドの細いブランドストライプ（全枚共通の視覚アンカー）
-const sideStripe = `<rect x="0" y="0" width="14" height="${H}" fill="${C.brand}"/>`;
 
 // ページインジケータ（右上）
 const pageIndicator = (n, total) => `
@@ -101,7 +100,7 @@ function escapeXml(s) {
 function t1_cover() {
   return svgHead('cover: フォロワーシップ') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(1, 7)}
 
   <!-- カテゴリラベル -->
@@ -129,7 +128,7 @@ function t1_def() {
   const sub = wrap('ロバート・ケリー（1992）が著書『The Power of Followership』で体系化した。', 22);
   return svgHead('def: フォロワーシップとは') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(2, 7)}
   ${sectionLabel('DEFINITION')}
 
@@ -151,7 +150,7 @@ function t1_context() {
   const body = wrap('組織の成果はリーダー単独でなく、フォロワーの行動と姿勢で大きく左右される。', 16);
   return svgHead('context: なぜ重要か') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(3, 7)}
   ${sectionLabel('CONTEXT')}
 
@@ -179,7 +178,7 @@ ${svgEnd}`;
 function t1_example() {
   return svgHead('example: ケリーの2軸モデル') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(4, 7)}
   ${sectionLabel('MODEL')}
 
@@ -227,7 +226,7 @@ function t1_points() {
 
   return svgHead('points: 5類型') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(5, 7)}
   ${sectionLabel('5 TYPES')}
 
@@ -255,7 +254,7 @@ function t1_related() {
 
   return svgHead('related: 関連キーワード') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(6, 7)}
   ${sectionLabel('RELATED')}
 
@@ -269,7 +268,6 @@ ${svgEnd}`;
 function t1_cta() {
   return svgHead('cta: もっと詳しく') + `
   <rect width="${W}" height="${H}" fill="${C.brandDeep}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.brand}"/>
   ${pageIndicator(7, 7).replace(C.inkMuted, '#a8c4dc')}
 
   <!-- 装飾円 -->
@@ -295,7 +293,7 @@ ${svgEnd}`;
 function t3_cover() {
   return svgHead('quiz cover') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(1, 5)}
 
   <!-- カテゴリラベル -->
@@ -333,7 +331,7 @@ function t3_problem() {
 
   return svgHead('quiz problem') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(2, 5)}
   ${sectionLabel('PROBLEM')}
 
@@ -347,7 +345,7 @@ ${svgEnd}`;
 function t3_pause() {
   return svgHead('quiz pause') + `
   <rect width="${W}" height="${H}" fill="${C.surface}"/>
-  ${sideStripe}
+
   ${pageIndicator(3, 5)}
 
   <!-- 中央配置 -->
@@ -368,7 +366,7 @@ ${svgEnd}`;
 function t3_answer() {
   return svgHead('quiz answer') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  ${sideStripe}
+
   ${pageIndicator(4, 5)}
   ${sectionLabel('ANSWER')}
 
@@ -394,7 +392,6 @@ ${svgEnd}`;
 function t3_cta() {
   return svgHead('quiz cta') + `
   <rect width="${W}" height="${H}" fill="${C.brandDeep}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.brand}"/>
   ${pageIndicator(5, 5).replace(C.inkMuted, '#a8c4dc')}
 
   <circle cx="${W - 200}" cy="200" r="280" fill="${C.brand}" opacity="0.3"/>

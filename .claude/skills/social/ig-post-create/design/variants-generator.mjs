@@ -51,7 +51,6 @@ function escapeXml(s) {
 function cover_v1() {
   return svgHead('cover v1 original') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.brand}"/>
   <text x="${W - 80}" y="64" text-anchor="end" font-size="22" font-weight="500" fill="${C.inkMuted}">1 / 7</text>
   <text x="80" y="156" font-size="28" font-weight="700" fill="${C.brand}" letter-spacing="3">技術士総監キーワード</text>
   <text x="${W/2}" y="${H/2 - 30}" text-anchor="middle" font-size="120" font-weight="900" fill="${C.ink}" letter-spacing="2">フォロワーシップ</text>
@@ -185,7 +184,6 @@ ${svgEnd}`;
 function tone_A() {
   return svgHead('tone A light') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.brand}"/>
   <text x="${W - 80}" y="64" text-anchor="end" font-size="22" fill="${C.inkMuted}">2 / 7</text>
   <text x="80" y="120" font-size="26" font-weight="700" fill="${C.brand}" letter-spacing="2">DEFINITION</text>
   <line x1="80" y1="144" x2="160" y2="144" stroke="${C.brand}" stroke-width="3"/>
@@ -208,7 +206,6 @@ ${svgEnd}`;
 function tone_B() {
   return svgHead('tone B dark') + `
   <rect width="${W}" height="${H}" fill="${C.brandDeep}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.warn}"/>
   <text x="${W - 80}" y="64" text-anchor="end" font-size="22" fill="#a8c4dc">2 / 7</text>
   <text x="80" y="120" font-size="26" font-weight="700" fill="${C.warn}" letter-spacing="2">DEFINITION</text>
   <line x1="80" y1="144" x2="160" y2="144" stroke="${C.warn}" stroke-width="3"/>
@@ -231,7 +228,6 @@ ${svgEnd}`;
 function tone_C() {
   return svgHead('tone C accent yellow') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.warn}"/>
   <text x="${W - 80}" y="64" text-anchor="end" font-size="22" fill="${C.inkMuted}">2 / 7</text>
 
   <!-- 黄色ラベル -->
@@ -261,7 +257,6 @@ ${svgEnd}`;
 function cta_v1() {
   return svgHead('cta v1 search') + `
   <rect width="${W}" height="${H}" fill="${C.brandDeep}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.brand}"/>
   <text x="${W - 80}" y="64" text-anchor="end" font-size="22" fill="#a8c4dc">7 / 7</text>
   <circle cx="${W - 200}" cy="200" r="280" fill="${C.brand}" opacity="0.3"/>
   <circle cx="200" cy="${H - 200}" r="220" fill="${C.brand}" opacity="0.2"/>
@@ -280,7 +275,6 @@ ${svgEnd}`;
 function cta_v2() {
   return svgHead('cta v2 save') + `
   <rect width="${W}" height="${H}" fill="${C.white}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.brand}"/>
   <text x="${W - 80}" y="64" text-anchor="end" font-size="22" fill="${C.inkMuted}">7 / 7</text>
 
   <!-- 保存リボンアイコン（SVG パス） -->
@@ -310,7 +304,6 @@ ${svgEnd}`;
 function cta_v3() {
   return svgHead('cta v3 action') + `
   <rect width="${W}" height="${H}" fill="${C.brandDeep}"/>
-  <rect x="0" y="0" width="14" height="${H}" fill="${C.warn}"/>
   <text x="${W - 80}" y="64" text-anchor="end" font-size="22" fill="#a8c4dc">7 / 7</text>
 
   <!-- 上部: 価値提示 -->

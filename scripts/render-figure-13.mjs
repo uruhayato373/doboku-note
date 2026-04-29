@@ -45,8 +45,8 @@ function xml(s) {
 }
 
 function brandFrame(H) {
+  // 識別は右下 doboku-note.com テキストのみ。左端アクセント縦線は使わない（note-svg-policy）
   return `
-  <rect x="0" y="0" width="14" height="${H}" fill="${BRAND}"/>
   <text x="${W - 28}" y="${H - 22}" font-family="${FONT}" font-size="18" font-weight="500" fill="${INK_MUTED}" text-anchor="end">doboku-note.com</text>`;
 }
 
