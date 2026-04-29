@@ -19,6 +19,10 @@
 
 正答率の目安: 16問以上（80%）で合格圏内、12問未満（60%未満）は基礎固めが必要です。
 
+![5管理 × 4問 配分マップ](img/figure-1-question-map.png)
+
+間違えた問題の管理分野を確認したら、[doboku-note の弱点分野補強ページ](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)でキーワードを押さえておくと本番の得点に直結します。
+
 ---
 
 ## 経済性管理（4問）
@@ -91,6 +95,8 @@ VEでは、同じコストで機能を高めるか、同じ機能をより低コ
 クリティカルパスは「最長経路」であり、同じ最長日数の経路が複数ある場合は、それらすべてがクリティカルパスとなります。含まれる全作業の和集合を管理対象としましょう。
 
 </details>
+
+> 経済性管理の体系（品質管理・工程管理・原価管理・VE・PERT/CPM 等）をまとめて確認したい方は → [経済性管理ピラー（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar)
 
 ---
 
@@ -168,6 +174,8 @@ SL理論は「部下の成熟度に応じてスタイルを変える」が核心
 
 </details>
 
+> 人的資源管理の体系（組織論・労働関係法・人材開発・リーダーシップ理論 等）をまとめて確認したい方は → [人的資源管理ピラー（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar)
+
 ---
 
 ## 情報管理（4問）
@@ -240,6 +248,8 @@ VPNは社内ネットワークへのトンネル接続であり、境界型セ�
 デザイン思考はイテレーティブ（反復的）プロセスであり、テストで問題が見つかれば前の段階に戻ることが本質です。「立ち戻らずに完了する」は誤りとなります。
 
 </details>
+
+> 情報管理の体系（情報セキュリティ・知的財産権・統計・デザイン思考 等）をまとめて確認したい方は → [情報管理ピラー（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar)
 
 ---
 
@@ -317,6 +327,8 @@ BCMはサプライチェーン全体の視点が重要であり、自社だけ�
 
 </details>
 
+> 安全管理の体系（リスクマネジメント・労働安全衛生・BCP・ストレスチェック 等）をまとめて確認したい方は → [安全管理ピラー（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar)
+
 ---
 
 ## 社会環境管理（4問）
@@ -393,9 +405,13 @@ BCMはサプライチェーン全体の視点が重要であり、自社だけ�
 
 </details>
 
+> 社会環境管理の体系（環境法規・LCA・循環型社会・インフラ維持管理 等）をまとめて確認したい方は → [社会環境管理ピラー（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar)
+
 ---
 
 ## 結果の振り返り
+
+![スコア帯別 判定マトリクス](img/figure-2-score-matrix.png)
 
 - **16問以上正解**: 基礎知識は十分です。過去問演習で実践力を高めましょう
 - **12~15問正解**: おおむね良好ですが、間違えた分野を重点的に復習しましょう
@@ -403,7 +419,7 @@ BCMはサプライチェーン全体の視点が重要であり、自社だけ�
 
 各分野で1問でも間違えた場合は、その分野に弱点がある可能性があります。択一式は5分野から満遍なく出題されるため、苦手分野を放置すると合格ラインに届きにくくなってしまいます。
 
-全問の詳細な解答解説と、17年分の過去問演習はdoboku-noteで確認できます。
+全問の詳細な解答解説と、17年分の過去問演習は [doboku-noteの試験インデックス](https://doboku-note.com/docs/pe-comprehensive-management-exam-index) で確認できます。直近5年分（R03〜R07）から手を付けるのがおすすめです。
 
 ---
 
