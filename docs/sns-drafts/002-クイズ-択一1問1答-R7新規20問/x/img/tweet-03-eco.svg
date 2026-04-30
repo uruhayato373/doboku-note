@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect x="0" y="0" width="1200" height="675" rx="0" fill="#ffffff" />
+<rect x="60" y="40" width="360" height="56" rx="28" fill="#2e6da4" />
+  <text x="240" y="68" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">Q3 経済性管理</text>
+  <text x="1160" y="64" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  <text x="60" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="800" fill="#222222" text-anchor="start">ゲーム理論と科学的手法</text>
+  <line x1="60" y1="160" x2="1140" y2="160" stroke="#2e6da4" stroke-width="2" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="500" fill="#222222"><tspan x="60" y="200">計画・管理における科学的・数理的手法に関する次の記述のうち、最も</tspan><tspan x="60" y="245">適切なものはどれでしょうか。</tspan></text>
+  <g>
+    <rect x="80" y="290" width="510" height="88" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="120" cy="334" r="22" fill="#2e6da4" />
+  <text x="120" y="334" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">1</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" font-weight="400" fill="#222222"><tspan x="158" y="323">モンテカルロシミュレーションは乱数を用いず</tspan><tspan x="158" y="348">に繰り返し計算する確定的手法</tspan></text>
+    </g>
+  <g>
+    <rect x="610" y="290" width="510" height="88" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="650" cy="334" r="22" fill="#2e6da4" />
+  <text x="650" y="334" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">2</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" font-weight="400" fill="#222222"><tspan x="688" y="323">ゲーム理論は複数主体の意思決定の数学的取扱</tspan><tspan x="688" y="348">いで、非協力ゲームと協力ゲームに分類される</tspan></text>
+    </g>
+  <g>
+    <rect x="80" y="390" width="510" height="88" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="120" cy="434" r="22" fill="#2e6da4" />
+  <text x="120" y="434" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">3</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" font-weight="400" fill="#222222"><tspan x="158" y="423">価値工学（VE）における価値は「機能 × </tspan><tspan x="158" y="448">コスト」と表される</tspan></text>
+    </g>
+  <g>
+    <rect x="610" y="390" width="510" height="88" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="650" cy="434" r="22" fill="#2e6da4" />
+  <text x="650" y="434" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">4</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" font-weight="400" fill="#222222"><tspan x="688" y="423">線形計画問題は決定変数の積で表される目的関</tspan><tspan x="688" y="448">数を最大化・最小化する</tspan></text>
+    </g>
+  <g>
+    <rect x="80" y="490" width="510" height="88" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="120" cy="534" r="22" fill="#2e6da4" />
+  <text x="120" y="534" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">5</text>
+    <text x="158" y="534" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" font-weight="400" fill="#222222" text-anchor="start" dominant-baseline="central">AHP は対象を群に分ける分類手法</text>
+    </g>
+  <text x="600" y="655" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#2e6da4" text-anchor="middle">↓ 答えはリプライツリーに ↓</text>
+</svg>
