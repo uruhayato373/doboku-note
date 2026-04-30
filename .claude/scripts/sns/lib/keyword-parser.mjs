@@ -11,7 +11,7 @@
  *   slide 10 → cta            （メイン + CTA テキスト + リンク）
  */
 
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 
 export function parseKeywordPack(packDir) {
@@ -21,6 +21,56 @@ export function parseKeywordPack(packDir) {
   const meta = parseMeta(carouselMd, sourceMd, packDir);
   const slides = parseSlides(carouselMd);
   return { meta, slides };
+}
+
+export function parseKeywordTweets(packDir) {
+  const xPath = join(packDir, 'x.md');
+  if (!existsSync(xPath)) return { tweets: [] };
+  const raw = readFileSync(xPath, 'utf8').replace(/\r\n/g, '\n');
+
+  // 各 ## Tweet 0N: {subtitle} ブロックを切り出す
+  const re = /^## Tweet (\d+):\s*(.+?)$/gm;
+  const matches = [...raw.matchAll(re)];
+  const tweets = [];
+  for (let i = 0; i < matches.length; i++) {
+    const m = matches[i];
+    const startIdx = m.index;
+    const endIdx = i + 1 < matches.length ? matches[i + 1].index : raw.length;
+    const block = raw.slice(startIdx, endIdx);
+    tweets.push(parseTweetBlock(parseInt(m[1], 10), m[2].trim(), block));
+  }
+  return { tweets };
+}
+
+function parseTweetBlock(num, subtitle, block) {
+  // 本文ブロック: ヘッダ行（【総監キーワード解説】...#N）の直後から URL 行までを抽出
+  const lines = block.split('\n');
+  let bodyStart = -1, bodyEnd = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^【.*】.*#\d+/.test(lines[i])) { bodyStart = i + 1; continue; }
+    if (bodyStart >= 0 && /^→\s*https?:/.test(lines[i])) { bodyEnd = i; break; }
+  }
+  const bodyLines = bodyStart >= 0 && bodyEnd > bodyStart
+    ? lines.slice(bodyStart, bodyEnd).map(l => l.trim()).filter(l => l && !l.startsWith('#'))
+    : [];
+
+  // Heading: 本文 1 行目（最も短い行・要約的）
+  const heading = bodyLines[0] || subtitle;
+  // bullets: ▼ で始まる行 or 1./2./ 等の番号付き行
+  const bullets = bodyLines
+    .filter(l => /^[▼・]/.test(l) || /^\d+\.\s/.test(l))
+    .map(l => l.replace(/^[▼・]\s*/, '').replace(/^\d+\.\s+/, '').trim())
+    .map(stripMd);
+  // descLines: bullet 以外の本文（先頭 1 行は除く）
+  const descLines = bodyLines.slice(1).filter(l => !/^[▼・]/.test(l) && !/^\d+\.\s/.test(l)).map(stripMd);
+
+  return {
+    num,
+    subtitle: subtitle.replace(/編$/, ''),
+    heading: stripMd(heading),
+    bullets,
+    descLines,
+  };
 }
 
 function parseMeta(carouselMd, sourceMd, packDir) {

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="368" height="64" rx="32" fill="#d4a017" />
+  <text x="264" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">なぜ ABC が必要か</text>
+  <g transform="translate(80, 453.0769230769231) scale(1.7692307692307692)">
+  <rect x="20" y="70" width="120" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="80" y="92" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">資源</text>
+  <text x="80" y="110" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">人件費・設備費等</text>
+
+  <rect x="200" y="70" width="120" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="260" y="92" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">活動</text>
+  <text x="260" y="110" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">検査・段取・運搬</text>
+
+  <rect x="380" y="70" width="120" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="440" y="92" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">製品</text>
+  <text x="440" y="110" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">A・B・C 品番</text>
+
+  <line x1="140" y1="95" x2="195" y2="95" stroke="#222" stroke-width="1.8"/>
+  <polygon points="192,90 202,95 192,100" fill="#222"/>
+  <text x="167" y="50" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">① リソース</text>
+  <text x="167" y="65" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ドライバー</text>
+
+  <line x1="320" y1="95" x2="375" y2="95" stroke="#222" stroke-width="1.8"/>
+  <polygon points="372,90 382,95 372,100" fill="#222"/>
+  <text x="347" y="50" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">② アクティビティ</text>
+  <text x="347" y="65" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ドライバー</text>
+
+  <text x="167" y="145" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">各活動の資源消費量</text>
+  <text x="167" y="160" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">（例: 人時・稼働時間）</text>
+  <text x="347" y="145" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">各製品の活動利用量</text>
+  <text x="347" y="160" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">（例: 検査回数・段取回数）</text>
+
+  <text x="260" y="185" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">2 段階配賦で間接費を実態に合わせて製品別原価に展開する</text>
+</g>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

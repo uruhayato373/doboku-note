@@ -11,8 +11,9 @@
 
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { parseKeywordPack } from './lib/keyword-parser.mjs';
+import { parseKeywordPack, parseKeywordTweets } from './lib/keyword-parser.mjs';
 import { RENDERERS } from './templates/keyword-ig.mjs';
+import { renderKeywordTweet } from './templates/keyword-x.mjs';
 import { svgToPng } from './lib/svg-to-png.mjs';
 
 function ensureDir(p) {
@@ -44,7 +45,7 @@ function renderPack(packDir) {
   const igDir = join(packDir, 'instagram-carousel', 'img');
   ensureDir(igDir);
 
-  let count = 0;
+  let igCount = 0;
   for (const slide of slides) {
     const renderer = RENDERERS[slide.type];
     if (!renderer) {
@@ -54,10 +55,24 @@ function renderPack(packDir) {
     const svg = renderer({ data: slide, meta });
     const role = ROLE_NAMES[slide.slideIndex - 1] || `${String(slide.slideIndex).padStart(2, '0')}-slide`;
     writeSvgAndPng(join(igDir, role), svg);
-    count++;
+    igCount++;
   }
-  console.log(`✓ ${meta.keywordName} (${meta.keywordSlug}): ${count} slides`);
-  return count;
+
+  // X tweet images
+  const { tweets } = parseKeywordTweets(packDir);
+  let xCount = 0;
+  if (tweets.length > 0) {
+    const xDir = join(packDir, 'x', 'img');
+    ensureDir(xDir);
+    for (const tweet of tweets) {
+      const svg = renderKeywordTweet({ tweet, meta });
+      const fileName = `tweet-${String(tweet.num).padStart(2, '0')}-${meta.keywordSlug}`;
+      writeSvgAndPng(join(xDir, fileName), svg);
+      xCount++;
+    }
+  }
+  console.log(`✓ ${meta.keywordName} (${meta.keywordSlug}): ${igCount} IG + ${xCount} X`);
+  return igCount + xCount;
 }
 
 function main() {

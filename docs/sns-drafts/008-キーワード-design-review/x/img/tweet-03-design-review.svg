@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect x="0" y="0" width="1200" height="675" rx="0" fill="#ffffff" />
+<rect x="60" y="30" width="372" height="56" rx="28" fill="#2e6da4" />
+  <text x="246" y="58" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">総監キーワード解説 #3</text>
+  <text x="1160" y="64" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  <text x="60" y="130" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="600" fill="#2e6da4" text-anchor="start">品質ゲート</text>
+  <text x="60" y="180" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="38" font-weight="800" fill="#222222" text-anchor="start">デザインレビュー</text>
+  <line x1="60" y1="200" x2="1140" y2="200" stroke="#2e6da4" stroke-width="2" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="700" fill="#1a3a5c"><tspan x="60" y="250">DR は設計管理 4 手法の中で品質ゲートを担う</tspan></text>
+  <text x="60" y="386" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#2e6da4" text-anchor="start">▼</text>
+  <text x="95" y="386" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#222222" text-anchor="start">コンカレントエンジニアリング — 並行進行する各工程の節目に DR を設定</text>
+  <text x="60" y="456" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#2e6da4" text-anchor="start">▼</text>
+  <text x="95" y="456" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#222222" text-anchor="start">フロントローディング — 前倒し検討の結果を DR で確認</text>
+  <text x="60" y="526" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#2e6da4" text-anchor="start">▼</text>
+  <text x="95" y="526" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#222222" text-anchor="start">デザインイン — サプライヤー参画も DR の場で行う</text>
+  <text x="600" y="645" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#2e6da4" text-anchor="middle">→ doboku-note で詳しく解説</text>
+</svg>
