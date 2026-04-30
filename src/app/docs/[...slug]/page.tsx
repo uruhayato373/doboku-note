@@ -219,7 +219,7 @@ export default async function DocPage({
   // Determine page classification for navigation cards
   const docGroup = classifyDoc(doc.meta);
   const hasCategoryNavCard = category === 'pe-comprehensive-management' || category === 'civil-construction-1';
-  const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
+  const showPillarNav = category === 'pe-comprehensive-management' && (docGroup === 'keyword' || docGroup === 'pillar');
   const sectionStr = doc.meta.section as string | undefined;
 
   // Extract headings for Table of Contents
@@ -344,6 +344,13 @@ export default async function DocPage({
                   docGroup={docGroup}
                   categoryArticles={categoryArticles}
                 />
+              </div>
+            )}
+
+            {/* PE pillar: 5 管理学習ガイドナビ（モバイル、デスクトップはサイドバーで表示済み）*/}
+            {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
+              <div className="mt-8 zenn-desktop:hidden">
+                <PillarNavCard variant="mobile" currentSection={sectionStr} />
               </div>
             )}
 
