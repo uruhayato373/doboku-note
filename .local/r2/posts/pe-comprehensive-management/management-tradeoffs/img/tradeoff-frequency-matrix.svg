@@ -7,8 +7,8 @@
     .legend { fill: #1a3a5c; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
   </style>
 
-  <line x1="105" y1="60" x2="435" y2="60" stroke="#d1d5db" stroke-width="1"/>
-  <line x1="105" y1="60" x2="105" y2="310" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="105" y1="60" x2="435" y2="60" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="105" y1="60" x2="105" y2="310" stroke="#d7d7d7" stroke-width="1"/>
 
   <text x="150" y="45" text-anchor="middle" font-size="14" class="label">人的資源</text>
   <text x="230" y="45" text-anchor="middle" font-size="14" class="label">情報</text>
@@ -36,7 +36,7 @@
   <text x="390" y="100" text-anchor="middle" font-size="24" class="cell-main">S</text>
   <text x="390" y="117" text-anchor="middle" font-size="10" class="cell-sub">環境コスト</text>
 
-  <rect x="190" y="125" width="80" height="60" fill="#0284c7" rx="2"/>
+  <rect x="190" y="125" width="80" height="60" fill="#2e6da4" rx="2"/>
   <text x="230" y="160" text-anchor="middle" font-size="24" class="cell-main">B</text>
   <text x="230" y="177" text-anchor="middle" font-size="10" class="cell-sub">人事DX</text>
 
@@ -48,11 +48,11 @@
   <text x="390" y="160" text-anchor="middle" font-size="24" class="cell-main">C</text>
   <text x="390" y="177" text-anchor="middle" font-size="10" class="cell-sub">多様性</text>
 
-  <rect x="270" y="185" width="80" height="60" fill="#0284c7" rx="2"/>
+  <rect x="270" y="185" width="80" height="60" fill="#2e6da4" rx="2"/>
   <text x="310" y="220" text-anchor="middle" font-size="24" class="cell-main">B</text>
   <text x="310" y="237" text-anchor="middle" font-size="10" class="cell-sub">セキュリティ</text>
 
-  <rect x="350" y="185" width="80" height="60" fill="#0284c7" rx="2"/>
+  <rect x="350" y="185" width="80" height="60" fill="#2e6da4" rx="2"/>
   <text x="390" y="220" text-anchor="middle" font-size="24" class="cell-main">B</text>
   <text x="390" y="237" text-anchor="middle" font-size="10" class="cell-sub">倫理</text>
 
@@ -67,7 +67,7 @@
     <rect x="90" y="0" width="22" height="14" fill="#b22234" rx="2"/>
     <text x="118" y="12" font-size="12" class="legend">A 頻出</text>
 
-    <rect x="175" y="0" width="22" height="14" fill="#0284c7" rx="2"/>
+    <rect x="175" y="0" width="22" height="14" fill="#2e6da4" rx="2"/>
     <text x="203" y="12" font-size="12" class="legend">B 中</text>
 
     <rect x="250" y="0" width="22" height="14" fill="#8a8a8a" rx="2"/>

@@ -13,17 +13,17 @@
 
   <!-- 業務経歴 sub-box -->
   <rect x="185" y="30" width="155" height="55" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <text x="262" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5a1a">業務経歴</text>
+  <text x="262" y="53" text-anchor="middle" font-size="13" font-weight="bold" fill="#3a7d44">業務経歴</text>
   <text x="262" y="73" text-anchor="middle" font-size="11" fill="#3a7d44">（業務内容の概要）</text>
 
   <!-- 業務内容の詳細 sub-box -->
   <rect x="185" y="140" width="155" height="55" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <text x="262" y="163" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5a1a">業務内容の詳細</text>
+  <text x="262" y="163" text-anchor="middle" font-size="13" font-weight="bold" fill="#3a7d44">業務内容の詳細</text>
   <text x="262" y="183" text-anchor="middle" font-size="11" fill="#3a7d44">（論文の骨子）</text>
 
   <!-- 経験のアピール sub-box -->
   <rect x="185" y="250" width="155" height="55" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <text x="262" y="278" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a5a1a">経験のアピール</text>
+  <text x="262" y="278" text-anchor="middle" font-size="13" font-weight="bold" fill="#3a7d44">経験のアピール</text>
   <text x="262" y="296" text-anchor="middle" font-size="11" fill="#3a7d44">（成長ストーリー）</text>
 
   <!-- arrows from 出願 to sub-boxes -->
@@ -33,22 +33,22 @@
 
   <!-- 筆記試験 box -->
   <rect x="390" y="30" width="150" height="195" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
-  <text x="465" y="58" text-anchor="middle" font-size="15" font-weight="bold" fill="#5a4a00">筆記試験</text>
+  <text x="465" y="58" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">筆記試験</text>
   <text x="465" y="78" text-anchor="middle" font-size="11" fill="#d4a017">（記述式問題）</text>
   <!-- inside: 設問1 -->
   <rect x="405" y="90" width="120" height="40" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
-  <text x="465" y="115" text-anchor="middle" font-size="12" fill="#3a2a00">設問1（必須）</text>
+  <text x="465" y="115" text-anchor="middle" font-size="12" fill="#1a3a5c">設問1（必須）</text>
   <!-- inside: 設問2以降 -->
   <rect x="405" y="140" width="120" height="70" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
-  <text x="465" y="170" text-anchor="middle" font-size="12" fill="#3a2a00">設問2以降</text>
-  <text x="465" y="190" text-anchor="middle" font-size="11" fill="#5a4a00">（択一含む）</text>
+  <text x="465" y="170" text-anchor="middle" font-size="12" fill="#1a3a5c">設問2以降</text>
+  <text x="465" y="190" text-anchor="middle" font-size="11" fill="#1a3a5c">（択一含む）</text>
 
   <!-- 口頭試験 box -->
-  <rect x="590" y="100" width="110" height="140" rx="8" fill="#f8d7da" stroke="#a94442" stroke-width="2"/>
-  <text x="645" y="155" text-anchor="middle" font-size="15" font-weight="bold" fill="#6b1c1c">口頭試験</text>
-  <text x="645" y="178" text-anchor="middle" font-size="11" fill="#8b3c3c">経歴・詳細を</text>
-  <text x="645" y="195" text-anchor="middle" font-size="11" fill="#8b3c3c">深掘りされる</text>
-  <text x="645" y="225" text-anchor="middle" font-size="11" font-weight="bold" fill="#a94442">最重要</text>
+  <rect x="590" y="100" width="110" height="140" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
+  <text x="645" y="155" text-anchor="middle" font-size="15" font-weight="bold" fill="#b22234">口頭試験</text>
+  <text x="645" y="178" text-anchor="middle" font-size="11" fill="#b22234">経歴・詳細を</text>
+  <text x="645" y="195" text-anchor="middle" font-size="11" fill="#b22234">深掘りされる</text>
+  <text x="645" y="225" text-anchor="middle" font-size="11" font-weight="bold" fill="#b22234">最重要</text>
 
   <!-- arrows from sub-boxes to 筆記試験 -->
   <line x1="340" y1="57" x2="388" y2="110" stroke="#555" stroke-width="1.5" marker-end="url(#arr)"/>
@@ -59,11 +59,11 @@
   <line x1="540" y1="170" x2="588" y2="170" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
 
   <!-- dashed arrow from 業務経歴 directly to 口頭試験 -->
-  <path d="M340,57 Q520,10 640,98" fill="none" stroke="#a94442" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
-  <text x="500" y="22" text-anchor="middle" font-size="10" fill="#a94442">経歴票がそのまま質問ベースに</text>
+  <path d="M340,57 Q520,10 640,98" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="6,3" marker-end="url(#arr)"/>
+  <text x="500" y="22" text-anchor="middle" font-size="10" fill="#b22234">経歴票がそのまま質問ベースに</text>
 
   <!-- dashed arrow from 業務内容の詳細 to 口頭試験 -->
-  <path d="M340,167 Q530,140 640,140" fill="none" stroke="#a94442" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <path d="M340,167 Q530,140 640,140" fill="none" stroke="#b22234" stroke-width="1.5" stroke-dasharray="6,3"/>
 
   <!-- bottom label -->
   <text x="360" y="330" text-anchor="middle" font-size="12" fill="#222" font-weight="bold">図表2.1　出願と筆記試験・口頭試験との関連性</text>

@@ -47,6 +47,6 @@
   </g>
 
   <!-- Bottom equation -->
-  <rect x="60" y="248" width="280" height="28" fill="#f5f7fa" stroke="#2e6da4" stroke-width="1"/>
+  <rect x="60" y="248" width="280" height="28" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1"/>
   <text x="200" y="267" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">平均 = （+e − e）／2 = 0 → 視準軸誤差は消える</text>
 </svg>

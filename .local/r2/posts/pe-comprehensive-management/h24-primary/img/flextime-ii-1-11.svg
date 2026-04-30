@@ -8,37 +8,37 @@
   <text x="290" y="20" text-anchor="middle" font-weight="bold" font-size="12">変形労働時間制の概要</text>
 
   <!-- Header -->
-  <rect x="10" y="30" width="160" height="35" fill="#e8f0fe" stroke="#4466aa" stroke-width="1.5"/>
+  <rect x="10" y="30" width="160" height="35" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
   <text x="90" y="52" text-anchor="middle" font-weight="bold">変形期間が1カ月以内</text>
   <rect x="180" y="30" width="100" height="35" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
   <text x="230" y="52" text-anchor="middle" font-weight="bold">例</text>
-  <rect x="290" y="30" width="140" height="35" fill="#fff3cd" stroke="#aaaa44" stroke-width="1.5"/>
+  <rect x="290" y="30" width="140" height="35" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
   <text x="360" y="44" text-anchor="middle" font-weight="bold">変形期間の日数</text>
   <text x="360" y="58" text-anchor="middle" font-size="10">（法定労働時間の総枠）</text>
-  <rect x="440" y="30" width="130" height="35" fill="#ffccaa" stroke="#aa6644" stroke-width="1.5"/>
+  <rect x="440" y="30" width="130" height="35" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
   <text x="505" y="44" text-anchor="middle" font-weight="bold">法定労働時間</text>
   <text x="505" y="58" text-anchor="middle" font-size="10">の総枠</text>
 
   <!-- Data rows -->
-  <rect x="10" y="65" width="160" height="40" fill="#e8f0fe" stroke="#aaaacc"/>
+  <rect x="10" y="65" width="160" height="40" fill="#e8f0fe" stroke="#d7d7d7"/>
   <text x="90" y="90" text-anchor="middle">変形期間が1カ月以内</text>
-  <rect x="180" y="65" width="100" height="40" fill="#d0e8d0" stroke="#aaccaa"/>
+  <rect x="180" y="65" width="100" height="40" fill="#d0e8d0" stroke="#d7d7d7"/>
   <text x="230" y="90" text-anchor="middle">31日</text>
-  <rect x="290" y="65" width="140" height="40" fill="#fff3cd" stroke="#ccccaa"/>
+  <rect x="290" y="65" width="140" height="40" fill="#fff3cd" stroke="#d7d7d7"/>
   <text x="360" y="83" text-anchor="middle">177時間　8分</text>
   <text x="360" y="98" text-anchor="middle" font-size="10">（40時間×31÷7）</text>
-  <rect x="440" y="65" width="130" height="40" fill="#fff3cd" stroke="#ccaaaa"/>
+  <rect x="440" y="65" width="130" height="40" fill="#fff3cd" stroke="#d7d7d7"/>
   <text x="505" y="83" text-anchor="middle">171時間　25分</text>
   <text x="505" y="98" text-anchor="middle" font-size="10">（40時間×31÷7）</text>
 
-  <rect x="10" y="105" width="160" height="40" fill="#e8f0fe" stroke="#aaaacc"/>
+  <rect x="10" y="105" width="160" height="40" fill="#e8f0fe" stroke="#d7d7d7"/>
   <text x="90" y="130" text-anchor="middle">変形期間が1カ月以内</text>
-  <rect x="180" y="105" width="100" height="40" fill="#d0e8d0" stroke="#aaccaa"/>
+  <rect x="180" y="105" width="100" height="40" fill="#d0e8d0" stroke="#d7d7d7"/>
   <text x="230" y="130" text-anchor="middle">30日</text>
-  <rect x="290" y="105" width="140" height="40" fill="#fff3cd" stroke="#ccccaa"/>
+  <rect x="290" y="105" width="140" height="40" fill="#fff3cd" stroke="#d7d7d7"/>
   <text x="360" y="123" text-anchor="middle">171時間 26分</text>
   <text x="360" y="138" text-anchor="middle" font-size="10">（40時間×30÷7）</text>
-  <rect x="440" y="105" width="130" height="40" fill="#fff3cd" stroke="#ccaaaa"/>
+  <rect x="440" y="105" width="130" height="40" fill="#fff3cd" stroke="#d7d7d7"/>
   <text x="505" y="130" text-anchor="middle">171時間 26分</text>
 
   <!-- Note -->

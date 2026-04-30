@@ -44,7 +44,7 @@
   <line x1="115" y1="234" x2="115" y2="256" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
 
   <!-- Box 5: 準備書 -->
-  <rect x="25" y="256" width="180" height="36" fill="#aad4ff" stroke="#2266aa" stroke-width="2" rx="4"/>
+  <rect x="25" y="256" width="180" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="4"/>
   <text x="115" y="276" text-anchor="middle" font-weight="bold">準備書</text>
 
   <!-- Arrow down from 準備書 -->
@@ -75,12 +75,12 @@
   <line x1="115" y1="466" x2="115" y2="488" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
 
   <!-- Box 9: 事後調査等の実施 -->
-  <rect x="25" y="488" width="180" height="36" fill="#fff3cd" stroke="#ccaa44" stroke-width="1.5" rx="4"/>
+  <rect x="25" y="488" width="180" height="36" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="4"/>
   <text x="115" y="508" text-anchor="middle">事後調査等の実施</text>
 
   <!-- Right side flow -->
   <!-- 環境影響評価 right boxes -->
-  <rect x="310" y="82" width="220" height="36" fill="#fff3cd" stroke="#cc8844" stroke-width="1.5" rx="4"/>
+  <rect x="310" y="82" width="220" height="36" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="4"/>
   <text x="420" y="100" text-anchor="middle" font-weight="bold">環境影響評価</text>
   <text x="420" y="113" text-anchor="middle" font-size="9">（環境影響評価の実施）</text>
 

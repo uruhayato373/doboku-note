@@ -4,7 +4,7 @@
     text { font-family: sans-serif; }
     .event { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
     .gate-and { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-    .gate-or { fill: #f8d7da; stroke: #633; stroke-width: 1.5; }
+    .gate-or { fill: #f8d7da; stroke: #1a3a5c; stroke-width: 1.5; }
     .basic { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
     .line { stroke: #222; stroke-width: 1.5; fill: none; }
     .label { font-size: 11px; fill: #222; }

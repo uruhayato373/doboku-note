@@ -59,6 +59,6 @@
   <line x1="212" y1="260" x2="250" y2="330" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
   <line x1="312" y1="260" x2="260" y2="330" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
 
-  <ellipse cx="250" cy="350" rx="70" ry="20" fill="#3a7d44" stroke="#228822" stroke-width="2"/>
+  <ellipse cx="250" cy="350" rx="70" ry="20" fill="#3a7d44" stroke="#3a7d44" stroke-width="2"/>
   <text x="250" y="355" text-anchor="middle" fill="#ffffff" font-weight="bold">ゴール（達成）</text>
 </svg>

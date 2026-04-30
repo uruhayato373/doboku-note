@@ -3,7 +3,7 @@
   <desc id="desc4e">Education(教育)・Engineering(技術)・Enforcement(徹底)・Example(模範)の4つの観点を2×2グリッドで配置した図。各観点はカード形式で表示され、英名・日本語訳・具体例を含む。</desc>
 
   <!-- Title -->
-  <text x="210" y="22" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e293b">事故の4E対策</text>
+  <text x="210" y="22" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">事故の4E対策</text>
 
   <!-- Card 1: Education (top-left) -->
   <rect x="10" y="40" width="200" height="150" rx="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
@@ -11,44 +11,44 @@
   <text x="42" y="83" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff">E</text>
   <text x="72" y="73" font-size="16" font-weight="bold" fill="#1a3a5c">Education</text>
   <text x="72" y="91" font-size="13" fill="#1a3a5c">教育</text>
-  <text x="22" y="122" font-size="12" font-weight="bold" fill="#334155">安全教育・訓練の実施</text>
-  <text x="22" y="144" font-size="11" fill="#475569">・新人教育・KYT</text>
-  <text x="22" y="162" font-size="11" fill="#475569">・資格取得支援</text>
-  <text x="22" y="180" font-size="11" fill="#475569">・危険予知活動</text>
+  <text x="22" y="122" font-size="12" font-weight="bold" fill="#555">安全教育・訓練の実施</text>
+  <text x="22" y="144" font-size="11" fill="#555">・新人教育・KYT</text>
+  <text x="22" y="162" font-size="11" fill="#555">・資格取得支援</text>
+  <text x="22" y="180" font-size="11" fill="#555">・危険予知活動</text>
 
   <!-- Card 2: Engineering (top-right) -->
-  <rect x="210" y="40" width="200" height="150" rx="10" fill="#d1fae5" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="210" y="40" width="200" height="150" rx="10" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
   <rect x="222" y="55" width="40" height="40" rx="6" fill="#3a7d44"/>
   <text x="242" y="83" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff">E</text>
   <text x="272" y="73" font-size="16" font-weight="bold" fill="#3a7d44">Engineering</text>
   <text x="272" y="91" font-size="13" fill="#3a7d44">技術</text>
-  <text x="222" y="122" font-size="12" font-weight="bold" fill="#334155">設備・技術的対策</text>
-  <text x="222" y="144" font-size="11" fill="#475569">・安全装置の設置</text>
-  <text x="222" y="162" font-size="11" fill="#475569">・作業環境の改善</text>
-  <text x="222" y="180" font-size="11" fill="#475569">・本質安全設計</text>
+  <text x="222" y="122" font-size="12" font-weight="bold" fill="#555">設備・技術的対策</text>
+  <text x="222" y="144" font-size="11" fill="#555">・安全装置の設置</text>
+  <text x="222" y="162" font-size="11" fill="#555">・作業環境の改善</text>
+  <text x="222" y="180" font-size="11" fill="#555">・本質安全設計</text>
 
   <!-- Card 3: Enforcement (bottom-left) -->
-  <rect x="10" y="200" width="200" height="150" rx="10" fill="#fed7aa" stroke="#b22234" stroke-width="2"/>
+  <rect x="10" y="200" width="200" height="150" rx="10" fill="#fff3cd" stroke="#b22234" stroke-width="2"/>
   <rect x="22" y="215" width="40" height="40" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
   <text x="42" y="243" text-anchor="middle" font-size="24" font-weight="bold" fill="#b22234">E</text>
-  <text x="72" y="233" font-size="16" font-weight="bold" fill="#7c2d12">Enforcement</text>
-  <text x="72" y="251" font-size="13" fill="#7c2d12">徹底</text>
-  <text x="22" y="282" font-size="12" font-weight="bold" fill="#334155">規則遵守と管理強化</text>
-  <text x="22" y="304" font-size="11" fill="#475569">・安全規則の制定</text>
-  <text x="22" y="322" font-size="11" fill="#475569">・安全パトロール</text>
-  <text x="22" y="340" font-size="11" fill="#475569">・違反時の指導</text>
+  <text x="72" y="233" font-size="16" font-weight="bold" fill="#1a3a5c">Enforcement</text>
+  <text x="72" y="251" font-size="13" fill="#1a3a5c">徹底</text>
+  <text x="22" y="282" font-size="12" font-weight="bold" fill="#555">規則遵守と管理強化</text>
+  <text x="22" y="304" font-size="11" fill="#555">・安全規則の制定</text>
+  <text x="22" y="322" font-size="11" fill="#555">・安全パトロール</text>
+  <text x="22" y="340" font-size="11" fill="#555">・違反時の指導</text>
 
   <!-- Card 4: Example (bottom-right) -->
-  <rect x="210" y="200" width="200" height="150" rx="10" fill="#fce7f3" stroke="#db2777" stroke-width="2"/>
-  <rect x="222" y="215" width="40" height="40" rx="6" fill="#db2777"/>
-  <text x="242" y="243" text-anchor="middle" font-size="24" font-weight="bold" fill="#ffffff">E</text>
-  <text x="272" y="233" font-size="16" font-weight="bold" fill="#831843">Example</text>
-  <text x="272" y="251" font-size="13" fill="#831843">模範</text>
-  <text x="222" y="282" font-size="12" font-weight="bold" fill="#334155">管理者の率先垂範</text>
-  <text x="222" y="304" font-size="11" fill="#475569">・管理者自身の</text>
-  <text x="222" y="322" font-size="11" fill="#475569">　安全行動の実践</text>
-  <text x="222" y="340" font-size="11" fill="#475569">・組織風土の醸成</text>
+  <rect x="210" y="200" width="200" height="150" rx="10" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
+  <rect x="222" y="215" width="40" height="40" rx="6" fill="#fff" stroke="#b22234" stroke-width="2"/>
+  <text x="242" y="243" text-anchor="middle" font-size="24" font-weight="bold" fill="#b22234">E</text>
+  <text x="272" y="233" font-size="16" font-weight="bold" fill="#1a3a5c">Example</text>
+  <text x="272" y="251" font-size="13" fill="#1a3a5c">模範</text>
+  <text x="222" y="282" font-size="12" font-weight="bold" fill="#555">管理者の率先垂範</text>
+  <text x="222" y="304" font-size="11" fill="#555">・管理者自身の</text>
+  <text x="222" y="322" font-size="11" fill="#555">　安全行動の実践</text>
+  <text x="222" y="340" font-size="11" fill="#555">・組織風土の醸成</text>
 
   <!-- Footer note -->
-  <text x="210" y="372" text-anchor="middle" font-size="10" fill="#64748b">4 つの観点を補完的に組み合わせて運用する</text>
+  <text x="210" y="372" text-anchor="middle" font-size="10" fill="#8a8a8a">4 つの観点を補完的に組み合わせて運用する</text>
 </svg>

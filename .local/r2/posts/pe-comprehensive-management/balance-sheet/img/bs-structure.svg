@@ -17,14 +17,14 @@
 
   <!-- Right top: 負債 (warn) -->
   <rect x="205" y="60" width="180" height="54" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/> <!-- warn-fill / warn -->
-  <text x="295" y="91" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b5015">流動負債</text> <!-- warn deep (legibility) -->
+  <text x="295" y="91" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">流動負債</text> <!-- warn deep (legibility) -->
 
   <rect x="205" y="114" width="180" height="36" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
-  <text x="295" y="136" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b5015">固定負債</text>
+  <text x="295" y="136" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">固定負債</text>
 
   <!-- Right bottom: 純資産 (positive) -->
   <rect x="205" y="150" width="180" height="90" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/> <!-- positive-fill / positive -->
-  <text x="295" y="199" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e4d27">純資産（自己資本）</text> <!-- positive deep -->
+  <text x="295" y="199" text-anchor="middle" font-size="14" font-weight="bold" fill="#3a7d44">純資産（自己資本）</text> <!-- positive deep -->
 
   <!-- Equation -->
   <text x="200" y="265" text-anchor="middle" font-size="12" fill="#555">資産合計 ＝ 負債合計 ＋ 純資産合計</text>
