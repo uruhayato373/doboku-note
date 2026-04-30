@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useSearch } from "@/hooks/useSearch";
 import { cn } from "@/lib/cn";
+import { trackSearch } from "@/lib/gtag";
 
 interface SearchBoxProps {
   className?: string;
@@ -43,8 +44,10 @@ export function SearchBox({
 
   // 検索実行
   const handleSearch = (searchQuery: string = inputValue) => {
-    if (searchQuery.trim()) {
+    const trimmed = searchQuery.trim();
+    if (trimmed) {
       setQuery(searchQuery);
+      trackSearch(trimmed);
       onSearch?.(searchQuery);
       setShowSuggestions(false);
       inputRef.current?.blur();

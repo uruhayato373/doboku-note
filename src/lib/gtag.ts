@@ -60,3 +60,12 @@ export const event = ({
   if (typeof window === "undefined" || typeof window.gtag !== "function") return;
   window.gtag("event", action, eventParams);
 };
+
+// Site Search イベント送信（GA4 標準 `search` イベント）
+// Issue #175 Tier 1.1: 検索クエリを GA4 に記録し、「該当ページなし」クエリから
+// 次に書く記事の選定根拠を取得する（content gap 分析の入力）
+export const trackSearch = (searchTerm: string) => {
+  if (!GA_ID || process.env.NODE_ENV !== "production") return;
+  if (typeof window === "undefined" || typeof window.gtag !== "function") return;
+  window.gtag("event", "search", { search_term: searchTerm });
+};
