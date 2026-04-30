@@ -19,6 +19,7 @@
     "update-image-refs": "node .claude/scripts/update-mdx-image-refs.mjs",
     "prebuild": "npm run generate-webp && npm run update-image-refs",
     "build": "rm -rf out && npm run refresh-indexes && node scripts/generate-search-index.mjs && next build && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
+    "audit-svg": "node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs",
     "ogp": "node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs",
     "start": "next start -p 3020",
     "lint": "eslint src/",

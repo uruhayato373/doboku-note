@@ -1,19 +1,3942 @@
 {
   "meta": {
-    "generated_at": "2026-04-28T03:33:37.954Z",
+    "generated_at": "2026-04-30T04:50:08.626Z",
     "path": ".local/r2/posts/**/img/*.svg",
-    "file": "C:/Users/m004195/doboku-note/.local/r2/posts/pe-comprehensive-management/personal-communication/img/push-pull-communication.svg"
+    "file": null
   },
   "summary": {
-    "scanned_files": 1,
-    "files_with_issues": 0,
-    "total_findings": 0,
+    "scanned_files": 117,
+    "files_with_issues": 62,
+    "total_findings": 567,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 0,
-      "LOW": 0
+      "MEDIUM": 50,
+      "LOW": 517
     },
-    "by_pattern": {}
+    "by_pattern": {
+      "P5-wide-viewbox": 50,
+      "P4-tiny-font": 517
+    }
   },
-  "findings": []
+  "findings": [
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\work-planning\\img\\standard-time-tree.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-formulas.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "a₁",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-formulas.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "a₂",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-configuration.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 420px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-configuration.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（信頼度 R₁）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-configuration.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（信頼度 R₂）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-configuration.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（信頼度 R₃）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-configuration.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（信頼度 R₄）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-configuration.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "入力",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\system-reliability\\img\\series-parallel-configuration.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "出力",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "デジタルトランスフォーメーション",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "新たな商品・サービス提供やビジネスモデルの変革",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "デジタル技術の",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "利用・活用と",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "DXの境界",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "・DXは社会制度や組織文化なども変革する取組み",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "・ビジネスやプロセスの変革が本質",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "・「現在または直近に変革の着手が見えているもの」",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "明確ではないものはDXとは位置付けない",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "DXの取組と",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "推進計画",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "①取組の概要と変革の内容（過去〜現在）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "②DX推進計画の概要（タスクフォース・スケジュール）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "記述の明確さ、5つの管理の視点",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r04-secondary\\img\\figure-4-40.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "論文全体のまとまり ★、トレードオフへの対応",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "①日常業務の意思決定でのビッグデータ活用",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "②AI、IoT、ナレッジマネジメント等のデジタルツール",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "幅広いレベル",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "でのデータの",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "利活用",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "従来にない形のデータ収集・解析・利活用",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "現在のデータ利活用状況と今後の可能性",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "近い将来（5〜10年後）の新たな利活用",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "総合技術監理の視点（5管理）でのデータ利活用課題",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r03-secondary\\img\\figure-4-36.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "トレードオフへの対応",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "将来の自然",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "災害リスク",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "事業場の将来の自然災害リスクに対する対策の検討",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "事業場",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "異常な",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "自然現象",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "・1つ以上の事業場（工場、支店、農場等）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "・異常な自然現象：暴風、豪雨、洪水、高潮、地震等",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "・被害：直接受ける物理的被害や業務上の障害を含む",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（A、B、Cのラベルを付す）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "対策の",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "実施計画",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（i）既にとられている対策　（ii）今後追加する対策",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "追加対策の優先順位とその理由・実施計画",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r02-secondary\\img\\figure-4-33.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "記述の明確さ、5つの管理の視点、論文全体のまとまり ★",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "人為的過誤や失敗など、目標から逸脱した人の判断や行動。",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "JIS Z 8115:2019「人間が実施する行為と要求行為との相違」",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ヒューマンエラーを完全に排除することは困難",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "総合技術監理の立場として業務全体を把握し、",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "事業・プロジェクト等を取り上げ5つの管理の観点から分析",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "対象：よく知っている事業・プロジェクト等（1つ）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ヒューマン",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "エラー分析",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "過去発生したHEの分析と今後の予防対策",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "将来発生可能性のあるHEと新技術による防止策",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（a）過去 （b）将来",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "考察における視点の広さ、記述の明確さ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\r01-secondary\\img\\figure-4-30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "論理的なつながり、論文全体のまとまり ★",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 460px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "着工",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "完了予定",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "現在",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(計画値)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(実コスト)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(出来高)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "SV",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(&lt; 0: 遅延)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "CV",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(&lt; 0: 超過)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "SV = EV − PV",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "CV = EV − AC",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "SPI = EV / PV",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\evm-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "CPI = EV / AC",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "100",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "50",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "着工",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "竣工",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "現在",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "上方許容限界",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "下方許容限界",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "予定",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\progress-management\\img\\banana-curve.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "実績",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\process-capability-index\\img\\normal-distribution-3sigma.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 480px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\process-capability-index\\img\\normal-distribution-3sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "N(μ, σ²) における標準偏差基準の包含確率",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\occupational-accident-prevention-plan\\img\\unskilled-worker-accident-types.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "※動作の反動等 49.0% / 全未熟練 35.9% / 未熟練労働者 39.0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\occupational-accident-prevention-plan\\img\\unskilled-worker-accident-types.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "−3σ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "−2σ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "−σ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "σ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2σ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3σ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "68.3%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "95.4%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "99.7%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "寸法規格を",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\npv-net-present-value\\img\\normal-distribution-sigma.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "満さない範囲",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 445px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "働き方",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "DX投資",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "リスク",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "環境コスト",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "人事DX",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "労働安全",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "多様性",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "セキュリティ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "倫理",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\management-tradeoffs\\img\\tradeoff-frequency-matrix.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "防災×景観",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "O",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "5",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3x₁+x₂=9",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "x₁+2x₂=8",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "z=6",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "z=12",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "z 増加",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(3, 0)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(0, 4)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\linear-programming\\img\\lp-graphical-method.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(2, 3)",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\kanban-two-types-flow.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\kanban-two-types-flow.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（後工程が取りに来る指示）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\kanban-two-types-flow.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（前工程に「作れ」指示）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\kanban-two-types-flow.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "実線: 部品（物）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\jit-production\\img\\kanban-two-types-flow.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "破線: かんばん（情報）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 580px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Organizational",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Governance",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Human Rights",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Labour Practices",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Environment",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Fair Operating",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Consumer Issues",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\iso-26000\\img\\iso-26000-7-core-subjects.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Community",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\breakeven-point.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "固定費",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\breakeven-point.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "総費用",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\breakeven-point.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "売上高",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\breakeven-point.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "BEP",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\breakeven-point.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "利益",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\income-statement\\img\\breakeven-point.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "損失",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "a) 事例の内容　b) 変化　c) 働き方の変化",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（答案用紙3枚以内）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "a) 背景　b) 背景の具体的な影響　c) 背景",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "a) 背景　b) 背景の具体的な影響　c) 背景",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "a) 具体的な技術や方策",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "b) 実現するために乗り越えなければならない障害",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "c) 実現した場合の働き方への具体的な効果",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "d) 付随して生じる留意すべき影響",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-09.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "→ 答案用紙2枚以内にまとめること",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-08.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 540px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-04.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h30-secondary\\img\\figure-4-03.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 680px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "起因事象",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "早期漏洩検知",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "緊急遮断",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "着火",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "初期消火",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "最終事象",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "可燃性液体",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "漏洩 0.01/年",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功 0.9999",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗 0.0001",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功 0.999",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗 0.001",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小規模漏洩",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "不着火 0.9",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "着火 0.1",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "大規模漏洩",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功 0.7",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗 0.3",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小規模火災",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "中規模火災",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "不着火 0.9",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "着火 0.1",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "大規模漏洩",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功 0.7",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗 0.3",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "中規模火災",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "大規模火災",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "P1 = 0.01 x (0.0001 x 0.1 x 0.3 + 0.9999",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h26-primary\\img\\event-tree-i-1-32.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "検知失敗10倍: P2 &#x2248; 6.0 x 10&#x207B;&#x",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 520px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "AND",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "OR",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "AND",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.03",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.10",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.05",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.05",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h25-primary\\img\\fault-tree-i-1-27.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.05",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 680px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "D マグレガー",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "D マグレガー",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "仕事嫌い、命令・強制されなければ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "働かない。責任回避、指示待ち、",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安全志向",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "仕事は自然。自己実現のために",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "自発的に働く。責任を求め、",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "創造性・想像力を発揮できる",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "命令・統制・強制によって",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "組織の目標を達成させる",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アメとムチ型の管理",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "自己統制・自己指示によって",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "目標を達成させる。参加型管理",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "目標による管理",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "命令・統制・強制により部下を",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "管理する。懲罰・賞金などを使用",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "し、部下の服従を強制する",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アメとムチによる管理",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "部下との信頼関係を築きながら",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "コーチングやリーダーシップを発揮",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "自律性を促し、動機付けを行う",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（4）発電士の",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "管理階層は解消",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "中央集権的な階層型組織",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "④上司の指示に従って業務を行う",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "①〜③の前目標は解消できない",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "分権的・フラットな組織",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "目標管理・自己実現を重視",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "参加型・コンサルティブな意思決定",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "受動的に目標に従い行動する",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "少しの野心も持たない",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安全を求める",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "自己目標を設定し、積極的に働く",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "創意工夫・想像力を発揮",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "目標達成への高い動機付け",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "＊動機付け手段",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "X理論：アメとムチ（報酬と罰）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Y理論：自己実現・達成感・成長",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "＊2 この人間観管理の仕組みと効果",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\xy-theory-ii-1-9.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "＊目標による管理の定義的的意味説明",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\voc-regulation-ii-1-37.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 680px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\voc-regulation-ii-1-37.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "酢酸エチル、酢酸ビニル、アセトアルデヒド、",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\voc-regulation-ii-1-37.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "エタノール、イソプロピルアルコール",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\voc-regulation-ii-1-37.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "住宅の内装・外壁塗料",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\voc-regulation-ii-1-37.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "大気汚染防止法の排出抑制制度により、VOCの排出施設（塗装、洗浄、接着、印刷等）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\voc-regulation-ii-1-37.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "排出基準は施設の種類・規模に応じて設定（大気汚染防止法第17条の3〜第17条の1",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 760px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（安衛令2条）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "林業、鉱業、建設業、",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "運送業、清掃業",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "製造業、電気業、ガス業、熱供給業、水道業、",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "通信業、各種商品卸売業、家具・建具・じゅう器等",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "その他の業種（業種1・2以外）",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（金融業、保険業など）",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（安衛法10条、",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安衛令2条）",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（安衛法11条、",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安衛令3条）",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（安衛法12条、",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安衛令4条）",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（安衛法13条、",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安衛令5条）",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（安衛法17条、",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安衛令8条、安衛令21条）",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "注（注1）「安全委員会」は、労働安全衛生法の規定に基づいて安全委員会を設置しなけ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "衛生委員会（安衛法18条、安衛令21条）は、衛生管理者を選任すべき事業場（安衛法",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\safety-org-structure-ii-1-29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安全衛生委員会（安衛法19条）は、安全委員会及び衛生委員会を設置しなければならな",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\pdpc-diagram-ii-1-3.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 680px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（調停委員会）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "及ぼす関係等での当事者",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（当事者申請）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "協議に基づく一方申請",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "協議に基づく一方申請",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（公益委員三者構成）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "で構成",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "公益委員",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（双事者委員で構成）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "あっせん：労働者代表と使用者の間で締結する。調停・仲裁：労働組合員に関する争議の",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\labor-dispute-resolution-ii-1-15.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "＊労働委員会があっせんを開始するのは申請があった場合等に、労使の申請を受けて非公",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 700px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループA",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループB",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループC",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループD",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループA",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループB",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\kj-method-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループC（統合テーマ）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\interrelation-diagram-ii-1-3.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\interrelation-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（テーマ）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 580px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（法定労働時間の総枠）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "の総枠",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（40時間×31÷7）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（40時間×31÷7）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（40時間×30÷7）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "6カ月経過日から起算して、当該初日以後の1年間においては、有給休暇",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "全労働者の8割以上出勤したその者に対して、10労働日の有給休暇を与えなければなら",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\flextime-ii-1-11.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（雇入れの日から、6カ月を起算して1年ごとに、前年の日数の区分に応じた継続勤務し",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（スクリーニング）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（環境保全計画の策定）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "準備書",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（環境影響評価の実施）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "環境影響評価法のフロー（概略）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "第一種事業：必ず環境影響評価を実施　第二種事業：スクリーニングにより要否を判定",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\eia-procedure-ii-1-38.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "方法書→準備書→評価書の順で手続きを進め、各段階で知事・市町村長・住民の意見を聴",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 600px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（特性）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\cause-effect-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "小要因",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 580px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "5",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "6",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "7",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "8",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "今後30年以内に地震が発生する確率（%）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2500",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "5000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2.20%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-unknown-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "↑現在（2530年）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 580px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "確率密度",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.001",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.0008",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.0006",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.0004",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.0002",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2500",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "5000",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "面積A",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "面積B",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2500年　2530年",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\bpt-distribution-known-ii-1-28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "↑現在",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 480px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードA",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードB",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードC",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードD",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "見出しカード",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードE",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードF",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードG",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "見出しカード",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードH",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードI",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードJ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "カードK",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "見出しカード",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループ1",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループ2",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "グループ3",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\h24-primary\\img\\affinity-diagram-ii-1-3.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "まとめカード",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\four-e-overview.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 420px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\four-e-countermeasures\\img\\four-e-overview.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4 つの観点を補完的に組み合わせて運用する",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "必要・不要を区別し",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "不要なものを除くこと",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "決められた場所に",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "置くこと",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "常に清潔にして",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "わかる状態を保つ",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "整理・整頓・清掃の",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "3Sを維持すること",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "決められたことを",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\five-s\\img\\5s-quality-map.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "守る習慣をつける",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\exam-application-guide\\img\\figure-2-4.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 600px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\exam-application-guide\\img\\figure-2-4.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "改善案に",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\exam-application-guide\\img\\figure-2-4.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "トレードオフ",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\exam-application-guide\\img\\figure-2-4.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "の解消を",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\exam-application-guide\\img\\figure-2-1.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 720px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\exam-application-guide\\img\\figure-2-1.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "経歴票がそのまま質問ベースに",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "早期発見",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "計器発見",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "検査発見",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "着火しない",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.9",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.1",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.9",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.1",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.9",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.1",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "成功",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.5",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "失敗",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.5",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\eta\\img\\eta-gas-leak-example.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（4 層のセーフガードがすべて失敗した場合のみ事故）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\essay-exam-strategy\\img\\figure-4-15-three-layer-structure.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\essay-exam-strategy\\img\\figure-4-02.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 640px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（高速・国道・林道）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（新幹線・軌道）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（ダム・堰・放水路",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "湖沼開発）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "水力・火力・地熱",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "原子力",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "太陽電池・風力",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（原子力はすべて）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "最終処分場",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "30ha 以上が",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "第一種事業",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "※ 宅地には工場用地なども含む",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\environmental-impact-assessment\\img\\eia-target-categories.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "第一種/第二種の規模基準（面積・延長・出力等）は環境省パンフレット参照",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\design-thinking\\img\\5-steps-iterative-flow.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 600px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\csr\\img\\csr-csv-evolution.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 600px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\csr\\img\\csr-csv-evolution.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ポーター（2011）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\regression-line.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "u",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\regression-line.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "プロットとモデル関数の二乗の和を最小にする f(x)",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\regression-line.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "← 回帰直線 →",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\correlation-scatter-patterns.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\correlation-scatter-patterns.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "右肩上がり",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\correlation-scatter-patterns.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "相関係数 ≈ 1 に近い",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\correlation-scatter-patterns.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "相関係数 ≈ 0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\correlation-scatter-patterns.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "右肩下がり",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\correlation-analysis\\img\\correlation-scatter-patterns.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "相関係数 ≈ −1 に近い",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "200",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "400",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "600",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1975",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1985",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1995",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2005",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2015",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "2021",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "気象庁",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（回）発生件数（年間）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "500",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "400",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "図　1時間降水量50mm以上の年間発生回数の経年変化（1976〜2021年）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\climate-change-decarbonization\\img\\heavy-rainfall-trend.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "棒グラフ＝各年の発生件数／直線＝5 年移動平均／黒線＝比較期間の平均トレンド",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\citizen-participation\\img\\arnstein-ladder.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 460px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\citizen-participation\\img\\arnstein-ladder.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "Arnstein (1969) \"A Ladder of Citizen Par",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 460px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "技能・経験",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "教育",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "作業手順",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "工程設計",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "保守状況",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "経年劣化",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "品質",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\cause-and-effect-diagram\\img\\fishbone-4m.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "規格",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 420px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "損益分岐点",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "売上高",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "総費用",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "固定費",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "変動費",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\break-even-chart.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "固定費",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\break-even-point\\img\\bep-formulas.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "設置",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "故障率",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "初期故障期間",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "偶発故障期間",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "摩耗故障期間",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "部品交換",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "部分更新",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "更新",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "部品交換による",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "故障率の低減・",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-maintenance-effect.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "耐用年数の延長",
+      "detail": "font-size 8px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-curve-phases.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 420px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-curve-phases.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "初期故障期間",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-curve-phases.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "偶発故障期間",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\bathtub-curve\\img\\bathtub-curve-phases.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "摩耗故障期間",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\alert-levels\\img\\alert-levels-5stage.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "既に災害発生／命を守る最善の行動",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\alert-levels\\img\\alert-levels-5stage.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "危険な場所から全員避難",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\alert-levels\\img\\alert-levels-5stage.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "高齢者・要配慮者は立退き避難",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\alert-levels\\img\\alert-levels-5stage.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ハザードマップ等で避難経路を再確認",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\alert-levels\\img\\alert-levels-5stage.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "最新の防災気象情報に注意",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 520px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "人件費・設備費等",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "検査・段取・運搬",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "A・B・C 品番",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "各活動の資源消費量",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（例: 人時・稼働時間）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "各製品の活動利用量",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\pe-comprehensive-management\\activity-abc\\img\\abc-two-stage-allocation.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（例: 検査回数・段取回数）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "バック",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ホゥ",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ショベル",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（油圧）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ローディング",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ショベル",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "クラムシェル",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（油圧）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "クラムシェル",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（機械式）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ドラグライン",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ショベル",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（機械式）",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "油圧ショベル",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "油圧ショベル",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "油圧式",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "機械式",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "派生機械",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "基本分類",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-8.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "油圧式／機械式は作業動力の伝達方式による分類",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "定格荷重表示銘板",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "落下防止バルブ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アーム角度センサ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ブーム角度センサ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "荷重検出用圧力センサ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "過負荷警報装置",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "水準器",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "クレーンモード",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "外部表示灯",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "格納型フック",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "安全装置",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "センサ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ブーム",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アーム",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-13.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "バケット",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ブームシリンダ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アームシリンダ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "バケットシリンダ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ブーム",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アーム",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "バケット",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "シリンダ",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-shovel-excavator\\img\\figure-2-10.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "本体",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-schedule-overview\\img\\cost-duration-curve.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 420px > 400px（モバイル視認性）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（優先）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "待機船",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "入港船",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（防波堤の外で待機→右側航行）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "引船",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": ".local\\r2\\posts\\civil-construction-1\\textbook-port-regulations\\img\\figure-7-6.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "被えい航物件",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    }
+  ]
 }
