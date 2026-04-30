@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="256" height="64" rx="32" fill="#2e6da4" />
+  <text x="208" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">セットで覚える</text>
+  <text x="80" y="240" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="50" font-weight="800" fill="#222222" text-anchor="start">関連キーワード</text>
+  <line x1="80" y1="290" x2="1000" y2="290" stroke="#2e6da4" stroke-width="3" />
+  <rect x="80" y="360" width="920" height="78" rx="16" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+  <circle cx="108" cy="399" r="6" fill="#2e6da4" />
+  <text x="136" y="399" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="600" fill="#222222" text-anchor="start" dominant-baseline="central">3C 分析</text>
+  <rect x="80" y="450" width="920" height="78" rx="16" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+  <circle cx="108" cy="489" r="6" fill="#2e6da4" />
+  <text x="136" y="489" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="600" fill="#222222" text-anchor="start" dominant-baseline="central">バリューチェーン分析</text>
+  <rect x="80" y="540" width="920" height="78" rx="16" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+  <circle cx="108" cy="579" r="6" fill="#2e6da4" />
+  <text x="136" y="579" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="600" fill="#222222" text-anchor="start" dominant-baseline="central">PPM（プロダクト・ポートフォリオ）</text>
+  <rect x="80" y="630" width="920" height="78" rx="16" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+  <circle cx="108" cy="669" r="6" fill="#2e6da4" />
+  <text x="136" y="669" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="600" fill="#222222" text-anchor="start" dominant-baseline="central">4P 分析</text>
+  <rect x="80" y="720" width="920" height="78" rx="16" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+  <circle cx="108" cy="759" r="6" fill="#2e6da4" />
+  <text x="136" y="759" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="600" fill="#222222" text-anchor="start" dominant-baseline="central">データマイニング（RFM）</text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="220" height="64" rx="32" fill="#3a7d44" />
+  <text x="190" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">核心の図解</text>
+  <g transform="translate(180, 270) scale(1.894736842105263)">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">SWOT 分析の 2 軸 4 象限</text>
+
+  <text x="120" y="60" text-anchor="middle" font-size="12" fill="#3a7d44" font-family="sans-serif" font-weight="bold">プラス要因</text>
+  <text x="270" y="60" text-anchor="middle" font-size="12" fill="#b22234" font-family="sans-serif" font-weight="bold">マイナス要因</text>
+
+  <text x="20" y="170" font-size="12" fill="#222" font-family="sans-serif" font-weight="bold" transform="rotate(-90 20 170)" text-anchor="middle">内部環境</text>
+  <text x="20" y="290" font-size="12" fill="#222" font-family="sans-serif" font-weight="bold" transform="rotate(-90 20 290)" text-anchor="middle">外部環境</text>
+
+  <g>
+    <rect x="40" y="74" width="160" height="100" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2" rx="4"/>
+    <text x="120" y="98" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">S</text>
+    <text x="120" y="118" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Strengths</text>
+    <text x="120" y="136" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">強み</text>
+    <text x="120" y="156" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">自社の優位性・</text>
+    <text x="120" y="170" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">経営資源</text>
+  </g>
+
+  <g>
+    <rect x="200" y="74" width="160" height="100" fill="#f8d7da" stroke="#b22234" stroke-width="2" rx="4"/>
+    <text x="280" y="98" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">W</text>
+    <text x="280" y="118" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Weaknesses</text>
+    <text x="280" y="136" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">弱み</text>
+    <text x="280" y="156" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">自社の劣位・</text>
+    <text x="280" y="170" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">改善すべき点</text>
+  </g>
+
+  <g>
+    <rect x="40" y="194" width="160" height="100" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2" rx="4"/>
+    <text x="120" y="218" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">O</text>
+    <text x="120" y="238" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Opportunities</text>
+    <text x="120" y="256" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">機会</text>
+    <text x="120" y="276" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">市場・環境の</text>
+    <text x="120" y="290" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">有利な変化</text>
+  </g>
+
+  <g>
+    <rect x="200" y="194" width="160" height="100" fill="#f8d7da" stroke="#b22234" stroke-width="2" rx="4"/>
+    <text x="280" y="218" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">T</text>
+    <text x="280" y="238" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Threats</text>
+    <text x="280" y="256" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">脅威</text>
+    <text x="280" y="276" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">市場・環境の</text>
+    <text x="280" y="290" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">不利な変化</text>
+  </g>
+
+  <g>
+    <rect x="40" y="310" width="320" height="60" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="4"/>
+    <text x="200" y="328" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">クロス SWOT で戦略を導出</text>
+    <text x="200" y="346" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">SO（積極攻勢）/ WO（弱点克服）</text>
+    <text x="200" y="362" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ST（差別化）/ WT（防衛・撤退）</text>
+  </g>
+</g>
+  <rect x="80" y="1080" width="920" height="110" rx="16" fill="#e8f0fe" />
+  <text x="540" y="1115" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#1a3a5c" text-anchor="middle">内部 × 外部、プラス × マイナス</text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>
