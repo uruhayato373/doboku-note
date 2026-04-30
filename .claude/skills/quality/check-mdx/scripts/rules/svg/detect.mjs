@@ -265,8 +265,11 @@ export function detectSvgIssues(svg) {
   }
 
   // P2: テキスト同士の重なり
+  // 回転テキスト（軸ラベル等）は textBBox が rotation を考慮しないため、
+  // 水平に展開した phantom bbox と他テキストの偽陽性を避ける（P1 と同じ理由）
   for (let i = 0; i < bboxes.length; i++) {
     for (let j = i + 1; j < bboxes.length; j++) {
+      if (svg.texts[i].isRotated || svg.texts[j].isRotated) continue;
       if (bboxesOverlap(bboxes[i], bboxes[j])) {
         findings.push({
           pattern: "P2-text-overlap",
