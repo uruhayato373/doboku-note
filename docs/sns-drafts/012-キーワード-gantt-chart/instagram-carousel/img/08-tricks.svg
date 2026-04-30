@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="256" height="64" rx="32" fill="#d4a017" />
+  <text x="208" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">試験で狙われる</text>
+  <text x="80" y="240" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="48" font-weight="800" fill="#222222" text-anchor="start">引っかけポイント</text>
+  <line x1="80" y1="290" x2="1000" y2="290" stroke="#d4a017" stroke-width="3" />
+  <circle cx="130" cy="370" r="40" fill="#d4a017" />
+  <text x="130" y="370" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="56" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="central">1</text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="800" fill="#1a3a5c"><tspan x="200" y="350">依存関係の表現が苦手</tspan></text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#555555"><tspan x="200" y="399">バーチャートでは先行・後続を明示できない</tspan></text>
+  <circle cx="130" cy="530" r="40" fill="#d4a017" />
+  <text x="130" y="530" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="56" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="central">2</text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="800" fill="#1a3a5c"><tspan x="200" y="510">クリティカルパスは識別不可</tspan></text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#555555"><tspan x="200" y="559">PERT/CPM の機能</tspan></text>
+  <circle cx="130" cy="690" r="40" fill="#d4a017" />
+  <text x="130" y="690" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="56" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="central">3</text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="800" fill="#1a3a5c"><tspan x="200" y="670">アローダイアグラムとの混同</tspan></text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#555555"><tspan x="200" y="719">アロー＝ネットワーク図、ガント＝バーチャート</tspan></text>
+  <circle cx="130" cy="850" r="40" fill="#d4a017" />
+  <text x="130" y="850" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="56" font-weight="900" fill="#ffffff" text-anchor="middle" dominant-baseline="central">4</text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="800" fill="#1a3a5c"><tspan x="200" y="830">小日程 vs 中〜大日程</tspan></text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#555555"><tspan x="200" y="879">複雑な PJ には PERT/CPM</tspan></text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

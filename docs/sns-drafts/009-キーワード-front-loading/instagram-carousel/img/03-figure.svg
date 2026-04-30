@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="220" height="64" rx="32" fill="#3a7d44" />
+  <text x="190" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">核心の図解</text>
+  <g transform="translate(180, 270) scale(1.894736842105263)">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">フロントローディングの本質</text>
+  <text x="190" y="40" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">投入リソースを上流に前倒しする</text>
+
+  <g>
+    <rect x="20" y="60" width="14" height="14" fill="#8a8a8a"/>
+    <text x="40" y="71" font-size="11" fill="#222" font-family="sans-serif">従来型</text>
+    <rect x="100" y="60" width="14" height="14" fill="#2e6da4"/>
+    <text x="120" y="71" font-size="11" fill="#222" font-family="sans-serif">フロントローディング</text>
+  </g>
+
+  <line x1="40" y1="280" x2="360" y2="280" stroke="#222" stroke-width="1.5"/>
+  <line x1="40" y1="90" x2="40" y2="280" stroke="#222" stroke-width="1.5"/>
+  <text x="20" y="180" font-size="11" fill="#555" font-family="sans-serif" transform="rotate(-90 20 180)" text-anchor="middle">投入</text>
+
+  <g>
+    <rect x="56" y="240" width="20" height="40" fill="#8a8a8a"/>
+    <rect x="78" y="120" width="20" height="160" fill="#2e6da4"/>
+    <text x="77" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">企画</text>
+  </g>
+
+  <g>
+    <rect x="120" y="220" width="20" height="60" fill="#8a8a8a"/>
+    <rect x="142" y="140" width="20" height="140" fill="#2e6da4"/>
+    <text x="141" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">基本</text>
+  </g>
+
+  <g>
+    <rect x="184" y="180" width="20" height="100" fill="#8a8a8a"/>
+    <rect x="206" y="200" width="20" height="80" fill="#2e6da4"/>
+    <text x="205" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">詳細</text>
+  </g>
+
+  <g>
+    <rect x="248" y="120" width="20" height="160" fill="#8a8a8a"/>
+    <rect x="270" y="240" width="20" height="40" fill="#2e6da4"/>
+    <text x="269" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">試作</text>
+  </g>
+
+  <g>
+    <rect x="312" y="160" width="20" height="120" fill="#b22234"/>
+    <rect x="334" y="260" width="20" height="20" fill="#2e6da4"/>
+    <text x="333" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">量産</text>
+  </g>
+
+  <text x="200" y="312" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">← 上流（自由度・低コスト）　　下流（拘束・高コスト）→</text>
+
+  <g>
+    <rect x="40" y="328" width="320" height="44" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+    <text x="200" y="346" text-anchor="middle" font-size="12" fill="#3a7d44" font-family="sans-serif" font-weight="bold">前倒し投入で後工程の手戻りコストを削減</text>
+    <text x="200" y="364" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">設計段階で品質・コストの 8 割が決まる（ものづくり白書 2020）</text>
+  </g>
+</g>
+  <rect x="80" y="1080" width="920" height="110" rx="16" fill="#e8f0fe" />
+  <text x="540" y="1115" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#1a3a5c" text-anchor="middle">上流投入で下流の手戻り削減</text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

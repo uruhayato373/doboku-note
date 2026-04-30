@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="340" height="64" rx="32" fill="#2e6da4" />
+  <text x="250" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">マズローとの対応関係</text>
+  <text x="80" y="240" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="50" font-weight="800" fill="#222222" text-anchor="start">マズローとの対応</text>
+  <line x1="80" y1="290" x2="1000" y2="290" stroke="#2e6da4" stroke-width="3" />
+  <rect x="80" y="480" width="920" height="60" rx="0" fill="#2e6da4" />
+  <text x="310" y="510" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">ハーズバーグ</text>
+  <text x="770" y="510" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">マズロー</text>
+  <rect x="80" y="540" width="920" height="60" rx="0" fill="#f8fafc" stroke="#e5e7eb" stroke-width="1" />
+  <text x="310" y="570" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="middle" dominant-baseline="central">動機づけ要因</text>
+  <text x="770" y="570" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="middle" dominant-baseline="central">高次欲求（自己実現・承認）</text>
+  <rect x="80" y="600" width="920" height="60" rx="0" fill="#ffffff" stroke="#e5e7eb" stroke-width="1" />
+  <text x="310" y="630" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="middle" dominant-baseline="central">衛生要因</text>
+  <text x="770" y="630" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="middle" dominant-baseline="central">低次欲求（社会的・安全・生理的）</text>
+  <rect x="80" y="1080" width="920" height="90" rx="16" fill="#e8f0fe" />
+  <text x="540" y="1140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#1a3a5c" text-anchor="middle">組み合わせて施策設計</text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

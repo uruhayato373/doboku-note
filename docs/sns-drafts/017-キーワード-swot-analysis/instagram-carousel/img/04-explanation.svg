@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="220" height="64" rx="32" fill="#2e6da4" />
+  <text x="190" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">内部環境</text>
+  <text x="80" y="240" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="50" font-weight="800" fill="#222222" text-anchor="start">内部環境（S・W）</text>
+  <line x1="80" y1="290" x2="1000" y2="290" stroke="#2e6da4" stroke-width="3" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="40" font-weight="700" fill="#1a3a5c"><tspan x="80" y="360">自社で制御可能な要素</tspan></text>
+  <rect x="80" y="589.6" width="14" height="14" rx="7" fill="#2e6da4" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="400" fill="#222222"><tspan x="110" y="608">S: Strengths（強み）— 競合と比較した優位</tspan><tspan x="110" y="647">性</tspan></text>
+  <rect x="80" y="653.6" width="14" height="14" rx="7" fill="#2e6da4" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="400" fill="#222222"><tspan x="110" y="672">W: Weaknesses（弱み）— 競合と比較した劣</tspan><tspan x="110" y="711">位</tspan></text>
+  <rect x="80" y="1080" width="920" height="90" rx="16" fill="#e8f0fe" />
+  <text x="540" y="1140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#1a3a5c" text-anchor="middle">自らの努力で変えられる</text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

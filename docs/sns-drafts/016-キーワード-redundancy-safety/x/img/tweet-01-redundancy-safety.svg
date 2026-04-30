@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect x="0" y="0" width="1200" height="675" rx="0" fill="#ffffff" />
+<rect x="60" y="30" width="372" height="56" rx="28" fill="#2e6da4" />
+  <text x="246" y="58" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">総監キーワード解説 #1</text>
+  <text x="1160" y="64" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  <text x="60" y="130" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="600" fill="#2e6da4" text-anchor="start">定義</text>
+  <text x="60" y="180" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="38" font-weight="800" fill="#222222" text-anchor="start">冗長性</text>
+  <line x1="60" y1="200" x2="1140" y2="200" stroke="#2e6da4" stroke-width="2" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#1a3a5c"><tspan x="60" y="250">冗長性（Redundancy）とは、システムの構成要素を多重</tspan><tspan x="60" y="289">化し、一部が故障しても他の要素が機能を代替することで、システ</tspan></text>
+  <text x="60" y="386" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#222222" text-anchor="start">単一故障による安全機能喪失を防止する基盤概念。</text>
+  <text x="600" y="645" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#2e6da4" text-anchor="middle">→ doboku-note で詳しく解説</text>
+</svg>

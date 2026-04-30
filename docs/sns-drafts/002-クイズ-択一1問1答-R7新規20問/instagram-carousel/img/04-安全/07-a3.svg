@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="380" height="64" rx="32" fill="#3a7d44" />
+  <text x="270" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">A15 安全管理</text>
+  <text x="80" y="220" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="38" font-weight="700" fill="#555555" text-anchor="start">Safety1.0 と Safety2.0</text>
+  <text x="80" y="320" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="56" font-weight="800" fill="#3a7d44" text-anchor="start">✓ 正答</text>
+  <rect x="60" y="380" width="960" height="320" rx="20" fill="#e6f4ea" />
+  <text x="540" y="530" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="140" font-weight="900" fill="#3a7d44" text-anchor="middle">④</text>
+  <text x="540" y="619" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="700" fill="#222222" text-anchor="middle">ア・イ・エが Safety2.0、ウ・オが </text>
+  <text x="540" y="661" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="700" fill="#222222" text-anchor="middle">Safety1…</text>
+  <line x1="80" y1="760" x2="1000" y2="760" stroke="#e5e7eb" stroke-width="2" />
+  <text x="80" y="820" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="700" fill="#555555" text-anchor="start">解説</text>
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="34" font-weight="400" fill="#555555"><tspan x="80" y="890">Safety1.0 = 隔離・分離による安全（機械安</tspan><tspan x="80" y="944">全・機能安全・自動停止）。Safety2.0 = I</tspan><tspan x="80" y="998">oT・協調による安全（協調安全・情報共有）。「協調」</tspan><tspan x="80" y="1052">「情報共有」「IoT」→ Safety2.0、「隔離」</tspan><tspan x="80" y="1106">「分離」「自動停止」「保安制御」→ Safety1.</tspan><tspan x="80" y="1160">0。</tspan></text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>
