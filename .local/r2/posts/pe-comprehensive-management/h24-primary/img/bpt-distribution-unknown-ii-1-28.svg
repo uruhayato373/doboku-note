@@ -22,7 +22,7 @@
   <text x="45" y="85"  text-anchor="end" font-size="10">6</text>
   <text x="45" y="63"  text-anchor="end" font-size="10">7</text>
   <text x="45" y="42"  text-anchor="end" font-size="10">8</text>
-  <text x="14" y="130" font-size="9" transform="rotate(-90,14,130)" text-anchor="middle">今後30年以内に地震が発生する確率（%）</text>
+  <text x="6" y="130" font-size="9" transform="rotate(-90,6,130)" text-anchor="middle">今後30年以内に地震が発生する確率（%）</text>
 
   <!-- X-axis labels -->
   <text x="60"  y="235" text-anchor="middle" font-size="10">1000</text>
@@ -39,5 +39,5 @@
   <!-- 2.20% annotation -->
   <line x1="298" y1="30" x2="298" y2="220" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5,3"/>
   <text x="310" y="60" font-size="10" fill="#b22234">2.20%</text>
-  <text x="240" y="235" text-anchor="middle" font-size="10" fill="#b22234">↑現在（2530年）</text>
+  <text x="298" y="260" text-anchor="middle" font-size="10" fill="#b22234">↑現在（2530年）</text>
 </svg>

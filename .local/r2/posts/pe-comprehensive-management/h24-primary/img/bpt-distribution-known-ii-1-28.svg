@@ -10,7 +10,7 @@
   <line x1="60" y1="230" x2="60" y2="20" stroke="#222" stroke-width="1.5" marker-end="url(#arq)"/>
 
   <!-- Y-axis label -->
-  <text x="12" y="130" font-size="10" transform="rotate(-90,12,130)" text-anchor="middle">確率密度</text>
+  <text x="4" y="130" font-size="10" transform="rotate(-90,4,130)" text-anchor="middle">確率密度</text>
   <text x="14" y="85" font-size="9">0.001</text>
   <text x="14" y="105" font-size="9">0.0008</text>
   <text x="14" y="130" font-size="9">0.0006</text>

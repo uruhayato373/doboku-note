@@ -36,7 +36,7 @@
   <line x1="50" y1="160" x2="350" y2="160" stroke="#555" stroke-width="1.5" marker-end="url(#arr-pm)" />
 
   <!-- 軸目盛 -->
-  <text x="195" y="22" class="t-axis-mark" text-anchor="end">高</text>
+  <text x="195" y="38" class="t-axis-mark" text-anchor="end">高</text>
   <text x="195" y="305" class="t-axis-mark" text-anchor="end">低</text>
   <text x="48" y="156" class="t-axis-mark" text-anchor="end">弱</text>
   <text x="352" y="156" class="t-axis-mark" text-anchor="start">強</text>

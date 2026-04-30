@@ -61,8 +61,8 @@
   <!-- Row: 組織構造 -->
   <rect x="10" y="228" width="130" height="50" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
   <text x="75" y="249" text-anchor="middle">組織</text>
-  <text x="75" y="264" text-anchor="middle">（4）発電士の</text>
-  <text x="75" y="270" text-anchor="middle" font-size="9">管理階層は解消</text>
+  <text x="75" y="260" text-anchor="middle" font-size="9">（4）発電士の</text>
+  <text x="75" y="272" text-anchor="middle" font-size="9">管理階層は解消</text>
 
   <rect x="140" y="228" width="250" height="50" fill="#e8f0fe" stroke="#555" stroke-width="1"/>
   <text x="265" y="244" text-anchor="middle" font-size="10">中央集権的な階層型組織</text>

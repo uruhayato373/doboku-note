@@ -25,8 +25,6 @@
     <line x1="160" y1="80"  x2="160" y2="93"  stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2"/>
     <!-- ラベル -->
     <text x="110" y="122" fill="#555" font-size="9">u</text>
-    <text x="60"  y="188" text-anchor="middle" fill="#555" font-size="9">プロットとモデル関数の</text>
-    <text x="150" y="188" text-anchor="middle" fill="#555" font-size="9">二乗の和を最小にする</text>
-    <text x="220" y="188" text-anchor="middle" fill="#555" font-size="9">f(x)を求める</text>
-    <text x="145" y="197" text-anchor="middle" fill="#555" font-size="9">← 回帰直線 →</text>
+    <text x="140" y="188" text-anchor="middle" fill="#555" font-size="9">プロットとモデル関数の二乗の和を最小にする f(x)</text>
+    <text x="140" y="197" text-anchor="middle" fill="#555" font-size="9">← 回帰直線 →</text>
   </svg>
