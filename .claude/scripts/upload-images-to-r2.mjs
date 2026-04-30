@@ -181,3 +181,9 @@ for (let i = 0; i < items.length; i += CONCURRENCY) {
 
 const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 console.log(`\nDone in ${elapsed}s! Uploaded: ${uploaded}, Skipped: ${skipped}, Failed: ${failed}`);
+
+// 1 件でも失敗があれば exit 1（GitHub Actions が success と誤判定する silent failure を防ぐ）
+if (failed > 0) {
+  console.error(`\nERROR: ${failed} file(s) failed to upload. See log above for "FAILED:" entries.`);
+  process.exit(1);
+}
