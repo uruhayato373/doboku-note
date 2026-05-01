@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "startDate": "2026-04-03",
+    "endDate": "2026-04-30",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Organic Search",
+      "activeUsers": 617,
+      "sessions": 824,
+      "screenPageViewsPerSession": 3.7864077669902914,
+      "averageSessionDuration": 336.7230538288835,
+      "engagementRate": 0.4320388349514563,
+      "bounceRate": 0.5679611650485437
+    },
+    {
+      "channel": "Direct",
+      "activeUsers": 573,
+      "sessions": 649,
+      "screenPageViewsPerSession": 1.8459167950693374,
+      "averageSessionDuration": 121.15584299075502,
+      "engagementRate": 0.32973805855161786,
+      "bounceRate": 0.6702619414483821
+    },
+    {
+      "channel": "Unassigned",
+      "activeUsers": 21,
+      "sessions": 30,
+      "screenPageViewsPerSession": 3.7333333333333334,
+      "averageSessionDuration": 497.22221186666667,
+      "engagementRate": 0.6,
+      "bounceRate": 0.4
+    },
+    {
+      "channel": "Referral",
+      "activeUsers": 11,
+      "sessions": 21,
+      "screenPageViewsPerSession": 2.0476190476190474,
+      "averageSessionDuration": 178.87304504761906,
+      "engagementRate": 0.6666666666666666,
+      "bounceRate": 0.3333333333333333
+    }
+  ]
+}
