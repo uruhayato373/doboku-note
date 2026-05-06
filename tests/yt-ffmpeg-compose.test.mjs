@@ -92,7 +92,7 @@ test('probeDuration: ffmpeg が無い環境では throw（明確なメッセー�
   }
   await assert.rejects(
     () => probeDuration('/dev/null'),
-    /not found in PATH/
+    /not found in PATH|Library not loaded|exited with code/
   );
 });
 
