@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-04-29T01:39:42.843Z",
+  "generated_at": "2026-05-06T21:57:53.849Z",
   "summary": {
-    "total_mdx_files": 785,
-    "total_unique_tags": 56,
+    "total_mdx_files": 786,
+    "total_unique_tags": 58,
     "allowlist_size": 84,
     "known_count": 38,
-    "unknown_count": 18,
+    "unknown_count": 20,
     "typo_candidates_count": 1
   },
   "tags": [
@@ -665,7 +665,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 383,
+      "count": 384,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -865,6 +865,7 @@
         "pe-comprehensive-management-labor-standards-act",
         "pe-comprehensive-management-labor-tribunal-act",
         "pe-comprehensive-management-labor-union-act",
+        "pe-comprehensive-management-last-minute-2026",
         "pe-comprehensive-management-lgbt-understanding-act",
         "pe-comprehensive-management-lgbtq",
         "pe-comprehensive-management-linear-regression",
@@ -1623,6 +1624,14 @@
       ]
     },
     {
+      "name": "記述式試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
       "name": "記述式対策",
       "count": 1,
       "inAllowlist": false,
@@ -1668,6 +1677,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-human-resource-management-pillar"
+      ]
+    },
+    {
+      "name": "直前対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
       ]
     },
     {
@@ -1730,8 +1747,10 @@
     "5管理",
     "キーワード集",
     "トレードオフ",
+    "記述式試験",
     "記述式対策",
     "出願",
+    "直前対策",
     "令和2年度",
     "令和3年度",
     "令和4年度",

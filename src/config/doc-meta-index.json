@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-04-29T01:39:42.457Z",
+  "generated_at": "2026-05-06T21:57:53.548Z",
   "summary": {
-    "total": 785,
-    "published": 780,
+    "total": 786,
+    "published": 781,
     "unpublished": 5,
     "by_category": {
       "civil-construction-1": 81,
-      "pe-comprehensive-management": 699
+      "pe-comprehensive-management": 700
     }
   },
   "docs": {
@@ -207,12 +207,12 @@
         "exam-preparation"
       ],
       "published": true,
-      "seoTitle": "法規の重要ポイント — 1級土木施工管理技士試験対策 | doboku-note",
+      "seoTitle": "法規の重要ポイント｜9法の頻出論点・選択戦略【1級土木施工管理技士 第1次検定】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
       "revisionCycle": 2,
       "created": "2026-04-15",
-      "dateModified": "2026-04-28",
+      "dateModified": "2026-05-07",
       "faqs": [
         {
           "q": "1級土木施工管理技士の法規分野は何問選択ですか？",
@@ -346,12 +346,12 @@
         "exam-preparation"
       ],
       "published": true,
-      "seoTitle": "出題傾向と得点戦略 — 1級土木施工管理技士 第1次検定 | doboku-note",
+      "seoTitle": "1級土木施工管理技士 第1次検定 出題傾向と合格戦略【2026年度版】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-15",
-      "dateModified": "2026-04-28",
+      "dateModified": "2026-05-07",
       "faqs": [
         {
           "q": "1級土木施工管理技士 第1次検定の合格基準は？",
@@ -875,9 +875,9 @@
         "past-questions"
       ],
       "published": true,
-      "seoTitle": "令和7年度 第1次検定 問題B | doboku-note",
+      "seoTitle": "令和7年度 第1次検定 問題B 解答解説｜施工管理・安全管理【1級土木施工管理技士】",
       "created": "2026-04-15",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "civil-construction-1-secondary-concrete-basics": {
       "title": "コンクリート工 基礎解説",
@@ -1600,9 +1600,9 @@
       ],
       "textbook_order": 305,
       "published": true,
-      "seoTitle": "工程能力図とは｜ヒストグラムとの違い・Cp Cpk の計算（1 級土木）",
+      "seoTitle": "ヒストグラム・工程能力図｜Cp Cpk の計算と判定基準【1級土木施工管理技士 品質管理】",
       "created": "2026-04-16",
-      "dateModified": "2026-04-28",
+      "dateModified": "2026-05-07",
       "faqs": [
         {
           "q": "ヒストグラムを作成する際のクラス数はデータ数によってどう変わりますか？",
@@ -1954,9 +1954,9 @@
       ],
       "textbook_order": 440,
       "published": true,
-      "seoTitle": "港則法 | doboku-note",
+      "seoTitle": "港則法とは｜許可・届出・航路内航法の違い【1級土木施工管理技士 法規】",
       "created": "2026-04-16",
-      "dateModified": "2026-04-28",
+      "dateModified": "2026-05-07",
       "faqs": [
         {
           "q": "港則法における特定港とはどのような港ですか？",
@@ -2230,9 +2230,9 @@
       ],
       "textbook_order": 115,
       "published": true,
-      "seoTitle": "スクレーパとは｜3 種類の特徴と運搬距離（被けん引式・モータ式・スクレープドーザ）",
+      "seoTitle": "スクレーパとは｜種類・運搬距離・過去問の解き方【1級土木施工管理技士】",
       "created": "2026-04-16",
-      "dateModified": "2026-04-27",
+      "dateModified": "2026-05-07",
       "faqs": [
         {
           "q": "スクレーパの主な種類と適用運搬距離はどのようになりますか？",
@@ -6159,7 +6159,7 @@
       "published": true,
       "publishedAt": "2026-04-10T00:00:00.000Z",
       "seoTitle": "総合技術監理部門 記述式試験の解答戦略 | doboku-note",
-      "dateModified": "2026-04-28",
+      "dateModified": "2026-04-29",
       "faqs": [
         {
           "q": "総監の記述式試験の試験時間と分量は？",
@@ -6291,7 +6291,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 試験ガイド | doboku-note",
-      "dateModified": "2026-04-28",
+      "dateModified": "2026-04-29",
       "faqs": [
         {
           "q": "総合技術監理（総監）部門とは何ですか？",
@@ -8933,7 +8933,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "総合技術監理 キーワード集 2026（全文・5管理600+キーワード詳細解説リンク付き） | doboku-note",
-      "dateModified": "2026-04-27"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-knowledge-sharing": {
       "title": "知識共有化",
@@ -9176,6 +9176,24 @@
       "seoTitle": "労働組合法 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
       "dateModified": "2026-04-28"
+    },
+    "pe-comprehensive-management-last-minute-2026": {
+      "title": "総合技術監理 記述式試験 直前対策2026",
+      "description": "技術士総合技術監理部門 2026年度 記述式試験の直前対策。R05〜R07の三層分析から抽出した6つの思考パターン、直近テーマ傾向、択一式の重点分野、9週間スケジュールを凝縮。7月試験まで最短距離で合格答案を書くための実践ガイド。",
+      "shortTitle": "記述式直前対策2026",
+      "subtitle": "6つの思考パターンと残り9週間の集中ポイント",
+      "category": "pe-comprehensive-management",
+      "group": "guide",
+      "tags": [
+        "総合技術監理",
+        "記述式試験",
+        "直前対策"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-07T00:00:00.000Z",
+      "created": "2026-05-07",
+      "dateModified": "2026-05-07",
+      "seoTitle": "総合技術監理 記述式試験 直前対策2026｜6つの思考パターンと9週間スケジュール"
     },
     "pe-comprehensive-management-lead-time": {
       "title": "リードタイム",
@@ -11791,7 +11809,7 @@
       "revisionCycle": 1,
       "seoTitle": "品質管理 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-04-29"
     },
     "pe-comprehensive-management-quality-costing": {
       "title": "品質原価計算",
