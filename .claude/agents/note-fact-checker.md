@@ -72,7 +72,7 @@ note 公開用ドラフトの本文中の **数値・固有名詞・頻度主張
 ```
 ## note-fact-checker 結果
 
-対象記事: docs/note-drafts/{NN-...}/article.md
+対象記事: docs/note/{slug}/article.md
 抽出 claim 数: N
 
 ### A. 内部整合（記事内の数値・主張矛盾チェック）

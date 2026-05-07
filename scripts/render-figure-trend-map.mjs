@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note-drafts/13-出題傾向変遷マップ/img/ に本文用 PNG 図版を生成する。
+// docs/note/出題傾向変遷マップ/img/ に本文用 PNG 図版を生成する。
 //
 // 元の markdown 表（17 行 × 5 列の年度別出題テーマ表）は note でレンダーされない
 // ため、SVG で描画して PNG に書き出す。設計ルールは .claude/reference/note-svg-policy.md
@@ -7,7 +7,7 @@
 // 右下 doboku-note.com ブランディング）。
 //
 // 使い方:
-//   node scripts/render-figure-13.mjs
+//   node scripts/render-figure-trend-map.mjs
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mkdirSync, writeFileSync } from 'node:fs';
@@ -15,7 +15,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note-drafts/13-出題傾向変遷マップ/img');
+const OUT_DIR = join(ROOT, 'docs/note/出題傾向変遷マップ/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）
@@ -185,7 +185,7 @@ async function render(svg, outName) {
 }
 
 async function main() {
-  console.log('Rendering figures for 13-出題傾向変遷マップ…');
+  console.log('Rendering figures for 出題傾向変遷マップ…');
   await render(svgPeriodYearlyTable(), 'figure-3-period-yearly-table.png');
   console.log('Done.');
 }

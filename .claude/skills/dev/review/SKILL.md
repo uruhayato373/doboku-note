@@ -36,7 +36,7 @@ user-invocable: true
 | `src/**/*.ts` `src/**/*.tsx`（UI以外） | `/code-review` | ロジック・ユーティリティは品質のみ |
 | `src/**/*.css` `src/**/*.scss` `src/app/globals.css` | `/design-review` | デザインシステム準拠 |
 | `docs/project/*.md` | `/critical-review` | 設計書・戦略ドキュメント |
-| `docs/note-drafts/*.md` | `/critical-review` | note ドラフト |
+| `docs/note/**/*.md` | `/critical-review` | note 記事 |
 | それ以外（判定不能） | ユーザに確認 | 下記「判定できないとき」を参照 |
 
 ### 判定できないとき

@@ -6,9 +6,9 @@ doboku-note の SNS 投稿素材（X / Instagram Carousel / YouTube Shorts）を
 - 関連 Issue: [#161 SNS 自動投稿基盤 Umbrella](https://github.com/uruhayato373/doboku-note/issues/161) / [#165 IG Carousel MVP](https://github.com/uruhayato373/doboku-note/issues/165) / [#166 YT Shorts MVP](https://github.com/uruhayato373/doboku-note/issues/166)
 - 親戦略: [07_SNS集客戦略.md v5](../project/07_SNS集客戦略.md) / [26_Instagram投稿自動化アーキテクチャ.md v3](../project/26_Instagram投稿自動化アーキテクチャ.md) / [27_5チャネル動線設計.md](../project/27_5チャネル動線設計.md)
 
-## note-drafts との違い
+## note 記事との違い
 
-| 軸 | note-drafts | sns-drafts |
+| 軸 | docs/note | docs/sns-drafts |
 |---|---|---|
 | 消費スタイル | 腰を据えて読む（5〜15 分） | 短時間・スワイプ消費（30 秒〜2 分） |
 | 長さ | 1,500〜5,000 字 | 1 ツイート 280 字 / 1 スライド 50〜80 字 / 1 動画 30〜60 秒 |
@@ -242,6 +242,37 @@ docs/sns-drafts/{NNN}-{テーマ}/
 ```
 
 **実装 Issue**: #165（IG Carousel MVP）/ #166（YT Shorts MVP）が基盤を担う。
+
+## 投稿実績の記録
+
+投稿が完了したら `.claude/state/sns-published.json` の `items` array に 1 レコード追記する（CLAUDE.md「情報蓄積の 3 層モデル」Tier 3 = 機械可読データ。`note-published.json` と同パターン）。
+
+下記の README 表（「## 現在のディレクトリ一覧」）は **投稿予定**を示し、**実績は JSON 側で管理**する（予定と実績を混ぜない）。
+
+### レコード形式（最小限）
+
+```json
+{
+  "directory": "001-択一1問1答-20問",
+  "channel": "instagram-carousel",
+  "slug": "01-経済性",
+  "publishedAt": "2026-05-06"
+}
+```
+
+| フィールド | 必須 | 説明 |
+|---|---|---|
+| `directory` | ○ | `docs/sns-drafts/{NNN}-{テーマ}/` のディレクトリ名 |
+| `channel` | ○ | `instagram-carousel` / `x` / `youtube-shorts` |
+| `slug` | ○ | カルーセル/ツイート/動画の識別子。IG なら `01-経済性`、X なら `tweet-01-{slug}`、YT なら `01-{slug}` |
+| `publishedAt` | ○ | 投稿日（ISO 8601 `yyyy-mm-dd`、`note-published.json` 慣習と揃える） |
+| `postUrl` | — | 投稿 URL（任意・後追いで追記可） |
+| `scheduledAt` | — | 予約投稿の予定日時（任意） |
+| `note` | — | 自由記述（A/B 試した内容、後追い対応事項など） |
+
+### 集計
+
+将来必要になったら集計コマンド（`node .claude/scripts/sns-status.mjs`）を追加する。最小限で運用開始するため当面は手書き・jq での目視集計に留める。
 
 ## 現在のディレクトリ一覧
 

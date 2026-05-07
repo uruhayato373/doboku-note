@@ -1,7 +1,7 @@
 ---
 name: note-hashtags
 description: >
-  note 公開用ドラフト（docs/note-drafts/{NN-...}/article.md）の内容を解析して、note の上限である 99 個までのハッシュタグを生成し、{article_dir}/hashtags.txt に保存する Generator スキル。1 行 1 個・純粋ハッシュタグのみ・コメント無しでファイル全選択コピペで note に貼り付け可能。
+  note 公開用ドラフト（docs/note/{slug}/article.md）の内容を解析して、note の上限である 99 個までのハッシュタグを生成し、{article_dir}/hashtags.txt に保存する Generator スキル。1 行 1 個・純粋ハッシュタグのみ・コメント無しでファイル全選択コピペで note に貼り付け可能。
   Use when user asks to [note ハッシュタグ生成, note タグ作成, hashtags.txt 生成, /note-hashtags].
 user-invocable: true
 ---
@@ -13,17 +13,17 @@ note.com は記事 1 本に最大 99 個までハッシュタグを設定でき�
 ## 引数
 
 ```
-/note-hashtags {NN-...} [--max N]
+/note-hashtags {slug} [--max N]
 ```
 
 | 引数 | 説明 |
 |---|---|
-| `{NN-...}` | 対象ドラフトディレクトリ名（例: `90-総監択一式17年分分析`）。`NN` 数値だけでも先頭一致で解決 |
+| `{slug}` | 対象記事ディレクトリ名（例: `総監択一式17年分分析`）。slug の先頭一致でも解決可 |
 | `--max N` | 上限を 99 から N 個に縮める（既定: 99） |
 
 ## 出力ファイル
 
-`docs/note-drafts/{NN-...}/hashtags.txt`
+`docs/note/{slug}/hashtags.txt`
 
 **フォーマット要件**（ファイル全選択コピーで note に貼付できる前提）:
 - 1 行 1 ハッシュタグ
@@ -39,7 +39,7 @@ note.com は記事 1 本に最大 99 個までハッシュタグを設定でき�
 
 ```bash
 ROOT="/Users/minamidaisuke/doboku-note"
-F="$ROOT/docs/note-drafts/{NN-...}/article.md"
+F="$ROOT/docs/note/{slug}/article.md"
 
 # 1. frontmatter（あれば category / tags 抽出）
 # 2. 本文の見出し（## 〜 ####）
@@ -97,7 +97,7 @@ grep -oE '\*\*[^*]+\*\*' "$F" | sort -u
 ### Step 4: 検証
 
 ```bash
-F="$ROOT/docs/note-drafts/{NN-...}/hashtags.txt"
+F="$ROOT/docs/note/{slug}/hashtags.txt"
 echo "総行数: $(wc -l < "$F" | tr -d ' ')"
 echo "ハッシュタグ行数: $(grep -cE '^#' "$F")"
 echo "空行: $(grep -c '^$' "$F")"
@@ -112,8 +112,8 @@ echo "重複: $(sort "$F" | uniq -d | wc -l | tr -d ' ')"
 ```
 ## /note-hashtags 結果
 
-対象: docs/note-drafts/{NN-...}/article.md
-出力: docs/note-drafts/{NN-...}/hashtags.txt
+対象: docs/note/{slug}/article.md
+出力: docs/note/{slug}/hashtags.txt
 
 生成タグ: N 個（上限 99）
 内訳:
@@ -134,7 +134,7 @@ echo "重複: $(sort "$F" | uniq -d | wc -l | tr -d ' ')"
 
 ## 制約
 
-- **対象は `docs/note-drafts/` 配下のみ**
+- **対象は `docs/note/` 配下のみ**
 - **既存 hashtags.txt があれば上書き**（バックアップは取らない、git で履歴管理）
 - **記事 1 本ずつ実行**（バルク非対応）
 - **slug → hashtag マップは本ファイルが真実源**。新カテゴリ・新キーワードを追加するときは本 SKILL.md を編集

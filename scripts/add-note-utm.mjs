@@ -1,11 +1,11 @@
 #!/usr/bin/env node
-// docs/note-drafts/{NN}/article.md の doboku-note.com 向けリンクに UTM
+// docs/note/{slug}/article.md の doboku-note.com 向けリンクに UTM
 // パラメータを一括付与する。note 公開直前に実行する想定。
 //
 // 使い方:
-//   node scripts/add-note-utm.mjs 90                       # 90- 始まり 1 件、frontmatter.utmCampaign を読む
-//   node scripts/add-note-utm.mjs 90 --campaign 90-soukan  # campaign を引数で上書き
-//   node scripts/add-note-utm.mjs 90 --dry-run             # 変更内容を表示するだけ
+//   node scripts/add-note-utm.mjs 総監択一式17年分分析       # slug 1 件、frontmatter.utmCampaign を読む
+//   node scripts/add-note-utm.mjs 総監 --campaign 90-soukan  # slug 前方一致＋campaign を引数で上書き
+//   node scripts/add-note-utm.mjs 総監 --dry-run             # 変更内容を表示するだけ
 //
 // 仕様:
 // - frontmatter.utmCampaign を campaign 名のソースとする（無ければ --campaign 引数必須）
@@ -20,7 +20,7 @@ import matter from 'gray-matter';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const DRAFTS_DIR = join(ROOT, 'docs/note-drafts');
+const NOTE_DIR = join(ROOT, 'docs/note');
 
 const URL_RE = /\bhttps:\/\/doboku-note\.com\/[^\s)\]」]+/g;
 
@@ -36,12 +36,13 @@ function parseArgs(argv) {
 }
 
 function resolveDirectory(target) {
-  const all = readdirSync(DRAFTS_DIR, { withFileTypes: true })
+  const all = readdirSync(NOTE_DIR, { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => e.name);
   if (all.includes(target)) return target;
-  const matches = all.filter((d) => d.startsWith(`${target}-`));
-  if (matches.length === 0) throw new Error(`no draft directory matches "${target}"`);
+  // slug 前方一致（例: "総監" → "総監択一式17年分分析"）
+  const matches = all.filter((d) => d.startsWith(target));
+  if (matches.length === 0) throw new Error(`no note directory matches "${target}"`);
   if (matches.length > 1) throw new Error(`ambiguous prefix "${target}": ${matches.join(', ')}`);
   return matches[0];
 }
@@ -61,11 +62,11 @@ function injectUtm(url, campaign) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   if (!args.target) {
-    console.error('Usage: node scripts/add-note-utm.mjs <NN-|directory> [--campaign <name>] [--dry-run]');
+    console.error('Usage: node scripts/add-note-utm.mjs <slug|prefix> [--campaign <name>] [--dry-run]');
     process.exit(1);
   }
   const dirName = resolveDirectory(args.target);
-  const articlePath = join(DRAFTS_DIR, dirName, 'article.md');
+  const articlePath = join(NOTE_DIR, dirName, 'article.md');
   const raw = readFileSync(articlePath, 'utf-8');
   const { data, content } = matter(raw);
   const campaign = args.campaign || data.utmCampaign;

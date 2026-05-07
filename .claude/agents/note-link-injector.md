@@ -1,6 +1,6 @@
 ---
 name: note-link-injector
-description: note 公開用ドラフト（docs/note-drafts/**/article.md）に doboku-note キーワードページへのインラインリンクを全 occurrence 注入する Generator エージェント。
+description: note 公開用ドラフト（docs/note/**/article.md）に doboku-note キーワードページへのインラインリンクを全 occurrence 注入する Generator エージェント。
 model: sonnet
 ---
 
@@ -27,7 +27,7 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
 
 | 対象 | 内容 |
 |---|---|
-| 入力 | `docs/note-drafts/{NN-...}/article.md` のフルパス |
+| 入力 | `docs/note/{slug}/article.md` のフルパス |
 | 辞書 | `src/config/pe-chapters.json`（PE 658 キーワード、`{slug, title}` のみ） |
 | ルール | `.claude/skills/social/social-post/SKILL.md` の「キーワード内部リンク（全占有方針）」 |
 | URL | `https://doboku-note.com/docs/pe-comprehensive-management-{slug}` |
@@ -70,7 +70,7 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
 3. 各 occurrence について Edit で `[text](url)` を追記
 4. 編集完了後、機械的検証を実行:
    ```bash
-   F="docs/note-drafts/{NN-...}/article.md"
+   F="docs/note/{slug}/article.md"
    echo "総リンク数: $(grep -oE '\[[^]]+\]\(https://doboku-note.com/docs/pe-[^)]+\)' "$F" | wc -l)"
    echo "ユニーク slug: $(grep -oE '/docs/pe-comprehensive-management-[a-z0-9-]+' "$F" | sort -u | wc -l)"
    echo "pipe=$(grep -c '^|' "$F") blockquote=$(grep -c '^>' "$F") U+FFFD=$(grep -cP '\xef\xbf\xbd' "$F")"
