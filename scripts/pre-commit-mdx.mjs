@@ -156,9 +156,18 @@ function checkImageDimensions(file, content) {
  * 直後が通常文字だと right-flanking と認識されず bold が無音で崩壊する。
  * 全角閉じ括弧類が最頻出パターン。§14-b 参照。
  */
+/**
+ * CommonMark 仕様: bold 閉じ ** の直前が Unicode punctuation の場合、
+ * 直後が通常文字だと right-flanking と認識されず bold が無音で崩壊する。
+ * 全角閉じ括弧類が最頻出パターン。§14-b 参照。
+ *
+ * 誤検知除外: ）** の直後が : ： 等の区切り文字・空白・行末のときは
+ * right-flanking 判定が成立するため警告しない（箇条書き **label（...）**: 形式）。
+ */
 function checkBoldEndingParen(file, content) {
   const warnings = [];
-  const pattern = /\*\*[^*\n]*[）」』】）]\*\*/gu;
+  // ）** の直後が通常文字（ひらがな・カタカナ・漢字・ASCII英数字）のときのみ検知
+  const pattern = /\*\*[^*\n]*[）」』】）]\*\*(?=[^\s:：,，。、！？」』】）\n])/gu;
   let lineNum = 0;
   for (const line of content.split("\n")) {
     lineNum++;
