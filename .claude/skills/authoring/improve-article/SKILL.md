@@ -86,6 +86,8 @@ Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象
 - **過去問バックリンクはアンカー付きにする** — `/docs/civil-construction-1-primary-r07-a` のように URL だけで終わらず、**必ず `#問題-no{N}` を付けて該当設問に直接ジャンプさせる**（例: `/docs/civil-construction-1-primary-r07-a#問題-no66`）。問題 ID は H2 見出し「問題 No.N」から自動生成される（ドット `.` は削除、スペースは `-` に置換、日本語は URL エンコードで突合）。バックリンクが多いほど全文検索・内部リンク強度・回遊率が上がる
 - **過去問解説の破損検出** — primary / secondary の MDX を扱う場合は `node .claude/skills/quality/check-mdx/scripts/rules/explanations/audit.mjs --topic=<テーマ>` を走らせ、`」と規定されている` 文頭欠落や `summary="」..."` ExamPoint 欠落がないか確認。検出されたら `/improve-article` の修正案に必ず組み込む。意味矛盾（設問肢と同じ内容なのに ❌）は読者視点で拾う
 - **SVG 品質の静的検査** — 記事に SVG を含む場合は `node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --path=<img dir>/*.svg` を走らせ、文字クリップ（P1）・必須属性欠落（P3）・テキスト重なり（P2）等を検出。HIGH は必ず修正、MEDIUM は視覚検証（Playwright スクリーンショット）と合わせて判断
+- **散文密度（§17）** — CEM キーワードページの場合、各 H2 に散文 1 段落以上あるか、ページ全体の散文比率が 60% 以上かを確認する。表・リスト・コンポーネントが大半を占める「表依存型」は `lint-mdx-mobile` rule 12-1/12-2 に相当する原則軸減点対象として `[HIGH]` で指摘する
+- **`<SeeAlso>` 配置（§18）** — `<SeeAlso>` が本文中の言及直後に配置されているか確認する。末尾にコンポーネントが塊化している場合は `lint-mdx-mobile` rule 12-3 MEDIUM に相当するとして指摘し、言及箇所への移動を促す
 
 ### Step 3: 修正方針の提示（対話）
 
