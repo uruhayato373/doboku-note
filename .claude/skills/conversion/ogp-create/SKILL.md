@@ -11,7 +11,7 @@ description: >
 MDX ページの OGP 画像（1200×630 PNG）を、共通テンプレ T06 Mono Tag で自動生成する。
 新規記事公開時・タイトル変更時・テンプレ差し替え時に使う。
 
-note 公開用ドラフト（`docs/note-drafts/`）のカバー画像（1280×670）も同じテンプレロジックを共有するため、両者で見た目が完全一致する。
+note 公開用ドラフト（`docs/note/`）のカバー画像（1280×670）も同じテンプレロジックを共有するため、両者で見た目が完全一致する。
 
 ## 引数
 
@@ -144,12 +144,12 @@ ogp:
 
 ## note カバー（兄弟スクリプト）
 
-`scripts/generate-note-covers.mjs` が同じ `renderTemplate('mono-tag', ..., { width: 1280, height: 670 })` を呼び出して `docs/note-drafts/{NN}/img/cover.png` を出力する。テンプレロジックは本スキルが真実源。
+`scripts/generate-note-covers.mjs` が同じ `renderTemplate('mono-tag', ..., { width: 1280, height: 670 })` を呼び出して `docs/note/{slug}/img/cover.png` を出力する。テンプレロジックは本スキルが真実源。
 
 ```bash
-node scripts/generate-note-covers.mjs            # 全 note ドラフト
-node scripts/generate-note-covers.mjs 90          # 90- 始まりのディレクトリだけ
-node scripts/generate-note-covers.mjs 90 --debug-safety
+node scripts/generate-note-covers.mjs            # 全 note 記事
+node scripts/generate-note-covers.mjs 総監       # slug 前方一致で対象を絞る
+node scripts/generate-note-covers.mjs 総監 --debug-safety
 ```
 
 ## 事前条件

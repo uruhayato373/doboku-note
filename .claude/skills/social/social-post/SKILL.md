@@ -70,7 +70,7 @@ doboku-note の既存コンテンツを活用して note.com / X 向けの投稿
     - **blockquote**（`>` で始まる行）→ 期待どおりの引用ブロックにならない。特に `>` の中に箇条書きをネストすると確実に崩れる。「この記事でわかること」型のサマリーは **太字見出し + プレーン箇条書き** で書く。引用装飾は note エディタの引用機能（Cmd+Shift+9）をユーザーが後付け
     - **KaTeX 数式**（`$...$` / `$$...$$`）→ 数式は使わない。必要なら画像化
     - **Mermaid 図**（` ```mermaid ` ）→ コードブロックの生テキストとして表示される。図解は SVG→PNG で
-- **マークダウン表は PNG に置換**: 上記ルール適用時の実装パターン — `scripts/render-figure-{NN}.mjs` のようなドラフト専用 SVG→PNG レンダラを 1 本書き（`sharp(Buffer.from(svg)).png().toFile(...)`）、`docs/note-drafts/{NN-...}/img/figure-{slug}.png` に出力。色は `scripts/generate-note-covers.mjs` の `BRAND` / `BRAND_FILL` / `INK_*` 定数を流用。先行例: `scripts/render-figure-90.mjs`（90-総監択一式17年分分析）
+- **マークダウン表は PNG に置換**: 上記ルール適用時の実装パターン — `scripts/render-figure-{slug}.mjs` のような記事専用 SVG→PNG レンダラを 1 本書き（`sharp(Buffer.from(svg)).png().toFile(...)`）、`docs/note/{slug}/img/figure-{slug}.png` に出力。色は `scripts/generate-note-covers.mjs` の `BRAND` / `BRAND_FILL` / `INK_*` 定数を流用。先行例: `scripts/render-figure-soukan-analysis.mjs`（総監択一式17年分分析）
 - **画像指示**: 本文中に図版を入れる位置には `![alt](./img/figure-{slug}.png)` で参照を書く。生成前のドラフト段階では `[画像: ○○の図を挿入]` プレースホルダで OK。**画像は note エディタに別途ドラッグ&ドロップで配置する**（markdown の `![](path)` 記法ではローカルパスが解決されない）
 - **キーワード内部リンク（全占有方針）**: doboku-note にキーワードページがある用語は本文中に `[キーワード](https://doboku-note.com/docs/pe-comprehensive-management-{slug})` 形式で **インラインリンク** を仕込む。実機検証で動作確認済（平文中・括弧内連続・bullet 内の太字いずれも note でハイパーリンク化される 2026-04-29）。**note 記事は doboku-note への導線が主目的**なので、リンクは出し惜しみしない。ルール:
   - **同一キーワードの全 occurrence をリンク化**（「初出のみ」は採らない。読者がどこからクリックしても遷移できる方が導線として強い）。同一目標 URL に複数回リンクが付くのは OK
@@ -88,25 +88,25 @@ doboku-note の既存コンテンツを活用して note.com / X 向けの投稿
 
 ### note 下書き生成・編集後の検証チェック
 
-`docs/note-drafts/{NN-...}/article.md` を新規作成 / 編集したら、以下を実行して破綻が無いことを確認する:
+`docs/note/{slug}/article.md` を新規作成 / 編集したら、以下を実行して破綻が無いことを確認する:
 
 ```bash
 # 1. パイプ表が残っていないか（残っていたら note でレンダリングされない）
-grep -nc '^|' docs/note-drafts/{NN-...}/article.md   # 期待値: 0
+grep -nc '^|' docs/note/{slug}/article.md   # 期待値: 0
 
 # 2. 文字化け（U+FFFD）が混入していないか
-grep -nP '\xef\xbf\xbd' docs/note-drafts/{NN-...}/article.md   # 期待値: 該当なし
+grep -nP '\xef\xbf\xbd' docs/note/{slug}/article.md   # 期待値: 該当なし
 
 # 3. 画像参照が img/ 内のファイルと一致しているか
-grep -n './img/' docs/note-drafts/{NN-...}/article.md
-ls docs/note-drafts/{NN-...}/img/
+grep -n './img/' docs/note/{slug}/article.md
+ls docs/note/{slug}/img/
 ```
 
 `grep -nc '^|' = 0` を **生成スキル（analysis / guide / keywords）の出力後に必ず実行** すること。1 件でも残っていたら表を PNG 化する。
 
 ### 4. note desumasu — ですます調変換
 
-`docs/note-drafts/{NN-タイトル}/article.md` の note 下書きを、親しみやすい ですます調 に変換する。v3 合格体験者ポジション戦略（運営者が 2026-07 受験予定）と note 媒体の特性（個人の体験・思考の共有が期待される）を踏まえ、「伴走者」トーンを演出する。
+`docs/note/{slug}/article.md` の note 下書きを、親しみやすい ですます調 に変換する。v3 合格体験者ポジション戦略（運営者が 2026-07 受験予定）と note 媒体の特性（個人の体験・思考の共有が期待される）を踏まえ、「伴走者」トーンを演出する。
 
 #### 適用判断
 

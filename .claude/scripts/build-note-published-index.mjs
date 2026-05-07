@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note-drafts/{NN}/article.md を走査し、frontmatter に noteUrl を持つ
+// docs/note/{slug}/article.md を走査し、frontmatter に noteUrl を持つ
 // 公開済み記事の一覧を .claude/state/note-published.json に集計する。
 //
 // 使い方:
@@ -11,7 +11,7 @@
 //   "updatedAt": "2026-04-29T12:00:00.000Z",
 //   "items": [
 //     {
-//       "directory": "90-総監択一式17年分分析",
+//       "slug": "総監択一式17年分分析",
 //       "noteUrl": "https://note.com/dobokunote/n/n3bcb87efddad",
 //       "noteId": "n3bcb87efddad",
 //       "publishedAt": "2026-04-29",
@@ -22,6 +22,9 @@
 //     }
 //   ]
 // }
+//
+// 他 note 記事を本文中で参照する時は、対象記事 frontmatter の noteUrl を
+// 直書きする運用とする（slug → noteUrl の逆引きは本 JSON で行える）。
 
 import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -30,7 +33,7 @@ import matter from 'gray-matter';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..', '..');
-const DRAFTS_DIR = join(ROOT, 'docs/note-drafts');
+const NOTE_DIR = join(ROOT, 'docs/note');
 const OUT_PATH = join(ROOT, '.claude/state/note-published.json');
 
 function extractH1(body) {
@@ -41,12 +44,12 @@ function extractH1(body) {
 
 function build() {
   const items = [];
-  const dirs = readdirSync(DRAFTS_DIR, { withFileTypes: true })
+  const dirs = readdirSync(NOTE_DIR, { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => e.name)
     .sort();
   for (const d of dirs) {
-    const articlePath = join(DRAFTS_DIR, d, 'article.md');
+    const articlePath = join(NOTE_DIR, d, 'article.md');
     let raw;
     try {
       raw = readFileSync(articlePath, 'utf-8');
@@ -56,7 +59,7 @@ function build() {
     const { data, content } = matter(raw);
     if (!data?.noteUrl) continue;
     items.push({
-      directory: d,
+      slug: d,
       noteUrl: data.noteUrl,
       noteId: data.noteId || null,
       publishedAt: data.notePublishedAt
@@ -84,7 +87,7 @@ function main() {
   console.log(`  公開済み: ${items.length}件`);
   console.log(`  出力: ${OUT_PATH}`);
   for (const it of items) {
-    console.log(`    - ${it.directory} (${it.publishedAt}) → ${it.noteUrl}`);
+    console.log(`    - ${it.slug} (${it.publishedAt}) → ${it.noteUrl}`);
   }
 }
 

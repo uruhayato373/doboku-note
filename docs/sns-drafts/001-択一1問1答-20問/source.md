@@ -1,7 +1,7 @@
 # 総監択一式 5 管理別 1 問 1 答 20 問 — 元素材
 
 - 作成: 2026-04-29
-- 元ネタ: `docs/note-drafts/04-1問1答チェックリスト20問/article.md`（SNS 素材へ移行）
+- 元ネタ: `docs/note/1問1答チェックリスト20問/article.md`（SNS 素材へ移行）
 - 問題数: 20 問（5 管理 × 4 問）
 - 用途: x.md / instagram-carousel.md / youtube-shorts/ の派生元（真実源）
 
