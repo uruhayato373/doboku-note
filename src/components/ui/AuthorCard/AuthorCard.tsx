@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { AUTHOR } from "@/config/author";
+import MetaCard from "@/components/ui/MetaCard/MetaCard";
 
 interface AuthorCardProps {
   publishedAt?: string;
@@ -28,10 +29,7 @@ export default function AuthorCard({
   const lastReviewed = formatDate(lastRewrittenAt);
 
   return (
-    <aside
-      className="mt-10 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 bg-white dark:bg-gray-800 p-6 sm:p-8"
-      aria-label="執筆者情報"
-    >
+    <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10">
       <div className="flex items-start gap-4">
         <Link href="/about" className="shrink-0">
           <img
@@ -76,6 +74,6 @@ export default function AuthorCard({
           </Link>
         </div>
       </div>
-    </aside>
+    </MetaCard>
   );
 }

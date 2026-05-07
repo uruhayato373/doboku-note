@@ -5,6 +5,7 @@
  */
 import Link from 'next/link';
 import backlinksData from '@/config/past-exam-backlinks.json';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 interface PastExamBacklinksProps {
   category: string;
@@ -27,7 +28,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
   if (!backlinks || backlinks.length === 0) return null;
 
   return (
-    <section aria-label="過去問での出題" className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8">
+    <MetaCard ariaLabel="過去問での出題">
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
         過去問での出題
       </h2>
@@ -49,6 +50,6 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
           </li>
         ))}
       </ul>
-    </section>
+    </MetaCard>
   );
 }

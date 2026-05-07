@@ -9,6 +9,7 @@ import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
 import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import type { PastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import peChaptersData from '@/config/pe-chapters.json';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 interface CategoryNavCardProps {
   variant: 'sidebar' | 'mobile';
@@ -275,7 +276,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 /* ─── ラッパー（デザイン統一） ─── */
 function SidebarWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-4 pb-5">
+    <MetaCard as="div" padding="compact">
       <div
         className="text-gray-900 dark:text-white"
         style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px' }}
@@ -283,16 +284,16 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
         {title}
       </div>
       {children}
-    </div>
+    </MetaCard>
   );
 }
 
 function MobileWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8">
+    <MetaCard>
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
       {children}
-    </section>
+    </MetaCard>
   );
 }
 

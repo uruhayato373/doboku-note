@@ -5,6 +5,7 @@
 import Link from 'next/link';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc } from '@/lib/doc-classifier';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 interface RelatedTextbooksProps {
   currentMeta: DocMeta;
@@ -31,7 +32,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
   if (scored.length === 0) return null;
 
   return (
-    <section className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8">
+    <MetaCard>
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
         関連するテキスト章
       </h2>
@@ -53,6 +54,6 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
           </li>
         ))}
       </ul>
-    </section>
+    </MetaCard>
   );
 }
