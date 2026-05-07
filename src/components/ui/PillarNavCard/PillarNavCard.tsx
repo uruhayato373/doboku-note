@@ -61,7 +61,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
                   className={
                     isActive
                       ? "text-sm font-bold text-gray-900 dark:text-gray-100"
-                      : "text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline"
+                      : "text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   }
                 >
                   {p.label}
