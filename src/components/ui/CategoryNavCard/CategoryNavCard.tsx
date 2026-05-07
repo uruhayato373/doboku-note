@@ -279,7 +279,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
     <MetaCard as="div" padding="compact">
       <div
         className="text-gray-900 dark:text-white"
-        style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px' }}
+        style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px' }}
       >
         {title}
       </div>

@@ -46,7 +46,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
       <MetaCard as="div" padding="compact">
         <div
           className="text-gray-900 dark:text-white"
-          style={{ fontSize: "16px", fontWeight: 700, letterSpacing: "1px", marginBottom: "8px" }}
+          style={{ fontSize: "18px", fontWeight: 700, letterSpacing: "1px", marginBottom: "8px" }}
         >
           5 管理学習ガイド
         </div>
