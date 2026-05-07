@@ -11,6 +11,8 @@
  *   - §8 図表は説明の流れの中に配置     → カテゴリ10 (10-1〜10-5, ArticleImage 規約)
  *   - §8 リンクの使い分け               → カテゴリ8 (8-1, 8-2)
  *   - §9 参考資料の構成                 → カテゴリ9-4
+ *   - §17 散文中心・表は補足            → カテゴリ12 (12-1, 12-2)
+ *   - §18 末尾コンポーネント塊化禁止    → カテゴリ12 (12-3)
  *
  * Usage:
  *   node scripts/lint-mdx-mobile.mjs <file.mdx>
@@ -39,6 +41,9 @@
  *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
  *  11-1 MEDIUM \frac{} の分子 or 分母に \text{} を含む（CJK 縮小回避のため \dfrac を推奨）
  *  11-2 MEDIUM 単行 $$<content>$$ を検出（remark-math v6 で inline 扱い、複数行化推奨）
+ *  12-1 LOW    全体散文密度 < 0.5（散文行 / (散文+表+箇条書き行)、§17）
+ *  12-2 LOW    H2 セクション内に散文 0 行（表または箇条書きのみで構成、§17）
+ *  12-3 MEDIUM <SeeAlso> <ExamPoint> <RelatedKeywords> が連続 3 件以上で末尾塊化（§18）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -834,6 +839,200 @@ function lintMathSingleLineDisplay(lines, findings) {
 }
 
 /**
+ * カテゴリ 12: 散文密度・末尾コンポーネント塊化（content-principles.md §17・§18）
+ *
+ * 過去問 MDX（r*-primary, h*-primary, r*-secondary）は除外。
+ *
+ * 12-1 LOW    全体散文密度 < 0.5（散文行 / (散文+表+箇条書き行)）
+ * 12-2 LOW    H2 セクション内に散文 0 行（表または箇条書きのみで構成）
+ * 12-3 MEDIUM <SeeAlso> <ExamPoint> <RelatedKeywords> が連続 3 件以上
+ *
+ * 散文行の定義: 通常 Markdown 段落で、以下のいずれにも該当しない行
+ *   - 空行
+ *   - 見出し行（#, ##, ###, ####）
+ *   - 表行（| で始まる行）
+ *   - 表セパレータ（|---|---| 形式）
+ *   - 箇条書き行（- / * / + / 1. などで始まる）
+ *   - コードブロック内（``` で囲まれた領域）
+ *   - JSX タグ単独行（<Foo>, </Foo>, <Foo />, <Foo, />, } など）
+ *   - HTML/MDX コメント単独行（{/* ... *\/}, <!-- ... -->）
+ *
+ * `## 参考資料` セクションは検知対象外（リンク列挙のため散文を要求しない）
+ */
+const CLUSTER_COMPONENT_TAGS = ['SeeAlso', 'ExamPoint', 'RelatedKeywords'];
+
+function classifyContentLine(line, state) {
+  const trimmed = line.trim();
+
+  // コードブロック境界
+  if (/^```/.test(trimmed)) {
+    state.inFence = !state.inFence;
+    return 'code';
+  }
+  if (state.inFence) return 'code';
+
+  if (trimmed === '') return 'blank';
+  if (/^#{1,4}\s/.test(trimmed)) return 'heading';
+  // 表セパレータと表行（先頭 `|`）
+  if (/^\|[-:\s|]+\|\s*$/.test(trimmed)) return 'table';
+  if (/^\|.*\|\s*$/.test(trimmed)) return 'table';
+  // 箇条書き
+  if (/^[-*+]\s/.test(trimmed) || /^\d+\.\s/.test(trimmed)) return 'list';
+  // JSX タグ単独行（開始/自己終了/終了/属性継続/閉じ括弧のみ）
+  if (/^<\/?[A-Za-z][\w]*(\s|>|\/>|$)/.test(trimmed)) return 'jsx';
+  if (/^\/?>\s*$/.test(trimmed)) return 'jsx';
+  if (/^[A-Za-z_][\w]*\s*=\s*["'{]/.test(trimmed)) return 'jsx'; // 属性継続行
+  if (/^\}\s*$/.test(trimmed) || /^\]\}?\s*\/?>\s*$/.test(trimmed)) return 'jsx';
+  // MDX/HTML コメント単独行
+  if (/^\{\/\*[\s\S]*?\*\/\}\s*$/.test(trimmed)) return 'comment';
+  if (/^<!--[\s\S]*?-->\s*$/.test(trimmed)) return 'comment';
+  // 引用ブロック（散文として扱う）
+  if (/^>\s/.test(trimmed)) return 'prose';
+
+  return 'prose';
+}
+
+/**
+ * 行配列を H2 セクションに分割する。
+ * 戻り値: [{ heading: '## XXX' or null, startLine, endLine, lines: [...] }]
+ * 1-based 行番号。最初の H2 より前のリード文も先頭セクションとして含む。
+ */
+function splitH2Sections(lines) {
+  const sections = [];
+  let current = { heading: null, startLine: 1, lines: [] };
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^##\s/.test(line)) {
+      if (current.lines.length > 0 || current.heading !== null) {
+        current.endLine = i; // 1-based 直前行
+        sections.push(current);
+      }
+      current = { heading: line.trim(), startLine: i + 1, lines: [] };
+    }
+    current.lines.push(line);
+  }
+  current.endLine = lines.length;
+  sections.push(current);
+  return sections;
+}
+
+function lintProseDensity(lines, filePath, findings) {
+  if (isExamArchive(filePath)) return;
+
+  // 全体散文密度（## 参考資料 セクションを除外）
+  const sections = splitH2Sections(lines);
+  const targetSections = sections.filter((s) => !/^##\s+参考資料/.test(s.heading || ''));
+
+  let proseCount = 0;
+  let contentCount = 0; // prose + table + list の合計（散文密度の分母）
+  const fenceState = { inFence: false };
+
+  for (const sec of targetSections) {
+    let sectionProse = 0;
+    let sectionContent = 0;
+    for (const line of sec.lines) {
+      const kind = classifyContentLine(line, fenceState);
+      if (kind === 'prose') {
+        sectionProse++;
+        sectionContent++;
+      } else if (kind === 'table' || kind === 'list') {
+        sectionContent++;
+      }
+      // heading / blank / jsx / comment / code は分母に入れない
+    }
+    proseCount += sectionProse;
+    contentCount += sectionContent;
+
+    // 12-2: H2 セクション内に散文 0 行
+    // 空セクション・表/箇条書き/コンポーネントのみのセクションを警告（リード文セクションは heading=null で除外）
+    if (sec.heading && sectionProse === 0) {
+      const detail = sectionContent > 0
+        ? `表・箇条書きのみで散文が 0 行`
+        : `本文が空（コンテンツ 0 行）`;
+      findings.push({
+        severity: 'LOW',
+        rule: '12-2',
+        line: sec.startLine,
+        endLine: sec.startLine,
+        message: `H2 セクション「${sec.heading.replace(/^##\s+/, '')}」: ${detail}。1 段落以上の散文導入を追加（content-principles.md §17）`,
+      });
+    }
+  }
+
+  // 12-1: 全体散文密度 < 0.5
+  // 分母が小さいページ（短すぎるページ）は誤検知を避けるため contentCount >= 10 を要求
+  if (contentCount >= 10) {
+    const density = proseCount / contentCount;
+    if (density < 0.5) {
+      findings.push({
+        severity: 'LOW',
+        rule: '12-1',
+        line: 1,
+        endLine: 1,
+        message: `全体散文密度 ${(density * 100).toFixed(0)}%（散文 ${proseCount} 行 / 総コンテンツ ${contentCount} 行、目安 60% 以上）。教材スタイルを参考に散文を厚くする（content-principles.md §17）`,
+      });
+    }
+  }
+
+  // 12-3: <SeeAlso>/<ExamPoint>/<RelatedKeywords> が連続 3 件以上
+  // 「連続」= 各タグ開始行の間に空行・JSX 継続行のみが挟まる（散文・表・箇条書き・見出しが間に入らない）
+  const componentStarts = [];
+  const tagPattern = new RegExp(`^<(${CLUSTER_COMPONENT_TAGS.join('|')})(\\s|/>|>|$)`);
+  for (let i = 0; i < lines.length; i++) {
+    if (tagPattern.test(lines[i].trim())) {
+      componentStarts.push(i + 1); // 1-based
+    }
+  }
+
+  if (componentStarts.length >= 3) {
+    // 連続判定: 各コンポーネント開始位置の間にコンテンツ行（prose/heading/table/list）が無いものをグループ化
+    const fenceStateForCluster = { inFence: false };
+    const isContentBetween = (fromLine, toLine) => {
+      // fromLine, toLine は 1-based。間の行を 0-based で走査。
+      // ただしコンポーネント本体の終端を見極めるため、コンポーネント開始タグから次のタグ開始タグまでの中で
+      // ・prose/heading/table/list が出現したらコンテンツ有り
+      // ・空行 / jsx / comment / code は無視
+      for (let k = fromLine; k < toLine - 1; k++) {
+        const kind = classifyContentLine(lines[k], fenceStateForCluster);
+        if (kind === 'prose' || kind === 'heading' || kind === 'table' || kind === 'list') {
+          return true;
+        }
+      }
+      return false;
+    };
+
+    let clusterStart = 0;
+    for (let p = 1; p < componentStarts.length; p++) {
+      const prev = componentStarts[p - 1];
+      const cur = componentStarts[p];
+      if (isContentBetween(prev, cur)) {
+        // クラスター切れ
+        if (p - clusterStart >= 3) {
+          findings.push({
+            severity: 'MEDIUM',
+            rule: '12-3',
+            line: componentStarts[clusterStart],
+            endLine: componentStarts[p - 1],
+            message: `コンポーネントが連続 ${p - clusterStart} 件で末尾塊化。<SeeAlso> を本文中の関連トピック直後に移動するか、散文を厚くする（content-principles.md §18）`,
+          });
+        }
+        clusterStart = p;
+      }
+    }
+    // 最終クラスター
+    if (componentStarts.length - clusterStart >= 3) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '12-3',
+        line: componentStarts[clusterStart],
+        endLine: componentStarts[componentStarts.length - 1],
+        message: `コンポーネントが連続 ${componentStarts.length - clusterStart} 件で末尾塊化。<SeeAlso> を本文中の関連トピック直後に移動するか、散文を厚くする（content-principles.md §18）`,
+      });
+    }
+  }
+}
+
+/**
  * content[openIdx] が '{' の前提で、対応する '}' までを抽出。
  * 戻り値: { inner: '{' と '}' の間, endIdx: '}' のインデックス } or null
  */
@@ -907,6 +1106,7 @@ function lintFile(filePath) {
   lintImages(lines, findings);
   lintMathFractions(lines, findings);
   lintMathSingleLineDisplay(lines, findings);
+  lintProseDensity(lines, filePath, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）
   for (const f of findings) {
