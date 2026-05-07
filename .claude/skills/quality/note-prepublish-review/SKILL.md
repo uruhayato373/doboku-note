@@ -1,7 +1,7 @@
 ---
 name: note-prepublish-review
 description: >
-  note 公開用ドラフト（docs/note-drafts/{NN-...}/article.md）を公開前に統合チェックする Orchestrator スキル。
+  note 公開用ドラフト（docs/note/{slug}/article.md）を公開前に統合チェックする Orchestrator スキル。
   inline checks（markdown 互換性・404・文字化け）+ 3 並列エージェント（link-injector / figure-auditor / fact-checker）で品質ゲートを通す。
   Use when user asks to [note 公開前レビュー, note ドラフトチェック, note 出版前確認, /note-prepublish-review].
 user-invocable: true
@@ -9,7 +9,7 @@ user-invocable: true
 
 # /note-prepublish-review — note 公開前統合レビュー
 
-`docs/note-drafts/{NN-...}/article.md` を note.com に公開する前の **品質ゲート** スキル。inline 機械チェック + 3 専門エージェント並列実行で、リンク導線・図版品質・事実性を一括検証する。
+`docs/note/{slug}/article.md` を note.com に公開する前の **品質ゲート** スキル。inline 機械チェック + 3 専門エージェント並列実行で、リンク導線・図版品質・事実性を一括検証する。
 
 ## 引数
 
@@ -19,7 +19,7 @@ user-invocable: true
 
 | 引数 | 説明 |
 |---|---|
-| `{NN-...}` | 対象ドラフトディレクトリ名（例: `90-総監択一式17年分分析`）。`NN` 数値だけでも可（先頭一致で解決） |
+| `{slug}` | 対象記事ディレクトリ名（例: `総監択一式17年分分析`）。slug の先頭一致でも解決可（例: `総監` → `総監択一式17年分分析`） |
 | `--audit-only` | リンク注入を行わず、すべて監査モードで実行（編集なし） |
 | `--external-fact` | ファクトチェックのスコープ D（外部一次資料突合）を有効化（デフォルト OFF） |
 
@@ -55,7 +55,7 @@ user-invocable: true
 ```bash
 # プロジェクトルートからの絶対パスで実行する（cd で相対パスを壊さない）
 ROOT="/Users/minamidaisuke/doboku-note"
-F="$ROOT/docs/note-drafts/{NN-...}/article.md"
+F="$ROOT/docs/note/{slug}/article.md"
 
 # 1. ファイル存在
 test -f "$F" || exit 1
@@ -124,7 +124,7 @@ fi
 ```
 ## /note-prepublish-review 結果
 
-対象: docs/note-drafts/{NN-...}/article.md
+対象: docs/note/{slug}/article.md
 実行モード: {default | audit-only}
 実行時刻: YYYY-MM-DD HH:MM:SS
 
@@ -177,11 +177,11 @@ note 公開直後に以下の手順で「公開済み記事」として記録す
 ### 1. UTM パラメータ付与（公開直前 or 直後に実行）
 
 ```bash
-node scripts/add-note-utm.mjs 90        # 90- 始まりのドラフトに UTM 付与
-node scripts/add-note-utm.mjs 90 --dry-run  # 変更内容のプレビュー
+node scripts/add-note-utm.mjs 総監       # slug 前方一致でドラフトに UTM 付与
+node scripts/add-note-utm.mjs 総監 --dry-run  # 変更内容のプレビュー
 ```
 
-`docs/note-drafts/{NN}/article.md` 内の `https://doboku-note.com/...` 全リンクに以下を付与:
+`docs/note/{slug}/article.md` 内の `https://doboku-note.com/...` 全リンクに以下を付与:
 - `utm_source=note`
 - `utm_medium=referral`
 - `utm_campaign={frontmatter.utmCampaign}`
@@ -232,10 +232,10 @@ node .claude/scripts/build-note-published-index.mjs
 ## 実行例
 
 ```
-/note-prepublish-review 90-総監択一式17年分分析
-/note-prepublish-review 90                          # 数値だけ。先頭一致で 90-... に解決
-/note-prepublish-review 02 --audit-only             # リンク注入はスキップ、監査のみ
-/note-prepublish-review 14 --external-fact          # 外部ファクトチェックを opt-in
+/note-prepublish-review 総監択一式17年分分析
+/note-prepublish-review 総監                         # 先頭一致で 総監... に解決
+/note-prepublish-review 一般 --audit-only            # リンク注入はスキップ、監査のみ
+/note-prepublish-review 論文骨子 --external-fact     # 外部ファクトチェックを opt-in
 ```
 
 ## ハーネス設計上の位置づけ
@@ -246,6 +246,6 @@ node .claude/scripts/build-note-published-index.mjs
 
 ## 制約
 
-- **対象は `docs/note-drafts/` 配下のみ**（doboku-note 本体の MDX は `/check-mdx` 等の別スキル管轄）
+- **対象は `docs/note/` 配下のみ**（doboku-note 本体の MDX は `/check-mdx` 等の別スキル管轄）
 - **実行は記事 1 本ずつ**（バルク対応は別スキル `/bulk-note-review` を将来検討）
 - **本スキルは編集を行いうる**（link-injector による）。`--audit-only` で抑制可能

@@ -9,7 +9,7 @@
 - 将来: `docs/sns-drafts/**/youtube-shorts/img/*.{svg,png}` — YT Shorts サムネ・字幕画像
 - 生成スクリプト: `.tmp/gen-sns-{NNN}.mjs`
 
-note 用図解（`docs/note-drafts/**/img/figure-*`）は対象外、`.claude/reference/note-svg-policy.md` 参照。doboku-note 本体（`.local/r2/posts/**/img/*.svg`）も対象外。
+note 用図解（`docs/note/**/img/figure-*`）は対象外、`.claude/reference/note-svg-policy.md` 参照。doboku-note 本体（`.local/r2/posts/**/img/*.svg`）も対象外。
 
 ## なぜ SNS 専用ルールが必要か
 

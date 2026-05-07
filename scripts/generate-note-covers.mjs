@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note-drafts 配下の各ディレクトリに img/cover.png を生成する。
+// docs/note 配下の各ディレクトリに img/cover.png を生成する。
 //
 // note.com のカバー画像（推奨 1280×670）を、サイト OGP と共通の T06 Mono Tag デザインで出力する。
 // 中央 630×630 セーフティゾーン厳守。テンプレロジックは
@@ -7,8 +7,8 @@
 //
 // 使い方:
 //   node scripts/generate-note-covers.mjs                   # 全件生成
-//   node scripts/generate-note-covers.mjs 02-一般部門との違い   # 1件だけ生成
-//   node scripts/generate-note-covers.mjs 90 --debug-safety   # 中央 630×630 の赤枠を重ねる
+//   node scripts/generate-note-covers.mjs 一般部門との違い      # 1件だけ生成（slug 前方一致）
+//   node scripts/generate-note-covers.mjs 総監 --debug-safety   # 中央 630×630 の赤枠を重ねる
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -25,7 +25,7 @@ const require = createRequire(import.meta.url);
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const DRAFTS_DIR = join(ROOT, 'docs/note-drafts');
+const NOTE_DIR = join(ROOT, 'docs/note');
 const FONTS_DIR = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const TEXT_CONFIG = require(join(ROOT, '.claude/config/ogp/text.json'));
 
@@ -67,7 +67,7 @@ async function renderCover({ dirName, title, category, debugSafety, fonts }) {
     { width: W, height: H },
   );
   const svg = await satori(element, { width: W, height: H, fonts });
-  const dir = join(DRAFTS_DIR, dirName);
+  const dir = join(NOTE_DIR, dirName);
   const imgDir = join(dir, 'img');
   mkdirSync(imgDir, { recursive: true });
   writeFileSync(join(imgDir, 'cover.svg'), svg);
@@ -76,7 +76,7 @@ async function renderCover({ dirName, title, category, debugSafety, fonts }) {
 }
 
 async function processOne(dirName, args, fonts) {
-  const dir = join(DRAFTS_DIR, dirName);
+  const dir = join(NOTE_DIR, dirName);
   const articlePath = join(dir, 'article.md');
   if (!existsSync(articlePath)) {
     console.warn(`  skip: article.md not found in ${dirName}`);
@@ -102,7 +102,7 @@ async function main() {
     else if (!a.startsWith('--')) args.target = a;
   }
 
-  const allDirs = readdirSync(DRAFTS_DIR, { withFileTypes: true })
+  const allDirs = readdirSync(NOTE_DIR, { withFileTypes: true })
     .filter((e) => e.isDirectory())
     .map((e) => e.name);
 
@@ -112,10 +112,10 @@ async function main() {
   } else if (allDirs.includes(args.target)) {
     dirs = [args.target];
   } else {
-    // 数値プレフィックスでの先頭一致解決（例: "90" → "90-総監択一式17年分分析"）
-    dirs = allDirs.filter((d) => d.startsWith(`${args.target}-`));
+    // slug 前方一致での解決（例: "総監" → "総監択一式17年分分析"）
+    dirs = allDirs.filter((d) => d.startsWith(args.target));
     if (dirs.length === 0) {
-      console.error(`no draft directory matches "${args.target}"`);
+      console.error(`no note directory matches "${args.target}"`);
       process.exit(1);
     }
   }

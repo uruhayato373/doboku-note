@@ -6,9 +6,9 @@ doboku-note の SNS 投稿素材（X / Instagram Carousel / YouTube Shorts）を
 - 関連 Issue: [#161 SNS 自動投稿基盤 Umbrella](https://github.com/uruhayato373/doboku-note/issues/161) / [#165 IG Carousel MVP](https://github.com/uruhayato373/doboku-note/issues/165) / [#166 YT Shorts MVP](https://github.com/uruhayato373/doboku-note/issues/166)
 - 親戦略: [07_SNS集客戦略.md v5](../project/07_SNS集客戦略.md) / [26_Instagram投稿自動化アーキテクチャ.md v3](../project/26_Instagram投稿自動化アーキテクチャ.md) / [27_5チャネル動線設計.md](../project/27_5チャネル動線設計.md)
 
-## note-drafts との違い
+## note 記事との違い
 
-| 軸 | note-drafts | sns-drafts |
+| 軸 | docs/note | docs/sns-drafts |
 |---|---|---|
 | 消費スタイル | 腰を据えて読む（5〜15 分） | 短時間・スワイプ消費（30 秒〜2 分） |
 | 長さ | 1,500〜5,000 字 | 1 ツイート 280 字 / 1 スライド 50〜80 字 / 1 動画 30〜60 秒 |

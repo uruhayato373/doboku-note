@@ -1,17 +1,17 @@
 # note 記事用 図解 SVG ポリシー
 
-note.com に PNG 化して掲載する図解（`docs/note-drafts/{NN}/img/figure-*.png`）を作るときの真実源。doboku-note 本体の inline SVG とはルールが異なるため、本ドキュメントを優先する。
+note.com に PNG 化して掲載する図解（`docs/note/{slug}/img/figure-*.png`）を作るときの真実源。doboku-note 本体の inline SVG とはルールが異なるため、本ドキュメントを優先する。
 
 ## 適用範囲
 
-- `docs/note-drafts/**/img/figure-*.svg` および `figure-*.png`（cover.png は除外、`scripts/generate-note-covers.mjs` 専用）
+- `docs/note/**/img/figure-*.svg` および `figure-*.png`（cover.png は除外、`scripts/generate-note-covers.mjs` 専用）
 - `.tmp/gen-figures-*.mjs` 等で生成する note 用図解スクリプト
 
 doboku-note 本体（`.local/r2/posts/**/img/*.svg`）は本ポリシー対象外。SVG inline 配信なので別ルール。
 
 ## cover.png のセーフティゾーン（参考）
 
-`docs/note-drafts/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の T06 Mono Tag テンプレで生成する（OGP と共通テンプレ）。サイズは note 推奨の 1280×670。
+`docs/note/**/img/cover.png` は `scripts/generate-note-covers.mjs` が `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の T06 Mono Tag テンプレで生成する（OGP と共通テンプレ）。サイズは note 推奨の 1280×670。
 
 **セーフティゾーン**: 中央 **630×630** 厳守（SAFE_L=325〜SAFE_R=955）。タイトル・カテゴリチップ・ワードマーク・下部メタはすべてこの内側。装飾（グリッド・アクセントバー）は全幅 OK（クロップで欠けても問題なし）。
 
@@ -122,7 +122,7 @@ CLAUDE.md / `src/styles/globals.css` と整合。SVG にはリテラル hex で�
 
 ```bash
 # 1. フォントサイズ規約違反チェック
-for f in docs/note-drafts/{NN}/img/figure-*.svg; do
+for f in docs/note/{slug}/img/figure-*.svg; do
   echo "=== $f ==="
   grep -o 'font-size="[0-9]*"' "$f" | sort -u
 done
@@ -149,8 +149,8 @@ done
 ## 7. 雛形リファレンス
 
 良い参考実装:
-- `.tmp/gen-figures-02.mjs` — 02 記事の生成スクリプト（横棒・比較表・マトリクス 3 種）
-- `docs/note-drafts/02-一般部門との違い/img/figure-{1,2,3}-*.svg` — 完成 SVG
+- `scripts/render-figure-soukan-analysis.mjs` — 総監択一式17年分分析の生成スクリプト（横棒均等配分・タイムライン）
+- `docs/note/一般部門との違い/img/figure-{1,2,3}-*.svg` — 完成 SVG（比較表・横棒・マトリクス 3 種）
 
 ## 8. 修正サイクル
 
