@@ -359,8 +359,14 @@
     border-bottom: 1px solid var(--rule-soft);
   }
 
-  .prose-blog details > :not(summary) {
+  .prose-blog details > :not(summary):not([data-callout]):not([data-spec-sheet-list]) {
     @apply px-5;
+  }
+
+  /* bordered components inside details: margin で外枠から離す（自身の padding を尊重） */
+  .prose-blog details > [data-callout],
+  .prose-blog details > [data-spec-sheet-list] {
+    @apply mx-5;
   }
 
   .prose-blog details ol {

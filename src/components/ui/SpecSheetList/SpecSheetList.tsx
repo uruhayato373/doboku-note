@@ -143,7 +143,7 @@ export default function SpecSheetList({
   const accentClass = accent === "brand" ? styles.rootAccentBrand : "";
 
   return (
-    <section className={`${styles.root} ${accentClass} ${className}`}>
+    <section data-spec-sheet-list className={`${styles.root} ${accentClass} ${className}`}>
       {title && (
         <header className={styles.head}>
           <div className={styles.headRow}>
