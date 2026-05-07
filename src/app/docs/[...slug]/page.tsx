@@ -308,8 +308,9 @@ export default async function DocPage({
                 <div className="mt-8">
                   <PastExamBacklinks category={category} currentSlug={slugStr} />
                 </div>
+                {/* 同セクションのキーワード: モバイル限定（デスクトップではサイドバーの SectionCard で表示済み） */}
                 {doc.meta.section && (
-                  <div className="mt-8">
+                  <div className="mt-8 zenn-desktop:hidden">
                     <SectionKeywords
                       currentSlug={slugStr}
                       section={doc.meta.section as string}

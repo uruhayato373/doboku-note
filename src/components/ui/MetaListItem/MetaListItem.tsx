@@ -1,11 +1,13 @@
 /**
- * MetaCard 内のリスト行（→ 矢印 + タイトル + 出典右寄せ）。
+ * MetaCard 内のリスト行（→ 矢印 + タイトル + スペース区切りで出典）。
  *
  * 「過去問逆引き」「参考資料」など `→ + リンクタイトル + 補助情報` の
  * 共通行レイアウトを 1 箇所に集約。リンクラッパー（next/link or <a>）は
  * 呼び出し側で `<...className="block group">` として被せる前提。
  *
  * group-hover で blue が deep blue + underline に変化する。
+ * 出典は title の直後にスペース区切り（gray + xs）で配置するため、
+ * 1 行スキャンでタイトル＋出典がセットで読める。
  *
  * 利用例:
  *   // 内部リンク（過去問逆引き）
@@ -28,7 +30,7 @@ import type { ReactNode } from 'react';
 
 interface MetaListItemProps {
   title: ReactNode;
-  /** 右寄せの出典・組織名（任意） */
+  /** タイトル直後にスペース区切りで表示する出典・組織名（任意） */
   source?: ReactNode;
   /** リンク無し（gray、hover効果なし）にする場合 true */
   plain?: boolean;
@@ -40,14 +42,17 @@ export default function MetaListItem({ title, source, plain = false }: MetaListI
     : 'text-blue-600 dark:text-blue-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 group-hover:underline';
 
   return (
-    <div className="flex items-baseline justify-between gap-3 flex-wrap text-sm">
-      <span className="flex items-baseline gap-2 min-w-0">
-        <span className="text-gray-500 dark:text-gray-400 shrink-0 leading-tight">→</span>
+    <div className="flex items-baseline gap-2 text-sm">
+      <span className="text-gray-500 dark:text-gray-400 shrink-0 leading-tight">→</span>
+      <span className="min-w-0">
         <span className={titleClassName}>{title}</span>
+        {source && (
+          <>
+            {' '}
+            <span className="text-xs text-gray-500 dark:text-gray-400">{source}</span>
+          </>
+        )}
       </span>
-      {source && (
-        <span className="text-xs text-gray-500 dark:text-gray-400 shrink-0">{source}</span>
-      )}
     </div>
   );
 }

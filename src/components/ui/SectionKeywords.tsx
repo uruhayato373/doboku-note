@@ -25,7 +25,7 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
   if (others.length === 0) return null;
 
   return (
-    <MetaCard ariaLabel="同じセクションのキーワード">
+    <MetaCard ariaLabel="同セクションのキーワード">
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
         {sec.title}
       </h2>
