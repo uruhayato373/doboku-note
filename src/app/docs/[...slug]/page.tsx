@@ -30,8 +30,10 @@ import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks'
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
+import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { generateHeadingId } from '@/lib/toc';
+import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -222,9 +224,13 @@ export default async function DocPage({
   const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
   const sectionStr = doc.meta.section as string | undefined;
 
+  // 参考資料セクションを本文から抽出して別カードに切り出す
+  // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
+  const { strippedContent, references } = extractReferencesSection(doc.content);
+
   // Extract headings for Table of Contents
   const headings = extractHeadings(
-    doc.content,
+    strippedContent,
     doc.meta.toc_min_heading_level ?? 2,
     doc.meta.toc_max_heading_level ?? 3,
   );
@@ -273,9 +279,10 @@ export default async function DocPage({
                 publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
                 updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
               />
-              {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip */}
+              {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
+                  参考資料セクションは extractReferencesSection で抽出済みのため strippedContent を渡す */}
               <div className="prose-blog prose-base md:prose-lg">
-                <SafeMDXRemote source={stripLeadingH1(doc.content)} components={components} />
+                <SafeMDXRemote source={stripLeadingH1(strippedContent)} components={components} />
               </div>
               <MetaRow
                 variant="footer"
@@ -285,6 +292,13 @@ export default async function DocPage({
                 category={category}
               />
             </article>
+
+            {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
+            {references.length > 0 && (
+              <div className="mt-8">
+                <ExternalReferences references={references} />
+              </div>
+            )}
 
             {/* 記事末尾の情報（ページ種別ごとの構成は docs/project/article-footer-design.md 参照） */}
 
