@@ -176,5 +176,4 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 **note のおすすめ続編**
 - 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 — [NPV](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[PERT](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[工程能力指数](https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・負荷工数の解法
-- 【17 年分を解いた実感】年度別難易度ランキング（無料） — 初受験者が優先して解くべき過去問
 - 【2026 年最新】総監キーワード集 2026 の変更点と学び直す優先順位（無料）
