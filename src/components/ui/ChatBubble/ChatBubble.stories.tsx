@@ -86,7 +86,7 @@ export const Conversation: Story = {
 // ダークモード対応の確認
 export const DarkMode: Story = {
   render: () => (
-    <div className="dark bg-gray-900 p-8 rounded-lg">
+    <div className="dark bg-gray-900 p-8 rounded-sm">
       <div className="space-y-4">
         <Question>
           ダークモードでの表示はどうなりますか？

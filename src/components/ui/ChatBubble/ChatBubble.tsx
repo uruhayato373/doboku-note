@@ -24,7 +24,7 @@ export default function ChatBubble({ role, icon, children }: ChatBubbleProps) {
             alt={role}
             width={40}
             height={40}
-            className="rounded shadow-sm dark:shadow-gray-600"
+            className="rounded-sm shadow-sm dark:shadow-gray-600"
             sizes="40px"  // 固定サイズ（40x40）
           />
         </div>
@@ -33,7 +33,7 @@ export default function ChatBubble({ role, icon, children }: ChatBubbleProps) {
       {/* 吹き出し */}
       <div
         className={`
-          relative max-w-[70%] p-3 rounded-xl shadow dark:shadow-gray-800 flex-shrink-0
+          relative max-w-[70%] p-3 rounded-sm shadow dark:shadow-gray-800 flex-shrink-0
           ${
             isQuestion
               ? "bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100"
@@ -64,7 +64,7 @@ export default function ChatBubble({ role, icon, children }: ChatBubbleProps) {
             alt={role}
             width={40}
             height={40}
-            className="rounded shadow-sm dark:shadow-gray-600"
+            className="rounded-sm shadow-sm dark:shadow-gray-600"
             sizes="40px"  // 固定サイズ（40x40）
           />
         </div>

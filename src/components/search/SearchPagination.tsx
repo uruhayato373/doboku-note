@@ -53,7 +53,7 @@ export function SearchPagination({
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className={cn(
-          "px-3 py-2 text-sm font-medium rounded-lg border transition-colors",
+          "px-3 py-2 text-sm font-medium rounded-sm border transition-colors",
           currentPage === 1
             ? "text-gray-400 dark:text-gray-600 border-gray-200 dark:border-gray-700 cursor-not-allowed"
             : "text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
@@ -67,7 +67,7 @@ export function SearchPagination({
         <>
           <button
             onClick={() => onPageChange(1)}
-            className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
+            className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             1
           </button>
@@ -85,7 +85,7 @@ export function SearchPagination({
           key={page}
           onClick={() => onPageChange(page)}
           className={cn(
-            "px-3 py-2 text-sm font-medium rounded-lg border transition-colors",
+            "px-3 py-2 text-sm font-medium rounded-sm border transition-colors",
             page === currentPage
                               ? "bg-primary-500 text-white border-primary-500"
               : "text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"
@@ -107,7 +107,7 @@ export function SearchPagination({
             )}
             <button
               onClick={() => onPageChange(totalPages)}
-              className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
+              className="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-sm hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               {totalPages}
             </button>
@@ -120,7 +120,7 @@ export function SearchPagination({
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={cn(
-          "px-3 py-2 text-sm font-medium rounded-lg border transition-colors",
+          "px-3 py-2 text-sm font-medium rounded-sm border transition-colors",
           currentPage === totalPages
             ? "text-gray-400 dark:text-gray-600 border-gray-200 dark:border-gray-700 cursor-not-allowed"
             : "text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white"

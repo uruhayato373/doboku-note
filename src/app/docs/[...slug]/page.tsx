@@ -72,7 +72,7 @@ async function SafeMDXRemote({ source, components }: { source: string; component
   } catch (error: any) {
     console.error('MDX compile error:', error?.message?.slice(0, 200));
     return (
-      <div className="p-4 border border-yellow-300 dark:border-yellow-700 rounded bg-yellow-50 dark:bg-yellow-900/20">
+      <div className="p-4 border border-yellow-300 dark:border-yellow-700 rounded-sm bg-yellow-50 dark:bg-yellow-900/20">
         <p className="text-yellow-700 dark:text-yellow-400 font-semibold">
           このページのコンテンツにフォーマットエラーがあります。
         </p>

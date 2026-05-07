@@ -56,7 +56,7 @@ export default function CardList({
   // データの検証
   if (!Array.isArray(data) || data.length === 0) {
     return (
-      <div className="w-full bg-red-50 dark:bg-gray-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+      <div className="w-full bg-red-50 dark:bg-gray-900/20 border border-red-200 dark:border-red-800 rounded-sm p-4">
         <p className="text-red-600 dark:text-red-400 text-sm">
           データが正しく設定されていません。
         </p>
@@ -102,7 +102,7 @@ export default function CardList({
               <div className="flex items-center space-x-3">
                 {showColorIndicator && (
                   <div 
-                    className="w-4 h-4 rounded flex-shrink-0"
+                    className="w-4 h-4 rounded-sm flex-shrink-0"
                     style={{ backgroundColor: item.color || `hsl(${index * 45}, 70%, 60%)` }}
                   />
                 )}

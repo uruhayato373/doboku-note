@@ -33,7 +33,7 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
         {prev ? (
           <Link
             href={`/docs/${prev.slug}`}
-            className="block rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
+            className="block rounded-sm border border-gray-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
           >
             <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">← 前の章</div>
             <div className="text-sm font-semibold text-blue-600 dark:text-blue-400">{prev.title}</div>
@@ -44,7 +44,7 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
         {next ? (
           <Link
             href={`/docs/${next.slug}`}
-            className="block rounded-lg border border-gray-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors text-right"
+            className="block rounded-sm border border-gray-200 dark:border-gray-700 p-4 hover:border-blue-400 dark:hover:border-blue-500 transition-colors text-right"
           >
             <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">次の章 →</div>
             <div className="text-sm font-semibold text-blue-600 dark:text-blue-400">{next.title}</div>

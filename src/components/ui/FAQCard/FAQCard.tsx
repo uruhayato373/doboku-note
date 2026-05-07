@@ -24,7 +24,7 @@ export default function FAQCard({ faqs }: FAQCardProps) {
       <ul className="space-y-2">
         {faqs.map((entry, idx) => (
           <li key={idx}>
-            <details className="group rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-3 open:border-blue-400 dark:open:border-blue-500 transition-colors">
+            <details className="group rounded-sm border border-gray-200 dark:border-gray-700 px-4 py-3 open:border-blue-400 dark:open:border-blue-500 transition-colors">
               <summary className="flex items-start gap-2 cursor-pointer list-none text-sm font-semibold text-gray-900 dark:text-gray-100 marker:hidden">
                 <span
                   aria-hidden="true"

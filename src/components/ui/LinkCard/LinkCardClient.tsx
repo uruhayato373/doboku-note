@@ -77,7 +77,7 @@ export default function LinkCardClient({
                 sizes="128px"  // 親要素のw-32（8rem = 128px）に合わせる
               />
               {category && (
-                <span className="absolute top-1 left-1 inline-block px-1.5 py-0.5 text-xs font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded shadow-sm">
+                <span className="absolute top-1 left-1 inline-block px-1.5 py-0.5 text-xs font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-sm shadow-sm">
                   {category}
                 </span>
               )}

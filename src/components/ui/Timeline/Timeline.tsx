@@ -44,7 +44,7 @@ export default function Timeline({ items, className = "" }: TimelineProps) {
                   {item.description}
                 </p>
                 {item.time && (
-                  <span className="mt-2 inline-block text-sm font-semibold text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-2 py-1 rounded">
+                  <span className="mt-2 inline-block text-sm font-semibold text-primary-500 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20 px-2 py-1 rounded-sm">
                     {item.time}
                   </span>
                 )}
