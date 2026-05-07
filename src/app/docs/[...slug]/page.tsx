@@ -18,6 +18,7 @@ import rehypeKatex from 'rehype-katex';
 // 等から除去するため、MDXRemote + rehype-katex を使うこのファイルのみに局所化。
 import 'katex/dist/katex.min.css';
 import rehypeHeadingIds from '@/lib/rehype-heading-ids';
+import rehypeExamReferences from '@/lib/rehype-exam-references';
 import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
 import { extractHeadings } from '@/lib/toc';
@@ -44,6 +45,7 @@ const mdxOptions = {
     rehypePlugins: [
       rehypeHeadingIds,
       rehypeKatex,
+      rehypeExamReferences,
       [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }] satisfies Pluggable,
     ] as Pluggable[],
   },

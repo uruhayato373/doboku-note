@@ -46,7 +46,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
       <MetaCard as="div" padding="compact">
         <div
           className="text-gray-900 dark:text-white"
-          style={{ fontSize: "16px", fontWeight: 700, letterSpacing: "1px", marginBottom: "8px" }}
+          style={{ fontSize: "18px", fontWeight: 700, letterSpacing: "1px", marginBottom: "8px" }}
         >
           5 管理学習ガイド
         </div>
@@ -61,7 +61,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
                   className={
                     isActive
                       ? "text-sm font-bold text-gray-900 dark:text-gray-100"
-                      : "text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline"
+                      : "text-sm text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:underline"
                   }
                 >
                   {p.label}

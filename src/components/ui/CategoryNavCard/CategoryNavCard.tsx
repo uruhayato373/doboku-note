@@ -220,13 +220,13 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
           {keywords.map(kw => (
             <li key={kw.slug}>
               {kw.slug === currentSuffix ? (
-                <span className="block text-xs py-0.5 pl-2 border-l-2 border-blue-500 font-bold text-gray-900 dark:text-gray-100">
+                <span className="block text-sm py-0.5 pl-2 border-l-2 border-blue-500 font-bold text-gray-900 dark:text-gray-100">
                   {kw.title}
                 </span>
               ) : (
                 <Link
                   href={`/docs/pe-comprehensive-management-${kw.slug}`}
-                  className="block text-xs py-0.5 pl-2 border-l-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-colors"
+                  className="block text-sm py-0.5 pl-2 border-l-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-colors"
                 >
                   {kw.title}
                 </Link>
@@ -279,7 +279,7 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
     <MetaCard as="div" padding="compact">
       <div
         className="text-gray-900 dark:text-white"
-        style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px' }}
+        style={{ fontSize: '18px', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px' }}
       >
         {title}
       </div>

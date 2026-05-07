@@ -30,6 +30,7 @@ export default function AuthorCard({
 
   return (
     <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10">
+      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">執筆者</h2>
       <div className="flex items-start gap-4">
         <Link href="/about" className="shrink-0">
           <img
