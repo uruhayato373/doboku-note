@@ -300,7 +300,7 @@
     @apply py-2.5 px-4;
     color: var(--ink-body);
     border-bottom: 1px solid var(--rule-soft);
-    font-size: 16px;
+    font-size: 1em;
   }
 
   /* MDX 表の最初列 = ラベル列という慣習に基づき、デフォルトで折り返さない。
