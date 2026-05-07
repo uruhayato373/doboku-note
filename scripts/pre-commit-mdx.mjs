@@ -151,6 +151,28 @@ function checkImageDimensions(file, content) {
   return errors;
 }
 
+/**
+ * CommonMark 仕様: bold 閉じ ** の直前が Unicode punctuation の場合、
+ * 直後が通常文字だと right-flanking と認識されず bold が無音で崩壊する。
+ * 全角閉じ括弧類が最頻出パターン。§14-b 参照。
+ */
+function checkBoldEndingParen(file, content) {
+  const warnings = [];
+  const pattern = /\*\*[^*\n]*[）」』】）]\*\*/gu;
+  let lineNum = 0;
+  for (const line of content.split("\n")) {
+    lineNum++;
+    pattern.lastIndex = 0;
+    if (pattern.test(line)) {
+      warnings.push({
+        file,
+        error: `bold ending with full-width bracket won't render (line ${lineNum}): move ）outside **`,
+      });
+    }
+  }
+  return warnings;
+}
+
 async function main() {
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
@@ -223,6 +245,11 @@ async function main() {
     // Image dimensions check (HIGH - blocks commit, CLS prevention)
     for (const e of checkImageDimensions(file, content)) {
       errors.push(e);
+    }
+
+    // Bold ending with full-width bracket (MEDIUM - warning only, §14-b)
+    for (const w of checkBoldEndingParen(file, content)) {
+      warnings.push({ ...w, severity: "MEDIUM" });
     }
 
     // 過去問解説の破損パターン検出（警告のみ、ブロックしない）
