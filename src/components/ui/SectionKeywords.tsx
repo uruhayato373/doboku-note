@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import peChaptersData from '@/config/pe-chapters.json';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 interface SectionKeywordsProps {
   currentSlug: string;
@@ -24,10 +25,7 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
   if (others.length === 0) return null;
 
   return (
-    <section
-      aria-label="同じセクションのキーワード"
-      className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8"
-    >
+    <MetaCard ariaLabel="同セクションのキーワード">
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
         {sec.title}
       </h2>
@@ -45,6 +43,6 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
           </Link>
         ))}
       </div>
-    </section>
+    </MetaCard>
   );
 }

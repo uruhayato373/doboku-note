@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { getDocMeta } from '@/lib/docs';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 type ReferenceGroup = {
   heading?: string;
@@ -31,10 +32,7 @@ export default async function ReferenceLinks({ title = '関連資料', descripti
   if (!hasAny) return null;
 
   return (
-    <section
-      aria-label={title}
-      className="mt-10 bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8"
-    >
+    <MetaCard ariaLabel={title} className="mt-10">
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{title}</h2>
       {description && <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{description}</p>}
       <div className="space-y-5">
@@ -48,7 +46,7 @@ export default async function ReferenceLinks({ title = '関連資料', descripti
                 <li key={item.slug}>
                   <Link
                     href={`/docs/${item.slug}`}
-                    className="block rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-3 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
+                    className="block rounded-sm border border-gray-200 dark:border-gray-700 px-4 py-3 hover:border-blue-400 dark:hover:border-blue-500 transition-colors"
                   >
                     <div className="text-sm font-semibold text-blue-600 dark:text-blue-400">{item.title}</div>
                     {item.description && (
@@ -61,6 +59,6 @@ export default async function ReferenceLinks({ title = '関連資料', descripti
           </div>
         ))}
       </div>
-    </section>
+    </MetaCard>
   );
 }

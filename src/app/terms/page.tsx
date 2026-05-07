@@ -169,7 +169,7 @@ export default function TermsPage() {
           </SectionCard>
         </div>
 
-        <div className="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-lg text-sm text-gray-600 dark:text-gray-400">
+        <div className="mt-8 p-4 bg-gray-100 dark:bg-gray-800 rounded-sm text-sm text-gray-600 dark:text-gray-400">
           <p>ご不明な点がございましたら、<a href="/about" className="text-primary-600 dark:text-primary-400 hover:underline">お問い合わせ</a>よりご連絡ください。</p>
         </div>
       </main>

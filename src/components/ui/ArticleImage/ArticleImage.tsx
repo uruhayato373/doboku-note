@@ -51,7 +51,7 @@ export default function ArticleImage({
             style={{
               maxWidth: "100%",
               height: "auto",
-              borderRadius: "0",
+              borderRadius: "2px",
             }}
           />
         ) : (
@@ -65,7 +65,7 @@ export default function ArticleImage({
             style={{
               maxWidth: "100%",
               height: "auto",
-              borderRadius: "0",
+              borderRadius: "2px",
             }}
           />
         )}

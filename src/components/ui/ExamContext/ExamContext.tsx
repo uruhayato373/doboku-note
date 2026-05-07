@@ -15,7 +15,7 @@ export default async function ExamContext({ textbookSlug, linkLabel, children }:
   return (
     <aside
       aria-label="試験対策での位置づけ"
-      className="mb-8 bg-brand-fill/60 dark:bg-brand-fill/10 border-l-4 border-brand rounded-r-md px-5 py-4"
+      className="mb-8 bg-brand-fill/60 dark:bg-brand-fill/10 border-l-4 border-brand rounded-r-sm px-5 py-4"
     >
       <div className="text-xs font-semibold uppercase tracking-wider text-brand-deep dark:text-brand mb-1.5">
         試験対策での位置づけ

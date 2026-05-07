@@ -190,7 +190,7 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
                     <div className="flex items-center gap-4">
-                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                         <BookOpen className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -205,7 +205,7 @@ export default function AboutPage() {
                   </div>
                   <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
                     <div className="flex items-center gap-4">
-                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                         <FileText className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -220,7 +220,7 @@ export default function AboutPage() {
                   </div>
                   <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
                     <div className="flex items-center gap-4">
-                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                      <div className="bg-primary-600 dark:bg-primary-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                         <GraduationCap className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -244,7 +244,7 @@ export default function AboutPage() {
                 <div className="space-y-4">
                   <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
                     <div className="flex items-center gap-4">
-                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                         <Target className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -259,7 +259,7 @@ export default function AboutPage() {
                   </div>
                   <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
                     <div className="flex items-center gap-4">
-                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                         <Search className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -274,7 +274,7 @@ export default function AboutPage() {
                   </div>
                   <div className="bg-neutral-50 dark:bg-gray-800 border border-neutral-200 dark:border-gray-600 p-4">
                     <div className="flex items-center gap-4">
-                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded flex items-center justify-center flex-shrink-0">
+                      <div className="bg-cyan-600 dark:bg-cyan-500 w-12 h-12 rounded-sm flex items-center justify-center flex-shrink-0">
                         <CheckCircle className="w-6 h-6 text-white" />
                       </div>
                       <div>

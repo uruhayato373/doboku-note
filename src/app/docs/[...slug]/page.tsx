@@ -30,8 +30,10 @@ import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks'
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
 import FAQCard from '@/components/ui/FAQCard/FAQCard';
+import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { generateHeadingId } from '@/lib/toc';
+import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
 
 const mdxOptions = {
@@ -72,7 +74,7 @@ async function SafeMDXRemote({ source, components }: { source: string; component
   } catch (error: any) {
     console.error('MDX compile error:', error?.message?.slice(0, 200));
     return (
-      <div className="p-4 border border-yellow-300 dark:border-yellow-700 rounded bg-yellow-50 dark:bg-yellow-900/20">
+      <div className="p-4 border border-yellow-300 dark:border-yellow-700 rounded-sm bg-yellow-50 dark:bg-yellow-900/20">
         <p className="text-yellow-700 dark:text-yellow-400 font-semibold">
           このページのコンテンツにフォーマットエラーがあります。
         </p>
@@ -222,9 +224,13 @@ export default async function DocPage({
   const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
   const sectionStr = doc.meta.section as string | undefined;
 
+  // 参考資料セクションを本文から抽出して別カードに切り出す
+  // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
+  const { strippedContent, references } = extractReferencesSection(doc.content);
+
   // Extract headings for Table of Contents
   const headings = extractHeadings(
-    doc.content,
+    strippedContent,
     doc.meta.toc_min_heading_level ?? 2,
     doc.meta.toc_max_heading_level ?? 3,
   );
@@ -273,9 +279,10 @@ export default async function DocPage({
                 publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
                 updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
               />
-              {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip */}
+              {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
+                  参考資料セクションは extractReferencesSection で抽出済みのため strippedContent を渡す */}
               <div className="prose-blog prose-base md:prose-lg">
-                <SafeMDXRemote source={stripLeadingH1(doc.content)} components={components} />
+                <SafeMDXRemote source={stripLeadingH1(strippedContent)} components={components} />
               </div>
               <MetaRow
                 variant="footer"
@@ -286,6 +293,13 @@ export default async function DocPage({
               />
             </article>
 
+            {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
+            {references.length > 0 && (
+              <div className="mt-8">
+                <ExternalReferences references={references} />
+              </div>
+            )}
+
             {/* 記事末尾の情報（ページ種別ごとの構成は docs/project/article-footer-design.md 参照） */}
 
             {/* PE keyword: 過去問逆引き + 同セクションキーワード */}
@@ -294,8 +308,9 @@ export default async function DocPage({
                 <div className="mt-8">
                   <PastExamBacklinks category={category} currentSlug={slugStr} />
                 </div>
+                {/* 同セクションのキーワード: モバイル限定（デスクトップではサイドバーの SectionCard で表示済み） */}
                 {doc.meta.section && (
-                  <div className="mt-8">
+                  <div className="mt-8 zenn-desktop:hidden">
                     <SectionKeywords
                       currentSlug={slugStr}
                       section={doc.meta.section as string}

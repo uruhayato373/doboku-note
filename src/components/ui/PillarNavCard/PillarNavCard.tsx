@@ -7,6 +7,7 @@
  * section 不在の場合は active なしで全項目通常表示。
  */
 import Link from "next/link";
+import MetaCard from "@/components/ui/MetaCard/MetaCard";
 
 interface PillarNavCardProps {
   variant: "sidebar" | "mobile";
@@ -42,7 +43,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
 
   if (variant === "sidebar") {
     return (
-      <div className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-4 pb-5">
+      <MetaCard as="div" padding="compact">
         <div
           className="text-gray-900 dark:text-white"
           style={{ fontSize: "16px", fontWeight: 700, letterSpacing: "1px", marginBottom: "8px" }}
@@ -69,12 +70,12 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
             );
           })}
         </ul>
-      </div>
+      </MetaCard>
     );
   }
 
   return (
-    <section className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8">
+    <MetaCard>
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">
         5 管理学習ガイド
       </h2>
@@ -84,7 +85,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
           return (
             <li
               key={p.slug}
-              className={`rounded-lg border px-4 py-3 transition-colors ${
+              className={`rounded-sm border px-4 py-3 transition-colors ${
                 isActive
                   ? "bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800"
                   : "border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500"
@@ -105,6 +106,6 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
           );
         })}
       </ul>
-    </section>
+    </MetaCard>
   );
 }

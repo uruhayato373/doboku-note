@@ -67,7 +67,7 @@ export default function ThemeToggle() {
   if (!mounted) {
     return (
       <button
-        className="w-9 h-9 rounded-lg bg-gray-200 dark:bg-gray-700 animate-pulse"
+        className="w-9 h-9 rounded-sm bg-gray-200 dark:bg-gray-700 animate-pulse"
         disabled
         aria-label="読み込み中..."
       />
@@ -96,7 +96,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={cycleTheme}
-      className="flex flex-col items-center space-y-1 px-3 py-2 rounded-lg bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
+      className="flex flex-col items-center space-y-1 px-3 py-2 rounded-sm bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800"
       aria-label={getAriaLabel()}
       title={`現在: ${theme === 'dark' ? 'dark' : 'light'}モード`}
     >

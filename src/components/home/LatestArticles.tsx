@@ -42,7 +42,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
             >
               <div className="flex items-center gap-2 mb-2 flex-wrap">
                 {a.categoryLabel && (
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded">
+                  <span className="font-mono text-[10px] tracking-widest uppercase text-[var(--accent)] px-2 py-0.5 bg-[var(--accent-fill)] rounded-sm">
                     {a.categoryLabel}
                   </span>
                 )}

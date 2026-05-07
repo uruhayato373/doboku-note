@@ -57,7 +57,7 @@ export default function PieChart({
     if (active && payload && payload.length) {
       const data = payload[0].payload;
       return (
-        <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg">
+        <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded-sm shadow-lg">
           <p className="font-medium text-gray-900 dark:text-white">{data.name}</p>
           <p className="text-primary-600 dark:text-primary-400">{data.value}%</p>
         </div>

@@ -1,3 +1,5 @@
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
+
 interface FAQEntry {
   q: string;
   a: string;
@@ -11,10 +13,7 @@ export default function FAQCard({ faqs }: FAQCardProps) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section
-      className="rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 bg-white dark:bg-gray-800 p-6 sm:p-8"
-      aria-label="よくある質問"
-    >
+    <MetaCard ariaLabel="よくある質問">
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
         よくある質問
       </h2>
@@ -24,7 +23,7 @@ export default function FAQCard({ faqs }: FAQCardProps) {
       <ul className="space-y-2">
         {faqs.map((entry, idx) => (
           <li key={idx}>
-            <details className="group rounded-lg border border-gray-200 dark:border-gray-700 px-4 py-3 open:border-blue-400 dark:open:border-blue-500 transition-colors">
+            <details className="group rounded-sm border border-gray-200 dark:border-gray-700 px-4 py-3 open:border-blue-400 dark:open:border-blue-500 transition-colors">
               <summary className="flex items-start gap-2 cursor-pointer list-none text-sm font-semibold text-gray-900 dark:text-gray-100 marker:hidden">
                 <span
                   aria-hidden="true"
@@ -41,6 +40,6 @@ export default function FAQCard({ faqs }: FAQCardProps) {
           </li>
         ))}
       </ul>
-    </section>
+    </MetaCard>
   );
 }

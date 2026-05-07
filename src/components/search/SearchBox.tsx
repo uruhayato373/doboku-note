@@ -134,7 +134,7 @@ export function SearchBox({
           onBlur={onBlur}
           placeholder={placeholder}
           className={cn(
-            "block w-full border border-gray-300 rounded-lg",
+            "block w-full border border-gray-300 rounded-sm",
             "focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
             "dark:bg-gray-700 dark:border-gray-600 dark:text-white",
             "dark:focus:ring-primary-400 dark:focus:border-primary-400",
@@ -175,7 +175,7 @@ export function SearchBox({
       {showSuggestions && suggestions.length > 0 && (
         <div
           ref={suggestionsRef}
-          className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-lg shadow-lg"
+          className="absolute z-50 w-full mt-1 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-600 rounded-sm shadow-lg"
         >
           <ul className="py-1">
             {suggestions.map((suggestion, index) => (
@@ -220,7 +220,7 @@ export function SearchBox({
             compact ? "pr-2" : "pr-3"
           )}
         >
-          <div className="animate-spin rounded h-4 w-4 border-b-2 border-primary-500"></div>
+          <div className="animate-spin rounded-sm h-4 w-4 border-b-2 border-primary-500"></div>
         </div>
       )}
     </div>

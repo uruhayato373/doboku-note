@@ -19,7 +19,7 @@ export function SearchResults({
   if (isLoading) {
     return (
       <div className="flex justify-center items-center py-12">
-        <div className="animate-spin rounded h-8 w-8 border-b-2 border-primary-500"></div>
+        <div className="animate-spin rounded-sm h-8 w-8 border-b-2 border-primary-500"></div>
       </div>
     );
   }
@@ -32,7 +32,7 @@ export function SearchResults({
         </p>
         <button
           onClick={() => window.location.reload()}
-          className="px-4 py-2 bg-primary-500 text-white rounded-lg hover:bg-primary-600 transition-colors"
+          className="px-4 py-2 bg-primary-500 text-white rounded-sm hover:bg-primary-600 transition-colors"
         >
           再試行
         </button>
@@ -75,7 +75,7 @@ export function SearchResults({
         {results.posts.map((post) => (
           <article
             key={post.id}
-            className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 hover:shadow-md transition-shadow"
+            className="border border-gray-200 dark:border-gray-700 rounded-sm p-6 hover:shadow-md transition-shadow"
           >
             <div className="flex-1 min-w-0">
               <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 hover:text-primary-600 dark:hover:text-primary-400">
@@ -93,7 +93,7 @@ export function SearchResults({
                   {post.tags.slice(0, 4).map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 text-xs bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded"
+                      className="px-2 py-1 text-xs bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-300 rounded-sm"
                     >
                       {tag}
                     </span>

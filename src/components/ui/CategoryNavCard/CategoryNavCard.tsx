@@ -9,6 +9,7 @@ import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
 import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import type { PastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import peChaptersData from '@/config/pe-chapters.json';
+import MetaCard from '@/components/ui/MetaCard/MetaCard';
 
 interface CategoryNavCardProps {
   variant: 'sidebar' | 'mobile';
@@ -65,7 +66,7 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
     <MobileWrapper title="試験概要">
       <ul className="space-y-2">
         {guides.map((g) => (
-          <li key={g.slug} className={`rounded-lg border px-4 py-3 transition-colors ${g.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+          <li key={g.slug} className={`rounded-sm border px-4 py-3 transition-colors ${g.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
             {g.slug === currentSlug ? (
               <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.title}</span>
             ) : (
@@ -116,7 +117,7 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
     <MobileWrapper title="5 管理学習ガイド">
       <ul className="space-y-2">
         {pillars.map((p) => (
-          <li key={p.slug} className={`rounded-lg border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+          <li key={p.slug} className={`rounded-sm border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
             {p.slug === currentSlug ? (
               <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.title}</span>
             ) : (
@@ -275,7 +276,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
 /* ─── ラッパー（デザイン統一） ─── */
 function SidebarWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-4 pb-5">
+    <MetaCard as="div" padding="compact">
       <div
         className="text-gray-900 dark:text-white"
         style={{ fontSize: '16px', fontWeight: 700, letterSpacing: '1px', marginBottom: '8px' }}
@@ -283,16 +284,16 @@ function SidebarWrapper({ title, children }: { title: string; children: React.Re
         {title}
       </div>
       {children}
-    </div>
+    </MetaCard>
   );
 }
 
 function MobileWrapper({ title, children }: { title: string; children: React.ReactNode }) {
   return (
-    <section className="bg-white dark:bg-gray-800 rounded-card-section shadow-card-section border border-gray-200/60 dark:border-gray-700/60 p-6 sm:p-8">
+    <MetaCard>
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-4">{title}</h2>
       {children}
-    </section>
+    </MetaCard>
   );
 }
 
@@ -324,7 +325,7 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
     <MobileWrapper title={title}>
       <ul className="space-y-2">
         {docs.map((d) => (
-          <li key={d.slug} className={`rounded-lg border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
+          <li key={d.slug} className={`rounded-sm border px-4 py-3 transition-colors ${d.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
             {d.slug === currentSlug ? (
               <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{d.title}</span>
             ) : (

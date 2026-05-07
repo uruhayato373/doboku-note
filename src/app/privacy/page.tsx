@@ -99,7 +99,7 @@ export default function PrivacyPage() {
               title="収集する情報"
             >
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-4">
                   <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-sm">自動的に収集される情報</h3>
                   <ul className="space-y-1 text-sm">
                     <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />IPアドレス</li>
@@ -109,7 +109,7 @@ export default function PrivacyPage() {
                     <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />デバイスの種類</li>
                   </ul>
                 </div>
-                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4">
+                <div className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-4">
                   <h3 className="font-semibold text-gray-900 dark:text-gray-100 mb-2 text-sm">ユーザーが提供する情報</h3>
                   <ul className="space-y-1 text-sm">
                     <li className="flex items-center gap-2"><span className="w-1 h-1 bg-primary-400 rounded-full flex-shrink-0" />お問い合わせフォームからの情報</li>
@@ -136,7 +136,7 @@ export default function PrivacyPage() {
                   '統計データの作成（個人を特定できない形式）',
                   '法的義務の履行',
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg px-3 py-2 text-sm">
+                  <div key={item} className="flex items-center gap-2 bg-gray-50 dark:bg-gray-700/50 rounded-sm px-3 py-2 text-sm">
                     <span className="w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
                     {item}
                   </div>
@@ -183,14 +183,14 @@ export default function PrivacyPage() {
                   { label: '分析クッキー', desc: 'サイトの利用状況を分析' },
                   { label: '機能クッキー', desc: 'ユーザーの設定を記憶' },
                 ].map((cookie) => (
-                  <div key={cookie.label} className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-3 text-center">
+                  <div key={cookie.label} className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-3 text-center">
                     <div className="font-semibold text-sm text-gray-900 dark:text-gray-100">{cookie.label}</div>
                     <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">{cookie.desc}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-lg p-4">
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-sm p-4">
                 <h3 className="font-semibold text-amber-800 dark:text-amber-300 text-sm mb-2">広告配信におけるクッキーの使用</h3>
                 <p className="text-sm mb-2">
                   当サイトでは、第三者配信の広告サービス「Google AdSense」を利用しています。
@@ -249,7 +249,7 @@ export default function PrivacyPage() {
                   '個人情報の利用停止・消去請求',
                   '個人情報の第三者提供の停止請求',
                 ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg px-3 py-2 text-sm">
+                  <div key={item} className="flex items-center gap-2 bg-gray-50 dark:bg-gray-700/50 rounded-sm px-3 py-2 text-sm">
                     <span className="w-1.5 h-1.5 bg-primary-500 rounded-full flex-shrink-0" />
                     {item}
                   </div>
@@ -278,8 +278,8 @@ export default function PrivacyPage() {
               <p className="mb-4">
                 本プライバシーポリシーに関するお問い合わせは、以下の方法でお願いします：
               </p>
-              <div className="bg-gray-50 dark:bg-gray-700/50 rounded-lg p-4 flex items-center gap-4">
-                <div className="bg-primary-600 dark:bg-primary-500 w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0">
+              <div className="bg-gray-50 dark:bg-gray-700/50 rounded-sm p-4 flex items-center gap-4">
+                <div className="bg-primary-600 dark:bg-primary-500 w-10 h-10 rounded-sm flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
