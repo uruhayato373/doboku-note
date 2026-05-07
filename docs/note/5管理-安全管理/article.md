@@ -141,7 +141,7 @@ D. 優先度に対応したリスク低減措置の実施
 
 [リスク対応](https://doboku-note.com/docs/pe-comprehensive-management-risk-treatment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の基本式は以下です。
 
-$$\text{リスク値} = \text{被害額} \times \text{発生確率}$$
+**リスク値 ＝ 被害額 × 発生確率**
 
 リスクマトリクス（発生確率×影響度の2軸）で高位（右上）の事象を低位（左下）へ移すことが基本的対応方針です。JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
@@ -237,11 +237,9 @@ $$\text{リスク値} = \text{被害額} \times \text{発生確率}$$
 
 **労働災害統計の主要指標**
 
-$$\text{度数率} = \frac{\text{死傷者数}}{\text{延実労働時間数}} \times 1{,}000{,}000$$
-
-$$\text{強度率} = \frac{\text{実労働損失日数}}{\text{延実労働時間数}} \times 1{,}000$$
-
-$$\text{年千人率} = \frac{\text{1年間の死傷者数}}{\text{1年間の平均労働者数}} \times 1{,}000$$
+- **度数率** ＝ 死傷者数 ÷ 延実労働時間数 × 1,000,000
+- **強度率** ＝ 実労働損失日数 ÷ 延実労働時間数 × 1,000
+- **年千人率** ＝ 1年間の死傷者数 ÷ 1年間の平均労働者数 × 1,000
 
 度数率は**頻度**を、強度率は**災害の重さ**を表します。計算問題として出題されます。
 
@@ -440,25 +438,25 @@ $$\text{年千人率} = \frac{\text{1年間の死傷者数}}{\text{1年間の平
 
 **6.7 システム信頼度解析**
 
-[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の計算では**信頼性ブロック図**を用います。信頼性（e）と故障率（f）には $e + f = 1$ の関係があります。
+[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の計算では**信頼性ブロック図**を用います。信頼性（e）と故障率（f）には **e + f = 1** の関係があります。
 
 **直列システム**（すべての構成要素が正常でなければ動かない）
 
-$$\text{システム故障率}(f_m) = 1 - (1-f_1) \times (1-f_2) \times (1-f_3)$$
+システム故障率(fm) ＝ 1 − (1−f1) × (1−f2) × (1−f3)
 
-各故障率が0.1の場合：システム故障率 $= 1 - 0.9^3 = 0.271$、システム信頼性 $= 0.729$
+各故障率が0.1の場合：システム故障率 ＝ 1 − 0.9³ ＝ 0.271、システム信頼性 ＝ 0.729
 
 **並列システム**（いずれかの要素が正常であれば動く）
 
-$$\text{システム故障率}(f_m) = f_1 \times f_2 \times f_3$$
+システム故障率(fm) ＝ f1 × f2 × f3
 
-各故障率が0.1の場合：システム故障率 $= 0.1^3 = 0.001$、信頼性 $= 0.999$
+各故障率が0.1の場合：システム故障率 ＝ 0.1³ ＝ 0.001、信頼性 ＝ 0.999
 
 **主要な信頼性指標**
 
 - **MTTR（Mean Time To Repair）** — 修理開始から修復完了までの平均時間（平均修復時間）
-- **MTBF（Mean Time Between Failures）** — ある故障から次の故障までの平均間隔（平均故障間隔）。故障率 $f = 1/\text{MTBF}$
-- **アベイラビリティ（A）** — $A = \text{MTBF} / (\text{MTBF} + \text{MTTR})$
+- **MTBF（Mean Time Between Failures）** — ある故障から次の故障までの平均間隔（平均故障間隔）。故障率 f ＝ 1 ÷ MTBF
+- **アベイラビリティ（A）** — A ＝ MTBF ÷ (MTBF + MTTR)
 
 **深層防護** — 原子力発電所等のシビアアクシデント対策の基本概念で、何重にも安全対策を施すことです。国際原子力機関はレベル1（異常運転の防止）〜レベル5（放射性物質の大規模放出の影響緩和）の5段階を示しています。
 
