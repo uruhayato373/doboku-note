@@ -97,6 +97,8 @@ model: sonnet
 - ❌ **セクション見出しで「建設業における〜」「建設業での〜」「建設業の〜」を使う**（技術士の語彙に合わせ「建設部門における」「建設分野での」「建設実務での」のいずれかを使う）。ただし「建設業法」「建設業の特例（労安法）」「建設業の営業利益率」のような**法定用語・統計・固有名詞は本文中でそのまま使用可**
 - ❌ **末尾に `<SeeAlso>` `<ExamPoint>` `<RelatedKeywords>` を 3 件以上連続配置する**（content-principles.md §18 違反、lint 12-3 検知）。`<SeeAlso>` は本文中（関連トピックの直後）に配置し、末尾は `<ExamPoint>` + `<RelatedKeywords>` の 2 点のみとする
 - ❌ **散文の代わりに表・箇条書きで概念説明を済ませる**（§17 違反、lint 12-1/12-2 検知）。「○○とは」セクションは 2〜3 段落の散文、各 H2 は最低 1 段落の散文導入を必須とする
+- ❌ **`<RelatedKeywords>` の prop 名を `keywords=` にする**（正しくは `items=`）。誤るとコンポーネント全体が `null` を返し画面から消える。lint で機械検出される（HIGH）
+- ❌ **`<RelatedKeywords>` の slug にカテゴリ接頭辞を含める**（`slug: "pe-comprehensive-management-foo"`）。bare slug（`slug: "foo"`）を渡す。auto-detect で接頭辞付きも動作するが、規約は bare。lint で機械検出される（MEDIUM）
 
 ### 品質ガード
 

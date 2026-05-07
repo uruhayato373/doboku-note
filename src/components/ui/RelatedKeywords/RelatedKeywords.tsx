@@ -10,6 +10,18 @@ interface RelatedKeywordsProps {
   items: KeywordItem[];
 }
 
+const KNOWN_CATEGORY_PREFIXES = [
+  "pe-comprehensive-management-",
+  "civil-construction-1-",
+];
+
+function buildHref(slug: string): string {
+  if (KNOWN_CATEGORY_PREFIXES.some((p) => slug.startsWith(p))) {
+    return `/docs/${slug}`;
+  }
+  return `/docs/pe-comprehensive-management-${slug}`;
+}
+
 /**
  * RelatedKeywords — 関連キーワード誘導ボックス。
  *
@@ -18,6 +30,9 @@ interface RelatedKeywordsProps {
  * 視覚的に整理。旧実装のハードコード色とモバイル余白を廃止。
  *
  * API（items: { label, slug? }[]）は 666 MDX 呼び出しと完全互換。
+ * slug が既知のカテゴリ接頭辞（pe-comprehensive-management- / civil-construction-1-）で
+ * 始まる場合はそのまま /docs/{slug} を生成、それ以外は legacy bare slug として
+ * pe-comprehensive-management- を補完する（後方互換）。
  */
 export default function RelatedKeywords({ items }: RelatedKeywordsProps) {
   if (!items || items.length === 0) return null;
@@ -31,7 +46,7 @@ export default function RelatedKeywords({ items }: RelatedKeywordsProps) {
             return (
               <span key={index} className="inline-flex items-center">
                 <Link
-                  href={`/docs/pe-comprehensive-management-${item.slug}`}
+                  href={buildHref(item.slug)}
                   className="text-sm text-blue-700 dark:text-blue-400 hover:underline"
                 >
                   {item.label}
