@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { useSearch } from "@/hooks/useSearch";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { cn } from "@/lib/cn";
 
 interface SearchBoxProps {
@@ -21,18 +20,26 @@ export function SearchBox({
   onBlur,
   compact = false,
 }: SearchBoxProps) {
-  const { query, setQuery, suggestions, fetchSuggestions, isLoading } =
-    useSearch();
-
+  const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [inputValue, setInputValue] = useState(query);
+  const [inputValue, setInputValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
+  const fetchSuggestions = useCallback(async (input: string) => {
+    if (input.length < 2) {
+      setSuggestions([]);
+      return;
+    }
+    try {
+      const { getSuggestions } = await import("@/lib/search/search-client");
+      setSuggestions(await getSuggestions(input, 5));
+    } catch {
+      setSuggestions([]);
+    }
+  }, []);
 
-  // 入力値の変更処理
   const handleInputChange = (value: string) => {
     setInputValue(value);
-
     if (value.trim()) {
       fetchSuggestions(value);
       setShowSuggestions(true);
@@ -44,16 +51,15 @@ export function SearchBox({
   // 検索実行
   const handleSearch = (searchQuery: string = inputValue) => {
     if (searchQuery.trim()) {
-      setQuery(searchQuery);
       onSearch?.(searchQuery);
       setShowSuggestions(false);
       inputRef.current?.blur();
     }
   };
 
-  // Enterキーでの検索
+  // Enterキーでの検索（IME 変換中の Enter は無視）
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
+    if (e.key === "Enter" && !e.nativeEvent.isComposing) {
       handleSearch();
     } else if (e.key === "Escape") {
       setShowSuggestions(false);
@@ -70,7 +76,7 @@ export function SearchBox({
   // 検索クリア
   const handleClear = () => {
     setInputValue("");
-    setQuery("");
+    setSuggestions([]);
     setShowSuggestions(false);
     onSearch?.("");
   };
@@ -91,11 +97,6 @@ export function SearchBox({
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
-
-  // クエリが外部から変更された場合の同期
-  useEffect(() => {
-    setInputValue(query);
-  }, [query]);
 
   return (
     <div className={cn("relative", className)}>
@@ -209,18 +210,6 @@ export function SearchBox({
               </li>
             ))}
           </ul>
-        </div>
-      )}
-
-      {/* ローディングインジケーター */}
-      {isLoading && (
-        <div
-          className={cn(
-            "absolute inset-y-0 right-0 flex items-center",
-            compact ? "pr-2" : "pr-3"
-          )}
-        >
-          <div className="animate-spin rounded-sm h-4 w-4 border-b-2 border-primary-500"></div>
         </div>
       )}
     </div>

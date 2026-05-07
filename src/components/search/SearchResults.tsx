@@ -82,10 +82,11 @@ export function SearchResults({
                 <Link href={post.path}>{post.title}</Link>
               </h3>
 
-              {post.description && (
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2">
-                  {post.description}
-                </p>
+              {post.excerpt && (
+                <p
+                  className="text-gray-600 dark:text-gray-400 text-sm mb-3 line-clamp-2 [&_mark]:bg-yellow-200 [&_mark]:dark:bg-yellow-800/60 [&_mark]:rounded-sm [&_mark]:px-0.5"
+                  dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                />
               )}
 
               {post.tags && post.tags.length > 0 && (
