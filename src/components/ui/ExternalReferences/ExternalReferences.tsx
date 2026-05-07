@@ -36,20 +36,11 @@ export default function ExternalReferences({ references }: ExternalReferencesPro
                 rel="noopener noreferrer"
                 className="block group"
               >
-                <MetaListItem
-                  title={item.title}
-                  source={item.source}
-                  description={item.description}
-                />
+                <MetaListItem title={item.title} source={item.source} />
               </a>
             ) : (
               <div>
-                <MetaListItem
-                  title={item.title}
-                  source={item.source}
-                  description={item.description}
-                  plain
-                />
+                <MetaListItem title={item.title} source={item.source} plain />
               </div>
             )}
           </li>

@@ -2,7 +2,7 @@
  * 記事末尾の `## 参考資料` セクションを抽出して構造化する。
  *
  * content-principles.md §12 で規定された形式:
- *   - [タイトル](URL)（出典元）── 説明文
+ *   - [タイトル](URL)（出典元）
  *
  * MDX を 1 行も書き換えず、render 時にこの関数で本文から抽出して
  * 別カード（<ExternalReferences>）として表示する。
@@ -10,14 +10,13 @@
  * パース仕様:
  *   - `## 参考資料` 見出しから次の `## ` 見出し or EOF までをセクションとする
  *   - セクション内の `- ` で始まる行をリストアイテムとして抽出
- *   - リンクが無いアイテム（書籍参照等）は url を空文字で返す（description に全文を入れて表示用）
+ *   - リンクが無いアイテム（書籍参照等）は url を空文字で返す
  */
 
 export interface ReferenceItem {
   title: string;
   url: string;
   source?: string;
-  description?: string;
 }
 
 export interface ExtractResult {
@@ -69,39 +68,28 @@ function parseListItems(sectionBody: string): ReferenceItem[] {
 }
 
 function parseLine(body: string): ReferenceItem {
-  // 形式: [title](url) followed by optional （source） and optional ── description
+  // 形式: [title](url) followed by optional （source）
   const linkMatch = body.match(/^\[([^\]]+)\]\(([^)]+)\)(.*)$/);
 
   if (linkMatch) {
     const title = linkMatch[1] ?? '';
     const url = linkMatch[2] ?? '';
     const rest = linkMatch[3] ?? '';
-    return { title, url, ...parseTrailing(rest) };
+    return { title, url, ...parseSource(rest) };
   }
 
   // リンクが無いアイテム（書籍参照等）→ 太字を除去してタイトルとして扱う
   const cleaned = body.replace(/\*\*(.+?)\*\*/g, '$1');
-  // 末尾の （source） を抽出
-  const trailing = parseTrailing(cleaned);
-  if (trailing.source || trailing.description) {
-    // source/description が取れたら本体部分をタイトルに
-    const titlePart = cleaned
-      .replace(/（[^）]+）.*$/, '')
-      .replace(/\s*[─\-]+\s*.+$/, '')
-      .trim();
+  const trailing = parseSource(cleaned);
+  if (trailing.source) {
+    const titlePart = cleaned.replace(/（[^）]+）.*$/, '').trim();
     return { title: titlePart || cleaned.trim(), url: '', ...trailing };
   }
   return { title: cleaned.trim(), url: '' };
 }
 
-function parseTrailing(rest: string): { source?: string; description?: string } {
-  const out: { source?: string; description?: string } = {};
-
+function parseSource(rest: string): { source?: string } {
   const sourceMatch = rest.match(/（([^）]+)）/);
-  if (sourceMatch && sourceMatch[1]) out.source = sourceMatch[1];
-
-  const descMatch = rest.match(/[─\-]{2,}\s*(.+?)\s*$/);
-  if (descMatch && descMatch[1]) out.description = descMatch[1];
-
-  return out;
+  if (sourceMatch && sourceMatch[1]) return { source: sourceMatch[1] };
+  return {};
 }
