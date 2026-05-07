@@ -243,6 +243,37 @@ docs/sns-drafts/{NNN}-{テーマ}/
 
 **実装 Issue**: #165（IG Carousel MVP）/ #166（YT Shorts MVP）が基盤を担う。
 
+## 投稿実績の記録
+
+投稿が完了したら `.claude/state/sns-published.json` の `items` array に 1 レコード追記する（CLAUDE.md「情報蓄積の 3 層モデル」Tier 3 = 機械可読データ。`note-published.json` と同パターン）。
+
+下記の README 表（「## 現在のディレクトリ一覧」）は **投稿予定**を示し、**実績は JSON 側で管理**する（予定と実績を混ぜない）。
+
+### レコード形式（最小限）
+
+```json
+{
+  "directory": "001-択一1問1答-20問",
+  "channel": "instagram-carousel",
+  "slug": "01-経済性",
+  "publishedAt": "2026-05-06"
+}
+```
+
+| フィールド | 必須 | 説明 |
+|---|---|---|
+| `directory` | ○ | `docs/sns-drafts/{NNN}-{テーマ}/` のディレクトリ名 |
+| `channel` | ○ | `instagram-carousel` / `x` / `youtube-shorts` |
+| `slug` | ○ | カルーセル/ツイート/動画の識別子。IG なら `01-経済性`、X なら `tweet-01-{slug}`、YT なら `01-{slug}` |
+| `publishedAt` | ○ | 投稿日（ISO 8601 `yyyy-mm-dd`、`note-published.json` 慣習と揃える） |
+| `postUrl` | — | 投稿 URL（任意・後追いで追記可） |
+| `scheduledAt` | — | 予約投稿の予定日時（任意） |
+| `note` | — | 自由記述（A/B 試した内容、後追い対応事項など） |
+
+### 集計
+
+将来必要になったら集計コマンド（`node .claude/scripts/sns-status.mjs`）を追加する。最小限で運用開始するため当面は手書き・jq での目視集計に留める。
+
 ## 現在のディレクトリ一覧
 
 | ディレクトリ | ライン | 主題 | 状態 |
