@@ -1,9 +1,7 @@
 /**
- * MiniSearch ベースのクライアントサイド検索クライアント
- * ビルド時に生成された search-index.json を読み込み、全文検索を提供
+ * Pagefind ベースのクライアントサイド検索クライアント
+ * ビルド時に生成された /pagefind/ インデックスを動的ロードして全文検索を提供
  */
-import MiniSearch from "minisearch";
-import { tokenize } from "./tokenize";
 
 export interface SearchIndexEntry {
   id: string;
@@ -12,7 +10,7 @@ export interface SearchIndexEntry {
   path: string;
   category: string;
   tags: string[];
-  excerpt: string;
+  excerpt: string; // HTML (<mark> ハイライト付き)
 }
 
 export interface SearchQuery {
@@ -32,103 +30,98 @@ export interface SearchResult {
   query: string;
 }
 
-const STORE_FIELDS = [
-  "id",
-  "title",
-  "description",
-  "path",
-  "category",
-  "tags",
-  "excerpt",
-] as const;
-
-const MINISEARCH_OPTIONS = {
-  fields: ["title", "description", "excerpt"],
-  storeFields: [...STORE_FIELDS],
-  tokenize,
-  searchOptions: {
-    boost: { title: 3, description: 2 },
-    fuzzy: 0.2,
-    prefix: true,
-  },
+type PagefindModule = {
+  init(): Promise<void>;
+  search(q: string): Promise<{
+    results: Array<{ id: string; data(): Promise<PagefindData> }>;
+    unfilteredResultCount: number;
+  }>;
 };
 
-let miniSearchInstance: MiniSearch<SearchIndexEntry> | null = null;
+type PagefindData = {
+  url: string;
+  excerpt: string;
+  meta: { title?: string; image?: string };
+  word_count: number;
+};
 
-/** MiniSearch インスタンスを取得（シングルトン） */
-async function getMiniSearch(): Promise<MiniSearch<SearchIndexEntry>> {
-  if (miniSearchInstance) return miniSearchInstance;
+let pf: PagefindModule | null = null;
 
-  const res = await fetch("/search-index.json");
-  if (!res.ok) throw new Error("検索インデックスの読み込みに失敗しました");
-
-  const json = await res.json();
-  miniSearchInstance = MiniSearch.loadJSON(JSON.stringify(json), MINISEARCH_OPTIONS);
-  return miniSearchInstance;
-}
-
-/** フィルタリング（カテゴリ・タグ） */
-function applyFilters(
-  entries: SearchIndexEntry[],
-  query: SearchQuery
-): SearchIndexEntry[] {
-  let filtered = entries;
-
-  if (query.category) {
-    filtered = filtered.filter((e) => e.category === query.category);
-  }
-  if (query.tags && query.tags.length > 0) {
-    filtered = filtered.filter((e) =>
-      query.tags!.some((tag) => e.tags?.includes(tag))
+async function getPagefind(): Promise<PagefindModule> {
+  if (pf) return pf;
+  try {
+    // @ts-ignore - pagefind runtime is served from /pagefind/ at run time only
+    pf = await import(/* webpackIgnore: true */ /* turbopackIgnore: true */ "/pagefind/pagefind.js");
+    await pf!.init();
+    return pf!;
+  } catch {
+    throw new Error(
+      "検索インデックスが未生成です。npm run build を実行してください。"
     );
   }
-
-  return filtered;
 }
 
-/** 検索実行 */
+function categoryFromPath(path: string): string {
+  if (path.startsWith("/docs/pe-comprehensive-management"))
+    return "pe-comprehensive-management";
+  if (path.startsWith("/docs/civil-construction-1"))
+    return "civil-construction-1";
+  return "";
+}
+
+function stripMark(html: string): string {
+  return html.replace(/<\/?mark>/g, "");
+}
+
+function toEntry(data: PagefindData): SearchIndexEntry {
+  const path = data.url;
+  return {
+    id: path.replace(/^\/docs\//, ""),
+    title: data.meta.title ?? "",
+    description: stripMark(data.excerpt),
+    path,
+    category: categoryFromPath(path),
+    tags: [],
+    excerpt: data.excerpt,
+  };
+}
+
 export async function search(query: SearchQuery): Promise<SearchResult> {
   const q = query.q.trim();
-  const page = query.page || 1;
-  const limit = query.limit || 10;
+  const page = query.page ?? 1;
+  const limit = query.limit ?? 10;
 
-  if (!q) {
-    return { posts: [], total: 0, page, totalPages: 0, query: "" };
+  if (!q) return { posts: [], total: 0, page, totalPages: 0, query: "" };
+
+  const engine = await getPagefind();
+  const raw = await engine.search(q);
+  const dataList = await Promise.all(raw.results.map((r) => r.data()));
+
+  let entries = dataList.map(toEntry);
+
+  if (query.category) {
+    entries = entries.filter((e) => e.category === query.category);
   }
-
-  const ms = await getMiniSearch();
-  const rawResults = ms.search(q, { prefix: true, fuzzy: 0.2 });
-
-  // MiniSearch の結果から stored fields を取り出す
-  let entries: SearchIndexEntry[] = rawResults.map((r) => ({
-    id: r.id as string,
-    title: (r as Record<string, unknown>).title as string,
-    description: (r as Record<string, unknown>).description as string,
-    path: (r as Record<string, unknown>).path as string,
-    category: (r as Record<string, unknown>).category as string,
-    tags: (r as Record<string, unknown>).tags as string[],
-    excerpt: (r as Record<string, unknown>).excerpt as string,
-  }));
-
-  // フィルタリング
-  entries = applyFilters(entries, query);
 
   const total = entries.length;
   const totalPages = Math.ceil(total / limit);
-  const start = (page - 1) * limit;
-  const paged = entries.slice(start, start + limit);
+  const paged = entries.slice((page - 1) * limit, page * limit);
 
   return { posts: paged, total, page, totalPages, query: q };
 }
 
-/** 検索候補を取得 */
 export async function getSuggestions(
   q: string,
-  limit: number = 5
+  limit = 5
 ): Promise<string[]> {
   if (q.length < 2) return [];
-
-  const ms = await getMiniSearch();
-  const results = ms.search(q, { prefix: true, fuzzy: 0.2 });
-  return results.slice(0, limit).map((r) => (r as Record<string, unknown>).title as string);
+  try {
+    const engine = await getPagefind();
+    const raw = await engine.search(q);
+    const top = raw.results.slice(0, limit);
+    const dataList = await Promise.all(top.map((r) => r.data()));
+    return dataList.map((d) => d.meta.title ?? "").filter(Boolean);
+  } catch {
+    return [];
+  }
 }

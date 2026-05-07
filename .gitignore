@@ -85,3 +85,6 @@ public/posts
 
 # Handoff archives（Box / docs 一括エクスポート用 zip、リポジトリには含めない）
 /*.zip
+
+# Pagefind generated index (rebuild with: npm run build)
+public/pagefind/
