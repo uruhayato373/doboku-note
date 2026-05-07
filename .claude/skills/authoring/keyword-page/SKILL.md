@@ -71,12 +71,39 @@ description: >
   - **`<SeeAlso>` は本文中（関連トピックを言及した直後）に配置する**（content-principles.md §11/§18）。末尾に並べるのは反パターン（lint 12-3 検知）
   - **末尾に `関連キーワード: [A]、[B]、[C]` の列挙行を作らない** — 重複と文脈喪失の原因。`lint-mdx-mobile.mjs` の 8-1 ルールで機械検出される
   - 本文に溶け込ませにくいキーワードは関連性が弱い証拠なので、無理に含めない
-  - `<RelatedKeywords>` コンポーネントは文中のインラインリンクには使わない（ブロックレベルUIのため、過去問MDXの用途に限る）
+  - `<RelatedKeywords>` コンポーネントは **文中のインラインリンクには使わない**（ブロックレベル UI のため）。**`## 参考資料` の直前に末尾標準パターンとして 1 個配置する**（§18）。インラインは Markdown リンク `[名前](/docs/...)` を使う
   - <ExamPoint> で記事全体の出題パターンを総括する（全体まとめとして最も自然な位置）
+
+<RelatedKeywords items={[
+  { label: "<関連キーワード名>", slug: "<bare-slug>" },
+  // 標準は 5 件、bare slug を渡す（例: slug: "lifecycle-assessment"）
+]} />
 
 ## 参考資料
   - 官公庁の公開資料へのリンク（箇条書き）
   - 官公庁 > 公的機関 > 学術資料の優先順で選定
+```
+
+> **重要**: 上の順序を守ること。`<RelatedKeywords>` は **必ず `## 参考資料` の前** に置く（§18）。逆順にすると Markdown リスト後の JSX を MDX が正しく解釈できず、コンポーネントが描画されないことがある（過去事例: eco-label / csr 等）
+
+#### `<RelatedKeywords>` の API（必須準拠）
+
+コンポーネント定義: `src/components/ui/RelatedKeywords/RelatedKeywords.tsx`
+
+- **prop 名は `items`**（`keywords` ではない）。誤ると `items === undefined` でコンポーネント全体が描画されない
+- **slug は bare（カテゴリ接頭辞を含めない）**。`lifecycle-assessment` のように渡す
+  - コンポーネント側で `pe-comprehensive-management-` を補完する
+  - 既知接頭辞（`pe-comprehensive-management-` / `civil-construction-1-`）を含めても auto-detect で動作するが、規約は bare slug
+- 標準件数は 5 件（BCP・LCA・環境基本計画・ISO 14000 等のベンチマークページ準拠）
+
+**❌ 禁止パターン**:
+
+```mdx
+<RelatedKeywords keywords={[ ... ]} />              {/* prop 名違い、無描画 */}
+<RelatedKeywords items={[
+  { label: "X", slug: "pe-comprehensive-management-x" },  {/* 接頭辞付き、規約違反 */}
+  { label: "Y", href: "/docs/pe-comprehensive-management-y" },  {/* href は受け付けない */}
+]} />
 ```
 
 #### 末尾コンポーネントの配置原則（§18）

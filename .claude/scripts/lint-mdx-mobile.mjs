@@ -33,6 +33,9 @@
  *   9-5 LOW    「とは」H2セクション直下に<ExamPoint>
  *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
  *   9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定）
+ *   9-8 HIGH   <RelatedKeywords> の prop 名が `keywords=`（正: `items=`）— 誤ると無描画
+ *   9-9 MEDIUM <RelatedKeywords> の slug にカテゴリ接頭辞付与（bare slug が規約）
+ *   9-10 HIGH  <RelatedKeywords> が `## 参考資料` の後に配置（§18 違反、MDX が描画失敗することあり）
  *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§8 違反）
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
@@ -619,6 +622,83 @@ function isPeComprehensiveManagement(filePath) {
   return /[\\\/]pe-comprehensive-management[\\\/]/.test(filePath);
 }
 
+// 9-8 / 9-9: <RelatedKeywords> コンポーネント API 違反
+// 真実源: src/components/ui/RelatedKeywords/RelatedKeywords.tsx
+//   - prop 名は items（keywords ではない）
+//   - slug は bare（pe-comprehensive-management- / civil-construction-1- 接頭辞は付けない）
+function lintRelatedKeywordsComponent(lines, findings) {
+  const KNOWN_PREFIXES = ['pe-comprehensive-management-', 'civil-construction-1-'];
+
+  for (let i = 0; i < lines.length; i++) {
+    if (!/<RelatedKeywords(\s|$|\/|>)/.test(lines[i])) continue;
+
+    const startLine = i + 1;
+    let endIdx = i;
+    while (endIdx < lines.length) {
+      if (/\/>\s*$/.test(lines[endIdx])) break;
+      if (/<\/RelatedKeywords>/.test(lines[endIdx])) break;
+      endIdx++;
+      if (endIdx - i > 50) break;
+    }
+    const block = lines.slice(i, endIdx + 1).join('\n');
+
+    // 9-8 HIGH: keywords= prop（items= がなく keywords= がある）
+    const hasItemsProp = /\bitems\s*=\s*\{/.test(block);
+    const hasKeywordsProp = /\bkeywords\s*=\s*\{/.test(block);
+    if (hasKeywordsProp && !hasItemsProp) {
+      findings.push({
+        severity: 'HIGH',
+        rule: '9-8',
+        line: startLine,
+        endLine: endIdx + 1,
+        message: '<RelatedKeywords> の prop 名が `keywords=` になっている（正: `items=`）。誤ると items が undefined となりコンポーネント全体が描画されない',
+      });
+    }
+
+    // 9-9 MEDIUM: slug が既知カテゴリ接頭辞付き
+    const slugRe = /slug:\s*["']([^"']+)["']/g;
+    let m;
+    while ((m = slugRe.exec(block)) !== null) {
+      const slug = m[1];
+      const matchedPrefix = KNOWN_PREFIXES.find((p) => slug.startsWith(p));
+      if (matchedPrefix) {
+        const upToMatch = block.slice(0, m.index);
+        const lineOffset = upToMatch.split('\n').length - 1;
+        const bare = slug.slice(matchedPrefix.length);
+        findings.push({
+          severity: 'MEDIUM',
+          rule: '9-9',
+          line: startLine + lineOffset,
+          endLine: startLine + lineOffset,
+          message: `<RelatedKeywords> の slug "${slug}" にカテゴリ接頭辞「${matchedPrefix}」が含まれている。bare slug（例: "${bare}"）を渡す`,
+        });
+      }
+    }
+
+    i = endIdx;
+  }
+
+  // 9-10 HIGH: <RelatedKeywords> が ## 参考資料 の後に配置されている
+  // 真実源: content-principles.md §18（RelatedKeywords は ## 参考資料 の前）
+  // 現実問題: 「## 参考資料 + Markdown リスト + JSX」の順序だと MDX が JSX を
+  // 正しく解釈できず、コンポーネントが描画されないことがある（過去事例: eco-label / csr 等）
+  let refIdx = -1;
+  let rkIdx = -1;
+  for (let i = 0; i < lines.length; i++) {
+    if (refIdx === -1 && /^##\s+参考資料/.test(lines[i])) refIdx = i;
+    if (rkIdx === -1 && /<RelatedKeywords(\s|$|\/|>)/.test(lines[i])) rkIdx = i;
+  }
+  if (refIdx !== -1 && rkIdx !== -1 && rkIdx > refIdx) {
+    findings.push({
+      severity: 'HIGH',
+      rule: '9-10',
+      line: rkIdx + 1,
+      endLine: rkIdx + 1,
+      message: '<RelatedKeywords> が「## 参考資料」の後に配置されている。§18 違反。Markdown リスト直後の JSX は MDX で描画されないことがあるため、必ず「## 参考資料」の前に置く',
+    });
+  }
+}
+
 // ── カテゴリ10: 画像・<ArticleImage> 規約 ──────────────────────────────────
 
 /**
@@ -904,6 +984,7 @@ function lintFile(filePath) {
   lintBoldScope(lines, findings);
   lintBoldDelimiterBoundary(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
+  lintRelatedKeywordsComponent(lines, findings);
   lintImages(lines, findings);
   lintMathFractions(lines, findings);
   lintMathSingleLineDisplay(lines, findings);

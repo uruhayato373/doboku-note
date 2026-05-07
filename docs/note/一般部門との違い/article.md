@@ -1,3 +1,9 @@
+---
+notePublishedAt: 2026-05-07
+noteUrl: https://note.com/dobokunote/n/n7fb7f92f7841
+noteId: n7fb7f92f7841
+notePricing: free
+---
 # 【一般部門の合格者が落ちる】総監で通用しない3つの理由｜合格率10%の壁を超える4つの対策
 
 > **この記事でわかること**
