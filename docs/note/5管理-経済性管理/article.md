@@ -13,9 +13,9 @@ utmCampaign: 99-economic-management
 
 ---
 
-経済性管理は、5管理の中で**項目数が最も多い分野**です（テキスト第1章は81項目）。事業企画・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・原価管理・財務会計・設備管理・数理的手法という7大エリアにまたがり、計算問題と定義問題の両方が出題されます。
+経済性管理は、5管理の中で**項目数が最も多い分野**です（全81項目）。事業企画・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・原価管理・財務会計・設備管理・数理的手法という7大エリアにまたがり、計算問題と定義問題の両方が出題されます。
 
-全81項目を均等に勉強するのは非効率です。**「投資判断・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・財務諸表」の4エリアを最優先し、残りは必要に応じてリンク先で確認する**のが効率的な学習法です。本記事では、テキスト第1章の骨格を活かしながら、択一・記述式の出題視点でポイントを絞り直します。
+全81項目を均等に勉強するのは非効率です。**「投資判断・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・財務諸表」の4エリアを最優先し、残りは必要に応じてリンク先で確認する**のが効率的な学習法です。本記事では、択一・記述式の出題視点でポイントを絞り直します。
 
 ## 事業企画（優先度: 高）
 

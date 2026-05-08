@@ -270,7 +270,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 > **【出題例: [R7年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** 企業経営と安全に関する記述で最も不適切なものはどれか。4.「[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の主たる義務者は、職場の長など現場の管理監督者である」→ **正答4：主たる義務者は「事業者」（経営者・法人）。管理監督者は実施役であり義務の主体ではない。**
 
-**[安全衛生管理体制](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （第3章）
+**[安全衛生管理体制](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**
 
 - **総括安全衛生管理者（[第10条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_10)）** — 建設業・製造業等100人以上、その他業種300人以上の事業場ごとに選任
 - **安全管理者（[第11条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_11)）** — 常時50人以上の事業場ごとに選任（安全に係る技術的事項を管理）
