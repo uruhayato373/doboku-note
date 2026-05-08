@@ -147,17 +147,20 @@ function aggregate(slugMap) {
 }
 
 function toAnchor(heading) {
-  // src/lib/toc.ts の generateHeadingId() と完全一致させる:
-  // 1. trim + lowercase
-  // 2. 許可文字（\w, ひらがな, カタカナ, CJK, whitespace, -）以外を除去
-  // 3. whitespace と連続ハイフンを単一 - に
-  // 4. 先頭/末尾の - をトリム
-  // Roman numeral Ⅰ (U+2160) や Ⅱ などは許可範囲外なので除去される。
-  // 例: "Ⅰ-1-1" → "1-1"、"Ⅱ-1-2" → "1-2"（year tag 無し）
+  // build-exam-backlinks.mjs の generateHeadingId() と完全一致させる:
+  // 1. NFKC 正規化（全角ハイフン → 半角、Unicode ローマ数字 → ASCII、全角数字 → 半角）
+  // 2. trim + lowercase
+  // 3. 先頭の ASCII ローマ数字（- 区切り）を除去（章番号 Ⅰ/Ⅱ を anchor から落とす）
+  // 4. 許可文字（\w, ひらがな, カタカナ, CJK, whitespace, -）以外を除去
+  // 5. whitespace と連続ハイフンを単一 - に
+  // 6. 先頭/末尾の - をトリム
+  // 例: "Ⅰ-1-1" / "Ⅱ-1-1" / "I-1-1" / "II-1-1" / "Ⅰ－1－1" すべて → "1-1"
   return (
     heading
+      .normalize("NFKC")
       .trim()
       .toLowerCase()
+      .replace(/^[ivx]+(?=-)/, "")
       .replace(/[^\w぀-ゟ゠-ヿ一-龯㐀-䶿\s-]/g, "")
       .replace(/\s+/g, "-")
       .replace(/-+/g, "-")

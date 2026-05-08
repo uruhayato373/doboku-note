@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-07T11:11:32.861Z",
+  "generated_at": "2026-05-08T01:05:05.609Z",
   "source": {
     "exam_question_keywords": "src/config/exam-question-keywords.json",
     "keyword_2026": ".local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx"
@@ -870,9 +870,9 @@
           "exam_slug": "pe-comprehensive-management-h30-primary",
           "questions": [
             {
-              "num": "11",
-              "heading": "Ⅰ－1－1",
-              "anchor": "11",
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "quality-control",
                 "five-s",
@@ -882,9 +882,9 @@
               ]
             },
             {
-              "num": "12",
-              "heading": "Ⅰ－1－2",
-              "anchor": "12",
+              "num": "1-2",
+              "heading": "Ⅰ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "activity-abc",
                 "cost-driver",
@@ -893,9 +893,9 @@
               ]
             },
             {
-              "num": "13",
-              "heading": "Ⅰ－1－3",
-              "anchor": "13",
+              "num": "1-3",
+              "heading": "Ⅰ-1-3",
+              "anchor": "1-3",
               "keywords": [
                 "npv-net-present-value",
                 "discount-rate",
@@ -904,9 +904,9 @@
               ]
             },
             {
-              "num": "14",
-              "heading": "Ⅰ－1－4",
-              "anchor": "14",
+              "num": "1-4",
+              "heading": "Ⅰ-1-4",
+              "anchor": "1-4",
               "keywords": [
                 "pert-cpm",
                 "process-planning-construction",
@@ -915,9 +915,9 @@
               ]
             },
             {
-              "num": "15",
-              "heading": "Ⅰ－1－5",
-              "anchor": "15",
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "supply-chain-management",
                 "theory-of-constraints",
@@ -925,18 +925,18 @@
               ]
             },
             {
-              "num": "16",
-              "heading": "Ⅰ－1－6",
-              "anchor": "16",
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "market-research",
                 "crm-system"
               ]
             },
             {
-              "num": "17",
-              "heading": "Ⅰ－1－7",
-              "anchor": "17",
+              "num": "1-7",
+              "heading": "Ⅰ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "capacity-management",
                 "utilization-rate",
@@ -945,9 +945,9 @@
               ]
             },
             {
-              "num": "18",
-              "heading": "Ⅰ－1－8",
-              "anchor": "18",
+              "num": "1-8",
+              "heading": "Ⅰ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "income-statement",
                 "balance-sheet",
@@ -956,9 +956,9 @@
               ]
             },
             {
-              "num": "117",
-              "heading": "Ⅰ－1－17",
-              "anchor": "117",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "workers-compensation-insurance",
                 "business-continuity-plan",
@@ -966,9 +966,9 @@
               ]
             },
             {
-              "num": "125",
-              "heading": "Ⅰ－1－25",
-              "anchor": "125",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk",
                 "risk-management-system",
@@ -978,9 +978,9 @@
               ]
             },
             {
-              "num": "136",
-              "heading": "Ⅰ－1－36",
-              "anchor": "136",
+              "num": "1-36",
+              "heading": "Ⅰ-1-36",
+              "anchor": "1-36",
               "keywords": [
                 "cost-effectiveness-analysis",
                 "survey-analysis"
@@ -993,9 +993,9 @@
           "exam_slug": "pe-comprehensive-management-h29-primary",
           "questions": [
             {
-              "num": "11",
-              "heading": "Ⅰ－1－1",
-              "anchor": "11",
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "quality-control",
                 "control-limits",
@@ -1004,9 +1004,9 @@
               ]
             },
             {
-              "num": "12",
-              "heading": "Ⅰ－1－2",
-              "anchor": "12",
+              "num": "1-2",
+              "heading": "Ⅰ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "income-statement",
                 "balance-sheet",
@@ -1015,9 +1015,9 @@
               ]
             },
             {
-              "num": "13",
-              "heading": "Ⅰ－1－3",
-              "anchor": "13",
+              "num": "1-3",
+              "heading": "Ⅰ-1-3",
+              "anchor": "1-3",
               "keywords": [
                 "break-even-point",
                 "linear-programming",
@@ -1025,9 +1025,9 @@
               ]
             },
             {
-              "num": "14",
-              "heading": "Ⅰ－1－4",
-              "anchor": "14",
+              "num": "1-4",
+              "heading": "Ⅰ-1-4",
+              "anchor": "1-4",
               "keywords": [
                 "preventive-maintenance",
                 "predictive-maintenance",
@@ -1037,9 +1037,9 @@
               ]
             },
             {
-              "num": "15",
-              "heading": "Ⅰ－1－5",
-              "anchor": "15",
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "parallel-system",
                 "series-system",
@@ -1049,9 +1049,9 @@
               ]
             },
             {
-              "num": "16",
-              "heading": "Ⅰ－1－6",
-              "anchor": "16",
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "push-production",
                 "pull-production",
@@ -1061,9 +1061,9 @@
               ]
             },
             {
-              "num": "17",
-              "heading": "Ⅰ－1－7",
-              "anchor": "17",
+              "num": "1-7",
+              "heading": "Ⅰ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "pert-cpm",
                 "three-point-estimation",
@@ -1072,9 +1072,9 @@
               ]
             },
             {
-              "num": "18",
-              "heading": "Ⅰ－1－8",
-              "anchor": "18",
+              "num": "1-8",
+              "heading": "Ⅰ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "multi-objective-optimization",
                 "linear-programming",
@@ -1082,9 +1082,9 @@
               ]
             },
             {
-              "num": "118",
-              "heading": "Ⅰ－1－18",
-              "anchor": "118",
+              "num": "1-18",
+              "heading": "Ⅰ-1-18",
+              "anchor": "1-18",
               "keywords": [
                 "safety-control",
                 "public-safety",
@@ -1092,9 +1092,9 @@
               ]
             },
             {
-              "num": "125",
-              "heading": "Ⅰ－1－25",
-              "anchor": "125",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk-assessment",
                 "chemical-substances-review-act",
@@ -1103,9 +1103,9 @@
               ]
             },
             {
-              "num": "127",
-              "heading": "Ⅰ－1－27",
-              "anchor": "127",
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "business-continuity-plan",
                 "disaster-countermeasures-act",
@@ -1113,9 +1113,9 @@
               ]
             },
             {
-              "num": "129",
-              "heading": "Ⅰ－1－29",
-              "anchor": "129",
+              "num": "1-29",
+              "heading": "Ⅰ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "risk-analysis",
                 "probabilistic-risk-assessment",
@@ -1123,9 +1123,9 @@
               ]
             },
             {
-              "num": "135",
-              "heading": "Ⅰ－1－35",
-              "anchor": "135",
+              "num": "1-35",
+              "heading": "Ⅰ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "cost-effectiveness-analysis",
                 "environmental-impact-assessment",
@@ -1133,9 +1133,9 @@
               ]
             },
             {
-              "num": "140",
-              "heading": "Ⅰ－1－40",
-              "anchor": "140",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "lifecycle-assessment",
                 "design-for-environment",
@@ -1151,9 +1151,9 @@
           "exam_slug": "pe-comprehensive-management-h28-primary",
           "questions": [
             {
-              "num": "i-1-1",
-              "heading": "I-1-1",
-              "anchor": "i-1-1",
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "delphi-method",
                 "analytic-hierarchy-process",
@@ -1162,9 +1162,9 @@
               ]
             },
             {
-              "num": "i-1-2",
-              "heading": "I-1-2",
-              "anchor": "i-1-2",
+              "num": "1-2",
+              "heading": "Ⅰ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "push-production",
                 "pull-production",
@@ -1175,9 +1175,9 @@
               ]
             },
             {
-              "num": "i-1-3",
-              "heading": "I-1-3",
-              "anchor": "i-1-3",
+              "num": "1-3",
+              "heading": "Ⅰ-1-3",
+              "anchor": "1-3",
               "keywords": [
                 "present-annual-future-value",
                 "discount-rate",
@@ -1186,9 +1186,9 @@
               ]
             },
             {
-              "num": "i-1-4",
-              "heading": "I-1-4",
-              "anchor": "i-1-4",
+              "num": "1-4",
+              "heading": "Ⅰ-1-4",
+              "anchor": "1-4",
               "keywords": [
                 "multi-objective-optimization",
                 "integer-programming",
@@ -1197,9 +1197,9 @@
               ]
             },
             {
-              "num": "i-1-5",
-              "heading": "I-1-5",
-              "anchor": "i-1-5",
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "pert-cpm",
                 "process-planning-construction",
@@ -1207,9 +1207,9 @@
               ]
             },
             {
-              "num": "i-1-6",
-              "heading": "I-1-6",
-              "anchor": "i-1-6",
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "quality-control",
                 "quality-assurance",
@@ -1219,9 +1219,9 @@
               ]
             },
             {
-              "num": "i-1-7",
-              "heading": "I-1-7",
-              "anchor": "i-1-7",
+              "num": "1-7",
+              "heading": "Ⅰ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "accounting-systems",
                 "balance-sheet",
@@ -1229,9 +1229,9 @@
               ]
             },
             {
-              "num": "i-1-8",
-              "heading": "I-1-8",
-              "anchor": "i-1-8",
+              "num": "1-8",
+              "heading": "Ⅰ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "activity-abc",
                 "cost-driver",
@@ -1239,9 +1239,9 @@
               ]
             },
             {
-              "num": "i-1-26",
-              "heading": "I-1-26",
-              "anchor": "i-1-26",
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "product-liability-act",
                 "consumer-safety",
@@ -1250,9 +1250,9 @@
               ]
             },
             {
-              "num": "i-1-28",
-              "heading": "I-1-28",
-              "anchor": "i-1-28",
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "crisis-management-manual",
                 "safety-and-security",
@@ -1261,9 +1261,9 @@
               ]
             },
             {
-              "num": "i-1-30",
-              "heading": "I-1-30",
-              "anchor": "i-1-30",
+              "num": "1-30",
+              "heading": "Ⅰ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "pfi",
                 "risk-treatment",
@@ -1272,9 +1272,9 @@
               ]
             },
             {
-              "num": "i-1-37",
-              "heading": "I-1-37",
-              "anchor": "i-1-37",
+              "num": "1-37",
+              "heading": "Ⅰ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "environmental-impact-assessment",
                 "esg-environmental-assessment",
@@ -1282,9 +1282,9 @@
               ]
             },
             {
-              "num": "i-1-38",
-              "heading": "I-1-38",
-              "anchor": "i-1-38",
+              "num": "1-38",
+              "heading": "Ⅰ-1-38",
+              "anchor": "1-38",
               "keywords": [
                 "lifecycle-assessment",
                 "lifecycle-management",
@@ -1298,9 +1298,9 @@
           "exam_slug": "pe-comprehensive-management-h27-primary",
           "questions": [
             {
-              "num": "i-1-1",
-              "heading": "I-1-1",
-              "anchor": "i-1-1",
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "pmbok",
                 "pdpc-method",
@@ -1308,9 +1308,9 @@
               ]
             },
             {
-              "num": "i-1-2",
-              "heading": "I-1-2",
-              "anchor": "i-1-2",
+              "num": "1-2",
+              "heading": "Ⅰ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "load-capacity",
                 "utilization-rate",
@@ -1319,9 +1319,9 @@
               ]
             },
             {
-              "num": "i-1-3",
-              "heading": "I-1-3",
-              "anchor": "i-1-3",
+              "num": "1-3",
+              "heading": "Ⅰ-1-3",
+              "anchor": "1-3",
               "keywords": [
                 "pfi",
                 "lifecycle-management",
@@ -1329,9 +1329,9 @@
               ]
             },
             {
-              "num": "i-1-4",
-              "heading": "I-1-4",
-              "anchor": "i-1-4",
+              "num": "1-4",
+              "heading": "Ⅰ-1-4",
+              "anchor": "1-4",
               "keywords": [
                 "quality-control",
                 "quality-policy",
@@ -1339,9 +1339,9 @@
               ]
             },
             {
-              "num": "i-1-5",
-              "heading": "I-1-5",
-              "anchor": "i-1-5",
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "product-liability-act",
                 "product-safety",
@@ -1349,9 +1349,9 @@
               ]
             },
             {
-              "num": "i-1-6",
-              "heading": "I-1-6",
-              "anchor": "i-1-6",
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "five-s",
                 "quality-control",
@@ -1360,9 +1360,9 @@
               ]
             },
             {
-              "num": "i-1-7",
-              "heading": "I-1-7",
-              "anchor": "i-1-7",
+              "num": "1-7",
+              "heading": "Ⅰ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "standard-costing",
                 "direct-costing",
@@ -1371,9 +1371,9 @@
               ]
             },
             {
-              "num": "i-1-8",
-              "heading": "I-1-8",
-              "anchor": "i-1-8",
+              "num": "1-8",
+              "heading": "Ⅰ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "erp",
                 "scm-system",
@@ -1381,9 +1381,9 @@
               ]
             },
             {
-              "num": "i-1-17",
-              "heading": "I-1-17",
-              "anchor": "i-1-17",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "lifecycle-costing-method",
                 "initial-investment",
@@ -1392,9 +1392,9 @@
               ]
             },
             {
-              "num": "i-1-25",
-              "heading": "I-1-25",
-              "anchor": "i-1-25",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk-map-matrix",
                 "risk-treatment",
@@ -1403,9 +1403,9 @@
               ]
             },
             {
-              "num": "i-1-26",
-              "heading": "I-1-26",
-              "anchor": "i-1-26",
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "business-continuity-plan",
                 "supply-chain-management",
@@ -1413,9 +1413,9 @@
               ]
             },
             {
-              "num": "i-1-40",
-              "heading": "I-1-40",
-              "anchor": "i-1-40",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "environmental-accounting",
                 "cost-effectiveness-analysis",
@@ -1672,9 +1672,9 @@
           "exam_slug": "pe-comprehensive-management-h24-primary",
           "questions": [
             {
-              "num": "ii-1-1",
-              "heading": "II-1-1",
-              "anchor": "ii-1-1",
+              "num": "1-1",
+              "heading": "Ⅱ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "process-planning-construction",
                 "progress-management",
@@ -1683,9 +1683,9 @@
               ]
             },
             {
-              "num": "ii-1-2",
-              "heading": "II-1-2",
-              "anchor": "ii-1-2",
+              "num": "1-2",
+              "heading": "Ⅱ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "activity-abc",
                 "cost-driver",
@@ -1694,9 +1694,9 @@
               ]
             },
             {
-              "num": "ii-1-3",
-              "heading": "II-1-3",
-              "anchor": "ii-1-3",
+              "num": "1-3",
+              "heading": "Ⅱ-1-3",
+              "anchor": "1-3",
               "keywords": [
                 "pdpc-method",
                 "cause-and-effect-diagram",
@@ -1704,9 +1704,9 @@
               ]
             },
             {
-              "num": "ii-1-4",
-              "heading": "II-1-4",
-              "anchor": "ii-1-4",
+              "num": "1-4",
+              "heading": "Ⅱ-1-4",
+              "anchor": "1-4",
               "keywords": [
                 "linear-programming",
                 "integer-programming",
@@ -1714,9 +1714,9 @@
               ]
             },
             {
-              "num": "ii-1-5",
-              "heading": "II-1-5",
-              "anchor": "ii-1-5",
+              "num": "1-5",
+              "heading": "Ⅱ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "initial-investment",
                 "equipment-economics",
@@ -1726,9 +1726,9 @@
               ]
             },
             {
-              "num": "ii-1-6",
-              "heading": "II-1-6",
-              "anchor": "ii-1-6",
+              "num": "1-6",
+              "heading": "Ⅱ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "supply-chain-management",
                 "jit-production",
@@ -1738,9 +1738,9 @@
               ]
             },
             {
-              "num": "ii-1-7",
-              "heading": "II-1-7",
-              "anchor": "ii-1-7",
+              "num": "1-7",
+              "heading": "Ⅱ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "npv-net-present-value",
                 "discount-rate",
@@ -1750,9 +1750,9 @@
               ]
             },
             {
-              "num": "ii-1-8",
-              "heading": "II-1-8",
-              "anchor": "ii-1-8",
+              "num": "1-8",
+              "heading": "Ⅱ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "quality-assurance",
                 "before-service",
@@ -1761,9 +1761,9 @@
               ]
             },
             {
-              "num": "ii-1-23",
-              "heading": "II-1-23",
-              "anchor": "ii-1-23",
+              "num": "1-23",
+              "heading": "Ⅱ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "business-continuity-plan",
                 "system-availability",
@@ -1771,9 +1771,9 @@
               ]
             },
             {
-              "num": "ii-1-26",
-              "heading": "II-1-26",
-              "anchor": "ii-1-26",
+              "num": "1-26",
+              "heading": "Ⅱ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "risk-treatment",
                 "risk-management-system",
@@ -1782,9 +1782,9 @@
               ]
             },
             {
-              "num": "ii-1-27",
-              "heading": "II-1-27",
-              "anchor": "ii-1-27",
+              "num": "1-27",
+              "heading": "Ⅱ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "crisis-management-manual",
                 "crisis-communication",
@@ -1793,9 +1793,9 @@
               ]
             },
             {
-              "num": "ii-1-30",
-              "heading": "II-1-30",
-              "anchor": "ii-1-30",
+              "num": "1-30",
+              "heading": "Ⅱ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "accident-statistics",
                 "occupational-accident-prevention-plan",
@@ -1803,9 +1803,9 @@
               ]
             },
             {
-              "num": "ii-1-35",
-              "heading": "II-1-35",
-              "anchor": "ii-1-35",
+              "num": "1-35",
+              "heading": "Ⅱ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "lifecycle-assessment",
                 "design-for-environment",
@@ -1820,9 +1820,9 @@
           "exam_slug": "pe-comprehensive-management-h23-primary",
           "questions": [
             {
-              "num": "ii-1-1",
-              "heading": "II-1-1",
-              "anchor": "ii-1-1",
+              "num": "1-1",
+              "heading": "Ⅱ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "master-schedule-planning",
                 "demand-forecasting",
@@ -1831,9 +1831,9 @@
               ]
             },
             {
-              "num": "ii-1-2",
-              "heading": "II-1-2",
-              "anchor": "ii-1-2",
+              "num": "1-2",
+              "heading": "Ⅱ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "cash-flow-statement",
                 "accounting-systems",
@@ -1842,9 +1842,9 @@
               ]
             },
             {
-              "num": "ii-1-3",
-              "heading": "II-1-3",
-              "anchor": "ii-1-3",
+              "num": "1-3",
+              "heading": "Ⅱ-1-3",
+              "anchor": "1-3",
               "keywords": [
                 "pmbok",
                 "pert-cpm",
@@ -1852,9 +1852,9 @@
               ]
             },
             {
-              "num": "ii-1-4",
-              "heading": "II-1-4",
-              "anchor": "ii-1-4",
+              "num": "1-4",
+              "heading": "Ⅱ-1-4",
+              "anchor": "1-4",
               "keywords": [
                 "preventive-maintenance",
                 "improvement-maintenance",
@@ -1864,9 +1864,9 @@
               ]
             },
             {
-              "num": "ii-1-5",
-              "heading": "II-1-5",
-              "anchor": "ii-1-5",
+              "num": "1-5",
+              "heading": "Ⅱ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "quality-control",
                 "cause-and-effect-diagram",
@@ -1875,9 +1875,9 @@
               ]
             },
             {
-              "num": "ii-1-6",
-              "heading": "II-1-6",
-              "anchor": "ii-1-6",
+              "num": "1-6",
+              "heading": "Ⅱ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "gantt-chart",
                 "process-planning-construction",
@@ -1886,9 +1886,9 @@
               ]
             },
             {
-              "num": "ii-1-7",
-              "heading": "II-1-7",
-              "anchor": "ii-1-7",
+              "num": "1-7",
+              "heading": "Ⅱ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "supply-chain-management",
                 "theory-of-constraints",
@@ -1897,9 +1897,9 @@
               ]
             },
             {
-              "num": "ii-1-8",
-              "heading": "II-1-8",
-              "anchor": "ii-1-8",
+              "num": "1-8",
+              "heading": "Ⅱ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "consumer-product-safety-act",
                 "product-safety",
@@ -1907,9 +1907,9 @@
               ]
             },
             {
-              "num": "ii-1-23",
-              "heading": "II-1-23",
-              "anchor": "ii-1-23",
+              "num": "1-23",
+              "heading": "Ⅱ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "emergency-info-systems",
                 "business-continuity-plan",
@@ -1918,9 +1918,9 @@
               ]
             },
             {
-              "num": "ii-1-27",
-              "heading": "II-1-27",
-              "anchor": "ii-1-27",
+              "num": "1-27",
+              "heading": "Ⅱ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "crisis-management-manual",
                 "business-continuity-plan",
@@ -1929,9 +1929,9 @@
               ]
             },
             {
-              "num": "ii-1-28",
-              "heading": "II-1-28",
-              "anchor": "ii-1-28",
+              "num": "1-28",
+              "heading": "Ⅱ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "safety-and-security",
                 "risk-assessment",
@@ -3053,9 +3053,9 @@
           "exam_slug": "pe-comprehensive-management-h30-primary",
           "questions": [
             {
-              "num": "17",
-              "heading": "Ⅰ－1－7",
-              "anchor": "17",
+              "num": "1-7",
+              "heading": "Ⅰ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "capacity-management",
                 "utilization-rate",
@@ -3064,18 +3064,18 @@
               ]
             },
             {
-              "num": "19",
-              "heading": "Ⅰ－1－9",
-              "anchor": "19",
+              "num": "1-9",
+              "heading": "Ⅰ-1-9",
+              "anchor": "1-9",
               "keywords": [
                 "childcare-nursing-leave-act",
                 "work-life-balance"
               ]
             },
             {
-              "num": "110",
-              "heading": "Ⅰ－1－10",
-              "anchor": "110",
+              "num": "1-10",
+              "heading": "Ⅰ-1-10",
+              "anchor": "1-10",
               "keywords": [
                 "job-type-employment",
                 "membership-type-employment",
@@ -3084,9 +3084,9 @@
               ]
             },
             {
-              "num": "111",
-              "heading": "Ⅰ－1－11",
-              "anchor": "111",
+              "num": "1-11",
+              "heading": "Ⅰ-1-11",
+              "anchor": "1-11",
               "keywords": [
                 "ojt-off-jt",
                 "self-development",
@@ -3095,9 +3095,9 @@
               ]
             },
             {
-              "num": "112",
-              "heading": "Ⅰ－1－12",
-              "anchor": "112",
+              "num": "1-12",
+              "heading": "Ⅰ-1-12",
+              "anchor": "1-12",
               "keywords": [
                 "work-life-balance",
                 "equal-employment-act",
@@ -3107,18 +3107,18 @@
               ]
             },
             {
-              "num": "113",
-              "heading": "Ⅰ－1－13",
-              "anchor": "113",
+              "num": "1-13",
+              "heading": "Ⅰ-1-13",
+              "anchor": "1-13",
               "keywords": [
                 "sl-theory",
                 "servant-leadership"
               ]
             },
             {
-              "num": "114",
-              "heading": "Ⅰ－1－14",
-              "anchor": "114",
+              "num": "1-14",
+              "heading": "Ⅰ-1-14",
+              "anchor": "1-14",
               "keywords": [
                 "disability-employment-act",
                 "employment-statistics",
@@ -3127,9 +3127,9 @@
               ]
             },
             {
-              "num": "115",
-              "heading": "Ⅰ－1－15",
-              "anchor": "115",
+              "num": "1-15",
+              "heading": "Ⅰ-1-15",
+              "anchor": "1-15",
               "keywords": [
                 "performance-evaluation",
                 "relative-absolute-evaluation",
@@ -3139,9 +3139,9 @@
               ]
             },
             {
-              "num": "116",
-              "heading": "Ⅰ－1－16",
-              "anchor": "116",
+              "num": "1-16",
+              "heading": "Ⅰ-1-16",
+              "anchor": "1-16",
               "keywords": [
                 "labor-standards-act",
                 "flextime-system",
@@ -3149,9 +3149,9 @@
               ]
             },
             {
-              "num": "117",
-              "heading": "Ⅰ－1－17",
-              "anchor": "117",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "workers-compensation-insurance",
                 "business-continuity-plan",
@@ -3159,9 +3159,9 @@
               ]
             },
             {
-              "num": "128",
-              "heading": "Ⅰ－1－28",
-              "anchor": "128",
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "safety-health-education",
                 "occupational-safety-act",
@@ -3169,9 +3169,9 @@
               ]
             },
             {
-              "num": "140",
-              "heading": "Ⅰ－1－40",
-              "anchor": "140",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "heat-island-effect",
                 "health-management",
@@ -3186,9 +3186,9 @@
           "exam_slug": "pe-comprehensive-management-h29-primary",
           "questions": [
             {
-              "num": "11",
-              "heading": "Ⅰ－1－1",
-              "anchor": "11",
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "quality-control",
                 "control-limits",
@@ -3197,9 +3197,9 @@
               ]
             },
             {
-              "num": "19",
-              "heading": "Ⅰ－1－9",
-              "anchor": "19",
+              "num": "1-9",
+              "heading": "Ⅰ-1-9",
+              "anchor": "1-9",
               "keywords": [
                 "labor-union-act",
                 "labor-relations-adjustment-act",
@@ -3207,9 +3207,9 @@
               ]
             },
             {
-              "num": "110",
-              "heading": "Ⅰ－1－10",
-              "anchor": "110",
+              "num": "1-10",
+              "heading": "Ⅰ-1-10",
+              "anchor": "1-10",
               "keywords": [
                 "stress-check-system",
                 "labor-contract-act",
@@ -3219,9 +3219,9 @@
               ]
             },
             {
-              "num": "111",
-              "heading": "Ⅰ－1－11",
-              "anchor": "111",
+              "num": "1-11",
+              "heading": "Ⅰ-1-11",
+              "anchor": "1-11",
               "keywords": [
                 "functional-organization",
                 "matrix-organization",
@@ -3232,9 +3232,9 @@
               ]
             },
             {
-              "num": "112",
-              "heading": "Ⅰ－1－12",
-              "anchor": "112",
+              "num": "1-12",
+              "heading": "Ⅰ-1-12",
+              "anchor": "1-12",
               "keywords": [
                 "ojt-off-jt",
                 "self-development",
@@ -3245,9 +3245,9 @@
               ]
             },
             {
-              "num": "113",
-              "heading": "Ⅰ－1－13",
-              "anchor": "113",
+              "num": "1-13",
+              "heading": "Ⅰ-1-13",
+              "anchor": "1-13",
               "keywords": [
                 "job-grade-system",
                 "role-grade-system",
@@ -3257,9 +3257,9 @@
               ]
             },
             {
-              "num": "114",
-              "heading": "Ⅰ－1－14",
-              "anchor": "114",
+              "num": "1-14",
+              "heading": "Ⅰ-1-14",
+              "anchor": "1-14",
               "keywords": [
                 "employment-statistics",
                 "part-time-fixed-term-act",
@@ -3267,9 +3267,9 @@
               ]
             },
             {
-              "num": "115",
-              "heading": "Ⅰ－1－15",
-              "anchor": "115",
+              "num": "1-15",
+              "heading": "Ⅰ-1-15",
+              "anchor": "1-15",
               "keywords": [
                 "minimum-wage-act",
                 "individual-wage-management",
@@ -3277,9 +3277,9 @@
               ]
             },
             {
-              "num": "116",
-              "heading": "Ⅰ－1－16",
-              "anchor": "116",
+              "num": "1-16",
+              "heading": "Ⅰ-1-16",
+              "anchor": "1-16",
               "keywords": [
                 "performance-evaluation",
                 "competency-evaluation",
@@ -3289,9 +3289,9 @@
               ]
             },
             {
-              "num": "125",
-              "heading": "Ⅰ－1－25",
-              "anchor": "125",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk-assessment",
                 "chemical-substances-review-act",
@@ -3300,9 +3300,9 @@
               ]
             },
             {
-              "num": "128",
-              "heading": "Ⅰ－1－28",
-              "anchor": "128",
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "labor-standards-act",
                 "occupational-safety-act",
@@ -3317,9 +3317,9 @@
           "exam_slug": "pe-comprehensive-management-h28-primary",
           "questions": [
             {
-              "num": "i-1-1",
-              "heading": "I-1-1",
-              "anchor": "i-1-1",
+              "num": "1-1",
+              "heading": "Ⅰ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "delphi-method",
                 "analytic-hierarchy-process",
@@ -3328,9 +3328,9 @@
               ]
             },
             {
-              "num": "i-1-9",
-              "heading": "I-1-9",
-              "anchor": "i-1-9",
+              "num": "1-9",
+              "heading": "Ⅰ-1-9",
+              "anchor": "1-9",
               "keywords": [
                 "maslow-hierarchy-of-needs",
                 "mcgregor-xy-theory",
@@ -3340,9 +3340,9 @@
               ]
             },
             {
-              "num": "i-1-10",
-              "heading": "I-1-10",
-              "anchor": "i-1-10",
+              "num": "1-10",
+              "heading": "Ⅰ-1-10",
+              "anchor": "1-10",
               "keywords": [
                 "labor-productivity",
                 "employment-statistics",
@@ -3350,9 +3350,9 @@
               ]
             },
             {
-              "num": "i-1-11",
-              "heading": "I-1-11",
-              "anchor": "i-1-11",
+              "num": "1-11",
+              "heading": "Ⅰ-1-11",
+              "anchor": "1-11",
               "keywords": [
                 "labor-standards-act",
                 "variable-work-hours",
@@ -3360,18 +3360,18 @@
               ]
             },
             {
-              "num": "i-1-12",
-              "heading": "I-1-12",
-              "anchor": "i-1-12",
+              "num": "1-12",
+              "heading": "Ⅰ-1-12",
+              "anchor": "1-12",
               "keywords": [
                 "pm-theory",
                 "servant-leadership"
               ]
             },
             {
-              "num": "i-1-13",
-              "heading": "I-1-13",
-              "anchor": "i-1-13",
+              "num": "1-13",
+              "heading": "Ⅰ-1-13",
+              "anchor": "1-13",
               "keywords": [
                 "equal-employment-act",
                 "positive-action",
@@ -3380,9 +3380,9 @@
               ]
             },
             {
-              "num": "i-1-14",
-              "heading": "I-1-14",
-              "anchor": "i-1-14",
+              "num": "1-14",
+              "heading": "Ⅰ-1-14",
+              "anchor": "1-14",
               "keywords": [
                 "membership-type-employment",
                 "job-type-employment",
@@ -3391,9 +3391,9 @@
               ]
             },
             {
-              "num": "i-1-15",
-              "heading": "I-1-15",
-              "anchor": "i-1-15",
+              "num": "1-15",
+              "heading": "Ⅰ-1-15",
+              "anchor": "1-15",
               "keywords": [
                 "recruitment-management",
                 "worker-dispatch-act",
@@ -3402,9 +3402,9 @@
               ]
             },
             {
-              "num": "i-1-16",
-              "heading": "I-1-16",
-              "anchor": "i-1-16",
+              "num": "1-16",
+              "heading": "Ⅰ-1-16",
+              "anchor": "1-16",
               "keywords": [
                 "performance-evaluation",
                 "mbo",
@@ -3413,9 +3413,9 @@
               ]
             },
             {
-              "num": "i-1-23",
-              "heading": "I-1-23",
-              "anchor": "i-1-23",
+              "num": "1-23",
+              "heading": "Ⅰ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "tacit-knowledge",
                 "explicit-knowledge",
@@ -3424,9 +3424,9 @@
               ]
             },
             {
-              "num": "i-1-27",
-              "heading": "I-1-27",
-              "anchor": "i-1-27",
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "occupational-safety-act",
                 "safety-health-education",
@@ -3434,9 +3434,9 @@
               ]
             },
             {
-              "num": "i-1-32",
-              "heading": "I-1-32",
-              "anchor": "i-1-32",
+              "num": "1-32",
+              "heading": "Ⅰ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "power-harassment",
                 "mental-health",
@@ -3451,9 +3451,9 @@
           "exam_slug": "pe-comprehensive-management-h27-primary",
           "questions": [
             {
-              "num": "i-1-9",
-              "heading": "I-1-9",
-              "anchor": "i-1-9",
+              "num": "1-9",
+              "heading": "Ⅰ-1-9",
+              "anchor": "1-9",
               "keywords": [
                 "maslow-hierarchy-of-needs",
                 "mcgregor-xy-theory",
@@ -3462,9 +3462,9 @@
               ]
             },
             {
-              "num": "i-1-10",
-              "heading": "I-1-10",
-              "anchor": "i-1-10",
+              "num": "1-10",
+              "heading": "Ⅰ-1-10",
+              "anchor": "1-10",
               "keywords": [
                 "elderly-employment-act",
                 "continued-employment-system",
@@ -3473,9 +3473,9 @@
               ]
             },
             {
-              "num": "i-1-11",
-              "heading": "I-1-11",
-              "anchor": "i-1-11",
+              "num": "1-11",
+              "heading": "Ⅰ-1-11",
+              "anchor": "1-11",
               "keywords": [
                 "performance-evaluation",
                 "360-degree-evaluation",
@@ -3483,9 +3483,9 @@
               ]
             },
             {
-              "num": "i-1-12",
-              "heading": "I-1-12",
-              "anchor": "i-1-12",
+              "num": "1-12",
+              "heading": "Ⅰ-1-12",
+              "anchor": "1-12",
               "keywords": [
                 "labor-share-ratio",
                 "labor-productivity",
@@ -3494,9 +3494,9 @@
               ]
             },
             {
-              "num": "i-1-13",
-              "heading": "I-1-13",
-              "anchor": "i-1-13",
+              "num": "1-13",
+              "heading": "Ⅰ-1-13",
+              "anchor": "1-13",
               "keywords": [
                 "labor-standards-act",
                 "childcare-nursing-leave-act",
@@ -3505,9 +3505,9 @@
               ]
             },
             {
-              "num": "i-1-14",
-              "heading": "I-1-14",
-              "anchor": "i-1-14",
+              "num": "1-14",
+              "heading": "Ⅰ-1-14",
+              "anchor": "1-14",
               "keywords": [
                 "formal-informal-organization",
                 "hawthorne-experiment",
@@ -3516,9 +3516,9 @@
               ]
             },
             {
-              "num": "i-1-15",
-              "heading": "I-1-15",
-              "anchor": "i-1-15",
+              "num": "1-15",
+              "heading": "Ⅰ-1-15",
+              "anchor": "1-15",
               "keywords": [
                 "ojt-off-jt",
                 "hierarchical-training",
@@ -3527,9 +3527,9 @@
               ]
             },
             {
-              "num": "i-1-16",
-              "heading": "I-1-16",
-              "anchor": "i-1-16",
+              "num": "1-16",
+              "heading": "Ⅰ-1-16",
+              "anchor": "1-16",
               "keywords": [
                 "labor-union-act",
                 "labor-relations-adjustment-act",
@@ -3538,9 +3538,9 @@
               ]
             },
             {
-              "num": "i-1-27",
-              "heading": "I-1-27",
-              "anchor": "i-1-27",
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "occupational-safety-act",
                 "labor-contract-act",
@@ -3549,9 +3549,9 @@
               ]
             },
             {
-              "num": "i-1-31",
-              "heading": "I-1-31",
-              "anchor": "i-1-31",
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "mental-health-care",
                 "mental-health",
@@ -3794,9 +3794,9 @@
           "exam_slug": "pe-comprehensive-management-h24-primary",
           "questions": [
             {
-              "num": "ii-1-3",
-              "heading": "II-1-3",
-              "anchor": "ii-1-3",
+              "num": "1-3",
+              "heading": "Ⅱ-1-3",
+              "anchor": "1-3",
               "keywords": [
                 "pdpc-method",
                 "cause-and-effect-diagram",
@@ -3804,9 +3804,9 @@
               ]
             },
             {
-              "num": "ii-1-9",
-              "heading": "II-1-9",
-              "anchor": "ii-1-9",
+              "num": "1-9",
+              "heading": "Ⅱ-1-9",
+              "anchor": "1-9",
               "keywords": [
                 "mcgregor-xy-theory",
                 "intrinsic-motivation",
@@ -3815,9 +3815,9 @@
               ]
             },
             {
-              "num": "ii-1-10",
-              "heading": "II-1-10",
-              "anchor": "ii-1-10",
+              "num": "1-10",
+              "heading": "Ⅱ-1-10",
+              "anchor": "1-10",
               "keywords": [
                 "employment-security-act",
                 "employment-insurance",
@@ -3826,9 +3826,9 @@
               ]
             },
             {
-              "num": "ii-1-11",
-              "heading": "II-1-11",
-              "anchor": "ii-1-11",
+              "num": "1-11",
+              "heading": "Ⅱ-1-11",
+              "anchor": "1-11",
               "keywords": [
                 "variable-work-hours",
                 "labor-standards-act",
@@ -3837,9 +3837,9 @@
               ]
             },
             {
-              "num": "ii-1-12",
-              "heading": "II-1-12",
-              "anchor": "ii-1-12",
+              "num": "1-12",
+              "heading": "Ⅱ-1-12",
+              "anchor": "1-12",
               "keywords": [
                 "qc-circle",
                 "small-group-activities",
@@ -3847,9 +3847,9 @@
               ]
             },
             {
-              "num": "ii-1-13",
-              "heading": "II-1-13",
-              "anchor": "ii-1-13",
+              "num": "1-13",
+              "heading": "Ⅱ-1-13",
+              "anchor": "1-13",
               "keywords": [
                 "functional-organization",
                 "matrix-organization",
@@ -3858,9 +3858,9 @@
               ]
             },
             {
-              "num": "ii-1-14",
-              "heading": "II-1-14",
-              "anchor": "ii-1-14",
+              "num": "1-14",
+              "heading": "Ⅱ-1-14",
+              "anchor": "1-14",
               "keywords": [
                 "labor-standards-act",
                 "labor-contract-act",
@@ -3868,9 +3868,9 @@
               ]
             },
             {
-              "num": "ii-1-15",
-              "heading": "II-1-15",
-              "anchor": "ii-1-15",
+              "num": "1-15",
+              "heading": "Ⅱ-1-15",
+              "anchor": "1-15",
               "keywords": [
                 "labor-relations-adjustment-act",
                 "labor-tribunal-act",
@@ -3879,9 +3879,9 @@
               ]
             },
             {
-              "num": "ii-1-16",
-              "heading": "II-1-16",
-              "anchor": "ii-1-16",
+              "num": "1-16",
+              "heading": "Ⅱ-1-16",
+              "anchor": "1-16",
               "keywords": [
                 "labor-share-ratio",
                 "employment-statistics",
@@ -3890,9 +3890,9 @@
               ]
             },
             {
-              "num": "ii-1-29",
-              "heading": "II-1-29",
-              "anchor": "ii-1-29",
+              "num": "1-29",
+              "heading": "Ⅱ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "occupational-safety-act",
                 "safety-health-org-structure",
@@ -3907,9 +3907,9 @@
           "exam_slug": "pe-comprehensive-management-h23-primary",
           "questions": [
             {
-              "num": "ii-1-9",
-              "heading": "II-1-9",
-              "anchor": "ii-1-9",
+              "num": "1-9",
+              "heading": "Ⅱ-1-9",
+              "anchor": "1-9",
               "keywords": [
                 "maslow-hierarchy-of-needs",
                 "mcgregor-xy-theory",
@@ -3919,9 +3919,9 @@
               ]
             },
             {
-              "num": "ii-1-10",
-              "heading": "II-1-10",
-              "anchor": "ii-1-10",
+              "num": "1-10",
+              "heading": "Ⅱ-1-10",
+              "anchor": "1-10",
               "keywords": [
                 "labor-standards-act",
                 "variable-work-hours",
@@ -3930,9 +3930,9 @@
               ]
             },
             {
-              "num": "ii-1-11",
-              "heading": "II-1-11",
-              "anchor": "ii-1-11",
+              "num": "1-11",
+              "heading": "Ⅱ-1-11",
+              "anchor": "1-11",
               "keywords": [
                 "flextime-system",
                 "discretionary-work-system",
@@ -3942,9 +3942,9 @@
               ]
             },
             {
-              "num": "ii-1-12",
-              "heading": "II-1-12",
-              "anchor": "ii-1-12",
+              "num": "1-12",
+              "heading": "Ⅱ-1-12",
+              "anchor": "1-12",
               "keywords": [
                 "pension-system",
                 "employee-benefits",
@@ -3953,9 +3953,9 @@
               ]
             },
             {
-              "num": "ii-1-13",
-              "heading": "II-1-13",
-              "anchor": "ii-1-13",
+              "num": "1-13",
+              "heading": "Ⅱ-1-13",
+              "anchor": "1-13",
               "keywords": [
                 "career-track-system",
                 "location-limited-employee",
@@ -3964,9 +3964,9 @@
               ]
             },
             {
-              "num": "ii-1-14",
-              "heading": "II-1-14",
-              "anchor": "ii-1-14",
+              "num": "1-14",
+              "heading": "Ⅱ-1-14",
+              "anchor": "1-14",
               "keywords": [
                 "work-life-balance",
                 "childcare-nursing-leave-act",
@@ -3974,9 +3974,9 @@
               ]
             },
             {
-              "num": "ii-1-15",
-              "heading": "II-1-15",
-              "anchor": "ii-1-15",
+              "num": "1-15",
+              "heading": "Ⅱ-1-15",
+              "anchor": "1-15",
               "keywords": [
                 "performance-evaluation",
                 "human-resource-assessment",
@@ -3985,9 +3985,9 @@
               ]
             },
             {
-              "num": "ii-1-16",
-              "heading": "II-1-16",
-              "anchor": "ii-1-16",
+              "num": "1-16",
+              "heading": "Ⅱ-1-16",
+              "anchor": "1-16",
               "keywords": [
                 "hawthorne-experiment",
                 "formal-informal-organization",
@@ -3995,9 +3995,9 @@
               ]
             },
             {
-              "num": "ii-1-29",
-              "heading": "II-1-29",
-              "anchor": "ii-1-29",
+              "num": "1-29",
+              "heading": "Ⅱ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "mental-health",
                 "mental-health-care",
@@ -4006,9 +4006,9 @@
               ]
             },
             {
-              "num": "ii-1-32",
-              "heading": "II-1-32",
-              "anchor": "ii-1-32",
+              "num": "1-32",
+              "heading": "Ⅱ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "accident-statistics",
                 "occupational-safety-act",
@@ -5053,9 +5053,9 @@
           "exam_slug": "pe-comprehensive-management-h30-primary",
           "questions": [
             {
-              "num": "15",
-              "heading": "Ⅰ－1－5",
-              "anchor": "15",
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "supply-chain-management",
                 "theory-of-constraints",
@@ -5063,18 +5063,18 @@
               ]
             },
             {
-              "num": "16",
-              "heading": "Ⅰ－1－6",
-              "anchor": "16",
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "market-research",
                 "crm-system"
               ]
             },
             {
-              "num": "18",
-              "heading": "Ⅰ－1－8",
-              "anchor": "18",
+              "num": "1-8",
+              "heading": "Ⅰ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "income-statement",
                 "balance-sheet",
@@ -5083,9 +5083,9 @@
               ]
             },
             {
-              "num": "117",
-              "heading": "Ⅰ－1－17",
-              "anchor": "117",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "workers-compensation-insurance",
                 "business-continuity-plan",
@@ -5093,18 +5093,18 @@
               ]
             },
             {
-              "num": "118",
-              "heading": "Ⅰ－1－18",
-              "anchor": "118",
+              "num": "1-18",
+              "heading": "Ⅰ-1-18",
+              "anchor": "1-18",
               "keywords": [
                 "blockchain-crypto",
                 "encryption-digital-signature"
               ]
             },
             {
-              "num": "119",
-              "heading": "Ⅰ－1－19",
-              "anchor": "119",
+              "num": "1-19",
+              "heading": "Ⅰ-1-19",
+              "anchor": "1-19",
               "keywords": [
                 "patent-rights",
                 "international-filing-system",
@@ -5112,17 +5112,17 @@
               ]
             },
             {
-              "num": "120",
-              "heading": "Ⅰ－1－20",
-              "anchor": "120",
+              "num": "1-20",
+              "heading": "Ⅰ-1-20",
+              "anchor": "1-20",
               "keywords": [
                 "digital-twin-cps"
               ]
             },
             {
-              "num": "121",
-              "heading": "Ⅰ－1－21",
-              "anchor": "121",
+              "num": "1-21",
+              "heading": "Ⅰ-1-21",
+              "anchor": "1-21",
               "keywords": [
                 "malware",
                 "dos-ddos",
@@ -5132,9 +5132,9 @@
               ]
             },
             {
-              "num": "122",
-              "heading": "Ⅰ－1－22",
-              "anchor": "122",
+              "num": "1-22",
+              "heading": "Ⅰ-1-22",
+              "anchor": "1-22",
               "keywords": [
                 "personal-info-protection",
                 "anonymized-information",
@@ -5143,27 +5143,27 @@
               ]
             },
             {
-              "num": "123",
-              "heading": "Ⅰ－1－23",
-              "anchor": "123",
+              "num": "1-23",
+              "heading": "Ⅰ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "iot",
                 "machine-learning"
               ]
             },
             {
-              "num": "124",
-              "heading": "Ⅰ－1－24",
-              "anchor": "124",
+              "num": "1-24",
+              "heading": "Ⅰ-1-24",
+              "anchor": "1-24",
               "keywords": [
                 "iot",
                 "mobile-communication"
               ]
             },
             {
-              "num": "130",
-              "heading": "Ⅰ－1－30",
-              "anchor": "130",
+              "num": "1-30",
+              "heading": "Ⅰ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "product-liability-act",
                 "antitrust-compliance",
@@ -5171,9 +5171,9 @@
               ]
             },
             {
-              "num": "131",
-              "heading": "Ⅰ－1－31",
-              "anchor": "131",
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "safety-control",
                 "system-safety",
@@ -5181,9 +5181,9 @@
               ]
             },
             {
-              "num": "136",
-              "heading": "Ⅰ－1－36",
-              "anchor": "136",
+              "num": "1-36",
+              "heading": "Ⅰ-1-36",
+              "anchor": "1-36",
               "keywords": [
                 "cost-effectiveness-analysis",
                 "survey-analysis"
@@ -5196,9 +5196,9 @@
           "exam_slug": "pe-comprehensive-management-h29-primary",
           "questions": [
             {
-              "num": "12",
-              "heading": "Ⅰ－1－2",
-              "anchor": "12",
+              "num": "1-2",
+              "heading": "Ⅰ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "income-statement",
                 "balance-sheet",
@@ -5207,9 +5207,9 @@
               ]
             },
             {
-              "num": "117",
-              "heading": "Ⅰ－1－17",
-              "anchor": "117",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "machine-learning",
                 "generative-ai",
@@ -5217,9 +5217,9 @@
               ]
             },
             {
-              "num": "119",
-              "heading": "Ⅰ－1－19",
-              "anchor": "119",
+              "num": "1-19",
+              "heading": "Ⅰ-1-19",
+              "anchor": "1-19",
               "keywords": [
                 "personal-info-protection",
                 "personal-information",
@@ -5228,9 +5228,9 @@
               ]
             },
             {
-              "num": "120",
-              "heading": "Ⅰ－1－20",
-              "anchor": "120",
+              "num": "1-20",
+              "heading": "Ⅰ-1-20",
+              "anchor": "1-20",
               "keywords": [
                 "iot",
                 "blockchain-crypto",
@@ -5239,9 +5239,9 @@
               ]
             },
             {
-              "num": "121",
-              "heading": "Ⅰ－1－21",
-              "anchor": "121",
+              "num": "1-21",
+              "heading": "Ⅰ-1-21",
+              "anchor": "1-21",
               "keywords": [
                 "targeted-attack",
                 "cyber-security",
@@ -5250,9 +5250,9 @@
               ]
             },
             {
-              "num": "122",
-              "heading": "Ⅰ－1－22",
-              "anchor": "122",
+              "num": "1-22",
+              "heading": "Ⅰ-1-22",
+              "anchor": "1-22",
               "keywords": [
                 "confidentiality",
                 "integrity-security",
@@ -5262,9 +5262,9 @@
               ]
             },
             {
-              "num": "123",
-              "heading": "Ⅰ－1－23",
-              "anchor": "123",
+              "num": "1-23",
+              "heading": "Ⅰ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "cloud-on-premises",
                 "edge-computing",
@@ -5272,9 +5272,9 @@
               ]
             },
             {
-              "num": "124",
-              "heading": "Ⅰ－1－24",
-              "anchor": "124",
+              "num": "1-24",
+              "heading": "Ⅰ-1-24",
+              "anchor": "1-24",
               "keywords": [
                 "patent-rights",
                 "trademark-rights",
@@ -5284,9 +5284,9 @@
               ]
             },
             {
-              "num": "126",
-              "heading": "Ⅰ－1－26",
-              "anchor": "126",
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "risk-communication",
                 "risk-perception",
@@ -5295,18 +5295,18 @@
               ]
             },
             {
-              "num": "137",
-              "heading": "Ⅰ－1－37",
-              "anchor": "137",
+              "num": "1-37",
+              "heading": "Ⅰ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "citizen-participation",
                 "partnership"
               ]
             },
             {
-              "num": "139",
-              "heading": "Ⅰ－1－39",
-              "anchor": "139",
+              "num": "1-39",
+              "heading": "Ⅰ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "environmental-impact-assessment",
                 "citizen-participation",
@@ -5320,9 +5320,9 @@
           "exam_slug": "pe-comprehensive-management-h28-primary",
           "questions": [
             {
-              "num": "i-1-7",
-              "heading": "I-1-7",
-              "anchor": "i-1-7",
+              "num": "1-7",
+              "heading": "Ⅰ-1-7",
+              "anchor": "1-7",
               "keywords": [
                 "accounting-systems",
                 "balance-sheet",
@@ -5330,9 +5330,9 @@
               ]
             },
             {
-              "num": "i-1-17",
-              "heading": "I-1-17",
-              "anchor": "i-1-17",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "cyber-security",
                 "cybersecurity-safety",
@@ -5340,18 +5340,18 @@
               ]
             },
             {
-              "num": "i-1-18",
-              "heading": "I-1-18",
-              "anchor": "i-1-18",
+              "num": "1-18",
+              "heading": "Ⅰ-1-18",
+              "anchor": "1-18",
               "keywords": [
                 "iot",
                 "digital-twin-cps"
               ]
             },
             {
-              "num": "i-1-19",
-              "heading": "I-1-19",
-              "anchor": "i-1-19",
+              "num": "1-19",
+              "heading": "Ⅰ-1-19",
+              "anchor": "1-19",
               "keywords": [
                 "patent-rights",
                 "trademark-rights",
@@ -5361,9 +5361,9 @@
               ]
             },
             {
-              "num": "i-1-20",
-              "heading": "I-1-20",
-              "anchor": "i-1-20",
+              "num": "1-20",
+              "heading": "Ⅰ-1-20",
+              "anchor": "1-20",
               "keywords": [
                 "encryption-digital-signature",
                 "access-control",
@@ -5373,9 +5373,9 @@
               ]
             },
             {
-              "num": "i-1-21",
-              "heading": "I-1-21",
-              "anchor": "i-1-21",
+              "num": "1-21",
+              "heading": "Ⅰ-1-21",
+              "anchor": "1-21",
               "keywords": [
                 "my-number-act",
                 "personal-information",
@@ -5383,9 +5383,9 @@
               ]
             },
             {
-              "num": "i-1-22",
-              "heading": "I-1-22",
-              "anchor": "i-1-22",
+              "num": "1-22",
+              "heading": "Ⅰ-1-22",
+              "anchor": "1-22",
               "keywords": [
                 "information-disclosure",
                 "accountability-traceability",
@@ -5394,9 +5394,9 @@
               ]
             },
             {
-              "num": "i-1-23",
-              "heading": "I-1-23",
-              "anchor": "i-1-23",
+              "num": "1-23",
+              "heading": "Ⅰ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "tacit-knowledge",
                 "explicit-knowledge",
@@ -5405,9 +5405,9 @@
               ]
             },
             {
-              "num": "i-1-24",
-              "heading": "I-1-24",
-              "anchor": "i-1-24",
+              "num": "1-24",
+              "heading": "Ⅰ-1-24",
+              "anchor": "1-24",
               "keywords": [
                 "iot",
                 "internet",
@@ -5415,9 +5415,9 @@
               ]
             },
             {
-              "num": "i-1-31",
-              "heading": "I-1-31",
-              "anchor": "i-1-31",
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "antitrust-compliance",
                 "csr"
@@ -5430,9 +5430,9 @@
           "exam_slug": "pe-comprehensive-management-h27-primary",
           "questions": [
             {
-              "num": "i-1-8",
-              "heading": "I-1-8",
-              "anchor": "i-1-8",
+              "num": "1-8",
+              "heading": "Ⅰ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "erp",
                 "scm-system",
@@ -5440,9 +5440,9 @@
               ]
             },
             {
-              "num": "i-1-17",
-              "heading": "I-1-17",
-              "anchor": "i-1-17",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "lifecycle-costing-method",
                 "initial-investment",
@@ -5451,9 +5451,9 @@
               ]
             },
             {
-              "num": "i-1-18",
-              "heading": "I-1-18",
-              "anchor": "i-1-18",
+              "num": "1-18",
+              "heading": "Ⅰ-1-18",
+              "anchor": "1-18",
               "keywords": [
                 "patent-rights",
                 "utility-model-rights",
@@ -5461,9 +5461,9 @@
               ]
             },
             {
-              "num": "i-1-19",
-              "heading": "I-1-19",
-              "anchor": "i-1-19",
+              "num": "1-19",
+              "heading": "Ⅰ-1-19",
+              "anchor": "1-19",
               "keywords": [
                 "opt-in-opt-out",
                 "personal-info-protection",
@@ -5471,9 +5471,9 @@
               ]
             },
             {
-              "num": "i-1-20",
-              "heading": "I-1-20",
-              "anchor": "i-1-20",
+              "num": "1-20",
+              "heading": "Ⅰ-1-20",
+              "anchor": "1-20",
               "keywords": [
                 "encryption-digital-signature",
                 "web-services",
@@ -5482,9 +5482,9 @@
               ]
             },
             {
-              "num": "i-1-21",
-              "heading": "I-1-21",
-              "anchor": "i-1-21",
+              "num": "1-21",
+              "heading": "Ⅰ-1-21",
+              "anchor": "1-21",
               "keywords": [
                 "data-mining",
                 "my-number-act",
@@ -5492,9 +5492,9 @@
               ]
             },
             {
-              "num": "i-1-22",
-              "heading": "I-1-22",
-              "anchor": "i-1-22",
+              "num": "1-22",
+              "heading": "Ⅰ-1-22",
+              "anchor": "1-22",
               "keywords": [
                 "social-engineering",
                 "malware",
@@ -5502,9 +5502,9 @@
               ]
             },
             {
-              "num": "i-1-23",
-              "heading": "I-1-23",
-              "anchor": "i-1-23",
+              "num": "1-23",
+              "heading": "Ⅰ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "emergency-info-processing",
                 "emergency",
@@ -5512,9 +5512,9 @@
               ]
             },
             {
-              "num": "i-1-24",
-              "heading": "I-1-24",
-              "anchor": "i-1-24",
+              "num": "1-24",
+              "heading": "Ⅰ-1-24",
+              "anchor": "1-24",
               "keywords": [
                 "password-security",
                 "multi-factor-authentication",
@@ -5523,9 +5523,9 @@
               ]
             },
             {
-              "num": "i-1-28",
-              "heading": "I-1-28",
-              "anchor": "i-1-28",
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "parallel-system",
                 "system-reliability",
@@ -5534,9 +5534,9 @@
               ]
             },
             {
-              "num": "i-1-32",
-              "heading": "I-1-32",
-              "anchor": "i-1-32",
+              "num": "1-32",
+              "heading": "Ⅰ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "crisis-communication",
                 "risk-perception",
@@ -5545,9 +5545,9 @@
               ]
             },
             {
-              "num": "i-1-39",
-              "heading": "I-1-39",
-              "anchor": "i-1-39",
+              "num": "1-39",
+              "heading": "Ⅰ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "environmental-impact-assessment",
                 "environmental-basic-plan",
@@ -5821,9 +5821,9 @@
           "exam_slug": "pe-comprehensive-management-h24-primary",
           "questions": [
             {
-              "num": "ii-1-1",
-              "heading": "II-1-1",
-              "anchor": "ii-1-1",
+              "num": "1-1",
+              "heading": "Ⅱ-1-1",
+              "anchor": "1-1",
               "keywords": [
                 "process-planning-construction",
                 "progress-management",
@@ -5832,9 +5832,9 @@
               ]
             },
             {
-              "num": "ii-1-6",
-              "heading": "II-1-6",
-              "anchor": "ii-1-6",
+              "num": "1-6",
+              "heading": "Ⅱ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "supply-chain-management",
                 "jit-production",
@@ -5844,9 +5844,9 @@
               ]
             },
             {
-              "num": "ii-1-17",
-              "heading": "II-1-17",
-              "anchor": "ii-1-17",
+              "num": "1-17",
+              "heading": "Ⅱ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "personal-info-protection",
                 "personal-information",
@@ -5855,9 +5855,9 @@
               ]
             },
             {
-              "num": "ii-1-18",
-              "heading": "II-1-18",
-              "anchor": "ii-1-18",
+              "num": "1-18",
+              "heading": "Ⅱ-1-18",
+              "anchor": "1-18",
               "keywords": [
                 "internet",
                 "firewall-ids",
@@ -5866,9 +5866,9 @@
               ]
             },
             {
-              "num": "ii-1-19",
-              "heading": "II-1-19",
-              "anchor": "ii-1-19",
+              "num": "1-19",
+              "heading": "Ⅱ-1-19",
+              "anchor": "1-19",
               "keywords": [
                 "private-monopoly",
                 "technology-licensing",
@@ -5878,9 +5878,9 @@
               ]
             },
             {
-              "num": "ii-1-20",
-              "heading": "II-1-20",
-              "anchor": "ii-1-20",
+              "num": "1-20",
+              "heading": "Ⅱ-1-20",
+              "anchor": "1-20",
               "keywords": [
                 "knowledge-sharing",
                 "cloud-on-premises",
@@ -5889,9 +5889,9 @@
               ]
             },
             {
-              "num": "ii-1-21",
-              "heading": "II-1-21",
-              "anchor": "ii-1-21",
+              "num": "1-21",
+              "heading": "Ⅱ-1-21",
+              "anchor": "1-21",
               "keywords": [
                 "social-engineering",
                 "security-education",
@@ -5900,9 +5900,9 @@
               ]
             },
             {
-              "num": "ii-1-22",
-              "heading": "II-1-22",
-              "anchor": "ii-1-22",
+              "num": "1-22",
+              "heading": "Ⅱ-1-22",
+              "anchor": "1-22",
               "keywords": [
                 "targeted-attack",
                 "threat-awareness-training",
@@ -5911,9 +5911,9 @@
               ]
             },
             {
-              "num": "ii-1-23",
-              "heading": "II-1-23",
-              "anchor": "ii-1-23",
+              "num": "1-23",
+              "heading": "Ⅱ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "business-continuity-plan",
                 "system-availability",
@@ -5921,9 +5921,9 @@
               ]
             },
             {
-              "num": "ii-1-24",
-              "heading": "II-1-24",
-              "anchor": "ii-1-24",
+              "num": "1-24",
+              "heading": "Ⅱ-1-24",
+              "anchor": "1-24",
               "keywords": [
                 "encryption-digital-signature",
                 "vpn",
@@ -5931,9 +5931,9 @@
               ]
             },
             {
-              "num": "ii-1-27",
-              "heading": "II-1-27",
-              "anchor": "ii-1-27",
+              "num": "1-27",
+              "heading": "Ⅱ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "crisis-management-manual",
                 "crisis-communication",
@@ -5948,9 +5948,9 @@
           "exam_slug": "pe-comprehensive-management-h23-primary",
           "questions": [
             {
-              "num": "ii-1-2",
-              "heading": "II-1-2",
-              "anchor": "ii-1-2",
+              "num": "1-2",
+              "heading": "Ⅱ-1-2",
+              "anchor": "1-2",
               "keywords": [
                 "cash-flow-statement",
                 "accounting-systems",
@@ -5959,9 +5959,9 @@
               ]
             },
             {
-              "num": "ii-1-17",
-              "heading": "II-1-17",
-              "anchor": "ii-1-17",
+              "num": "1-17",
+              "heading": "Ⅱ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "copyright",
                 "patent-rights",
@@ -5970,9 +5970,9 @@
               ]
             },
             {
-              "num": "ii-1-18",
-              "heading": "II-1-18",
-              "anchor": "ii-1-18",
+              "num": "1-18",
+              "heading": "Ⅱ-1-18",
+              "anchor": "1-18",
               "keywords": [
                 "knowledge-sharing",
                 "tacit-knowledge",
@@ -5982,9 +5982,9 @@
               ]
             },
             {
-              "num": "ii-1-19",
-              "heading": "II-1-19",
-              "anchor": "ii-1-19",
+              "num": "1-19",
+              "heading": "Ⅱ-1-19",
+              "anchor": "1-19",
               "keywords": [
                 "industrial-property-rights",
                 "copyright",
@@ -5994,9 +5994,9 @@
               ]
             },
             {
-              "num": "ii-1-20",
-              "heading": "II-1-20",
-              "anchor": "ii-1-20",
+              "num": "1-20",
+              "heading": "Ⅱ-1-20",
+              "anchor": "1-20",
               "keywords": [
                 "cloud-on-premises",
                 "erp",
@@ -6004,9 +6004,9 @@
               ]
             },
             {
-              "num": "ii-1-21",
-              "heading": "II-1-21",
-              "anchor": "ii-1-21",
+              "num": "1-21",
+              "heading": "Ⅱ-1-21",
+              "anchor": "1-21",
               "keywords": [
                 "internet",
                 "web-services",
@@ -6014,9 +6014,9 @@
               ]
             },
             {
-              "num": "ii-1-22",
-              "heading": "II-1-22",
-              "anchor": "ii-1-22",
+              "num": "1-22",
+              "heading": "Ⅱ-1-22",
+              "anchor": "1-22",
               "keywords": [
                 "unauthorized-access",
                 "password-security",
@@ -6025,9 +6025,9 @@
               ]
             },
             {
-              "num": "ii-1-23",
-              "heading": "II-1-23",
-              "anchor": "ii-1-23",
+              "num": "1-23",
+              "heading": "Ⅱ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "emergency-info-systems",
                 "business-continuity-plan",
@@ -6036,9 +6036,9 @@
               ]
             },
             {
-              "num": "ii-1-24",
-              "heading": "II-1-24",
-              "anchor": "ii-1-24",
+              "num": "1-24",
+              "heading": "Ⅱ-1-24",
+              "anchor": "1-24",
               "keywords": [
                 "risk-analysis",
                 "isms-iso27001",
@@ -6047,9 +6047,9 @@
               ]
             },
             {
-              "num": "ii-1-26",
-              "heading": "II-1-26",
-              "anchor": "ii-1-26",
+              "num": "1-26",
+              "heading": "Ⅱ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "risk-perception",
                 "public-acceptance",
@@ -6057,9 +6057,9 @@
               ]
             },
             {
-              "num": "ii-1-30",
-              "heading": "II-1-30",
-              "anchor": "ii-1-30",
+              "num": "1-30",
+              "heading": "Ⅱ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "parallel-system",
                 "series-system",
@@ -7069,9 +7069,9 @@
           "exam_slug": "pe-comprehensive-management-h30-primary",
           "questions": [
             {
-              "num": "125",
-              "heading": "Ⅰ－1－25",
-              "anchor": "125",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk",
                 "risk-management-system",
@@ -7081,9 +7081,9 @@
               ]
             },
             {
-              "num": "126",
-              "heading": "Ⅰ－1－26",
-              "anchor": "126",
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "safety-control",
                 "process-safety-mgmt",
@@ -7091,9 +7091,9 @@
               ]
             },
             {
-              "num": "127",
-              "heading": "Ⅰ－1－27",
-              "anchor": "127",
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "fire-service-act",
                 "disaster-prevention",
@@ -7101,9 +7101,9 @@
               ]
             },
             {
-              "num": "128",
-              "heading": "Ⅰ－1－28",
-              "anchor": "128",
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "safety-health-education",
                 "occupational-safety-act",
@@ -7111,9 +7111,9 @@
               ]
             },
             {
-              "num": "129",
-              "heading": "Ⅰ－1－29",
-              "anchor": "129",
+              "num": "1-29",
+              "heading": "Ⅰ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "accident-statistics",
                 "accident-cost",
@@ -7121,9 +7121,9 @@
               ]
             },
             {
-              "num": "130",
-              "heading": "Ⅰ－1－30",
-              "anchor": "130",
+              "num": "1-30",
+              "heading": "Ⅰ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "product-liability-act",
                 "antitrust-compliance",
@@ -7131,9 +7131,9 @@
               ]
             },
             {
-              "num": "131",
-              "heading": "Ⅰ－1－31",
-              "anchor": "131",
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "safety-control",
                 "system-safety",
@@ -7141,9 +7141,9 @@
               ]
             },
             {
-              "num": "132",
-              "heading": "Ⅰ－1－32",
-              "anchor": "132",
+              "num": "1-32",
+              "heading": "Ⅰ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "disaster-weather-info",
                 "disaster-prevention",
@@ -7152,9 +7152,9 @@
               ]
             },
             {
-              "num": "140",
-              "heading": "Ⅰ－1－40",
-              "anchor": "140",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "heat-island-effect",
                 "health-management",
@@ -7169,9 +7169,9 @@
           "exam_slug": "pe-comprehensive-management-h29-primary",
           "questions": [
             {
-              "num": "15",
-              "heading": "Ⅰ－1－5",
-              "anchor": "15",
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "parallel-system",
                 "series-system",
@@ -7181,9 +7181,9 @@
               ]
             },
             {
-              "num": "118",
-              "heading": "Ⅰ－1－18",
-              "anchor": "118",
+              "num": "1-18",
+              "heading": "Ⅰ-1-18",
+              "anchor": "1-18",
               "keywords": [
                 "safety-control",
                 "public-safety",
@@ -7191,9 +7191,9 @@
               ]
             },
             {
-              "num": "126",
-              "heading": "Ⅰ－1－26",
-              "anchor": "126",
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "risk-communication",
                 "risk-perception",
@@ -7202,9 +7202,9 @@
               ]
             },
             {
-              "num": "127",
-              "heading": "Ⅰ－1－27",
-              "anchor": "127",
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "business-continuity-plan",
                 "disaster-countermeasures-act",
@@ -7212,9 +7212,9 @@
               ]
             },
             {
-              "num": "129",
-              "heading": "Ⅰ－1－29",
-              "anchor": "129",
+              "num": "1-29",
+              "heading": "Ⅰ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "risk-analysis",
                 "probabilistic-risk-assessment",
@@ -7222,9 +7222,9 @@
               ]
             },
             {
-              "num": "130",
-              "heading": "Ⅰ－1－30",
-              "anchor": "130",
+              "num": "1-30",
+              "heading": "Ⅰ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "disaster-countermeasures-act",
                 "disaster-prevention",
@@ -7233,9 +7233,9 @@
               ]
             },
             {
-              "num": "131",
-              "heading": "Ⅰ－1－31",
-              "anchor": "131",
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "consumer-safety",
                 "consumer-product-safety-act",
@@ -7243,9 +7243,9 @@
               ]
             },
             {
-              "num": "132",
-              "heading": "Ⅰ－1－32",
-              "anchor": "132",
+              "num": "1-32",
+              "heading": "Ⅰ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "accident-statistics",
                 "occupational-accident-prevention-plan",
@@ -7259,9 +7259,9 @@
           "exam_slug": "pe-comprehensive-management-h28-primary",
           "questions": [
             {
-              "num": "i-1-4",
-              "heading": "I-1-4",
-              "anchor": "i-1-4",
+              "num": "1-4",
+              "heading": "Ⅰ-1-4",
+              "anchor": "1-4",
               "keywords": [
                 "multi-objective-optimization",
                 "integer-programming",
@@ -7270,9 +7270,9 @@
               ]
             },
             {
-              "num": "i-1-17",
-              "heading": "I-1-17",
-              "anchor": "i-1-17",
+              "num": "1-17",
+              "heading": "Ⅰ-1-17",
+              "anchor": "1-17",
               "keywords": [
                 "cyber-security",
                 "cybersecurity-safety",
@@ -7280,9 +7280,9 @@
               ]
             },
             {
-              "num": "i-1-25",
-              "heading": "I-1-25",
-              "anchor": "i-1-25",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "prevention-activities",
                 "small-group-activities",
@@ -7291,9 +7291,9 @@
               ]
             },
             {
-              "num": "i-1-26",
-              "heading": "I-1-26",
-              "anchor": "i-1-26",
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "product-liability-act",
                 "consumer-safety",
@@ -7302,9 +7302,9 @@
               ]
             },
             {
-              "num": "i-1-27",
-              "heading": "I-1-27",
-              "anchor": "i-1-27",
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "occupational-safety-act",
                 "safety-health-education",
@@ -7312,9 +7312,9 @@
               ]
             },
             {
-              "num": "i-1-28",
-              "heading": "I-1-28",
-              "anchor": "i-1-28",
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "crisis-management-manual",
                 "safety-and-security",
@@ -7323,9 +7323,9 @@
               ]
             },
             {
-              "num": "i-1-29",
-              "heading": "I-1-29",
-              "anchor": "i-1-29",
+              "num": "1-29",
+              "heading": "Ⅰ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "risk",
                 "risk-analysis",
@@ -7334,9 +7334,9 @@
               ]
             },
             {
-              "num": "i-1-30",
-              "heading": "I-1-30",
-              "anchor": "i-1-30",
+              "num": "1-30",
+              "heading": "Ⅰ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "pfi",
                 "risk-treatment",
@@ -7345,9 +7345,9 @@
               ]
             },
             {
-              "num": "i-1-32",
-              "heading": "I-1-32",
-              "anchor": "i-1-32",
+              "num": "1-32",
+              "heading": "Ⅰ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "power-harassment",
                 "mental-health",
@@ -7362,9 +7362,9 @@
           "exam_slug": "pe-comprehensive-management-h27-primary",
           "questions": [
             {
-              "num": "i-1-5",
-              "heading": "I-1-5",
-              "anchor": "i-1-5",
+              "num": "1-5",
+              "heading": "Ⅰ-1-5",
+              "anchor": "1-5",
               "keywords": [
                 "product-liability-act",
                 "product-safety",
@@ -7372,9 +7372,9 @@
               ]
             },
             {
-              "num": "i-1-6",
-              "heading": "I-1-6",
-              "anchor": "i-1-6",
+              "num": "1-6",
+              "heading": "Ⅰ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "five-s",
                 "quality-control",
@@ -7383,9 +7383,9 @@
               ]
             },
             {
-              "num": "i-1-23",
-              "heading": "I-1-23",
-              "anchor": "i-1-23",
+              "num": "1-23",
+              "heading": "Ⅰ-1-23",
+              "anchor": "1-23",
               "keywords": [
                 "emergency-info-processing",
                 "emergency",
@@ -7393,9 +7393,9 @@
               ]
             },
             {
-              "num": "i-1-25",
-              "heading": "I-1-25",
-              "anchor": "i-1-25",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk-map-matrix",
                 "risk-treatment",
@@ -7404,9 +7404,9 @@
               ]
             },
             {
-              "num": "i-1-26",
-              "heading": "I-1-26",
-              "anchor": "i-1-26",
+              "num": "1-26",
+              "heading": "Ⅰ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "business-continuity-plan",
                 "supply-chain-management",
@@ -7414,9 +7414,9 @@
               ]
             },
             {
-              "num": "i-1-27",
-              "heading": "I-1-27",
-              "anchor": "i-1-27",
+              "num": "1-27",
+              "heading": "Ⅰ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "occupational-safety-act",
                 "labor-contract-act",
@@ -7425,9 +7425,9 @@
               ]
             },
             {
-              "num": "i-1-28",
-              "heading": "I-1-28",
-              "anchor": "i-1-28",
+              "num": "1-28",
+              "heading": "Ⅰ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "parallel-system",
                 "system-reliability",
@@ -7436,9 +7436,9 @@
               ]
             },
             {
-              "num": "i-1-29",
-              "heading": "I-1-29",
-              "anchor": "i-1-29",
+              "num": "1-29",
+              "heading": "Ⅰ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "crisis-management-manual",
                 "disaster-drill",
@@ -7447,9 +7447,9 @@
               ]
             },
             {
-              "num": "i-1-30",
-              "heading": "I-1-30",
-              "anchor": "i-1-30",
+              "num": "1-30",
+              "heading": "Ⅰ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "fail-safe",
                 "fool-proof",
@@ -7457,9 +7457,9 @@
               ]
             },
             {
-              "num": "i-1-31",
-              "heading": "I-1-31",
-              "anchor": "i-1-31",
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "mental-health-care",
                 "mental-health",
@@ -7467,9 +7467,9 @@
               ]
             },
             {
-              "num": "i-1-32",
-              "heading": "I-1-32",
-              "anchor": "i-1-32",
+              "num": "1-32",
+              "heading": "Ⅰ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "crisis-communication",
                 "risk-perception",
@@ -7729,9 +7729,9 @@
           "exam_slug": "pe-comprehensive-management-h24-primary",
           "questions": [
             {
-              "num": "ii-1-6",
-              "heading": "II-1-6",
-              "anchor": "ii-1-6",
+              "num": "1-6",
+              "heading": "Ⅱ-1-6",
+              "anchor": "1-6",
               "keywords": [
                 "supply-chain-management",
                 "jit-production",
@@ -7741,9 +7741,9 @@
               ]
             },
             {
-              "num": "ii-1-12",
-              "heading": "II-1-12",
-              "anchor": "ii-1-12",
+              "num": "1-12",
+              "heading": "Ⅱ-1-12",
+              "anchor": "1-12",
               "keywords": [
                 "qc-circle",
                 "small-group-activities",
@@ -7751,9 +7751,9 @@
               ]
             },
             {
-              "num": "ii-1-25",
-              "heading": "II-1-25",
-              "anchor": "ii-1-25",
+              "num": "1-25",
+              "heading": "Ⅱ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "tripod-theory",
                 "human-factors",
@@ -7762,9 +7762,9 @@
               ]
             },
             {
-              "num": "ii-1-26",
-              "heading": "II-1-26",
-              "anchor": "ii-1-26",
+              "num": "1-26",
+              "heading": "Ⅱ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "risk-treatment",
                 "risk-management-system",
@@ -7773,9 +7773,9 @@
               ]
             },
             {
-              "num": "ii-1-27",
-              "heading": "II-1-27",
-              "anchor": "ii-1-27",
+              "num": "1-27",
+              "heading": "Ⅱ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "crisis-management-manual",
                 "crisis-communication",
@@ -7784,9 +7784,9 @@
               ]
             },
             {
-              "num": "ii-1-28",
-              "heading": "II-1-28",
-              "anchor": "ii-1-28",
+              "num": "1-28",
+              "heading": "Ⅱ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "probabilistic-risk-assessment",
                 "disaster-countermeasures-act",
@@ -7794,9 +7794,9 @@
               ]
             },
             {
-              "num": "ii-1-29",
-              "heading": "II-1-29",
-              "anchor": "ii-1-29",
+              "num": "1-29",
+              "heading": "Ⅱ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "occupational-safety-act",
                 "safety-health-org-structure",
@@ -7805,9 +7805,9 @@
               ]
             },
             {
-              "num": "ii-1-30",
-              "heading": "II-1-30",
-              "anchor": "ii-1-30",
+              "num": "1-30",
+              "heading": "Ⅱ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "accident-statistics",
                 "occupational-accident-prevention-plan",
@@ -7815,9 +7815,9 @@
               ]
             },
             {
-              "num": "ii-1-31",
-              "heading": "II-1-31",
-              "anchor": "ii-1-31",
+              "num": "1-31",
+              "heading": "Ⅱ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "heinrich-law",
                 "prevention-activities",
@@ -7827,9 +7827,9 @@
               ]
             },
             {
-              "num": "ii-1-32",
-              "heading": "II-1-32",
-              "anchor": "ii-1-32",
+              "num": "1-32",
+              "heading": "Ⅱ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "interlock",
                 "fault-avoidance",
@@ -7845,9 +7845,9 @@
           "exam_slug": "pe-comprehensive-management-h23-primary",
           "questions": [
             {
-              "num": "ii-1-8",
-              "heading": "II-1-8",
-              "anchor": "ii-1-8",
+              "num": "1-8",
+              "heading": "Ⅱ-1-8",
+              "anchor": "1-8",
               "keywords": [
                 "consumer-product-safety-act",
                 "product-safety",
@@ -7855,9 +7855,9 @@
               ]
             },
             {
-              "num": "ii-1-24",
-              "heading": "II-1-24",
-              "anchor": "ii-1-24",
+              "num": "1-24",
+              "heading": "Ⅱ-1-24",
+              "anchor": "1-24",
               "keywords": [
                 "risk-analysis",
                 "isms-iso27001",
@@ -7866,9 +7866,9 @@
               ]
             },
             {
-              "num": "ii-1-25",
-              "heading": "II-1-25",
-              "anchor": "ii-1-25",
+              "num": "1-25",
+              "heading": "Ⅱ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk-management-system",
                 "risk-treatment",
@@ -7878,9 +7878,9 @@
               ]
             },
             {
-              "num": "ii-1-26",
-              "heading": "II-1-26",
-              "anchor": "ii-1-26",
+              "num": "1-26",
+              "heading": "Ⅱ-1-26",
+              "anchor": "1-26",
               "keywords": [
                 "risk-perception",
                 "public-acceptance",
@@ -7888,9 +7888,9 @@
               ]
             },
             {
-              "num": "ii-1-27",
-              "heading": "II-1-27",
-              "anchor": "ii-1-27",
+              "num": "1-27",
+              "heading": "Ⅱ-1-27",
+              "anchor": "1-27",
               "keywords": [
                 "crisis-management-manual",
                 "business-continuity-plan",
@@ -7899,9 +7899,9 @@
               ]
             },
             {
-              "num": "ii-1-28",
-              "heading": "II-1-28",
-              "anchor": "ii-1-28",
+              "num": "1-28",
+              "heading": "Ⅱ-1-28",
+              "anchor": "1-28",
               "keywords": [
                 "safety-and-security",
                 "risk-assessment",
@@ -7910,9 +7910,9 @@
               ]
             },
             {
-              "num": "ii-1-29",
-              "heading": "II-1-29",
-              "anchor": "ii-1-29",
+              "num": "1-29",
+              "heading": "Ⅱ-1-29",
+              "anchor": "1-29",
               "keywords": [
                 "mental-health",
                 "mental-health-care",
@@ -7921,9 +7921,9 @@
               ]
             },
             {
-              "num": "ii-1-30",
-              "heading": "II-1-30",
-              "anchor": "ii-1-30",
+              "num": "1-30",
+              "heading": "Ⅱ-1-30",
+              "anchor": "1-30",
               "keywords": [
                 "parallel-system",
                 "series-system",
@@ -7933,9 +7933,9 @@
               ]
             },
             {
-              "num": "ii-1-31",
-              "heading": "II-1-31",
-              "anchor": "ii-1-31",
+              "num": "1-31",
+              "heading": "Ⅱ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "eta",
                 "fta",
@@ -7945,9 +7945,9 @@
               ]
             },
             {
-              "num": "ii-1-32",
-              "heading": "II-1-32",
-              "anchor": "ii-1-32",
+              "num": "1-32",
+              "heading": "Ⅱ-1-32",
+              "anchor": "1-32",
               "keywords": [
                 "accident-statistics",
                 "occupational-safety-act",
@@ -8920,9 +8920,9 @@
           "exam_slug": "pe-comprehensive-management-h30-primary",
           "questions": [
             {
-              "num": "133",
-              "heading": "Ⅰ－1－33",
-              "anchor": "133",
+              "num": "1-33",
+              "heading": "Ⅰ-1-33",
+              "anchor": "1-33",
               "keywords": [
                 "cites",
                 "convention-on-biodiversity",
@@ -8931,9 +8931,9 @@
               ]
             },
             {
-              "num": "134",
-              "heading": "Ⅰ－1－34",
-              "anchor": "134",
+              "num": "1-34",
+              "heading": "Ⅰ-1-34",
+              "anchor": "1-34",
               "keywords": [
                 "environmental-standards",
                 "water-pollution-control-act",
@@ -8941,9 +8941,9 @@
               ]
             },
             {
-              "num": "135",
-              "heading": "Ⅰ－1－35",
-              "anchor": "135",
+              "num": "1-35",
+              "heading": "Ⅰ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "precautionary-principle",
                 "environmental-basic-plan",
@@ -8951,26 +8951,26 @@
               ]
             },
             {
-              "num": "137",
-              "heading": "Ⅰ－1－37",
-              "anchor": "137",
+              "num": "1-37",
+              "heading": "Ⅰ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "invasive-alien-species",
                 "species-preservation-act"
               ]
             },
             {
-              "num": "138",
-              "heading": "Ⅰ－1－38",
-              "anchor": "138",
+              "num": "1-38",
+              "heading": "Ⅰ-1-38",
+              "anchor": "1-38",
               "keywords": [
                 "environmental-impact-assessment"
               ]
             },
             {
-              "num": "139",
-              "heading": "Ⅰ－1－39",
-              "anchor": "139",
+              "num": "1-39",
+              "heading": "Ⅰ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "air-pollution-control-act",
                 "environmental-standards",
@@ -8978,9 +8978,9 @@
               ]
             },
             {
-              "num": "140",
-              "heading": "Ⅰ－1－40",
-              "anchor": "140",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "heat-island-effect",
                 "health-management",
@@ -8995,9 +8995,9 @@
           "exam_slug": "pe-comprehensive-management-h29-primary",
           "questions": [
             {
-              "num": "125",
-              "heading": "Ⅰ－1－25",
-              "anchor": "125",
+              "num": "1-25",
+              "heading": "Ⅰ-1-25",
+              "anchor": "1-25",
               "keywords": [
                 "risk-assessment",
                 "chemical-substances-review-act",
@@ -9006,9 +9006,9 @@
               ]
             },
             {
-              "num": "133",
-              "heading": "Ⅰ－1－33",
-              "anchor": "133",
+              "num": "1-33",
+              "heading": "Ⅰ-1-33",
+              "anchor": "1-33",
               "keywords": [
                 "extended-producer-responsibility",
                 "polluter-pays-principle",
@@ -9019,9 +9019,9 @@
               ]
             },
             {
-              "num": "134",
-              "heading": "Ⅰ－1－34",
-              "anchor": "134",
+              "num": "1-34",
+              "heading": "Ⅰ-1-34",
+              "anchor": "1-34",
               "keywords": [
                 "circular-society-basic-act",
                 "waste-management-act",
@@ -9030,9 +9030,9 @@
               ]
             },
             {
-              "num": "135",
-              "heading": "Ⅰ－1－35",
-              "anchor": "135",
+              "num": "1-35",
+              "heading": "Ⅰ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "cost-effectiveness-analysis",
                 "environmental-impact-assessment",
@@ -9040,9 +9040,9 @@
               ]
             },
             {
-              "num": "136",
-              "heading": "Ⅰ－1－36",
-              "anchor": "136",
+              "num": "1-36",
+              "heading": "Ⅰ-1-36",
+              "anchor": "1-36",
               "keywords": [
                 "climate-change-international",
                 "carbon-pricing",
@@ -9050,18 +9050,18 @@
               ]
             },
             {
-              "num": "137",
-              "heading": "Ⅰ－1－37",
-              "anchor": "137",
+              "num": "1-37",
+              "heading": "Ⅰ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "citizen-participation",
                 "partnership"
               ]
             },
             {
-              "num": "138",
-              "heading": "Ⅰ－1－38",
-              "anchor": "138",
+              "num": "1-38",
+              "heading": "Ⅰ-1-38",
+              "anchor": "1-38",
               "keywords": [
                 "interim-storage-facility",
                 "radioactive-decontamination-act",
@@ -9070,9 +9070,9 @@
               ]
             },
             {
-              "num": "139",
-              "heading": "Ⅰ－1－39",
-              "anchor": "139",
+              "num": "1-39",
+              "heading": "Ⅰ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "environmental-impact-assessment",
                 "citizen-participation",
@@ -9080,9 +9080,9 @@
               ]
             },
             {
-              "num": "140",
-              "heading": "Ⅰ－1－40",
-              "anchor": "140",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "lifecycle-assessment",
                 "design-for-environment",
@@ -9098,18 +9098,18 @@
           "exam_slug": "pe-comprehensive-management-h28-primary",
           "questions": [
             {
-              "num": "i-1-31",
-              "heading": "I-1-31",
-              "anchor": "i-1-31",
+              "num": "1-31",
+              "heading": "Ⅰ-1-31",
+              "anchor": "1-31",
               "keywords": [
                 "antitrust-compliance",
                 "csr"
               ]
             },
             {
-              "num": "i-1-33",
-              "heading": "I-1-33",
-              "anchor": "i-1-33",
+              "num": "1-33",
+              "heading": "Ⅰ-1-33",
+              "anchor": "1-33",
               "keywords": [
                 "environmental-standards",
                 "air-pollution-control-act",
@@ -9118,9 +9118,9 @@
               ]
             },
             {
-              "num": "i-1-34",
-              "heading": "I-1-34",
-              "anchor": "i-1-34",
+              "num": "1-34",
+              "heading": "Ⅰ-1-34",
+              "anchor": "1-34",
               "keywords": [
                 "extended-producer-responsibility",
                 "polluter-pays-principle",
@@ -9129,9 +9129,9 @@
               ]
             },
             {
-              "num": "i-1-35",
-              "heading": "I-1-35",
-              "anchor": "i-1-35",
+              "num": "1-35",
+              "heading": "Ⅰ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "radioactive-waste",
                 "radioactive-decontamination-act",
@@ -9139,9 +9139,9 @@
               ]
             },
             {
-              "num": "i-1-36",
-              "heading": "I-1-36",
-              "anchor": "i-1-36",
+              "num": "1-36",
+              "heading": "Ⅰ-1-36",
+              "anchor": "1-36",
               "keywords": [
                 "energy",
                 "climate-change-decarbonization",
@@ -9149,9 +9149,9 @@
               ]
             },
             {
-              "num": "i-1-37",
-              "heading": "I-1-37",
-              "anchor": "i-1-37",
+              "num": "1-37",
+              "heading": "Ⅰ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "environmental-impact-assessment",
                 "esg-environmental-assessment",
@@ -9159,9 +9159,9 @@
               ]
             },
             {
-              "num": "i-1-38",
-              "heading": "I-1-38",
-              "anchor": "i-1-38",
+              "num": "1-38",
+              "heading": "Ⅰ-1-38",
+              "anchor": "1-38",
               "keywords": [
                 "lifecycle-assessment",
                 "lifecycle-management",
@@ -9169,9 +9169,9 @@
               ]
             },
             {
-              "num": "i-1-39",
-              "heading": "I-1-39",
-              "anchor": "i-1-39",
+              "num": "1-39",
+              "heading": "Ⅰ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "environmental-accounting",
                 "eco-action-21",
@@ -9180,9 +9180,9 @@
               ]
             },
             {
-              "num": "i-1-40",
-              "heading": "I-1-40",
-              "anchor": "i-1-40",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "environmental-impact-assessment",
                 "convention-on-biodiversity",
@@ -9196,9 +9196,9 @@
           "exam_slug": "pe-comprehensive-management-h27-primary",
           "questions": [
             {
-              "num": "i-1-33",
-              "heading": "I-1-33",
-              "anchor": "i-1-33",
+              "num": "1-33",
+              "heading": "Ⅰ-1-33",
+              "anchor": "1-33",
               "keywords": [
                 "environmental-impact-assessment",
                 "circular-society-basic-act",
@@ -9206,9 +9206,9 @@
               ]
             },
             {
-              "num": "i-1-34",
-              "heading": "I-1-34",
-              "anchor": "i-1-34",
+              "num": "1-34",
+              "heading": "Ⅰ-1-34",
+              "anchor": "1-34",
               "keywords": [
                 "extended-producer-responsibility",
                 "deposit-system",
@@ -9216,9 +9216,9 @@
               ]
             },
             {
-              "num": "i-1-35",
-              "heading": "I-1-35",
-              "anchor": "i-1-35",
+              "num": "1-35",
+              "heading": "Ⅰ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "iso-14000",
                 "lifecycle-assessment",
@@ -9226,9 +9226,9 @@
               ]
             },
             {
-              "num": "i-1-36",
-              "heading": "I-1-36",
-              "anchor": "i-1-36",
+              "num": "1-36",
+              "heading": "Ⅰ-1-36",
+              "anchor": "1-36",
               "keywords": [
                 "environmental-standards",
                 "seven-types-of-pollution",
@@ -9237,9 +9237,9 @@
               ]
             },
             {
-              "num": "i-1-37",
-              "heading": "I-1-37",
-              "anchor": "i-1-37",
+              "num": "1-37",
+              "heading": "Ⅰ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "circular-society-basic-act",
                 "extended-producer-responsibility",
@@ -9248,18 +9248,18 @@
               ]
             },
             {
-              "num": "i-1-38",
-              "heading": "I-1-38",
-              "anchor": "i-1-38",
+              "num": "1-38",
+              "heading": "Ⅰ-1-38",
+              "anchor": "1-38",
               "keywords": [
                 "climate-change-decarbonization",
                 "climate-change-international"
               ]
             },
             {
-              "num": "i-1-39",
-              "heading": "I-1-39",
-              "anchor": "i-1-39",
+              "num": "1-39",
+              "heading": "Ⅰ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "environmental-impact-assessment",
                 "environmental-basic-plan",
@@ -9267,9 +9267,9 @@
               ]
             },
             {
-              "num": "i-1-40",
-              "heading": "I-1-40",
-              "anchor": "i-1-40",
+              "num": "1-40",
+              "heading": "Ⅰ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "environmental-accounting",
                 "cost-effectiveness-analysis",
@@ -9488,9 +9488,9 @@
           "exam_slug": "pe-comprehensive-management-h24-primary",
           "questions": [
             {
-              "num": "ii-1-33",
-              "heading": "II-1-33",
-              "anchor": "ii-1-33",
+              "num": "1-33",
+              "heading": "Ⅱ-1-33",
+              "anchor": "1-33",
               "keywords": [
                 "waste-management-act",
                 "radioactive-waste",
@@ -9498,9 +9498,9 @@
               ]
             },
             {
-              "num": "ii-1-34",
-              "heading": "II-1-34",
-              "anchor": "ii-1-34",
+              "num": "1-34",
+              "heading": "Ⅱ-1-34",
+              "anchor": "1-34",
               "keywords": [
                 "carbon-pricing",
                 "polluter-pays-principle",
@@ -9509,9 +9509,9 @@
               ]
             },
             {
-              "num": "ii-1-35",
-              "heading": "II-1-35",
-              "anchor": "ii-1-35",
+              "num": "1-35",
+              "heading": "Ⅱ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "lifecycle-assessment",
                 "design-for-environment",
@@ -9520,9 +9520,9 @@
               ]
             },
             {
-              "num": "ii-1-36",
-              "heading": "II-1-36",
-              "anchor": "ii-1-36",
+              "num": "1-36",
+              "heading": "Ⅱ-1-36",
+              "anchor": "1-36",
               "keywords": [
                 "csr",
                 "extended-producer-responsibility",
@@ -9532,9 +9532,9 @@
               ]
             },
             {
-              "num": "ii-1-37",
-              "heading": "II-1-37",
-              "anchor": "ii-1-37",
+              "num": "1-37",
+              "heading": "Ⅱ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "air-pollution-control-act",
                 "seven-types-of-pollution",
@@ -9542,9 +9542,9 @@
               ]
             },
             {
-              "num": "ii-1-38",
-              "heading": "II-1-38",
-              "anchor": "ii-1-38",
+              "num": "1-38",
+              "heading": "Ⅱ-1-38",
+              "anchor": "1-38",
               "keywords": [
                 "environmental-impact-assessment",
                 "environmental-basic-plan",
@@ -9552,9 +9552,9 @@
               ]
             },
             {
-              "num": "ii-1-39",
-              "heading": "II-1-39",
-              "anchor": "ii-1-39",
+              "num": "1-39",
+              "heading": "Ⅱ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "un-human-environment-conf",
                 "rio-declaration",
@@ -9564,9 +9564,9 @@
               ]
             },
             {
-              "num": "ii-1-40",
-              "heading": "II-1-40",
-              "anchor": "ii-1-40",
+              "num": "1-40",
+              "heading": "Ⅱ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "energy",
                 "climate-change-decarbonization",
@@ -9580,9 +9580,9 @@
           "exam_slug": "pe-comprehensive-management-h23-primary",
           "questions": [
             {
-              "num": "ii-1-33",
-              "heading": "II-1-33",
-              "anchor": "ii-1-33",
+              "num": "1-33",
+              "heading": "Ⅱ-1-33",
+              "anchor": "1-33",
               "keywords": [
                 "environmental-impact-assessment",
                 "environmental-basic-plan",
@@ -9590,9 +9590,9 @@
               ]
             },
             {
-              "num": "ii-1-34",
-              "heading": "II-1-34",
-              "anchor": "ii-1-34",
+              "num": "1-34",
+              "heading": "Ⅱ-1-34",
+              "anchor": "1-34",
               "keywords": [
                 "energy",
                 "climate-change-decarbonization",
@@ -9600,9 +9600,9 @@
               ]
             },
             {
-              "num": "ii-1-35",
-              "heading": "II-1-35",
-              "anchor": "ii-1-35",
+              "num": "1-35",
+              "heading": "Ⅱ-1-35",
+              "anchor": "1-35",
               "keywords": [
                 "circular-society-basic-act",
                 "waste-management-act",
@@ -9611,9 +9611,9 @@
               ]
             },
             {
-              "num": "ii-1-36",
-              "heading": "II-1-36",
-              "anchor": "ii-1-36",
+              "num": "1-36",
+              "heading": "Ⅱ-1-36",
+              "anchor": "1-36",
               "keywords": [
                 "climate-change-decarbonization",
                 "climate-change-international",
@@ -9622,9 +9622,9 @@
               ]
             },
             {
-              "num": "ii-1-37",
-              "heading": "II-1-37",
-              "anchor": "ii-1-37",
+              "num": "1-37",
+              "heading": "Ⅱ-1-37",
+              "anchor": "1-37",
               "keywords": [
                 "eco-action-21",
                 "iso-14000",
@@ -9634,9 +9634,9 @@
               ]
             },
             {
-              "num": "ii-1-38",
-              "heading": "II-1-38",
-              "anchor": "ii-1-38",
+              "num": "1-38",
+              "heading": "Ⅱ-1-38",
+              "anchor": "1-38",
               "keywords": [
                 "lifecycle-assessment",
                 "design-for-environment",
@@ -9644,9 +9644,9 @@
               ]
             },
             {
-              "num": "ii-1-39",
-              "heading": "II-1-39",
-              "anchor": "ii-1-39",
+              "num": "1-39",
+              "heading": "Ⅱ-1-39",
+              "anchor": "1-39",
               "keywords": [
                 "pops-convention",
                 "minamata-convention",
@@ -9654,9 +9654,9 @@
               ]
             },
             {
-              "num": "ii-1-40",
-              "heading": "II-1-40",
-              "anchor": "ii-1-40",
+              "num": "1-40",
+              "heading": "Ⅱ-1-40",
+              "anchor": "1-40",
               "keywords": [
                 "iso-14000",
                 "lifecycle-assessment",
