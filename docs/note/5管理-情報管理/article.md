@@ -296,7 +296,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 ### クラウドコンピューティング
 
-[クラウドコンピューティング](https://doboku-note.com/docs/pe-comprehensive-management-cloud-computing?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)とは、ネットワーク経由でコンピューティングリソースをサービスとして提供する技術です。NISTの定義による**5つの基本特性**が択一の出題ポイントです。
+[クラウドコンピューティング](https://doboku-note.com/docs/pe-comprehensive-management-cloud-on-premises?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)とは、ネットワーク経由でコンピューティングリソースをサービスとして提供する技術です。NISTの定義による**5つの基本特性**が択一の出題ポイントです。
 
 1. **オンデマンド・セルフサービス** — 利用者が自動的にリソースをプロビジョニングできる
 2. **幅広いネットワークアクセス** — 様々なデバイスからネットワーク越しに利用可能
