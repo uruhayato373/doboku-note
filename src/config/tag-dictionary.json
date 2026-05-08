@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-08T01:05:03.174Z",
+  "generated_at": "2026-05-08T02:03:20.837Z",
   "summary": {
-    "total_mdx_files": 786,
-    "total_unique_tags": 58,
+    "total_mdx_files": 790,
+    "total_unique_tags": 65,
     "allowlist_size": 84,
-    "known_count": 38,
-    "unknown_count": 20,
+    "known_count": 39,
+    "unknown_count": 26,
     "typo_candidates_count": 1
   },
   "tags": [
@@ -1192,7 +1192,7 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 17,
+      "count": 21,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
@@ -1203,13 +1203,17 @@
         "pe-comprehensive-management-idea-generation-methods",
         "pe-comprehensive-management-key-performance-indicators",
         "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
         "pe-comprehensive-management-pdca-cycle",
         "pe-comprehensive-management-pfi",
         "pe-comprehensive-management-r02-primary",
         "pe-comprehensive-management-r03-primary",
         "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r05-essay-road-municipality",
         "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-comprehensive-management-r06-primary",
+        "pe-comprehensive-management-r07-essay-road-municipality",
         "pe-comprehensive-management-r07-primary",
         "pe-comprehensive-management-value-engineering"
       ]
@@ -1402,6 +1406,18 @@
       ]
     },
     {
+      "name": "記述式対策",
+      "count": 5,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "quality",
       "count": 4,
       "inAllowlist": false,
@@ -1410,6 +1426,50 @@
         "civil-construction-1-textbook-histogram",
         "civil-construction-1-textbook-quality-inspection",
         "civil-construction-1-textbook-quality-overview"
+      ]
+    },
+    {
+      "name": "受験者属性別",
+      "count": 4,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "地方公共団体",
+      "count": 4,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "道路",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "模範論文",
+      "count": 4,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -1584,11 +1644,27 @@
       ]
     },
     {
+      "name": "SWOT分析",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r05-essay-road-municipality"
+      ]
+    },
+    {
       "name": "tunnel",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-tunnel-02"
+      ]
+    },
+    {
+      "name": "カーボンニュートラル",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r06-essay-road-municipality"
       ]
     },
     {
@@ -1632,14 +1708,6 @@
       ]
     },
     {
-      "name": "記述式対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs"
-      ]
-    },
-    {
       "name": "索引",
       "count": 1,
       "inAllowlist": true,
@@ -1661,6 +1729,14 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "少子高齢化",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -1741,15 +1817,21 @@
     "law",
     "machinery",
     "pillar",
+    "記述式対策",
     "quality",
+    "受験者属性別",
+    "地方公共団体",
+    "模範論文",
     "schedule",
     "2026年版",
     "5管理",
+    "SWOT分析",
+    "カーボンニュートラル",
     "キーワード集",
     "トレードオフ",
     "記述式試験",
-    "記述式対策",
     "出願",
+    "少子高齢化",
     "直前対策",
     "令和2年度",
     "令和3年度",
