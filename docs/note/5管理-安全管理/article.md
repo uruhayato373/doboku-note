@@ -45,7 +45,7 @@ utmCampaign: 99-safety-management
 **柔軟な文化** — 集中管理体制ではなく、分散管理によってさまざまな事態に柔軟に対応できる組織文化です。  
 **学習する文化** — 安全情報を整備して過去の経験から学ぶ体制。レッスンラーンと呼ばれる知識ベースから技術者が自由に知識を得られる文化です。
 
-択一では「4つの文化のどれか」という定義照合が頻出です。特に「**報告する文化（収集部門と処分部門の分離が前提）**」は引っかけポイントになります。
+択一では「4つの文化のどれか」という定義照合が頻出です。特に「**報告する文化**（収集部門と処分部門の分離が前提）」は引っかけポイントになります。
 
 **製造物責任法（PL法）**
 
@@ -270,7 +270,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 > **【出題例: [R7年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** 企業経営と安全に関する記述で最も不適切なものはどれか。4.「[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の主たる義務者は、職場の長など現場の管理監督者である」→ **正答4：主たる義務者は「事業者」（経営者・法人）。管理監督者は実施役であり義務の主体ではない。**
 
-**[安全衛生管理体制](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（第3章）
+**[安全衛生管理体制](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （第3章）
 
 - **総括安全衛生管理者（[第10条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_10)）** — 建設業等100人以上、製造業等300人以上の事業場ごとに選任
 - **安全管理者（[第11条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_11)）** — 常時50人以上の事業場ごとに選任（安全に係る技術的事項を管理）
@@ -280,7 +280,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 - **衛生委員会（[第18条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_18)）** — 常時50人以上の事業場に設置
 - **安全衛生委員会（[第19条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_19)）** — 安全委員会と衛生委員会の設置が必要なときは統合設置も可
 
-**化学物質の[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（平成28年6月改正で義務化）
+**化学物質の[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （平成28年6月改正で義務化）
 
 安全データシート（SDS）交付義務の対象である640物質が対象です。
 
@@ -299,11 +299,11 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 - **二次予防** — 早期発見・早期治療。兆候の読み取り・早期相談体制の整備
 - **三次予防** — 職場復帰支援。治療・精神面フォロー・再発防止
 
-**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（[第66条の10](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_66_10)）— 常時**50人以上**の労働者を使用する事業場では、医師・保健師等による心理的負担の程度を把握するための検査を義務として実施しなければなりません（平成27年12月施行）。
+**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （[第66条の10](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_66_10)）— 常時**50人以上**の労働者を使用する事業場では、医師・保健師等による心理的負担の程度を把握するための検査を義務として実施しなければなりません（平成27年12月施行）。
 
 目的は①自らのストレス状況への気づき促進、②職場ごとの集計・分析による職場環境改善、③医師による面接指導へのつなぎです。
 
-択一では**3段階予防の取組内容を入れ替える引っかけ**が頻出です。「労働環境の点検・改善」は**一次予防（未然防止）**の中心であり、二次予防（早期発見・早期対処）の中心ではありません。
+択一では**3段階予防の取組内容を入れ替える引っかけ**が頻出です。「労働環境の点検・改善」は**一次予防**（未然防止）の中心であり、二次予防（早期発見・早期対処）の中心ではありません。
 
 二次予防の中心はストレスチェックや相談窓口です。
 
@@ -351,7 +351,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 > **【出題例: [R7年度 Ⅰ-1-31](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-31)】** 従業員500人・年間労働時間1,700h・死傷者1人・損失日数30日の事業所Bと、度数率1.5・強度率0.09・年千人率2.1の事業所Aを比較する。最も適切なものはどれか。→ **正答1：B社の度数率＝1.18、強度率＝0.035、年千人率＝2.0で全指標がA社を下回る。延べ実労働時間＝従業員数×年間平均労働時間で計算。**
 
-**高齢者の労働安全** — **フレイル**（筋力・認知機能等の低下で生活機能障害リスクが高まった状態）と**ロコモティブシンドローム**（骨・関節・筋肉等の衰えで移動機能が低下した状態）が択一の定義問題として出ます。
+**高齢者の労働安全** — **フレイル** （筋力・認知機能等の低下で生活機能障害リスクが高まった状態）と **ロコモティブシンドローム** （骨・関節・筋肉等の衰えで移動機能が低下した状態）が択一の定義問題として出ます。
 
 **公益通報者保護法**
 
@@ -431,9 +431,9 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 記述式論文では「[4M分析](https://doboku-note.com/docs/pe-comprehensive-management-four-m-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で原因を特定し、[4E](https://doboku-note.com/docs/pe-comprehensive-management-four-e-countermeasures?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で対策を論じる」構成が使えます。
 
-択一では「**Economy（経済性）**」を含めた選択肢が頻出の引っかけです。4Eに経済性は含まれません。
+択一では「**Economy**（経済性）」を含めた選択肢が頻出の引っかけです。4Eに経済性は含まれません。
 
-第4のEは管理者が率先して手本を示す「**Example（模範）**」です。
+第4のEは管理者が率先して手本を示す「**Example**（模範）」です。
 
 > **【出題例: [R7年度 Ⅰ-1-25](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-25)】** 事故・災害の未然防止対応活動に関する記述で最も不適切なものはどれか。4.「4E対策は Education・Engineering・Enforcement・**Economy** の4つの観点から対策を検討する手法」→ **正答4：Economy（経済性）は誤り。正しくは Example（模範）。管理者が率先して手本を示す文化づくりが第4のEです。**
 
@@ -441,7 +441,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 [小集団活動](https://doboku-note.com/docs/pe-comprehensive-management-small-group-activities?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、第一線の職場で働く人々が自主的に運営し継続的に実施する活動です。
 
-QCサークル活動のほか、**ZD（Zero Defects）運動**（従業員の創造工夫で仕事の欠陥をゼロにし顧客満足・製品信頼性を高める）や**改善提案活動**があります。
+QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創造工夫で仕事の欠陥をゼロにし顧客満足・製品信頼性を高める）や **改善提案活動** があります。
 
 **自主保安とKYT**
 
@@ -502,7 +502,7 @@ QCサークル活動のほか、**ZD（Zero Defects）運動**（従業員の創
 
 **BCM（Business Continuity Management：事業継続マネジメント）**は、[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)策定や維持・更新、予算・資源の確保、事前対策、教育・訓練、継続的改善などを行う平常時からのマネジメント活動で、経営レベルの戦略的活動として位置付けられます。
 
-択一では「**[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は計画（文書）、BCMはそれを組織に組み込んだマネジメントシステム**」という区別が問われます。
+択一では「**[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management) は計画**（文書）**、BCM はそれを組織に組み込んだマネジメントシステム**」という区別が問われます。
 
 国際規格としてISO 22301（事業継続マネジメントシステム—要求事項）が発行されています。
 
@@ -594,13 +594,13 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 **FMEA（故障モード影響分析）**
 
-[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Failure Mode and Effects Analysis）は、設計の不完全な点や製品の潜在的欠陥を見つけるため、構成要素の**故障モード**を解析してシステム全体への影響を調べる**帰納的手法（ボトムアップ）**です。
+[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Failure Mode and Effects Analysis）は、設計の不完全な点や製品の潜在的欠陥を見つけるため、構成要素の**故障モード**を解析してシステム全体への影響を調べる**帰納的手法**（ボトムアップ）です。
 
 部品→システムの方向で一つひとつ影響を評価します。
 
 **FTA（故障の木分析）**
 
-[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Fault Tree Analysis）は、信頼性・安全性の面から好ましくない事象（**頂上事象**）を取り上げ、その原因となる事象と発生確率を論理ゲートで遡る**演繹的手法（トップダウン）**です。
+[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Fault Tree Analysis）は、信頼性・安全性の面から好ましくない事象（**頂上事象**）を取り上げ、その原因となる事象と発生確率を論理ゲートで遡る**演繹的手法**（トップダウン）です。
 
 確率計算による定量的評価が可能です。頂上事象から一次事象、二次事象と枝分かれして広がる形状から「故障の木」と呼ばれます。
 
@@ -663,7 +663,7 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 - **MTTR（Mean Time To Repair）** — 修理開始から修復完了までの平均時間（平均修復時間）
 - **MTBF（Mean Time Between Failures）** — ある故障から次の故障までの平均間隔（平均故障間隔）。故障率 f ＝ 1 ÷ MTBF
-- **[アベイラビリティ](https://doboku-note.com/docs/pe-comprehensive-management-system-availability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（A）— A ＝ MTBF ÷ (MTBF + MTTR)
+- **[アベイラビリティ](https://doboku-note.com/docs/pe-comprehensive-management-system-availability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （A）— A ＝ MTBF ÷ (MTBF + MTTR)
 
 **複合システム（直列＋並列）の計算手順** — まず並列部の信頼度を `1−(1−R₁)(1−R₂)` で求め、次に直列部を `R₁×R₂` で結合します。信頼性ブロック図の構造（どのユニットが並列でどこから直列か）を正確に読み取ることが計算の前提です。
 
@@ -721,7 +721,7 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 **解決フレームワーク**
 
-- **[リスクベースメンテナンス](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（RBM）** — 劣化度・施設重要度から優先順位を決定し、高リスク箇所に予算集中
+- **[リスクベースメンテナンス](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （RBM）— 劣化度・施設重要度から優先順位を決定し、高リスク箇所に予算集中
 - **[ALARP](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)原則** — 追加対策費が便益と著しく不均衡でない水準までリスクを低減し、残余リスクは受容する判断
 - **予防保全への転換** — 事後保全から予防保全への転換により、今後30年累計の維持管理費を**約3割縮減**できる見込み（白書記述）
 
