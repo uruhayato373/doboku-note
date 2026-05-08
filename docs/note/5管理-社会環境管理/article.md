@@ -287,7 +287,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[ハザードマップ](https://doboku-note.com/docs/pe-comprehensive-management-hazard-map?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 自然災害による被害軽減・防災対策のため、被災想定区域・避難場所・避難経路を表示した地図。洪水・津波・土砂災害・火山ハザードマップなど災害種別がある。水防法第15条第3項で浸水想定区域を含む市町村長に住民周知の義務を規定。
 
-**[流域治水](https://doboku-note.com/docs/pe-comprehensive-management-urban-flood?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 集水域・河川区域・氾濫域を含めて1つの流域として捉え、関係者が協働した水災害対策。**「氾濫をできるだけ防ぐ・減らす」「被害対象を減少させる」「被害の軽減・早期復旧」を多層的・ハードソフト一体で進める** のが特徴。
+**流域治水** — 集水域・河川区域・氾濫域を含めて1つの流域として捉え、関係者が協働した水災害対策。**「氾濫をできるだけ防ぐ・減らす」「被害対象を減少させる」「被害の軽減・早期復旧」を多層的・ハードソフト一体で進める** のが特徴。関連概念として[都市型水害](https://doboku-note.com/docs/pe-comprehensive-management-urban-flood?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)も参照。
 
 **[警戒レベル 5段階](https://doboku-note.com/docs/pe-comprehensive-management-alert-levels?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** （令和3年5月改定の「避難情報に関するガイドライン」）— 5段階で対応を区分します。
 
