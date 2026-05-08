@@ -661,14 +661,91 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 ## 記述式で使う「経済性管理 × 他の管理」トレードオフ
 
-| トレードオフペア | 典型的な対立 | 解決の方向性 |
-|---|---|---|
-| 経済性 × 安全 | コスト削減 vs 安全設備投資 | 費用便益分析・ALARP適用 |
-| 経済性 × 人的資源 | 人件費削減 vs 人材育成投資 | 教育ROI可視化・長期視点の人材戦略 |
-| 経済性 × 情報 | 情報システム投資 vs 短期収益 | TCO分析・段階的ROI評価 |
-| 経済性 × 社会環境 | コスト最優先 vs 環境対策投資 | 環境コスト内部化・LCA導入 |
+経済性管理は他の4管理すべてとトレードオフを持ちます。**短期コスト最小化 vs 中長期価値最大化** という根本対立が共通の軸です。
 
-このトレードオフ構造の詳細は[5管理間トレードオフ解説（無料）](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)で確認できます。また、答案における具体的な使い方は note 有料記事「[トレードオフ思考 理論編](https://note.com/dobokunote)」で詳しく解説しています。
+各トレードオフを「**対立の構造**」「**解決フレームワーク**」「**残余リスクと監視**」の3段階で展開できると、記述式論文の論理展開が一気にしっかりします。
+
+各トピックは[令和7年版国土交通白書](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/index.html)の現行課題と直結するため、最新の論文設問にも対応できます。
+
+### 経済性管理 × 安全管理（コスト圧縮と予防保全）
+
+**対立の構造** — 経済性側は LCC（ライフサイクルコスト）最小化と短期コスト圧縮を志向します。
+
+一方で[令和7年版白書 第II部第1章第4節](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/html/n2140000.html)で言及された道路陥没事故のような重大インフラ事故は、**事故損失（補修・賠償・信用毀損）が数十年分の予防保全コストを上回る**ことを示しました。
+
+事後保全に頼って初期コストを抑えれば、累積的な期待損失が膨張します。
+
+**評価軸：初期投資・運用コスト vs LCC ＋ 事故時の期待損失（リスクコスト）**。
+
+**解決フレームワーク**
+
+- **NPV ベースの LCC 評価** — 初期投資・運用費・事故時損失の期待値を時間価値で割り引いた合計で投資判断。回収期間法は回収後 CF を無視するため、長期インフラ評価には NPV を使う
+- **[予知保全への転換](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 設備診断技術で劣化傾向を管理し、最適時期に対策。事後保全比で**今後30年累計の維持管理費を約3割縮減**できる見込み（白書記述）
+- **PFI/コンセッション方式の活用** — 民間の効率性を取り込みながらリスク分担を契約で明確化（[PFI](https://doboku-note.com/docs/pe-comprehensive-management-pfi?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)のリスク分担5原則）
+
+**残余リスクと監視** — 経済性側で削った安全マージンは、IoT モニタリングで常時監視して補完します。
+
+異常兆候時の即時対応プロトコルを契約・保守要領に組み込むことで、コスト最適化と安全性の両立を図ります。
+
+### 経済性管理 × 人的資源管理（人件費圧縮と組織能力）
+
+**対立の構造** — 短期業績のため人件費削減・教育投資抑制・非正規化を進めれば、即時の損益改善は得られます。
+
+しかし担い手不足・技能継承断絶・モチベーション低下により、**生産性低下・離職率上昇・労働安全事故が発生**し、結果的に再採用コスト・事故対応コスト・品質低下による顧客離反が増大します。
+
+**評価軸：直接人件費の削減 vs 組織能力の保持と中長期生産性**。
+
+**解決フレームワーク**
+
+- **教育投資の ROI 可視化** — 教育コストを KPI（生産性向上率・離職率低下・事故減少）と紐付けて [ABC](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) 的に活動別配賦。教育を費用ではなく投資として評価
+- **DX による省人化と高度業務シフト** — i-Construction 等の DX で定型業務を自動化し、限られた人材を判断業務・顧客接点に集中。**[VE](https://doboku-note.com/docs/pe-comprehensive-management-value-engineering?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) 思考**で「価値 ＝ 機能 ÷ コスト」のうち機能を高める方向で価値創出
+- **ジョブ型雇用と専門人材の市場価格対応** — 一律人件費圧縮ではなく、希少スキルへの選択的投資で総額をコントロール
+
+**残余リスクと監視** — 短期業績圧力に流されないよう、教育投資・離職率・エンゲージメントスコアを経営ダッシュボードで月次監視します。
+
+人件費の削減目標と組織能力指標は同列に扱う運用とします。
+
+### 経済性管理 × 情報管理（IT 投資と短期収益）
+
+**対立の構造** — 情報システム・DX 投資は数年単位で巨額の初期コストを要するため、短期 P/L には費用として圧迫要因となります。
+
+一方で投資を回避すれば、**データに基づく意思決定の遅延・競合への遅れ・サプライチェーン分断時の脆弱性**が発生し、長期的な競争力を失います。
+
+**評価軸：短期キャッシュフロー vs 中長期の競争力と意思決定速度**。
+
+**解決フレームワーク**
+
+- **TCO（Total Cost of Ownership）分析** — 初期投資だけでなく、運用・保守・教育・廃棄まで含めた総保有コストを評価。クラウド/オンプレ・買い切り/サブスクの選択を一貫した基準で判断
+- **段階的 PoC とアジャイル導入** — 小規模 PoC で効果検証 → 段階的拡大。[アジャイル型開発](https://doboku-note.com/docs/pe-comprehensive-management-agile?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) と相性がよく、初期投資リスクを限定
+- **無形資産としての情報資産評価** — B/S に直接計上されない情報資産（顧客データ・ノウハウ・アルゴリズム）を**管理会計**上で価値評価し、投資判断のテーブルに乗せる
+
+**残余リスクと監視** — IT 投資の効果は遅効性のため、[KGI/KPI](https://doboku-note.com/docs/pe-comprehensive-management-kgi-kpi?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) を導入時に明文化し、四半期ごとに進捗確認します。
+
+期待効果が発現しない投資は、サンクコストにとらわれず撤退・転用を判断します。
+
+### 経済性管理 × 社会環境管理（コスト最適化と外部不経済）
+
+**対立の構造** — 短期コスト最適化を追求すれば、CO₂ 排出・廃棄物・生態系影響などの**外部不経済**は企業の損益計算から除外され、社会に転嫁されます。
+
+しかし[カーボンニュートラル2050](https://www.env.go.jp/earth/ondanka/cn.html)やサーキュラーエコノミー進展により、**炭素税・拡大生産者責任・サプライチェーン排出量開示**などで外部不経済が内部化されつつあります。
+
+長期視点で外部不経済を無視すれば、規制対応コスト・レピュテーションリスク・調達拒否リスクが顕在化します。
+
+**評価軸：直接コストの最小化 vs 外部不経済の内部化と LCA 視点での総コスト**。
+
+**解決フレームワーク**
+
+- **[LCA（ライフサイクルアセスメント）](https://doboku-note.com/docs/pe-comprehensive-management-life-cycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 製品・サービスの環境負荷を原料調達から廃棄まで定量化。NPV と組み合わせて環境コストを投資判断に組み込む
+- **[マテリアルフローコスト会計（MFCA）](https://doboku-note.com/docs/pe-comprehensive-management-mfca?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — ロス分を「負の製品コスト」として可視化し、廃棄物削減の経済合理性を経営層に示す
+- **インターナルカーボンプライシング** — 社内で炭素価格を設定し、設備投資判断に CO₂ 排出量を NPV 計算へ組み込み。将来の炭素税導入に先行対応
+
+**残余リスクと監視** — 環境価値の貨幣換算は不確実性が高いため、シナリオ分析で複数の炭素価格・規制水準を仮定します。
+
+意思決定のロバスト性（どのシナリオでも成立する選択）を確認することで、長期不確実性下の投資判断の質を保ちます。
+
+---
+
+このトレードオフ構造の詳細は[5管理間トレードオフ解説（無料）](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)で確認できます。
 
 ---
 
