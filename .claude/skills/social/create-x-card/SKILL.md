@@ -1,0 +1,85 @@
+---
+name: create-x-card
+description: >
+  tweets.md から X 投稿用サマリカード PNG（1200×675）を生成する。
+  管理分野ハッシュタグを自動検出して色分けし、本文冒頭 4〜8 行を表示。
+  Use when user says "X投稿用画像を作って", "サマリカードを生成", "/create-x-card".
+disable-model-invocation: true
+argument-hint: "--draft <NNN> | --range <NNN>-<NNN> | --all [--force]"
+---
+
+`scripts/gen-x-card.mjs` を実行して X 投稿用サマリカード PNG を生成する。
+
+## 使い方
+
+```bash
+# 単一ドラフト
+node scripts/gen-x-card.mjs --draft 019
+
+# 範囲指定（019〜028 の 50 枚）
+node scripts/gen-x-card.mjs --range 019-028
+
+# キーワード解説系すべて（--all は /^\d{3}-キーワード-/ にマッチするもの）
+node scripts/gen-x-card.mjs --all
+
+# 既存 PNG を上書き
+node scripts/gen-x-card.mjs --draft 019 --force
+```
+
+## 出力先
+
+```
+docs/x-posts/draft/{NNN}-*/img/tweet-NN-{slug}.png
+```
+
+slug はドラフトフォルダ名から `NNN-キーワード-` を除いた部分。
+
+## tweets.md の要件
+
+各ツイートブロックで管理分野ハッシュタグが必要（色分けに使用）:
+
+| ハッシュタグ | 配色 |
+|---|---|
+| #経済性管理 | brand blue (#2e6da4) |
+| #安全管理   | danger red (#b22234) |
+| #品質管理   | positive green (#3a7d44) |
+| #情報管理   | warn gold (#d4a017) |
+| #人的資源管理 | purple (#6b4c9a) |
+| (なし)      | brand blue (デフォルト) |
+
+キーワード名はヘッダ行 `【総監キーワード解説】<名前> ?#N` から自動抽出。
+`）#N` 形式（スペースなし）も対応（例: `VE（バリューエンジニアリング）#1`）。
+
+## カードデザイン（1200×675）
+
+```
+┌─────────────────────────────────────────────────────┐
+│ 総監キーワード解説 #N        │ [管理分野バッジ]     │ ← 管理分野色帯 (80px)
+├─────────────────────────────────────────────────────┤
+│                                                       │
+│  キーワード名（44px, bold）                           │
+│  セクションタイトル（28px, muted）                    │
+│ ─────────────────────────────────────────────────── │
+│  本文テキスト（27px, 折り返し maxChars=32）            │
+│  最大 8 行（≤ y=612 まで）                            │
+│                                                       │
+├─────────────────────────────────────────────────────┤
+│ doboku-note.com                                       │ ← 管理分野色フッター (50px)
+└─────────────────────────────────────────────────────┘
+```
+
+テキスト折り返しは `sns-image-policy.md §5` の `wrapJa` 算法（lookback 12, maxChars=32, force-break=+4）に準拠。
+
+## 生成後の確認
+
+```bash
+# 画像を目視確認
+open docs/x-posts/draft/019-キーワード-risk-assessment/img/tweet-01-risk-assessment.png
+
+# publish-x と統合確認（dry-run）
+npx tsx .claude/skills/social/publish-x/publish-x.ts 019 --tweet 1 2026-05-20T08:00 --dry-run
+```
+
+## スクリプト本体
+
+`scripts/gen-x-card.mjs`
