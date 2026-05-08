@@ -1,13 +1,13 @@
 /**
  * x.md → x/tweets.md 移行スクリプト
- * docs/sns-drafts/ 配下の全ドラフトで x.md を x/tweets.md に移動する
+ * docs/x-posts/ 配下の全ドラフトで x.md を x/tweets.md に移動する
  */
 import { readdirSync, existsSync, renameSync, mkdirSync } from "fs";
 import { join } from "path";
 import { fileURLToPath } from "url";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
-const DRAFTS_DIR = join(__dirname, "../docs/sns-drafts");
+const DRAFTS_DIR = join(__dirname, "../docs/x-posts");
 
 const entries = readdirSync(DRAFTS_DIR).filter(
   (e) => e !== "README.md" && !e.startsWith(".")

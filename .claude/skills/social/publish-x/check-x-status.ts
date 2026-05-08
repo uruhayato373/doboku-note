@@ -9,7 +9,7 @@ import * as path from "path";
 import * as fs from "fs";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
-const DRAFTS_DIR = path.join(PROJECT_ROOT, "docs/sns-drafts");
+const DRAFTS_DIR = path.join(PROJECT_ROOT, "docs/x-posts");
 
 interface TweetStatus {
   title: string;

@@ -27,7 +27,7 @@ utmCampaign: 99-information-management
 
 ### 記述統計と代表値の使い分け
 
-記述統計は収集済みデータの特徴を把握する手法です。代表値には平均値・中央値・最頻値・四分位数があり、それぞれ適した場面が異なります。
+[記述統計](https://doboku-note.com/docs/pe-comprehensive-management-descriptive-statistics?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)は収集済みデータの特徴を把握する手法です。代表値には平均値・中央値・最頻値・四分位数があり、それぞれ適した場面が異なります。
 
 **平均値（算術平均）** — 全値を足してデータ数で割った値。すべての値が反映される一方、外れ値の影響を大きく受けます。試験の平均点や月収の集計など「単純な代表値が欲しい」場面で使います。
 
@@ -75,8 +75,8 @@ utmCampaign: 99-information-management
 その他の統計手法は以下の通りです。
 
 - **移動平均** — 時系列データの変動を滑らかにして傾向を掴む手法
-- **相関分析** — 2変数の関係を散布図で可視化し正・負・無相関を判別
-- **回帰分析** — 説明変数（x）で被説明変数（y）を予測する手法（単回帰・重回帰）
+- **[相関分析](https://doboku-note.com/docs/pe-comprehensive-management-correlation-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 2変数の関係を散布図で可視化し正・負・無相関を判別
+- **[回帰分析](https://doboku-note.com/docs/pe-comprehensive-management-linear-regression?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 説明変数（x）で被説明変数（y）を予測する手法（単回帰・重回帰）
 - **最小二乗法** — 誤差の二乗和を最小にして回帰直線を求める方法
 - **因子分析** — 観測変数に影響を与えている潜在変数を探索する手法
 - **主成分分析** — 相関する複数変数を少数の無相関な合成変数（主成分）に縮約する手法
@@ -86,23 +86,23 @@ utmCampaign: 99-information-management
 
 ### ビッグデータ分析とデータマイニング
 
-ビッグデータを活用するためのプロセスは「データ収集→データクレンジング→データマイニング→知識の活用」という4段階です。
+ビッグデータを活用するためのプロセスは「データ収集→[データクレンジング](https://doboku-note.com/docs/pe-comprehensive-management-data-cleansing?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)→[データマイニング](https://doboku-note.com/docs/pe-comprehensive-management-data-mining?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)→知識の活用」という4段階です。
 
 ![データ分析プロセス5ステップ — 収集・クレンジング・マイニング・可視化・活用](./img/figure-5-data-analysis-flow.png)
 
-**データウェアハウス** — 業務データを時系列・内容別に分類し大量保管する倉庫。BIツールのデータソースになります。
+**[データウェアハウス](https://doboku-note.com/docs/pe-comprehensive-management-data-warehouse?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 業務データを時系列・内容別に分類し大量保管する倉庫。BIツールのデータソースになります。
 
 **データクレンジング** — 収集データの重複・誤記・表記揺れを削除・修正・正規化する作業。データ品質の根幹となります。
 
 **データマイニング** — データ群から未知の規則性やパターンを発見する手法の総称。仮説なし手法（機械学習）と仮説あり手法（統計分析）の2種類があります。
 
-**機械学習** — AIがデータから反復的に学習し、自ら相関関係やパターンを発見する技術。分類・回帰・クラスタリング等の手法が含まれます。混同行列（正解率・適合率・再現率・F値）は機械学習モデルの評価指標として択一に出題されています。
+**[機械学習](https://doboku-note.com/docs/pe-comprehensive-management-machine-learning?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — AIがデータから反復的に学習し、自ら相関関係やパターンを発見する技術。分類・回帰・クラスタリング等の手法が含まれます。混同行列（正解率・適合率・再現率・F値）は機械学習モデルの評価指標として択一に出題されています。
 
 > **【出題例: [R3年度 Ⅰ-1-17](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-17)】** 混同行列（4,500データ：真陽性30・偽陰性20・偽陽性70・真陰性4,380）に20個の偽陽性データを追加したとき、どの指標が変化するか。→ **正答1：正解率・適合率・F値は低下するが、再現率は変化しない（再現率の分母＝実際の陽性数50は変わらない）。**
 
 > **【出題例: [R6年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** データ解析・データマイニングの技法に関する記述で最も不適切なもの。→ **主成分分析・ロジスティック回帰・クラスター分析の定義の区別が問われる。技法名と用途の対応を正確に覚える。**
 
-**BIツール** — データウェアハウスの情報を可視化し、経営判断を支援するツール。
+**[BIツール](https://doboku-note.com/docs/pe-comprehensive-management-business-intelligence?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — データウェアハウスの情報を可視化し、経営判断を支援するツール。
 
 **集合知** — Web上などで多くの人の知識を体系化する仕組み（Wikipediaが典型例）。
 
@@ -128,9 +128,9 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 組織内で生まれる知識を体系的に管理・活用する概念がナレッジマネジメントです。野中郁次郎のSECIモデルが択一・記述両方で頻出です。
 
-**形式知** — 文章・図表・数値など言語化・形式化できる知識。マニュアル・設計書・規程が典型例。
+**[形式知](https://doboku-note.com/docs/pe-comprehensive-management-explicit-knowledge?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 文章・図表・数値など言語化・形式化できる知識。マニュアル・設計書・規程が典型例。
 
-**暗黙知** — 言語化や形式化が難しい、個人の経験・直感・技能・人脈など。ベテラン職人の技術が典型例。
+**[暗黙知](https://doboku-note.com/docs/pe-comprehensive-management-tacit-knowledge?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 言語化や形式化が難しい、個人の経験・直感・技能・人脈など。ベテラン職人の技術が典型例。
 
 **SECIモデル（4つの知識変換プロセス）**
 
@@ -175,7 +175,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 [情報開示](https://doboku-note.com/docs/pe-comprehensive-management-information-disclosure?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)は組織が利害関係者に対して適時かつ正確な情報を提供する義務です。
 
-**情報公開法（行政機関の保有する情報の公開に関する法律）** — [第3条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_3)に開示請求権が規定され、情報公開制度が設けられています。以下の6種類が[第5条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_5)で不開示情報として規定されています。
+**[情報公開法](https://doboku-note.com/docs/pe-comprehensive-management-information-disclosure-act?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（行政機関の保有する情報の公開に関する法律）** — [第3条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_3)に開示請求権が規定され、情報公開制度が設けられています。以下の6種類が[第5条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_5)で不開示情報として規定されています。
 
 1. **個人情報** — 特定の個人を識別できる情報
 2. **法人情報** — 法人の正当な利益を害する情報
@@ -228,10 +228,10 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 **存続期間（頻出まとめ）**
 
-- **特許権** — 出願日から20年（医薬品等は最大5年延長可）
-- **実用新案権** — 出願日から10年（無審査主義）
-- **意匠権** — 設定登録日から25年
-- **商標権** — 設定登録日から10年（更新可能で実質無期限）
+- **[特許権](https://doboku-note.com/docs/pe-comprehensive-management-patent-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から20年（医薬品等は最大5年延長可）
+- **[実用新案権](https://doboku-note.com/docs/pe-comprehensive-management-utility-model-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から10年（無審査主義）
+- **[意匠権](https://doboku-note.com/docs/pe-comprehensive-management-design-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 設定登録日から25年
+- **[商標権](https://doboku-note.com/docs/pe-comprehensive-management-trademark-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 設定登録日から10年（更新可能で実質無期限）
 - **著作権** — 創作と同時に発生、著作者の死後70年（無登録）
 
 ![知的財産権の存続期間比較 — 特許・実用新案・意匠・商標・著作権](./img/figure-3-ip-rights-duration.png)
@@ -320,9 +320,9 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 [ISMS（情報セキュリティマネジメントシステム）](https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) — ISO/IEC 27001に準拠したマネジメントシステム。情報セキュリティ方針は**トップマネジメント（経営者）が確立・発行**する点が択一の引っかけです（実務担当者ではない）。
 
-**ISO/IEC 15408（コモンクライテリア）** — セキュリティ製品・システムの**技術的機能**を評価する国際規格。組織の運用・管理面はISMSの範疇であり、ISO/IEC 15408の評価対象外です。CCRA制度により加盟国間で認証を相互承認できます。
+**[ISO/IEC 15408（コモンクライテリア）](https://doboku-note.com/docs/pe-comprehensive-management-common-criteria?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — セキュリティ製品・システムの**技術的機能**を評価する国際規格。組織の運用・管理面はISMSの範疇であり、ISO/IEC 15408の評価対象外です。CCRA制度により加盟国間で認証を相互承認できます。
 
-**プライバシーマーク制度** — 個人情報保護マネジメントシステム（JIS Q 15001）に準拠した評価制度。ISMSとは別制度です。
+**[プライバシーマーク制度](https://doboku-note.com/docs/pe-comprehensive-management-privacy-mark?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 個人情報保護マネジメントシステム（JIS Q 15001）に準拠した評価制度。ISMSとは別制度です。
 
 ![情報セキュリティCIA×ISMS — 3要素と認証制度の関係](./img/figure-6-cia-isms.png)
 
@@ -368,7 +368,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 - **ROI分析による優先順位付け** — 投資対効果を定量的に評価し、経営判断の根拠を明示
 - **クラウド活用によるコスト変動費化** — 初期投資を抑え、需要変動に応じてコストを最適化
 
-**残余リスクと監視** — クラウド依存による事業継続リスク（ベンダー障害・データ流出）が残存します。BCP策定とデータバックアップ体制の整備で対応します。
+**残余リスクと監視** — クラウド依存による事業継続リスク（ベンダー障害・データ流出）が残存します。[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)策定とデータバックアップ体制の整備で対応します。
 
 ### 情報管理 × 人的資源管理（テレワーク）
 
@@ -392,7 +392,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 **解決フレームワーク**
 
-- **匿名化による報告促進** — 個人が特定されない匿名報告制度で、正直な情報が上がりやすくする
+- **[匿名化](https://doboku-note.com/docs/pe-comprehensive-management-anonymized-information?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)による報告促進** — 個人が特定されない匿名報告制度で、正直な情報が上がりやすくする
 - **業界横断データベース** — 同業他社と安全情報を共有し、業界全体の安全水準を向上
 - **ノーブレーム文化（非懲罰制度）** — ヒヤリハット報告を責任追及に使わない組織文化の醸成
 

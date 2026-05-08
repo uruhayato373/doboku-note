@@ -1,4 +1,4 @@
-# docs/sns-drafts/ — SNS 投稿素材ディレクトリ
+# docs/x-posts/ — SNS 投稿素材ディレクトリ
 
 doboku-note の SNS 投稿素材（X / Instagram Carousel / YouTube Shorts）を管理するディレクトリ。
 
@@ -8,7 +8,7 @@ doboku-note の SNS 投稿素材（X / Instagram Carousel / YouTube Shorts）を
 
 ## note 記事との違い
 
-| 軸 | docs/note | docs/sns-drafts |
+| 軸 | docs/note | docs/x-posts |
 |---|---|---|
 | 消費スタイル | 腰を据えて読む（5〜15 分） | 短時間・スワイプ消費（30 秒〜2 分） |
 | 長さ | 1,500〜5,000 字 | 1 ツイート 280 字 / 1 スライド 50〜80 字 / 1 動画 30〜60 秒 |
@@ -20,7 +20,7 @@ doboku-note の SNS 投稿素材（X / Instagram Carousel / YouTube Shorts）を
 
 ## 2 ライン併走（クイズ × キーワード解説）
 
-sns-drafts は 2 つのコンテンツラインを並走させる。詳細な投稿カレンダー・KPI トリガー・試験前後の運用切替は [29_SNS投稿カレンダー2026Q2.md](../project/29_SNS投稿カレンダー2026Q2.md) を真実源とする。
+x-posts は 2 つのコンテンツラインを並走させる。詳細な投稿カレンダー・KPI トリガー・試験前後の運用切替は [29_SNS投稿カレンダー2026Q2.md](../project/29_SNS投稿カレンダー2026Q2.md) を真実源とする。
 
 | ライン | 主チャネル | 単位 | 目的 |
 |---|---|---|---|
@@ -32,7 +32,7 @@ sns-drafts は 2 つのコンテンツラインを並走させる。詳細な投
 ## ディレクトリ命名規約
 
 ```
-docs/sns-drafts/
+docs/x-posts/
 └── {NNN}-{日本語テーマ}/     # 3 桁連番 + ハイフン + テーマ名（日本語 OK）
     ├── source.md             # 元素材（真実源）
     ├── x.md                  # X 用原稿
@@ -220,7 +220,7 @@ https://doboku-note.com/docs/{slug}?utm_source=youtube&utm_medium=shorts&utm_cam
 本ディレクトリが主役。各媒体ファイルの原稿を人間が確認し、各 SNS に手動（または `/social-post` スキル経由）で投稿する。
 
 ```
-docs/sns-drafts/{NNN}-{テーマ}/
+docs/x-posts/{NNN}-{テーマ}/
   source.md → 人間が確認 → 各媒体ファイルに手動転記 → SNS に手動投稿
 ```
 
@@ -233,7 +233,7 @@ docs/sns-drafts/{NNN}-{テーマ}/
   "queue": [
     {
       "id": "001-q1",
-      "source": "docs/sns-drafts/001-択一1問1答-20問/source.md",
+      "source": "docs/x-posts/001-択一1問1答-20問/source.md",
       "channels": ["x", "instagram-carousel", "youtube-shorts"],
       "scheduled_at": "2026-05-01T07:00:00+09:00"
     }
@@ -262,7 +262,7 @@ docs/sns-drafts/{NNN}-{テーマ}/
 
 | フィールド | 必須 | 説明 |
 |---|---|---|
-| `directory` | ○ | `docs/sns-drafts/{NNN}-{テーマ}/` のディレクトリ名 |
+| `directory` | ○ | `docs/x-posts/{NNN}-{テーマ}/` のディレクトリ名 |
 | `channel` | ○ | `instagram-carousel` / `x` / `youtube-shorts` |
 | `slug` | ○ | カルーセル/ツイート/動画の識別子。IG なら `01-経済性`、X なら `tweet-01-{slug}`、YT なら `01-{slug}` |
 | `publishedAt` | ○ | 投稿日（ISO 8601 `yyyy-mm-dd`、`note-published.json` 慣習と揃える） |

@@ -1,6 +1,6 @@
 ---
 name: publish-x
-description: X (旧 Twitter) に Playwright 経由で予約投稿する。`docs/sns-drafts/<draft-id>/x/captions/<key>-main.txt` と `img/<key>.png` を読んで compose ダイアログから予約。fail-safe で予約モード未確認時は投稿を中止する。事故履歴と再発防止は本ファイル参照。
+description: X (旧 Twitter) に Playwright 経由で予約投稿する。`docs/x-posts/<draft-id>/x/captions/<key>-main.txt` と `img/<key>.png` を読んで compose ダイアログから予約。fail-safe で予約モード未確認時は投稿を中止する。事故履歴と再発防止は本ファイル参照。
 ---
 
 # publish-x
@@ -84,7 +84,7 @@ npx tsx .claude/skills/sns/publish-x/publish-x.ts \
 ## 入力ファイル構造
 
 ```
-docs/sns-drafts/<draft-id>/x/
+docs/x-posts/<draft-id>/x/
 ├── captions/
 │   └── tweet-01-eco-main.txt   # 本文
 └── img/
