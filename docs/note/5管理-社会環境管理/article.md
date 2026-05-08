@@ -42,7 +42,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[リオ宣言](https://doboku-note.com/docs/pe-comprehensive-management-rio-declaration?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
-[**国連環境開発会議**](https://doboku-note.com/docs/pe-comprehensive-management-un-human-environment-conf?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management) （地球サミット）は1992年にブラジルのリオ・デ・ジャネイロで開催され、**環境と開発に関するリオ宣言** （リオ宣言）として持続可能な開発のあり方を示す27の原則が採択されました。同時に「気候変動枠組条約」「生物多様性条約」「森林原則声明」「[アジェンダ21](https://doboku-note.com/docs/pe-comprehensive-management-agenda-21?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)」も採択されています。
+[**国連環境開発会議**](https://doboku-note.com/docs/pe-comprehensive-management-unced-earth-summit?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management) （地球サミット）は1992年にブラジルのリオ・デ・ジャネイロで開催され、**環境と開発に関するリオ宣言** （リオ宣言）として持続可能な開発のあり方を示す27の原則が採択されました。同時に「気候変動枠組条約」「生物多様性条約」「森林原則声明」「[アジェンダ21](https://doboku-note.com/docs/pe-comprehensive-management-agenda-21?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)」も採択されています。
 
 **[人間開発指数（HDI）](https://doboku-note.com/docs/pe-comprehensive-management-human-development-index?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 国連開発計画が設定した、各国の人間開発の度合いを測る指数。①健康（平均寿命指数）②知識（就学予想年数指数＋平均就学年数指数）③生活水準（GNI）の3分野の平均達成度で評価します。
 
@@ -126,7 +126,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[バーゼル条約](https://doboku-note.com/docs/pe-comprehensive-management-basel-convention?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 正式名称は「**有害廃棄物** の越境移動及びその処分の規制に関するバーゼル条約」。先進国で発生した有害廃棄物が発展途上国へ輸出されることを禁止する条約。2019年には「汚れたプラスチックごみ」が追加され、すべてのプラスチック廃棄物が規定対象となりました。
 
-**[ワシントン条約](https://doboku-note.com/docs/pe-comprehensive-management-cites?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 1971年締結、正式名称は「**絶滅のおそれがある野生動植物** の種の国際的取引に関する条約」。野生動植物の国際取引を規制し、種の保護を目的とします。
+**[ワシントン条約](https://doboku-note.com/docs/pe-comprehensive-management-cites?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 1973年採択、正式名称は「**絶滅のおそれがある野生動植物** の種の国際的取引に関する条約」。野生動植物の国際取引を規制し、種の保護を目的とします。
 
 **[ストックホルム条約](https://doboku-note.com/docs/pe-comprehensive-management-pops-convention?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** （POPs条約）— 正式名称は「**残留性有機汚染物質** に関するストックホルム条約」。残留性・生物蓄積性があり毒性が高い POPs（PCB、DDT 等）の製造・使用の廃絶・制限、排出削減、廃棄物の適正処理等を規定。
 
@@ -153,7 +153,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[生物多様性基本法](https://doboku-note.com/docs/pe-comprehensive-management-biodiversity-basic-act?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 「生物の多様性の保全及び持続可能な利用」を目的とする法律。第3条第5項で「地球温暖化が生物の多様性に深刻な影響を及ぼすおそれ」と「生物多様性の保全と利用が地球温暖化防止に資する」という相互関係を規定しています。
 
-**[昆明・モントリオール生物多様性枠組み](https://doboku-note.com/docs/pe-comprehensive-management-kunming-montreal-framework?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** で示された **30by30 目標** は2010年の生物多様性条約 COP10 で採択され、2021年の G7 サミットで G7各国が自国での実現を約束しました（2030年までに陸と海の30%以上を保全する目標）。**OECM** （保護地区以外で生物多様性保全に資する地域）も併用されます。
+**[昆明・モントリオール生物多様性枠組み](https://doboku-note.com/docs/pe-comprehensive-management-kunming-montreal-framework?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** で示された **30by30 目標** は2022年の生物多様性条約 COP15（昆明・モントリオール）で採択され、2021年の G7 サミットで G7各国が自国での実現を約束しました（2030年までに陸と海の30%以上を保全する目標）。**OECM** （保護地区以外で生物多様性保全に資する地域）も併用されます。
 
 **[名古屋議定書](https://doboku-note.com/docs/pe-comprehensive-management-nagoya-protocol?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 2010年に名古屋で採択。正式名称は「生物の多様性に関する条約の遺伝資源の取得の機会及びその利用から生ずる利益の公正かつ衡平な配分に関する名古屋議定書」。**遺伝資源 ABS（アクセスと利益配分）** を国際的に規律する仕組み。日本は2017年批准。
 

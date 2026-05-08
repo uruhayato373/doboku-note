@@ -167,10 +167,15 @@ function svgIpRightsDuration() {
   rights.forEach((r, i) => {
     const y = rowStart + i * rowH;
     const bw = (r.bars / maxBars) * barAreaW;
+    const labelX = barAreaX + bw + 12;
+    const labelOverflows = labelX + 80 > W;
+    const labelAttr = labelOverflows
+      ? `x="${W - 10}" text-anchor="end"`
+      : `x="${labelX}"`;
     rows += `
     <text x="${barAreaX - 16}" y="${y + barH / 2 + 8}" text-anchor="end" font-size="22" font-weight="700" fill="${INK_STRONG}">${xml(r.name)}</text>
     <rect x="${barAreaX}" y="${y}" width="${bw}" height="${barH}" rx="6" fill="${r.color}"/>
-    <text x="${barAreaX + bw + 12}" y="${y + barH / 2 + 8}" font-size="20" font-weight="600" fill="${r.color}">${xml(r.period)}</text>
+    <text ${labelAttr} y="${y + barH / 2 + 8}" font-size="20" font-weight="600" fill="${labelOverflows ? '#ffffff' : r.color}">${xml(r.period)}</text>
     <text x="${barAreaX}" y="${y + barH + 18}" font-size="18" fill="${INK_MUTED}">${xml(r.note)}</text>`;
   });
 

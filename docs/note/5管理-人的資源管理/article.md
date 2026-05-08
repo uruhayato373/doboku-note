@@ -17,7 +17,7 @@ utmCampaign: 99-human-resource-management
 - テキスト第2章の **4大エリア + 59項目** を試験優先度順に再整理
 - 動機づけ理論3本柱（X-Y／マズロー／二要因）・PM理論／SL理論・労働三権・社員格付3制度・6評価バイアス・10教育訓練手法など、択一頻出論点を散文で解説
 - 各キーワードの doboku-note 解説ページへの直リンク（クリックで定義・過去問・周辺概念が一気に確認できる）
-- R3〜R7 の人的資源管理 過去問から **22件** を本文の論点直後に出題例として埋め込み
+- R3〜R7 の人的資源管理 過去問から **25件** を本文の論点直後に出題例として埋め込み
 - 主要労働法令の e-gov 条文への直リンク（労基法／労組法／均等法 etc. 14法令）
 
 ---
@@ -242,7 +242,7 @@ utmCampaign: 99-human-resource-management
 
 ### 障害者雇用促進法・労働者派遣法
 
-**[障害者雇用促進法](https://doboku-note.com/docs/pe-comprehensive-management-disability-employment-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**障雇法**](https://laws.e-gov.go.jp/law/334AC0000000123)）— 障害者雇用率は **2.6%** （民間企業）。短時間勤務職員も算定対象に含まれます。
+**[障害者雇用促進法](https://doboku-note.com/docs/pe-comprehensive-management-disability-employment-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**障雇法**](https://laws.e-gov.go.jp/law/334AC0000000123)）— 障害者雇用率は **2.5%** （民間企業、2024年4月〜。2026年7月から2.7%に引上げ予定）。短時間勤務職員も算定対象に含まれます。
 
 **[労働者派遣法](https://doboku-note.com/docs/pe-comprehensive-management-worker-dispatch-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**派遣法**](https://laws.e-gov.go.jp/law/360AC0000000088)）— 派遣元・派遣先・派遣労働者の三者関係。**雇用主は派遣元** （賃金支払・社会保険加入の責任）、**労働時間管理の義務は派遣先**。**派遣可能期間は3年**、延長時は過半数労組等の意見聴取が必要。
 
