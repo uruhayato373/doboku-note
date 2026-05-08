@@ -85,7 +85,7 @@ utmCampaign: 99-safety-management
 
 [消費者安全法](https://doboku-note.com/docs/pe-comprehensive-management-consumer-safety?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、消費者の消費生活における被害を防止し安全を確保するための基本法です。内閣総理大臣による基本方針の策定、都道府県・市区町村による消費生活相談体制の整備、消費者安全調査委員会による事故調査等を定めています。
 
-重大事故等が発生した旨の情報を得た場合、行政機関の長・都道府県知事・市町村長・国民生活センターの長は**直ちに内閣総理大臣に通知**しなければなりません（第12条）。
+重大事故等が発生した旨の情報を得た場合、行政機関の長・都道府県知事・市町村長・国民生活センターの長は**直ちに内閣総理大臣に通知**しなければなりません（[第12条](https://laws.e-gov.go.jp/law/421AC0000000050#Mp-At_12)）。
 
 なお、**国民生活センターは独立行政法人**であり、都道府県が設置するものではありません。一方、消費者の相談窓口である**消費生活センター**は、都道府県が義務設置・市町村は努力義務で設置します。
 
@@ -97,19 +97,19 @@ utmCampaign: 99-safety-management
 
 [消防法](https://doboku-note.com/docs/pe-comprehensive-management-fire-service-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の目的は、火災の予防・警戒・鎮圧による国民の生命・身体・財産の保護と、災害等による傷病者の搬送の適切な実施です。
 
-第8条では、学校・病院・工場・百貨店等多数の者が出入する防火対象物の管理権原者に、**防火管理者を定めて消防計画の作成・消火訓練の実施・設備点検等を行わせる義務**を課しています。
+[第8条](https://laws.e-gov.go.jp/law/323AC1000000186#Mp-At_8)では、学校・病院・工場・百貨店等多数の者が出入する防火対象物の管理権原者に、**防火管理者を定めて消防計画の作成・消火訓練の実施・設備点検等を行わせる義務**を課しています。
 
 防火管理者を定めたときは、遅滞なく所轄消防長または消防署長に届け出なければなりません。
 
-また消防法第36条では、地震等の自然災害に対応するため「防火管理者」を「**防災管理者**」と読み替えて準用することを規定しています。
+また[消防法第36条](https://laws.e-gov.go.jp/law/323AC1000000186#Mp-At_36)では、地震等の自然災害に対応するため「防火管理者」を「**防災管理者**」と読み替えて準用することを規定しています。
 
 **1.6 民法**
 
-民法第709条（不法行為による損害賠償）では、「故意または過失によって他人の権利または法律上保護される利益を侵害した者は、これによって生じた損害を賠償する責任を負う」と定めています。
+[民法第709条](https://laws.e-gov.go.jp/law/129AC0000000089#Mp-At_709)（不法行為による損害賠償）では、「故意または過失によって他人の権利または法律上保護される利益を侵害した者は、これによって生じた損害を賠償する責任を負う」と定めています。
 
-契約不適合責任については、民法第415条（債務不履行による損害賠償）で売主に帰責事由がない場合は損害賠償ができないとされています。
+契約不適合責任については、[民法第415条](https://laws.e-gov.go.jp/law/129AC0000000089#Mp-At_415)（債務不履行による損害賠償）で売主に帰責事由がない場合は損害賠償ができないとされています。
 
-民法第562条では買主の追完請求権（目的物が契約の内容に適合しない場合、修補・代替物引渡し・不足分引渡しを請求可能）、第563条では代金減額請求権が定められています。
+[民法第562条](https://laws.e-gov.go.jp/law/129AC0000000089#Mp-At_562)では買主の追完請求権（目的物が契約の内容に適合しない場合、修補・代替物引渡し・不足分引渡しを請求可能）、[第563条](https://laws.e-gov.go.jp/law/129AC0000000089#Mp-At_563)では代金減額請求権が定められています。
 
 **1.7 協調安全**
 
@@ -266,19 +266,19 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 主たる義務者は**事業者**（経営者・法人）です。職場の長や管理監督者は事業者の指揮下で安全管理を実施する立場であり、義務の主体ではありません。
 
-労安法第3条では「事業者は快適な職場環境の実現と安全衛生水準の向上に努める義務」を規定しており、択一の引っかけとして「主たる義務者は職場の長」という選択肢が頻出します。
+[労安法第3条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_3)では「事業者は快適な職場環境の実現と安全衛生水準の向上に努める義務」を規定しており、択一の引っかけとして「主たる義務者は職場の長」という選択肢が頻出します。
 
 > **【出題例: [R7年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** 企業経営と安全に関する記述で最も不適切なものはどれか。4.「[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の主たる義務者は、職場の長など現場の管理監督者である」→ **正答4：主たる義務者は「事業者」（経営者・法人）。管理監督者は実施役であり義務の主体ではない。**
 
 **（a）[安全衛生管理体制](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（第3章）
 
-- **総括安全衛生管理者（第10条）** — 建設業等100人以上、製造業等300人以上の事業場ごとに選任
-- **安全管理者（第11条）** — 常時50人以上の事業場ごとに選任（安全に係る技術的事項を管理）
-- **衛生管理者（第12条）** — 常時50人以上の事業場ごとに選任（衛生に係る技術的事項を管理）
-- **産業医（第13条）** — 常時50人以上の事業場ごとに選任
-- **安全委員会（第17条）** — 建設業等50人以上の事業場に設置
-- **衛生委員会（第18条）** — 常時50人以上の事業場に設置
-- **安全衛生委員会（第19条）** — 安全委員会と衛生委員会の設置が必要なときは統合設置も可
+- **総括安全衛生管理者（[第10条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_10)）** — 建設業等100人以上、製造業等300人以上の事業場ごとに選任
+- **安全管理者（[第11条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_11)）** — 常時50人以上の事業場ごとに選任（安全に係る技術的事項を管理）
+- **衛生管理者（[第12条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_12)）** — 常時50人以上の事業場ごとに選任（衛生に係る技術的事項を管理）
+- **産業医（[第13条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_13)）** — 常時50人以上の事業場ごとに選任
+- **安全委員会（[第17条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_17)）** — 建設業等50人以上の事業場に設置
+- **衛生委員会（[第18条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_18)）** — 常時50人以上の事業場に設置
+- **安全衛生委員会（[第19条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_19)）** — 安全委員会と衛生委員会の設置が必要なときは統合設置も可
 
 **（b）化学物質の[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（平成28年6月改正で義務化）
 
@@ -288,8 +288,8 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 **（c）安全衛生教育**
 
-第59条の**雇入れ教育** — 労働者を雇い入れた際に従事する業務に関する安全・衛生教育を行う義務。  
-第60条の**送出し教育** — 職長等、作業中の労働者を直接指揮・監督する者に対して行う教育。
+[第59条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_59)の**雇入れ教育** — 労働者を雇い入れた際に従事する業務に関する安全・衛生教育を行う義務。  
+[第60条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_60)の**送出し教育** — 職長等、作業中の労働者を直接指揮・監督する者に対して行う教育。
 
 **（d）[メンタルヘルス](https://doboku-note.com/docs/pe-comprehensive-management-mental-health?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**
 
@@ -299,7 +299,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 - **二次予防** — 早期発見・早期治療。兆候の読み取り・早期相談体制の整備
 - **三次予防** — 職場復帰支援。治療・精神面フォロー・再発防止
 
-**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（第66条の10）— 常時**50人以上**の労働者を使用する事業場では、医師・保健師等による心理的負担の程度を把握するための検査を義務として実施しなければなりません（平成27年12月施行）。
+**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（[第66条の10](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_66_10)）— 常時**50人以上**の労働者を使用する事業場では、医師・保健師等による心理的負担の程度を把握するための検査を義務として実施しなければなりません（平成27年12月施行）。
 
 目的は①自らのストレス状況への気づき促進、②職場ごとの集計・分析による職場環境改善、③医師による面接指導へのつなぎです。
 
@@ -335,7 +335,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 **3.3 労働災害**
 
-[労働災害](https://doboku-note.com/docs/pe-comprehensive-management-occupational-disease?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)第2条第1号で次のように定義されています。
+[労働災害](https://doboku-note.com/docs/pe-comprehensive-management-occupational-disease?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)[第2条第1号](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_2)で次のように定義されています。
 
 > 労働者の就業に係る建設物、設備、原材料等により、または業務に起因して、労働者が負傷し、疾病にかかり、または死亡すること
 
@@ -539,10 +539,10 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 [災害対策基本法](https://doboku-note.com/docs/pe-comprehensive-management-disaster-countermeasures-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と合わせて、具体的な危機を想定した以下の法律を整理しておきます。
 
-- **[国民保護法](https://doboku-note.com/docs/pe-comprehensive-management-civil-protection-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 武力攻撃から国民を保護するため緊急の必要がある場合の警報発令（第44条）
-- **気象業務法** — 特に異常な現象で重大な災害のおそれが著しく大きい場合の特別警報（第13条の2）
-- **[原子力災害対策特別措置法](https://doboku-note.com/docs/pe-comprehensive-management-nuclear-disaster-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 原子力緊急事態が発生した場合の内閣総理大臣への報告義務（第15条）
-- **新型インフルエンザ等対策特別措置法** — 政府対策本部長による指定行政機関・都道府県等への総合調整権（第20条）
+- **[国民保護法](https://doboku-note.com/docs/pe-comprehensive-management-civil-protection-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 武力攻撃から国民を保護するため緊急の必要がある場合の警報発令（[第44条](https://laws.e-gov.go.jp/law/416AC0000000112#Mp-At_44)）
+- **気象業務法** — 特に異常な現象で重大な災害のおそれが著しく大きい場合の特別警報（[第13条の2](https://laws.e-gov.go.jp/law/327AC0000000165#Mp-At_13_2)）
+- **[原子力災害対策特別措置法](https://doboku-note.com/docs/pe-comprehensive-management-nuclear-disaster-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 原子力緊急事態が発生した場合の内閣総理大臣への報告義務（[第15条](https://laws.e-gov.go.jp/law/411AC0000000156#Mp-At_15)）
+- **新型インフルエンザ等対策特別措置法** — 政府対策本部長による指定行政機関・都道府県等への総合調整権（[第20条](https://laws.e-gov.go.jp/law/424AC0000000031#Mp-At_20)）
 
 **5.8 警戒レベル**
 
