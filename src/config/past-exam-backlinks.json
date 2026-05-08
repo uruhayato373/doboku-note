@@ -5951,7 +5951,7 @@
       "anchor": "1-39"
     }
   ],
-  "climate-change-decarbonization": [
+  "carbon-neutral": [
     {
       "examSlug": "pe-comprehensive-management-r07-primary",
       "year": "令和7年度",
@@ -5999,18 +5999,6 @@
       "year": "令和3年度",
       "question": "Ⅰ-1-34",
       "anchor": "1-34"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-r02-primary",
-      "year": "令和2年度",
-      "question": "Ⅰ-1-33",
-      "anchor": "1-33"
-    },
-    {
-      "examSlug": "pe-comprehensive-management-r02-primary",
-      "year": "令和2年度",
-      "question": "Ⅰ-1-37",
-      "anchor": "1-37"
     },
     {
       "examSlug": "pe-comprehensive-management-r01-primary",
@@ -15597,6 +15585,28 @@
       "year": "令和2年度",
       "question": "Ⅰ-1-30",
       "anchor": "1-30"
+    }
+  ],
+  "climate-change-adaptation-act": [
+    {
+      "examSlug": "pe-comprehensive-management-r02-primary",
+      "year": "令和2年度",
+      "question": "Ⅰ-1-33",
+      "anchor": "1-33"
+    },
+    {
+      "examSlug": "pe-comprehensive-management-r02-primary",
+      "year": "令和2年度",
+      "question": "Ⅰ-1-37",
+      "anchor": "1-37"
+    }
+  ],
+  "global-warming-countermeasures-act": [
+    {
+      "examSlug": "pe-comprehensive-management-r02-primary",
+      "year": "令和2年度",
+      "question": "Ⅰ-1-33",
+      "anchor": "1-33"
     }
   ],
   "red-list": [

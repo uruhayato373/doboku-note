@@ -1,18 +1,18 @@
 {
   "version": 1,
-  "generated_at": "2026-05-08T02:03:20.837Z",
+  "generated_at": "2026-05-08T08:27:13.676Z",
   "summary": {
-    "total_mdx_files": 790,
-    "total_unique_tags": 65,
+    "total_mdx_files": 811,
+    "total_unique_tags": 74,
     "allowlist_size": 84,
-    "known_count": 39,
-    "unknown_count": 26,
-    "typo_candidates_count": 1
+    "known_count": 40,
+    "unknown_count": 34,
+    "typo_candidates_count": 2
   },
   "tags": [
     {
       "name": "keyword",
-      "count": 646,
+      "count": 649,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-360-degree-evaluation",
@@ -65,6 +65,7 @@
         "pe-comprehensive-management-business-continuity-plan",
         "pe-comprehensive-management-business-intelligence",
         "pe-comprehensive-management-capacity-management",
+        "pe-comprehensive-management-carbon-neutral",
         "pe-comprehensive-management-carbon-pricing",
         "pe-comprehensive-management-career-ownership",
         "pe-comprehensive-management-career-path",
@@ -85,7 +86,6 @@
         "pe-comprehensive-management-civil-protection-act",
         "pe-comprehensive-management-clearance-level",
         "pe-comprehensive-management-climate-change-adaptation-act",
-        "pe-comprehensive-management-climate-change-decarbonization",
         "pe-comprehensive-management-climate-change-international",
         "pe-comprehensive-management-cloud-on-premises",
         "pe-comprehensive-management-club-of-rome",
@@ -253,8 +253,10 @@
         "pe-comprehensive-management-gfc-chemicals-framework",
         "pe-comprehensive-management-global-compact",
         "pe-comprehensive-management-global-hr-development",
+        "pe-comprehensive-management-global-warming-countermeasures-act",
         "pe-comprehensive-management-green-bond",
         "pe-comprehensive-management-green-infrastructure",
+        "pe-comprehensive-management-green-transformation",
         "pe-comprehensive-management-groupware",
         "pe-comprehensive-management-haccp",
         "pe-comprehensive-management-halo-effect-errors",
@@ -359,6 +361,7 @@
         "pe-comprehensive-management-load-leveling",
         "pe-comprehensive-management-location-limited-employee",
         "pe-comprehensive-management-logistic-regression",
+        "pe-comprehensive-management-long-term-strategy-2050",
         "pe-comprehensive-management-lopa",
         "pe-comprehensive-management-machine-learning",
         "pe-comprehensive-management-machinery-safety-guidelines",
@@ -665,7 +668,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 384,
+      "count": 387,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -695,6 +698,7 @@
         "pe-comprehensive-management-biosafety",
         "pe-comprehensive-management-blockchain-crypto",
         "pe-comprehensive-management-business-intelligence",
+        "pe-comprehensive-management-carbon-neutral",
         "pe-comprehensive-management-career-track-system",
         "pe-comprehensive-management-cause-and-effect-diagram",
         "pe-comprehensive-management-centralization-decentralization",
@@ -708,7 +712,6 @@
         "pe-comprehensive-management-citizen-participation",
         "pe-comprehensive-management-clearance-level",
         "pe-comprehensive-management-climate-change-adaptation-act",
-        "pe-comprehensive-management-climate-change-decarbonization",
         "pe-comprehensive-management-climate-change-international",
         "pe-comprehensive-management-cloud-on-premises",
         "pe-comprehensive-management-club-of-rome",
@@ -806,7 +809,9 @@
         "pe-comprehensive-management-general-overview",
         "pe-comprehensive-management-generative-ai",
         "pe-comprehensive-management-gfc-chemicals-framework",
+        "pe-comprehensive-management-global-warming-countermeasures-act",
         "pe-comprehensive-management-green-infrastructure",
+        "pe-comprehensive-management-green-transformation",
         "pe-comprehensive-management-groupware",
         "pe-comprehensive-management-hawthorne-experiment",
         "pe-comprehensive-management-hazard-map",
@@ -871,6 +876,7 @@
         "pe-comprehensive-management-linear-regression",
         "pe-comprehensive-management-location-limited-employee",
         "pe-comprehensive-management-logistic-regression",
+        "pe-comprehensive-management-long-term-strategy-2050",
         "pe-comprehensive-management-machine-learning",
         "pe-comprehensive-management-machinery-safety-guidelines",
         "pe-comprehensive-management-maintenance-cost",
@@ -1119,6 +1125,52 @@
       ]
     },
     {
+      "name": "技術士（総合技術監理部門）",
+      "count": 39,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-analytic-hierarchy-process",
+        "pe-comprehensive-management-essay-exam-strategy",
+        "pe-comprehensive-management-exam-application-guide",
+        "pe-comprehensive-management-exam-index",
+        "pe-comprehensive-management-four-m-of-production",
+        "pe-comprehensive-management-idea-generation-methods",
+        "pe-comprehensive-management-key-performance-indicators",
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-pattern-essay-environment-survey",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-pdca-cycle",
+        "pe-comprehensive-management-pfi",
+        "pe-comprehensive-management-r02-primary",
+        "pe-comprehensive-management-r03-essay-environment-survey",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r03-primary",
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r05-essay-environment-survey",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r06-primary",
+        "pe-comprehensive-management-r07-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-comprehensive-management-r07-primary",
+        "pe-comprehensive-management-value-engineering"
+      ]
+    },
+    {
       "name": "textbook",
       "count": 34,
       "inAllowlist": true,
@@ -1191,31 +1243,91 @@
       ]
     },
     {
-      "name": "技術士（総合技術監理部門）",
-      "count": 21,
-      "inAllowlist": true,
+      "name": "記述式対策",
+      "count": 23,
+      "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-analytic-hierarchy-process",
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-exam-application-guide",
-        "pe-comprehensive-management-exam-index",
-        "pe-comprehensive-management-four-m-of-production",
-        "pe-comprehensive-management-idea-generation-methods",
-        "pe-comprehensive-management-key-performance-indicators",
         "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-pattern-essay-environment-survey",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-pdca-cycle",
-        "pe-comprehensive-management-pfi",
-        "pe-comprehensive-management-r02-primary",
-        "pe-comprehensive-management-r03-primary",
-        "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r03-essay-environment-survey",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-environment-survey",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
         "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
         "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r06-primary",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-comprehensive-management-r07-primary",
-        "pe-comprehensive-management-value-engineering"
+        "pe-comprehensive-management-r07-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "受験者属性別",
+      "count": 22,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-environment-survey",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-environment-survey",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-environment-survey",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "模範論文",
+      "count": 22,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-environment-survey",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-environment-survey",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-environment-survey",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -1381,6 +1493,97 @@
       ]
     },
     {
+      "name": "コンサルタント",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-environment-survey",
+        "pe-comprehensive-management-r03-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r05-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-environment-survey"
+      ]
+    },
+    {
+      "name": "ゼネコン",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
+      "name": "河川",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant"
+      ]
+    },
+    {
+      "name": "環境調査",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-environment-survey",
+        "pe-comprehensive-management-r03-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r05-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-environment-survey"
+      ]
+    },
+    {
+      "name": "建設コンサル",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant"
+      ]
+    },
+    {
+      "name": "砂防",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant"
+      ]
+    },
+    {
+      "name": "施工",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
       "name": "択一式",
       "count": 6,
       "inAllowlist": true,
@@ -1406,18 +1609,6 @@
       ]
     },
     {
-      "name": "記述式対策",
-      "count": 5,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
       "name": "quality",
       "count": 4,
       "inAllowlist": false,
@@ -1429,13 +1620,35 @@
       ]
     },
     {
-      "name": "受験者属性別",
+      "name": "SWOT分析",
       "count": 4,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-environment-survey",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "カーボンニュートラル",
+      "count": 4,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "少子高齢化",
+      "count": 4,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r07-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
@@ -1462,14 +1675,13 @@
       ]
     },
     {
-      "name": "模範論文",
-      "count": 4,
+      "name": "DX",
+      "count": 3,
       "inAllowlist": false,
       "usedIn": [
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant"
       ]
     },
     {
@@ -1500,6 +1712,16 @@
         "civil-construction-1-textbook-distance-angle",
         "civil-construction-1-textbook-leveling",
         "civil-construction-1-textbook-surveying-basics"
+      ]
+    },
+    {
+      "name": "データ利活用",
+      "count": 3,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r03-essay-environment-survey",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant"
       ]
     },
     {
@@ -1644,27 +1866,11 @@
       ]
     },
     {
-      "name": "SWOT分析",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r05-essay-road-municipality"
-      ]
-    },
-    {
       "name": "tunnel",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-tunnel-02"
-      ]
-    },
-    {
-      "name": "カーボンニュートラル",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r06-essay-road-municipality"
       ]
     },
     {
@@ -1729,14 +1935,6 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "少子高齢化",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -1813,25 +2011,33 @@
     }
   ],
   "unknown": [
+    "記述式対策",
+    "受験者属性別",
+    "模範論文",
     "exam-questions",
     "law",
     "machinery",
     "pillar",
-    "記述式対策",
+    "コンサルタント",
+    "ゼネコン",
+    "環境調査",
+    "建設コンサル",
+    "砂防",
+    "施工",
     "quality",
-    "受験者属性別",
-    "地方公共団体",
-    "模範論文",
-    "schedule",
-    "2026年版",
-    "5管理",
     "SWOT分析",
     "カーボンニュートラル",
+    "少子高齢化",
+    "地方公共団体",
+    "DX",
+    "schedule",
+    "データ利活用",
+    "2026年版",
+    "5管理",
     "キーワード集",
     "トレードオフ",
     "記述式試験",
     "出願",
-    "少子高齢化",
     "直前対策",
     "令和2年度",
     "令和3年度",
@@ -1841,6 +2047,11 @@
     "令和7年度"
   ],
   "typo_candidates": [
+    {
+      "tag": "施工",
+      "suggestion": "土工",
+      "distance": 1
+    },
     {
       "tag": "キーワード集",
       "suggestion": "キーワード",

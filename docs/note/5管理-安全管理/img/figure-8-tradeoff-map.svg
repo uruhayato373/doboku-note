@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="850" viewBox="0 0 1200 850">
+  <rect width="1200" height="850" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">安全管理 × 他4管理 — 3段階トレードオフマトリクス</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">対立の構造／解決フレームワーク／残余リスクと監視を 4 ペアで展開</text>
+
+  <rect x="40" y="130" width="240" height="50" rx="8" fill="#1a3a5c"/>
+  <text x="160" y="163" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">安全管理 ×</text>
+  <rect x="288" y="130" width="296" height="50" rx="8" fill="#b22234"/>
+  <text x="436" y="163" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">① 対立の構造</text>
+  <rect x="592" y="130" width="296" height="50" rx="8" fill="#3a7d44"/>
+  <text x="740" y="163" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">② 解決フレームワーク</text>
+  <rect x="896" y="130" width="296" height="50" rx="8" fill="#1a3a5c"/>
+  <text x="1044" y="163" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">③ 残余リスクと監視</text>
+  <rect x="40" y="192" width="240" height="130" rx="10" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="40" y="192" width="10" height="130" fill="#d4a017"/>
+  <text x="64" y="234" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#d4a017">経済性管理</text>
+  <text x="64" y="268" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">インフラ老朽化</text>
+  <rect x="288" y="192" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="306" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">事後保全＝低コスト</text>
+  <text x="306" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">vs 致命的事故リスク（八潮市陥没）</text>
+  <rect x="592" y="192" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="610" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">RBM / ALARP 原則</text>
+  <text x="610" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">予防保全で30年累計3割縮減</text>
+  <rect x="896" y="192" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="914" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">IoT 遠隔監視</text>
+  <text x="914" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">住民協働の通報制度で補完</text>
+  <rect x="40" y="334" width="240" height="130" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="40" y="334" width="10" height="130" fill="#3a7d44"/>
+  <text x="64" y="376" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44">人的資源管理</text>
+  <text x="64" y="410" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">2024年問題・担い手不足</text>
+  <rect x="288" y="334" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="306" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">長時間労働＝生産維持</text>
+  <text x="306" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">vs 疲労蓄積・KY能力低下</text>
+  <rect x="592" y="334" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="610" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">勤務間インターバル11h</text>
+  <text x="610" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">VR/AR で KYT を体感学習</text>
+  <rect x="896" y="334" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="914" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">フェールセーフ強化</text>
+  <text x="914" y="414" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">監視員配置・多言語ピクト</text>
+  <rect x="40" y="476" width="240" height="130" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="40" y="476" width="10" height="130" fill="#2e6da4"/>
+  <text x="64" y="518" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">情報管理</text>
+  <text x="64" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">DX・自動運転</text>
+  <rect x="288" y="476" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="306" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">自動化＝接触事故防止</text>
+  <text x="306" y="556" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">vs サイバー攻撃・AI誤判断</text>
+  <rect x="592" y="476" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="610" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">多層防御・OTセキュリティ</text>
+  <text x="610" y="556" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">PoC で安全検証→横展開</text>
+  <rect x="896" y="476" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="914" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">フェールソフト維持</text>
+  <text x="914" y="556" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">人間最終確認・手動介入</text>
+  <rect x="40" y="618" width="240" height="130" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="3"/>
+  <rect x="40" y="618" width="10" height="130" fill="#b22234"/>
+  <text x="64" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#b22234">社会環境管理</text>
+  <text x="64" y="694" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">流域治水・激甚災害</text>
+  <rect x="288" y="618" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="306" y="662" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">ハード整備＝防災力</text>
+  <text x="306" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">vs 景観・生態系・生活圏分断</text>
+  <rect x="592" y="618" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="610" y="662" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">ミティゲーション階層</text>
+  <text x="610" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">流域治水PJ2.0／オールハザード</text>
+  <rect x="896" y="618" width="296" height="130" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="914" y="662" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">タイムライン避難計画</text>
+  <text x="914" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">想定外でソフト補完</text>
+  <rect x="40" y="770" width="1160" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="800" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">記述式論文の論理展開：①対立の構造化 → ②解決フレームの提示 → ③残余リスクへの対処、の3段で書く</text>
+
+</svg>

@@ -93,7 +93,7 @@ utmCampaign: 90-soukan-analysis
 - **[環境基本法](https://doboku-note.com/docs/pe-comprehensive-management-environmental-basic-act?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[環境基本計画](https://doboku-note.com/docs/pe-comprehensive-management-environmental-basic-plan?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)** — 基本理念、第六次環境基本計画
 - **[循環型社会形成推進基本法](https://doboku-note.com/docs/pe-comprehensive-management-circular-society-basic-act?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[廃棄物処理法](https://doboku-note.com/docs/pe-comprehensive-management-waste-management-act?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)** — 3R、廃棄物の分類
 - **[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-pricing?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・カーボンプライシング** — 環境税、排出権取引
-- **[気候変動・脱炭素社会](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-decarbonization?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)** — パリ協定、温対法
+- **[地球温暖化対策推進法](https://doboku-note.com/docs/pe-comprehensive-management-global-warming-countermeasures-act?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)** — パリ協定、温対法
 
 ---
 

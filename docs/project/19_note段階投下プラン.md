@@ -141,7 +141,7 @@
 ### サイト → note
 
 - 各 keyword ページ末尾の `RelatedKeywords` 下に note 商品バナー（P-01 / P-04 への送客）
-- `keyword-2026` ハブの冒頭 `<KeywordProgress />` 直下に「暗記カード PDF はこちら」リンク
+- `keyword-2026` ハブの冒頭（出典 Callout 直下）に「暗記カード PDF はこちら」リンク
 - 過去問ページ末尾に「E-01 解答全文再現」のバナー（R-1 以降）
 
 ### note → サイト
