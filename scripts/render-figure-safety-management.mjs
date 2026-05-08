@@ -62,7 +62,7 @@ function header(title, subtitle) {
 // 図 1: リスク低減措置の優先順位ピラミッド
 // ------------------------------------------------------------------
 function svgRiskReductionPyramid() {
-  const H = 760;
+  const H = 840;
   const cx = W / 2;
   const top = 160;
   const bottom = 660;
@@ -139,7 +139,7 @@ ${brandFrame(H)}
 // 図 2: システム高信頼化 5用語の使い分け
 // ------------------------------------------------------------------
 function svgReliabilityTerms() {
-  const H = 800;
+  const H = 880;
   // 横軸：故障前（防止） / 故障後（対応）
   // 各列に該当する用語カードを配置
   const colW = 540;
@@ -192,7 +192,7 @@ function svgReliabilityTerms() {
   }
 
   // キャプション
-  const captY = H - 80;
+  const captY = H - 124;
   body += `
   <rect x="40" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${WARN_FILL}"/>
   <text x="60" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">頻出区別：フェールセーフ＝故障後の安全確保／フールプルーフ＝誤操作の防止</text>`;
@@ -209,7 +209,7 @@ ${brandFrame(H)}
 // 図 3: 警戒レベル5段階表
 // ------------------------------------------------------------------
 function svgAlertLevels() {
-  const H = 720;
+  const H = 800;
   const x = 40;
   const headerY = 140;
   const headerH = 56;
@@ -220,11 +220,11 @@ function svgAlertLevels() {
   const wTotal = wLevel + wInfo + wAction;
 
   const levels = [
-    { lv: '1', name: '早期注意情報', action: '心構えを高める', color: '#5b8def', preBadge: false },
-    { lv: '2', name: '気象情報等', action: '避難行動の確認', color: '#f5b800', preBadge: false },
-    { lv: '3', name: '高齢者等避難', action: '高齢者・要配慮者は避難開始', color: '#ed7d2a', preBadge: true },
+    { lv: '1', name: '早期注意情報', action: '心構えを高める', color: BRAND, preBadge: false },
+    { lv: '2', name: '気象情報等', action: '避難行動の確認', color: WARN, preBadge: false },
+    { lv: '3', name: '高齢者等避難', action: '高齢者・要配慮者は避難開始', color: DANGER, preBadge: true },
     { lv: '4', name: '避難指示', action: '危険な場所にいる人は全員避難', color: DANGER, preBadge: false },
-    { lv: '5', name: '緊急安全確保', action: '命を守る最善の行動', color: '#7c3aed', preBadge: false },
+    { lv: '5', name: '緊急安全確保', action: '命を守る最善の行動', color: BRAND_DEEP, preBadge: false },
   ];
 
   let body = '';
@@ -271,7 +271,7 @@ ${brandFrame(H)}
 // 図 4: システム安全工学手法 比較マトリクス
 // ------------------------------------------------------------------
 function svgSafetyEngineeringMatrix() {
-  const H = 720;
+  const H = 820;
   const x = 40;
   const headerY = 140;
   const headerH = 56;
@@ -360,7 +360,7 @@ ${brandFrame(H)}
 // 図 5: 信頼性ブロック図 直列・並列・複合
 // ------------------------------------------------------------------
 function svgReliabilityBlockDiagram() {
-  const H = 920;
+  const H = 980;
   const xMain = 40;
   const sectionH = 220;
   const sectionH2 = 260; // 並列は要素が縦3つで縦長なので拡張
@@ -493,7 +493,7 @@ ${brandFrame(H)}
 // 図 6: Safety 0.0 / 1.0 / 2.0 進化図
 // ------------------------------------------------------------------
 function svgSafetyEvolution() {
-  const H = 720;
+  const H = 800;
   const colW = 360;
   const colGap = 40;
   const startX = (W - (colW * 3 + colGap * 2)) / 2;
@@ -567,7 +567,7 @@ function svgSafetyEvolution() {
   }
 
   // キャプション
-  const captY = H - 60;
+  const captY = H - 124;
   body += `
   <rect x="40" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${POSITIVE_FILL}"/>
   <text x="60" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">分類キーワード：「協調・情報共有・IoT」→ Safety 2.0／「保安制御・隔離・分離」→ Safety 1.0</text>`;
@@ -584,7 +584,7 @@ ${brandFrame(H)}
 // 図 7: リスク認知バイアス 5種カード
 // ------------------------------------------------------------------
 function svgRiskBiases() {
-  const H = 760;
+  const H = 780;
   // 上段3枚、下段2枚（cardW を広げ + 内側パディング縮小で例文を1行に収める）
   const cardW = 376;
   const cardH = 260;
@@ -816,7 +816,7 @@ ${brandFrame(H)}
 // 図 10: メンタルヘルス 3段階予防図
 // ------------------------------------------------------------------
 function svgMentalHealthPrevention() {
-  const H = 680;
+  const H = 760;
   const x = 60;
   const stepW = (W - 2 * 60) / 3;
   const stepY = 200;
@@ -870,7 +870,7 @@ function svgMentalHealthPrevention() {
   }
 
   // キャプション
-  const captY = H - 80;
+  const captY = H - 124;
   body += `
   <rect x="${x}" y="${captY}" width="${W - 2 * x}" height="44" rx="6" fill="${WARN_FILL}"/>
   <text x="${x + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">引っかけ：「労働環境改善」を二次予防の中心とする選択肢は誤り（一次予防が正解）。</text>`;
@@ -892,7 +892,7 @@ ${brandFrame(H)}
 // 図 11: BCP 結果事象アプローチ集約図
 // ------------------------------------------------------------------
 function svgBcpResultBased() {
-  const H = 720;
+  const H = 800;
   const leftX = 60;
   const rightX = 720;
   const cardW = 320;
@@ -959,7 +959,7 @@ function svgBcpResultBased() {
   }
 
   // キャプション
-  const captY = H - 80;
+  const captY = H - 124;
   body += `
   <rect x="${leftX}" y="${captY}" width="${W - 2 * leftX}" height="44" rx="6" fill="${POSITIVE_FILL}"/>
   <text x="${leftX + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">BCM の本質：原因より結果に着目すれば、原因を問わず汎用的に対応できる。R5 Ⅰ-1-31 の核心。</text>`;
@@ -997,7 +997,6 @@ async function main() {
   await render(svgReliabilityBlockDiagram(), 'figure-5-reliability-block-diagram.png');
   await render(svgSafetyEvolution(), 'figure-6-safety-evolution.png');
   await render(svgRiskBiases(), 'figure-7-risk-biases.png');
-  await render(svgTradeoffMap(), 'figure-8-tradeoff-map.png');
   await render(svgRiskManagementProcess(), 'figure-9-risk-management-process.png');
   await render(svgMentalHealthPrevention(), 'figure-10-mental-health-prevention.png');
   await render(svgBcpResultBased(), 'figure-11-bcp-result-based.png');

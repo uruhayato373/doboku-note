@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="1200" height="800" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="880" viewBox="0 0 1200 880">
+  <rect width="1200" height="880" fill="#ffffff"/>
 
   <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">システム高信頼化 — 5用語の使い分け</text>
   <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">「故障前 vs 故障後」の軸で5つの設計思想を整理</text>
@@ -33,7 +33,7 @@
   <text x="644" y="560" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#b22234">フェールセーフ</text>
   <text x="644" y="594" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">安全な方向に制御</text>
   <text x="644" y="626" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">信号機の電源断→全赤</text>
-  <rect x="40" y="720" width="1120" height="44" rx="6" fill="#fbf3df"/>
-  <text x="60" y="750" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">頻出区別：フェールセーフ＝故障後の安全確保／フールプルーフ＝誤操作の防止</text>
+  <rect x="40" y="756" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="786" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">頻出区別：フェールセーフ＝故障後の安全確保／フールプルーフ＝誤操作の防止</text>
 
 </svg>

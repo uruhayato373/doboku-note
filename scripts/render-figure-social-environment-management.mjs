@@ -112,7 +112,7 @@ function svgCarbonRemoval() {
   <text x="${x + 20}" y="${dy + 52}" font-family="${FONT}" font-size="20" fill="${INK_STRONG}">${xml(t.ng)}</text>`;
   }
 
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${WARN_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">頻出区別：CCS は排出抑制、BECCS と DACCS はカーボンネガティブ。回収対象（排出源 / バイオマス / 大気）が核心。</text>`;
@@ -128,7 +128,7 @@ ${body}
 // 図 2: 国際条約 4 種の対象物マトリクス
 // ------------------------------------------------------------------
 function svgConventions() {
-  const H = 700;
+  const H = 760;
   const x = 40;
   const headerY = 140;
   const headerH = 56;
@@ -149,7 +149,7 @@ function svgConventions() {
   const rows = [
     { name: 'ラムサール条約', year: '1971', target: '湿地・水鳥', detail: '特に水鳥の生息地として重要な湿地の保全', color: BRAND },
     { name: 'バーゼル条約', year: '1989', target: '有害廃棄物', detail: '有害廃棄物の越境移動の規制。プラごみも対象', color: DANGER },
-    { name: 'ワシントン条約', year: '1971', target: '絶滅危惧種', detail: '絶滅のおそれがある動植物の国際取引規制', color: WARN },
+    { name: 'ワシントン条約', year: '1973', target: '絶滅危惧種', detail: '絶滅のおそれがある動植物の国際取引規制', color: WARN },
     { name: 'ストックホルム条約', year: '2001', target: 'POPs（残留性有機汚染物質）', detail: 'PCB・DDT 等 POPs の製造・使用規制', color: POSITIVE },
   ];
 
@@ -200,7 +200,7 @@ ${body}
 // 図 3: 警戒レベル 5 段階表
 // ------------------------------------------------------------------
 function svgAlertLevels() {
-  const H = 760;
+  const H = 820;
   const x = 40;
   const headerY = 140;
   const headerH = 56;
@@ -213,11 +213,11 @@ function svgAlertLevels() {
   const wTotal = wLevel + wInfo + wIssuer + wAction + wBadge;
 
   const levels = [
-    { lv: '1', name: '早期注意情報', issuer: '気象庁', action: '災害への心構えを高める', color: '#5b8def', pre: false },
-    { lv: '2', name: '大雨・洪水・高潮注意報', issuer: '気象庁', action: '自らの避難行動を確認', color: '#f5b800', pre: false },
-    { lv: '3', name: '高齢者等避難', issuer: '市町村長', action: '高齢者等は避難開始', color: '#ed7d2a', pre: true },
+    { lv: '1', name: '早期注意情報', issuer: '気象庁', action: '災害への心構えを高める', color: BRAND, pre: false },
+    { lv: '2', name: '大雨・洪水・高潮注意報', issuer: '気象庁', action: '自らの避難行動を確認', color: WARN, pre: false },
+    { lv: '3', name: '高齢者等避難', issuer: '市町村長', action: '高齢者等は避難開始', color: DANGER, pre: true },
     { lv: '4', name: '避難指示', issuer: '市町村長', action: '危険な場所から全員避難', color: DANGER, pre: false },
-    { lv: '5', name: '緊急安全確保', issuer: '市町村長', action: '命を守る最善の行動', color: '#7c3aed', pre: false },
+    { lv: '5', name: '緊急安全確保', issuer: '市町村長', action: '命を守る最善の行動', color: BRAND_DEEP, pre: false },
   ];
 
   let body = '';
@@ -286,8 +286,8 @@ function svgEnvPrinciples() {
     { name: '予防的措置', desc: '不確実性があっても重大不可逆影響なら措置', color: WARN },
     { name: '順応的取組', desc: '結果に合わせ柔軟対応。生物多様性保全には不適', color: POSITIVE },
     { name: '源流対策原則', desc: '排出口でなく設計・製法で発生源対策', color: BRAND },
-    { name: '協働原則', desc: '企画・立案・実行で民間各主体の参加を得る', color: '#7c3aed' },
-    { name: '補完性原則', desc: '基礎単位で処理できないものを広域で処理', color: '#ed7d2a' },
+    { name: '協働原則', desc: '企画・立案・実行で民間各主体の参加を得る', color: BRAND_DEEP },
+    { name: '補完性原則', desc: '基礎単位で処理できないものを広域で処理', color: DANGER },
   ];
 
   let body = '';
@@ -307,7 +307,7 @@ function svgEnvPrinciples() {
   <text x="${x + 92}" y="${y + 70}" font-family="${FONT}" font-size="20" fill="${INK_BODY}">${xml(p.desc)}</text>`;
   }
 
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${BRAND_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">引っかけ：「順応的取組は生物多様性保全に望ましい」は誤り。R4 Ⅰ-1-29 等で頻出。</text>`;
@@ -323,7 +323,7 @@ ${body}
 // 図 5: 環境経済評価 5 手法
 // ------------------------------------------------------------------
 function svgEconomicEvaluation() {
-  const H = 800;
+  const H = 860;
   const x = 40;
   const headerY = 140;
   const headerH = 56;
@@ -398,7 +398,7 @@ function svgEnvAssessmentFlow() {
     { num: 4, name: '環境アセス実施', desc: '調査・予測・評価', color: POSITIVE, target: '動植物調査手法 6種' },
     { num: 5, name: '準備書', desc: 'アセス結果案の縦覧', color: BRAND, target: '住民意見の収集' },
     { num: 6, name: '評価書', desc: '最終結果の確定', color: BRAND_DEEP, target: '免許等での審査' },
-    { num: 7, name: '事後調査', desc: '対策実績の検証', color: '#7c3aed', target: '不確実性大の場合' },
+    { num: 7, name: '事後調査', desc: '対策実績の検証', color: BRAND_DEEP, target: '不確実性大の場合' },
   ];
 
   let body = '';
@@ -457,7 +457,7 @@ function svgEnvAssessmentFlow() {
   <text x="${xLeft + 20}" y="${seaY + 60}" font-family="${FONT}" font-size="20" fill="${INK_STRONG}">事業計画が固まる前に行うアセス。事業ではなく計画・政策レベルの事前評価。</text>
   <text x="${xLeft + 20}" y="${seaY + 86}" font-family="${FONT}" font-size="20" fill="${INK_BODY}">第一種事業の「計画段階配慮書」もこの考え方を反映している。</text>`;
 
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${WARN_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">引っかけ：「スクリーニングは第一種事業に対し実施」は誤り（第二種事業のみ）。R6 Ⅰ-1-30 の典型。</text>`;
@@ -473,7 +473,7 @@ ${body}
 // 図 7: LCA 4プロセス + 影響評価3ステップ
 // ------------------------------------------------------------------
 function svgLcaProcess() {
-  const H = 800;
+  const H = 920;
   const xLeft = 40;
   const headerY = 150;
   const cardW = (W - 80 - 30) / 2;
@@ -536,7 +536,7 @@ function svgLcaProcess() {
   <text x="${xRight + 20}" y="${invY + 30}" font-family="${FONT}" font-size="20" font-weight="800" fill="${POSITIVE}">リサイクルの扱い</text>
   <text x="${xRight + 20}" y="${invY + 56}" font-family="${FONT}" font-size="20" fill="${INK_STRONG}">クローズドループ／オープンループ</text>`;
 
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${WARN_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">引っかけ：「産業連関法は新技術分析にも適している」は誤り（連関表に含まれない物は分析不能）。</text>`;
@@ -552,7 +552,7 @@ ${body}
 // 図 8: TCFD 4要求項目 + 気候関連リスクの2分類
 // ------------------------------------------------------------------
 function svgTcfd() {
-  const H = 860;
+  const H = 920;
   const xLeft = 40;
   const headerY = 150;
   const cardW = (W - 80 - 30) / 2;
@@ -616,7 +616,7 @@ function svgTcfd() {
   <text x="${xRight + 20}" y="${riskY + 30}" font-family="${FONT}" font-size="22" font-weight="800" fill="${DANGER}">物理的リスク</text>
   <text x="${xRight + 20}" y="${riskY + 58}" font-family="${FONT}" font-size="20" fill="${INK_STRONG}">急性・慢性の気候変動による物理変化</text>`;
 
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${BRAND_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">記述式：TCFD 4項目 + 移行/物理的リスクの2分類で気候関連の経営戦略を論じる骨格になる。</text>`;

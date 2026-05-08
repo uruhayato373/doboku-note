@@ -32,7 +32,7 @@ utmCampaign: 99-safety-management
 
 ## 安全管理と安全法規（優先度: 高）
 
-安全管理の基本概念と各法律の概要を扱う分野です。**[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は択一式でほぼ毎年問われる**エリアです。
+安全管理の基本概念と各法律の概要を扱う分野です。**[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は過去17年中10年で出題される頻出エリアです**。[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)はR02・R03で連続出題されるなど出題頻度は中程度です。
 
 **安全文化**
 
@@ -272,7 +272,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 **[安全衛生管理体制](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （第3章）
 
-- **総括安全衛生管理者（[第10条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_10)）** — 建設業等100人以上、製造業等300人以上の事業場ごとに選任
+- **総括安全衛生管理者（[第10条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_10)）** — 建設業・製造業等100人以上、その他業種300人以上の事業場ごとに選任
 - **安全管理者（[第11条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_11)）** — 常時50人以上の事業場ごとに選任（安全に係る技術的事項を管理）
 - **衛生管理者（[第12条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_12)）** — 常時50人以上の事業場ごとに選任（衛生に係る技術的事項を管理）
 - **産業医（[第13条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_13)）** — 常時50人以上の事業場ごとに選任
@@ -289,7 +289,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 **[安全衛生教育](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-education?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**
 
 [第59条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_59)の**雇入れ教育** — 労働者を雇い入れた際に従事する業務に関する安全・衛生教育を行う義務。  
-[第60条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_60)の**送出し教育** — 職長等、作業中の労働者を直接指揮・監督する者に対して行う教育。
+[第60条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_60)の**職長教育** — 職長等、作業中の労働者を直接指揮・監督する者に対して行う教育。
 
 **[メンタルヘルス](https://doboku-note.com/docs/pe-comprehensive-management-mental-health?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**
 
@@ -713,4 +713,4 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 - セット価格 **¥3,980**（19% OFF）※ 2026年順次公開予定
 
 **著者プロフィール**
-土木技術者として1級土木施工管理技士・建設部門の技術士に合格後、2026年に総合技術監理部門に挑戦。学習過程で蓄積した700キーワードの解説と17年分の過去問分析をdoboku-noteにて無料公開しています。
+土木技術者として1級土木施工管理技士・建設部門の技術士に合格後、2026年に総合技術監理部門に挑戦。学習過程で蓄積した650キーワードの解説と17年分の過去問分析をdoboku-noteにて無料公開しています。

@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <rect width="1200" height="800" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+  <rect width="1200" height="920" fill="#ffffff"/>
 
   <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">LCA — 4プロセス + 影響評価 3ステップ</text>
   <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">ISO 14040 規格に基づくライフサイクルアセスメント</text>
@@ -49,6 +49,6 @@
   <rect x="615" y="630" width="545" height="80" rx="8" fill="#e6f1e8"/>
   <text x="635" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#3a7d44">リサイクルの扱い</text>
   <text x="635" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">クローズドループ／オープンループ</text>
-  <rect x="40" y="730" width="1120" height="44" rx="6" fill="#fbf3df"/>
-  <text x="60" y="760" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：「産業連関法は新技術分析にも適している」は誤り（連関表に含まれない物は分析不能）。</text>
+  <rect x="40" y="796" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="826" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：「産業連関法は新技術分析にも適している」は誤り（連関表に含まれない物は分析不能）。</text>
 </svg>
