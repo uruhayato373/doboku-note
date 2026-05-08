@@ -88,3 +88,6 @@ public/posts
 
 # Pagefind generated index (rebuild with: npm run build)
 public/pagefind/
+
+# Large PDF files exceeding GitHub 100MB limit
+docs/textbook/経営学/経営学.pdf

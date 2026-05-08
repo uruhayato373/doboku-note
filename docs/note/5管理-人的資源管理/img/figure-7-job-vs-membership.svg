@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">ジョブ型 vs メンバーシップ型雇用</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">採用・配置・賃金・教育・事業変化対応で比較</text>
+
+  <rect x="40" y="150" width="550" height="80" rx="10" fill="#2e6da4"/>
+  <text x="315" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">ジョブ型雇用</text>
+  <text x="315" y="212" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">仕事に人を当てはめる（欧米型）</text>
+  <rect x="610" y="150" width="550" height="80" rx="10" fill="#3a7d44"/>
+  <text x="885" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">メンバーシップ型雇用</text>
+  <text x="885" y="212" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">人を中心に管理（日本型）</text>
+  <rect x="40" y="254" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">採用</text>
+  <text x="56" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">欠員補充の都度・必要数</text>
+  <rect x="610" y="254" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">採用</text>
+  <text x="626" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">新卒一括・長期雇用前提</text>
+  <rect x="40" y="318" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">配置</text>
+  <text x="56" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">顕在能力で判断</text>
+  <rect x="610" y="318" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">配置</text>
+  <text x="626" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">ローテーションで適性発見</text>
+  <rect x="40" y="382" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">賃金</text>
+  <text x="56" y="434" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">職種で決定（高め）</text>
+  <rect x="610" y="382" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">賃金</text>
+  <text x="626" y="434" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">勤続・職能で決定</text>
+  <rect x="40" y="446" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">教育</text>
+  <text x="56" y="498" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">専門知識・即戦力</text>
+  <rect x="610" y="446" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">教育</text>
+  <text x="626" y="498" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">OJT教育中心・幅広い経験</text>
+  <rect x="40" y="510" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="536" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">事業変化対応</text>
+  <text x="56" y="562" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">容易（職務単位で再編）</text>
+  <rect x="610" y="510" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="536" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">事業変化対応</text>
+  <text x="626" y="562" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">困難（人を中心に再配置）</text>
+  <rect x="40" y="630" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">記述：DX対応・リスキリング推進にはジョブ型が、長期育成・組織文化醸成にはメンバーシップ型が向く。</text>
+</svg>
