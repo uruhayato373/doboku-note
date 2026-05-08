@@ -54,6 +54,10 @@ function header(title, subtitle) {
   <text x="40" y="96" font-family="${FONT}" font-size="22" fill="${INK_BODY}">${xml(subtitle)}</text>`;
 }
 
+function brandMark(h) {
+  return `  <text x="${W - 40}" y="${h - 20}" font-family="${FONT}" font-size="18" fill="${INK_MUTED}" text-anchor="end">doboku-note.com</text>`;
+}
+
 // ------------------------------------------------------------------
 // 図 1: PFI 4方式の比較（BTO / BOT / RO / コンセッション）
 // ------------------------------------------------------------------
@@ -130,6 +134,7 @@ function svgPfiSchemes() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('PFI 4方式の比較', '所有権・運営主体・事業終了時の処理で見分ける')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 
@@ -169,13 +174,13 @@ function svgInvestmentMethods() {
     body += `
   <rect x="${x}" y="${headerY}" width="${colW}" height="${headerH}" rx="10" fill="${m.color}"/>
   <text x="${x + colW / 2}" y="${headerY + 36}" font-family="${FONT}" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">${xml(m.name)}</text>
-  <text x="${x + colW / 2}" y="${headerY + 60}" font-family="${FONT}" font-size="20" fill="#ffffff" text-anchor="middle">${xml(m.full)}</text>`;
+  <text x="${x + colW / 2}" y="${headerY + 60}" font-family="${FONT}" font-size="22" fill="#ffffff" text-anchor="middle">${xml(m.full)}</text>`;
 
     // 計算式ボックス
     const fy = headerY + headerH + 24;
     body += `
   <rect x="${x}" y="${fy}" width="${colW}" height="100" rx="8" fill="${SURFACE_ALT}" stroke="${m.color}" stroke-width="2"/>
-  <text x="${x + 20}" y="${fy + 32}" font-family="${FONT}" font-size="20" font-weight="700" fill="${INK_BODY}">計算式</text>`;
+  <text x="${x + 20}" y="${fy + 32}" font-family="${FONT}" font-size="22" font-weight="700" fill="${INK_BODY}">計算式</text>`;
     const flines = m.formula.split('\n');
     for (let j = 0; j < flines.length; j++) {
       body += `
@@ -186,26 +191,26 @@ function svgInvestmentMethods() {
     const cy = fy + 124;
     body += `
   <rect x="${x}" y="${cy}" width="${colW}" height="60" rx="8" fill="${BRAND_FILL}"/>
-  <text x="${x + 20}" y="${cy + 28}" font-family="${FONT}" font-size="20" font-weight="700" fill="${INK_BODY}">採択基準</text>
+  <text x="${x + 20}" y="${cy + 28}" font-family="${FONT}" font-size="22" font-weight="700" fill="${INK_BODY}">採択基準</text>
   <text x="${x + 20}" y="${cy + 52}" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND_DEEP}">${xml(m.criterion)}</text>`;
 
     // 長所
     const py = cy + 80;
     body += `
   <rect x="${x}" y="${py}" width="${colW}" height="60" rx="8" fill="${POSITIVE_FILL}"/>
-  <text x="${x + 20}" y="${py + 28}" font-family="${FONT}" font-size="20" font-weight="700" fill="${POSITIVE}">長所</text>
+  <text x="${x + 20}" y="${py + 28}" font-family="${FONT}" font-size="22" font-weight="700" fill="${POSITIVE}">長所</text>
   <text x="${x + 20}" y="${py + 52}" font-family="${FONT}" font-size="22" fill="${INK_STRONG}">${xml(m.pro)}</text>`;
 
     // 短所
     const dy = py + 76;
     body += `
   <rect x="${x}" y="${dy}" width="${colW}" height="60" rx="8" fill="${DANGER_FILL}"/>
-  <text x="${x + 20}" y="${dy + 28}" font-family="${FONT}" font-size="20" font-weight="700" fill="${DANGER}">短所</text>
+  <text x="${x + 20}" y="${dy + 28}" font-family="${FONT}" font-size="22" font-weight="700" fill="${DANGER}">短所</text>
   <text x="${x + 20}" y="${dy + 52}" font-family="${FONT}" font-size="22" fill="${INK_STRONG}">${xml(m.con)}</text>`;
   }
 
   // キャプション
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${WARN_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">頻出区別：回収期間法は「時間価値を無視」「回収後 CF を無視」が短所。NPV・IRR との優劣はここに帰着。</text>`;
@@ -214,6 +219,7 @@ function svgInvestmentMethods() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('投資判断3手法の比較', 'NPV・IRR・回収期間法の長所と短所を一覧で押さえる')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 
@@ -263,7 +269,7 @@ function svgQc7Tools() {
   <rect x="${x}" y="${y}" width="${colW}" height="${rowH}" rx="6" fill="#ffffff" stroke="${color}" stroke-width="2"/>
   <rect x="${x}" y="${y}" width="6" height="${rowH}" fill="${color}"/>
   <text x="${x + 24}" y="${y + 30}" font-family="${FONT}" font-size="24" font-weight="800" fill="${color}">${xml(t.name)}</text>
-  <text x="${x + 24}" y="${y + 56}" font-family="${FONT}" font-size="20" fill="${INK_BODY}">${xml(t.desc)}</text>`;
+  <text x="${x + 24}" y="${y + 56}" font-family="${FONT}" font-size="22" fill="${INK_BODY}">${xml(t.desc)}</text>`;
   }
 
   let yL = headerY + headerH + 20;
@@ -278,7 +284,7 @@ function svgQc7Tools() {
   }
 
   // キャプション
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${BRAND_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">引っかけ：親和図はQC7つ道具ではなく新QC7つ道具。データ種別で見分ける。</text>`;
@@ -287,6 +293,7 @@ function svgQc7Tools() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('QC7つ道具 vs 新QC7つ道具', '数値データ用と言語データ用で7つずつ、合計14ツールを区別する')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 
@@ -294,7 +301,7 @@ ${body}
 // 図 4: PERT vs CPM の違い
 // ------------------------------------------------------------------
 function svgPertVsCpm() {
-  const H = 720;
+  const H = 760;
   const xLeft = 40;
   const colW = (W - 100) / 2;
   const xRight = xLeft + colW + 20;
@@ -341,6 +348,7 @@ function svgPertVsCpm() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('PERT vs CPM — 日程計画2手法の使い分け', '時間見積の方法と確率/決定論の違いで見分ける')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 
@@ -380,15 +388,15 @@ function svgDevProcesses() {
 
     body += `
   <text x="${x + 20}" y="${y + 92}" font-family="${FONT}" font-size="18" font-weight="700" fill="${POSITIVE}">適用</text>
-  <text x="${x + 20}" y="${y + 116}" font-family="${FONT}" font-size="20" fill="${INK_STRONG}">${xml(p.suit)}</text>`;
+  <text x="${x + 20}" y="${y + 116}" font-family="${FONT}" font-size="22" fill="${INK_STRONG}">${xml(p.suit)}</text>`;
 
     body += `
   <text x="${x + 20}" y="${y + 156}" font-family="${FONT}" font-size="18" font-weight="700" fill="${DANGER}">注意点</text>
-  <text x="${x + 20}" y="${y + 180}" font-family="${FONT}" font-size="20" fill="${INK_STRONG}">${xml(p.risk)}</text>`;
+  <text x="${x + 20}" y="${y + 180}" font-family="${FONT}" font-size="22" fill="${INK_STRONG}">${xml(p.risk)}</text>`;
   }
 
   // キャプション
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${BRAND_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">引っかけ：アジャイル＝「文書不要」は誤り。動くソフト優先であってドキュメント否定ではない。</text>`;
@@ -397,6 +405,7 @@ function svgDevProcesses() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('開発プロセス5種の比較', '反復型・順次型・リスク重視型を要件の確定度で使い分ける')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 
@@ -486,7 +495,7 @@ function svgFinancialStatements() {
   }
 
   // キャプション
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${BRAND_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">頻出区別：B/S はストック（時点）、P/L・C/F はフロー（期間）。利益とキャッシュは一致しない。</text>`;
@@ -495,6 +504,7 @@ function svgFinancialStatements() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('財務3表の関係 — B/S・P/L・C/F', 'ストック（B/S）とフロー（P/L・C/F）を分けて理解する')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 
@@ -502,7 +512,7 @@ ${body}
 // 図 7: バスタブカーブと保全方式
 // ------------------------------------------------------------------
 function svgBathtubCurve() {
-  const H = 720;
+  const H = 770;
   const xLeft = 80;
   const xRight = W - 60;
   const yTop = 180;
@@ -569,7 +579,7 @@ function svgBathtubCurve() {
     const mlines = m.maint.split('\n');
     for (let i = 0; i < mlines.length; i++) {
       body += `
-  <text x="${m.x + 16}" y="${cardY + 90 + i * 24}" font-family="${FONT}" font-size="20" font-weight="700" fill="${INK_STRONG}">${xml(mlines[i])}</text>`;
+  <text x="${m.x + 16}" y="${cardY + 90 + i * 24}" font-family="${FONT}" font-size="22" font-weight="700" fill="${INK_STRONG}">${xml(mlines[i])}</text>`;
     }
   }
 
@@ -577,6 +587,7 @@ function svgBathtubCurve() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('バスタブカーブと保全方式の対応', '故障率の3区分に応じて保全戦略を切り替える')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 
@@ -649,7 +660,7 @@ function svgTradeoffMap() {
   }
 
   // キャプション
-  const captY = H - 70;
+  const captY = H - 124;
   body += `
   <rect x="${xLeft}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${BRAND_FILL}"/>
   <text x="${xLeft + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">記述式：4管理いずれも「対立構造→解決フレーム→残余リスクと監視」の3段階で論じる。</text>`;
@@ -658,6 +669,7 @@ function svgTradeoffMap() {
   <rect width="${W}" height="${H}" fill="#ffffff"/>
 ${header('経済性管理 × 他の4管理 — トレードオフマップ', '記述式で頻出の4ペアを対立軸・解決フレーム・例で整理')}
 ${body}
+${brandMark(H)}
 </svg>`;
 }
 

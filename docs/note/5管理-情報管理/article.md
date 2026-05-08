@@ -103,7 +103,7 @@ utmCampaign: 99-information-management
 
 **[BIツール](https://doboku-note.com/docs/pe-comprehensive-management-business-intelligence?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — データウェアハウスの情報を可視化し、経営判断を支援するツール。
 
-**集合知** — Web上などで多くの人の知識を体系化する仕組み（Wikipediaが典型例）。
+**[集合知](https://doboku-note.com/docs/pe-comprehensive-management-collective-intelligence?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — Web上などで多くの人の知識を体系化する仕組み（Wikipediaが典型例）。
 
 ### マーケティング分析（優先度：中〜高）
 
@@ -211,7 +211,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 - **安否確認サービス** — 従業員の安否状況を集約し管理者に通知
 - **被害予測システム** — 過去の災害データと照合して被害推計を行い、迅速な救援につなげる
 
-**危機広報** — 危機発生時に「安全のための広報（迅速性重視）」と「安心のための広報（正確性・社会への安心感）」の2目的を使い分けます。情報を隠さずとも開示しないことで社会的信頼を失う点が択一のポイントです。
+**[危機広報](https://doboku-note.com/docs/pe-comprehensive-management-crisis-communication?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 危機発生時に「安全のための広報（迅速性重視）」と「安心のための広報（正確性・社会への安心感）」の2目的を使い分けます。情報を隠さずとも開示しないことで社会的信頼を失う点が択一のポイントです。
 
 [コミュニケーション計画](https://doboku-note.com/docs/pe-comprehensive-management-communication-planning?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（PMBOK第7版）— 「いつ、誰が、どのようにプロジェクトの情報を管理・発信するか」を記述したコミュニケーション・マネジメント計画書。
 
@@ -313,8 +313,8 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 情報セキュリティの基本は**CIAの3要素**です。
 
-- **機密性（Confidentiality）** — 許可された者のみが情報にアクセスできる状態
-- **完全性（Integrity）** — 情報が正確かつ完全であり、不正に改ざんされていない状態
+- **[機密性（Confidentiality）](https://doboku-note.com/docs/pe-comprehensive-management-confidentiality?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 許可された者のみが情報にアクセスできる状態
+- **[完全性（Integrity）](https://doboku-note.com/docs/pe-comprehensive-management-integrity-security?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 情報が正確かつ完全であり、不正に改ざんされていない状態
 - **可用性（Availability）** — 許可された者が必要な時に情報にアクセスできる状態
 
 [ISMS（情報セキュリティマネジメントシステム）](https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) — ISO/IEC 27001に準拠したマネジメントシステム。情報セキュリティ方針は**トップマネジメント（経営者）が確立・発行**する点が択一の引っかけです（実務担当者ではない）。
@@ -335,9 +335,9 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 [ゼロトラスト](https://doboku-note.com/docs/pe-comprehensive-management-zero-trust?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)は「内部も外部も信頼しない」という性悪説に基づくセキュリティ概念です。クラウド利用の増大・リモートワークの普及により、従来の境界型セキュリティの限界が顕在化したことで注目されています。
 
-**境界型セキュリティ** — 社内（信頼）と社外（不信頼）を境界線で遮断する考え方。VPNは境界型セキュリティの代表的な手段です。
+**境界型セキュリティ** — 社内（信頼）と社外（不信頼）を境界線で遮断する考え方。[VPN](https://doboku-note.com/docs/pe-comprehensive-management-vpn?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)は境界型セキュリティの代表的な手段です。
 
-**ゼロトラストの主要技術** — 多要素認証・マイクロセグメンテーション・最小権限の原則・継続的な認証・監視。
+**ゼロトラストの主要技術** — [多要素認証](https://doboku-note.com/docs/pe-comprehensive-management-multi-factor-authentication?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)・マイクロセグメンテーション・最小権限の原則・継続的な認証・監視。
 
 ゼロトラストと境界型は排他的ではなく、**両者を組み合わせた多層防御**が推奨されています。「ゼロトラストが境界型に完全に取って代わる」という記述は誤りです。
 
