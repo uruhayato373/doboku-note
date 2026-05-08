@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">マズロー欲求5段階説</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">下位から順に5階層、X-Y理論との対応も押さえる</text>
+
+  <defs>
+    <marker id="ah" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0 10, 10 5, 0 0" fill="#222222" />
+    </marker>
+  </defs>
+  <line x1="60" y1="640" x2="60" y2="150" stroke="#222222" stroke-width="3" marker-end="url(#ah)" />
+  <text x="30" y="410" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555" transform="rotate(-90 30 410)" text-anchor="middle">下位充足→上位</text>
+  <polygon points="80,640 640,640 584,548 136,548" fill="#d0e8f0" stroke="#222222" stroke-width="1"/>
+  <text x="360" y="602" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="middle">生理的欲求</text>
+  <text x="680" y="600" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">食物・飲み物・睡眠など生命維持</text>
+  <polygon points="136,548 584,548 528,456 192,456" fill="#b8d8ec" stroke="#222222" stroke-width="1"/>
+  <text x="360" y="510" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="middle">安全・安定への欲求</text>
+  <text x="680" y="508" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">身体的危険・経済的不安からの保護</text>
+  <polygon points="192,456 528,456 472,364 248,364" fill="#9ac8e8" stroke="#222222" stroke-width="1"/>
+  <text x="360" y="418" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="middle">社会的（連帯）欲求</text>
+  <text x="680" y="416" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">友人関係・愛情・所属の欲求</text>
+  <polygon points="248,364 472,364 416,272 304,272" fill="#7ab4dc" stroke="#222222" stroke-width="1"/>
+  <text x="360" y="326" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">尊厳（自我）欲求</text>
+  <text x="680" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">地位・功名・他者承認の欲求</text>
+  <polygon points="304,272 416,272 360,180 360,180" fill="#5a9fd0" stroke="#222222" stroke-width="1"/>
+  <line x1="356" y1="230" x2="440" y2="196" stroke="#555555" stroke-width="1.5"/>
+  <text x="446" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">自己実現欲求</text>
+  <text x="680" y="232" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">創造活動・自己経験と知識の発揮</text>
+  <rect x="100" y="700" width="1000" height="60" rx="8" fill="#e8f0fe"/>
+  <text x="120" y="736" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c">X理論＝低次欲求への対応／Y理論＝高次欲求への対応として位置づけ</text>
+</svg>

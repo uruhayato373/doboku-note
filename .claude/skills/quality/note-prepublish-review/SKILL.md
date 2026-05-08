@@ -2,7 +2,7 @@
 name: note-prepublish-review
 description: >
   note 公開用ドラフト（docs/note/{slug}/article.md）を公開前に統合チェックする Orchestrator スキル。
-  inline checks（markdown 互換性・404・文字化け）+ 3 並列エージェント（link-injector / figure-auditor / fact-checker）で品質ゲートを通す。
+  inline checks（markdown 互換性・404・文字化け・太字レンダリング崩れ・リンク anchor↔slug 整合）+ 3 並列エージェント（link-injector / figure-auditor / fact-checker）で品質ゲートを通す。
   Use when user asks to [note 公開前レビュー, note ドラフトチェック, note 出版前確認, /note-prepublish-review].
 user-invocable: true
 ---
@@ -35,6 +35,8 @@ user-invocable: true
   │   ├ markdown 互換性: pipe 表 0 / blockquote 0 / U+FFFD 0
   │   ├ frontmatter（あれば）: 必須項目
   │   ├ リンク 404 防止: 各 slug が `.local/r2/posts/.../{slug}/article.mdx` で `published: true`
+  │   ├ 太字レンダリング崩れ: `**[link](url)（…）**` Pattern B / `)**（` 境界 Pattern B' を regex 検出（note 独自パーサで描画崩れを起こす既知パターン）
+  │   ├ リンク anchor↔slug 整合: anchor テキストとスラッグの title が概念一致しているか辞書（pe-chapters.json + frontmatter fallback）で突合（過去問スラッグは対象外）
   │   ├ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
   │   └ ハッシュタグ: hashtags.txt 存在 / 99 行以下 / 純粋ハッシュタグ / 重複なし（未生成は warn）
   │
@@ -45,8 +47,10 @@ user-invocable: true
   │
   └─ Phase 3: 結果集約・最終判定
       ├ inline 違反 1 件以上 → BLOCK（ブロッカー）
+      │   ・BLOCK 対象: ファイル不在 / pipe・blockquote・U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern B・B'
+      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式
       ├ 各エージェントの加重スコア集計
-      ├ 合格基準: inline 違反 0 件 + 3 エージェント全て加重スコア 2.0+
+      ├ 合格基準: inline 違反（BLOCK 対象）0 件 + 3 エージェント全て加重スコア 2.0+
       └ 公開可否判定 + 修正アクション一覧
 ```
 
@@ -79,6 +83,18 @@ grep -oE '/docs/pe-comprehensive-management-[a-z0-9-]+' "$F" | sort -u | while r
     echo "404 RISK: $slug (not published)"
   fi
 done
+
+# 4b. 太字レンダリング崩れ（note 独自パーサで描画崩れを起こす既知パターン）
+#   Pattern B  : **...[link](url)（...）**  — 太字スパン内にリンク+末尾全角括弧が共存
+#   Pattern B' : `)**（` 境界               — リンクURL末尾の `)` 直後に `**` → 全角 `（` が連続
+echo "BOLD_RENDER:"
+B=$(grep -nE '\*\*[^*]*\]\([^)]+\)（[^*]*\*\*' "$F")
+Bp=$(grep -nE '\)\*\*（' "$F")
+[ -z "$B" ]  && echo "  Pattern B  : OK"  || { echo "  Pattern B  : NG"; echo "$B" | sed 's/^/    /'; }
+[ -z "$Bp" ] && echo "  Pattern B' : OK" || { echo "  Pattern B' : NG"; echo "$Bp" | sed 's/^/    /'; }
+
+# 4c. リンク anchor↔slug 整合性（pe-chapters.json + frontmatter fallback）
+node "$ROOT/.claude/scripts/check-note-link-anchor-match.mjs" "$F"
 
 # 5. 文字数（参考）
 chars=$(wc -m < "$F")
@@ -137,6 +153,8 @@ fi
 | ファイル存在 | ✅ | |
 | markdown 互換性 | ✅ | pipe=0 blockquote=0 U+FFFD=0 |
 | リンク 404 防止 | ✅ | 全 N slug が published |
+| 太字レンダリング崩れ | ✅ | Pattern B / B' ともに 0 件 |
+| リンク anchor↔slug 整合 | ⚠️ | N 件の懸念（ヒューリスティック検査・目視確認推奨） |
 | 図版ファイル存在 | ✅ | N 枚すべて確認 |
 | 文字数 | ⚠️ | N 字（free 範囲 2k〜3k に対し N 字） |
 

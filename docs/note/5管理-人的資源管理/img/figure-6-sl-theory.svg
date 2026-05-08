@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">SL理論 — 4段階移行</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">部下の成熟度に応じた指示的行動 × 協労的行動の組合せ</text>
+
+  <polygon points="310,345 328,360 310,375" fill="#222222"/>
+  <rect x="60" y="200" width="250" height="320" rx="12" fill="#fbe5e7" stroke="#b22234" stroke-width="3"/>
+  <circle cx="100" cy="240" r="28" fill="#b22234"/>
+  <text x="100" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">①</text>
+  <text x="185" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#b22234" text-anchor="middle">高指示</text>
+  <text x="185" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#b22234" text-anchor="middle">低協労</text>
+  <text x="185" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">細かく指示</text>
+  <text x="185" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">細かく監督</text>
+  <rect x="76" y="460" width="218" height="40" rx="6" fill="#ffffff"/>
+  <text x="185" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555" text-anchor="middle">部下：未熟</text>
+  <polygon points="580,345 598,360 580,375" fill="#222222"/>
+  <rect x="330" y="200" width="250" height="320" rx="12" fill="#fbf3df" stroke="#d4a017" stroke-width="3"/>
+  <circle cx="370" cy="240" r="28" fill="#d4a017"/>
+  <text x="370" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">②</text>
+  <text x="455" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#d4a017" text-anchor="middle">高指示</text>
+  <text x="455" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#d4a017" text-anchor="middle">高協労</text>
+  <text x="455" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">考えを説明</text>
+  <text x="455" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">疑問に答える</text>
+  <rect x="346" y="460" width="218" height="40" rx="6" fill="#ffffff"/>
+  <text x="455" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555" text-anchor="middle">部下：成長中</text>
+  <polygon points="850,345 868,360 850,375" fill="#222222"/>
+  <rect x="600" y="200" width="250" height="320" rx="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="3"/>
+  <circle cx="640" cy="240" r="28" fill="#2e6da4"/>
+  <text x="640" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">③</text>
+  <text x="725" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4" text-anchor="middle">高協労</text>
+  <text x="725" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4" text-anchor="middle">低指示</text>
+  <text x="725" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">指示は最低限</text>
+  <text x="725" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">意思決定環境</text>
+  <rect x="616" y="460" width="218" height="40" rx="6" fill="#ffffff"/>
+  <text x="725" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555" text-anchor="middle">部下：自立的</text>
+  <rect x="870" y="200" width="250" height="320" rx="12" fill="#e6f1e8" stroke="#3a7d44" stroke-width="3"/>
+  <circle cx="910" cy="240" r="28" fill="#3a7d44"/>
+  <text x="910" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">④</text>
+  <text x="995" y="310" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44" text-anchor="middle">低協労</text>
+  <text x="995" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44" text-anchor="middle">低指示</text>
+  <text x="995" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">権限委譲</text>
+  <text x="995" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222" text-anchor="middle">穏やかな監督</text>
+  <rect x="886" y="460" width="218" height="40" rx="6" fill="#ffffff"/>
+  <text x="995" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555" text-anchor="middle">部下：成熟</text>
+  <rect x="40" y="630" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">部下の成熟度に応じて①→②→③→④と移行。最終形は権限委譲。提唱：ハーシー・ブランチャード。</text>
+</svg>

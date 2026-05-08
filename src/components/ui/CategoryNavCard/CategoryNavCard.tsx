@@ -119,10 +119,10 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
         {pillars.map((p) => (
           <li key={p.slug} className={`rounded-sm border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
             {p.slug === currentSlug ? (
-              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.title}</span>
+              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || (p as any).shortTitle || p.title}</span>
             ) : (
               <Link href={`/docs/${p.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
-                {p.title}
+                {p.sidebar_label || (p as any).shortTitle || p.title}
               </Link>
             )}
           </li>
