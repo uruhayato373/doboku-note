@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">情報管理 × 他4管理 トレードオフマトリクス</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">各ペアの対立構造と解決の方向性</text>
+  
+    <rect x="40" y="130" width="264" height="160" rx="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="172" y="164" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#2e6da4">情報 × 経済性</text>
+    <text x="172" y="190" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">DX投資</text>
+    <rect x="40" y="314" width="264" height="160" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="172" y="348" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#222222">対立の構造</text>
+    <text x="172" y="376" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#555555">生産性向上</text>
+    <text x="172" y="398" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#2e6da4">vs 投資コスト</text>
+    <rect x="40" y="498" width="264" height="140" rx="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+    <text x="172" y="532" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4">解決の方向</text>
+    <text x="172" y="560" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#222222">段階的PoC・ROI分析</text>
+    <rect x="320" y="130" width="264" height="160" rx="12" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+    <text x="452" y="164" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#3a7d44">情報 × 人的資源</text>
+    <text x="452" y="190" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">テレワーク</text>
+    <rect x="320" y="314" width="264" height="160" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="452" y="348" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#222222">対立の構造</text>
+    <text x="452" y="376" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#555555">業務効率</text>
+    <text x="452" y="398" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#3a7d44">vs 情報漏洩リスク</text>
+    <rect x="320" y="498" width="264" height="140" rx="12" fill="#e6f1e8" stroke="#3a7d44" stroke-width="1.5"/>
+    <text x="452" y="532" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#3a7d44">解決の方向</text>
+    <text x="452" y="560" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#222222">ゼロトラスト・最小権限</text>
+    <rect x="600" y="130" width="264" height="160" rx="12" fill="#fbf3df" stroke="#d4a017" stroke-width="2"/>
+    <text x="732" y="164" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#d4a017">情報 × 安全</text>
+    <text x="732" y="190" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">ヒヤリハット共有</text>
+    <rect x="600" y="314" width="264" height="160" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="732" y="348" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#222222">対立の構造</text>
+    <text x="732" y="376" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#555555">透明性</text>
+    <text x="732" y="398" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#d4a017">vs 競争秘匿</text>
+    <rect x="600" y="498" width="264" height="140" rx="12" fill="#fbf3df" stroke="#d4a017" stroke-width="1.5"/>
+    <text x="732" y="532" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#d4a017">解決の方向</text>
+    <text x="732" y="560" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#222222">匿名化・ノーブレーム文化</text>
+    <rect x="880" y="130" width="264" height="160" rx="12" fill="#fbe5e7" stroke="#b22234" stroke-width="2"/>
+    <text x="1012" y="164" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#b22234">情報 × 社会環境</text>
+    <text x="1012" y="190" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">データ活用</text>
+    <rect x="880" y="314" width="264" height="160" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+    <text x="1012" y="348" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#222222">対立の構造</text>
+    <text x="1012" y="376" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#555555">データ便益</text>
+    <text x="1012" y="398" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#b22234">vs プライバシー</text>
+    <rect x="880" y="498" width="264" height="140" rx="12" fill="#fbe5e7" stroke="#b22234" stroke-width="1.5"/>
+    <text x="1012" y="532" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">解決の方向</text>
+    <text x="1012" y="560" text-anchor="middle" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" fill="#222222">匿名化・GDPR対応</text>
+  
+</svg>

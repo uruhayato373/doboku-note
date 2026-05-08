@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">特許取得フロー</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">出願から登録まで。審査請求は出願日から3年以内</text>
+  
+    <rect x="60" y="200" width="160" height="120" rx="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="140" y="244" text-anchor="middle" font-size="20" font-weight="700" fill="#2e6da4">① 特許出願</text>
+    <text x="140" y="272" text-anchor="middle" font-size="16" fill="#555555">特許庁に出願書類を提出</text>
+    <line x1="220" y1="260" x2="270" y2="260" stroke="#8a8a8a" stroke-width="2.5"/>
+    <polygon points="278,260 268,253 268,267" fill="#8a8a8a"/>
+    <rect x="280" y="200" width="160" height="120" rx="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="360" y="244" text-anchor="middle" font-size="20" font-weight="700" fill="#2e6da4">② 方式審査</text>
+    <text x="360" y="272" text-anchor="middle" font-size="16" fill="#555555">書類上の形式確認</text>
+    <line x1="440" y1="260" x2="490" y2="260" stroke="#8a8a8a" stroke-width="2.5"/>
+    <polygon points="498,260 488,253 488,267" fill="#8a8a8a"/>
+    <rect x="500" y="200" width="160" height="120" rx="12" fill="#fbf3df" stroke="#d4a017" stroke-width="2"/>
+    <text x="580" y="244" text-anchor="middle" font-size="20" font-weight="700" fill="#d4a017">③ 出願公開</text>
+    <text x="580" y="272" text-anchor="middle" font-size="16" fill="#555555">出願日から1年6ヶ月後</text>
+    <line x1="660" y1="260" x2="710" y2="260" stroke="#8a8a8a" stroke-width="2.5"/>
+    <polygon points="718,260 708,253 708,267" fill="#8a8a8a"/>
+    <rect x="720" y="200" width="160" height="120" rx="12" fill="#fbf3df" stroke="#d4a017" stroke-width="2"/>
+    <text x="800" y="244" text-anchor="middle" font-size="20" font-weight="700" fill="#d4a017">④ 審査請求</text>
+    <text x="800" y="272" text-anchor="middle" font-size="16" fill="#555555">出願日から3年以内（必須）</text>
+    <line x1="880" y1="260" x2="930" y2="260" stroke="#8a8a8a" stroke-width="2.5"/>
+    <polygon points="938,260 928,253 928,267" fill="#8a8a8a"/>
+    <rect x="940" y="200" width="160" height="120" rx="12" fill="#f3e5f5" stroke="#6a1b9a" stroke-width="2"/>
+    <text x="1020" y="244" text-anchor="middle" font-size="20" font-weight="700" fill="#6a1b9a">⑤ 実体審査</text>
+    <text x="1020" y="272" text-anchor="middle" font-size="16" fill="#555555">特許要件の詳細審査</text>
+  <!-- 分岐 -->
+  <line x1="1100" y1="260" x2="1140" y2="260" stroke="#8a8a8a" stroke-width="2.5"/>
+  <line x1="1140" y1="260" x2="1140" y2="170" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="1140" y1="170" x2="1320" y2="170" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="1320" y="104" width="160" height="96" rx="10" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+  <text x="1400" y="180" text-anchor="middle" font-size="18" font-weight="700" fill="#3a7d44">特許査定</text>
+  <text x="1400" y="204" text-anchor="middle" font-size="15" fill="#555555">→ 特許料納付 → 登録</text>
+  <line x1="1140" y1="260" x2="1140" y2="340" stroke="#b22234" stroke-width="2"/>
+  <line x1="1140" y1="340" x2="1320" y2="340" stroke="#b22234" stroke-width="2"/>
+  <rect x="1320" y="300" width="160" height="80" rx="10" fill="#fbe5e7" stroke="#b22234" stroke-width="2"/>
+  <text x="1400" y="346" text-anchor="middle" font-size="18" font-weight="700" fill="#b22234">拒絶査定</text>
+  <text x="1400" y="368" text-anchor="middle" font-size="15" fill="#555555">→ 不服審判可</text>
+  <text x="40" y="510" font-size="19" font-weight="600" fill="#2e6da4">★ 先願主義：最初に出願した者が権利を取得（創作時期は無関係）</text>
+  <text x="40" y="538" font-size="19" font-weight="600" fill="#b22234">★ 審査請求なし = 取下扱い。出願日から3年以内の請求が必須。</text>
+  
+</svg>
