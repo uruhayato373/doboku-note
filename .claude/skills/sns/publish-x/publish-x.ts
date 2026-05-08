@@ -11,8 +11,8 @@
  *   --dry-run           実投稿せずセレクタ検出まで確認（初回必須）
  *
  * 入力ファイル（draft-id 配下）:
- *   docs/x-posts/<draft-id>/x/captions/<key>-main.txt
- *   docs/x-posts/<draft-id>/x/img/<key>.png
+ *   docs/x-posts/draft/<draft-id>/x/captions/<key>-main.txt
+ *   docs/x-posts/draft/<draft-id>/x/img/<key>.png
  *
  * 出力ログ:
  *   .claude/state/sns/x-publish-log.csv (timestamp,key,scheduled_at,status)
@@ -98,7 +98,7 @@ function parseArgs(): { posts: PostConfig[]; immediate: boolean } {
   }
 
   const posts: PostConfig[] = pairs.map(({ key, date }) => {
-    const baseDir = path.join(PROJECT_ROOT, `docs/x-posts/${draft}/x`);
+    const baseDir = path.join(PROJECT_ROOT, `docs/x-posts/draft/${draft}/x`);
     const captionPath = path.join(baseDir, `captions/${key}-main.txt`);
     const imagePath = path.join(baseDir, `img/${key}.png`);
 

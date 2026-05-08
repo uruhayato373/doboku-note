@@ -1,7 +1,7 @@
 ---
 name: publish-x
 description: >
-  Playwright で X (Twitter) の投稿を自動実行する。docs/x-posts/ 配下の x.md を読み取り、
+  Playwright で X (Twitter) の投稿を自動実行する。docs/x-posts/draft/ 配下の x/tweets.md を読み取り、
   ## Tweet XX ブロックを1件ずつ投稿（即時 or 予約）。
   Use when user says "X投稿", "X予約投稿", "ツイート投稿".
   **初回実行時 or セレクタ更新後は必ず --dry-run で事前検証すること**.
@@ -27,7 +27,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08
 
 ```bash
 # 1. 利用可能な draft を確認
-ls docs/x-posts/
+ls docs/x-posts/draft/
 
 # 2. dry-run（初回必須）
 npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08:00 --dry-run
@@ -48,7 +48,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 
 | パラメータ | 必須 | 説明 |
 |---|---|---|
-| `<draft>` | ✓ | `docs/x-posts/` 配下のディレクトリ名。先頭番号のみ（`004`）でも可 |
+| `<draft>` | ✓ | `docs/x-posts/draft/` 配下のディレクトリ名。先頭番号のみ（`004`）でも可 |
 | `[<date>...]` | - | 予約日時 JST (`YYYY-MM-DDTHH:MM`)。ツイート数と一致させる |
 | `--tweet N` | - | 特定ツイートのみ投稿（1-based、省略時は全ツイート） |
 | `--immediate` | - | 予約ではなく即時投稿（`--tweet` と組み合わせ推奨） |

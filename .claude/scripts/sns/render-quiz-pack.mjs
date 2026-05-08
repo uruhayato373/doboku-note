@@ -6,7 +6,7 @@
  *   node .claude/scripts/sns/render-quiz-pack.mjs <pack-dir>
  *
  * 例:
- *   node .claude/scripts/sns/render-quiz-pack.mjs docs/x-posts/002-クイズ-択一1問1答-R7新規20問
+ *   node .claude/scripts/sns/render-quiz-pack.mjs docs/x-posts/draft/002-クイズ-択一1問1答-R7新規20問
  *
  * 出力:
  *   <pack-dir>/instagram-carousel/img/{NN}-{cat-slug}/{01-cover,02-q1,03-a1,...,10-cta}.{svg,png}
