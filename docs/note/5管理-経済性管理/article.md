@@ -19,51 +19,236 @@ utmCampaign: 99-economic-management
 
 ## 1. 事業企画（優先度: 高）
 
+事業のアイデア発掘から計画策定までの業務です。**投資判断（NPV／回収期間／ROI）と PFI 法のリスク分担**は経済性管理で最も出題頻度が高い論点です。
+
 ### 1.1 フィージビリティスタディと需要予測
 
-フィージビリティスタディは事業・プロジェクトの実現可能性を事前に調査する業務です。「市場調査→需要予測→概算コスト→収支計画」の順序が択一でのプロセス確認問題として出ます。
+[フィージビリティスタディ](https://doboku-note.com/docs/pe-comprehensive-management-feasibility-study?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は、事業の実現可能性を事前調査する業務です。
 
-[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)では**移動平均法**（単純平均・加重平均・指数平滑法）が計算問題として出ます。特に「指数平滑法（直近データに大きな重みをつける）」は公式と使い方を押さえておくと安心です。
+**4ステップの調査順序**
 
-### 1.2 投資判断の3手法
+1. 事業の目的に沿って事業フレーム（規模等）を具体化
+2. 市場調査と需要予測
+3. 予備設計で概略の期間・コストを予測
+4. 事業の収支と資金調達方法を検討
 
-投資判断手法は経済性管理で最も出題頻度が高いテーマの一つです。3手法の特徴の違いを問う択一問題が毎年のように出ます。
+需要予測では2つの統計手法が出題されます。
 
-**[NPV（正味現在価値法）](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**: 将来のキャッシュフローを現在価値に割り引いて合計し、初期投資と比較する手法。NPV > 0 なら投資可。割引率（資本コスト）の設定が判断に大きく影響します。
+**[移動平均法](https://doboku-note.com/docs/pe-comprehensive-management-moving-average-method?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去の期間データを期間1単位ずつずらして平均値を計算（例：4〜6月、5〜7月）。期間を長くすると変動が小さく見え、直近の変化を遅れて追う傾向。
 
-**[回収期間法](https://doboku-note.com/docs/pe-comprehensive-management-payback-period-method?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**: 投資を何年で回収できるかを計算する最もシンプルな手法。「回収後のキャッシュフローを考慮しない」ことが最大の弱点です。
+**[指数平滑法](https://doboku-note.com/docs/pe-comprehensive-management-exponential-smoothing?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 前期実績値と前期予測値に重み付けする手法。
 
-**ROI（投資利益率法）**: 投資利益率 = 利益/投資額 × 100。計算は簡単だが、「時間価値を考慮しない」弱点があります。
+> 次期予測 = α × 前期実績値 + (1 − α) × 前期予測値
 
-「**NPVは時間価値を考慮できる最も理論的に正確な手法、回収期間法はリスク重視の企業に適する**」という比較が択一の核心です。
+α（平滑化係数、0≦α≦1）を1に近づけると前期実績値重視、0に近づけると過去データ重視。択一では「α=0.3 のときの予測値計算」が定番です。
 
-### 1.3 事業評価と設計管理
+### 1.2 事業投資計画
 
-[費用効果分析](https://doboku-note.com/docs/pe-comprehensive-management-cost-effectiveness-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は費用と効果を比較する手法で、費用便益分析（金銭換算する）・費用効用分析（QALY等を使う）の2種類があります。公共事業の評価で使われます。
+投資の時期と回収の時期には時間的ずれがあるため、貨幣の現在価値に換算する必要があります。
 
-[PMBOK](https://doboku-note.com/docs/pe-comprehensive-management-pmbok?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（Project Management Body of Knowledge）はプロジェクトマネジメントの知識体系で、総監択一に必須です。第7版ではプロセスから「原則」中心に転換し、12の原則と8のパフォーマンス領域で構成されます。
+**現在価値（PV：Present Value）の式**
 
-[PFI](https://doboku-note.com/docs/pe-comprehensive-management-pfi?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（Private Finance Initiative）は民間資金を活用した公共施設整備手法です。BTO（Build-Transfer-Operate）・BOT・BOOなど事業形態の違いと、リスク分担（官民の役割分担）が択一の定番論点です。
+> PV = M_t / (1 + r)^t  
+> （M_t：t 年後の支払い額、r：年間利率）
+
+3手法の使い分けが経済性管理で最頻出の論点です。
+
+**[NPV（正味現在価値法）](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 将来キャッシュフローを現在価値に割り引いて合計し、初期投資と比較。**NPV > 0 なら投資可**。時間価値を考慮できる最も理論的に正確な手法。
+
+**[回収期間法](https://doboku-note.com/docs/pe-comprehensive-management-payback-period-method?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 毎年の正味現金流入額で投資額を何年で回収できるかを計算。シンプルだが「**回収後のキャッシュフローを考慮しない**」のが最大の弱点。リスク重視の企業に適する。
+
+**ROI（投資利益率法）** — 利益額 ÷ 投資額 × 100[%]。複数年の場合は平均利益額を使用。「**時間価値を考慮しない**」弱点。投資利益率 > 平均借入率なら採算性あり。
+
+3手法の頻出比較：「**NPV ＝ 時間価値考慮・最も理論的／回収期間法 ＝ シンプルだが回収後 CF 無視／ROI ＝ 時間価値無視**」。
+
+### 1.3 事業評価
+
+公共政策の効果を事前評価する手法群です。
+
+**[費用便益分析](https://doboku-note.com/docs/pe-comprehensive-management-cost-benefit-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 効果を**貨幣額**で表示し費用と比較。直接効果（内部経済効果）を対象。
+
+**[費用効用分析](https://doboku-note.com/docs/pe-comprehensive-management-cost-utility-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 主観的な満足度（効用）を数量化して評価。すべて貨幣換算できないケースに適用。
+
+行政評価の3指標も択一で問われます。
+
+- **アウトプット指標** — 行政活動を実際にどの程度行ったか（道路整備延長、討論会開催回数等）
+- **アウトカム指標** — 成果物によってどれだけ成果が上がったか（渋滞緩和度合い等）
+- **インプット指標** — 投入する資源量（予算額が主）
+
+### 1.4 設計管理
+
+設計段階の用語6つが定義照合問題として出ます。
+
+- **信頼性設計** — 与えられた条件下で規定期間中に必要機能を満たす設計
+- **保全性設計** — 故障・異常を素早く検出・診断し短時間で修復できる設計
+- **コンカレントエンジニアリング** — 下流工程の担当者を基本設計段階からチームに参画させ、工期短縮を図る手法
+- **デザインレビュー** — 製品ライフサイクル全体の設計アウトプットと導出プロセスを品質特性の観点で組織的に審査
+- **デザインイン** — メーカーが部品メーカー等と開発段階から共同で開発
+- **フロントローディング** — 後工程で発生しそうな問題を初期工程で前倒し集中対応
+
+### 1.5 マーケティングにおける指標
+
+事業の成果測定に使う3指標。
+
+- **KGI（重要目標達成指標）** — 最終ゴールの達成度を定量的に測る指標。例：「売上20%アップ」
+- **KPI（重要業績評価指標）** — KGI を分解した中間ゴール。部署や担当者別の集客率・売上アップ率等
+- **KSF（重要成功要因）** — 数値ではなく、事業を成功させるために必要な要因を**言語化**したもの
+
+「KGI/KPI = 数値化、KSF = 言語化」の区別が択一で問われます。
+
+### 1.6 PFI 法
+
+**[PFI](https://doboku-note.com/docs/pe-comprehensive-management-pfi?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（Private Finance Initiative）は、公共施設の建設・維持管理・運営を民間の資金・経営能力・技術を活用して行う手法です。
+
+**事業方式の3種類**
+
+- **BTO 方式** — 建設（Build）→ 完成後に所有権移転（Transfer）→ 民間が運営（Operate）
+- **BOT 方式** — 建設 → 民間が運営 → 事業終了後に所有権移転
+- **コンセッション方式** — 所有権は公共主体、運営権のみ民間に設定
+
+**[VFM（Value For Money）](https://doboku-note.com/docs/pe-comprehensive-management-vfm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定の支払い（Money）に対して最も価値の高いサービス（Value）を供給する考え方。従来方式と比較して PFI で総事業費をどれだけ削減できるかを示す割合。
+
+**リスク分担の5原則**
+
+1. **分担する者** — リスクの顕在化をより小さな費用で防ぎ得る側、または追加支出を極力小さくし得る側が負担
+2. **分担方法** — ①一方が全額／②一定割合で双方／③一定額まで一方・超過分を共担／④閾値方式の4パターン
+3. **個別検討** — 選定事業ごとにリスク内容を評価して検討
+4. **不可抗力リスク** — 天災等は協定で事前に分担を取り決め
+5. **物価・金利・為替・税制変動リスク** — 影響度を勘案して事前協議
+
+### 1.7 プロジェクトマネジメント
+
+[PMBOK](https://doboku-note.com/docs/pe-comprehensive-management-pmbok?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（Project Management Body of Knowledge、米 PMI 作成）が世界標準です。
+
+PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サービス・所産を創造するために実施する有期性のある業務**」と定義しています。
+
+**PMBOK 第7版の8パフォーマンス領域**
+
+1. デリバリー
+2. 開発アプローチとライフサイクル
+3. 計画
+4. プロジェクト作業
+5. 測定
+6. ステークホルダー
+7. チーム
+8. 不確かさ
+
+第7版では従来の「プロセス中心」から「**原則中心（12 原則）**」に転換しました。
+
+**[WBS（Work Breakdown Structure）](https://doboku-note.com/docs/pe-comprehensive-management-wbs?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — プロジェクトを「フェーズ」に分割しフェーズごとに成果物を定義。詳細作業内容を**ツリー構造**で階層的に表現したもの。スコープを目に見える形にする手法。
 
 ---
 
 ## 2. 品質管理（優先度: 最高）
 
-品質管理は**最も安定した高頻度出題エリア**です。QC7つ道具・品質の定義・PDCAサイクルは基本中の基本です。
+品質管理（広義）は **品質方針 → 品質計画 → 品質管理（狭義）→ 品質保証 → 品質改善** の活動サイクルです。**QC7つ道具・新QC7つ道具・正規分布**は経済性管理で最も安定した高頻度出題エリアです。
 
-### 2.1 品質管理の体系
+### 2.1 品質方針と品質計画
 
-[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は「品質のばらつきを統計的に管理し、不良品を出さない仕組みをつくること」です。
+**[品質方針](https://doboku-note.com/docs/pe-comprehensive-management-quality-policy?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — トップマネジメントによって正式に表明された組織の品質に関する全般的な方向付け。
 
-**QC7つ道具**（パレート図・特性要因図・ヒストグラム・散布図・管理図・チェックシート・層別）は、各図の用途と読み方を問う択一問題が毎年出ます。特に「パレート図（問題の80%を占める上位20%の要因を特定）」と「特性要因図（魚の骨の形で原因を整理）」は頻出です。
+**[品質目標](https://doboku-note.com/docs/pe-comprehensive-management-quality-objectives?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 品質方針の展開としての目標と、製品やプロジェクト個別の目標の2つ。
 
-[品質計画](https://doboku-note.com/docs/pe-comprehensive-management-quality-planning?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)では「品質目標→品質基準→検査計画」の流れと、[品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（第三者が品質を保証する仕組み）との違いを押さえてください。
+**[品質計画](https://doboku-note.com/docs/pe-comprehensive-management-quality-planning?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 品質目標の設定と達成計画の立案プロセス。組織全体の品質方針を部門ごとに展開し、活動進捗で随時見直す。
 
-### 2.2 工程能力指数と検査手法
+### 2.2 QC7つ道具（数値データ）
 
-工程能力指数（Cp・Cpk）は工程が規格内に収まる能力を数値化したものです。Cp ≥ 1.33 が望ましいという基準値は択一での計算問題に出ます。
+QC7つ道具は主に**数値データ**を扱うことに適した7手法です。
 
-[全数検査・抜取検査](https://doboku-note.com/docs/pe-comprehensive-management-inspection-methods?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)の使い分け（破壊検査は全数不可・安全性が高い製品は全数）は論理問題として出ます。OC曲線（検査方式の性能を表すグラフ）の読み方も出題されています。
+- **層別** — 多数のものを特徴別に層分け
+- **[パレート図](https://doboku-note.com/docs/pe-comprehensive-management-pareto-chart?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 「不適合の8割は2割の特定原因に起因」という法則をヒストグラム（柱状グラフ）で可視化
+- **特性要因図** — 魚の骨ダイアグラム。要因によって引き起こされる現象を魚の骨形状で示す
+- **ヒストグラム** — データを区間に分け、度数を柱状グラフで表現
+- **散布図** — 2種類のデータを横軸・縦軸にプロットし関係性を把握
+- **グラフ・管理図** — 品質の安定性評価に管理限界線を持つグラフを使用
+- **チェックシート** — 主要ポイントを予め列記し、結果（良/悪、完了/未完了）をチェック
+
+択一の頻出は「**パレート図 ＝ 80/20 法則の可視化**」と「**特性要因図 ＝ 魚の骨**」の用途識別です。
+
+### 2.3 新QC7つ道具（言語データ）
+
+新QC7つ道具は主に**言語データ**を扱うことに適した7手法です。
+
+- **連関図** — 原因・結果の項目を抽出し因果関係を矢印で表現
+- **系統図** — 目的・ゴールへの手段を樹枝状に表現
+- **マトリックス図** — 2要素を行・列に配置し関係を表現
+- **過程決定計画図** — 対策のステップを表現したフローチャート
+- **アローダイアグラム** — 作業を矢印で表した日程計画表
+- **親和図** — 言語データをグループ分けし整理・分類
+- **マトリックスデータ解析** — 複数データを解析して傾向把握
+
+「QC7つ道具 ＝ 数値データ／新QC7つ道具 ＝ 言語データ」が最重要の択一論点です。
+
+### 2.4 正規分布と工程能力指数
+
+[正規分布](https://doboku-note.com/docs/pe-comprehensive-management-normal-distribution?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は N(μ, σ²) で表現され、平均μを中心とした左右対称形状です。
+
+**μ ± Nσ 範囲のデータ含有率**
+
+- **μ ± σ 範囲**：68.3 %
+- **μ ± 2σ 範囲**：95.4 %
+- **μ ± 3σ 範囲**：99.7 %
+
+択一では「±σ で何 %」が定番の暗記問題です。
+
+[工程能力指数](https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（Cp）は規格限度内に製品を生産できる能力を表す指標です。
+
+> Cp ＝ (公差上限値 − 公差下限値) ÷ (6σ 等の規格限度)
+
+標準偏差σが小さいほど Cp は大きくなり、不良品が少ない状態を示します。**Cp ≥ 1.33 が望ましい**基準値で、計算問題として出題されます。
+
+### 2.5 検査
+
+**全数検査** — プラント等の重要施設で不適合品の混入が認められない場合に実施。
+
+**[抜取検査](https://doboku-note.com/docs/pe-comprehensive-management-sampling-inspection?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 量産品でランダムにサンプルを抽出してロット単位で合否判定。「**ロットからのランダム抽出**」が前提条件。
+
+検査方式の性能を表す **OC 曲線（Operating Characteristic curve）** の読み方も出題されます。
+
+### 2.6 品質保証
+
+[品質マネジメントシステム](https://doboku-note.com/docs/pe-comprehensive-management-quality-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は国際規格 **[ISO 9000 シリーズ](https://doboku-note.com/docs/pe-comprehensive-management-iso-9000?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** に則って実施されます。
+
+**ISO 9001:2015 の主な改訂点**
+
+- アウトプット ＝ 製品（ハードウェア／ソフトウェア／素材製品の3カテゴリ）+ サービス
+- ビジョン・使命・戦略を明示
+- あらゆるプロセスで [PDCA サイクル](https://doboku-note.com/docs/pe-comprehensive-management-pdca-cycle?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) を適用
+
+**品質保証活動** — 企画／開発・設計／生産準備／生産／流通／販売・サービス／廃棄・リサイクルすべての段階に及びます。
+
+### 2.7 品質改善
+
+品質の不良は3カテゴリに分類されます。
+
+- 設計品質の不良
+- 工程管理問題に起因する不良
+- 製品品質の不良
+
+**[品質改善](https://doboku-note.com/docs/pe-comprehensive-management-quality-improvement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** はこれら不良をなくし、より良い品質の製品を生み出す能力を高める活動です。
+
+### 2.8 消費者保護
+
+製品安全（PS）マークが特定製品に表示義務化されています。
+
+- **PSC マーク** — [消費生活用製品安全法](https://doboku-note.com/docs/pe-comprehensive-management-consumer-product-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)
+- **PSE マーク** — 電気用品安全法
+- **PSTG マーク** — ガス事業法
+- **PSPG マーク** — 液化石油ガスの保安の確保及び取引の適正化に関する法律
+
+### 2.9 顧客満足（CS）
+
+満足度の高い製品提供に加え、購入後のサービスが重要です。
+
+- **ビフォアサービス** — 見込み客の購買意欲を高めるためのサービス
+- **アフターサービス** — メンテナンス・情報提供。次回購入のビフォアサービスでもある
+
+**サービスの4特性**
+
+- **無形性** — 形がなく触れられない
+- **同時性** — 顧客との共同作業、提供と消費が同時、元に戻せない
+- **変動性** — 季節・曜日・時間帯による需要変動でサービス品質が変わる
+- **消滅性** — サービス終了とともに消滅、在庫として持てない
 
 ---
 
