@@ -23,7 +23,7 @@ utmCampaign: 99-economic-management
 
 **フィージビリティスタディと需要予測**
 
-[フィージビリティスタディ](https://doboku-note.com/docs/pe-comprehensive-management-feasibility-study?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は、事業の実現可能性を事前調査する業務です。
+**フィージビリティスタディ**は、事業の実現可能性を事前調査する業務です。
 
 **4ステップの調査順序**
 
@@ -34,9 +34,9 @@ utmCampaign: 99-economic-management
 
 需要予測では2つの統計手法が出題されます。
 
-**[移動平均法](https://doboku-note.com/docs/pe-comprehensive-management-moving-average-method?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去の期間データを期間1単位ずつずらして平均値を計算（例：4〜6月、5〜7月）。期間を長くすると変動が小さく見え、直近の変化を遅れて追う傾向。
+**移動平均法** — 過去の期間データを期間1単位ずつずらして平均値を計算（例：4〜6月、5〜7月）。期間を長くすると変動が小さく見え、直近の変化を遅れて追う傾向。
 
-**[指数平滑法](https://doboku-note.com/docs/pe-comprehensive-management-exponential-smoothing?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 前期実績値と前期予測値に重み付けする手法。
+**指数平滑法** — 前期実績値と前期予測値に重み付けする手法。
 
 > 次期予測 = α × 前期実績値 + (1 − α) × 前期予測値
 
@@ -71,9 +71,9 @@ utmCampaign: 99-economic-management
 
 公共政策の効果を事前評価する手法群です。
 
-**[費用便益分析](https://doboku-note.com/docs/pe-comprehensive-management-cost-benefit-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 効果を**貨幣額**で表示し費用と比較。直接効果（内部経済効果）を対象。
+**費用便益分析** — 効果を**貨幣額**で表示し費用と比較。直接効果（内部経済効果）を対象。
 
-**[費用効用分析](https://doboku-note.com/docs/pe-comprehensive-management-cost-utility-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 主観的な満足度（効用）を数量化して評価。すべて貨幣換算できないケースに適用。
+**費用効用分析** — 主観的な満足度（効用）を数量化して評価。すべて貨幣換算できないケースに適用。
 
 行政評価の3指標も択一で問われます。
 
@@ -114,7 +114,7 @@ utmCampaign: 99-economic-management
 - **BOT 方式** — 建設 → 民間が運営 → 事業終了後に所有権移転
 - **コンセッション方式** — 所有権は公共主体、運営権のみ民間に設定
 
-**[VFM（Value For Money）](https://doboku-note.com/docs/pe-comprehensive-management-vfm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定の支払い（Money）に対して最も価値の高いサービス（Value）を供給する考え方。従来方式と比較して PFI で総事業費をどれだけ削減できるかを示す割合。
+**VFM（Value For Money）** — 一定の支払い（Money）に対して最も価値の高いサービス（Value）を供給する考え方。従来方式と比較して PFI で総事業費をどれだけ削減できるかを示す割合。
 
 **リスク分担の5原則**
 
@@ -145,7 +145,7 @@ PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サ�
 
 第7版では従来の「プロセス中心」から「**原則中心（12 原則）**」に転換しました。
 
-**[WBS（Work Breakdown Structure）](https://doboku-note.com/docs/pe-comprehensive-management-wbs?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — プロジェクトを「フェーズ」に分割しフェーズごとに成果物を定義。詳細作業内容を**ツリー構造**で階層的に表現したもの。スコープを目に見える形にする手法。
+**WBS（Work Breakdown Structure）** — プロジェクトを「フェーズ」に分割しフェーズごとに成果物を定義。詳細作業内容を**ツリー構造**で階層的に表現したもの。スコープを目に見える形にする手法。
 
 ---
 
@@ -166,7 +166,7 @@ PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サ�
 QC7つ道具は主に**数値データ**を扱うことに適した7手法です。
 
 - **層別** — 多数のものを特徴別に層分け
-- **[パレート図](https://doboku-note.com/docs/pe-comprehensive-management-pareto-chart?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 「不適合の8割は2割の特定原因に起因」という法則をヒストグラム（柱状グラフ）で可視化
+- **パレート図** — 「不適合の8割は2割の特定原因に起因」という法則をヒストグラム（柱状グラフ）で可視化
 - **特性要因図** — 魚の骨ダイアグラム。要因によって引き起こされる現象を魚の骨形状で示す
 - **ヒストグラム** — データを区間に分け、度数を柱状グラフで表現
 - **散布図** — 2種類のデータを横軸・縦軸にプロットし関係性を把握
@@ -176,6 +176,8 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 択一の頻出は「**パレート図 ＝ 80/20 法則の可視化**」と「**特性要因図 ＝ 魚の骨**」の用途識別です。
 
 > **【出題例: [R5年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 品質管理で用いられる図やグラフ（パレート図／特性要因図／チェックシート／散布図／ヒストグラム）と用途例の組合せ問題 → **正答1：用途別マッチングは毎年形を変えて出題されるため、各図の主用途を明確に区別して暗記する必要がある。**
+
+**新QC7つ道具（言語データ）**
 
 新QC7つ道具は主に**言語データ**を扱うことに適した7手法です。
 
@@ -191,7 +193,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 **正規分布と工程能力指数**
 
-[正規分布](https://doboku-note.com/docs/pe-comprehensive-management-normal-distribution?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は N(μ, σ²) で表現され、平均μを中心とした左右対称形状です。
+**正規分布**は N(μ, σ²) で表現され、平均μを中心とした左右対称形状です。
 
 **μ ± Nσ 範囲のデータ含有率**
 
@@ -211,7 +213,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 **全数検査** — プラント等の重要施設で不適合品の混入が認められない場合に実施。
 
-**[抜取検査](https://doboku-note.com/docs/pe-comprehensive-management-sampling-inspection?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 量産品でランダムにサンプルを抽出してロット単位で合否判定。「**ロットからのランダム抽出**」が前提条件。
+**[抜取検査](https://doboku-note.com/docs/pe-comprehensive-management-inspection-methods?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 量産品でランダムにサンプルを抽出してロット単位で合否判定。「**ロットからのランダム抽出**」が前提条件。
 
 検査方式の性能を表す **OC 曲線（Operating Characteristic curve）** の読み方も出題されます。
 
@@ -221,7 +223,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 **品質保証**
 
-[品質マネジメントシステム](https://doboku-note.com/docs/pe-comprehensive-management-quality-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は国際規格 **[ISO 9000 シリーズ](https://doboku-note.com/docs/pe-comprehensive-management-iso-9000?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** に則って実施されます。
+**品質マネジメントシステム**は国際規格 **ISO 9000 シリーズ** に則って実施されます。
 
 **ISO 9001:2015 の主な改訂点**
 
@@ -719,7 +721,7 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 - **段階的 PoC とアジャイル導入** — 小規模 PoC で効果検証 → 段階的拡大。[アジャイル型開発](https://doboku-note.com/docs/pe-comprehensive-management-agile?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) と相性がよく、初期投資リスクを限定
 - **無形資産としての情報資産評価** — B/S に直接計上されない情報資産（顧客データ・ノウハウ・アルゴリズム）を**管理会計**上で価値評価し、投資判断のテーブルに乗せる
 
-**残余リスクと監視** — IT 投資の効果は遅効性のため、[KGI/KPI](https://doboku-note.com/docs/pe-comprehensive-management-kgi-kpi?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) を導入時に明文化し、四半期ごとに進捗確認します。
+**残余リスクと監視** — IT 投資の効果は遅効性のため、**KGI/KPI** を導入時に明文化し、四半期ごとに進捗確認します。
 
 期待効果が発現しない投資は、サンクコストにとらわれず撤退・転用を判断します。
 
@@ -735,8 +737,8 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 **解決フレームワーク**
 
-- **[LCA（ライフサイクルアセスメント）](https://doboku-note.com/docs/pe-comprehensive-management-life-cycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 製品・サービスの環境負荷を原料調達から廃棄まで定量化。NPV と組み合わせて環境コストを投資判断に組み込む
-- **[マテリアルフローコスト会計（MFCA）](https://doboku-note.com/docs/pe-comprehensive-management-mfca?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — ロス分を「負の製品コスト」として可視化し、廃棄物削減の経済合理性を経営層に示す
+- **[LCA（ライフサイクルアセスメント）](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 製品・サービスの環境負荷を原料調達から廃棄まで定量化。NPV と組み合わせて環境コストを投資判断に組み込む
+- **マテリアルフローコスト会計（MFCA）** — ロス分を「負の製品コスト」として可視化し、廃棄物削減の経済合理性を経営層に示す
 - **インターナルカーボンプライシング** — 社内で炭素価格を設定し、設備投資判断に CO₂ 排出量を NPV 計算へ組み込み。将来の炭素税導入に先行対応
 
 **残余リスクと監視** — 環境価値の貨幣換算は不確実性が高いため、シナリオ分析で複数の炭素価格・規制水準を仮定します。
