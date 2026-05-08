@@ -108,7 +108,7 @@ utmCampaign: 99-economic-management
 
 **PFI 法**
 
-**[PFI](https://doboku-note.com/docs/pe-comprehensive-management-pfi?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（Private Finance Initiative）は、公共施設の建設・維持管理・運営を民間の資金・経営能力・技術を活用して行う手法です。
+**[PFI](https://doboku-note.com/docs/pe-comprehensive-management-pfi?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** は **Private Finance Initiative** の略で、公共施設の建設・維持管理・運営を民間の資金・経営能力・技術を活用して行う手法です。
 
 **事業方式の3種類**
 
@@ -354,7 +354,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **[類推見積り](https://doboku-note.com/docs/pe-comprehensive-management-analogous-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去の類似作業の実績データを使う見積り。簡便だが類似プロジェクトがないと使えない。
 
-**[パラメトリック見積り](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（係数見積り） — 過去のデータをもとに得られたパラメータ（係数）を使う。
+**[パラメトリック見積り（係数見積り）](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去のデータをもとに得られたパラメータ（係数）を使う。
 
 **[三点見積り](https://doboku-note.com/docs/pe-comprehensive-management-three-point-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 悲観値（P）・最頻値（M）・楽観値（O）を加重平均する手法。
 
