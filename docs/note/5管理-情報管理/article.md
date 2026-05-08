@@ -241,6 +241,8 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 - **[意匠権](https://doboku-note.com/docs/pe-comprehensive-management-design-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から25年（2020年改正で登録日起算から変更）
 - **[商標権](https://doboku-note.com/docs/pe-comprehensive-management-trademark-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 設定登録日から10年（更新可能で実質無期限）
 - **著作権** — 創作と同時に発生、著作者の死後70年（無登録）
+- **半導体集積回路の回路配置に関する法律** — 設定登録の日から10年
+- **種苗法** — 品種登録の日から25年（木本植物〈果樹・鑑賞樹等〉は30年）
 
 ![知的財産権の存続期間比較 — 特許・実用新案・意匠・商標・著作権](./img/figure-3-ip-rights-duration.png)
 
