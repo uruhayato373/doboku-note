@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">3種類の平均の使い分け</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">算術平均 / 幾何平均 / 調和平均</text>
+  
+    <rect x="40" y="110" width="353.3333333333333" height="390" rx="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2.5"/>
+    <text x="216.66666666666666" y="152" text-anchor="middle" font-size="26" font-weight="800" fill="#2e6da4">算術平均</text>
+    <rect x="56" y="164" width="321.3333333333333" height="54" rx="8" fill="white" stroke="#2e6da4" stroke-width="1.5"/>
+    <text x="216.66666666666666" y="197" text-anchor="middle" font-size="20" fill="#2e6da4" font-weight="700">(x₁+x₂+…+xₙ)/n</text>
+    <text x="60" y="250" font-size="19" font-weight="700" fill="#222222">使う場面</text>
+    <text x="60" y="276" font-size="18" fill="#555555">単純な合計÷個数</text>
+    <text x="60" y="330" font-size="19" font-weight="700" fill="#222222">具体例</text>
+    <text x="60" y="356" font-size="18" fill="#555555">試験の平均点・月収の平均</text>
+    <text x="60" y="412" font-size="19" font-weight="700" fill="#b22234">注意点</text>
+    <text x="60" y="438" font-size="18" fill="#b22234">外れ値の影響を受けやすい</text>
+    <rect x="413.3333333333333" y="110" width="353.3333333333333" height="390" rx="14" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="590" y="152" text-anchor="middle" font-size="26" font-weight="800" fill="#3a7d44">幾何平均</text>
+    <rect x="429.3333333333333" y="164" width="321.3333333333333" height="54" rx="8" fill="white" stroke="#3a7d44" stroke-width="1.5"/>
+    <text x="590" y="197" text-anchor="middle" font-size="20" fill="#3a7d44" font-weight="700">ⁿ√(x₁×x₂×…×xₙ)</text>
+    <text x="433.3333333333333" y="250" font-size="19" font-weight="700" fill="#222222">使う場面</text>
+    <text x="433.3333333333333" y="276" font-size="18" fill="#555555">倍率・成長率・価格指数の平均</text>
+    <text x="433.3333333333333" y="330" font-size="19" font-weight="700" fill="#222222">具体例</text>
+    <text x="433.3333333333333" y="356" font-size="18" fill="#555555">売上成長率・物価指数</text>
+    <text x="433.3333333333333" y="412" font-size="19" font-weight="700" fill="#b22234">注意点</text>
+    <text x="433.3333333333333" y="438" font-size="18" fill="#b22234">値がすべて正の場合のみ使用可</text>
+    <rect x="786.6666666666666" y="110" width="353.3333333333333" height="390" rx="14" fill="#fbf3df" stroke="#d4a017" stroke-width="2.5"/>
+    <text x="963.3333333333333" y="152" text-anchor="middle" font-size="26" font-weight="800" fill="#d4a017">調和平均</text>
+    <rect x="802.6666666666666" y="164" width="321.3333333333333" height="54" rx="8" fill="white" stroke="#d4a017" stroke-width="1.5"/>
+    <text x="963.3333333333333" y="197" text-anchor="middle" font-size="20" fill="#d4a017" font-weight="700">n / (1/x₁+1/x₂+…+1/xₙ)</text>
+    <text x="806.6666666666666" y="250" font-size="19" font-weight="700" fill="#222222">使う場面</text>
+    <text x="806.6666666666666" y="276" font-size="18" fill="#555555">速度・密度の往復平均</text>
+    <text x="806.6666666666666" y="330" font-size="19" font-weight="700" fill="#222222">具体例</text>
+    <text x="806.6666666666666" y="356" font-size="18" fill="#555555">往復の平均速度・単価の平均</text>
+    <text x="806.6666666666666" y="412" font-size="19" font-weight="700" fill="#b22234">注意点</text>
+    <text x="806.6666666666666" y="438" font-size="18" fill="#b22234">「同距離」か「同量」が前提</text>
+  <text x="40" y="520" font-size="18" fill="#8a8a8a">覚え方: 比率・成長 → 幾何平均（√の形）、速度・密度 → 調和平均（逆数）、それ以外 → 算術平均</text>
+  
+</svg>

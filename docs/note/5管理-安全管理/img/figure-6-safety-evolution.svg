@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
-  <rect width="1200" height="720" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
 
   <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">Safety 0.0 / 1.0 / 2.0 — 安全設計思想の進化</text>
   <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">人と機械の関係性で見る3段階</text>
@@ -36,7 +36,7 @@
   <text x="1000" y="606" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">人 × 機械 × 環境が情報共有</text>
   <text x="400" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#555555">→</text>
   <text x="800" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#555555">→</text>
-  <rect x="40" y="660" width="1120" height="44" rx="6" fill="#e6f1e8"/>
-  <text x="60" y="690" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">分類キーワード：「協調・情報共有・IoT」→ Safety 2.0／「保安制御・隔離・分離」→ Safety 1.0</text>
+  <rect x="40" y="676" width="1120" height="44" rx="6" fill="#e6f1e8"/>
+  <text x="60" y="706" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">分類キーワード：「協調・情報共有・IoT」→ Safety 2.0／「保安制御・隔離・分離」→ Safety 1.0</text>
 
 </svg>

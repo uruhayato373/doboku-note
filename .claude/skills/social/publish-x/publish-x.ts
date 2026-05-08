@@ -1,0 +1,508 @@
+/**
+ * X (Twitter) 投稿スクリプト（doboku-note 版）— Playwright 永続プロファイル
+ *
+ * 使い方:
+ *   npx tsx .claude/skills/social/publish-x/publish-x.ts <draft> [<date>...] [options]
+ *
+ * 例:
+ *   # 初回 dry-run（必須）
+ *   npx tsx ... 004 --tweet 1 2026-05-09T08:00 --dry-run
+ *
+ *   # 即時投稿（特定ツイート）
+ *   npx tsx ... 004 --tweet 1 --immediate
+ *
+ *   # 5 連続予約投稿（全ツイート順に日時を並べる）
+ *   npx tsx ... 004 2026-05-09T08:00 2026-05-10T08:00 2026-05-11T08:00 2026-05-12T08:00 2026-05-13T08:00
+ *
+ * 引数:
+ *   <draft>       docs/x-posts/draft/ 配下のディレクトリ名。先頭番号のみ ("004") でも可
+ *   [<date>...]   予約日時 JST (YYYY-MM-DDTHH:MM)。対象ツイート数と一致させる
+ *   --tweet N     特定ツイートのみ投稿（1-based。省略時は全ツイート）
+ *   --immediate   予約ではなく即時投稿（--tweet と組み合わせ推奨）
+ *   --dry-run     実投稿せずセレクタ検出まで確認（初回・セレクタ変更後は必須）
+ *
+ * ⚠️  初回 / 1 週間以上空いた場合は必ず --dry-run で事前検証すること。
+ *      予約モード未確認のまま投稿ボタンを押すと即時投稿が発火する（2026-04-18 事故実績）。
+ */
+import { chromium, type BrowserContext, type Page } from "playwright";
+import * as path from "path";
+import * as fs from "fs";
+
+// ─── 設定 ─────────────────────────────────────────────
+const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
+const DRAFTS_DIR = path.join(PROJECT_ROOT, "docs/x-posts/draft");
+const PROFILE_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-profile");
+const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
+
+let IS_DRY_RUN = false;
+
+// ─── screenshot ────────────────────────────────────────
+async function saveScreenshot(page: Page, label: string): Promise<void> {
+  if (!fs.existsSync(DEBUG_DIR)) fs.mkdirSync(DEBUG_DIR, { recursive: true });
+  const ts = new Date().toISOString().replace(/[:.]/g, "-");
+  const filepath = path.join(DEBUG_DIR, `${ts}_${label}.png`);
+  try {
+    await page.screenshot({ path: filepath, fullPage: true });
+    console.log(`📸 screenshot: ${filepath}`);
+  } catch (e) {
+    console.error(`screenshot 失敗: ${e}`);
+  }
+}
+
+// ─── x.md パーサー ─────────────────────────────────────
+interface TweetBlock {
+  number: number;    // 1-based
+  title: string;     // "定義編" など
+  text: string;      // 投稿テキスト（ヘッダ行除く、trim済み）
+  imagePath: string | null;
+}
+
+function parseTweetMd(draftDir: string): TweetBlock[] {
+  const mdPath = path.join(draftDir, "tweets.md");
+  if (!fs.existsSync(mdPath)) throw new Error(`tweets.md が見つかりません: ${mdPath}`);
+
+  const raw = fs.readFileSync(mdPath, "utf-8");
+  // "## Tweet 01: タイトル" を区切りとして分割
+  const blocks = raw.split(/^(?=## Tweet \d+:)/m).filter((b) => b.trim());
+
+  const results: TweetBlock[] = [];
+  const imgDir = path.join(draftDir, "img");
+
+  for (const block of blocks) {
+    const headMatch = block.match(/^## Tweet (\d+):\s*(.+)/);
+    if (!headMatch) continue;
+
+    const num = parseInt(headMatch[1], 10);
+    const title = headMatch[2].trim();
+
+    // ヘッダ行を除いた残り。リプライ部分と末尾の "---" セパレータは除去
+    const body = block
+      .replace(/^## Tweet \d+:.+\n/, "")
+      .replace(/\n--- リプライ ---[\s\S]*/, "")
+      .replace(/\n---\s*$/, "")
+      .trim();
+
+    // 画像: tweet-{NN}-{*.png} を探す（svg より png 優先）
+    let imagePath: string | null = null;
+    if (fs.existsSync(imgDir)) {
+      const nn = String(num).padStart(2, "0");
+      const pngFiles = fs
+        .readdirSync(imgDir)
+        .filter((f) => f.startsWith(`tweet-${nn}-`) && f.endsWith(".png"))
+        .sort();
+      if (pngFiles.length > 0) {
+        imagePath = path.join(imgDir, pngFiles[0]);
+      }
+    }
+
+    results.push({ number: num, title, text: body, imagePath });
+  }
+
+  if (results.length === 0) throw new Error(`ツイートブロックが見つかりません (## Tweet N: 形式を確認): ${mdPath}`);
+  return results;
+}
+
+// ─── draft ディレクトリ解決 ─────────────────────────────
+function resolveDraftDir(draftArg: string): string {
+  // 完全名 or 数字プレフィックスで検索
+  if (fs.existsSync(path.join(DRAFTS_DIR, draftArg))) {
+    return path.join(DRAFTS_DIR, draftArg);
+  }
+  // 先頭の数字部分だけ渡された場合（例: "004"）
+  const entries = fs.readdirSync(DRAFTS_DIR);
+  const matched = entries.find((e) => e.startsWith(draftArg + "-") || e === draftArg);
+  if (matched) return path.join(DRAFTS_DIR, matched);
+  throw new Error(`draft が見つかりません: ${draftArg}\n利用可能: ${entries.join(", ")}`);
+}
+
+// ─── status.json 更新 ─────────────────────────────────
+interface TweetStatus {
+  title: string;
+  status: "pending" | "scheduled" | "posted";
+  scheduled_at?: string | null;
+  posted_at?: string | null;
+}
+
+interface StatusJson {
+  updated_at: string;
+  tweets: Record<string, TweetStatus>;
+}
+
+function updateStatus(
+  draftDir: string,
+  tweets: TweetBlock[],
+  tweetNum: number,
+  scheduledDate: Date | null
+): void {
+  const statusPath = path.join(draftDir, "status.json");
+
+  // 既存 status を読むか、全件 pending で初期化
+  let data: StatusJson;
+  if (fs.existsSync(statusPath)) {
+    data = JSON.parse(fs.readFileSync(statusPath, "utf-8")) as StatusJson;
+  } else {
+    const entries: Record<string, TweetStatus> = {};
+    for (const t of tweets) {
+      entries[String(t.number)] = { title: t.title, status: "pending", scheduled_at: null, posted_at: null };
+    }
+    data = { updated_at: "", tweets: entries };
+  }
+
+  const nowJst = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().replace("Z", "+09:00");
+  const key = String(tweetNum);
+
+  if (scheduledDate) {
+    const scheduledJst = new Date(scheduledDate.getTime() + 9 * 60 * 60 * 1000)
+      .toISOString()
+      .replace("Z", "+09:00");
+    data.tweets[key] = { ...data.tweets[key], status: "scheduled", scheduled_at: scheduledJst, posted_at: null };
+  } else {
+    data.tweets[key] = { ...data.tweets[key], status: "posted", posted_at: nowJst };
+  }
+
+  data.updated_at = nowJst;
+  fs.writeFileSync(statusPath, JSON.stringify(data, null, 2) + "\n", "utf-8");
+  console.log(`📝 status.json 更新: Tweet ${tweetNum} → ${scheduledDate ? "scheduled" : "posted"}`);
+}
+
+// ─── 引数パース ────────────────────────────────────────
+interface PostJob {
+  tweet: TweetBlock;
+  draftDir: string;
+  allTweets: TweetBlock[];
+  scheduledDate: Date | null;
+}
+
+function parseArgs(): PostJob[] {
+  const args = process.argv.slice(2);
+  if (args.length === 0 || args[0].startsWith("-")) {
+    console.error("使い方: npx tsx publish-x.ts <draft> [<date>...] [--tweet N] [--immediate] [--dry-run]");
+    process.exit(1);
+  }
+
+  const draftArg = args[0];
+  let tweetFilter: number | null = null;
+  let immediate = false;
+  const dates: string[] = [];
+
+  for (let i = 1; i < args.length; i++) {
+    if (args[i] === "--dry-run") {
+      IS_DRY_RUN = true;
+      console.log("🧪 DRY RUN モード: 実投稿はせず、セレクタ検出まで確認");
+    } else if (args[i] === "--immediate") {
+      immediate = true;
+    } else if (args[i] === "--tweet") {
+      tweetFilter = parseInt(args[++i], 10);
+    } else if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(args[i])) {
+      dates.push(args[i]);
+    }
+  }
+
+  const draftDir = resolveDraftDir(draftArg);
+  const allTweets = parseTweetMd(draftDir);
+  const tweets = tweetFilter
+    ? allTweets.filter((t) => t.number === tweetFilter)
+    : allTweets;
+
+  if (tweets.length === 0) {
+    throw new Error(`--tweet ${tweetFilter} に該当するツイートがありません`);
+  }
+
+  if (!immediate && dates.length > 0 && dates.length !== tweets.length) {
+    throw new Error(
+      `日時の数 (${dates.length}) とツイート数 (${tweets.length}) が一致しません`
+    );
+  }
+
+  return tweets.map((tweet, i) => ({
+    tweet,
+    draftDir,
+    allTweets,
+    scheduledDate: immediate || dates.length === 0 ? null : new Date(dates[i] + "+09:00"),
+  }));
+}
+
+// ─── ログイン確認 ──────────────────────────────────────
+async function ensureLogin(page: Page): Promise<void> {
+  console.log("X.com にアクセスしています...");
+  await page.goto("https://x.com/home", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(3000);
+
+  const url = page.url();
+  if (url.includes("/login") || url.includes("/i/flow/login")) {
+    console.log("\n⚠️  X.com にログインが必要です。ブラウザでログインしてください。");
+    console.log("   ログイン完了後、自動的に続行します...\n");
+    await page.waitForURL("**/home", { timeout: 300_000 });
+    console.log("✅ ログイン完了！");
+    await page.waitForTimeout(2000);
+  } else {
+    console.log("✅ ログイン済み");
+  }
+}
+
+// ─── 1ツイート投稿 ────────────────────────────────────
+async function publishTweet(page: Page, job: PostJob, index: number, total: number): Promise<boolean> {
+  const { tweet, scheduledDate } = job;
+  const label = `Tweet ${String(tweet.number).padStart(2, "0")}（${tweet.title}）`;
+
+  console.log(`\n━━━ ${index + 1}/${total}: ${label} ━━━`);
+  if (scheduledDate) {
+    console.log(`予約日時: ${scheduledDate.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}`);
+  } else {
+    console.log("即時投稿");
+  }
+  if (tweet.imagePath) console.log(`画像: ${path.basename(tweet.imagePath)}`);
+  console.log(`テキスト:\n${tweet.text.substring(0, 80)}...`);
+
+  await page.goto("https://x.com/compose/post", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(3000);
+
+  const textbox = page.getByRole("textbox").first();
+  await textbox.waitFor({ state: "visible", timeout: 15000 });
+
+  // 画像アップロード（テキスト入力より先に実行）
+  if (tweet.imagePath) {
+    const fileInput = page.locator('input[data-testid="fileInput"]').first();
+    await fileInput.setInputFiles(tweet.imagePath);
+    console.log("📷 画像アップロード中...");
+    try {
+      await page.locator('[data-testid="attachments"]').waitFor({ state: "visible", timeout: 10000 });
+      console.log("📷 画像プレビュー確認OK");
+    } catch {
+      console.log("⚠️  画像プレビューが検出できませんでした（投稿は継続）");
+    }
+    await page.waitForTimeout(2000);
+  }
+
+  // テキスト入力（clipboard 経由で日本語対応）
+  await textbox.click();
+  await page.waitForTimeout(500);
+  await page.evaluate(async (text: string) => {
+    const item = new ClipboardItem({
+      "text/plain": new Blob([text], { type: "text/plain" }),
+    });
+    await navigator.clipboard.write([item]);
+  }, tweet.text);
+  await page.keyboard.press("Meta+v");
+  await page.waitForTimeout(2000);
+
+  // 予約設定
+  if (scheduledDate) {
+    const d = scheduledDate;
+    const month = d.getMonth() + 1;
+    const day = d.getDate();
+    const year = d.getFullYear();
+    const hour = d.getHours();
+    const minute = d.getMinutes();
+
+    // modal dialog 内の scheduleOption に scope（inline composer の誤クリック回避）
+    // 画像添付時に pointer event intercept が起きるため DOM レベル .click() を使用
+    const dialogScheduleBtn = page.locator('[role="dialog"] [data-testid="scheduleOption"]');
+    const fallbackScheduleBtn = page.locator('[data-testid="scheduleOption"]').first();
+    const scheduleBtn = (await dialogScheduleBtn.count()) > 0 ? dialogScheduleBtn.first() : fallbackScheduleBtn;
+    await scheduleBtn.waitFor({ state: "visible", timeout: 10000 });
+    await scheduleBtn.evaluate((el: HTMLElement) => el.click());
+    await page.waitForTimeout(2500);
+
+    // date select のロール判定（X UI の options 内容から推定、インデックス順不問）
+    const dialogSelects = page.locator('[role="dialog"] select');
+    const allSelects = (await dialogSelects.count()) > 0 ? dialogSelects : page.locator("select");
+    const selectCount = await allSelects.count();
+    if (selectCount < 5) {
+      console.error(`🚨 日時セレクトが想定(5)未満: ${selectCount} — UI 変更の可能性`);
+      await saveScreenshot(page, `${label}-date-selects-missing`);
+      await page.keyboard.press("Escape").catch(() => {});
+      await page.waitForTimeout(1000);
+      await page.keyboard.press("Escape").catch(() => {});
+      return false;
+    }
+
+    type SelectRole = "month" | "day" | "year" | "hour" | "minute";
+    const selectMeta: { i: number; role: SelectRole | null }[] = [];
+    for (let i = 0; i < selectCount; i++) {
+      const opts = await allSelects.nth(i).evaluate((el: HTMLSelectElement) =>
+        Array.from(el.options).map((o) => ({ value: o.value, text: o.text }))
+      );
+      const texts = opts.map((o) => o.text);
+      const values = opts.map((o) => o.value).filter((v) => v !== "");
+      const maxVal = Math.max(...values.map((v) => Number(v)).filter((n) => !isNaN(n)), 0);
+      let role: SelectRole | null = null;
+      if (texts.some((t) => t.includes("月")) && maxVal === 12) role = "month";
+      else if (texts.some((t) => /^20\d{2}$/.test(t))) role = "year";
+      else if (maxVal >= 28 && maxVal <= 31) role = "day";
+      else if (maxVal === 23) role = "hour";
+      else if (maxVal === 59) role = "minute";
+      selectMeta.push({ i, role });
+    }
+
+    const findByRole = (role: SelectRole): number => {
+      const hit = selectMeta.find((m) => m.role === role);
+      return hit ? hit.i : -1;
+    };
+    const idx = {
+      month: findByRole("month"),
+      day: findByRole("day"),
+      year: findByRole("year"),
+      hour: findByRole("hour"),
+      minute: findByRole("minute"),
+    };
+    const missing = Object.entries(idx).filter(([, v]) => v < 0).map(([k]) => k);
+    if (missing.length > 0) {
+      console.error(`🚨 日時セレクトのロール判定失敗 (${missing.join(",")}):`);
+      console.error("   selectMeta:", JSON.stringify(selectMeta));
+      await saveScreenshot(page, `${label}-date-select-role-unknown`);
+      await page.keyboard.press("Escape").catch(() => {});
+      await page.waitForTimeout(1000);
+      await page.keyboard.press("Escape").catch(() => {});
+      return false;
+    }
+
+    await allSelects.nth(idx.month).selectOption({ value: String(month) });
+    await page.waitForTimeout(200);
+    await allSelects.nth(idx.day).selectOption({ value: String(day) });
+    await page.waitForTimeout(200);
+    await allSelects.nth(idx.year).selectOption({ value: String(year) });
+    await page.waitForTimeout(200);
+    await allSelects.nth(idx.hour).selectOption({ value: String(hour) });
+    await page.waitForTimeout(200);
+    await allSelects.nth(idx.minute).selectOption({ value: String(minute) });
+    await page.waitForTimeout(300);
+
+    const confirmBtn = page.getByTestId("scheduledConfirmationPrimaryAction");
+    if ((await confirmBtn.count()) === 0) {
+      console.error("🚨 予約確認ボタンが見つかりません");
+      await saveScreenshot(page, `${label}-confirm-btn-missing`);
+      await page.keyboard.press("Escape").catch(() => {});
+      await page.waitForTimeout(1000);
+      await page.keyboard.press("Escape").catch(() => {});
+      return false;
+    }
+    await confirmBtn.click();
+    await page.waitForTimeout(3000);
+
+    // ★★★ FAIL-SAFE: 予約モード検出 ★★★
+    // 2026-04-18 事故再発防止: 予約モード未確認なら Escape で中止（即時投稿を絶対に発火させない）
+    const isScheduledMode = async (): Promise<boolean> => {
+      const indicators = [
+        page.locator('[data-testid="tweetButton"]:has-text("予約設定")'),
+        page.locator('[data-testid="tweetButton"]:has-text("Schedule")'),
+        page.locator('[data-testid="tweetButton"] span:text-is("予約設定")'),
+        page.locator('[data-testid="tweetButton"] span:text-is("Schedule")'),
+      ];
+      for (const ind of indicators) {
+        try { if ((await ind.count()) > 0) return true; } catch { /* ignore */ }
+      }
+      return false;
+    };
+
+    let scheduledModeConfirmed = false;
+    const start = Date.now();
+    while (Date.now() - start < 8000) {
+      if (await isScheduledMode()) { scheduledModeConfirmed = true; break; }
+      await page.waitForTimeout(500);
+    }
+
+    if (!scheduledModeConfirmed) {
+      console.error("🚨 予約モード未確認、投稿中止（即時投稿を回避）");
+      console.error("   X の UI が変更された可能性。screenshot を確認してセレクタを更新してください。");
+      await saveScreenshot(page, `${label}-schedule-mode-not-confirmed`);
+      await page.keyboard.press("Escape").catch(() => {});
+      await page.waitForTimeout(1000);
+      await page.keyboard.press("Escape").catch(() => {});
+      return false;
+    }
+
+    console.log("📅 予約モード確認OK");
+
+    if (IS_DRY_RUN) {
+      console.log(`🧪 dry-run: 予約モードまで到達、投稿はスキップ`);
+      await saveScreenshot(page, `${label}-dry-run-scheduled-mode`);
+      await page.keyboard.press("Escape").catch(() => {});
+      await page.waitForTimeout(1000);
+      await page.keyboard.press("Escape").catch(() => {});
+      return true;
+    }
+
+    const postBtn = page.getByTestId("tweetButton").first();
+    try {
+      await postBtn.click({ timeout: 5000 });
+    } catch {
+      await postBtn.click({ force: true });
+    }
+    console.log(`✅ 予約投稿完了: ${label}`);
+    await page.waitForTimeout(3000);
+    return true;
+  }
+
+  // 即時投稿
+  if (IS_DRY_RUN) {
+    console.log("🧪 dry-run: 即時投稿モード、投稿はスキップ");
+    await saveScreenshot(page, `${label}-dry-run-immediate-mode`);
+    await page.keyboard.press("Escape").catch(() => {});
+    await page.waitForTimeout(1000);
+    return true;
+  }
+
+  const postBtn = page.getByTestId("tweetButton").first();
+  if ((await postBtn.count()) > 0) {
+    await postBtn.click({ force: true });
+    console.log(`✅ 即時投稿完了: ${label}`);
+    await page.waitForTimeout(3000);
+    return true;
+  }
+
+  console.log("⚠️  投稿ボタンが見つかりません");
+  await saveScreenshot(page, `${label}-post-btn-missing`);
+  return false;
+}
+
+// ─── メイン ────────────────────────────────────────────
+async function main() {
+  const jobs = parseArgs();
+  const hasSchedule = jobs.some((j) => j.scheduledDate !== null);
+
+  console.log(`🚀 X ${hasSchedule ? "予約" : "即時"}投稿スクリプトを開始します`);
+  console.log(`   対象: ${jobs.length} ツイート\n`);
+
+  if (!fs.existsSync(PROFILE_DIR)) fs.mkdirSync(PROFILE_DIR, { recursive: true });
+
+  const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, {
+    headless: false,
+    channel: "chrome",
+    viewport: { width: 1280, height: 900 },
+    locale: "ja-JP",
+    timezoneId: "Asia/Tokyo",
+    args: ["--disable-blink-features=AutomationControlled"],
+  });
+
+  const page = context.pages()[0] || (await context.newPage());
+
+  try {
+    await ensureLogin(page);
+
+    const results: { label: string; success: boolean }[] = [];
+    for (let i = 0; i < jobs.length; i++) {
+      const label = `Tweet ${String(jobs[i].tweet.number).padStart(2, "0")}（${jobs[i].tweet.title}）`;
+      const success = await publishTweet(page, jobs[i], i, jobs.length);
+      results.push({ label, success });
+      if (success && !IS_DRY_RUN) {
+        updateStatus(jobs[i].draftDir, jobs[i].allTweets, jobs[i].tweet.number, jobs[i].scheduledDate);
+      }
+      if (i < jobs.length - 1) await page.waitForTimeout(2000);
+    }
+
+    console.log("\n━━━ 結果サマリー ━━━");
+    for (const r of results) {
+      console.log(`${r.success ? "✅" : "❌"} ${r.label}`);
+    }
+    const ok = results.filter((r) => r.success).length;
+    console.log(`\n合計: ${ok}/${results.length} 件完了`);
+  } catch (error) {
+    console.error("エラー:", error);
+  } finally {
+    await page.waitForTimeout(5000);
+    await context.close();
+  }
+}
+
+main().catch(console.error);

@@ -6,7 +6,7 @@
  *   node .claude/scripts/sns/render-keyword-pack.mjs <pack-dir> [<pack-dir2> ...]
  *
  * 例:
- *   node .claude/scripts/sns/render-keyword-pack.mjs docs/sns-drafts/008-キーワード-design-review
+ *   node .claude/scripts/sns/render-keyword-pack.mjs docs/x-posts/draft/008-キーワード-design-review
  */
 
 import { writeFileSync, mkdirSync, existsSync } from 'node:fs';

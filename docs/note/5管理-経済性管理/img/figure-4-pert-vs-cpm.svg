@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
-  <rect width="1200" height="720" fill="#ffffff"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
 
   <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">PERT vs CPM — 日程計画2手法の使い分け</text>
   <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">時間見積の方法と確率/決定論の違いで見分ける</text>
@@ -42,4 +42,5 @@
   <text x="626" y="558" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">決定論的（コスト最適化）</text>
   <rect x="40" y="602" width="1120" height="44" rx="6" fill="#fbf3df"/>
   <text x="60" y="632" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：PERT は3点見積、CPM は1点見積＋コスト分析。不確実性の扱いが本質的な違い。</text>
+  <text x="1160" y="740" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
 </svg>

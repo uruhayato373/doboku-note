@@ -10,7 +10,6 @@ utmCampaign: 99-human-resource-management
 - 人的資源管理は範囲が広すぎて、どこから手を付ければよいか迷っている
 - 動機づけ理論・労働関係法・人事制度を切り分けて整理できていない
 - 択一で「定義の言い換え」「条文の数字」「組織形態の特徴」に引っかかる
-- 記述式で「人的資源 × 他の管理」のトレードオフを論理展開できない
 - 試験直前に人的資源管理の全体像を素早く頭に入れ直したい
 
 **この記事でわかること**
@@ -18,9 +17,8 @@ utmCampaign: 99-human-resource-management
 - テキスト第2章の **4大エリア + 59項目** を試験優先度順に再整理
 - 動機づけ理論3本柱（X-Y／マズロー／二要因）・PM理論／SL理論・労働三権・社員格付3制度・6評価バイアス・10教育訓練手法など、択一頻出論点を散文で解説
 - 各キーワードの doboku-note 解説ページへの直リンク（クリックで定義・過去問・周辺概念が一気に確認できる）
-- R3〜R7 の人的資源管理 過去問から **22件** を本文の論点直後に出題例として埋め込み
+- R3〜R7 の人的資源管理 過去問から **25件** を本文の論点直後に出題例として埋め込み
 - 主要労働法令の e-gov 条文への直リンク（労基法／労組法／均等法 etc. 14法令）
-- 記述式で使う「人的資源 × 経済性／安全／情報／社会環境」の **4ペア × 3段階展開** （対立の構造 → 解決フレームワーク → 残余リスクと監視）
 
 ---
 
@@ -55,7 +53,7 @@ utmCampaign: 99-human-resource-management
 
 社会心理学者ソロモン・アッシュが1950年頃に行った **[アッシュの同調実験](https://doboku-note.com/docs/pe-comprehensive-management-asch-conformity-experiment?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** では、問いの正解が明らかでも、自分以外の人が不正解を選択するとそれに同調して誤答を選ぶ傾向が示されました。集団の中での判断バイアスとして頻出します。
 
-**心理的安全性** とは1999年に提唱された概念で、「組織の中で自分の気持ちを誰に対しても安心して発言できる状態」を指します。心理的安全性が高い職場では、メンバーがアイデア・提案を率直に発言でき、業績基準と組み合わせた4象限（無関心／快適／不安／学習）で組織の状態を分類できます。
+**[心理的安全性](https://doboku-note.com/docs/pe-comprehensive-management-psychological-safety?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** とは1999年に提唱された概念で、「組織の中で自分の気持ちを誰に対しても安心して発言できる状態」を指します。[心理的安全性](https://doboku-note.com/docs/pe-comprehensive-management-psychological-safety?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)が高い職場では、メンバーがアイデア・提案を率直に発言でき、業績基準と組み合わせた4象限（無関心／快適／不安／学習）で組織の状態を分類できます。
 
 > **【出題例: [R3年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織文化に関する記述として最も適切なものを選ぶ問題。
 > → **正答3：シャインの「基本的仮定」のレベルに相当し、メンバーが当然とみなす前提も組織文化に含まれる。**
@@ -212,7 +210,7 @@ utmCampaign: 99-human-resource-management
 - **調停** — 労働委員会への双方申請等で開始。解決策の受諾は **任意**
 - **仲裁** — 双方申請等で開始。仲裁裁定は **労働協約と同一の効力**
 
-これら以外に、**労働審判制度** （労働審判法、裁判所が原則3回以内の期日で審理）、**個別労働紛争解決制度** （個別労働紛争解決促進法、都道府県労働局のあっせん）があります。
+これら以外に、**[労働審判制度](https://doboku-note.com/docs/pe-comprehensive-management-labor-tribunal-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （労働審判法、裁判所が原則3回以内の期日で審理）、**[個別労働紛争解決制度](https://doboku-note.com/docs/pe-comprehensive-management-individual-labor-dispute-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （個別労働紛争解決促進法、都道府県労働局のあっせん）があります。
 
 > **【出題例: [R3年度 Ⅰ-1-9](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-9)】** 労使関係に関する記述として最も適切なものを選ぶ問題。
 > → **正答2：団体交渉事項には労働条件に加え、団交手続や組合活動に関する事項も含まれる。**
@@ -223,7 +221,7 @@ utmCampaign: 99-human-resource-management
 
 **間接差別3要件** — ①身長・体重・体力／②転勤応諾／③転勤経験を要件とすることは、合理的理由がない限り間接差別。
 
-**セクシャルハラスメント** — 対価型・環境型の2類型。**同性に対するものも含む**。事業主が講ずべき措置として、方針の明確化と周知・啓発、相談体制整備、事後の迅速・適切対応の3点が義務化されています。
+**[セクシャルハラスメント](https://doboku-note.com/docs/pe-comprehensive-management-sexual-harassment?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 対価型・環境型の2類型。**同性に対するものも含む**。事業主が講ずべき措置として、方針の明確化と周知・啓発、相談体制整備、事後の迅速・適切対応の3点が義務化されています。
 
 > **【出題例: [R3年度 Ⅰ-1-12](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-12)】** セクシュアルハラスメントについて政府が策定した指針に関する記述として最も不適切なものを選ぶ問題。
 > → **正答2：事業主が講ずべき措置として、方針の明確化・周知啓発、相談体制整備、事後対応等が定められているが、ある選択肢は措置内容の解釈を誤っており不適切。**
@@ -244,7 +242,7 @@ utmCampaign: 99-human-resource-management
 
 ### 障害者雇用促進法・労働者派遣法
 
-**[障害者雇用促進法](https://doboku-note.com/docs/pe-comprehensive-management-disability-employment-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**障雇法**](https://laws.e-gov.go.jp/law/334AC0000000123)）— 障害者雇用率は **2.6%** （民間企業）。短時間勤務職員も算定対象に含まれます。
+**[障害者雇用促進法](https://doboku-note.com/docs/pe-comprehensive-management-disability-employment-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**障雇法**](https://laws.e-gov.go.jp/law/334AC0000000123)）— 障害者雇用率は **2.5%** （民間企業、2024年4月〜。2026年7月から2.7%に引上げ予定）。短時間勤務職員も算定対象に含まれます。
 
 **[労働者派遣法](https://doboku-note.com/docs/pe-comprehensive-management-worker-dispatch-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**派遣法**](https://laws.e-gov.go.jp/law/360AC0000000088)）— 派遣元・派遣先・派遣労働者の三者関係。**雇用主は派遣元** （賃金支払・社会保険加入の責任）、**労働時間管理の義務は派遣先**。**派遣可能期間は3年**、延長時は過半数労組等の意見聴取が必要。
 
@@ -264,7 +262,7 @@ utmCampaign: 99-human-resource-management
 
 ### 賃金管理
 
-賃金管理は **総額賃金管理** と **個別賃金管理** に分かれます。総額賃金管理で用いる4指標は計算問題でも頻出です。
+賃金管理は **[総額賃金管理](https://doboku-note.com/docs/pe-comprehensive-management-total-wage-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** と **[個別賃金管理](https://doboku-note.com/docs/pe-comprehensive-management-individual-wage-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** に分かれます。[総額賃金管理](https://doboku-note.com/docs/pe-comprehensive-management-total-wage-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)で用いる4指標は計算問題でも頻出です。
 
 - **[労務費率](https://doboku-note.com/docs/pe-comprehensive-management-labor-cost-ratio?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** ＝ 労務費 ÷ 売上高（建設業の労災保険料計算で使用）
 - **[労働分配率](https://doboku-note.com/docs/pe-comprehensive-management-labor-share-ratio?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** ＝ 人件費 ÷ 付加価値額（**景気の遅行指標**：拡大期に低下、後退期に上昇）
@@ -306,11 +304,11 @@ utmCampaign: 99-human-resource-management
 
 - **職務記述書（Job Description）** — 義務・責任・難易度・必要知識・技能・経験・専門能力
 - **職務明細書（Job Specification）** — 知識・技能・経験・適性・心身特性など人的特性
-- **インターンシップ** — 在学中の就業体験。学生と企業のミスマッチ解消手段
+- **[インターンシップ](https://doboku-note.com/docs/pe-comprehensive-management-internship?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 在学中の就業体験。学生と企業のミスマッチ解消手段
 - **自己申告制度** — 社員本人から会社に希望を申告
 - **社内公募制度** — 新規事業や空きポスト発生時の社内人材公募
 - **紹介予定派遣** — 派遣先への直接雇用前提の派遣（労働者派遣法）
-- **ジョブローテーション** — 長期雇用前提の人材育成型定期人事異動
+- **[ジョブローテーション](https://doboku-note.com/docs/pe-comprehensive-management-job-rotation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 長期雇用前提の人材育成型定期人事異動
 
 **[職務設計](https://doboku-note.com/docs/pe-comprehensive-management-job-design?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 職務の義務・権限・責任を定める活動。**5つの中核的職務特性** で表現されます。
 
@@ -330,7 +328,7 @@ utmCampaign: 99-human-resource-management
 
 組織運営では **総合職** と **一般職** を分ける **[複線型人事制度](https://doboku-note.com/docs/pe-comprehensive-management-multi-track-hr-system?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**、ある時期まで同基準で昇進し以降は管理職／専門職／専任職を分ける **[専門職制度](https://doboku-note.com/docs/pe-comprehensive-management-specialist-system?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** が活用されます。**勤務地限定社員制度** （一定地域内の配属・異動）も増加傾向にあります。
 
-**タレントマネジメント** — 人材を適材適所に配置し将来のリーダーを育てる仕組み。社員のスキル把握・最大化のための配置・教育が要素です。
+**[タレントマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-talent-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 人材を適材適所に配置し将来のリーダーを育てる仕組み。社員のスキル把握・最大化のための配置・教育が要素です。
 
 > **【出題例: [R4年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** ジョブ型雇用とメンバーシップ型雇用に関する記述として最も不適切なものを選ぶ問題。
 > → **正答3：ジョブ型は外部労働市場で競争するため市場価格に見合った報酬設定が必要だが、ある選択肢は職務分析や賃金体系の解釈を誤っており不適切。**
@@ -360,7 +358,7 @@ utmCampaign: 99-human-resource-management
 
 組織メンバーに求められる **4能力** — Ⓐ 対人能力（コミュニケーション・ロールプレイング）／Ⓑ 職務遂行能力（知識教育・技能教育）／Ⓒ 課題設定能力（課題研究法）／Ⓓ 問題解決能力（ケーススタディ）。
 
-近年は **コンピテンシー** （職務や役割で優秀な成果を発揮する行動特性）が人材育成・評価基準で重視されています。
+近年は **[コンピテンシー](https://doboku-note.com/docs/pe-comprehensive-management-competency-hr?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （職務や役割で優秀な成果を発揮する行動特性）が人材育成・評価基準で重視されています。
 
 ### 人事考課管理
 
@@ -411,7 +409,7 @@ utmCampaign: 99-human-resource-management
 - **ケースメソッド** — 経営課題事例の討論で問題解決・意思決定能力育成
 - **ビジネスゲーム** — ゲームを通じたビジネススキル成長
 - **インバスケット** — 限られた時間内での未処理案件処理能力測定
-- **メンター制度** — 異職場の先輩社員による精神的サポート・指導育成（**斜めからの支援**、就業時間内、口外禁止ルール）
+- **[メンター制度](https://doboku-note.com/docs/pe-comprehensive-management-mentor?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 異職場の先輩社員による精神的サポート・指導育成（**斜めからの支援**、就業時間内、口外禁止ルール）
 - **[eラーニング](https://doboku-note.com/docs/pe-comprehensive-management-e-learning?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — オンライン学習による反復的知識取得
 
 研修形態は **[階層別研修](https://doboku-note.com/docs/pe-comprehensive-management-hierarchical-training?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （新人・管理職・経営層別）／**[専門別研修](https://doboku-note.com/docs/pe-comprehensive-management-specialized-training?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （技術・営業・経理別）／**[課題別研修](https://doboku-note.com/docs/pe-comprehensive-management-task-based-training?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （品質・安全・ハラスメント別）に分類されます。
@@ -434,46 +432,6 @@ utmCampaign: 99-human-resource-management
 
 ---
 
-## 記述式で使う「人的資源 × 他の管理」トレードオフ
-
-人的資源管理は他の4管理とそれぞれトレードオフを持ちます。記述式論文ではこれらを **「対立の構造 → 解決フレームワーク → 残余リスクと監視」の3段階** で展開すると説得力が増します。
-
-### 人的資源 × 経済性：教育投資 vs 短期収益
-
-**対立の構造** — 人材教育は中長期で生産性・定着率を向上させる一方、教育費・OJT指導者の機会損失・OFF-JTの直接費用は短期の利益を圧迫します。経営層は四半期決算の都合で教育予算を削減しがちで、現場の能力開発と財務指標が衝突します。
-
-**解決フレームワーク** — **教育ROIの可視化** （受講者の業績向上・離職率低下を金額換算）と **段階的投資** （優先職種・階層から段階導入）を組み合わせます。**[人材開発支援助成金](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/jinzaikaihatsu/dl/training_subsidy.html)** などの公的支援も活用し、企業負担を軽減できます。
-
-**残余リスクと監視** — 教育投資の効果は遅効性で、効果測定が確立する前に景気後退で打ち切られるリスクが残ります。年次の「教育投資 ÷ 売上高」「離職率」「平均勤続年数」「資格取得者数」を継続モニタリングし、経営層に定期報告する仕組みが必要です。
-
-### 人的資源 × 安全：工期・人員削減 vs 労働安全確保
-
-**対立の構造** — 工期短縮・人員削減・残業による生産性向上は短期コストを下げますが、長時間労働・疲労蓄積・経験不足者の単独作業は労働災害リスクを高めます。建設業の労災死傷者数は **2,000件超／年** で推移し、人件費圧縮と安全確保が直接衝突する構造です。
-
-**解決フレームワーク** — **ALARP原則** （As Low As Reasonably Practicable）で残留リスクの妥当性を費用便益分析により判定。**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （[**労安法第66条の10**](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_66_10)、50人以上で義務）と **三六協定** の上限規制（月45時間・年360時間）を組み合わせ、過重労働を防止します。**KY（危険予知）活動** ・**4S** （整理・整頓・清掃・清潔）・**ヒヤリハット報告** で現場の安全文化を醸成します。
-
-**残余リスクと監視** — 報告される労災データは氷山の一角で、未報告の軽微事故・体調不良が水面下に残ります。**「報告する文化」** （収集部門と処分部門の分離）を設計し、心理的安全性を確保した上で、災害強度率・度数率・年休取得率・残業時間分布を四半期ごとに監視します。
-
-### 人的資源 × 情報：ベテラン活用 vs 情報漏洩リスク
-
-**対立の構造** — 熟練社員の暗黙知は組織の競争力源泉ですが、退職時の知識流出・在職中の機密情報漏洩・SNS不適切投稿などの情報セキュリティリスクと表裏一体です。テレワーク普及で社外端末・私物デバイス（BYOD）からのアクセスが増え、リスク面はさらに広がりました。
-
-**解決フレームワーク** — **アクセス権限の段階化** （Need to Know原則・最小権限の原則）と **セキュリティ教育の階層別実施** で対応します。**シンクライアント型端末** （データを端末に持ち出さない）でテレワーク時のリスクを低減。**ナレッジマネジメント** で暗黙知を形式知化し、退職時の知識流出を抑制します。**秘密保持契約（NDA）** の締結と退職時の情報資産返却プロトコルを必須化します。
-
-**残余リスクと監視** — 内部不正は外部攻撃より検知が困難です。**ログ監視** （特権ID使用・大量データダウンロード・営業時間外アクセス）と **ジョブローテーション** （長期固定担当の不正温床化を防ぐ）を組み合わせ、定期的なアクセス権棚卸を実施します。退職予定者の権限縮小・面談での違反兆候把握も重要です。
-
-### 人的資源 × 社会環境：経済的雇用最適化 vs CSR・多様性確保
-
-**対立の構造** — コスト最小化の観点では非正規雇用・派遣・短期契約が合理的ですが、企業の社会的責任（CSR）・ESG投資の観点では正規雇用率・女性管理職比率・障害者雇用率・外国人雇用適正性が問われます。短期収益と長期ステークホルダー関係が衝突します。
-
-**解決フレームワーク** — **ESG視点での採用・配置** と **同一労働同一賃金** （パートタイム・有期雇用労働法）で雇用形態間の不合理待遇差を是正。**えるぼし認定** （女性活躍推進法）・**くるみん認定** （次世代育成支援対策推進法）・**障害者雇用率2.6%** をクリアし、対外的な企業価値向上と内部公平性を両立させます。**グリーン雇用** （環境配慮型業務）は社会環境管理との接続点です。
-
-**残余リスクと監視** — 認定取得後の形骸化リスクが残ります。**統合報告書** ・**サステナビリティレポート** で雇用形態別の労働条件・離職率・教育投資を開示し、外部評価（GPIFのESG評価機関等）で第三者検証を受ける仕組みを構築します。**[TCFD](https://doboku-note.com/docs/pe-comprehensive-management-tcfd?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の人的資本開示要請にも対応する開示体制が望まれます。
-
-このトレードオフ構造の詳細は **[5管理間トレードオフ解説（無料）](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** で確認できます。答案における具体的な使い方は note 有料記事「[トレードオフ思考 理論編](https://note.com/dobokunote)」で詳しく解説しています。
-
----
-
 ## 関連リソース
 
 **doboku-note — 17 年分の過去問 + 650 キーワード解説（無料）**
@@ -481,7 +439,7 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - **[人的資源管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 関連キーワードの全体マップ
 - **択一式過去問** — [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R04](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R03](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)
-- **[記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 人的資源 × 情報管理トレードオフの典型
+- **[記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**
 
 **マガジン購入で割引（総監テキスト精読ガイド 5 管理セット）**
 

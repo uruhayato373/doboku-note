@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">ビッグデータ分析プロセス</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">データ収集 → クレンジング → 格納 → マイニング → 活用</text>
+  
+    <rect x="62" y="180" width="180" height="160" rx="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2.5"/><text x="152" y="242" text-anchor="middle" font-size="22" font-weight="700" fill="#2e6da4">データ収集</text><text x="152" y="290" text-anchor="middle" font-size="18" fill="#555555">IoT・DB・センサ等</text>
+    <text x="152" y="316" text-anchor="middle" font-size="18" fill="#8a8a8a">Step 1</text>
+    <line x1="242" y1="260" x2="272" y2="260" stroke="#8a8a8a" stroke-width="3"/>
+    <polygon points="284,260 272,252 272,268" fill="#8a8a8a"/>
+    <rect x="286" y="180" width="180" height="160" rx="14" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2.5"/><text x="376" y="232" text-anchor="middle" font-size="22" font-weight="700" fill="#3a7d44">データ</text>
+    <text x="376" y="258" text-anchor="middle" font-size="22" font-weight="700" fill="#3a7d44">クレンジング</text><text x="376" y="290" text-anchor="middle" font-size="18" fill="#555555">重複削除・正規化・修正</text>
+    <text x="376" y="316" text-anchor="middle" font-size="18" fill="#8a8a8a">Step 2</text>
+    <line x1="466" y1="260" x2="496" y2="260" stroke="#8a8a8a" stroke-width="3"/>
+    <polygon points="508,260 496,252 496,268" fill="#8a8a8a"/>
+    <rect x="510" y="180" width="180" height="160" rx="14" fill="#fbf3df" stroke="#d4a017" stroke-width="2.5"/><text x="600" y="232" text-anchor="middle" font-size="22" font-weight="700" fill="#d4a017">データ</text>
+    <text x="600" y="258" text-anchor="middle" font-size="22" font-weight="700" fill="#d4a017">ウェアハウス格納</text><text x="600" y="290" text-anchor="middle" font-size="18" fill="#555555">時系列・内容別に蓄積</text>
+    <text x="600" y="316" text-anchor="middle" font-size="18" fill="#8a8a8a">Step 3</text>
+    <line x1="690" y1="260" x2="720" y2="260" stroke="#8a8a8a" stroke-width="3"/>
+    <polygon points="732,260 720,252 720,268" fill="#8a8a8a"/>
+    <rect x="734" y="180" width="180" height="160" rx="14" fill="#fbe5e7" stroke="#b22234" stroke-width="2.5"/><text x="824" y="232" text-anchor="middle" font-size="22" font-weight="700" fill="#b22234">データ</text>
+    <text x="824" y="258" text-anchor="middle" font-size="22" font-weight="700" fill="#b22234">マイニング</text><text x="824" y="290" text-anchor="middle" font-size="18" fill="#555555">規則性・パターン発見</text>
+    <text x="824" y="316" text-anchor="middle" font-size="18" fill="#8a8a8a">Step 4</text>
+    <line x1="914" y1="260" x2="944" y2="260" stroke="#8a8a8a" stroke-width="3"/>
+    <polygon points="956,260 944,252 944,268" fill="#8a8a8a"/>
+    <rect x="958" y="180" width="180" height="160" rx="14" fill="#dde8f5" stroke="#1a3a5c" stroke-width="2.5"/><text x="1048" y="242" text-anchor="middle" font-size="22" font-weight="700" fill="#1a3a5c">知識の活用</text><text x="1048" y="290" text-anchor="middle" font-size="18" fill="#555555">BI・意思決定・予測</text>
+    <text x="1048" y="316" text-anchor="middle" font-size="18" fill="#8a8a8a">Step 5</text>
+  <text x="40" y="390" font-size="18" fill="#555555">機械学習は「仮説なし」でデータからパターンを自動発見。統計分析は「仮説あり」の確認的アプローチ。</text>
+  
+</svg>

@@ -1,7 +1,7 @@
 /**
  * SNS 画像 SVG 共通プリミティブ。
  *
- * 既存 docs/sns-drafts/001 の手書き SVG パターンを踏襲。
+ * 既存 docs/x-posts/001 の手書き SVG パターンを踏襲。
  * Hiragino Sans + Noto Sans JP のフォント指定で IG/X 表示時に確実にフォールバックする。
  */
 

@@ -45,6 +45,7 @@
   <rect x="820" y="460" width="320" height="80" rx="6" fill="#fbf3df"/>
   <text x="836" y="492" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">財務活動 CF</text>
   <text x="836" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">借入・配当・増資</text>
-  <rect x="40" y="690" width="1120" height="44" rx="6" fill="#e8f0fe"/>
-  <text x="60" y="720" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">頻出区別：B/S はストック（時点）、P/L・C/F はフロー（期間）。利益とキャッシュは一致しない。</text>
+  <rect x="40" y="636" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">頻出区別：B/S はストック（時点）、P/L・C/F はフロー（期間）。利益とキャッシュは一致しない。</text>
+  <text x="1160" y="740" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
 </svg>
