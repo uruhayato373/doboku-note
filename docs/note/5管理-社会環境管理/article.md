@@ -98,6 +98,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 2050年カーボンニュートラル達成に向け、CO₂回収技術が要となります。
 
+![CCS / BECCS / DACCS の比較（回収対象とカーボンネガティブ達成可否）](img/figure-1-carbon-removal.png)
+
 - **CCS** （Carbon dioxide Capture and Storage）— 発電所や化学工場から排出された CO₂ を分離・回収し地中深くに貯留する技術。CO₂ 分離回収法には4種類あります。
   - 吸収法（物理吸収液・化学吸収液）
   - 吸着分離法（物理吸着・化学吸着／吸収・化学吸収炭酸塩系）
@@ -119,6 +121,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 **国際的な条約**
 
 環境問題は1国の問題ではなく国際的な課題のため、多くの条約が定められています。**ラムサール／バーゼル／ワシントン／ストックホルム** の4条約は対象物の組合せが択一の定番です。
+
+![国際条約4種 — 対象物の対応マトリクス](img/figure-2-conventions.png)
 
 **[ラムサール条約](https://doboku-note.com/docs/pe-comprehensive-management-ramsar-convention?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 1971年にイランのラムサールで締結。正式名称は「特に水鳥の生息地として国際的に重要な湿地に関する条約」。**水鳥や湿地特有の動植物の生息地としての湿地生態系の保全** が目的で、3つの柱は「保全・再生」「賢明な利用」「交流・学習」です。
 
@@ -287,6 +291,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[警戒レベル 5段階](https://doboku-note.com/docs/pe-comprehensive-management-alert-levels?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** （令和3年5月改定の「避難情報に関するガイドライン」）— 5段階で対応を区分します。
 
+![警戒レベル — 5段階の対応行動](img/figure-3-alert-levels.png)
+
 - **レベル1** — 早期注意情報 （気象庁発表）。災害への心構えを高める。
 - **レベル2** — 大雨・洪水・高潮注意報 （気象庁発表）。自らの避難行動を確認。
 - **レベル3** — **高齢者等避難** （市町村長発令）。**災害発生「前」** の段階で高齢者等は避難開始。
@@ -357,6 +363,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **環境保全の7原則**
 
+![環境保全の7原則（EPR・PPP・予防的措置・順応的取組・源流対策・協働・補完性）](img/figure-4-env-principles.png)
+
 環境保全のため設けられた基本原則は7つあります。テキストでは（5原則ではなく）**7原則** であることに注意。
 
 - **[拡大生産者責任（EPR）](https://doboku-note.com/docs/pe-comprehensive-management-extended-producer-responsibility?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — Extended Producer Responsibilities。OECD が提唱。製品の **製造・流通・消費** だけでなく **廃棄・リサイクル** に要する費用までも生産者の責任に拡大。循環型社会形成基本法の一原則となっており、**[環境配慮設計（DfE）](https://doboku-note.com/docs/pe-comprehensive-management-design-for-environment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** の促進が期待されます。
@@ -372,6 +380,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 > **【出題例: [R4年度 Ⅰ-1-29](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management#1-29)】** 環境保全の原則に関する記述で最も不適切なものはどれか。 → **正答チェック対象：拡大生産者責任の範囲、汚染者負担原則の適用限界、予防的措置の要件、順応的取組の対象範囲。「順応的取組は生物多様性保全に望ましい手法」とする選択肢は誤り。**
 
 **環境経済評価**
+
+![環境経済評価 — 5手法の系統別比較（顕示選好型3+表明選好型2）](img/figure-5-economic-evaluation.png)
 
 環境利用の内部化や経済的価値評価のため、新たな評価手法が必要となりました。手法は **顕示選好型** と **表明選好型** の2系統に分かれ、合計5手法があります。
 
@@ -394,6 +404,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 **[環境影響評価（環境アセスメント）](https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
 大規模な開発事業を行うときに、あらかじめその開発が環境に与える影響を予測・評価し、住民・関係自治体の意見を聴いたり専門家の審査を受けることで適正な環境配慮を確保する手続き。**環境影響評価法** に定められています。
+
+![環境アセスメント — 7工程フロー（配慮書→スクリーニング→スコーピング→実施→準備書→評価書→事後調査）](img/figure-6-env-assessment-flow.png)
 
 **13対象事業** — 道路（高速自動車国道、首都高速道路、一般国道、林道）／河川（ダム、堰、放水路、湖沼開発）／鉄道（新幹線、鉄道、軌道）／飛行場／発電所（水力・火力・地熱・原子力・風力）／廃棄物最終処分場／埋立て・干拓／土地区画整理事業／新住宅市街地開発事業／工業団地造成事業／新都市基盤整備事業／流通業務団地造成事業／宅地造成事業。
 
@@ -421,6 +433,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 **[ライフサイクルアセスメント（LCA）](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
 ある製品またはサービスのライフサイクル（**原材料調達→製造→流通→使用→廃棄・リサイクル**）における環境負荷を定量的に評価する手法。最も多い対象は CO₂ で、ISO 14040 規格に基づく4プロセスで実施されます。
+
+![LCA — 4プロセス + 影響評価3ステップ（ISO 14040 準拠）](img/figure-7-lca-process.png)
 
 1. **目的及び調査範囲の設定**
 2. **インベントリ分析** — 各段階の資源・エネルギーのインプットと排出物のアウトプットを集計
@@ -466,6 +480,8 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 **ネガティブ・スクリーニング** — ESG の観点から望ましくないと考えられる投資先を投資対象から除外する選考方法。
 
 **[TCFD](https://doboku-note.com/docs/pe-comprehensive-management-tcfd?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** （Task Force on Climate-related Financial Disclosures、気候関連財務情報開示タスクフォース）— 財務諸表だけでは見えない企業の気候関連情報を開示する枠組み。**4つの要求項目** が示されています。
+
+![TCFD — 4要求項目と気候関連リスクの2分類（移行/物理的）](img/figure-8-tcfd.png)
 
 1. **ガバナンス** — 経営陣の関与、監督体制、経営者の役割の開示
 2. **戦略** — 気候関連リスクと機会の経営戦略への反映、**シナリオ分析** の実施が推奨
