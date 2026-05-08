@@ -42,6 +42,8 @@ utmCampaign: 99-economic-management
 
 α（平滑化係数、0≦α≦1）を1に近づけると前期実績値重視、0に近づけると過去データ重視。択一では「α=0.3 のときの予測値計算」が定番です。
 
+> **【出題例: [R4年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 移動平均法・単純指数平滑法による各期の需要量予測値の計算問題（第1〜4期の実績値から第5期予測値を求める） → **正答5：FS₃＝354 が与えられているため、指数平滑法の特性上 FS₂ は実績値340 より大きい値となる。**
+
 **事業投資計画**
 
 投資の時期と回収の時期には時間的ずれがあるため、貨幣の現在価値に換算する必要があります。
@@ -60,6 +62,10 @@ utmCampaign: 99-economic-management
 **ROI（投資利益率法）** — 利益額 ÷ 投資額 × 100[%]。複数年の場合は平均利益額を使用。「**時間価値を考慮しない**」弱点。投資利益率 > 平均借入率なら採算性あり。
 
 3手法の頻出比較：「**NPV ＝ 時間価値考慮・最も理論的／回収期間法 ＝ シンプルだが回収後 CF 無視／ROI ＝ 時間価値無視**」。
+
+> **【出題例: [R3年度 Ⅰ-1-1](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-1)】** 政策評価・投資評価で最も適切なものはどれか。5「回収期間法による投資案の評価では、投資回収後のキャッシュ・フローは考慮されない」 → **正答5：回収期間法の最大の弱点は「回収後 CF を無視」する点。記述式論文でも頻出のキーフレーズ。**
+
+> **【出題例: [R6年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** 初期投資 2,000 万円・5 年間で毎年 500 万円収益のプロジェクトに、3 年目年初に追加投資 400 万円を行う場合の年間追加収益最低額を求める計算問題 → **正答3：NPV ベースで 400/1.05² ＝ x ×（1/1.05³ + 1/1.05⁴ + 1/1.05⁵）を解くと x ≒ 147 万円。**
 
 **事業評価**
 
@@ -85,6 +91,8 @@ utmCampaign: 99-economic-management
 - **デザインレビュー** — 製品ライフサイクル全体の設計アウトプットと導出プロセスを品質特性の観点で組織的に審査
 - **デザインイン** — メーカーが部品メーカー等と開発段階から共同で開発
 - **フロントローディング** — 後工程で発生しそうな問題を初期工程で前倒し集中対応
+
+> **【出題例: [R5年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 設計管理用語（信頼性設計／保全性設計／コンカレントエンジニアリング／デザインレビュー／デザインイン）と説明文の組合せ問題 → **正答2：A＝信頼性設計、B＝保全性設計、D＝デザインレビューの対応が正しい。用語の定義照合は毎年出題されるため精読必須。**
 
 **マーケティングにおける指標**
 
@@ -115,6 +123,8 @@ utmCampaign: 99-economic-management
 3. **個別検討** — 選定事業ごとにリスク内容を評価して検討
 4. **不可抗力リスク** — 天災等は協定で事前に分担を取り決め
 5. **物価・金利・為替・税制変動リスク** — 影響度を勘案して事前協議
+
+> **【出題例: [R3年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** PFI 法に関する記述で最も適切なもの。4「コンセッション方式とは、施設の所有権を公共主体が有したまま、施設の運営権が民間事業者に設定される」 → **正答4：コンセッション ＝ 所有権公共・運営権民間。BTO（建設後すぐ移転）／BOT（事業終了後移転）との3者識別が頻出。**
 
 **プロジェクトマネジメント**
 
@@ -165,7 +175,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 択一の頻出は「**パレート図 ＝ 80/20 法則の可視化**」と「**特性要因図 ＝ 魚の骨**」の用途識別です。
 
-**新QC7つ道具（言語データ）**
+> **【出題例: [R5年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 品質管理で用いられる図やグラフ（パレート図／特性要因図／チェックシート／散布図／ヒストグラム）と用途例の組合せ問題 → **正答1：用途別マッチングは毎年形を変えて出題されるため、各図の主用途を明確に区別して暗記する必要がある。**
 
 新QC7つ道具は主に**言語データ**を扱うことに適した7手法です。
 
@@ -204,6 +214,10 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 **[抜取検査](https://doboku-note.com/docs/pe-comprehensive-management-sampling-inspection?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 量産品でランダムにサンプルを抽出してロット単位で合否判定。「**ロットからのランダム抽出**」が前提条件。
 
 検査方式の性能を表す **OC 曲線（Operating Characteristic curve）** の読み方も出題されます。
+
+> **【出題例: [R3年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 品質管理の統計的手法で最も不適切なもの。1「管理図の管理限界は、製品の規格が定められている場合、規格値に設定すべきである」 → **正答1：管理限界は工程データの平均値±3σ から統計的に設定するもの。製品規格値とは別概念で、両者の混同を狙った頻出引っかけ。**
+
+> **【出題例: [R6年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 検査・合否判定抜取検査に関する記述で最も適切なもの → **正答4：計量値（連続量）／サンプルサイズ（抜取検査の計画要素）／生産者危険（合格品を誤って不合格とする確率）の3者の定義組合せが正確。**
 
 **品質保証**
 
@@ -250,6 +264,8 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 - **変動性** — 季節・曜日・時間帯による需要変動でサービス品質が変わる
 - **消滅性** — サービス終了とともに消滅、在庫として持てない
 
+> **【出題例: [R4年度 Ⅰ-1-5](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-5)】** サービス特性で最も不適切なもの。3「サービスは安定した品質で繰り返し提供できる」 → **正答3：サービスは「変動性」があり、提供者・時間帯・状況により品質が変わるため、同一品質での反復提供は困難。**
+
 ---
 
 ## 工程管理（優先度: 高）
@@ -288,6 +304,8 @@ JIT を実現する基盤が **平準化生産**（最終組立工程の生産�
 **ブルウィップ効果** — 川下から川上に段階がさかのぼるにつれ、需要予測量の変動が増幅していく現象。SCM の典型的失敗パターンとして択一に出ます。
 
 SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠点の分散化／部品の標準化／サプライチェーンの可視化。
+
+> **【出題例: [R3年度 Ⅰ-1-5](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-5)】** SCM と生産方式に関する記述で最も適切なもの → **正答2：受注後に在庫から出荷するか・組立て出荷するか・設計から行うか（MTS／ATO／MTO／ETO のデカップリングポイント）で SCM の形態が変わる。**
 
 **MRP・ERP・CALS**
 
@@ -348,6 +366,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 「**クリティカルパス ＝ フロートゼロの最長経路**」が択一の核心。ネットワーク図からクリティカルパスを特定する計算問題も毎年出ます。
 
+> **【出題例: [R7年度 Ⅰ-1-8](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-8)】** あるプロジェクトのクリティカルパス上にある作業をすべて列挙する問題 → **正答5：A→B→E→F と A→C→F の両クリティカルパス（各23 日）を見抜く。クリティカルパスが**複数存在**する場合の見落としが頻出引っかけ。**
+
 **生産統制**
 
 **生産統制** — 日程計画通りに製造工程が運営されているか監視し、遅延があれば対策を講じる進度管理全般。3つの管理活動で構成されます。
@@ -358,6 +378,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 3者の使い分けは「**現品 ＝ モノ／余力 ＝ 工数／進捗 ＝ 時間**」と整理すると択一で迷いません。
 
+> **【出題例: [R5年度 Ⅰ-1-8](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-8)】** 現品管理の活動として最も不適切なもの。5「バスタブ曲線を用いた需要予測」 → **正答5：バスタブ曲線は故障率の時間推移を示す指標で、現品管理（資材・仕掛品の運搬・移動・保管）とは無関係。「現品管理の対象 ＝ 物の流れ」と覚える。**
+
 **改善活動**
 
 業務を見直して改善する活動として、3つのキーワードが択一に出ます。
@@ -365,6 +387,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 - **5S** — 整理・整頓・清掃・清潔・しつけ
 - **ECRS の原則** — Eliminate（排除）／Combine（結合）／Rearrange（順序入れ替え）／Simplify（簡素化）の4原則。改善の優先順位もこの順番
 - **3M** — ムリ・ムラ・ムダ。トヨタ生産方式の根本概念
+
+> **【出題例: [R5年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** ECRS の原則を用いた改善活動の説明で最も不適切なもの。3「品質許容範囲を狭める」を Simplify（簡素化）とする記述 → **正答3：許容範囲を狭めることは「厳格化」であり「簡素化」とは逆。ECRS は **排除→結合→順序入れ替え→簡素化** の優先順位で進める。**
 
 **開発プロセス5種**
 
@@ -377,6 +401,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 - **イテレーティブ型** — 計画→設計→実装→テストを単純に反復する手法
 
 「ウォーターフォール ＝ 順序固定／アジャイル ＝ 短いイテレーション／V字 ＝ 折り返し対応」の3者比較が頻出です。
+
+> **【出題例: [R4年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** 開発プロセスの種類に関する記述で最も適切なもの → **正答4：アジャイル型の特徴（短期間の反復、優先度順の実装、フィードバック重視）の記述が正確。各手法の本質的な違いを覚える。**
 
 ---
 
@@ -423,6 +449,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 例：部品数・段取り回数・検査回数・仕様書枚数・開発者数。
 
+> **【出題例: [R6年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 製造間接費 900 万円を 3 プロジェクトに配賦するとき、個別原価計算と ABC で原価が異なる場合の計算 → **正答5：直接労務費（作業時間）比率 3:1:1 で X 配賦額 ＝ 900 ×（3/5）＝ 540 万円。X の総原価 ＝ 1,300 ＋ 540 ＝ 1,840 万円。配賦基準により原価が変わる ABC の本質。**
+
 **管理会計と損益分岐点**
 
 企業会計は**財務会計**（外部報告）と**管理会計**（内部経営判断）に大別されます。
@@ -436,6 +464,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 - **固定費** — 売上高に関係なく一定期間で発生（家賃・人件費・リース料・水道光熱費）
 
 固定費が増えるか変動費率が上がると、損益分岐点はグラフの**右側**に移動します（達成しにくくなる）。
+
+> **【出題例: [R7年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 販売価格 1,000 円・変動費 400 円・固定費 384,000 円・予定 800 個での損益分岐点分析 → **正答4：限界利益率 ＝ 600/1,000 ＝ 0.6、損益分岐点売上高 ＝ 384,000/0.6 ＝ 640,000 円。変動費率（40%）と限界利益率（60%）の混同が頻出引っかけ。**
 
 **マテリアルフローコスト会計（MFCA）**
 
@@ -483,6 +513,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 「**営業利益 ＝ 本業の儲け／経常利益 ＝ 本業 ＋ 財務活動／純利益 ＝ 最終利益**」の階層関係が択一頻出。
 
+> **【出題例: [R7年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** 財務会計に関する記述で最も適切なもの。3「減価償却の定義（取得金額を各年の必要経費として配分する手続）」 → **正答3：減価償却の本質は「取得原価を耐用年数にわたり費用配分する手続」。費用でありながら支出を伴わない**非現金支出費用**として C/F でも重要。**
+
 **キャッシュ・フロー計算書（C/F）**
 
 **[キャッシュ・フロー計算書（C/F）](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 営業活動・投資活動・財務活動の3区分で現金の出入りを記載。
@@ -501,6 +533,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 - 借入金の **増加** はキャッシュ **増加**（＋）
 
 「**利益が出ていてもキャッシュが回らず倒産する黒字倒産**」は財務管理の核心論点として記述式でも引用できます。
+
+> **【出題例: [R6年度 Ⅰ-1-1](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-1)】** キャッシュ・フロー計算書の3区分（営業／投資／財務）と支出項目の対応問題 → **正答3：営業活動（税金支出・仕入支出）／投資活動（設備取得・株式取得）／財務活動（配当支払・社債償還）の3 分類が正確。「税金 ＝ 営業」「配当 ＝ 財務」が引っかけ。**
 
 ---
 
@@ -525,6 +559,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 > 設備総合効率 ＝ 時間稼働率 × 性能稼働率 × 良品率
 
 向上策は3方向 — 故障時間短縮で**時間稼働率**を上げる／加工数増で**性能稼働率**を上げる／不適合品削減で**良品率**を上げる。
+
+> **【出題例: [R7年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 設備総合効率（OEE）を高めた取組として最も不適切なもの。3「段取作業の作業者数を削減」 → **正答3：作業者数削減は設備の停止時間に影響しないため OEE には反映されない。「設備停止時間 → 時間稼働率」「加工数 → 性能稼働率」「不良率 → 良品率」の対応が核心。**
 
 **設備計画**
 
@@ -556,6 +592,8 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 - **時間計画保全** — 定められた時間計画に従う予防保全
 
 事後保全は2分類 — **緊急保全**（突発故障時に直ちに行う）と**通常事後保全**（代替機がある設備の故障後対応）。
+
+> **【出題例: [R4年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 設備管理における保全活動の内容と名称の組合せ問題 → **正答4：ア＝予知保全（劣化傾向を診断技術で管理）、イ＝保全予防（計画段階から不良対策織り込み）、ウ＝改良保全（性能向上）の組合せが正しい。6 種の定義照合は毎年出題。**
 
 ---
 
@@ -614,6 +652,10 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 > 価値 ＝ 機能 ÷ コスト
 
 機能は**使用機能**（効果・性能）と**魅力機能**（デザイン・色彩）に分類。基本ステップは **機能定義 → 機能評価 → 代替案作成** です。
+
+> **【出題例: [R4年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** VE に関する記述で最も適切なもの → **正答3：使用機能（目的に関わる機能）と魅力機能（感覚的満足に関わる機能）の分類が正確。「価値 ＝ 機能 ÷ コスト」と「機能定義 → 機能評価 → 代替案作成」の3ステップが頻出。**
+
+> **【出題例: [R7年度 Ⅰ-1-6](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-6)】** 計画・管理の科学的・数理的手法に関する記述で最も適切なもの → **正答2：ゲーム理論の定義（複数主体の意思決定）と分類（非協力ゲーム／協力ゲーム）が正確。AHP・モンテカルロ・線形計画と並び、各手法の用途識別が必須。**
 
 ---
 
