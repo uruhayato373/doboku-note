@@ -175,7 +175,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 [情報開示](https://doboku-note.com/docs/pe-comprehensive-management-information-disclosure?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)は組織が利害関係者に対して適時かつ正確な情報を提供する義務です。
 
-**[情報公開法](https://doboku-note.com/docs/pe-comprehensive-management-information-disclosure-act?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（行政機関の保有する情報の公開に関する法律）** — [第3条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_3)に開示請求権が規定され、情報公開制度が設けられています。以下の6種類が[第5条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_5)で不開示情報として規定されています。
+[情報公開法](https://doboku-note.com/docs/pe-comprehensive-management-information-disclosure-act?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（行政機関の保有する情報の公開に関する法律） — [第3条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_3)に開示請求権が規定され、情報公開制度が設けられています。以下の6種類が[第5条](https://laws.e-gov.go.jp/law/411AC0000000042#Mp-At_5)で不開示情報として規定されています。
 
 1. **個人情報** — 特定の個人を識別できる情報
 2. **法人情報** — 法人の正当な利益を害する情報
