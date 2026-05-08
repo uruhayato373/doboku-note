@@ -15,9 +15,6 @@ export const specificComponents = {
   // 時間管理関連
   TimeBlockChart: 'TimeBlockChart',
 
-  // 技術士総監 keyword-2026 ハブ専用
-  KeywordProgress: 'KeywordProgress',
-
   // 将来追加される記事固有コンポーネント
   // ProteinComparisonTable: 'ProteinComparisonTable',
   // WorkoutPlanChart: 'WorkoutPlanChart',
