@@ -20,7 +20,9 @@ utmCampaign: 99-safety-management
 
 ---
 
-安全管理は総監5管理の中で**最もカバー範囲が広い分野**です。[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[リスクマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・危機管理・[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と、6エリアにまたがります。全体を均等に読もうとすると、受験生のほぼ全員が「時間が足りない」と感じます。
+安全管理は総監5管理の中で**最もカバー範囲が広い分野**です。[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[リスクマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・危機管理・[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と、6エリアにまたがります。
+
+全体を均等に読もうとすると、受験生のほぼ全員が「時間が足りない」と感じます。
 
 この記事では**択一・記述式の出題視点で論点を絞り直しています**。「[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の欠陥3分類」「[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の用語定義」「[4M](https://doboku-note.com/docs/pe-comprehensive-management-four-m-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[4E分析](https://doboku-note.com/docs/pe-comprehensive-management-four-e-countermeasures?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)」「[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の分類」など、高頻度論点を優先度順に配置しています。
 
@@ -34,7 +36,9 @@ utmCampaign: 99-safety-management
 
 **1.1 安全文化**
 
-[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)とは、組織全体で安全を最優先する価値観と行動様式です。チェルノブイリ原発事故の原因調査を契機に国際原子力機関が提唱した概念で、米国のJ.リーズンが[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)を組織内に広げるために必要な4つの文化を定式化しました。
+[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)とは、組織全体で安全を最優先する価値観と行動様式です。
+
+チェルノブイリ原発事故の原因調査を契機に国際原子力機関が提唱した概念で、米国のJ.リーズンが[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)を組織内に広げるために必要な4つの文化を定式化しました。
 
 **（a）報告する文化** — 自分の過ちを報告する習慣の育成。実現には**報告を収集する部門と処分を行う部門の分離**が前提となります。  
 **（b）正義の文化** — 行為が故意か過失かを区別する仕組みを持ち、非難・処罰の対象・程度を明確化します。  
@@ -45,7 +49,9 @@ utmCampaign: 99-safety-management
 
 **1.2 製造物責任法（PL法）**
 
-[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の最大の特徴は「過失の証明が不要」という無過失責任です。被害者は①製造物に欠陥が存在したこと、②損害が発生したこと、③欠陥と損害の因果関係、この3点を証明するだけで製造業者等の責任を問えます。
+[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の最大の特徴は「過失の証明が不要」という無過失責任です。
+
+被害者は①製造物に欠陥が存在したこと、②損害が発生したこと、③欠陥と損害の因果関係、この3点を証明するだけで製造業者等の責任を問えます。
 
 **欠陥の3分類（頻出）**
 
@@ -63,11 +69,15 @@ utmCampaign: 99-safety-management
 
 [消費生活用製品安全法](https://doboku-note.com/docs/pe-comprehensive-management-consumer-product-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、一般消費者の生命・身体への危害を防止するため特定製品の製造・販売を規制する法律です。
 
-**特定製品** — 危害を及ぼすおそれが特に多い製品で、PSC（Product Safety of Consumer Products）マークを付けなければなりません。家庭用圧力なべ・乗車用ヘルメット・乳幼児用ベッド・登山用ロープ・携帯用レーザー応用装置・浴槽用温水循環器・石油給湯機・石油ふろがま・石油ストーブ・ライター・磁石製娯楽用品・吸収性合成樹脂製玩具の12品目です。
+**特定製品** — 危害を及ぼすおそれが特に多い製品で、PSC（Product Safety of Consumer Products）マークを付けなければなりません。
+
+家庭用圧力なべ・乗車用ヘルメット・乳幼児用ベッド・登山用ロープ・携帯用レーザー応用装置・浴槽用温水循環器・石油給湯機・石油ふろがま・石油ストーブ・ライター・磁石製娯楽用品・吸収性合成樹脂製玩具の12品目です。
 
 **特定保守製品** — 経年劣化による重大な危害を防ぐための長期使用製品安全点検制度の対象。事故率が下がった製品が令和3年8月に削除され、現在は**石油給湯機・石油ふろがまの2品目**のみです。
 
-択一では「PSCマークの意味」「特定保守製品の品目数」が問われます。また、特定保守製品取引における**説明義務は「特定保守製品取引事業者」に限定**され、不動産の個人間売買に伴って製品を引き渡す**個人売主には説明義務がありません**。「個人売主にも義務がある」という選択肢は引っかけです。
+択一では「PSCマークの意味」「特定保守製品の品目数」が問われます。
+
+また、特定保守製品取引における**説明義務は「特定保守製品取引事業者」に限定**され、不動産の個人間売買に伴って製品を引き渡す**個人売主には説明義務がありません**。「個人売主にも義務がある」という選択肢は引っかけです。
 
 > **【出題例: [R5年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** [消費生活用製品安全法](https://doboku-note.com/docs/pe-comprehensive-management-consumer-product-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で最も不適切なものはどれか。3.「個人売主が不動産の個人間売買に伴い特定保守製品を引き渡す際、個人売主には取得者に対する説明義務がある」→ **正答3：説明義務は「特定保守製品取引事業者」に限定。個人売主は対象外。**
 
@@ -77,7 +87,9 @@ utmCampaign: 99-safety-management
 
 重大事故等が発生した旨の情報を得た場合、行政機関の長・都道府県知事・市町村長・国民生活センターの長は**直ちに内閣総理大臣に通知**しなければなりません（第12条）。
 
-なお、**国民生活センターは独立行政法人**であり、都道府県が設置するものではありません。一方、消費者の相談窓口である**消費生活センター**は、都道府県が義務設置・市町村は努力義務で設置します。「都道府県は国民生活センターを、市町村は消費生活センターを設置」という選択肢は典型的な引っかけです。
+なお、**国民生活センターは独立行政法人**であり、都道府県が設置するものではありません。一方、消費者の相談窓口である**消費生活センター**は、都道府県が義務設置・市町村は努力義務で設置します。
+
+「都道府県は国民生活センターを、市町村は消費生活センターを設置」という選択肢は典型的な引っかけです。
 
 > **【出題例: [R3年度 Ⅰ-1-25](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-25)】** 消費者安全に係る記述で最も不適切なものはどれか。3.「都道府県においては国民生活センターを、市町村においては消費生活センターをそれぞれ設置しなければならない」→ **正答3：国民生活センターは独立行政法人で都道府県設置ではない。消費生活センターは都道府県が義務、市町村は努力義務。**
 
@@ -85,7 +97,9 @@ utmCampaign: 99-safety-management
 
 [消防法](https://doboku-note.com/docs/pe-comprehensive-management-fire-service-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の目的は、火災の予防・警戒・鎮圧による国民の生命・身体・財産の保護と、災害等による傷病者の搬送の適切な実施です。
 
-第8条では、学校・病院・工場・百貨店等多数の者が出入する防火対象物の管理権原者に、**防火管理者を定めて消防計画の作成・消火訓練の実施・設備点検等を行わせる義務**を課しています。防火管理者を定めたときは、遅滞なく所轄消防長または消防署長に届け出なければなりません。
+第8条では、学校・病院・工場・百貨店等多数の者が出入する防火対象物の管理権原者に、**防火管理者を定めて消防計画の作成・消火訓練の実施・設備点検等を行わせる義務**を課しています。
+
+防火管理者を定めたときは、遅滞なく所轄消防長または消防署長に届け出なければなりません。
 
 また消防法第36条では、地震等の自然災害に対応するため「防火管理者」を「**防災管理者**」と読み替えて準用することを規定しています。
 
@@ -93,7 +107,9 @@ utmCampaign: 99-safety-management
 
 民法第709条（不法行為による損害賠償）では、「故意または過失によって他人の権利または法律上保護される利益を侵害した者は、これによって生じた損害を賠償する責任を負う」と定めています。
 
-契約不適合責任については、民法第415条（債務不履行による損害賠償）で売主に帰責事由がない場合は損害賠償ができないとされています。民法第562条では買主の追完請求権（目的物が契約の内容に適合しない場合、修補・代替物引渡し・不足分引渡しを請求可能）、第563条では代金減額請求権が定められています。
+契約不適合責任については、民法第415条（債務不履行による損害賠償）で売主に帰責事由がない場合は損害賠償ができないとされています。
+
+民法第562条では買主の追完請求権（目的物が契約の内容に適合しない場合、修補・代替物引渡し・不足分引渡しを請求可能）、第563条では代金減額請求権が定められています。
 
 **1.7 協調安全**
 
@@ -113,7 +129,9 @@ utmCampaign: 99-safety-management
 
 [ELSI](https://doboku-note.com/docs/pe-comprehensive-management-elsi?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Ethical, Legal and Social Implications）は、バイオテクノロジーやコンピュータサイエンス等の新規科学技術分野が生む倫理的・法的・社会的課題を指します。
 
-近年注目される「**トランスサイエンス**」とは、「科学に問うことはできるが、科学によってのみでは答えることができない問題」のことです。こうした問題をELSIとして捉え、社会の懸念を特定してリスクや影響を分析・評価して対応を検討する活動が求められています。多様なステークホルダー間の対話と協働が必要です。
+近年注目される「**トランスサイエンス**」とは、「科学に問うことはできるが、科学によってのみでは答えることができない問題」のことです。
+
+こうした問題をELSIとして捉え、社会の懸念を特定してリスクや影響を分析・評価して対応を検討する活動が求められています。多様なステークホルダー間の対話と協働が必要です。
 
 記述式論文でSDGsや技術倫理を論じる際に使えます。
 
@@ -156,7 +174,9 @@ D. 優先度に対応したリスク低減措置の実施
 
 **実施時期** — ①建設物の設置・変更・解体時、②設備の新規採用・変更時、③原材料の新規採用・変更時、④作業方法・手順の新規採用・変更時、⑤労働災害発生で過去調査に問題があった場合、⑥前回調査から一定期間が経過した場合。
 
-**リスク低減措置の優先順位（最重要）** — 厚生労働省の「危険性又は有害性等の調査等に関する指針」では、リスク低減措置を以下の優先順位で検討することが定められています。
+**リスク低減措置の優先順位（最重要）**
+
+厚生労働省の「危険性又は有害性等の調査等に関する指針」では、リスク低減措置を以下の優先順位で検討することが定められています。
 
 1. **本質的対策（排除・代替）** — 設計や計画の段階から危険性を除去する措置（最優先）
 2. **工学的対策** — ガード・安全装置・インターロック等の機械的・電気的対策
@@ -175,7 +195,9 @@ D. 優先度に対応したリスク低減措置の実施
 
 **リスク値 ＝ 被害額 × 発生確率**
 
-リスクマトリクス（発生確率×影響度の2軸）で高位（右上）の事象を低位（左下）へ移すことが基本的対応方針です。JIS Q31000が示す一般的なリスク対応の4分類は以下です。
+リスクマトリクス（発生確率×影響度の2軸）で高位（右上）の事象を低位（左下）へ移すことが基本的対応方針です。
+
+JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 **A. リスク低減（軽減）** — 発生確率を下げる、影響度（損害額）を少なくする、またはその両方をとる。  
 **B. リスク移転（転嫁）** — 専門家に委託する、または保険をかける。専門家はリスク値を低くする術を持つ。  
@@ -184,11 +206,15 @@ D. 優先度に対応したリスク低減措置の実施
 
 なお、[リスク対応](https://doboku-note.com/docs/pe-comprehensive-management-risk-treatment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は「対象リスクを小さくするが、別のリスクを派生させることがある」とも示されており、リスクをゼロにする**絶対安全**にはできません。
 
-[ALARP原則](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（As Low As Reasonably Practicable）— 「リスクは合理的で実行可能な限りできるだけ低くしなければならない」という原則。記述式論文の「人的資源削減×安全確保トレードオフ」の解決策として使えます。
+[ALARP原則](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（As Low As Reasonably Practicable）— 「リスクは合理的で実行可能な限りできるだけ低くしなければならない」という原則。
+
+記述式論文の「人的資源削減×安全確保トレードオフ」の解決策として使えます。
 
 **2.4 リスク認知のバイアス**
 
-[リスク認知](https://doboku-note.com/docs/pe-comprehensive-management-risk-perception?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)とは、個人・組織・社会がリスクをどう感じるかの主観的評価です。バイアスによって社会的受容の判断が変わります。5つのバイアスはそれぞれ択一の正誤問題として問われます。
+[リスク認知](https://doboku-note.com/docs/pe-comprehensive-management-risk-perception?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)とは、個人・組織・社会がリスクをどう感じるかの主観的評価です。バイアスによって社会的受容の判断が変わります。
+
+5つのバイアスはそれぞれ択一の正誤問題として問われます。
 
 - **正常性バイアス** — 異常な状態を示す情報を得ても、正常であると解釈しようとする偏向
 - **楽観主義バイアス** — 心理的ストレスを回避するために、楽観的に明るい方から見ようとする偏向
@@ -202,7 +228,9 @@ D. 優先度に対応したリスク低減措置の実施
 
 **2.5 リスクコミュニケーション**
 
-リスクコミュニケーションは、リスクの社会的受容を得るために不可欠です。文部科学省の「リスクコミュニケーションの推進方策」では、「リスクのより適切なマネジメントのために、社会の各層が対話・共考・協働を通じて、多様な情報及び見方の共有を図る活動」と定義しています。
+リスクコミュニケーションは、リスクの社会的受容を得るために不可欠です。
+
+文部科学省の「リスクコミュニケーションの推進方策」では、「リスクのより適切なマネジメントのために、社会の各層が対話・共考・協働を通じて、多様な情報及び見方の共有を図る活動」と定義しています。
 
 **5つの目的**（同報告書第2項(3)）：
 
@@ -214,13 +242,17 @@ D. 優先度に対応したリスク低減措置の実施
 
 コミュニケーション手段として、マスコミは注意喚起型に、対人的な媒体は合意形成型に、電子メディアは即時性・広域性に優れています。
 
-リスクコミュニケーションは**双方向の対話**が本質であり、専門家が「危害因子の情報提供のみに特化する」一方向型では機能しません。受け手側が情報をどう認識しているかを理解しようとする姿勢が不可欠です。
+リスクコミュニケーションは**双方向の対話**が本質であり、専門家が「危害因子の情報提供のみに特化する」一方向型では機能しません。
+
+受け手側が情報をどう認識しているかを理解しようとする姿勢が不可欠です。
 
 > **【出題例: [R5年度 Ⅰ-1-29](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-29)】** リスクコミュニケーションに関する記述で最も不適切なものはどれか。1.「専門家は専ら危険・危害をもたらす因子に係る知識や情報の提供に特化して説明を行う必要がある」→ **正答1：「特化」は誤り。感情的反応への配慮も含めた双方向対話が本質。**
 
 **2.6 リスクベースメンテナンス**
 
-[リスクベースメンテナンス（RBM）](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、設備・システムの保全計画・検査計画の立案にリスク評価を取り入れた手法で、信頼性向上と保全費の最適化を図ります。リスク（＝発生確率×影響の大きさ）値で故障の重要度を一元的に評価し、リスクの高低によって作業の順位付けをします。
+[リスクベースメンテナンス（RBM）](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、設備・システムの保全計画・検査計画の立案にリスク評価を取り入れた手法で、信頼性向上と保全費の最適化を図ります。
+
+リスク（＝発生確率×影響の大きさ）値で故障の重要度を一元的に評価し、リスクの高低によって作業の順位付けをします。
 
 **RBI（リスクベース検査）**は、設備・システムを要素レベルまで分類して不具合分析を行い、最適な検査手法や時期を検討して計画する手法です。
 
@@ -232,7 +264,9 @@ D. 優先度に対応したリスク低減措置の実施
 
 [労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、**危害防止基準の確立・責任体制の明確化・自主的活動の促進**により職場における労働者の安全と健康を確保し、快適な職場環境の形成を促進することを目的とした法律です。
 
-主たる義務者は**事業者**（経営者・法人）です。職場の長や管理監督者は事業者の指揮下で安全管理を実施する立場であり、義務の主体ではありません。労安法第3条では「事業者は快適な職場環境の実現と安全衛生水準の向上に努める義務」を規定しており、択一の引っかけとして「主たる義務者は職場の長」という選択肢が頻出します。
+主たる義務者は**事業者**（経営者・法人）です。職場の長や管理監督者は事業者の指揮下で安全管理を実施する立場であり、義務の主体ではありません。
+
+労安法第3条では「事業者は快適な職場環境の実現と安全衛生水準の向上に努める義務」を規定しており、択一の引っかけとして「主たる義務者は職場の長」という選択肢が頻出します。
 
 > **【出題例: [R7年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** 企業経営と安全に関する記述で最も不適切なものはどれか。4.「[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の主たる義務者は、職場の長など現場の管理監督者である」→ **正答4：主たる義務者は「事業者」（経営者・法人）。管理監督者は実施役であり義務の主体ではない。**
 
@@ -248,7 +282,9 @@ D. 優先度に対応したリスク低減措置の実施
 
 **（b）化学物質の[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（平成28年6月改正で義務化）
 
-安全データシート（SDS）交付義務の対象である640物質が対象です。化学物質の危険性・有害性を特定し、労働者への危険・健康被害の程度を見積もり、リスク低減対策を検討します。
+安全データシート（SDS）交付義務の対象である640物質が対象です。
+
+化学物質の危険性・有害性を特定し、労働者への危険・健康被害の程度を見積もり、リスク低減対策を検討します。
 
 **（c）安全衛生教育**
 
@@ -263,9 +299,13 @@ D. 優先度に対応したリスク低減措置の実施
 - **二次予防** — 早期発見・早期治療。兆候の読み取り・早期相談体制の整備
 - **三次予防** — 職場復帰支援。治療・精神面フォロー・再発防止
 
-**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（第66条の10）— 常時**50人以上**の労働者を使用する事業場では、医師・保健師等による心理的負担の程度を把握するための検査を義務として実施しなければなりません（平成27年12月施行）。目的は①自らのストレス状況への気づき促進、②職場ごとの集計・分析による職場環境改善、③医師による面接指導へのつなぎです。
+**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（第66条の10）— 常時**50人以上**の労働者を使用する事業場では、医師・保健師等による心理的負担の程度を把握するための検査を義務として実施しなければなりません（平成27年12月施行）。
 
-択一では**3段階予防の取組内容を入れ替える引っかけ**が頻出です。「労働環境の点検・改善」は**一次予防（未然防止）**の中心であり、二次予防（早期発見・早期対処）の中心ではありません。二次予防の中心はストレスチェックや相談窓口です。
+目的は①自らのストレス状況への気づき促進、②職場ごとの集計・分析による職場環境改善、③医師による面接指導へのつなぎです。
+
+択一では**3段階予防の取組内容を入れ替える引っかけ**が頻出です。「労働環境の点検・改善」は**一次予防（未然防止）**の中心であり、二次予防（早期発見・早期対処）の中心ではありません。
+
+二次予防の中心はストレスチェックや相談窓口です。
 
 ![メンタルヘルス 3段階予防 — 取組内容の対応](img/figure-10-mental-health-prevention.png)
 
@@ -273,21 +313,31 @@ D. 優先度に対応したリスク低減措置の実施
 
 **（e）墜落制止用器具（平成30年改正）**
 
-「安全帯」が「**墜落制止用器具**」に改称されました。ハーネス型（一本つり）と胴ベルト型（一本つり）の2種類があります。胴ベルト型（U字つり）は墜落制止機能がないため対象外です。高さ2m以上で作業床を設けることが困難な場所でフルハーネス型を使用する業務には、特別教育の受講が必要です。
+「安全帯」が「**墜落制止用器具**」に改称されました。ハーネス型（一本つり）と胴ベルト型（一本つり）の2種類があります。
+
+胴ベルト型（U字つり）は墜落制止機能がないため対象外です。
+
+高さ2m以上で作業床を設けることが困難な場所でフルハーネス型を使用する業務には、特別教育の受講が必要です。
 
 **3.2 OSHMS（労働安全衛生マネジメントシステム）**
 
 [OSHMS](https://doboku-note.com/docs/pe-comprehensive-management-oshms?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)はISO 45001に対応したPDCAサイクルによる継続的改善の仕組みです。
 
-択一では「**[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)との違い**（法令遵守 vs PDCAによる自主的改善）」が問われます。法律は守るべき最低基準を示すもので、[OSHMS](https://doboku-note.com/docs/pe-comprehensive-management-oshms?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)はそれを超えた自主的な改善サイクルの仕組みです。
+択一では「**[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)との違い**（法令遵守 vs PDCAによる自主的改善）」が問われます。
 
-また、**OSHMS指針の対象は労働基準法上の労働者に限定**され、ボランティアは含まれません。ボランティアを含めた「働く人」を対象とするのは国際規格の**ISO 45001**側で、JIS Q 45001（ISO 45001の和訳JIS）と日本独自のJIS Q 45100の関係も整理しておきましょう。
+法律は守るべき最低基準を示すもので、[OSHMS](https://doboku-note.com/docs/pe-comprehensive-management-oshms?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)はそれを超えた自主的な改善サイクルの仕組みです。
+
+また、**OSHMS指針の対象は労働基準法上の労働者に限定**され、ボランティアは含まれません。
+
+ボランティアを含めた「働く人」を対象とするのは国際規格の**ISO 45001**側で、JIS Q 45001（ISO 45001の和訳JIS）と日本独自のJIS Q 45100の関係も整理しておきましょう。
 
 > **【出題例: [R6年度 Ⅰ-1-30](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-30)】** OSHMS指針およびOSH関連規格で最も不適切なものはどれか。1.「OSHMS指針の対象者には、労働基準法における労働者ではないボランティアも含まれる」→ **正答1：OSHMS指針の対象は労働者のみ。ボランティアを含むのはISO 45001の「働く人」概念。**
 
 **3.3 労働災害**
 
-[労働災害](https://doboku-note.com/docs/pe-comprehensive-management-occupational-disease?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)第2条第1号で「労働者の就業に係る建設物、設備、原材料等により、または業務に起因して、労働者が負傷し、疾病にかかり、または死亡すること」と定義されています。
+[労働災害](https://doboku-note.com/docs/pe-comprehensive-management-occupational-disease?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)第2条第1号で次のように定義されています。
+
+> 労働者の就業に係る建設物、設備、原材料等により、または業務に起因して、労働者が負傷し、疾病にかかり、または死亡すること
 
 **労働災害統計の主要指標**
 
@@ -295,7 +345,9 @@ D. 優先度に対応したリスク低減措置の実施
 - **強度率** ＝ 実労働損失日数 ÷ 延実労働時間数 × 1,000
 - **年千人率** ＝ 1年間の死傷者数 ÷ 1年間の平均労働者数 × 1,000
 
-度数率は**頻度**を、強度率は**災害の重さ**を表します。計算問題として出題されます。なお、**延べ実労働時間 ＝ 従業員数 × 年間平均労働時間**で算出する点を押さえてください。
+度数率は**頻度**を、強度率は**災害の重さ**を表します。計算問題として出題されます。
+
+なお、**延べ実労働時間 ＝ 従業員数 × 年間平均労働時間**で算出する点を押さえてください。
 
 > **【出題例: [R7年度 Ⅰ-1-31](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-31)】** 従業員500人・年間労働時間1,700h・死傷者1人・損失日数30日の事業所Bと、度数率1.5・強度率0.09・年千人率2.1の事業所Aを比較する。最も適切なものはどれか。→ **正答1：B社の度数率＝1.18、強度率＝0.035、年千人率＝2.0で全指標がA社を下回る。延べ実労働時間＝従業員数×年間平均労働時間で計算。**
 
@@ -309,7 +361,9 @@ D. 優先度に対応したリスク低減措置の実施
 
 保護の内容として、公益通報を理由とした解雇・派遣契約解除の無効、降格・減給等の不利益取扱いの禁止が定められています。
 
-**2022年6月施行の改正点**として、①保護対象者に**役員**が追加（従来は労働者・1年以内退職者のみ）、②**常時使用労働者300人超**の事業者に内部公益通報対応体制の整備が義務化、③通報先（事業者内部・行政機関・報道機関等）に応じた保護要件の明確化が行われました。「役員は保護対象に含まれない」は改正後の引っかけです。
+**2022年6月施行の改正点**として、①保護対象者に**役員**が追加（従来は労働者・1年以内退職者のみ）、②**常時使用労働者300人超**の事業者に内部公益通報対応体制の整備が義務化、③通報先（事業者内部・行政機関・報道機関等）に応じた保護要件の明確化が行われました。
+
+「役員は保護対象に含まれない」は改正後の引っかけです。
 
 > **【出題例: [R6年度 Ⅰ-1-29](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-29)】** 2022年改正公益通報者保護法で最も不適切なものはどれか。2.「保護される公益通報者の範囲に、労働者及び退職後一定期間以内の退職者は含まれるが、役員は含まれない」→ **正答2：2022年改正で役員も保護対象に追加された。**
 
@@ -319,9 +373,13 @@ D. 優先度に対応したリスク低減措置の実施
 
 **4.1 ハインリッヒの法則とヒヤリハット活動**
 
-[ハインリッヒの法則](https://doboku-note.com/docs/pe-comprehensive-management-heinrich-law?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、アメリカの損保会社の技師ハインリッヒが過去の労働災害約50万件を調査した結果から発表した経験則です。「1件の重大事故の背後には29件の軽微な事故と300件のヒヤリハット（障害のない災害）が存在する」という内容です。
+[ハインリッヒの法則](https://doboku-note.com/docs/pe-comprehensive-management-heinrich-law?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、アメリカの損保会社の技師ハインリッヒが過去の労働災害約50万件を調査した結果から発表した経験則です。
 
-重大事故を防ぐには、報告として上がってこない**ヒヤリハット**をなくしていくことが大切です。**ヒヤリハット活動**は早期報告・早期対策と、同様業務を行うチームへの情報提供が重要とされています。[KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（危険予知訓練）と直結する考え方です。
+「1件の重大事故の背後には29件の軽微な事故と300件のヒヤリハット（障害のない災害）が存在する」という内容です。
+
+重大事故を防ぐには、報告として上がってこない**ヒヤリハット**をなくしていくことが大切です。
+
+**ヒヤリハット活動**は早期報告・早期対策と、同様業務を行うチームへの情報提供が重要とされています。[KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（危険予知訓練）と直結する考え方です。
 
 **4.2 システムの高信頼化**
 
@@ -373,13 +431,17 @@ D. 優先度に対応したリスク低減措置の実施
 
 記述式論文では「[4M分析](https://doboku-note.com/docs/pe-comprehensive-management-four-m-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で原因を特定し、[4E](https://doboku-note.com/docs/pe-comprehensive-management-four-e-countermeasures?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で対策を論じる」構成が使えます。
 
-択一では「**Economy（経済性）**」を含めた選択肢が頻出の引っかけです。4Eに経済性は含まれません。第4のEは管理者が率先して手本を示す「**Example（模範）**」です。
+択一では「**Economy（経済性）**」を含めた選択肢が頻出の引っかけです。4Eに経済性は含まれません。
+
+第4のEは管理者が率先して手本を示す「**Example（模範）**」です。
 
 > **【出題例: [R7年度 Ⅰ-1-25](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-25)】** 事故・災害の未然防止対応活動に関する記述で最も不適切なものはどれか。4.「4E対策は Education・Engineering・Enforcement・**Economy** の4つの観点から対策を検討する手法」→ **正答4：Economy（経済性）は誤り。正しくは Example（模範）。管理者が率先して手本を示す文化づくりが第4のEです。**
 
 **4.5 小集団活動**
 
-[小集団活動](https://doboku-note.com/docs/pe-comprehensive-management-small-group-activities?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、第一線の職場で働く人々が自主的に運営し継続的に実施する活動です。QCサークル活動のほか、**ZD（Zero Defects）運動**（従業員の創造工夫で仕事の欠陥をゼロにし顧客満足・製品信頼性を高める）や**改善提案活動**があります。
+[小集団活動](https://doboku-note.com/docs/pe-comprehensive-management-small-group-activities?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、第一線の職場で働く人々が自主的に運営し継続的に実施する活動です。
+
+QCサークル活動のほか、**ZD（Zero Defects）運動**（従業員の創造工夫で仕事の欠陥をゼロにし顧客満足・製品信頼性を高める）や**改善提案活動**があります。
 
 **4.6 自主保安とKYT**
 
@@ -393,7 +455,9 @@ D. 優先度に対応したリスク低減措置の実施
 
 **4.7 自動走行に関するガイドライン**
 
-平成28年5月に警察庁より「**自動走行システムに関する公道実証実験のためのガイドライン**」が公表されました。テストドライバーは運転に必要な運転免許を保有する必要があり、交通事故・交通違反が発生した場合はテストドライバーが運転者としての責任を負うとされています。
+平成28年5月に警察庁より「**自動走行システムに関する公道実証実験のためのガイドライン**」が公表されました。
+
+テストドライバーは運転に必要な運転免許を保有する必要があり、交通事故・交通違反が発生した場合はテストドライバーが運転者としての責任を負うとされています。
 
 令和2年9月の「**自動運転の公道実証実験に係る道路使用許可基準**」では遠隔型自動運転システムにも対応し、条件を満たせば遠隔監視・操作者による走行も可能となっています。
 
@@ -401,11 +465,17 @@ D. 優先度に対応したリスク低減措置の実施
 
 ## 5. 危機管理（優先度: 高）
 
-一般的に[リスク管理](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が**事故や危機が起きないようにする活動**を指すのに対して、**危機管理は天災等の緊急事態が発生した後の活動**を指す場合が多いです。危機管理の目的は「不測の事態に対して適切な対応ができるようにすること」です。
+一般的に[リスク管理](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が**事故や危機が起きないようにする活動**を指すのに対して、**危機管理は天災等の緊急事態が発生した後の活動**を指す場合が多いです。
+
+危機管理の目的は「不測の事態に対して適切な対応ができるようにすること」です。
 
 **5.1 危機管理の対象事象とオールハザードアプローチ**
 
-企業を対象にした危機の事例は、自然災害・大規模事故・感染症・サイバー攻撃・テロ・風評被害など多彩です。すべての危機に対応するという考え方として**[オールハザードアプローチ](https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**があります。特定の災害種別に限定しない対応体制の考え方で、一つの組織行動原則です。
+企業を対象にした危機の事例は、自然災害・大規模事故・感染症・サイバー攻撃・テロ・風評被害など多彩です。
+
+すべての危機に対応するという考え方として**[オールハザードアプローチ](https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**があります。
+
+特定の災害種別に限定しない対応体制の考え方で、一つの組織行動原則です。
 
 **5.2 危機への対応（4段階）**
 
@@ -432,9 +502,13 @@ D. 優先度に対応したリスク低減措置の実施
 
 **BCM（Business Continuity Management：事業継続マネジメント）**は、[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)策定や維持・更新、予算・資源の確保、事前対策、教育・訓練、継続的改善などを行う平常時からのマネジメント活動で、経営レベルの戦略的活動として位置付けられます。
 
-択一では「**[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は計画（文書）、BCMはそれを組織に組み込んだマネジメントシステム**」という区別が問われます。国際規格としてISO 22301（事業継続マネジメントシステム—要求事項）が発行されています。
+択一では「**[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は計画（文書）、BCMはそれを組織に組み込んだマネジメントシステム**」という区別が問われます。
 
-BCMの実務上の重要原則は**結果事象アプローチ**です。「直下型地震」「台風」「サイバー攻撃」のような**原因事象**ではなく、「ある拠点が使用不能」「IT基盤が停止」のような**結果事象**で考えることで、原因を問わず汎用的に対応できる体制が組めます。「原因事象で考えるべき」という選択肢は逆向きの引っかけです。
+国際規格としてISO 22301（事業継続マネジメントシステム—要求事項）が発行されています。
+
+BCMの実務上の重要原則は**結果事象アプローチ**です。「直下型地震」「台風」「サイバー攻撃」のような**原因事象**ではなく、「ある拠点が使用不能」「IT基盤が停止」のような**結果事象**で考えることで、原因を問わず汎用的に対応できる体制が組めます。
+
+「原因事象で考えるべき」という選択肢は逆向きの引っかけです。
 
 ![BCP — 結果事象アプローチ](img/figure-11-bcp-result-based.png)
 
@@ -449,13 +523,17 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 3. 国民の財産及び公共施設に係る被害の最小化
 4. 迅速な復旧復興
 
-2023年6月の改正で**国土強靱化実施中期計画**が新設されました。「基本計画→実施中期計画→年次計画」という階層体系です。**脆弱性評価は基本計画の策定時に実施**するもので、実施中期計画案の作成時に行うものではありません。
+2023年6月の改正で**国土強靱化実施中期計画**が新設されました。「基本計画→実施中期計画→年次計画」という階層体系です。
+
+**脆弱性評価は基本計画の策定時に実施**するもので、実施中期計画案の作成時に行うものではありません。
 
 > **【出題例: [R6年度 Ⅰ-1-32](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-32)】** 2023年6月改正[国土強靱化基本法](https://doboku-note.com/docs/pe-comprehensive-management-national-resilience-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で最も不適切なものはどれか。3.「政府は、国土強靱化実施中期計画案の作成時に、脆弱性評価の指針を定め、脆弱性評価を行う」→ **正答3：脆弱性評価は基本計画の策定時に実施。中期計画案ではない。**
 
 **5.6 津波防災地域づくりに関する法律**
 
-[国土強靱化基本法](https://doboku-note.com/docs/pe-comprehensive-management-national-resilience-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と合わせて、津波防災地域づくりに関する法律は津波による災害を防止・軽減し、将来にわたって安心して暮らせる安全な地域の整備・利用・保全を総合的に推進することを目的とします。市町村による推進計画の作成、津波災害警戒区域における警戒避難体制の整備、津波災害特別警戒区域における開発行為等の制限を定めています。
+[国土強靱化基本法](https://doboku-note.com/docs/pe-comprehensive-management-national-resilience-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と合わせて、津波防災地域づくりに関する法律は津波による災害を防止・軽減し、将来にわたって安心して暮らせる安全な地域の整備・利用・保全を総合的に推進することを目的とします。
+
+市町村による推進計画の作成、津波災害警戒区域における警戒避難体制の整備、津波災害特別警戒区域における開発行為等の制限を定めています。
 
 **5.7 危機に対する法律**
 
@@ -478,7 +556,9 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 択一では「レベル4＝避難指示（全員避難）、レベル3＝高齢者等避難」という数字と行動の対応が問われます。
 
-特に重要な引っかけは、**レベル3「高齢者等避難」が災害発生「前」の早期避難情報**である点です。「災害発生後の緊急避難」と書く選択肢は誤りで、災害発生後の切迫時はレベル5「緊急安全確保」となります。レベル4「避難指示」は警戒レベル4の立退き避難、レベル5「緊急安全確保」は立退きが危険な場合の最後の手段です。
+特に重要な引っかけは、**レベル3「高齢者等避難」が災害発生「前」の早期避難情報**である点です。「災害発生後の緊急避難」と書く選択肢は誤りで、災害発生後の切迫時はレベル5「緊急安全確保」となります。
+
+レベル4「避難指示」は警戒レベル4の立退き避難、レベル5「緊急安全確保」は立退きが危険な場合の最後の手段です。
 
 ![警戒レベル — 5段階の対応行動](img/figure-3-alert-levels.png)
 
@@ -486,15 +566,21 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 **5.9 南海トラフ地震臨時情報**
 
-南海トラフ地震臨時情報は、気象庁が南海トラフの想定震源域で一定規模以上の地震発生やプレート境界面の異常なずれを観測した際に発表する情報で、警戒レベルとは別系統のガイドライン（内閣府「南海トラフ地震の多様な発生形態に備えた防災対応検討ガイドライン」、2019年策定）に基づきます。発表される情報は段階的に3種類です。
+南海トラフ地震臨時情報は、気象庁が南海トラフの想定震源域で一定規模以上の地震発生やプレート境界面の異常なずれを観測した際に発表する情報です。
+
+警戒レベルとは別系統のガイドライン（内閣府「南海トラフ地震の多様な発生形態に備えた防災対応検討ガイドライン」、2019年策定）に基づきます。発表される情報は段階的に3種類です。
 
 - **調査中** — 観測・評価着手を開始した時点で発表
 - **巨大地震注意** — 大規模地震の発生可能性が相対的に高まったと評価された場合
 - **巨大地震警戒** — さらに高い可能性（M8.0以上の地震発生後等）と評価された場合
 
-**最も警戒する期間** — 巨大地震警戒が発表された場合、**地震発生後1週間を最も警戒する期間**とすることが基本です。1週間経過後も注意は継続しますが、最大警戒レベルは段階的に解除されます。「1か月」とする選択肢は頻出の引っかけです。
+**最も警戒する期間** — 巨大地震警戒が発表された場合、**地震発生後1週間を最も警戒する期間**とすることが基本です。
 
-なお、臨時情報なしに突発的な大規模地震が発生する可能性もあるため、**地震対策は基本的に突発地震への備えとして平時から実施する**ことが前提となります。臨時情報発表時も、津波リスクが明らかに高い地域を除き日常生活を継続しつつ防災行動をとることが基本方針です。
+1週間経過後も注意は継続しますが、最大警戒レベルは段階的に解除されます。「1か月」とする選択肢は頻出の引っかけです。
+
+なお、臨時情報なしに突発的な大規模地震が発生する可能性もあるため、**地震対策は基本的に突発地震への備えとして平時から実施する**ことが前提となります。
+
+臨時情報発表時も、津波リスクが明らかに高い地域を除き日常生活を継続しつつ防災行動をとることが基本方針です。
 
 > **【出題例: [R7年度 Ⅰ-1-27](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-27)】** 南海トラフ地震の防災対応ガイドラインで最も不適切なものはどれか。3.「南海トラフ地震臨時情報（巨大地震警戒）が発表された場合、最も警戒する期間は地震発生後**1か月間**を基本とする」→ **正答3：最も警戒する期間は「1週間」が基本。「1か月間」は頻出の引っかけ。**
 
@@ -508,25 +594,35 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 **6.1 FMEA（故障モード影響分析）**
 
-[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Failure Mode and Effects Analysis）は、設計の不完全な点や製品の潜在的欠陥を見つけるため、構成要素の**故障モード**を解析してシステム全体への影響を調べる**帰納的手法（ボトムアップ）**です。部品→システムの方向で一つひとつ影響を評価します。
+[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Failure Mode and Effects Analysis）は、設計の不完全な点や製品の潜在的欠陥を見つけるため、構成要素の**故障モード**を解析してシステム全体への影響を調べる**帰納的手法（ボトムアップ）**です。
+
+部品→システムの方向で一つひとつ影響を評価します。
 
 **6.2 FTA（故障の木分析）**
 
-[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Fault Tree Analysis）は、信頼性・安全性の面から好ましくない事象（**頂上事象**）を取り上げ、その原因となる事象と発生確率を論理ゲートで遡る**演繹的手法（トップダウン）**です。確率計算による定量的評価が可能です。頂上事象から一次事象、二次事象と枝分かれして広がる形状から「故障の木」と呼ばれます。
+[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Fault Tree Analysis）は、信頼性・安全性の面から好ましくない事象（**頂上事象**）を取り上げ、その原因となる事象と発生確率を論理ゲートで遡る**演繹的手法（トップダウン）**です。
+
+確率計算による定量的評価が可能です。頂上事象から一次事象、二次事象と枝分かれして広がる形状から「故障の木」と呼ばれます。
 
 **6.3 ETA（事象の木分析）**
 
-[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Event Tree Analysis）は、災害の引き金になる**初期事象**を設定し、それから結果として生じうる事象をシーケンスに列記していき、最終的に発生する災害とその発生確率を評価する**帰納的手法**です。各事象の発生をYES/NOで表し、それぞれの発生確率を計算して二分岐させていきます。
+[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Event Tree Analysis）は、災害の引き金になる**初期事象**を設定し、それから結果として生じうる事象をシーケンスに列記していき、最終的に発生する災害とその発生確率を評価する**帰納的手法**です。
+
+各事象の発生をYES/NOで表し、それぞれの発生確率を計算して二分岐させていきます。
 
 **「[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は原因の遡及（トップダウン）、[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は事象の展開（ボトムアップ）」**という対比が択一の定番です。
 
 **6.4 HAZOP（危険と運転性の研究）**
 
-[HAZOP](https://doboku-note.com/docs/pe-comprehensive-management-hazop?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Hazard and Operability Study）は、主に化学プラントの設計・運転における危険性を明らかにする手法です。さまざまなプロセスパラメータのずれ（なし（no）・多い（more）・少ない（less）・逆に（reverse）・他の（other than）等）の**ガイドワード**に対して、その原因と危険事象を解析して改善策を考えます。
+[HAZOP](https://doboku-note.com/docs/pe-comprehensive-management-hazop?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Hazard and Operability Study）は、主に化学プラントの設計・運転における危険性を明らかにする手法です。
+
+さまざまなプロセスパラメータのずれ（なし（no）・多い（more）・少ない（less）・逆に（reverse）・他の（other than）等）の**ガイドワード**に対して、その原因と危険事象を解析して改善策を考えます。
 
 **6.5 チェックリスト**
 
-リスクに結びつくような事象についてのチェックリストを作成し、実際の業務の条件・状況を一つひとつ調べることでリスク要因を発見する方式です。繰り返し業務では都度改定されるため精度が増していきます。
+リスクに結びつくような事象についてのチェックリストを作成し、実際の業務の条件・状況を一つひとつ調べることでリスク要因を発見する方式です。
+
+繰り返し業務では都度改定されるため精度が増していきます。
 
 **6.6 ヒューマンエラー分析**
 
@@ -539,7 +635,9 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 - **環境要因** — 作業環境・物理条件・人間関係
 - **管理要因** — 人・機械の管理状態・教育状態
 
-**[トライポッド理論](https://doboku-note.com/docs/pe-comprehensive-management-tripod-theory?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 無数に存在する直接的過失よりも、11個の潜在的欠陥に注目した理論です。設計・ハードウェア・保守・手順・管理・訓練・コミュニケーション等の欠陥タイプを体系化しています。
+**[トライポッド理論](https://doboku-note.com/docs/pe-comprehensive-management-tripod-theory?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 無数に存在する直接的過失よりも、11個の潜在的欠陥に注目した理論です。
+
+設計・ハードウェア・保守・手順・管理・訓練・コミュニケーション等の欠陥タイプを体系化しています。
 
 [THERP](https://doboku-note.com/docs/pe-comprehensive-management-therp?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Technique for Human Error Rate Prediction：ヒューマンエラー率予測技術）— アメリカのサンディア研究所で開発された手法で、一連の作業を遂行する際に発生しうるエラーを作業別に識別して[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で分析します。
 
@@ -573,7 +671,9 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 > **【出題例: [R6年度 Ⅰ-1-31](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-31)】** ユニット1・3の信頼度0.800、ユニット2・4の信頼度0.700のシステム全体の信頼度に最も近い値はどれか。→ **正答4：0.874。並列部1-3 = 1-(1-0.8)²=0.96、並列部2-4 = 1-(1-0.7)²=0.91、直列結合 0.96×0.91=0.874。**
 
-**[深層防護](https://doboku-note.com/docs/pe-comprehensive-management-defense-in-depth?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 原子力発電所等のシビアアクシデント対策の基本概念で、何重にも安全対策を施すことです。国際原子力機関はレベル1（異常運転の防止）〜レベル5（放射性物質の大規模放出の影響緩和）の5段階を示しています。
+**[深層防護](https://doboku-note.com/docs/pe-comprehensive-management-defense-in-depth?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 原子力発電所等のシビアアクシデント対策の基本概念で、何重にも安全対策を施すことです。
+
+国際原子力機関はレベル1（異常運転の防止）〜レベル5（放射性物質の大規模放出の影響緩和）の5段階を示しています。
 
 **6.8 論理回路**
 
@@ -589,7 +689,11 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 - **OR（和事象）** — `P = 1−(1−P₁)(1−P₂)`。事象が独立な場合の和事象の発生確率（どちらか1つでも起きる確率）
 - **AND（積事象）** — `P = P₁ × P₂`。すべての事象が同時に起きる確率（冗長系・並列系の故障計算に対応）
 
-例：系統電源喪失0.05と自社遮断0.10のOR ＝ `1−(1−0.05)(1−0.10) = 0.145`、自家用発電機2台の起動失敗AND ＝ `0.05² = 0.0025`、停電確率 ＝ `0.145 × 0.0025 ≒ 3.6×10⁻⁴`。
+**計算例**
+
+- 系統電源喪失 0.05 と自社遮断 0.10 の OR ＝ `1−(1−0.05)(1−0.10) = 0.145`
+- 自家用発電機 2 台の起動失敗 AND ＝ `0.05² = 0.0025`
+- 停電確率 ＝ `0.145 × 0.0025 ≒ 3.6×10⁻⁴`
 
 > **【出題例: [R5年度 Ⅰ-1-32](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-32)】** 電源システムの停電確率をフォールトツリー分析により計算する。系統電源喪失0.05、自社による系統遮断0.10、予備自家用発電機2台のデマンド故障率各0.05のとき、1年間の停電確率に最も近い値はどれか。→ **正答3：3.6×10⁻⁴。電源喪失OR遮断＝0.145、発電機2台AND故障＝0.0025、両者AND＝3.6×10⁻⁴。**
 
@@ -597,13 +701,23 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 ## 7. 記述式で使う「安全管理 × 他の管理」トレードオフ
 
-安全管理は他の4管理と多くのトレードオフを持ちます。各トレードオフを「**対立の構造**」「**解決フレームワーク**」「**残余リスクと監視**」の3段階で展開できると、記述式論文の論理展開が一気にしっかりします。各トピックは[令和7年版国土交通白書](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/index.html)の現行課題と直結するため、最新の論文設問にも対応できます。
+安全管理は他の4管理と多くのトレードオフを持ちます。
+
+各トレードオフを「**対立の構造**」「**解決フレームワーク**」「**残余リスクと監視**」の3段階で展開できると、記述式論文の論理展開が一気にしっかりします。
+
+各トピックは[令和7年版国土交通白書](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/index.html)の現行課題と直結するため、最新の論文設問にも対応できます。
 
 ![安全管理 × 他4管理 — トレードオフマップ](img/figure-8-tradeoff-map.png)
 
 ### 7.1 安全管理 × 経済性管理（インフラ老朽化と予防保全）
 
-**対立の構造** — 高度経済成長期に整備されたインフラは今後20年で建設後50年を超える施設が急増します。**事後保全**（壊れてから直す）に頼れば短期コストは抑えられますが、[令和7年版白書 第II部第1章第4節](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/html/n2140000.html)で言及された埼玉県八潮市の道路陥没事故のような致命的リスクが増大します。一方で全施設の一律点検・修繕は膨大なコストと工期を要します。**評価軸：短期コスト vs 中長期 LCC（ライフサイクルコスト）と事故による期待損失**。
+**対立の構造** — 高度経済成長期に整備されたインフラは今後20年で建設後50年を超える施設が急増します。
+
+**事後保全**（壊れてから直す）に頼れば短期コストは抑えられますが、[令和7年版白書 第II部第1章第4節](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/html/n2140000.html)で言及された埼玉県八潮市の道路陥没事故のような致命的リスクが増大します。
+
+一方で全施設の一律点検・修繕は膨大なコストと工期を要します。
+
+**評価軸：短期コスト vs 中長期 LCC（ライフサイクルコスト）と事故による期待損失**。
 
 **解決フレームワーク**
 
@@ -611,11 +725,17 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 - **[ALARP](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)原則** — 追加対策費が便益と著しく不均衡でない水準までリスクを低減し、残余リスクは受容する判断
 - **予防保全への転換** — 事後保全から予防保全への転換により、今後30年累計の維持管理費を**約3割縮減**できる見込み（白書記述）
 
-**残余リスクと監視** — 修繕待ち施設にはセンサーによる遠隔監視（IoT モニタリング）を配置し、住民協働の通報制度・巡回点検と組み合わせて変状の兆候を常時把握します。
+**残余リスクと監視** — 修繕待ち施設にはセンサーによる遠隔監視（IoT モニタリング）を配置します。
+
+住民協働の通報制度・巡回点検と組み合わせて変状の兆候を常時把握します。
 
 ### 7.2 安全管理 × 人的資源管理（担い手不足とヒューマンエラー）
 
-**対立の構造** — 建設・運輸業の「**2024年問題**」（時間外労働の上限規制）への対応は[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の確立に不可欠ですが、長時間労働を放置すれば疲労蓄積による[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が増大します。さらに担い手不足を補うための外国人材・若手の急拡大は、言語バリア・経験不足による[KY](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)能力の低下を招きます。**評価軸：労働生産性の向上 vs 労働安全衛生の確保および教育コスト**。
+**対立の構造** — 建設・運輸業の「**2024年問題**」（時間外労働の上限規制）への対応は[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の確立に不可欠ですが、長時間労働を放置すれば疲労蓄積による[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が増大します。
+
+さらに担い手不足を補うための外国人材・若手の急拡大は、言語バリア・経験不足による[KY](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)能力の低下を招きます。
+
+**評価軸：労働生産性の向上 vs 労働安全衛生の確保および教育コスト**。
 
 **解決フレームワーク**
 
@@ -623,11 +743,17 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 - **VR/AR を活用した [KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 座学では伝わりにくい危険を仮想空間で体感させ、若手・外国人材の危険予知能力を短期間で引き上げ
 - **多言語ピクトグラム・ウェアラブル翻訳機** — コミュニケーション障壁を機械的に除去
 
-**残余リスクと監視** — 言語ニュアンスの差による「想定外の行動」を考慮し、[フェールセーフ](https://doboku-note.com/docs/pe-comprehensive-management-fail-safe?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)機能（誤操作しても安全が保たれる仕組み）を強化した設備管理と、現場監視員の重点配置で補完します。
+**残余リスクと監視** — 言語ニュアンスの差による「想定外の行動」を考慮し、[フェールセーフ](https://doboku-note.com/docs/pe-comprehensive-management-fail-safe?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)機能（誤操作しても安全が保たれる仕組み）を強化した設備管理を徹底します。
+
+加えて、現場監視員の重点配置で補完します。
 
 ### 7.3 安全管理 × 情報管理（DX と新たなサイバーリスク）
 
-**対立の構造** — [令和7年版白書 第II部第9章](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/html/n2911000.html) の **i-Construction 2.0**（2040年度までに省人化3割・生産性1.5倍を目指す）や自動運転の導入は、現場での接触事故防止に寄与します。一方でシステム依存により、**通信障害・サイバー攻撃・AI 判断ミスを起因とする広域的な事故リスク**を新たに生じさせます。**評価軸：省人化・生産性向上 vs システムの可用性とセキュリティ強度の確保**。
+**対立の構造** — [令和7年版白書 第II部第9章](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/html/n2911000.html) の **i-Construction 2.0**（2040年度までに省人化3割・生産性1.5倍を目指す）や自動運転の導入は、現場での接触事故防止に寄与します。
+
+一方でシステム依存により、**通信障害・サイバー攻撃・AI 判断ミスを起因とする広域的な事故リスク**を新たに生じさせます。
+
+**評価軸：省人化・生産性向上 vs システムの可用性とセキュリティ強度の確保**。
 
 **解決フレームワーク**
 
@@ -635,11 +761,17 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 - **段階的実施（PoC）** — 新技術をいきなり全面導入せず、1現場で PoC を実施して安全上の不具合を洗い出してから横展開
 - **遠隔集中管理の事例** — 鹿島建設の[成瀬ダム A4CSEL®](https://www.kajima.co.jp/news/press/202310/13c1-j.htm) では IT パイロット 3 名が遠隔操作センターから 14 台の自動建機を 24 時間 2 交代体制で管理
 
-**残余リスクと監視** — システムダウン時の手動介入ルールと、AI 判断のブラックボックス化に対する人間最終確認手順を整備し、[フェールソフト](https://doboku-note.com/docs/pe-comprehensive-management-fail-soft?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（機能の一部を落として稼働継続）の維持を図ります。
+**残余リスクと監視** — システムダウン時の手動介入ルールと、AI 判断のブラックボックス化に対する人間最終確認手順を整備します。
+
+これらにより、[フェールソフト](https://doboku-note.com/docs/pe-comprehensive-management-fail-soft?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（機能の一部を落として稼働継続）の維持を図ります。
 
 ### 7.4 安全管理 × 社会環境管理（流域治水と環境保全）
 
-**対立の構造** — 激甚化する自然災害から命を守る巨大堤防やダム建設（安全）は、地域の景観保全・生態系維持・住民生活圏分断（社会環境）と衝突します。流域治水で田んぼダムや避難体制の整備など地域協力を得るプロセスは、合意形成に多大な時間を要します。**評価軸：防災力の最大化 vs 生態系・景観への影響評価および地域社会の受容性**。
+**対立の構造** — 激甚化する自然災害から命を守る巨大堤防やダム建設（安全）は、地域の景観保全・生態系維持・住民生活圏分断（社会環境）と衝突します。
+
+流域治水で田んぼダムや避難体制の整備など地域協力を得るプロセスは、合意形成に多大な時間を要します。
+
+**評価軸：防災力の最大化 vs 生態系・景観への影響評価および地域社会の受容性**。
 
 **解決フレームワーク**
 
@@ -647,7 +779,9 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 - **[流域治水プロジェクト2.0](https://www.mlit.go.jp/river/kasen/ryuiki_pro/index.html)** — 全国109の一級水系で気候変動を踏まえた治水と環境（グリーンインフラ）を両立させる国交省プロジェクト（令和5年策定）
 - **[オールハザードアプローチ](https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 防災・環境・景観を個別議論せず同一テーブルで統合評価し、地域が納得できる「減災」の形を設計
 
-**残余リスクと監視** — ハード対策の限界（想定最大規模を超える降雨）を認め、[警戒レベル](https://doboku-note.com/docs/pe-comprehensive-management-alert-levels?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)に基づくタイムラインに沿った避難行動計画でソフト面を補完します。
+**残余リスクと監視** — ハード対策の限界（想定最大規模を超える降雨）を認めます。
+
+[警戒レベル](https://doboku-note.com/docs/pe-comprehensive-management-alert-levels?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)に基づくタイムラインに沿った避難行動計画でソフト面を補完します。
 
 ---
 
