@@ -468,6 +468,7 @@ async function main() {
 
   const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, {
     headless: false,
+    channel: "chrome",
     viewport: { width: 1280, height: 900 },
     locale: "ja-JP",
     timezoneId: "Asia/Tokyo",
