@@ -1,14 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-08T02:03:22.269Z",
+  "generated_at": "2026-05-08T08:27:14.958Z",
   "summary": {
-    "total_keywords": 649,
-    "published_keywords": 648,
-    "keywords_with_relations": 648,
+    "total_keywords": 653,
+    "published_keywords": 652,
+    "keywords_with_relations": 652,
     "keywords_below_target": 0,
     "isolated_keywords": [],
     "orphan_slugs_warned": [
-      "climate-change-adaptation-act",
       "environmental-basic-act",
       "general-overview",
       "human-relations-management",
@@ -24547,8 +24546,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -24581,16 +24580,16 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
         ]
       },
       {
-        "slug": "climate-change-decarbonization",
-        "label": "気候変動・脱炭素社会",
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
         "score": 10,
         "signals": [
           "section"
@@ -24631,8 +24630,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -24641,8 +24640,8 @@
     ],
     "energy": [
       {
-        "slug": "climate-change-decarbonization",
-        "label": "気候変動・脱炭素社会",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 36,
         "signals": [
           "section",
@@ -24719,8 +24718,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -24761,8 +24760,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -24803,8 +24802,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -24845,8 +24844,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -24934,8 +24933,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -25112,8 +25111,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -25215,9 +25214,9 @@
     ],
     "climate-change-international": [
       {
-        "slug": "climate-change-decarbonization",
-        "label": "気候変動・脱炭素社会",
-        "score": 30,
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 26,
         "signals": [
           "section",
           "exam"
@@ -25227,6 +25226,15 @@
         "slug": "energy",
         "label": "エネルギー",
         "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 14,
         "signals": [
           "section",
           "exam"
@@ -25249,22 +25257,13 @@
           "section",
           "exam"
         ]
-      },
-      {
-        "slug": "rio-declaration",
-        "label": "環境と開発に関するリオ宣言",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
       }
     ],
-    "climate-change-decarbonization": [
+    "global-warming-countermeasures-act": [
       {
-        "slug": "energy",
-        "label": "エネルギー",
-        "score": 36,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 12,
         "signals": [
           "section",
           "exam"
@@ -25273,7 +25272,170 @@
       {
         "slug": "climate-change-international",
         "label": "気候変動・国際対応",
-        "score": 30,
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "climate-change-adaptation-act": [
+      {
+        "slug": "climate-change-international",
+        "label": "気候変動・国際対応",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "global-warming-countermeasures-act",
+        "label": "地球温暖化対策推進法",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "long-term-strategy-2050": [
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biosafety",
+        "label": "バイオセーフティ",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "green-transformation": [
+      {
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "agenda-21",
+        "label": "アジェンダ21",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "biosafety",
+        "label": "バイオセーフティ",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      }
+    ],
+    "carbon-neutral": [
+      {
+        "slug": "energy",
+        "label": "エネルギー",
+        "score": 36,
         "signals": [
           "section",
           "exam"
@@ -25285,6 +25447,15 @@
         "score": 27,
         "signals": [
           "chapter",
+          "exam"
+        ]
+      },
+      {
+        "slug": "climate-change-international",
+        "label": "気候変動・国際対応",
+        "score": 26,
+        "signals": [
+          "section",
           "exam"
         ]
       },
@@ -25336,8 +25507,8 @@
         ]
       },
       {
-        "slug": "climate-change-decarbonization",
-        "label": "気候変動・脱炭素社会",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 12,
         "signals": [
           "section",
@@ -25482,8 +25653,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -25501,8 +25672,8 @@
         ]
       },
       {
-        "slug": "climate-change-decarbonization",
-        "label": "気候変動・脱炭素社会",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 14,
         "signals": [
           "section",
@@ -25662,8 +25833,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -25747,8 +25918,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -25789,8 +25960,8 @@
         ]
       },
       {
-        "slug": "cites",
-        "label": "ワシントン条約（CITES）",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 10,
         "signals": [
           "section"
@@ -28243,8 +28414,8 @@
     ],
     "carbon-pricing": [
       {
-        "slug": "climate-change-decarbonization",
-        "label": "気候変動・脱炭素社会",
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
         "score": 27,
         "signals": [
           "chapter",
