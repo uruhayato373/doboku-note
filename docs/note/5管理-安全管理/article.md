@@ -699,96 +699,6 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 ---
 
-## 記述式で使う「安全管理 × 他の管理」トレードオフ
-
-安全管理は他の4管理と多くのトレードオフを持ちます。
-
-各トレードオフを「**対立の構造**」「**解決フレームワーク**」「**残余リスクと監視**」の3段階で展開できると、記述式論文の論理展開が一気にしっかりします。
-
-各トピックは[令和7年版国土交通白書](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/index.html)の現行課題と直結するため、最新の論文設問にも対応できます。
-
-![安全管理 × 他4管理 — トレードオフマップ](img/figure-8-tradeoff-map.png)
-
-### 安全管理 × 経済性管理（インフラ老朽化と予防保全）
-
-**対立の構造** — 高度経済成長期に整備されたインフラは今後20年で建設後50年を超える施設が急増します。
-
-**事後保全**（壊れてから直す）に頼れば短期コストは抑えられますが、[令和7年版白書 第II部第1章第4節](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/html/n2140000.html)で言及された埼玉県八潮市の道路陥没事故のような致命的リスクが増大します。
-
-一方で全施設の一律点検・修繕は膨大なコストと工期を要します。
-
-**評価軸：短期コスト vs 中長期 LCC（ライフサイクルコスト）と事故による期待損失**。
-
-**解決フレームワーク**
-
-- **[リスクベースメンテナンス](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （RBM）— 劣化度・施設重要度から優先順位を決定し、高リスク箇所に予算集中
-- **[ALARP](https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)原則** — 追加対策費が便益と著しく不均衡でない水準までリスクを低減し、残余リスクは受容する判断
-- **予防保全への転換** — 事後保全から予防保全への転換により、今後30年累計の維持管理費を**約3割縮減**できる見込み（白書記述）
-
-**残余リスクと監視** — 修繕待ち施設にはセンサーによる遠隔監視（IoT モニタリング）を配置します。
-
-住民協働の通報制度・巡回点検と組み合わせて変状の兆候を常時把握します。
-
-### 安全管理 × 人的資源管理（担い手不足とヒューマンエラー）
-
-**対立の構造** — 建設・運輸業の「**2024年問題**」（時間外労働の上限規制）への対応は[安全文化](https://doboku-note.com/docs/pe-comprehensive-management-safety-culture?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の確立に不可欠ですが、長時間労働を放置すれば疲労蓄積による[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が増大します。
-
-さらに担い手不足を補うための外国人材・若手の急拡大は、言語バリア・経験不足による[KY](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)能力の低下を招きます。
-
-**評価軸：労働生産性の向上 vs 労働安全衛生の確保および教育コスト**。
-
-**解決フレームワーク**
-
-- **勤務間インターバル制度** — 1日の勤務終了から翌日出社まで**11時間以上**の休息を制度化（厚生労働省推奨、努力義務）し、疲労に起因する事故を物理的に抑制
-- **VR/AR を活用した [KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 座学では伝わりにくい危険を仮想空間で体感させ、若手・外国人材の危険予知能力を短期間で引き上げ
-- **多言語ピクトグラム・ウェアラブル翻訳機** — コミュニケーション障壁を機械的に除去
-
-**残余リスクと監視** — 言語ニュアンスの差による「想定外の行動」を考慮し、[フェールセーフ](https://doboku-note.com/docs/pe-comprehensive-management-fail-safe?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)機能（誤操作しても安全が保たれる仕組み）を強化した設備管理を徹底します。
-
-加えて、現場監視員の重点配置で補完します。
-
-### 安全管理 × 情報管理（DX と新たなサイバーリスク）
-
-**対立の構造** — [令和7年版白書 第II部第9章](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/html/n2911000.html) の **i-Construction 2.0**（2040年度までに省人化3割・生産性1.5倍を目指す）や自動運転の導入は、現場での接触事故防止に寄与します。
-
-一方でシステム依存により、**通信障害・サイバー攻撃・AI 判断ミスを起因とする広域的な事故リスク**を新たに生じさせます。
-
-**評価軸：省人化・生産性向上 vs システムの可用性とセキュリティ強度の確保**。
-
-**解決フレームワーク**
-
-- **多層防御と OT（制御システム）セキュリティ** — 制御系のネットワーク分離（DMZ）と多段階認証を組み合わせ、利便性と安全性を統合（[IPA：制御システムのセキュリティ](https://www.ipa.go.jp/security/controlsystem/index.html)）
-- **段階的実施（PoC）** — 新技術をいきなり全面導入せず、1現場で PoC を実施して安全上の不具合を洗い出してから横展開
-- **遠隔集中管理の事例** — 鹿島建設の[成瀬ダム A4CSEL®](https://www.kajima.co.jp/news/press/202310/13c1-j.htm) では IT パイロット 3 名が遠隔操作センターから 14 台の自動建機を 24 時間 2 交代体制で管理
-
-**残余リスクと監視** — システムダウン時の手動介入ルールと、AI 判断のブラックボックス化に対する人間最終確認手順を整備します。
-
-これらにより、[フェールソフト](https://doboku-note.com/docs/pe-comprehensive-management-fail-soft?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（機能の一部を落として稼働継続）の維持を図ります。
-
-### 安全管理 × 社会環境管理（流域治水と環境保全）
-
-**対立の構造** — 激甚化する自然災害から命を守る巨大堤防やダム建設（安全）は、地域の景観保全・生態系維持・住民生活圏分断（社会環境）と衝突します。
-
-流域治水で田んぼダムや避難体制の整備など地域協力を得るプロセスは、合意形成に多大な時間を要します。
-
-**評価軸：防災力の最大化 vs 生態系・景観への影響評価および地域社会の受容性**。
-
-**解決フレームワーク**
-
-- **ミティゲーション階層** — 環境への影響を「**回避 → 低減 → 代替 → 代償**」の順で検討し、安全（防災）と環境の妥協点を見出す（環境影響評価法に基づく標準手順）
-- **[流域治水プロジェクト2.0](https://www.mlit.go.jp/river/kasen/ryuiki_pro/index.html)** — 全国109の一級水系で気候変動を踏まえた治水と環境（グリーンインフラ）を両立させる国交省プロジェクト（令和5年策定）
-- **[オールハザードアプローチ](https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 防災・環境・景観を個別議論せず同一テーブルで統合評価し、地域が納得できる「減災」の形を設計
-
-**残余リスクと監視** — ハード対策の限界（想定最大規模を超える降雨）を認めます。
-
-[警戒レベル](https://doboku-note.com/docs/pe-comprehensive-management-alert-levels?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)に基づくタイムラインに沿った避難行動計画でソフト面を補完します。
-
----
-
-このトレードオフ構造の詳細は[5管理間トレードオフ解説（無料）](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で確認できます。
-
----
-
 ## 関連リソース
 
 **doboku-note — 17年分の過去問 + 650キーワード解説（無料）**
@@ -796,7 +706,7 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - [安全管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（関連キーワードの全体マップ）
 - 択一式過去問: [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management) / [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management) / [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（安全管理の問題を確認）
-- [記述式過去問 R05（高齢化社会・建設DX）](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management): 安全 × 人的資源トレードオフの典型
+- [記述式過去問 R05（高齢化社会・建設DX）](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)
 
 **マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
 - 安全管理（本書）＋ 情報管理 ＋ 経済性管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥4,900

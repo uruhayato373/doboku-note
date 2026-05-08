@@ -10,7 +10,6 @@ utmCampaign: 99-human-resource-management
 - 人的資源管理は範囲が広すぎて、どこから手を付ければよいか迷っている
 - 動機づけ理論・労働関係法・人事制度を切り分けて整理できていない
 - 択一で「定義の言い換え」「条文の数字」「組織形態の特徴」に引っかかる
-- 記述式で「人的資源 × 他の管理」のトレードオフを論理展開できない
 - 試験直前に人的資源管理の全体像を素早く頭に入れ直したい
 
 **この記事でわかること**
@@ -20,7 +19,6 @@ utmCampaign: 99-human-resource-management
 - 各キーワードの doboku-note 解説ページへの直リンク（クリックで定義・過去問・周辺概念が一気に確認できる）
 - R3〜R7 の人的資源管理 過去問から **22件** を本文の論点直後に出題例として埋め込み
 - 主要労働法令の e-gov 条文への直リンク（労基法／労組法／均等法 etc. 14法令）
-- 記述式で使う「人的資源 × 経済性／安全／情報／社会環境」の **4ペア × 3段階展開** （対立の構造 → 解決フレームワーク → 残余リスクと監視）
 
 ---
 
@@ -434,46 +432,6 @@ utmCampaign: 99-human-resource-management
 
 ---
 
-## 記述式で使う「人的資源 × 他の管理」トレードオフ
-
-人的資源管理は他の4管理とそれぞれトレードオフを持ちます。記述式論文ではこれらを **「対立の構造 → 解決フレームワーク → 残余リスクと監視」の3段階** で展開すると説得力が増します。
-
-### 人的資源 × 経済性：教育投資 vs 短期収益
-
-**対立の構造** — 人材教育は中長期で生産性・定着率を向上させる一方、教育費・OJT指導者の機会損失・OFF-JTの直接費用は短期の利益を圧迫します。経営層は四半期決算の都合で教育予算を削減しがちで、現場の能力開発と財務指標が衝突します。
-
-**解決フレームワーク** — **教育ROIの可視化** （受講者の業績向上・離職率低下を金額換算）と **段階的投資** （優先職種・階層から段階導入）を組み合わせます。**[人材開発支援助成金](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/koyou_roudou/jinzaikaihatsu/dl/training_subsidy.html)** などの公的支援も活用し、企業負担を軽減できます。
-
-**残余リスクと監視** — 教育投資の効果は遅効性で、効果測定が確立する前に景気後退で打ち切られるリスクが残ります。年次の「教育投資 ÷ 売上高」「離職率」「平均勤続年数」「資格取得者数」を継続モニタリングし、経営層に定期報告する仕組みが必要です。
-
-### 人的資源 × 安全：工期・人員削減 vs 労働安全確保
-
-**対立の構造** — 工期短縮・人員削減・残業による生産性向上は短期コストを下げますが、長時間労働・疲労蓄積・経験不足者の単独作業は労働災害リスクを高めます。建設業の労災死傷者数は **2,000件超／年** で推移し、人件費圧縮と安全確保が直接衝突する構造です。
-
-**解決フレームワーク** — **ALARP原則** （As Low As Reasonably Practicable）で残留リスクの妥当性を費用便益分析により判定。**[ストレスチェック制度](https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （[**労安法第66条の10**](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_66_10)、50人以上で義務）と **三六協定** の上限規制（月45時間・年360時間）を組み合わせ、過重労働を防止します。**KY（危険予知）活動** ・**4S** （整理・整頓・清掃・清潔）・**ヒヤリハット報告** で現場の安全文化を醸成します。
-
-**残余リスクと監視** — 報告される労災データは氷山の一角で、未報告の軽微事故・体調不良が水面下に残ります。**「報告する文化」** （収集部門と処分部門の分離）を設計し、心理的安全性を確保した上で、災害強度率・度数率・年休取得率・残業時間分布を四半期ごとに監視します。
-
-### 人的資源 × 情報：ベテラン活用 vs 情報漏洩リスク
-
-**対立の構造** — 熟練社員の暗黙知は組織の競争力源泉ですが、退職時の知識流出・在職中の機密情報漏洩・SNS不適切投稿などの情報セキュリティリスクと表裏一体です。テレワーク普及で社外端末・私物デバイス（BYOD）からのアクセスが増え、リスク面はさらに広がりました。
-
-**解決フレームワーク** — **アクセス権限の段階化** （Need to Know原則・最小権限の原則）と **セキュリティ教育の階層別実施** で対応します。**シンクライアント型端末** （データを端末に持ち出さない）でテレワーク時のリスクを低減。**ナレッジマネジメント** で暗黙知を形式知化し、退職時の知識流出を抑制します。**秘密保持契約（NDA）** の締結と退職時の情報資産返却プロトコルを必須化します。
-
-**残余リスクと監視** — 内部不正は外部攻撃より検知が困難です。**ログ監視** （特権ID使用・大量データダウンロード・営業時間外アクセス）と **ジョブローテーション** （長期固定担当の不正温床化を防ぐ）を組み合わせ、定期的なアクセス権棚卸を実施します。退職予定者の権限縮小・面談での違反兆候把握も重要です。
-
-### 人的資源 × 社会環境：経済的雇用最適化 vs CSR・多様性確保
-
-**対立の構造** — コスト最小化の観点では非正規雇用・派遣・短期契約が合理的ですが、企業の社会的責任（CSR）・ESG投資の観点では正規雇用率・女性管理職比率・障害者雇用率・外国人雇用適正性が問われます。短期収益と長期ステークホルダー関係が衝突します。
-
-**解決フレームワーク** — **ESG視点での採用・配置** と **同一労働同一賃金** （パートタイム・有期雇用労働法）で雇用形態間の不合理待遇差を是正。**えるぼし認定** （女性活躍推進法）・**くるみん認定** （次世代育成支援対策推進法）・**障害者雇用率2.6%** をクリアし、対外的な企業価値向上と内部公平性を両立させます。**グリーン雇用** （環境配慮型業務）は社会環境管理との接続点です。
-
-**残余リスクと監視** — 認定取得後の形骸化リスクが残ります。**統合報告書** ・**サステナビリティレポート** で雇用形態別の労働条件・離職率・教育投資を開示し、外部評価（GPIFのESG評価機関等）で第三者検証を受ける仕組みを構築します。**[TCFD](https://doboku-note.com/docs/pe-comprehensive-management-tcfd?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の人的資本開示要請にも対応する開示体制が望まれます。
-
-このトレードオフ構造の詳細は **[5管理間トレードオフ解説（無料）](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** で確認できます。答案における具体的な使い方は note 有料記事「[トレードオフ思考 理論編](https://note.com/dobokunote)」で詳しく解説しています。
-
----
-
 ## 関連リソース
 
 **doboku-note — 17 年分の過去問 + 650 キーワード解説（無料）**
@@ -481,7 +439,7 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - **[人的資源管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 関連キーワードの全体マップ
 - **択一式過去問** — [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R04](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R03](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)
-- **[記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 人的資源 × 情報管理トレードオフの典型
+- **[記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**
 
 **マガジン購入で割引（総監テキスト精読ガイド 5 管理セット）**
 

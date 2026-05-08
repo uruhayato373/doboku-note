@@ -9,7 +9,6 @@ utmCampaign: 99-information-management
 
 - 統計分析・知的財産権・情報セキュリティの出題頻度と優先順位
 - 択一式で繰り返し問われる引っかけパターンと正答の根拠
-- 記述式論文で「情報管理軸」を展開するためのトレードオフ構造
 
 ---
 
@@ -350,72 +349,6 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 ---
 
-## 記述式で使う「情報管理 × 他の管理」トレードオフ
-
-総監記述式では、複数の管理間でどのようなトレードオフが生じ、どのように解決するかが問われます。情報管理の観点から4つのトレードオフペアを整理します。
-
-![情報管理 × 他4管理 — 3段階トレードオフマトリクス](./img/figure-1-tradeoff-map.png)
-
-### 情報管理 × 経済性管理（DX投資）
-
-**対立の構造** — 情報システムへの投資は生産性向上・品質改善・業務効率化をもたらす一方、初期投資・運用コスト・セキュリティ対応コストが重くのしかかります。経営の短期収益圧力との間で優先順位の対立が生じます。
-
-**評価軸：短期収益 vs 中長期競争力**
-
-**解決フレームワーク**
-
-- **段階的実施（PoC→本格導入）** — 小規模なPoC（概念実証）で費用対効果を確認してから本格展開し、投資リスクを低減
-- **ROI分析による優先順位付け** — 投資対効果を定量的に評価し、経営判断の根拠を明示
-- **クラウド活用によるコスト変動費化** — 初期投資を抑え、需要変動に応じてコストを最適化
-
-**残余リスクと監視** — クラウド依存による事業継続リスク（ベンダー障害・データ流出）が残存します。[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)策定とデータバックアップ体制の整備で対応します。
-
-### 情報管理 × 人的資源管理（テレワーク）
-
-**対立の構造** — テレワークによる生産性向上・人材確保・WLB改善という利便性と、情報漏洩リスク・セキュリティ管理コスト増という保護面の対立です。
-
-**評価軸：業務効率 vs 情報セキュリティ**
-
-**解決フレームワーク**
-
-- **ゼロトラストセキュリティ導入** — 社内外を区別せず継続的な認証で接続を管理
-- **セキュリティ教育の定期実施** — 人的要因（フィッシング・うっかり持ち出し）をリスク源として管理
-- **アクセス権限の最小化（最小権限の原則）** — 職務に必要な情報へのアクセスのみを付与
-
-**残余リスクと監視** — シャドーITや私用デバイス利用（BYOD）によるリスクは制御が難しい。定期的な利用状況監査と違反時の対応手順の整備が必要です。
-
-### 情報管理 × 安全管理（ヒヤリハット共有）
-
-**対立の構造** — 安全情報（ヒヤリハット・事故報告）の積極共有は組織の安全文化向上に直結する一方、競争上の秘匿要請や個人責任追及への懸念から情報が上がってこないという問題が生じます。
-
-**評価軸：透明性 vs 競争優位性・心理的安全性**
-
-**解決フレームワーク**
-
-- **[匿名化](https://doboku-note.com/docs/pe-comprehensive-management-anonymized-information?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)による報告促進** — 個人が特定されない匿名報告制度で、正直な情報が上がりやすくする
-- **業界横断データベース** — 同業他社と安全情報を共有し、業界全体の安全水準を向上
-- **ノーブレーム文化（非懲罰制度）** — ヒヤリハット報告を責任追及に使わない組織文化の醸成
-
-**残余リスクと監視** — 競合への情報漏洩懸念が残る。機密性を保ちつつ安全情報を共有する仕組み（NDA・情報の分類）の設計が必要です。
-
-### 情報管理 × 社会環境管理（個人情報・データ活用）
-
-**対立の構造** — IoT・AIによるデータ活用は社会価値創出・業務効率化に貢献する一方、個人情報の収集・利用・保管には個人情報保護法・GDPRへの対応が求められ、データ活用と市民プライバシー保護の間で緊張が生じます。
-
-**評価軸：データ活用の便益 vs 個人の権利保護**
-
-**解決フレームワーク**
-
-- **匿名化・仮名化** — 個人を識別できない形でデータを加工して活用リスクを低減
-- **同意取得・説明責任** — 利用目的を明示した上で本人の同意を取得し、アカウンタビリティを果たす
-- **GDPRコンプライアンス体制** — EU域内のデータ取り扱いに関する厳格な規制に対応した体制整備
-
-**残余リスクと監視** — プライバシーの侵害リスクはゼロにならない。プライバシーバイデザイン（設計段階から組み込む）とデータ最小化の原則で管理します。
-
-このトレードオフ構造の詳細は[5管理間トレードオフ解説（無料）](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)で確認できます。
-
----
-
 ## 関連リソース
 
 **doboku-note — 17年分の過去問 + 約700キーワード解説（無料）**
@@ -423,7 +356,7 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - [情報管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（関連キーワードの全体マップ）
 - 択一式過去問: [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) / [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) / [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（情報管理の問題を確認）
-- [記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)：情報管理 × 人的資源トレードオフの典型
+- [記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)
 
 **マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
 - 情報管理（本書）＋ 安全管理 ＋ 経済性管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥4,900
