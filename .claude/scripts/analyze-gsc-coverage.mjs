@@ -491,7 +491,7 @@ function generateMarkdown(agg, findings) {
     lines.push(``);
     lines.push(`- Issue #29（内部リンク拡充）は実装完了しているが、効果には限界があります`);
     lines.push(`- 次の打ち手は **外部被リンク獲得 + 独自データ構築**:`);
-    lines.push(`  - 運営者本人の総監受験データ（Issue #160）の早期完成と公開`);
+    lines.push(`  - 運営者本人の総監合格体験データ（Issue #160）の早期完成と公開`);
     lines.push(`  - note 記事内に doboku-note 被リンク掲載`);
     lines.push(`  - X / SNS でのブランド露出（Issue #161 SNS 自動投稿基盤）`);
     lines.push(`  - 技術士コミュニティ・受験者ブログでの言及獲得`);

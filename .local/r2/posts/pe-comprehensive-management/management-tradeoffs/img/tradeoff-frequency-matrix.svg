@@ -1,76 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="445" height="370" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 445 370" role="img" aria-label="5管理10ペアの出題頻度マトリクス" style="max-width:445px;width:100%">
-  <style>
-    .label { fill: #1a3a5c; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; font-weight: bold; }
-    .cell-main { fill: #ffffff; font-family: sans-serif; font-weight: bold; }
-    .cell-sub { fill: #ffffff; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
-    .legend { fill: #1a3a5c; font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
-  </style>
+<svg width="400" height="340" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" role="img" aria-label="5管理10ペアの出題頻度マトリクス（S=最頻出、A=頻出、B=中、C=低）" style="max-width:400px;width:100%">
+  <title>5管理10ペアの出題頻度マトリクス</title>
+  <desc>技術士総合技術監理 過去10年（H27〜R6）の記述式・択一複合問題から集計した、5管理（経済性・人的資源・情報・安全・社会環境）の組合せ別出題頻度。S=最頻出（赤）、A=頻出（黄）、B=中（青）、C=低（灰）。</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-axis  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-main  { font-size: 22px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #1a3a5c; }
+      .t-legend { font-size: 12px; fill: #1a3a5c; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }  /* S 最頻出 */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* A 頻出 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* B 中 */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* C 低 */
+      .axis-line { stroke: #d7d7d7; stroke-width: 1; }                      /* token-border */
+    </style>
+  </defs>
 
-  <line x1="105" y1="60" x2="435" y2="60" stroke="#d1d5db" stroke-width="1"/>
-  <line x1="105" y1="60" x2="105" y2="310" stroke="#d1d5db" stroke-width="1"/>
+  <!-- 軸線 -->
+  <line class="axis-line" x1="95" y1="50" x2="395" y2="50"/>
+  <line class="axis-line" x1="95" y1="50" x2="95" y2="290"/>
 
-  <text x="150" y="45" text-anchor="middle" font-size="14" class="label">人的資源</text>
-  <text x="230" y="45" text-anchor="middle" font-size="14" class="label">情報</text>
-  <text x="310" y="45" text-anchor="middle" font-size="14" class="label">安全</text>
-  <text x="390" y="45" text-anchor="middle" font-size="14" class="label">社会環境</text>
+  <!-- ヘッダー（横軸＝後半4管理） -->
+  <text class="t-axis" x="130" y="40" text-anchor="middle">人的資源</text>
+  <text class="t-axis" x="205" y="40" text-anchor="middle">情報</text>
+  <text class="t-axis" x="280" y="40" text-anchor="middle">安全</text>
+  <text class="t-axis" x="355" y="40" text-anchor="middle">社会環境</text>
 
-  <text x="98" y="100" text-anchor="end" font-size="14" class="label">経済性</text>
-  <text x="98" y="160" text-anchor="end" font-size="14" class="label">人的資源</text>
-  <text x="98" y="220" text-anchor="end" font-size="14" class="label">情報</text>
-  <text x="98" y="280" text-anchor="end" font-size="14" class="label">安全</text>
+  <!-- Y軸ラベル（縦軸＝前半4管理、行の中央 y） -->
+  <text class="t-axis" x="88" y="87"  text-anchor="end">経済性</text>
+  <text class="t-axis" x="88" y="147" text-anchor="end">人的資源</text>
+  <text class="t-axis" x="88" y="207" text-anchor="end">情報</text>
+  <text class="t-axis" x="88" y="267" text-anchor="end">安全</text>
 
-  <rect x="110" y="65" width="80" height="60" fill="#b22234" rx="2"/>
-  <text x="150" y="100" text-anchor="middle" font-size="24" class="cell-main">A</text>
-  <text x="150" y="117" text-anchor="middle" font-size="10" class="cell-sub">働き方</text>
+  <!-- 行1: 経済性 × {人的資源, 情報, 安全, 社会環境} -->
+  <rect class="box-warn" x="95" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="130" y="87"  text-anchor="middle">A</text>
+  <text class="t-sub"  x="130" y="102" text-anchor="middle">働き方</text>
 
-  <rect x="190" y="65" width="80" height="60" fill="#b22234" rx="2"/>
-  <text x="230" y="100" text-anchor="middle" font-size="24" class="cell-main">A</text>
-  <text x="230" y="117" text-anchor="middle" font-size="10" class="cell-sub">DX投資</text>
+  <rect class="box-warn" x="170" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="205" y="87"  text-anchor="middle">A</text>
+  <text class="t-sub"  x="205" y="102" text-anchor="middle">DX投資</text>
 
-  <rect x="270" y="65" width="80" height="60" fill="#b22234" rx="2"/>
-  <text x="310" y="100" text-anchor="middle" font-size="24" class="cell-main">S</text>
-  <text x="310" y="117" text-anchor="middle" font-size="10" class="cell-sub">リスク</text>
+  <rect class="box-danger" x="245" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="280" y="87"  text-anchor="middle">S</text>
+  <text class="t-sub"  x="280" y="102" text-anchor="middle">リスク</text>
 
-  <rect x="350" y="65" width="80" height="60" fill="#b22234" rx="2"/>
-  <text x="390" y="100" text-anchor="middle" font-size="24" class="cell-main">S</text>
-  <text x="390" y="117" text-anchor="middle" font-size="10" class="cell-sub">環境コスト</text>
+  <rect class="box-danger" x="320" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="87"  text-anchor="middle">S</text>
+  <text class="t-sub"  x="355" y="102" text-anchor="middle">環境コスト</text>
 
-  <rect x="190" y="125" width="80" height="60" fill="#0284c7" rx="2"/>
-  <text x="230" y="160" text-anchor="middle" font-size="24" class="cell-main">B</text>
-  <text x="230" y="177" text-anchor="middle" font-size="10" class="cell-sub">人事DX</text>
+  <!-- 行2: 人的資源 × {情報, 安全, 社会環境} -->
+  <rect class="box-brand" x="170" y="115" width="70" height="55" rx="6"/>
+  <text class="t-main" x="205" y="147" text-anchor="middle">B</text>
+  <text class="t-sub"  x="205" y="162" text-anchor="middle">人事DX</text>
 
-  <rect x="270" y="125" width="80" height="60" fill="#b22234" rx="2"/>
-  <text x="310" y="160" text-anchor="middle" font-size="24" class="cell-main">A</text>
-  <text x="310" y="177" text-anchor="middle" font-size="10" class="cell-sub">労働安全</text>
+  <rect class="box-warn" x="245" y="115" width="70" height="55" rx="6"/>
+  <text class="t-main" x="280" y="147" text-anchor="middle">A</text>
+  <text class="t-sub"  x="280" y="162" text-anchor="middle">労働安全</text>
 
-  <rect x="350" y="125" width="80" height="60" fill="#8a8a8a" rx="2"/>
-  <text x="390" y="160" text-anchor="middle" font-size="24" class="cell-main">C</text>
-  <text x="390" y="177" text-anchor="middle" font-size="10" class="cell-sub">多様性</text>
+  <rect class="box-surface" x="320" y="115" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="147" text-anchor="middle">C</text>
+  <text class="t-sub"  x="355" y="162" text-anchor="middle">多様性</text>
 
-  <rect x="270" y="185" width="80" height="60" fill="#0284c7" rx="2"/>
-  <text x="310" y="220" text-anchor="middle" font-size="24" class="cell-main">B</text>
-  <text x="310" y="237" text-anchor="middle" font-size="10" class="cell-sub">セキュリティ</text>
+  <!-- 行3: 情報 × {安全, 社会環境} -->
+  <rect class="box-brand" x="245" y="175" width="70" height="55" rx="6"/>
+  <text class="t-main" x="280" y="207" text-anchor="middle">B</text>
+  <text class="t-sub"  x="280" y="222" text-anchor="middle">セキュリティ</text>
 
-  <rect x="350" y="185" width="80" height="60" fill="#0284c7" rx="2"/>
-  <text x="390" y="220" text-anchor="middle" font-size="24" class="cell-main">B</text>
-  <text x="390" y="237" text-anchor="middle" font-size="10" class="cell-sub">倫理</text>
+  <rect class="box-brand" x="320" y="175" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="207" text-anchor="middle">B</text>
+  <text class="t-sub"  x="355" y="222" text-anchor="middle">倫理</text>
 
-  <rect x="350" y="245" width="80" height="60" fill="#b22234" rx="2"/>
-  <text x="390" y="280" text-anchor="middle" font-size="24" class="cell-main">A</text>
-  <text x="390" y="297" text-anchor="middle" font-size="10" class="cell-sub">防災×景観</text>
+  <!-- 行4: 安全 × {社会環境} -->
+  <rect class="box-warn" x="320" y="235" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="267" text-anchor="middle">A</text>
+  <text class="t-sub"  x="355" y="282" text-anchor="middle">防災×景観</text>
 
-  <g transform="translate(55, 335)">
-    <rect x="0" y="0" width="22" height="14" fill="#b22234" rx="2"/>
-    <text x="28" y="12" font-size="12" class="legend">S 最頻出</text>
+  <!-- 凡例（4色分離） -->
+  <g transform="translate(20, 315)">
+    <rect class="box-danger"  x="0"   y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="28"  y="11">S 最頻出</text>
 
-    <rect x="90" y="0" width="22" height="14" fill="#b22234" rx="2"/>
-    <text x="118" y="12" font-size="12" class="legend">A 頻出</text>
+    <rect class="box-warn"    x="100" y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="128" y="11">A 頻出</text>
 
-    <rect x="175" y="0" width="22" height="14" fill="#0284c7" rx="2"/>
-    <text x="203" y="12" font-size="12" class="legend">B 中</text>
+    <rect class="box-brand"   x="190" y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="218" y="11">B 中</text>
 
-    <rect x="250" y="0" width="22" height="14" fill="#8a8a8a" rx="2"/>
-    <text x="278" y="12" font-size="12" class="legend">C 低</text>
+    <rect class="box-surface" x="260" y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="288" y="11">C 低</text>
   </g>
 </svg>

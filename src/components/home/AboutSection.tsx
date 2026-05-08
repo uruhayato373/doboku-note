@@ -39,7 +39,7 @@ export default function AboutSection() {
           <div>
             <div className="font-mono text-[10px] tracking-widest uppercase text-[var(--ink-muted)] mb-2.5">Qualifications</div>
             <ul className="space-y-1.5 text-sm text-[var(--ink-body)]">
-              {["1級土木施工管理技士", "技術士（総合技術監理部門 受験予定）"].map((c) => (
+              {["1級土木施工管理技士", "技術士（総合技術監理部門）"].map((c) => (
                 <li key={c} className="flex gap-2 items-start">
                   <Award className="w-3.5 h-3.5 text-[var(--accent)] mt-1 shrink-0" strokeWidth={1.5} />
                   <span>{c}</span>

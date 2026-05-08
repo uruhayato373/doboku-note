@@ -76,7 +76,7 @@ node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs 
 
 | exam | 閾値 | 理由 |
 |---|---|---|
-| `pe-comprehensive-management-r03-primary` | **2.5** | 2026-07 受験直結、運営者自身が直接使用する |
+| `pe-comprehensive-management-r03-primary` | **2.5** | 運営者の合格体験ストーリーで直接参照する直近年度 |
 | `pe-comprehensive-management-r04-primary` | **2.5** | 同上 |
 | その他 | 2.0 | 合格水準 |
 

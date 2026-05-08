@@ -19,11 +19,22 @@ const CIVIL_POSTS = path.join(ROOT, '.local/r2/posts/civil-construction-1');
 const OUT_BACKLINKS = path.join(ROOT, 'src/config/past-exam-backlinks.json');
 const OUT_QUESTION_KEYWORDS = path.join(ROOT, 'src/config/exam-question-keywords.json');
 
-/** ヘディング ID 生成（src/lib/toc.ts の generateHeadingId と同じロジック） */
+/**
+ * ヘディング ID 生成（過去問 anchor 用に正規化を強化）。
+ *
+ * src/lib/toc.ts の generateHeadingId() を拡張し、過去問の章番号
+ * （Ⅰ-1-1 / Ⅱ-1-1 / I-1-1 / II-1-1 / Ⅰ－1－1 ...）を `1-1` 形式に統一する。
+ *
+ * - NFKC 正規化: 全角ハイフン `－`(U+FF0D) → `-`、Unicode ローマ数字 Ⅰ→I、全角数字→半角
+ * - 先頭の ASCII ローマ数字（`i-`, `ii-`, ... のように `-` 区切り）を除去
+ *   → 過去問の章番号「Ⅰ」「Ⅱ」を anchor から取り除く（例: `i-1-1` → `1-1`）
+ */
 function generateHeadingId(text) {
   return text
+    .normalize('NFKC')
     .trim()
     .toLowerCase()
+    .replace(/^[ivx]+(?=-)/, '')
     .replace(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF\s-]/g, '')
     .replace(/\s+/g, '-')
     .replace(/-+/g, '-')

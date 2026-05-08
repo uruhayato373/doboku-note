@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-07T11:11:31.946Z",
+  "generated_at": "2026-05-08T02:03:54.738Z",
   "summary": {
-    "total": 786,
-    "published": 781,
+    "total": 790,
+    "published": 785,
     "unpublished": 5,
     "by_category": {
       "civil-construction-1": 81,
-      "pe-comprehensive-management": 700
+      "pe-comprehensive-management": 704
     }
   },
   "docs": {
@@ -4514,7 +4514,7 @@
       "lastRewrittenAt": "2026-04-16",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-data-breach-response": {
       "title": "個人情報の漏洩時対応",
@@ -5208,7 +5208,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "防災 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-disaster-weather-info": {
       "title": "防災気象情報",
@@ -5497,7 +5497,7 @@
       "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-economic-management-pillar": {
-      "title": "経済性管理 学習ガイド（技術士・総合技術監理 5 管理）",
+      "title": "経済性管理",
       "description": "技術士・総合技術監理部門の経済性管理（5 管理の第 1 軸）の試験対策学習ガイド。事業企画・品質・工程・原価・財務・設備・数理的手法の 7 カテゴリ約 130 キーワードを体系化し、頻出論点・学習導線・合格者視点のコラムをまとめた。択一・記述・口頭の試験対策の起点。",
       "shortTitle": "経済性管理",
       "subtitle": "事業企画・品質・工程・原価・財務・設備・数理的手法の 7 カテゴリを横断",
@@ -5513,7 +5513,7 @@
       "publishedAt": "2026-04-25",
       "seoTitle": "経済性管理 完全学習ガイド｜総合技術監理 5 管理 | doboku-note",
       "created": "2026-04-25",
-      "dateModified": "2026-04-30",
+      "dateModified": "2026-05-08",
       "faqs": [
         {
           "q": "経済性管理は試験で何問出題されますか？",
@@ -7195,7 +7195,7 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "toc_max_heading_level": 2,
       "seoTitle": "技術士二次試験 総合技術監理部門 平成23年度 択一式",
-      "dateModified": "2026-04-26"
+      "dateModified": "2026-05-08"
     },
     "pe-comprehensive-management-h23-secondary": {
       "title": "技術士二次試験 総合技術監理部門 平成23年度 記述式",
@@ -7228,7 +7228,7 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "toc_max_heading_level": 2,
       "seoTitle": "技術士二次試験 総合技術監理部門 平成24年度 択一式",
-      "dateModified": "2026-05-07"
+      "dateModified": "2026-05-08"
     },
     "pe-comprehensive-management-h24-secondary": {
       "title": "技術士二次試験 総合技術監理部門 平成24年度 記述式",
@@ -7327,7 +7327,7 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "toc_max_heading_level": 2,
       "seoTitle": "技術士二次試験 総合技術監理部門 平成27年度 択一式",
-      "dateModified": "2026-04-26"
+      "dateModified": "2026-05-08"
     },
     "pe-comprehensive-management-h27-secondary": {
       "title": "技術士二次試験 総合技術監理部門 平成27年度 記述式",
@@ -7360,7 +7360,7 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "toc_max_heading_level": 2,
       "seoTitle": "技術士二次試験 総合技術監理部門 平成28年度 択一式",
-      "dateModified": "2026-04-26"
+      "dateModified": "2026-05-08"
     },
     "pe-comprehensive-management-h28-secondary": {
       "title": "技術士二次試験 総合技術監理部門 平成28年度 記述式",
@@ -7393,7 +7393,7 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "toc_max_heading_level": 2,
       "seoTitle": "技術士二次試験 総合技術監理部門 平成29年度 択一式",
-      "dateModified": "2026-04-26"
+      "dateModified": "2026-05-08"
     },
     "pe-comprehensive-management-h29-secondary": {
       "title": "技術士二次試験 総合技術監理部門 平成29年度 記述式",
@@ -7426,7 +7426,7 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "toc_max_heading_level": 2,
       "seoTitle": "技術士二次試験 総合技術監理部門 平成30年度 択一式",
-      "dateModified": "2026-04-26"
+      "dateModified": "2026-05-08"
     },
     "pe-comprehensive-management-h30-secondary": {
       "title": "技術士二次試験 総合技術監理部門 平成30年度 記述式",
@@ -7827,7 +7827,7 @@
       "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-human-resource-management-pillar": {
-      "title": "人的資源管理 学習ガイド（技術士・総合技術監理 5 管理）",
+      "title": "人的資源管理",
       "description": "技術士・総合技術監理部門の人的資源管理（5 管理の第 2 軸）の試験対策学習ガイド。人の行動と組織・労働関係法と労務管理・人材活用計画・人材開発の 4 カテゴリ約 130 キーワードを体系化し、頻出論点・学習導線・合格者視点のコラムをまとめた。択一・記述・口頭の試験対策の起点。",
       "shortTitle": "人的資源管理",
       "subtitle": "人の行動と組織・労働関係法・人材活用・人材開発の 4 カテゴリを横断",
@@ -7843,7 +7843,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "人的資源管理 完全学習ガイド｜総合技術監理 5 管理 | doboku-note",
       "created": "2026-04-26",
-      "dateModified": "2026-04-30",
+      "dateModified": "2026-05-08",
       "faqs": [
         {
           "q": "人的資源管理は試験で何問出題されますか？",
@@ -8032,7 +8032,7 @@
       "revisionCycle": 1,
       "seoTitle": "無期転換ルール ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-indirect-manufacturing-cost": {
       "title": "製造間接費",
@@ -8066,7 +8066,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-individual-wage-management": {
       "title": "個別賃金管理",
@@ -8160,7 +8160,7 @@
       "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-information-management-pillar": {
-      "title": "情報管理 学習ガイド（技術士・総合技術監理 5 管理）",
+      "title": "情報管理",
       "description": "技術士・総合技術監理部門の情報管理（5 管理の第 3 軸）の試験対策学習ガイド。情報分析と情報活用・コミュニケーション・知的財産権・情報通信技術動向・情報セキュリティの 5 カテゴリ約 140 キーワードを体系化し、頻出論点・学習導線・合格者視点のコラムをまとめた。択一・記述・口頭の試験対策の起点。",
       "shortTitle": "情報管理",
       "subtitle": "情報分析・コミュニケーション・知財・ICT 動向・情報セキュリティの 5 カテゴリを横断",
@@ -8176,7 +8176,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "情報管理 完全学習ガイド｜総合技術監理 5 管理 | doboku-note",
       "created": "2026-04-26",
-      "dateModified": "2026-04-30",
+      "dateModified": "2026-05-08",
       "faqs": [
         {
           "q": "情報管理は試験で何問出題されますか？",
@@ -9175,7 +9175,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "労働組合法 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-last-minute-2026": {
       "title": "総合技術監理 記述式試験 直前対策2026",
@@ -9539,7 +9539,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-management-tradeoffs": {
       "title": "総合技術監理における5管理間トレードオフ 頻出パターンと解決フレーム",
@@ -9559,7 +9559,7 @@
       "published": true,
       "publishedAt": "2026-04-13T00:00:00.000Z",
       "seoTitle": "総合技術監理における5管理間トレードオフ 頻出パターンと解決フレーム | doboku-note",
-      "dateModified": "2026-04-28",
+      "dateModified": "2026-05-08",
       "faqs": [
         {
           "q": "5管理間トレードオフはなぜ少数のパターンに収束するのですか？",
@@ -9735,7 +9735,7 @@
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-meeting-design": {
       "title": "会議設計",
@@ -10657,6 +10657,45 @@
       "seoTitle": "特許権 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
       "dateModified": "2026-04-28"
+    },
+    "pe-comprehensive-management-pattern-essay-road-municipality": {
+      "title": "総監記述式 模範論文｜地方公共団体 道路担当",
+      "description": "技術士総合技術監理部門の記述式試験を「地方公共団体の道路担当」の立場で受験する人向けハブ。橋梁長寿命化・バイパス整備・トンネル天井板撤去・法面落石対策の4つの管理対象パターンと前提条件、R5〜R7の年度別模範論文へのリンクをまとめた。",
+      "shortTitle": "模範論文（道路発注者）",
+      "subtitle": "地方公共団体・道路担当の受験者向けハブ",
+      "category": "pe-comprehensive-management",
+      "group": "essay-pattern",
+      "tags": [
+        "技術士（総合技術監理部門）",
+        "模範論文",
+        "道路",
+        "地方公共団体",
+        "受験者属性別",
+        "記述式対策"
+      ],
+      "created": "2026-05-08T00:00:00.000Z",
+      "published": true,
+      "publishedAt": "2026-05-08T00:00:00.000Z",
+      "seoTitle": "総監記述式 模範論文｜地方公共団体 道路担当 | doboku-note",
+      "dateModified": "2026-05-08T00:00:00.000Z",
+      "faqs": [
+        {
+          "q": "なぜ受験者属性別に模範論文を分けるのですか？",
+          "a": "総監記述式論文の出来は「管理対象（事業）と前提条件の設定」で 7 割が決まります。立場・経験が異なる受験者が同じテンプレを使っても評価されにくいため、属性別に最適化された模範論文が必要です。"
+        },
+        {
+          "q": "私は地方公共団体の道路担当ですが、どの管理対象を選べばよいですか？",
+          "a": "過去経験が直接的に活かせる事業を選ぶのが原則です。維持管理経験が長いなら橋梁長寿命化、新設プロジェクト経験があるならバイパス整備、災害復旧経験があるなら法面落石対策が選択候補です。"
+        },
+        {
+          "q": "トンネルや法面は道路ではなく別分野では？",
+          "a": "技術士建設部門の専門事項では「トンネル」「土質及び基礎」が独立分野ですが、地方公共団体の道路担当が業務として関わる典型事業のため、本ページでは「道路担当が選べる管理対象」として並列に扱います。"
+        },
+        {
+          "q": "民間コンサル・施工業者の立場では使えますか？",
+          "a": "「立場・役割」の前提を入れ替えれば一部流用可能ですが、発注者と受注者では権限・利害関係者・予算管理の構造が異なるため、別属性のページ（追加予定）を参照することを推奨します。"
+        }
+      ]
     },
     "pe-comprehensive-management-payback-period-method": {
       "title": "回収期間法",
@@ -12024,6 +12063,42 @@
       "seoTitle": "技術士二次試験 総合技術監理部門 令和4年度 記述式",
       "dateModified": "2026-05-07"
     },
+    "pe-comprehensive-management-r05-essay-road-municipality": {
+      "title": "令和5年度 総監記述式 模範論文｜道路発注者版（SWOT分析・戦略立案）",
+      "description": "技術士総合技術監理部門 令和5年度 記述式試験（SWOT 分析・戦略立案）の模範論文。地方公共団体・道路維持管理担当の立場から、道路維持管理組織を題材に、強み×機会・弱み×機会・弱み×脅威の 3 戦略を 5 管理視点で論じる。",
+      "shortTitle": "R5 模範論文（道路発注者）",
+      "subtitle": "SWOT 分析テーマを道路維持管理組織で解く",
+      "category": "pe-comprehensive-management",
+      "group": "essay-pattern",
+      "tags": [
+        "技術士（総合技術監理部門）",
+        "模範論文",
+        "道路",
+        "地方公共団体",
+        "受験者属性別",
+        "記述式対策",
+        "SWOT分析"
+      ],
+      "created": "2026-05-08T00:00:00.000Z",
+      "published": true,
+      "publishedAt": "2026-05-08T00:00:00.000Z",
+      "seoTitle": "令和5年度 総監記述式 模範論文｜道路発注者版（SWOT分析） | doboku-note",
+      "dateModified": "2026-05-08T00:00:00.000Z",
+      "faqs": [
+        {
+          "q": "R5 はなぜ「組織」が対象なのですか？",
+          "a": "R5 の出題は従来の「事業・プロジェクト」単位ではなく「継続的に事業を実施する機能を有する組織」が対象になりました。組織として継続的にアウトプットを出すための戦略を問う設問のため、単一プロジェクトの説明では論旨が成立しません。"
+        },
+        {
+          "q": "SWOT の各要因は何個書けばよいですか？",
+          "a": "設問の指定通り「強み・弱み・機会・脅威の各 2 項目」が必須です。少なすぎても多すぎても減点対象になります。"
+        },
+        {
+          "q": "戦略は何本書くべきですか？",
+          "a": "設問では「2 つ以上」となっているため最低 2 本ですが、3 本書くことで「強み × 機会」「弱み × 機会」「弱み × 脅威」のクロス 3 種をカバーでき、論旨に厚みが出ます。本論文では 3 本構成を推奨します。"
+        }
+      ]
+    },
     "pe-comprehensive-management-r05-primary": {
       "title": "技術士二次試験 総合技術監理部門 令和5年度 択一式",
       "description": "技術士二次試験 総合技術監理部門 令和5年度 択一式の全問と解答解説。5つの管理分野・全40問を収録。",
@@ -12059,6 +12134,42 @@
       "seoTitle": "技術士二次試験 総合技術監理部門 令和5年度 記述式",
       "dateModified": "2026-04-28"
     },
+    "pe-comprehensive-management-r06-essay-road-municipality": {
+      "title": "令和6年度 総監記述式 模範論文｜道路発注者版（バイパス整備）",
+      "description": "技術士総合技術監理部門 令和6年度 記述式試験（カーボンニュートラル）の模範論文。地方公共団体・道路建設担当の立場から、バイパス道路整備事業を題材に、ICT 施工と BIM/CIM による低炭素化、2050 年の道路発電・CO2 吸収素材までを三層構造で論じる。",
+      "shortTitle": "R6 模範論文（道路発注者）",
+      "subtitle": "カーボンニュートラルテーマをバイパス整備事業で解く",
+      "category": "pe-comprehensive-management",
+      "group": "essay-pattern",
+      "tags": [
+        "技術士（総合技術監理部門）",
+        "模範論文",
+        "道路",
+        "地方公共団体",
+        "受験者属性別",
+        "記述式対策",
+        "カーボンニュートラル"
+      ],
+      "created": "2026-05-08T00:00:00.000Z",
+      "published": true,
+      "publishedAt": "2026-05-08T00:00:00.000Z",
+      "seoTitle": "令和6年度 総監記述式 模範論文｜道路発注者版（バイパス整備） | doboku-note",
+      "dateModified": "2026-05-08T00:00:00.000Z",
+      "faqs": [
+        {
+          "q": "なぜバイパス整備を題材に選ぶのですか？",
+          "a": "R6 の CN テーマは「建設プロセス全体の脱炭素化」が論点で、新設工事はその論点を多角的に論じやすいからです。施工段階のクリーン施工・資材物流・将来の道路機能拡張までを一気通貫で書けます。"
+        },
+        {
+          "q": "維持管理視点でも書けますか？",
+          "a": "橋梁長寿命化版（補修材料の低炭素化・延命化による LCA 改善）でも書けます。経験に応じて選択してください。維持管理側の論点は LCC（ライフサイクルコスト）と LCA の両立が中心になります。"
+        },
+        {
+          "q": "2050 年の施策はどこまで具体的に書くべきですか？",
+          "a": "技術名（路面発電・CO2 吸収コンクリート等）とその実装条件（性能規定・市場メカニズム等）まで踏み込んで書きます。技術論で終わらず「マネジメント」（合意形成・規制設計・補助金）に必ず接続してください。"
+        }
+      ]
+    },
     "pe-comprehensive-management-r06-primary": {
       "title": "技術士二次試験 総合技術監理部門 令和6年度 択一式",
       "description": "技術士二次試験 総合技術監理部門 令和6年度 択一式の全問と解答解説。5つの管理分野・全40問を収録。",
@@ -12093,6 +12204,42 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和6年度 記述式",
       "dateModified": "2026-04-28"
+    },
+    "pe-comprehensive-management-r07-essay-road-municipality": {
+      "title": "令和7年度 総監記述式 模範論文｜道路発注者版（橋梁長寿命化）",
+      "description": "技術士総合技術監理部門 令和7年度 記述式試験（少子高齢化）の模範論文。地方公共団体・道路維持管理担当の立場から、橋梁長寿命化修繕事業を題材に、技術継承・AI 活用・2050 年のインフラ集約までを三層構造で論じる。5 管理間トレードオフと採点者視点の整理付き。",
+      "shortTitle": "R7 模範論文（道路発注者）",
+      "subtitle": "少子高齢化テーマを橋梁長寿命化事業で解く",
+      "category": "pe-comprehensive-management",
+      "group": "essay-pattern",
+      "tags": [
+        "技術士（総合技術監理部門）",
+        "模範論文",
+        "道路",
+        "地方公共団体",
+        "受験者属性別",
+        "記述式対策",
+        "少子高齢化"
+      ],
+      "created": "2026-05-08T00:00:00.000Z",
+      "published": true,
+      "publishedAt": "2026-05-08T00:00:00.000Z",
+      "seoTitle": "令和7年度 総監記述式 模範論文｜道路発注者版（橋梁長寿命化） | doboku-note",
+      "dateModified": "2026-05-08T00:00:00.000Z",
+      "faqs": [
+        {
+          "q": "なぜ橋梁長寿命化を題材に選ぶのですか？",
+          "a": "R7 の少子高齢化テーマは「労働力減少下での維持管理」が論点の中核で、橋梁長寿命化はその典型業務だからです。発注者として技術継承・DX・予算制約を同時に論じやすく、過去経験を直結させやすい題材です。"
+        },
+        {
+          "q": "三層構造（現在→5 年以内→2050 年）はどう書けばよいですか？",
+          "a": "設問が三層に分かれている年度では、各層を独立した論文セクションとして書きます。現在は「課題と既存施策の限界」、5 年以内は「具体的な改善施策 2 つ＋トレードオフ」、2050 年は「抜本的な構造変革」の構成が王道です。"
+        },
+        {
+          "q": "トレードオフは何個書けばよいですか？",
+          "a": "5 年以内の施策セクションでは、各施策につき最低 1 つ（合計 2 つ以上）のトレードオフを明示します。情報管理 × 経済性管理、人的資源管理 × 経済性管理が頻出パターンで、克服策まで書ききって論旨を閉じます。"
+        }
+      ]
     },
     "pe-comprehensive-management-r07-primary": {
       "title": "技術士二次試験 総合技術監理部門 令和7年度 択一式",
@@ -13023,7 +13170,7 @@
       "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-safety-management-pillar": {
-      "title": "安全管理 学習ガイド（技術士・総合技術監理 5 管理）",
+      "title": "安全管理",
       "description": "技術士・総合技術監理部門の安全管理（5 管理の第 4 軸）の試験対策学習ガイド。安全の概念・リスクマネジメント・労働安全衛生・事故未然防止・危機管理・システム安全工学手法の 6 カテゴリ約 150 キーワードを体系化し、頻出論点・学習導線・合格者視点のコラムをまとめた。択一・記述・口頭の試験対策の起点。",
       "shortTitle": "安全管理",
       "subtitle": "安全の概念・リスクマネジメント・労安衛・未然防止・危機管理・システム安全工学の 6 カテゴリを横断",
@@ -13039,7 +13186,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "安全管理 完全学習ガイド｜総合技術監理 5 管理 | doboku-note",
       "created": "2026-04-26",
-      "dateModified": "2026-04-30",
+      "dateModified": "2026-05-08",
       "faqs": [
         {
           "q": "安全管理は試験で何問出題されますか？",
@@ -13581,7 +13728,7 @@
       "dateModified": "2026-05-07"
     },
     "pe-comprehensive-management-social-environment-management-pillar": {
-      "title": "社会環境管理 学習ガイド（技術士・総合技術監理 5 管理）",
+      "title": "社会環境管理",
       "description": "技術士・総合技術監理部門の社会環境管理（5 管理の第 5 軸）の試験対策学習ガイド。地球的規模の環境問題・地域環境問題・環境保全の基本原則・組織の社会的責任と環境管理活動の 4 カテゴリ約 130 キーワードを体系化し、頻出論点・学習導線・合格者視点のコラムをまとめた。択一・記述・口頭の試験対策の起点。",
       "shortTitle": "社会環境管理",
       "subtitle": "地球規模環境問題・地域環境問題・環境保全原則・組織の社会的責任の 4 カテゴリを横断",
@@ -13597,7 +13744,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "社会環境管理 完全学習ガイド｜総合技術監理 5 管理 | doboku-note",
       "created": "2026-04-26",
-      "dateModified": "2026-04-30",
+      "dateModified": "2026-05-08",
       "faqs": [
         {
           "q": "社会環境管理は試験で何問出題されますか？",
