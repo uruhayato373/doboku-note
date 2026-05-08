@@ -48,6 +48,8 @@ utmCampaign: 99-economic-management
 
 投資の時期と回収の時期には時間的ずれがあるため、貨幣の現在価値に換算する必要があります。
 
+![投資判断3手法の比較（NPV・IRR・回収期間法）](img/figure-2-investment-methods.png)
+
 **現在価値（PV：Present Value）の式**
 
 > PV = M_t / (1 + r)^t  
@@ -114,6 +116,8 @@ utmCampaign: 99-economic-management
 - **BOT 方式** — 建設 → 民間が運営 → 事業終了後に所有権移転
 - **コンセッション方式** — 所有権は公共主体、運営権のみ民間に設定
 
+![PFI 4方式の比較（BTO・BOT・RO・コンセッション）](img/figure-1-pfi-schemes.png)
+
 **VFM（Value For Money）** — 一定の支払い（Money）に対して最も価値の高いサービス（Value）を供給する考え方。従来方式と比較して PFI で総事業費をどれだけ削減できるかを示す割合。
 
 **リスク分担の5原則**
@@ -162,6 +166,8 @@ PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サ�
 **[品質計画](https://doboku-note.com/docs/pe-comprehensive-management-quality-planning?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 品質目標の設定と達成計画の立案プロセス。組織全体の品質方針を部門ごとに展開し、活動進捗で随時見直す。
 
 **QC7つ道具（数値データ）**
+
+![QC7つ道具 vs 新QC7つ道具（数値データ／言語データ）](img/figure-3-qc7-tools.png)
 
 QC7つ道具は主に**数値データ**を扱うことに適した7手法です。
 
@@ -358,6 +364,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **PERTとCPM**
 
+![PERT vs CPM — 日程計画2手法の使い分け](img/figure-4-pert-vs-cpm.png)
+
 **PERT**（Program Evaluation and Review Technique） — 1950 年代に米海軍がミサイル開発のために開発したスケジューリング手法。所要時間からネットワーク図（アローダイアグラム）を作成。
 
 **[CPM（Critical Path Method）](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 1950 年代に建設計画用に開発。前進計算で**最早開始日・最早終了日**を、後退計算で**最遅開始日・最遅終了日**を求め、その差から**フロート**（余裕日）を計算します。
@@ -393,6 +401,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 > **【出題例: [R5年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** ECRS の原則を用いた改善活動の説明で最も不適切なもの。3「品質許容範囲を狭める」を Simplify（簡素化）とする記述 → **正答3：許容範囲を狭めることは「厳格化」であり「簡素化」とは逆。ECRS は **排除→結合→順序入れ替え→簡素化** の優先順位で進める。**
 
 **開発プロセス5種**
+
+![開発プロセス5種の比較（ウォーターフォール／V字／スパイラル／アジャイル／イテレーティブ）](img/figure-5-dev-processes.png)
 
 製品・システムの開発手法5種は、それぞれの違いを問う択一の定番です。
 
@@ -495,6 +505,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **貸借対照表（B/S）**
 
+![財務3表の関係（B/S・P/L・C/F）](img/figure-6-financial-statements.png)
+
 **[貸借対照表（B/S：Balance Sheet）](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定時点（通常は決算日）の財政状態を表す書類。**借方（資産）と貸方（負債＋純資産）を一致させる**のが基本構造です。
 
 **借方（資産）** — 流動資産／固定資産（有形固定資産・無形固定資産・投資その他の資産）／繰延資産
@@ -551,6 +563,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 - **初期故障期** — 導入直後、設計・製造のばらつきで故障率が高い
 - **偶発故障期** — 安定期。故障率が一定値以下で推移
 - **摩耗故障期** — 劣化により再び故障率が増加
+
+![バスタブカーブと保全方式の対応](img/figure-7-bathtub-curve.png)
 
 「**摩耗故障期で予防保全が最も有効**」が択一の頻出論点です。
 
@@ -668,6 +682,8 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 各トレードオフを「**対立の構造**」「**解決フレームワーク**」「**残余リスクと監視**」の3段階で展開できると、記述式論文の論理展開が一気にしっかりします。
 
 各トピックは[令和7年版国土交通白書](https://www.mlit.go.jp/hakusyo/mlit/r06/hakusho/r07/index.html)の現行課題と直結するため、最新の論文設問にも対応できます。
+
+![経済性管理 × 他の4管理 — トレードオフマップ](img/figure-8-tradeoff-map.png)
 
 ### 経済性管理 × 安全管理（コスト圧縮と予防保全）
 
