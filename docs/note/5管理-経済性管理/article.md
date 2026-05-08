@@ -254,55 +254,366 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 ## 3. 工程管理（優先度: 高）
 
-### 3.1 PERT/CPMと工数見積り
+工程管理は、JIS Z 8141 で「生産工程における生産統制」と定義される、経済性管理の中核領域です。
 
-[PERT/CPM](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)はプロジェクトのスケジュール管理手法です。**クリティカルパス（最長経路）**上の作業が全体工期を決定します。クリティカルパス上の作業の余裕日数（フロート）はゼロです。
+評価尺度は **PQCDSME** — 生産性（P）／品質（Q）／コスト（C）／納期（D）／安全性（S）／意欲（M）／環境（E）の頭文字です。
 
-この「**クリティカルパス上はフロートゼロ**」という定義は択一での引っかけとして頻出です。ネットワーク図からクリティカルパスを特定する計算問題も出ます。
+### 3.1 総合生産計画
 
-工数見積りの3手法（[類推見積り](https://doboku-note.com/docs/pe-comprehensive-management-analogous-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・[パラメトリック見積り](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・[三点見積り](https://doboku-note.com/docs/pe-comprehensive-management-three-point-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)）の特徴の違いも択一の定番です。
+**総合生産計画** — 生産計画の最初に行われ、**大日程計画**とも呼ばれる。需要予測量と生産能力を合理的に均衡させることが目的です。
 
-### 3.2 JIT・SCMと開発プロセス
+均衡させるためには、需要予測量を満足するために必要な労働力・在庫・残業・外注の各量を求めます。コストの最小化だけでなく、**雇用の安定化や在庫の適正化**も重要な要素です。
 
-[JIT（Just-In-Time）生産方式](https://doboku-note.com/docs/pe-comprehensive-management-jit-production?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は「必要なものを、必要なときに、必要な量だけ生産する」トヨタ生産方式の核心です。かんばん方式・プル型生産との関係が択一に出ます。
+需要変動への対応方法は2系統に分かれます。
 
-[SCM（サプライチェーン管理）](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は調達→生産→物流→販売の全プロセスを一元管理する手法です。
+- **生産能力調整** — 残業・外注・人員変動などで能力側を変える
+- **需要平準化** — 需要側を平準化する（価格政策など）
 
-開発プロセスでは[ウォーターフォール](https://doboku-note.com/docs/pe-comprehensive-management-waterfall?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（要件定義→設計→実装→テストの順序固定）と[アジャイル](https://doboku-note.com/docs/pe-comprehensive-management-agile?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（短いイテレーションを繰り返す柔軟な手法）の対比が必須論点です。
+### 3.2 ジャストインタイム（JIT）生産方式
+
+[JIT（Just-In-Time）生産方式](https://doboku-note.com/docs/pe-comprehensive-management-jit-production?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) — JIS Z 8141 で「すべての工程が、後工程の要求に合わせて、必要な物を、必要なときに、必要な量だけ生産する生産方式」と定義。中間仕掛品の滞留や工程の遊休を生じさせないことがねらい。
+
+JIT を実現する基盤が **平準化生産**（最終組立工程の生産品種と生産量を平準化した生産方式）です。
+
+**プル型 vs プッシュ型** — JIT は後工程で使った量を前工程から引き取るため**プルシステム**。これに対して、あらかじめ定められたスケジュールに従い生産する方式は**プッシュシステム**です。
+
+**かんばん方式** — JIT の基本ツール。「生産指示かんばん」と「引き取りかんばん」の2種類が存在します。択一では「**かんばん ＝ プル型 ＝ JIT の実装手段**」の対応関係が頻出です。
+
+### 3.3 サプライチェーンマネジメント
+
+[SCM（サプライチェーンマネジメント）](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) — 材料供給から生産・流通・販売に至る物・サービスの供給連鎖をネットワークで結び、需要情報を企業間でリアルタイム共有することで業務全体のスピードと効率を高める経営コンセプト。
+
+基本的な考え方は **TOC（制約条件の理論：Theory of Constraints）** — ボトルネック工程を継続的に改善して全体システムのパフォーマンスを向上させます。
+
+**ブルウィップ効果** — 川下から川上に段階がさかのぼるにつれ、需要予測量の変動が増幅していく現象。SCM の典型的失敗パターンとして択一に出ます。
+
+SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠点の分散化／部品の標準化／サプライチェーンの可視化。
+
+### 3.4 MRP・ERP・CALS
+
+**MPS（基準生産計画）** — 総合生産計画を最終的に製品アイテム単位に分解。
+
+**MRP（資材所要量計画）** — 必要な部品を必要な時期に必要な量だけ調達・製造する手法。**BOM（構成部品表）**・リードタイム・手持在庫量・受入確定量が情報源。
+
+**ERP（統合業務システム）** — 受注から納入までの一連業務を処理。MRP を組み込み、会計・販売・人事まで包含。
+
+**CALS（生産・調達・運用支援統合情報システム）** — 原材料調達から設計・開発・生産・運用・保守まで全情報を電子化・一元管理。
+
+### 3.5 手順計画と標準時間
+
+**手順計画** — 製品の設計情報から、必要作業・工程順序・作業順序・作業条件を決める活動（JIS Z 8141）。目的は「総作業時間の短縮」「生産方式の標準化」「作業時間の平準化」の3つ。
+
+**標準時間** — 適性を持ち習熟した作業者が、所定条件下で必要な余裕をもち正常な作業ペースで仕事を遂行するために必要な時間。**主体作業時間**（正味時間＋余裕時間）と**準備段取作業時間**（正味時間＋余裕時間）の合計で構成されます。
+
+**生産の4M** — MAN（人）／MACHINE（機械）／MATERIAL（材料）／METHOD（方法）。手順計画の実現手段の主要素として頻出。
+
+### 3.6 負荷計画
+
+**負荷計画**（工数計画・余力計画とも） — 生産部門ごとに課す仕事量（生産負荷）を計算し、計画期間全体で各職場に割り付ける活動。**負荷工数と能力工数の調整による納期確保**が目的です。
+
+**労働時間基準の式**
+
+> 負荷工数 ＝ 標準作業時間 × 生産数 ＋ 段取り時間  
+> 能力工数 ＝ 就業時間 × （1 − 間接作業率）× 作業者数 × 出勤率
+
+**負荷率** ＝ 負荷工数 ÷ 能力工数 × 100[%]。
+
+**能力調整** — 所要能力 ＞ 保有能力なら残業・外注化、所要能力 ＜ 保有能力なら就業時間短縮・内製化。
+
+**負荷平準化** — 山積み・山くずし法。**リードタイム**（加工時間＋段取り時間＋停滞時間＋移動時間＋作業時間）を安定化させることが計画通りの生産実現に不可欠です。
+
+### 3.7 工数見積り
+
+工数見積りには3手法があり、それぞれの特徴の違いが択一の定番論点です。
+
+**[類推見積り](https://doboku-note.com/docs/pe-comprehensive-management-analogous-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去の類似作業の実績データを使う見積り。簡便だが類似プロジェクトがないと使えない。
+
+**[パラメトリック見積り](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（係数見積り） — 過去のデータをもとに得られたパラメータ（係数）を使う。
+
+**[三点見積り](https://doboku-note.com/docs/pe-comprehensive-management-three-point-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 悲観値（P）・最頻値（M）・楽観値（O）を加重平均する手法。
+
+> 三点見積法 ＝ （P ＋ 4M ＋ O）÷ 6
+
+「**3 点見積りの分母は 6**」「M（最頻値）の係数は 4」が頻出の引っかけです。
+
+### 3.8 PERTとCPM
+
+**PERT**（Program Evaluation and Review Technique） — 1950 年代に米海軍がミサイル開発のために開発したスケジューリング手法。所要時間からネットワーク図（アローダイアグラム）を作成。
+
+**[CPM（Critical Path Method）](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 1950 年代に建設計画用に開発。前進計算で**最早開始日・最早終了日**を、後退計算で**最遅開始日・最遅終了日**を求め、その差から**フロート**（余裕日）を計算します。
+
+**フロート** — プロジェクト終了日を遅らせず当該作業を遅らせられる余裕日。プロジェクト全体の余裕日を**トータルフロート**、2つの作業関係だけで継続作業を遅らせず先行作業を遅らせられる余裕日を**フリーフロート**と呼びます。
+
+**クリティカルパス** — フロートがゼロ以下の作業チェーン。マイナスならスケジュール通り終わらないので必ず改善が必要です。
+
+「**クリティカルパス ＝ フロートゼロの最長経路**」が択一の核心。ネットワーク図からクリティカルパスを特定する計算問題も毎年出ます。
+
+### 3.9 生産統制
+
+**生産統制** — 日程計画通りに製造工程が運営されているか監視し、遅延があれば対策を講じる進度管理全般。3つの管理活動で構成されます。
+
+- **現品管理** — 資材・仕掛品・備品の運搬・移動・停滞・保管の状況を管理。**現品の経済的処理**と**数量・所在の把握**が目的
+- **余力管理**（工数管理） — 各工程の現在の負荷と現有能力を把握し、再配分で能力と負荷を均衡させる活動。「余力 ＝ 能力 − 負荷」
+- **進捗管理**（進度管理・納期管理） — 仕事の進行状況を把握し、日々の進み具合を調整する活動
+
+3者の使い分けは「**現品 ＝ モノ／余力 ＝ 工数／進捗 ＝ 時間**」と整理すると択一で迷いません。
+
+### 3.10 改善活動
+
+業務を見直して改善する活動として、3つのキーワードが択一に出ます。
+
+- **5S** — 整理・整頓・清掃・清潔・しつけ
+- **ECRS の原則** — Eliminate（排除）／Combine（結合）／Rearrange（順序入れ替え）／Simplify（簡素化）の4原則。改善の優先順位もこの順番
+- **3M** — ムリ・ムラ・ムダ。トヨタ生産方式の根本概念
+
+### 3.11 開発プロセス5種
+
+製品・システムの開発手法5種は、それぞれの違いを問う択一の定番です。
+
+- **[ウォーターフォール型](https://doboku-note.com/docs/pe-comprehensive-management-waterfall?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 要件定義→基本設計→詳細設計→コーディング→テストの順序固定。上流から下流へ一方向
+- **V 字型モデル** — ウォーターフォールを折り返し、詳細設計を単体テスト・基本設計を結合テスト・要件定義をシステムテストで検証
+- **スパイラル型** — 機能ごとに要件定義→設計→開発→テストを繰り返し、完成度を徐々に上げる。やり直しが最小限
+- **[アジャイル型](https://doboku-note.com/docs/pe-comprehensive-management-agile?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 小さい機能単位で計画→設計→実装→テストを繰り返し、ユーザーフィードバックを取り入れる
+- **イテレーティブ型** — 計画→設計→実装→テストを単純に反復する手法
+
+「ウォーターフォール ＝ 順序固定／アジャイル ＝ 短いイテレーション／V字 ＝ 折り返し対応」の3者比較が頻出です。
 
 ---
 
-## 4. 原価管理・財務会計（優先度: 高）
+## 4. 原価管理（優先度: 高）
 
-### 4.1 原価計算の種類
+**原価管理** — 標準原価を設定し、実際原価との差異を分析して対策を講じ、原価低減を実現する活動です。**原価企画**（仕様決定時）と、**原価維持・原価改善**（仕様決定後）の2系統に分かれます。
 
-[標準原価計算](https://doboku-note.com/docs/pe-comprehensive-management-standard-costing?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（あらかじめ設定した標準コストと実績のギャップ＝差異分析）と実際原価計算・予定原価計算の3分類は択一での定義問題に出ます。
+### 4.1 原価企画
 
-[活動基準原価計算（ABC）](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は間接費を「活動」に紐づけて配賦する手法です。「**従来の製品ベース原価計算では間接費の配賦が不適切になる問題を解決**」という文脈が択一の核心です。
+**原価企画** — 新製品開発において、企画段階で製品ライフサイクル全体の目標原価を設定し、全社的活動で目標を達成させる活動。プロセスは5ステップ。
 
-[損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（売上 = 総費用となる販売量・売上高）の計算問題は毎年出ます。「損益分岐点売上高 = 固定費 ÷ (1 - 変動費率)」という公式は必須です。
+1. 製品コンセプトと目標利益を明確化
+2. 目標利益から**目標原価**を逆算
+3. 構造ごと・部品ごとに目標原価を割り付ける
+4. 設計段階で原価低減の検討と修正を繰り返す
+5. 製造移行時に仕様変更対応・改善策検討
 
-### 4.2 財務三表
+**目標原価＝販売価格−目標利益** という逆算思考が原価企画の本質です。
 
-[貸借対照表（B/S）](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（資産=負債+純資産の等式）・[損益計算書（P/L）](https://doboku-note.com/docs/pe-comprehensive-management-income-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（売上高から純利益まで5段階の利益計算）・[キャッシュフロー計算書（C/F）](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（営業・投資・財務の3活動分類）は財務三表として択一の出題頻度が高いです。
+### 4.2 原価計算の3種類
 
-「**利益があっても資金不足で倒産するキャッシュフロー問題（黒字倒産）**」は財務管理の核心論点として記述式でも使えます。
+原価計算の3分類は択一の定義問題で頻出です。
+
+**[標準原価計算](https://doboku-note.com/docs/pe-comprehensive-management-standard-costing?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 原価管理・原価低減の基準となる標準原価を設定し、実際原価との差異分析で対策を立案。標準は実際に低減が期待できる範囲で設定します。
+
+**実際原価計算** — 実績ベースで計算。3 ステップで進めます。
+
+1. **費目別原価計算** — 材料費・労務費・経費に分類し、各々を直接費・間接費に細分
+2. **部門別原価計算** — 費目別の費用を製造部門費に配賦
+3. **製品別原価計算** — 直接材料費・直接労務費・直接経費・製造部門費を製品別に集計
+
+**予定原価計算** — 前年実績などをもとに予定単価・予定消費量を設定して算出。
+
+### 4.3 活動基準原価計算（ABC）
+
+**[活動基準原価計算（ABC：Activity Based Costing）](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 活動ごとに発生した原価を正しく振り分ける手法。
+
+**伝統的原価計算の問題** — 多量生産品に間接費が多く配賦され、少量生産品の間接費負担が過小になる。ABC は **少量生産品に製造間接費を多く配賦** する結果になります。金融業・サービス業でも活用されています。
+
+**コストドライバー**（配賦基準）には2系統あります。
+
+1. **資源（リソース）ドライバー** — 各活動が消費した資源コストを活動ごとに割り当て
+2. **活動（アクティビティ）ドライバー** — 各製品が消費した活動を製品ごとに割り当て
+
+例：部品数・段取り回数・検査回数・仕様書枚数・開発者数。
+
+### 4.4 管理会計と損益分岐点
+
+企業会計は**財務会計**（外部報告）と**管理会計**（内部経営判断）に大別されます。
+
+**[損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 総収益と総費用が一致する売上高。計算問題が毎年出ます。
+
+> 損益分岐点売上高 ＝ 固定費 ÷（1 − 変動費率）  
+> 限界利益 ＝ 売上 − 変動費 ＝ 固定費 ＋ 利益
+
+- **変動費** — 売上高・販売数量に比例（材料費・外注費・販売手数料）
+- **固定費** — 売上高に関係なく一定期間で発生（家賃・人件費・リース料・水道光熱費）
+
+固定費が増えるか変動費率が上がると、損益分岐点はグラフの**右側**に移動します（達成しにくくなる）。
+
+### 4.5 マテリアルフローコスト会計（MFCA）
+
+**MFCA（Material Flow Cost Accounting）** — 製造プロセスでロスとなったマテリアル（原材料・副資材・エネルギー）を**「負の製品コスト」**として算出する会計手法。
+
+経営者に対して**廃棄物削減を動機付ける**点が特徴で、環境会計と原価管理を結びつける手法として近年注目されています。
 
 ---
 
-## 5. 設備管理・数理的手法（優先度: 中）
+## 5. 財務会計（優先度: 高）
 
-### 5.1 設備保全の4分類
+**財務会計** — 株主・債権者・関係官庁などの外部利害関係者に財務情報を提供するための会計。管理会計（内部用）と区別されます。
 
-[予防保全](https://doboku-note.com/docs/pe-comprehensive-management-preventive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（定期的な点検・部品交換）と[予知保全](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（センサーで状態を監視して最適タイミングで保全）・事後保全・改良保全の4分類が択一で問われます。
+### 5.1 企業会計原則の7原則
 
-[バスタブカーブ](https://doboku-note.com/docs/pe-comprehensive-management-bathtub-curve?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は故障率の時間推移を示す曲線で「初期故障期→偶発故障期→摩耗故障期」の3段階で構成されます。「摩耗故障期に予防保全が最も有効」という論点が択一に出ます。
+財務諸表は**企業会計原則**に基づいて作成され、一般原則は7つです。
 
-### 5.2 数理的意思決定手法
+1. **真実性の原則** — 真実な報告を提供
+2. **正規の簿記の原則** — すべての取引を正確に記帳
+3. **資本利益区別の原則** — 資本剰余金と利益剰余金を混同しない
+4. **明瞭性の原則** — 利害関係者に明瞭に表示
+5. **継続性の原則** — 処理原則・手続を毎期継続適用
+6. **保守主義の原則** — 不利な影響に備え健全な処理
+7. **単一性の原則** — 異なる目的の財務諸表でも会計記録は一致
 
-[モンテカルロシミュレーション](https://doboku-note.com/docs/pe-comprehensive-management-monte-carlo-simulation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は乱数を使って確率的な問題をシミュレートする手法で、リスク分析に用いられます。
+### 5.2 貸借対照表（B/S）
 
-[線形計画法](https://doboku-note.com/docs/pe-comprehensive-management-linear-programming?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（目的関数を線形制約のもとで最適化）と[AHP（階層分析法）](https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（複数基準での意思決定を階層化して重み付け）は、それぞれの用途の違いを問う択一問題として出ます。
+**[貸借対照表（B/S：Balance Sheet）](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定時点（通常は決算日）の財政状態を表す書類。**借方（資産）と貸方（負債＋純資産）を一致させる**のが基本構造です。
+
+**借方（資産）** — 流動資産／固定資産（有形固定資産・無形固定資産・投資その他の資産）／繰延資産
+
+**貸方（負債＋純資産）** — 流動負債／固定負債／純資産（株主資本・その他の包括利益累計額・新株予約権）
+
+**減価償却費** — 有形固定資産に含まれ、費用でありながら支出を伴わないため、**その分が内部に留保される**効果が生じます（後述の C/F でも重要）。
+
+### 5.3 損益計算書（P/L）
+
+**[損益計算書（P/L：Profit and Loss Statement）](https://doboku-note.com/docs/pe-comprehensive-management-income-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定期間（通常 1 年）の経営成績を表します。**5 段階の利益**が階層的に算出されます。
+
+1. **売上総利益（粗利）** ＝ 売上高 − 売上原価
+2. **営業利益** ＝ 売上総利益 − 販売費及び一般管理費
+3. **経常利益** ＝ 営業利益 ± 営業外損益
+4. **税引前当期純利益** ＝ 経常利益 ± 特別損益
+5. **当期純利益** ＝ 税引前当期純利益 − 法人税等
+
+「**営業利益 ＝ 本業の儲け／経常利益 ＝ 本業 ＋ 財務活動／純利益 ＝ 最終利益**」の階層関係が択一頻出。
+
+### 5.4 キャッシュ・フロー計算書（C/F）
+
+**[キャッシュ・フロー計算書（C/F）](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 営業活動・投資活動・財務活動の3区分で現金の出入りを記載。
+
+- **営業 CF** — 本業による収入。減価償却費は**非現金支出費用**のため利益に加え戻されて記載
+- **投資 CF** — 設備や有価証券の取得・売却による増減。投資が多い製造業では通常マイナス
+- **財務 CF** — 借入・返済・社債発行・配当などによる増減
+
+**フリー・キャッシュ・フロー（FCF）** ＝ 営業 CF ＋ 投資 CF。自由に使える現金を示す指標です。
+
+**増減符号の覚え方**
+
+- 売上債権・棚卸資産の **増加** はキャッシュ **減少**（−）
+- 購入債務の **増加** はキャッシュ **増加**（＋）
+- 固定資産の **増加** はキャッシュ **減少**（−）
+- 借入金の **増加** はキャッシュ **増加**（＋）
+
+「**利益が出ていてもキャッシュが回らず倒産する黒字倒産**」は財務管理の核心論点として記述式でも引用できます。
+
+---
+
+## 6. 設備管理（優先度: 中）
+
+設備やシステムの故障率は使用時間で変化するため、時期に合わせた管理が必要です。
+
+### 6.1 バスタブカーブ
+
+**[バスタブカーブ](https://doboku-note.com/docs/pe-comprehensive-management-bathtub-curve?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 故障率の時間推移を示す曲線。3 段階で構成されます。
+
+- **初期故障期** — 導入直後、設計・製造のばらつきで故障率が高い
+- **偶発故障期** — 安定期。故障率が一定値以下で推移
+- **摩耗故障期** — 劣化により再び故障率が増加
+
+「**摩耗故障期で予防保全が最も有効**」が択一の頻出論点です。
+
+### 6.2 設備総合効率
+
+**設備総合効率** — JIS Z 8141 で「設備の使用効率の度合いを表す指標」と定義。
+
+> 設備総合効率 ＝ 時間稼働率 × 性能稼働率 × 良品率
+
+向上策は3方向 — 故障時間短縮で**時間稼働率**を上げる／加工数増で**性能稼働率**を上げる／不適合品削減で**良品率**を上げる。
+
+### 6.3 設備計画
+
+**設備計画** — 経営戦略の一環として事業計画に基づき策定。目的別に4分類されます。
+
+1. **取替投資** — 老朽化設備の取り替え
+2. **拡張投資** — 生産能力の拡大
+3. **製品投資** — 原価引き下げや性能アップ
+4. **戦略的投資** — リスク減少投資・厚生投資
+
+経済性手法は**資金回収期間法・原価比較法・投資利益率法**。異なる時点での資金収支を比較するため**等価換算**が必要です。
+
+### 6.4 設備保全6種類
+
+JIS Z 8141 で定義される保全活動は、**維持活動**（予防保全・事後保全）と**改善活動**（改良保全・保全予防）に大別されます。
+
+- **[予防保全](https://doboku-note.com/docs/pe-comprehensive-management-preventive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 故障に至る前に寿命を推定し、故障を未然防止
+- **事後保全** — 故障発見段階でその故障を取り除く
+- **定期保全** — 故障記録・保全記録の評価から周期を決め、周期ごとに行う予防保全
+- **[予知保全](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 設備診断技術で劣化傾向を管理し、最適時期に対策を行う予防保全
+- **改良保全** — 故障が起こりにくい設備への改善・性能向上
+- **保全予防** — 計画・設計段階から不良・故障の予知・予測と排除対策を織り込む
+
+JIS Z 8115 で定義される追加用語も択一で問われます。
+
+- **日常保全** — 日常的な活動で性能劣化を防止
+- **経時保全** — 累積動作時間に達したときの予防保全
+- **状態監視保全** — 状態監視に基づく予防保全
+- **時間計画保全** — 定められた時間計画に従う予防保全
+
+事後保全は2分類 — **緊急保全**（突発故障時に直ちに行う）と**通常事後保全**（代替機がある設備の故障後対応）。
+
+---
+
+## 7. 計画・管理の数理的手法（優先度: 中）
+
+総合技術監理が必要な業務には俯瞰的判断が求められるため、数理的手法と問題解決手法の知識が必須です。
+
+### 7.1 シミュレーション
+
+**シミュレーション** — 不確定要素を含む現実問題をコンピュータでモデル化する手法。2系統あります。
+
+- **連続型シミュレーション** — 微分方程式・差分方程式で表現されるモデル
+- **離散型シミュレーション** — 特定イベントの生起によるモデル（待ち行列など）
+
+**[モンテカルロ・シミュレーション](https://doboku-note.com/docs/pe-comprehensive-management-monte-carlo-simulation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 業務管理で最も一般的。乱数や物理的にランダムなメカニズムを使った実験で数学的な近似解を求めます。試行回数を増やすほど精度が上がるため**高速コンピュータが必要**で、コストが高いのが欠点。スケジュール予測など中精度で十分な事項に適します。
+
+結果は**作業完了日数とその達成可能性のSカーブ**で示されます。
+
+### 7.2 最適化手法
+
+**[線形計画問題](https://doboku-note.com/docs/pe-comprehensive-management-linear-programming?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 制約条件が線形不等式・等式、目的関数が線形関数の問題。連続変数なら2次元グラフで容易に最適解が求まります。
+
+**整数計画問題** — 生産量が整数値でなければならない問題（テレビ・自動車などの生産計画）。解くのが難しくなります。
+
+**パレート最適** — 他の個人の満足を減じることなしに、どの個人の満足も増加できない状態。**多目的最適化**ではパレート最適を考える必要があり、最良解は意思決定者の選好に依存します。
+
+### 7.3 階層化意思決定法（AHP）
+
+**[AHP（Analytic Hierarchy Process）](https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 階層構造を使って代替案を定量評価する手法。複数階層の評価要因の**重要度係数**と**評価値**から代替案の総合評価値を算出します。
+
+**重要度係数の制約** — 各階層での合計が 1（W₁ ＋ W₂ ＝ 1、W₁₁ ＋ W₁₂ ＝ 1 など）。
+
+**総合評価値の計算式（A 案、2 階層 4 要因の例）**
+
+> Sa ＝ W₁ × W₁₁ × A₁ ＋ W₁ × W₁₂ × A₂ ＋ W₂ × W₂₁ × A₃ ＋ W₂ × W₂₂ × A₄
+
+代替案について複数の評価基準で**一対比較行列**を作成し、重要度を数値化して最も望ましい代替案を決定。複数人での意思決定でも、重要度係数の統合や評点の相談で適用可能です。
+
+### 7.4 問題解決手法5種
+
+総合技術監理に必要な問題解決手法は5種類あり、それぞれの特徴の違いが択一に出ます。
+
+**デルファイ法**（収束アンケート法） — 複数の専門家に同じテーマで何度かアンケートを繰り返し、回答が収束していくことを利用。**匿名性**により特定関係者の影響力を排除できます。通常 3 回のアンケートでまとまることが多いとされます。
+
+**ブレインストーミング法** — 創造性開発のための集団的思考技術。4 ルール — 他人を批判しない／自由奔放を歓迎／質より量／他人のアイデアを発展。出されたアイデアの整理に**特性要因図（魚の骨ダイアグラム）**や**親和図**を使用します。
+
+**過程決定計画図（PDPC：Process Decision Program Chart）** — 危機的状況に陥ったとき、将来起こり得る重要な局面と結果を有向グラフで表し、要所で的確な判断ができるよう準備する手法。
+
+**ゲーム理論** — 意思決定主体が複数存在する状況を数学的に扱う方法論。2 系統あります。
+
+- **非協力ゲーム** — プレイヤー間の話し合いがない、またはあっても拘束力なし
+- **協力ゲーム** — プレイヤー間の合意に拘束力がある状態
+
+**VE（Value Engineering）** — 製品・サービスの価値を、機能とコストの関係で把握して価値向上を図る手法。
+
+> 価値 ＝ 機能 ÷ コスト
+
+機能は**使用機能**（効果・性能）と**魅力機能**（デザイン・色彩）に分類。基本ステップは **機能定義 → 機能評価 → 代替案作成** です。
 
 ---
 
