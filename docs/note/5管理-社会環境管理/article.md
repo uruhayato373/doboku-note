@@ -42,7 +42,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[リオ宣言](https://doboku-note.com/docs/pe-comprehensive-management-rio-declaration?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
-[**国連環境開発会議**](https://doboku-note.com/docs/pe-comprehensive-management-unced-earth-summit?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management) （地球サミット）は1992年にブラジルのリオ・デ・ジャネイロで開催され、**環境と開発に関するリオ宣言** （リオ宣言）として持続可能な開発のあり方を示す27の原則が採択されました。同時に「気候変動枠組条約」「生物多様性条約」「森林原則声明」「[アジェンダ21](https://doboku-note.com/docs/pe-comprehensive-management-agenda-21?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)」も採択されています。
+[**国連環境開発会議**](https://doboku-note.com/docs/pe-comprehensive-management-unced-earth-summit?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management) （地球サミット）は1992年にブラジルのリオ・デ・ジャネイロで開催され、**環境と開発に関するリオ宣言** （リオ宣言）として持続可能な開発のあり方を示す27の原則が採択されました。同時に「[気候変動枠組条約](https://unfccc.int/)」「生物多様性条約」「森林原則声明」「[アジェンダ21](https://doboku-note.com/docs/pe-comprehensive-management-agenda-21?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)」も採択されています。
 
 **[人間開発指数（HDI）](https://doboku-note.com/docs/pe-comprehensive-management-human-development-index?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 国連開発計画が設定した、各国の人間開発の度合いを測る指数。①健康（平均寿命指数）②知識（就学予想年数指数＋平均就学年数指数）③生活水準（GNI）の3分野の平均達成度で評価します。
 
@@ -50,7 +50,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[パリ協定と気候変動・国際対応](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-international?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
-**パリ協定** は2015年12月の COP21 で採択された地球温暖化対策の国際枠組みで、次の要素が盛り込まれています。
+**[パリ協定](https://unfccc.int/process-and-meetings/the-paris-agreement)** は2015年12月の COP21 で採択された地球温暖化対策の国際枠組みで、次の要素が盛り込まれています。
 
 - 世界共通の長期目標として **2℃目標** の設定と **1.5℃に抑える努力** を追求
 - 主要排出国を含むすべての国が削減目標（NDC）を **5年ごとに提出・更新**
@@ -64,7 +64,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **IPCC（気候変動に関する政府間パネル）** — 世界の科学者が集まり気候変動に関する科学的根拠を評価・報告する機関。第5次評価報告書では「温暖化は疑う余地がない」「世界平均地上気温は1880〜2012年で0.85℃上昇」「世界年平均海面水位は1901〜2010年で0.19m上昇」と示されました。
 
-**[地球温暖化対策推進法](https://doboku-note.com/docs/pe-comprehensive-management-global-warming-countermeasures-act?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 国際条約に基づき制定された法律。第2条で **温室効果ガス（GHG）7種** を定義します。
+**[地球温暖化対策推進法](https://doboku-note.com/docs/pe-comprehensive-management-global-warming-countermeasures-act?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 国際条約に基づき制定された法律。[第2条](https://laws.e-gov.go.jp/law/410AC0000000117#Mp-At_2)で **温室効果ガス（GHG）7種** を定義します。
 
 1. 二酸化炭素（CO₂）
 2. メタン（CH₄）
@@ -151,7 +151,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 2. 生物多様性の構成要素の持続的な利用
 3. **遺伝資源の利用から生ずる利益の公正かつ衡平な配分**
 
-**[生物多様性基本法](https://doboku-note.com/docs/pe-comprehensive-management-biodiversity-basic-act?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 「生物の多様性の保全及び持続可能な利用」を目的とする法律。第3条第5項で「地球温暖化が生物の多様性に深刻な影響を及ぼすおそれ」と「生物多様性の保全と利用が地球温暖化防止に資する」という相互関係を規定しています。
+**[生物多様性基本法](https://doboku-note.com/docs/pe-comprehensive-management-biodiversity-basic-act?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 「生物の多様性の保全及び持続可能な利用」を目的とする法律。[第3条第5項](https://laws.e-gov.go.jp/law/420AC0000000058#Mp-At_3)で「地球温暖化が生物の多様性に深刻な影響を及ぼすおそれ」と「生物多様性の保全と利用が地球温暖化防止に資する」という相互関係を規定しています。
 
 **[昆明・モントリオール生物多様性枠組み](https://doboku-note.com/docs/pe-comprehensive-management-kunming-montreal-framework?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** で示された **30by30 目標** は2022年の生物多様性条約 COP15（昆明・モントリオール）で採択され、2021年の G7 サミットで G7各国が自国での実現を約束しました（2030年までに陸と海の30%以上を保全する目標）。**OECM** （保護地区以外で生物多様性保全に資する地域）も併用されます。
 
@@ -313,7 +313,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[放射性物質汚染対策対処特措法](https://doboku-note.com/docs/pe-comprehensive-management-radioactive-decontamination-act?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** — 東日本大震災で発生した原子力発電所事故の放射性物質対策のための法律。**特定廃棄物** （対策地域内廃棄物＋指定廃棄物）の処理基準と、**除染特別地域** （環境省令の要件に該当する地域、国が除染を実施）を規定。
 
-**景観法** — 「美しく風格のある国土の形成、潤いのある豊かな生活環境の創造及び個性的で活力ある地域社会の実現」が目的。**景観行政団体** は地方自治法の指定都市・中核市、その他の区域では都道府県。**景観計画** は環境基本法・都市計画法・自然公園法に適合させる必要があります。基本理念4項目と景観計画の必須記載事項6項目（区域・行為制限・景観重要建造物等の指定方針・形態色彩制限・高さ制限・敷地面積最低限度）が択一の論点。
+**[景観法](https://laws.e-gov.go.jp/law/416AC0000000110)** — 「美しく風格のある国土の形成、潤いのある豊かな生活環境の創造及び個性的で活力ある地域社会の実現」が目的。**景観行政団体** は地方自治法の指定都市・中核市、その他の区域では都道府県。**景観計画** は環境基本法・都市計画法・自然公園法に適合させる必要があります。基本理念4項目と景観計画の必須記載事項6項目（区域・行為制限・景観重要建造物等の指定方針・形態色彩制限・高さ制限・敷地面積最低限度）が択一の論点。
 
 ---
 
@@ -402,7 +402,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 
 **[環境影響評価（環境アセスメント）](https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)**
 
-大規模な開発事業を行うときに、あらかじめその開発が環境に与える影響を予測・評価し、住民・関係自治体の意見を聴いたり専門家の審査を受けることで適正な環境配慮を確保する手続き。**環境影響評価法** に定められています。
+大規模な開発事業を行うときに、あらかじめその開発が環境に与える影響を予測・評価し、住民・関係自治体の意見を聴いたり専門家の審査を受けることで適正な環境配慮を確保する手続き。**[環境影響評価法](https://laws.e-gov.go.jp/law/409AC0000000081)** に定められています。
 
 ![環境アセスメント — 7工程フロー（配慮書→スクリーニング→スコーピング→実施→準備書→評価書→事後調査）](img/figure-6-env-assessment-flow.png)
 
