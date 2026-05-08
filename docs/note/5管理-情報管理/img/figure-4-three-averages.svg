@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
   
   <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">3種類の平均の使い分け</text>
   <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">算術平均 / 幾何平均 / 調和平均</text>
@@ -33,6 +33,6 @@
     <text x="806.6666666666666" y="356" font-size="18" fill="#555555">往復の平均速度・単価の平均</text>
     <text x="806.6666666666666" y="412" font-size="19" font-weight="700" fill="#b22234">注意点</text>
     <text x="806.6666666666666" y="438" font-size="18" fill="#b22234">「同距離」か「同量」が前提</text>
-  <text x="40" y="540" font-size="18" fill="#8a8a8a">覚え方: 比率・成長 → 幾何平均（√の形）、速度・密度 → 調和平均（逆数）、それ以外 → 算術平均</text>
+  <text x="40" y="520" font-size="18" fill="#8a8a8a">覚え方: 比率・成長 → 幾何平均（√の形）、速度・密度 → 調和平均（逆数）、それ以外 → 算術平均</text>
   
 </svg>

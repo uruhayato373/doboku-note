@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="728" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
   
   <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">コミュニケーション技法7種</text>
   <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">定義・適用場面の対応関係を整理する</text>
@@ -24,9 +24,9 @@
     <text x="124" y="360" font-size="22" font-weight="700" fill="#b22234">ネゴシエーション</text>
     <text x="124" y="386" font-size="18" fill="#555555">Win-Win を目指した合意・調整</text>
     <rect x="40" y="404" width="1120" height="68" rx="8" fill="#f8fafc"/>
-    <rect x="40" y="404" width="64" height="68" rx="8" fill="#6a1b9a"/>
+    <rect x="40" y="404" width="64" height="68" rx="8" fill="#1a3a5c"/>
     <text x="72" y="448" text-anchor="middle" font-size="26" font-weight="800" fill="white">⑤</text>
-    <text x="124" y="432" font-size="22" font-weight="700" fill="#6a1b9a">合意形成</text>
+    <text x="124" y="432" font-size="22" font-weight="700" fill="#1a3a5c">合意形成</text>
     <text x="124" y="458" font-size="18" fill="#555555">ステークホルダーの意見一致を図る</text>
     <rect x="40" y="476" width="1120" height="68" rx="8" fill="white"/>
     <rect x="40" y="476" width="64" height="68" rx="8" fill="#2e6da4"/>
@@ -38,6 +38,6 @@
     <text x="72" y="592" text-anchor="middle" font-size="26" font-weight="800" fill="white">⑦</text>
     <text x="124" y="576" font-size="22" font-weight="700" fill="#3a7d44">プル型</text>
     <text x="124" y="602" font-size="18" fill="#555555">受信者が必要時にアクセス（ポータル）</text>
-  <text x="40" y="640" font-size="18" fill="#b22234">択一引っかけ：コーチングは「批判的評価を促す」ではなく「気づきを引き出す」。プッシュ型は「読まれるかは受信者次第」。</text>
+  <text x="40" y="626" font-size="18" fill="#b22234">択一引っかけ：コーチングは「批判的評価を促す」ではなく「気づきを引き出す」。プッシュ型は「読まれるかは受信者次第」。</text>
   
 </svg>

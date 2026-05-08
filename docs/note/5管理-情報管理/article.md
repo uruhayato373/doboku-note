@@ -230,7 +230,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 - **[特許権](https://doboku-note.com/docs/pe-comprehensive-management-patent-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から20年（医薬品等は最大5年延長可）
 - **[実用新案権](https://doboku-note.com/docs/pe-comprehensive-management-utility-model-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から10年（無審査主義）
-- **[意匠権](https://doboku-note.com/docs/pe-comprehensive-management-design-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 設定登録日から25年
+- **[意匠権](https://doboku-note.com/docs/pe-comprehensive-management-design-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から25年（2020年改正で登録日起算から変更）
 - **[商標権](https://doboku-note.com/docs/pe-comprehensive-management-trademark-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 設定登録日から10年（更新可能で実質無期限）
 - **著作権** — 創作と同時に発生、著作者の死後70年（無登録）
 
@@ -328,7 +328,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 > **【出題例: [R5年度 Ⅰ-1-19](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-19)】** 情報セキュリティ認証制度の規格番号の組合せ。→ **正答①：ISMS適合性評価＝JIS Q 27001・プライバシーマーク＝JIS Q 15001・ITセキュリティ評価＝ISO/IEC 15408。**
 
-> **【出題例: [R6年度 Ⅰ-1-19](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-19)】** JIS Q 27001に基づく情報セキュリティ方針で最も適切なもの。→ **情報セキュリティ方針はトップマネジメントが確立・発行する。「実務管理者が確立」は誤りの定番選択肢。**
+> **【出題例: [R6年度 Ⅰ-1-19](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-19)】** JIS Q 27001に基づく情報セキュリティ方針で最も適切なもの。→ **正答5：「必要に応じて利害関係者が入手できるようにする」。情報セキュリティ方針はトップマネジメントが確立・発行する（「実務管理者が確立」は誤り）。**
 
 > **【出題例: [R7年度 Ⅰ-1-20](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-20)】** 情報セキュリティの認証制度で最も不適切なもの。4.「ISO/IEC 15408は組織面での運用・管理が適切に実装されていることを評価対象とする」→ **正答4：ISO/IEC 15408は製品の技術的機能のみが評価対象。組織の運用・管理面はISMS（27001）の範疇。**
 
@@ -418,7 +418,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 ## 関連リソース
 
-**doboku-note — 17年分の過去問 + 650キーワード解説（無料）**
+**doboku-note — 17年分の過去問 + 約700キーワード解説（無料）**
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-information-management
 
 - [情報管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（関連キーワードの全体マップ）
