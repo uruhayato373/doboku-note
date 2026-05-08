@@ -108,7 +108,7 @@ SDGs は2015年9月の国連サミットで採択された「持続可能な開�
 - **BECCS** （Bioenergy with CCS）— 排出量実質ゼロのバイオマス燃焼で出た CO₂ を回収・貯留することで CO₂ 排出量をマイナス（カーボンネガティブ）にする技術。
 - **DACCS** （Direct Air CCS）— 空気中の CO₂ を直接回収（DAC）し CCS と組み合わせる技術。BECCS と並ぶカーボンネガティブ手法。
 
-**[気候変動・脱炭素社会](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-decarbonization?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** で扱われる「CCS は排出された CO₂ を回収・貯留」「BECCS はバイオマス由来 CO₂ を回収」「DACCS は大気中の CO₂ を直接回収」という3者の違いが択一の引っかけポイントです。
+**[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)** で扱われる「CCS は排出された CO₂ を回収・貯留」「BECCS はバイオマス由来 CO₂ を回収」「DACCS は大気中の CO₂ を直接回収」という3者の違いが択一の引っかけポイントです。
 
 **カーボンフットプリント** — 商品やサービスの原材料調達から廃棄・リサイクルまでのライフサイクル全体で排出される温室効果ガスを CO₂ 換算で表示する制度。LCA の手法を活用し、表示単位は g-CO₂／kg-CO₂／t-CO₂ 換算を使います。
 

@@ -92,7 +92,7 @@ utmCampaign: 99-tradeoff-thinking-practice
 **事業設定**: 建設会社における 2050 年カーボンニュートラル対応。重機の電動化・水素化を進める必要があるが、現場作業員の操作習熟・整備技能の刷新が課題。
 
 **第 1 段（150 字）対立特定**
-本事業では、[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-decarbonization?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) のための電動・水素重機への転換（社会環境管理：CO2 削減 60%）と、初期投資 5 億円・新型重機の燃費／メンテコスト未確定（経済性管理）が対立する。**LCA と LCC の両軸で評価し、移行期の経済性悪化をどう吸収するかが論点**。
+本事業では、[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) のための電動・水素重機への転換（社会環境管理：CO2 削減 60%）と、初期投資 5 億円・新型重機の燃費／メンテコスト未確定（経済性管理）が対立する。**LCA と LCC の両軸で評価し、移行期の経済性悪化をどう吸収するかが論点**。
 
 **第 2 段（200 字）第三の管理（人的資源管理）の活用**
 第三の視点として **人的資源管理を持ち込む**。具体施策として、(1) **環境教育とグリーンスキル研修** を全現場作業員（300 名）に実施。電動／水素重機の特性を理解した作業員自身が、燃費最適化と稼働率改善を主導できる体制を構築。(2) ESG 視点の意思決定権限を **現場リーダー（30 名）** に委譲し、現場ごとの最適化判断を可能にする。(3) [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-consensus-instruments?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) として、労使協議会で移行スケジュールと評価制度を共有し、不安を低減する。

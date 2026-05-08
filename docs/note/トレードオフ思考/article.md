@@ -55,7 +55,7 @@ utmCampaign: 99-tradeoff-thinking
 
 ### 例3: エネルギーの安定供給と環境負荷（経済性管理 vs 社会環境管理）
 
-社会インフラの維持にはエネルギーの安定供給が不可欠ですが、化石燃料への依存は環境負荷を増大させます。経済性管理はエネルギーの安定かつ経済的な供給を要求する一方、社会環境管理は環境負荷の低減と[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-decarbonization?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を要求し、両者の対立の本質は短期的な経済合理性と長期的な環境保全のあいだに横たわります。
+社会インフラの維持にはエネルギーの安定供給が不可欠ですが、化石燃料への依存は環境負荷を増大させます。経済性管理はエネルギーの安定かつ経済的な供給を要求する一方、社会環境管理は環境負荷の低減と[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)を要求し、両者の対立の本質は短期的な経済合理性と長期的な環境保全のあいだに横たわります。
 
 このトレードオフは社会全体のスケールで議論されるものですが、総監の記述式では個別のプロジェクトレベルに落とし込んで論じることが求められます。[令和6年度 記述式（カーボンニュートラル）](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和7年度 記述式（少子高齢化）](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) はこの対立構造を真正面から問う典型例です。
 

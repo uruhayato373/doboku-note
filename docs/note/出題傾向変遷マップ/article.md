@@ -136,7 +136,7 @@ utmCampaign: 13-trend-map
 
 **R05「SWOT 分析・組織戦略」** --- 論述対象が **「組織」** へシフトし、[SWOT 分析](https://doboku-note.com/docs/pe-comprehensive-management-swot-analysis?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)の枠組みをベースに組織戦略を立案させる構造。作問委員の入れ替わりを感じさせる新展開。
 
-**R06「カーボンニュートラル」** --- 2050 年 [カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-climate-change-decarbonization?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)に向けた事業戦略を 5 管理の視点から論じる。**社会環境管理の比重が増大** した年。
+**R06「カーボンニュートラル」** --- 2050 年 [カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=13-trend-map)に向けた事業戦略を 5 管理の視点から論じる。**社会環境管理の比重が増大** した年。
 
 **R07「少子高齢化」** --- 日本社会全体の構造課題を事業に落とし込む問題。H26「人口減少社会」のリバイバルとも読めます。
 
