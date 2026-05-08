@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 総監テキスト精読ガイド
 utmCampaign: 99-safety-management
 ---
-# 総監テキスト「安全管理」精読ガイド｜択一・記述直結キーワードリンク付き
+# 安全管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き
 
 **こんな人のための記事です**
 
