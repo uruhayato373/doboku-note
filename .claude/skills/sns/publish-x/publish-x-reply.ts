@@ -15,8 +15,8 @@
  *   - 「自分の最新 = 今日の親」が成立しないと誤爆する。fail-safe で post 直前にキャプション照合
  *
  * 入力:
- *   docs/x-posts/draft/<draft-id>/x/captions/<key>-reply.txt
- *   docs/x-posts/draft/<draft-id>/x/img/answer-<NN>-<mgmt>.png
+ *   docs/x-posts/draft/<draft-id>/captions/<key>-reply.txt
+ *   docs/x-posts/draft/<draft-id>/img/answer-<NN>-<mgmt>.png
  */
 import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
@@ -67,7 +67,7 @@ function parseArgs(): ReplyConfig[] {
     process.exit(1);
   }
   return keys.map((key) => {
-    const baseDir = path.join(PROJECT_ROOT, `docs/x-posts/draft/${draft}/x`);
+    const baseDir = path.join(PROJECT_ROOT, `docs/x-posts/draft/${draft}`);
     const replyCaptionPath = path.join(baseDir, `captions/${key}-reply.txt`);
     const mainCaptionPath = path.join(baseDir, `captions/${key}-main.txt`);
     // answer image: tweet-01-eco → answer-01-eco

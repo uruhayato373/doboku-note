@@ -25,7 +25,7 @@ interface StatusJson {
 }
 
 function loadStatus(draftDir: string): StatusJson | null {
-  const p = path.join(draftDir, "x/status.json");
+  const p = path.join(draftDir, "status.json");
   if (!fs.existsSync(p)) return null;
   try {
     return JSON.parse(fs.readFileSync(p, "utf-8")) as StatusJson;
@@ -35,7 +35,7 @@ function loadStatus(draftDir: string): StatusJson | null {
 }
 
 function parseTweetTitles(draftDir: string): Record<string, string> {
-  const mdPath = path.join(draftDir, "x/tweets.md");
+  const mdPath = path.join(draftDir, "tweets.md");
   if (!fs.existsSync(mdPath)) return {};
   const raw = fs.readFileSync(mdPath, "utf-8");
   const result: Record<string, string> = {};

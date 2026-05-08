@@ -58,15 +58,15 @@ interface TweetBlock {
 }
 
 function parseTweetMd(draftDir: string): TweetBlock[] {
-  const mdPath = path.join(draftDir, "x/tweets.md");
-  if (!fs.existsSync(mdPath)) throw new Error(`x/tweets.md が見つかりません: ${mdPath}`);
+  const mdPath = path.join(draftDir, "tweets.md");
+  if (!fs.existsSync(mdPath)) throw new Error(`tweets.md が見つかりません: ${mdPath}`);
 
   const raw = fs.readFileSync(mdPath, "utf-8");
   // "## Tweet 01: タイトル" を区切りとして分割
   const blocks = raw.split(/^(?=## Tweet \d+:)/m).filter((b) => b.trim());
 
   const results: TweetBlock[] = [];
-  const imgDir = path.join(draftDir, "x/img");
+  const imgDir = path.join(draftDir, "img");
 
   for (const block of blocks) {
     const headMatch = block.match(/^## Tweet (\d+):\s*(.+)/);
@@ -133,7 +133,7 @@ function updateStatus(
   tweetNum: number,
   scheduledDate: Date | null
 ): void {
-  const statusPath = path.join(draftDir, "x/status.json");
+  const statusPath = path.join(draftDir, "status.json");
 
   // 既存 status を読むか、全件 pending で初期化
   let data: StatusJson;

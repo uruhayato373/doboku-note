@@ -54,7 +54,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 | `--immediate` | - | 予約ではなく即時投稿（`--tweet` と組み合わせ推奨） |
 | `--dry-run` | - | 実投稿せず予約モード到達まで確認 |
 
-## x.md の形式
+## tweets.md の形式
 
 ```markdown
 ## Tweet 01: タイトル
@@ -71,7 +71,7 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 
 ## 画像
 
-`x/img/tweet-{NN}-{slug}.png` が存在すれば自動添付。存在しなければテキストのみ投稿。
+`img/tweet-{NN}-{slug}.png` が存在すれば自動添付。存在しなければテキストのみ投稿。
 
 ## 前提条件
 

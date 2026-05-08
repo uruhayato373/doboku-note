@@ -1,8 +1,8 @@
-# docs/x-posts/ — SNS 投稿素材ディレクトリ
+# docs/x-posts/ — X 投稿素材ディレクトリ
 
-doboku-note の SNS 投稿素材（X / Instagram Carousel / YouTube Shorts）を管理するディレクトリ。
+doboku-note の X (Twitter) 投稿素材を管理するディレクトリ。Instagram は `docs/ig-posts/`、YouTube は `docs/yt-posts/` に分離済み（2026-05-08 チャンネル分離）。
 
-- 最終更新: 2026-04-29（v1: 初版・ディレクトリ新設）
+- 最終更新: 2026-05-08（v2: チャンネル分離・x/ フラット化）
 - 関連 Issue: [#161 SNS 自動投稿基盤 Umbrella](https://github.com/uruhayato373/doboku-note/issues/161) / [#165 IG Carousel MVP](https://github.com/uruhayato373/doboku-note/issues/165) / [#166 YT Shorts MVP](https://github.com/uruhayato373/doboku-note/issues/166)
 - 親戦略: [07_SNS集客戦略.md v5](../project/07_SNS集客戦略.md) / [26_Instagram投稿自動化アーキテクチャ.md v3](../project/26_Instagram投稿自動化アーキテクチャ.md) / [27_5チャネル動線設計.md](../project/27_5チャネル動線設計.md)
 
@@ -29,19 +29,34 @@ x-posts は 2 つのコンテンツラインを並走させる。詳細な投稿
 
 キーワード解説ラインは Tier 1 SVG 15 本（メモリ `project_svg_illustration_runway.md`）と完全連動。SVG 既存 4 本（process-capability-index, activity-abc, heinrich-law, maslow-hierarchy-of-needs）を 5 月先頭に配置し、新規 11 本は 6-7 月の生成ランウェイと並走する。
 
-## ディレクトリ命名規約
+## チャンネル別ディレクトリ構成
 
 ```
 docs/x-posts/
-└── {NNN}-{日本語テーマ}/     # 3 桁連番 + ハイフン + テーマ名（日本語 OK）
-    ├── source.md             # 元素材（真実源）
-    ├── x.md                  # X 用原稿
-    ├── instagram-carousel.md # IG Carousel 用原稿
-    └── youtube-shorts/       # YT Shorts スクリプト群
-        ├── 01-{slug}-script.md
-        ├── 02-{slug}-script.md
-        └── ...
+  draft/
+    {NNN}-{テーマ}/
+      tweets.md     # X 投稿原稿（## Tweet NN: 形式）
+      img/          # X 投稿画像（tweet-NN-{slug}.png）
+      status.json   # 投稿状態（pending/scheduled/posted）
+      source.md     # 元素材（真実源）
+  published/        # 全ツイート投稿済み（git mv で移動）
+    .gitkeep
+
+docs/ig-posts/
+  draft/
+    {NNN}-{テーマ}/
+      slides.md     # IG Carousel 原稿
+      img/          # IG 用画像
+  published/
+
+docs/yt-posts/
+  draft/
+    {NNN}-{テーマ}/
+      01-{slug}-script.md  # YT Shorts スクリプト（複数可）
+  published/
 ```
+
+ドラフト番号（NNN）は 3 チャンネル間で共通。同じ素材から派生した IG/YT コンテンツは同じ NNN を使う。
 
 **命名例**:
 - クイズライン: `001-クイズ-択一1問1答-20問/`、`002-クイズ-択一1問1答-R7新規20問/`、`003-クイズ-記述頻出論点-20問/`
@@ -89,7 +104,7 @@ docs/x-posts/
 - [YouTube Shorts スクリプト](./youtube-shorts/)
 ```
 
-### x.md — X 用原稿
+### tweets.md — X 用原稿
 
 1 ツイート = 1 ブロック（`---` で区切り）。問題本文 + 4択 + 「答えはリプライツリー」+ UTM 付きリンク + ハッシュタグを含む。
 
@@ -220,8 +235,8 @@ https://doboku-note.com/docs/{slug}?utm_source=youtube&utm_medium=shorts&utm_cam
 本ディレクトリが主役。各媒体ファイルの原稿を人間が確認し、各 SNS に手動（または `/social-post` スキル経由）で投稿する。
 
 ```
-docs/x-posts/{NNN}-{テーマ}/
-  source.md → 人間が確認 → 各媒体ファイルに手動転記 → SNS に手動投稿
+docs/x-posts/draft/{NNN}-{テーマ}/tweets.md → check-x-status.ts で確認 → publish-x.ts で投稿
+全件投稿済み → git mv draft/{NNN}-{テーマ} published/
 ```
 
 ### Phase 2: キュー化 → 半自動投稿（実装予定）
