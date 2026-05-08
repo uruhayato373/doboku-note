@@ -94,7 +94,7 @@ utmCampaign: 99-economic-management
 - **デザインイン** — メーカーが部品メーカー等と開発段階から共同で開発
 - **フロントローディング** — 後工程で発生しそうな問題を初期工程で前倒し集中対応
 
-> **【出題例: [R5年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 設計管理用語（信頼性設計／保全性設計／コンカレントエンジニアリング／デザインレビュー／デザインイン）と説明文の組合せ問題 → **正答2：A＝信頼性設計、B＝保全性設計、D＝デザインレビューの対応が正しい。用語の定義照合は毎年出題されるため精読必須。**
+> **【出題例: [R5年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 設計管理用語（信頼性設計／保全性設計／デザインイン／デザインレビュー／フロントローディング）と説明文の組合せ問題 → **正答2：A＝信頼性設計、B＝保全性設計、D＝デザインレビューの対応が正しい。用語の定義照合は毎年出題されるため精読必須。**
 
 **マーケティングにおける指標**
 
@@ -138,13 +138,13 @@ PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サ�
 
 **PMBOK 第7版の8パフォーマンス領域**
 
-1. デリバリー
-2. 開発アプローチとライフサイクル
-3. 計画
-4. プロジェクト作業
-5. 測定
-6. ステークホルダー
-7. チーム
+1. ステークホルダー
+2. チーム
+3. 開発アプローチとライフサイクル
+4. 計画
+5. プロジェクト作業
+6. デリバリー
+7. 測定
 8. 不確かさ
 
 第7版では従来の「プロセス中心」から「**原則中心**（12 原則）」に転換しました。
@@ -667,7 +667,7 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 > 価値 ＝ 機能 ÷ コスト
 
-機能は**使用機能**（効果・性能）と**魅力機能**（デザイン・色彩）に分類。基本ステップは **機能定義 → 機能評価 → 代替案作成** です。
+機能は**使用機能**（効果・性能）と**貴重機能**（魅力機能・デザイン・色彩）に分類。基本ステップは **機能定義 → 機能評価 → 代替案作成** です。
 
 > **【出題例: [R4年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** VE に関する記述で最も適切なもの → **正答3：使用機能（目的に関わる機能）と魅力機能（感覚的満足に関わる機能）の分類が正確。「価値 ＝ 機能 ÷ コスト」と「機能定義 → 機能評価 → 代替案作成」の3ステップが頻出。**
 
@@ -685,7 +685,7 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 ## 関連リソース
 
-**doboku-note — 17年分の過去問 + 650キーワード解説（無料）**
+**doboku-note — 17年分の過去問 + 約700キーワード解説（無料）**
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management
 
 - [経済性管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（関連キーワードの全体マップ）
