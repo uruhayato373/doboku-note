@@ -116,8 +116,8 @@ utmCampaign: 99-safety-management
 [安全管理の協調安全](https://doboku-note.com/docs/pe-comprehensive-management-safety-control?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の考え方は段階的に発展してきました。
 
 - **Safety 0.0** — 人の注意力・判断力に頼って「人の領域」の安全を確保する考え方
-- **Safety 1.0** — 機械に安全対策を施し「機械の領域」のリスクを下げるとともに、人と機械を隔離して安全性を高める考え方
-- **Safety 2.0** — 人と機械と環境が**協調**することで、それぞれの領域だけでなく共存領域においても高い安全性を確保する考え方。IoTや人工知能の活用が前提
+- **[Safety 1.0](https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 機械に安全対策を施し「機械の領域」のリスクを下げるとともに、人と機械を隔離して安全性を高める考え方
+- **[Safety 2.0](https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 人と機械と環境が**協調**することで、それぞれの領域だけでなく共存領域においても高い安全性を確保する考え方。IoTや人工知能の活用が前提
 
 記述式論文でDXや自動化に触れる際の概念的基盤になります。
 
@@ -159,10 +159,10 @@ utmCampaign: 99-safety-management
 [リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、リスク管理の中核をなす活動です。「JIS Q 0073 リスクマネジメント—用語」における主要定義は以下のとおりです。
 
 - **リスク** — 目的に対する不確かさの影響
-- **リスク特定** — リスクを発見、認識及び記述するプロセス
-- **リスク分析** — リスクの特質を理解し、リスクレベルを決定するプロセス
+- **[リスク特定](https://doboku-note.com/docs/pe-comprehensive-management-risk-identification?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — リスクを発見、認識及び記述するプロセス
+- **[リスク分析](https://doboku-note.com/docs/pe-comprehensive-management-risk-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — リスクの特質を理解し、リスクレベルを決定するプロセス
 - **リスクレベル** — 結果とその起こりやすさとの組合せとして表現される、リスクの大きさ
-- **リスク評価** — リスク分析の結果をリスク基準と比較するプロセス
+- **リスク評価** — [リスク分析](https://doboku-note.com/docs/pe-comprehensive-management-risk-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の結果を[リスク基準](https://doboku-note.com/docs/pe-comprehensive-management-risk-criteria?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と比較するプロセス
 - **モニタリング** — 期待されたパフォーマンスレベルとの差異を特定するために状態を継続的に点検すること
 
 **実施内容（厚生労働省指針）**
@@ -195,7 +195,7 @@ D. 優先度に対応したリスク低減措置の実施
 
 **リスク値 ＝ 被害額 × 発生確率**
 
-リスクマトリクス（発生確率×影響度の2軸）で高位（右上）の事象を低位（左下）へ移すことが基本的対応方針です。
+[リスクマップ／リスクマトリクス](https://doboku-note.com/docs/pe-comprehensive-management-risk-map-matrix?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（発生確率×影響度の2軸）で高位（右上）の事象を低位（左下）へ移すことが基本的対応方針です。
 
 JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
@@ -212,15 +212,15 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 **リスク認知のバイアス**
 
-[リスク認知](https://doboku-note.com/docs/pe-comprehensive-management-risk-perception?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)とは、個人・組織・社会がリスクをどう感じるかの主観的評価です。バイアスによって社会的受容の判断が変わります。
+[リスク認知](https://doboku-note.com/docs/pe-comprehensive-management-risk-perception?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)とは、個人・組織・社会がリスクをどう感じるかの主観的評価です。バイアスによって[社会的受容](https://doboku-note.com/docs/pe-comprehensive-management-public-acceptance?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の判断が変わります。
 
 5つのバイアスはそれぞれ択一の正誤問題として問われます。
 
-- **正常性バイアス** — 異常な状態を示す情報を得ても、正常であると解釈しようとする偏向
-- **楽観主義バイアス** — 心理的ストレスを回避するために、楽観的に明るい方から見ようとする偏向
+- **[正常性バイアス](https://doboku-note.com/docs/pe-comprehensive-management-normalcy-bias?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 異常な状態を示す情報を得ても、正常であると解釈しようとする偏向
+- **[楽観主義バイアス](https://doboku-note.com/docs/pe-comprehensive-management-optimism-bias?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 心理的ストレスを回避するために、楽観的に明るい方から見ようとする偏向
 - **カタストロフィー・バイアス** — きわめて稀にしか起きないが壊滅的被害をもたらすリスクを過大評価する偏向
 - **ベテランバイアス** — 経験豊富な事象に対して、現在の状況を考慮せず経験を優先して判断する偏向
-- **バージンバイアス** — 未経験な事象に対して、できるだけ正常であると判断する偏向
+- **[バージンバイアス](https://doboku-note.com/docs/pe-comprehensive-management-virgin-bias?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 未経験な事象に対して、できるだけ正常であると判断する偏向
 
 ![リスク認知バイアス — 5種類の定義と典型例](img/figure-7-risk-biases.png)
 
@@ -228,7 +228,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 **リスクコミュニケーション**
 
-リスクコミュニケーションは、リスクの社会的受容を得るために不可欠です。
+リスクコミュニケーションは、リスクの[社会的受容](https://doboku-note.com/docs/pe-comprehensive-management-public-acceptance?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)を得るために不可欠です。
 
 文部科学省の「リスクコミュニケーションの推進方策」では、「リスクのより適切なマネジメントのために、社会の各層が対話・共考・協働を通じて、多様な情報及び見方の共有を図る活動」と定義しています。
 
@@ -286,7 +286,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 化学物質の危険性・有害性を特定し、労働者への危険・健康被害の程度を見積もり、リスク低減対策を検討します。
 
-**安全衛生教育**
+**[安全衛生教育](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-education?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**
 
 [第59条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_59)の**雇入れ教育** — 労働者を雇い入れた際に従事する業務に関する安全・衛生教育を行う義務。  
 [第60条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_60)の**送出し教育** — 職長等、作業中の労働者を直接指揮・監督する者に対して行う教育。
@@ -327,7 +327,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 法律は守るべき最低基準を示すもので、[OSHMS](https://doboku-note.com/docs/pe-comprehensive-management-oshms?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)はそれを超えた自主的な改善サイクルの仕組みです。
 
-また、**OSHMS指針の対象は労働基準法上の労働者に限定**され、ボランティアは含まれません。
+また、**OSHMS指針の対象は[労働基準法](https://doboku-note.com/docs/pe-comprehensive-management-labor-standards-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)上の労働者に限定**され、ボランティアは含まれません。
 
 ボランティアを含めた「働く人」を対象とするのは国際規格の**ISO 45001**側で、JIS Q 45001（ISO 45001の和訳JIS）と日本独自のJIS Q 45100の関係も整理しておきましょう。
 
@@ -339,7 +339,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 > 労働者の就業に係る建設物、設備、原材料等により、または業務に起因して、労働者が負傷し、疾病にかかり、または死亡すること
 
-**労働災害統計の主要指標**
+**[労働災害統計](https://doboku-note.com/docs/pe-comprehensive-management-accident-statistics?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の主要指標**
 
 - **度数率** ＝ 死傷者数 ÷ 延実労働時間数 × 1,000,000
 - **強度率** ＝ 実労働損失日数 ÷ 延実労働時間数 × 1,000
@@ -389,7 +389,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 - **[フールプルーフ](https://doboku-note.com/docs/pe-comprehensive-management-fool-proof?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 人が誤った操作をしても危険が生じないよう機械的・電気的に検知して実行できなくする設計思想
 - **[フェールセーフ](https://doboku-note.com/docs/pe-comprehensive-management-fail-safe?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 装置・部品が故障した際にも、安全な方向に制御する設計思想（例：信号機の電源断→全赤）
 
-**[インターロック](https://doboku-note.com/docs/pe-comprehensive-management-interlock?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — [フールプルーフ](https://doboku-note.com/docs/pe-comprehensive-management-fool-proof?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の手法の1つで、一定の条件が整わないと動作・機能を働かせない機構。「停止安全」の手段の1つです。
+**[インターロック](https://doboku-note.com/docs/pe-comprehensive-management-interlock?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — [フールプルーフ](https://doboku-note.com/docs/pe-comprehensive-management-fool-proof?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の手法の1つで、一定の条件が整わないと動作・機能を働かせない機構。「[停止安全](https://doboku-note.com/docs/pe-comprehensive-management-isolation-stop-safety?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)」の手段の1つです。
 
 - **安全確認型インターロック** — 安全が確認されている間だけ機械の運転を許可。安全確認センサが故障→運転停止（[フェールセーフ](https://doboku-note.com/docs/pe-comprehensive-management-fail-safe?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)）
 - **危険検出型インターロック** — 危険を検出すれば運転停止。危険検出センサが故障→危険な動作が継続するという欠点がある
@@ -404,7 +404,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 - **インターロック（ガード用）** — 機械の運転中に作業者が危険領域内へ侵入するのを防止
 - **急停止用** — 機械側で何らかの異常を感知したときに直ちに運転を停止
-- **非常停止用** — 作業者が異常を感知したときに直ちに運転を停止
+- **[非常停止用](https://doboku-note.com/docs/pe-comprehensive-management-emergency-stop-device?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 作業者が異常を感知したときに直ちに運転を停止
 - **ホールド・ツー・ラン** — 操作装置を押している間だけ機械が運転、手を離すと停止
 
 「急停止＝機械側の自動検知」「非常停止＝作業者の手動操作」の区別が頻出の引っかけです。
@@ -447,7 +447,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 [KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（危険予知訓練）は、作業にひそむ危険要因や引き起こす現象を認識する手法です。
 
-**定期点検活動** — 事故・災害の発生を未然に防ぐため、定期的な点検活動を定常業務の一部として行います。
+**[定期点検活動](https://doboku-note.com/docs/pe-comprehensive-management-periodic-inspection?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 事故・災害の発生を未然に防ぐため、定期的な点検活動を定常業務の一部として行います。
 
 **KY活動とKYT** — 日々の労働前に職場で行われる危険予知（KY）活動。KYT（危険予知訓練）では①現状把握→②本質追及→③対策樹立→④目標設定の**4ラウンド法**が用いられます。
 
@@ -465,13 +465,13 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 ## 危機管理（優先度: 高）
 
-一般的に[リスク管理](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が**事故や危機が起きないようにする活動**を指すのに対して、**危機管理は天災等の緊急事態が発生した後の活動**を指す場合が多いです。
+一般的に[リスク管理](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が**事故や危機が起きないようにする活動**を指すのに対して、**危機管理は天災等の[緊急事態](https://doboku-note.com/docs/pe-comprehensive-management-emergency?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)が発生した後の活動**を指す場合が多いです。
 
 危機管理の目的は「不測の事態に対して適切な対応ができるようにすること」です。
 
 **危機管理の対象事象とオールハザードアプローチ**
 
-企業を対象にした危機の事例は、自然災害・大規模事故・感染症・サイバー攻撃・テロ・風評被害など多彩です。
+企業を対象にした危機の事例は、自然災害・大規模事故・[感染症](https://doboku-note.com/docs/pe-comprehensive-management-infectious-disease-pandemic?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・サイバー攻撃・[テロ](https://doboku-note.com/docs/pe-comprehensive-management-terrorism?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・風評被害など多彩です。
 
 すべての危機に対応するという考え方として**[オールハザードアプローチ](https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**があります。
 
@@ -479,11 +479,11 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 **危機への対応（4段階）**
 
-[危機管理マニュアル](https://doboku-note.com/docs/pe-comprehensive-management-crisis-management-manual?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の対応は以下の段階で事前に検討・準備されている必要があります。なお危機管理においては人の安全だけでなく、危機時の警備対策や**サイバーセキュリティ対策**も含めて検討する必要があります。
+[危機管理マニュアル](https://doboku-note.com/docs/pe-comprehensive-management-crisis-management-manual?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の対応は以下の段階で事前に検討・準備されている必要があります。なお危機管理においては人の安全だけでなく、危機時の警備対策や**[サイバーセキュリティ](https://doboku-note.com/docs/pe-comprehensive-management-cybersecurity-safety?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)対策**も含めて検討する必要があります。
 
 - **平常時準備段階** — トップの危機管理に対する強い意志を示すことが重要
 - **事前作業段階** — 想定危機の洗い出し・影響度検討、危機管理計画の策定・緊急対策本部等の体制準備・連絡体制整備
-- **緊急事態対応段階** — 危機発生・予兆の早期発見における迅速な行動
+- **[緊急事態](https://doboku-note.com/docs/pe-comprehensive-management-emergency?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)対応段階** — 危機発生・予兆の早期発見における迅速な行動
 - **事後復旧段階** — 組織を平常状態に戻す。再発防止策の検討・早期公表・信頼回復対応
 
 **危機管理マニュアル**
@@ -498,7 +498,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 **事業継続マネジメント（BCP・BCM）**
 
-[BCP（Business Continuity Plan：事業継続計画）](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、大地震等の自然災害・感染症まん延・テロ・大事故・サプライチェーンの途絶など不測の事態が発生しても、重要な事業を中断させない、または中断しても可能な限り短い期間で復旧させるための方針・体制・手順等を示した計画です（内閣府『事業継続ガイドライン』より）。
+[BCP（Business Continuity Plan：事業継続計画）](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、大地震等の自然災害・[感染症](https://doboku-note.com/docs/pe-comprehensive-management-infectious-disease-pandemic?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)まん延・[テロ](https://doboku-note.com/docs/pe-comprehensive-management-terrorism?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・大事故・サプライチェーンの途絶など不測の事態が発生しても、重要な事業を中断させない、または中断しても可能な限り短い期間で復旧させるための方針・体制・手順等を示した計画です（内閣府『事業継続ガイドライン』より）。
 
 **BCM（Business Continuity Management：事業継続マネジメント）**は、[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)策定や維持・更新、予算・資源の確保、事前対策、教育・訓練、継続的改善などを行う平常時からのマネジメント活動で、経営レベルの戦略的活動として位置付けられます。
 
@@ -506,7 +506,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 国際規格としてISO 22301（事業継続マネジメントシステム—要求事項）が発行されています。
 
-BCMの実務上の重要原則は**結果事象アプローチ**です。「直下型地震」「台風」「サイバー攻撃」のような**原因事象**ではなく、「ある拠点が使用不能」「IT基盤が停止」のような**結果事象**で考えることで、原因を問わず汎用的に対応できる体制が組めます。
+[BCM](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の実務上の重要原則は**結果事象アプローチ**です。「直下型地震」「台風」「サイバー攻撃」のような**原因事象**ではなく、「ある拠点が使用不能」「IT基盤が停止」のような**結果事象**で考えることで、原因を問わず汎用的に対応できる体制が組めます。
 
 「原因事象で考えるべき」という選択肢は逆向きの引っかけです。
 
@@ -588,7 +588,7 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 ## システム安全工学手法（優先度: 中〜高）
 
-システム安全工学は「故障や事故の発生を体系的に予測・防止するための工学的手法」です。4つの主要手法の定義と特徴の違いを整理しておくと択一で確実に得点できます。
+[システム安全](https://doboku-note.com/docs/pe-comprehensive-management-system-safety?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)工学は「故障や事故の発生を体系的に予測・防止するための工学的手法」です。4つの主要手法の定義と特徴の違いを整理しておくと択一で確実に得点できます。
 
 ![システム安全工学手法 — FMEA / FTA / ETA / HAZOP 比較](img/figure-4-safety-engineering-matrix.png)
 
@@ -645,15 +645,15 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 
 **システム信頼度解析**
 
-[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の計算では**信頼性ブロック図**を用います。信頼性（e）と故障率（f）には **e + f = 1** の関係があります。
+[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の計算では**[信頼性ブロック図](https://doboku-note.com/docs/pe-comprehensive-management-reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**を用います。信頼性（e）と故障率（f）には **e + f = 1** の関係があります。
 
-**直列システム**（すべての構成要素が正常でなければ動かない）
+**[直列システム](https://doboku-note.com/docs/pe-comprehensive-management-series-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（すべての構成要素が正常でなければ動かない）
 
 システム故障率(fm) ＝ 1 − (1−f1) × (1−f2) × (1−f3)
 
 各故障率が0.1の場合：システム故障率 ＝ 1 − 0.9³ ＝ 0.271、システム信頼性 ＝ 0.729
 
-**並列システム**（いずれかの要素が正常であれば動く）
+**[並列システム](https://doboku-note.com/docs/pe-comprehensive-management-parallel-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**（いずれかの要素が正常であれば動く）
 
 システム故障率(fm) ＝ f1 × f2 × f3
 
@@ -665,7 +665,7 @@ BCMの実務上の重要原則は**結果事象アプローチ**です。「直�
 - **MTBF（Mean Time Between Failures）** — ある故障から次の故障までの平均間隔（平均故障間隔）。故障率 f ＝ 1 ÷ MTBF
 - **[アベイラビリティ](https://doboku-note.com/docs/pe-comprehensive-management-system-availability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （A）— A ＝ MTBF ÷ (MTBF + MTTR)
 
-**複合システム（直列＋並列）の計算手順** — まず並列部の信頼度を `1−(1−R₁)(1−R₂)` で求め、次に直列部を `R₁×R₂` で結合します。信頼性ブロック図の構造（どのユニットが並列でどこから直列か）を正確に読み取ることが計算の前提です。
+**複合システム（直列＋並列）の計算手順** — まず並列部の信頼度を `1−(1−R₁)(1−R₂)` で求め、次に直列部を `R₁×R₂` で結合します。[信頼性ブロック図](https://doboku-note.com/docs/pe-comprehensive-management-reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の構造（どのユニットが並列でどこから直列か）を正確に読み取ることが計算の前提です。
 
 ![信頼性ブロック図 — 直列・並列・複合](img/figure-5-reliability-block-diagram.png)
 

@@ -53,7 +53,7 @@ utmCampaign: 99-human-resource-management
 
 社会心理学者ソロモン・アッシュが1950年頃に行った **[アッシュの同調実験](https://doboku-note.com/docs/pe-comprehensive-management-asch-conformity-experiment?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** では、問いの正解が明らかでも、自分以外の人が不正解を選択するとそれに同調して誤答を選ぶ傾向が示されました。集団の中での判断バイアスとして頻出します。
 
-**心理的安全性** とは1999年に提唱された概念で、「組織の中で自分の気持ちを誰に対しても安心して発言できる状態」を指します。心理的安全性が高い職場では、メンバーがアイデア・提案を率直に発言でき、業績基準と組み合わせた4象限（無関心／快適／不安／学習）で組織の状態を分類できます。
+**[心理的安全性](https://doboku-note.com/docs/pe-comprehensive-management-psychological-safety?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** とは1999年に提唱された概念で、「組織の中で自分の気持ちを誰に対しても安心して発言できる状態」を指します。[心理的安全性](https://doboku-note.com/docs/pe-comprehensive-management-psychological-safety?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)が高い職場では、メンバーがアイデア・提案を率直に発言でき、業績基準と組み合わせた4象限（無関心／快適／不安／学習）で組織の状態を分類できます。
 
 > **【出題例: [R3年度 Ⅰ-1-13](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-13)】** 組織文化に関する記述として最も適切なものを選ぶ問題。
 > → **正答3：シャインの「基本的仮定」のレベルに相当し、メンバーが当然とみなす前提も組織文化に含まれる。**
@@ -210,7 +210,7 @@ utmCampaign: 99-human-resource-management
 - **調停** — 労働委員会への双方申請等で開始。解決策の受諾は **任意**
 - **仲裁** — 双方申請等で開始。仲裁裁定は **労働協約と同一の効力**
 
-これら以外に、**労働審判制度** （労働審判法、裁判所が原則3回以内の期日で審理）、**個別労働紛争解決制度** （個別労働紛争解決促進法、都道府県労働局のあっせん）があります。
+これら以外に、**[労働審判制度](https://doboku-note.com/docs/pe-comprehensive-management-labor-tribunal-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （労働審判法、裁判所が原則3回以内の期日で審理）、**[個別労働紛争解決制度](https://doboku-note.com/docs/pe-comprehensive-management-individual-labor-dispute-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （個別労働紛争解決促進法、都道府県労働局のあっせん）があります。
 
 > **【出題例: [R3年度 Ⅰ-1-9](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-9)】** 労使関係に関する記述として最も適切なものを選ぶ問題。
 > → **正答2：団体交渉事項には労働条件に加え、団交手続や組合活動に関する事項も含まれる。**
@@ -221,7 +221,7 @@ utmCampaign: 99-human-resource-management
 
 **間接差別3要件** — ①身長・体重・体力／②転勤応諾／③転勤経験を要件とすることは、合理的理由がない限り間接差別。
 
-**セクシャルハラスメント** — 対価型・環境型の2類型。**同性に対するものも含む**。事業主が講ずべき措置として、方針の明確化と周知・啓発、相談体制整備、事後の迅速・適切対応の3点が義務化されています。
+**[セクシャルハラスメント](https://doboku-note.com/docs/pe-comprehensive-management-sexual-harassment?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 対価型・環境型の2類型。**同性に対するものも含む**。事業主が講ずべき措置として、方針の明確化と周知・啓発、相談体制整備、事後の迅速・適切対応の3点が義務化されています。
 
 > **【出題例: [R3年度 Ⅰ-1-12](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-12)】** セクシュアルハラスメントについて政府が策定した指針に関する記述として最も不適切なものを選ぶ問題。
 > → **正答2：事業主が講ずべき措置として、方針の明確化・周知啓発、相談体制整備、事後対応等が定められているが、ある選択肢は措置内容の解釈を誤っており不適切。**
@@ -262,7 +262,7 @@ utmCampaign: 99-human-resource-management
 
 ### 賃金管理
 
-賃金管理は **総額賃金管理** と **個別賃金管理** に分かれます。総額賃金管理で用いる4指標は計算問題でも頻出です。
+賃金管理は **[総額賃金管理](https://doboku-note.com/docs/pe-comprehensive-management-total-wage-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** と **[個別賃金管理](https://doboku-note.com/docs/pe-comprehensive-management-individual-wage-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** に分かれます。[総額賃金管理](https://doboku-note.com/docs/pe-comprehensive-management-total-wage-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)で用いる4指標は計算問題でも頻出です。
 
 - **[労務費率](https://doboku-note.com/docs/pe-comprehensive-management-labor-cost-ratio?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** ＝ 労務費 ÷ 売上高（建設業の労災保険料計算で使用）
 - **[労働分配率](https://doboku-note.com/docs/pe-comprehensive-management-labor-share-ratio?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** ＝ 人件費 ÷ 付加価値額（**景気の遅行指標**：拡大期に低下、後退期に上昇）
@@ -304,11 +304,11 @@ utmCampaign: 99-human-resource-management
 
 - **職務記述書（Job Description）** — 義務・責任・難易度・必要知識・技能・経験・専門能力
 - **職務明細書（Job Specification）** — 知識・技能・経験・適性・心身特性など人的特性
-- **インターンシップ** — 在学中の就業体験。学生と企業のミスマッチ解消手段
+- **[インターンシップ](https://doboku-note.com/docs/pe-comprehensive-management-internship?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 在学中の就業体験。学生と企業のミスマッチ解消手段
 - **自己申告制度** — 社員本人から会社に希望を申告
 - **社内公募制度** — 新規事業や空きポスト発生時の社内人材公募
 - **紹介予定派遣** — 派遣先への直接雇用前提の派遣（労働者派遣法）
-- **ジョブローテーション** — 長期雇用前提の人材育成型定期人事異動
+- **[ジョブローテーション](https://doboku-note.com/docs/pe-comprehensive-management-job-rotation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 長期雇用前提の人材育成型定期人事異動
 
 **[職務設計](https://doboku-note.com/docs/pe-comprehensive-management-job-design?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 職務の義務・権限・責任を定める活動。**5つの中核的職務特性** で表現されます。
 
@@ -328,7 +328,7 @@ utmCampaign: 99-human-resource-management
 
 組織運営では **総合職** と **一般職** を分ける **[複線型人事制度](https://doboku-note.com/docs/pe-comprehensive-management-multi-track-hr-system?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**、ある時期まで同基準で昇進し以降は管理職／専門職／専任職を分ける **[専門職制度](https://doboku-note.com/docs/pe-comprehensive-management-specialist-system?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** が活用されます。**勤務地限定社員制度** （一定地域内の配属・異動）も増加傾向にあります。
 
-**タレントマネジメント** — 人材を適材適所に配置し将来のリーダーを育てる仕組み。社員のスキル把握・最大化のための配置・教育が要素です。
+**[タレントマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-talent-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 人材を適材適所に配置し将来のリーダーを育てる仕組み。社員のスキル把握・最大化のための配置・教育が要素です。
 
 > **【出題例: [R4年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** ジョブ型雇用とメンバーシップ型雇用に関する記述として最も不適切なものを選ぶ問題。
 > → **正答3：ジョブ型は外部労働市場で競争するため市場価格に見合った報酬設定が必要だが、ある選択肢は職務分析や賃金体系の解釈を誤っており不適切。**
@@ -358,7 +358,7 @@ utmCampaign: 99-human-resource-management
 
 組織メンバーに求められる **4能力** — Ⓐ 対人能力（コミュニケーション・ロールプレイング）／Ⓑ 職務遂行能力（知識教育・技能教育）／Ⓒ 課題設定能力（課題研究法）／Ⓓ 問題解決能力（ケーススタディ）。
 
-近年は **コンピテンシー** （職務や役割で優秀な成果を発揮する行動特性）が人材育成・評価基準で重視されています。
+近年は **[コンピテンシー](https://doboku-note.com/docs/pe-comprehensive-management-competency-hr?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （職務や役割で優秀な成果を発揮する行動特性）が人材育成・評価基準で重視されています。
 
 ### 人事考課管理
 
@@ -409,7 +409,7 @@ utmCampaign: 99-human-resource-management
 - **ケースメソッド** — 経営課題事例の討論で問題解決・意思決定能力育成
 - **ビジネスゲーム** — ゲームを通じたビジネススキル成長
 - **インバスケット** — 限られた時間内での未処理案件処理能力測定
-- **メンター制度** — 異職場の先輩社員による精神的サポート・指導育成（**斜めからの支援**、就業時間内、口外禁止ルール）
+- **[メンター制度](https://doboku-note.com/docs/pe-comprehensive-management-mentor?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 異職場の先輩社員による精神的サポート・指導育成（**斜めからの支援**、就業時間内、口外禁止ルール）
 - **[eラーニング](https://doboku-note.com/docs/pe-comprehensive-management-e-learning?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — オンライン学習による反復的知識取得
 
 研修形態は **[階層別研修](https://doboku-note.com/docs/pe-comprehensive-management-hierarchical-training?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （新人・管理職・経営層別）／**[専門別研修](https://doboku-note.com/docs/pe-comprehensive-management-specialized-training?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （技術・営業・経理別）／**[課題別研修](https://doboku-note.com/docs/pe-comprehensive-management-task-based-training?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （品質・安全・ハラスメント別）に分類されます。

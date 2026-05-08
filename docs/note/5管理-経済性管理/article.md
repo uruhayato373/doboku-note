@@ -13,26 +13,26 @@ utmCampaign: 99-economic-management
 
 ---
 
-経済性管理は、5管理の中で**項目数が最も多い分野**です（テキスト第1章は81項目）。事業企画・品質管理・工程管理・原価管理・財務会計・設備管理・数理的手法という7大エリアにまたがり、計算問題と定義問題の両方が出題されます。
+経済性管理は、5管理の中で**項目数が最も多い分野**です（テキスト第1章は81項目）。事業企画・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・原価管理・財務会計・設備管理・数理的手法という7大エリアにまたがり、計算問題と定義問題の両方が出題されます。
 
-全81項目を均等に勉強するのは非効率です。**「投資判断・品質管理・工程管理・財務諸表」の4エリアを最優先し、残りは必要に応じてリンク先で確認する**のが効率的な学習法です。本記事では、テキスト第1章の骨格を活かしながら、択一・記述式の出題視点でポイントを絞り直します。
+全81項目を均等に勉強するのは非効率です。**「投資判断・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・財務諸表」の4エリアを最優先し、残りは必要に応じてリンク先で確認する**のが効率的な学習法です。本記事では、テキスト第1章の骨格を活かしながら、択一・記述式の出題視点でポイントを絞り直します。
 
 ## 事業企画（優先度: 高）
 
 事業のアイデア発掘から計画策定までの業務です。**投資判断と PFI 法のリスク分担**（NPV／回収期間／ROI）は経済性管理で最も出題頻度が高い論点です。
 
-**フィージビリティスタディと需要予測**
+**フィージビリティスタディと[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**
 
 **フィージビリティスタディ**は、事業の実現可能性を事前調査する業務です。
 
 **4ステップの調査順序**
 
 1. 事業の目的に沿って事業フレーム（規模等）を具体化
-2. 市場調査と需要予測
+2. 市場調査と[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)
 3. 予備設計で概略の期間・コストを予測
 4. 事業の収支と資金調達方法を検討
 
-需要予測では2つの統計手法が出題されます。
+[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)では2つの統計手法が出題されます。
 
 **移動平均法** — 過去の期間データを期間1単位ずつずらして平均値を計算（例：4〜6月、5〜7月）。期間を長くすると変動が小さく見え、直近の変化を遅れて追う傾向。
 
@@ -87,8 +87,8 @@ utmCampaign: 99-economic-management
 
 設計段階の用語6つが定義照合問題として出ます。
 
-- **信頼性設計** — 与えられた条件下で規定期間中に必要機能を満たす設計
-- **保全性設計** — 故障・異常を素早く検出・診断し短時間で修復できる設計
+- **[信頼性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 与えられた条件下で規定期間中に必要機能を満たす設計
+- **[保全性設計](https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 故障・異常を素早く検出・診断し短時間で修復できる設計
 - **コンカレントエンジニアリング** — 下流工程の担当者を基本設計段階からチームに参画させ、工期短縮を図る手法
 - **デザインレビュー** — 製品ライフサイクル全体の設計アウトプットと導出プロセスを品質特性の観点で組織的に審査
 - **デザインイン** — メーカーが部品メーカー等と開発段階から共同で開発
@@ -100,11 +100,11 @@ utmCampaign: 99-economic-management
 
 事業の成果測定に使う3指標。
 
-- **KGI（重要目標達成指標）** — 最終ゴールの達成度を定量的に測る指標。例：「売上20%アップ」
-- **KPI（重要業績評価指標）** — KGI を分解した中間ゴール。部署や担当者別の集客率・売上アップ率等
-- **KSF（重要成功要因）** — 数値ではなく、事業を成功させるために必要な要因を**言語化**したもの
+- **[KGI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（重要目標達成指標）** — 最終ゴールの達成度を定量的に測る指標。例：「売上20%アップ」
+- **[KPI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（重要業績評価指標）** — KGI を分解した中間ゴール。部署や担当者別の集客率・売上アップ率等
+- **[KSF](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（重要成功要因）** — 数値ではなく、事業を成功させるために必要な要因を**言語化**したもの
 
-「KGI/KPI = 数値化、KSF = 言語化」の区別が択一で問われます。
+「[KGI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)/[KPI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) = 数値化、[KSF](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) = 言語化」の区別が択一で問われます。
 
 **PFI 法**
 
@@ -155,7 +155,7 @@ PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サ�
 
 ## 品質管理（優先度: 最高）
 
-品質管理（広義）は **品質方針 → 品質計画 → 品質管理（狭義）→ 品質保証 → 品質改善** の活動サイクルです。**QC7つ道具・新QC7つ道具・正規分布**は経済性管理で最も安定した高頻度出題エリアです。
+[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（広義）は **品質方針 → 品質計画 → 品質管理（狭義）→ [品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) → 品質改善** の活動サイクルです。**QC7つ道具・新QC7つ道具・正規分布**は経済性管理で最も安定した高頻度出題エリアです。
 
 **品質方針と品質計画**
 
@@ -190,7 +190,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 - **連関図** — 原因・結果の項目を抽出し因果関係を矢印で表現
 - **系統図** — 目的・ゴールへの手段を樹枝状に表現
 - **マトリックス図** — 2要素を行・列に配置し関係を表現
-- **過程決定計画図** — 対策のステップを表現したフローチャート
+- **[過程決定計画図](https://doboku-note.com/docs/pe-comprehensive-management-pdpc-method?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 対策のステップを表現したフローチャート
 - **アローダイアグラム** — 作業を矢印で表した日程計画表
 - **親和図** — 言語データをグループ分けし整理・分類
 - **マトリックスデータ解析** — 複数データを解析して傾向把握
@@ -227,7 +227,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 > **【出題例: [R6年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 検査・合否判定抜取検査に関する記述で最も適切なもの → **正答4：計量値（連続量）／サンプルサイズ（抜取検査の計画要素）／生産者危険（合格品を誤って不合格とする確率）の3者の定義組合せが正確。**
 
-**品質保証**
+**[品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**
 
 **品質マネジメントシステム**は国際規格 **ISO 9000 シリーズ** に則って実施されます。
 
@@ -237,7 +237,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 - ビジョン・使命・戦略を明示
 - あらゆるプロセスで [PDCA サイクル](https://doboku-note.com/docs/pe-comprehensive-management-pdca-cycle?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) を適用
 
-**品質保証活動** — 企画／開発・設計／生産準備／生産／流通／販売・サービス／廃棄・リサイクルすべての段階に及びます。
+**[品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)活動** — 企画／開発・設計／生産準備／生産／流通／販売・サービス／廃棄・リサイクルすべての段階に及びます。
 
 **品質改善**
 
@@ -251,7 +251,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 **消費者保護**
 
-製品安全（PS）マークが特定製品に表示義務化されています。
+[製品安全](https://doboku-note.com/docs/pe-comprehensive-management-product-safety?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（PS）マークが特定製品に表示義務化されています。
 
 - **PSC マーク** — [消費生活用製品安全法](https://doboku-note.com/docs/pe-comprehensive-management-consumer-product-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)
 - **PSE マーク** — 電気用品安全法
@@ -269,7 +269,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 - **無形性** — 形がなく触れられない
 - **同時性** — 顧客との共同作業、提供と消費が同時、元に戻せない
-- **変動性** — 季節・曜日・時間帯による需要変動でサービス品質が変わる
+- **変動性** — 季節・曜日・時間帯による需要変動で[サービス品質](https://doboku-note.com/docs/pe-comprehensive-management-service-quality?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)が変わる
 - **消滅性** — サービス終了とともに消滅、在庫として持てない
 
 > **【出題例: [R4年度 Ⅰ-1-5](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-5)】** サービス特性で最も不適切なもの。3「サービスは安定した品質で繰り返し提供できる」 → **正答3：サービスは「変動性」があり、提供者・時間帯・状況により品質が変わるため、同一品質での反復提供は困難。**
@@ -280,13 +280,13 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 工程管理は、JIS Z 8141 で「生産工程における生産統制」と定義される、経済性管理の中核領域です。
 
-評価尺度は **PQCDSME** — 生産性（P）／品質（Q）／コスト（C）／納期（D）／安全性（S）／意欲（M）／環境（E）の頭文字です。
+評価尺度は **[PQCDSME](https://doboku-note.com/docs/pe-comprehensive-management-pqcdsme?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 生産性（P）／品質（Q）／コスト（C）／納期（D）／安全性（S）／意欲（M）／環境（E）の頭文字です。
 
 **総合生産計画**
 
-**総合生産計画** — 生産計画の最初に行われ、**大日程計画**とも呼ばれる。需要予測量と生産能力を合理的に均衡させることが目的です。
+**総合生産計画** — 生産計画の最初に行われ、**[大日程計画](https://doboku-note.com/docs/pe-comprehensive-management-master-schedule-planning?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**とも呼ばれる。[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量と生産能力を合理的に均衡させることが目的です。
 
-均衡させるためには、需要予測量を満足するために必要な労働力・在庫・残業・外注の各量を求めます。コストの最小化だけでなく、**雇用の安定化や在庫の適正化**も重要な要素です。
+均衡させるためには、[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量を満足するために必要な労働力・在庫・残業・外注の各量を求めます。コストの最小化だけでなく、**雇用の安定化や在庫の適正化**も重要な要素です。
 
 需要変動への対応方法は2系統に分かれます。
 
@@ -307,9 +307,9 @@ JIT を実現する基盤が **平準化生産**（最終組立工程の生産�
 
 [SCM（サプライチェーンマネジメント）](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) — 材料供給から生産・流通・販売に至る物・サービスの供給連鎖をネットワークで結び、需要情報を企業間でリアルタイム共有することで業務全体のスピードと効率を高める経営コンセプト。
 
-基本的な考え方は **TOC（制約条件の理論：Theory of Constraints）** — ボトルネック工程を継続的に改善して全体システムのパフォーマンスを向上させます。
+基本的な考え方は **[TOC（制約条件の理論：Theory of Constraints）](https://doboku-note.com/docs/pe-comprehensive-management-theory-of-constraints?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — ボトルネック工程を継続的に改善して全体システムのパフォーマンスを向上させます。
 
-**ブルウィップ効果** — 川下から川上に段階がさかのぼるにつれ、需要予測量の変動が増幅していく現象。SCM の典型的失敗パターンとして択一に出ます。
+**ブルウィップ効果** — 川下から川上に段階がさかのぼるにつれ、[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量の変動が増幅していく現象。SCM の典型的失敗パターンとして択一に出ます。
 
 SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠点の分散化／部品の標準化／サプライチェーンの可視化。
 
@@ -319,7 +319,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **MPS（基準生産計画）** — 総合生産計画を最終的に製品アイテム単位に分解。
 
-**MRP（資材所要量計画）** — 必要な部品を必要な時期に必要な量だけ調達・製造する手法。**BOM（構成部品表）**・リードタイム・手持在庫量・受入確定量が情報源。
+**MRP（資材所要量計画）** — 必要な部品を必要な時期に必要な量だけ調達・製造する手法。**BOM（構成部品表）**・[リードタイム](https://doboku-note.com/docs/pe-comprehensive-management-lead-time?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・手持在庫量・受入確定量が情報源。
 
 **ERP（統合業務システム）** — 受注から納入までの一連業務を処理。MRP を組み込み、会計・販売・人事まで包含。
 
@@ -331,11 +331,11 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **標準時間** — 適性を持ち習熟した作業者が、所定条件下で必要な余裕をもち正常な作業ペースで仕事を遂行するために必要な時間。**主体作業時間**（正味時間＋余裕時間）と**準備段取作業時間**（正味時間＋余裕時間）の合計で構成されます。
 
-**生産の4M** — MAN（人）／MACHINE（機械）／MATERIAL（材料）／METHOD（方法）。手順計画の実現手段の主要素として頻出。
+**[生産の4M](https://doboku-note.com/docs/pe-comprehensive-management-four-m-of-production?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — MAN（人）／MACHINE（機械）／MATERIAL（材料）／METHOD（方法）。手順計画の実現手段の主要素として頻出。
 
 **負荷計画**
 
-**負荷計画**（工数計画・余力計画とも） — 生産部門ごとに課す仕事量（生産負荷）を計算し、計画期間全体で各職場に割り付ける活動。**負荷工数と能力工数の調整による納期確保**が目的です。
+**[負荷計画](https://doboku-note.com/docs/pe-comprehensive-management-load-capacity?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（工数計画・余力計画とも） — 生産部門ごとに課す仕事量（生産負荷）を計算し、計画期間全体で各職場に割り付ける活動。**負荷工数と能力工数の調整による納期確保**が目的です。
 
 **労働時間基準の式**
 
@@ -346,7 +346,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **能力調整** — 所要能力 ＞ 保有能力なら残業・外注化、所要能力 ＜ 保有能力なら就業時間短縮・内製化。
 
-**負荷平準化** — 山積み・山くずし法。**リードタイム**（加工時間＋段取り時間＋停滞時間＋移動時間＋作業時間）を安定化させることが計画通りの生産実現に不可欠です。
+**[負荷平準化](https://doboku-note.com/docs/pe-comprehensive-management-load-leveling?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 山積み・山くずし法。**[リードタイム](https://doboku-note.com/docs/pe-comprehensive-management-lead-time?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（加工時間＋段取り時間＋停滞時間＋移動時間＋作業時間）を安定化させることが計画通りの生産実現に不可欠です。
 
 **工数見積り**
 
@@ -382,9 +382,9 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **生産統制** — 日程計画通りに製造工程が運営されているか監視し、遅延があれば対策を講じる進度管理全般。3つの管理活動で構成されます。
 
-- **現品管理** — 資材・仕掛品・備品の運搬・移動・停滞・保管の状況を管理。**現品の経済的処理**と**数量・所在の把握**が目的
-- **余力管理**（工数管理） — 各工程の現在の負荷と現有能力を把握し、再配分で能力と負荷を均衡させる活動。「余力 ＝ 能力 − 負荷」
-- **進捗管理**（進度管理・納期管理） — 仕事の進行状況を把握し、日々の進み具合を調整する活動
+- **[現品管理](https://doboku-note.com/docs/pe-comprehensive-management-inventory-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 資材・仕掛品・備品の運搬・移動・停滞・保管の状況を管理。**現品の経済的処理**と**数量・所在の把握**が目的
+- **[余力管理](https://doboku-note.com/docs/pe-comprehensive-management-capacity-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（工数管理） — 各工程の現在の負荷と現有能力を把握し、再配分で能力と負荷を均衡させる活動。「余力 ＝ 能力 − 負荷」
+- **[進捗管理](https://doboku-note.com/docs/pe-comprehensive-management-progress-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（進度管理・納期管理） — 仕事の進行状況を把握し、日々の進み具合を調整する活動
 
 3者の使い分けは「**現品 ＝ モノ／余力 ＝ 工数／進捗 ＝ 時間**」と整理すると択一で迷いません。
 
@@ -394,8 +394,8 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 業務を見直して改善する活動として、3つのキーワードが択一に出ます。
 
-- **5S** — 整理・整頓・清掃・清潔・しつけ
-- **ECRS の原則** — Eliminate（排除）／Combine（結合）／Rearrange（順序入れ替え）／Simplify（簡素化）の4原則。改善の優先順位もこの順番
+- **[5S](https://doboku-note.com/docs/pe-comprehensive-management-five-s?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 整理・整頓・清掃・清潔・しつけ
+- **[ECRS の原則](https://doboku-note.com/docs/pe-comprehensive-management-ecrs-principle?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — Eliminate（排除）／Combine（結合）／Rearrange（順序入れ替え）／Simplify（簡素化）の4原則。改善の優先順位もこの順番
 - **3M** — ムリ・ムラ・ムダ。トヨタ生産方式の根本概念
 
 > **【出題例: [R5年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** ECRS の原則を用いた改善活動の説明で最も不適切なもの。3「品質許容範囲を狭める」を Simplify（簡素化）とする記述 → **正答3：許容範囲を狭めることは「厳格化」であり「簡素化」とは逆。ECRS は **排除→結合→順序入れ替え→簡素化** の優先順位で進める。**
@@ -454,7 +454,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **伝統的原価計算の問題** — 多量生産品に間接費が多く配賦され、少量生産品の間接費負担が過小になる。ABC は **少量生産品に製造間接費を多く配賦** する結果になります。金融業・サービス業でも活用されています。
 
-**コストドライバー**（配賦基準）には2系統あります。
+**[コストドライバー](https://doboku-note.com/docs/pe-comprehensive-management-cost-driver?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（配賦基準）には2系統あります。
 
 1. **資源（リソース）ドライバー** — 各活動が消費した資源コストを活動ごとに割り当て
 2. **活動（アクティビティ）ドライバー** — 各製品が消費した活動を製品ごとに割り当て
@@ -513,7 +513,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **貸方（負債＋純資産）** — 流動負債／固定負債／純資産（株主資本・その他の包括利益累計額・新株予約権）
 
-**減価償却費** — 有形固定資産に含まれ、費用でありながら支出を伴わないため、**その分が内部に留保される**効果が生じます（後述の C/F でも重要）。
+**[減価償却費](https://doboku-note.com/docs/pe-comprehensive-management-depreciation-residual-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 有形固定資産に含まれ、費用でありながら支出を伴わないため、**その分が内部に留保される**効果が生じます（後述の C/F でも重要）。
 
 **損益計算書（P/L）**
 
@@ -533,7 +533,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **[キャッシュ・フロー計算書（C/F）](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 営業活動・投資活動・財務活動の3区分で現金の出入りを記載。
 
-- **営業 CF** — 本業による収入。減価償却費は**非現金支出費用**のため利益に加え戻されて記載
+- **営業 CF** — 本業による収入。[減価償却費](https://doboku-note.com/docs/pe-comprehensive-management-depreciation-residual-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は**非現金支出費用**のため利益に加え戻されて記載
 - **投資 CF** — 設備や有価証券の取得・売却による増減。投資が多い製造業では通常マイナス
 - **財務 CF** — 借入・返済・社債発行・配当などによる増減
 
@@ -568,9 +568,9 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 「**摩耗故障期で予防保全が最も有効**」が択一の頻出論点です。
 
-**設備総合効率**
+**[設備総合効率](https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**
 
-**設備総合効率** — JIS Z 8141 で「設備の使用効率の度合いを表す指標」と定義。
+**[設備総合効率](https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — JIS Z 8141 で「設備の使用効率の度合いを表す指標」と定義。
 
 > 設備総合効率 ＝ 時間稼働率 × 性能稼働率 × 良品率
 
@@ -591,14 +591,14 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **設備保全6種類**
 
-JIS Z 8141 で定義される保全活動は、**維持活動**（予防保全・事後保全）と**改善活動**（改良保全・保全予防）に大別されます。
+JIS Z 8141 で定義される保全活動は、**維持活動**（予防保全・[事後保全](https://doboku-note.com/docs/pe-comprehensive-management-corrective-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)）と**改善活動**（[改良保全](https://doboku-note.com/docs/pe-comprehensive-management-improvement-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・[保全予防](https://doboku-note.com/docs/pe-comprehensive-management-maintenance-prevention?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)）に大別されます。
 
 - **[予防保全](https://doboku-note.com/docs/pe-comprehensive-management-preventive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 故障に至る前に寿命を推定し、故障を未然防止
-- **事後保全** — 故障発見段階でその故障を取り除く
-- **定期保全** — 故障記録・保全記録の評価から周期を決め、周期ごとに行う予防保全
+- **[事後保全](https://doboku-note.com/docs/pe-comprehensive-management-corrective-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 故障発見段階でその故障を取り除く
+- **[定期保全](https://doboku-note.com/docs/pe-comprehensive-management-periodic-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 故障記録・保全記録の評価から周期を決め、周期ごとに行う予防保全
 - **[予知保全](https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 設備診断技術で劣化傾向を管理し、最適時期に対策を行う予防保全
-- **改良保全** — 故障が起こりにくい設備への改善・性能向上
-- **保全予防** — 計画・設計段階から不良・故障の予知・予測と排除対策を織り込む
+- **[改良保全](https://doboku-note.com/docs/pe-comprehensive-management-improvement-maintenance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 故障が起こりにくい設備への改善・性能向上
+- **[保全予防](https://doboku-note.com/docs/pe-comprehensive-management-maintenance-prevention?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 計画・設計段階から不良・故障の予知・予測と排除対策を織り込む
 
 JIS Z 8115 で定義される追加用語も択一で問われます。
 
