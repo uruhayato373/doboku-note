@@ -75,9 +75,10 @@ function parseTweetMd(draftDir: string): TweetBlock[] {
     const num = parseInt(headMatch[1], 10);
     const title = headMatch[2].trim();
 
-    // ヘッダ行を除いた残り。末尾の "---" セパレータは除去
+    // ヘッダ行を除いた残り。リプライ部分と末尾の "---" セパレータは除去
     const body = block
       .replace(/^## Tweet \d+:.+\n/, "")
+      .replace(/\n--- リプライ ---[\s\S]*/, "")
       .replace(/\n---\s*$/, "")
       .trim();
 
