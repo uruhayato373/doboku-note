@@ -129,7 +129,13 @@ const relatedLabels = extractRelatedLabels(mdx.rawContent);
 const subtitle = extractSubtitle(mdx.definition ?? '', mdx.rawContent);
 const stickyText = buildStickyText(mdx.definition ?? '', mdx.examPoints, mdx.rawContent);
 const definition = cleanDefinition(mdx.definition ?? '');
-const boardNoteText = mdx.examPoints[0] ?? null;
+const boardNoteText = (() => {
+  const t = mdx.examPoints[0] ?? null;
+  if (!t) return null;
+  // 「：」が2つ以上あればリスト形式として改行変換
+  const parts = t.split('：');
+  return parts.length >= 3 ? parts.join('\n') : t;
+})();
 const boardCaption = truncateCaption(mdx.examPoints[1] ?? mdx.examPoints[0] ?? null);
 
 console.log(`  title: ${mdx.title}`);
