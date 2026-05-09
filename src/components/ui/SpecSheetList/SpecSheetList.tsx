@@ -28,6 +28,7 @@
  * ```
  */
 
+import katex from "katex";
 import { ReactNode } from "react";
 import styles from "./SpecSheetList.module.css";
 
@@ -52,12 +53,8 @@ export type SpecSheetListProps = {
 
 /**
  * `**bold**` と `` `code` `` のインライン記法を React ノードに変換する簡易パーサ。
- * MDX では items が ReactNode 配列として渡せるが、文字列で渡されたときに
- * markdown の太字が literal 表示される問題を避けるための最小対応。
- * ネスト（例: `**太字内の*斜体*`）や複雑な markdown は扱わない。
  */
-function parseInlineMarkdown(text: string): ReactNode {
-  // `**bold**` を先に分割、内側で `\`code\`` を処理
+function parseInlineBoldCode(text: string): ReactNode {
   const boldRegex = /(\*\*[^*]+\*\*)/g;
   const parts = text.split(boldRegex);
   return parts.map((part, i) => {
@@ -65,6 +62,22 @@ function parseInlineMarkdown(text: string): ReactNode {
       return <strong key={`b-${i}`}>{parseInlineCode(part.slice(2, -2), i)}</strong>;
     }
     return parseInlineCode(part, i);
+  });
+}
+
+/**
+ * `$...$` インライン数式を KaTeX でレンダリングし、bold / code も処理する。
+ * JSX プロップ文字列は remark-math パイプラインを通らないため、ここで処理する。
+ */
+function parseInlineMarkdown(text: string): ReactNode {
+  const parts = text.split(/(\$[^$\n]+\$)/g);
+  if (parts.length === 1) return parseInlineBoldCode(text);
+  return parts.map((part, i) => {
+    if (part.startsWith("$") && part.endsWith("$") && part.length > 2) {
+      const html = katex.renderToString(part.slice(1, -1), { throwOnError: false });
+      return <span key={`m-${i}`} dangerouslySetInnerHTML={{ __html: html }} />;
+    }
+    return <span key={`t-${i}`}>{parseInlineBoldCode(part)}</span>;
   });
 }
 
