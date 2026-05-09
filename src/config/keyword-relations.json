@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generated_at": "2026-05-08T12:47:19.331Z",
+  "generated_at": "2026-05-09T04:17:59.698Z",
   "summary": {
-    "total_keywords": 653,
-    "published_keywords": 652,
-    "keywords_with_relations": 652,
+    "total_keywords": 651,
+    "published_keywords": 650,
+    "keywords_with_relations": 650,
     "keywords_below_target": 0,
     "isolated_keywords": [],
     "orphan_slugs_warned": [
@@ -1523,24 +1523,16 @@
     ],
     "haccp": [
       {
-        "slug": "after-service",
-        "label": "アフターサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
         "slug": "control-limits",
         "label": "管理限界",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
         "score": 10,
         "signals": [
           "section"
@@ -1561,18 +1553,17 @@
         "signals": [
           "section"
         ]
+      },
+      {
+        "slug": "manufacturing-quality",
+        "label": "製造品質",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
       }
     ],
-    "after-service": [
-      {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
+    "customer-satisfaction": [
       {
         "slug": "quality-assurance",
         "label": "品質保証",
@@ -1582,88 +1573,9 @@
           "exam"
         ]
       },
-      {
-        "slug": "quality-control",
-        "label": "品質管理",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "control-limits",
-        "label": "管理限界",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "design-quality",
-        "label": "設計品質",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      }
-    ],
-    "service-quality": [
       {
         "slug": "quality-characteristics",
         "label": "品質特性",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "after-service",
-        "label": "アフターサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "control-limits",
-        "label": "管理限界",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "design-quality",
-        "label": "設計品質",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      }
-    ],
-    "before-service": [
-      {
-        "slug": "after-service",
-        "label": "アフターサービス",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "quality-assurance",
-        "label": "品質保証",
         "score": 12,
         "signals": [
           "section",
@@ -1734,8 +1646,8 @@
         ]
       },
       {
-        "slug": "after-service",
-        "label": "アフターサービス",
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
         "score": 10,
         "signals": [
           "section"
@@ -1791,24 +1703,16 @@
     ],
     "manufacturing-quality": [
       {
-        "slug": "after-service",
-        "label": "アフターサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
         "slug": "control-limits",
         "label": "管理限界",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
         "score": 10,
         "signals": [
           "section"
@@ -1825,6 +1729,14 @@
       {
         "slug": "haccp",
         "label": "HACCP",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "inspection-methods",
+        "label": "全数検査／抜取検査",
         "score": 10,
         "signals": [
           "section"
@@ -1851,24 +1763,24 @@
         ]
       },
       {
-        "slug": "after-service",
-        "label": "アフターサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
         "slug": "control-limits",
         "label": "管理限界",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "haccp",
+        "label": "HACCP",
         "score": 10,
         "signals": [
           "section"
@@ -1942,24 +1854,24 @@
         ]
       },
       {
-        "slug": "after-service",
-        "label": "アフターサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
         "slug": "control-limits",
         "label": "管理限界",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "haccp",
+        "label": "HACCP",
         "score": 10,
         "signals": [
           "section"
@@ -2174,6 +2086,15 @@
         ]
       },
       {
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
         "score": 12,
@@ -2185,15 +2106,6 @@
       {
         "slug": "nonconformity-rate",
         "label": "不適合品率／適合品率",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "quality-improvement",
-        "label": "品質改善活動",
         "score": 12,
         "signals": [
           "section",
@@ -2324,16 +2236,16 @@
         ]
       },
       {
-        "slug": "after-service",
-        "label": "アフターサービス",
+        "slug": "control-limits",
+        "label": "管理限界",
         "score": 10,
         "signals": [
           "section"
         ]
       },
       {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
         "score": 10,
         "signals": [
           "section"
@@ -2389,24 +2301,16 @@
     ],
     "required-quality": [
       {
-        "slug": "after-service",
-        "label": "アフターサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "before-service",
-        "label": "ビフォアサービス",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
         "slug": "control-limits",
         "label": "管理限界",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "customer-satisfaction",
+        "label": "顧客満足（CS）",
         "score": 10,
         "signals": [
           "section"
@@ -2423,6 +2327,14 @@
       {
         "slug": "haccp",
         "label": "HACCP",
+        "score": 10,
+        "signals": [
+          "section"
+        ]
+      },
+      {
+        "slug": "inspection-methods",
+        "label": "全数検査／抜取検査",
         "score": 10,
         "signals": [
           "section"

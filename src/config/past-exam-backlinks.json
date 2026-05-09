@@ -11283,15 +11283,13 @@
       "anchor": "1-7"
     }
   ],
-  "before-service": [
+  "customer-satisfaction": [
     {
-      "examSlug": "pe-comprehensive-management-h24-primary",
-      "year": "平成24年度",
-      "question": "Ⅱ-1-8",
-      "anchor": "1-8"
-    }
-  ],
-  "after-service": [
+      "examSlug": "pe-comprehensive-management-r04-primary",
+      "year": "令和4年度",
+      "question": "Ⅰ-1-5",
+      "anchor": "1-5"
+    },
     {
       "examSlug": "pe-comprehensive-management-h24-primary",
       "year": "平成24年度",
@@ -15897,14 +15895,6 @@
       "year": "令和4年度",
       "question": "Ⅰ-1-2",
       "anchor": "1-2"
-    }
-  ],
-  "service-quality": [
-    {
-      "examSlug": "pe-comprehensive-management-r04-primary",
-      "year": "令和4年度",
-      "question": "Ⅰ-1-5",
-      "anchor": "1-5"
     }
   ],
   "agile": [

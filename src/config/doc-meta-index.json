@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-08T12:47:18.548Z",
+  "generated_at": "2026-05-09T04:17:57.696Z",
   "summary": {
-    "total": 811,
-    "published": 806,
-    "unpublished": 5,
+    "total": 812,
+    "published": 804,
+    "unpublished": 8,
     "by_category": {
       "civil-construction-1": 81,
-      "pe-comprehensive-management": 725
+      "pe-comprehensive-management": 723
     }
   },
   "docs": {
@@ -2739,24 +2739,6 @@
       "created": "2026-04-05",
       "dateModified": "2026-04-28"
     },
-    "pe-comprehensive-management-after-service": {
-      "title": "アフターサービス",
-      "description": "アフターサービスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "section": "2.2",
-      "tags": [
-        "keyword"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 1,
-      "seoTitle": "アフターサービス ｜ 総合技術監理 キーワード集 2026",
-      "created": "2026-04-05",
-      "dateModified": "2026-04-28"
-    },
     "pe-comprehensive-management-agenda-21": {
       "title": "アジェンダ21",
       "description": "1992年地球サミットで採択されたアジェンダ21の構成と内容を解説。持続可能な開発のための包括的行動計画、ローカルアジェンダ21。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リン。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
@@ -3189,24 +3171,6 @@
       "lastRewrittenAt": "2026-04-15",
       "revisionCycle": 1,
       "seoTitle": "バスタブカーブ ｜ 総合技術監理 キーワード集 2026",
-      "created": "2026-04-05",
-      "dateModified": "2026-04-28"
-    },
-    "pe-comprehensive-management-before-service": {
-      "title": "ビフォアサービス",
-      "description": "ビフォアサービスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "section": "2.2",
-      "tags": [
-        "keyword"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 1,
-      "seoTitle": "ビフォアサービス ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
       "dateModified": "2026-04-28"
     },
@@ -4221,7 +4185,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "管理限界 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-05-07"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-convention-on-biodiversity": {
       "title": "生物多様性条約",
@@ -4476,6 +4440,24 @@
       "seoTitle": "CSV ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
       "dateModified": "2026-04-28"
+    },
+    "pe-comprehensive-management-customer-satisfaction": {
+      "title": "顧客満足（CS）",
+      "description": "顧客満足（CS）の定義・構成要素を技術士総合技術監理の視点で整理。ビフォアサービス・アフターサービス・サービス品質（SERVQUAL・ギャップモデル）を一体化。技術士総合技術監理キーワード集2026（経済性管理）。",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-09",
+      "reviewStatus": "approved",
+      "lastRewrittenAt": "2026-05-09",
+      "revisionCycle": 1,
+      "seoTitle": "顧客満足（CS） ｜ 総合技術監理 キーワード集 2026",
+      "created": "2026-04-03",
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-cyber-security": {
       "title": "サイバー安全保障",
@@ -4802,11 +4784,11 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
+      "lastRewrittenAt": "2026-05-09",
       "revisionCycle": 2,
       "seoTitle": "需要予測 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-05-07"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-deposit-system": {
       "title": "デポジット制度",
@@ -4919,7 +4901,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "設計品質 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-design-review": {
       "title": "デザインレビュー",
@@ -5275,10 +5257,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "割引率 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
+      "lastRewrittenAt": "2026-05-09",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-discretionary-work-system": {
       "title": "裁量労働制",
@@ -5512,7 +5494,7 @@
       "publishedAt": "2026-04-25",
       "seoTitle": "経済性管理 完全学習ガイド｜総合技術監理 5 管理 | doboku-note",
       "created": "2026-04-25",
-      "dateModified": "2026-05-08",
+      "dateModified": "2026-05-09",
       "faqs": [
         {
           "q": "経済性管理は試験で何問出題されますか？",
@@ -7263,7 +7245,7 @@
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "toc_max_heading_level": 2,
       "seoTitle": "技術士二次試験 総合技術監理部門 平成24年度 択一式",
-      "dateModified": "2026-05-08"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-h24-secondary": {
       "title": "技術士二次試験 総合技術監理部門 平成24年度 記述式",
@@ -7495,7 +7477,7 @@
       "revisionCycle": 1,
       "seoTitle": "HACCP ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-halo-effect-errors": {
       "title": "評価誤差",
@@ -8556,7 +8538,7 @@
     },
     "pe-comprehensive-management-investment-recovery-plan": {
       "title": "投資回収計画",
-      "description": "投資回収計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "投資回収計画の定義と策定プロセス、NPV法・回収期間法・IRR法・ROI法の評価手法を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "2.1",
@@ -8567,10 +8549,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "投資回収計画 ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
+      "lastRewrittenAt": "2026-05-09",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-iot": {
       "title": "IoT",
@@ -8968,7 +8950,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "総合技術監理 キーワード集 2026（全文・5管理600+キーワード詳細解説リンク付き） | doboku-note",
-      "dateModified": "2026-05-08"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-knowledge-sharing": {
       "title": "知識共有化",
@@ -9664,7 +9646,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "製造品質 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-market-research": {
       "title": "市場調査",
@@ -11724,7 +11706,7 @@
       "revisionCycle": 1,
       "seoTitle": "製造物責任 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-03",
-      "dateModified": "2026-05-07"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-product-liability-act": {
       "title": "製造物責任法",
@@ -12001,7 +11983,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "品質特性 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-quality-control": {
       "title": "品質管理",
@@ -12064,7 +12046,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "品質目標 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-quality-planning": {
       "title": "品質計画",
@@ -12434,7 +12416,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和4年度 択一式【解答解説付き】",
-      "dateModified": "2026-05-08"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-r04-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和4年度 記述式",
@@ -13258,7 +13240,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "要求品質 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-residual-risk": {
       "title": "残留リスク",
@@ -14220,24 +14202,6 @@
       "revisionCycle": 1,
       "created": "2026-04-03",
       "dateModified": "2026-05-07"
-    },
-    "pe-comprehensive-management-service-quality": {
-      "title": "サービス品質・サービス特性",
-      "description": "サービス品質・サービス特性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
-      "category": "pe-comprehensive-management",
-      "group": "keyword",
-      "section": "2.2",
-      "tags": [
-        "keyword"
-      ],
-      "published": true,
-      "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
-      "seoTitle": "サービス品質・サービス特性 ｜ 総合技術監理 キーワード集 2026",
-      "created": "2026-04-05",
-      "dateModified": "2026-04-28"
     },
     "pe-comprehensive-management-seven-types-of-pollution": {
       "title": "典型７公害",

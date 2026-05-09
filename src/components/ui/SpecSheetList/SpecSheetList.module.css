@@ -35,7 +35,7 @@
 
 .title {
   margin: 0;
-  font-size: 15px;
+  font-size: var(--font-size-secondary);
   font-weight: 700;
   color: var(--color-ink-strong);
   letter-spacing: 0.02em;
@@ -44,7 +44,7 @@
 /* サブタイトル: summary 相当。マーカーペン風グラデで下線強調 */
 .subtitle {
   margin: 6px 0 0;
-  font-size: 14px;
+  font-size: var(--font-size-small);
   line-height: 1.6;
   color: var(--color-ink-body);
   font-weight: 600;
@@ -84,7 +84,7 @@
 
 .idx {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 11px;
+  font-size: var(--font-size-xsmall);
   letter-spacing: 0.08em;
   color: var(--color-brand);
   font-weight: 600;

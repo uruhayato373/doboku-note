@@ -269,7 +269,6 @@ export default async function DocPage({
                 id={generateHeadingId(doc.meta.title)}
                 className="font-serif font-black text-[var(--ink)] leading-[1.25] tracking-tight text-balance [word-break:auto-phrase] m-0 mb-0"
                 style={{
-                  fontSize: 'clamp(28px, 4vw, 40px)',
                   letterSpacing: '-0.02em',
                 }}
               >
