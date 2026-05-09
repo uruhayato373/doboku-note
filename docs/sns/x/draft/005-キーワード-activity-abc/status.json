@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-05-09T07:44:35.240+09:00",
+  "tweets": {
+    "1": {
+      "title": "定義編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-19T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "2": {
+      "title": "手順編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-20T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "3": {
+      "title": "2 段階配賦編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-21T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "4": {
+      "title": "引っかけポイント編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-22T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "5": {
+      "title": "計算例 + CTA",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-23T20:00:00.000+09:00",
+      "posted_at": null
+    }
+  }
+}

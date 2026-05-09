@@ -15,7 +15,7 @@
  *   npx tsx ... 004 2026-05-09T08:00 2026-05-10T08:00 2026-05-11T08:00 2026-05-12T08:00 2026-05-13T08:00
  *
  * 引数:
- *   <draft>       docs/x-posts/draft/ 配下のディレクトリ名。先頭番号のみ ("004") でも可
+ *   <draft>       docs/sns/x/draft/ 配下のディレクトリ名。先頭番号のみ ("004") でも可
  *   [<date>...]   予約日時 JST (YYYY-MM-DDTHH:MM)。対象ツイート数と一致させる
  *   --tweet N     特定ツイートのみ投稿（1-based。省略時は全ツイート）
  *   --immediate   予約ではなく即時投稿（--tweet と組み合わせ推奨）
@@ -30,7 +30,7 @@ import * as fs from "fs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
-const DRAFTS_DIR = path.join(PROJECT_ROOT, "docs/x-posts/draft");
+const DRAFTS_DIR = path.join(PROJECT_ROOT, "docs/sns/x/draft");
 const PROFILE_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-profile");
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 

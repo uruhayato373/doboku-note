@@ -9,8 +9,8 @@ import * as path from "path";
 import * as fs from "fs";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
-const DRAFT_DIR = path.join(PROJECT_ROOT, "docs/x-posts/draft");
-const PUBLISHED_DIR = path.join(PROJECT_ROOT, "docs/x-posts/published");
+const DRAFT_DIR = path.join(PROJECT_ROOT, "docs/sns/x/draft");
+const PUBLISHED_DIR = path.join(PROJECT_ROOT, "docs/sns/x/published");
 
 interface TweetStatus {
   title: string;

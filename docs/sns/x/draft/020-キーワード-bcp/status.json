@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-05-09T07:10:52.192+09:00",
+  "tweets": {
+    "1": {
+      "title": "定義編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-19T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "2": {
+      "title": "RTO/RPO編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-20T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "3": {
+      "title": "重要業務特定編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-21T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "4": {
+      "title": "引っかけポイント編",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-22T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "5": {
+      "title": "まとめ + CTA",
+      "status": "scheduled",
+      "scheduled_at": "2026-05-23T08:00:00.000+09:00",
+      "posted_at": null
+    }
+  }
+}

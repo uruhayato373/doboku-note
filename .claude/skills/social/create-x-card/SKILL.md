@@ -29,7 +29,7 @@ node scripts/gen-x-card.mjs --draft 019 --force
 ## 出力先
 
 ```
-docs/x-posts/draft/{NNN}-*/img/tweet-NN-{slug}.png
+docs/sns/x/draft/{NNN}-*/img/tweet-NN-{slug}.png
 ```
 
 slug はドラフトフォルダ名から `NNN-キーワード-` を除いた部分。
@@ -74,7 +74,7 @@ slug はドラフトフォルダ名から `NNN-キーワード-` を除いた部
 
 ```bash
 # 画像を目視確認
-open docs/x-posts/draft/019-キーワード-risk-assessment/img/tweet-01-risk-assessment.png
+open docs/sns/x/draft/019-キーワード-risk-assessment/img/tweet-01-risk-assessment.png
 
 # publish-x と統合確認（dry-run）
 npx tsx .claude/skills/social/publish-x/publish-x.ts 019 --tweet 1 2026-05-20T08:00 --dry-run

@@ -101,7 +101,7 @@ node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs \
   --size both         # reels | carousel | both
 ```
 
-出力先: `docs/x-posts/{date}-{slug}/instagram-{size}/img/`
+出力先: `docs/sns/instagram/{date}-{slug}/{size}/img/`
 
 **自動抽出ロジック**:
 1. `mdx-extract.mjs` で `{ title, definition, examPoints, relatedKeywords, rawContent }` を取得

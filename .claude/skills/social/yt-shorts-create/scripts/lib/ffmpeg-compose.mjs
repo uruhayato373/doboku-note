@@ -13,7 +13,7 @@
 
 import { spawn, spawnSync } from 'node:child_process';
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -30,6 +30,25 @@ export function ffmpegAvailable() {
     return r.status === 0;
   } catch {
     return false;
+  }
+}
+
+/**
+ * 指定したフィルタが ffmpeg に搭載されているか確認（非同期）。
+ * @param {string} filterName
+ * @returns {Promise<boolean>}
+ */
+async function checkFilter(filterName) {
+  try {
+    const { stdout } = await runCommand('ffmpeg', ['-help', `filter=${filterName}`]);
+    return !stdout.includes(`Unknown filter '${filterName}'`);
+  } catch {
+    try {
+      const r = spawnSync('ffmpeg', ['-help', `filter=${filterName}`], { encoding: 'utf8' });
+      return r.stderr ? !r.stderr.includes(`Unknown filter '${filterName}'`) : false;
+    } catch {
+      return false;
+    }
   }
 }
 
@@ -96,7 +115,10 @@ export async function composeShortsVideo({
   const concatTxt = join(tmpDir, 'concat.txt');
   writeFileSync(
     concatTxt,
-    slideMp4s.map(p => `file '${p.replace(/'/g, "'\\''")}'`).join('\n') + '\n'
+    slideMp4s.map(p => {
+      const abs = isAbsolute(p) ? p : resolve(p);
+      return `file '${abs.replace(/'/g, "'\\''")}'`;
+    }).join('\n') + '\n'
   );
 
   const combinedMp4 = join(tmpDir, '_combined.mp4');
@@ -109,14 +131,35 @@ export async function composeShortsVideo({
     combinedMp4,
   ]);
 
-  // 4) 字幕焼き込み（fontsdir で Noto Sans JP Bold を解決）
-  await runFFmpeg([
-    '-y',
-    '-i', combinedMp4,
-    '-vf', `subtitles=${assPath}:fontsdir=${FONT_DIR}`,
-    '-c:a', 'copy',
-    outPath,
-  ]);
+  // 4) 字幕焼き込み（libass が必要）
+  // ffmpeg-full formula または --enable-libass でビルドした場合のみ動作。
+  // libass が利用できない場合は字幕なしで _combined.mp4 をそのままコピーする。
+  const absAssPath = isAbsolute(assPath) ? assPath : resolve(assPath);
+  const escAssPath = absAssPath.replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+  const escFontDir = FONT_DIR.replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+
+  const hasLibass = await checkFilter('subtitles');
+  if (hasLibass) {
+    await runFFmpeg([
+      '-y',
+      '-i', combinedMp4,
+      '-vf', `subtitles=${escAssPath}:fontsdir=${escFontDir}`,
+      '-c:a', 'copy',
+      outPath,
+    ]);
+  } else {
+    // libass 未搭載の場合は字幕なしでコピー（WARN を出す）
+    process.stderr.write(
+      `[WARN] ffmpeg に libass が搭載されていません。字幕なしで出力します。\n` +
+      `       字幕付き出力には: brew install ffmpeg-full\n`
+    );
+    await runFFmpeg([
+      '-y',
+      '-i', combinedMp4,
+      '-c', 'copy',
+      outPath,
+    ]);
+  }
 
   return { mp4Path: outPath, durations };
 }

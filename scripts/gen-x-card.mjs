@@ -19,7 +19,7 @@ import sharp from "sharp";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = join(__dirname, "..");
-const DRAFTS_DIR = join(PROJECT_ROOT, "docs/x-posts/draft");
+const DRAFTS_DIR = join(PROJECT_ROOT, "docs/sns/x/draft");
 
 const FONT =
   "'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif";

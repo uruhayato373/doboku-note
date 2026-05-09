@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-05-09T08:11:06.911+09:00",
+  "tweets": {
+    "1": {
+      "title": "定義編",
+      "status": "scheduled",
+      "scheduled_at": "2026-08-04T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "2": {
+      "title": "3 種類編",
+      "status": "scheduled",
+      "scheduled_at": "2026-08-05T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "3": {
+      "title": "フォールトトレランス編",
+      "status": "scheduled",
+      "scheduled_at": "2026-08-06T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "4": {
+      "title": "規格・基準編",
+      "status": "scheduled",
+      "scheduled_at": "2026-08-07T20:00:00.000+09:00",
+      "posted_at": null
+    },
+    "5": {
+      "title": "引っかけ + CTA",
+      "status": "scheduled",
+      "scheduled_at": "2026-08-08T20:00:00.000+09:00",
+      "posted_at": null
+    }
+  }
+}

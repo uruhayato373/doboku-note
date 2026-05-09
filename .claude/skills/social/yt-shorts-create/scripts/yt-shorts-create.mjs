@@ -70,8 +70,11 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
     throw new Error('ffmpeg not found in PATH. Install with: brew install ffmpeg');
   }
 
-  const baseDir = outDir ?? join('.tmp', 'sns', date, `${slug}-shorts`);
-  mkdirSync(baseDir, { recursive: true });
+  // 中間ファイル（PNG/WAV/mp4/concat/ass）は .tmp に、最終成果物は docs に
+  const tmpDir = join('.tmp', 'sns', date, `${slug}-shorts`);
+  const docsDir = outDir ?? join('docs', 'sns', 'youtube', `${date}-${slug}`);
+  mkdirSync(tmpDir, { recursive: true });
+  mkdirSync(docsDir, { recursive: true });
 
   // [1/6] MDX → storyboard
   process.stdout.write(`[1/6] Loading MDX and building storyboard...\n`);
@@ -81,8 +84,9 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   // [2/6] script
   process.stdout.write(`[2/6] Building scripts...\n`);
   const scripts = buildScript(storyboard);
+  writeFileSync(join(docsDir, 'script.txt'), buildScriptTxt({ storyboard, scripts, date }));
 
-  // [3/6] スライド PNG
+  // [3/6] スライド PNG（中間ファイル → tmpDir）
   process.stdout.write(`[3/6] Rendering ${storyboard.slides.length} slide PNGs (Satori)...\n`);
   const pngPaths = [];
   for (let i = 0; i < storyboard.slides.length; i++) {
@@ -91,12 +95,12 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
       height: HEIGHT,
       slide: storyboard.slides[i],
     });
-    const p = join(baseDir, `slide-${String(i).padStart(2, '0')}.png`);
+    const p = join(tmpDir, `slide-${String(i).padStart(2, '0')}.png`);
     writeFileSync(p, png);
     pngPaths.push(p);
   }
 
-  // [4/6] TTS wav
+  // [4/6] TTS wav（中間ファイル → tmpDir）
   process.stdout.write(`[4/6] Synthesizing TTS (VOICEVOX speaker=${speaker ?? '<default>'})...\n`);
   const wavPaths = [];
   for (let i = 0; i < scripts.length; i++) {
@@ -104,28 +108,28 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
       text: scripts[i],
       speaker: speaker !== undefined ? Number(speaker) : undefined,
     });
-    const p = join(baseDir, `slide-${String(i).padStart(2, '0')}.wav`);
+    const p = join(tmpDir, `slide-${String(i).padStart(2, '0')}.wav`);
     writeFileSync(p, wav);
     wavPaths.push(p);
   }
 
-  // [5/6] 字幕 .ass + ffmpeg 合成
+  // [5/6] 字幕 .ass + ffmpeg 合成（中間 → tmpDir、最終 mp4 → docsDir）
   process.stdout.write(`[5/6] Composing video with ffmpeg + subtitles...\n`);
   const durations = [];
   for (const w of wavPaths) durations.push(await probeDuration(w));
-  const assPath = join(baseDir, 'subtitle.ass');
+  const assPath = join(tmpDir, 'subtitle.ass');
   writeFileSync(assPath, buildSubtitle({ scripts, durations, options: { width: WIDTH, height: HEIGHT } }));
 
-  const mp4Path = join(baseDir, 'shorts.mp4');
-  await composeShortsVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path });
+  const mp4Path = join(docsDir, 'shorts.mp4');
+  await composeShortsVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { tmpDir } });
 
-  // [6/6] サムネ + meta
+  // [6/6] サムネ + meta（→ docsDir）
   process.stdout.write(`[6/6] Generating thumbnail and meta.json...\n`);
-  const thumbPath = join(baseDir, 'thumbnail.png');
+  const thumbPath = join(docsDir, 'thumbnail.png');
   await generateThumbnail({ coverPngPath: pngPaths[0], outPath: thumbPath });
 
   const meta = buildMeta({ storyboard, durations });
-  const metaPath = join(baseDir, 'meta.json');
+  const metaPath = join(docsDir, 'meta.json');
   writeFileSync(metaPath, JSON.stringify(meta, null, 2));
 
   const totalSec = durations.reduce((a, b) => a + b, 0).toFixed(1);
@@ -176,6 +180,15 @@ export function buildMeta({ storyboard, durations }) {
 
 function dedupe(arr) {
   return [...new Set(arr)];
+}
+
+function buildScriptTxt({ storyboard, scripts, date }) {
+  const header = `# yt-shorts-script: ${storyboard.title} (${date})\n\n`;
+  const sections = storyboard.slides.map((slide, i) => {
+    const label = String(i + 1).padStart(2, '0');
+    return `[${label} ${slide.type}]\n${scripts[i]}`;
+  });
+  return header + sections.join('\n\n') + '\n';
 }
 
 // CLI 起動判定（argv[1] が無い動的 import では false）

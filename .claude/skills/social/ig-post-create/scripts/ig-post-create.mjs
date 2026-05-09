@@ -11,8 +11,8 @@
  *   --category  カテゴリ（デフォルト: pe-comprehensive-management）
  *
  * 出力先:
- *   docs/x-posts/{date}-{slug}/instagram-reels/img/    (1080×1920)
- *   docs/x-posts/{date}-{slug}/instagram-carousel/img/ (1080×1350)
+ *   docs/sns/instagram/{date}-{slug}/reels/img/    (1080×1920)
+ *   docs/sns/instagram/{date}-{slug}/carousel/img/ (1080×1350)
  */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
@@ -194,10 +194,10 @@ if (sizes.length === 0) {
   process.exit(1);
 }
 
-const outBase = resolve(ROOT, `docs/x-posts/${date}-${slug}`);
+const outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
 
 for (const size of sizes) {
-  const imgDir = resolve(outBase, `instagram-${size.name}/img`);
+  const imgDir = resolve(outBase, `${size.name}/img`);
   mkdirSync(imgDir, { recursive: true });
 
   console.log(`\n[${size.name}] ${size.width}×${size.height}`);

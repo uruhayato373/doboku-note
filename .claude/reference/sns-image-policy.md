@@ -1,12 +1,12 @@
 # SNS 投稿画像 ポリシー
 
-`docs/x-posts/{NNN}-{テーマ}/{instagram-carousel,x,youtube-shorts}/img/` に出力する SNS 用画像（IG カルーセル / X 投稿 / YT Shorts サムネ等）の真実源。`.claude/reference/note-svg-policy.md` の SNS 版。
+`docs/sns/{x,instagram,youtube}/` に出力する SNS 用画像（IG カルーセル / X 投稿 / YT Shorts）の真実源。`.claude/reference/note-svg-policy.md` の SNS 版。
 
 ## 適用範囲
 
-- `docs/x-posts/**/instagram-carousel/img/**/*.{svg,png}` — IG カルーセル（10 スライド構成）
-- `docs/x-posts/**/x/img/*.{svg,png}` — X 投稿用画像（1 ツイート 1 枚）
-- 将来: `docs/x-posts/**/youtube-shorts/img/*.{svg,png}` — YT Shorts サムネ・字幕画像
+- `docs/sns/instagram/**/{carousel,reels}/img/**/*.{svg,png}` — IG スライド画像
+- `docs/sns/x/draft/**/img/*.{svg,png}` — X 投稿用画像（1 ツイート 1 枚）
+- `docs/sns/youtube/**/*.{mp4,png}` — YT Shorts 動画・サムネ
 - 生成スクリプト: `.tmp/gen-sns-{NNN}.mjs`
 
 note 用図解（`docs/note/**/img/figure-*`）は対象外、`.claude/reference/note-svg-policy.md` 参照。doboku-note 本体（`.local/r2/posts/**/img/*.svg`）も対象外。
@@ -200,8 +200,8 @@ node .tmp/gen-sns-{NNN}.mjs
 
 良い参考実装:
 - `.tmp/gen-sns-001.mjs` — 001-択一1問1答-20問 の生成スクリプト（IG カルーセル 50 + X 20 = 70 PNG）
-- `docs/x-posts/001-択一1問1答-20問/instagram-carousel/img/` — 完成画像（5 管理 × 10 スライド）
-- `docs/x-posts/001-択一1問1答-20問/x/img/` — 完成画像（20 ツイート分）
+- `docs/sns/instagram/001-択一1問1答-20問/carousel/img/` — 完成画像（5 管理 × 10 スライド）
+- `docs/sns/x/draft/001-択一1問1答-20問/img/` — 完成画像（20 ツイート分）
 
 ## 11. 修正サイクル
 
@@ -209,7 +209,7 @@ node .tmp/gen-sns-{NNN}.mjs
 
 1. SVG ソース or 生成スクリプトを編集
 2. `node .tmp/gen-sns-{NNN}.mjs` で再生成（全枚数を一括再生成して整合性を保つ）
-3. `git status -s docs/x-posts/{NNN}-*/` で変更ファイルを確認
+3. `git status -s docs/sns/` で変更ファイルを確認
 4. サンプル PNG を Read で目視チェック
 5. 問題があれば 1 へ戻る
 

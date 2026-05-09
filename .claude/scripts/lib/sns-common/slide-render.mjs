@@ -17,7 +17,24 @@ import { dirname, resolve } from 'node:path';
 
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
-import { buildNotebookCover, buildNotebookBoard, buildNotebookCta } from './notebook-slides.mjs';
+import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
+
+const NT = NOTEBOOK_TOKENS;
+const RULED_BG = `repeating-linear-gradient(to bottom, transparent 0, transparent 71px, ${NT.paperLine} 71px, ${NT.paperLine} 72px)`;
+
+function notebookContainer(width, height) {
+  return {
+    position: 'relative',
+    width: `${width}px`,
+    height: `${height}px`,
+    display: 'flex',
+    background: NT.paper,
+    backgroundImage: RULED_BG,
+    fontFamily: FONTS.heading,
+    color: NT.ink,
+    overflow: 'hidden',
+  };
+}
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONT_DIR = resolve(__dirname, '../../../skills/conversion/ogp-create/assets/fonts');
@@ -47,7 +64,7 @@ export const TEXT_CONFIG_DEFAULTS = {
     breakBefore: ['（', '：', '〜'],
     breakAt: [' ', '　'],
     charCountFallback: 12,
-    fontSizeTable: [120, 96, 80, 64, 48],
+    fontSizeTable: [200, 160, 128, 104, 88],
     safetyWidth: 920,
     budouX: { enabled: false },
   },
@@ -105,6 +122,12 @@ async function buildElement({ width, height, slide, config }) {
   switch (slide.type) {
     case 'cover':
       return buildCoverElement({ width, height, data: slide.data || {}, config });
+    case 'definition':
+      return buildDefinitionElement({ width, height, data: slide.data || {}, config });
+    case 'examPoint':
+      return buildExamPointElement({ width, height, data: slide.data || {}, config });
+    case 'cta':
+      return buildCtaElement({ width, height, data: slide.data || {}, config });
     case 'notebook-cover':
       return buildNotebookCover({ width, height, data: slide.data || {} });
     case 'notebook-board':
@@ -116,6 +139,369 @@ async function buildElement({ width, height, slide, config }) {
   }
 }
 
+/** markdown記号（**など）を除去 */
+function stripMarkdown(text) {
+  return String(text).replace(/\*\*/g, '').replace(/\*/g, '').trim();
+}
+
+/** definition スライド: Study Notebook スタイルで定義を表示 */
+async function buildDefinitionElement({ width, height, data }) {
+  const title = data.title || '';
+  const body = stripMarkdown(data.body || '');
+
+  return {
+    type: 'div',
+    props: {
+      style: notebookContainer(width, height),
+      children: [
+        buildMarginLine(),
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              top: '160px',
+              bottom: '180px',
+              left: '160px',
+              right: '80px',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gap: '48px',
+            },
+            children: [
+              // 板書見出し
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    fontSize: '52px',
+                    fontWeight: 700,
+                    color: NT.brandDeep,
+                    borderBottom: `4px solid ${NT.brandDeep}`,
+                    paddingBottom: '12px',
+                  },
+                  children: `定義｜${title}`,
+                },
+              },
+              // 定義本文
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    fontSize: '64px',
+                    fontWeight: 700,
+                    color: NT.inkBody,
+                    lineHeight: 1.7,
+                  },
+                  children: body,
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '80px',
+              left: '160px',
+              fontSize: '36px',
+              color: NT.inkBody,
+              fontWeight: 700,
+            },
+            children: 'doboku-note.com',
+          },
+        },
+      ],
+    },
+  };
+}
+
+/** examPoint スライド: Study Notebook スタイルで試験ポイントを表示 */
+async function buildExamPointElement({ width, height, data }) {
+  const index = Number.isInteger(data.index) ? data.index : 1;
+  const body = stripMarkdown(data.body || '');
+
+  return {
+    type: 'div',
+    props: {
+      style: notebookContainer(width, height),
+      children: [
+        buildMarginLine(),
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              top: '160px',
+              bottom: '180px',
+              left: '160px',
+              right: '80px',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gap: '60px',
+            },
+            children: [
+              // 付箋スタイルバッジ
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    alignSelf: 'flex-start',
+                    background: NT.sticky,
+                    paddingTop: '20px',
+                    paddingBottom: '20px',
+                    paddingLeft: '28px',
+                    paddingRight: '36px',
+                    gap: '24px',
+                    alignItems: 'center',
+                    boxShadow: '4px 6px 12px rgba(0,0,0,0.12)',
+                    transform: 'rotate(-1.5deg)',
+                  },
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          display: 'flex',
+                          width: '88px',
+                          height: '88px',
+                          borderRadius: '50%',
+                          backgroundColor: NT.brand,
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          fontSize: '60px',
+                          color: '#ffffff',
+                          fontWeight: 700,
+                        },
+                        children: String(index),
+                      },
+                    },
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          display: 'flex',
+                          fontSize: '60px',
+                          fontWeight: 700,
+                          color: NT.ink,
+                        },
+                        children: '試験ポイント',
+                      },
+                    },
+                  ],
+                },
+              },
+              // 区切り線
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    height: '4px',
+                    background: NT.paperLine,
+                    borderRadius: '2px',
+                    alignSelf: 'stretch',
+                  },
+                  children: '',
+                },
+              },
+              // 本文
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    fontSize: '76px',
+                    fontWeight: 700,
+                    color: NT.ink,
+                    lineHeight: 1.6,
+                  },
+                  children: body,
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '80px',
+              left: '160px',
+              fontSize: '36px',
+              color: NT.inkBody,
+              fontWeight: 700,
+            },
+            children: 'doboku-note.com',
+          },
+        },
+      ],
+    },
+  };
+}
+
+/** cta スライド: Study Notebook スタイルで doboku-note への誘導 */
+async function buildCtaElement({ width, height }) {
+
+  return {
+    type: 'div',
+    props: {
+      style: notebookContainer(width, height),
+      children: [
+        buildMarginLine(),
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              top: '160px',
+              bottom: '180px',
+              left: '160px',
+              right: '80px',
+              flexDirection: 'column',
+              justifyContent: 'space-around',
+            },
+            children: [
+              // 見出し
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    fontSize: '68px',
+                    fontWeight: 700,
+                    color: NT.brandDeep,
+                  },
+                  children: 'ノートに もう1ページ',
+                },
+              },
+              // 白カード
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    background: '#ffffff',
+                    border: `3px solid ${NT.ink}`,
+                    paddingTop: '48px',
+                    paddingBottom: '48px',
+                    paddingLeft: '48px',
+                    paddingRight: '48px',
+                    gap: '24px',
+                  },
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          display: 'flex',
+                          fontSize: '48px',
+                          fontWeight: 700,
+                          color: NT.inkBody,
+                        },
+                        children: '全部つながってる。',
+                      },
+                    },
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          display: 'flex',
+                          fontSize: '56px',
+                          fontWeight: 700,
+                          color: NT.ink,
+                          borderBottom: `8px solid ${NT.marker}`,
+                          paddingBottom: '4px',
+                          alignSelf: 'flex-start',
+                        },
+                        children: 'doboku-note.com',
+                      },
+                    },
+                    {
+                      type: 'div',
+                      props: {
+                        style: {
+                          display: 'flex',
+                          fontSize: '44px',
+                          color: NT.brand,
+                          fontWeight: 700,
+                        },
+                        children: '▷ 概要欄のリンクから',
+                      },
+                    },
+                  ],
+                },
+              },
+              // 青付箋
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    alignSelf: 'flex-end',
+                    width: '340px',
+                    background: NT.stickyBlue,
+                    paddingTop: '24px',
+                    paddingBottom: '24px',
+                    paddingLeft: '24px',
+                    paddingRight: '24px',
+                    flexDirection: 'column',
+                    fontSize: '36px',
+                    fontWeight: 700,
+                    color: NT.ink,
+                    lineHeight: 1.55,
+                    boxShadow: '4px 6px 12px rgba(0,0,0,0.12)',
+                    transform: 'rotate(-3deg)',
+                  },
+                  children: [
+                    {
+                      type: 'div',
+                      props: {
+                        style: { display: 'flex', fontSize: '36px', fontWeight: 700, marginBottom: '8px' },
+                        children: '▷ 概要欄',
+                      },
+                    },
+                    { type: 'div', props: { style: { display: 'flex' }, children: '過去問 H21〜R7' } },
+                    { type: 'div', props: { style: { display: 'flex' }, children: '5管理 横断辞書' } },
+                    { type: 'div', props: { style: { display: 'flex' }, children: '1問1答 全694問' } },
+                  ],
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '80px',
+              left: '160px',
+              fontSize: '36px',
+              color: NT.inkBody,
+              fontWeight: 700,
+            },
+            children: 'doboku-note.com',
+          },
+        },
+      ],
+    },
+  };
+}
+
 async function buildCoverElement({ width, height, data, config }) {
   const title = data.title || '';
   const lines = await wrapTitle(title, config);
@@ -124,87 +510,96 @@ async function buildCoverElement({ width, height, data, config }) {
   return {
     type: 'div',
     props: {
-      style: {
-        width: `${width}px`,
-        height: `${height}px`,
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundImage: `linear-gradient(180deg, ${COLORS.brandFill} 0%, ${COLORS.white} 100%)`,
-        padding: '80px',
-        position: 'relative',
-        fontFamily: FONTS.heading,
-      },
+      style: notebookContainer(width, height),
       children: [
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex',
-              fontSize: '32px',
-              color: COLORS.brand,
-              marginBottom: '40px',
-              letterSpacing: '0.1em',
-              fontWeight: 700,
-            },
-            children: data.label || '技術士総監',
-          },
-        },
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              gap: '8px',
-            },
-            children: lines.map(line => ({
-              type: 'div',
-              props: {
-                style: {
-                  display: 'flex',
-                  color: COLORS.brandDeep,
-                  fontSize: `${fontSize}px`,
-                  fontWeight: 700,
-                  lineHeight: 1.2,
-                },
-                children: line || ' ',
-              },
-            })),
-          },
-        },
-        data.subtitle
-          ? {
-              type: 'div',
-              props: {
-                style: {
-                  display: 'flex',
-                  fontSize: '32px',
-                  color: COLORS.inkBody,
-                  marginTop: '48px',
-                  fontWeight: 700,
-                },
-                children: data.subtitle,
-              },
-            }
-          : null,
+        buildMarginLine(),
         {
           type: 'div',
           props: {
             style: {
               display: 'flex',
               position: 'absolute',
-              bottom: '64px',
-              fontSize: '28px',
-              color: COLORS.inkMuted,
+              top: '160px',
+              bottom: '180px',
+              left: '160px',
+              right: '80px',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              gap: '48px',
+            },
+            children: [
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    fontSize: '44px',
+                    color: NT.brand,
+                    fontWeight: 700,
+                    letterSpacing: '0.08em',
+                  },
+                  children: '★ 今日のキーワード',
+                },
+              },
+              {
+                type: 'div',
+                props: {
+                  style: {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    gap: '8px',
+                  },
+                  children: lines.map(line => ({
+                    type: 'div',
+                    props: {
+                      style: {
+                        display: 'flex',
+                        fontSize: `${fontSize}px`,
+                        fontWeight: 700,
+                        lineHeight: 1.2,
+                        color: NT.ink,
+                      },
+                      children: line || ' ',
+                    },
+                  })),
+                },
+              },
+              data.subtitle
+                ? {
+                    type: 'div',
+                    props: {
+                      style: {
+                        display: 'flex',
+                        alignSelf: 'flex-start',
+                        fontSize: '52px',
+                        fontWeight: 700,
+                        color: NT.inkBody,
+                        borderBottom: `8px solid ${NT.marker}`,
+                        paddingBottom: '4px',
+                      },
+                      children: data.subtitle,
+                    },
+                  }
+                : null,
+            ].filter(Boolean),
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '80px',
+              left: '160px',
+              fontSize: '36px',
+              color: NT.inkBody,
               fontWeight: 700,
             },
             children: 'doboku-note.com',
           },
         },
-      ].filter(Boolean),
+      ],
     },
   };
 }
