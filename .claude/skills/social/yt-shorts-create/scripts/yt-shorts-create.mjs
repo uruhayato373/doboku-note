@@ -22,6 +22,7 @@ import { pathToFileURL } from 'node:url';
 
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { synthesize } from '#lib/sns-common/tts-client.mjs';
+import { applyReadingDict } from '#lib/sns-common/reading-dict.mjs';
 import { buildStoryboard } from './lib/build-storyboard.mjs';
 import { buildScript } from './lib/build-script.mjs';
 import { buildSubtitle } from './lib/build-subtitle.mjs';
@@ -86,6 +87,9 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   const scripts = buildScript(storyboard);
   writeFileSync(join(docsDir, 'script.txt'), buildScriptTxt({ storyboard, scripts, date }));
 
+  const readingScripts = scripts.map(s => applyReadingDict(s));
+  writeFileSync(join(docsDir, 'reading.txt'), buildScriptTxt({ storyboard, scripts: readingScripts, date }));
+
   // [3/6] スライド PNG（中間ファイル → tmpDir）
   process.stdout.write(`[3/6] Rendering ${storyboard.slides.length} slide PNGs (Satori)...\n`);
   const pngPaths = [];
@@ -105,7 +109,7 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   const wavPaths = [];
   for (let i = 0; i < scripts.length; i++) {
     const wav = await synthesize({
-      text: scripts[i],
+      text: readingScripts[i],
       speaker: speaker !== undefined ? Number(speaker) : undefined,
     });
     const p = join(tmpDir, `slide-${String(i).padStart(2, '0')}.wav`);
