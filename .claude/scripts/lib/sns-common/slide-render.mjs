@@ -134,6 +134,8 @@ async function buildElement({ width, height, slide, config }) {
       return buildNotebookBoard({ width, height, data: slide.data || {} });
     case 'notebook-cta':
       return buildNotebookCta({ width, height, data: slide.data || {} });
+    case 'image':
+      return buildImageElement({ width, height, data: slide.data || {} });
     default:
       throw new Error(`Unknown slide type: ${slide.type}`);
   }
@@ -597,6 +599,83 @@ async function buildCoverElement({ width, height, data, config }) {
               fontWeight: 700,
             },
             children: 'doboku-note.com',
+          },
+        },
+      ],
+    },
+  };
+}
+
+/** image スライド: 画像を中央に大きく表示（Study Notebook スタイル） */
+function buildImageElement({ width, height, data }) {
+  const { imageBase64, title, credit } = data;
+  const PAD = 80;
+  const LEFT = 160;
+
+  return {
+    type: 'div',
+    props: {
+      style: notebookContainer(width, height),
+      children: [
+        buildMarginLine(),
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              top: `${PAD}px`,
+              left: `${LEFT}px`,
+              right: `${PAD}px`,
+              fontSize: '52px',
+              fontWeight: 700,
+              color: NT.brand,
+            },
+            children: title,
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              top: '200px',
+              bottom: '140px',
+              left: `${LEFT}px`,
+              right: `${PAD}px`,
+              alignItems: 'center',
+              justifyContent: 'center',
+            },
+            children: [
+              {
+                type: 'img',
+                props: {
+                  src: imageBase64,
+                  style: {
+                    maxWidth: `${width - LEFT - PAD}px`,
+                    maxHeight: `${height - 360}px`,
+                    objectFit: 'contain',
+                    borderRadius: '12px',
+                    boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
+                  },
+                },
+              },
+            ],
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              position: 'absolute',
+              bottom: '48px',
+              right: `${PAD}px`,
+              fontSize: '28px',
+              color: NT.inkMuted ?? NT.inkBody,
+            },
+            children: credit || '',
           },
         },
       ],

@@ -13,13 +13,32 @@
  */
 
 import { extractMdx } from '#lib/sns-common/mdx-extract.mjs';
+import { fetchImageForKeyword } from '#lib/sns-common/image-search.mjs';
 
 /**
  * MDX から storyboard を組む（ファイル読み込みあり）。
+ * 画像検索を伴うため async。
  */
-export function buildStoryboard({ category, slug, options = {} }) {
+export async function buildStoryboard({ category, slug, options = {} }) {
   const mdx = extractMdx({ category, slug });
-  return buildStoryboardFromExtract(mdx, options, { category, slug });
+  const storyboard = buildStoryboardFromExtract(mdx, options, { category, slug });
+
+  // definition の直後に image スライドを挿入（画像が取得できた場合のみ）
+  const imageData = await fetchImageForKeyword({ slug, title: mdx.title || '', category });
+  if (imageData) {
+    const defIdx = storyboard.slides.findIndex(s => s.type === 'definition');
+    const insertAt = defIdx >= 0 ? defIdx + 1 : 1;
+    storyboard.slides.splice(insertAt, 0, {
+      type: 'image',
+      data: {
+        imageBase64: imageData.base64,
+        title: mdx.title || '',
+        credit: imageData.credit,
+      },
+    });
+  }
+
+  return storyboard;
 }
 
 /**

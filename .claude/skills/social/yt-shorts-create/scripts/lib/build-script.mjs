@@ -38,6 +38,8 @@ export function buildScriptForSlide(slide, ctx = {}) {
       return buildExamPointScript(slide, ctx);
     case 'cta':
       return buildCtaScript(slide, ctx);
+    case 'image':
+      return buildImageScript(slide, ctx);
     default:
       throw new Error(`Unknown slide type: ${slide.type}`);
   }
@@ -65,4 +67,9 @@ function buildExamPointScript(slide, _ctx) {
 
 function buildCtaScript(_slide, _ctx) {
   return '詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。';
+}
+
+function buildImageScript(slide, _ctx) {
+  const title = slide.data?.title || '';
+  return `${title}のイメージです。`;
 }

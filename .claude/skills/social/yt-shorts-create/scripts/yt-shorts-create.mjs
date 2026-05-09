@@ -78,7 +78,7 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
 
   // [1/6] MDX → storyboard
   process.stdout.write(`[1/6] Loading MDX and building storyboard...\n`);
-  const storyboard = buildStoryboard({ category, slug });
+  const storyboard = await buildStoryboard({ category, slug });
   process.stdout.write(`     ${storyboard.slides.length} slides: ${storyboard.slides.map(s => s.type).join(' / ')}\n`);
 
   // [2/6] script
