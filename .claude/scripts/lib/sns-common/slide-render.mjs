@@ -456,20 +456,49 @@ async function buildExamPointElement({ width, height, data }) {
                   children: '',
                 },
               },
-              // 本文
-              {
-                type: 'div',
-                props: {
-                  style: {
-                    display: 'flex',
-                    fontSize: '76px',
-                    fontWeight: 700,
-                    color: NT.ink,
-                    lineHeight: 1.6,
+              // 本文（「：」が2つ以上あれば行分割）
+              (() => {
+                const parts = body.split('：');
+                const isListBody = parts.length >= 3;
+                if (isListBody) {
+                  return {
+                    type: 'div',
+                    props: {
+                      style: {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '24px',
+                      },
+                      children: parts.map((part, i) => ({
+                        type: 'div',
+                        props: {
+                          style: {
+                            display: 'flex',
+                            fontSize: '64px',
+                            fontWeight: 700,
+                            color: NT.ink,
+                            lineHeight: 1.4,
+                          },
+                          children: i === 0 ? part : `・${part}`,
+                        },
+                      })),
+                    },
+                  };
+                }
+                return {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      fontSize: '76px',
+                      fontWeight: 700,
+                      color: NT.ink,
+                      lineHeight: 1.6,
+                    },
+                    children: body,
                   },
-                  children: body,
-                },
-              },
+                };
+              })(),
             ],
           },
         },
