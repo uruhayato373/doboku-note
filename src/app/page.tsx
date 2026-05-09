@@ -29,7 +29,7 @@ const EXAM_DATA = [
     label: "技術士（総合技術監理部門）",
     en: "PE Comprehensive Management",
     subtitle: "筆記・口頭試験 論文対策",
-    description: "5つの管理技術（経済性・人的資源・情報・安全・社会環境）を軸に、青本の体系整理と論文事例を提供。",
+    description: "5つの管理技術（経済性・人的資源・情報・安全・社会環境）のキーワード集。各概念の定義・要点・過去問リンクを収録。",
     nextExam: "2026年7月 筆記 / 12月 口頭",
     variant: "pe" as const,
   },
