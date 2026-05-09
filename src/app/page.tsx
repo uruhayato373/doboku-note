@@ -102,7 +102,6 @@ export default async function HomePage() {
       <main className="flex-grow">
         <Hero articleCount={articleCount} lastUpdated={lastUpdated} />
         <ExamCards exams={exams} />
-        <ReferenceCardLink />
         <LatestArticles articles={latest} />
         <AboutSection />
       </main>

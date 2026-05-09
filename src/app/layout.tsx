@@ -26,6 +26,12 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
+        {/* Flash-prevention: set dark class before React mounts to avoid FOUC */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var s=localStorage.getItem('doboku-note-theme');if(s==='dark'||(s!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})()`,
+          }}
+        />
         <StructuredData type="website" />
         <StructuredData type="organization" />
       </head>
@@ -35,13 +41,7 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <AnalyticsProvider />
         </Suspense>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem={true}
-          disableTransitionOnChange={true}
-          storageKey="doboku-note-theme"
-        >
+        <ThemeProvider>
           <div className="min-h-screen bg-neutral-50 dark:bg-gray-900 transition-colors duration-300">
             {children}
             <BackToTopButton />
