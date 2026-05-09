@@ -223,14 +223,20 @@ export function buildNotebookCover({ width, height, data }) {
       flexDirection: 'column',
       justifyContent: 'center',
     }, [
-      // ラベル
+      // 管理区分バッジ
       d({
         fontSize: L.labelFontSize,
-        color: NOTEBOOK_TOKENS.brand,
         fontWeight: 700,
-        letterSpacing: '0.08em',
-        marginBottom: 10,
-      }, '★ 今日のキーワード'),
+        color: NOTEBOOK_TOKENS.inkBody,
+        background: mgmt.stickyColor,
+        paddingTop: 8,
+        paddingBottom: 8,
+        paddingLeft: 20,
+        paddingRight: 20,
+        alignSelf: 'flex-start',
+        marginBottom: 16,
+        letterSpacing: '0.06em',
+      }, `▌ ${mgmt.label}`),
 
       // キーワード見出し（複数行）
       d({
