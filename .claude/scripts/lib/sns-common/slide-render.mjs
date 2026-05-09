@@ -18,6 +18,7 @@ import { dirname, resolve } from 'node:path';
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
 import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
+import { SNS_CONFIG } from './sns-config.mjs';
 
 const NT = NOTEBOOK_TOKENS;
 const RULED_BG = `repeating-linear-gradient(to bottom, transparent 0, transparent 71px, ${NT.paperLine} 71px, ${NT.paperLine} 72px)`;
@@ -190,7 +191,7 @@ async function buildDefinitionElement({ width, height, data }) {
                       borderBottom: `4px solid ${NT.brandDeep}`,
                       paddingBottom: '10px',
                     },
-                    children: `定義｜${title}`,
+                    children: `${SNS_CONFIG.labels.definition}｜${title}`,
                   },
                 },
                 {
@@ -284,7 +285,7 @@ async function buildDefinitionElement({ width, height, data }) {
                 color: NT.inkBody,
                 fontWeight: 700,
               },
-              children: 'doboku-note.com',
+              children: SNS_CONFIG.domain,
             },
           },
         ],
@@ -325,7 +326,7 @@ async function buildDefinitionElement({ width, height, data }) {
                     borderBottom: `4px solid ${NT.brandDeep}`,
                     paddingBottom: '12px',
                   },
-                  children: `定義｜${title}`,
+                  children: `${SNS_CONFIG.labels.definition}｜${title}`,
                 },
               },
               {
@@ -356,7 +357,7 @@ async function buildDefinitionElement({ width, height, data }) {
               color: NT.inkBody,
               fontWeight: 700,
             },
-            children: 'doboku-note.com',
+            children: SNS_CONFIG.domain,
           },
         },
       ],
@@ -435,7 +436,7 @@ async function buildExamPointElement({ width, height, data }) {
                           fontWeight: 700,
                           color: NT.ink,
                         },
-                        children: '試験ポイント',
+                        children: SNS_CONFIG.labels.examPoint,
                       },
                     },
                   ],
@@ -484,7 +485,7 @@ async function buildExamPointElement({ width, height, data }) {
               color: NT.inkBody,
               fontWeight: 700,
             },
-            children: 'doboku-note.com',
+            children: SNS_CONFIG.domain,
           },
         },
       ],
@@ -527,8 +528,8 @@ async function buildCtaElement({ width, height }) {
                     color: NT.brandDeep,
                   },
                   children: [
-                    { type: 'div', props: { style: { display: 'flex' }, children: '概要欄のリンクを' } },
-                    { type: 'div', props: { style: { display: 'flex' }, children: 'チェック！' } },
+                    { type: 'div', props: { style: { display: 'flex' }, children: SNS_CONFIG.cta.heading[0] } },
+                    { type: 'div', props: { style: { display: 'flex' }, children: SNS_CONFIG.cta.heading[1] } },
                   ],
                 },
               },
@@ -560,7 +561,7 @@ async function buildCtaElement({ width, height }) {
                           paddingBottom: '4px',
                           alignSelf: 'flex-start',
                         },
-                        children: 'doboku-note.com',
+                        children: SNS_CONFIG.domain,
                       },
                     },
                     {
@@ -572,7 +573,7 @@ async function buildCtaElement({ width, height }) {
                           color: NT.brand,
                           fontWeight: 700,
                         },
-                        children: '▷ 概要欄のリンクから',
+                        children: SNS_CONFIG.cta.cardAction,
                       },
                     },
                   ],
@@ -604,12 +605,13 @@ async function buildCtaElement({ width, height }) {
                       type: 'div',
                       props: {
                         style: { display: 'flex', fontSize: '36px', fontWeight: 700, marginBottom: '8px' },
-                        children: '▷ 概要欄',
+                        children: SNS_CONFIG.cta.stickyLabel,
                       },
                     },
-                    { type: 'div', props: { style: { display: 'flex' }, children: '過去問 H21〜R7' } },
-                    { type: 'div', props: { style: { display: 'flex' }, children: '5管理 横断辞書' } },
-                    { type: 'div', props: { style: { display: 'flex' }, children: '1問1答 全694問' } },
+                    ...SNS_CONFIG.cta.stickyItems.map(item => ({
+                      type: 'div',
+                      props: { style: { display: 'flex' }, children: item },
+                    })),
                   ],
                 },
               },
@@ -628,7 +630,7 @@ async function buildCtaElement({ width, height }) {
               color: NT.inkBody,
               fontWeight: 700,
             },
-            children: 'doboku-note.com',
+            children: SNS_CONFIG.domain,
           },
         },
       ],
@@ -672,7 +674,7 @@ async function buildCoverElement({ width, height, data, config }) {
                     fontWeight: 700,
                     letterSpacing: '0.08em',
                   },
-                  children: data.label || '★ 今日のキーワード',
+                  children: data.label || SNS_CONFIG.labels.cover,
                 },
               },
               {
@@ -730,7 +732,7 @@ async function buildCoverElement({ width, height, data, config }) {
               color: NT.inkBody,
               fontWeight: 700,
             },
-            children: 'doboku-note.com',
+            children: SNS_CONFIG.domain,
           },
         },
       ],

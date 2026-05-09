@@ -14,6 +14,7 @@
 
 import { extractMdx } from '#lib/sns-common/mdx-extract.mjs';
 import { fetchImageForKeyword } from '#lib/sns-common/image-search.mjs';
+import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
 
 /**
  * MDX から storyboard を組む（ファイル読み込みあり）。
@@ -54,14 +55,14 @@ export function buildStoryboardFromExtract(mdx, options = {}, meta = {}) {
       data: {
         title: mdx.title || '',
         subtitle: mdx.section ? `セクション ${mdx.section}` : null,
-        label: '技術士（総合技術監理部門）',
+        label: SNS_CONFIG.labels.cover,
       },
     },
     {
       type: 'definition',
       data: {
         title: mdx.title || '',
-        body: truncateDefinition(stripEnglishParens(mdx.definition || mdx.description || ''), 80),
+        body: truncateDefinition(stripEnglishParens(mdx.definition || mdx.description || ''), SNS_CONFIG.generation.definitionMaxLength),
       },
     },
     ...points.map((point, i) => ({

@@ -23,6 +23,7 @@ import { pathToFileURL } from 'node:url';
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { synthesize } from '#lib/sns-common/tts-client.mjs';
 import { applyReadingDict } from '#lib/sns-common/reading-dict.mjs';
+import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
 import { buildStoryboard } from './lib/build-storyboard.mjs';
 import { buildScript } from './lib/build-script.mjs';
 import { buildSubtitle } from './lib/build-subtitle.mjs';
@@ -42,7 +43,7 @@ function parseCliArgs(argv) {
     options: {
       slug: { type: 'string' },
       date: { type: 'string' },
-      category: { type: 'string', default: 'pe-comprehensive-management' },
+      category: { type: 'string', default: SNS_CONFIG.defaultCategory },
       speaker: { type: 'string' },
       out: { type: 'string' },
     },
@@ -150,33 +151,30 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
  */
 export function buildMeta({ storyboard, durations }) {
   const totalSec = durations.reduce((a, b) => a + b, 0);
+  const yt = SNS_CONFIG.youtube;
   const description = [
-    `${storyboard.title}（技術士総合技術監理部門）`,
+    `${storyboard.title}（${SNS_CONFIG.profession}）`,
     '',
     storyboard.description,
     '',
-    '▼ 詳しい解説（doboku-note）',
-    `https://doboku-note.com/docs/${storyboard.category}-${storyboard.slug}?utm_source=youtube&utm_medium=description&utm_campaign=shorts`,
+    yt.descriptionHeaders.site,
+    `${SNS_CONFIG.domainUrl}/docs/${storyboard.category}-${storyboard.slug}?${yt.utmParams}`,
     '',
-    '▼ 受験記・解答再現（note）',
-    'https://note.com/uruhayato/?utm_source=youtube&utm_medium=description',
+    yt.descriptionHeaders.note,
+    `${SNS_CONFIG.noteUrl}?${yt.utmParams.replace('campaign=shorts', 'campaign=note')}`,
     '',
-    '#技術士 #技術士総監 #総合技術監理 #技術士試験 #技術士受験 #エンジニア学習 #土木 #dobokunote',
+    yt.hashtags,
   ].join('\n');
 
   return {
-    title: `【総監キーワード】${storyboard.title}`,
+    title: `${yt.titlePrefix}${storyboard.title}`,
     description,
-    tags: dedupe([
-      '技術士', '技術士総監', '総合技術監理', '技術士試験', '技術士受験',
-      'エンジニア学習', '土木', 'dobokunote',
-      ...(storyboard.tags || []),
-    ]),
-    categoryId: '27', // Education
-    privacyStatus: 'private', // 初期は private、確認後 unlisted/public へ
+    tags: dedupe([...yt.tags, ...(storyboard.tags || [])]),
+    categoryId: yt.categoryId,
+    privacyStatus: yt.privacyStatus,
     sourceSlug: storyboard.slug,
     sourceCategory: storyboard.category,
-    sourceUrl: `https://doboku-note.com/docs/${storyboard.category}-${storyboard.slug}`,
+    sourceUrl: `${SNS_CONFIG.domainUrl}/docs/${storyboard.category}-${storyboard.slug}`,
     durationSeconds: Number(totalSec.toFixed(2)),
     slidesCount: storyboard.slides.length,
   };

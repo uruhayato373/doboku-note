@@ -7,6 +7,8 @@
  *   - ナレーションは「定型的な接続語 + スライドの本体」の構造
  */
 
+import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
+
 /**
  * storyboard 全体から各スライドの台本を生成する。
  * @param {object} storyboard - buildStoryboard / buildStoryboardFromExtract の戻り値
@@ -47,29 +49,28 @@ export function buildScriptForSlide(slide, ctx = {}) {
 
 function buildCoverScript(slide, _ctx) {
   const title = slide.data?.title || '';
-  return `${title}。技術士総合技術監理部門の重要キーワードです。`;
+  return `${title}${SNS_CONFIG.narration.coverSuffix}`;
 }
 
 function buildDefinitionScript(slide, _ctx) {
   const title = slide.data?.title || '';
   const body = slide.data?.body || '';
-  if (!body) return `${title}について解説します。`;
-  // body が「〜とは」始まりなら重複を避ける
+  if (!body) return `${title}${SNS_CONFIG.narration.definitionFallback}`;
   if (body.startsWith(title)) return body;
-  return `${title}とは、${body}`;
+  return `${title}${SNS_CONFIG.narration.definitionConnector}${body}`;
 }
 
 function buildExamPointScript(slide, _ctx) {
   const index = Number.isInteger(slide.data?.index) ? slide.data.index : 1;
   const body = slide.data?.body || '';
-  return `試験ポイント${index}。${body}`;
+  return `${SNS_CONFIG.narration.examPointPrefix}${index}。${body}`;
 }
 
 function buildCtaScript(_slide, _ctx) {
-  return '詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。';
+  return SNS_CONFIG.narration.cta;
 }
 
 function buildImageScript(slide, _ctx) {
   const title = slide.data?.title || '';
-  return `${title}のイメージです。`;
+  return `${title}${SNS_CONFIG.narration.imageSuffix}`;
 }
