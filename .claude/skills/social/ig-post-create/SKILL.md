@@ -16,7 +16,7 @@ allowed-tools: Bash, Read, Write
 | レンダラ統合 | ✅ 実装済み | `.claude/scripts/lib/sns-common/slide-render.mjs` |
 | サンプル生成スクリプト | ✅ 実装済み（ハインリッヒの法則） | `.claude/scripts/gen-notebook-sample.mjs` |
 | MDX データ抽出 | ✅ 既存 | `.claude/scripts/lib/sns-common/mdx-extract.mjs` |
-| 量産スクリプト（slug 指定） | ⏳ 未実装 | Issue #168 SNS-4 で実装予定 |
+| 量産スクリプト（slug 指定） | ✅ 実装済み | `.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs` |
 
 ## デザイン仕様（Study Notebook 案C）
 
@@ -92,9 +92,7 @@ node .claude/scripts/gen-notebook-sample.mjs
 }
 ```
 
-## 量産スクリプト（未実装・設計メモ）
-
-Issue #168 SNS-4 で実装予定。以下が想定 I/F:
+## 量産スクリプト
 
 ```bash
 node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs \
@@ -103,12 +101,15 @@ node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs \
   --size both         # reels | carousel | both
 ```
 
-実装時の手順:
-1. `mdx-extract.mjs` で `{ title, definition, relatedKeywords, frontmatter }` を取得
-2. `frontmatter.tags` から management category を自動判定（`safety` など）
-3. cover / board / cta の data オブジェクトを組み立て
-4. `renderSlide()` × 3 で PNG 生成
-5. `docs/x-posts/{date}-{slug}/instagram-{size}/img/` に保存
+出力先: `docs/x-posts/{date}-{slug}/instagram-{size}/img/`
+
+**自動抽出ロジック**:
+1. `mdx-extract.mjs` で `{ title, definition, examPoints, relatedKeywords, rawContent }` を取得
+2. `description` のカッコ内（例: `（安全管理）`）から management カテゴリを自動判定
+3. `definition` + `rawContent` から年号・件数パターンを抽出して stickyText を生成
+4. `definition` から比率パターン（`1:29:300` 等）を抽出して subtitle を生成
+5. `RelatedKeywords items` の label を抽出して CTA related リストに使用
+6. `renderSlide()` × 3 で PNG 生成 → 指定ディレクトリに保存
 
 ## Satori 制約（実装済みの回避策）
 
