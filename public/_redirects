@@ -61,4 +61,9 @@
 # NOTE: Cloudflare Pages の _redirects は 200 ステータス（内部 rewrite）で外部オリジンへのプロキシに
 # 対応していないため、必ず 301 を使う。`<img>` タグはブラウザがリダイレクトを自動追従するので
 # URL バーには影響しない（実害なし）。
+# 顧客満足（CS）統合 2026-05-09: before/after-service, service-quality → customer-satisfaction
+/docs/pe-comprehensive-management-before-service /docs/pe-comprehensive-management-customer-satisfaction 301
+/docs/pe-comprehensive-management-after-service /docs/pe-comprehensive-management-customer-satisfaction 301
+/docs/pe-comprehensive-management-service-quality /docs/pe-comprehensive-management-customer-satisfaction 301
+
 /posts/* https://storage.doboku-note.com/posts/:splat 301
