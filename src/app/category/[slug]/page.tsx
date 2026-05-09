@@ -497,7 +497,7 @@ export default async function CategoryPage({
   }
 
   const allDocs = await getDocsMetaByCategory(slug);
-  const docs = allDocs.filter(d => d.published !== false);
+  const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文'));
 
   const groups = (slug === 'civil-construction-1' || slug === 'pe-comprehensive-management')
     ? groupDocs(docs, slug)
