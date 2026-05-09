@@ -2,6 +2,7 @@
 notePricing: paid
 noteSeries: 総監テキスト精読ガイド
 utmCampaign: 99-information-management
+noteUrl: https://note.com/dobokunote/n/n9f48dd4d895a
 ---
 # 情報管理｜総監キーワード精読ガイド｜択一・記述で直結する全論点
 
