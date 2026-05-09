@@ -17,6 +17,7 @@ import { dirname, resolve } from 'node:path';
 
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
+import { buildNotebookCover, buildNotebookBoard, buildNotebookCta } from './notebook-slides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONT_DIR = resolve(__dirname, '../../../skills/conversion/ogp-create/assets/fonts');
@@ -104,6 +105,12 @@ async function buildElement({ width, height, slide, config }) {
   switch (slide.type) {
     case 'cover':
       return buildCoverElement({ width, height, data: slide.data || {}, config });
+    case 'notebook-cover':
+      return buildNotebookCover({ width, height, data: slide.data || {} });
+    case 'notebook-board':
+      return buildNotebookBoard({ width, height, data: slide.data || {} });
+    case 'notebook-cta':
+      return buildNotebookCta({ width, height, data: slide.data || {} });
     default:
       throw new Error(`Unknown slide type: ${slide.type}`);
   }

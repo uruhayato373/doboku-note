@@ -18,11 +18,11 @@
 ├── management/      # 11 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 2 — SNS 投稿
+├── social/          # 3 — SNS 投稿
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **43 スキル**（Phase A 開始時の 66 から −35%）。
+合計 **44 スキル**（Phase A 開始時の 66 から −33%）。
 
 ---
 
@@ -105,6 +105,7 @@
 |---|---|---|
 | `/social-post --platform {note\|x}` | note / X 投稿テキスト生成の統合スキル | `.claude/skills/social/social-post/SKILL.md` |
 | `/note-hashtags {NN-...}` | note 公開用ドラフトのハッシュタグ 99 個を生成し `hashtags.txt` に保存 | `.claude/skills/social/note-hashtags/SKILL.md` |
+| `/ig-post-create --slug {kw}` | Instagram Study Notebook スライド PNG 生成（テンプレート実装済み・量産スクリプトは Issue #168 待ち） | `.claude/skills/social/ig-post-create/SKILL.md` |
 
 ## ui — UI/UX
 
