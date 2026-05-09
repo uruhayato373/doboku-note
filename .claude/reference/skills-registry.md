@@ -12,17 +12,17 @@
 
 ```
 .claude/skills/
-├── authoring/       # 6 — 記事を作る
+├── authoring/       # 7 — 記事を作る
 ├── conversion/      # 3 — 外部形式から MDX への変換
-├── quality/         # 8 — MDX・note 公開前品質検査
+├── quality/         # 10 — MDX・note 公開前品質検査
 ├── management/      # 11 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 3 — SNS 投稿
+├── social/          # 6 — SNS 投稿
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **44 スキル**（Phase A 開始時の 66 から −33%）。
+合計 **51 スキル**（Phase A 開始時の 66 から −23%）。
 
 ---
 
@@ -75,6 +75,7 @@
 | `/illustrate-concept` | Web 画像検索→SVG 一括生成→MDX 挿入 | `.claude/skills/authoring/illustrate-concept/SKILL.md` |
 | `/improve-article` | 単一記事の対話的改善（`--mode verify` で PDF 照合 QA） | `.claude/skills/authoring/improve-article/SKILL.md` |
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/authoring/promote-to-site/SKILL.md` |
+| `/notebooklm-research --slug {slug}` | NotebookLM MCP で総監キーワードを深掘り調査してリライト（引用付き根拠強化） | `.claude/skills/authoring/notebooklm-research/SKILL.md` |
 
 **テンプレート**: `.claude/skills/authoring/templates/exam-guide/`
 
@@ -98,6 +99,8 @@
 | `/review-mobile` | モバイル視認性・可読性レビュー | `.claude/skills/quality/review-mobile/SKILL.md` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `.claude/skills/quality/consolidate-duplicate-keyword/SKILL.md` |
 | `/note-prepublish-review` | note 公開前の統合品質ゲート（inline checks + 3 並列 agent: link-injector / figure-auditor / fact-checker） | `.claude/skills/quality/note-prepublish-review/SKILL.md` |
+| `/check-seo-meta` | サイト全 URL の title/description/OGP/canonical/JSON-LD の重複・欠落・長さ違反を検出 | `.claude/skills/quality/check-seo-meta/SKILL.md` |
+| `/pe-essay-review {target}` | 総監記述式模範論文を採点者・実務OB・予備校講師の3視点（各 4 項目、1〜10 点）で評価 | `.claude/skills/quality/pe-essay-review/SKILL.md` |
 
 ## social — SNS 投稿
 
@@ -106,6 +109,9 @@
 | `/social-post --platform {note\|x}` | note / X 投稿テキスト生成の統合スキル | `.claude/skills/social/social-post/SKILL.md` |
 | `/note-hashtags {NN-...}` | note 公開用ドラフトのハッシュタグ 99 個を生成し `hashtags.txt` に保存 | `.claude/skills/social/note-hashtags/SKILL.md` |
 | `/ig-post-create --slug {kw}` | Instagram Study Notebook スライド PNG 生成（テンプレート実装済み・量産スクリプトは Issue #168 待ち） | `.claude/skills/social/ig-post-create/SKILL.md` |
+| `/create-x-card` | tweets.md から X 投稿用サマリカード PNG（1200×675）を管理分野別に色分けして生成 | `.claude/skills/social/create-x-card/SKILL.md` |
+| `/publish-x <draft> [<YYYY-MM-DDTHH:MM>...]` | Playwright で X 投稿を自動化（即時 or 予約、初回は必ず --dry-run） | `.claude/skills/social/publish-x/SKILL.md` |
+| `/yt-shorts-create --slug {slug} --date {YYYY-MM-DD}` | 総監キーワード MDX → YouTube Shorts mp4 を自動生成（Satori + VOICEVOX + ffmpeg） | `.claude/skills/social/yt-shorts-create/SKILL.md` |
 
 ## ui — UI/UX
 
@@ -186,6 +192,7 @@
 | 2026-04-24 | `/ogp-create`（旧 content 配下） | — | `/ogp-create`（Phase C で conversion/ へ移動） |
 | 2026-04-24 | `/civil-textbook-cycle` | content | `/quality-cycle --profile civil-textbook`（Phase D で統合） |
 | 2026-04-24 | `/quality-cycle`（旧 content 配下） | content | `/quality-cycle --profile cem`（Phase D で quality/ へ） |
+| 2026-05-09 | `sns/publish-x`（caption-file 形式） | sns（廃止） | `social/publish-x`（tweets.md 形式の現行版） |
 
 ### エージェント退役
 
