@@ -217,4 +217,3 @@ for (const size of sizes) {
 }
 
 console.log(`\nDone → ${outBase}`);
-try { execSync(`open "${outBase}"`); } catch {}

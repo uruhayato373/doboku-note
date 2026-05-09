@@ -58,4 +58,27 @@ export const SNS_CONFIG = {
     examPointCount: 2,
     definitionMaxLength: 80,
   },
+
+  // 5管理区分マップ（label + badge color）
+  managementMap: {
+    economic: { label: '経済性管理',   color: '#bfdcef' },
+    human:    { label: '人的資源管理', color: '#d0e8d0' },
+    info:     { label: '情報管理',     color: '#e0d4f7' },
+    safety:   { label: '安全管理',     color: '#fde58a' },
+    social:   { label: '社会環境管理', color: '#f5d4d4' },
+  },
 };
+
+export function detectManagement(description) {
+  const labelToKey = {
+    '経済性管理': 'economic',
+    '人的資源管理': 'human',
+    '情報管理': 'info',
+    '安全管理': 'safety',
+    '社会環境管理': 'social',
+  };
+  for (const [label, key] of Object.entries(labelToKey)) {
+    if (description?.includes(label)) return key;
+  }
+  return 'safety';
+}

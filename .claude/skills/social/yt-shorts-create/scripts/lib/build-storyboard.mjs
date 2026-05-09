@@ -14,7 +14,7 @@
 
 import { extractMdx } from '#lib/sns-common/mdx-extract.mjs';
 import { fetchImageForKeyword } from '#lib/sns-common/image-search.mjs';
-import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
+import { SNS_CONFIG, detectManagement } from '#lib/sns-common/sns-config.mjs';
 
 /**
  * MDX から storyboard を組む（ファイル読み込みあり）。
@@ -56,6 +56,7 @@ export function buildStoryboardFromExtract(mdx, options = {}, meta = {}) {
         title: mdx.title || '',
         subtitle: null,
         label: SNS_CONFIG.labels.cover,
+        management: detectManagement(mdx.description || ''),
       },
     },
     {

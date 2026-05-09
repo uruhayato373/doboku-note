@@ -366,9 +366,18 @@ async function buildDefinitionElement({ width, height, data }) {
 }
 
 /** examPoint スライド: Study Notebook スタイルで試験ポイントを表示 */
-async function buildExamPointElement({ width, height, data }) {
+async function buildExamPointElement({ width, height, data, config }) {
   const index = Number.isInteger(data.index) ? data.index : 1;
   const body = stripMarkdown(data.body || '');
+  const parts = body.split('：');
+  const isListBody = parts.length >= 3;
+
+  // 単行テキストは事前に折り返し計算（IIFE内でawaitできないため）
+  const bodyLines = isListBody ? null : await wrapTitle(body, config);
+  const bodySize = isListBody ? null : pickFontSize(bodyLines, {
+    ...config,
+    fontSizeTable: [76, 64, 56, 48],
+  });
 
   return {
     type: 'div',
@@ -456,10 +465,8 @@ async function buildExamPointElement({ width, height, data }) {
                   children: '',
                 },
               },
-              // 本文（「：」が2つ以上あれば行分割）
+              // 本文（「：」が2つ以上あれば行分割、それ以外はwrapTitleで折り返し）
               (() => {
-                const parts = body.split('：');
-                const isListBody = parts.length >= 3;
                 if (isListBody) {
                   return {
                     type: 'div',
@@ -490,12 +497,22 @@ async function buildExamPointElement({ width, height, data }) {
                   props: {
                     style: {
                       display: 'flex',
-                      fontSize: '76px',
-                      fontWeight: 700,
-                      color: NT.ink,
-                      lineHeight: 1.6,
+                      flexDirection: 'column',
+                      gap: '12px',
                     },
-                    children: body,
+                    children: bodyLines.map(line => ({
+                      type: 'div',
+                      props: {
+                        style: {
+                          display: 'flex',
+                          fontSize: `${bodySize}px`,
+                          fontWeight: 700,
+                          color: NT.ink,
+                          lineHeight: 1.5,
+                        },
+                        children: line || ' ',
+                      },
+                    })),
                   },
                 };
               })(),
@@ -671,6 +688,7 @@ async function buildCoverElement({ width, height, data, config }) {
   const title = data.title || '';
   const lines = await wrapTitle(title, config);
   const fontSize = pickFontSize(lines, config);
+  const mgmtInfo = data.management ? SNS_CONFIG.managementMap[data.management] : null;
 
   return {
     type: 'div',
@@ -690,7 +708,7 @@ async function buildCoverElement({ width, height, data, config }) {
               right: '80px',
               flexDirection: 'column',
               justifyContent: 'center',
-              gap: '48px',
+              gap: '40px',
             },
             children: [
               {
@@ -706,6 +724,27 @@ async function buildCoverElement({ width, height, data, config }) {
                   children: data.label || SNS_CONFIG.labels.cover,
                 },
               },
+              mgmtInfo
+                ? {
+                    type: 'div',
+                    props: {
+                      style: {
+                        display: 'flex',
+                        alignSelf: 'flex-start',
+                        background: mgmtInfo.color,
+                        paddingTop: '8px',
+                        paddingBottom: '8px',
+                        paddingLeft: '20px',
+                        paddingRight: '20px',
+                        fontSize: '44px',
+                        fontWeight: 700,
+                        color: NT.inkBody,
+                        letterSpacing: '0.04em',
+                      },
+                      children: `▌ ${mgmtInfo.label}`,
+                    },
+                  }
+                : null,
               {
                 type: 'div',
                 props: {
