@@ -11,8 +11,8 @@ import {
   truncateDefinition,
 } from '../.claude/skills/social/yt-shorts-create/scripts/lib/build-storyboard.mjs';
 
-test('buildStoryboard: followership で 5 枚（cover/def/ep×2/cta）', () => {
-  const sb = buildStoryboard({
+test('buildStoryboard: followership で 5 枚（cover/def/ep×2/cta）', async () => {
+  const sb = await buildStoryboard({
     category: 'pe-comprehensive-management',
     slug: 'followership',
   });
@@ -82,7 +82,7 @@ test('buildStoryboardFromExtract: definition が空なら description を使う'
   assert.match(sb.slides[1].data.body, /description fallback/);
 });
 
-test('buildStoryboardFromExtract: section があれば cover.subtitle に設定', () => {
+test('buildStoryboardFromExtract: cover.subtitle は常に null（セクション番号を表示しない）', () => {
   const mock = {
     title: 't',
     section: '3.1',
@@ -92,7 +92,7 @@ test('buildStoryboardFromExtract: section があれば cover.subtitle に設定'
     tags: [],
   };
   const sb = buildStoryboardFromExtract(mock);
-  assert.equal(sb.slides[0].data.subtitle, 'セクション 3.1');
+  assert.equal(sb.slides[0].data.subtitle, null);
 });
 
 test('truncateDefinition: 80 字以内ならそのまま', () => {
