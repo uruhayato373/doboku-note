@@ -150,7 +150,149 @@ function stripMarkdown(text) {
 async function buildDefinitionElement({ width, height, data }) {
   const title = data.title || '';
   const body = stripMarkdown(data.body || '');
+  const hasImage = Boolean(data.imageBase64);
 
+  if (hasImage) {
+    const SPLIT = Math.round(height * 0.5); // 960px
+    const LEFT = 160;
+    const RIGHT = 80;
+
+    return {
+      type: 'div',
+      props: {
+        style: notebookContainer(width, height),
+        children: [
+          buildMarginLine(),
+          // 上部: タイトル見出し + 定義テキスト
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                position: 'absolute',
+                top: '140px',
+                bottom: `${height - SPLIT + 60}px`,
+                left: `${LEFT}px`,
+                right: `${RIGHT}px`,
+                flexDirection: 'column',
+                justifyContent: 'center',
+                gap: '32px',
+              },
+              children: [
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      fontSize: '48px',
+                      fontWeight: 700,
+                      color: NT.brandDeep,
+                      borderBottom: `4px solid ${NT.brandDeep}`,
+                      paddingBottom: '10px',
+                    },
+                    children: `定義｜${title}`,
+                  },
+                },
+                {
+                  type: 'div',
+                  props: {
+                    style: {
+                      display: 'flex',
+                      fontSize: '52px',
+                      fontWeight: 700,
+                      color: NT.inkBody,
+                      lineHeight: 1.6,
+                    },
+                    children: body,
+                  },
+                },
+              ],
+            },
+          },
+          // セパレーター
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                position: 'absolute',
+                top: `${SPLIT - 20}px`,
+                left: `${LEFT}px`,
+                right: `${RIGHT}px`,
+                height: '4px',
+                background: NT.paperLine,
+              },
+              children: [],
+            },
+          },
+          // 下部: 画像
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                position: 'absolute',
+                top: `${SPLIT + 20}px`,
+                bottom: '140px',
+                left: `${LEFT}px`,
+                right: `${RIGHT}px`,
+                alignItems: 'center',
+                justifyContent: 'center',
+              },
+              children: [
+                {
+                  type: 'img',
+                  props: {
+                    src: data.imageBase64,
+                    style: {
+                      maxWidth: `${width - LEFT - RIGHT}px`,
+                      maxHeight: `${SPLIT - 160}px`,
+                      objectFit: 'contain',
+                      borderRadius: '12px',
+                      boxShadow: '0 4px 24px rgba(0,0,0,0.10)',
+                    },
+                  },
+                },
+              ],
+            },
+          },
+          // credit
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                position: 'absolute',
+                bottom: '100px',
+                right: `${RIGHT}px`,
+                fontSize: '24px',
+                color: NT.inkMuted ?? NT.inkBody,
+              },
+              children: data.credit || '',
+            },
+          },
+          // フッター
+          {
+            type: 'div',
+            props: {
+              style: {
+                display: 'flex',
+                position: 'absolute',
+                bottom: '50px',
+                left: `${LEFT}px`,
+                fontSize: '36px',
+                color: NT.inkBody,
+                fontWeight: 700,
+              },
+              children: 'doboku-note.com',
+            },
+          },
+        ],
+      },
+    };
+  }
+
+  // 画像なし: 既存レイアウト
   return {
     type: 'div',
     props: {
@@ -172,7 +314,6 @@ async function buildDefinitionElement({ width, height, data }) {
               gap: '48px',
             },
             children: [
-              // 板書見出し
               {
                 type: 'div',
                 props: {
@@ -187,7 +328,6 @@ async function buildDefinitionElement({ width, height, data }) {
                   children: `定義｜${title}`,
                 },
               },
-              // 定義本文
               {
                 type: 'div',
                 props: {
@@ -540,7 +680,7 @@ async function buildCoverElement({ width, height, data, config }) {
                     fontWeight: 700,
                     letterSpacing: '0.08em',
                   },
-                  children: '★ 今日のキーワード',
+                  children: data.label || '★ 今日のキーワード',
                 },
               },
               {

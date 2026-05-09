@@ -23,19 +23,14 @@ export async function buildStoryboard({ category, slug, options = {} }) {
   const mdx = extractMdx({ category, slug });
   const storyboard = buildStoryboardFromExtract(mdx, options, { category, slug });
 
-  // definition の直後に image スライドを挿入（画像が取得できた場合のみ）
+  // 画像が取得できた場合、definition スライドのデータに統合（image スライドは作らない）
   const imageData = await fetchImageForKeyword({ slug, title: mdx.title || '', category });
   if (imageData) {
-    const defIdx = storyboard.slides.findIndex(s => s.type === 'definition');
-    const insertAt = defIdx >= 0 ? defIdx + 1 : 1;
-    storyboard.slides.splice(insertAt, 0, {
-      type: 'image',
-      data: {
-        imageBase64: imageData.base64,
-        title: mdx.title || '',
-        credit: imageData.credit,
-      },
-    });
+    const defSlide = storyboard.slides.find(s => s.type === 'definition');
+    if (defSlide) {
+      defSlide.data.imageBase64 = imageData.base64;
+      defSlide.data.credit = imageData.credit;
+    }
   }
 
   return storyboard;
@@ -59,14 +54,14 @@ export function buildStoryboardFromExtract(mdx, options = {}, meta = {}) {
       data: {
         title: mdx.title || '',
         subtitle: mdx.section ? `セクション ${mdx.section}` : null,
-        label: '技術士総監',
+        label: '技術士（総合技術監理部門）',
       },
     },
     {
       type: 'definition',
       data: {
         title: mdx.title || '',
-        body: truncateDefinition(mdx.definition || mdx.description || '', 80),
+        body: truncateDefinition(stripEnglishParens(mdx.definition || mdx.description || ''), 80),
       },
     },
     ...points.map((point, i) => ({
@@ -91,6 +86,10 @@ export function buildStoryboardFromExtract(mdx, options = {}, meta = {}) {
     tags: Array.isArray(mdx.tags) ? mdx.tags : [],
     slides,
   };
+}
+
+function stripEnglishParens(text) {
+  return text.replace(/（[A-Za-z][^）ぁ-鿿]*）/g, '').trim();
 }
 
 /**
