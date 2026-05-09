@@ -12,7 +12,7 @@
 
 ```
 .claude/skills/
-├── authoring/       # 7 — 記事を作る
+├── authoring/       # 8 — 記事を作る
 ├── conversion/      # 3 — 外部形式から MDX への変換
 ├── quality/         # 10 — MDX・note 公開前品質検査
 ├── management/      # 11 — 計画・分析・戦略
@@ -22,7 +22,7 @@
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **51 スキル**（Phase A 開始時の 66 から −23%）。
+合計 **52 スキル**（Phase A 開始時の 66 から −21%）。
 
 ---
 
@@ -76,6 +76,7 @@
 | `/improve-article` | 単一記事の対話的改善（`--mode verify` で PDF 照合 QA） | `.claude/skills/authoring/improve-article/SKILL.md` |
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/authoring/promote-to-site/SKILL.md` |
 | `/notebooklm-research --slug {slug}` | NotebookLM MCP で総監キーワードを深掘り調査してリライト（引用付き根拠強化） | `.claude/skills/authoring/notebooklm-research/SKILL.md` |
+| `/visual-research <slug> [--ref <URL>]` | NotebookLM（概念構造）× 参照URL（視覚パターン）→ SVG 概念図を生成して MDX 挿入 | `.claude/skills/authoring/visual-research/SKILL.md` |
 
 **テンプレート**: `.claude/skills/authoring/templates/exam-guide/`
 
