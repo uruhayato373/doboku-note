@@ -521,11 +521,15 @@ async function buildCtaElement({ width, height }) {
                 props: {
                   style: {
                     display: 'flex',
+                    flexDirection: 'column',
                     fontSize: '68px',
                     fontWeight: 700,
                     color: NT.brandDeep,
                   },
-                  children: '概要欄のリンクを チェック！',
+                  children: [
+                    { type: 'div', props: { style: { display: 'flex' }, children: '概要欄のリンクを' } },
+                    { type: 'div', props: { style: { display: 'flex' }, children: 'チェック！' } },
+                  ],
                 },
               },
               // 白カード
