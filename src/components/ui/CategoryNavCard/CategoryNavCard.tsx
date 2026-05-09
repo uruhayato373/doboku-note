@@ -24,7 +24,7 @@ function CellLink({ slug, label, currentSlug }: { slug: string | undefined; labe
   if (!slug) return <span className="text-gray-300 dark:text-gray-600">—</span>;
   if (slug === currentSlug) return <span className="font-bold text-gray-900 dark:text-gray-100">{label}</span>;
   return (
-    <Link href={`/docs/${slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+    <Link href={`/docs/${slug}`} className="text-brand hover:text-brand-deep hover:underline">
       {label}
     </Link>
   );
@@ -51,7 +51,7 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
               {g.slug === currentSlug ? (
                 <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || (g as any).shortTitle || g.title}</span>
               ) : (
-                <Link href={`/docs/${g.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                <Link href={`/docs/${g.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
                   {g.sidebar_label || (g as any).shortTitle || g.title}
                 </Link>
               )}
@@ -70,7 +70,7 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
             {g.slug === currentSlug ? (
               <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.title}</span>
             ) : (
-              <Link href={`/docs/${g.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+              <Link href={`/docs/${g.slug}`} className="text-sm text-brand hover:underline">
                 {g.title}
               </Link>
             )}
@@ -102,7 +102,7 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
               {p.slug === currentSlug ? (
                 <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || (p as any).shortTitle || p.title}</span>
               ) : (
-                <Link href={`/docs/${p.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                <Link href={`/docs/${p.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
                   {p.sidebar_label || (p as any).shortTitle || p.title}
                 </Link>
               )}
@@ -121,7 +121,7 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
             {p.slug === currentSlug ? (
               <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || (p as any).shortTitle || p.title}</span>
             ) : (
-              <Link href={`/docs/${p.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+              <Link href={`/docs/${p.slug}`} className="text-sm text-brand hover:underline">
                 {p.sidebar_label || (p as any).shortTitle || p.title}
               </Link>
             )}
@@ -226,7 +226,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
               ) : (
                 <Link
                   href={`/docs/pe-comprehensive-management-${kw.slug}`}
-                  className="block text-sm py-0.5 pl-2 border-l-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 hover:border-blue-300 dark:hover:border-blue-600 transition-colors"
+                  className="block text-sm py-0.5 pl-2 border-l-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-brand hover:border-brand transition-colors"
                 >
                   {kw.title}
                 </Link>
@@ -310,7 +310,7 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
               {d.slug === currentSlug ? (
                 <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{d.sidebar_label || d.title}</span>
               ) : (
-                <Link href={`/docs/${d.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                <Link href={`/docs/${d.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
                   {d.sidebar_label || d.title}
                 </Link>
               )}
@@ -329,7 +329,7 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
             {d.slug === currentSlug ? (
               <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{d.title}</span>
             ) : (
-              <Link href={`/docs/${d.slug}`} className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
+              <Link href={`/docs/${d.slug}`} className="text-sm text-brand hover:underline">
                 {d.title}
               </Link>
             )}

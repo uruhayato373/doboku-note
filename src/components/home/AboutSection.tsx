@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Award, User } from "lucide-react";
+import { Award } from "lucide-react";
+import { AUTHOR } from "@/config/author";
 
 export default function AboutSection() {
   return (
@@ -25,21 +26,25 @@ export default function AboutSection() {
         <aside className="lg:col-span-5 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section shadow-soft p-6 sm:p-8">
           <div className="font-mono text-[10px] tracking-[0.2em] uppercase text-[var(--ink-muted)] mb-4">Editor</div>
           <div className="flex items-start gap-4 mb-5">
-            <div className="w-14 h-14 bg-[var(--accent-fill)] text-[var(--accent)] rounded-full flex items-center justify-center shrink-0">
-              <User className="w-6 h-6" strokeWidth={1.5} />
-            </div>
+            <img
+              src={AUTHOR.imageUrl}
+              alt={AUTHOR.name}
+              width={56}
+              height={56}
+              className="w-14 h-14 rounded-full shrink-0"
+            />
             <div className="min-w-0">
-              <div className="font-serif font-bold text-lg text-[var(--ink)]">uruhayato</div>
-              <div className="text-xs text-[var(--ink-muted)] mt-1">土木技術者</div>
+              <div className="font-serif font-bold text-lg text-[var(--ink)]">{AUTHOR.name}</div>
+              <div className="text-xs text-[var(--ink-muted)] mt-1">{AUTHOR.jobTitle}</div>
             </div>
           </div>
           <p className="text-sm leading-[1.85] text-[var(--ink-body)] mb-5">
-            設計・施工監理に従事。学習ノートを自身の復習と共有のために公開しています。
+            {AUTHOR.bio}
           </p>
           <div>
             <div className="font-mono text-[10px] tracking-widest uppercase text-[var(--ink-muted)] mb-2.5">Qualifications</div>
             <ul className="space-y-1.5 text-sm text-[var(--ink-body)]">
-              {["1級土木施工管理技士", "技術士（総合技術監理部門）"].map((c) => (
+              {AUTHOR.qualifications.map((c) => (
                 <li key={c} className="flex gap-2 items-start">
                   <Award className="w-3.5 h-3.5 text-[var(--accent)] mt-1 shrink-0" strokeWidth={1.5} />
                   <span>{c}</span>
