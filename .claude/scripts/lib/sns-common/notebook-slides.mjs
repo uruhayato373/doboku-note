@@ -13,6 +13,8 @@
  *   - fontWeight 800 → 700 にフォールバック（搭載フォントは Bold 700 のみ）
  */
 
+import { SNS_CONFIG } from './sns-config.mjs';
+
 export const NOTEBOOK_TOKENS = {
   paper:       '#f7f3ea',
   paperLine:   '#cfd6df',
@@ -427,7 +429,8 @@ export function buildNotebookCta({ width, height, data }) {
         fontSize: L.headingFontSize - 4,
         fontWeight: 700,
         color: NOTEBOOK_TOKENS.brandDeep,
-      }, 'ノートに もう1ページ'),
+        flexDirection: 'column',
+      }, SNS_CONFIG.cta.heading.map(line => d({ display: 'flex' }, line))),
 
       // 関連カード（ホッチキス付き）
       d({
@@ -472,7 +475,6 @@ export function buildNotebookCta({ width, height, data }) {
           flexDirection: 'column',
           gap: 4,
         }, [
-          d({ fontSize: 30, fontWeight: 700, color: NOTEBOOK_TOKENS.inkBody }, '全部つながってる。'),
           d({ fontSize: 30, fontWeight: 700, color: NOTEBOOK_TOKENS.inkBody }, [
             d({}, '続きは '),
             d({
