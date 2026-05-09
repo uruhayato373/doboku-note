@@ -54,7 +54,7 @@ export function buildStoryboardFromExtract(mdx, options = {}, meta = {}) {
       type: 'cover',
       data: {
         title: mdx.title || '',
-        subtitle: mdx.section ? `セクション ${mdx.section}` : null,
+        subtitle: null,
         label: SNS_CONFIG.labels.cover,
       },
     },
