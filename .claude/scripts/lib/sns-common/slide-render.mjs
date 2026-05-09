@@ -525,7 +525,7 @@ async function buildCtaElement({ width, height }) {
                     fontWeight: 700,
                     color: NT.brandDeep,
                   },
-                  children: 'ノートに もう1ページ',
+                  children: '概要欄のリンクを チェック！',
                 },
               },
               // 白カード
@@ -544,18 +544,6 @@ async function buildCtaElement({ width, height }) {
                     gap: '24px',
                   },
                   children: [
-                    {
-                      type: 'div',
-                      props: {
-                        style: {
-                          display: 'flex',
-                          fontSize: '48px',
-                          fontWeight: 700,
-                          color: NT.inkBody,
-                        },
-                        children: '全部つながってる。',
-                      },
-                    },
                     {
                       type: 'div',
                       props: {
