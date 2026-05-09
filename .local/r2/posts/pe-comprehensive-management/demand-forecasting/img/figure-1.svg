@@ -1,0 +1,59 @@
+<!-- source: https://aismiley.co.jp/ai_news/demand-prediction/ (構図着想のみ・独自作図) -->
+<!-- nlm: 総監標準テキスト より概念構造を抽出 -->
+<svg viewBox="0 0 380 245" style="max-width:380px;width:100%"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img"
+     aria-label="需要予測の手法分類図：定量的手法（移動平均法・指数平滑法・回帰分析）と定性的手法（デルファイ法・市場調査法）に大別される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-main { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-cat  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 12px; font-weight: bold; fill: #555; }
+      .t-item { font-size: 13px; fill: #222; }
+      .t-note { font-size: 11px; fill: #8a8a8a; }
+      .box-top { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-qty { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-qlt { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .div-h   { stroke: #d7d7d7; stroke-width: 1; }
+      .conn    { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- 需要予測手法（頂点） -->
+  <rect class="box-top" x="50" y="10" width="280" height="42" rx="8"/>
+  <text class="t-main" x="190" y="36" text-anchor="middle">需要予測の手法</text>
+
+  <!-- ツリーコネクタ -->
+  <line class="conn" x1="190" y1="52" x2="190" y2="70"/>
+  <line class="conn" x1="100" y1="70" x2="280" y2="70"/>
+  <line class="conn" x1="100"  y1="70" x2="100"  y2="82"/>
+  <line class="conn" x1="280"  y1="70" x2="280"  y2="82"/>
+
+  <!-- 左: 定量的手法 -->
+  <rect class="box-qty" x="10" y="82" width="175" height="148" rx="6"/>
+  <text class="t-cat" x="97" y="105" text-anchor="middle">定量的手法</text>
+  <line class="div-h" x1="20" y1="114" x2="175" y2="114"/>
+
+  <text class="t-sub"  x="20" y="131">時系列分析</text>
+  <text class="t-item" x="28" y="150">移動平均法</text>
+  <text class="t-item" x="28" y="168">指数平滑法</text>
+
+  <line class="div-h" x1="20" y1="178" x2="175" y2="178"/>
+
+  <text class="t-sub"  x="20" y="195">因果関係分析</text>
+  <text class="t-item" x="28" y="214">回帰分析</text>
+
+  <!-- 右: 定性的手法 -->
+  <rect class="box-qlt" x="195" y="82" width="175" height="148" rx="6"/>
+  <text class="t-cat" x="282" y="105" text-anchor="middle">定性的手法</text>
+  <line class="div-h" x1="205" y1="114" x2="360" y2="114"/>
+
+  <text class="t-note" x="205" y="130">データ不足・長期予測向け</text>
+
+  <text class="t-item" x="205" y="153">デルファイ法</text>
+  <text class="t-note" x="213" y="169">専門家の匿名合意</text>
+
+  <text class="t-item" x="205" y="193">市場調査法</text>
+  <text class="t-note" x="213" y="209">アンケート・ヒアリング</text>
+</svg>
