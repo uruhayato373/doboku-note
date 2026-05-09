@@ -2,6 +2,7 @@
 notePricing: paid
 noteSeries: 総監テキスト精読ガイド
 utmCampaign: 99-safety-management
+noteUrl: https://note.com/dobokunote/n/nb68184641be8
 ---
 # 安全管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き
 
