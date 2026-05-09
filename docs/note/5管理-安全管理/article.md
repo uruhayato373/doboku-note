@@ -23,6 +23,8 @@ noteMagazine: 総監テキスト精読ガイド
 
 ---
 
+> **このシリーズはマガジンでまとめ購入するとお得です → [技術士 総監｜5管理 テキスト精読ガイド](https://note.com/dobokunote/m/m607bf095b02a)**
+
 安全管理は総監5管理の中で**最もカバー範囲が広い分野**です。[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[リスクマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・危機管理・[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と、6エリアにまたがります。
 
 全体を均等に読もうとすると、受験生のほぼ全員が「時間が足りない」と感じます。
