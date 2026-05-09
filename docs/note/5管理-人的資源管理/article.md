@@ -2,6 +2,7 @@
 notePricing: paid
 noteSeries: 総監テキスト精読ガイド
 utmCampaign: 99-human-resource-management
+noteUrl: https://note.com/dobokunote/n/nb010cafe207b
 ---
 # 人的資源管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き
 
