@@ -1,6 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Hero, ExamCards, ReferenceCardLink, LatestArticles, AboutSection } from "@/components/home";
+import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
 import categoriesData from "@/config/categories.json";

@@ -10,6 +10,8 @@ export type CategoryDef = {
   description?: string;
   variant: 'civil' | 'pe' | 'reference';
   order: number;
+  // false のカテゴリはナビ・一覧から非表示（カテゴリページ自体は生きている）
+  visible?: boolean;
 };
 
 export type TagDef = {

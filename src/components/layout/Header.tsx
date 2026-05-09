@@ -6,7 +6,7 @@ import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
 
-const categories = categoriesData as CategoryDef[];
+const categories = (categoriesData as CategoryDef[]).filter(c => c.visible !== false);
 
 // 2026-04-26 #84 LCP 改善: above-fold の Header から lucide-react を除去し inline SVG 化。
 // SVG path は lucide v0.542.0（MIT、ISC は除外）の各アイコンから抽出。
