@@ -2,6 +2,7 @@
 notePricing: paid
 noteSeries: 総監テキスト精読ガイド
 utmCampaign: 99-social-environment-management
+noteUrl: https://note.com/dobokunote/n/n4424bc5ce1c9
 ---
 # 社会環境管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き
 
