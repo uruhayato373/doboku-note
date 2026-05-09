@@ -10,7 +10,7 @@ published: true
 publishedAt: '2026-04-09'
 seoTitle: 割引率 ｜ 総合技術監理 キーワード集 2026
 reviewStatus: needs-review
-lastRewrittenAt: '2026-04-18'
+lastRewrittenAt: '2026-05-09'
 revisionCycle: 2
 created: 2026-04-05
 dateModified: 2026-05-09
@@ -22,7 +22,9 @@ dateModified: 2026-05-09
 
 割引率（Discount Rate）とは、**将来の金銭的価値を現在価値に換算する際に用いる利率**である。
 
-貨幣の時間価値（今日の1円は将来の1円より価値が高い）を反映する概念であり、投資評価や公共事業評価の基盤となる。
+今日の100円を手元に持っていれば預金や投資で運用できるため、利息や利益が生まれる。逆にいえば、将来受け取る100円は「その間に運用できなかった機会を失っている」分だけ現在の100円より価値が低い。これが貨幣の時間価値の直感的な根拠であり、割引率はその「価値の目減り率」を年利で表したものだ。
+
+$(1+r)^n$ という形が現れるのは、利息が毎年複利で積み重なる仕組みの裏返しである。元本が1年ごとに $(1+r)$ 倍に増えていくならば、将来価値を現在価値に戻すには各年で $(1+r)$ で割り戻す操作を繰り返すことになる。年数が増えるほど割引の影響が指数的に大きくなるのはこのためだ。
 
 ## 基本計算式
 
@@ -59,7 +61,9 @@ $$
 
 総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
 
-割引率は[DCF 法](/docs/pe-comprehensive-management-dcf-method)・[NPV](/docs/pe-comprehensive-management-npv-net-present-value)・[内部収益率法](/docs/pe-comprehensive-management-internal-rate-of-return)の全てに共通する基本パラメータであり、[費用効果分析](/docs/pe-comprehensive-management-cost-effectiveness-analysis)における便益の現在価値換算にも用いられる。過去問 **[R02 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2)** では 5 投資先の 4 年間 CF を割引率 3% で現価換算する計算問題が出題され、$PV = FV / (1+r)^n$ を年ごとに適用する実務計算力が問われた。
+割引率は[DCF 法](/docs/pe-comprehensive-management-dcf-method)・[NPV](/docs/pe-comprehensive-management-npv-net-present-value)・[内部収益率法](/docs/pe-comprehensive-management-internal-rate-of-return)の全てに共通する基本パラメータであり、[費用効果分析](/docs/pe-comprehensive-management-cost-effectiveness-analysis)における便益の現在価値換算にも用いられる。LCC（ライフサイクルコスト）分析でも、将来の維持管理費・更新費を現在価値に換算して初期投資と比較する際に割引率が不可欠となる。過去問 **[R02 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2)** では 5 投資先の 4 年間 CF を割引率 3% で現価換算する計算問題が出題され、$PV = FV / (1+r)^n$ を年ごとに適用する実務計算力が問われた。
+
+総合技術監理の視点では、割引率を用いた投資判断は**5管理のトレードオフ調整**と直結する。経済性管理での投資優先度の決定は、安全管理・社会環境管理への資源配分と競合するため、適切な割引率の設定と感度分析が監理技術者の意思決定の根拠となる。
 
 <ExamPoint
   summary="割引率は将来価値を現在価値に換算する利率で投資評価の基盤となる"
