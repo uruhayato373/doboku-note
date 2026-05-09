@@ -24,6 +24,7 @@ description: >
 | `--max <N>` | 任意 | rewrite モード時、1 セッション処理上限 |
 | `--batch <N>` | 任意 | 並列度（参考値） |
 | `--order <weakest\|newest>` | 任意 | rewrite モードの選定順序 |
+| `--max <N>` | 任意 | improve モード時、1セッションで処理する最大記事数（既定: 5） |
 | `--slug <slug>` | 任意 | 特定スラッグのみ対象 |
 | `--round <N>` | 任意 | issue モード時のラウンド番号 |
 | `--create` | 任意 | issue モード時、gh CLI で実際に issue 作成 |
@@ -44,6 +45,7 @@ description: >
 | `flagship` | ✓ | — | Flagship 100 件の手動選定 |
 | `score` | ✓ | ✓ | Evaluator エージェントで全件評価 |
 | `rewrite` | ✓ | ✓ | weighted < threshold のページを Generator で改訂 |
+| `improve` | ✓ | — | NLM照合主軸で HIGH 項目を外科的修正＋自動コミット（`keyword-rewriter` を使わない） |
 | `verify` | ✓ | ✓ | リライト後を Evaluator で再評価 |
 | `review` | ✓ | ✓ | 人間レビュー待ちリスト出力 |
 | `report` | ✓ | ✓ | ダッシュボード出力（スコア分布・弱点軸頻度） |
@@ -106,6 +108,43 @@ SKILL.md では `--profile` フラグを受け取って適切な scripts ディ�
 
 Evaluator: `cem-qa` / Generator: `keyword-rewriter`
 
+### cem — improve モード詳細
+
+`/quality-cycle --profile cem --mode improve [--max N] [--dry-run]`
+
+**`rewrite` との違い**: `rewrite` は cem-qa スコアをゲートに全文リライトするが、`improve` は NLM照合を主軸に外科的追記のみ行う。`keyword-rewriter` を使わず Claude が直接 Edit する。
+
+#### 記事キュー選定
+
+`.local/r2/posts/pe-comprehensive-management/*/article.mdx` から `group: keyword` の記事を `lastRewrittenAt` 昇順で並べたもの（古い順）。`reviewStatus: approved` はスキップ。`--dry-run` ではキュー一覧のみ表示して処理しない。
+
+#### 各記事のパイプライン（per-article）
+
+```
+1. cem-qa         → 構造 broken チェック（スコアは参考値のみ）
+2. NLM照合        → nlm cross query で HIGH/MED 論点を特定
+3. HIGH 自動修正  → 確認なしで Edit を実行：
+     - 5管理横断テーブル欠落 → 総合技術監理セクションに追加
+     - 背景段落欠落          → とはセクションに追加
+     - Callout title なし    → title 属性を追加
+     - SVG フォント < 13px   → font-size 一括置換
+     - alt 属性超過          → 短縮
+     - description 実態乖離  → 修正
+4. frontmatter    → dateModified / lastRewrittenAt を今日の日付に更新
+5. 自動コミット   → `content(pe): {slug} 品質向上`
+6. 次の記事へ（--max に達したら停止）
+```
+
+#### セッション終了サマリー形式
+
+```
+=== /quality-cycle --profile cem --mode improve 完了 ===
+処理記事: N 件
+  ✓ {slug}  NLM HIGH N件解消
+  ✗ {slug}  エラー（NLM タイムアウト）→ スキップ
+残キュー: 約 N 件
+```
+
 ### civil-textbook（1級土木）
 | 軸 | 重み | 真実源 |
 |---|---|---|
@@ -141,6 +180,12 @@ unscored → scored → rewriting → needs-review → verified → approved
 ```bash
 # CEM: 全件評価
 /quality-cycle --profile cem --mode score
+
+# CEM: NLM照合で HIGH を外科的修正（5件）
+/quality-cycle --profile cem --mode improve --max 5
+
+# CEM: improve 対象の確認（dry-run）
+/quality-cycle --profile cem --mode improve --dry-run
 
 # CEM: スコア < 2.5 のページを 5 件リライト
 /quality-cycle --profile cem --mode rewrite --threshold 2.5 --max 5
