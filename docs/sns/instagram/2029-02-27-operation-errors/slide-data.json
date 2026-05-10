@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "オペレーションミス",
+    "subtitle": null,
+    "stickyText": "メール誤送信・端",
+    "management": "info",
+    "caption": "オペレーションミス\nとは何か？"
+  },
+  "board": {
+    "heading": "オペレーションミス",
+    "body": "オペレーションミスとは、情報システムの利用者や管理者が、操作・判断を誤ることによって情報漏洩やシステム障害を引き起こすセキュリティ上の脅威である。",
+    "noteText": "メール誤送信・端末紛失・設定ミスなど正規権限者の不注意が原因",
+    "management": "info",
+    "caption": "技術的対策：メール誤送信防止ツール…"
+  },
+  "cta": {
+    "related": [
+      "アクセス制御・アクセス権限設定",
+      "アクセスログ分析",
+      "責任追跡性（Accountability）",
+      "真正性（Authenticity）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

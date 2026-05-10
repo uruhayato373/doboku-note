@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "THERP",
+    "subtitle": null,
+    "stickyText": "人間の作業をタス",
+    "management": "safety",
+    "caption": "THERP\nとは何か？"
+  },
+  "board": {
+    "heading": "THERP",
+    "body": "THERP（Technique for Human Error Rate Prediction：人的過誤率予測法）とは、\n人間の作業を個々のタスクに分解し、\n各タスクにおけるヒューマンエラーの発生確率を定量的に評価する手法である。",
+    "noteText": "人間の作業をタスクに分解し、各タスクのエラー確率を定量評価",
+    "management": "safety",
+    "caption": "HEP（人的過誤確率）とPSF（行動…"
+  },
+  "cta": {
+    "related": [
+      "イベントツリー分析（ETA）",
+      "FMEA",
+      "フォールトツリー分析（FTA）",
+      "HAZOP"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

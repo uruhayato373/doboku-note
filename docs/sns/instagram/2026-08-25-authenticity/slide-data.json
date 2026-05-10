@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "真正性",
+    "subtitle": null,
+    "stickyText": "JIS Q 27",
+    "management": "info",
+    "caption": "真正性\nとは何か？"
+  },
+  "board": {
+    "heading": "真正性",
+    "body": "真正性（Authenticity） とは、情報の送信者・作成者が本人であること、および情報そのものが本物であることを確認できる特性である。",
+    "noteText": "JIS Q 27001：主体又は資源が主張どおりであることを確実にする特性",
+    "management": "info",
+    "caption": "CIA基本3要素に加えた拡張4要素（…"
+  },
+  "cta": {
+    "related": [
+      "暗号化・電子署名",
+      "サイバー安全保障",
+      "ISMS（ISO/IEC 27001）",
+      "否認防止（Non-repudiation）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

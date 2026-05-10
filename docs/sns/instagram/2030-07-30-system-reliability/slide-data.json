@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "信頼性",
+    "subtitle": null,
+    "stickyText": "定義：JIS Q",
+    "management": "info",
+    "caption": "信頼性\nとは何か？"
+  },
+  "board": {
+    "heading": "信頼性",
+    "body": "信頼性（Reliability） とは、\nシステムが意図した動作および結果を一貫して提供できる能力である。\nJIS Q 27001（ISO/IEC 27001）では「意図した動作及び結果に一致する特性」と定義される。",
+    "noteText": "定義：JIS Q 27001では『意図した動作及び結果に一致する特性』",
+    "management": "info",
+    "caption": "直列システム：信頼度は積（R₁×R₂…"
+  },
+  "cta": {
+    "related": [
+      "可用性（Availability）",
+      "アクセス制御・アクセス権限設定",
+      "アクセスログ分析",
+      "責任追跡性（Accountability）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

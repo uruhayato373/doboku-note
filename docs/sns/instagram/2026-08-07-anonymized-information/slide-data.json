@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "匿名加工情報",
+    "subtitle": null,
+    "stickyText": "加工基準：識別記",
+    "management": "info",
+    "caption": "匿名加工情報\nとは何か？"
+  },
+  "board": {
+    "heading": "匿名加工情報",
+    "body": "匿名加工情報とは、\n個人情報を加工して特定の個人を識別することができないようにし、\nかつ当該個人情報を復元することができないようにしたものをいう（[個人情報保護法第2条第6項](https://laws.e-gov.go.jp/law/415AC0000000057",
+    "noteText": "加工基準：識別記述の削除・個人識別符号の削除・連結符号の削除・特異記述の削除",
+    "management": "info",
+    "caption": "仮名加工情報との相違：匿名加工は第三…"
+  },
+  "cta": {
+    "related": [
+      "個人情報の保護措置",
+      "個人情報",
+      "個人情報の漏洩時対応",
+      "オプトイン／オプトアウト"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

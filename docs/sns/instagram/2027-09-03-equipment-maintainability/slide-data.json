@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "設備の保全性",
+    "subtitle": null,
+    "stickyText": "MTTR＝総修理",
+    "management": "economic",
+    "caption": "設備の保全性\nとは何か？"
+  },
+  "board": {
+    "heading": "設備の保全性",
+    "body": "設備の保全性とは、設備が故障した際に、いかに迅速かつ容易に修復して正常な状態に復帰できるかを表す能力のことである。",
+    "noteText": "MTTR＝総修理時間÷故障件数（保全性の指標）",
+    "management": "economic",
+    "caption": "予防保全（TBM…"
+  },
+  "cta": {
+    "related": [
+      "バスタブカーブ",
+      "設備の信頼性",
+      "自主保全",
+      "事後保全"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "設備の信頼性",
+    "subtitle": null,
+    "stickyText": "MTBF＝実績稼",
+    "management": "economic",
+    "caption": "設備の信頼性\nとは何か？"
+  },
+  "board": {
+    "heading": "設備の信頼性",
+    "body": "設備の信頼性とは、設備が規定の条件下で規定の期間、故障せずに所定の機能を果たし続ける能力のことである。",
+    "noteText": "MTBF＝実績稼働時間÷故障件数（総稼働時間÷故障件数は誤り。稼働率で実績稼働時間を算出する）",
+    "management": "economic",
+    "caption": "バスタブカーブ：初期故障期→偶発故障…"
+  },
+  "cta": {
+    "related": [
+      "バスタブカーブ",
+      "自主保全",
+      "設備の保全性",
+      "改良保全"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

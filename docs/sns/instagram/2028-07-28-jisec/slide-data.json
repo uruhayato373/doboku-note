@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ITセキュリティ評価及び認証制度",
+    "subtitle": null,
+    "stickyText": "JISECはIP",
+    "management": "info",
+    "caption": "ITセキュリティ評価及び認証制度\nとは何か？"
+  },
+  "board": {
+    "heading": "ITセキュリティ評価及び認証制度",
+    "body": "JISEC（Japan Information Technology Security Evaluation and Certification Scheme：ITセキュリティ評価及び認証制度）とは、\nIT製品のセキュリティ機能を[CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria)に基づいて評価・認証する日本の制度である。",
+    "noteText": "JISECはIPAが認証機関として運営する日本のCC認証制度",
+    "management": "info",
+    "caption": "評価対象はIT製品（OS、FW…"
+  },
+  "cta": {
+    "related": [
+      "セキュリティ評価基準CC（ISO/IEC 15408）",
+      "ISMS（ISO/IEC 27001）",
+      "プライバシーマーク",
+      "アクセス制御・アクセス権限設定"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

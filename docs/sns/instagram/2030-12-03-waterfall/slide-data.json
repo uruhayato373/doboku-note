@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ウォーターフォール",
+    "subtitle": null,
+    "stickyText": "ウォーターフォー",
+    "management": "info",
+    "caption": "ウォーターフォール\nとは何か？"
+  },
+  "board": {
+    "heading": "ウォーターフォール",
+    "body": "ウォーターフォールモデル（Waterfall Model）とは、\nシステム開発を上流工程から下流工程へ順番に進め、\n原則として前の工程に戻らない逐次型の開発プロセスモデルである。",
+    "noteText": "ウォーターフォール：上流→下流の逐次型開発、原則として前工程に戻らない",
+    "management": "info",
+    "caption": "Vモデル：設計工程とテスト工程をV字…"
+  },
+  "cta": {
+    "related": [
+      "アジャイル",
+      "財務会計・管理会計システム",
+      "API",
+      "ブロックチェーン・暗号資産"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

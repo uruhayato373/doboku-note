@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "IoT",
+    "subtitle": null,
+    "stickyText": "IoTの4層：デ",
+    "management": "info",
+    "caption": "IoT\nとは何か？"
+  },
+  "board": {
+    "heading": "IoT",
+    "body": "IoT（Internet of Things：モノのインターネット）とは、\nさまざまな「モノ」（センサー・機器・設備・車両など）をインターネットに接続し、\nデータの収集・送受信・制御を行う技術体系である。",
+    "noteText": "IoTの4層：デバイス→ネットワーク→プラットフォーム→アプリケーション",
+    "management": "info",
+    "caption": "LPWA（LoRaWAN…"
+  },
+  "cta": {
+    "related": [
+      "デジタルツイン・サイバーフィジカルシステム（CPS）",
+      "クラウドコンピューティング／オンプレミス",
+      "ブロックチェーン・暗号資産",
+      "エッジコンピューティング"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

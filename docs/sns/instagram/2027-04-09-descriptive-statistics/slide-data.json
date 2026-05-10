@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "記述統計",
+    "subtitle": null,
+    "stickyText": "算術平均・幾何平",
+    "management": "info",
+    "caption": "記述統計\nとは何か？"
+  },
+  "board": {
+    "heading": "記述統計",
+    "body": "記述統計（Descriptive Statistics）とは、収集したデータの特徴を数値やグラフで要約・記述する統計手法の総称である。",
+    "noteText": "算術平均・幾何平均・調和平均の使い分け（成長率→幾何、速度→調和、それ以外→算術）",
+    "management": "info",
+    "caption": "大小関係：調和平均 ≦ 幾何平均…"
+  },
+  "cta": {
+    "related": [
+      "推定・検定",
+      "線形回帰と最小二乗法",
+      "相関分析",
+      "データ収集"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

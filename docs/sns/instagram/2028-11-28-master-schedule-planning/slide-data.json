@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "大日程計画・中日程計画・小日程計画",
+    "subtitle": null,
+    "stickyText": "大日程計画は月〜",
+    "management": "economic",
+    "caption": "大日程計画・中日程計画・小日程計画\nとは何か？"
+  },
+  "board": {
+    "heading": "大日程計画・中日程計画・小日程計画",
+    "body": "日程計画は大日程計画・中日程計画・小日程計画の3階層で構成され、上位から下位へ段階的に具体化される。",
+    "noteText": "大日程計画は月〜年単位で全体工期・マイルストーンを設定する",
+    "management": "economic",
+    "caption": "中日程計画はネットワーク工程表で部門…"
+  },
+  "cta": {
+    "related": [
+      "工程計画",
+      "PERT/CPM",
+      "負荷平準化（山積み・山くずし）",
+      "進捗管理"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

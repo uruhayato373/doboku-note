@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "稼働率",
+    "subtitle": null,
+    "stickyText": "稼働率＝実稼働時",
+    "management": "economic",
+    "caption": "稼働率\nとは何か？"
+  },
+  "board": {
+    "heading": "稼働率",
+    "body": "稼働率（Utilization Rate）とは、利用可能な時間（操業時間）に対して実際に稼働した時間の割合を示す指標である。",
+    "noteText": "稼働率＝実稼働時間÷操業時間×100（%）",
+    "management": "economic",
+    "caption": "稼働率（活用度）と可動率（信頼性）は…"
+  },
+  "cta": {
+    "related": [
+      "負荷工数・生産能力",
+      "余力管理",
+      "負荷平準化（山積み・山くずし）",
+      "作業計画"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

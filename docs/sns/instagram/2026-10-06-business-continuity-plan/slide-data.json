@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "BCP・BCM",
+    "subtitle": null,
+    "stickyText": "全事業の復旧では",
+    "management": "economic",
+    "caption": "BCP・BCM\nとは何か？"
+  },
+  "board": {
+    "heading": "BCP・BCM",
+    "body": "事業継続計画（BCP: Business Continuity Plan）とは、\n自然災害・感染症・テロ・大事故などの緊急事態が発生した際に、\n事業資産の損害を最小限にとどめつつ、\n中核事業の継続または早期復旧を可能にするために、\n平常時に行うべき活動や緊急時の事業継続のための方法・手段などを取り決めておく計画である。",
+    "noteText": "全事業の復旧ではなく、優先すべき中核事業を特定する",
+    "management": "economic",
+    "caption": "目標復旧時間（RTO）と目標復旧レベ…"
+  },
+  "cta": {
+    "related": [
+      "サプライチェーンマネジメント（SCM）",
+      "危機管理マニュアル",
+      "緊急事態",
+      "予算計画"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

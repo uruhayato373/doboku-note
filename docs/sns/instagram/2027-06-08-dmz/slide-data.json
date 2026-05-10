@@ -1,0 +1,25 @@
+{
+  "cover": {
+    "keyword": "DMZ",
+    "subtitle": null,
+    "stickyText": "DMZは外部と内",
+    "management": "info",
+    "caption": "DMZ\nとは何か？"
+  },
+  "board": {
+    "heading": "DMZ",
+    "body": "DMZ（DeMilitarized Zone：非武装地帯）とは、\n組織の内部ネットワークとインターネット（外部ネットワーク）の間に設置される中間的なネットワーク領域である。",
+    "noteText": "DMZは外部と内部の間の中間領域。公開サーバをここに配置する",
+    "management": "info",
+    "caption": "デュアルファイアウォール方式が最もセ…"
+  },
+  "cta": {
+    "related": [
+      "ファイアウォール・IDS",
+      "VPN",
+      "ゼロトラスト"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

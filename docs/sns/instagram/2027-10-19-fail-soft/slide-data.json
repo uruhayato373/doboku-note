@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "フェールソフト",
+    "subtitle": null,
+    "stickyText": "故障部分を切り離",
+    "management": "safety",
+    "caption": "フェールソフト\nとは何か？"
+  },
+  "board": {
+    "heading": "フェールソフト",
+    "body": "フェールソフト（Fail Soft）とは、\nシステムの一部に故障が発生した場合に、\n故障部分を切り離し、\n性能や機能を低下させながらもシステム全体の運転を継続する設計思想である。",
+    "noteText": "故障部分を切り離し、性能低下を許容して運転を継続する",
+    "management": "safety",
+    "caption": "航空機エンジンの片肺運転が代表例"
+  },
+  "cta": {
+    "related": [
+      "フォールトアボイダンス",
+      "フォールトトレランス",
+      "冗長性（安全設計）",
+      "事故対応訓練"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

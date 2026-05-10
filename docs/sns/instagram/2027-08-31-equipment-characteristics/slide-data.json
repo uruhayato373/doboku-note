@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "設備の管理特性",
+    "subtitle": null,
+    "stickyText": "信頼性はMTBF",
+    "management": "economic",
+    "caption": "設備の管理特性\nとは何か？"
+  },
+  "board": {
+    "heading": "設備の管理特性",
+    "body": "設備の管理特性とは、設備が所定の機能を果たすために備えるべき特性を体系的に整理したものである。",
+    "noteText": "信頼性はMTBF、保全性はMTTRで定量化する",
+    "management": "economic",
+    "caption": "稼働率＝MTBF／（MTBF＋MTT…"
+  },
+  "cta": {
+    "related": [
+      "自主保全",
+      "バスタブカーブ",
+      "事後保全",
+      "設備の経済性"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

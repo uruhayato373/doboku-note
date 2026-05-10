@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "需要予測",
+    "subtitle": null,
+    "stickyText": "移動平均法：$F",
+    "management": "economic",
+    "caption": "需要予測\nとは何か？"
+  },
+  "board": {
+    "heading": "需要予測",
+    "body": "需要予測とは、過去のデータや市場情報に基づき、将来の需要量を推定する活動である。",
+    "noteText": "移動平均法：$FI_{t+1}=(Y_t+Y_{t-1}+\\\\cdots+Y_{t-k+1})/k$、$k$ が大きいほど平滑化効果が高い",
+    "management": "economic",
+    "caption": "指数平滑法：$FS_{t+1}=\\\\…"
+  },
+  "cta": {
+    "related": [
+      "費用効果分析",
+      "DCF法",
+      "市場調査",
+      "NPV"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

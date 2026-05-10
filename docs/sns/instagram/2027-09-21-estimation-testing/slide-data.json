@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "推定・検定",
+    "subtitle": "95%",
+    "stickyText": "95%\n95%",
+    "management": "info",
+    "caption": "推定・検定\nとは何か？"
+  },
+  "board": {
+    "heading": "推定・検定",
+    "body": "統計的推定と仮説検定は、標本データから母集団の特性について判断を下す推測統計の中核的手法である。",
+    "noteText": "母分散既知→z分布、母分散未知→t分布の使い分け",
+    "management": "info",
+    "caption": "信頼係数が大きいほど信頼区間は広くな…"
+  },
+  "cta": {
+    "related": [
+      "記述統計",
+      "線形回帰と最小二乗法",
+      "相関分析",
+      "クラスター分析"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

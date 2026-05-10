@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "不正アクセス",
+    "subtitle": null,
+    "stickyText": "不正アクセス禁止",
+    "management": "info",
+    "caption": "不正アクセス\nとは何か？"
+  },
+  "board": {
+    "heading": "不正アクセス",
+    "body": "不正アクセスとは、正当な権限を持たない者がコンピュータやネットワークに侵入し、情報の閲覧・取得・改変・破壊等を行う行為である。",
+    "noteText": "不正アクセス禁止法（2000年施行）：不正アクセス行為は3年以下の懲役又は100万円以下の罰金",
+    "management": "info",
+    "caption": "主な手口：パスワードリスト攻撃…"
+  },
+  "cta": {
+    "related": [
+      "マルウェア",
+      "DoS・DDoS",
+      "標的型攻撃",
+      "脆弱性（セキュリティホール）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

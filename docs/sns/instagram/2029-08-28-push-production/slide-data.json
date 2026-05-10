@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "プッシュ型生産方式",
+    "subtitle": null,
+    "stickyText": "MRP（資材所要",
+    "management": "economic",
+    "caption": "プッシュ型生産方式\nとは何か？"
+  },
+  "board": {
+    "heading": "プッシュ型生産方式",
+    "body": "プッシュ型生産方式（Push Production System）とは、需要予測に基づいて生産計画を立て、前工程から後工程へ製品を押し出す方式である。",
+    "noteText": "MRP（資材所要量計画）がプッシュ型の代表的システム",
+    "management": "economic",
+    "caption": "需要予測の精度が在庫水準に直結する（…"
+  },
+  "cta": {
+    "related": [
+      "プル型生産方式",
+      "JIT生産方式",
+      "制約条件の理論（TOC）",
+      "現品管理"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "PHA",
+    "subtitle": null,
+    "stickyText": "設計初期段階で実",
+    "management": "safety",
+    "caption": "PHA\nとは何か？"
+  },
+  "board": {
+    "heading": "PHA",
+    "body": "PHA（Preliminary Hazard Analysis：予備ハザード分析）とは、\nシステムの設計・計画の初期段階で、\n潜在的なハザードを概略的に特定・評価する手法である。",
+    "noteText": "設計初期段階で実施する概略的なハザード分析",
+    "management": "safety",
+    "caption": "詳細な分析（HAZOP…"
+  },
+  "cta": {
+    "related": [
+      "ボウタイ分析",
+      "デシジョンツリー分析",
+      "イベントツリー分析（ETA）",
+      "FMEA"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

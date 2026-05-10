@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "類推見積り",
+    "subtitle": null,
+    "stickyText": "プロジェクト初期",
+    "management": "economic",
+    "caption": "類推見積り\nとは何か？"
+  },
+  "board": {
+    "heading": "類推見積り",
+    "body": "類推見積り（Analogous Estimation）とは、過去の類似プロジェクトの実績データを基に、現在のプロジェクトの工期・コスト・工数を見積る手法である。",
+    "noteText": "プロジェクト初期段階での概算見積りに適する",
+    "management": "economic",
+    "caption": "精度は過去の類似プロジェクトの類似度…"
+  },
+  "cta": {
+    "related": [
+      "ボトムアップ見積り",
+      "余力管理",
+      "ECRSの原則",
+      "5S"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

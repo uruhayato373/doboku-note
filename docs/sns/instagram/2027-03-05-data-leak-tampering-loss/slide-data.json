@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "情報漏洩・改ざん・消失",
+    "subtitle": null,
+    "stickyText": "漏洩→機密性(C",
+    "management": "info",
+    "caption": "情報漏洩・改ざん・消失\nとは何か？"
+  },
+  "board": {
+    "heading": "情報漏洩・改ざん・消失",
+    "body": "情報漏洩・改ざん・消失は、情報セキュリティにおける3大脅威であり、それぞれCIAの機密性・完全性・可用性を直接侵害するものである。",
+    "noteText": "漏洩→機密性(C)、改ざん→完全性(I)、消失→可用性(A)を侵害",
+    "management": "info",
+    "caption": "内部要因（誤操作…"
+  },
+  "cta": {
+    "related": [
+      "可用性（Availability）",
+      "アクセス制御・アクセス権限設定",
+      "アクセスログ分析",
+      "責任追跡性（Accountability）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

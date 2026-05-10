@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ガントチャート",
+    "subtitle": null,
+    "stickyText": "作業間の依存関係",
+    "management": "economic",
+    "caption": "ガントチャート\nとは何か？"
+  },
+  "board": {
+    "heading": "ガントチャート",
+    "body": "ガントチャート（Gantt Chart）とは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図である。",
+    "noteText": "作業間の依存関係を表現しにくい点が最大の限界",
+    "management": "economic",
+    "caption": "クリティカルパスの識別にはPERT/…"
+  },
+  "cta": {
+    "related": [
+      "PERT/CPM",
+      "工程計画",
+      "進捗管理",
+      "大日程計画・中日程計画・小日程計画"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "安全性",
+    "subtitle": null,
+    "stickyText": "CIAの3要素と",
+    "management": "info",
+    "caption": "安全性\nとは何か？"
+  },
+  "board": {
+    "heading": "安全性",
+    "body": "安全性（Security）とは、システムが不正アクセス・情報漏洩・データ破壊などの脅威から保護されている度合いを表す指標であり、RASISの5番目の要素である。",
+    "noteText": "CIAの3要素とRASISの対応関係を整理する（C→Security, I→Integrity, A→Availability）",
+    "management": "info",
+    "caption": "標的型攻撃…"
+  },
+  "cta": {
+    "related": [
+      "財務会計・管理会計システム",
+      "アジャイル",
+      "API",
+      "ブロックチェーン・暗号資産"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

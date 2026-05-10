@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "多目的最適化",
+    "subtitle": null,
+    "stickyText": "複数の目的関数が",
+    "management": "economic",
+    "caption": "多目的最適化\nとは何か？"
+  },
+  "board": {
+    "heading": "多目的最適化",
+    "body": "多目的最適化（Multi-Objective Optimization）とは、相互にトレードオフの関係にある複数の目的関数を同時に最適化する手法である。",
+    "noteText": "複数の目的関数が相互にトレードオフの関係にある問題",
+    "management": "economic",
+    "caption": "パレート最適解：他の目的を悪化させず…"
+  },
+  "cta": {
+    "related": [
+      "線形計画法",
+      "整数計画法",
+      "ゲーム理論",
+      "デルファイ法"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

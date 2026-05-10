@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ロジスティック回帰",
+    "subtitle": null,
+    "stickyText": "目的変数が連続量",
+    "management": "info",
+    "caption": "ロジスティック回帰\nとは何か？"
+  },
+  "board": {
+    "heading": "ロジスティック回帰",
+    "body": "ロジスティック回帰（Logistic Regression）とは、\n目的変数が二値（0 または 1）のとき、\nあるカテゴリに属する確率を説明変数の線形結合で予測する統計手法である。",
+    "noteText": "目的変数が連続量→線形回帰、二値→ロジスティック回帰",
+    "management": "info",
+    "caption": "出力は確率（0〜1）であり、閾値…"
+  },
+  "cta": {
+    "related": [
+      "線形回帰と最小二乗法",
+      "相関分析",
+      "記述統計",
+      "クラスター分析"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

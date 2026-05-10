@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "NPV",
+    "subtitle": null,
+    "stickyText": "NPV＞0なら投",
+    "management": "economic",
+    "caption": "NPV\nとは何か？"
+  },
+  "board": {
+    "heading": "NPV",
+    "body": "NPV（Net Present Value：正味現在価値）とは、投資によって得られる将来のキャッシュフローの現在価値合計から、投資額を差し引いた値である。",
+    "noteText": "NPV＞0なら投資価値あり、複数案ではNPV最大の案を選択する",
+    "management": "economic",
+    "caption": "割引率が高いほどNPVは低下する"
+  },
+  "cta": {
+    "related": [
+      "DCF法",
+      "割引率",
+      "内部収益率法",
+      "投資回収計画"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

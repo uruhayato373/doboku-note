@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ゼロトラスト",
+    "subtitle": null,
+    "stickyText": "内部ネットワーク",
+    "management": "info",
+    "caption": "ゼロトラスト\nとは何か？"
+  },
+  "board": {
+    "heading": "ゼロトラスト",
+    "body": "ゼロトラストとは、\nネットワークの内部・外部を問わずすべてのアクセスを信頼しないことを前提とし、\nあらゆる通信に対して認証・認可・検査を行うセキュリティモデルである。",
+    "noteText": "内部ネットワークも外部と同様に信頼しない（性悪説）",
+    "management": "info",
+    "caption": "あらゆるアクセスに対して認証・認可…"
+  },
+  "cta": {
+    "related": [
+      "ISMS（ISO/IEC 27001）",
+      "セキュリティ評価基準CC（ISO/IEC 15408）",
+      "暗号化・電子署名",
+      "アクセス制御・アクセス権限設定"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

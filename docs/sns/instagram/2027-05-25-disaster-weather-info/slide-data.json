@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "防災気象情報",
+    "subtitle": null,
+    "stickyText": "特別警報は「数十",
+    "management": "safety",
+    "caption": "防災気象情報\nとは何か？"
+  },
+  "board": {
+    "heading": "防災気象情報",
+    "body": "防災気象情報とは、\n気象庁が発表する気象・地震・津波・火山等に関する 予報・警報・情報の総称 であり、\n住民の避難行動や防災対応の判断材料となる。\n発表後は[警戒レベル](/docs/pe-comprehensive-management-alert-levels)と対応づけられ、\n市町村長の避難情報発令の判断根拠となる。",
+    "noteText": "特別警報は「数十年に一度」の重大災害に対して発表される最大級の警戒情報",
+    "management": "safety",
+    "caption": "記録的短時間大雨情報は大雨警報発表中…"
+  },
+  "cta": {
+    "related": [
+      "警戒レベル",
+      "災害対策基本法",
+      "極端現象",
+      "タイムライン"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

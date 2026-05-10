@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "個人情報",
+    "subtitle": null,
+    "stickyText": "個人情報→個人デ",
+    "management": "info",
+    "caption": "個人情報\nとは何か？"
+  },
+  "board": {
+    "heading": "個人情報",
+    "body": "個人情報とは、\n生存する個人に関する情報であって、\n当該情報に含まれる氏名・生年月日その他の記述等により特定の個人を識別することができるもの、\nまたは個人識別符号が含まれるものをいう（[個人情報保護法第2条第1項](https://laws.e-gov.go.jp/law/415AC0000000057",
+    "noteText": "個人情報→個人データ→保有個人データの段階的定義を理解する",
+    "management": "info",
+    "caption": "要配慮個人情報：取得に本人同意必須…"
+  },
+  "cta": {
+    "related": [
+      "個人情報の保護措置",
+      "匿名加工情報",
+      "個人情報の漏洩時対応",
+      "マイナンバー法"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "費用効果分析",
+    "subtitle": null,
+    "stickyText": "CEA は効果を",
+    "management": "economic",
+    "caption": "費用効果分析\nとは何か？"
+  },
+  "board": {
+    "heading": "費用効果分析",
+    "body": "費用効果分析（CEA: Cost-Effectiveness Analysis）とは、\n代替案ごとの費用と非貨幣単位の効果を比較し、\n経済性を評価する手法である。\n効果を貨幣換算せず、\n効果 1 単位あたりの費用（または費用 1 単位あたりの効果）で優劣を判断する。",
+    "noteText": "CEA は効果を貨幣化できない分野（医療・教育・防災）で用いる",
+    "management": "economic",
+    "caption": "CBA（貨幣ベース）…"
+  },
+  "cta": {
+    "related": [
+      "DCF法",
+      "需要予測",
+      "ESG・環境評価",
+      "内部収益率法"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

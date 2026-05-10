@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "アクセスログ分析",
+    "subtitle": null,
+    "stickyText": "ログの種類：認証",
+    "management": "info",
+    "caption": "アクセスログ分析\nとは何か？"
+  },
+  "board": {
+    "heading": "アクセスログ分析",
+    "body": "アクセスログ分析とは、\n情報システムやネットワーク機器が記録するアクセス履歴（ログ）を収集・蓄積・分析し、\n不正アクセスの検知、\nセキュリティインシデントの調査、\nシステムの利用状況の把握を行う活動である。",
+    "noteText": "ログの種類：認証ログ・アクセスログ・操作ログ・通信ログ・DBログ",
+    "management": "info",
+    "caption": "SIEM：複数ログの一元収集…"
+  },
+  "cta": {
+    "related": [
+      "アクセス制御・アクセス権限設定",
+      "責任追跡性（Accountability）",
+      "真正性（Authenticity）",
+      "セキュリティ評価基準CC（ISO/IEC 15408）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

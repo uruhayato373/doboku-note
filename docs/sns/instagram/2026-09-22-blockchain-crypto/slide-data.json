@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ブロックチェーン・暗号資産",
+    "subtitle": null,
+    "stickyText": "ブロックチェーン",
+    "management": "info",
+    "caption": "ブロックチェーン・暗号資産\nとは何か？"
+  },
+  "board": {
+    "heading": "ブロックチェーン・暗号資産",
+    "body": "ブロックチェーン（Blockchain）とは、\n取引データをブロックと呼ばれる単位にまとめ、\n暗号学的ハッシュ関数を用いてブロック同士を時系列に連結した分散型台帳技術である。",
+    "noteText": "ブロックチェーン：ハッシュ関数+P2P+コンセンサスアルゴリズムにより改ざんが極めて困難",
+    "management": "info",
+    "caption": "パブリック型（誰でも参加）…"
+  },
+  "cta": {
+    "related": [
+      "IoT（Internet of Things）",
+      "デジタルツイン・サイバーフィジカルシステム（CPS）",
+      "インターネット",
+      "RPA"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

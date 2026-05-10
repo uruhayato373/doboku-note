@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "Safety2.0",
+    "subtitle": null,
+    "stickyText": "3段階：Safe",
+    "management": "safety",
+    "caption": "Safety2.0\nとは何か？"
+  },
+  "board": {
+    "heading": "Safety2.0",
+    "body": "Safety 2.0（協調安全） とは、\n人・モノ・環境がICT（IoT・AI等）を活用して情報を共有・協調し、\n安全を確保する新しい安全の概念である。\n日本発の安全コンセプトとして、\nセーフティグローバル推進機構（IGSAP）が提唱した。",
+    "noteText": "3段階：Safety 0（人依存）→1.0（隔離の安全）→2.0（協調安全）",
+    "management": "safety",
+    "caption": "特徴：IoT…"
+  },
+  "cta": {
+    "related": [
+      "安全制御（セーフティコントロール）",
+      "本質安全",
+      "フェールセーフ",
+      "システム安全"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

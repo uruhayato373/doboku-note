@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "VPN",
+    "subtitle": null,
+    "stickyText": "IPsec-VP",
+    "management": "info",
+    "caption": "VPN\nとは何か？"
+  },
+  "board": {
+    "heading": "VPN",
+    "body": "VPN（Virtual Private Network：仮想プライベートネットワーク）とは、\n公衆ネットワーク（インターネット等）上に暗号化されたトンネルを構築し、\nあたかも専用回線のように安全な通信を実現する技術である。",
+    "noteText": "IPsec-VPNはL3で拠点間接続、SSL-VPNはL7でリモートアクセスに適する",
+    "management": "info",
+    "caption": "VPN機器の脆弱性が攻撃経路となる事…"
+  },
+  "cta": {
+    "related": [
+      "暗号化・電子署名",
+      "セキュリティ評価基準CC（ISO/IEC 15408）",
+      "機密性（Confidentiality）",
+      "ISMS（ISO/IEC 27001）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

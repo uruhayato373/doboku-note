@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "余力管理",
+    "subtitle": null,
+    "stickyText": "余力＝生産能力−",
+    "management": "economic",
+    "caption": "余力管理\nとは何か？"
+  },
+  "board": {
+    "heading": "余力管理",
+    "body": "",
+    "noteText": "余力＝生産能力−負荷工数（マイナスなら能力不足、プラスなら遊休）",
+    "management": "economic",
+    "caption": "工程管理の4機能（手順計画…"
+  },
+  "cta": {
+    "related": [
+      "現品管理",
+      "負荷平準化（山積み・山くずし）",
+      "進捗管理",
+      "負荷工数・生産能力"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

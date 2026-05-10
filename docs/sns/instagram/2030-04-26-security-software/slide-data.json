@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "セキュリティ対策ソフト",
+    "subtitle": null,
+    "stickyText": "検知方式：シグネ",
+    "management": "info",
+    "caption": "セキュリティ対策ソフト\nとは何か？"
+  },
+  "board": {
+    "heading": "セキュリティ対策ソフト",
+    "body": "セキュリティ対策ソフトとは、コンピュータやネットワークをマルウェア・不正アクセス等の脅威から保護するためのソフトウェアの総称である。",
+    "noteText": "検知方式：シグネチャベース・ヒューリスティック・サンドボックス・振る舞い検知・AI",
+    "management": "info",
+    "caption": "EPP（予防）とEDR（侵入後の検知…"
+  },
+  "cta": {
+    "related": [
+      "マルウェア",
+      "サイバー安全保障",
+      "標的型攻撃",
+      "脅威攻撃の手口学習"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

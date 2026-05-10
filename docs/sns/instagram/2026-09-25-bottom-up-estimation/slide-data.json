@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ボトムアップ見積り",
+    "subtitle": null,
+    "stickyText": "WBSで最小単位",
+    "management": "economic",
+    "caption": "ボトムアップ見積り\nとは何か？"
+  },
+  "board": {
+    "heading": "ボトムアップ見積り",
+    "body": "ボトムアップ見積り（Bottom-Up Estimation）とは、\n作業をWBS（作業分解構造）等で最小単位まで分解し、\n各作業の所要時間・コストを個別に見積って積み上げる手法である。",
+    "noteText": "WBSで最小単位に分解してから積み上げる",
+    "management": "economic",
+    "caption": "精度は最も高いが見積り工数も最大"
+  },
+  "cta": {
+    "related": [
+      "類推見積り",
+      "余力管理",
+      "ECRSの原則",
+      "5S"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

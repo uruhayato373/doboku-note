@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "責任追跡性",
+    "subtitle": null,
+    "stickyText": "JIS Q 27",
+    "management": "info",
+    "caption": "責任追跡性\nとは何か？"
+  },
+  "board": {
+    "heading": "責任追跡性",
+    "body": "責任追跡性（Accountability） とは、情報システム上の操作や変更について、誰が・いつ・何を行ったかを追跡できる特性である。",
+    "noteText": "JIS Q 27001：動作から動作主のエンティティまで一意に追跡できる特性",
+    "management": "info",
+    "caption": "アクセスログ・操作ログ…"
+  },
+  "cta": {
+    "related": [
+      "アクセス制御・アクセス権限設定",
+      "アクセスログ分析",
+      "真正性（Authenticity）",
+      "セキュリティ評価基準CC（ISO/IEC 15408）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

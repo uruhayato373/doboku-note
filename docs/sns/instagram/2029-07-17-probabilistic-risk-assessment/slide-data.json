@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "確率論的リスク評価",
+    "subtitle": null,
+    "stickyText": "リスク＝発生確率",
+    "management": "safety",
+    "caption": "確率論的リスク評価\nとは何か？"
+  },
+  "board": {
+    "heading": "確率論的リスク評価",
+    "body": "確率論的リスク評価（PRA: Probabilistic Risk Assessment）とは、\n事故・災害の発生確率と被害の大きさを定量的に評価し、\nリスクの全体像を把握する手法である。",
+    "noteText": "リスク＝発生確率×被害の大きさで定量化する",
+    "management": "safety",
+    "caption": "決定論的手法と相互補完的に活用される"
+  },
+  "cta": {
+    "related": [
+      "災害対策基本法",
+      "警戒レベル",
+      "国民保護法",
+      "不測事態"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

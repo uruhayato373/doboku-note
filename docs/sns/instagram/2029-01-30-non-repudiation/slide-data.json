@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "否認防止",
+    "subtitle": null,
+    "stickyText": "JIS Q 27",
+    "management": "info",
+    "caption": "否認防止\nとは何か？"
+  },
+  "board": {
+    "heading": "否認防止",
+    "body": "否認防止（Non-repudiation） とは、情報の送信・受信・操作を行った者が、後からその行為を否認できないようにする特性である。",
+    "noteText": "JIS Q 27001：事象の発生及びそれを引き起こしたエンティティを証明する能力",
+    "management": "info",
+    "caption": "電子署名法（2001年）：電子署名付…"
+  },
+  "cta": {
+    "related": [
+      "暗号化・電子署名",
+      "真正性（Authenticity）",
+      "機密性（Confidentiality）",
+      "サイバー安全保障"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

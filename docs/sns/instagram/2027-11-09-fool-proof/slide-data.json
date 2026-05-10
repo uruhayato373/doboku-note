@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "フールプルーフ",
+    "subtitle": null,
+    "stickyText": "誤操作をさせない",
+    "management": "safety",
+    "caption": "フールプルーフ\nとは何か？"
+  },
+  "board": {
+    "heading": "フールプルーフ",
+    "body": "フールプルーフ（Fool Proof）とは、人間が誤った操作をしても、危険な状態にならないよう、あるいは誤操作そのものができないように設計する考え方である。",
+    "noteText": "誤操作をさせない、または誤操作しても危険にならない設計",
+    "management": "safety",
+    "caption": "ポカヨケ（poka-yoke）とも呼…"
+  },
+  "cta": {
+    "related": [
+      "フェールセーフ",
+      "フォールトトレランス",
+      "インターロック",
+      "フォールトアボイダンス"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "FMEA",
+    "subtitle": null,
+    "stickyText": "ボトムアップ型：",
+    "management": "safety",
+    "caption": "FMEA\nとは何か？"
+  },
+  "board": {
+    "heading": "FMEA",
+    "body": "FMEA（Failure Mode and Effects Analysis：故障モード影響分析）とは、\nシステムの構成要素ごとに想定される故障モードとその影響を体系的に分析する手法である。",
+    "noteText": "ボトムアップ型：構成要素の故障モードからシステムへの影響を分析",
+    "management": "safety",
+    "caption": "RPN = 発生頻度 × 影響度…"
+  },
+  "cta": {
+    "related": [
+      "フォールトツリー分析（FTA）",
+      "イベントツリー分析（ETA）",
+      "HAZOP",
+      "根本原因分析（RCA）"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "VTA法",
+    "subtitle": null,
+    "stickyText": "時系列型：事故の",
+    "management": "safety",
+    "caption": "VTA法\nとは何か？"
+  },
+  "board": {
+    "heading": "VTA法",
+    "body": "VTA法（Variation Tree Analysis：変動要因分析法）とは、\n事故・トラブルの経過を時系列に沿って整理し、\n通常からの逸脱（バリエーション）を特定・可視化する分析手法である。",
+    "noteText": "時系列型：事故の経過を時間軸に沿って分析する",
+    "management": "safety",
+    "caption": "通常からの逸脱（バリエーション）を特…"
+  },
+  "cta": {
+    "related": [
+      "イベントツリー分析（ETA）",
+      "FMEA",
+      "フォールトツリー分析（FTA）",
+      "HAZOP"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "相関分析",
+    "subtitle": null,
+    "stickyText": "相関係数は -1",
+    "management": "info",
+    "caption": "相関分析\nとは何か？"
+  },
+  "board": {
+    "heading": "相関分析",
+    "body": "相関分析（Correlation Analysis）とは、2つの変数の間にどの程度の関連性があるかを定量的に評価する統計手法である。",
+    "noteText": "相関係数は -1〜1 の値をとり、絶対値が1に近いほど線形関係が強い",
+    "management": "info",
+    "caption": "相関は因果ではない…"
+  },
+  "cta": {
+    "related": [
+      "線形回帰と最小二乗法",
+      "記述統計",
+      "推定・検定",
+      "クラスター分析"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "管理限界",
+    "subtitle": null,
+    "stickyText": "管理限界＝±3σ",
+    "management": "economic",
+    "caption": "管理限界\nとは何か？"
+  },
+  "board": {
+    "heading": "管理限界",
+    "body": "管理限界（Control Limits）とは、\n上方管理限界線（UCL）と下方管理限界線（LCL）であり、\n工程が統計的管理状態にあるかどうかを判定する基準線である。",
+    "noteText": "管理限界＝±3σ（統計的に算出）、規格限界＝設計で決定（混同に注意）",
+    "management": "economic",
+    "caption": "UCL・CL…"
+  },
+  "cta": {
+    "related": [
+      "品質管理",
+      "全数検査／抜取検査",
+      "不適合品率／適合品率",
+      "品質改善活動"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "クラウドコンピューティング／オンプレミス",
+    "subtitle": null,
+    "stickyText": "IaaS・Paa",
+    "management": "info",
+    "caption": "クラウドコンピューティング／オンプレミス\nとは何か？"
+  },
+  "board": {
+    "heading": "クラウドコンピューティング／オンプレミス",
+    "body": "クラウドコンピューティングとは、サーバ・ストレージ・ネットワークなどのITリソースを、インターネット経由でオンデマンドに利用できるサービス形態である。",
+    "noteText": "IaaS・PaaS・SaaSのサービスモデルごとに利用者の管理範囲が異なる",
+    "management": "info",
+    "caption": "ハイブリッドクラウドにより…"
+  },
+  "cta": {
+    "related": [
+      "IoT（Internet of Things）",
+      "エッジコンピューティング",
+      "インターネット",
+      "デジタルツイン・サイバーフィジカルシステム（CPS）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

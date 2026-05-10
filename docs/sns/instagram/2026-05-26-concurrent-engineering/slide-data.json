@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "コンカレントエンジニアリング",
+    "subtitle": null,
+    "stickyText": "1つの製品の設計",
+    "management": "economic",
+    "caption": "コンカレントエンジニアリング\nとは何か？"
+  },
+  "board": {
+    "heading": "コンカレントエンジニアリング",
+    "body": "コンカレントエンジニアリング（CE: Concurrent Engineering）とは、\n製品の設計・生産準備・販売準備等の各工程を同時並行的に進めることで、\n開発期間の短縮と品質向上を図る手法である。",
+    "noteText": "1つの製品の設計・生産準備・販売準備等を同時並行で実施する手法（複数製品の同時開発ではない）",
+    "management": "economic",
+    "caption": "品質（Q）・コスト（C）…"
+  },
+  "cta": {
+    "related": [
+      "デザインレビュー",
+      "フロントローディング",
+      "デザインイン",
+      "信頼性設計・保全性設計"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "機密性",
+    "subtitle": null,
+    "stickyText": "JIS Q 27",
+    "management": "info",
+    "caption": "機密性\nとは何か？"
+  },
+  "board": {
+    "heading": "機密性",
+    "body": "機密性（Confidentiality） とは、許可された者だけが情報にアクセスできる状態を確保することである。",
+    "noteText": "JIS Q 27001：認可されていない者に情報を使用・開示しない特性",
+    "management": "info",
+    "caption": "主な手法：認証・認可、暗号化…"
+  },
+  "cta": {
+    "related": [
+      "暗号化・電子署名",
+      "完全性（Integrity）",
+      "ISMS（ISO/IEC 27001）",
+      "可用性（Availability）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "フェールセーフ",
+    "subtitle": null,
+    "stickyText": "故障の発生を前提",
+    "management": "safety",
+    "caption": "フェールセーフ\nとは何か？"
+  },
+  "board": {
+    "heading": "フェールセーフ",
+    "body": "フェールセーフ（Fail Safe）とは、システムや機器に故障・異常が発生した場合に、安全な側に動作するよう設計する考え方である。",
+    "noteText": "故障の発生を前提とし、安全側に制御する設計思想",
+    "management": "safety",
+    "caption": "踏切の遮断かん…"
+  },
+  "cta": {
+    "related": [
+      "フールプルーフ",
+      "インターロック",
+      "フォールトトレランス",
+      "機能安全"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

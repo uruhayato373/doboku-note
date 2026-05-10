@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "プライバシーマーク",
+    "subtitle": null,
+    "stickyText": "基準はJIS Q",
+    "management": "info",
+    "caption": "プライバシーマーク\nとは何か？"
+  },
+  "board": {
+    "heading": "プライバシーマーク",
+    "body": "プライバシーマーク（Pマーク）とは、\n個人情報の保護体制が適切に整備されている事業者に対して、\n一般財団法人日本情報経済社会推進協会（JIPDEC）が付与する第三者認証制度である。",
+    "noteText": "基準はJIS Q 15001（日本の国内規格）。国際的通用性はISMSのほうが高い",
+    "management": "info",
+    "caption": "認証範囲は事業者単位（全社）…"
+  },
+  "cta": {
+    "related": [
+      "セキュリティ評価基準CC（ISO/IEC 15408）",
+      "ISMS（ISO/IEC 27001）",
+      "ITセキュリティ評価及び認証制度（JISEC）",
+      "アクセス制御・アクセス権限設定"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

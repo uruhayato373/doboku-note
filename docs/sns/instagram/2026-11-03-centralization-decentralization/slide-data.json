@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "集中化と分散化",
+    "subtitle": null,
+    "stickyText": "集中処理は管理性",
+    "management": "info",
+    "caption": "集中化と分散化\nとは何か？"
+  },
+  "board": {
+    "heading": "集中化と分散化",
+    "body": "集中処理とは、1台の大型コンピュータ（メインフレーム等）にすべての処理を集約し、端末からアクセスする方式である。",
+    "noteText": "集中処理は管理性・セキュリティに優れるが、単一障害点のリスクがある",
+    "management": "info",
+    "caption": "分散処理は拡張性…"
+  },
+  "cta": {
+    "related": [
+      "可用性（Availability）",
+      "クラウドコンピューティング／オンプレミス",
+      "エッジコンピューティング",
+      "RASIS"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

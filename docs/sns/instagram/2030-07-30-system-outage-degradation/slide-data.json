@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "システム停止・性能低下",
+    "subtitle": null,
+    "stickyText": "原因はサイバー攻",
+    "management": "info",
+    "caption": "システム停止・性能低下\nとは何か？"
+  },
+  "board": {
+    "heading": "システム停止・性能低下",
+    "body": "システム停止・性能低下とは、情報システムが正常に機能しなくなる、または応答速度が著しく低下する事象であり、情報セキュリティの可用性を直接的に侵害する脅威である。",
+    "noteText": "原因はサイバー攻撃・ハードウェア障害・自然災害・人的要因の4分類",
+    "management": "info",
+    "caption": "DDoS攻撃：大量トラフィックでサー…"
+  },
+  "cta": {
+    "related": [
+      "アクセス制御・アクセス権限設定",
+      "アクセスログ分析",
+      "責任追跡性（Accountability）",
+      "真正性（Authenticity）"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

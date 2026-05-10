@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "生成AI",
+    "subtitle": null,
+    "stickyText": "LLMはTran",
+    "management": "info",
+    "caption": "生成AI\nとは何か？"
+  },
+  "board": {
+    "heading": "生成AI",
+    "body": "生成AI（Generative AI）とは、\n大量のデータから学習したパターンに基づき、\nテキスト・画像・音声・動画・プログラムコード等の新しいコンテンツを自動的に生成する人工知能技術の総称である。",
+    "noteText": "LLMはTransformerベースの事前学習モデルで、Few-shot学習や創発的能力が特徴",
+    "management": "info",
+    "caption": "ハルシネーション・著作権・バイアス…"
+  },
+  "cta": {
+    "related": [
+      "機械学習",
+      "データクレンジング",
+      "データマイニング",
+      "クラスター分析"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

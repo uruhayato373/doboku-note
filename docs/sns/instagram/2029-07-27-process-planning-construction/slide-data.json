@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "工程計画",
+    "subtitle": null,
+    "stickyText": "3要素：手順計画",
+    "management": "economic",
+    "caption": "工程計画\nとは何か？"
+  },
+  "board": {
+    "heading": "工程計画",
+    "body": "工程計画（Process Scheduling） とは、\n工事や生産活動の各作業の順序・期間・資源配分を体系的に策定し、\n全体工期内に完成させるためのスケジュールを策定する計画活動である。\n工程管理の基盤であり、\n資源配分・コスト管理の前提となる。",
+    "noteText": "3要素：手順計画 → 日程計画 → 負荷計画の順に策定",
+    "management": "economic",
+    "caption": "階層：大日程（年・月）→…"
+  },
+  "cta": {
+    "related": [
+      "PERT/CPM",
+      "ガントチャート",
+      "大日程計画・中日程計画・小日程計画",
+      "進捗管理"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

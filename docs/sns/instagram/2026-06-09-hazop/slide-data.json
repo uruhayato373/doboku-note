@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "HAZOP",
+    "subtitle": null,
+    "stickyText": "ガイドワード（N",
+    "management": "safety",
+    "caption": "HAZOP\nとは何か？"
+  },
+  "board": {
+    "heading": "HAZOP",
+    "body": "HAZOP（Hazard and Operability Study：危険・運転性検討）とは、\nガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、\nハザードや運転上の問題を特定する手法である。",
+    "noteText": "ガイドワード（No, More, Less等）で設計意図からの逸脱を網羅的に検討",
+    "management": "safety",
+    "caption": "プロセス産業（化学プラント等）で広く…"
+  },
+  "cta": {
+    "related": [
+      "イベントツリー分析（ETA）",
+      "FMEA",
+      "フォールトツリー分析（FTA）",
+      "根本原因分析（RCA）"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

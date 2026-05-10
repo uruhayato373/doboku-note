@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "機能安全",
+    "subtitle": null,
+    "stickyText": "IEC 6150",
+    "management": "safety",
+    "caption": "機能安全\nとは何か？"
+  },
+  "board": {
+    "heading": "機能安全",
+    "body": "機能安全（Functional Safety）とは、安全関連系（安全装置・制御システム）が正しく動作することによって達成される安全である。",
+    "noteText": "IEC 61508（JIS C 0508）が基本規格",
+    "management": "safety",
+    "caption": "安全度水準（SIL）で信頼性を4段階…"
+  },
+  "cta": {
+    "related": [
+      "フェールセーフ",
+      "本質安全",
+      "インターロック",
+      "安全確認型システム・危険検出型システム"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

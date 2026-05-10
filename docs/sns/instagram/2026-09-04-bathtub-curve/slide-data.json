@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "バスタブカーブ",
+    "subtitle": null,
+    "stickyText": "初期故障期：故障",
+    "management": "economic",
+    "caption": "バスタブカーブ\nとは何か？"
+  },
+  "board": {
+    "heading": "バスタブカーブ",
+    "body": "バスタブカーブ（寿命特性曲線）とは、設備や部品の故障率が使用開始からの時間経過とともにどのように変化するかを示した曲線である。",
+    "noteText": "初期故障期：故障率減少→デバッギング・慣らし運転で初期不良を除去",
+    "management": "economic",
+    "caption": "偶発故障期：故障率一定→予知保全（C…"
+  },
+  "cta": {
+    "related": [
+      "設備の信頼性",
+      "予防保全",
+      "事後保全",
+      "設備の保全性"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "信頼性ブロック図",
+    "subtitle": null,
+    "stickyText": "直列接続：全要素",
+    "management": "safety",
+    "caption": "信頼性ブロック図\nとは何か？"
+  },
+  "board": {
+    "heading": "信頼性ブロック図",
+    "body": "信頼性ブロック図（RBD：Reliability Block Diagram）とは、\nシステムの構成要素間の信頼性上の関係を、\nブロックとその接続で視覚的に表現する図である。",
+    "noteText": "直列接続：全要素の信頼度の積で計算",
+    "management": "safety",
+    "caption": "並列接続：余事象の確率で計算（1−不…"
+  },
+  "cta": {
+    "related": [
+      "並列システム",
+      "直列システム",
+      "フォールトツリー分析（FTA）",
+      "イベントツリー分析（ETA）"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

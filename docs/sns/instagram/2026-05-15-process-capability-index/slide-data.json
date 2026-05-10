@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "工程能力指数",
+    "subtitle": "68.3%",
+    "stickyText": "3%\n4%",
+    "management": "economic",
+    "caption": "工程能力指数\nとは何か？"
+  },
+  "board": {
+    "heading": "工程能力指数",
+    "body": "工程能力指数（Process Capability Index）とは、規格内で製品を生産する工程の能力を定量化する指標である。",
+    "noteText": "Cp＝規格幅÷6σ（中心のずれを考慮しない）",
+    "management": "economic",
+    "caption": "Cpk＝中心のずれを考慮した実質的な…"
+  },
+  "cta": {
+    "related": [
+      "品質管理",
+      "全数検査／抜取検査",
+      "品質保証",
+      "品質特性"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "フィッシング詐欺・ファーミング詐欺",
+    "subtitle": null,
+    "stickyText": "フィッシング：偽",
+    "management": "info",
+    "caption": "フィッシング詐欺・ファーミング詐欺\nとは何か？"
+  },
+  "board": {
+    "heading": "フィッシング詐欺・ファーミング詐欺",
+    "body": "フィッシング詐欺（Phishing） とは、\n実在する組織（銀行、\nECサイト、\n行政機関等）を装った偽のメールやWebサイトを用いて、\n利用者のID・パスワード・クレジットカード情報等を騙し取る詐欺行為である。",
+    "noteText": "フィッシング：偽メール・SMSで利用者を騙して偽サイトに誘導し認証情報を窃取",
+    "management": "info",
+    "caption": "ファーミング：DNSキャッシュポイズ…"
+  },
+  "cta": {
+    "related": [
+      "マルウェア",
+      "標的型攻撃",
+      "サイバー安全保障",
+      "DoS・DDoS"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

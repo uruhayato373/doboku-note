@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "WEBサービス",
+    "subtitle": null,
+    "stickyText": "SOAPはXML",
+    "management": "info",
+    "caption": "WEBサービス\nとは何か？"
+  },
+  "board": {
+    "heading": "WEBサービス",
+    "body": "WEBサービスとは、インターネット上の標準プロトコル（HTTP等）を利用して、異なるシステム間でデータや機能を相互にやり取りする仕組みの総称である。",
+    "noteText": "SOAPはXMLベースで厳密、RESTはHTTPベースで簡潔という特徴の違いを理解する",
+    "management": "info",
+    "caption": "APIエコノミーとマイクロサービスに…"
+  },
+  "cta": {
+    "related": [
+      "インターネット",
+      "API",
+      "クラウドコンピューティング／オンプレミス",
+      "エッジコンピューティング"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

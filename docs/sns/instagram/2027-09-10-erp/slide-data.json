@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "ERP",
+    "subtitle": null,
+    "stickyText": "ERPの主要モジ",
+    "management": "info",
+    "caption": "ERP\nとは何か？"
+  },
+  "board": {
+    "heading": "ERP",
+    "body": "ERP（Enterprise Resource Planning: 統合基幹業務システム）とは、\n企業の経営資源（ヒト・モノ・カネ・情報）を一元的に管理し、\n経営の効率化と意思決定の迅速化を実現する統合型情報システムである。",
+    "noteText": "ERPの主要モジュール（FI・CO・HR・SD・MM・PP等）を整理する",
+    "management": "info",
+    "caption": "導入効果（データ一元化・内部統制…"
+  },
+  "cta": {
+    "related": [
+      "クラウドコンピューティング／オンプレミス",
+      "サプライチェーンマネジメント（SCM）システム",
+      "可用性（Availability）",
+      "財務会計・管理会計システム"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

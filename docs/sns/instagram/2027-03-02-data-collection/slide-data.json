@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "データ収集",
+    "subtitle": null,
+    "stickyText": "単純無作為抽出は",
+    "management": "info",
+    "caption": "データ収集\nとは何か？"
+  },
+  "board": {
+    "heading": "データ収集",
+    "body": "データ収集（Data Collection）とは、分析目的に応じて必要なデータを体系的に取得するプロセスである。",
+    "noteText": "単純無作為抽出は理論的には最も偏りが少ないが、大規模母集団には非効率",
+    "management": "info",
+    "caption": "層別抽出は母集団の異質性が大きいとき…"
+  },
+  "cta": {
+    "related": [
+      "記述統計",
+      "推定・検定",
+      "アンケート分析",
+      "相関分析"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

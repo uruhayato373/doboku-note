@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "クラスター分析",
+    "subtitle": null,
+    "stickyText": "階層的手法：ウォ",
+    "management": "info",
+    "caption": "クラスター分析\nとは何か？"
+  },
+  "board": {
+    "heading": "クラスター分析",
+    "body": "クラスター分析（cluster analysis）とは、複数のデータを類似性に基づいてグループ（クラスター）に分類する多変量解析手法である。",
+    "noteText": "階層的手法：ウォード法等、デンドログラムで可視化、小〜中規模データ向き",
+    "management": "info",
+    "caption": "非階層的手法：k-means法等…"
+  },
+  "cta": {
+    "related": [
+      "線形回帰と最小二乗法",
+      "相関分析",
+      "データマイニング",
+      "データ可視化"
+    ],
+    "management": "info",
+    "caption": "続きは doboku-note で"
+  }
+}

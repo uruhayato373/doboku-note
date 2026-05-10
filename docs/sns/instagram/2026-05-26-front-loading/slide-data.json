@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "フロントローディング",
+    "subtitle": null,
+    "stickyText": "初期段階への集中",
+    "management": "economic",
+    "caption": "フロントローディング\nとは何か？"
+  },
+  "board": {
+    "heading": "フロントローディング",
+    "body": "フロントローディング（Front Loading）とは、\n開発プロセスの初期段階（フロント）に負荷（ローディング）を集中させ、\n後工程で発生しうる問題を前倒しで検討・解決する手法である。",
+    "noteText": "初期段階への集中投資により品質向上・工期短縮・コスト低減を実現",
+    "management": "economic",
+    "caption": "設計変更コストは後工程ほど指数関数的…"
+  },
+  "cta": {
+    "related": [
+      "コンカレントエンジニアリング",
+      "デザインレビュー",
+      "デザインイン",
+      "信頼性設計・保全性設計"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}

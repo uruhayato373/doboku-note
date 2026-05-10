@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "冗長性",
+    "subtitle": null,
+    "stickyText": "待機冗長・並列冗",
+    "management": "safety",
+    "caption": "冗長性\nとは何か？"
+  },
+  "board": {
+    "heading": "冗長性",
+    "body": "冗長性（Redundancy）とは、\nシステムの構成要素を多重化し、\n一部が故障しても他の要素が機能を代替することで、\nシステム全体の信頼性を向上させる設計手法である。",
+    "noteText": "待機冗長・並列冗長・多数決冗長の3種類がある",
+    "management": "safety",
+    "caption": "フォールトトレランス（故障許容設計）…"
+  },
+  "cta": {
+    "related": [
+      "フォールトトレランス",
+      "フェールセーフ",
+      "フォールトアボイダンス",
+      "フールプルーフ"
+    ],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}

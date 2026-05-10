@@ -1,0 +1,26 @@
+{
+  "cover": {
+    "keyword": "パラメトリック見積り",
+    "subtitle": null,
+    "stickyText": "3人\n500人",
+    "management": "economic",
+    "caption": "パラメトリック見積り\nとは何か？"
+  },
+  "board": {
+    "heading": "パラメトリック見積り",
+    "body": "パラメトリック見積り（Parametric Estimation）とは、\n過去の実績データから導出した統計的パラメータ（単価・生産性係数等）を用いてコスト・工期・工数を算出する見積り手法である。\n日本語では係数見積りとも呼ばれる。",
+    "noteText": "見積り値＝数量×単位あたりパラメータで算出する",
+    "management": "economic",
+    "caption": "客観性・再現性が高く第三者検証が容易"
+  },
+  "cta": {
+    "related": [
+      "ガントチャート",
+      "PERT/CPM",
+      "三点見積り",
+      "類推見積り"
+    ],
+    "management": "economic",
+    "caption": "続きは doboku-note で"
+  }
+}
