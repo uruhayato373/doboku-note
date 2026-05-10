@@ -182,13 +182,44 @@ export async function probeDuration(audioPath) {
 }
 
 /**
- * cover PNG を 1280×720 のサムネイルにリサイズ（sharp 利用、center crop）。
+ * 1280×720 専用サムネイルを Satori で描画する。
+ *
+ * 縦型スライドのクロップではなく、横型キャンバスを新規作成することで
+ * 長いキーワード名でもフォントを自動縮小して全テキストを収める。
+ *
+ * @param {object} args
+ * @param {object} args.storyboard  - { title, management } を含む storyboard オブジェクト
+ * @param {string} args.outPath     - 出力先 PNG パス
  */
-export async function generateThumbnail({ coverPngPath, outPath, width = 1280, height = 720 }) {
-  const { default: sharp } = await import('sharp');
-  await sharp(coverPngPath)
-    .resize(width, height, { fit: 'cover', position: 'center' })
-    .toFile(outPath);
+export async function generateThumbnail({ storyboard, outPath }) {
+  const { renderSlide, TEXT_CONFIG_DEFAULTS } = await import('../../../../../scripts/lib/sns-common/slide-render.mjs');
+  const { writeFileSync } = await import('node:fs');
+
+  const config = {
+    ...TEXT_CONFIG_DEFAULTS.ytShorts,
+    breakBefore: ['（', '：', '〜'],
+    charCountFallback: 12,
+    fontSizeTable: [120, 96, 80, 64, 48],
+    safetyWidth: 1040,
+  };
+
+  // 「・」を行末で折る（行頭に来ると箇条書きに見えるため）
+  const title = (storyboard.title || '').replace(/・/g, '・\n');
+
+  const buf = await renderSlide({
+    width: 1280,
+    height: 720,
+    slide: {
+      type: 'cover',
+      data: {
+        title,
+        management: storyboard.management || null,
+      },
+    },
+    textConfig: config,
+  });
+
+  writeFileSync(outPath, buf);
   return outPath;
 }
 

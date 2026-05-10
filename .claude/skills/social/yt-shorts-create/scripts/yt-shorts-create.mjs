@@ -131,7 +131,7 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   // [6/6] サムネ + meta（→ docsDir）
   process.stdout.write(`[6/6] Generating thumbnail and meta.json...\n`);
   const thumbPath = join(docsDir, 'thumbnail.png');
-  await generateThumbnail({ coverPngPath: pngPaths[0], outPath: thumbPath });
+  await generateThumbnail({ storyboard, outPath: thumbPath });
 
   const meta = buildMeta({ storyboard, durations });
   const metaPath = join(docsDir, 'meta.json');
