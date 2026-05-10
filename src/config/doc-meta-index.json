@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-09T04:17:57.696Z",
+  "generated_at": "2026-05-10T08:12:26.809Z",
   "summary": {
     "total": 812,
     "published": 804,
@@ -2760,7 +2760,7 @@
     },
     "pe-comprehensive-management-agile": {
       "title": "アジャイル",
-      "description": "アジャイル開発の定義・アジャイルマニフェスト・スクラム・カンバン・XPの主要手法を解説。ウォーターフォールとの比較を含め、反復型開発プロセスを整理。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "アジャイル開発の定義・アジャイルマニフェスト・スクラム・カンバン・XPの主要手法・5管理横断の関係を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "4.4",
@@ -2772,11 +2772,13 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "アジャイル ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "lastRewrittenAt": "2026-05-09",
+      "revisionCycle": 1,
+      "dateModified": "2026-05-10"
     },
     "pe-comprehensive-management-aging-infrastructure": {
       "title": "インフラ老朽化対策",
-      "description": "インフラ老朽化対策の現状と方策を解説。インフラ長寿命化基本計画、予防保全、アセットマネジメント。技術士総合技術監理キーワード集2026（安全管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "インフラ老朽化対策の現状・インフラ長寿命化基本計画・事後保全から予防保全への転換・アセットマネジメントを技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "5.1",
@@ -2788,7 +2790,9 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "インフラ老朽化対策 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-05-07"
+      "lastRewrittenAt": "2026-05-09",
+      "revisionCycle": 1,
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-air-pollution-control-act": {
       "title": "大気汚染防止法",
@@ -2829,7 +2833,7 @@
     },
     "pe-comprehensive-management-alert-levels": {
       "title": "警戒レベル",
-      "description": "警戒レベルの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "警戒レベルの5段階・2021年法改正・発令主体・住民行動の対応関係を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "5.5",
@@ -2840,7 +2844,9 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "警戒レベル ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-05-07"
+      "lastRewrittenAt": "2026-05-09",
+      "revisionCycle": 1,
+      "dateModified": "2026-05-10"
     },
     "pe-comprehensive-management-all-hazard-approach": {
       "title": "オールハザードアプローチ",
@@ -2958,7 +2964,7 @@
     },
     "pe-comprehensive-management-antitrust-compliance": {
       "title": "独占禁止法とコンプライアンス",
-      "description": "私的独占の禁止及び公正取引の確保に関する法律（独占禁止法）の概要と、企業における実効的なコンプライアンスプログラムの整備・運用を解説。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "独占禁止法の3類型・制裁体系・リニエンシー・確約手続と、企業における実効的なコンプライアンスプログラムを技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "4.3",
@@ -2970,7 +2976,9 @@
       "publishedAt": "2026-04-06",
       "seoTitle": "独占禁止法とコンプライアンス ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-04-28"
+      "lastRewrittenAt": "2026-05-09",
+      "revisionCycle": 1,
+      "dateModified": "2026-05-10"
     },
     "pe-comprehensive-management-api": {
       "title": "API",
@@ -3105,7 +3113,7 @@
     },
     "pe-comprehensive-management-backcasting": {
       "title": "バックキャスティング",
-      "description": "バックキャスティングの定義・フォアキャスティングとの違い・環境政策への適用を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "バックキャスティングの定義・フォアキャスティングとの違い・5管理横断の関係・環境政策への適用を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（社会環境管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "6.3",
@@ -3116,7 +3124,9 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "バックキャスティング ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-05",
-      "dateModified": "2026-05-07"
+      "lastRewrittenAt": "2026-05-09",
+      "revisionCycle": 1,
+      "dateModified": "2026-05-10"
     },
     "pe-comprehensive-management-balance-sheet": {
       "title": "貸借対照表",
@@ -3995,7 +4005,7 @@
     },
     "pe-comprehensive-management-concurrent-engineering": {
       "title": "コンカレントエンジニアリング",
-      "description": "コンカレントエンジニアリングの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "コンカレントエンジニアリングの定義・背景・従来型開発との比較・5管理横断の関係を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "2.1",
@@ -4006,10 +4016,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "コンカレントエンジニアリング ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
+      "lastRewrittenAt": "2026-05-09",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-30"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-confidentiality": {
       "title": "機密性",
@@ -4905,7 +4915,7 @@
     },
     "pe-comprehensive-management-design-review": {
       "title": "デザインレビュー",
-      "description": "デザインレビューの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "デザインレビュー（DR）の定義・実施段階（DR0〜DR4）・5管理との横断的関係・チェックリスト活用を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "2.1",
@@ -4916,10 +4926,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "デザインレビュー ｜ 総合技術監理 キーワード集 2026",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
+      "lastRewrittenAt": "2026-05-09",
       "revisionCycle": 1,
       "created": "2026-04-05",
-      "dateModified": "2026-04-30"
+      "dateModified": "2026-05-09"
     },
     "pe-comprehensive-management-design-rights": {
       "title": "意匠権",
@@ -9300,7 +9310,7 @@
     },
     "pe-comprehensive-management-lifecycle-management": {
       "title": "ライフサイクルマネジメント",
-      "description": "ライフサイクルマネジメントの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "ライフサイクルマネジメント（LCM）の定義・背景・5段階プロセス・LCC計算・5管理との横断的関係を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "2.1",
@@ -9311,7 +9321,9 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "ライフサイクルマネジメント ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-03",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-09",
+      "lastRewrittenAt": "2026-05-09",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-likelihood": {
       "title": "起こりやすさ",
@@ -11968,7 +11980,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "品質保証 ｜ 総合技術監理 キーワード集 2026",
       "created": "2026-04-03",
-      "dateModified": "2026-04-28"
+      "dateModified": "2026-05-10"
     },
     "pe-comprehensive-management-quality-characteristics": {
       "title": "品質特性",
