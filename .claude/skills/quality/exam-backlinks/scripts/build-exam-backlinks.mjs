@@ -2,8 +2,11 @@
 /**
  * 過去問 ⇔ キーワード 紐付けJSON生成スクリプト
  *
- * 全過去問MDXを走査して、設問単位で <RelatedKeywords> を抽出し、
- * 双方向の JSON を出力する。
+ * .claude/state/exam-keyword-map.json（単一正源）を読み、
+ * 全過去問MDXを走査して設問の heading text を取得し、双方向 JSON を出力する。
+ *
+ * 紐付けデータの編集は exam-keyword-map.json を直接行う。
+ * MDX の <RelatedKeywords> は表示用として残るが、このスクリプトは参照しない。
  *
  * 出力:
  *   - src/config/past-exam-backlinks.json: キーワードslug → 過去問設問リスト
@@ -18,6 +21,7 @@ const PE_POSTS = path.join(ROOT, '.local/r2/posts/pe-comprehensive-management');
 const CIVIL_POSTS = path.join(ROOT, '.local/r2/posts/civil-construction-1');
 const OUT_BACKLINKS = path.join(ROOT, 'src/config/past-exam-backlinks.json');
 const OUT_QUESTION_KEYWORDS = path.join(ROOT, 'src/config/exam-question-keywords.json');
+const EXAM_KEYWORD_MAP = path.join(ROOT, '.claude/state/exam-keyword-map.json');
 
 /**
  * ヘディング ID 生成（過去問 anchor 用に正規化を強化）。
@@ -124,9 +128,8 @@ function findPastExamFiles() {
   return files;
 }
 
-/** MDX内の設問（## で始まる見出し）ごとに <RelatedKeywords> のslugを抽出 */
-function extractQuestionKeywords(content, categoryPrefix) {
-  // ## で始まる行で分割（ただし本文の ## は保持）
+/** MDX内の設問見出しを anchor → heading text のマップで返す（slug 抽出は行わない） */
+function extractQuestionHeadings(content) {
   const sections = content.split(/\n(?=## )/);
   const result = {};
 
@@ -139,39 +142,20 @@ function extractQuestionKeywords(content, categoryPrefix) {
     if (!/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/.test(heading)) continue;
 
     const anchor = generateHeadingId(heading);
-    const slugs = new Set();
-
-    // <RelatedKeywords items={[{ slug: "xxx" }, ...]}> を抽出
-    const rkPattern = /<RelatedKeywords\s+items=\{(\[[\s\S]*?\])\}/g;
-    let rkMatch;
-    while ((rkMatch = rkPattern.exec(section)) !== null) {
-      const itemsStr = rkMatch[1];
-      const slugPattern = /slug:\s*["']([^"']+)["']/g;
-      let slugMatch;
-      while ((slugMatch = slugPattern.exec(itemsStr)) !== null) {
-        slugs.add(slugMatch[1]);
-      }
-    }
-
-    // Markdownリンク `[text](/docs/{categoryPrefix}slug)` も抽出（補助）
-    const mdLinkPattern = new RegExp(`\\]\\(/docs/${categoryPrefix}([^)#\\s]+)`, 'g');
-    let mdMatch;
-    while ((mdMatch = mdLinkPattern.exec(section)) !== null) {
-      slugs.add(mdMatch[1]);
-    }
-
-    if (slugs.size > 0) {
-      result[anchor] = {
-        heading,
-        slugs: Array.from(slugs),
-      };
-    }
+    result[anchor] = heading;
   }
 
   return result;
 }
 
 function main() {
+  if (!fs.existsSync(EXAM_KEYWORD_MAP)) {
+    console.error(`Not found: ${EXAM_KEYWORD_MAP}`);
+    console.error('先に bootstrap-exam-keyword-map.mjs を実行してください。');
+    process.exit(1);
+  }
+  const keywordMap = JSON.parse(fs.readFileSync(EXAM_KEYWORD_MAP, 'utf8'));
+
   const files = findPastExamFiles();
   console.log(`Found ${files.length} past exam files`);
 
@@ -181,7 +165,19 @@ function main() {
 
   for (const file of files) {
     const content = fs.readFileSync(file.filepath, 'utf8');
-    const perQuestion = extractQuestionKeywords(content, file.categoryPrefix);
+    const headings = extractQuestionHeadings(content);
+
+    // examDir: file.slug から category prefix を除いた部分（例: "r07-primary", "primary-r07-a"）
+    const examDir = file.slug.slice(file.category.length + 1);
+    const mapForExam = keywordMap[file.category]?.[examDir] ?? {};
+
+    const perQuestion = {};
+    for (const [anchor, heading] of Object.entries(headings)) {
+      const slugs = mapForExam[anchor] ?? [];
+      if (slugs.length > 0) {
+        perQuestion[anchor] = { heading, slugs };
+      }
+    }
 
     if (Object.keys(perQuestion).length === 0) continue;
 
