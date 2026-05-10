@@ -7,7 +7,7 @@ description: >
 
 ## 用途
 
-過去問MDX内の `<RelatedKeywords>` コンポーネントと、キーワードページを双方向に紐付けるシステムの保守・品質改善を行うスキル。以下のサブコマンドを提供する:
+`.claude/state/exam-keyword-map.json`（単一正源）とキーワードページを双方向に紐付けるシステムの保守・品質改善を行うスキル。過去問MDXの `<RelatedKeywords>` は表示用として残るが、紐付けデータの正源は JSON が担う。以下のサブコマンドを提供する:
 
 - `check` — カバー率レポートとギャップ分析
 - `rebuild` — JSON再生成
@@ -21,10 +21,11 @@ description: >
 ### データフロー
 
 ```
-過去問MDX (.local/r2/posts/pe-comprehensive-management/{year}-primary/article.mdx)
-  └ <RelatedKeywords items={[{ slug: "xxx" }]} /> （設問ごと）
+.claude/state/exam-keyword-map.json  （唯一の正源 ─ 人間/Claude が直接編集）
+  └ { category: { examDir: { anchor: slug[] } } }
      ↓
-.claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs （解析）
+.claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs
+（MDX はheading text のみ走査、slug は exam-keyword-map.json から取得）
      ↓
 src/config/past-exam-backlinks.json    （キーワード→過去問 逆引き）
 src/config/exam-question-keywords.json （過去問→キーワード 正引き）
@@ -33,14 +34,17 @@ src/components/ui/PastExamBacklinks/  （キーワードページで表示）
 src/components/ui/KeywordsInExam/     （過去問ページで表示）
 ```
 
+過去問MDX の `<RelatedKeywords>` は表示用として残るが、ビルドスクリプトは参照しない（Phase 2 で除去予定）。
+
 ### 実行タイミング
 
 - **本番ビルド時**: `npm run build` に含まれるため、デプロイ時は自動で最新化される
-- **開発中**: `predev` からは除外済み（dev 起動を高速化）。過去問 MDX を更新したら手動で実行:
+- **開発中**: `predev` からは除外済み（dev 起動を高速化）。`exam-keyword-map.json` を編集したら手動で実行:
 
 ```bash
+# exam-keyword-map.json を編集後
 npm run build-backlinks
-git add src/config/past-exam-backlinks.json src/config/exam-question-keywords.json
+git add .claude/state/exam-keyword-map.json src/config/past-exam-backlinks.json src/config/exam-question-keywords.json
 git commit -m "content: 過去問バックリンク再生成"
 ```
 
@@ -104,21 +108,27 @@ npm run build-backlinks
 
 `{year}` は `r01`, `r07`, `h21`, `h30` などの形式。
 
-1. 対象ファイルを確認: `.local/r2/posts/pe-comprehensive-management/{year}-primary/article.mdx`
-2. サブエージェント（`general-purpose`）を dispatch する
-3. 下記の**標準エンリッチメントプロンプト**を使用
-4. 完了後に `rebuild` を実行してJSON再生成
+紐付けデータの正源は `.claude/state/exam-keyword-map.json` なので、MDX ではなく **JSON を直接編集**する。
+
+1. `exam-keyword-map.json` の対象年度エントリを確認
+2. `check` の出力で紐付けが薄い設問（1件以下）の anchor を特定
+3. 過去問MDX（`.local/r2/posts/pe-comprehensive-management/{year}-primary/article.mdx`）の設問文と解説を読んで適切な slug を決定
+4. `exam-keyword-map.json` の該当エントリを追記・補強
+5. `rebuild` を実行してJSON再生成
 
 #### 標準エンリッチメントプロンプト（テンプレート）
 
 ```
-技術士総監部門の過去問MDXに `<RelatedKeywords>` を追加する作業です。
+技術士総監部門の過去問キーワード紐付けを充実化する作業です。
 
-## 対象ファイル
-`/Users/minamidaisuke/doboku-note/.local/r2/posts/pe-comprehensive-management/{YEAR}-primary/article.mdx`
+## 正源ファイル
+`.claude/state/exam-keyword-map.json`
+
+## 対象年度
+`{YEAR}` （例: r06, h30）
 
 ## 事前準備
-`/tmp/all-keywords.json` に全649キーワードのリストがあることを確認。なければ以下で生成:
+`/tmp/all-keywords.json` に全キーワードのリストがあることを確認。なければ以下で生成:
 ```bash
 node -e "
 const d = require('./src/config/pe-chapters.json');
@@ -126,7 +136,7 @@ const kws = [];
 for (const ch of d.chapters) {
   for (const sec of ch.sections) {
     for (const kw of sec.keywords || []) {
-      kws.push({ slug: kw.slug, title: kw.title, section: sec.id, sectionTitle: sec.title, chapter: ch.title });
+      kws.push({ slug: kw.slug, title: kw.title, section: sec.id, sectionTitle: sec.title });
     }
   }
 }
@@ -135,24 +145,22 @@ require('fs').writeFileSync('/tmp/all-keywords.json', JSON.stringify(kws, null, 
 ```
 
 ## 作業手順
-1. {YEAR}-primary の MDX を Read で読み込む
-2. 40問それぞれの設問文 + `<details>` 内の解説を読む
-3. 各設問の既存 `<RelatedKeywords>` の items 配列を Edit tool で補強（最大 +2件 / 1問）
-4. 既存エントリは**削除しない**
-5. `<RelatedKeywords>` がまだ無い場合は `</details>` の直前に新規追加
+1. `.claude/state/exam-keyword-map.json` を Read し、`pe-comprehensive-management.{YEAR}-primary` エントリを確認する
+2. 過去問MDX（`.local/r2/posts/pe-comprehensive-management/{YEAR}-primary/article.mdx`）を Read し、各設問の設問文と `<details>` 内の解説を読む
+3. 各設問の anchor（例: "1-1"）に対応する slug 配列が空または少ない場合、/tmp/all-keywords.json から適切な slug を選んで補強する
+4. JSON の該当エントリを Edit tool で更新する（既存 slug は削除しない）
+5. 完了後に `npm run build-backlinks` を実行する
 
 ## 品質ルール（重要）
-- 既存 items は削除禁止
+- 既存 slug は削除禁止
 - 設問の中心概念のみ追加（周辺言及は不要）
 - 最大 +2件 / 1問（既存と合わせて最大5件程度）
 - slug は /tmp/all-keywords.json に実在するものだけ
 - 重複禁止
-- 文字化け（U+FFFD）禁止
 
 ## 報告
 - 補強した設問数
 - 追加キーワード総数
-- 文字化け有無
 ```
 
 ### Step 4-A: `keyword-relations build` — キーワード⇔キーワード関連 JSON 生成
@@ -256,7 +264,7 @@ for (const e of entries) {
 
 ### 2. 紐付け薄い設問
 
-`<RelatedKeywords>` が1件以下の設問は充実化候補。`check` で抽出したリストをもとに `enrich {year}` を実行。
+`exam-keyword-map.json` で slug が1件以下の設問は充実化候補。`check` で抽出したリストをもとに `exam-keyword-map.json` の該当エントリを補強し、`rebuild` を実行。
 
 ### 3. 不正な slug
 
@@ -286,6 +294,8 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 
 ## 関連ファイル
 
+- `.claude/state/exam-keyword-map.json` — 過去問⇔キーワード紐付けの**単一正源**（人間/Claude が直接編集する唯一のファイル）
+- `.claude/skills/quality/exam-backlinks/scripts/bootstrap-exam-keyword-map.mjs` — 初期生成スクリプト（移行時のみ使用、通常は実行不要）
 - `.claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs` — 過去問⇔キーワード生成スクリプト
 - `.claude/skills/quality/exam-backlinks/scripts/build-keyword-relations.mjs` — キーワード⇔キーワード関連生成スクリプト
 - `.claude/skills/quality/exam-backlinks/scripts/insert-keyword-relations.mjs` — 関連 JSON を MDX へバッチ挿入するスクリプト
