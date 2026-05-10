@@ -75,11 +75,10 @@ node .claude/scripts/gen-notebook-sample.mjs
 
 // notebook-board
 {
-  heading: '板書 ｜ 定義',
+  heading: 'ハインリッヒの法則',   // mdx.title を自動挿入
   body: '重大事故 1 件の背後に\n軽微事故 29 件\nヒヤリハット 300 件が潜む経験則',
   noteText: '300 の段階で気付けば\n事故は防げる ＝ KYT の根拠',
   management: 'safety',
-  date: '2026-05-09',
   caption: 'ヒヤリハット段階で予防＝KYT',
 }
 
@@ -87,7 +86,6 @@ node .claude/scripts/gen-notebook-sample.mjs
 {
   related: ['バードの法則', 'KYT', '4M-4E', '不安全行動'],
   management: 'safety',
-  date: '2026-05-09',
   caption: '続きは doboku-note で',
 }
 ```
@@ -101,15 +99,47 @@ node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs \
   --size both         # reels | carousel | both
 ```
 
-出力先: `docs/sns/instagram/{date}-{slug}/{size}/img/`
+出力先:
+```
+docs/sns/instagram/{date}-{slug}/slide-data.json  ← 手動編集可能な設定ファイル
+docs/sns/instagram/{date}-{slug}/{size}/img/
+```
 
-**自動抽出ロジック**:
-1. `mdx-extract.mjs` で `{ title, definition, examPoints, relatedKeywords, rawContent }` を取得
-2. `description` のカッコ内（例: `（安全管理）`）から management カテゴリを自動判定
-3. `definition` + `rawContent` から年号・件数パターンを抽出して stickyText を生成
-4. `definition` から比率パターン（`1:29:300` 等）を抽出して subtitle を生成
-5. `RelatedKeywords items` の label を抽出して CTA related リストに使用
-6. `renderSlide()` × 3 で PNG 生成 → 指定ディレクトリに保存
+**ワークフロー**:
+
+| 実行パターン | コマンド | 動作 |
+|---|---|---|
+| 初回生成 | `--slug foo --date YYYY-MM-DD` | MDX 抽出 → slide-data.json 生成 → PNG 出力 |
+| 再実行（手動編集を保持） | 同上 | slide-data.json 読み込み → PNG 再出力（MDX 解析スキップ） |
+| MDX から再抽出 | `--reset` 追加 | slide-data.json を上書き → PNG 再出力 |
+
+**slide-data.json スキーマ**（手動編集対象）:
+
+```json
+{
+  "cover": {
+    "keyword": "キーワード名",
+    "subtitle": "1 : 29 : 300",
+    "stickyText": "1929年\n50万件\n調査",
+    "management": "safety",
+    "caption": "キャプション文"
+  },
+  "board": {
+    "heading": "キーワード名",
+    "body": "定義文（改行は \\n）",
+    "noteText": "本質メモ",
+    "management": "safety",
+    "caption": "キャプション文"
+  },
+  "cta": {
+    "related": ["関連KW1", "関連KW2", "関連KW3", "関連KW4"],
+    "management": "safety",
+    "caption": "続きは doboku-note で"
+  }
+}
+```
+
+`management` の値: `economic` / `human` / `info` / `safety` / `social`
 
 ## Satori 制約（実装済みの回避策）
 

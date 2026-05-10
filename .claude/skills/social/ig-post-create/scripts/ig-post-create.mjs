@@ -9,13 +9,16 @@
  *   --date      投稿日（YYYY-MM-DD）[省略時: 今日]
  *   --size      reels | carousel | both [省略時: both]
  *   --category  カテゴリ（デフォルト: pe-comprehensive-management）
+ *   --reset       slide-data.json を無視して MDX から再生成
+ *   --config-only slide-data.json のみ生成（PNG 生成スキップ）
  *
  * 出力先:
- *   docs/sns/instagram/{date}-{slug}/reels/img/    (1080×1920)
- *   docs/sns/instagram/{date}-{slug}/carousel/img/ (1080×1350)
+ *   docs/sns/instagram/{date}-{slug}/slide-data.json  ← 手動編集可能な設定ファイル
+ *   docs/sns/instagram/{date}-{slug}/reels/img/       (1080×1920)
+ *   docs/sns/instagram/{date}-{slug}/carousel/img/    (1080×1350)
  */
 
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { execSync } from 'node:child_process';
@@ -115,77 +118,13 @@ const slug = args.slug;
 const category = args.category ?? 'pe-comprehensive-management';
 const date = args.date ?? new Date().toISOString().slice(0, 10);
 const sizeArg = args.size ?? 'both';
+const resetFlag = 'reset' in args;
+const configOnly = 'config-only' in args;
 
 if (!slug) {
-  console.error('Usage: node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both]');
+  console.error('Usage: node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both] [--reset] [--config-only]');
   process.exit(1);
 }
-
-console.log(`\n[ig-post-create] slug: ${slug}  date: ${date}  size: ${sizeArg}`);
-
-const mdx = extractMdx({ category, slug, root: resolve(ROOT, '.local/r2/posts') });
-const management = detectManagement(mdx.description);
-const relatedLabels = extractRelatedLabels(mdx.rawContent);
-const subtitle = extractSubtitle(mdx.definition ?? '', mdx.rawContent);
-const stickyText = buildStickyText(mdx.definition ?? '', mdx.examPoints, mdx.rawContent);
-const definition = cleanDefinition(mdx.definition ?? '');
-const boardNoteText = (() => {
-  const t = mdx.examPoints[0] ?? null;
-  if (!t) return null;
-  // 「：」が2つ以上あればリスト形式として改行変換
-  const parts = t.split('：');
-  return parts.length >= 3 ? parts.join('\n') : t;
-})();
-const boardCaption = truncateCaption(mdx.examPoints[1] ?? mdx.examPoints[0] ?? null);
-
-console.log(`  title: ${mdx.title}`);
-console.log(`  management: ${management}`);
-console.log(`  subtitle: ${subtitle}`);
-console.log(`  stickyText: ${JSON.stringify(stickyText)}`);
-console.log(`  related: [${relatedLabels.slice(0, 4).join(', ')}]`);
-
-const SLIDES = [
-  {
-    file: '00-cover.png',
-    slide: {
-      type: 'notebook-cover',
-      data: {
-        keyword: mdx.title,
-        subtitle,
-        stickyText,
-        management,
-        date,
-        caption: `${mdx.title}\nとは何か？`,
-      },
-    },
-  },
-  {
-    file: '01-board.png',
-    slide: {
-      type: 'notebook-board',
-      data: {
-        heading: '板書 ｜ 定義',
-        body: definition,
-        noteText: boardNoteText,
-        management,
-        date,
-        caption: boardCaption,
-      },
-    },
-  },
-  {
-    file: '02-cta.png',
-    slide: {
-      type: 'notebook-cta',
-      data: {
-        related: relatedLabels.slice(0, 4),
-        management,
-        date,
-        caption: '続きは doboku-note で',
-      },
-    },
-  },
-];
 
 const ALL_SIZES = [
   { name: 'reels',    width: 1080, height: 1920 },
@@ -201,6 +140,76 @@ if (sizes.length === 0) {
 }
 
 const outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
+const configPath = resolve(outBase, 'slide-data.json');
+
+console.log(`\n[ig-post-create] slug: ${slug}  date: ${date}  size: ${sizeArg}`);
+
+let slideData;
+
+if (existsSync(configPath) && !resetFlag) {
+  // 再実行: slide-data.json から読み込み（MDX 解析スキップ）
+  slideData = JSON.parse(readFileSync(configPath, 'utf8'));
+  console.log(`  [config] slide-data.json を使用`);
+} else {
+  // 初回 or --reset: MDX から抽出してデータを計算
+  const mdx = extractMdx({ category, slug, root: resolve(ROOT, '.local/r2/posts') });
+  const management = detectManagement(mdx.description);
+  const relatedLabels = extractRelatedLabels(mdx.rawContent);
+  const subtitle = extractSubtitle(mdx.definition ?? '', mdx.rawContent);
+  const stickyText = buildStickyText(mdx.definition ?? '', mdx.examPoints, mdx.rawContent);
+  const definition = cleanDefinition(mdx.definition ?? '');
+  const boardNoteText = (() => {
+    const t = mdx.examPoints[0] ?? null;
+    if (!t) return null;
+    const parts = t.split('：');
+    return parts.length >= 3 ? parts.join('\n') : t;
+  })();
+  const boardCaption = truncateCaption(mdx.examPoints[1] ?? mdx.examPoints[0] ?? null);
+
+  console.log(`  title: ${mdx.title}`);
+  console.log(`  management: ${management}`);
+  console.log(`  subtitle: ${subtitle}`);
+  console.log(`  stickyText: ${JSON.stringify(stickyText)}`);
+  console.log(`  related: [${relatedLabels.slice(0, 4).join(', ')}]`);
+
+  slideData = {
+    cover: {
+      keyword: mdx.title,
+      subtitle,
+      stickyText,
+      management,
+      caption: `${mdx.title}\nとは何か？`,
+    },
+    board: {
+      heading: mdx.title,
+      body: definition,
+      noteText: boardNoteText,
+      management,
+      caption: boardCaption,
+    },
+    cta: {
+      related: relatedLabels.slice(0, 4),
+      management,
+      caption: '続きは doboku-note で',
+    },
+  };
+
+  // slide-data.json を保存（手動編集・再利用のため）
+  mkdirSync(outBase, { recursive: true });
+  writeFileSync(configPath, JSON.stringify(slideData, null, 2) + '\n', 'utf8');
+  console.log(`  [config] slide-data.json を生成`);
+}
+
+if (configOnly) {
+  console.log(`\nDone (config-only) → ${configPath}`);
+  process.exit(0);
+}
+
+const SLIDES = [
+  { file: '00-cover.png', slide: { type: 'notebook-cover', data: slideData.cover } },
+  { file: '01-board.png', slide: { type: 'notebook-board', data: slideData.board } },
+  { file: '02-cta.png',   slide: { type: 'notebook-cta',   data: slideData.cta   } },
+];
 
 for (const size of sizes) {
   const imgDir = resolve(outBase, `${size.name}/img`);

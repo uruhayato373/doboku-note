@@ -36,7 +36,6 @@ const SLIDES = [
         ],
         stickyText: '1929年\n50万件\n調査',
         management: 'safety',
-        date: '2026-05-09',
         caption: '労災 1:29:300\nこれ、何の比率？',
       },
     },
@@ -46,11 +45,10 @@ const SLIDES = [
     slide: {
       type: 'notebook-board',
       data: {
-        heading: '板書 ｜ 定義',
+        heading: 'ハインリッヒの法則',
         body: '重大事故 1 件の背後に\n軽微事故 29 件\nヒヤリハット 300 件が潜む経験則',
         noteText: '300 の段階で気付けば\n事故は防げる ＝ KYT の根拠',
         management: 'safety',
-        date: '2026-05-09',
         caption: 'ヒヤリハット段階で予防＝KYT',
       },
     },
@@ -62,7 +60,6 @@ const SLIDES = [
       data: {
         related: ['バードの法則', 'KYT', '4M-4E', '不安全行動'],
         management: 'safety',
-        date: '2026-05-09',
         caption: '続きは doboku-note で',
       },
     },

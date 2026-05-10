@@ -214,7 +214,6 @@ export function buildNotebookCover({ width, height, data }) {
   return d(frameStyle(width, height), [
     buildMarginLine(),
     buildTabIndex(mgmt.index, L),
-    buildDateStamp(data.date, mgmt.label, L),
 
     // メインコンテンツ（縦中央揃え）
     d({
@@ -347,7 +346,6 @@ export function buildNotebookBoard({ width, height, data }) {
   return d(frameStyle(width, height), [
     buildMarginLine(),
     buildTabIndex(mgmt.index, L),
-    buildDateStamp(data.date, mgmt.label, L),
 
     d({
       position: 'absolute',
@@ -421,7 +419,6 @@ export function buildNotebookCta({ width, height, data }) {
   return d(frameStyle(width, height), [
     buildMarginLine(),
     buildTabIndex(mgmt.index, L),
-    buildDateStamp(data.date, mgmt.label, L),
 
     // コンテンツ全体を space-evenly で縦分散配置
     d({
