@@ -33,17 +33,20 @@ import { existsSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { join } from 'node:path';
 
-// venv の実体 .exe を優先（spawnSync で直接起動可能）。
-// .bat ラッパーは shell: true が必要で env 変数の引き継ぎがやや脆弱なので fallback 扱い。
+// ~/bin/notebooklm.bat（または notebooklm bash）ラッパー経由を優先。
+// 理由: bat 内で activate.bat を呼んで venv の PATH・VIRTUAL_ENV を整え、corporate proxy（HTTPS_PROXY）
+// が正しく Python の SSL コンテキストに渡る。venv exe 直叩きでは 503 になる（2026-05-11 検証済）。
 const NOTEBOOKLM_BIN = (() => {
-  const venvExe = join(homedir(), '.notebooklm-venv', 'Scripts', 'notebooklm.exe');
-  if (existsSync(venvExe)) return { path: venvExe, useShell: false };
-
-  const batPath = join(homedir(), 'bin', 'notebooklm.bat');
-  if (existsSync(batPath)) return { path: batPath, useShell: true };
-
+  if (process.platform === 'win32') {
+    const batPath = join(homedir(), 'bin', 'notebooklm.bat');
+    if (existsSync(batPath)) return { path: batPath, useShell: true };
+  }
   const bashPath = join(homedir(), 'bin', 'notebooklm');
   if (existsSync(bashPath)) return { path: bashPath, useShell: false };
+
+  // 最終 fallback: venv exe 直叩き（proxy 設定が必要な環境では 503 になる可能性）
+  const venvExe = join(homedir(), '.notebooklm-venv', 'Scripts', 'notebooklm.exe');
+  if (existsSync(venvExe)) return { path: venvExe, useShell: false };
 
   return { path: 'notebooklm', useShell: false };
 })();
@@ -127,7 +130,11 @@ function fetchNotebooks() {
     console.error(`notebooklm list failed (exit ${code}):\n${stderr}`);
     process.exit(3);
   }
-  return parsed;
+  // notebooklm v0.3.4 は { notebooks: [...] } 形式。直接配列を返すバージョンにも対応
+  if (Array.isArray(parsed)) return parsed;
+  if (parsed && Array.isArray(parsed.notebooks)) return parsed.notebooks;
+  console.error(`Unexpected notebooklm list output shape:\n${JSON.stringify(parsed).slice(0, 300)}`);
+  process.exit(3);
 }
 
 function resolveNotebooks(requested, available) {
@@ -186,11 +193,21 @@ function formatTextOutput(aggregated, question) {
       lines.push(item.response.answer || '(no answer)');
       const refs = item.response.references || item.response.citations || [];
       if (refs.length > 0) {
+        // citation_number で deduplicate（同じ source の重複出力を抑制）
+        const seen = new Set();
+        const unique = [];
+        for (const r of refs) {
+          const key = r.cited_text || r.title || JSON.stringify(r);
+          if (seen.has(key)) continue;
+          seen.add(key);
+          unique.push(r);
+        }
         lines.push('');
         lines.push('References:');
-        refs.forEach((r, i) => {
-          const label = r.title || r.source_title || r.text || JSON.stringify(r);
-          lines.push(`  [${i + 1}] ${label}`);
+        unique.forEach((r, i) => {
+          const text = r.cited_text || r.title || r.source_title || r.text || '(no text)';
+          const sourceId = r.source_id ? ` source=${r.source_id.slice(0, 8)}` : '';
+          lines.push(`  [${i + 1}] ${text}${sourceId}`);
         });
       }
     }
