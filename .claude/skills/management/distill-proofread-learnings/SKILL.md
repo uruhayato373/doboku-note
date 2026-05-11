@@ -86,7 +86,7 @@ description: >
 
 ### Phase 2: 分類
 
-各変更・指示を以下 4 カテゴリに振り分ける:
+各変更・指示を以下 6 カテゴリに振り分ける:
 
 | カテゴリ | 特徴 | 保存先 |
 |---|---|---|
@@ -95,6 +95,14 @@ description: >
 | **既存原則の精緻化** | 既存ルールの境界・例外・適用手順が明確化された | `content-principles.md` を修正 |
 | **ユーザー嗜好** | 一般化しにくい個別の好み／ワークスタイル | `memory/` （feedback 型） |
 | **ワークフロー改善** | 校正の進め方・順序・ツール使い方の改善 | 関連 SKILL.md / `workflows.md` |
+| **メタ Issue 起票候補** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修候補。議論を要するため Issue 経由で真実源更新 | `gh issue create --template {rubric-review,rewrite-method}.md` |
+
+**メタ Issue 起票候補の判定基準**:
+
+- **rubric-review 候補**: 採点軸の重み・閾値・新軸追加・既存軸の判定基準改修など。`cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイル同期更新が必要**
+- **rewrite-method 候補**: 視点タグ追加・Phase 対応の見直し・拡張パターン A-F 改修・NLM 照合プロンプト調整など。`exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md の修正
+- **直接更新でなく Issue 経由にする理由**: 真実源 3 ファイル同期や既存ページ N 件への再評価波及を伴うため、変更前にユーザー議論を経て影響範囲を確定する必要がある
+- **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンのみ起票推奨
 
 ### Phase 3: 候補の surface
 
@@ -139,6 +147,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 - 既存原則の精緻化: N 件
 - ユーザー嗜好: N 件
 - ワークフロー改善: N 件
+- メタ Issue 起票候補: N 件（rubric-review N / rewrite-method N）
 
 ## 新規ルール候補
 
@@ -187,6 +196,25 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 
 ---
 
+## メタ Issue 起票候補
+
+### 1. [候補名]
+
+**ラベル**: `rubric-review` / `rewrite-method`（いずれかを選択）
+**サイクル**: 2 回以上浮上（[サイクル1リンク], [サイクル2リンク]）
+**観察**: [両サイクルで共通して見られた現象]
+**仮説**: [採点軸の改修案 or リライト方法論の改修案]
+**反映先（議論承認後）**:
+- rubric-review の場合: `.claude/agents/cem-qa.md` + `.claude/content-principles.md` + `templates/cem.md`（3 ファイル同期）
+- rewrite-method の場合: `.claude/skills/quality/exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md
+
+**起票コマンド案**:
+```bash
+gh issue create --template rubric-review.md  # または rewrite-method.md
+```
+
+---
+
 ## 次回参照
 - 今回の分析ログ: `.claude/state/proofread-learnings/YYYY-MM-DD.md`
 - 次回は `/distill-proofread-learnings --since "HEAD~<N>"` で差分累積を追跡可能
@@ -222,4 +250,7 @@ CLAUDE.md「ハーネス設計原則」との整合:
 - `.claude/skills/authoring/improve-article/SKILL.md` — 校正オーケストレータ
 - `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性ルール
 - `.claude/state/proofread-learnings/` — 過去の学習ログ蓄積先
+- `.github/ISSUE_TEMPLATE/rubric-review.md` — 採点ルーブリック議論用 Issue テンプレ
+- `.github/ISSUE_TEMPLATE/rewrite-method.md` — リライト方法論議論用 Issue テンプレ
+- `.claude/skills/quality/exam-keyword-cycle/SKILL.md` §「Issue 駆動継続改善ループ」 — 本スキルとの連携全体図
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離・パラメタ化優先
