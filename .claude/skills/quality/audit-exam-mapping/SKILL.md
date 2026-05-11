@@ -141,6 +141,28 @@ git diff .claude/state/exam-keyword-map.json
 4. シートの判定欄を `[x]` 採用 / `[x]` 却下 で埋める
 5. 採用分のみ抽出して手動で `exam-keyword-map.json` を編集、または `apply --include-needs-review` で一括反映
 
+### `verify-needs-review {audit-path}` — 過去問 notebook で needs_review を検証
+
+過去問 NotebookLM notebook（`総監一次択一過去問`、`/build-exam-notebook` で構築）が利用可能な場合、教材ベース推論より高精度な検証が可能。`needs_review` tier の追加/削除候補に対し、過去問本体に grounded したクエリで採用/却下を支援する。
+
+```
+/audit-exam-mapping verify-needs-review .claude/state/exam-keyword-audits/r07/2026-05-11.json
+```
+
+**処理フロー**:
+
+1. 監査 JSON を読み、`needs_review` tier のエントリを抽出
+2. 各エントリの `exam_question` から年度を抽出し、過去問 MDX の該当 `## Ⅰ-1-N` セクション本文を取得
+3. `notebooklm-cross-query.mjs` で「過去問 notebook + 総監標準テキスト」へ並列クエリ:
+   ```bash
+   node .claude/scripts/notebooklm-cross-query.mjs \
+     --notebooks "総監一次択一過去問,総監標準テキスト" \
+     "{設問の概要}。この設問で {候補 slug の概念} は本質的な論点か？"
+   ```
+4. 結果を `.tmp/notebooklm-audit/{year}-{date}-verified.md` に集約。各エントリの判定欄に「過去問本体 grounded 回答」と「教材ベース回答」を並置
+
+**前提条件**: `/build-exam-notebook` で `総監一次択一過去問` notebook が構築済みであること（少なくとも対象年度の source が ready）。未構築の場合は exit 1 + ガイダンス。
+
 ### `rollback {date}` — backup から復元
 
 ```
