@@ -122,7 +122,7 @@ Evaluator: `cem-qa` / Generator: `keyword-rewriter`
 
 ```
 1. cem-qa         → 構造 broken チェック（スコアは参考値のみ）
-2. NLM照合        → nlm cross query で HIGH/MED 論点を特定
+2. NLM照合        → notebooklm-cross-query.mjs（旧 nlm cross query）で HIGH/MED 論点を特定
 3. HIGH 自動修正  → 確認なしで Edit を実行：
      - 5管理横断テーブル欠落 → 総合技術監理セクションに追加
      - 背景段落欠落          → とはセクションに追加

@@ -71,10 +71,10 @@ Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象
 
 **主要品質チェック**。cem-qa が構造的 broken を検出した後、NLM照合がコンテンツの実質的な品質を判定する。NLM照合の `[HIGH]` 未解決を「不合格」とみなし、解消まで修正ループを継続する。
 
-NotebookLM MCP で総監標準テキストとの照合を行う。
+NotebookLM CLI（`notebooklm`、旧 `nlm` から 2026-05-11 移行）経由で総監標準テキストとの照合を行う。
 
 ```bash
-nlm cross query --notebooks "総監標準テキスト" \
+node .claude/scripts/notebooklm-cross-query.mjs --notebooks "総監標準テキスト" \
   "「{title}」の定義・背景・試験での問われ方・テキスト記載の重要論点をまとめてください。"
 ```
 
@@ -95,7 +95,7 @@ NLM照合の `[HIGH]` は Step 2 の最優先指摘として扱い、Step 5 の�
 
 **5管理横断テーブルの取り扱い**: NLM照合が「5管理との接点」を返すからといって機械的にテーブルを追加しない。テーブル追加は「総監テキストが明示的に複数管理分野との関係を記載している概念」（lifecycle-management・design-review 等）にのみ行う。主管理分野が明確な概念（キーワード集のセクション番号で1つの管理に紐づく記事）では、テーブルの代わりに「○○管理（サブセクション名）に位置づけられる。…が論点である。」という1〜2文の散文で記述する。
 
-nlm CLI が使えない場合（未インストール・ネットワーク不可）は、ユーザーに「標準テキスト照合をスキップします。`/notebooklm-research <slug>` で後から実行できます」と通知して Step 2 に進む。
+notebooklm CLI が使えない場合（未インストール・ネットワーク不可・認証期限切れ exit 2）は、ユーザーに「標準テキスト照合をスキップします。`notebooklm login` または `/notebooklm-research <slug>` で後から実行できます」と通知して Step 2 に進む。
 
 ---
 
