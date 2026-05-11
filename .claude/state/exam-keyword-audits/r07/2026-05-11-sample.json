@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "audit_date": "2026-05-11T14:00:00Z",
+  "year": "r07",
+  "exam_slug": "pe-comprehensive-management-r07-primary",
+  "category": "pe-comprehensive-management",
+  "scope": "smoke-test-3-anchors",
+  "summary": {
+    "anchors_total": 3,
+    "anchors_with_changes": 1,
+    "candidates_add_auto_apply": 1,
+    "candidates_add_needs_review": 1,
+    "candidates_remove_auto_apply": 0,
+    "candidates_remove_needs_review": 1
+  },
+  "has_needs_review": true,
+  "anchors": {
+    "1-1": {
+      "exam_heading": "Ⅰ-1-1 BCP・BCM（事業継続ガイドライン令和5年3月）",
+      "current_slugs": ["business-continuity-plan", "risk-management-plan"],
+      "evaluation": {
+        "covered": ["business-continuity-plan"],
+        "partial": ["risk-management-plan"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [
+        {
+          "slug": "supply-chain-management",
+          "confidence": 0.65,
+          "tier": "needs_review",
+          "reason": "設問の正答（肢2）が「委託先・調達先・供給先もBCMの検討範囲」というサプライチェーン論点。現紐づけの business-continuity-plan には既にサプライチェーン全体節 + SCM への RelatedKeyword リンクあり。直接紐づけ追加は冗長気味だが正答に直接対応するため候補化。",
+          "confidence_breakdown": {
+            "section_match": 1.0,
+            "tag_overlap": 0.5,
+            "named_entity_hits": 0.45
+          }
+        }
+      ],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": {
+        "business-continuity-plan": "B",
+        "risk-management-plan": "A",
+        "supply-chain-management": "A"
+      },
+      "needs_human_review": true
+    },
+    "1-2": {
+      "exam_heading": "Ⅰ-1-2 品質管理の統計的手法",
+      "current_slugs": ["quality-control", "control-limits", "inspection-methods", "nonconformity-rate"],
+      "evaluation": {
+        "covered": ["quality-control", "control-limits", "inspection-methods", "nonconformity-rate"],
+        "partial": [],
+        "uncovered_issues": ["選択肢2「工程能力指数が不十分なら不適合品リスク大」が個別キーワードに直接紐づいていない（quality-control が部分的に言及するのみ）"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "process-capability-index",
+          "confidence": 0.85,
+          "tier": "auto_apply",
+          "reason": "選択肢2の核心概念。Section 2.2 で quality-control と並ぶ統計的手法。quality-control から既に RelatedKeyword 設定済みで関連性も担保。直接紐づけ追加で論点カバレッジ向上。",
+          "confidence_breakdown": {
+            "section_match": 1.0,
+            "tag_overlap": 0.8,
+            "named_entity_hits": 0.80
+          }
+        }
+      ],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": {
+        "quality-control": "A",
+        "control-limits": "B",
+        "inspection-methods": "B",
+        "nonconformity-rate": "D",
+        "process-capability-index": "B"
+      },
+      "needs_human_review": false
+    },
+    "1-3": {
+      "exam_heading": "Ⅰ-1-3 損益分岐点分析（販売価格1000円・変動費400円・固定費384,000円）",
+      "current_slugs": ["break-even-point", "direct-costing"],
+      "evaluation": {
+        "covered": ["break-even-point"],
+        "partial": ["direct-costing"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        {
+          "slug": "direct-costing",
+          "confidence": 0.62,
+          "tier": "needs_review",
+          "reason": "direct-costing は会計手法（変動費のみ製品原価に算入）。本設問は BEP 計算問題で、break-even-point に限界利益・変動費率・固定費の説明が全て含まれており direct-costing は周辺概念。削除候補だが補助的に残しても害は少ないため needs_review。"
+        }
+      ],
+      "keyword_priority_annotations": {
+        "break-even-point": "D",
+        "direct-costing": "D"
+      },
+      "needs_human_review": true
+    }
+  }
+}
