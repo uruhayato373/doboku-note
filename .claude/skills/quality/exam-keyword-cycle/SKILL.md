@@ -114,15 +114,13 @@ catalog slugs 全件ごとに以下を並列で実施（複数の Agent 並列�
    - 5 軸スコア（構造 30% / モバイル 25% / 原則 20% / 参考資料 15% / 関連付け 10%）を取得
    - 合格閾値（R03/R04 は **2.5**、他年度は **2.0**）を下回るなら要修正
 
-2. **論点カバレッジ判定（4 カテゴリ別 grep）**:
-   - Phase 1 で抽出した論点配列を以下 4 カテゴリに分解し、各キーワード MDX に対し `Grep` で存在確認する
-     | カテゴリ | 例 | パターン |
-     |---|---|---|
-     | 年号 | 1999, 2015 | `(19\|20)\d{2}` |
-     | 法令番号 | 第 12 条, 法律第 56 号 | `第\s*\d+\s*条\|法律第\s*\d+\s*号` |
-     | 数値 | 50%, 100 億円, 30 日 | `\d+(\.\d+)?\s*(%\|円\|億\|日\|年\|件\|名)` |
-     | 比較軸 | 論点配列で名指しされた固有名 | 各設問個別 |
-   - 欠落カテゴリを surface。全カテゴリ grep ヒットまたは「該当なし」と判断されれば coverage OK
+2. **論点カバレッジ判定（auditor 出力経由、2026-05-11 改修）**:
+   - `exam-keyword-mapping-auditor` エージェントを起動し、設問の論点が現紐づけ slug 群でカバーされているか semantic に判定する
+     - 入力: `exam_slug`、`anchor`、`current_slugs`（Phase 1 で取得済み）
+     - 出力 JSON の `evaluation.covered` / `partial` / `uncovered_issues` を Phase 2 のカバレッジ判定として採用
+   - 旧方式の **4 カテゴリ別 grep**（年号 / 法令番号 / 数値 / 比較軸）は廃止。auditor の semantic 評価が同等以上のカバレッジで論点 coverage を判定する
+   - 補完用途で本文中の固有名詞を確認したい場合のみ `Grep` を補助的に使う（既定では auditor 出力で十分）
+   - `uncovered_issues` が空 → coverage OK。空でない場合は本文補強の指示として Phase 3 に伝搬
 
 3. **相互リンクチェック**:
    - 過去問側の `<RelatedKeywords>` に catalog slugs が全件含まれるか（過去問 MDX の欠落検出）
@@ -251,6 +249,22 @@ keywords_count: 6
 
 ### 2. biosafety
 ...
+
+## 発見事項（次サイクル以降の改善候補）
+
+### 採点軸（rubric）への気づき
+<!-- cem-qa 5 軸で評価できなかった項目・lint で検出できなかった違和感を列挙 -->
+- 例: 「SVG 図版の質が cem-qa の構造軸に含まれているが、評価しきれていない」
+- 例: 「mobile 軸の lint で検出されない『縦書き表』が問題化」
+
+### リライト方法論（method）への気づき
+<!-- Phase 2-5 の処理で違和感があった箇所・拡張パターン A-F で不足を感じた点を列挙 -->
+- 例: 「Phase 2 の NLM 照合で『類似手法との違い』論点が拾えない」
+- 例: 「視点タグ『わかりやすさ』に SVG 生成が含まれているが、独立タグ化検討」
+
+### 起票候補
+<!-- 2 回以上浮上したパターン → メタ Issue 起票推奨。1 回のみは次サイクルで再観察 -->
+- 該当なし / または [Rubric] / [Method] テンプレで起票
 ```
 
 #### 5.4 インデックス更新
@@ -426,6 +440,60 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 - `.claude/state/exam-keyword-cycles/logs/` — 本サイクルのログ蓄積先
 - `.claude/state/exam-keyword-cycles/progress.json` — カバー状況の永続化
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離（本スキルは Orchestrator）
+
+## Issue 駆動継続改善ループ
+
+採点（cem-qa 5 軸）とリライト方法論（4 視点 × Phase 対応）は、本スキルを使うたびに「発見事項」が surface する。これを **メタ Issue で議論 → 真実源へ反映** する継続改善ループに乗せる。
+
+### ループ全体図
+
+```
+試走サイクル (/exam-keyword-cycle ...)
+  ↓
+Phase 5.3 サイクルログに「発見事項」記録
+  ├ 採点軸への気づき
+  ├ リライト方法論への気づき
+  └ 起票候補（2 回以上浮上したパターンのみ）
+  ↓
+/distill-proofread-learnings --since "Ncycle" で横断抽出
+  ↓
+メタ Issue 起票（2 回ルール超え時）
+  ├ [Rubric] テンプレ → rubric-review + content-quality ラベル
+  └ [Method] テンプレ → rewrite-method + content-quality ラベル
+  ↓
+Issue 上で議論・ユーザー承認
+  ↓
+真実源を同期更新
+  ├ 採点修正: .claude/agents/cem-qa.md + .claude/content-principles.md + templates/cem.md（3 ファイル同期必須）
+  └ 方法論修正: .claude/skills/quality/exam-keyword-cycle/SKILL.md ほか該当 SKILL.md
+  ↓
+次サイクルから新ルール適用 → 改善効果を再観察 → ループ
+```
+
+### Issue 起票判断基準
+
+| 判断 | アクション |
+|---|---|
+| **1 回限りの違和感** | サイクルログに「発見事項」として記録するのみ。次サイクルで再観察 |
+| **2 回以上浮上したパターン** | メタ Issue 起票（`[Rubric]` または `[Method]` テンプレ） |
+| **明らかなバグ・OCR エラー** | 別途 `content-quality` + `auto-generated` で個別 Issue（既存運用） |
+
+### ラベル選択ガイド
+
+- **`rubric-review`**: cem-qa 5 軸の重み・閾値・新軸追加・既存軸の判定基準改修
+  - 例: 「SVG 図版の質を独立軸化」「mobile 軸の lint パターン追加」「閾値 2.0 → 1.9 緩和」
+  - 反映先（3 ファイル同期）: `.claude/agents/cem-qa.md` + `.claude/content-principles.md` + `templates/cem.md`
+- **`rewrite-method`**: 4 視点 × Phase 対応・視点タグ・拡張パターン A-F・NLM 照合プロンプト
+  - 例: 「視点タグに『独立性』を追加」「Phase 2 で notebooklm-research を必須化」「拡張パターン G 新設」
+  - 反映先（対象スキルのみ）: `.claude/skills/quality/exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md
+
+### Issue close 条件
+
+3 点すべて揃ったら close:
+
+1. **「決定」セクション記入** — 変更内容・適用開始サイクル・効果測定方法を Issue に記録
+2. **真実源 commit** — `cem-qa.md` / `SKILL.md` 等を更新して commit（採点修正は 3 ファイル同期必須）
+3. **次サイクルでの効果確認** — 新ルール適用後、改善が観察できたか追記して close
 
 ## 段階実装計画
 

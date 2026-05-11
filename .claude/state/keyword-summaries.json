@@ -1,0 +1,5668 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-11T05:07:51.707Z",
+  "summary": {
+    "total": 658,
+    "skipped_non_keyword": 68,
+    "empty_definition": 4
+  },
+  "keywords": {
+    "360-degree-evaluation": {
+      "title": "多面評価",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "多面評価（360度評価）とは、上司だけでなく、同僚・部下・本人（自己評価）など複数の視点から対象者を評価する手法である。"
+    },
+    "access-control": {
+      "title": "アクセス制御・アクセス権限設定",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アクセス制御（Access Control） とは、情報資産やシステムに対して「誰が」「何に」「どのような操作を」行えるかを管理・制限する仕組みである。"
+    },
+    "access-log-analysis": {
+      "title": "アクセスログ分析",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アクセスログ分析とは、情報システムやネットワーク機器が記録するアクセス履歴（ログ）を収集・蓄積・分析し、不正アクセスの検知、セキュリティインシデントの調査、システムの利用状況の把握を行う活動である。"
+    },
+    "accident-cost": {
+      "title": "災害コスト",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "災害コストとは、労働災害の発生に伴って事業者が負担する費用の総額である。"
+    },
+    "accident-response-drill": {
+      "title": "事故対応訓練",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "事故対応訓練とは、事故や災害が発生した際に、組織として迅速かつ適切に対応するための能力を向上させることを目的とした訓練である。"
+    },
+    "accident-statistics": {
+      "title": "災害統計",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "災害統計とは、労働災害の発生状況を定量的に把握・比較するための統計指標である。"
+    },
+    "accountability-traceability": {
+      "title": "責任追跡性",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "責任追跡性（Accountability） とは、情報システム上の操作や変更について、誰が・いつ・何を行ったかを追跡できる特性である。"
+    },
+    "accounting-systems": {
+      "title": "財務会計・管理会計システム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "財務会計システムとは、企業の経済活動を貨幣額で記録・集計し、外部の利害関係者（株主・債権者・税務当局等）に報告するための情報システムである。"
+    },
+    "achievement-organization": {
+      "title": "達成型組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "達成型組織（achievement organization）とは、フレデリック・ラルーの5段階組織モデルにおける第3段階「オレンジ」 に位置づけられる組織形態である。"
+    },
+    "acid-rain": {
+      "title": "酸性雨",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "酸性雨（Acid Rain）とは、大気中の硫黄酸化物（SOx）や窒素酸化物（NOx）が雨水に溶け込み、pH5.6以下となった降水の総称である。"
+    },
+    "activity-abc": {
+      "title": "活動基準原価計算",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "活動基準原価計算（ABC: Activity Based Costing）とは、製品やサービスが消費するアクティビティ（活動）を基準に間接費を配賦する原価計算手法である。"
+    },
+    "after-service": {
+      "title": "アフターサービス",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "アフターサービス（After-Sales Service）とは、製品・サービスの販売・引渡し後に提供される保守・修理・相談対応などの顧客支援活動である。"
+    },
+    "agenda-21": {
+      "title": "アジェンダ21",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アジェンダ21（Agenda 21）は、1992年の地球サミット（UNCED）で採択された、21世紀に向けた持続可能な開発を実現するための包括的な行動計画である。"
+    },
+    "agile": {
+      "title": "アジャイル",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アジャイル（Agile）開発とは、短い開発サイクル（イテレーション）を繰り返しながら、動作するソフトウェアを段階的に開発・リリースする反復型・漸進型の開発手法の総称である。"
+    },
+    "aging-infrastructure": {
+      "title": "インフラ老朽化対策",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "インフラ老朽化対策とは、高度経済成長期に集中整備された社会インフラ（橋・トンネル・水道・下水道等）が一斉に更新時期を迎える問題に対し、計画的な維持管理・更新 で機能と安全を確保する取組である。"
+    },
+    "air-pollution-control-act": {
+      "title": "大気汚染防止法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "大気汚染防止法は、工場・事業場からのばい煙や粉じん、自動車排出ガス等による大気汚染を防止し、国民の健康を保護するとともに生活環境を保全することを目的とする法律である。"
+    },
+    "alarp-principle": {
+      "title": "ALARPの原則",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ALARP原則とは、リスクを「合理的に実行可能な限り低く（As Low As Reasonably Practicable）」するという安全管理の基本概念である。"
+    },
+    "alert-levels": {
+      "title": "警戒レベル",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "警戒レベルとは、災害時に住民がとるべき行動を 5 段階で示す避難情報の体系 である。2021 年の災害対策基本法改正で「避難勧告」が廃止され「避難指示」に一本化された際に整理され、運用方針は内閣府の「避難情報に関するガイドライン」に示されている。"
+    },
+    "all-hazard-approach": {
+      "title": "オールハザードアプローチ",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "オールハザードアプローチ（All-Hazards Approach）とは、あらゆる種類のハザード（危険事象）に対して 共通の危機管理体制・手順 で対応する考え方である。"
+    },
+    "alps-treated-water": {
+      "title": "ALPS処理水",
+      "section": "6.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ALPS処理水とは、東京電力福島第一原子力発電所で発生した汚染水を、ALPS（多核種除去設備） 等によって浄化処理し、トリチウム以外の放射性物質を規制基準以下まで除去した水のことである。"
+    },
+    "analogous-estimation": {
+      "title": "類推見積り",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "類推見積り（Analogous Estimation）とは、過去の類似プロジェクトの実績データを基に、現在のプロジェクトの工期・コスト・工数を見積る手法である。"
+    },
+    "analytic-hierarchy-process": {
+      "title": "階層分析法",
+      "section": "2.7",
+      "tags": [
+        "総合技術監理",
+        "経済性管理",
+        "キーワード",
+        "技術士（総合技術監理部門）"
+      ],
+      "definition": "多基準意思決定法の一つ。複雑な意思決定問題を「目標→評価基準→代替案」の3層構造に分解し、同一層の要素を一対比較（ペアワイズ比較）で数値化することで最適案を導き出す。1970年代にトーマス・L・サーティ（Thomas L. Saaty）が提唱した。"
+    },
+    "annual-salary-system": {
+      "title": "年俸制",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "年俸制とは、従業員の賃金を1年単位で決定する賃金制度である。"
+    },
+    "anonymized-information": {
+      "title": "匿名加工情報",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "匿名加工情報とは、個人情報を加工して特定の個人を識別することができないようにし、かつ当該個人情報を復元することができないようにしたものをいう（個人情報保護法第2条第6項）。"
+    },
+    "antitrust-compliance": {
+      "title": "独占禁止法とコンプライアンス",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "独占禁止法（正式名称：私的独占の禁止及び公正取引の確保に関する法律）とは、公正かつ自由な競争を促進し、事業者の自主的な経済活動と消費者利益を守ることを目的とする法律である。"
+    },
+    "api": {
+      "title": "API",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "APIとは、ソフトウェアやアプリケーション同士がデータや機能をやり取りするための取り決め（インターフェース仕様）である。"
+    },
+    "appraisal-three-principles": {
+      "title": "人事考課の三原則",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "人事考課の三原則とは、人事評価を適正に行うために遵守すべき「公正」「客観」「透明」の3つの基本原則である。"
+    },
+    "asbestos-issue": {
+      "title": "アスベスト問題",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アスベスト（石綿）は天然の繊維状鉱物であり、耐熱性・耐薬品性・絶縁性に優れることから建材や断熱材として大量に使用されたが、吸入による中皮腫・肺がん等の重篤な健康被害が判明し、社会問題となった。"
+    },
+    "asch-conformity-experiment": {
+      "title": "アッシュの同調実験",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アッシュの同調実験とは、アメリカの社会心理学者ソロモン・アッシュ（Solomon E. Asch, 1907--1996）が1951年に実施した、集団圧力が個人の判断に与える影響を検証した実験である。"
+    },
+    "attitude-appraisal": {
+      "title": "情意考課",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "情意考課とは、業務に対する姿勢・意欲・態度を評価する人事考課の一分野である。成果考課・能力考課とともに人事考課の三要素を構成する。"
+    },
+    "authenticity": {
+      "title": "真正性",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "真正性（Authenticity） とは、情報の送信者・作成者が本人であること、および情報そのものが本物であることを確認できる特性である。"
+    },
+    "autonomous-maintenance": {
+      "title": "自主保全",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "自主保全とは、設備を使用する運転者（オペレーター）自らが行う日常的な保全活動である。"
+    },
+    "backcasting": {
+      "title": "バックキャスティング",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "バックキャスティング（Backcasting）とは、将来のあるべき姿（目標）を先に設定し、そこから現在に向けて逆算して必要な施策・行動を導き出すアプローチである。"
+    },
+    "balance-sheet": {
+      "title": "貸借対照表",
+      "section": "2.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "貸借対照表（Balance Sheet: B/S）とは、ある一時点における企業の財政状態を表す財務諸表である。"
+    },
+    "basel-convention": {
+      "title": "バーゼル条約",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "バーゼル条約（有害廃棄物の国境を越える移動及びその処分の規制に関するバーゼル条約、1989年採択・1992年発効）は、有害廃棄物の越境移動を規制し、途上国への不適正な輸出を防止するための国際条約である。"
+    },
+    "bathtub-curve": {
+      "title": "バスタブカーブ",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "バスタブカーブ（寿命特性曲線）とは、設備や部品の故障率が使用開始からの時間経過とともにどのように変化するかを示した曲線である。"
+    },
+    "before-service": {
+      "title": "ビフォアサービス",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ビフォアサービス（Before Service）とは、製品・サービスの購入前に顧客へ提供される情報提供・技術相談・仕様提案などの支援活動である。"
+    },
+    "behavioral-regulation": {
+      "title": "行為規制",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "行為規制とは、環境保全のために特定の行為や方法を直接規制する手法である。規制的手法（直接規制）の一つであり、何をすべきか・してはならないかを具体的に指定する。"
+    },
+    "bid-rigging": {
+      "title": "談合",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "談合（入札談合） とは、入札に参加する事業者同士が事前に話し合い、落札者や落札価格を取り決める行為である。"
+    },
+    "biodiversity-basic-act": {
+      "title": "生物多様性基本法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "生物多様性基本法は、生物多様性の保全及び持続可能な利用に関する施策を総合的かつ計画的に推進することを目的として、2008年（平成20年）に制定された法律である。"
+    },
+    "bioeconomy": {
+      "title": "バイオエコノミー",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "バイオエコノミーとは、再生可能な生物資源とバイオテクノロジーを活用して、持続可能な経済活動を実現する概念である。2009年にOECDが報告書「The Bioeconomy to 2030」で提唱した。"
+    },
+    "biosafety": {
+      "title": "バイオセーフティ",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "バイオセーフティ（Biosafety）とは、遺伝子組換え生物（LMO: Living Modified Organism）等の現代バイオテクノロジーにより改変された生物が、生物多様性の保全および持続可能な利用に及ぼす悪影響を防止するための安全確保の取組みを指す。"
+    },
+    "blind-drill": {
+      "title": "ブラインド型訓練",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ブラインド型訓練（Blind Drill）とは、事前にシナリオを参加者に知らせず、災害や事故の発生を模擬的に通知して対応させることで、実践的な判断力・対応力 を養う訓練手法である。"
+    },
+    "blockchain-crypto": {
+      "title": "ブロックチェーン・暗号資産",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ブロックチェーン（Blockchain）とは、取引データをブロックと呼ばれる単位にまとめ、暗号学的ハッシュ関数を用いてブロック同士を時系列に連結した分散型台帳技術である。"
+    },
+    "bottom-up-estimation": {
+      "title": "ボトムアップ見積り",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ボトムアップ見積り（Bottom-Up Estimation）とは、作業をWBS（作業分解構造）等で最小単位まで分解し、各作業の所要時間・コストを個別に見積って積み上げる手法である。"
+    },
+    "bowtie-analysis": {
+      "title": "ボウタイ分析",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ボウタイ分析（Bow-Tie Analysis）とは、ハザードを中心に据え、左側に原因（脅威）と予防バリア、右側に結果と緩和バリアを蝶ネクタイ状に図示して、リスクの全体像を可視化する手法である。"
+    },
+    "break-even-point": {
+      "title": "損益分岐点・限界利益・優劣分岐点",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "損益分岐点（BEP: Break-Even Point）とは、売上高と総費用が等しくなり、利益がゼロとなる売上高または販売数量である。CVP分析（Cost-Volume-Profit Analysis）の中核概念である。"
+    },
+    "budget-planning": {
+      "title": "予算計画",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "予算計画とは、事業目標の達成に必要な資金の調達・配分を、期間・項目ごとに数値化して策定する計画である。"
+    },
+    "business-continuity-plan": {
+      "title": "BCP・BCM",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "事業継続計画（BCP: Business Continuity Plan）とは、自然災害・感染症・テロ・大事故などの緊急事態が発生した際に、事業資産の損害を最小限にとどめつつ、中核事業の継続または早期復旧を可能にするために、平常時に行うべき活動や緊急時の事業継続のための方法・手段などを取り決めておく計画である。"
+    },
+    "business-intelligence": {
+      "title": "ビジネスインテリジェンス",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ビジネスインテリジェンス（Business Intelligence: BI）とは、企業が蓄積する大量のデータを収集・統合・分析し、経営上の意思決定を支援する手法・技術・ツールの総称である。"
+    },
+    "capacity-management": {
+      "title": "余力管理",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "余力管理（Capacity Management）とは、各工程の生産能力と負荷工数の差（余力）を把握し、過不足を調整する管理活動である。"
+    },
+    "carbon-neutral": {
+      "title": "カーボンニュートラル",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "カーボンニュートラル（CN）とは、CO2 の排出量と吸収量・除去量を均衡させ、実質ゼロ にすることを指す。日本は 2020 年 10 月に「2050 年カーボンニュートラル」を宣言し、2021 年の地球温暖化対策推進法改正で法定化した。"
+    },
+    "carbon-pricing": {
+      "title": "環境税・カーボンプライシング",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "カーボンプライシング（Carbon Pricing）とは、CO2等の温室効果ガスの排出に価格を付けることで、排出削減のインセンティブを与える経済的手法である。"
+    },
+    "career-ownership": {
+      "title": "キャリアオーナーシップ",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "キャリアオーナーシップ（Career Ownership）とは、個人が自らのキャリアの主体者として、キャリア形成の方向性を自律的に考え、行動することである。キャリア自律とも呼ばれる。"
+    },
+    "career-path": {
+      "title": "キャリアパス",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "キャリアパス（Career Path）とは、組織内でのキャリア形成における昇進・昇格・異動の道筋を体系的に示したものである。"
+    },
+    "career-track-system": {
+      "title": "総合職・一般職",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "総合職・一般職とは、企業が従業員を業務内容・責任範囲・転勤の有無等によって区分するコース別雇用管理制度の代表的な区分である。1986年の男女雇用機会均等法施行を契機に、性別に代わる合理的な雇用管理区分として多くの企業が導入した。"
+    },
+    "cash-flow-statement": {
+      "title": "キャッシュ・フロー計算書",
+      "section": "2.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "キャッシュ・フロー計算書（Cash Flow Statement: C/F）とは、資金（現金及び現金同等物）の増減を表す財務諸表である。"
+    },
+    "catastrophe-bias": {
+      "title": "カタストロフィーバイアス",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "カタストロフィーバイアス（Catastrophe Bias）とは、極めてまれにしか起きないが被害規模が巨大な事象に対して、そのリスクを過大に評価する傾向である。"
+    },
+    "cause-and-effect-diagram": {
+      "title": "特性要因図",
+      "section": "2.7",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "特性要因図（Cause-and-Effect Diagram）とは、品質問題や不具合現象の原因を体系的に整理し、主原因（大骨）と副原因（中骨・小骨）の関係を魚の骨のような図式で表現する分析手法である。"
+    },
+    "cdp-sbt-re100": {
+      "title": "CDP・SBT・RE100",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "CDP・SBT・RE100は、企業の気候変動対応を推進する代表的な国際イニシアティブである。"
+    },
+    "centralization-decentralization": {
+      "title": "集中化と分散化",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "集中処理とは、1台の大型コンピュータ（メインフレーム等）にすべての処理を集約し、端末からアクセスする方式である。"
+    },
+    "chemical-substances-review-act": {
+      "title": "化審法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "化審法は、新規化学物質の製造又は輸入に際して事前に審査を行い、その性状等に応じて必要な規制を行うことにより、人の健康及び生活環境動植物への被害を防止することを目的とする法律である。"
+    },
+    "child-rearing-support-act": {
+      "title": "次世代育成支援対策推進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "次世代育成支援対策推進法（次世代法）は、次代の社会を担う子どもが健やかに生まれ育成される環境の整備を目的として2003年に制定された時限立法である。"
+    },
+    "child-support-act": {
+      "title": "子ども・子育て支援法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "子ども・子育て支援法は、すべての子どもに良質な成育環境を保障し、子ども・子育て家庭を社会全体で支援することを目的として2012年に制定された法律である。"
+    },
+    "childcare-nursing-leave-act": {
+      "title": "育児・介護休業法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "育児・介護休業法（正式名称：育児休業、介護休業等育児又は家族介護を行う労働者の福祉に関する法律）は、労働者が育児や介護を理由に離職することなく働き続けられるよう、休業制度や勤務時間の配慮等を定めた法律である。"
+    },
+    "circular-economy": {
+      "title": "サーキュラーエコノミー",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "サーキュラーエコノミー（Circular Economy：循環経済） とは、製品・素材・資源の価値を可能な限り長く保持し、廃棄物の発生を最小化する経済モデルである。"
+    },
+    "circular-society-basic-act": {
+      "title": "循環型社会形成推進基本法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "循環型社会形成推進基本法（2000年制定）は、大量生産・大量消費・大量廃棄型の社会を転換し、循環型社会の形成を推進するための基本的枠組みを定めた法律である。"
+    },
+    "cites": {
+      "title": "ワシントン条約",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ワシントン条約（CITES：Convention on International Trade in Endangered Species of Wild Fauna and Flora）は、絶滅のおそれのある野生動植物の種の国際取引を規制することにより、これらの種の保護を図ることを目的とした国際条約である。"
+    },
+    "citizen-participation": {
+      "title": "住民参加",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "住民参加（Citizen Participation / Public Participation） とは、公共事業や政策決定のプロセスに、影響を受ける住民・市民が関与し、意見を反映させる仕組みのことである。民主主義の理念に基づき、行政の透明性・説明責任を高め、事業の社会的受容性を向上させる。"
+    },
+    "civil-protection-act": {
+      "title": "国民保護法",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "国民保護法（武力攻撃事態等における国民の保護のための措置に関する法律）とは、武力攻撃事態等で国民の生命・身体・財産を保護する措置を定めた法律である（2004 年施行）。"
+    },
+    "clearance-level": {
+      "title": "クリアランスレベル",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "クリアランスレベルとは、放射性廃棄物に含まれる放射性物質の放射能濃度が十分に低く、人の健康への影響が無視できるレベルとして定められた基準値である。"
+    },
+    "climate-change-adaptation-act": {
+      "title": "気候変動適応法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "気候変動適応法（2018 年施行）は、気候変動の影響による被害を回避・軽減する 「適応」 を法的に位置づけた法律である。"
+    },
+    "climate-change-international": {
+      "title": "気候変動・国際対応",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "気候変動問題は、温室効果ガス（GHG）の増加による地球温暖化を中心とした地球規模の環境問題である。"
+    },
+    "cloud-on-premises": {
+      "title": "クラウドコンピューティング／オンプレミス",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "クラウドコンピューティングとは、サーバ・ストレージ・ネットワークなどのITリソースを、インターネット経由でオンデマンドに利用できるサービス形態である。"
+    },
+    "club-of-rome": {
+      "title": "ローマクラブ",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ローマクラブ（Club of Rome）は、1968年にイタリアの実業家アウレリオ・ペッチェイとスコットランドの科学者アレクサンダー・キングの呼びかけにより設立された民間のシンクタンクである。"
+    },
+    "cluster-analysis": {
+      "title": "クラスター分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "クラスター分析（cluster analysis）とは、複数のデータを類似性に基づいてグループ（クラスター）に分類する多変量解析手法である。"
+    },
+    "collective-intelligence": {
+      "title": "集合知",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "集合知（Collective Intelligence）とは、多数の個人が持つ知識、経験、判断を集約・統合することで、個々人の能力を超えた優れた知見や意思決定が得られる現象のことである。"
+    },
+    "common-criteria": {
+      "title": "セキュリティ評価基準CC",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "CC（Common Criteria：コモンクライテリア）は、IT製品やシステムのセキュリティ機能を評価するための国際規格（ISO/IEC 15408）である。"
+    },
+    "communication-control": {
+      "title": "コミュニケーション・コントロール",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "コミュニケーション・コントロール とは、組織やプロジェクトにおけるコミュニケーション活動が、計画どおりに実施されているかを監視・管理し、必要に応じて是正措置を講じるプロセスのことである。コミュニケーション計画のPDCAサイクルにおけるC（Check）とA（Act）に相当する。"
+    },
+    "communication-planning": {
+      "title": "コミュニケーション計画",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "コミュニケーション計画（Communication Plan） とは、プロジェクトや組織において、誰に・何を・いつ・どのような方法で情報を伝達するかを事前に定める計画のことである。ステークホルダーの情報ニーズを分析し、効果的な情報伝達の仕組みを設計する。"
+    },
+    "competency-evaluation": {
+      "title": "能力考課",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "能力考課とは、業務遂行に必要な知識・技能・判断力等の保有能力を評価する人事考課の一分野である。成果考課・情意考課とともに人事考課の三要素を構成する。"
+    },
+    "competency-hr": {
+      "title": "コンピテンシー",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "コンピテンシー（Competency）とは、高い業績を上げる人材に共通して見られる行動特性である。マクレランド（McClelland）が提唱した概念に基づく。"
+    },
+    "concurrent-engineering": {
+      "title": "コンカレントエンジニアリング",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "コンカレントエンジニアリング（CE: Concurrent Engineering）とは、製品の設計・生産準備・販売準備等の各工程を同時並行的に進めることで、開発期間の短縮と品質向上を図る手法である。"
+    },
+    "confidentiality": {
+      "title": "機密性",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "機密性（Confidentiality） とは、許可された者だけが情報にアクセスできる状態を確保することである。"
+    },
+    "conformity-bias": {
+      "title": "同調バイアス",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "同調バイアス（Conformity Bias）とは、周囲の人々の判断や行動に合わせてしまい、自分自身の正確な判断が歪められる傾向である。"
+    },
+    "consensus-instruments": {
+      "title": "合意的手法",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "合意的手法とは、行政と事業者が協議・合意に基づき、環境保全に関する目標や行動を自主的に取り決める政策手法である。"
+    },
+    "construction-plan": {
+      "title": "工事計画",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "工事計画とは、建設工事の目的・規模・条件に応じて、品質・工程・原価・安全・環境の各管理項目を総合的に計画する文書である。"
+    },
+    "consumer-product-safety-act": {
+      "title": "消費生活用製品安全法",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "消費生活用製品安全法（消安法） は、消費生活用製品による一般消費者の生命・身体に対する危害の防止を目的とする法律である（1973 年制定）。PSCマーク制度・重大製品事故報告義務・長期使用製品安全制度の 3 本柱で構成される。"
+    },
+    "consumer-safety": {
+      "title": "消費者安全",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "消費者安全とは、消費者の生命・身体・財産を、商品・サービス・取引に起因する危害から守ることである。消費者安全法（2009 年）を中心に、製品安全・食品安全・取引安全を包括する法体系が構築されている。"
+    },
+    "content-process": {
+      "title": "コンテント／プロセス",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "コンテント（Content） とは、組織活動における「何を」すなわち議論の内容・テーマ・課題そのものを指す。"
+    },
+    "contingency": {
+      "title": "不測事態",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "不測事態（Contingency）とは、事前に予測・想定することが困難な、組織の存続や事業継続に重大な影響を及ぼす事態である。"
+    },
+    "continued-employment-system": {
+      "title": "継続雇用制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "継続雇用制度とは、定年に達した従業員を引き続き雇用する制度の総称である。高年齢者雇用安定法に基づき、企業は65歳までの雇用確保措置として、①定年引上げ、②継続雇用制度の導入、③定年廃止のいずれかを講じる義務がある。"
+    },
+    "control-limits": {
+      "title": "管理限界",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "管理限界（Control Limits）とは、上方管理限界線（UCL）と下方管理限界線（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。"
+    },
+    "convention-on-biodiversity": {
+      "title": "生物多様性条約",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "生物多様性条約（CBD：Convention on Biological Diversity）は、1992年の国連環境開発会議（地球サミット）で採択された、生物多様性の包括的な保全を目的とする国際条約である。"
+    },
+    "copyright": {
+      "title": "著作権",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "著作権 とは、思想又は感情を創作的に表現したもの（著作物）を保護する権利である。"
+    },
+    "corrective-maintenance": {
+      "title": "事後保全",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "事後保全とは、設備が故障や機能低下を起こした後に修復を行う保全方式である。"
+    },
+    "correlation-analysis": {
+      "title": "相関分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "相関分析（Correlation Analysis）とは、2つの変数の間にどの程度の関連性があるかを定量的に評価する統計手法である。"
+    },
+    "cost-driver": {
+      "title": "コストドライバー",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "コストドライバー（Cost Driver）とは、原価（コスト）の発生量を左右する要因・活動量のことであり、ABCにおける間接費の配賦基準として用いられる。"
+    },
+    "cost-effectiveness-analysis": {
+      "title": "費用効果分析",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "費用効果分析（CEA: Cost-Effectiveness Analysis）とは、代替案ごとの費用と非貨幣単位の効果を比較し、経済性を評価する手法である。効果を貨幣換算せず、効果 1 単位あたりの費用（または費用 1 単位あたりの効果）で優劣を判断する。"
+    },
+    "cost-maintenance": {
+      "title": "原価維持",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "原価維持とは、設定された標準原価を日常の製造活動において達成・維持するための管理活動である。"
+    },
+    "cost-variance-analysis": {
+      "title": "原価差異分析",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "原価差異分析とは、標準原価と実際原価の差異を算出し、その原因を価格差異・数量差異等に分解して分析する手法である。"
+    },
+    "cpd": {
+      "title": "CPD",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "CPD（Continuing Professional Development）とは、技術者が資格取得後も継続的に専門能力の向上・開発を行う活動の総称である。継続研鑽とも呼ばれる。"
+    },
+    "crisis-communication": {
+      "title": "危機広報",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "危機広報（Crisis Communication）とは、危機発生時に組織が利害関係者や社会に対して迅速かつ正確に情報を発信し、信頼の維持・回復を図る広報活動である。"
+    },
+    "crisis-management-manual": {
+      "title": "危機管理マニュアル",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "危機管理マニュアルとは、危機発生時の対応手順・組織体制・役割分担等を事前に文書化した行動指針である。"
+    },
+    "crisis-priority": {
+      "title": "優先順位",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "危機管理における優先順位とは、限られた資源のもとで危機対応の行動順序を決定するための判断基準である。"
+    },
+    "crm-system": {
+      "title": "顧客管理システム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "CRM（Customer Relationship Management: 顧客関係管理）システムとは、顧客との関係を長期的に構築・維持・強化するために、顧客情報を一元管理し、マーケティング・営業・サービスの各活動を支援する情報システムである。"
+    },
+    "csr": {
+      "title": "CSR",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "CSR（Corporate Social Responsibility）とは、企業が事業活動を通じて環境・社会・経済の持続可能性に配慮し、ステークホルダーに対する説明責任を果たすことである。"
+    },
+    "csv": {
+      "title": "CSV",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "CSV（Creating Shared Value）とは、社会的な課題の解決と企業の競争力向上を同時に実現し、社会と企業の双方に価値を創造する経営戦略である。2011年にマイケル・ポーターとマーク・クラマーが提唱した。"
+    },
+    "customer-satisfaction": {
+      "title": "顧客満足（CS）",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "顧客満足（Customer Satisfaction, CS）とは、製品・サービスの購入前から購入後にわたる一連の顧客体験を通じて、顧客の期待を満たし・超える度合いを示す概念である。"
+    },
+    "cyber-security": {
+      "title": "サイバー安全保障",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "サイバー安全保障とは、サイバー空間における脅威から国家の安全保障、社会経済活動、国民生活を守るための政策・法制度・技術の総体である。"
+    },
+    "cybersecurity-safety": {
+      "title": "サイバーセキュリティ",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "サイバーセキュリティとは、電子的方式により記録・発信・伝送・受信される情報の漏洩・滅失・毀損の防止、および情報システム・情報通信ネットワークの安全性・信頼性を確保するために必要な措置のことである（サイバーセキュリティ基本法第2条）。"
+    },
+    "data-breach-response": {
+      "title": "個人情報の漏洩時対応",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "個人情報の漏洩時対応とは、個人データの漏洩・滅失・毀損（以下「漏洩等」）が発生した場合に、個人情報取扱事業者が講ずべき報告・通知・再発防止等の一連の措置をいう。"
+    },
+    "data-cleansing": {
+      "title": "データクレンジング",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "データクレンジング（data cleansing）とは、データベースやデータセットに含まれる誤り・欠損・重複・表記揺れなどの品質問題を検出し、修正・除去するプロセスである。"
+    },
+    "data-collection": {
+      "title": "データ収集",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "データ収集（Data Collection）とは、分析目的に応じて必要なデータを体系的に取得するプロセスである。"
+    },
+    "data-governance": {
+      "title": "データガバナンス",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "データガバナンスとは、組織が保有するデータの品質・セキュリティ・プライバシー・利活用に関する方針・プロセス・体制を整備し、データを適切に管理・統制する仕組みである。"
+    },
+    "data-leak-tampering-loss": {
+      "title": "情報漏洩・改ざん・消失",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "情報漏洩・改ざん・消失は、情報セキュリティにおける3大脅威であり、それぞれCIAの機密性・完全性・可用性を直接侵害するものである。"
+    },
+    "data-mining": {
+      "title": "データマイニング",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "データマイニング（data mining）とは、大量のデータから統計学・機械学習・パターン認識等の手法を用いて、有用な知識・規則性・パターンを自動的に発見する技術である。"
+    },
+    "data-visualization": {
+      "title": "データ可視化",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "データ可視化（data visualization）とは、数値データや分析結果をグラフ・チャート・ダッシュボード・地図等の視覚的表現に変換し、データに内在するパターンや傾向の理解・伝達を促進する技術である。"
+    },
+    "data-warehouse": {
+      "title": "データウェアハウス",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "データウェアハウス（Data Warehouse、DWH）とは、企業内の各種業務システムから収集したデータを統合的に蓄積し、経営の意思決定支援に活用するための情報基盤のことである。"
+    },
+    "dcf-method": {
+      "title": "DCF法",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "DCF 法（Discounted Cash Flow 法）とは、将来キャッシュフローを割引率で現在価値に換算 し、投資の経済的価値を評価する手法の総称である。NPV 法（正味現在価値法）や IRR 法（内部収益率法）は DCF 法の代表的な適用手法である。"
+    },
+    "de-facto-standard": {
+      "title": "デファクト標準",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "デファクト標準（de facto standard） とは、公的な標準化機関やフォーラムの策定プロセスを経ることなく、市場競争の結果として事実上の標準（業界標準）となったものである。"
+    },
+    "de-jure-standard": {
+      "title": "デジュール標準",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "デジュール標準（de jure standard） とは、ISO・IEC・ITU・JIS等の公的な標準化機関が、公式な手続きに基づいて策定した標準（規格）である。"
+    },
+    "decision-tree-analysis": {
+      "title": "デシジョンツリー分析",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "デシジョンツリー分析（Decision Tree Analysis）とは、意思決定の選択肢とその結果を樹形図（ツリー）で表し、各選択肢の期待値を比較して最適な意思決定を行うための手法である。"
+    },
+    "decoupling": {
+      "title": "デカップリング",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "デカップリング（Decoupling）とは、経済成長（GDP増加）と環境負荷（資源消費・汚染物質排出）の関係を切り離すことを意味する概念である。"
+    },
+    "defense-in-depth": {
+      "title": "深層防護",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "深層防護（Defense in Depth）とは、独立した複数の防護層を設けることで、一つの防護層が破られても次の層で食い止める多重防護の安全概念である。原子力安全分野で発展した概念だが、情報セキュリティや一般の安全管理にも広く適用される。"
+    },
+    "delphi-method": {
+      "title": "デルファイ法",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "デルファイ法（Delphi Method）とは、複数の専門家に匿名アンケートを繰り返し、統計的集約で意見を収束させる予測・合意形成手法である。"
+    },
+    "demand-forecasting": {
+      "title": "需要予測",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "需要予測とは、過去のデータや市場情報に基づき、将来の需要量を推定する活動である。"
+    },
+    "deposit-system": {
+      "title": "デポジット制度",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "デポジット制度（Deposit-Refund System）とは、製品の価格に一定の預り金（デポジット）を上乗せし、使用後に容器等を返却した際に預り金を返金する制度である。"
+    },
+    "depreciation": {
+      "title": "減価償却",
+      "section": "2.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "減価償却とは、減価償却資産の取得に要した金額を一定の方法によって各年分の必要経費として配分していく手続（費用の期間配分）である（法人税法施行令に基づく）。"
+    },
+    "depreciation-residual-value": {
+      "title": "減価償却費・残存価値",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "減価償却費とは、固定資産の取得原価を耐用年数にわたって費用として配分する会計処理である。"
+    },
+    "descriptive-statistics": {
+      "title": "記述統計",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "記述統計（Descriptive Statistics）とは、収集したデータの特徴を数値やグラフで要約・記述する統計手法の総称である。"
+    },
+    "design-for-environment": {
+      "title": "環境適合設計",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境適合設計（DfE: Design for Environment）とは、製品の設計段階からライフサイクル全体の環境負荷を考慮し、環境に配慮した製品を開発する手法である。エコデザインとも呼ばれる。"
+    },
+    "design-in": {
+      "title": "デザインイン",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "デザインイン（Design-In）とは、部品・材料の供給者（サプライヤー）が、製品の設計・開発段階から参画し、自社の部品・技術を設計に組み込んでもらうサプライヤー主導の開発参画活動である。"
+    },
+    "design-quality": {
+      "title": "設計品質",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "設計品質（Design Quality）とは、顧客の要求品質を満たすために設計段階で規定される目標品質であり、ねらいの品質とも呼ばれる。"
+    },
+    "design-review": {
+      "title": "デザインレビュー",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "デザインレビュー（DR: Design Review）とは、製品のライフサイクル全体を考慮し、設計の各段階で設計内容の妥当性を体系的・計画的に審査する活動である。"
+    },
+    "design-rights": {
+      "title": "意匠権",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "意匠権 とは、物品、建築物又は画像のデザイン（視覚を通じて美感を起こさせるもの）を独占的に実施できる権利である。"
+    },
+    "design-thinking": {
+      "title": "デザイン思考",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "デザイン思考（Design Thinking）とは、デザイナーの思考プロセスを応用し、ユーザーへの深い共感を起点として、反復的な試作と検証を通じて革新的な課題解決を図る手法のことである。"
+    },
+    "diagnostic-od": {
+      "title": "診断型組織開発",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "診断型組織開発（Diagnostic OD） とは、組織の現状をデータに基づいて客観的に把握し、問題の原因を特定したうえで計画的に介入する組織開発アプローチである。"
+    },
+    "dialogic-od": {
+      "title": "対話型組織開発",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "対話型組織開発（Dialogic OD） とは、社会構成主義の認識論に基づき、組織メンバー間の対話を通じて現実の意味づけや物語（ナラティブ）を変容させることで組織変革を実現するアプローチである。"
+    },
+    "digital-rights": {
+      "title": "デジタルライツ",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "デジタルライツ（Digital Rights） とは、デジタル環境における著作権・知的財産権およびその管理技術の総称である。"
+    },
+    "digital-twin-cps": {
+      "title": "デジタルツイン・サイバーフィジカルシステム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "デジタルツイン（Digital Twin）とは、物理空間（フィジカル空間）に存在する実体（設備・建物・都市・人体など）を、サイバー空間上にリアルタイムで再現した仮想モデルである。"
+    },
+    "dioxin-countermeasures-act": {
+      "title": "ダイオキシン類対策特別措置法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ダイオキシン類対策特別措置法は、ダイオキシン類による環境汚染の防止及びその除去等を図り、国民の健康の保護を図ることを目的とする法律である。"
+    },
+    "direct-costing": {
+      "title": "直接原価計算",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "直接原価計算（Direct Costing）とは、変動費のみを製品原価に算入し、固定費は期間原価として全額を当期の費用とする原価計算方式である。"
+    },
+    "direct-manufacturing-cost": {
+      "title": "製造直接費",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "製造直接費とは、特定の製品に対して直接的に跡付けられる（賦課できる）製造原価である。"
+    },
+    "disability-discrimination-act": {
+      "title": "障害者差別解消法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "障害者差別解消法（正式名称：障害を理由とする差別の解消の推進に関する法律、平成25年法律第65号）は、障害を理由とする差別の解消を推進し、すべての国民が障害の有無によって分け隔てられることなく共生する社会の実現を目指す法律である。内閣府が所管し、行政機関等およびすべての事業者に適用される。"
+    },
+    "disability-employment": {
+      "title": "障害者雇用",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "障害者雇用とは、障害者雇用促進法に基づき、障害のある人が能力と適性に応じて働ける機会を確保する取組みである。事業主には法定雇用率以上の障害者を雇用する義務が課されている。"
+    },
+    "disability-employment-act": {
+      "title": "障害者雇用促進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "障害者雇用促進法（正式名称：障害者の雇用の促進等に関する法律、昭和35年法律第123号）は、障害者の雇用の促進と職業の安定を目的とする法律である。厚生労働省が所管し、（独）高齢・障害・求職者雇用支援機構が主要な実施機関となる。"
+    },
+    "disaster-countermeasures-act": {
+      "title": "災害対策基本法",
+      "section": "5.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "災害対策基本法とは、昭和36年（1961年）に制定された、日本の防災・災害対応の基本をなす法律である。"
+    },
+    "disaster-drill": {
+      "title": "防災訓練",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "防災訓練とは、地震・風水害・火災等の自然災害や大規模事故に備え、避難・救助・情報伝達等の対応行動を事前に体系的に訓練する取組である。"
+    },
+    "disaster-prevention": {
+      "title": "防災",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "防災とは、災害を未然に防止し、災害が発生した場合における被害の拡大を防ぎ、および災害の復旧を図ることをいう（災害対策基本法第2条）。近年は「防災」に加えて「減災」「縮災」の概念も重視されている。"
+    },
+    "disaster-weather-info": {
+      "title": "防災気象情報",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "防災気象情報とは、気象庁が発表する気象・地震・津波・火山等に関する 予報・警報・情報の総称 であり、住民の避難行動や防災対応の判断材料となる。発表後は警戒レベルと対応づけられ、市町村長の避難情報発令の判断根拠となる。"
+    },
+    "disclosure-request": {
+      "title": "開示請求",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "開示請求 とは、行政機関の保有する情報の公開に関する法律（情報公開法）に基づき、何人も行政機関の長に対して行政文書の開示を請求できる権利およびその手続きのことである。国民の「知る権利」を具体化する制度である。"
+    },
+    "disclosure-standards": {
+      "title": "開示基準",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "開示基準 とは、行政機関が保有する情報の開示・不開示を判断する際の基準のことである。情報公開法において、原則開示を基本としつつ、不開示とすべき情報の類型（不開示情報）が限定列挙されている。"
+    },
+    "discount-rate": {
+      "title": "割引率",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "割引率（Discount Rate）とは、将来の金銭的価値を現在価値に換算する際に用いる利率である。"
+    },
+    "discretionary-work-system": {
+      "title": "裁量労働制",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "裁量労働制とは、業務の性質上その遂行方法を大幅に労働者の裁量に委ねる必要がある業務について、実際の労働時間にかかわらず労使協定や労使委員会の決議で定めた時間を労働したとみなす制度である。"
+    },
+    "divisional-organization": {
+      "title": "事業部制組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "事業部制組織（divisional organization）とは、製品・サービス・地域・顧客などの単位で事業部を編成し、各事業部に大幅な権限を委譲する組織形態である。"
+    },
+    "dmz": {
+      "title": "DMZ",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "DMZ（DeMilitarized Zone：非武装地帯）とは、組織の内部ネットワークとインターネット（外部ネットワーク）の間に設置される中間的なネットワーク領域である。"
+    },
+    "dos-ddos": {
+      "title": "DoS・DDoS",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "DoS攻撃（Denial of Service Attack：サービス妨害攻撃） とは、標的となるサーバやネットワークに対して大量のリクエストやデータを送りつけ、サービスを利用不能な状態に追い込む攻撃である。"
+    },
+    "doughnut-economics": {
+      "title": "ドーナツ経済",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ドーナツ経済学（Doughnut Economics）とは、英国の経済学者ケイト・ラワース（Kate Raworth）が2012年に提唱した経済モデルである。"
+    },
+    "e-learning": {
+      "title": "eラーニング",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "eラーニング（e-Learning）とは、インターネットやコンピュータを活用した学習形態である。時間・場所の制約を受けずに学習できるOff-JTの一手法である。"
+    },
+    "e-waste": {
+      "title": "E-waste問題",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "E-waste（電子廃棄物） とは、使用済みの電子・電気機器およびその部品の廃棄物の総称である。"
+    },
+    "eco-action-21": {
+      "title": "エコアクション21",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "エコアクション21とは、環境省が策定した日本独自の環境マネジメントシステム（EMS）の認証・登録制度である。中小事業者でも取り組みやすいよう、ISO 14001より簡易な仕組みとなっている。"
+    },
+    "eco-drr": {
+      "title": "Eco-DRR",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "Eco-DRR（Ecosystem-based Disaster Risk Reduction）とは、生態系の持つ多様な機能を活用して災害リスクの軽減を図る取り組みである。"
+    },
+    "eco-label": {
+      "title": "環境ラベル",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境ラベルとは、製品やサービスの環境負荷情報を消費者に伝える表示制度である。事業者が製品の環境への配慮を自主的に示し、消費者のグリーン購入を促す情報的手法の代表例である。"
+    },
+    "ecological-footprint": {
+      "title": "エコロジカル・フットプリント",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "エコロジカル・フットプリント（Ecological Footprint: EF）は、人間の活動が自然環境に与える負荷を「土地面積」に換算して定量的に示す指標である。"
+    },
+    "economic-comparison-principle": {
+      "title": "経済性の比較の原則",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "経済性の比較の原則とは、複数の代替案を公正に比較・評価するために守るべき基本ルールである。"
+    },
+    "ecosystem-services": {
+      "title": "生態系サービス",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "生態系サービス（Ecosystem Services）とは、人間が生態系から得るさまざまな恵み（便益）の総称である。"
+    },
+    "ecrs-principle": {
+      "title": "ECRSの原則",
+      "section": "2.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "工程改善や業務効率化を検討する際、「どこから手をつけるべきか」を判断するためのフレームワークがECRSの原則である。"
+    },
+    "edge-computing": {
+      "title": "エッジコンピューティング",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "エッジコンピューティングとは、データが発生する現場（エッジ）の近くにコンピューティングリソースを配置し、データ処理を分散的に行うアーキテクチャである。"
+    },
+    "elderly-employment-act": {
+      "title": "高年齢者雇用安定法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "高年齢者雇用安定法（正式名称：高年齢者等の雇用の安定等に関する法律、昭和46年法律第68号）は、高年齢者の安定した雇用の確保と再就職の促進を図る法律である。"
+    },
+    "elsi": {
+      "title": "ELSI",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ELSI（Ethical, Legal and Social Issues/Implications） とは、新しい科学技術の研究開発・社会実装に伴って生じる倫理的（Ethical）・法的（Legal）・社会的（Social）課題のことである。1990年のヒトゲノム計画で初めて研究予算に組み込まれた概念であり、近年はAI・ゲノム編集・自動運転等で広く議論されている。"
+    },
+    "emergency": {
+      "title": "緊急事態",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "緊急事態（Emergency）とは、人命・財産・環境に重大な被害が発生し、または発生が切迫しており、通常の体制では対応が困難な状況である。"
+    },
+    "emergency-info-processing": {
+      "title": "緊急時の情報処理",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "緊急時の情報処理 とは、災害・事故等の緊急事態において、被害状況の把握、意思決定に必要な情報の収集・分析・伝達を迅速かつ正確に行うプロセスのことである。時間的圧力の下で限られた情報に基づく判断が求められる。"
+    },
+    "emergency-info-systems": {
+      "title": "緊急時情報システム・サービス",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "緊急時情報システム・サービス とは、災害・事故等の緊急事態において、迅速かつ確実に情報を収集・伝達するために整備されたシステムおよびサービスの総称である。国・地方自治体・通信事業者が協力して運用する。"
+    },
+    "emergency-stop-device": {
+      "title": "非常停止装置",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "非常停止装置（Emergency Stop Device）とは、危険な状態が発生した際に、作業者が手動操作によって機械を緊急停止させるための安全装置である。"
+    },
+    "employee-benefits": {
+      "title": "福利厚生",
+      "section": "3.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "福利厚生とは、企業が従業員やその家族に対して、賃金・給与以外に提供する報酬・サービスの総称である。"
+    },
+    "employment-insurance": {
+      "title": "雇用保険制度",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "雇用保険制度とは、雇用保険法に基づき、失業した労働者に給付金を支給し、生活の安定と再就職の促進を図る社会保険制度である。"
+    },
+    "employment-security-act": {
+      "title": "職業安定法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職業安定法（昭和22年法律第141号）は、公共職業安定所（ハローワーク）を中心とした職業紹介・職業指導の体制を定め、労働力の需給調整を適正に行うための法律である。"
+    },
+    "employment-statistics": {
+      "title": "就労状況・労働統計",
+      "section": "3.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "就労状況・労働統計とは、労働市場の状況を定量的に把握するための各種統計指標の総称である。"
+    },
+    "encryption-digital-signature": {
+      "title": "暗号化・電子署名",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "暗号化とは、平文（ひらぶん）のデータを第三者が読めない形式（暗号文）に変換する技術であり、情報の機密性を確保するための基本手段である。"
+    },
+    "end-of-pipe": {
+      "title": "エンドオブパイプ型対策",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "エンドオブパイプ型対策（End-of-Pipe Treatment）とは、生産工程の末端（出口）で発生した汚染物質を処理・除去する環境対策である。"
+    },
+    "energy": {
+      "title": "エネルギー",
+      "section": "6.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "日本のエネルギー政策は、エネルギー政策基本法（2002年）に基づき、「S+3E」を基本方針として推進されている。"
+    },
+    "enterprise-portal-intranet": {
+      "title": "企業内ポータル・イントラネット",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "イントラネット（Intranet）とは、インターネット技術（TCP/IP、HTTP、HTML等）を用いて構築された組織内部専用のネットワークである。"
+    },
+    "environmental-accounting": {
+      "title": "環境会計",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境会計とは、環境保全コストと効果を定量的に把握・開示する仕組みである。環境省が「環境会計ガイドライン」を策定しており、企業の環境保全活動の費用対効果を内部管理と外部情報開示の両面で活用する。"
+    },
+    "environmental-basic-act": {
+      "title": "環境基本法",
+      "section": "6.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "環境基本法（1993 年制定）は、日本の環境保全に関する基本的な枠組みを定めた最上位の法律である。"
+    },
+    "environmental-basic-plan": {
+      "title": "環境基本計画",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境基本計画とは、環境基本法第15条に基づき、政府が定める環境の保全に関する基本的な計画である。"
+    },
+    "environmental-communication": {
+      "title": "環境コミュニケーション",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境コミュニケーションとは、企業等が環境保全に関する取組みや環境情報をステークホルダーに開示し、双方向の対話を行う活動である。"
+    },
+    "environmental-impact-assessment": {
+      "title": "環境影響評価法",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境影響評価法（環境アセスメント法）とは、大規模開発事業の事前環境評価を義務づける法律である（1997 年制定、1999 年施行）。事業実施前に環境への影響を調査・予測・評価し、環境保全措置を検討する一連の手続きを定めている。"
+    },
+    "environmental-standards": {
+      "title": "環境基準",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境基準とは、環境基本法第16条 に基づき、人の健康を保護し生活環境を保全する上で維持されることが望ましい基準 として、政府が定めるものである。"
+    },
+    "equal-employment-act": {
+      "title": "男女雇用機会均等法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "男女雇用機会均等法（正式名称：雇用の分野における男女の均等な機会及び待遇の確保等に関する法律、昭和47年法律第113号）は、雇用の場における性別を理由とする差別を禁止し、男女の均等な機会と待遇を確保するための法律である。"
+    },
+    "equal-pay-for-equal-work": {
+      "title": "同一労働同一賃金",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "同一労働同一賃金とは、同一の企業内において、正規雇用労働者と非正規雇用労働者（パートタイム労働者、有期雇用労働者、派遣労働者）の間の不合理な待遇差を解消することを目的とする原則である。"
+    },
+    "equipment-characteristics": {
+      "title": "設備の管理特性",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "設備の管理特性とは、設備が所定の機能を果たすために備えるべき特性を体系的に整理したものである。"
+    },
+    "equipment-economics": {
+      "title": "設備の経済性",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "設備の経済性とは、設備のライフサイクル全体を通じた費用と効果の関係を評価する概念である。"
+    },
+    "equipment-maintainability": {
+      "title": "設備の保全性",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "設備の保全性とは、設備が故障した際に、いかに迅速かつ容易に修復して正常な状態に復帰できるかを表す能力のことである。"
+    },
+    "equipment-reliability": {
+      "title": "設備の信頼性",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "設備の信頼性とは、設備が規定の条件下で規定の期間、故障せずに所定の機能を果たし続ける能力のことである。"
+    },
+    "ergonomic-principles": {
+      "title": "人間工学原則の遵守",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "人間工学原則の遵守とは、機械・設備・作業環境の設計において、人間の身体的特性（体格・筋力・可動域）や認知的特性（注意力・判断力）に適合した設計を行うことである。"
+    },
+    "erp": {
+      "title": "ERP",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ERP（Enterprise Resource Planning: 統合基幹業務システム）とは、企業の経営資源（ヒト・モノ・カネ・情報）を一元的に管理し、経営の効率化と意思決定の迅速化を実現する統合型情報システムである。"
+    },
+    "esd": {
+      "title": "ESD",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ESD（Education for Sustainable Development）とは、持続可能な社会の実現に向けて、環境・社会・経済の課題を自らの問題として捉え、行動する力を育む教育である。"
+    },
+    "esg-environmental-assessment": {
+      "title": "ESG・環境評価",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ESG・環境評価とは、事業の企画・計画段階において、環境（E: Environment）・社会（S: Social）・ガバナンス（G: Governance）の観点から事業の持続可能性を評価する取組である。"
+    },
+    "esg-investment": {
+      "title": "ESG投資・ESG金融",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ESG 投資とは、環境・社会・ガバナンスの 3 要素を考慮して投資判断を行う手法 である。財務情報だけでなく非財務情報も重視することで、長期的なリスク低減とリターンの向上を目指す。"
+    },
+    "estimation-testing": {
+      "title": "推定・検定",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "統計的推定と仮説検定は、標本データから母集団の特性について判断を下す推測統計の中核的手法である。"
+    },
+    "eta": {
+      "title": "イベントツリー分析",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ETA（Event Tree Analysis：事象の木分析）とは、初期事象から分岐を展開する帰納的手法である。起因事象から出発し、安全装置や対策の成功・失敗を順に分岐させて、起こりうる結果を網羅的に展開する。"
+    },
+    "evaluation-bias": {
+      "title": "バイアス",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "バイアス（Bias）とは、判断や意思決定において無意識に生じる認知の偏りである。人材開発の文脈では、採用・評価・育成・配置等のあらゆる場面で公正な判断を阻害する要因となる。"
+    },
+    "explicit-knowledge": {
+      "title": "形式知",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "形式知（Explicit Knowledge）とは、言語、数式、図表、マニュアルなどの形で明示的に表現・記録できる知識のことである。"
+    },
+    "extended-producer-responsibility": {
+      "title": "拡大生産者責任",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "拡大生産者責任（EPR: Extended Producer Responsibility）とは、生産者の責任を製品の生産段階だけでなく、使用後の廃棄・リサイクル段階まで拡大する考え方である。OECDが2001年に政策ガイダンスを策定した。"
+    },
+    "extreme-events": {
+      "title": "極端現象",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "極端現象（Extreme Events）とは、統計的にまれな気象・気候現象であり、通常の変動範囲を大きく超える事象である。異常気象や極端事象とも呼ばれる。"
+    },
+    "extrinsic-motivation": {
+      "title": "外発的動機付け",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "外発的動機付け（Extrinsic Motivation） とは、報酬・罰・評価・昇進など、行動の外部にある要因によって行動が促される動機付けの形態である。"
+    },
+    "fail-safe": {
+      "title": "フェールセーフ",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "フェールセーフ（Fail Safe）とは、システムや機器に故障・異常が発生した場合に、安全な側に動作するよう設計する考え方である。"
+    },
+    "fail-soft": {
+      "title": "フェールソフト",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "フェールソフト（Fail Soft）とは、システムの一部に故障が発生した場合に、故障部分を切り離し、性能や機能を低下させながらもシステム全体の運転を継続する設計思想である。"
+    },
+    "fault-avoidance": {
+      "title": "フォールトアボイダンス",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "フォールトアボイダンス（Fault Avoidance）とは、高品質な部品の使用や厳格な製造管理により、そもそも故障（フォールト）が発生しないようにする設計思想である。"
+    },
+    "fault-tolerance": {
+      "title": "フォールトトレランス",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "フォールトトレランス（Fault Tolerance）とは、システムの一部に故障が発生しても、冗長化された構成によりシステム全体の機能を維持し続ける設計思想である。"
+    },
+    "fire-service-act": {
+      "title": "消防法",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "消防法は、火災を予防し、警戒し、鎮圧して国民の生命・身体・財産を保護し、火災・地震等の災害による被害を軽減することを目的とする法律である（1948年制定）。"
+    },
+    "firewall-ids": {
+      "title": "ファイアウォール・侵入検知",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ファイアウォール（FW）は、ネットワーク間の境界に設置し、あらかじめ定めたルール（ポリシー）に基づいて通信の許可・遮断を行うセキュリティ装置である。"
+    },
+    "five-s": {
+      "title": "5S",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "5Sとは、職場環境の維持・改善のための5つの活動の総称であり、生産管理・安全管理の基盤となる。"
+    },
+    "fixed-communication": {
+      "title": "固定通信",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "固定通信とは、地理的に固定された端末間で行われる電気通信のことである。"
+    },
+    "flat-organization": {
+      "title": "フラット組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "フラット組織（flat organization）とは、管理階層を最小限に削減し、トップと現場の距離を縮めた水平的な組織構造である。"
+    },
+    "flextime-system": {
+      "title": "フレックスタイム制",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "フレックスタイム制とは、一定の期間（清算期間）について総労働時間を定め、その範囲内で労働者が始業・終業時刻を自ら決定できる制度である。"
+    },
+    "fmea": {
+      "title": "FMEA",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "FMEA（Failure Mode and Effects Analysis：故障モード影響分析）とは、システムの構成要素ごとに想定される故障モードとその影響を体系的に分析する手法である。"
+    },
+    "followership": {
+      "title": "フォロワーシップ",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "フォロワーシップとは、アメリカの経営学者ロバート・ケリー（Robert E. Kelley）が1992年の著書『The Power of Followership』で体系化した、部下（フォロワー）側の視点からリーダーシップを捉えるアプローチである。"
+    },
+    "fool-proof": {
+      "title": "フールプルーフ",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "フールプルーフ（Fool Proof）とは、人間が誤った操作をしても、危険な状態にならないよう、あるいは誤操作そのものができないように設計する考え方である。"
+    },
+    "foreign-trainee-program": {
+      "title": "外国人研修・技能実習制度",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "技能実習制度とは、開発途上国の人材に日本の技能・技術・知識を修得させ、母国の経済発展に寄与することを目的とした制度である。"
+    },
+    "forests-villages-rivers-seas": {
+      "title": "森里川海プロジェクト",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "森里川海プロジェクト（正式名称：「つなげよう、支えよう森里川海」プロジェクト）は、森・里・川・海のつながりを保全・再生し、その恵み（生態系サービス）を将来にわたって享受できる自然共生社会の実現を目指す環境省の取組である。"
+    },
+    "formal-informal-organization": {
+      "title": "公式組織・非公式組織",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "組織は公式組織（フォーマル組織） と非公式組織（インフォーマル組織） の2つの側面を持つ。2つの区分はそれぞれ定義と特徴が異なる。"
+    },
+    "forum-standard": {
+      "title": "フォーラム標準",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "フォーラム標準（forum standard） とは、特定の技術分野に関心を持つ複数の企業・団体が自主的に集まり（フォーラム、コンソーシアム）、協議・合意によって策定する標準である。"
+    },
+    "four-e-countermeasures": {
+      "title": "事故の4E対策",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "事故の4E対策とは、労働災害の防止対策を 4 つの観点（4E） から体系的に実施する考え方である。4E は Education（教育）・Engineering（技術）・Enforcement（徹底）・Example（模範）の 4 要素を指す。"
+    },
+    "four-m-analysis": {
+      "title": "事故の4M要因分析",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "事故の4M要因分析とは、労働災害の原因を 4 つの要因（4M） に分類して体系的に分析する手法である。4M は Man（人間）・Machine（機械）・Media（環境・媒体）・Management（管理）の 4 要素を指す。"
+    },
+    "four-m-of-production": {
+      "title": "生産の4M",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "経済性管理",
+        "キーワード",
+        "技術士（総合技術監理部門）"
+      ],
+      "definition": "生産管理における4つの主要要素：Man（人），Machine（機械），Material（材料），Method（方法）"
+    },
+    "four-major-pollution-diseases": {
+      "title": "四大公害病",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "四大公害病 とは、日本の高度経済成長期に発生した4つの大規模公害事件を指す。"
+    },
+    "four-p-analysis": {
+      "title": "4P分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "4P分析とは、マーケティング戦略を立案するためのフレームワークであり、Product（製品）、Price（価格）、Place（流通）、Promotion（販売促進）の4つの要素を組み合わせて最適なマーケティング・ミックスを設計する手法である。"
+    },
+    "front-loading": {
+      "title": "フロントローディング",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "フロントローディング（Front Loading）とは、開発プロセスの初期段階（フロント）に負荷（ローディング）を集中させ、後工程で発生しうる問題を前倒しで検討・解決する手法である。"
+    },
+    "fta": {
+      "title": "フォールトツリー分析",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "FTA（Fault Tree Analysis：故障の木分析）とは、望ましくない事象（トップ事象）を頂点に置き、その原因を論理ゲートを用いてツリー状に展開して分析する手法である。"
+    },
+    "functional-organization": {
+      "title": "職能別組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職能別組織（functional organization）とは、製造・営業・経理・人事など専門機能ごとに部門を編成する組織形態である。"
+    },
+    "functional-safety": {
+      "title": "機能安全",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "機能安全（Functional Safety）とは、安全関連系（安全装置・制御システム）が正しく動作することによって達成される安全である。"
+    },
+    "game-theory": {
+      "title": "ゲーム理論",
+      "section": "2.7",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ゲーム理論（Game Theory）とは、意思決定をする主体（プレイヤー）が複数存在する状況を数学的に取り扱う方法論である。"
+    },
+    "gantt-chart": {
+      "title": "ガントチャート",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ガントチャート（Gantt Chart）とは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図である。"
+    },
+    "gender-equality-act": {
+      "title": "男女共同参画社会基本法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "男女共同参画社会基本法（平成11年法律第78号）は、男女共同参画社会の形成に関する基本理念と、国・地方公共団体・国民の責務を定めた法律である。"
+    },
+    "gender-gap": {
+      "title": "ジェンダーギャップ",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ジェンダーギャップ（Gender Gap） とは、性別に起因する社会的・経済的・政治的な格差のことである。世界経済フォーラム（WEF）が毎年公表するジェンダーギャップ指数（GGI） が国際比較の代表的指標として用いられる。"
+    },
+    "general-overview": {
+      "title": "総合技術監理の概要",
+      "section": "1",
+      "tags": [
+        "総合技術監理"
+      ],
+      "definition": ""
+    },
+    "generative-ai": {
+      "title": "生成AI",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "生成AI（Generative AI）とは、大量のデータから学習したパターンに基づき、テキスト・画像・音声・動画・プログラムコード等の新しいコンテンツを自動的に生成する人工知能技術の総称である。"
+    },
+    "gfc-chemicals-framework": {
+      "title": "GFC",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "GFC（Global Framework on Chemicals - For a Planet Free of Harm from Chemicals and Waste）は、化学物質と廃棄物の適正管理に関する世界的枠組みであり、2023年9月の第5回国際化学物質管理会議（ICCM5）で採択された。"
+    },
+    "global-compact": {
+      "title": "グローバル・コンパクト",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "国連グローバル・コンパクト（UNGC: United Nations Global Compact）とは、2000年に国連が提唱した、企業が社会的責任を果たすための自発的な取組みの枠組みである。企業は10の原則を支持し、実践することを宣言する。"
+    },
+    "global-hr-development": {
+      "title": "グローバル人材開発",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "グローバル人材開発とは、国際的に活躍できる人材を計画的に育成・確保するための組織的取り組みである。"
+    },
+    "global-warming-countermeasures-act": {
+      "title": "地球温暖化対策推進法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "地球温暖化対策推進法（温対法）は、1998 年（平成10 年）に制定された地球温暖化対策の基本法であり、国・地方公共団体・事業者・国民が一体となって温室効果ガスの排出抑制に取り組むための枠組みを定めている。京都議定書の採択（1997 年）を受けて成立した世界でも先駆的な気候変動立法であり、その後数次の改正を経て体系を強化してきた。"
+    },
+    "green-bond": {
+      "title": "グリーンボンド",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "グリーンボンドとは、環境改善効果のあるプロジェクト（再生可能エネルギー・省エネ・汚染防止等）に資金使途を限定して発行される債券である。"
+    },
+    "green-infrastructure": {
+      "title": "グリーンインフラ",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "グリーンインフラ（Green Infrastructure）とは、自然環境の多機能性を社会資本整備に活用し、持続可能で魅力あるまちづくりを進める取り組みである。"
+    },
+    "green-transformation": {
+      "title": "グリーントランスフォーメーション（GX）",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "GX（グリーントランスフォーメーション）は、化石燃料中心の経済・社会・産業構造を クリーンエネルギー中心の構造へ転換 することで、脱炭素・経済成長・エネルギー安全保障を同時に実現しようとする政策パッケージの総称である。"
+    },
+    "groupware": {
+      "title": "グループウェア",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "グループウェア（Groupware） とは、組織やチームの協働作業を支援するソフトウェアの総称であり、スケジュール管理・ファイル共有・電子メール・掲示板・ワークフロー等の機能を統合的に提供する。CSCW（Computer Supported Cooperative Work）を実現するツールである。"
+    },
+    "haccp": {
+      "title": "HACCP",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "HACCP（Hazard Analysis and Critical Control Point：危害要因分析重要管理点）とは、食品の安全性を確保するために、原材料の受入から最終製品までの各工程で危害要因を分析し、重要管理点を設定して継続的に監視・記録する管理手法である。"
+    },
+    "halo-effect-errors": {
+      "title": "評価誤差",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "評価誤差とは、人事評価において考課者の心理的傾向により生じる系統的な偏りである。適正な評価を阻害する要因となる。"
+    },
+    "hawthorne-experiment": {
+      "title": "ホーソン実験",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ホーソン実験とは、アメリカの経営学者エルトン・メイヨー（Elton Mayo, 1880--1949）とフリッツ・レスリスバーガー（Fritz Roethlisberger, 1898--1974）らがハーバード大学の研究チームとして、1924年から1932年にかけてウェスタン・エレクトリック社のホーソン工場で実施した一連の実験である。"
+    },
+    "hazard": {
+      "title": "ハザード",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ハザード（Hazard）とは、危害を引き起こす潜在的な源である。"
+    },
+    "hazard-map": {
+      "title": "ハザードマップ",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ハザードマップとは、自然災害による被害の発生が想定される区域や被害の程度、避難場所・避難経路等の情報を地図上に示したものである。"
+    },
+    "hazardous-facility-disaster-prevention": {
+      "title": "危険物施設防災",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "危険物施設防災とは、危険物施設で発生する火災・爆発・漏洩等を防止する対策の総称である。"
+    },
+    "hazid": {
+      "title": "HAZID",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "HAZID（Hazard Identification Study：ハザード同定調査）とは、プロジェクトの初期段階において、潜在的なハザード（危険源）を網羅的に特定するための体系的手法である。"
+    },
+    "hazop": {
+      "title": "HAZOP",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "HAZOP（Hazard and Operability Study：危険・運転性検討）とは、ガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、ハザードや運転上の問題を特定する手法である。"
+    },
+    "health-management": {
+      "title": "健康経営",
+      "section": "3.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "健康経営とは、従業員の健康管理を経営的視点から考え、戦略的に実践することである。"
+    },
+    "heat-island-effect": {
+      "title": "ヒートアイランド現象",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ヒートアイランド現象とは、都市部の気温が周辺の郊外地域に比べて高くなる現象である。"
+    },
+    "heinrich-law": {
+      "title": "ハインリッヒの法則",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ハインリッヒの法則（Heinrich's Law）とは、1件の重大事故の背景には29件の軽微な事故があり、さらにその背景には300件のヒヤリハット（異常）が存在するという経験則である。"
+    },
+    "herzberg-two-factor-theory": {
+      "title": "ハーズバーグの二要因理論",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ハーズバーグの二要因理論とは、アメリカの臨床心理学者フレデリック・ハーズバーグ（Frederick Herzberg, 1923--2000）が1959年に発表した動機づけ理論である。"
+    },
+    "hierarchical-training": {
+      "title": "階層別研修",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "階層別研修とは、組織内の職位・役割の階層ごとに必要な知識・スキルを体系的に習得させる研修プログラムである。Off-JTの代表的な形態の一つである。"
+    },
+    "high-pressure-gas-act": {
+      "title": "高圧ガス保安法",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "高圧ガス保安法は、高圧ガスによる災害を防止するため、高圧ガスの製造・貯蔵・販売・移動・消費・廃棄を規制し、民間事業者および高圧ガス保安協会による自主的な活動を促進する法律である（1951年制定、旧称：高圧ガス取締法）。"
+    },
+    "highly-professional-system": {
+      "title": "高度プロフェッショナル制度",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "高度プロフェッショナル制度とは、高度の専門的知識を有し一定の年収要件を満たす労働者を対象に、労働基準法に定める労働時間・休憩・休日・深夜割増賃金に関する規定を適用しない制度である。"
+    },
+    "hr-systems": {
+      "title": "人事システム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "人事システム（HRIS: Human Resource Information System）とは、従業員の採用・配置・評価・給与・勤怠・育成など人事管理業務全般を支援する情報システムである。"
+    },
+    "human-capital-disclosure": {
+      "title": "人的資本の情報公開",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "人的資本の情報公開（人的資本開示）とは、企業が保有する人材の価値や人材に対する投資・取組の状況を、ステークホルダーに対して開示することをいう。"
+    },
+    "human-development-index": {
+      "title": "人間開発指数",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "人間開発指数（Human Development Index: HDI）は、国連開発計画（UNDP）が1990年から毎年発表している、各国の人間開発の達成度を測定する複合指標である。"
+    },
+    "human-error-probability": {
+      "title": "人的過誤確率",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "HEP（Human Error Probability：人的過誤確率）とは、人間が特定のタスクを遂行する際にエラーを犯す確率である。"
+    },
+    "human-factors": {
+      "title": "ヒューマンファクタ",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ヒューマンファクタ（Human Factors）とは、人間の身体的・心理的・認知的な特性が、システムの安全性や信頼性に及ぼす影響を総合的に扱う概念である。"
+    },
+    "human-relations-management": {
+      "title": "人間関係管理",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "人間関係管理とは、組織における人と人との関係性を理解し、組織目的の達成と個人の充足を両立させるための管理活動である。1920 年代のホーソン実験によって、作業能率は照明などの作業条件よりも作業集団の雰囲気や感情に影響されることが実証され、非公式組織の存在とその影響力が発見されたことが理論的源流となっている。"
+    },
+    "human-resource-assessment": {
+      "title": "人材アセスメント",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "人材アセスメント（Human Resource Assessment）とは、外部の専門アセッサー（評価者）が客観的な手法で人材の能力・適性を多面的に評価する仕組みである。"
+    },
+    "ics": {
+      "title": "ICS",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ICS（Incident Command System：現場指揮システム）とは、災害・事故等の緊急事態に対応するための標準化された指揮・管理体制である。米国で開発され、日本でも導入が進んでいる。"
+    },
+    "idea-generation-methods": {
+      "title": "発想法",
+      "section": "2.7",
+      "tags": [
+        "総合技術監理",
+        "経済性管理",
+        "キーワード",
+        "技術士（総合技術監理部門）"
+      ],
+      "definition": "創造的な問題解決を促進するため、集団または個人が構造化されたプロセスで新しいアイデアを生み出す技法の総称。ブレインストーミング、NM法（名義群集法）、デルファイ法などがある。"
+    },
+    "ifrs": {
+      "title": "国際会計基準",
+      "section": "2.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "IFRS（International Financial Reporting Standards：国際財務報告基準）とは、国際会計基準審議会（IASB）が策定する、世界共通の会計基準である。"
+    },
+    "immigration-control-act": {
+      "title": "出入国管理及び難民認定法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "出入国管理及び難民認定法（入管法）は、日本に入国・在留するすべての外国人の出入国管理と在留資格の付与、難民の認定手続等を定めた法律である。"
+    },
+    "impact": {
+      "title": "影響",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "影響（Impact / Consequence）とは、事象が発生した場合に目的に及ぼす結果である。"
+    },
+    "improvement-maintenance": {
+      "title": "改良保全",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "改良保全とは、設備の故障や性能低下の原因を根本的に除去し、設備の信頼性や保全性を向上させるための改善活動である。"
+    },
+    "incentive": {
+      "title": "インセンティブ",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "インセンティブ（Incentive） とは、個人や集団の行動を特定の方向へ誘導するための誘因・刺激のことである。"
+    },
+    "income-statement": {
+      "title": "損益計算書",
+      "section": "2.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "損益計算書（Profit and Loss Statement: P/L）とは、一会計期間における企業の経営成績を表す財務諸表である。"
+    },
+    "indefinite-conversion-rule": {
+      "title": "無期転換ルール",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "無期転換ルールとは、同一の使用者との間で有期労働契約が通算 5 年を超えて更新された場合、労働者の申込みにより無期労働契約に転換される制度である。派遣労働者の場合、雇用主は派遣元であるため、通算 5 年の判定も無期転換申込先も派遣元となる（派遣先ではない）。"
+    },
+    "indirect-manufacturing-cost": {
+      "title": "製造間接費",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "製造間接費とは、特定の製品に直接跡付けることができず、一定の基準により製品に配賦する必要がある製造原価である。"
+    },
+    "individual-labor-dispute-act": {
+      "title": "個別労働紛争解決促進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "個別労働紛争解決促進法（正式名称：個別労働関係紛争の解決の促進に関する法律、平成13年法律第112号）は、個々の労働者と使用者との間の紛争（個別労働紛争）について、迅速かつ適正な解決を促進するための制度を定めた法律である。"
+    },
+    "individual-wage-management": {
+      "title": "個別賃金管理",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "個別賃金管理とは、個々の従業員に支払う賃金の水準・構成・昇給を管理する手法である。"
+    },
+    "industrial-property-rights": {
+      "title": "産業財産権",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "産業財産権（Industrial Property Rights）とは、産業の発達を目的として、発明・考案・デザイン・標識などの知的創造物に対して法律上認められる独占的な権利の総称である。"
+    },
+    "infectious-disease-pandemic": {
+      "title": "感染症・パンデミック",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "パンデミック（Pandemic）とは、感染症が国境を越えて世界的規模で流行する事態である。WHOが宣言する。"
+    },
+    "information-disclosure": {
+      "title": "情報開示",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "情報開示（Information Disclosure） とは、行政機関や企業が保有する情報を、国民・株主・利害関係者等に対して公開することである。行政の透明性と説明責任（アカウンタビリティ）を確保するとともに、適切な意思決定と社会的信頼の基盤となる。"
+    },
+    "information-disclosure-act": {
+      "title": "情報公開法",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "情報公開法（正式名称：行政機関の保有する情報の公開に関する法律、平成11年法律第42号）とは、行政機関が保有する行政文書について、何人にも開示請求権を認め、行政の透明性と説明責任（アカウンタビリティ）を確保するための法律である。2001年4月施行。"
+    },
+    "information-retrieval": {
+      "title": "情報検索",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "情報検索（Information Retrieval, IR）とは、大量の文書やデータの中から、利用者の情報要求に合致するものを効率的に見つけ出す技術である。"
+    },
+    "inherent-safety": {
+      "title": "本質安全",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "本質安全（Inherent Safety）とは、危険源そのものを除去 することで本質的に安全な状態を実現する設計思想である。"
+    },
+    "initial-investment": {
+      "title": "初期投資",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "初期投資とは、設備の企画・開発から取得・据付・試運転までに要する一連の費用のことである。"
+    },
+    "input-indicators": {
+      "title": "インプット指標",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "インプット指標（Input Indicator）とは、事業・施策に投入される資源（ヒト・モノ・カネ・情報）の量を測定する指標である。"
+    },
+    "inspection-methods": {
+      "title": "全数検査／抜取検査",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "- 全数検査：ロット内の全製品を検査し、不適合品を排除する方式"
+    },
+    "integer-programming": {
+      "title": "整数計画法",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "整数計画法（IP：Integer Programming）とは、決定変数の一部または全部が整数値をとることを条件とする最適化問題を解く手法である。"
+    },
+    "integrity-security": {
+      "title": "完全性",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "完全性（Integrity） とは、情報が正確であり、許可なく改ざん・破壊されていない状態を確保することである。"
+    },
+    "interim-storage-facility": {
+      "title": "中間貯蔵施設",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "中間貯蔵施設とは、福島第一原子力発電所事故に伴う除染等で発生した除去土壌や汚染廃棄物を安全に集約・貯蔵する施設である。"
+    },
+    "interlock": {
+      "title": "インターロック",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "インターロック（Interlock）とは、特定の条件が満たされない限り、機械の運転や危険領域への立入りができないようにする安全連動機構である。"
+    },
+    "internal-job-posting": {
+      "title": "社内公募制",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "社内公募制（Internal Job Posting） とは、社内で人材が必要なポジションを公開し、従業員が自ら応募できる制度である。会社主導の人事異動とは異なり、従業員の自律的なキャリア形成を支援する仕組みである。"
+    },
+    "internal-rate-of-return": {
+      "title": "内部収益率法",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "内部収益率法（IRR法: Internal Rate of Return）とは、投資のNPVがゼロとなる割引率を求め、その値と資本コストを比較して投資の可否を判断する手法である。"
+    },
+    "international-filing-system": {
+      "title": "国際出願制度",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "国際出願制度 とは、1回の出願手続で複数の国における知的財産権の保護を求めることができる国際的な枠組みの総称である。"
+    },
+    "internet": {
+      "title": "インターネット",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "インターネットとは、TCP/IPプロトコルを基盤として世界中のコンピュータネットワークを相互接続した、地球規模の通信インフラストラクチャである。"
+    },
+    "internship": {
+      "title": "インターンシップ",
+      "section": "3.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "インターンシップとは、学生が在学中に企業等で就業体験を行うことである。"
+    },
+    "interpersonal-skills": {
+      "title": "対人能力",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "対人能力とは、他者との関係構築・協働・調整を通じて組織目標を達成するために必要な能力の総称である。技術者にとっても不可欠なマネジメントスキルである。"
+    },
+    "intrinsic-motivation": {
+      "title": "内発的動機付け",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "内発的動機付け（Intrinsic Motivation） とは、活動そのものの面白さ・興味・達成感・成長実感など、行動の内部にある要因によって行動が自発的に促される動機付けの形態である。"
+    },
+    "invasive-alien-species": {
+      "title": "特定外来生物",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "特定外来生物とは、外来生物法（正式名称：特定外来生物による生態系等に係る被害の防止に関する法律）に基づき、生態系、人の生命・身体、農林水産業に被害を及ぼすおそれのある外来生物として指定された種のことである。"
+    },
+    "inventory-control": {
+      "title": "現品管理",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "現品管理（Inventory Control）とは、資材・仕掛品・完成品などの現物について、その数量・品質・所在を正確に把握し管理する活動である。"
+    },
+    "investment-recovery-plan": {
+      "title": "投資回収計画",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "投資回収計画とは、投資資金を将来のキャッシュフローで回収する計画である。設備投資や事業投資に要した資金について、どの程度の期間・条件で回収するかを事前に評価する。"
+    },
+    "iot": {
+      "title": "IoT",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "IoT（Internet of Things：モノのインターネット）とは、さまざまな「モノ」（センサー・機器・設備・車両など）をインターネットに接続し、データの収集・送受信・制御を行う技術体系である。"
+    },
+    "ip-creation": {
+      "title": "知的財産の創造",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "知的財産の創造 とは、研究開発活動やイノベーションを通じて、特許・実用新案・意匠・著作物等の知的財産を新たに生み出す活動およびその戦略的マネジメントを指す。"
+    },
+    "ip-protection": {
+      "title": "知的財産の保護",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "知的財産の保護 とは、創造された知的財産を法的権利として確立し、第三者による無断使用・模倣・侵害から守る活動を指す。"
+    },
+    "ip-utilization": {
+      "title": "知的財産の活用",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "知的財産の活用 とは、取得した知的財産権を事業収益の拡大や技術普及に結びつける活動を指す。"
+    },
+    "ipbes": {
+      "title": "IPBES",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "IPBES（Intergovernmental Science-Policy Platform on Biodiversity and Ecosystem Services）とは、生物多様性と生態系サービスに関する科学的知見を集約・評価し、政策立案者に提供する政府間組織である。"
+    },
+    "ismap": {
+      "title": "政府情報システムのためのセキュリティ評価制度",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ISMAP（Information system Security Management and Assessment Program：政府情報システムのためのセキュリティ評価制度）とは、政府機関がクラウドサービスを安全に調達するためのセキュリティ評価・登録制度である。"
+    },
+    "isms-iso27001": {
+      "title": "ISMS",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ISMS（Information Security Management System：情報セキュリティマネジメントシステム）とは、組織の情報資産を適切に保護するための管理体制を構築・運用・維持・改善する仕組みである。"
+    },
+    "iso-14000": {
+      "title": "ISO 14000シリーズ",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ISO 14000シリーズとは、ISO（国際標準化機構）が策定した環境マネジメントに関する国際規格群の総称である。"
+    },
+    "iso-26000": {
+      "title": "ISO 26000",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ISO 26000とは、組織の社会的責任（SR）に関する国際ガイダンス規格である。2010年にISOが発行し、あらゆる種類・規模の組織を対象とする。認証規格ではなく、第三者認証の対象とならないガイダンス文書である点が特徴である。"
+    },
+    "isolation-stop-safety": {
+      "title": "隔離安全・停止安全",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "隔離安全とは、人と危険源を物理的に隔離（分離）することにより安全を確保する考え方である。停止安全とは、人が危険区域に入る際に機械を停止させることで安全を確保する考え方である。"
+    },
+    "jisec": {
+      "title": "ITセキュリティ評価及び認証制度",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "JISEC（Japan Information Technology Security Evaluation and Certification Scheme：ITセキュリティ評価及び認証制度）とは、IT製品のセキュリティ機能をCC（ISO/IEC 15408）に基づいて評価・認証する日本の制度である。"
+    },
+    "jit-production": {
+      "title": "JIT生産方式",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "JIT生産方式（Just In Time Production）とは、必要なものを、必要な時に、必要な量だけ生産・供給する方式である。"
+    },
+    "job-analysis": {
+      "title": "職務分析",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職務分析（Job Analysis） とは、組織内の各職務について、その内容・責任・必要な知識・技能・資格等を体系的に調査・分析することである。人事管理（採用・配置・評価・報酬）の基盤となる活動である。"
+    },
+    "job-based-pay": {
+      "title": "職務給",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職務給とは、従業員が担当する職務（仕事）の内容・難易度・責任の大きさに基づいて賃金を決定する賃金制度である。"
+    },
+    "job-design": {
+      "title": "職務設計",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職務設計（Job Design） とは、職務の内容・方法・範囲・責任を計画的に設計・再設計することである。従業員のモチベーション向上と組織の生産性向上を両立させることを目的とする。"
+    },
+    "job-execution-ability": {
+      "title": "職務遂行能力",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "職務遂行能力とは、担当する職務を適切に遂行するために必要な知識・技能・態度の総体である。"
+    },
+    "job-grade-system": {
+      "title": "職務等級制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職務等級制度（Job Grade System） とは、職務分析に基づいて各職務の価値（難易度・責任・影響度等）を評価し、等級に格付けする制度である。「人」ではなく「職務（ポスト）」に値段をつける仕組みであり、欧米企業で広く普及している。"
+    },
+    "job-order-costing": {
+      "title": "個別原価計算",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "個別原価計算（Job Order Costing）とは、製造指図書（ジョブオーダー）ごとに原価を集計する原価計算方式であり、受注生産・個別生産に適用される。"
+    },
+    "job-rotation": {
+      "title": "ジョブローテーション",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ジョブローテーション（Job Rotation）とは、人材育成を目的として、従業員を計画的に異なる職務・部門に配置転換する制度である。"
+    },
+    "job-type-employment": {
+      "title": "ジョブ型",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ジョブ型雇用（職務主義） とは、職務記述書（ジョブディスクリプション）に明記された特定の職務に対して人を採用・配置する雇用形態である。欧米で主流の雇用システムであり、「仕事に人をつける」考え方に基づく。"
+    },
+    "key-performance-indicators": {
+      "title": "KGI・KSF・KPI",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "経済性管理",
+        "キーワード",
+        "技術士（総合技術監理部門）"
+      ],
+      "definition": "経営目標の達成度を測定するための指標群："
+    },
+    "knowledge-sharing": {
+      "title": "知識共有化",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "知識共有化とは、組織内に散在する個人の知識・経験・ノウハウを体系的に収集・蓄積・共有し、組織全体の知的資産として活用する取り組みのことである。"
+    },
+    "kunming-montreal-framework": {
+      "title": "昆明・モントリオール生物多様性枠組",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "昆明・モントリオール生物多様性枠組（Kunming-Montreal Global Biodiversity Framework: GBF）とは、2022年12月にカナダ・モントリオールで開催された生物多様性条約COP15において採択された、2030年までの新たな国際目標である。"
+    },
+    "kyt": {
+      "title": "危険予知訓練",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "危険予知訓練（KYT: Kiken Yochi Training）とは、作業や職場に潜む危険要因を発見し解決する能力を高めるための訓練手法である。"
+    },
+    "labor-contract-act": {
+      "title": "労働契約法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働契約法（平成19年法律第128号）は、労働契約の基本的なルールを定めた民事法である。"
+    },
+    "labor-cost-ratio": {
+      "title": "労務費率",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労務費率とは、製造や生産のために使われた費用（労務費）を売上高で割った比率である。総額賃金管理の基本指標の一つで、特に建設業における労災保険料の計算に用いられる。"
+    },
+    "labor-mobility": {
+      "title": "人材流動化",
+      "section": "3.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "人材流動化とは、労働者が企業間・産業間・地域間を移動する頻度が高まり、雇用の流動性が増す現象である。"
+    },
+    "labor-policy-act": {
+      "title": "労働施策総合推進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働施策総合推進法（正式名称：労働施策の総合的な推進並びに労働者の雇用の安定及び職業生活の充実等に関する法律）は、労働施策全般の基本方針を定めた法律である。"
+    },
+    "labor-productivity": {
+      "title": "労働生産性",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働生産性とは、労働者1人あたり（または労働時間1時間あたり）が生み出す成果を示す指標である。"
+    },
+    "labor-relations-adjustment-act": {
+      "title": "労働関係調整法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働関係調整法（昭和21年法律第25号）は、労働争議の予防と解決を図るための手続きを定めた法律である。"
+    },
+    "labor-share-ratio": {
+      "title": "労働分配率",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働分配率とは、企業が生み出した付加価値のうち、人件費（労働者への分配）が占める割合を示す指標である。"
+    },
+    "labor-standards-act": {
+      "title": "労働基準法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働基準法（昭和22年法律第49号）は、労働条件の最低基準を定める法律である（第1条）。"
+    },
+    "labor-tribunal-act": {
+      "title": "労働審判法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働審判法（平成16年法律第45号）は、個別労働関係民事紛争を迅速かつ適正に解決するため、地方裁判所における労働審判手続きを定めた法律である。"
+    },
+    "labor-union-act": {
+      "title": "労働組合法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働組合法（昭和24年法律第174号）は、労働者が使用者と対等の立場で交渉するために労働組合を組織し、団体交渉や団体行動を行う権利を保障する法律である。"
+    },
+    "lead-time": {
+      "title": "リードタイム",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リードタイム（Lead Time）とは、発注・着手から完成・納品までに要する総所要時間である。"
+    },
+    "lgbt-understanding-act": {
+      "title": "LGBT理解増進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "LGBT理解増進法（正式名称：性的指向及びジェンダーアイデンティティの多様性に関する国民の理解の増進に関する法律）は、性的指向およびジェンダーアイデンティティの多様性に関する国民の理解を増進することを目的として2023年6月に施行された法律である。"
+    },
+    "lgbtq": {
+      "title": "LGBTQ",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "LGBTQとは、性的少数者（セクシュアルマイノリティ）の総称であり、以下の頭文字からなる。"
+    },
+    "lifecycle-assessment": {
+      "title": "ライフサイクルアセスメント",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ライフサイクルアセスメント（LCA: Life Cycle Assessment）とは、ライフサイクル全体の環境負荷を定量評価する手法である。製品・サービスの原材料調達から製造・使用・廃棄に至る全段階を対象とし、ISO 14040/14044で国際規格化されている。"
+    },
+    "lifecycle-costing-method": {
+      "title": "ライフサイクルコスティング",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ライフサイクルコスティング（LCC: Life Cycle Costing）とは、製品・設備・構造物の企画・設計から製造・運用・保全・廃棄に至るライフサイクル全体のコストを算定・評価する手法である。"
+    },
+    "lifecycle-management": {
+      "title": "ライフサイクルマネジメント",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ライフサイクルマネジメント（LCM: Life Cycle Management）とは、製品・施設・システムの企画・設計・建設・運用・保全・廃棄に至るライフサイクル全体を、一貫した思想で統合的に監理・最適化するマネジメント手法である。"
+    },
+    "likelihood": {
+      "title": "起こりやすさ",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "起こりやすさ（Likelihood）とは、ある事象が発生する可能性の度合いである。"
+    },
+    "linear-programming": {
+      "title": "線形計画法",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "線形計画法（LP：Linear Programming）とは、目的関数と制約条件がすべて線形（一次式）で表される最適化問題を解く手法である。"
+    },
+    "linear-regression": {
+      "title": "線形回帰と最小二乗法",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "線形回帰（Linear Regression）とは、結果となる数値と要因となる数値の関係を調べて、変数 $x$ を用いて変数 $y$ を $y = f(x)$ の形で表す統計手法である。要因となる数値 $x$ を 説明変数（独立変数）、結果となる数値 $y$ を 被説明変数（目的変数・従属変数）と呼ぶ。"
+    },
+    "liquefaction": {
+      "title": "液状化現象",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "液状化現象（Liquefaction）とは、地震の振動により飽和した砂質地盤が液体状になる現象である。地盤の支持力が急激に低下し、構造物の沈下・傾斜、地下構造物の浮上り等が生じる。"
+    },
+    "load-capacity": {
+      "title": "負荷工数・生産能力",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "- 負荷工数：ある期間に処理すべき作業量を工数（人時・機械時間）で表したもの"
+    },
+    "load-leveling": {
+      "title": "負荷平準化",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "負荷平準化とは、各工程・各期間に割り当てられた作業負荷の偏りを均一化し、生産能力を効率的に活用する調整活動である。"
+    },
+    "location-limited-employee": {
+      "title": "勤務地限定社員制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "勤務地限定社員制度とは、勤務地を一定の地域に限定する正社員区分を設ける制度である。転勤を伴う「無限定正社員」と、非正規雇用の中間に位置する多様な正社員（限定正社員） の1類型として注目されている。"
+    },
+    "logistic-regression": {
+      "title": "ロジスティック回帰",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ロジスティック回帰（Logistic Regression）とは、目的変数が二値（0 または 1）のとき、あるカテゴリに属する確率を説明変数の線形結合で予測する統計手法である。"
+    },
+    "long-term-strategy-2050": {
+      "title": "2050 年長期戦略",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "2050 年長期戦略は、2020 年10 月の「2050 年カーボンニュートラル」宣言を受けて、脱炭素社会の実現に至る基本的考え方とビジョンを政府全体で定めた戦略文書群の総称である。中核となるのは2021 年10 月22 日に閣議決定された 「パリ協定に基づく成長戦略としての長期戦略」（環境省所管）であり、これに経済産業省主導の 「2050 年カーボンニュートラルに伴うグリーン成長戦略」（202…"
+    },
+    "lopa": {
+      "title": "LOPA",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "LOPA（Layer of Protection Analysis: 防護層解析）とは、事故シナリオに対して、独立した複数の防護層（IPL: Independent Protection Layer）がどの程度リスクを低減するかを定量的に評価する手法である。"
+    },
+    "machine-learning": {
+      "title": "機械学習",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "機械学習（machine learning）とは、コンピュータがデータからパターンや規則性を自動的に学習し、明示的にプログラムされることなく予測・判断を行うことを可能にする人工知能（AI）の中核技術である。"
+    },
+    "machinery-safety-guidelines": {
+      "title": "機械の包括的な安全基準に関する指針",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "機械の包括的な安全基準に関する指針は、機械の設計・製造段階でリスクアセスメントを実施し、保護方策を講じることを求める厚生労働省の指針である（2001年策定、2007年改正）。国際規格ISO 12100（機械類の安全性）の考え方を日本の法体系に導入したものである。"
+    },
+    "maintenance-cost": {
+      "title": "設備維持費用",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "設備維持費用とは、設備を正常な稼働状態に維持するために継続的に発生する費用のことである。"
+    },
+    "maintenance-prevention": {
+      "title": "保全予防",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "保全予防とは、設備の計画・設計段階において、信頼性が高く保全しやすい設備を作り込む活動である。"
+    },
+    "malware": {
+      "title": "マルウェア",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "マルウェア（Malware） とは、Malicious Software（悪意のあるソフトウェア）の略称で、コンピュータやネットワークに害を与える目的で作成されたプログラムの総称である。"
+    },
+    "mandatory-management-retirement": {
+      "title": "役職定年制",
+      "section": "3.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "役職定年制とは、一定の年齢に達した管理職を役職（部長・課長等）から退かせる制度である。"
+    },
+    "manufacturing-quality": {
+      "title": "製造品質",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "製造品質（Manufacturing Quality）とは、製造工程で実際に達成された品質水準であり、できばえの品質（適合の品質）とも呼ばれる。"
+    },
+    "market-research": {
+      "title": "市場調査",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "市場調査（マーケティングリサーチ）とは、製品・サービスの市場動向、顧客ニーズ、競合状況等に関する情報を体系的に収集・分析し、意思決定の基盤を提供する活動である。"
+    },
+    "maslow-hierarchy-of-needs": {
+      "title": "マズローの欲求5段階説",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "マズローの欲求5段階説とは、アメリカの心理学者アブラハム・マズロー（Abraham H. Maslow, 1908--1970）が1943年に発表した動機づけ理論である。"
+    },
+    "mass-communication": {
+      "title": "マス・コミュニケーション",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "マス・コミュニケーション（Mass Communication）とは、新聞・テレビ・ラジオ・インターネット等のマスメディアを通じて、不特定多数の受け手に対して情報を一方向的に大量伝達するコミュニケーション形態のことである。パーソナル・コミュニケーション（個人間の対面的伝達）と対比される。"
+    },
+    "master-schedule-planning": {
+      "title": "大日程計画・中日程計画・小日程計画",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "日程計画は大日程計画・中日程計画・小日程計画の3階層で構成され、上位から下位へ段階的に具体化される。"
+    },
+    "matrix-organization": {
+      "title": "マトリクス組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "マトリクス組織（matrix organization）とは、職能別の縦軸と事業・プロジェクト別の横軸を交差させ、メンバーが2つの指揮命令系統に属する組織形態である。"
+    },
+    "mbo": {
+      "title": "目標管理制度",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "目標管理制度（MBO: Management by Objectives）とは、ドラッカー（Drucker）が提唱した、上司と部下が協議して目標を設定し、その達成度で業績を評価する管理手法である。"
+    },
+    "mcgregor-xy-theory": {
+      "title": "マクレガーのX理論とY理論",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "X理論・Y理論とは、ダグラス・マクレガーが著書『企業の人間的側面』（1960 年）で提唱した、管理者が持つ人間観に基づく2つの管理スタイルの類型である。"
+    },
+    "meeting-design": {
+      "title": "会議設計",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "会議設計 とは、会議の目的を達成するために、参加者・議題・進行方法・時間配分・成果物を事前に計画し、効率的な会議運営を実現する活動のことである。不適切な会議は時間と人的資源の浪費の主要因となる。"
+    },
+    "membership-type-employment": {
+      "title": "メンバーシップ型",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "メンバーシップ型雇用（属人主義） とは、職務を限定せず組織の「メンバー」として採用し、会社主導で配置・異動・育成を行う雇用形態である。日本の大企業に特徴的な雇用システムであり、「人に仕事をつける」考え方に基づく。"
+    },
+    "mental-health": {
+      "title": "メンタルヘルス",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "メンタルヘルス（mental health）とは、心の健康のことである。職場におけるメンタルヘルスとは、労働者の精神的な健康の保持増進と、メンタルヘルス不調の予防・早期発見・対応を指す。"
+    },
+    "mental-health-care": {
+      "title": "メンタルヘルスケア",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "メンタルヘルスケアとは、労働者の心の健康の保持増進を目的とした組織的な取組をいう。"
+    },
+    "mentor": {
+      "title": "メンター制度",
+      "section": "3.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "メンター制度とは、職場内の直属ラインとは別に、経験豊富な先輩社員（メンター）が新入社員・若手社員（メンティ）の成長を継続的に支援する人材育成制度である。"
+    },
+    "merit-demerit-system": {
+      "title": "加点主義・減点主義",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "加点主義とは成果や貢献を積極的に評価し加点する考え方、減点主義とは失敗やミスに着目し基準点から減点する考え方である。"
+    },
+    "method-planning": {
+      "title": "工法計画",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "工法計画とは、建設工事における各工種の施工方法を、品質・工程・原価・安全・環境の観点から比較検討し、最適な工法を選定する計画である。"
+    },
+    "millennium-ecosystem-assessment": {
+      "title": "ミレニアム生態系評価",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ミレニアム生態系評価（Millennium Ecosystem Assessment: MA）とは、2001〜2005年に実施された、世界の生態系の状態と変化の傾向を包括的に評価する国際的な科学プロジェクトである。"
+    },
+    "minamata-convention": {
+      "title": "水俣条約",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "水銀に関する水俣条約（Minamata Convention on Mercury）は、水銀及び水銀化合物の人為的な排出・放出から人の健康及び環境を保護することを目的とする国際条約である。"
+    },
+    "minimum-wage-act": {
+      "title": "最低賃金法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "最低賃金法（昭和34年法律第137号）は、賃金の最低額を保障することにより、労働条件の改善と労働者の生活の安定を図る法律である。"
+    },
+    "mobile-communication": {
+      "title": "移動通信",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "移動通信とは、端末の一方または双方が移動しながら行える無線通信の総称である。"
+    },
+    "monte-carlo-simulation": {
+      "title": "モンテカルロシミュレーション",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "モンテカルロシミュレーション（Monte Carlo Simulation）とは、乱数を用いた確率的試行を反復することで結果の統計的分布を導く手法である。"
+    },
+    "multi-factor-authentication": {
+      "title": "多要素認証",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "多要素認証（MFA: Multi-Factor Authentication）とは、本人確認のために異なる種類の認証要素を2つ以上組み合わせる認証方式である。"
+    },
+    "multi-objective-optimization": {
+      "title": "多目的最適化",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "多目的最適化（Multi-Objective Optimization）とは、相互にトレードオフの関係にある複数の目的関数を同時に最適化する手法である。"
+    },
+    "multi-track-hr-system": {
+      "title": "複線型人事制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "複線型人事制度とは、管理職コースに限らず、専門職コース等の複数のキャリアパスを設ける人事制度である。単一の管理職ラダー（単線型）では処遇できない専門人材の確保・活用を目的とする。"
+    },
+    "my-number-act": {
+      "title": "マイナンバー法",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "マイナンバー法（正式名称：行政手続における特定の個人を識別するための番号の利用等に関する法律）とは、国民一人ひとりに12桁の個人番号（マイナンバー）を付番し、社会保障・税・災害対策の分野で行政手続きの効率化と公正な給付・負担の確保を図る法律である（2013年制定、2016年運用開始）。"
+    },
+    "nagoya-protocol": {
+      "title": "名古屋議定書",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "名古屋議定書（Nagoya Protocol on Access and Benefit-sharing）とは、遺伝資源の取得の機会（Access）とその利用から生じる利益の公正かつ衡平な配分（Benefit-Sharing）に関する国際的なルールを定めた議定書である。"
+    },
+    "natech": {
+      "title": "自然災害に起因する産業事故",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "Natech（Natural Hazard Triggering Technological Disasters）とは、地震・津波・洪水等の自然災害が引き金となって発生する産業事故（火災・爆発・有害物質の漏洩等）の総称である。"
+    },
+    "national-resilience-act": {
+      "title": "国土強靱化基本法",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "国土強靱化基本法（強くしなやかな国民生活の実現を図るための防災・減災等に資する国土強靱化基本法）とは、大規模自然災害等に備え、事前防災・減災と迅速な復旧・復興に資する施策を総合的かつ計画的に推進するための法律である（2013年施行）。"
+    },
+    "natural-parks-act": {
+      "title": "自然公園法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "自然公園法は、すぐれた自然の風景地を保護するとともに、その利用の増進を図ることにより、国民の保健、休養及び教化に資することを目的として1957年（昭和32年）に制定された法律である。"
+    },
+    "nature-conservation-act": {
+      "title": "自然環境保全法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "自然環境保全法は、自然環境の保全に関する基本的事項を定め、自然環境の適正な保全を図ることを目的として1972年（昭和47年）に制定された法律である。"
+    },
+    "nature-positive": {
+      "title": "ネイチャーポジティブ",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ネイチャーポジティブ（Nature Positive）とは、2030年までに生物多様性の損失を止め、回復の軌道に乗せるという国際的な目標・概念である。"
+    },
+    "nature-restoration-act": {
+      "title": "自然再生推進法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "自然再生推進法は、過去に損なわれた生態系その他の自然環境を取り戻すことを目的とする自然再生に関する施策を総合的に推進するため、2002年（平成14年）に制定された法律である。"
+    },
+    "network-organization": {
+      "title": "ネットワーク組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ネットワーク組織（network organization）とは、特定の目的を共有する複数の主体が水平的で柔軟な結びつきによって協働する組織形態である。従来の部門や組織の壁を越えて自律的に協働することで、環境変化に対して柔軟な構造変革を実現する。"
+    },
+    "non-repudiation": {
+      "title": "否認防止",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "否認防止（Non-repudiation） とは、情報の送信・受信・操作を行った者が、後からその行為を否認できないようにする特性である。"
+    },
+    "nonconformity-rate": {
+      "title": "不適合品率／適合品率",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "不適合品率とは、検査したロットまたは工程から産出された製品のうち、規格・基準を満たさない不適合品の割合である。"
+    },
+    "normalcy-bias": {
+      "title": "正常性バイアス",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "正常性バイアス（Normalcy Bias）とは、異常な事態が発生しても「自分は大丈夫」「まだ正常の範囲内だ」と判断してしまう認知傾向である。"
+    },
+    "npv-net-present-value": {
+      "title": "NPV",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "NPV（Net Present Value：正味現在価値）とは、投資によって得られる将来のキャッシュフローの現在価値合計から、投資額を差し引いた値である。"
+    },
+    "nuclear-disaster-act": {
+      "title": "原子力災害対策特別措置法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "原子力災害対策特別措置法（原災法）は、原子力災害の特殊性に鑑み、原子力災害の予防、応急対策、事後対策について特別の措置を定めた法律である。"
+    },
+    "occupational-accident-prevention-plan": {
+      "title": "労働災害防止計画",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "労働災害防止計画とは、労働安全衛生法第6条に基づき、厚生労働大臣が策定する労働災害の防止に関する国の基本計画である。"
+    },
+    "occupational-disease": {
+      "title": "職業病",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "職業病（職業性疾病）とは、業務に起因して発生する疾病の総称である。特定の作業環境や作業条件に長期間さらされることで発症する。"
+    },
+    "occupational-safety-act": {
+      "title": "労働安全衛生法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働安全衛生法（昭和47年法律第57号）は、職場における労働者の安全と健康を確保するとともに、快適な職場環境の形成を促進することを目的とする法律である（第1条）。"
+    },
+    "ocean-plastic": {
+      "title": "海洋プラスチック問題",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "海洋プラスチック問題 とは、海洋に流出したプラスチックごみが生態系や人間の健康に深刻な影響を及ぼしている環境問題である。"
+    },
+    "ojt-off-jt": {
+      "title": "OJT/OFF-JT",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "OJT（On the Job Training）とは職場内で実務を通じて行う教育訓練、OFF-JT（Off the Job Training）とは職場を離れて行う集合研修や講習等の教育訓練である。"
+    },
+    "online-meetings": {
+      "title": "オンライン会議・Web会議",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "オンライン会議（Web会議） とは、インターネットを介して遠隔地の参加者がリアルタイムで映像・音声・資料を共有しながら会議を行う形態のことである。PC・タブレット・スマートフォンから参加可能で、場所を問わないコミュニケーションを実現する。"
+    },
+    "operation-errors": {
+      "title": "オペレーションミス",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "オペレーションミスとは、情報システムの利用者や管理者が、操作・判断を誤ることによって情報漏洩やシステム障害を引き起こすセキュリティ上の脅威である。"
+    },
+    "opportunity-cost": {
+      "title": "機会損失",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "機会損失（Opportunity Cost：機会費用）とは、ある選択をしたことにより、選ばなかった代替案から得られたであろう最大の利益のことである。"
+    },
+    "opt-in-opt-out": {
+      "title": "オプトイン／オプトアウト",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "オプトイン（Opt-in） とは、個人情報の利用や第三者提供について、事前に本人の同意を得る方式をいう。"
+    },
+    "optimism-bias": {
+      "title": "楽観主義バイアス",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "楽観主義バイアス（Optimism Bias）とは、物事の明るい側面を見ようとし、自分にとって好ましくない事象が起こる可能性を過小に評価する傾向である。"
+    },
+    "organizational-commitment": {
+      "title": "組織コミットメント",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "組織コミットメント（Organizational Commitment） とは、個人が所属組織に対して抱く心理的な結びつき・一体感・愛着の程度を表す概念である。"
+    },
+    "osh-management-system": {
+      "title": "労働安全衛生管理システム",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "労働安全衛生管理システムとは、事業場における安全衛生管理を体系的・組織的に実施するための仕組みの総称である。"
+    },
+    "oshms": {
+      "title": "労働安全衛生マネジメントシステム",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "OSHMS（Occupational Safety and Health Management System）とは、事業場における安全衛生水準の向上を継続的に図るための体系的な管理の仕組みである。"
+    },
+    "outcome-indicators": {
+      "title": "アウトカム指標",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "アウトカム指標（Outcome Indicator）とは、事業・施策の実施によってもたらされる最終的な成果・効果を測定する指標である。"
+    },
+    "output-indicators": {
+      "title": "アウトプット指標",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "アウトプット指標（Output Indicator）とは、事業・施策の活動によって直接的に産み出される成果物の量・件数を測定する指標である。"
+    },
+    "overall-equipment-effectiveness": {
+      "title": "設備総合効率",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "設備総合効率（OEE: Overall Equipment Effectiveness）とは、設備がどれだけ有効に活用されているかを総合的に評価する指標である。"
+    },
+    "ozone-layer-protection": {
+      "title": "オゾン層保護",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": ""
+    },
+    "parallel-system": {
+      "title": "並列システム",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "並列システムとは、構成要素のうち少なくとも1つが正常に機能していればシステム全体が機能する構成である。すべての要素が故障した場合にのみシステムが停止する。"
+    },
+    "parametric-estimation": {
+      "title": "パラメトリック見積り",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "パラメトリック見積り（Parametric Estimation）とは、過去の実績データから導出した統計的パラメータ（単価・生産性係数等）を用いてコスト・工期・工数を算出する見積り手法である。日本語では係数見積りとも呼ばれる。"
+    },
+    "part-time-fixed-term-act": {
+      "title": "パートタイム・有期雇用労働法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "パートタイム・有期雇用労働法（正式名称：短時間労働者及び有期雇用労働者の雇用管理の改善等に関する法律）は、パートタイム労働者と有期雇用労働者の公正な待遇の確保を目的とする法律である。"
+    },
+    "partnership": {
+      "title": "パートナーシップ",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "環境保全におけるパートナーシップとは、行政・事業者・市民・NPO等の多様な主体が対等な立場で連携・協働し、環境問題の解決に取り組む関係である。"
+    },
+    "password-security": {
+      "title": "パスワード強化",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "パスワード強化とは、情報システムへの不正アクセスを防止するために、パスワードの設定・管理・運用に関するセキュリティレベルを向上させる取り組みの総称である。"
+    },
+    "patent-rights": {
+      "title": "特許権",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "特許権 とは、発明（自然法則を利用した技術的思想の創作のうち高度なもの）を一定期間独占的に実施できる権利である。"
+    },
+    "payback-period-method": {
+      "title": "回収期間法",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "回収期間法（Payback Period Method）とは、投資額を将来のキャッシュフローで回収するまでに要する期間を算出し、期間の長短で投資の可否を判断する手法である。"
+    },
+    "pdca-cycle": {
+      "title": "PDCAサイクル",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "経済性管理",
+        "キーワード",
+        "技術士（総合技術監理部門）"
+      ],
+      "definition": "継続的改善を実現するための循環型マネジメント手法。Plan（計画）→ Do（実行）→ Check（検証）→ Act（改善）の4段階を繰り返す。"
+    },
+    "pdpc-method": {
+      "title": "過程決定計画図",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "PDPC法（Process Decision Program Chart：過程決定計画図）とは、事態の進展とともに起こりうる問題を事前に予測し、それに対する対策をあらかじめ計画しておく手法である。"
+    },
+    "pension-system": {
+      "title": "年金制度",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "年金制度とは、老齢・障害・死亡といった事由により所得が減少・喪失した場合に、生活の安定を図るために定期的に給付を行う社会保障制度である。"
+    },
+    "performance-based-pay": {
+      "title": "成果主義賃金",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "成果主義賃金とは、従業員の業績・成果に基づいて賃金を決定する賃金制度である。"
+    },
+    "performance-evaluation": {
+      "title": "業績考課",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "業績考課（成績考課）とは、一定期間における職務上の成果・業績を評価する人事考課の一分野である。"
+    },
+    "performance-linked-bonus": {
+      "title": "業績連動型賞与制度",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "業績連動型賞与制度とは、企業や部門の業績に連動して賞与（ボーナス）の支給額を決定する制度である。"
+    },
+    "performance-regulation": {
+      "title": "パフォーマンス規制",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "パフォーマンス規制とは、達成すべき環境基準や排出基準等の結果（パフォーマンス）を規制し、達成手段は事業者の裁量に委ねる規制手法である。"
+    },
+    "performance-shaping-factors": {
+      "title": "行動形成要因",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "PSF（Performance Shaping Factors：行動形成要因）とは、ヒューマンエラーの発生確率を増減させる要因の総称である。人間のパフォーマンスに影響を与える内的・外的な条件を体系的に捉えた概念である。"
+    },
+    "periodic-inspection": {
+      "title": "定期点検活動",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "定期点検活動とは、機械・設備・施設の安全性と機能を維持するため、あらかじめ定めた周期・項目に基づいて計画的に実施する点検活動である。"
+    },
+    "periodic-maintenance": {
+      "title": "定期保全",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "定期保全とは、あらかじめ定めた時間間隔や使用量に基づいて計画的に実施する保全活動である。"
+    },
+    "personal-communication": {
+      "title": "パーソナル・コミュニケーション",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "パーソナル・コミュニケーション（Personal Communication）とは、個人対個人または少人数間で行われる直接的なコミュニケーション形態のことである。対面での会話、電話、手紙、メール等を含み、マス・コミュニケーション（不特定多数への大量伝達）と対比される。"
+    },
+    "personal-info-protection": {
+      "title": "個人情報の保護措置",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "個人情報の保護措置とは、個人情報取扱事業者が個人データの漏洩・滅失・毀損の防止その他の安全管理のために講ずべき措置の総称である（個人情報保護法第23条）。"
+    },
+    "personal-info-utilization": {
+      "title": "個人情報の活用・流通",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "個人情報の活用・流通とは、個人の権利利益を保護しながらパーソナルデータを社会的に有効活用するための制度・基盤の総称である。"
+    },
+    "personal-information": {
+      "title": "個人情報",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "個人情報とは、生存する個人に関する情報であって、当該情報に含まれる氏名・生年月日その他の記述等により特定の個人を識別することができるもの、または個人識別符号が含まれるものをいう（個人情報保護法第2条第1項）。"
+    },
+    "personnel-management": {
+      "title": "人事管理",
+      "section": "3.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "人事管理とは、組織の目標達成に向けて、人材の採用・配置・評価・処遇・育成・退職に至る一連のプロセスを管理することである。"
+    },
+    "pert-cpm": {
+      "title": "PERT/CPM",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "- PERT（Program Evaluation and Review Technique）：作業時間に確率的変動を考慮したネットワーク手法"
+    },
+    "pfi": {
+      "title": "PFI",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "経済性管理",
+        "キーワード",
+        "技術士（総合技術監理部門）"
+      ],
+      "definition": "PFI（Private Finance Initiative：民間資金等活用事業）とは、公共施設等の建設・維持管理・運営を民間の資金・経営能力・技術的能力を活用して行う事業方式である。1999年に民間資金等の活用による公共施設等の整備等の促進に関する法律（PFI法）が制定され、制度的基盤が整えられた。"
+    },
+    "pha": {
+      "title": "PHA",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "PHA（Preliminary Hazard Analysis：予備ハザード分析）とは、システムの設計・計画の初期段階で、潜在的なハザードを概略的に特定・評価する手法である。"
+    },
+    "phishing-pharming": {
+      "title": "フィッシング詐欺・ファーミング詐欺",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "フィッシング詐欺（Phishing） とは、実在する組織（銀行、ECサイト、行政機関等）を装った偽のメールやWebサイトを用いて、利用者のID・パスワード・クレジットカード情報等を騙し取る詐欺行為である。"
+    },
+    "planetary-boundaries": {
+      "title": "プラネタリー・バウンダリー",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "プラネタリー・バウンダリー（Planetary Boundaries）は、2009年にスウェーデンのストックホルム・レジリエンス・センターのヨハン・ロックストロームらが提唱した、地球システムの安定性を維持するための「安全な活動空間（Safe Operating Space）」を定義する概念的枠組みである。"
+    },
+    "planned-usage-period": {
+      "title": "使用計画期間",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "使用計画期間とは、設備を取得してから計画的に使用する期間のことである。"
+    },
+    "pm-theory": {
+      "title": "PM理論",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "PM理論とは、九州大学の心理学者・三隅二不二（みすみ じふじ、1924–2002）が提唱したリーダーシップ理論である。"
+    },
+    "pmbok": {
+      "title": "PMBOK",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "PMBOK（Project Management Body of Knowledge）とは、PMI（米国プロジェクトマネジメント協会）が策定したプロジェクトマネジメントの知識体系ガイドである。"
+    },
+    "polluter-pays-principle": {
+      "title": "汚染者負担原則",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "汚染者負担原則（PPP: Polluter Pays Principle）とは、環境汚染の防止・除去に要する費用は、汚染の原因者（汚染者）が負担すべきとする原則である。1972年にOECDが勧告した。"
+    },
+    "pollution-control-manager": {
+      "title": "公害防止管理者",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "公害防止管理者とは、「特定工場における公害防止組織の整備に関する法律」に基づき、特定工場に選任が義務づけられた公害防止の技術的管理者である。"
+    },
+    "pops-convention": {
+      "title": "POPs条約",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "POPs条約（ストックホルム条約）は、残留性有機汚染物質（Persistent Organic Pollutants: POPs）の製造・使用の禁止又は制限、非意図的生成物質の排出削減、及びPOPs含有廃棄物の適正管理を定めた国際条約である。"
+    },
+    "portrait-publicity-privacy": {
+      "title": "肖像権・パブリシティ権・プライバシー権",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "肖像権・パブリシティ権・プライバシー権 は、いずれも人格的利益を保護する権利であるが、保護の対象と法的根拠が異なる。"
+    },
+    "positive-action": {
+      "title": "ポジティブアクション",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ポジティブアクション（積極的改善措置） とは、社会的・構造的な差別により不利な状況に置かれている集団（女性、障害者、マイノリティ等）に対して、格差を是正するために積極的に取る措置のことである。男女雇用機会均等法第8条で、女性労働者に対するポジティブアクションは法的に認められている。"
+    },
+    "power-harassment": {
+      "title": "パワーハラスメント",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "パワーハラスメント（パワハラ）とは、職場において行われる、優越的な関係を背景とした言動であって、業務上必要かつ相当な範囲を超えたものにより、労働者の就業環境が害されるものをいう。"
+    },
+    "ppm-analysis": {
+      "title": "PPM分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "PPM（Product Portfolio Management）分析とは、ボストン・コンサルティング・グループ（BCG）が1970年代に開発した経営戦略フレームワークである。"
+    },
+    "pqcdsme": {
+      "title": "PQCDSME",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "PQCDSMEとは、生産管理における7つの管理指標の頭文字を取った総合評価の枠組みであり、工場・現場管理の多面的な評価に用いられる。"
+    },
+    "precautionary-principle": {
+      "title": "予防原則",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "予防原則（Precautionary Principle）とは、科学的な因果関係が十分に証明されていない段階でも、深刻かつ不可逆的な環境被害のおそれがある場合には、予防的措置を講じるべきとする原則である。"
+    },
+    "predictive-maintenance": {
+      "title": "予知保全",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "予知保全とは、設備の状態を常時または定期的に監視し、劣化の兆候を検知した時点で保全を実施する方式である。"
+    },
+    "present-annual-future-value": {
+      "title": "現価・年価・終価",
+      "section": "2.7",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "現価・年価・終価とは、貨幣の時間的価値 を考慮して異なる時点の金額を同一時点に換算するための 3 つの基本概念である。現在の 100 万円と将来の 100 万円は等価ではなく、現在の資金は運用することで将来より大きな価値を生むため、投資判断・設備更新判断では金額を同一時点に揃えて比較する必要がある。"
+    },
+    "prevention-activities": {
+      "title": "未然防止活動",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "未然防止活動とは、事故や災害が発生する前に、その原因となる危険要因を特定・除去・低減する体系的な活動である。"
+    },
+    "prevention-principle": {
+      "title": "未然防止原則",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "未然防止原則（Prevention Principle）とは、科学的に因果関係が判明している環境被害について、被害が発生する前に予防的な対策を講じるべきとする原則である。"
+    },
+    "preventive-maintenance": {
+      "title": "予防保全",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "予防保全とは、設備の故障や性能低下を未然に防止するために、計画的に実施する保全活動の総称である。"
+    },
+    "prior-use-rights": {
+      "title": "先使用権制度",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "先使用権（せんしようけん） とは、他人の特許出願の前から独自にその発明を実施又は実施の準備をしていた者が、特許権者の許諾なく引き続きその発明を実施できる権利である。"
+    },
+    "privacy-mark": {
+      "title": "プライバシーマーク",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "プライバシーマーク（Pマーク）とは、個人情報の保護体制が適切に整備されている事業者に対して、一般財団法人日本情報経済社会推進協会（JIPDEC）が付与する第三者認証制度である。"
+    },
+    "private-monopoly": {
+      "title": "私的独占",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "私的独占とは、事業者が単独または他の事業者と結合・通謀等により、他の事業者の事業活動を排除し、または支配することにより、公共の利益に反して一定の取引分野における競争を実質的に制限することをいう（独占禁止法第2条第5項）。"
+    },
+    "probabilistic-risk-assessment": {
+      "title": "確率論的リスク評価",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "確率論的リスク評価（PRA: Probabilistic Risk Assessment）とは、事故・災害の発生確率と被害の大きさを定量的に評価し、リスクの全体像を把握する手法である。"
+    },
+    "problem-setting-ability": {
+      "title": "課題設定能力",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "課題設定能力とは、現状と理想の間のギャップを認識し、解決すべき課題を適切に定義・設定する能力である。"
+    },
+    "problem-solving-ability": {
+      "title": "問題解決能力",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "問題解決能力とは、発生した問題や設定された課題に対し、原因を分析し適切な解決策を立案・実行する能力である。"
+    },
+    "process-capability-index": {
+      "title": "工程能力指数",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "工程能力指数（Process Capability Index）とは、規格内で製品を生産する工程の能力を定量化する指標である。"
+    },
+    "process-costing": {
+      "title": "総合原価計算",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "総合原価計算（Process Costing）とは、一定期間に発生した製造原価を、同期間の生産量で除して製品1単位あたりの原価を算出する原価計算方式であり、大量生産・連続生産に適用される。"
+    },
+    "process-planning-construction": {
+      "title": "工程計画",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "工程計画（Process Scheduling） とは、工事や生産活動の各作業の順序・期間・資源配分を体系的に策定し、全体工期内に完成させるためのスケジュールを策定する計画活動である。工程管理の基盤であり、資源配分・コスト管理の前提となる。"
+    },
+    "process-safety-mgmt": {
+      "title": "プロセスセーフティマネジメント",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "プロセスセーフティマネジメント（PSM：Process Safety Management） とは、化学プラント・石油精製施設等のプロセス産業において、有害物質の漏洩・火災・爆発等の重大事故を防止するための体系的な管理手法である。1984 年のボパール事故を契機に、米国 OSHA が 1992 年に PSM 規則を制定した。"
+    },
+    "product-liability": {
+      "title": "製造物責任",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "製造物責任（PL: Product Liability）とは、製造物の欠陥により人の生命・身体・財産に被害が生じた場合に、製造者が損害賠償責任を負う法的責任である。"
+    },
+    "product-liability-act": {
+      "title": "製造物責任法",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "製造物責任法（PL法：Product Liability Act） は、製造物の欠陥により人の生命・身体・財産に被害が生じた場合に、製造業者等の損害賠償責任を定める法律である（1994 年制定、1995 年施行）。過失の証明を不要とする無過失責任（欠陥責任） を採用している。"
+    },
+    "product-safety": {
+      "title": "製品安全",
+      "section": "2.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "製品安全（Product Safety） とは、製品が通常の使用状態で消費者の生命・身体・財産に危害を及ぼさないよう安全性を確保することである。設計・製造から販売・使用・廃棄に至るライフサイクル全体で安全を管理する体系的な取組みであり、事前規制（マーク制度）と事後救済（賠償責任）の両面から制度化されている。"
+    },
+    "production-management-system": {
+      "title": "生産管理システム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "生産管理システムとは、製造業における生産計画・資材調達・工程管理・品質管理・原価管理などの生産活動全般を支援する情報システムである。"
+    },
+    "progress-management": {
+      "title": "進捗管理",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "進捗管理（Progress Management）とは、工程計画に対する作業の進み具合を把握し、計画と実績の差異を是正する 管理活動である。"
+    },
+    "prtr-act": {
+      "title": "化管法／PRTR法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "化管法（正式名称：特定化学物質の環境への排出量の把握等及び管理の改善の促進に関する法律）は、事業者による化学物質の自主的な管理改善を促進するための法律である。"
+    },
+    "psychological-safety": {
+      "title": "心理的安全性",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "心理的安全性（Psychological Safety） とは、チームの中で対人関係上のリスクをとっても安全であるという共有された信念のことである。"
+    },
+    "public-acceptance": {
+      "title": "社会的受容",
+      "section": "5.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "社会的受容（PA: Public Acceptance） とは、科学技術や施設・事業等に対して、社会（一般市民・地域住民）がそのリスクを理解した上で受け入れることである。"
+    },
+    "public-private-data-act": {
+      "title": "官民データ活用推進基本法",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "官民データ活用推進基本法（平成28年法律第103号）は、官民データ（国・地方公共団体・独立行政法人および民間事業者が保有するデータ）の適正かつ効果的な活用を推進するための基本的な枠組みを定めた法律である。"
+    },
+    "public-relations": {
+      "title": "パブリック・リレーションズ",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "パブリック・リレーションズ（PR：Public Relations）とは、組織と公衆（ステークホルダー）との間に相互理解と良好な関係を構築・維持するための戦略的なコミュニケーション活動のことである。一方的な宣伝（プロパガンダ）とは異なり、双方向のコミュニケーションを重視する。"
+    },
+    "public-safety": {
+      "title": "公衆安全",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "公衆安全（Public Safety） とは、社会一般の人々（公衆）の生命・健康・財産を危害から守ることである。技術者倫理において「公衆の安全・健康・福利を最優先する」は最も基本的な義務とされ、技術士法や各種倫理綱領で明文化されている。"
+    },
+    "pull-production": {
+      "title": "プル型生産方式",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "プル型生産方式（Pull Production System）とは、後工程の要求（実需）に基づいて前工程が必要な量だけ生産する方式である。"
+    },
+    "push-production": {
+      "title": "プッシュ型生産方式",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "プッシュ型生産方式（Push Production System）とは、需要予測に基づいて生産計画を立て、前工程から後工程へ製品を押し出す方式である。"
+    },
+    "pyramid-organization": {
+      "title": "ピラミッド組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ピラミッド組織（pyramid organization）とは、トップを頂点として複数の管理階層が順に広がる階層型の組織構造である。"
+    },
+    "qc-circle": {
+      "title": "QCサークル",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "QCサークル（Quality Control Circle）とは、同じ職場の少人数グループが自主的・継続的に品質管理・改善活動を行う小集団活動である。"
+    },
+    "quality-assurance": {
+      "title": "品質保証",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質保証（QA: Quality Assurance）とは、品質要求事項が満たされるという確信を与えることに焦点を合わせた品質マネジメントの一部である。"
+    },
+    "quality-characteristics": {
+      "title": "品質特性",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質特性（Quality Characteristic）とは、製品・サービスに本来備わっている特性 のうち、品質に関する要求事項と比較・評価の対象となるものである。強度・寸法・外観・耐久性など、品質を数値や等級で表現するための指標を指す。"
+    },
+    "quality-control": {
+      "title": "品質管理",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質管理（QC: Quality Control）とは、品質要求事項を満たすことに焦点を合わせた品質マネジメントの一部である。"
+    },
+    "quality-costing": {
+      "title": "品質原価計算",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質原価計算（Quality Costing / Cost of Quality）とは、品質に関連するコストをPAF分類で体系的に把握し、品質管理活動の経済性を評価する手法である。"
+    },
+    "quality-improvement": {
+      "title": "品質改善活動",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質改善活動（Quality Improvement）とは、品質要求事項を満たす能力を高める ことに焦点を合わせた品質マネジメントの一部である。現状の品質水準に満足せず、継続的に改善を推進する組織的活動を指す。"
+    },
+    "quality-objectives": {
+      "title": "品質目標",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質目標（Quality Objective）とは、品質方針と整合し、組織の関連する機能・階層で設定される測定可能な品質に関する達成目標である。"
+    },
+    "quality-planning": {
+      "title": "品質計画",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質計画（Quality Planning）とは、品質目標を設定し、その目標を達成するために必要なプロセス・資源を規定する活動である。"
+    },
+    "quality-policy": {
+      "title": "品質方針",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "品質方針（Quality Policy）とは、組織のトップマネジメントが正式に表明する、品質に関する全体的な意図及び方向づけである。"
+    },
+    "radioactive-decontamination-act": {
+      "title": "放射性物質汚染対処特別措置法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "放射性物質汚染対処特別措置法（放射性物質汚染対処特措法）は、2011年の福島第一原子力発電所事故により放出された放射性物質による環境汚染への対処に関し、必要な特別措置を定めた法律である。"
+    },
+    "radioactive-waste": {
+      "title": "放射性廃棄物",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "放射性廃棄物とは、原子力発電所の運転・廃炉、核燃料の再処理、放射性同位元素の利用等に伴い発生する放射性物質を含む廃棄物の総称である。"
+    },
+    "ramsar-convention": {
+      "title": "ラムサール条約",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ラムサール条約（正式名称：特に水鳥の生息地として国際的に重要な湿地に関する条約）は、1971年にイランのラムサールで採択された、湿地の保全と賢明な利用（ワイズユース）を目的とする国際条約である。"
+    },
+    "reach-regulation": {
+      "title": "REACH規制",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "REACH規制（Registration, Evaluation, Authorisation and Restriction of Chemicals）は、EUにおける化学品の登録・評価・認可・制限に関する統合的な規則であり、2007年6月に施行された。"
+    },
+    "recommendation-systems": {
+      "title": "情報推薦",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "情報推薦（レコメンドシステム）とは、利用者の過去の行動履歴や嗜好データに基づいて、その利用者にとって有用と推定される情報や商品を自動的に提案する仕組みである。"
+    },
+    "recruitment-management": {
+      "title": "採用管理",
+      "section": "3.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "採用管理とは、組織が必要とする人材を計画的に確保するための一連の活動を管理することである。"
+    },
+    "red-list": {
+      "title": "レッドリスト",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "レッドリストとは、絶滅のおそれのある野生生物の種をリストアップし、その危険度を評価・分類したものである。"
+    },
+    "redundancy-safety": {
+      "title": "冗長性",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "冗長性（Redundancy）とは、システムの構成要素を多重化し、一部が故障しても他の要素が機能を代替することで、システム全体の信頼性を向上させる設計手法である。"
+    },
+    "reemployment-system": {
+      "title": "再雇用制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "再雇用制度とは、定年に達した従業員を一旦退職させた上で、新たな労働条件で再び雇用する制度である。高年齢者雇用安定法（高年齢者等の雇用の安定等に関する法律）に基づく継続雇用制度の最も一般的な形態であり、約8割の企業が採用している。"
+    },
+    "regional-circular-symbiosis": {
+      "title": "地域循環共生圏",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "地域循環共生圏 とは、各地域が固有の資源（自然・物質・人材・資金）を最大限に活用しながら、地域間で補完し合うことで、環境・経済・社会の統合的向上を実現する概念である。"
+    },
+    "relative-absolute-evaluation": {
+      "title": "相対評価・絶対評価",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "相対評価とは集団内での順位や分布に基づいて評価する方法、絶対評価とはあらかじめ設定した基準に基づいて個人の達成度を評価する方法である。"
+    },
+    "reliability-block-diagram": {
+      "title": "信頼性ブロック図",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "信頼性ブロック図（RBD：Reliability Block Diagram）とは、システムの構成要素間の信頼性上の関係を、ブロックとその接続で視覚的に表現する図である。"
+    },
+    "reliability-maintainability-design": {
+      "title": "信頼性設計・保全性設計",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "信頼性設計（Reliability Design）とは、システム・機器が規定条件下で意図する機能を果たす確率を高めるための設計手法である。"
+    },
+    "replacement-cost": {
+      "title": "取替費用",
+      "section": "2.6",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "取替費用とは、既存設備を新しい設備に取り替える際に発生する費用のことである。"
+    },
+    "required-quality": {
+      "title": "要求品質",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "要求品質（Required Quality）とは、顧客が製品・サービスに対して求める品質ニーズを体系的に整理したものである。"
+    },
+    "residual-risk": {
+      "title": "残留リスク",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "残留リスク（Residual Risk）とは、リスク対応を実施した後に残るリスクである。"
+    },
+    "resilience": {
+      "title": "レジリエンス",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "レジリエンス（Resilience） とは、システム・組織・社会が外的な衝撃やストレスを受けた際に、その機能を維持し、または速やかに回復する能力のことである。元来は物理学（弾性）や心理学（精神的回復力）の用語であったが、安全工学・防災・社会インフラ等で広く使われるようになった。"
+    },
+    "reskilling": {
+      "title": "リスキリング",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスキリング（Reskilling）とは、技術革新や産業構造の変化に対応するため、新たな分野のスキルや知識を習得することである。特にDX（デジタルトランスフォーメーション）推進に伴い注目されている。"
+    },
+    "return-to-work-support": {
+      "title": "職場復帰支援",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職場復帰支援とは、メンタルヘルス不調等により休業した労働者が円滑に職場復帰し、就労を継続できるよう組織的に支援する取組をいう。"
+    },
+    "right-to-know": {
+      "title": "知る権利",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "知る権利（Right to Know）とは、国民が行政機関や企業が保有する情報にアクセスし、公的な意思決定の過程や結果を知ることができる権利のことである。民主主義社会の基盤であり、行政の透明性と説明責任（アカウンタビリティ）を支える。"
+    },
+    "rio-declaration": {
+      "title": "環境と開発に関するリオ宣言",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "環境と開発に関するリオ宣言（Rio Declaration on Environment and Development）は、1992年の地球サミット（UNCED）で採択された、持続可能な開発に関する27の原則を定めた国際宣言である。"
+    },
+    "risk": {
+      "title": "リスク",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスク（Risk）とは、目的に対する不確かさの影響である（JIS Q 31000:2019）。"
+    },
+    "risk-analysis": {
+      "title": "リスク分析",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスク分析（Risk Analysis）とは、リスクの特質を理解し、リスクレベルを決定するプロセスである（JIS Q 31000:2019）。"
+    },
+    "risk-assessment": {
+      "title": "リスク評価",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "リスク評価 は、JIS Q 31000（ISO 31000）の枠組みで、次の2つの意味で使われる（Risk Assessment / Risk Evaluation）。"
+    },
+    "risk-criteria": {
+      "title": "リスク基準",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスク基準（Risk Criteria）とは、リスクの重大性を評価するための目安であり、リスクの許容可否を判断するための基準である（JIS Q 31000:2019）。"
+    },
+    "risk-identification": {
+      "title": "リスク特定",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスク特定（Risk Identification）とは、リスクを発見、認識及び記述するプロセスである（JIS Q 31000:2019）。"
+    },
+    "risk-management-plan": {
+      "title": "リスクマネジメント計画",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスクマネジメント計画とは、リスクマネジメントの枠組みの中で、具体的な活動・手順・資源・スケジュールを定めた計画である。"
+    },
+    "risk-management-policy": {
+      "title": "リスクマネジメント方針",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスクマネジメント方針（Risk Management Policy）とは、リスクマネジメントに関する組織の意図及び方向付けを、トップマネジメントが正式に表明したものである。"
+    },
+    "risk-management-system": {
+      "title": "リスクマネジメントシステム",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスクマネジメントシステムとは、リスクマネジメントに関する方針・手順・実践を組織的に運用するための枠組みである。"
+    },
+    "risk-map-matrix": {
+      "title": "リスクマップ／リスクマトリクス",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスクマップ（Risk Map）／リスクマトリクス（Risk Matrix）とは、リスクを「起こりやすさ」と「影響の大きさ」の2軸で整理し、視覚的に表現するツールである。"
+    },
+    "risk-monitoring": {
+      "title": "リスクモニタリング",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "リスクモニタリング（Risk Monitoring）とは、リスクマネジメントプロセスの全段階にわたって、リスクの状態を継続的に観察・監視し、必要に応じて是正を行うことである。"
+    },
+    "risk-perception": {
+      "title": "リスク認知",
+      "section": "5.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "リスク認知（Risk Perception）とは、個人や集団がリスクの大きさや性質について主観的に認識・判断することである。"
+    },
+    "risk-treatment": {
+      "title": "リスク対応",
+      "section": "5.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "リスク対応（Risk Treatment）とは、リスクを修正するプロセスである（JIS Q 31000:2019）。"
+    },
+    "rohs-weee": {
+      "title": "RoHS規制・WEEE規制",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "RoHS指令（Restriction of Hazardous Substances Directive）は、電気電子機器に含まれる特定有害物質の使用を制限するEU指令であり、2006年7月に施行された。"
+    },
+    "role-grade-system": {
+      "title": "役割等級制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "役割等級制度（ミッショングレード制） とは、各ポジションに期待される役割（ミッション）の大きさに基づいて等級を設定する制度である。職能資格制度（人の能力基準）と職務等級制度（職務の価値基準）の折衷として、日本企業で近年急速に普及している。"
+    },
+    "root-cause-analysis": {
+      "title": "根本原因分析",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "RCA（Root Cause Analysis：根本原因分析）とは、事故・トラブルの表面的な原因ではなく、根本的な原因（Root Cause）を特定し、再発防止策を立案するための体系的な分析手法である。"
+    },
+    "rpa": {
+      "title": "RPA",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "RPAとは、人間がパソコン上で行う定型的な業務操作を、ソフトウェアロボットによって自動化する技術である。"
+    },
+    "safety-2-0": {
+      "title": "Safety2.0",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "Safety 2.0（協調安全） とは、人・モノ・環境がICT（IoT・AI等）を活用して情報を共有・協調し、安全を確保する新しい安全の概念である。日本発の安全コンセプトとして、セーフティグローバル推進機構（IGSAP）が提唱した。"
+    },
+    "safety-and-security": {
+      "title": "安全／安心",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": ""
+    },
+    "safety-case": {
+      "title": "セーフティケース",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "セーフティケース（Safety Case）とは、システムや施設が十分に安全であることを、根拠（エビデンス）と論証（アーギュメント）によって体系的に示す文書体系である。"
+    },
+    "safety-confirmation-system": {
+      "title": "安全確認型システム・危険検出型システム",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "安全確認型システムとは、安全であることを確認できた場合にのみ機械の運転を許可するシステムである。危険検出型システムとは、危険を検出した場合に機械を停止させるシステムである。"
+    },
+    "safety-control": {
+      "title": "安全管理",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "安全管理とは、人の生命・健康・財産を危害から守るために、リスクを特定・評価し、適切な対策を講じて受容可能なレベルにコントロールする体系的な活動のことである。総合技術監理の5管理（経済性・人的資源・情報・安全・社会環境）の1つである。"
+    },
+    "safety-culture": {
+      "title": "安全文化",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "安全文化（Safety Culture） とは、安全に関する問題に対して、最優先で臨む組織および個人の態度や特性の集合体のことである。1986年のチェルノブイリ原発事故後、IAEA（国際原子力機関）がINSAG-4報告書（1991年）で提唱した概念である。"
+    },
+    "safety-education": {
+      "title": "安全教育",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "安全教育とは、労働者が安全に作業を行うために必要な知識・技能・態度を習得させる教育訓練である。"
+    },
+    "safety-health-education": {
+      "title": "安全衛生教育",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "安全衛生教育とは、労働安全衛生法に基づき、事業者が労働者に対して実施する安全衛生に関する教育・訓練の総称である。"
+    },
+    "safety-health-org-structure": {
+      "title": "安全衛生管理体制",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "安全衛生管理体制とは、労働安全衛生法に基づき、事業場における安全衛生に関する管理者等の選任と組織体制の整備を行う仕組みである。"
+    },
+    "safety-health-plan": {
+      "title": "安全衛生計画",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "安全衛生計画 とは、建設工事における労働災害の防止と作業員の健康確保を目的として、安全管理体制・危険有害要因の対策・教育訓練等を事前に定める計画のことである。労働安全衛生法および関連法令に基づいて策定する。"
+    },
+    "safety-health-policy": {
+      "title": "安全衛生方針",
+      "section": "5.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "安全衛生方針とは、事業者が労働安全衛生に関する基本的な考え方と取組の方向性を示した宣言である。"
+    },
+    "safety-instrumented-system": {
+      "title": "安全計装システム",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "安全計装システム（SIS: Safety Instrumented System）とは、プロセスが危険な状態に達した際に、自動的に安全な状態に移行させるための計装システムである。"
+    },
+    "safety-investment": {
+      "title": "安全投資",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "安全投資とは、事故・災害の防止を目的として組織が投じる経営資源（資金・人員・時間・設備等）のことである。安全投資は直接的な利益を生まないが、事故発生時の損失（人的・物的・社会的）を回避するための不可欠な投資である。"
+    },
+    "safety-management-system": {
+      "title": "安全マネジメントシステム",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "安全マネジメントシステム（SMS：Safety Management System） とは、組織の安全に関する方針・目標・計画・実施・評価・改善をPDCAサイクルで体系的に管理する仕組みである。ISO 45001（労働安全衛生）やICAO（航空）のSMS等、分野ごとに規格・基準が存在する。"
+    },
+    "safety-objectives": {
+      "title": "安全目標",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "安全目標（Safety Objective/Safety Target） とは、組織が達成すべき安全の水準を具体的に示したものである。安全方針に基づいて設定され、リスクアセスメントの判断基準（リスク基準）としても機能する。"
+    },
+    "safety-patrol": {
+      "title": "安全衛生パトロール",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "安全衛生パトロール（Safety Patrol）とは、潜在的な危険要因を発見し是正する巡視活動 である。発見した不安全状態・不安全行動を記録し、作業方法や設備の改善につなげることで、災害の未然防止を図る。"
+    },
+    "sales-management-system": {
+      "title": "販売管理システム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "販売管理システムとは、企業の販売活動に関わる業務プロセス（見積・受注・出荷・売上計上・請求・回収）を一元管理する情報システムである。"
+    },
+    "satoyama-initiative": {
+      "title": "SATOYAMAイニシアティブ",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "SATOYAMAイニシアティブ（Satoyama Initiative）とは、里山・里海のような人間活動と自然が長期にわたり相互作用してきた二次的自然環境（SEPLS: Socio-Ecological Production Landscapes and Seascapes）の持続可能な利用と管理を推進する国際的取組みである。"
+    },
+    "scientific-management": {
+      "title": "テイラーの科学的管理法",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "科学的管理法とは、アメリカの機械技師フレデリック・W・テイラー（Frederick W. Taylor, 1856--1915）が20世紀初頭に提唱した経営管理手法である。"
+    },
+    "scm-system": {
+      "title": "サプライチェーンマネジメントシステム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "SCM（Supply Chain Management: サプライチェーンマネジメント）システムとは、原材料の調達から製造・物流・販売・顧客への納品に至るサプライチェーン全体を統合的に管理し、全体最適を実現する情報システムである。"
+    },
+    "sdgs": {
+      "title": "持続可能な開発目標",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "持続可能な開発目標（Sustainable Development Goals: SDGs）は、2015年9月の国連サミットで採択された「持続可能な開発のための2030アジェンダ」に掲げられた、2030年までに達成すべき17の国際目標である。"
+    },
+    "second-career": {
+      "title": "セカンドキャリア",
+      "section": "3.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "セカンドキャリアとは、定年退職や役職定年を機に、これまでのキャリアとは異なる新たな職業人生を歩むことである。"
+    },
+    "security-education": {
+      "title": "情報セキュリティ教育",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "情報セキュリティ教育とは、組織の構成員に対して情報セキュリティに関する知識・意識・スキルを体系的に教育し、セキュリティインシデントの予防と適切な対応能力を養う取組みである。"
+    },
+    "security-software": {
+      "title": "セキュリティ対策ソフト",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "セキュリティ対策ソフトとは、コンピュータやネットワークをマルウェア・不正アクセス等の脅威から保護するためのソフトウェアの総称である。"
+    },
+    "self-declaration-system": {
+      "title": "自己申告制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "自己申告制度とは、従業員が自らのキャリア希望・異動希望・業務適性・能力開発ニーズ等を会社に申告する制度である。会社主導の人事異動の中に従業員の意向を反映させる仕組みであり、日本企業で広く導入されている。"
+    },
+    "self-development": {
+      "title": "自己啓発",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "自己啓発（Self Development）とは、従業員が自らの意思で、職務に必要な知識・技能の向上に取り組む学習活動である。OJT・OFF-JTと並ぶ人材開発の三本柱の一つである。"
+    },
+    "seniority-wage": {
+      "title": "年功賃金",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "年功賃金とは、従業員の年齢や勤続年数に応じて賃金が上昇する賃金制度である。"
+    },
+    "series-system": {
+      "title": "直列システム",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "直列システムとは、すべての構成要素が正常に機能して初めてシステム全体が機能する構成である。いずれか1つの要素が故障すると、システム全体が停止する。"
+    },
+    "servant-leadership": {
+      "title": "サーバントリーダーシップ",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "サーバントリーダーシップとは、アメリカの経営思想家ロバート・K・グリーンリーフ（Robert K. Greenleaf, 1904--1990）が1970年に提唱したリーダーシップ哲学である。"
+    },
+    "service-quality": {
+      "title": "サービス品質・サービス特性",
+      "section": "2.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "サービス品質（Service Quality）とは、顧客の期待と知覚のギャップにより評価される品質である。"
+    },
+    "seven-types-of-pollution": {
+      "title": "典型７公害",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "典型７公害 とは、環境基本法第2条第3項に規定される 7 種類の公害をいう。"
+    },
+    "sexual-harassment": {
+      "title": "セクシャルハラスメント",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "セクシャルハラスメント（セクハラ）とは、職場において行われる、労働者の意に反する性的な言動に対する労働者の対応により当該労働者が労働条件について不利益を受けること、または性的な言動により就業環境が害されることをいう。"
+    },
+    "sfa-system": {
+      "title": "営業支援システム",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "SFA（Sales Force Automation: 営業支援システム）とは、営業活動のプロセスを可視化・標準化し、営業担当者の生産性向上と組織的な営業力強化を実現する情報システムである。"
+    },
+    "side-jobs": {
+      "title": "副業・兼業",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "副業・兼業とは、労働者が本業の勤務先以外で就労することをいう。"
+    },
+    "skill-based-pay": {
+      "title": "職能給",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職能給とは、従業員の職務遂行能力（職能）に基づいて賃金を決定する賃金制度である。"
+    },
+    "skill-qualification-system": {
+      "title": "職能資格制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職能資格制度とは、従業員の職務遂行能力（職能） を基準として等級（資格）を設定し、処遇を決定する制度である。1960〜70年代に日本企業で広く導入され、日本的人事管理の中核を担ってきた。"
+    },
+    "skill-standards": {
+      "title": "スキル標準",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "スキル標準とは、特定の職種・業務分野で求められるスキルの内容とレベルを体系的に定義した基準である。人材育成の目標設定や能力評価の共通尺度として活用される。"
+    },
+    "sl-theory": {
+      "title": "SL理論",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "SL理論（Situational Leadership Theory）とは、アメリカの経営学者ポール・ハーシーとケン・ブランチャードが1977年に提唱した状況対応型リーダーシップ理論である。"
+    },
+    "small-group-activities": {
+      "title": "小集団活動",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "小集団活動とは、職場の少人数グループが自主的に品質・安全・生産性等の改善に取り組む活動の総称である。"
+    },
+    "smart-safety": {
+      "title": "スマート保安",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "スマート保安とは、IoT・AI・ビッグデータ・ドローン等のデジタル技術を活用して、産業保安の高度化・効率化を図る取組みのことである。経済産業省が推進し、「スマート保安官民協議会」（2021年〜）で産官学が連携して推進している。"
+    },
+    "social-engineering": {
+      "title": "ソーシャルエンジニアリング",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ソーシャルエンジニアリングとは、技術的な手段を用いずに、人間の心理的な弱点（信頼・恐怖・権威への服従・好奇心等）を巧みに利用して、機密情報やシステムへのアクセス権限を不正に取得する手法の総称である。"
+    },
+    "soil-contamination-act": {
+      "title": "土壌汚染対策法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "土壌汚染対策法は、土壌の特定有害物質による汚染の状況を把握し、人の健康被害を防止するための措置を定めた法律である。"
+    },
+    "sop": {
+      "title": "標準作業手順書",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "標準作業手順書（SOP: Standard Operating Procedure）とは、作業の手順を標準化し、誰が行っても同じ品質と安全性で作業を実施できるようにするための文書である。"
+    },
+    "sound-water-cycle": {
+      "title": "健全な水循環系",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "健全な水循環系 とは、降水が河川・地下水・湖沼・海域を経て蒸発し再び降水となる自然の水循環が適正に維持され、人間活動と調和した状態をいう。"
+    },
+    "source-control-principle": {
+      "title": "源流対策原則",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "源流対策原則とは、環境汚染を工程の末端で処理するのではなく、汚染の発生源（源流）で対策を講じるべきとする原則である。"
+    },
+    "specialist-system": {
+      "title": "専門職制度",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "専門職制度とは、管理職（ライン管理）コースとは独立した処遇トラックを設け、高度な専門知識・技術を持つ人材を専門性に基づいて評価・報酬する制度である。"
+    },
+    "specialized-training": {
+      "title": "専門別研修",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "専門別研修（職能別研修）とは、職種や専門分野ごとに必要な知識・技能を習得させるために実施する研修である。"
+    },
+    "species-preservation-act": {
+      "title": "種の保存法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "種の保存法（正式名称：絶滅のおそれのある野生動植物の種の保存に関する法律）は、絶滅のおそれのある野生動植物の種の保存を図ることを目的として1992年（平成4年）に制定された法律である。"
+    },
+    "sri": {
+      "title": "社会的責任投資",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "SRI（Socially Responsible Investment）とは、投資判断に財務的要素だけでなく、社会的・倫理的・環境的な基準を組み込む投資手法である。"
+    },
+    "stakeholder": {
+      "title": "ステーク・ホルダー",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ステークホルダー（Stakeholder：利害関係者） とは、組織やプロジェクトの活動によって影響を受ける、または影響を与えることができる個人・グループ・組織のことである。Freemanにより1984年に体系化された概念で、株主（ストックホルダー）だけでなく、従業員・顧客・地域住民・行政機関等を含む。"
+    },
+    "standard-costing": {
+      "title": "標準原価計算",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "標準原価計算（Standard Costing）とは、科学的・統計的に算定した標準原価を設定し、実際原価との差異を分析することで原価管理を行う原価計算方式である。"
+    },
+    "standardization-strategy": {
+      "title": "標準化戦略",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "標準化戦略 とは、技術や製品・サービスに関する標準（規格）の策定プロセスに戦略的に関与し、自社の競争優位を確立するための経営戦略である。"
+    },
+    "state-secrets-act": {
+      "title": "特定秘密保護法",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "特定秘密保護法（特定秘密の保護に関する法律、平成25年法律第108号）とは、国の安全保障に関する情報のうち特に秘匿が必要な情報を「特定秘密」に指定し、その漏洩を防止するための法律である。"
+    },
+    "stress-check-system": {
+      "title": "ストレスチェック制度",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ストレスチェック制度とは、労働安全衛生法第66条の10に基づき、事業者が労働者のストレスの程度を定期的に把握・通知する制度である。"
+    },
+    "subcontracting-act": {
+      "title": "下請法",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "下請法 とは、親事業者による下請事業者に対する優越的地位の濫用を規制し、下請取引の公正化と下請事業者の利益保護を図る法律である。"
+    },
+    "subsidiarity-principle": {
+      "title": "補完性原則・補完性原理",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "補完性原則（Subsidiarity Principle）とは、意思決定は可能な限り住民に身近な低次のレベル（地方）で行い、それが困難な場合にのみ上位のレベル（国・国際機関）が補完的に対応すべきとする原則である。"
+    },
+    "supply-chain-management": {
+      "title": "サプライチェーンマネジメント",
+      "section": "2.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "サプライチェーンマネジメント（SCM: Supply Chain Management）とは、サプライチェーン全体を統合的に管理し、全体最適を図るマネジメント手法である。"
+    },
+    "surcharge": {
+      "title": "課徴金",
+      "section": "6.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "課徴金（Charge / Levy）とは、環境汚染行為や資源利用に対して金銭的な負担を課すことで、汚染の抑制や環境改善のインセンティブを与える経済的手法である。"
+    },
+    "survey-analysis": {
+      "title": "アンケート分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アンケート分析とは、質問紙調査（サーベイ）で収集したデータを統計的に処理し、対象集団の傾向や意見の分布を明らかにする手法である。"
+    },
+    "sustainable-fashion": {
+      "title": "サステナブルファッション",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "サステナブルファッション とは、衣服の生産・流通・着用・廃棄の全ライフサイクルにおいて、環境負荷の低減と社会的公正の実現を目指す取組の総称である。"
+    },
+    "swot-analysis": {
+      "title": "SWOT分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "SWOT分析とは、組織の内部環境と外部環境を4つの要素で体系的に整理し、戦略立案の基盤とする経営分析フレームワークである。"
+    },
+    "system-availability": {
+      "title": "可用性",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "可用性（Availability） とは、許可された利用者がシステムや情報資産に必要なときにアクセスできる状態にある度合いを表す。JIS Q 27001（ISO/IEC 27001）では「認可されたエンティティが要求したときに、アクセス及び使用が可能である特性」と定義される。"
+    },
+    "system-integrity": {
+      "title": "保全性",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "保全性（Integrity）とは、システムが保持するデータやプログラムが、意図しない変更・破壊・消失から保護され、完全かつ一貫した状態が維持される性質を表す指標であり、RASISの4番目の要素である。"
+    },
+    "system-outage-degradation": {
+      "title": "システム停止・性能低下",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "システム停止・性能低下とは、情報システムが正常に機能しなくなる、または応答速度が著しく低下する事象であり、情報セキュリティの可用性を直接的に侵害する脅威である。"
+    },
+    "system-reliability": {
+      "title": "信頼性",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "信頼性（Reliability） とは、システムが意図した動作および結果を一貫して提供できる能力である。JIS Q 27001（ISO/IEC 27001）では「意図した動作及び結果に一致する特性」と定義される。"
+    },
+    "system-safety": {
+      "title": "システム安全",
+      "section": "5.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "システム安全（System Safety） とは、システムのライフサイクル全体（企画・設計・製造・運用・廃棄）を通じて、ハザードを体系的に特定・評価・管理し、リスクを受容可能な水準に維持する工学的アプローチのことである。1960年代に米国国防総省（DoD）のミサイル・航空宇宙分野で確立された。"
+    },
+    "system-security": {
+      "title": "安全性",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "安全性（Security）とは、システムが不正アクセス・情報漏洩・データ破壊などの脅威から保護されている度合いを表す指標であり、RASISの5番目の要素である。"
+    },
+    "system-serviceability": {
+      "title": "保守性",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "保守性（Serviceability）とは、システムに障害が発生した際に、いかに迅速かつ容易に修復できるかを表す指標であり、RASISの3番目の要素である。"
+    },
+    "tacit-knowledge": {
+      "title": "暗黙知",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "暗黙知（Tacit Knowledge）とは、個人の経験、勘、直感、身体的スキルなどに根差した、言語や数式で明示的に表現することが困難な知識のことである。"
+    },
+    "talent-management": {
+      "title": "タレントマネジメント",
+      "section": "3.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "タレントマネジメント（Talent Management）とは、組織に所属する人材の能力・スキル・経験・適性等を一元的に把握し、戦略的に人材の配置・育成・登用を行う仕組みである。"
+    },
+    "target-cost": {
+      "title": "目標原価",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "目標原価（Target Cost）とは、目標売価から目標利益を差し引いて算出する製品が達成すべき原価水準である。許容原価とも呼ばれる。"
+    },
+    "targeted-attack": {
+      "title": "標的型攻撃",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "標的型攻撃とは、特定の組織や個人を狙って行われる高度なサイバー攻撃である。"
+    },
+    "task-based-training": {
+      "title": "課題別研修",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "課題別研修とは、組織が直面する特定の経営課題や社会的課題に対応するため、テーマを絞って実施する研修である。"
+    },
+    "tbm-toolbox-meeting": {
+      "title": "TBM",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "TBM（ツールボックスミーティング: Toolbox Meeting）とは、作業開始前に現場で作業チームが集まり、その日の作業内容・手順・危険ポイント等を話し合う短時間のミーティングである。"
+    },
+    "tcfd": {
+      "title": "TCFD提言",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "TCFD（Task Force on Climate-related Financial Disclosures）とは、G20の要請を受けてFSB（金融安定理事会）が2015年に設置した「気候関連財務情報開示タスクフォース」である。2017年に最終報告書（TCFD提言）を公表した。"
+    },
+    "teal-organization": {
+      "title": "ティール組織",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ティール組織（teal organization）とは、フレデリック・ラルーが著書『Reinventing Organizations』（2014年）で提唱した、組織進化モデルの最終段階に位置する組織形態である。"
+    },
+    "technical-nontechnical-skills": {
+      "title": "テクニカルスキルとノンテクニカルスキル",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "テクニカルスキル（Technical Skills）とは、専門的な知識・技術・技能であり、業務遂行に直接必要な能力である。ノンテクニカルスキル（Non-Technical Skills）とは、人間と人間の関係性を重視した認知的・社会的なスキルであり、安全な業務遂行を支える能力である。"
+    },
+    "technology-licensing": {
+      "title": "ライセンス",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ライセンス（技術実施許諾） とは、特許権・実用新案権・意匠権等の知的財産権の権利者が、第三者に対してその実施（使用・製造・販売等）を許諾する行為およびその契約を指す。"
+    },
+    "telework": {
+      "title": "テレワーク",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "テレワークとは、情報通信機器を利用して会社以外の場所で仕事を行う働き方である。育児・介護との両立や感染症発生時の対策、ワーク・ライフ・バランスの実現、優秀な人材の確保、生産性向上など多面的な効果が期待されている。"
+    },
+    "temporary-works-plan": {
+      "title": "仮設計画",
+      "section": "2.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "仮設計画 とは、本体構造物の施工に必要な仮設構造物（足場・支保工・土留め・仮設道路等）の設計・配置・施工手順・安全対策を定める計画のことである。工事の安全性と効率性を左右する重要な計画である。"
+    },
+    "terrorism": {
+      "title": "テロリズム",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "テロリズム（Terrorism）とは、政治的・社会的目的を達成するために、暴力や脅迫により恐怖を与え、社会や政府に影響を及ぼそうとする行為である。"
+    },
+    "theory-of-constraints": {
+      "title": "制約条件の理論",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "制約条件の理論（TOC: Theory of Constraints）とは、システム全体のスループット（産出量）を決定しているボトルネック（制約条件）を特定し、その制約を集中的に改善することで全体最適を図る管理手法である。"
+    },
+    "therp": {
+      "title": "THERP",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "THERP（Technique for Human Error Rate Prediction：人的過誤率予測法）とは、人間の作業を個々のタスクに分解し、各タスクにおけるヒューマンエラーの発生確率を定量的に評価する手法である。"
+    },
+    "threat-awareness-training": {
+      "title": "脅威攻撃の手口学習",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "脅威攻撃の手口学習とは、サイバー攻撃やソーシャルエンジニアリングなどの攻撃手法を従業員が理解し、適切に対処できるようにするためのセキュリティ教育・訓練である。"
+    },
+    "three-c-analysis": {
+      "title": "3C分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "3C分析とは、経営コンサルタントの大前研一が提唱した経営分析フレームワークであり、事業環境を自社（Company）・顧客（Customer）・競合（Competitor）の3つの視点から体系的に分析する手法である。"
+    },
+    "three-point-estimation": {
+      "title": "三点見積り",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "三点見積り（Three-Point Estimation）とは、楽観値・最頻値・悲観値の3つの見積りを用いて不確実性を考慮した期待値を算出する見積り手法である。"
+    },
+    "timeline-disaster": {
+      "title": "タイムライン",
+      "section": "5.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "タイムライン（Timeline：防災行動計画）とは、災害の発生を前提に「いつ」「誰が」「何をするか」を時系列で整理した 事前防災行動計画 である。台風・洪水のように進行型で発生時刻が予測できる災害に対し、関係機関がリードタイムを共有して避難・応急行動を事前に取り決める枠組みとして整備された。"
+    },
+    "tnfd": {
+      "title": "TNFD提言",
+      "section": "6.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "TNFD（Taskforce on Nature-related Financial Disclosures）とは、自然資本・生物多様性に関する財務情報開示の枠組みを策定する国際的なタスクフォースである。2021年に設立され、2023年に最終提言（v1.0）を公表した。"
+    },
+    "total-wage-management": {
+      "title": "総額賃金管理",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "総額賃金管理とは、企業が支払う賃金の総額を経営指標に基づいて管理する手法である。"
+    },
+    "trademark-rights": {
+      "title": "商標権",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "商標権 とは、商品又はサービス（役務）を識別するための標識（文字、図形、記号、立体的形状、色彩等）を独占的に使用できる権利である。"
+    },
+    "training-techniques": {
+      "title": "教育訓練技法",
+      "section": "3.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "教育訓練技法とは、研修や訓練において効果的な学習を実現するための指導・学習方法の総称である。"
+    },
+    "tripod-theory": {
+      "title": "トライポッド理論",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "トライポッド理論（Tripod Theory）とは、事故の原因を3つの階層（基盤原因・前提条件・不安全行為）で構造化し、組織的な要因にまで遡って分析する理論である。"
+    },
+    "un-human-environment-conf": {
+      "title": "国連人間環境会議",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "国連人間環境会議（United Nations Conference on the Human Environment）は、1972年6月にスウェーデンのストックホルムで開催された、環境問題に関する初の大規模な国際会議である。"
+    },
+    "unauthorized-access": {
+      "title": "不正アクセス",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "不正アクセスとは、正当な権限を持たない者がコンピュータやネットワークに侵入し、情報の閲覧・取得・改変・破壊等を行う行為である。"
+    },
+    "unced-earth-summit": {
+      "title": "国連環境開発会議",
+      "section": "6.1",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "国連環境開発会議（United Nations Conference on Environment and Development: UNCED）は、1992年6月にブラジルのリオデジャネイロで開催された国際会議であり、通称「地球サミット」と呼ばれる。"
+    },
+    "unconscious-bias": {
+      "title": "アンコンシャス・バイアス",
+      "section": "3.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "アンコンシャス・バイアス（Unconscious Bias：無意識の偏見）とは、自分自身が気づいていない、ものの見方や考え方の偏りのことである。過去の経験・知識・価値観・周囲の環境等から無意識に形成され、意思決定や行動に影響を与える。"
+    },
+    "unfair-competition-prevention-act": {
+      "title": "不正競争防止法",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "不正競争防止法（平成5年法律第47号）とは、事業者間の公正な競争を確保するため、不正競争行為を規制し、被害者に対する救済措置を定めた法律である。"
+    },
+    "unfair-trade-practices": {
+      "title": "不公正な取引方法",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "不公正な取引方法とは、公正な競争を阻害するおそれがある行為として 独占禁止法第2条第9項 および公正取引委員会の告示（一般指定・特殊指定）で指定された行為類型をいう。"
+    },
+    "unreasonable-trade-restraint": {
+      "title": "不当な取引制限",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "不当な取引制限とは、事業者が他の事業者と共同して、相互にその事業活動を拘束し、または遂行することにより、公共の利益に反して一定の取引分野における競争を実質的に制限することをいう（独占禁止法第2条第6項）。"
+    },
+    "unsafe-conditions-behavior": {
+      "title": "不安全状態・不安全行動",
+      "section": "5.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "不安全状態（Unsafe Condition）とは、機械・設備・作業環境において、労働者に危害を及ぼす可能性がある物理的な状態をいう。不安全行動（Unsafe Act）とは、労働者自身が行う安全でない行為をいう。"
+    },
+    "urban-flood": {
+      "title": "都市型水害",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "都市型水害とは、都市化の進展に伴い発生する特有の水害の総称である。"
+    },
+    "utility-model-rights": {
+      "title": "実用新案権",
+      "section": "4.3",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "実用新案権 とは、物品の形状、構造又は組合せに係る考案を保護する権利である。"
+    },
+    "utilization-rate": {
+      "title": "稼働率",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "稼働率（Utilization Rate）とは、利用可能な時間（操業時間）に対して実際に稼働した時間の割合を示す指標である。"
+    },
+    "value-chain-analysis": {
+      "title": "バリューチェーン分析",
+      "section": "4.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "バリューチェーン分析（value chain analysis）とは、マイケル・ポーターが1985年に提唱した経営分析フレームワークであり、企業の事業活動を「価値連鎖」として体系的に分解し、各活動が生み出す付加価値と競争優位の源泉を特定する手法である。"
+    },
+    "value-engineering": {
+      "title": "価値工学",
+      "section": "2.7",
+      "tags": [
+        "総合技術監理",
+        "経済性管理",
+        "キーワード",
+        "技術士（総合技術監理部門）"
+      ],
+      "definition": "価値工学（VE: Value Engineering） は、製品やサービスの機能と価格のバランスを最適化し、コスト削減と価値向上を同時に実現する手法である。既存製品の改善に適用する場合は VA（価値分析） と呼ばれることもあるが、総監試験では両者を同義として VE と総称する。"
+    },
+    "variable-work-hours": {
+      "title": "変形労働時間制度",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "変形労働時間制度とは、一定の期間を平均して1週間あたりの労働時間が法定労働時間（40時間）を超えない範囲で、特定の日や週に法定労働時間を超えて労働させることができる制度である。"
+    },
+    "verbal-nonverbal-communication": {
+      "title": "言語／非言語コミュニケーション",
+      "section": "4.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": ""
+    },
+    "veteran-bias": {
+      "title": "ベテランバイアス",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ベテランバイアス（Veteran Bias）とは、豊富な経験を持つ者が、その経験に基づいてリスクの兆候を過小に評価してしまう傾向である。"
+    },
+    "virgin-bias": {
+      "title": "バージンバイアス",
+      "section": "5.2",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "バージンバイアス（Virgin Bias）とは、経験したことのない事象について、そのリスクを過大もしくは過小に評価してしまい、合理的な判断ができない傾向である。"
+    },
+    "visual-management": {
+      "title": "可視化",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "可視化（Visual Management）とは、作業の進捗・設備の状態・品質の状況などを誰でも一目で把握できるように表示・掲示する管理手法である。"
+    },
+    "vocational-training-act": {
+      "title": "職業能力開発促進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "職業能力開発促進法（昭和44年法律第64号）は、労働者の職業能力の開発・向上を促進し、職業の安定と労働者の地位の向上を図るための法律である。"
+    },
+    "vpn": {
+      "title": "VPN",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "VPN（Virtual Private Network：仮想プライベートネットワーク）とは、公衆ネットワーク（インターネット等）上に暗号化されたトンネルを構築し、あたかも専用回線のように安全な通信を実現する技術である。"
+    },
+    "vr-ar-metaverse": {
+      "title": "VR・AR・メタバース",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "VR（Virtual Reality：仮想現実）、AR（Augmented Reality：拡張現実）、MR（Mixed Reality：複合現実）は、現実空間と仮想空間の関係性が異なる技術群であり、総称してXR（Extended Reality：拡張現実感）と呼ばれる。"
+    },
+    "vta-method": {
+      "title": "VTA法",
+      "section": "5.6",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "VTA法（Variation Tree Analysis：変動要因分析法）とは、事故・トラブルの経過を時系列に沿って整理し、通常からの逸脱（バリエーション）を特定・可視化する分析手法である。"
+    },
+    "vulnerability": {
+      "title": "脆弱性",
+      "section": "4.5",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "脆弱性（Vulnerability） とは、ソフトウェア、ハードウェア、またはシステムの設計・実装上の欠陥や不備であり、攻撃者に悪用されることで不正アクセスや情報漏洩等のセキュリティ被害を引き起こす原因となるものである。"
+    },
+    "wacc-roic": {
+      "title": "WACC・ROIC",
+      "section": "2.4",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "WACC（Weighted Average Cost of Capital）とは、株主資本コストと負債コストを資本構成比率で加重平均した企業の総合的な資本コストである。"
+    },
+    "waste-management-act": {
+      "title": "廃棄物処理法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "廃棄物処理法（正式名称：廃棄物の処理及び清掃に関する法律、1970年制定）は、廃棄物の排出抑制と適正な処理により、生活環境の保全と公衆衛生の向上を図ることを目的とした法律である。"
+    },
+    "water-pollution-control-act": {
+      "title": "水質汚濁防止法",
+      "section": "6.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "水質汚濁防止法は、工場・事業場からの排水を規制し、公共用水域及び地下水の水質汚濁を防止することで、国民の健康を保護するとともに生活環境を保全することを目的とする法律である。"
+    },
+    "waterfall": {
+      "title": "ウォーターフォール",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ウォーターフォールモデル（Waterfall Model）とは、システム開発を上流工程から下流工程へ順番に進め、原則として前の工程に戻らない逐次型の開発プロセスモデルである。"
+    },
+    "wced": {
+      "title": "WCED",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "環境と開発に関する世界委員会（World Commission on Environment and Development: WCED）は、1984年に国連総会の決議に基づき設置された委員会である。"
+    },
+    "web-services": {
+      "title": "WEBサービス",
+      "section": "4.4",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "WEBサービスとは、インターネット上の標準プロトコル（HTTP等）を利用して、異なるシステム間でデータや機能を相互にやり取りする仕組みの総称である。"
+    },
+    "wellbeing-org": {
+      "title": "ウェルビーイング",
+      "section": "3.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ウェルビーイング（Well-being） とは、身体的・精神的・社会的に良好な状態にあることを意味する包括的な概念である。"
+    },
+    "wildlife-protection-act": {
+      "title": "鳥獣保護管理法",
+      "section": "6.1",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "鳥獣保護管理法（正式名称：鳥獣の保護及び管理並びに狩猟の適正化に関する法律）は、鳥獣の保護及び管理を図るとともに、狩猟の適正化を推進することを目的とした法律である。"
+    },
+    "women-empowerment-act": {
+      "title": "女性活躍推進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "女性活躍推進法（正式名称：女性の職業生活における活躍の推進に関する法律）は、女性が職業生活において個性と能力を十分に発揮できる社会の実現を目的として2015年に制定された法律である。"
+    },
+    "work-life-balance": {
+      "title": "ワーク・ライフ・バランス",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "ワーク・ライフ・バランス（仕事と生活の調和）とは、働く人が仕事上の責任を果たしながら、家庭生活・地域活動・自己啓発など仕事以外の生活も充実させることができる状態をいう。"
+    },
+    "work-planning": {
+      "title": "作業計画",
+      "section": "2.3",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "作業計画（Work Planning）とは、個々の作業について、作業方法・作業手順・使用資機材・所要時間・担当者を具体的に定めた計画である。"
+    },
+    "worker-dispatch-act": {
+      "title": "労働者派遣法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労働者派遣法（正式名称：労働者派遣事業の適正な運営の確保及び派遣労働者の保護等に関する法律、昭和60年法律第88号）は、労働者派遣事業の適正な運営を確保するとともに、派遣労働者の保護を図る法律である。"
+    },
+    "workers-compensation-insurance": {
+      "title": "労災保険制度",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "労災保険制度（労働者災害補償保険制度）とは、業務上の事由または通勤による労働者の負傷・疾病・障害・死亡に対して、必要な保険給付を行う制度である。"
+    },
+    "youth-employment-act": {
+      "title": "若者雇用促進法",
+      "section": "3.2",
+      "tags": [
+        "総合技術監理",
+        "keyword"
+      ],
+      "definition": "若者雇用促進法（正式名称：青少年の雇用の促進等に関する法律）は、若者の適職選択の支援や職業能力の開発・向上を促進し、若者が能力を有効に発揮できる環境を整備することを目的とした法律である。"
+    },
+    "zero-trust": {
+      "title": "ゼロトラスト",
+      "section": "4.5",
+      "tags": [
+        "keyword"
+      ],
+      "definition": "ゼロトラストとは、ネットワークの内部・外部を問わずすべてのアクセスを信頼しないことを前提とし、あらゆる通信に対して認証・認可・検査を行うセキュリティモデルである。"
+    }
+  }
+}

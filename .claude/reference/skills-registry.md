@@ -96,6 +96,7 @@
 | `/quality-cycle --profile {cem\|civil-textbook}` | 品質サイクル（スコア→リライト→検証→人間レビュー）統合 | `.claude/skills/quality/quality-cycle/SKILL.md` |
 | `/exam-keyword-cycle` | 過去問起点の関連キーワード横断校正 Orchestrator | `.claude/skills/quality/exam-keyword-cycle/SKILL.md` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成 | `.claude/skills/quality/exam-backlinks/SKILL.md` |
+| `/audit-exam-mapping` | 過去問⇔キーワード紐づけマップの semantic 精度監査（PE 専用、`exam-keyword-mapping-auditor` を分配） | `.claude/skills/quality/audit-exam-mapping/SKILL.md` |
 | `/verify-exam-coverage` | キーワードページが過去問論点を十分カバーしているか検証 | `.claude/skills/quality/verify-exam-coverage/SKILL.md` |
 | `/review-mobile` | モバイル視認性・可読性レビュー | `.claude/skills/quality/review-mobile/SKILL.md` |
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `.claude/skills/quality/consolidate-duplicate-keyword/SKILL.md` |
