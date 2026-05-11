@@ -95,14 +95,16 @@ description: >
 | **既存原則の精緻化** | 既存ルールの境界・例外・適用手順が明確化された | `content-principles.md` を修正 |
 | **ユーザー嗜好** | 一般化しにくい個別の好み／ワークスタイル | `memory/` （feedback 型） |
 | **ワークフロー改善** | 校正の進め方・順序・ツール使い方の改善 | 関連 SKILL.md / `workflows.md` |
-| **メタ Issue 起票候補** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修候補。議論を要するため Issue 経由で真実源更新 | `gh issue create --template {rubric-review,rewrite-method}.md` |
+| **採点・リライト議論候補** | 採点ルーブリック（cem-qa 5 軸）・リライト方法論（4 視点 × Phase 対応）の改修候補。議論を要するため **既存リファレンス Issue（#205 / #206）のコメントで議論開始** | **#205 のコメント**（採点側） / **#206 のコメント**（リライト側） |
 
-**メタ Issue 起票候補の判定基準**:
+**採点・リライト議論候補の判定基準**:
 
-- **rubric-review 候補**: 採点軸の重み・閾値・新軸追加・既存軸の判定基準改修など。`cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイル同期更新が必要**
-- **rewrite-method 候補**: 視点タグ追加・Phase 対応の見直し・拡張パターン A-F 改修・NLM 照合プロンプト調整など。`exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md の修正
-- **直接更新でなく Issue 経由にする理由**: 真実源 3 ファイル同期や既存ページ N 件への再評価波及を伴うため、変更前にユーザー議論を経て影響範囲を確定する必要がある
-- **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンのみ起票推奨
+- **採点側候補**（#205 で議論）: 採点軸の重み・閾値・新軸追加・既存軸の判定基準改修など
+  - 反映先（議論決定後）: `cem-qa.md` + `content-principles.md` + `templates/cem.md` の **3 ファイル同期更新が必要** + #205 本文の「合意済み」セクションへ移動
+- **リライト側候補**（#206 で議論）: 視点タグ追加・Phase 対応の見直し・拡張パターン A-G 改修・NLM 照合プロンプト調整など
+  - 反映先（議論決定後）: `exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md の修正 + #206 本文の「合意済み」セクションへ移動
+- **新規 Issue を立てない理由**: 採点とリライトの真実源は #205 / #206 に一元化。議論を分散させると「最新版はどれか」が分からなくなる。**例外（5 軸完全リセット等の構造的変更）のみ** `.github/ISSUE_TEMPLATE/{rubric-review,rewrite-method}.md` を使用
+- **2 回ルール**: 1 回限りの違和感は次サイクル再観察、2 回以上浮上したパターンのみ議論開始推奨
 
 ### Phase 3: 候補の surface
 
@@ -147,7 +149,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 - 既存原則の精緻化: N 件
 - ユーザー嗜好: N 件
 - ワークフロー改善: N 件
-- メタ Issue 起票候補: N 件（rubric-review N / rewrite-method N）
+- 採点・リライト議論候補: N 件（#205 採点 N 件 / #206 リライト N 件）
 
 ## 新規ルール候補
 
@@ -196,22 +198,28 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 
 ---
 
-## メタ Issue 起票候補
+## 採点・リライト議論候補
 
 ### 1. [候補名]
 
-**ラベル**: `rubric-review` / `rewrite-method`（いずれかを選択）
+**議論先 Issue**: **#205**（採点） / **#206**（リライト）のいずれか
 **サイクル**: 2 回以上浮上（[サイクル1リンク], [サイクル2リンク]）
 **観察**: [両サイクルで共通して見られた現象]
 **仮説**: [採点軸の改修案 or リライト方法論の改修案]
-**反映先（議論承認後）**:
-- rubric-review の場合: `.claude/agents/cem-qa.md` + `.claude/content-principles.md` + `templates/cem.md`（3 ファイル同期）
-- rewrite-method の場合: `.claude/skills/quality/exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md
+**反映先（議論承認後、Claude が同期更新）**:
+- 採点側の場合: `.claude/agents/cem-qa.md` + `.claude/content-principles.md` + `templates/cem.md`（3 ファイル同期）+ #205 本文「合意済み」へ
+- リライト側の場合: `.claude/skills/quality/exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md + #206 本文「合意済み」へ
 
-**起票コマンド案**:
+**議論開始コマンド案**:
 ```bash
-gh issue create --template rubric-review.md  # または rewrite-method.md
+# 採点側
+gh issue comment 205 --body "<観察・仮説・反映先のドラフト>"
+
+# リライト側
+gh issue comment 206 --body "<観察・仮説・反映先のドラフト>"
 ```
+
+**新規 Issue は原則立てない**。例外的に 5 軸完全リセット等の構造的変更が必要な場合のみ `.github/ISSUE_TEMPLATE/rubric-review.md` または `rewrite-method.md` を使用。
 
 ---
 
