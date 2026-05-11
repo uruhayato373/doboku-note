@@ -87,10 +87,22 @@ function runNotebooklm(args, opts = {}) {
     PYTHONIOENCODING: 'utf-8',
     NO_PROXY: process.env.NO_PROXY || 'localhost,127.0.0.1,::1,.local',
   };
-  const result = spawnSync(NOTEBOOKLM_BIN.path, args, {
+
+  // shell: true で .bat を呼ぶと cmd.exe の引数解析が全角括弧等で破綻するため
+  // cmd.exe /c に明示的に渡して spawnSync 側の args 配列管理に統一する
+  let cmd, cmdArgs;
+  if (NOTEBOOKLM_BIN.useShell && NOTEBOOKLM_BIN.path.endsWith('.bat')) {
+    cmd = 'cmd.exe';
+    cmdArgs = ['/c', NOTEBOOKLM_BIN.path, ...args];
+  } else {
+    cmd = NOTEBOOKLM_BIN.path;
+    cmdArgs = args;
+  }
+
+  const result = spawnSync(cmd, cmdArgs, {
     env,
     encoding: 'utf8',
-    shell: NOTEBOOKLM_BIN.useShell,
+    shell: false,
     ...opts,
   });
   if (result.error) {
