@@ -779,6 +779,12 @@
   ],
   "supply-chain-management": [
     {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-1",
+      "anchor": "1-1"
+    },
+    {
       "examSlug": "pe-comprehensive-management-r04-primary",
       "year": "令和4年度",
       "question": "Ⅰ-1-6",
@@ -11637,6 +11643,12 @@
   ],
   "firewall-ids": [
     {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-24",
+      "anchor": "1-24"
+    },
+    {
       "examSlug": "pe-comprehensive-management-h24-primary",
       "year": "平成24年度",
       "question": "Ⅱ-1-18",
@@ -13086,6 +13098,12 @@
     }
   ],
   "basel-convention": [
+    {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-36",
+      "anchor": "1-36"
+    },
     {
       "examSlug": "pe-comprehensive-management-r04-primary",
       "year": "令和4年度",
@@ -14713,6 +14731,12 @@
   ],
   "process-capability-index": [
     {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-2",
+      "anchor": "1-2"
+    },
+    {
       "examSlug": "pe-comprehensive-management-r06-primary",
       "year": "令和6年度",
       "question": "Ⅰ-1-4",
@@ -16229,12 +16253,28 @@
       "anchor": "1-21"
     }
   ],
+  "technical-nontechnical-skills": [
+    {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-25",
+      "anchor": "1-25"
+    }
+  ],
   "aging-infrastructure": [
     {
       "examSlug": "pe-comprehensive-management-r07-primary",
       "year": "令和7年度",
       "question": "Ⅰ-1-29",
       "anchor": "1-29"
+    }
+  ],
+  "isolation-stop-safety": [
+    {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-30",
+      "anchor": "1-30"
     }
   ],
   "blind-drill": [
@@ -16259,6 +16299,22 @@
       "year": "令和7年度",
       "question": "Ⅰ-1-35",
       "anchor": "1-35"
+    }
+  ],
+  "sustainable-fashion": [
+    {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-36",
+      "anchor": "1-36"
+    }
+  ],
+  "four-major-pollution-diseases": [
+    {
+      "examSlug": "pe-comprehensive-management-r07-primary",
+      "year": "令和7年度",
+      "question": "Ⅰ-1-37",
+      "anchor": "1-37"
     }
   ],
   "alps-treated-water": [

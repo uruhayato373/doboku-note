@@ -3728,15 +3728,13 @@
     "r07-primary": {
       "1-1": [
         "business-continuity-plan",
-        "risk-management-plan",
-        "supply-chain-management"
+        "risk-management-plan"
       ],
       "1-2": [
+        "quality-control",
         "control-limits",
         "inspection-methods",
-        "nonconformity-rate",
-        "process-capability-index",
-        "quality-control"
+        "nonconformity-rate"
       ],
       "1-3": [
         "break-even-point",
@@ -3839,18 +3837,16 @@
         "unfair-trade-practices"
       ],
       "1-24": [
-        "common-criteria",
-        "firewall-ids",
         "isms-iso27001",
-        "vpn",
-        "zero-trust"
+        "common-criteria",
+        "zero-trust",
+        "vpn"
       ],
       "1-25": [
         "four-e-countermeasures",
         "four-m-analysis",
         "kyt",
-        "safety-patrol",
-        "technical-nontechnical-skills"
+        "safety-patrol"
       ],
       "1-26": [
         "occupational-safety-act",
@@ -3873,10 +3869,9 @@
         "corrective-maintenance"
       ],
       "1-30": [
+        "safety-2-0",
         "functional-safety",
-        "inherent-safety",
-        "isolation-stop-safety",
-        "safety-2-0"
+        "inherent-safety"
       ],
       "1-31": [
         "accident-statistics",
@@ -3903,16 +3898,13 @@
         "wildlife-protection-act"
       ],
       "1-36": [
-        "basel-convention",
         "circular-economy",
-        "circular-society-basic-act",
         "regional-circular-symbiosis",
-        "sustainable-fashion"
+        "circular-society-basic-act"
       ],
       "1-37": [
-        "air-pollution-control-act",
-        "four-major-pollution-diseases",
         "seven-types-of-pollution",
+        "air-pollution-control-act",
         "water-pollution-control-act"
       ],
       "1-38": [
