@@ -27,7 +27,7 @@ description: >
 ## 引数
 
 ```
-/exam-keyword-cycle [--exam <exam-slug>] [--question <anchor>] [--auto] [--dry-run]
+/exam-keyword-cycle [--exam <exam-slug>] [--question <anchor>] [--auto] [--keyword <slug>] [--strict-keyword] [--dry-run]
 ```
 
 | 引数 | 用途 | 例 |
@@ -35,9 +35,13 @@ description: >
 | `--exam` | 起点過去問の exam slug | `r06-primary`, `r07-primary` |
 | `--question` | 起点過去問の anchor（設問番号） | `1-35`, `1-38` |
 | `--auto` | state ファイルから自動選択 | 未カバー優先 |
+| `--keyword` | キーワード単体起点（当該 slug が参照される全過去問から未カバー優先で 1 件選択） | `pdpc-method`, `quality-control` |
+| `--strict-keyword` | `--keyword` 指定時、catalog slugs を当該 slug 1 件に絞る（既定は過去問の参照 slug 全件） | — |
 | `--dry-run` | 変更を加えず候補リストのみ出力 | 計画確認用 |
 
 いずれも任意。引数なしで呼ばれた場合は、会話内で対象を特定する。
+
+**`--keyword` と `--auto`/`--exam`/`--question` の関係**: `--keyword` は `--exam`/`--question` と排他（指定すれば過去問が自動決定される）。`--auto` と併用された場合は `--keyword` が優先される。
 
 ### `--auto` の動作
 
@@ -65,6 +69,35 @@ node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs 
 
 選択結果をユーザーに提示し、承認後に Phase 1 へ進む。
 
+### `--keyword` の動作
+
+`--keyword <slug>` 指定時は同じ `select-next-question.mjs` が `src/config/past-exam-backlinks.json[slug]` を逆引きし、当該キーワードが参照される全過去問の中から 1 件を選ぶ:
+
+```bash
+node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs \
+  --keyword pdpc-method --pretty
+```
+
+出力例:
+
+```json
+{
+  "exam": "pe-comprehensive-management-h27-primary",
+  "question": "1-1",
+  "reason": "未カバー最優先 (--keyword pdpc-method の関連過去問より): pe-comprehensive-management-h27-primary 1-1",
+  "source_keyword": "pdpc-method"
+}
+```
+
+選択アルゴリズム:
+1. `past-exam-backlinks.json[slug]` で当該キーワードが参照される全過去問 (examSlug, anchor) を取得
+2. 年度降順（R07 → R06 → ... → H21）+ 若番順に並べる
+3. 未カバーの最初の設問を採用
+4. 全カバー済みなら 180 日以上前の再訪候補から最古を選ぶ
+5. キーワードが backlinks に存在しない or 関連過去問なしなら `{ exam: null }` を返す
+
+**用途**: Issue #202（GSC 優先順位）のような **キーワード単体起点の優先順位** に基づいて、当該キーワードを含む過去問サイクルから着手する。1 サイクルで catalog slugs 全件（既定）を処理するので、起点キーワード以外の関連キーワードも同時に底上げされる。
+
 ## 前提条件
 
 - `src/config/exam-question-keywords.json` と `src/config/past-exam-backlinks.json` が最新（必要なら `npm run build-backlinks` で再生成）
@@ -82,7 +115,26 @@ node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs 
 
 閾値は `scripts/lib/umbrella-builder.mjs` の `STRICT_THRESHOLD_EXAMS` が真実源。変更はそこで行う。
 
-## フェーズ構成（6 段階）
+## 4 視点 × Phase の対応
+
+リライトは以下 4 視点で総合的に扱う。各視点が本スキルのどの Phase/エージェントで処理されるかの対応表:
+
+| 視点 | 担当 Phase / スキル | 採点軸 |
+|---|---|---|
+| **構造的ルール**（表配置・見出し階層・コンポーネント） | Phase 5（`keyword-rewriter`） | 構造 30%・モバイル 25% |
+| **文章の内容**（NLM 標準テキスト整合） | Phase 2 で `improve-article --mode improve --deep` を呼出（HIGH 解消ループ） | コンテンツ原則 20%（NLM HIGH 検出は採点軸外、ループで吸収） |
+| **deep リサーチ・web 検索** | Phase 3「正確性」タグ修正、必要時 `notebooklm-research` 呼出 | 参考資料 15% |
+| **SVG 図版** | Phase 3「わかりやすさ」タグから `visual-research` / `illustrate-concept` 呼出 | 構造 30%（SVG 単体軸なし） |
+
+**採点軸でカバーされない領域**（内容正確性・過去問逆引き網羅性・SVG 品質）は、本サイクルの NLM 照合・視点タグ修正ループで代替する。`cem-qa` の 5 軸ルーブリックは形式中心のため。
+
+## フェーズ構成（6 段階 + Phase 0/7）
+
+### Phase 0: キーワード起点の過去問解決（`--keyword` 指定時のみ）
+
+`--keyword <slug>` 指定時、Phase 1 の前に `select-next-question.mjs --keyword <slug>` を実行して起点過去問を解決する。出力をユーザーに提示し、承認後 Phase 1 へ進む。
+
+`--strict-keyword` 指定時は Phase 2 以降の catalog slugs を当該キーワード 1 件に絞る（既定は過去問の参照 slug 全件）。ただし `--strict-keyword` は full_cycle_complete の判定で「他の参照 slug が未処理」になるため、Umbrella Issue 上は未完了扱いとなる。GSC 優先で当該 slug のみ即時改善したい場合の例外フロー。
 
 ### Phase 1: 起点過去問の特定と論点抽出
 
@@ -399,6 +451,20 @@ git push origin develop
 
 PR 作成後、`index.json` と `progress.json` の `pr` フィールドに PR 番号を追記。
 
+### Phase 7: Issue #202（GSC 優先順位）同期（オプション・`--keyword` フロー専用）
+
+`--keyword <slug>` 起点で Phase 5.6 verify が `completed: true` を返した直後、Issue #202（総監キーワードリライト優先順位 Umbrella）の該当行を `[x]` に更新する。
+
+```bash
+node .claude/skills/quality/exam-keyword-cycle/scripts/sync-issue-202.mjs --keyword <slug>
+```
+
+- 当該 slug の Issue #202 行に `[x]` を付ける
+- 完了サマリ（exam, question, before/after cem-qa スコア）を Issue #202 のコメントとして追加
+- `--keyword` 経路 **以外**（通常の `--exam`/`--question`/`--auto`）では本 Phase はスキップ
+
+**段階**: 本 Phase は Phase B 以降で実装予定（MVP では Phase 1〜6 のみ稼働）。
+
 ## 重大な発見の扱い
 
 サイクル中に以下のような**重大な問題**を発見した場合、PR とは別に Issue を起こす:
@@ -448,3 +514,10 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 - `verify-cycle-completeness.mjs` で Phase 5.6 の gate を自動化
 - R03/R04 は cem-qa 閾値 2.5（受験直結）
 - `umbrella-builder.mjs` で DRY 化（checkbox 判定・進捗計算の共通化）
+
+### Phase 5（キーワード単体起点化・MVP 実装済 2026-05-11）
+- `--keyword <slug>` オプション追加: GSC 優先順位（Issue #202）を直接駆動可能
+- `select-next-question.mjs` に `--keyword` 経路を追加（`past-exam-backlinks.json` を逆引き）
+- 既存の `--auto`/`--exam`/`--question` 経路は完全互換
+- 4 視点（構造・内容・補強・SVG）× Phase 対応表を SKILL.md に明示
+- **Phase 6（未実装、Phase B 予定）**: `sync-issue-202.mjs` で Issue #202 のチェックボックス自動同期
