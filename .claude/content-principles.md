@@ -330,6 +330,8 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 
 **対象**: PE keyword ページ（過去問データが揃っている）。civil-construction-1 等は構造が異なれば別途判断。
 
+**半自動化（2026-05-11 起動）**: `/audit-exam-mapping` Skill + `exam-keyword-mapping-auditor` エージェントが、過去問 1 問の現紐づけ slug 群を semantic に評価し、追加/削除候補を confidence 付きで surface する。校正時の「過去問逆参照の lookup → 引っかけ論点把握 → Callout 追加判断」のうち、**前半 2 ステップを agent に肩代わりさせる**ことで、人間は Callout 追加判断と確認に集中できる。サンプリング監査は NotebookLM で実施（詳細は `.claude/skills/quality/audit-exam-mapping/SKILL.md`）。
+
 ### 17. 散文中心・表と図は補足
 
 キーワードページは **散文（地の文）で概念を説明する** ことを基本とし、表・箇条書き・コンポーネントは散文の補足として後置する。教材『総監標準テキスト』（`docs/textbook/技術士（総監）/テキスト/総監標準テキスト/`）が散文 60〜65%／表・箇条書き 30〜35% のバランスで構成されており、この比率を doboku-note のキーワードページでも目標とする。

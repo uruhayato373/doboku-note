@@ -26,6 +26,7 @@
 | `note-link-injector` | note ドラフトに doboku-note キーワードページへのインラインリンクを全 occurrence 注入（synonym 判断を含む semantic マッチ） | Generator | sonnet | note-prepublish-review 連携、辞書 `src/config/pe-chapters.json` 参照 | ✅ 運用中（2026-04-29 起動） |
 | `note-figure-auditor` | note ドラフトの図版を `note-svg-policy.md` 準拠で 4 軸監査（キャンバス・フォント・ブランド・密度） | Evaluator | sonnet | note-prepublish-review 連携 | ✅ 運用中（2026-04-29 起動） |
 | `note-fact-checker` | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）でファクトチェック | Evaluator | sonnet | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照 | ✅ 運用中（2026-04-29 起動） |
+| `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface | Evaluator | sonnet | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照 | ✅ 運用中（2026-05-11 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
@@ -57,6 +58,7 @@
 | **civil-construction-review** | `.mdx`（1級土木 textbook/guide） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
 | **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query） | `/weekly-improve` 実行時 |
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
+| **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
 
