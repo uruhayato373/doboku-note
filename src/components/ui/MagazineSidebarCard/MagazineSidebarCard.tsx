@@ -24,7 +24,7 @@ export default function MagazineSidebarCard({
       rel="noopener noreferrer"
       className="not-prose group block rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
-      <div className="relative aspect-[16/9] bg-gray-100 dark:bg-gray-800">
+      <div className="relative aspect-square bg-gray-100 dark:bg-gray-800">
         <Image
           src={imageUrl}
           alt={title}
