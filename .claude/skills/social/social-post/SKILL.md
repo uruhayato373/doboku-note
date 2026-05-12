@@ -17,8 +17,8 @@ doboku-note の既存コンテンツを活用して note.com / X 向けの投稿
 /social-post note guide {テーマ}                    # 学習ガイド記事
 /social-post note keywords {N}                      # キーワードまとめ記事
 /social-post note desumasu {article-path}           # 既存 note 下書きをですます化
-/social-post x question {slug} {問題番号}            # X 過去問投稿（140字）
-/social-post x keyword {slug} [--long]              # X キーワード投稿（140字 / 280字）
+/social-post x question {slug} {問題番号} [--magazine]  # X 過去問投稿（140字）
+/social-post x keyword {slug} [--long] [--magazine]    # X キーワード投稿（140字 / 280字）
 ```
 
 ## note 投稿タイプ
@@ -185,6 +185,19 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 #技術士 #総監 #技術士試験
 ```
 
+**`--magazine` 付きフォーマット**:
+```
+【総監 {年度} {設問番号}】
+{問題のテーマを1文で要約。答えを明かさず興味を引く問いかけ}
+
+正答・解説はこちら
+https://doboku-note.com/docs/pe-comprehensive-management-{slug}
+
+5管理の論点まとめ → https://note.com/dobokunote/m/m607bf095b02a
+
+#技術士 #総監 #技術士試験
+```
+
 **ポイント**:
 - 正答番号は投稿に含めない（サイトに来てもらうため）
 - 問題文をそのまま貼らない（長すぎる）。テーマを要約して問いかけ形式にする
@@ -222,11 +235,22 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 #技術士 #総監 #{関連タグ}
 ```
 
+**`--magazine` 付き（140字版・280字版いずれも適用）**:
+サイトURL の直後に以下の行を追加する:
+```
+5管理の論点まとめ → https://note.com/dobokunote/m/m607bf095b02a
+```
+
 ### X 投稿の共通ルール
 
 - テキストをそのまま表示する（ユーザーがコピーして X に貼る想定）
 - URL はフルパスで出力（X が og:image を自動取得してカード表示する）
 - 文字数をカウントして表示: `(XXX文字 / 280文字)`
+- **`--magazine` フラグ**:
+  - サイト URL の直後に `5管理の論点まとめ → https://note.com/dobokunote/m/m607bf095b02a` を追加
+  - X の URL は t.co 短縮で 23 文字固定カウントのため、2本目 URL の文字数圧迫は最小
+  - 文字数カウントは URL 2 本ぶんを正確に反映する（各 URL = 23 文字として計算）
+  - CTA テキスト（「5管理の論点まとめ」部分）は A/B テストで差し替え可能 → `docs/sns/x/magazine-ab-test.md` 参照
 - **禁止**:
   - 正答番号を投稿テキストに含めない
   - 問題文の全文を貼らない
