@@ -34,15 +34,15 @@ export default function MagazineInlineCard({
       rel="noopener noreferrer"
       className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
-      <div className="flex">
-        <div className="relative w-[180px] sm:w-[240px] shrink-0 aspect-square bg-gray-100 dark:bg-gray-800">
+      <div className="flex flex-col sm:flex-row">
+        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-gray-100 dark:bg-gray-800">
           <Image
             src={imageUrl}
             alt={title}
             fill
             className="object-cover group-hover:scale-105 transition-transform duration-300"
             unoptimized
-            sizes="(max-width: 640px) 180px, 240px"
+            sizes="(max-width: 640px) 100vw, 240px"
           />
           <div
             className="absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[10px] font-medium text-white rounded-sm shadow-sm"
