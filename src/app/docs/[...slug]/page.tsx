@@ -389,6 +389,20 @@ export default async function DocPage({
               );
             })()}
 
+            {/* PE keyword / keyword-2026: magazine 訴求カード（モバイル限定・PC は右サイドバーで露出） */}
+            {category === 'pe-comprehensive-management' &&
+              (docGroup === 'keyword' || slugStr === 'pe-comprehensive-management-keyword-2026') && (
+                <div className="mt-8 zenn-desktop:hidden">
+                  <MagazineInlineCard
+                    url="https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=keyword-mobile"
+                    title="doboku-note 連動｜5管理 テキスト精読ガイド"
+                    description="サイトの 650+ キーワード解説と連動した試験対策教材。5管理ごとに頻出論点と引っかけパターンを体系化し、各論点から本サイトの詳細解説に直リンク。全約7万字。"
+                    imageUrl="/images/magazines/tankan-magazine-cover.webp"
+                    badge="note 限定 教材"
+                  />
+                </div>
+              )}
+
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
             <AuthorCard
               publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
@@ -400,18 +414,24 @@ export default async function DocPage({
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
             <div className="sticky top-6">
-              {/* Magazine (PE pillar 限定) を最上部に配置 */}
-              {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
-                <div className="mb-3">
-                  <MagazineSidebarCard
-                    url="https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=pillar-sidebar"
-                    title="5管理 精読ガイド"
-                    description="5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。"
-                    imageUrl="/images/magazines/tankan-magazine-cover.webp"
-                    badge="note 限定 教材"
-                  />
-                </div>
-              )}
+              {/* Magazine (PE pillar / keyword / keyword-2026) を最上部に配置 */}
+              {category === 'pe-comprehensive-management' &&
+                (docGroup === 'pillar' ||
+                  docGroup === 'keyword' ||
+                  slugStr === 'pe-comprehensive-management-keyword-2026') && (() => {
+                  const utmContent = docGroup === 'pillar' ? 'pillar-sidebar' : 'keyword-sidebar';
+                  return (
+                    <div className="mb-3">
+                      <MagazineSidebarCard
+                        url={`https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=${utmContent}`}
+                        title="5管理 精読ガイド"
+                        description="5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。"
+                        imageUrl="/images/magazines/tankan-magazine-cover.webp"
+                        badge="note 限定 教材"
+                      />
+                    </div>
+                  );
+                })()}
               <TableOfContents headings={headings} />
               {hasCategoryNavCard && category && (
                 <div className="mt-3">
