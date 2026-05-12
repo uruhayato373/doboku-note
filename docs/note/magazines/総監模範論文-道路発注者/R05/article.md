@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 総監模範論文-道路発注者ペルソナ
 utmCampaign: essay-road-r05
 noteUrl: ""
-noteMagazine: 総監模範論文-道路発注者ペルソナ集
+noteMagazine: 総監模範論文-道路発注者
 price: 500
 ---
 # 令和5年度 総監記述式 模範論文｜道路発注者版（SWOT 分析・戦略立案）

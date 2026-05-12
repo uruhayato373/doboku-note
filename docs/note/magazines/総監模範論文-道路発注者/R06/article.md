@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 総監模範論文-道路発注者ペルソナ
 utmCampaign: essay-road-r06
 noteUrl: ""
-noteMagazine: 総監模範論文-道路発注者ペルソナ集
+noteMagazine: 総監模範論文-道路発注者
 price: 500
 ---
 # 令和6年度 総監記述式 模範論文｜道路発注者版（バイパス整備・カーボンニュートラル）

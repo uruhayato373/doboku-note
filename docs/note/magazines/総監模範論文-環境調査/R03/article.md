@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 総監模範論文-環境調査ペルソナ
 utmCampaign: essay-env-r03
 noteUrl: ""
-noteMagazine: 総監模範論文-環境調査ペルソナ集
+noteMagazine: 総監模範論文-環境調査
 price: 500
 ---
 # 令和3年度 総監記述式 模範論文｜環境調査事務所版（データ利活用）

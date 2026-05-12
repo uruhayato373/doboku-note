@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 総監模範論文-河川コンサルペルソナ
 utmCampaign: essay-river-r04
 noteUrl: ""
-noteMagazine: 総監模範論文-河川コンサルペルソナ集
+noteMagazine: 総監模範論文-河川コンサル
 price: 500
 ---
 # 令和4年度 総監記述式 模範論文｜コンサル河川版（DX 推進計画）

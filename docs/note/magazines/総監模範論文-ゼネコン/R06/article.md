@@ -3,7 +3,7 @@ notePricing: paid
 noteSeries: 総監模範論文-ゼネコンペルソナ
 utmCampaign: essay-gc-r06
 noteUrl: ""
-noteMagazine: 総監模範論文-ゼネコンペルソナ集
+noteMagazine: 総監模範論文-ゼネコン
 price: 500
 ---
 # 令和6年度 総監記述式 模範論文｜ゼネコン版（カーボンニュートラル）
