@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="60" y="55" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">学習開始時期別 — 2 パターンの圧縮プラン</text>
+  <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="500" fill="#555555">ライフスタイルや決断タイミングに合わせてプランを選ぶ</text>
+
+  <!-- カード1: 標準（12月開始 7ヶ月） x=60, w=520 -->
+  <rect x="60" y="114" width="520" height="400" rx="8" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="60" y="114" width="520" height="72" rx="8" fill="#3a7d44"/>
+  <rect x="60" y="166" width="520" height="20" fill="#3a7d44"/>
+  <text x="320" y="152" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">標準パターン</text>
+  <text x="320" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle">前年 12 月開始 / 7 ヶ月</text>
+
+  <rect x="80" y="202" width="480" height="36" rx="6" fill="#3a7d44"/>
+  <text x="320" y="226" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">最も合格率が高い</text>
+
+  <text x="80" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">スケジュール</text>
+  <circle cx="84" cy="290" r="5" fill="#3a7d44"/>
+  <text x="98" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">12〜2 月: Phase 1（通読）</text>
+  <circle cx="84" cy="320" r="5" fill="#3a7d44"/>
+  <text x="98" y="326" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">3〜5 月: Phase 2（演習）</text>
+  <circle cx="84" cy="350" r="5" fill="#3a7d44"/>
+  <text x="98" y="356" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">6〜7 月: Phase 3（直前）</text>
+
+  <line x1="80" y1="376" x2="560" y2="376" stroke="#3a7d44" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="80" y="404" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">週あたり学習時間</text>
+  <text x="80" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">P1: 5〜10 時間</text>
+  <text x="80" y="452" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">P2: 10〜15 時間</text>
+  <text x="80" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">P3: 15〜20 時間</text>
+
+  <!-- カード2: タイト（3月開始 4ヶ月） x=620, w=520 -->
+  <rect x="620" y="114" width="520" height="400" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <rect x="620" y="114" width="520" height="72" rx="8" fill="#d4a017"/>
+  <rect x="620" y="166" width="520" height="20" fill="#d4a017"/>
+  <text x="880" y="152" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">タイトパターン</text>
+  <text x="880" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#ffffff" text-anchor="middle">3 月開始 / 4 ヶ月 — 週 15 時間以上が前提</text>
+
+  <rect x="640" y="202" width="480" height="36" rx="6" fill="#d4a017"/>
+  <text x="880" y="226" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">合格ラインに乗せる 3 条件</text>
+
+  <circle cx="644" cy="264" r="5" fill="#d4a017"/>
+  <text x="658" y="270" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7a5800">択一式を先に仕上げる</text>
+  <text x="658" y="292" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555">5 月末までに択一 65% 以上を安定させてから記述へ</text>
+
+  <circle cx="644" cy="318" r="5" fill="#d4a017"/>
+  <text x="658" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7a5800">記述は「2 問完成」を先に習得</text>
+  <text x="658" y="346" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555">R06・R07 の 2 年分に絞り骨子を 3 回以上反復</text>
+
+  <circle cx="644" cy="372" r="5" fill="#d4a017"/>
+  <text x="658" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7a5800">KW 集は「目次で済ます」</text>
+  <text x="658" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555">過去問の選択肢に出た項目だけ逆引きする使い方へ</text>
+
+  <line x1="640" y1="418" x2="1120" y2="418" stroke="#d4a017" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="640" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#7a5800">目標ライン: 択一 60〜65%・記述 B 評価以上</text>
+  <text x="640" y="468" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#555555">標準パターン比で合格率は下がる点に注意</text>
+
+  <text x="1180" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

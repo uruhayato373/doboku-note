@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#ffffff"/>
+
+  <!-- フェーズヘッダ帯 -->
+  <rect x="0" y="0" width="1200" height="76" fill="#3a7d44"/>
+  <text x="60" y="40" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#ffffff">Phase 1（前年 12 月〜2 月）— タスク詳細</text>
+  <text x="60" y="64" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#c8e6c9">目的：5 管理の全体像を掴み、自分の業務との接続点を見つける　週 5〜10 時間</text>
+
+  <!-- タスク 1 -->
+  <rect x="60" y="100" width="340" height="376" rx="8" fill="#f3f9f4" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="60" y="100" width="340" height="52" rx="8" fill="#3a7d44"/>
+  <rect x="60" y="138" width="340" height="14" fill="#3a7d44"/>
+  <text x="230" y="134" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">キーワード集を通読</text>
+
+  <text x="80" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">目的</text>
+  <text x="80" y="206" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">5 管理それぞれが</text>
+  <text x="80" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">何を扱うかの構造を把握</text>
+
+  <line x1="80" y1="248" x2="380" y2="248" stroke="#3a7d44" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="80" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">注意点</text>
+  <text x="80" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">暗記は不要。</text>
+  <text x="80" y="318" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">各管理間の関連を</text>
+  <text x="80" y="340" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">ざっくり掴むだけで OK</text>
+
+  <line x1="80" y1="360" x2="380" y2="360" stroke="#3a7d44" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="80" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">ツール</text>
+  <text x="80" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">doboku-note KW 集</text>
+  <text x="80" y="430" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">（通勤時間に最適）</text>
+  <text x="80" y="452" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">+公式キーワード集 2026</text>
+
+  <!-- タスク 2 -->
+  <rect x="430" y="100" width="340" height="376" rx="8" fill="#f3f9f4" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="430" y="100" width="340" height="52" rx="8" fill="#3a7d44"/>
+  <rect x="430" y="138" width="340" height="14" fill="#3a7d44"/>
+  <text x="600" y="134" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">過去問 5 年分を速読</text>
+
+  <text x="450" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">目的</text>
+  <text x="450" y="206" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">出題の傾向・範囲・</text>
+  <text x="450" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">テーマを知る</text>
+
+  <line x1="450" y1="248" x2="750" y2="248" stroke="#3a7d44" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="450" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">注意点</text>
+  <text x="450" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">問題を解く必要はない。</text>
+  <text x="450" y="318" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">「どんな問われ方を</text>
+  <text x="450" y="340" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">するのか」を掴む</text>
+
+  <line x1="450" y1="360" x2="750" y2="360" stroke="#3a7d44" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="450" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">対象年度</text>
+  <text x="450" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">R03〜R07 の 5 年分</text>
+  <text x="450" y="430" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">（択一 + 記述の前文）</text>
+
+  <!-- タスク 3 -->
+  <rect x="800" y="100" width="340" height="376" rx="8" fill="#f3f9f4" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="800" y="100" width="340" height="52" rx="8" fill="#3a7d44"/>
+  <rect x="800" y="138" width="340" height="14" fill="#3a7d44"/>
+  <text x="970" y="134" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">業務との接続メモ</text>
+
+  <text x="820" y="182" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">目的</text>
+  <text x="820" y="206" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">自分の業務経験と</text>
+  <text x="820" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">5 管理の接続点を発見</text>
+
+  <line x1="820" y1="248" x2="1120" y2="248" stroke="#3a7d44" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="820" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">なぜ重要か</text>
+  <text x="820" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">申込書・記述論文の</text>
+  <text x="820" y="318" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">素材になる</text>
+
+  <line x1="820" y1="360" x2="1120" y2="360" stroke="#3a7d44" stroke-width="1" stroke-opacity="0.4"/>
+
+  <text x="820" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">方法</text>
+  <text x="820" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">5 管理ごとに自分の</text>
+  <text x="820" y="430" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">業務エピソードを</text>
+  <text x="820" y="452" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">1〜2 行でメモ</text>
+
+  <text x="1180" y="500" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>
