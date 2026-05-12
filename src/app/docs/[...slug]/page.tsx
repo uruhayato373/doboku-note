@@ -380,11 +380,10 @@ export default async function DocPage({
                 <div className="mt-8">
                   <MagazineInlineCard
                     url={`https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=${utmContent}`}
-                    title="技術士 総監｜5管理 テキスト精読ガイド"
-                    description="5管理の主要キーワードを試験頻出順に体系化した精読ガイド5本セット。単品4本分の値段で5本買えます。"
+                    title="doboku-note 連動｜5管理 テキスト精読ガイド"
+                    description="サイトの 650+ キーワード解説と連動した試験対策教材。5管理ごとに頻出論点と引っかけパターンを体系化し、各論点から本サイトの詳細解説に直リンク。全約7万字。"
                     imageUrl="/images/magazines/tankan-magazine-cover.webp"
-                    price="¥1,980（21%OFF）"
-                    badge="note 限定 マガジン"
+                    badge="note 限定 教材"
                   />
                 </div>
               );
@@ -422,11 +421,10 @@ export default async function DocPage({
                 <div className="mt-3">
                   <MagazineSidebarCard
                     url="https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=pillar-sidebar"
-                    title="技術士 総監｜5管理 テキスト精読ガイド"
-                    description="5管理の主要キーワードを試験頻出順に体系化した精読ガイド5本セット。単品4本分の値段で5本（21%OFF）。"
+                    title="5管理 精読ガイド"
+                    description="5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。"
                     imageUrl="/images/magazines/tankan-magazine-cover.webp"
-                    price="¥1,980（単品 ¥500×5本→21%OFF）"
-                    badge="note 限定 マガジン"
+                    badge="note 限定 教材"
                   />
                 </div>
               )}

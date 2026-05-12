@@ -5,7 +5,7 @@ interface MagazineSidebarCardProps {
   readonly title: string;
   readonly description: string;
   readonly imageUrl: string;
-  readonly price: string;
+  readonly price?: string;
   readonly badge: string;
 }
 
@@ -47,9 +47,11 @@ export default function MagazineSidebarCard({
         <p className="mt-1.5 text-[11px] leading-snug text-ink-body dark:text-gray-400 line-clamp-3">
           {description}
         </p>
-        <div className="mt-2 text-[13px] font-bold text-brand-deep dark:text-brand">
-          {price}
-        </div>
+        {price && (
+          <div className="mt-2 text-[13px] font-bold text-brand-deep dark:text-brand">
+            {price}
+          </div>
+        )}
       </div>
     </a>
   );

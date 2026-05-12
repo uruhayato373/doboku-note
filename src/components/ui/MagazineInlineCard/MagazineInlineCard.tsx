@@ -5,7 +5,7 @@ interface MagazineInlineCardProps {
   readonly title: string;
   readonly description: string;
   readonly imageUrl: string;
-  readonly price: string;
+  readonly price?: string;
   readonly badge: string;
 }
 
@@ -58,9 +58,11 @@ export default function MagazineInlineCard({
           <p className="mt-1 text-[12px] sm:text-[13px] leading-snug text-ink-body dark:text-gray-400 line-clamp-2 sm:line-clamp-3">
             {description}
           </p>
-          <div className="mt-2 text-[13px] font-bold text-brand-deep dark:text-brand">
-            {price}
-          </div>
+          {price && (
+            <div className="mt-2 text-[13px] font-bold text-brand-deep dark:text-brand">
+              {price}
+            </div>
+          )}
         </div>
       </div>
     </a>
