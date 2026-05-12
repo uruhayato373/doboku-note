@@ -26,6 +26,7 @@ import TableOfContents from '@/components/ui/TableOfContents';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
+import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
 import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
@@ -370,6 +371,24 @@ export default async function DocPage({
                 <FAQCard faqs={(doc.meta as any).faqs} />
               </div>
             )}
+
+            {/* PE pillar: magazine 訴求カード（FAQ と著者の間に独立セクションで配置） */}
+            {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (() => {
+              const m = slugStr.match(/^pe-comprehensive-management-(.+)-management-pillar$/);
+              const utmContent = m ? `${m[1]}-pillar-bottom` : 'pillar-bottom';
+              return (
+                <div className="mt-8">
+                  <MagazineInlineCard
+                    url={`https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=${utmContent}`}
+                    title="技術士 総監｜5管理 テキスト精読ガイド"
+                    description="5管理の主要キーワードを試験頻出順に体系化した精読ガイド5本セット。単品4本分の値段で5本買えます。"
+                    imageUrl="/images/magazines/tankan-magazine-cover.webp"
+                    price="¥1,980（21%OFF）"
+                    badge="note 限定 マガジン"
+                  />
+                </div>
+              );
+            })()}
 
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
             <AuthorCard

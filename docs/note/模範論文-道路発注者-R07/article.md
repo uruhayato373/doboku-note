@@ -1,39 +1,38 @@
 ---
-title: 令和7年度 総監記述式 模範論文｜道路発注者版（橋梁長寿命化）
-shortTitle: R7 模範論文（道路発注者）
-subtitle: 少子高齢化テーマを橋梁長寿命化事業で解く
-description: 技術士総合技術監理部門 令和7年度 記述式試験（少子高齢化）の模範論文。地方公共団体・道路維持管理担当の立場から、橋梁長寿命化修繕事業を題材に、技術継承・AI 活用・2050 年のインフラ集約までを三層構造で論じる。5 管理間トレードオフと採点者視点の整理付き。
-category: pe-comprehensive-management
-group: guide
-tags:
-  - 技術士（総合技術監理部門）
-  - 模範論文
-  - 道路
-  - 地方公共団体
-  - 受験者属性別
-  - 記述式対策
-  - 少子高齢化
-created: 2026-05-08
-published: false
-publishedAt: 2026-05-08
-seoTitle: "令和7年度 総監記述式 模範論文｜道路発注者版（橋梁長寿命化） ｜ 技術士 総合技術監理部門 キーワード集"
-dateModified: 2026-05-08
-faqs:
-  - q: なぜ橋梁長寿命化を題材に選ぶのですか？
-    a: R7 の少子高齢化テーマは「労働力減少下での維持管理」が論点の中核で、橋梁長寿命化はその典型業務だからです。発注者として技術継承・DX・予算制約を同時に論じやすく、過去経験を直結させやすい題材です。
-  - q: 三層構造（現在→5 年以内→2050 年）はどう書けばよいですか？
-    a: 設問が三層に分かれている年度では、各層を独立した論文セクションとして書きます。現在は「課題と既存施策の限界」、5 年以内は「具体的な改善施策 2 つ＋トレードオフ」、2050 年は「抜本的な構造変革」の構成が王道です。
-  - q: トレードオフは何個書けばよいですか？
-    a: 5 年以内の施策セクションでは、各施策につき最低 1 つ（合計 2 つ以上）のトレードオフを明示します。情報管理 × 経済性管理、人的資源管理 × 経済性管理が頻出パターンで、克服策まで書ききって論旨を閉じます。
+notePricing: paid
+noteSeries: 総監模範論文-道路発注者ペルソナ
+utmCampaign: essay-road-r07
+noteUrl: ""
+noteMagazine: 総監模範論文-道路発注者ペルソナ集
+price: 500
+---
+# 令和7年度 総監記述式 模範論文｜道路発注者版（橋梁長寿命化）
+
+**こんな人のための記事です**
+
+- 地方公共団体・道路維持管理担当として総監記述式を受験する
+- 「5 管理間トレードオフ」をどのペアで立てれば総監らしさが出るか判断できない
+- 設問の三層構造（現在 → 5 年以内 → 2050 年）に何を書くか組み立て中
+- 自分の業務経験を 3,000 字の論文に落とし込む書き方が知りたい
+
+**この記事でわかること**
+
+- 令和7年度 必須科目（少子高齢化）の **3,000 字級フル模範論文（道路発注者版）**
+- 橋梁長寿命化修繕事業を題材にした **設問三層構造の組み立て方**
+- 5 管理間トレードオフを「**情報×経済**」「**人的×経済**」「**社環×人的**」で立てる王道パターン
+- 採点者視点でのチェックポイント（4 項目）
+
 ---
 
-# 令和7年度 総監記述式 模範論文｜道路発注者版（橋梁長寿命化）
+道路発注者ペルソナの過去 5 年分（R03-R07）をセットにした **magazine ¥1,980（単品 5 本 ¥2,500 → 21%OFF）** もあわせてご覧ください。
+
+https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
+
+---
 
 技術士総合技術監理部門 令和7年度 記述式試験（テーマ：少子高齢化）を、**地方公共団体の道路維持管理担当** の立場で **橋梁長寿命化修繕事業** を題材に解いた模範論文。設問の三層構造（現在 → 5 年以内 → 2050 年）に対応し、各段階で 5 管理間トレードオフを明示する。
 
-<Callout type="tip" title="この模範論文の使い方">
-本論文は「自分の業務経験を活かして 3,000 字を書ききる」ためのテンプレートとして提示する。**そのまま暗記するのではなく、自分の管内橋梁数・組織規模・経験事例に置き換えて再構成する** 前提で読むこと。設定を入れ替えても論文の骨格（三層構造・トレードオフ明示・残余リスク）は流用できる。
-</Callout>
+> 本論文は「自分の業務経験を活かして 3,000 字を書ききる」ためのテンプレートとして提示します。**そのまま暗記するのではなく、自分の管内橋梁数・組織規模・経験事例に置き換えて再構成する** 前提で読んでください。設定を入れ替えても論文の骨格（三層構造・トレードオフ明示・残余リスク）は流用できます。
 
 ## 想定する管理対象と前提条件
 
@@ -45,7 +44,7 @@ faqs:
 | 立場 | 道路維持課 管理事務所長（課長補佐相当） |
 | 前提条件 | 厳しい財政制約、熟練技術者の大量退職、ベテラン依存からの脱却が急務 |
 
-各パターン詳細は [模範論文ハブ](/docs/pe-comprehensive-management-pattern-essay-road-municipality) を参照。
+道路発注者ペルソナの他の管理対象パターン（バイパス・トンネル・法面）への置き換えは [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) を参照してください。
 
 ## 設問（１）事業の内容と少子高齢化への対応状況
 
@@ -120,46 +119,36 @@ faqs:
 
 | 設問 | 論じたトレードオフ | 解決フレーム |
 |---|---|---|
-| (2) 施策 1 | 情報管理 × 経済性管理 | [段階的実施](/docs/pe-comprehensive-management-management-tradeoffs#段階的実施)（自治体間の共同利用） |
-| (2) 施策 2 | 人的資源管理 × 経済性管理 | [合意形成](/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示)（業務評価項目への組込み） |
-| (3) | 社会環境管理 × 人的資源管理 | [合意形成](/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示) + [LCA](/docs/pe-comprehensive-management-management-tradeoffs#lca外部不経済の内部化) |
+| (2) 施策 1 | 情報管理 × 経済性管理 | [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#段階的実施)（自治体間の共同利用） |
+| (2) 施策 2 | 人的資源管理 × 経済性管理 | [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#合意形成情報開示)（業務評価項目への組込み） |
+| (3) | 社会環境管理 × 人的資源管理 | [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#合意形成情報開示) + [LCA](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#lca外部不経済の内部化) |
 
 ## 採点者視点でのチェックポイント
 
-<ExamPoint
-  summary="R7 の三層構造は「現在の限界 → 5 年以内の現実的施策 → 2050 年の構造変革」で書く"
-  items={[
-    "(1) 現在の施策に「問題点」を明示することで、(2) の施策の必然性が立つ（採点者は接続の論理性を見る）",
-    "(2) では施策ごとに必ずトレードオフを書く。書かないと「総監らしさ」が出ず減点される",
-    "(3) では「重大な障害」を社会環境管理 × 人的資源管理で立てるのが王道。技術論だけで終わらせない",
-    "全体を通じて発注者の権限（仕様書義務化・補助金活用・自治体間連携）を活かした施策を提示する",
-  ]}
-/>
+R7 の三層構造は「現在の限界 → 5 年以内の現実的施策 → 2050 年の構造変革」で書く。採点者がチェックする 4 点：
 
-## 関連リソース
+- (1) 現在の施策に「問題点」を明示することで、(2) の施策の必然性が立つ（採点者は接続の論理性を見る）
+- (2) では施策ごとに必ずトレードオフを書く。書かないと「総監らしさ」が出ず減点される
+- (3) では「重大な障害」を社会環境管理 × 人的資源管理で立てるのが王道。技術論だけで終わらせない
+- 全体を通じて発注者の権限（仕様書義務化・補助金活用・自治体間連携）を活かした施策を提示する
 
-<SeeAlso
-  href="/docs/pe-comprehensive-management-pattern-essay-road-municipality"
-  title="道路発注者向け 模範論文ハブ"
-  reason="管理対象 4 パターン（橋梁・バイパス・トンネル・法面）の選び方と前提条件のテンプレート集。本論文を組み換えるときの起点。"
-/>
+---
 
-<SeeAlso
-  href="/docs/pe-comprehensive-management-r07-secondary"
-  title="令和7年度 総監記述式 過去問解説"
-  reason="令和7年度 必須科目の問題文全文と、別属性（環境調査事務所版）の模範論文例。複数の立場の解答を見比べると論文設計の幅が広がる。"
-/>
+## doboku-note の関連ガイド
 
-<SeeAlso
-  href="/docs/pe-comprehensive-management-management-tradeoffs"
-  title="5 管理間トレードオフ 頻出パターンと解決フレーム"
-  reason="本論文で使った段階的実施・合意形成・LCA などのフレームの定義と、他ペアでの応用例。"
-/>
+- [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) — 管理対象 4 パターン（橋梁・バイパス・トンネル・法面）の選び方と前提条件のテンプレート集
+- [令和7年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) — 必須科目の問題文全文と他ペルソナの解き方
+- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) — 段階的実施・合意形成・LCA などフレーム集
 
-<RelatedKeywords items={[
-  { label: "ALARP原則", slug: "alarp-principle" },
-  { label: "リスクアセスメント", slug: "risk-assessment" },
-  { label: "BCP（事業継続計画）", slug: "business-continuity-plan" },
-  { label: "インフラ老朽化", slug: "aging-infrastructure" },
-  { label: "定期点検", slug: "periodic-inspection" },
-]} />
+---
+
+## magazine セット販売のお知らせ
+
+道路発注者ペルソナの過去 5 年分（R03-R07）の模範論文を全 5 本セットにした magazine を販売しています。
+
+- 単品: 各 ¥500 × 5 = ¥2,500
+- magazine セット: **¥1,980（21%OFF）**
+
+R03（データ利活用）/ R04（脱炭素）/ R05（社会資本維持）/ R06（DX 化）/ R07（少子高齢化）と、テーマは毎年異なりますが、**道路発注者として書ける論点とトレードオフは共通パターン** があります。5 年分をまとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
+
+https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
