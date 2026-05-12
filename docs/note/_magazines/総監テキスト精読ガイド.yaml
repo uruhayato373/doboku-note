@@ -8,7 +8,11 @@ description: |
   キーワードごとの詳細確認がすぐできます。
   全13,000〜15,000字 × 5本。
 
-setPrice: 3980
+setPrice: 1980
+articlePrice: 500
+articleCount: 5
+singleTotal: 2500
+discountPercent: 21
 articles:
   - slug: 5管理-安全管理
     noteUrl: https://note.com/dobokunote/n/nb68184641be8

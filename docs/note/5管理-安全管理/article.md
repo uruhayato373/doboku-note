@@ -23,7 +23,9 @@ noteMagazine: 総監テキスト精読ガイド
 
 ---
 
-> **このシリーズはマガジンでまとめ購入するとお得です → [技術士 総監｜5管理 テキスト精読ガイド](https://note.com/dobokunote/m/m607bf095b02a)**
+キーワード集を読んでも論点が頭に入らない、択一の引っかけパターンが見えない、5管理の範囲が広すぎてどこから手を付ければいいか優先順位がつかない──そんな受験者のために、17年分の過去問680問を分析して5管理を体系化した精読ガイドを、5本セット ¥1,980（単品4本分の値段で5本・21%OFF）でまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 安全管理は総監5管理の中で**最もカバー範囲が広い分野**です。[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[リスクマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・危機管理・[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と、6エリアにまたがります。
 
@@ -702,6 +704,14 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 ---
 
+## このシリーズを体系的に学ぶ
+
+本記事の論点を体系的に押さえたら、残り4管理も同じ視点で読み通すと得点力が一段階上がります。経済性・人的資源・情報・安全・社会環境の精読ガイド5本セットを、単品4本分の値段（¥1,980）でまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
+
+---
+
 ## 関連リソース
 
 **doboku-note — 17年分の過去問 + 650キーワード解説（無料）**
@@ -712,8 +722,8 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 - [記述式過去問 R05（高齢化社会・建設DX）](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)
 
 **マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
-- 安全管理（本書）＋ 情報管理 ＋ 経済性管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥4,900
-- セット価格 **¥3,980**（19% OFF）※ 2026年順次公開予定
+- 安全管理（本書）＋ 情報管理 ＋ 経済性管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥2,500（¥500 × 5本）
+- セット価格 **¥1,980**（単品4本分の値段で5本・21% OFF）
 
 **著者プロフィール**
 土木技術者として1級土木施工管理技士・建設部門の技術士に合格後、2026年に総合技術監理部門に挑戦。学習過程で蓄積した650キーワードの解説と17年分の過去問分析をdoboku-noteにて無料公開しています。

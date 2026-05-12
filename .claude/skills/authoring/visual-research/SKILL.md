@@ -4,7 +4,7 @@ description: >
   NotebookLM（総監テキスト）で概念構造を抽出し、参照URL（または自動Web検索）から
   視覚パターンを取得してSVG概念図を生成・MDXに挿入する。
   /illustrate-concept との違い: ① --ref URLを直接渡せる、
-  ② nlm cross query でSVGの「内容」をテキスト根拠から設計する。
+  ② notebooklm-cross-query.mjs（旧 nlm cross query）でSVGの「内容」をテキスト根拠から設計する。
   Use when user asks to [参照URL から SVG, NotebookLM で図を作成,
   概念図を深掘り生成, /visual-research, 概念図を追加して].
 user-invocable: true
@@ -12,7 +12,7 @@ user-invocable: true
 
 # /visual-research — NotebookLM × 参照URL → 概念図
 
-NotebookLM（`nlm cross query`）で概念の内部構造を抽出し、参照ページの視覚パターンを着想源として、
+NotebookLM（`.claude/scripts/notebooklm-cross-query.mjs`、旧 `nlm cross query` 後継）で概念の内部構造を抽出し、参照ページの視覚パターンを着想源として、
 テキスト根拠に裏付けられた SVG 概念図を生成する。
 
 ## /illustrate-concept との使い分け
@@ -32,13 +32,14 @@ NotebookLM（`nlm cross query`）で概念の内部構造を抽出し、参照�
 |---|---|
 | `<slug>` | キーワード slug（例: `discount-rate`） |
 | `--ref <URL>` | 視覚パターン着想源の参照ページ URL（省略時は自動 Web 検索） |
-| `--notebooks` | nlm クエリ先（省略時: "総監標準テキスト"） |
+| `--notebooks` | notebooklm クエリ先（省略時: "総監標準テキスト"） |
 | `--concept` | SVG化する概念名（省略時は記事から自動抽出） |
 
 ## 前提条件
 
 ```bash
-nlm --version  # 0.6.5 以上
+notebooklm --version  # 0.3.4 以上（旧 nlm から移行）
+notebooklm login      # 認証期限切れ時のみ、ユーザーが手動実行
 # 総監標準テキスト notebook ID: c55503ac-07cc-47d8-81d2-41dcb150d0a2
 ```
 
@@ -55,7 +56,7 @@ nlm --version  # 0.6.5 以上
 ### Step 2: NotebookLM クエリ（概念構造の抽出）
 
 ```bash
-nlm cross query --notebooks "総監標準テキスト" \
+node .claude/scripts/notebooklm-cross-query.mjs --notebooks "総監標準テキスト" \
   "「{概念名}」を図で表現するとしたら、どのような構造・フロー・分類・関係性が重要か？
    定義・主要コンポーネント・相互関係・試験での出題パターンを整理してください。"
 ```
@@ -109,7 +110,7 @@ findings に `[視覚パターン] <パターン名>（<着想源URL>）` とし
 SVG 冒頭に出典コメント:
 ```xml
 <!-- source: {URL} (構図着想のみ・独自作図) -->
-<!-- nlm: 総監標準テキスト より概念構造を抽出 -->
+<!-- notebooklm: 総監標準テキスト より概念構造を抽出 -->
 ```
 
 保存・挿入:
@@ -138,7 +139,7 @@ git add .local/r2/posts/pe-comprehensive-management/<slug>/
 git commit -m "content(pe): <slug> に概念図を追加（NotebookLM × 参照URL）
 
 構図着想: <URL>（独自作図・トレース禁止）
-概念構造出典: 総監標準テキスト（nlm cross query）"
+概念構造出典: 総監標準テキスト（notebooklm-cross-query）"
 ```
 
 ## 完了レポート
@@ -156,5 +157,5 @@ SVG audit: HIGH 0件
 
 - `.claude/skills/authoring/illustrate-concept/SKILL.md` — Discovery First 方式（--ref 未指定時の自動Web検索手順）
 - `.claude/skills/authoring/create-svg/SKILL.md` — SVG 作図ルール・デザイントークン
-- `.claude/skills/authoring/notebooklm-research/SKILL.md` — nlm cross query の詳細
+- `.claude/skills/authoring/notebooklm-research/SKILL.md` — notebooklm-cross-query の詳細
 - `.claude/content-principles.md` — `<ArticleImage>` caption 禁止ルール

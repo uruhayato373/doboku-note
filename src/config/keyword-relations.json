@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-10T08:12:28.118Z",
+  "generated_at": "2026-05-12T04:04:43.600Z",
   "summary": {
     "total_keywords": 651,
     "published_keywords": 650,
@@ -388,7 +388,7 @@
       {
         "slug": "business-continuity-plan",
         "label": "BCP・BCM",
-        "score": 16,
+        "score": 18,
         "signals": [
           "section",
           "exam"
@@ -1298,7 +1298,7 @@
       {
         "slug": "supply-chain-management",
         "label": "サプライチェーンマネジメント（SCM）",
-        "score": 16,
+        "score": 18,
         "signals": [
           "section",
           "exam"
@@ -1637,8 +1637,8 @@
         ]
       },
       {
-        "slug": "quality-improvement",
-        "label": "品質改善活動",
+        "slug": "process-capability-index",
+        "label": "工程能力指数（Cp・Cpk）",
         "score": 12,
         "signals": [
           "section",
@@ -1646,11 +1646,12 @@
         ]
       },
       {
-        "slug": "customer-satisfaction",
-        "label": "顧客満足（CS）",
-        "score": 10,
+        "slug": "quality-improvement",
+        "label": "品質改善活動",
+        "score": 12,
         "signals": [
-          "section"
+          "section",
+          "exam"
         ]
       }
     ],
@@ -1658,7 +1659,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 18,
+        "score": 20,
         "signals": [
           "section",
           "exam"
@@ -1667,6 +1668,15 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "nonconformity-rate",
+        "label": "不適合品率／適合品率",
         "score": 14,
         "signals": [
           "section",
@@ -1685,15 +1695,6 @@
       {
         "slug": "quality-characteristics",
         "label": "品質特性",
-        "score": 14,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "quality-improvement",
-        "label": "品質改善活動",
         "score": 14,
         "signals": [
           "section",
@@ -1880,6 +1881,15 @@
     ],
     "inspection-methods": [
       {
+        "slug": "process-capability-index",
+        "label": "工程能力指数（Cp・Cpk）",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "quality-control",
         "label": "品質管理",
         "score": 16,
@@ -1891,15 +1901,6 @@
       {
         "slug": "nonconformity-rate",
         "label": "不適合品率／適合品率",
-        "score": 14,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "process-capability-index",
-        "label": "工程能力指数（Cp・Cpk）",
         "score": 14,
         "signals": [
           "section",
@@ -1994,7 +1995,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 18,
+        "score": 20,
         "signals": [
           "section",
           "exam"
@@ -2272,17 +2273,17 @@
         ]
       },
       {
-        "slug": "control-limits",
-        "label": "管理限界",
-        "score": 12,
+        "slug": "process-capability-index",
+        "label": "工程能力指数（Cp・Cpk）",
+        "score": 14,
         "signals": [
           "section",
           "exam"
         ]
       },
       {
-        "slug": "process-capability-index",
-        "label": "工程能力指数（Cp・Cpk）",
+        "slug": "control-limits",
+        "label": "管理限界",
         "score": 12,
         "signals": [
           "section",
@@ -17379,8 +17380,8 @@
         ]
       },
       {
-        "slug": "isms-iso27001",
-        "label": "ISMS（ISO/IEC 27001）",
+        "slug": "firewall-ids",
+        "label": "ファイアウォール・侵入検知",
         "score": 12,
         "signals": [
           "section",
@@ -17388,8 +17389,8 @@
         ]
       },
       {
-        "slug": "zero-trust",
-        "label": "ゼロトラスト",
+        "slug": "isms-iso27001",
+        "label": "ISMS（ISO/IEC 27001）",
         "score": 12,
         "signals": [
           "section",
@@ -17684,6 +17685,15 @@
         ]
       },
       {
+        "slug": "firewall-ids",
+        "label": "ファイアウォール・侵入検知",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "jisec",
         "label": "ITセキュリティ評価及び認証制度（JISEC）",
         "score": 12,
@@ -17695,15 +17705,6 @@
       {
         "slug": "privacy-mark",
         "label": "プライバシーマーク",
-        "score": 12,
-        "signals": [
-          "section",
-          "exam"
-        ]
-      },
-      {
-        "slug": "vpn",
-        "label": "VPN",
         "score": 12,
         "signals": [
           "section",
@@ -17894,40 +17895,44 @@
     ],
     "firewall-ids": [
       {
-        "slug": "access-control",
-        "label": "アクセス制御・アクセス権限設定",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "access-log-analysis",
-        "label": "アクセスログ分析",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "accountability-traceability",
-        "label": "責任追跡性（Accountability）",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "authenticity",
-        "label": "真正性（Authenticity）",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
         "slug": "common-criteria",
         "label": "セキュリティ評価基準CC（ISO/IEC 15408）",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "isms-iso27001",
+        "label": "ISMS（ISO/IEC 27001）",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "vpn",
+        "label": "VPN",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "zero-trust",
+        "label": "ゼロトラスト",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "access-control",
+        "label": "アクセス制御・アクセス権限設定",
         "score": 10,
         "signals": [
           "section"
@@ -21311,40 +21316,44 @@
     ],
     "technical-nontechnical-skills": [
       {
+        "slug": "four-e-countermeasures",
+        "label": "事故の4E対策",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "four-m-analysis",
+        "label": "事故の4M要因分析",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "kyt",
+        "label": "危険予知訓練（KYT）",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "safety-patrol",
+        "label": "安全衛生パトロール",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "accident-response-drill",
         "label": "事故対応訓練",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "blind-drill",
-        "label": "ブラインド型訓練",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "disaster-drill",
-        "label": "防災訓練",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "emergency-stop-device",
-        "label": "非常停止装置",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "ergonomic-principles",
-        "label": "人間工学原則の遵守",
         "score": 10,
         "signals": [
           "section"
@@ -21903,6 +21912,24 @@
     ],
     "isolation-stop-safety": [
       {
+        "slug": "functional-safety",
+        "label": "機能安全",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "inherent-safety",
+        "label": "本質安全",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "accident-response-drill",
         "label": "事故対応訓練",
         "score": 10,
@@ -21921,22 +21948,6 @@
       {
         "slug": "disaster-drill",
         "label": "防災訓練",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "emergency-stop-device",
-        "label": "非常停止装置",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "ergonomic-principles",
-        "label": "人間工学原則の遵守",
         "score": 10,
         "signals": [
           "section"
@@ -22019,8 +22030,8 @@
         ]
       },
       {
-        "slug": "safety-confirmation-system",
-        "label": "安全確認型システム・危険検出型システム",
+        "slug": "isolation-stop-safety",
+        "label": "隔離安全・停止安全",
         "score": 12,
         "signals": [
           "section",
@@ -22028,11 +22039,12 @@
         ]
       },
       {
-        "slug": "accident-response-drill",
-        "label": "事故対応訓練",
-        "score": 10,
+        "slug": "safety-confirmation-system",
+        "label": "安全確認型システム・危険検出型システム",
+        "score": 12,
         "signals": [
-          "section"
+          "section",
+          "exam"
         ]
       }
     ],
@@ -22074,8 +22086,8 @@
         ]
       },
       {
-        "slug": "unsafe-conditions-behavior",
-        "label": "不安全状態・不安全行動",
+        "slug": "technical-nontechnical-skills",
+        "label": "テクニカルスキルとノンテクニカルスキル",
         "score": 12,
         "signals": [
           "section",
@@ -22121,8 +22133,8 @@
         ]
       },
       {
-        "slug": "unsafe-conditions-behavior",
-        "label": "不安全状態・不安全行動",
+        "slug": "technical-nontechnical-skills",
+        "label": "テクニカルスキルとノンテクニカルスキル",
         "score": 12,
         "signals": [
           "section",
@@ -22566,8 +22578,8 @@
         ]
       },
       {
-        "slug": "safety-confirmation-system",
-        "label": "安全確認型システム・危険検出型システム",
+        "slug": "isolation-stop-safety",
+        "label": "隔離安全・停止安全",
         "score": 12,
         "signals": [
           "section",
@@ -22575,11 +22587,12 @@
         ]
       },
       {
-        "slug": "accident-response-drill",
-        "label": "事故対応訓練",
-        "score": 10,
+        "slug": "safety-confirmation-system",
+        "label": "安全確認型システム・危険検出型システム",
+        "score": 12,
         "signals": [
-          "section"
+          "section",
+          "exam"
         ]
       }
     ],
@@ -26637,8 +26650,8 @@
         ]
       },
       {
-        "slug": "regional-circular-symbiosis",
-        "label": "地域循環共生圏",
+        "slug": "basel-convention",
+        "label": "バーゼル条約",
         "score": 12,
         "signals": [
           "section",
@@ -26648,40 +26661,44 @@
     ],
     "sustainable-fashion": [
       {
-        "slug": "air-pollution-control-act",
-        "label": "大気汚染防止法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "asbestos-issue",
-        "label": "アスベスト問題",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 10,
+        "score": 12,
         "signals": [
-          "section"
+          "section",
+          "exam"
         ]
       },
       {
-        "slug": "chemical-substances-review-act",
-        "label": "化審法",
+        "slug": "circular-economy",
+        "label": "サーキュラーエコノミー",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "circular-society-basic-act",
+        "label": "循環型社会形成推進基本法",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "regional-circular-symbiosis",
+        "label": "地域循環共生圏",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "air-pollution-control-act",
+        "label": "大気汚染防止法",
         "score": 10,
         "signals": [
           "section"
@@ -26736,6 +26753,24 @@
     ],
     "basel-convention": [
       {
+        "slug": "circular-economy",
+        "label": "サーキュラーエコノミー",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "circular-society-basic-act",
+        "label": "循環型社会形成推進基本法",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "ocean-plastic",
         "label": "海洋プラスチック問題",
         "score": 12,
@@ -26745,8 +26780,8 @@
         ]
       },
       {
-        "slug": "waste-management-act",
-        "label": "廃棄物処理法",
+        "slug": "regional-circular-symbiosis",
+        "label": "地域循環共生圏",
         "score": 12,
         "signals": [
           "section",
@@ -26754,27 +26789,12 @@
         ]
       },
       {
-        "slug": "air-pollution-control-act",
-        "label": "大気汚染防止法",
-        "score": 10,
+        "slug": "sustainable-fashion",
+        "label": "サステナブルファッション",
+        "score": 12,
         "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "asbestos-issue",
-        "label": "アスベスト問題",
-        "score": 10,
-        "signals": [
-          "section"
+          "section",
+          "exam"
         ]
       }
     ],
@@ -27100,9 +27120,28 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 10,
+        "score": 12,
         "signals": [
-          "section"
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "seven-types-of-pollution",
+        "label": "典型７公害",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "water-pollution-control-act",
+        "label": "水質汚濁防止法",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
         ]
       },
       {
@@ -27116,22 +27155,6 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "basel-convention",
-        "label": "バーゼル条約",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "chemical-substances-review-act",
-        "label": "化審法",
         "score": 10,
         "signals": [
           "section"
@@ -27214,8 +27237,8 @@
         ]
       },
       {
-        "slug": "soil-contamination-act",
-        "label": "土壌汚染対策法",
+        "slug": "four-major-pollution-diseases",
+        "label": "四大公害病",
         "score": 12,
         "signals": [
           "section",
@@ -27223,11 +27246,12 @@
         ]
       },
       {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 10,
+        "slug": "soil-contamination-act",
+        "label": "土壌汚染対策法",
+        "score": 12,
         "signals": [
-          "section"
+          "section",
+          "exam"
         ]
       }
     ],
@@ -27333,8 +27357,26 @@
         ]
       },
       {
+        "slug": "basel-convention",
+        "label": "バーゼル条約",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
         "slug": "circular-economy",
         "label": "サーキュラーエコノミー",
+        "score": 12,
+        "signals": [
+          "section",
+          "exam"
+        ]
+      },
+      {
+        "slug": "sustainable-fashion",
+        "label": "サステナブルファッション",
         "score": 12,
         "signals": [
           "section",
@@ -27348,22 +27390,6 @@
         "signals": [
           "section",
           "exam"
-        ]
-      },
-      {
-        "slug": "air-pollution-control-act",
-        "label": "大気汚染防止法",
-        "score": 10,
-        "signals": [
-          "section"
-        ]
-      },
-      {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 10,
-        "signals": [
-          "section"
         ]
       }
     ],

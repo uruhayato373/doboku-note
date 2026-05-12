@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-10T08:12:28.368Z",
+  "generated_at": "2026-05-12T04:04:44.684Z",
   "source": {
     "exam_question_keywords": "src/config/exam-question-keywords.json",
     "keyword_2026": ".local/r2/posts/pe-comprehensive-management/keyword-2026/article.mdx"
@@ -20,7 +20,8 @@
               "anchor": "1-1",
               "keywords": [
                 "business-continuity-plan",
-                "risk-management-plan"
+                "risk-management-plan",
+                "supply-chain-management"
               ]
             },
             {
@@ -28,10 +29,11 @@
               "heading": "Ⅰ-1-2",
               "anchor": "1-2",
               "keywords": [
-                "quality-control",
                 "control-limits",
                 "inspection-methods",
-                "nonconformity-rate"
+                "nonconformity-rate",
+                "process-capability-index",
+                "quality-control"
               ]
             },
             {
@@ -4321,10 +4323,11 @@
               "heading": "Ⅰ-1-24",
               "anchor": "1-24",
               "keywords": [
-                "isms-iso27001",
                 "common-criteria",
-                "zero-trust",
-                "vpn"
+                "firewall-ids",
+                "isms-iso27001",
+                "vpn",
+                "zero-trust"
               ]
             }
           ]
@@ -6302,7 +6305,8 @@
               "anchor": "1-1",
               "keywords": [
                 "business-continuity-plan",
-                "risk-management-plan"
+                "risk-management-plan",
+                "supply-chain-management"
               ]
             },
             {
@@ -6313,7 +6317,8 @@
                 "four-e-countermeasures",
                 "four-m-analysis",
                 "kyt",
-                "safety-patrol"
+                "safety-patrol",
+                "technical-nontechnical-skills"
               ]
             },
             {
@@ -6361,9 +6366,10 @@
               "heading": "Ⅰ-1-30",
               "anchor": "1-30",
               "keywords": [
-                "safety-2-0",
                 "functional-safety",
-                "inherent-safety"
+                "inherent-safety",
+                "isolation-stop-safety",
+                "safety-2-0"
               ]
             },
             {
@@ -8250,9 +8256,11 @@
               "heading": "Ⅰ-1-36",
               "anchor": "1-36",
               "keywords": [
+                "basel-convention",
                 "circular-economy",
+                "circular-society-basic-act",
                 "regional-circular-symbiosis",
-                "circular-society-basic-act"
+                "sustainable-fashion"
               ]
             },
             {
@@ -8260,8 +8268,9 @@
               "heading": "Ⅰ-1-37",
               "anchor": "1-37",
               "keywords": [
-                "seven-types-of-pollution",
                 "air-pollution-control-act",
+                "four-major-pollution-diseases",
+                "seven-types-of-pollution",
                 "water-pollution-control-act"
               ]
             },

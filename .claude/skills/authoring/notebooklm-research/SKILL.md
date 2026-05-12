@@ -1,17 +1,17 @@
 ---
 name: notebooklm-research
 description: >
-  NotebookLM MCP（nlm CLI）を使って総監キーワードページを深掘り調査し、
-  総監標準テキスト・記述式模範解答・各種白書を横断クエリした引用根拠をもとにリライトする
-  Orchestrator スキル。cem-qa 採点は不要。nlm cross query で根拠収集 → 記事に反映
-  のシンプルなフローで内容の深みを追加する。
+  NotebookLM CLI（notebooklm、旧 nlm から 2026-05-11 移行）を使って総監キーワードページを
+  深掘り調査し、総監標準テキスト・記述式模範解答・各種白書を横断クエリした引用根拠をもとに
+  リライトする Orchestrator スキル。cem-qa 採点は不要。notebooklm-cross-query.mjs ラッパーで
+  根拠収集 → 記事に反映のシンプルなフローで内容の深みを追加する。
   Use when user asks to [NotebookLMで調べて, 深掘り調査, 引用根拠でリライト,
   テキストで補強, NotebookLMで品質向上, /notebooklm-research].
 ---
 
-# /notebooklm-research — NotebookLM MCP 起点のキーワード内容補強
+# /notebooklm-research — NotebookLM 起点のキーワード内容補強
 
-`nlm cross query` でノートブックを横断クエリし、根拠付きで記事を補強する。
+`.claude/scripts/notebooklm-cross-query.mjs` でノートブックを横断クエリし、根拠付きで記事を補強する。
 
 構造・書式の修正（散文不足・Callout・表形式）は `/improve-article` で一度対応済みであれば
 不要。本スキルは**テキスト由来の概念・背景・事例を内容として追加すること**だけに集中する。
@@ -21,10 +21,16 @@ description: >
 
 ## 前提条件
 
-### nlm CLI
+### notebooklm CLI（2026-05-11 移行）
+
+旧 `nlm`（Go 製 tmc/nlm）から **`notebooklm`（Python 製、v0.3.4）** への移行済み。実体: `~/bin/notebooklm`（venv ラッパー）。
+
 ```bash
-nlm --version   # 0.6.5 以上
+notebooklm --version   # 0.3.4 以上
+notebooklm login       # 認証期限切れ時はユーザーが手動で実行（インタラクティブ OAuth）
 ```
+
+`nlm cross query` 相当のサブコマンドが現行 CLI にないため、本プロジェクトでは決定論的ラッパー `.claude/scripts/notebooklm-cross-query.mjs` を経由する。実態は `notebooklm list --json` で ID 解決 + `notebooklm ask -n <id> --json "..."` を逐次実行する形。
 
 ### 総監標準テキスト ノートブック（作成済み）
 
@@ -37,6 +43,7 @@ ID: `c55503ac-07cc-47d8-81d2-41dcb150d0a2`
 | ノートブック名 | 用途 |
 |---|---|
 | 総監標準テキスト | 5管理の定義・背景・計算式（メイン） |
+| 総監一次択一過去問 | 1 次択一過去問本体（R03-R07 投入済、`/build-exam-notebook` で構築） |
 | 記述式問題の模範解答例 | 論文事例・記述式での使われ方 |
 | 各種白書（環境・防災・交通等） | 社会環境管理の最新データ・事例 |
 
@@ -68,20 +75,30 @@ ID: `c55503ac-07cc-47d8-81d2-41dcb150d0a2`
 | **試験論点** | 過去問での問われ方・誤答パターン |
 | **5管理トレードオフ** | 他管理との競合・調整の観点 |
 
-### Step 2: nlm cross query を実行
+### Step 2: notebooklm-cross-query を実行
 
-エージェントの Bash ツールから直接実行する：
+エージェントの Bash ツールから決定論的ラッパーを呼ぶ:
 
 ```bash
-nlm cross query --notebooks "総監標準テキスト" \
+node .claude/scripts/notebooklm-cross-query.mjs \
+  --notebooks "総監標準テキスト" \
   "「{keyword}」について、{補強したい観点} を詳しく教えてください。"
 ```
 
-複数観点を一度にクエリする場合：
+複数観点を一度にクエリする場合（複数ノートブック横断）:
 ```bash
-nlm cross query --notebooks "総監標準テキスト,記述式問題の模範解答例" \
+node .claude/scripts/notebooklm-cross-query.mjs \
+  --notebooks "総監標準テキスト,記述式問題の模範解答例" \
   "「{keyword}」の定義・背景・試験での問われ方・5管理との関係をまとめてください。"
 ```
+
+`--json` を付けると構造化出力（answer + references）を返す:
+```bash
+node .claude/scripts/notebooklm-cross-query.mjs --json \
+  --notebooks "総監標準テキスト" "..."
+```
+
+**認証エラー時**: ラッパーが exit 2 + `notebooklm login` の指示を返す。ユーザーが手動で `notebooklm login` を実行 → 再試行。
 
 クエリ結果を構造化して保持する：
 ```

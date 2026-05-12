@@ -1,0 +1,653 @@
+{
+  "version": 1,
+  "audit_date": "2026-05-11T15:00:00Z",
+  "year": "r07",
+  "exam_slug": "pe-comprehensive-management-r07-primary",
+  "category": "pe-comprehensive-management",
+  "scope": "full-r07-40-anchors",
+  "method": "general-purpose-agent-fanout-7-batches",
+  "summary": {
+    "anchors_total": 40,
+    "anchors_with_changes": 14,
+    "candidates_add_auto_apply": 5,
+    "candidates_add_needs_review": 6,
+    "candidates_remove_auto_apply": 0,
+    "candidates_remove_needs_review": 20
+  },
+  "has_needs_review": true,
+  "anchors": {
+    "1-1": {
+      "exam_heading": "Ⅰ-1-1 BCP・BCM（事業継続ガイドライン令和5年3月）",
+      "current_slugs": ["business-continuity-plan", "risk-management-plan"],
+      "evaluation": {
+        "covered": ["business-continuity-plan"],
+        "partial": ["risk-management-plan"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [
+        {
+          "slug": "supply-chain-management",
+          "confidence": 0.65,
+          "tier": "auto_apply",
+          "tier_override": "needs_review",
+          "tier_override_reason": "NotebookLM 検証 (2026-05-11) で総監標準テキストが「サプライチェーンは BCM の検討範囲に含まれる」「BCM の中核的な検討範囲」と明示。手動承認により auto_apply に昇格。",
+          "reason": "設問の正答（肢2）が「委託先・調達先・供給先もBCMの検討範囲」というサプライチェーン論点。現紐づけの business-continuity-plan に既にサプライチェーン全体節 + SCM への RelatedKeyword リンクあり。直接紐づけ追加は冗長気味だが正答に直接対応するため候補化。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 0.5, "named_entity_hits": 0.45 }
+        }
+      ],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "business-continuity-plan": "B", "risk-management-plan": "A", "supply-chain-management": "A" },
+      "needs_human_review": true
+    },
+    "1-2": {
+      "exam_heading": "Ⅰ-1-2 品質管理の統計的手法",
+      "current_slugs": ["quality-control", "control-limits", "inspection-methods", "nonconformity-rate"],
+      "evaluation": {
+        "covered": ["quality-control", "control-limits", "inspection-methods", "nonconformity-rate"],
+        "partial": [],
+        "uncovered_issues": ["選択肢2「工程能力指数が不十分なら不適合品リスク大」が個別キーワードに直接紐づいていない"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "process-capability-index",
+          "confidence": 0.85,
+          "tier": "auto_apply",
+          "reason": "選択肢2の核心概念。Section 2.2 で quality-control と並ぶ統計的手法。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 0.8, "named_entity_hits": 0.80 }
+        }
+      ],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "quality-control": "A", "control-limits": "B", "inspection-methods": "B", "nonconformity-rate": "D", "process-capability-index": "B" },
+      "needs_human_review": false
+    },
+    "1-3": {
+      "exam_heading": "Ⅰ-1-3 損益分岐点分析",
+      "current_slugs": ["break-even-point", "direct-costing"],
+      "evaluation": {
+        "covered": ["break-even-point"],
+        "partial": ["direct-costing"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        {
+          "slug": "direct-costing",
+          "confidence": 0.62,
+          "tier": "needs_review",
+          "reason": "direct-costing は会計手法。本設問は BEP 計算問題で break-even-point に限界利益・変動費率・固定費の説明が全て含まれており direct-costing は周辺概念。"
+        }
+      ],
+      "keyword_priority_annotations": { "break-even-point": "D", "direct-costing": "D" },
+      "needs_human_review": true
+    },
+    "1-4": {
+      "exam_heading": "Ⅰ-1-4 設備総合効率（OEE）を高める取組",
+      "current_slugs": ["overall-equipment-effectiveness", "preventive-maintenance", "corrective-maintenance"],
+      "evaluation": {
+        "covered": ["overall-equipment-effectiveness", "corrective-maintenance"],
+        "partial": ["preventive-maintenance"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "overall-equipment-effectiveness": "B", "preventive-maintenance": "B", "corrective-maintenance": "B" },
+      "needs_human_review": false
+    },
+    "1-5": {
+      "exam_heading": "Ⅰ-1-5 工程管理（ECRS・3S・動作経済・5S）",
+      "current_slugs": ["ecrs-principle", "five-s"],
+      "evaluation": { "covered": ["ecrs-principle", "five-s"], "partial": [], "uncovered_issues": [] },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "ecrs-principle": "D", "five-s": "D" },
+      "needs_human_review": false
+    },
+    "1-6": {
+      "exam_heading": "Ⅰ-1-6 計画・管理における科学的・数理的手法",
+      "current_slugs": ["game-theory", "monte-carlo-simulation", "linear-programming"],
+      "evaluation": {
+        "covered": ["game-theory", "monte-carlo-simulation", "linear-programming"],
+        "partial": [],
+        "uncovered_issues": ["価値工学（VE）の価値公式 V=機能/コスト（選択肢3の引っかけ）", "AHP（階層分析法）の定義（選択肢5の引っかけ）"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "value-engineering",
+          "confidence": 0.615,
+          "tier": "needs_review",
+          "reason": "選択肢3で『価値工学（VE）』『価値=機能×コスト』の正誤を問い、本記事は2.7節でV=F/Cの公式を明示。",
+          "confidence_breakdown": { "section_match": 0.30, "tag_overlap": 0.075, "named_entity_hits": 0.24 }
+        }
+      ],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "game-theory": "A", "monte-carlo-simulation": "C", "linear-programming": "C_low_impr", "value-engineering": "D" },
+      "needs_human_review": true
+    },
+    "1-7": {
+      "exam_heading": "Ⅰ-1-7 財務会計",
+      "current_slugs": ["depreciation", "cash-flow-statement", "balance-sheet"],
+      "evaluation": {
+        "covered": ["depreciation", "cash-flow-statement"],
+        "partial": ["balance-sheet"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "depreciation": "A", "cash-flow-statement": "B", "balance-sheet": "D" },
+      "needs_human_review": false
+    },
+    "1-8": {
+      "exam_heading": "Ⅰ-1-8 クリティカルパス上の作業の特定",
+      "current_slugs": ["pert-cpm", "gantt-chart", "process-planning-construction"],
+      "evaluation": {
+        "covered": ["pert-cpm"],
+        "partial": ["gantt-chart", "process-planning-construction"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "gantt-chart", "confidence": 0.55, "tier": "needs_review", "reason": "ガントチャート本文は「クリティカルパスは識別できない」と明記。CPMによる経路特定問題の直接根拠にはならない。" },
+        { "slug": "process-planning-construction", "confidence": 0.55, "tier": "needs_review", "reason": "上位概念の工程計画ページは直接の解答根拠としては薄い。" }
+      ],
+      "keyword_priority_annotations": { "pert-cpm": "A", "gantt-chart": "A", "process-planning-construction": "B" },
+      "needs_human_review": true
+    },
+    "1-9": {
+      "exam_heading": "Ⅰ-1-9 労働基準法第33条 災害時の時間外・休日労働",
+      "current_slugs": ["labor-standards-act", "occupational-safety-act"],
+      "evaluation": {
+        "covered": ["labor-standards-act"],
+        "partial": ["occupational-safety-act"],
+        "uncovered_issues": [
+          "労基法第33条「災害等による臨時の必要」の解釈（公益保護・他事業者協力要請も対象）— labor-standards-act 本文は第33条に未言及",
+          "労基署長への許可・事後届出手続（第33条第1項但書）"
+        ]
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "labor-standards-act": "B", "occupational-safety-act": "D" },
+      "needs_human_review": true
+    },
+    "1-10": {
+      "exam_heading": "Ⅰ-1-10 パートタイム・有期雇用労働法",
+      "current_slugs": ["part-time-fixed-term-act", "equal-pay-for-equal-work", "worker-dispatch-act"],
+      "evaluation": {
+        "covered": ["part-time-fixed-term-act", "equal-pay-for-equal-work"],
+        "partial": ["worker-dispatch-act"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "worker-dispatch-act", "confidence": 0.55, "tier": "needs_review", "reason": "本問は短時間・有期雇用労働者が対象で派遣労働者は対象外。同一労働同一賃金の文脈での緩い関連のみ。" }
+      ],
+      "keyword_priority_annotations": { "part-time-fixed-term-act": "B", "equal-pay-for-equal-work": "A", "worker-dispatch-act": "D" },
+      "needs_human_review": true
+    },
+    "1-11": {
+      "exam_heading": "Ⅰ-1-11 ストレスチェック制度",
+      "current_slugs": ["stress-check-system", "mental-health-care", "occupational-safety-act"],
+      "evaluation": {
+        "covered": ["stress-check-system", "occupational-safety-act"],
+        "partial": ["mental-health-care"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "stress-check-system": "A", "mental-health-care": "A", "occupational-safety-act": "D" },
+      "needs_human_review": false
+    },
+    "1-12": {
+      "exam_heading": "Ⅰ-1-12 雇用保険制度",
+      "current_slugs": ["employment-insurance", "childcare-nursing-leave-act"],
+      "evaluation": { "covered": ["employment-insurance", "childcare-nursing-leave-act"], "partial": [], "uncovered_issues": [] },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "employment-insurance": "D", "childcare-nursing-leave-act": "C" },
+      "needs_human_review": false
+    },
+    "1-13": {
+      "exam_heading": "Ⅰ-1-13 専門職制度",
+      "current_slugs": ["specialist-system", "multi-track-hr-system", "career-track-system"],
+      "evaluation": {
+        "covered": ["specialist-system", "multi-track-hr-system"],
+        "partial": ["career-track-system"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "career-track-system", "confidence": 0.30, "tier": "needs_review", "reason": "本記事は『総合職・一般職』のコース別雇用管理を扱い、出題された専門職制度（管理職コースとは別の処遇トラック）とは別概念。" }
+      ],
+      "keyword_priority_annotations": { "specialist-system": "D", "multi-track-hr-system": "D", "career-track-system": "A" },
+      "needs_human_review": true
+    },
+    "1-14": {
+      "exam_heading": "Ⅰ-1-14 リーダーシップ用語（PM理論・フォロワーシップ・SL理論・サーバントリーダーシップ）",
+      "current_slugs": ["pm-theory", "followership", "sl-theory", "servant-leadership", "psychological-safety"],
+      "evaluation": {
+        "covered": ["pm-theory", "followership", "sl-theory", "servant-leadership"],
+        "partial": ["psychological-safety"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "pm-theory": "A", "followership": "A", "sl-theory": "A", "servant-leadership": "A", "psychological-safety": "D" },
+      "needs_human_review": false
+    },
+    "1-15": {
+      "exam_heading": "Ⅰ-1-15 メンター制度",
+      "current_slugs": ["mentor", "ojt-off-jt", "career-path"],
+      "evaluation": {
+        "covered": ["mentor"],
+        "partial": ["ojt-off-jt", "career-path"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "ojt-off-jt", "confidence": 0.50, "tier": "needs_review", "reason": "OJT/OFF-JT は人材開発の手法で、設問の核心であるメンター制度（マッチング・事前研修・就業時間内実施・推進部門サポート）に直接対応する記述はない。" },
+        { "slug": "career-path", "confidence": 0.45, "tier": "needs_review", "reason": "キャリアパスは昇進・異動の道筋を扱い、メンター制度の設計要素には触れない。" }
+      ],
+      "keyword_priority_annotations": { "mentor": "D", "ojt-off-jt": "D", "career-path": "C" },
+      "needs_human_review": true
+    },
+    "1-16": {
+      "exam_heading": "Ⅰ-1-16 人事考課管理（透明性・多面評価・職位ランク・成果評価・情意考課）",
+      "current_slugs": ["performance-evaluation", "attitude-appraisal", "360-degree-evaluation"],
+      "evaluation": {
+        "covered": ["attitude-appraisal", "360-degree-evaluation", "performance-evaluation"],
+        "partial": [],
+        "uncovered_issues": ["人事評価の透明性原則（基準・手続・結果の公開）— 選択肢1の核心。現slug群に明示的カバー薄い"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "appraisal-three-principles",
+          "confidence": 0.68,
+          "tier": "needs_review",
+          "reason": "選択肢1の「透明性」は人事考課の三原則（公正・客観・透明）に直結。section 3.4 一致。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 1.0, "named_entity_hits": 0.2 }
+        }
+      ],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "performance-evaluation": "C", "attitude-appraisal": "D", "360-degree-evaluation": "A", "appraisal-three-principles": "D" },
+      "needs_human_review": true
+    },
+    "1-17": {
+      "exam_heading": "Ⅰ-1-17 算術平均・幾何平均・調和平均",
+      "current_slugs": ["descriptive-statistics", "estimation-testing"],
+      "evaluation": {
+        "covered": ["descriptive-statistics"],
+        "partial": ["estimation-testing"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "estimation-testing", "confidence": 0.45, "tier": "needs_review", "reason": "推測統計（点推定・区間推定・仮説検定）が主題で、本問の3平均の使い分けは扱わない。" }
+      ],
+      "keyword_priority_annotations": { "descriptive-statistics": "B", "estimation-testing": "A" },
+      "needs_human_review": true
+    },
+    "1-18": {
+      "exam_heading": "Ⅰ-1-18 肖像権",
+      "current_slugs": ["portrait-publicity-privacy", "copyright", "personal-info-protection"],
+      "evaluation": {
+        "covered": ["portrait-publicity-privacy"],
+        "partial": ["copyright", "personal-info-protection"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "portrait-publicity-privacy": "C", "copyright": "D", "personal-info-protection": "D" },
+      "needs_human_review": false
+    },
+    "1-19": {
+      "exam_heading": "Ⅰ-1-19 MTBF・MTTR計算",
+      "current_slugs": ["reliability-maintainability-design", "bathtub-curve", "preventive-maintenance"],
+      "evaluation": {
+        "covered": ["reliability-maintainability-design"],
+        "partial": ["bathtub-curve", "preventive-maintenance"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "reliability-maintainability-design": "A", "bathtub-curve": "C", "preventive-maintenance": "B" },
+      "needs_human_review": false
+    },
+    "1-20": {
+      "exam_heading": "Ⅰ-1-20 情報セキュリティの認証制度（ISMS・ISO/IEC 27001・15408・CCRA）",
+      "current_slugs": ["zero-trust", "isms-iso27001", "common-criteria"],
+      "evaluation": {
+        "covered": ["isms-iso27001", "common-criteria"],
+        "partial": ["zero-trust"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "zero-trust", "confidence": 0.46, "tier": "needs_review", "reason": "ゼロトラストはセキュリティモデルで、ISMS適合性評価・CCRA認証制度の論点には直接対応しない。" }
+      ],
+      "keyword_priority_annotations": { "zero-trust": "C_low_impr", "isms-iso27001": "B", "common-criteria": "B" },
+      "needs_human_review": true
+    },
+    "1-21": {
+      "exam_heading": "Ⅰ-1-21 デザイン思考プロセス",
+      "current_slugs": ["design-thinking", "agile"],
+      "evaluation": {
+        "covered": ["design-thinking"],
+        "partial": ["agile"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "design-thinking": "D", "agile": "D" },
+      "needs_human_review": false
+    },
+    "1-22": {
+      "exam_heading": "Ⅰ-1-22 科学技術イノベーション・新興技術の社会的受容",
+      "current_slugs": ["public-acceptance", "citizen-participation"],
+      "evaluation": {
+        "covered": ["public-acceptance"],
+        "partial": ["citizen-participation"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "citizen-participation", "confidence": 0.50, "tier": "needs_review", "reason": "住民参加はアーンスタインの梯子等の参加プロセス論で、設問の中核『社会的受容（PA）』は public-acceptance に集約。" }
+      ],
+      "keyword_priority_annotations": { "public-acceptance": "D", "citizen-participation": "D" },
+      "needs_human_review": true
+    },
+    "1-23": {
+      "exam_heading": "Ⅰ-1-23 独占禁止法違反の早期発見・対処施策",
+      "current_slugs": ["antitrust-compliance", "bid-rigging", "unfair-trade-practices"],
+      "evaluation": {
+        "covered": ["antitrust-compliance"],
+        "partial": ["bid-rigging", "unfair-trade-practices"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "unfair-trade-practices", "confidence": 0.50, "tier": "needs_review", "reason": "一般指定16類型・優越的地位の濫用は本問では問われない。antitrust-compliance が論点全体（公益通報・社外窓口・リニエンシー）を網羅。" }
+      ],
+      "keyword_priority_annotations": { "antitrust-compliance": null, "bid-rigging": null, "unfair-trade-practices": null },
+      "needs_human_review": true
+    },
+    "1-24": {
+      "exam_heading": "Ⅰ-1-24 境界型セキュリティとゼロトラスト",
+      "current_slugs": ["isms-iso27001", "common-criteria", "zero-trust", "vpn"],
+      "evaluation": {
+        "covered": ["zero-trust", "vpn"],
+        "partial": ["isms-iso27001", "common-criteria"],
+        "uncovered_issues": ["境界型防御の代表手段（ファイアウォール）への明示的紐づけが弱い"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "firewall-ids",
+          "confidence": 0.84,
+          "tier": "auto_apply",
+          "tier_override": "needs_review",
+          "tier_override_reason": "NotebookLM 検証 (2026-05-11) で総監標準テキストが「ファイアウォールは境界型セキュリティの最も基本的かつ中心的な防護手段」と明示。手動承認により auto_apply に昇格。",
+          "reason": "境界型防御の代表手段でVPNと並んでゼロトラストとの対比軸。本文に「境界型防御の代表的な技術」と明示。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 1.0, "named_entity_hits": 0.6 }
+        }
+      ],
+      "candidates_to_remove": [
+        { "slug": "isms-iso27001", "confidence": 0.55, "tier": "needs_review", "reason": "本問は境界型 vs ゼロトラスト、VPN分類の論点で ISMS認証制度の枠組みでは扱わない。" },
+        { "slug": "common-criteria", "confidence": 0.55, "tier": "needs_review", "reason": "IT 製品評価が主題で、ネットワーク防御モデルの対比論点は扱わない。" }
+      ],
+      "keyword_priority_annotations": { "isms-iso27001": "B", "common-criteria": "B", "zero-trust": "C", "vpn": "A", "firewall-ids": "A" },
+      "needs_human_review": true
+    },
+    "1-25": {
+      "exam_heading": "Ⅰ-1-25 事故・災害の未然防止活動（4M/KYT/ノンテクニカル/4E/パトロール）",
+      "current_slugs": ["four-e-countermeasures", "four-m-analysis", "kyt", "safety-patrol"],
+      "evaluation": {
+        "covered": ["four-e-countermeasures", "four-m-analysis", "kyt", "safety-patrol"],
+        "partial": [],
+        "uncovered_issues": ["ノンテクニカルスキルとテクニカルスキルのバランス向上（選択肢3）"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "technical-nontechnical-skills",
+          "confidence": 1.0,
+          "tier": "auto_apply",
+          "reason": "選択肢3で『ノンテクニカルスキル／テクニカルスキルをバランスよく向上』が問われ、当該キーワードが section 5.4 で正面から扱う。本文に複数回出現、ExamPoint にも明示。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 1.0, "named_entity_hits": 1.0 }
+        }
+      ],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "four-e-countermeasures": "D", "four-m-analysis": "A", "kyt": "B", "safety-patrol": "B", "technical-nontechnical-skills": "B" },
+      "needs_human_review": false
+    },
+    "1-26": {
+      "exam_heading": "Ⅰ-1-26 企業経営と安全",
+      "current_slugs": ["occupational-safety-act", "safety-health-policy", "osh-management-system"],
+      "evaluation": { "covered": ["occupational-safety-act", "safety-health-policy", "osh-management-system"], "partial": [], "uncovered_issues": [] },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "occupational-safety-act": "D", "safety-health-policy": "A", "osh-management-system": "B" },
+      "needs_human_review": false
+    },
+    "1-27": {
+      "exam_heading": "Ⅰ-1-27 南海トラフ地震臨時情報（内閣府ガイドライン）",
+      "current_slugs": ["disaster-countermeasures-act", "alert-levels", "disaster-weather-info"],
+      "evaluation": {
+        "covered": ["disaster-countermeasures-act"],
+        "partial": ["alert-levels", "disaster-weather-info"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "alert-levels", "confidence": 0.38, "tier": "needs_review", "reason": "5段階の避難情報体系（一般）を扱う記事で、南海トラフ臨時情報（巨大地震警戒・1週間ルール）には触れない。" },
+        { "slug": "disaster-weather-info", "confidence": 0.38, "tier": "needs_review", "reason": "気象庁の防災気象情報が主題で、内閣府の南海トラフ防災対応検討ガイドラインには触れない。" }
+      ],
+      "keyword_priority_annotations": { "disaster-countermeasures-act": "D", "alert-levels": "A", "disaster-weather-info": "A" },
+      "needs_human_review": true
+    },
+    "1-28": {
+      "exam_heading": "Ⅰ-1-28 避難情報ガイドライン（内閣府）",
+      "current_slugs": ["alert-levels", "disaster-countermeasures-act", "disaster-weather-info"],
+      "evaluation": {
+        "covered": ["alert-levels", "disaster-countermeasures-act"],
+        "partial": ["disaster-weather-info"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "alert-levels": "A", "disaster-countermeasures-act": "D", "disaster-weather-info": "A" },
+      "needs_human_review": false
+    },
+    "1-29": {
+      "exam_heading": "Ⅰ-1-29 インフラ老朽化対策",
+      "current_slugs": ["aging-infrastructure", "preventive-maintenance", "corrective-maintenance"],
+      "evaluation": { "covered": ["aging-infrastructure", "preventive-maintenance", "corrective-maintenance"], "partial": [], "uncovered_issues": [] },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "aging-infrastructure": "D", "preventive-maintenance": "B", "corrective-maintenance": "B" },
+      "needs_human_review": false
+    },
+    "1-30": {
+      "exam_heading": "Ⅰ-1-30 Safety 1.0 と Safety 2.0 の分類",
+      "current_slugs": ["safety-2-0", "functional-safety", "inherent-safety"],
+      "evaluation": {
+        "covered": ["safety-2-0", "functional-safety"],
+        "partial": ["inherent-safety"],
+        "uncovered_issues": ["Safety 1.0 の具体例として「隔離・分離・自動停止・保安制御」の独立紐づけが不足"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "machinery-safety-guidelines",
+          "confidence": 0.76,
+          "tier": "needs_review",
+          "reason": "選択肢ア「機械安全・機能安全・協調安全」とオ「機械への安全対策」に直結。section 5.1 で safety-2-0 と同一。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 1.0, "named_entity_hits": 0.4 }
+        },
+        {
+          "slug": "isolation-stop-safety",
+          "confidence": 0.61,
+          "tier": "auto_apply",
+          "tier_override": "needs_review",
+          "tier_override_reason": "NotebookLM 検証 (2026-05-11) で総監標準テキストが「Safety 1.0 = 人と機械を隔離する」と明示し、隔離・停止が Safety 1.0 の代表的アプローチとして整理されていることを確認。手動承認により auto_apply に昇格。",
+          "reason": "選択肢ウ（自動ブレーキ=停止安全）とオ（隔離安全）の核心論点に直結。",
+          "confidence_breakdown": { "section_match": 0.5, "tag_overlap": 1.0, "named_entity_hits": 0.4 }
+        }
+      ],
+      "candidates_to_remove": [
+        { "slug": "inherent-safety", "confidence": 0.45, "tier": "needs_review", "reason": "本質安全（危険源除去）は近接概念だが本問の Safety 1.0/2.0 分類とは直接対応しない。" }
+      ],
+      "keyword_priority_annotations": { "safety-2-0": null, "functional-safety": null, "inherent-safety": null, "machinery-safety-guidelines": null, "isolation-stop-safety": null },
+      "needs_human_review": true
+    },
+    "1-31": {
+      "exam_heading": "Ⅰ-1-31 度数率・強度率・年千人率計算",
+      "current_slugs": ["accident-statistics", "heinrich-law", "occupational-accident-prevention-plan"],
+      "evaluation": {
+        "covered": ["accident-statistics"],
+        "partial": ["heinrich-law", "occupational-accident-prevention-plan"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "heinrich-law", "confidence": 0.45, "tier": "needs_review", "reason": "1:29:300 のピラミッド構造が主題で、災害統計指標の計算式・適用は扱わない。" },
+        { "slug": "occupational-accident-prevention-plan", "confidence": 0.45, "tier": "needs_review", "reason": "国の5か年計画が主題で、事業所単位の度数率・強度率計算とは論点が異なる。" }
+      ],
+      "keyword_priority_annotations": { "accident-statistics": "D", "heinrich-law": "A", "occupational-accident-prevention-plan": "D" },
+      "needs_human_review": true
+    },
+    "1-32": {
+      "exam_heading": "Ⅰ-1-32 ブラインド訓練の特徴",
+      "current_slugs": ["blind-drill", "accident-response-drill", "disaster-drill"],
+      "evaluation": {
+        "covered": ["blind-drill"],
+        "partial": ["accident-response-drill", "disaster-drill"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "blind-drill": "C", "accident-response-drill": "A", "disaster-drill": "A" },
+      "needs_human_review": false
+    },
+    "1-33": {
+      "exam_heading": "Ⅰ-1-33 地球的規模の環境問題（ストックホルム≠地球サミット）",
+      "current_slugs": ["unced-earth-summit", "un-human-environment-conf", "sdgs"],
+      "evaluation": { "covered": ["unced-earth-summit", "un-human-environment-conf", "sdgs"], "partial": [], "uncovered_issues": [] },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "unced-earth-summit": "C", "un-human-environment-conf": "B", "sdgs": "A" },
+      "needs_human_review": false
+    },
+    "1-34": {
+      "exam_heading": "Ⅰ-1-34 エネルギー（S+3E・トップランナー・スマートグリッド・ESCO・コージェネ）",
+      "current_slugs": ["energy", "carbon-neutral"],
+      "evaluation": { "covered": ["energy", "carbon-neutral"], "partial": [], "uncovered_issues": [] },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "energy": "D", "carbon-neutral": "A" },
+      "needs_human_review": false
+    },
+    "1-35": {
+      "exam_heading": "Ⅰ-1-35 ラムサール条約",
+      "current_slugs": ["ramsar-convention", "convention-on-biodiversity", "wildlife-protection-act"],
+      "evaluation": {
+        "covered": ["ramsar-convention"],
+        "partial": ["convention-on-biodiversity", "wildlife-protection-act"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "ramsar-convention": "A", "convention-on-biodiversity": "A", "wildlife-protection-act": "B" },
+      "needs_human_review": false
+    },
+    "1-36": {
+      "exam_heading": "Ⅰ-1-36 循環型社会形成・廃棄物処理",
+      "current_slugs": ["circular-economy", "regional-circular-symbiosis", "circular-society-basic-act"],
+      "evaluation": {
+        "covered": ["circular-economy", "regional-circular-symbiosis"],
+        "partial": ["circular-society-basic-act"],
+        "uncovered_issues": [
+          "バーゼル条約（選択肢4：有害廃棄物の越境移動規制）の論点",
+          "サステナブルファッション（選択肢5：衣服ライフサイクル全体の持続可能性）の論点"
+        ]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "basel-convention",
+          "confidence": 1.0,
+          "tier": "auto_apply",
+          "reason": "section 6.2 一致。選択肢4の論点（先進国→開発途上国、有害廃棄物、事前通告、同意取得）が本文に完全一致。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 1.0, "named_entity_hits": 1.0 }
+        },
+        {
+          "slug": "sustainable-fashion",
+          "confidence": 1.0,
+          "tier": "auto_apply",
+          "reason": "section 6.2 一致。選択肢5の論点（衣服の生産・着用・廃棄プロセス）が本文の定義文と一致。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 1.0, "named_entity_hits": 1.0 }
+        }
+      ],
+      "candidates_to_remove": [
+        { "slug": "circular-society-basic-act", "confidence": 0.45, "tier": "needs_review", "reason": "3R 優先順位・個別リサイクル法体系の基本法ページで、設問の核心（バーゼル・サステナブルファッション）には直接寄与しない。" }
+      ],
+      "keyword_priority_annotations": { "circular-economy": "A", "regional-circular-symbiosis": "C", "circular-society-basic-act": "B", "basel-convention": "A", "sustainable-fashion": "D" },
+      "needs_human_review": false
+    },
+    "1-37": {
+      "exam_heading": "Ⅰ-1-37 公害用語（典型7公害・四大公害・PM2.5・バイオレメディエーション）",
+      "current_slugs": ["seven-types-of-pollution", "air-pollution-control-act", "water-pollution-control-act"],
+      "evaluation": {
+        "covered": ["seven-types-of-pollution"],
+        "partial": ["air-pollution-control-act"],
+        "uncovered_issues": ["四大公害（独立キーワード four-major-pollution-diseases が存在しながら紐づけが漏れている）"]
+      },
+      "candidates_to_add": [
+        {
+          "slug": "four-major-pollution-diseases",
+          "confidence": 0.92,
+          "tier": "auto_apply",
+          "reason": "選択肢2「水俣病・第二水俣病・四日市ぜんそく・イタイイタイ病」が四大公害の定義そのもの。section 6.2、固有名詞4件ヒット。",
+          "confidence_breakdown": { "section_match": 1.0, "tag_overlap": 1.0, "named_entity_hits": 0.8 }
+        }
+      ],
+      "candidates_to_remove": [
+        { "slug": "water-pollution-control-act", "confidence": 0.50, "tier": "needs_review", "reason": "本問は公害用語の定義が論点で、水質汚濁防止法の具体規制は出題されていない。" }
+      ],
+      "keyword_priority_annotations": { "seven-types-of-pollution": null, "air-pollution-control-act": null, "water-pollution-control-act": null, "four-major-pollution-diseases": null },
+      "needs_human_review": false
+    },
+    "1-38": {
+      "exam_heading": "Ⅰ-1-38 ALPS（多核種除去設備）処理水",
+      "current_slugs": ["alps-treated-water", "radioactive-waste", "nuclear-disaster-act"],
+      "evaluation": {
+        "covered": ["alps-treated-water"],
+        "partial": ["radioactive-waste", "nuclear-disaster-act"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [
+        { "slug": "radioactive-waste", "confidence": 0.45, "tier": "needs_review", "reason": "高/低レベル放射性廃棄物の分類・地層処分が主題で、ALPS 処理水の浄化工程・海洋放出は扱わない。" },
+        { "slug": "nuclear-disaster-act", "confidence": 0.45, "tier": "needs_review", "reason": "原子力緊急事態の対応体制が主題で、ALPS 処理水の浄化・海洋放出基準は扱わない。" }
+      ],
+      "keyword_priority_annotations": { "alps-treated-water": "B", "radioactive-waste": "A", "nuclear-disaster-act": "A" },
+      "needs_human_review": false
+    },
+    "1-39": {
+      "exam_heading": "Ⅰ-1-39 第六次環境基本計画",
+      "current_slugs": ["environmental-basic-plan", "sdgs", "backcasting"],
+      "evaluation": {
+        "covered": ["environmental-basic-plan"],
+        "partial": ["sdgs", "backcasting"],
+        "uncovered_issues": []
+      },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "environmental-basic-plan": "C", "sdgs": "A", "backcasting": "A" },
+      "needs_human_review": false
+    },
+    "1-40": {
+      "exam_heading": "Ⅰ-1-40 環境マネジメントシステム（EMS）",
+      "current_slugs": ["iso-14000", "eco-action-21", "iso-26000"],
+      "evaluation": { "covered": ["iso-14000", "eco-action-21", "iso-26000"], "partial": [], "uncovered_issues": [] },
+      "candidates_to_add": [],
+      "candidates_to_remove": [],
+      "keyword_priority_annotations": { "iso-14000": "C", "eco-action-21": "D", "iso-26000": "D" },
+      "needs_human_review": false
+    }
+  }
+}

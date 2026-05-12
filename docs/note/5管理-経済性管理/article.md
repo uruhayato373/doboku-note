@@ -23,7 +23,9 @@ noteMagazine: 総監テキスト精読ガイド
 
 ---
 
-> **このシリーズはマガジンでまとめ購入するとお得です → [技術士 総監｜5管理 テキスト精読ガイド](https://note.com/dobokunote/m/m607bf095b02a)**
+キーワード集を読んでも論点が頭に入らない、択一の引っかけパターンが見えない、5管理の範囲が広すぎてどこから手を付ければいいか優先順位がつかない──そんな受験者のために、17年分の過去問680問を分析して5管理を体系化した精読ガイドを、5本セット ¥1,980（単品4本分の値段で5本・21%OFF）でまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 経済性管理は、5管理の中で**項目数が最も多い分野**です（全81項目）。事業企画・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・原価管理・財務会計・設備管理・数理的手法という7大エリアにまたがり、計算問題と定義問題の両方が出題されます。
 
@@ -699,6 +701,14 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 ---
 
+## このシリーズを体系的に学ぶ
+
+本記事の論点を体系的に押さえたら、残り4管理も同じ視点で読み通すと得点力が一段階上がります。経済性・人的資源・情報・安全・社会環境の精読ガイド5本セットを、単品4本分の値段（¥1,980）でまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
+
+---
+
 ## 関連リソース
 
 **doboku-note — 17年分の過去問 + 約700キーワード解説（無料）**
@@ -709,8 +719,8 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 - [記述式過去問 R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)
 
 **マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
-- 経済性管理（本書）＋ 安全管理 ＋ 情報管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥4,900
-- セット価格 **¥3,980**（19% OFF）※ 2026年順次公開予定
+- 経済性管理（本書）＋ 安全管理 ＋ 情報管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥2,500（¥500 × 5本）
+- セット価格 **¥1,980**（単品4本分の値段で5本・21% OFF）
 
 **著者プロフィール**
 土木技術者として1級土木施工管理技士・建設部門の技術士に合格後、2026年に総合技術監理部門に挑戦。学習過程で蓄積した700キーワードの解説と17年分の過去問分析をdoboku-noteにて無料公開しています。
