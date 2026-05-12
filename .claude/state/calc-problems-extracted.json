@@ -1,0 +1,2492 @@
+[
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ISO9000ファミリーに関する記述の適否を判定する概念問題。製品の品質保証ではなく品質マネジメントシステムの要求事項を規定するという知識問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "財務会計と財務諸表に関する記述の適否を判定する概念問題。債務超過の定義（負債が資産を上回る状態）の正確な理解を問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-5",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "A〜F 6作業からなる工事のクリティカルパスを特定し、最短所要日数を22日から18日以内に短縮するために必要な作業を判定する。誤った対策（クリティカルパス外のみを短縮する案）を選ぶ。",
+    "answer_choice": 2,
+    "key_formula": "クリティカルパス: A→D→E = 6+8+8 = 22日; サブパス: B→E = 10+8 = 18日, B→F = 10+10 = 20日",
+    "trap": "選択肢2はA,B,Fを2日短縮するが、クリティカルパスA→D→Eのフロートを全て消化した後もA→D→Eが残り22-2=20日となり18日以内にならない"
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-6",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "PFIおよびVFM（Value For Money）の定義に関する概念問題。VFMは「公的財政負担の見込額の現在価値」ではなく「従来方式比のコスト削減割合」であることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "負荷計画（負荷工数の計算式・平準化手法等）に関する記述の適否を判定する概念問題。負荷工数の計算式で「就業時間」ではなく「標準時間」を使うことなど3つの誤りを識別する。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-11",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働基準法の原則的事項（休日・時間外労働・割増賃金・有給休暇）に関する概念問題。「毎月少なくとも2回の休日」が誤りで正しくは「毎週少なくとも1回」。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-12",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "賃金総額＝ア×イ×従業員数という式に入る用語（労働分配率・労働生産性）を選ぶ概念問題。数式の形式だが数値計算は不要で定義の理解だけで解ける。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-14",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "人間関係管理（技術的組織・人的組織・非公式組織・動機付け）に関する記述の適否を組合せで答える概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-16",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "教育訓練手法（知識教育・技能教育・態度教育・問題解決能力開発）に関する記述の適否を判定する概念問題。態度教育の実施手法についての誤りを識別する。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-19",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "SaaS（Software as a Service）の定義を問う概念問題。ERP・EAI・SOA・BIと区別してSaaSを正確に特定する。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-20",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "情報セキュリティ（ワンクリック詐欺・スパイウェア・フィッシング・DoS攻撃）に関する記述の適否を判定する概念問題。フィッシング詐欺が「電話」ではなく「偽Webサイト・メール」を使う点を問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-21",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "個人情報保護法における個人情報取扱事業者の義務に関する概念問題。訂正義務・同意原則の例外・利用目的特定の程度などを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-24",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "SLA（Service Level Agreement）の評価項目として該当しないものを選ぶ概念問題。同時接続可能端末数はサービス要件（前提条件）であってSLA評価項目ではないことを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-27",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ガスの毒性に関するリスク管理事例で、実施されたリスク管理活動（リスク算定・評価・低減・監視）のうち最も関係の薄いものを選ぶ概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-32",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "機械の包括的安全基準に関する指針（機械メーカー・ユーザーの役割分担）についての記述の適否を判定する概念問題。機械ユーザーが安全仕様をメーカーに丸投げするのは不適切であることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H21",
+    "question_no": "Ⅱ-1-40",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "地球温暖化（京都議定書・削減目標・京都メカニズム）に関する記述の適否を判定する概念問題。京都メカニズムの3手法（国際排出量取引・共同実施・CDM）を正確に問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-3",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "利率が1・2年目10%、3年目5%の複利条件で、5つの返済スケジュールのうち現在価値が最小となる返済方法を選ぶ。各返済額を割引率で現在価値に換算して比較する。",
+    "answer_choice": 4,
+    "key_formula": "PV = a1/1.10 + a2/1.21 + a3/1.2705 （割引率: 1年目1.10、2年目1.21、3年目1.2705）",
+    "trap": "後ろの年ほど割引率が大きくなるため、早期に多く返済するほど現在価値が小さくなる傾向があるが、1・2年目の利率が高い（10%）ため単純な早期返済最大化にはならない点に注意"
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-4",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "国の公共工事における入札・契約の適正化（低入札価格調査・総合評価方式・ダンピング排除）に関する記述の適否を判定する概念問題。総合評価方式を「取りやめ」とするのが誤り。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-6",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "企業会計（管理会計・財務会計・減価償却の自己金融効果）に関する記述の適否を判定する概念問題。管理会計が内部管理目的であり対外報告用ではないことを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-14",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "教育訓練管理（態度教育・ブレインストーミング・OJT）に関する記述の適否を判定する概念問題。ブレインストーミングでは他のアイデアへの批判を禁止するルールがある点を問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-15",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "人事考課管理（二段階査定・評価基準の公開・評価時期・業績評価の特性）に関する記述の適否を組合せで答える概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-20",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "プラント施設の緊急時広報（安全のための広報・安心のための広報）に関する記述の適否を判定する概念問題。緊急時は広報窓口を一本化すべきであり各関係者が個別に発信するのは誤り。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-25",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "リスクアセスメントの手順（シナリオ分析→リスク算定→リスク評価）の正しい順序を選ぶ概念問題。数値計算は不要。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-29",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ヒューマンエラー（定義・多角的分析・トライポッド理論）に関する記述の適否を判定する概念問題。ヒューマンエラー分析では責任追及より組織的・システム的な要因分析が重要であることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-33",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "エネルギー起源の部門別CO2排出量推移グラフの部門を識別する問題。グラフ読み取りと各部門の傾向知識を組み合わせる概念問題で数値計算は不要。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H22",
+    "question_no": "Ⅱ-1-37",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境アセスメントの各評価項目（大気汚染・水質汚濁・植物・哺乳類・鳥類）と調査・予測手法の正しい組合せを選ぶ概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "総合生産計画（大日程計画・需要平滑化・生産能力調整の手段）に関する記述の適否を判定する概念問題。総合生産計画が「最終段階」ではなく「最初の段階（大日程計画）」であること等3つの誤りを識別する。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "キャッシュフロー計算書の直接法における各項目（社債償還・資本金・人件費支出・固定資産売却）が記載される区分（営業・投資・財務・記載なし）の正しい組合せを選ぶ概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-3",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "PMBOK（プロジェクトマネジメント知識体系）の基本概念（フェーズとプロセスの関係・9知識エリア・WBS）に関する記述の適否を判定する概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-5",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "不適合内容の重点順位分析に使う図（パレート図）の名称を選ぶ概念問題。QC7つ道具の特徴を識別する知識問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-6",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "4ジョブ×3機械のジョブショップスケジューリングで、ジョブ投入順1→2→3→4を固定してガントチャートにより総所要時間の最小値を求める。各機械での作業時間を積み上げ最終終了時刻を計算する。",
+    "answer_choice": 4,
+    "key_formula": "機械1: J1(0-5),J2(5-8),J3(8-14),J4(14-18); 機械2: J1(5-9),J2(9-13),J3(14-19),J4(19-24); 機械3: J1(9-12),J2(13-17),J3(19-24),J4(24-28) → 総所要時間28",
+    "trap": "各ジョブは前機械の完了後でないと次機械に進めないため、機械の空き待ちと前工程完了待ちの両方を考慮してガントチャートを正確に描く必要がある"
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-9",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "組織・プロジェクト管理における人の行動モデル（マグレガーのX理論・Y理論・マズローの欲求5段階）に関する記述の適否を判定する概念問題。マズローの5段階目は自己実現欲求であり「周囲からの尊敬欲求（承認欲求）」は4段階目。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-10",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働基準法改正（平成22年施行）における時間外割増賃金率の引き上げ基準（1ヶ月60時間超で50%以上）の空欄を埋める知識問題。数値を答えるが計算ではなく法令知識を問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-12",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "退職一時金および企業年金（確定給付企業年金・確定拠出年金）に関する記述の適否を判定する概念問題。算定基礎給が「在職期間中の給与の平均」ではなく「退職時の基本給」等であることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-15",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "人事評価（加点主義・公平性確保・能力評価と業績評価の反映先）に関する記述の適否を判定する概念問題。賞与に業績評価、昇給・昇進に能力評価が反映されるのが一般的であることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-16",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ホーソン実験の結論（作業能率に最も影響するのは照明・賃金・気温ではなく職場の人間関係）を問う概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-21",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ツイッター・ブログ・動画共有サイト等でユーザーが情報発信し関係を構築するサービスを表す用語（ソーシャルメディア）を選ぶ概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-25",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "リスク管理の5つの記述のうち適切なものの数を選ぶ概念問題。リスク＝発生確率×被害規模で値が同じでも同等リスクとは言えない点、保険掛けはリスク移転であることなどを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-28",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "「絶対安全」とリスク基準の安全評価に関する記述の適否を判定する概念問題。絶対安全という概念の問題点とリスク評価の重要性を問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-30",
+    "is_calc": true,
+    "pattern": "統計",
+    "brief_summary": "A・B（信頼度0.9）とC・D（信頼度0.8）からなるシステムの信頼度を計算する。並列・直列の構成に従い信頼度の積・補集合演算を組み合わせてシステム全体の信頼度を求める。",
+    "answer_choice": 3,
+    "key_formula": "並列: R_AB = 1-(1-0.9)^2 = 0.99; 並列: R_CD = 1-(1-0.8)^2 = 0.96; 直列: R_total = 0.99×0.96 = 0.9504 ≈ 0.950（最も近い選択肢）",
+    "trap": "システム構成図（並列か直列か）を正確に読み取ることが前提。並列の計算式と直列の積の適用順序を間違えると大きく外れる"
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-31",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "事故への進展シナリオを論理的に求め、二者択一論理構成で部分的故障を考慮できないというシステム安全工学手法（イベントツリー手法）の名称を選ぶ概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-32",
+    "is_calc": true,
+    "pattern": "負荷工数",
+    "brief_summary": "従業員350人・年間平均就業時間1800時間のA工場で、1件の労働災害（2名が各10日・5日休業）が発生した場合の度数率と強度率を計算する。延実労働時間を求め、労働損失日数に300/365を乗じて算出する。",
+    "answer_choice": 5,
+    "key_formula": "延実労働時間=350×1800=630000h; 度数率=2/630000×1000000≒3.17; 労働損失日数=(10+5)×300/365≒12.33日; 強度率=12.33/630000×1000≒0.02",
+    "trap": "度数率の分子は「死傷者数（2名）」であり「災害件数（1件）」ではない点。強度率の分子は「労働損失日数×300/365」であり単純な休業日数ではない点"
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-33",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境影響評価法（方法書の送付先・スコーピングの定義・評価書手続）に関する記述の適否を判定する概念問題。スコーピングは対象事業の選定ではなく評価項目・手法の絞り込み手続きであることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-35",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "循環型社会形成推進基本法の5段階優先順位（正しくは発生抑制・再使用・再生利用・熱回収・適正処分）やリサイクル法の種類に関する概念問題。選択肢の順序が入れ替えられた誤りを識別する。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-36",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "地球温暖化（CO2排出量上位国・メタンの温室効果・CDMの定義・2020年削減目標）に関する記述の適否を判定する概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H23",
+    "question_no": "Ⅱ-1-37",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "日本の環境経営（エコアクション21の対象・ISO14001・環境パフォーマンス評価）に関する記述の適否を判定する概念問題。エコアクション21が大企業向けではなく中小企業等向けである点を問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "活動基準原価計算（ABC）のアクティビティとコストドライバーに関する記述の適否を判定する概念問題。ABCでは消費量・単価の積み上げではなくアクティビティ単位でコストを追跡することを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-4",
+    "is_calc": true,
+    "pattern": "線形計画法",
+    "brief_summary": "製品A・Bを原料X・Y・Z（それぞれ上限108kg・126l・132l）の制約下で生産し、利益を最大化する生産量の組合せを線形計画法で求める。",
+    "answer_choice": 2,
+    "key_formula": "目的関数: 最大化 60×1000A + 160000B (円); 制約: A+4000B≤108000, 3A+3000B≤126000, 3A+4000B≤132000 (単位変換に注意)",
+    "trap": "製品Aと製品Bで単位（kg対l, g対ml）が異なるため単位変換が必須。利益の単位（円/g vs 万円/l）も統一して計算する必要がある"
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-5",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "設備投資計画（投資目的の分類・投資の経済性分析手法・回収期間法・NPV法・IRR法）に関する記述の適否を判定する概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-7",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "8年計画・初期投資1200万円・4年後追加投資500万円・毎年利益300万円・割引率6%のプロジェクトの正味現在価値（NPV）を計算する。年金現価係数と一時金の割引計算を組み合わせる。",
+    "answer_choice": 3,
+    "key_formula": "NPV = 300×[(1-(1.06)^-8)/0.06] - 1200 - 500/(1.06)^4 = 1862.9 - 1200 - 396.2 ≈ 267万円",
+    "trap": "追加投資は「4年経過後の年初」＝4年目末に発生するため(1.06)^4で割り引く。年金現価は1年目末からの8年分であることを確認する"
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-16",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "我が国の雇用システム（長期雇用・年功賃金・雇用管理の4機能）に関する記述の適否を組合せで答える概念問題。長期雇用の変化時期（1980年代ではなく1990年代）等を問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-17",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "個人情報保護法における個人情報取扱事業者の義務（利用目的の通知・変更制限・訂正義務）に関する記述の適否を判定する概念問題。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-18",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "情報ネットワーク（IPv6のアドレス数・ファイアウォール・Wi-Fiロゴ・スマートグリッド）に関する記述の適否を判定する概念問題。IPv6はIPv4の約1000倍ではなく約340澗倍のアドレス数を持つことを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-23",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "災害時の情報システム業務継続計画（BCP）に関する記述の適否を判定する概念問題。まず可能な範囲で計画を作成し段階的に完成度を高めることが適切であることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-25",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "トライポッド理論の11グループとその要因例の組合せが不適切なものの数を選ぶ概念問題。ハードウェアグループに「設計意図が伝わらなかった」は不適切（コミュニケーショングループ）などを識別する。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-26",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "5つのリスク対策事例をリスク保有・低減・回避・移転の4分類に当てはめ、2つの文章が同じ分類に該当するものを選ぶ概念問題。各対策の本質的な違いを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-28",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "地震発生確率（今後30年以内70%）の計算方法を問う問題。毎年の発生確率をpとして1-(1-p)^30で計算するという確率論の知識を問う。数値を与えて計算させるのではなく計算式の選択のみ。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-30",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働災害統計（度数率・強度率の定義・国際的な指標統一の有無）に関する記述の適否を判定する概念問題。強度率は「発生頻度×重さの程度」ではなく「労働損失日数/延実労働時間×1000」であることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-31",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ヒヤリハット活動・定期点検・小集団活動に関する記述の適否を判定する概念問題。ヒヤリハット活動では責任追及ではなく原因分析・再発防止が重要であることなどを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H24",
+    "question_no": "Ⅱ-1-38",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境影響評価法（第二種事業の判定主体・条例による手続き・都市計画との関係）に関する記述の適否を判定する概念問題。条例による環境影響評価は法定手続き以外の独自手続きも規定できることを問う。",
+    "answer_choice": null,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "フィージビリティ・スタディと総合生産計画の記述(ア)〜(キ)を正しく分類する組合せ問題。数値計算は不要。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-4",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "原価計算の種類（実際原価計算・予定原価計算・標準原価計算）に関する正誤判定。最も不適切な記述を選ぶ。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "150万円の太陽光発電システム（年間10万円節約、年利2%）の資金回収年数nを等比級数の公式を用いて求める。",
+    "answer_choice": 5,
+    "key_formula": "現在価値の合計 ≥ 150 → n ≥ {-log 0.7} / log 1.02",
+    "trap": "節約分は「毎年末」受取なので期末払い年金現価。期首払いと混同しないこと。"
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "集落A〜D・市街地Eの道路網で、橋を1本通行止めにした場合の総トリップ長（交通量×最短距離の合計）が最小となる橋を求める。",
+    "answer_choice": 3,
+    "key_formula": "総トリップ長 = Σ(交通量ij × 最短道路距離ij)",
+    "trap": "橋を通行止めにすると最短経路が変わるペアの影響量を丁寧に計算する。全ペアを網羅的に確認しないと見落としが生じる。"
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-9",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "インセンティブ（物質的・評価的・人的・理念的・自己実現）の説明の正誤を判定し、不適切なものの数を答える。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-10",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働時間管理（法定労働時間・割増賃金・裁量労働制・フレックスタイム制）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-15",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "組織における教育訓練（OJT/Off-JT・ロールプレイング・ブレインストーミング・技能教育）に関する記述で最も適切なものを選ぶ。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-16",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "プロジェクト・マネジャーのスキル（意思決定スタイル・リーダーシップ・動機付け・傾聴）に関する記述で最も適切なものを選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-20",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "東日本大震災時の通信手段別「全くつながらなかった」割合の表を、通信種別の輻輳特性から正しく読み取る問題。数値の計算はなく表の対応付け。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-27",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "電源喪失確率と自家用発電機3台の全故障確率をフォールトツリー分析で計算し、停電確率を求める。",
+    "answer_choice": 4,
+    "key_formula": "P(停電) = P(電源喪失) × P(発電機3台全故障) = [1-(0.97×0.90)] × 0.05³ ≈ 1.6×10⁻⁵",
+    "trap": "電源喪失はORゲート（系統喪失または自社遮断）で計算。単純に0.03+0.10とするとANDではなくORなので正しくは1-(1-0.03)(1-0.10)。"
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-34",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "物質フローと廃棄物に関する近年の傾向（循環利用率・資源生産性・最終処分量・廃棄物排出量）で最も不適切な記述を選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H25",
+    "question_no": "Ⅰ-1-36",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "社会経済のグリーン化（グリーン購入法・環境配慮契約法・エコアクション21・環境配慮促進法・地球温暖化対策税）に関する最も不適切な記述を選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "製品製造における原価企画の各段階（企画・設計・製造移行後）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "機械の買取り（初年度1000万円、3年後200万円回収）の現在価値と等しくなる3年間の均等レンタル費用（年初払い）を年利10%で算出する。",
+    "answer_choice": 4,
+    "key_formula": "買取現在価値 = 1000 - 200/(1.1)³; レンタル現在価値 = R×(1 + 1/1.1 + 1/1.21); 両者を等置してR≈311万円",
+    "trap": "レンタルは「毎年の初め」（期首払い）なので年金現価係数が通常の期末払いと異なる。期末払いと混同すると誤答。"
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-4",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "6作業（A〜F）のPERTネットワークで最早開始時刻・最早終了時刻・最遅終了時刻・フロートを求め、各記述の正誤を判定する。",
+    "answer_choice": 3,
+    "key_formula": "ES(C) = max(EF_A, EF_B) = 5; EF(D) = 5+4 = 9; クリティカルパス = B→C (所要12)",
+    "trap": "先行作業が複数ある場合、最早開始時刻は先行作業の最早終了時刻の最大値を取る。B単独で起算してしまうとES(C)・ES(D)が誤る。"
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "需要変動に対する生産計画調整のうち、(ア)〜(オ)の各項目が生産能力調整か需要平滑化かを分類し、生産能力調整の件数を答える。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "設備保全の管理方式（日常保全・定期保全・予知保全・保全予防）と生産上の事例（A〜D）の正しい組合せを選ぶ。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-14",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "SL理論における4つのリーダーシップスタイルのうち「高協労低指示（支援型）」がどのように部下に認知されるかを選ぶ。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-15",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働基準法の規定（労働条件の明示・休業手当・休憩時間・代休と割増賃金・フレックスタイム制）で最も適切なものを選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-24",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ファイルの拡張子（doc/exe/pdf/xls/zip）のうちウィルス等に悪用される可能性のある拡張子の数を答える。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-27",
+    "is_calc": true,
+    "pattern": "統計",
+    "brief_summary": "A事業所（1400人、年1800時間/人）で2013年に休業者3名（200日・50日・25日）が発生した場合の強度率を計算する。",
+    "answer_choice": 1,
+    "key_formula": "強度率 = 労働損失日数 / 延べ実労働時間数 × 1000; 損失日数 = (200+50+25)×(300/365) ≈ 226日",
+    "trap": "一時労働不能の損失日数は実休業日数に300/365を乗じて換算する。そのまま休業日数を用いると誤答。"
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-31",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "FTA・THERP・HAZOP・FMEA・チェックリスト方式のうち、「機能性の立場で複合故障を検討でき人間のエラーも表現できるが、時間経過が困難」な手法を選ぶ。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-32",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "可燃性液体漏洩事故のイベントツリーで大規模火災確率P1を計算し、漏洩検知失敗確率が10倍になったP2とのP2/P1比を求める。",
+    "answer_choice": 2,
+    "key_formula": "P1 = (漏洩0.01)×(検知失敗0.0001)×(着火0.1)×(消火失敗0.3) + (漏洩0.01)×(検知成功)×(遮断失敗0.001)×... → P2/P1 ≈ 2",
+    "trap": "大規模火災に至る経路が「検知失敗経路」と「遮断失敗経路」の2つあることを見落とさない。検知失敗のみ10倍に変化する。"
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-37",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境基本法における環境基準の目的・性格・対象・改定義務等に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H26",
+    "question_no": "Ⅰ-1-39",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境の経済的価値評価手法の表（仮想評価法・ヘドニック法・代替法・トラベルコスト法・コンジョイント分析）でA〜Eに入る用語と説明の中で最も適切なものを選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "PMBOKとプロジェクトマネジメントに関する記述（WBS・過程決定計画図・マネジメント知識エリア等）で最も不適切なものを選ぶ。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": true,
+    "pattern": "負荷工数",
+    "brief_summary": "25名（うち間接2名）の職場で、標準時間3.6時間/個×1000個＋段取り200時間の負荷工数と、出勤率95%×定時の能力工数の差（総残業時間）を計算する。",
+    "answer_choice": 5,
+    "key_formula": "負荷工数 = 3.6×1000 + 200 = 3800h; 能力工数 = 23×8×20×0.95 = 3496h; 総残業 = 3800-3496 = 304 ≈ 300h",
+    "trap": "能力工数の計算で「間接作業者2名を除いた23名」で計算する。25名で計算すると能力が過大になり誤答。"
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "原価計算のステップ順（費目別→部門別→製品別）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "資材所要量計画（MRP・ERP・CALS）に関する記述(ア)〜(オ)で適切なものの数を答える。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-9",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "マズロー欲求階層説・X/Y理論・科学的管理法・インセンティブ理論に関する記述で最も適切なものを選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-12",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "賃金管理の式「賃金総額/付加価値額」と「付加価値額/従業員数」に入る用語（労働分配率・労働生産性）の組合せを選ぶ。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-13",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働基準法・育児介護休業法に基づく労働時間管理（法定労働時間・有給休暇の初年度付与日数等）で最も不適切な記述を選ぶ。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-15",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "組織における教育訓練（OJT/Off-JT・従業員の能力・コミュニケーショントレーニング・知識教育と技能教育の違い）で最も適切な記述を選ぶ。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-17",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "情報システムのTCO（総所有コスト）の概念（範囲・削減要因・サーバ統合効果）に関する記述で最も適切なものを選ぶ。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-25",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "リスクマトリクス（発生確率×被害規模）の5つの領域に対応するリスク対応方針（保有・移転・低減・回避）の説明で最も適切なものを選ぶ。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-27",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "安全配慮義務（下請への適用・心身健康・ケースバイケース・労働契約法での明文化）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-28",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "誤出力確率pのセンサ2台を並列（OR）接続した場合の欠報率（両方誤出力）と誤報率（少なくとも1台誤出力）を計算する。",
+    "answer_choice": 4,
+    "key_formula": "欠報率 = p×p = p²; 誤報率 = 1-(1-p)² = 2p-p²",
+    "trap": "「欠報」と「誤報」の定義を混同しやすい。並列ORでは欠報率が下がり（p²）、誤報率が上がる（2p-p²）というトレードオフを把握する。"
+  },
+  {
+    "year": "H27",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "危機管理活動の各段階（事前作業・緊急時対応・事後復旧）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "問題解決法（ブレインストーミング・デルファイ法・特性要因図・AHP）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "生産方式（プッシュ型・プル型・JIT・TOC・SCM）に関する記述(ア)〜(オ)で不適切なものの数を答える。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "年初に200万円投資し3年間で回収するため、年末均等払いの最小限必要な年利益を年利率3%で計算する。",
+    "answer_choice": 5,
+    "key_formula": "P = R × [(1.03)³-1] / [0.03×(1.03)³] = R × 2.829; R = 200/2.829 ≈ 70.7 → 71万円",
+    "trap": "年金現価係数の計算で(1+r)^nを正確に求める。3%の3乗を近似値で切り捨てると選択肢の69万円を選んでしまう。"
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "PERTネットワークで総所要時間を3時間短縮する際、短縮可能な作業B（5万円/h）・C（4万円/h）・G（6万円/h）の最小費用の組合せを求める。",
+    "answer_choice": 4,
+    "key_formula": "クリティカルパス：C→F→G=18; B1+C3短縮で費用=5+12=17万円が最小",
+    "trap": "短縮後に複数の経路が同時にクリティカルになることを確認する。1経路だけ短縮してもクリティカルパスが変わらないと無駄なコストが発生する。"
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "企業会計原則（正規の簿記・明瞭性・継続性・重要性・保守主義）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "活動基準原価計算（ABC）の概念（アクティビティ・コストドライバー・適用範囲・開発背景）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-10",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "平成27年版労働経済白書による我が国の労働経済動向（完全失業率・労働生産性の国際比較・実労働時間・所定外労働理由）で最も不適切な記述を選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-11",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "労働基準法の数値穴埋め（1日の法定労働時間ア、週の法定労働時間イ、週休ウ、4週休日エ、有給休暇初年度オ）を求めてその合計値を答える。",
+    "answer_choice": 1,
+    "key_formula": "ア=8, イ=40, ウ=1, エ=4, オ=10 → 合計=63",
+    "trap": "有給休暇の初年度付与日数は「6ヶ月継続勤務」で10日。3ヶ月・5日と間違えると合計値が変わる（H27Ⅰ-1-13の誤記述と混同しやすい）。"
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-18",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "IoTデバイス数の成長率×デバイス数の散布図で、自動車・産業・通信の3分野（ア・イ・ウ）に該当する語句の組合せを選ぶ。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-23",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ナレッジ・マネジメントの説明として最も適切なものを5つの記述（人間関係論・PM・人材育成・QCサークル・形式知/暗黙知共有）から選ぶ。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "道路交通・鉄道・航空のFN（事故頻度-死者数）曲線で、事故データ統計（年あたり事故数・死者数・1件あたり死者数）からア・イ・ウに該当する交通手段を特定する。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-33",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "平成27年版環境白書の環境現状（NO₂・光化学オキシダント・水環境達成率・土壌汚染・PCB）に関する記述で最も不適切なものを選ぶ。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H28",
+    "question_no": "Ⅰ-1-37",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境影響評価法の手続き（スクリーニング・条例独自規定・評価書の住民説明会・配慮書の義務対象）に関する記述(ア)〜(エ)で適切なものの数を答える。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "財務諸表に関する用語の定義を問う問題（売上総利益・経常利益・流動資産・固定資産・流動負債）。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": true,
+    "pattern": "BEP",
+    "brief_summary": "販売価格500円/個・固定費2,400万円・変動費180円/個の条件で、限界利益・変動費率・限界利益率・損益分岐点数量を計算し、正しい記述を選ぶ。",
+    "answer_choice": 5,
+    "key_formula": "損益分岐点数量 = 固定費 ÷ (販売価格 − 変動費) = 24,000,000 ÷ 320 = 75,000個",
+    "trap": "限界利益を「売上高−変動費」ではなく「売上高−変動費−固定費」と誤計算し、誤った数値を選ぶこと"
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "前工程（AまたはB並列）と後工程（C直列）からなる生産システムで、システム全体の信頼度が0.900を超えるための設備Cの最低信頼度を計算する。",
+    "answer_choice": 3,
+    "key_formula": "R1 = 1 − (1−0.95)(1−0.90) = 0.995; Rc > 0.900 / 0.995 ≒ 0.905",
+    "trap": "並列系の信頼度計算で「どちらかが稼働」の余事象（1−両方故障）を用いず直接加算してしまう誤り"
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-6",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "プッシュ生産方式とプル生産方式の特徴を説明した(ア)〜(エ)のうち、プッシュ生産方式に該当するものの数を問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "PERTとCPMに関する記述の正誤を問う問題（最遅完了時刻の定義・クリティカルパスの存在・3点見積もり・CPMの目的）。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-14",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "総務省「労働力調査」に基づく平成27年の労働者数に関する記述の正誤を問う問題（正規・非正規雇用の動向・不本意非正規の割合）。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-23",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "クラウドサービスの特徴に関する記述の正誤を問う問題。個人向けクラウドサービスが「少ない」という不適切な選択肢を特定する。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "未検知率 p = x/(1+x) < 0.20 の条件からxの範囲を求め、誤検知率 q = 1/(1+4x) の取り得る範囲を導出する数式問題。",
+    "answer_choice": 4,
+    "key_formula": "p < 0.20 ⇒ x < 0.25; x→0+のときq→1、x→0.25のときq = 0.50 ⇒ 0.50 < q < 1",
+    "trap": "xの上限0.25をq式に代入する際に境界が含まれるか否かの判定ミス"
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-30",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "津波防災地域づくりに関する法律の内容について、(ア)〜(オ)の記述のうち適切なものの数を問う問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-34",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "循環型社会形成のための施策（物質フロー指標・小型家電リサイクル法・廃棄物処理法）に関する記述の正誤を問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-36",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "地球温暖化対策（パリ協定の目標値・日本の削減目標・二国間クレジット制度）に関する記述の正誤を問う問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H29",
+    "question_no": "Ⅰ-1-39",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境影響評価法における第一種・第二種事業の手続き（配慮書・スクリーニング・報告書・説明会の義務）に関する記述の正誤を問う問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": true,
+    "pattern": "Cp",
+    "brief_summary": "寸法規格50±0.3mm・平均50mm・標準偏差0.1mmの部品について、規格外の割合が1%以下かどうかを確認する（工程能力Cp = 1.0、3σ＝規格幅）。",
+    "answer_choice": 3,
+    "key_formula": "Cp = (USL − LSL) / 6σ = 0.6 / (6×0.1) = 1.0; ±3σの範囲外の割合は約0.27% < 1%",
+    "trap": "5Sの「清潔」の定義や ISO 9001 の内容は概念問題。計算部分（選択肢3）の確認だけに注目して他の選択肢のミスを見逃すこと"
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "活動基準原価計算（ABC）の目的・背景・コストドライバーに関する記述の正誤を問う問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "5年間のプロジェクトで2年後に追加投資300万円を行い、3年目以降の年間追加利益をx万円とすると、割引率3%でNPVが等しくなるxを求める。",
+    "answer_choice": 3,
+    "key_formula": "PV(追加投資) = 300/1.03² ≒ 282.8万円; PV(追加利益) = x×(1/1.03³+1/1.03⁴+1/1.03⁵) ≒ 2.666x; x ≒ 106万円",
+    "trap": "追加投資の現在価値計算で年初に投資するため(1.03)²で割ること、および3年間の年金現価係数の正確な計算"
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-4",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "7作業(A〜G)のうちA・Bは同時実行不可という制約があるプロジェクトについて、最短総所要日数をB→AとA→Bの2パターンで計算して求める。",
+    "answer_choice": 2,
+    "key_formula": "B→A順序: B(0-2)→A(2-7)→C(7-11)→E(11-14)→G(14-18), F(11-16); 最短=18日",
+    "trap": "A・Bの同時実行不可制約を見落として通常のクリティカルパス計算のみを行う誤り"
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": true,
+    "pattern": "負荷工数",
+    "brief_summary": "作業者10名・就業8時間/日・20日/月・出勤率95%・標準時間20分/個・適合品4,900個・適合率99%の条件で、能力工数と負荷工数を計算し必要残業時間を求める。",
+    "answer_choice": 4,
+    "key_formula": "能力工数 = 10×8×20×0.95 = 1,520h; 必要生産数 = 4,900/0.99 ≒ 4,950個; 負荷工数 = 4,950×(20/60) = 1,650h; 残業 = 1,650−1,520 = 130h",
+    "trap": "適合品数4,900個を直接使い「必要総生産数 = 4,900/0.99」で不適合品分を上乗せする計算を忘れる誤り"
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "財務諸表（損益計算書・貸借対照表・キャッシュフロー計算書）の目的と構造に関する記述の正誤を問う問題。損益計算書の利益計算順序が誤っている選択肢を特定する。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-14",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "「平成29年版労働経済白書」に基づく就労状況（正規・非正規雇用、高齢者・外国人・障害者雇用の動向）に関する記述の正誤を問う問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-22",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "改正個人情報保護法における個人情報・要配慮個人情報・匿名加工情報・個人情報取扱事業者の定義に関する記述の正誤を問う問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-23",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "第4次産業革命（IoT・ビッグデータ・AI）の特徴・シェアリングエコノミー・フィンテックに関する記述の正誤を問う問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-25",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "JIS Q 31000（リスクマネジメント原則及び指針）に関する記述の正誤を問う問題。リスクの定義を「被害×確率」とする旧来の定義との違いを問う。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": true,
+    "pattern": "統計",
+    "brief_summary": "労働災害統計の3指標（度数率・強度率・年千人率）について、従業員200名・年間労働時間1,700h・死傷者2名・損失日数20日の事業所の値を計算し、全産業平均との比較を行う。",
+    "answer_choice": 3,
+    "key_formula": "度数率 = (2/340,000)×1,000,000 = 5.88 > 1.6; 強度率 = (20/340,000)×1,000 = 0.059 < 0.10; 年千人率 = (2/200)×1,000 = 10 > 2.2",
+    "trap": "強度率の計算で延べ労働時間の単位（×1,000）と度数率（×1,000,000）の倍率の違いを混同する誤り"
+  },
+  {
+    "year": "H30",
+    "question_no": "Ⅰ-1-40",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ヒートアイランド現象・熱中症による死亡者の年齢層（選択肢4の「未成年者が半数」が不適切）に関する記述の正誤を問う問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "生産管理の評価尺度PQCDSMEの各文字の意味と管理指標例の組合せの正誤を問う問題。P=生産性・M=士気・E=環境が頻出誤解点。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "OR手法（離散型シミュレーション・数理計画法・AHP・ブレインストーミング・特性要因図）の適切な適用例を問う問題。数理計画法の勤務シフト決定への適用が正答。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-4",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "移動平均法と指数平滑法の特性（追従遅れと期間の長短の関係・季節変動除去・指数平滑の加重平均特性）に関する記述の正誤を問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "買取り（初期投資1,000万円・残存価値100万円）とリース（毎年均等払い・設置費50万円・撤去費20万円）の総費用現在価値が等しくなるリース費用を、割引率10%で計算する。",
+    "answer_choice": 3,
+    "key_formula": "買取りのNPV = 1,000 − 100/1.10⁵; リースのNPV = (設置費50) + (年金現価係数×リース費用) + 20/1.10⁵; 等しくなるリース費用 ≒ 210万円",
+    "trap": "買取り残存価値（収入）を現在価値で差し引くこと、リース費用が年初払いであるため年金現価の係数が通常の年末払いと異なること"
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-6",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "原価管理・原価計算（製品原価計算の手順・ABC・マテリアルフローコスト会計・原価企画）に関する記述の正誤を問う問題。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "財務諸表（貸借対照表・損益計算書・キャッシュフロー計算書）の構造と記載内容に関する記述の正誤を問う問題。流動資産と現金同等物の違いが焦点。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "バスタブカーブ（初期故障期間・偶発故障期間・摩耗故障期間）の3期間の順序と特徴に関する記述の正誤を問う問題。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-11",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労使関係（就業規則の意見聴取・労働協約の一般的拘束力の4分の3要件・休業手当）に関する記述の正誤を問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-14",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "マグレガーのXY理論・マズローの欲求5段階説・ハーズバーグの二要因理論・ホーソン実験・アッシュの同調実験に関する記述の正誤を問う問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-19",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "標準化の3類型（デジュール標準・フォーラム標準・デファクト標準）の定義と知的財産のライセンス義務に関する記述の正誤を問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-20",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "生体認証のFAR（他人受入率）・FRR（本人拒否率）・閾値調整による安全性と利便性のバランス変更に関する記述の正誤を問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-21",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "RFM分析・SWOT分析・3C分析・PPM分析の定義と特徴の組合せを問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-22",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "デジタル・コミュニケーション・ツール（ファイル共有・テレビ会議・ビジネスチャット・社内SNS・グループウェア）の定義に関する記述の正誤を問う問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-23",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "情報セキュリティの脅威（ランサムウェア・標的型攻撃・ビジネスメール詐欺・WEPとWPA2の強度）に対する適切な対応を問う問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-24",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ICTによる生産性向上方策の4分類（省力化・プロセス効率化・高付加価値化・新規事業展開）と具体事例（ロボット・ドローン・保険データ活用・ホテルロボット）の組合せを問う問題。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-32",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "フォールトツリー(FTA)でANDゲートとORゲートの論理から頂上事象Tが必ず生起する条件を問う問題。論理的推論であり数値計算は不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-34",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "第5次エネルギー基本計画における電源3分類（ベースロード・ミドル・ピーク）の各電源の位置づけに関する記述の正誤を問う問題。石炭と石油の分類が誤りの焦点。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-35",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "循環型社会形成推進基本法における「循環資源」の定義・廃棄物との関係・循環的利用の優先順位に関する記述の正誤を問う問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-36",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "福島第一原発事故後の放射性物質による環境汚染の回復状況（水質・底質のセシウム検出状況・面的除染・空間線量率）に関する記述の正誤を問う問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R01",
+    "question_no": "Ⅰ-1-40",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "大気汚染物質（NO2・SPM・PM2.5・光化学オキシダント・SO2）ごとの環境基準達成状況の推移に関する記述の正誤を問う問題。SPMが「低下傾向・1割程度」という誤りを特定する。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "QC七つ道具・新QC七つ道具（系統図・連関図・管理図・パレート図・ヒストグラム）と読み取り内容の組合せの正誤を問う問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "投資先A〜Eの4年間の利益（各年異なる金額）について、割引率3%で現在価値の合計を計算し最大の投資先を特定する。",
+    "answer_choice": 1,
+    "key_formula": "PV = CF1/1.03 + CF2/1.03² + CF3/1.03³ + CF4/1.03⁴; A≒455.8が最大",
+    "trap": "早期に受け取る利益ほど現在価値が高いという時間価値の概念を理解せず、単純な合計金額で比較する誤り"
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "PMBOKガイド第6版に関する記述の正誤を問う問題。WBS（作業分解構造）とCPM（クリティカルパス手法）の定義の混同が焦点。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "サプライチェーンの途絶リスク対策（ロバストネス・レジリエンス）として「最もそぐわない」事前方策を問う問題。リードタイム短縮は途絶対策に逆効果。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-6",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "標準原価（材料費500円/kg×1,000kg、労務費1,000円/h×500h）と実際原価（材料450円/kg×1,100kg、労務1,200円/h×400h）の差異分析で、不適切な記述（直接労務費差異）を特定する。",
+    "answer_choice": 5,
+    "key_formula": "直接労務費差異 = 500,000 − (1,200×400) = 500,000 − 480,000 = +20,000円（有利差異）≠ −20,000円（不利差異）",
+    "trap": "直接労務費の差異を計算する際に標準賃率と実際賃率の大小関係に基づく有利・不利判定を誤る"
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "財務諸表（貸借対照表・損益計算書・キャッシュフロー計算書）の構造に関する記述の正誤を問う問題。間接法CFでの減価償却費の加算戻し方法が焦点。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "設備保全活動の改善活動（保全予防・改良保全）と維持活動（事後保全・予防保全）の分類の組合せを問う問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-11",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "障害者雇用促進法（対象障害者の範囲・納付金制度の対象規模・国の法定雇用率）に関する記述の正誤を問う問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-12",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ダイバーシティ・マネジメントの意義と推進方法に関する記述の正誤を問う問題。業績・生産性指標との連結を「避けるべき」とする選択肢が不適切。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-15",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "部下5名の能力開発手法（外部研修・海外OJT・企画課での実務学習・自主参加講座・社内研修）をOJT・OFF-JT・自己啓発の3分類に当てはめる組合せを問う問題。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-16",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "コンピテンシー・サーバント・リーダーシップ・ハロー効果・コンテント/プロセスの4用語とそれぞれの正しい説明の組合せを問う問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-19",
+    "is_calc": true,
+    "pattern": "統計",
+    "brief_summary": "機種A（総稼働1,093,800h・故障987件）と機種B（総稼働1,148,300h・故障1,283件）のMTBFを計算し、カタログ値1,000時間との比較でどちらが上回る/下回るかを判定する。",
+    "answer_choice": 2,
+    "key_formula": "MTBF_A = 1,093,800/987 ≒ 1,108h > 1,000; MTBF_B = 1,148,300/1,283 ≒ 895h < 1,000",
+    "trap": "MTBF計算で修理時間を総稼働時間から差し引くかどうかの迷い（問題文では総稼働時間÷故障件数で計算）"
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-20",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "統計手法（移動平均・指数化・相関分析・回帰分析）と時系列・変数関係分析の事例(ア)〜(エ)の組合せを問う問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-26",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働者派遣事業と請負に関わる安全衛生責任の分担（派遣元・派遣先の義務・特別教育の実施主体）に関する記述の正誤を問う問題。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-28",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "主要電源3系統（各停止確率p）が全停止し、緊急電源2台（各故障確率q）のうち少なくとも1台が故障した場合に停電が発生する確率を式で表す問題。",
+    "answer_choice": 4,
+    "key_formula": "停電確率 = p³ × {1 − (1−q)²}; 主要電源全停止(p³) × 緊急電源の少なくとも1台故障{1−(1−q)²}",
+    "trap": "「少なくとも1台故障」を (1−q)² ではなく q² で計算してしまう誤り（余事象を使う必要がある）"
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "リスクコミュニケーションの目的（相互理解・信頼構築であり見解の「一致」ではない）に関する記述の正誤を問う問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-33",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "気候変動適応法・気候変動適応計画の内容に関する記述の正誤を問う問題。適応計画と地球温暖化対策計画（緩和策）の混同が焦点。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R02",
+    "question_no": "Ⅰ-1-35",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "第四次循環型社会形成推進基本計画におけるプラスチック対策（海洋プラ・廃プラ処理・バイオプラスチック）に関する記述の正誤を問う問題。廃プラのアジア向け海外処理という誤りを特定する。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "投資評価手法（NPV、IRR、回収期間法、費用便益分析）の概念・特徴に関する正誤選択問題。数値を使った計算を要求しない。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "PFI事業の各方式（BTO/BOT/BOO/コンセッション）とVFMの定義を問う概念問題。計算不要。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "品質管理の統計的手法（管理図、工程能力指数、抜取検査）に関する正誤選択問題。Cp値の概念言及はあるが数値計算を要求しない。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-4",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "作業A〜Gのネットワーク工程において作業Fをf1/f2に分割した前後のクリティカルパスを計算し、プロジェクト最短所要日数の短縮日数（2日）を求める。",
+    "answer_choice": 3,
+    "key_formula": "最短所要日数 = クリティカルパス上の作業所要日数の合計",
+    "trap": "変更後に別のパスがクリティカルパスになる可能性を見落とす（変更前：B→D→E=15日がCP、変更後：B→F1→G=19日等を再計算が必要）"
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-6",
+    "is_calc": true,
+    "pattern": "BEP",
+    "brief_summary": "販売価格3万円・変動費1万円・固定費1000万円の損益分岐点分析。限界利益率・損益分岐点売上高・営業利益の数値計算で正しい記述を選ぶ。",
+    "answer_choice": 5,
+    "key_formula": "限界利益率 = (販売価格 − 変動費) / 販売価格 = 20,000/30,000 ≈ 66.7%；損益分岐点売上高 = 固定費 / 限界利益率",
+    "trap": "選択肢3で値下げ後の販売価格（30,000×0.92=27,600円）と販売量（800×1.2=960個）を両方考慮せずに誤った営業利益を計算してしまう"
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "財務諸表（貸借対照表・損益計算書・キャッシュフロー計算書）の概念・計算方向に関する正誤選択問題。具体的な数値計算不要。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "設備管理（ライフサイクルコスト・保全費・設備投資評価）に関する概念的な正誤選択問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-11",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "育児・介護休業法および労働基準法の規定内容（介護休業日数・事業主の義務）に関する正誤選択問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-14",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "マクロ経済ベースの労働分配率・労働生産性に関する知識問題。数値が含まれるが統計知識の正誤判断であり計算を要しない。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-16",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "職能別組織と事業部制組織の優位性（専門知識蓄積・規模の経済・市場対応・経営者育成）を組み合わせる概念問題。計算不要。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-17",
+    "is_calc": true,
+    "pattern": "統計",
+    "brief_summary": "4500個データの混同行列（真陽性30・偽陰性20・偽陽性70・真陰性4380）に20個（全て偽陽性）を追加した後の正解率・適合率・再現率・F値の変化を計算する。",
+    "answer_choice": 1,
+    "key_formula": "適合率 = 真陽性 / (真陽性 + 偽陽性)；再現率 = 真陽性 / (真陽性 + 偽陰性)；F値 = 2×適合率×再現率 / (適合率 + 再現率)",
+    "trap": "追加20件は全て偽陽性のため真陽性（30）と偽陰性（20）は変化せず再現率は不変。F値は適合率低下により変化することを見落とす"
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-21",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "統計分析の用語（標本メディアン・相関分析・最小二乗法・推定・仮説検定）に関する概念的な正誤問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-22",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ネット炎上の実態・件数・参加率・メディア波及に関する知識問題。計算不要。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-30",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "ユニット1〜3（直列または並列）とユニット4からなるシステムの信頼度R4の最小値を求める問題。R1=R2=R3=0.9の条件でシステム全体の信頼度≥0.9を満たす最小R4を計算する。",
+    "answer_choice": 2,
+    "key_formula": "並列系の信頼度：R_parallel = 1−(1−R1)(1−R2)…；直列系：R_series = R1×R2×…",
+    "trap": "システム図が提示されているが直列・並列の構成を誤ると計算が大きく外れる。図を参照せずに推測すると誤答"
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-32",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "高年齢労働者の安全ガイドラインに関する正誤選択問題。数値（60歳以上の割合等）が含まれるが統計知識の正誤判断で計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-34",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "エネルギー白書2020に基づく国内エネルギー動向（自給率・部門別消費・国際比較）に関する知識問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R03",
+    "question_no": "Ⅰ-1-36",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "第四次循環型社会形成推進基本計画の内容（3R優先順位・指標・国民・金融機関の役割）に関する正誤選択問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "キャッシュフロー計算書の3区分（営業・投資・財務）と各項目の分類に関する概念問題。計算不要。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": true,
+    "pattern": "統計",
+    "brief_summary": "3次/4次移動平均法と単純指数平滑法（α=0.3）を用いて第5期予測値を計算し、各選択肢の数値比較の正誤を判定する。",
+    "answer_choice": 5,
+    "key_formula": "移動平均：FI_(t+1) = (1/k)Σ(Y_t〜Y_(t-k+1))；指数平滑：FS_(t+1) = αY_t + (1-α)FS_t",
+    "trap": "FS2を直接計算するのではなく、FS3=354から逆算または特性（FS2>Y2の真偽）を判断する。FS3=354はα=0.3なのでFS3=0.3×Y2+0.7×FS2より逆算するとFS2≒368でY2=340より大きい"
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "PERT図で作業Eの最早開始時刻10時・作業時間3時間・全余裕時間4時間が与えられ、最遅開始時刻・最早/最遅完了時刻・余裕時間の変化を計算して誤りの選択肢を特定する。",
+    "answer_choice": 1,
+    "key_formula": "最遅開始時刻 = 最早開始時刻 + 全余裕時間；最早完了時刻 = 最早開始時刻 + 作業時間；最遅完了時刻 = 最遅開始時刻 + 作業時間",
+    "trap": "最遅開始時刻を「最早完了時刻」と混同して13時と誤計算する。正しくは10+4=14時"
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-13",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ネットワーク組織・ティール組織・ピラミッド組織・マトリクス組織の説明を正しく組み合わせる概念問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-19",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "機種A〜Cの総稼働時間・稼働率・故障件数からMTBF（平均故障間動作時間）を計算し、カタログ値1000時間との比較を行う。実績稼働時間=総稼働時間×稼働率として計算。",
+    "answer_choice": 5,
+    "key_formula": "MTBF = 実績稼働時間 / 故障件数 = (総稼働時間 × 稼働率) / 故障件数",
+    "trap": "「総稼働時間」をそのままMTBF計算に使ってしまい、稼働率を乗じた「実績稼働時間」に換算し忘れる"
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-21",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "データ尺度（名義・順序・間隔・比例）の分類と代表統計量の対応を組み合わせる概念問題。計算不要。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-22",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "マーケティング分析（SWOT・PPM・4P・4C）の説明を正しく識別する概念問題。計算不要。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-25",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "A〜E5事業所の死傷者数・延べ実労働時間数から度数率（=死傷者数÷延べ実労働時間数×10^6）を計算し、0.50未満の事業所を特定する。",
+    "answer_choice": 2,
+    "key_formula": "度数率 = 死傷者数 ÷ 延べ実労働時間数 × 1,000,000",
+    "trap": "度数率の計算で1,000,000倍（百万時間あたり）の係数を忘れる、または強度率（×1,000）と混同する"
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-27",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "国土強靭化基本法と地域計画策定ガイドラインの内容に関する正誤選択問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-28",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "システム安全工学手法（FMEA・VTA・ETA・HAZOP・THERP）の定義・特徴に関する正誤選択問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "AIネットワーク社会推進会議のAI利活用ガイドラインの内容に関する正誤選択問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-33",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "令和3年版国土交通白書に基づく地球温暖化対策（都市集約化・物流・住宅省エネ・国際海運）の記述正誤問題。計算不要。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-39",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境影響評価法に基づく事業者の手続き（計画段階配慮書・スクリーニング・縦覧・報告書）に関する正誤選択問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R04",
+    "question_no": "Ⅰ-1-40",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ESG投資（責任投資原則・グリーンボンド・ネガティブスクリーニング）の概念に関する正誤選択問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": true,
+    "pattern": "線形計画法",
+    "brief_summary": "プロジェクトA（最大4単位）・B・C（各最大2単位）に合計4単位を配分して利益の和を最大化する資源配分問題。動的計画法または全数列挙で最適解（A=1,B=2,C=1で利益580万円）を求める。",
+    "answer_choice": 2,
+    "key_formula": "各配分組合せの利益合計を計算：A(x)利益 + B(y)利益 + C(z)利益を x+y+z=4, x≤4, y≤2, z≤2 の制約下で最大化",
+    "trap": "AとB・Cの利益関数が線形でないため単純な限界利益比較では正答できない。各配分パターンを網羅的に計算する必要がある"
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": true,
+    "pattern": "BEP",
+    "brief_summary": "損益分岐点グラフを参照しながらBEP＝F/(p-v)に各パラメータ変化（v増加・x増加・F増加・p減少・限界利益減少）が与える影響を判定し、誤った記述（vが増加するとBEPが減少）を選ぶ。",
+    "answer_choice": 1,
+    "key_formula": "BEP（損益分岐点販売量）= F / (p - v)；利益 = (p - v)x - F",
+    "trap": "vが増加するとp-vが小さくなりBEPは増加するのに「減少する」と誤解する"
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "設備総合効率（OEE）を構成する時間稼働率・性能稼働率・良品率の各要素に対して、5つの取組がOEEを高めるか否かを判定する概念問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-6",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "A(4)・B(8)・C(2)・D(10)・E(6)の5作業を1つずつ順に実施するスケジューリング問題。SPTルール（最短処理時間優先：C→A→E→B→D）で平均リードタイムを最小化する順序を求める。",
+    "answer_choice": 2,
+    "key_formula": "平均リードタイム = (全作業の累積完了時刻の合計) / 作業数；最小化にはSPTルール（短い作業を先に）を適用",
+    "trap": "各作業の「リードタイム」が開始時刻からの累積時間（完了時刻）であることを混同し、単純に個別所要時間で評価する"
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "現品管理（ICタグ・バーコード・現品票・賞味期限確認・バスタブ曲線）の活動に関する正誤選択問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-9",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "労働基準法・労働安全衛生法の時間外労働上限・割増賃金率・労働時間把握義務・産業医への情報提供義務に関する正誤選択問題。計算不要。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-10",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "女性活躍推進法・男女雇用機会均等法・育児休業法の規定内容（行動計画義務・ポジティブアクション・えるぼし認定）に関する正誤選択問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-12",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "個別労働関係紛争の解決制度（総合労働相談・あっせん・労働審判）に関する正誤選択問題。計算不要。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-18",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ナレッジマネジメント（暗黙知・形式知・組織的知識創造・MBWA）に関する正誤選択問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-21",
+    "is_calc": true,
+    "pattern": "統計",
+    "brief_summary": "5日間の来客数データ（73,54,81,60,72）の標本平均を計算（x̄=68）し、μの推定・最尤推定量・信頼区間の性質に関する正誤を判定する。",
+    "answer_choice": 4,
+    "key_formula": "x̄ = Σx_i / n = 340/5 = 68；信頼係数が高いほど信頼区間は広くなる",
+    "trap": "「95%の信頼区間は99%より広い」という誤った直感（実際は99%の方が広い）"
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-26",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "消費生活用製品安全法の特定保守製品制度（設計標準使用期間・説明義務・削除条件）に関する正誤選択問題。計算不要。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "平常時のリスクコミュニケーション（ステークホルダー間対話・専門家の役割・権限と責任の分配）に関する正誤選択問題。計算不要。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-32",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "フォールトツリー分析を用いて電源システムの停電確率を計算する。OR事象（系統電源喪失0.05または自社遮断0.10）の発生確率と自家発電機2台の AND故障確率（0.05×0.05=0.0025）を組み合わせ、停電確率≈3.6×10⁻⁴を求める。",
+    "answer_choice": 3,
+    "key_formula": "OR事象確率 = 1−(1−0.05)(1−0.10) = 0.145；AND事象確率（発電機2台故障）= 0.05×0.05 = 0.0025；停電確率 = 0.145×0.0025 ≈ 3.625×10⁻⁴",
+    "trap": "OR事象（電源喪失または自社遮断）を単純加算（0.05+0.10=0.15）してしまい正確な確率計算（1−(1−P1)(1−P2)）を適用しない"
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-34",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "第6次エネルギー基本計画（2030年電源構成・S+3E・再エネ主力電源化・原子力の位置付け）に関する正誤選択問題。計算不要。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-35",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ラムサール条約（登録湿地の保全・廃止権利・締約国の義務）に関する正誤選択問題。計算不要。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-37",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "環境政策手段（規制的手法・経済的手法・情報的手法・手続き的手法）の具体例を正しく組み合わせる概念問題。計算不要。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R05",
+    "question_no": "Ⅰ-1-40",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "TCFD提言（ガバナンス・戦略・リスク管理・指標と目標の4要求項目）と気候リスク分類に関する正誤選択問題。計算不要。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-1",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "キャッシュ・フロー計算書の3区分（営業・投資・財務活動）と6つの支出項目の正しい組合せを選ぶ概念知識問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": true,
+    "pattern": "NPV",
+    "brief_summary": "初期投資2,000万円・計画期間5年・割引率5%のプロジェクトで、3年目年初に追加投資400万円を行った場合と行わない場合のNPVが等しくなるような追加収益xを求める。",
+    "answer_choice": 3,
+    "key_formula": "400/1.05^2 = x×(1/1.05^3 + 1/1.05^4 + 1/1.05^5)",
+    "trap": "追加投資は3年目年初（=2年後）なのでキャッシュフローの割引期間を1つずらしやすい。xによる収益増加は3年目以降の年末3回分（3・4・5年目）なのに2年目以降と誤認する。"
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "3プロジェクト(X/Y/Z)への製造間接費900万円を5種類の配賦基準（均等・請負高比・直接材料費比・直接経費比・直接労務費比）で配賦したときのプロジェクトXの個別原価を求める。",
+    "answer_choice": 5,
+    "key_formula": "個別原価 = 直接費合計 + (製造間接費 × 自プロジェクトの基準値 / 全プロジェクト基準値合計)",
+    "trap": "各配賦基準ごとに配賦額が異なるため選択肢の数値と照合する際に計算ミスが起きやすい。均等配賦の場合でもX=1,600万円（1,660万円ではない）と誤数値を提示。"
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-4",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "抜取検査の用語（計数値/計量値、サンプルサイズ/測定誤差、生産者危険/消費者危険）の正しい組合せを選ぶ概念問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-6",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "6作業（A〜F）の所要時間と先行作業が与えられたネットワーク工程から、クリティカルパス・最遅終了時刻・全余裕時間・最早開始時刻・最短完了時間を計算する。",
+    "answer_choice": 3,
+    "key_formula": "全余裕時間 = 最遅終了時刻 − 最早終了時刻；クリティカルパス = A→D→F（10+6+7=23時間）",
+    "trap": "Fの最早開始をA+C=15時間と誤算しやすい（正しくはmax(A+C, A+D)=max(15,16)=16）。プロジェクト完了を22時間と誤認する（A→B→E=22時間の経路で判断してしまう）。"
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": true,
+    "pattern": "線形計画法",
+    "brief_summary": "2種製品P・Q、2種原材料L・Mの制約条件（L≤240、M≤150）下で、利益 3x+5y を最大化するx,yの組合せを線形計画法で求める。",
+    "answer_choice": 1,
+    "key_formula": "目的関数: Z = 3x + 5y, 制約: 3x+4y≤240, 3x+y≤150, x≥0, y≥0",
+    "trap": "選択肢3（x=30,y=50）は制約Lを290>240で違反するが制約チェックを省略してしまいやすい。利益が最大の頂点を見落として選択肢4（x=40,y=30）や選択肢2を選びがち。"
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-16",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "4つの企業施策（A〜D）をマズロー・マクレガー・ハーズバーグ・テイラーの行動モデル理論（ア〜エ）と正しく対応させる概念問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-18",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "主成分分析・因子分析・多次元尺度法・階層的クラスター分析・線形判別分析のうち不適切な記述を選ぶ概念問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-31",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "ユニット1〜4の信頼度（R1=R3=0.800, R2=R4=0.700）からなる複合システム（並列部2組の直列接続）全体の信頼度を計算する。",
+    "answer_choice": 4,
+    "key_formula": "並列部(1,3)の信頼度 = 1-(1-0.8)(1-0.8)=0.96；並列部(2,4)の信頼度 = 1-(1-0.7)(1-0.7)=0.91；システム全体 = 0.96×0.91",
+    "trap": "システム構成を正確に読み取らないと直列計算のみで算出してしまう。図がないと並列・直列の接続順を誤認しやすい。"
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-35",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "生物多様性保全に関するワシントン条約・カルタヘナ議定書・名古屋議定書・30by30等の説明で不適切なものを選ぶ知識問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R06",
+    "question_no": "Ⅰ-1-36",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "循環型社会基本法の優先順位・3R+Renewable・廃プラリサイクル比率（サーマル/マテリアル/ケミカル）等に関して不適切な記述を選ぶ知識問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-2",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "品質管理の統計的手法（管理限界・工程能力指数・不適合品率・全数検査・抜取検査）に関する記述で不適切なものを選ぶ概念問題。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-3",
+    "is_calc": true,
+    "pattern": "BEP",
+    "brief_summary": "販売価格1,000円/個、変動費400円/個、固定費384,000円の条件下で、損益分岐点売上高・限界利益・変動費率・損益・目標利益達成売上高を計算する。",
+    "answer_choice": 4,
+    "key_formula": "損益分岐点売上高 = 固定費 / 限界利益率 = 384,000 / (600/1,000) = 640,000円",
+    "trap": "変動費率（40%）と限界利益率（60%）を入れ替えて計算するミスが頻出。選択肢5の目標利益150,000円達成に必要な売上高も890,000円が正解なのに1,335,000円と誤数値を提示。"
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-4",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "設備総合効率（OEE）の3要素（稼働率・パフォーマンス効率・品質効率）に影響する取組かどうかを判断する概念問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-5",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "工程管理・改善活動の手法（ECRS・合理化3S・動作経済の原則・5S）に関する記述で不適切なものを選ぶ概念問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-7",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "財務会計（財務会計と管理会計の目的・継続性の原則・減価償却・CF計算書の3区分）に関する記述で最も適切なものを選ぶ概念問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-8",
+    "is_calc": true,
+    "pattern": "PERT",
+    "brief_summary": "6作業（A〜F）のネットワーク工程を分析し、複数の最長経路（A→B→E→F=23日、A→C→F=23日）を求め、クリティカルパス上のすべての作業を列挙する。",
+    "answer_choice": 5,
+    "key_formula": "各経路の所要日数：A→B→E→F=6+10+5+2=23日, A→C→F=6+15+2=23日, A→D=6+16=22日",
+    "trap": "A→B→E→FまたはA→C→Fのどちらか一方のクリティカルパスのみを答えてしまいがち。クリティカルパスが複数ある場合は和集合すべき全作業を列挙する必要がある。"
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-17",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "成長倍率の平均・往復速度の平均・試験点数の平均という3場面に対して、幾何平均・調和平均・算術平均を正しく割り当てる概念問題（計算よりも適用場面の識別が主）。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-19",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "3機種サーバ（A/B/C）の総時間・稼働率・故障件数から MTBF（平均故障間隔）と MTTR（平均修復時間）を計算し、機種間で大小を比較する。",
+    "answer_choice": 5,
+    "key_formula": "MTBF = 稼働時間 / 故障件数；MTTR = 停止時間 / 故障件数；稼働時間 = 総時間 × 稼働率；停止時間 = 総時間 × (1 - 稼働率)",
+    "trap": "MTBFとMTTRを混同しやすい。稼働率が高いほどMTTRが小さくなる（停止時間が少ない）という関係を数値で確認せずに感覚で答えると誤る。"
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-23",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "独占禁止法違反の早期発見のための施策（抜き打ち監査・公益通報体制・内部通報窓口・懲戒減免制度・社内調査着手）に関して最も適切なものを選ぶ法律・コンプライアンス問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-25",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "事故・災害の未然防止手法（4M方式・KYT・ノンテクニカルスキル・4E対策・安全衛生パトロール）に関する記述で不適切なものを選ぶ知識問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-26",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "企業経営と安全に関する記述（労働安全衛生法の主たる義務者が「事業者」であること等）で不適切なものを選ぶ法令知識問題。",
+    "answer_choice": 4,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-29",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "インフラ老朽化対策（建設後50年超の割合が最多の施設種別・予防保全vs事後保全・メンテナンスサイクル）に関して不適切な記述を選ぶ知識問題。",
+    "answer_choice": 1,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-31",
+    "is_calc": true,
+    "pattern": "その他",
+    "brief_summary": "事業所Bの従業員数500人・年間労働1,700h・死傷者1人・労働損失日数30日から度数率・強度率・年千人率を計算し、事業所Aの値（1.5・0.09・2.1）と大小比較する。",
+    "answer_choice": 1,
+    "key_formula": "度数率 = 死傷者数 / (従業員数×年間労働時間) × 1,000,000；強度率 = 損失日数 / (従業員数×年間労働時間) × 1,000；年千人率 = 死傷者数 / 従業員数 × 1,000",
+    "trap": "度数率・強度率・年千人率の分母（延べ実労働時間 vs 従業員数）を混同しやすい。3指標すべて計算してから比較する必要があるが、一部の指標のみ計算して結論を出す誤りが起きやすい。"
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-32",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "ブラインド訓練（状況付与型）とシナリオ提示型訓練の特徴・有効性に関する記述で不適切なものを選ぶ概念問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-33",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "地球規模の環境問題に関する国際会議・条約（ウィーン条約・ストックホルム会議/地球サミット混同・エコロジカルフットプリント・京都議定書/パリ協定・SDGs）の知識問題。",
+    "answer_choice": 2,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-34",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "エネルギー政策（S+3E・トップランナー制度・スマートグリッド・ESCO事業・コージェネレーション）に関する記述で不適切なものを選ぶ知識問題。",
+    "answer_choice": 5,
+    "key_formula": null,
+    "trap": null
+  },
+  {
+    "year": "R07",
+    "question_no": "Ⅰ-1-36",
+    "is_calc": false,
+    "pattern": null,
+    "brief_summary": "循環型社会・廃棄物処理（サーキュラーエコノミー・地域循環共生圏・コンパクトシティ・バーゼル条約・サステナブルファッション）に関する記述で不適切なものを選ぶ知識問題。",
+    "answer_choice": 3,
+    "key_formula": null,
+    "trap": null
+  }
+]
