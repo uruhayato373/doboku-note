@@ -25,6 +25,7 @@ export async function getCommonComponents() {
       await import("@/components/ui/SpecSheetList/SpecSheetList")
     ).default,
     LinkCard: (await import("@/components/ui/LinkCard/LinkCard")).default,
+    MagazineInlineCard: (await import("@/components/ui/MagazineInlineCard/MagazineInlineCard")).default,
     SeeAlso: (await import("@/components/ui/SeeAlso/SeeAlso")).default,
     CardList: (await import("@/components/ui/CardList/CardList")).default,
     ReferenceLinks: (await import("@/components/ui/ReferenceLinks")).default,
