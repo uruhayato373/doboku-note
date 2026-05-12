@@ -399,26 +399,10 @@ export default async function DocPage({
 
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
+            {/* sticky: Magazine (PE pillar 限定) + TOC のみ、低解像度PCでも収まる高さに抑制 */}
             <div className="sticky top-6">
-              <TableOfContents headings={headings} />
-              {hasCategoryNavCard && category && (
-                <div className="mt-3">
-                  <CategoryNavCard
-                    variant="sidebar"
-                    category={category}
-                    currentSlug={slugStr}
-                    docGroup={docGroup}
-                    categoryArticles={categoryArticles}
-                  />
-                </div>
-              )}
-              {showPillarNav && (
-                <div className="mt-3">
-                  <PillarNavCard variant="sidebar" currentSection={sectionStr} />
-                </div>
-              )}
               {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
-                <div className="mt-3">
+                <div className="mb-3">
                   <MagazineSidebarCard
                     url="https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=pillar-sidebar"
                     title="5管理 精読ガイド"
@@ -428,7 +412,25 @@ export default async function DocPage({
                   />
                 </div>
               )}
+              <TableOfContents headings={headings} />
             </div>
+            {/* sticky 外（通常スクロール）: 補助ナビカード類 */}
+            {hasCategoryNavCard && category && (
+              <div className="mt-3">
+                <CategoryNavCard
+                  variant="sidebar"
+                  category={category}
+                  currentSlug={slugStr}
+                  docGroup={docGroup}
+                  categoryArticles={categoryArticles}
+                />
+              </div>
+            )}
+            {showPillarNav && (
+              <div className="mt-3">
+                <PillarNavCard variant="sidebar" currentSection={sectionStr} />
+              </div>
+            )}
           </aside>
         </div>
       </div>
