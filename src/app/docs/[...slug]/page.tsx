@@ -399,8 +399,8 @@ export default async function DocPage({
 
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
-            {/* sticky: Magazine (PE pillar 限定) + TOC のみ、低解像度PCでも収まる高さに抑制 */}
             <div className="sticky top-6">
+              {/* Magazine (PE pillar 限定) を最上部に配置 */}
               {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (
                 <div className="mb-3">
                   <MagazineSidebarCard
@@ -413,24 +413,23 @@ export default async function DocPage({
                 </div>
               )}
               <TableOfContents headings={headings} />
+              {hasCategoryNavCard && category && (
+                <div className="mt-3">
+                  <CategoryNavCard
+                    variant="sidebar"
+                    category={category}
+                    currentSlug={slugStr}
+                    docGroup={docGroup}
+                    categoryArticles={categoryArticles}
+                  />
+                </div>
+              )}
+              {showPillarNav && (
+                <div className="mt-3">
+                  <PillarNavCard variant="sidebar" currentSection={sectionStr} />
+                </div>
+              )}
             </div>
-            {/* sticky 外（通常スクロール）: 補助ナビカード類 */}
-            {hasCategoryNavCard && category && (
-              <div className="mt-3">
-                <CategoryNavCard
-                  variant="sidebar"
-                  category={category}
-                  currentSlug={slugStr}
-                  docGroup={docGroup}
-                  categoryArticles={categoryArticles}
-                />
-              </div>
-            )}
-            {showPillarNav && (
-              <div className="mt-3">
-                <PillarNavCard variant="sidebar" currentSection={sectionStr} />
-              </div>
-            )}
           </aside>
         </div>
       </div>
