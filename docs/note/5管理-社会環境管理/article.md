@@ -23,7 +23,9 @@ noteMagazine: 総監テキスト精読ガイド
 
 ---
 
-> **このシリーズはマガジンでまとめ購入するとお得です → [技術士 総監｜5管理 テキスト精読ガイド](https://note.com/dobokunote/m/m607bf095b02a)**
+5管理（経済性・人的資源・情報・安全・社会環境）をすべてカバーする精読ガイドはマガジンでまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 社会環境管理は、5管理の中で **国際条約・環境法規・制度の数が最も多い分野** です。地球的規模の環境問題・地域環境問題・環境保全の基本原則・組織の社会的責任の4大エリアをカバーし、サブトピックは30以上に及びます。
 
@@ -538,6 +540,14 @@ ISO で対象とする環境は「**大気・水質・土地・天然資源・�
 > **【出題例: [R6年度 Ⅰ-1-39](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management#1-39)】** 環境会計に関する記述で最も適切なものはどれか。 → **正答チェック対象：内部機能（経営管理）と外部機能（説明責任）の2機能、環境保全コストの6分類、定量化の対象範囲。「環境会計は外部報告のみが目的」とする選択肢は誤り。**
 
 > **【出題例: [R5年度 Ⅰ-1-40](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management#1-40)】** ESG 投資・TCFD に関する記述で最も適切なものはどれか。 → **正答チェック対象：ESG の3要素、PRI、TCFD の4要求項目、気候関連リスクの2分類（移行・物理的）、グリーンボンドの定義。「TCFD 開示は財務情報の代替」とする選択肢は誤り（補完）。**
+
+---
+
+## このシリーズを体系的に学ぶ
+
+5管理（経済性・人的資源・情報・安全・社会環境）をすべてカバーする精読ガイド5本を、マガジンでまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 ---
 

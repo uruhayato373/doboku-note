@@ -23,7 +23,9 @@ noteMagazine: 総監テキスト精読ガイド
 
 ---
 
-> **このシリーズはマガジンでまとめ購入するとお得です → [技術士 総監｜5管理 テキスト精読ガイド](https://note.com/dobokunote/m/m607bf095b02a)**
+5管理（経済性・人的資源・情報・安全・社会環境）をすべてカバーする精読ガイドはマガジンでまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 経済性管理は、5管理の中で**項目数が最も多い分野**です（全81項目）。事業企画・[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・工程管理・原価管理・財務会計・設備管理・数理的手法という7大エリアにまたがり、計算問題と定義問題の両方が出題されます。
 
@@ -696,6 +698,14 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 記述式では「経済性管理の視点から他管理との対立をどう解決するか」が頻出です。4ペアの対立軸・解決フレーム・具体例を一覧で確認しましょう。
 
 ![経済性管理 × 他の4管理 — トレードオフマップ](img/figure-8-tradeoff-map.png)
+
+---
+
+## このシリーズを体系的に学ぶ
+
+5管理（経済性・人的資源・情報・安全・社会環境）をすべてカバーする精読ガイド5本を、マガジンでまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 ---
 

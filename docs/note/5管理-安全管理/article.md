@@ -23,7 +23,9 @@ noteMagazine: 総監テキスト精読ガイド
 
 ---
 
-> **このシリーズはマガジンでまとめ購入するとお得です → [技術士 総監｜5管理 テキスト精読ガイド](https://note.com/dobokunote/m/m607bf095b02a)**
+5管理（経済性・人的資源・情報・安全・社会環境）をすべてカバーする精読ガイドはマガジンでまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 安全管理は総監5管理の中で**最もカバー範囲が広い分野**です。[製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[リスクマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・[ヒューマンエラー](https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・危機管理・[システム信頼性](https://doboku-note.com/docs/pe-comprehensive-management-system-reliability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と、6エリアにまたがります。
 
@@ -699,6 +701,14 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 - 停電確率 ＝ `0.145 × 0.0025 ≒ 3.6×10⁻⁴`
 
 > **【出題例: [R5年度 Ⅰ-1-32](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-32)】** 電源システムの停電確率をフォールトツリー分析により計算する。系統電源喪失0.05、自社による系統遮断0.10、予備自家用発電機2台のデマンド故障率各0.05のとき、1年間の停電確率に最も近い値はどれか。→ **正答3：3.6×10⁻⁴。電源喪失OR遮断＝0.145、発電機2台AND故障＝0.0025、両者AND＝3.6×10⁻⁴。**
+
+---
+
+## このシリーズを体系的に学ぶ
+
+5管理（経済性・人的資源・情報・安全・社会環境）をすべてカバーする精読ガイド5本を、マガジンでまとめ購入できます。
+
+https://note.com/dobokunote/m/m607bf095b02a
 
 ---
 
