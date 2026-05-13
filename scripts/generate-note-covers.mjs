@@ -58,8 +58,15 @@ function extractTitle(h1) {
   return raw;
 }
 
-async function renderCover({ dirName, title, category, debugSafety, fonts }) {
-  const lines = await wrapTitle(title, TEXT_CONFIG);
+async function renderCover({ dirName, title, coverTitle, category, debugSafety, fonts }) {
+  let lines;
+  if (Array.isArray(coverTitle) && coverTitle.length > 0) {
+    lines = coverTitle.map((s) => String(s));
+  } else if (typeof coverTitle === 'string' && coverTitle.trim()) {
+    lines = await wrapTitle(coverTitle, TEXT_CONFIG);
+  } else {
+    lines = await wrapTitle(title, TEXT_CONFIG);
+  }
   const fontSize = pickFontSize(lines, TEXT_CONFIG);
   const element = renderTemplate(
     'mono-tag',
@@ -91,7 +98,8 @@ async function processOne(dirName, args, fonts) {
   }
   const title = extractTitle(h1);
   const category = data.category || DEFAULT_CATEGORY;
-  await renderCover({ dirName, title, category, debugSafety: args.debugSafety, fonts });
+  const coverTitle = data.coverTitle;
+  await renderCover({ dirName, title, coverTitle, category, debugSafety: args.debugSafety, fonts });
 }
 
 async function main() {
