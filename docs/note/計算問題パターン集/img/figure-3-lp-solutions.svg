@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">線形計画法 — 各選択肢の目的関数評価</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">令和6年度 I-1-7 制約条件を満たす選択肢の Z 値比較</text>
+
+  <!-- ヘッダ行 -->
+  <rect x="40" y="120" width="240" height="60" fill="#1a3a5c"/>
+  <rect x="280" y="120" width="220" height="60" fill="#1a3a5c"/>
+  <rect x="500" y="120" width="200" height="60" fill="#1a3a5c"/>
+  <rect x="700" y="120" width="180" height="60" fill="#1a3a5c"/>
+  <rect x="880" y="120" width="280" height="60" fill="#1a3a5c"/>
+  <text x="160" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">選択肢</text>
+  <text x="390" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">Z = 3x + 5y</text>
+  <text x="600" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">L = 3x+4y</text>
+  <text x="790" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">M = 3x+y</text>
+  <text x="1020" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">制約OK?</text>
+
+  <!-- 行1: (1) x=0, y=60（最適解） -->
+  <rect x="40" y="180" width="1120" height="60" fill="#e6f4ea" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="180" width="240" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="280" y="180" width="220" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="500" y="180" width="200" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="180" width="180" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="880" y="180" width="280" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="160" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">(1) x=0, y=60</text>
+  <text x="390" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#3a7d44" text-anchor="middle" font-weight="bold">300万円 ★</text>
+  <text x="600" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">240（境界）</text>
+  <text x="790" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">60</text>
+  <text x="1020" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#3a7d44" text-anchor="middle" font-weight="bold">OK</text>
+
+  <!-- 行2: (2) x=10, y=50 -->
+  <rect x="40" y="240" width="1120" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="240" width="240" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="280" y="240" width="220" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="500" y="240" width="200" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="240" width="180" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="880" y="240" width="280" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="160" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">(2) x=10, y=50</text>
+  <text x="390" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">280万円</text>
+  <text x="600" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">230</text>
+  <text x="790" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">80</text>
+  <text x="1020" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">OK</text>
+
+  <!-- 行3: (4) x=40, y=30 -->
+  <rect x="40" y="300" width="1120" height="60" fill="#1a3a5c" fill-opacity="0.06" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="300" width="240" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="280" y="300" width="220" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="500" y="300" width="200" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="300" width="180" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="880" y="300" width="280" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="160" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">(4) x=40, y=30</text>
+  <text x="390" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">270万円</text>
+  <text x="600" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">240（境界）</text>
+  <text x="790" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">150（境界）</text>
+  <text x="1020" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">OK</text>
+
+  <!-- 行4: (5) x=50, y=0 -->
+  <rect x="40" y="360" width="1120" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="360" width="240" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="280" y="360" width="220" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="500" y="360" width="200" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="360" width="180" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="880" y="360" width="280" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="160" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">(5) x=50, y=0</text>
+  <text x="390" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">150万円</text>
+  <text x="600" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">150</text>
+  <text x="790" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">150（境界）</text>
+  <text x="1020" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">OK</text>
+
+  <!-- 外枠 -->
+  <rect x="40" y="120" width="1120" height="300" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- 補足 -->
+  <text x="40" y="464" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#3a7d44" font-weight="bold">★ 最大値（最適解）— 選択肢 (1) の Z = 300万円</text>
+  <text x="40" y="494" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a">※ 選択肢 (3) x=30, y=50 は L=290>240 で制約違反のため事前除外</text>
+
+  <text x="1160" y="540" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">損益分岐点（BEP）— 売上高と総費用の交点</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">BEP より左は損失、右は利益。固定費と変動費の構造を視覚化</text>
+
+  <!-- 損失ゾーン（売上 < 総費用） -->
+  <polygon points="120,380 707,299 120,580" fill="#fdecea" fill-opacity="0.6"/>
+  <!-- 利益ゾーン（売上 > 総費用） -->
+  <polygon points="707,299 1060,130 1060,250" fill="#e6f4ea" fill-opacity="0.6"/>
+
+  <!-- 固定費（水平破線） -->
+  <line x1="120" y1="380" x2="1060" y2="380" stroke="#8a8a8a" stroke-width="2.5" stroke-dasharray="8,5"/>
+
+  <!-- 総費用ライン（赤） -->
+  <line x1="120" y1="380" x2="1060" y2="250" stroke="#b22234" stroke-width="5"/>
+
+  <!-- 売上高ライン（青） -->
+  <line x1="120" y1="580" x2="1060" y2="130" stroke="#2e6da4" stroke-width="5"/>
+
+  <!-- BEP 縦ガイド線（軸まで） -->
+  <line x1="707" y1="313" x2="707" y2="580" stroke="#1a3a5c" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- X 軸 -->
+  <line x1="120" y1="580" x2="1080" y2="580" stroke="#1a3a5c" stroke-width="2.5"/>
+  <!-- Y 軸 -->
+  <line x1="120" y1="120" x2="120" y2="580" stroke="#1a3a5c" stroke-width="2.5"/>
+
+  <!-- 原点 0 -->
+  <text x="108" y="606" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#555555" text-anchor="end">0</text>
+
+  <!-- Y 軸ラベル（縦書き回転） -->
+  <text x="55" y="355" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold" transform="rotate(-90, 55, 355)">金額（売上・費用）</text>
+
+  <!-- X 軸ラベル -->
+  <text x="600" y="640" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">売上高（販売数量）→</text>
+
+  <!-- BEP 縦ガイド線のラベル（X 軸下） -->
+  <text x="707" y="610" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" text-anchor="middle">BEP 売上高</text>
+
+  <!-- ライン凡例（線終点の右） -->
+  <text x="1075" y="135" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#2e6da4" font-weight="bold">売上高</text>
+  <text x="1075" y="252" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#b22234" font-weight="bold">総費用</text>
+  <text x="1075" y="385" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#555555" font-weight="bold">固定費</text>
+
+  <!-- 損失エリアラベル -->
+  <text x="320" y="430" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" fill="#b22234" text-anchor="middle" font-weight="bold">損失</text>
+  <text x="320" y="458" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234" text-anchor="middle">売上 &lt; 総費用</text>
+
+  <!-- 利益エリアラベル -->
+  <text x="960" y="195" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" fill="#3a7d44" text-anchor="middle" font-weight="bold">利益</text>
+  <text x="960" y="222" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#3a7d44" text-anchor="middle">売上 &gt; 総費用</text>
+
+  <!-- BEP 引き出し線（マーカーから左上の空きスペースへ） -->
+  <line x1="697" y1="293" x2="590" y2="220" stroke="#1a3a5c" stroke-width="2"/>
+
+  <!-- BEP マーカー（注目度を上げるため大きめ） -->
+  <circle cx="707" cy="299" r="14" fill="#ffffff" stroke="#1a3a5c" stroke-width="4"/>
+
+  <!-- BEP ラベルボックス -->
+  <rect x="340" y="190" width="252" height="48" rx="6" fill="#1a3a5c"/>
+  <text x="466" y="222" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">損益分岐点 BEP</text>
+
+  <!-- 公式（下部、薄背景ボックス） -->
+  <rect x="40" y="668" width="1000" height="40" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="694" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" font-weight="bold">公式：BEP 売上高 = 固定費 ÷ 限界利益率（限界利益率 = (販売価格 − 変動費) ÷ 販売価格）</text>
+
+  <!-- クレジット -->
+  <text x="1160" y="700" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

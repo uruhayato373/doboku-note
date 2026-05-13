@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">線形計画法 — 実行可能領域と頂点法</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">令和6 I-1-7：原材料 L/M の制約下で利益 Z = 3P + 5Q を最大化</text>
+
+  <!-- 軸定義: 原点(120,580), X軸 P=0..80 → x=120..1080 (12px/unit), Y軸 Q=0..70 → y=580..140 (6.29px/unit) -->
+
+  <!-- 実行可能領域（4 頂点の多角形） -->
+  <polygon points="120,580 720,580 600,391 120,203" fill="#e8f0fe" fill-opacity="0.7" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 制約 L: 3P + 4Q = 240, 線分 (P=0,Q=60)→(P=80,Q=0) -->
+  <line x1="120" y1="203" x2="1080" y2="580" stroke="#b22234" stroke-width="4"/>
+
+  <!-- 制約 M: 3P + Q = 150, 視野内では (P=26.67,Q=70)→(P=50,Q=0) -->
+  <line x1="440" y1="140" x2="720" y2="580" stroke="#3a7d44" stroke-width="4"/>
+
+  <!-- X 軸 -->
+  <defs>
+    <marker id="ax-arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M0,0 L0,14 L14,7 z" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+  <line x1="120" y1="580" x2="1100" y2="580" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#ax-arrow)"/>
+  <!-- Y 軸 -->
+  <line x1="120" y1="580" x2="120" y2="120" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#ax-arrow)"/>
+
+  <!-- X 軸目盛 -->
+  <line x1="360" y1="575" x2="360" y2="585" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="360" y="608" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">20</text>
+  <line x1="600" y1="575" x2="600" y2="585" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="600" y="608" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">40</text>
+  <line x1="840" y1="575" x2="840" y2="585" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="840" y="608" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">60</text>
+  <line x1="1080" y1="575" x2="1080" y2="585" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="1080" y="608" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">80</text>
+
+  <!-- Y 軸目盛 -->
+  <line x1="115" y1="454" x2="125" y2="454" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="105" y="460" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="end">20</text>
+  <line x1="115" y1="329" x2="125" y2="329" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="105" y="335" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="end">40</text>
+  <line x1="115" y1="203" x2="125" y2="203" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="105" y="209" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="end">60</text>
+
+  <!-- 原点 0 -->
+  <text x="108" y="608" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="end">0</text>
+
+  <!-- 軸ラベル -->
+  <text x="1100" y="618" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="end" font-weight="bold">製品 P (kg)</text>
+  <text x="140" y="115" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="start" font-weight="bold">製品 Q (kg)</text>
+
+  <!-- 制約ライン凡例（線と重ならない位置に配置） -->
+  <text x="1080" y="350" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#b22234" text-anchor="end" font-weight="bold">L: 3P + 4Q = 240</text>
+  <text x="470" y="170" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#3a7d44" text-anchor="start" font-weight="bold">M: 3P + Q = 150</text>
+
+  <!-- 実行可能領域ラベル -->
+  <text x="320" y="500" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#2e6da4" text-anchor="middle" font-weight="bold">実行可能領域</text>
+
+  <!-- 頂点 (0,0): 原点 -->
+  <circle cx="120" cy="580" r="8" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <text x="138" y="568" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c">(0, 0)  Z = 0</text>
+
+  <!-- 頂点 (50, 0) -->
+  <circle cx="720" cy="580" r="8" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <text x="738" y="568" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c">(50, 0)  Z = 150</text>
+
+  <!-- 頂点 (40, 30) -->
+  <circle cx="600" cy="391" r="8" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <text x="618" y="385" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c">(40, 30)  Z = 270</text>
+
+  <!-- 頂点 (0, 60) ★最適解 -->
+  <circle cx="120" cy="203" r="18" fill="#fff8e1" stroke="#d4a017" stroke-width="3"/>
+  <circle cx="120" cy="203" r="10" fill="#d4a017" stroke="#d4a017" stroke-width="2"/>
+  <text x="143" y="197" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#d4a017" font-weight="bold">★ (0, 60)  Z = 300 ← 最適解</text>
+
+  <!-- 解説ボックス（下部） -->
+  <rect x="40" y="640" width="1120" height="60" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="60" y="670" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" font-weight="bold">頂点法：実行可能領域の 4 頂点で Z を計算 → 最大値 Z = 300 となる (P=0, Q=60) が最適解</text>
+
+  <!-- クレジット -->
+  <text x="1160" y="708" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

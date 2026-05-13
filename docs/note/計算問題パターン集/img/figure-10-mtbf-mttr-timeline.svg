@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="570" viewBox="0 0 1200 570">
+  <rect width="1200" height="570" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">MTBF・MTTR — 稼働と故障の時系列モデル</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">稼働 (T) と修復 (R) を繰り返すシステムの平均値が MTBF と MTTR</text>
+
+  <!-- ① タイムライン =================================================== -->
+
+  <!-- 上ラベル：故障・復旧マーカー -->
+  <!-- 故障1: T1 → R1 境界 x=385 -->
+  <line x1="385" y1="148" x2="385" y2="170" stroke="#b22234" stroke-width="2.5" marker-end="url(#downarrow)"/>
+  <text x="385" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234" text-anchor="middle" font-weight="bold">故障①</text>
+  <!-- 復旧1: R1 → T2 境界 x=415 -->
+  <line x1="415" y1="148" x2="415" y2="170" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#downarrow-g)"/>
+  <text x="445" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#3a7d44" text-anchor="middle" font-weight="bold">復旧①</text>
+  <!-- 故障2: T2 → R2 境界 x=655 -->
+  <line x1="655" y1="148" x2="655" y2="170" stroke="#b22234" stroke-width="2.5" marker-end="url(#downarrow)"/>
+  <text x="655" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234" text-anchor="middle" font-weight="bold">故障②</text>
+  <!-- 復旧2: R2 → T3 境界 x=715 -->
+  <line x1="715" y1="148" x2="715" y2="170" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#downarrow-g)"/>
+  <text x="745" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#3a7d44" text-anchor="middle" font-weight="bold">復旧②</text>
+
+  <defs>
+    <marker id="downarrow" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L10,0 L5,9 z" fill="#b22234"/>
+    </marker>
+    <marker id="downarrow-g" markerWidth="10" markerHeight="10" refX="5" refY="9" orient="auto">
+      <path d="M0,0 L10,0 L5,9 z" fill="#3a7d44"/>
+    </marker>
+    <marker id="rightarrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M0,0 L0,14 L14,7 z" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <!-- バンド: T1 稼働 100h -->
+  <rect x="85" y="170" width="300" height="60" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="235" y="210" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" fill="#3a7d44" text-anchor="middle" font-weight="bold">稼働 T1</text>
+
+  <!-- バンド: R1 修復 10h（狭い） -->
+  <rect x="385" y="170" width="30" height="60" fill="#fdecea" stroke="#b22234" stroke-width="2.5"/>
+
+  <!-- バンド: T2 稼働 80h -->
+  <rect x="415" y="170" width="240" height="60" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="535" y="210" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" fill="#3a7d44" text-anchor="middle" font-weight="bold">稼働 T2</text>
+
+  <!-- バンド: R2 修復 20h -->
+  <rect x="655" y="170" width="60" height="60" fill="#fdecea" stroke="#b22234" stroke-width="2.5"/>
+  <text x="685" y="210" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234" text-anchor="middle" font-weight="bold">R2</text>
+
+  <!-- バンド: T3 稼働 120h -->
+  <rect x="715" y="170" width="360" height="60" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2.5"/>
+  <text x="895" y="210" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" fill="#3a7d44" text-anchor="middle" font-weight="bold">稼働 T3</text>
+
+  <!-- 下ラベル：各バンドの時間 -->
+  <text x="235" y="258" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle" font-weight="bold">T1 = 100h</text>
+  <text x="400" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234" text-anchor="middle" font-weight="bold">R1 = 10h</text>
+  <text x="535" y="258" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle" font-weight="bold">T2 = 80h</text>
+  <text x="685" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234" text-anchor="middle" font-weight="bold">R2 = 20h</text>
+  <text x="895" y="258" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle" font-weight="bold">T3 = 120h</text>
+
+  <!-- 時間軸 -->
+  <line x1="85" y1="305" x2="1095" y2="305" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#rightarrow)"/>
+  <text x="1100" y="312" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" font-weight="bold">時間</text>
+
+  <!-- ② 公式ボックス ================================================ -->
+  <rect x="40" y="345" width="1120" height="180" rx="8" fill="#e8f0fe"/>
+
+  <text x="60" y="378" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" font-weight="bold">MTBF（平均故障間動作時間）</text>
+  <text x="80" y="408" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c">= ΣTi ÷ 故障件数 = (100 + 80 + 120) ÷ 2 =</text>
+  <text x="730" y="408" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#3a7d44" font-weight="bold">150h</text>
+  <text x="820" y="408" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#3a7d44">← 長い方が良い</text>
+
+  <text x="60" y="448" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" font-weight="bold">MTTR（平均修復時間）</text>
+  <text x="80" y="478" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c">= ΣRi ÷ 故障件数 = (10 + 20) ÷ 2 =</text>
+  <text x="660" y="478" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#b22234" font-weight="bold">15h</text>
+  <text x="730" y="478" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234">← 短い方が良い</text>
+
+  <line x1="60" y1="495" x2="1140" y2="495" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="60" y="518" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" font-weight="bold">稼働率 A = MTBF ÷ (MTBF + MTTR) = 150 ÷ 165 ≈</text>
+  <text x="900" y="518" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#2e6da4" font-weight="bold">0.909（90.9%）</text>
+
+  <!-- クレジット -->
+  <text x="1140" y="558" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>
