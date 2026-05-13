@@ -95,14 +95,6 @@
   <text x="935" y="648" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#3a7d44" text-anchor="middle">筆記合格</text>
   <text x="935" y="668" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#3a7d44" text-anchor="middle">発表(10月)</text>
 
-  <!-- 準備完了目標: 11月末（x=1040 左側） -->
-  <rect x="840" y="690" width="176" height="36" rx="6" fill="#fff0f0" stroke="#b22234" stroke-width="1.5"/>
-  <text x="928" y="713" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#b22234" text-anchor="middle">← 準備完了目標: 11月末</text>
-
-  <!-- 注釈: 前12月 = 前年12月 -->
-  <text x="235" y="700" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="middle">※前12月</text>
-  <text x="235" y="720" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="middle">=前年12月</text>
-
   <!-- doboku-note.com -->
   <text x="1180" y="776" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
 </svg>
