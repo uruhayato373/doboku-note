@@ -1,4 +1,4 @@
-<svg width="380" height="370" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 370" role="img" aria-label="4フェーズ学習計画" style="max-width:380px;width:100%">
+<svg width="380" height="370" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 370" role="img" aria-label="4フェーズ学習計画（試験前6〜7ヶ月の標準スケジュール）" style="max-width:380px;width:100%">
   <defs>
     <marker id="arrow2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
       <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
@@ -10,31 +10,31 @@
 
   <!-- Phase 1 -->
   <rect x="15" y="10" width="350" height="70" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-  <text x="190" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ1: 前提知識習得（1〜3月）</text>
-  <text x="190" y="60" text-anchor="middle" font-size="13" fill="#555">総監の全体像を把握する</text>
+  <text x="190" y="35" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ1: 全体像把握（前年12月〜2月）</text>
+  <text x="190" y="60" text-anchor="middle" font-size="13" fill="#555">キーワード集通読・過去問速読で7割理解</text>
 
   <!-- Arrow -->
   <line x1="190" y1="80" x2="190" y2="100" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow2)"/>
 
   <!-- Phase 2 -->
   <rect x="15" y="102" width="350" height="70" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
-  <text x="190" y="127" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ2: 筆記試験対策（4〜6月）</text>
-  <text x="190" y="152" text-anchor="middle" font-size="13" fill="#555">択一60%・記述の型を身につける</text>
+  <text x="190" y="127" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ2: 本格学習（3月〜5月）</text>
+  <text x="190" y="152" text-anchor="middle" font-size="13" fill="#555">申込書・択一演習・記述骨子練習</text>
 
   <!-- Arrow -->
   <line x1="190" y1="172" x2="190" y2="192" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow2)"/>
 
   <!-- Phase 3 -->
   <rect x="15" y="194" width="350" height="70" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <text x="190" y="219" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ3: 最終対策（6〜7月）</text>
-  <text x="190" y="244" text-anchor="middle" font-size="13" fill="#555">本番と同じ条件で合格水準に達する</text>
+  <text x="190" y="219" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ3: 直前期（6月〜7月中旬）</text>
+  <text x="190" y="244" text-anchor="middle" font-size="13" fill="#555">模擬試験形式で本番条件に慣らす</text>
 
   <!-- Arrow -->
   <line x1="190" y1="264" x2="190" y2="284" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow2)"/>
 
   <!-- Phase 4 -->
   <rect x="15" y="286" width="350" height="70" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
-  <text x="190" y="311" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ4: 口頭試験対策（10〜12月）</text>
-  <text x="190" y="336" text-anchor="middle" font-size="13" fill="#555">経歴を総監視点で説明できる</text>
+  <text x="190" y="311" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ4: 試験後（7月後半〜翌1月）</text>
+  <text x="190" y="336" text-anchor="middle" font-size="13" fill="#555">解答再現＋口頭試験対策</text>
 
 </svg>
