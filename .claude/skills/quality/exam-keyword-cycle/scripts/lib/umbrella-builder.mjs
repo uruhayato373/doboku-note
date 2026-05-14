@@ -117,8 +117,6 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
   const threshold = cemQaThresholdFor(examSlug);
 
   let body = '';
-  body += `## 関連ロードマップ\n`;
-  body += `[docs/project/25_過去問起点校正サイクルロードマップ.md](../blob/main/docs/project/25_過去問起点校正サイクルロードマップ.md)\n\n`;
   body += `## 進捗\n`;
   body += `**${fullCount}/${total} full-cycle (${percent}%)** <!-- sync marker: progress -->\n\n`;
   body += `> 完了判定: 全 slugs 処理済み × cem-qa ≥ ${threshold}。`;
@@ -184,8 +182,6 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
 
 export function buildParentUmbrellaBody(progress, catalog) {
   let body = '';
-  body += `## 関連ロードマップ\n`;
-  body += `[docs/project/25_過去問起点校正サイクルロードマップ.md](../blob/main/docs/project/25_過去問起点校正サイクルロードマップ.md)\n\n`;
 
   let totalAll = 0;
   let fullAll = 0;
@@ -227,7 +223,6 @@ export function buildParentUmbrellaBody(progress, catalog) {
 
   body += `## 参照\n\n`;
   body += `- スキル: \`.claude/skills/quality/exam-keyword-cycle/SKILL.md\`\n`;
-  body += `- ロードマップ: \`docs/project/25_過去問起点校正サイクルロードマップ.md\`\n`;
   body += `- 進捗 JSON: \`.claude/state/exam-keyword-cycles/progress.json\`\n`;
 
   return {

@@ -13,7 +13,7 @@ user-invocable: true
 
 ## 用途
 
-note の段階投下は `docs/project/19_note段階投下プラン.md` に方針があるが、「今ある在庫を踏まえて次の一手は何か」を毎回手で棚卸しするのは手間でミスも出る。このスキルは在庫・カバレッジ・価格・Red Line を機械的に突き合わせ、抜け漏れのない企画候補を出す。
+note の段階投下は `docs/note/19_note段階投下プラン.md` に方針があるが、「今ある在庫を踏まえて次の一手は何か」を毎回手で棚卸しするのは手間でミスも出る。このスキルは在庫・カバレッジ・価格・Red Line を機械的に突き合わせ、抜け漏れのない企画候補を出す。
 
 ## 引数
 
@@ -31,8 +31,8 @@ note の段階投下は `docs/project/19_note段階投下プラン.md` に方針
 
 ### Step 1: 入力資料を読む（read のみ・改変しない）
 
-1. **段階投下方針**: `docs/project/19_note段階投下プラン.md` — Phase 区分・Red Line・無料/有料の線引き
-2. **収益化親戦略**: `docs/project/05_収益化戦略.md`・`docs/project/19...` の参照先
+1. **段階投下方針**: `docs/note/19_note段階投下プラン.md` — Phase 区分・Red Line・無料/有料の線引き
+2. **収益化親戦略**: `docs/project/05_収益化戦略.md`・`docs/note/19...` の参照先
 3. **magazine 在庫**: `docs/note/magazines/総監模範論文-{属性}/R0X/` と `docs/note/magazines/総監テキスト精読ガイド/5管理-*/` の存在状況（どの属性 × 年度・どの管理が公開済み/未着手か）
 4. **単体 note 記事**: `docs/note/*/article.md` の `notePricing` / `notePublishedAt` / `noteUrl`（公開済みか・無料か有料か）
 5. **価格**: 価格定義の yaml（`docs/note/` 配下または magazine ディレクトリ内。`project_paid_note_pricing` メモ参照 — yaml が価格の真実源）
@@ -58,7 +58,7 @@ note の段階投下は `docs/project/19_note段階投下プラン.md` に方針
 
 ### Step 4: 出力
 
-`--horizon next` は最優先 1 本、`--horizon quarter` は 3 ヶ月ロードマップ（表）。出力は会話に提示する（ファイル書き込みはしない）。ロードマップを永続化したい場合はユーザー判断で `docs/project/19_note段階投下プラン.md` への追記を提案する。
+`--horizon next` は最優先 1 本、`--horizon quarter` は 3 ヶ月ロードマップ（表）。出力は会話に提示する（ファイル書き込みはしない）。ロードマップを永続化したい場合はユーザー判断で `docs/note/19_note段階投下プラン.md` への追記を提案する。
 
 ## content-planner エージェントとの境界
 
@@ -85,7 +85,7 @@ note の段階投下は `docs/project/19_note段階投下プラン.md` に方針
 
 ## 参照
 
-- `docs/project/19_note段階投下プラン.md` — 段階投下方針・Red Line（最重要入力）
+- `docs/note/19_note段階投下プラン.md` — 段階投下方針・Red Line（最重要入力）
 - `docs/project/05_収益化戦略.md` — 親戦略
 - `.claude/skills/authoring/pe-essay-cycle/SKILL.md` — 統括オーケストレーター（`--mode plan` から本スキルを呼ぶ）
 - `.claude/skills/authoring/pe-essay-draft/SKILL.md` — 提案後に実際の記事を作る Generator

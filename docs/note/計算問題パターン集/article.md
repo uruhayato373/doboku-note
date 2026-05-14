@@ -258,7 +258,6 @@ MTBF = 1,093,800 / 987 ≒ **1,108 時間**（カタログ値 1,000h を上回�
 
 線形計画法の詳細は doboku-note の[線形計画法](https://doboku-note.com/docs/pe-comprehensive-management-linear-programming?utm_source=note&utm_medium=referral&utm_campaign=calc-problems-6patterns)キーワードページで確認できます。
 
-> パターン 1〜3 の得点ブロック（統計・BEP・LP）が固まったら、択一式と記述式の「橋渡し」も意識し始めましょう。「**総監の合否を分けるトレードオフ思考 完全ガイド**」（マガジン収録）では、択一式・記述式・口頭試験で繰り返し問われる 5 管理トレードオフを体系化しています。マガジン「**総監記述式 完全対策セット**」（¥3,480）で 3 冊まとめ購入できます。
 
 
 ## パターン 4: PERT・クリティカルパス

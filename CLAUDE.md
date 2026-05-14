@@ -86,8 +86,8 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/project/05_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
 | `docs/project/07_SNS集客戦略.md` | SNS 集客戦略 v5（X / YouTube / Instagram 統合、TTS 完全自動・SNS 量産・共通基盤 sns-common 依存、IG は Carousel + Reels 両軸） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
-| `docs/project/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
-| `docs/project/26_Instagram投稿自動化アーキテクチャ.md` | Instagram 投稿自動化アーキテクチャ v3（Carousel + Reels 両軸、YT Shorts mp4 を IG Reels に流用、API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
+| `docs/note/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
+| `docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md` | Instagram 投稿自動化アーキテクチャ v3（Carousel + Reels 両軸、YT Shorts mp4 を IG Reels に流用、API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
 | `docs/project/27_5チャネル動線設計.md` | 5 チャネル動線設計 v1（X / YouTube / Instagram / note / サイトの統合ファネル設計、UTM 統一フォーマット、季節 × チャネルマトリクス、4 Phase 実装ロードマップ） | チャネル間動線・UTM 設計・季節調整検討時、note ↔ サイト境界ルール確認時 |
 
 ---

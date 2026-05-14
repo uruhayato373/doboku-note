@@ -70,7 +70,7 @@ user-invocable: true
 
 ### plan — note 有料記事を企画する（④）
 
-1. `pe-note-plan` を実行（`docs/project/19_note段階投下プラン.md`・magazine 在庫・価格 yaml を読んで次の記事を提案）
+1. `pe-note-plan` を実行（`docs/note/19_note段階投下プラン.md`・magazine 在庫・価格 yaml を読んで次の記事を提案）
 
 ### publish — note 公開前ゲート
 

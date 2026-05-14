@@ -441,7 +441,7 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 - `docs/project/02_事業戦略.md` — 全体戦略
 - `docs/project/04_コンテンツロードマップ.md` — コンテンツ計画
 - `docs/project/05_収益化戦略.md` — note 商品ラインナップとの連携
-- `docs/project/26_Instagram投稿自動化アーキテクチャ.md` — Instagram の技術設計詳細
+- `docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md` — Instagram の技術設計詳細
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義
 - `.claude/skills/social/social-post/SKILL.md` — note / X 投稿下書き生成スキル
 

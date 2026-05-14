@@ -2,17 +2,17 @@
 
 > **生成物・直接編集禁止**。タスクの追加・更新は `.claude/state/task-queue.json`（または `.claude/scripts/lib/task-queue.mjs` の CLI）で行い、`npm run build-todo` で再生成する。スキーマと運用は [information-architecture.md](../../.claude/reference/information-architecture.md) 参照。
 
-- 生成: 2026-05-14T05:28:33.665Z
+- 生成: 2026-05-14T08:23:07.407Z
 - 未完了: 23 件 / 完了済み: 0 件
 
 ## content
 
 | ID | 状態 | 優先 | タイトル | 関連 |
 |---|---|---|---|---|
-| T-015 | 未着手 | high | 総監キーワードページ 499 件リライト（A→C→B→C'） | docs/project/31_リライト方法論方針.md / docs/project/25_過去問起点校正サイクルロードマップ.md / .claude/state/improvements/pe-priority-2026-05-11.md |
-| T-016 | 進行中 | high | note 商品ラインナップ整備（A-1〜D-1 + マガジン化） | docs/project/19_note段階投下プラン.md / docs/project/05_収益化戦略.md |
-| T-019 | 未着手 | high | 令和7年版 国土交通白書を note 有料記事 + キーワード追記で活用 | docs/project/19_note段階投下プラン.md / docs/project/05_収益化戦略.md |
-| T-017 | 進行中 | mid | 総監記述式 8 年分 三層構造分析プロジェクト | docs/project/27_記述式パターン抽出計画.md / docs/project/08_記述式コンテンツ戦略.md / docs/project/essay-analysis/README.md |
+| T-015 | 未着手 | high | 総監キーワードページ 499 件リライト（A→C→B→C'） | docs/project/31_リライト方法論方針.md / .claude/state/improvements/pe-priority-2026-05-11.md |
+| T-016 | 進行中 | high | note 商品ラインナップ整備（A-1〜D-1 + マガジン化） | docs/note/19_note段階投下プラン.md / docs/project/05_収益化戦略.md |
+| T-019 | 未着手 | high | 令和7年版 国土交通白書を note 有料記事 + キーワード追記で活用 | docs/note/19_note段階投下プラン.md / docs/project/05_収益化戦略.md |
+| T-017 | 進行中 | mid | 総監記述式 8 年分 三層構造分析プロジェクト | docs/project/08_記述式コンテンツ戦略.md / docs/project/essay-analysis/README.md |
 
 ## infra
 
@@ -49,11 +49,11 @@
 
 | ID | 状態 | 優先 | タイトル | 関連 |
 |---|---|---|---|---|
-| T-001 | 進行中 | high | SNS 自動投稿基盤（YouTube × Instagram） | docs/project/07_SNS集客戦略.md / docs/project/26_Instagram投稿自動化アーキテクチャ.md |
-| T-003 | 未着手 | high | Meta（Instagram）アカウント・API 認証準備（親: T-001） | docs/project/26_Instagram投稿自動化アーキテクチャ.md |
-| T-004 | 未着手 | mid | SNS スケジューラ統合（GitHub Actions cron）（親: T-001） | docs/project/26_Instagram投稿自動化アーキテクチャ.md |
+| T-001 | 進行中 | high | SNS 自動投稿基盤（YouTube × Instagram） | docs/project/07_SNS集客戦略.md / docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md |
+| T-003 | 未着手 | high | Meta（Instagram）アカウント・API 認証準備（親: T-001） | docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md |
+| T-004 | 未着手 | mid | SNS スケジューラ統合（GitHub Actions cron）（親: T-001） | docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md |
 | T-006 | 未着手 | mid | X reply 自動化（cycle 002〜、Mac 不要構成）（親: T-001） | — |
 | T-008 | 進行中 | mid | IG フォロワー獲得 30 日チェックリスト（2026-05）（親: T-001） | docs/project/07_SNS集客戦略.md |
-| T-005 | 未着手 | low | SNS 型・チャネル拡充（試験後 2026-08〜）（親: T-001） | docs/project/26_Instagram投稿自動化アーキテクチャ.md |
+| T-005 | 未着手 | low | SNS 型・チャネル拡充（試験後 2026-08〜）（親: T-001） | docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md |
 | T-007 | 未着手 | low | IG ストーリー活用パターン集のガイド化（親: T-001） | docs/project/07_SNS集客戦略.md |
 | T-009 | 未着手 | low | IG ハイライトカバー画像の自動生成（親: T-001） | .claude/reference/sns-image-policy.md |
