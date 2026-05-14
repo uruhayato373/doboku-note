@@ -154,7 +154,7 @@ console.log('saved:', results.length, 'total:', Object.keys(data.pages).length);
 
 ```
 あなたは cem-qa エージェントです。`.claude/agents/cem-qa.md` を Read で読み、それに従ってください。
-品質ルーブリックの真実源は `.claude/content-principles.md` です。
+品質ルーブリックの真実源は `docs/reference/content-principles.md` です。
 
 評価対象: .local/r2/posts/pe-comprehensive-management/<SLUG>/article.mdx
 
@@ -282,7 +282,7 @@ function isRewriteCandidate(p) {
 |---|---|
 | `.claude/agents/cem-qa.md` | 5 軸ルーブリック定義（**weighted 計算式の曖昧さは未修正**）|
 | `.claude/agents/keyword-rewriter.md` | リライトルール |
-| `.claude/content-principles.md` | §5 ExamPoint, §9 参考資料 |
+| `docs/reference/content-principles.md` | §5 ExamPoint, §9 参考資料 |
 
 ### 8.4 cem-qa.md の修正提案（次セッションでもよい）
 
@@ -364,7 +364,7 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 export function buildCemQaPrompt(slug) {
   return `あなたは cem-qa エージェントです。
 完全な定義は \`.claude/agents/cem-qa.md\` を Read で読み、それに従ってください。
-品質ルーブリックの真実源は \`.claude/content-principles.md\` です。
+品質ルーブリックの真実源は \`docs/reference/content-principles.md\` です。
 
 評価対象:
   ファイル: .local/r2/posts/pe-comprehensive-management/${slug}/article.mdx

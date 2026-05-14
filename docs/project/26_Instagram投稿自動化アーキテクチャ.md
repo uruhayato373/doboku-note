@@ -126,7 +126,7 @@ Meta Graph API v18+ で自動投稿（共通基盤 media-uploader.mjs 経由）
 ```
 
 ### 情報蓄積 3 層モデルとの整合
-- **Tier 1（状態）**: 投稿キュー運用は [docs-issue-separation.md](../.claude/reference/docs-issue-separation.md) に従い GitHub Umbrella Issue で管理（投稿予定・済 → label: `ig-post-queue`）。`queue.json` は「次週分の実行指示」だけ保持
+- **Tier 1（状態）**: 投稿キュー運用は [docs-issue-separation.md](../docs/reference/docs-issue-separation.md) に従い GitHub Umbrella Issue で管理（投稿予定・済 → label: `ig-post-queue`）。`queue.json` は「次週分の実行指示」だけ保持
 - **Tier 2（固定知識）**: 本書 + `SKILL.md` + `.claude/config/ig-post/*.json`
 - **Tier 3（機械データ）**: `.claude/state/ig-post/*.json`
 
@@ -306,7 +306,7 @@ Phase 0 を YouTube と並行で先行整備（Issue #164 SNS-0）。Phase 1 で
 
 ### 実行タスクの管理場所
 
-本書は Why・設計の固定知識。**具体的な実行タスク・進捗・完了判定は GitHub Umbrella Issue で管理**する（[docs-issue-separation.md](../.claude/reference/docs-issue-separation.md) 参照）。
+本書は Why・設計の固定知識。**具体的な実行タスク・進捗・完了判定は GitHub Umbrella Issue で管理**する（[docs-issue-separation.md](../docs/reference/docs-issue-separation.md) 参照）。
 
 - Umbrella Issue（作成予定）: `[Umbrella] Instagram 投稿自動化基盤整備`
 - Phase ごとに子 Issue を切る（`[IG-1] MVP`・`[IG-2] 型拡充` 等）
@@ -347,5 +347,5 @@ Phase 0 を YouTube と並行で先行整備（Issue #164 SNS-0）。Phase 1 で
 - 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v5・X / YouTube / Instagram 統合、Reels 流用ハイブリッド）— YouTube 戦略は本書と同 doc 内に統合済み。Instagram は Carousel + Reels の両軸で YouTube と共通基盤を共有
 - 収益化戦略: [05_収益化戦略.md](./05_収益化戦略.md)（動線先の note・iOS アプリ）
 - 既存 OGP スキル: `.claude/skills/content/ogp-create/SKILL.md`（本書の設計ベース）
-- Tier 分離ルール: [.claude/reference/docs-issue-separation.md](../.claude/reference/docs-issue-separation.md)
+- Tier 分離ルール: [docs/reference/docs-issue-separation.md](../docs/reference/docs-issue-separation.md)
 - SVG 作成ルール: `.claude/skills/content/create-svg/SKILL.md`（既存 SVG の再利用ガイド）

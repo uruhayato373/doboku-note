@@ -43,4 +43,4 @@
 
 - 実装: [`SeeAlso.tsx`](./SeeAlso.tsx)
 - Storybook: [`SeeAlso.stories.tsx`](./SeeAlso.stories.tsx)
-- 使用ガイド: [`.claude/content-principles.md`](../../../../.claude/content-principles.md)
+- 使用ガイド: [`docs/reference/content-principles.md`](../../../../docs/reference/content-principles.md)

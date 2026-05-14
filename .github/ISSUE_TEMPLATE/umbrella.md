@@ -6,7 +6,7 @@ labels: ["umbrella"]
 assignees: []
 ---
 
-<!-- 運用ルール: .claude/reference/docs-issue-separation.md
+<!-- 運用ルール: docs/reference/docs-issue-separation.md
      close 条件: 全 checkbox checked + 対応 md の「追跡 Issue」行を整理 -->
 
 ## 関連ロードマップ

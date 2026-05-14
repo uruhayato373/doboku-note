@@ -33,7 +33,7 @@ assignees: []
 ## 反映先（決定後に編集する真実源）
 <!-- 採点関連は 3 ファイル同期更新が必須 -->
 - [ ] `.claude/agents/cem-qa.md` の「品質ルーブリック」セクション（重み・加重スコア式）
-- [ ] `.claude/content-principles.md` の該当 §（判定基準の真実源）
+- [ ] `docs/reference/content-principles.md` の該当 §（判定基準の真実源）
 - [ ] `.claude/skills/quality/quality-cycle/templates/cem.md`（参考資料）
 
 ## 決定

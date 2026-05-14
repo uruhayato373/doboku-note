@@ -4,7 +4,7 @@ doboku-note の `<Callout>` コンポーネントは、2026-04-22 の Claude Des
 
 **真実源**:
 - 実装: [`src/components/ui/Callout/Callout.tsx`](../../src/components/ui/Callout/Callout.tsx)
-- 使用ガイド: [`.claude/content-principles.md`](../../.claude/content-principles.md) の「過剰装飾を避ける」節
+- 使用ガイド: [`docs/reference/content-principles.md`](../../docs/reference/content-principles.md) の「過剰装飾を避ける」節
 - コンポーネント専用 README: [`src/components/ui/Callout/README.md`](../../src/components/ui/Callout/README.md)
 
 ---
@@ -217,7 +217,7 @@ doboku-note の `<Callout>` コンポーネントは、2026-04-22 の Claude Des
 - **絵文字は使わない**（❌✅💡🔑 等は禁止、Callout で表現する）
 - **旧 type は削除済み**: `info` / `warning` / `caution` / `error` / `question` はランタイムで `note` にフォールバック。新規執筆では使わない
 
-詳細な使用ガイド（どの論点にどの type を使うか）は [`.claude/content-principles.md`](../../.claude/content-principles.md) を参照してください。
+詳細な使用ガイド（どの論点にどの type を使うか）は [`docs/reference/content-principles.md`](../../docs/reference/content-principles.md) を参照してください。
 
 ---
 
