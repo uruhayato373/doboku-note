@@ -188,6 +188,8 @@ user-invocable: true
 
 ## 関連スキル
 
+- `pe-essay-cycle`: 総監記述式の統括オーケストレーター（本スキルを `--mode review` で呼ぶ）
+- `pe-essay-draft`: 対になる Generator スキル（本スキルの添削レポートを `--mode revise` で反映する）
 - `note-prepublish-review`: note 公開前レビュー（多軸統合）
 - `cem-qa`（エージェント）: キーワードページの 5 軸ルーブリック評価
 - `note-fact-checker`（エージェント）: note 用ファクトチェック

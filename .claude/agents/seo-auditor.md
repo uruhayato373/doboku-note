@@ -101,8 +101,8 @@ const searchconsole = google.searchconsole({ version: 'v1', auth });
 
 ## 出力先
 
-- **SEO 監査**: GitHub Issue として起票（Umbrella #72 配下、label `seo`）
-- **キーワードギャップ分析**: 会話内で surface し、必要に応じて `/weekly-plan` や関連 Issue に反映
+- **SEO 監査**: `.claude/state/task-queue.json` にタスクとして登録（`category: seo`）
+- **キーワードギャップ分析**: 会話内で surface し、必要に応じて `/weekly-plan`（`docs/project/pdca/`）や `task-queue.json` に反映
 
 ## 関連ファイル
 

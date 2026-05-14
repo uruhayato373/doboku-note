@@ -1,153 +1,334 @@
 #!/usr/bin/env node
 
 /**
- * 内部リンク切れチェッカー
- * 全MDXファイル内の /docs/ リンクを検出し、対応するスラッグが存在するか検証する。
+ * 内部リンク切れチェッカー（slug + アンカー断片）
  *
- * Usage: node scripts/check-links.mjs
+ * 対象スコープ:
+ *   - site: .local/r2/posts 配下の .mdx（公開コンテンツ。相対リンク [text](/docs/slug)）
+ *   - note: docs/note 配下の article.md（note ドラフト。絶対 URL・裸 URL・相対リンク）
+ *   - all : 両方（既定）
+ *
+ * 検証内容:
+ *   - /docs/{slug} の slug 存在（.local/r2/posts 由来の有効 slug 集合）
+ *   - /category/{slug} の存在（src/config/categories.json）
+ *   - #anchor 断片の存在（リンク先ページの見出し ID 集合と照合）
+ *   - note.com の PLACEHOLDER リンク（未発売プレースホルダとして INFO 報告。HIGH に数えない）
+ *
+ * Usage:
+ *   node check-links.mjs [--scope note|site|all] [--json] [--report <dir>]
+ *
+ * 終了コード: HIGH（リンク切れ・アンカー切れ）が 1 件以上で 1
  */
 
 import fs from 'fs';
 import path from 'path';
+import { generateHeadingId, extractHeadings } from '#lib/heading-id.mjs';
 
-const postsDir = path.join(process.cwd(), '.local', 'r2', 'posts');
+const ROOT = process.cwd();
+const SITE_DIR = path.join(ROOT, '.local', 'r2', 'posts');
+const NOTE_DIR = path.join(ROOT, 'docs', 'note');
+const CATEGORIES_PATH = path.join(ROOT, 'src', 'config', 'categories.json');
 
-// Step 1: 全MDXファイルからスラッグを収集
-function findMdxFiles(dir, basePath = []) {
+// --- 引数 ---
+const argv = process.argv.slice(2);
+function getArg(name, def = null) {
+  const i = argv.indexOf(name);
+  return i >= 0 && argv[i + 1] ? argv[i + 1] : def;
+}
+const scope = getArg('--scope', 'all');
+const jsonOut = argv.includes('--json');
+const reportDir = getArg('--report', null);
+
+// 検証対象の静的ページ（有効なものだけ。これ以外の静的プレフィックスはリンク切れ扱い）
+const KNOWN_STATIC = new Set(['/', '/about', '/privacy', '/search']);
+// 「静的ページリンク」として検査するプレフィックス（元 check-links.mjs の挙動を踏襲）
+const STATIC_PREFIX_RE = /^\/(about|privacy|search|blog|contact)(\/|$)/;
+
+// --- Step 1: 有効 slug 集合と slug -> ファイルパス対応を構築 ---
+function findSiteMdxFiles(dir, basePath = []) {
   const results = [];
   if (!fs.existsSync(dir)) return results;
-
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const fullPath = path.join(dir, entry.name);
-    const fileName = entry.name.replace(/\.mdx$/, '');
-
+    const name = entry.name.replace(/\.mdx$/, '');
     if (entry.isDirectory()) {
-      if (fileName === 'img') continue; // skip image dirs
-      results.push(...findMdxFiles(fullPath, [...basePath, fileName]));
+      if (name === 'img') continue;
+      results.push(...findSiteMdxFiles(fullPath, [...basePath, name]));
     } else if (entry.isFile() && entry.name.endsWith('.mdx')) {
-      const slugPath = fileName === 'article' ? basePath : [...basePath, fileName];
+      const slugPath = name === 'article' ? basePath : [...basePath, name];
       if (slugPath.length > 0) {
-        results.push({
-          slug: slugPath.join('-'),
-          filePath: fullPath,
-          relativePath: [...basePath, entry.name].join('/'),
-        });
+        results.push({ slug: slugPath.join('-'), filePath: fullPath });
       }
     }
   }
   return results;
 }
 
-// Step 2: 全MDXファイルから内部リンクを抽出
-function extractInternalLinks(filePath) {
-  const content = fs.readFileSync(filePath, 'utf8');
-  const links = [];
-  // Markdown links: [text](/docs/slug) or [text](/category/slug)
-  const linkPattern = /\[([^\]]*)\]\((\/(docs|category|about|privacy|search|blog|contact)[^\s)]*)\)/g;
-  let match;
-  while ((match = linkPattern.exec(content)) !== null) {
-    const lineNum = content.substring(0, match.index).split('\n').length;
-    links.push({
-      text: match[1],
-      href: match[2],
-      line: lineNum,
-    });
-  }
-  return links;
-}
+const siteFiles = findSiteMdxFiles(SITE_DIR);
+const validSlugs = new Set(siteFiles.map((f) => f.slug));
+const slugToFile = new Map(siteFiles.map((f) => [f.slug, f.filePath]));
 
-// Step 3: 静的ページの一覧
-const staticPages = new Set(['/', '/about', '/privacy', '/search']);
-
-// メイン処理
-const allFiles = findMdxFiles(postsDir);
-const validSlugs = new Set(allFiles.map(f => f.slug));
-
-// カテゴリページ
-const categoriesPath = path.join(process.cwd(), 'src', 'config', 'categories.json');
 const validCategories = new Set();
-if (fs.existsSync(categoriesPath)) {
-  const cats = JSON.parse(fs.readFileSync(categoriesPath, 'utf8'));
-  for (const cat of cats) {
+if (fs.existsSync(CATEGORIES_PATH)) {
+  for (const cat of JSON.parse(fs.readFileSync(CATEGORIES_PATH, 'utf8'))) {
     validCategories.add(cat.slug);
   }
 }
 
-let brokenCount = 0;
-let checkedCount = 0;
-const brokenLinks = [];
+// --- Step 2: 走査対象ファイルを収集 ---
+function findNoteFiles(dir) {
+  const results = [];
+  if (!fs.existsSync(dir)) return results;
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) results.push(...findNoteFiles(fullPath));
+    else if (entry.name === 'article.md') results.push(fullPath);
+  }
+  return results;
+}
 
-for (const file of allFiles) {
-  const links = extractInternalLinks(file.filePath);
-  for (const link of links) {
-    checkedCount++;
-    const href = link.href;
+const targets = [];
+if (scope === 'site' || scope === 'all') {
+  for (const f of siteFiles) targets.push(f.filePath);
+}
+if (scope === 'note' || scope === 'all') {
+  for (const fp of findNoteFiles(NOTE_DIR)) targets.push(fp);
+}
 
-    // /docs/{slug} チェック
-    if (href.startsWith('/docs/')) {
-      const slug = href.replace('/docs/', '').replace(/#.*$/, ''); // remove anchor
+// --- Step 3: リンク抽出 ---
+function normalizeHref(href) {
+  const raw = href.trim();
+  // note.com マガジンの未発売プレースホルダ
+  if (/note\.com\/[^\s)]*PLACEHOLDER/i.test(raw)) {
+    return { kind: 'placeholder', href: raw };
+  }
+  // doboku-note.com の絶対 URL を相対パスへ正規化
+  let h = raw.replace(/^https?:\/\/(www\.)?doboku-note\.com/i, '');
+  if (!h.startsWith('/')) return null; // 外部リンク・mailto 等は対象外
+  h = h.split('?')[0]; // クエリ除去（アンカー # は残す）
+  if (h.startsWith('/docs/')) return { kind: 'docs', href: h };
+  if (h.startsWith('/category/')) return { kind: 'category', href: h };
+  const base = h.split('#')[0];
+  if (base === '/' || STATIC_PREFIX_RE.test(base)) return { kind: 'static', href: h };
+  return null; // その他の内部パスは対象外（元スクリプトの挙動を踏襲）
+}
+
+function extractLinks(content) {
+  const links = [];
+  const lines = content.split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    const lineNum = i + 1;
+    const mdSpans = [];
+    // Markdown リンク [text](href)
+    const mdPattern = /\[([^\]]*)\]\(([^)\s]+)\)/g;
+    let m;
+    while ((m = mdPattern.exec(line)) !== null) {
+      mdSpans.push([m.index, m.index + m[0].length]);
+      const norm = normalizeHref(m[2]);
+      if (norm) links.push({ text: m[1], raw: m[2], kind: norm.kind, href: norm.href, line: lineNum });
+    }
+    // 裸 URL（note リンクカード形式）— Markdown リンク内に含まれるものは除外
+    const barePattern = /https?:\/\/[^\s)）\]"'<>]+/g;
+    while ((m = barePattern.exec(line)) !== null) {
+      const idx = m.index;
+      if (mdSpans.some(([s, e]) => idx >= s && idx < e)) continue;
+      const url = m[0].replace(/[。、）)'"]+$/, '');
+      const norm = normalizeHref(url);
+      if (norm) links.push({ text: '', raw: url, kind: norm.kind, href: norm.href, line: lineNum });
+    }
+  }
+  return links;
+}
+
+// --- Step 4: アンカー ID 集合（リンク先ファイルの見出しから生成、キャッシュ） ---
+const anchorCache = new Map();
+function anchorIdSet(filePath) {
+  if (anchorCache.has(filePath)) return anchorCache.get(filePath);
+  const set = new Set();
+  try {
+    for (const h of extractHeadings(fs.readFileSync(filePath, 'utf8'))) {
+      set.add(h.id.toLowerCase());
+      set.add(h.examId.toLowerCase());
+    }
+  } catch {
+    /* 読めない場合は空集合（slug 自体は有効なのでアンカー検証はスキップ扱いになる） */
+  }
+  anchorCache.set(filePath, set);
+  return set;
+}
+
+// アンカーは一般版 ID・過去問変種 ID のいずれかに一致すれば OK（誤検出ゼロ優先）
+function anchorOk(anchor, filePath) {
+  if (!filePath) return true;
+  const ids = anchorIdSet(filePath);
+  if (ids.size === 0) return true; // 見出しが取れなかったファイルは検証スキップ
+  const candidates = [
+    anchor.toLowerCase(),
+    generateHeadingId(anchor),
+    generateHeadingId(anchor, { examMode: true }),
+  ];
+  return candidates.some((c) => ids.has(c));
+}
+
+// --- Step 5: 検証 ---
+const findings = [];
+let linksChecked = 0;
+
+for (const filePath of targets) {
+  const rel = path.relative(ROOT, filePath).replace(/\\/g, '/');
+  let content;
+  try {
+    content = fs.readFileSync(filePath, 'utf8');
+  } catch {
+    continue;
+  }
+  for (const link of extractLinks(content)) {
+    linksChecked++;
+    const base = { file: rel, line: link.line, text: link.text, href: link.raw };
+
+    if (link.kind === 'placeholder') {
+      findings.push({ ...base, severity: 'INFO', status: 'PLACEHOLDER' });
+    } else if (link.kind === 'docs') {
+      const [slug, anchor] = link.href.replace('/docs/', '').split('#');
       if (!validSlugs.has(slug)) {
-        brokenCount++;
-        brokenLinks.push({
-          file: file.relativePath,
-          line: link.line,
-          text: link.text,
-          href: link.href,
-        });
+        findings.push({ ...base, severity: 'HIGH', status: 'BROKEN_SLUG', slug });
+      } else if (anchor && !anchorOk(anchor, slugToFile.get(slug))) {
+        findings.push({ ...base, severity: 'HIGH', status: 'BROKEN_ANCHOR', slug, anchor });
       }
-    }
-    // /category/{slug} チェック
-    else if (href.startsWith('/category/')) {
-      const slug = href.replace('/category/', '').replace(/#.*$/, '');
+    } else if (link.kind === 'category') {
+      const [slug] = link.href.replace('/category/', '').split('#');
       if (!validCategories.has(slug)) {
-        brokenCount++;
-        brokenLinks.push({
-          file: file.relativePath,
-          line: link.line,
-          text: link.text,
-          href: link.href,
-        });
+        findings.push({ ...base, severity: 'HIGH', status: 'BROKEN_CATEGORY', slug });
+      }
+    } else if (link.kind === 'static') {
+      const [pagePath] = link.href.split('#');
+      if (!KNOWN_STATIC.has(pagePath)) {
+        findings.push({ ...base, severity: 'HIGH', status: 'BROKEN_STATIC' });
       }
     }
-    // 静的ページチェック
-    else if (!staticPages.has(href.replace(/#.*$/, ''))) {
-      brokenCount++;
-      brokenLinks.push({
-        file: file.relativePath,
-        line: link.line,
-        text: link.text,
-        href: link.href,
-      });
-    }
   }
 }
 
-// 結果表示
-console.log(`\n🔍 内部リンクチェック結果`);
-console.log(`   チェック対象: ${allFiles.length} ファイル`);
-console.log(`   チェックしたリンク: ${checkedCount} 件`);
-console.log(`   有効なスラッグ: ${validSlugs.size} 件\n`);
+const highCount = findings.filter((f) => f.severity === 'HIGH').length;
+const infoCount = findings.filter((f) => f.severity === 'INFO').length;
+const byStatus = {};
+for (const f of findings) byStatus[f.status] = (byStatus[f.status] ?? 0) + 1;
 
-if (brokenCount === 0) {
-  console.log(`✅ リンク切れはありません。\n`);
+const result = {
+  meta: {
+    generated_at: new Date().toISOString(),
+    tool: 'check-links',
+    scope,
+    valid_slugs: validSlugs.size,
+  },
+  summary: {
+    files_scanned: targets.length,
+    links_checked: linksChecked,
+    HIGH: highCount,
+    INFO: infoCount,
+    by_status: byStatus,
+  },
+  findings,
+};
+
+// --- Step 6: 出力 ---
+function buildMarkdownReport(r) {
+  const out = [];
+  out.push('# 内部リンク監査レポート');
+  out.push('');
+  out.push(`- 生成: ${r.meta.generated_at}`);
+  out.push(`- スコープ: ${r.meta.scope}`);
+  out.push(`- 走査ファイル: ${r.summary.files_scanned}`);
+  out.push(`- チェックしたリンク: ${r.summary.links_checked}`);
+  out.push(`- リンク切れ（HIGH）: ${r.summary.HIGH}`);
+  out.push(`- プレースホルダ（INFO）: ${r.summary.INFO}`);
+  out.push('');
+
+  const high = r.findings.filter((f) => f.severity === 'HIGH');
+  if (high.length === 0) {
+    out.push('## リンク切れ');
+    out.push('');
+    out.push('リンク切れはありません。');
+    out.push('');
+  } else {
+    out.push('## リンク切れ（要修正）');
+    out.push('');
+    const grouped = {};
+    for (const f of high) (grouped[f.file] ??= []).push(f);
+    for (const [file, items] of Object.entries(grouped)) {
+      out.push(`### ${file}`);
+      out.push('');
+      for (const f of items) {
+        const detail =
+          f.status === 'BROKEN_ANCHOR'
+            ? `${f.status} (slug=${f.slug}, #${f.anchor})`
+            : f.status;
+        out.push(`- L${f.line} \`${detail}\` — ${f.href}`);
+      }
+      out.push('');
+    }
+  }
+
+  const info = r.findings.filter((f) => f.severity === 'INFO');
+  if (info.length > 0) {
+    out.push('## プレースホルダ（未発売・対応不要）');
+    out.push('');
+    const grouped = {};
+    for (const f of info) (grouped[f.file] ??= []).push(f);
+    for (const [file, items] of Object.entries(grouped)) {
+      out.push(`### ${file}`);
+      out.push('');
+      for (const f of items) out.push(`- L${f.line} — ${f.href}`);
+      out.push('');
+    }
+  }
+
+  return out.join('\n') + '\n';
+}
+
+if (reportDir) {
+  fs.mkdirSync(reportDir, { recursive: true });
+  const ts = result.meta.generated_at.replace(/[:.]/g, '-');
+  fs.writeFileSync(
+    path.join(reportDir, `audit-${ts}.json`),
+    JSON.stringify(result, null, 2),
+  );
+  fs.writeFileSync(path.join(reportDir, 'latest-report.md'), buildMarkdownReport(result));
+  console.log(`レポート出力: ${reportDir}`);
+}
+
+if (jsonOut) {
+  console.log(JSON.stringify(result, null, 2));
 } else {
-  console.log(`❌ リンク切れ: ${brokenCount} 件\n`);
+  console.log(`\n🔍 内部リンクチェック（scope=${scope}）`);
+  console.log(`   走査ファイル: ${targets.length}`);
+  console.log(`   チェックしたリンク: ${linksChecked}`);
+  console.log(`   有効スラッグ: ${validSlugs.size}\n`);
 
-  // ファイルごとにグループ化
-  const grouped = {};
-  for (const b of brokenLinks) {
-    if (!grouped[b.file]) grouped[b.file] = [];
-    grouped[b.file].push(b);
-  }
-
-  for (const [file, links] of Object.entries(grouped)) {
-    console.log(`  📄 ${file}`);
-    for (const link of links) {
-      console.log(`     L${link.line}: [${link.text}](${link.href})`);
+  if (highCount === 0) {
+    console.log('✅ リンク切れはありません。');
+  } else {
+    console.log(`❌ リンク切れ: ${highCount} 件\n`);
+    const grouped = {};
+    for (const f of findings.filter((x) => x.severity === 'HIGH')) {
+      (grouped[f.file] ??= []).push(f);
     }
-    console.log('');
+    for (const [file, items] of Object.entries(grouped)) {
+      console.log(`  📄 ${file}`);
+      for (const f of items) {
+        const detail =
+          f.status === 'BROKEN_ANCHOR' ? `${f.status} (#${f.anchor})` : f.status;
+        console.log(`     L${f.line}: [${detail}] ${f.href}`);
+      }
+      console.log('');
+    }
   }
+
+  if (infoCount > 0) {
+    console.log(`ℹ️  プレースホルダ（未発売・対応不要）: ${infoCount} 件`);
+  }
+  console.log('');
 }
 
-process.exit(brokenCount > 0 ? 1 : 0);
+process.exit(highCount > 0 ? 1 : 0);

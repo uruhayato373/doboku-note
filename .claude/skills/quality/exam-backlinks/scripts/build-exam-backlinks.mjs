@@ -14,6 +14,7 @@
  */
 import fs from 'fs';
 import path from 'path';
+import { generateHeadingId } from '#lib/heading-id.mjs';
 
 const ROOT = process.cwd();
 
@@ -23,28 +24,7 @@ const OUT_BACKLINKS = path.join(ROOT, 'src/config/past-exam-backlinks.json');
 const OUT_QUESTION_KEYWORDS = path.join(ROOT, 'src/config/exam-question-keywords.json');
 const EXAM_KEYWORD_MAP = path.join(ROOT, '.claude/state/exam-keyword-map.json');
 
-/**
- * ヘディング ID 生成（過去問 anchor 用に正規化を強化）。
- *
- * src/lib/toc.ts の generateHeadingId() を拡張し、過去問の章番号
- * （Ⅰ-1-1 / Ⅱ-1-1 / I-1-1 / II-1-1 / Ⅰ－1－1 ...）を `1-1` 形式に統一する。
- *
- * - NFKC 正規化: 全角ハイフン `－`(U+FF0D) → `-`、Unicode ローマ数字 Ⅰ→I、全角数字→半角
- * - 先頭の ASCII ローマ数字（`i-`, `ii-`, ... のように `-` 区切り）を除去
- *   → 過去問の章番号「Ⅰ」「Ⅱ」を anchor から取り除く（例: `i-1-1` → `1-1`）
- */
-function generateHeadingId(text) {
-  return text
-    .normalize('NFKC')
-    .trim()
-    .toLowerCase()
-    .replace(/^[ivx]+(?=-)/, '')
-    .replace(/[^\w\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF\s-]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '')
-    || 'heading';
-}
+// 過去問アンカーの heading ID 生成は #lib/heading-id.mjs に集約（examMode: true で章番号 Ⅰ-1-1 → 1-1 正規化）。
 
 /** slug から年度ラベルを生成 */
 function extractYearLabel(slug) {
@@ -141,7 +121,7 @@ function extractQuestionHeadings(content) {
     // 設問の見出しだけ対象（Ⅰ-1-1 / I-1-1 / Ⅱ-1-1 / II-1-1 / 問題 No.X / 第N問 など）
     if (!/^(Ⅰ|Ⅱ|Ⅲ|I{1,3}|問題|第)/.test(heading)) continue;
 
-    const anchor = generateHeadingId(heading);
+    const anchor = generateHeadingId(heading, { examMode: true });
     result[anchor] = heading;
   }
 

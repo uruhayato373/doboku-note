@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
 
 jobs:
   audit:
@@ -66,15 +65,31 @@ jobs:
           git commit -m "chore(metrics): psi daily audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
 
-      - name: Open issue on threshold violations
+      # GitHub Issue は廃止。しきい値違反は task-queue.json に append する
+      # （information-architecture.md の 4 ゾーンモデル）。
+      - name: Append to task-queue on threshold violations
         if: steps.check.outputs.exit_code == '1'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
+
           DATE=$(date -u +%Y-%m-%d)
-          TITLE="[PSI] しきい値割れ検知 ${DATE}"
-          BODY_FILE=/tmp/psi-report/report.md
-          gh issue create \
-            --title "$TITLE" \
-            --label "performance,auto-generated" \
-            --body-file "$BODY_FILE"
+          node .claude/scripts/lib/task-queue.mjs add \
+            --title "PSI しきい値割れ検知 ${DATE}" \
+            --category infra --priority high --source ci:psi-audit \
+            --dedupe-key ci:psi-audit:threshold \
+            --notes "psi daily audit でしきい値違反を検出。詳細は .claude/state/metrics/psi/latest-report.md"
+          npm run build-todo
+
+          git add .claude/state/task-queue.json docs/project/TODO.md
+          if git diff --cached --quiet; then
+            echo "No task-queue changes to publish"
+            exit 0
+          fi
+
+          git commit -m "chore(metrics): psi threshold violation -> task-queue $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop

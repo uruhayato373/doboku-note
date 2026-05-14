@@ -1,8 +1,8 @@
 name: Uptime ping
 
-# Issue #130-C: サイト健全性監視。
+# サイト健全性監視（旧 Issue #130-C）。
 # BAILOUT_TO_CLIENT_SIDE_RENDERING（2026-W16 事件）のような「200 だが body 空」
-# パターンも検出する。失敗時は Issue を自動起票（同一 Issue に続報コメント）。
+# パターンも検出する。失敗時は task-queue.json に append する（GitHub Issue は廃止）。
 
 on:
   schedule:
@@ -11,13 +11,22 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  issues: write
+  contents: write
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout develop
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
       - name: Check site health
         id: check
         continue-on-error: true
@@ -104,7 +113,7 @@ jobs:
               echo ""
               echo "### 参考"
               echo "- 2026-W16 事件（BAILOUT_TO_CLIENT_SIDE_RENDERING / 6 日データ欠損）の再発防止"
-              echo "- 関連 Umbrella: #130"
+              echo "- 関連: .claude/reference/measurement-incidents.md（2026-W16 BAILOUT）"
               echo "- workflow: \`.github/workflows/uptime-ping.yml\`"
             } > /tmp/failure-report.md
 
@@ -115,31 +124,28 @@ jobs:
 
           echo "failed=false" >> $GITHUB_OUTPUT
 
-      - name: Open or update uptime Issue
+      # GitHub Issue は廃止。失敗検出は task-queue.json に append する
+      # （dedupe_key で重複起票防止 = 旧 find-or-create ロジックの置換）。
+      - name: Append to task-queue on uptime failure
         if: steps.check.outputs.failed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 既存の open な uptime Issue があれば続報コメント、なければ新規作成
-          EXISTING=$(gh issue list \
-            --repo ${{ github.repository }} \
-            --label "uptime,auto-generated" \
-            --state open \
-            --json number \
-            --jq '.[0].number // empty')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git pull --rebase origin develop
 
           DATE=$(date -u +%Y-%m-%d)
+          node .claude/scripts/lib/task-queue.mjs add \
+            --title "サイト健全性チェック失敗 ${DATE}" \
+            --category infra --priority high --source ci:uptime-ping \
+            --dedupe-key ci:uptime-ping:failure \
+            --notes "uptime-ping で SSR 壊れ / body 空 / HTTP エラーを検出。詳細は GitHub Actions ログ。2026-W16 BAILOUT 事件の再発監視。"
+          npm run build-todo
 
-          if [ -n "$EXISTING" ]; then
-            echo "既存 Issue #$EXISTING に続報コメントを追加"
-            gh issue comment "$EXISTING" \
-              --repo ${{ github.repository }} \
-              --body-file /tmp/failure-report.md
-          else
-            echo "新規 Issue を起票"
-            gh issue create \
-              --repo ${{ github.repository }} \
-              --title "[Uptime] サイト健全性チェック失敗 ${DATE}" \
-              --label "critical,uptime,auto-generated" \
-              --body-file /tmp/failure-report.md
+          git add .claude/state/task-queue.json docs/project/TODO.md
+          if git diff --cached --quiet; then
+            echo "No task-queue changes to publish"
+            exit 0
           fi
+          git commit -m "chore(ci): uptime failure -> task-queue $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop

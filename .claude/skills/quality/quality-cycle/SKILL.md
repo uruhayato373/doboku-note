@@ -215,6 +215,7 @@ unscored → scored → rewriting → needs-review → verified → approved
 | `civil-textbook-rewriter` エージェント | civil-textbook プロファイルの Generator |
 | `/improve-article` | 単一記事版の品質改善（本スキルはバルク版） |
 | `/exam-keyword-cycle` | 過去問起点の横断校正（本スキルと補完） |
+| `/pe-essay-cycle` | 総監記述式（模範論文・note 有料記事）版のオーケストレーター（本スキルと補完、対象が記述式） |
 
 ## ハーネス設計上の位置づけ
 

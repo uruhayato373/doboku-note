@@ -392,11 +392,11 @@ file docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/a
 # 3. 図版ファイル存在チェック
 ls docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/img/figure-*.png
 
-# 4. リンク 404 防止
-grep -oE '/docs/pe-comprehensive-management-[a-z0-9-]+' docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md | sort -u | while read url; do
-  slug=${url#/docs/pe-comprehensive-management-}
-  test -f ".local/r2/posts/pe-comprehensive-management/$slug/article.mdx" || echo "404: $slug"
-done
+# 4. リンク 404 防止（内部 slug + アンカー断片を決定的に検証）
+npm run check-links -- --scope note
+# → docs/note/** 全体を走査。BROKEN_SLUG / BROKEN_ANCHOR が 0 であること。
+#   PLACEHOLDER（未発売マガジン）は INFO 表示でブロック対象外。
+#   絶対 URL（https://doboku-note.com/docs/...）・裸 URL のリンクカードも対象。
 
 # 5. e-gov リンク確認
 grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md | sort -u

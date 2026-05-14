@@ -17,7 +17,6 @@ on:
 permissions:
   contents: write
   pull-requests: write
-  issues: write
 
 jobs:
   cycle:
@@ -48,7 +47,7 @@ jobs:
       # TODO (remote trigger): 次のステップで実際に /exam-keyword-cycle --auto を起動する
       # - Claude Code remote trigger 仕様が確定したらここに uses: anthropics/claude-code-action@... を追加
       # - Auth token は secrets.CLAUDE_CODE_TOKEN に保管する想定
-      # - 失敗時（MDX パース失敗・PR 作成失敗等）は下の Open issue ステップで起票する
+      # - 失敗時（MDX パース失敗・PR 作成失敗等）は下の task-queue append ステップで記録する
 
       - name: Placeholder - notify selection only
         if: github.event_name == 'schedule'
@@ -56,15 +55,29 @@ jobs:
           echo "::notice::exam-keyword-cycle: selected next question"
           cat /tmp/next-question.json
 
-      - name: Open issue on critical failure
+      # GitHub Issue は廃止。クリティカル失敗は task-queue.json に append する。
+      - name: Append to task-queue on critical failure
         if: failure()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
+
           DATE=$(date -u +%Y-%m-%d)
-          TITLE="[exam-keyword-cycle] 自動サイクル失敗 ${DATE}"
-          BODY="ワークフロー: ${{ github.workflow }}%0ARun: ${{ github.run_id }}%0Aコミット: ${{ github.sha }}"
-          gh issue create \
-            --title "$TITLE" \
-            --label "content-quality,auto-generated" \
-            --body "$BODY"
+          node .claude/scripts/lib/task-queue.mjs add \
+            --title "exam-keyword-cycle 自動サイクル失敗 ${DATE}" \
+            --category quality --priority high --source ci:exam-keyword-cycle \
+            --dedupe-key ci:exam-keyword-cycle:failure \
+            --notes "ワークフロー ${{ github.workflow }} / Run ${{ github.run_id }} / コミット ${{ github.sha }}。GitHub Actions ログを確認。"
+          npm run build-todo
+
+          git add .claude/state/task-queue.json docs/project/TODO.md
+          if git diff --cached --quiet; then
+            echo "No task-queue changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(ci): exam-keyword-cycle failure -> task-queue $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop

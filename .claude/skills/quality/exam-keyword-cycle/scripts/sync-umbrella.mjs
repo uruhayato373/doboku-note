@@ -1,27 +1,26 @@
 #!/usr/bin/env node
 /**
- * Umbrella Issue の body を progress.json から再生成し、gh issue edit --body-file で反映する。
+ * 年度 / 親の進捗サマリ draft markdown を progress.json から再生成する。
+ *
+ * GitHub Issue は廃止（.claude/reference/information-architecture.md）。
+ * 旧版は GitHub の Umbrella Issue を gh CLI で更新していたが、現在は
+ * .claude/state/exam-keyword-cycles/umbrella-drafts/ の draft markdown を
+ * 再生成するだけ。進捗の真実源は progress.json（Zone C）、人間用ビューは
+ * docs/project/TODO.md。
  *
  * 使用例:
- *   # 指定年度の Umbrella を同期
+ *   # 指定年度の進捗 draft を再生成
  *   node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam pe-comprehensive-management-r07-primary
  *
- *   # 親 Umbrella を同期
+ *   # 親（全体）の進捗 draft を再生成
  *   node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
  *
- *   # 全 Umbrella を一括同期
+ *   # 全年度 + 親をまとめて再生成
  *   node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
- *
- * 動作:
- *   1. progress.json.umbrella_issues から Issue 番号を取得
- *   2. umbrella-builder.mjs で body を再生成（generate-umbrella.mjs と共通ロジック）
- *   3. gh issue edit <N> --body-file <draft> で更新
- *   4. 差分なしなら API を叩かない（簡易チェック）
  */
 
 import { writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { execSync } from 'node:child_process';
 import {
   DRAFT_DIR,
   TARGET_YEARS,
@@ -42,12 +41,6 @@ function saveDraft(key, title, body) {
 }
 
 function syncOne(key, progress, catalog) {
-  const issueNum = progress.umbrella_issues?.[key];
-  if (!issueNum) {
-    console.warn(`[sync-umbrella] ${key}: Issue 番号が progress.json.umbrella_issues に未登録。スキップ。`);
-    return { skipped: true };
-  }
-
   let result;
   if (key === 'parent') {
     result = buildParentUmbrellaBody(progress, catalog);
@@ -58,38 +51,9 @@ function syncOne(key, progress, catalog) {
     }
     result = buildYearUmbrellaBody(key, progress, catalog);
   }
-
   const draftPath = saveDraft(key, result.title, result.body);
-
-  // 差分チェック: 現在の Issue body を取得して比較
-  let currentBody = '';
-  try {
-    currentBody = execSync(
-      `gh issue view ${issueNum} --json body --jq .body`,
-      { encoding: 'utf-8' }
-    );
-  } catch (e) {
-    console.warn(`[sync-umbrella] ${key}: gh issue view 失敗（${e.message}）。edit は試行する。`);
-  }
-  // gh は body を改行なしで返すことがあるため、単純な文字列比較
-  const newBodyNormalized = result.body.replace(/\r\n/g, '\n').trimEnd();
-  const curBodyNormalized = currentBody.replace(/\r\n/g, '\n').trimEnd();
-  if (curBodyNormalized && newBodyNormalized === curBodyNormalized) {
-    console.log(`[sync-umbrella] ${key} (#${issueNum}): 差分なし、スキップ`);
-    return { skipped: true };
-  }
-
-  try {
-    execSync(
-      `gh issue edit ${issueNum} --body-file ${JSON.stringify(draftPath)}`,
-      { encoding: 'utf-8', stdio: 'pipe' }
-    );
-    console.log(`[sync-umbrella] ${key} (#${issueNum}): ✓ 更新完了`);
-    return { updated: true };
-  } catch (e) {
-    console.error(`[sync-umbrella] ${key} (#${issueNum}): gh issue edit 失敗: ${e.message}`);
-    return { error: e.message };
-  }
+  console.log(`[sync-umbrella] ${key}: draft 再生成 ${draftPath}`);
+  return { updated: true };
 }
 
 function parseArgs(argv) {
@@ -113,7 +77,6 @@ function main() {
   const { catalog, progress } = loadCatalogAndProgress();
 
   if (args.all) {
-    // 年度 Umbrella → 親 の順（親は年度番号に依存）
     for (const exam of TARGET_YEARS) {
       syncOne(exam, progress, catalog);
     }
