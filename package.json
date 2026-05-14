@@ -33,6 +33,8 @@
     "psi-audit:check": "node .claude/scripts/psi-threshold-check.mjs",
     "check-seo-meta": "node .claude/skills/quality/check-seo-meta/scripts/check-seo-meta.mjs",
     "check-seo-meta:check": "node .claude/skills/quality/check-seo-meta/scripts/seo-meta-threshold-check.mjs",
+    "check-links": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs",
+    "check-links-audit": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope all --report .claude/state/link-audit/",
     "inspect-url": "node .claude/scripts/inspect-url.mjs",
     "validate-mdx": "node .claude/scripts/validate-mdx.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs",
