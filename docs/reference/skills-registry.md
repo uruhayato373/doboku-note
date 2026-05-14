@@ -1,20 +1,19 @@
-# スキル一覧レジストリ
+# スキル ガバナンス記録
 
-`.claude/skills/` 配下に定義されたスキル全量のインデックス。
+`.claude/skills/` の設計変更・退役ログ・カテゴリ変更履歴の唯一の真実源。
 
-**いつ読むか**: 利用可能なスキルを探すとき、新スキル作成時に重複がないか確認するとき、Phase 別の運用スコープを確認するとき。
-
-個別スキルの詳細仕様・引数・手順は各 `SKILL.md` 本体を参照。このファイルは「どんなスキルがあるか」を俯瞰するためのインデックス。
+**スキルの一覧・用途・トリガー** は `docs/reference/skills-guide.md` を参照。
+**スキル設計原則・作成手順** は `docs/reference/skills-design-guide.md` を参照。
 
 ---
 
-## 最終カテゴリ構造（Phase D 完了時）
+## カテゴリ構造（Phase D 完了時）
 
 ```
 .claude/skills/
 ├── authoring/       # 8 — 記事を作る
 ├── conversion/      # 3 — 外部形式から MDX への変換
-├── quality/         # 10 — MDX・note 公開前品質検査
+├── quality/         # 12 — MDX・note 公開前品質検査
 ├── management/      # 11 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
@@ -22,121 +21,7 @@
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **52 スキル**（Phase A 開始時の 66 から −21%）。
-
----
-
-## management — 計画・分析・戦略
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/weekly-plan` | 週次計画を生成 | `.claude/skills/management/weekly-plan/SKILL.md` |
-| `/weekly-review` | 週次レビューを生成 | `.claude/skills/management/weekly-review/SKILL.md` |
-| `/weekly-improve` | 週次 計測→改善候補抽出→実験登録の軽量オーケストレータ | `.claude/skills/management/weekly-improve/SKILL.md` |
-| `/north-star-metric` | NSM と Input Metrics を定義 | `.claude/skills/management/north-star-metric/SKILL.md` |
-| `/growth-loops` | 成長ループの設計・評価 | `.claude/skills/management/growth-loops/SKILL.md` |
-| `/monetization-strategy` | 収益化戦略のブレインストーム | `.claude/skills/management/monetization-strategy/SKILL.md` |
-| `/critical-review` | 批判的レビュー | `.claude/skills/management/critical-review/SKILL.md` |
-| `/knowledge` | 過去の失敗と学びを参照・追記 | `.claude/skills/management/knowledge/SKILL.md` |
-| `/pre-mortem` | Pre-Mortem の実施 | `.claude/skills/management/pre-mortem/SKILL.md` |
-| `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `.claude/skills/management/nsm-experiment/SKILL.md` |
-| `/distill-proofread-learnings` | 校正作業から新規ルール・ユーザー嗜好を抽出するメタスキル | `.claude/skills/management/distill-proofread-learnings/SKILL.md` |
-
-## analytics — サイト分析
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/fetch-gsc-data` | Google Search Console データ取得 | `.claude/skills/analytics/fetch-gsc-data/SKILL.md` |
-| `/psi-audit` | PSI で代表ページを日次計測、CWV のしきい値違反を surface | `.claude/skills/analytics/psi-audit/SKILL.md` |
-
-## dev — 開発
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/review` | 対象ファイル種別を自動判定し、適切なレビュースキルを実行 | `.claude/skills/dev/review/SKILL.md` |
-| `/dev-start` | ポート 3020 をクリーンアップして開発サーバー起動 | `.claude/skills/dev/dev-start/SKILL.md` |
-| `/deploy` | Cloudflare Pages へデプロイ | `.claude/skills/dev/deploy/SKILL.md` |
-| `/create-skill` | スキル作成ガイド | `.claude/skills/dev/create-skill/SKILL.md` |
-| `/sync-r2-images` | R2 画像のローカル同期 | `.claude/skills/dev/sync-r2-images/SKILL.md` |
-| `/diff-r2` | ローカル ↔ R2 の双方向差分検出 | `.claude/skills/dev/diff-r2/SKILL.md` |
-| `/code-review` | Next.js コード品質レビュー | `.claude/skills/dev/code-review/SKILL.md` |
-| `/simplify` | 変更 diff を点検し、最小差分で修正→lint→PR までチェーン | `.claude/skills/dev/simplify/SKILL.md` |
-| `/pr-create` | 現ブランチから GitHub PR を作成 | `.claude/skills/dev/pr-create/SKILL.md` |
-| `/monitor` | バックグラウンド監視 | `.claude/skills/dev/monitor/SKILL.md` |
-| `/zenn-audit` | Zenn 本番 CSS との差分検出 | `.claude/skills/dev/zenn-audit/SKILL.md` |
-
-## authoring — 記事を作る
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/exam-guide --exam {exam-id}` | 試験対策ガイド生成（テンプレート駆動） | `.claude/skills/authoring/exam-guide/SKILL.md` |
-| `/keyword-page` | 総合技術監理キーワードページの作成・校正 | `.claude/skills/authoring/keyword-page/SKILL.md` |
-| `/create-svg` | MDX 記事用 SVG 図版の作成 | `.claude/skills/authoring/create-svg/SKILL.md` |
-| `/illustrate-concept` | Web 画像検索→SVG 一括生成→MDX 挿入 | `.claude/skills/authoring/illustrate-concept/SKILL.md` |
-| `/improve-article` | 単一記事の対話的改善（`--mode verify` で PDF 照合 QA） | `.claude/skills/authoring/improve-article/SKILL.md` |
-| `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `.claude/skills/authoring/promote-to-site/SKILL.md` |
-| `/notebooklm-research --slug {slug}` | NotebookLM MCP で総監キーワードを深掘り調査してリライト（引用付き根拠強化） | `.claude/skills/authoring/notebooklm-research/SKILL.md` |
-| `/visual-research <slug> [--ref <URL>]` | NotebookLM（概念構造）× 参照URL（視覚パターン）→ SVG 概念図を生成して MDX 挿入 | `.claude/skills/authoring/visual-research/SKILL.md` |
-
-**テンプレート**: `.claude/skills/authoring/templates/exam-guide/`
-
-## conversion — 外部形式から MDX への変換
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/pdf-to-mdx --exam {general\|cem\|civil-construction-1}` | PDF/画像 → MDX 変換（テンプレート駆動、PDF 残骸除去内蔵） | `.claude/skills/conversion/pdf-to-mdx/SKILL.md` |
-| `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary}` | 過去問集 PDF→MDX（`--mode add-answers` で未解答追加） | `.claude/skills/conversion/exam-questions-import/SKILL.md` |
-| `/ogp-create` | カテゴリ別テンプレートで OGP 画像を生成 | `.claude/skills/conversion/ogp-create/SKILL.md` |
-
-## quality — MDX 品質検査・改善サイクル
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/check-mdx --rules <rule>` | MDX 品質検査の統合 Evaluator（8 ルール） | `.claude/skills/quality/check-mdx/SKILL.md` |
-| `/quality-cycle --profile {cem\|civil-textbook}` | 品質サイクル（スコア→リライト→検証→人間レビュー）統合 | `.claude/skills/quality/quality-cycle/SKILL.md` |
-| `/exam-keyword-cycle` | 過去問起点の関連キーワード横断校正 Orchestrator | `.claude/skills/quality/exam-keyword-cycle/SKILL.md` |
-| `/exam-backlinks` | 過去問⇔キーワード紐付けの確認・再生成 | `.claude/skills/quality/exam-backlinks/SKILL.md` |
-| `/audit-exam-mapping` | 過去問⇔キーワード紐づけマップの semantic 精度監査（PE 専用、`exam-keyword-mapping-auditor` を分配） | `.claude/skills/quality/audit-exam-mapping/SKILL.md` |
-| `/build-exam-notebook` | 過去問 MDX を NotebookLM 専用 notebook に投入（MDX → MD 変換 + source upload + 検証） | `.claude/skills/quality/build-exam-notebook/SKILL.md` |
-| `/verify-exam-coverage` | キーワードページが過去問論点を十分カバーしているか検証 | `.claude/skills/quality/verify-exam-coverage/SKILL.md` |
-| `/review-mobile` | モバイル視認性・可読性レビュー | `.claude/skills/quality/review-mobile/SKILL.md` |
-| `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `.claude/skills/quality/consolidate-duplicate-keyword/SKILL.md` |
-| `/note-prepublish-review` | note 公開前の統合品質ゲート（inline checks + 3 並列 agent: link-injector / figure-auditor / fact-checker） | `.claude/skills/quality/note-prepublish-review/SKILL.md` |
-| `/check-seo-meta` | サイト全 URL の title/description/OGP/canonical/JSON-LD の重複・欠落・長さ違反を検出 | `.claude/skills/quality/check-seo-meta/SKILL.md` |
-| `/pe-essay-review {target}` | 総監記述式模範論文を採点者・実務OB・予備校講師の3視点（各 4 項目、1〜10 点）で評価 | `.claude/skills/quality/pe-essay-review/SKILL.md` |
-
-## social — SNS 投稿
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/social-post --platform {note\|x}` | note / X 投稿テキスト生成の統合スキル | `.claude/skills/social/social-post/SKILL.md` |
-| `/note-hashtags {NN-...}` | note 公開用ドラフトのハッシュタグ 99 個を生成し `hashtags.txt` に保存 | `.claude/skills/social/note-hashtags/SKILL.md` |
-| `/ig-post-create --slug {kw}` | Instagram Study Notebook スライド PNG 生成（テンプレート実装済み・量産スクリプトは Issue #168 待ち） | `.claude/skills/social/ig-post-create/SKILL.md` |
-| `/create-x-card` | tweets.md から X 投稿用サマリカード PNG（1200×675）を管理分野別に色分けして生成 | `.claude/skills/social/create-x-card/SKILL.md` |
-| `/publish-x <draft> [<YYYY-MM-DDTHH:MM>...]` | Playwright で X 投稿を自動化（即時 or 予約、初回は必ず --dry-run） | `.claude/skills/social/publish-x/SKILL.md` |
-| `/yt-shorts-create --slug {slug} --date {YYYY-MM-DD}` | 総監キーワード MDX → YouTube Shorts mp4 を自動生成（Satori + VOICEVOX + ffmpeg） | `.claude/skills/social/yt-shorts-create/SKILL.md` |
-
-## ui — UI/UX
-
-| スキル | 用途 | 定義 |
-|---|---|---|
-| `/design-review` | デザインシステム準拠レビュー（7 カテゴリ）＋ `--visual` で Playwright 視覚検証 | `.claude/skills/ui/design-review/SKILL.md` |
-
-## strategy — 競合調査・市場分析（Phase 2 で復活）
-
-⏸️ **現在のスコープ**: Phase 1 では不要。Phase 2 で復活:
-
-- `/keyword-gap` — GSC + 競合比較でコンテンツギャップを特定
-- `/exam-demand` — 資格試験の検索需要調査
-- `/discover-exam-season` — 試験日程に基づく季節性コンテンツ戦略
-- `/plan-affiliate` — 書籍・教材・通信講座のアフィリエイト記事企画
-
-## ads — 広告・アフィリエイト（Phase 2 で復活）
-
-⏸️ **現在のスコープ**: Phase 1 では不要。Phase 2 で復活:
-
-- `/register-affiliate-banner`
-- `/audit-ads`
+合計 **54 スキル**（Phase 2 待機を除く）。
 
 ---
 

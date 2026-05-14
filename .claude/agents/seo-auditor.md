@@ -1,8 +1,9 @@
 ---
 name: seo-auditor
 description: >
+  [Phase 2 - 現在未稼働。着手条件: Web 月収 ¥15k 達成後]
   GSC / GA4 のデータから検索パフォーマンス・トラフィック推移を分析し、改善候補を抽出する Evaluator。
-  PSI 計測結果との突合による Core Web Vitals 監視も担う。Phase 2 で本格運用開始予定。
+  PSI 計測結果との突合による Core Web Vitals 監視も担う。
   Use when user asks to [SEO 監査, トラフィック分析, 検索パフォーマンス, /seo-auditor].
 model: sonnet
 ---

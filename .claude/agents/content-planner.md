@@ -1,6 +1,7 @@
 ---
 name: content-planner
 description: >
+  [Phase 2 - 現在未稼働。着手条件: Web 月収 ¥15k 達成後]
   競合調査・ギャップ分析・トレンド発見の結果を統合し、コンテンツ戦略を設計する Generator。
   `/keyword-gap` / `/exam-demand` / `/discover-exam-season` の入力を統合して最適な記事企画を立案する。
   Use when user asks to [コンテンツ企画, 記事戦略, キーワード戦略, /content-planner].

@@ -199,7 +199,8 @@ description: >
 
 ### 作成後
 
-- [ ] `docs/reference/skills-registry.md` の該当カテゴリに追記
+- [ ] `docs/reference/skills-guide.md` の該当カテゴリに追記（一覧・トリガー）
+- [ ] `docs/reference/skills-registry.md` のカテゴリ構造のスキル数を更新
 - [ ] 関連スキルの `参照` セクションを更新
 - [ ] 実際に 1〜2 件の use case で試してみた
 - [ ] 必要なら Claude に「このスキルをいつ使う？」と尋ねて description が正しく解釈されるか確認
@@ -208,15 +209,14 @@ description: >
 
 ## 7. Skills Registry への登録ルール
 
-`docs/reference/skills-registry.md` に以下を記載:
+**2 ファイルへの更新が必要**:
 
-- **カテゴリ**（content / dev / management / analytics / etc.）
-- **スキル名** と slash command 形式
-- **用途** の 1 行説明
-- **主な利用シーン**
-- **Phase**（Phase 1 = 現在運用、Phase 2 = 計画中、退役 = 削除済み）
+| ファイル | 何を追記するか |
+|---|---|
+| `docs/reference/skills-guide.md` | 該当カテゴリのテーブルに行を追加（スキル / 一言説明 / 呼ぶとき） |
+| `docs/reference/skills-registry.md` | カテゴリ構造のスキル数を更新 |
 
-Phase 2 の未実装スキルは専用セクションに分離し、アクティブな一覧と混在させない。
+Phase 2 の未実装スキルは `skills-guide.md` の「Phase 2 待機スキル」セクションに分離し、アクティブな一覧と混在させない。退役スキルは `skills-registry.md` の「退役記録」に追記する。
 
 ---
 
@@ -232,13 +232,26 @@ Phase 2 の未実装スキルは専用セクションに分離し、アクティ
 ## 9. 参考リンク
 
 - **原典 PDF**: `.claude/pdfs/guide.pdf`（The Complete Guide to Building Skills for Claude）
-- **Registry**: `docs/reference/skills-registry.md`
+- **スキル早引き**: `docs/reference/skills-guide.md`
+- **ガバナンス記録**: `docs/reference/skills-registry.md`
 - **Agents Registry**: `docs/reference/agents-registry.md`
 - **プロジェクト設計原則**: `CLAUDE.md` の「ハーネス設計原則」セクション
 
 ---
 
-## 10. このプロジェクト固有のルール
+## 10. `user-invocable` の付与基準
+
+frontmatter に `user-invocable: true` を付けるのは、以下のいずれかに該当する場合のみ:
+
+- **副作用が大きい**: push、投稿、メール送信など、外部への書き込みが発生する
+- **外部 API 費用が発生する**: GA4、GSC、NotebookLM など
+- **対話的な入力が必須**: 採点→レポート→次アクション決定など、ユーザー判断を都度挟む
+
+該当しないスキル（lint / review / generate など副作用なし・ローカルのみ）に `user-invocable: true` を付けない。これによりスキル一覧の「ユーザー起動フラグ」が信頼できる状態に保たれる。
+
+---
+
+## 11. このプロジェクト固有のルール
 
 `CLAUDE.md` の「ハーネス設計原則」も必ず参照:
 

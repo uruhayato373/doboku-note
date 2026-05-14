@@ -8,6 +8,31 @@
 
 ---
 
+## スキル → エージェント呼出マップ
+
+どのスキルがどのエージェントを起動するかの早引き。
+
+| 呼出元スキル | 起動エージェント | 役割 |
+|---|---|---|
+| `/pdf-to-mdx` | `content-qa` | 変換後品質評価（5軸ルーブリック） |
+| `/quality-cycle --profile cem` | `cem-qa`, `keyword-rewriter` | 評価 → リライト → 再評価ループ |
+| `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter` | 評価 → リライト → 再評価ループ |
+| `/exam-keyword-cycle` | `cem-qa`, `exam-keyword-mapping-auditor` | ギャップ分析（Phase 2） |
+| `/audit-exam-mapping` | `exam-keyword-mapping-auditor` | 紐づけ精度の semantic 評価 |
+| `/note-prepublish-review` | `note-link-injector`, `note-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列 |
+| `/weekly-improve` | `metrics-analyzer` | 計測データから改善機会抽出 |
+| `/psi-audit` | `performance-auditor` | CWV 違反・回帰検出 |
+| `/weekly-review`, `/weekly-plan` | `strategy-advisor`（オーケストレータ） | 戦略的な PDCA 統括 |
+
+⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
+
+| 呼出元スキル | 起動エージェント |
+|---|---|
+| `/keyword-gap`, `/exam-demand`, `/discover-exam-season` | `content-planner` |
+| `/fetch-gsc-data` + 分析 | `seo-auditor` |
+
+---
+
 ## エージェント一覧
 
 | エージェント | 役割 | 種別 | model | 担当スキル | Phase 1 対応 |

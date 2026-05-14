@@ -1,7 +1,8 @@
 ---
 name: knowledge
 description: >
-  過去の失敗と学びのナレッジベースを参照・追記する。Use when user asks to [ナレッジ, 失敗から学ぶ, /knowledge].
+  過去の失敗・設計判断・バグ解決の教訓をナレッジベースに参照・追記する。
+  Use when user asks to [ナレッジ参照, 失敗から学ぶ, 教訓を記録, 過去の判断を調べる, /knowledge, ナレッジを追加].
 ---
 
 過去の失敗と学びを参照・追記する。

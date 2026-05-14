@@ -68,8 +68,9 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/note-publish-enhancement.md](docs/reference/note-publish-enhancement.md) | note 記事を公開レベルに引き上げる10工程手順書（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） | note 記事を新規公開・大規模改善するとき |
 | [docs/reference/sns-image-policy.md](docs/reference/sns-image-policy.md) | SNS 投稿画像ポリシー（IG/X/Shorts のキャンバス・スワイプ方向・記号統一・wrap 算法・長文選択肢自動切替） | `docs/sns/{instagram,x,youtube}/` 配下の画像を作成・修正するとき |
 | [docs/reference/exam-content-policy.md](docs/reference/exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
-| [docs/reference/skills-registry.md](docs/reference/skills-registry.md) | 全スキル一覧（management / dev / content / ui / marketing / analytics / strategy / ads）＋Phase 別運用メモ | 利用可能なスキル探索・新スキル重複チェック |
-| [docs/reference/agents-registry.md](docs/reference/agents-registry.md) | エージェント詳細表＋チーム連携パターン＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認 |
+| [docs/reference/skills-guide.md](docs/reference/skills-guide.md) | アクティブスキル カテゴリ別早引き＋用途別ガイド（今やること別スキル推奨組み合わせ） | 使えるスキルを素早く探すとき |
+| [docs/reference/skills-registry.md](docs/reference/skills-registry.md) | スキルのガバナンス記録（退役ログ・カテゴリ変更履歴・テンプレート駆動設計） | 退役スキル確認・設計変更履歴・新スキル重複チェック |
+| [docs/reference/agents-registry.md](docs/reference/agents-registry.md) | エージェント詳細表＋スキル→エージェント呼出マップ＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認・連携設計時 |
 | [docs/reference/skills-design-guide.md](docs/reference/skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [docs/reference/workflows.md](docs/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・ブランチ詳細・Phase 別ロードマップ | 週次 PDCA・変換作業・ブランチ運用詳細確認時 |
 | [docs/reference/information-architecture.md](docs/reference/information-architecture.md) | 情報の 4 ゾーンモデル（docs / reference / state / skills）・判断フロー・task-queue 仕様。GitHub Issue 廃止の真実源 | 新しい情報の置き場に迷うとき・CI/スキル/ドキュメント設計時 |
@@ -103,7 +104,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 - **UI コンポーネント**: デザイントークン使用（`rounded-card-*` / `shadow-card-*`）。`dark:border-*` を必ず書く。インライン `borderColor` 禁止。色は `brand` / `ink-strong` / `ink-body` / `ink-muted` / `positive` / `warn` / `danger` を使う（真実源: `src/styles/globals.css` の `--color-*`）
 - 長時間作業の区切りに `/compact` を提案。セッション引き継ぎは `docs/handoffs/YYYY-MM-DD-{context}.md`
 - **情報の置き場（4 ゾーンモデル）**: A=`docs/`（戦略・設計・進捗・週次 PDCA・引き継ぎ）/ B=`docs/reference/`（運用手順・ポリシー）/ C=`.claude/state/`・`.claude/config/`（機械データ・`task-queue.json`、`.claude/state/*.md` 新規作成禁止）/ D=`.claude/skills/`・`.claude/agents/`（実行能力）。**GitHub Issue は使わない**（廃止、タスクは `task-queue.json` に集約）。真実源・判断フローは [information-architecture.md](docs/reference/information-architecture.md)
-- **スキル/エージェント更新ルール**: `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で `docs/reference/skills-registry.md` または `docs/reference/agents-registry.md` を必ず更新する
+- **スキル/エージェント更新ルール**: `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で `docs/reference/skills-guide.md`（一覧）と `docs/reference/skills-registry.md`（退役ログ）または `docs/reference/agents-registry.md` を必ず更新する
 
 ### 2. シンプルさを最優先（Simplicity First）
 

@@ -1,7 +1,8 @@
 ---
 name: growth-loops
 description: >
-  成長ループを設計・評価してフライホイール構造を明確化する。Use when user asks to [成長ループ, グロースループ, /growth-loops].
+  成長ループを設計・評価してフライホイール構造を明確化する。
+  Use when user asks to [成長ループ, グロースループ, /growth-loops, フライホイール設計, SEO×コンテンツの好循環, 仕組みを設計したい, 自律成長の構造].
 ---
 
 doboku-note の持続的成長ループ（フライホイール）を設計・評価する。
