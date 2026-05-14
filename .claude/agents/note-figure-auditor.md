@@ -6,7 +6,7 @@ model: sonnet
 
 # Note Figure Auditor Agent
 
-note 公開用ドラフトの本文中の図版（`docs/note/{slug}/img/figure-*.png`）が `.claude/reference/note-svg-policy.md` の規約を満たしているかを監査する **Evaluator エージェント**。**audit-only**（修正は行わない）。
+note 公開用ドラフトの本文中の図版（`docs/note/{slug}/img/figure-*.png`）が `docs/reference/note-svg-policy.md` の規約を満たしているかを監査する **Evaluator エージェント**。**audit-only**（修正は行わない）。
 
 > **モデル方針**: `model: sonnet` で動作（Evaluator = ルーブリック判定）。最終判断は親エージェント（Opus）が行う。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
@@ -28,7 +28,7 @@ note 公開用ドラフトの本文中の図版（`docs/note/{slug}/img/figure-*
 |---|---|
 | 入力 | `docs/note/{slug}/article.md` のフルパス |
 | 解析対象 | 本文内の `![alt](./img/figure-*.png)` 参照 + 同ディレクトリの SVG ソース（あれば） |
-| ルール | `.claude/reference/note-svg-policy.md`（真実源） |
+| ルール | `docs/reference/note-svg-policy.md`（真実源） |
 | 操作 | Read のみ（**Edit / Write 禁止**） |
 | 範囲外 | `cover.png` / `ogp.png`（別スキル `generate-note-covers.mjs` の管轄） |
 

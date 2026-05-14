@@ -53,9 +53,9 @@ model: inherit
 5軸で 0〜3 点（0=不合格、1=要修正、2=合格、3=優秀）で評価。**加重合計 ≥ 2.0 / 3.0 で合格**。
 
 **真実源**: 各軸の判定基準は以下に準拠する:
-- `.claude/content-principles.md` — コンテンツ原則（特に §8: `<ArticleImage>` の caption 禁止）
-- `.claude/reference/content-authoring.md` — MDX 実装規約
-- `.claude/reference/image-policy.md` — 画像ソース・出典表記・コンポーネント選択
+- `docs/reference/content-principles.md` — コンテンツ原則（特に §8: `<ArticleImage>` の caption 禁止）
+- `docs/reference/content-authoring.md` — MDX 実装規約
+- `docs/reference/image-policy.md` — 画像ソース・出典表記・コンポーネント選択
 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
@@ -272,10 +272,10 @@ Mode: textbook | guide
 
 ## 参照ドキュメント
 
-- `.claude/content-principles.md` — 真実源（10 原則）
-- `.claude/reference/content-authoring.md` — MDX 実装規約
-- `.claude/reference/image-policy.md` — 画像出典ポリシー
-- `.claude/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
+- `docs/reference/content-principles.md` — 真実源（10 原則）
+- `docs/reference/content-authoring.md` — MDX 実装規約
+- `docs/reference/image-policy.md` — 画像出典ポリシー
+- `docs/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
 - `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー
 - `.claude/agents/cem-qa.md` — ルーブリック設計の参考
 - `.claude/agents/civil-construction-qa.md` — PDF 照合担当（本エージェントと棲み分け）

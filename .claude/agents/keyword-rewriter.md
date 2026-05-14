@@ -107,7 +107,7 @@ model: sonnet
 - 文字化け（U+FFFD）を含めない
 - MDX 構文を壊さない（既存の `<details>`、`<ExamPoint>`、表を尊重）
 - 改行コードは元ファイルを保持（`.claude/scripts/lib/mdx-io.mjs` 経由で書き込み）
-- **参考資料は §9 準拠**（`.claude/content-principles.md`）:
+- **参考資料は §9 準拠**（`docs/reference/content-principles.md`）:
   - 公的資料（go.jp / or.jp / ac.jp）最低 1 件 + 民間解説記事（Wikipedia・ブログ・業界団体等）最低 1 件
   - **書籍（著者名＋書名＋出版社）は記載禁止** — Web リソースのみ
   - URL は実在確認してから記載。推測 URL 禁止
@@ -178,7 +178,7 @@ cem-qa で再評価
 
 ## 参照ドキュメント
 
-- `.claude/content-principles.md` — コンテンツ原則の真実源（特に §5: ExamPoint, §9: 参考資料）
+- `docs/reference/content-principles.md` — コンテンツ原則の真実源（特に §5: ExamPoint, §9: 参考資料）
 - `.claude/skills/authoring/keyword-page/SKILL.md` — 個別ページ作成のテンプレート
 - `.claude/agents/cem-qa.md` — Evaluator 側の評価ルーブリック
 - `.claude/skills/quality/quality-cycle/DESIGN.md` — システム全体設計（ADR・拡張パターンカタログ）

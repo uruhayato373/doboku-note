@@ -140,5 +140,5 @@ node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 ## 参照
 
 - `.claude/skills/conversion/exam-questions-import/templates/` — 試験別テンプレート
-- `.claude/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
-- `.claude/content-principles.md` — コンテンツ原則
+- `docs/reference/exam-content-policy.md` — 試験別コンテンツ整備方針
+- `docs/reference/content-principles.md` — コンテンツ原則

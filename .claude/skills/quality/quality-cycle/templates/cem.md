@@ -35,7 +35,7 @@
 
 ## 5 軸ルーブリック（詳細）
 
-真実源: `.claude/content-principles.md` + `.claude/agents/cem-qa.md`
+真実源: `docs/reference/content-principles.md` + `.claude/agents/cem-qa.md`
 
 | 軸 | 重み | 合格基準（2 点） |
 |---|---|---|
@@ -90,6 +90,6 @@ node .claude/skills/quality/quality-cycle/scripts-cem/log-rewrite.mjs /tmp/cem-r
 
 - `.claude/agents/cem-qa.md` — Evaluator の真実源
 - `.claude/agents/keyword-rewriter.md` — Generator の真実源
-- `.claude/content-principles.md` — 品質ルールの真実源
+- `docs/reference/content-principles.md` — 品質ルールの真実源
 - `.claude/skills/authoring/keyword-page/SKILL.md` — キーワードページの作成規約
-- `.claude/reference/content-authoring.md` — MDX 実装規約
+- `docs/reference/content-authoring.md` — MDX 実装規約

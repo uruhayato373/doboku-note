@@ -290,6 +290,6 @@ OK: 6 files
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（`--fix` 系で使用）
 - `scripts/rules/{rule}/` — rule 別スクリプト実装
 - `scripts/pre-commit-mdx.mjs` — pre-commit hook 連動
-- `.claude/reference/content-authoring.md` — MDX 作成詳細ルール
+- `docs/reference/content-authoring.md` — MDX 作成詳細ルール
 - `.claude/skills/authoring/keyword-page/SKILL.md` — 関連 Generator（作成規約）
 - `.claude/skills/authoring/improve-article/SKILL.md` — 関連 Generator（対話型修復）

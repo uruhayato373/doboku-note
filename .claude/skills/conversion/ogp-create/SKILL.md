@@ -131,7 +131,7 @@ ogp:
 
 1. `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderers` に新しい render 関数を追加（`renderTemplate(id, props, { width, height })` のシグネチャに従う）
 2. `.claude/config/ogp/templates.json` にテンプレ定義を追加（ID・説明）
-3. `.claude/reference/ogp-prompts.md` に出典プロンプトと用途を記録
+3. `docs/reference/ogp-prompts.md` に出典プロンプトと用途を記録
 4. `.claude/config/ogp/rules.json` の `default` または `rules[]` で出し分けルールを追加
 5. `--template <新ID> --dry-run` で動作確認
 
@@ -168,7 +168,7 @@ node scripts/generate-note-covers.mjs 総監 --debug-safety
 
 ## 参照
 
-- リファレンス: `.claude/reference/ogp-prompts.md`（採用プロンプト出典）
+- リファレンス: `docs/reference/ogp-prompts.md`（採用プロンプト出典）
 - テンプレ定義: `.claude/config/ogp/templates.json`
 - ルール: `.claude/config/ogp/rules.json`
 - 改行・フォント設定: `.claude/config/ogp/text.json`

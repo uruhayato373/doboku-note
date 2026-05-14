@@ -90,7 +90,7 @@ async function fetchGa4Weekly(credentials, ranges, opts = {}) {
   const client = new BetaAnalyticsDataClient({ credentials });
 
   // bot 流入対策: country=Japan に絞り込めるオプション。
-  // .claude/reference/measurement-incidents.md 2026-04-26 incident 参照。
+  // docs/reference/measurement-incidents.md 2026-04-26 incident 参照。
   const dimensionFilter = opts.country
     ? {
         filter: {

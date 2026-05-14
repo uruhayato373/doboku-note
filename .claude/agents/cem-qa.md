@@ -36,7 +36,7 @@ model: sonnet
 
 5軸で 0〜3 点（0=不合格、1=要修正、2=合格、3=優秀）で評価。**加重スコアの合計 2.0 以上で合格**（各軸スコア × 重み を合算し、2.0 を合格ラインとする）。
 
-**真実源**: 各軸の判定基準は `.claude/content-principles.md` のコンテンツ原則1〜9 に準拠する。
+**真実源**: 各軸の判定基準は `docs/reference/content-principles.md` のコンテンツ原則1〜9 に準拠する。
 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
@@ -181,6 +181,6 @@ weights の合計が 1.0 なので、Σ(score × weight) のままで最大 3.0 
 
 - `.claude/skills/authoring/keyword-page/SKILL.md` — Generator 側のルール（テンプレート、文体、モバイル視認性）
 - `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性の詳細ルール
-- `.claude/content-principles.md` — ペルソナ定義・コンテンツ原則
+- `docs/reference/content-principles.md` — ペルソナ定義・コンテンツ原則
 - `.claude/scripts/lint-mdx-mobile.mjs` — 機械チェッカー
 - `src/config/pe-chapters.json` — キーワード集の章・節構造

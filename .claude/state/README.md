@@ -9,7 +9,7 @@
 | Tier | 置き場 | 用途 |
 |---|---|---|
 | Tier 1 | GitHub Issue（`weekly-pdca` / `session-handoff` / `queue` / `task` / `umbrella` 等のラベル） | open/close する状態 |
-| Tier 2 | `docs/project/`, `.claude/reference/`, `.claude/skills/**/SKILL.md` | 固定的知識・戦略・ADR |
+| Tier 2 | `docs/project/`, `docs/reference/`, `.claude/skills/**/SKILL.md` | 固定的知識・戦略・ADR |
 | **Tier 3**（本ディレクトリ） | `.claude/state/*.json`, `.claache/config/*.json` | エージェントが programmatic に読み書きする構造化データ |
 
 ### 禁止事項
@@ -21,7 +21,7 @@
   - 単発タスク → Issue `[Task] ...`（`.github/ISSUE_TEMPLATE/task.md`）
   - 長期計画 → Issue `[Umbrella] ...`（`.github/ISSUE_TEMPLATE/umbrella.md`）
 
-詳細: [.claude/reference/docs-issue-separation.md](../reference/docs-issue-separation.md)
+詳細: [docs/reference/docs-issue-separation.md](../reference/docs-issue-separation.md)
 
 ## ファイル一覧（主な JSON / ディレクトリ）
 
@@ -53,7 +53,7 @@
 
 - **git 管理対象**: 状態遷移の履歴を追跡可能にするため、差分コミットを許容
 - **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域）
-- **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `.claude/reference/data-storage-decision.md`）
+- **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `docs/reference/data-storage-decision.md`）
 - **Issue 一本化**: 2026-04-21 に `.claude/state/*.md`（session-handoff, review-queue 等）を GitHub Issue に全面移行
 
-詳細なアーキテクチャは `.claude/skills/quality/quality-cycle/DESIGN.md` と `.claude/reference/docs-issue-separation.md` を参照。
+詳細なアーキテクチャは `.claude/skills/quality/quality-cycle/DESIGN.md` と `docs/reference/docs-issue-separation.md` を参照。

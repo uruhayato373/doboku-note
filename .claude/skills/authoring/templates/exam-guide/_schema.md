@@ -197,7 +197,7 @@ sidebar_slug: exam-guide
 このスキーマが変更された場合：
 1. `_schema.md` 自体を更新
 2. すべての試験別設定ファイルが互換性を保つことを確認
-3. `.claude/reference/skills-registry.md` の「複数資格対応の進め方（Phase別）」セクションを更新（必要に応じて）
+3. `docs/reference/skills-registry.md` の「複数資格対応の進め方（Phase別）」セクションを更新（必要に応じて）
 
 ---
 

@@ -62,7 +62,7 @@ description: >
 このスキルは以下を読み取れる環境で動く:
 - 会話履歴（ユーザーの指示・修正指示・補足情報）
 - `git log` / `git diff`（`.local/r2/posts/` 配下の MDX/SVG 変更）
-- `.claude/content-principles.md`（現状のルールセット）
+- `docs/reference/content-principles.md`（現状のルールセット）
 - `.claude/skills/` 配下の関連 SKILL.md
 
 ## 実行手順
@@ -81,7 +81,7 @@ description: >
    - ユーザーの肯定（「それで進めて」「良い」と認められたパターン）
 
 3. **既存原則の読み込み**:
-   - `.claude/content-principles.md` 全文
+   - `docs/reference/content-principles.md` 全文
    - 対象範囲のスキル（keyword-page, create-svg, review-mobile 等）
 
 ### Phase 2: 分類
@@ -155,7 +155,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 
 ### 1. [ルール名]
 
-**対象**: `.claude/content-principles.md` §X
+**対象**: `docs/reference/content-principles.md` §X
 **根拠**: 
 - 今回 eco-label・csr の 2 件で同パターンを適用
 - ユーザー指示: 「タイプI に統一して」（発話: 2026-04-20）
@@ -207,7 +207,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 **観察**: [両サイクルで共通して見られた現象]
 **仮説**: [採点軸の改修案 or リライト方法論の改修案]
 **反映先（議論承認後、Claude が同期更新）**:
-- 採点側の場合: `.claude/agents/cem-qa.md` + `.claude/content-principles.md` + `templates/cem.md`（3 ファイル同期）+ #205 本文「合意済み」へ
+- 採点側の場合: `.claude/agents/cem-qa.md` + `docs/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）+ #205 本文「合意済み」へ
 - リライト側の場合: `.claude/skills/quality/exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md + #206 本文「合意済み」へ
 
 **議論開始コマンド案**:
@@ -252,8 +252,8 @@ CLAUDE.md「ハーネス設計原則」との整合:
 
 ## 参照
 
-- `.claude/content-principles.md` — 校正ルールの真実源（主な更新対象）
-- `.claude/reference/skills-design-guide.md` — スキル改訂のガイドライン
+- `docs/reference/content-principles.md` — 校正ルールの真実源（主な更新対象）
+- `docs/reference/skills-design-guide.md` — スキル改訂のガイドライン
 - `.claude/skills/authoring/keyword-page/SKILL.md` — 総監キーワードの校正ルールを参照
 - `.claude/skills/authoring/improve-article/SKILL.md` — 校正オーケストレータ
 - `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性ルール

@@ -436,7 +436,7 @@ Issue ラベル: `content-quality`, `auto-generated`（PSI 違反 Issue と同�
 - `.claude/skills/dev/pr-create/SKILL.md` — PR 自動作成
 - `.claude/skills/management/distill-proofread-learnings/SKILL.md` — サイクル完了後の学習抽出
 - `.claude/scripts/lib/mdx-io.mjs` — MDX 読み書き（CRLF 保持）
-- `.claude/content-principles.md` — 校正ルールの真実源
+- `docs/reference/content-principles.md` — 校正ルールの真実源
 - `.claude/state/exam-keyword-cycles/logs/` — 本サイクルのログ蓄積先
 - `.claude/state/exam-keyword-cycles/progress.json` — カバー状況の永続化
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離（本スキルは Orchestrator）
@@ -473,7 +473,7 @@ Phase 5.3 サイクルログに「発見事項」記録
 コメント上で議論・ユーザー承認
   ↓
 Claude が真実源を同期更新 + 該当 Issue 本文の「合意済み」へ移動
-  ├ 採点修正: .claude/agents/cem-qa.md + .claude/content-principles.md + templates/cem.md（3 ファイル同期必須）+ #205 本文
+  ├ 採点修正: .claude/agents/cem-qa.md + docs/reference/content-principles.md + templates/cem.md（3 ファイル同期必須）+ #205 本文
   └ 方法論修正: .claude/skills/quality/exam-keyword-cycle/SKILL.md ほか該当 SKILL.md + #206 本文
   ↓
 次サイクルから新ルール適用 → 改善効果を再観察 → ループ
@@ -492,7 +492,7 @@ Claude が真実源を同期更新 + 該当 Issue 本文の「合意済み」へ
 
 - **採点関連**（cem-qa 5 軸の重み・閾値・新軸追加・既存軸の判定基準改修）→ **#205**
   - 例: 「SVG 図版の質を独立軸化」「mobile 軸の lint パターン追加」「閾値 2.0 → 1.9 緩和」
-  - 反映先（同期必須）: `.claude/agents/cem-qa.md` + `.claude/content-principles.md` + `templates/cem.md` + #205 本文
+  - 反映先（同期必須）: `.claude/agents/cem-qa.md` + `docs/reference/content-principles.md` + `templates/cem.md` + #205 本文
 - **リライト関連**（4 視点 × Phase 対応・視点タグ・拡張パターン A-G・NLM 照合プロンプト）→ **#206**
   - 例: 「視点タグに『独立性』を追加」「Phase 2 で notebooklm-research を必須化」「拡張パターン H 新設」
   - 反映先（対象スキルのみ + #206 本文）: `.claude/skills/quality/exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md

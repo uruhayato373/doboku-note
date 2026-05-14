@@ -226,7 +226,7 @@ B. 実験進捗レポート:
 #### Agent G: Umbrella Issue 棚卸し
 
 ```
-目的: `.claude/reference/docs-issue-separation.md` で定義した
+目的: `docs/reference/docs-issue-separation.md` で定義した
       「md は Why / Issue は実行タスク」の分離ルールを週次で drift 検出する。
       open Umbrella Issue の進捗・停滞・完了漏れを surface する
 

@@ -310,6 +310,6 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 
 ## 参照
 
-- `.claude/reference/content-authoring.md` — MDX 作成詳細ルール（コンポーネント・過去問構造・frontmatter）
+- `docs/reference/content-authoring.md` — MDX 作成詳細ルール（コンポーネント・過去問構造・frontmatter）
 - `.claude/skills/authoring/keyword-page/SKILL.md` — キーワードページ作成
 - `.claude/skills/conversion/pdf-to-mdx/templates/cem.md` — PDF→MDX変換（過去問取り込み時）

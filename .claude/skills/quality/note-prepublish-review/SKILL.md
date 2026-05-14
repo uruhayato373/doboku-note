@@ -244,7 +244,7 @@ node .claude/scripts/build-note-published-index.mjs
 | `note-link-injector` agent | リンク注入の Generator |
 | `note-figure-auditor` agent | 図版品質の Evaluator |
 | `note-fact-checker` agent | 事実性の Evaluator |
-| `.claude/reference/note-svg-policy.md` | 図版品質ルールの真実源 |
+| `docs/reference/note-svg-policy.md` | 図版品質ルールの真実源 |
 | `.claude/skills/social/social-post/SKILL.md` | リンク注入ルールの真実源 |
 
 ## 実行例

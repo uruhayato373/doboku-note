@@ -229,5 +229,5 @@ unscored → scored → rewriting → needs-review → verified → approved
 - `templates/civil-textbook.md` — civil-textbook プロファイルの詳細仕様
 - `.claude/agents/cem-qa.md` — CEM Evaluator
 - `.claude/agents/civil-construction-review.md` — 1級土木 Evaluator
-- `.claude/content-principles.md` — 品質ルールの真実源
+- `docs/reference/content-principles.md` — 品質ルールの真実源
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（リライト時に必須）

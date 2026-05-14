@@ -143,5 +143,5 @@ templates/
 ## 参照リンク
 
 - URL設計ガイドライン: `docs/00_プロジェクト管理/07_URL設計ガイドライン.md`
-- スキル一覧: `.claude/reference/skills-registry.md`
+- スキル一覧: `docs/reference/skills-registry.md`
 - 各スキルの詳細: `各カテゴリ配下の {skill-name}/SKILL.md`

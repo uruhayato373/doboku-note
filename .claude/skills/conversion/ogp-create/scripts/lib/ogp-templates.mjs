@@ -2,7 +2,7 @@
  * OGP テンプレートレンダラ（T06 Mono Tag 統一版）。
  *
  * 各テンプレは (props, sizeOpts) を受け取って satori element を返す純関数。
- * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) .claude/reference/ogp-prompts.md に出典記録 の3点セット。
+ * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) docs/reference/ogp-prompts.md に出典記録 の3点セット。
  *
  * セーフティゾーン: 中央 630×630 が 1:1 クロップ時にも残る領域。
  *   タイトル・カテゴリチップ・ワードマーク・メタはこの内側に収まるよう描画する。

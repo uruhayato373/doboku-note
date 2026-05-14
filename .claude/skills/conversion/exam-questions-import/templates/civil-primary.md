@@ -141,4 +141,4 @@ pdftoppm -png -r 150 -f {開始P} -l {終了P} '{PDFパス}' /tmp/exam-p
 ## 参照
 
 - `.claude/pdfs/１級土木施工管理技士/` — ソース PDF ディレクトリ
-- `.claude/reference/content-authoring.md` — 過去問 MDX の構造ルール
+- `docs/reference/content-authoring.md` — 過去問 MDX の構造ルール

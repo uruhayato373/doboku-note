@@ -31,8 +31,8 @@ $ARGUMENTS — レビュー対象のファイルパスまたはディレクト�
 
 以下を読み込む:
 
-1. `.claude/design-system/prohibited.md` — 禁止パターン一覧（SSOT）
-2. `.claude/design-system/quick-reference.md` — 正しいパターンのリファレンス
+1. `docs/design-system/prohibited.md` — 禁止パターン一覧（SSOT）
+2. `docs/design-system/quick-reference.md` — 正しいパターンのリファレンス
 3. `src/styles/globals.css` — 現行のスタイル定義
 
 ### Step 3: 7 カテゴリ走査

@@ -176,7 +176,7 @@ keyword-page スキルのテンプレートで定義された必須セクショ�
 - 9-4: WebSearch→WebFetch で民間記事（Wikipedia/技術ブログ/note等）を1件追加
 - 9-6: ❌✅などの記号を削除し、解説的な文言に書き換え
 
-**ルール根拠**: `.claude/content-principles.md` §5「ExamPointは文脈の後に配置」・§9「参考資料の構成」
+**ルール根拠**: `docs/reference/content-principles.md` §5「ExamPointは文脈の後に配置」・§9「参考資料の構成」
 | 7-3 | `## 過去問での出題` セクションが存在するか | MEDIUM | `## 過去問` 見出しの有無 |
 | 7-4 | `## 総合技術監理における位置づけ` セクションが存在するか | MEDIUM | 見出しの有無 |
 
@@ -257,7 +257,7 @@ Category 10: SVG 追加候補検出 — 0 件（既存図でカバー済み、�
 - タイプ A 反例（`pdca-cycle/article.mdx`、`four-m-of-production/article.mdx`）と類似していないか
 - タイプ B 模範（`business-continuity-plan/article.mdx`、`cash-flow-statement/article.mdx`）の段落構成と比較
 
-**ルール根拠**: `.claude/content-principles.md` §17「散文中心・表と図は補足」・§18「末尾コンポーネント塊化の禁止」
+**ルール根拠**: `docs/reference/content-principles.md` §17「散文中心・表と図は補足」・§18「末尾コンポーネント塊化の禁止」
 
 ## 手順
 
@@ -316,7 +316,7 @@ HIGHが1件以上ある場合は修正を促すメッセージを追加する。
 
 ## 参照
 
-- `.claude/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
-- `.claude/reference/content-authoring.md` — MDX 作成詳細ルール（モバイル視認性セクション）
+- `docs/reference/content-principles.md` — ペルソナ定義、コンテンツ原則（7項目）
+- `docs/reference/content-authoring.md` — MDX 作成詳細ルール（モバイル視認性セクション）
 - `.claude/skills/authoring/keyword-page/SKILL.md` — モバイル視認性ルール、コンポーネント使用ガイドライン
 - `.claude/skills/quality/check-mdx/SKILL.md` — MDX 検査統合スキル（本スキルとは別レイヤー、`--rules syntax` で構文チェック）
