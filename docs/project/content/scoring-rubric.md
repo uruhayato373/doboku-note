@@ -16,7 +16,7 @@ related_files:
 
 総監キーワードページ（pe-comprehensive-management）の **採点方法の真実源スナップショット**。`.claude/agents/cem-qa.md` 等の複数ファイルにまたがる採点設計を、ここで一覧する。
 
-採点とリライトは責任分離されており、本 md は採点側。リライト側は [31_リライト方法論方針.md](./31_リライト方法論方針.md)。
+採点とリライトは責任分離されており、本 md は採点側。リライト側は [rewrite-methodology.md](./rewrite-methodology.md)。
 
 ---
 
@@ -207,9 +207,9 @@ c. 散文の論理性
 | `keyword-rewriter` の弱点軸→推奨パターン表 | 新軸が weak_axes になった場合の推奨パターン |
 | 拡張パターン A-G の見直し | 採点軸化される 2-3 領域に対応するパターンが既存で十分か、新規 H 追加検討 |
 | Phase 2.5 連携 | `improve-article --deep` を Phase 2 必須化 or Phase 3 から呼ぶ |
-| 真実源更新 | `.claude/agents/keyword-rewriter.md` + `exam-keyword-cycle/SKILL.md` + [31_リライト方法論方針.md](./31_リライト方法論方針.md) |
+| 真実源更新 | `.claude/agents/keyword-rewriter.md` + `exam-keyword-cycle/SKILL.md` + [rewrite-methodology.md](./rewrite-methodology.md) |
 
-**進め方**: 採点軸決定後、[31_リライト方法論方針.md](./31_リライト方法論方針.md) の「議論履歴」セクションで議論 → 本文を update。
+**進め方**: 採点軸決定後、[rewrite-methodology.md](./rewrite-methodology.md) の「議論履歴」セクションで議論 → 本文を update。
 
 ---
 
@@ -272,7 +272,7 @@ c. 散文の論理性
 # 関連
 
 ## 対になる方針 md
-- [31_リライト方法論方針.md](./31_リライト方法論方針.md) — リライトの観点（視点タグ + 拡張パターン A-G）
+- [rewrite-methodology.md](./rewrite-methodology.md) — リライトの観点（視点タグ + 拡張パターン A-G）
 
 ## 真実源ファイル
 - `.claude/agents/cem-qa.md`
@@ -284,7 +284,7 @@ c. 散文の論理性
 - `.claude/state/exam-keyword-audits/`（exam-keyword-mapping-auditor 出力）
 
 ## roadmap md（採点を動かす運用ロードマップ）
-- [25_過去問起点校正サイクルロードマップ.md](./25_過去問起点校正サイクルロードマップ.md) — 過去問起点サイクル全体（旧 Umbrella #41 相当）
+- [../operations/correction-cycle-roadmap.md](./../operations/correction-cycle-roadmap.md) — 過去問起点サイクル全体（旧 Umbrella #41 相当）
 - `roadmap-pe-*-primary.md` 等 — 年度別進捗（roadmap-*.md は build-roadmap-progress.mjs で progress.json から自動 update）
 
 ## 過去の Issue（廃止済み、参考リンク）

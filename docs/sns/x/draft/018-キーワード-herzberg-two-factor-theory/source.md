@@ -4,7 +4,7 @@
 - 種別: キーワード解説ライン #15（Tier 1 SVG 15 本連動・最終回）
 - 元ネタ: `.local/r2/posts/pe-comprehensive-management/herzberg-two-factor-theory/article.mdx`
 - 関連 SVG: `.local/r2/posts/pe-comprehensive-management/herzberg-two-factor-theory/img/herzberg-two-factor.svg`
-- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../project/29_SNS投稿カレンダー2026Q2.md)
+- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../../../project/sns/calendar-2026q2.md)
 
 ## 派生媒体
 

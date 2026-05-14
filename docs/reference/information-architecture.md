@@ -52,7 +52,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
     "priority": "high | mid | low",
     "source": "manual | ci:<workflow> | skill:<name>",
     "parent": "T-000",
-    "refs": ["docs/project/NN_xxx.md"],
+    "refs": ["docs/project/strategy/vision.md"],
     "dedupe_key": "ci:psi:lcp",
     "created": "YYYY-MM-DD",
     "updated": "YYYY-MM-DD",

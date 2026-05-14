@@ -131,9 +131,9 @@ NSM = 検索表示回数 × CTR
 
 ## 関連ドキュメント
 
-- `docs/project/02_事業戦略.md` — 成長ループとの関係（v3）
-- `docs/project/05_収益化戦略.md` — 収益化戦略の四半期目標（v3）
-- `docs/project/07_SNS集客戦略.md` — SNS 集客戦略 v4（X・YouTube・Instagram 統合）
+- `docs/project/strategy/business.md` — 成長ループとの関係（v3）
+- `docs/project/strategy/monetization.md` — 収益化戦略の四半期目標（v3）
+- `docs/project/sns/sns-strategy.md` — SNS 集客戦略 v4（X・YouTube・Instagram 統合）
 - `docs/reference/data-storage-decision.md` — 計測データの保存方針（ADR）
 
 ---

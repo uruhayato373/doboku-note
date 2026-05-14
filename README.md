@@ -23,9 +23,9 @@
 
 ### プロジェクト管理
 
-- [`docs/project/01_設計思想.md`](./docs/project/01_設計思想.md) — プロジェクトの設計思想
-- [`docs/project/02_事業戦略.md`](./docs/project/02_事業戦略.md) — 事業戦略
-- [`docs/project/05_収益化戦略.md`](./docs/project/05_収益化戦略.md) — 収益化戦略
+- [`docs/project/strategy/vision.md`](./docs/project/strategy/vision.md) — プロジェクトの設計思想
+- [`docs/project/strategy/business.md`](./docs/project/strategy/business.md) — 事業戦略
+- [`docs/project/strategy/monetization.md`](./docs/project/strategy/monetization.md) — 収益化戦略
 
 ## ライセンス
 

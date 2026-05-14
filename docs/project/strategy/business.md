@@ -165,7 +165,7 @@
 | YouTube 広告 | ¥0 | ¥2,000 | ¥15,000 |
 | **合計** | **¥15,550** | **¥47,300** | **¥203,000** |
 
-詳細は `05_収益化戦略.md` を参照。
+詳細は `monetization.md` を参照。
 
 ---
 
@@ -242,7 +242,7 @@
 
 - 1級土木 競合分析: `docs/project/competitor-audit/2026-04-04_civil-construction-1.md`
 - 技術士総監 競合分析: `docs/project/competitor-audit/2026-04-05_pe-comprehensive-management.md`
-- コンテンツロードマップ: `04_コンテンツロードマップ.md`（v3）
-- 収益化の詳細: `05_収益化戦略.md`（v3）
+- コンテンツロードマップ: `content-roadmap.md`（v3）
+- 収益化の詳細: `monetization.md`（v3）
 - NSMと計測指標: `.claude/skills/management/nsm-experiment/references/definition.md`（2026-04-14 に skill 層へ移管）
-- SNS 集客戦略（X / YouTube / Instagram 統合）: `07_SNS集客戦略.md`
+- SNS 集客戦略（X / YouTube / Instagram 統合）: `../sns/sns-strategy.md`

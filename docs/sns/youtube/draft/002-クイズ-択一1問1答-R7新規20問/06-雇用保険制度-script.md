@@ -1,7 +1,7 @@
 # YT Shorts 06: 人的資源管理 Q6 雇用保険制度
 
 **尺**: 40 秒目安
-**公開予定**: TBD（[投稿カレンダー](../../../project/29_SNS投稿カレンダー2026Q2.md) 調整中）
+**公開予定**: TBD（[投稿カレンダー](../../../../project/sns/calendar-2026q2.md) 調整中）
 **元素材**: [source.md Q6](../source.md)
 
 ## ナレーション原稿（VOICEVOX 用）

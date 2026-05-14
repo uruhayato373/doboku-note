@@ -1,7 +1,7 @@
 # YT Shorts 08: 人的資源管理 Q8 人事考課管理
 
 **尺**: 40 秒目安
-**公開予定**: TBD（[投稿カレンダー](../../../project/29_SNS投稿カレンダー2026Q2.md) 調整中）
+**公開予定**: TBD（[投稿カレンダー](../../../../project/sns/calendar-2026q2.md) 調整中）
 **元素材**: [source.md Q8](../source.md)
 
 ## ナレーション原稿（VOICEVOX 用）

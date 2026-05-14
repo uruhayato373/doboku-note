@@ -29,6 +29,5 @@
 ## 関連ポリシー
 
 - 画像仕様: `docs/reference/sns-image-policy.md`
-- SNS 集客戦略: `docs/project/07_SNS集客戦略.md`
-- 5 チャネル動線設計: `docs/project/27_5チャネル動線設計.md`
-- Instagram 自動化アーキテクチャ: `docs/project/26_Instagram投稿自動化アーキテクチャ.md`
+- SNS 集客戦略: `docs/project/sns/sns-strategy.md`
+- 5 チャネル動線設計: `docs/project/sns/channel-funnel.md`

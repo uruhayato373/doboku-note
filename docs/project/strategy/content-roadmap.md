@@ -15,7 +15,7 @@
 - **Q4（10-12月）**: 合格者ポジションの確立、iOS 着手判断
 - **後続**: サイト全面ブランディング更新
 
-詳細な収益目標は `05_収益化戦略.md` 参照。
+詳細な収益目標は `monetization.md` 参照。
 
 ---
 
@@ -27,7 +27,7 @@
 | **技術士（総合技術監理部門）** | 677ファイル（全件 `published: true`） |
 | サイトマップ URL 数 | 750 |
 | サポートコンテンツ（共通） | 土木一般・施工管理・法規など |
-| **ボトルネック** | SEOタイトル・description最適化完了。GSCインデックス浸透待ち。競合分析でブルーオーシャンと判明（詳細は `02_事業戦略.md`） |
+| **ボトルネック** | SEOタイトル・description最適化完了。GSCインデックス浸透待ち。競合分析でブルーオーシャンと判明（詳細は `business.md`） |
 
 ---
 
@@ -321,7 +321,7 @@ noteとYouTubeの売上・再生数はサイト流入（NSM）に依存するた
 
 ## YouTube チャンネル戦略（v3 新設・詳細）
 
-詳細は `07_SNS集客戦略.md`（v4 で YouTube 戦略統合）の YouTube セクション参照。要点のみ:
+詳細は `../sns/sns-strategy.md`（v4 で YouTube 戦略統合）の YouTube セクション参照。要点のみ:
 
 - **チャンネルコンセプト**: 「技術士総監 合格者の受験記 + doboku-note 解説」
 - **立ち上げ時期**: 2026年7月下旬（試験後）
@@ -391,9 +391,9 @@ YouTube 動画（YouTube検索・関連動画）
 
 ## 参照
 
-- 収益化戦略: `05_収益化戦略.md`（v3）
+- 収益化戦略: `monetization.md`（v3）
 - 1級土木 競合分析: `docs/project/competitor-audit/2026-04-04_civil-construction-1.md`
 - 技術士総監 競合分析: `docs/project/competitor-audit/2026-04-05_pe-comprehensive-management.md`
-- 事業戦略・SEO方針: `02_事業戦略.md`
-- SNS 集客戦略（YouTube・Instagram・X 統合）: `07_SNS集客戦略.md`
-- note 記事 runway: `19_note段階投下プラン.md`
+- 事業戦略・SEO方針: `business.md`
+- SNS 集客戦略（YouTube・Instagram・X 統合）: `../sns/sns-strategy.md`
+- note 記事 runway: `../../note/19_note段階投下プラン.md`

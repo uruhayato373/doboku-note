@@ -1,10 +1,10 @@
 # 5 チャネル動線設計（X / YouTube / Instagram / note / サイト）
 
-doboku-note の認知獲得から有料転換までの 5 チャネルファネルを統合設計する文書。SNS 集客戦略 v5（[07](./07_SNS集客戦略.md)）と収益化戦略（[05](./05_収益化戦略.md)）の橋渡しトピックを集約し、UTM 設計・季節調整・実装ロードマップを真実源として一元管理する。
+doboku-note の認知獲得から有料転換までの 5 チャネルファネルを統合設計する文書。SNS 集客戦略 v5（[07](./sns-strategy.md)）と収益化戦略（[05](./../strategy/monetization.md)）の橋渡しトピックを集約し、UTM 設計・季節調整・実装ロードマップを真実源として一元管理する。
 
 - 最終更新: 2026-04-28（v1: 初版・5 チャネル統合動線設計）
-- 親戦略: [02_事業戦略.md](./02_事業戦略.md) / [05_収益化戦略.md](./05_収益化戦略.md) / [07_SNS集客戦略.md v5](./07_SNS集客戦略.md)
-- 関連: [19_note段階投下プラン.md](./19_note段階投下プラン.md) / [26_Instagram投稿自動化アーキテクチャ.md v3](./26_Instagram投稿自動化アーキテクチャ.md)
+- 親戦略: [../strategy/business.md](./../strategy/business.md) / [../strategy/monetization.md](./../strategy/monetization.md) / [sns-strategy.md v5](./sns-strategy.md)
+- 関連: [../../note/19_note段階投下プラン.md](./../../note/19_note段階投下プラン.md)
 - 実行タスク: `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤、親）と子タスク
 
 ## 1. 本書の役割と境界線
@@ -17,10 +17,10 @@ doboku-note の認知獲得から有料転換までの 5 チャネルファネ�
 - 動線設計の実装ロードマップ
 
 ### 他文書に委ねるもの
-- 各チャネル単体の戦略・コンテンツ方針 → [07_SNS集客戦略.md v5](./07_SNS集客戦略.md)
-- Instagram の技術アーキテクチャ → [26_Instagram投稿自動化アーキテクチャ.md v3](./26_Instagram投稿自動化アーキテクチャ.md)
-- note 商品ラインナップと販売スケジュール → [19_note段階投下プラン.md](./19_note段階投下プラン.md) / [05_収益化戦略.md](./05_収益化戦略.md)
-- 事業全体のマイルストーン → [02_事業戦略.md](./02_事業戦略.md)
+- 各チャネル単体の戦略・コンテンツ方針 → [sns-strategy.md v5](./sns-strategy.md)
+- Instagram の技術アーキテクチャ → [sns-strategy.md](./sns-strategy.md) §2.3
+- note 商品ラインナップと販売スケジュール → [../../note/19_note段階投下プラン.md](./../../note/19_note段階投下プラン.md) / [../strategy/monetization.md](./../strategy/monetization.md)
+- 事業全体のマイルストーン → [../strategy/business.md](./../strategy/business.md)
 
 ## 2. 5 チャネルの役割定義（重複ゼロ）
 
@@ -148,7 +148,7 @@ doboku-note の認知獲得から有料転換までの 5 チャネルファネ�
 
 ### 弱点 2: bio link 着地点の未決
 
-**現状**: IG MVP 着手目前なのに「Linktree か直リンクか」が未決（[26 v3 §9](./26_Instagram投稿自動化アーキテクチャ.md) の未決事項）。
+**現状**: IG MVP 着手目前なのに「Linktree か直リンクか」が未決（Instagram 運用設計の未決事項）。
 
 **橋渡し**（Phase 別決定）:
 - **Phase 1（〜2026-08）**: bio link = `doboku-note.com` 直接
@@ -162,7 +162,7 @@ doboku-note の認知獲得から有料転換までの 5 チャネルファネ�
 
 ### 弱点 3: note ↔ サイトの検索競合（Red Line #5）
 
-**現状**: note のドメインパワー > サイトのため、同一技術解説を両方に置くと Google が note を正答視 → サイト SEO 低評価化のリスク。運用ルールが未確立（[19_note段階投下プラン.md](./19_note段階投下プラン.md) の Red Line #5）。
+**現状**: note のドメインパワー > サイトのため、同一技術解説を両方に置くと Google が note を正答視 → サイト SEO 低評価化のリスク。運用ルールが未確立（[../../note/19_note段階投下プラン.md](./../../note/19_note段階投下プラン.md) の Red Line #5）。
 
 **橋渡し**:
 - **境界ルールの定式化**:
@@ -191,7 +191,7 @@ doboku-note の認知獲得から有料転換までの 5 チャネルファネ�
 
 ### Phase 1: 計測基盤の整備（即時、Q2 中）
 
-事業戦略 [02 §戦略的優先順位 Q2 高優先](./02_事業戦略.md) に整合。
+事業戦略 [02 §戦略的優先順位 Q2 高優先](./../strategy/business.md) に整合。
 
 | # | アクション | 工数 | 優先度 | 依存 |
 |---|---|---|---|---|
@@ -213,7 +213,7 @@ doboku-note の認知獲得から有料転換までの 5 チャネルファネ�
 
 | # | アクション | 工数 | 優先度 | 依存 |
 |---|---|---|---|---|
-| 9 | IG Reels vs Carousel 比率の KPI トリガー判定（[07 §2.3](./07_SNS集客戦略.md)） | 0.5 日 | 🟢 中 | 6 週運用 |
+| 9 | IG Reels vs Carousel 比率の KPI トリガー判定（[07 §2.3](./sns-strategy.md)） | 0.5 日 | 🟢 中 | 6 週運用 |
 | 10 | bio link を Linktree 化（Phase 2 への移行） | 0.5 日 | 🟡 高 | E-2/E-3 販売開始 |
 | 11 | UTM 計測ダッシュボード（GA4 カスタムレポート） | 1 日 | 🟢 中 | #2 |
 
@@ -252,9 +252,9 @@ doboku-note の認知獲得から有料転換までの 5 チャネルファネ�
 
 ## 関連ドキュメント
 
-- [02_事業戦略.md](./02_事業戦略.md) — 全体戦略・成功判定基準・マイルストーン
-- [05_収益化戦略.md](./05_収益化戦略.md) — note 商品ラインナップ
-- [07_SNS集客戦略.md v5](./07_SNS集客戦略.md) — チャネル別戦略の真実源
-- [19_note段階投下プラン.md](./19_note段階投下プラン.md) — note 段階投下と Red Line ルール
-- [26_Instagram投稿自動化アーキテクチャ.md v3](./26_Instagram投稿自動化アーキテクチャ.md) — Instagram の技術設計
+- [../strategy/business.md](./../strategy/business.md) — 全体戦略・成功判定基準・マイルストーン
+- [../strategy/monetization.md](./../strategy/monetization.md) — note 商品ラインナップ
+- [sns-strategy.md v5](./sns-strategy.md) — チャネル別戦略の真実源
+- [../../note/19_note段階投下プラン.md](./../../note/19_note段階投下プラン.md) — note 段階投下と Red Line ルール
+- [sns-strategy.md](./sns-strategy.md) §2.3 — Instagram の技術方針
 - [docs/reference/measurement-incidents.md](../../docs/reference/measurement-incidents.md) — 計測事故記録（UTM 設計時に参照必須）

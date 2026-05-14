@@ -280,7 +280,7 @@ published: true                    # false=下書き
 
 ## 参照
 
-- 事業戦略・成長ループ: `02_事業戦略.md`
+- 事業戦略・成長ループ: `business.md`
 - NSMと計測指標: `.claude/skills/management/nsm-experiment/references/definition.md`（2026-04-14 に skill 層へ移管）
-- コンテンツロードマップ: `04_コンテンツロードマップ.md`
-- 収益化戦略: `05_収益化戦略.md`
+- コンテンツロードマップ: `content-roadmap.md`
+- 収益化戦略: `monetization.md`

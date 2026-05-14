@@ -18,7 +18,7 @@
 - 実装スキル: `.claude/skills/content/exam-keyword-cycle/SKILL.md`
 - 役割分離ルール: `docs/reference/docs-issue-separation.md`
 - 継続改善ループ全体図: `docs/reference/workflows.md`
-- 類似参考（ADR）: `24_パフォーマンス監視アーキテクチャ.md`（PSI 日次監査）
+- 類似参考（ADR）: `performance-monitoring.md`（PSI 日次監査）
 
 ---
 
@@ -96,5 +96,5 @@
 - 週次 PDCA: `.claude/skills/management/weekly-review/SKILL.md`
 - PR 作成: `.claude/skills/dev/pr-create/SKILL.md`
 - 継続改善ループ図: `docs/reference/workflows.md`
-- PSI 監視 ADR（類似自動化事例）: `docs/project/24_パフォーマンス監視アーキテクチャ.md`
+- PSI 監視 ADR（類似自動化事例）: `docs/project/performance-monitoring.md`
 - 役割分離ルール: `docs/reference/docs-issue-separation.md`
