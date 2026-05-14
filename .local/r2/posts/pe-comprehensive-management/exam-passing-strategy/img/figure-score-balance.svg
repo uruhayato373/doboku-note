@@ -1,0 +1,65 @@
+<svg width="400" height="258" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 258" role="img" aria-label="択一式と記述式の得点バランス3パターン比較。理想型は両式60%、記述式偏重は択一45%・記述75%、択一式偏重は択一75%・記述45%。両式とも60%に届くバランス型が最も安全。" style="max-width:400px;width:100%">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1a3a5c; }
+  </style>
+
+  <!-- Legend -->
+  <rect x="144" y="12" width="11" height="11" rx="2" fill="#2e6da4"/>
+  <text x="159" y="22" font-size="11">択一式</text>
+  <rect x="208" y="12" width="11" height="11" rx="2" fill="#d4a017"/>
+  <text x="223" y="22" font-size="11">記述式</text>
+
+  <!-- 60% threshold label -->
+  <text x="206" y="44" text-anchor="middle" font-size="11" fill="#444">各式60%（合格の目安）</text>
+
+  <!-- ===== パターン1（理想） ===== -->
+  <text x="16" y="60" font-size="13" font-weight="bold">パターン1（理想）</text>
+  <text x="60" y="79" text-anchor="end" font-size="11" fill="#555">択一式</text>
+  <rect x="66" y="68" width="234" height="14" rx="2" fill="#eef1f4"/>
+  <rect x="66" y="68" width="140" height="14" rx="2" fill="#2e6da4"/>
+  <text x="212" y="79" font-size="11" font-weight="bold" fill="#3a7d44">60%</text>
+  <text x="60" y="99" text-anchor="end" font-size="11" fill="#555">記述式</text>
+  <rect x="66" y="88" width="234" height="14" rx="2" fill="#eef1f4"/>
+  <rect x="66" y="88" width="140" height="14" rx="2" fill="#d4a017"/>
+  <text x="212" y="99" font-size="11" font-weight="bold" fill="#3a7d44">60%</text>
+  <rect x="306" y="71" width="88" height="26" rx="8" fill="#d0e8d0"/>
+  <text x="350" y="88" text-anchor="middle" font-size="11" font-weight="bold" fill="#2b6b39">合格・安定</text>
+
+  <!-- ===== パターン2（記述式偏重） ===== -->
+  <text x="16" y="122" font-size="13" font-weight="bold">パターン2（記述式偏重）</text>
+  <text x="60" y="141" text-anchor="end" font-size="11" fill="#555">択一式</text>
+  <rect x="66" y="130" width="234" height="14" rx="2" fill="#eef1f4"/>
+  <rect x="66" y="130" width="105" height="14" rx="2" fill="#2e6da4"/>
+  <text x="177" y="141" font-size="11" font-weight="bold" fill="#b22234">45%</text>
+  <text x="60" y="161" text-anchor="end" font-size="11" fill="#555">記述式</text>
+  <rect x="66" y="150" width="234" height="14" rx="2" fill="#eef1f4"/>
+  <rect x="66" y="150" width="176" height="14" rx="2" fill="#d4a017"/>
+  <text x="248" y="161" font-size="11" font-weight="bold" fill="#3a7d44">75%</text>
+  <rect x="306" y="133" width="88" height="26" rx="8" fill="#fbeecb"/>
+  <text x="350" y="150" text-anchor="middle" font-size="11" font-weight="bold" fill="#9a7b12">合格可だが稀</text>
+
+  <!-- ===== パターン3（択一式偏重） ===== -->
+  <text x="16" y="184" font-size="13" font-weight="bold">パターン3（択一式偏重）</text>
+  <text x="60" y="203" text-anchor="end" font-size="11" fill="#555">択一式</text>
+  <rect x="66" y="192" width="234" height="14" rx="2" fill="#eef1f4"/>
+  <rect x="66" y="192" width="176" height="14" rx="2" fill="#2e6da4"/>
+  <text x="248" y="203" font-size="11" font-weight="bold" fill="#3a7d44">75%</text>
+  <text x="60" y="223" text-anchor="end" font-size="11" fill="#555">記述式</text>
+  <rect x="66" y="212" width="234" height="14" rx="2" fill="#eef1f4"/>
+  <rect x="66" y="212" width="105" height="14" rx="2" fill="#d4a017"/>
+  <text x="177" y="223" font-size="11" font-weight="bold" fill="#b22234">45%</text>
+  <rect x="306" y="195" width="88" height="26" rx="8" fill="#f8d7da"/>
+  <text x="350" y="212" text-anchor="middle" font-size="11" font-weight="bold" fill="#a31f2f">口頭でリスク</text>
+
+  <!-- 60% vertical threshold line -->
+  <line x1="206" y1="52" x2="206" y2="232" stroke="#444" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- axis -->
+  <line x1="66" y1="236" x2="300" y2="236" stroke="#ccc" stroke-width="1"/>
+  <line x1="66" y1="236" x2="66" y2="239" stroke="#ccc" stroke-width="1"/>
+  <line x1="206" y1="236" x2="206" y2="239" stroke="#ccc" stroke-width="1"/>
+  <line x1="300" y1="236" x2="300" y2="239" stroke="#ccc" stroke-width="1"/>
+  <text x="66" y="250" text-anchor="middle" font-size="11" fill="#888">0%</text>
+  <text x="206" y="250" text-anchor="middle" font-size="11" fill="#888">60%</text>
+  <text x="300" y="250" text-anchor="middle" font-size="11" fill="#888">100%</text>
+</svg>
