@@ -432,7 +432,7 @@ export default async function DocPage({
                     </div>
                   );
                 })()}
-              <TableOfContents headings={headings} />
+              {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
               {hasCategoryNavCard && category && (
                 <div className="mt-3">
                   <CategoryNavCard
