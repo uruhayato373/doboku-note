@@ -77,7 +77,7 @@ docs/x-posts/draft/**/status.json
 !/.tmp/.gitkeep
 !/.tmp/README.md
 
-# exam-keyword-cycle Umbrella Issue drafts (ephemeral, regenerable)
+# exam-keyword-cycle 進捗サマリ drafts (ephemeral, regenerable)
 .claude/state/exam-keyword-cycles/umbrella-drafts/*.md
 
 # Claude Code harness runtime state（マシンごとに生成される lock ファイル）

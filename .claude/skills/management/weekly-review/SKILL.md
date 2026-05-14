@@ -163,17 +163,18 @@ B. 実験進捗レポート:
 |---|---|---|---|
 | YYYY-MM-DD | R07 Ⅰ-1-N | N 件 | #N |
 
-### 年度別 Umbrella
-<!-- progress.json.umbrella_issues から Issue 番号・状態・進捗% を surface -->
+### 年度別 進捗
+<!-- progress.json の covered と exam-question-keywords.json から full-cycle 件数・進捗% を surface。
+     人間用ビューは .claude/state/exam-keyword-cycles/umbrella-drafts/*.md（sync-umbrella.mjs で再生成）。 -->
 
-| 年度 | Umbrella | 状態 | 進捗 | 先週比 |
-|---|---|---|---|---|
-| R07-primary | #36 | open | N/40 (N%) | +M |
-| R06-primary | #37 | open | N/40 (N%) | +M |
-| R05-primary | #38 | open | N/40 (N%) | +M |
-| R04-primary | #39 | open | N/40 (N%) | +M |
-| R03-primary | #40 | open | N/40 (N%) | +M |
-| **全体** | **#41 (親)** | **open** | **N/200 (N%)** | **+M** |
+| 年度 | 進捗 | 先週比 |
+|---|---|---|
+| R07-primary | N/40 (N%) | +M |
+| R06-primary | N/40 (N%) | +M |
+| R05-primary | N/40 (N%) | +M |
+| R04-primary | N/40 (N%) | +M |
+| R03-primary | N/40 (N%) | +M |
+| **全体** | **N/200 (N%)** | **+M** |
 
 ### 次週の候補
 1. R07 Ⅰ-1-X（未カバー最優先）
@@ -182,7 +183,7 @@ B. 実験進捗レポート:
 
 注意:
 - 今週のサイクルが 0 件なら「今週の実施: なし」と記録し、次週候補のみ surface
-- カバー率 100% の年度は「全問カバー済み」と明記し、年度 Umbrella を close する（次年度 Umbrella を generate-umbrella.mjs で作成）
+- カバー率 100% の年度は「全問カバー済み」と明記する（次年度分は generate-umbrella.mjs の TARGET_YEARS で管理）
 ```
 
 #### Agent E: 校正学習の蒸留
@@ -345,7 +346,7 @@ mkdir -p docs/project/pdca
 
 ## PSI パフォーマンス推移
 
-<!-- Agent C2 が .claude/state/metrics/psi/ と open/closed Issues から自動生成。
+<!-- Agent C2 が .claude/state/metrics/psi/ と .claude/state/task-queue.json から自動生成。
      今週の違反件数、スコア前週比、新規/解消した違反を記録。 -->
 
 ### Core Web Vitals 前週比

@@ -1,5 +1,5 @@
 /**
- * Umbrella Issue body の共通ビルダー + catalog/progress 読込ユーティリティ。
+ * 年度/親の進捗サマリ body の共通ビルダー + catalog/progress 読込ユーティリティ。
  *
  * generate-umbrella.mjs / sync-umbrella.mjs / verify-cycle-completeness.mjs から import する。
  *
@@ -115,14 +115,10 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
   const percent = total > 0 ? Math.round((fullCount / total) * 1000) / 10 : 0;
   const label = yearLabel(examSlug);
   const threshold = cemQaThresholdFor(examSlug);
-  const parentIssue = progress.umbrella_issues?.parent;
 
   let body = '';
   body += `## 関連ロードマップ\n`;
   body += `[docs/project/25_過去問起点校正サイクルロードマップ.md](../blob/main/docs/project/25_過去問起点校正サイクルロードマップ.md)\n\n`;
-  if (parentIssue) {
-    body += `**親 Umbrella**: #${parentIssue}\n\n`;
-  }
   body += `## 進捗\n`;
   body += `**${fullCount}/${total} full-cycle (${percent}%)** <!-- sync marker: progress -->\n\n`;
   body += `> 完了判定: 全 slugs 処理済み × cem-qa ≥ ${threshold}。`;
@@ -171,7 +167,7 @@ export function buildYearUmbrellaBody(examSlug, progress, catalog) {
   body += `- checkbox は \`/exam-keyword-cycle\` が自動で更新する（手動で触らない）\n`;
   body += `- 進捗状態の真実源: \`.claude/state/exam-keyword-cycles/progress.json\`\n`;
   body += `- cem-qa 閾値: R03/R04 は **2.5**、他年度は 2.0\n`;
-  body += `- 全 checkbox が full-cycle で close → 次年度 Umbrella へ\n\n`;
+  body += `- 全 checkbox が full-cycle になったら年度完了 → 次年度 draft へ\n\n`;
 
   body += `## 参照\n\n`;
   body += `- スキル: \`.claude/skills/quality/exam-keyword-cycle/SKILL.md\`\n`;
@@ -207,18 +203,16 @@ export function buildParentUmbrellaBody(progress, catalog) {
     totalAll += t;
     fullAll += fullCount;
     const p = t > 0 ? Math.round((fullCount / t) * 1000) / 10 : 0;
-    const issueNum = progress.umbrella_issues?.[exam];
-    const link = issueNum ? `#${issueNum}` : '_未作成_';
-    rows.push(`| ${yearLabel(exam)} | ${link} | ${fullCount}/${t} full (${p}%) |`);
+    rows.push(`| ${yearLabel(exam)} | ${fullCount}/${t} full (${p}%) |`);
   }
   const percentAll = totalAll > 0 ? Math.round((fullAll / totalAll) * 1000) / 10 : 0;
 
   body += `## 全体進捗\n`;
   body += `**${fullAll}/${totalAll} full-cycle (${percentAll}%)** <!-- sync marker: overall-progress -->\n\n`;
 
-  body += `## 年度別 Umbrella\n\n`;
-  body += `| 年度 | Umbrella | 進捗 |\n`;
-  body += `|---|---|---|\n`;
+  body += `## 年度別 進捗\n\n`;
+  body += `| 年度 | 進捗 |\n`;
+  body += `|---|---|\n`;
   body += rows.join('\n') + '\n';
   body += `<!-- sync marker: year-umbrellas -->\n\n`;
 
@@ -226,9 +220,9 @@ export function buildParentUmbrellaBody(progress, catalog) {
   body += `<!-- sync marker: this-week -->\n\n`;
 
   body += `## 運用\n\n`;
-  body += `- 本 Issue は **永続**（close しない）\n`;
-  body += `- 各年度 Umbrella は全問 full-cycle で close → 次年度 Umbrella を作成\n`;
-  body += `- 週次 \`/weekly-review\` Agent F が本 Issue のサマリを \`[PDCA] YYYY-Www\` に埋め込む\n`;
+  body += `- 本 draft は全体進捗の常設ビュー（progress.json から再生成、close の概念なし）\n`;
+  body += `- 各年度 draft は全問 full-cycle になったら年度完了\n`;
+  body += `- 週次 \`/weekly-review\` が本 draft のサマリを \`docs/project/pdca/YYYY-Www.md\` に反映\n`;
   body += `- 対象年度は直近 7 年（R07〜R01 primary）。追加年度が必要なら \`umbrella-builder.mjs\` の \`TARGET_YEARS\` を拡張\n\n`;
 
   body += `## 参照\n\n`;

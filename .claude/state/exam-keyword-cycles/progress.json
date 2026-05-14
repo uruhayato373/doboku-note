@@ -1,16 +1,6 @@
 {
   "version": 1,
   "description": "過去問起点の校正サイクル進捗。/exam-keyword-cycle スキルが読み書きする。",
-  "umbrella_issues": {
-    "pe-comprehensive-management-r07-primary": 36,
-    "pe-comprehensive-management-r06-primary": 37,
-    "pe-comprehensive-management-r05-primary": 38,
-    "pe-comprehensive-management-r04-primary": 39,
-    "pe-comprehensive-management-r03-primary": 40,
-    "parent": 41,
-    "pe-comprehensive-management-r02-primary": 114,
-    "pe-comprehensive-management-r01-primary": 115
-  },
   "covered": {
     "pe-comprehensive-management-r07-primary": {
       "1-1": {

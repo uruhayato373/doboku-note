@@ -249,7 +249,7 @@ CLAUDE.md「ハーネス設計原則」との整合:
 - `.claude/skills/authoring/improve-article/SKILL.md` — 校正オーケストレータ
 - `.claude/skills/quality/review-mobile/SKILL.md` — モバイル視認性ルール
 - `.claude/state/proofread-learnings/` — 過去の学習ログ蓄積先
-- `.github/ISSUE_TEMPLATE/rubric-review.md` — 採点ルーブリック議論用 Issue テンプレ
-- `.github/ISSUE_TEMPLATE/rewrite-method.md` — リライト方法論議論用 Issue テンプレ
-- `.claude/skills/quality/exam-keyword-cycle/SKILL.md` §「Issue 駆動継続改善ループ」 — 本スキルとの連携全体図
+- `docs/project/30_採点ルーブリック方針.md` — 採点ルーブリック（cem-qa 5 軸）の最新版・議論履歴
+- `docs/project/31_リライト方法論方針.md` — リライト方法論（4 視点 + 拡張パターン）の最新版・議論履歴
+- `.claude/skills/quality/exam-keyword-cycle/SKILL.md` — 過去問起点の校正サイクル（本スキルとの連携全体図）
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離・パラメタ化優先

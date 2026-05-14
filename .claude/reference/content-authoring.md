@@ -99,7 +99,7 @@ $$\text{価値} = \frac{\text{機能}}{\text{コスト}}$$
 
 **例外**: **インライン数式（`$...$`）では `\dfrac` を使わない**。行内に displaystyle の分数が入ると高さが異常に増え、行間レイアウトが崩れる。インラインの `$\frac{1}{2}$` のような Latin/数字の短い分数は `\frac` のままで OK。
 
-**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-1（MEDIUM）で、`\frac{}` 内に `\text{}` を含む箇所が検出され警告される。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。本ルールの継続改善は [KaTeX 品質 Issue](https://github.com/uruhayato373/doboku-note/issues?q=label%3Amath+label%3Aquality) で追跡。
+**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-1（MEDIUM）で、`\frac{}` 内に `\text{}` を含む箇所が検出され警告される。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。本ルールの継続改善が必要になったら `.claude/state/task-queue.json` に `category: quality` で登録する。
 
 ## モバイル視認性（詳細ルール）
 

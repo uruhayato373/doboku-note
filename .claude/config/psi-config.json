@@ -28,9 +28,11 @@
     "timezone_note": "JST 02:00 daily (UTC 17:00)"
   },
   "notify": {
-    "github_issue_on_threshold": true,
-    "issue_labels": ["performance", "auto-generated"],
-    "issue_title_prefix": "[PSI] しきい値割れ検知"
+    "task_queue_on_threshold": true,
+    "task_category": "infra",
+    "task_priority": "high",
+    "task_source": "ci:psi-audit",
+    "dedupe_key": "ci:psi-audit:threshold"
   },
   "publish": {
     "branch": "metrics-data",

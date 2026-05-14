@@ -113,7 +113,7 @@ jobs:
               echo ""
               echo "### 参考"
               echo "- 2026-W16 事件（BAILOUT_TO_CLIENT_SIDE_RENDERING / 6 日データ欠損）の再発防止"
-              echo "- 関連 Umbrella: #130"
+              echo "- 関連: .claude/reference/measurement-incidents.md（2026-W16 BAILOUT）"
               echo "- workflow: \`.github/workflows/uptime-ping.yml\`"
             } > /tmp/failure-report.md
 

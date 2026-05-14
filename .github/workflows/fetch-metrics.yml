@@ -49,7 +49,7 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data
 
-      - name: Check data integrity (Issue #130-A)
+      - name: Check data integrity
         id: integrity
         continue-on-error: true
         run: |
@@ -57,7 +57,7 @@ jobs:
           node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
           echo "exit_code=$?" >> $GITHUB_OUTPUT
 
-      - name: Check daily anomaly (Issue #130-B)
+      - name: Check daily anomaly
         id: anomaly
         continue-on-error: true
         run: |

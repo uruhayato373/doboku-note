@@ -4,7 +4,8 @@
 
 - 最終更新: 2026-04-28（v3: Carousel + Reels 両軸へ転換、YT Shorts mp4 を IG Reels に流用）
 - 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v5・X / YouTube / Instagram 統合、Reels 流用ハイブリッド）
-- 関連: [05_収益化戦略.md](./05_収益化戦略.md)（iOS・note・YouTube 3 本柱）, [Umbrella Issue #161](https://github.com/uruhayato373/doboku-note/issues/161)
+- 関連: [05_収益化戦略.md](./05_収益化戦略.md)（iOS・note・YouTube 3 本柱）
+- 実行タスク: `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤、親）と子タスク T-003〜T-005
 
 ## v1 からの変更点（2026-04-26 v2）
 
@@ -19,7 +20,7 @@
 
 | 項目 | v2（撤回） | v3（採用） | 理由 |
 |---|---|---|---|
-| Reels 着手時期 | Phase 3-4（試験後 2026-08〜） | **Phase 1 から流用開始** | YT Shorts MVP（#166）が生成する mp4 を Meta Graph API に投げるだけで実装可能 |
+| Reels 着手時期 | Phase 3-4（試験後 2026-08〜） | **Phase 1 から流用開始** | YT Shorts MVPが生成する mp4 を Meta Graph API に投げるだけで実装可能 |
 | Reels 生成技術 | 独自 ffmpeg / Remotion パイプライン | **YT Shorts MVP の mp4 を流用** | 共通基盤 sns-common の真価。追加実装 ≈ 100 行（ig-reel-publish.mjs 1 日） |
 | Reels vs Carousel 比率 | 未決（Phase 3 着手時に判断） | **Phase 1 は Carousel 週 2 + Reels 週 3 で開始** | データドリブンで 6 週後にトリガー判定 |
 | 投稿頻度 | 未決（Phase 1 試走後判断） | **Carousel 週 2（火金 07:00）+ Reels 週 3（月水金 19:30）= 週 5 タッチ** | YT Shorts と同時投稿のため追加コストなし |
@@ -36,7 +37,7 @@
 - Meta 広告出稿（オーガニックのみ）
 - ~~投稿 API 連携（Phase 1〜3 は Meta Business Suite で手動予約投稿）~~ → **v2 で撤回**: Phase 1 から API 連携を実施。Meta Business Suite は障害時のフォールバックのみ
 - ~~他 SNS（X・YouTube・TikTok）との共通基盤化（各 SNS は独立設計）~~ → **v2 で撤回**: YouTube とは `.claude/scripts/lib/sns-common/` で基盤を共有（X・TikTok は引き続き独立）
-- ~~Reels は Phase 3-4 で defer（ffmpeg / Remotion で独自生成）~~ → **v3 で撤回**: Phase 1 から YT Shorts MVP（#166）の mp4 を Meta Graph API REELS endpoint に流用投稿（ig-reel-publish.mjs）
+- ~~Reels は Phase 3-4 で defer（ffmpeg / Remotion で独自生成）~~ → **v3 で撤回**: Phase 1 から YT Shorts MVPの mp4 を Meta Graph API REELS endpoint に流用投稿（ig-reel-publish.mjs）
 
 ### 07_SNS集客戦略との関係
 親戦略 v5 では Instagram は「Carousel + Reels の両軸で Q3 から並列稼働」と位置づけられている。本書は **Q3 までに Phase 1 基盤を整備し、Carousel と Reels の両方を同時稼働できる状態を作る** ためのインフラ設計に特化する。投稿頻度・KPI・トリガー判定の詳細は親戦略 §2.3 を参照。
@@ -125,10 +126,12 @@ Meta Graph API v18+ で自動投稿（共通基盤 media-uploader.mjs 経由）
 .tmp/instagram/                    # 生成物置き場（gitignore 済）
 ```
 
-### 情報蓄積 3 層モデルとの整合
-- **Tier 1（状態）**: 投稿キュー運用は [docs-issue-separation.md](../.claude/reference/docs-issue-separation.md) に従い GitHub Umbrella Issue で管理（投稿予定・済 → label: `ig-post-queue`）。`queue.json` は「次週分の実行指示」だけ保持
-- **Tier 2（固定知識）**: 本書 + `SKILL.md` + `.claude/config/ig-post/*.json`
-- **Tier 3（機械データ）**: `.claude/state/ig-post/*.json`
+### 情報アーキテクチャ（4 ゾーンモデル）との整合
+情報の置き場ルールは [information-architecture.md](../../.claude/reference/information-architecture.md) に従う。
+
+- **タスク（実行）**: 投稿自動化基盤の整備タスクは `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤）配下で管理。`queue.json` は「次週分の実行指示」だけ保持
+- **固定知識（Why / 設計）**: 本書 + `SKILL.md` + `.claude/config/ig-post/*.json`
+- **機械データ（State）**: `.claude/state/ig-post/*.json`
 
 ## 5. 技術選定と理由
 
@@ -138,7 +141,7 @@ Meta Graph API v18+ で自動投稿（共通基盤 media-uploader.mjs 経由）
 | 既存 SVG の埋め込み | `<img src="data:image/svg+xml;base64,...">` | Satori が外部 SVG を直接読めないため base64 inline で強制的に解決 |
 | Reels（v3 採用） | **YT Shorts MVP の mp4 を流用** | ffmpeg / Remotion 独自生成 | 共通基盤 sns-common により追加実装ほぼゼロ。同 mp4 を YT/IG 両方に投稿してもアルゴリズム重複なし（YT=検索、IG=Explore/フィード） |
 | 旧 Reels Phase 3 | ~~ffmpeg + 既存 PNG~~ | — | **v3 で撤回**: YT Shorts mp4 流用に統合 |
-| 旧 Reels Phase 4 | ~~Remotion 高度 Reel~~ | — | **v3 で defer**: 型 8（数字カウントダウン等）が必要になったら #168 で再検討 |
+| 旧 Reels Phase 4 | ~~Remotion 高度 Reel~~ | — | **v3 で defer**: 型 8（数字カウントダウン等）が必要になったら task-queue T-005 で再検討 |
 | フォント | Noto Sans JP Bold + Inter Bold | Google Fonts 他 | OGP と共用（既配置済み・ライセンス確認済み） |
 | 改行戦略 | OGP の 4 層戦略流用 | 新規設計 | `lib/jp-text-wrap.mjs` に抽出し OGP/IG 両方から import。OGP の改行テストが資産 |
 | 画像サイズ | **1080×1350 (4:5)** | 1080×1080 (1:1) | 4:5 の方がフィードでの占有面積が大きい。情報密度を上げられる |
@@ -157,17 +160,17 @@ v3 で Reels/Carousel 振り分けを明示。**Reels は YT Shorts の mp4 を�
 
 | # | 型 ID | 名称 | フォーマット | スライド数/尺 | 素材ベース | 着手 Phase |
 |---|---|---|---|---|---|---|
-| 1 | `definition` | キーワード定義カード | **Carousel** | 7 枚 | MDX + Satori | Phase 1（#165） |
-| 2 | `illustrated` | 図解キーワード解説 | **Carousel** | 7-10 枚 | 既存 SVG + Satori | Phase 2（#168） |
-| 3 | `quiz` | 5 択クイズ | **Carousel** | 5 枚 | 過去問 MDX 抽出 | Phase 1（#165） |
-| 4 | `compare` | 用語比較（FMEA vs FTA 等） | **Carousel** | 5 枚 | 既存 SVG or 表 | Phase 2（#168） |
-| 5 | `past-question` | 過去問 → キーワード逆引き | **Carousel** | 5-7 枚 | 過去問 MDX 流用 | Phase 2（#168） |
-| 6 | `mnemonic` | 覚え方・語呂 | **Carousel** | 1-3 枚 | テキスト画像 | Phase 2（#168） |
+| 1 | `definition` | キーワード定義カード | **Carousel** | 7 枚 | MDX + Satori | Phase 1 |
+| 2 | `illustrated` | 図解キーワード解説 | **Carousel** | 7-10 枚 | 既存 SVG + Satori | Phase 2 |
+| 3 | `quiz` | 5 択クイズ | **Carousel** | 5 枚 | 過去問 MDX 抽出 | Phase 1 |
+| 4 | `compare` | 用語比較（FMEA vs FTA 等） | **Carousel** | 5 枚 | 既存 SVG or 表 | Phase 2 |
+| 5 | `past-question` | 過去問 → キーワード逆引き | **Carousel** | 5-7 枚 | 過去問 MDX 流用 | Phase 2 |
+| 6 | `mnemonic` | 覚え方・語呂 | **Carousel** | 1-3 枚 | テキスト画像 | Phase 2 |
 | 7 | `skima-time` | スキマ時間キーワード | **Reels（YT 流用）** | 30-60 秒 | YT Shorts mp4 | **Phase 1（v3 前倒し）** |
-| 8 | `weekly-top5` | 今週の頻出 Top5 | **Reels（YT 流用）or Carousel** | 30-60 秒 / 6-7 枚 | YT Shorts mp4 or テキスト画像 | Phase 2（#168） |
+| 8 | `weekly-top5` | 今週の頻出 Top5 | **Reels（YT 流用）or Carousel** | 30-60 秒 / 6-7 枚 | YT Shorts mp4 or テキスト画像 | Phase 2 |
 
 **Reels 投稿対象（type7/type8）の選定基準**:
-- YT Shorts MVP（#166）が生成する全 mp4 が IG Reels の流用対象
+- YT Shorts MVPが生成する全 mp4 が IG Reels の流用対象
 - queue.json の `media_type: "reel"` で IG Reels 投稿、`media_type: "carousel"` で Carousel 投稿を指定
 - 同一キーワードで Carousel + Reels を両方投稿することも可能（ザイオンス効果）
 
@@ -246,7 +249,7 @@ v3 で Carousel と Reels の 2 系統並行運用に。
 1. queue.json に投稿予定を追加（YT Shorts と同じ slug を指定）
      [{ slug: "mbo", date: "2026-05-01", media_type: "reel" }, ...]
           ↓
-2. YT Shorts MVP（#166）が事前に mp4 を生成
+2. YT Shorts MVPが事前に mp4 を生成
      .tmp/yt-shorts/2026-05-01/mbo.mp4
           ↓
 3. node ig-reel-publish.mjs --slug mbo --date 2026-05-01
@@ -302,15 +305,15 @@ v3 で Carousel と Reels の 2 系統並行運用に。
 | **3 ~~Reels 着手~~** | — | **v3 で撤回**: Phase 1 に統合済み | — |
 | **4 高度 Reel（必要時）** | 必要時 | Remotion 導入・型8 週次 Top5（数字カウント等）の独自アニメーション | YT 流用ではなくアニメ付き独自 Reel 投稿 |
 
-Phase 0 を YouTube と並行で先行整備（Issue #164 SNS-0）。Phase 1 で「Carousel + Reels 流用の運用インフラ完成」、Phase 2 は試験後（2026-08 以降）の継続運用で型拡充する想定。Phase 0 と Phase 1 は 2026-04〜06 に整備（2026-07 試験前に稼働可能）。Phase 4 は KPI 評価で必要性が確認された場合のみ。
+Phase 0 を YouTube と並行で先行整備（SNS-0、共通基盤整備として完了済み）。Phase 1 で「Carousel + Reels 流用の運用インフラ完成」、Phase 2 は試験後（2026-08 以降）の継続運用で型拡充する想定。Phase 0 と Phase 1 は 2026-04〜06 に整備（2026-07 試験前に稼働可能）。Phase 4 は KPI 評価で必要性が確認された場合のみ。
 
 ### 実行タスクの管理場所
 
-本書は Why・設計の固定知識。**具体的な実行タスク・進捗・完了判定は GitHub Umbrella Issue で管理**する（[docs-issue-separation.md](../.claude/reference/docs-issue-separation.md) 参照）。
+本書は Why・設計の固定知識。**具体的な実行タスク・進捗・完了判定は `.claude/state/task-queue.json` で管理**する（情報の置き場ルールは [information-architecture.md](../../.claude/reference/information-architecture.md)）。
 
-- Umbrella Issue（作成予定）: `[Umbrella] Instagram 投稿自動化基盤整備`
-- Phase ごとに子 Issue を切る（`[IG-1] MVP`・`[IG-2] 型拡充` 等）
-- ラベル: `umbrella` / `ig-post`
+- 親タスク: **T-001（SNS 自動投稿基盤）**。Instagram 関連の実装タスクはこの配下に置く
+- Phase ごとに子タスクを `parent: "T-001"` で登録（既存の T-003〜T-005 が IG 関連の子タスク）
+- 人間用ビューは `docs/project/TODO.md`（`npm run build-todo` で生成）
 
 ## 9. 未決事項
 
@@ -336,8 +339,8 @@ Phase 0 を YouTube と並行で先行整備（Issue #164 SNS-0）。Phase 1 で
 | 画像生成のデザイン品質が単調になる | 中 | Carousel 型を 6-8 種持つことで視覚的飽和を防ぐ。Phase 2 で拡張 |
 | アカウント BAN（Meta の規約違反） | 低 | 過去問の著作権配慮・出典明記・無断転載回避 |
 | Satori の CSS 制約で表現したい図が作れない | 低〜中 | 既存 SVG の base64 inline で逃げる。Satori 単体で足りなければ該当スライドだけ Playwright screenshot で代替 |
-| 運用者の投稿作業負荷 | 低 | Meta Graph API 完全自動化（v2）+ queue.json バッチ仕込み + cron スケジューラ（#167）により、月の人手介入は 5 分以内（目視確認のみ） |
-| YT Shorts mp4 が IG で「品質低」判定 | 低 | yt-shorts-create.mjs の出力が IG ガイドライン（H.264 yuv420p, AAC 128k, ≤ 1080×1920, ≤ 60 秒）に準拠していることを #166 で確認 |
+| 運用者の投稿作業負荷 | 低 | Meta Graph API 完全自動化（v2）+ queue.json バッチ仕込み + cron スケジューラ（task-queue T-004）により、月の人手介入は 5 分以内（目視確認のみ） |
+| YT Shorts mp4 が IG で「品質低」判定 | 低 | yt-shorts-create.mjs の出力が IG ガイドライン（H.264 yuv420p, AAC 128k, ≤ 1080×1920, ≤ 60 秒）に準拠していることを YT Shorts 生成時に確認 |
 | 同 mp4 を YT/IG 投稿で「リポスト」判定されエンゲージ低下 | 低 | IG はクリエイターのクロスポスト推奨。他社プラットフォームのウォーターマーク検知のみペナルティ。自家製エンコード mp4 ならウォーターマークなし |
 | Meta API REELS endpoint の仕様変更 | 中 | media-uploader.mjs に集約してあるため切替コストは局所的 |
 | Reels 平均リーチが Carousel の 3 倍未満 | 中 | 6 週運用後の KPI トリガーで判定（縮小: Reels 月 1 本 + Carousel 週 3 / 維持: 現状 / 拡大: Reels 比率引き上げ） |
@@ -347,5 +350,5 @@ Phase 0 を YouTube と並行で先行整備（Issue #164 SNS-0）。Phase 1 で
 - 親戦略: [07_SNS集客戦略.md](./07_SNS集客戦略.md)（v5・X / YouTube / Instagram 統合、Reels 流用ハイブリッド）— YouTube 戦略は本書と同 doc 内に統合済み。Instagram は Carousel + Reels の両軸で YouTube と共通基盤を共有
 - 収益化戦略: [05_収益化戦略.md](./05_収益化戦略.md)（動線先の note・iOS アプリ）
 - 既存 OGP スキル: `.claude/skills/content/ogp-create/SKILL.md`（本書の設計ベース）
-- Tier 分離ルール: [.claude/reference/docs-issue-separation.md](../.claude/reference/docs-issue-separation.md)
+- 情報の置き場ルール: [.claude/reference/information-architecture.md](../../.claude/reference/information-architecture.md)
 - SVG 作成ルール: `.claude/skills/content/create-svg/SKILL.md`（既存 SVG の再利用ガイド）
