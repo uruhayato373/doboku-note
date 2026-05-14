@@ -31,7 +31,7 @@ MDX 品質に関する 8 種類の検査ルールを 1 つのスキルに統合�
 |---|---|---|---|---|
 | `syntax` | ERROR/WARN | MDX 全般 | MDX 構文（`{}` エスケープ、`<>` タグ、見出し階層、テーブル、数式、Docusaurus 拡張） | Claude 読解 |
 | `frontmatter` | HIGH/MEDIUM/LOW | frontmatter | zod スキーマ + 内容（description 長・publishedAt・tags allowlist） | `.claude/scripts/lint-frontmatter.mjs` |
-| `links` | HIGH | 外部・内部リンク | HTTP HEAD で外部 URL 死活、内部 `/docs/` パス存在確認 | `scripts/rules/links/` |
+| `links` | HIGH/INFO | 外部・内部リンク | HTTP HEAD で外部 URL 死活、内部 `/docs/`・`/category/` slug 存在＋`#anchor` 断片検証（note ドラフトも対象） | `scripts/rules/links/` |
 | `svg` | HIGH/MEDIUM/LOW | 埋込 SVG | 文字クリップ、必須属性、viewBox 幅、font-size、テキスト重なり、色トークン | `scripts/rules/svg/` |
 | `staging` | — | Obsidian ステージング | 公開準備度（5 軸 15 点評価） | Claude 読解 |
 | `explanations` | HIGH/MEDIUM | 過去問解説 | 破損解説パターン（P1-headless / P2-examPoint-empty） | `scripts/rules/explanations/` |
@@ -109,7 +109,9 @@ Docusaurus 3.x / MDX v3 のビルドエラーを未然に防ぐ。
 
 ### links — 外部 URL + 内部リンク
 
-外部 URL は HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。
+#### 外部 URL（`check-external-links.mjs`）
+
+HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `.local/r2/posts/**`。
 
 **分類**:
 - ❌ リンク切れ（404/410）→ 要修正
@@ -119,9 +121,30 @@ Docusaurus 3.x / MDX v3 のビルドエラーを未然に防ぐ。
 
 **自動修正**: `--fix` 指定時、リンク切れに対して WebSearch で代替 URL 検索 → Edit 提案
 
+#### 内部リンク（`check-links.mjs`）
+
+決定的検証（ネットワーク不要・誤検出ゼロ）。`.local/r2/posts/**` と `docs/note/**/article.md` の両方を走査。
+
+**対象リンク形式**: 相対 `[text](/docs/slug)`、絶対 `[text](https://doboku-note.com/docs/slug)`、裸 URL（note リンクカード形式）。
+
+**検証内容**:
+- `BROKEN_SLUG` (HIGH): `/docs/{slug}` の slug が `.local/r2/posts` 由来の有効 slug 集合に無い
+- `BROKEN_ANCHOR` (HIGH): `#anchor` 断片がリンク先ページの見出し ID 集合に無い（`#lib/heading-id.mjs` で一般版・過去問変種の両 ID を許容）
+- `BROKEN_CATEGORY` / `BROKEN_STATIC` (HIGH): `/category/{slug}`・静的ページの存在確認
+- `PLACEHOLDER` (INFO): note.com マガジンの `PLACEHOLDER_*`（未発売プレースホルダ。ブロック対象外）
+
+**フラグ**:
+- `--scope note|site|all`（既定 `all`）
+- `--json` — `{ meta, summary, findings[] }` を stdout 出力
+- `--report <dir>` — `audit-{timestamp}.json` + `latest-report.md` を書き出す
+
 **実行**:
 - 外部: `node .claude/skills/quality/check-mdx/scripts/rules/links/check-external-links.mjs`
-- 内部: `node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs`
+- 内部: `npm run check-links`（= `check-links.mjs`。`-- --scope note` 等を付与可）
+
+#### 定期監査（`link-audit.yml`）
+
+`.github/workflows/link-audit.yml` が毎週土曜 07:00 JST に `npm run check-links-audit`（`--scope all --report`）を実行し、`.claude/state/link-audit/` に結果を蓄積して develop へ `[skip ci]` commit する。Issue は起票せず、`latest-report.md` 自体が記録。
 
 ### svg — 埋込 SVG 品質
 
