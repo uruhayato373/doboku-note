@@ -1,0 +1,8 @@
+{
+  "meta": {
+    "schema": 1,
+    "updated_at": "2026-05-14T00:00:00.000Z",
+    "description": "doboku-note の全タスクの単一正源。スキーマ・運用ルールは .claude/reference/information-architecture.md を参照。人間用ビューは docs/project/TODO.md（npm run build-todo で生成）。"
+  },
+  "tasks": []
+}
