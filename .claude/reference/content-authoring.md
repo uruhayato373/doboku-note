@@ -31,6 +31,25 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - `<ArticleImage src="..." alt="..." width={N} height={N} />` — 画像（`<figure>` セマンティクス付き）。**`caption` は使わない** — [content-principles §8](../content-principles.md) 参照。詳細は「画像コンポーネントの使い分け」
 - `<details><summary>解答・解説</summary>...</details>` — 開閉式セクション（過去問で使用）
 - `<Timeline>`, `<PdcaCycle>` — 時系列・サイクル表示
+- `<SeeAlso href="/docs/slug" title="..." reason="..." />` — 内部 doboku-note ページへの「あわせて読みたい」カード
+- `<NoteLink url="..." title="..." description="..." coverImage="..." />` — **note 記事への導線専用カード**（リンク系の使い分けは下記参照）
+- `<LinkCard url="..." title="..." description="..." siteName="..." imageUrl="..." category="..." />` — 一般外部 URL のカード
+- `<MagazineInlineCard>` / `<MagazineSidebarCard>` — note magazine（有料）販売ページへのカード
+
+## リンク系コンポーネントの使い分け
+
+リンク先の種別ごとに使うコンポーネントを固定する。**サイト全体のリンク表現を統一するための真実源**。
+
+| リンク先 | 使うもの | 補足 |
+|---|---|---|
+| 内部 doboku-note ページ | `<SeeAlso>`（ブロック）/ markdown リンク（インライン） | ページ間ナビ |
+| **note 記事** | **`<NoteLink>`** | note.com 記事は必ずこれ。生 markdown・`<Callout type="reference">` で note リンクを書かない |
+| note magazine（有料）販売ページ | `<MagazineInlineCard>` / `<MagazineSidebarCard>` | 商品導線 |
+| 書籍・論文 | `<Callout type="reference">` | 参考文献。外部 URL 一般には使わない |
+| 一般外部 URL（公的機関・規格等） | `<LinkCard>` または markdown リンク | note 以外の外部サイト |
+
+- **note 記事リンクは例外なく `<NoteLink>`**。`coverImage` は `/images/note-covers/` 配下を渡す（省略可・省略時はテキストカード）。note.com は OGP の bot 取得をブロックするため `<LinkCard>` の自動取得は機能しない
+- 自動検出: `/check-mdx --rules note-link`（`lint-mdx-mobile.mjs` ルール 8-3）が `<NoteLink>` 外の note リンクを MEDIUM 警告
 
 ## 過去問 MDX の構造ルール
 
@@ -99,7 +118,7 @@ $$\text{価値} = \frac{\text{機能}}{\text{コスト}}$$
 
 **例外**: **インライン数式（`$...$`）では `\dfrac` を使わない**。行内に displaystyle の分数が入ると高さが異常に増え、行間レイアウトが崩れる。インラインの `$\frac{1}{2}$` のような Latin/数字の短い分数は `\frac` のままで OK。
 
-**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-1（MEDIUM）で、`\frac{}` 内に `\text{}` を含む箇所が検出され警告される。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。本ルールの継続改善は [KaTeX 品質 Issue](https://github.com/uruhayato373/doboku-note/issues?q=label%3Amath+label%3Aquality) で追跡。
+**自動検出**: `lint-mdx-mobile.mjs` のカテゴリ 11-1（MEDIUM）で、`\frac{}` 内に `\text{}` を含む箇所が検出され警告される。pre-commit で警告表示、commit はブロックしない（MEDIUM のため）。本ルールの継続改善が必要になったら `.claude/state/task-queue.json` に `category: quality` で登録する。
 
 ## モバイル視認性（詳細ルール）
 

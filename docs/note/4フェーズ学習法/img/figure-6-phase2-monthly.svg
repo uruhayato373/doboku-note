@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#ffffff"/>
+
+  <!-- フェーズヘッダ帯 -->
+  <rect x="0" y="0" width="1200" height="76" fill="#2e6da4"/>
+  <text x="60" y="40" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#ffffff">Phase 2（3 月〜5 月）— 月別タスク</text>
+  <text x="60" y="64" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#c3daf4">目的：受験申込書を仕上げ、択一式・記述式の基礎を固める　週 10〜15 時間</text>
+
+  <!-- 3月カード -->
+  <rect x="60" y="100" width="340" height="376" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="60" y="100" width="340" height="64" rx="8" fill="#2e6da4"/>
+  <rect x="60" y="148" width="340" height="16" fill="#2e6da4"/>
+  <text x="230" y="134" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">3 月</text>
+  <text x="230" y="156" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">受験申込書の設計</text>
+
+  <text x="80" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">メインタスク</text>
+  <circle cx="84" cy="222" r="5" fill="#2e6da4"/>
+  <text x="98" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">業務経歴 5 つを整理</text>
+  <circle cx="84" cy="254" r="5" fill="#2e6da4"/>
+  <text x="98" y="260" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">5 管理視点・トレードオフ</text>
+  <text x="98" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">・成果を言語化</text>
+  <circle cx="84" cy="306" r="5" fill="#2e6da4"/>
+  <text x="98" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">業務内容の詳細（600 字）</text>
+  <text x="98" y="332" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">の骨子を作成</text>
+
+  <line x1="80" y1="352" x2="380" y2="352" stroke="#2e6da4" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="80" y="366" width="300" height="44" rx="6" fill="#fff3cd"/>
+  <text x="230" y="386" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7a5800" text-anchor="middle">提出書類ではなく</text>
+  <text x="230" y="406" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7a5800" text-anchor="middle">「試験の設計図」として書く</text>
+  <text x="80" y="462" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">→ 4 月に申込書を提出</text>
+
+  <!-- 4月カード -->
+  <rect x="430" y="100" width="340" height="376" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="430" y="100" width="340" height="64" rx="8" fill="#2e6da4"/>
+  <rect x="430" y="148" width="340" height="16" fill="#2e6da4"/>
+  <text x="600" y="134" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">4 月</text>
+  <text x="600" y="156" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">申込提出 + 択一式演習</text>
+
+  <text x="450" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">学習配分（80%）</text>
+  <circle cx="454" cy="222" r="5" fill="#2e6da4"/>
+  <text x="468" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">R03-R07 を年度別に解く</text>
+  <circle cx="454" cy="258" r="5" fill="#2e6da4"/>
+  <text x="468" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">選択肢とKW集の紐付け</text>
+  <circle cx="454" cy="294" r="5" fill="#2e6da4"/>
+  <text x="468" y="300" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">計算問題（NPV/PERT/</text>
+  <text x="468" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">損益分岐点）解法習得</text>
+
+  <line x1="450" y1="348" x2="750" y2="348" stroke="#2e6da4" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="450" y="376" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">補助（20%）</text>
+  <circle cx="454" cy="402" r="5" fill="#3a7d44"/>
+  <text x="468" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">弱い管理領域のKW確認</text>
+  <circle cx="454" cy="434" r="5" fill="#d4a017"/>
+  <text x="468" y="440" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">白書の概要把握（任意）</text>
+  <text x="450" y="466" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">→ H28/H29/R02 補助的に</text>
+
+  <!-- 5月カード -->
+  <rect x="800" y="100" width="340" height="376" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="800" y="100" width="340" height="64" rx="8" fill="#2e6da4"/>
+  <rect x="800" y="148" width="340" height="16" fill="#2e6da4"/>
+  <text x="970" y="134" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">5 月</text>
+  <text x="970" y="156" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">記述式の骨子作成練習</text>
+
+  <text x="820" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#1a3a5c">メインタスク</text>
+  <circle cx="824" cy="222" r="5" fill="#2e6da4"/>
+  <text x="838" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">過去問 R03-R07 前文を読み</text>
+  <text x="838" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">テーマ・設定・要求整理</text>
+  <circle cx="824" cy="278" r="5" fill="#2e6da4"/>
+  <text x="838" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">答案を書かず骨子のみ</text>
+  <text x="838" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">各設問の論点確認</text>
+  <circle cx="824" cy="334" r="5" fill="#2e6da4"/>
+  <text x="838" y="340" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">5 管理視点とトレードオフ</text>
+  <text x="838" y="362" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">が網羅されているか確認</text>
+
+  <line x1="820" y1="382" x2="1120" y2="382" stroke="#2e6da4" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="820" y="396" width="300" height="44" rx="6" fill="#fff3cd"/>
+  <text x="970" y="416" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7a5800" text-anchor="middle">択一式の演習も並走</text>
+  <text x="970" y="436" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#7a5800" text-anchor="middle">（80% を維持）</text>
+
+  <text x="1180" y="500" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

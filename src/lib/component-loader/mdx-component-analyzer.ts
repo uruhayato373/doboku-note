@@ -9,6 +9,7 @@ export const availableComponents = {
   RelatedKeywords: "RelatedKeywords",
   SpecSheetList: "SpecSheetList",
   LinkCard: "LinkCard",
+  NoteLink: "NoteLink",
 
   // 投資関連コンポーネント
   CardList: "CardList",

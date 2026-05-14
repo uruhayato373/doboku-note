@@ -1,7 +1,6 @@
 "use client";
 
 import { ExternalLink } from "lucide-react";
-import useSWR from "swr";
 import Image from "next/image";
 
 interface LinkCardClientProps {
@@ -21,40 +20,6 @@ export default function LinkCardClient({
   siteName = "サイト名なし",
   category = "参考資料",
 }: LinkCardClientProps) {
-  // useSWRでメタデータを取得（キャッシュ付き）
-  const {
-    data: metadata,
-    error,
-    isLoading,
-  } = useSWR(
-    url ? `/api/link-metadata?url=${encodeURIComponent(url)}` : null,
-    async (url) => {
-      try {
-        const res = await fetch(url);
-        if (!res.ok) {
-          const errorData = await res.json().catch(() => ({}));
-          throw new Error(
-            errorData.error || `HTTP ${res.status}: ${res.statusText}`
-          );
-        }
-        return res.json();
-      } catch (fetchError) {
-        console.error(`LinkCard fetch error for ${url}:`, fetchError);
-        throw fetchError;
-      }
-    },
-    {
-      revalidateOnFocus: false, // フォーカス時の再検証を無効
-      revalidateOnReconnect: false, // 再接続時の再検証を無効
-      dedupingInterval: 60000, // 1分間の重複リクエストを防止
-      errorRetryCount: 3, // エラー時の再試行回数を増加
-      errorRetryInterval: 2000, // エラー時の再試行間隔を2秒に設定
-      onError: (err) => {
-        console.error(`useSWR error for ${url}:`, err);
-      },
-    }
-  );
-
   const handleClick = () => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
@@ -66,10 +31,10 @@ export default function LinkCardClient({
         className="group cursor-pointer border border-gray-200 dark:border-gray-700 rounded-card-content overflow-hidden shadow-card-content hover:shadow-card-hover transition-all duration-300 bg-white dark:bg-gray-800 max-w-2xl inline-block"
       >
         <span className="flex">
-          {(imageUrl || metadata?.image) && (
+          {imageUrl && (
             <span className="w-32 h-24 flex-shrink-0 overflow-hidden relative inline-block">
               <Image
-                src={imageUrl || metadata?.image || ""}
+                src={imageUrl}
                 alt={title}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -90,24 +55,18 @@ export default function LinkCardClient({
             </span>
 
             <span className="linkcard-title text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors block">
-              {isLoading
-                ? "読み込み中..."
-                : error
-                ? title
-                : metadata?.title || title}
+              {title}
             </span>
 
-            {(description || metadata?.description) && (
+            {description && (
               <span className="text-xs text-gray-600 dark:text-gray-400 mb-2 line-clamp-2 block">
-                {metadata?.description || description}
+                {description}
               </span>
             )}
 
             <span className="flex items-center text-xs text-gray-500 dark:text-gray-400 inline-block">
               {siteName && (
-                <span className="font-medium">
-                  {metadata?.siteName || siteName}
-                </span>
+                <span className="font-medium">{siteName}</span>
               )}
             </span>
           </span>

@@ -1,14 +1,14 @@
 ---
 name: check-mdx
 description: >
-  MDX ファイルの構文・frontmatter・リンク・SVG・法令引用・関連キーワード・過去問解説等を
-  rule ベースで検査する統合 Evaluator スキル。8 rule を `--rules` フラグで選択可能。
+  MDX ファイルの構文・frontmatter・リンク・SVG・法令引用・関連キーワード・note リンク・過去問解説等を
+  rule ベースで検査する統合 Evaluator スキル。9 rule を `--rules` フラグで選択可能。
   pre-commit hook からも利用される。
-  Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, SVG監査, frontmatter チェック, 法令リンク, /check-mdx].
+  Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, SVG監査, frontmatter チェック, 法令リンク, note リンク, /check-mdx].
 user-invocable: true
 ---
 
-MDX 品質に関する 8 種類の検査ルールを 1 つのスキルに統合した Evaluator。旧 `/check-mdx` `/check-frontmatter` `/check-links` `/audit-staging` `/audit-exam-explanations` `/audit-svg` `/check-related-keyword-inline` `/check-legal-citations` を吸収。
+MDX 品質に関する 9 種類の検査ルールを 1 つのスキルに統合した Evaluator。旧 `/check-mdx` `/check-frontmatter` `/check-links` `/audit-staging` `/audit-exam-explanations` `/audit-svg` `/check-related-keyword-inline` `/check-legal-citations` を吸収。
 
 ## 引数
 
@@ -31,12 +31,13 @@ MDX 品質に関する 8 種類の検査ルールを 1 つのスキルに統合�
 |---|---|---|---|---|
 | `syntax` | ERROR/WARN | MDX 全般 | MDX 構文（`{}` エスケープ、`<>` タグ、見出し階層、テーブル、数式、Docusaurus 拡張） | Claude 読解 |
 | `frontmatter` | HIGH/MEDIUM/LOW | frontmatter | zod スキーマ + 内容（description 長・publishedAt・tags allowlist） | `.claude/scripts/lint-frontmatter.mjs` |
-| `links` | HIGH | 外部・内部リンク | HTTP HEAD で外部 URL 死活、内部 `/docs/` パス存在確認 | `scripts/rules/links/` |
+| `links` | HIGH/INFO | 外部・内部リンク | HTTP HEAD で外部 URL 死活、内部 `/docs/`・`/category/` slug 存在＋`#anchor` 断片検証（note ドラフトも対象） | `scripts/rules/links/` |
 | `svg` | HIGH/MEDIUM/LOW | 埋込 SVG | 文字クリップ、必須属性、viewBox 幅、font-size、テキスト重なり、色トークン | `scripts/rules/svg/` |
 | `staging` | — | Obsidian ステージング | 公開準備度（5 軸 15 点評価） | Claude 読解 |
 | `explanations` | HIGH/MEDIUM | 過去問解説 | 破損解説パターン（P1-headless / P2-examPoint-empty） | `scripts/rules/explanations/` |
 | `related-keyword` | MEDIUM | キーワードページ | 末尾「関連キーワード: [A]、[B]」列挙パターン（ルール 8-1） | `.claude/scripts/lint-mdx-mobile.mjs` |
 | `legal-citations` | LOW | 法令引用 | e-Gov 法令検索リンク化されているか（ルール 8-2） | `scripts/rules/legal-citations/` |
+| `note-link` | MEDIUM | note リンク | note 記事リンク（`note.com/dobokunote/n/`）が `<NoteLink>` 外（生 markdown・`<Callout>`・`<LinkCard>`）で書かれていないか（ルール 8-3） | `.claude/scripts/lint-mdx-mobile.mjs` |
 
 ### 全体スキーム
 
@@ -109,7 +110,9 @@ Docusaurus 3.x / MDX v3 のビルドエラーを未然に防ぐ。
 
 ### links — 外部 URL + 内部リンク
 
-外部 URL は HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。
+#### 外部 URL（`check-external-links.mjs`）
+
+HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `.local/r2/posts/**`。
 
 **分類**:
 - ❌ リンク切れ（404/410）→ 要修正
@@ -119,9 +122,30 @@ Docusaurus 3.x / MDX v3 のビルドエラーを未然に防ぐ。
 
 **自動修正**: `--fix` 指定時、リンク切れに対して WebSearch で代替 URL 検索 → Edit 提案
 
+#### 内部リンク（`check-links.mjs`）
+
+決定的検証（ネットワーク不要・誤検出ゼロ）。`.local/r2/posts/**` と `docs/note/**/article.md` の両方を走査。
+
+**対象リンク形式**: 相対 `[text](/docs/slug)`、絶対 `[text](https://doboku-note.com/docs/slug)`、裸 URL（note リンクカード形式）。
+
+**検証内容**:
+- `BROKEN_SLUG` (HIGH): `/docs/{slug}` の slug が `.local/r2/posts` 由来の有効 slug 集合に無い
+- `BROKEN_ANCHOR` (HIGH): `#anchor` 断片がリンク先ページの見出し ID 集合に無い（`#lib/heading-id.mjs` で一般版・過去問変種の両 ID を許容）
+- `BROKEN_CATEGORY` / `BROKEN_STATIC` (HIGH): `/category/{slug}`・静的ページの存在確認
+- `PLACEHOLDER` (INFO): note.com マガジンの `PLACEHOLDER_*`（未発売プレースホルダ。ブロック対象外）
+
+**フラグ**:
+- `--scope note|site|all`（既定 `all`）
+- `--json` — `{ meta, summary, findings[] }` を stdout 出力
+- `--report <dir>` — `audit-{timestamp}.json` + `latest-report.md` を書き出す
+
 **実行**:
 - 外部: `node .claude/skills/quality/check-mdx/scripts/rules/links/check-external-links.mjs`
-- 内部: `node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs`
+- 内部: `npm run check-links`（= `check-links.mjs`。`-- --scope note` 等を付与可）
+
+#### 定期監査（`link-audit.yml`）
+
+`.github/workflows/link-audit.yml` が毎週土曜 07:00 JST に `npm run check-links-audit`（`--scope all --report`）を実行し、`.claude/state/link-audit/` に結果を蓄積して develop へ `[skip ci]` commit する。Issue は起票せず、`latest-report.md` 自体が記録。
 
 ### svg — 埋込 SVG 品質
 
@@ -210,6 +234,16 @@ node .claude/skills/quality/check-mdx/scripts/rules/legal-citations/fix-legal-ci
 ```
 
 **法令番号辞書**: `fix-legal-citations.mjs` の `LAW_ID_MAP`（2026-04-13 時点で 31 件登録、HTTP 200 で検証済み）。新法令追加は `LAW_ID_MAP` に `'{法令名}': '{法令番号}'` を足してから実行。
+
+### note-link — note 記事リンクのコンポーネント統一（`lint-mdx-mobile.mjs` ルール 8-3）
+
+note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コンポーネントに統一する規約（→ `.claude/reference/content-authoring.md`「リンク系コンポーネントの使い分け」）。生 markdown リンク・`<Callout type="reference">` 内・`<LinkCard>` で note 記事リンクを書いている箇所を MEDIUM で検出する。
+
+- magazine リンク（`note.com/dobokunote/m/`）は `<MagazineInlineCard>` 担当のため対象外
+- フェンスコードブロック内は対象外
+- 修正は Generator 側（`<NoteLink>` への置換）が行う。Evaluator は検出のみ
+
+**実行**: `node .claude/scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-3"`
 
 ## 出力フォーマット
 

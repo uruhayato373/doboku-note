@@ -324,4 +324,5 @@ JSON 出力をパースして以下を取得:
 - [.claude/skills/authoring/create-svg/SKILL.md](../create-svg/SKILL.md) — SVG 図版作成
 - [.claude/skills/quality/quality-cycle/SKILL.md](../quality-cycle/SKILL.md) — CEM バルク処理（本スキルと補完関係）
 - [.claude/reference/image-policy.md](../../../reference/image-policy.md) — 図/写真の判定フロー
+- [.claude/reference/content-authoring.md](../../../reference/content-authoring.md) — MDX コンポーネント・リンク系の使い分け（note 記事リンクは `<NoteLink>`）
 - [CLAUDE.md](../../../../CLAUDE.md) — MDX 書き込み規約・コミット運用

@@ -11,7 +11,7 @@
 ```
 日曜〜月曜:
 1. /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
-2. /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・オープン Issue 対応）
+2. /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・task-queue タスク対応）
 ```
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
@@ -27,10 +27,22 @@
 │    ▼                                                            │
 │  develop: .claude/state/metrics/psi/ に JSON 蓄積 [skip ci]     │
 │    │                                                            │
-│    ├─ しきい値違反あり ──► GitHub Issue 自動起票                  │
-│    │                        (label: performance, auto-generated) │
+│    ├─ しきい値違反あり ──► task-queue.json に append            │
+│    │                        (source: ci:psi-audit, dedupe_key 付) │
 │    │                                                            │
 │    └─ しきい値違反なし ──► 記録のみ（通知しない）                  │
+└─────────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 毎週（自動）                                                     │
+│                                                                 │
+│  link-audit.yml (土 07:00 JST)                                  │
+│    │ docs/note/** + .local/r2/posts/** の内部リンク・            │
+│    │ アンカー断片を決定的に検証（npm 依存ゼロ）                   │
+│    ▼                                                            │
+│  develop: .claude/state/link-audit/ に JSON + latest-report.md  │
+│           を蓄積 [skip ci]（broken 件数を commit message に明記）│
 └─────────────────────────────────────────────────────────────────┘
                            │
                            ▼
@@ -40,17 +52,17 @@
 │  /weekly-review                                                 │
 │    │ Agent C2: .claude/state/metrics/psi/ の 7 日分を読み         │
 │    │            前週比を出力                                     │
-│    │            gh issue list で解消/継続 Issue を surface       │
+│    │            task-queue から解消/継続タスクを surface         │
 │    │ Agent E:  /distill-proofread-learnings を呼び出し           │
 │    │            校正学習（新ルール・精緻化・嗜好等）を抽出        │
 │    ▼                                                            │
-│  GitHub Issue: [PDCA] YYYY-Www (label: weekly-pdca)            │
-│    │ PSI 推移 + 校正学習候補 + 計画を Issue body に統合           │
+│  docs/project/pdca/YYYY-Www.md                                  │
+│    │ PSI 推移 + 校正学習候補 + 計画を md に統合                   │
 │                                                                 │
 │  /weekly-plan                                                   │
-│    │ Agent C2: open の performance Issue を Must/Should に組込   │
+│    │ Agent C2: 未完了の改善タスクを Must/Should に組込           │
 │    ▼                                                            │
-│  同じ [PDCA] Issue の body 更新 or コメント追記                   │
+│  同じ docs/project/pdca/YYYY-Www.md に「来週の計画」を追記        │
 │    │ 対応タスクを計画として明示                                  │
 │                                                                 │
 │  ユーザーが校正学習候補を承認 → 適用                              │
@@ -63,10 +75,10 @@
 ┌─────────────────────────────────────────────────────────────────┐
 │ 実装（ユーザー or Claude Code）                                  │
 │                                                                 │
-│  Issue を参照しながら修正 → PR → main merge → 本番反映            │
+│  task-queue を参照しながら修正 → PR → main merge → 本番反映       │
 │    │                                                            │
 │    ▼                                                            │
-│  翌日の psi-audit で効果を測定 → 改善なら Issue close             │
+│  翌日の psi-audit で効果を測定 → 改善ならタスクを done に          │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
@@ -89,12 +101,12 @@
 └─────────────────────────────────────────────────────────────────┘
 ```
 
-**原則**（3 層モデル）:
-- **Tier 3 機械可読データ** → `.claude/state/metrics/*.json`（develop に CI が直接 commit）
-- **Tier 1 状態あり・アクション item** → GitHub Issue（`performance`, `weekly-pdca`, `session-handoff`, `queue`, `task`, `umbrella` 等のラベルで分類）
-- **Tier 2 固定的知識・設計** → `docs/project/*.md`, `.claude/reference/*.md`
-- 週次 PDCA は `[PDCA] YYYY-Www` Issue に計画とレビューを集約（旧 `docs/reviews/weekly/` は 2026-04-27 に削除）
-- Issue は対応して close → 次週の review で「解消」として記録
+**原則**（4 ゾーンモデル、真実源: [information-architecture.md](./information-architecture.md)）:
+- **Zone C 機械可読データ** → `.claude/state/*.json`（計測は `metrics/`、develop に CI が直接 commit）
+- **やるべきこと（アクション item）** → `.claude/state/task-queue.json`（旧 GitHub Issue。CI も `dedupe_key` 付きで append）
+- **Zone A 固定的知識・設計・週次 PDCA** → `docs/project/*.md`（週次 PDCA は `docs/project/pdca/YYYY-Www.md`）
+- **Zone B 運用手順・ポリシー** → `.claude/reference/*.md`
+- 違反検出 → task-queue に登録 → 対応して `status: done` → 次週の review で「解消」として記録
 
 オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
 

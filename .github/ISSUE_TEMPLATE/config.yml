@@ -1,8 +1,0 @@
-blank_issues_enabled: true
-contact_links:
-  - name: スキル定義の確認
-    url: https://github.com/uruhayato373/doboku-note/tree/main/.claude/skills
-    about: ".claude/skills/ にスキル定義あり。SKILL.md を直接読んでください。"
-  - name: 長期戦略・ロードマップ
-    url: https://github.com/uruhayato373/doboku-note/tree/main/docs/project
-    about: "docs/project/*.md に Why / 戦略 / ADR を集約。Issue ではなく md で管理。"

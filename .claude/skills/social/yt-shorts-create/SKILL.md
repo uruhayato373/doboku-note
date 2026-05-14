@@ -112,16 +112,15 @@ ls .tmp/sns/2026-05-02/followership-shorts/
 open .tmp/sns/2026-05-02/followership-shorts/shorts.mp4
 ```
 
-## 範囲外（次の Issue で対応）
+## 範囲外（後続タスクで対応）
 
-- **YouTube Data API へのアップロード** → Issue #163 SNS-prereq 完了後、`media-uploader.mjs` で実装（既に PR #169）
-- スケジューラ統合（cron）→ Issue #167 SNS-3
-- Instagram Reels への mp4 流用 → Issue #168 SNS-4
+- **YouTube Data API へのアップロード** → `media-uploader.mjs` で実装済み（PR #169。実投稿は task-queue T-003 Meta 認証準備の後）
+- スケジューラ統合（cron）→ task-queue T-004「SNS スケジューラ統合」
+- Instagram Reels への mp4 流用 → task-queue T-005「SNS 型・チャネル拡充」
 - whisper.cpp による word-level 字幕 → 視聴完了率データを見てから判断
 
 ## 関連
 
 - 戦略: `docs/project/07_YouTube戦略_技術士総監.md` (v4)
-- Umbrella: [#161](https://github.com/uruhayato373/doboku-note/issues/161)
-- 子 Issue: [#166 SNS-2 YouTube Shorts MVP](https://github.com/uruhayato373/doboku-note/issues/166)
+- 親タスク: task-queue T-001「SNS 自動投稿基盤（YouTube × Instagram）」
 - 共通基盤: `.claude/scripts/lib/sns-common/`

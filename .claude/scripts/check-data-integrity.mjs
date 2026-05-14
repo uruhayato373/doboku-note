@@ -3,7 +3,7 @@
  * Data Integrity Gate (Issue #130-A)
  *
  * GA4 date dimension の欠損日数を検証し、閾値超過で stderr に警告出力。
- * CI から呼ばれた場合、閾値超過で exit 1 を返して後続の issue 起票ステップを発火。
+ * CI から呼ばれた場合、閾値超過で exit 1 を返して後続の task-queue append ステップを発火。
  *
  * 閾値:
  * - 直近 7 日 で 2 日以上欠損

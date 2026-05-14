@@ -72,6 +72,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [.claude/reference/agents-registry.md](.claude/reference/agents-registry.md) | エージェント詳細表＋チーム連携パターン＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認 |
 | [.claude/reference/skills-design-guide.md](.claude/reference/skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [.claude/reference/workflows.md](.claude/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・ブランチ詳細・Phase 別ロードマップ | 週次 PDCA・変換作業・ブランチ運用詳細確認時 |
+| [.claude/reference/information-architecture.md](.claude/reference/information-architecture.md) | 情報の 4 ゾーンモデル（docs / reference / state / skills）・判断フロー・task-queue 仕様。GitHub Issue 廃止の真実源 | 新しい情報の置き場に迷うとき・CI/スキル/ドキュメント設計時 |
 | [.claude/reference/measurement-incidents.md](.claude/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合 + 外部検証アクセスの罠（2026-W16 BAILOUT、2026-04-25 Cloudflare Bot 等） | 計測スキル/エージェント設計時・外部 Validator/ボットを使う作業時 |
 | [.claude/reference/data-storage-decision.md](.claude/reference/data-storage-decision.md) | データストレージ判断 ADR（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー条件） | DB 導入を検討するとき／iOS アプリ着手時／コンテンツ規模が大きく変わるとき |
 | [.claude/reference/notebooklm-cli-gotchas.md](.claude/reference/notebooklm-cli-gotchas.md) | notebooklm CLI（Python v0.3.4）の挙動クセ集（venv exe で proxy 通らず 503・list で exit 1 false-positive・全角括弧の cmd.exe 解析破綻・source add --title 無効化 等） | notebooklm を呼ぶ新規スクリプト・skill 設計時／既存 wrapper の挙動確認時 |
@@ -85,8 +86,8 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | `docs/project/02_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/project/05_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
 | `docs/project/07_SNS集客戦略.md` | SNS 集客戦略 v5（X / YouTube / Instagram 統合、TTS 完全自動・SNS 量産・共通基盤 sns-common 依存、IG は Carousel + Reels 両軸） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
-| `docs/project/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
-| `docs/project/26_Instagram投稿自動化アーキテクチャ.md` | Instagram 投稿自動化アーキテクチャ v3（Carousel + Reels 両軸、YT Shorts mp4 を IG Reels に流用、API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
+| `docs/note/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
+| `docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md` | Instagram 投稿自動化アーキテクチャ v3（Carousel + Reels 両軸、YT Shorts mp4 を IG Reels に流用、API 自動投稿、共通基盤 sns-common 依存） | Instagram 投稿設計・SNS 自動化検討時 |
 | `docs/project/27_5チャネル動線設計.md` | 5 チャネル動線設計 v1（X / YouTube / Instagram / note / サイトの統合ファネル設計、UTM 統一フォーマット、季節 × チャネルマトリクス、4 Phase 実装ロードマップ） | チャネル間動線・UTM 設計・季節調整検討時、note ↔ サイト境界ルール確認時 |
 
 ---
@@ -101,7 +102,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 - 解釈が複数あれば、黙って選ばず候補を提示してユーザーに選ばせる
 - **UI コンポーネント**: デザイントークン使用（`rounded-card-*` / `shadow-card-*`）。`dark:border-*` を必ず書く。インライン `borderColor` 禁止。色は `brand` / `ink-strong` / `ink-body` / `ink-muted` / `positive` / `warn` / `danger` を使う（真実源: `src/styles/globals.css` の `--color-*`）
 - 長時間作業の区切りに `/compact` を提案。セッション引き継ぎは `docs/handoffs/YYYY-MM-DD-{context}.md`
-- **情報の置き場（2 層モデル、2026-05-11 改訂）**: すべて `docs/` か `.claude/reference/` の md（議論・進捗・戦略・引き継ぎ・週次 PDCA すべて） / 機械データ → `.claude/state/*.json` `.claude/config/*.json`（`.claude/state/*.md` 新規作成禁止）。**GitHub Issue は使わない**（Issue 廃止、議論履歴は md コミットの git diff で追う）
+- **情報の置き場（4 ゾーンモデル）**: A=`docs/`（戦略・設計・進捗・週次 PDCA・引き継ぎ）/ B=`.claude/reference/`（運用手順・ポリシー）/ C=`.claude/state/`・`.claude/config/`（機械データ・`task-queue.json`、`.claude/state/*.md` 新規作成禁止）/ D=`.claude/skills/`・`.claude/agents/`（実行能力）。**GitHub Issue は使わない**（廃止、タスクは `task-queue.json` に集約）。真実源・判断フローは [information-architecture.md](.claude/reference/information-architecture.md)
 
 ### 2. シンプルさを最優先（Simplicity First）
 

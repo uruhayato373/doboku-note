@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560">
+  <rect width="1200" height="560" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="60" y="55" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">なぜ「4 月から」では間に合わないのか</text>
+  <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="500" fill="#555555">合格者が口を揃える 3 つの理由</text>
+
+  <!-- カード 1: 受験申込書の質 -->
+  <rect x="60" y="120" width="340" height="390" rx="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="60" y="120" width="340" height="64" rx="10" fill="#2e6da4"/>
+  <rect x="60" y="162" width="340" height="22" fill="#2e6da4"/>
+  <text x="230" y="157" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+
+  <text x="230" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#1a3a5c" text-anchor="middle">受験申込書の質が</text>
+  <text x="230" y="238" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#1a3a5c" text-anchor="middle">記述式・口頭試験を決める</text>
+
+  <line x1="80" y1="258" x2="380" y2="258" stroke="#2e6da4" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <text x="80" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">4 月の申込書は記述式の</text>
+  <text x="80" y="308" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">論文題材と口頭試験の</text>
+  <text x="80" y="332" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">質疑応答に直結する。</text>
+  <text x="80" y="368" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">4 月時点で 5 管理の視点・</text>
+  <text x="80" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">トレードオフが整理されて</text>
+  <text x="80" y="416" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">いないと修正できない。</text>
+  <text x="80" y="448" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">→ 設計は 12〜2 月に行う</text>
+  <text x="80" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">　 必要がある。</text>
+
+  <!-- カード 2: 体系化に時間がかかる -->
+  <rect x="430" y="120" width="340" height="390" rx="10" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="430" y="120" width="340" height="64" rx="10" fill="#3a7d44"/>
+  <rect x="430" y="162" width="340" height="22" fill="#3a7d44"/>
+  <text x="600" y="157" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+
+  <text x="600" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#1a4d2b" text-anchor="middle">650 項目の体系化に</text>
+  <text x="600" y="238" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#1a4d2b" text-anchor="middle">2〜3 ヶ月かかる</text>
+
+  <line x1="450" y1="258" x2="750" y2="258" stroke="#3a7d44" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <text x="450" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">総監は学協会指針や白書を</text>
+  <text x="450" y="308" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">そのまま使えない。</text>
+  <text x="450" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">キーワード集 2026（650+項目）</text>
+  <text x="450" y="368" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">の通読 → 関連付け → 業務</text>
+  <text x="450" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">接続まで最低 2〜3 ヶ月。</text>
+  <text x="450" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">→ 12 月に通読を始め、</text>
+  <text x="450" y="452" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">　 3 月に演習へ移行する。</text>
+
+  <!-- カード 3: 記述式骨子は反復が前提 -->
+  <rect x="800" y="120" width="340" height="390" rx="10" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <rect x="800" y="120" width="340" height="64" rx="10" fill="#d4a017"/>
+  <rect x="800" y="162" width="340" height="22" fill="#d4a017"/>
+  <text x="970" y="157" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+
+  <text x="970" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#7a5800" text-anchor="middle">記述式の骨子練習は</text>
+  <text x="970" y="238" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#7a5800" text-anchor="middle">反復が前提</text>
+
+  <line x1="820" y1="258" x2="1120" y2="258" stroke="#d4a017" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <text x="820" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">「論文を 3 回書けばできる」</text>
+  <text x="820" y="308" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">はウソ。</text>
+  <text x="820" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">過去問 5 年分 × 複数視点で</text>
+  <text x="820" y="368" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">骨子を作る練習を</text>
+  <text x="820" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234">3〜4 ヶ月反復する。</text>
+  <text x="820" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">→ 5 月開始では時間が</text>
+  <text x="820" y="452" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">　 足りない。</text>
+
+  <!-- 結論 -->
+  <rect x="60" y="526" width="1080" height="14" rx="4" fill="#f3f4f6"/>
+  <text x="600" y="536" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#555555" text-anchor="middle">→ 学習を本格化させるのは前年 12月〜2月、遅くとも 3 月開始が現実的なライン</text>
+
+  <text x="1180" y="554" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

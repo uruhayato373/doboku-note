@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="580" viewBox="0 0 1200 580">
+  <rect width="1200" height="580" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">労働災害統計 — 度数率・強度率・年千人率の比較</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">3 指標は「分子・分母・倍率」が異なる。倍率の混同が最頻出ミス</text>
+
+  <!-- ====== 列 1: 度数率 ====== -->
+  <!-- ヘッダ -->
+  <rect x="40" y="125" width="370" height="55" rx="6" fill="#2e6da4"/>
+  <text x="225" y="162" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">度数率</text>
+
+  <!-- 公式 -->
+  <text x="60" y="215" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555">公式</text>
+  <text x="225" y="250" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">死傷者数</text>
+  <text x="225" y="285" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle">÷ 延べ実労働時間</text>
+
+  <!-- 倍率 強調 -->
+  <rect x="55" y="305" width="340" height="50" rx="6" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="225" y="340" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#d4a017" text-anchor="middle" font-weight="bold">× 1,000,000</text>
+
+  <!-- 単位 -->
+  <text x="225" y="385" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">単位：100 万時間あたりの死傷者数</text>
+
+  <!-- 区切り線 -->
+  <line x1="55" y1="410" x2="395" y2="410" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- 計算例 -->
+  <text x="60" y="440" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555">計算例 (H30 I-1-29)</text>
+  <text x="225" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle">2 ÷ 340,000 × 10⁶</text>
+
+  <!-- 結果 -->
+  <rect x="85" y="500" width="280" height="55" rx="6" fill="#2e6da4"/>
+  <text x="225" y="537" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">= 5.88</text>
+
+  <!-- ====== 列 2: 強度率 ====== -->
+  <!-- ヘッダ -->
+  <rect x="420" y="125" width="370" height="55" rx="6" fill="#b22234"/>
+  <text x="605" y="162" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">強度率</text>
+
+  <!-- 公式 -->
+  <text x="440" y="215" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555">公式</text>
+  <text x="605" y="250" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">労働損失日数</text>
+  <text x="605" y="285" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle">÷ 延べ実労働時間</text>
+
+  <!-- 倍率 強調 -->
+  <rect x="435" y="305" width="340" height="50" rx="6" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="605" y="340" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#d4a017" text-anchor="middle" font-weight="bold">× 1,000</text>
+
+  <!-- 単位 -->
+  <text x="605" y="385" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">単位：1,000 時間あたりの損失日数</text>
+
+  <!-- 区切り線 -->
+  <line x1="435" y1="410" x2="775" y2="410" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- 計算例 -->
+  <text x="440" y="440" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555">計算例 (H30 I-1-29)</text>
+  <text x="605" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle">20 ÷ 340,000 × 10³</text>
+
+  <!-- 結果 -->
+  <rect x="465" y="500" width="280" height="55" rx="6" fill="#b22234"/>
+  <text x="605" y="537" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">= 0.059</text>
+
+  <!-- ====== 列 3: 年千人率 ====== -->
+  <!-- ヘッダ -->
+  <rect x="800" y="125" width="370" height="55" rx="6" fill="#3a7d44"/>
+  <text x="985" y="162" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">年千人率</text>
+
+  <!-- 公式 -->
+  <text x="820" y="215" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555">公式</text>
+  <text x="985" y="250" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">死傷者数</text>
+  <text x="985" y="285" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle">÷ 平均従業員数</text>
+
+  <!-- 倍率 強調 -->
+  <rect x="815" y="305" width="340" height="50" rx="6" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="985" y="340" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#d4a017" text-anchor="middle" font-weight="bold">× 1,000</text>
+
+  <!-- 単位 -->
+  <text x="985" y="385" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">単位：1,000 人あたりの死傷者数</text>
+
+  <!-- 区切り線 -->
+  <line x1="815" y1="410" x2="1155" y2="410" stroke="#cbd5e1" stroke-width="1"/>
+
+  <!-- 計算例 -->
+  <text x="820" y="440" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555">計算例 (H30 I-1-29)</text>
+  <text x="985" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle">2 ÷ 200 × 10³</text>
+
+  <!-- 結果 -->
+  <rect x="845" y="500" width="280" height="55" rx="6" fill="#3a7d44"/>
+  <text x="985" y="537" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">= 10</text>
+
+  <!-- クレジット -->
+  <text x="1160" y="568" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

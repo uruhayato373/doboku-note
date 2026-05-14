@@ -4,7 +4,7 @@
 
 ## 適用範囲
 
-- `docs/note/5管理-{管理名}/article.md` を中心とした「総監テキスト精読ガイド」シリーズ
+- `docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md` を中心とした「総監テキスト精読ガイド」シリーズ
 - 原典：`docs/textbook/技術士（総監）/テキスト/総監標準テキスト/{管理名}.md`
 - 安全管理（2026-05-08 完成）が参考実装。同シリーズの経済性／人的資源／情報／社会環境を段階的に拡充する際は本ドキュメントに従う
 
@@ -53,7 +53,7 @@ B9: 文字化け／改行コード／リンク 404 チェック → commit + pus
 grep -n "^#" "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/{管理名}.md" > /tmp/textbook-toc.txt
 
 # 2. note 記事の章構造を抽出
-grep -n "^#\|^\*\*[0-9一二三四五六七八九十]" "docs/note/5管理-{管理名}/article.md" > /tmp/note-toc.txt
+grep -n "^#\|^\*\*[0-9一二三四五六七八九十]" "docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md" > /tmp/note-toc.txt
 
 # 3. 両者を diff して欠落トピックを把握
 diff /tmp/textbook-toc.txt /tmp/note-toc.txt
@@ -238,7 +238,7 @@ Python で機械的に削除（CRLF 改行コード保持）：
 
 ```python
 import re
-path = "docs/note/5管理-{管理名}/article.md"
+path = "docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md"
 with open(path, "rb") as f:
     content = f.read()
 
@@ -339,7 +339,7 @@ https://laws.e-gov.go.jp/law/{法令番号}#Mp-At_{条番号}
 
 ```bash
 # フォントサイズ規約違反チェック
-for f in docs/note/5管理-{管理名}/img/figure-*.svg; do
+for f in docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/img/figure-*.svg; do
   echo "=== $f ==="
   grep -o 'font-size="[0-9]*"' "$f" | sort -u
 done
@@ -382,24 +382,24 @@ node scripts/generate-note-covers.mjs {管理名スラッグ}
 
 ```bash
 # 1. 文字化け（U+FFFD）
-grep -c $'\xef\xbf\xbd' docs/note/5管理-{管理名}/article.md
+grep -c $'\xef\xbf\xbd' docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
 # → 0 であること
 
 # 2. 改行コード混在チェック（docs/note/ は警告のみ、ブロックされない）
-file docs/note/5管理-{管理名}/article.md
+file docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
 # → CRLF または LF 統一
 
 # 3. 図版ファイル存在チェック
-ls docs/note/5管理-{管理名}/img/figure-*.png
+ls docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/img/figure-*.png
 
-# 4. リンク 404 防止
-grep -oE '/docs/pe-comprehensive-management-[a-z0-9-]+' docs/note/5管理-{管理名}/article.md | sort -u | while read url; do
-  slug=${url#/docs/pe-comprehensive-management-}
-  test -f ".local/r2/posts/pe-comprehensive-management/$slug/article.mdx" || echo "404: $slug"
-done
+# 4. リンク 404 防止（内部 slug + アンカー断片を決定的に検証）
+npm run check-links -- --scope note
+# → docs/note/** 全体を走査。BROKEN_SLUG / BROKEN_ANCHOR が 0 であること。
+#   PLACEHOLDER（未発売マガジン）は INFO 表示でブロック対象外。
+#   絶対 URL（https://doboku-note.com/docs/...）・裸 URL のリンクカードも対象。
 
 # 5. e-gov リンク確認
-grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' docs/note/5管理-{管理名}/article.md | sort -u
+grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md | sort -u
 # → WebSearch で実在確認済みの法令番号と突合
 ```
 
@@ -448,7 +448,7 @@ B9: 最終検証＋commit/push
 
 ## 参考実装
 
-- **安全管理（完成版）**：`docs/note/5管理-安全管理/article.md`（806行・19出題例・12図版・カバー画像・全条文 e-gov リンク済み）
+- **安全管理（完成版）**：`docs/note/magazines/総監テキスト精読ガイド/5管理-安全管理/article.md`（806行・19出題例・12図版・カバー画像・全条文 e-gov リンク済み）
 - **図版生成スクリプト**：`scripts/render-figure-safety-management.mjs`
 - **カバー生成**：`scripts/generate-note-covers.mjs`
 - **既存スキル**：`.claude/skills/quality/note-prepublish-review/SKILL.md`（公開前チェック）
