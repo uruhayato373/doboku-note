@@ -34,7 +34,6 @@
 |---|---|---|
 | `/check-mdx` | MDX 品質検査の統合 Evaluator（8 ルール） | `MDX検査`, `lint`, `構文チェック`, `/check-mdx --rules <rule>` |
 | `/quality-cycle` | 品質サイクル（スコア→リライト→検証→レビュー） | `品質サイクル`, `cem品質上げ`, `/quality-cycle --profile {cem\|civil-textbook}` |
-| `/exam-keyword-cycle` | 過去問起点の関連キーワード横断校正 | `過去問起点の校正`, `キーワードサイクル`, `/exam-keyword-cycle` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付け確認・再生成 | `バックリンク確認`, `/exam-backlinks` |
 | `/audit-exam-mapping` | 過去問⇔キーワード紐づけマップの精度監査 | `紐づけ監査`, `/audit-exam-mapping` |
 | `/build-exam-notebook` | 過去問 MDX を NotebookLM notebook に投入 | `NotebookLM投入`, `/build-exam-notebook` |
@@ -110,9 +109,9 @@
 1. `/note-prepublish-review` — 公開前チェックゲート（inline + 3 エージェント並列）
 2. `/note-hashtags {NN-...}` — ハッシュタグ 99 個を生成
 
-### 過去問起点でキーワード品質を上げたい
+### キーワード品質を上げたい
 
-1. `/exam-keyword-cycle` — 過去問 1 問 → 関連キーワード横断校正
+1. `/quality-cycle --profile cem --mode auto-loop` — 全件スコアリング → 低スコア自動リライト → 再評価（閉ループ）
 2. `/audit-exam-mapping` — 紐づけ精度の一括 semantic 監査
 
 ### SNS 投稿を量産したい

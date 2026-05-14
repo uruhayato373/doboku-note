@@ -29,6 +29,7 @@ description: >
 | `--round <N>` | 任意 | issue モード時のラウンド番号 |
 | `--create` | 任意 | issue モード時、gh CLI で実際に issue 作成 |
 | `--dry-run` | 任意 | 対象とアクションだけ表示 |
+| `--auto-loop` | 任意 | score → rewrite → verify を全件 >= 2.0 になるまで自動反復（最大3ラウンド） |
 
 ## プロファイル別テンプレート
 
@@ -50,6 +51,7 @@ description: >
 | `review` | ✓ | ✓ | 人間レビュー待ちリスト出力 |
 | `report` | ✓ | ✓ | ダッシュボード出力（スコア分布・弱点軸頻度） |
 | `issue` | ✓ | ✓ | リライト候補から GitHub umbrella issue draft 生成 |
+| `auto-loop` | ✓ | ✓ | score → rewrite → verify を全件 >= 2.0 になるまで自動反復 |
 
 **civil-textbook が screen/flagship を省略する理由**: 対象が 40 件と少ないため初回絞り込みは不要。
 
@@ -196,9 +198,29 @@ unscored → scored → rewriting → needs-review → verified → approved
 # 1級土木: umbrella issue draft 生成
 /quality-cycle --profile civil-textbook --mode issue --round 1
 
+# CEM: 全件 >= 2.0 になるまで自動ループ（最大3ラウンド、1ラウンド10件）
+/quality-cycle --profile cem --mode auto-loop --max 10
+
+# 1級土木: 全件 >= 2.0 になるまで自動ループ
+/quality-cycle --profile civil-textbook --mode auto-loop
+
 # 対象確認（dry-run）
 /quality-cycle --profile cem --mode rewrite --dry-run
 ```
+
+## auto-loop モードの動作
+
+`/quality-cycle --profile {cem|civil-textbook} --mode auto-loop [--max N]`
+
+1. `score` で全件評価 → weighted < 2.0 の件数を確認
+2. 件数 > 0 なら `rewrite --threshold 2.0 --max {N（既定: 10）}` を実行
+3. `verify` で再評価
+4. ラウンド境界でサマリーを出力（改善件数・残件数）
+5. 1〜4 を繰り返す。**停止条件**:
+   - weighted < 2.0 の件数が 0 になった
+   - 3 ラウンド完了（無限ループ防止）
+   - エラーが 3 件以上発生
+6. 最終レポートを出力して終了
 
 ## プロファイル詳細
 

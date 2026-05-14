@@ -70,22 +70,16 @@
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
-│ コンテンツ品質ループ（過去問起点の校正サイクル）                  │
+│ コンテンツ品質ループ（キーワード起点の品質サイクル）              │
 │                                                                 │
-│  /exam-keyword-cycle --exam RXX-primary --question NN-NN        │
+│  /quality-cycle --profile cem --mode auto-loop [--max N]        │
 │    │                                                            │
-│    ├─ Phase 1: 起点過去問から論点と関連キーワードを抽出           │
-│    ├─ Phase 2: cem-qa で 5 軸評価＋論点カバレッジ判定             │
-│    ├─ Phase 3: 視点タグ付き修正提案                              │
-│    │           (網羅性 / 正確性 / わかりやすさ / 試験適合 / 関連付け) │
-│    ├─ Phase 4: ユーザー一括承認                                  │
-│    ├─ Phase 5: 実装＋ログ記録                                    │
-│    │           (.claude/state/exam-keyword-cycles/logs/YYYY-MM-DD-*.md) │
-│    │           (.claude/state/exam-keyword-cycles/progress.json) │
-│    └─ Phase 6: PR 作成（claude/exam-keyword-cycle-* ブランチ）   │
-│       │                                                         │
-│       ▼                                                         │
-│  ユーザーが GitHub PR 上でレビュー → merge → 本番反映             │
+│    ├─ score:   cem-qa で全件 5 軸評価                            │
+│    ├─ rewrite: weighted < 2.0 のページを keyword-rewriter でリライト │
+│    ├─ verify:  cem-qa で再評価                                   │
+│    └─ 全件 >= 2.0 になるまで最大 3 ラウンド自動反復              │
+│                                                                 │
+│  過去問⇔キーワード紐づけの確認は /audit-exam-mapping で随時実施  │
 └─────────────────────────────────────────────────────────────────┘
 ```
 

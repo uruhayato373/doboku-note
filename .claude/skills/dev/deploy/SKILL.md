@@ -81,6 +81,23 @@ GitHub Actions の `cloudflare-deploy.yml` ワークフローが自動でトリ�
 git checkout {作業ブランチ}
 ```
 
+### Step 7.5: 本番 SSR 検証
+
+**注意**: `doboku-note.com` は Cloudflare Bot Protection で 403 になるため `.pages.dev` で確認する。
+
+```bash
+# HTTP ステータス確認
+HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://doboku-note.pages.dev)
+echo "HTTP Status: $HTTP_STATUS"
+
+# <main> タグ + 主要キーワード確認
+curl -s https://doboku-note.pages.dev | grep -c "<main>"
+```
+
+- HTTP 200 かつ `<main>` が 1 以上 → 正常
+- 500 の場合 → Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）
+- `<main>` が 0 → SSR 壊れ。`task-queue.json` に起票してユーザーに報告
+
 ### Step 8: 完了報告
 
 以下を報告する:
