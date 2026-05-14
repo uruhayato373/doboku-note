@@ -1,7 +1,7 @@
 ---
 name: weekly-plan
 description: >
-  週次実行計画を並列サブエージェントで生成し、同週の `[PDCA] YYYY-Www` Issue の body に「来週の計画」セクションとして追記する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
+  週次実行計画を並列サブエージェントで生成し、同週の `docs/project/pdca/YYYY-Www.md` に「来週の計画」セクションとして追記する。Use when user asks to [週次計画, 今週の計画を立てたい, /weekly-plan].
 ---
 
 プロジェクトの現状を調査し、戦略的な週次計画を生成する。
@@ -30,11 +30,11 @@ node .claude/scripts/snapshot-weekly-metrics.mjs
 
 この出力が Phase 1 Agent C のインプットになる。計測基盤が未整備なら skip 可（警告を表示）。
 
-### Phase 0.5: 閾値違反の Issue 起票（Weekly Metrics PDCA）
+### Phase 0.5: 閾値違反の task-queue 登録（Weekly Metrics PDCA）
 
-Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を読み、以下の閾値ルールで違反項目を抽出し、**Umbrella #82 配下に子 Issue として起票**する。
+Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を読み、以下の閾値ルールで違反項目を抽出し、`.claude/state/task-queue.json` にタスクとして登録する（旧 Umbrella #82 配下の子 Issue 起票の置換）。
 
-#### 起票対象の閾値
+#### 登録対象の閾値
 
 | ソース | メトリクス | 閾値 | 優先度 |
 |---|---|---|---|
@@ -49,26 +49,24 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 
 詳細な条件式は `.claude/agents/metrics-analyzer.md` および `.claude/agents/performance-auditor.md` 参照。
 
-#### 起票手順
+#### 登録手順
 
-1. 既存の Umbrella #82 [Umbrella] Weekly Metrics PDCA の open 子 Issue を `gh issue list --label weekly-pdca --state open` で取得
-2. 同じ週・同じ URL・同じメトリクスの重複 Issue が既にあればスキップ
-3. 重複なければ以下テンプレで `gh issue create`:
+1. `.claude/state/task-queue.json` の既存タスクを読み、同じ週・同じ URL・同じメトリクスの重複がないか `dedupe_key` で確認
+2. 重複がなければ `task-queue.mjs add` で登録（`dedupe_key` が重複起票を防ぐ）:
 
+```bash
+node .claude/scripts/lib/task-queue.mjs add \
+  --title "[Weekly/YYYY-Www][パターン名] <メトリクス概要>" \
+  --category <infra|seo|content> --priority <high|mid> \
+  --source skill:weekly-plan \
+  --dedupe-key "weekly:YYYY-Www:<url>:<metric>" \
+  --notes "Snapshot: .claude/state/weekly-metrics/YYYY-Www.json / 検出内容・原因仮説・対処・検証方法"
+node .claude/scripts/build-todo-view.mjs
 ```
-title: [Weekly/YYYY-Www][パターン名] <メトリクス概要>
-label: weekly-pdca,(performance|seo|content 等)
-body:
-  Umbrella: #82
-  Week: YYYY-Www
-  Snapshot: .claude/state/weekly-metrics/YYYY-Www.json
-  ## 検出内容 / 原因仮説 / 対処 TODO / 検証方法
-```
 
-4. 起票後、Umbrella #82 本文の「追跡中 Issue」リストに `- [ ] #N <概要>` を追記（`gh issue edit 82 --body`）
-5. 起票件数を Phase 1 Agent C の出力に含める（「今週新規起票: N 件」）
+3. 登録件数を Phase 1 Agent C の出力に含める（「今週新規登録: N 件」）
 
-**起票しない場合**: 「閾値違反なし」と明示的にログに残す。
+**登録しない場合**: 「閾値違反なし」と明示的にログに残す。
 
 ### Phase 1: コンテキスト収集（並列サブエージェント）
 
@@ -136,28 +134,27 @@ body:
 - サービスアカウントが GSC/GA4 両方で閲覧者権限を持つ
 - 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
 
-#### Agent C2: オープンの改善 Issue
+#### Agent C2: オープンの改善タスク
 
 ```
 調査方法:
-- gh issue list --label performance --state open --json number,title,createdAt,url --limit 50
-- gh issue list --label auto-generated --state open --json number,title,createdAt,url --limit 50
+- .claude/state/task-queue.json の未完了タスク（source: ci:* または category: infra/seo の todo/in_progress/blocked）
 - `.claude/state/improvements/psi-*.md` の直近 7 日分（performance-auditor の改善候補レポート）
   - 違反パターン別（LCP 肥大・CLS 発生等）の Critical / High 候補
 
 分析項目:
-- open 期間（放置期間）— 7 日以上は Must 候補
-- Critical 優先度の改善候補は件数多くても上位 2-3 件を Should に入れる
-- 同一 URL に複数 Issue が立っている場合はまとめて 1 タスク化
+- updated からの経過日数（放置期間）— 7 日以上は Must 候補
+- priority: high の改善候補は件数多くても上位 2-3 件を Should に入れる
+- 同一 URL に複数タスクがある場合はまとめて 1 タスク化
 
-出力形式: 「## オープンの改善 Issue」セクションとして以下構造で:
+出力形式: 「## オープンの改善タスク」セクションとして以下構造で:
 
-## オープンの改善 Issue
+## オープンの改善タスク
 
 ### Critical（放置 7 日以上 または LCP/CLS 大幅超過）
-| Issue | 内容 | 放置日数 | 対応方針 |
+| ID | 内容 | 放置日数 | 対応方針 |
 |---|---|---|---|
-| #N | /docs/xxx LCP 4.2s | 10 日 | Hero 画像 priority 指定 |
+| T-NN | /docs/xxx LCP 4.2s | 10 日 | Hero 画像 priority 指定 |
 
 ### High（PSI 改善候補から）
 | 候補 | 対象 URL | 改善パターン |
@@ -201,26 +198,23 @@ body:
 2. 「先週と同じ失敗を繰り返してないか？」— 前週の計画と照合
 3. 「今週やらないと機会損失になるものは？」— 試験シーズン等のタイミング
 
-### Phase 5: 出力（GitHub Issue に追記）
+### Phase 5: 出力（週次 PDCA md に追記）
 
-生成した markdown を、同週の `[PDCA] YYYY-Www` Issue の body に「---」区切りで追記する。
+生成した markdown を、同週の `docs/project/pdca/YYYY-Www.md` に「---」区切りで追記する。
 
 ```bash
-# 1. 既存 Issue の body を取得
-ISSUE_NUM=$(gh issue list --label weekly-pdca --search "[PDCA] YYYY-Www in:title" --state open --json number --jq '.[0].number')
-
-# 2. 既存 body + 計画セクション を合成して更新
-gh issue view $ISSUE_NUM --json body --jq .body > /tmp/existing-body.md
-cat /tmp/existing-body.md > /tmp/updated-body.md
-echo "" >> /tmp/updated-body.md
-echo "---" >> /tmp/updated-body.md
-cat /tmp/weekly-plan-section.md >> /tmp/updated-body.md
-gh issue edit $ISSUE_NUM --body-file /tmp/updated-body.md
+# /weekly-review が先に docs/project/pdca/YYYY-Www.md を作成している前提
+PDCA_FILE=docs/project/pdca/YYYY-Www.md
+{
+  echo ""
+  echo "---"
+  cat /tmp/weekly-plan-section.md
+} >> "$PDCA_FILE"
 ```
 
-先に `/weekly-review` が Issue を作成している前提。Issue が存在しない場合は `gh issue create` で計画のみで新規作成してよい（この場合 body 冒頭に「# 来週の計画」の見出しを追加）。
+`docs/project/pdca/YYYY-Www.md` が存在しない場合は計画のみで新規作成してよい（この場合ファイル冒頭に `# 週次 PDCA YYYY-Www` の H1 を追加）。
 
-## 出力フォーマット（Issue body の追記セクション）
+## 出力フォーマット（週次 PDCA md の追記セクション）
 
 ```markdown
 ## 来週の計画
@@ -250,14 +244,14 @@ gh issue edit $ISSUE_NUM --body-file /tmp/updated-body.md
 | ID | title | status | 次のアクション |
 |---|---|---|---|
 
-## オープンの改善 Issue（前週からの継続）
+## オープンの改善タスク（前週からの継続）
 
-<!-- Agent C2 が gh issue list（performance ラベル）と
+<!-- Agent C2 が .claude/state/task-queue.json（未完了の ci:* / infra / seo タスク）と
      .claude/state/improvements/psi-*.md から自動生成。
      Must/Should 候補の根拠となる。 -->
 
 ### Critical（放置 7 日以上）
-| Issue | 内容 | 放置日数 |
+| ID | 内容 | 放置日数 |
 |---|---|---|
 
 ### High（今週対応候補）

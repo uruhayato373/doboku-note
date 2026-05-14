@@ -105,15 +105,14 @@ B. 実験進捗レポート:
 調査項目:
 - .claude/state/metrics/psi/psi-batch-*.json の直近 7 日分（GitHub Actions psi-audit.yml が develop に毎日 [skip ci] で commit）
 - .claude/config/psi-config.json のしきい値
-- gh issue list --label performance,weekly-pdca --state open --json number,title,createdAt（Umbrella #82 配下の open を含む）
-- gh issue list --label performance,weekly-pdca --state closed --search "closed:>{7日前}" --json number,title（今週解消した違反）
+- .claude/state/task-queue.json の source: ci:psi-audit / category: infra のタスク（未完了 = 継続中の違反、status: done = 解消済み）
 
 分析項目:
 - 今週の違反件数 vs 先週
 - 各 URL の Performance スコア・LCP の前週比
 - 今週新規発生した違反
-- 今週解消した違反（closed Issue から抽出）
-- 放置されている Issue（7 日以上 open）
+- 今週解消した違反（task-queue で status: done になったもの）
+- 放置されているタスク（updated が 7 日以上前で status: todo）
 
 出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む
 ```
@@ -136,24 +135,24 @@ B. 実験進捗レポート:
 
 調査項目:
 - .claude/state/exam-keyword-cycles/logs/index.json（過去サイクルの履歴）
-- .claude/state/exam-keyword-cycles/progress.json（カバー状況 + umbrella_issues の Issue 番号）
+- .claude/state/exam-keyword-cycles/progress.json（カバー状況。進捗の真実源）
 - src/config/exam-question-keywords.json（過去問カタログ）
 - 今週実施分の抽出: index.json.cycles の date が直近 7 日以内のもの
-- 年度別 Umbrella Issue の状態: `gh issue view <番号> --json state,body`
+- 年度別の進捗 draft: .claude/state/exam-keyword-cycles/umbrella-drafts/*.md（progress.json から生成）
 
 分析項目:
 - 今週のサイクル数・対象キーワード数・PR リンク
 - 年度別カバレッジ率（covered[exam] の設問数 / catalog[exam] の設問数）
 - 未カバーバックログ件数
 - 次週の推奨 3 件（select-next-question.mjs を 3 回分シミュレートするか、若番順上位 3 件）
-- 年度別 Umbrella Issue の進捗と停滞検知
+- 年度別カバレッジの進捗と停滞検知（progress.json の前週比）
 
 次週候補の取得方法:
   node .claude/skills/quality/exam-keyword-cycle/scripts/select-next-question.mjs --pretty
 
-**Umbrella 同期**: 今週サイクルが 1 件以上あれば、レビュー末尾で `sync-umbrella.mjs --all` を呼び出して Umbrella の checkbox・進捗・完了サイクルリストを最新化する（`/exam-keyword-cycle` 側でも毎サイクル呼ぶが、週次でも安全網として実行）。
+**進捗 draft 同期**: 今週サイクルが 1 件以上あれば、レビュー末尾で `sync-umbrella.mjs --all` を呼び出して進捗 draft markdown を最新化する（`/exam-keyword-cycle` 側でも毎サイクル呼ぶが、週次でも安全網として実行）。
 
-次週候補 3 件を親 Umbrella `<!-- sync marker: next-candidates -->` セクションに反映（親 Umbrella の body を編集、または本週の [PDCA] Issue に記載）。
+次週候補 3 件は本週の週次 PDCA md（`docs/project/pdca/YYYY-Www.md`）の「過去問起点の校正サイクル」セクションに記載する。
 
 出力形式: 「## 過去問起点の校正サイクル」セクションに以下を埋め込む
 
@@ -164,17 +163,18 @@ B. 実験進捗レポート:
 |---|---|---|---|
 | YYYY-MM-DD | R07 Ⅰ-1-N | N 件 | #N |
 
-### 年度別 Umbrella
-<!-- progress.json.umbrella_issues から Issue 番号・状態・進捗% を surface -->
+### 年度別 進捗
+<!-- progress.json の covered と exam-question-keywords.json から full-cycle 件数・進捗% を surface。
+     人間用ビューは .claude/state/exam-keyword-cycles/umbrella-drafts/*.md（sync-umbrella.mjs で再生成）。 -->
 
-| 年度 | Umbrella | 状態 | 進捗 | 先週比 |
-|---|---|---|---|---|
-| R07-primary | #36 | open | N/40 (N%) | +M |
-| R06-primary | #37 | open | N/40 (N%) | +M |
-| R05-primary | #38 | open | N/40 (N%) | +M |
-| R04-primary | #39 | open | N/40 (N%) | +M |
-| R03-primary | #40 | open | N/40 (N%) | +M |
-| **全体** | **#41 (親)** | **open** | **N/200 (N%)** | **+M** |
+| 年度 | 進捗 | 先週比 |
+|---|---|---|
+| R07-primary | N/40 (N%) | +M |
+| R06-primary | N/40 (N%) | +M |
+| R05-primary | N/40 (N%) | +M |
+| R04-primary | N/40 (N%) | +M |
+| R03-primary | N/40 (N%) | +M |
+| **全体** | **N/200 (N%)** | **+M** |
 
 ### 次週の候補
 1. R07 Ⅰ-1-X（未カバー最優先）
@@ -183,7 +183,7 @@ B. 実験進捗レポート:
 
 注意:
 - 今週のサイクルが 0 件なら「今週の実施: なし」と記録し、次週候補のみ surface
-- カバー率 100% の年度は「全問カバー済み」と明記し、年度 Umbrella を close する（次年度 Umbrella を generate-umbrella.mjs で作成）
+- カバー率 100% の年度は「全問カバー済み」と明記する（次年度分は generate-umbrella.mjs の TARGET_YEARS で管理）
 ```
 
 #### Agent E: 校正学習の蒸留
@@ -223,45 +223,42 @@ B. 実験進捗レポート:
 - 候補がなければ「今週の学習候補: なし」と記録して次週へ
 ```
 
-#### Agent G: Umbrella Issue 棚卸し
+#### Agent G: task-queue 棚卸し
 
 ```
-目的: `.claude/reference/docs-issue-separation.md` で定義した
-      「md は Why / Issue は実行タスク」の分離ルールを週次で drift 検出する。
-      open Umbrella Issue の進捗・停滞・完了漏れを surface する
+目的: `.claude/state/task-queue.json` の drift を週次で検出する。
+      未完了タスクの進捗・停滞・放置を surface する。
+      （旧 Umbrella Issue 棚卸し。GitHub Issue 廃止に伴い task-queue ベースへ）
 
 調査項目:
-- gh issue list --label umbrella --state open --json number,title,body,updatedAt,labels
-- gh issue list --label umbrella --state closed --search "closed:>{7日前}" --json number,title,closedAt
-- 各 open Issue の body 内チェックリスト集計: [ ] / [x] の数
-- updatedAt が 14 日以上前の Issue（停滞）
-- checklist が全 [x] なのに open のまま（close 漏れ）
-- body 内の「関連ロードマップ」リンクが docs/project/ に実在するか（孤立 Umbrella 検出）
+- .claude/state/task-queue.json の全タスク
+- status が in_progress / blocked のまま updated が 14 日以上前（停滞）
+- status: todo のまま updated が 30 日以上前（放置・要トリアージ）
+- parent が指す親タスクが存在しないエントリ（孤立）
+- refs に書かれた docs/project/ 等のパスが実在するか（リンク切れ）
 
-出力形式: 「## GitHub Umbrella Issue 棚卸し」セクションに以下を埋め込む
+出力形式: 「## task-queue 棚卸し」セクションに以下を埋め込む
 
-## GitHub Umbrella Issue 棚卸し
+## task-queue 棚卸し
 
-### Open Umbrella ({n} 件)
-| # | タイトル | 進捗 | 最終更新 | 状態 |
-|---|---|---|---|---|
-| #27 | [Umbrella] exam-keyword-cycle Phase 3 & 補強候補 | 0/6 | 2026-04-20 | 正常 |
+### 未完了タスク（{n} 件）
+| ID | タイトル | category | status | priority | 最終更新 | 状態 |
+|---|---|---|---|---|---|---|
+| T-001 | SNS 自動投稿基盤 | sns | in_progress | high | 2026-05-14 | 正常 |
 
-- 進捗: checklist の [x] / 全 checkbox 数
-- 状態: 正常 / 停滞（14d+ 更新なし） / close 漏れ（全 [x]） / 孤立（ロードマップ欠落）
+- 状態: 正常 / 停滞（in_progress・blocked が 14d+ 更新なし） / 放置（todo が 30d+） / 孤立（parent 不在） / refs 切れ
 
-### 今週 close された Umbrella ({n} 件)
-- #N: タイトル — 後継 Umbrella があればリンク
+### 今週 done になったタスク（{n} 件）
+- T-N: タイトル
 
 ### アクション提案
-- 停滞 Umbrella: 着手 or 中止判定が必要
-- close 漏れ: Issue を close し、対応する md の「追跡 Issue」行を更新
-- 孤立: ロードマップ md を作成 or Umbrella を close
+- 停滞タスク: 着手 or 中止判定が必要
+- 放置タスク: 優先度の見直し or 削除判定
+- 孤立・refs 切れ: task-queue.json を修正
 
 注意:
-- Open Umbrella が 0 件なら「追跡中の Umbrella なし」と記録し、次節をスキップ
-- 本エージェントは surface のみ。close や close 漏れ修正はユーザー判断
-- PSI 違反 Issue（`performance` / `auto-generated`）や個別 Issue は本エージェントの対象外
+- 未完了タスクが 0 件なら「未完了タスクなし」と記録し、次節をスキップ
+- 本エージェントは surface のみ。status 変更・削除はユーザー判断
 ```
 
 ### Phase 2: 分析・統合
@@ -271,37 +268,28 @@ B. 実験進捗レポート:
 3. **課題・ブロッカー**: 未達タスクの原因分析
 4. **学び**: 発見・改善点
 
-### Phase 3: 出力（GitHub Issue 一本化）
+### Phase 3: 出力（週次 PDCA md）
 
-下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、**GitHub Issue** に投稿する。
+下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、`docs/project/pdca/YYYY-Www.md` に書き出す（GitHub Issue は廃止 — [information-architecture.md](../../../reference/information-architecture.md)）。
 
 ```bash
-# 1. Issue body を /tmp に生成
-cat > /tmp/weekly-pdca-YYYY-Www.md <<'EOF'
-（セクション 1〜N を順に埋め込む）
-EOF
-
-# 2. Issue 作成
-gh issue create \
-  --title "[PDCA] YYYY-Www" \
-  --label "weekly-pdca" \
-  --body-file /tmp/weekly-pdca-YYYY-Www.md
+mkdir -p docs/project/pdca
+# セクション 1〜N を順に埋め込んだ markdown を書き出す
+# 例: docs/project/pdca/2026-W20.md
 ```
 
-既存 Issue があり更新する場合は `gh issue edit <N> --body-file /tmp/weekly-pdca-YYYY-Www.md`。
-
 **重要**:
-- レビュー md は作らない（Issue 一本化。W16 以前は `gh issue list --label weekly-pdca --state all` および git history を参照）
-- frontmatter は Issue body に不要（title/label/日付は Issue のメタデータで管理）
-- 前週の `[PDCA]` Issue は、本週 Issue 作成時に close する
+- 週次 PDCA は `docs/project/pdca/YYYY-Www.md`（週 1 ファイル、Zone A）。過去分は同ディレクトリに蓄積される
+- レビューで surface された未完了アクションは `.claude/state/task-queue.json` に登録する（`source: skill:weekly-review`）
+- 前週の md は close 不要（ファイルとして残す）。未完了アクションは task-queue 側で引き継がれる
 
 ### Phase 4: 週次計画の自動生成
 
-レビュー完了後、**自動的に `/weekly-plan` を実行**して同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する（`gh issue edit --body-file` で更新）。
+レビュー完了後、**自動的に `/weekly-plan` を実行**して同じ `docs/project/pdca/YYYY-Www.md` に「来週の計画」セクションを追記する。
 
-## 出力フォーマット（Issue body）
+## 出力フォーマット（docs/project/pdca/YYYY-Www.md）
 
-Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 markdown 全体を `--body-file` で投稿。
+ファイル冒頭に H1 `# 週次 PDCA YYYY-Www` を置き、以下のセクションを続ける。
 
 ```markdown
 ## サマリー
@@ -358,7 +346,7 @@ Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 mark
 
 ## PSI パフォーマンス推移
 
-<!-- Agent C2 が .claude/state/metrics/psi/ と open/closed Issues から自動生成。
+<!-- Agent C2 が .claude/state/metrics/psi/ と .claude/state/task-queue.json から自動生成。
      今週の違反件数、スコア前週比、新規/解消した違反を記録。 -->
 
 ### Core Web Vitals 前週比
@@ -368,9 +356,9 @@ Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 mark
 
 ### 今週の変動
 
-- **新規発生**: （件数）件 — 例: `/docs/xxx` で LCP 4.2s (Issue #N)
-- **解消**: （件数）件 — 例: `/docs/yyy` Perf 62→78 (Issue #N closed)
-- **継続放置**: （件数）件 — 7 日以上 open の Issue 一覧
+- **新規発生**: （件数）件 — 例: `/docs/xxx` で LCP 4.2s (task-queue T-NN)
+- **解消**: （件数）件 — 例: `/docs/yyy` Perf 62→78 (T-NN done)
+- **継続放置**: （件数）件 — updated が 7 日以上前の未完了タスク一覧
 
 ### 洞察
 - 改善が見える領域・退行した領域・次週の焦点
@@ -413,22 +401,21 @@ Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 mark
 ### 学習ログ
 - `.claude/state/proofread-learnings/YYYY-MM-DD.md` に詳細記録
 
-## GitHub Umbrella Issue 棚卸し
+## task-queue 棚卸し
 
-<!-- Agent G が gh issue list --label umbrella で取得した open / 今週 close された
-     Umbrella Issue の進捗・停滞・close 漏れ・孤立を surface する。
-     docs-issue-separation.md ルールの drift 検出用。 -->
+<!-- Agent G が .claude/state/task-queue.json から未完了タスクの進捗・停滞・
+     放置・孤立・refs 切れを surface する。 -->
 
-### Open Umbrella
+### 未完了タスク
 
-| # | タイトル | 進捗 | 最終更新 | 状態 |
-|---|---|---|---|---|
+| ID | タイトル | category | status | priority | 最終更新 | 状態 |
+|---|---|---|---|---|---|---|
 
-### 今週 close された Umbrella
+### 今週 done になったタスク
 - なし
 
 ### アクション提案
-- （停滞・close 漏れ・孤立が surface されていれば対応指示）
+- （停滞・放置・孤立・refs 切れが surface されていれば対応指示）
 
 ## その他パフォーマンス（必要に応じて）
 
@@ -447,10 +434,10 @@ Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 mark
 ## 運用ルール
 
 - **毎週日曜〜月曜に実行**
-- レビュー完了後に `/weekly-plan` が自動実行され、同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する
-- 前週の `[PDCA]` Issue は本週 Issue 作成時に close
-- 未完了アクションは次週 Issue の「計画」セクションに引き継ぐ
-- 週次レビューの md は作らない（W17 以降は Issue 一本化、W16 以前の旧 md archive は 2026-04-27 に削除）
+- レビュー完了後に `/weekly-plan` が自動実行され、同じ `docs/project/pdca/YYYY-Www.md` に「来週の計画」セクションを追記する
+- 週次 PDCA は `docs/project/pdca/YYYY-Www.md`（週 1 ファイル）。過去分はファイルとして残す
+- 未完了アクションは `.claude/state/task-queue.json` に登録し、次週はそこから引き継ぐ
+- W16 以前の旧 md archive は 2026-04-27 に削除済み。W17〜2026-05 は closed GitHub Issue（履歴アーカイブ）を参照
 
 ## 参照
 

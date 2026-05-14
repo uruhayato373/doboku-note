@@ -1,18 +1,18 @@
 #!/usr/bin/env node
 /**
- * audit-svg の副ツール: Issue コメント形式で全 SVG ギャラリーを生成する。
+ * audit-svg の副ツール: 全 SVG ギャラリーを Markdown で生成する。
  *
  * 目的:
- *   GitHub Issue #64（SVG デザイン一貫性の継続改善）に、全 SVG を
- *   ブラウザプレビュー付きで一覧できるコメントを作成する。
- *   改善完了時に再生成して差し替えることで、進捗を視覚化できる。
+ *   全 SVG をブラウザプレビュー付きで一覧できる Markdown を生成し、
+ *   SVG デザイン一貫性の継続改善（task-queue.json T-022）の進捗を視覚化する。
+ *   改善完了時に再生成して差分を確認できる。GitHub Issue は使わない。
  *
  * 入力:
  *   - .claude/state/svg-audit.json  （audit 結果、事前に audit 実行必須）
  *   - .local/r2/posts/**\/img/*.svg （全 SVG）
  *
  * 出力:
- *   - .tmp/svg-gallery-comment.md  （コメント本文）
+ *   - .tmp/svg-gallery-comment.md  （ギャラリー Markdown。視覚確認用）
  *
  * Usage:
  *   # 1. audit 実行で state 更新
@@ -20,9 +20,6 @@
  *
  *   # 2. ギャラリー生成
  *   node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs
- *
- *   # 3. Issue #64 にコメント投稿（初回 or 差し替え）
- *   gh issue comment 64 --body-file .tmp/svg-gallery-comment.md
  *
  * URL 形式:
  *   doboku-note.com/posts/... は Next.js のルートで 301 redirect が
@@ -132,7 +129,7 @@ lines.push("- 🟡 MEDIUM 違反あり（計画的改善）");
 lines.push("- ✅ audit クリア");
 lines.push("");
 lines.push(
-  `**再生成コマンド**: \`node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs && node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs && gh issue comment 64 --body-file .tmp/svg-gallery-comment.md\``
+  `**再生成コマンド**: \`node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs && node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs\``
 );
 lines.push("");
 lines.push("---");

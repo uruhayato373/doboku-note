@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  issues: write
 
 jobs:
   fetch:
@@ -50,7 +49,7 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data
 
-      - name: Check data integrity (Issue #130-A)
+      - name: Check data integrity
         id: integrity
         continue-on-error: true
         run: |
@@ -58,7 +57,7 @@ jobs:
           node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
           echo "exit_code=$?" >> $GITHUB_OUTPUT
 
-      - name: Check daily anomaly (Issue #130-B)
+      - name: Check daily anomaly
         id: anomaly
         continue-on-error: true
         run: |
@@ -94,62 +93,59 @@ jobs:
           git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
 
-      - name: Open or update data-integrity Issue
+      # GitHub Issue は廃止。違反検出は task-queue.json に append する
+      # （dedupe_key で重複起票防止 = 旧 find-or-create ロジックの置換）。
+      - name: Append to task-queue on data-integrity violation
         if: steps.integrity.outputs.exit_code == '1'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          # 既存の open な data-integrity Issue があれば続報コメント、なければ新規作成
-          EXISTING=$(gh issue list \
-            --repo ${{ github.repository }} \
-            --label "data-integrity,auto-generated" \
-            --state open \
-            --json number \
-            --jq '.[0].number // empty')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
 
           DATE=$(date -u +%Y-%m-%d)
+          node .claude/scripts/lib/task-queue.mjs add \
+            --title "GA4 date 欠損検出 ${DATE}" \
+            --category infra --priority high --source ci:fetch-metrics \
+            --dedupe-key ci:fetch-metrics:data-integrity \
+            --notes "fetch-metrics で GA4 データ整合性違反を検出。詳細は check-data-integrity.mjs の出力（GitHub Actions ログ）"
+          npm run build-todo
 
-          if [ -n "$EXISTING" ]; then
-            echo "既存 Issue #$EXISTING に続報コメントを追加"
-            gh issue comment "$EXISTING" \
-              --repo ${{ github.repository }} \
-              --body-file /tmp/metrics-report/integrity.md
-          else
-            echo "新規 Issue を起票"
-            gh issue create \
-              --repo ${{ github.repository }} \
-              --title "[Data-Integrity] GA4 date 欠損検出 ${DATE}" \
-              --label "data-integrity,auto-generated,weekly-pdca" \
-              --body-file /tmp/metrics-report/integrity.md
+          git add .claude/state/task-queue.json docs/project/TODO.md
+          if git diff --cached --quiet; then
+            echo "No task-queue changes to publish"
+            exit 0
           fi
+          git commit -m "chore(metrics): data-integrity violation -> task-queue $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
 
-      - name: Open or update daily-anomaly Issue
+      - name: Append to task-queue on daily-anomaly violation
         if: steps.anomaly.outputs.exit_code == '1'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          EXISTING=$(gh issue list \
-            --repo ${{ github.repository }} \
-            --label "daily-anomaly,auto-generated" \
-            --state open \
-            --json number \
-            --jq '.[0].number // empty')
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
 
           DATE=$(date -u +%Y-%m-%d)
+          node .claude/scripts/lib/task-queue.mjs add \
+            --title "GA4 日次異常検出 ${DATE}" \
+            --category infra --priority high --source ci:fetch-metrics \
+            --dedupe-key ci:fetch-metrics:daily-anomaly \
+            --notes "fetch-metrics で GA4 日次異常を検出。詳細は check-daily-anomaly.mjs の出力（GitHub Actions ログ）"
+          npm run build-todo
 
-          if [ -n "$EXISTING" ]; then
-            echo "既存 Issue #$EXISTING に続報コメントを追加"
-            gh issue comment "$EXISTING" \
-              --repo ${{ github.repository }} \
-              --body-file /tmp/metrics-report/anomaly.md
-          else
-            echo "新規 Issue を起票"
-            gh issue create \
-              --repo ${{ github.repository }} \
-              --title "[Daily-Anomaly] GA4 日次異常検出 ${DATE}" \
-              --label "daily-anomaly,auto-generated,weekly-pdca" \
-              --body-file /tmp/metrics-report/anomaly.md
+          git add .claude/state/task-queue.json docs/project/TODO.md
+          if git diff --cached --quiet; then
+            echo "No task-queue changes to publish"
+            exit 0
           fi
+          git commit -m "chore(metrics): daily-anomaly violation -> task-queue $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
 
       - name: Cleanup credentials
         if: always()

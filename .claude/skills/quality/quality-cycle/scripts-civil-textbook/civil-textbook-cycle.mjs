@@ -23,8 +23,8 @@
  *   review : state を読んで markdown 出力 → civil-review-queue.md
  *   report : 全データを集計してコンソール表示
  *   issue  : civil-quality-scores.json からリライト候補（weighted < threshold）を
- *            umbrella issue markdown に整形 → .claude/state/civil-issue-draft.md
- *            --create フラグ + gh CLI 存在時は gh issue create で実際に作成
+ *            markdown レポートに整形 → .tmp/civil-textbook-cycle-report.md
+ *            （GitHub Issue は廃止。リライト候補は task-queue.json で追跡）
  *
  * ──subagent モード（Claude Code 経由で動かす）──
  *   score  : civil-construction-review subagent で全 40 件評価 → civil-quality-scores.json
@@ -79,8 +79,8 @@ Civil Textbook Cycle Orchestrator
 Modes (機械的・subagent 不要):
   --mode review          人間レビュー待ちリストを出力 → ${PATHS.REVIEW_QUEUE}
   --mode report          ダッシュボード表示
-  --mode issue           リライト候補から umbrella issue markdown を生成
-                         --create 付き + gh CLI 存在時は実際に issue 作成
+  --mode issue           リライト候補から markdown レポートを生成
+                         → .tmp/civil-textbook-cycle-report.md（Issue は廃止）
 
 Modes (subagent 必要):
   --mode score           全 textbook/guide を civil-construction-review で評価
@@ -454,7 +454,7 @@ function runReport() {
 
 // ── mode: issue (umbrella issue markdown 生成 + 任意で gh 作成) ─
 
-const ISSUE_DRAFT_PATH = '.claude/state/civil-issue-draft.md';
+const ISSUE_DRAFT_PATH = '.tmp/civil-textbook-cycle-report.md';
 
 function runIssue(args) {
   const threshold = args.threshold || DEFAULT_THRESHOLD;
@@ -563,39 +563,12 @@ function runIssue(args) {
     return;
   }
 
-  // gh CLI で作成
+  // GitHub Issue は廃止（.claude/reference/information-architecture.md）。
   if (args.create) {
-    let ghAvailable = false;
-    try {
-      execSync('gh --version', { stdio: 'pipe' });
-      ghAvailable = true;
-    } catch {
-      ghAvailable = false;
-    }
-
-    if (!ghAvailable) {
-      console.error(`\n[issue] gh CLI が見つかりません。`);
-      console.error(`[issue] 手動で ${ISSUE_DRAFT_PATH} の内容を GitHub issues/new に貼り付けてください。`);
-      console.error(`[issue] URL: https://github.com/uruhayato373/doboku-note/issues/new`);
-      process.exit(1);
-    }
-
-    try {
-      const out = execSync(`gh issue create --title ${JSON.stringify(title)} --body-file ${ISSUE_DRAFT_PATH}`, {
-        encoding: 'utf-8',
-      });
-      console.log(`\n[issue] ✓ issue 作成成功`);
-      console.log(out);
-    } catch (e) {
-      console.error(`[issue] gh issue create 失敗: ${e.message}`);
-      console.error(`[issue] draft: ${ISSUE_DRAFT_PATH} を手動で貼り付けてください。`);
-      process.exit(1);
-    }
-  } else {
-    console.log(`\n[issue] draft 生成のみ（gh で作成するには --create フラグを追加）`);
-    console.log(`[issue] 手動作成: https://github.com/uruhayato373/doboku-note/issues/new`);
-    console.log(`[issue] ファイル内容を貼り付け: ${ISSUE_DRAFT_PATH}`);
+    console.log(`\n[issue] 注: GitHub Issue は廃止。--create は無効です。`);
   }
+  console.log(`\n[issue] リライト候補レポートを ${ISSUE_DRAFT_PATH} に生成しました。`);
+  console.log(`[issue] 着手するタスクは .claude/state/task-queue.json に登録してください（category: quality）。`);
 }
 
 // ── メイン ──────────────────────────────────────────────────────

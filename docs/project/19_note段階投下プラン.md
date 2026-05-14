@@ -191,7 +191,7 @@
 
 ## 投稿時 SOP（記事ごとのチェックリスト）
 
-`docs/note-drafts/` 配下の各ドラフトを note に実投稿する際の手順。Issue #180 から移譲（2026-05-11、#180 は close）。進捗管理は [Umbrella #179](https://github.com/uruhayato373/doboku-note/issues/179) のチェックボックスを真実源とする。
+`docs/note-drafts/` 配下の各ドラフトを note に実投稿する際の手順。旧 Issue #180 から移譲（2026-05-11）。進捗管理は `.claude/state/task-queue.json` の **T-016（note 商品ラインナップ整備）** を真実源とする。
 
 ### 投稿前の準備（全記事共通）
 
@@ -210,13 +210,13 @@
 ### 投稿後の連携
 
 1. **サイト相互リンク** — 該当キーワードページに「note で深掘り」CTA を追加（[27_5チャネル動線設計.md](./27_5チャネル動線設計.md) の UTM フォーマット準拠）
-2. **Umbrella #179 のチェックボックス更新** — 投稿状態を `- [x]` に変更
+2. **T-016 の進捗更新** — `.claude/state/task-queue.json` の T-016 の `notes` に投稿済みドラフトを反映（完了したら関連子タスクの `status` を `done` に）
 3. **SNS 告知** — X / Instagram で投稿告知（必要に応じて）
 
 ### 補足
 
 - **記事末尾 CTA**: 無料記事は記事末尾に有料商品へのバナーを設置（02→A-1 / 10、03→B-1、06→D-1、11→B-1 / 13、90→B-1）
-- **マガジン化**: 単品販売で実績を見てからマガジン編成（[Umbrella #179](https://github.com/uruhayato373/doboku-note/issues/179) の「マガジン戦略」セクション参照）
+- **マガジン化**: 単品販売で実績を見てからマガジン編成（`.claude/state/task-queue.json` の T-016 の `notes` 末尾「マガジン化」を参照）
 - **重複防止**: Red Line 5 のとおり、note と doboku-note に同じ技術解説を載せない。note は体験談・要約・テンプレに限定する
 
 ---
@@ -224,5 +224,5 @@
 ## 参考
 
 - 親戦略: [05_収益化戦略.md](./05_収益化戦略.md)
-- SEO 継続改善: [Issue #72 [Umbrella] SEO 継続改善](https://github.com/uruhayato373/doboku-note/issues/72)
+- SEO 継続改善: `.claude/state/task-queue.json` の `category: seo` タスク群（旧 Issue #72 相当）
 - v3 事業戦略: [02_事業戦略.md](./02_事業戦略.md)

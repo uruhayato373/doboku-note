@@ -2,26 +2,23 @@
 
 `.claude/` 配下の他ディレクトリ（`agents/`・`skills/`・`reference/`・`config/`）が **declarative**（人間が定義する固定内容）であるのに対し、このディレクトリは **mutable**（スキル・エージェントが実行中に読み書きする状態）を扱う。
 
-## 情報蓄積ルール（3 層モデル）
+## 情報蓄積ルール（4 ゾーンモデル）
 
-本ディレクトリは **Tier 3: 機械可読データのみ**。状態あり（open/close の概念）の情報は **Tier 1: GitHub Issue** に置く。
+本ディレクトリは **Zone C: 機械可読データ**。CI 出力・監査結果・サイクル状態・`task-queue.json` を JSON で持つ。
 
-| Tier | 置き場 | 用途 |
+| Zone | 置き場 | 用途 |
 |---|---|---|
-| Tier 1 | GitHub Issue（`weekly-pdca` / `session-handoff` / `queue` / `task` / `umbrella` 等のラベル） | open/close する状態 |
-| Tier 2 | `docs/project/`, `.claude/reference/`, `.claude/skills/**/SKILL.md` | 固定的知識・戦略・ADR |
-| **Tier 3**（本ディレクトリ） | `.claude/state/*.json`, `.claache/config/*.json` | エージェントが programmatic に読み書きする構造化データ |
+| A | `docs/` | 戦略・設計・進捗・週次 PDCA・引き継ぎ（散文 md） |
+| B | `.claude/reference/` | 運用手順・ポリシー・レジストリ（散文 md） |
+| **C**（本ディレクトリ） | `.claude/state/*.json`, `.claude/config/*.json` | 機械可読データ・`task-queue.json` |
+| D | `.claude/skills/`, `.claude/agents/` | 実行可能な能力の定義 |
 
 ### 禁止事項
 
-- **新規 `.md` ファイルを置かない**（本 README.md を除く）
-  - 週次レビュー → Issue `[PDCA] YYYY-Www`（`.github/ISSUE_TEMPLATE/weekly-pdca.md`）
-  - セッション引き継ぎ → Issue `[Handoff] YYYY-MM-DD <ctx>`（`.github/ISSUE_TEMPLATE/session-handoff.md`）
-  - レビュー待ち → Issue `[Queue] ...`（`.github/ISSUE_TEMPLATE/queue.md`）
-  - 単発タスク → Issue `[Task] ...`（`.github/ISSUE_TEMPLATE/task.md`）
-  - 長期計画 → Issue `[Umbrella] ...`（`.github/ISSUE_TEMPLATE/umbrella.md`）
+- **新規 `.md` ファイルを置かない**（本 README.md を除く）。状態・進捗は JSON か Zone A/B の md へ
+- **GitHub Issue は使わない**。やるべきことは `task-queue.json` に集約する
 
-詳細: [.claude/reference/docs-issue-separation.md](../reference/docs-issue-separation.md)
+詳細・判断フロー: [information-architecture.md](../reference/information-architecture.md)
 
 ## ファイル一覧（主な JSON / ディレクトリ）
 
@@ -54,6 +51,6 @@
 - **git 管理対象**: 状態遷移の履歴を追跡可能にするため、差分コミットを許容
 - **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域）
 - **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `.claude/reference/data-storage-decision.md`）
-- **Issue 一本化**: 2026-04-21 に `.claude/state/*.md`（session-handoff, review-queue 等）を GitHub Issue に全面移行
+- **タスクの単一正源**: やるべきことは `task-queue.json` に集約。`docs/project/TODO.md` が人間用ビュー（生成物・直接編集禁止）
 
-詳細なアーキテクチャは `.claude/skills/quality/quality-cycle/DESIGN.md` と `.claude/reference/docs-issue-separation.md` を参照。
+詳細なアーキテクチャは `.claude/skills/quality/quality-cycle/DESIGN.md` と [information-architecture.md](../reference/information-architecture.md) を参照。

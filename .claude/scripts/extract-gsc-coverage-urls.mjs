@@ -1,10 +1,12 @@
 /**
- * Issue #28 コメント本文から ex0/ex1/ex2/ex3/ex4 の URL を抽出する
+ * GSC Coverage 分析テキストから ex0/ex1/ex2/ex3/ex4 の URL を抽出する
+ *
+ * 入力は GSC 非インデックス URL 分析のテキスト（ex0〜ex4 のカテゴリ別 URL を含むもの）。
+ * 旧 Issue #28 は task-queue T-018「GSC Coverage 改善 Round 1」に移行済み。
  *
  * Usage:
- *   gh issue view 28 --json comments --jq '.comments[].body' > .tmp/gsc-issue-28-comments.txt
  *   node .claude/scripts/extract-gsc-coverage-urls.mjs \
- *     --input .tmp/gsc-issue-28-comments.txt \
+ *     --input <gsc-coverage-analysis.txt> \
  *     --output-dir .tmp/gsc-urls/
  *
  * 出力:

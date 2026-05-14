@@ -310,45 +310,32 @@ keywords_count: 6
 `status` enum:
 - `in_review` — PR 作成済・未マージ（作業メタデータ）
 - `committed` — ローカルコミットのみ（作業メタデータ）
-- `full_cycle_complete` — Phase 5.6 で verify 通過済（Umbrella で `[x]` 表示対象、完了判定の唯一の条件）
+- `full_cycle_complete` — Phase 5.6 で verify 通過済（進捗 draft で `[x]` 表示対象、完了判定の唯一の条件）
 
 `full_cycle_complete` 以外はすべて「未完了」扱い。中間状態（partial 等）は存在しない。
 
-### Phase 5.5: Umbrella Issue 同期
+### Phase 5.5: 進捗 draft 同期
 
-Phase 5 で `progress.json` を更新した直後に、該当年度の Umbrella Issue と親 Umbrella の checkbox・進捗%を同期する。
+Phase 5 で `progress.json` を更新した直後に、該当年度と親の進捗サマリ draft markdown を再生成する（GitHub Issue は廃止 — [information-architecture.md](../../../reference/information-architecture.md)。進捗の真実源は `progress.json`、人間用ビューは `docs/project/TODO.md`）。
 
 ```bash
-# 対象年度の Umbrella を更新（該当行が [x] に変わる）
+# 対象年度の進捗 draft を再生成
 node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --exam <exam-slug>
 
-# 親 Umbrella の全体進捗%・年度別進捗を更新
+# 親（全体）の進捗 draft を再生成
 node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --parent
-```
 
-- `progress.json.umbrella_issues.<exam-slug>` に Issue 番号が記録されている必要がある（未記録なら警告スキップ）
-- body は毎回丸ごと再生成される。人間が手動で触った checkbox は上書きされる（手動編集禁止の注意書きを body に載せてある）
-- 差分なしなら gh API を叩かない
-
-**初回セットアップ**（Umbrella Issue がまだ無い場合）:
-
-```bash
-# 年度 Umbrella 5 本を作成（R07〜R03 primary）
-for exam in r07 r06 r05 r04 r03; do
-  node .claude/skills/quality/exam-keyword-cycle/scripts/generate-umbrella.mjs \
-    --exam pe-comprehensive-management-${exam}-primary --create
-done
-
-# 親 Umbrella を作成（年度 Issue 番号を参照するため最後）
-node .claude/skills/quality/exam-keyword-cycle/scripts/generate-umbrella.mjs --parent --create
-
-# 既存の covered を初期反映
+# 全年度 + 親をまとめて再生成
 node .claude/skills/quality/exam-keyword-cycle/scripts/sync-umbrella.mjs --all
 ```
 
+- draft は `progress.json` から毎回丸ごと再生成される（`.claude/state/exam-keyword-cycles/umbrella-drafts/<key>.md`）
+- 進捗の真実源は `progress.json`。draft はその人間可読ビュー
+- `generate-umbrella.mjs` も同じ draft を生成する（`--exam` / `--parent`）
+
 ### Phase 5.6: 完了検証（full-cycle gate）
 
-`progress.json` と Umbrella 同期が終わった直後、完了状態を機械的に検証する。
+`progress.json` と進捗 draft 同期が終わった直後、完了状態を機械的に検証する。
 
 ```bash
 node .claude/skills/quality/exam-keyword-cycle/scripts/verify-cycle-completeness.mjs \

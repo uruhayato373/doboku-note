@@ -157,5 +157,5 @@ docs/sns/instagram/{date}-{slug}/{size}/img/
 - テンプレート実装: `.claude/scripts/lib/sns-common/notebook-slides.mjs`
 - レンダラ: `.claude/scripts/lib/sns-common/slide-render.mjs`
 - YT Shorts（同じ `sns-common` 基盤を使用）: `.claude/skills/social/yt-shorts-create/SKILL.md`
-- Umbrella: [#161](https://github.com/uruhayato373/doboku-note/issues/161)
-- 量産 Issue: [#168 SNS-4](https://github.com/uruhayato373/doboku-note/issues/168)
+- 親タスク: task-queue T-001「SNS 自動投稿基盤（YouTube × Instagram）」
+- 量産: task-queue T-005「SNS 型・チャネル拡充（試験後 2026-08〜）」

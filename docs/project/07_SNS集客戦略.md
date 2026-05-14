@@ -3,7 +3,8 @@
 doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施工管理技士 / 技術士総合技術監理部門 を整備中）への流入を SNS から獲得するための方針。X / YouTube / Instagram の 3 チャネルを統合管理する。
 
 **最終更新**: 2026-04-28（v5: Instagram を Carousel + Reels の両軸へ転換、YT Shorts mp4 を IG Reels に流用）
-**関連**: [02_事業戦略.md](./02_事業戦略.md) / [05_収益化戦略.md](./05_収益化戦略.md) / [26_Instagram投稿自動化アーキテクチャ.md](./26_Instagram投稿自動化アーキテクチャ.md) / [Umbrella Issue #161](https://github.com/uruhayato373/doboku-note/issues/161)
+**関連**: [02_事業戦略.md](./02_事業戦略.md) / [05_収益化戦略.md](./05_収益化戦略.md) / [26_Instagram投稿自動化アーキテクチャ.md](./26_Instagram投稿自動化アーキテクチャ.md)
+**実行タスク**: `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤、親）と子タスク T-003〜T-009 — 進捗の真実源
 
 ## 1. 基本方針（v5）
 
@@ -159,13 +160,13 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 - 内容: 1 投稿 = 1 キーワード（type1 definition の 7 枚）または 1 過去問（type3 quiz の 5 枚）
 - 役割: 「保存して試験前日に見返す」ストック教材（目のスキマ時間）
 - パイプライン: 共通基盤 `slide-render.mjs` で Satori → PNG → Meta Graph API
-- Phase 1 MVP: type1（definition）+ type3（quiz）のみ（Issue #165）
+- Phase 1 MVP: type1（definition）+ type3（quiz）のみ（IG Carousel MVP、SNS 基盤 T-001 の子作業）
 
 **Reels（9:16 mp4・週 3 本・月水金 19:30 JST、YT Shorts と同時）**
 
 - 解像度: 1080×1920 (9:16 portrait)
 - 尺: 30-60 秒
-- 内容: **YT Shorts MVP（#166）が生成する mp4 をそのまま流用**
+- 内容: **YT Shorts MVP が生成する mp4 をそのまま流用**
 - 役割: フィード偶発接触のリーチ獲得器（検索意図ゼロでも届く）
 - パイプライン: `ig-reel-publish.mjs`（新設、約 100 行）→ media-uploader → Meta Graph API REELS endpoint
 - キャプションのみ IG 用に再生成（hashtag 密度を YT より上げる）
@@ -265,7 +266,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 2. doboku-note サイトのトップに IG リンクを目立つ位置に配置
 3. #技術士総監 ハッシュタグの上位投稿に毎日 5 件、質の高いコメント
 
-実行タスクは Issue #183 で追跡。
+実行タスクは `.claude/state/task-queue.json` の T-008（IG フォロワー獲得 30 日チェックリスト）で追跡。
 
 ### TikTok 横展開（2027 年以降）
 
@@ -294,7 +295,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
   - ヘッダー画像: satori で生成（サイトロゴ + キャッチコピー）
 - **Instagram**: `@doboku_note`（X と統一）
   - bio リンク: サイトトップ（または Linktree で過去問・キーワードへ複数導線）
-- **YouTube**: ブランドアカウント（Issue #163 SNS-prereq で開設、OAuth トークン取得）
+- **YouTube**: ブランドアカウント（SNS 共通基盤整備の事前作業として開設・OAuth トークン取得）
 
 ## 4. 四半期別ロードマップ（v5）
 
@@ -310,10 +311,10 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 - [ ] **bio link 着地点を確定**（Phase 1 = サイト直、Phase 2 = Linktree）→ [27 §7 弱点 2](./27_5チャネル動線設計.md)
 - [ ] **UTM 統一テンプレート策定**（`.claude/config/utm-templates.json` + `lib/utm-builder.mjs`）→ [27 §4](./27_5チャネル動線設計.md)
 - [ ] **note ↔ サイト Red Line スキル化**（`/check-content-redline`）→ [27 §7 弱点 3](./27_5チャネル動線設計.md)
-- [ ] **Issue #163 SNS-prereq**: YouTube ブランドアカウント開設、OAuth トークン取得、VOICEVOX キャラ採用決定
-- [ ] **Issue #164 SNS-0**: 共通基盤 `.claude/scripts/lib/sns-common/` 整備（6 ファイル）
-- [ ] **Issue #166 SNS-2**: YouTube Shorts MVP（テストチャンネルで品質確認）
-- [ ] **Issue #167 SNS-3**: GitHub Actions スケジューラ統合
+- [ ] **SNS-prereq**: YouTube ブランドアカウント開設、OAuth トークン取得、VOICEVOX キャラ採用決定
+- [ ] **SNS-0**: 共通基盤 `.claude/scripts/lib/sns-common/` 整備（6 ファイル）
+- [ ] **SNS-2**: YouTube Shorts MVP（テストチャンネルで品質確認）
+- [ ] **SNS-3**: GitHub Actions スケジューラ統合 → task-queue T-004
 
 **Q2 で本番投稿はしない**: テストチャンネル or 非公開設定で品質確認のみ。
 
@@ -332,7 +333,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 ### Q4（2026年10-12月）: 拡充フェーズ
 
-- [ ] **Issue #168 SNS-4**: 型拡充（5 管理別解説、トレードオフ動画、IG クロス投稿）
+- [ ] **SNS-4**: 型拡充（5 管理別解説、トレードオフ動画、IG クロス投稿）→ task-queue T-005
 - [ ] 10 月末: 筆記合格発表対応（合格時のみ「合格しました」動画 1 本投稿、それ以降は通常運用）
 - [ ] 10 月末: **iOS 着手判断ダッシュボード**（`/check-ios-readiness`）で Web 月収 ≥ ¥15k + 筆記合格を判定 → [27 §7 弱点 4](./27_5チャネル動線設計.md)
 - [ ] 11 月〜: 1 級土木 2 次・技術士 1 次の季節スポット動画（共通基盤で 1 級土木 MDX も対応可）
@@ -419,18 +420,20 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 | TTS 量産で SEO 評価ペナルティ | 中 | YouTube 説明欄の文章は MDX 由来で品質担保。サムネ・タイトル品質で差別化 |
 | YouTube アルゴリズムの初動評価で埋もれる | 中 | 週 3 本の定期投稿を 3 ヶ月以上継続。共通基盤で「途中で止まる」リスクを構造的に排除 |
 | Lock-On 等が「総監×スキマ時間」に参入 | 低 | 有料講座販促モデルとバッティング、参入可能性は低い |
-| VOICEVOX の商用利用規約違反 | 低 | Issue #163 で採用キャラのライセンスを事前確認。問題があれば差し替え |
+| VOICEVOX の商用利用規約違反 | 低 | SNS-prereq の事前作業で採用キャラのライセンスを確認済み。問題があれば差し替え |
 | API レート制限超過 | 低 | YouTube Data API 10,000 units/day で月 60 動画 upload は余裕 |
-| OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時 GitHub Issue 自動起票 |
+| OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時は `task-queue.json` に追記（`source: ci:sns-publish` + `dedupe_key`） |
 
 ## 9. 次のアクション（優先順位付き・v5）
 
-1. **Issue #163 SNS-prereq**: YouTube + Instagram ブランドアカウント開設・OAuth トークン取得
-2. **Issue #164 SNS-0**: 共通基盤 6 ファイルの実装（PR #169）
-3. **Issue #166 SNS-2**: YouTube Shorts MVP（PR #170）
-4. **Issue #165 SNS-1**: Instagram Carousel MVP（type1 + type3）+ **ig-reel-publish.mjs 追加**（YT Shorts mp4 を IG Reels に投稿）
-5. **Issue #167 SNS-3**: スケジューラ統合（queue.json で Carousel + Reels を管理）
-6. **Issue #168 SNS-4**: 型拡充（試験後 2026-08〜、Carousel 残り 4 型 + Remotion 高度 Reel）
+> 進捗の真実源は `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤）と子タスク。SNS-prereq/SNS-0/SNS-1/SNS-2 は SNS 共通基盤整備として完了済み。
+
+1. **SNS-prereq**（完了）: YouTube + Instagram ブランドアカウント開設・OAuth トークン取得
+2. **SNS-0**（完了）: 共通基盤 6 ファイルの実装（PR #169）
+3. **SNS-2**（完了）: YouTube Shorts MVP（PR #170）
+4. **SNS-1**（完了）: Instagram Carousel MVP（type1 + type3）+ **ig-reel-publish.mjs 追加**（YT Shorts mp4 を IG Reels に投稿）
+5. **T-004 SNS-3**: スケジューラ統合（queue.json で Carousel + Reels を管理）
+6. **T-005 SNS-4**: 型拡充（試験後 2026-08〜、Carousel 残り 4 型 + Remotion 高度 Reel）
 7. （X 単独）`/social-post x` での日次運用継続
 
 ## 関連ドキュメント
