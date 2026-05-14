@@ -25,7 +25,7 @@ doboku-note の記事本文中に表示される、色 + アイコン + 任意�
 | `formula` | 公式 | 藍（indigo） | `Sigma` | 公式・計算原理 |
 | `standard` | 基準・規格 | 紫（violet） | `BookOpen` | JIS / ISO / 法令条文 |
 | `example` | 実例 | 青緑（cyan） | `Beaker` | 具体的な計算例・事例 |
-| `reference` | 参考文献 | 灰（slate） | `Link2` | 書籍・論文・URL への誘導 |
+| `reference` | 参考文献 | 灰（slate） | `Link2` | 書籍・論文への誘導（note 記事は `<NoteLink>`、一般外部 URL は `<LinkCard>`） |
 | `faq` | よくある質問 | 黄（yellow） | `MessageSquare` | Q&A 形式の補足 |
 | `quote` | 引用 | 中立灰（zinc） | `Quote` | 原典文献の直接引用 |
 
