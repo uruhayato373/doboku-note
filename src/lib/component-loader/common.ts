@@ -12,6 +12,7 @@ export const commonComponents = {
   RelatedExamQuestions: "RelatedExamQuestions",
   SpecSheetList: "SpecSheetList",
   LinkCard: "LinkCard",
+  NoteLink: "NoteLink",
   MagazineInlineCard: "MagazineInlineCard",
   SeeAlso: "SeeAlso",
   CardList: "CardList",

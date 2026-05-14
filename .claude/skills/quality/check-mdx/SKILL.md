@@ -1,14 +1,14 @@
 ---
 name: check-mdx
 description: >
-  MDX ファイルの構文・frontmatter・リンク・SVG・法令引用・関連キーワード・過去問解説等を
-  rule ベースで検査する統合 Evaluator スキル。8 rule を `--rules` フラグで選択可能。
+  MDX ファイルの構文・frontmatter・リンク・SVG・法令引用・関連キーワード・note リンク・過去問解説等を
+  rule ベースで検査する統合 Evaluator スキル。9 rule を `--rules` フラグで選択可能。
   pre-commit hook からも利用される。
-  Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, SVG監査, frontmatter チェック, 法令リンク, /check-mdx].
+  Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, SVG監査, frontmatter チェック, 法令リンク, note リンク, /check-mdx].
 user-invocable: true
 ---
 
-MDX 品質に関する 8 種類の検査ルールを 1 つのスキルに統合した Evaluator。旧 `/check-mdx` `/check-frontmatter` `/check-links` `/audit-staging` `/audit-exam-explanations` `/audit-svg` `/check-related-keyword-inline` `/check-legal-citations` を吸収。
+MDX 品質に関する 9 種類の検査ルールを 1 つのスキルに統合した Evaluator。旧 `/check-mdx` `/check-frontmatter` `/check-links` `/audit-staging` `/audit-exam-explanations` `/audit-svg` `/check-related-keyword-inline` `/check-legal-citations` を吸収。
 
 ## 引数
 
@@ -37,6 +37,7 @@ MDX 品質に関する 8 種類の検査ルールを 1 つのスキルに統合�
 | `explanations` | HIGH/MEDIUM | 過去問解説 | 破損解説パターン（P1-headless / P2-examPoint-empty） | `scripts/rules/explanations/` |
 | `related-keyword` | MEDIUM | キーワードページ | 末尾「関連キーワード: [A]、[B]」列挙パターン（ルール 8-1） | `.claude/scripts/lint-mdx-mobile.mjs` |
 | `legal-citations` | LOW | 法令引用 | e-Gov 法令検索リンク化されているか（ルール 8-2） | `scripts/rules/legal-citations/` |
+| `note-link` | MEDIUM | note リンク | note 記事リンク（`note.com/dobokunote/n/`）が `<NoteLink>` 外（生 markdown・`<Callout>`・`<LinkCard>`）で書かれていないか（ルール 8-3） | `.claude/scripts/lint-mdx-mobile.mjs` |
 
 ### 全体スキーム
 
@@ -233,6 +234,16 @@ node .claude/skills/quality/check-mdx/scripts/rules/legal-citations/fix-legal-ci
 ```
 
 **法令番号辞書**: `fix-legal-citations.mjs` の `LAW_ID_MAP`（2026-04-13 時点で 31 件登録、HTTP 200 で検証済み）。新法令追加は `LAW_ID_MAP` に `'{法令名}': '{法令番号}'` を足してから実行。
+
+### note-link — note 記事リンクのコンポーネント統一（`lint-mdx-mobile.mjs` ルール 8-3）
+
+note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コンポーネントに統一する規約（→ `.claude/reference/content-authoring.md`「リンク系コンポーネントの使い分け」）。生 markdown リンク・`<Callout type="reference">` 内・`<LinkCard>` で note 記事リンクを書いている箇所を MEDIUM で検出する。
+
+- magazine リンク（`note.com/dobokunote/m/`）は `<MagazineInlineCard>` 担当のため対象外
+- フェンスコードブロック内は対象外
+- 修正は Generator 側（`<NoteLink>` への置換）が行う。Evaluator は検出のみ
+
+**実行**: `node .claude/scripts/lint-mdx-mobile.mjs <target> 2>&1 | grep "8-3"`
 
 ## 出力フォーマット
 

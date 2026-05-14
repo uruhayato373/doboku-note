@@ -9,7 +9,7 @@
  *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-1〜9-6)
  *   - §7 過剰装飾を避ける               → カテゴリ7 (将来追加)
  *   - §8 図表は説明の流れの中に配置     → カテゴリ10 (10-1〜10-5, ArticleImage 規約)
- *   - §8 リンクの使い分け               → カテゴリ8 (8-1, 8-2)
+ *   - §8 リンクの使い分け               → カテゴリ8 (8-1, 8-2, 8-3)
  *   - §9 参考資料の構成                 → カテゴリ9-4
  *
  * Usage:
@@ -26,6 +26,7 @@
  *   6-1 MEDIUM 表の直前行が見出しのみで導入文がない
  *   8-1 MEDIUM 末尾の「関連キーワード:」列挙行
  *   8-2 LOW    法令条文の未リンク
+ *   8-3 MEDIUM note 記事リンクが <NoteLink> 外（生 markdown・Callout・LinkCard）
  *   9-1 HIGH   <ExamPoint> が3個以上（過去問MDX除外）
  *   9-2 MEDIUM 最初の<ExamPoint>が記事の上位60%以内
  *   9-3 HIGH   <ExamPoint>のsummaryに「誤り選択肢」等を含む
@@ -291,6 +292,45 @@ function lintLegalCitations(lines, findings) {
         endLine: i + 1,
         message: `法令条文「${m[0]}」が e-Gov へのインラインリンクになっていない`,
       });
+    }
+  }
+}
+
+/**
+ * 8-3: note 記事リンクが <NoteLink> 外で書かれているのを検出
+ *
+ * note.com/dobokunote/n/ への記事リンクは <NoteLink> コンポーネントに統一する。
+ * 生 markdown リンク・<Callout type="reference">・<LinkCard> 内の note 記事リンクを
+ * MEDIUM で警告する。magazine リンク（/m/）は <MagazineInlineCard> 担当のため対象外。
+ * 真実源: .claude/reference/content-authoring.md「リンク系コンポーネントの使い分け」
+ */
+function lintNoteLink(lines, findings) {
+  let inFence = false;
+  let inNoteLink = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    // フェンスコードブロックをスキップ
+    if (/^\s*```/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    // <NoteLink> ブロックの開始を追跡（同一行 self-close も含む）
+    if (line.includes('<NoteLink')) inNoteLink = true;
+    // note 記事リンク（/n/）が <NoteLink> 外にあれば警告
+    if (line.includes('note.com/dobokunote/n/') && !inNoteLink) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '8-3',
+        line: i + 1,
+        endLine: i + 1,
+        message:
+          'note 記事リンクは <NoteLink> に統一する（生 markdown・<Callout>・<LinkCard> で note 記事リンクを書かない）',
+      });
+    }
+    // <NoteLink> ブロックの終了判定（/> または </NoteLink>）
+    if (inNoteLink && (/\/>/.test(line) || line.includes('</NoteLink>'))) {
+      inNoteLink = false;
     }
   }
 }
@@ -981,6 +1021,7 @@ function lintFile(filePath) {
 
   lintRelatedKeywordList(lines, findings);
   lintLegalCitations(lines, findings);
+  lintNoteLink(lines, findings);
   lintBoldScope(lines, findings);
   lintBoldDelimiterBoundary(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
