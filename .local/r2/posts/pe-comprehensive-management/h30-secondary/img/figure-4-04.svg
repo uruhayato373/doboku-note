@@ -1,4 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="560" height="200" viewBox="0 0 560 200" style="max-width:560px;width:100%" role="img" aria-label="figure 4 04" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#1a3a5c"/>
+    </marker>
+  </defs>
   <!-- Title box -->
   <rect x="10" y="10" width="200" height="40" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
   <text x="110" y="30" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">働き方改革実行計画</text>
