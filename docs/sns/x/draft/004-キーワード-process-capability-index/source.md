@@ -5,7 +5,7 @@
 - 元ネタ: `.local/r2/posts/pe-comprehensive-management/process-capability-index/article.mdx`
 - 関連 SVG: `.local/r2/posts/pe-comprehensive-management/process-capability-index/img/normal-distribution-3sigma.svg`（既存）
 - 用途: x.md / instagram-carousel.md / youtube-shorts/ の派生元（真実源）
-- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../../../project/sns/calendar-2026q2.md)
+- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../../../project/03_SNS/03_投稿カレンダー2026Q2.md)
 
 ## 派生媒体
 

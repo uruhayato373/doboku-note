@@ -1,7 +1,7 @@
 # YT Shorts 19: 社会環境管理 Q19 ALPS 処理水
 
 **尺**: 40 秒目安
-**公開予定**: TBD（[投稿カレンダー](../../../../project/sns/calendar-2026q2.md) 調整中）
+**公開予定**: TBD（[投稿カレンダー](../../../../project/03_SNS/03_投稿カレンダー2026Q2.md) 調整中）
 **元素材**: [source.md Q19](../source.md)
 
 ## ナレーション原稿（VOICEVOX 用）

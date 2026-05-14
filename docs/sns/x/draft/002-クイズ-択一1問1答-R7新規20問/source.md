@@ -5,7 +5,7 @@
 - 元ネタ: `.local/r2/posts/pe-comprehensive-management/r07-primary/article.mdx`（令和 7 年度 二次試験択一式・全 40 問のうち 001 と重複しない論点を 20 問選定）
 - 問題数: 20 問（5 管理 × 4 問）
 - 用途: x.md / instagram-carousel.md / youtube-shorts/ の派生元（真実源）
-- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../../../project/sns/calendar-2026q2.md)
+- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../../../project/03_SNS/03_投稿カレンダー2026Q2.md)
 
 ## 派生媒体
 

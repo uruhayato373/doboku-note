@@ -12,7 +12,7 @@
 | T-015 | 未着手 | high | 総監キーワードページ 499 件リライト（A→C→B→C'） | docs/project/31_リライト方法論方針.md / .claude/state/improvements/pe-priority-2026-05-11.md |
 | T-016 | 進行中 | high | note 商品ラインナップ整備（A-1〜D-1 + マガジン化） | docs/note/19_note段階投下プラン.md / docs/project/05_収益化戦略.md |
 | T-019 | 未着手 | high | 令和7年版 国土交通白書を note 有料記事 + キーワード追記で活用 | docs/note/19_note段階投下プラン.md / docs/project/05_収益化戦略.md |
-| T-017 | 進行中 | mid | 総監記述式 8 年分 三層構造分析プロジェクト | docs/project/08_記述式コンテンツ戦略.md / docs/project/essay-analysis/README.md |
+| T-017 | 進行中 | mid | 総監記述式 8 年分 三層構造分析プロジェクト | docs/project/08_記述式コンテンツ戦略.md / docs/project/記述式分析/README.md |
 
 ## infra
 

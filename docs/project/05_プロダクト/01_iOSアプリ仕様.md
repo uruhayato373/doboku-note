@@ -129,7 +129,7 @@ struct UserProgress {
 
 ## 収益モデル（v1.1 改訂 2026-04-26）
 
-戦略の真実源は `docs/project/strategy/monetization.md` の「7. iOS アプリ」節（v3.1）。本仕様書は実装視点で価格表・Free/Premium 境界を確定させる。
+戦略の真実源は `docs/project/01_戦略/04_収益化戦略.md` の「7. iOS アプリ」節（v3.1）。本仕様書は実装視点で価格表・Free/Premium 境界を確定させる。
 
 ### 価格プラン（買い切り中心）
 
@@ -152,7 +152,7 @@ struct UserProgress {
 - **Free は「触ってみたい」を満たす** — R07 全開放で品質を体感させる
 - **Premium は「合格まで伴走する」** — 過去 6 年分演習 + 詳細解説 + 弱点分析
 
-詳細な境界・LTV/CAC・Red Line 運用は [../strategy/monetization.md の iOS 節](./../strategy/monetization.md) を参照。本仕様書は実装視点に集中する。
+詳細な境界・LTV/CAC・Red Line 運用は [04_収益化戦略.md の iOS 節](./../01_戦略/04_収益化戦略.md) を参照。本仕様書は実装視点に集中する。
 
 ### 運営者特典の組込
 
@@ -302,12 +302,12 @@ doboku-ios/
 | コンテンツ更新が App Store 審査ボトルネック | コンテンツは doboku-note からの runtime fetch にしているため、コードの bug fix 以外は審査不要 |
 | Free → Premium 転換率が想定 15% を下回る | Free 範囲を「触ってみたい」に最適化、買い切り価格を ¥1,500 に下げる検討（v1.2）|
 | 1 級土木との統合判断（v3.0）| 当面は別アプリ。統合は v3.0 で判断（合格後）|
-| note カニバリで売上分散 | [05 の Red Line 運用化表](./../strategy/monetization.md) に従い iOS は演習・参照、note は読み物・体験で完全分離 |
+| note カニバリで売上分散 | [04_収益化戦略.md の Red Line 運用化表](./../01_戦略/04_収益化戦略.md) に従い iOS は演習・参照、note は読み物・体験で完全分離 |
 
 ## 関連ドキュメント
 
-- `docs/project/strategy/business.md`（v3） — 3 本柱戦略
-- `docs/project/strategy/monetization.md`（v3） — iOS アプリ位置づけ
+- `docs/project/01_戦略/03_事業戦略.md`（v3） — 3 本柱戦略
+- `docs/project/01_戦略/04_収益化戦略.md`（v3） — iOS アプリ位置づけ
 - `../../note/19_note段階投下プラン.md` — note 連携
 - 2 次記述式の組み込みは v1.2 予定（記述式パターン分析は task-queue T-017 で進行中）
 

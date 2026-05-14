@@ -29,5 +29,5 @@
 ## 関連ポリシー
 
 - 画像仕様: `docs/reference/sns-image-policy.md`
-- SNS 集客戦略: `docs/project/sns/sns-strategy.md`
-- 5 チャネル動線設計: `docs/project/sns/channel-funnel.md`
+- SNS 集客戦略: `docs/project/03_SNS/01_SNS集客戦略.md`
+- 5 チャネル動線設計: `docs/project/03_SNS/02_チャネル動線設計.md`

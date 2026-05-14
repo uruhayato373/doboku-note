@@ -96,5 +96,5 @@ model: inherit
 
 - `.claude/state/weekly-reports/` — 週次計画・レビュー
 - `.claude/state/weekly-metrics/` — 週次 NSM スナップショット（時系列）
-- `docs/project/competitor-audit/` — 競合調査
+- `docs/project/06_競合調査/` — 競合調査
 - `.claude/state/experiments.json` — NSM 実験の状態遷移履歴

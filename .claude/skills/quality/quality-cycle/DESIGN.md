@@ -153,5 +153,5 @@ unscored → scored → rewriting → needs-review → verified → approved
 - `.claude/agents/keyword-rewriter.md` / `civil-textbook-rewriter.md` — Generator 真実源
 - `docs/reference/content-principles.md` — コンテンツ原則の真実源
 - `.claude/scripts/lint-mdx-mobile.mjs` — Tier 1 機械的判定
-- `docs/project/archive/12_adsense-resubmission-strategy.md` — このシステムが使われた最初の文脈（実行は Issue #33）
-- `docs/project/archive/15_quality-cycle-cycle2-handoff.md` — Cycle 2 の handoff 履歴
+- `docs/project/アーカイブ/12_adsense-resubmission-strategy.md` — このシステムが使われた最初の文脈（実行は Issue #33）
+- `docs/project/アーカイブ/15_quality-cycle-cycle2-handoff.md` — Cycle 2 の handoff 履歴

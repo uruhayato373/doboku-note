@@ -4,7 +4,7 @@
 
 ## プロジェクトコンテキスト
 
-**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ iOS アプリ（過去問演習）の流れでコンテンツを管理。収益モデルは AdSense + note 有料記事 + YouTube + iOS アプリ。詳細: `docs/project/strategy/vision.md`、`docs/project/strategy/business.md`
+**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ iOS アプリ（過去問演習）の流れでコンテンツを管理。収益モデルは AdSense + note 有料記事 + YouTube + iOS アプリ。詳細: `docs/project/01_戦略/02_設計思想.md`、`docs/project/01_戦略/03_事業戦略.md`
 
 **技術スタック**
 
@@ -84,11 +84,12 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [src/components/ui/Callout/README.md](src/components/ui/Callout/README.md) | Callout コンポーネント直下リファレンス（12 種一覧表・デザイン仕様・旧 type 移行表） | Callout を実装・改修・MDX で使うとき |
 | [src/components/ui/SpecSheetList/README.md](src/components/ui/SpecSheetList/README.md) | SpecSheetList コンポーネント直下リファレンス（仕様書調リスト、旧 CustomList 統合） | SpecSheetList を実装・改修・MDX で使うとき |
 | `.claude/config/` | ツール設定（OGP テンプレ/ルール/改行設定、PSI しきい値・URL リスト等、エージェント編集領域） | OGP・PSI・自動化ツールのルール・閾値を調整するとき |
-| `docs/project/strategy/business.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
-| `docs/project/strategy/monetization.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
-| `docs/project/sns/sns-strategy.md` | SNS 集客戦略 v5（X / YouTube / Instagram 統合、TTS 完全自動・SNS 量産・共通基盤 sns-common 依存、IG は Carousel + Reels 両軸） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
+| `docs/project/01_戦略/01_プロダクト戦略.md` | 5問フレームワーク（顧客・問題・解決策・体験・成功指標）の one-page 北極星文書。全戦略の出発点 | 戦略の全体像を把握したいとき・意思決定の根拠を確認するとき |
+| `docs/project/01_戦略/03_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
+| `docs/project/01_戦略/04_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
+| `docs/project/03_SNS/01_SNS集客戦略.md` | SNS 集客戦略 v5（X / YouTube / Instagram 統合、TTS 完全自動・SNS 量産・共通基盤 sns-common 依存、IG は Carousel + Reels 両軸） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
 | `docs/note/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
-| `docs/project/sns/channel-funnel.md` | 5 チャネル動線設計 v1（X / YouTube / Instagram / note / サイトの統合ファネル設計、UTM 統一フォーマット、季節 × チャネルマトリクス、4 Phase 実装ロードマップ） | チャネル間動線・UTM 設計・季節調整検討時、note ↔ サイト境界ルール確認時 |
+| `docs/project/03_SNS/02_チャネル動線設計.md` | 5 チャネル動線設計 v1（X / YouTube / Instagram / note / サイトの統合ファネル設計、UTM 統一フォーマット、季節 × チャネルマトリクス、4 Phase 実装ロードマップ） | チャネル間動線・UTM 設計・季節調整検討時、note ↔ サイト境界ルール確認時 |
 
 ---
 

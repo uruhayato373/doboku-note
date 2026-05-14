@@ -3,7 +3,7 @@
 doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施工管理技士 / 技術士総合技術監理部門 を整備中）への流入を SNS から獲得するための方針。X / YouTube / Instagram の 3 チャネルを統合管理する。
 
 **最終更新**: 2026-04-28（v5: Instagram を Carousel + Reels の両軸へ転換、YT Shorts mp4 を IG Reels に流用）
-**関連**: [../strategy/business.md](./../strategy/business.md) / [../strategy/monetization.md](./../strategy/monetization.md)
+**関連**: [../01_戦略/03_事業戦略.md](./../01_戦略/03_事業戦略.md) / [../01_戦略/04_収益化戦略.md](./../01_戦略/04_収益化戦略.md)
 **実行タスク**: `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤、親）と子タスク T-003〜T-009 — 進捗の真実源
 
 ## 1. 基本方針（v5）
@@ -206,7 +206,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 - **比率縮小**: Reels 平均リーチ < 500 が 6 週継続 → Reels 月 1 本に縮小、Carousel を週 3 本へ
 - **現状維持**: 上記いずれにも該当しなければ次の 6 週も Carousel 週 2 + Reels 週 3 で継続
 
-詳細仕様は `sns-strategy.md` §2.3 の Instagram セクションを参照。
+詳細仕様は `01_SNS集客戦略.md` §2.3 の Instagram セクションを参照。
 
 #### Instagram フォロワー獲得戦術（2026-04-29 追記）
 
@@ -299,7 +299,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 ## 4. 四半期別ロードマップ（v5）
 
-> **季節 × チャネル施策マトリクス**は [channel-funnel.md §6](./channel-funnel.md) を真実源とする。本セクションは Phase ごとの主要マイルストーンのみを扱う。詳細な実装ロードマップ（UTM 統一・bio link 着地点・Red Line スキル等の Phase 別タスク）は [27 §8](./channel-funnel.md) を参照。
+> **季節 × チャネル施策マトリクス**は [02_チャネル動線設計.md §6](./02_チャネル動線設計.md) を真実源とする。本セクションは Phase ごとの主要マイルストーンのみを扱う。詳細な実装ロードマップ（UTM 統一・bio link 着地点・Red Line スキル等の Phase 別タスク）は [02_チャネル動線設計.md §8](./02_チャネル動線設計.md) を参照。
 
 ### Q2（2026年4-6月）: X 主力 + 共通基盤整備
 
@@ -308,9 +308,9 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 - [ ] `/social-post x` スキルで日次投稿の下書き生成フロー確立
 - [ ] 1日1〜2投稿を30日継続してエンゲージメント計測
 - [ ] GA4 で X 流入を分析
-- [ ] **bio link 着地点を確定**（Phase 1 = サイト直、Phase 2 = Linktree）→ [27 §7 弱点 2](./channel-funnel.md)
-- [ ] **UTM 統一テンプレート策定**（`.claude/config/utm-templates.json` + `lib/utm-builder.mjs`）→ [27 §4](./channel-funnel.md)
-- [ ] **note ↔ サイト Red Line スキル化**（`/check-content-redline`）→ [27 §7 弱点 3](./channel-funnel.md)
+- [ ] **bio link 着地点を確定**（Phase 1 = サイト直、Phase 2 = Linktree）→ [27 §7 弱点 2](./02_チャネル動線設計.md)
+- [ ] **UTM 統一テンプレート策定**（`.claude/config/utm-templates.json` + `lib/utm-builder.mjs`）→ [27 §4](./02_チャネル動線設計.md)
+- [ ] **note ↔ サイト Red Line スキル化**（`/check-content-redline`）→ [27 §7 弱点 3](./02_チャネル動線設計.md)
 - [ ] **SNS-prereq**: YouTube ブランドアカウント開設、OAuth トークン取得、VOICEVOX キャラ採用決定
 - [ ] **SNS-0**: 共通基盤 `.claude/scripts/lib/sns-common/` 整備（6 ファイル）
 - [ ] **SNS-2**: YouTube Shorts MVP（テストチャンネルで品質確認）
@@ -324,18 +324,18 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 - [ ] 7 月初: **Instagram 並列稼働開始**（Carousel 週 2 火金 07:00 + Reels 週 3 月水金 19:30 = YT Shorts と同時）
 - [x] 運営者は技術士総監 2 次筆記試験に合格済み（合格者ポジションで送客フックを強化）
 - [ ] 7 月下旬: note E-1 を販売開始、YouTube 概要欄 + IG bio から送客
-- [ ] 7 月下旬: **note 売上トラッキング開始**（`.claude/state/note-sales/`）→ [27 §7 弱点 4](./channel-funnel.md)
+- [ ] 7 月下旬: **note 売上トラッキング開始**（`.claude/state/note-sales/`）→ [27 §7 弱点 4](./02_チャネル動線設計.md)
 - [ ] 8-9 月: 投稿継続、note E-2/E-3 を YouTube/IG から送客
-- [ ] 8 月中旬: **bio link を Linktree 化**（E-1〜E-3 並列のため）→ [27 §7 弱点 2](./channel-funnel.md)
+- [ ] 8 月中旬: **bio link を Linktree 化**（E-1〜E-3 並列のため）→ [27 §7 弱点 2](./02_チャネル動線設計.md)
 - [ ] X でも試験直後の所感をリアルタイム発信 → YouTube/IG/note への送客
-- [ ] **6 週運用後（8 月中旬）に IG KPI トリガー判定**（Reels 比率引き上げ/縮小/現状維持）→ [27 §6 / §7 弱点 5](./channel-funnel.md)
+- [ ] **6 週運用後（8 月中旬）に IG KPI トリガー判定**（Reels 比率引き上げ/縮小/現状維持）→ [27 §6 / §7 弱点 5](./02_チャネル動線設計.md)
 - [ ] 3 ヶ月で月間再生 5,000 達成 → 投稿頻度据え置き、未達成でも投稿は止めない（共通基盤に依存しているため停止コストの方が高い）
 
 ### Q4（2026年10-12月）: 拡充フェーズ
 
 - [ ] **SNS-4**: 型拡充（5 管理別解説、トレードオフ動画、IG クロス投稿）→ task-queue T-005
 - [ ] 10 月末: 筆記合格発表対応（合格時のみ「合格しました」動画 1 本投稿、それ以降は通常運用）
-- [ ] 10 月末: **iOS 着手判断ダッシュボード**（`/check-ios-readiness`）で Web 月収 ≥ ¥15k + 筆記合格を判定 → [27 §7 弱点 4](./channel-funnel.md)
+- [ ] 10 月末: **iOS 着手判断ダッシュボード**（`/check-ios-readiness`）で Web 月収 ≥ ¥15k + 筆記合格を判定 → [27 §7 弱点 4](./02_チャネル動線設計.md)
 - [ ] 11 月〜: 1 級土木 2 次・技術士 1 次の季節スポット動画（共通基盤で 1 級土木 MDX も対応可）
 
 ### 2027年Q1以降: 動画拡張 + 最終合格ブランディング
@@ -438,9 +438,9 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 ## 関連ドキュメント
 
-- `docs/project/strategy/business.md` — 全体戦略
-- `docs/project/strategy/content-roadmap.md` — コンテンツ計画
-- `docs/project/strategy/monetization.md` — note 商品ラインナップとの連携
+- `docs/project/01_戦略/03_事業戦略.md` — 全体戦略
+- `docs/project/01_戦略/05_コンテンツロードマップ.md` — コンテンツ計画
+- `docs/project/01_戦略/04_収益化戦略.md` — note 商品ラインナップとの連携
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義
 - `.claude/skills/social/social-post/SKILL.md` — note / X 投稿下書き生成スキル
 

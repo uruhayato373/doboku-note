@@ -1,7 +1,7 @@
 # YT Shorts 15: 安全管理 Q15 Safety1.0 と Safety2.0
 
 **尺**: 40 秒目安
-**公開予定**: TBD（[投稿カレンダー](../../../../project/sns/calendar-2026q2.md) 調整中）
+**公開予定**: TBD（[投稿カレンダー](../../../../project/03_SNS/03_投稿カレンダー2026Q2.md) 調整中）
 **元素材**: [source.md Q15](../source.md)
 
 ## ナレーション原稿（VOICEVOX 用）

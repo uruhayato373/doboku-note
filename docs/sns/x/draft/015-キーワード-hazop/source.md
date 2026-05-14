@@ -4,7 +4,7 @@
 - 種別: キーワード解説ライン #12（Tier 1 SVG 15 本連動）
 - 元ネタ: `.local/r2/posts/pe-comprehensive-management/hazop/article.mdx`
 - 関連 SVG: `.local/r2/posts/pe-comprehensive-management/hazop/img/hazop-guidewords.svg`
-- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../../../project/sns/calendar-2026q2.md)
+- 親計画: [29_SNS投稿カレンダー2026Q2.md](../../../../project/03_SNS/03_投稿カレンダー2026Q2.md)
 
 ## 派生媒体
 
