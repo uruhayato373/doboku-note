@@ -95,70 +95,29 @@ SKILL.md では `--profile` フラグを受け取って適切な scripts ディ�
 
 これで既存の 690 件 CEM 進捗・40 件土木進捗が一切失われない。
 
-## プロファイル別ルーブリック（5 軸）
+## ルーブリック・拡張パターンの真実源
 
-詳細は `templates/{profile}.md` 参照。
+**ルーブリック詳細・採点フロー・拡張パターン定義は本ファイルではなく方針 md（Obsidian 可視）が真実源**:
 
-### cem（総監キーワード）
-| 軸 | 重み | 真実源 |
+| profile | 採点 | リライト |
 |---|---|---|
-| 構造 | 30% | content-principles.md |
-| モバイル視認性 | 25% | lint-mdx-mobile + review-mobile |
-| コンテンツ原則 | 20% | content-principles §5・§7 |
-| 参考資料 | 15% | content-principles §9 |
-| 関連付け | 10% | lint 8-* |
+| `cem` | [`docs/project/02_コンテンツ/02_採点ルーブリック方針.md`](../../../../docs/project/02_コンテンツ/02_採点ルーブリック方針.md) | [`docs/project/02_コンテンツ/03_リライト方法論方針.md`](../../../../docs/project/02_コンテンツ/03_リライト方法論方針.md) |
+| `civil-textbook` | `templates/civil-textbook.md` | `templates/civil-textbook.md` |
 
-Evaluator: `cem-qa` / Generator: `keyword-rewriter`
+エージェント:
 
-### cem — improve モード詳細
+- `cem`: Evaluator `cem-qa` / Generator `keyword-rewriter`
+- `civil-textbook`: Evaluator `civil-construction-review` / Generator `civil-textbook-rewriter`
+
+**共通の合否ライン**: 加重合計 ≥ 2.0 で合格、< 2.5 でリライト候補、0 軸があれば即不合格（weighted を 1.0 にクランプ）
+
+### improve モード（cem 専用）
 
 `/quality-cycle --profile cem --mode improve [--max N] [--dry-run]`
 
-**`rewrite` との違い**: `rewrite` は cem-qa スコアをゲートに全文リライトするが、`improve` は NLM照合を主軸に外科的追記のみ行う。`keyword-rewriter` を使わず Claude が直接 Edit する。
+`rewrite` との違いは、NLM 照合（`notebooklm-cross-query.mjs`）で HIGH 論点を特定し、`keyword-rewriter` を使わず Claude が直接 Edit で外科的修正＋自動コミットする点。HIGH 自動修正の具体項目（5管理横断テーブル欠落・背景段落欠落・Callout title・SVG フォント・alt 超過・description 乖離など）と各記事パイプラインの詳細 → [03_リライト方法論方針.md](../../../../docs/project/02_コンテンツ/03_リライト方法論方針.md)。
 
-#### 記事キュー選定
-
-`.local/r2/posts/pe-comprehensive-management/*/article.mdx` から `group: keyword` の記事を `lastRewrittenAt` 昇順で並べたもの（古い順）。`reviewStatus: approved` はスキップ。`--dry-run` ではキュー一覧のみ表示して処理しない。
-
-#### 各記事のパイプライン（per-article）
-
-```
-1. cem-qa         → 構造 broken チェック（スコアは参考値のみ）
-2. NLM照合        → notebooklm-cross-query.mjs（旧 nlm cross query）で HIGH/MED 論点を特定
-3. HIGH 自動修正  → 確認なしで Edit を実行：
-     - 5管理横断テーブル欠落 → 総合技術監理セクションに追加
-     - 背景段落欠落          → とはセクションに追加
-     - Callout title なし    → title 属性を追加
-     - SVG フォント < 13px   → font-size 一括置換
-     - alt 属性超過          → 短縮
-     - description 実態乖離  → 修正
-4. frontmatter    → dateModified / lastRewrittenAt を今日の日付に更新
-5. 自動コミット   → `content(pe): {slug} 品質向上`
-6. 次の記事へ（--max に達したら停止）
-```
-
-#### セッション終了サマリー形式
-
-```
-=== /quality-cycle --profile cem --mode improve 完了 ===
-処理記事: N 件
-  ✓ {slug}  NLM HIGH N件解消
-  ✗ {slug}  エラー（NLM タイムアウト）→ スキップ
-残キュー: 約 N 件
-```
-
-### civil-textbook（1級土木）
-| 軸 | 重み | 真実源 |
-|---|---|---|
-| 構造 | 20% | content-principles + check-mdx |
-| テキスト原則 | 20% | content-principles §1-5,7 |
-| モバイル視認性 | 30% | lint-mdx-mobile |
-| 図表の適切性 | 15% | content-principles §8 |
-| 参考資料・関連付け | 15% | check-mdx --rules links |
-
-Evaluator: `civil-construction-review` / Generator: `civil-textbook-rewriter`
-
-**共通**: 加重合計 ≥ 2.0 で合格、< 2.5 でリライト候補、0 軸があれば即不合格（weighted を 1.0 にクランプ）
+記事キュー: `.local/r2/posts/pe-comprehensive-management/*/article.mdx` から `group: keyword` の記事を `lastRewrittenAt` 昇順、`reviewStatus: approved` はスキップ。
 
 ## 状態遷移（共通）
 
@@ -236,7 +195,7 @@ unscored → scored → rewriting → needs-review → verified → approved
 | `civil-construction-review` エージェント | civil-textbook プロファイルの Evaluator |
 | `civil-textbook-rewriter` エージェント | civil-textbook プロファイルの Generator |
 | `/improve-article` | 単一記事版の品質改善（本スキルはバルク版） |
-| `/exam-keyword-cycle` | 過去問起点の横断校正（本スキルと補完） |
+| `/audit-exam-mapping` | 過去問⇔キーワード紐づけ精度の semantic 監査（旧 `/exam-keyword-cycle` Phase 2 を継承） |
 | `/pe-essay-cycle` | 総監記述式（模範論文・note 有料記事）版のオーケストレーター（本スキルと補完、対象が記述式） |
 
 ## ハーネス設計上の位置づけ
@@ -248,9 +207,12 @@ unscored → scored → rewriting → needs-review → verified → approved
 
 ## 参照
 
-- `templates/cem.md` — CEM プロファイルの詳細仕様
-- `templates/civil-textbook.md` — civil-textbook プロファイルの詳細仕様
+- [`docs/project/02_コンテンツ/02_採点ルーブリック方針.md`](../../../../docs/project/02_コンテンツ/02_採点ルーブリック方針.md) — **真実源** cem 採点ルーブリック・改善議論
+- [`docs/project/02_コンテンツ/03_リライト方法論方針.md`](../../../../docs/project/02_コンテンツ/03_リライト方法論方針.md) — **真実源** cem 拡張パターン A-G・改善議論
+- `templates/cem.md` — CEM プロファイル運用スペック（パス・スクリプト）
+- `templates/civil-textbook.md` — civil-textbook プロファイル運用スペック
 - `.claude/agents/cem-qa.md` — CEM Evaluator
+- `.claude/agents/keyword-rewriter.md` — CEM Generator
 - `.claude/agents/civil-construction-review.md` — 1級土木 Evaluator
-- `docs/reference/content-principles.md` — 品質ルールの真実源
+- `docs/reference/content-principles.md` — §1-18 コンテンツ原則
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（リライト時に必須）
