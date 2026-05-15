@@ -12,6 +12,11 @@
  *   - §8 リンクの使い分け               → カテゴリ8 (8-1, 8-2, 8-3)
  *   - §9 参考資料の構成                 → カテゴリ9-4
  *
+ * カテゴリ2（見出し構造）のみ根拠が異なる:
+ *   CLAUDE.md「見出しは H2 以下のみ（H1 は frontmatter から自動生成）」/
+ *   .claude/reference/exam-content-policy.md /
+ *   .claude/skills/conversion/exam-questions-import/SKILL.md → カテゴリ2 (2-1, 2-3)
+ *
  * Usage:
  *   node scripts/lint-mdx-mobile.mjs <file.mdx>
  *   node scripts/lint-mdx-mobile.mjs <dir>
@@ -23,6 +28,8 @@
  *   1-3 MEDIUM 4列以上の表
  *   1-4 MEDIUM 3列以上の表でセル内テキスト15文字超
  *   1-5 HIGH   キーバリュー表
+ *   2-1 HIGH   本文 H1（# ）— ページ H1 は frontmatter title から自動描画
+ *   2-3 MEDIUM 見出しがページタイトルとほぼ重複
  *   6-1 MEDIUM 表の直前行が見出しのみで導入文がない
  *   8-1 MEDIUM 末尾の「関連キーワード:」列挙行
  *   8-2 LOW    法令条文の未リンク
@@ -331,6 +338,85 @@ function lintNoteLink(lines, findings) {
     // <NoteLink> ブロックの終了判定（/> または </NoteLink>）
     if (inNoteLink && (/\/>/.test(line) || line.includes('</NoteLink>'))) {
       inNoteLink = false;
+    }
+  }
+}
+
+/**
+ * 2-1 / 2-3: 見出し構造の検出
+ *
+ * 2-1 HIGH   本文 H1（行頭 `# `）。ページ H1 は frontmatter title から
+ *            page.tsx が server-side 描画し、stripLeadingH1() が本文先頭の
+ *            H1 を除去する。本文に H1 を書くと dead content か二重 H1 になる。
+ * 2-3 MEDIUM 見出しがページタイトルとほぼ重複（bigram Dice ≥ 0.55）。
+ *            タイトルは H1 として自動描画されるため、それを言い換えただけの
+ *            見出し（例: 過去問の「## 平成XX年度技術士第二次試験問題【…】」）は
+ *            冗長。タイトルを接頭辞に持つ見出し（「○○とは」等）は除外。
+ *
+ * 真実源: CLAUDE.md「見出しは H2 以下のみ」/ exam-content-policy.md /
+ *         exam-questions-import SKILL.md
+ */
+function lintHeadingStructure(lines, raw, findings) {
+  // --- 2-1: 本文 H1 ---
+  let inFence = false;
+  let seenContent = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^\s*```/.test(line)) { inFence = !inFence; continue; }
+    if (inFence) continue;
+    if (/^#\s+\S/.test(line)) {
+      findings.push({
+        severity: 'HIGH',
+        rule: '2-1',
+        line: i + 1,
+        endLine: i + 1,
+        message: seenContent
+          ? '本文中に # H1 がある。見出しは H2 以下のみ（ページ H1 は frontmatter title から自動描画）'
+          : '本文先頭の # H1 は禁止。ページ H1 は frontmatter title から server-side 描画される（page.tsx stripLeadingH1）',
+      });
+    }
+    if (line.trim() !== '') seenContent = true;
+  }
+
+  // --- 2-3: title 重複見出し ---
+  const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!fm) return;
+  const titleLine = fm[1].match(/^title:\s*(.+?)\s*$/m);
+  if (!titleLine) return;
+  // 記号・空白・括弧類を除去して CJK + 英数字のみ残す
+  const normalize = (s) =>
+    s.replace(/["'「」『』【】（）()｜|・,，、。．.\-—–:：;；!！?？\s]/g, '');
+  const normTitle = normalize(titleLine[1]);
+  if (normTitle.length < 6) return;
+  const bigrams = (s) => {
+    const set = new Set();
+    for (let j = 0; j < s.length - 1; j++) set.add(s.slice(j, j + 2));
+    return set;
+  };
+  const titleBg = bigrams(normTitle);
+  inFence = false;
+  for (let i = 0; i < lines.length; i++) {
+    const line = lines[i];
+    if (/^\s*```/.test(line)) { inFence = !inFence; continue; }
+    if (inFence) continue;
+    const h = line.match(/^#{2,6}\s+(.+?)\s*$/);
+    if (!h) continue;
+    const normH = normalize(h[1]);
+    if (normH.length < 10) continue; // 短い見出しは「タイトル重複」とみなさない
+    // タイトルを接頭辞に持つ／持たれる見出しは正当な話題見出し（「○○とは」等）
+    if (normH.startsWith(normTitle) || normTitle.startsWith(normH)) continue;
+    const hBg = bigrams(normH);
+    let shared = 0;
+    for (const b of hBg) if (titleBg.has(b)) shared++;
+    const dice = (2 * shared) / (titleBg.size + hBg.size);
+    if (dice >= 0.55) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '2-3',
+        line: i + 1,
+        endLine: i + 1,
+        message: `見出し「${h[1]}」がページタイトルとほぼ重複（類似度 ${(dice * 100).toFixed(0)}%）。重複見出しは削除する`,
+      });
     }
   }
 }
@@ -1022,6 +1108,7 @@ function lintFile(filePath) {
   lintRelatedKeywordList(lines, findings);
   lintLegalCitations(lines, findings);
   lintNoteLink(lines, findings);
+  lintHeadingStructure(lines, raw, findings);
   lintBoldScope(lines, findings);
   lintBoldDelimiterBoundary(lines, findings);
   lintComponentPrinciples(lines, filePath, findings);
