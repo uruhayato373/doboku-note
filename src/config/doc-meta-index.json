@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-14T23:37:34.911Z",
+  "generated_at": "2026-05-15T11:46:45.150Z",
   "summary": {
     "total": 812,
     "published": 786,
@@ -3124,8 +3124,9 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "バックキャスティング ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "lastRewrittenAt": "2026-05-09",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "reviewStatus": "needs-review",
+      "revisionCycle": 2,
       "dateModified": "2026-05-11"
     },
     "pe-comprehensive-management-balance-sheet": {
@@ -3475,7 +3476,9 @@
       "seoTitle": "環境税・カーボンプライシング ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-05-11",
-      "lastRewrittenAt": "2026-04-28"
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "reviewStatus": "needs-review",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-career-ownership": {
       "title": "キャリアオーナーシップ",
@@ -3711,11 +3714,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
       "publishedAt": "2026-04-08",
       "seoTitle": "サーキュラーエコノミー ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-05-11",
-      "lastRewrittenAt": "2026-04-28"
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-circular-society-basic-act": {
       "title": "循環型社会形成推進基本法",
@@ -4728,7 +4733,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "デシジョンツリー分析 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-11"
+      "dateModified": "2026-05-11",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-decoupling": {
       "title": "デカップリング",
@@ -5540,6 +5548,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-08",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "revisionCycle": 1,
       "seoTitle": "生態系サービス ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-05-11"
@@ -6666,7 +6677,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "外国人研修・技能実習制度 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-11"
+      "dateModified": "2026-05-11",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-forests-villages-rivers-seas": {
       "title": "森里川海プロジェクト",
@@ -7172,7 +7186,7 @@
       "published": true,
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 平成21年度 記述式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-14",
+      "dateModified": "2026-05-15",
       "toc_max_heading_level": 2
     },
     "pe-comprehensive-management-h22-primary": {
@@ -7206,7 +7220,7 @@
       "published": true,
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 平成22年度 記述式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-14",
+      "dateModified": "2026-05-15",
       "toc_max_heading_level": 2
     },
     "pe-comprehensive-management-h23-primary": {
@@ -7240,7 +7254,7 @@
       "published": true,
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 平成23年度 記述式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-14",
+      "dateModified": "2026-05-15",
       "toc_max_heading_level": 2
     },
     "pe-comprehensive-management-h24-primary": {
@@ -7274,7 +7288,7 @@
       "published": true,
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 平成24年度 記述式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-14",
+      "dateModified": "2026-05-15",
       "toc_max_heading_level": 2
     },
     "pe-comprehensive-management-h25-primary": {
@@ -7308,7 +7322,7 @@
       "published": true,
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 平成25年度 記述式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-14",
+      "dateModified": "2026-05-15",
       "toc_max_heading_level": 2
     },
     "pe-comprehensive-management-h26-primary": {
@@ -10914,6 +10928,9 @@
     "pe-comprehensive-management-pdpc-method": {
       "title": "過程決定計画図",
       "description": "PDPC法（Process Decision Program Chart）の定義・作成手順・新QC七つ道具としての位置づけを解説。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "revisionCycle": 1,
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "2.7",
@@ -11624,7 +11641,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "課題設定能力 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-11"
+      "dateModified": "2026-05-11",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-problem-solving-ability": {
       "title": "問題解決能力",
@@ -12035,6 +12055,9 @@
         "keyword"
       ],
       "published": true,
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "reviewStatus": "needs-review",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "品質原価計算 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
@@ -12399,7 +12422,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "ラムサール条約 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-11"
+      "dateModified": "2026-05-11",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-15T11:37:18.382Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-reach-regulation": {
       "title": "REACH規制",

@@ -7640,6 +7640,265 @@
           "wave": "backfill"
         }
       ]
+    },
+    "circular-economy": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## サーキュラーエコノミーの発展経緯"
+          ],
+          "converted_tables": 3,
+          "before_chars": 4315,
+          "after_chars": 5319,
+          "added_chars": 1004,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 14,
+          "lint_medium_after": 3,
+          "mojibake": false
+        }
+      ]
+    },
+    "decision-tree-analysis": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 手法の背景と発展"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1524,
+          "after_chars": 2122,
+          "added_chars": 598,
+          "lint_high_before": 2,
+          "lint_high_after": 2,
+          "lint_medium_before": 7,
+          "lint_medium_after": 3,
+          "mojibake": false
+        }
+      ]
+    },
+    "ecosystem-services": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 生態系サービス概念の成立背景"
+          ],
+          "converted_tables": 3,
+          "before_chars": 2830,
+          "after_chars": 3499,
+          "added_chars": 669,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 18,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "foreign-trainee-program": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 制度の背景と政策的意義"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2950,
+          "after_chars": 3874,
+          "added_chars": 924,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "pdpc-method": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## PDPC 法の開発背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1632,
+          "after_chars": 2517,
+          "added_chars": 885,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 6,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "problem-setting-ability": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 課題設定能力が求められる背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1644,
+          "after_chars": 2306,
+          "added_chars": 662,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "quality-costing": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 品質原価計算の背景と発展"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1370,
+          "after_chars": 1944,
+          "added_chars": 574,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 10,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "ramsar-convention": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 条約制定の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2274,
+          "after_chars": 2674,
+          "added_chars": 400,
+          "lint_high_before": 1,
+          "lint_high_after": 1,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "backcasting": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## バックキャスティングの成立と注目の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2415,
+          "after_chars": 3239,
+          "added_chars": 824,
+          "lint_high_before": 2,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "carbon-pricing": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-15T11:46:28.447Z",
+          "action": "rewritten",
+          "wave": "G-8-W1",
+          "applied_patterns": [
+            "D"
+          ],
+          "added_sections": [
+            "## 制度の背景と国際的展開"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2625,
+          "after_chars": 3515,
+          "added_chars": 890,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 5,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
