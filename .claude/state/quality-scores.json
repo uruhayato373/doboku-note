@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-04-17T05:58:00.383Z",
+  "scored_at": "2026-05-15T11:49:26.844Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -1650,18 +1650,15 @@
       "slug": "backcasting",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:56:55.076Z",
-      "scoring_method": "auto"
+      "weighted": 2.65,
+      "weak_axes": [],
+      "qualitative_comment": "起源・背景の H2 が教材的で実務応用に近い。ExamPoint は適切。参考資料は公的2件+Wikipedia構成で公的資料優位だが民間解説なし。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "basel-convention": {
       "slug": "basel-convention",
@@ -1881,18 +1878,15 @@
       "slug": "carbon-pricing",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 2,
         "principle": 3,
-        "reference": 1,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:56:56.909Z",
-      "scoring_method": "auto"
+      "weighted": 2.6,
+      "weak_axes": [],
+      "qualitative_comment": "構成・内部リンク・ExamPointともに充実。参考資料のWWFは民間団体で補強余地あり。見出し重複はMEDIUM1件のみ。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "career-ownership": {
       "slug": "career-ownership",
@@ -3318,19 +3312,16 @@
     "circular-economy": {
       "slug": "circular-economy",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 2
       },
-      "weighted": 2.1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:56:58.203Z",
-      "scoring_method": "auto"
+      "weighted": 2.15,
+      "weak_axes": [],
+      "qualitative_comment": "HIGH違反(2-1)でH1が本文に残存しているが構造全体は揃っており、参考資料は公的機関3件＋財団1件で充実。太字スコープ超過3件は読みやすさに影響。過去問リンク2件は具体的で評価できる。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "circular-society-basic-act": {
       "slug": "circular-society-basic-act",
@@ -3985,19 +3976,18 @@
     "decision-tree-analysis": {
       "slug": "decision-tree-analysis",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 2,
         "linking": 2
       },
-      "weighted": 2.1,
+      "weighted": 1.75,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:04.072Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "構成要素・手順・背景と一定の深みがあるが、H1重複・太字超過・表前導入文欠如・ExamPoint位置ずれで可読性を損なう。参考資料はJOGMEC公的機関1件あるが過去問紐付け不明。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "decoupling": {
       "slug": "decoupling",
@@ -4538,19 +4528,18 @@
     "ecosystem-services": {
       "slug": "ecosystem-services",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 2,
         "linking": 2
       },
-      "weighted": 2.1,
+      "weighted": 1.75,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:08.722Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "4分類・評価手法・TEEB・NbSの構成は明確で散文中心。ただし本文先頭にH1が残存（lint 2-1 HIGH）しており、モバイル軸を1点とする。参考資料は公的（環境省JBO）＋民間（BiomeSurvey）の2件で実在確認済みだが、いずれもページトップ相当でなく許容範囲。ExamPoint1個・RelatedKeywords配置は適切。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "elderly-employment-act": {
       "slug": "elderly-employment-act",
@@ -5060,19 +5049,16 @@
     "foreign-trainee-program": {
       "slug": "foreign-trainee-program",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 2
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
       },
       "weighted": 2.1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:14.197Z",
-      "scoring_method": "auto"
+      "weak_axes": [],
+      "qualitative_comment": "H1直書き（2-1 HIGH）は要修正だが内容は充実。育成就労制度の2024年転換まで網羅し散文密度も高い。参考資料は公的機関（厚労省）あり、Wikipediaは補助として許容範囲。技能実習法条文への e-Gov リンク欠落（8-2 LOW×2）が参考資料軸をわずかに減点。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "formal-informal-organization": {
       "slug": "formal-informal-organization",
@@ -7342,18 +7328,15 @@
       "slug": "pdpc-method",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 2
       },
-      "weighted": 2.1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:35.133Z",
-      "scoring_method": "auto"
+      "weighted": 2.3,
+      "weak_axes": [],
+      "qualitative_comment": "基本構造は完備。9-2違反（ExamPoint位置54%）で原則軸を2点に抑制。参考資料はJUSE公式1件あるが公的機関（e-gov等）皆無で参考資料軸2点。開発背景セクションが読み応えあり独自性は高い。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "pension-system": {
       "slug": "pension-system",
@@ -7806,19 +7789,16 @@
     "problem-setting-ability": {
       "slug": "problem-setting-ability",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 2
       },
-      "weighted": 2.1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:39.379Z",
-      "scoring_method": "auto"
+      "weighted": 2,
+      "weak_axes": [],
+      "qualitative_comment": "全セクション揃いで基本構成は及第点。背景節は設定型問題解決の論述が独自性あり。ExamPoint配置が記事中盤（44%）で末尾総括が欠落。参考資料2件のうち公的資料は文科省のみで十分だが日本の人事部は民間解説。RelatedKeywordsの5件は人的資源管理節の隣接キーワードとして適切。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "problem-solving-ability": {
       "slug": "problem-solving-ability",
@@ -8083,19 +8063,16 @@
     "quality-costing": {
       "slug": "quality-costing",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 2
       },
-      "weighted": 2.1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:41.842Z",
-      "scoring_method": "auto"
+      "weighted": 2,
+      "weak_axes": [],
+      "qualitative_comment": "PAF分類の解説は明快で歴史的経緯も丁寧。ただしH1残存（2-1 HIGH）・ExamPoint位置不適切（9-2）・太字過長（7-1）の3件が残る。参考資料は公的JISリンク1件+民間1件で最低限は充足。RelatedKeywords5件あり双方向性は要確認。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "quality-improvement": {
       "slug": "quality-improvement",
@@ -8201,19 +8178,16 @@
     "ramsar-convention": {
       "slug": "ramsar-convention",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 2
       },
-      "weighted": 2.1,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:42.625Z",
-      "scoring_method": "auto"
+      "weighted": 2,
+      "weak_axes": [],
+      "qualitative_comment": "HIGH違反(2-1)でH1が本文先頭に残存。ExamPointが記事末尾に未配置(9-2)。参考資料は外務省公式+Wikipediaの2件で公的機関あり最低限は満たすが環境省・ラムサール事務局等の追加が望ましい。本文散文は豊富で読みやすいが末尾コンポーネント密度がやや高い。",
+      "scored_at": "2026-05-15T11:49:26.843Z"
     },
     "reach-regulation": {
       "slug": "reach-regulation",
