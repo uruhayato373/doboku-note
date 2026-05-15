@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-05-15T11:49:26.844Z",
+  "scored_at": "2026-05-15T11:59:53.055Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -1651,14 +1651,14 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 2,
+        "principle": 3,
         "reference": 2,
         "linking": 3
       },
-      "weighted": 2.65,
+      "weighted": 2.85,
       "weak_axes": [],
-      "qualitative_comment": "起源・背景の H2 が教材的で実務応用に近い。ExamPoint は適切。参考資料は公的2件+Wikipedia構成で公的資料優位だが民間解説なし。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "qualitative_comment": "全セクション順序・frontmatter 完備。lint 違反ゼロ。ExamPoint 1個・散文中心・過去問紐付け明示。参考資料はWikipedia・民間解説含みで公的2件あるが民間側に民間解説が混在する水準。双方向リンク・section 一致OK。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "basel-convention": {
       "slug": "basel-convention",
@@ -1878,15 +1878,15 @@
       "slug": "carbon-pricing",
       "scores": {
         "structure": 3,
-        "mobile": 2,
-        "principle": 3,
-        "reference": 2,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.6,
+      "weighted": 2.8,
       "weak_axes": [],
-      "qualitative_comment": "構成・内部リンク・ExamPointともに充実。参考資料のWWFは民間団体で補強余地あり。見出し重複はMEDIUM1件のみ。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "qualitative_comment": "lint違反ゼロ・参考資料公的2件実在確認済み・構造順序完備。原則軸はExamPoint1個・散文中心で概ね準拠だがCO2表記の数字スペック（§14）が混在するため2点。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "career-ownership": {
       "slug": "career-ownership",
@@ -3313,15 +3313,15 @@
       "slug": "circular-economy",
       "scores": {
         "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 3,
-        "linking": 2
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
       },
-      "weighted": 2.15,
+      "weighted": 2.55,
       "weak_axes": [],
-      "qualitative_comment": "HIGH違反(2-1)でH1が本文に残存しているが構造全体は揃っており、参考資料は公的機関3件＋財団1件で充実。太字スコープ超過3件は読みやすさに影響。過去問リンク2件は具体的で評価できる。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "qualitative_comment": "lint違反ゼロ・双方向リンク完備で安定。「発展経緯」H2が参考資料直前で構造順序が1箇所ズレ。e-govリンクが法令本文でなくポータルトップ表示、METIリンクは到達確認不可で参考資料の信頼性に軽微な懸念。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "circular-society-basic-act": {
       "slug": "circular-society-basic-act",
@@ -3976,18 +3976,16 @@
     "decision-tree-analysis": {
       "slug": "decision-tree-analysis",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weighted": 1.75,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "構成要素・手順・背景と一定の深みがあるが、H1重複・太字超過・表前導入文欠如・ExamPoint位置ずれで可読性を損なう。参考資料はJOGMEC公的機関1件あるが過去問紐付け不明。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全5軸で違反ゼロ。frontmatter・セクション順序・参考資料（公的JOGMEC+民間Promapedia）・RelatedKeywords双方向リンクがすべて規定準拠。満点合格。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "decoupling": {
       "slug": "decoupling",
@@ -4528,18 +4526,16 @@
     "ecosystem-services": {
       "slug": "ecosystem-services",
       "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 2
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
       },
-      "weighted": 1.75,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "4分類・評価手法・TEEB・NbSの構成は明確で散文中心。ただし本文先頭にH1が残存（lint 2-1 HIGH）しており、モバイル軸を1点とする。参考資料は公的（環境省JBO）＋民間（BiomeSurvey）の2件で実在確認済みだが、いずれもページトップ相当でなく許容範囲。ExamPoint1個・RelatedKeywords配置は適切。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸満点。lint違反ゼロ・公的民間参考資料実在確認済み・section一致・ExamPoint1個・散文中心構成で構造・原則・関連付けすべて完備。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "elderly-employment-act": {
       "slug": "elderly-employment-act",
@@ -5049,16 +5045,18 @@
     "foreign-trainee-program": {
       "slug": "foreign-trainee-program",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 2,
-        "principle": 2,
-        "reference": 2,
+        "principle": 3,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "H1直書き（2-1 HIGH）は要修正だが内容は充実。育成就労制度の2024年転換まで網羅し散文密度も高い。参考資料は公的機関（厚労省）あり、Wikipediaは補助として許容範囲。技能実習法条文への e-Gov リンク欠落（8-2 LOW×2）が参考資料軸をわずかに減点。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "weighted": 2.75,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "MEDIUM 1件（L21 太字スコープ48字）のみで全軸高水準。法令条文「技能実習法第3条第2項」のe-Govインラインリンク化（L61・L93）が残課題。参考資料は公的2件＋民間1件で§12完全準拠。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "formal-informal-organization": {
       "slug": "formal-informal-organization",
@@ -7327,16 +7325,16 @@
     "pdpc-method": {
       "slug": "pdpc-method",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
         "principle": 2,
         "reference": 2,
-        "linking": 2
+        "linking": 3
       },
-      "weighted": 2.3,
+      "weighted": 2.1,
       "weak_axes": [],
-      "qualitative_comment": "基本構造は完備。9-2違反（ExamPoint位置54%）で原則軸を2点に抑制。参考資料はJUSE公式1件あるが公的機関（e-gov等）皆無で参考資料軸2点。開発背景セクションが読み応えあり独自性は高い。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "qualitative_comment": "全セクション揃いで合格水準。L21太字46字・開発背景H2（§9違反候補）・参考資料にkikakurui.com（非公式JIS転載サイト）使用の3点が改善余地。リライト推奨候補（2.10）。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "pension-system": {
       "slug": "pension-system",
@@ -7789,16 +7787,16 @@
     "problem-setting-ability": {
       "slug": "problem-setting-ability",
       "scores": {
-        "structure": 2,
-        "mobile": 2,
+        "structure": 3,
+        "mobile": 3,
         "principle": 2,
-        "reference": 2,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
-      "weighted": 2,
+      "weighted": 2.8,
       "weak_axes": [],
-      "qualitative_comment": "全セクション揃いで基本構成は及第点。背景節は設定型問題解決の論述が独自性あり。ExamPoint配置が記事中盤（44%）で末尾総括が欠落。参考資料2件のうち公的資料は文科省のみで十分だが日本の人事部は民間解説。RelatedKeywordsの5件は人的資源管理節の隣接キーワードとして適切。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "qualitative_comment": "lint違反ゼロ・参考資料3件全件実在確認済み・構造完備。RelatedKeywordsがH2間に挟まり本文の流れを分断している点（§18相当）が軽微な減点要因。加重2.80で合格。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "problem-solving-ability": {
       "slug": "problem-solving-ability",
@@ -8063,16 +8061,16 @@
     "quality-costing": {
       "slug": "quality-costing",
       "scores": {
-        "structure": 2,
-        "mobile": 2,
+        "structure": 3,
+        "mobile": 3,
         "principle": 2,
         "reference": 2,
         "linking": 2
       },
-      "weighted": 2,
+      "weighted": 2.55,
       "weak_axes": [],
-      "qualitative_comment": "PAF分類の解説は明快で歴史的経緯も丁寧。ただしH1残存（2-1 HIGH）・ExamPoint位置不適切（9-2）・太字過長（7-1）の3件が残る。参考資料は公的JISリンク1件+民間1件で最低限は充足。RelatedKeywords5件あり双方向性は要確認。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "qualitative_comment": "lint違反ゼロ・frontmatter完備・PAF解説の散文密度良好。「背景と発展」H2は総監テキスト接続で許容範囲。参考資料は公的+民間各1件だがWebFetch未確認で2点止まり。関連付けは双方向バックリンク機械確認未実施のため2点。加重2.55で合格。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "quality-improvement": {
       "slug": "quality-improvement",
@@ -8179,15 +8177,15 @@
       "slug": "ramsar-convention",
       "scores": {
         "structure": 2,
-        "mobile": 2,
-        "principle": 2,
+        "mobile": 3,
+        "principle": 3,
         "reference": 2,
         "linking": 2
       },
-      "weighted": 2,
+      "weighted": 2.45,
       "weak_axes": [],
-      "qualitative_comment": "HIGH違反(2-1)でH1が本文先頭に残存。ExamPointが記事末尾に未配置(9-2)。参考資料は外務省公式+Wikipediaの2件で公的機関あり最低限は満たすが環境省・ラムサール事務局等の追加が望ましい。本文散文は豊富で読みやすいが末尾コンポーネント密度がやや高い。",
-      "scored_at": "2026-05-15T11:49:26.843Z"
+      "qualitative_comment": "lint違反ゼロ・ExamPoint1個・散文中心で原則準拠。「条約制定の背景」H2が「総合技術監理における位置づけ」の後に配置されセクション順序に軽微なズレあり。参考資料は外務省・環境省・Wikipediaの3件で公的資料は揃っている。",
+      "scored_at": "2026-05-15T11:59:53.055Z"
     },
     "reach-regulation": {
       "slug": "reach-regulation",
