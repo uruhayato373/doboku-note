@@ -7664,6 +7664,21 @@
           "lint_medium_before": 14,
           "lint_medium_after": 3,
           "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -7689,6 +7704,21 @@
           "lint_high_after": 2,
           "lint_medium_before": 7,
           "lint_medium_after": 3,
+          "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 2,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
           "mojibake": false
         }
       ]
@@ -7716,6 +7746,21 @@
           "lint_medium_before": 18,
           "lint_medium_after": 1,
           "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -7740,6 +7785,21 @@
           "lint_high_before": 1,
           "lint_high_after": 1,
           "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
           "lint_medium_after": 1,
           "mojibake": false
         }
@@ -7768,6 +7828,21 @@
           "lint_medium_before": 6,
           "lint_medium_after": 2,
           "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 1,
+          "mojibake": false
         }
       ]
     },
@@ -7793,6 +7868,21 @@
           "lint_high_after": 0,
           "lint_medium_before": 4,
           "lint_medium_after": 1,
+          "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
+          "lint_medium_after": 0,
           "mojibake": false
         }
       ]
@@ -7820,6 +7910,21 @@
           "lint_medium_before": 10,
           "lint_medium_after": 2,
           "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -7845,6 +7950,21 @@
           "lint_high_after": 1,
           "lint_medium_before": 4,
           "lint_medium_after": 2,
+          "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 1,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
           "mojibake": false
         }
       ]
@@ -7872,6 +7992,21 @@
           "lint_medium_before": 2,
           "lint_medium_after": 0,
           "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
         }
       ]
     },
@@ -7896,6 +8031,21 @@
           "lint_high_after": 0,
           "lint_medium_before": 5,
           "lint_medium_after": 1,
+          "mojibake": false
+        },
+        {
+          "date": "2026-05-15T11:55:45.782Z",
+          "action": "rewritten",
+          "wave": "G-8-W1-patch",
+          "applied_patterns": [
+            "lint-fix"
+          ],
+          "added_sections": [],
+          "converted_tables": 0,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
+          "lint_medium_after": 0,
           "mojibake": false
         }
       ]
