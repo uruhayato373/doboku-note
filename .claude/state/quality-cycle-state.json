@@ -8204,6 +8204,84 @@
           "mojibake": false
         }
       ]
+    },
+    "second-career": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:02:40.114Z",
+          "action": "rewritten",
+          "wave": "BULK-3",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## セカンドキャリア支援の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1984,
+          "after_chars": 2657,
+          "added_chars": 673,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "safety-confirmation-system": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:02:40.114Z",
+          "action": "rewritten",
+          "wave": "BULK-3",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 概念の背景と発展"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1924,
+          "after_chars": 2661,
+          "added_chars": 737,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 7,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "risk-treatment": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:02:40.114Z",
+          "action": "rewritten",
+          "wave": "BULK-3",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスク対応の制度的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 3693,
+          "after_chars": 4310,
+          "added_chars": 617,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
