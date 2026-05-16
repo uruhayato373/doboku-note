@@ -58,7 +58,7 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜河川コンサル',
     shortDescription:
       'R03〜R07 の 5 年分セット。河川・砂防部門 部長視点で 3,000 字フル論文。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
+    imageUrl: '/images/magazines/essay-river-consultant-cover.webp',
     price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
     badge: 'note 限定',
   },
@@ -73,7 +73,7 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜ゼネコン',
     shortDescription:
       'R03〜R07 の 5 年分セット。ゼネコン土木部門視点、安全 × 経済性 × 人的資源 が主軸。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
+    imageUrl: '/images/magazines/essay-general-contractor-cover.webp',
     price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
     badge: 'note 限定',
   },
@@ -88,7 +88,7 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜環境調査',
     shortDescription:
       'R03〜R07 の 5 年分セット。環境影響評価コンサル視点、社会環境 × 情報 × 経済性 が主軸。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
+    imageUrl: '/images/magazines/essay-environment-survey-cover.webp',
     price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
     badge: 'note 限定',
   },
@@ -103,7 +103,7 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜道路発注者',
     shortDescription:
       'R05〜R07 の 3 年分セット。地方自治体道路管理者視点、発注者立場の論文構成。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
+    imageUrl: '/images/magazines/essay-road-municipality-cover.webp',
     price: '¥1,480（単品 3本 ¥1,500 → 1%OFF）',
     badge: 'note 限定',
   },
