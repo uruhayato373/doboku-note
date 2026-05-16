@@ -579,7 +579,11 @@ function lintHeadingBeforeTable(table, lines, findings) {
  * 9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定、§15）
  */
 function isExamArchive(filePath) {
-  return /[\\\/](?:r|h)\d{2}-(?:primary|secondary)[\\\/]/.test(filePath);
+  // PE 形式: r05-primary/, h28-secondary/, r05-essay-environment-survey/
+  if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
+  // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/
+  if (/civil-construction-1[\\\/](?:primary|secondary)-/.test(filePath)) return true;
+  return false;
 }
 
 function lintComponentPrinciples(lines, filePath, findings) {
