@@ -18,7 +18,7 @@ dateModified: 2026-04-23
 
 ## 直列システムとは
 
-直列システムとは、**すべての構成要素が正常に機能して初めてシステム全体が機能する構成**である。いずれか1つの要素が故障すると、システム全体が停止する。
+直列システムとは、すべての構成要素が正常に機能して初めてシステム全体が機能する構成である。いずれか1つの要素が故障すると、システム全体が停止する。
 
 [FTA](/docs/pe-comprehensive-management-fta)においてORゲートで接続された事象群は、直列システムに対応する。
 
@@ -66,7 +66,7 @@ $$
 
 直列システムは[並列システム](/docs/pe-comprehensive-management-parallel-system)と対になる信頼性工学の基本概念である。[信頼性ブロック図](/docs/pe-comprehensive-management-reliability-block-diagram)で視覚的に表現され、システム設計における冗長構成の検討の基礎となる。
 
-過去問 [R02 Ⅰ-1-28](/docs/pe-comprehensive-management-r02-primary#1-28) では主要電源 3 系統（[並列](/docs/pe-comprehensive-management-parallel-system)・1 つ稼働すれば停電回避）＋予備緊急電源 2 台（2 台とも起動すれば回避）の信頼性計算が問われた。**「主要電源が 3 系統すべて停止」= 直列的に全滅する確率 = p³**（各主電源停止確率 p の独立・積）が、階層的な並列・直列の組合せ計算の基礎となる。
+過去問 [R02 Ⅰ-1-28](/docs/pe-comprehensive-management-r02-primary#1-28) では主要電源 3 系統（[並列](/docs/pe-comprehensive-management-parallel-system)・1 つ稼働すれば停電回避）＋予備緊急電源 2 台（2 台とも起動すれば回避）の信頼性計算が問われた。「主要電源が 3 系統すべて停止」= 直列的に全滅する確率 = p³（各主電源停止確率 p の独立・積）が、階層的な並列・直列の組合せ計算の基礎となる。
 
 <RelatedKeywords items={[
   { label: "並列システム", slug: "parallel-system" },
