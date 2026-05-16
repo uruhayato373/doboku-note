@@ -17,15 +17,13 @@ created: 2026-04-05
 dateModified: 2026-04-23
 ---
 
-# クラスター分析
-
 ## クラスター分析とは
 
 クラスター分析（cluster analysis）とは、複数のデータを類似性に基づいてグループ（クラスター）に分類する多変量解析手法である。
 
 事前にグループの定義を与えず、データの特徴のみからグループ構造を発見する「教師なし学習」の代表的手法である。
 
-顧客セグメンテーション、文書分類、画像認識、異常検知など、幅広い分野で活用されている。過去問 **[R04 Ⅰ-1-17](/docs/pe-comprehensive-management-r04-primary#1-17)** では「ネットショップ顧客の購買履歴から顧客プロファイリングを行う」事例に対する手法選択でクラスター分析が正答となった（連続量→回帰分析／二値→ロジスティック回帰／分類→クラスター分析 の使い分けが頻出）。
+顧客セグメンテーション、文書分類、画像認識、異常検知など、幅広い分野で活用されている。過去問 [R04 Ⅰ-1-17](/docs/pe-comprehensive-management-r04-primary#1-17) では「ネットショップ顧客の購買履歴から顧客プロファイリングを行う」事例に対する手法選択でクラスター分析が正答となった（連続量→回帰分析／二値→ロジスティック回帰／分類→クラスター分析 の使い分けが頻出）。
 
 ### 階層的クラスター分析と非階層的クラスター分析
 
@@ -108,7 +106,7 @@ k-means法は計算が高速で大規模データに適するが、初期値依�
 
 分析結果の解釈には[データ可視化](/docs/pe-comprehensive-management-data-visualization)が不可欠であり、デンドログラムや散布図を通じてクラスター構造を把握する。
 
-過去問 **[R02 Ⅰ-1-20](/docs/pe-comprehensive-management-r02-primary#1-20)** では関連キーワードとして扱われた（正答は移動平均・指数化・[相関分析](/docs/pe-comprehensive-management-correlation-analysis)・[回帰分析](/docs/pe-comprehensive-management-linear-regression) の組合せ）。クラスター分析は **類似性に基づく分類（教師なし）** が目的であり、2 変数の関係把握（相関分析）や予測式の導出（回帰分析）とは目的が異なるため、統計手法選択の設問では識別が必要。
+過去問 [R02 Ⅰ-1-20](/docs/pe-comprehensive-management-r02-primary#1-20) では関連キーワードとして扱われた（正答は移動平均・指数化・[相関分析](/docs/pe-comprehensive-management-correlation-analysis)・[回帰分析](/docs/pe-comprehensive-management-linear-regression) の組合せ）。クラスター分析は **類似性に基づく分類（教師なし）** が目的であり、2 変数の関係把握（相関分析）や予測式の導出（回帰分析）とは目的が異なるため、統計手法選択の設問では識別が必要。
 
 <RelatedKeywords items={[
   { label: "線形回帰と最小二乗法", slug: "linear-regression" },

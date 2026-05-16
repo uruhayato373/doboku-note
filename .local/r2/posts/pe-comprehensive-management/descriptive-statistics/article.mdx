@@ -14,8 +14,6 @@ created: 2026-04-05
 dateModified: 2026-04-23
 ---
 
-# 記述統計
-
 ## 記述統計とは
 
 記述統計（Descriptive Statistics）とは、収集したデータの特徴を数値やグラフで要約・記述する統計手法の総称である。
@@ -29,11 +27,11 @@ dateModified: 2026-04-23
 教材『情報管理』では、統計分析を以下の手法群で整理しており、記述統計はその第一段階として位置づけられる。
 
 - **記述統計（本ページ）** — 代表値・散布度・尺度水準でデータの特徴を要約
-- **[推定・検定](/docs/pe-comprehensive-management-estimation-testing)** — 標本から母集団の特性を推測
-- **[相関分析](/docs/pe-comprehensive-management-correlation-analysis)** — 2 変数間の関係性を測定
-- **[線形回帰と最小二乗法](/docs/pe-comprehensive-management-linear-regression)** — 要因と結果の関係をモデル化
-- **[ロジスティック回帰](/docs/pe-comprehensive-management-logistic-regression)** — Yes/No・1/0 など 2 値結果の発生確率を予測
-- **[クラスター分析](/docs/pe-comprehensive-management-cluster-analysis)** — データを類似性に基づきグループ化（因子分析・主成分分析を含む）
+- [推定・検定](/docs/pe-comprehensive-management-estimation-testing) — 標本から母集団の特性を推測
+- [相関分析](/docs/pe-comprehensive-management-correlation-analysis) — 2 変数間の関係性を測定
+- [線形回帰と最小二乗法](/docs/pe-comprehensive-management-linear-regression) — 要因と結果の関係をモデル化
+- [ロジスティック回帰](/docs/pe-comprehensive-management-logistic-regression) — Yes/No・1/0 など 2 値結果の発生確率を予測
+- [クラスター分析](/docs/pe-comprehensive-management-cluster-analysis) — データを類似性に基づきグループ化（因子分析・主成分分析を含む）
 
 これらは「データを **記述** する」「**推測** する」「**関係性をモデル化** する」「**分類** する」の 4 系統で全体像を把握する。
 
@@ -129,7 +127,7 @@ $$
 
 ### 尺度水準と適切な統計量
 
-データの性質に応じて、使える統計量や演算が異なる。尺度水準には以下の4段階がある（上に行くほど情報量が多い）。過去問 **[R04 Ⅰ-1-21](/docs/pe-comprehensive-management-r04-primary#1-21)** では「郵便番号＝名義尺度／身長＝比例尺度／最頻値＝名義尺度の代表値」の対応関係が問われた。
+データの性質に応じて、使える統計量や演算が異なる。尺度水準には以下の4段階がある（上に行くほど情報量が多い）。過去問 [R04 Ⅰ-1-21](/docs/pe-comprehensive-management-r04-primary#1-21) では「郵便番号＝名義尺度／身長＝比例尺度／最頻値＝名義尺度の代表値」の対応関係が問われた。
 
 **名義尺度**: 分類のみを表す（大小関係なし）。
 
@@ -168,7 +166,7 @@ $$
 
 [相関分析](/docs/pe-comprehensive-management-correlation-analysis)や[線形回帰と最小二乗法](/docs/pe-comprehensive-management-linear-regression)を適用する前にも、まず記述統計でデータの概要を確認することが鉄則である。
 
-過去問 **[R02 Ⅰ-1-20](/docs/pe-comprehensive-management-r02-primary#1-20)** では「時系列データを一定期間ずらしながら平均をとる」= **移動平均**（記述統計の平滑化手法）、「基準時点を 100 として相対値表現」= **指数化** が正答として問われた。**調和平均は逆数の平均の逆数**（速度の平均等に使用）、**正規化は平均 0・分散 1 に変換**する手法であり、誤答肢と混同されやすい点を整理しておく。
+過去問 [R02 Ⅰ-1-20](/docs/pe-comprehensive-management-r02-primary#1-20) では「時系列データを一定期間ずらしながら平均をとる」= **移動平均**（記述統計の平滑化手法）、「基準時点を 100 として相対値表現」= **指数化** が正答として問われた。**調和平均は逆数の平均の逆数**（速度の平均等に使用）、**正規化は平均 0・分散 1 に変換**する手法であり、誤答肢と混同されやすい点を整理しておく。
 
 <ExamPoint
   summary="代表値の使い分け・散布度・尺度水準の3つが頻出"
