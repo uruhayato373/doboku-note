@@ -1,5 +1,22 @@
 #!/usr/bin/env node
 // .claude/scripts/migrate-civil-answer-style.mjs
+//
+// !!! DEPRECATED — DO NOT RE-EXECUTE !!!
+//
+// 本スクリプトの `generateExamPoint()` は ExamPoint の summary を句読点（、。，）で
+// 機械分割して items に詰めるバグがあり、約 1,440 個の壊れた ExamPoint を
+// civil-construction-1/primary-*/article.mdx 24 本に生成した（2026-04-24 実行）。
+// 学習価値ゼロの断片（「ブロック積擁壁工は」「胴込めコンクリートを設けない空積ではなく」等）
+// が連なる構造を量産し、AdSense 審査不合格の一因となった。
+//
+// 再実行禁止。代替手段:
+//   - 過去問 ExamPoint の修正は `civil-exampoint-restorer` Generator サブエージェント
+//     （.claude/agents/civil-exampoint-restorer.md）を使う
+//   - 過去問の解答補完は `civil-secondary-exam-writer` Generator サブエージェント
+//     （.claude/agents/civil-secondary-exam-writer.md）を使う
+//
+// 履歴のために残しているが、削除しても問題ない。
+//
 // 1級土木施工管理技士 過去問解説スタイル統一スクリプト
 // テーブル+水平線 → 番号付きリスト+ExamPoint（技術士総監スタイル）
 //

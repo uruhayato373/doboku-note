@@ -338,18 +338,23 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* Civil primary: 関連テキスト章 */}
-            {category === 'civil-construction-1' && docGroup === 'primary' && (
+            {/* Civil primary/secondary: 関連テキスト章 (過去問→教材) */}
+            {category === 'civil-construction-1' && (docGroup === 'primary' || docGroup === 'secondary') && (
               <div className="mt-8">
                 <RelatedTextbooks currentMeta={doc.meta} categoryArticles={categoryArticles} />
               </div>
             )}
 
-            {/* Civil textbook: 前後章ナビ */}
+            {/* Civil textbook: 前後章ナビ + 過去問逆引き */}
             {category === 'civil-construction-1' && docGroup === 'textbook' && (
-              <div className="mt-8">
-                <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
-              </div>
+              <>
+                <div className="mt-8">
+                  <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />
+                </div>
+                <div className="mt-8">
+                  <PastExamBacklinks category={category} currentSlug={slugStr} />
+                </div>
+              </>
             )}
 
             {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
