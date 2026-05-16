@@ -56,5 +56,9 @@
   { "name": "群マネ", "slug": "infrastructure-group-mgmt" },
   { "name": "PPP/PFI", "slug": "ppp-pfi" },
   { "name": "外国人材", "slug": "foreign-workers" },
-  { "name": "特定技能", "slug": "specified-skilled-worker" }
+  { "name": "特定技能", "slug": "specified-skilled-worker" },
+  { "name": "令和5年度", "slug": "r05" },
+  { "name": "令和6年度", "slug": "r06" },
+  { "name": "令和7年度", "slug": "r07" },
+  { "name": "pillar", "slug": "pillar" }
 ]
