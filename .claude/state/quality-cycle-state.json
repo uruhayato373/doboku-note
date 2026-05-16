@@ -8282,6 +8282,162 @@
           "mojibake": false
         }
       ]
+    },
+    "eta": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 開発の経緯と背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 3604,
+          "after_chars": 4126,
+          "added_chars": 522,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "pha": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## PHAの背景と標準化の経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1519,
+          "after_chars": 2586,
+          "added_chars": 1067,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "parallel-system": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 冗長設計の歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1905,
+          "after_chars": 2676,
+          "added_chars": 771,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "risk-identification": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスク特定の背景と基準"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1837,
+          "after_chars": 2652,
+          "added_chars": 815,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "impact": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## ISO 31000 における定義と背景"
+          ],
+          "converted_tables": 2,
+          "before_chars": 1805,
+          "after_chars": 2496,
+          "added_chars": 691,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "normalcy-bias": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 概念の背景と歴史的位置づけ"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2218,
+          "after_chars": 3264,
+          "added_chars": 1046,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
