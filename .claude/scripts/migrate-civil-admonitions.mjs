@@ -55,9 +55,13 @@ function migrateAdmonitions(raw) {
   const body = raw.slice(fm.length);
 
   // 各 admonition ブロックを順に処理
-  // パターン: :::TYPE[OPTIONAL_TITLE]\n...\n:::
+  // パターン:
+  //   :::TYPE[TITLE]\n...\n:::     (Docusaurus 角括弧形式)
+  //   :::TYPE TITLE\n...\n:::      (Docusaurus スペース区切り形式)
+  //   :::TYPE\n...\n:::            (タイトル無し)
   const types = Object.keys(TYPE_MAP).join('|');
-  const blockRe = new RegExp(`:::(${types})(?:\\[([^\\]]*)\\])?\\s*(\\r?\\n)`, 'g');
+  // 角括弧形式 or スペース区切り形式（末尾までを title として取得）
+  const blockRe = new RegExp(`:::(${types})(?:\\[([^\\]]*)\\]|[ \\t]+([^\\r\\n]+))?\\s*(\\r?\\n)`, 'g');
 
   let result = body;
   let opened = 0;
@@ -65,12 +69,13 @@ function migrateAdmonitions(raw) {
   const conversions = [];
 
   // 開きタグを置換
-  result = result.replace(blockRe, (match, type, title, eol) => {
+  result = result.replace(blockRe, (match, type, titleBracket, titleSpace, eol) => {
     opened++;
     migrated++;
     const calloutType = TYPE_MAP[type];
-    const titleAttr = title ? ` title="${title}"` : '';
-    conversions.push(`:::${type}${title ? `[${title}]` : ''} → <Callout type="${calloutType}"${titleAttr}>`);
+    const title = titleBracket || titleSpace || '';
+    const titleAttr = title ? ` title="${title.trim()}"` : '';
+    conversions.push(`:::${type}${title ? ` (${title.trim()})` : ''} → <Callout type="${calloutType}"${titleAttr}>`);
     return `<Callout type="${calloutType}"${titleAttr}>${eol}`;
   });
 
