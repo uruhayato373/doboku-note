@@ -80,6 +80,59 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 ] as const;
 
 /**
+ * 国土交通白書テーマ記事 (essay-mlit-* および mlit-whitepaper-2025) →
+ * 該当テーマに適したペルソナマガジン。精読ガイド + 1-2 ペルソナ。
+ *
+ * 各テーマで主軸となる業務領域に応じてマガジンを選定:
+ * - 老朽化 / 群マネ → 道路発注者 (自治体)
+ * - 2024年問題 / 外国人材 → ゼネコン
+ * - 流域治水 → 河川コンサル
+ * - GX/CN → 環境調査 + 道路発注者
+ * - i-Con 2.0 → ゼネコン + 河川コンサル
+ * - 白書ハブ → 全 4 ペルソナ (強 CTA)
+ */
+function matchMlitTheme(slug: string): readonly MagazineId[] | null {
+  // 白書ハブは全ペルソナ + 精読ガイド (強 CTA)
+  if (slug === 'pe-comprehensive-management-mlit-whitepaper-2025') {
+    return ['tankan-reading-guide', ...ALL_PERSONA_MAGAZINES];
+  }
+  // テーマ別記事は精読ガイド + 該当ペルソナ
+  const themeMap: Record<string, readonly MagazineId[]> = {
+    'pe-comprehensive-management-essay-mlit-aging-infrastructure': [
+      'tankan-reading-guide',
+      'essay-road-municipality-magazine',
+    ],
+    'pe-comprehensive-management-essay-mlit-construction-2024': [
+      'tankan-reading-guide',
+      'essay-general-contractor-magazine',
+    ],
+    'pe-comprehensive-management-essay-mlit-river-basin-management': [
+      'tankan-reading-guide',
+      'essay-river-consultant-magazine',
+    ],
+    'pe-comprehensive-management-essay-mlit-green-transformation': [
+      'tankan-reading-guide',
+      'essay-environment-survey-magazine',
+      'essay-road-municipality-magazine',
+    ],
+    'pe-comprehensive-management-essay-mlit-i-construction-2': [
+      'tankan-reading-guide',
+      'essay-general-contractor-magazine',
+      'essay-river-consultant-magazine',
+    ],
+    'pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt': [
+      'tankan-reading-guide',
+      'essay-road-municipality-magazine',
+    ],
+    'pe-comprehensive-management-essay-mlit-foreign-workers': [
+      'tankan-reading-guide',
+      'essay-general-contractor-magazine',
+    ],
+  };
+  return themeMap[slug] ?? null;
+}
+
+/**
  * slug + docGroup から、表示すべきマガジン配置を解決する。
  * 表示の最終可否 (公開済みか) は呼び出し側で getMagazine() で確認する。
  */
@@ -122,6 +175,18 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
       sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
       inlineMobileOnly: false,
+    };
+  }
+
+  // 4.5. 国土交通白書テーマ記事 (essay-mlit-* + mlit-whitepaper-2025) → テーマ別マガジン
+  // 白書ハブは全ペルソナ (強 CTA)、テーマ別は精読ガイド + 該当ペルソナ
+  const mlitMagazines = matchMlitTheme(slug);
+  if (mlitMagazines) {
+    const isHub = slug === 'pe-comprehensive-management-mlit-whitepaper-2025';
+    return {
+      inline: mlitMagazines.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
+      sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
+      inlineMobileOnly: !isHub,
     };
   }
 
