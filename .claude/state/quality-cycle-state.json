@@ -8438,6 +8438,162 @@
           "mojibake": false
         }
       ]
+    },
+    "integer-programming": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 背景と発展"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1449,
+          "after_chars": 2294,
+          "added_chars": 845,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "competency-evaluation": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 能力考課制度の成立背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1879,
+          "after_chars": 2341,
+          "added_chars": 462,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cites": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 条約制定の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2613,
+          "after_chars": 3138,
+          "added_chars": 525,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 8,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "civil-protection-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 制定の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 3336,
+          "after_chars": 3995,
+          "added_chars": 659,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "concurrent-engineering": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 発展の経緯と概念の確立"
+          ],
+          "converted_tables": 1,
+          "before_chars": 3330,
+          "after_chars": 3851,
+          "added_chars": 521,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "conformity-bias": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 概念の成立と背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1364,
+          "after_chars": 2063,
+          "added_chars": 699,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
