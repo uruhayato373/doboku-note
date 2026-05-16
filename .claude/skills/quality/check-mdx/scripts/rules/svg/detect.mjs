@@ -26,11 +26,12 @@ import { dirname, resolve } from "path";
 // svg-tokens.json の colorsAllowList をロード（P6 用）
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-const TOKENS_PATH = resolve(__dirname, "../../../../../../design-system/svg-tokens.json");
+const TOKENS_PATH = resolve(__dirname, "../../../../../../../docs/design-system/svg-tokens.json");
 let SVG_TOKENS = null;
 try {
   SVG_TOKENS = JSON.parse(readFileSync(TOKENS_PATH, "utf-8"));
-} catch {
+} catch (e) {
+  console.warn(`[svg-audit] Failed to load svg-tokens.json at ${TOKENS_PATH}: ${e.message}. P6 will report all colors as out-of-allowlist.`);
   SVG_TOKENS = { colorsAllowList: [] };
 }
 const ALLOWED_COLORS = new Set(

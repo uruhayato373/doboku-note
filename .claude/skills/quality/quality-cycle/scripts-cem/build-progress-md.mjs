@@ -24,6 +24,7 @@ const GSC_DIR = join(ROOT, '.claude/state/metrics/gsc');
 const OUT_PATH = join(ROOT, 'docs/project/02_コンテンツ/05_品質サイクル進捗.md');
 
 const URL_PREFIX = 'https://doboku-note.com/docs/pe-comprehensive-management-';
+const LOCAL_PREFIX = 'http://localhost:3020/docs/pe-comprehensive-management-';
 const AUTO_START = '<!-- AUTO-GENERATED-START: build-progress-md.mjs -->';
 const AUTO_END = '<!-- AUTO-GENERATED-END -->';
 
@@ -99,14 +100,14 @@ function formatStatus(s) {
 }
 
 function buildTable(rows) {
-  const header = '| slug | title | GSC pos | impr | clicks | weighted | weak axes | rewrites | status | 最終更新 |';
-  const sep = '|---|---|---:|---:|---:|---:|---|---:|---|---|';
+  const header = '| title | GSC pos | impr | clicks | weighted | weak axes | rewrites | status | 最終更新 |';
+  const sep = '|---|---:|---:|---:|---:|---|---:|---|---|';
   const lines = [header, sep];
   for (const r of rows) {
-    const slugLink = `[\`${r.slug}\`](../../../.local/r2/posts/pe-comprehensive-management/${r.slug}/article.mdx)`;
+    const titleLink = `[${r.title}](${LOCAL_PREFIX}${r.slug})`;
     const weakAxes = r.weakAxes.length ? r.weakAxes.join(',') : '—';
     lines.push(
-      `| ${slugLink} | ${r.title} | ${formatPos(r.gscPos)} | ${r.impr} | ${r.clicks} | ${formatWeighted(r.weighted)} | ${weakAxes} | ${r.rewriteCount} | ${formatStatus(r.status)} | ${r.lastDate} |`
+      `| ${titleLink} | ${formatPos(r.gscPos)} | ${r.impr} | ${r.clicks} | ${formatWeighted(r.weighted)} | ${weakAxes} | ${r.rewriteCount} | ${formatStatus(r.status)} | ${r.lastDate} |`
     );
   }
   return lines.join('\n');
@@ -150,6 +151,8 @@ const TEMPLATE_PREFIX = `---
 title: 品質サイクル進捗
 status: active
 last_updated: ${new Date().toISOString().slice(0, 10)}
+cssclasses:
+  - wide-page
 related_files:
   - .claude/state/quality-scores.json
   - .claude/state/quality-cycle-state.json

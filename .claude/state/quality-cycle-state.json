@@ -8049,6 +8049,785 @@
           "mojibake": false
         }
       ]
+    },
+    "risk-analysis": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:52:20.172Z",
+          "action": "rewritten",
+          "wave": "BULK-1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスク分析手法の発展と国際標準化"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2208,
+          "after_chars": 2861,
+          "added_chars": 653,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "human-error-probability": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:52:20.172Z",
+          "action": "rewritten",
+          "wave": "BULK-1",
+          "applied_patterns": [
+            "D"
+          ],
+          "added_sections": [
+            "## HEP 概念の成立と発展"
+          ],
+          "converted_tables": 0,
+          "before_chars": 3896,
+          "after_chars": 4669,
+          "added_chars": 773,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "human-factors": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:52:20.172Z",
+          "action": "rewritten",
+          "wave": "BULK-1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## ヒューマンファクタ研究の発展"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2253,
+          "after_chars": 2997,
+          "added_chars": 744,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "lopa": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:57:48.225Z",
+          "action": "rewritten",
+          "wave": "BULK-2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## LOPAが生まれた背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1953,
+          "after_chars": 2727,
+          "added_chars": 774,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "safety-instrumented-system": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:57:48.225Z",
+          "action": "rewritten",
+          "wave": "BULK-2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## SIS が生まれた背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1963,
+          "after_chars": 2782,
+          "added_chars": 819,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "ojt-off-jt": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:57:48.225Z",
+          "action": "rewritten",
+          "wave": "BULK-2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## OJT/OFF-JTの背景と歴史的経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2341,
+          "after_chars": 3257,
+          "added_chars": 916,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "second-career": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:02:40.114Z",
+          "action": "rewritten",
+          "wave": "BULK-3",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## セカンドキャリア支援の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1984,
+          "after_chars": 2657,
+          "added_chars": 673,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "safety-confirmation-system": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:02:40.114Z",
+          "action": "rewritten",
+          "wave": "BULK-3",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 概念の背景と発展"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1924,
+          "after_chars": 2661,
+          "added_chars": 737,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 7,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "risk-treatment": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:02:40.114Z",
+          "action": "rewritten",
+          "wave": "BULK-3",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスク対応の制度的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 3693,
+          "after_chars": 4310,
+          "added_chars": 617,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "eta": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 開発の経緯と背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 3604,
+          "after_chars": 4126,
+          "added_chars": 522,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "pha": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## PHAの背景と標準化の経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1519,
+          "after_chars": 2586,
+          "added_chars": 1067,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "parallel-system": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-4",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 冗長設計の歴史的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1905,
+          "after_chars": 2676,
+          "added_chars": 771,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "risk-identification": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスク特定の背景と基準"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1837,
+          "after_chars": 2652,
+          "added_chars": 815,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "impact": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## ISO 31000 における定義と背景"
+          ],
+          "converted_tables": 2,
+          "before_chars": 1805,
+          "after_chars": 2496,
+          "added_chars": 691,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "normalcy-bias": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:21:24.644Z",
+          "action": "rewritten",
+          "wave": "BULK-5",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 概念の背景と歴史的位置づけ"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2218,
+          "after_chars": 3264,
+          "added_chars": 1046,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "integer-programming": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 背景と発展"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1449,
+          "after_chars": 2294,
+          "added_chars": 845,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "competency-evaluation": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 能力考課制度の成立背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1879,
+          "after_chars": 2341,
+          "added_chars": 462,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cites": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-6",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 条約制定の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2613,
+          "after_chars": 3138,
+          "added_chars": 525,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 8,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
+    },
+    "civil-protection-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 制定の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 3336,
+          "after_chars": 3995,
+          "added_chars": 659,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "concurrent-engineering": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 発展の経緯と概念の確立"
+          ],
+          "converted_tables": 1,
+          "before_chars": 3330,
+          "after_chars": 3851,
+          "added_chars": 521,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "conformity-bias": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:27:56.590Z",
+          "action": "rewritten",
+          "wave": "BULK-7",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 概念の成立と背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1364,
+          "after_chars": 2063,
+          "added_chars": 699,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "construction-plan": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-8",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 工事計画制度の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1809,
+          "after_chars": 2491,
+          "added_chars": 682,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "contingency": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-8",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 不測事態概念の背景と歴史的経緯"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1572,
+          "after_chars": 2392,
+          "added_chars": 820,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cost-driver": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-8",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 導入の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1547,
+          "after_chars": 2206,
+          "added_chars": 659,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "cost-maintenance": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-9",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 原価計算基準の制定と原価管理の体系化"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1530,
+          "after_chars": 2062,
+          "added_chars": 532,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cost-variance-analysis": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-9",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 原価差異分析の制度的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2451,
+          "after_chars": 3293,
+          "added_chars": 842,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cpd": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-9",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 制度の背景と経緯"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1777,
+          "after_chars": 2824,
+          "added_chars": 1047,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "crisis-communication": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-10",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 危機広報が重視されるようになった背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2845,
+          "after_chars": 3398,
+          "added_chars": 553,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "crisis-management-manual": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-10",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 危機管理マニュアルが求められる背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2643,
+          "after_chars": 3213,
+          "added_chars": 570,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "crisis-priority": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-10",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 危機対応における優先順位の考え方の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1575,
+          "after_chars": 2333,
+          "added_chars": 758,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 7,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
     }
   }
 }

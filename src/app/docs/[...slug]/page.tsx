@@ -27,6 +27,8 @@ import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
+import { resolvePlacement } from '@/lib/magazine-placement';
+import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
 import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
@@ -228,6 +230,19 @@ export default async function DocPage({
   const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
   const sectionStr = doc.meta.section as string | undefined;
 
+  // note 有料マガジン CTA の配置を解決。
+  // published: false や noteUrl 空のマガジンは getMagazine() で防御的に弾く。
+  const magazinePlacement = resolvePlacement(slugStr, docGroup);
+  type RenderableSlot = { slot: (typeof magazinePlacement.inline)[number]; magazine: NoteMagazine };
+  const filterRenderable = (
+    slots: ReadonlyArray<(typeof magazinePlacement.inline)[number]>,
+  ): RenderableSlot[] =>
+    slots
+      .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
+      .filter((x): x is RenderableSlot => x.magazine !== null);
+  const inlineMagazines = filterRenderable(magazinePlacement.inline);
+  const sidebarMagazines = filterRenderable(magazinePlacement.sidebar);
+
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
   const { strippedContent, references } = extractReferencesSection(doc.content);
@@ -377,36 +392,24 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* PE pillar: magazine 訴求カード（FAQ と著者の間に独立セクションで配置） */}
-            {category === 'pe-comprehensive-management' && docGroup === 'pillar' && (() => {
-              const m = slugStr.match(/^pe-comprehensive-management-(.+)-management-pillar$/);
-              const utmContent = m ? `${m[1]}-pillar-bottom` : 'pillar-bottom';
-              return (
-                <div className="mt-8">
+            {/* note 有料マガジン CTA (inline)。slug + docGroup から配置を解決。
+                inlineMobileOnly が true の場合は PC 非表示 (sidebar 側で出る)。
+                ハブ系 (pillar / pattern-essay / r0X-secondary / essay-exam-strategy) は PC でも表示。 */}
+            {inlineMagazines.length > 0 && (
+              <div className={`mt-8 space-y-3 ${magazinePlacement.inlineMobileOnly ? 'zenn-desktop:hidden' : ''}`}>
+                {inlineMagazines.map(({ slot, magazine }) => (
                   <MagazineInlineCard
-                    url={`https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=${utmContent}`}
-                    title="doboku-note 連動｜5管理 テキスト精読ガイド"
-                    description="サイトの 650+ キーワード解説と連動した試験対策教材。5管理ごとに頻出論点と引っかけパターンを体系化し、各論点から本サイトの詳細解説に直リンク。全約7万字。"
-                    imageUrl="/images/magazines/tankan-magazine-cover.webp"
-                    badge="note 限定 教材"
+                    key={slot.magazineId}
+                    url={buildMagazineUrl(magazine, slot.utmContent)}
+                    title={magazine.title}
+                    description={magazine.description}
+                    imageUrl={magazine.imageUrl}
+                    badge={magazine.badge}
+                    {...(magazine.price ? { price: magazine.price } : {})}
                   />
-                </div>
-              );
-            })()}
-
-            {/* PE keyword / keyword-2026: magazine 訴求カード（モバイル限定・PC は右サイドバーで露出） */}
-            {category === 'pe-comprehensive-management' &&
-              (docGroup === 'keyword' || slugStr === 'pe-comprehensive-management-keyword-2026') && (
-                <div className="mt-8 zenn-desktop:hidden">
-                  <MagazineInlineCard
-                    url="https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=keyword-mobile"
-                    title="doboku-note 連動｜5管理 テキスト精読ガイド"
-                    description="サイトの 650+ キーワード解説と連動した試験対策教材。5管理ごとに頻出論点と引っかけパターンを体系化し、各論点から本サイトの詳細解説に直リンク。全約7万字。"
-                    imageUrl="/images/magazines/tankan-magazine-cover.webp"
-                    badge="note 限定 教材"
-                  />
-                </div>
-              )}
+                ))}
+              </div>
+            )}
 
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
             <AuthorCard
@@ -419,24 +422,23 @@ export default async function DocPage({
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
             <div className="sticky top-6">
-              {/* Magazine (PE pillar / keyword / keyword-2026) を最上部に配置 */}
-              {category === 'pe-comprehensive-management' &&
-                (docGroup === 'pillar' ||
-                  docGroup === 'keyword' ||
-                  slugStr === 'pe-comprehensive-management-keyword-2026') && (() => {
-                  const utmContent = docGroup === 'pillar' ? 'pillar-sidebar' : 'keyword-sidebar';
-                  return (
-                    <div className="mb-3">
-                      <MagazineSidebarCard
-                        url={`https://note.com/dobokunote/m/m607bf095b02a?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-magazine&utm_content=${utmContent}`}
-                        title="5管理 精読ガイド"
-                        description="5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。"
-                        imageUrl="/images/magazines/tankan-magazine-cover.webp"
-                        badge="note 限定 教材"
-                      />
-                    </div>
-                  );
-                })()}
+              {/* note 有料マガジン CTA (sidebar)。配置解決済みのマガジン群を上部に並べる。
+                  shortTitle / shortDescription が定義されていれば sidebar 用の短縮テキストを使用。 */}
+              {sidebarMagazines.length > 0 && (
+                <div className="mb-3 space-y-3">
+                  {sidebarMagazines.map(({ slot, magazine }) => (
+                    <MagazineSidebarCard
+                      key={slot.magazineId}
+                      url={buildMagazineUrl(magazine, slot.utmContent)}
+                      title={magazine.shortTitle ?? magazine.title}
+                      description={magazine.shortDescription ?? magazine.description}
+                      imageUrl={magazine.imageUrl}
+                      badge={magazine.badge}
+                      {...(magazine.price ? { price: magazine.price } : {})}
+                    />
+                  ))}
+                </div>
+              )}
               {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
               {hasCategoryNavCard && category && (
                 <div className="mt-3">
