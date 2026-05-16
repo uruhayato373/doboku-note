@@ -193,8 +193,77 @@ ${unique.map((u) => `<url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod><cha
 
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), sitemap);
 
-const robots = `User-agent: *
+// AI 学習データ収集クローラー（LLM 用）を全面 disallow。
+// 公益的な GoogleBot / Bingbot 等は許可（検索インデックスの正常稼働を維持）。
+// 背景: 2026-05 の GA4 で Bing 経由 1,293 users (40%) が engage 21%/bounce 79% の
+// 異常パターン示しており、AI クローラー混入が疑われる。
+const robots = `# 検索エンジンクローラー（Allow）
+User-agent: *
 Allow: /
+
+# AI 学習データ収集クローラーは全面 disallow
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
+
+User-agent: OAI-SearchBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
+User-agent: Perplexity-User
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: FacebookBot
+Disallow: /
+
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+User-agent: Meta-ExternalFetcher
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: Amazonbot
+Disallow: /
+
+User-agent: cohere-ai
+Disallow: /
+
+User-agent: omgili
+Disallow: /
+
+User-agent: DataForSeoBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
 
 Sitemap: ${SITE_URL}/sitemap.xml
 `;
