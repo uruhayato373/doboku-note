@@ -26,19 +26,36 @@ function collectMdx(dir, out = []) {
 }
 
 function stripLeadingH1(raw) {
-  // frontmatter（--- ... ---）の直後にある最初の `# Heading` 行を削除
-  const fmRe = /^---\n[\s\S]*?\n---\n+/;
-  const fmMatch = raw.match(fmRe);
-  if (!fmMatch) return { newRaw: raw, removed: 0 };
+  // CRLF / LF どちらでも動くよう、行末の \r も trim 比較で吸収
+  const lines = raw.split('\n');
+  const trimmed = (s) => s.replace(/\r$/, '').trim();
 
-  const body = raw.slice(fmMatch[0].length);
-  // 本文の最初の非空行が `# ...` ならそれを削除
-  const h1Re = /^#\s+[^\n]+\n+/;
-  const h1Match = body.match(h1Re);
-  if (!h1Match) return { newRaw: raw, removed: 0 };
+  if (trimmed(lines[0]) !== '---') return { newRaw: raw, removed: 0 };
 
-  const newBody = body.slice(h1Match[0].length);
-  return { newRaw: fmMatch[0] + newBody, removed: 1 };
+  // frontmatter の閉じ `---` を探す
+  let fmEnd = -1;
+  for (let i = 1; i < lines.length; i++) {
+    if (trimmed(lines[i]) === '---') { fmEnd = i; break; }
+  }
+  if (fmEnd === -1) return { newRaw: raw, removed: 0 };
+
+  // body の最初の非空行を探す
+  let firstContent = -1;
+  for (let i = fmEnd + 1; i < lines.length; i++) {
+    if (trimmed(lines[i]) !== '') { firstContent = i; break; }
+  }
+  if (firstContent === -1) return { newRaw: raw, removed: 0 };
+
+  // `# ` で始まる H1 か?
+  const firstLine = lines[firstContent].replace(/\r$/, '');
+  if (!/^#\s+\S/.test(firstLine)) return { newRaw: raw, removed: 0 };
+
+  // H1 行を削除（直後の空行も 1 行まで折りたたむ）
+  lines.splice(firstContent, 1);
+  if (firstContent < lines.length && trimmed(lines[firstContent]) === '') {
+    lines.splice(firstContent, 1);
+  }
+  return { newRaw: lines.join('\n'), removed: 1 };
 }
 
 function main() {
