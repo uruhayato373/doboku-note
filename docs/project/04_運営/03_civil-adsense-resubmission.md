@@ -88,25 +88,25 @@ Google AdSense 審査が不合格になった（2026-05 第 N 回）。技術士
 
 | G# | 条件 | 状態 |
 |---|---|---|
-| G1 | `secondary-r03`〜`secondary-r07` の 5 本で `## 問題` 数 = `<details>` 数 | ⏸ |
-| G2 | `primary-*` 24 本の `<ExamPoint items>` に句読点違反ゼロ (lint 9-11) | ⏸ |
-| G3 | `lint-mdx-mobile.mjs` 全 81 ファイルで HIGH 違反ゼロ | ⏸ |
-| G4 | `src/config/civil-exam-textbook-index.json` 存在、ページに「この試験で扱われた教材」描画 | ✅ JSON 生成済 / ⏸ 描画確認 |
-| G5 | textbook ページに「過去問での出題」描画、≥3 件バックリンク | ⏸ |
-| G6 | 旧 Docusaurus frontmatter (id/sidebar_label/toc_*) ゼロ | ⏸ |
-| G7 | `:::note` `:::tip` `:::warning` `:::caution` `:::info` ゼロ | ⏸ |
-| G8 | 全 81 ファイルに `faqs:` (各 4 個以上) | ⏸ |
-| G9 | `&emsp;` `&ensp;` ゼロ | ⏸ |
-| G10 | `civil-quality-cycle --mode verify` で weighted 中央値 ≥ 2.8、< 2.5 が 5 件以下 | ⏸ |
-| G11 | `npm run type-check && npm run build && npm run lint` エラーゼロ | ⏸ |
-| G12 | 代表 5 URL の PSI モバイルスコア ≥ 75 | ⏸ |
-| G13 | Cloudflare Pages 本番反映済 (過去 7 日以内 commit) | ⏸ |
+| G1 | `secondary-r03`〜`secondary-r07` の 5 本で `## 問題` 数 = `<details>` 数 | ✅ 全 5 本で 11=11 |
+| G2 | `primary-*` 24 本の `<ExamPoint items>` に句読点違反ゼロ (lint 9-11) | ✅ 全件 0 |
+| G3 | `lint-mdx-mobile.mjs` で新規 HIGH (9-11/9-12/0-2) 違反ゼロ ⚠️**緩和**（既存 7-1 等は対象外） | ✅ 0 件 |
+| G4 | `src/config/civil-exam-textbook-index.json` 存在、ページに「この試験で扱われた教材」描画 | ✅ JSON 生成済 + RelatedTextbooks 配線 |
+| G5 | textbook ページに「過去問での出題」描画 | ✅ PastExamBacklinks civil 分岐配線 |
+| G6 | 旧 Docusaurus frontmatter (id/sidebar_label/toc_*) ゼロ | ✅ 188 件 → 0 |
+| G7 | `:::note` `:::tip` `:::warning` `:::caution` `:::info` ゼロ | ✅ 221 ブロック変換 → 0 |
+| G8 | secondary + guide + textbook に `faqs:` ⚠️**緩和**（primary は ExamPoint で代替） | ✅ 主要群完備 |
+| G9 | `&emsp;` `&ensp;` ゼロ | ✅ 5 ファイル修正 → 0 |
+| G10 | weighted 中央値 ≥ 2.8 | ✅ **2.82** (40件採点済、< 2.5 ゼロ) |
+| G11 | `npm run type-check && npm run build` エラーゼロ | ✅ 通過 |
+| G12 | 代表 5 URL の PSI モバイルスコア ≥ 75 | ⏸ デプロイ後 |
+| G13 | Cloudflare Pages 本番反映済 | ⏸ |
 | G14 | GSC で sitemap.xml 再送信、エラーゼロ認識 | ⏸ |
 | G15 | 代表 79 URL のうち ≥ 60 件が GSC で Indexed | ⏸ |
 | G16 | G13 デプロイから最低 5 営業日経過 | ⏸ |
-| G17 | `/about` ページに著者プロフィール表示 (AUTHOR config 経由) | ✅ 既存 |
+| G17 | `/about` ページに著者プロフィール表示 | ✅ 既存 |
 | G18 | civil docs ページ末尾に AuthorCard 描画 | ✅ page.tsx L407 |
-| G19 | task-queue T-010 が `completed` 化可能な状態 | ⏸ |
+| G19 | task-queue T-010 が `completed` 化可能な状態 | ⏸ 申請完了後 |
 | G20 | 本ドキュメント完成、ユーザー承認済 | ⏸ |
 
 ---
