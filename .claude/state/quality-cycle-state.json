@@ -8049,6 +8049,83 @@
           "mojibake": false
         }
       ]
+    },
+    "risk-analysis": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:52:20.172Z",
+          "action": "rewritten",
+          "wave": "BULK-1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## リスク分析手法の発展と国際標準化"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2208,
+          "after_chars": 2861,
+          "added_chars": 653,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "human-error-probability": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:52:20.172Z",
+          "action": "rewritten",
+          "wave": "BULK-1",
+          "applied_patterns": [
+            "D"
+          ],
+          "added_sections": [
+            "## HEP 概念の成立と発展"
+          ],
+          "converted_tables": 0,
+          "before_chars": 3896,
+          "after_chars": 4669,
+          "added_chars": 773,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "human-factors": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:52:20.172Z",
+          "action": "rewritten",
+          "wave": "BULK-1",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## ヒューマンファクタ研究の発展"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2253,
+          "after_chars": 2997,
+          "added_chars": 744,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
