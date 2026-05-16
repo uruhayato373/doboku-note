@@ -119,7 +119,7 @@ Google AdSense 審査が不合格になった（2026-05 第 N 回）。技術士
 | G11 | `npm run type-check && npm run build` エラーゼロ | ✅ 通過 |
 | G12 | 代表 5 URL の PSI モバイルスコア（緩和: Avg ≥ 75 + Min ≥ 65） | ✅ **Avg 86.4 / Min 68 (primary-r07-a)** 他 4 URL は 83-95 |
 | G13 | Cloudflare Pages 本番反映済 | ✅ 2026-05-16 デプロイ完了（同日 5 deploy: Callout 削除 → lint 駆動 4 種 → H1 CRLF → PE/civil 全面改善 → bold 30字超 → RelatedKeywords 残ノイズ → PE ExamPoint 体言止め化） |
-| G14 | GSC で sitemap.xml 再送信、エラーゼロ認識 | ⏸ **ユーザー操作待ち** |
+| G14 | GSC で sitemap.xml 再送信、エラーゼロ認識 | ✅ 2026-05-16 ユーザー操作完了 |
 | G15 | 代表 79 URL のうち ≥ 60 件が GSC で Indexed | ⏸ ユーザー操作 + 待機 |
 | G16 | G13 デプロイから最低 5 営業日経過 | ⏸ 2026-05-21 以降 |
 | G17 | `/about` ページに著者プロフィール表示 | ✅ 既存 |
