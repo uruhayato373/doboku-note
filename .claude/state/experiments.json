@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-04-18T12:00:00.000Z",
+  "updated_at": "2026-05-16T10:00:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -430,6 +430,98 @@
         "remaining_gap_ratio": "2.85x"
       },
       "next_wave": "Wave 4 候補（実測ベースで優先順）: (1) H1 の bg-gradient + bg-clip-text を簡素化（GPU 負荷の更なる低減、~500ms 期待）、(2) KaTeX CSS の docs ページ限定読込（CSS chunk 削減、~500-1000ms 期待）、(3) CategoryHeader にも同型 blur orb があれば削除、(4) Critical CSS インライン化、(5) bundle analyzer で他のボトルネック特定。Wave 3 の方法論（実測 → 副作用ゼロの軽量化）を継続。"
+    },
+    {
+      "id": "EXP-003",
+      "title": "個別ハイインパクト SEO 修正 5件 (seoTitle 検索意図整合)",
+      "hypothesis": "GSC 2026-05-16 page 次元分析の Pattern 1 (High-Impr-Low-CTR) と Pattern 5 (Orphan-Query) で surface した 5 ページの seoTitle に、検索クエリと完全一致するキーワード（スクレープドーザ・解答解説・JISEC・conformity bias 等）を追加することで、合計 clicks を 1 → 20 以上に引き上げる。",
+      "target_metric": "combined_clicks_28d",
+      "target_delta": "1 -> 20",
+      "baseline": {
+        "civil-construction-1-textbook-scraper": {
+          "impr": 194,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9.1,
+          "expected_delta_clicks": "+8〜10"
+        },
+        "civil-construction-1-primary-r07-a": {
+          "impr": 119,
+          "clicks": 1,
+          "ctr": 0.008,
+          "position": 7.4,
+          "expected_delta_clicks": "+5"
+        },
+        "civil-construction-1-primary-r06-a": {
+          "impr": 57,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 8.3,
+          "expected_delta_clicks": "+2〜3"
+        },
+        "pe-comprehensive-management-jisec": {
+          "impr": 41,
+          "clicks": 0,
+          "ctr": 0,
+          "position_range": "8-12",
+          "queries": ["jisec", "jisecとは", "jisec読み方"],
+          "expected_delta_clicks": "+2〜3"
+        },
+        "pe-comprehensive-management-asch-conformity-experiment": {
+          "impr": 39,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 10.1,
+          "trigger_query": "conformity bias (13 impr / pos 8.6)",
+          "expected_delta_clicks": "+2"
+        },
+        "combined_impr": 450,
+        "combined_clicks": 1,
+        "source": "gsc-page-2026-05-16T06-22-44.json + gsc-query-2026-05-16T06-22-40.json"
+      },
+      "status": "running",
+      "created_at": "2026-05-16T10:00:00.000Z",
+      "started_at": "2026-05-16T10:00:00.000Z",
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "1. ea14e6dcb: textbook-scraper の seoTitle にスクレープドーザ併記 + リード文も並列明示",
+        "2. c906af4d2: primary-r07-a / r06-a の seoTitle を r07-b パターン統一 (suffix 重複解消 + 科目明示)",
+        "3. c103318c6: jisec の seoTitle 冒頭に「JISEC」明示 (description 内のみだったキーワードを title 化)",
+        "4. dd04c8e17: asch-conformity-experiment の seoTitle に英語表記 (conformity bias) 追加 + 本文初出にも併記"
+      ],
+      "next_check_date": "2026-05-30",
+      "measurement_method": "/fetch-gsc-data --dimension page --days 28 を再実行し、上記 5 URL の clicks 差分を比較。combined_clicks ≥ 20 で成功判定。"
+    },
+    {
+      "id": "EXP-004",
+      "title": "primary h26-r06 系 21件の seoTitle suffix 重複バグ一括解消",
+      "hypothesis": "Next.js metadata の title template `%s | doboku-note` 自動付与と二重になっていた `| doboku-note` suffix を全件除去し、検索意図キーワード（解答解説・科目分類・1級土木施工管理技士）を追加することで、個別 impr は薄い (≤ 20) が 21 件の累積で CTR 全体改善を狙う。",
+      "target_metric": "primary_aggregate_clicks_28d",
+      "target_delta": "1 -> 8",
+      "baseline": {
+        "scope": "primary-{h26,h27,h28,h29,h30,r01,r02,r03,r04,r05}-{a,b} + primary-r06-b の 21 ファイル",
+        "previous_format": "seoTitle: 令和X年度 第1次検定 問題{A|B} | doboku-note",
+        "new_format_a": "seoTitle: {年度} 第1次検定 問題A 解答解説｜土木一般・専門土木・法規【1級土木施工管理技士】",
+        "new_format_b": "seoTitle: {年度} 第1次検定 問題B 解答解説｜施工管理・安全管理【1級土木施工管理技士】",
+        "individual_impr_range": "0-20 (薄い)",
+        "individual_clicks_total": 1,
+        "source": "gsc-page-2026-05-16T06-22-44.json (上位 200 件には r07-a/r07-b/r06-a 以外ほぼ出現せず、推定値)"
+      },
+      "status": "running",
+      "created_at": "2026-05-16T10:00:00.000Z",
+      "started_at": "2026-05-16T10:00:00.000Z",
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "1. c4cc419fd: 21 件の seoTitle suffix 重複バグを perl -i -pe で一括解消",
+        "2. b941f298c: 同 24 件 (上記 + r07-a/b) に publishedAt を git 初回 commit 日から付与"
+      ],
+      "next_check_date": "2026-05-30",
+      "measurement_method": "/fetch-gsc-data --dimension page --days 28 で primary-h26-r06 全 21 件の clicks 合計を baseline (1 件) と比較。aggregate clicks ≥ 8 で成功判定。",
+      "secondary_check": "Pre-commit warning [publishedAt-missing] が 23 件 → 0 件に減少していることを確認 (b941f298c の効果検証)。"
     }
   ]
 }
