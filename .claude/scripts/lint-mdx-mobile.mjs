@@ -1097,7 +1097,13 @@ function lintExamPointItemsPunctuation(lines, filePath, findings) {
     const strings = [...itemsBody.matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]);
     for (const s of strings) {
       const inner = s.replace(/[、。，．]$/, '');
-      if (/[、。，．]/.test(inner)) {
+      // 体言止めの stylistic な「、」1個は許容。
+      // 「。．」（句点）が含まれる or 「、，」が 2 個以上ある場合のみ違反扱い。
+      // civil の機械分割バグは無数の「、。」を含むので確実に検出される。
+      const periodCount = (inner.match(/[。．]/g) || []).length;
+      const commaCount = (inner.match(/[、，]/g) || []).length;
+      const isViolation = periodCount > 0 || commaCount >= 2;
+      if (isViolation) {
         findings.push({
           severity: 'HIGH',
           rule: '9-11',
