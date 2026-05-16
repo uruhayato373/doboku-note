@@ -44,6 +44,10 @@
  *   9-8 HIGH   <RelatedKeywords> の prop 名が `keywords=`（正: `items=`）— 誤ると無描画
  *   9-9 MEDIUM <RelatedKeywords> の slug にカテゴリ接頭辞付与（bare slug が規約）
  *   9-10 HIGH  <RelatedKeywords> が `## 参考資料` の後に配置（§18 違反、MDX が描画失敗することあり）
+ *   9-11 HIGH  <ExamPoint items> の各文字列に句読点（、。，．）を含む（機械分割バグ検出）
+ *   9-12 HIGH  civil secondary-r0X で `## 問題` 数 > `<details>` 数（解答欠落検出）
+ *   9-13 MEDIUM civil 過去問 MDX に textbook/guide への内部リンクが無い（内部リンク密度の指標）
+ *   0-2 HIGH   Docusaurus 旧 frontmatter（id/sidebar_label/toc_min_heading_level/toc_max_heading_level）残存
  *  10-1 HIGH   <ArticleImage caption> が 60 字超（説明型 caption、§8 違反）
  *  10-2 MEDIUM 生 <img> タグ検出（<ArticleImage> への移行を推奨）
  *  10-3 MEDIUM 画像 alt 属性が 80 字超過
@@ -1062,6 +1066,117 @@ function extractBraced(content, openIdx) {
   return null;
 }
 
+// ── 9-11: ExamPoint items の句読点分割バグ検出 ──────────────────────────────
+/**
+ * 9-11 HIGH: <ExamPoint items={[...]}> の各文字列に句読点（、。，．）を含む。
+ *
+ * .claude/scripts/migrate-civil-answer-style.mjs の generateExamPoint() バグで生成された
+ * 機械分割断片を検出する。末尾の句読点は許容（句点で終わる完結文は OK）、内部の句読点のみ検出。
+ *
+ * 過去問 MDX も対象（むしろ過去問が主対象）。
+ */
+function lintExamPointItemsPunctuation(lines, filePath, findings) {
+  for (let i = 0; i < lines.length; i++) {
+    if (!/<ExamPoint(\s|$|\/)/.test(lines[i])) continue;
+    let endIdx = i;
+    while (endIdx < lines.length) {
+      if (/\/>\s*$/.test(lines[endIdx]) || /<\/ExamPoint>/.test(lines[endIdx])) break;
+      endIdx++;
+    }
+    const block = lines.slice(i, endIdx + 1).join('\n');
+    const itemsMatch = block.match(/items=\{\[([\s\S]*?)\]\}/);
+    if (!itemsMatch) {
+      i = endIdx;
+      continue;
+    }
+    const itemsBody = itemsMatch[1];
+    const strings = [...itemsBody.matchAll(/"((?:[^"\\]|\\.)*)"/g)].map((m) => m[1]);
+    for (const s of strings) {
+      const inner = s.replace(/[、。，．]$/, '');
+      if (/[、。，．]/.test(inner)) {
+        findings.push({
+          severity: 'HIGH',
+          rule: '9-11',
+          line: i + 1,
+          endLine: endIdx + 1,
+          message: `<ExamPoint items> に句読点を含む文字列「${trimPreview(s, 30)}」。機械分割バグの典型、体言止め独立ポイントに修正（§5）`,
+        });
+        break;
+      }
+    }
+    i = endIdx;
+  }
+}
+
+// ── 9-12: civil secondary 解答欠落検出 ──────────────────────────────────────
+/**
+ * 9-12 HIGH: civil-construction-1/secondary-r0X で `## 問題` 数 > `<details>` 数。
+ *
+ * AdSense thin content の典型。secondary-r03〜r07 の 5 本が対象。
+ */
+function lintSecondaryAnswerCompleteness(lines, filePath, findings) {
+  if (!/civil-construction-1[\\/]secondary-r0\d[\\/]/.test(filePath)) return;
+  const problemCount = lines.filter((l) => /^##\s+問題\s/.test(l)).length;
+  const detailsCount = lines.filter((l) => /<details>/.test(l)).length;
+  if (problemCount > detailsCount) {
+    findings.push({
+      severity: 'HIGH',
+      rule: '9-12',
+      line: 1,
+      endLine: lines.length,
+      message: `secondary 過去問の解答ブロック欠落: ## 問題 ${problemCount} 個に対し <details> ${detailsCount} 個（${problemCount - detailsCount} 個未補完、civil-secondary-exam-writer で補完）`,
+    });
+  }
+}
+
+// ── 9-13: civil 過去問 MDX の内部リンク欠落検出 ─────────────────────────────
+/**
+ * 9-13 MEDIUM: civil-construction-1/(primary|secondary)-* に textbook/guide への内部リンクが無い。
+ *
+ * P1 完了の指標。AdSense の内部リンク密度評価に影響する。
+ */
+function lintExamMissingInternalLinks(lines, filePath, findings) {
+  if (!/civil-construction-1[\\/](?:primary|secondary)-/.test(filePath)) return;
+  const raw = lines.join('\n');
+  const hasTextbookLink = /\/docs\/civil-construction-1-textbook-/.test(raw);
+  const hasGuideLink = /\/docs\/civil-construction-1-guide-/.test(raw);
+  if (!hasTextbookLink && !hasGuideLink) {
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '9-13',
+      line: 1,
+      endLine: lines.length,
+      message: '過去問 MDX に textbook/guide への内部リンクが無い（P1 で build-civil-exam-textbook-index 後に解消、AdSense 内部リンク密度の指標）',
+    });
+  }
+}
+
+// ── 0-2: Docusaurus 旧 frontmatter 検出 ────────────────────────────────────
+/**
+ * 0-2 HIGH: frontmatter に id/sidebar_label/toc_min_heading_level/toc_max_heading_level が残存。
+ *
+ * Docusaurus 由来の旧フィールドで doboku-note では未使用。migrate-civil-frontmatter.mjs で一括削除可。
+ */
+function lintLegacyFrontmatter(raw, findings) {
+  const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!fmMatch) return;
+  const fmLines = fmMatch[1].split(/\r?\n/);
+  const legacyFields = ['id', 'sidebar_label', 'toc_min_heading_level', 'toc_max_heading_level'];
+  fmLines.forEach((line, idx) => {
+    for (const field of legacyFields) {
+      if (new RegExp(`^${field}\\s*:`).test(line)) {
+        findings.push({
+          severity: 'HIGH',
+          rule: '0-2',
+          line: idx + 2,
+          endLine: idx + 2,
+          message: `Docusaurus 旧 frontmatter「${field}:」残存。doboku-note では未使用、migrate-civil-frontmatter.mjs で一括削除可`,
+        });
+      }
+    }
+  });
+}
+
 // ── メイン ───────────────────────────────────────────────────────────────────
 
 function lintFile(filePath) {
@@ -1117,9 +1232,15 @@ function lintFile(filePath) {
   lintMathFractions(lines, findings);
   lintMathSingleLineDisplay(lines, findings);
 
-  // 行番号を frontmatter 分シフト（ただし 0-1 はファイル全体の問題なので対象外）
+  // 新規ルール（civil AdSense 改修向け）
+  lintExamPointItemsPunctuation(lines, filePath, findings);
+  lintSecondaryAnswerCompleteness(lines, filePath, findings);
+  lintExamMissingInternalLinks(lines, filePath, findings);
+  lintLegacyFrontmatter(raw, findings);
+
+  // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）
   for (const f of findings) {
-    if (f.rule === '0-1') continue;
+    if (f.rule === '0-1' || f.rule === '0-2') continue;
     f.line += offset;
     f.endLine += offset;
   }
