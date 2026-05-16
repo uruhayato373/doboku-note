@@ -142,7 +142,8 @@ function parseExamQuestions(examFile) {
   const lines = content.split(/\r?\n/);
   let current = null;
   for (const line of lines) {
-    const h2Match = line.match(/^##\s+問題\s*([\d.]+)/);
+    // primary: "## 問題 No.1" / secondary: "## 問題 1" 両対応
+    const h2Match = line.match(/^##\s+問題\s*(?:No\.?\s*)?([\d.]+)/);
     if (h2Match) {
       if (current) sections.push(current);
       current = { id: `問題-${h2Match[1]}`, text: '' };
