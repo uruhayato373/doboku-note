@@ -10,7 +10,8 @@ import { transformMdxFile, readMdxFile } from './lib/mdx-io.mjs';
 import { readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const BASE = resolve('.local/r2/posts/civil-construction-1');
+const baseArg = process.argv.find((a) => a.startsWith('--base='));
+const BASE = resolve(baseArg ? baseArg.slice('--base='.length) : '.local/r2/posts/civil-construction-1');
 const DRY_RUN = process.argv.includes('--dry-run');
 
 function collectMdx(dir, out = []) {
