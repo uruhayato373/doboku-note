@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-05-16T04:47:49.663Z",
+  "generated_at": "2026-05-16T05:36:33.281Z",
   "summary": {
-    "total_mdx_files": 812,
+    "total_mdx_files": 813,
     "total_unique_tags": 74,
     "allowlist_size": 84,
     "known_count": 40,
@@ -1355,19 +1355,37 @@
     },
     {
       "name": "guide",
-      "count": 11,
+      "count": 12,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
         "civil-construction-1-guide-concrete-maintenance",
         "civil-construction-1-guide-earthwork-key-points",
         "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-last-minute-2026",
         "civil-construction-1-guide-law-key-points",
         "civil-construction-1-guide-quality-management",
         "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
         "pe-comprehensive-management-essay-exam-strategy",
         "pe-comprehensive-management-exam-application-guide",
+        "pe-comprehensive-management-exam-passing-strategy"
+      ]
+    },
+    {
+      "name": "exam-preparation",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
         "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
@@ -1386,22 +1404,6 @@
         "civil-construction-1-secondary-experience-writing-guide",
         "civil-construction-1-secondary-quality-management-basics",
         "civil-construction-1-secondary-quality-management-past-problems"
-      ]
-    },
-    {
-      "name": "exam-preparation",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
     {
