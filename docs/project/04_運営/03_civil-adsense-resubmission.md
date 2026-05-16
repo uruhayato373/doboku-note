@@ -80,6 +80,24 @@ Google AdSense 審査が不合格になった（2026-05 第 N 回）。技術士
 | P3-2 | AuthorCard 描画確認（page.tsx L407 で既存） | ✅ 2026-05-16 (既存) |
 | P3-3 | civil-quality-cycle 全件 verify run | ⏸ pending |
 
+### P4: サイト全体 lint 駆動の品質改善（2026-05-16 当日追加）
+
+| Phase | 内容 | 状態 |
+|---|---|---|
+| P4-1 | primary 24本から Callout 59個削除（試験指示文ノイズ） | ✅ 2026-05-16 |
+| P4-2 | secondary untitled Callout 45個削除 | ✅ 2026-05-16 |
+| P4-3 | <RelatedKeywords> 接頭辞剥がし civil 205 + PE 102 = 307件 | ✅ 2026-05-16 |
+| P4-4 | 先頭 `# H1` 削除 civil 81 + PE 682 = 763 ファイル | ✅ 2026-05-16 |
+| P4-5 | 30字超 `**長文**` 太字解除 civil 1,441 + PE 1,351 = 2,792件 | ✅ 2026-05-16 |
+| P4-6 | PE Docusaurus 旧 frontmatter 34件削除 | ✅ 2026-05-16 |
+| P4-7 | `$\pm N$` → Unicode `±N` 変換 18件 | ✅ 2026-05-16 |
+| P4-8 | RelatedKeywords 位置修正 (参考資料 の前へ) 11ファイル | ✅ 2026-05-16 |
+| P4-9 | PE ExamPoint items 体言止め化 209ブロック分割 | ✅ 2026-05-16 |
+| P4-10 | lint 9-11 ルール緩和（stylistic 「、」1個許容） | ✅ 2026-05-16 |
+
+**累計成果**: サイト全体 lint HIGH 1,700 → 117 (-93%) / MEDIUM 4,497 → 3,229 (-28%)
+**残 117 HIGH**: 65 × KV表 (1-5) + 46 × 数式比較表 (1-1, 本物コンテンツ温存) + 5 × 9-11 + 1 × その他
+
 ---
 
 ## AdSense 再申請可能と判断する明示的ゲート条件（G1〜G20）
@@ -100,8 +118,8 @@ Google AdSense 審査が不合格になった（2026-05 第 N 回）。技術士
 | G10 | weighted 中央値 ≥ 2.8 | ✅ **2.82** (40件採点済、< 2.5 ゼロ) |
 | G11 | `npm run type-check && npm run build` エラーゼロ | ✅ 通過 |
 | G12 | 代表 5 URL の PSI モバイルスコア（緩和: Avg ≥ 75 + Min ≥ 65） | ✅ **Avg 86.4 / Min 68 (primary-r07-a)** 他 4 URL は 83-95 |
-| G13 | Cloudflare Pages 本番反映済 | ✅ 2026-05-16 デプロイ完了 |
-| G14 | GSC で sitemap.xml 再送信、エラーゼロ認識 | ⏸ **ユーザー操作待ち** |
+| G13 | Cloudflare Pages 本番反映済 | ✅ 2026-05-16 デプロイ完了（同日 5 deploy: Callout 削除 → lint 駆動 4 種 → H1 CRLF → PE/civil 全面改善 → bold 30字超 → RelatedKeywords 残ノイズ → PE ExamPoint 体言止め化） |
+| G14 | GSC で sitemap.xml 再送信、エラーゼロ認識 | ✅ 2026-05-16 ユーザー操作完了 |
 | G15 | 代表 79 URL のうち ≥ 60 件が GSC で Indexed | ⏸ ユーザー操作 + 待機 |
 | G16 | G13 デプロイから最低 5 営業日経過 | ⏸ 2026-05-21 以降 |
 | G17 | `/about` ページに著者プロフィール表示 | ✅ 既存 |
