@@ -8594,6 +8594,240 @@
           "mojibake": false
         }
       ]
+    },
+    "construction-plan": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-8",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 工事計画制度の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1809,
+          "after_chars": 2491,
+          "added_chars": 682,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "contingency": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-8",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 不測事態概念の背景と歴史的経緯"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1572,
+          "after_chars": 2392,
+          "added_chars": 820,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cost-driver": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-8",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 導入の背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1547,
+          "after_chars": 2206,
+          "added_chars": 659,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "cost-maintenance": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-9",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 原価計算基準の制定と原価管理の体系化"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1530,
+          "after_chars": 2062,
+          "added_chars": 532,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cost-variance-analysis": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-9",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 原価差異分析の制度的背景"
+          ],
+          "converted_tables": 0,
+          "before_chars": 2451,
+          "after_chars": 3293,
+          "added_chars": 842,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "cpd": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-9",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 制度の背景と経緯"
+          ],
+          "converted_tables": 0,
+          "before_chars": 1777,
+          "after_chars": 2824,
+          "added_chars": 1047,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 2,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "crisis-communication": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-10",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 危機広報が重視されるようになった背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2845,
+          "after_chars": 3398,
+          "added_chars": 553,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        }
+      ]
+    },
+    "crisis-management-manual": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-10",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 危機管理マニュアルが求められる背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2643,
+          "after_chars": 3213,
+          "added_chars": 570,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 1,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "crisis-priority": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T06:33:18.462Z",
+          "action": "rewritten",
+          "wave": "BULK-10",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## 危機対応における優先順位の考え方の背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1575,
+          "after_chars": 2333,
+          "added_chars": 758,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 7,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
