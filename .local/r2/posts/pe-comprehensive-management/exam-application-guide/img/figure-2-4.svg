@@ -6,8 +6,8 @@
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
       .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
       .t-desc  { font-size: 12px; fill: #555; }
-      .t-warn-title { font-size: 14px; font-weight: bold; fill: #5a4000; }
-      .t-warn-desc  { font-size: 12px; fill: #7a5a00; }
+      .t-warn-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn-desc  { font-size: 12px; fill: #555; }
       .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
       .box-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 2; }
     </style>
