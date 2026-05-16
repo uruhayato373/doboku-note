@@ -446,7 +446,7 @@ Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 mark
 
 ## 運用ルール
 
-- **毎週日曜〜月曜に実行**
+- **毎週金曜 PM に実行**（同日 06:00 JST の fetch-metrics 完了後）
 - レビュー完了後に `/weekly-plan` が自動実行され、同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する
 - 前週の `[PDCA]` Issue は本週 Issue 作成時に close
 - 未完了アクションは次週 Issue の「計画」セクションに引き継ぐ

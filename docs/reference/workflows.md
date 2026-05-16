@@ -9,9 +9,10 @@
 ## 週次運用
 
 ```
-日曜〜月曜:
-1. /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
-2. /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・オープン Issue 対応）
+金曜:
+1. 06:00 JST  fetch-metrics.yml（自動）<- GSC + GA4 取得
+2. PM         /weekly-review          <- 実績を振り返る（進捗・コンテンツ品質・PSI 推移）
+3. PM         /weekly-plan            <- 来週の計画を立てる（PDF→MDX 変換・オープン Issue 対応）
 ```
 
 詳細は `.claude/skills/management/weekly-review/SKILL.md` と `.claude/skills/management/weekly-plan/SKILL.md` を参照。
@@ -35,7 +36,18 @@
                            │
                            ▼
 ┌─────────────────────────────────────────────────────────────────┐
-│ 週 1 回（週次 PDCA）                                             │
+│ 週 1 回（金曜 06:00 JST）                                        │
+│                                                                 │
+│  fetch-metrics.yml (cron: 0 21 * * 4)                           │
+│    │ GSC + GA4 を取得 → .claude/state/metrics/{gsc,ga4}/        │
+│    ▼                                                            │
+│  link-audit.yml (cron: 0 22 * * 4, 金曜 07:00 JST)              │
+│    │ 内部リンク検証                                              │
+└─────────────────────────────────────────────────────────────────┘
+                           │
+                           ▼
+┌─────────────────────────────────────────────────────────────────┐
+│ 週 1 回（金曜 PM、同日完結）                                     │
 │                                                                 │
 │  /weekly-review                                                 │
 │    │ Agent C2: .claude/state/metrics/psi/ の 7 日分を読み         │
