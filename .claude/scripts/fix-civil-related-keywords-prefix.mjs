@@ -14,9 +14,11 @@ import { transformMdxFile, readMdxFile } from './lib/mdx-io.mjs';
 import { readdirSync, statSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
-const BASE = resolve('.local/r2/posts/civil-construction-1');
+const baseArg = process.argv.find((a) => a.startsWith('--base='));
+const BASE = resolve(baseArg ? baseArg.slice('--base='.length) : '.local/r2/posts/civil-construction-1');
+const prefixArg = process.argv.find((a) => a.startsWith('--prefix='));
+const PREFIX = prefixArg ? prefixArg.slice('--prefix='.length) : 'civil-construction-1-';
 const DRY_RUN = process.argv.includes('--dry-run');
-const PREFIX = 'civil-construction-1-';
 
 function collectMdx(dir, out = []) {
   for (const entry of readdirSync(dir)) {
@@ -35,8 +37,11 @@ function stripPrefix(raw) {
   // ブロック全体をキャプチャしてから個別処理
   let count = 0;
   const blockRe = /<RelatedKeywords[\s\S]*?(?:\/>|<\/RelatedKeywords>)/g;
+  // PREFIX を正規表現で安全にエスケープ
+  const escapedPrefix = PREFIX.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const slugRe = new RegExp(`"${escapedPrefix}([\\w-]+)"`, 'g');
   const result = raw.replace(blockRe, (block) => {
-    return block.replace(/"civil-construction-1-([\w-]+)"/g, (_m, bare) => {
+    return block.replace(slugRe, (_m, bare) => {
       count++;
       return `"${bare}"`;
     });
