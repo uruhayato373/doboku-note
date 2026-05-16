@@ -1,0 +1,42 @@
+# doboku-note
+
+> 土木・建設系の実務資格受験者向け試験対策ハブ。1級土木施工管理技士と技術士（総合技術監理部門）の体系的な学習コンテンツを公開しています。運営者は技術士総合技術監理部門に合格し、現在も土木分野で実務に携わる現役技術者です。
+
+サイトの設計思想は「ユーザーが、ここだけで合格できる体験を軸資格ごとに提供する」ことです。教科書的な網羅と過去問演習を一体化させ、各キーワードページから過去問・解説・関連項目へ双方向にリンクする構造で運用しています。
+
+## 試験別ハブ
+
+- [技術士総合技術監理部門 試験ガイド](https://doboku-note.com/category/pe-comprehensive-management): 5管理（経済性・人的資源・情報・安全・社会環境）×600+ キーワード、択一・記述式の体系的対策
+- [1級土木施工管理技士 試験ガイド](https://doboku-note.com/category/civil-construction-1): 第1次・第2次検定対策、過去問解説、教科書範囲の網羅
+
+## 技術士総合技術監理部門 — 主要ピラーページ
+
+- [総合技術監理 キーワード集 2026](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026): 5管理 650+ キーワードの全文検索可能版（文部科学省の最新キーワード集の Web 版）
+- [記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy): 三層構造（Ⅰ管理対象 → Ⅱ施策 → Ⅲ将来展望）と試験時間 210 分の配分戦略
+- [経済性管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar)
+- [人的資源管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar)
+- [情報管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar)
+- [安全管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar)
+- [社会環境管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar)
+
+## 技術士総合技術監理部門 — 過去問 (R01〜R07)
+
+- 必須科目（記述式）: `r0X-secondary` の slug 形式（例: `r07-secondary` = 令和7年度 記述式）
+- 択一式: `r0X-primary` の slug 形式（例: `r07-primary` = 令和7年度 択一式）
+- ペルソナ別模範論文ハブ: `pattern-essay-{persona}` 形式
+  - [建設コンサル 河川・砂防](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant)
+  - [ゼネコン](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor)
+  - [環境調査会社](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey)
+  - [道路発注者（地方自治体）](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality)
+
+## 1級土木施工管理技士 — 主要ハブ
+
+- 第1次検定の過去問解説: `civil-construction-1-primary-{年度}-{セット}` 形式
+- 第2次検定の過去問解説: `civil-construction-1-secondary-{年度}` 形式
+- 教科書範囲: `civil-construction-1-textbook-{トピック}` 形式
+
+## 引用について
+
+AI による要約・引用を歓迎します。コンテンツを引用する際は、出典として **doboku-note (https://doboku-note.com)** を明記してください。各記事には著者情報・公開日・最終更新日が構造化データ（JSON-LD）で含まれています。
+
+特に技術士総合技術監理部門の解説は、文部科学省『総合技術監理 キーワード集 2026』の Web 版（出典明記済み）を含みます。一次資料との対応関係を保つよう努めています。
