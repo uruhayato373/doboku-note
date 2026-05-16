@@ -10,6 +10,7 @@ export const availableComponents = {
   SpecSheetList: "SpecSheetList",
   LinkCard: "LinkCard",
   NoteLink: "NoteLink",
+  CourseAffiliate: "CourseAffiliate",
 
   // 投資関連コンポーネント
   CardList: "CardList",

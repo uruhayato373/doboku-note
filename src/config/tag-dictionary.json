@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-15T11:55:56.562Z",
+  "generated_at": "2026-05-16T01:30:15.717Z",
   "summary": {
     "total_mdx_files": 812,
     "total_unique_tags": 74,
@@ -1520,6 +1520,45 @@
       ]
     },
     {
+      "name": "建設コンサル",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant"
+      ]
+    },
+    {
+      "name": "択一式",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r02-primary",
+        "pe-comprehensive-management-r03-primary",
+        "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-primary",
+        "pe-comprehensive-management-r07-primary"
+      ]
+    },
+    {
+      "name": "施工",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
       "name": "河川",
       "count": 6,
       "inAllowlist": true,
@@ -1546,19 +1585,6 @@
       ]
     },
     {
-      "name": "建設コンサル",
-      "count": 6,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant"
-      ]
-    },
-    {
       "name": "砂防",
       "count": 6,
       "inAllowlist": false,
@@ -1569,32 +1595,6 @@
         "pe-comprehensive-management-r05-essay-river-consultant",
         "pe-comprehensive-management-r06-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-river-consultant"
-      ]
-    },
-    {
-      "name": "施工",
-      "count": 6,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "択一式",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r02-primary",
-        "pe-comprehensive-management-r03-primary",
-        "pe-comprehensive-management-r04-primary",
-        "pe-comprehensive-management-r05-primary",
-        "pe-comprehensive-management-r06-primary",
-        "pe-comprehensive-management-r07-primary"
       ]
     },
     {
@@ -1643,17 +1643,6 @@
       ]
     },
     {
-      "name": "少子高齢化",
-      "count": 4,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r07-essay-environment-survey",
-        "pe-comprehensive-management-r07-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
       "name": "地方公共団体",
       "count": 4,
       "inAllowlist": false,
@@ -1661,6 +1650,17 @@
         "pe-comprehensive-management-pattern-essay-road-municipality",
         "pe-comprehensive-management-r05-essay-road-municipality",
         "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "少子高齢化",
+      "count": 4,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r07-essay-environment-survey",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
@@ -1891,75 +1891,11 @@
       ]
     },
     {
-      "name": "安全管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-safety-management-pillar"
-      ]
-    },
-    {
-      "name": "記述式",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy"
-      ]
-    },
-    {
-      "name": "記述式試験",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "索引",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
-      "name": "社会環境管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-social-environment-management-pillar"
-      ]
-    },
-    {
-      "name": "出願",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "情報管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-information-management-pillar"
-      ]
-    },
-    {
       "name": "人的資源管理",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-human-resource-management-pillar"
-      ]
-    },
-    {
-      "name": "直前対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
       ]
     },
     {
@@ -2009,6 +1945,70 @@
       "usedIn": [
         "pe-comprehensive-management-r07-primary"
       ]
+    },
+    {
+      "name": "出願",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "安全管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-safety-management-pillar"
+      ]
+    },
+    {
+      "name": "情報管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-information-management-pillar"
+      ]
+    },
+    {
+      "name": "直前対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "社会環境管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
+      "name": "索引",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
+      "name": "記述式",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-exam-strategy"
+      ]
+    },
+    {
+      "name": "記述式試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
     }
   ],
   "unknown": [
@@ -2021,15 +2021,15 @@
     "pillar",
     "コンサルタント",
     "ゼネコン",
-    "環境調査",
     "建設コンサル",
-    "砂防",
     "施工",
+    "環境調査",
+    "砂防",
     "quality",
     "SWOT分析",
     "カーボンニュートラル",
-    "少子高齢化",
     "地方公共団体",
+    "少子高齢化",
     "DX",
     "schedule",
     "データ利活用",
@@ -2037,15 +2037,15 @@
     "5管理",
     "キーワード集",
     "トレードオフ",
-    "記述式試験",
-    "出願",
-    "直前対策",
     "令和2年度",
     "令和3年度",
     "令和4年度",
     "令和5年度",
     "令和6年度",
-    "令和7年度"
+    "令和7年度",
+    "出願",
+    "直前対策",
+    "記述式試験"
   ],
   "typo_candidates": [
     {

@@ -26,6 +26,7 @@ export const commonComponents = {
   ExamFields: "ExamFields",
   StatsCard: "StatsCard",
   PdcaCycle: "PdcaCycle",
+  CourseAffiliate: "CourseAffiliate",
   // 汎用コンポーネント（将来追加予定）
   // ImageGallery: 'ImageGallery',
   // TableOfContents: 'TableOfContents',
