@@ -39,7 +39,7 @@ dateModified: 2026-04-21
 
 アクセス制御を適切に機能させるための基本原則は以下のとおりである。
 
-- **最小権限の原則（Principle of Least Privilege）**: 業務に必要な最小限の権限のみを付与する
+- 最小権限の原則（Principle of Least Privilege）: 業務に必要な最小限の権限のみを付与する
 - **Need-to-Know原則**: 業務上知る必要がある情報のみにアクセスを許可する
 - **職務分離（Separation of Duties）**: 重要な業務を複数人に分担し、1人に権限を集中させない
 - **デフォルト拒否**: 明示的に許可されていないアクセスはすべて拒否する
@@ -50,10 +50,10 @@ dateModified: 2026-04-21
 
 代表的なアクセス制御方式は以下の4つに分類される。
 
-- **MAC（Mandatory Access Control／強制アクセス制御）**: システム管理者がアクセス権限を一元的に設定し、利用者は変更不可。軍事・政府機関等の高セキュリティ環境で適用
-- **DAC（Discretionary Access Control／任意アクセス制御）**: 情報の所有者が自身の判断でアクセス権限を設定。一般的なOS（Windows、Unix/Linux等）で採用
-- **RBAC（Role-Based Access Control／ロールベースアクセス制御）**: 役割（ロール）に基づいてアクセス権限を付与し、利用者はロールに割り当て。企業の業務システム、クラウドサービスで利用
-- **ABAC（Attribute-Based Access Control／属性ベースアクセス制御）**: 利用者属性・環境条件・リソース属性等の複合条件で動的に判定。クラウド環境、ゼロトラストアーキテクチャ向け
+- MAC（Mandatory Access Control／強制アクセス制御）: システム管理者がアクセス権限を一元的に設定し、利用者は変更不可。軍事・政府機関等の高セキュリティ環境で適用
+- DAC（Discretionary Access Control／任意アクセス制御）: 情報の所有者が自身の判断でアクセス権限を設定。一般的なOS（Windows、Unix/Linux等）で採用
+- RBAC（Role-Based Access Control／ロールベースアクセス制御）: 役割（ロール）に基づいてアクセス権限を付与し、利用者はロールに割り当て。企業の業務システム、クラウドサービスで利用
+- ABAC（Attribute-Based Access Control／属性ベースアクセス制御）: 利用者属性・環境条件・リソース属性等の複合条件で動的に判定。クラウド環境、ゼロトラストアーキテクチャ向け
 
 ### MAC・DAC・RBACの比較
 
@@ -84,7 +84,7 @@ dateModified: 2026-04-21
 
 **特権アカウント（Privileged Account）** は、システム管理者権限（root、Administrator等）を持つアカウントであり、不正利用された場合の被害が甚大となる。主な対策は以下のとおりである。
 
-- **PAM（Privileged Access Management）**: 特権アカウントのアクセスを一元管理・監視するツール
+- PAM（Privileged Access Management）: 特権アカウントのアクセスを一元管理・監視するツール
 - **Just-In-Time（JIT）アクセス**: 必要な時だけ一時的に特権を付与し、使用後は自動的に剥奪
 - **特権の分離**: 1つのアカウントに全権限を集中させず、機能別に分割
 - **操作ログの記録**: 特権アカウントによるすべての操作を記録・監査

@@ -21,7 +21,8 @@ import { join, resolve } from 'node:path';
 const baseArg = process.argv.find((a) => a.startsWith('--base='));
 const BASE = resolve(baseArg ? baseArg.slice('--base='.length) : '.local/r2/posts/civil-construction-1');
 const DRY_RUN = process.argv.includes('--dry-run');
-const THRESHOLD = 50;
+const thresholdArg = process.argv.find((a) => a.startsWith('--threshold='));
+const THRESHOLD = thresholdArg ? Number(thresholdArg.slice('--threshold='.length)) : 50;
 
 function collectMdx(dir, out = []) {
   for (const entry of readdirSync(dir)) {
