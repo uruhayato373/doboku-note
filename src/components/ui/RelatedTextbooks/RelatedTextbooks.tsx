@@ -1,24 +1,78 @@
 /**
- * 関連テキスト（Civil第1次検定問題用）
- * 過去問のタグから関連する教科書章を抽出して表示。
+ * 関連テキスト（Civil第1次/第2次検定問題用）
+ *
+ * 2 つの経路でランキング:
+ *   1. civil-exam-textbook-index.json (build-civil-exam-textbook-index.mjs 生成)
+ *      → 過去問の各問題セクション本文と textbook タイトルの照合スコア
+ *   2. tags 共通数 (フォールバック)
+ *
+ * civil-construction-1 の primary/secondary 過去問は通常 tags が空に近いため、
+ * (1) の index 経由を優先する。それでも 0 件なら (2) を試す。
  */
 import Link from 'next/link';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc } from '@/lib/doc-classifier';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+import examTextbookIndex from '@/config/civil-exam-textbook-index.json';
 
 interface RelatedTextbooksProps {
   currentMeta: DocMeta;
   categoryArticles: DocMeta[];
 }
 
-export default function RelatedTextbooks({ currentMeta, categoryArticles }: RelatedTextbooksProps) {
+interface TextbookMatch {
+  slug: string;
+  title: string;
+  score: number;
+}
+
+interface QuestionToTextbooks {
+  [questionId: string]: TextbookMatch[];
+}
+
+interface IndexShape {
+  questionToTextbooks: Record<string, QuestionToTextbooks>;
+  textbookToQuestions: Record<string, unknown>;
+}
+
+const INDEX = examTextbookIndex as unknown as IndexShape;
+const SHORT_SLUG_PREFIX = 'civil-construction-1-';
+
+/** civil-construction-1-primary-r07-a → primary-r07-a に正規化 */
+function toShortSlug(fullSlug: string): string {
+  if (fullSlug.startsWith(SHORT_SLUG_PREFIX)) return fullSlug.slice(SHORT_SLUG_PREFIX.length);
+  return fullSlug;
+}
+
+function rankByIndex(currentSlug: string): { slug: string; title: string; score: number }[] {
+  const shortSlug = toShortSlug(currentSlug);
+  const examMap = INDEX.questionToTextbooks?.[shortSlug];
+  if (!examMap) return [];
+
+  // 各問題の textbook を集約してスコア合算
+  const scoreMap = new Map<string, { title: string; score: number }>();
+  for (const matches of Object.values(examMap)) {
+    for (const m of matches) {
+      const existing = scoreMap.get(m.slug);
+      if (existing) {
+        existing.score += m.score;
+      } else {
+        scoreMap.set(m.slug, { title: m.title, score: m.score });
+      }
+    }
+  }
+
+  return Array.from(scoreMap.entries())
+    .map(([slug, { title, score }]) => ({ slug, title, score: Math.round(score * 100) / 100 }))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 6);
+}
+
+function rankByTags(currentMeta: DocMeta, categoryArticles: DocMeta[]): { slug: string; title: string; description?: string }[] {
   const currentTags = new Set((currentMeta.tags || []).filter((t) => t !== 'primary' && t !== 'secondary' && t !== 'past-questions'));
-  if (currentTags.size === 0) return null;
+  if (currentTags.size === 0) return [];
 
   const textbooks = categoryArticles.filter((m) => classifyDoc(m) === 'textbook');
-
-  // タグ共通数でランキング
   const scored = textbooks
     .map((tb) => {
       const tbTags = (tb.tags || []).filter((t) => t !== 'textbook');
@@ -27,20 +81,58 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
     })
     .filter((s) => s.score > 0)
     .sort((a, b) => b.score - a.score)
-    .slice(0, 5);
+    .slice(0, 5)
+    .map((s) => {
+      const e: { slug: string; title: string; description?: string } = {
+        slug: s.doc.slug,
+        title: s.doc.title,
+      };
+      if (s.doc.description) e.description = s.doc.description;
+      return e;
+    });
 
-  if (scored.length === 0) return null;
+  return scored;
+}
+
+export default function RelatedTextbooks({ currentMeta, categoryArticles }: RelatedTextbooksProps) {
+  // 1) 過去問→教材インデックスを優先
+  const indexed = rankByIndex(currentMeta.slug);
+  let entries: { slug: string; title: string; description?: string }[] = [];
+
+  if (indexed.length > 0) {
+    // index のショート slug をフル slug に変換し、description も取得
+    const textbookMap = new Map<string, DocMeta>();
+    for (const m of categoryArticles) {
+      const short = toShortSlug(m.slug);
+      textbookMap.set(short, m);
+    }
+    entries = indexed
+      .map((item) => {
+        const fullMeta = textbookMap.get(item.slug);
+        const e: { slug: string; title: string; description?: string } = {
+          slug: fullMeta?.slug || `civil-construction-1-${item.slug}`,
+          title: fullMeta?.title || item.title,
+        };
+        if (fullMeta?.description) e.description = fullMeta.description;
+        return e;
+      });
+  } else {
+    // 2) フォールバック: tags ベース
+    entries = rankByTags(currentMeta, categoryArticles);
+  }
+
+  if (entries.length === 0) return null;
 
   return (
     <MetaCard>
       <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-        関連するテキスト章
+        この試験で扱われた教材
       </h2>
       <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-        問題の分野に関連する教科書の章
+        問題の分野に関連する教科書の章 ({entries.length} 件)
       </p>
       <ul className="space-y-2">
-        {scored.map(({ doc }) => (
+        {entries.map((doc) => (
           <li key={doc.slug}>
             <Link
               href={`/docs/${doc.slug}`}

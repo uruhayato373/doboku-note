@@ -134,16 +134,19 @@
     {
       "id": "T-010",
       "title": "AdSense 再申請プロセス完遂",
-      "status": "todo",
+      "status": "in_progress",
       "category": "meta",
       "priority": "high",
       "source": "manual",
       "parent": "T-002",
-      "refs": [],
+      "refs": [
+        "docs/project/04_運営/03_civil-adsense-resubmission.md",
+        "~/.claude/plans/gentle-questing-sketch.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
-      "updated": "2026-05-14",
-      "notes": "GSC sitemap 再送信 → 代表 79 URL の Inspection・登録リクエスト → 5-7 日クロール待機 → AdSense 審査リクエスト。落ちた場合は独自エッセイ等 Phase D へ。（旧 Issue #187、W18 起票）"
+      "updated": "2026-05-16",
+      "notes": "2026-05-16: Civil 全面改修プラン開始（P0-P3 + 再申請）。P0-3/P0-4/P1-1/P1-2/P3-2 完了、P0-1/P0-2 サブエージェント並列実行中。G1-G20 ゲートで判定。詳細: docs/project/04_運営/03_civil-adsense-resubmission.md / プラン: ~/.claude/plans/gentle-questing-sketch.md。GSC sitemap 再送信 → 代表 79 URL の Inspection・登録リクエスト → 5-7 日クロール待機 → AdSense 審査リクエスト。"
     },
     {
       "id": "T-011",
