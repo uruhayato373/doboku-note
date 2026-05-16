@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="380" height="340" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 340" role="img" aria-label="GX/CNテーマの5管理間トレードオフ構造（主軸: 経済性×社会環境）" style="max-width:380px;width:100%">
+  <title>GX/CN×総監 トレードオフ構造</title>
+  <desc>GX/カーボンニュートラルテーマの総監5管理対立構造。主軸は経済性管理×社会環境管理（環境対策コスト vs 収益性）、副軸は安全×社会環境と情報×社会環境。解決フレームはLCA・外部不経済の内部化・新モーダルシフト。</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-main { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 12px; fill: #1a3a5c; }
+      .t-cap { font-size: 11px; fill: #1a3a5c; }
+      .t-num { font-size: 11px; fill: #b22234; font-weight: bold; }
+      .box-main { fill: #f8d7da; stroke: #b22234; stroke-width: 2; rx: 8; ry: 8; }
+      .box-sub { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; rx: 6; ry: 6; }
+      .box-frame { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; rx: 6; ry: 6; }
+      .box-num { fill: #ffffff; stroke: #b22234; stroke-width: 1; rx: 4; ry: 4; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="190" y="22" text-anchor="middle">GX/CN×総監</text>
+  <text class="t-cap" x="190" y="38" text-anchor="middle">主軸トレードオフと解決フレーム</text>
+
+  <rect class="box-main" x="60" y="55" width="260" height="60"/>
+  <text class="t-main" x="190" y="78" text-anchor="middle">【主軸】経済性管理 × 社会環境管理</text>
+  <text class="t-sub" x="190" y="98" text-anchor="middle">環境対策コスト vs 収益性確保</text>
+
+  <rect class="box-sub" x="20" y="130" width="160" height="50"/>
+  <text class="t-sub" x="100" y="150" text-anchor="middle">【副】安全×社会環境</text>
+  <text class="t-cap" x="100" y="167" text-anchor="middle">新エネ機器の安全性</text>
+
+  <rect class="box-sub" x="200" y="130" width="160" height="50"/>
+  <text class="t-sub" x="280" y="150" text-anchor="middle">【副】情報×社会環境</text>
+  <text class="t-cap" x="280" y="167" text-anchor="middle">データセンター電力</text>
+
+  <text class="t-main" x="190" y="208" text-anchor="middle">解決フレーム</text>
+
+  <rect class="box-frame" x="20" y="218" width="110" height="50"/>
+  <text class="t-sub" x="75" y="238" text-anchor="middle">LCA</text>
+  <text class="t-cap" x="75" y="255" text-anchor="middle">全工程一体評価</text>
+
+  <rect class="box-frame" x="135" y="218" width="110" height="50"/>
+  <text class="t-sub" x="190" y="238" text-anchor="middle">外部不経済の内部化</text>
+  <text class="t-cap" x="190" y="255" text-anchor="middle">カーボン価格</text>
+
+  <rect class="box-frame" x="250" y="218" width="110" height="50"/>
+  <text class="t-sub" x="305" y="238" text-anchor="middle">新モーダルシフト</text>
+  <text class="t-cap" x="305" y="255" text-anchor="middle">輸送モード最適組合せ</text>
+
+  <rect class="box-num" x="40" y="285" width="300" height="40"/>
+  <text class="t-num" x="190" y="305" text-anchor="middle">白書R7: 2050ネットゼロ / 2030年46%削減</text>
+  <text class="t-cap" x="190" y="320" text-anchor="middle">出典: 国土交通白書 令和7年版</text>
+</svg>

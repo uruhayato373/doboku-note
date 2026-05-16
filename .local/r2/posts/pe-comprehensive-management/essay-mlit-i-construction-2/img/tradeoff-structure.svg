@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="380" height="340" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 340" role="img" aria-label="i-Construction 2.0テーマの5管理間トレードオフ構造（主軸: 経済性×情報）" style="max-width:380px;width:100%">
+  <title>i-Con 2.0×総監 トレードオフ構造</title>
+  <desc>i-Construction 2.0/DXテーマの総監5管理対立構造。主軸は経済性管理×情報管理（DX投資 vs 投資回収不確実性）、副軸は安全×情報（システム障害）と人的資源×情報（リスキリング）。解決フレームはPoC・SaaS活用・段階的実施。</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-main { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 12px; fill: #1a3a5c; }
+      .t-cap { font-size: 11px; fill: #1a3a5c; }
+      .t-num { font-size: 11px; fill: #b22234; font-weight: bold; }
+      .box-main { fill: #f8d7da; stroke: #b22234; stroke-width: 2; rx: 8; ry: 8; }
+      .box-sub { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; rx: 6; ry: 6; }
+      .box-frame { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; rx: 6; ry: 6; }
+      .box-num { fill: #ffffff; stroke: #b22234; stroke-width: 1; rx: 4; ry: 4; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="190" y="22" text-anchor="middle">i-Con 2.0×総監</text>
+  <text class="t-cap" x="190" y="38" text-anchor="middle">主軸トレードオフと解決フレーム</text>
+
+  <rect class="box-main" x="60" y="55" width="260" height="60"/>
+  <text class="t-main" x="190" y="78" text-anchor="middle">【主軸】経済性管理 × 情報管理</text>
+  <text class="t-sub" x="190" y="98" text-anchor="middle">DX投資 vs 投資回収の不確実性</text>
+
+  <rect class="box-sub" x="20" y="130" width="160" height="50"/>
+  <text class="t-sub" x="100" y="150" text-anchor="middle">【副】安全×情報</text>
+  <text class="t-cap" x="100" y="167" text-anchor="middle">システム障害・サイバー</text>
+
+  <rect class="box-sub" x="200" y="130" width="160" height="50"/>
+  <text class="t-sub" x="280" y="150" text-anchor="middle">【副】人的資源×情報</text>
+  <text class="t-cap" x="280" y="167" text-anchor="middle">リスキリング負荷</text>
+
+  <text class="t-main" x="190" y="208" text-anchor="middle">解決フレーム</text>
+
+  <rect class="box-frame" x="20" y="218" width="110" height="50"/>
+  <text class="t-sub" x="75" y="238" text-anchor="middle">PoC</text>
+  <text class="t-cap" x="75" y="255" text-anchor="middle">1現場で実測</text>
+
+  <rect class="box-frame" x="135" y="218" width="110" height="50"/>
+  <text class="t-sub" x="190" y="238" text-anchor="middle">SaaS活用</text>
+  <text class="t-cap" x="190" y="255" text-anchor="middle">撤退容易性確保</text>
+
+  <rect class="box-frame" x="250" y="218" width="110" height="50"/>
+  <text class="t-sub" x="305" y="238" text-anchor="middle">段階的実施</text>
+  <text class="t-cap" x="305" y="255" text-anchor="middle">習熟と検証を並行</text>
+
+  <rect class="box-num" x="40" y="285" width="300" height="40"/>
+  <text class="t-num" x="190" y="305" text-anchor="middle">白書R7: 2040年省人化3割・生産性1.5倍 / PLATEAU250都市</text>
+  <text class="t-cap" x="190" y="320" text-anchor="middle">出典: 国土交通白書 令和7年版</text>
+</svg>
