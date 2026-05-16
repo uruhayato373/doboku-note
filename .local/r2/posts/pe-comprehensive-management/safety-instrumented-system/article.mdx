@@ -6,6 +6,9 @@ group: keyword
 section: '5.4'
 tags:
   - keyword
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-16T12:00:00+09:00'
+revisionCycle: 1
 published: true
 publishedAt: '2026-04-09'
 seoTitle: "安全計装システム ｜ 技術士 総合技術監理部門 キーワード集"
@@ -21,11 +24,14 @@ dateModified: 2026-04-21
 
 ## 構成要素
 
-| 要素 | 機能 | 具体例 |
-|---|---|---|
-| **センサー** | プロセス変数の検出 | 圧力計、温度計、流量計 |
-| **ロジックソルバー** | 検出値に基づく論理判断 | 安全PLC（プログラマブルロジックコントローラ） |
-| **最終要素** | 安全動作の実行 | 緊急遮断弁、安全弁 |
+SIS は、センサー・ロジックソルバー・最終要素の 3 要素で構成される。それぞれの役割と具体例は以下のとおりである。
+
+- **センサー**: プロセス変数（圧力・温度・流量等）を検出する
+  - 具体例: 圧力計、温度計、流量計
+- **ロジックソルバー**: センサーからの検出値に基づき論理判断を行う
+  - 具体例: 安全 PLC（プログラマブルロジックコントローラ）
+- **最終要素**: 論理判断の結果として安全動作を実行する
+  - 具体例: 緊急遮断弁、安全弁
 
 ## 安全度水準
 
@@ -48,6 +54,14 @@ SISは[機能安全](/docs/pe-comprehensive-management-functional-safety)の規�
 
 SISは[機能安全](/docs/pe-comprehensive-management-functional-safety)の中核をなすシステムであり、[LOPA](/docs/pe-comprehensive-management-lopa)の主要な防護層として位置づけられる。[冗長性（安全設計）](/docs/pe-comprehensive-management-redundancy-safety)によって要求されるSILを達成する。[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)の原理に基づく[安全確認型システム・危険検出型システム](/docs/pe-comprehensive-management-safety-confirmation-system)の実装例でもある。
 
+## SIS が生まれた背景
+
+プロセス産業（石油・化学・天然ガス等）では、1970〜1980 年代に繰り返された大規模プラント事故を受け、計装システムによる安全確保の体系化が進んだ。従来は機械的な安全弁や人手による監視に依存していたが、プラントの大型化・複雑化に伴い、自動的かつ信頼性の高い安全機能の実装が不可欠となった。
+
+こうした背景から IEC 61508（機能安全の基本規格）が策定され、プロセス産業向けには IEC 61511（JIS C 0511）が派生した。この規格は SIS の設計・検証・保全に関する要求事項を定め、安全度水準（SIL）という定量的指標を導入することで、リスクと対策のバランスを客観的に評価できるようにした。
+
+2017 年には、プラントの SIS を直接標的にしたマルウェア（TRITON）が中東の石油化学プラントで発見され、制御システムのセキュリティにも注目が集まった。SIS の独立性確保（基本プロセス制御システム BPCS との物理的分離）が、サイバーセキュリティの観点からも重要な設計原則として再確認されている。
+
 <RelatedKeywords items={[
   { label: "事故対応訓練", slug: "accident-response-drill" },
   { label: "ブラインド型訓練", slug: "blind-drill" },
@@ -58,4 +72,5 @@ SISは[機能安全](/docs/pe-comprehensive-management-functional-safety)の中�
 
 ## 参考資料
 
-- [プロセス安全管理の指針](https://www.meti.go.jp/)（経済産業省）
+- [制御システムのセキュリティリスク分析ガイド補足資料：制御システム関連のサイバーインシデント事例](https://www.ipa.go.jp/security/controlsystem/incident.html)（IPA 独立行政法人情報処理推進機構）
+- [安全計装システム（SIS）の基礎！DCS との違いや SIL の考え方を徹底解説](https://www.yamatoblog.tech/sis)（化学プラント大全）

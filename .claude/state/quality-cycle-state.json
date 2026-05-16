@@ -8126,6 +8126,84 @@
           "mojibake": false
         }
       ]
+    },
+    "lopa": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:57:48.225Z",
+          "action": "rewritten",
+          "wave": "BULK-2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## LOPAが生まれた背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1953,
+          "after_chars": 2727,
+          "added_chars": 774,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 3,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "safety-instrumented-system": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:57:48.225Z",
+          "action": "rewritten",
+          "wave": "BULK-2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## SIS が生まれた背景"
+          ],
+          "converted_tables": 1,
+          "before_chars": 1963,
+          "after_chars": 2782,
+          "added_chars": 819,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 1,
+          "mojibake": false
+        }
+      ]
+    },
+    "ojt-off-jt": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-16T05:57:48.225Z",
+          "action": "rewritten",
+          "wave": "BULK-2",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "added_sections": [
+            "## OJT/OFF-JTの背景と歴史的経緯"
+          ],
+          "converted_tables": 1,
+          "before_chars": 2341,
+          "after_chars": 3257,
+          "added_chars": 916,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 4,
+          "lint_medium_after": 2,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
