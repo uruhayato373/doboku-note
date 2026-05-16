@@ -46,6 +46,16 @@ const EXCLUDE_SLUGS = new Set([
   "information-management-pillar",
   "safety-management-pillar",
   "social-environment-management-pillar",
+  // 国土交通白書 × テーマ別トレードオフ × 過去問適用 シリーズ (2026-05 追加)
+  // group: guide の上位概念記事のため、ピラー過去問計算から除外
+  "mlit-whitepaper-2025",
+  "essay-mlit-aging-infrastructure",
+  "essay-mlit-construction-2024",
+  "essay-mlit-river-basin-management",
+  "essay-mlit-green-transformation",
+  "essay-mlit-i-construction-2",
+  "essay-mlit-infrastructure-group-mgmt",
+  "essay-mlit-foreign-workers",
 ]);
 
 // 年度の表示順（最新が先頭）
