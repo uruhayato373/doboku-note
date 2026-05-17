@@ -1,106 +1,88 @@
 # X 用原稿 — BCP（5 ツイート構成）
 
 - 投稿頻度: 5 連続日（または週内分散）
-- ハッシュタグ: #技術士 #総合技術監理部門 #技術士総監 #情報管理 #BCP
+- ハッシュタグ: #技術士総監 #安全管理
 - UTM: `utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp`
 
 ---
 
-## Tweet 01: 定義編
+## Tweet 01
 
 【総監キーワード解説】BCP #1
 
-BCP（事業継続計画）とは、災害・事故・サイバー攻撃などの緊急事態が発生した際に、重要業務を継続または早期復旧するための計画。
+BCP（事業継続計画）：災害・事故・サイバー攻撃等の緊急事態で重要業務を継続/早期復旧する計画。
 
-BCM（事業継続マネジメント）は BCP を継続的に改善・維持する PDCA 全体のマネジメントシステム。
+BCM（事業継続マネジメント）はBCPを継続改善するPDCA全体。BCP=計画、BCM=回し続ける仕組み。
 
-BCP = 計画（Plan）、BCM = 計画を回し続ける仕組み。
+→ https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
 
-詳しい解説 → https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
-
-#技術士 #総合技術監理部門 #情報管理 #BCP
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 02: RTO/RPO編
+## Tweet 02
 
 【総監キーワード解説】BCP #2
 
-BCP の2大目標指標
+BCPの2大目標指標:
 
-▼ RTO（Recovery Time Objective）目標復旧時間
-  緊急事態発生から業務再開までの目標時間
-  例：「24時間以内に受発注システムを復旧」
+RTO（目標復旧時間）：緊急事態発生から業務再開までの目標時間
+RPO（目標復旧地点）：許容するデータ損失の最大時点
 
-▼ RPO（Recovery Point Objective）目標復旧地点
-  データ損失をどの時点まで許容するか
-  例：「最大4時間前のバックアップまで許容」
+RTO・RPOを事前設定することで対策コストを根拠化できる。
 
-RTO・RPO を事前設定することで対策コストを根拠化できる。
+→ https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
 
-解説 → https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
-
-#技術士 #総合技術監理部門 #情報管理 #BCP
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 03: 重要業務特定編
+## Tweet 03
 
 【総監キーワード解説】BCP #3
 
-BCP 策定のキーステップ：重要業務の特定
+BCP策定のキーステップ:
 
-① BIA（業務影響度分析）：業務停止の影響を定量評価
-② 重要業務の優先順位付け：全業務を継続しようとすると BCP は機能しない
-③ 最低限の経営資源確保：人・設備・情報・インフラのクリティカルパスを特定
+①BIA（業務影響度分析）：停止影響を定量評価
+②重要業務の優先順位付け：全業務継続しようとするとBCPは機能しない
+③最低資源確保：人・設備・情報のクリティカルパスを特定
 
-「すべてを守ろうとすると何も守れない」がBCPの鉄則。
+→ https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
 
-解説 → https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
-
-#技術士 #総合技術監理部門 #情報管理 #BCP
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 04: 引っかけポイント編
+## Tweet 04
 
 【総監キーワード解説】BCP #4
 
-試験で狙われる引っかけ 3 つ
+試験の引っかけ3点:
 
-1. BCP ≠ 防災対策
-   防災：被害を最小化する事前対策
-   BCP：事業を継続するための計画
+1. BCP≠防災（防災は被害最小化、BCPは事業継続）
+2. BCMはBCPの「作成」でなく「継続改善」の仕組み
+3. RTO短縮=コスト大。リスクと費用のバランスで設定
 
-2. BCM は BCP の「作成」ではなく「継続的改善」のしくみ
+→ https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
 
-3. RTO は短いほどよいわけではない
-   → RTO 短縮 = コスト大。リスクと費用のバランスで設定
-
-訓練・見直しなき BCP は机上の空論。
-
-解説 → https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
-
-#技術士 #総合技術監理部門 #情報管理 #BCP
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 05: まとめ + CTA
+## Tweet 05
 
-【総監キーワード解説】BCP #5（最終回）
+【総監キーワード解説】BCP #5
 
-まとめ
-
-✓ BCP = 緊急事態での重要業務継続計画
-✓ BCM = BCP を維持・改善する PDCA 全体
+✓ BCP＝重要業務継続計画
+✓ BCM＝BCPを維持・改善するPDCA全体
 ✓ RTO：業務復旧の目標時間
 ✓ RPO：許容データ損失の最大時点
-✓ BIA → 重要業務特定 → 最低資源確保 の順で策定
+✓ BIA→重要業務特定→最低資源確保の順
 
-情報管理の最重要キーワード。サプライチェーン脆弱性との連携も問われる。
+SC脆弱性との連携も問われる。
 
-全解説 → https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
+→ https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=keyword-bcp
 
-#技術士 #総合技術監理部門 #情報管理 #BCP
+#技術士総監 #安全管理
 
 ---
