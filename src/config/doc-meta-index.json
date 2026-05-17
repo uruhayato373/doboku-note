@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T08:48:04.504Z",
+  "generated_at": "2026-05-17T09:03:35.432Z",
   "summary": {
     "total": 824,
     "published": 798,
@@ -3126,7 +3126,7 @@
     },
     "pe-comprehensive-management-appraisal-three-principles": {
       "title": "人事考課の三原則",
-      "description": "人事考課の三原則（公正・客観・透明）の定義・内容・実務上の留意点を解説。技術士総合技術監理キーワード集2026（人的資源管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "description": "人事考課の三原則（公正・客観・透明）の定義・内容・実務上の留意点・過去問における出題パターンを解説。技術士総合技術監理キーワード集2026（人的資源管理）。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "3.4",
@@ -3135,9 +3135,9 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T08:57:24Z",
+      "revisionCycle": 2,
       "seoTitle": "人事考課の三原則 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-05-16"
@@ -4142,12 +4142,12 @@
       ],
       "published": true,
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-05-17T08:41:37Z",
-      "revisionCycle": 2,
+      "lastRewrittenAt": "2026-05-17T08:57:24Z",
+      "revisionCycle": 3,
       "publishedAt": "2026-04-09",
       "seoTitle": "能力考課 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-competency-hr": {
       "title": "コンピテンシー",
@@ -10367,8 +10367,8 @@
         "keyword"
       ],
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-05-17T08:41:37Z",
-      "revisionCycle": 2,
+      "lastRewrittenAt": "2026-05-17T08:57:24Z",
+      "revisionCycle": 3,
       "published": true,
       "publishedAt": "2026-04-09",
       "seoTitle": "目標管理制度 ｜ 技術士 総合技術監理部門 キーワード集",
