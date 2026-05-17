@@ -46,6 +46,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE
 | 立場 | 部長（業務全体を統括管理） |
 | 前提条件 | GIS の部分利用にとどまり、データ蓄積が個人 PC・紙・クラウドに分散、AI 活用は未着手 |
 
+![図: 環境調査典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 環境調査ペルソナの他の管理対象パターン（地方拠点／大手環境部門等）への置き換えは [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r03) を参照してください。
 
 ## 設問（１）事業の内容と現在のデータ利活用の状況

@@ -46,6 +46,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE
 | 立場 | 部長（業務全体を統括管理）、本論文では DX 推進タスクフォースのリーダーを兼務 |
 | 前提条件 | デジタル技術の部分導入は進んでいるが業務プロセス変革には未到達、来年度から 5 か年の DX 推進計画を策定するタスクフォースが立ち上がる |
 
+![図: 環境調査典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 環境調査ペルソナの他の組織パターンへの置き換えは [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) を参照してください。
 
 ## 設問（１）事業や組織の内容とデジタル技術の利用の変遷

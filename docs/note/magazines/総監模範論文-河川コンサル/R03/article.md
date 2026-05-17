@@ -47,6 +47,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE
 
 河川コンサルペルソナの他の管理対象パターン（大規模氾濫域・小流域砂防等）への置き換えは [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r03) を参照してください。
 
+![図: 河川コンサル典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 ## 設問（１）事業の内容と現在のデータ利活用の状況
 
 ### 名称・概要・目的

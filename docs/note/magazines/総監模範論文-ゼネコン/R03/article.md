@@ -47,6 +47,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE
 
 ゼネコンペルソナの他の管理対象パターン（橋梁・トンネル・ダム等）への置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) を参照してください。
 
+![図: ゼネコン典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 ## 設問（１）事業の内容と現在のデータ利活用の状況
 
 ### 名称・概要・目的
