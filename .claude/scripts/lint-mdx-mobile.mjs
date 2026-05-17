@@ -42,7 +42,7 @@
  *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
  *   9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定）
  *   9-8 HIGH   <RelatedKeywords> の prop 名が `keywords=`（正: `items=`）— 誤ると無描画
- *   9-9 MEDIUM <RelatedKeywords> の slug にカテゴリ接頭辞付与（bare slug が規約）
+ *   9-9 MEDIUM <RelatedKeywords> の slug に PE 接頭辞「pe-comprehensive-management-」付与（PE 既定のため冗長。civil 接頭辞は必須なので対象外）
  *   9-10 HIGH  <RelatedKeywords> が `## 参考資料` の後に配置（§18 違反、MDX が描画失敗することあり）
  *   9-11 HIGH  <ExamPoint items> の各文字列に句読点（、。，．）を含む（機械分割バグ検出）
  *   9-12 HIGH  civil secondary-r0X で `## 問題` 数 > `<details>` 数（解答欠落検出）
@@ -759,9 +759,14 @@ function isPeComprehensiveManagement(filePath) {
 // 9-8 / 9-9: <RelatedKeywords> コンポーネント API 違反
 // 真実源: src/components/ui/RelatedKeywords/RelatedKeywords.tsx
 //   - prop 名は items（keywords ではない）
-//   - slug は bare（pe-comprehensive-management- / civil-construction-1- 接頭辞は付けない）
+//   - PE ページ: slug は bare（コンポーネントが pe-comprehensive-management- を自動付与）
+//   - civil ページ: slug は civil-construction-1- 接頭辞必須（bare だと PE フォールバックで 404）
+//
+// 9-9 は「PE 接頭辞を渡している（冗長）」のみを検出する。
+// civil-construction-1- 接頭辞は必須なのでフラグしない（2026-05-17 に修正、240 件リンク切れ事故の再発防止）。
 function lintRelatedKeywordsComponent(lines, findings) {
-  const KNOWN_PREFIXES = ['pe-comprehensive-management-', 'civil-construction-1-'];
+  // 「冗長な」接頭辞のみ列挙。civil-construction-1- は必須なので含めない。
+  const REDUNDANT_PREFIXES = ['pe-comprehensive-management-'];
 
   for (let i = 0; i < lines.length; i++) {
     if (!/<RelatedKeywords(\s|$|\/|>)/.test(lines[i])) continue;
@@ -789,12 +794,13 @@ function lintRelatedKeywordsComponent(lines, findings) {
       });
     }
 
-    // 9-9 MEDIUM: slug が既知カテゴリ接頭辞付き
+    // 9-9 MEDIUM: PE 接頭辞が付いている（冗長 — コンポーネント default が PE のため）
+    // 注意: civil-construction-1- 接頭辞は civil ページで必須なのでフラグしない
     const slugRe = /slug:\s*["']([^"']+)["']/g;
     let m;
     while ((m = slugRe.exec(block)) !== null) {
       const slug = m[1];
-      const matchedPrefix = KNOWN_PREFIXES.find((p) => slug.startsWith(p));
+      const matchedPrefix = REDUNDANT_PREFIXES.find((p) => slug.startsWith(p));
       if (matchedPrefix) {
         const upToMatch = block.slice(0, m.index);
         const lineOffset = upToMatch.split('\n').length - 1;
@@ -804,7 +810,7 @@ function lintRelatedKeywordsComponent(lines, findings) {
           rule: '9-9',
           line: startLine + lineOffset,
           endLine: startLine + lineOffset,
-          message: `<RelatedKeywords> の slug "${slug}" にカテゴリ接頭辞「${matchedPrefix}」が含まれている。bare slug（例: "${bare}"）を渡す`,
+          message: `<RelatedKeywords> の slug "${slug}" に冗長な接頭辞「${matchedPrefix}」が含まれている。bare slug（例: "${bare}"）を渡す（civil-construction-1- 接頭辞は必須なので除外）`,
         });
       }
     }
