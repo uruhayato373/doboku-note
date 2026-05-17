@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-05-16T08:22:15.999Z",
+  "scored_at": "2026-05-17T08:54:36.582Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -1651,14 +1651,17 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 3,
+        "principle": 2,
         "reference": 2,
         "linking": 3
       },
-      "weighted": 2.85,
-      "weak_axes": [],
-      "qualitative_comment": "全セクション順序・frontmatter 完備。lint 違反ゼロ。ExamPoint 1個・散文中心・過去問紐付け明示。参考資料はWikipedia・民間解説含みで公的2件あるが民間側に民間解説が混在する水準。双方向リンク・section 一致OK。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "weighted": 2.65,
+      "weak_axes": [
+        "principle",
+        "reference"
+      ],
+      "qualitative_comment": "数字スペース混在(§14)とPDFリンク切れ。公的+民間の実在は確保済み。",
+      "scored_at": "2026-05-17T08:49:40.343Z"
     },
     "basel-convention": {
       "slug": "basel-convention",
@@ -1879,14 +1882,14 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 2,
+        "principle": 3,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 2.8,
+      "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "lint違反ゼロ・参考資料公的2件実在確認済み・構造順序完備。原則軸はExamPoint1個・散文中心で概ね準拠だがCO2表記の数字スペック（§14）が混在するため2点。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "qualitative_comment": "全5軸満点。lint通過、参考資料4件実在確認済、公的・民間各2件揃い。",
+      "scored_at": "2026-05-17T08:49:40.343Z"
     },
     "career-ownership": {
       "slug": "career-ownership",
@@ -3290,16 +3293,16 @@
     "circular-economy": {
       "slug": "circular-economy",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 3,
         "principle": 3,
-        "reference": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.55,
+      "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "lint違反ゼロ・双方向リンク完備で安定。「発展経緯」H2が参考資料直前で構造順序が1箇所ズレ。e-govリンクが法令本文でなくポータルトップ表示、METIリンクは到達確認不可で参考資料の信頼性に軽微な懸念。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "qualitative_comment": "全軸満点。lint通過・参考資料公的2件+民間1件・5管理連動も明示。",
+      "scored_at": "2026-05-17T08:46:46.819Z"
     },
     "circular-society-basic-act": {
       "slug": "circular-society-basic-act",
@@ -3794,18 +3797,18 @@
       "slug": "csv",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:02.604Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ExamPoint配置が52%地点(9-2 MEDIUM)。CSV/CSR比較表は許容範囲内だが散文とのバランスは維持。",
+      "scored_at": "2026-05-17T08:46:46.819Z"
     },
     "cyber-security": {
       "slug": "cyber-security",
@@ -3946,8 +3949,8 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "全5軸で違反ゼロ。frontmatter・セクション順序・参考資料（公的JOGMEC+民間Promapedia）・RelatedKeywords双方向リンクがすべて規定準拠。満点合格。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "qualitative_comment": "全軸満点。lint違反ゼロ・公的+民間参考資料実在確認済み・section一致・双方向リンク揃い。",
+      "scored_at": "2026-05-17T08:46:46.819Z"
     },
     "decoupling": {
       "slug": "decoupling",
@@ -3969,18 +3972,18 @@
       "slug": "defense-in-depth",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:04.274Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ExamPoint配置が38%地点（末尾推奨）。参考資料・リンクは充実。全体的に高品質。",
+      "scored_at": "2026-05-17T08:46:46.819Z"
     },
     "delphi-method": {
       "slug": "delphi-method",
@@ -4001,19 +4004,20 @@
     "deposit-system": {
       "slug": "deposit-system",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.25,
       "weak_axes": [
+        "structure",
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:04.585Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "全セクション揃い・参考資料は公的+民間。RelatedKeywords→ExamPoint逆順・Calloutゼロが弱点。",
+      "scored_at": "2026-05-17T08:49:40.343Z"
     },
     "depreciation": {
       "slug": "depreciation",
@@ -4034,87 +4038,85 @@
     "depreciation-residual-value": {
       "slug": "depreciation-residual-value",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.25,
       "weak_axes": [
+        "structure",
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:04.787Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ExamPoint位置ズレ・表前導入文欠落・制度史H2割り込み。参考資料・関連付けは満点。",
+      "scored_at": "2026-05-17T08:49:40.343Z"
     },
     "design-for-environment": {
       "slug": "design-for-environment",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
         "reference": 1,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.95,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:05.017Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "参考資料が公的2件のみで民間欠落。ExamPoint位置42%地点。",
+      "scored_at": "2026-05-17T08:49:40.343Z"
     },
     "design-in": {
       "slug": "design-in",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.25,
       "weak_axes": [
+        "structure",
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:05.129Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ExamPointが中間配置・発生背景H2が位置づけ後に置かれ構造順序ズレ。",
+      "scored_at": "2026-05-17T08:52:16.848Z"
     },
     "design-quality": {
       "slug": "design-quality",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:05.243Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ExamPointが記事中盤、過去問核心Callout欠落。",
+      "scored_at": "2026-05-17T08:52:16.848Z"
     },
     "design-review": {
       "slug": "design-review",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:05.360Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全5軸満点。lint違反ゼロ・参考資料3件全実在・双方向リンク完備。",
+      "scored_at": "2026-05-17T08:52:16.848Z"
     },
     "design-rights": {
       "slug": "design-rights",
@@ -4200,52 +4202,52 @@
       "slug": "dioxin-countermeasures-act",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.4,
       "weak_axes": [
         "mobile",
+        "principle",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:06.163Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "過去問核心Callout欠落・末尾関連KW列挙行・Wikipedia単独民間資料。",
+      "scored_at": "2026-05-17T08:52:16.848Z"
     },
     "direct-costing": {
       "slug": "direct-costing",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:06.266Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "表前導入文なし・ExamPointが43%地点。",
+      "scored_at": "2026-05-17T08:52:16.848Z"
     },
     "direct-manufacturing-cost": {
       "slug": "direct-manufacturing-cost",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.8,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:06.372Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "過去問核心Callout欠落。Callout追加で原則3点到達可能。",
+      "scored_at": "2026-05-17T08:53:26.873Z"
     },
     "disability-discrimination-act": {
       "slug": "disability-discrimination-act",
@@ -4325,18 +4327,17 @@
       "slug": "disaster-weather-info",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.85,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:07.099Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "参考資料が気象庁+Wikipediaのみ。公的副資料追加で満点圏。",
+      "scored_at": "2026-05-17T08:53:26.873Z"
     },
     "discretionary-work-system": {
       "slug": "discretionary-work-system",
@@ -4390,18 +4391,17 @@
       "slug": "e-learning",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 2,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.75,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:07.988Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイルMEDIUM1件（太字42字）。他は高品質。",
+      "scored_at": "2026-05-17T08:53:26.873Z"
     },
     "e-waste": {
       "slug": "e-waste",
@@ -4423,18 +4423,15 @@
       "slug": "eco-action-21",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:08.201Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸満点。lint違反ゼロ・参考資料実在確認済・散文中心構成。",
+      "scored_at": "2026-05-17T08:53:26.873Z"
     },
     "eco-drr": {
       "slug": "eco-drr",
@@ -4455,19 +4452,20 @@
     "eco-label": {
       "slug": "eco-label",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2,
       "weak_axes": [
         "mobile",
-        "reference"
+        "structure",
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:08.412Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "表セル超過3件でモバイル1点。「制度の歴史」H2が§9-7相当。",
+      "scored_at": "2026-05-17T08:53:26.873Z"
     },
     "ecological-footprint": {
       "slug": "ecological-footprint",
@@ -4496,8 +4494,8 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "全軸満点。lint違反ゼロ・公的民間参考資料実在確認済み・section一致・ExamPoint1個・散文中心構成で構造・原則・関連付けすべて完備。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "qualitative_comment": "全軸満点。lint違反ゼロ、公的+民間参考資料実在確認済み、構造・散文ともに完備。",
+      "scored_at": "2026-05-17T08:46:46.819Z"
     },
     "elderly-employment-act": {
       "slug": "elderly-employment-act",
@@ -4533,18 +4531,15 @@
       "slug": "emergency",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:09.241Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸満点。lint違反ゼロ、公的＋民間参考資料実在確認済、ExamPoint末尾配置。",
+      "scored_at": "2026-05-17T08:54:36.577Z"
     },
     "emergency-info-systems": {
       "slug": "emergency-info-systems",
@@ -4566,18 +4561,15 @@
       "slug": "employee-benefits",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:09.623Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全5軸満点。lint完全通過、参考資料実在確認済、散文充実。",
+      "scored_at": "2026-05-17T08:54:36.577Z"
     },
     "employment-security-act": {
       "slug": "employment-security-act",
@@ -4601,16 +4593,15 @@
         "structure": 3,
         "mobile": 1,
         "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.2,
+      "weighted": 2.4,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:10.139Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "散文・構造優秀。モバイルのみ表セル字数超過3件で減点。",
+      "scored_at": "2026-05-17T08:54:36.577Z"
     },
     "energy": {
       "slug": "energy",
@@ -4646,35 +4637,33 @@
       "slug": "environmental-accounting",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:10.448Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全5軸違反ゼロ。lint合格・参考資料実在確認・双方向リンク完備。",
+      "scored_at": "2026-05-17T08:54:36.577Z"
     },
     "environmental-communication": {
       "slug": "environmental-communication",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.25,
       "weak_axes": [
+        "structure",
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:10.659Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ExamPointが51%地点・表前導入文欠落。3軸2点でリライト候補水準。",
+      "scored_at": "2026-05-17T08:54:36.577Z"
     },
     "environmental-impact-assessment": {
       "slug": "environmental-impact-assessment",
@@ -5008,17 +4997,15 @@
       "slug": "foreign-trainee-program",
       "scores": {
         "structure": 3,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 3,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 2.75,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "MEDIUM 1件（L21 太字スコープ48字）のみで全軸高水準。法令条文「技能実習法第3条第2項」のe-Govインラインリンク化（L61・L93）が残課題。参考資料は公的2件＋民間1件で§12完全準拠。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸満点。散文・過去問Callout・内部リンク・参考資料いずれも原則準拠。",
+      "scored_at": "2026-05-17T08:47:54.223Z"
     },
     "formal-informal-organization": {
       "slug": "formal-informal-organization",
@@ -7288,15 +7275,19 @@
       "slug": "pdpc-method",
       "scores": {
         "structure": 2,
-        "mobile": 2,
+        "mobile": 3,
         "principle": 2,
-        "reference": 2,
-        "linking": 3
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "全セクション揃いで合格水準。L21太字46字・開発背景H2（§9違反候補）・参考資料にkikakurui.com（非公式JIS転載サイト）使用の3点が改善余地。リライト推奨候補（2.10）。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "weighted": 2.4,
+      "weak_axes": [
+        "structure",
+        "principle",
+        "linking"
+      ],
+      "qualitative_comment": "開発背景H2がExamPoint後に配置（9-7相当）、過去問核心Callout欠落。参考資料は完全準拠。",
+      "scored_at": "2026-05-17T08:47:54.223Z"
     },
     "pension-system": {
       "slug": "pension-system",
@@ -7749,16 +7740,20 @@
     "problem-setting-ability": {
       "slug": "problem-setting-ability",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 3,
         "principle": 2,
         "reference": 3,
-        "linking": 3
+        "linking": 2
       },
-      "weighted": 2.8,
-      "weak_axes": [],
-      "qualitative_comment": "lint違反ゼロ・参考資料3件全件実在確認済み・構造完備。RelatedKeywordsがH2間に挟まり本文の流れを分断している点（§18相当）が軽微な減点要因。加重2.80で合格。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "weighted": 2.4,
+      "weak_axes": [
+        "structure",
+        "principle",
+        "linking"
+      ],
+      "qualitative_comment": "構造は求められる場面H2が位置づけ前に挟まる軽微ズレ。過去問核心Callout欠落。",
+      "scored_at": "2026-05-17T08:47:54.223Z"
     },
     "problem-solving-ability": {
       "slug": "problem-solving-ability",
@@ -8026,13 +8021,15 @@
         "structure": 3,
         "mobile": 3,
         "principle": 2,
-        "reference": 2,
-        "linking": 2
+        "reference": 3,
+        "linking": 3
       },
-      "weighted": 2.55,
-      "weak_axes": [],
-      "qualitative_comment": "lint違反ゼロ・frontmatter完備・PAF解説の散文密度良好。「背景と発展」H2は総監テキスト接続で許容範囲。参考資料は公的+民間各1件だがWebFetch未確認で2点止まり。関連付けは双方向バックリンク機械確認未実施のため2点。加重2.55で合格。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "weighted": 2.8,
+      "weak_axes": [
+        "principle"
+      ],
+      "qualitative_comment": "lint全パス・参考資料公的+民間揃いで堅実。過去問核心Calloutが不在で原則軸が2点止まり。",
+      "scored_at": "2026-05-17T08:47:54.223Z"
     },
     "quality-improvement": {
       "slug": "quality-improvement",
@@ -8138,16 +8135,18 @@
     "ramsar-convention": {
       "slug": "ramsar-convention",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 3,
         "principle": 3,
         "reference": 2,
-        "linking": 2
+        "linking": 3
       },
-      "weighted": 2.45,
-      "weak_axes": [],
-      "qualitative_comment": "lint違反ゼロ・ExamPoint1個・散文中心で原則準拠。「条約制定の背景」H2が「総合技術監理における位置づけ」の後に配置されセクション順序に軽微なズレあり。参考資料は外務省・環境省・Wikipediaの3件で公的資料は揃っている。",
-      "scored_at": "2026-05-15T11:59:53.055Z"
+      "weighted": 2.85,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "外務省リンク403で実体未確認。環境省+Wikipediaは実在済み。他4軸は満点。",
+      "scored_at": "2026-05-17T08:47:54.223Z"
     },
     "reach-regulation": {
       "slug": "reach-regulation",
