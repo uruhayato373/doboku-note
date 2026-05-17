@@ -46,6 +46,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE
 | 立場 | 部長（業務全体を統括管理） |
 | 前提条件 | コンサルティング業の自社 GHG 排出は限定的、本業の中で CN に貢献する施策設計が必要、地方拠点ゆえに森林資源・地熱資源にアクセス可能 |
 
+![図: 環境調査典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 環境調査ペルソナの他の組織パターンへの置き換えは [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r06) を参照してください。
 
 ## 設問（１）事業や組織の内容と CN に関連する取組状況

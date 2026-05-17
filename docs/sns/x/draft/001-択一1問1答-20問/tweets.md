@@ -1,7 +1,7 @@
 # X 用原稿 — 総監択一クイズ 20 問
 
 - 投稿頻度: 毎日 1 問（20 日で完走）
-- ハッシュタグ: #技術士 #総合技術監理部門 #総監択一クイズ
+- ハッシュタグ: #技術士総監 #過去問
 - UTM: `utm_source=x&utm_medium=organic&utm_campaign=quiz-001`
 - 元素材: [source.md](./source.md)
 
@@ -11,25 +11,22 @@
 
 【総監択一クイズ #01】経済性管理
 
-販売価格 1,000 円、変動費 400 円、固定費 384,000 円のとき、
-損益分岐点売上高はいくらでしょうか？
+販売価格1,000円・変動費400円・固定費384,000円。損益分岐点売上高は？
 
-(1) 384,000 円
-(2) 640,000 円
-(3) 960,000 円
-(4) 1,000,000 円
+(1) 384,000円
+(2) 640,000円
+(3) 960,000円
+(4) 1,000,000円
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 640,000 円
-
-限界利益 = 1,000 - 400 = 600 円。固定費 384,000 / 限界利益率 0.6 = 640,000 円。変動費率（0.4）と限界利益率（0.6）の混同に注意！
+正答: (2) 640,000円。限界利益率=0.6、固定費384,000/0.6=640,000円。変動費率と限界利益率の混同に注意！
 
 ---
 
@@ -37,24 +34,22 @@
 
 【総監択一クイズ #02】経済性管理
 
-品質管理における「管理限界」の説明として正しいものはどれ？
+品質管理の「管理限界」の説明として正しいものは？
 
-(1) 製品の規格値に基づいて設定される値
+(1) 製品の規格値に基づく値
 (2) 統計的に計算される工程監視用の値
-(3) 顧客が要求する品質の許容範囲
+(3) 顧客要求の許容範囲
 (4) 管理図の中心線と同じ意味
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 統計的に計算される工程監視用の値
-
-管理限界は工程のばらつきから統計的に計算される値。製品の規格値とは全く異なる概念。管理限界 ≠ 規格値は頻出の引っかけ！
+正答: (2)。管理限界は工程ばらつきから統計的に計算。規格値とは全く別概念。管理限界≠規格値は頻出引っかけ！
 
 ---
 
@@ -62,24 +57,22 @@
 
 【総監択一クイズ #03】経済性管理
 
-VE（価値工学）における「価値」の定義として正しいものはどれ？
+VE（価値工学）における「価値」の定義として正しいものは？
 
-(1) 価値 = 機能 × コスト
-(2) 価値 = 機能 / コスト
-(3) 価値 = コスト / 機能
-(4) 価値 = 機能 - コスト
+(1) 価値=機能×コスト
+(2) 価値=機能/コスト
+(3) 価値=コスト/機能
+(4) 価値=機能-コスト
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 価値 = 機能 / コスト
-
-同じコストで機能を高めるか、同じ機能をより低コストで実現することで価値が上がる。「機能 × コスト」という引っかけに注意！
+正答: (2)。同コストで機能↑、同機能でコスト↓が価値向上の手段。「機能×コスト」の引っかけに注意！
 
 ---
 
@@ -87,25 +80,22 @@ VE（価値工学）における「価値」の定義として正しいものは
 
 【総監択一クイズ #04】経済性管理
 
-経路が 3 本（20 日・23 日・23 日）のプロジェクト。
-クリティカルパスの正しい扱いはどれ？
+3経路（20日・23日・23日）のプロジェクト。クリティカルパスは？
 
-(1) 23 日経路 1 本だけがクリティカルパス
-(2) 23 日の 2 本どちらもクリティカルパス
-(3) 3 本すべてがクリティカルパス
-(4) 最短 20 日の経路がクリティカルパス
+(1) 23日経路1本だけ
+(2) 23日の2本どちらも
+(3) 3本すべて
+(4) 最短20日の経路
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 23 日の 2 本どちらもクリティカルパス
-
-クリティカルパス = 最長経路。同じ最長日数が複数あれば、それらすべてがクリティカルパス。両方の作業の和集合を管理する！
+正答: (2)。クリティカルパス=最長経路。同じ最長日数が複数あれば全てCPになる。両方の作業の和集合を管理！
 
 ---
 
@@ -113,24 +103,22 @@ VE（価値工学）における「価値」の定義として正しいものは
 
 【総監択一クイズ #05】人的資源管理
 
-SL 理論（状況対応型リーダーシップ）の核心はどれ？
+SL理論の核心はどれ？
 
-(1) リーダーは常に一貫したスタイルを維持すべき
-(2) 部下の成熟度に応じてスタイルを変えるべき
-(3) リーダーは部下に奉仕する存在であるべき
-(4) P 機能と M 機能の 2 軸で分類される
+(1) スタイルを常に一貫して維持すべき
+(2) 部下の成熟度に応じてスタイルを変える
+(3) 部下に奉仕する存在であるべき
+(4) P機能とM機能の2軸で分類される
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 部下の成熟度に応じてスタイルを変える
-
-(3) はサーバントリーダーシップ、(4) は PM 理論の説明。SL 理論・PM 理論・サーバントリーダーシップの区別が頻出！
+正答: (2)。(3)はサーバントリーダーシップ、(4)はPM理論。SL・PM・サーバントの区別が頻出！
 
 ---
 
@@ -145,17 +133,15 @@ SL 理論（状況対応型リーダーシップ）の核心はどれ？
 (3) 意欲や姿勢が表れた実際の行動
 (4) どのような気持ちを持っているか
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (3) 意欲や姿勢が表れた実際の行動
-
-「気持ち」ではなく「行動」で評価するのがポイント。(1) は業績考課、(2) は能力考課。3 種類の考課の区別を整理しておこう！
+正答: (3)。「気持ち」ではなく「行動」で評価するのがポイント。(1)業績考課、(2)能力考課との区別を整理！
 
 ---
 
@@ -163,25 +149,22 @@ SL 理論（状況対応型リーダーシップ）の核心はどれ？
 
 【総監択一クイズ #07】人的資源管理
 
-労働基準法第 33 条「災害等による臨時の必要」について
-誤っているものはどれ？
+労基法33条「災害等の臨時必要」の誤りはどれ？
 
-(1) 自社が直接被害を受けた場合のみ対象
-(2) 人命保護の大規模リコール対応も含まれる
+(1) 自社被害の場合のみ対象
+(2) 人命保護のリコール対応も含まれる
 (3) 突発的な機械故障の修理も含まれる
-(4) 他事業者への協力要請に応じる場合も対象となりうる
+(4) 他事業者への協力要請も対象
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答（誤っているもの）: (1) 自社が直接被害を受けた場合のみ対象
-
-「自社のみ」という限定は誤り。公益保護や社会的必要性がある場合、他事業者への協力も含まれる。過度に限定した選択肢が頻出の引っかけ！
+正答（誤り）: (1)。「自社のみ」は誤り。公益保護や社会的必要性がある場合、他事業者への協力も含まれる！
 
 ---
 
@@ -189,54 +172,45 @@ SL 理論（状況対応型リーダーシップ）の核心はどれ？
 
 【総監択一クイズ #08】人的資源管理
 
-メンター制度について誤っているものはどれ？
+メンター制度の誤りはどれ？
 
-(1) メンターとメンティは直属ラインでないことが望ましい
-(2) 事前研修はメンター・メンティの双方を対象とする
+(1) 直属ラインでないのが望ましい
+(2) 事前研修は双方を対象とする
 (3) メンタリングは就業時間外に行うもの
 (4) 推進部門のサポートが効果を高める
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
-
---- リプライ ---
-
-正答（誤っているもの）: (3) 就業時間外に行うもの
-
-メンタリングは業務の一環 → 就業時間内に実施すべき。「就業時間外」は頻出の誤り選択肢！
+#技術士総監 #過去問
 
 ---
 
-## Tweet 09: Q9 3 種類の平均（情報管理）
+正答（誤り）: (3)。メンタリングは業務の一環→就業時間内に実施すべき。「就業時間外」は頻出の誤り！
+
+---
+
+## Tweet 09: Q9 3種類の平均（情報管理）
 
 【総監択一クイズ #09】情報管理
 
-売上高の年間平均倍率を求めるのに適した平均はどれ？
-（一昨年の 2 倍、その翌年の 8 倍）
+売上高の年間平均倍率（一昨年2倍・翌年8倍）を求めるのに適した平均は？
 
 (1) 算術平均
 (2) 幾何平均
 (3) 調和平均
 (4) 加重平均
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 幾何平均
-
-倍率・比率・成長率の平均 → 幾何平均
-速度の平均 → 調和平均
-試験の平均点など → 算術平均
-
-使い分けを覚えておこう！
+正答: (2)幾何平均。倍率・比率・成長率→幾何平均、速度→調和平均、試験の平均点→算術平均。使い分けを覚えよう！
 
 ---
 
@@ -244,24 +218,22 @@ SL 理論（状況対応型リーダーシップ）の核心はどれ？
 
 【総監択一クイズ #10】情報管理
 
-肖像権について誤っているものはどれ？
+肖像権について誤っているものは？
 
 (1) 法律上明文化された権利である
 (2) 著作権とは別個の権利
 (3) 人格権の一部として保護される
 (4) 公共の場での情景撮影は受忍限度内とされることが多い
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答（誤っているもの）: (1) 法律上明文化された権利
-
-肖像権は判例法によって確立された権利で、法律上の明文規定はない。著作権（著作権法で明文化）との違いに注意！
+正答（誤り）: (1)。肖像権は判例法によって確立。著作権（著作権法で明文化）との違いに注意！
 
 ---
 
@@ -276,17 +248,15 @@ VPN（仮想私設網）はどのセキュリティモデルの手段？
 (3) 両方に該当する
 (4) どちらにも該当しない
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 境界型セキュリティ
-
-VPN = 社内ネットワークへのトンネル接続 = 境界型の延長。ゼロトラストはすべてのアクセスを個別に認証・検証する考え方で VPN に依存しない。令和 7 年度本試験出題！
+正答: (2)。VPN=境界型の延長。ゼロトラストは全アクセスを個別認証する考え方でVPNに依存しない。R7出題！
 
 ---
 
@@ -294,51 +264,45 @@ VPN = 社内ネットワークへのトンネル接続 = 境界型の延長。�
 
 【総監択一クイズ #12】情報管理
 
-デザイン思考のテスト段階で問題が発見されたとき、正しい対応はどれ？
+デザイン思考のテストで問題が出た場合の対応は？
 
-(1) テスト段階で修正してプロセスを完了する
-(2) 前の段階（共感・定義・発想・プロトタイプ）に戻る
-(3) プロトタイプ段階にのみ戻れる
-(4) 新たなプロジェクトとして最初からやり直す
+(1) テスト段階で修正して完了する
+(2) 前段階（共感・定義・発想・プロトタイプ）に戻る
+(3) プロトタイプにのみ戻れる
+(4) 最初からやり直す
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
-
---- リプライ ---
-
-正答: (2) 前の段階に戻る
-
-デザイン思考 = イテレーティブ（反復的）プロセス。問題が見つかれば前の段階に戻るのが本質。「立ち戻らない」「プロトタイプのみ」は誤り！
+#技術士総監 #過去問
 
 ---
 
-## Tweet 13: Q13 事故の 4E 対策（安全管理）
+正答: (2)。デザイン思考=イテレーティブなプロセス。問題が見つかれば前の段階に戻るのが本質！
+
+---
+
+## Tweet 13: Q13 事故の4E対策（安全管理）
 
 【総監択一クイズ #13】安全管理
 
-事故の 4E 対策に含まれないものはどれ？
+事故の4E対策に含まれないものは？
 
 (1) Education（教育）
 (2) Engineering（技術）
 (3) Economy（経済）
 (4) Example（模範）
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答（含まれないもの）: (3) Economy（経済）
-
-4E = Education / Engineering / Enforcement（強化・徹底）/ Example（模範）
-
-Economy は含まれない！繰り返し出題される定番の引っかけ問題。
+正答（含まれない）: (3)Economy。4E=Education/Engineering/Enforcement/Example。繰り返し出る定番引っかけ！
 
 ---
 
@@ -353,17 +317,15 @@ Economy は含まれない！繰り返し出題される定番の引っかけ問
 (3) 事業者（経営者・法人）
 (4) 安全管理者
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (3) 事業者（経営者・法人）
-
-労安法第 3 条により、事業者が快適な職場環境の実現と安全衛生水準の向上に努める義務を負う。職場の長・管理監督者は補助的な立場！
+正答: (3)。労安法第3条で事業者が安全衛生の義務を負う。職場の長・管理監督者は補助的立場！
 
 ---
 
@@ -371,24 +333,22 @@ Economy は含まれない！繰り返し出題される定番の引っかけ問
 
 【総監択一クイズ #15】安全管理
 
-ストレスチェックの個別結果にアクセスできるのは誰？
+ストレスチェックの個別結果にアクセスできるのは？
 
-(1) 事業者（会社）が直接閲覧できる
-(2) 医師等が労働者本人に直接通知し、事業者には提供しない
-(3) 事業者と労働者の両方に同時に開示される
-(4) 労働者の上司に優先的に通知される
+(1) 事業者が直接閲覧できる
+(2) 医師等が本人に通知、事業者には提供しない
+(3) 事業者と労働者の両方に同時開示
+(4) 上司に優先通知される
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 医師等が労働者本人に直接通知、事業者には提供しない
-
-プライバシー保護が目的。事業者がアクセスできるのは集団ごとの集計・分析結果のみ。「会社が閲覧できる」は頻出の引っかけ！
+正答: (2)。事業者がアクセスできるのは集団ごとの集計・分析結果のみ。「会社が閲覧できる」は頻出引っかけ！
 
 ---
 
@@ -396,24 +356,22 @@ Economy は含まれない！繰り返し出題される定番の引っかけ問
 
 【総監択一クイズ #16】安全管理
 
-BCM（事業継続マネジメント）の検討範囲として正しいものはどれ？
+BCMの検討範囲として正しいものは？
 
 (1) 自社の人的・物的被害の軽減のみ
 (2) 委託先・調達先・供給先も含むサプライチェーン全体
-(3) 自社と直接取引のある一次サプライヤーまで
-(4) 業界団体が定める範囲に限定される
+(3) 一次サプライヤーまで
+(4) 業界団体が定める範囲に限定
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) サプライチェーン全体
-
-BCM はサプライチェーン全体の視点が重要。令和 7 年度でも「自社のみ」が誤り選択肢として出題された！
+正答: (2)。BCMはサプライチェーン全体の視点が重要。R7でも「自社のみ」が誤り選択肢として出題！
 
 ---
 
@@ -421,26 +379,22 @@ BCM はサプライチェーン全体の視点が重要。令和 7 年度でも�
 
 【総監択一クイズ #17】社会環境管理
 
-環境影響評価法の手続きで最も早い段階で行われるものはどれ？
+環境影響評価法の手続きで最も早い段階は？
 
 (1) 準備書の作成
 (2) 評価書の作成
 (3) 配慮書の作成
 (4) 方法書の作成
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (3) 配慮書の作成
-
-手続きの順序: 配慮書 → 方法書 → 準備書 → 評価書 → 報告書
-
-「配慮書」が計画の最初の段階。順序の入れ替え問題は定番テーマ！
+正答: (3)配慮書。順序: 配慮書→方法書→準備書→評価書→報告書。順序の入れ替え問題は定番テーマ！
 
 ---
 
@@ -448,24 +402,23 @@ BCM はサプライチェーン全体の視点が重要。令和 7 年度でも�
 
 【総監択一クイズ #18】社会環境管理
 
-循環型社会形成推進基本法が定める廃棄物処理の優先順位として正しいものはどれ？
+廃棄物処理の優先順位は？
+A=減らす B=再使用 C=再生利用 D=熱回収 E=適正処分
 
-(1) リサイクル → リデュース → リユース → 熱回収 → 適正処分
-(2) リデュース → リユース → リサイクル → 熱回収 → 適正処分
-(3) リユース → リデュース → リサイクル → 適正処分 → 熱回収
-(4) リデュース → リサイクル → リユース → 適正処分 → 熱回収
+(1) C→A→B→D→E
+(2) A→B→C→D→E
+(3) B→A→C→E→D
+(4) A→C→B→E→D
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) リデュース → リユース → リサイクル → 熱回収 → 適正処分
-
-リデュース（発生抑制）が最優先！3R の順序とリデュース・リユース・リサイクルの入れ替えに注意する。
+正答: (2)。リデュース（A）→リユース（B）→リサイクル（C）→熱回収→適正処分。発生抑制が最優先！
 
 ---
 
@@ -473,24 +426,22 @@ BCM はサプライチェーン全体の視点が重要。令和 7 年度でも�
 
 【総監択一クイズ #19】社会環境管理
 
-国土交通省所管のインフラで 2023 年 3 月時点で建設後 50 年以上の割合が最も高いものはどれ？
+2023年3月時点で建設後50年以上の割合が最も高いインフラは？
 
 (1) 下水道管渠
 (2) 道路橋
 (3) 道路トンネル
 (4) 河川管理施設
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 道路橋
-
-高度経済成長期に大量に建設された道路橋が 50 年超で最高割合。令和 7 年度本試験出題！インフラ老朽化の数値は毎年更新されるので最新統計を確認しよう。
+正答: (2)道路橋。高度経済成長期に大量建設された道路橋が50年超で最高割合。R7本試験出題！
 
 ---
 
@@ -498,23 +449,21 @@ BCM はサプライチェーン全体の視点が重要。令和 7 年度でも�
 
 【総監択一クイズ #20】社会環境管理
 
-インフラ維持管理で予防保全を基本とした場合の特徴として正しいものはどれ？
+予防保全を基本とした特徴は？
 
-(1) 事後保全より将来の維持管理・更新費用が多くなる
-(2) 事後保全より将来の維持管理・更新費用が少なくなる
+(1) 事後保全より将来費用が多くなる
+(2) 事後保全より将来費用が少なくなる
 (3) 費用は同等だが安全性が高まる
-(4) 初期費用が高く小規模施設には不向き
+(4) 初期費用が高く小規模施設に不向き
 
-↓ 答えはリプライツリーに
+答え→リプライ
 
-詳しい解説: https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
+→ https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=x&utm_medium=organic&utm_campaign=quiz-001
 
-#技術士 #総合技術監理部門 #総監択一クイズ
+#技術士総監 #過去問
 
---- リプライ ---
+---
 
-正答: (2) 事後保全より将来の費用が少なくなる
-
-国土交通省試算では予防保全で約 5 割のライフサイクルコスト削減が可能。損傷が軽微な段階で対策するから大規模修繕コストを抑制できる！
+正答: (2)。国交省試算で予防保全は約5割のLCC削減が可能。損傷軽微な段階で対策し大規模修繕コストを抑制！
 
 ---

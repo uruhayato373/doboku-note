@@ -60,7 +60,7 @@ model: inherit
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
 | **構造** | 20% | frontmatter 必須6項目完備・H2/H3 階層整合・`/check-mdx --rules syntax` OK（本文 H1 の有無は問わない — textbook 群の既存慣行） | 軽微な階層ズレ1箇所 | 必須 frontmatter 1項目欠落 or H3→H5 のような飛び | frontmatter 複数欠落 or ビルドエラー |
-| **テキスト原則** | 20% | content-principles.md §1-5,7 完全準拠（絵文字なし、太字 ≤30字、1文1段落、ExamPoint 位置OK）| 軽微違反1件 | lint カテゴリ9-1/9-3/9-5/9-6 HIGH 1件 or MEDIUM 3件以上 | HIGH 2件以上 |
+| **テキスト原則** | 20% | content-principles.md §1-5,7 完全準拠（絵文字なし、太字 ≤30字、1文1段落、ExamPoint 位置OK／guide ピラー型は `<Callout type="note" title="試験のポイント">` での代替を許容、§5「適用範囲と例外」参照）| 軽微違反1件 | lint カテゴリ9-1/9-3/9-5/9-6 HIGH 1件 or MEDIUM 3件以上 | HIGH 2件以上 |
 | **モバイル視認性** | 30% | `lint-mdx-mobile` HIGH/MEDIUM ゼロ、4列以上表なし、3列表セル ≤15字、表前に導入文あり | MEDIUM 1〜3件 | MEDIUM 4〜9件 or HIGH 1件 | MEDIUM 10件以上 or HIGH 2件以上 |
 | **図表の適切性** | 15% | 全画像が `<ArticleImage>` 使用（caption は **帰属情報のみ ≤60字**）、alt ≤80字、出典コメント `{/* source: */}` 完備（CC写真時）、画像ファイル実在（JPG/PNG/SVG、HTML エラーページでない） | 生 `<img>` が 1 箇所（移行途中）or caption が 60〜100 字で説明型に近い | 生 `<img>` 多数 or caption が >100 字の説明型（§8 違反）or alt 1件 >120字 or 出典コメント欠落 | **壊れた画像ファイル**（HTML エラーページ等）or 画像の説明を全て caption に詰め込んでいる |
 | **参考資料・関連付け** | 15% | `/check-mdx --rules links` 全件OK、`## 参考資料` 節に公的＋民間の両方（`.or/.go/.ac.jp` と `.com/.co.jp` 等）、関連テキスト誘導あり、法令名に e-Gov 内部リンク、過去問バックリンクあり（guide時）| 公的or民間片方のみ or 死リンク1件 | 死リンク2件以上 or 関連誘導なし | `## 参考資料` 節そのものが欠落 |
@@ -163,6 +163,16 @@ Read で本文を読み、以下をチェック:
 5. **段落分割** — 連続4行以上の段落がないか（content-principles §3）
 
 **親が Sonnet の場合**: 1・4・5 中心の機械的チェックにとどめ、2・3 は「親モデルで再評価を推奨」と注記。
+
+**ExamPoint / Callout 試験のポイント の評価（重要）**:
+
+guide ピラー型ページで `<Callout type="note" title="試験のポイント">` が複数（5-8 個）配置されているのは **content-principles §5「適用範囲と例外」で許容された運用パターン**である。**「ExamPoint 不使用」を単独で減点理由にしない**。以下のいずれかを満たせば「テキスト原則」軸は問題なし:
+
+- ページ末尾に総括 ExamPoint を配置（textbook の標準）
+- 各 H2 セクション直前に Callout 試験のポイント を配置（guide ピラー型の標準、1 セクション 1 個まで）
+- 上記の混在（textbook で末尾 ExamPoint + 本文中 Callout exam の単発アクセント）
+
+逆に「1 セクション 2 個以上の Callout 試験のポイント」「ページ末尾以外の場所に複数 ExamPoint」は減点対象。
 
 ### Step 8: ルーブリック採点
 

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860">
+  <rect width="1200" height="860" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">三層構造テンプレ（管理対象 → 施策 → 将来展望）</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">解答骨子の組立手順</text>
+
+  <defs>
+    <marker id="arrDown" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 10 0 L 5 10 z" fill="#555555"/>
+    </marker>
+  </defs>
+  <rect x="50" y="140" width="1100" height="180" rx="12" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="50" y="140" width="200" height="180" rx="12" fill="#2e6da4"/>
+  <rect x="238" y="140" width="12" height="180" fill="#2e6da4"/>
+  <text x="150" y="208" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">第 1 層</text>
+  <text x="150" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">管理対象</text>
+  <text x="274" y="192" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">テーマを 5 管理のどれで論じるか宣言</text>
+  <text x="274" y="238" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">例: 資源循環 → 経済性管理を主軸、社会環境管理を副次</text>
+  <line x1="600" y1="320" x2="600" y2="372" stroke="#555555" stroke-width="4" marker-end="url(#arrDown)"/>
+  <rect x="50" y="376" width="1100" height="180" rx="12" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="50" y="376" width="200" height="180" rx="12" fill="#d4a017"/>
+  <rect x="238" y="376" width="12" height="180" fill="#d4a017"/>
+  <text x="150" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">第 2 層</text>
+  <text x="150" y="486" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">施策とトレードオフ</text>
+  <text x="274" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">主要 3 施策 + トレードオフ明示</text>
+  <text x="274" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">例: ① 再資源化施設整備 ② サプライチェーン可視化 ③ 廃棄物 KPI 設定</text>
+  <text x="274" y="510" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">     + 経済性 vs 社会環境のトレードオフ</text>
+  <line x1="600" y1="556" x2="600" y2="608" stroke="#555555" stroke-width="4" marker-end="url(#arrDown)"/>
+  <rect x="50" y="612" width="1100" height="180" rx="12" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="50" y="612" width="200" height="180" rx="12" fill="#3a7d44"/>
+  <rect x="238" y="612" width="12" height="180" fill="#3a7d44"/>
+  <text x="150" y="680" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">第 3 層</text>
+  <text x="150" y="722" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">将来展望と最大リスク</text>
+  <text x="274" y="664" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">10 年展望 + 最大リスクへの対応</text>
+  <text x="274" y="710" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">例: 2035 年 CN 達成 / 最大リスク = 国際資源価格変動 → 代替素材研究強化</text>
+  <rect x="40" y="808" width="1120" height="52" rx="6" fill="#e8f0fe"/>
+  <text x="600" y="842" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c" text-anchor="middle">30 分で全テーマに適用できる骨子テンプレ</text>
+<text x="1180" y="844" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

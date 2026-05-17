@@ -182,6 +182,7 @@ function parseArgs(): PostJob[] {
 
   const draftArg = args[0];
   let tweetFilter: number | null = null;
+  let tweetRange: { from: number; to: number } | null = null;
   let immediate = false;
   const dates: string[] = [];
 
@@ -193,6 +194,11 @@ function parseArgs(): PostJob[] {
       immediate = true;
     } else if (args[i] === "--tweet") {
       tweetFilter = parseInt(args[++i], 10);
+    } else if (args[i] === "--tweets") {
+      const spec = args[++i];
+      const m = spec.match(/^(\d+)-(\d+)$/);
+      if (!m) throw new Error(`--tweets は N-M 形式で指定: ${spec}`);
+      tweetRange = { from: parseInt(m[1], 10), to: parseInt(m[2], 10) };
     } else if (/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(args[i])) {
       dates.push(args[i]);
     }
@@ -200,12 +206,17 @@ function parseArgs(): PostJob[] {
 
   const draftDir = resolveDraftDir(draftArg);
   const allTweets = parseTweetMd(draftDir);
-  const tweets = tweetFilter
-    ? allTweets.filter((t) => t.number === tweetFilter)
-    : allTweets;
+  let tweets = allTweets;
+  if (tweetFilter) {
+    tweets = allTweets.filter((t) => t.number === tweetFilter);
+  } else if (tweetRange) {
+    tweets = allTweets.filter(
+      (t) => t.number >= tweetRange!.from && t.number <= tweetRange!.to
+    );
+  }
 
   if (tweets.length === 0) {
-    throw new Error(`--tweet ${tweetFilter} に該当するツイートがありません`);
+    throw new Error(`指定されたツイートがありません`);
   }
 
   if (!immediate && dates.length > 0 && dates.length !== tweets.length) {

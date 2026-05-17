@@ -47,6 +47,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE
 
 ゼネコンペルソナの他の組織パターンへの置き換えは [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r07) を参照してください。
 
+![図: ゼネコン典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 ## 設問（１）事業や組織の内容と少子高齢化への対応状況
 
 ### 事業内容と少子高齢化への対応

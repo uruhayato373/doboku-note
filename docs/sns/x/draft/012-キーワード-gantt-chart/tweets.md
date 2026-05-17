@@ -11,13 +11,11 @@
 
 【総監キーワード解説】ガントチャート #1
 
-ガントチャート（Gantt Chart）とは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図。
-
-直感的に工程全体を把握でき、小日程計画や進捗管理に広く用いられる。
+横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒で表す工程管理図。直感的に工程全体を把握でき、小日程計画や進捗管理に広く用いられる。
 
 → https://doboku-note.com/docs/pe-comprehensive-management-gantt-chart?utm_source=x&utm_medium=organic&utm_campaign=keyword-gantt-chart
 
-#技術士 #総合技術監理部門 #経済性管理 #ガントチャート
+#技術士総監 #経済性管理
 
 ---
 
@@ -26,15 +24,14 @@
 【総監キーワード解説】ガントチャート #2
 
 構成要素 4 つ
-
-▼ 横軸 — 時間（日・週・月）
-▼ 縦軸 — 作業項目（タスク）
-▼ バー（横棒）— 各作業の期間と進捗
-▼ マイルストーン — 重要な節目・完了時点
+横軸 — 時間（日・週・月）
+縦軸 — 作業項目（タスク）
+バー — 各作業の期間と進捗
+マイルストーン — 重要な節目・完了時点
 
 → https://doboku-note.com/docs/pe-comprehensive-management-gantt-chart?utm_source=x&utm_medium=organic&utm_campaign=keyword-gantt-chart
 
-#技術士 #総合技術監理部門 #経済性管理 #ガントチャート
+#技術士総監 #経済性管理
 
 ---
 
@@ -42,18 +39,17 @@
 
 【総監キーワード解説】ガントチャート #3
 
-進捗表示の 4 つの工夫
+進捗表示の 4 工夫
+1. 計画線 — 当初計画の期間
+2. 実績線 — 開始・完了・進捗率
+3. 現在時刻ライン — 今日の縦線
+4. 色分け — 完了/進行中/未着手
 
-1. 計画線（ベースライン）— 当初計画の期間・進捗
-2. 実績線 — 実際の開始・完了・進捗率
-3. 現在時刻ライン — 今日の日付の縦線
-4. 進捗率の色分け — 完了/進行中/未着手
-
-計画と実績を同じ時間軸上で並べて遅れを把握。
+計画と実績を同軸で並べ遅れを把握。
 
 → https://doboku-note.com/docs/pe-comprehensive-management-gantt-chart?utm_source=x&utm_medium=organic&utm_campaign=keyword-gantt-chart
 
-#技術士 #総合技術監理部門 #経済性管理 #ガントチャート
+#技術士総監 #経済性管理
 
 ---
 
@@ -61,18 +57,17 @@
 
 【総監キーワード解説】ガントチャート #4
 
-ガントチャート vs PERT/CPM
+ガント vs PERT/CPM
+視認性: ガント=直感的 / PERT=複雑
+依存関係: ガント=困難 / PERT=明確
+CP識別: ガント=不可 / PERT=可
+適用: ガント=小日程 / PERT=中大規模
 
-▼ 視認性: ガント=直感的／PERT=複雑
-▼ 依存関係: ガント=表現困難／PERT=明確
-▼ クリティカルパス: ガント=識別不可／PERT=識別可
-▼ 適用: ガント=小日程／PERT=中〜大日程
-
-ガントチャート最大の限界は作業間の先行・後続関係を明示できないこと。
+限界: 依存関係を明示できない。
 
 → https://doboku-note.com/docs/pe-comprehensive-management-gantt-chart?utm_source=x&utm_medium=organic&utm_campaign=keyword-gantt-chart
 
-#技術士 #総合技術監理部門 #経済性管理 #PERT
+#技術士総監 #経済性管理
 
 ---
 
@@ -80,15 +75,14 @@
 
 【総監キーワード解説】ガントチャート #5（最終回）
 
-実務標準は「PERT/CPM × ガントチャート」の併用
+実務標準は「PERT/CPM × ガントチャート」の併用。
+PERT/CPM でクリティカルパスを識別
+ガントチャートで進捗を可視化
 
-▼ PERT/CPM でクリティカルパスを識別
-▼ ガントチャートで進捗を可視化
-
-工期短縮を検討するなら PERT/CPM、進捗報告ならガントチャート。doboku-note で全解説。
+工期短縮を検討するなら PERT/CPM、進捗報告ならガントが最適。
 
 → https://doboku-note.com/docs/pe-comprehensive-management-gantt-chart?utm_source=x&utm_medium=organic&utm_campaign=keyword-gantt-chart
 
-#技術士 #総合技術監理部門 #経済性管理 #ガントチャート
+#技術士総監 #経済性管理
 
 ---

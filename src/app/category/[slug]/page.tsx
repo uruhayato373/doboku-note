@@ -628,9 +628,23 @@ export default async function CategoryPage({
                   const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'keyword'));
                   const keywordCount = keywordGroup?.docs.length ?? 0;
 
+                  // 白書テーマ記事（essay-mlit-*）を guide から分離して別セクション化
+                  const essayMlitDocs = guideGroup?.docs.filter(d => /essay-mlit-/.test(d.slug || '')) ?? [];
+                  const coreGuideDocs = guideGroup?.docs.filter(d => !/essay-mlit-/.test(d.slug || '')) ?? [];
+                  const coreGuideGroup = guideGroup ? { ...guideGroup, docs: coreGuideDocs } : null;
+
                   return (
                     <>
-                      {guideGroup && <DocSection group={guideGroup} />}
+                      {coreGuideGroup && coreGuideGroup.docs.length > 0 && <DocSection group={coreGuideGroup} />}
+                      {essayMlitDocs.length > 0 && (
+                        <DocSection
+                          group={{
+                            title: '白書テーマ別 記述対策',
+                            description: '国土交通白書R7の主要テーマ × 5管理トレードオフで構成した記述式想定問題',
+                            docs: essayMlitDocs,
+                          }}
+                        />
+                      )}
                       {pillarGroup && <DocSection group={pillarGroup} />}
                       {pastExamGroup && (
                         <DocSection group={pastExamGroup} layout="pe-exam-table" />

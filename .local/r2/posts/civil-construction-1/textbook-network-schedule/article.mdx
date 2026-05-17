@@ -11,9 +11,13 @@ tags:
   - schedule
 textbook_order: 260
 published: true
-seoTitle: "ネットワーク式工程表 | doboku-note"
+publishedAt: '2026-04-16'
+seoTitle: "ネットワーク式工程表とは｜EST・LFT・クリティカルパス・フロート【1級土木施工管理技士】"
 created: 2026-04-16
 dateModified: 2026-04-25
+reviewStatus: needs-review
+lastRewrittenAt: 2026-05-17
+revisionCycle: 1
 faqs:
   - q: 最早開始時刻（EST）の計算はどのように行いますか？
     a: 開始イベントの最早開始時刻を0とし、左から右へ所要時間を足し算します。複数の先行作業が合流するイベントでは、計算結果の最大値を採用します。
@@ -55,9 +59,10 @@ faqs:
 
 ④ 一般的に、作業の所要時間を矢線の下に書き、作業名または作業内容を上に書く。
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-13.svg"
-  alt="図3.13 作業（アクティビティ）：矢線上に作業名、下に所要時間"
+  alt="作業（アクティビティ）：矢線上に作業名、下に所要時間"
   width={380}
   height={160}
 />
@@ -66,9 +71,10 @@ faqs:
 
 イベントは、○で示し、○の中に0または正整数を書き込み、これを**イベント番号**と呼ぶ。工程表では、作業の前後関係（次作業の開始条件となる前作業の完了）を明らかにする役割を持つ。
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-14.svg"
-  alt="図3.14 イベント（結合点）：○にイベント番号を記入する記法"
+  alt="イベント（結合点）：○にイベント番号を記入する記法"
   width={380}
   height={170}
 />
@@ -77,9 +83,10 @@ faqs:
 
 ダミーは、同一の作業が複数発生する場合に、起終点のイベントを区別するために使われる所要時間ゼロの疑似作業である。点線の矢印で表記する。
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-15.svg"
-  alt="図3.15 ダミー（疑似作業）：点線矢印で表記する所要時間ゼロの疑似作業"
+  alt="ダミー（疑似作業）：点線矢印で表記する所要時間ゼロの疑似作業"
   width={380}
   height={220}
 />
@@ -94,9 +101,10 @@ faqs:
 
 ある結合点において、入ってくる矢線（先行作業B、C）が**すべて完了した後**でないと、結合点から出る矢線（後続作業D）は開始できない。
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-16.svg"
-  alt="図3.16 先行作業と後続作業：B・C が完了して初めて D が開始できる"
+  alt="先行作業と後続作業：B・C が完了して初めて D が開始できる"
   width={380}
   height={220}
 />
@@ -117,9 +125,10 @@ faqs:
 
 「最早開始日」と呼ぶこともあるが、この場合便宜上すべての先行作業の終了した日を指し、1日足してはならない。
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-17.svg"
-  alt="図3.17 最早開始時刻（EST）の計算例：左から右に加算、合流は最大値"
+  alt="最早開始時刻（EST）の計算例：左から右に加算、合流は最大値"
   width={400}
   height={250}
 />
@@ -130,9 +139,10 @@ faqs:
 
 最終イベントの最早開始時刻をその工事の最遅完了時刻とし、右から左に各作業の所要時間を引き算する。ただし、イベントに複数の作業（矢線）が戻る場合は、引き算の結果が最も小さいものが、そのイベントの先行作業の最遅完了時刻となる（□数字で表わし、各イベントの上に記入する）。
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-18.svg"
-  alt="図3.18 最遅完了時刻（LFT）の計算例：右から左に減算、合流は最小値"
+  alt="最遅完了時刻（LFT）の計算例：右から左に減算、合流は最小値"
   width={400}
   height={250}
 />
@@ -153,20 +163,22 @@ $$
 \text{（ノード4 の最遅完了時刻）} - \text{（ノード3 からノード4 の作業日数）} = \boxed{22} - 6 = 16\text{日となる。}
 $$
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-19.svg"
-  alt="図3.19 4時刻の確認：EST（緑）と LFT（黄）から EFT・LST を導出"
+  alt="4時刻の確認：EST（緑）と LFT（黄）から EFT・LST を導出"
   width={400}
   height={280}
 />
 
 ### クリティカルパス
 
-クリティカルパスは、ネットワーク上の各経路のうち最も日数が長く、各作業に余裕がない経路で、通常太線で表す（図3.20）。この経路の通算作業日数が、**全体工期**となる。
+クリティカルパスは、ネットワーク上の各経路のうち最も日数が長く、各作業に余裕がない経路で、通常太線で表す（次図）。この経路の通算作業日数が、**全体工期**となる。
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-20.svg"
-  alt="図3.20 クリティカルパス：最長経路が全体工期を決定する（赤太線）"
+  alt="クリティカルパス：最長経路が全体工期を決定する（赤太線）"
   width={400}
   height={260}
 />
@@ -207,9 +219,10 @@ $$
 
 #### 3種類のフロートの関係
 
+{/* source: doboku-note 自作 SVG */}
 <ArticleImage
   src="/posts/civil-construction-1/textbook-network-schedule/img/figure-3-21-23.svg"
-  alt="図3.21〜23 3種類のフロートの関係：TF=5日、FF=3日、IF=2日の例"
+  alt="3種類のフロートの関係：TF=5日、FF=3日、IF=2日の例"
   width={400}
   height={340}
 />

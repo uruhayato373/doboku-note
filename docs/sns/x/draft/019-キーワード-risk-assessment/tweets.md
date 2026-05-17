@@ -1,102 +1,90 @@
 # X 用原稿 — リスクアセスメント（5 ツイート構成）
 
 - 投稿頻度: 5 連続日（または週内分散）
-- ハッシュタグ: #技術士 #総合技術監理部門 #技術士総監 #安全管理 #リスクアセスメント
+- ハッシュタグ: #技術士総監 #安全管理
 - UTM: `utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment`
 
 ---
 
-## Tweet 01: 定義編
+## Tweet 01
 
 【総監キーワード解説】リスクアセスメント #1
 
-リスクアセスメントとは、ハザード（危険源）を特定し、そのリスクを推定・評価する体系的なプロセス。
+ハザード（危険源）を特定し、リスクを推定・評価する体系的プロセス。リスク低減措置の優先順位を決める根拠となる。
 
-リスク低減措置の優先順位を決定するための根拠となる。
+労働安全衛生法で努力義務、化学物質RAは2023年改正で義務化。
 
-労働安全衛生法で努力義務、化学物質リスクアセスメントは2023年改正で義務化。
+→ https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
 
-詳しい解説 → https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
-
-#技術士 #総合技術監理部門 #安全管理 #リスクアセスメント
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 02: 4ステップ編
+## Tweet 02
 
 【総監キーワード解説】リスクアセスメント #2
 
 実施4ステップ:
+①特定：危険源の洗い出し
+②推定：発生確率×重篤度
+③評価：許容水準との比較
+④低減：除去→代替→工学的→管理的→PPEの順
 
-① ハザード特定：危険源・危険な状況の洗い出し
-② リスク推定：発生確率 × 重篤度
-③ リスク評価：許容水準との比較（対策要否判断）
-④ リスク低減：除去→代替→工学的対策→管理的対策→PPE の優先順位
+①〜④をPDCAで繰り返す。
 
-①〜④ をPDCAで繰り返す。
+→ https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
 
-解説 → https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
-
-#技術士 #総合技術監理部門 #安全管理 #リスクアセスメント
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 03: リスクマトリクス編
+## Tweet 03
 
 【総監キーワード解説】リスクアセスメント #3
 
-リスク = 発生確率 × 重篤度（影響度）
+リスク＝確率×重篤度。マトリクスで優先順位を可視化。
 
-リスクマトリクスで優先順位を可視化する。
+高確率×重大→最高リスク（即対策）
+低確率×軽微→許容リスク（定期再評価OK）
 
-高確率×重大 → 最高リスク（即対策必須）
-低確率×軽微 → 許容リスク（定期再評価でOK）
+許容可能リスクの水準を組織として事前定義することが重要。
 
-「許容可能リスク」の水準を組織として事前に定義しておくことが重要。
+→ https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
 
-解説 → https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
-
-#技術士 #総合技術監理部門 #安全管理 #リスクアセスメント
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 04: 引っかけポイント編
+## Tweet 04
 
 【総監キーワード解説】リスクアセスメント #4
 
-試験で狙われる3つのポイント
+試験で狙われる3点:
 
-1. ハザード ≠ リスク
-   ハザード：危険源そのもの / リスク：ハザードによる損失の可能性
+1. ハザード≠リスク（危険源 vs 損失可能性）
+2. 低減順序：除去・代替→PPE（PPEは最後の手段）
+3. RA後も残留リスクは残る→再評価継続が義務
 
-2. リスク低減の優先順位は「除去・代替」から「PPE」の順
-   PPEは最後の手段
+→ https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
 
-3. RA実施後も「残留リスク」は残る
-   → 再評価の継続が義務
-
-解説 → https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
-
-#技術士 #総合技術監理部門 #安全管理 #リスクアセスメント
+#技術士総監 #安全管理
 
 ---
 
-## Tweet 05: まとめ + CTA
+## Tweet 05
 
-【総監キーワード解説】リスクアセスメント #5（最終回）
+【総監キーワード解説】リスクアセスメント #5
 
-まとめ
+✓ 4ステップ：特定→推定→評価→低減
+✓ リスク＝確率×重篤度
+✓ 低減順序：除去・代替→PPE
+✓ ハザード≠リスク（混同注意）
+✓ 残留リスクの再評価でPDCA継続
 
-✓ ハザード特定→推定→評価→対策の4ステップ
-✓ リスク = 発生確率 × 重篤度
-✓ 低減措置は「除去・代替」から「PPE」の順
-✓ ハザード ≠ リスク（混同注意）
-✓ 残留リスクの定期再評価でPDCAを回す
+ISO 45001の中核概念。
 
-労働安全衛生法・ISO 45001の中核概念。
+→ https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
 
-全解説 → https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=keyword-risk-assessment
-
-#技術士 #総合技術監理部門 #安全管理 #リスクアセスメント
+#技術士総監 #安全管理
 
 ---

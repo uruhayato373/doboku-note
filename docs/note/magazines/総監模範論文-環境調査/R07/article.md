@@ -46,6 +46,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE
 | 立場 | 部長（業務全体を統括管理） |
 | 前提条件 | 都市部への人材流出が継続、新卒採用困難、ベテラン技術者の暗黙知に依存、IT 投資余力が限定的 |
 
+![図: 環境調査典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 環境調査ペルソナの他の組織パターンへの置き換えは [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r07) を参照してください。
 
 ## 設問（１）事業や組織の内容と少子高齢化への対応状況

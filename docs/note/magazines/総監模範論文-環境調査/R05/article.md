@@ -46,6 +46,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE
 | 立場 | 部長（業務全体を統括管理） |
 | 前提条件 | 不安定な時代の中で組織の持続的発展戦略が必要、コロナ後の働き方改革・脱炭素・DX 需要への対応が急務 |
 
+![図: 環境調査典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 環境調査ペルソナの他の組織パターンへの置き換えは [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r05) を参照してください。
 
 ## 設問（１）組織の概要

@@ -9,17 +9,15 @@
 
 ## Tweet 01: 定義編
 
-【総監キーワード解説】マズローの欲求 5 段階説 #1
+【総監キーワード解説】マズロー欲求 5 段階説 #1
 
-マズローの欲求 5 段階説とは、心理学者アブラハム・マズローが 1943 年に発表した動機づけ理論。
+1943 年にマズローが発表した動機づけ理論。人間の欲求を 5 階層に分類し、低次欲求が満たされると高次欲求が動機源になると説明する。
 
-人間の欲求を 5 つの階層に分類し、低次の欲求が満たされると高次の欲求が動機づけの源泉になると説明する。
-
-総監キーワード集 3.1 人の行動と組織の中核。
+総監「人的資源管理」の中核キーワード。
 
 → https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs?utm_source=x&utm_medium=organic&utm_campaign=keyword-maslow-hierarchy-of-needs
 
-#技術士 #総合技術監理部門 #人的資源管理 #マズロー
+#技術士総監 #人的資源管理
 
 ---
 
@@ -27,19 +25,18 @@
 
 【総監キーワード解説】マズロー #2
 
-5 段階のピラミッド（低次から高次へ）
-
+5 段階（低次→高次）
 1. 生理的欲求 — 食事・睡眠
-2. 安全欲求 — 雇用安定・労働安全
+2. 安全欲求 — 雇用安定
 3. 社会的欲求 — 集団への所属
-4. 承認（尊厳）欲求 — 認められたい
-5. 自己実現欲求 — 可能性を最大限発揮
+4. 承認欲求 — 認められたい
+5. 自己実現欲求 — 可能性を発揮
 
 順序の入れ替えは頻出引っかけ！
 
 → https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs?utm_source=x&utm_medium=organic&utm_campaign=keyword-maslow-hierarchy-of-needs
 
-#技術士 #総合技術監理部門 #人的資源管理 #マズロー
+#技術士総監 #人的資源管理
 
 ---
 
@@ -47,19 +44,15 @@
 
 【総監キーワード解説】マズロー #3
 
-欲求の 2 つの性質
+2 つの性質
+欠乏欲求（1〜4 段階）: 不足で不満、充足で動機低下
+成長欲求（5 段階）: 充足後もさらに追求
 
-▼ 欠乏欲求（第 1〜4 段階）
-不足すると不満が生じる。充足すると動機づけが弱まる
-
-▼ 成長欲求（第 5 段階のみ）
-満たされてもさらに追求し続ける
-
-晩年のマズローは自己実現の上位に「自己超越欲求」（他者・社会への貢献）を加え 6 段階説も提唱。
+晩年は「自己超越欲求」を追加し 6 段階説も提唱。
 
 → https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs?utm_source=x&utm_medium=organic&utm_campaign=keyword-maslow-hierarchy-of-needs
 
-#技術士 #総合技術監理部門 #人的資源管理 #マズロー
+#技術士総監 #人的資源管理
 
 ---
 
@@ -67,17 +60,16 @@
 
 【総監キーワード解説】マズロー #4
 
-試験で狙われる引っかけ 3 つ
+引っかけ 3 つ
+1. 順序逆転 — 承認と社会的の入れ替え多い
+2. ハーズバーグ混同 — マズロー=5 段階、ハーズバーグ=2 要因
+3. XY 理論混同 — XY は人間観の 2 分類
 
-1. 段階の順序を逆 — 承認と社会的を入れ替える誤りが多い
-2. ハーズバーグ二要因理論との混同 — マズローは 5 段階、ハーズバーグは動機づけ vs 衛生の 2 要因
-3. マクレガー XY 理論との混同 — マクレガーは人間観の 2 分類（X 性悪・Y 性善）
-
-人的資源管理の動機づけ理論はセットで整理！
+動機づけ理論はセット整理！
 
 → https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs?utm_source=x&utm_medium=organic&utm_campaign=keyword-maslow-hierarchy-of-needs
 
-#技術士 #総合技術監理部門 #人的資源管理 #マズロー #ハーズバーグ
+#技術士総監 #人的資源管理
 
 ---
 
@@ -85,17 +77,12 @@
 
 【総監キーワード解説】マズロー #5（最終回）
 
-実務への適用ポイント
-
-「部下が現在どの段階の欲求が主要な関心事か」を見極める。
-
-▼ 雇用不安（安全欲求）を抱える部下に自己実現的課題 → 効果薄
-▼ 安全・社会的欲求が充足された部下 → 承認・成長機会の提供が効果的
-
-ハーズバーグ理論との組合せで施策立案。doboku-note で全解説。
+実務適用: 部下の主要欲求段階を見極める。
+雇用不安（安全欲求）を抱える部下に自己実現課題 → 効果薄。
+安全・社会欲求が充足された部下 → 承認・成長機会の提供が有効。
 
 → https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs?utm_source=x&utm_medium=organic&utm_campaign=keyword-maslow-hierarchy-of-needs
 
-#技術士 #総合技術監理部門 #人的資源管理 #マズロー
+#技術士総監 #人的資源管理
 
 ---

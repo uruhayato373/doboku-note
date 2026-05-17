@@ -35,7 +35,7 @@ const POSTS_DIR = path.join(ROOT, '.local/r2/posts/pe-comprehensive-management')
 
 const CALLOUT_TITLE = '本問のテーマ別解説';
 const CALLOUT_TITLE_SECONDARY = '本年度の設問が該当するテーマ別解説';
-const MARKER = '<!-- theme-backlinks:auto -->';
+const MARKER = '{/* theme-backlinks:auto */}';
 
 function parseArgs(argv) {
   const args = { dryRun: false, apply: false, year: null, section: null, force: false };

@@ -58,7 +58,7 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜河川コンサル',
     shortDescription:
       'R03〜R07 の 5 年分セット。河川・砂防部門 部長視点で 3,000 字フル論文。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
+    imageUrl: '/images/magazines/essay-river-consultant-cover.webp',
     price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
     badge: 'note 限定',
   },
@@ -73,7 +73,7 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜ゼネコン',
     shortDescription:
       'R03〜R07 の 5 年分セット。ゼネコン土木部門視点、安全 × 経済性 × 人的資源 が主軸。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
+    imageUrl: '/images/magazines/essay-general-contractor-cover.webp',
     price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
     badge: 'note 限定',
   },
@@ -88,7 +88,7 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜環境調査',
     shortDescription:
       'R03〜R07 の 5 年分セット。環境影響評価コンサル視点、社会環境 × 情報 × 経済性 が主軸。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
+    imageUrl: '/images/magazines/essay-environment-survey-cover.webp',
     price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
     badge: 'note 限定',
   },
@@ -103,9 +103,70 @@ const MAGAZINES_RAW = {
     shortTitle: '模範論文｜道路発注者',
     shortDescription:
       'R05〜R07 の 3 年分セット。地方自治体道路管理者視点、発注者立場の論文構成。',
-    imageUrl: '/images/magazines/tankan-magazine-cover.webp',
-    price: '¥1,480（単品 3本 ¥1,500 → 1%OFF）',
+    imageUrl: '/images/magazines/essay-road-municipality-cover.webp',
+    price: '¥1,200（単品 3本 ¥1,500 → 20%OFF）',
     badge: 'note 限定',
+  },
+
+  // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成) -----
+  'data-driven-strategy': {
+    id: 'data-driven-strategy',
+    published: false,
+    noteUrl: '',
+    title: 'データで読み解く 総監記述式 戦略書｜頻出 Top 20 KW + χ² 検定',
+    description:
+      '18 論文 × 637 KW の機械分析と R01-R07 × 280 問の χ²=1.107 検定で「どこに何時間かけるべきか」を定量化したエントリーマガジン。約 12,000 字。',
+    shortTitle: 'データ駆動 戦略書',
+    shortDescription:
+      '18 論文 × 637 KW 機械分析 + χ²=1.107 で勉強時間を定量化。',
+    imageUrl: '/images/magazines/magazine-data-driven-strategy-cover.webp',
+    price: '¥1,480',
+    badge: 'note 限定',
+  },
+
+  'whitepaper-r7-strategy': {
+    id: 'whitepaper-r7-strategy',
+    published: false,
+    noteUrl: '',
+    title: '国土交通白書 R7 完全対応集｜7 大テーマ × 5 管理トレードオフ',
+    description:
+      '白書 R7 の 7 大テーマと 5 管理ペアを完全可視化。R08 再出題確率スコア + 過去問適用パスポート + ワークシート 70 問付き。約 33,000 字。',
+    shortTitle: '白書 R7 完全対応集',
+    shortDescription:
+      '7 大テーマ × R08 再出題確率 + ワークシート 70 問。',
+    imageUrl: '/images/magazines/magazine-whitepaper-r7-strategy-cover.webp',
+    price: '¥2,480',
+    badge: 'note 限定',
+  },
+
+  'r8-essay-forecast': {
+    id: 'r8-essay-forecast',
+    published: false,
+    noteUrl: '',
+    title: '令和 8 年度 総監記述式 R8 予想問題集｜3 大テーマ × 三層構造',
+    description:
+      'R8 予想 3 大テーマ（資源循環 8.5/10・気候変動適応 8.0/10・少子高齢化 7.5/10）を 4 ペルソナ別にアレンジ。三層構造テンプレ + 5 大トレードオフ早見表。約 15,000 字。',
+    shortTitle: 'R8 予想問題集',
+    shortDescription:
+      'R8 予想 3 大テーマ + 三層構造 + 4 ペルソナ別アレンジ。',
+    imageUrl: '/images/magazines/magazine-r8-essay-forecast-cover.webp',
+    price: '¥2,480',
+    badge: 'note 限定',
+  },
+
+  'essay-template-3d': {
+    id: 'essay-template-3d',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 解答テンプレ集｜3D マトリクス 400 セル',
+    description:
+      'テーマ 20 × 5 管理 × 4 ペルソナ = 400 セルの 3D マトリクス。30 分骨子組立フロー + トレードオフ 16 ペア + 三層構造テンプレ。プレミアム約 51,000 字。',
+    shortTitle: '解答テンプレ 3D',
+    shortDescription:
+      '400 セル 3D マトリクス + 30 分骨子フロー + 16 トレードオフ。',
+    imageUrl: '/images/magazines/magazine-essay-template-3d-cover.webp',
+    price: '¥2,980',
+    badge: 'note 限定 プレミアム',
   },
 } as const satisfies Record<string, NoteMagazine>;
 

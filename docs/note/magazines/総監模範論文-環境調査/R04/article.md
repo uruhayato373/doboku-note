@@ -46,6 +46,8 @@ https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE
 | 立場 | 部長（業務全体を統括管理）、本論文では DX 推進タスクフォースのリーダーを兼務 |
 | 前提条件 | デジタル技術の部分導入は進んでいるが業務プロセス変革には未到達、来年度から 5 か年の DX 推進計画を策定するタスクフォースが立ち上がる |
 
+![図: 環境調査典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
+
 環境調査ペルソナの他の組織パターンへの置き換えは [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) を参照してください。
 
 ## 設問（１）事業や組織の内容とデジタル技術の利用の変遷
@@ -160,7 +162,7 @@ R4 環境調査事務所版は「デジタル技術の利用 vs DX」の境界�
 ## doboku-note の関連ガイド
 
 - [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 共通ペルソナと R3〜R7 の年度別模範論文の起点
-- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 必須科目の問題文全文とガチンコ技術士学園の建設環境版模範論文例
+- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 段階的実施・KPI 連動・ISMS などのフレーム集
 
 ---

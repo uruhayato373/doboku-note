@@ -1,0 +1,123 @@
+{
+  "meta": {
+    "startDate": "2026-05-03",
+    "endDate": "2026-05-16",
+    "minUsers": 3,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 3283,
+    "jpUsers": 567,
+    "foreignUsers": 2717
+  },
+  "rows": [
+    {
+      "source": "(direct)",
+      "totalUsers": 1682,
+      "jpUsers": 101,
+      "foreignUsers": 1582,
+      "foreignRatio": 0.9405469678953626,
+      "engagementRate": 0.2915730337078652,
+      "flagged": true
+    },
+    {
+      "source": "bing",
+      "totalUsers": 1300,
+      "jpUsers": 252,
+      "foreignUsers": 1048,
+      "foreignRatio": 0.8061538461538461,
+      "engagementRate": 0.20743639921722112,
+      "flagged": true
+    },
+    {
+      "source": "google",
+      "totalUsers": 160,
+      "jpUsers": 77,
+      "foreignUsers": 83,
+      "foreignRatio": 0.51875,
+      "engagementRate": 0.4981949458483754,
+      "flagged": false
+    },
+    {
+      "source": "openai",
+      "totalUsers": 46,
+      "jpUsers": 45,
+      "foreignUsers": 1,
+      "foreignRatio": 0.021739130434782608,
+      "engagementRate": 0.711864406779661,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 25,
+      "jpUsers": 25,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6808510638297872,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 24,
+      "jpUsers": 23,
+      "foreignUsers": 1,
+      "foreignRatio": 0.041666666666666664,
+      "engagementRate": 0.75,
+      "flagged": false
+    },
+    {
+      "source": "chatgpt.com",
+      "totalUsers": 9,
+      "jpUsers": 9,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5454545454545454,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 7,
+      "jpUsers": 7,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.36363636363636365,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 6,
+      "jpUsers": 6,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6451612903225806,
+      "flagged": false
+    },
+    {
+      "source": "(not set)",
+      "totalUsers": 5,
+      "jpUsers": 5,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "youtube",
+      "totalUsers": 4,
+      "jpUsers": 4,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "github.com",
+      "totalUsers": 3,
+      "jpUsers": 3,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5714285714285714,
+      "flagged": false
+    }
+  ]
+}
