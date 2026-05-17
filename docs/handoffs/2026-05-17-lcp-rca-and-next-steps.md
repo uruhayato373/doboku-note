@@ -80,6 +80,22 @@ WebP 未配信なら `generate-webp` 再実行。
 - [dynamic-server-component](../../../.claude/projects/-Users-minamidaisuke-doboku-note/memory/feedback_dynamic_server_component.md) — RSC を dynamic ラップ NG（+62% LCP 悪化実績）
 
 ## 次セッションでの実行手順
-1. AdSense lazyOnload 切替 PR 作成（環境変数フラグ付き）
-2. `images.unoptimized: false` 化の Cloudflare Pages 互換性確認
+1. ~~AdSense lazyOnload 切替 PR 作成（環境変数フラグ付き）~~ **完了** (commit cc0b49691、2026-05-17)
+2. `images.unoptimized: false` 化の Cloudflare Pages 互換性確認 → **実装不可と確定** (Static Export + next-on-pages 未使用のため Next.js Image Optimization API が動作不可)
 3. デプロイ後 PSI 計測（lab で即効果確認、field は 2-4 週後）
+
+## 2026-05-17 R2 WebP 配信検証結果（P4-D）
+
+`npm run generate-webp` 実行: **0 件変換 / 1246 件既存** = WebP は最新。
+
+サンプル curl 検証:
+- `secondary-r06/img/i-5-compaction-curve.webp`: **HTTP 200** OK
+- `secondary-r07/img/i-5-compaction-curve.webp`: **HTTP 404** ← R2 同期未完了
+
+→ 一部の新しい記事画像が R2 にまだアップされていない。これは `main` ブランチへ push 時に GitHub Actions が自動同期するため、次回 `/deploy` で解消される見込み。
+
+## 残された改善カード
+
+1. **MDX 記事先頭画像に `priority` 付与** — `ArticleImage` コンポーネントは既に `priority` prop サポート（`src/components/ui/ArticleImage/ArticleImage.tsx:64`）。docs ページの最上位画像に渡せば LCP 候補画像の優先デコード可能。工数 1-2h、ROI 中。
+2. **CrUX field LCP 再計測** — AdSense lazyOnload (2026-05-17) の効果は 2026-06-14 頃に CrUX 反映予定。`npm run fetch-psi-audit` で確認。
+3. **PSI lab 計測の URL 拡張** — `psi-batch-2026-05-17T03-33-31` で site root LCP=8353ms。docs/four-management が LCP=9652ms と最悪値、要原因分析（FCP=4878ms = HTML payload 大）。

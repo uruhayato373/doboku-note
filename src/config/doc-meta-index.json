@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T03:52:02.028Z",
+  "generated_at": "2026-05-17T04:04:07.851Z",
   "summary": {
-    "total": 823,
-    "published": 797,
+    "total": 824,
+    "published": 798,
     "unpublished": 26,
     "by_category": {
       "civil-construction-1": 83,
-      "pe-comprehensive-management": 714
+      "pe-comprehensive-management": 715
     }
   },
   "docs": {
@@ -23,7 +23,8 @@
         "exam-preparation"
       ],
       "published": true,
-      "seoTitle": "コンクリートの重要ポイント — 1級土木施工管理技士試験対策 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "コンクリートの重要ポイント｜骨材・打込み・養生・ひび割れ対策【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
       "revisionCycle": 1,
@@ -64,7 +65,8 @@
         "exam-preparation"
       ],
       "published": true,
-      "seoTitle": "コンクリート構造物の維持管理の要点 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "コンクリート構造物の維持管理｜中性化・塩害・ASR・非破壊検査・補修補強【1級土木施工管理技士】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
@@ -105,7 +107,8 @@
         "exam-preparation"
       ],
       "published": true,
-      "seoTitle": "土工の重要ポイント — 1級土木施工管理技士試験対策 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "土工の重要ポイント｜土質試験・盛土・軟弱地盤・のり面【1級土木施工管理技士】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
@@ -146,7 +149,8 @@
         "exam-preparation"
       ],
       "published": true,
-      "seoTitle": "施工管理4大管理まとめ — 1級土木施工管理技士試験対策 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "施工管理 4 大管理まとめ｜工程・品質・安全・環境＋施工計画【1級土木施工管理技士】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
@@ -222,6 +226,7 @@
         "exam-preparation"
       ],
       "published": true,
+      "publishedAt": "2026-04-15",
       "seoTitle": "法規の重要ポイント｜9法の頻出論点・選択戦略【1級土木施工管理技士 第1次検定】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
@@ -265,7 +270,7 @@
       ],
       "published": true,
       "publishedAt": "2026-04-26",
-      "seoTitle": "品質管理の重要ポイント — 1級土木施工管理技士試験対策 | doboku-note",
+      "seoTitle": "品質管理の重要ポイント｜ヒストグラム・X-R 管理図・盛土締固め・コンクリート品質【1級土木施工管理技士】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
       "revisionCycle": 1,
@@ -308,7 +313,7 @@
       ],
       "published": true,
       "publishedAt": "2026-04-26",
-      "seoTitle": "工程管理の重要ポイント — 1級土木施工管理技士試験対策 | doboku-note",
+      "seoTitle": "工程管理の重要ポイント｜ネットワーク式工程表・クリティカルパス・バーチャート【1級土木施工管理技士】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
       "revisionCycle": 1,
@@ -349,6 +354,7 @@
         "exam-preparation"
       ],
       "published": true,
+      "publishedAt": "2026-04-15",
       "seoTitle": "1級土木施工管理技士 第1次検定 出題傾向と合格戦略【2026年度版】",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
@@ -391,6 +397,7 @@
         "exam-preparation"
       ],
       "published": true,
+      "publishedAt": "2026-05-17",
       "seoTitle": "1級土木施工管理技士 全キーワード索引 2026｜教科書34章を法規・建設機械・施工計画・品質ほかカテゴリ別に網羅",
       "created": "2026-05-17",
       "dateModified": "2026-05-17",
@@ -862,7 +869,8 @@
         "concrete"
       ],
       "published": true,
-      "seoTitle": "コンクリート工 基礎解説 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "コンクリート工 基礎解説｜材料・配合・施工・鉄筋・品質管理【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -879,7 +887,8 @@
         "concrete"
       ],
       "published": true,
-      "seoTitle": "コンクリート工 出題傾向と過去の問題 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "コンクリート工 過去問｜R02〜H23 出題傾向と解答例（耐久性・ひび割れ・寒中暑中）【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -896,7 +905,8 @@
         "construction-plan"
       ],
       "published": true,
-      "seoTitle": "施工計画 基礎解説 - 1級土木 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "施工計画 基礎解説｜事前調査・技術計画・仮設・調達・管理【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -913,7 +923,8 @@
         "construction-plan"
       ],
       "published": true,
-      "seoTitle": "施工計画 出題傾向と過去の問題 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "施工計画 過去問｜R02〜H23 出題傾向と解答例（ボックスカルバート・プレキャスト擁壁）【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -930,7 +941,8 @@
         "earthwork"
       ],
       "published": true,
-      "seoTitle": "土工 基礎解説 - 1級土木 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "土工 基礎解説｜盛土・のり面・軟弱地盤・建設機械・土留め【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -947,7 +959,8 @@
         "earthwork"
       ],
       "published": true,
-      "seoTitle": "土工 出題傾向と過去の問題 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "土工 過去問｜R02〜H23 出題傾向と解答例（締固め・軟弱地盤・土留め）【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -964,7 +977,8 @@
         "experience-writing"
       ],
       "published": true,
-      "seoTitle": "施工経験記述 改善例 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "施工経験記述 改善例｜品質・安全・工程・環境のテーマ別 失敗例と改善ポイント【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -981,7 +995,8 @@
         "experience-writing"
       ],
       "published": true,
-      "seoTitle": "施工経験記述 出題傾向と対策 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "施工経験記述 出題傾向と書き方｜品質・安全・工程の記述対策【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -998,7 +1013,8 @@
         "quality-management"
       ],
       "published": true,
-      "seoTitle": "品質管理 基礎解説 - 1級土木 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "品質管理 基礎解説｜締固め・レディーミクスト・養生・非破壊検査【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -1015,7 +1031,8 @@
         "quality-management"
       ],
       "published": true,
-      "seoTitle": "品質管理 出題傾向と過去の問題 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "品質管理 過去問｜R02〜H23 出題傾向と解答例（ひび割れ防止・盛土・レディーミクスト）【1級土木 第 2 次検定】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16"
     },
@@ -1032,7 +1049,8 @@
         "past-questions"
       ],
       "published": true,
-      "seoTitle": "令和3年度 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "令和 3 年度 第 2 次検定 解答例｜経験記述・コンクリート工・土工・品質管理・施工計画【1級土木施工管理技士 過去問】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1067,7 +1085,8 @@
         "past-questions"
       ],
       "published": true,
-      "seoTitle": "令和4年度 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "令和 4 年度 第 2 次検定 解答例｜経験記述・コンクリート工・土工・品質管理・施工計画【1級土木施工管理技士 過去問】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1102,7 +1121,8 @@
         "past-questions"
       ],
       "published": true,
-      "seoTitle": "令和5年度 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "令和 5 年度 第 2 次検定 解答例｜経験記述・コンクリート工・土工・品質管理・施工計画【1級土木施工管理技士 過去問】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1137,7 +1157,8 @@
         "past-questions"
       ],
       "published": true,
-      "seoTitle": "令和6年度 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "令和 6 年度 第 2 次検定 解答例｜経験記述・コンクリート工・土工・品質管理・施工計画【1級土木施工管理技士 過去問】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1172,7 +1193,8 @@
         "past-questions"
       ],
       "published": true,
-      "seoTitle": "令和7年度 第2次検定 | doboku-note",
+      "publishedAt": "2026-04-15",
+      "seoTitle": "令和 7 年度 第 2 次検定 解答例｜経験記述・コンクリート工・土工・品質管理・施工計画【1級土木施工管理技士 過去問】",
       "created": "2026-04-15",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1207,6 +1229,7 @@
       ],
       "textbook_order": 430,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "建築基準法とは｜仮設建築物の規制緩和と建築確認【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1249,6 +1272,7 @@
       ],
       "textbook_order": 410,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "建設業法とは｜許可制度・技術者配置・一括下請負禁止【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1291,6 +1315,7 @@
       ],
       "textbook_order": 201,
       "published": true,
+      "publishedAt": "2026-04-15",
       "seoTitle": "施工管理とは｜三大管理（品質・原価・工程）とPDCA・5Mの関係【1級土木施工管理技士】",
       "created": "2026-04-15",
       "dateModified": "2026-05-17",
@@ -1333,6 +1358,7 @@
       ],
       "textbook_order": 205,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "施工計画と計画書｜事前調査・計画書の構成・代案比較【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1375,6 +1401,7 @@
       ],
       "textbook_order": 310,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "管理図とは｜シューハート管理図と管理限界線UCL/LCL【1級土木施工管理技士 品質管理】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1417,6 +1444,7 @@
       ],
       "textbook_order": 135,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "クレーン・高所作業車｜種類と定格総荷重・定格荷重の違い【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1456,9 +1484,10 @@
       ],
       "textbook_order": 171,
       "published": true,
+      "publishedAt": "2026-04-15",
       "seoTitle": "解体工事｜建設リサイクル法・解体工法・安全確認【1級土木施工管理技士】",
       "created": "2026-04-15",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "建設リサイクル法の届出が必要な解体工事の床面積の基準は何ですか？",
@@ -1495,9 +1524,10 @@
       ],
       "textbook_order": 155,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "測距と測角｜セオドライト・トータルステーション・GNSSの原理【1級土木施工管理技士】",
       "created": "2026-04-16",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "対回観測で消去できる誤差と消去できない誤差はそれぞれ何ですか？",
@@ -1534,6 +1564,7 @@
       ],
       "textbook_order": 435,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "火薬類取締法とは｜貯蔵・運搬・消費と保安責任者【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
@@ -1576,6 +1607,7 @@
       ],
       "textbook_order": 140,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "モータグレーダ・締固め機械｜各種ローラの種類と選定【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1618,6 +1650,7 @@
       ],
       "textbook_order": 305,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "ヒストグラム・工程能力図｜Cp Cpk の計算と判定基準【1級土木施工管理技士 品質管理】",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
@@ -1657,6 +1690,7 @@
       ],
       "textbook_order": 405,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "労働基準法とは｜労働時間・休憩・解雇予告・災害補償【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1699,12 +1733,13 @@
       ],
       "textbook_order": 401,
       "published": true,
+      "publishedAt": "2026-04-16",
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
       "seoTitle": "建設工事の法令遵守｜法令階層と主要法令の全体像【1級土木施工管理技士】",
       "created": "2026-04-16",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "建設工事において法令を知らなかった場合、法令違反の責任を免れますか？",
@@ -1741,6 +1776,7 @@
       ],
       "textbook_order": 160,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "水準測量・地形測量｜直接水準の手順・許容較差・野帳計算【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1783,6 +1819,7 @@
       ],
       "textbook_order": 125,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "積込機械（ローダ）｜バケット容量・V形積込・組合せ台数【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
@@ -1825,6 +1862,7 @@
       ],
       "textbook_order": 101,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "建設機械の概要｜分類・法規制・最新技術動向の全体像【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1867,6 +1905,7 @@
       ],
       "textbook_order": 105,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "建設機械の構造｜原動機・動力伝達・油圧装置の仕組み【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1909,6 +1948,7 @@
       ],
       "textbook_order": 220,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "各種管理計画｜仮設・原価・品質・安全・環境計画【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1951,6 +1991,7 @@
       ],
       "textbook_order": 260,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "ネットワーク式工程表とは｜EST・LFT・クリティカルパス・フロート【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -1993,6 +2034,7 @@
       ],
       "textbook_order": 440,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "港則法とは｜許可・届出・航路内航法の違い【1級土木施工管理技士 法規】",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
@@ -2032,6 +2074,7 @@
       ],
       "textbook_order": 315,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "品質検査の方式｜全数検査と抜取検査・AQL・OC曲線【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2074,6 +2117,7 @@
       ],
       "textbook_order": 301,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "品質管理の概要｜3段階管理・ISO・品質特性の選定【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
@@ -2116,6 +2160,7 @@
       ],
       "textbook_order": 425,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "河川法とは｜河川区域3分類・保全区域50m・占用許可【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2158,6 +2203,7 @@
       ],
       "textbook_order": 420,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "道路法とは｜道路占用・車両制限令・特殊車両通行許可【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2200,6 +2246,7 @@
       ],
       "textbook_order": 255,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "工程図表｜バーチャート・Sカーブ・バナナ曲線の特徴と使い分け【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2242,6 +2289,7 @@
       ],
       "textbook_order": 251,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "工程管理の概要｜工事費曲線・最適工期・採算速度【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2284,6 +2332,7 @@
       ],
       "textbook_order": 115,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "スクレーパ・スクレープドーザとは｜種類と運搬距離【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2326,6 +2375,7 @@
       ],
       "textbook_order": 120,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "ショベル系掘削機とは｜バックホウ・クラムシェルの分類と運転資格【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2368,6 +2418,7 @@
       ],
       "textbook_order": 210,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "事前調査・基本計画｜標準貫入試験・N値・トラフィカビリティ【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2410,6 +2461,7 @@
       ],
       "textbook_order": 415,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "公共工事標準請負契約約款｜契約不適合責任2年・不可抗力1%超【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
@@ -2452,6 +2504,7 @@
       ],
       "textbook_order": 151,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "測量の基本｜測量法区分・基準点・誤差の取扱い【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
@@ -2494,6 +2547,7 @@
       ],
       "textbook_order": 110,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "トラクタ・ブルドーザ｜種類・けん引力と接地圧の算定【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -2536,9 +2590,10 @@
       ],
       "textbook_order": 130,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "運搬機械とは｜ダンプ・不整地運搬車・ベルトコンベヤの分類と作業能力【1級土木施工管理技士】",
       "created": "2026-04-16",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "ダンプトラックの積載土量はどのように決定しますか？",
@@ -2575,6 +2630,7 @@
       ],
       "textbook_order": 215,
       "published": true,
+      "publishedAt": "2026-04-16",
       "seoTitle": "工程計画｜作業可能日数・施工速度・機械組合せ【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
@@ -6341,6 +6397,7 @@
         "総合技術監理"
       ],
       "published": true,
+      "publishedAt": "2026-05-17",
       "seoTitle": "技術士総監 記述式 過去5年頻出キーワードランキング 2026｜R03-R07 18論文 × 637語の独自分析",
       "created": "2026-05-17",
       "dateModified": "2026-05-17",
@@ -9276,7 +9333,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "JIT生産方式 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:58:06Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-job-analysis": {
       "title": "職務分析",
@@ -9348,7 +9408,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "職務遂行能力 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:58:21.000Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-job-grade-system": {
       "title": "職務等級制度",
@@ -9379,10 +9442,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:59:29Z",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "個別原価計算 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-job-rotation": {
       "title": "ジョブローテーション",
@@ -12103,6 +12169,51 @@
       "seoTitle": "予防保全 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-05-16"
+    },
+    "pe-comprehensive-management-primary-statistics-2026": {
+      "title": "技術士総監 択一式 過去 7 年正答番号分布の統計（独自データ）",
+      "description": "技術士総合技術監理部門 択一式試験 R01-R07 過去 7 年・全 280 問の正答番号（1〜5）分布を集計し、χ² 検定で均等性を検証した独自データ。「正答番号に偏りはあるか」「捨て問でどの番号を選ぶべきか」という受験者の関心に統計的に答える。",
+      "shortTitle": "択一式 正答番号統計",
+      "subtitle": "R01-R07 全 280 問 × χ² 検定で偏りを検証",
+      "category": "pe-comprehensive-management",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-statistics",
+        "keyword-analysis",
+        "総合技術監理"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-17",
+      "seoTitle": "技術士総監 択一式 過去 7 年正答番号分布｜R01-R07 全 280 問の χ² 検定結果",
+      "created": "2026-05-17T00:00:00.000Z",
+      "dateModified": "2026-05-17T00:00:00.000Z",
+      "faqs": [
+        {
+          "q": "正答番号には偏りがありますか？",
+          "a": "全 280 問の χ² = 1.107 で臨界値 9.488 (自由度 4、有意水準 5%) を大きく下回り、統計的に均等と矛盾しない結果でした。「捨て問で特定の番号を選ぶと有利」という都市伝説は本試験では成立しません。"
+        },
+        {
+          "q": "最も多かった番号は何ですか？",
+          "a": "全体では選択肢 3 が最頻（61 問）、最少は選択肢 1（50 問）です。差は 11 問ですが、これは偶然のばらつきの範囲内です。"
+        },
+        {
+          "q": "年度ごとに偏りはありますか？",
+          "a": "全 7 年とも χ² 値が臨界値未満で、各年度内でも統計的な偏りは検出されませんでした。最大の χ² は R06 の 2.75（選択肢 3 が 11 問・選択肢 1/2 が各 6 問）でしたが、これも有意水準には届きません。"
+        },
+        {
+          "q": "「迷ったら何番」という戦略は使えますか？",
+          "a": "統計的には使えません。3 がわずかに多いものの、有意な偏りではなく、年度や設問テーマで再現性が確認できないため、「迷ったら知識で選ぶ」が正解となります。"
+        },
+        {
+          "q": "このデータの活用法は？",
+          "a": "(1) 受験勉強で「番号で当てる」戦略を諦め、知識習得に集中する根拠、(2) 試験対策塾の指導法の検証材料、(3) 出題者側の意図的な均等化が機能している証拠としての示唆、の 3 通りです。"
+        },
+        {
+          "q": "データの更新時期はいつですか？",
+          "a": "各年度の択一式公表後（おおむね当年 10 月）に再分析し、新年度を追加します。次回は R08（2026 年度）試験終了後に更新予定。"
+        }
+      ]
     },
     "pe-comprehensive-management-prior-use-rights": {
       "title": "先使用権制度",
