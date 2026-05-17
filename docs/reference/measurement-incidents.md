@@ -53,6 +53,7 @@
   - `fetch-ga4-data.mjs`（アドホック取得）も既定で `country=Japan` + 参照スパムリスト除外を ON 化。実測値で `(direct)` 1,641 → 101、`bing` 1,293 → 252 と激減（過去 14 日）
   - `--include-all` フラグで bot 込みの生データに切替可能（bot 比率検証時に使用）
   - スパム参照リスト: `(not set)` / `ntp.msn.com` / `statics.teams.cdn.office.net` / `hustler.zenhp.co.jp` / `mobilesecurity.trendmicro.com`（`fetch-ga4-data.mjs` の `SPAM_REFERRAL_SOURCES`）
+  - **bot 比率監査**: `npm run audit-ga4-bot-ratio` で source 別の海外比率を算出し、新規スパム候補を自動 surface（`audit-ga4-bot-ratio.mjs`）。週次サイクルで実行推奨
 
 ### GA4 プロパティ側で行う追加対策（推奨・未実施）
 
