@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T05:08:54.419Z",
+  "generated_at": "2026-05-17T05:11:16.979Z",
   "summary": {
     "total": 824,
     "published": 798,
@@ -4162,7 +4162,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "コンピテンシー ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T09:05:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-concurrent-engineering": {
       "title": "コンカレントエンジニアリング",
@@ -4973,9 +4976,9 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "seoTitle": "デルファイ法 ｜ 技術士 総合技術監理部門 キーワード集",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-23T00:00:00.000Z",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T09:10:00+09:00",
+      "revisionCycle": 2,
       "created": "2026-04-05",
       "dateModified": "2026-05-16"
     },
@@ -5028,9 +5031,9 @@
       "published": true,
       "publishedAt": "2026-04-06",
       "seoTitle": "減価償却 ｜ 技術士 総合技術監理部門 キーワード集",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-23T00:00:00.000Z",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:20:00+09:00",
+      "revisionCycle": 2,
       "created": "2026-04-03",
       "dateModified": "2026-05-16"
     },
@@ -6163,7 +6166,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境影響評価法 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-environmental-standards": {
       "title": "環境基準",
@@ -6179,7 +6182,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境基準 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "lastRewrittenAt": "2026-05-17T14:30:00+09:00",
       "revisionCycle": 1
     },
@@ -8686,7 +8689,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "感染症・パンデミック ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T09:15:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-information-disclosure": {
       "title": "情報開示",
@@ -10436,7 +10442,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "メンタルヘルス ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-mental-health-care": {
       "title": "メンタルヘルスケア",
@@ -11763,7 +11769,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "パーソナル・コミュニケーション ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-personal-info-protection": {
       "title": "個人情報の保護措置",
@@ -11986,7 +11992,7 @@
       "revisionCycle": 3,
       "seoTitle": "PMBOK ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-polluter-pays-principle": {
       "title": "汚染者負担原則",
@@ -13669,8 +13675,8 @@
       "created": "2026-04-05",
       "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-05-17T05:06:38Z",
-      "revisionCycle": 1
+      "lastRewrittenAt": "2026-05-17T10:30:00+09:00",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-risk-management-system": {
       "title": "リスクマネジメントシステム",
@@ -14382,7 +14388,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "自己啓発 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:30:00+09:00",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-seniority-wage": {
       "title": "年功賃金",
@@ -14567,7 +14576,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "スキル標準 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:30:00+09:00",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-sl-theory": {
       "title": "SL理論",
@@ -14721,7 +14733,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "標準作業手順書 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:30:00+09:00",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-sound-water-cycle": {
       "title": "健全な水循環系",
@@ -14745,6 +14760,7 @@
     "pe-comprehensive-management-source-control-principle": {
       "title": "源流対策原則",
       "description": "源流対策原則の定義・エンドオブパイプとの比較・クリーナープロダクションを解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "reviewStatus": "needs-review",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "6.3",
@@ -14755,7 +14771,9 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "源流対策原則 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "lastRewrittenAt": "2026-05-17T10:30:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-specialist-system": {
       "title": "専門職制度",
@@ -14774,11 +14792,12 @@
       "publishedAt": "2026-04-06",
       "seoTitle": "専門職制度 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-specialized-training": {
       "title": "専門別研修",
       "description": "専門別研修（テーマ別研修）の定義・種類・階層別研修との違い・人材育成体系を解説。技術士総合技術監理キーワード集2026（人的資源管理）。5管理トレードオフ・過去問演習リンク付き。",
+      "reviewStatus": "needs-review",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "3.4",
@@ -14789,7 +14808,9 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "専門別研修 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "lastRewrittenAt": "2026-05-17T10:30:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-species-preservation-act": {
       "title": "種の保存法",
@@ -14823,7 +14844,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "社会的責任投資 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:00:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-stakeholder": {
       "title": "ステーク・ホルダー",
@@ -15414,7 +15438,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "制約条件の理論 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-03",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:10:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-therp": {
       "title": "THERP",
@@ -15482,9 +15509,9 @@
         "keyword"
       ],
       "published": true,
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-23",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T09:20:00+09:00",
+      "revisionCycle": 2,
       "publishedAt": "2026-04-09",
       "seoTitle": "三点見積り ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
@@ -15503,7 +15530,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "タイムライン ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:15:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-tnfd": {
       "title": "TNFD提言",
@@ -15518,7 +15548,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "TNFD提言 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:20:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-total-wage-management": {
       "title": "総額賃金管理",
@@ -16029,7 +16062,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "WACC・ROIC ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-03",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:10:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-waste-management-act": {
       "title": "廃棄物処理法",
@@ -16215,7 +16251,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "作業計画 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:15:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-worker-dispatch-act": {
       "title": "労働者派遣法",
