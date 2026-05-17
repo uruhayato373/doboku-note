@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T03:25:33.617Z",
+  "generated_at": "2026-05-17T03:27:43.175Z",
   "summary": {
-    "total_mdx_files": 821,
-    "total_unique_tags": 85,
+    "total_mdx_files": 822,
+    "total_unique_tags": 86,
     "allowlist_size": 123,
     "known_count": 60,
-    "unknown_count": 25,
+    "unknown_count": 26,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1371,7 +1371,7 @@
     },
     {
       "name": "guide",
-      "count": 12,
+      "count": 13,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -1383,6 +1383,7 @@
         "civil-construction-1-guide-quality-management",
         "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
+        "civil-construction-1-keyword-2026",
         "pe-comprehensive-management-essay-exam-strategy",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy"
@@ -1390,7 +1391,7 @@
     },
     {
       "name": "exam-preparation",
-      "count": 10,
+      "count": 11,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -1402,6 +1403,7 @@
         "civil-construction-1-guide-quality-management",
         "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
+        "civil-construction-1-keyword-2026",
         "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
@@ -1903,6 +1905,14 @@
       ]
     },
     {
+      "name": "keyword-index",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-construction-1-keyword-2026"
+      ]
+    },
+    {
       "name": "materials",
       "count": 1,
       "inAllowlist": true,
@@ -2154,6 +2164,7 @@
     "schedule",
     "データ利活用",
     "2026年版",
+    "keyword-index",
     "キーワード集",
     "記述式試験",
     "出願",
