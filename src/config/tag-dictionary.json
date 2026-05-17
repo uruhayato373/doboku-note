@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T03:27:43.175Z",
+  "generated_at": "2026-05-17T03:44:27.497Z",
   "summary": {
-    "total_mdx_files": 822,
-    "total_unique_tags": 86,
+    "total_mdx_files": 823,
+    "total_unique_tags": 88,
     "allowlist_size": 123,
     "known_count": 60,
-    "unknown_count": 26,
+    "unknown_count": 28,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -669,7 +669,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 387,
+      "count": 388,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -788,6 +788,7 @@
         "pe-comprehensive-management-equipment-maintainability",
         "pe-comprehensive-management-equipment-reliability",
         "pe-comprehensive-management-erp",
+        "pe-comprehensive-management-essay-data-2026",
         "pe-comprehensive-management-estimation-testing",
         "pe-comprehensive-management-explicit-knowledge",
         "pe-comprehensive-management-extrinsic-motivation",
@@ -1371,7 +1372,7 @@
     },
     {
       "name": "guide",
-      "count": 13,
+      "count": 14,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-concrete-key-points",
@@ -1384,6 +1385,7 @@
         "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
         "civil-construction-1-keyword-2026",
+        "pe-comprehensive-management-essay-data-2026",
         "pe-comprehensive-management-essay-exam-strategy",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy"
@@ -1865,6 +1867,14 @@
       ]
     },
     {
+      "name": "essay-data",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-data-2026"
+      ]
+    },
+    {
       "name": "floodgate",
       "count": 1,
       "inAllowlist": true,
@@ -1902,6 +1912,14 @@
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-inverted-siphon"
+      ]
+    },
+    {
+      "name": "keyword-analysis",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-data-2026"
       ]
     },
     {
@@ -2164,6 +2182,8 @@
     "schedule",
     "データ利活用",
     "2026年版",
+    "essay-data",
+    "keyword-analysis",
     "keyword-index",
     "キーワード集",
     "記述式試験",

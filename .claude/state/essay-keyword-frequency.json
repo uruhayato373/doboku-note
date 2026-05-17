@@ -1,0 +1,1280 @@
+{
+  "meta": {
+    "generated_at": "2026-05-17T03:43:17.980Z",
+    "essay_count": 18,
+    "keyword_count": 637,
+    "keyword_hit_count": 43
+  },
+  "essays": [
+    {
+      "year": "R03",
+      "persona": "environment-survey",
+      "slug": "pe-comprehensive-management-r03-essay-environment-survey"
+    },
+    {
+      "year": "R03",
+      "persona": "general-contractor",
+      "slug": "pe-comprehensive-management-r03-essay-general-contractor"
+    },
+    {
+      "year": "R03",
+      "persona": "river-consultant",
+      "slug": "pe-comprehensive-management-r03-essay-river-consultant"
+    },
+    {
+      "year": "R04",
+      "persona": "environment-survey",
+      "slug": "pe-comprehensive-management-r04-essay-environment-survey"
+    },
+    {
+      "year": "R04",
+      "persona": "general-contractor",
+      "slug": "pe-comprehensive-management-r04-essay-general-contractor"
+    },
+    {
+      "year": "R04",
+      "persona": "river-consultant",
+      "slug": "pe-comprehensive-management-r04-essay-river-consultant"
+    },
+    {
+      "year": "R05",
+      "persona": "environment-survey",
+      "slug": "pe-comprehensive-management-r05-essay-environment-survey"
+    },
+    {
+      "year": "R05",
+      "persona": "general-contractor",
+      "slug": "pe-comprehensive-management-r05-essay-general-contractor"
+    },
+    {
+      "year": "R05",
+      "persona": "river-consultant",
+      "slug": "pe-comprehensive-management-r05-essay-river-consultant"
+    },
+    {
+      "year": "R05",
+      "persona": "road-municipality",
+      "slug": "pe-comprehensive-management-r05-essay-road-municipality"
+    },
+    {
+      "year": "R06",
+      "persona": "environment-survey",
+      "slug": "pe-comprehensive-management-r06-essay-environment-survey"
+    },
+    {
+      "year": "R06",
+      "persona": "general-contractor",
+      "slug": "pe-comprehensive-management-r06-essay-general-contractor"
+    },
+    {
+      "year": "R06",
+      "persona": "river-consultant",
+      "slug": "pe-comprehensive-management-r06-essay-river-consultant"
+    },
+    {
+      "year": "R06",
+      "persona": "road-municipality",
+      "slug": "pe-comprehensive-management-r06-essay-road-municipality"
+    },
+    {
+      "year": "R07",
+      "persona": "environment-survey",
+      "slug": "pe-comprehensive-management-r07-essay-environment-survey"
+    },
+    {
+      "year": "R07",
+      "persona": "general-contractor",
+      "slug": "pe-comprehensive-management-r07-essay-general-contractor"
+    },
+    {
+      "year": "R07",
+      "persona": "river-consultant",
+      "slug": "pe-comprehensive-management-r07-essay-river-consultant"
+    },
+    {
+      "year": "R07",
+      "persona": "road-municipality",
+      "slug": "pe-comprehensive-management-r07-essay-road-municipality"
+    }
+  ],
+  "global_top": [
+    {
+      "slug": "pe-comprehensive-management-safety-control",
+      "term": "安全管理",
+      "count": 35
+    },
+    {
+      "slug": "pe-comprehensive-management-explicit-knowledge",
+      "term": "形式知",
+      "count": 26
+    },
+    {
+      "slug": "pe-comprehensive-management-tacit-knowledge",
+      "term": "暗黙知",
+      "count": 22
+    },
+    {
+      "slug": "pe-comprehensive-management-information-disclosure",
+      "term": "情報開示",
+      "count": 20
+    },
+    {
+      "slug": "pe-comprehensive-management-initial-investment",
+      "term": "初期投資",
+      "count": 15
+    },
+    {
+      "slug": "pe-comprehensive-management-visual-management",
+      "term": "可視化",
+      "count": 15
+    },
+    {
+      "slug": "pe-comprehensive-management-isms-iso27001",
+      "term": "ISMS",
+      "count": 13
+    },
+    {
+      "slug": "pe-comprehensive-management-cybersecurity-safety",
+      "term": "サイバーセキュリティ",
+      "count": 7
+    },
+    {
+      "slug": "pe-comprehensive-management-green-infrastructure",
+      "term": "グリーンインフラ",
+      "count": 7
+    },
+    {
+      "slug": "pe-comprehensive-management-energy",
+      "term": "エネルギー",
+      "count": 7
+    },
+    {
+      "slug": "pe-comprehensive-management-personal-information",
+      "term": "個人情報",
+      "count": 5
+    },
+    {
+      "slug": "pe-comprehensive-management-utilization-rate",
+      "term": "稼働率",
+      "count": 5
+    },
+    {
+      "slug": "pe-comprehensive-management-iot",
+      "term": "IoT",
+      "count": 4
+    },
+    {
+      "slug": "pe-comprehensive-management-crisis-priority",
+      "term": "優先順位",
+      "count": 4
+    },
+    {
+      "slug": "pe-comprehensive-management-data-collection",
+      "term": "データ収集",
+      "count": 4
+    },
+    {
+      "slug": "pe-comprehensive-management-preventive-maintenance",
+      "term": "予防保全",
+      "count": 4
+    },
+    {
+      "slug": "pe-comprehensive-management-carbon-neutral",
+      "term": "カーボンニュートラル",
+      "count": 4
+    },
+    {
+      "slug": "pe-comprehensive-management-safety-education",
+      "term": "安全教育",
+      "count": 4
+    },
+    {
+      "slug": "pe-comprehensive-management-technology-licensing",
+      "term": "ライセンス",
+      "count": 3
+    },
+    {
+      "slug": "pe-comprehensive-management-multi-factor-authentication",
+      "term": "多要素認証",
+      "count": 3
+    },
+    {
+      "slug": "pe-comprehensive-management-labor-productivity",
+      "term": "労働生産性",
+      "count": 3
+    },
+    {
+      "slug": "pe-comprehensive-management-system-security",
+      "term": "安全性",
+      "count": 3
+    },
+    {
+      "slug": "pe-comprehensive-management-internship",
+      "term": "インターンシップ",
+      "count": 3
+    },
+    {
+      "slug": "pe-comprehensive-management-rpa",
+      "term": "RPA",
+      "count": 3
+    },
+    {
+      "slug": "pe-comprehensive-management-reskilling",
+      "term": "リスキリング",
+      "count": 2
+    },
+    {
+      "slug": "pe-comprehensive-management-api",
+      "term": "API",
+      "count": 2
+    },
+    {
+      "slug": "pe-comprehensive-management-unauthorized-access",
+      "term": "不正アクセス",
+      "count": 2
+    },
+    {
+      "slug": "pe-comprehensive-management-copyright",
+      "term": "著作権",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-evaluation-bias",
+      "term": "バイアス",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-machine-learning",
+      "term": "機械学習",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-quality-assurance",
+      "term": "品質保証",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-progress-management",
+      "term": "進捗管理",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-public-acceptance",
+      "term": "社会的受容",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-confidentiality",
+      "term": "機密性",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-system-reliability",
+      "term": "信頼性",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-mentor",
+      "term": "メンター制度",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-hazard",
+      "term": "ハザード",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-partnership",
+      "term": "パートナーシップ",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-internet",
+      "term": "インターネット",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-natural-parks-act",
+      "term": "自然公園法",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-climate-change-adaptation-act",
+      "term": "気候変動適応法",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-organizational-commitment",
+      "term": "組織コミットメント",
+      "count": 1
+    },
+    {
+      "slug": "pe-comprehensive-management-quality-control",
+      "term": "品質管理",
+      "count": 1
+    }
+  ],
+  "by_year": {
+    "R03": [
+      {
+        "slug": "pe-comprehensive-management-personal-information",
+        "term": "個人情報",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-isms-iso27001",
+        "term": "ISMS",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-iot",
+        "term": "IoT",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-cybersecurity-safety",
+        "term": "サイバーセキュリティ",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-reskilling",
+        "term": "リスキリング",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-copyright",
+        "term": "著作権",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-evaluation-bias",
+        "term": "バイアス",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-machine-learning",
+        "term": "機械学習",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-quality-assurance",
+        "term": "品質保証",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-technology-licensing",
+        "term": "ライセンス",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-progress-management",
+        "term": "進捗管理",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-public-acceptance",
+        "term": "社会的受容",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-api",
+        "term": "API",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-confidentiality",
+        "term": "機密性",
+        "count": 1
+      }
+    ],
+    "R04": [
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 8
+      },
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-isms-iso27001",
+        "term": "ISMS",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-crisis-priority",
+        "term": "優先順位",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-multi-factor-authentication",
+        "term": "多要素認証",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-labor-productivity",
+        "term": "労働生産性",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-unauthorized-access",
+        "term": "不正アクセス",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-cybersecurity-safety",
+        "term": "サイバーセキュリティ",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-system-reliability",
+        "term": "信頼性",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-utilization-rate",
+        "term": "稼働率",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-api",
+        "term": "API",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-data-collection",
+        "term": "データ収集",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 1
+      }
+    ],
+    "R05": [
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 8
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-utilization-rate",
+        "term": "稼働率",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-preventive-maintenance",
+        "term": "予防保全",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-isms-iso27001",
+        "term": "ISMS",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-cybersecurity-safety",
+        "term": "サイバーセキュリティ",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-technology-licensing",
+        "term": "ライセンス",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-data-collection",
+        "term": "データ収集",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-mentor",
+        "term": "メンター制度",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-system-security",
+        "term": "安全性",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-green-infrastructure",
+        "term": "グリーンインフラ",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-hazard",
+        "term": "ハザード",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-partnership",
+        "term": "パートナーシップ",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-crisis-priority",
+        "term": "優先順位",
+        "count": 1
+      }
+    ],
+    "R06": [
+      {
+        "slug": "pe-comprehensive-management-energy",
+        "term": "エネルギー",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-green-infrastructure",
+        "term": "グリーンインフラ",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-carbon-neutral",
+        "term": "カーボンニュートラル",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-data-collection",
+        "term": "データ収集",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-internet",
+        "term": "インターネット",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-natural-parks-act",
+        "term": "自然公園法",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-climate-change-adaptation-act",
+        "term": "気候変動適応法",
+        "count": 1
+      }
+    ],
+    "R07": [
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 11
+      },
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 9
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-education",
+        "term": "安全教育",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-internship",
+        "term": "インターンシップ",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-rpa",
+        "term": "RPA",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-system-security",
+        "term": "安全性",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-organizational-commitment",
+        "term": "組織コミットメント",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-quality-control",
+        "term": "品質管理",
+        "count": 1
+      }
+    ]
+  },
+  "by_persona": {
+    "environment-survey": [
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 14
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 13
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-isms-iso27001",
+        "term": "ISMS",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-utilization-rate",
+        "term": "稼働率",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-energy",
+        "term": "エネルギー",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-internship",
+        "term": "インターンシップ",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-personal-information",
+        "term": "個人情報",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-technology-licensing",
+        "term": "ライセンス",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-multi-factor-authentication",
+        "term": "多要素認証",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-rpa",
+        "term": "RPA",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-copyright",
+        "term": "著作権",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-evaluation-bias",
+        "term": "バイアス",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-machine-learning",
+        "term": "機械学習",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-quality-assurance",
+        "term": "品質保証",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-crisis-priority",
+        "term": "優先順位",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-unauthorized-access",
+        "term": "不正アクセス",
+        "count": 1
+      }
+    ],
+    "general-contractor": [
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 23
+      },
+      {
+        "slug": "pe-comprehensive-management-cybersecurity-safety",
+        "term": "サイバーセキュリティ",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-iot",
+        "term": "IoT",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-education",
+        "term": "安全教育",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-labor-productivity",
+        "term": "労働生産性",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-reskilling",
+        "term": "リスキリング",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-isms-iso27001",
+        "term": "ISMS",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-progress-management",
+        "term": "進捗管理",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-public-acceptance",
+        "term": "社会的受容",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-crisis-priority",
+        "term": "優先順位",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-system-reliability",
+        "term": "信頼性",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-utilization-rate",
+        "term": "稼働率",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-mentor",
+        "term": "メンター制度",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-system-security",
+        "term": "安全性",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-carbon-neutral",
+        "term": "カーボンニュートラル",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 1
+      }
+    ],
+    "river-consultant": [
+      {
+        "slug": "pe-comprehensive-management-green-infrastructure",
+        "term": "グリーンインフラ",
+        "count": 7
+      },
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 6
+      },
+      {
+        "slug": "pe-comprehensive-management-isms-iso27001",
+        "term": "ISMS",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-personal-information",
+        "term": "個人情報",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-api",
+        "term": "API",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-data-collection",
+        "term": "データ収集",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-confidentiality",
+        "term": "機密性",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-crisis-priority",
+        "term": "優先順位",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-multi-factor-authentication",
+        "term": "多要素認証",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-unauthorized-access",
+        "term": "不正アクセス",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-hazard",
+        "term": "ハザード",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-partnership",
+        "term": "パートナーシップ",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-technology-licensing",
+        "term": "ライセンス",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-carbon-neutral",
+        "term": "カーボンニュートラル",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-climate-change-adaptation-act",
+        "term": "気候変動適応法",
+        "count": 1
+      }
+    ],
+    "road-municipality": [
+      {
+        "slug": "pe-comprehensive-management-information-disclosure",
+        "term": "情報開示",
+        "count": 5
+      },
+      {
+        "slug": "pe-comprehensive-management-explicit-knowledge",
+        "term": "形式知",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-preventive-maintenance",
+        "term": "予防保全",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-visual-management",
+        "term": "可視化",
+        "count": 4
+      },
+      {
+        "slug": "pe-comprehensive-management-initial-investment",
+        "term": "初期投資",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-safety-control",
+        "term": "安全管理",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-energy",
+        "term": "エネルギー",
+        "count": 3
+      },
+      {
+        "slug": "pe-comprehensive-management-system-security",
+        "term": "安全性",
+        "count": 2
+      },
+      {
+        "slug": "pe-comprehensive-management-crisis-priority",
+        "term": "優先順位",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-cybersecurity-safety",
+        "term": "サイバーセキュリティ",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-data-collection",
+        "term": "データ収集",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-carbon-neutral",
+        "term": "カーボンニュートラル",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-quality-control",
+        "term": "品質管理",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-rpa",
+        "term": "RPA",
+        "count": 1
+      },
+      {
+        "slug": "pe-comprehensive-management-tacit-knowledge",
+        "term": "暗黙知",
+        "count": 1
+      }
+    ]
+  },
+  "full_matrix": {
+    "R03": {
+      "environment-survey": {
+        "pe-comprehensive-management-copyright": 1,
+        "pe-comprehensive-management-evaluation-bias": 1,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 1,
+        "pe-comprehensive-management-isms-iso27001": 2,
+        "pe-comprehensive-management-machine-learning": 1,
+        "pe-comprehensive-management-personal-information": 2,
+        "pe-comprehensive-management-quality-assurance": 1,
+        "pe-comprehensive-management-technology-licensing": 1,
+        "pe-comprehensive-management-visual-management": 1
+      },
+      "general-contractor": {
+        "pe-comprehensive-management-cybersecurity-safety": 2,
+        "pe-comprehensive-management-explicit-knowledge": 1,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-iot": 4,
+        "pe-comprehensive-management-progress-management": 1,
+        "pe-comprehensive-management-public-acceptance": 1,
+        "pe-comprehensive-management-reskilling": 2,
+        "pe-comprehensive-management-safety-control": 2,
+        "pe-comprehensive-management-tacit-knowledge": 1
+      },
+      "river-consultant": {
+        "pe-comprehensive-management-api": 1,
+        "pe-comprehensive-management-confidentiality": 1,
+        "pe-comprehensive-management-explicit-knowledge": 1,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-isms-iso27001": 2,
+        "pe-comprehensive-management-personal-information": 3,
+        "pe-comprehensive-management-safety-control": 2,
+        "pe-comprehensive-management-tacit-knowledge": 1
+      }
+    },
+    "R04": {
+      "environment-survey": {
+        "pe-comprehensive-management-crisis-priority": 1,
+        "pe-comprehensive-management-explicit-knowledge": 6,
+        "pe-comprehensive-management-isms-iso27001": 3,
+        "pe-comprehensive-management-multi-factor-authentication": 2,
+        "pe-comprehensive-management-tacit-knowledge": 6,
+        "pe-comprehensive-management-unauthorized-access": 1,
+        "pe-comprehensive-management-visual-management": 1
+      },
+      "general-contractor": {
+        "pe-comprehensive-management-crisis-priority": 1,
+        "pe-comprehensive-management-cybersecurity-safety": 2,
+        "pe-comprehensive-management-initial-investment": 1,
+        "pe-comprehensive-management-labor-productivity": 3,
+        "pe-comprehensive-management-safety-control": 8,
+        "pe-comprehensive-management-system-reliability": 1,
+        "pe-comprehensive-management-utilization-rate": 1
+      },
+      "river-consultant": {
+        "pe-comprehensive-management-api": 1,
+        "pe-comprehensive-management-crisis-priority": 1,
+        "pe-comprehensive-management-data-collection": 1,
+        "pe-comprehensive-management-explicit-knowledge": 1,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-isms-iso27001": 3,
+        "pe-comprehensive-management-multi-factor-authentication": 1,
+        "pe-comprehensive-management-tacit-knowledge": 1,
+        "pe-comprehensive-management-unauthorized-access": 1,
+        "pe-comprehensive-management-visual-management": 1
+      }
+    },
+    "R05": {
+      "environment-survey": {
+        "pe-comprehensive-management-explicit-knowledge": 2,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 2,
+        "pe-comprehensive-management-isms-iso27001": 1,
+        "pe-comprehensive-management-tacit-knowledge": 2,
+        "pe-comprehensive-management-technology-licensing": 1,
+        "pe-comprehensive-management-utilization-rate": 4,
+        "pe-comprehensive-management-visual-management": 3
+      },
+      "general-contractor": {
+        "pe-comprehensive-management-cybersecurity-safety": 2,
+        "pe-comprehensive-management-explicit-knowledge": 3,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 1,
+        "pe-comprehensive-management-isms-iso27001": 2,
+        "pe-comprehensive-management-mentor": 1,
+        "pe-comprehensive-management-safety-control": 3,
+        "pe-comprehensive-management-system-security": 1,
+        "pe-comprehensive-management-tacit-knowledge": 2
+      },
+      "river-consultant": {
+        "pe-comprehensive-management-data-collection": 1,
+        "pe-comprehensive-management-explicit-knowledge": 2,
+        "pe-comprehensive-management-green-infrastructure": 1,
+        "pe-comprehensive-management-hazard": 1,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 2,
+        "pe-comprehensive-management-partnership": 1,
+        "pe-comprehensive-management-tacit-knowledge": 3,
+        "pe-comprehensive-management-technology-licensing": 1
+      },
+      "road-municipality": {
+        "pe-comprehensive-management-crisis-priority": 1,
+        "pe-comprehensive-management-cybersecurity-safety": 1,
+        "pe-comprehensive-management-data-collection": 1,
+        "pe-comprehensive-management-explicit-knowledge": 1,
+        "pe-comprehensive-management-information-disclosure": 2,
+        "pe-comprehensive-management-initial-investment": 2,
+        "pe-comprehensive-management-preventive-maintenance": 4,
+        "pe-comprehensive-management-safety-control": 2,
+        "pe-comprehensive-management-visual-management": 1
+      }
+    },
+    "R06": {
+      "environment-survey": {
+        "pe-comprehensive-management-carbon-neutral": 1,
+        "pe-comprehensive-management-data-collection": 1,
+        "pe-comprehensive-management-energy": 4,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 1,
+        "pe-comprehensive-management-internet": 1,
+        "pe-comprehensive-management-natural-parks-act": 1,
+        "pe-comprehensive-management-visual-management": 1
+      },
+      "general-contractor": {
+        "pe-comprehensive-management-carbon-neutral": 1,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 2,
+        "pe-comprehensive-management-safety-control": 4,
+        "pe-comprehensive-management-visual-management": 1
+      },
+      "river-consultant": {
+        "pe-comprehensive-management-carbon-neutral": 1,
+        "pe-comprehensive-management-climate-change-adaptation-act": 1,
+        "pe-comprehensive-management-green-infrastructure": 6,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-safety-control": 2,
+        "pe-comprehensive-management-visual-management": 2
+      },
+      "road-municipality": {
+        "pe-comprehensive-management-carbon-neutral": 1,
+        "pe-comprehensive-management-energy": 3,
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 1,
+        "pe-comprehensive-management-safety-control": 1,
+        "pe-comprehensive-management-visual-management": 2
+      }
+    },
+    "R07": {
+      "environment-survey": {
+        "pe-comprehensive-management-explicit-knowledge": 6,
+        "pe-comprehensive-management-information-disclosure": 2,
+        "pe-comprehensive-management-initial-investment": 1,
+        "pe-comprehensive-management-internship": 3,
+        "pe-comprehensive-management-organizational-commitment": 1,
+        "pe-comprehensive-management-rpa": 2,
+        "pe-comprehensive-management-safety-control": 3,
+        "pe-comprehensive-management-tacit-knowledge": 5,
+        "pe-comprehensive-management-visual-management": 1
+      },
+      "general-contractor": {
+        "pe-comprehensive-management-information-disclosure": 1,
+        "pe-comprehensive-management-initial-investment": 1,
+        "pe-comprehensive-management-safety-control": 6,
+        "pe-comprehensive-management-safety-education": 4
+      },
+      "river-consultant": {
+        "pe-comprehensive-management-information-disclosure": 2,
+        "pe-comprehensive-management-safety-control": 2
+      },
+      "road-municipality": {
+        "pe-comprehensive-management-explicit-knowledge": 3,
+        "pe-comprehensive-management-information-disclosure": 2,
+        "pe-comprehensive-management-quality-control": 1,
+        "pe-comprehensive-management-rpa": 1,
+        "pe-comprehensive-management-system-security": 2,
+        "pe-comprehensive-management-tacit-knowledge": 1,
+        "pe-comprehensive-management-visual-management": 1
+      }
+    }
+  }
+}
