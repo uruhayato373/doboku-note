@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T00:44:35.033Z",
+  "generated_at": "2026-05-17T00:53:18.185Z",
   "summary": {
     "total": 821,
     "published": 795,
@@ -1171,6 +1171,9 @@
       "seoTitle": "建築基準法 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "建設工事現場の仮設建築物に建築確認は必要ですか？",
@@ -1252,6 +1255,9 @@
       "seoTitle": "施工管理の概要 | doboku-note",
       "created": "2026-04-15",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "施工管理の三大管理項目とは何ですか？",
@@ -1291,6 +1297,9 @@
       "seoTitle": "施工計画の概説・施工計画書 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "施工計画の事前調査で確認すべき3つのカテゴリは何ですか？",
@@ -1696,6 +1705,9 @@
       "seoTitle": "水準測量・地形測量 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "1級水準測量と3級水準測量の視準距離制限はどれくらいですか？",
@@ -2152,6 +2164,9 @@
       "seoTitle": "工程図表 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "バーチャートとガントチャートの違いは何ですか？",
@@ -2191,6 +2206,9 @@
       "seoTitle": "工程管理の概説 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "工程管理の目的は何ですか？",
@@ -2314,6 +2332,9 @@
       "seoTitle": "事前調査・基本計画 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "標準貫入試験の N 値はどのように測定しますか？",
@@ -2351,8 +2372,8 @@
       "textbook_order": 415,
       "published": true,
       "seoTitle": "公共工事標準請負契約約款 | doboku-note",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
@@ -2393,8 +2414,8 @@
       "textbook_order": 151,
       "published": true,
       "seoTitle": "測量の基本 | doboku-note",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
@@ -2518,6 +2539,9 @@
       "seoTitle": "工程計画 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "作業可能日数はどのように算定しますか？",
@@ -10185,7 +10209,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "国土交通白書R7×総監 5管理間トレードオフ完全攻略｜白書数字で書く16ペア論文骨子",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "なぜ国土交通白書R7を根拠にトレードオフを書くと評価されますか？",
