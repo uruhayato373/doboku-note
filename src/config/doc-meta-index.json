@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-16T21:26:58.644Z",
+  "generated_at": "2026-05-17T00:33:55.863Z",
   "summary": {
     "total": 821,
     "published": 795,
@@ -24,9 +24,9 @@
       ],
       "published": true,
       "seoTitle": "コンクリートの重要ポイント — 1級土木施工管理技士試験対策 | doboku-note",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
-      "revisionCycle": 2,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "created": "2026-04-15",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1210,6 +1210,9 @@
       "seoTitle": "建設業法 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "建設業の許可の有効期限は何年ですか？",
@@ -1525,6 +1528,9 @@
       "seoTitle": "モータグレーダ・締固め機械 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "モータグレーダの揺動機構とはどのような機能ですか？",
@@ -1721,6 +1727,9 @@
       "textbook_order": 125,
       "published": true,
       "seoTitle": "積込機械 | doboku-note",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1840,6 +1849,9 @@
       "seoTitle": "各種管理計画 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "指定仮設と任意仮設の違いは何ですか？",
@@ -1879,6 +1891,9 @@
       "seoTitle": "ネットワーク式工程表 | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "最早開始時刻（EST）の計算はどのように行いますか？",
@@ -1994,9 +2009,9 @@
       "textbook_order": 301,
       "published": true,
       "seoTitle": "品質管理の概説・方法 | doboku-note",
-      "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
-      "revisionCycle": 1,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 2,
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -2395,6 +2410,9 @@
       "seoTitle": "トラクタ・ブルドーザ | doboku-note",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
+      "revisionCycle": 1,
       "faqs": [
         {
           "q": "ブルドーザのけん引力はどのように決まりますか？",
@@ -5509,7 +5527,7 @@
       "publishedAt": "2026-04-25",
       "seoTitle": "経済性管理 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-25",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "経済性管理は試験で何問出題されますか？",
@@ -8026,7 +8044,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "人的資源管理 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-26",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "人的資源管理は試験で何問出題されますか？",
@@ -8362,7 +8380,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "情報管理 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-26",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "情報管理は試験で何問出題されますか？",
@@ -9771,7 +9789,7 @@
       "published": true,
       "publishedAt": "2026-04-13T00:00:00.000Z",
       "seoTitle": "総合技術監理における5管理間トレードオフ 頻出パターンと解決フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "5管理間トレードオフはなぜ少数のパターンに収束するのですか？",
@@ -10122,10 +10140,10 @@
       "dateModified": "2026-05-16"
     },
     "pe-comprehensive-management-mlit-whitepaper-2025": {
-      "title": "国土交通白書 令和7年版を総監視点で読む｜5管理マッピングと出題予想ハブ",
-      "description": "国土交通白書 令和7年版を技術士総合技術監理部門（総監）の5管理（経済性・人的資源・情報・安全・社会環境）視点で読み解き、主要数字と論点を整理する。担い手不足・インフラ老朽化・激甚化する自然災害を軸に、7テーマ別トレードオフ記事への導線をまとめた総監記述式対策ハブ。",
-      "shortTitle": "国土交通白書R7読解",
-      "subtitle": "5管理マッピングと7テーマ記事への動線",
+      "title": "国土交通白書R7×総監 5管理間トレードオフ完全攻略｜白書数字で書く16ペア論文骨子",
+      "description": "国土交通白書 令和7年版の主要数字を根拠に、総監5管理×他4管理 16ペアのトレードオフを「対立の構造／評価軸／解決フレームワーク／残余リスクと監視」の4点で構造化。試験記述式 II-2／III でそのまま使える論文骨子。白書R7×総監の本番答案直結ハブ。",
+      "shortTitle": "白書×トレードオフ16ペア",
+      "subtitle": "白書R7主要数字 × 16ペアの対立構造・解決フレーム・残余リスク",
       "category": "pe-comprehensive-management",
       "group": "guide",
       "guide_order": 5,
@@ -10133,33 +10151,30 @@
         "技術士（総合技術監理部門）",
         "国土交通白書",
         "記述式対策",
-        "5管理"
+        "5管理",
+        "トレードオフ"
       ],
       "created": "2026-05-16",
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "国土交通白書R7×総監 5管理マッピングと出題予想ハブ ｜ 技術士 総合技術監理部門 キーワード集",
+      "seoTitle": "国土交通白書R7×総監 5管理間トレードオフ完全攻略｜白書数字で書く16ペア論文骨子",
       "dateModified": "2026-05-16",
       "faqs": [
         {
-          "q": "なぜ国土交通白書を総監対策で読むのですか？",
-          "a": "近年（R2-R7）の記述式必須課題は国土交通白書の主要テーマ（少子高齢化・DX・カーボンニュートラル・流域治水・2024年問題）と強く連動しており、白書数字を引用できるかが論理的具体性の根拠になるからです。"
+          "q": "なぜ国土交通白書R7を根拠にトレードオフを書くと評価されますか？",
+          "a": "採点では「具体性＝数字＋制度名＋立場」が決定打となります。白書R7の主要数字（予防保全で30年間の維持管理費を約3割縮減、特定技能5年で最大18.1万人、2024年問題の年960時間上限など）は出題者と評価者が共有する一次情報であり、論述の根拠として最も強い。"
         },
         {
-          "q": "令和7年版の中心テーマは何ですか？",
-          "a": "「担い手不足」「インフラ老朽化」「激甚化する自然災害」の3つです。特に2024年問題への対応、予防保全への転換、流域治水の推進が具体策として整理されています。"
+          "q": "16ペアすべて暗記する必要がありますか？",
+          "a": "不要です。経済性を片側に含む4ペアと、安全×社会環境・人的資源×安全を加えた計6ペアが頻出で、まずこの6本を完全暗記します。残り10ペアは「保険」として対立構造と解決フレームの組み合わせだけ押さえれば、本番で組み立て可能です。"
         },
         {
-          "q": "5管理のうち白書で最も重視されているのは？",
-          "a": "経済性管理（事業効率・LCC）と人的資源管理（2024年問題）の2軸が中心ですが、情報管理（i-Con 2.0/DX）と社会環境管理（GX/CN）が「主役級」に格上げされている点が令和7年版の特徴です。"
+          "q": "解決フレームの使い分けは？",
+          "a": "ALARP原則／リスクベース判断は安全絡み、LCA／カーボンプライシングは社会環境絡み、PoC／段階的実施は情報絡み、勤務間インターバル／CCUS／多能工化は人的資源絡み、ミティゲーション階層／合意形成（PI）は社会環境×防災の調整に効きます。本記事では各ペアで2〜3個を組み合わせて適用しています。"
         },
         {
-          "q": "7テーマ記事と本記事の関係は？",
-          "a": "本記事は白書の主要数字と論点を5管理にマッピングする「資料インデックス」、7テーマ記事は各テーマで主軸トレードオフ × 解決フレーム × 過去問適用を展開する「論文骨子」です。本記事から7テーマへリンクで送る hub-spoke 構造です。"
-        },
-        {
-          "q": "R8 の出題予想はどこで公開されますか？",
-          "a": "本記事と7テーマ記事では「再出題可能性」のみ言及し、具体的な設問予想と模範論文骨子は note magazine「総監模範論文」で展開しています。"
+          "q": "残余リスクの記述は必須ですか？",
+          "a": "採点項目「想定外への備え」が必須化されており、ALARPで許容水準まで下げた後の残余リスクと、KPIモニタリング＋BCPによる監視体制を明示しないと評点が伸びません。本記事の各ペアセクション末尾と「論文締めの定型」を答案そのままにご活用ください。"
         }
       ]
     },
@@ -12332,7 +12347,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和元年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-r01-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和元年度 記述式",
@@ -12366,7 +12381,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和2年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-r02-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和2年度 記述式",
@@ -12400,7 +12415,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和3年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-r03-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和3年度 記述式",
@@ -12434,7 +12449,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和4年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-r04-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和4年度 記述式",
@@ -12468,7 +12483,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和5年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-r05-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和5年度 記述式",
@@ -12502,7 +12517,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和6年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-r06-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和6年度 記述式",
@@ -12536,7 +12551,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "技術士二次試験 総合技術監理部門 令和7年度 択一式 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-r07-secondary": {
       "title": "技術士二次試験 総合技術監理部門 令和7年度 記述式",
@@ -13479,7 +13494,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "安全管理 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-26",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "安全管理は試験で何問出題されますか？",
@@ -14022,7 +14037,7 @@
       "publishedAt": "2026-04-26",
       "seoTitle": "社会環境管理 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-26",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "faqs": [
         {
           "q": "社会環境管理は試験で何問出題されますか？",
