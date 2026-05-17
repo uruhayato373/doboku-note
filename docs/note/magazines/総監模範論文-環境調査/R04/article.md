@@ -160,7 +160,7 @@ R4 環境調査事務所版は「デジタル技術の利用 vs DX」の境界�
 ## doboku-note の関連ガイド
 
 - [環境調査向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 共通ペルソナと R3〜R7 の年度別模範論文の起点
-- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 必須科目の問題文全文とガチンコ技術士学園の建設環境版模範論文例
+- [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-env-r04) — 段階的実施・KPI 連動・ISMS などのフレーム集
 
 ---
