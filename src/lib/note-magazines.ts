@@ -29,7 +29,7 @@ export interface NoteMagazine {
 
 /**
  * 命名規約 (id):
- * - tankan-reading-guide: 5管理 精読ガイド (既公開、¥7,800)
+ * - tankan-reading-guide: 5管理 精読ガイド (既公開、価格非表示)
  * - essay-{persona}-magazine: 模範論文 ペルソナ別 5年分マガジン (公開準備中)
  */
 const MAGAZINES_RAW = {
@@ -44,7 +44,6 @@ const MAGAZINES_RAW = {
     shortDescription:
       '5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。',
     imageUrl: '/images/magazines/tankan-magazine-cover.webp',
-    price: '¥7,800',
     badge: 'note 限定 教材',
   },
 
