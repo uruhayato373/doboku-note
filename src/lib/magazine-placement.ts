@@ -80,6 +80,21 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 ] as const;
 
 /**
+ * 2026-05-17 新規 4 マガジン (Series 1/3/4/5)。
+ * 配置原則:
+ * - data-driven-strategy (¥1,480 エントリー): 独自データ系 + keyword hub + pillar
+ * - whitepaper-r7-strategy (¥2,480): 白書テーマ記事 + mlit ハブ で primary CTA
+ * - r8-essay-forecast (¥2,480): R07 年度ページ + essay-exam-strategy hub
+ * - essay-template-3d (¥2,980 プレミアム): essay-exam-strategy + pattern-essay 4 ペルソナハブ
+ */
+const NEW_MAGAZINES = {
+  dataDriven: 'data-driven-strategy' as const,
+  whitepaperR7: 'whitepaper-r7-strategy' as const,
+  r8Forecast: 'r8-essay-forecast' as const,
+  template3d: 'essay-template-3d' as const,
+} satisfies Record<string, MagazineId>;
+
+/**
  * 国土交通白書テーマ記事 (essay-mlit-* および mlit-whitepaper-2025) →
  * 該当テーマに適したペルソナマガジン。精読ガイド + 1-2 ペルソナ。
  *
@@ -137,23 +152,46 @@ function matchMlitTheme(slug: string): readonly MagazineId[] | null {
  * 表示の最終可否 (公開済みか) は呼び出し側で getMagazine() で確認する。
  */
 export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
-  // 1. 完全一致: 記述式戦略ハブは精読ガイド + 全 4 ペルソナ模範論文を提示 (強 CTA)
+  // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 4 ペルソナ模範論文を提示 (強 CTA)
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
     return {
       inline: [
         slot('tankan-reading-guide', slug, 'inline-1'),
-        ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 2}`)),
+        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
+        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-3'),
+        ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 4}`)),
       ],
-      sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
+      sidebar: [
+        slot('tankan-reading-guide', slug, 'sidebar-1'),
+        slot(NEW_MAGAZINES.template3d, slug, 'sidebar-2'),
+      ],
       inlineMobileOnly: false,
     };
   }
 
-  // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン (ハブ、強 CTA)
+  // 1.5. 独自データページ → data-driven-strategy を primary CTA
+  if (
+    slug === 'pe-comprehensive-management-essay-data-2026' ||
+    slug === 'pe-comprehensive-management-primary-statistics-2026'
+  ) {
+    return {
+      inline: [
+        slot(NEW_MAGAZINES.dataDriven, slug, 'inline-1'),
+        slot('tankan-reading-guide', slug, 'inline-2'),
+      ],
+      sidebar: [slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar')],
+      inlineMobileOnly: false,
+    };
+  }
+
+  // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン + テンプレ 3D (ハブ、強 CTA)
   const patternMag = matchPatternEssay(slug);
   if (patternMag) {
     return {
-      inline: [slot(patternMag, slug, 'inline')],
+      inline: [
+        slot(patternMag, slug, 'inline-1'),
+        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
+      ],
       sidebar: [slot(patternMag, slug, 'sidebar')],
       inlineMobileOnly: false,
     };
@@ -169,42 +207,73 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 4. r0X-secondary (年度別 記述式問題ページ) → 全ペルソナ模範論文 (年度ハブ、強 CTA)
-  if (/^pe-comprehensive-management-r0[1-9]-secondary$/.test(slug)) {
+  // 4. r0X-secondary (年度別 記述式問題ページ) → 全ペルソナ模範論文 + R07 のみ r8-forecast 強化 (年度ハブ、強 CTA)
+  const secondaryMatch = slug.match(/^pe-comprehensive-management-r(0[1-9])-secondary$/);
+  if (secondaryMatch) {
+    const isR07 = secondaryMatch[1] === '07';
+    const inline: PlacementSlot[] = ALL_PERSONA_MAGAZINES.map((m, i) =>
+      slot(m, slug, `inline-${i + 1}`),
+    );
+    if (isR07) {
+      inline.unshift(slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-r8'));
+    }
     return {
-      inline: ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
-      sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
+      inline,
+      sidebar: [
+        slot('tankan-reading-guide', slug, 'sidebar-1'),
+        slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar-2'),
+      ],
       inlineMobileOnly: false,
     };
   }
 
-  // 4.5. 国土交通白書テーマ記事 (essay-mlit-* + mlit-whitepaper-2025) → テーマ別マガジン
-  // 白書ハブは全ペルソナ (強 CTA)、テーマ別は精読ガイド + 該当ペルソナ
+  // 4.5. 国土交通白書テーマ記事 (essay-mlit-* + mlit-whitepaper-2025) → whitepaper-r7-strategy を primary CTA
+  // 白書ハブは全ペルソナ + whitepaper-r7 (強 CTA)、テーマ別は whitepaper-r7 + 該当ペルソナ
   const mlitMagazines = matchMlitTheme(slug);
   if (mlitMagazines) {
     const isHub = slug === 'pe-comprehensive-management-mlit-whitepaper-2025';
+    // whitepaper-r7-strategy を必ず先頭に追加
+    const inlineWithR7 = [
+      slot(NEW_MAGAZINES.whitepaperR7, slug, 'inline-r7'),
+      ...mlitMagazines.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
+    ];
     return {
-      inline: mlitMagazines.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
-      sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
+      inline: inlineWithR7,
+      sidebar: [
+        slot(NEW_MAGAZINES.whitepaperR7, slug, 'sidebar-r7'),
+        slot('tankan-reading-guide', slug, 'sidebar-tankan'),
+      ],
       inlineMobileOnly: !isHub,
     };
   }
 
-  // 5. pillar → 精読ガイド (既存通り inline + sidebar 両方で強訴求)
+  // 5. pillar → 精読ガイド + data-driven-strategy (エントリー CTA)
   if (docGroup === 'pillar') {
     return {
-      inline: [slot('tankan-reading-guide', slug, 'inline')],
+      inline: [
+        slot('tankan-reading-guide', slug, 'inline-1'),
+        slot(NEW_MAGAZINES.dataDriven, slug, 'inline-2'),
+      ],
       sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
       inlineMobileOnly: false,
     };
   }
 
-  // 6. keyword / keyword-2026 → 精読ガイド (個別キーワードは sidebar 主体)
+  // 6. keyword / keyword-2026 → 精読ガイド + data-driven (keyword-2026 ハブは強 CTA)
   if (docGroup === 'keyword' || slug === 'pe-comprehensive-management-keyword-2026') {
+    const isHub = slug === 'pe-comprehensive-management-keyword-2026';
     return {
-      inline: [slot('tankan-reading-guide', slug, 'inline-mobile')],
-      sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
-      inlineMobileOnly: true,
+      inline: isHub
+        ? [
+            slot('tankan-reading-guide', slug, 'inline-1'),
+            slot(NEW_MAGAZINES.dataDriven, slug, 'inline-2'),
+          ]
+        : [slot('tankan-reading-guide', slug, 'inline-mobile')],
+      sidebar: [
+        slot('tankan-reading-guide', slug, 'sidebar-1'),
+        ...(isHub ? [slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar-2')] : []),
+      ],
+      inlineMobileOnly: !isHub,
     };
   }
 

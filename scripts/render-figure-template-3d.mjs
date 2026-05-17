@@ -62,16 +62,16 @@ function brandMark(H) {
 // 図 1: 3D マトリクス概念図（アイソメトリック投影）
 // ------------------------------------------------------------------
 function svgFig1() {
-  const H = 860;
+  const H = 880;
 
   // アイソメトリック投影のユーティリティ
   // isoX(col, row, layer) -> SVG x
   // isoY(col, row, layer) -> SVG y
-  const originX = 600;
-  const originY = 500;
-  const cellW = 26;   // 1セルの幅（アイソ投影後）
-  const cellH = 12;   // 1セルの高さ（アイソ投影後）
-  const layerH = 30;  // Z軸1層分の高さ
+  const originX = 540;
+  const originY = 540;
+  const cellW = 36;   // 1セルの幅（アイソ投影後、拡大して可読性向上）
+  const cellH = 18;   // 1セルの高さ（アイソ投影後）
+  const layerH = 56;  // Z軸1層分の高さ（拡大）
 
   // アイソメトリック変換
   function isoX(col, row, layer) {
@@ -81,7 +81,9 @@ function svgFig1() {
     return originY + (col + row) * cellH - layer * layerH;
   }
 
-  const COLS = 20; // X軸：テーマ数
+  // 視認性向上のため、表示は 10 テーマ × 5 管理 × 4 ペルソナ に縮約
+  // 「テーマ 20 のうち 10 を代表表示」というキャプションで全 400 セルの概念を伝える
+  const COLS = 10; // X軸：テーマ数（縮約表示）
   const ROWS = 5;  // Y軸：5管理
   const LAYERS = 4; // Z軸：ペルソナ数
 
@@ -135,16 +137,25 @@ function svgFig1() {
 
   // 軸ラベル
   // X軸（テーマ）: col方向、row=0, layer=0
-  const xAxisY = isoY(COLS, 0, 0) + 28;
+  const xAxisY = isoY(COLS, 0, 0) + 40;
   body += `
-  <text x="${(isoX(0,0,0)+isoX(COLS,0,0))/2}" y="${xAxisY + 14}" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND}" text-anchor="middle">← テーマ 20（DX・老朽化・脱炭素…）→</text>`;
+  <text x="${(isoX(0,0,0)+isoX(COLS,0,0))/2}" y="${xAxisY + 14}" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND}" text-anchor="middle">← テーマ 20（DX・老朽化・脱炭素・担い手不足・防災…）→</text>`;
 
   // Y軸（5管理）: row方向、col=0, layer=0
+  // 縦に等間隔で並べ、各ラベルから cube クラスタへ細い導線を引く
   const mgmtLabels = ['経済性', '人的資源', '情報', '安全', '社会環境'];
+  const yLegendX = 100;
+  const yLegendStartY = 320;
+  const yLegendSpacing = 56;
   for (let row = 0; row < ROWS; row++) {
-    const lx = isoX(0, row, 0) - 14;
-    const ly = isoY(0, row, 0) + 8;
-    body += `<text x="${lx}" y="${ly}" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND_DEEP}" text-anchor="end">${xml(mgmtLabels[row])}</text>`;
+    const ly = yLegendStartY + row * yLegendSpacing;
+    // ラベル背景
+    body += `<rect x="${yLegendX - 70}" y="${ly - 24}" width="140" height="36" rx="6" fill="${BRAND_FILL}" stroke="${BRAND}" stroke-width="1.5"/>`;
+    body += `<text x="${yLegendX}" y="${ly}" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND_DEEP}" text-anchor="middle">${xml(mgmtLabels[row])}</text>`;
+    // 導線
+    const tx = isoX(0, row, 0);
+    const ty = isoY(0, row, 0) + 8;
+    body += `<line x1="${yLegendX + 70}" y1="${ly - 6}" x2="${tx - 4}" y2="${ty - 4}" stroke="${BRAND}" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>`;
   }
 
   // Z軸（ペルソナ）: layer方向
@@ -178,11 +189,11 @@ function svgFig1() {
   const captY = H - 80;
   body += `
   <rect x="40" y="${captY}" width="${W - 80}" height="50" rx="8" fill="${BRAND_FILL}"/>
-  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">テーマと業務を入力すれば論文骨子が出てくる逆引き辞書</text>`;
+  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">テーマと業務を入力すれば論文骨子が出てくる逆引き辞書（図は 10 テーマで代表表示、実際は 20 テーマ × 5 管理 × 4 ペルソナ）</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#ffffff"/>
-${header('3D マトリクス：テーマ × 5 管理 × ペルソナ = 400 セル', '20テーマ × 5管理 × 4ペルソナのアイソメトリック投影')}
+${header('3D マトリクス：テーマ × 5 管理 × ペルソナ = 400 セル', '20テーマ × 5管理 × 4ペルソナのアイソメトリック投影（代表 10 テーマ表示）')}
 ${body}
 ${brandMark(H)}
 </svg>`;
