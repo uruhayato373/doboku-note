@@ -13,7 +13,10 @@
       "priority": "high",
       "source": "manual",
       "parent": null,
-      "refs": ["docs/project/07_SNS集客戦略.md", "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"],
+      "refs": [
+        "docs/project/07_SNS集客戦略.md",
+        "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -27,7 +30,9 @@
       "priority": "mid",
       "source": "manual",
       "parent": null,
-      "refs": ["docs/project/24_パフォーマンス監視アーキテクチャ.md"],
+      "refs": [
+        "docs/project/24_パフォーマンス監視アーキテクチャ.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -41,7 +46,9 @@
       "priority": "high",
       "source": "manual",
       "parent": "T-001",
-      "refs": ["docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"],
+      "refs": [
+        "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -55,7 +62,9 @@
       "priority": "mid",
       "source": "manual",
       "parent": "T-001",
-      "refs": ["docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"],
+      "refs": [
+        "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -69,7 +78,9 @@
       "priority": "low",
       "source": "manual",
       "parent": "T-001",
-      "refs": ["docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"],
+      "refs": [
+        "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -97,7 +108,9 @@
       "priority": "low",
       "source": "manual",
       "parent": "T-001",
-      "refs": ["docs/project/07_SNS集客戦略.md"],
+      "refs": [
+        "docs/project/07_SNS集客戦略.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -111,7 +124,9 @@
       "priority": "mid",
       "source": "manual",
       "parent": "T-001",
-      "refs": ["docs/project/07_SNS集客戦略.md"],
+      "refs": [
+        "docs/project/07_SNS集客戦略.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -125,7 +140,9 @@
       "priority": "low",
       "source": "manual",
       "parent": "T-001",
-      "refs": [".claude/reference/sns-image-policy.md"],
+      "refs": [
+        ".claude/reference/sns-image-policy.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -170,7 +187,9 @@
       "priority": "low",
       "source": "manual",
       "parent": "T-002",
-      "refs": [".claude/reference/measurement-incidents.md"],
+      "refs": [
+        ".claude/reference/measurement-incidents.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -198,7 +217,9 @@
       "priority": "mid",
       "source": "manual",
       "parent": "T-002",
-      "refs": ["docs/project/24_パフォーマンス監視アーキテクチャ.md"],
+      "refs": [
+        "docs/project/24_パフォーマンス監視アーキテクチャ.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -212,7 +233,10 @@
       "priority": "high",
       "source": "manual",
       "parent": null,
-      "refs": ["docs/project/31_リライト方法論方針.md", ".claude/state/improvements/pe-priority-2026-05-11.md"],
+      "refs": [
+        "docs/project/31_リライト方法論方針.md",
+        ".claude/state/improvements/pe-priority-2026-05-11.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -226,11 +250,14 @@
       "priority": "high",
       "source": "manual",
       "parent": null,
-      "refs": ["docs/note/19_note段階投下プラン.md", "docs/project/05_収益化戦略.md"],
+      "refs": [
+        "docs/note/19_note段階投下プラン.md",
+        "docs/project/05_収益化戦略.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
-      "updated": "2026-05-14",
-      "notes": "13 ドラフトの分類（無料 5・Hybrid 4・単品有料 4）と未着手の戦略商品（A-2/A-3/B-1/D-1/A-1+）。着手順: 無料 5 本→単品有料 4 本→Hybrid 4 本→A-2 等→A-1+→マガジン化。（旧 Umbrella Issue #179）"
+      "updated": "2026-05-18",
+      "notes": "**SSOT は docs/note/19_note段階投下プラン.md（v2 統合済み 2026-05-18）**。9 マガジン完成（5管理ガイド公開済 / 8 マガジン投稿待ち）+ R8予想単記事 2本（無料・最優先）。詳細進捗・横断 TODO・公開タイムライン（W2-W5）は 19_ のダッシュボード参照。旧 Umbrella Issue #179 / 旧 PLAN.md 4本 + SERIES2-PUBLICATION-PLAN は 19_ に統合し削除（2026-05-18）。"
     },
     {
       "id": "T-017",
@@ -240,7 +267,10 @@
       "priority": "mid",
       "source": "manual",
       "parent": null,
-      "refs": ["docs/project/08_記述式コンテンツ戦略.md", "docs/project/essay-analysis/README.md"],
+      "refs": [
+        "docs/project/08_記述式コンテンツ戦略.md",
+        "docs/project/essay-analysis/README.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -268,7 +298,10 @@
       "priority": "high",
       "source": "manual",
       "parent": null,
-      "refs": ["docs/note/19_note段階投下プラン.md", "docs/project/05_収益化戦略.md"],
+      "refs": [
+        "docs/note/19_note段階投下プラン.md",
+        "docs/project/05_収益化戦略.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -296,7 +329,9 @@
       "priority": "mid",
       "source": "manual",
       "parent": null,
-      "refs": [".claude/reference/measurement-incidents.md"],
+      "refs": [
+        ".claude/reference/measurement-incidents.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -310,7 +345,9 @@
       "priority": "low",
       "source": "manual",
       "parent": null,
-      "refs": [".claude/state/svg-audit.json"],
+      "refs": [
+        ".claude/state/svg-audit.json"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
@@ -324,7 +361,9 @@
       "priority": "low",
       "source": "manual",
       "parent": null,
-      "refs": ["docs/project/30_採点ルーブリック方針.md"],
+      "refs": [
+        "docs/project/30_採点ルーブリック方針.md"
+      ],
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-14",
