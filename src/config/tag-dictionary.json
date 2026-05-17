@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T09:05:50.771Z",
+  "generated_at": "2026-05-17T22:18:07.095Z",
   "summary": {
-    "total_mdx_files": 824,
-    "total_unique_tags": 89,
+    "total_mdx_files": 825,
+    "total_unique_tags": 90,
     "allowlist_size": 123,
     "known_count": 60,
-    "unknown_count": 29,
+    "unknown_count": 30,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1129,7 +1129,7 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 47,
+      "count": 48,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
@@ -1141,6 +1141,7 @@
         "pe-comprehensive-management-essay-mlit-i-construction-2",
         "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt",
         "pe-comprehensive-management-essay-mlit-river-basin-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-index",
         "pe-comprehensive-management-four-m-of-production",
@@ -1224,7 +1225,7 @@
     },
     {
       "name": "記述式対策",
-      "count": 31,
+      "count": 32,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-mlit-aging-infrastructure",
@@ -1234,6 +1235,7 @@
         "pe-comprehensive-management-essay-mlit-i-construction-2",
         "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt",
         "pe-comprehensive-management-essay-mlit-river-basin-management",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-management-tradeoffs",
         "pe-comprehensive-management-mlit-whitepaper-2025",
         "pe-comprehensive-management-pattern-essay-environment-survey",
@@ -1292,10 +1294,11 @@
       ]
     },
     {
-      "name": "受験者属性別",
-      "count": 22,
+      "name": "模範論文",
+      "count": 23,
       "inAllowlist": false,
       "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-pattern-essay-environment-survey",
         "pe-comprehensive-management-pattern-essay-general-contractor",
         "pe-comprehensive-management-pattern-essay-river-consultant",
@@ -1321,7 +1324,7 @@
       ]
     },
     {
-      "name": "模範論文",
+      "name": "受験者属性別",
       "count": 22,
       "inAllowlist": false,
       "usedIn": [
@@ -1677,6 +1680,30 @@
       ]
     },
     {
+      "name": "地方公共団体",
+      "count": 5,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "道路",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
       "name": "DX",
       "count": 4,
       "inAllowlist": true,
@@ -1717,28 +1744,6 @@
         "pe-comprehensive-management-r07-essay-environment-survey",
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "地方公共団体",
-      "count": 4,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "道路",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
@@ -2126,6 +2131,14 @@
       ]
     },
     {
+      "name": "流用戦略",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application"
+      ]
+    },
+    {
       "name": "令和2年度",
       "count": 1,
       "inAllowlist": false,
@@ -2175,8 +2188,8 @@
     }
   ],
   "unknown": [
-    "受験者属性別",
     "模範論文",
+    "受験者属性別",
     "exam-questions",
     "law",
     "machinery",
@@ -2186,10 +2199,10 @@
     "建設コンサル",
     "砂防",
     "施工",
+    "地方公共団体",
     "quality",
     "SWOT分析",
     "少子高齢化",
-    "地方公共団体",
     "schedule",
     "データ利活用",
     "keyword-analysis",
@@ -2201,6 +2214,7 @@
     "記述式試験",
     "出願",
     "直前対策",
+    "流用戦略",
     "令和2年度",
     "令和3年度",
     "令和4年度"
