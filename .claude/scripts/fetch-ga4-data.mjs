@@ -12,6 +12,13 @@
  *   npm run fetch-ga4-data -- --metric activeUsers,sessions  # メトリクス絞り込み
  *   npm run fetch-ga4-data -- --organic-only               # organic search のみ
  *   npm run fetch-ga4-data -- --limit 50                   # 上位50件
+ *   npm run fetch-ga4-data -- --include-all                # bot/海外を含める（既定では除外）
+ *
+ * フィルタ既定動作（2026-05-17 以降）:
+ *   - country = Japan に絞る（海外 direct/bing bot 排除）
+ *   - source = (not set) を除外（GA4 計測ノイズ）
+ *   - bot 典型の参照スパムを除外（`docs/reference/measurement-incidents.md` 2026-04-26 参照）
+ *   過去データ仕様に戻すには `--include-all` を付与。
  *
  * 必要な環境変数 (.env.local):
  *   GOOGLE_SERVICE_ACCOUNT_KEY_PATH=./credentials/gsc-service-account.json
@@ -53,6 +60,17 @@ const DEFAULT_METRICS = [
   "bounceRate",
 ];
 
+// bot/スパム参照元の既定ブロックリスト
+// 出典: 2026-04-26 GA4 direct US bot インシデント、2026-05-17 source 監査
+// 追加判明したら本配列に追記する（GA4 プロパティ側の参照除外と二重防御）
+const SPAM_REFERRAL_SOURCES = [
+  "(not set)",
+  "ntp.msn.com",
+  "statics.teams.cdn.office.net",
+  "hustler.zenhp.co.jp",
+  "mobilesecurity.trendmicro.com",
+];
+
 // ── CLI args ──
 
 function parseArgs() {
@@ -63,6 +81,9 @@ function parseArgs() {
     limit: DEFAULT_LIMIT,
     metrics: DEFAULT_METRICS,
     organicOnly: false,
+    // 既定で日本・bot 除外を ON（measurement-incidents.md 2026-04-26 参照）
+    japanOnly: true,
+    excludeSpam: true,
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -82,6 +103,17 @@ function parseArgs() {
         break;
       case "--organic-only":
         opts.organicOnly = true;
+        break;
+      case "--include-all":
+        // 過去仕様（フィルタなし）に戻す。bot 由来か否かを生で確認したい時に使う
+        opts.japanOnly = false;
+        opts.excludeSpam = false;
+        break;
+      case "--no-japan-only":
+        opts.japanOnly = false;
+        break;
+      case "--no-exclude-spam":
+        opts.excludeSpam = false;
         break;
     }
   }
@@ -159,13 +191,43 @@ async function fetchGa4(client, propertyId, opts) {
     ],
   };
 
+  // dimensionFilter を AND で組み立て
+  const andFilters = [];
+
   if (opts.organicOnly) {
-    request.dimensionFilter = {
+    andFilters.push({
       filter: {
         fieldName: "sessionDefaultChannelGroup",
         stringFilter: { matchType: "EXACT", value: "Organic Search" },
       },
-    };
+    });
+  }
+
+  if (opts.japanOnly) {
+    andFilters.push({
+      filter: {
+        fieldName: "country",
+        stringFilter: { matchType: "EXACT", value: "Japan" },
+      },
+    });
+  }
+
+  // 参照スパム除外は dimension が source の時のみ API 側で適用
+  if (opts.excludeSpam && dimensionName === "sessionSource") {
+    andFilters.push({
+      notExpression: {
+        filter: {
+          fieldName: "sessionSource",
+          inListFilter: { values: SPAM_REFERRAL_SOURCES },
+        },
+      },
+    });
+  }
+
+  if (andFilters.length === 1) {
+    request.dimensionFilter = andFilters[0];
+  } else if (andFilters.length > 1) {
+    request.dimensionFilter = { andGroup: { expressions: andFilters } };
   }
 
   const [response] = await client.runReport(request);
@@ -190,6 +252,9 @@ async function fetchGa4(client, propertyId, opts) {
       metrics: opts.metrics,
       limit: opts.limit,
       organicOnly: opts.organicOnly,
+      japanOnly: opts.japanOnly,
+      excludeSpam: opts.excludeSpam,
+      spamSourcesExcluded: opts.excludeSpam && dimensionName === "sessionSource" ? SPAM_REFERRAL_SOURCES : [],
       propertyId,
     },
     rows,
@@ -202,7 +267,13 @@ function printSummary(data) {
   const { meta, rows } = data;
   console.log(`\n期間: ${meta.startDate} 〜 ${meta.endDate}`);
   console.log(`ディメンション: ${meta.dimension} (${meta.dimensionApiName})`);
-  if (meta.organicOnly) console.log("フィルタ: Organic Search のみ");
+  const filters = [];
+  if (meta.organicOnly) filters.push("Organic Search のみ");
+  if (meta.japanOnly) filters.push("country=Japan");
+  if (meta.excludeSpam && meta.spamSourcesExcluded?.length) {
+    filters.push(`spam source 除外 (${meta.spamSourcesExcluded.length} 件)`);
+  }
+  if (filters.length) console.log(`フィルタ: ${filters.join(" / ")}`);
   console.log(`件数: ${rows.length}\n`);
 
   if (rows.length === 0) {

@@ -48,6 +48,21 @@
 - Issue [#172](https://github.com/uruhayato373/doboku-note/issues/172) を起票（weekly-pdca, Umbrella #82 配下）
 - Issue [#173](https://github.com/uruhayato373/doboku-note/issues/173) で Bing Webmaster データと GA4 bing source の整合性確認を計画
 - `weekly-metrics` 集計を **Japan フィルタ版に切り替える方針** を提示（実装は #172 で追跡）
+- **2026-05-17 追加対策**：
+  - `snapshot-weekly-metrics.mjs` は既に `ga4_jp`（country=Japan）を併記する仕様（`metrics-reader.mjs` 内 `fetchGa4Weekly({ country: "Japan" })`）
+  - `fetch-ga4-data.mjs`（アドホック取得）も既定で `country=Japan` + 参照スパムリスト除外を ON 化。実測値で `(direct)` 1,641 → 101、`bing` 1,293 → 252 と激減（過去 14 日）
+  - `--include-all` フラグで bot 込みの生データに切替可能（bot 比率検証時に使用）
+  - スパム参照リスト: `(not set)` / `ntp.msn.com` / `statics.teams.cdn.office.net` / `hustler.zenhp.co.jp` / `mobilesecurity.trendmicro.com`（`fetch-ga4-data.mjs` の `SPAM_REFERRAL_SOURCES`）
+
+### GA4 プロパティ側で行う追加対策（推奨・未実施）
+
+スクリプト側フィルタは fetch 時に弾くだけ。GA4 UI で見る数値も汚染されたままなので、プロパティ側で恒久対策する：
+
+1. **不要な参照元のリスト**: 管理 → データストリーム → タグ設定の詳細 → 不要な参照のリスト
+   - `mobilesecurity.trendmicro.com`、`hustler.zenhp.co.jp` 等を追加（参照ではなく direct 計上に降格、bot 流入の本質的な遮断にはならないが効果あり）
+2. **データフィルタ（内部トラフィック）**: 管理 → データ設定 → データフィルタ → 内部トラフィック除外
+   - 自分の作業 IP を除外
+3. **既存のスパイクデータの遡及修正は不可**: GA4 はフィルタ適用日以降のみ対象。過去分析は本ファイルの incident 記録を参照して人間が割り引く
 
 ### 教訓
 
