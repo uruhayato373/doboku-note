@@ -9692,6 +9692,546 @@
           "mojibake": false
         }
       ]
+    },
+    "jit-production": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:04:31.225Z",
+          "action": "rewritten",
+          "wave": "G-8-W16",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2757,
+          "after_chars": 3478,
+          "added_chars": 721,
+          "mojibake": false
+        }
+      ]
+    },
+    "job-execution-ability": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:04:31.225Z",
+          "action": "rewritten",
+          "wave": "G-8-W16",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1680,
+          "after_chars": 2791,
+          "added_chars": 1111,
+          "mojibake": false
+        }
+      ]
+    },
+    "job-order-costing": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:04:31.225Z",
+          "action": "rewritten",
+          "wave": "G-8-W16",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 860,
+          "after_chars": 1340,
+          "added_chars": 480,
+          "mojibake": false
+        }
+      ]
+    },
+    "job-rotation": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:06:57.474Z",
+          "action": "rewritten",
+          "wave": "G-8-W17",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1905,
+          "after_chars": 2438,
+          "added_chars": 533,
+          "mojibake": false
+        }
+      ]
+    },
+    "lead-time": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:06:57.474Z",
+          "action": "rewritten",
+          "wave": "G-8-W17",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 3733,
+          "after_chars": 4215,
+          "added_chars": 482,
+          "mojibake": false
+        }
+      ]
+    },
+    "lifecycle-assessment": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:06:57.474Z",
+          "action": "rewritten",
+          "wave": "G-8-W17",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2696,
+          "after_chars": 3265,
+          "added_chars": 569,
+          "mojibake": false
+        }
+      ]
+    },
+    "lifecycle-costing-method": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:10:07.275Z",
+          "action": "rewritten",
+          "wave": "G-8-W18",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1829,
+          "after_chars": 2465,
+          "added_chars": 636,
+          "mojibake": false
+        }
+      ]
+    },
+    "lifecycle-management": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:10:07.275Z",
+          "action": "rewritten",
+          "wave": "G-8-W18",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2593,
+          "after_chars": 3016,
+          "added_chars": 423,
+          "mojibake": false
+        }
+      ]
+    },
+    "likelihood": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:10:07.275Z",
+          "action": "rewritten",
+          "wave": "G-8-W18",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1869,
+          "after_chars": 2900,
+          "added_chars": 1031,
+          "mojibake": false
+        }
+      ]
+    },
+    "liquefaction": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:16:13.127Z",
+          "action": "rewritten",
+          "wave": "G-8-W19",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1639,
+          "after_chars": 2433,
+          "added_chars": 794,
+          "mojibake": false
+        }
+      ]
+    },
+    "load-capacity": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:16:13.127Z",
+          "action": "rewritten",
+          "wave": "G-8-W19",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2101,
+          "after_chars": 2945,
+          "added_chars": 844,
+          "mojibake": false
+        }
+      ]
+    },
+    "load-leveling": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:16:13.127Z",
+          "action": "rewritten",
+          "wave": "G-8-W19",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1236,
+          "after_chars": 2042,
+          "added_chars": 806,
+          "mojibake": false
+        }
+      ]
+    },
+    "mandatory-management-retirement": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:18:58.647Z",
+          "action": "rewritten",
+          "wave": "G-8-W20",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1050,
+          "after_chars": 1680,
+          "added_chars": 630,
+          "mojibake": false
+        }
+      ]
+    },
+    "manufacturing-quality": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:18:58.647Z",
+          "action": "rewritten",
+          "wave": "G-8-W20",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1589,
+          "after_chars": 2355,
+          "added_chars": 766,
+          "mojibake": false
+        }
+      ]
+    },
+    "market-research": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:18:58.647Z",
+          "action": "rewritten",
+          "wave": "G-8-W20",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 3219,
+          "after_chars": 3629,
+          "added_chars": 410,
+          "mojibake": false
+        }
+      ]
+    },
+    "master-schedule-planning": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:22:10.350Z",
+          "action": "rewritten",
+          "wave": "G-8-W21",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2468,
+          "after_chars": 3394,
+          "added_chars": 926,
+          "mojibake": false
+        }
+      ]
+    },
+    "mbo": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:22:10.350Z",
+          "action": "rewritten",
+          "wave": "G-8-W21",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1738,
+          "after_chars": 2156,
+          "added_chars": 418,
+          "mojibake": false
+        }
+      ]
+    },
+    "merit-demerit-system": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:22:10.350Z",
+          "action": "rewritten",
+          "wave": "G-8-W21",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1827,
+          "after_chars": 2553,
+          "added_chars": 726,
+          "mojibake": false
+        }
+      ]
+    },
+    "method-planning": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:25:10.157Z",
+          "action": "rewritten",
+          "wave": "G-8-W22",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1654,
+          "after_chars": 2790,
+          "added_chars": 1136,
+          "mojibake": false
+        }
+      ]
+    },
+    "multi-objective-optimization": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:25:10.157Z",
+          "action": "rewritten",
+          "wave": "G-8-W22",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1914,
+          "after_chars": 2566,
+          "added_chars": 652,
+          "mojibake": false
+        }
+      ]
+    },
+    "natech": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:25:10.157Z",
+          "action": "rewritten",
+          "wave": "G-8-W22",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 650,
+          "after_chars": 1550,
+          "added_chars": 900,
+          "mojibake": false
+        }
+      ]
+    },
+    "nonconformity-rate": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:27:31.299Z",
+          "action": "rewritten",
+          "wave": "G-8-W23",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1700,
+          "after_chars": 2702,
+          "added_chars": 1002,
+          "mojibake": false
+        }
+      ]
+    },
+    "opportunity-cost": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:27:31.299Z",
+          "action": "rewritten",
+          "wave": "G-8-W23",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2167,
+          "after_chars": 3003,
+          "added_chars": 836,
+          "mojibake": false
+        }
+      ]
+    },
+    "outcome-indicators": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:27:31.299Z",
+          "action": "rewritten",
+          "wave": "G-8-W23",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2248,
+          "after_chars": 2888,
+          "added_chars": 640,
+          "mojibake": false
+        }
+      ]
+    },
+    "partnership": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:30:34.231Z",
+          "action": "rewritten",
+          "wave": "G-8-W24",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2038,
+          "after_chars": 2764,
+          "added_chars": 726,
+          "mojibake": false
+        }
+      ]
+    },
+    "patent-rights": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:30:34.231Z",
+          "action": "rewritten",
+          "wave": "G-8-W24",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 5321,
+          "after_chars": 5805,
+          "added_chars": 484,
+          "mojibake": false
+        }
+      ]
+    },
+    "performance-evaluation": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:30:34.231Z",
+          "action": "rewritten",
+          "wave": "G-8-W24",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2130,
+          "after_chars": 3031,
+          "added_chars": 901,
+          "mojibake": false
+        }
+      ]
+    },
+    "performance-regulation": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:37:16.710Z",
+          "action": "rewritten",
+          "wave": "G-8-W25",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1790,
+          "after_chars": 3512,
+          "added_chars": 1722,
+          "mojibake": false
+        }
+      ]
+    },
+    "periodic-inspection": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:37:16.710Z",
+          "action": "rewritten",
+          "wave": "G-8-W25",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 780,
+          "after_chars": 2693,
+          "added_chars": 1913,
+          "mojibake": false
+        }
+      ]
+    },
+    "personal-info-protection": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:37:16.710Z",
+          "action": "rewritten",
+          "wave": "G-8-W25",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 3524,
+          "after_chars": 4237,
+          "added_chars": 713,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
