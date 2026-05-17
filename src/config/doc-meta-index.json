@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T02:33:14.699Z",
+  "generated_at": "2026-05-17T03:25:33.221Z",
   "summary": {
     "total": 821,
     "published": 795,
@@ -1168,7 +1168,7 @@
       ],
       "textbook_order": 430,
       "published": true,
-      "seoTitle": "建築基準法 | doboku-note",
+      "seoTitle": "建築基準法とは｜仮設建築物の規制緩和と建築確認【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
@@ -1336,7 +1336,7 @@
       ],
       "textbook_order": 310,
       "published": true,
-      "seoTitle": "管理図 | doboku-note",
+      "seoTitle": "管理図とは｜シューハート管理図と管理限界線UCL/LCL【1級土木施工管理技士 品質管理】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
@@ -1378,7 +1378,7 @@
       ],
       "textbook_order": 135,
       "published": true,
-      "seoTitle": "クレーン・高所作業車 | doboku-note",
+      "seoTitle": "クレーン・高所作業車｜種類と定格総荷重・定格荷重の違い【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-16",
       "faqs": [
@@ -1495,7 +1495,7 @@
       ],
       "textbook_order": 435,
       "published": true,
-      "seoTitle": "火薬類取締法 | doboku-note",
+      "seoTitle": "火薬類取締法とは｜貯蔵・運搬・消費と保安責任者【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
       "revisionCycle": 2,
@@ -1618,7 +1618,7 @@
       ],
       "textbook_order": 405,
       "published": true,
-      "seoTitle": "労働基準法 | doboku-note",
+      "seoTitle": "労働基準法とは｜労働時間・休憩・解雇予告・災害補償【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
@@ -1912,7 +1912,7 @@
       ],
       "textbook_order": 260,
       "published": true,
-      "seoTitle": "ネットワーク式工程表 | doboku-note",
+      "seoTitle": "ネットワーク式工程表とは｜EST・LFT・クリティカルパス・フロート【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
@@ -2077,7 +2077,7 @@
       ],
       "textbook_order": 425,
       "published": true,
-      "seoTitle": "河川法 | doboku-note",
+      "seoTitle": "河川法とは｜河川区域3分類・保全区域50m・占用許可【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
@@ -2119,7 +2119,7 @@
       ],
       "textbook_order": 420,
       "published": true,
-      "seoTitle": "道路法 | doboku-note",
+      "seoTitle": "道路法とは｜道路占用・車両制限令・特殊車両通行許可【1級土木施工管理技士】",
       "created": "2026-04-16",
       "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
@@ -2371,7 +2371,7 @@
       ],
       "textbook_order": 415,
       "published": true,
-      "seoTitle": "公共工事標準請負契約約款 | doboku-note",
+      "seoTitle": "公共工事標準請負契約約款｜契約不適合責任2年・不可抗力1%超【1級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
       "revisionCycle": 1,
@@ -4520,7 +4520,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "CSV ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16",
+      "dateModified": "2026-05-17",
       "reviewStatus": "needs-review",
       "lastRewrittenAt": "2026-05-17T10:00:00+09:00",
       "revisionCycle": 1
@@ -4842,7 +4842,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "深層防護 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-delphi-method": {
       "title": "デルファイ法",
@@ -4927,10 +4927,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T07:00:00+09:00",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "減価償却費・残存価値 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-descriptive-statistics": {
       "title": "記述統計",
@@ -4961,7 +4964,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境適合設計 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T06:00:00+09:00",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-design-in": {
       "title": "デザインイン",
@@ -4976,10 +4982,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "デザインイン ｜ 技術士 総合技術監理部門 キーワード集",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-05-17T12:00:00+09:00",
+      "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-design-quality": {
       "title": "設計品質",
@@ -4994,7 +5000,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "設計品質 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:49:19.944Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-design-review": {
       "title": "デザインレビュー",
@@ -5009,10 +5018,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "デザインレビュー ｜ 技術士 総合技術監理部門 キーワード集",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-05-09",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-05-17T02:49:34Z",
+      "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-design-rights": {
       "title": "意匠権",
@@ -5136,10 +5145,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:48:25Z",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-08",
       "seoTitle": "ダイオキシン類対策特別措置法 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-direct-costing": {
       "title": "直接原価計算",
@@ -5151,10 +5163,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:55:56Z",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "直接原価計算 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-direct-manufacturing-cost": {
       "title": "製造直接費",
@@ -5169,7 +5184,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "製造直接費 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:54:02Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-disability-discrimination-act": {
       "title": "障害者差別解消法",
@@ -5294,10 +5312,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:51:22Z",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "防災気象情報 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-disclosure-request": {
       "title": "開示請求",
@@ -5463,7 +5484,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "eラーニング ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:58:26.000Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-e-waste": {
       "title": "E-waste問題",
@@ -5497,7 +5521,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "エコアクション21 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:57:51Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-eco-drr": {
       "title": "Eco-DRR",
@@ -5528,10 +5555,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T02:58:09Z",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "環境ラベル ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-ecological-footprint": {
       "title": "エコロジカル・フットプリント",
@@ -5719,7 +5749,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "緊急事態 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:01:11Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-emergency-info-processing": {
       "title": "緊急時の情報処理",
@@ -5790,7 +5823,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "福利厚生 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:00:47Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-employment-insurance": {
       "title": "雇用保険制度",
@@ -5880,7 +5916,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "エンドオブパイプ型対策 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:00:37Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-energy": {
       "title": "エネルギー",
@@ -5931,10 +5970,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境会計 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16",
-      "lastRewrittenAt": "2026-04-28T10:00:00.000Z",
+      "dateModified": "2026-05-17",
+      "lastRewrittenAt": "2026-05-17T03:03:08Z",
       "reviewStatus": "needs-review",
-      "revisionCycle": 1
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-environmental-basic-act": {
       "title": "環境基本法",
@@ -5986,8 +6025,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境コミュニケーション ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16",
-      "lastRewrittenAt": "2026-04-28"
+      "dateModified": "2026-05-17",
+      "lastRewrittenAt": "2026-05-17T03:04:37Z",
+      "revisionCycle": 1,
+      "reviewStatus": "needs-review"
     },
     "pe-comprehensive-management-environmental-impact-assessment": {
       "title": "環境影響評価法",
@@ -6184,7 +6225,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "ESD ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:02:36Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-esg-environmental-assessment": {
       "title": "ESG・環境評価",
@@ -6195,11 +6239,14 @@
       "tags": [
         "keyword"
       ],
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:06:47Z",
+      "revisionCycle": 1,
       "published": true,
       "publishedAt": "2026-04-09",
       "seoTitle": "ESG・環境評価 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-03",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-esg-investment": {
       "title": "ESG投資・ESG金融",
@@ -6456,10 +6503,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:06:50Z",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "バイアス ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-exam-application-guide": {
       "title": "総合技術監理部門 出願の留意点 ――業務経歴票の書き方――",
@@ -6617,8 +6667,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "拡大生産者責任 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16",
-      "lastRewrittenAt": "2026-04-28"
+      "dateModified": "2026-05-17",
+      "lastRewrittenAt": "2026-05-17T03:06:47.476Z",
+      "reviewStatus": "needs-review",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-extreme-events": {
       "title": "極端現象",
@@ -6633,7 +6685,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "極端現象 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T10:00:00Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-extrinsic-motivation": {
       "title": "外発的動機付け",
@@ -6834,7 +6889,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "フレックスタイム制 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:17:40Z",
+      "revisionCycle": 1
     },
     "pe-comprehensive-management-fmea": {
       "title": "FMEA",
@@ -6849,10 +6907,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "FMEA ｜ 技術士 総合技術監理部門 キーワード集",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-05-17T03:16:59Z",
+      "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-followership": {
       "title": "フォロワーシップ",
@@ -7071,10 +7129,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "フロントローディング ｜ 技術士 総合技術監理部門 キーワード集",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-04-18",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-05-17T03:22:39Z",
+      "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-fta": {
       "title": "フォールトツリー分析",
@@ -7160,12 +7218,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
       "publishedAt": "2026-04-09",
-      "lastRewrittenAt": "2026-04-24",
-      "revisionCycle": 2,
+      "lastRewrittenAt": "2026-05-17T03:24:30Z",
+      "revisionCycle": 3,
       "seoTitle": "ガントチャート ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-gender-equality-act": {
       "title": "男女共同参画社会基本法",
@@ -7273,10 +7332,13 @@
         "keyword"
       ],
       "published": true,
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-05-17T03:20:16Z",
+      "revisionCycle": 1,
       "publishedAt": "2026-04-09",
       "seoTitle": "グローバル・コンパクト ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-17"
     },
     "pe-comprehensive-management-global-hr-development": {
       "title": "グローバル人材開発",
