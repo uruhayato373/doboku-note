@@ -80,15 +80,13 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 ] as const;
 
 /**
- * 2026-05-17 新規 4 マガジン (Series 1/3/4/5)。
+ * 2026-05-17 新規マガジン (Series 1/3/4/5)。M1「データ駆動戦略」は 2026-05-18 撤回。
  * 配置原則:
- * - data-driven-strategy (¥1,480 エントリー): 独自データ系 + keyword hub + pillar
  * - whitepaper-r7-strategy (¥2,480): 白書テーマ記事 + mlit ハブ で primary CTA
  * - r8-essay-forecast (¥2,480): R07 年度ページ + essay-exam-strategy hub
  * - essay-template-3d (¥2,980 プレミアム): essay-exam-strategy + pattern-essay 4 ペルソナハブ
  */
 const NEW_MAGAZINES = {
-  dataDriven: 'data-driven-strategy' as const,
   whitepaperR7: 'whitepaper-r7-strategy' as const,
   r8Forecast: 'r8-essay-forecast' as const,
   template3d: 'essay-template-3d' as const,
@@ -169,18 +167,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 1.5. 独自データページ → data-driven-strategy を primary CTA
-  // 2026-05-18: primary-statistics-2026 は M1 マガジンへ集約のため unpublish 済み
-  if (slug === 'pe-comprehensive-management-essay-data-2026') {
-    return {
-      inline: [
-        slot(NEW_MAGAZINES.dataDriven, slug, 'inline-1'),
-        slot('tankan-reading-guide', slug, 'inline-2'),
-      ],
-      sidebar: [slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar')],
-      inlineMobileOnly: false,
-    };
-  }
+  // 1.5. (廃止) essay-data-2026 + M1「データ駆動戦略」は 2026-05-18 撤回済み
 
   // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン + テンプレ 3D (ハブ、強 CTA)
   const patternMag = matchPatternEssay(slug);
@@ -219,7 +206,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline,
       sidebar: [
         slot('tankan-reading-guide', slug, 'sidebar-1'),
-        slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar-2'),
       ],
       inlineMobileOnly: false,
     };
@@ -245,32 +231,21 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 5. pillar → 精読ガイド + data-driven-strategy (エントリー CTA)
+  // 5. pillar → 精読ガイド単独 CTA（M1 撤回 2026-05-18 でエントリー CTA は精読ガイドに一本化）
   if (docGroup === 'pillar') {
     return {
-      inline: [
-        slot('tankan-reading-guide', slug, 'inline-1'),
-        slot(NEW_MAGAZINES.dataDriven, slug, 'inline-2'),
-      ],
+      inline: [slot('tankan-reading-guide', slug, 'inline-1')],
       sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
       inlineMobileOnly: false,
     };
   }
 
-  // 6. keyword / keyword-2026 → 精読ガイド + data-driven (keyword-2026 ハブは強 CTA)
+  // 6. keyword / keyword-2026 → 精読ガイド単独 CTA（M1 撤回 2026-05-18、keyword-2026 ハブも精読ガイドに集約）
   if (docGroup === 'keyword' || slug === 'pe-comprehensive-management-keyword-2026') {
     const isHub = slug === 'pe-comprehensive-management-keyword-2026';
     return {
-      inline: isHub
-        ? [
-            slot('tankan-reading-guide', slug, 'inline-1'),
-            slot(NEW_MAGAZINES.dataDriven, slug, 'inline-2'),
-          ]
-        : [slot('tankan-reading-guide', slug, 'inline-mobile')],
-      sidebar: [
-        slot('tankan-reading-guide', slug, 'sidebar-1'),
-        ...(isHub ? [slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar-2')] : []),
-      ],
+      inline: [slot('tankan-reading-guide', slug, isHub ? 'inline-1' : 'inline-mobile')],
+      sidebar: [slot('tankan-reading-guide', slug, 'sidebar-1')],
       inlineMobileOnly: !isHub,
     };
   }

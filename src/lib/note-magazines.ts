@@ -107,22 +107,7 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成) -----
-  'data-driven-strategy': {
-    id: 'data-driven-strategy',
-    published: false,
-    noteUrl: '',
-    title: 'データで読み解く 総監記述式 戦略書｜頻出 Top 20 KW + χ² 検定',
-    description:
-      '18 論文 × 637 KW の機械分析と R01-R07 × 280 問の χ²=1.107 検定で「どこに何時間かけるべきか」を定量化したエントリーマガジン。約 12,000 字。',
-    shortTitle: 'データ駆動 戦略書',
-    shortDescription:
-      '18 論文 × 637 KW 機械分析 + χ²=1.107 で勉強時間を定量化。',
-    imageUrl: '/images/magazines/magazine-data-driven-strategy-cover.webp',
-    price: '¥1,480',
-    badge: 'note 限定',
-  },
-
+  // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成、M1 は 2026-05-18 撤回) -----
   'whitepaper-r7-strategy': {
     id: 'whitepaper-r7-strategy',
     published: false,
