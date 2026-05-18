@@ -93,56 +93,16 @@ const NEW_MAGAZINES = {
 } satisfies Record<string, MagazineId>;
 
 /**
- * 国土交通白書テーマ記事 (essay-mlit-* および mlit-whitepaper-2025) →
- * 該当テーマに適したペルソナマガジン。精読ガイド + 1-2 ペルソナ。
+ * 国土交通白書ハブ記事 (mlit-whitepaper-2025) のみマッチ。
+ * essay-mlit-* 7 テーマ別記事は 2026-05-18 に撤回されたため削除済み。
  *
- * 各テーマで主軸となる業務領域に応じてマガジンを選定:
- * - 老朽化 / 群マネ → 道路発注者 (自治体)
- * - 2024年問題 / 外国人材 → ゼネコン
- * - 流域治水 → 河川コンサル
- * - GX/CN → 環境調査 + 道路発注者
- * - i-Con 2.0 → ゼネコン + 河川コンサル
- * - 白書ハブ → 全 4 ペルソナ (強 CTA)
+ * 白書ハブは全ペルソナ + 精読ガイド (強 CTA)。
  */
-function matchMlitTheme(slug: string): readonly MagazineId[] | null {
-  // 白書ハブは全ペルソナ + 精読ガイド (強 CTA)
+function matchMlitHub(slug: string): readonly MagazineId[] | null {
   if (slug === 'pe-comprehensive-management-mlit-whitepaper-2025') {
     return ['tankan-reading-guide', ...ALL_PERSONA_MAGAZINES];
   }
-  // テーマ別記事は精読ガイド + 該当ペルソナ
-  const themeMap: Record<string, readonly MagazineId[]> = {
-    'pe-comprehensive-management-essay-mlit-aging-infrastructure': [
-      'tankan-reading-guide',
-      'essay-road-municipality-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-construction-2024': [
-      'tankan-reading-guide',
-      'essay-general-contractor-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-river-basin-management': [
-      'tankan-reading-guide',
-      'essay-river-consultant-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-green-transformation': [
-      'tankan-reading-guide',
-      'essay-environment-survey-magazine',
-      'essay-road-municipality-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-i-construction-2': [
-      'tankan-reading-guide',
-      'essay-general-contractor-magazine',
-      'essay-river-consultant-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt': [
-      'tankan-reading-guide',
-      'essay-road-municipality-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-foreign-workers': [
-      'tankan-reading-guide',
-      'essay-general-contractor-magazine',
-    ],
-  };
-  return themeMap[slug] ?? null;
+  return null;
 }
 
 /**
@@ -211,12 +171,10 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 4.5. 国土交通白書テーマ記事 (essay-mlit-* + mlit-whitepaper-2025) → whitepaper-r7-strategy を primary CTA
-  // 白書ハブは全ペルソナ + whitepaper-r7 (強 CTA)、テーマ別は whitepaper-r7 + 該当ペルソナ
-  const mlitMagazines = matchMlitTheme(slug);
+  // 4.5. 国土交通白書ハブ記事 (mlit-whitepaper-2025) → whitepaper-r7-strategy を primary CTA
+  // 全ペルソナ + whitepaper-r7 (強 CTA)。essay-mlit-* 7 テーマ別記事は 2026-05-18 撤回済み
+  const mlitMagazines = matchMlitHub(slug);
   if (mlitMagazines) {
-    const isHub = slug === 'pe-comprehensive-management-mlit-whitepaper-2025';
-    // whitepaper-r7-strategy を必ず先頭に追加
     const inlineWithR7 = [
       slot(NEW_MAGAZINES.whitepaperR7, slug, 'inline-r7'),
       ...mlitMagazines.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
@@ -227,7 +185,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.whitepaperR7, slug, 'sidebar-r7'),
         slot('tankan-reading-guide', slug, 'sidebar-tankan'),
       ],
-      inlineMobileOnly: !isHub,
+      inlineMobileOnly: false,
     };
   }
 
