@@ -63,6 +63,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
 | [docs/reference/content-authoring.md](docs/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
+| [docs/reference/docs-markdown-style.md](docs/reference/docs-markdown-style.md) | docs/ 配下 .md ドキュメントの Obsidian callout（`> [!note]` 等）運用ルール・MDX `<Callout>` との対比・推奨 4 タイプ | docs/handoffs/ / docs/project/ / docs/reference/ の .md を書くとき |
 | [docs/reference/image-policy.md](docs/reference/image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
 | [docs/reference/note-svg-policy.md](docs/reference/note-svg-policy.md) | note 記事用 図解 SVG/PNG ポリシー（キャンバス・最小フォント・余白・密度上限・失敗パターン） | `docs/note/**/img/figure-*` を作成・修正するとき |
 | [docs/reference/note-publish-enhancement.md](docs/reference/note-publish-enhancement.md) | note 記事を公開レベルに引き上げる10工程手順書（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） | note 記事を新規公開・大規模改善するとき |
@@ -166,6 +167,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 - **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`
 - MDX 書き込み後は `U+FFFD`（`﹖`）で文字化けチェック（既存コンテンツとの一貫性を保つため）
 - 既存コードの命名規則・ファイル構成・設計思想を優先する。自分の好みで変えない
+- **docs/ 内 .md ドキュメント**: Obsidian callout（`> [!note]` 等）の運用は [docs-markdown-style.md](docs/reference/docs-markdown-style.md) 準拠（推奨 4 タイプ限定、MDX `<Callout>` とは別系統で混同しない）
 
 ### 12. 失敗や不確実性を隠さない
 
