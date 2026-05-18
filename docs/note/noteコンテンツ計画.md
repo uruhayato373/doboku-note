@@ -221,15 +221,21 @@
 
 サイト無料の「候補俯瞰・参考資料」と note 有料の「予想問題本文・模範解答骨子」を完全分業し、Google が note を正答視するリスク（Red Line #5）を回避しつつ M3 マガジン購買動機を維持する設計。
 
-- **[r8-essay-keyword-forecast](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast)** (guide_order: 7) — R8 候補キーワード 26 個を 5管理別に俯瞰する集客ハブ
-  - 末尾 CTA で **M3** マガジン（¥2,480）+ **F-06** 無料リード磁石 2 本へ送客
-  - サイト側は数値スコア・予想問題本文・模範解答骨子を出さない（M3 専属）
-  - 各候補キーワードから既存 650 キーワードページへ動線、内部リンク密度向上
+- **[r8-essay-keyword-forecast](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast)** (guide_order: 7) — **R8 候補テーマ 6 本のテーマ駆動俯瞰ハブ**（2026-05-18 v2 構造改修）
+  - 主役 3 本（A: 気候変動適応 × グリーンインフラ / B: 資源循環 × サプライチェーン強靭化 / C: 少子高齢化深化 × 外国人材 × 組織変革）+ リンク中心 3 本（D: 老朽化群マネ / E: GX / F: i-Con2.0 × 生成 AI）
+  - 各テーマブロックに「主軸 5 管理ペア／副 5 管理／関連 KW／適用パターン／サイト深掘り先／関連白書／note 予想問題」を集約。総監の本質「テーマ × 5 管理対立 × 統合解決」を体現
+  - 旧 5 管理縦割りカタログは「5 管理視点での逆引き」として 60 行 → 25 行に圧縮（SEO 受け皿、KW 一覧 + テーマ ID）
+  - **essay-mlit-\* 7 本との双方向接続**: 各テーマ → essay-mlit-\*、essay-mlit-\* の「過去問適用パスポート」直後に r8-essay-keyword-forecast への逆方向リンク追加
+  - **last-minute-2026 との連動**: 各テーマブロックで「適用パターン」を last-minute-2026 の 6 つの思考パターンへリンク（Phase 2.5 でクロスマッピング済）
+  - **note 無料 2 本との連携**: テーマ A・B から note 無料リード磁石（r8予想問題-気候変動適応 / 資源循環サプライチェーン）へ動線、無料 2 本側からも r8-essay-keyword-forecast へ俯瞰リンク追加
+  - 末尾 CTA で **M3** マガジン（¥2,480）+ 無料リード磁石 2 本へ集約送客（テーマ単位分散しない）
+  - サイト側は数値スコア（X.X/10）・M3 マガジン「5 大トレードオフ型」固有名・予想問題本文・模範解答骨子を**書かない**（M3 差別化要素を温存）
 - **[whitepaper-study-map](https://doboku-note.com/docs/pe-comprehensive-management-whitepaper-study-map)** (guide_order: 6) — 5管理 × 28 白書の公式リンク集
   - **M2** 白書 R7 戦略集（¥2,480）の前段リファレンスとして機能
   - 国土交通白書深掘りは mlit-whitepaper-2025 へ、白書 × トレードオフ論文骨子は M2 マガジンへ送客
 - **[essay-exam-strategy](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)** — 過去 17 年テーマ表に「背景」列を追加（2026-05-18、年代区分別箇条書き、自前白書要約・書籍 OCR 不使用）
 - **[essay-data-2026](https://doboku-note.com/docs/pe-comprehensive-management-essay-data-2026)** — 冒頭 CTA で **M1** データ駆動戦略マガジン（¥1,480）への送客動線を追加（2026-05-18、素材データ → 戦略書の分業を明示）
+- **primary-statistics-2026 は note 集約のため unpublish**（2026-05-18）— 結論が「番号偏りなし＝使えない」と否定的で SEO 流入後のコンバージョン弱く、検索ボリュームも超ロングテール。択一 280 問 × χ² 検定の完全データセットを **M1 マガジン第 5-2.5 章に内蔵**し、サイトからは取り下げ。M1 の「独占データ」差別化を強化（magazine-placement.ts / essay-template-3d リンク同時更新）
 
 ### note → サイト
 
@@ -277,6 +283,7 @@
 | 想定文字数 | 約 12,000 字 |
 | 元データ | `.claude/state/essay-keyword-frequency.json` + `.claude/state/primary-answer-distribution.json` |
 | 公開 | W2 (2026-05-25〜31) |
+| サイト連携 | 記述式分析（essay-data-2026）はサイトで素材データ公開、択一 280 問 × χ² 検定（旧 primary-statistics-2026）は本書内蔵で独占公開（2026-05-18 集約、サイト側は unpublish）。サイト essay-data-2026 から本書 CTA で送客 |
 
 **コンセプト**: 「過去 7 年の総監記述式 18 論文と択一 280 問を機械分析した結果、勉強の優先順位が定量化できる」
 

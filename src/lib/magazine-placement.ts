@@ -170,10 +170,8 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
 
   // 1.5. 独自データページ → data-driven-strategy を primary CTA
-  if (
-    slug === 'pe-comprehensive-management-essay-data-2026' ||
-    slug === 'pe-comprehensive-management-primary-statistics-2026'
-  ) {
+  // 2026-05-18: primary-statistics-2026 は M1 マガジンへ集約のため unpublish 済み
+  if (slug === 'pe-comprehensive-management-essay-data-2026') {
     return {
       inline: [
         slot(NEW_MAGAZINES.dataDriven, slug, 'inline-1'),

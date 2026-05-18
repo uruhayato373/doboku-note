@@ -368,6 +368,45 @@
       "created": "2026-05-14",
       "updated": "2026-05-14",
       "notes": "現行 5 軸の盲点 4 件（NLM 整合・過去問逆引き網羅・散文品質・SVG 単体品質）を採点軸に組み込むか別系統対応かの検討。議論・決定は 30_採点ルーブリック方針.md に反映。（旧 Issue #205 検討中セクション）"
+    },
+    {
+      "id": "T-024",
+      "title": "R8 対策 Phase 3: 試験前最終週の動線最終化",
+      "status": "todo",
+      "category": "content",
+      "priority": "mid",
+      "source": "manual",
+      "parent": null,
+      "refs": [
+        ".local/r2/posts/pe-comprehensive-management/mlit-whitepaper-2025/article.mdx",
+        ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/article.mdx",
+        ".local/r2/posts/pe-comprehensive-management/management-tradeoffs/article.mdx",
+        ".local/r2/posts/pe-comprehensive-management/r8-essay-keyword-forecast/article.mdx",
+        ".local/r2/posts/pe-comprehensive-management/essay-data-2026/article.mdx",
+        "docs/handoffs/2026-05-18-r8-pe-double-track.md"
+      ],
+      "dedupe_key": null,
+      "created": "2026-05-18",
+      "updated": "2026-05-18",
+      "notes": "試験前最終週（2026 年 6 月最終週、1 日作業）。Phase 1/2/2.5/2.6-2.8 完了後の動線最終化フェーズ。(1) mlit-whitepaper-2025 / essay-exam-strategy / management-tradeoffs の末尾に r8-essay-keyword-forecast と whitepaper-study-map への <SeeAlso> を追加。(2) M3 マガジン公開後、r8-essay-keyword-forecast の CTA 文言を「公開予定」→「公開中」+ 実 URL に更新。(3) M1 マガジン公開後、essay-data-2026 冒頭 CTA を同様に更新。設計詳細は ~/.claude/plans/doboku-note-note-fancy-hedgehog.md の Phase 3 セクション。"
+    },
+    {
+      "id": "T-025",
+      "title": "R8 対策 Phase 4: 試験後 R8 予測の的中振り返り",
+      "status": "todo",
+      "category": "content",
+      "priority": "mid",
+      "source": "manual",
+      "parent": null,
+      "refs": [
+        ".local/r2/posts/pe-comprehensive-management/r8-essay-keyword-forecast/article.mdx",
+        "docs/note/noteコンテンツ計画.md",
+        "docs/handoffs/2026-05-18-r8-pe-double-track.md"
+      ],
+      "dedupe_key": null,
+      "created": "2026-05-18",
+      "updated": "2026-05-18",
+      "notes": "試験後（2026-07 下旬〜8 月、1-2 日作業）。R8 で実際に出題されたテーマと予測の照合を r8-essay-keyword-forecast に追記。(1) テーマ A〜F 6 本のうち何本が当たったかの的中評価（特に主役 3 本 = 気候変動適応 / 資源循環 / 少子高齢化深化）。(2) トレードオフ軸（主軸 5 管理ペア）の予測精度。(3) note 無料 2 本と M3 マガジンの実コンバージョン振り返り。(4) 来年度版（R9）対応の判断 — 維持/更新/廃止。(5) 結果を noteコンテンツ計画.md と handoff に反映。設計詳細は ~/.claude/plans/doboku-note-note-fancy-hedgehog.md の Phase 4 セクション。"
     }
   ]
 }

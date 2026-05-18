@@ -18,7 +18,7 @@
 - **択一過去問 R01-R07 × 280 問** の正答番号分布を χ² 検定で評価
 - **4 ペルソナ別の論点プロファイル**で「自分の業務に近い人がどんな論点で書いているか」を可視化
 
-データは全て [doboku-note](https://doboku-note.com) のサイト上で公開しています（[essay-data-2026](https://doboku-note.com/docs/pe-comprehensive-management-essay-data-2026) と [primary-statistics-2026](https://doboku-note.com/docs/pe-comprehensive-management-primary-statistics-2026)）。本書は、それらのデータを「**読み物としての戦略書**」に再構成し、試験 2 ヶ月前の受験者が即座に**学習計画を立てられる**ようまとめたものです。
+記述式キーワード分析の素材データは [doboku-note](https://doboku-note.com) のサイト上で公開しています（[essay-data-2026](https://doboku-note.com/docs/pe-comprehensive-management-essay-data-2026)）。一方、択一試験 280 問 × χ² 検定の完全データセットは本書に内蔵（第 5 章）し、サイトでは公開していません。本書は、これらのデータを「**読み物としての戦略書**」に再構成し、試験 2 ヶ月前の受験者が即座に**学習計画を立てられる**ようまとめたものです。
 
 ### 本書で答える 3 つの問い
 
@@ -333,6 +333,25 @@ DX 投資（経済性） vs 即時の安全効果（時間ラグ）
 
 統計的に正答番号には**有意な偏りなし**。つまり「3 が多い」「5 が多い」のような俗説は**全て統計的に否定**されます。
 
+### 5-2.5 年度別 × 選択肢の完全マトリクス（本書独占公開）
+
+サイトでは公開していない一次データ。各セルの値は当該年度・選択肢の出現問数です。
+
+| 年度 | 1 | 2 | 3 | 4 | 5 | 年度内 χ² |
+|---|---:|---:|---:|---:|---:|---:|
+| R01 | 7 | 9 | 9 | 7 | 8 | 0.50 |
+| R02 | 8 | 7 | 10 | 7 | 8 | 0.75 |
+| R03 | 7 | 9 | 10 | 8 | 6 | 1.25 |
+| R04 | 7 | 8 | 9 | 9 | 7 | 0.50 |
+| R05 | 7 | 10 | 6 | 7 | 10 | 1.75 |
+| R06 | 6 | 6 | 11 | 10 | 7 | 2.75 |
+| R07 | 8 | 7 | 6 | 9 | 10 | 1.25 |
+| **合計** | **50** | **56** | **61** | **57** | **56** | **1.107** |
+
+各年度の χ² も臨界値 9.488 を下回り、年度内でも統計的な偏りは検出されません。最大は R06 の 2.75（選択肢 3 が 11 問・1/2 が各 6 問）ですが、これも有意水準には届きません。
+
+選択肢 3 が「全体トップ」になったのは R02/R03/R06 の 3 年度の累積効果。R05/R07 では最少番号でもあるため、**特定番号が常に有利という事実はない**ことが視覚的に確認できます。
+
 ### 5-3. 「迷ったら 3」が成立しない 3 つの根拠
 
 #### 根拠 1: 標本サイズ 280 問で偏りなし
@@ -409,7 +428,6 @@ DX 投資（経済性） vs 即時の安全効果（時間ラグ）
 - 🆓 [総合技術監理 キーワード集 2026（637 ワード全件）](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)
 - 🆓 [記述式試験の解答戦略（三層構造）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)
 - 🆓 [記述式 R03-R07 頻出キーワード分析（独自データ）](https://doboku-note.com/docs/pe-comprehensive-management-essay-data-2026)
-- 🆓 [択一式 R01-R07 正答番号分布の統計](https://doboku-note.com/docs/pe-comprehensive-management-primary-statistics-2026)
 - 💰 [4 ペルソナ別模範論文 R03-R07（¥1,480-1,980）](https://note.com/dobokunote)（順次公開）
 - 💰 [国土交通白書 R7 完全対応集（¥2,480）](https://note.com/dobokunote)（W4 公開予定）
 - 💰 [解答テンプレ 3D マトリクス（¥2,980）](https://note.com/dobokunote)（W5 公開予定）
@@ -427,7 +445,7 @@ DX 投資（経済性） vs 即時の安全効果（時間ラグ）
 **本書は doboku-note（土木・建設系試験対策ハブ）の独自データに基づきます。**
 
 - 著者: doboku-note 編集部
-- データソース: `essay-data-2026` / `primary-statistics-2026`（doboku-note 公開、機械分析）
+- データソース: `essay-data-2026`（doboku-note サイトで公開）+ 択一 280 問 × χ² 検定（本書独占公開、`.claude/state/primary-answer-distribution.json` 由来）
 - 公開: 2026 年 5 月
 - 価格: ¥1,480
 - 関連商品: 4 ペルソナ模範論文 / 白書 R7 完全対応集 / 解答テンプレ 3D マトリクス
