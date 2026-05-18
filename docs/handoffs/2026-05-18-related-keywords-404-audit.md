@@ -22,8 +22,10 @@
 - [x] このファイルに結果書き込み
 - [x] commit #1: check-links.mjs 拡張 + handoff（38e2cd66e）
 - [x] B カテゴリ civil 16 件修正（接頭辞補完 4 件 + テーブル行削除 12 件）
-- [x] commit #2: civil 404 修正 + handoff 更新（このコミット）
+- [x] commit #2: civil 404 修正 + handoff 更新（5dde8fe17）
+- [x] commit #3: 空き殻 5 ディレクトリ削除（80 ファイル）+ handoff 更新
 - [ ] A カテゴリ PE 19 件の対処（次セッション）
+- [ ] R2 残骸（storage.doboku-note.com 配下の同パス）の扱い（次セッション）
 
 ---
 
@@ -122,6 +124,20 @@
 | `guide-schedule-management` | L393（plan-text-01/02 列） |
 
 → **civil-construction-1 配下の HIGH は 0 件に**（98 → 82）。
+
+### B-3. 空き殻ディレクトリ自体の掃除（commit #3）
+
+参照を除去しただけだとディレクトリと img 残骸が残るので、5 ディレクトリを `git rm -r` で削除（80 ファイル）:
+
+- `textbook-construction-plan-text-01/` (20 ファイル: fig-2-1〜10 png/webp + ogp)
+- `textbook-construction-plan-text-02/` (14 ファイル: fig-2-11〜16 png/webp + ogp)
+- `textbook-related-laws-01/` (8 ファイル: fig-7-1, fig-7-2, fig-7-construction-system png/webp + ogp)
+- `textbook-related-laws-02/` (10 ファイル: fig-7-3〜6 png/webp + ogp)
+- `textbook-quality-management-text/` (28 ファイル: fig-4-1〜12+ png/webp + ogp)
+
+事前チェック: 他 MDX からの参照ゼロを `grep -rln "textbook-XXX/img"` で確認済。同名 fig は各 secondary-* 配下の別物（完全パスで参照）。
+
+**R2 残骸**: `storage.doboku-note.com/posts/civil-construction-1/textbook-{*}/img/...` は残存。`npm run upload-images-r2` は upload のみで delete しないため、R2 側の手動掃除 or CI スクリプト拡張が次セッション以降の課題。
 
 ### A. RelatedKeywords 由来（PE 配下 19 件、未対処）
 
