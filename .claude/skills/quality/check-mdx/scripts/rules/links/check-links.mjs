@@ -44,6 +44,15 @@ const KNOWN_STATIC = new Set(['/', '/about', '/privacy', '/search']);
 // 「静的ページリンク」として検査するプレフィックス（元 check-links.mjs の挙動を踏襲）
 const STATIC_PREFIX_RE = /^\/(about|privacy|search|blog|contact)(\/|$)/;
 
+// JSX <RelatedKeywords> 内 slug の URL 生成（RelatedKeywords.tsx L18-23 と同等）
+const KNOWN_CATEGORY_PREFIXES = ['pe-comprehensive-management-', 'civil-construction-1-'];
+function buildRelatedKeywordHref(slug) {
+  if (KNOWN_CATEGORY_PREFIXES.some((p) => slug.startsWith(p))) {
+    return `/docs/${slug}`;
+  }
+  return `/docs/pe-comprehensive-management-${slug}`;
+}
+
 // --- Step 1: 有効 slug 集合と slug -> ファイルパス対応を構築 ---
 function findSiteMdxFiles(dir, basePath = []) {
   const results = [];
@@ -136,6 +145,32 @@ function extractLinks(content) {
       const url = m[0].replace(/[。、）)'"]+$/, '');
       const norm = normalizeHref(url);
       if (norm) links.push({ text: '', raw: url, kind: norm.kind, href: norm.href, line: lineNum });
+    }
+  }
+  // JSX <RelatedKeywords items={[ ... ]} /> 内の slug を抽出（複数行ブロック対応）
+  // ブロック単位で line 番号を保持するため、開始行を起点に内部の slug 行を計算
+  const rkBlockPattern = /<RelatedKeywords\b[\s\S]*?\/>/g;
+  let bm;
+  while ((bm = rkBlockPattern.exec(content)) !== null) {
+    const block = bm[0];
+    const blockStartLine = content.slice(0, bm.index).split('\n').length;
+    const slugPattern = /\bslug\s*:\s*["']([^"']+)["']/g;
+    let sm;
+    while ((sm = slugPattern.exec(block)) !== null) {
+      const slug = sm[1];
+      const labelMatch = /label\s*:\s*["']([^"']*)["']\s*,\s*slug\s*:/.exec(
+        block.slice(Math.max(0, sm.index - 200), sm.index + slug.length + 20),
+      );
+      const label = labelMatch ? labelMatch[1] : '';
+      const lineOffset = block.slice(0, sm.index).split('\n').length - 1;
+      const href = buildRelatedKeywordHref(slug);
+      links.push({
+        text: label,
+        raw: `RelatedKeywords slug="${slug}"`,
+        kind: 'docs',
+        href,
+        line: blockStartLine + lineOffset,
+      });
     }
   }
   return links;
