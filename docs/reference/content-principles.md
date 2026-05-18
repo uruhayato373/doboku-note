@@ -587,7 +587,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 
 **Type-2「次のステップ」または「関連リソース」型**（俯瞰・分析系）— サイト内回遊 + note 補足:
 
-- 該当例: `r8-essay-keyword-forecast`（候補テーマ俯瞰）、`whitepaper-study-map`（白書マップ）、`mlit-whitepaper-2025`（白書 R7 × 16 ペアトレードオフ）、`management-tradeoffs`
+- 該当例: `r8-essay-keyword-forecast`（候補テーマ俯瞰）、`whitepaper-study-map`（白書マップ）、`management-tradeoffs`（5 管理間トレードオフ思考フレーム）
 - 末尾セクション名: `## 次のステップ` または `## 関連リソース`（既存表記に合わせる）
 - 構成: **散文 1 段落で「読者の状況別にどう選ぶか」の判断軸を明示** → **`<SeeAlso>` 1〜2 件のみ**（主推奨 + 副推奨の二段構え、各カードの `reason` で「なぜそのページを次に読むべきか」を 1〜2 行で説明）
 - 該当する場合は note リンクカード（URL 単独行）を追加
