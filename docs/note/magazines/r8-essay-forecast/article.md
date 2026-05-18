@@ -589,14 +589,12 @@ R7 で安全管理が突出（11 回）した流れを受け、R8 で「**少子
 
 - [総合技術監理 キーワード集 2026（637 ワード）](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)
 - [記述式試験の解答戦略（三層構造の元解説）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)
-- [記述式 R03-R07 頻出キーワード分析](https://doboku-note.com/docs/pe-comprehensive-management-essay-data-2026)
 - [5 管理トレードオフ 頻出 6 ペア](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)
 - [国土交通白書 R7 × 5 管理 7 記事](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-aging-infrastructure)
 - [4 ペルソナ別模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant)
 
 #### doboku-note 有料コンテンツ（本書と組合せ推奨）
 
-- **データ駆動受験戦略（¥1,480）** — 本書第 1 章「予想根拠」の詳細データ
 - **国土交通白書 R7 完全対応集（¥2,480）** — 本書第 1 章の白書連動分析を深掘り
 - **解答テンプレ集 3D マトリクス（¥2,980）** — 本書第 2 章テンプレを 20 テーマ × 5 管理 × 4 ペルソナで詳述
 - **4 ペルソナ別模範論文 R03-R07（¥1,480-1,980 × 4）** — 本書第 3-5 章のペルソナ別実例
@@ -616,4 +614,4 @@ R7 で安全管理が突出（11 回）した流れを受け、R8 で「**少子
 - 著者: doboku-note 編集部
 - 公開: 2026 年 6 月
 - 価格: ¥2,480
-- 関連商品: データ駆動受験戦略 / 白書 R7 完全対応集 / 解答テンプレ 3D マトリクス / 4 ペルソナ別模範論文
+- 関連商品: 白書 R7 完全対応集 / 解答テンプレ 3D マトリクス / 4 ペルソナ別模範論文
