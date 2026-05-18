@@ -257,7 +257,7 @@
       "dedupe_key": null,
       "created": "2026-05-14",
       "updated": "2026-05-18",
-      "notes": "**SSOT は docs/note/noteコンテンツ計画.md（v2 統合済み 2026-05-18）**。9 マガジン完成（5管理ガイド公開済 / 8 マガジン投稿待ち）+ R8予想単記事 2本（無料・最優先）。詳細進捗・横断 TODO・公開タイムライン（W2-W5）は noteコンテンツ計画.md のダッシュボード参照。旧 Umbrella Issue #179 / 旧 PLAN.md 4本 + SERIES2-PUBLICATION-PLAN は noteコンテンツ計画.md に統合し削除（2026-05-18）。"
+      "notes": "**SSOT は docs/note/noteコンテンツ計画.md（v2 統合済み 2026-05-18）**。8 マガジン完成（5管理ガイド公開済 / 7 マガジン投稿待ち）+ R8予想単記事 2本（無料・最優先）。詳細進捗・横断 TODO・公開タイムライン（W3-W5）は noteコンテンツ計画.md のダッシュボード参照。旧 Umbrella Issue #179 / 旧 PLAN.md 4本 + SERIES2-PUBLICATION-PLAN は noteコンテンツ計画.md に統合し削除（2026-05-18）。**2026-05-18 M1「データ駆動戦略」撤回**: 循環論証・M3 重複・第 5 章 χ² ゼロ価値で有料商品として成立せず、Red Line #6（未合格者は独自データ分析を有料販売しない）追加で再発防止。同時に essay-data-2026 サイトページも削除。詳細: docs/handoffs/2026-05-18-m1-withdrawal.md。"
     },
     {
       "id": "T-017",
@@ -382,13 +382,12 @@
         ".local/r2/posts/pe-comprehensive-management/essay-exam-strategy/article.mdx",
         ".local/r2/posts/pe-comprehensive-management/management-tradeoffs/article.mdx",
         ".local/r2/posts/pe-comprehensive-management/r8-essay-keyword-forecast/article.mdx",
-        ".local/r2/posts/pe-comprehensive-management/essay-data-2026/article.mdx",
         "docs/handoffs/2026-05-18-r8-pe-double-track.md"
       ],
       "dedupe_key": null,
       "created": "2026-05-18",
       "updated": "2026-05-18",
-      "notes": "試験前最終週（2026 年 6 月最終週、1 日作業）。Phase 1/2/2.5/2.6-2.8 完了後の動線最終化フェーズ。(1) mlit-whitepaper-2025 / essay-exam-strategy / management-tradeoffs の末尾に r8-essay-keyword-forecast と whitepaper-study-map への <SeeAlso> を追加。(2) M3 マガジン公開後、r8-essay-keyword-forecast の CTA 文言を「公開予定」→「公開中」+ 実 URL に更新。(3) M1 マガジン公開後、essay-data-2026 冒頭 CTA を同様に更新。設計詳細は ~/.claude/plans/doboku-note-note-fancy-hedgehog.md の Phase 3 セクション。"
+      "notes": "試験前最終週（2026 年 6 月最終週、1 日作業）。Phase 1/2/2.5/2.6-2.8 完了後の動線最終化フェーズ。(1) mlit-whitepaper-2025 / essay-exam-strategy / management-tradeoffs の末尾に r8-essay-keyword-forecast と whitepaper-study-map への <SeeAlso> を追加。(2) M3 マガジン公開後、r8-essay-keyword-forecast の CTA 文言を「公開予定」→「公開中」+ 実 URL に更新。なお essay-data-2026 は 2026-05-18 に削除済み（M1 撤回連動）、本タスクから除外。"
     },
     {
       "id": "T-025",
