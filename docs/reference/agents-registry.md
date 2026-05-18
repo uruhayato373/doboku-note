@@ -79,7 +79,7 @@
 | エージェント | 対象ファイル | 主な軸 | 起動タイミング |
 |---|---|---|---|
 | **content-qa** | `.mdx`（過去問・基準書） | 静的5軸（視覚検証なし） | PDF→MDX 変換後 |
-| **cem-qa** | `.mdx`（総監キーワード） | 5管理体系・コンポーネント原則・参考資料 | キーワードページ執筆後 |
+| **cem-qa** | `.mdx`（総監キーワード、`group: keyword` のみ） | 5管理体系・コンポーネント原則・参考資料 | キーワードページ執筆後 |
 | **civil-construction-qa** | `.mdx`（1級土木 textbook/guide） | 視覚検証 + テキスト網羅率（3モード5軸） | 1級土木 MDX 生成後 |
 | **civil-construction-review** | `.mdx`（1級土木 textbook/guide） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
 | **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query） | `/weekly-improve` 実行時 |
@@ -87,6 +87,8 @@
 | **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
+
+**PE ガイド記事（`group: guide`）の Evaluator は未割当**: `cem-qa` はキーワードページ専用、`group: guide` 記事の品質評価はカバー範囲外。lint-mdx-mobile.mjs カテゴリ 12（12-1 / 12-2 / 12-3）で構造違反を機械検知している。Phase 2 で `guide-qa` Evaluator 新設を検討（戦略系 Type-1 / 俯瞰系 Type-2 の使い分け評価、note CTA 整合性、サイト内回遊密度の 3 軸）。
 
 **UI コンポーネント（`.tsx`）の視覚回帰**は `/design-review --visual` スキル（旧 `ui-visual-qa` エージェントを統合）で実施する。スキル層で完結するためサブエージェント化不要。
 

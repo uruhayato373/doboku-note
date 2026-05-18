@@ -54,6 +54,9 @@
  *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
  *  11-1 MEDIUM \frac{} の分子 or 分母に \text{} を含む（CJK 縮小回避のため \dfrac を推奨）
  *  11-2 MEDIUM 単行 $$<content>$$ を検出（remark-math v6 で inline 扱い、複数行化推奨）
+ *  12-1 MEDIUM group: guide で `## 総合技術監理における位置づけ` を検出（キーワード専用、content-principles.md §20）
+ *  12-2 MEDIUM group: guide で `## 参考資料` または `## 参考文献` を検出（外部離脱を最小化、§20）
+ *  12-3 LOW    group: guide で末尾 H2 が承認パターン外（次のステップ / 関連リソース / ○○の選択肢）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -1167,6 +1170,73 @@ function lintExamMissingInternalLinks(lines, filePath, findings) {
   }
 }
 
+// ── カテゴリ12: ガイド記事構造（group: guide 専用） ─────────────────────────
+/**
+ * 12-1 MEDIUM: group: guide で `## 総合技術監理における位置づけ` を検出
+ * 12-2 MEDIUM: group: guide で `## 参考資料` または `## 参考文献` を検出
+ * 12-3 LOW:    group: guide で末尾 H2 が「次のステップ」「関連リソース」「○○の選択肢」以外
+ *
+ * 真実源: content-principles.md §20「ガイド記事の末尾構成」
+ * 対象: pe-comprehensive-management 配下の group: guide 記事のみ
+ */
+function lintGuideArticleStructure(lines, raw, filePath, findings) {
+  if (!isPeComprehensiveManagement(filePath)) return;
+
+  // frontmatter から group を抽出
+  const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!fmMatch) return;
+  const fmGroup = fmMatch[1].match(/^group:\s*([^\s#]+)/m);
+  if (!fmGroup || fmGroup[1].trim() !== 'guide') return;
+
+  // 12-1: ## 総合技術監理における位置づけ
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+総合技術監理における位置づけ/.test(lines[i])) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '12-1',
+        line: i + 1,
+        endLine: i + 1,
+        message: 'ガイド記事に「## 総合技術監理における位置づけ」を使用しない（キーワードページ専用、content-principles.md §20）。試験文脈は本文の散文に統合する',
+      });
+    }
+  }
+
+  // 12-2: ## 参考資料 / ## 参考文献
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^##\s+(参考資料|参考文献)\s*$/);
+    if (m) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '12-2',
+        line: i + 1,
+        endLine: i + 1,
+        message: `ガイド記事に「## ${m[1]}」を末尾に置かない（キーワードページ専用、content-principles.md §20）。外部離脱を最小化するため公式リソースは本文中インラインリンクで言及する`,
+      });
+    }
+  }
+
+  // 12-3: 末尾 H2 が承認パターン外
+  // 承認パターン: 次のステップ / 関連リソース / ○○の選択肢 / note で深掘り
+  const h2Lines = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+/.test(lines[i])) h2Lines.push({ idx: i, text: lines[i] });
+  }
+  if (h2Lines.length > 0) {
+    const last = h2Lines[h2Lines.length - 1];
+    const approved = /^##\s+(次のステップ|関連リソース|関連リンク|.+の選択肢|note で深掘り)/;
+    const isViolation12_2 = /^##\s+(参考資料|参考文献)\s*$/.test(last.text);
+    if (!approved.test(last.text) && !isViolation12_2) {
+      findings.push({
+        severity: 'LOW',
+        rule: '12-3',
+        line: last.idx + 1,
+        endLine: last.idx + 1,
+        message: `ガイド記事の末尾 H2「${last.text.replace(/^##\s+/, '').trim()}」が承認パターン外。「次のステップ」「関連リソース」「○○の選択肢」のいずれかに揃える（content-principles.md §20）`,
+      });
+    }
+  }
+}
+
 // ── 0-2: Docusaurus 旧 frontmatter 検出 ────────────────────────────────────
 /**
  * 0-2 HIGH: frontmatter に id/sidebar_label/toc_min_heading_level/toc_max_heading_level が残存。
@@ -1253,6 +1323,9 @@ function lintFile(filePath) {
   lintSecondaryAnswerCompleteness(lines, filePath, findings);
   lintExamMissingInternalLinks(lines, filePath, findings);
   lintLegacyFrontmatter(raw, findings);
+
+  // カテゴリ12: PE ガイド記事の構造（group: guide 専用）
+  lintGuideArticleStructure(lines, raw, filePath, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）
   for (const f of findings) {

@@ -109,6 +109,52 @@ content/general/exam-guide/
 2. このスキル側の変更は **不要**（設定ファイル追加のみ）
 3. Phase 2 汎用化時に `--exam` パラメータで自動統合
 
+## PE ガイド記事の末尾テンプレ
+
+PE（技術士総合技術監理部門）の `group: guide` 記事は、キーワードページとは別の構造ルールに従う。詳細は [content-principles.md §20](../../../../docs/reference/content-principles.md)。**`## 総合技術監理における位置づけ` および `## 参考資料` / `## 参考文献` は使用禁止**（キーワードページ専用）。
+
+末尾は次の 2 型から記事性質に応じて選ぶ。lint-mdx-mobile.mjs カテゴリ 12（12-1 / 12-2 / 12-3）で機械検知される。
+
+### Type-1「○○の選択肢」型（戦略・実務手順系）
+
+タイトル末尾が「戦略」「計画」「手順」「ガイド」のガイドに使う。例: `essay-exam-strategy` / `exam-application-guide` / `exam-passing-strategy`。
+
+```mdx
+## 記述式対策の選択肢
+
+{次の意思決定を促す散文 1〜2 段落（無料サイトコンテンツ → note 有料の組み合わせを示す）}
+
+- **無料で基礎を固める** → [基礎ガイド](/docs/pe-comprehensive-management-xxx)
+- **有料で本番演習** → note 有料マガジン「○○」（¥X,XXX）
+
+https://note.com/uruhayato/n/xxxxx
+```
+
+### Type-2「次のステップ」または「関連リソース」型（俯瞰・分析系）
+
+タイトル末尾が「予測」「分析」「俯瞰」「マップ」「トレードオフ」のガイドに使う。例: `r8-essay-keyword-forecast` / `whitepaper-study-map` / `essay-mlit-*` / `management-tradeoffs` / `mlit-whitepaper-2025`。
+
+```mdx
+## 次のステップ
+
+{記事内容を踏まえた次の学習導線を散文 1 段落で}
+
+- **{論点 1 を深める}** → [サイト内リンク](/docs/pe-comprehensive-management-xxx)
+- **{論点 2 を深める}** → [サイト内リンク](/docs/pe-comprehensive-management-xxx)
+- **{演習で定着}** → [サイト内リンク](/docs/pe-comprehensive-management-xxx)
+
+{該当する場合のみ note CTA を散文 1 段落で導入してから URL 単独行リンクカード}
+
+https://note.com/uruhayato/n/xxxxx
+
+<RelatedKeywords items={[
+  { label: "...", slug: "..." },
+  // 5 件
+]} />
+```
+
+既に `## 関連リソース` や `## note で深掘り` を持つ記事はその名称・構造を尊重し、参考文献・参考資料部分だけを削除する。
+
 ### テンプレートフォルダ全体
 
 `.claude/skills/authoring/templates/` 以下の構成：
