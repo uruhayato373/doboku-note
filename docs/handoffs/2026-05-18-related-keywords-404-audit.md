@@ -168,12 +168,50 @@
 
 ## 次セッションへの引き継ぎ
 
-### 修正方針判断が必要
+### このファイルを開いた Claude へ — 着手手順
 
-- **A カテゴリ（19 件・PE）**: slug を実在 slug に張り替え or RelatedKeywords エントリ削除。多くは類似 slug が存在しそう（`rasis` → `raid` 系？ `lca` → `life-cycle-assessment`？ など要確認）
-- **B カテゴリ（接頭辞抜け Markdown リンク・civil 8 件）**: `/docs/textbook-` を `/docs/civil-construction-1-textbook-` に書き換え。または `-text` / `-text-01` のような旧命名を実 slug に正規化
+1. **このファイル全体を Read** して背景把握（特に「A-detail. RelatedKeywords 由来 19 件」表が作業対象）
+2. **本セッション 3 commit は origin/develop に push 済み**（`38e2cd66e` / `5dde8fe17` / `e7e4d9fd8`）。pull で同期されている
+3. **着手前に最新監査を再生成**（CI 結果が更新されている可能性あり）:
+   ```bash
+   node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope site --report .tmp/audit
+   grep "RelatedKeywords slug" .tmp/audit/latest-report.md
+   ```
 
-### 横展開候補
+### 残課題 — 優先度順
+
+#### Priority 1: PE RelatedKeywords 19 件の張り替え or 削除
+
+**作業対象**: 上記「A-detail」表（L78 周辺）の 19 件。すべて `pe-comprehensive-management/{file}/article.mdx` L# の `<RelatedKeywords items={[{label, slug: "bare-slug"}]} />` 内の bare slug。
+
+**判断フロー**（slug ごとに繰り返す）:
+1. `ls .local/r2/posts/pe-comprehensive-management/ | grep -i "<keyword>"` で類似実在 slug を探す
+2. **見つかれば**: slug を実在名に張り替え（例: `lca` → `life-cycle-assessment` が実在すれば差し替え。`label` も自然なら維持）
+3. **見つからなければ**: RelatedKeywords の該当エントリ `{ label, slug }` 自体を削除
+4. **判断が分かれる候補**（例: `rasis` → `raid` 系？など）はユーザーに確認
+
+**完了条件**:
+- `node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope site` で RelatedKeywords 由来 HIGH = 0
+- `npm run refresh-indexes` 実行
+- commit & push
+
+#### Priority 2: R2 残骸（80 ファイル相当）の手動掃除
+
+**対象**: `storage.doboku-note.com/posts/civil-construction-1/textbook-{construction-plan-text-01,construction-plan-text-02,related-laws-01,related-laws-02,quality-management-text}/...`
+
+本セッション commit `e7e4d9fd8` で git からは削除済みだが、`npm run upload-images-r2` は upload only のため R2 側は残存。誰もリンクしないので害は無いがストレージコスト微増。
+
+**選択肢**:
+- (a) `wrangler r2 object delete` で 1 ディレクトリずつ手動掃除
+- (b) `scripts/upload-images-r2.mjs` を「ローカルに無い R2 オブジェクトを delete する」モード追加で常時整合
+- (c) 放置（コスト軽微なら）
+
+#### Priority 3: main へのデプロイ判断
+
+本セッション 3 commit + 並行 commit が develop に乗っている。コンテンツ/リンク修正なので本番反映の価値はある。`/deploy` スキルでユーザー判断。
+
+### 横展開候補（中期）
 
 - `<CrossExam>` `<Backlinks>` 等の他 JSX コンポーネントも同様の slug ハードコードを持つ可能性 → 同パターンで `check-links.mjs` に追加可能
 - 今回の拡張は `<RelatedKeywords>` 専用パターン。共通化するなら「JSX 内 `slug:` を一律抽出する汎用ロジック」も検討余地あり（誤検出リスクとトレードオフ）
+- `RelatedKeywords.tsx` 自体の silent fallback（`pe-comprehensive-management-` 接頭辞自動補完）を廃止し、明示プレフィックス必須にする破壊的変更も検討余地あり（既存 666 件 MDX への影響大）
