@@ -134,24 +134,36 @@ https://note.com/uruhayato/n/xxxxx
 
 タイトル末尾が「予測」「分析」「俯瞰」「マップ」「トレードオフ」のガイドに使う。例: `r8-essay-keyword-forecast` / `whitepaper-study-map` / `essay-mlit-*` / `management-tradeoffs` / `mlit-whitepaper-2025`。
 
+**SeeAlso 1〜2 件方針**（2026-05-18 改訂、content-principles.md §20 準拠、決定疲れ回避）:
+
 ```mdx
 ## 次のステップ
 
-{記事内容を踏まえた次の学習導線を散文 1 段落で}
+{読者の状況別にどう選ぶかの判断軸を散文 1 段落で示す。例:「論文骨子のテンプレートを先に作りたいなら A、業務領域別の論点を固めたいなら B を選んでください」}
 
-- **{論点 1 を深める}** → [サイト内リンク](/docs/pe-comprehensive-management-xxx)
-- **{論点 2 を深める}** → [サイト内リンク](/docs/pe-comprehensive-management-xxx)
-- **{演習で定着}** → [サイト内リンク](/docs/pe-comprehensive-management-xxx)
+<SeeAlso
+  href="/docs/pe-comprehensive-management-xxx"
+  title="{主推奨ページタイトル}"
+  reason="{なぜ次に読むべきか 1〜2 行で}"
+/>
+
+<SeeAlso
+  href="/docs/pe-comprehensive-management-yyy"
+  title="{副推奨ページタイトル}"
+  reason="{別ルートの理由を 1〜2 行で}"
+/>
 
 {該当する場合のみ note CTA を散文 1 段落で導入してから URL 単独行リンクカード}
 
 https://note.com/uruhayato/n/xxxxx
-
-<RelatedKeywords items={[
-  { label: "...", slug: "..." },
-  // 5 件
-]} />
 ```
+
+**重要な禁則**:
+
+- **`<RelatedKeywords>` を末尾に置かない** — 「次のステップ」と完全重複しやすく、選択肢過多で決定疲れを生む
+- **箇条書き 3 件以上を `## 次のステップ` 配下に並べない** — ガイド記事の役割は読者の選択肢を減らすこと
+
+**ハブ記事の例外**: `mlit-whitepaper-2025` のような「テーマ別深掘り入口」がハブ機能の主要価値である場合は、`## テーマ別深掘り` セクションを別途設けて 3〜7 件の箇条書きナビゲーションを維持してよい。ただし `## 次のステップ` セクションとは **明確に分離**し、後者は `<SeeAlso>` 1〜2 件に絞る。
 
 既に `## 関連リソース` や `## note で深掘り` を持つ記事はその名称・構造を尊重し、参考文献・参考資料部分だけを削除する。
 
