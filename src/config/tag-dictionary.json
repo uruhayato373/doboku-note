@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-18T08:32:33.297Z",
+  "generated_at": "2026-05-18T08:50:30.263Z",
   "summary": {
-    "total_mdx_files": 818,
-    "total_unique_tags": 80,
+    "total_mdx_files": 819,
+    "total_unique_tags": 81,
     "allowlist_size": 123,
     "known_count": 51,
-    "unknown_count": 29,
+    "unknown_count": 30,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1128,7 +1128,7 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 42,
+      "count": 43,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
@@ -1171,6 +1171,7 @@
         "pe-comprehensive-management-r07-essay-road-municipality",
         "pe-comprehensive-management-r07-primary",
         "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
         "pe-comprehensive-management-value-engineering",
         "pe-comprehensive-management-whitepaper-study-map"
       ]
@@ -1218,7 +1219,7 @@
     },
     {
       "name": "記述式対策",
-      "count": 25,
+      "count": 26,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-pattern-cross-year-application",
@@ -1245,7 +1246,8 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-keyword-forecast"
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
       ]
     },
     {
@@ -1646,6 +1648,17 @@
       ]
     },
     {
+      "name": "5管理",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
       "name": "quality",
       "count": 4,
       "inAllowlist": false,
@@ -1687,16 +1700,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "5管理",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -1750,6 +1753,16 @@
       ]
     },
     {
+      "name": "試験ガイド",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
       "name": "concrete",
       "count": 2,
       "inAllowlist": true,
@@ -1792,15 +1805,6 @@
       "usedIn": [
         "reference-materials-floodgate",
         "reference-materials-inverted-siphon"
-      ]
-    },
-    {
-      "name": "試験ガイド",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -1945,6 +1949,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-safety-management-pillar"
+      ]
+    },
+    {
+      "name": "気候変動適応",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
       ]
     },
     {
@@ -2099,6 +2111,7 @@
     "keyword-analysis",
     "keyword-index",
     "キーワード集",
+    "気候変動適応",
     "記述式試験",
     "出願",
     "直前対策",
