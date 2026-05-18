@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-17T22:18:07.095Z",
+  "generated_at": "2026-05-18T01:04:53.460Z",
   "summary": {
-    "total_mdx_files": 825,
-    "total_unique_tags": 90,
+    "total_mdx_files": 826,
+    "total_unique_tags": 93,
     "allowlist_size": 123,
-    "known_count": 60,
-    "unknown_count": 30,
+    "known_count": 61,
+    "unknown_count": 32,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1129,7 +1129,7 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 48,
+      "count": 49,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
@@ -1179,7 +1179,8 @@
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality",
         "pe-comprehensive-management-r07-primary",
-        "pe-comprehensive-management-value-engineering"
+        "pe-comprehensive-management-value-engineering",
+        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -1748,6 +1749,16 @@
       ]
     },
     {
+      "name": "5管理",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-mlit-whitepaper-2025",
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
       "name": "kinki-design-manual",
       "count": 3,
       "inAllowlist": true,
@@ -1785,15 +1796,6 @@
         "pe-comprehensive-management-r03-essay-environment-survey",
         "pe-comprehensive-management-r03-essay-general-contractor",
         "pe-comprehensive-management-r03-essay-river-consultant"
-      ]
-    },
-    {
-      "name": "5管理",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-mlit-whitepaper-2025"
       ]
     },
     {
@@ -2035,6 +2037,14 @@
       ]
     },
     {
+      "name": "学習リソース",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
       "name": "記述式",
       "count": 1,
       "inAllowlist": true,
@@ -2064,6 +2074,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
+      "name": "参考資料",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -2120,6 +2138,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-mlit-foreign-workers"
+      ]
+    },
+    {
+      "name": "白書",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -2211,9 +2237,11 @@
     "exam-statistics",
     "keyword-index",
     "キーワード集",
+    "学習リソース",
     "記述式試験",
     "出願",
     "直前対策",
+    "白書",
     "流用戦略",
     "令和2年度",
     "令和3年度",
