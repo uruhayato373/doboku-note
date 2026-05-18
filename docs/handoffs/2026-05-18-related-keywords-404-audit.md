@@ -137,11 +137,13 @@
 
 事前チェック: 他 MDX からの参照ゼロを `grep -rln "textbook-XXX/img"` で確認済。同名 fig は各 secondary-* 配下の別物（完全パスで参照）。
 
-**R2 残骸**: `storage.doboku-note.com/posts/civil-construction-1/textbook-{*}/img/...` は残存。`npm run upload-images-r2` は upload のみで delete しないため、R2 側の手動掃除 or CI スクリプト拡張が次セッション以降の課題。
+> [!warning] R2 残骸が残る
+> `storage.doboku-note.com/posts/civil-construction-1/textbook-{*}/img/...` は残存。`npm run upload-images-r2` は upload のみで delete しないため、R2 側の手動掃除 or CI スクリプト拡張が次セッション以降の課題。
 
 ### A. RelatedKeywords 由来（PE 配下 19 件、未対処）
 
-> 次セッション以降の対象。slug 張り替え or RelatedKeywords エントリ削除の判断が必要。
+> [!note]
+> 次セッション以降の対象。slug 張り替え or RelatedKeywords エントリ削除の判断が必要。詳細は「A-detail」表（上記）と「Priority 1」（下記）を参照。
 
 ---
 
@@ -156,59 +158,60 @@
 
 ## 重要な発見
 
-**ユーザーが「transport-machinery で 404」と言ったが、transport-machinery の関連キーワード 5 件は全部実在**。
-
-考えられる 404 視認元:
-1. **同じ機械系の `textbook-loader` ページ（L192）**: Markdown リンクで `/docs/textbook-shovel-excavator`（接頭辞抜け）→ 404。ユーザーが回遊中に見た可能性が一番高い
-2. 別ページの関連キーワードカード（要追加調査）
-
-→ B カテゴリ（接頭辞抜け Markdown リンク）が真犯人と推定。
+> [!important] 真犯人は別ページの Markdown リンク
+> **ユーザーが「transport-machinery で 404」と言ったが、transport-machinery の関連キーワード 5 件は全部実在**。
+>
+> 考えられる 404 視認元:
+> 1. **同じ機械系の `textbook-loader` ページ（L192）**: Markdown リンクで `/docs/textbook-shovel-excavator`（接頭辞抜け）→ 404。ユーザーが回遊中に見た可能性が一番高い
+> 2. 別ページの関連キーワードカード（要追加調査）
+>
+> → B カテゴリ（接頭辞抜け Markdown リンク）が真犯人と推定。
 
 ---
 
 ## 次セッションへの引き継ぎ
 
-### このファイルを開いた Claude へ — 着手手順
-
-1. **このファイル全体を Read** して背景把握（特に「A-detail. RelatedKeywords 由来 19 件」表が作業対象）
-2. **本セッション 3 commit は origin/develop に push 済み**（`38e2cd66e` / `5dde8fe17` / `e7e4d9fd8`）。pull で同期されている
-3. **着手前に最新監査を再生成**（CI 結果が更新されている可能性あり）:
-   ```bash
-   node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope site --report .tmp/audit
-   grep "RelatedKeywords slug" .tmp/audit/latest-report.md
-   ```
+> [!important]+ このファイルを開いた Claude へ — 着手手順
+>
+> 1. **このファイル全体を Read** して背景把握（特に「A-detail. RelatedKeywords 由来 19 件」表が作業対象）
+> 2. **本セッション 3 commit は origin/develop に push 済み**（`38e2cd66e` / `5dde8fe17` / `e7e4d9fd8`）。pull で同期されている
+> 3. **着手前に最新監査を再生成**（CI 結果が更新されている可能性あり）:
+>    ```bash
+>    node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope site --report .tmp/audit
+>    grep "RelatedKeywords slug" .tmp/audit/latest-report.md
+>    ```
 
 ### 残課題 — 優先度順
 
-#### Priority 1: PE RelatedKeywords 19 件の張り替え or 削除
+> [!todo]+ Priority 1: PE RelatedKeywords 19 件の張り替え or 削除
+>
+> **作業対象**: 上記「A-detail」表（L78 周辺）の 19 件。すべて `pe-comprehensive-management/{file}/article.mdx` L# の `<RelatedKeywords items={[{label, slug: "bare-slug"}]} />` 内の bare slug。
+>
+> **判断フロー**（slug ごとに繰り返す）:
+> 1. `ls .local/r2/posts/pe-comprehensive-management/ | grep -i "<keyword>"` で類似実在 slug を探す
+> 2. **見つかれば**: slug を実在名に張り替え（例: `lca` → `life-cycle-assessment` が実在すれば差し替え。`label` も自然なら維持）
+> 3. **見つからなければ**: RelatedKeywords の該当エントリ `{ label, slug }` 自体を削除
+> 4. **判断が分かれる候補**（例: `rasis` → `raid` 系？など）はユーザーに確認
+>
+> **完了条件**:
+> - `node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope site` で RelatedKeywords 由来 HIGH = 0
+> - `npm run refresh-indexes` 実行
+> - commit & push
 
-**作業対象**: 上記「A-detail」表（L78 周辺）の 19 件。すべて `pe-comprehensive-management/{file}/article.mdx` L# の `<RelatedKeywords items={[{label, slug: "bare-slug"}]} />` 内の bare slug。
+> [!todo] Priority 2: R2 残骸（80 ファイル相当）の手動掃除
+>
+> **対象**: `storage.doboku-note.com/posts/civil-construction-1/textbook-{construction-plan-text-01,construction-plan-text-02,related-laws-01,related-laws-02,quality-management-text}/...`
+>
+> 本セッション commit `e7e4d9fd8` で git からは削除済みだが、`npm run upload-images-r2` は upload only のため R2 側は残存。誰もリンクしないので害は無いがストレージコスト微増。
+>
+> **選択肢**:
+> - (a) `wrangler r2 object delete` で 1 ディレクトリずつ手動掃除
+> - (b) `scripts/upload-images-r2.mjs` を「ローカルに無い R2 オブジェクトを delete する」モード追加で常時整合
+> - (c) 放置（コスト軽微なら）
 
-**判断フロー**（slug ごとに繰り返す）:
-1. `ls .local/r2/posts/pe-comprehensive-management/ | grep -i "<keyword>"` で類似実在 slug を探す
-2. **見つかれば**: slug を実在名に張り替え（例: `lca` → `life-cycle-assessment` が実在すれば差し替え。`label` も自然なら維持）
-3. **見つからなければ**: RelatedKeywords の該当エントリ `{ label, slug }` 自体を削除
-4. **判断が分かれる候補**（例: `rasis` → `raid` 系？など）はユーザーに確認
-
-**完了条件**:
-- `node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope site` で RelatedKeywords 由来 HIGH = 0
-- `npm run refresh-indexes` 実行
-- commit & push
-
-#### Priority 2: R2 残骸（80 ファイル相当）の手動掃除
-
-**対象**: `storage.doboku-note.com/posts/civil-construction-1/textbook-{construction-plan-text-01,construction-plan-text-02,related-laws-01,related-laws-02,quality-management-text}/...`
-
-本セッション commit `e7e4d9fd8` で git からは削除済みだが、`npm run upload-images-r2` は upload only のため R2 側は残存。誰もリンクしないので害は無いがストレージコスト微増。
-
-**選択肢**:
-- (a) `wrangler r2 object delete` で 1 ディレクトリずつ手動掃除
-- (b) `scripts/upload-images-r2.mjs` を「ローカルに無い R2 オブジェクトを delete する」モード追加で常時整合
-- (c) 放置（コスト軽微なら）
-
-#### Priority 3: main へのデプロイ判断
-
-本セッション 3 commit + 並行 commit が develop に乗っている。コンテンツ/リンク修正なので本番反映の価値はある。`/deploy` スキルでユーザー判断。
+> [!todo] Priority 3: main へのデプロイ判断
+>
+> 本セッション 3 commit + 並行 commit が develop に乗っている。コンテンツ/リンク修正なので本番反映の価値はある。`/deploy` スキルでユーザー判断。
 
 ### 横展開候補（中期）
 
