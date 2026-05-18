@@ -17,12 +17,15 @@
 | <2.0 不合格 | 1 件 (design-for-environment、参考資料民間欠落) |
 | 満点 (3.00) | 9 件 |
 
-満点達成済（G+D 効果が十分発揮）:
-- circular-economy / decision-tree-analysis / ecosystem-services
-- foreign-trainee-program / carbon-pricing / eco-action-21
-- design-review / emergency / employee-benefits / environmental-accounting
+> [!important] 満点達成済（G+D 効果が十分発揮）
+> - circular-economy / decision-tree-analysis / ecosystem-services
+> - foreign-trainee-program / carbon-pricing / eco-action-21
+> - design-review / emergency / employee-benefits / environmental-accounting
 
 ## 次セッションでの再開手順
+
+> [!todo]+ 着手起点
+> 「Phase 2 残 86 件の verify」から開始。`cem-qa` サブエージェントを並列 5 件で起動 → wave ごとに `merge-scores.mjs` + `state.json` の `status: 'verified'` 更新を繰り返す。完了後に Phase 3 集約。詳細手順は下記。
 
 ### Phase 2 残 86 件の verify
 
@@ -85,32 +88,31 @@ console.log('After avg:', after.toFixed(2), '≥2.5達成:', passed, '/', scored
 
 ## 既知の注意点
 
-### state.json と scores.json の不整合
+> [!warning] state.json と scores.json の不整合
+> - verify モードは state.status を見るが、cem-qa agent は scores.json を更新するのみ
+> - merge-scores.mjs 実行後に手動で state.status を 'verified' にする処理が必須
+> - これを怠ると同じ slug を再 verify 対象として出してくる
 
-- verify モードは state.status を見るが、cem-qa agent は scores.json を更新するのみ
-- merge-scores.mjs 実行後に手動で state.status を 'verified' にする処理が必須
-- これを怠ると同じ slug を再 verify 対象として出してくる
+> [!warning] scores.json の古い weighted
+> - dry-run の filter (`weighted < threshold`) は scores.json の古い値を参照
+> - merge-scores 後は scored_at が新しくなるが、weighted も最新化される
+> - Phase G-8 で書いた slug が再 rewrite 対象として出続けることはない
 
-### scores.json の古い weighted
-
-- dry-run の filter (`weighted < threshold`) は scores.json の古い値を参照
-- merge-scores 後は scored_at が新しくなるが、weighted も最新化される
-- Phase G-8 で書いた slug が再 rewrite 対象として出続けることはない
-
-### 並列 commit 衝突（Phase 1 で 4-5 回発生）
-
-データロスはないが commit message と内容が不一致になることがある。
+> [!warning] 並列 commit 衝突（Phase 1 で 4-5 回発生）
+> データロスはないが commit message と内容が不一致になることがある。
 
 ## ペース実績
 
-- 1 wave = 5 件並列、約 1-2 分
-- 30 件 verify で約 12 分（応答間隔含む）
-- 残 86 件は約 17-18 wave、35-50 分目処
+> [!note] 実績ベースの所要時間
+> - 1 wave = 5 件並列、約 1-2 分
+> - 30 件 verify で約 12 分（応答間隔含む）
+> - 残 86 件は約 17-18 wave、35-50 分目処
 
 ## 関連
 
-- 全体 Plan: `/Users/minamidaisuke/.claude/plans/misty-prancing-sunset.md`
-- スキル: `/quality-cycle --profile cem` (`.claude/skills/quality/quality-cycle/SKILL.md`)
-- Evaluator: `.claude/agents/cem-qa.md`
-- Generator: `.claude/agents/keyword-rewriter.md`
-- ルーブリック真実源: `docs/project/02_コンテンツ/02_採点ルーブリック方針.md`
+> [!note] 参照リンク
+> - 全体 Plan: `/Users/minamidaisuke/.claude/plans/misty-prancing-sunset.md`
+> - スキル: `/quality-cycle --profile cem` (`.claude/skills/quality/quality-cycle/SKILL.md`)
+> - Evaluator: `.claude/agents/cem-qa.md`
+> - Generator: `.claude/agents/keyword-rewriter.md`
+> - ルーブリック真実源: `docs/project/02_コンテンツ/02_採点ルーブリック方針.md`
