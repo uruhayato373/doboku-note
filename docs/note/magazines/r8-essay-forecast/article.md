@@ -590,7 +590,6 @@ R7 で安全管理が突出（11 回）した流れを受け、R8 で「**少子
 - [総合技術監理 キーワード集 2026（637 ワード）](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026)
 - [記述式試験の解答戦略（三層構造の元解説）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)
 - [5 管理トレードオフ 頻出 6 ペア](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs)
-- [国土交通白書 R7 × 5 管理 7 記事](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-aging-infrastructure)
 - [4 ペルソナ別模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant)
 
 #### doboku-note 有料コンテンツ（本書と組合せ推奨）

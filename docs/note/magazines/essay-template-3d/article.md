@@ -1405,7 +1405,6 @@
 - [記述式試験の解答戦略（三層構造）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy) — 本書第 5 章の元となる三層構造の方法論解説
 - [5 管理トレードオフ 頻出 6 ペア](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs) — 本書第 6 章の元データ
 - [4 ペルソナ別 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant) — 本書第 4 章の業務別実例
-- [国土交通白書 R7 × 5 管理トレードオフ 7 記事](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-aging-infrastructure) — 本書第 2 章「テーマ別テンプレ」と組合せて使用
 
 ### doboku-note 有料コンテンツ（実戦適用）
 
