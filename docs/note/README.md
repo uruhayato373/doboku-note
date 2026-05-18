@@ -10,7 +10,7 @@ docs/note/
     article.md        # 記事本文（YAML frontmatter 付き）
     img/              # 図版（figure-*.png / figure-*.svg）
     covers/           # note カバー画像
-  19_note段階投下プラン.md  # 投下スケジュール計画
+  noteコンテンツ計画.md     # 投下スケジュール計画
 ```
 
 ## frontmatter 必須フィールド
@@ -27,6 +27,6 @@ published: true | false
 
 - note.com への反映は手動コピー（HTML 未対応のため Markdown をそのまま貼り付け）
 - 公開済み記事は `published: true` で識別
-- 投下スケジュールは `docs/note/19_note段階投下プラン.md` を参照
+- 投下スケジュールは `docs/note/noteコンテンツ計画.md` を参照
 - 図版ポリシーは `docs/reference/note-svg-policy.md` を参照
 - 公開前チェックリストは `docs/reference/note-publish-enhancement.md` を参照

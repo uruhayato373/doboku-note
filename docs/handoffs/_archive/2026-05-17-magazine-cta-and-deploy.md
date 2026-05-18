@@ -2,7 +2,7 @@
 title: 2026-05-17 note 有料マガジン CTA インフラ + AI 検索最適化 + deploy セッション引き継ぎ
 date: 2026-05-17
 session_focus: site → note 動線整備 (frontmatter 駆動 CTA + llms.txt + 4 ペルソナカバー) + deploy blocker 解消 + 本番デプロイ
-related_strategy: docs/note/19_note段階投下プラン.md
+related_strategy: docs/note/noteコンテンツ計画.md
 related_memory: project_note_magazine_infra
 ---
 

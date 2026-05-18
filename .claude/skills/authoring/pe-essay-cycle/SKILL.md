@@ -70,7 +70,7 @@ user-invocable: true
 
 ### plan — note 有料記事を企画する（④）
 
-1. `pe-note-plan` を実行（`docs/note/19_note段階投下プラン.md`・magazine 在庫・価格 yaml を読んで次の記事を提案）
+1. `pe-note-plan` を実行（`docs/note/noteコンテンツ計画.md`・magazine 在庫・価格 yaml を読んで次の記事を提案）
 
 ### publish — note 公開前ゲート
 
@@ -93,7 +93,7 @@ user-invocable: true
 - **書き込み後に `U+FFFD` チェック**（文字化け検出）
 - **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`
 - **属性キーは 4 種固定**（上表）。日本語表記とキーを取り違えない
-- **note と doboku-note に同じ技術解説を両方載せない**（重複コンテンツ禁止、`19_note段階投下プラン.md` Red Line）
+- **note と doboku-note に同じ技術解説を両方載せない**（重複コンテンツ禁止、`noteコンテンツ計画.md` Red Line）
 
 ## 状態遷移
 

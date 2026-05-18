@@ -13,7 +13,7 @@ user-invocable: true
 
 ## 用途
 
-note の段階投下は `docs/note/19_note段階投下プラン.md` に方針があるが、「今ある在庫を踏まえて次の一手は何か」を毎回手で棚卸しするのは手間でミスも出る。このスキルは在庫・カバレッジ・価格・Red Line を機械的に突き合わせ、抜け漏れのない企画候補を出す。
+note の段階投下は `docs/note/noteコンテンツ計画.md` に方針があるが、「今ある在庫を踏まえて次の一手は何か」を毎回手で棚卸しするのは手間でミスも出る。このスキルは在庫・カバレッジ・価格・Red Line を機械的に突き合わせ、抜け漏れのない企画候補を出す。
 
 ## 引数
 
@@ -31,8 +31,8 @@ note の段階投下は `docs/note/19_note段階投下プラン.md` に方針が
 
 ### Step 1: 入力資料を読む（read のみ・改変しない）
 
-1. **段階投下方針**: `docs/note/19_note段階投下プラン.md` — Phase 区分・Red Line・無料/有料の線引き
-2. **収益化親戦略**: `docs/project/01_戦略/04_収益化戦略.md`・`docs/note/19...` の参照先
+1. **段階投下方針**: `docs/note/noteコンテンツ計画.md` — Phase 区分・Red Line・無料/有料の線引き
+2. **収益化親戦略**: `docs/project/01_戦略/04_収益化戦略.md`・`docs/note/noteコンテンツ計画.md` の参照先
 3. **magazine 在庫**: `docs/note/magazines/総監模範論文-{属性}/R0X/` と `docs/note/magazines/総監テキスト精読ガイド/5管理-*/` の存在状況（どの属性 × 年度・どの管理が公開済み/未着手か）
 4. **単体 note 記事**: `docs/note/*/article.md` の `notePricing` / `notePublishedAt` / `noteUrl`（公開済みか・無料か有料か）
 5. **価格**: 価格定義の yaml（`docs/note/` 配下または magazine ディレクトリ内。`project_paid_note_pricing` メモ参照 — yaml が価格の真実源）
@@ -42,7 +42,7 @@ note の段階投下は `docs/note/19_note段階投下プラン.md` に方針が
 
 - **属性 × 年度マトリクス**: 4 属性（general-contractor / river-consultant / environment-survey / road-municipality）× R03〜R07 で、(a) doboku-note 模範論文ページの有無、(b) magazine 公開の有無 を埋める
 - **5 管理精読ガイド**: 5 管理（経済性・人的資源・情報・安全・社会環境）のうち未公開のもの
-- **Red Line 抵触チェック**: 合格前は「模範解答」「採点基準解説」の有料販売不可等（`19...` の Red Line 1〜5）。抵触する企画候補は除外または「無料/テンプレ化」へ振り替え
+- **Red Line 抵触チェック**: 合格前は「模範解答」「採点基準解説」の有料販売不可等（`noteコンテンツ計画` の Red Line 1〜5）。抵触する企画候補は除外または「無料/テンプレ化」へ振り替え
 
 ### Step 3: 優先度付きで提案する
 
@@ -58,7 +58,7 @@ note の段階投下は `docs/note/19_note段階投下プラン.md` に方針が
 
 ### Step 4: 出力
 
-`--horizon next` は最優先 1 本、`--horizon quarter` は 3 ヶ月ロードマップ（表）。出力は会話に提示する（ファイル書き込みはしない）。ロードマップを永続化したい場合はユーザー判断で `docs/note/19_note段階投下プラン.md` への追記を提案する。
+`--horizon next` は最優先 1 本、`--horizon quarter` は 3 ヶ月ロードマップ（表）。出力は会話に提示する（ファイル書き込みはしない）。ロードマップを永続化したい場合はユーザー判断で `docs/note/noteコンテンツ計画.md` への追記を提案する。
 
 ## content-planner エージェントとの境界
 
@@ -81,11 +81,11 @@ note の段階投下は `docs/note/19_note段階投下プラン.md` に方針が
 
 - **価格 yaml が見つからない**: `docs/note/` 配下を Glob で探す。見つからなければユーザーに場所を確認（推測で価格を出さない）
 - **Red Line に抵触する候補**: 除外せず「なぜ抵触するか」と「無料/テンプレ化での代替案」をセットで提示する
-- **magazine と単体記事で重複しそう**: `19...` の Red Line 5（note と doboku-note の重複コンテンツ禁止）を適用。役割分離（note = 体験談・要約 / doboku-note = 体系解説）を守る
+- **magazine と単体記事で重複しそう**: `noteコンテンツ計画` の Red Line 5（note と doboku-note の重複コンテンツ禁止）を適用。役割分離（note = 体験談・要約 / doboku-note = 体系解説）を守る
 
 ## 参照
 
-- `docs/note/19_note段階投下プラン.md` — 段階投下方針・Red Line（最重要入力）
+- `docs/note/noteコンテンツ計画.md` — 段階投下方針・Red Line（最重要入力）
 - `docs/project/01_戦略/04_収益化戦略.md` — 親戦略
 - `.claude/skills/authoring/pe-essay-cycle/SKILL.md` — 統括オーケストレーター（`--mode plan` から本スキルを呼ぶ）
 - `.claude/skills/authoring/pe-essay-draft/SKILL.md` — 提案後に実際の記事を作る Generator
