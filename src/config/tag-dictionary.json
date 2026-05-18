@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-18T01:04:53.460Z",
+  "generated_at": "2026-05-18T01:21:05.383Z",
   "summary": {
     "total_mdx_files": 826,
-    "total_unique_tags": 93,
+    "total_unique_tags": 92,
     "allowlist_size": 123,
-    "known_count": 61,
-    "unknown_count": 32,
+    "known_count": 62,
+    "unknown_count": 30,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -2037,14 +2037,6 @@
       ]
     },
     {
-      "name": "学習リソース",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
       "name": "記述式",
       "count": 1,
       "inAllowlist": true,
@@ -2078,6 +2070,14 @@
     },
     {
       "name": "参考資料",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
+      "name": "試験ガイド",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
@@ -2138,14 +2138,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-mlit-foreign-workers"
-      ]
-    },
-    {
-      "name": "白書",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -2237,11 +2229,9 @@
     "exam-statistics",
     "keyword-index",
     "キーワード集",
-    "学習リソース",
     "記述式試験",
     "出願",
     "直前対策",
-    "白書",
     "流用戦略",
     "令和2年度",
     "令和3年度",
