@@ -20,8 +20,10 @@
 - [x] 拡張後 `check-links` 再実行とレポート確認
 - [x] spot check（既知 404・既知 OK の確認）
 - [x] このファイルに結果書き込み
-- [ ] commit（check-links.mjs + handoff の 2 ファイルのみ）
-- [ ] 検出された 404 の修正方針判断（次セッション）
+- [x] commit #1: check-links.mjs 拡張 + handoff（38e2cd66e）
+- [x] B カテゴリ civil 16 件修正（接頭辞補完 4 件 + テーブル行削除 12 件）
+- [x] commit #2: civil 404 修正 + handoff 更新（このコミット）
+- [ ] A カテゴリ PE 19 件の対処（次セッション）
 
 ---
 
@@ -58,11 +60,20 @@
 
 レポート出力: `.tmp/related-keywords-audit/latest-report.md`
 
+## B カテゴリ修正後
+
+| 指標 | 値 | 差分 |
+|---|---|---|
+| HIGH 件数 | **82** | **-16**（civil 16 件全消化） |
+| civil-construction-1 ファイル数 | **0** | 全消化 |
+
+レポート出力: `.tmp/post-fix-audit/latest-report.md`
+
 ---
 
 ## 検出された 404（要修正）
 
-### A. RelatedKeywords 由来（新規検出・全 19 件 / 全部 PE 配下）
+### A-detail. RelatedKeywords 由来 19 件（未対処、PE 配下）
 
 すべて bare slug が `pe-comprehensive-management-{slug}` に補完されるが該当ページが存在しないケース。
 
@@ -88,20 +99,33 @@
 | 〃 | L131 | `swiss-cheese-model` |
 | `pe-comprehensive-management/whitepaper-study-map/article.mdx` | L280 | `carbon-neutrality` |
 
-### B. civil-construction-1 配下 Markdown リンク由来（ベースラインで既出）
+### B. civil-construction-1 配下 Markdown リンク由来（ベースラインで既出 → 本セッションで全件修正済み）
 
-ユーザーが視認した 404 はおそらくここ。`civil-construction-1-` 接頭辞が抜けた Markdown リンク。
+ユーザーが視認した 404 はおそらくここ。
 
-| ファイル | 行 | 不在パス |
-|---|---|---|
-| `civil-construction-1/guide-concrete-key-points/article.mdx` | L70, L484 | `/docs/civil-construction-1-textbook-quality-management-text` |
-| 〃 | L487 | `/docs/civil-construction-1-textbook-construction-plan-text-{01,02}` |
-| 〃 | L488 | `/docs/civil-construction-1-textbook-related-laws-{01,02}` |
-| `civil-construction-1/guide-earthwork-key-points/article.mdx` | L467 | `/docs/civil-construction-1-textbook-construction-plan-text-{01,02}` |
-| `civil-construction-1/guide-quality-management/article.mdx` | L397 | `/docs/civil-construction-1-textbook-construction-plan-text-{01,02}` |
-| `civil-construction-1/guide-schedule-management/article.mdx` | L393 | `/docs/civil-construction-1-textbook-construction-plan-text-{01,02}` |
-| `civil-construction-1/textbook-loader/article.mdx` | L192 | `/docs/textbook-shovel-excavator`, `/docs/textbook-transport-machinery`（**接頭辞抜け**） |
-| `civil-construction-1/textbook-quality-overview/article.mdx` | L223 | `/docs/textbook-histogram`, `/docs/textbook-control-chart`（**接頭辞抜け**） |
+**サブカテゴリ B-1: 接頭辞抜け（4 件、機械的補完で修正済み）**
+
+| ファイル | 行 | Before | After |
+|---|---|---|---|
+| `civil-construction-1/textbook-loader/article.mdx` | L192 | `/docs/textbook-shovel-excavator`, `/docs/textbook-transport-machinery` | `civil-construction-1-` 接頭辞補完 |
+| `civil-construction-1/textbook-quality-overview/article.mdx` | L223 | `/docs/textbook-histogram`, `/docs/textbook-control-chart` | `civil-construction-1-` 接頭辞補完 + リンクテキストを slug 文字列から日本語に修正 |
+
+**サブカテゴリ B-2: 空き殻ディレクトリ参照（12 件、テーブル/行削除で修正済み）**
+
+`textbook-construction-plan-text-{01,02}`, `textbook-related-laws-{01,02}`, `textbook-quality-management-text` の 5 ディレクトリは **過去存在したが `885e00002` の textbook 再構成で article.mdx 削除済み**（OGP 画像だけ残存）。参照していた guide-* 4 ファイルから該当リンクを削除（テーブル行 or 列ごと）。
+
+| ファイル | 削除内容 |
+|---|---|
+| `guide-concrete-key-points` | L70（[品質管理 本文] リンク）、L484（quality-management-text 列）、L487（plan-text-01/02 列）、L488（related-laws 行ごと） |
+| `guide-earthwork-key-points` | L467（plan-text-01/02 列） |
+| `guide-quality-management` | L397（plan-text-01/02 列） |
+| `guide-schedule-management` | L393（plan-text-01/02 列） |
+
+→ **civil-construction-1 配下の HIGH は 0 件に**（98 → 82）。
+
+### A. RelatedKeywords 由来（PE 配下 19 件、未対処）
+
+> 次セッション以降の対象。slug 張り替え or RelatedKeywords エントリ削除の判断が必要。
 
 ---
 
