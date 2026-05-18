@@ -34,25 +34,25 @@
 
 ## エージェント一覧
 
-| エージェント | 役割 | 種別 | model | 担当スキル | Phase 1 対応 |
-|---|---|---|---|---|---|
-| `content-qa` | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書） | Evaluator | sonnet | check-mdx, （Phase C で削除） | ✅ 運用中 |
-| `cem-qa` | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック） | Evaluator | sonnet | lint-mdx-mobile, check-mdx, check-links, exam-backlinks | ✅ 運用中 |
-| `civil-construction-qa` | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック） | Evaluator | sonnet | check-mdx, review-mobile, Playwright MCP | ✅ 運用中 |
-| `civil-construction-review` | 1級土木 textbook/guide の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質） | Evaluator | inherit | lint-mdx-mobile, check-mdx, check-links | ✅ 運用中 |
-| `strategy-advisor` | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
-| `seo-auditor` | SEO 監査（Phase 2 で復活） | Evaluator | sonnet | fetch-gsc-data, fetch-ga4-data | ⏸️ Phase 2 で復活 |
-| `metrics-analyzer` | GSC/GA4 計測データから改善機会を5パターン抽出（High-Impr-Low-CTR 等） | Evaluator | sonnet | weekly-improve | ✅ 運用中 |
-| `performance-auditor` | PSI 計測データからしきい値違反・回帰を検出し、LCP 肥大・CLS 発生等の既知パターンに改善候補をマッピング | Evaluator | sonnet | psi-audit | ✅ 運用中 |
-| `content-planner` | コンテンツ企画（Phase 2 で復活） | Generator | sonnet | discover-exam-season, exam-demand, keyword-gap | ⏸️ Phase 2 で復活 |
-| `keyword-rewriter` | CEM キーワードページのバルクリライト | Generator | sonnet | quality-cycle 連携 | ✅ 運用中 |
-| `civil-textbook-rewriter` | 1級土木 textbook/guide ページのバルクリライト | Generator | sonnet | civil-textbook-cycle 連携 | ✅ 運用中 |
-| `civil-exampoint-restorer` | 1級土木 primary-* (一次過去問) の壊れた `<ExamPoint>` を体言止め学習ポイントに再生成（migrate-civil-answer-style.mjs 句読点分割バグの修復） | Generator | sonnet | civil-textbook-cycle 連携、lint 9-11 検証 | ✅ 運用中（2026-05-16 起動、AdSense 再申請対応） |
-| `civil-secondary-exam-writer` | 1級土木 secondary-r03〜r07 (二次過去問) の解答・ポイント・各設問解説を `<details>` で補完（公式解答の逐語転載禁止、著者独自表現で再構成） | Generator | sonnet | civil-textbook-cycle 連携、lint 9-12 検証 | ✅ 運用中（2026-05-16 起動、AdSense 再申請対応） |
-| `note-link-injector` | note ドラフトに doboku-note キーワードページへのインラインリンクを全 occurrence 注入（synonym 判断を含む semantic マッチ） | Generator | sonnet | note-prepublish-review 連携、辞書 `src/config/pe-chapters.json` 参照 | ✅ 運用中（2026-04-29 起動） |
-| `note-figure-auditor` | note ドラフトの図版を `note-svg-policy.md` 準拠で 4 軸監査（キャンバス・フォント・ブランド・密度） | Evaluator | sonnet | note-prepublish-review 連携 | ✅ 運用中（2026-04-29 起動） |
-| `note-fact-checker` | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）でファクトチェック | Evaluator | sonnet | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照 | ✅ 運用中（2026-04-29 起動） |
-| `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface | Evaluator | sonnet | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照 | ✅ 運用中（2026-05-11 起動） |
+| エージェント                         | 役割                                                                                                   | 種別           | model   | 担当スキル                                                                 | Phase 1 対応                                |
+| ------------------------------ | ---------------------------------------------------------------------------------------------------- | ------------ | ------- | --------------------------------------------------------------------- | ----------------------------------------- |
+| `content-qa`                   | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書）                                                                    | Evaluator    | sonnet  | check-mdx, （Phase C で削除）                                              | ✅ 運用中                                     |
+| `cem-qa`                       | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック）                                                                     | Evaluator    | sonnet  | lint-mdx-mobile, check-mdx, check-links, exam-backlinks               | ✅ 運用中                                     |
+| `civil-construction-qa`        | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック）                                               | Evaluator    | sonnet  | check-mdx, review-mobile, Playwright MCP                              | ✅ 運用中                                     |
+| `civil-construction-review`    | 1級土木 textbook/guide の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質）                      | Evaluator    | inherit | lint-mdx-mobile, check-mdx, check-links                               | ✅ 運用中                                     |
+| `strategy-advisor`             | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター                                                               | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem               | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
+| `seo-auditor`                  | SEO 監査（Phase 2 で復活）                                                                                  | Evaluator    | sonnet  | fetch-gsc-data, fetch-ga4-data                                        | ⏸️ Phase 2 で復活                            |
+| `metrics-analyzer`             | GSC/GA4 計測データから改善機会を5パターン抽出（High-Impr-Low-CTR 等）                                                     | Evaluator    | sonnet  | weekly-improve                                                        | ✅ 運用中                                     |
+| `performance-auditor`          | PSI 計測データからしきい値違反・回帰を検出し、LCP 肥大・CLS 発生等の既知パターンに改善候補をマッピング                                            | Evaluator    | sonnet  | psi-audit                                                             | ✅ 運用中                                     |
+| `content-planner`              | コンテンツ企画（Phase 2 で復活）                                                                                 | Generator    | sonnet  | discover-exam-season, exam-demand, keyword-gap                        | ⏸️ Phase 2 で復活                            |
+| `keyword-rewriter`             | CEM キーワードページのバルクリライト                                                                                 | Generator    | sonnet  | quality-cycle 連携                                                      | ✅ 運用中                                     |
+| `civil-textbook-rewriter`      | 1級土木 textbook/guide ページのバルクリライト                                                                      | Generator    | sonnet  | civil-textbook-cycle 連携                                               | ✅ 運用中                                     |
+| `civil-exampoint-restorer`     | 1級土木 primary-* (一次過去問) の壊れた `<ExamPoint>` を体言止め学習ポイントに再生成（migrate-civil-answer-style.mjs 句読点分割バグの修復） | Generator    | sonnet  | civil-textbook-cycle 連携、lint 9-11 検証                                  | ✅ 運用中（2026-05-16 起動、AdSense 再申請対応）        |
+| `civil-secondary-exam-writer`  | 1級土木 secondary-r03〜r07 (二次過去問) の解答・ポイント・各設問解説を `<details>` で補完（公式解答の逐語転載禁止、著者独自表現で再構成）               | Generator    | sonnet  | civil-textbook-cycle 連携、lint 9-12 検証                                  | ✅ 運用中（2026-05-16 起動、AdSense 再申請対応）        |
+| `note-link-injector`           | note ドラフトに doboku-note キーワードページへのインラインリンクを全 occurrence 注入（synonym 判断を含む semantic マッチ）                | Generator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/pe-chapters.json` 参照         | ✅ 運用中（2026-04-29 起動）                      |
+| `note-figure-auditor`          | note ドラフトの図版を `note-svg-policy.md` 準拠で 4 軸監査（キャンバス・フォント・ブランド・密度）                                     | Evaluator    | sonnet  | note-prepublish-review 連携                                             | ✅ 運用中（2026-04-29 起動）                      |
+| `note-fact-checker`            | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）でファクトチェック                                             | Evaluator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照 | ✅ 運用中（2026-04-29 起動）                      |
+| `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface                           | Evaluator    | sonnet  | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照    | ✅ 運用中（2026-05-11 起動）                      |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
