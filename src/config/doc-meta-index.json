@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-18T05:42:29.557Z",
+  "generated_at": "2026-05-18T06:20:03.731Z",
   "summary": {
-    "total": 826,
-    "published": 799,
+    "total": 819,
+    "published": 792,
     "unpublished": 27,
     "by_category": {
       "civil-construction-1": 83,
-      "pe-comprehensive-management": 716
+      "pe-comprehensive-management": 709
     }
   },
   "docs": {
@@ -6431,158 +6431,6 @@
           "a": "DX・データ利活用・カーボンニュートラル・少子高齢化など社会課題を前提とし、組織が取るべき施策を複数設計してその実現性・障害・克服策まで示す設問が増加しています。"
         }
       ]
-    },
-    "pe-comprehensive-management-essay-mlit-aging-infrastructure": {
-      "title": "インフラ老朽化と5管理間トレードオフ｜過去問適用フレーム",
-      "description": "国土交通白書R7が示す「事後保全から予防保全への転換で30年間の維持管理費を約3割縮減」を起点に、経済性×安全を主軸とした5管理間トレードオフを構造化。ALARP原則・リスクベース判断（RBM）・LCCの解決フレームを過去問適用視点で整理し、R8再出題可能性の高い論点として体系化する。",
-      "shortTitle": "老朽化×総監",
-      "subtitle": "国土交通白書R7基準数字 × 経済性×安全 × 過去問適用",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 11,
-      "tags": [
-        "技術士（総合技術監理部門）",
-        "トレードオフ",
-        "国土交通白書",
-        "記述式対策",
-        "インフラ老朽化"
-      ],
-      "created": "2026-05-16",
-      "published": true,
-      "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "インフラ老朽化×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-18"
-    },
-    "pe-comprehensive-management-essay-mlit-construction-2024": {
-      "title": "建設・物流の2024年問題と5管理間トレードオフ｜過去問適用フレーム",
-      "description": "国土交通白書R7が示す建設業55歳以上36.7%・29歳以下11.7%・年間労働時間2,018時間・トラック輸送力2030年34%不足の数字を起点に、人的資源×経済性を主軸とした5管理間トレードオフを構造化。人的資本投資・勤務間インターバル・ICT施工の解決フレームを過去問適用視点で整理する。",
-      "shortTitle": "2024年問題×総監",
-      "subtitle": "国土交通白書R7基準数字 × 人的資源×経済性 × 過去問適用",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 12,
-      "tags": [
-        "技術士（総合技術監理部門）",
-        "トレードオフ",
-        "国土交通白書",
-        "記述式対策",
-        "2024年問題",
-        "働き方改革"
-      ],
-      "created": "2026-05-16",
-      "published": true,
-      "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "2024年問題×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-18"
-    },
-    "pe-comprehensive-management-essay-mlit-foreign-workers": {
-      "title": "外国人材の活用と5管理間トレードオフ｜過去問適用フレーム",
-      "description": "国土交通白書R7が示す「特定技能」国土交通省所管分野で2024年度から5年間で最大約18万1千人の受入見込を起点に、安全×人的資源を主軸とした5管理間トレードオフを構造化。VR/AR教育・多言語化（ピクトグラム）・勤務間インターバルの解決フレームを過去問適用視点で整理する。",
-      "shortTitle": "外国人材×総監",
-      "subtitle": "国土交通白書R7基準数字 × 安全×人的資源 × 過去問適用",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 17,
-      "tags": [
-        "技術士（総合技術監理部門）",
-        "トレードオフ",
-        "国土交通白書",
-        "記述式対策",
-        "外国人材",
-        "特定技能"
-      ],
-      "created": "2026-05-16",
-      "published": true,
-      "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "外国人材×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-18"
-    },
-    "pe-comprehensive-management-essay-mlit-green-transformation": {
-      "title": "GX・脱炭素と5管理間トレードオフ｜過去問適用フレーム",
-      "description": "国土交通白書R7が示す2050年ネット・ゼロ・2030年度温室効果ガス46%削減・GX建設機械認定制度（2023年10月創設）を起点に、経済性×社会環境を主軸とした5管理間トレードオフを構造化。LCA・外部不経済の内部化（カーボンプライシング）・新モーダルシフトの解決フレームを過去問適用視点で整理する。",
-      "shortTitle": "GX/CN×総監",
-      "subtitle": "国土交通白書R7基準数字 × 経済性×社会環境 × 過去問適用",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 14,
-      "tags": [
-        "技術士（総合技術監理部門）",
-        "トレードオフ",
-        "国土交通白書",
-        "記述式対策",
-        "GX",
-        "カーボンニュートラル"
-      ],
-      "created": "2026-05-16",
-      "published": true,
-      "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "GX/CN×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-18"
-    },
-    "pe-comprehensive-management-essay-mlit-i-construction-2": {
-      "title": "i-Construction 2.0と5管理間トレードオフ｜過去問適用フレーム",
-      "description": "国土交通白書R7が示す「i-Construction 2.0」（2040年度までに建設現場の省人化少なくとも3割・生産性1.5倍向上）と3D都市モデルPLATEAU（約250都市整備）を起点に、経済性×情報を主軸とした5管理間トレードオフを構造化。PoC・SaaS活用・段階的実施の解決フレームを過去問適用視点で整理する。",
-      "shortTitle": "i-Con 2.0×総監",
-      "subtitle": "国土交通白書R7基準数字 × 経済性×情報 × 過去問適用",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 15,
-      "tags": [
-        "技術士（総合技術監理部門）",
-        "トレードオフ",
-        "国土交通白書",
-        "記述式対策",
-        "DX",
-        "i-Construction"
-      ],
-      "created": "2026-05-16",
-      "published": true,
-      "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "i-Con 2.0×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-18"
-    },
-    "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt": {
-      "title": "地域インフラ群再生戦略マネジメント（群マネ）と5管理間トレードオフ｜過去問適用フレーム",
-      "description": "国土交通白書R7が示す「地域インフラ群再生戦略マネジメント（群マネ）」（2023年度全国11件40地方公共団体選定）を起点に、経済性×人的資源を主軸とした5管理間トレードオフを構造化。広域連携（自治体束/事業者束/技術者束）・包括的民間委託（PPP/PFI・ウォーターPPP）・住民参加型メンテナンスの解決フレームを過去問適用視点で整理する。",
-      "shortTitle": "群マネ×総監",
-      "subtitle": "国土交通白書R7基準数字 × 経済性×人的資源 × 過去問適用",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 16,
-      "tags": [
-        "技術士（総合技術監理部門）",
-        "トレードオフ",
-        "国土交通白書",
-        "記述式対策",
-        "群マネ",
-        "PPP/PFI"
-      ],
-      "created": "2026-05-16",
-      "published": true,
-      "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "群マネ×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-18"
-    },
-    "pe-comprehensive-management-essay-mlit-river-basin-management": {
-      "title": "流域治水と5管理間トレードオフ｜過去問適用フレーム",
-      "description": "国土交通白書R7が示す「流域治水」の推進と防災気象情報の体系整理（2024年6月警戒レベル統一）を起点に、安全×社会環境を主軸とした5管理間トレードオフを構造化。ミティゲーション階層・All-hazardアプローチ・合意形成（PI）の解決フレームを過去問適用視点で整理する。",
-      "shortTitle": "流域治水×総監",
-      "subtitle": "国土交通白書R7基準数字 × 安全×社会環境 × 過去問適用",
-      "category": "pe-comprehensive-management",
-      "group": "guide",
-      "guide_order": 13,
-      "tags": [
-        "技術士（総合技術監理部門）",
-        "トレードオフ",
-        "国土交通白書",
-        "記述式対策",
-        "流域治水"
-      ],
-      "created": "2026-05-16",
-      "published": true,
-      "publishedAt": "2026-05-16T00:00:00.000Z",
-      "seoTitle": "流域治水×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-pattern-cross-year-application": {
       "title": "総監記述式 1パターン × 複数年度流用戦略 — 道路発注者編",
@@ -13140,7 +12988,7 @@
         },
         {
           "q": "6 テーマすべてに同じ深さで取り組むべきですか？",
-          "a": "必要ありません。主役 3 本（気候変動適応／資源循環／少子高齢化深化）が R7 白書の最重点で、note 有料マガジン M3 もこの 3 本に投資を集中しています。中規模 3 本（インフラ老朽化／GX／i-Construction）は既存 essay-mlit-* シリーズで深掘り済みのため、自分の業務領域に近いテーマ 2-3 本を選んで集中学習してください。"
+          "a": "必要ありません。主役 3 本（気候変動適応／資源循環／少子高齢化深化）が R7 白書の最重点で、note 有料マガジン M3 もこの 3 本に投資を集中しています。中規模 3 本（インフラ老朽化／GX／i-Construction）は派生テーマであり、自分の業務領域に近いテーマ 2-3 本を選んで集中学習してください。"
         },
         {
           "q": "なぜ予測スコアや確率（X.X/10）を出さないのですか？",

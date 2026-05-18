@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-05-18T05:42:33.418Z",
+  "generated_at": "2026-05-18T06:20:07.751Z",
   "summary": {
-    "total_mdx_files": 826,
-    "total_unique_tags": 91,
+    "total_mdx_files": 819,
+    "total_unique_tags": 81,
     "allowlist_size": 123,
-    "known_count": 62,
+    "known_count": 52,
     "unknown_count": 29,
     "typo_candidates_count": 5
   },
@@ -1128,18 +1128,11 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 50,
+      "count": 43,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
         "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-essay-mlit-aging-infrastructure",
-        "pe-comprehensive-management-essay-mlit-construction-2024",
-        "pe-comprehensive-management-essay-mlit-foreign-workers",
-        "pe-comprehensive-management-essay-mlit-green-transformation",
-        "pe-comprehensive-management-essay-mlit-i-construction-2",
-        "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt",
-        "pe-comprehensive-management-essay-mlit-river-basin-management",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-index",
@@ -1226,16 +1219,9 @@
     },
     {
       "name": "記述式対策",
-      "count": 33,
+      "count": 26,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-essay-mlit-aging-infrastructure",
-        "pe-comprehensive-management-essay-mlit-construction-2024",
-        "pe-comprehensive-management-essay-mlit-foreign-workers",
-        "pe-comprehensive-management-essay-mlit-green-transformation",
-        "pe-comprehensive-management-essay-mlit-i-construction-2",
-        "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt",
-        "pe-comprehensive-management-essay-mlit-river-basin-management",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
         "pe-comprehensive-management-management-tradeoffs",
         "pe-comprehensive-management-mlit-whitepaper-2025",
@@ -1465,22 +1451,6 @@
       ]
     },
     {
-      "name": "トレードオフ",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-aging-infrastructure",
-        "pe-comprehensive-management-essay-mlit-construction-2024",
-        "pe-comprehensive-management-essay-mlit-foreign-workers",
-        "pe-comprehensive-management-essay-mlit-green-transformation",
-        "pe-comprehensive-management-essay-mlit-i-construction-2",
-        "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt",
-        "pe-comprehensive-management-essay-mlit-river-basin-management",
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-mlit-whitepaper-2025"
-      ]
-    },
-    {
       "name": "経済性管理",
       "count": 8,
       "inAllowlist": true,
@@ -1493,21 +1463,6 @@
         "pe-comprehensive-management-pdca-cycle",
         "pe-comprehensive-management-pfi",
         "pe-comprehensive-management-value-engineering"
-      ]
-    },
-    {
-      "name": "国土交通白書",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-aging-infrastructure",
-        "pe-comprehensive-management-essay-mlit-construction-2024",
-        "pe-comprehensive-management-essay-mlit-foreign-workers",
-        "pe-comprehensive-management-essay-mlit-green-transformation",
-        "pe-comprehensive-management-essay-mlit-i-construction-2",
-        "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt",
-        "pe-comprehensive-management-essay-mlit-river-basin-management",
-        "pe-comprehensive-management-mlit-whitepaper-2025"
       ]
     },
     {
@@ -1669,18 +1624,6 @@
       ]
     },
     {
-      "name": "カーボンニュートラル",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-green-transformation",
-        "pe-comprehensive-management-r06-essay-environment-survey",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-road-municipality"
-      ]
-    },
-    {
       "name": "地方公共団体",
       "count": 5,
       "inAllowlist": false,
@@ -1716,17 +1659,6 @@
       ]
     },
     {
-      "name": "DX",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-i-construction-2",
-        "pe-comprehensive-management-r04-essay-environment-survey",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-river-consultant"
-      ]
-    },
-    {
       "name": "quality",
       "count": 4,
       "inAllowlist": false,
@@ -1749,6 +1681,17 @@
       ]
     },
     {
+      "name": "カーボンニュートラル",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r06-essay-environment-survey",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality"
+      ]
+    },
+    {
       "name": "少子高齢化",
       "count": 4,
       "inAllowlist": false,
@@ -1757,6 +1700,16 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "DX",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r04-essay-environment-survey",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant"
       ]
     },
     {
@@ -1845,20 +1798,21 @@
       ]
     },
     {
+      "name": "トレードオフ",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-mlit-whitepaper-2025"
+      ]
+    },
+    {
       "name": "試験ガイド",
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-r8-essay-keyword-forecast",
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "2024年問題",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-construction-2024"
       ]
     },
     {
@@ -1902,27 +1856,11 @@
       ]
     },
     {
-      "name": "GX",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-green-transformation"
-      ]
-    },
-    {
       "name": "hyogo-common-specs",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-hyogo-port-materials"
-      ]
-    },
-    {
-      "name": "i-Construction",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-i-construction-2"
       ]
     },
     {
@@ -1966,14 +1904,6 @@
       ]
     },
     {
-      "name": "PPP/PFI",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt"
-      ]
-    },
-    {
       "name": "river",
       "count": 1,
       "inAllowlist": true,
@@ -2006,14 +1936,6 @@
       ]
     },
     {
-      "name": "インフラ老朽化",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-aging-infrastructure"
-      ]
-    },
-    {
       "name": "キーワード集",
       "count": 1,
       "inAllowlist": false,
@@ -2027,14 +1949,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-safety-management-pillar"
-      ]
-    },
-    {
-      "name": "外国人材",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-foreign-workers"
       ]
     },
     {
@@ -2054,11 +1968,11 @@
       ]
     },
     {
-      "name": "群マネ",
+      "name": "国土交通白書",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt"
+        "pe-comprehensive-management-mlit-whitepaper-2025"
       ]
     },
     {
@@ -2115,30 +2029,6 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "働き方改革",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-construction-2024"
-      ]
-    },
-    {
-      "name": "特定技能",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-foreign-workers"
-      ]
-    },
-    {
-      "name": "流域治水",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-mlit-river-basin-management"
       ]
     },
     {
