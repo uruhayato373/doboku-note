@@ -68,14 +68,7 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
-  // ----- 新規 4 マガジン (Series 1/3/4/5) -----
-  {
-    id: 'data-driven-strategy',
-    fileBaseName: 'magazine-data-driven-strategy-cover',
-    lines: ['データで読み解く', '総監記述式 戦略書', 'Top 20 KW + χ² 検定'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 48,
-  },
+  // ----- 新規 3 マガジン (Series 1/3/4/5 — M1 撤回済 2026-05-18) -----
   {
     id: 'whitepaper-r7-strategy',
     fileBaseName: 'magazine-whitepaper-r7-strategy-cover',
