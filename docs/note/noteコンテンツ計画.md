@@ -217,6 +217,20 @@
 - pattern-essay ハブから各模範論文マガジンへ送客
 - `src/lib/placement.ts` の magazine-placement で slug パターンマッチング自動配置
 
+#### R8 ダブル展開ハブ（2026-05-18 新設、Red Line #5 遵守の実装事例）
+
+サイト無料の「候補俯瞰・参考資料」と note 有料の「予想問題本文・模範解答骨子」を完全分業し、Google が note を正答視するリスク（Red Line #5）を回避しつつ M3 マガジン購買動機を維持する設計。
+
+- **[r8-essay-keyword-forecast](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast)** (guide_order: 7) — R8 候補キーワード 26 個を 5管理別に俯瞰する集客ハブ
+  - 末尾 CTA で **M3** マガジン（¥2,480）+ **F-06** 無料リード磁石 2 本へ送客
+  - サイト側は数値スコア・予想問題本文・模範解答骨子を出さない（M3 専属）
+  - 各候補キーワードから既存 650 キーワードページへ動線、内部リンク密度向上
+- **[whitepaper-study-map](https://doboku-note.com/docs/pe-comprehensive-management-whitepaper-study-map)** (guide_order: 6) — 5管理 × 28 白書の公式リンク集
+  - **M2** 白書 R7 戦略集（¥2,480）の前段リファレンスとして機能
+  - 国土交通白書深掘りは mlit-whitepaper-2025 へ、白書 × トレードオフ論文骨子は M2 マガジンへ送客
+- **[essay-exam-strategy](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy)** — 過去 17 年テーマ表に「背景」列を追加（2026-05-18、年代区分別箇条書き、自前白書要約・書籍 OCR 不使用）
+- **[essay-data-2026](https://doboku-note.com/docs/pe-comprehensive-management-essay-data-2026)** — 冒頭 CTA で **M1** データ駆動戦略マガジン（¥1,480）への送客動線を追加（2026-05-18、素材データ → 戦略書の分業を明示）
+
 ### note → サイト
 
 **目的**: note のドメインパワーで検索流入を獲得しつつ、読者を doboku-note に誘導して SEO 資産（被リンク・直接訪問・指名検索）を積み上げる。
@@ -284,6 +298,7 @@
 | 想定文字数 | 約 30,000 字（各章 3,000-5,000 字 × 8） |
 | 元データ | サイト内 `essay-mlit-*` 7 記事 + 国土交通白書 R7 原典 |
 | 公開 | W4 (2026-06-08〜14) |
+| サイト連携 | サイト無料の **whitepaper-study-map**（5管理 × 28 白書）が前段リファレンスとして機能、白書俯瞰で関心を持った読者を本マガジン（国交白書 R7 × 16 ペア深掘り）へ送客 |
 
 **コンセプト**: 「政策（白書）→ 出題（記述式）→ 解答（自業務）」の因果チェーンを完全可視化。例年、白書公表の 1 年後に試験で頻出テーマとして登場する傾向。
 
@@ -306,8 +321,9 @@
 | タイトル | 技術士総監 R8 記述式 予想問題集 — 三層構造で書き切る 3 大予想テーマと解答骨子 |
 | 価格 | ¥2,480 |
 | 想定文字数 | 20,000-25,000 字 |
-| 元データ | サイト内 essay-mlit-* / essay-exam-strategy / 5管理トレードオフ + 過去 9 年検証データ |
+| 元データ | サイト内 essay-mlit-* / essay-exam-strategy / 5管理トレードオフ / **r8-essay-keyword-forecast**（候補キーワード 26 個の俯瞰ハブ、2026-05-18 新設）+ 過去 9 年検証データ |
 | 公開 | W3-W4 (2026-06-01〜14) |
+| サイト連携 | サイト無料の **r8-essay-keyword-forecast** が候補キーワード俯瞰の集客装置として機能、末尾 CTA で本マガジンへ送客。サイト側は数値スコア・予想問題本文・解答骨子を出さない分業設計（Red Line #5 遵守） |
 
 **コンセプト**: 「R8 で出るかもしれない 3 大テーマを、専門分野不問の解答型で書き切る」。三層構造（管理対象 → 施策 → 将来展望）+ 抽象化された 5 トレードオフ型を統合した「試験当日まで持ち歩く予想問題集」。
 
