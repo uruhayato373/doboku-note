@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-18T02:28:36.586Z",
+  "generated_at": "2026-05-18T02:34:40.963Z",
   "summary": {
-    "total_mdx_files": 826,
-    "total_unique_tags": 92,
+    "total_mdx_files": 827,
+    "total_unique_tags": 93,
     "allowlist_size": 123,
     "known_count": 62,
-    "unknown_count": 30,
+    "unknown_count": 31,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1129,7 +1129,7 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 49,
+      "count": 50,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
@@ -1179,6 +1179,7 @@
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality",
         "pe-comprehensive-management-r07-primary",
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
         "pe-comprehensive-management-value-engineering",
         "pe-comprehensive-management-whitepaper-study-map"
       ]
@@ -1226,7 +1227,7 @@
     },
     {
       "name": "記述式対策",
-      "count": 32,
+      "count": 33,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-mlit-aging-infrastructure",
@@ -1260,7 +1261,8 @@
         "pe-comprehensive-management-r07-essay-environment-survey",
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-road-municipality"
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-comprehensive-management-r8-essay-keyword-forecast"
       ]
     },
     {
@@ -1705,6 +1707,17 @@
       ]
     },
     {
+      "name": "5管理",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-mlit-whitepaper-2025",
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
       "name": "DX",
       "count": 4,
       "inAllowlist": true,
@@ -1746,16 +1759,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "5管理",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-mlit-whitepaper-2025",
-        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -1850,6 +1853,15 @@
       "usedIn": [
         "reference-materials-floodgate",
         "reference-materials-inverted-siphon"
+      ]
+    },
+    {
+      "name": "試験ガイド",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -2077,14 +2089,6 @@
       ]
     },
     {
-      "name": "試験ガイド",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
       "name": "社会環境管理",
       "count": 1,
       "inAllowlist": true,
@@ -2138,6 +2142,14 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-mlit-foreign-workers"
+      ]
+    },
+    {
+      "name": "白書",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-keyword-forecast"
       ]
     },
     {
@@ -2232,6 +2244,7 @@
     "記述式試験",
     "出願",
     "直前対策",
+    "白書",
     "流用戦略",
     "令和2年度",
     "令和3年度",
