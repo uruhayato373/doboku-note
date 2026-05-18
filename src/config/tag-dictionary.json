@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-18T03:32:29.504Z",
+  "generated_at": "2026-05-18T05:31:08.451Z",
   "summary": {
-    "total_mdx_files": 827,
-    "total_unique_tags": 92,
+    "total_mdx_files": 826,
+    "total_unique_tags": 91,
     "allowlist_size": 123,
     "known_count": 62,
-    "unknown_count": 30,
+    "unknown_count": 29,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -669,7 +669,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 389,
+      "count": 388,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -788,7 +788,6 @@
         "pe-comprehensive-management-equipment-maintainability",
         "pe-comprehensive-management-equipment-reliability",
         "pe-comprehensive-management-erp",
-        "pe-comprehensive-management-essay-data-2026",
         "pe-comprehensive-management-estimation-testing",
         "pe-comprehensive-management-explicit-knowledge",
         "pe-comprehensive-management-extrinsic-motivation",
@@ -1356,28 +1355,6 @@
       ]
     },
     {
-      "name": "guide",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-keyword-2026",
-        "pe-comprehensive-management-essay-data-2026",
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-exam-application-guide",
-        "pe-comprehensive-management-exam-passing-strategy",
-        "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
       "name": "secondary",
       "count": 15,
       "inAllowlist": true,
@@ -1397,6 +1374,27 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07"
+      ]
+    },
+    {
+      "name": "guide",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-keyword-2026",
+        "pe-comprehensive-management-essay-exam-strategy",
+        "pe-comprehensive-management-exam-application-guide",
+        "pe-comprehensive-management-exam-passing-strategy",
+        "pe-comprehensive-management-primary-statistics-2026"
       ]
     },
     {
@@ -1829,15 +1827,6 @@
       ]
     },
     {
-      "name": "keyword-analysis",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-data-2026",
-        "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
       "name": "quality-management",
       "count": 2,
       "inAllowlist": true,
@@ -1897,14 +1886,6 @@
       ]
     },
     {
-      "name": "essay-data",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-data-2026"
-      ]
-    },
-    {
       "name": "exam-statistics",
       "count": 1,
       "inAllowlist": false,
@@ -1950,6 +1931,14 @@
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-inverted-siphon"
+      ]
+    },
+    {
+      "name": "keyword-analysis",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-primary-statistics-2026"
       ]
     },
     {
@@ -2227,10 +2216,9 @@
     "少子高齢化",
     "schedule",
     "データ利活用",
-    "keyword-analysis",
     "2026年版",
-    "essay-data",
     "exam-statistics",
+    "keyword-analysis",
     "keyword-index",
     "キーワード集",
     "記述式試験",
