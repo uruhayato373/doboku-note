@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-18T03:27:35.493Z",
+  "generated_at": "2026-05-18T03:32:24.828Z",
   "summary": {
     "total": 827,
-    "published": 800,
-    "unpublished": 27,
+    "published": 801,
+    "unpublished": 26,
     "by_category": {
       "civil-construction-1": 83,
-      "pe-comprehensive-management": 717
+      "pe-comprehensive-management": 718
     }
   },
   "docs": {
@@ -6496,7 +6496,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "インフラ老朽化×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-mlit-construction-2024": {
       "title": "建設・物流の2024年問題と5管理間トレードオフ｜過去問適用フレーム",
@@ -6518,7 +6518,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "2024年問題×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-mlit-foreign-workers": {
       "title": "外国人材の活用と5管理間トレードオフ｜過去問適用フレーム",
@@ -6540,7 +6540,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "外国人材×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-mlit-green-transformation": {
       "title": "GX・脱炭素と5管理間トレードオフ｜過去問適用フレーム",
@@ -6562,7 +6562,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "GX/CN×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-mlit-i-construction-2": {
       "title": "i-Construction 2.0と5管理間トレードオフ｜過去問適用フレーム",
@@ -6584,7 +6584,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "i-Con 2.0×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt": {
       "title": "地域インフラ群再生戦略マネジメント（群マネ）と5管理間トレードオフ｜過去問適用フレーム",
@@ -6606,7 +6606,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "群マネ×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-mlit-river-basin-management": {
       "title": "流域治水と5管理間トレードオフ｜過去問適用フレーム",
@@ -6627,7 +6627,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "seoTitle": "流域治水×総監 5管理間トレードオフと過去問適用フレーム ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-16"
+      "dateModified": "2026-05-18"
     },
     "pe-comprehensive-management-essay-pattern-cross-year-application": {
       "title": "総監記述式 1パターン × 複数年度流用戦略 — 道路発注者編",
@@ -12317,6 +12317,51 @@
       "seoTitle": "予防保全 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-05-16"
+    },
+    "pe-comprehensive-management-primary-statistics-2026": {
+      "title": "技術士総監 択一式 過去 7 年正答番号分布の統計（独自データ）",
+      "description": "技術士総合技術監理部門 択一式試験 R01-R07 過去 7 年・全 280 問の正答番号（1〜5）分布を集計し、χ² 検定で均等性を検証した独自データ。「正答番号に偏りはあるか」「捨て問でどの番号を選ぶべきか」という受験者の関心に統計的に答える。",
+      "shortTitle": "択一式 正答番号統計",
+      "subtitle": "R01-R07 全 280 問 × χ² 検定で偏りを検証",
+      "category": "pe-comprehensive-management",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-statistics",
+        "keyword-analysis",
+        "総合技術監理"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-17",
+      "seoTitle": "技術士総監 択一式 過去 7 年正答番号分布｜R01-R07 全 280 問の χ² 検定結果",
+      "created": "2026-05-17",
+      "dateModified": "2026-05-17",
+      "faqs": [
+        {
+          "q": "正答番号には偏りがありますか？",
+          "a": "全 280 問の χ² = 1.107 で臨界値 9.488 (自由度 4、有意水準 5%) を大きく下回り、統計的に均等と矛盾しない結果でした。「捨て問で特定の番号を選ぶと有利」という都市伝説は本試験では成立しません。"
+        },
+        {
+          "q": "最も多かった番号は何ですか？",
+          "a": "全体では選択肢 3 が最頻（61 問）、最少は選択肢 1（50 問）です。差は 11 問ですが、これは偶然のばらつきの範囲内です。"
+        },
+        {
+          "q": "年度ごとに偏りはありますか？",
+          "a": "全 7 年とも χ² 値が臨界値未満で、各年度内でも統計的な偏りは検出されませんでした。最大の χ² は R06 の 2.75（選択肢 3 が 11 問・選択肢 1/2 が各 6 問）でしたが、これも有意水準には届きません。"
+        },
+        {
+          "q": "「迷ったら何番」という戦略は使えますか？",
+          "a": "統計的には使えません。3 がわずかに多いものの、有意な偏りではなく、年度や設問テーマで再現性が確認できないため、「迷ったら知識で選ぶ」が正解となります。"
+        },
+        {
+          "q": "このデータの活用法は？",
+          "a": "(1) 受験勉強で「番号で当てる」戦略を諦め、知識習得に集中する根拠、(2) 試験対策塾の指導法の検証材料、(3) 出題者側の意図的な均等化が機能している証拠としての示唆、の 3 通りです。"
+        },
+        {
+          "q": "データの更新時期はいつですか？",
+          "a": "各年度の択一式公表後（おおむね当年 10 月）に再分析し、新年度を追加します。次回は R08（2026 年度）試験終了後に更新予定。"
+        }
+      ]
     },
     "pe-comprehensive-management-prior-use-rights": {
       "title": "先使用権制度",
