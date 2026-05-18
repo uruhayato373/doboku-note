@@ -75,9 +75,10 @@
 
 ## 関連記事（無料）
 
+- [R8 出題候補テーマ俯瞰｜doboku-note](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast) — 本テーマ（資源循環 × サプライチェーン強靭化）が R8 予想 6 大テーマのうちどう位置づけられるか、関連 KW と適用パターンを一覧で俯瞰
+- [建設・物流の 2024 年問題と 5 管理間トレードオフ](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-construction-2024) — 国土交通白書 R7 × 5 管理対立構造の深掘り
 - [道路発注者ペルソナ × 10 管理対象パターン早見表](https://doboku-note.com/docs/pattern-essay-road-municipality)
 - [1 パターンで複数年度を書ききる流用戦略](https://doboku-note.com/docs/essay-pattern-cross-year-application)
-- [国土交通白書 R7 × 総監記述式 出題予測解説](https://doboku-note.com/docs/essay-mlit-construction-2024)
 
 ---
 
