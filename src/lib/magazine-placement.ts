@@ -93,21 +93,12 @@ const NEW_MAGAZINES = {
 } satisfies Record<string, MagazineId>;
 
 /**
- * 国土交通白書ハブ記事 (mlit-whitepaper-2025) のみマッチ。
- * essay-mlit-* 7 テーマ別記事は 2026-05-18 に撤回されたため削除済み。
- *
- * 白書ハブは全ペルソナ + 精読ガイド (強 CTA)。
- */
-function matchMlitHub(slug: string): readonly MagazineId[] | null {
-  if (slug === 'pe-comprehensive-management-mlit-whitepaper-2025') {
-    return ['tankan-reading-guide', ...ALL_PERSONA_MAGAZINES];
-  }
-  return null;
-}
-
-/**
  * slug + docGroup から、表示すべきマガジン配置を解決する。
  * 表示の最終可否 (公開済みか) は呼び出し側で getMagazine() で確認する。
+ *
+ * 注: essay-mlit-* 7 記事 (2026-05-18 撤回) と mlit-whitepaper-2025 (2026-05-18 撤回) の
+ * 配線は削除済み。白書 R7 × 16 ペア × 4 ペルソナの深掘りは M2 magazine
+ * (whitepaper-r7-strategy) 独占に分業 (Red Line #7)。
  */
 export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
   // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 4 ペルソナ模範論文を提示 (強 CTA)
@@ -171,23 +162,8 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 4.5. 国土交通白書ハブ記事 (mlit-whitepaper-2025) → whitepaper-r7-strategy を primary CTA
-  // 全ペルソナ + whitepaper-r7 (強 CTA)。essay-mlit-* 7 テーマ別記事は 2026-05-18 撤回済み
-  const mlitMagazines = matchMlitHub(slug);
-  if (mlitMagazines) {
-    const inlineWithR7 = [
-      slot(NEW_MAGAZINES.whitepaperR7, slug, 'inline-r7'),
-      ...mlitMagazines.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
-    ];
-    return {
-      inline: inlineWithR7,
-      sidebar: [
-        slot(NEW_MAGAZINES.whitepaperR7, slug, 'sidebar-r7'),
-        slot('tankan-reading-guide', slug, 'sidebar-tankan'),
-      ],
-      inlineMobileOnly: false,
-    };
-  }
+  // 4.5. (廃止) 国土交通白書ハブ記事 (mlit-whitepaper-2025) は 2026-05-18 撤回済み。
+  //       M2 magazine (whitepaper-r7-strategy) 独占に分業 (Red Line #7)。
 
   // 5. pillar → 精読ガイド単独 CTA（M1 撤回 2026-05-18 でエントリー CTA は精読ガイドに一本化）
   if (docGroup === 'pillar') {
