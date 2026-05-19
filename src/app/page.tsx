@@ -40,6 +40,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
   categories.forEach((c) => labelByCategory.set(c.slug, c.label));
   return allMeta
     .filter((m) => m.published !== false)
+    .filter((m) => !(m as any).hideFromHome)
     .filter((m) => m.title && !m.title.startsWith("§"))
     .map((m) => {
       const dateStr =
