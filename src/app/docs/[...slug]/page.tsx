@@ -221,7 +221,7 @@ export default async function DocPage({
 
   // Fetch category articles (metadata only)
   const categoryArticles = category
-    ? (await getDocsMetaByCategory(category)).filter(d => !d.tags?.includes('模範論文'))
+    ? (await getDocsMetaByCategory(category)).filter(d => !d.tags?.includes('模範論文') && !(d as any).hideFromCategory)
     : [];
 
   // Determine page classification for navigation cards
