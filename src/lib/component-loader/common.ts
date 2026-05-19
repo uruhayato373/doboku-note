@@ -15,6 +15,7 @@ export const commonComponents = {
   NoteLink: "NoteLink",
   MagazineInlineCard: "MagazineInlineCard",
   SeeAlso: "SeeAlso",
+  SpokeNavCard: "SpokeNavCard",
   CardList: "CardList",
   ReferenceLinks: "ReferenceLinks",
   ExamContext: "ExamContext",
