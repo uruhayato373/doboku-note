@@ -565,6 +565,7 @@
 
 - [01_iOSアプリ仕様.md](./01_iOSアプリ仕様.md) — 仕様書本体 (機能・データモデル・収益モデル)
 - [03_iOSデータパイプライン.md](./03_iOSデータパイプライン.md) — JSON 契約・delta fetch (画面の表示データの源泉)
+- [04_iOSエコシステム動線.md](./04_iOSエコシステム動線.md) — 外部リンク設置場所・Apple ガイドライン準拠・クーポン仕様（本書の動線部分の真実源）
 - [../01_戦略/04_収益化戦略.md](./../01_戦略/04_収益化戦略.md) §7 — iOS Free/Premium 境界の戦略真実源
 - [../../design-system/principles.md](./../../design-system/principles.md) — doboku-note デザイン原則 (色トークン)
 

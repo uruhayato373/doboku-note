@@ -564,6 +564,7 @@ frontmatter `description` フィールドを優先使用。無ければ本文先
 
 - [01_iOSアプリ仕様.md](./01_iOSアプリ仕様.md) — 仕様書本体（機能・データモデル）
 - [02_iOS画面設計.md](./02_iOS画面設計.md) — 画面設計（このデータの表示先）
+- [04_iOSエコシステム動線.md](./04_iOSエコシステム動線.md) — 3 層エコシステム動線（Universal Link / クーポン / Apple ガイドライン準拠）
 - [../../reference/data-storage-decision.md](./../../reference/data-storage-decision.md) — D1 不採用判断（iOS は frontmatter + build-time JSON で完結する追加証拠）
 - [../../reference/measurement-incidents.md](./../../reference/measurement-incidents.md) — 計測異常パターン（iOS 計測導入時に参照）
 
