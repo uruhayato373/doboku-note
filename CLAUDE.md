@@ -77,6 +77,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/information-architecture.md](docs/reference/information-architecture.md) | 情報の 4 ゾーンモデル（docs / reference / state / skills）・判断フロー・task-queue 仕様。GitHub Issue 廃止の真実源 | 新しい情報の置き場に迷うとき・CI/スキル/ドキュメント設計時 |
 | [docs/reference/measurement-incidents.md](docs/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合 + 外部検証アクセスの罠（2026-W16 BAILOUT、2026-04-25 Cloudflare Bot 等） | 計測スキル/エージェント設計時・外部 Validator/ボットを使う作業時 |
 | [docs/reference/data-storage-decision.md](docs/reference/data-storage-decision.md) | データストレージ判断 ADR（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー条件） | DB 導入を検討するとき／iOS アプリ着手時／コンテンツ規模が大きく変わるとき |
+| [docs/reference/book-list.md](docs/reference/book-list.md) | Amazonアソシエイト紹介書籍リスト（資格別×用途別の手動キュレーション台帳、PA-API 移行ロードマップ） | 書籍紹介を追加・更新するとき／PA-API 実装時の seed として |
 | [docs/reference/notebooklm-cli-gotchas.md](docs/reference/notebooklm-cli-gotchas.md) | notebooklm CLI（Python v0.3.4）の挙動クセ集（venv exe で proxy 通らず 503・list で exit 1 false-positive・全角括弧の cmd.exe 解析破綻・source add --title 無効化 等） | notebooklm を呼ぶ新規スクリプト・skill 設計時／既存 wrapper の挙動確認時 |
 | [docs/reference/content-principles.md](docs/reference/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
 | [docs/design-system/principles.md](docs/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
