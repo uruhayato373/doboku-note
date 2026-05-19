@@ -1,3 +1,7 @@
+---
+title: SNS 投稿画像 ポリシー
+---
+
 # SNS 投稿画像 ポリシー
 
 `docs/sns/{x,instagram,youtube}/` に出力する SNS 用画像（IG カルーセル / X 投稿 / YT Shorts）の真実源。`docs/reference/note-svg-policy.md` の SNS 版。

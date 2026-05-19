@@ -1,3 +1,7 @@
+---
+title: NotebookLM CLI のクセ集
+---
+
 # NotebookLM CLI のクセ集
 
 `notebooklm`（Python 製 CLI、v0.3.4、`~/bin/notebooklm.bat` 経由、`~/.notebooklm-venv/` に venv）を Bash や Node.js から spawn する際に踏みやすい罠を集約する。

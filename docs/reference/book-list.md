@@ -1,3 +1,7 @@
+---
+title: 紹介書籍リスト（Amazonアソシエイト用）
+---
+
 # 紹介書籍リスト（Amazonアソシエイト用）
 
 doboku-note のコンテンツから紹介する書籍の手動キュレーション台帳。資格別×用途別に整理し、後日 PA-API 通過後に `src/config/amazon-books.json` へ機械可読化する前段の真実源。

@@ -1,3 +1,7 @@
+---
+title: コンテンツ原則
+---
+
 # コンテンツ原則
 
 doboku-note のすべてのコンテンツ作成・校正時に従うべき原則。各スキル（keyword-page、review-mobile 等）から参照される。

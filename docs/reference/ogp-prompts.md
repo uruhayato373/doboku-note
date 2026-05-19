@@ -1,3 +1,7 @@
+---
+title: OGP プロンプトリファレンス
+---
+
 # OGP プロンプトリファレンス
 
 doboku-note で採用する OGP / note カバー共通テンプレ T06 Mono Tag のデザイン出典と運用ルール。

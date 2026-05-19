@@ -1,3 +1,7 @@
+---
+title: サブエージェント詳細レジストリ
+---
+
 # サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
@@ -12,16 +16,16 @@
 
 どのスキルがどのエージェントを起動するかの早引き。
 
-| 呼出元スキル | 起動エージェント | 役割 |
-|---|---|---|
-| `/pdf-to-mdx` | `content-qa` | 変換後品質評価（5軸ルーブリック） |
-| `/quality-cycle --profile cem` | `cem-qa`, `keyword-rewriter` | 評価 → リライト → 再評価ループ |
-| `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter` | 評価 → リライト → 再評価ループ |
-| `/audit-exam-mapping` | `exam-keyword-mapping-auditor` | 紐づけ精度の semantic 評価 |
-| `/note-prepublish-review` | `note-link-injector`, `note-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列 |
-| `/weekly-improve` | `metrics-analyzer` | 計測データから改善機会抽出 |
-| `/psi-audit` | `performance-auditor` | CWV 違反・回帰検出 |
-| `/weekly-review`, `/weekly-plan` | `strategy-advisor`（オーケストレータ） | 戦略的な PDCA 統括 |
+| 呼出元スキル                                    | 起動エージェント                                                         | 役割                 |
+| ----------------------------------------- | ---------------------------------------------------------------- | ------------------ |
+| `/pdf-to-mdx`                             | `content-qa`                                                     | 変換後品質評価（5軸ルーブリック）  |
+| `/quality-cycle --profile cem`            | `cem-qa`, `keyword-rewriter`                                     | 評価 → リライト → 再評価ループ |
+| `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter`           | 評価 → リライト → 再評価ループ |
+| `/audit-exam-mapping`                     | `exam-keyword-mapping-auditor`                                   | 紐づけ精度の semantic 評価 |
+| `/note-prepublish-review`                 | `note-link-injector`, `note-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列     |
+| `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出      |
+| `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
+| `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
