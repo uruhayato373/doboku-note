@@ -57,6 +57,8 @@
  *  12-1 MEDIUM group: guide で `## 総合技術監理における位置づけ` を検出（キーワード専用、content-principles.md §20）
  *  12-2 MEDIUM group: guide で `## 参考資料` または `## 参考文献` を検出（外部離脱を最小化、§20）
  *  12-3 LOW    group: guide で末尾 H2 が承認パターン外（次のステップ / 関連リソース / ○○の選択肢）
+ *  13-1 MEDIUM r8-essay-theme-* spoke で許可外の ### ペルソナ名を検出（content-principles.md §21）
+ *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 5 個でない（content-principles.md §21、4 ペルソナ + 業界外救済 = 5 個が正常）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -759,6 +761,28 @@ function isPeComprehensiveManagement(filePath) {
   return /[\\\/]pe-comprehensive-management[\\\/]/.test(filePath);
 }
 
+/**
+ * R8 予想問題 spoke 判定（content-principles.md §21 対象）。
+ * 将来追加される r9-essay-theme-* 等への拡張余地として、`r[0-9]+-essay-theme-` 形式は将来検討。
+ */
+function isR8EssayThemeSpoke(filePath) {
+  return /[\\\/]r8-essay-theme-[a-z0-9-]+[\\\/]article\.mdx$/i.test(filePath);
+}
+
+/**
+ * R8 spoke で許可された H3 名（content-principles.md §21）。
+ * 4 固定ペルソナ + 業界外救済セクションの計 5 個。
+ * - ペルソナ名は note magazine M5-M8 / src/lib/note-magazines.ts と完全一致
+ * - 業界外受験者は前方一致で判定（カッコ書きサフィックスを許容）
+ */
+const R8_SPOKE_ALLOWED_PERSONAS = [
+  'ゼネコン',
+  '河川コンサル',
+  '環境調査',
+  '道路発注者',
+  '業界外受験者',
+];
+
 // 9-8 / 9-9: <RelatedKeywords> コンポーネント API 違反
 // 真実源: src/components/ui/RelatedKeywords/RelatedKeywords.tsx
 //   - prop 名は items（keywords ではない）
@@ -1237,6 +1261,83 @@ function lintGuideArticleStructure(lines, raw, filePath, findings) {
   }
 }
 
+// ── 13: R8 予想問題 spoke の固定 4 ペルソナ統一 ────────────────────────────────
+/**
+ * 13-1 MEDIUM: spoke で許可された 4 ペルソナ名以外の ### を検出
+ * 13-2 MEDIUM: 「## ペルソナ別の取り組み方」配下の ### サブセクション数が 5 個でない
+ *              （4 ペルソナ + 業界外救済 = 5 個が正常）
+ *
+ * 真実源: content-principles.md §21
+ * 対象: pe-comprehensive-management 配下の r8-essay-theme-* スラグのみ
+ */
+function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
+  if (!isPeComprehensiveManagement(filePath)) return;
+  if (!isR8EssayThemeSpoke(filePath)) return;
+
+  // 「## ペルソナ別の取り組み方」セクションの範囲を特定
+  let sectionStart = -1;
+  let sectionEnd = lines.length;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+ペルソナ別の取り組み方/.test(lines[i])) {
+      sectionStart = i;
+      for (let j = i + 1; j < lines.length; j++) {
+        if (/^##\s+/.test(lines[j])) {
+          sectionEnd = j;
+          break;
+        }
+      }
+      break;
+    }
+  }
+  if (sectionStart < 0) {
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '13-2',
+      line: 1,
+      endLine: 1,
+      message:
+        'R8 spoke に「## ペルソナ別の取り組み方」セクションが存在しない（content-principles.md §21）',
+    });
+    return;
+  }
+
+  // 範囲内の ### を抽出
+  const h3Headings = [];
+  for (let i = sectionStart + 1; i < sectionEnd; i++) {
+    const m = lines[i].match(/^###\s+(.+?)\s*$/);
+    if (m) h3Headings.push({ idx: i, text: m[1].trim() });
+  }
+
+  // 13-2: H3 個数チェック（4 ペルソナ + 業界外救済 = 5 個が正常）
+  if (h3Headings.length !== 5) {
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '13-2',
+      line: sectionStart + 1,
+      endLine: sectionEnd,
+      message: `R8 spoke「## ペルソナ別の取り組み方」配下の ### サブセクションが ${h3Headings.length} 個（期待値: 5 個 = 4 ペルソナ + 業界外救済）。固定 4 ペルソナ + 業界外救済で構成する（content-principles.md §21）`,
+    });
+  }
+
+  // 13-1: 各 H3 が許可リストに含まれるか
+  for (const h of h3Headings) {
+    // カッコ書きサフィックス（「（製造業・エネルギー・IT 等）へのアレンジ」等）を除去
+    const baseName = h.text.replace(/[(（].*$/, '').trim();
+    const isAllowed = R8_SPOKE_ALLOWED_PERSONAS.some(
+      (allowed) => baseName === allowed || baseName.startsWith(allowed),
+    );
+    if (!isAllowed) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '13-1',
+        line: h.idx + 1,
+        endLine: h.idx + 1,
+        message: `R8 spoke で許可外の ### 見出し「${h.text}」を検出。固定 4 ペルソナ（${R8_SPOKE_ALLOWED_PERSONAS.slice(0, 4).join(' / ')}）+ 業界外受験者のみ使用可能（content-principles.md §21）。業界外救済は note M4 マガジンに分業`,
+      });
+    }
+  }
+}
+
 // ── 0-2: Docusaurus 旧 frontmatter 検出 ────────────────────────────────────
 /**
  * 0-2 HIGH: frontmatter に id/sidebar_label/toc_min_heading_level/toc_max_heading_level が残存。
@@ -1326,6 +1427,9 @@ function lintFile(filePath) {
 
   // カテゴリ12: PE ガイド記事の構造（group: guide 専用）
   lintGuideArticleStructure(lines, raw, filePath, findings);
+
+  // カテゴリ13: R8 予想問題 spoke の固定 4 ペルソナ統一（content-principles.md §21）
+  lintR8SpokeFixedPersonas(lines, raw, filePath, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）
   for (const f of findings) {
