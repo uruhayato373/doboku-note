@@ -29,6 +29,7 @@ export async function getCommonComponents() {
     MagazineInlineCard: (await import("@/components/ui/MagazineInlineCard/MagazineInlineCard")).default,
     SeeAlso: (await import("@/components/ui/SeeAlso/SeeAlso")).default,
     SpokeNavCard: (await import("@/components/ui/SpokeNavCard/SpokeNavCard")).default,
+    SourceBadges: (await import("@/components/ui/SourceBadges")).default,
     CardList: (await import("@/components/ui/CardList/CardList")).default,
     ReferenceLinks: (await import("@/components/ui/ReferenceLinks")).default,
     ExamContext: (await import("@/components/ui/ExamContext")).default,
