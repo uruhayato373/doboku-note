@@ -31,7 +31,7 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
 ---
 
-技術士総合技術監理部門 令和5年度 記述式試験（テーマ：SWOT 分析と戦略立案）を、**地方公共団体の道路維持管理担当** の立場で **道路維持管理組織** を題材に解いた模範論文。R5 の特徴は対象が「事業・プロジェクト」ではなく **「組織」** であること。組織としての強み・弱みと外部環境を整理し、3 戦略をクロス（S×O / W×O / W×T）で立案する。
+技術士総合技術監理部門 令和5年度 記述式試験（テーマ：SWOT 分析と戦略立案）を、**地方公共団体の道路維持管理担当** の立場で **道路維持管理組織** を題材に解いた模範論文です。R5 の特徴は対象が「事業・プロジェクト」ではなく **「組織」** であることです。組織としての強み・弱みと外部環境を整理し、3 戦略をクロス（S×O / W×O / W×T）で立案します。
 
 > R5 は管理対象が **「組織」** に切り替わった年度です。R2-R4 や R6-R7 のように単一プロジェクトの説明で書き始めると論旨が成立しません。「○○課」「○○事務所」のように **継続的にアウトプットを出す主体** として描き、経営資源・業務プロセスの整理を論文序盤の生命線として位置付けてください。
 
@@ -130,18 +130,18 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
 ## 採点者視点でのチェックポイント
 
-R5 の SWOT 分析は「組織として継続的にアウトプットを出す主体」を描く。採点者がチェックする 4 点：
+R5 の SWOT 分析は「組織として継続的にアウトプットを出す主体」を描きます。採点者がチェックするのは次の 4 点です。
 
-- (1) で「経営資源」「アウトプット」「業務プロセス」を明示することで R5 特有の組織視点が立つ
-- (2) SWOT は各 2 項目を厳守。強み・弱みは内部要因、機会・脅威は外部要因と区別する
-- (3) 3 戦略はクロス（S×O・W×O・W×T）で立てると論旨に厚みが出る。トレードオフは戦略ごとに必ず明示する
-- 発注者の権限を活かし、仕様書義務化・補助金活用・自治体間連携を施策に含める
+- (1) で「経営資源」「アウトプット」「業務プロセス」を明示することで R5 特有の組織視点が立ちます
+- (2) SWOT は各 2 項目を厳守します。強み・弱みは内部要因、機会・脅威は外部要因と区別します
+- (3) 3 戦略はクロス（S×O・W×O・W×T）で立てると論旨に厚みが出ます。トレードオフは戦略ごとに必ず明示します
+- 発注者の権限を活かし、仕様書義務化・補助金活用・自治体間連携を施策に含めます
 
 ---
 
 ## doboku-note の関連ガイド
 
-- [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 管理対象 4 パターンの選び方と前提条件のテンプレート集。組織を新設・維持管理どちらに寄せるかで SWOT の項目も変わる
+- [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 管理対象 4 パターンの選び方と前提条件のテンプレート集。組織を新設・維持管理どちらに寄せるかで SWOT の項目も変わります
 - [令和5年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 段階的実施・合意形成・リスクベース判断フレームの定義と他ペアでの応用例
 
