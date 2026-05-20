@@ -1,0 +1,43 @@
+<svg width="380" height="296" viewBox="0 0 380 296"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:380px;width:100%"
+     role="img"
+     aria-label="RPA の 3 つの自動化レベル。クラス 1（定型業務）が現在の主流で、クラス 2・クラス 3 へ進むほど AI 活用度と自律性が高まる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-name  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-body  { font-size: 11px; fill: #555; }
+      .t-side  { font-size: 11px; fill: #8a8a8a; }
+      .t-tag   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-main  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="rpa-arrow" markerWidth="9" markerHeight="8" refX="4.5" refY="1" orient="auto">
+      <polygon points="0,8 4.5,0 9,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="190" y="24" text-anchor="middle">RPA の 3 つの自動化レベル</text>
+
+  <!-- 縦軸ラベル -->
+  <text class="t-side" x="16" y="158" text-anchor="middle"
+        transform="rotate(-90 16 158)">AI 活用度・自律性の向上</text>
+  <line x1="30" y1="262" x2="30" y2="44" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#rpa-arrow)"/>
+
+  <!-- クラス3 -->
+  <rect class="box-brand" x="46" y="40" width="312" height="66" rx="8"/>
+  <text class="t-name" x="62" y="64">クラス 3（CA：認知的自動化）</text>
+  <text class="t-body" x="62" y="84">ディープラーニングによる高度な自律的意思決定</text>
+
+  <!-- クラス2 -->
+  <rect class="box-brand" x="46" y="124" width="312" height="66" rx="8"/>
+  <text class="t-name" x="62" y="148">クラス 2（EPA：拡張自動化）</text>
+  <text class="t-body" x="62" y="168">AI・自然言語処理で一部の非定型業務にも対応</text>
+
+  <!-- クラス1 -->
+  <rect class="box-main" x="46" y="208" width="312" height="66" rx="8"/>
+  <text class="t-name" x="62" y="232">クラス 1（RPA）　— 現在の主流</text>
+  <text class="t-body" x="62" y="252">ルールベースで定型業務（入力・転記・照合）を自動化</text>
+</svg>
