@@ -23,7 +23,7 @@
 
   <!-- 上の矢印：データ収集 -->
   <text class="t-flow" x="200" y="44" text-anchor="middle">① IoT センサーでデータを収集</text>
-  <path d="M 150 78 C 150 52 250 52 250 78" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#dt-arrow)"/>
+  <path d="M 150 78 C 150 52 250 52 250 64 L 250 78" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#dt-arrow)"/>
 
   <!-- フィジカル空間 -->
   <rect class="box-phys" x="24" y="78" width="164" height="124" rx="8"/>
@@ -41,6 +41,6 @@
   <text class="t-body" x="294" y="188" text-anchor="middle">AI が分析・予測・最適化</text>
 
   <!-- 下の矢印：フィードバック -->
-  <path d="M 250 202 C 250 228 150 228 150 202" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#dt-arrow)"/>
+  <path d="M 250 202 C 250 228 150 228 150 216 L 150 202" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#dt-arrow)"/>
   <text class="t-flow" x="200" y="252" text-anchor="middle">② 分析・予測の結果をフィードバック（制御・最適化）</text>
 </svg>
