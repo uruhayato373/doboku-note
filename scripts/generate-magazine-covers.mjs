@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // public/images/magazines/ に note 有料マガジン用のカバー画像を生成する。
 //
-// scripts/generate-note-covers.mjs と同じ T06 Mono Tag テンプレを使い、
-// 4 ペルソナ模範論文マガジンのカバーを 1280×670 で出力する。
-// 出力は MagazineInlineCard / MagazineSidebarCard (aspect-square) で中央クロップされるため、
-// セーフティゾーン (中央 630×630) 内にすべての主要テキストを配置する。
+// magazine-banner テンプレ（ogp-templates.mjs）で 1280×670 のマガジンカバーを出力する。
+// note のマガジン/クリエイターページのヘッダーは中央 1280×216 帯がクロップ表示されるため、
+// マガジン名をこの帯の縦横中央に配置する。doboku-note サイトの aspect-square カード
+// クロップにも対応（全要素を全幅中央寄せ）。
 //
 // 使い方:
 //   node scripts/generate-magazine-covers.mjs                 # 全件生成
@@ -64,18 +64,11 @@ const MAGAZINES = [
   },
   {
     id: 'road-municipality',
-    lines: ['総監記述式 模範論文', '道路発注者 (地方自治体)', '3年分セット (R05-R07)'],
+    lines: ['総監記述式 模範論文', '自治体 道路担当（発注者）', '過去問5年＋R8予想セット'],
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
-  // ----- 新規 4 マガジン (Series 1/3/4/5) -----
-  {
-    id: 'data-driven-strategy',
-    fileBaseName: 'magazine-data-driven-strategy-cover',
-    lines: ['データで読み解く', '総監記述式 戦略書', 'Top 20 KW + χ² 検定'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 48,
-  },
+  // ----- 新規 3 マガジン (Series 1/3/4/5 — M1 撤回済 2026-05-18) -----
   {
     id: 'whitepaper-r7-strategy',
     fileBaseName: 'magazine-whitepaper-r7-strategy-cover',
@@ -101,7 +94,7 @@ const MAGAZINES = [
 
 async function renderOne(mag, fonts) {
   const element = renderTemplate(
-    'mono-tag',
+    'magazine-banner',
     {
       lines: mag.lines,
       categoryLabel: mag.category,

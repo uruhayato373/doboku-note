@@ -1401,19 +1401,15 @@
 
 本書の理解を深めるための無料記事:
 
-- [総合技術監理 キーワード集 2026（全 637 ワード）](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026) — 5 管理の全キーワードを体系的に網羅
+- [総合技術監理 キーワード集 2026（全 637 ワード）](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026) — 5 管理の全キーワードを体系的に網羅（本書第 4 章ペルソナ別 Top 5 の選定元）
 - [記述式試験の解答戦略（三層構造）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy) — 本書第 5 章の元となる三層構造の方法論解説
-- [記述式 R03-R07 頻出キーワード分析](https://doboku-note.com/docs/pe-comprehensive-management-essay-data-2026) — 本書第 4 章ペルソナ別 Top 5 の元データ
-- [択一式 R01-R07 正答番号分布の統計](https://doboku-note.com/docs/pe-comprehensive-management-primary-statistics-2026) — 択一試験対策の補完
 - [5 管理トレードオフ 頻出 6 ペア](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs) — 本書第 6 章の元データ
 - [4 ペルソナ別 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant) — 本書第 4 章の業務別実例
-- [国土交通白書 R7 × 5 管理トレードオフ 7 記事](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-aging-infrastructure) — 本書第 2 章「テーマ別テンプレ」と組合せて使用
 
 ### doboku-note 有料コンテンツ（実戦適用）
 
 本書と組み合わせるとさらに効果的:
 
-- **データ駆動受験戦略（¥1,480）** — 本書のテーマ別テンプレ Top 20 を「データ根拠」で補強
 - **国土交通白書 R7 完全対応集（¥2,480）** — 本書第 2 章 20 テンプレの「テーマ×政策」を白書原典で深掘り
 - **4 ペルソナ別模範論文 R03-R07（¥1,480-1,980 × 4）** — 本書第 4 章の業務別論点を実例で確認
 
@@ -1443,7 +1439,7 @@
 - 著者: doboku-note 編集部
 - 公開: 2026 年 6 月
 - 価格: ¥2,980（PDF 付録 3 種含む）
-- 関連商品: データ駆動受験戦略 / 4 ペルソナ模範論文 / 白書 R7 完全対応集
+- 関連商品: 4 ペルソナ模範論文 / 白書 R7 完全対応集
 
 **論文中の登場頻度**: 中
 

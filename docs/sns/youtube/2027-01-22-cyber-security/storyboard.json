@@ -1,0 +1,55 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "cyber-security",
+  "title": "サイバー安全保障",
+  "description": "サイバー安全保障の概要。サイバーセキュリティ基本法、NISC、重要インフラ防護、能動的サイバー防御の考え方を解説。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "総合技術監理",
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "サイバー安全保障",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "info"
+      },
+      "script": "サイバー安全保障。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "サイバー安全保障",
+        "body": "サイバー安全保障の概要。サイバーセキュリティ基本法、NISC、重要インフラ防護、能動的サイバー防御の考え方を解説。"
+      },
+      "script": "サイバー安全保障の概要。サイバーセキュリティ基本法、NISC、重要インフラ防護、能動的サイバー防御の考え方を解説。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "サイバーセキュリティ基本法（2014年制定）が法的基盤"
+      },
+      "script": "試験ポイント1。サイバーセキュリティ基本法（2014年制定）が法的基盤"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "NISCが政府のサイバーセキュリティ司令塔として機能"
+      },
+      "script": "試験ポイント2。NISCが政府のサイバーセキュリティ司令塔として機能"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

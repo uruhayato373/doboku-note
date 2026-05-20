@@ -1,0 +1,55 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "correlation-analysis",
+  "title": "相関分析",
+  "description": "相関分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "総合技術監理",
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "相関分析",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "info"
+      },
+      "script": "相関分析。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "相関分析",
+        "body": "相関分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。"
+      },
+      "script": "相関分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "相関係数は -1〜1 の値をとり、絶対値が1に近いほど線形関係が強い"
+      },
+      "script": "試験ポイント1。相関係数は -1〜1 の値をとり、絶対値が1に近いほど線形関係が強い"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "相関は因果ではない"
+      },
+      "script": "試験ポイント2。相関は因果ではない"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

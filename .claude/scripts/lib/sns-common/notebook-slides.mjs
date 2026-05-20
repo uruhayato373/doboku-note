@@ -48,6 +48,8 @@ function getLayout(height) {
   return {
     contentTop:      sm ? 155 : 175,
     captionHeight:   sm ? 190 : 240,
+    contentBottom:   sm ? 96  : 120,
+    figureMaxH:      sm ? 720 : 1150,
     captionFontSize: sm ? 42  : 52,
     tabPaddingV:     sm ? 36  : 50,
     tabFontSize:     sm ? 22  : 26,
@@ -218,7 +220,7 @@ export function buildNotebookCover({ width, height, data }) {
     // メインコンテンツ（縦中央揃え）
     d({
       position: 'absolute',
-      top: L.contentTop, bottom: L.captionHeight + 20, left: 160, right: 160,
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
       flexDirection: 'column',
       justifyContent: 'center',
     }, [
@@ -321,7 +323,6 @@ export function buildNotebookCover({ width, height, data }) {
       ...stickyLines.map(line => d({ display: 'flex' }, line || ' ')),
     ]),
 
-    buildCaptionArea(data.caption, L),
   ]);
 }
 
@@ -349,7 +350,7 @@ export function buildNotebookBoard({ width, height, data }) {
 
     d({
       position: 'absolute',
-      top: L.contentTop, bottom: L.captionHeight + 20, left: 160, right: 160,
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
       flexDirection: 'column',
       justifyContent: 'center',
     }, [
@@ -397,7 +398,6 @@ export function buildNotebookBoard({ width, height, data }) {
       ]),
     ]),
 
-    buildCaptionArea(data.caption, L),
   ]);
 }
 
@@ -423,7 +423,7 @@ export function buildNotebookCta({ width, height, data }) {
     // コンテンツ全体を space-evenly で縦分散配置
     d({
       position: 'absolute',
-      top: L.contentTop, bottom: L.captionHeight + 20, left: 160, right: 160,
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
       flexDirection: 'column',
       justifyContent: 'space-around',
     }, [
@@ -513,6 +513,104 @@ export function buildNotebookCta({ width, height, data }) {
       ]),
     ]),
 
-    buildCaptionArea(data.caption, L),
+  ]);
+}
+
+/**
+ * notebook-figure スライド
+ *
+ * 図版（SVG/PNG）を主役にするスライド。図がまだ無い場合は figureSpec を
+ * 破線ボックスにプレースホルダ表示する（実図版は別工程で制作）。
+ *
+ * data: {
+ *   heading: string,        // 見出し
+ *   imageBase64?: string,   // data URI（ig-post-create が imagePath から解決）
+ *   figureSpec?: string,    // 図がまだ無いときの仕様記述（'\n' で改行）
+ *   note?: string,          // 図の下に置く一言（'\n' で改行）
+ *   management: string,
+ * }
+ */
+export function buildNotebookFigure({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const hasImage = Boolean(data.imageBase64);
+  const specLines = (data.figureSpec || '図版スペック未記入').split('\n');
+  const noteLines = (data.note || '').split('\n');
+
+  const figureArea = hasImage
+    ? d({
+        flexGrow: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        background: '#ffffff',
+        border: `2px solid ${NOTEBOOK_TOKENS.paperLine}`,
+        padding: 24,
+      }, {
+        type: 'img',
+        props: {
+          src: data.imageBase64,
+          style: {
+            maxWidth: `${width - 420}px`,
+            maxHeight: `${L.figureMaxH}px`,
+            objectFit: 'contain',
+          },
+        },
+      })
+    : d({
+        flexGrow: 1,
+        flexDirection: 'column',
+        gap: 14,
+        justifyContent: 'center',
+        background: '#ffffff',
+        border: `3px dashed ${NOTEBOOK_TOKENS.brand}`,
+        paddingTop: 28, paddingBottom: 28,
+        paddingLeft: 32, paddingRight: 32,
+      }, [
+        d({
+          fontSize: 28,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brand,
+          marginBottom: 4,
+        }, '▶ 図版スペック（制作予定）'),
+        ...specLines.map(line => d({
+          display: 'flex',
+          fontSize: L.bodyFontSize - 4,
+          fontWeight: 600,
+          color: NOTEBOOK_TOKENS.inkBody,
+          lineHeight: 1.5,
+        }, line || ' ')),
+      ]);
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+
+    d({
+      position: 'absolute',
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+      flexDirection: 'column',
+    }, [
+      d({
+        fontSize: L.headingFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.brandDeep,
+        borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
+        paddingBottom: 12,
+        marginBottom: 28,
+      }, data.heading || '図解'),
+
+      figureArea,
+
+      data.note
+        ? d({
+            marginTop: 24,
+            flexDirection: 'column',
+            fontSize: L.bodyFontSize - 6,
+            fontWeight: 700,
+            color: NOTEBOOK_TOKENS.red,
+            lineHeight: 1.5,
+          }, noteLines.map(line => d({ display: 'flex' }, line || ' ')))
+        : null,
+    ]),
   ]);
 }

@@ -1,0 +1,83 @@
+<svg width="400" height="322" viewBox="0 0 400 322"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="IaaS・PaaS・SaaS の責任分界。アプリケーション・データ・ミドルウェア・OS・ハードウェアの各層について、利用者と事業者のどちらが管理するかを示す。SaaS ほど事業者の管理範囲が広い。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-row   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-user  { font-size: 11px; fill: #1a3a5c; }
+      .t-prov  { font-size: 11px; fill: #555; }
+      .t-leg   { font-size: 11px; fill: #555; }
+      .box-user  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn — 利用者が責任を負う範囲 */
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface / token-border — 事業者管理 */
+      .box-head  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand — ヘッダー */
+    </style>
+  </defs>
+
+  <text class="t-title" x="200" y="24" text-anchor="middle">IaaS・PaaS・SaaS の責任分界</text>
+
+  <!-- ヘッダー行 -->
+  <rect class="box-head" x="110" y="34" width="90" height="26" rx="5"/>
+  <text class="t-head" x="155" y="51" text-anchor="middle">IaaS</text>
+  <rect class="box-head" x="204" y="34" width="90" height="26" rx="5"/>
+  <text class="t-head" x="249" y="51" text-anchor="middle">PaaS</text>
+  <rect class="box-head" x="298" y="34" width="90" height="26" rx="5"/>
+  <text class="t-head" x="343" y="51" text-anchor="middle">SaaS</text>
+
+  <!-- 行1 アプリケーション -->
+  <text class="t-row" x="12" y="87">アプリケーション</text>
+  <rect class="box-user" x="110" y="62" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="87" text-anchor="middle">利用者</text>
+  <rect class="box-user" x="204" y="62" width="90" height="42" rx="5"/>
+  <text class="t-user" x="249" y="87" text-anchor="middle">利用者</text>
+  <rect class="box-surf" x="298" y="62" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="87" text-anchor="middle">事業者</text>
+
+  <!-- 行2 データ -->
+  <text class="t-row" x="12" y="131">データ</text>
+  <rect class="box-user" x="110" y="106" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="131" text-anchor="middle">利用者</text>
+  <rect class="box-user" x="204" y="106" width="90" height="42" rx="5"/>
+  <text class="t-user" x="249" y="131" text-anchor="middle">利用者</text>
+  <rect class="box-user" x="298" y="106" width="90" height="42" rx="5"/>
+  <text class="t-user" x="343" y="131" text-anchor="middle">利用者</text>
+
+  <!-- 行3 ミドルウェア・実行環境 -->
+  <text class="t-row" x="12" y="169">ミドルウェア</text>
+  <text class="t-row" x="12" y="184">・実行環境</text>
+  <rect class="box-user" x="110" y="150" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="175" text-anchor="middle">利用者</text>
+  <rect class="box-surf" x="204" y="150" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="249" y="175" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="298" y="150" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="175" text-anchor="middle">事業者</text>
+
+  <!-- 行4 OS -->
+  <text class="t-row" x="12" y="219">OS</text>
+  <rect class="box-user" x="110" y="194" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="219" text-anchor="middle">利用者</text>
+  <rect class="box-surf" x="204" y="194" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="249" y="219" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="298" y="194" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="219" text-anchor="middle">事業者</text>
+
+  <!-- 行5 ハードウェア・インフラ -->
+  <text class="t-row" x="12" y="257">ハードウェア</text>
+  <text class="t-row" x="12" y="272">・インフラ</text>
+  <rect class="box-surf" x="110" y="238" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="155" y="263" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="204" y="238" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="249" y="263" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="298" y="238" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="263" text-anchor="middle">事業者</text>
+
+  <!-- 凡例 -->
+  <rect class="box-user" x="40" y="296" width="16" height="14" rx="3"/>
+  <text class="t-leg" x="62" y="307">利用者（自社）が管理</text>
+  <rect class="box-surf" x="222" y="296" width="16" height="14" rx="3"/>
+  <text class="t-leg" x="244" y="307">クラウド事業者が管理</text>
+</svg>

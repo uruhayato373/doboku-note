@@ -497,7 +497,7 @@ export default async function CategoryPage({
   }
 
   const allDocs = await getDocsMetaByCategory(slug);
-  const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文'));
+  const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !(d as any).hideFromCategory);
 
   const groups = (slug === 'civil-construction-1' || slug === 'pe-comprehensive-management')
     ? groupDocs(docs, slug)
@@ -628,23 +628,10 @@ export default async function CategoryPage({
                   const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-comprehensive-management', 'keyword'));
                   const keywordCount = keywordGroup?.docs.length ?? 0;
 
-                  // 白書テーマ記事（essay-mlit-*）を guide から分離して別セクション化
-                  const essayMlitDocs = guideGroup?.docs.filter(d => /essay-mlit-/.test(d.slug || '')) ?? [];
-                  const coreGuideDocs = guideGroup?.docs.filter(d => !/essay-mlit-/.test(d.slug || '')) ?? [];
-                  const coreGuideGroup = guideGroup ? { ...guideGroup, docs: coreGuideDocs } : null;
-
+                  // essay-mlit-* 7 記事は 2026-05-18 撤回済み（旧分離ロジック削除）
                   return (
                     <>
-                      {coreGuideGroup && coreGuideGroup.docs.length > 0 && <DocSection group={coreGuideGroup} />}
-                      {essayMlitDocs.length > 0 && (
-                        <DocSection
-                          group={{
-                            title: '白書テーマ別 記述対策',
-                            description: '国土交通白書R7の主要テーマ × 5管理トレードオフで構成した記述式想定問題',
-                            docs: essayMlitDocs,
-                          }}
-                        />
-                      )}
+                      {guideGroup && guideGroup.docs.length > 0 && <DocSection group={guideGroup} />}
                       {pillarGroup && <DocSection group={pillarGroup} />}
                       {pastExamGroup && (
                         <DocSection group={pastExamGroup} layout="pe-exam-table" />

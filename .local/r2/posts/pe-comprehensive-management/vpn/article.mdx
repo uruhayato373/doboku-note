@@ -22,6 +22,13 @@ VPN（Virtual Private Network：仮想プライベートネットワーク）と
 
 VPNは**境界型防御**の代表的な手段であり、社内ネットワークへの安全な接続経路を提供する。
 
+公衆ネットワークであるインターネットは本来、盗聴・改ざんの危険がある経路である。VPNはその上に暗号化されたトンネルを構築し、トンネル内の通信内容を第三者から保護する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/vpn/img/figure-1.svg"
+  alt="VPNのトンネリングの概念図。拠点Aと拠点Bが、公衆ネットワークであるインターネット上に構築された暗号化トンネルを通じて安全に接続される"
+/>
+
 ### VPNの主要プロトコル
 
 VPN を実現する代表的なプロトコルは 4 種類あり、動作レイヤと用途で使い分ける。
@@ -59,16 +66,6 @@ VPN は安全な通信経路を提供するが、万能ではない。次の 2 �
 
 第二に、**VPN 接続後は社内ネットワーク上の端末として扱われる** ため、マルウェアに感染した端末が VPN 経由で社内に侵入するリスクがある。エンドポイント対策を併用する設計が必須である。
 
-<ExamPoint
-  summary="VPNは境界型防御の手段であり、ゼロトラストとは異なる"
-  items={[
-    "IPsec-VPNはL3で拠点間接続、SSL-VPNはL7でリモートアクセスに適する",
-    "VPN機器の脆弱性が攻撃経路となる事例が増加（ファームウェア更新が重要）",
-    "VPNは境界型防御の延長であり、ゼロトラストモデルでは代替手段が検討される",
-    "VPN接続後の端末セキュリティ（エンドポイント対策）も併せて検討する",
-  ]}
-/>
-
 ## 総合技術監理における位置づけ
 
 
@@ -79,6 +76,15 @@ VPNは[ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)
 一方、[ゼロトラスト](/docs/pe-comprehensive-management-zero-trust)の考え方ではVPNへの依存を見直し、個々のアクセスを都度検証するモデルへの移行が進んでいる。
 
 VPNにおける通信の秘匿性は[暗号化技術](/docs/pe-comprehensive-management-encryption-digital-signature)に依存しており、暗号方式の選択やPKIとの連携が設計上の重要な要素である。
+
+<ExamPoint
+  summary="VPN は境界型防御の代表的手段であり、ゼロトラストとは設計思想が異なる"
+  items={[
+    "IPsec-VPN は L3 で拠点間接続／SSL-VPN は L7 でリモートアクセス向け",
+    "VPN 機器の脆弱性が攻撃の入口となる事例が増加（ファーム更新が重要）",
+    "VPN は境界型防御の手段でありゼロトラストとは別物",
+  ]}
+/>
 
 <RelatedKeywords items={[
   { label: "暗号化・電子署名", slug: "encryption-digital-signature" },

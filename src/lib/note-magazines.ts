@@ -29,7 +29,7 @@ export interface NoteMagazine {
 
 /**
  * 命名規約 (id):
- * - tankan-reading-guide: 5管理 精読ガイド (既公開、¥7,800)
+ * - tankan-reading-guide: 5管理 精読ガイド (既公開、価格非表示)
  * - essay-{persona}-magazine: 模範論文 ペルソナ別 5年分マガジン (公開準備中)
  */
 const MAGAZINES_RAW = {
@@ -44,7 +44,6 @@ const MAGAZINES_RAW = {
     shortDescription:
       '5管理ごとの頻出論点と引っかけパターンを体系化。約7万字、doboku-note 解説への直リンク付き。',
     imageUrl: '/images/magazines/tankan-magazine-cover.webp',
-    price: '¥7,800',
     badge: 'note 限定 教材',
   },
 
@@ -95,35 +94,20 @@ const MAGAZINES_RAW = {
 
   'essay-road-municipality-magazine': {
     id: 'essay-road-municipality-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜道路発注者（地方自治体）3年分セット',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m52186ffd12ca',
+    title: '総監記述式 模範論文｜自治体 道路担当 R3-R7 + R8予想セット',
     description:
-      'R05/R06/R07 の3年分。地方自治体道路管理者の立場で「経済性 × 安全 × 社会環境」を主軸に組み立てる発注者視点の論文構成を解説。',
-    shortTitle: '模範論文｜道路発注者',
+      'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分 + R08 予想問題集（気候変動適応・資源循環）。過去問 5 年分はいずれも橋梁長寿命化（維持管理）版とバイパス整備・道路建設（新設）版の A 案／B 案 2 バージョン併記、R08 予想は自治体 道路担当フル解答 2 本の合計 6 記事。地方自治体の道路担当（発注者）の立場で「経済性 × 安全 × 社会環境」を主軸に、各記事に設問全文を再掲して組み立てた論文構成を解説。試験 1 ヶ月前（2026-06）に R08 予想章を追加公開予定。',
+    shortTitle: '模範論文｜自治体 道路担当 R3-R7+R8予想',
     shortDescription:
-      'R05〜R07 の 3 年分セット。地方自治体道路管理者視点、発注者立場の論文構成。',
+      'R03〜R07 過去問（全 A/B 2 案）+ R08 予想 2 本 = 計 6 記事。試験対策決定版。',
     imageUrl: '/images/magazines/essay-road-municipality-cover.webp',
-    price: '¥1,200（単品 3本 ¥1,500 → 20%OFF）',
+    price: '¥2,480（単品 6本 ¥3,000 → 17%OFF）',
     badge: 'note 限定',
   },
 
-  // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成) -----
-  'data-driven-strategy': {
-    id: 'data-driven-strategy',
-    published: false,
-    noteUrl: '',
-    title: 'データで読み解く 総監記述式 戦略書｜頻出 Top 20 KW + χ² 検定',
-    description:
-      '18 論文 × 637 KW の機械分析と R01-R07 × 280 問の χ²=1.107 検定で「どこに何時間かけるべきか」を定量化したエントリーマガジン。約 12,000 字。',
-    shortTitle: 'データ駆動 戦略書',
-    shortDescription:
-      '18 論文 × 637 KW 機械分析 + χ²=1.107 で勉強時間を定量化。',
-    imageUrl: '/images/magazines/magazine-data-driven-strategy-cover.webp',
-    price: '¥1,480',
-    badge: 'note 限定',
-  },
-
+  // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成、M1 は 2026-05-18 撤回) -----
   'whitepaper-r7-strategy': {
     id: 'whitepaper-r7-strategy',
     published: false,

@@ -63,6 +63,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | 参照先 | 内容 | いつ読むか |
 |---|---|---|
 | [docs/reference/content-authoring.md](docs/reference/content-authoring.md) | MDX コンポーネント・過去問構造・モバイル視認性詳細・画像配信・frontmatter テンプレ | MDX を書く・編集するとき |
+| [docs/reference/docs-markdown-style.md](docs/reference/docs-markdown-style.md) | docs/ 配下 .md ドキュメントの Obsidian callout（`> [!note]` 等）運用ルール・MDX `<Callout>` との対比・推奨 4 タイプ | docs/handoffs/ / docs/project/ / docs/reference/ の .md を書くとき |
 | [docs/reference/image-policy.md](docs/reference/image-policy.md) | 図版種別判定フロー・CC/PD 写真ソース・出典表記・写真 SVG 化禁止ルール | 図/写真を追加・置換するとき |
 | [docs/reference/note-svg-policy.md](docs/reference/note-svg-policy.md) | note 記事用 図解 SVG/PNG ポリシー（キャンバス・最小フォント・余白・密度上限・失敗パターン） | `docs/note/**/img/figure-*` を作成・修正するとき |
 | [docs/reference/note-publish-enhancement.md](docs/reference/note-publish-enhancement.md) | note 記事を公開レベルに引き上げる10工程手順書（網羅性照合／過去問配置／図版／カバー／e-gov リンク／段落分割／検証） | note 記事を新規公開・大規模改善するとき |
@@ -76,6 +77,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/information-architecture.md](docs/reference/information-architecture.md) | 情報の 4 ゾーンモデル（docs / reference / state / skills）・判断フロー・task-queue 仕様。GitHub Issue 廃止の真実源 | 新しい情報の置き場に迷うとき・CI/スキル/ドキュメント設計時 |
 | [docs/reference/measurement-incidents.md](docs/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合 + 外部検証アクセスの罠（2026-W16 BAILOUT、2026-04-25 Cloudflare Bot 等） | 計測スキル/エージェント設計時・外部 Validator/ボットを使う作業時 |
 | [docs/reference/data-storage-decision.md](docs/reference/data-storage-decision.md) | データストレージ判断 ADR（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー条件） | DB 導入を検討するとき／iOS アプリ着手時／コンテンツ規模が大きく変わるとき |
+| [docs/reference/book-list.md](docs/reference/book-list.md) | Amazonアソシエイト紹介書籍リスト（資格別×用途別の手動キュレーション台帳、PA-API 移行ロードマップ） | 書籍紹介を追加・更新するとき／PA-API 実装時の seed として |
 | [docs/reference/notebooklm-cli-gotchas.md](docs/reference/notebooklm-cli-gotchas.md) | notebooklm CLI（Python v0.3.4）の挙動クセ集（venv exe で proxy 通らず 503・list で exit 1 false-positive・全角括弧の cmd.exe 解析破綻・source add --title 無効化 等） | notebooklm を呼ぶ新規スクリプト・skill 設計時／既存 wrapper の挙動確認時 |
 | [docs/reference/content-principles.md](docs/reference/content-principles.md) | コンテンツ品質ルールの真実源（ExamPoint 個数・参考資料構成・Callout 12 種使い分け等） | キーワードページ執筆・評価時 |
 | [docs/design-system/principles.md](docs/design-system/principles.md) | UI・SVG 共通のデザイン原則（レイヤー・コントラスト・カラー）。カラートークンは `src/styles/globals.css` の `--color-*` が真実源 | コンポーネント作成・SVG 図版作成・色選定時 |
@@ -88,7 +90,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | `docs/project/01_戦略/03_事業戦略.md` | v3 事業戦略 | 収益化・差別化戦略の確認時 |
 | `docs/project/01_戦略/04_収益化戦略.md` | 収益化戦略（v3） | note・YouTube・iOS アプリ戦略検討時 |
 | `docs/project/03_SNS/01_SNS集客戦略.md` | SNS 集客戦略 v5（X / YouTube / Instagram 統合、TTS 完全自動・SNS 量産・共通基盤 sns-common 依存、IG は Carousel + Reels 両軸） | SNS 投稿設計・YouTube/Instagram 自動化検討時 |
-| `docs/note/19_note段階投下プラン.md` | note 段階投下プラン（無料＋有料ラインナップ、記事単位の runway） | note コンテンツ発売・受験期コンテンツ設計時 |
+| `docs/note/noteコンテンツ計画.md` | note コンテンツ計画（無料＋有料ラインナップ、記事単位の runway、Red Line） | note コンテンツ発売・受験期コンテンツ設計時 |
 | `docs/project/03_SNS/02_チャネル動線設計.md` | 5 チャネル動線設計 v1（X / YouTube / Instagram / note / サイトの統合ファネル設計、UTM 統一フォーマット、季節 × チャネルマトリクス、4 Phase 実装ロードマップ） | チャネル間動線・UTM 設計・季節調整検討時、note ↔ サイト境界ルール確認時 |
 
 ---
@@ -166,6 +168,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 - **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`
 - MDX 書き込み後は `U+FFFD`（`﹖`）で文字化けチェック（既存コンテンツとの一貫性を保つため）
 - 既存コードの命名規則・ファイル構成・設計思想を優先する。自分の好みで変えない
+- **docs/ 内 .md ドキュメント**: Obsidian callout（`> [!note]` 等）の運用は [docs-markdown-style.md](docs/reference/docs-markdown-style.md) 準拠（推奨 4 タイプ限定、MDX `<Callout>` とは別系統で混同しない）
 
 ### 12. 失敗や不確実性を隠さない
 

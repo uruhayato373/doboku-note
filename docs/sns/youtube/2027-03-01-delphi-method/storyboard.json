@@ -1,0 +1,54 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "delphi-method",
+  "title": "デルファイ法",
+  "description": "デルファイ法の定義・実施手順・匿名性と反復フィードバックの特徴を解説。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "デルファイ法",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "economic"
+      },
+      "script": "デルファイ法。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "デルファイ法",
+        "body": "デルファイ法の定義・実施手順・匿名性と反復フィードバックの特徴を解説。技術士総合技術監理キーワード集2026（経済性管理）。"
+      },
+      "script": "デルファイ法の定義・実施手順・匿名性と反復フィードバックの特徴を解説。技術士総合技術監理キーワード集2026（経済性管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "匿名性：権威者の影響や同調圧力を排除"
+      },
+      "script": "試験ポイント1。匿名性：権威者の影響や同調圧力を排除"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "反復フィードバック：統計的要約を提示して再回答を繰り返す"
+      },
+      "script": "試験ポイント2。反復フィードバック：統計的要約を提示して再回答を繰り返す"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

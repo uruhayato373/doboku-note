@@ -1,3 +1,7 @@
+---
+title: Skills 設計チェックリスト
+---
+
 # Skills 設計チェックリスト
 
 Anthropic 公式「Skills Best Practices Guide」（`.claude/pdfs/guide.pdf`）の要点をこのプロジェクト向けに凝縮したチェックリスト。**新規スキル・エージェントを作成するとき、および既存のものをレビューするとき**にここを開く。詳細は必ず原典 PDF を参照。

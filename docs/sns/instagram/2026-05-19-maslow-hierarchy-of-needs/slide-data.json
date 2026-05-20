@@ -1,26 +1,42 @@
 {
   "cover": {
     "keyword": "マズローの欲求5段階説",
-    "subtitle": null,
-    "stickyText": "第1〜4段階は欠",
-    "management": "human",
-    "caption": "マズローの欲求5段階説\nとは何か？"
+    "subtitle": "1943年",
+    "stickyText": "欠乏欲求\n成長欲求\n人的資源管理",
+    "management": "human"
   },
-  "board": {
-    "heading": "マズローの欲求5段階説",
-    "body": "マズローの欲求5段階説とは、\nアメリカの心理学者アブラハム・マズロー（Abraham H. Maslow, 1908--1970）が1943年に発表した動機づけ理論である。",
-    "noteText": "第1〜4段階は欠乏欲求、第5段階は成長欲求という区分を理解する",
-    "management": "human",
-    "caption": "低次欲求が満たされないと高次欲求は動…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "理論の定義",
+      "body": "マズローの欲求5段階説とは、アメリカの心理学者アブラハム・マズロー（1908–1970）が1943年に発表した動機づけ理論である。人間の欲求を5つの階層に分類し、低次の欲求が満たされると高次の欲求が動機づけの源泉になると説明する。",
+      "noteText": "1943年発表の動機づけ理論"
+    },
+    {
+      "type": "figure",
+      "heading": "欲求の5段階ピラミッド",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/maslow-hierarchy-of-needs/img/maslow-pyramid.svg",
+      "note": "低次（生理的）から高次（自己実現）への階層構造"
+    },
+    {
+      "type": "board",
+      "heading": "欲求の2区分",
+      "body": "第1段階（生理的）から第4段階（承認）までを欠乏欲求、第5段階（自己実現）を成長欲求と区分する。低次欲求が満たされないと高次欲求は動機づけとして機能しにくいとされる。",
+      "noteText": "第1〜4段階：欠乏欲求 / 第5段階：成長欲求"
+    },
+    {
+      "type": "board",
+      "heading": "職場への適用と試験論点",
+      "body": "職場での適用では、部下が現在どの段階にいるかを見極め、対応する施策を選択することが重要である。雇用不安（安全欲求）を抱える部下に自己実現的な課題を与えても動機づけ効果は薄い。",
+      "noteText": "ハーズバーグの二要因理論と対比して理解"
+    }
+  ],
   "cta": {
     "related": [
-      "ハーズバーグの二要因理論",
-      "マクレガーのX理論とY理論",
-      "インセンティブ",
-      "内発的動機付け"
-    ],
-    "management": "human",
-    "caption": "続きは doboku-note で"
+      "herzberg-two-factor-theory",
+      "mcgregor-xy-theory",
+      "incentive",
+      "intrinsic-motivation"
+    ]
   }
 }

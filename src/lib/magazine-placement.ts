@@ -80,76 +80,25 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 ] as const;
 
 /**
- * 2026-05-17 新規 4 マガジン (Series 1/3/4/5)。
+ * 2026-05-17 新規マガジン (Series 1/3/4/5)。M1「データ駆動戦略」は 2026-05-18 撤回。
  * 配置原則:
- * - data-driven-strategy (¥1,480 エントリー): 独自データ系 + keyword hub + pillar
  * - whitepaper-r7-strategy (¥2,480): 白書テーマ記事 + mlit ハブ で primary CTA
  * - r8-essay-forecast (¥2,480): R07 年度ページ + essay-exam-strategy hub
  * - essay-template-3d (¥2,980 プレミアム): essay-exam-strategy + pattern-essay 4 ペルソナハブ
  */
 const NEW_MAGAZINES = {
-  dataDriven: 'data-driven-strategy' as const,
   whitepaperR7: 'whitepaper-r7-strategy' as const,
   r8Forecast: 'r8-essay-forecast' as const,
   template3d: 'essay-template-3d' as const,
 } satisfies Record<string, MagazineId>;
 
 /**
- * 国土交通白書テーマ記事 (essay-mlit-* および mlit-whitepaper-2025) →
- * 該当テーマに適したペルソナマガジン。精読ガイド + 1-2 ペルソナ。
- *
- * 各テーマで主軸となる業務領域に応じてマガジンを選定:
- * - 老朽化 / 群マネ → 道路発注者 (自治体)
- * - 2024年問題 / 外国人材 → ゼネコン
- * - 流域治水 → 河川コンサル
- * - GX/CN → 環境調査 + 道路発注者
- * - i-Con 2.0 → ゼネコン + 河川コンサル
- * - 白書ハブ → 全 4 ペルソナ (強 CTA)
- */
-function matchMlitTheme(slug: string): readonly MagazineId[] | null {
-  // 白書ハブは全ペルソナ + 精読ガイド (強 CTA)
-  if (slug === 'pe-comprehensive-management-mlit-whitepaper-2025') {
-    return ['tankan-reading-guide', ...ALL_PERSONA_MAGAZINES];
-  }
-  // テーマ別記事は精読ガイド + 該当ペルソナ
-  const themeMap: Record<string, readonly MagazineId[]> = {
-    'pe-comprehensive-management-essay-mlit-aging-infrastructure': [
-      'tankan-reading-guide',
-      'essay-road-municipality-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-construction-2024': [
-      'tankan-reading-guide',
-      'essay-general-contractor-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-river-basin-management': [
-      'tankan-reading-guide',
-      'essay-river-consultant-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-green-transformation': [
-      'tankan-reading-guide',
-      'essay-environment-survey-magazine',
-      'essay-road-municipality-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-i-construction-2': [
-      'tankan-reading-guide',
-      'essay-general-contractor-magazine',
-      'essay-river-consultant-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt': [
-      'tankan-reading-guide',
-      'essay-road-municipality-magazine',
-    ],
-    'pe-comprehensive-management-essay-mlit-foreign-workers': [
-      'tankan-reading-guide',
-      'essay-general-contractor-magazine',
-    ],
-  };
-  return themeMap[slug] ?? null;
-}
-
-/**
  * slug + docGroup から、表示すべきマガジン配置を解決する。
  * 表示の最終可否 (公開済みか) は呼び出し側で getMagazine() で確認する。
+ *
+ * 注: essay-mlit-* 7 記事 (2026-05-18 撤回) と mlit-whitepaper-2025 (2026-05-18 撤回) の
+ * 配線は削除済み。白書 R7 × 16 ペア × 4 ペルソナの深掘りは M2 magazine
+ * (whitepaper-r7-strategy) 独占に分業 (Red Line #7)。
  */
 export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
   // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 4 ペルソナ模範論文を提示 (強 CTA)
@@ -169,20 +118,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 1.5. 独自データページ → data-driven-strategy を primary CTA
-  if (
-    slug === 'pe-comprehensive-management-essay-data-2026' ||
-    slug === 'pe-comprehensive-management-primary-statistics-2026'
-  ) {
-    return {
-      inline: [
-        slot(NEW_MAGAZINES.dataDriven, slug, 'inline-1'),
-        slot('tankan-reading-guide', slug, 'inline-2'),
-      ],
-      sidebar: [slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar')],
-      inlineMobileOnly: false,
-    };
-  }
+  // 1.5. (廃止) essay-data-2026 + M1「データ駆動戦略」は 2026-05-18 撤回済み
 
   // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン + テンプレ 3D (ハブ、強 CTA)
   const patternMag = matchPatternEssay(slug);
@@ -193,6 +129,21 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
       ],
       sidebar: [slot(patternMag, slug, 'sidebar')],
+      inlineMobileOnly: false,
+    };
+  }
+
+  // 2.5. r8-essay-theme-{topic} → R8 予想問題 spoke (固定 4 ペルソナ縦串学習、強 CTA)
+  //     設計: spoke は固定 4 ペルソナ (ゼネコン/河川コンサル/環境調査/自治体 道路担当) を縦串展開し、
+  //     M3「R8 予想問題集」を主、M4「3D マトリクス」を業界外救済として副配置する。
+  //     真実源: content-principles.md §21 + noteコンテンツ計画.md Red Line #8
+  if (/^pe-comprehensive-management-r8-essay-theme-[a-z0-9-]+$/.test(slug)) {
+    return {
+      inline: [
+        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
+        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
+      ],
+      sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
       inlineMobileOnly: false,
     };
   }
@@ -221,58 +172,29 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline,
       sidebar: [
         slot('tankan-reading-guide', slug, 'sidebar-1'),
-        slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar-2'),
       ],
       inlineMobileOnly: false,
     };
   }
 
-  // 4.5. 国土交通白書テーマ記事 (essay-mlit-* + mlit-whitepaper-2025) → whitepaper-r7-strategy を primary CTA
-  // 白書ハブは全ペルソナ + whitepaper-r7 (強 CTA)、テーマ別は whitepaper-r7 + 該当ペルソナ
-  const mlitMagazines = matchMlitTheme(slug);
-  if (mlitMagazines) {
-    const isHub = slug === 'pe-comprehensive-management-mlit-whitepaper-2025';
-    // whitepaper-r7-strategy を必ず先頭に追加
-    const inlineWithR7 = [
-      slot(NEW_MAGAZINES.whitepaperR7, slug, 'inline-r7'),
-      ...mlitMagazines.map((m, i) => slot(m, slug, `inline-${i + 1}`)),
-    ];
-    return {
-      inline: inlineWithR7,
-      sidebar: [
-        slot(NEW_MAGAZINES.whitepaperR7, slug, 'sidebar-r7'),
-        slot('tankan-reading-guide', slug, 'sidebar-tankan'),
-      ],
-      inlineMobileOnly: !isHub,
-    };
-  }
+  // 4.5. (廃止) 国土交通白書ハブ記事 (mlit-whitepaper-2025) は 2026-05-18 撤回済み。
+  //       M2 magazine (whitepaper-r7-strategy) 独占に分業 (Red Line #7)。
 
-  // 5. pillar → 精読ガイド + data-driven-strategy (エントリー CTA)
+  // 5. pillar → 精読ガイド単独 CTA（M1 撤回 2026-05-18 でエントリー CTA は精読ガイドに一本化）
   if (docGroup === 'pillar') {
     return {
-      inline: [
-        slot('tankan-reading-guide', slug, 'inline-1'),
-        slot(NEW_MAGAZINES.dataDriven, slug, 'inline-2'),
-      ],
+      inline: [slot('tankan-reading-guide', slug, 'inline-1')],
       sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
       inlineMobileOnly: false,
     };
   }
 
-  // 6. keyword / keyword-2026 → 精読ガイド + data-driven (keyword-2026 ハブは強 CTA)
+  // 6. keyword / keyword-2026 → 精読ガイド単独 CTA（M1 撤回 2026-05-18、keyword-2026 ハブも精読ガイドに集約）
   if (docGroup === 'keyword' || slug === 'pe-comprehensive-management-keyword-2026') {
     const isHub = slug === 'pe-comprehensive-management-keyword-2026';
     return {
-      inline: isHub
-        ? [
-            slot('tankan-reading-guide', slug, 'inline-1'),
-            slot(NEW_MAGAZINES.dataDriven, slug, 'inline-2'),
-          ]
-        : [slot('tankan-reading-guide', slug, 'inline-mobile')],
-      sidebar: [
-        slot('tankan-reading-guide', slug, 'sidebar-1'),
-        ...(isHub ? [slot(NEW_MAGAZINES.dataDriven, slug, 'sidebar-2')] : []),
-      ],
+      inline: [slot('tankan-reading-guide', slug, isHub ? 'inline-1' : 'inline-mobile')],
+      sidebar: [slot('tankan-reading-guide', slug, 'sidebar-1')],
       inlineMobileOnly: !isHub,
     };
   }

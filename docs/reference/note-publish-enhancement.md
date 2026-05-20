@@ -1,3 +1,7 @@
+---
+title: note 記事 公開前 拡充手順
+---
+
 # note 記事 公開前 拡充手順
 
 `docs/note/{slug}/article.md` を **note 公開レベル** まで引き上げる作業手順の真実源。`note-prepublish-review` スキル（公開前チェック）と役割分離し、本ドキュメントは「**拡充作業の how**」を担う。

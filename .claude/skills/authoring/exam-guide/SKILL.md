@@ -109,6 +109,64 @@ content/general/exam-guide/
 2. このスキル側の変更は **不要**（設定ファイル追加のみ）
 3. Phase 2 汎用化時に `--exam` パラメータで自動統合
 
+## PE ガイド記事の末尾テンプレ
+
+PE（技術士総合技術監理部門）の `group: guide` 記事は、キーワードページとは別の構造ルールに従う。詳細は [content-principles.md §20](../../../../docs/reference/content-principles.md)。**`## 総合技術監理における位置づけ` および `## 参考資料` / `## 参考文献` は使用禁止**（キーワードページ専用）。
+
+末尾は次の 2 型から記事性質に応じて選ぶ。lint-mdx-mobile.mjs カテゴリ 12（12-1 / 12-2 / 12-3）で機械検知される。
+
+### Type-1「○○の選択肢」型（戦略・実務手順系）
+
+タイトル末尾が「戦略」「計画」「手順」「ガイド」のガイドに使う。例: `essay-exam-strategy` / `exam-application-guide` / `exam-passing-strategy`。
+
+```mdx
+## 記述式対策の選択肢
+
+{次の意思決定を促す散文 1〜2 段落（無料サイトコンテンツ → note 有料の組み合わせを示す）}
+
+- **無料で基礎を固める** → [基礎ガイド](/docs/pe-comprehensive-management-xxx)
+- **有料で本番演習** → note 有料マガジン「○○」（¥X,XXX）
+
+https://note.com/uruhayato/n/xxxxx
+```
+
+### Type-2「次のステップ」または「関連リソース」型（俯瞰・分析系）
+
+タイトル末尾が「予測」「分析」「俯瞰」「マップ」「トレードオフ」のガイドに使う。例: `r8-essay-keyword-forecast` / `whitepaper-study-map` / `essay-mlit-*` / `management-tradeoffs` / `mlit-whitepaper-2025`。
+
+**SeeAlso 1〜2 件方針**（2026-05-18 改訂、content-principles.md §20 準拠、決定疲れ回避）:
+
+```mdx
+## 次のステップ
+
+{読者の状況別にどう選ぶかの判断軸を散文 1 段落で示す。例:「論文骨子のテンプレートを先に作りたいなら A、業務領域別の論点を固めたいなら B を選んでください」}
+
+<SeeAlso
+  href="/docs/pe-comprehensive-management-xxx"
+  title="{主推奨ページタイトル}"
+  reason="{なぜ次に読むべきか 1〜2 行で}"
+/>
+
+<SeeAlso
+  href="/docs/pe-comprehensive-management-yyy"
+  title="{副推奨ページタイトル}"
+  reason="{別ルートの理由を 1〜2 行で}"
+/>
+
+{該当する場合のみ note CTA を散文 1 段落で導入してから URL 単独行リンクカード}
+
+https://note.com/uruhayato/n/xxxxx
+```
+
+**重要な禁則**:
+
+- **`<RelatedKeywords>` を末尾に置かない** — 「次のステップ」と完全重複しやすく、選択肢過多で決定疲れを生む
+- **箇条書き 3 件以上を `## 次のステップ` 配下に並べない** — ガイド記事の役割は読者の選択肢を減らすこと
+
+**ハブ記事の例外**: `mlit-whitepaper-2025` のような「テーマ別深掘り入口」がハブ機能の主要価値である場合は、`## テーマ別深掘り` セクションを別途設けて 3〜7 件の箇条書きナビゲーションを維持してよい。ただし `## 次のステップ` セクションとは **明確に分離**し、後者は `<SeeAlso>` 1〜2 件に絞る。
+
+既に `## 関連リソース` や `## note で深掘り` を持つ記事はその名称・構造を尊重し、参考文献・参考資料部分だけを削除する。
+
 ### テンプレートフォルダ全体
 
 `.claude/skills/authoring/templates/` 以下の構成：

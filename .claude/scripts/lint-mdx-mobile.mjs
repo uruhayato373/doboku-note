@@ -42,7 +42,7 @@
  *   9-6 HIGH   本文に「正答：」「❌」「✅」「代表的な誤り」が出現（過去問MDX除外）
  *   9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定）
  *   9-8 HIGH   <RelatedKeywords> の prop 名が `keywords=`（正: `items=`）— 誤ると無描画
- *   9-9 MEDIUM <RelatedKeywords> の slug にカテゴリ接頭辞付与（bare slug が規約）
+ *   9-9 MEDIUM <RelatedKeywords> の slug に PE 接頭辞「pe-comprehensive-management-」付与（PE 既定のため冗長。civil 接頭辞は必須なので対象外）
  *   9-10 HIGH  <RelatedKeywords> が `## 参考資料` の後に配置（§18 違反、MDX が描画失敗することあり）
  *   9-11 HIGH  <ExamPoint items> の各文字列に句読点（、。，．）を含む（機械分割バグ検出）
  *   9-12 HIGH  civil secondary-r0X で `## 問題` 数 > `<details>` 数（解答欠落検出）
@@ -54,6 +54,11 @@
  *  10-5 HIGH   画像ファイル不在 or mime 不整合（HTML エラーページの .jpg 等）
  *  11-1 MEDIUM \frac{} の分子 or 分母に \text{} を含む（CJK 縮小回避のため \dfrac を推奨）
  *  11-2 MEDIUM 単行 $$<content>$$ を検出（remark-math v6 で inline 扱い、複数行化推奨）
+ *  12-1 MEDIUM group: guide で `## 総合技術監理における位置づけ` を検出（キーワード専用、content-principles.md §20）
+ *  12-2 MEDIUM group: guide で `## 参考資料` または `## 参考文献` を検出（外部離脱を最小化、§20）
+ *  12-3 LOW    group: guide で末尾 H2 が承認パターン外（次のステップ / 関連リソース / ○○の選択肢）
+ *  13-1 MEDIUM r8-essay-theme-* spoke で許可外の ### ペルソナ名を検出（content-principles.md §21）
+ *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 5 個でない（content-principles.md §21、4 ペルソナ + 業界外救済 = 5 個が正常）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -756,12 +761,39 @@ function isPeComprehensiveManagement(filePath) {
   return /[\\\/]pe-comprehensive-management[\\\/]/.test(filePath);
 }
 
+/**
+ * R8 予想問題 spoke 判定（content-principles.md §21 対象）。
+ * 将来追加される r9-essay-theme-* 等への拡張余地として、`r[0-9]+-essay-theme-` 形式は将来検討。
+ */
+function isR8EssayThemeSpoke(filePath) {
+  return /[\\\/]r8-essay-theme-[a-z0-9-]+[\\\/]article\.mdx$/i.test(filePath);
+}
+
+/**
+ * R8 spoke で許可された H3 名（content-principles.md §21）。
+ * 4 固定ペルソナ + 業界外救済セクションの計 5 個。
+ * - ペルソナ名は note magazine M5-M8 / src/lib/note-magazines.ts と完全一致
+ * - 業界外受験者は前方一致で判定（カッコ書きサフィックスを許容）
+ */
+const R8_SPOKE_ALLOWED_PERSONAS = [
+  'ゼネコン',
+  '河川コンサル',
+  '環境調査',
+  '道路発注者',
+  '業界外受験者',
+];
+
 // 9-8 / 9-9: <RelatedKeywords> コンポーネント API 違反
 // 真実源: src/components/ui/RelatedKeywords/RelatedKeywords.tsx
 //   - prop 名は items（keywords ではない）
-//   - slug は bare（pe-comprehensive-management- / civil-construction-1- 接頭辞は付けない）
+//   - PE ページ: slug は bare（コンポーネントが pe-comprehensive-management- を自動付与）
+//   - civil ページ: slug は civil-construction-1- 接頭辞必須（bare だと PE フォールバックで 404）
+//
+// 9-9 は「PE 接頭辞を渡している（冗長）」のみを検出する。
+// civil-construction-1- 接頭辞は必須なのでフラグしない（2026-05-17 に修正、240 件リンク切れ事故の再発防止）。
 function lintRelatedKeywordsComponent(lines, findings) {
-  const KNOWN_PREFIXES = ['pe-comprehensive-management-', 'civil-construction-1-'];
+  // 「冗長な」接頭辞のみ列挙。civil-construction-1- は必須なので含めない。
+  const REDUNDANT_PREFIXES = ['pe-comprehensive-management-'];
 
   for (let i = 0; i < lines.length; i++) {
     if (!/<RelatedKeywords(\s|$|\/|>)/.test(lines[i])) continue;
@@ -789,12 +821,13 @@ function lintRelatedKeywordsComponent(lines, findings) {
       });
     }
 
-    // 9-9 MEDIUM: slug が既知カテゴリ接頭辞付き
+    // 9-9 MEDIUM: PE 接頭辞が付いている（冗長 — コンポーネント default が PE のため）
+    // 注意: civil-construction-1- 接頭辞は civil ページで必須なのでフラグしない
     const slugRe = /slug:\s*["']([^"']+)["']/g;
     let m;
     while ((m = slugRe.exec(block)) !== null) {
       const slug = m[1];
-      const matchedPrefix = KNOWN_PREFIXES.find((p) => slug.startsWith(p));
+      const matchedPrefix = REDUNDANT_PREFIXES.find((p) => slug.startsWith(p));
       if (matchedPrefix) {
         const upToMatch = block.slice(0, m.index);
         const lineOffset = upToMatch.split('\n').length - 1;
@@ -804,7 +837,7 @@ function lintRelatedKeywordsComponent(lines, findings) {
           rule: '9-9',
           line: startLine + lineOffset,
           endLine: startLine + lineOffset,
-          message: `<RelatedKeywords> の slug "${slug}" にカテゴリ接頭辞「${matchedPrefix}」が含まれている。bare slug（例: "${bare}"）を渡す`,
+          message: `<RelatedKeywords> の slug "${slug}" に冗長な接頭辞「${matchedPrefix}」が含まれている。bare slug（例: "${bare}"）を渡す（civil-construction-1- 接頭辞は必須なので除外）`,
         });
       }
     }
@@ -1161,6 +1194,150 @@ function lintExamMissingInternalLinks(lines, filePath, findings) {
   }
 }
 
+// ── カテゴリ12: ガイド記事構造（group: guide 専用） ─────────────────────────
+/**
+ * 12-1 MEDIUM: group: guide で `## 総合技術監理における位置づけ` を検出
+ * 12-2 MEDIUM: group: guide で `## 参考資料` または `## 参考文献` を検出
+ * 12-3 LOW:    group: guide で末尾 H2 が「次のステップ」「関連リソース」「○○の選択肢」以外
+ *
+ * 真実源: content-principles.md §20「ガイド記事の末尾構成」
+ * 対象: pe-comprehensive-management 配下の group: guide 記事のみ
+ */
+function lintGuideArticleStructure(lines, raw, filePath, findings) {
+  if (!isPeComprehensiveManagement(filePath)) return;
+
+  // frontmatter から group を抽出
+  const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (!fmMatch) return;
+  const fmGroup = fmMatch[1].match(/^group:\s*([^\s#]+)/m);
+  if (!fmGroup || fmGroup[1].trim() !== 'guide') return;
+
+  // 12-1: ## 総合技術監理における位置づけ
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+総合技術監理における位置づけ/.test(lines[i])) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '12-1',
+        line: i + 1,
+        endLine: i + 1,
+        message: 'ガイド記事に「## 総合技術監理における位置づけ」を使用しない（キーワードページ専用、content-principles.md §20）。試験文脈は本文の散文に統合する',
+      });
+    }
+  }
+
+  // 12-2: ## 参考資料 / ## 参考文献
+  for (let i = 0; i < lines.length; i++) {
+    const m = lines[i].match(/^##\s+(参考資料|参考文献)\s*$/);
+    if (m) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '12-2',
+        line: i + 1,
+        endLine: i + 1,
+        message: `ガイド記事に「## ${m[1]}」を末尾に置かない（キーワードページ専用、content-principles.md §20）。外部離脱を最小化するため公式リソースは本文中インラインリンクで言及する`,
+      });
+    }
+  }
+
+  // 12-3: 末尾 H2 が承認パターン外
+  // 承認パターン: 次のステップ / 関連リソース / ○○の選択肢 / note で深掘り
+  const h2Lines = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+/.test(lines[i])) h2Lines.push({ idx: i, text: lines[i] });
+  }
+  if (h2Lines.length > 0) {
+    const last = h2Lines[h2Lines.length - 1];
+    const approved = /^##\s+(次のステップ|関連リソース|関連リンク|.+の選択肢|note で深掘り)/;
+    const isViolation12_2 = /^##\s+(参考資料|参考文献)\s*$/.test(last.text);
+    if (!approved.test(last.text) && !isViolation12_2) {
+      findings.push({
+        severity: 'LOW',
+        rule: '12-3',
+        line: last.idx + 1,
+        endLine: last.idx + 1,
+        message: `ガイド記事の末尾 H2「${last.text.replace(/^##\s+/, '').trim()}」が承認パターン外。「次のステップ」「関連リソース」「○○の選択肢」のいずれかに揃える（content-principles.md §20）`,
+      });
+    }
+  }
+}
+
+// ── 13: R8 予想問題 spoke の固定 4 ペルソナ統一 ────────────────────────────────
+/**
+ * 13-1 MEDIUM: spoke で許可された 4 ペルソナ名以外の ### を検出
+ * 13-2 MEDIUM: 「## ペルソナ別の取り組み方」配下の ### サブセクション数が 5 個でない
+ *              （4 ペルソナ + 業界外救済 = 5 個が正常）
+ *
+ * 真実源: content-principles.md §21
+ * 対象: pe-comprehensive-management 配下の r8-essay-theme-* スラグのみ
+ */
+function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
+  if (!isPeComprehensiveManagement(filePath)) return;
+  if (!isR8EssayThemeSpoke(filePath)) return;
+
+  // 「## ペルソナ別の取り組み方」セクションの範囲を特定
+  let sectionStart = -1;
+  let sectionEnd = lines.length;
+  for (let i = 0; i < lines.length; i++) {
+    if (/^##\s+ペルソナ別の取り組み方/.test(lines[i])) {
+      sectionStart = i;
+      for (let j = i + 1; j < lines.length; j++) {
+        if (/^##\s+/.test(lines[j])) {
+          sectionEnd = j;
+          break;
+        }
+      }
+      break;
+    }
+  }
+  if (sectionStart < 0) {
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '13-2',
+      line: 1,
+      endLine: 1,
+      message:
+        'R8 spoke に「## ペルソナ別の取り組み方」セクションが存在しない（content-principles.md §21）',
+    });
+    return;
+  }
+
+  // 範囲内の ### を抽出
+  const h3Headings = [];
+  for (let i = sectionStart + 1; i < sectionEnd; i++) {
+    const m = lines[i].match(/^###\s+(.+?)\s*$/);
+    if (m) h3Headings.push({ idx: i, text: m[1].trim() });
+  }
+
+  // 13-2: H3 個数チェック（4 ペルソナ + 業界外救済 = 5 個が正常）
+  if (h3Headings.length !== 5) {
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '13-2',
+      line: sectionStart + 1,
+      endLine: sectionEnd,
+      message: `R8 spoke「## ペルソナ別の取り組み方」配下の ### サブセクションが ${h3Headings.length} 個（期待値: 5 個 = 4 ペルソナ + 業界外救済）。固定 4 ペルソナ + 業界外救済で構成する（content-principles.md §21）`,
+    });
+  }
+
+  // 13-1: 各 H3 が許可リストに含まれるか
+  for (const h of h3Headings) {
+    // カッコ書きサフィックス（「（製造業・エネルギー・IT 等）へのアレンジ」等）を除去
+    const baseName = h.text.replace(/[(（].*$/, '').trim();
+    const isAllowed = R8_SPOKE_ALLOWED_PERSONAS.some(
+      (allowed) => baseName === allowed || baseName.startsWith(allowed),
+    );
+    if (!isAllowed) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '13-1',
+        line: h.idx + 1,
+        endLine: h.idx + 1,
+        message: `R8 spoke で許可外の ### 見出し「${h.text}」を検出。固定 4 ペルソナ（${R8_SPOKE_ALLOWED_PERSONAS.slice(0, 4).join(' / ')}）+ 業界外受験者のみ使用可能（content-principles.md §21）。業界外救済は note M4 マガジンに分業`,
+      });
+    }
+  }
+}
+
 // ── 0-2: Docusaurus 旧 frontmatter 検出 ────────────────────────────────────
 /**
  * 0-2 HIGH: frontmatter に id/sidebar_label/toc_min_heading_level/toc_max_heading_level が残存。
@@ -1247,6 +1424,12 @@ function lintFile(filePath) {
   lintSecondaryAnswerCompleteness(lines, filePath, findings);
   lintExamMissingInternalLinks(lines, filePath, findings);
   lintLegacyFrontmatter(raw, findings);
+
+  // カテゴリ12: PE ガイド記事の構造（group: guide 専用）
+  lintGuideArticleStructure(lines, raw, filePath, findings);
+
+  // カテゴリ13: R8 予想問題 spoke の固定 4 ペルソナ統一（content-principles.md §21）
+  lintR8SpokeFixedPersonas(lines, raw, filePath, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）
   for (const f of findings) {

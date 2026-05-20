@@ -71,10 +71,15 @@ const MANAGEMENT_HASHTAGS = {
 
 function buildCaption({ slideData, slug }) {
   const keyword = slideData.cover?.keyword || slug;
-  const body = slideData.board?.body || "";
-  const note = slideData.board?.noteText || "";
+  // v2: slides[] / v1: board の両スキーマに対応
+  const slides = Array.isArray(slideData.slides) ? slideData.slides : null;
+  const board = slides
+    ? slides.find((s) => s.type === "board") || slides[0] || {}
+    : slideData.board || {};
+  const body = board.body || "";
+  const note = board.noteText || "";
   const related = slideData.cta?.related || [];
-  const management = slideData.cover?.management || slideData.board?.management;
+  const management = slideData.cover?.management || board.management;
   const mgmtTag = MANAGEMENT_HASHTAGS[management] || "";
 
   // doboku-note URL（pe-comprehensive-management-<slug>）

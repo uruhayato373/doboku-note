@@ -1,0 +1,55 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "crm-system",
+  "title": "顧客管理システム",
+  "description": "CRM（顧客関係管理）システムの定義・主な機能・導入効果・SFA/ERPとの連携を解説。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "総合技術監理",
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "顧客管理システム",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "info"
+      },
+      "script": "顧客管理システム。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "顧客管理システム",
+        "body": "CRM（顧客関係管理）システムの定義・主な機能・導入効果・SFA/ERPとの連携を解説。技術士総合技術監理キーワード集2026（情報管理）。"
+      },
+      "script": "顧客管理システムとは、CRM（顧客関係管理）システムの定義・主な機能・導入効果・SFA/ERPとの連携を解説。技術士総合技術監理キーワード集2026（情報管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "CRMの主要機能（顧客管理・マーケティング・営業支援・カスタマーサービス）を整理する"
+      },
+      "script": "試験ポイント1。CRMの主要機能（顧客管理・マーケティング・営業支援・カスタマーサービス）を整理する"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "SFA（営業支援）との連携・違いを明確にする（SFAは営業プロセス特化、CRMは顧客関係全体）"
+      },
+      "script": "試験ポイント2。SFA（営業支援）との連携・違いを明確にする（SFAは営業プロセス特化、CRMは顧客関係全体）"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

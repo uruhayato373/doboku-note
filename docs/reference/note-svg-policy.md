@@ -1,3 +1,7 @@
+---
+title: note 記事用 図解 SVG ポリシー
+---
+
 # note 記事用 図解 SVG ポリシー
 
 note.com に PNG 化して掲載する図解（`docs/note/{slug}/img/figure-*.png`）を作るときの真実源。doboku-note 本体の inline SVG とはルールが異なるため、本ドキュメントを優先する。

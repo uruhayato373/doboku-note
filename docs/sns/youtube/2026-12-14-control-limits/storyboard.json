@@ -1,0 +1,54 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "control-limits",
+  "title": "管理限界",
+  "description": "管理限界の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "管理限界",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "economic"
+      },
+      "script": "管理限界。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "管理限界",
+        "body": "管理限界の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+      },
+      "script": "管理限界の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "管理限界＝±3σ（統計的に算出）、規格限界＝設計で決定（混同に注意）"
+      },
+      "script": "試験ポイント1。管理限界＝±3σ（統計的に算出）、規格限界＝設計で決定（混同に注意）"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "UCL・CL・LCLの3線で管理図を構成する"
+      },
+      "script": "試験ポイント2。UCL・CL・LCLの3線で管理図を構成する"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}
