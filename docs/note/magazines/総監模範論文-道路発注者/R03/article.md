@@ -6,7 +6,7 @@ noteUrl: ""
 noteMagazine: 総監模範論文-道路発注者
 price: 500
 ---
-# 令和3年度 総監記述式 模範論文｜道路発注者版（データ利活用）
+# 令和3年度 総監記述式 模範論文｜自治体 道路担当版（データ利活用）
 
 **こんな人のための記事です**
 
@@ -17,7 +17,7 @@ price: 500
 
 **この記事でわかること**
 
-- 令和3年度 必須科目（データ利活用）の **3,000 字級フル模範論文（道路発注者版）**
+- 令和3年度 必須科目（データ利活用）の **3,000 字級フル模範論文（自治体 道路担当版）**
 - 橋梁500橋のアセットマネジメント担当者として「現状の課題」を率直に書く論文序盤の構成
 - 方法1（AI画像診断システム）/ 方法2（GIS統合プラットフォーム・住民開示）の2施策
 - 将来（5〜10年後）のデジタルツイン統合管理と、その最大リスクの設計
@@ -26,7 +26,7 @@ price: 500
 
 ---
 
-道路発注者ペルソナの過去 3 年分（R05-R07）をセットにした **magazine** もあわせてご覧ください。
+自治体 道路担当ペルソナの過去 3 年分（R05-R07）をセットにした **magazine** もあわせてご覧ください。
 
 https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
@@ -46,7 +46,7 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 | 立場 | 道路維持課 課長補佐（点検発注・予算執行・技術判断を統括） |
 | 前提条件 | GIS道路台帳は整備済み。点検データは属人的に管理され、AI解析・統合プラットフォームは未導入。ベテラン職員が全点検履歴を保有 |
 
-道路発注者ペルソナの他の管理対象パターンへの置き換えは [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r03) を参照してください。
+自治体 道路担当ペルソナの他の管理対象パターンへの置き換えは [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r03) を参照してください。
 
 ## 設問（１）事業の内容と現在のデータ利活用の状況
 

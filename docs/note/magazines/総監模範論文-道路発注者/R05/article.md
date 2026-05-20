@@ -6,7 +6,7 @@ noteUrl: ""
 noteMagazine: 総監模範論文-道路発注者
 price: 500
 ---
-# 令和5年度 総監記述式 模範論文｜道路発注者版（SWOT 分析・戦略立案）
+# 令和5年度 総監記述式 模範論文｜自治体 道路担当版（SWOT 分析・戦略立案）
 
 **こんな人のための記事です**
 
@@ -17,7 +17,7 @@ price: 500
 
 **この記事でわかること**
 
-- 令和5年度 必須科目（SWOT 分析・戦略立案）の **3,000 字級フル模範論文（道路発注者版）**
+- 令和5年度 必須科目（SWOT 分析・戦略立案）の **3,000 字級フル模範論文（自治体 道路担当版）**
 - 「組織として継続的にアウトプットを出す主体」の描き方
 - 戦略 1（S×O：データサイエンス予防保全）/ 戦略 2（W×O：ナレッジマネジメントによる技術継承）/ 戦略 3（W×T：DX 推進による施工管理合理化と気候災害対応強化）の 3 戦略パターン
 - 5 管理間トレードオフを「**経済性×情報×社会環境**」「**人的資源×経済性**」「**情報×安全×経済性**」で立てる王道パターン
@@ -25,7 +25,7 @@ price: 500
 
 ---
 
-道路発注者ペルソナの過去 3 年分（R05-R07）をセットにした **magazine ¥1,200（単品 3 本 ¥1,500 → 20%OFF）** もあわせてご覧ください。
+自治体 道路担当ペルソナの過去 3 年分（R05-R07）をセットにした **magazine ¥1,200（単品 3 本 ¥1,500 → 20%OFF）** もあわせてご覧ください。
 
 https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
@@ -137,7 +137,7 @@ R5 の SWOT 分析は「組織として継続的にアウトプットを出す�
 
 ## doboku-note の関連ガイド
 
-- [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 管理対象 4 パターンの選び方と前提条件のテンプレート集。組織を新設・維持管理どちらに寄せるかで SWOT の項目も変わります
+- [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 管理対象 4 パターンの選び方と前提条件のテンプレート集。組織を新設・維持管理どちらに寄せるかで SWOT の項目も変わります
 - [令和5年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 段階的実施・合意形成・リスクベース判断フレームの定義と他ペアでの応用例
 
@@ -145,11 +145,11 @@ R5 の SWOT 分析は「組織として継続的にアウトプットを出す�
 
 ## magazine セット販売のお知らせ
 
-道路発注者ペルソナの過去 3 年分（R05-R07）の模範論文を全 3 本セットにした magazine を販売しています。
+自治体 道路担当ペルソナの過去 3 年分（R05-R07）の模範論文を全 3 本セットにした magazine を販売しています。
 
 - 単品: 各 ¥500 × 3 = ¥1,500
 - magazine セット: **¥1,200（20%OFF）**
 
-R05（社会資本維持）/ R06（CN 化）/ R07（少子高齢化）と、テーマは毎年異なりますが、**道路発注者として書ける論点とトレードオフは共通パターン** があります。3 年分をまとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
+R05（社会資本維持）/ R06（CN 化）/ R07（少子高齢化）と、テーマは毎年異なりますが、**自治体 道路担当として書ける論点とトレードオフは共通パターン** があります。3 年分をまとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
 https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE

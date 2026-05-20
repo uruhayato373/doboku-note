@@ -6,18 +6,18 @@ noteUrl: ""
 noteMagazine: 総監模範論文-道路発注者
 price: 500
 ---
-# 令和4年度 総監記述式 模範論文｜道路発注者版（DX推進）
+# 令和4年度 総監記述式 模範論文｜自治体 道路担当版（DX推進）
 
 **こんな人のための記事です**
 
 - 地方公共団体・道路担当として総監記述式を受験する
 - R4 の「DX推進」テーマで「デジタル技術の利用」と「DX」をどう書き分けるか迷っている
-- 設問(3)の「13週タスクフォース＋5か年DX推進計画」を道路発注者の立場でどう組み立てるか知りたい
+- 設問(3)の「13週タスクフォース＋5か年DX推進計画」を自治体 道路担当の立場でどう組み立てるか知りたい
 - 発注者の権限（仕様書義務化・補助金活用）を活かした施策の書き方を学びたい
 
 **この記事でわかること**
 
-- 令和4年度 必須科目（DX推進）の **3,000 字級フル模範論文（道路発注者版）**
+- 令和4年度 必須科目（DX推進）の **3,000 字級フル模範論文（自治体 道路担当版）**
 - BIM/CIMによる設計〜維持管理の統合変革を「DX」として描く論文骨格
 - 過去のデジタル技術変遷（2D CAD→GIS→BIM/CIM試行）を「効用と副作用」付きで記述する方法
 - 13週タスクフォースの6工程スケジュール設計（現状分析→課題構造化→目標設定→取組検討→関係機関調整→計画取りまとめ）
@@ -26,7 +26,7 @@ price: 500
 
 ---
 
-道路発注者ペルソナの過去 3 年分（R05-R07）をセットにした **magazine** もあわせてご覧ください。
+自治体 道路担当ペルソナの過去 3 年分（R05-R07）をセットにした **magazine** もあわせてご覧ください。
 
 https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
@@ -46,7 +46,7 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 | アウトプット | 道路の設計図書・工事発注、道路BIMモデル、工事監理報告書 |
 | 立場 | 道路建設課 課長補佐（タスクフォースリーダー指名）、技術士（建設部門・道路）保有 |
 
-道路発注者ペルソナの他の管理対象パターンへの置き換えは [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r04) を参照してください。
+自治体 道路担当ペルソナの他の管理対象パターンへの置き換えは [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r04) を参照してください。
 
 ## 設問（１）組織の内容とデジタル技術の利用の変遷
 
