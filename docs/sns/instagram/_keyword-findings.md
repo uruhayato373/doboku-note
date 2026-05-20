@@ -27,3 +27,15 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 ## front-loading
 
 - ものづくり白書 2020 の参照 URL がタイトルと一致していない（「2020年版ものづくり白書の概要」とあるが URL は RIETI の 2006 年 BBL イベントページを指している）。参考資料 URL の実在確認と差し替えを推奨。
+
+## accounting-systems
+
+- MDX の `RelatedKeywords` に `api`（API）と `blockchain-crypto`（ブロックチェーン・暗号資産）が含まれているが、財務・管理会計システムとの関連が弱い。IG カルーセルの cta.related では除外し、`balance-sheet`・`income-statement`・`agile`・`api` の4件に留めた。MDX 側でも RelatedKeywords の絞り込みを検討する余地がある。
+
+## after-service
+
+- MDX に `published: false` が設定されており、未公開ページである。IG カルーセルの投稿タイミングまでに公開設定を確認すること。
+
+## agenda-21
+
+- description フィールドに「5管理トレードオフ・過去問演習リン。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。」と重複・途切れが生じている。description の修正を推奨。
