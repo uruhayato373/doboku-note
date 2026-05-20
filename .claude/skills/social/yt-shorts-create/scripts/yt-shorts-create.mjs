@@ -15,7 +15,7 @@
  *   7. サムネ生成 + meta.json 出力
  */
 
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
@@ -24,7 +24,8 @@ import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { synthesize } from '#lib/sns-common/tts-client.mjs';
 import { applyReadingDict } from '#lib/sns-common/reading-dict.mjs';
 import { SNS_CONFIG } from '#lib/sns-common/sns-config.mjs';
-import { buildStoryboard } from './lib/build-storyboard.mjs';
+import { wrapTitle } from '#lib/sns-common/jp-text-wrap.mjs';
+import { buildStoryboard, injectKeywordImage } from './lib/build-storyboard.mjs';
 import { buildScript } from './lib/build-script.mjs';
 import { buildSubtitle } from './lib/build-subtitle.mjs';
 import {
@@ -37,6 +38,9 @@ import {
 const WIDTH = 1080;
 const HEIGHT = 1920;
 
+// 字幕 1 行あたりの最大文字数（fontSize 48px・幅 1080px の実測上限の安全側）
+const SUBTITLE_MAX_CHARS_PER_LINE = 19;
+
 function parseCliArgs(argv) {
   const { values } = parseArgs({
     args: argv.slice(2),
@@ -46,6 +50,8 @@ function parseCliArgs(argv) {
       category: { type: 'string', default: SNS_CONFIG.defaultCategory },
       speaker: { type: 'string' },
       out: { type: 'string' },
+      reset: { type: 'boolean' },
+      'config-only': { type: 'boolean' },
     },
   });
   if (!values.slug) throw new Error('--slug is required');
@@ -59,16 +65,24 @@ function parseCliArgs(argv) {
 /**
  * Shorts 生成のメイン処理。
  *
+ * storyboard.json（SSOT）の扱い:
+ *   - 既存 storyboard.json があり reset=false → それを読み込み（MDX 解析スキップ）
+ *   - 無い or reset=true → MDX から生成し storyboard.json を書き出す
+ *   各 slide は { type, data, script } を持ち、script が TTS・字幕の真実源。
+ *   手書きで品質を上げた台本は storyboard.json に保存され、動画再生成でも保持される。
+ *
  * @param {object} args
  * @param {string} args.category
  * @param {string} args.slug
  * @param {string} args.date  YYYY-MM-DD
  * @param {string} [args.speaker]  VOICEVOX speaker ID（既定: env or 1）
  * @param {string} [args.outDir]
+ * @param {boolean} [args.reset]       storyboard.json を無視して MDX から再生成
+ * @param {boolean} [args.configOnly] storyboard.json 生成のみ（PNG/TTS/動画をスキップ、ffmpeg 不要）
  * @returns {Promise<{ mp4Path, thumbPath, metaPath, durations }>}
  */
-export async function createShorts({ category, slug, date, speaker, outDir }) {
-  if (!ffmpegAvailable()) {
+export async function createShorts({ category, slug, date, speaker, outDir, reset = false, configOnly = false }) {
+  if (!configOnly && !ffmpegAvailable()) {
     throw new Error('ffmpeg not found in PATH. Install with: brew install ffmpeg');
   }
 
@@ -78,18 +92,37 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   mkdirSync(tmpDir, { recursive: true });
   mkdirSync(docsDir, { recursive: true });
 
-  // [1/6] MDX → storyboard
-  process.stdout.write(`[1/6] Loading MDX and building storyboard...\n`);
-  const storyboard = await buildStoryboard({ category, slug });
+  const sbPath = join(docsDir, 'storyboard.json');
+
+  // [1/6] storyboard（SSOT 優先 / 無ければ MDX から生成して書き出す）
+  let storyboard;
+  if (existsSync(sbPath) && !reset) {
+    process.stdout.write(`[1/6] Loading storyboard.json (SSOT)...\n`);
+    storyboard = JSON.parse(readFileSync(sbPath, 'utf8'));
+  } else {
+    process.stdout.write(`[1/6] Building storyboard from MDX...\n`);
+    storyboard = await buildStoryboard({ category, slug });
+    const built = buildScript(storyboard);
+    storyboard.slides.forEach((slide, i) => { slide.script = built[i]; });
+    writeFileSync(sbPath, JSON.stringify(serializeStoryboard(storyboard), null, 2) + '\n', 'utf8');
+    process.stdout.write(`     storyboard.json を生成（手動編集可能な SSOT）\n`);
+  }
   process.stdout.write(`     ${storyboard.slides.length} slides: ${storyboard.slides.map(s => s.type).join(' / ')}\n`);
 
-  // [2/6] script
-  process.stdout.write(`[2/6] Building scripts...\n`);
-  const scripts = buildScript(storyboard);
-  writeFileSync(join(docsDir, 'script.txt'), buildScriptTxt({ storyboard, scripts, date }));
-
+  // [2/6] script（storyboard.json の各 slide.script が真実源）
+  process.stdout.write(`[2/6] Writing scripts...\n`);
+  const scripts = storyboard.slides.map(s => s.script || '');
   const readingScripts = scripts.map(s => applyReadingDict(s));
+  writeFileSync(join(docsDir, 'script.txt'), buildScriptTxt({ storyboard, scripts, date }));
   writeFileSync(join(docsDir, 'reading.txt'), buildScriptTxt({ storyboard, scripts: readingScripts, date }));
+
+  if (configOnly) {
+    process.stdout.write(`\n✓ config-only → ${sbPath}\n`);
+    return { storyboardPath: sbPath, docsDir };
+  }
+
+  // 画像 base64 は SSOT に保存しないため、レンダリング直前に再注入
+  await injectKeywordImage(storyboard, { category, slug, title: storyboard.title });
 
   // [3/6] スライド PNG（中間ファイル → tmpDir）
   process.stdout.write(`[3/6] Rendering ${storyboard.slides.length} slide PNGs (Satori)...\n`);
@@ -108,7 +141,7 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   // [4/6] TTS wav（中間ファイル → tmpDir）
   process.stdout.write(`[4/6] Synthesizing TTS (VOICEVOX speaker=${speaker ?? '<default>'})...\n`);
   const wavPaths = [];
-  for (let i = 0; i < scripts.length; i++) {
+  for (let i = 0; i < readingScripts.length; i++) {
     const wav = await synthesize({
       text: readingScripts[i],
       speaker: speaker !== undefined ? Number(speaker) : undefined,
@@ -122,8 +155,10 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   process.stdout.write(`[5/6] Composing video with ffmpeg + subtitles...\n`);
   const durations = [];
   for (const w of wavPaths) durations.push(await probeDuration(w));
+  // 字幕は budoux で文節改行を入れてから渡す（build-subtitle は WrapStyle 2 = 自動折り返し無効）
+  const subtitleScripts = await Promise.all(scripts.map(wrapScriptForSubtitle));
   const assPath = join(tmpDir, 'subtitle.ass');
-  writeFileSync(assPath, buildSubtitle({ scripts, durations, options: { width: WIDTH, height: HEIGHT } }));
+  writeFileSync(assPath, buildSubtitle({ scripts: subtitleScripts, durations, options: { width: WIDTH, height: HEIGHT } }));
 
   const mp4Path = join(docsDir, 'shorts.mp4');
   await composeShortsVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { tmpDir } });
@@ -144,6 +179,38 @@ export async function createShorts({ category, slug, date, speaker, outDir }) {
   process.stdout.write(`  Total:     ${totalSec}s (${storyboard.slides.length} slides)\n`);
 
   return { mp4Path, thumbPath, metaPath, durations };
+}
+
+/**
+ * storyboard を SSOT JSON 用に整形する。
+ * definition スライドの imageBase64 / credit は巨大かつ毎回再取得できるため除外する。
+ */
+function serializeStoryboard(sb) {
+  return {
+    category: sb.category,
+    slug: sb.slug,
+    title: sb.title,
+    description: sb.description,
+    tags: sb.tags,
+    slides: sb.slides.map(s => {
+      const data = { ...(s.data || {}) };
+      delete data.imageBase64;
+      delete data.credit;
+      return { type: s.type, data, script: s.script ?? '' };
+    }),
+  };
+}
+
+/**
+ * 字幕 1 スライド分のテキストを budoux で文節改行する。
+ * build-subtitle.mjs は WrapStyle 2（自動折り返し無効）なので、ここで改行を確定させる。
+ */
+async function wrapScriptForSubtitle(text) {
+  const lines = await wrapTitle(text || '', {
+    budoux: { enabled: true },
+    charCountFallback: SUBTITLE_MAX_CHARS_PER_LINE,
+  });
+  return lines.join('\n');
 }
 
 /**
@@ -203,5 +270,7 @@ if (isCli) {
     date: args.date,
     speaker: args.speaker,
     outDir: args.out,
+    reset: args.reset === true,
+    configOnly: args['config-only'] === true,
   });
 }
