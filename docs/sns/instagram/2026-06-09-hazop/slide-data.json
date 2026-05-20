@@ -1,26 +1,48 @@
 {
   "cover": {
     "keyword": "HAZOP",
-    "subtitle": null,
-    "stickyText": "ガイドワード（N",
-    "management": "safety",
-    "caption": "HAZOP\nとは何か？"
+    "subtitle": "Hazard and Operability Study",
+    "stickyText": "7ガイドワード\nチーム審査必須",
+    "management": "safety"
   },
-  "board": {
-    "heading": "HAZOP",
-    "body": "HAZOP（Hazard and Operability Study：危険・運転性検討）とは、\nガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、\nハザードや運転上の問題を特定する手法である。",
-    "noteText": "ガイドワード（No, More, Less等）で設計意図からの逸脱を網羅的に検討",
-    "management": "safety",
-    "caption": "プロセス産業（化学プラント等）で広く…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "定義",
+      "body": "HAZOPとは、ガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、ハザードや運転上の問題を特定する手法である。1960年代に英国ICI社が化学プラントの設計審査手法として開発した。",
+      "noteText": "プロセスパラメータの逸脱をガイドワードで体系的に検討する手法"
+    },
+    {
+      "type": "figure",
+      "heading": "7ガイドワードの構造",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/hazop/img/hazop-guidewords.svg",
+      "note": "ガイドワード×パラメータの組合せで逸脱シナリオを総当たりする"
+    },
+    {
+      "type": "board",
+      "heading": "7種のガイドワード",
+      "body": "No（否定）・More（量的増加）・Less（量的減少）・As Well As（質的増加）・Part Of（質的減少）・Reverse（逆方向）・Other Than（全く異なる）の7種をパラメータに組み合わせ逸脱シナリオを導出する。",
+      "noteText": "No / More / Less / Reverse の4種は試験で問われやすい"
+    },
+    {
+      "type": "board",
+      "heading": "実施手順",
+      "body": "ノードの設定→設計意図の確認→逸脱の検討→原因と結果の特定→対策の検討という5ステップをノードごとに繰り返す。多分野の専門家によるチーム審査で実施するのが原則であり、個人のチェックリストより抜け漏れを防ぎやすい。",
+      "noteText": "チーム審査で多職種の集合知を活用するのがHAZOPの強み"
+    },
+    {
+      "type": "board",
+      "heading": "FMEAとの違い",
+      "body": "FMEAはコンポーネント単位で「どの部品がどのように故障するか」を検討する。HAZOPはノード（プロセス区間）単位で「プロセスパラメータがどのように逸脱するか」を検討する。着目する対象の粒度と観点が異なる。",
+      "noteText": "HAZOP=プロセス逸脱分析、FMEA=コンポーネント故障モード分析"
+    }
+  ],
   "cta": {
     "related": [
-      "イベントツリー分析（ETA）",
       "FMEA",
       "フォールトツリー分析（FTA）",
+      "イベントツリー分析（ETA）",
       "根本原因分析（RCA）"
-    ],
-    "management": "safety",
-    "caption": "続きは doboku-note で"
+    ]
   }
 }

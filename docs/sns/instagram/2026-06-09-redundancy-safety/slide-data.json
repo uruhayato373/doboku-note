@@ -1,26 +1,42 @@
 {
   "cover": {
     "keyword": "冗長性",
-    "subtitle": null,
-    "stickyText": "待機冗長・並列冗",
-    "management": "safety",
-    "caption": "冗長性\nとは何か？"
+    "subtitle": "Redundancy",
+    "stickyText": "3種の多重化\n単一故障でも継続",
+    "management": "safety"
   },
-  "board": {
-    "heading": "冗長性",
-    "body": "冗長性（Redundancy）とは、\nシステムの構成要素を多重化し、\n一部が故障しても他の要素が機能を代替することで、\nシステム全体の信頼性を向上させる設計手法である。",
-    "noteText": "待機冗長・並列冗長・多数決冗長の3種類がある",
-    "management": "safety",
-    "caption": "フォールトトレランス（故障許容設計）…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "定義",
+      "body": "冗長性とは、システムの構成要素を多重化し、一部が故障しても他の要素が機能を代替することで、システム全体の信頼性を向上させる設計手法である。安全機能を冗長化することで単一故障による安全機能の喪失を防止する。",
+      "noteText": "多重化により単一故障でもシステムの安全機能を維持する"
+    },
+    {
+      "type": "figure",
+      "heading": "冗長化の3種類",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/redundancy-safety/img/redundancy-types.svg",
+      "note": "待機・並列・多数決の3方式で用途に応じた冗長構成を選択する"
+    },
+    {
+      "type": "board",
+      "heading": "3種類の冗長化方式",
+      "body": "待機冗長は通常待機し主系故障時に切り替わる方式（例：UPS）。並列冗長は常時並列稼働し一方の故障でも機能を維持する方式（例：二重化センサー）。多数決冗長は複数出力を多数決で判定する方式（例：航空機の3重化フライトコンピュータ）。",
+      "noteText": "待機=切替型、並列=常時二重、多数決=3重化判定"
+    },
+    {
+      "type": "board",
+      "heading": "フォールトトレランスとの関係",
+      "body": "冗長性はフォールトトレランス（故障許容設計）を実現する主要な手段である。安全計装システム（SIS）では冗長化が不可欠であり、機能安全規格 IEC 61508 では SIL達成のためのハードウェア故障許容度として数値基準で要求される。",
+      "noteText": "SIL3はHFT≧1（1故障でも安全機能が保持される構成）が原則"
+    }
+  ],
   "cta": {
     "related": [
       "フォールトトレランス",
       "フェールセーフ",
       "フォールトアボイダンス",
       "フールプルーフ"
-    ],
-    "management": "safety",
-    "caption": "続きは doboku-note で"
+    ]
   }
 }
