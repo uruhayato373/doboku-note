@@ -10,6 +10,11 @@
  *   - 1 スライド = 1 dialogue 行
  *   - 表示時間は各 wav の duration の累積
  *   - スタイル: Noto Sans JP Bold, 48px, 白文字 + 黒縁取り 4px, 下部中央（MarginV=200）
+ *
+ * 改行方針（重要）:
+ *   WrapStyle 2 = libass の自動折り返しを無効化し、台本側で挿入した \n / \N だけで改行する。
+ *   libass の自動折り返しは日本語の禁則処理・文節境界を考慮せず語中で切れるため、
+ *   呼び出し側（yt-shorts-create.mjs）が budoux で文節単位に改行を入れた scripts を渡す前提。
  */
 
 const DEFAULT_OPTIONS = {
@@ -85,7 +90,7 @@ export function buildSubtitle({ scripts, durations, options = {} }) {
     'ScriptType: v4.00+',
     `PlayResX: ${opts.width}`,
     `PlayResY: ${opts.height}`,
-    'WrapStyle: 0',
+    'WrapStyle: 2',
     'ScaledBorderAndShadow: yes',
     'YCbCr Matrix: TV.601',
     '',

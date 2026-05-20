@@ -23,17 +23,31 @@ import { SNS_CONFIG, detectManagement } from '#lib/sns-common/sns-config.mjs';
 export async function buildStoryboard({ category, slug, options = {} }) {
   const mdx = extractMdx({ category, slug });
   const storyboard = buildStoryboardFromExtract(mdx, options, { category, slug });
+  await injectKeywordImage(storyboard, { category, slug, title: mdx.title || '' });
+  return storyboard;
+}
 
-  // 画像が取得できた場合、definition スライドのデータに統合（image スライドは作らない）
-  const imageData = await fetchImageForKeyword({ slug, title: mdx.title || '', category });
-  if (imageData) {
-    const defSlide = storyboard.slides.find(s => s.type === 'definition');
-    if (defSlide) {
-      defSlide.data.imageBase64 = imageData.base64;
-      defSlide.data.credit = imageData.credit;
-    }
+/**
+ * definition スライドにキーワード画像（base64）を注入する。
+ * storyboard.json SSOT には巨大な base64 を保存しないため、
+ * レンダリング直前（fresh ビルドでも SSOT ロードでも）に毎回これを呼ぶ。
+ *
+ * @param {object} storyboard - buildStoryboardFromExtract / SSOT ロード結果
+ * @param {object} meta - { category, slug, title }
+ * @returns {Promise<object>} 同じ storyboard（in-place 注入）
+ */
+export async function injectKeywordImage(storyboard, { category, slug, title }) {
+  const imageData = await fetchImageForKeyword({
+    slug,
+    title: title || storyboard.title || '',
+    category,
+  });
+  if (!imageData) return storyboard;
+  const defSlide = storyboard.slides.find(s => s.type === 'definition');
+  if (defSlide) {
+    defSlide.data.imageBase64 = imageData.base64;
+    defSlide.data.credit = imageData.credit;
   }
-
   return storyboard;
 }
 

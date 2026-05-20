@@ -1,0 +1,55 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "de-jure-standard",
+  "title": "デジュール標準",
+  "description": "ISO・IEC・ITU等の公的標準化機関が策定するデジュール標準の定義、策定プロセス、他の標準との比較を解説。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "総合技術監理",
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "デジュール標準",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "info"
+      },
+      "script": "デジュール標準。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "デジュール標準",
+        "body": "ISO・IEC・ITU等の公的標準化機関が策定するデジュール標準の定義、策定プロセス、他の標準との比較を解説。"
+      },
+      "script": "デジュール標準とは、ISO・IEC・ITU等の公的標準化機関が策定するデジュール標準の定義、策定プロセス、他の標準との比較を解説。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "ISO・IEC・ITUが3大国際標準化機関"
+      },
+      "script": "試験ポイント1。ISO・IEC・ITUが3大国際標準化機関"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "日本国内はJIS（日本産業規格）"
+      },
+      "script": "試験ポイント2。日本国内はJIS（日本産業規格）"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

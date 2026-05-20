@@ -1,0 +1,54 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "defense-in-depth",
+  "title": "深層防護",
+  "description": "深層防護の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "深層防護",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "safety"
+      },
+      "script": "深層防護。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "深層防護",
+        "body": "深層防護の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+      },
+      "script": "深層防護の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "各防護層の独立性が深層防護の有効性の前提"
+      },
+      "script": "試験ポイント1。各防護層の独立性が深層防護の有効性の前提"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "原子力安全では5層の防護概念が確立されている"
+      },
+      "script": "試験ポイント2。原子力安全では5層の防護概念が確立されている"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}
