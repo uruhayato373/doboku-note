@@ -1,6 +1,6 @@
 # 総監模範論文 品質評価マトリクス
 
-最終更新: 2026-05-19（environment-survey 5本追加）
+最終更新: 2026-05-20（16本リライト完了・再評価待ちへ移行）
 評価スキル: pe-essay-review v1.1
 評価モード: deep（3視点 × 4項目 × 1〜10点）
 詳細レポート: `.claude/state/pe-essay-review/{slug}.md`
@@ -11,26 +11,26 @@
 
 | slug | 採点者 | OB | 講師 | 総合 | 致命的 | 優先度 | ステータス |
 |---|---|---|---|---|---|---|---|
-| r03-essay-general-contractor | 7.8 | 7.5 | 7.8 | 7.7 | 1 | Med | 未着手 |
-| r04-essay-general-contractor | 8.3 | 7.5 | 8.3 | 8.0 | 1 | Med | 未着手 |
-| r05-essay-general-contractor | 8.5 | 8.0 | 8.8 | **8.4** | 0 | Low | 未着手 |
-| r06-essay-general-contractor | 7.8 | 8.0 | 7.5 | 7.8 | 2 | Med | 未着手 |
-| r07-essay-general-contractor | 7.8 | 8.0 | 7.5 | 7.8 | 1 | Med | 未着手 |
-| r03-essay-river-consultant | 7.8 | 7.5 | 7.5 | 7.6 | 1 | Med | 未着手 |
-| r04-essay-river-consultant | 8.0 | 7.8 | 7.3 | 7.7 | 1 | Med | 未着手 |
-| r05-essay-river-consultant | 8.3 | 8.0 | 7.8 | **8.0** | 0 | Low | 未着手 |
-| r06-essay-river-consultant | 7.5 | 8.0 | 6.8 | 7.4 | 2 | Med | 未着手 |
-| r07-essay-river-consultant | 7.8 | 8.3 | 6.5 | 7.5 | 2 | Med | 未着手 |
-| r03-essay-road-municipality | 8.0 | 8.3 | 7.5 | 7.9 | 1 | Med | 未着手 |
-| r04-essay-road-municipality | 8.0 | 7.8 | 8.0 | 7.9 | 0 | Med | 未着手 |
-| r05-essay-road-municipality | 7.5 | 8.3 | 7.3 | 7.7 | 2 | Med | 未着手 |
-| r06-essay-road-municipality | 7.3 | 8.0 | 6.8 | 7.4 | 3 | **High** | 未着手 |
-| r07-essay-road-municipality | 7.0 | 8.0 | 6.0 | **7.0** | 3 | **High** | 未着手 |
-| r03-essay-environment-survey | 7.8 | 7.3 | 7.5 | 7.5 | 2 | Med | 未着手 |
-| r04-essay-environment-survey | 8.5 | 7.8 | 8.3 | **8.2** | 0 | Low | 未着手 |
-| r05-essay-environment-survey | 8.8 | 8.0 | 8.5 | **8.4** | 0 | Low | 未着手 |
-| r06-essay-environment-survey | 7.3 | 7.3 | 6.5 | 7.0 | 2 | Med | 未着手 |
-| r07-essay-environment-survey | 7.5 | 8.0 | 7.3 | 7.6 | 0 | Med | 未着手 |
+| r03-essay-general-contractor | 7.8 | 7.5 | 7.8 | 7.7 | 1 | Med | 再評価待ち |
+| r04-essay-general-contractor | 8.3 | 7.5 | 8.3 | 8.0 | 1 | Med | 再評価待ち |
+| r05-essay-general-contractor | 8.5 | 8.0 | 8.8 | **8.4** | 0 | Low | 公開可 |
+| r06-essay-general-contractor | 7.8 | 8.0 | 7.5 | 7.8 | 2 | Med | 再評価待ち |
+| r07-essay-general-contractor | 7.8 | 8.0 | 7.5 | 7.8 | 1 | Med | 再評価待ち |
+| r03-essay-river-consultant | 7.8 | 7.5 | 7.5 | 7.6 | 1 | Med | 再評価待ち |
+| r04-essay-river-consultant | 8.0 | 7.8 | 7.3 | 7.7 | 1 | Med | 再評価待ち |
+| r05-essay-river-consultant | 8.3 | 8.0 | 7.8 | **8.0** | 0 | Low | 公開可 |
+| r06-essay-river-consultant | 7.5 | 8.0 | 6.8 | 7.4 | 2 | Med | 再評価待ち |
+| r07-essay-river-consultant | 7.8 | 8.3 | 6.5 | 7.5 | 2 | Med | 再評価待ち |
+| r03-essay-road-municipality | 8.0 | 8.3 | 7.5 | 7.9 | 1 | Med | 再評価待ち |
+| r04-essay-road-municipality | 8.0 | 7.8 | 8.0 | 7.9 | 0 | Med | 再評価待ち |
+| r05-essay-road-municipality | 7.5 | 8.3 | 7.3 | 7.7 | 2 | Med | 再評価待ち |
+| r06-essay-road-municipality | 7.3 | 8.0 | 6.8 | 7.4 | 3 | **High** | 再評価待ち |
+| r07-essay-road-municipality | 7.0 | 8.0 | 6.0 | **7.0** | 3 | **High** | 再評価待ち |
+| r03-essay-environment-survey | 7.8 | 7.3 | 7.5 | 7.5 | 2 | Med | 再評価待ち |
+| r04-essay-environment-survey | 8.5 | 7.8 | 8.3 | **8.2** | 0 | Low | 公開可 |
+| r05-essay-environment-survey | 8.8 | 8.0 | 8.5 | **8.4** | 0 | Low | 公開可 |
+| r06-essay-environment-survey | 7.3 | 7.3 | 6.5 | 7.0 | 2 | Med | 再評価待ち |
+| r07-essay-environment-survey | 7.5 | 8.0 | 7.3 | 7.6 | 0 | Med | 再評価待ち |
 
 優先度判定: **High** = 総合 < 6.5 または 致命的 ≥ 3件 / **Med** = 総合 6.5〜8.0 または 致命的 1〜2件 / **Low** = 総合 ≥ 8.0 かつ 致命的 0件
 
@@ -114,7 +114,7 @@ R06・R07の複数ペルソナで、設問が1施策指定のところ複数施�
 | general-contractor | R05が最高品質（8.4）。SWOT活用・設問構造対応が最も洗練 | 複数年度で「施策1つ」要件に甘さ |
 | river-consultant | OB視点が全体的に高い（業界用語・プロセスのリアリティ） | 講師視点がR06・R07で落ちる（6.8・6.5） |
 | road-municipality | ペルソナ設定（橋梁数・予算・役職）の一貫性が高い。発注者権限の施策組み込みも評価 | 年度後半（R06・R07）に致命的問題が集中 |
-| environment-survey | 未評価 | — |
+| environment-survey | R04・R05が最高品質（8.2・8.4）。「地域環境調査ネットワーク」等の独自解決策が強み | R06・R03でテンプレ数値流用（延べ20名→4名）が発生 |
 
 ---
 
@@ -125,16 +125,15 @@ R06・R07の複数ペルソナで、設問が1施策指定のところ複数施�
 | ステータス | 説明 |
 |---|---|
 | 評価待ち | pe-essay-review 未実施 |
-| 未着手 | 評価完了・リライト未着手 |
+| 再評価待ち | 評価完了・リライト未着手 |
 | リライト中 | pe-essay-draft --mode revise 実行中 |
 | 再評価待ち | リライト完了・再評価未実施 |
 | 公開可 | 総合 ≥ 8.0・致命的 0件・ユーザー確認済み |
 
 ### 実施順
 
-1. **environment-survey 5本を評価**（次セッションで実施）
-2. **High 2本リライト**: r07-essay-road-municipality → r06-essay-road-municipality
-3. **Med 致命的2件 4本リライト**: river-consultant R06/R07 → road-municipality R05 → general-contractor R06
-4. **Med 致命的1件 6本リライト**: 順次
-5. **Low 2本**: 現状維持（必要に応じて軽微修正）
-6. **全本リライト完了後**: pe-essay-review で再評価 → ステータスを「公開可」に更新
+1. ✅ **environment-survey 5本を評価**（2026-05-19 完了）
+2. ✅ **pe-essay-draft v1.2 スキル修正**（2026-05-20 完了 — 5欠陥修正）
+3. ✅ **16本リライト完了**（2026-05-20 完了 — 4エージェント並列）
+4. ⏳ **再評価**: pe-essay-review で16本を再採点 → ステータスを「公開可」に更新
+5. **公開判断**: published: true への切り替えはユーザー確認後
