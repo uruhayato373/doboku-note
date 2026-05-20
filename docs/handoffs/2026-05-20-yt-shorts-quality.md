@@ -6,11 +6,11 @@
 
 技術士総監キーワードの YouTube Shorts（139本）の台本（`storyboard.json` の `script` / `data.body`）を、機械生成の体言止め断片から「読み上げて自然な解説文」へ品質改善する。Generator→Evaluator の2段で1本ずつ品質担保する。
 
-## 作業環境（重要）
+## 作業環境
 
-- **git worktree で隔離**: `C:/tmp/doboku-note-yt`（ブランチ `feature/yt-shorts-quality`）。別セッションが main checkout `C:/Users/m004195/doboku-note` で並行作業しているため、YT 作業は必ずこの worktree で行う。
-- **node_modules はジャンクション**: worktree には `node_modules` が無いので main からジャンクション済み（`New-Item -ItemType Junction`）。消えていたら再作成する。
-- agent には必ず「作業ディレクトリ `C:\tmp\doboku-note-yt`、main は触らない」と明記する。
+- 2026-05-20 に feature ブランチ `feature/yt-shorts-quality` と worktree `C:/tmp/doboku-note-yt` は develop / main へ統合し削除済み。**作業は develop（`C:/Users/m004195/doboku-note`）で直接行う**。
+- 他セッションと並行する場合のみ worktree を再作成する（`git worktree add`、`node_modules` は main からジャンクション）。
+- agent には作業ディレクトリと「他ブランチは触らない」を明記する。
 
 ## アーキテクチャ（Phase 0 完了済み）
 
@@ -22,17 +22,17 @@
 ## 進捗（2026-05-20 時点）
 
 - 139本の storyboard.json を機械下生成済み（commit c8dc83d0c）。
-- **完了・コミット済み: 投稿日順の folder 1〜43（43本）**
-  - commit 998cd21e5 — batch1-4（accident-cost パイロット含む29本、360-degree-evaluation 〜 asch-conformity-experiment）
-  - commit 9c118fdaf — batch5-6（14本、attitude-appraisal 〜 blind-drill）
-- **残り: folder 44〜139（96本）未着手**。再開は `2026-08-21-blockchain-crypto` から。
+- **完了・develop/main へマージ・本番デプロイ済み: 約55本**
+  - batch 1-6（43本、commit 998cd21e5・9c118fdaf）
+  - batch 7（7本、commit 0c07ec803。blockchain-crypto 〜 business-intelligence。Evaluator 採点済み）
+  - batch 8 partial（5本、commit b2fe741b2。capacity-management 〜 career-path。**Evaluator 未採点の暫定コミット** — 再開時に採点し直すのが望ましい）
+- **残り: 約84本未着手**。再開は batch 8 の残り2本（career-track-system・cash-flow-statement）から。
 
 ## 再開手順
 
-1. worktree `C:/tmp/doboku-note-yt` で作業（branch `feature/yt-shorts-quality`）。`node_modules` ジャンクション確認。
+1. develop（`C:/Users/m004195/doboku-note`）で作業（他セッションと並行するなら worktree を再作成）。
 2. 7本ずつバッチで Generator agent（general-purpose / sonnet）を起動。次バッチ:
-   - **batch 7**: 2026-08-21-blockchain-crypto, 2026-08-24-bottom-up-estimation, 2026-08-26-bowtie-analysis, 2026-08-28-break-even-point, 2026-08-31-budget-planning, 2026-09-02-business-continuity-plan, 2026-09-04-business-intelligence
-   - **batch 8**: 2026-09-07-capacity-management, 2026-09-09-carbon-neutral, 2026-09-11-carbon-pricing, 2026-09-14-career-ownership, 2026-09-16-career-path, 2026-09-18-career-track-system, 2026-09-21-cash-flow-statement
+   - **batch 8 残り**: career-track-system, cash-flow-statement（batch 8 前半5本は Evaluator 未採点のため、可能なら前半5本も含めて再採点する）
    - 以降は `ls -d docs/sns/youtube/2*/ | sort | sed -n 'N,Mp'` で7本ずつ。
 3. Generator 完了後、**機械的に字数チェック**（下記スクリプト）。100字超があれば Generator に差し戻してトリム。
 4. Evaluator agent で内容を採点（軸1,2,3,5。軸4=字数は機械チェック済みなので採点不要）。合格ライン: 平均4.0以上かつ全軸3以上。不合格は Generator に差し戻す。
@@ -41,7 +41,7 @@
 ## 字数チェックスクリプト
 
 ```bash
-cd C:/tmp/doboku-note-yt && node -e '
+cd C:/Users/m004195/doboku-note && node -e '
 const fs=require("fs");
 const folders=[/* 対象 folder 名の配列 */];
 let over=0;
@@ -74,7 +74,6 @@ console.log(over===0?"字数OK":`${over}件超過`);'
 ## 残作業（このキャンペーン後）
 
 - **動画 mp4 の再生成**: 改善した storyboard.json をもとに `yt-shorts-create.mjs`（`--reset` なし）で mp4 を再生成する。**ffmpeg を PATH に通し、VOICEVOX エンジンを起動**する必要がある（現状未整備）。
-- feature ブランチ `feature/yt-shorts-quality` を develop へマージ。
 
 ## 関連: 別件で完了済み
 

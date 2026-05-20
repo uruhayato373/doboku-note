@@ -1,6 +1,6 @@
 # 設計＆引き継ぎ: Instagram カルーセル品質パイプライン
 
-最終更新: 2026-05-20 / ブランチ `feature/ig-carousel-quality`
+最終更新: 2026-05-20 / develop（feature ブランチは develop/main へ統合・削除済み）
 
 ## ゴール
 
@@ -11,11 +11,10 @@ Instagram カルーセル（727本）の中身（`slide-data.json`）を、一�
 - **SVG**: 「再利用＋新規スペック→別工程描画」。writer は既存 SVG を活用し、図が要る箇所は仕様を記述するのみ。SVG の実制作は別エージェント/スキルが design-system 準拠で行う。良い図は doboku-note へ寄贈。
 - **進め方**: 設計を docs 化（本書）→ Phase 0 実装に着手。YouTube と並行。
 
-## 作業環境（並行作業のための隔離）
+## 作業環境
 
-- worktree `C:/tmp/doboku-note-ig`、ブランチ `feature/ig-carousel-quality`（develop 起点）。
-- `node_modules` は main checkout からのジャンクション。
-- YouTube は別 worktree `C:/tmp/doboku-note-yt`。main checkout `C:/Users/m004195/doboku-note` は別セッション用。**IG 作業はすべて `C:/tmp/doboku-note-ig` 内で行う**。
+- 2026-05-20 に feature ブランチ `feature/ig-carousel-quality` と worktree `C:/tmp/doboku-note-ig` は develop / main へ統合し削除済み。**作業は develop（`C:/Users/m004195/doboku-note`）で直接行う**。
+- 他セッションと並行する場合のみ worktree を再作成する（`node_modules` は main からジャンクション）。
 
 ## 既存資産（流用するもの）
 
@@ -80,7 +79,7 @@ discovery（並行・安全）と application（直列）を分離して MDX 編
 
 ## Phase 1 実行手順（キャンペーン）
 
-YouTube Shorts キャンペーンと同方式。worktree `C:/tmp/doboku-note-ig` で作業する。
+YouTube Shorts キャンペーンと同方式。develop（`C:/Users/m004195/doboku-note`）で作業する。
 
 1. 投稿日が近い分から **7本ずつバッチ**で進める。`ls docs/sns/instagram/` を投稿日順にスライスして対象を決める。
 2. **Generator**: general-purpose agent（sonnet）を起動し、`.claude/agents/ig-carousel-writer.md` の指示に従わせる（`docs/reference/ig-carousel-policy.md` を必ず読ませる）。7本の `slide-data.json` を v2 で執筆させる。
@@ -126,5 +125,5 @@ console.log(over===0?"字数OK":`${over}件超過`);'
   - `publish-ig.mjs`: caption 生成を v1/v2 両対応に。
   - 検証済み: 既存 v1 ファイルの後方互換描画、v2 multi-slide（cover+board+figure×2+cta=5枚）描画、figure の実 SVG 埋め込み（図中ラベル完全描画）・スペックプレースホルダ描画、`--config-only`。
 - **Phase 1 基盤 完了**（commit 5c9b7c169・46a8aae0b）: `docs/reference/ig-carousel-policy.md`（5軸ルーブリック）・`ig-carousel-writer`/`ig-carousel-qa` エージェント・実行手順を整備。
-- **Phase 1 キャンペーン進行中**: batch 1 完了（7/727、commit e49ac3121。投稿日順の先頭7本）。次は 8 本目 `2026-05-26-front-loading` から batch 2。
-- 関連: 727枚の IG 画像再生成（日付削除・見出し修正）は develop に commit 53c19fba9 済み。内容改善後に再描画される。
+- **Phase 1 キャンペーン進行中**: batch 1 完了（7/727、commit e49ac3121。投稿日順の先頭7本）。develop→main へマージ・本番デプロイ済み。次は 8 本目 `2026-05-26-front-loading` から batch 2。
+- 関連: 727枚の IG 画像再生成（日付削除・見出し修正）は commit 53c19fba9 済み。内容改善後に再描画される。
