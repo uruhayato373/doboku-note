@@ -7,6 +7,7 @@ import {
   Target,
   Users,
   Cookie,
+  ShoppingBag,
   Clock,
   Lock,
   UserCheck,
@@ -73,7 +74,7 @@ export default function PrivacyPage() {
               プライバシーポリシー
             </h1>
             <p className="font-mono text-[11px] text-[var(--ink-muted)]">
-              最終更新日 2026.04.05
+              最終更新日 2026.05.21
             </p>
           </div>
         </section>
@@ -207,6 +208,27 @@ export default function PrivacyPage() {
                     Google AdSense 詳細
                   </a>
                 </div>
+              </div>
+            </PolicyCard>
+
+            {/* 5b. アフィリエイトプログラム */}
+            <PolicyCard
+              icon={<ShoppingBag className="w-5 h-5 text-primary-600 dark:text-primary-400" />}
+
+              title="アフィリエイトプログラムについて"
+            >
+              <p className="mb-4">
+                当サイトは、Amazonアソシエイト・プログラムおよび株式会社もしものアフィリエイトサービス「もしもアフィリエイト」に参加しています。
+                これらは、商品やサービスを紹介するリンクを掲載し、ユーザーがそのリンク経由で購入・登録した場合に当サイトが紹介料を受け取る仕組みです。
+              </p>
+              <p className="mb-4">
+                これらのプログラムでは、成果の計測のために Cookie を使用します。リンク経由のアクセス情報はプログラム提供事業者により記録されますが、
+                当サイトが個人を特定できる情報を取得することはありません。
+              </p>
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-sm p-4">
+                <p className="text-sm font-semibold text-amber-800 dark:text-amber-300">
+                  Amazonのアソシエイトとして、当メディアは適格販売により収入を得ています。
+                </p>
               </div>
             </PolicyCard>
 

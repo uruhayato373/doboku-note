@@ -65,7 +65,11 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 pt-4 border-t border-[var(--rule-soft)] flex justify-between text-[11px] font-mono text-[var(--ink-muted)] flex-wrap gap-2">
+        <p className="mt-8 pt-4 border-t border-[var(--rule-soft)] text-[12px] text-[var(--ink-muted)] leading-relaxed max-w-[60ch]">
+          Amazonのアソシエイトとして、当メディアは適格販売により収入を得ています。
+        </p>
+
+        <div className="mt-4 flex justify-between text-[11px] font-mono text-[var(--ink-muted)] flex-wrap gap-2">
           <span>© {new Date().getFullYear()} doboku-note</span>
           <span>Built with Next.js · Tailwind · MDX</span>
         </div>
