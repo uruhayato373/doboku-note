@@ -1,0 +1,54 @@
+<svg width="400" height="212" viewBox="0 0 400 212"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="API によるシステム連携。複数の利用側アプリが API という公開された取り決めを介してサービス提供側の機能・データを呼び出す。提供側の内部実装は隠蔽される。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-api   { font-size: 17px; font-weight: bold; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-body  { font-size: 11px; fill: #555; }
+      .t-mut   { font-size: 11px; fill: #8a8a8a; }
+      .box-user { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-api  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-svc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="api-arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="24" text-anchor="middle">API によるシステム連携</text>
+
+  <!-- 利用側 -->
+  <rect class="box-user" x="12" y="44" width="104" height="38" rx="6"/>
+  <text class="t-body" x="64" y="67" text-anchor="middle">モバイルアプリ</text>
+  <rect class="box-user" x="12" y="101" width="104" height="38" rx="6"/>
+  <text class="t-body" x="64" y="124" text-anchor="middle">他社サービス</text>
+  <rect class="box-user" x="12" y="158" width="104" height="38" rx="6"/>
+  <text class="t-body" x="64" y="181" text-anchor="middle">Web サイト</text>
+
+  <line x1="118" y1="63"  x2="144" y2="63"  stroke="#2e6da4" stroke-width="2" marker-end="url(#api-arrow)"/>
+  <line x1="118" y1="120" x2="144" y2="120" stroke="#2e6da4" stroke-width="2" marker-end="url(#api-arrow)"/>
+  <line x1="118" y1="177" x2="144" y2="177" stroke="#2e6da4" stroke-width="2" marker-end="url(#api-arrow)"/>
+
+  <!-- API -->
+  <rect class="box-api" x="148" y="44" width="104" height="152" rx="8"/>
+  <text class="t-api"    x="200" y="112" text-anchor="middle">API</text>
+  <text class="t-body"   x="200" y="138" text-anchor="middle">公開された</text>
+  <text class="t-body"   x="200" y="154" text-anchor="middle">やり取りの取り決め</text>
+
+  <line x1="254" y1="108" x2="280" y2="108" stroke="#2e6da4" stroke-width="2" marker-end="url(#api-arrow)"/>
+  <line x1="280" y1="132" x2="254" y2="132" stroke="#2e6da4" stroke-width="2" marker-end="url(#api-arrow)"/>
+  <text class="t-mut" x="267" y="100" text-anchor="middle">呼出</text>
+  <text class="t-mut" x="267" y="150" text-anchor="middle">応答</text>
+
+  <!-- 提供側 -->
+  <rect class="box-svc" x="284" y="44" width="104" height="152" rx="8"/>
+  <text class="t-strong" x="336" y="104" text-anchor="middle">サービス提供側</text>
+  <text class="t-body"   x="336" y="123" text-anchor="middle">システム・データ</text>
+  <text class="t-mut"    x="336" y="150" text-anchor="middle">内部実装は</text>
+  <text class="t-mut"    x="336" y="166" text-anchor="middle">隠蔽される</text>
+</svg>
