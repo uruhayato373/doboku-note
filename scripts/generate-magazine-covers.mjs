@@ -64,7 +64,7 @@ const MAGAZINES = [
   },
   {
     id: 'road-municipality',
-    lines: ['総監記述式 模範論文', '道路発注者 (地方自治体)', '3年分セット (R05-R07)'],
+    lines: ['総監記述式 模範論文', '自治体 道路担当（発注者）', '過去問5年＋R8予想セット'],
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
