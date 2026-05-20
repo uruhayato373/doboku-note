@@ -26,9 +26,10 @@
   <path d="M 132 230 C 94 222 68 202 54 176" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#ag-arrow)"/>
   <path d="M 54 122 C 68 96 94 78 132 70" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#ag-arrow)"/>
 
-  <!-- 中央 -->
-  <text class="t-ctr"  x="190" y="146" text-anchor="middle">1 イテレーション</text>
-  <text class="t-ctrs" x="190" y="165" text-anchor="middle">（1〜4 週間＝スプリント）</text>
+  <!-- 中央：この円ひと回しが 1 イテレーション -->
+  <text class="t-ctr"  x="190" y="140" text-anchor="middle">イテレーション</text>
+  <text class="t-ctrs" x="190" y="159" text-anchor="middle">＝ スプリント</text>
+  <text class="t-ctrs" x="190" y="175" text-anchor="middle">（1〜4 週間）</text>
 
   <!-- ノード -->
   <rect class="box-brand" x="136" y="44" width="108" height="42" rx="8"/>
