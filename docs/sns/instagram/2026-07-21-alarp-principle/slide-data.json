@@ -1,26 +1,42 @@
 {
   "cover": {
     "keyword": "ALARPの原則",
-    "subtitle": null,
-    "stickyText": "ALARP＝As",
-    "management": "safety",
-    "caption": "ALARPの原則\nとは何か？"
+    "subtitle": "As Low As Reasonably Practicable",
+    "stickyText": "3領域で判断\n費用便益分析\n挙証責任は保有者",
+    "management": "safety"
   },
-  "board": {
-    "heading": "ALARPの原則",
-    "body": "ALARP原則とは、\nリスクを「合理的に実行可能な限り低く（As Low As Reasonably Practicable）」するという安全管理の基本概念である。",
-    "noteText": "ALARP＝As Low As Reasonably Practicable",
-    "management": "safety",
-    "caption": "3領域：許容不可能・ALARP…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "定義",
+      "body": "ALARP原則とは、リスクを「合理的に実行可能な限り低く（As Low As Reasonably Practicable）」することを求める概念である。リスクゼロは不可能なため費用と便益のバランスを考慮し合理的な範囲で最大限低減を図る。",
+      "noteText": "英国HSEが体系化。日本では2000年代以降に原子力・化学プラント分野で参照"
+    },
+    {
+      "type": "figure",
+      "heading": "3つのリスク領域",
+      "figureSpec": "縦軸にリスクの高さを取った三角形（逆三角形）を3段に分割する。上段（赤）：許容不可能な領域（どんな便益があっても受け入れられない）、中段（黄）：ALARP領域（費用便益分析でリスク低減対策を判断）、下段（緑）：広く受け入れ可能な領域（追加対策不要、モニタリング継続）。各段に領域名とひと言説明ラベルを付ける。",
+      "note": "ALARP領域の挙証責任はリスク保有者側にある"
+    },
+    {
+      "type": "board",
+      "heading": "費用便益分析との関係",
+      "body": "ALARP領域では、リスク低減の費用が便益と著しく不均衡にならない限り対策を講じることが求められる。「著しく不均衡」でなければ費用がかかっても対策を実施すべきとされ、挙証責任はリスク保有者側にある（対策不要を証明する義務）。",
+      "noteText": "「費用が大きいから対策しない」は原則として認められない"
+    },
+    {
+      "type": "board",
+      "heading": "歴史的背景と総監での位置づけ",
+      "body": "法的起源は1949年英国判例「Edwards v. National Coal Board」。1988年パイパーアルファ爆発（死者167名）を機に費用便益論が普及し、総監では5.2「安全に関するリスクマネジメント」に位置づけられる。",
+      "noteText": "リスク基準の設定・残留リスクの許容可否判断の基盤となる概念"
+    }
+  ],
   "cta": {
     "related": [
       "リスク評価",
       "残留リスク",
       "リスク分析",
       "カタストロフィーバイアス"
-    ],
-    "management": "safety",
-    "caption": "続きは doboku-note で"
+    ]
   }
 }

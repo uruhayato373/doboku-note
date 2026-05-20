@@ -39,3 +39,23 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 ## agenda-21
 
 - description フィールドに「5管理トレードオフ・過去問演習リン。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。」と重複・途切れが生じている。description の修正を推奨。
+
+## agile
+
+- RelatedKeywords に `accounting-systems`・`api`・`blockchain-crypto` が含まれているが、アジャイル開発との関連が弱い。IG カルーセルでは `waterfall`・`design-thinking`・`pmbok` を中心に構成した。MDX 側の RelatedKeywords 絞り込みを検討する余地がある（`accounting-systems` の findings と共通の指摘）。
+
+## aging-infrastructure
+
+- 「スマート保安」（`smart-safety`）は RelatedKeywords に含まれているが、MDX 本文テキストリンクでのみ触れられており ExamPoint には含まれない。IG カルーセルの cta.related には含めなかった。MDX 側で RelatedKeywords に正式追加するかどうかを検討する余地がある。
+
+## air-pollution-control-act
+
+- 「総合技術監理における位置づけ」セクションの冒頭に空行が入っており、表示上の問題が発生する可能性がある。軽微だが修正推奨。
+
+## alarp-principle
+
+- 「関連テーマ記事」セクション（H2）が空のまま残っている。MDX レンダリング上の問題を引き起こす可能性があり、セクション削除を推奨。
+
+## alps-treated-water
+
+- 廃炉完了目標として MDX 本文に「2051年」と記載されているが、廃炉工程表は東京電力が複数回見直しており、最新情報での確認を推奨。IG カルーセルでは MDX 本文の記述（2051年）に忠実に記載した。
