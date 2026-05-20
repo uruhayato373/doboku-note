@@ -8,6 +8,13 @@
       "backgroundImage": null,
       "promptSource": "Claude Design handoff 2026-04-29",
       "notes": "doboku-note サイト OGP（1200×630）と note カバー（1280×670）の共通テンプレ。中央 630×630 セーフティゾーンを厳守。warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Mono タグスタイル。"
+    },
+    "magazine-banner": {
+      "name": "Magazine Banner（note ヘッダー対応）",
+      "category": "note マガジン専用",
+      "backgroundImage": null,
+      "promptSource": "mono-tag 派生 2026-05-20",
+      "notes": "note マガジン/クリエイターページのヘッダー（中央 1280×216 帯クロップ）に対応。マガジン名を帯の縦横中央に配置し、ワードマーク・カテゴリチップ・装飾は帯の上下に置く。generate-magazine-covers.mjs 専用。記事 OGP には mono-tag を使う。"
     }
   }
 }

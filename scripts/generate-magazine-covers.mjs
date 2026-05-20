@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 // public/images/magazines/ に note 有料マガジン用のカバー画像を生成する。
 //
-// scripts/generate-note-covers.mjs と同じ T06 Mono Tag テンプレを使い、
-// 4 ペルソナ模範論文マガジンのカバーを 1280×670 で出力する。
-// 出力は MagazineInlineCard / MagazineSidebarCard (aspect-square) で中央クロップされるため、
-// セーフティゾーン (中央 630×630) 内にすべての主要テキストを配置する。
+// magazine-banner テンプレ（ogp-templates.mjs）で 1280×670 のマガジンカバーを出力する。
+// note のマガジン/クリエイターページのヘッダーは中央 1280×216 帯がクロップ表示されるため、
+// マガジン名をこの帯の縦横中央に配置する。doboku-note サイトの aspect-square カード
+// クロップにも対応（全要素を全幅中央寄せ）。
 //
 // 使い方:
 //   node scripts/generate-magazine-covers.mjs                 # 全件生成
@@ -94,7 +94,7 @@ const MAGAZINES = [
 
 async function renderOne(mag, fonts) {
   const element = renderTemplate(
-    'mono-tag',
+    'magazine-banner',
     {
       lines: mag.lines,
       categoryLabel: mag.category,
