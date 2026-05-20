@@ -36,6 +36,13 @@ dateModified: 2026-04-21
 - **クラウド対応**: 境界型防御 = 境界の外にあるため防御が困難 — ゼロトラスト = リソースの場所に依存しない
 - **代表的手段**: 境界型防御 = [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)・[VPN](/docs/pe-comprehensive-management-vpn)・[DMZ](/docs/pe-comprehensive-management-dmz) — ゼロトラスト = 多要素認証・マイクロセグメンテーション・最小権限の原則
 
+両者の決定的な違いは「どこで・何回検証するか」にある。境界型防御は境界で一度認証すれば内部を信頼領域として扱うのに対し、ゼロトラストは信頼領域そのものを設けず、アクセスのたびに検証を繰り返す。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/zero-trust/img/figure-1.svg"
+  alt="境界型防御とゼロトラストの考え方の比較。境界型は境界で1回認証し内部を信頼領域とするのに対し、ゼロトラストは信頼領域を作らずアクセスのたびに認証する"
+/>
+
 ## ゼロトラストの基本原則
 
 NIST SP800-207では、ゼロトラストアーキテクチャの基本的な考え方として以下を示している。

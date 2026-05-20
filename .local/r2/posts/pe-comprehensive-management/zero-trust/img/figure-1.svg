@@ -1,0 +1,62 @@
+<svg width="400" height="296" viewBox="0 0 400 296"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="境界型防御とゼロトラストの考え方の比較。境界型防御は境界で 1 回だけ認証し内部を信頼領域とするのに対し、ゼロトラストは信頼領域を作らずアクセスのたびに認証する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-body  { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-head  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="zt-arrow" markerWidth="9" markerHeight="8" refX="4.5" refY="7" orient="auto">
+      <polygon points="0,0 9,0 4.5,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="24" text-anchor="middle">境界型防御とゼロトラストの考え方</text>
+
+  <!-- 左：境界型防御 -->
+  <rect class="box-head" x="14" y="34" width="180" height="26" rx="5"/>
+  <text class="t-head" x="104" y="51" text-anchor="middle">境界型防御</text>
+
+  <rect class="box-surf" x="24" y="70" width="160" height="32" rx="6"/>
+  <text class="t-body" x="104" y="90" text-anchor="middle">社外からのアクセス</text>
+  <line x1="104" y1="102" x2="104" y2="116" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-warn" x="24" y="118" width="160" height="44" rx="6"/>
+  <text class="t-strong" x="104" y="137" text-anchor="middle">境界で 1 回だけ認証</text>
+  <text class="t-body" x="104" y="153" text-anchor="middle">（ファイアウォール・VPN）</text>
+  <line x1="104" y1="162" x2="104" y2="176" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-brand" x="24" y="178" width="160" height="96" rx="6"/>
+  <text class="t-strong" x="104" y="200" text-anchor="middle">社内ネットワーク</text>
+  <text class="t-strong" x="104" y="217" text-anchor="middle">＝ 信頼領域</text>
+  <text class="t-body" x="104" y="241" text-anchor="middle">内部はすべて信頼し</text>
+  <text class="t-body" x="104" y="257" text-anchor="middle">再検証しない</text>
+
+  <!-- 右：ゼロトラスト -->
+  <rect class="box-head" x="206" y="34" width="180" height="26" rx="5"/>
+  <text class="t-head" x="296" y="51" text-anchor="middle">ゼロトラスト</text>
+
+  <rect class="box-surf" x="216" y="70" width="160" height="32" rx="6"/>
+  <text class="t-body" x="296" y="90" text-anchor="middle">利用者からのアクセス</text>
+  <line x1="296" y1="102" x2="296" y2="116" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-brand" x="216" y="118" width="160" height="44" rx="6"/>
+  <text class="t-strong" x="296" y="137" text-anchor="middle">アクセスのたびに</text>
+  <text class="t-body" x="296" y="153" text-anchor="middle">認証・認可・暗号化</text>
+  <line x1="296" y1="162" x2="296" y2="176" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-surf" x="216" y="178" width="160" height="96" rx="6"/>
+  <text class="t-strong" x="296" y="200" text-anchor="middle">個々のリソース</text>
+  <text class="t-strong" x="296" y="217" text-anchor="middle">＝ 信頼領域を作らない</text>
+  <text class="t-body" x="296" y="241" text-anchor="middle">社内・社外を問わず</text>
+  <text class="t-body" x="296" y="257" text-anchor="middle">毎回検証する</text>
+</svg>
