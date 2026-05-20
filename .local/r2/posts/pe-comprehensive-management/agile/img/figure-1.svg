@@ -1,0 +1,48 @@
+<svg width="380" height="304" viewBox="0 0 380 304"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:380px;width:100%"
+     role="img"
+     aria-label="アジャイル開発の反復サイクル。計画・開発・テスト・レビューの短いイテレーションを繰り返し、反復ごとに動作するソフトウェアを提供する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-node  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-ctr   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-ctrs  { font-size: 11px; fill: #555; }
+      .t-cap   { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="ag-arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="190" y="24" text-anchor="middle">アジャイル開発の反復サイクル</text>
+
+  <!-- 循環矢印 -->
+  <path d="M 244 70 C 286 78 312 96 326 122" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#ag-arrow)"/>
+  <path d="M 326 176 C 312 202 286 220 248 228" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#ag-arrow)"/>
+  <path d="M 132 230 C 94 222 68 202 54 176" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#ag-arrow)"/>
+  <path d="M 54 122 C 68 96 94 78 132 70" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#ag-arrow)"/>
+
+  <!-- 中央 -->
+  <text class="t-ctr"  x="190" y="146" text-anchor="middle">1 イテレーション</text>
+  <text class="t-ctrs" x="190" y="165" text-anchor="middle">（1〜4 週間＝スプリント）</text>
+
+  <!-- ノード -->
+  <rect class="box-brand" x="136" y="44" width="108" height="42" rx="8"/>
+  <text class="t-node" x="190" y="70" text-anchor="middle">① 計画</text>
+
+  <rect class="box-brand" x="252" y="128" width="110" height="42" rx="8"/>
+  <text class="t-node" x="307" y="154" text-anchor="middle">② 開発・実装</text>
+
+  <rect class="box-brand" x="136" y="212" width="108" height="42" rx="8"/>
+  <text class="t-node" x="190" y="238" text-anchor="middle">③ テスト</text>
+
+  <rect class="box-brand" x="18" y="128" width="110" height="42" rx="8"/>
+  <text class="t-node" x="73" y="154" text-anchor="middle">④ レビュー</text>
+
+  <!-- キャプション -->
+  <text class="t-cap" x="190" y="286" text-anchor="middle">反復ごとに動作するソフトウェアを提供し、要件の変化に対応する</text>
+</svg>
