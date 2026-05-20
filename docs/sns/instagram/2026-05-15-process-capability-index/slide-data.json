@@ -1,26 +1,42 @@
 {
   "cover": {
     "keyword": "工程能力指数",
-    "subtitle": "68.3%",
-    "stickyText": "3%\n4%",
-    "management": "economic",
-    "caption": "工程能力指数\nとは何か？"
+    "subtitle": "Cp・Cpk",
+    "stickyText": "Cp≧1.33\n管理目標\n経済性管理",
+    "management": "economic"
   },
-  "board": {
-    "heading": "工程能力指数",
-    "body": "工程能力指数（Process Capability Index）とは、規格内で製品を生産する工程の能力を定量化する指標である。",
-    "noteText": "Cp＝規格幅÷6σ（中心のずれを考慮しない）",
-    "management": "economic",
-    "caption": "Cpk＝中心のずれを考慮した実質的な…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "工程能力指数とは",
+      "body": "工程能力指数とは、規格内で製品を生産する工程の能力を定量化する指標である。ばらつきと規格幅の比で表され、値が大きいほど工程能力が高い。算出には工程が管理状態にあることが前提となる。",
+      "noteText": "管理状態（統計的安定）が前提条件"
+    },
+    {
+      "type": "board",
+      "heading": "Cp と Cpk の違い",
+      "body": "Cpは規格幅÷6σで表し工程の中心が規格の中央にある場合の指数である。Cpkは中心のずれを考慮した指数であり、実務ではCpkが真の工程能力指標として重視される。片寄りがあるほどCp＞Cpkとなる。",
+      "noteText": "Cp≧Cpk、中心一致時のみ等号"
+    },
+    {
+      "type": "figure",
+      "heading": "正規分布と3σ則",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/process-capability-index/img/normal-distribution-3sigma.svg",
+      "note": "±3σ内に99.7%が収まる：Cp計算式の根拠"
+    },
+    {
+      "type": "board",
+      "heading": "判定基準と頻出引っかけ",
+      "body": "Cp≧1.33が一般的な管理目標であり、1.00未満は即座な改善が必要とされる。試験頻出の引っかけとして、管理限界（UCL・LCL）と規格値（USL・LSL）の混同がある。R03・R07で連続出題された論点である。",
+      "noteText": "管理限界≠規格値（R03/R07 連続出題）"
+    }
+  ],
   "cta": {
     "related": [
-      "品質管理",
-      "全数検査／抜取検査",
-      "品質保証",
-      "品質特性"
-    ],
-    "management": "economic",
-    "caption": "続きは doboku-note で"
+      "quality-control",
+      "inspection-methods",
+      "quality-assurance",
+      "quality-improvement"
+    ]
   }
 }
