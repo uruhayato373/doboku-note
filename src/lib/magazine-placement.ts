@@ -134,7 +134,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
 
   // 2.5. r8-essay-theme-{topic} → R8 予想問題 spoke (固定 4 ペルソナ縦串学習、強 CTA)
-  //     設計: spoke は固定 4 ペルソナ (ゼネコン/河川コンサル/環境調査/道路発注者) を縦串展開し、
+  //     設計: spoke は固定 4 ペルソナ (ゼネコン/河川コンサル/環境調査/自治体 道路担当) を縦串展開し、
   //     M3「R8 予想問題集」を主、M4「3D マトリクス」を業界外救済として副配置する。
   //     真実源: content-principles.md §21 + noteコンテンツ計画.md Red Line #8
   if (/^pe-comprehensive-management-r8-essay-theme-[a-z0-9-]+$/.test(slug)) {

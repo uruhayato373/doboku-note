@@ -1,9 +1,9 @@
 ---
 notePricing: paid
-noteSeries: 総監模範論文-道路発注者ペルソナ
+noteSeries: 総監模範論文-自治体道路担当ペルソナ
 utmCampaign: essay-road-r08-yosou
 noteUrl: ""
-noteMagazine: 総監模範論文-道路発注者
+noteMagazine: 総監模範論文-自治体道路担当
 price: 500
 ---
 # 令和8年度 総監記述式 R8 予想問題集｜自治体 道路担当版（気候変動適応 + 資源循環）
