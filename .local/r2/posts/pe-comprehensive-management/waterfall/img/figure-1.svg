@@ -1,0 +1,66 @@
+<svg width="400" height="288" viewBox="0 0 400 288"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="V モデル。左側の設計工程（要件定義・基本設計・詳細設計・実装）を上から下へ進め、右側のテスト工程（単体・結合・システム・受入）を下から上へ進める。同じ高さの設計工程とテスト工程が対応する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-box   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-cap   { font-size: 11px; fill: #555; }
+      .box-des { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-tst { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .corr    { stroke: #8a8a8a; stroke-width: 1.3; stroke-dasharray: 4 3; }
+    </style>
+    <marker id="wf-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="24" text-anchor="middle">V モデル（設計工程とテスト工程の対応）</text>
+
+  <text class="t-sec" x="56"  y="46" text-anchor="middle">設計工程</text>
+  <text class="t-sec" x="344" y="46" text-anchor="middle">テスト工程</text>
+
+  <!-- 対応（破線） -->
+  <line class="corr" x1="98"  y1="75"  x2="302" y2="75"/>
+  <line class="corr" x1="130" y1="129" x2="270" y2="129"/>
+  <line class="corr" x1="162" y1="183" x2="238" y2="183"/>
+  <line class="corr" x1="194" y1="237" x2="206" y2="237"/>
+
+  <!-- 流れ矢印（左アーム下り） -->
+  <line x1="60"  y1="96"  x2="78"  y2="108" stroke="#2e6da4" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <line x1="92"  y1="150" x2="110" y2="162" stroke="#2e6da4" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <line x1="124" y1="204" x2="142" y2="216" stroke="#2e6da4" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <!-- 底 -->
+  <line x1="196" y1="237" x2="204" y2="237" stroke="#2e6da4" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <!-- 右アーム上り -->
+  <line x1="268" y1="216" x2="286" y2="204" stroke="#2e6da4" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <line x1="300" y1="162" x2="318" y2="150" stroke="#2e6da4" stroke-width="2" marker-end="url(#wf-arrow)"/>
+  <line x1="332" y1="108" x2="350" y2="96"  stroke="#2e6da4" stroke-width="2" marker-end="url(#wf-arrow)"/>
+
+  <!-- 設計工程（左アーム） -->
+  <rect class="box-des" x="14"  y="56"  width="84" height="38" rx="6"/>
+  <text class="t-box" x="56"  y="80" text-anchor="middle">要件定義</text>
+  <rect class="box-des" x="46"  y="110" width="84" height="38" rx="6"/>
+  <text class="t-box" x="88"  y="134" text-anchor="middle">基本設計</text>
+  <rect class="box-des" x="78"  y="164" width="84" height="38" rx="6"/>
+  <text class="t-box" x="120" y="188" text-anchor="middle">詳細設計</text>
+  <rect class="box-des" x="110" y="218" width="84" height="38" rx="6"/>
+  <text class="t-box" x="152" y="242" text-anchor="middle">実装</text>
+
+  <!-- テスト工程（右アーム） -->
+  <rect class="box-tst" x="206" y="218" width="84" height="38" rx="6"/>
+  <text class="t-box" x="248" y="242" text-anchor="middle">単体テスト</text>
+  <rect class="box-tst" x="238" y="164" width="84" height="38" rx="6"/>
+  <text class="t-box" x="280" y="188" text-anchor="middle">結合テスト</text>
+  <rect class="box-tst" x="270" y="110" width="84" height="38" rx="6"/>
+  <text class="t-box" x="312" y="134" text-anchor="middle">システムテスト</text>
+  <rect class="box-tst" x="302" y="56"  width="84" height="38" rx="6"/>
+  <text class="t-box" x="344" y="80" text-anchor="middle">受入テスト</text>
+
+  <!-- キャプション -->
+  <text class="t-cap" x="200" y="278" text-anchor="middle">各テスト工程は、同じ高さの設計工程の成果物を検証基準とする</text>
+</svg>

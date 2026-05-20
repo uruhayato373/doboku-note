@@ -1,0 +1,39 @@
+<svg width="380" height="332" viewBox="0 0 380 332"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:380px;width:100%"
+     role="img"
+     aria-label="生成 AI の技術的位置づけ。人工知能（AI）の中に機械学習、その中にディープラーニング、さらにその中に生成 AI が含まれる入れ子構造を示す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-outer { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-gen   { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="190" y="24" text-anchor="middle">生成 AI の技術的な位置づけ</text>
+
+  <!-- 人工知能（AI） -->
+  <rect class="box-surf" x="20" y="38" width="340" height="278" rx="10"/>
+  <text class="t-outer" x="190" y="58" text-anchor="middle">人工知能（AI）</text>
+
+  <!-- 機械学習 -->
+  <rect class="box-surf" x="46" y="70" width="288" height="228" rx="9"/>
+  <text class="t-outer" x="190" y="90" text-anchor="middle">機械学習</text>
+
+  <!-- ディープラーニング -->
+  <rect class="box-surf" x="72" y="102" width="236" height="180" rx="8"/>
+  <text class="t-outer" x="190" y="122" text-anchor="middle">ディープラーニング</text>
+
+  <!-- 生成 AI -->
+  <rect class="box-brand" x="98" y="134" width="184" height="132" rx="8"/>
+  <text class="t-gen"  x="190" y="166" text-anchor="middle">生成 AI</text>
+  <text class="t-desc" x="190" y="192" text-anchor="middle">テキスト・画像・音声・</text>
+  <text class="t-desc" x="190" y="208" text-anchor="middle">コードを自動生成</text>
+  <text class="t-desc" x="190" y="240" text-anchor="middle">中核技術 ＝ 大規模</text>
+  <text class="t-desc" x="190" y="256" text-anchor="middle">言語モデル（LLM）</text>
+</svg>

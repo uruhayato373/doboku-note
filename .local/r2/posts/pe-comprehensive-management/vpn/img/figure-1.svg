@@ -1,0 +1,44 @@
+<svg width="400" height="212" viewBox="0 0 400 212"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="VPN のトンネリングの概念図。拠点 A と拠点 B が、公衆ネットワークであるインターネット上に構築された暗号化トンネルを通じて安全に接続される。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-net   { font-size: 11px; fill: #8a8a8a; }
+      .t-tunnel{ font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-end-s { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-end-b { font-size: 11px; fill: #555; }
+      .t-cap   { font-size: 11px; fill: #555; }
+      .box-net    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-tunnel { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+      .box-end    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="200" y="24" text-anchor="middle">VPN のトンネリング</text>
+
+  <!-- インターネット（公衆網） -->
+  <rect class="box-net" x="92" y="44" width="216" height="150" rx="8"/>
+  <text class="t-net" x="200" y="62" text-anchor="middle">インターネット（公衆ネットワーク）</text>
+  <text class="t-net" x="200" y="94" text-anchor="middle">本来は盗聴・改ざんの危険がある経路</text>
+
+  <!-- 暗号化トンネル -->
+  <rect class="box-tunnel" x="78" y="112" width="244" height="40" rx="20"/>
+  <text class="t-tunnel" x="200" y="137" text-anchor="middle">暗号化トンネル（VPN）</text>
+
+  <!-- 拠点A -->
+  <rect class="box-end" x="12" y="106" width="78" height="52" rx="7"/>
+  <text class="t-end-s" x="51" y="128" text-anchor="middle">拠点 A</text>
+  <text class="t-end-b" x="51" y="145" text-anchor="middle">端末・支社</text>
+
+  <!-- 拠点B -->
+  <rect class="box-end" x="310" y="106" width="78" height="52" rx="7"/>
+  <text class="t-end-s" x="349" y="128" text-anchor="middle">拠点 B</text>
+  <text class="t-end-b" x="349" y="145" text-anchor="middle">本社 LAN</text>
+
+  <!-- キャプション -->
+  <text class="t-cap" x="200" y="180" text-anchor="middle">トンネル内は暗号化され、第三者は通信内容を読めない</text>
+</svg>
