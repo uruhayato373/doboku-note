@@ -1,7 +1,7 @@
 # 総監模範論文 品質評価マトリクス
 
-最終更新: 2026-05-20（16本リライト完了・再評価待ちへ移行）
-評価スキル: pe-essay-review v1.1
+最終更新: 2026-05-20（16本リライト＋再評価完了）
+評価スキル: pe-essay-review v1.1→v1.2
 評価モード: deep（3視点 × 4項目 × 1〜10点）
 詳細レポート: `.claude/state/pe-essay-review/{slug}.md`
 
@@ -9,112 +9,93 @@
 
 ## 評価結果一覧
 
+※ 再評価済み行の採点者/OB/講師 は初回評価値。総合・致命的・優先度・ステータスは再評価反映済み。
+
 | slug | 採点者 | OB | 講師 | 総合 | 致命的 | 優先度 | ステータス |
 |---|---|---|---|---|---|---|---|
-| r03-essay-general-contractor | 7.8 | 7.5 | 7.8 | 7.7 | 1 | Med | 再評価待ち |
-| r04-essay-general-contractor | 8.3 | 7.5 | 8.3 | 8.0 | 1 | Med | 再評価待ち |
+| r03-essay-general-contractor | 7.8 | 7.5 | 7.8 | 7.8 | 0 | Med | 再評価待ち |
+| r04-essay-general-contractor | 8.3 | 7.5 | 8.3 | **8.5** | 0 | Low | 公開可 |
 | r05-essay-general-contractor | 8.5 | 8.0 | 8.8 | **8.4** | 0 | Low | 公開可 |
-| r06-essay-general-contractor | 7.8 | 8.0 | 7.5 | 7.8 | 2 | Med | 再評価待ち |
-| r07-essay-general-contractor | 7.8 | 8.0 | 7.5 | 7.8 | 1 | Med | 再評価待ち |
-| r03-essay-river-consultant | 7.8 | 7.5 | 7.5 | 7.6 | 1 | Med | 再評価待ち |
-| r04-essay-river-consultant | 8.0 | 7.8 | 7.3 | 7.7 | 1 | Med | 再評価待ち |
+| r06-essay-general-contractor | 7.8 | 8.0 | 7.5 | **8.0** | 0 | Low | 公開可 |
+| r07-essay-general-contractor | 7.8 | 8.0 | 7.5 | 7.9 | 0 | Med | 再評価待ち |
+| r03-essay-river-consultant | 7.8 | 7.5 | 7.5 | **8.0** | 0 | Low | 公開可 |
+| r04-essay-river-consultant | 8.0 | 7.8 | 7.3 | **8.2** | 0 | Low | 公開可 |
 | r05-essay-river-consultant | 8.3 | 8.0 | 7.8 | **8.0** | 0 | Low | 公開可 |
-| r06-essay-river-consultant | 7.5 | 8.0 | 6.8 | 7.4 | 2 | Med | 再評価待ち |
-| r07-essay-river-consultant | 7.8 | 8.3 | 6.5 | 7.5 | 2 | Med | 再評価待ち |
-| r03-essay-road-municipality | 8.0 | 8.3 | 7.5 | 7.9 | 1 | Med | 再評価待ち |
-| r04-essay-road-municipality | 8.0 | 7.8 | 8.0 | 7.9 | 0 | Med | 再評価待ち |
-| r05-essay-road-municipality | 7.5 | 8.3 | 7.3 | 7.7 | 2 | Med | 再評価待ち |
-| r06-essay-road-municipality | 7.3 | 8.0 | 6.8 | 7.4 | 3 | **High** | 再評価待ち |
-| r07-essay-road-municipality | 7.0 | 8.0 | 6.0 | **7.0** | 3 | **High** | 再評価待ち |
-| r03-essay-environment-survey | 7.8 | 7.3 | 7.5 | 7.5 | 2 | Med | 再評価待ち |
+| r06-essay-river-consultant | 7.5 | 8.0 | 6.8 | **8.1** | 0 | Low | 公開可 |
+| r07-essay-river-consultant | 7.8 | 8.3 | 6.5 | **8.2** | 0 | Low | 公開可 |
+| r03-essay-road-municipality | 8.0 | 8.3 | 7.5 | **8.0** | 0 | Low | 公開可 |
+| r04-essay-road-municipality | 8.0 | 7.8 | 8.0 | **8.4** | 0 | Low | 公開可 |
+| r05-essay-road-municipality | 7.5 | 8.3 | 7.3 | **8.1** | 0 | Low | 公開可 |
+| r06-essay-road-municipality | 7.3 | 8.0 | 6.8 | **8.0** | 0 | Low | 公開可 |
+| r07-essay-road-municipality | 7.0 | 8.0 | 6.0 | **8.2** | 0 | Low | 公開可 |
+| r03-essay-environment-survey | 7.8 | 7.3 | 7.5 | **8.0** | 0 | Low | 公開可 |
 | r04-essay-environment-survey | 8.5 | 7.8 | 8.3 | **8.2** | 0 | Low | 公開可 |
 | r05-essay-environment-survey | 8.8 | 8.0 | 8.5 | **8.4** | 0 | Low | 公開可 |
-| r06-essay-environment-survey | 7.3 | 7.3 | 6.5 | 7.0 | 2 | Med | 再評価待ち |
-| r07-essay-environment-survey | 7.5 | 8.0 | 7.3 | 7.6 | 0 | Med | 再評価待ち |
+| r06-essay-environment-survey | 7.3 | 7.3 | 6.5 | 7.7 | 1 | Med | 再評価待ち |
+| r07-essay-environment-survey | 7.5 | 8.0 | 7.3 | 7.8 | 0 | Med | 再評価待ち |
 
 優先度判定: **High** = 総合 < 6.5 または 致命的 ≥ 3件 / **Med** = 総合 6.5〜8.0 または 致命的 1〜2件 / **Low** = 総合 ≥ 8.0 かつ 致命的 0件
 
 ---
 
-## リライト優先度
+## 公開可（Low）一覧（16本）
 
-### High（修正必須 — 2本）
-
-| 順 | slug | 総合 | 致命的 | 主要課題 |
-|---|---|---|---|---|
-| 1 | r07-essay-road-municipality | 7.0 | 3件 | 設問(3)施策2本目が完全欠落 / 5管理外用語「品質管理」の使用 |
-| 2 | r06-essay-road-municipality | 7.4 | 3件 | 設問(2)②「脱炭素・社会貢献の観点」欠落 / 設問(3)に2施策混在 |
-
-### Med — 致命的2件（6本）
-
-| 順 | slug | 総合 | 致命的 | 主要課題 |
-|---|---|---|---|---|
-| 3 | r06-essay-river-consultant | 7.4 | 2件 | 「施策を1つ取り上げ」要件違反 / 管理視点が同一分野内に収束 |
-| 4 | r06-essay-environment-survey | 7.0 | 2件 | 設問(1)②「施策1つ」に複数列挙 / 「延べ20名→4名」数値がR03と完全一致（テンプレ流用） |
-| 5 | r07-essay-river-consultant | 7.5 | 2件 | 「施策を1つ取り上げ」要件違反パターン / 講師視点で最低スコア（6.5） |
-| 6 | r05-essay-road-municipality | 7.7 | 2件 | パターンA〜D選択宣言の欠落 / 戦略3の詰め込み過多 |
-| 7 | r03-essay-environment-survey | 7.5 | 2件 | 「5,000万円規模の投資」が中小15名規模と乖離 / 「延べ20名→4名」削減率が楽観的 |
-| 8 | r06-essay-general-contractor | 7.8 | 2件 | 「施策を1つ取り上げ」要件違反 |
-
-### Med — 致命的1件（6本）
-
-| 順 | slug | 総合 | 致命的 | 主要課題 |
-|---|---|---|---|---|
-| 9 | r03-essay-river-consultant | 7.6 | 1件 | 方法1でAI解析「現在利用可能」の根拠が薄い |
-| 10 | r03-essay-general-contractor | 7.7 | 1件 | 設問固有制約の軽微な取りこぼし |
-| 11 | r04-essay-river-consultant | 7.7 | 1件 | 三層構造の論理的なつながりの弱さ（講師視点7.3） |
-| 12 | r07-essay-general-contractor | 7.8 | 1件 | 情報管理視点の相対的薄さ |
-| 13 | r03-essay-road-municipality | 7.9 | 1件 | 設問(3)「技術実現可能性除外」制約への対応が曖昧 |
-| 14 | r04-essay-general-contractor | 8.0 | 1件 | 5か年計画への6G通信組み込み（時間軸のズレ） |
-
-### Med — 致命的0件（スコア改善余地あり、2本）
-
-| 順 | slug | 総合 | 主要課題 |
-|---|---|---|---|
-| 15 | r04-essay-road-municipality | 7.9 | 「設計コンサルBIM能力認証制度」が発注者権限外の可能性 |
-| 16 | r07-essay-environment-survey | 7.6 | 施策間トレードオフの多様性不足・R04との類似フレーム |
-
-### Low（公開水準達成 — 4本）
-
-| slug | 総合 | 備考 |
+| slug | 総合 | 主な強み |
 |---|---|---|
-| r05-essay-general-contractor | 8.4 | SWOT 8項目使い切り・設問固有制約クリア。最高品質 |
-| r05-essay-environment-survey | 8.4 | 「地域環境調査ネットワーク」という独自解決策・致命的問題なし |
-| r04-essay-environment-survey | 8.2 | DXと「デジタル技術の利用」の境界明示・三層伏線回収が最高品質 |
-| r05-essay-river-consultant | 8.0 | 致命的問題なし・設問構造への完全対応 |
+| r04-essay-general-contractor | **8.5** | DXタスクフォース設計・5管理全カバー・修正完全反映 |
+| r05-essay-general-contractor | **8.4** | SWOT 8項目使い切り・設問固有制約クリア。最高品質 |
+| r05-essay-environment-survey | **8.4** | 「地域環境調査ネットワーク」という独自解決策・致命的問題なし |
+| r04-essay-environment-survey | **8.2** | DXと「デジタル技術の利用」の境界明示・三層伏線回収が最高品質 |
+| r07-essay-river-consultant | **8.2** | (3)②に技術革新・財政政策を網羅・講師スコア+1.3の最大改善 |
+| r04-essay-river-consultant | **8.2** | 予算仮説（総額2〜3億円・5年目均衡）追記が奏功 |
+| r07-essay-road-municipality | **8.2** | 施策2本目新規追加・致命的3件解消、今回最大の改善幅（+1.2） |
+| r04-essay-road-municipality | **8.4** | 安全管理追記・発注者権限内表現への修正で5管理全カバー |
+| r06-essay-river-consultant | **8.1** | 三者トレードオフ拡張・1施策絞り込みが奏功 |
+| r05-essay-road-municipality | **8.1** | パターン選択宣言追加・戦略3の絞り込みで設問精度向上 |
+| r06-essay-general-contractor | **8.0** | ハイブリッド建機1施策・CCU技術革新追記 |
+| r05-essay-river-consultant | **8.0** | 致命的問題なし・設問構造への完全対応（リライト不要） |
+| r03-essay-river-consultant | **8.0** | AI技術の現実化（商用ソフト名明示・試行的導入に限定） |
+| r06-essay-road-municipality | **8.0** | 脱炭素・社会貢献両観点追記・2施策独立セクション化 |
+| r03-essay-road-municipality | **8.0** | 技術実現可能性除外の明示的宣言追加 |
+| r03-essay-environment-survey | **8.0** | 投資規模現実化（5,000万→400〜500万円）・削減率を50%に修正 |
+
+---
+
+## 残Med（4本）— 致命的問題なし・スコア8.0未達
+
+| slug | 総合 | 残課題 |
+|---|---|---|
+| r06-essay-environment-survey | 7.7 | 致命的1件残存（調査人工80%削減が現実的上限50〜60%を超過）|
+| r07-essay-environment-survey | 7.8 | 施策間トレードオフの×人的資源管理が反復・設問(3)②の世界情勢言及不足 |
+| r03-essay-general-contractor | 7.8 | 設問(1)「②目的」の独立見出し化・(3)への接続文不足 |
+| r07-essay-general-contractor | 7.9 | 設問(1)②に「ICT施工標準化」1施策に絞り込む余地あり |
 
 ---
 
 ## 横断的所見
 
-### ペルソナ横断の共通課題
+### ペルソナ横断の共通課題（リライト前→リライト後）
 
-**1. 「施策を1つ取り上げ」要件の違反（最重要）**
+**1. 「施策を1つ取り上げ」要件の違反（解消済み）**
 
-R06・R07の複数ペルソナで、設問が1施策指定のところ複数施策を列挙する同一パターンのミスが確認された。Generatorが連続生成した年度で同じ読み取りエラーが再現している。リライト時に全年度の同一設問箇所を横断チェックすること。
+R06・R07の複数ペルソナで発生していた複数施策列挙パターンはリライトで全件解消。pe-essay-draft v1.2 の Step 1.5（設問制約リスト義務化）が根本解決として有効だった。
 
-**2. テンプレ語句の繰り返し**
+**2. テンプレ数値の流用（解消済み）**
 
-以下の語句が複数年度・ペルソナを横断して出現し、複数論文を並べて公開した際に使い回し感が出るリスクがある。
+「延べ20名→4名」がR03とR06 environment-survey で一字一句同一だった問題を解消。R06は年度固有のGHG削減量計算根拠に、R03は50%削減に修正。
 
-| ペルソナ | 繰り返し語句 |
-|---|---|
-| general-contractor | 「自動化建機」「オペレーションセンター」「ISO準拠」 |
-| river-consultant | 「ピア・サポート」（R03〜R07ほぼ全年度） |
-| road-municipality | 「音声入力AI」「VR/ARで可視化」「近隣自治体との共同利用」 |
+**3. 施策間トレードオフの反復（概ね解消・一部残存）**
 
-**3. 情報管理視点の相対的薄さ**
-
-経済性管理・安全管理に比べ、情報管理の掘り下げが弱い年度がある（general-contractor R07、river-consultant R07）。
+「×経済性管理」の共通パターンは大半のペルソナで解消。r07-essay-environment-survey で×人的資源管理の反復が残存。
 
 ### ペルソナ別の強み
 
-| ペルソナ | 強み | 弱み |
+| ペルソナ | 強み | 残課題 |
 |---|---|---|
-| general-contractor | R05が最高品質（8.4）。SWOT活用・設問構造対応が最も洗練 | 複数年度で「施策1つ」要件に甘さ |
-| river-consultant | OB視点が全体的に高い（業界用語・プロセスのリアリティ） | 講師視点がR06・R07で落ちる（6.8・6.5） |
-| road-municipality | ペルソナ設定（橋梁数・予算・役職）の一貫性が高い。発注者権限の施策組み込みも評価 | 年度後半（R06・R07）に致命的問題が集中 |
-| environment-survey | R04・R05が最高品質（8.2・8.4）。「地域環境調査ネットワーク」等の独自解決策が強み | R06・R03でテンプレ数値流用（延べ20名→4名）が発生 |
+| general-contractor | R04が最高品質（8.5）。DXタスクフォース設計と修正完全反映が評価された | R03・R07が7.8〜7.9で8.0未達。設問(1)②の構造的弱点が残る |
+| river-consultant | 全5本が公開可に到達。OB視点のリアリティ（業界用語・予算感）が一貫して高い | なし（全5本公開可） |
+| road-municipality | 全5本が公開可に到達。発注者権限への修正と施策2本目の追加が大幅改善につながった | なし（全5本公開可） |
+| environment-survey | R04・R05が最高品質（8.2・8.4）。R03も公開可に到達 | R06（致命的1件残）・R07（7.8止まり）が課題 |
 
 ---
 
@@ -125,7 +106,7 @@ R06・R07の複数ペルソナで、設問が1施策指定のところ複数施�
 | ステータス | 説明 |
 |---|---|
 | 評価待ち | pe-essay-review 未実施 |
-| 再評価待ち | 評価完了・リライト未着手 |
+| 未着手 | 評価完了・リライト未着手 |
 | リライト中 | pe-essay-draft --mode revise 実行中 |
 | 再評価待ち | リライト完了・再評価未実施 |
 | 公開可 | 総合 ≥ 8.0・致命的 0件・ユーザー確認済み |
@@ -135,5 +116,6 @@ R06・R07の複数ペルソナで、設問が1施策指定のところ複数施�
 1. ✅ **environment-survey 5本を評価**（2026-05-19 完了）
 2. ✅ **pe-essay-draft v1.2 スキル修正**（2026-05-20 完了 — 5欠陥修正）
 3. ✅ **16本リライト完了**（2026-05-20 完了 — 4エージェント並列）
-4. ⏳ **再評価**: pe-essay-review で16本を再採点 → ステータスを「公開可」に更新
-5. **公開判断**: published: true への切り替えはユーザー確認後
+4. ✅ **16本再評価完了**（2026-05-20 完了 — 16本中12本が公開可・4本がMed残存）
+5. ⏳ **残Med 4本の追加リライト**: r06-env（致命的1件解消）→ r07-env → r03-gc → r07-gc
+6. **公開判断**: published: true への切り替えはユーザー確認後
