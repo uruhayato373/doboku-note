@@ -78,6 +78,43 @@ discovery（並行・安全）と application（直列）を分離して MDX 編
 - **Phase 2**: `ig-post-create.mjs` で一括画像化（既存工程）。
 - SVG 制作・doboku-note 寄贈は findings ログを基に随時。
 
+## Phase 1 実行手順（キャンペーン）
+
+YouTube Shorts キャンペーンと同方式。worktree `C:/tmp/doboku-note-ig` で作業する。
+
+1. 投稿日が近い分から **7本ずつバッチ**で進める。`ls docs/sns/instagram/` を投稿日順にスライスして対象を決める。
+2. **Generator**: general-purpose agent（sonnet）を起動し、`.claude/agents/ig-carousel-writer.md` の指示に従わせる（`docs/reference/ig-carousel-policy.md` を必ず読ませる）。7本の `slide-data.json` を v2 で執筆させる。
+3. **機械字数チェック**: 下記スクリプトで字数超過をゲートする。超過があれば Generator に差し戻す。
+4. **Evaluator**: general-purpose agent（sonnet）を起動し、`.claude/agents/ig-carousel-qa.md` の指示に従わせて 5 軸採点。合格ライン = 平均 4.0 以上かつ全軸 3 以上。不合格は Generator に差し戻す。
+5. バッチ全件合格で `git add docs/sns/instagram/{date-slug}/slide-data.json`（7本）→ commit。`_keyword-findings.md` に追記があれば同時に add。
+6. 全 727 本完了後に Phase 2（一括 PNG 化）へ。
+
+### 字数チェックスクリプト
+
+```bash
+node -e '
+const fs=require("fs");
+const dirs=[/* date-slug の配列 */];
+const L={kw:14,bh:16,bb:120,bn:45,fh:18,fn:30};
+let over=0;
+for(const d of dirs){const j=JSON.parse(fs.readFileSync(`docs/sns/instagram/${d}/slide-data.json`,"utf8"));
+ if((j.cover?.keyword||"").length>L.kw){over++;console.log(`OVER ${d} cover.keyword`);}
+ (j.slides||[]).forEach((s,i)=>{
+  if(s.type==="board"){
+   if((s.heading||"").length>L.bh){over++;console.log(`OVER ${d} slides[${i}].heading`);}
+   if((s.body||"").length>L.bb){over++;console.log(`OVER ${d} slides[${i}].body ${(s.body||"").length}`);}
+   if((s.noteText||"").replace(/\\n/g,"").length>L.bn){over++;console.log(`OVER ${d} slides[${i}].noteText`);}
+  }else if(s.type==="figure"){
+   if((s.heading||"").length>L.fh){over++;console.log(`OVER ${d} slides[${i}].heading`);}
+   if((s.note||"").length>L.fn){over++;console.log(`OVER ${d} slides[${i}].note`);}
+  }});}
+console.log(over===0?"字数OK":`${over}件超過`);'
+```
+
+### Phase 2（一括 PNG 化）
+
+全 slide-data.json 確定後、`node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --slug {slug} --date {date} --size both` を全件に流す（`--reset` は付けない＝確定済み slide-data.json を使う）。figure の SVG は自動で PNG 焼き込みされる。
+
 ## 現在の状況
 
 - 設計確定・本書作成済み。
