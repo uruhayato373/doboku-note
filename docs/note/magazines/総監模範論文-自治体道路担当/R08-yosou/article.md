@@ -26,7 +26,7 @@ price: 500
 
 自治体 道路担当ペルソナの模範論文（R03-R07 過去問＋R8 予想）をまとめた **magazine** もあわせてご覧ください。各記事を単品でそろえるよりお得なセット価格です。
 
-https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
+https://note.com/dobokunote/m/m52186ffd12ca
 
 ---
 
@@ -286,4 +286,4 @@ R8 予想テーマでは、過去問対策に加えて以下の 4 点が評価�
 
 テーマは毎年異なりますが、自治体 道路担当として書ける論点とトレードオフには共通パターンがあります。まとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
+https://note.com/dobokunote/m/m52186ffd12ca
