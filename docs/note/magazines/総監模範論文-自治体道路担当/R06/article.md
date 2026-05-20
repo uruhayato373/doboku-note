@@ -41,13 +41,11 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
 > 維持管理経験を持つ受験者向けに、R6（CN）テーマを橋梁長寿命化事業で書いた模範論文（A 案）です。AI 遠隔点検・LCA 補修・自己治癒材料が CN 化の主軸です。
 
-| 項目 | 設定 |
-|---|---|
-| 事業名 | ○○県○○土木事務所が管理する県道橋梁の長寿命化修繕事業（定期点検・補修工事） |
-| 目的 | 既存橋梁の延命化を図り、架替えに伴う建設コストと環境負荷を低減する |
-| 成果物 | 健全度診断結果、補修設計図書、更新された長寿命化修繕計画 |
-| 立場 | 道路維持課 課長補佐 |
-| 前提条件 | 厳しい財政制約、補修工事における低炭素型材料の優先採用、点検車両のアイドリングストップ等の現状取組 |
+- **事業名**: ○○県○○土木事務所が管理する県道橋梁の長寿命化修繕事業（定期点検・補修工事）
+- **目的**: 既存橋梁の延命化を図り、架替えに伴う建設コストと環境負荷を低減する
+- **成果物**: 健全度診断結果、補修設計図書、更新された長寿命化修繕計画
+- **立場**: 道路維持課 課長補佐
+- **前提条件**: 厳しい財政制約、補修工事における低炭素型材料の優先採用、点検車両のアイドリングストップ等の現状取組
 
 ## A 案 設問（１）事業の内容と CN に関連する取組状況
 
@@ -107,13 +105,11 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
 ## B 案: バイパス整備版（前提条件）
 
-| 項目 | 設定 |
-|---|---|
-| 事業名 | ○○県 都市計画道路バイパス整備事業（延長 2.5 km） |
-| 目的 | 都市部の渋滞解消、走行速度向上による CO2 排出削減、災害時緊急輸送道路の確保 |
-| 成果物 | 完成道路、排水施設、3 次元完成モデル |
-| 立場 | ○○土木事務所 道路建設課 課長補佐 |
-| 前提条件 | 都市部用地買収の難航、ICT 施工の全面義務化、振動・騒音への厳しい環境制約、最新排出規制適合機械の使用 |
+- **事業名**: ○○県 都市計画道路バイパス整備事業（延長 2.5 km）
+- **目的**: 都市部の渋滞解消、走行速度向上による CO2 排出削減、災害時緊急輸送道路の確保
+- **成果物**: 完成道路、排水施設、3 次元完成モデル
+- **立場**: ○○土木事務所 道路建設課 課長補佐
+- **前提条件**: 都市部用地買収の難航、ICT 施工の全面義務化、振動・騒音への厳しい環境制約、最新排出規制適合機械の使用
 
 ## B 案 設問（１）事業の内容と CN に関連する取組状況
 
@@ -173,24 +169,24 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
 ## A 案 vs B 案 — どちらを選ぶか
 
-| 観点 | A 案: 橋梁長寿命化版 | B 案: バイパス整備版 |
-|---|---|---|
-| 受験者の業務経験 | 維持管理経験が中心 | 新設プロジェクト経験が中心 |
-| 主軸トレードオフ | 情報×経済 / 経済×社環 / 社環×人的 | 経済×社環 / 人的×情報 / 経済×社環 |
-| 5 年内施策の核 | AI 遠隔点検 + LCA 補修最適化 | 自動運転重機+電動建機 + BIM/CIM |
-| 2050 年抜本策 | 自己治癒材料 + インフラ集約 | 路面太陽光・走行中給電 + カーボンネガティブ材料 |
-| 「管理行為」要素 | 総合評価方式・J-クレジット・住民対話 | 性能規定・J-クレジット・地域共同利用 |
-| 問題文ヒント | 既設活用・予防保全・LCA | 施工プロセス・新設・物流効率 |
+A 案＝橋梁長寿命化版、B 案＝バイパス整備版。観点別の比較は次のとおり。
+
+- **受験者の業務経験** — A案＝維持管理経験が中心／B案＝新設プロジェクト経験が中心
+- **主軸トレードオフ** — A案＝情報×経済 / 経済×社環 / 社環×人的／B案＝経済×社環 / 人的×情報 / 経済×社環
+- **5 年内施策の核** — A案＝AI 遠隔点検 + LCA 補修最適化／B案＝自動運転重機+電動建機 + BIM/CIM
+- **2050 年抜本策** — A案＝自己治癒材料 + インフラ集約／B案＝路面太陽光・走行中給電 + カーボンネガティブ材料
+- **「管理行為」要素** — A案＝総合評価方式・J-クレジット・住民対話／B案＝性能規定・J-クレジット・地域共同利用
+- **問題文ヒント** — A案＝既設活用・予防保全・LCA／B案＝施工プロセス・新設・物流効率
 
 維持管理経験を持つ受験者は A 案、新設プロジェクト経験を持つ受験者は B 案を選びます。試験本番では問題文に「既設」「予防保全」「LCA」「アセットマネジメント」が出ていれば A 案、「施工」「新設」「物流」が出ていれば B 案を即選択します。
 
 ## トレードオフと解決フレームの整理
 
-| 案 | 設問 | 論じたトレードオフ | 解決フレーム |
-|---|---|---|---|
-| B 案 | (2) 施策 1 | 経済性管理 × 社会環境管理 | [LCA・外部不経済の内部化](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#lca外部不経済の内部化)（GX 機械への加点評価） |
-| B 案 | (2) 施策 2 | 人的資源管理 × 情報管理 | [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#段階的実施) + [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#合意形成情報開示)（仕様書義務化＋地域共同利用） |
-| B 案 | (3) | 経済性管理 × 社会環境管理 | [LCA・外部不経済の内部化](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#lca外部不経済の内部化)（J-クレジット） |
+B 案（バイパス整備版）で論じたトレードオフを再整理する。
+
+- **設問(2) 施策 1** — トレードオフ: 経済性管理 × 社会環境管理／解決フレーム: [LCA・外部不経済の内部化](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#lca外部不経済の内部化)（GX 機械への加点評価）
+- **設問(2) 施策 2** — トレードオフ: 人的資源管理 × 情報管理／解決フレーム: [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#段階的実施) + [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#合意形成情報開示)（仕様書義務化＋地域共同利用）
+- **設問(3)** — トレードオフ: 経済性管理 × 社会環境管理／解決フレーム: [LCA・外部不経済の内部化](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#lca外部不経済の内部化)（J-クレジット）
 
 ## 採点者視点でのチェックポイント
 

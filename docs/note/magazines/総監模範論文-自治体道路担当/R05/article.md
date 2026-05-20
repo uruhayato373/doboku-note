@@ -37,13 +37,11 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
 ## 想定する管理対象と前提条件
 
-| 項目 | 設定 |
-|---|---|
-| 組織名 | ○○県○○土木事務所（県土整備部の地域機関） |
-| 役割 | 管内の道路網の新設・維持管理・災害復旧を所管 |
-| 経営資源 | 道路工学の知見を持つ技術職員、点検データ（GIS）、維持管理予算 |
-| アウトプット | 安全な道路空間の提供、長寿命化修繕計画、災害時の緊急交通路確保 |
-| 立場 | 道路維持課 課長補佐（事業計画・予算・人員管理の権限を持つ） |
+- **組織名**: ○○県○○土木事務所（県土整備部の地域機関）
+- **役割**: 管内の道路網の新設・維持管理・災害復旧を所管
+- **経営資源**: 道路工学の知見を持つ技術職員、点検データ（GIS）、維持管理予算
+- **アウトプット**: 安全な道路空間の提供、長寿命化修繕計画、災害時の緊急交通路確保
+- **立場**: 道路維持課 課長補佐（事業計画・予算・人員管理の権限を持つ）
 
 ## 設問（１）取り上げる組織の概要
 
@@ -118,11 +116,9 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 
 ## トレードオフと解決フレームの整理
 
-| 戦略 | クロス | 論じたトレードオフ | 解決フレーム |
-|---|---|---|---|
-| 1 | S1・S2 × O1・O2 | 経済性管理 × 情報管理 × 社会環境管理 | [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#段階的実施)（自治体共同利用 + 補助金活用 + 住民説明） |
-| 2 | W1 × O1 | 人的資源管理 × 経済性管理 | [合意形成・情報開示](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#合意形成情報開示)（評価項目化） |
-| 3 | W2 × T1・T2 | 情報管理 × 安全管理 × 経済性管理 | [リスクベース判断](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#リスクベース判断)（重要工程の記録厳格化 + 気候適応） |
+- **1** — クロス: S1・S2 × O1・O2 ／ 論じたトレードオフ: 経済性管理 × 情報管理 × 社会環境管理 ／ 解決フレーム: [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#段階的実施)（自治体共同利用 + 補助金活用 + 住民説明）
+- **2** — クロス: W1 × O1 ／ 論じたトレードオフ: 人的資源管理 × 経済性管理 ／ 解決フレーム: [合意形成・情報開示](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#合意形成情報開示)（評価項目化）
+- **3** — クロス: W2 × T1・T2 ／ 論じたトレードオフ: 情報管理 × 安全管理 × 経済性管理 ／ 解決フレーム: [リスクベース判断](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#リスクベース判断)（重要工程の記録厳格化 + 気候適応）
 
 ## 採点者視点でのチェックポイント
 
