@@ -297,10 +297,210 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height 
   };
 }
 
+// ---- テンプレート: magazine-banner (note マガジン/クリエイターページ ヘッダー対応) ----
+//
+// note のマガジン/クリエイターページのヘッダーは、画像中央の 1280×216 帯が
+// クロップ表示される。主要素（マガジン名）をこの帯の縦中央・横中央に配置し、
+// ワードマーク・カテゴリチップ・装飾は帯の上下ゾーンに置く（全体表示時のみ可視）。
+// mono-tag（OGP・記事カバー用、中央 630×630 正方形クロップ前提）とは別系統。
+
+const HEADER_BAND_HEIGHT = 216;
+
+function renderMagazineBanner({ lines, categoryLabel: cat, fontSize }, { width, height }) {
+  const fineGridUrl = gridDataUrl(30, 'rgba(15,30,63,0.04)', 1);
+  const majorGridUrl = gridDataUrl(120, 'rgba(15,30,63,0.09)', 1.25);
+
+  const bandTop = Math.round((height - HEADER_BAND_HEIGHT) / 2);
+  const bottomTop = bandTop + HEADER_BAND_HEIGHT;
+
+  const wordmark = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        alignItems: 'baseline',
+        fontFamily: 'Inter, "Noto Sans JP", sans-serif',
+      },
+      children: [
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              fontSize: '24px',
+              fontWeight: 800,
+              letterSpacing: '-0.6px',
+              color: C_INK_NAVY,
+              marginRight: '16px',
+            },
+            children: [
+              { type: 'span', props: { style: { display: 'flex' }, children: 'doboku' } },
+              { type: 'span', props: { style: { display: 'flex', color: C_CYAN }, children: '-' } },
+              { type: 'span', props: { style: { display: 'flex' }, children: 'note' } },
+            ],
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              display: 'flex',
+              fontSize: '15px',
+              color: C_INK_MUTED,
+              letterSpacing: '1.5px',
+              fontFamily: '"Noto Sans JP", Inter, sans-serif',
+            },
+            children: SITE_TAGLINE,
+          },
+        },
+      ],
+    },
+  };
+
+  const categoryChip = cat
+    ? {
+        type: 'div',
+        props: {
+          style: {
+            display: 'flex',
+            alignItems: 'center',
+            marginTop: '22px',
+            padding: '7px 16px',
+            background: C_INK_NAVY,
+            color: '#ffffff',
+            fontFamily: '"Noto Sans JP", Inter, sans-serif',
+            fontSize: '18px',
+            fontWeight: 600,
+            letterSpacing: '0.5px',
+          },
+          children: [
+            {
+              type: 'div',
+              props: {
+                style: {
+                  display: 'flex',
+                  color: C_CYAN_ACCENT,
+                  fontSize: '14px',
+                  marginRight: '10px',
+                  fontFamily: 'Inter, "Noto Sans JP", sans-serif',
+                },
+                children: '▶',
+              },
+            },
+            { type: 'div', props: { style: { display: 'flex' }, children: cat } },
+          ],
+        },
+      }
+    : null;
+
+  const titleLines = lines.map((line) => ({
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        fontSize: `${fontSize}px`,
+        fontWeight: 800,
+        lineHeight: 1.35,
+        color: C_INK_DEEP,
+        letterSpacing: '-0.4px',
+      },
+      children: line,
+    },
+  }));
+
+  const accentBar = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        width: '72px',
+        height: '4px',
+        background: C_CYAN,
+        marginBottom: '18px',
+      },
+      children: [],
+    },
+  };
+
+  const domainText = {
+    type: 'div',
+    props: {
+      style: {
+        display: 'flex',
+        fontSize: '15px',
+        color: C_INK_MUTED,
+        letterSpacing: '2px',
+        textTransform: 'uppercase',
+        fontFamily: 'Inter, "Noto Sans JP", sans-serif',
+      },
+      children: SITE_DOMAIN,
+    },
+  };
+
+  const zone = (top, zoneHeight, items) => ({
+    type: 'div',
+    props: {
+      style: {
+        position: 'absolute',
+        top: `${top}px`,
+        left: 0,
+        width: `${width}px`,
+        height: `${zoneHeight}px`,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
+      children: items,
+    },
+  });
+
+  const children = [
+    {
+      type: 'div',
+      props: {
+        style: {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          backgroundImage: `url(${majorGridUrl}), url(${fineGridUrl})`,
+          backgroundRepeat: 'repeat, repeat',
+        },
+        children: [],
+      },
+    },
+    // 上ゾーン（ヘッダー帯の外・全体表示時のみ可視）: ワードマーク＋カテゴリチップ
+    zone(0, bandTop, [wordmark, categoryChip].filter(Boolean)),
+    // 中央ヘッダー帯（note ヘッダーでクロップ表示される 1280×216）: マガジン名
+    zone(bandTop, HEADER_BAND_HEIGHT, titleLines),
+    // 下ゾーン（ヘッダー帯の外・全体表示時のみ可視）: アクセント＋ドメイン
+    zone(bottomTop, height - bottomTop, [accentBar, domainText]),
+  ];
+
+  return {
+    type: 'div',
+    props: {
+      style: {
+        width: `${width}px`,
+        height: `${height}px`,
+        display: 'flex',
+        position: 'relative',
+        background: C_BG,
+        fontFamily: '"Noto Sans JP", Inter, sans-serif',
+      },
+      children,
+    },
+  };
+}
+
 // ---- ディスパッチ ----
 
 const renderers = {
   'mono-tag': renderMonoTag,
+  'magazine-banner': renderMagazineBanner,
 };
 
 /**
