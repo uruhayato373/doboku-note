@@ -2,7 +2,7 @@
 // docs/note/magazines/総監模範論文-道路発注者/img/ に図版 1 枚 (SVG + PNG) を生成する。
 //
 // 設計ルール（docs/reference/note-svg-policy.md 準拠）:
-//   - キャンバス幅 1200、高さ 750
+//   - キャンバス幅 1200、高さ 900（3 セクション縦積み、表 3 行を見切れなく収める）
 //   - フォント ≥ 22px（補足を含めて統一）
 //   - 色トークン（src/styles/globals.css と整合）のみ使用
 //   - 識別は右下 doboku-note.com テキストのみ
@@ -38,7 +38,7 @@ const BORDER_LIGHT = '#e2e8f0';
 
 const FONT = "Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif";
 const W = 1200;
-const H = 750;
+const H = 900;
 
 function xml(s) {
   return String(s)
@@ -85,7 +85,7 @@ function svgPersonaProfile() {
   const subY      = 92;
   const sec1Y     = 125;  // ペルソナ概要ヘッダ
   const sec2Y     = 240;  // トレードオフ ヘッダ
-  const sec3Y     = 480;  // 年度別テーブル ヘッダ
+  const sec3Y     = 524;  // 年度別テーブル ヘッダ（Section 2 ③カード底 520 と衝突回避）
 
   // --- ① ペルソナ概要バー ---
   const personaItems = [
