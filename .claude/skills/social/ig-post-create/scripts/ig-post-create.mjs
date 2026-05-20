@@ -22,6 +22,7 @@ import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { execSync } from 'node:child_process';
+import { Resvg } from '@resvg/resvg-js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../../../../../');
@@ -33,8 +34,14 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i++) {
     if (argv[i].startsWith('--')) {
       const key = argv[i].slice(2);
-      result[key] = argv[i + 1] ?? true;
-      i++;
+      const next = argv[i + 1];
+      // 次トークンが別フラグ or 無ければ boolean フラグ扱い
+      if (next !== undefined && !next.startsWith('--')) {
+        result[key] = next;
+        i++;
+      } else {
+        result[key] = true;
+      }
     }
   }
   return result;
@@ -85,12 +92,60 @@ function buildStickyText(definition, examPoints, rawContent) {
   return '試験\nPoint';
 }
 
-/** テキストを指定文字数で単語境界（句読点）に切り捨て、末尾に … を付ける */
-function truncateCaption(text, maxLen = 18) {
-  if (!text || text.length <= maxLen) return text;
-  const cut = text.slice(0, maxLen);
-  const boundary = cut.search(/[、。・\s](?=[^、。・\s]*$)/);
-  return boundary > 0 ? cut.slice(0, boundary) + '…' : cut + '…';
+/** v1 スキーマ {cover,board,cta} を v2 {cover,slides[],cta} へ in-memory 変換 */
+function normalizeSlideData(sd) {
+  if (Array.isArray(sd.slides)) return sd;
+  const cover = sd.cover || {};
+  const board = sd.board || {};
+  const cta = sd.cta || {};
+  return {
+    cover: {
+      keyword: cover.keyword,
+      subtitle: cover.subtitle ?? null,
+      stickyText: cover.stickyText,
+      management: cover.management || board.management || 'safety',
+    },
+    slides: [
+      { type: 'board', heading: board.heading, body: board.body, noteText: board.noteText },
+    ],
+    cta: { related: cta.related || [] },
+  };
+}
+
+const FIGURE_FONT_DIR = resolve(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
+
+/**
+ * figure スライドの imagePath を data URI に解決する（無ければスペック表示にフォールバック）。
+ * SVG はフォントを解決して PNG にレンダリングする — Satori の <img> 内 SVG は
+ * フォントを解決できずテキストが消えるため、事前に resvg で焼き込む。
+ */
+function resolveFigureImage(slide) {
+  if (slide.type !== 'figure' || !slide.imagePath || slide.imageBase64) return slide;
+  const abs = resolve(ROOT, slide.imagePath);
+  if (!existsSync(abs)) {
+    console.warn(`  [figure] 画像が見つかりません: ${slide.imagePath}（スペック表示にフォールバック）`);
+    return slide;
+  }
+  const lower = abs.toLowerCase();
+  if (lower.endsWith('.svg')) {
+    const svg = readFileSync(abs, 'utf8');
+    const resvg = new Resvg(svg, {
+      font: {
+        fontFiles: [
+          resolve(FIGURE_FONT_DIR, 'NotoSansJP-Bold.ttf'),
+          resolve(FIGURE_FONT_DIR, 'Inter-Bold.ttf'),
+        ],
+        loadSystemFonts: false,
+        defaultFontFamily: 'Noto Sans JP',
+      },
+      fitTo: { mode: 'width', value: 1400 },
+    });
+    const png = resvg.render().asPng();
+    return { ...slide, imageBase64: `data:image/png;base64,${png.toString('base64')}` };
+  }
+  const buf = readFileSync(abs);
+  const mime = lower.endsWith('.jpg') || lower.endsWith('.jpeg') ? 'image/jpeg' : 'image/png';
+  return { ...slide, imageBase64: `data:${mime};base64,${buf.toString('base64')}` };
 }
 
 /** 定義文を板書用に整形 */
@@ -148,7 +203,7 @@ let slideData;
 
 if (existsSync(configPath) && !resetFlag) {
   // 再実行: slide-data.json から読み込み（MDX 解析スキップ）
-  slideData = JSON.parse(readFileSync(configPath, 'utf8'));
+  slideData = normalizeSlideData(JSON.parse(readFileSync(configPath, 'utf8')));
   console.log(`  [config] slide-data.json を使用`);
 } else {
   // 初回 or --reset: MDX から抽出してデータを計算
@@ -164,8 +219,6 @@ if (existsSync(configPath) && !resetFlag) {
     const parts = t.split('：');
     return parts.length >= 3 ? parts.join('\n') : t;
   })();
-  const boardCaption = truncateCaption(mdx.examPoints[1] ?? mdx.examPoints[0] ?? null);
-
   console.log(`  title: ${mdx.title}`);
   console.log(`  management: ${management}`);
   console.log(`  subtitle: ${subtitle}`);
@@ -178,19 +231,12 @@ if (existsSync(configPath) && !resetFlag) {
       subtitle,
       stickyText,
       management,
-      caption: `${mdx.title}\nとは何か？`,
     },
-    board: {
-      heading: mdx.title,
-      body: definition,
-      noteText: boardNoteText,
-      management,
-      caption: boardCaption,
-    },
+    slides: [
+      { type: 'board', heading: mdx.title, body: definition, noteText: boardNoteText },
+    ],
     cta: {
       related: relatedLabels.slice(0, 4),
-      management,
-      caption: '続きは doboku-note で',
     },
   };
 
@@ -205,11 +251,28 @@ if (configOnly) {
   process.exit(0);
 }
 
+const management = slideData.cover?.management || 'safety';
+const padNum = (n) => String(n).padStart(2, '0');
+
 const SLIDES = [
   { file: '00-cover.png', slide: { type: 'notebook-cover', data: slideData.cover } },
-  { file: '01-board.png', slide: { type: 'notebook-board', data: slideData.board } },
-  { file: '02-cta.png',   slide: { type: 'notebook-cta',   data: slideData.cta   } },
+  ...slideData.slides.map((s, i) => {
+    const data = { ...resolveFigureImage(s), management };
+    const num = padNum(i + 1);
+    return s.type === 'figure'
+      ? { file: `${num}-figure.png`, slide: { type: 'notebook-figure', data } }
+      : { file: `${num}-board.png`,  slide: { type: 'notebook-board',  data } };
+  }),
+  {
+    file: `${padNum(slideData.slides.length + 1)}-cta.png`,
+    slide: { type: 'notebook-cta', data: { ...slideData.cta, management } },
+  },
 ];
+
+if (SLIDES.length < 3 || SLIDES.length > 10) {
+  console.warn(`  [warn] カルーセル ${SLIDES.length} 枚（Instagram 制約 2-10・推奨 3-10）`);
+}
+console.log(`  slides: ${SLIDES.length} 枚 (cover + ${slideData.slides.length} + cta)`);
 
 for (const size of sizes) {
   const imgDir = resolve(outBase, `${size.name}/img`);

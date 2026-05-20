@@ -80,5 +80,13 @@ discovery（並行・安全）と application（直列）を分離して MDX 編
 
 ## 現在の状況
 
-- 設計確定・本書作成（Phase 0 着手前）。
+- 設計確定・本書作成済み。
+- **Phase 0 完了**（2026-05-20）。slide-data.json v2 スキーマを実装・動作確認済み:
+  - `slide-data.json` v2 = `{cover, slides[], cta}`。`slides` は `type: "board"|"figure"` の可変配列（カルーセル合計 3〜10 枚）。
+  - `notebook-slides.mjs`: キャプション帯（`buildCaptionArea`）を廃止しコンテンツ領域を全高化、`buildNotebookFigure` を追加。
+  - `slide-render.mjs`: `notebook-figure` 型を登録。
+  - `ig-post-create.mjs`: SLIDES を可変化、v1→v2 後方互換シム `normalizeSlideData`（既存 727 ファイルは無改修で描画可）、figure の `imagePath` を data URI 解決。SVG は resvg＋フォントで PNG に焼いてから埋め込む（Satori の `<img>` 内 SVG はフォント未解決でテキストが消えるため）。`parseArgs` の連続フラグ取りこぼしバグも修正。
+  - `publish-ig.mjs`: caption 生成を v1/v2 両対応に。
+  - 検証済み: 既存 v1 ファイルの後方互換描画、v2 multi-slide（cover+board+figure×2+cta=5枚）描画、figure の実 SVG 埋め込み（図中ラベル完全描画）・スペックプレースホルダ描画、`--config-only`。
+- 次は **Phase 1**: `docs/reference/ig-carousel-policy.md`（ルーブリック）作成 → `ig-carousel-writer`/`ig-carousel-qa` エージェント登録 → 投稿日順に slide-data.json v2 を執筆。
 - 関連: 727枚の IG 画像再生成（日付削除・見出し修正）は develop に commit 53c19fba9 済み。内容改善後に再描画される。
