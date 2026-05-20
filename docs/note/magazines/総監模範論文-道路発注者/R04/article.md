@@ -46,8 +46,6 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 | アウトプット | 道路の設計図書・工事発注、道路BIMモデル、工事監理報告書 |
 | 立場 | 道路建設課 課長補佐（タスクフォースリーダー指名）、技術士（建設部門・道路）保有 |
 
-![図: 道路発注者典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
-
 道路発注者ペルソナの他の管理対象パターンへの置き換えは [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r04) を参照してください。
 
 ## 設問（１）組織の内容とデジタル技術の利用の変遷

@@ -45,8 +45,6 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 | アウトプット | 安全な道路空間の提供、長寿命化修繕計画、災害時の緊急交通路確保 |
 | 立場 | 道路維持課 課長補佐（事業計画・予算・人員管理の権限を持つ） |
 
-![図: 道路発注者典型 5 管理トレードオフ・プロファイル](../img/figure-persona-profile.png)
-
 道路発注者ペルソナの他の管理対象パターンへの置き換えは [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) を参照してください。
 
 ## 設問（１）取り上げる組織の概要
