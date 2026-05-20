@@ -19,14 +19,15 @@
 - 各 `storyboard.json` の slide は `{ type, data, script }`。`script` が TTS・字幕の真実源。
 - 品質ルーブリック: `docs/reference/yt-shorts-script-policy.md`（5軸・字数厳守ルール・固有名詞取り違えチェックを含む。Generator/Evaluator 両方がこれを参照）。
 
-## 進捗（2026-05-20 時点）
+## 進捗
+
+**機械可読の真実源**: `.claude/state/sns/quality-campaign-progress.json`（`yt.totalDoneIndex` = フォルダ名ソート順の完了位置）。
 
 - 139本の storyboard.json を機械下生成済み（commit c8dc83d0c）。
-- **完了・develop/main へマージ・本番デプロイ済み: 約55本**
-  - batch 1-6（43本、commit 998cd21e5・9c118fdaf）
-  - batch 7（7本、commit 0c07ec803。blockchain-crypto 〜 business-intelligence。Evaluator 採点済み）
-  - batch 8 partial（5本、commit b2fe741b2。capacity-management 〜 career-path。**Evaluator 未採点の暫定コミット** — 再開時に採点し直すのが望ましい）
-- **残り: 約84本未着手**。再開は batch 8 の残り2本（career-track-system・cash-flow-statement）から。
+- batch 1-7（50本）・batch 8 partial（5本）は 2026-05-20 までに完了。
+- 2026-05-20 自動ループキャンペーン: cycle 1-4 完了。**YT 78/139 本完了**（ソート位置 1-78、batch 8 partial 5本も再採点済み）。
+  - cycle 1-4 commit: `revise(yt): Shorts 台本品質改善 batch 8-11`。
+- **残り: 61本**。再開はソート位置 79 から（`ls -d docs/sns/youtube/2*/ | sort | sed -n '79,85p'`）。
 
 ## 再開手順
 
