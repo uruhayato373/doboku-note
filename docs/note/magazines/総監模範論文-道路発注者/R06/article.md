@@ -47,8 +47,6 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 | 立場 | 道路維持課 課長補佐（バイパス整備事業の総括担当） |
 | 前提条件 | 都市部用地買収の難航、ICT 施工の全面義務化、振動・騒音への厳しい環境制約、最新排出規制適合機械の使用 |
 
-道路発注者ペルソナの他の管理対象パターン（橋梁長寿命化・トンネル・法面）への置き換えは [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06) を参照してください。
-
 ## A 案 設問（１）事業の内容と CN に関連する取組状況
 
 ### 事業の内容、目的、成果物

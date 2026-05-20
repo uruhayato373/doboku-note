@@ -48,8 +48,6 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 | 立場 | 道路維持課 課長補佐 |
 | 前提条件 | 厳しい財政制約、熟練技術者の大量退職、ベテラン依存からの脱却が急務 |
 
-道路発注者ペルソナの他の管理対象パターン（バイパス・トンネル・法面）への置き換えは [道路発注者向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) を参照してください。
-
 ## A 案 設問（１）事業の内容と少子高齢化への対応状況
 
 ### 事業の内容、目的、成果物
