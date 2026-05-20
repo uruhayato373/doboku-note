@@ -94,8 +94,8 @@ const MAGAZINES_RAW = {
 
   'essay-road-municipality-magazine': {
     id: 'essay-road-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m52186ffd12ca',
     title: '総監記述式 模範論文｜自治体 道路担当 R3-R7 + R8予想セット',
     description:
       'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分 + R08 予想問題集（気候変動適応・資源循環）。過去問 5 年分はいずれも橋梁長寿命化（維持管理）版とバイパス整備・道路建設（新設）版の A 案／B 案 2 バージョン併記、R08 予想は自治体 道路担当フル解答 2 本の合計 6 記事。地方自治体の道路担当（発注者）の立場で「経済性 × 安全 × 社会環境」を主軸に、各記事に設問全文を再掲して組み立てた論文構成を解説。試験 1 ヶ月前（2026-06）に R08 予想章を追加公開予定。',
