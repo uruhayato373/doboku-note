@@ -15,8 +15,8 @@
       .box-api  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
       .box-svc  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
     </style>
-    <marker id="api-arrow" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
-      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    <marker id="api-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
     </marker>
   </defs>
 
