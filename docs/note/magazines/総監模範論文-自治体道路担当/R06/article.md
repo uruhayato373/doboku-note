@@ -166,14 +166,6 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 - **経済性管理**: 環境価値を市場で取引する J-クレジット等の仕組みを大幅拡充し、民間投資を促す
 - **社会環境管理**: 地域住民への説明では VR/AR で将来の道路機能拡張を可視化し、合意形成を加速させる。スマート・シュリンク（路線集約）と組み合わせ、総延長を縮小しつつ機能高度化を図る
 
-## トレードオフと解決フレームの整理
-
-B 案（バイパス整備版）で論じたトレードオフを再整理する。
-
-- **設問(2) 施策 1** — トレードオフ: 経済性管理 × 社会環境管理／解決フレーム: [LCA・外部不経済の内部化](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#lca外部不経済の内部化)（GX 機械への加点評価）
-- **設問(2) 施策 2** — トレードオフ: 人的資源管理 × 情報管理／解決フレーム: [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#段階的実施) + [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#合意形成情報開示)（仕様書義務化＋地域共同利用）
-- **設問(3)** — トレードオフ: 経済性管理 × 社会環境管理／解決フレーム: [LCA・外部不経済の内部化](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06#lca外部不経済の内部化)（J-クレジット）
-
 ## 採点者視点でのチェックポイント
 
 R6 の CN テーマは「現状取組の限界 → 施策の組合せ → 2050 年の構造変革」で書きます。採点者がチェックするのは次の 4 点です。

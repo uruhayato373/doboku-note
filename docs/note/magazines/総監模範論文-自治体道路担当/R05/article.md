@@ -114,12 +114,6 @@ https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE
 - **障害（経済性管理）**: 監視カメラ網と通信インフラの整備には継続的な維持費が発生する
 - **克服策**: 重要工程・災害監視対象については「静止画＋動画」と冗長通信路（衛星 + 5G）による記録ルールを厳格化する。サイバーセキュリティ対策を施したクラウド上でデータを一元管理する。維持費は気候変動適応の国土強靱化補助制度を継続活用する
 
-## トレードオフと解決フレームの整理
-
-- **1** — クロス: S1・S2 × O1・O2 ／ 論じたトレードオフ: 経済性管理 × 情報管理 × 社会環境管理 ／ 解決フレーム: [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#段階的実施)（自治体共同利用 + 補助金活用 + 住民説明）
-- **2** — クロス: W1 × O1 ／ 論じたトレードオフ: 人的資源管理 × 経済性管理 ／ 解決フレーム: [合意形成・情報開示](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#合意形成情報開示)（評価項目化）
-- **3** — クロス: W2 × T1・T2 ／ 論じたトレードオフ: 情報管理 × 安全管理 × 経済性管理 ／ 解決フレーム: [リスクベース判断](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05#リスクベース判断)（重要工程の記録厳格化 + 気候適応）
-
 ## 採点者視点でのチェックポイント
 
 R5 の SWOT 分析は「組織として継続的にアウトプットを出す主体」を描きます。採点者がチェックするのは次の 4 点です。

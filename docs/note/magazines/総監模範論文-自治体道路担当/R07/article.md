@@ -199,15 +199,6 @@ ICT 機器の導入費用や 3 次元データの作成負荷が大きく、中�
 - **情報管理**: 個人情報保護法に基づく安全管理基準を明確化し、匿名加工・同意取得の標準的な手続きを整備することでデータ活用への信頼を醸成する
 - **経済性管理**: 診療・介護報酬の加算制度でデジタル対応事業者を優遇するとともに、小規模事業者向けの設備投資補助金を創設し、導入コストの初期障壁を下げる
 
-## トレードオフと解決フレームの整理
-
-本論文で論じたトレードオフを、頻出 6 ペアの枠組みで再整理します。
-
-- **(2) 施策 1** — 論じたトレードオフ: 情報管理 × 経済性管理 ／ 解決フレーム: [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#段階的実施)（自治体間の共同利用）
-- **(2) 施策 2** — 論じたトレードオフ: 人的資源管理 × 経済性管理 ／ 解決フレーム: [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#合意形成情報開示)（業務評価項目への組込み）
-- **(3) 施策 1** — 論じたトレードオフ: 社会環境管理 × 人的資源管理 ／ 解決フレーム: [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#合意形成情報開示)（共生育成プログラム＋対話的合意形成）
-- **(3) 施策 2** — 論じたトレードオフ: 情報管理 × 経済性管理 ／ 解決フレーム: [段階的実施](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07#段階的実施)（診療報酬加算 + 補助金で導入障壁低減）
-
 ## 採点者視点でのチェックポイント
 
 R7 の三層構造は「現在の限界 → 5 年以内の現実的施策 → 我が国の国家施策」で書きます。採点者がチェックするのは次の点です。
