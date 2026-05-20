@@ -5,9 +5,13 @@
 // 中央 630×630 セーフティゾーン厳守。テンプレロジックは
 // .claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs に集約。
 //
+// docs/note 直下の記事（slug/article.md）と、マガジン配下の記事
+// （magazines/{magazine}/{RXX}/article.md）の両方を対象とする。
+//
 // 使い方:
 //   node scripts/generate-note-covers.mjs                   # 全件生成
-//   node scripts/generate-note-covers.mjs 一般部門との違い      # 1件だけ生成（slug 前方一致）
+//   node scripts/generate-note-covers.mjs 一般部門との違い      # 1件だけ生成（slug 部分一致）
+//   node scripts/generate-note-covers.mjs 自治体道路担当         # マガジン配下も部分一致で対象化
 //   node scripts/generate-note-covers.mjs 総監 --debug-safety   # 中央 630×630 の赤枠を重ねる
 
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
@@ -82,6 +86,26 @@ async function renderCover({ dirName, title, coverTitle, category, debugSafety, 
   console.log(`  ok: ${dirName}`);
 }
 
+/**
+ * docs/note 配下を再帰的に走査し、article.md を持つディレクトリを
+ * NOTE_DIR からの相対パスで返す。直下記事（slug/）と
+ * マガジン配下記事（magazines/{magazine}/{RXX}/）の両方に対応する。
+ */
+function collectArticleDirs(absDir, relDir) {
+  const entries = readdirSync(absDir, { withFileTypes: true });
+  let result = [];
+  if (entries.some((e) => e.isFile() && e.name === 'article.md')) {
+    result.push(relDir);
+  }
+  for (const e of entries) {
+    if (e.isDirectory() && e.name !== 'img') {
+      const childRel = relDir ? `${relDir}/${e.name}` : e.name;
+      result = result.concat(collectArticleDirs(join(absDir, e.name), childRel));
+    }
+  }
+  return result;
+}
+
 async function processOne(dirName, args, fonts) {
   const dir = join(NOTE_DIR, dirName);
   const articlePath = join(dir, 'article.md');
@@ -110,9 +134,7 @@ async function main() {
     else if (!a.startsWith('--')) args.target = a;
   }
 
-  const allDirs = readdirSync(NOTE_DIR, { withFileTypes: true })
-    .filter((e) => e.isDirectory())
-    .map((e) => e.name);
+  const allDirs = collectArticleDirs(NOTE_DIR, '');
 
   let dirs;
   if (!args.target) {
@@ -120,10 +142,11 @@ async function main() {
   } else if (allDirs.includes(args.target)) {
     dirs = [args.target];
   } else {
-    // slug 前方一致での解決（例: "総監" → "総監択一式17年分分析"）
-    dirs = allDirs.filter((d) => d.startsWith(args.target));
+    // slug 部分一致での解決（例: "総監" → "総監択一式17年分分析"、
+    // "自治体道路担当" → "magazines/総監模範論文-自治体道路担当/R03" 等）
+    dirs = allDirs.filter((d) => d.includes(args.target));
     if (dirs.length === 0) {
-      console.error(`no note directory matches "${args.target}"`);
+      console.error(`no note article directory matches "${args.target}"`);
       process.exit(1);
     }
   }
