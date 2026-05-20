@@ -1,0 +1,55 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "api",
+  "title": "API",
+  "description": "APIの定義・種類・REST API・API連携の仕組みを解説。ソフトウェア間のインターフェース設計とオープンAPI活用を整理する。技術士総合技術監理キーワード集2026（情報管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "総合技術監理",
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "API",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "info"
+      },
+      "script": "API。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "API",
+        "body": "APIの定義・種類・REST API・API連携の仕組みを解説。ソフトウェア間のインターフェース設計とオープンAPI活用を整理する。"
+      },
+      "script": "APIの定義・種類・REST API・API連携の仕組みを解説。ソフトウェア間のインターフェース設計とオープンAPI活用を整理する。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "API：ソフトウェア間のインターフェース仕様（データ・機能のやり取りの取り決め）"
+      },
+      "script": "試験ポイント1。API：ソフトウェア間のインターフェース仕様（データ・機能のやり取りの取り決め）"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "REST API：HTTP/HTTPS+JSON形式の軽量WebAPIが現在の主流"
+      },
+      "script": "試験ポイント2。REST API：HTTP/HTTPS+JSON形式の軽量WebAPIが現在の主流"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "air-pollution-control-act",
+  "title": "大気汚染防止法",
+  "description": "大気汚染防止法の目的・規制対象・排出基準を解説。自動車NOx・PM法、光化学オキシダント、VOC規制、PM2.5も網羅。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "総合技術監理",
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "大気汚染防止法",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "social"
+      },
+      "script": "大気汚染防止法。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "大気汚染防止法",
+        "body": "大気汚染防止法の目的・規制対象・排出基準を解説。自動車NOx・PM法、光化学オキシダント、VOC規制、PM2.5も網羅。"
+      },
+      "script": "大気汚染防止法の目的・規制対象・排出基準を解説。自動車NOx・PM法、光化学オキシダント、VOC規制、PM2.5も網羅。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "SOx総量規制（1974年）・NOx総量規制（1981年）で大気汚染集中地域の排出総量を制限"
+      },
+      "script": "試験ポイント1。SOx総量規制（1974年）・NOx総量規制（1981年）で大気汚染集中地域の排出総量を制限"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "VOC規制（2006年）：法規制と自主的取組のベストミックスで光化学オキシダント対策"
+      },
+      "script": "試験ポイント2。VOC規制（2006年）：法規制と自主的取組のベストミックスで光化学オキシダント対策"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "basel-convention",
+  "title": "バーゼル条約",
+  "description": "有害廃棄物の越境移動を規制するバーゼル条約の概要、PIC手続き、国内法（バーゼル法）との関係を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "総合技術監理",
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "バーゼル条約",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "social"
+      },
+      "script": "バーゼル条約。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "バーゼル条約",
+        "body": "有害廃棄物の越境移動を規制するバーゼル条約の概要、PIC手続き、国内法（バーゼル法）との関係を解説。技術士総合技術監理キーワード集2026（社会環境管理）。"
+      },
+      "script": "バーゼル条約とは、有害廃棄物の越境移動を規制するバーゼル条約の概要、PIC手続き、国内法（バーゼル法）との関係を解説。技術士総合技術監理キーワード集2026（社会環境管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "事前通告・同意（PIC）手続きが規制の核心"
+      },
+      "script": "試験ポイント1。事前通告・同意（PIC）手続きが規制の核心"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "輸入国の書面同意なしに輸出できない"
+      },
+      "script": "試験ポイント2。輸入国の書面同意なしに輸出できない"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

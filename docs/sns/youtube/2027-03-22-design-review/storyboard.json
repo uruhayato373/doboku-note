@@ -1,0 +1,54 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "design-review",
+  "title": "デザインレビュー",
+  "description": "デザインレビュー（DR）の定義・実施段階（DR0〜DR4）・5管理との横断的関係・チェックリスト活用を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
+  "tags": [
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "デザインレビュー",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "economic"
+      },
+      "script": "デザインレビュー。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "デザインレビュー",
+        "body": "デザインレビューの定義・実施段階・5管理との横断的関係・チェックリスト活用を技術士総合技術監理の視点で整理。"
+      },
+      "script": "デザインレビューの定義・実施段階・5管理との横断的関係・チェックリスト活用を技術士総合技術監理の視点で整理。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "設計の各段階で計画的に実施する品質ゲート（市場投入直前の最終検査ではない）"
+      },
+      "script": "試験ポイント1。設計の各段階で計画的に実施する品質ゲート（市場投入直前の最終検査ではない）"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "設計者以外の関係部門が多角的視点で審査に参加し、QCDを最適化する"
+      },
+      "script": "試験ポイント2。設計者以外の関係部門が多角的視点で審査に参加し、QCDを最適化する"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

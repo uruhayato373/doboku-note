@@ -1,0 +1,54 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "alps-treated-water",
+  "title": "ALPS処理水",
+  "description": "ALPS処理水の概要。多核種除去設備（ALPS）の仕組み、トリチウムの特性、海洋放出の方法・安全基準、IAEAの評価を解説。技術士総合技術監理キーワード集2026（社会環境管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "ALPS処理水",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "social"
+      },
+      "script": "ALPS処理水。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "ALPS処理水",
+        "body": "ALPS処理水の概要。多核種除去設備の仕組み、トリチウムの特性、海洋放出の方法・安全基準、IAEAの評価を解説。"
+      },
+      "script": "ALPS処理水の概要。多核種除去設備の仕組み、トリチウムの特性、海洋放出の方法・安全基準、IAEAの評価を解説。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "汚染水：高濃度の放射性物質を含む処理前の水"
+      },
+      "script": "試験ポイント1。汚染水：高濃度の放射性物質を含む処理前の水"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "ALPS処理水：ALPS等で浄化処理し、トリチウム以外の放射性物質を規制基準以下にした水"
+      },
+      "script": "試験ポイント2。ALPS処理水：ALPS等で浄化処理し、トリチウム以外の放射性物質を規制基準以下にした水"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

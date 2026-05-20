@@ -1,0 +1,54 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "cost-effectiveness-analysis",
+  "title": "費用効果分析",
+  "description": "費用効果分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "費用効果分析",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "economic"
+      },
+      "script": "費用効果分析。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "費用効果分析",
+        "body": "費用効果分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+      },
+      "script": "費用効果分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "CEA は効果を貨幣化できない分野（医療・教育・防災）で用いる"
+      },
+      "script": "試験ポイント1。CEA は効果を貨幣化できない分野（医療・教育・防災）で用いる"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "CBA（貨幣ベース）・CEA（効果単位ベース）・CUA（効用ベース）の3手法は効果の測り方で使い分ける"
+      },
+      "script": "試験ポイント2。CBA（貨幣ベース）・CEA（効果単位ベース）・CUA（効用ベース）の3手法は効果の測り方で使い分ける"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}

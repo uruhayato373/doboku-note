@@ -1,0 +1,54 @@
+{
+  "category": "pe-comprehensive-management",
+  "slug": "attitude-appraisal",
+  "title": "情意考課",
+  "description": "情意考課の定義・評価要素（規律性・協調性・積極性・責任感）・留意点を解説。技術士総合技術監理キーワード集2026（人的資源管理）。5管理トレードオフ・過去問演習リンク付き。",
+  "tags": [
+    "keyword"
+  ],
+  "slides": [
+    {
+      "type": "cover",
+      "data": {
+        "title": "情意考課",
+        "subtitle": null,
+        "label": "技術士（総合技術監理部門）",
+        "management": "human"
+      },
+      "script": "情意考課。技術士総合技術監理部門の重要キーワードです。"
+    },
+    {
+      "type": "definition",
+      "data": {
+        "title": "情意考課",
+        "body": "情意考課の定義・評価要素（規律性・協調性・積極性・責任感）・留意点を解説。技術士総合技術監理キーワード集2026（人的資源管理）。"
+      },
+      "script": "情意考課の定義・評価要素（規律性・協調性・積極性・責任感）・留意点を解説。技術士総合技術監理キーワード集2026（人的資源管理）。"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 1,
+        "body": "規律性・協調性・積極性・責任感が主な評価要素"
+      },
+      "script": "試験ポイント1。規律性・協調性・積極性・責任感が主な評価要素"
+    },
+    {
+      "type": "examPoint",
+      "data": {
+        "index": 2,
+        "body": "成果考課・能力考課とともに人事考課の三要素を構成"
+      },
+      "script": "試験ポイント2。成果考課・能力考課とともに人事考課の三要素を構成"
+    },
+    {
+      "type": "cta",
+      "data": {
+        "headline": "もっと詳しく",
+        "subline": "doboku-note で全文を読む",
+        "url": "doboku-note.com"
+      },
+      "script": "詳しい解説は概要欄のリンクから、doboku-note のキーワードページをご覧ください。"
+    }
+  ]
+}
