@@ -12,9 +12,9 @@
       .t-user  { font-size: 11px; fill: #1a3a5c; }
       .t-prov  { font-size: 11px; fill: #555; }
       .t-leg   { font-size: 11px; fill: #555; }
-      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
-      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
-      .box-head  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-user  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* warn-fill / warn — 利用者が責任を負う範囲 */
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* surface / token-border — 事業者管理 */
+      .box-head  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand-fill / brand — ヘッダー */
     </style>
   </defs>
 
@@ -30,26 +30,26 @@
 
   <!-- 行1 アプリケーション -->
   <text class="t-row" x="12" y="87">アプリケーション</text>
-  <rect class="box-brand" x="110" y="62" width="90" height="42" rx="5"/>
+  <rect class="box-user" x="110" y="62" width="90" height="42" rx="5"/>
   <text class="t-user" x="155" y="87" text-anchor="middle">利用者</text>
-  <rect class="box-brand" x="204" y="62" width="90" height="42" rx="5"/>
+  <rect class="box-user" x="204" y="62" width="90" height="42" rx="5"/>
   <text class="t-user" x="249" y="87" text-anchor="middle">利用者</text>
   <rect class="box-surf" x="298" y="62" width="90" height="42" rx="5"/>
   <text class="t-prov" x="343" y="87" text-anchor="middle">事業者</text>
 
   <!-- 行2 データ -->
   <text class="t-row" x="12" y="131">データ</text>
-  <rect class="box-brand" x="110" y="106" width="90" height="42" rx="5"/>
+  <rect class="box-user" x="110" y="106" width="90" height="42" rx="5"/>
   <text class="t-user" x="155" y="131" text-anchor="middle">利用者</text>
-  <rect class="box-brand" x="204" y="106" width="90" height="42" rx="5"/>
+  <rect class="box-user" x="204" y="106" width="90" height="42" rx="5"/>
   <text class="t-user" x="249" y="131" text-anchor="middle">利用者</text>
-  <rect class="box-brand" x="298" y="106" width="90" height="42" rx="5"/>
+  <rect class="box-user" x="298" y="106" width="90" height="42" rx="5"/>
   <text class="t-user" x="343" y="131" text-anchor="middle">利用者</text>
 
   <!-- 行3 ミドルウェア・実行環境 -->
   <text class="t-row" x="12" y="169">ミドルウェア</text>
   <text class="t-row" x="12" y="184">・実行環境</text>
-  <rect class="box-brand" x="110" y="150" width="90" height="42" rx="5"/>
+  <rect class="box-user" x="110" y="150" width="90" height="42" rx="5"/>
   <text class="t-user" x="155" y="175" text-anchor="middle">利用者</text>
   <rect class="box-surf" x="204" y="150" width="90" height="42" rx="5"/>
   <text class="t-prov" x="249" y="175" text-anchor="middle">事業者</text>
@@ -58,7 +58,7 @@
 
   <!-- 行4 OS -->
   <text class="t-row" x="12" y="219">OS</text>
-  <rect class="box-brand" x="110" y="194" width="90" height="42" rx="5"/>
+  <rect class="box-user" x="110" y="194" width="90" height="42" rx="5"/>
   <text class="t-user" x="155" y="219" text-anchor="middle">利用者</text>
   <rect class="box-surf" x="204" y="194" width="90" height="42" rx="5"/>
   <text class="t-prov" x="249" y="219" text-anchor="middle">事業者</text>
@@ -76,7 +76,7 @@
   <text class="t-prov" x="343" y="263" text-anchor="middle">事業者</text>
 
   <!-- 凡例 -->
-  <rect class="box-brand" x="40" y="296" width="16" height="14" rx="3"/>
+  <rect class="box-user" x="40" y="296" width="16" height="14" rx="3"/>
   <text class="t-leg" x="62" y="307">利用者（自社）が管理</text>
   <rect class="box-surf" x="222" y="296" width="16" height="14" rx="3"/>
   <text class="t-leg" x="244" y="307">クラウド事業者が管理</text>
