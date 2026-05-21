@@ -1,26 +1,48 @@
 {
   "cover": {
     "keyword": "ブロックチェーン・暗号資産",
-    "subtitle": null,
-    "stickyText": "ブロックチェーン",
-    "management": "info",
-    "caption": "ブロックチェーン・暗号資産\nとは何か？"
+    "subtitle": "Blockchain / Crypto",
+    "stickyText": "分散型台帳\n改ざん困難\nPoW/PoS",
+    "management": "info"
   },
-  "board": {
-    "heading": "ブロックチェーン・暗号資産",
-    "body": "ブロックチェーン（Blockchain）とは、\n取引データをブロックと呼ばれる単位にまとめ、\n暗号学的ハッシュ関数を用いてブロック同士を時系列に連結した分散型台帳技術である。",
-    "noteText": "ブロックチェーン：ハッシュ関数+P2P+コンセンサスアルゴリズムにより改ざんが極めて困難",
-    "management": "info",
-    "caption": "パブリック型（誰でも参加）…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "ブロックチェーンとは",
+      "body": "ブロックチェーン（Blockchain）とは、取引データをブロックにまとめ、暗号学的ハッシュ関数を用いてブロック同士を時系列に連結した分散型台帳技術である。中央管理者を必要とせず、参加者全員が正当性を検証・合意する。",
+      "noteText": "2008年サトシ・ナカモトが提案\nビットコインの基盤技術"
+    },
+    {
+      "type": "figure",
+      "heading": "ブロックチェーンの連結構造",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/blockchain-crypto/img/figure-1.svg",
+      "note": "前ブロックのハッシュ値を持つことで改ざんが連鎖検知される"
+    },
+    {
+      "type": "board",
+      "heading": "3種類の分類",
+      "body": "参加者の範囲と合意方式によりパブリック型（誰でも参加・低速）、コンソーシアム型（特定組織群・中速）、プライベート型（単一組織管理・高速）の3種類に分類される。",
+      "noteText": "パブリック：BTC・ETH\nコンソーシアム：サプライチェーン"
+    },
+    {
+      "type": "board",
+      "heading": "コンセンサスアルゴリズム",
+      "body": "PoW（計算量による合意・高セキュリティだが電力大）、PoS（保有量に応じた合意権・省電力）、PBFT（3分の2以上の合意で確定・コンソーシアム型向き）の3方式が代表的である。",
+      "noteText": "ETHは2022年にPoW→PoSへ移行\n（The Merge）"
+    },
+    {
+      "type": "board",
+      "heading": "暗号資産・NFT・スマコン",
+      "body": "暗号資産は2019年改正資金決済法により「仮想通貨」から改称された。NFT（非代替性トークン）はブロックチェーン上の一意のデジタル証明書であり、スマートコントラクトは条件成立で自動実行するプログラムである。",
+      "noteText": "NFT = Non-Fungible Token\n唯一性の証明に利用"
+    }
+  ],
   "cta": {
     "related": [
       "IoT（Internet of Things）",
       "デジタルツイン・サイバーフィジカルシステム（CPS）",
       "インターネット",
       "RPA"
-    ],
-    "management": "info",
-    "caption": "続きは doboku-note で"
+    ]
   }
 }

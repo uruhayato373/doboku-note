@@ -123,3 +123,16 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 
 - 2024年6月に「バイオ戦略」から「バイオエコノミー戦略」に名称が変更された事実が MDX 本文にある。旧 v1 には反映されていなかった。v2 では 2024年改定を明示した。
 - 100兆円規模の市場創出目標（2030年）は MDX 本文に明記されているが、ExamPoint には含まれていない。数値目標として試験に出る可能性があるため ExamPoint への追加を検討する。
+
+## biosafety
+
+- `reviewStatus: needs-review` が設定されており、MDX の審査が未完了。公開前に最終レビューを推奨する。
+
+## bowtie-analysis
+
+- `reviewStatus: needs-review` が設定されている。MDX 本文は適切に整備されているが、公開前に最終レビューを推奨する。
+- 図版（ボウタイ構造図）が MDX に存在しない。IG カルーセルの figureSpec で制作指定したものを doboku-note への SVG 寄贈候補として記録する（蝶ネクタイ型：左FTA側＋右ETA側、6要素ラベル付き）。
+
+## break-even-point
+
+- keyword 名「損益分岐点・限界利益・優劣分岐点」は17字であり、ポリシーの「14字以内が望ましい」を超える。MDX の title と一致させる必要があるため変更せずカルーセルに記載したが、将来的にスラグと title の短縮を検討する余地がある（biosafety の findings と同趣旨の指摘）。

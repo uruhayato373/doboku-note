@@ -1,26 +1,42 @@
 {
   "cover": {
     "keyword": "ボウタイ分析",
-    "subtitle": null,
-    "stickyText": "左側（FTA的）",
-    "management": "safety",
-    "caption": "ボウタイ分析\nとは何か？"
+    "subtitle": "Bow-Tie Analysis",
+    "stickyText": "蝶ネクタイ型図解\nFTA+ETA\nバリア管理",
+    "management": "safety"
   },
-  "board": {
-    "heading": "ボウタイ分析",
-    "body": "",
-    "noteText": "左側（FTA的）＝脅威→予防バリア→トップイベント",
-    "management": "safety",
-    "caption": "右側（ETA的）＝トップイベント→緩…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "ボウタイ分析とは",
+      "body": "ボウタイ分析（Bow-Tie Analysis）とは、ハザードを中心に据え、左側に原因（脅威）と予防バリア、右側に結果と緩和バリアを蝶ネクタイ状に図示して、リスクの全体像を可視化する手法である。",
+      "noteText": "ISO 31010:2019 の推奨技法\n化学・石油・ガス産業で普及"
+    },
+    {
+      "type": "figure",
+      "heading": "ボウタイ図の構成要素",
+      "figureSpec": "中央にトップイベント（ハザード制御失敗）、左側に脅威→予防バリア→トップイベントの矢印フロー（FTA側）、右側にトップイベント→緩和バリア→結果の矢印フロー（ETA側）を蝶ネクタイ型に配置。6要素（ハザード・トップイベント・脅威・予防バリア・結果・緩和バリア）をラベル付きで図示。",
+      "note": "左がFTA的（予防）、右がETA的（緩和）"
+    },
+    {
+      "type": "board",
+      "heading": "FTA・ETAとの関係",
+      "body": "左側はFTA的な構造で「脅威→予防バリア→トップイベント」を示し、右側はETA的な構造で「トップイベント→緩和バリア→結果」を示す。FTAとETAを1枚の図に統合したことがボウタイ分析の特徴である。",
+      "noteText": "FTA（左）：原因分析\nETA（右）：結果分析"
+    },
+    {
+      "type": "board",
+      "heading": "特徴と活用場面",
+      "body": "リスクの原因・対策・結果を1枚の図で俯瞰できるため、非専門家を含む関係者へのリスクコミュニケーションに有効である。ISO 31010:2019の付属書において推奨技法として明示されている。",
+      "noteText": "バリアの有効性評価→対策の漏れ特定\nリスクコミュニケーションにも活用"
+    }
+  ],
   "cta": {
     "related": [
       "イベントツリー分析（ETA）",
       "フォールトツリー分析（FTA）",
-      "デシジョンツリー分析",
-      "FMEA"
-    ],
-    "management": "safety",
-    "caption": "続きは doboku-note で"
+      "FMEA",
+      "HAZID"
+    ]
   }
 }
