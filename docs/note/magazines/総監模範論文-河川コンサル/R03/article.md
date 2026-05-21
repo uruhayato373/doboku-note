@@ -75,8 +75,6 @@ https://note.com/dobokunote/m/m32132ecb3033
 - **立場**: 部長（部門統括、技術指導、対外折衝、提案・受注）
 - **前提条件**: GIS・水文シミュレーションは案件単位で活用しているが、流域単位での統合データベース化は未着手、AI 解析は試行段階
 
-河川コンサルペルソナの他の管理対象パターン（大規模氾濫域・小流域砂防等）への置き換えは [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r03) を参照してください。
-
 ## 設問（１）事業の内容と現在のデータ利活用の状況
 
 ### 名称・概要・目的

@@ -74,8 +74,6 @@ https://note.com/dobokunote/m/m32132ecb3033
 - **立場**: 部長（部門統括、技術指導、対外折衝、提案・受注）
 - **前提条件**: 流域治水関連業務の受注は増加傾向だが住民合意形成・自治体支援の負荷が増大、ベテラン技術者の退職進行、若手は入社後 3〜5 年で他社・行政へ流出、自治体側の河川管理者も人員削減で連携負荷が増
 
-河川コンサルペルソナの他の組織パターンへの置き換えは [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r07) を参照してください。
-
 ## 設問（１）事業や組織の内容と少子高齢化への対応状況
 
 ### 事業内容と少子高齢化への対応

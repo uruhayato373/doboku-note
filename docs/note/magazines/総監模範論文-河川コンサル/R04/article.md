@@ -74,8 +74,6 @@ DXを単なるデジタル技術の利用ではなくデジタル技術を活用
 - **立場**: 部長（部門統括、技術指導、対外折衝、提案・受注）、本論文では DX 推進タスクフォースのリーダーを兼務
 - **前提条件**: GIS・水文シミュレーションは標準利用済み、住民共有プラットフォームは試行段階、自治体・住民組織との DX 連携は未確立、来年度から 5 か年の DX 推進計画を策定するタスクフォースが立ち上がる
 
-河川コンサルペルソナの他の組織パターンへの置き換えは [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r04) を参照してください。
-
 ## 設問（１）事業や組織の内容とデジタル技術の利用の変遷
 
 ### 組織の概要・役割・立場

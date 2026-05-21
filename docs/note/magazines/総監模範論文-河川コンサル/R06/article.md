@@ -80,8 +80,6 @@ https://note.com/dobokunote/m/m32132ecb3033
 - **立場**: 部長（部門統括、技術指導、対外折衝、提案・受注）
 - **前提条件**: 自社の直接排出は限定的、本業の計画策定を通じた CN 貢献が主、グリーンインフラ・自然再興は提案実績あり、ブルーカーボンは新規領域
 
-河川コンサルペルソナの他の組織パターンへの置き換えは [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) を参照してください。
-
 ## 設問（１）事業や組織の内容と CN に関連する取組状況
 
 ### 名称・目的・成果物

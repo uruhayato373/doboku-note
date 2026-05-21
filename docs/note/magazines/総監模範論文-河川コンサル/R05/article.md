@@ -77,8 +77,6 @@ SWOT 分析では、内部環境としての「強み（S）」「弱み（W）�
 - **立場**: 部長（部門統括、技術指導、対外折衝、提案・受注）
 - **前提条件**: 不安定な時代の中で組織の持続的発展戦略が必要、流域治水・気候適応・脱炭素対応が急務
 
-河川コンサルペルソナの他の組織パターンへの置き換えは [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r05) を参照してください。
-
 ## 設問（１）組織の概要
 
 ### 組織概要及び役割
