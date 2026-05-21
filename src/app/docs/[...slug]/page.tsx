@@ -388,6 +388,14 @@ export default async function DocPage({
                 <div className="mt-8">
                   <PastExamBacklinks category={category} currentSlug={slugStr} />
                 </div>
+                {/* 参考書籍（Civil textbook: アフィリエイト・補完ポジション） */}
+                <div className="mt-8">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    1級土木の第一次・第二次検定を1冊で押さえたいときに。
+                  </p>
+                  <BookCard asin="4798176834" />
+                </div>
               </>
             )}
 
