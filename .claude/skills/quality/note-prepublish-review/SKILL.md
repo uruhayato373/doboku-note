@@ -38,7 +38,8 @@ user-invocable: true
   │   ├ 太字レンダリング崩れ: `**[link](url)（…）**` Pattern B / `)**（` 境界 Pattern B' を regex 検出（note 独自パーサで描画崩れを起こす既知パターン）
   │   ├ リンク anchor↔slug 整合: anchor テキストとスラッグの title が概念一致しているか辞書（pe-chapters.json + frontmatter fallback）で突合（過去問スラッグは対象外）
   │   ├ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
-  │   └ ハッシュタグ: hashtags.txt 存在 / 99 行以下 / 純粋ハッシュタグ / 重複なし（未生成は warn）
+  │   ├ ハッシュタグ: hashtags.txt 存在 / 99 行以下 / 純粋ハッシュタグ / 重複なし（未生成は warn）
+  │   └ マガジン模範論文（magazines/ 配下のみ）: 試験問題セクション存在 / トレードオフ再掲節の不在 / 設問別解答字数（健全帯 85〜105%）
   │
   ├─ Phase 2: 3 エージェント並列実行
   │   ├ note-link-injector（Generator, Sonnet）— 全 occurrence リンク化（--audit-only 指定時はスキップ）
@@ -48,7 +49,7 @@ user-invocable: true
   └─ Phase 3: 結果集約・最終判定
       ├ inline 違反 1 件以上 → BLOCK（ブロッカー）
       │   ・BLOCK 対象: ファイル不在 / pipe / U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern B・B'
-      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式
+      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式 / 試験問題セクション欠落 / トレードオフ再掲節残存 / 設問別解答字数の健全帯逸脱
       ├ 各エージェントの加重スコア集計
       ├ 合格基準: inline 違反（BLOCK 対象）0 件 + 3 エージェント全て加重スコア 2.0+
       └ 公開可否判定 + 修正アクション一覧
@@ -121,9 +122,31 @@ else
   fi
   if [ "$dups" -gt 0 ]; then echo "HASHTAGS WARN: 重複 $dups 件"; fi
 fi
+
+# 7. マガジン模範論文 専用チェック（docs/note/magazines/ 配下のときのみ）
+case "$F" in
+  */docs/note/magazines/*)
+    # 7a. 設問全文セクション（## 試験問題）の存在
+    if grep -q '^## 試験問題' "$F"; then
+      echo "ESSAY: 試験問題セクション OK"
+    else
+      echo "ESSAY WARN: 「## 試験問題」セクション無し（有料記事の自己完結性のため設問全文の再掲を推奨）"
+    fi
+    # 7b. トレードオフ再掲節の不在（pe-essay-draft v1.5 でテンプレートから除外済み）
+    if grep -q '^## トレードオフと解決フレーム' "$F"; then
+      echo "ESSAY WARN: 「## トレードオフと解決フレームの整理」節が残存（設問本文と重複する再掲節・削除推奨）"
+    else
+      echo "ESSAY: トレードオフ再掲節なし OK"
+    fi
+    # 7c. 解答字数（設問別）— 答案用紙の枚数制限への充足率は設問チェックリストで判定する
+    node "$ROOT/.claude/scripts/note-essay-charcount.mjs" "$F"
+    ;;
+esac
 ```
 
 **注意**: `cd` を使うと `.local/r2/` への相対パスが壊れるので、必ず `$ROOT` を絶対パスで保持する。
+
+**マガジン模範論文の解答字数判定**: `note-essay-charcount.mjs` は設問別の解答字数と、試験問題セクションから抽出した答案用紙制限の文言を出力する。答案用紙 1 枚＝600 字。「各組合せを答案用紙1枚以内」のように組合せ・施策が複数ある設問は「個数 × 600 字」が上限。各設問の解答字数が上限の **85〜105%（健全帯）** に収まっているかを判定し、過少（薄い答案）・過多（字数超過）はいずれも WARN として修正アクションに挙げる。字数は markdown 装飾を含むプロキシ値のため、105% 前後は実答案では上限内の可能性がある点を考慮する。
 
 ## Phase 2: エージェント並列起動
 
@@ -161,6 +184,9 @@ fi
 | リンク anchor↔slug 整合 | ⚠️ | N 件の懸念（ヒューリスティック検査・目視確認推奨） |
 | 図版ファイル存在 | ✅ | N 枚すべて確認 |
 | 文字数 | ⚠️ | N 字（free 範囲 2k〜3k に対し N 字） |
+| 試験問題セクション | ✅ | マガジン論文のみ・「## 試験問題」存在 |
+| トレードオフ再掲節 | ✅ | マガジン論文のみ・再掲節なし |
+| 設問別解答字数 | ⚠️ | マガジン論文のみ・設問(1) N字（上限 M字・X%）… 健全帯 85〜105% |
 
 ---
 

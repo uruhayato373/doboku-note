@@ -108,6 +108,8 @@ title: スキル ガバナンス記録
 | 2026-05-21 | `pe-essay-review` | v1.3 → v1.4 | 評価対象に note マガジン論文（`docs/note/magazines/`）を追加。Phase 1 ターゲット解決を サイト模範論文 slug / note マガジンパス の2系統に拡張 |
 | 2026-05-21 | `note-prepublish-review` | （バグ修正） | 図版存在チェックの正規表現を `../img/`（マガジン共用図）対応に拡張。従来 `./img/` のみで マガジン論文の共用図を素通りしていた問題を修正 |
 | 2026-05-21 | `note-prepublish-review` | （判定緩和） | blockquote を BLOCK 対象から WARN へ緩和。note.com は `>` を引用ブロックとして正しく描画するため、マガジン論文（pe-essay-draft テンプレ由来で `>` を使用）を誤 BLOCK していた |
+| 2026-05-21 | `note-prepublish-review` | （機能追加） | マガジン模範論文 専用 inline チェックを追加（試験問題セクション存在・トレードオフ再掲節の不在・設問別解答字数）。新スクリプト `note-essay-charcount.mjs` を Phase 1 で実行 |
+| 2026-05-21 | `pe-essay-review` | v1.4 → v1.5 | 解答字数の充足率評価を追加（健全帯 85〜105%・過少も過多も欠陥として扱う）。Phase 1 で `note-essay-charcount.mjs` を実行、設問チェックリスト・視点3・出力フォーマットに反映 |
 
 ### カテゴリ変更履歴
 
