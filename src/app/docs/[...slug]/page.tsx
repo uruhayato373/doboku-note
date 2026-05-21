@@ -394,6 +394,17 @@ export default async function DocPage({
               </div>
             )}
 
+            {/* 参考書籍（PE ガイド: アフィリエイト・補完ポジション） */}
+            {category === 'pe-comprehensive-management' && docGroup === 'guide' && (
+              <div className="mt-8">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  総監受験を申込書から口頭試験まで通して押さえたいときに。
+                </p>
+                <BookCard asin="4526084263" />
+              </div>
+            )}
+
             {/* よくある質問（frontmatter faqs を持つ記事のみ表示） */}
             {Array.isArray((doc.meta as any).faqs) && (doc.meta as any).faqs.length > 0 && (
               <div className="mt-8">
