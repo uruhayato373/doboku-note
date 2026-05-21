@@ -28,7 +28,7 @@ price: 500
 
 ゼネコンペルソナの過去 5 年分（R03-R07）をセットにした **magazine ¥1,980（単品 5 本 ¥2,500 → 21%OFF）** もあわせてご覧ください。
 
-https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE
+https://note.com/dobokunote/m/m32aaa137f22e
 
 ---
 
@@ -182,4 +182,4 @@ R4 ゼネコン版は「i-Construction の延長 → 自動運転による業態
 
 R03（データ利活用）/ R04（DX）/ R05（SWOT）/ R06（カーボンニュートラル）/ R07（少子高齢化）と、テーマは毎年異なりますが、**ゼネコン土木支店として書ける論点とトレードオフは共通パターン** があります。5 年分をまとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE
+https://note.com/dobokunote/m/m32aaa137f22e
