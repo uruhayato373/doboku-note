@@ -59,3 +59,15 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 ## alps-treated-water
 
 - 廃炉完了目標として MDX 本文に「2051年」と記載されているが、廃炉工程表は東京電力が複数回見直しており、最新情報での確認を推奨。IG カルーセルでは MDX 本文の記述（2051年）に忠実に記載した。
+
+## antitrust-compliance
+
+- キーワード名「独占禁止法とコンプライアンス」は15字でポリシーの推奨上限14字を超える。MDX の title と一致させる必要があるため変更はせずカルーセルに記載したが、将来的にスラグとtitleの短縮を検討する余地がある。
+
+## annual-salary-system
+
+- `RelatedKeywords` の5件はすべて労働法系（次世代育成・子育て・育児介護・障害者差別・障害者雇用）で年俸制との関連が間接的。賃金制度・評価制度に直結する「職務給」「業績連動型賞与制度」「目標管理制度（MBO）」との関連リンクがあるとより有用。
+
+## api
+
+- `RelatedKeywords` が `iot` と `blockchain-crypto` の2件のみで最小限。`cloud-computing`・`cybersecurity`（情報セキュリティ関連）が追加されるとAPIエコノミー・セキュリティの観点で補完できる。
