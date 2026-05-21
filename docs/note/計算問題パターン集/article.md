@@ -2,7 +2,8 @@
 notePricing: paid
 noteSeries: 総監択一式
 utmCampaign: calc-problems-6patterns
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/ne190c3ef2fca
+noteId: ne190c3ef2fca
 coverTitle:
   - 総監択一式
   - 計算問題 6 パターン
