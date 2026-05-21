@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="906" viewBox="0 0 1200 906">
+  <rect width="1200" height="906" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="600" y="62" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">発注者の日常業務を5管理に翻訳する</text>
+
+  <!-- テーブルヘッダ -->
+  <rect x="40" y="118" width="200" height="60" rx="6" fill="#2e6da4"/>
+  <text x="140" y="157" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">5管理</text>
+  <rect x="252" y="118" width="640" height="60" rx="6" fill="#2e6da4"/>
+  <text x="572" y="157" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">発注者の日常業務の例</text>
+  <rect x="904" y="118" width="256" height="60" rx="6" fill="#2e6da4"/>
+  <text x="1032" y="157" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">翻訳のしやすさ</text>
+
+  <!-- テーブルデータ行 -->
+  <!-- 行 1: 経済性管理 -->
+  <rect x="40" y="218" width="1120" height="96" fill="#e6f4ea"/>
+  <line x1="246" y1="218" x2="246" y2="314" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="898" y1="218" x2="898" y2="314" stroke="#dde1e7" stroke-width="1"/>
+  <text x="140" y="275" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">経済性管理</text>
+  <text x="272" y="275" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">事業の必要性評価・予算要求・積算・工程監督・コスト縮減</text>
+  <rect x="987" y="243" width="90" height="46" rx="8" fill="#3a7d44"/>
+  <text x="1032" y="275" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">高</text>
+  <!-- 行 2: 社会環境管理 -->
+  <rect x="40" y="314" width="1120" height="96" fill="#e6f4ea"/>
+  <line x1="246" y1="314" x2="246" y2="410" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="898" y1="314" x2="898" y2="410" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="314" x2="1160" y2="314" stroke="#dde1e7" stroke-width="1"/>
+  <text x="140" y="371" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">社会環境管理</text>
+  <text x="272" y="371" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">環境影響評価・住民説明と合意形成・騒音配慮・建設副産物</text>
+  <rect x="987" y="339" width="90" height="46" rx="8" fill="#3a7d44"/>
+  <text x="1032" y="371" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">高</text>
+  <!-- 行 3: 情報管理 -->
+  <rect x="40" y="410" width="1120" height="96" fill="#fdf6e3"/>
+  <line x1="246" y1="410" x2="246" y2="506" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="898" y1="410" x2="898" y2="506" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="410" x2="1160" y2="410" stroke="#dde1e7" stroke-width="1"/>
+  <text x="140" y="467" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">情報管理</text>
+  <text x="272" y="467" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">図面/点検データの管理・電子納品・台帳/GIS・情報公開</text>
+  <rect x="987" y="435" width="90" height="46" rx="8" fill="#d4a017"/>
+  <text x="1032" y="467" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">中</text>
+  <!-- 行 4: 安全管理 -->
+  <rect x="40" y="506" width="1120" height="96" fill="#fdf6e3"/>
+  <line x1="246" y1="506" x2="246" y2="602" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="898" y1="506" x2="898" y2="602" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="506" x2="1160" y2="506" stroke="#dde1e7" stroke-width="1"/>
+  <text x="140" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">安全管理</text>
+  <text x="272" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">安全管理計画の確認・災害時対応・施設のリスク評価</text>
+  <rect x="987" y="531" width="90" height="46" rx="8" fill="#d4a017"/>
+  <text x="1032" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">中</text>
+  <!-- 行 5: 人的資源管理 -->
+  <rect x="40" y="602" width="1120" height="96" fill="#fbe6e9"/>
+  <line x1="246" y1="602" x2="246" y2="698" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="898" y1="602" x2="898" y2="698" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="602" x2="1160" y2="602" stroke="#dde1e7" stroke-width="1"/>
+  <text x="140" y="659" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">人的資源管理</text>
+  <text x="272" y="659" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">課の体制づくり・委託先/受注者との関係・技術継承</text>
+  <rect x="987" y="627" width="90" height="46" rx="8" fill="#b22234"/>
+  <text x="1032" y="659" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">低</text>
+  <!-- テーブル外枠 -->
+  <rect x="40" y="118" width="1120" height="580" rx="6" fill="none" stroke="#ccd0d8" stroke-width="1.5"/>
+
+  <!-- 凡例 -->
+  <rect x="40" y="730" width="40" height="22" rx="4" fill="#e6f4ea" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="92" y="747" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="start">高 = 発注者の日常業務と重なりやすい（得点しやすい）</text>
+  <rect x="40" y="762" width="40" height="22" rx="4" fill="#fdf6e3" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="92" y="779" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="start">中 = 一部重なるが専門的知識も必要</text>
+  <rect x="40" y="794" width="40" height="22" rx="4" fill="#fbe6e9" stroke="#b22234" stroke-width="1.5"/>
+  <text x="92" y="811" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="start">低 = 実務から遠く、理解に時間がかかる（盲点になりやすい）</text>
+
+    <text x="1172" y="884" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>
