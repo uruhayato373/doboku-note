@@ -129,6 +129,17 @@ console.log(over===0?"字数OK":`${over}件超過`);'
   - 機械可読の真実源: `.claude/state/sns/quality-campaign-progress.json`（`ig.totalDoneIndex`）。
   - commit: `revise(ig)` / `revise(sns)` バッチ群。
   - **残り: 608本**。再開は投稿日順ソート位置 120 から（`ls -d docs/sns/instagram/2*/ | sort | sed -n '120,126p'`）。
-  - 再開方法: `/loop` に cycle 手順（progress.json 読み → 次7本を ig-carousel-writer 執筆 → 機械字数ゲート → ig-carousel-qa 採点 → commit → progress 更新）を渡す。手順テンプレは過去の loop 起動ログ参照。
+
+### 再開手順（1サイクル＝IG 7本）
+
+`/loop` に以下を渡すと自動継続する（YT は完走済みのため IG のみ）。
+
+1. `.claude/state/sns/quality-campaign-progress.json` を読む。`ig.totalDoneIndex>=727` なら本 handoff を完了状態に更新・commit してループ終了。
+2. `ls -d docs/sns/instagram/2*/ | sort` で `ig.totalDoneIndex` の次の7フォルダを取得。
+3. `ig-carousel-writer` agent で 7本の `slide-data.json` を v2 執筆（作業ディレクトリ develop と明示、`cta.related` はラベル文字列配列）。
+4. 機械字数ゲート（node）: keyword≤14 / heading≤16 / body≤120 / noteText≤45 / figure.heading≤18 / note≤30 / stickyText各行≤8、JSON健全性・U+FFFD・cta.related非オブジェクト。超過は writer 差し戻し（最大2回、なお超過なら親が直接トリム）。
+5. `ig-carousel-qa` agent で5軸採点。合格＝平均4.0以上かつ全軸3以上。不合格は writer 差し戻し（最大2回）。
+6. 合格本＋`_keyword-findings.md`＋`progress.json`（`ig.totalDoneIndex` +7・`lastBatch` 更新）を明示パスで `git add` → 1 commit（`revise(ig)`）。
+7. 5サイクルごとに本節の進捗数値も更新。407 プロキシエラーは一過性、2連続失敗ならそのサイクル中断し次回再試行。
 - 関連: 727枚の IG 画像再生成（日付削除・見出し修正）は commit 53c19fba9 済み。内容改善後に再描画される。
 - 既知の課題: batch 1（commit e49ac3121）の7本は `cta.related` が slug 文字列。cycle 1 以降は表示用ラベル文字列に統一済み。batch 1 の7本も後でラベルへ変換要（レンダラは `▷ ${related}` で直接描画）。
