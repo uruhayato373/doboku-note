@@ -136,3 +136,30 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 ## break-even-point
 
 - keyword 名「損益分岐点・限界利益・優劣分岐点」は17字であり、ポリシーの「14字以内が望ましい」を超える。MDX の title と一致させる必要があるため変更せずカルーセルに記載したが、将来的にスラグと title の短縮を検討する余地がある（biosafety の findings と同趣旨の指摘）。
+
+## business-continuity-plan
+
+- MDX の BCP 策定手順は6段階（Timeline コンポーネント）で整理されているが、IG カルーセルでは枚数制約上省略した。試験頻出の「RTO・RLO」「BIA」「サプライチェーン全体が対象」に絞って記載した。
+- 「関連テーマ記事」セクション（H2）が空のまま残っている。他キーワードと同様にセクション削除を推奨。
+
+## business-intelligence
+
+- `RelatedKeywords` に `ブロックチェーン・暗号資産`（blockchain-crypto）が含まれているが、BI（意思決定支援）との関連が弱い。IG カルーセルの cta.related からは除外し、`集中化と分散化` に置き換えた。MDX 側の RelatedKeywords 絞り込みを検討する余地がある。
+
+## carbon-neutral
+
+- img/ ディレクトリに SVG が存在せず、`figure-5-2-ccs-flow.webp`（CCS 3段階フロー）のみが配置されている。IG カルーセルの figure スライドで SVG 再利用ができないため figureSpec による新規制作指定を選択しなかった（CCS フローは webp 再利用も可能だが、ig-post-create.mjs での imagePath 対応は要確認）。CCS フロー図の SVG 版制作を SVG 寄贈候補として記録する。
+- `reviewStatus: needs-review` が設定されており、MDX の審査が未完了。公開前に最終レビューを推奨する。
+
+## carbon-pricing
+
+- MDX の title「環境税・カーボンプライシング」は15字でポリシーの「14字以内が望ましい」を超える。IG カルーセルの keyword フィールドでは「カーボンプライシング」（10字）に中核語を絞った。MDX title の短縮も将来的に検討する余地がある。
+- `reviewStatus: needs-review` が設定されており、最終レビューを推奨する。
+
+## career-ownership
+
+- 特記事項なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。
+
+## career-path
+
+- MDX 本文「制度の背景と普及経緯」セクションは詳細な歴史解説で試験との関連が間接的。ExamPoint に含まれていない「女性活躍推進法（2015年）」「セルフ・キャリアドック」はサイト誘導論点として IG カルーセルの noteText に採用した。
