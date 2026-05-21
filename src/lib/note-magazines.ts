@@ -49,8 +49,8 @@ const MAGAZINES_RAW = {
 
   'essay-river-consultant-magazine': {
     id: 'essay-river-consultant-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m32132ecb3033',
     title: '総監記述式 模範論文｜建設コンサル河川・砂防 5年分セット',
     description:
       'R03（データ利活用）〜R07（少子高齢化）の5年分。中堅建設コンサル河川・砂防部門 部長の立場で3,000字級フル論文＋5管理トレードオフ構造を解説。',
