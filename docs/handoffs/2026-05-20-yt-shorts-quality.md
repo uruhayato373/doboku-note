@@ -25,9 +25,9 @@
 
 - 139本の storyboard.json を機械下生成済み（commit c8dc83d0c）。
 - batch 1-7（50本）・batch 8 partial（5本）は 2026-05-20 までに完了。
-- 2026-05-20 自動ループキャンペーン: cycle 1-4 完了。**YT 78/139 本完了**（ソート位置 1-78、batch 8 partial 5本も再採点済み）。
-  - cycle 1-4 commit: `revise(yt): Shorts 台本品質改善 batch 8-11`。
-- **残り: 61本**。再開はソート位置 79 から（`ls -d docs/sns/youtube/2*/ | sort | sed -n '79,85p'`）。
+- 2026-05-20〜 自動ループキャンペーン進行中: cycle 1-10 完了。**YT 120/139 本完了**（ソート位置 1-120）。
+  - commit: `revise(yt)` / `revise(sns)` バッチ群。
+- **残り: 19本**。再開はソート位置 121 から（`ls -d docs/sns/youtube/2*/ | sort | sed -n '121,127p'`）。進捗の真実源は `.claude/state/sns/quality-campaign-progress.json`。
 
 ## 再開手順
 

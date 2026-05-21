@@ -163,3 +163,35 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 ## career-path
 
 - MDX 本文「制度の背景と普及経緯」セクションは詳細な歴史解説で試験との関連が間接的。ExamPoint に含まれていない「女性活躍推進法（2015年）」「セルフ・キャリアドック」はサイト誘導論点として IG カルーセルの noteText に採用した。
+
+## career-track-system
+
+- 特記事項なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。
+
+## cash-flow-statement
+
+- MDX の title「キャッシュ・フロー計算書」は14字でポリシーの推奨上限ちょうど。IG カルーセルの keyword フィールドでは「CF計算書」（6字）に短縮した。MDX title はそのままで問題ない。
+- 3区分の増減マトリクス SVG（cf-changes-matrix.svg）が存在し、figure スライドで再利用した。
+
+## catastrophe-bias
+
+- 特記事項なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。バージンバイアスとの識別論点が ExamPoint に明示されており、IG カルーセルに反映した。
+
+## cause-and-effect-diagram
+
+- fishbone-4m.svg が存在し、figure スライドで再利用した。
+- 5M+1E・6M の拡張版について MDX 本文には「5M+1E」の記載があるが「6M」は記載なし。ExamPoint には「6M」が含まれている（MDX と ExamPoint の記述不一致）。IG カルーセルでは「5M+1E」のみを採用した。
+
+## cdp-sbt-re100
+
+- MDX の title「CDP・SBT・RE100」は15字でポリシーの推奨上限14字を超える。IG カルーセルの keyword フィールドでは MDX の title に忠実に「CDP・SBT・RE100」を使用した。将来的にスラグと title の短縮を検討する余地がある（antitrust-compliance・break-even-point の findings と同趣旨）。
+
+## centralization-decentralization
+
+- MDX の RelatedKeywords に含まれる「可用性（Availability）」「クラウドコンピューティング／オンプレミス」「エッジコンピューティング」「RASIS」は情報管理の核心と整合しており、IG カルーセルの cta.related にも採用した。
+- 集中処理と分散処理の比較表（7軸）は図版として整理すると理解が進む論点であり、figureSpec で比較表図を制作指定した。doboku-note への SVG 寄贈候補として記録する。
+
+## chemical-substances-review-act
+
+- 化審法の5区分（第一種特定→第二種特定→監視→優先評価→一般）は段階図として図示すると規制強度と要件の対応が直感的に理解できる。figureSpec で段階図を制作指定した。doboku-note への SVG 寄贈候補として記録する。
+- MDX の ExamPoint に「少量新規制度：全国合計年間1トン以下は簡易手続き」が明記されており、試験頻出論点として IG カルーセルに反映した。
