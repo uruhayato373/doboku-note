@@ -2,7 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体道路担当ペルソナ
 utmCampaign: essay-road-r05
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/n357c7c44cccc
+noteId: n357c7c44cccc
+notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-自治体道路担当
 price: 500
 ---
