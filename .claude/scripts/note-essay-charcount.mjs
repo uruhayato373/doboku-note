@@ -59,14 +59,17 @@ function analyze(file) {
   const endM = tail.match(/\n## 採点者視点/);
   const region = endM ? tail.slice(0, endM.index) : tail;
 
-  // H2「## 設問（N）」（または「## A 案 設問（N）」）で分割
-  const parts = region.split(/\n(?=## (?:[ＡＢAB] 案 )?設問（)/).filter((s) => s.trim());
-  const rows = parts.map((p) => {
-    const h = p.match(/## ([ＡＢAB] 案 )?設問（([０-９0-9]+)）/);
-    const prefix = h && h[1] ? h[1].trim() + ' ' : '';
-    const no = h ? h[2] : '?';
-    return { label: `${prefix}設問（${no}）`, len: answerLen(p), limit: limits[no] || '' };
-  });
+  // すべての H2 で分割し、設問見出しのチャンクだけを採用する。
+  // A 案／B 案併記論文では設問の間に「## B 案: …（前提条件）」等の非設問 H2 が
+  // 挟まるため、設問見出しだけで分割すると次設問までの非設問ブロックを巻き込む。
+  const chunks = region.split(/\n(?=## )/);
+  const rows = [];
+  for (const c of chunks) {
+    const h = c.match(/^## ([ＡＢAB] 案 )?設問（([０-９0-9]+)）/);
+    if (!h) continue;
+    const prefix = h[1] ? h[1].trim() + ' ' : '';
+    rows.push({ label: `${prefix}設問（${h[2]}）`, len: answerLen(c), limit: limits[h[2]] || '' });
+  }
   return { file, rows, total: rows.reduce((a, r) => a + r.len, 0) };
 }
 
