@@ -1,26 +1,42 @@
 {
   "cover": {
     "keyword": "住民参加",
-    "subtitle": null,
-    "stickyText": "アーンスタインの",
-    "management": "info",
-    "caption": "住民参加\nとは何か？"
+    "subtitle": "Citizen Participation",
+    "stickyText": "8段階梯子\nPI\n社会的受容",
+    "management": "info"
   },
-  "board": {
-    "heading": "住民参加",
-    "body": "住民参加（Citizen Participation / Public Participation） とは、\n公共事業や政策決定のプロセスに、\n影響を受ける住民・市民が関与し、\n意見を反映させる仕組みのことである。\n民主主義の理念に基づき、\n行政の透明性・説明責任を高め、\n事業の社会的受容性を向上させる。",
-    "noteText": "アーンスタインの梯子：非参加→形式的参加→市民権力の8段階",
-    "management": "info",
-    "caption": "手法：パブリックコメント・公聴会…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "住民参加の定義",
+      "body": "住民参加とは、公共事業や政策決定のプロセスに影響を受ける住民・市民が関与し、意見を反映させる仕組みである。民主主義の理念に基づき行政の透明性・説明責任を高め、事業の社会的受容性を向上させる機能を持つ。",
+      "noteText": "情報管理の観点: ステークホルダーとの合意形成"
+    },
+    {
+      "type": "figure",
+      "heading": "アーンスタインの梯子（8段階）",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/citizen-participation/img/arnstein-ladder.svg",
+      "note": "上位ほど市民の実質的決定権が増す"
+    },
+    {
+      "type": "board",
+      "heading": "3カテゴリ・8段階の内容",
+      "body": "アーンスタインは1969年に市民参加を8段階に整理した。市民権力（パートナーシップ・権限委譲・市民によるコントロール）、形式的参加（懐柔・協議・情報提供）、非参加（セラピー・操作）の3カテゴリに分類される。",
+      "noteText": "PI（パブリックインボルブメント）はパートナーシップ相当"
+    },
+    {
+      "type": "board",
+      "heading": "建設事業での参加手法",
+      "body": "建設プロジェクトでは段階ごとに参加手法が変化する。構想段階では住民意向調査、計画段階ではPI（代替案比較への参画）、設計段階では景観意見反映、施工段階では工事説明会、供用段階ではモニタリングへの参画が用いられる。",
+      "noteText": "パブリックコメント・公聴会は「協議」レベル"
+    }
+  ],
   "cta": {
     "related": [
       "社会的受容（PA）",
       "ステーク・ホルダー",
-      "コミュニケーション・コントロール",
-      "コミュニケーション計画"
-    ],
-    "management": "info",
-    "caption": "続きは doboku-note で"
+      "コミュニケーション計画",
+      "開示請求"
+    ]
   }
 }

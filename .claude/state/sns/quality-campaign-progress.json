@@ -2,15 +2,15 @@
   "_doc": "SNS 品質改善キャンペーン進捗台帳。loop の再開地点の真実源。totalDoneIndex = フォルダ名ソート順の完了位置。詳細手順は docs/handoffs/2026-05-20-{yt-shorts-quality,ig-carousel-quality-design}.md。",
   "yt": {
     "total": 139,
-    "totalDoneIndex": 120,
+    "totalDoneIndex": 127,
     "needsRescore": []
   },
   "ig": {
     "total": 727,
-    "totalDoneIndex": 77
+    "totalDoneIndex": 84
   },
   "batchSize": 7,
-  "lastBatch": "cycle 10: YT 114-120 (data-collection 等7本・全合格), IG 71-77 (career-track-system 等7本・字数トリム後 全合格)",
+  "lastBatch": "cycle 11: YT 121-127 (de-facto-standard 等7本・全合格), IG 78-84 (child-rearing-support-act 等7本・全合格)",
   "flagged": [],
   "updatedAt": "2026-05-20"
 }

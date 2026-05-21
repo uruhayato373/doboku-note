@@ -195,3 +195,35 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 
 - 化審法の5区分（第一種特定→第二種特定→監視→優先評価→一般）は段階図として図示すると規制強度と要件の対応が直感的に理解できる。figureSpec で段階図を制作指定した。doboku-note への SVG 寄贈候補として記録する。
 - MDX の ExamPoint に「少量新規制度：全国合計年間1トン以下は簡易手続き」が明記されており、試験頻出論点として IG カルーセルに反映した。
+
+## child-rearing-support-act
+
+- 特記なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。
+
+## childcare-nursing-leave-act
+
+- 旧 v1 slide-data.json は board が1枚のみで、産後パパ育休・介護休業・その他制度の各論が欠落していた。v2 では5スライド構成で全制度を網羅した。
+- 1000人超企業の取得状況公表義務（2022年改正）は ExamPoint に明記されているが旧 v1 カルーセルには含まれていなかった。v2 の noteText に組み込み済み。
+
+## child-support-act
+
+- ExamPoint の記述で「認定区分：1号（教育）」と「2号（保育・3歳以上）、3号（保育・3歳未満）の3区分」が別行に分断されており、ExamPoint items の配列構造が途切れた形になっている。MDX レンダリング上の問題を引き起こす可能性があり、items の統合を推奨する。
+
+## circular-economy
+
+- 特記なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。物質フロー図（figure-5-6-material-flow.webp）は webp 形式のみで SVG が存在しない。IG カルーセルでは board のみで構成した。
+
+## circular-society-basic-act
+
+- 旧 v1 の stickyText が「3Rの優先順位:」で途中切れていた。v2 では「Reduce優先 / 個別7法 / 都市鉱山」に修正した。
+- 旧 v1 は board が1枚のみで3Rの優先順位以外の論点（法体系・建設リサイクル法・都市鉱山）が欠落していた。v2 では5スライド構成で全論点を網羅した。
+
+## cites
+
+- 旧 v1 の board.body に CITES の英語正式名称（Convention on International Trade in Endangered Species of Wild Fauna and Flora）が全文含まれており、120字超過の懸念があった。v2 では英語略称のみ記載し日本語解説に集中した。
+- 「ワシントン条約は条件が整えば学術目的・商業目的の国際取引が可能」（R02 Ⅰ-1-34 の正答）は附属書 I / II / III の3段階理解が前提であり、IG カルーセルで附属書ごとの規制内容を明示した。
+
+## citizen-participation
+
+- arnstein-ladder.svg が img/ ディレクトリに存在し、IG カルーセルの figure スライドで再利用した。
+- 旧 v1 の board.body にアーンスタインの梯子の全文（7行改行入り）が含まれており、字数大幅超過かつ改行記号による棒読み構造になっていた。v2 では figure スライドで図を提示し、board スライドで3カテゴリの解説に集中する構成に再設計した。
