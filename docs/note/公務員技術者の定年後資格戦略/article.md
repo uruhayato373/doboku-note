@@ -1,6 +1,8 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/nbdfe9446f887
+noteId: nbdfe9446f887
 noteSeries: 公務員受験
 utmCampaign: 94-civil-servant-retirement
 coverTitle:
