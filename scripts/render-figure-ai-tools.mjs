@@ -7,6 +7,12 @@
 //   - 3行目(Claude Code)は warn 系（#d4a017 / 薄背景 #fbf3df）で上級者向け区別
 //   - 「ツール」列は brand 色のラベル
 //
+// figure-2-ai-limits: 「AIが得意なこと / AIに任せても埋まらないこと」
+//   - 左右2カラム対比図
+//   - 左（positive系）: AIが得意な3項目
+//   - 右（danger系）: AIでは埋まらない3項目
+//   - 右カラム下部に brand 帯で「教材が埋める」CTA
+//
 // 設計ルール（docs/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
 //   - フォント ≥ 22px（補足を含めて 18px 以上）
@@ -35,6 +41,10 @@ const INK_BODY    = '#555555'; // ink-body
 const INK_MUTED   = '#8a8a8a'; // ink-muted
 const WARN        = '#d4a017'; // warn
 const WARN_FILL   = '#fbf3df'; // warn 薄背景
+const POSITIVE    = '#3a7d44'; // positive
+const POSITIVE_FILL = '#e6f1e8'; // positive 薄背景
+const DANGER      = '#b22234'; // danger
+const DANGER_FILL = '#fbe6e9'; // danger 薄背景
 const FONT = 'Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif';
 
 const W = 1200;
@@ -256,6 +266,141 @@ ${body}
 }
 
 // ------------------------------------------------------------------
+// figure-2: AIが得意なこと / AIに任せても埋まらないこと
+// ------------------------------------------------------------------
+function svgAiLimits() {
+  // ============================================================
+  // レイアウト定数
+  // ============================================================
+  const PAD_X    = 48;  // 左右キャンバスマージン
+  const TITLE_Y  = 64;  // タイトルベースライン
+  // タイトル下40px確保 → コンテンツ開始
+  const CONTENT_TOP = TITLE_Y + 16 + 40; // = 120
+
+  // 列構成（W=1200 内）
+  // [PAD_X=48] [左カラム=510] [GAP=84] [右カラム=510] [PAD_X=48]
+  // 48 + 510 + 84 + 510 + 48 = 1200 ✓
+  const COL_GAP   = 84;
+  const LEFT_X    = PAD_X;                       // 48
+  const LEFT_W    = 510;
+  const RIGHT_X   = LEFT_X + LEFT_W + COL_GAP;  // 642
+  const RIGHT_W   = W - PAD_X - RIGHT_X;        // 1200 - 48 - 642 = 510
+
+  // カラムヘッダ
+  const HEADER_H = 64;
+  const HEADER_Y = CONTENT_TOP;             // 120
+  const ITEMS_TOP = HEADER_Y + HEADER_H + 40; // ヘッダ下40px → アイテム開始 = 224
+
+  // アイテムカード定義
+  // 1行 or 2行テキスト対応。行高120px、gap=16px
+  const CARD_H   = 120;
+  const CARD_GAP = 16;
+  const CARD_PAD_X = 20;
+  const CARD_PAD_Y = 20;
+  const RX = 8;
+
+  const leftItems = [
+    { lines: ['用語を調べる・かみ砕いて説明させる'] },
+    { lines: ['自分の理解を試す（アクティブリコール）'] },
+    { lines: ['記述答案を校正・改訂する'] },
+  ];
+
+  const rightItems = [
+    { lines: ['何を優先して覚えるか'] },
+    { lines: ['引っかけパターンの先回り'] },
+    { lines: ['17年分の出題頻度という', '「学習の地図」'] },
+  ];
+
+  // CTA帯（右カラム下部）
+  const CTA_MARGIN_TOP = 24; // アイテム下端 → CTA帯上端
+  const CTA_H = 80;          // CTA帯高さ
+  const NUM_ITEMS = 3;
+  const ITEMS_BLOCK_H = NUM_ITEMS * CARD_H + (NUM_ITEMS - 1) * CARD_GAP;
+  const CTA_Y = ITEMS_TOP + ITEMS_BLOCK_H + CTA_MARGIN_TOP;
+
+  // 全体高さ: CTA_Y + CTA_H + 末尾余白80
+  const H = CTA_Y + CTA_H + 80;
+
+  // ============================================================
+  // SVG 構築
+  // ============================================================
+  let body = '';
+
+  // ---- タイトル ----
+  body += `
+  <!-- タイトル -->
+  <text x="${W / 2}" y="${TITLE_Y}" font-family="${FONT}" font-size="34" font-weight="800" fill="${INK_STRONG}" text-anchor="middle">AIが得意なこと / AIに任せても埋まらないこと</text>
+`;
+
+  // ---- カラムヘッダ ----
+  body += `
+  <!-- 左カラムヘッダ（positive） -->
+  <rect x="${LEFT_X}" y="${HEADER_Y}" width="${LEFT_W}" height="${HEADER_H}" rx="${RX}" fill="${POSITIVE}"/>
+  <text x="${LEFT_X + LEFT_W / 2}" y="${HEADER_Y + HEADER_H / 2 + 10}" font-family="${FONT}" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">AIが得意</text>
+
+  <!-- 右カラムヘッダ（danger） -->
+  <rect x="${RIGHT_X}" y="${HEADER_Y}" width="${RIGHT_W}" height="${HEADER_H}" rx="${RX}" fill="${DANGER}"/>
+  <text x="${RIGHT_X + RIGHT_W / 2}" y="${HEADER_Y + HEADER_H / 2 + 10}" font-family="${FONT}" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle">AIに任せても埋まらない</text>
+`;
+
+  // ---- 左カラム アイテム ----
+  body += `\n  <!-- 左カラム アイテム -->`;
+  for (let i = 0; i < leftItems.length; i++) {
+    const item = leftItems[i];
+    const cardY = ITEMS_TOP + i * (CARD_H + CARD_GAP);
+    const cardCY = cardY + CARD_H / 2;
+    const numLines = item.lines.length;
+    const DY = 30;
+    const textBlockH = (numLines - 1) * DY;
+    const text1Y = cardCY - textBlockH / 2 + 9; // ベースライン補正
+
+    body += `
+  <rect x="${LEFT_X}" y="${cardY}" width="${LEFT_W}" height="${CARD_H}" rx="${RX}" fill="${POSITIVE_FILL}" stroke="${POSITIVE}" stroke-width="2"/>`;
+    for (let li = 0; li < numLines; li++) {
+      body += `
+  <text x="${LEFT_X + CARD_PAD_X}" y="${text1Y + li * DY}" font-family="${FONT}" font-size="22" font-weight="600" fill="${POSITIVE}" text-anchor="start">${xml(item.lines[li])}</text>`;
+    }
+  }
+
+  // ---- 右カラム アイテム ----
+  body += `\n\n  <!-- 右カラム アイテム -->`;
+  for (let i = 0; i < rightItems.length; i++) {
+    const item = rightItems[i];
+    const cardY = ITEMS_TOP + i * (CARD_H + CARD_GAP);
+    const cardCY = cardY + CARD_H / 2;
+    const numLines = item.lines.length;
+    const DY = 30;
+    const textBlockH = (numLines - 1) * DY;
+    const text1Y = cardCY - textBlockH / 2 + 9;
+
+    body += `
+  <rect x="${RIGHT_X}" y="${cardY}" width="${RIGHT_W}" height="${CARD_H}" rx="${RX}" fill="${DANGER_FILL}" stroke="${DANGER}" stroke-width="2"/>`;
+    for (let li = 0; li < numLines; li++) {
+      body += `
+  <text x="${RIGHT_X + CARD_PAD_X}" y="${text1Y + li * DY}" font-family="${FONT}" font-size="22" font-weight="600" fill="${DANGER}" text-anchor="start">${xml(item.lines[li])}</text>`;
+    }
+  }
+
+  // ---- 右カラム下部 CTA 帯（brand色） ----
+  // 右カラムの直下に収まる帯。右カラム幅と同じ x/w。
+  body += `
+
+  <!-- CTA 帯（brand色）右カラム下部 -->
+  <rect x="${RIGHT_X}" y="${CTA_Y}" width="${RIGHT_W}" height="${CTA_H}" rx="${RX}" fill="${BRAND_FILL}" stroke="${BRAND}" stroke-width="2"/>
+  <text x="${RIGHT_X + CARD_PAD_X}" y="${CTA_Y + CTA_H / 2 - 6}" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND}" text-anchor="start">&#x2192; ここは「出題視点で分析された教材</text>
+  <text x="${RIGHT_X + CARD_PAD_X}" y="${CTA_Y + CTA_H / 2 + 24}" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND}" text-anchor="start">（精読ガイド）」が埋める</text>
+`;
+
+  // ---- ブランドフレーム ----
+  body += `\n  ${brandFrame(H)}`;
+
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
+  <rect width="${W}" height="${H}" fill="#ffffff"/>
+${body}
+</svg>`;
+}
+
+// ------------------------------------------------------------------
 // レンダリング
 // ------------------------------------------------------------------
 async function render(svg, baseName) {
@@ -269,6 +414,7 @@ async function render(svg, baseName) {
 async function main() {
   console.log('Rendering figures for 総監をAIで勉強する…');
   await render(svgAiTools(), 'figure-1-ai-tools');
+  await render(svgAiLimits(), 'figure-2-ai-limits');
   console.log('Done.');
 }
 
