@@ -5,7 +5,10 @@ utmCampaign: 91-keyword-not-scoring
 coverTitle:
   - キーワード集を読んだのに
   - 択一が伸びない3つの理由
-noteStatus: draft
+noteStatus: published
+notePublishedAt: 2026-05-21
+noteUrl: https://note.com/dobokunote/n/n14c71f3b4d72
+noteId: n14c71f3b4d72
 ---
 # 【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す
 
