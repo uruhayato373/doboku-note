@@ -125,9 +125,10 @@ console.log(over===0?"字数OK":`${over}件超過`);'
   - `publish-ig.mjs`: caption 生成を v1/v2 両対応に。
   - 検証済み: 既存 v1 ファイルの後方互換描画、v2 multi-slide（cover+board+figure×2+cta=5枚）描画、figure の実 SVG 埋め込み（図中ラベル完全描画）・スペックプレースホルダ描画、`--config-only`。
 - **Phase 1 基盤 完了**（commit 5c9b7c169・46a8aae0b）: `docs/reference/ig-carousel-policy.md`（5軸ルーブリック）・`ig-carousel-writer`/`ig-carousel-qa` エージェント・実行手順を整備。
-- **Phase 1 キャンペーン進行中**: 2026-05-20〜 自動ループで cycle 1-15 完了し **IG 112/727 本完了**（投稿日順ソート位置 1-112）。YT は cycle 13 で 139/139 完走済み。
+- **Phase 1 キャンペーン進行中**: 2026-05-20〜 自動ループで cycle 1-16 完了し **IG 119/727 本完了**（投稿日順ソート位置 1-119）。YT は cycle 13 で 139/139 完走済み。
   - 機械可読の真実源: `.claude/state/sns/quality-campaign-progress.json`（`ig.totalDoneIndex`）。
   - commit: `revise(ig)` / `revise(sns)` バッチ群。
-  - **残り: 615本**。再開は投稿日順ソート位置 113 から（`ls -d docs/sns/instagram/2*/ | sort | sed -n '113,119p'`）。
+  - **残り: 608本**。再開は投稿日順ソート位置 120 から（`ls -d docs/sns/instagram/2*/ | sort | sed -n '120,126p'`）。
+  - 再開方法: `/loop` に cycle 手順（progress.json 読み → 次7本を ig-carousel-writer 執筆 → 機械字数ゲート → ig-carousel-qa 採点 → commit → progress 更新）を渡す。手順テンプレは過去の loop 起動ログ参照。
 - 関連: 727枚の IG 画像再生成（日付削除・見出し修正）は commit 53c19fba9 済み。内容改善後に再描画される。
 - 既知の課題: batch 1（commit e49ac3121）の7本は `cta.related` が slug 文字列。cycle 1 以降は表示用ラベル文字列に統一済み。batch 1 の7本も後でラベルへ変換要（レンダラは `▷ ${related}` で直接描画）。
