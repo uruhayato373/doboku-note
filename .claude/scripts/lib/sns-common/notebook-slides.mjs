@@ -199,6 +199,7 @@ function frameStyle(width, height) {
  * data: {
  *   keyword: string,        // キーワード名（大見出し）
  *   subtitle: string,       // 副題（例: '1 : 29 : 300'）
+ *   hook?: string,          // 副題下のフック文（任意・キーワードごと。例: '5段階、言える？'）
  *   numbers?: Array<{n, label}>,  // 数値リスト（ピラミッド構造の各段）
  *   stickyText: string,     // 付箋テキスト（'\n' で改行）
  *   management: string,     // 'economic'|'human'|'info'|'safety'|'social'
@@ -266,10 +267,12 @@ export function buildNotebookCover({ width, height, data }) {
           paddingBottom: 4,
           alignSelf: 'flex-start',
         }, data.subtitle || ''),
-        d({
-          fontSize: L.labelFontSize + 4,
-          color: NOTEBOOK_TOKENS.inkBody,
-        }, 'ーー この比率、覚えてる？'),
+        data.hook
+          ? d({
+              fontSize: L.labelFontSize + 4,
+              color: NOTEBOOK_TOKENS.inkBody,
+            }, `ーー ${data.hook}`)
+          : null,
       ]),
 
       // 数値ピラミッド（numbers 配列が渡された場合）
