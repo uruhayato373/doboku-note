@@ -358,6 +358,34 @@ ig-carousel-writer が MDX を読む過程で気づいた doboku-note 側の改�
 - 現状 SVG なし。「間接費→活動→コストドライバー→製品」の流れ図（ABCの配賦プロセス図）を新規作成すると経済性管理の理解を助ける。figureSpec で制作指定した。doboku-note SVG 寄贈候補として記録する。
 - 「ドライバーの種類が多すぎると運用コストが増大する」（選定のポイント）は MDX 本文に記載があるが ExamPoint には含まれていない。実務的な設計トレードオフとして試験で問われる可能性があり、ExamPoint への追加を検討する余地がある。
 
+## cost-maintenance
+
+- MDX の RelatedKeywords に「原価差異分析」（cost-variance-analysis）が含まれていない。本文テキストリンクとしては登場するが、原価維持の中核ツールであるため RelatedKeywords への追加を推奨する。IG カルーセルの cta.related には原価差異分析を追加した。
+
+## cost-variance-analysis
+
+- 特記事項なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。R02 Ⅰ-1-6 の符号判定引っかけ（直接労務費差異が有利差異であることを不利と誤認）が Callout に詳細記述されており、IG カルーセルに反映した。
+
+## cpd
+
+- 特記事項なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。2021年（令和3年）の技術士登録簿へのCPD実施状況記載の制度化が試験論点として出題される可能性があり、IG カルーセルに反映した。
+
+## crisis-communication
+
+- 特記事項なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。「安全のための広報（迅速性優先）」と「安心のための広報（正確さ+安心感）」の二分類が IG カルーセルの中心構成として有効。
+
+## crisis-management-manual
+
+- 特記事項なし。MDX・ExamPoint・RelatedKeywords ともに適切に整備されている。4段階（平常時準備→事前作業→緊急事態対応→事後復旧）と策定5要件がともに IG カルーセルに収録できる内容量であった。
+
+## crisis-priority
+
+- MDX 本文が比較的薄い（3セクション：定義・4段階原則・トリアージ）。ExamPoint は整備されており試験論点は網羅されているが、総監5管理のトレードオフ（安全管理と経済性管理の優先順位判断）についての説明が本文に薄い。背景セクションには記述あり。
+
+## crm-system
+
+- MDX の RelatedKeywords が `api`・`blockchain-crypto` 等、顧客管理システムとの関連が弱いキーワードを含んでいる（accounting-systems・agile の findings と同趣旨）。IG カルーセルの cta.related では `財務会計・管理会計システム`・`ビジネスインテリジェンス（BI）`・`アジャイル`・`API` の4件を採用した。MDX 側の RelatedKeywords 絞り込みを検討する余地がある。
+
 ## cost-effectiveness-analysis
 
 - 現状 SVG なし。「CBA・CEA・CUA の3手法比較表」（効果の単位・主要適用分野・比較指標の3行×3列）を SVG 化すると試験直前の暗記に直結する。figureSpec で制作指定した。doboku-note SVG 寄贈候補として記録する。

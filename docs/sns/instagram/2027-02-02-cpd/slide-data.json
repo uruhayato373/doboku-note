@@ -1,26 +1,36 @@
 {
   "cover": {
     "keyword": "CPD",
-    "subtitle": null,
-    "stickyText": "技術士CPDは年",
-    "management": "human",
-    "caption": "CPD\nとは何か？"
+    "subtitle": "Continuing Professional Development",
+    "stickyText": "年間50時間目標\n第47条の2\nAPEC必須要件",
+    "management": "human"
   },
-  "board": {
-    "heading": "CPD",
-    "body": "CPD（Continuing Professional Development）とは、\n技術者が資格取得後も継続的に専門能力の向上・開発を行う活動の総称である。\n継続研鑽とも呼ばれる。",
-    "noteText": "技術士CPDは年間50時間が目標（CPDガイドライン）",
-    "management": "human",
-    "caption": "**技術士法第47条の2**で資質向…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "CPDとは",
+      "body": "CPD（継続的専門能力開発）とは、技術者が資格取得後も継続的に専門能力の向上・開発を行う活動の総称であり、継続研鑽とも呼ばれる。技術士法第47条の2で資質向上の責務が規定されている。",
+      "noteText": "資格取得後も継続研鑽\n技術士法で義務化"
+    },
+    {
+      "type": "board",
+      "heading": "技術士CPDの要点",
+      "body": "CPDガイドラインは年間50時間を目標として示している。活動形態は研修受講・論文発表・技術指導・業務経験・自己学習等と多様である。活動はCPD登録システムで記録・管理する。",
+      "noteText": "目標：年間50時間\n記録がAPEC要件に直結"
+    },
+    {
+      "type": "board",
+      "heading": "CPDサイクルと制度背景",
+      "body": "CPD活動は計画→実施→記録→振り返りの4段階サイクルで運用する。2001年（平成13年）の技術士法改正で資質向上の責務が明文化され、2021年（令和3年）には登録簿へのCPD実施状況の記載が制度化された。",
+      "noteText": "2001年改正で法的義務化\n2021年改正で登録制度化"
+    }
+  ],
   "cta": {
     "related": [
+      "キャリアオーナーシップ",
+      "キャリアパス",
       "多面評価（360度評価）",
-      "人事考課の三原則",
-      "情意考課",
-      "キャリアオーナーシップ"
-    ],
-    "management": "human",
-    "caption": "続きは doboku-note で"
+      "人事考課の三原則"
+    ]
   }
 }
