@@ -19,7 +19,7 @@ user-invocable: true
 
 | 引数 | 説明 |
 |---|---|
-| `{target}` | 対象ファイルの slug（例: `r05-essay-general-contractor`）または属性（例: `general-contractor` で全年度） |
+| `{target}` | 次のいずれか：①サイト模範論文の slug（例: `r05-essay-general-contractor`）または属性（例: `general-contractor` で全年度）②note マガジン論文のパス（例: `総監模範論文-河川コンサル/R07`。マガジン名・年度とも前方一致可） |
 | `--mode shallow` | 視点ごとに概観評価のみ（高速） |
 | `--mode deep` | 視点ごとに具体的な引用と改善案を出す（低速・詳細） |
 
@@ -78,10 +78,13 @@ user-invocable: true
 /pe-essay-review {target}
   │
   ├─ Phase 1: ファイル特定と読み込み
-  │   ├ slug 解決: r05-essay-general-contractor → .local/r2/posts/.../article.mdx
+  │   ├ ターゲット解決:
+  │   │   ・サイト模範論文: r05-essay-general-contractor → .local/r2/posts/pe-comprehensive-management/{slug}/article.mdx
+  │   │   ・note マガジン論文: 総監模範論文-河川コンサル/R07 → docs/note/magazines/{magazine}/{R0X}/article.md
+  │   │       （マガジン名・年度とも前方一致で解決可。R0X は大文字小文字どちらでも可）
   │   ├ 模範論文ファイル read（最大 1000 行）
   │   ├ inline チェック（U+FFFD 文字化け、frontmatter 必須項目）
-  │   └ 【設問突合】年度を slug から抽出（r05 → r05-secondary）し
+  │   └ 【設問突合】年度を slug/パスから抽出（r05 または R07 → r0X-secondary）し
   │       .local/r2/posts/pe-comprehensive-management/r0X-secondary/article.mdx を read。
   │       設問構造（問い(1)〜(3) の枚数指定・要求項目・5管理明記要否・
   │       設問3 のスコープ要件）を抽出し "設問チェックリスト" として保持する。
@@ -215,6 +218,7 @@ user-invocable: true
 - 1 回の実行で 1 ファイル評価が原則（複数指定時は逐次実行）
 - スキル単体で完結（エージェント呼び出しなし、シンプル設計）
 - 出力は `.claude/state/pe-essay-review/` に保存（CLAUDE.md「機械可読データ」の Tier 3 ではなく Markdown レポート）
+- note マガジン論文（`docs/note/magazines/`）を評価対象にできるが、markdown 互換性（pipe 表・blockquote 等の note レンダリング崩れ）と図版品質は本スキルの管轄外。公開前に別途 `/note-prepublish-review` を流すこと
 
 ## 関連スキル
 
@@ -236,6 +240,7 @@ user-invocable: true
 
 ## バージョン履歴
 
+- v1.4（2026-05-21）: 評価対象に note マガジン論文（`docs/note/magazines/{magazine}/R0X/article.md`）を追加。Phase 1 のターゲット解決をサイト模範論文 slug と note マガジンパスの2系統に拡張。設問突合の年度抽出を slug/パス双方対応に。markdown 互換性・図版は管轄外として `/note-prepublish-review` 併用を制約に明記
 - v1.3（2026-05-20）: R07 模範論文の設問3が業界内に閉じていた欠陥を本スキルが見逃していた問題を修正。視点1「視点の広さ」の定義を「5管理の俯瞰」だけでなく「設問3 が事業・組織・業界の枠を超え国家スケールか」を含む形に再定義。設問チェックリストにスコープ／視点要件の抽出を追加。視点3「設問読解の精度」に設問3スコープ違反の指摘を追加。致命的問題に「設問3 スコープ違反」を追加
 - v1.2（2026-05-20）: 横断チェック観点を追記（pe-essay-quality-matrix.md の所見から抽出した3パターン: 数値一致・フレーム語句・施策構造）
 - v1.1（2026-05-19）: Phase 1 に設問ファイル（r0X-secondary）の読み込みと設問チェックリスト生成を追加。視点 3「設問読解の精度」を設問原文突合ベースに強化。出力フォーマットに設問チェックリスト突合結果欄を追加。

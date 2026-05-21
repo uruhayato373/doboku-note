@@ -64,9 +64,11 @@ F="$ROOT/docs/note/{slug}/article.md"
 # 1. ファイル存在
 test -f "$F" || exit 1
 
-# 2. 図版参照と実ファイルの整合（article 直下の img/ を絶対パスで解決）
+# 2. 図版参照と実ファイルの整合（article 直下 ./img/ と マガジン共用 ../img/ の両方を絶対パスで解決）
+#    マガジン論文（docs/note/magazines/{magazine}/R0X/article.md）は共用図を ../img/ で参照するため
+#    ./img/ だけだと素通りする。../img/ も拾うこと。
 ART_DIR="$(dirname "$F")"
-grep -oE '!\[[^]]*\]\(\.\/img\/[^)]+\)' "$F" | sed -E 's/.*\((\.\/[^)]+)\).*/\1/' | while read ref; do
+grep -oE '!\[[^]]*\]\(\.\.?\/img\/[^)]+\)' "$F" | sed -E 's/.*\((\.\.?\/[^)]+)\).*/\1/' | while read ref; do
   test -f "$ART_DIR/${ref#./}" || echo "MISSING: $ref"
 done
 
