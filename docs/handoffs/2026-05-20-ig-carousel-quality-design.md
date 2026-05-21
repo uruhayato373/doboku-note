@@ -139,7 +139,8 @@ console.log(over===0?"字数OK":`${over}件超過`);'
 3. `ig-carousel-writer` agent で 7本の `slide-data.json` を v2 執筆（作業ディレクトリ develop と明示、`cta.related` はラベル文字列配列）。
 4. 機械字数ゲート（node）: keyword≤14 / heading≤16 / body≤120 / noteText≤45 / figure.heading≤18 / note≤30 / stickyText各行≤8、JSON健全性・U+FFFD・cta.related非オブジェクト。超過は writer 差し戻し（最大2回、なお超過なら親が直接トリム）。
 5. `ig-carousel-qa` agent で5軸採点。合格＝平均4.0以上かつ全軸3以上。不合格は writer 差し戻し（最大2回）。
-6. 合格本＋`_keyword-findings.md`＋`progress.json`（`ig.totalDoneIndex` +7・`lastBatch` 更新）を明示パスで `git add` → 1 commit（`revise(ig)`）。
-7. 5サイクルごとに本節の進捗数値も更新。407 プロキシエラーは一過性、2連続失敗ならそのサイクル中断し次回再試行。
+6. **画像レンダリング**: 合格7本それぞれ、`docs/sns/instagram/{date}-{slug}/{carousel,reels}/img/*.png` を rm（v1 3枚→v2 6枚で枚数が変わり orphan が出るため）→ `node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --slug {slug} --date {date} --size both` で再生成。
+7. 合格本の `slide-data.json`＋`carousel/img`・`reels/img`＋`_keyword-findings.md`＋`progress.json`（`ig.totalDoneIndex` +7・`lastBatch` 更新）を明示パスで `git add` → 1 commit（`revise(ig)`）。
+8. 5サイクルごとに本節の進捗数値も更新。407 プロキシエラーは一過性、2連続失敗ならそのサイクル中断し次回再試行。
 - 関連: 727枚の IG 画像再生成（日付削除・見出し修正）は commit 53c19fba9 済み。内容改善後に再描画される。
 - 解決済み: batch 1（commit e49ac3121）の7本の `cta.related` が slug 文字列で、レンダラ（`▷ ${related}` 直接描画）に英語 slug が出ていた問題は、全7本を表示用ラベル文字列へ変換して解消（2026-05-21）。全 727本の `cta.related` は slug/オブジェクト残存ゼロを確認済み。
