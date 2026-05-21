@@ -2,7 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-河川コンサルペルソナ
 utmCampaign: essay-river-r05
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/n3f8af99c6705
+noteId: n3f8af99c6705
+notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-河川コンサル
 price: 500
 ---
