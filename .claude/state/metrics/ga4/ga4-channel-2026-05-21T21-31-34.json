@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "startDate": "2026-04-23",
+    "endDate": "2026-05-20",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Organic Search",
+      "activeUsers": 746,
+      "sessions": 1477,
+      "screenPageViewsPerSession": 6.157752200406229,
+      "averageSessionDuration": 618.991703409614,
+      "engagementRate": 0.6709546377792823,
+      "bounceRate": 0.3290453622207177
+    },
+    {
+      "channel": "Direct",
+      "activeUsers": 169,
+      "sessions": 351,
+      "screenPageViewsPerSession": 4.806267806267806,
+      "averageSessionDuration": 609.5984375726496,
+      "engagementRate": 0.5868945868945868,
+      "bounceRate": 0.4131054131054131
+    },
+    {
+      "channel": "Unassigned",
+      "activeUsers": 75,
+      "sessions": 107,
+      "screenPageViewsPerSession": 7.364485981308412,
+      "averageSessionDuration": 474.90212521495334,
+      "engagementRate": 0.514018691588785,
+      "bounceRate": 0.48598130841121495
+    },
+    {
+      "channel": "Referral",
+      "activeUsers": 66,
+      "sessions": 270,
+      "screenPageViewsPerSession": 4.481481481481482,
+      "averageSessionDuration": 524.3872014296296,
+      "engagementRate": 0.6296296296296297,
+      "bounceRate": 0.37037037037037035
+    },
+    {
+      "channel": "Organic Video",
+      "activeUsers": 4,
+      "sessions": 4,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "channel": "Organic Social",
+      "activeUsers": 2,
+      "sessions": 7,
+      "screenPageViewsPerSession": 2.5714285714285716,
+      "averageSessionDuration": 796.7082758571429,
+      "engagementRate": 0.8571428571428571,
+      "bounceRate": 0.14285714285714285
+    }
+  ]
+}
