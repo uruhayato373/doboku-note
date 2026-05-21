@@ -28,7 +28,7 @@ price: 500
 
 河川コンサルペルソナの過去 5 年分（R03-R07）をセットにした **magazine ¥1,980（単品 5 本 ¥2,500 → 21%OFF）** もあわせてご覧ください。
 
-https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE
+https://note.com/dobokunote/m/m32132ecb3033
 
 ---
 
@@ -162,4 +162,4 @@ R5 河川コンサル版は「地域密着 × 規模の限界」という表裏�
 
 R03（データ利活用）/ R04（DX）/ R05（SWOT）/ R06（カーボンニュートラル）/ R07（少子高齢化）と、テーマは毎年異なりますが、**河川コンサル・地域密着として書ける論点とトレードオフは共通パターン** があります。5 年分をまとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE
+https://note.com/dobokunote/m/m32132ecb3033
