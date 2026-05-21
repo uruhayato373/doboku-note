@@ -2,6 +2,7 @@
 notePricing: paid
 noteSeries: 総監記述式
 utmCampaign: 99-tradeoff-thinking-practice
+noteStatus: draft
 ---
 # 総監「トレードオフ思考」実践編｜答案サンプル 2 本＋3 週間集中ドリルで記述式を攻略
 

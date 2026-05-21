@@ -5,6 +5,7 @@ noteId: n3bcb87efddad
 notePricing: free
 noteSeries: 総監択一式分析
 utmCampaign: 90-soukan-analysis
+noteStatus: published
 ---
 # 【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜5管理分野別の頻出テーマと学習戦略
 

@@ -2,6 +2,7 @@
 notePricing: free
 noteSeries: 総監キーワード集
 utmCampaign: 99-keyword-2026-changes
+noteStatus: published
 ---
 # 【2026年最新】総監キーワード集の変更点と学び直す優先順位｜2024版から何が変わったか徹底解剖
 

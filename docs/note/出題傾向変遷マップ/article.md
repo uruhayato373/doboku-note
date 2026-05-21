@@ -5,6 +5,7 @@ noteId: nc360aaa381b0
 notePricing: free
 noteSeries: 総監記述式
 utmCampaign: 13-trend-map
+noteStatus: published
 ---
 # 総監記述式 出題傾向の変遷マップ｜H21〜R07 17年分を3期に区分して読み解く完全ガイド
 

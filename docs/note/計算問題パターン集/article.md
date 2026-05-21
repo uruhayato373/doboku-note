@@ -6,6 +6,7 @@ noteUrl: ""
 coverTitle:
   - 総監択一式
   - 計算問題 6 パターン
+noteStatus: published
 ---
 # 総監択一式 頻出計算問題 6パターン完全攻略｜毎年3〜5問を確実な得点源にする解法集
 

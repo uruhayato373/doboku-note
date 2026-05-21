@@ -2,6 +2,7 @@
 notePricing: paid
 noteSeries: 総監記述式
 utmCampaign: 99-tradeoff-thinking
+noteStatus: draft
 ---
 # 総監の合否を分ける「トレードオフ思考」理論編｜5管理×10組み合わせのマトリクスで対立構造を理解する
 
