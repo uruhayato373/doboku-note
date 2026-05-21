@@ -25,9 +25,9 @@
 
 - 139本の storyboard.json を機械下生成済み（commit c8dc83d0c）。
 - batch 1-7（50本）・batch 8 partial（5本）は 2026-05-20 までに完了。
-- 2026-05-20〜 自動ループキャンペーン進行中: cycle 1-10 完了。**YT 120/139 本完了**（ソート位置 1-120）。
-  - commit: `revise(yt)` / `revise(sns)` バッチ群。
-- **残り: 19本**。再開はソート位置 121 から（`ls -d docs/sns/youtube/2*/ | sort | sed -n '121,127p'`）。進捗の真実源は `.claude/state/sns/quality-campaign-progress.json`。
+- 2026-05-20〜 自動ループキャンペーン: cycle 1-13 で **YT 139/139 本 完走**（2026-05-21）。
+  - commit: `revise(yt)` / `revise(sns)` バッチ群。進捗の真実源は `.claude/state/sns/quality-campaign-progress.json`。
+- **storyboard.json の品質改善は完了**。残作業は「動画 mp4 の再生成」のみ（下記「残作業」節。ffmpeg + VOICEVOX 環境が必要）。
 
 ## 再開手順
 
