@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1004" viewBox="0 0 1200 1004">
+  <rect width="1200" height="1004" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="600" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">働きながら総監に挑む</text>
+  <text x="600" y="100" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#2e6da4" text-anchor="middle">逆算学習カレンダー</text>
+
+  <!-- 行 1: 左カード（時期） -->
+  <rect x="48" y="148" width="280" height="136" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="188" y="198" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="middle">11〜12月</text>
+  <text x="188" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="500" fill="#2e6da4" text-anchor="middle">（試験7-8か月前）</text>
+  <!-- 行 1: 右カード（やること） -->
+  <rect x="352" y="148" width="800" height="136" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="372" y="192" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="start">着手</text>
+  <text x="372" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">キーワード集と択一過去問1年分。試験の感触と弱点分野をつかむ</text>
+  <!-- 行 1 → 行 2 矢印 -->
+  <line x1="188" y1="288" x2="188" y2="292" stroke="#2e6da4" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="188,304 178,290 198,290" fill="#2e6da4"/>
+  <!-- 行 2: 左カード（時期） -->
+  <rect x="48" y="308" width="280" height="136" rx="8" fill="#fbf3df" stroke="#d4a017" stroke-width="2"/>
+  <text x="188" y="358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#7a5a00" text-anchor="middle">1〜3月</text>
+  <text x="188" y="388" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="500" fill="#d4a017" text-anchor="middle">（年度末・最繁忙期）</text>
+  <!-- 繁忙期バッジ -->
+  <rect x="113" y="400" width="150" height="30" rx="15" fill="#d4a017"/>
+  <text x="188" y="422" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">繁忙期</text>
+  <!-- 行 2: 右カード（やること） -->
+  <rect x="352" y="308" width="800" height="136" rx="8" fill="#fbf3df" stroke="#d4a017" stroke-width="2"/>
+  <text x="372" y="352" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#7a5a00" text-anchor="start">択一中心</text>
+  <text x="372" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">スキマ時間の択一演習で歩みを止めない。記述の本格演習は避ける</text>
+  <!-- 行 2 → 行 3 矢印 -->
+  <line x1="188" y1="448" x2="188" y2="452" stroke="#2e6da4" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="188,464 178,450 198,450" fill="#2e6da4"/>
+  <!-- 行 3: 左カード（時期） -->
+  <rect x="48" y="468" width="280" height="136" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="188" y="518" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="middle">4〜5月</text>
+  <text x="188" y="548" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="500" fill="#2e6da4" text-anchor="middle">（年度替わりで一段落）</text>
+  <!-- 行 3: 右カード（やること） -->
+  <rect x="352" y="468" width="800" height="136" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="372" y="512" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="start">記述中心</text>
+  <text x="372" y="556" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">答案の型づくりと記述演習をここに寄せる</text>
+  <!-- 行 3 → 行 4 矢印 -->
+  <line x1="188" y1="608" x2="188" y2="612" stroke="#2e6da4" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="188,624 178,610 198,610" fill="#2e6da4"/>
+  <!-- 行 4: 左カード（時期） -->
+  <rect x="48" y="628" width="280" height="136" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="188" y="678" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="middle">6月</text>
+  <text x="188" y="708" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="500" fill="#2e6da4" text-anchor="middle">（試験1か月前）</text>
+  <!-- 行 4: 右カード（やること） -->
+  <rect x="352" y="628" width="800" height="136" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="372" y="672" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="start">仕上げ</text>
+  <text x="372" y="716" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">択一の総仕上げと記述の本番形式演習</text>
+  <!-- 行 4 → 行 5 矢印 -->
+  <line x1="188" y1="768" x2="188" y2="772" stroke="#2e6da4" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="188,784 178,770 198,770" fill="#2e6da4"/>
+  <!-- 行 5: 左カード（時期） -->
+  <rect x="48" y="788" width="280" height="136" rx="8" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="188" y="838" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">7月</text>
+  <!-- 到達点フラグ -->
+  <text x="188" y="808" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" fill="#f0c040" text-anchor="middle">&#9733;</text>
+  <!-- 行 5: 右カード（やること） -->
+  <rect x="352" y="788" width="800" height="136" rx="8" fill="#1a3a5c" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="372" y="866" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="start">筆記試験</text>
+    <text x="1172" y="982" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

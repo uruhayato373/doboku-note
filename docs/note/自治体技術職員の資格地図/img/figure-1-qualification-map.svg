@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="740" viewBox="0 0 1200 740">
+  <rect width="1200" height="740" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="540" y="64" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">自治体の技術職員 キャリアと資格の3層地図</text>
+
+  <!-- 層 第3層 帯 -->
+  <rect x="48" y="120" width="984" height="164" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+
+  <!-- 層名 -->
+  <text x="76" y="181" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="start">第3層</text>
+  <!-- 層区分（施工現場系/専門技術系/管理統合系） -->
+  <text x="202" y="181" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#ffffff" text-anchor="start">管理統合系</text>
+
+  <!-- 代表資格 -->
+  <text x="76" y="219" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="start">技術士 総合技術監理部門（総監）</text>
+
+  <!-- ひとこと説明 -->
+  <text x="76" y="251" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#d0e4f5" text-anchor="start">5管理を統合し事業・組織を俯瞰</text>
+
+  <!-- 層 第2層 帯 -->
+  <rect x="48" y="308" width="984" height="164" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 層名 -->
+  <text x="76" y="369" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4" text-anchor="start">第2層</text>
+  <!-- 層区分（施工現場系/専門技術系/管理統合系） -->
+  <text x="202" y="369" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c" text-anchor="start">専門技術系</text>
+
+  <!-- 代表資格 -->
+  <text x="76" y="407" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="start">技術士（建設部門などの一般部門）・RCCM</text>
+
+  <!-- ひとこと説明 -->
+  <text x="76" y="439" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">特定分野の高度な技術者</text>
+
+  <!-- 層 第1層 帯 -->
+  <rect x="48" y="496" width="984" height="164" rx="8" fill="#f0f5fa" stroke="#9bbcd8" stroke-width="2"/>
+
+  <!-- 層名 -->
+  <text x="76" y="557" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#5580a0" text-anchor="start">第1層</text>
+  <!-- 層区分（施工現場系/専門技術系/管理統合系） -->
+  <text x="202" y="557" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#555555" text-anchor="start">施工現場系</text>
+
+  <!-- 代表資格 -->
+  <text x="76" y="595" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555" text-anchor="start">1級土木施工管理技士</text>
+
+  <!-- ひとこと説明 -->
+  <text x="76" y="627" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">現場を回す力の土台</text>
+
+  <!-- 右側縦矢印（下→上） -->
+  <!-- 矢印の幹 -->
+  <line x1="1056" y1="660" x2="1056" y2="140" stroke="#2e6da4" stroke-width="4" stroke-linecap="round"/>
+  <!-- 矢印頭（上向き三角形） -->
+  <polygon points="1056,120 1044,144 1068,144" fill="#2e6da4"/>
+
+  <!-- 矢印ラベル（縦書き: 1文字ずつ） -->
+  <text x="1076" y="285" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">上</text>
+  <text x="1076" y="307" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">の</text>
+  <text x="1076" y="329" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">層</text>
+  <text x="1076" y="351" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">ほ</text>
+  <text x="1076" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">ど</text>
+  <text x="1076" y="395" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">広</text>
+  <text x="1076" y="417" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">く</text>
+  <text x="1076" y="439" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">俯</text>
+  <text x="1076" y="461" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">瞰</text>
+  <text x="1076" y="483" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">す</text>
+  <text x="1076" y="505" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">る</text>
+
+    <text x="1172" y="718" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>
