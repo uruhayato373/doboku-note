@@ -104,7 +104,8 @@ https://note.com/dobokunote/m/m607bf095b02a
 ## 関連リソース
 
 **doboku-note — 17年分の過去問 + 700キーワード解説（無料）**
-https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=92-civil-servant-blindspots
+
+https://doboku-note.com
 
 - 17年分の択一式過去問（全問解答解説つき・分野別に演習可能）
 - キーワード集2026の全項目をWeb検索可能
