@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-21T03:20:12.002Z",
+  "updatedAt": "2026-05-21T08:00:46.643Z",
   "items": [
     {
       "slug": "4フェーズ学習法",
@@ -43,6 +43,26 @@
       "title": "【一般部門の合格者が落ちる】総監で通用しない3つの理由｜合格率10%の壁を超える4つの対策"
     },
     {
+      "slug": "公務員が総監を取るメリット",
+      "noteUrl": "https://note.com/dobokunote/n/n279ac7c6fe6a",
+      "noteId": "n279ac7c6fe6a",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "93-civil-servant-merits",
+      "title": "【土木系公務員】自治体の技術職員が技術士総監を取る5つのメリット｜発注者の視点から"
+    },
+    {
+      "slug": "公務員技術者の定年後資格戦略",
+      "noteUrl": "https://note.com/dobokunote/n/nbdfe9446f887",
+      "noteId": "nbdfe9446f887",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "94-civil-servant-retirement",
+      "title": "【公務員技術者】定年後を見据えた資格戦略｜技術士総監が再就職・OB活動でどう効くか"
+    },
+    {
       "slug": "出題傾向変遷マップ",
       "noteUrl": "https://note.com/dobokunote/n/nc360aaa381b0",
       "noteId": "nc360aaa381b0",
@@ -53,6 +73,16 @@
       "title": "総監記述式 出題傾向の変遷マップ｜H21〜R07 17年分を3期に区分して読み解く完全ガイド"
     },
     {
+      "slug": "発注者業務を5管理に翻訳",
+      "noteUrl": "https://note.com/dobokunote/n/nd34fa843e977",
+      "noteId": "nd34fa843e977",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "97-translate-5mgmt",
+      "title": "【総監対策】発注者の日常を5管理に翻訳する｜「自分の仕事」で総監を腹落ちさせる"
+    },
+    {
       "slug": "総監択一式17年分分析",
       "noteUrl": "https://note.com/dobokunote/n/n3bcb87efddad",
       "noteId": "n3bcb87efddad",
@@ -61,6 +91,26 @@
       "series": "総監択一式分析",
       "utmCampaign": "90-soukan-analysis",
       "title": "【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜5管理分野別の頻出テーマと学習戦略"
+    },
+    {
+      "slug": "自治体技術職員の択一盲点",
+      "noteUrl": "https://note.com/dobokunote/n/nb2acfecc2df7",
+      "noteId": "nb2acfecc2df7",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "92-civil-servant-blindspots",
+      "title": "【総監択一】自治体の技術職員が総監択一でつまずく3つの盲点｜発注者業務と試験範囲のズレ"
+    },
+    {
+      "slug": "自治体技術職員の資格地図",
+      "noteUrl": "https://note.com/dobokunote/n/nb052deac97b1",
+      "noteId": "nb052deac97b1",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "95-civil-servant-qualifications",
+      "title": "【自治体の技術職員】キャリアと資格の地図｜1級土木施工管理技士・技術士・総監・RCCMの位置づけ"
     },
     {
       "slug": "計算問題パターン集",
@@ -128,6 +178,61 @@
       "title": "経済性管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
     },
     {
+      "slug": "magazines/総監模範論文-ゼネコン/R03",
+      "magazine": "総監模範論文-ゼネコン",
+      "noteUrl": "https://note.com/dobokunote/n/n767f1efc5976",
+      "noteId": "n767f1efc5976",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-ゼネコンペルソナ",
+      "utmCampaign": "essay-gc-r03",
+      "title": "令和3年度 総監記述式 模範論文｜ゼネコン版（データ利活用）"
+    },
+    {
+      "slug": "magazines/総監模範論文-ゼネコン/R04",
+      "magazine": "総監模範論文-ゼネコン",
+      "noteUrl": "https://note.com/dobokunote/n/n73f47e6e564e",
+      "noteId": "n73f47e6e564e",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-ゼネコンペルソナ",
+      "utmCampaign": "essay-gc-r04",
+      "title": "令和4年度 総監記述式 模範論文｜ゼネコン版（DX 推進計画）"
+    },
+    {
+      "slug": "magazines/総監模範論文-ゼネコン/R05",
+      "magazine": "総監模範論文-ゼネコン",
+      "noteUrl": "https://note.com/dobokunote/n/n6478ba1037d9",
+      "noteId": "n6478ba1037d9",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-ゼネコンペルソナ",
+      "utmCampaign": "essay-gc-r05",
+      "title": "令和5年度 総監記述式 模範論文｜ゼネコン版（SWOT 分析）"
+    },
+    {
+      "slug": "magazines/総監模範論文-ゼネコン/R06",
+      "magazine": "総監模範論文-ゼネコン",
+      "noteUrl": "https://note.com/dobokunote/n/n892eecd2a776",
+      "noteId": "n892eecd2a776",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-ゼネコンペルソナ",
+      "utmCampaign": "essay-gc-r06",
+      "title": "令和6年度 総監記述式 模範論文｜ゼネコン版（カーボンニュートラル）"
+    },
+    {
+      "slug": "magazines/総監模範論文-ゼネコン/R07",
+      "magazine": "総監模範論文-ゼネコン",
+      "noteUrl": "https://note.com/dobokunote/n/na742409b8d49",
+      "noteId": "na742409b8d49",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-ゼネコンペルソナ",
+      "utmCampaign": "essay-gc-r07",
+      "title": "令和7年度 総監記述式 模範論文｜ゼネコン版（少子高齢化）"
+    },
+    {
       "slug": "magazines/総監模範論文-河川コンサル/R03",
       "magazine": "総監模範論文-河川コンサル",
       "noteUrl": "https://note.com/dobokunote/n/nb1c19c73e1a7",
@@ -181,6 +286,61 @@
       "series": "総監模範論文-河川コンサルペルソナ",
       "utmCampaign": "essay-river-r07",
       "title": "令和7年度 総監記述式 模範論文｜河川コンサル版（少子高齢化）"
+    },
+    {
+      "slug": "magazines/総監模範論文-自治体道路担当/R03",
+      "magazine": "総監模範論文-自治体道路担当",
+      "noteUrl": "https://note.com/dobokunote/n/n760a211b94b3",
+      "noteId": "n760a211b94b3",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-自治体道路担当ペルソナ",
+      "utmCampaign": "essay-road-r03",
+      "title": "令和3年度 総監記述式 模範論文｜自治体 道路担当版（データ利活用）"
+    },
+    {
+      "slug": "magazines/総監模範論文-自治体道路担当/R04",
+      "magazine": "総監模範論文-自治体道路担当",
+      "noteUrl": "https://note.com/dobokunote/n/n4543a2697b57",
+      "noteId": "n4543a2697b57",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-自治体道路担当ペルソナ",
+      "utmCampaign": "essay-road-r04",
+      "title": "令和4年度 総監記述式 模範論文｜自治体 道路担当版（DX推進）"
+    },
+    {
+      "slug": "magazines/総監模範論文-自治体道路担当/R05",
+      "magazine": "総監模範論文-自治体道路担当",
+      "noteUrl": "https://note.com/dobokunote/n/n357c7c44cccc",
+      "noteId": "n357c7c44cccc",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-自治体道路担当ペルソナ",
+      "utmCampaign": "essay-road-r05",
+      "title": "令和5年度 総監記述式 模範論文｜自治体 道路担当版（SWOT 分析・戦略立案）"
+    },
+    {
+      "slug": "magazines/総監模範論文-自治体道路担当/R06",
+      "magazine": "総監模範論文-自治体道路担当",
+      "noteUrl": "https://note.com/dobokunote/n/n1d347207234f",
+      "noteId": "n1d347207234f",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-自治体道路担当ペルソナ",
+      "utmCampaign": "essay-road-r06",
+      "title": "令和6年度 総監記述式 模範論文｜自治体 道路担当版（カーボンニュートラル）"
+    },
+    {
+      "slug": "magazines/総監模範論文-自治体道路担当/R07",
+      "magazine": "総監模範論文-自治体道路担当",
+      "noteUrl": "https://note.com/dobokunote/n/n7c9fd7e0fc16",
+      "noteId": "n7c9fd7e0fc16",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-自治体道路担当ペルソナ",
+      "utmCampaign": "essay-road-r07",
+      "title": "令和7年度 総監記述式 模範論文｜自治体 道路担当版（少子高齢化）"
     }
   ]
 }

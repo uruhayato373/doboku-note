@@ -40,7 +40,7 @@ note の段階投下は `docs/note/noteコンテンツ計画.md` に方針があ
 
 ### Step 2: ギャップを突き合わせる
 
-- **属性 × 年度マトリクス**: 4 属性（general-contractor / river-consultant / environment-survey / road-municipality）× R03〜R07 で、(a) doboku-note 模範論文ページの有無、(b) magazine 公開の有無 を埋める
+- **属性 × 年度マトリクス**: 3 属性（general-contractor / river-consultant / road-municipality）× R03〜R07 で、(a) doboku-note 模範論文ページの有無、(b) magazine 公開の有無 を埋める
 - **5 管理精読ガイド**: 5 管理（経済性・人的資源・情報・安全・社会環境）のうち未公開のもの
 - **Red Line 抵触チェック**: 合格前は「模範解答」「採点基準解説」の有料販売不可等（`noteコンテンツ計画` の Red Line 1〜5）。抵触する企画候補は除外または「無料/テンプレ化」へ振り替え
 

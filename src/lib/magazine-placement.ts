@@ -3,7 +3,7 @@
  *
  * 設計方針:
  * - 完全一致 / Prefix 一致 / 動的パターン (regex) を組み合わせる
- * - 1 ページに複数マガジンを並べることが可能 (例: r07-secondary に 4 ペルソナ全部)
+ * - 1 ページに複数マガジンを並べることが可能 (例: r07-secondary に 3 ペルソナ全部)
  * - inline (本文末尾) と sidebar (PC 右ペイン) を別指定し、モバイル/PC で出し分け
  * - 表示の最終可否は note-magazines.ts の published フラグ + noteUrl 空チェックで決まる
  *   ここでは「どのページに何を出すか」だけを定義する
@@ -53,7 +53,6 @@ function matchPersonaEssay(slug: string): MagazineId | null {
   const persona = m[1]!;
   if (persona.startsWith('river-consultant')) return 'essay-river-consultant-magazine';
   if (persona.startsWith('general-contractor')) return 'essay-general-contractor-magazine';
-  if (persona.startsWith('environment-survey')) return 'essay-environment-survey-magazine';
   if (persona.startsWith('road-municipality')) return 'essay-road-municipality-magazine';
   return null;
 }
@@ -67,7 +66,6 @@ function matchPatternEssay(slug: string): MagazineId | null {
   const persona = m[1]!;
   if (persona.startsWith('river-consultant')) return 'essay-river-consultant-magazine';
   if (persona.startsWith('general-contractor')) return 'essay-general-contractor-magazine';
-  if (persona.startsWith('environment-survey')) return 'essay-environment-survey-magazine';
   if (persona.startsWith('road-municipality')) return 'essay-road-municipality-magazine';
   return null;
 }
@@ -75,7 +73,6 @@ function matchPatternEssay(slug: string): MagazineId | null {
 const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
   'essay-river-consultant-magazine',
   'essay-general-contractor-magazine',
-  'essay-environment-survey-magazine',
   'essay-road-municipality-magazine',
 ] as const;
 
@@ -84,7 +81,7 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
  * 配置原則:
  * - whitepaper-r7-strategy (¥2,480): 白書テーマ記事 + mlit ハブ で primary CTA
  * - r8-essay-forecast (¥2,480): R07 年度ページ + essay-exam-strategy hub
- * - essay-template-3d (¥2,980 プレミアム): essay-exam-strategy + pattern-essay 4 ペルソナハブ
+ * - essay-template-3d (¥2,980 プレミアム): essay-exam-strategy + pattern-essay 3 ペルソナハブ
  */
 const NEW_MAGAZINES = {
   whitepaperR7: 'whitepaper-r7-strategy' as const,
@@ -97,11 +94,11 @@ const NEW_MAGAZINES = {
  * 表示の最終可否 (公開済みか) は呼び出し側で getMagazine() で確認する。
  *
  * 注: essay-mlit-* 7 記事 (2026-05-18 撤回) と mlit-whitepaper-2025 (2026-05-18 撤回) の
- * 配線は削除済み。白書 R7 × 16 ペア × 4 ペルソナの深掘りは M2 magazine
+ * 配線は削除済み。白書 R7 × 16 ペア × 3 ペルソナの深掘りは M2 magazine
  * (whitepaper-r7-strategy) 独占に分業 (Red Line #7)。
  */
 export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
-  // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 4 ペルソナ模範論文を提示 (強 CTA)
+  // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 3 ペルソナ模範論文を提示 (強 CTA)
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
     return {
       inline: [
@@ -133,8 +130,8 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 2.5. r8-essay-theme-{topic} → R8 予想問題 spoke (固定 4 ペルソナ縦串学習、強 CTA)
-  //     設計: spoke は固定 4 ペルソナ (ゼネコン/河川コンサル/環境調査/自治体 道路担当) を縦串展開し、
+  // 2.5. r8-essay-theme-{topic} → R8 予想問題 spoke (固定 3 ペルソナ縦串学習、強 CTA)
+  //     設計: spoke は固定 3 ペルソナ (ゼネコン/河川コンサル/自治体 道路担当) を縦串展開し、
   //     M3「R8 予想問題集」を主、M4「3D マトリクス」を業界外救済として副配置する。
   //     真実源: content-principles.md §21 + noteコンテンツ計画.md Red Line #8
   if (/^pe-comprehensive-management-r8-essay-theme-[a-z0-9-]+$/.test(slug)) {

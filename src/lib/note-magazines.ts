@@ -77,21 +77,6 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  'essay-environment-survey-magazine': {
-    id: 'essay-environment-survey-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜環境調査会社 5年分セット',
-    description:
-      'R03（データ利活用）〜R07（少子高齢化）の5年分。環境影響評価コンサル/環境調査会社の立場で「社会環境 × 情報 × 経済性」を主軸とした論文構成。',
-    shortTitle: '模範論文｜環境調査',
-    shortDescription:
-      'R03〜R07 の 5 年分セット。環境影響評価コンサル視点、社会環境 × 情報 × 経済性 が主軸。',
-    imageUrl: '/images/magazines/essay-environment-survey-cover.webp',
-    price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
-    badge: 'note 限定',
-  },
-
   'essay-road-municipality-magazine': {
     id: 'essay-road-municipality-magazine',
     published: true,
@@ -129,10 +114,10 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '令和 8 年度 総監記述式 R8 予想問題集｜3 大テーマ × 三層構造',
     description:
-      'R8 予想 3 大テーマ（資源循環 8.5/10・気候変動適応 8.0/10・少子高齢化 7.5/10）を 4 ペルソナ別にアレンジ。三層構造テンプレ + 5 大トレードオフ早見表。約 15,000 字。',
+      'R8 予想 3 大テーマ（資源循環 8.5/10・気候変動適応 8.0/10・少子高齢化 7.5/10）を 3 ペルソナ別にアレンジ。三層構造テンプレ + 5 大トレードオフ早見表。約 15,000 字。',
     shortTitle: 'R8 予想問題集',
     shortDescription:
-      'R8 予想 3 大テーマ + 三層構造 + 4 ペルソナ別アレンジ。',
+      'R8 予想 3 大テーマ + 三層構造 + 3 ペルソナ別アレンジ。',
     imageUrl: '/images/magazines/magazine-r8-essay-forecast-cover.webp',
     price: '¥2,480',
     badge: 'note 限定',
@@ -142,12 +127,12 @@ const MAGAZINES_RAW = {
     id: 'essay-template-3d',
     published: false,
     noteUrl: '',
-    title: '総監記述式 解答テンプレ集｜3D マトリクス 400 セル',
+    title: '総監記述式 解答テンプレ集｜3D マトリクス 300 セル',
     description:
-      'テーマ 20 × 5 管理 × 4 ペルソナ = 400 セルの 3D マトリクス。30 分骨子組立フロー + トレードオフ 16 ペア + 三層構造テンプレ。プレミアム約 51,000 字。',
+      'テーマ 20 × 5 管理 × 3 ペルソナ = 300 セルの 3D マトリクス。30 分骨子組立フロー + トレードオフ 16 ペア + 三層構造テンプレ。プレミアム約 51,000 字。',
     shortTitle: '解答テンプレ 3D',
     shortDescription:
-      '400 セル 3D マトリクス + 30 分骨子フロー + 16 トレードオフ。',
+      '300 セル 3D マトリクス + 30 分骨子フロー + 16 トレードオフ。',
     imageUrl: '/images/magazines/magazine-essay-template-3d-cover.webp',
     price: '¥2,980',
     badge: 'note 限定 プレミアム',

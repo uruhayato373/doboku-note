@@ -57,12 +57,6 @@ const MAGAZINES = [
     fontSize: 44,
   },
   {
-    id: 'environment-survey',
-    lines: ['総監記述式 模範論文', '環境調査・アセス会社', '5年分セット (R03-R07)'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 44,
-  },
-  {
     id: 'road-municipality',
     lines: ['総監記述式 模範論文', '自治体 道路担当（発注者）', '過去問5年＋R8予想セット'],
     category: '技術士（総合技術監理部門）',
@@ -79,14 +73,14 @@ const MAGAZINES = [
   {
     id: 'r8-essay-forecast',
     fileBaseName: 'magazine-r8-essay-forecast-cover',
-    lines: ['R8 予想問題集', '3 大テーマ × 三層構造', '4 ペルソナ別アレンジ'],
+    lines: ['R8 予想問題集', '3 大テーマ × 三層構造', '3 ペルソナ別アレンジ'],
     category: '技術士（総合技術監理部門）',
     fontSize: 48,
   },
   {
     id: 'essay-template-3d',
     fileBaseName: 'magazine-essay-template-3d-cover',
-    lines: ['解答テンプレ集', '3D マトリクス 400 セル', '30 分で骨子が組める'],
+    lines: ['解答テンプレ集', '3D マトリクス 300 セル', '30 分で骨子が組める'],
     category: '技術士（総合技術監理部門）',
     fontSize: 48,
   },

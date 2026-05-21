@@ -23,17 +23,16 @@ user-invocable: true
 |---|---|---|
 | `--mode` | 必須 | 実行工程（下表） |
 | `--year` | draft/revise で必須 | 年度（`R03`〜`R07` 等） |
-| `--attr` | draft/revise で必須 | 受験者属性（下記 4 種のいずれか） |
+| `--attr` | draft/revise で必須 | 受験者属性（下記 3 種のいずれか） |
 | `--target` | review/page で必須 | 対象 slug（例 `r05-essay-general-contractor`）または属性 |
 | `--review` | revise で必須 | `pe-essay-review` が出力したレポートのパス |
 
-### 受験者属性（4 種・正式キー）
+### 受験者属性（3 種・正式キー）
 
 | 正式キー | 日本語 | ハブページ |
 |---|---|---|
 | `general-contractor` | ゼネコン土木支店 | `pattern-essay-general-contractor` |
 | `river-consultant` | コンサル 河川・砂防 | `pattern-essay-river-consultant` |
-| `environment-survey` | 環境調査事務所 | `pattern-essay-environment-survey` |
 | `road-municipality` | 地方公共団体 道路担当（発注者） | `pattern-essay-road-municipality` |
 
 ## モード一覧
@@ -51,7 +50,7 @@ user-invocable: true
 
 ### draft — 模範論文を作る（②）
 
-1. `--year` `--attr` を検証（属性は上記 4 種のキーのみ）
+1. `--year` `--attr` を検証（属性は上記 3 種のキーのみ）
 2. `pe-essay-draft` の SKILL.md を読み、その手順で実行する（このスキルは指示を渡すだけ）
 3. 出力後、状態を `reviewStatus: needs-review` にする（人間ゲート）
 4. 続けて `review` を回すかユーザーに確認
@@ -92,7 +91,7 @@ user-invocable: true
 - **MDX 書き込みは `.claude/scripts/lib/mdx-io.mjs` 経由**（直接 `writeFileSync` は CRLF 混在で pre-commit reject）
 - **書き込み後に `U+FFFD` チェック**（文字化け検出）
 - **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`
-- **属性キーは 4 種固定**（上表）。日本語表記とキーを取り違えない
+- **属性キーは 3 種固定**（上表）。日本語表記とキーを取り違えない
 - **note と doboku-note に同じ技術解説を両方載せない**（重複コンテンツ禁止、`noteコンテンツ計画.md` Red Line）
 
 ## 状態遷移
@@ -125,7 +124,7 @@ draft → needs-review → verified → approved
 
 ## トラブルシューティング
 
-- **属性キーが通らない**: `--attr` は `general-contractor` / `river-consultant` / `environment-survey` / `road-municipality` のいずれか。日本語名は不可
+- **属性キーが通らない**: `--attr` は `general-contractor` / `river-consultant` / `road-municipality` のいずれか。日本語名は不可
 - **review が複数ファイルを指定された**: `/pe-essay-review` は 1 回 1 ファイル原則。逐次実行する
 - **draft の設問構造が分からない**: 年度の設問構造は `r0X-secondary/article.mdx`（過去問ページ）の問題文に従う。`pe-essay-draft` が参照する
 

@@ -2,16 +2,16 @@ import Link from "next/link";
 import { User, ArrowRight } from "lucide-react";
 
 /**
- * PersonaSelector — 4 固定ペルソナへの分岐選択を視覚カード化した
+ * PersonaSelector — 3 固定ペルソナへの分岐選択を視覚カード化した
  * MDX コンポーネント。
  *
  * 用途想定:
  * - R8 spoke の「ペルソナ別の取り組み方」セクション冒頭: 同ページ内 H3 へのアンカー
  * - r0X-secondary の「受験者属性別の論文設計」セクション: 年度別模範論文ページへ直リンク
- * - pattern-essay のハブで使うのも可（同ハブ内で 4 ペルソナ並列提示）
+ * - pattern-essay のハブで使うのも可（同ハブ内で 3 ペルソナ並列提示）
  *
  * 統一性:
- * - 真実源は固定 4 ペルソナ（content-principles.md §21 + note-magazines.ts shortTitle）
+ * - 真実源は固定 3 ペルソナ（content-principles.md §21 + note-magazines.ts shortTitle）
  * - persona key は kebab-case で安定。表示名はコンポーネント内で固定マッピング
  *
  * デザイン:
@@ -23,7 +23,6 @@ import { User, ArrowRight } from "lucide-react";
 const PERSONA_NAMES = {
   "general-contractor": "ゼネコン",
   "river-consultant": "河川コンサル",
-  "environment-survey": "環境調査",
   "road-municipality": "道路発注者",
 } as const;
 
@@ -38,7 +37,7 @@ interface PersonaSelectorItem {
 interface PersonaSelectorProps {
   /**
    * mode 指定で頻出パターンをワンライナーで呼び出す。
-   * - "spoke-anchor": R8 spoke 用。固定 4 ペルソナのプロフィール + 同ページ内 H3 アンカー (#ゼネコン 等)
+   * - "spoke-anchor": R8 spoke 用。固定 3 ペルソナのプロフィール + 同ページ内 H3 アンカー (#ゼネコン 等)
    *
    * mode を渡すと items は不要。両方渡された場合は items 優先。
    */
@@ -57,11 +56,6 @@ const SPOKE_DEFAULT_ITEMS: readonly PersonaSelectorItem[] = [
     persona: "river-consultant",
     caption: "中堅建設コンサル河川・砂防部門部長クラス",
     href: "#河川コンサル",
-  },
-  {
-    persona: "environment-survey",
-    caption: "中小規模の環境調査会社部長クラス",
-    href: "#環境調査",
   },
   {
     persona: "road-municipality",
