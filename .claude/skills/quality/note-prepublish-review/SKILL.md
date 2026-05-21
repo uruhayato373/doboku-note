@@ -32,7 +32,7 @@ user-invocable: true
   │
   ├─ Phase 1: inline checks（軽量・機械的・高速）
   │   ├ ファイル存在: article.md / 参照画像
-  │   ├ markdown 互換性: pipe 表 0 / blockquote 0 / U+FFFD 0
+  │   ├ markdown 互換性: pipe 表 0 / U+FFFD 0（blockquote `>` は note で正しく描画されるため件数報告のみ・BLOCK しない）
   │   ├ frontmatter（あれば）: 必須項目
   │   ├ リンク 404 防止: 各 slug が `.local/r2/posts/.../{slug}/article.mdx` で `published: true`
   │   ├ 太字レンダリング崩れ: `**[link](url)（…）**` Pattern B / `)**（` 境界 Pattern B' を regex 検出（note 独自パーサで描画崩れを起こす既知パターン）
@@ -47,8 +47,8 @@ user-invocable: true
   │
   └─ Phase 3: 結果集約・最終判定
       ├ inline 違反 1 件以上 → BLOCK（ブロッカー）
-      │   ・BLOCK 対象: ファイル不在 / pipe・blockquote・U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern B・B'
-      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式
+      │   ・BLOCK 対象: ファイル不在 / pipe / U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern B・B'
+      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式
       ├ 各エージェントの加重スコア集計
       ├ 合格基準: inline 違反（BLOCK 対象）0 件 + 3 エージェント全て加重スコア 2.0+
       └ 公開可否判定 + 修正アクション一覧
@@ -73,6 +73,8 @@ grep -oE '!\[[^]]*\]\(\.\.?\/img\/[^)]+\)' "$F" | sed -E 's/.*\((\.\.?\/[^)]+)\)
 done
 
 # 3. markdown 互換性
+#   pipe / U+FFFD は BLOCK 対象。blockquote `>` は note で正しく描画されるため
+#   件数報告のみ（WARN 扱い・GO 判定に影響しない）。
 echo "pipe=$(grep -c '^|' "$F") blockquote=$(grep -c '^>' "$F") U+FFFD=$(grep -cP '\xef\xbf\xbd' "$F")"
 
 # 4. リンク 404 防止（絶対パスで .local/r2/ を解決）
@@ -153,7 +155,7 @@ fi
 | 項目 | 結果 | 備考 |
 |---|---|---|
 | ファイル存在 | ✅ | |
-| markdown 互換性 | ✅ | pipe=0 blockquote=0 U+FFFD=0 |
+| markdown 互換性 | ✅ | pipe=0 U+FFFD=0（blockquote=N は WARN・BLOCK しない） |
 | リンク 404 防止 | ✅ | 全 N slug が published |
 | 太字レンダリング崩れ | ✅ | Pattern B / B' ともに 0 件 |
 | リンク anchor↔slug 整合 | ⚠️ | N 件の懸念（ヒューリスティック検査・目視確認推奨） |
