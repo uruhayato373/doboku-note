@@ -30,6 +30,7 @@ import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
+import BookCard from '@/components/ui/BookCard/BookCard';
 import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
@@ -338,6 +339,14 @@ export default async function DocPage({
                 {/* モバイル: 5 管理ピラーナビ（デスクトップではサイドバーで表示済み） */}
                 <div className="mt-8 zenn-desktop:hidden">
                   <PillarNavCard variant="mobile" currentSection={sectionStr} />
+                </div>
+                {/* 参考書籍（アフィリエイト・補完ポジション。記事末の最下部に配置） */}
+                <div className="mt-8">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    総監対策の定番キーワード集。択一の幅広い出題範囲をカバーしたいときに。
+                  </p>
+                  <BookCard asin="4274234746" />
                 </div>
               </>
             )}
