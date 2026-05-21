@@ -40,6 +40,7 @@ model: sonnet
    - `body` は完全な文。体言止めの羅列・記号棒読み・途中切れを禁ずる。
    - 定義は frontmatter の description ではなく MDX 本文の定義文を真実源にする。
    - figure は「図で理解が進む論点」にのみ使う。既存 SVG があれば `imagePath`、新規図版が有用なら `figureSpec`（実制作は別工程）。
+   - `cover.hook`（任意）は **そのキーワード固有**の問いかけ・暗記喚起にする。汎用文や他キーワードでも通用する文は書かない（カバーで「ーー {hook}」と表示される）。
    - 字数ルール（policy のスキーマ表）を守る。執筆後に各フィールドの字数を数える。
 6. MDX を読む過程で気づいた doboku-note 側の問題（説明不足・事実誤認・図が欲しい箇所）は、**MDX を直接編集せず** `docs/sns/instagram/_keyword-findings.md` に追記する。
 

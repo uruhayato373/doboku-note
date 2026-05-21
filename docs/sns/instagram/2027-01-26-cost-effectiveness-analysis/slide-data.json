@@ -1,26 +1,48 @@
 {
   "cover": {
     "keyword": "費用効果分析",
-    "subtitle": null,
-    "stickyText": "CEA は効果を",
-    "management": "economic",
-    "caption": "費用効果分析\nとは何か？"
+    "subtitle": "CEA：Cost-Effectiveness Analysis",
+    "stickyText": "効果を非貨幣単位\n3手法=費用比較\nICER=増分比",
+    "management": "economic"
   },
-  "board": {
-    "heading": "費用効果分析",
-    "body": "費用効果分析（CEA: Cost-Effectiveness Analysis）とは、\n代替案ごとの費用と非貨幣単位の効果を比較し、\n経済性を評価する手法である。\n効果を貨幣換算せず、\n効果 1 単位あたりの費用（または費用 1 単位あたりの効果）で優劣を判断する。",
-    "noteText": "CEA は効果を貨幣化できない分野（医療・教育・防災）で用いる",
-    "management": "economic",
-    "caption": "CBA（貨幣ベース）…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "定義",
+      "body": "費用効果分析（CEA）とは、代替案ごとの費用と非貨幣単位の効果を比較し、経済性を評価する手法である。効果を貨幣換算せず、効果1単位あたりの費用（または費用1単位あたりの効果）で代替案の優劣を判断する。",
+      "noteText": "効果は非貨幣単位\nCEA=費÷効"
+    },
+    {
+      "type": "board",
+      "heading": "事業評価の3手法",
+      "body": "事業評価の手法は効果の測り方で3種に分かれる。費用便益分析（CBA）は便益を貨幣換算してB/C比で評価し、公共事業で標準的に用いられる。費用効用分析（CUA）はQALY（質調整生存年）で効果を測る医療分野の手法である。",
+      "noteText": "CBA=貨幣換算\nCUA=QALY"
+    },
+    {
+      "type": "figure",
+      "heading": "3手法の比較",
+      "figureSpec": "3列の比較表。列ヘッダーは「CBA」「CEA」「CUA」。行は「効果の単位」「主な適用分野」「比較指標」の3行。CBA=貨幣額/公共事業/B比・NPV、CEA=非貨幣単位/防災・教育・医療/C/E比・ICER、CUA=効用QALY/医療/ICER。CEA列を強調色で囲む。",
+      "note": "CEAは異分野間の直接比較が困難"
+    },
+    {
+      "type": "board",
+      "heading": "ICERと実務プロセス",
+      "body": "複数の代替案を比較する際は増分費用効果比（ICER）を用いる。ICERは2案の費用差を効果差で割って求め、閾値（例：医療では500万円/QALY）を下回れば追加投資が正当化される。不確実性は感度分析で確認する。",
+      "noteText": "ICER=費/効\n閾値以下=追加可"
+    },
+    {
+      "type": "board",
+      "heading": "試験のポイント",
+      "body": "CBAとCEAの違いは効果の貨幣換算の有無にある。CEAは効果の貨幣化が困難な分野（医療・教育・防災）で有用だが、異なる効果指標を持つ事業間の直接比較はできない。公共事業ではCBAが標準であり、CEAは補完的に用いられる。",
+      "noteText": "CEA=非貨幣\n異分野比較は不可"
+    }
+  ],
   "cta": {
     "related": [
       "DCF法",
       "需要予測",
       "ESG・環境評価",
       "内部収益率法"
-    ],
-    "management": "economic",
-    "caption": "続きは doboku-note で"
+    ]
   }
 }

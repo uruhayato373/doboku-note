@@ -30,6 +30,7 @@ import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
+import BookCard from '@/components/ui/BookCard/BookCard';
 import KeywordsInExam from '@/components/ui/KeywordsInExam/KeywordsInExam';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
@@ -339,18 +340,36 @@ export default async function DocPage({
                 <div className="mt-8 zenn-desktop:hidden">
                   <PillarNavCard variant="mobile" currentSection={sectionStr} />
                 </div>
+                {/* 参考書籍（アフィリエイト・補完ポジション。記事末の最下部に配置） */}
+                <div className="mt-8">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    総監対策の定番キーワード集。択一の幅広い出題範囲をカバーしたいときに。
+                  </p>
+                  <BookCard asin="4274234746" />
+                </div>
               </>
             )}
 
             {/* PE past-exam: 扱われたキーワード一覧 */}
             {category === 'pe-comprehensive-management' && docGroup === 'pastExam' && (
-              <div className="mt-8">
-                <KeywordsInExam
-                  currentSlug={slugStr}
-                  categoryArticles={categoryArticles}
-                  category={category}
-                />
-              </div>
+              <>
+                <div className="mt-8">
+                  <KeywordsInExam
+                    currentSlug={slugStr}
+                    categoryArticles={categoryArticles}
+                    category={category}
+                  />
+                </div>
+                {/* 参考書籍（PE 過去問: アフィリエイト・補完ポジション） */}
+                <div className="mt-8">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    令和8年度の予想問題と模試で直前対策を仕上げたいときに。
+                  </p>
+                  <BookCard asin="4798076546" />
+                </div>
+              </>
             )}
 
             {/* Civil primary/secondary: 関連テキスト章 (過去問→教材) */}
@@ -382,6 +401,20 @@ export default async function DocPage({
                   docGroup={docGroup}
                   categoryArticles={categoryArticles}
                 />
+              </div>
+            )}
+
+            {/* 参考書籍（PE ガイド: アフィリエイト・補完ポジション。
+                R8 予想ページは予想模試本、それ以外は受験万全対策本） */}
+            {category === 'pe-comprehensive-management' && docGroup === 'guide' && (
+              <div className="mt-8">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  {slugStr.includes('r8-essay')
+                    ? '令和8年度の予想問題と模試で直前対策を仕上げたいときに。'
+                    : '総監受験を申込書から口頭試験まで通して押さえたいときに。'}
+                </p>
+                <BookCard asin={slugStr.includes('r8-essay') ? '4798076546' : '4526084263'} />
               </div>
             )}
 

@@ -1,26 +1,42 @@
 {
   "cover": {
-    "keyword": "クラウドコンピューティング／オンプレミス",
-    "subtitle": null,
-    "stickyText": "IaaS・Paa",
-    "management": "info",
-    "caption": "クラウドコンピューティング／オンプレミス\nとは何か？"
+    "keyword": "クラウド／オンプレミス",
+    "subtitle": "IaaS・PaaS・SaaS",
+    "stickyText": "責任分界モデル\nBCP=地理冗長\nISMAP制度",
+    "management": "info"
   },
-  "board": {
-    "heading": "クラウドコンピューティング／オンプレミス",
-    "body": "クラウドコンピューティングとは、サーバ・ストレージ・ネットワークなどのITリソースを、インターネット経由でオンデマンドに利用できるサービス形態である。",
-    "noteText": "IaaS・PaaS・SaaSのサービスモデルごとに利用者の管理範囲が異なる",
-    "management": "info",
-    "caption": "ハイブリッドクラウドにより…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "クラウドとは",
+      "body": "クラウドコンピューティングとは、サーバ・ストレージ等のITリソースをインターネット経由でオンデマンドに利用できるサービス形態であり、必要な分だけ従量課金で使える。",
+      "noteText": "NIST定義の5特性：オンデマンド・広範アクセス・プーリング・弾力性・計測"
+    },
+    {
+      "type": "figure",
+      "heading": "3サービスモデルの責任分界",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/cloud-on-premises/img/figure-1.svg",
+      "note": "SaaSに近いほど事業者の管理範囲が広く利用者の負担は小さい"
+    },
+    {
+      "type": "board",
+      "heading": "クラウドvsオンプレミス",
+      "body": "オンプレミスは自組織内にサーバを設置・運用する方式で初期投資が高い一方、クラウドは従量課金で初期コストを抑えられるが、セキュリティ統制は事業者のポリシーに依存する。",
+      "noteText": "R03出題誤答：「PaaSはメールなどアプリ機能を提供」→正しくはSaaS"
+    },
+    {
+      "type": "board",
+      "heading": "選択判断の観点",
+      "body": "クラウドが適するのは需要変動が大きい場合や迅速な立ち上げが必要な場合であり、機密性の極めて高いデータ・法規制上の国内保管義務・通信遅延許容不可の場合はオンプレミスが適する。",
+      "noteText": "BCP観点では地理的冗長化が容易なクラウドが東日本大震災以降に普及"
+    }
+  ],
   "cta": {
     "related": [
       "IoT（Internet of Things）",
       "エッジコンピューティング",
-      "インターネット",
-      "デジタルツイン・サイバーフィジカルシステム（CPS）"
-    ],
-    "management": "info",
-    "caption": "続きは doboku-note で"
+      "集中化と分散化",
+      "ERP"
+    ]
   }
 }

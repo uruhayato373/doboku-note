@@ -2,10 +2,12 @@
 notePricing: paid
 noteSeries: 総監択一式
 utmCampaign: calc-problems-6patterns
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/ne190c3ef2fca
+noteId: ne190c3ef2fca
 coverTitle:
   - 総監択一式
   - 計算問題 6 パターン
+noteStatus: published
 ---
 # 総監択一式 頻出計算問題 6パターン完全攻略｜毎年3〜5問を確実な得点源にする解法集
 
@@ -528,6 +530,3 @@ https://note.com/dobokunote/n/n6f9854578518
 単品合計 ¥4,160 → **¥3,480**
 
 （マガジン URL は公開後に追記）
-
-**著者プロフィール**
-土木技術者として 1 級土木施工管理技士・建設部門の技術士に合格後、現在総合技術監理部門を受験中。学習過程で蓄積した 700 キーワードの解説と 17 年分の過去問分析を doboku-note にて無料公開しています。

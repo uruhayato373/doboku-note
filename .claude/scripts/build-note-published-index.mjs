@@ -1,6 +1,8 @@
 #!/usr/bin/env node
-// docs/note/{slug}/article.md を走査し、frontmatter に noteUrl を持つ
-// 公開済み記事の一覧を .claude/state/note-published.json に集計する。
+// docs/note/{slug}/article.md および
+// docs/note/magazines/{magazine}/{year}/article.md を走査し、frontmatter に
+// noteUrl を持つ公開済み記事の一覧を .claude/state/note-published.json に集計する。
+// マガジン記事は slug を "magazines/{magazine}/{year}" とし magazine フィールドを付す。
 //
 // 使い方:
 //   node .claude/scripts/build-note-published-index.mjs
@@ -42,34 +44,63 @@ function extractH1(body) {
   return line.replace(/^#\s+/, '').trim();
 }
 
+function toItem(slug, data, content, extra = {}) {
+  return {
+    slug,
+    ...extra,
+    noteUrl: data.noteUrl,
+    noteId: data.noteId || null,
+    publishedAt: data.notePublishedAt
+      ? new Date(data.notePublishedAt).toISOString().slice(0, 10)
+      : null,
+    pricing: data.notePricing || null,
+    series: data.noteSeries || null,
+    utmCampaign: data.utmCampaign || null,
+    title: extractH1(content),
+  };
+}
+
+/** ディレクトリ直下のサブディレクトリ名一覧（存在しなければ空配列） */
+function subDirs(dir) {
+  try {
+    return readdirSync(dir, { withFileTypes: true })
+      .filter((e) => e.isDirectory())
+      .map((e) => e.name)
+      .sort();
+  } catch {
+    return [];
+  }
+}
+
 function build() {
   const items = [];
-  const dirs = readdirSync(NOTE_DIR, { withFileTypes: true })
-    .filter((e) => e.isDirectory())
-    .map((e) => e.name)
-    .sort();
-  for (const d of dirs) {
-    const articlePath = join(NOTE_DIR, d, 'article.md');
+  // 1. フラットな単独記事 docs/note/{slug}/article.md
+  for (const d of subDirs(NOTE_DIR)) {
+    if (d === 'magazines') continue;
     let raw;
     try {
-      raw = readFileSync(articlePath, 'utf-8');
+      raw = readFileSync(join(NOTE_DIR, d, 'article.md'), 'utf-8');
     } catch {
       continue;
     }
     const { data, content } = matter(raw);
     if (!data?.noteUrl) continue;
-    items.push({
-      slug: d,
-      noteUrl: data.noteUrl,
-      noteId: data.noteId || null,
-      publishedAt: data.notePublishedAt
-        ? new Date(data.notePublishedAt).toISOString().slice(0, 10)
-        : null,
-      pricing: data.notePricing || null,
-      series: data.noteSeries || null,
-      utmCampaign: data.utmCampaign || null,
-      title: extractH1(content),
-    });
+    items.push(toItem(d, data, content));
+  }
+  // 2. マガジン記事 docs/note/magazines/{magazine}/{year}/article.md
+  const MAG_DIR = join(NOTE_DIR, 'magazines');
+  for (const mag of subDirs(MAG_DIR)) {
+    for (const y of subDirs(join(MAG_DIR, mag))) {
+      let raw;
+      try {
+        raw = readFileSync(join(MAG_DIR, mag, y, 'article.md'), 'utf-8');
+      } catch {
+        continue;
+      }
+      const { data, content } = matter(raw);
+      if (!data?.noteUrl) continue;
+      items.push(toItem(`magazines/${mag}/${y}`, data, content, { magazine: mag }));
+    }
   }
   return items;
 }

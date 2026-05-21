@@ -8,7 +8,7 @@
 
 ```
 {
-  "cover":  { "keyword", "subtitle", "stickyText", "management" },
+  "cover":  { "keyword", "subtitle", "hook", "stickyText", "management" },
   "slides": [ { "type": "board"|"figure", ... }, ... ],   // 1〜8 枚
   "cta":    { "related": [...] }
 }
@@ -22,6 +22,7 @@
 |---|---|---|
 | `keyword` | キーワード名（大見出し） | MDX frontmatter の `title` と一致。14 字以内が望ましい |
 | `subtitle` | 比率・数値・原語など | 任意。無ければ `null` |
+| `hook` | 副題下のフック文（カバーで「ーー {hook}」と表示） | 任意。**そのキーワード固有**の問いかけ・暗記喚起にする（例: 欲求5段階説 →「5段階、言える？」）。汎用文や他キーワードで通用する文は禁止。無ければ省略 |
 | `stickyText` | 付箋メモ（`\n` 区切り） | 暗記項目を 2〜3 行。各行 8 字以内 |
 | `management` | 管理区分 | `economic` / `human` / `info` / `safety` / `social` のいずれか |
 

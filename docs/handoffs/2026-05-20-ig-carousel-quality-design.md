@@ -125,5 +125,22 @@ console.log(over===0?"字数OK":`${over}件超過`);'
   - `publish-ig.mjs`: caption 生成を v1/v2 両対応に。
   - 検証済み: 既存 v1 ファイルの後方互換描画、v2 multi-slide（cover+board+figure×2+cta=5枚）描画、figure の実 SVG 埋め込み（図中ラベル完全描画）・スペックプレースホルダ描画、`--config-only`。
 - **Phase 1 基盤 完了**（commit 5c9b7c169・46a8aae0b）: `docs/reference/ig-carousel-policy.md`（5軸ルーブリック）・`ig-carousel-writer`/`ig-carousel-qa` エージェント・実行手順を整備。
-- **Phase 1 キャンペーン進行中**: batch 1 完了（7/727、commit e49ac3121。投稿日順の先頭7本）。develop→main へマージ・本番デプロイ済み。次は 8 本目 `2026-05-26-front-loading` から batch 2。
+- **Phase 1 キャンペーン進行中**: 2026-05-20〜 自動ループで cycle 1-16 完了し **IG 119/727 本完了**（投稿日順ソート位置 1-119）。YT は cycle 13 で 139/139 完走済み。
+  - 機械可読の真実源: `.claude/state/sns/quality-campaign-progress.json`（`ig.totalDoneIndex`）。
+  - commit: `revise(ig)` / `revise(sns)` バッチ群。
+  - **残り: 608本**。再開は投稿日順ソート位置 120 から（`ls -d docs/sns/instagram/2*/ | sort | sed -n '120,126p'`）。
+
+### 再開手順（1サイクル＝IG 7本）
+
+`/loop` に以下を渡すと自動継続する（YT は完走済みのため IG のみ）。
+
+1. `.claude/state/sns/quality-campaign-progress.json` を読む。`ig.totalDoneIndex>=727` なら本 handoff を完了状態に更新・commit してループ終了。
+2. `ls -d docs/sns/instagram/2*/ | sort` で `ig.totalDoneIndex` の次の7フォルダを取得。
+3. `ig-carousel-writer` agent で 7本の `slide-data.json` を v2 執筆（作業ディレクトリ develop と明示、`cta.related` はラベル文字列配列）。
+4. 機械字数ゲート（node）: keyword≤14 / heading≤16 / body≤120 / noteText≤45 / figure.heading≤18 / note≤30 / stickyText各行≤8、JSON健全性・U+FFFD・cta.related非オブジェクト。超過は writer 差し戻し（最大2回、なお超過なら親が直接トリム）。
+5. `ig-carousel-qa` agent で5軸採点。合格＝平均4.0以上かつ全軸3以上。不合格は writer 差し戻し（最大2回）。
+6. **画像レンダリング**: 合格7本それぞれ、`docs/sns/instagram/{date}-{slug}/{carousel,reels}/img/*.png` を rm（v1 3枚→v2 6枚で枚数が変わり orphan が出るため）→ `node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --slug {slug} --date {date} --size both` で再生成。
+7. 合格本の `slide-data.json`＋`carousel/img`・`reels/img`＋`_keyword-findings.md`＋`progress.json`（`ig.totalDoneIndex` +7・`lastBatch` 更新）を明示パスで `git add` → 1 commit（`revise(ig)`）。
+8. 5サイクルごとに本節の進捗数値も更新。407 プロキシエラーは一過性、2連続失敗ならそのサイクル中断し次回再試行。
 - 関連: 727枚の IG 画像再生成（日付削除・見出し修正）は commit 53c19fba9 済み。内容改善後に再描画される。
+- 解決済み: batch 1（commit e49ac3121）の7本の `cta.related` が slug 文字列で、レンダラ（`▷ ${related}` 直接描画）に英語 slug が出ていた問題は、全7本を表示用ラベル文字列へ変換して解消（2026-05-21）。全 727本の `cta.related` は slug/オブジェクト残存ゼロを確認済み。

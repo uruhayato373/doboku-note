@@ -2,25 +2,36 @@
   "cover": {
     "keyword": "SWOT分析",
     "subtitle": null,
-    "stickyText": "内部環境（S/W",
-    "management": "info",
-    "caption": "SWOT分析\nとは何か？"
+    "stickyText": "内部×外部\n強み弱み\n機会脅威",
+    "management": "info"
   },
-  "board": {
-    "heading": "SWOT分析",
-    "body": "SWOT分析とは、組織の内部環境と外部環境を4つの要素で体系的に整理し、戦略立案の基盤とする経営分析フレームワークである。",
-    "noteText": "内部環境（S/W）は自社で制御可能、外部環境（O/T）は制御困難な要因",
-    "management": "info",
-    "caption": "クロスSWOT：SO（積極攻勢）…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "SWOT分析とは",
+      "body": "SWOT分析とは、組織の内部環境（強み・弱み）と外部環境（機会・脅威）を4象限で整理し、戦略立案の基盤とする経営分析フレームワークである。内部環境は自社で制御可能、外部環境は市場動向・法規制など制御困難な要素である。",
+      "noteText": "内部（S/W）=制御可能\n外部（O/T）=制御困難"
+    },
+    {
+      "type": "figure",
+      "heading": "SWOT 4象限マトリクス",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/swot-analysis/img/swot-matrix.svg",
+      "note": "プラス/マイナス×内部/外部の2軸が識別の核心"
+    },
+    {
+      "type": "board",
+      "heading": "クロスSWOT分析",
+      "body": "4要素を掛け合わせて戦略を導出するのがクロスSWOT分析である。SO戦略（積極攻勢）・WO戦略（弱点克服）・ST戦略（差別化）・WT戦略（防衛・撤退）の4戦略から実行可能な選択肢を具体化する。",
+      "noteText": "SO積極攻勢/WO弱点克服\nST差別化/WT防衛"
+    },
+    {
+      "type": "board",
+      "heading": "試験のポイント",
+      "body": "R04 Ⅰ-1-22では4P分析と並列でSWOT・3C・BCGマトリクスが選択肢に並び、フレームワーク間の識別が論点となった。SWOTは「内部×外部」の最も基本的な俯瞰フレームとして他の分析手法と組み合わせて用いる。",
+      "noteText": "過去問R04 Ⅰ-1-22\n3C/BCGとの識別が核心"
+    }
+  ],
   "cta": {
-    "related": [
-      "PPM分析",
-      "3C分析",
-      "4P分析",
-      "クラスター分析"
-    ],
-    "management": "info",
-    "caption": "続きは doboku-note で"
+    "related": ["PPM分析", "3C分析", "4P分析", "クラスター分析"]
   }
 }

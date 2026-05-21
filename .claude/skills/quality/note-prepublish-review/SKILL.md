@@ -32,13 +32,14 @@ user-invocable: true
   │
   ├─ Phase 1: inline checks（軽量・機械的・高速）
   │   ├ ファイル存在: article.md / 参照画像
-  │   ├ markdown 互換性: pipe 表 0 / blockquote 0 / U+FFFD 0
+  │   ├ markdown 互換性: pipe 表 0 / U+FFFD 0（blockquote `>` は note で正しく描画されるため件数報告のみ・BLOCK しない）
   │   ├ frontmatter（あれば）: 必須項目
   │   ├ リンク 404 防止: 各 slug が `.local/r2/posts/.../{slug}/article.mdx` で `published: true`
   │   ├ 太字レンダリング崩れ: `**[link](url)（…）**` Pattern B / `)**（` 境界 Pattern B' を regex 検出（note 独自パーサで描画崩れを起こす既知パターン）
   │   ├ リンク anchor↔slug 整合: anchor テキストとスラッグの title が概念一致しているか辞書（pe-chapters.json + frontmatter fallback）で突合（過去問スラッグは対象外）
   │   ├ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
-  │   └ ハッシュタグ: hashtags.txt 存在 / 99 行以下 / 純粋ハッシュタグ / 重複なし（未生成は warn）
+  │   ├ ハッシュタグ: hashtags.txt 存在 / 99 行以下 / 純粋ハッシュタグ / 重複なし（未生成は warn）
+  │   └ マガジン模範論文（magazines/ 配下のみ）: 試験問題セクション存在 / トレードオフ再掲節の不在 / 設問別解答字数（健全帯 85〜105%）/ 答案本文の散文化 / 図版なし / 設問(3) スコープ（国家施策設問の目視）
   │
   ├─ Phase 2: 3 エージェント並列実行
   │   ├ note-link-injector（Generator, Sonnet）— 全 occurrence リンク化（--audit-only 指定時はスキップ）
@@ -47,8 +48,8 @@ user-invocable: true
   │
   └─ Phase 3: 結果集約・最終判定
       ├ inline 違反 1 件以上 → BLOCK（ブロッカー）
-      │   ・BLOCK 対象: ファイル不在 / pipe・blockquote・U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern B・B'
-      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式
+      │   ・BLOCK 対象: ファイル不在 / pipe / U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern B・B'
+      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式 / 試験問題セクション欠落 / トレードオフ再掲節残存 / 設問別解答字数の健全帯逸脱 / 答案本文の箇条書き / 図版参照あり / 設問(3) 国家スケール設問の目視確認喚起
       ├ 各エージェントの加重スコア集計
       ├ 合格基準: inline 違反（BLOCK 対象）0 件 + 3 エージェント全て加重スコア 2.0+
       └ 公開可否判定 + 修正アクション一覧
@@ -64,13 +65,17 @@ F="$ROOT/docs/note/{slug}/article.md"
 # 1. ファイル存在
 test -f "$F" || exit 1
 
-# 2. 図版参照と実ファイルの整合（article 直下の img/ を絶対パスで解決）
+# 2. 図版参照と実ファイルの整合（article 直下 ./img/ と マガジン共用 ../img/ の両方を絶対パスで解決）
+#    マガジン論文（docs/note/magazines/{magazine}/R0X/article.md）は共用図を ../img/ で参照するため
+#    ./img/ だけだと素通りする。../img/ も拾うこと。
 ART_DIR="$(dirname "$F")"
-grep -oE '!\[[^]]*\]\(\.\/img\/[^)]+\)' "$F" | sed -E 's/.*\((\.\/[^)]+)\).*/\1/' | while read ref; do
+grep -oE '!\[[^]]*\]\(\.\.?\/img\/[^)]+\)' "$F" | sed -E 's/.*\((\.\.?\/[^)]+)\).*/\1/' | while read ref; do
   test -f "$ART_DIR/${ref#./}" || echo "MISSING: $ref"
 done
 
 # 3. markdown 互換性
+#   pipe / U+FFFD は BLOCK 対象。blockquote `>` は note で正しく描画されるため
+#   件数報告のみ（WARN 扱い・GO 判定に影響しない）。
 echo "pipe=$(grep -c '^|' "$F") blockquote=$(grep -c '^>' "$F") U+FFFD=$(grep -cP '\xef\xbf\xbd' "$F")"
 
 # 4. リンク 404 防止（絶対パスで .local/r2/ を解決）
@@ -117,9 +122,56 @@ else
   fi
   if [ "$dups" -gt 0 ]; then echo "HASHTAGS WARN: 重複 $dups 件"; fi
 fi
+
+# 7. マガジン模範論文 専用チェック（docs/note/magazines/ 配下のときのみ）
+case "$F" in
+  */docs/note/magazines/*)
+    # 7a. 設問全文セクション（## 試験問題）の存在
+    if grep -q '^## 試験問題' "$F"; then
+      echo "ESSAY: 試験問題セクション OK"
+    else
+      echo "ESSAY WARN: 「## 試験問題」セクション無し（有料記事の自己完結性のため設問全文の再掲を推奨）"
+    fi
+    # 7b. トレードオフ再掲節の不在（pe-essay-draft v1.5 でテンプレートから除外済み）
+    if grep -q '^## トレードオフと解決フレーム' "$F"; then
+      echo "ESSAY WARN: 「## トレードオフと解決フレームの整理」節が残存（設問本文と重複する再掲節・削除推奨）"
+    else
+      echo "ESSAY: トレードオフ再掲節なし OK"
+    fi
+    # 7c. 解答字数（設問別）— 答案用紙の枚数制限への充足率は設問チェックリストで判定する
+    node "$ROOT/.claude/scripts/note-essay-charcount.mjs" "$F"
+    # 7d. 答案本文の散文化（課題・リスク・障害・克服策等の箇条書き答案を検出）
+    #   本番答案は散文で書くため、これらを「- **…**」の箇条書きにしている箇所は
+    #   散文化を推奨。SWOT 8 項目・工程スケジュール・TF メンバーの箇条書きは妥当な
+    #   ため対象外（管理分野ラベル等の既知アンチパターンのみを positive に検出）。
+    proseB=$(grep -nE '^- \*\*(経済性管理|安全管理|人的資源管理|情報管理|社会環境管理|障害|克服策|トレードオフ|利点|問題点|重大な障害)' "$F")
+    if [ -n "$proseB" ]; then
+      echo "ESSAY WARN: 答案本文に箇条書きの答案あり → 手本準拠で散文化を推奨"
+      echo "$proseB" | sed 's/^/    /'
+    else
+      echo "ESSAY: 答案本文の散文化 OK"
+    fi
+    # 7e. 図版参照（模範論文マガジンは図版を使わない方針・手本に倣う）
+    fig=$(grep -c '!\[' "$F")
+    if [ "$fig" -gt 0 ]; then
+      echo "ESSAY WARN: 図版参照 $fig 件（模範論文マガジンは図版なし方針）"
+    else
+      echo "ESSAY: 図版参照なし OK"
+    fi
+    # 7f. 設問(3) のスコープ（「国としての施策」を問う年度の目視確認）
+    #   R06・R07 等の設問(3) は「事業や組織の枠を超えた国としての施策」を問う。
+    #   設問(3) 答案の各施策がペルソナの専門分野・所管インフラに閉じていないかを
+    #   目視で判定する（grep では判定できない意味的チェック）。
+    if grep -qE '事業や組織の枠を超え|国としての施策|我が国において' "$F"; then
+      echo "ESSAY WARN(目視必須): 設問(3) は国家スケール設問。各施策がペルソナ業界・所管インフラに閉じず、エネルギー・税制・労働・社会保障など複数省庁にまたがる国家政策になっているか目視確認すること（例: CN 年度で「建設業界の CN 標準化」「道路インフラの CN 化」は業界の枠にとどまり NG。「再エネ主力電源化」「カーボンプライシング」等まで広げる）"
+    fi
+    ;;
+esac
 ```
 
 **注意**: `cd` を使うと `.local/r2/` への相対パスが壊れるので、必ず `$ROOT` を絶対パスで保持する。
+
+**マガジン模範論文の解答字数判定**: `note-essay-charcount.mjs` は設問別の解答字数と、試験問題セクションから抽出した答案用紙制限の文言を出力する。答案用紙 1 枚＝600 字。「各組合せを答案用紙1枚以内」のように組合せ・施策が複数ある設問は「個数 × 600 字」が上限。各設問の解答字数が上限の **85〜105%（健全帯）** に収まっているかを判定し、過少（薄い答案）・過多（字数超過）はいずれも WARN として修正アクションに挙げる。字数は markdown 装飾を含むプロキシ値のため、105% 前後は実答案では上限内の可能性がある点を考慮する。
 
 ## Phase 2: エージェント並列起動
 
@@ -151,12 +203,17 @@ fi
 | 項目 | 結果 | 備考 |
 |---|---|---|
 | ファイル存在 | ✅ | |
-| markdown 互換性 | ✅ | pipe=0 blockquote=0 U+FFFD=0 |
+| markdown 互換性 | ✅ | pipe=0 U+FFFD=0（blockquote=N は WARN・BLOCK しない） |
 | リンク 404 防止 | ✅ | 全 N slug が published |
 | 太字レンダリング崩れ | ✅ | Pattern B / B' ともに 0 件 |
 | リンク anchor↔slug 整合 | ⚠️ | N 件の懸念（ヒューリスティック検査・目視確認推奨） |
 | 図版ファイル存在 | ✅ | N 枚すべて確認 |
 | 文字数 | ⚠️ | N 字（free 範囲 2k〜3k に対し N 字） |
+| 試験問題セクション | ✅ | マガジン論文のみ・「## 試験問題」存在 |
+| トレードオフ再掲節 | ✅ | マガジン論文のみ・再掲節なし |
+| 設問別解答字数 | ⚠️ | マガジン論文のみ・設問(1) N字（上限 M字・X%）… 健全帯 85〜105% |
+| 答案本文の散文化 | ✅ | マガジン論文のみ・課題/障害/克服策等の箇条書き答案 N 件 |
+| 図版参照 | ✅ | マガジン論文のみ・図版なし方針 |
 
 ---
 

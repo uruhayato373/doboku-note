@@ -1,26 +1,42 @@
 {
   "cover": {
     "keyword": "管理限界",
-    "subtitle": null,
-    "stickyText": "管理限界＝±3σ",
-    "management": "economic",
-    "caption": "管理限界\nとは何か？"
+    "subtitle": "UCL・CL・LCL（±3σ）",
+    "stickyText": "±3σで判定\n規格限界と区別",
+    "management": "economic"
   },
-  "board": {
-    "heading": "管理限界",
-    "body": "管理限界（Control Limits）とは、\n上方管理限界線（UCL）と下方管理限界線（LCL）であり、\n工程が統計的管理状態にあるかどうかを判定する基準線である。",
-    "noteText": "管理限界＝±3σ（統計的に算出）、規格限界＝設計で決定（混同に注意）",
-    "management": "economic",
-    "caption": "UCL・CL…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "定義",
+      "body": "管理限界とは、上方管理限界線（UCL）と下方管理限界線（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。通常、中心線（CL）から±3σの位置に設定される。",
+      "noteText": "UCL・CL・LCLの3線で管理図を構成する"
+    },
+    {
+      "type": "figure",
+      "heading": "管理図の構造（±3σ）",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/control-limits/img/control-chart.svg",
+      "note": "管理限界を超えた点が工程異常のシグナル"
+    },
+    {
+      "type": "board",
+      "heading": "管理限界 vs 規格限界",
+      "body": "管理限界は工程のばらつきから統計的に算出する（±3σ）。規格限界は製品が満たすべき設計上の基準値であり、両者は別物である。管理限界が規格限界より狭く設定されているのが望ましい状態である。",
+      "noteText": "管理限界=統計算出、規格限界=設計決定。混同は頻出誤答"
+    },
+    {
+      "type": "board",
+      "heading": "異常判定ルール",
+      "body": "点が管理限界線を超えた場合だけでなく、点が中心線の片側に連続して並ぶ連の検定や、一方向に連続して増減する傾向の検定でも工程に異常ありと判定する。管理限界内でも連・傾向があれば異常扱いになる。",
+      "noteText": "限界内でも連・傾向があれば異常と判定する点が試験の核心"
+    }
+  ],
   "cta": {
     "related": [
       "品質管理",
       "全数検査／抜取検査",
       "不適合品率／適合品率",
       "品質改善活動"
-    ],
-    "management": "economic",
-    "caption": "続きは doboku-note で"
+    ]
   }
 }

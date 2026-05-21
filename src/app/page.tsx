@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import BookCard from "@/components/ui/BookCard/BookCard";
 import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
@@ -105,6 +106,16 @@ export default async function HomePage() {
         <ExamCards exams={exams} />
         <LatestArticles articles={latest} />
         <AboutSection />
+        {/* 参考書籍（補完ポジション・トップ最下部。ファーストビュー外） */}
+        <section className="mx-auto max-w-3xl px-4 py-10">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
+            総監受験の参考書籍
+          </h2>
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+            総監受験を申込書から口頭試験まで通して押さえたいときに。
+          </p>
+          <BookCard asin="4526084263" />
+        </section>
       </main>
       <Footer />
     </div>

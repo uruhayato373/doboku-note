@@ -1,7 +1,47 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-07T05:45:17.816Z",
+  "updatedAt": "2026-05-21T03:20:12.002Z",
   "items": [
+    {
+      "slug": "4フェーズ学習法",
+      "noteUrl": "https://note.com/dobokunote/n/n6f9854578518",
+      "noteId": "n6f9854578518",
+      "publishedAt": "2026-05-13",
+      "pricing": "free",
+      "series": "学習戦略",
+      "utmCampaign": "4-phase-learning-strategy",
+      "title": "総監 二次試験 学習スケジュール完全版｜試験前 6-7 ヶ月を 4 フェーズに分けて合格ラインに届く設計"
+    },
+    {
+      "slug": "キーワード集2026変更点",
+      "noteUrl": "https://note.com/dobokunote/n/n3923cbfb651b",
+      "noteId": "n3923cbfb651b",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "総監キーワード集",
+      "utmCampaign": "99-keyword-2026-changes",
+      "title": "【2026年最新】総監キーワード集の変更点と学び直す優先順位｜2024版から何が変わったか徹底解剖"
+    },
+    {
+      "slug": "キーワード集が点にならない理由",
+      "noteUrl": "https://note.com/dobokunote/n/n14c71f3b4d72",
+      "noteId": "n14c71f3b4d72",
+      "publishedAt": "2026-05-21",
+      "pricing": "free",
+      "series": "学習戦略",
+      "utmCampaign": "91-keyword-not-scoring",
+      "title": "【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す"
+    },
+    {
+      "slug": "一般部門との違い",
+      "noteUrl": "https://note.com/dobokunote/n/n7fb7f92f7841",
+      "noteId": "n7fb7f92f7841",
+      "publishedAt": "2026-05-07",
+      "pricing": "free",
+      "series": null,
+      "utmCampaign": null,
+      "title": "【一般部門の合格者が落ちる】総監で通用しない3つの理由｜合格率10%の壁を超える4つの対策"
+    },
     {
       "slug": "出題傾向変遷マップ",
       "noteUrl": "https://note.com/dobokunote/n/nc360aaa381b0",
@@ -21,6 +61,126 @@
       "series": "総監択一式分析",
       "utmCampaign": "90-soukan-analysis",
       "title": "【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜5管理分野別の頻出テーマと学習戦略"
+    },
+    {
+      "slug": "計算問題パターン集",
+      "noteUrl": "https://note.com/dobokunote/n/ne190c3ef2fca",
+      "noteId": "ne190c3ef2fca",
+      "publishedAt": null,
+      "pricing": "paid",
+      "series": "総監択一式",
+      "utmCampaign": "calc-problems-6patterns",
+      "title": "総監択一式 頻出計算問題 6パターン完全攻略｜毎年3〜5問を確実な得点源にする解法集"
+    },
+    {
+      "slug": "magazines/総監テキスト精読ガイド/5管理-人的資源管理",
+      "magazine": "総監テキスト精読ガイド",
+      "noteUrl": "https://note.com/dobokunote/n/nb010cafe207b",
+      "noteId": null,
+      "publishedAt": null,
+      "pricing": "paid",
+      "series": "総監テキスト精読ガイド",
+      "utmCampaign": "99-human-resource-management",
+      "title": "人的資源管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+    },
+    {
+      "slug": "magazines/総監テキスト精読ガイド/5管理-安全管理",
+      "magazine": "総監テキスト精読ガイド",
+      "noteUrl": "https://note.com/dobokunote/n/nb68184641be8",
+      "noteId": null,
+      "publishedAt": null,
+      "pricing": "paid",
+      "series": "総監テキスト精読ガイド",
+      "utmCampaign": "99-safety-management",
+      "title": "安全管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+    },
+    {
+      "slug": "magazines/総監テキスト精読ガイド/5管理-情報管理",
+      "magazine": "総監テキスト精読ガイド",
+      "noteUrl": "https://note.com/dobokunote/n/n9f48dd4d895a",
+      "noteId": null,
+      "publishedAt": null,
+      "pricing": "paid",
+      "series": "総監テキスト精読ガイド",
+      "utmCampaign": "99-information-management",
+      "title": "情報管理｜総監キーワード精読ガイド｜択一・記述で直結する全論点"
+    },
+    {
+      "slug": "magazines/総監テキスト精読ガイド/5管理-社会環境管理",
+      "magazine": "総監テキスト精読ガイド",
+      "noteUrl": "https://note.com/dobokunote/n/n4424bc5ce1c9",
+      "noteId": null,
+      "publishedAt": null,
+      "pricing": "paid",
+      "series": "総監テキスト精読ガイド",
+      "utmCampaign": "99-social-environment-management",
+      "title": "社会環境管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+    },
+    {
+      "slug": "magazines/総監テキスト精読ガイド/5管理-経済性管理",
+      "magazine": "総監テキスト精読ガイド",
+      "noteUrl": "https://note.com/dobokunote/n/ndf7ddb3f0a97",
+      "noteId": null,
+      "publishedAt": null,
+      "pricing": "paid",
+      "series": "総監テキスト精読ガイド",
+      "utmCampaign": "99-economic-management",
+      "title": "経済性管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+    },
+    {
+      "slug": "magazines/総監模範論文-河川コンサル/R03",
+      "magazine": "総監模範論文-河川コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/nb1c19c73e1a7",
+      "noteId": "nb1c19c73e1a7",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-河川コンサルペルソナ",
+      "utmCampaign": "essay-river-r03",
+      "title": "令和3年度 総監記述式 模範論文｜河川コンサル版（データ利活用）"
+    },
+    {
+      "slug": "magazines/総監模範論文-河川コンサル/R04",
+      "magazine": "総監模範論文-河川コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/nf5c45c995254",
+      "noteId": "nf5c45c995254",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-河川コンサルペルソナ",
+      "utmCampaign": "essay-river-r04",
+      "title": "令和4年度 総監記述式 模範論文｜河川コンサル版（DX 推進計画）"
+    },
+    {
+      "slug": "magazines/総監模範論文-河川コンサル/R05",
+      "magazine": "総監模範論文-河川コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/n3f8af99c6705",
+      "noteId": "n3f8af99c6705",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-河川コンサルペルソナ",
+      "utmCampaign": "essay-river-r05",
+      "title": "令和5年度 総監記述式 模範論文｜河川コンサル版（SWOT 分析）"
+    },
+    {
+      "slug": "magazines/総監模範論文-河川コンサル/R06",
+      "magazine": "総監模範論文-河川コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/n0c57fc5085c9",
+      "noteId": "n0c57fc5085c9",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-河川コンサルペルソナ",
+      "utmCampaign": "essay-river-r06",
+      "title": "令和6年度 総監記述式 模範論文｜河川コンサル版（カーボンニュートラル）"
+    },
+    {
+      "slug": "magazines/総監模範論文-河川コンサル/R07",
+      "magazine": "総監模範論文-河川コンサル",
+      "noteUrl": "https://note.com/dobokunote/n/n5792ae9f09dc",
+      "noteId": "n5792ae9f09dc",
+      "publishedAt": "2026-05-21",
+      "pricing": "paid",
+      "series": "総監模範論文-河川コンサルペルソナ",
+      "utmCampaign": "essay-river-r07",
+      "title": "令和7年度 総監記述式 模範論文｜河川コンサル版（少子高齢化）"
     }
   ]
 }

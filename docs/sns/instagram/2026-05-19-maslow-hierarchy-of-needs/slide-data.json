@@ -2,6 +2,7 @@
   "cover": {
     "keyword": "マズローの欲求5段階説",
     "subtitle": "1943年",
+    "hook": "5段階、言える？",
     "stickyText": "欠乏欲求\n成長欲求\n人的資源管理",
     "management": "human"
   },
@@ -33,10 +34,10 @@
   ],
   "cta": {
     "related": [
-      "herzberg-two-factor-theory",
-      "mcgregor-xy-theory",
-      "incentive",
-      "intrinsic-motivation"
+      "ハーズバーグの二要因理論",
+      "マクレガーのX理論とY理論",
+      "インセンティブ",
+      "内発的動機付け"
     ]
   }
 }

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="804" viewBox="0 0 1200 804">
+  <rect width="1200" height="804" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="600" y="64" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">通読の失敗を「出題視点」で読み直す</text>
+
+  <!-- カラムヘッダ -->
+  <rect x="48" y="120" width="460" height="48" rx="8" fill="#b22234"/>
+  <text x="278" y="153" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">通読でこうなる（失敗）</text>
+
+  <!-- 右ヘッダ（positive） -->
+  <rect x="592" y="120" width="560" height="48" rx="8" fill="#3a7d44"/>
+  <text x="872" y="153" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">出題視点でこう直す（修正）</text>
+
+  <!-- 行 1: 左カード -->
+  <rect x="48" y="184" width="460" height="164" rx="8" fill="#fbe6e9" stroke="#b22234" stroke-width="2"/>
+  <text x="278" y="259" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="600" fill="#b22234" text-anchor="middle">全項目を平等に読む</text>
+  <text x="278" y="291" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="600" fill="#b22234" text-anchor="middle">（出題頻度が分からない）</text>
+
+  <!-- 行 1: 矢印 -->
+  <text x="550" y="266" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#2e6da4" text-anchor="middle">&#x25B6;</text>
+
+  <!-- 行 1: 右カード -->
+  <rect x="592" y="184" width="560" height="164" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+  <text x="620" y="227" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44">優先度づけ</text>
+  <text x="620" y="259" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="start">論点を「高・中・低」に仕分け、</text>
+  <text x="620" y="291" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="start">高から固める</text>
+
+  <!-- 行 2: 左カード -->
+  <rect x="48" y="372" width="460" height="164" rx="8" fill="#fbe6e9" stroke="#b22234" stroke-width="2"/>
+  <text x="278" y="447" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="600" fill="#b22234" text-anchor="middle">引っかけ方が分からない</text>
+  <text x="278" y="479" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="600" fill="#b22234" text-anchor="middle">（用語の意味だけ覚える）</text>
+
+  <!-- 行 2: 矢印 -->
+  <text x="550" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#2e6da4" text-anchor="middle">&#x25B6;</text>
+
+  <!-- 行 2: 右カード -->
+  <rect x="592" y="372" width="560" height="164" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+  <text x="620" y="415" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44">引っかけ先回り</text>
+  <text x="620" y="447" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="start">過去問の誤答パターンから</text>
+  <text x="620" y="479" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="start">狙われる箇所をメモ</text>
+
+  <!-- 行 3: 左カード -->
+  <rect x="48" y="560" width="460" height="164" rx="8" fill="#fbe6e9" stroke="#b22234" stroke-width="2"/>
+  <text x="278" y="635" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="600" fill="#b22234" text-anchor="middle">単体暗記で</text>
+  <text x="278" y="667" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="600" fill="#b22234" text-anchor="middle">記述に使えない</text>
+
+  <!-- 行 3: 矢印 -->
+  <text x="550" y="642" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#2e6da4" text-anchor="middle">&#x25B6;</text>
+
+  <!-- 行 3: 右カード -->
+  <rect x="592" y="560" width="560" height="164" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+  <text x="620" y="603" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44">トレードオフ束ね</text>
+  <text x="620" y="635" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="start">各論点を「対立する管理」で</text>
+  <text x="620" y="667" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="start">タグ付け</text>
+
+    <text x="1172" y="782" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

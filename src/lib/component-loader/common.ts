@@ -30,6 +30,7 @@ export const commonComponents = {
   StatsCard: "StatsCard",
   PdcaCycle: "PdcaCycle",
   CourseAffiliate: "CourseAffiliate",
+  BookCard: "BookCard",
   // 汎用コンポーネント（将来追加予定）
   // ImageGallery: 'ImageGallery',
   // TableOfContents: 'TableOfContents',

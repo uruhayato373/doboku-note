@@ -8,6 +8,7 @@ utmCampaign: 4-phase-learning-strategy
 coverTitle:
   - 総監 二次試験
   - 4 フェーズ学習法
+noteStatus: published
 ---
 # 総監 二次試験 学習スケジュール完全版｜試験前 6-7 ヶ月を 4 フェーズに分けて合格ラインに届く設計
 

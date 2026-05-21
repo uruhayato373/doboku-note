@@ -1,26 +1,30 @@
 {
   "cover": {
     "keyword": "アフターサービス",
-    "subtitle": null,
-    "stickyText": "購入後の顧客満足",
-    "management": "economic",
-    "caption": "アフターサービス\nとは何か？"
+    "subtitle": "After-Sales Service",
+    "stickyText": "販売後の支援\nPL法1994年\n苦情=改善源",
+    "management": "economic"
   },
-  "board": {
-    "heading": "アフターサービス",
-    "body": "アフターサービス（After-Sales Service）とは、製品・サービスの販売・引渡し後に提供される保守・修理・相談対応などの顧客支援活動である。",
-    "noteText": "購入後の顧客満足維持が目的（品質保証の延長線上の活動）",
-    "management": "economic",
-    "caption": "苦情処理は品質改善の重要な情報源とな…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "アフターサービスとは",
+      "body": "アフターサービス（After-Sales Service）とは、製品・サービスの販売後に提供される保守・修理・相談対応などの顧客支援活動である。顧客満足度の維持・向上を目的とし、苦情処理で得た情報は品質改善活動にフィードバックされる。",
+      "noteText": "ビフォアサービス（購入前）と対をなす概念"
+    },
+    {
+      "type": "board",
+      "heading": "主な活動と制度的背景",
+      "body": "主な活動は保守・点検・修理・苦情処理・技術相談・部品の長期供給である。1994年の製造物責任法（PL法）施行で販売後のサポートが法的義務として意識され、近年はIoT・AIによる予防保全型への移行が進んでいる。",
+      "noteText": "部品供給の長期保証は製造物責任（PL）との関連が深い"
+    }
+  ],
   "cta": {
     "related": [
       "ビフォアサービス",
       "品質保証",
       "品質管理",
-      "管理限界"
-    ],
-    "management": "economic",
-    "caption": "続きは doboku-note で"
+      "設計品質"
+    ]
   }
 }

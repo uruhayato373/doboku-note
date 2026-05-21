@@ -2,6 +2,7 @@
 notePricing: paid
 noteSeries: 総監記述式
 utmCampaign: 99-tradeoff-thinking
+noteStatus: draft
 ---
 # 総監の合否を分ける「トレードオフ思考」理論編｜5管理×10組み合わせのマトリクスで対立構造を理解する
 
@@ -200,6 +201,3 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 **マガジン購入で割引（総監記述式 完全対策セット）**
 - 本書 ¥1,200 + 実践編 + 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 + 総監記述式 論文骨子テンプレート（A-1）¥1,980 = 単品合計 ¥4,160
 - セット価格 **¥3,480**（16% OFF）
-
-**著者プロフィール**
-土木技術者として 1 級土木施工管理技士・建設部門の技術士に合格後、2026 年に総合技術監理部門に挑戦。学習過程で蓄積した 700 キーワードの解説と 17 年分の過去問分析を doboku-note にて無料公開しています。

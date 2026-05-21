@@ -1,26 +1,35 @@
 {
   "cover": {
     "keyword": "ワシントン条約",
-    "subtitle": null,
-    "stickyText": "附属書Iは最も厳",
-    "management": "social",
-    "caption": "ワシントン条約\nとは何か？"
+    "subtitle": "CITES（1973年採択）",
+    "stickyText": "I: 商業禁止\n日本1980年\n外為法・種保",
+    "management": "social"
   },
-  "board": {
-    "heading": "ワシントン条約",
-    "body": "ワシントン条約（CITES：Convention on International Trade in Endangered Species of Wild Fauna and Flora）は、\n絶滅のおそれのある野生動植物の種の国際取引を規制することにより、\nこれらの種の保護を図ることを目的とした国際条約である。",
-    "noteText": "附属書Iは最も厳しく、商業目的の国際取引を原則禁止",
-    "management": "social",
-    "caption": "附属書IIは輸出国の許可があれば取引…"
-  },
+  "slides": [
+    {
+      "type": "board",
+      "heading": "条約の目的と概要",
+      "body": "ワシントン条約（CITES）は、絶滅のおそれのある野生動植物の国際取引を規制し、これらの種の保護を図ることを目的とした国際条約である。1973年にワシントンD.C.で採択され、日本は1980年に加入した。",
+      "noteText": "過度な国際取引が種の存続を脅かすとの認識が背景"
+    },
+    {
+      "type": "board",
+      "heading": "附属書I〜IIIの3段階規制",
+      "body": "附属書Iは絶滅のおそれがある種を対象に商業目的の国際取引を原則禁止し、学術目的には輸出入双方の許可が必要となる。附属書IIは輸出国の許可があれば取引可能、附属書IIIは当該締約国の保護協力目的で輸出許可が必要となる。",
+      "noteText": "I: 商業取引禁止 / II: 輸出国許可 / III: 限定協力"
+    },
+    {
+      "type": "board",
+      "heading": "日本における国内実施",
+      "body": "日本では外国為替及び外国貿易法（外為法）と種の保存法によりワシントン条約の規制を国内法で担保している。附属書I掲載種は種の保存法に基づく国際希少野生動植物種として指定され、国内での譲渡・陳列・輸出入が原則禁止される。",
+      "noteText": "経産省: 輸出入承認 / 環境省: 国内取引規制"
+    }
+  ],
   "cta": {
     "related": [
       "生物多様性条約",
       "名古屋議定書",
-      "バイオセーフティ",
       "昆明・モントリオール生物多様性枠組"
-    ],
-    "management": "social",
-    "caption": "続きは doboku-note で"
+    ]
   }
 }
