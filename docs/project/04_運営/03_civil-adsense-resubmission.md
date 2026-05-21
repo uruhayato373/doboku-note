@@ -2,9 +2,20 @@
 
 実行記録 + 完了ゲートチェックリスト + 再申請の SOP。
 
-最終更新: 2026-05-16
+最終更新: 2026-05-21
 親タスク: `.claude/state/task-queue.json` T-010 (AdSense 再申請プロセス完遂)
-プランの真実源: `/Users/minamidaisuke/.claude/plans/gentle-questing-sketch.md`
+真実源: 本ドキュメントの再申請ゲート G1〜G20。
+（プラン初版 `gentle-questing-sketch.md` は旧作業環境のもので現環境には存在しない）
+
+---
+
+## 現在地（2026-05-21）
+
+Civil 側のコンテンツ品質修正の本体は完遂済み。**G1〜G14・G16・G17・G18 達成**。
+
+- **残ゲートは G15（GSC で代表 79 URL のうち ≥60 件が Indexed）のみ。**
+- G16（G13 デプロイから 5 営業日経過）は 2026-05-21 で到達済み。
+- 次アクション: GSC でインデックス進捗を確認 → G15 充足を確認できしだい、下記「再申請 SOP」⑤ で AdSense 再申請。
 
 ---
 
@@ -121,7 +132,7 @@ Google AdSense 審査が不合格になった（2026-05 第 N 回）。技術士
 | G13 | Cloudflare Pages 本番反映済 | ✅ 2026-05-16 デプロイ完了（同日 5 deploy: Callout 削除 → lint 駆動 4 種 → H1 CRLF → PE/civil 全面改善 → bold 30字超 → RelatedKeywords 残ノイズ → PE ExamPoint 体言止め化） |
 | G14 | GSC で sitemap.xml 再送信、エラーゼロ認識 | ✅ 2026-05-16 ユーザー操作完了 |
 | G15 | 代表 79 URL のうち ≥ 60 件が GSC で Indexed | ⏸ ユーザー操作 + 待機 |
-| G16 | G13 デプロイから最低 5 営業日経過 | ⏸ 2026-05-21 以降 |
+| G16 | G13 デプロイから最低 5 営業日経過 | ✅ 2026-05-21 到達（G13 デプロイ 2026-05-16 から経過）|
 | G17 | `/about` ページに著者プロフィール表示 | ✅ 既存 |
 | G18 | civil docs ページ末尾に AuthorCard 描画 | ✅ page.tsx L407 |
 | G19 | task-queue T-010 が `completed` 化可能な状態 | ⏸ 申請完了後 |
@@ -187,8 +198,6 @@ GSC で以下 8 URL を 1 件ずつ URL 検査 → 「インデックス登録�
 
 ## 関連ドキュメント
 
-- プラン本体: `/Users/minamidaisuke/.claude/plans/gentle-questing-sketch.md`
-- アーカイブ戦略: `docs/project/アーカイブ/12_adsense-resubmission-strategy.md`
+- アーカイブ戦略: `docs/project/アーカイブ/12_adsense-resubmission-strategy.md`（現存）
 - task-queue: `.claude/state/task-queue.json` T-010
-- 過去の thin content 改修実績: `~/.claude/projects/-Users-minamidaisuke-doboku-note/memory/project_quality_cycle_phase_g4.md`
-- 競合分析: `docs/project/competitor-audit/2026-04-04_civil-construction-1.md`
+- 旧環境のみ（現環境に無し・参照不可）: プラン本体 `gentle-questing-sketch.md` / メモリ `project_quality_cycle_phase_g4.md` / 競合分析 `competitor-audit/2026-04-04_civil-construction-1.md`。再申請判断は本ドキュメントの G1〜G20 を真実源とする。
