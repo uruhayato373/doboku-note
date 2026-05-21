@@ -5,7 +5,9 @@ utmCampaign: 92-civil-servant-blindspots
 coverTitle:
   - 自治体の技術職員が
   - 総監択一でつまずく3つの盲点
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/nb2acfecc2df7
+noteId: nb2acfecc2df7
 ---
 # 【総監択一】自治体の技術職員が総監択一でつまずく3つの盲点｜発注者業務と試験範囲のズレ
 
