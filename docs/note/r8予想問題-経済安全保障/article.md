@@ -74,13 +74,13 @@ R7 経済財政白書では国内回帰コストの吸収、重要技術人材�
 - **技術士総監 R8 記述式 予想問題集** — R8 予想テーマの問題文・三層構造の解答骨子・道路発注者ペルソナのフル解答を 1 冊に収録
 - **総監記述式 模範論文｜自治体 道路担当** — R03〜R07 の過去問フル模範論文 5 年分 ＋ R08 予想章
 
-ゼネコン・河川コンサル・環境調査の各ペルソナについては、R03〜R07 のフル模範論文をペルソナ別マガジンで展開しています。
+ゼネコン・河川コンサルの各ペルソナについては、R03〜R07 のフル模範論文をペルソナ別マガジンで展開しています。
 
 ---
 
 ## 関連記事（無料）
 
-- [R8 予想問題：経済安全保障｜doboku-note](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-economic-security) — 本テーマの想定問題文・解答の方向性（4 ペルソナ別）・関連白書深掘りを完全公開
+- [R8 予想問題：経済安全保障｜doboku-note](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-economic-security) — 本テーマの想定問題文・解答の方向性（3 ペルソナ別）・関連白書深掘りを完全公開
 - [R8 出題候補テーマ俯瞰｜doboku-note](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast) — 本テーマが R8 予想の候補テーマのうちどう位置づけられるか、選定理由と関連 KW を一覧で俯瞰
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs) — 経済性 × 社会環境、経済性 × 情報のトレードオフ解決フレームと論文 4 ステップ
 

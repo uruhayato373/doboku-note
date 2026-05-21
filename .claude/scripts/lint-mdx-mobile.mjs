@@ -58,7 +58,7 @@
  *  12-2 MEDIUM group: guide で `## 参考資料` または `## 参考文献` を検出（外部離脱を最小化、§20）
  *  12-3 LOW    group: guide で末尾 H2 が承認パターン外（次のステップ / 関連リソース / ○○の選択肢）
  *  13-1 MEDIUM r8-essay-theme-* spoke で許可外の ### ペルソナ名を検出（content-principles.md §21）
- *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 5 個でない（content-principles.md §21、4 ペルソナ + 業界外救済 = 5 個が正常）
+ *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 4 個でない（content-principles.md §21、3 ペルソナ + 業界外救済 = 4 個が正常）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -584,7 +584,7 @@ function lintHeadingBeforeTable(table, lines, findings) {
  * 9-7 MEDIUM 総監ページに教材外の実務応用セクション（pe-comprehensive-management 限定、§15）
  */
 function isExamArchive(filePath) {
-  // PE 形式: r05-primary/, h28-secondary/, r05-essay-environment-survey/
+  // PE 形式: r05-primary/, h28-secondary/, r05-essay-river-consultant/
   if (/[\\\/](?:r|h)\d{2}-(?:primary|secondary|essay)/.test(filePath)) return true;
   // Civil 形式: primary-r05-a/, primary-h28-b/, secondary-r03/, secondary-concrete-past-problems/
   if (/civil-construction-1[\\\/](?:primary|secondary)-/.test(filePath)) return true;
@@ -771,14 +771,13 @@ function isR8EssayThemeSpoke(filePath) {
 
 /**
  * R8 spoke で許可された H3 名（content-principles.md §21）。
- * 4 固定ペルソナ + 業界外救済セクションの計 5 個。
+ * 3 固定ペルソナ + 業界外救済セクションの計 4 個。
  * - ペルソナ名は note magazine M5-M8 / src/lib/note-magazines.ts と完全一致
  * - 業界外受験者は前方一致で判定（カッコ書きサフィックスを許容）
  */
 const R8_SPOKE_ALLOWED_PERSONAS = [
   'ゼネコン',
   '河川コンサル',
-  '環境調査',
   '道路発注者',
   '業界外受験者',
 ];
@@ -1261,11 +1260,11 @@ function lintGuideArticleStructure(lines, raw, filePath, findings) {
   }
 }
 
-// ── 13: R8 予想問題 spoke の固定 4 ペルソナ統一 ────────────────────────────────
+// ── 13: R8 予想問題 spoke の固定 3 ペルソナ統一 ────────────────────────────────
 /**
- * 13-1 MEDIUM: spoke で許可された 4 ペルソナ名以外の ### を検出
- * 13-2 MEDIUM: 「## ペルソナ別の取り組み方」配下の ### サブセクション数が 5 個でない
- *              （4 ペルソナ + 業界外救済 = 5 個が正常）
+ * 13-1 MEDIUM: spoke で許可された 3 ペルソナ名以外の ### を検出
+ * 13-2 MEDIUM: 「## ペルソナ別の取り組み方」配下の ### サブセクション数が 4 個でない
+ *              （3 ペルソナ + 業界外救済 = 4 個が正常）
  *
  * 真実源: content-principles.md §21
  * 対象: pe-comprehensive-management 配下の r8-essay-theme-* スラグのみ
@@ -1308,14 +1307,14 @@ function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
     if (m) h3Headings.push({ idx: i, text: m[1].trim() });
   }
 
-  // 13-2: H3 個数チェック（4 ペルソナ + 業界外救済 = 5 個が正常）
-  if (h3Headings.length !== 5) {
+  // 13-2: H3 個数チェック（3 ペルソナ + 業界外救済 = 4 個が正常）
+  if (h3Headings.length !== 4) {
     findings.push({
       severity: 'MEDIUM',
       rule: '13-2',
       line: sectionStart + 1,
       endLine: sectionEnd,
-      message: `R8 spoke「## ペルソナ別の取り組み方」配下の ### サブセクションが ${h3Headings.length} 個（期待値: 5 個 = 4 ペルソナ + 業界外救済）。固定 4 ペルソナ + 業界外救済で構成する（content-principles.md §21）`,
+      message: `R8 spoke「## ペルソナ別の取り組み方」配下の ### サブセクションが ${h3Headings.length} 個（期待値: 4 個 = 3 ペルソナ + 業界外救済）。固定 3 ペルソナ + 業界外救済で構成する（content-principles.md §21）`,
     });
   }
 
@@ -1332,7 +1331,7 @@ function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
         rule: '13-1',
         line: h.idx + 1,
         endLine: h.idx + 1,
-        message: `R8 spoke で許可外の ### 見出し「${h.text}」を検出。固定 4 ペルソナ（${R8_SPOKE_ALLOWED_PERSONAS.slice(0, 4).join(' / ')}）+ 業界外受験者のみ使用可能（content-principles.md §21）。業界外救済は note M4 マガジンに分業`,
+        message: `R8 spoke で許可外の ### 見出し「${h.text}」を検出。固定 3 ペルソナ（${R8_SPOKE_ALLOWED_PERSONAS.slice(0, 3).join(' / ')}）+ 業界外受験者のみ使用可能（content-principles.md §21）。業界外救済は note M4 マガジンに分業`,
       });
     }
   }
@@ -1428,7 +1427,7 @@ function lintFile(filePath) {
   // カテゴリ12: PE ガイド記事の構造（group: guide 専用）
   lintGuideArticleStructure(lines, raw, filePath, findings);
 
-  // カテゴリ13: R8 予想問題 spoke の固定 4 ペルソナ統一（content-principles.md §21）
+  // カテゴリ13: R8 予想問題 spoke の固定 3 ペルソナ統一（content-principles.md §21）
   lintR8SpokeFixedPersonas(lines, raw, filePath, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）

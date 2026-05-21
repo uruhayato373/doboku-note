@@ -559,7 +559,7 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - [社会環境管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)（関連キーワードの全体マップ）
 - 択一式過去問: [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management) / [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management) / [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)（社会環境管理の問題を確認）
-- 記述式過去問 [R07 環境部門](https://doboku-note.com/docs/pe-comprehensive-management-r07-essay-environment-survey?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)
+- 記述式過去問 [R07 河川コンサル版](https://doboku-note.com/docs/pe-comprehensive-management-r07-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=99-social-environment-management)
 
 **マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
 

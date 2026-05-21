@@ -20,7 +20,7 @@ user-invocable: true
 | 引数 | 必須 | 説明 |
 |---|---|---|
 | `--year` | 必須 | 年度（`R03`〜`R07` 等） |
-| `--attr` | 必須 | 受験者属性キー（下表 4 種） |
+| `--attr` | 必須 | 受験者属性キー（下表 3 種） |
 | `--mode` | 任意 | `draft`（既定・新規）/ `revise`（添削反映） |
 | `--review` | revise で必須 | `pe-essay-review` の出力レポートパス |
 
@@ -28,7 +28,6 @@ user-invocable: true
 |---|---|---|
 | `general-contractor` | ゼネコン土木支店 | `pattern-essay-general-contractor` |
 | `river-consultant` | コンサル 河川・砂防 | `pattern-essay-river-consultant` |
-| `environment-survey` | 環境調査事務所 | `pattern-essay-environment-survey` |
 | `road-municipality` | 地方公共団体 道路担当（発注者） | `pattern-essay-road-municipality` |
 
 出力先: `.local/r2/posts/pe-comprehensive-management/{year-lower}-essay-{attr}/article.mdx`（例 `r07-essay-general-contractor`）
@@ -162,11 +161,11 @@ faqs:                    # 3〜4 問。属性 × テーマの最頻出論点を 
 ## 例
 
 ```bash
-# R06 環境調査事務所版を新規ドラフト
-/pe-essay-draft --year R06 --attr environment-survey
+# R06 河川・砂防コンサル版を新規ドラフト
+/pe-essay-draft --year R06 --attr river-consultant
 
 # 添削レポートを反映
-/pe-essay-draft --year R06 --attr environment-survey --mode revise --review .claude/state/pe-essay-review/r06-essay-environment-survey-20260514.md
+/pe-essay-draft --year R06 --attr river-consultant --mode revise --review .claude/state/pe-essay-review/r06-essay-river-consultant-20260514.md
 ```
 
 ## トラブルシューティング
@@ -193,6 +192,7 @@ faqs:                    # 3〜4 問。属性 × テーマの最頻出論点を 
 
 ## バージョン履歴
 
+- v1.7（2026-05-21）: 環境調査ペルソナ（`environment-survey`）を廃止。属性キーを 4 種 → 3 種に変更し、使用例を river-consultant に差し替え
 - v1.6（2026-05-21）: 設問3 の国家施策ガードレール（v1.3）の例示が少子高齢化テーマに偏り、カーボンニュートラル（R06）等で「建設業界の CN 標準化」「道路インフラの CN 化」「流域カーボンマネジメント」のような業界・流域に閉じた施策が生成された欠陥を受けて修正。必須ルールの設問3 国家施策例を**テーマ別**（CN／少子高齢化）に再構成し、「複数省庁にまたがる国家政策として説明できるか」を判定基準として明示
 - v1.5（2026-05-20）: 「トレードオフと解決フレームの整理」節をテンプレートから削除。設問本文（障害と克服策）でトレードオフを論じきっており末尾の再掲節は重複のため。解決フレームへの動線は「関連リソース」の management-tradeoffs リンクで担保
 - v1.4（2026-05-20）: 設問3 を revise で書き直した際、設問3本文が ですます調 になり設問1・2（である調）と混在した欠陥を受け、必須ルール「文体は である調 で統一する」を追加

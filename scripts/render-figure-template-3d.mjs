@@ -81,11 +81,11 @@ function svgFig1() {
     return originY + (col + row) * cellH - layer * layerH;
   }
 
-  // 視認性向上のため、表示は 10 テーマ × 5 管理 × 4 ペルソナ に縮約
-  // 「テーマ 20 のうち 10 を代表表示」というキャプションで全 400 セルの概念を伝える
+  // 視認性向上のため、表示は 10 テーマ × 5 管理 × 3 ペルソナ に縮約
+  // 「テーマ 20 のうち 10 を代表表示」というキャプションで全 300 セルの概念を伝える
   const COLS = 10; // X軸：テーマ数（縮約表示）
   const ROWS = 5;  // Y軸：5管理
-  const LAYERS = 4; // Z軸：ペルソナ数
+  const LAYERS = 3; // Z軸：ペルソナ数
 
   // 色パレット（レイヤーごと）
   const layerColors = [
@@ -159,8 +159,8 @@ function svgFig1() {
   }
 
   // Z軸（ペルソナ）: layer方向
-  const personaLabels = ['ゼネコン', '河川コンサル', '環境調査', '道路発注者'];
-  const personaColors = [BRAND, POSITIVE, WARN, DANGER];
+  const personaLabels = ['ゼネコン', '河川コンサル', '道路発注者'];
+  const personaColors = [BRAND, POSITIVE, DANGER];
   for (let layer = 0; layer < LAYERS; layer++) {
     const lx = isoX(COLS + 0.4, 0, layer) + 8;
     const ly = isoY(COLS + 0.4, 0, layer) + (isoY(COLS + 0.4, 0, layer + 1) - isoY(COLS + 0.4, 0, layer)) / 2 + 8;
@@ -171,8 +171,8 @@ function svgFig1() {
   const bannerY = 130;
   body += `
   <rect x="320" y="${bannerY}" width="560" height="80" rx="12" fill="${BRAND_DEEP}"/>
-  <text x="600" y="${bannerY + 36}" font-family="${FONT}" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">20 テーマ × 5 管理 × 4 ペルソナ</text>
-  <text x="600" y="${bannerY + 68}" font-family="${FONT}" font-size="26" font-weight="700" fill="#facc15" text-anchor="middle">= 400 セル</text>`;
+  <text x="600" y="${bannerY + 36}" font-family="${FONT}" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">20 テーマ × 5 管理 × 3 ペルソナ</text>
+  <text x="600" y="${bannerY + 68}" font-family="${FONT}" font-size="26" font-weight="700" fill="#facc15" text-anchor="middle">= 300 セル</text>`;
 
   // 軸ラベルボックス
   body += `
@@ -182,18 +182,18 @@ function svgFig1() {
 
   body += `
   <rect x="920" y="130" width="240" height="80" rx="10" fill="${BRAND_FILL}" stroke="${BRAND}" stroke-width="2"/>
-  <text x="1040" y="164" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND_DEEP}" text-anchor="middle">Z 軸：ペルソナ 4</text>
+  <text x="1040" y="164" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND_DEEP}" text-anchor="middle">Z 軸：ペルソナ 3</text>
   <text x="1040" y="196" font-family="${FONT}" font-size="22" font-weight="700" fill="${BRAND_DEEP}" text-anchor="middle">（業種別）</text>`;
 
   // キャプション
   const captY = H - 80;
   body += `
   <rect x="40" y="${captY}" width="${W - 80}" height="50" rx="8" fill="${BRAND_FILL}"/>
-  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">テーマと業務を入力すれば論文骨子が出てくる逆引き辞書（図は 10 テーマで代表表示、実際は 20 テーマ × 5 管理 × 4 ペルソナ）</text>`;
+  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">テーマと業務を入力すれば論文骨子が出てくる逆引き辞書（図は 10 テーマで代表表示、実際は 20 テーマ × 5 管理 × 3 ペルソナ）</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#ffffff"/>
-${header('3D マトリクス：テーマ × 5 管理 × ペルソナ = 400 セル', '20テーマ × 5管理 × 4ペルソナのアイソメトリック投影（代表 10 テーマ表示）')}
+${header('3D マトリクス：テーマ × 5 管理 × ペルソナ = 300 セル', '20テーマ × 5管理 × 3ペルソナのアイソメトリック投影（代表 10 テーマ表示）')}
 ${body}
 ${brandMark(H)}
 </svg>`;
@@ -415,7 +415,7 @@ function svgFig3() {
   const captY = currentY + 20;
   body += `
   <rect x="40" y="${captY}" width="${W - 80}" height="50" rx="8" fill="${POSITIVE_FILL}"/>
-  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">この骨格に沿えば 4 ペルソナ × 20 テーマで応用可能</text>`;
+  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${INK_STRONG}">この骨格に沿えば 3 ペルソナ × 20 テーマで応用可能</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#ffffff"/>
