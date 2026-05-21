@@ -2,7 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-ゼネコンペルソナ
 utmCampaign: essay-gc-r06
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/n892eecd2a776
+noteId: n892eecd2a776
+notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-ゼネコン
 price: 500
 ---
