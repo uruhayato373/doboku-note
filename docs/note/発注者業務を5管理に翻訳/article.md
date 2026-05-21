@@ -1,6 +1,8 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/nd34fa843e977
+noteId: nd34fa843e977
 noteSeries: 公務員受験
 utmCampaign: 97-translate-5mgmt
 coverTitle:
