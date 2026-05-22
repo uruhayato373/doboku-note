@@ -1,6 +1,8 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/n89da1120ccaa
+noteId: n89da1120ccaa
 noteSeries: 学習戦略
 utmCampaign: ai-study-method
 coverTitle:
