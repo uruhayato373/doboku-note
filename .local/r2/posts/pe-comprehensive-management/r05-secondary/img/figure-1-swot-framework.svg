@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="540" height="366" viewBox="0 0 540 366" style="max-width:540px;width:100%" role="img" aria-label="図1 SWOT分析の枠組み。内部環境の強み(S)・弱み(W)を列、外部環境の機会(O)・脅威(T)を行とする2×2マトリクス。強み×機会＝パターンA（拡大・進出戦略）、弱み×機会＝パターンB（改善・補強・提携戦略）、強み×脅威＝パターンC（差別化戦略）、弱み×脅威＝パターンD（撤退・縮小戦略）。" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="540" height="366" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="270" y="24" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">図1　SWOT の 4 要因と 4 つのクロス分析パターン</text>
+
+  <!-- 内部環境 band -->
+  <rect x="120" y="34" width="408" height="20" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="324" y="48" text-anchor="middle" font-size="10.5" fill="#1a3a5c">内部環境（組織の努力で変えうる）</text>
+
+  <!-- 外部環境 band -->
+  <rect x="12" y="98" width="22" height="256" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="23" y="226" text-anchor="middle" font-size="10.5" fill="#1a3a5c" transform="rotate(-90 23 226)">外部環境（変更が困難）</text>
+
+  <!-- column headers -->
+  <rect x="120" y="54" width="204" height="44" fill="#f5f5f5" stroke="#2e6da4"/>
+  <text x="222" y="74" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">強み（S）</text>
+  <text x="222" y="90" text-anchor="middle" font-size="10" fill="#555">項目 S1，項目 S2</text>
+  <rect x="324" y="54" width="204" height="44" fill="#f5f5f5" stroke="#2e6da4"/>
+  <text x="426" y="74" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">弱み（W）</text>
+  <text x="426" y="90" text-anchor="middle" font-size="10" fill="#555">項目 W1，項目 W2</text>
+
+  <!-- row headers -->
+  <rect x="34" y="98" width="86" height="128" fill="#f5f5f5" stroke="#2e6da4"/>
+  <text x="77" y="150" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">機会（O）</text>
+  <text x="77" y="170" text-anchor="middle" font-size="10" fill="#555">項目 O1，</text>
+  <text x="77" y="184" text-anchor="middle" font-size="10" fill="#555">項目 O2</text>
+  <rect x="34" y="226" width="86" height="128" fill="#f5f5f5" stroke="#2e6da4"/>
+  <text x="77" y="278" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">脅威（T）</text>
+  <text x="77" y="298" text-anchor="middle" font-size="10" fill="#555">項目 T1，</text>
+  <text x="77" y="312" text-anchor="middle" font-size="10" fill="#555">項目 T2</text>
+
+  <!-- cell A: S×O -->
+  <rect x="120" y="98" width="204" height="128" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="222" y="140" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e4d27">パターンA</text>
+  <text x="222" y="160" text-anchor="middle" font-size="10.5" fill="#1e4d27">（強み × 機会）</text>
+  <text x="222" y="190" text-anchor="middle" font-size="11" fill="#222">拡大戦略，進出戦略 など</text>
+
+  <!-- cell B: W×O -->
+  <rect x="324" y="98" width="204" height="128" fill="#fff3cd" stroke="#d4a017"/>
+  <text x="426" y="132" text-anchor="middle" font-size="13" font-weight="bold" fill="#6b5015">パターンB</text>
+  <text x="426" y="152" text-anchor="middle" font-size="10.5" fill="#6b5015">（弱み × 機会）</text>
+  <text x="426" y="178" text-anchor="middle" font-size="11" fill="#222">改善戦略，補強戦略，</text>
+  <text x="426" y="196" text-anchor="middle" font-size="11" fill="#222">提携戦略 など</text>
+
+  <!-- cell C: S×T -->
+  <rect x="120" y="226" width="204" height="128" fill="#fff3cd" stroke="#d4a017"/>
+  <text x="222" y="268" text-anchor="middle" font-size="13" font-weight="bold" fill="#6b5015">パターンC</text>
+  <text x="222" y="288" text-anchor="middle" font-size="10.5" fill="#6b5015">（強み × 脅威）</text>
+  <text x="222" y="318" text-anchor="middle" font-size="11" fill="#222">差別化戦略 など</text>
+
+  <!-- cell D: W×T -->
+  <rect x="324" y="226" width="204" height="128" fill="#f8d7da" stroke="#b22234"/>
+  <text x="426" y="268" text-anchor="middle" font-size="13" font-weight="bold" fill="#7a1620">パターンD</text>
+  <text x="426" y="288" text-anchor="middle" font-size="10.5" fill="#7a1620">（弱み × 脅威）</text>
+  <text x="426" y="318" text-anchor="middle" font-size="11" fill="#222">撤退戦略，縮小戦略 など</text>
+</svg>
