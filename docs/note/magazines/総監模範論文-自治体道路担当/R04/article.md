@@ -252,7 +252,6 @@ BIM/CIM導入の実務障壁（職員スキル・コンサル能力・予算不�
 
 **doboku-note の関連ガイド**
 
-- [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r04) — 管理対象パターンの選び方と前提条件のテンプレート集
 - [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r04) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r04) — 段階的実施・合意形成・LCA などフレーム集
 

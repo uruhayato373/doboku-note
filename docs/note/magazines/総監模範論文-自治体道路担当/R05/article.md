@@ -248,7 +248,6 @@ R5 の SWOT 分析は「組織として継続的にアウトプットを出す�
 
 **doboku-note の関連ガイド**
 
-- [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 管理対象 4 パターンの選び方と前提条件のテンプレート集。組織を新設・維持管理どちらに寄せるかで SWOT の項目も変わります
 - [令和5年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 段階的実施・合意形成・リスクベース判断フレームの定義と他ペアでの応用例
 
