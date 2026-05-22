@@ -26,6 +26,7 @@ import TableOfContents from '@/components/ui/TableOfContents';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
+import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
@@ -41,6 +42,20 @@ import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
+
+/**
+ * 1級土木 一次系ページ（textbook / 一次過去問）右サイドバーのアフィリエイト バナー。
+ * 独学サポート（A8.net）の 300×250 creative。テスト配置（2026-05-22〜）。
+ * creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ */
+const CIVIL_SIDEBAR_AD = {
+  href: 'https://px.a8.net/svt/ejp?a8mat=4B3VR8+FAQ04A+4ASS+66H9D',
+  imageSrc: 'https://www27.a8.net/svt/bgt?aid=260521604925&wid=002&eno=01&mid=s00000020062001038000&mc=1',
+  pixelSrc: 'https://www10.a8.net/0.gif?a8mat=4B3VR8+FAQ04A+4ASS+66H9D',
+  alt: '独学サポート 1級土木施工管理技士講座',
+  width: 300,
+  height: 250,
+} as const;
 
 const mdxOptions = {
   blockJS: false as const,
@@ -508,6 +523,12 @@ export default async function DocPage({
                   <PillarNavCard variant="sidebar" currentSection={sectionStr} />
                 </div>
               )}
+              {/* アフィリエイト バナー（テスト配置）: 1級土木 一次系ページ（textbook / 一次過去問）のみ。
+                  owned 商品（マガジン CTA）・ナビより下に置く補完ポジション。 */}
+              {category === 'civil-construction-1' &&
+                (docGroup === 'textbook' || docGroup === 'primary') && (
+                  <SidebarAdBanner {...CIVIL_SIDEBAR_AD} />
+                )}
             </div>
           </aside>
         </div>
