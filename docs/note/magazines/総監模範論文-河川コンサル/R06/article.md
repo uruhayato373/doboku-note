@@ -145,15 +145,14 @@ R6 河川コンサル版は「自社の直接排出は限定的 → 本業を通
 
 ---
 
-## doboku-note の関連ガイド
+**doboku-note の関連ガイド**
 
-- [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) — 共通ペルソナと R3〜R7 の年度別模範論文の起点
 - [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r06) — 合意形成・段階的実施・LCA などフレーム集
 
 ---
 
-## magazine セット販売のお知らせ
+**magazine セット販売のお知らせ**
 
 河川コンサルペルソナの過去 5 年分（R03-R07）の模範論文を全 5 本セットにした magazine を販売しています。
 

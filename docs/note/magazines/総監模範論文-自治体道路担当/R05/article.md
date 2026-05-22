@@ -246,7 +246,7 @@ R5 の SWOT 分析は「組織として継続的にアウトプットを出す�
 
 ---
 
-## doboku-note の関連ガイド
+**doboku-note の関連ガイド**
 
 - [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 管理対象 4 パターンの選び方と前提条件のテンプレート集。組織を新設・維持管理どちらに寄せるかで SWOT の項目も変わります
 - [令和5年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r05) — 必須科目の問題文全文と他ペルソナの解き方
@@ -254,7 +254,7 @@ R5 の SWOT 分析は「組織として継続的にアウトプットを出す�
 
 ---
 
-## magazine セット販売のお知らせ
+**magazine セット販売のお知らせ**
 
 自治体 道路担当ペルソナの模範論文を、R03（データ利活用）・R04（DX推進）・R05（SWOT分析・戦略立案）・R06（カーボンニュートラル）・R07（少子高齢化）の過去問 5 年分＋R8 予想問題でまとめた magazine を販売しています。各記事を単品でそろえるよりセット価格がお得です。
 

@@ -167,15 +167,14 @@ R4 ゼネコン版は「i-Construction の延長 → 自動運転による業態
 
 ---
 
-## doboku-note の関連ガイド
+**doboku-note の関連ガイド**
 
-- [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) — 共通ペルソナと R3〜R7 の年度別模範論文の起点
 - [令和4年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) — 必須科目の問題文全文と他ペルソナの模範論文例
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r04) — 段階的実施・KPI 連動などのフレーム集
 
 ---
 
-## magazine セット販売のお知らせ
+**magazine セット販売のお知らせ**
 
 ゼネコンペルソナの過去 5 年分（R03-R07）の模範論文を全 5 本セットにした magazine を販売しています。
 
