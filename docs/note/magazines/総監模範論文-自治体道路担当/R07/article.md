@@ -238,7 +238,6 @@ R7 の三層構造は「現在の限界 → 5 年以内の現実的施策 → �
 
 **doboku-note の関連ガイド**
 
-- [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) — 管理対象 4 パターン（橋梁・バイパス・トンネル・法面）の選び方と前提条件のテンプレート集
 - [令和7年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r07) — 段階的実施・合意形成・LCA などフレーム集
 

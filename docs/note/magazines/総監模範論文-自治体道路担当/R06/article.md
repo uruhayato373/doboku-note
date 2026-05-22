@@ -210,7 +210,6 @@ R6 の CN テーマは「現状取組の限界 → 施策の組合せ → 2050 �
 
 **doboku-note の関連ガイド**
 
-- [自治体 道路担当向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06) — 管理対象 4 パターン（橋梁・バイパス・トンネル・法面）の選び方と前提条件のテンプレート集。維持管理視点で書きたい場合は橋梁長寿命化を選びます
 - [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06) — 必須科目の問題文全文と他ペルソナの解き方
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r06) — LCA・外部不経済の内部化・段階的実施フレームの定義と他ペアでの応用例
 
