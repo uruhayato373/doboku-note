@@ -46,9 +46,9 @@ const STANDARD = {
   3: { pages: 1, perKumiawase: true },
 };
 
-// 組合せ（施策／方法）の区切り行。見出し型・散文型・序数型 × 施策／方法 に対応。
+// 組合せ（施策／方法／戦略）の区切り行。見出し型・散文型・序数型に対応。
 const KUMIAWASE_HEAD =
-  /^(#{1,4}\s*|\*\*)?((施策|方法)\s*[0-9０-９]|第[一二三四五六七八九]の(施策|方法))/;
+  /^(#{1,4}\s*|\*\*)?((施策|方法|戦略)\s*[0-9０-９]|第[一二三四五六七八九]の(施策|方法|戦略))/;
 
 /** 全角数字を半角へ */
 const toHankaku = (s) => s.replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xfee0));
@@ -113,9 +113,14 @@ function extractSheetSpec(raw) {
     const phrase = m[2];
     const pm = phrase.match(/答案用紙\s*([0-9０-９一二三四五六七八九]+)\s*枚/);
     if (!pm) continue;
+    // 組合せ別の上限か（「各組合せ／各方法を…X枚」「3戦略それぞれを…X枚」）
+    const perKumiawase = /各|それぞれ/.test(phrase);
+    // 「3戦略」のように組合せ数が明示される場合は抽出（無ければ答案から数える）
+    const cm = phrase.match(/([0-9０-９一二三四五六七八九]+)\s*(戦略|組合せ|施策|方法)/);
     spec[num] = {
       pages: parseNum(pm[1]),
-      perKumiawase: /各[^（）]*枚/.test(phrase), // 「各組合せ／各方法を…X枚」
+      perKumiawase,
+      explicitCount: cm ? parseNum(cm[1]) : null,
       phrase,
     };
   }
@@ -169,7 +174,8 @@ function analyze(file) {
     const total = countSquares(body);
     const spec = sheetSpec[h.num] || STANDARD[h.num] || STANDARD[1];
     const kumiawase = splitKumiawase(body);
-    const n = kumiawase ? kumiawase.length : 2; // 検出不能時は標準の 2 組合せ
+    // 組合せ数: 問題文の明示数 → 答案の組合せ見出し数 → 標準の 2、の優先で決定
+    const n = spec.explicitCount || (kumiawase ? kumiawase.length : 2);
 
     if (h.num === '2') {
       if (spec.perKumiawase) {
@@ -196,9 +202,28 @@ function analyze(file) {
   return { file, checks, usedFallback, hasNG: checks.some((c) => c.status === 'NG') };
 }
 
-/** 対象ファイル一覧 */
+/** ディレクトリを再帰走査して article.md を集める */
+function walkArticles(dir) {
+  const out = [];
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory() && e.name !== 'img') out.push(...walkArticles(p));
+    else if (e.isFile() && e.name === 'article.md') out.push(p);
+  }
+  return out;
+}
+
+/** 対象ファイル一覧（引数はファイルでもディレクトリでも可） */
 function targets(args) {
-  if (args.length) return args.map((a) => path.resolve(a));
+  if (args.length) {
+    const out = [];
+    for (const a of args) {
+      const abs = path.resolve(a);
+      if (fs.existsSync(abs) && fs.statSync(abs).isDirectory()) out.push(...walkArticles(abs));
+      else out.push(abs);
+    }
+    return out.sort();
+  }
   // 引数省略時: 模範論文系マガジン（模範論文 + R8予想問題集）の article.md。
   // 精読ガイド等の非・論文マガジンは対象外。
   const out = execSync(
