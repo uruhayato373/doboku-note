@@ -1,6 +1,8 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/n6a992fc189c8
+noteId: n6a992fc189c8
 noteSeries: 公務員受験
 utmCampaign: 99-road-essay-theme
 coverTitle:
