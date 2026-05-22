@@ -144,15 +144,14 @@ R3 ゼネコン版は「現場孤立」を率直に認めた上で、現実的�
 
 ---
 
-## doboku-note の関連ガイド
+**doboku-note の関連ガイド**
 
-- [ゼネコン向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) — 共通ペルソナと R3〜R7 の年度別模範論文の起点
 - [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) — 必須科目の問題文全文と前文分析・論文骨子
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) — 段階的実施・合意形成などのフレーム集
 
 ---
 
-## magazine セット販売のお知らせ
+**magazine セット販売のお知らせ**
 
 ゼネコンペルソナの過去 5 年分（R03-R07）の模範論文を全 5 本セットにした magazine を販売しています。
 

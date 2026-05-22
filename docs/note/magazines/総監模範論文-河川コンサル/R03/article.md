@@ -140,15 +140,14 @@ R3 河川コンサル版は「案件単位の現状」を率直に認めた上�
 
 ---
 
-## doboku-note の関連ガイド
+**doboku-note の関連ガイド**
 
-- [河川コンサル向け 模範論文ハブ](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r03) — 共通ペルソナと R3〜R7 の年度別模範論文の起点
 - [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r03) — 必須科目の問題文全文と前文分析・論文骨子
 - [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-river-r03) — 段階的実施・合意形成・ISMS などのフレーム集
 
 ---
 
-## magazine セット販売のお知らせ
+**magazine セット販売のお知らせ**
 
 河川コンサルペルソナの過去 5 年分（R03-R07）の模範論文を全 5 本セットにした magazine を販売しています。
 

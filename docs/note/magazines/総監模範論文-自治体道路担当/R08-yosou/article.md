@@ -265,7 +265,7 @@ R8 予想テーマでは、過去問対策に加えて以下の 4 点が評価�
 
 ---
 
-## doboku-note の関連ガイド
+**doboku-note の関連ガイド**
 
 - [自治体 道路担当向け 模範論文ハブ（10 管理対象パターン）](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r08-yosou) — 道路系 4 + 隣接領域 6 の管理対象パターン
 - [1 パターン × 複数年度流用戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-road-r08-yosou) — 橋梁長寿命化・バイパス整備で R5/R6/R7 + R8 予想を書ききる
@@ -273,7 +273,7 @@ R8 予想テーマでは、過去問対策に加えて以下の 4 点が評価�
 
 ---
 
-## magazine セット販売のお知らせ
+**magazine セット販売のお知らせ**
 
 自治体 道路担当ペルソナの模範論文を、R03（データ利活用）・R04（DX推進）・R05（SWOT分析・戦略立案）・R06（カーボンニュートラル）・R07（少子高齢化）の過去問 5 年分＋R8 予想問題（本記事）でまとめた magazine を販売しています。各記事を単品でそろえるよりセット価格がお得です。
 
