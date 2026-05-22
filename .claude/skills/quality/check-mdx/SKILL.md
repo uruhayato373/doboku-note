@@ -2,13 +2,13 @@
 name: check-mdx
 description: >
   MDX ファイルの構文・frontmatter・リンク・SVG・法令引用・関連キーワード・note リンク・過去問解説等を
-  rule ベースで検査する統合 Evaluator スキル。9 rule を `--rules` フラグで選択可能。
+  rule ベースで検査する統合 Evaluator スキル。10 rule を `--rules` フラグで選択可能。
   pre-commit hook からも利用される。
   Use when user asks to [MDX検査, lint MDX, 構文チェック, リンクチェック, SVG監査, frontmatter チェック, 法令リンク, note リンク, /check-mdx].
 user-invocable: true
 ---
 
-MDX 品質に関する 9 種類の検査ルールを 1 つのスキルに統合した Evaluator。旧 `/check-mdx` `/check-frontmatter` `/check-links` `/audit-staging` `/audit-exam-explanations` `/audit-svg` `/check-related-keyword-inline` `/check-legal-citations` を吸収。
+MDX 品質に関する 10 種類の検査ルールを 1 つのスキルに統合した Evaluator。旧 `/check-mdx` `/check-frontmatter` `/check-links` `/audit-staging` `/audit-exam-explanations` `/audit-svg` `/check-related-keyword-inline` `/check-legal-citations` を吸収。
 
 ## 引数
 
@@ -35,6 +35,7 @@ MDX 品質に関する 9 種類の検査ルールを 1 つのスキルに統合�
 | `svg` | HIGH/MEDIUM/LOW | 埋込 SVG | 文字クリップ、必須属性、viewBox 幅、font-size、テキスト重なり、色トークン | `scripts/rules/svg/` |
 | `staging` | — | Obsidian ステージング | 公開準備度（5 軸 15 点評価） | Claude 読解 |
 | `explanations` | HIGH/MEDIUM | 過去問解説 | 破損解説パターン（P1-headless / P2-examPoint-empty） | `scripts/rules/explanations/` |
+| `empty-container` | HIGH | MDX 全般 | 中身が空の `<Callout>`（空白・コメントのみ）= タイトルだけの無意味な枠（E1-empty-callout）。bulk リンク削除等でコンテナの中身だけ消えて枠が残る事故の再発防止 | `scripts/rules/empty-container/` |
 | `related-keyword` | MEDIUM | キーワードページ | 末尾「関連キーワード: [A]、[B]」列挙パターン（ルール 8-1） | `.claude/scripts/lint-mdx-mobile.mjs` |
 | `legal-citations` | LOW | 法令引用 | e-Gov 法令検索リンク化されているか（ルール 8-2） | `scripts/rules/legal-citations/` |
 | `note-link` | MEDIUM | note リンク | note 記事リンク（`note.com/dobokunote/n/`）が `<NoteLink>` 外（生 markdown・`<Callout>`・`<LinkCard>`）で書かれていないか（ルール 8-3） | `.claude/scripts/lint-mdx-mobile.mjs` |

@@ -36,7 +36,7 @@ title: スキル ナビゲーションガイド
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
-| `/check-mdx` | MDX 品質検査の統合 Evaluator（8 ルール） | `MDX検査`, `lint`, `構文チェック`, `/check-mdx --rules <rule>` |
+| `/check-mdx` | MDX 品質検査の統合 Evaluator（10 ルール） | `MDX検査`, `lint`, `構文チェック`, `/check-mdx --rules <rule>` |
 | `/quality-cycle` | 品質サイクル（スコア→リライト→検証→レビュー） | `品質サイクル`, `cem品質上げ`, `/quality-cycle --profile {cem\|civil-textbook}` |
 | `/exam-backlinks` | 過去問⇔キーワード紐付け確認・再生成 | `バックリンク確認`, `/exam-backlinks` |
 | `/audit-exam-mapping` | 過去問⇔キーワード紐づけマップの精度監査 | `紐づけ監査`, `/audit-exam-mapping` |

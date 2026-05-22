@@ -18,6 +18,7 @@ import rehypeKatex from "rehype-katex";
 import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs";
 import { detectBrokenExplanations } from "../.claude/skills/quality/check-mdx/scripts/rules/explanations/detect.mjs";
 import { auditSvgFile } from "../.claude/skills/quality/check-mdx/scripts/rules/svg/detect.mjs";
+import { detectEmptyContainers } from "../.claude/skills/quality/check-mdx/scripts/rules/empty-container/detect.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -271,6 +272,16 @@ async function main() {
           error: `[${f.pattern}] line ${f.line}: ${f.snippet}`,
         });
       }
+    }
+
+    // 空コンテナ検出（HIGH — コミットブロック）
+    // 中身が空の <Callout> はタイトルだけの無意味な枠。全 MDX 対象。
+    // bulk リンク削除等でコンテナの中身が消えても枠が残る事故の再発防止。
+    for (const f of detectEmptyContainers(content)) {
+      errors.push({
+        file,
+        error: `[${f.pattern}] line ${f.line}: ${f.snippet}`,
+      });
     }
   }
 
