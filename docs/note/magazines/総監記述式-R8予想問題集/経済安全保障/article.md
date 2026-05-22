@@ -4,6 +4,7 @@ noteSeries: 総監記述式-R8予想問題集
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-economic-security
 noteUrl: ""
+coverTitle: ["R8予想問題", "経済安全保障"]
 price: 500
 ---
 # 令和8年度 総監記述式 R8予想問題｜経済安全保障 × サプライチェーン強靱化（自治体 道路担当フル模範論文）

@@ -4,6 +4,7 @@ noteSeries: 総監記述式-R8予想問題集
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-climate-adaptation
 noteUrl: ""
+coverTitle: ["R8予想問題", "気候変動適応"]
 price: 500
 ---
 # 令和8年度 総監記述式 R8予想問題｜気候変動適応 × グリーンインフラ（自治体 道路担当フル模範論文）

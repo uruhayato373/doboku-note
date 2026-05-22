@@ -4,6 +4,7 @@ noteSeries: 総監記述式-R8予想問題集
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-disaster-recovery
 noteUrl: ""
+coverTitle: ["R8予想問題", "災害復旧と複合災害対応"]
 price: 500
 ---
 # 令和8年度 総監記述式 R8予想問題｜災害復旧 × 複合災害対応（自治体 道路担当フル模範論文）

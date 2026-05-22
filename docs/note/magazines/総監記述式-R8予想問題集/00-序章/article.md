@@ -4,6 +4,7 @@ noteSeries: 総監記述式-R8予想問題集
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-intro
 noteUrl: ""
+coverTitle: ["R8予想問題集 序章", "予想の根拠と三層テンプレ"]
 price: 0
 ---
 # 令和8年度 総監記述式 R8予想問題集｜序章 — 予想の根拠と三層構造で書き切る解答型

@@ -4,6 +4,7 @@ noteSeries: 総監記述式-R8予想問題集
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-ai-governance
 noteUrl: ""
+coverTitle: ["R8予想問題", "AI社会と情報ガバナンス"]
 price: 500
 ---
 # 令和8年度 総監記述式 R8予想問題｜AI社会 × 情報ガバナンス（自治体 道路担当フル模範論文）
