@@ -58,7 +58,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 の 5 年分セット。河川・砂防部門 部長視点で 3,000 字フル論文。',
     imageUrl: '/images/magazines/essay-river-consultant-cover.webp',
-    price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
 
@@ -73,7 +73,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 の 5 年分セット。ゼネコン土木部門視点、安全 × 経済性 × 人的資源 が主軸。',
     imageUrl: '/images/magazines/essay-general-contractor-cover.webp',
-    price: '¥1,980（単品 5本 ¥2,500 → 21%OFF）',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
 
@@ -88,7 +88,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 過去問（全 A/B 2 案）+ R08 予想 2 本 = 計 6 記事。試験対策決定版。',
     imageUrl: '/images/magazines/essay-road-municipality-cover.webp',
-    price: '¥2,480（単品 6本 ¥3,000 → 17%OFF）',
+    price: '¥2,480（6本セット、単品比17%OFF）',
     badge: 'note 限定',
   },
 
@@ -108,7 +108,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R8 予想 6 テーマのフル模範論文集（各 3,000 字級・道路担当ペルソナ）',
     imageUrl: '/images/magazines/magazine-r8-essay-forecast-cover.webp',
-    price: '¥2,480（単品 6本 ¥3,000 → 17%OFF）',
+    price: '¥2,480（6本セット、単品比17%OFF）',
     badge: 'note 限定',
   },
 
