@@ -93,21 +93,10 @@ const MAGAZINES_RAW = {
   },
 
   // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成、M1 は 2026-05-18 撤回) -----
-  'whitepaper-r7-strategy': {
-    id: 'whitepaper-r7-strategy',
-    published: false,
-    noteUrl: '',
-    title: '国土交通白書 R7 完全対応集｜7 大テーマ × 5 管理トレードオフ',
-    description:
-      '白書 R7 の 7 大テーマと 5 管理ペアを完全可視化。R08 再出題確率スコア + 過去問適用パスポート + ワークシート 70 問付き。約 33,000 字。',
-    shortTitle: '白書 R7 完全対応集',
-    shortDescription:
-      '7 大テーマ × R08 再出題確率 + ワークシート 70 問。',
-    imageUrl: '/images/magazines/magazine-whitepaper-r7-strategy-cover.webp',
-    price: '¥2,480',
-    badge: 'note 限定',
-  },
-
+  // 注: whitepaper-r7-strategy は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ
+  //     戦略転換。SoT エントリも削除し、note 上で単独無料記事として公開する。
+  //     後続商品 (M3/M4/M9/M5-8) への送客は記事本文末尾 CTA + 各章末ミニ CTA で行う。
+  //     詳細: docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md
   'r8-essay-forecast': {
     id: 'r8-essay-forecast',
     published: false,

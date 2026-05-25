@@ -77,14 +77,13 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 ] as const;
 
 /**
- * 2026-05-17 新規マガジン (Series 1/3/4/5)。M1「データ駆動戦略」は 2026-05-18 撤回。
+ * 2026-05-17 新規マガジン (Series 3/4)。M1「データ駆動戦略」は 2026-05-18 撤回、
+ * M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ戦略転換 (SoT 削除)。
  * 配置原則:
- * - whitepaper-r7-strategy (¥2,480): 白書テーマ記事 + mlit ハブ で primary CTA
  * - r8-essay-forecast (¥2,480): R07 年度ページ + essay-exam-strategy hub
  * - essay-template-3d (¥2,980 プレミアム): essay-exam-strategy + pattern-essay 3 ペルソナハブ
  */
 const NEW_MAGAZINES = {
-  whitepaperR7: 'whitepaper-r7-strategy' as const,
   r8Forecast: 'r8-essay-forecast' as const,
   template3d: 'essay-template-3d' as const,
 } satisfies Record<string, MagazineId>;
@@ -94,8 +93,9 @@ const NEW_MAGAZINES = {
  * 表示の最終可否 (公開済みか) は呼び出し側で getMagazine() で確認する。
  *
  * 注: essay-mlit-* 7 記事 (2026-05-18 撤回) と mlit-whitepaper-2025 (2026-05-18 撤回) の
- * 配線は削除済み。白書 R7 × 16 ペア × 3 ペルソナの深掘りは M2 magazine
- * (whitepaper-r7-strategy) 独占に分業 (Red Line #7)。
+ * 配線は削除済み。M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ転換し
+ * note 上の単独記事として SNS 集客 → 後続商品送客を担う (詳細:
+ * docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md)。
  */
 export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
   // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 3 ペルソナ模範論文を提示 (強 CTA)
@@ -175,7 +175,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
 
   // 4.5. (廃止) 国土交通白書ハブ記事 (mlit-whitepaper-2025) は 2026-05-18 撤回済み。
-  //       M2 magazine (whitepaper-r7-strategy) 独占に分業 (Red Line #7)。
+  //       M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ転換、note 単独記事化。
 
   // 5. pillar → 精読ガイド単独 CTA（M1 撤回 2026-05-18 でエントリー CTA は精読ガイドに一本化）
   if (docGroup === 'pillar') {
