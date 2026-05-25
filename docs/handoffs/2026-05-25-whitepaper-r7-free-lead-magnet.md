@@ -50,7 +50,7 @@ Red Line #5 を「サイト = 思考フレーム、note = 具体数字 × ペル
 
 ## 実施した修正（4 系統）
 
-### A. 記事本体（docs/note/magazines/whitepaper-r7-strategy/article.md）
+### A. 記事本体（docs/note/白書R7完全対応集/article.md — 旧 docs/note/magazines/whitepaper-r7-strategy/article.md）
 
 1. **有料エリア境界線削除**: L118-122「**ここから先は有料エリア（¥2,480）**」セクションを削除
 2. **章 5-8 のドラフト分割ノート削除**: 旧「# 国土交通白書 R7 完全対応集 — 第 5-8 章」見出し + マガジン明記の引用を削除
@@ -86,12 +86,25 @@ Red Line #5 を「サイト = 思考フレーム、note = 具体数字 × ペル
 
 本ファイル `docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md`。
 
+### E. ディレクトリ移動 + note 単独記事化（2026-05-25 追補）
+
+magazine から単独無料記事への構造変更に合わせて配置を修正:
+
+1. **ディレクトリ移動**: `docs/note/magazines/whitepaper-r7-strategy/` → `docs/note/白書R7完全対応集/`（git mv で履歴保持）
+   - 単独記事の convention（`docs/note/{日本語名}/article.md + hashtags.txt + img/`）に整合
+   - 旧 `magazines/` 配下は複数記事マガジン専用（例: `総監記述式-R8予想問題集/{6テーマ}/`）
+2. **hashtags.txt 生成**: 7 大テーマ × 5 管理 × 試験対策汎用タグで約 90 個（R8予想問題と同規模、note 100 タグ上限内）
+3. **img/cover.png 生成**: `node scripts/generate-note-covers.mjs 白書R7完全対応集` で T06 Mono Tag テンプレ準拠の note カバー画像（1280×670）を自動生成
+4. **scripts/render-figure-whitepaper-r7.mjs**: OUT_DIR パスを新ディレクトリへ更新（旧パスのコメントも追記）
+5. **scripts/generate-magazine-covers.mjs**: 旧 magazine 用カバー画像エントリ（`magazine-whitepaper-r7-strategy-cover.{png,webp}`）は legacy 互換のため残置。実運用は新 `img/cover.png` を使用
+
 ## ユーザー作業（公開前ブロッキング）
 
 1. **note 上で M2 を無料記事として公開**（W3: 2026-06-01〜07 目安）
    - 投稿先: dobokunote プロフィール下、単独記事として
-   - カバー画像: 既存 `public/images/magazines/magazine-whitepaper-r7-strategy-cover.webp` を流用可能
-   - 図版: `docs/note/magazines/whitepaper-r7-strategy/img/figure-01〜03.png` 3 枚を note にアップロード
+   - カバー画像: `docs/note/白書R7完全対応集/img/cover.png`（generate-note-covers.mjs で自動生成済）
+   - 図版: `docs/note/白書R7完全対応集/img/figure-01〜03.png` 3 枚を note にアップロード
+   - ハッシュタグ: `docs/note/白書R7完全対応集/hashtags.txt` を貼り付け
    - 価格設定: 無料
 2. **公開直後の SNS 拡散**
    - X / Instagram で「9 年連続検証データ + 70 ワークシート無料」を訴求
