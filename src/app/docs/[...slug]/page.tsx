@@ -56,6 +56,22 @@ const CIVIL_SIDEBAR_AD = {
   height: 250,
 } as const;
 
+/**
+ * SAT 通信講座（A8.net）の 300×250 creative。
+ * SAT は技術士・1級土木施工管理 両方の講座を提供しているため、PE 系全種類 +
+ * 1級土木 guide / secondary に配置（textbook / primary は既存 CIVIL_SIDEBAR_AD と住み分け）。
+ * 2026-05-25 新規追加。
+ * creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ */
+const SAT_SIDEBAR_AD = {
+  href: 'https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YZ75',
+  imageSrc: 'https://www29.a8.net/svt/bgt?aid=260516555420&wid=001&eno=01&mid=s00000027186001003000&mc=1',
+  pixelSrc: 'https://www14.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YZ75',
+  alt: 'SAT 通信講座（技術士・1級土木施工管理）',
+  width: 300,
+  height: 250,
+} as const;
+
 const mdxOptions = {
   blockJS: false as const,
   blockDangerousJS: true as const,
@@ -551,6 +567,15 @@ export default async function DocPage({
                 (docGroup === 'textbook' || docGroup === 'primary') && (
                   <SidebarAdBanner {...CIVIL_SIDEBAR_AD} />
                 )}
+              {/* SAT 通信講座 サイドバー（テスト配置 2026-05-25〜）:
+                  PE 系（keyword / guide / pastExam）と 1級土木 guide / secondary に配置。
+                  CIVIL_SIDEBAR_AD（独学サポート）とは docGroup で住み分け。 */}
+              {((category === 'pe-comprehensive-management' &&
+                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam')) ||
+                (category === 'civil-construction-1' &&
+                  (docGroup === 'guide' || docGroup === 'secondary'))) && (
+                <SidebarAdBanner {...SAT_SIDEBAR_AD} />
+              )}
             </div>
           </aside>
         </div>
