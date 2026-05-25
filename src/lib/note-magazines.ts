@@ -99,16 +99,16 @@ const MAGAZINES_RAW = {
   //     詳細: docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md
   'r8-essay-forecast': {
     id: 'r8-essay-forecast',
-    published: false,
-    noteUrl: '',
-    title: '令和 8 年度 総監記述式 R8 予想問題集｜3 大テーマ × 三層構造',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m6854c7437d4d',
+    title: '令和 8 年度 総監記述式 R8 予想問題集｜6 テーマ × 自治体道路担当フル模範論文',
     description:
-      'R8 予想 3 大テーマ（資源循環 8.5/10・気候変動適応 8.0/10・少子高齢化 7.5/10）を 3 ペルソナ別にアレンジ。三層構造テンプレ + 5 大トレードオフ早見表。約 15,000 字。',
+      'R8 予想 6 テーマ（AI 社会・気候変動適応・経済安全保障・災害復旧・資源循環・老朽化インフラ）を自治体道路担当ペルソナで論述。各テーマ予想問題本文＋出題予想根拠＋三層構造解答骨子＋3,000 字級フル模範論文の 6 記事構成。',
     shortTitle: 'R8 予想問題集',
     shortDescription:
-      'R8 予想 3 大テーマ + 三層構造 + 3 ペルソナ別アレンジ。',
+      'R8 予想 6 テーマのフル模範論文集（各 3,000 字級・道路担当ペルソナ）',
     imageUrl: '/images/magazines/magazine-r8-essay-forecast-cover.webp',
-    price: '¥2,480',
+    price: '¥2,480（単品 6本 ¥3,000 → 17%OFF）',
     badge: 'note 限定',
   },
 
