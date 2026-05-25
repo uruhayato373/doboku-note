@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-05-25T17:10:21.731+09:00",
+  "updated_at": "2026-05-25T17:11:08.420+09:00",
   "tweets": {
     "1": {
       "title": "C-01 W-7 開始メッセージ",
@@ -327,14 +327,14 @@
     },
     "55": {
       "title": "M-10 合格者の土曜まとめ学習",
-      "status": "pending",
-      "scheduled_at": null,
+      "status": "scheduled",
+      "scheduled_at": "2026-06-13T08:00:00.000+09:00",
       "posted_at": null
     },
     "56": {
       "title": "D-19 人的資源管理 ハーズバーグ",
-      "status": "pending",
-      "scheduled_at": null,
+      "status": "scheduled",
+      "scheduled_at": "2026-06-13T14:00:00.000+09:00",
       "posted_at": null
     },
     "57": {
