@@ -3,7 +3,9 @@ notePricing: paid
 noteSeries: 総監記述式-R8予想問題集
 noteMagazine: 総監記述式-R8予想問題集
 utmCampaign: essay-r8-forecast-climate-adaptation
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/n05314b15b375
+noteId: n05314b15b375
+notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "気候変動適応"]
 price: 500
 ---
