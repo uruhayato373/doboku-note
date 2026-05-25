@@ -1,9 +1,10 @@
 ---
 notePricing: free
-noteStatus: draft
 noteSeries: R8予想問題
 utmCampaign: r8-essay-forecast-intro
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/n8e92e4673a99
+noteId: n8e92e4673a99
+notePublishedAt: 2026-05-25
 coverTitle:
   - 総監記述式 R8予想問題
   - 出題予想6テーマと解答の型
