@@ -102,6 +102,25 @@ function parseTweetMd(draftDir: string): TweetBlock[] {
   return results;
 }
 
+// ─── X 文字数カウント（重み付き）─────────────────────────
+// X (Twitter) の文字数算出ルール（無料プランの 280 文字制限に対する判定）:
+//   - URL: 一律 23 文字（t.co 短縮を仮定）
+//   - 日本語等の非 ASCII（U+0080 以降）: 1 文字 = 2 文字としてカウント
+//   - ASCII（U+0000-U+007F）: 1 文字 = 1 文字
+// 注: 2026-05-25 に Tweet 01 を 315 char で投稿しようとして X UI が silent reject、
+//     publish-x.ts は無効ボタンをクリックして false success を返していたため guard 追加
+function countXWeighted(text: string): number {
+  const urlPattern = /https?:\/\/\S+/g;
+  const t = text.replace(urlPattern, "_".repeat(23));
+  let weighted = 0;
+  for (const ch of t) {
+    const code = ch.codePointAt(0)!;
+    weighted += code <= 0x7f ? 1 : 2;
+  }
+  return weighted;
+}
+const X_FREE_LIMIT = 280;
+
 // ─── draft ディレクトリ解決 ─────────────────────────────
 function resolveDraftDir(draftArg: string): string {
   // 完全名 or 数字プレフィックスで検索
@@ -265,6 +284,16 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
   if (tweet.imagePath) console.log(`画像: ${path.basename(tweet.imagePath)}`);
   console.log(`テキスト:\n${tweet.text.substring(0, 80)}...`);
 
+  // 文字数 guard: 280 超なら X UI が投稿ボタンを disable し silent reject になる
+  const weighted = countXWeighted(tweet.text);
+  console.log(`文字数: ${weighted}/${X_FREE_LIMIT}（重み付き）`);
+  if (weighted > X_FREE_LIMIT) {
+    console.error(`🚨 文字数オーバー: ${weighted} > ${X_FREE_LIMIT}（${weighted - X_FREE_LIMIT} 文字超過）`);
+    console.error(`   X 無料プランの 280 文字制限を超えているため、投稿は中止します`);
+    console.error(`   X Premium 利用中なら本 guard をスキップする実装に変更してください`);
+    return false;
+  }
+
   await page.goto("https://x.com/compose/post", { waitUntil: "domcontentloaded" });
   await page.waitForTimeout(3000);
 
@@ -294,7 +323,10 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
     });
     await navigator.clipboard.write([item]);
   }, tweet.text);
-  await page.keyboard.press("Meta+v");
+  // Windows: Control+V / macOS: Meta+V を Playwright の ControlOrMeta で OS 自動判定
+  // 注: 旧実装の "Meta+v" は Windows では Win+V（クリップボードマネージャ起動）になり
+  // ペーストされず、textbox 空のまま投稿ボタンが disabled → 投稿失敗していた（2026-05-25 修正）
+  await page.keyboard.press("ControlOrMeta+v");
   await page.waitForTimeout(2000);
 
   // 予約設定
@@ -454,17 +486,63 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
     return true;
   }
 
-  const postBtn = page.getByTestId("tweetButton").first();
-  if ((await postBtn.count()) > 0) {
-    await postBtn.click({ force: true });
-    console.log(`✅ 即時投稿完了: ${label}`);
-    await page.waitForTimeout(3000);
-    return true;
+  // 投稿実行: Ctrl+Enter（X 標準ショートカット）
+  // 注: 2026-05-25 — tweetButton.click() は click タイムアウト or onClick 不発で投稿失敗。
+  //     Ctrl+Enter が最確実（X 公式ショートカット）。
+  await textbox.focus();
+  await page.waitForTimeout(300);
+  await page.keyboard.press("ControlOrMeta+Enter");
+
+  // 投稿成功判定: 以下のいずれかで成功とみなす（最大 8 秒待機）
+  //   1. URL が /compose/post から離れた（/home などに navigate）
+  //   2. compose dialog の textbox が DOM から消えた
+  // 旧実装の問題: 2 秒の固定待機後に textbox 有無だけで判定していたが、X の
+  // 投稿後の DOM クリーンアップに時間がかかり偽陽性「compose 残存」を出していた。
+  const composedAt = "https://x.com/compose/post";
+  let posted = false;
+  for (let i = 0; i < 16; i++) {
+    await page.waitForTimeout(500);
+    const url = page.url();
+    const composeOpen = await page.evaluate(() =>
+      document.querySelector('[data-testid="tweetTextarea_0"]') !== null
+    );
+    if (!url.startsWith(composedAt) || !composeOpen) {
+      posted = true;
+      break;
+    }
   }
 
-  console.log("⚠️  投稿ボタンが見つかりません");
-  await saveScreenshot(page, `${label}-post-btn-missing`);
-  return false;
+  if (!posted) {
+    // 8 秒待っても compose が閉じない → button click を最後のフォールバックとして試す
+    console.log("  Ctrl+Enter 不発、button click を試行...");
+    const postBtn = page.getByTestId("tweetButton").first();
+    if ((await postBtn.count()) > 0) {
+      await postBtn.evaluate((el: HTMLElement) => el.click());
+      await page.waitForTimeout(3000);
+    }
+    // 再判定
+    for (let i = 0; i < 6; i++) {
+      await page.waitForTimeout(500);
+      const url = page.url();
+      const composeOpen = await page.evaluate(() =>
+        document.querySelector('[data-testid="tweetTextarea_0"]') !== null
+      );
+      if (!url.startsWith(composedAt) || !composeOpen) {
+        posted = true;
+        break;
+      }
+    }
+  }
+
+  if (!posted) {
+    console.error(`🚨 投稿失敗（compose dialog が 11 秒経っても残存）: ${label}`);
+    await saveScreenshot(page, `${label}-post-failed`);
+    return false;
+  }
+
+  console.log(`✅ 即時投稿完了: ${label}`);
+  await page.waitForTimeout(2000);
+  return true;
 }
 
 // ─── メイン ────────────────────────────────────────────
