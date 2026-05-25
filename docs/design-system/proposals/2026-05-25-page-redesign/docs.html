@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>doboku-note · 記事ページ 設計案</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Noto Sans JP', 'Hiragino Sans', 'system-ui', 'sans-serif'],
+            serif: ['"Noto Serif JP"', '"Hiragino Mincho ProN"', '"Yu Mincho"', 'Georgia', 'serif'],
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', '"Roboto Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .font-serif-jp { font-family: "Noto Serif JP", "Hiragino Mincho ProN", "Yu Mincho", YuMincho, Georgia, serif; }
+    body { font-family: Inter, "Noto Sans JP", "Hiragino Sans", system-ui, sans-serif; }
+    .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .prose-body sub { font-size: 0.75em; vertical-align: sub; }
+  </style>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="shared.jsx"></script>
+  <script type="text/babel" src="docs-shared.jsx"></script>
+  <script type="text/babel" src="docs-option-a.jsx"></script>
+  <script type="text/babel" src="docs-option-b.jsx"></script>
+  <script type="text/babel" src="docs-option-c.jsx"></script>
+  <script type="text/babel" src="docs-option-d.jsx"></script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" data-presets="env,react">
+    const { useState, useEffect } = React;
+
+    function App() {
+      const [ready, setReady] = useState(false);
+      useEffect(() => {
+        let tries = 0;
+        const t = setInterval(() => {
+          tries++;
+          if (window.DocsOptionA && window.DocsOptionB && window.DocsOptionC && window.DocsOptionD && window.DesignCanvas) {
+            setReady(true);
+            clearInterval(t);
+          } else if (tries > 100) { clearInterval(t); }
+        }, 50);
+        return () => clearInterval(t);
+      }, []);
+
+      if (!ready) {
+        return <div style={{ height: "100vh", display: "flex", alignItems: "center", justifyContent: "center", color: "#888", fontFamily: "monospace" }}>Loading designs…</div>;
+      }
+
+      const { DesignCanvas, DCSection, DCArtboard } = window;
+
+      return (
+        <DesignCanvas
+          title="doboku-note · 記事ページ 設計案"
+          subtitle="収益化導線（Amazon / 有料note / AdSense）の最適化案 4種 — 記事: コンクリートの配合設計"
+        >
+          <DCSection id="docs" title="4 directions">
+            <DCArtboard id="d-opt-a" label="案A — Editorial Inline Native（読書体験優先・割り込み最小）" width={1280} height={4400}>
+              <DocsOptionA />
+            </DCArtboard>
+            <DCArtboard id="d-opt-b" label="案B — Sidebar-Heavy（本文クリーン・サイドバー集約）" width={1280} height={4100}>
+              <DocsOptionB />
+            </DCArtboard>
+            <DCArtboard id="d-opt-c" label="案C — Affiliate-First Inline（章ごとに参考書・比較表）" width={1280} height={5000}>
+              <DocsOptionC />
+            </DCArtboard>
+            <DCArtboard id="d-opt-d" label="案D — Magazine Wrapper（誌面型・余白注釈・定期購読）" width={1280} height={5100}>
+              <DocsOptionD />
+            </DCArtboard>
+          </DCSection>
+        </DesignCanvas>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

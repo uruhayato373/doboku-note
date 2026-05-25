@@ -11,6 +11,7 @@
 | `principles.md` | 5つのデザイン原則 |
 | `prohibited.md` | 禁止パターン一覧（SSOT） |
 | `quick-reference.md` | コンポーネント・レイアウトのクイックリファレンス |
+| `proposals/` | リデザイン検討案アーカイブ（各サブフォルダに README + 静的プレビュー） |
 
 ## 読み方
 

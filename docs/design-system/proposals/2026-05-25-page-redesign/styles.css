@@ -1,0 +1,157 @@
+/* doboku-note design tokens (extracted from src/styles/globals.css) */
+:root {
+  --radius-card-inline: 2px;
+  --radius-card-content: 2px;
+  --radius-card-section: 2px;
+
+  --shadow-soft: 0 1px 2px rgba(10, 15, 30, 0.04);
+  --shadow-lift: 0 8px 24px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+  --accent: #1a3a5c;
+  --accent-fill: #eef3f8;
+  --paper: #ffffff;
+  --bg: #fafafa;
+  --ink: #0a0a0a;
+  --ink-body: #2d2d30;
+  --ink-muted: #6a6a6a;
+  --rule: #1a1a1a;
+  --rule-soft: #e8e8eb;
+
+  /* monetization accents (used sparingly) */
+  --premium: #9a6a1e;       /* deep amber for paid/premium */
+  --premium-fill: #faf3e3;
+  --premium-line: #d9c089;
+  --amazon: #c25c19;        /* amazon-leaning rust */
+  --amazon-fill: #fdf1e6;
+  --ad-label: #8a8a8a;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--ink-body);
+  font-family: "Inter", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+}
+
+.font-serif-jp {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, Georgia, serif;
+}
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Roboto Mono", monospace;
+}
+
+.rounded-card-inline { border-radius: 2px; }
+.rounded-card-content { border-radius: 2px; }
+.rounded-card-section { border-radius: 2px; }
+
+.tabular-nums { font-variant-numeric: tabular-nums; }
+
+/* "spec sheet" callout style */
+.spec-tag {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Book cover placeholder */
+.book-cover {
+  background: linear-gradient(160deg, #1a3a5c 0%, #2e6da4 50%, #1a3a5c 100%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 8px;
+  box-shadow: inset -3px 0 0 rgba(0,0,0,0.15), 0 2px 6px rgba(0,0,0,0.18);
+  position: relative;
+  overflow: hidden;
+}
+.book-cover.orange { background: linear-gradient(160deg, #6b3a14 0%, #c25c19 50%, #6b3a14 100%); }
+.book-cover.green { background: linear-gradient(160deg, #1d4a32 0%, #3a7d44 60%, #1d4a32 100%); }
+.book-cover.gray { background: linear-gradient(160deg, #2a2a2a 0%, #4a4a4a 60%, #2a2a2a 100%); }
+.book-cover.maroon { background: linear-gradient(160deg, #4a1118 0%, #8a1f29 60%, #4a1118 100%); }
+.book-cover.olive { background: linear-gradient(160deg, #4a3f1a 0%, #8b7a2e 60%, #4a3f1a 100%); }
+
+.book-cover .spine {
+  position: absolute; left: 0; top: 0; bottom: 0; width: 6px;
+  background: rgba(0,0,0,0.25);
+}
+.book-cover .top-band {
+  font-family: ui-monospace, monospace;
+  font-size: 8px; letter-spacing: 0.15em; text-transform: uppercase;
+  opacity: 0.7;
+}
+.book-cover .title {
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+  font-weight: 900;
+  font-size: 16px; line-height: 1.15;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+.book-cover .bottom-band {
+  font-family: ui-monospace, monospace;
+  font-size: 8px; letter-spacing: 0.1em;
+  opacity: 0.8;
+}
+
+/* avatar placeholder */
+.avatar {
+  background: linear-gradient(135deg, #c8d4e0, #94a8bf);
+  display: flex; align-items: center; justify-content: center;
+  font-family: "Hiragino Mincho ProN", serif;
+  font-weight: 800;
+  color: #1a3a5c;
+}
+
+/* AdSense placeholder */
+.ad-slot {
+  background: repeating-linear-gradient(
+    45deg,
+    #f4f4f4,
+    #f4f4f4 6px,
+    #ededed 6px,
+    #ededed 12px
+  );
+  border: 1px dashed #c8c8c8;
+  color: var(--ad-label);
+  display: flex; align-items: center; justify-content: center;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  position: relative;
+}
+.ad-slot::before {
+  content: "広告 / Sponsored";
+  position: absolute;
+  top: 8px; left: 10px;
+  font-size: 9px;
+  background: rgba(255,255,255,0.9);
+  padding: 2px 6px;
+  letter-spacing: 0.15em;
+  color: #777;
+}
+
+/* Premium ribbon */
+.premium-tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  background: var(--premium-fill);
+  color: var(--premium);
+  border: 1px solid var(--premium-line);
+  font-family: ui-monospace, monospace;
+  font-size: 10px;
+  padding: 2px 6px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.pr-tag {
+  font-family: ui-monospace, monospace;
+  font-size: 9px;
+  color: #999;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  border: 1px solid #d6d6d6;
+}
