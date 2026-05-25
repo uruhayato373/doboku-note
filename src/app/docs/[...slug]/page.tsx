@@ -416,6 +416,20 @@ export default async function DocPage({
               </>
             )}
 
+            {/* 参考書籍（Civil guide: アフィリエイト・補完ポジション。
+                guide 4ページ（strategy / earthwork / concrete / law）の主要流入ページに配置。
+                合格テキスト1冊 + 一次過去問1冊の固定ペア。） */}
+            {category === 'civil-construction-1' && docGroup === 'guide' && (
+              <div className="mt-8">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。
+                </p>
+                <BookCard asin="4798176834" />
+                <BookCard asin="4297154099" />
+              </div>
+            )}
+
             {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
             {hasCategoryNavCard && category && (docGroup === 'guide' || docGroup === 'pillar' || docGroup === 'secondary' || docGroup === 'textbook') && (
               <div className="mt-8 zenn-desktop:hidden">
