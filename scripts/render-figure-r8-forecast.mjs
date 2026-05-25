@@ -178,8 +178,8 @@ function svgThreeLayerFlow() {
   // 矢印定義
   body += `
   <defs>
-    <marker id="arrDown" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="10" markerHeight="10" orient="auto">
-      <path d="M 0 0 L 10 0 L 5 10 z" fill="${INK_BODY}"/>
+    <marker id="arrDown" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 0 10 L 10 5 z" fill="${INK_BODY}"/>
     </marker>
   </defs>`;
 
