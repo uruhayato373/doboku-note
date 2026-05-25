@@ -61,6 +61,8 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 
 投稿テキスト本文
 
+#技術士 #技術士総監 #<種別タグ>
+
 ---
 
 ## Tweet 02: タイトル
@@ -68,6 +70,16 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 ```
 
 `## Tweet NN:` を区切りとして各ブロックを1投稿として扱う。
+
+## 投稿テンプレ・ハッシュタグ運用ルール
+
+本文構成・ハッシュタグ個数・推奨タグセットの真実源は **`docs/sns/x/README.md`**。
+
+要点だけ抜粋:
+- 文字数上限 280 weighted chars（日本語 = 2、URL = 23 固定）
+- ハッシュタグは **3-4 個**（ベース 2 個 `#技術士 #技術士総監` + 種別 1-2 個）
+- `#総合技術監理部門` は 17 weight と重く要点投稿限定
+- 投稿前に `node .tmp/count-x-chars.mjs <tweets.md>` で文字数検証必須
 
 ## 画像
 

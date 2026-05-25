@@ -168,6 +168,8 @@ ls docs/note/{slug}/img/
 
 ## X 投稿タイプ
 
+> **ハッシュタグ運用の真実源**: `docs/sns/x/README.md` — ベース 2 個（`#技術士 #技術士総監`）+ 種別 1-2 個 = 計 3-4 個。`#総合技術監理部門` は 17 weight と重く要点投稿限定。
+
 ### 1. x question — 過去問投稿
 
 **手順**:
@@ -182,7 +184,7 @@ ls docs/note/{slug}/img/
 正答・解説はこちら
 https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 
-#技術士 #総監 #技術士試験
+#技術士 #技術士総監 #過去問対策
 ```
 
 **`--magazine` 付きフォーマット**:
@@ -195,7 +197,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 
 5管理の論点まとめ → https://note.com/dobokunote/m/m607bf095b02a
 
-#技術士 #総監 #技術士試験
+#技術士 #技術士総監 #過去問対策
 ```
 
 **ポイント**:
@@ -210,6 +212,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 2. frontmatter の title と本文の冒頭セクションを読む
 3. 以下のフォーマットで生成:
 
+> **注**: 戦略 v6（2026-05-22）でキーワード解説の X 用要約は **廃止** 判定（IG/YT へ集約）。x keyword は緊急 / 補完用に残置するのみで、新規キャンペーンでは使わない。
+
 **140 字版（デフォルト）**:
 ```
 【総監キーワード】{タイトル}
@@ -218,7 +222,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 
 https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 
-#技術士 #総監
+#技術士 #技術士総監
 ```
 
 **280 字版（--long）**:
@@ -232,7 +236,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 詳しい解説・過去問での出題例はこちら
 https://doboku-note.com/docs/pe-comprehensive-management-{slug}
 
-#技術士 #総監 #{関連タグ}
+#技術士 #技術士総監 #{該当管理}
 ```
 
 **`--magazine` 付き（140字版・280字版いずれも適用）**:
