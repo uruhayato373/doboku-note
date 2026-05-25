@@ -97,12 +97,14 @@ GSC 2026-04-15〜05-13（4週間）/ GA4 2026-05-03〜05-16（2週間）の突�
 - [x] 2.1.d `guide-law-key-points` — 「12問中8問選択」を seoTitle 先頭へ — 2026-05-25
 - [x] 2.1.e リライト後 `npm run refresh-indexes` 実行 — 2026-05-25
 
-### 2.1.x （追加機会）primary-r07-a CTR リライト
+### 2.1.x primary-r07-a/b CTR リライト
 
 GSC で `primary-r07-a` は **impr 119 / CTR 0.8% / pos 7.4** ＝ guide より大きい流入なのに CTR 最低。
-guide 4ページのリライト効果を計測しつつ、primary 系もリライト対象に追加候補。
+最新年度ペア（r07-a / r07-b）を先行リライト。効果検証後に r06 以前へ展開判断。
 
-- [ ] 2.1.x.a `primary-r07-a` title / description リライト（後続バッチ）
+- [x] 2.1.x.a `primary-r07-a` seoTitle/description リライト（「全61問」「無料」追加）— 2026-05-25
+- [x] 2.1.x.b `primary-r07-b` seoTitle/description リライト（「全35問必須」「無料」追加）— 2026-05-25
+- [ ] 2.1.x.c r06-a / r06-b / r05-a 等への展開（効果検証後に判断）
 
 ### 2.2 1級土木 内部リンク強化
 
