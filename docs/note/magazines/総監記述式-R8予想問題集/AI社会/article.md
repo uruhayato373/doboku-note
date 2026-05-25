@@ -142,18 +142,6 @@ AI の活用促進とリスク管理を両立させるため、近い将来に�
 
 ---
 
-## 3 ペルソナ別アレンジ早見表
-
-同じ問題文を 3 ペルソナで書く場合の論点対応表です。自分の業務に近いペルソナを起点に組み立ててください。
-
-| ペルソナ | 設問 (1) 管理対象 | 設問 (2) 主軸トレードオフ | 設問 (3) 最大障害 |
-|---|---|---|---|
-| **ゼネコン** | 大規模土木工事の生成 AI 設計・施工支援 | 情 × 安（AI 設計支援の効率化 vs 誤出力の構造物への波及）、経 × 人（AI 導入投資 vs AI 人材不足） | 業界横断データ共有への企業の抵抗（業界団体主導の標準化・データ利用ルール整備で克服） |
-| **河川コンサル** | 河川改修事業の BIM/CIM × AI 設計支援 | 経 × 情（AI 活用による生産性 vs 設計データ・機密保護）、情 × 安（AI 設計の効率化 vs ハルシネーション混入） | AI 出力の責任所在の不在（設計成果の AI 検証基準・責任分担ルールの整備で克服） |
-| **道路発注者** | 上記フル模範論文（道路維持管理の生成 AI・データ活用） | 経 × 安（効率化の即効性 vs 高リスク業務での誤判定波及）、経 × 安（監査工数の恒常発生 vs 広域共有による費用分散） | AI 進化に制度整備が追いつかない時間差（用途別リスク規制の 3 年見直し条項法定化・既存 AI 戦略会議を発展させた統括機関への所管集約で克服） |
-
----
-
 ## 採点者視点でのチェックポイント
 
 AI 社会 × 情報ガバナンステーマでは、以下の 3 点が評価軸になると想定します。
@@ -164,8 +152,18 @@ AI 社会 × 情報ガバナンステーマでは、以下の 3 点が評価軸�
 
 ---
 
-## doboku-note の関連ガイド
+**自分の業務に近いペルソナでフル模範論文を読みたい方へ**
 
-- [R8 予想問題：AI 社会と情報ガバナンス](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-ai-governance?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-ai-governance) — 本テーマの想定問題文・解答の方向性（3 ペルソナ別）・関連白書深掘り
-- [R8 出題候補テーマ俯瞰](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-ai-governance) — 本テーマが R8 予想の候補テーマのうちどう位置づけられるか、選定理由と関連 KW を一覧で俯瞰
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-ai-governance) — 情 × 安、経 × 情のトレードオフ解決フレームと論文 4 ステップ
+本記事は自治体 道路担当（発注者）の立場で書いていますが、ゼネコン・河川コンサルそれぞれのペルソナで R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分を読み込めば、テーマが変わっても応用できる「自分用テンプレート」が構築できます。各記事を単品で揃えるよりセット価格がお得です。
+
+自治体 道路担当版（R03〜R07 + R8 予想 = 6 記事）
+
+https://note.com/dobokunote/m/m52186ffd12ca
+
+ゼネコン版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32aaa137f22e
+
+河川コンサル版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32132ecb3033
