@@ -138,18 +138,6 @@ R8 では出題予想スコア最上位の「経済安全保障」が地政学�
 
 ---
 
-## 3 ペルソナ別アレンジ早見表
-
-同じ問題文を 3 ペルソナで書く場合の論点対応表です。自分の業務に近いペルソナを起点に組み立ててください。
-
-| ペルソナ | 設問 (1) 管理対象 | 設問 (2) 主軸トレードオフ | 設問 (3) 最大障害 |
-|---|---|---|---|
-| **ゼネコン** | 大規模土木工事の資材調達・購買部門 | 経 × 人（リサイクル資材の品質管理コスト vs 担い手不足） | 業界横断の標準化への抵抗（業界団体主導のルール整備で克服） |
-| **河川コンサル** | 河川改修事業の設計業務における自然素材活用 | 社 × 経（グリーンインフラ・地域内資材の採用 vs 短期コスト） | 環境性能の定量化困難（LCA 評価制度の法制化で克服） |
-| **道路発注者** | 上記フル模範論文（道路・橋梁の維持管理・更新） | 情 × 経（資材プラットフォーム vs 情報漏洩）、経 × 安（備蓄コスト vs 供給確実性） | 分野横断の標準化阻害と初期投資の受容欠如（製品パスポートの法制化・分野横断循環基盤公社で克服） |
-
----
-
 ## 採点者視点でのチェックポイント
 
 資源循環テーマでは、以下の 4 点が評価軸になると想定します。
@@ -161,8 +149,18 @@ R8 では出題予想スコア最上位の「経済安全保障」が地政学�
 
 ---
 
-## doboku-note の関連ガイド
+**自分の業務に近いペルソナでフル模範論文を読みたい方へ**
 
-- [R8 出題候補テーマ俯瞰](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-resource-circulation) — 資源循環 × サプライチェーン強靭化が R8 予想候補テーマのなかでどう位置づけられるか、関連キーワードと適用パターンを一覧で俯瞰
-- [道路発注者ペルソナ × 10 管理対象パターン早見表](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-resource-circulation) — 道路系 4 + 隣接領域 6 の管理対象パターン
-- [1 パターンで複数年度を書ききる流用戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-pattern-cross-year-application?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-resource-circulation) — 橋梁長寿命化・バイパス整備で R5/R6/R7 + R8 予想を書ききる
+本記事は自治体 道路担当（発注者）の立場で書いていますが、ゼネコン・河川コンサルそれぞれのペルソナで R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分を読み込めば、テーマが変わっても応用できる「自分用テンプレート」が構築できます。各記事を単品で揃えるよりセット価格がお得です。
+
+自治体 道路担当版（R03〜R07 + R8 予想 = 6 記事）
+
+https://note.com/dobokunote/m/m52186ffd12ca
+
+ゼネコン版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32aaa137f22e
+
+河川コンサル版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32132ecb3033
