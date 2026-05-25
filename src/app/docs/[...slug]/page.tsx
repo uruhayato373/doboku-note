@@ -72,6 +72,66 @@ const SAT_SIDEBAR_AD = {
   height: 250,
 } as const;
 
+/**
+ * SAT 1級土木施工管理講座（A8.net）の商品リンク（記事末 CTA 用、教材セット画像）。
+ * 1級土木 guide / textbook / primary の記事末 BookCard 直下に配置。
+ * 2026-05-25 新規追加。mat: 4B3RUZ+6Y23MI+5TRO+BWGDT, pixel: www17.a8.net
+ */
+const SAT_DOBOKU_PRODUCT = {
+  href: 'https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y23MI+5TRO+BWGDT&a8ejpredirect=https%3A%2F%2Fwww.sat-co.info%2Fec%2Fdobokusekou',
+  imageSrc: 'https://www.sat-co.info/ec/images/1doboku1_kyouzai_260416.png',
+  pixelSrc: 'https://www17.a8.net/0.gif?a8mat=4B3RUZ+6Y23MI+5TRO+BWGDT',
+  alt: 'SAT 1級土木施工管理講座 教材セット',
+} as const;
+
+/**
+ * 1級土木 記事末用：SAT 商品リンク CTA カード。BookCard 2冊の直下に配置し、
+ * 「書籍 + 通信講座」のセット訴求でインプレッション最大化。
+ * civil × guide / textbook / primary で使用（secondary は既存独学サポート CourseAffiliate 維持）。
+ */
+function CivilSatProductCTA() {
+  return (
+    <div className="mt-8">
+      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">通信講座という選択肢</h2>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+        e ラーニングで体系的に学習を進めたい場合に。教材セット＋オンライン講座＋質問対応。
+      </p>
+      <div className="not-prose relative overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-2 shadow-card-content">
+        <span
+          className="absolute right-2 top-2 z-10 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
+          style={{ background: 'var(--color-ink-muted)' }}
+          aria-label="広告"
+        >
+          PR
+        </span>
+        <a
+          href={SAT_DOBOKU_PRODUCT.href}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          className="block"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={SAT_DOBOKU_PRODUCT.imageSrc}
+            alt={SAT_DOBOKU_PRODUCT.alt}
+            loading="lazy"
+            className="block h-auto w-full"
+          />
+        </a>
+      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={SAT_DOBOKU_PRODUCT.pixelSrc}
+        width={1}
+        height={1}
+        alt=""
+        aria-hidden
+        style={{ position: 'absolute', left: '-9999px' }}
+      />
+    </div>
+  );
+}
+
 const mdxOptions = {
   blockJS: false as const,
   blockDangerousJS: true as const,
@@ -433,34 +493,41 @@ export default async function DocPage({
                   <BookCard asin="4798176834" />
                   <BookCard asin="4816378243" />
                 </div>
+                <CivilSatProductCTA />
               </>
             )}
 
             {/* 参考書籍（Civil primary: アフィリエイト・補完ポジション。
                 一次過去問ページ。過去問マスター解説集（4297154099・解説重視）+ 地域開発研究所 第一次解説集（4886154530・7年分演習量）の固定ペア。） */}
             {category === 'civil-construction-1' && docGroup === 'primary' && (
-              <div className="mt-8">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  解説重視と過去7年の演習量の両軸で一次過去問を仕上げたいときに。
-                </p>
-                <BookCard asin="4297154099" />
-                <BookCard asin="4886154530" />
-              </div>
+              <>
+                <div className="mt-8">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    解説重視と過去7年の演習量の両軸で一次過去問を仕上げたいときに。
+                  </p>
+                  <BookCard asin="4297154099" />
+                  <BookCard asin="4886154530" />
+                </div>
+                <CivilSatProductCTA />
+              </>
             )}
 
             {/* 参考書籍（Civil guide: アフィリエイト・補完ポジション。
                 guide 4ページ（strategy / earthwork / concrete / law）の主要流入ページに配置。
                 合格テキスト1冊 + 一次過去問1冊の固定ペア。） */}
             {category === 'civil-construction-1' && docGroup === 'guide' && (
-              <div className="mt-8">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。
-                </p>
-                <BookCard asin="4798176834" />
-                <BookCard asin="4297154099" />
-              </div>
+              <>
+                <div className="mt-8">
+                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                    まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。
+                  </p>
+                  <BookCard asin="4798176834" />
+                  <BookCard asin="4297154099" />
+                </div>
+                <CivilSatProductCTA />
+              </>
             )}
 
             {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
@@ -544,6 +611,25 @@ export default async function DocPage({
                   ))}
                 </div>
               )}
+              {/* アフィリエイト サイドバー（2026-05-25 以降: 上部配置でインプレッション最大化）:
+                  自社マガジン CTA を最上位に維持しつつ、TOC・ナビカードより上に配置。
+                  - 1級土木 textbook / primary: 独学サポート（経験記述添削特化）
+                  - PE keyword/guide/pastExam + 1級土木 guide / secondary: SAT（総合講座）
+                  住み分けは docGroup で排他。 */}
+              {category === 'civil-construction-1' &&
+                (docGroup === 'textbook' || docGroup === 'primary') && (
+                  <div className="mb-3">
+                    <SidebarAdBanner {...CIVIL_SIDEBAR_AD} />
+                  </div>
+                )}
+              {((category === 'pe-comprehensive-management' &&
+                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam')) ||
+                (category === 'civil-construction-1' &&
+                  (docGroup === 'guide' || docGroup === 'secondary'))) && (
+                <div className="mb-3">
+                  <SidebarAdBanner {...SAT_SIDEBAR_AD} />
+                </div>
+              )}
               {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
               {hasCategoryNavCard && category && (
                 <div className="mt-3">
@@ -560,21 +646,6 @@ export default async function DocPage({
                 <div className="mt-3">
                   <PillarNavCard variant="sidebar" currentSection={sectionStr} />
                 </div>
-              )}
-              {/* アフィリエイト バナー（テスト配置）: 1級土木 一次系ページ（textbook / 一次過去問）のみ。
-                  owned 商品（マガジン CTA）・ナビより下に置く補完ポジション。 */}
-              {category === 'civil-construction-1' &&
-                (docGroup === 'textbook' || docGroup === 'primary') && (
-                  <SidebarAdBanner {...CIVIL_SIDEBAR_AD} />
-                )}
-              {/* SAT 通信講座 サイドバー（テスト配置 2026-05-25〜）:
-                  PE 系（keyword / guide / pastExam）と 1級土木 guide / secondary に配置。
-                  CIVIL_SIDEBAR_AD（独学サポート）とは docGroup で住み分け。 */}
-              {((category === 'pe-comprehensive-management' &&
-                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam')) ||
-                (category === 'civil-construction-1' &&
-                  (docGroup === 'guide' || docGroup === 'secondary'))) && (
-                <SidebarAdBanner {...SAT_SIDEBAR_AD} />
               )}
             </div>
           </aside>
