@@ -108,9 +108,10 @@ GSC で `primary-r07-a` は **impr 119 / CTR 0.8% / pos 7.4** ＝ guide より�
 
 ### 2.2 1級土木 内部リンク強化
 
-- [ ] 2.2.a guide ↔ secondary 双方向リンク確認（各 guide ページから経験記述例文への導線）
-- [ ] 2.2.b guide ↔ primary（一次過去問）双方向リンク確認
-- [ ] 2.2.c カテゴリトップ（`/category/civil-construction-1`）から guide 4ページへの導線強化
+- [x] 2.2.a primary-r07-a/b の末尾「関連コンテンツ」を `<RelatedKeywords>` で7リンクに拡充（旧3リンク→7リンク。同年度・隣接年度・guide 4ピラー・経験記述ガイドへ）— 2026-05-25
+- [x] 2.2.b guide-strategy の壊れた「テキスト参照リンク」セクションを削除（既存「分野別 学習優先度」と重複・リンクラベル不一致）— 2026-05-25
+- 2.2.c guide ↔ secondary 双方向リンク確認 — guide-earthwork/concrete/law は既存（「過去問で確認しよう」「テキスト参照」充実）。strategy は「分野別 学習優先度」+ 「過去問リンク」で代替済み。今回は範囲外
+- 2.2.d 残 primary 14 ページ（r06〜h26）の関連コンテンツ拡充 — Phase 3 効果検証後に判断（テンプレ化スクリプトで一括処理候補）
 
 ---
 
