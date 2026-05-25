@@ -102,8 +102,9 @@ function svgTradeoffMatrix() {
     '': SURFACE_ALT,
   };
 
-  const labelW = 240;
-  const cellW = 160;
+  // 行ラベルの最長は「地域インフラ群マネジメント」14 文字 × 22px ≈ 308px → labelW = 360
+  const labelW = 360;
+  const cellW = 152;
   const headerH = 56;
   const rowH = 72;
   const xStart = 40;
@@ -167,7 +168,7 @@ function svgTradeoffMatrix() {
   const captY = legendY + 48;
   body += `
   <rect x="${xStart}" y="${captY}" width="${totalW}" height="44" rx="6" fill="${BRAND_FILL}"/>
-  <text x="${xStart + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">経×安・経×社が頻出。R8 はこのマトリクス交差点が出題確率高</text>`;
+  <text x="${xStart + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">経済性が 4 テーマで主軸 — 経×情・人×経が R8 第 1 候補</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#ffffff"/>
@@ -179,16 +180,17 @@ ${brandMark(H)}
 
 // ------------------------------------------------------------------
 // 図 2: R08 再出題確率スコア 横棒グラフ
+// 注: スコアと順位は article §1-2 の表（「R7 白書の戦略概観 — 7 大テーマと再出題確率」）と整合
 // ------------------------------------------------------------------
 function svgR08Probability() {
   const themes = [
-    { name: 'GX・カーボンニュートラル', score: 9.5, badge: '白書最重点', badgeColor: DANGER },
-    { name: 'インフラ老朽化', score: 9.0, badge: '9 年連続出題', badgeColor: DANGER },
-    { name: '建設業 2024 年問題', score: 8.5, badge: '労働改革', badgeColor: WARN },
-    { name: '外国人材受入', score: 8.5, badge: '制度変革', badgeColor: WARN },
-    { name: 'i-Construction 2.0', score: 8.0, badge: 'DX 推進', badgeColor: WARN },
-    { name: '地域インフラ群マネジメント', score: 7.5, badge: '維持管理', badgeColor: BRAND },
-    { name: '流域治水', score: 7.0, badge: '防災', badgeColor: BRAND },
+    { name: 'i-Construction 2.0', score: 9.5, badge: 'DX 推進' },
+    { name: '建設業 2024 年問題', score: 9.0, badge: '労働改革' },
+    { name: 'インフラ老朽化', score: 8.5, badge: '予防保全' },
+    { name: '流域治水', score: 8.5, badge: '気候適応' },
+    { name: 'GX・カーボンニュートラル', score: 8.0, badge: '白書最重点' },
+    { name: '外国人材受入', score: 7.0, badge: '制度変革' },
+    { name: '地域インフラ群マネジメント', score: 6.5, badge: '群マネ' },
   ];
 
   const barColor = (score) => {
@@ -197,10 +199,12 @@ function svgR08Probability() {
     return BRAND;
   };
 
-  const labelW = 310;
-  const barMaxW = 640;
-  const badgeW = 168;
-  const scoreW = 80;
+  // labelW=360（最長「地域インフラ群マネジメント」14 文字 × 22px ≈ 308 + 余白）
+  // 合計: 40 + 360 + 560 + 70 + 140 = 1170（W=1200、右余白 30）
+  const labelW = 360;
+  const barMaxW = 560;
+  const badgeW = 140;
+  const scoreW = 70;
   const xStart = 40;
   const headerY = 130;
   const rowH = 80;
@@ -211,9 +215,13 @@ function svgR08Probability() {
 
   let body = '';
 
-  // 軸ラベル
+  // 軸ラベル（0/5/10 を独立配置、スペース埋めしない）
+  const axisY = headerY - 8;
+  const barOriginX = xStart + labelW;
   body += `
-  <text x="${xStart + labelW + barMaxW / 2}" y="${headerY - 8}" font-family="${FONT}" font-size="22" fill="${INK_MUTED}" text-anchor="middle">0                         5                        10</text>`;
+  <text x="${barOriginX}" y="${axisY}" font-family="${FONT}" font-size="20" fill="${INK_MUTED}" text-anchor="middle">0</text>
+  <text x="${barOriginX + barMaxW / 2}" y="${axisY}" font-family="${FONT}" font-size="20" fill="${INK_MUTED}" text-anchor="middle">5</text>
+  <text x="${barOriginX + barMaxW}" y="${axisY}" font-family="${FONT}" font-size="20" fill="${INK_MUTED}" text-anchor="middle">10</text>`;
 
   for (let i = 0; i < themes.length; i++) {
     const t = themes[i];
@@ -265,7 +273,7 @@ function svgR08Probability() {
   const captY = legendY + 52;
   body += `
   <rect x="${xStart}" y="${captY}" width="${W - 80}" height="44" rx="6" fill="${DANGER_FILL}"/>
-  <text x="${xStart + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${DANGER}">GX/CN (9.5) とインフラ老朽化 (9.0) が R8 第 1 候補</text>`;
+  <text x="${xStart + 20}" y="${captY + 30}" font-family="${FONT}" font-size="22" font-weight="600" fill="${DANGER}">i-Construction 2.0 (9.5) と建設業 2024 年問題 (9.0) が R8 第 1 候補</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#ffffff"/>
@@ -319,7 +327,8 @@ function svg9YearMapping() {
     },
   ];
 
-  const labelW = 280;
+  // labelW=360 で「地域インフラ群マネジメント」14 文字 × 22px ≈ 308 を収容
+  const labelW = 360;
   const noteW = 100;
   const cellW = Math.floor((W - 80 - labelW - noteW) / years.length);
   const headerH = 56;
