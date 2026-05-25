@@ -112,6 +112,8 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
+  // 原稿配置: docs/note/解答テンプレ3D/ （2026-05-25 まで docs/note/magazines/essay-template-3d/）
+  // id は note 商品識別子として維持（site CTA cover も既存パス据置）
   'essay-template-3d': {
     id: 'essay-template-3d',
     published: false,

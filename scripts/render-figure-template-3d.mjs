@@ -1,5 +1,7 @@
 #!/usr/bin/env node
-// docs/note/magazines/essay-template-3d/img/ に PNG/SVG 図版 3 枚を生成する。
+// docs/note/解答テンプレ3D/img/ に PNG/SVG 図版 3 枚を生成する。
+// （2026-05-25 まで docs/note/magazines/essay-template-3d/img/ に配置していたが、
+//  単独記事の standard 配置〔docs/note/{日本語名}/〕へ移動）
 //
 // 設計ルール（docs/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
@@ -17,7 +19,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/magazines/essay-template-3d/img');
+const OUT_DIR = join(ROOT, 'docs/note/解答テンプレ3D/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン
@@ -189,7 +191,7 @@ function svgFig1() {
   const captY = H - 80;
   body += `
   <rect x="40" y="${captY}" width="${W - 80}" height="50" rx="8" fill="${BRAND_FILL}"/>
-  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">テーマと業務を入力すれば論文骨子が出てくる逆引き辞書（図は 10 テーマで代表表示、実際は 20 テーマ × 5 管理 × 3 ペルソナ）</text>`;
+  <text x="60" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}">テーマ × 5 管理 × ペルソナ ＝ 300 セルの逆引き辞書</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#ffffff"/>

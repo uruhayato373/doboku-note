@@ -112,7 +112,7 @@
 - [ ] **note 投稿（R8無料は M3 と束ねる）**: 無料記事『R8予想問題』（M3 への誘導記事）は単独投稿せず、有料マガジン M3（総監記述式-R8予想問題集）と W4 で同時公開する。送客先 M3 が未公開のまま無料記事だけ出すと回遊先が死に、リード磁石として機能しないため
 - [ ] **note 投稿（W3 先行）**: M2「白書 R7 完全対応集」を**完全無料の単独記事**として最優先で公開（W3: 2026-06-01〜07）。試験前 6 週間の集客窓を最大化する。記事末尾と各章末に M9/M5/M6/M8（公開済）への CTA を配線済。M3/M4 は本記事公開後 1-2 週遅れで投稿し、本記事末尾に追記送客
 - [ ] **note 投稿（W4-W5 順次）**: 無料記事『R8予想問題』＋総監記述式-R8予想問題集（6テーマ） → essay-template-3d の順に投稿（模範論文 Series2 3 マガジン M5・M6・M8 は投稿済）
-- [ ] **カバー画像確認**: M2「白書R7完全対応集」は `docs/note/白書R7完全対応集/img/cover.png` に generate-note-covers.mjs で自動生成済（2026-05-25、note 単独記事の standard 配置）。essay-template-3d のカバー画像（webp）作成は別途必要（R8予想問題集は `_cover.png` ＋ 各記事 `img/cover.png` 生成済 2026-05-22。模範論文 3 ペルソナは完成済）
+- [ ] **カバー画像確認**: M2「白書R7完全対応集」は `docs/note/白書R7完全対応集/img/cover.png`、M4「解答テンプレ3D」は `docs/note/解答テンプレ3D/img/cover.png` にそれぞれ generate-note-covers.mjs で自動生成済（2026-05-25、note 単独記事の standard 配置）。R8予想問題集は `_cover.png` ＋ 各記事 `img/cover.png` 生成済 2026-05-22。模範論文 3 ペルソナは完成済。サイト CTA 用の `public/images/magazines/magazine-essay-template-3d-cover.{png,webp}` は据置（site UI 参照）
 - [ ] **M2 公開後の追記送客**: M3（R8予想問題集）・M4（essay-template-3d）が公開され次第、M2 記事末尾「R08 で出る可能性の高い 6 大テーマのフル模範論文が欲しい方」セクションに該当 noteUrl を URL 単独行で追記
 
 ### 自動化済み・運用継続中
@@ -498,7 +498,10 @@ M3 マガジン（`総監記述式-R8予想問題集`）は6テーマ（資源�
 
 **Red Line 遵守**: 「予想問題」「フル模範論文」と明記。「合格解答」「R8 で必ず出る」断定表現は NG。予想は確率的であると各記事に明示。
 
-### M4. 解答テンプレ 3D マトリクス（essay-template-3d）
+### M4. 解答テンプレ 3D マトリクス（解答テンプレ3D ／ note magazine id: essay-template-3d）
+
+> 2026-05-25: ディレクトリを `docs/note/magazines/essay-template-3d/` → `docs/note/解答テンプレ3D/` へ移動（単独記事 standard 配置）。SoT `note-magazines.ts` の id `essay-template-3d` および site CTA cover 画像パスは維持。
+
 
 | 項目 | 値 |
 |---|---|
