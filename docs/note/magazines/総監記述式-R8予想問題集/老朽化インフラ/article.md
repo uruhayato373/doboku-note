@@ -140,18 +140,6 @@ price: 500
 
 ---
 
-## 3 ペルソナ別アレンジ早見表
-
-同じ問題文を 3 ペルソナで書く場合の論点対応表です。自分の業務に近いペルソナを起点に組み立ててください。
-
-| ペルソナ | 設問 (1) 管理対象 | 設問 (2) 主軸トレードオフ | 設問 (3) 最大障害 |
-|---|---|---|---|
-| **ゼネコン** | 老朽化インフラの補修・更新工事の施工部門 | 安 × 経（予防保全工事の品質確保 vs 工費・採算）、人 × 安（熟練技能者の不足 vs 補修品質の維持） | 補修技能の継承断絶（技能資格制度・施工標準の整備で克服） |
-| **河川コンサル** | 老朽化した河川構造物・排水施設の点検・長寿命化設計業務 | 安 × 経（予防保全設計 vs 調査・設計費）、情 × 人（劣化診断データの活用 vs 診断人材の不足） | 長寿命化計画の形骸化（性能規定型の更新基準・データ標準の整備で克服） |
-| **道路発注者** | 上記フル模範論文（県道の橋梁・トンネル長寿命化・予防保全） | 安 × 経（予防保全への前倒し投資 vs 当年度予算）、安 × 人（AI 診断の活用 vs 技術者の判断力育成） | 平時の予防投資への合意欠如（更新計画の法制化・広域インフラ管理組織への体制再設計で克服） |
-
----
-
 ## 採点者視点でのチェックポイント
 
 老朽化インフラ × 予防保全テーマでは、以下の 4 点が評価軸になると想定します。
@@ -163,8 +151,18 @@ price: 500
 
 ---
 
-## doboku-note の関連ガイド
+**自分の業務に近いペルソナでフル模範論文を読みたい方へ**
 
-- [R8 予想問題：老朽化インフラの予防保全](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-infrastructure-maintenance) — 本テーマの想定問題文・解答の方向性・関連白書深掘り
-- [R8 出題候補テーマ俯瞰](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-infrastructure-maintenance) — 本テーマが R8 予想の候補テーマのうちどう位置づけられるか
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-infrastructure-maintenance) — 安 × 経、安 × 人のトレードオフ解決フレーム
+本記事は自治体 道路担当（発注者）の立場で書いていますが、ゼネコン・河川コンサルそれぞれのペルソナで R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分を読み込めば、テーマが変わっても応用できる「自分用テンプレート」が構築できます。各記事を単品で揃えるよりセット価格がお得です。
+
+自治体 道路担当版（R03〜R07 + R8 予想 = 6 記事）
+
+https://note.com/dobokunote/m/m52186ffd12ca
+
+ゼネコン版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32aaa137f22e
+
+河川コンサル版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32132ecb3033
