@@ -385,14 +385,16 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* 参考書籍（Civil 第二次検定: アフィリエイト・補完ポジション） */}
+            {/* 参考書籍（Civil 第二次検定: アフィリエイト・補完ポジション。
+                過去問解説集（4886154557）+ 経験記述70パターン（4816378561）の固定ペア。） */}
             {category === 'civil-construction-1' && docGroup === 'secondary' && (
               <div className="mt-8">
                 <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  第二次検定の過去問を解説でじっくり押さえたいときに。
+                  過去問演習と経験記述70パターンで二次対策を固めたいときに。
                 </p>
                 <BookCard asin="4886154557" />
+                <BookCard asin="4816378561" />
               </div>
             )}
 
@@ -405,15 +407,30 @@ export default async function DocPage({
                 <div className="mt-8">
                   <PastExamBacklinks category={category} currentSlug={slugStr} />
                 </div>
-                {/* 参考書籍（Civil textbook: アフィリエイト・補完ポジション） */}
+                {/* 参考書籍（Civil textbook: アフィリエイト・補完ポジション。
+                    合格ガイド（4798176834・両用）+ 第1次徹底図解（4816378243・一次特化、R6追加分野対応）の固定ペア。） */}
                 <div className="mt-8">
                   <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    1級土木の第一次・第二次検定を1冊で押さえたいときに。
+                    両用1冊で全体像をつかみ、一次特化テキストで R6 追加分野まで押さえたいときに。
                   </p>
                   <BookCard asin="4798176834" />
+                  <BookCard asin="4816378243" />
                 </div>
               </>
+            )}
+
+            {/* 参考書籍（Civil primary: アフィリエイト・補完ポジション。
+                一次過去問ページ。過去問マスター解説集（4297154099・解説重視）+ 地域開発研究所 第一次解説集（4886154530・7年分演習量）の固定ペア。） */}
+            {category === 'civil-construction-1' && docGroup === 'primary' && (
+              <div className="mt-8">
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+                  解説重視と過去7年の演習量の両軸で一次過去問を仕上げたいときに。
+                </p>
+                <BookCard asin="4297154099" />
+                <BookCard asin="4886154530" />
+              </div>
             )}
 
             {/* 参考書籍（Civil guide: アフィリエイト・補完ポジション。
