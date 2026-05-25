@@ -1,3 +1,16 @@
+---
+notePricing: free
+noteStatus: published
+noteSeries: null
+utmCampaign: whitepaper-r7-strategy
+noteUrl: https://note.com/dobokunote/n/n60efbccd728b
+noteId: n60efbccd728b
+notePublishedAt: 2026-05-25
+coverTitle:
+  - 国土交通白書 R7 完全対応集
+  - 7大テーマ × 5管理トレードオフ
+---
+
 # 国土交通白書 R7 完全対応集
 
 **7 大テーマ × 5 管理トレードオフ × 過去問適用パスポート**
