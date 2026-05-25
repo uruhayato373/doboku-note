@@ -17,7 +17,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/magazines/r8-essay-forecast/img');
+const OUT_DIR = join(ROOT, 'docs/note/R8予想問題/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン
@@ -58,100 +58,77 @@ function brandMark(H) {
 }
 
 // ------------------------------------------------------------------
-// 図 1: R8 予想 3 大テーマスコア比較
+// 図 1: R8 予想 6 大テーマ スコア順一覧
 // ------------------------------------------------------------------
 function svgR8ThemesScore() {
-  const H = 780;
-
-  const themes = [
-    {
-      title: '資源循環 ×\nサプライチェーン\n強靭化',
-      score: '8.5 / 10',
-      badge: '最有力候補',
-      tradeoff: '経×社 / 安×社 / 経×人',
-      color: DANGER,
-      fill: DANGER_FILL,
-    },
-    {
-      title: '気候変動適応 ×\nグリーンインフラ',
-      score: '8.0 / 10',
-      badge: '対抗候補',
-      tradeoff: '経×社 / 安×社 / 情×人',
-      color: WARN,
-      fill: WARN_FILL,
-    },
-    {
-      title: '少子高齢化\n深化',
-      score: '7.5 / 10',
-      badge: '3 派生パターン',
-      tradeoff: '経×人 / 情×人 / 情×経',
-      color: BRAND,
-      fill: BRAND_FILL,
-    },
+  const rows = [
+    { theme: '経済安全保障 × サプライチェーン強靱化', axis: '経 × 社 × 情', score: '9.0 / 10', color: DANGER },
+    { theme: '資源循環 × サプライチェーン強靭化', axis: '経 × 社 × 情', score: '8.5 / 10', color: WARN },
+    { theme: 'AI 社会 × 情報ガバナンス', axis: '情 × 安 × 経', score: '8.5 / 10', color: WARN },
+    { theme: '気候変動適応 × グリーンインフラ', axis: '社 × 安 × 経', score: '8.0 / 10', color: BRAND },
+    { theme: '災害復旧 × 複合災害対応', axis: '安 × 情 × 人', score: '8.0 / 10', color: BRAND },
+    { theme: '老朽化インフラ × 予防保全', axis: '安 × 経 × 人', score: '7.5 / 10', color: POSITIVE },
   ];
 
-  const cardW = 340;
-  const cardH = 520;
-  const cardGap = 30;
-  const totalW = cardW * 3 + cardGap * 2;
-  const startX = (W - totalW) / 2;
-  const cardY = 130;
+  const headerH = 64;
+  const rowH = 80;
+  const tableX = 40;
+  const tableW = W - 80;
+  const wTheme = 660;
+  const wAxis = 260;
+  const wScore = tableW - wTheme - wAxis;
+  const tableY = 130;
+
+  const H = tableY + headerH + rows.length * rowH + 200;
 
   let body = '';
 
-  for (let i = 0; i < themes.length; i++) {
-    const t = themes[i];
-    const x = startX + i * (cardW + cardGap);
+  // テーブルヘッダ
+  body += `
+  <rect x="${tableX}" y="${tableY}" width="${wTheme}" height="${headerH}" rx="8" fill="${BRAND_DEEP}"/>
+  <text x="${tableX + 24}" y="${tableY + 42}" font-family="${FONT}" font-size="24" font-weight="700" fill="#ffffff">テーマ</text>
+  <rect x="${tableX + wTheme}" y="${tableY}" width="${wAxis}" height="${headerH}" rx="8" fill="${BRAND_DEEP}"/>
+  <text x="${tableX + wTheme + wAxis / 2}" y="${tableY + 42}" font-family="${FONT}" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">5 管理主軸</text>
+  <rect x="${tableX + wTheme + wAxis}" y="${tableY}" width="${wScore}" height="${headerH}" rx="8" fill="${BRAND_DEEP}"/>
+  <text x="${tableX + wTheme + wAxis + wScore / 2}" y="${tableY + 42}" font-family="${FONT}" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">予想スコア</text>`;
 
-    // カード背景
+  let y = tableY + headerH;
+  for (let i = 0; i < rows.length; i++) {
+    const r = rows[i];
+    const fill = i % 2 === 0 ? '#ffffff' : SURFACE_ALT;
+
+    // 行背景
     body += `
-  <rect x="${x}" y="${cardY}" width="${cardW}" height="${cardH}" rx="12" fill="#ffffff" stroke="${t.color}" stroke-width="3"/>`;
+  <rect x="${tableX}" y="${y}" width="${tableW}" height="${rowH}" fill="${fill}" stroke="${BORDER_LIGHT}" stroke-width="1"/>`;
 
-    // カードヘッダ
+    // テーマ名
     body += `
-  <rect x="${x}" y="${cardY}" width="${cardW}" height="80" rx="12" fill="${t.color}"/>
-  <rect x="${x}" y="${cardY + 68}" width="${cardW}" height="12" fill="${t.color}"/>`;
+  <text x="${tableX + 24}" y="${y + rowH / 2 + 8}" font-family="${FONT}" font-size="22" font-weight="700" fill="${INK_STRONG}">${xml(r.theme)}</text>`;
 
-    // バッジ
+    // 5 管理主軸
     body += `
-  <text x="${x + cardW / 2}" y="${cardY + 52}" font-family="${FONT}" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">${xml(t.badge)}</text>`;
+  <text x="${tableX + wTheme + wAxis / 2}" y="${y + rowH / 2 + 8}" font-family="${FONT}" font-size="22" fill="${INK_BODY}" text-anchor="middle">${xml(r.axis)}</text>`;
 
-    // テーマタイトル（3行対応）
-    const lines = t.title.split('\n');
-    const lineH = 40;
-    const titleStartY = cardY + 120;
-    for (let li = 0; li < lines.length; li++) {
-      body += `
-  <text x="${x + cardW / 2}" y="${titleStartY + li * lineH}" font-family="${FONT}" font-size="26" font-weight="800" fill="${t.color}" text-anchor="middle">${xml(lines[li])}</text>`;
-    }
-
-    // スコア
-    const scoreY = cardY + 260;
+    // 予想スコアバッジ
+    const badgeW = 160;
+    const badgeH = 48;
+    const badgeX = tableX + wTheme + wAxis + (wScore - badgeW) / 2;
     body += `
-  <text x="${x + cardW / 2}" y="${scoreY}" font-family="${FONT}" font-size="48" font-weight="800" fill="${t.color}" text-anchor="middle">${xml(t.score)}</text>
-  <text x="${x + cardW / 2}" y="${scoreY + 36}" font-family="${FONT}" font-size="22" fill="${INK_MUTED}" text-anchor="middle">予想スコア</text>`;
+  <rect x="${badgeX}" y="${y + (rowH - badgeH) / 2}" width="${badgeW}" height="${badgeH}" rx="8" fill="${r.color}"/>
+  <text x="${badgeX + badgeW / 2}" y="${y + rowH / 2 + 10}" font-family="${FONT}" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">${xml(r.score)}</text>`;
 
-    // 区切り線
-    body += `
-  <line x1="${x + 24}" y1="${scoreY + 60}" x2="${x + cardW - 24}" y2="${scoreY + 60}" stroke="${BORDER_LIGHT}" stroke-width="1"/>`;
-
-    // トレードオフ
-    const tradeY = scoreY + 100;
-    body += `
-  <text x="${x + cardW / 2}" y="${tradeY - 20}" font-family="${FONT}" font-size="22" font-weight="700" fill="${INK_STRONG}" text-anchor="middle">想定トレードオフ</text>
-  <rect x="${x + 20}" y="${tradeY}" width="${cardW - 40}" height="60" rx="8" fill="${t.fill}"/>
-  <text x="${x + cardW / 2}" y="${tradeY + 40}" font-family="${FONT}" font-size="22" font-weight="700" fill="${t.color}" text-anchor="middle">${xml(t.tradeoff)}</text>`;
+    y += rowH;
   }
 
   // キャプション
-  const captY = cardY + cardH + 32;
+  const captY = y + 32;
   body += `
   <rect x="40" y="${captY}" width="${W - 80}" height="52" rx="6" fill="${BRAND_FILL}"/>
-  <text x="${W / 2}" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}" text-anchor="middle">過去 9 年検証で 60-70% 的中。3 テーマのいずれか出題確率が高い</text>`;
+  <text x="${W / 2}" y="${captY + 34}" font-family="${FONT}" font-size="22" font-weight="600" fill="${BRAND_DEEP}" text-anchor="middle">R7 白書の重点 + 足元の時事性 + 過去未消化論点から選定（的中保証なし）</text>`;
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">
   <rect width="${W}" height="${H}" fill="#ffffff"/>
-${header('R08 出題予想 3 大テーマ（スコア順）', '総合技術監理部門・記述式 R8 予想')}
+${header('R8 出題予想 6 大テーマ（スコア順）', '総合技術監理部門・記述式 R8 予想')}
 ${body}
 ${brandMark(H)}
 </svg>`;
@@ -161,30 +138,30 @@ ${brandMark(H)}
 // 図 2: 三層構造フロー（解答骨子の組立手順）
 // ------------------------------------------------------------------
 function svgThreeLayerFlow() {
-  const H = 860;
+  const H = 960;
 
   const layers = [
     {
       no: '第 1 層',
       label: '管理対象',
-      desc: 'テーマを 5 管理のどれで論じるか宣言',
-      example: '例: 資源循環 → 経済性管理を主軸、社会環境管理を副次',
+      desc: '管理対象と前提条件を具体的に設定',
+      example: '例: 自分の事業/組織を具体名で挙げ、顕在課題と既施策の問題点を仕込む',
       color: BRAND,
       fill: BRAND_FILL,
     },
     {
       no: '第 2 層',
       label: '施策とトレードオフ',
-      desc: '主要 3 施策 + トレードオフ明示',
-      example: '例: ① 再資源化施設整備 ② サプライチェーン可視化 ③ 廃棄物 KPI 設定\n     + 経済性 vs 社会環境のトレードオフ',
+      desc: '5 年以内の施策 2 つ + 5 管理間トレードオフを明示',
+      example: '例: 施策ごとに 2 つ以上の管理分野にまたがらせ、衝突と克服策を 1 文で示す',
       color: WARN,
       fill: WARN_FILL,
     },
     {
       no: '第 3 層',
       label: '将来展望と最大リスク',
-      desc: '10 年展望 + 最大リスクへの対応',
-      example: '例: 2035 年 CN 達成 / 最大リスク = 国際資源価格変動 → 代替素材研究強化',
+      desc: '10-25 年後の国家施策 + 最大リスクへの対応',
+      example: '例: 2050 年想定の国家施策 + 最大障害 → 管理行為（法制化・体制再設計）で克服',
       color: POSITIVE,
       fill: POSITIVE_FILL,
     },
@@ -215,7 +192,7 @@ function svgThreeLayerFlow() {
   <rect x="${boxX}" y="${y}" width="${boxW}" height="${boxH}" rx="12" fill="#ffffff" stroke="${l.color}" stroke-width="3"/>`;
 
     // 左アクセント帯（番号+ラベル）
-    const accentW = 200;
+    const accentW = 280;
     body += `
   <rect x="${boxX}" y="${y}" width="${accentW}" height="${boxH}" rx="12" fill="${l.color}"/>
   <rect x="${boxX + accentW - 12}" y="${y}" width="12" height="${boxH}" fill="${l.color}"/>`;
@@ -281,7 +258,7 @@ function svgTradeoffTypes() {
   const wExample = tableW - wType - wContent;
   const tableY = 130;
 
-  const H = tableY + headerH + rows.length * rowH + 120;
+  const H = tableY + headerH + rows.length * rowH + 200;
 
   let body = '';
 
