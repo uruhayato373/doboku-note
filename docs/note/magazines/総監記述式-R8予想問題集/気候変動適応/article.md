@@ -138,18 +138,6 @@ price: 500
 
 ---
 
-## 3 ペルソナ別アレンジ早見表
-
-同じ問題文を 3 ペルソナで書く場合の論点対応表です。自分の業務に近いペルソナを起点に組み立ててください。
-
-| ペルソナ | 設問 (1) 管理対象 | 設問 (2) 主軸トレードオフ | 設問 (3) 最大障害 |
-|---|---|---|---|
-| **ゼネコン** | 河川改修工事での自然素材・自然工法の活用 | 社 × 経（自然工法 vs 工期増）、情 × 人（施工監視の運用負荷 vs 担い手不足） | 標準工法の不在（業界団体主導の施工指針策定で克服） |
-| **河川コンサル** | 河川整備計画の策定・グリーンインフラ設計業務 | 社 × 経（透水機能付与 vs 路盤耐久性）、情 × 経（法面監視 vs データ保守コスト） | 適応を織り込む設計基準の不在（性能規定型基準の整備で克服） |
-| **道路発注者** | 上記フル模範論文（道路法面・橋梁防災管理） | 社 × 経（グリーンインフラ vs 維持管理複雑化）、情 × 経（IoT 監視 vs 通信コスト） | 初期コスト増と財政規律の対立／公助・共助・自助の線引き合意形成（性能規定型基準の段階的義務化・事業者横断相互応援協定法定化・適応教育の学習指導要領反映で克服） |
-
----
-
 ## 採点者視点でのチェックポイント
 
 気候変動適応テーマでは、以下の 4 点が評価軸になると想定します。
@@ -161,9 +149,18 @@ price: 500
 
 ---
 
-## doboku-note の関連ガイド
+**自分の業務に近いペルソナでフル模範論文を読みたい方へ**
 
-- [R8 予想問題：気候変動適応](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-climate-adaptation?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-climate-adaptation) — 本テーマの想定問題文・解答の方向性・関連白書深掘り
-- [R8 出題候補テーマ俯瞰](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-climate-adaptation) — 気候変動適応が R8 候補テーマのなかでどう位置づけられるか、関連 KW と適用パターンを俯瞰
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-climate-adaptation) — 社 × 経、情 × 経のトレードオフ解決フレーム
-- [記述式試験の解答戦略（三層構造の元解説）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-climate-adaptation) — 三層構造の組み立て方
+本記事は自治体 道路担当（発注者）の立場で書いていますが、ゼネコン・河川コンサルそれぞれのペルソナで R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分を読み込めば、テーマが変わっても応用できる「自分用テンプレート」が構築できます。各記事を単品で揃えるよりセット価格がお得です。
+
+自治体 道路担当版（R03〜R07 + R8 予想 = 6 記事）
+
+https://note.com/dobokunote/m/m52186ffd12ca
+
+ゼネコン版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32aaa137f22e
+
+河川コンサル版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32132ecb3033
