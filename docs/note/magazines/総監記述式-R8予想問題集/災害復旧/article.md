@@ -142,18 +142,6 @@ price: 500
 
 ---
 
-## 3 ペルソナ別アレンジ早見表
-
-同じ問題文を 3 ペルソナで書く場合の論点対応表です。自分の業務に近いペルソナを起点に組み立ててください。
-
-| ペルソナ | 設問 (1) 管理対象 | 設問 (2) 主軸トレードオフ | 設問 (3) 最大障害 |
-|---|---|---|---|
-| **ゼネコン** | 大規模土木工事の現場 BCM・災害時復旧支援体制 | 安 × 人（応援動員の即応性 vs 自社工事要員の確保）、情 × 安（被災情報の即時共有 vs 不確実情報での誤判断） | 業界横断の応援動員ルールの不在（業界団体主導の応援標準化・広域協定で克服） |
-| **河川コンサル** | 流域単位の災害復旧計画・復旧設計業務 | 安 × 社（迅速な復旧 vs 創造的復興・環境配慮の両立）、人 × 安（被災調査要員の確保 vs 二次災害下の安全） | 複合災害を織り込んだ復旧設計基準の不在（複合シナリオ前提の設計基準整備で克服） |
-| **道路発注者** | 上記フル模範論文（県道の災害復旧・道路啓開） | 人 × 安（受援要員の受入 vs 啓開人員の確保）、安 × 情（情報の速報性 vs 偽情報・誤情報対策） | 平時の体制維持コストへの社会的受容欠如（受援体制の法制化・広域受援機構への体制再設計で克服） |
-
----
-
 ## 採点者視点でのチェックポイント
 
 災害復旧テーマでは、以下の 4 点が評価軸になると想定します。
@@ -165,8 +153,18 @@ price: 500
 
 ---
 
-## doboku-note の関連ガイド
+**自分の業務に近いペルソナでフル模範論文を読みたい方へ**
 
-- [R8 予想問題：災害復旧と複合災害対応](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-disaster-recovery?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-disaster-recovery) — 本テーマの想定問題文・解答の方向性（3 ペルソナ別）・関連白書深掘り
-- [R8 出題候補テーマ俯瞰](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-keyword-forecast?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-disaster-recovery) — 本テーマが R8 予想の候補テーマのうちどう位置づけられるか、選定理由と関連 KW を一覧で俯瞰
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-disaster-recovery) — 安 × 情、人 × 安のトレードオフ解決フレーム
+本記事は自治体 道路担当（発注者）の立場で書いていますが、ゼネコン・河川コンサルそれぞれのペルソナで R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分を読み込めば、テーマが変わっても応用できる「自分用テンプレート」が構築できます。各記事を単品で揃えるよりセット価格がお得です。
+
+自治体 道路担当版（R03〜R07 + R8 予想 = 6 記事）
+
+https://note.com/dobokunote/m/m52186ffd12ca
+
+ゼネコン版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32aaa137f22e
+
+河川コンサル版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32132ecb3033
