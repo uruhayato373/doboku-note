@@ -82,11 +82,27 @@ GSC 2026-04-15〜05-13（4週間）/ GA4 2026-05-03〜05-16（2週間）の突�
 
 ### 2.1 guide 系の title / description リライト
 
-- [ ] 2.1.a `guide-strategy` — 戦略性（捨て問・科目間最適）を訴求
-- [ ] 2.1.b `guide-earthwork-key-points` — 土工出題傾向＋頻出論点を訴求
-- [ ] 2.1.c `guide-concrete-key-points` — コンクリ頻出論点（ひび割れ・配合）訴求
-- [ ] 2.1.d `guide-law-key-points` — 法規 12 問→8 問の戦略訴求
-- [ ] 2.1.e リライト後 `npm run refresh-indexes` 実行
+事前 position 計測（GSC 2026-04-15〜05-13）：
+
+| ページ | impr | CTR | pos | 対応 |
+|---|---|---|---|---|
+| guide-law-key-points | 72 | 2.8% | 6.1 | リライト |
+| guide-strategy | 55 | 1.8% | 8.6 | リライト（最優先）|
+| guide-concrete-key-points | 46 | 4.3% | 9.0 | リライト |
+| guide-earthwork-key-points | 14 | 7.1% | 7.6 | 健全につき未着手 |
+
+- [x] 2.1.a `guide-strategy` — 「捨て問27問・最低39問で合格」具体数字へ — 2026-05-25
+- 2.1.b `guide-earthwork-key-points` — CTR 7.1% 健全につき未着手
+- [x] 2.1.c `guide-concrete-key-points` — 「毎年5〜8問の頻出論点」出題数で重要性訴求 — 2026-05-25
+- [x] 2.1.d `guide-law-key-points` — 「12問中8問選択」を seoTitle 先頭へ — 2026-05-25
+- [x] 2.1.e リライト後 `npm run refresh-indexes` 実行 — 2026-05-25
+
+### 2.1.x （追加機会）primary-r07-a CTR リライト
+
+GSC で `primary-r07-a` は **impr 119 / CTR 0.8% / pos 7.4** ＝ guide より大きい流入なのに CTR 最低。
+guide 4ページのリライト効果を計測しつつ、primary 系もリライト対象に追加候補。
+
+- [ ] 2.1.x.a `primary-r07-a` title / description リライト（後続バッチ）
 
 ### 2.2 1級土木 内部リンク強化
 
