@@ -587,6 +587,8 @@ https://note.com/dobokunote/m/m6854c7437d4d
 5管理 精読ガイド↓
 https://note.com/dobokunote/m/m607bf095b02a
 
+#技術士総監 #勉強法 #トレードオフ
+
 ---
 
 ## Tweet 44: D-15 社会環境管理 SDGs
@@ -602,6 +604,8 @@ SDGs の総ゴール数は？
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-sdgs?utm_source=x&utm_medium=organic&utm_campaign=quiz-15
 
+#技術士総監 #社会環境管理 #過去問対策
+
 ---
 
 ## Tweet 45: N-12 M2 深掘 建設業 2024 年問題
@@ -613,6 +617,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-sdgs?utm_source=x&utm_m
 R08 出題確率 9.0/10。全文無料↓
 https://note.com/dobokunote/n/n60efbccd728b
 
+#技術士総監 #模範論文 #建設業
+
 ---
 
 ## Tweet 46: C-06 試験 35 日前
@@ -623,7 +629,7 @@ https://note.com/dobokunote/n/n60efbccd728b
 
 時間効率 2 倍で、弱点だけが浮き彫りになる優れた手法。
 
-#技術士総監
+#技術士総監 #試験対策 #社会人の勉強垢
 
 ---
 
@@ -639,6 +645,8 @@ ALARP 原則とセットで「安全 × 経済性」題材で定番論点。
 
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=x&utm_medium=organic&utm_campaign=quiz-16
+
+#技術士総監 #安全管理 #過去問対策
 
 ---
 
@@ -656,6 +664,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_sou
 詳細テンプレ↓
 https://note.com/dobokunote/m/m607bf095b02a
 
+#技術士総監 #勉強法 #論文対策
+
 ---
 
 ## Tweet 49: S-06 継続の小さい工夫
@@ -666,7 +676,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 意思決定コストがゼロになり、机に座るまでの抵抗が消えます。残り 33 日、習慣化が最強の戦略。
 
-#技術士総監
+#技術士総監 #勉強垢 #受験勉強
 
 ---
 
@@ -681,6 +691,8 @@ Z軸: ペルソナ 3（公務員・コンサル・ゼネコン）
 = 300 セル。任意の組合せで論文骨子を 30 分で組める設計。
 
 公開準備中: https://doboku-note.com/?utm_source=x&utm_medium=organic&utm_campaign=template-3d
+
+#技術士総監 #模範論文 #解答例
 
 ---
 
@@ -697,6 +709,8 @@ LCC の割引率（社会的割引率）の標準値は？
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-costing-method?utm_source=x&utm_medium=organic&utm_campaign=quiz-17
 
+#技術士総監 #経済性管理 #過去問対策
+
 ---
 
 ## Tweet 52: C-07 週末「土日が分かれ目」
@@ -707,7 +721,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-costing-metho
 
 合格者の週末は「自学」が必ず最優先になります。
 
-#技術士総監
+#技術士総監 #試験対策 #社会人の勉強
 
 ---
 
@@ -724,7 +738,7 @@ i-Construction 2.0 の中核技術。
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-iot?utm_source=x&utm_medium=organic&utm_campaign=quiz-18
 
-#技術士総監
+#技術士総監 #情報管理 #DX
 
 ---
 
@@ -739,6 +753,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-iot?utm_source=x&utm_me
 ゼネコン視点フル論文↓
 https://note.com/dobokunote/m/m32aaa137f22e
 
+#技術士総監 #模範論文 #建設業
+
 ---
 
 ## Tweet 55: M-10 合格者の土曜まとめ学習
@@ -750,7 +766,7 @@ https://note.com/dobokunote/m/m32aaa137f22e
 
 このサイクルで論点が定着します。
 
-#技術士総監
+#技術士総監 #勉強法 #社会人の勉強
 
 ---
 
@@ -767,6 +783,8 @@ https://note.com/dobokunote/m/m32aaa137f22e
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-herzberg-two-factor-theory?utm_source=x&utm_medium=organic&utm_campaign=quiz-19
 
+#技術士総監 #人的資源管理 #過去問対策
+
 ---
 
 ## Tweet 57: N-15 M6 深掘 データ利活用
@@ -780,6 +798,8 @@ R03 出題「データ利活用」は河川コンサル視点で最も書きや�
 河川コンサル視点フル論文↓
 https://note.com/dobokunote/m/m32132ecb3033
 
+#技術士総監 #模範論文 #DX
+
 ---
 
 ## Tweet 58: S-07 日曜の振り返り術
@@ -790,7 +810,7 @@ https://note.com/dobokunote/m/m32132ecb3033
 
 青と黄に絞って翌週の学習計画を組むだけで、効率が 2 倍になります。
 
-#技術士総監
+#技術士総監 #勉強垢 #勉強法
 
 ---
 
@@ -807,6 +827,8 @@ https://note.com/dobokunote/m/m32132ecb3033
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment?utm_source=x&utm_medium=organic&utm_campaign=quiz-20
 
+#技術士総監 #社会環境管理 #過去問対策
+
 ---
 
 ## Tweet 60: N-16 M8 深掘 R8 予想 2 案
@@ -821,6 +843,8 @@ B 案: 資源循環 × 建設廃棄物の戦略的活用
 自治体道路担当 R3-R7 + R8 予想↓
 https://note.com/dobokunote/m/m52186ffd12ca
 
+#技術士総監 #模範論文 #自治体
+
 ---
 
 ## Tweet 61: C-08 W-4 入り
@@ -831,7 +855,7 @@ https://note.com/dobokunote/m/m52186ffd12ca
 
 5 管理 × 3 テーマ = 15 個の論点ピースを A6 カードに書き出し、本番直前まで持ち歩く。これが最大の安心材料になります。
 
-#技術士総監
+#技術士総監 #試験対策 #社会人の勉強垢
 
 ---
 
@@ -848,7 +872,7 @@ https://note.com/dobokunote/m/m52186ffd12ca
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability?utm_source=x&utm_medium=organic&utm_campaign=quiz-21
 
-#技術士総監
+#技術士総監 #安全管理 #過去問対策
 
 ---
 
@@ -858,7 +882,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability
 
 ただ読むと知識として頭に入らない。自分の素材と比較して「不足している論点」を特定する読み方が、合格に直結します。
 
-#技術士総監
+#技術士総監 #勉強法 #模範論文
 
 ---
 
@@ -870,7 +894,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability
 
 合格者の多くは朝学習派。残り 4 週間、朝に切り替える最終チャンスです。
 
-#技術士総監
+#技術士総監 #勉強垢 #社会人の勉強
 
 ---
 
@@ -884,6 +908,8 @@ R8 予想 6 テーマで「AI 社会への対応」を確率 8.5/10 評価。
 
 R8 予想フル論文↓
 https://note.com/dobokunote/m/m6854c7437d4d
+
+#技術士総監 #模範論文 #AI
 
 ---
 
@@ -900,6 +926,8 @@ ABC は活動単位、伝統的手法は労務基準。複雑製品・多品種�
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=x&utm_medium=organic&utm_campaign=quiz-22
 
+#技術士総監 #経済性管理 #過去問対策
+
 ---
 
 ## Tweet 67: M-12 合格者の暗記カード活用
@@ -910,7 +938,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source
 
 書いて作る過程そのものが最強の記憶定着法。
 
-#技術士総監
+#技術士総監 #勉強法 #リスキリング
 
 ---
 
@@ -927,6 +955,8 @@ RSA（素因数分解の困難性）と楕円曲線暗号 ECC。
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-encryption-digital-signature?utm_source=x&utm_medium=organic&utm_campaign=quiz-23
 
+#技術士総監 #情報管理 #過去問対策
+
 ---
 
 ## Tweet 69: N-18 M2 深掘 GX/CN
@@ -940,6 +970,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-encryption-digital-sign
 白書 R7 完全対応集（無料）↓
 https://note.com/dobokunote/n/n60efbccd728b
 
+#技術士総監 #模範論文 #気候変動適応
+
 ---
 
 ## Tweet 70: C-09 試験 27 日前
@@ -950,7 +982,7 @@ https://note.com/dobokunote/n/n60efbccd728b
 
 直前期に新しい論点を入れると、既存の引き出しが整理されず本番で詰まります。引き出しの整理に専念を。
 
-#技術士総監
+#技術士総監 #試験対策 #社会人の勉強垢
 
 ---
 
@@ -967,6 +999,8 @@ S1 教示型、S2 説得型、S3 参加型、S4 委任型。
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-sl-theory?utm_source=x&utm_medium=organic&utm_campaign=quiz-24
 
+#技術士総監 #人的資源管理 #過去問対策
+
 ---
 
 ## Tweet 72: N-19 M4 深掘 16 ペア
@@ -981,6 +1015,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-sl-theory?utm_source=x&
 詳細テンプレ↓
 https://doboku-note.com/?utm_source=x&utm_medium=organic&utm_campaign=template-3d
 
+#技術士総監 #模範論文 #トレードオフ
+
 ---
 
 ## Tweet 73: S-09 金曜の達成感メッセージ
@@ -991,7 +1027,7 @@ https://doboku-note.com/?utm_source=x&utm_medium=organic&utm_campaign=template-3
 
 「休む」も戦略のうち。残り 27 日、メリハリが最後の伸びを生みます。
 
-#技術士総監
+#技術士総監 #勉強垢 #社会人の勉強
 
 ---
 
@@ -1008,6 +1044,8 @@ https://doboku-note.com/?utm_source=x&utm_medium=organic&utm_campaign=template-3
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-environmental-accounting?utm_source=x&utm_medium=organic&utm_campaign=quiz-25
 
+#技術士総監 #社会環境管理 #過去問対策
+
 ---
 
 ## Tweet 75: M-13 直前期のメンタル維持
@@ -1018,7 +1056,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-environmental-accountin
 
 学習時間より「平常心の維持」が本番成果を決めます。焦りは禁物、坦々と継続するのみ。
 
-#技術士総監
+#技術士総監 #勉強法 #社会人の勉強
 
 ---
 
@@ -1030,7 +1068,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-environmental-accountin
 
 5 管理 × 5 テーマ = 25 個の論点カードを毎日 1 周。新しい教材は開かず、自分の素材だけと向き合う期間です。
 
-#技術士総監
+#技術士総監 #試験対策 #社会人の勉強垢
 
 ---
 
@@ -1048,6 +1086,8 @@ BCP の「優先業務」と「重要業務」の違いは？
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=x&utm_medium=organic&utm_campaign=quiz-26
 
+#技術士総監 #安全管理 #BCP
+
 ---
 
 ## Tweet 78: N-20 M5 深掘 人的資源軸
@@ -1061,6 +1101,8 @@ https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-pla
 ゼネコン視点フル論文↓
 https://note.com/dobokunote/m/m32aaa137f22e
 
+#技術士総監 #模範論文 #建設業
+
 ---
 
 ## Tweet 79: M-14 日曜の総復習法
@@ -1071,7 +1113,7 @@ A6 カードに 5 管理 × 5 テーマ = 25 枚作成。1 枚 30 秒 × 25 = �
 
 1 日 3 周で 75 回の高速反復。記憶定着の理論的最強パターン。
 
-#技術士総監
+#技術士総監 #勉強法 #受験勉強
 
 ---
 
@@ -1084,7 +1126,7 @@ R07 出題「少子高齢化」は河川コンサル視点で「人的資源 × 
 R03〜R07 全 5 年分の模範論文↓
 https://note.com/dobokunote/m/m32132ecb3033
 
-#技術士総監
+#技術士総監 #模範論文 #インフラ
 
 ---
 
@@ -1101,6 +1143,8 @@ https://note.com/dobokunote/m/m32132ecb3033
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-opportunity-cost?utm_source=x&utm_medium=organic&utm_campaign=quiz-27
 
+#技術士総監 #経済性管理 #過去問対策
+
 ---
 
 ## Tweet 82: S-10 最終 3 週リマインダー
@@ -1111,7 +1155,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-opportunity-cost?utm_so
 
 毎日 1 時間でも続ければ、本番で必ず手が動きます。
 
-#技術士総監
+#技術士総監 #勉強垢 #受験勉強
 
 ---
 
@@ -1128,6 +1172,8 @@ PM 型が理想、pM 型は短期成果に弱い。
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-pm-theory?utm_source=x&utm_medium=organic&utm_campaign=quiz-28
 
+#技術士総監 #人的資源管理 #過去問対策
+
 ---
 
 ## Tweet 84: N-22 M8 再告知 自治体道路
@@ -1138,7 +1184,7 @@ https://doboku-note.com/docs/pe-comprehensive-management-pm-theory?utm_source=x&
 
 https://note.com/dobokunote/m/m52186ffd12ca
 
-#技術士総監
+#技術士総監 #模範論文 #自治体
 
 ---
 
@@ -1150,7 +1196,7 @@ https://note.com/dobokunote/m/m52186ffd12ca
 
 書き慣れた論点を 5 つ、確信を持って書けるようにする。本番で「あれを書こう」と即決できることが、合格の決定的要因。
 
-#技術士総監
+#技術士総監 #試験対策 #社会人の勉強
 
 ---
 
@@ -1164,6 +1210,8 @@ R8 予想問題集（マガジン）の収録 6 テーマ:
 
 https://note.com/dobokunote/m/m6854c7437d4d
 
+#技術士総監 #模範論文 #予想問題
+
 ---
 
 ## Tweet 87: M-15 模試の活用と弱点抽出
@@ -1176,7 +1224,7 @@ https://note.com/dobokunote/m/m6854c7437d4d
 
 この 3 つだけ補強すれば本番で十分通用します。
 
-#技術士総監
+#技術士総監 #勉強法 #社会人の勉強
 
 ---
 
@@ -1190,7 +1238,7 @@ W-1: メンタル維持と体調管理に全振り
 
 学習時間は徐々に減らし、最後は心身を整える 1 週間に。
 
-#技術士総監
+#技術士総監 #勉強法 #リスキリング
 
 ---
 
@@ -1207,6 +1255,8 @@ ISO 27001（ISMS）の PDCA で「Check」段階の代表活動は？
 → 解説
 https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001?utm_source=x&utm_medium=organic&utm_campaign=quiz-29
 
+#技術士総監 #情報管理 #過去問対策
+
 ---
 
 ## Tweet 90: C-12 30 日完走お疲れ様＋次フェーズ予告
@@ -1217,4 +1267,4 @@ https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001?utm_sourc
 
 過去問 + 模範論文 + 5 管理を毎日触れる習慣を、最後まで一緒に。
 
-#技術士総監 #試験対策
+#技術士総監 #試験対策 #社会人の勉強垢
