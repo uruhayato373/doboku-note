@@ -148,18 +148,6 @@ price: 500
 
 ---
 
-## 3 ペルソナ別アレンジ早見表
-
-同じ問題文を 3 ペルソナで書く場合の論点対応表です。自分の業務に近いペルソナを起点に組み立ててください。
-
-| ペルソナ | 設問 (1) 管理対象 | 設問 (2) 主軸トレードオフ | 設問 (3) 最大障害 |
-|---|---|---|---|
-| **ゼネコン** | 大規模土木工事の資材調達・購買部門 | 経 × 安（分散調達による単価上昇 vs 供給途絶耐性）、情 × 人（サプライヤー可視化の運用負荷 vs 担い手不足） | 業界横断の調達情報共有への抵抗（業界団体主導の標準化・共同備蓄で克服） |
-| **河川コンサル** | 河川改修事業の資材計画・設計業務 | 経 × 社（国産・地域内資材の優先 vs コスト）、情 × 安（依存構造の可視化 vs 重要インフラ脆弱性の露呈） | 資材途絶を織り込んだ設計基準の不在（性能規定型・代替材許容の基準整備で克服） |
-| **道路発注者** | 上記フル模範論文（道路・橋梁の整備・維持管理） | 経 × 社（地域内・分散調達 vs 単価上昇）、情 × 安（サプライチェーン台帳 vs 依存構造の漏洩） | 平時のコスト増への社会的受容欠如（総合評価方式の法制化・広域調達機構への体制再設計で克服） |
-
----
-
 ## 採点者視点でのチェックポイント
 
 経済安全保障テーマでは、以下の 4 点が評価軸になると想定します。
@@ -171,8 +159,18 @@ price: 500
 
 ---
 
-## doboku-note の関連ガイド
+**自分の業務に近いペルソナでフル模範論文を読みたい方へ**
 
-- [R8 予想問題：経済安全保障](https://doboku-note.com/docs/pe-comprehensive-management-r8-essay-theme-economic-security?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-economic-security) — 本テーマの想定問題文・解答の方向性・関連白書深掘り
-- [5 管理間トレードオフ 頻出パターンと解決フレーム](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-economic-security) — 経 × 社、情 × 安のトレードオフ解決フレーム
-- [記述式試験の解答戦略（三層構造の元解説）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=essay-r8-forecast-economic-security) — 三層構造の組み立て方
+本記事は自治体 道路担当（発注者）の立場で書いていますが、ゼネコン・河川コンサルそれぞれのペルソナで R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分を読み込めば、テーマが変わっても応用できる「自分用テンプレート」が構築できます。各記事を単品で揃えるよりセット価格がお得です。
+
+自治体 道路担当版（R03〜R07 + R8 予想 = 6 記事）
+
+https://note.com/dobokunote/m/m52186ffd12ca
+
+ゼネコン版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32aaa137f22e
+
+河川コンサル版（R03〜R07 = 5 記事）
+
+https://note.com/dobokunote/m/m32132ecb3033
