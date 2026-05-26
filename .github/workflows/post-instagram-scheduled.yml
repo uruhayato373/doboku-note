@@ -43,7 +43,9 @@ jobs:
       - name: 📸 Post to Instagram (if today is scheduled)
         id: post
         env:
-          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+          # doboku-note Page 専用の Page Access Token（無期限・スコープ最小）
+          # 取得方法: README 参照 (me/accounts の access_token フィールド)
+          INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN_DOBOKU_NOTE }}
           INSTAGRAM_BUSINESS_ACCOUNT_ID: ${{ secrets.INSTAGRAM_BUSINESS_ACCOUNT_ID_DOBOKU_NOTE }}
           IG_FORCE_DATE: ${{ inputs.force_date }}
         run: |

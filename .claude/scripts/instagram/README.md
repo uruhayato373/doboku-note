@@ -24,25 +24,58 @@ docs/sns/instagram/{slug}/
 
 以下を **Settings → Secrets and variables → Actions** に登録:
 
-| Secret | 値 |
-|---|---|
-| `INSTAGRAM_ACCESS_TOKEN` | Meta 長期アクセストークン（FB アカウント共通、stats47 と同じ） |
-| `INSTAGRAM_BUSINESS_ACCOUNT_ID_DOBOKU_NOTE` | doboku-note の IG Business Account ID（**stats47 とは別の ID**） |
-| `CLOUDFLARE_ACCOUNT_ID` | 既存（他ワークフローで使用済み） |
-| `CLOUDFLARE_R2_ACCESS_KEY_ID` | 既存 |
-| `CLOUDFLARE_R2_SECRET_ACCESS_KEY` | 既存 |
+| Secret | 値 | スコープ |
+|---|---|---|
+| `INSTAGRAM_ACCESS_TOKEN_DOBOKU_NOTE` | **doboku-note Page 専用 Page Access Token**（無期限） | doboku-note Page のみ |
+| `INSTAGRAM_BUSINESS_ACCOUNT_ID_DOBOKU_NOTE` | doboku-note の IG Business Account ID | doboku-note IG のみ |
+| `CLOUDFLARE_ACCOUNT_ID` | 既存（他ワークフローで使用済み） | — |
+| `CLOUDFLARE_R2_ACCESS_KEY_ID` | 既存 | — |
+| `CLOUDFLARE_R2_SECRET_ACCESS_KEY` | 既存 | — |
 
-### doboku-note の IG Business Account ID 取得方法
+### Page Access Token + IG Business Account ID を 1 回で取得する方法
 
-1. **Meta Business Suite**（[business.facebook.com](https://business.facebook.com)）にアクセス
-2. 左上のアカウント切替で **doboku-note の Instagram アカウント** を選択
-3. 左メニュー「**設定**」→「**Instagram アカウント**」
-4. アカウント詳細画面で **`IGBA_` から始まる ID** を確認
-5. または Graph API Explorer で:
+**Graph API Explorer** が最速・最確実です（UI 経路に依存しない）。
+
+1. [https://developers.facebook.com/tools/explorer/](https://developers.facebook.com/tools/explorer/) を開く
+2. 右上「**Meta App**」のドロップダウンで stats47 と同じ App を選択
+3. 「**ユーザートークンを取得**」→ 権限に以下を含める:
+   - `pages_show_list`
+   - `pages_read_engagement`
+   - `instagram_basic`
+   - `instagram_content_publish`
+4. クエリ欄に以下を入力して **送信**:
+
    ```
-   GET /me/accounts?access_token={token}
-   GET /{page_id}?fields=instagram_business_account
+   me/accounts?fields=name,access_token,instagram_business_account{id,username,name}
    ```
+
+5. レスポンスから doboku-note の Page を探す:
+
+   ```json
+   {
+     "name": "doboku-note Page",
+     "access_token": "EAAxxxxxxxxxxxxxxx",  ← INSTAGRAM_ACCESS_TOKEN_DOBOKU_NOTE
+     "instagram_business_account": {
+       "id": "17841YYYYYYYYY",                ← INSTAGRAM_BUSINESS_ACCOUNT_ID_DOBOKU_NOTE
+       "username": "doboku_note"
+     }
+   }
+   ```
+
+6. **`access_token` フィールド**を `INSTAGRAM_ACCESS_TOKEN_DOBOKU_NOTE` に登録
+7. **`instagram_business_account.id`** を `INSTAGRAM_BUSINESS_ACCOUNT_ID_DOBOKU_NOTE` に登録
+
+### Page Access Token を選ぶ理由
+
+| 観点 | User Access Token（共通） | **Page Access Token（推奨）** |
+|---|---|---|
+| 有効期限 | 60 日（長期化で延長） | **無期限**（User 権限が変わらない限り） |
+| スコープ | ユーザーが管理する全 Page | **doboku-note Page のみ** |
+| 漏洩時のリスク | 両アカウントに波及 | **doboku-note Page のみ** |
+| stats47 と独立 | 同じトークン共有 | **完全分離** |
+| トークン更新作業 | 60 日毎に再取得必要 | **不要** |
+
+stats47 と doboku-note は別 Page なので Page Access Token を分離することで、**片方のトークンが期限切れや revoke されても他方は無影響**になります。
 
 ## スケジュール JSON 形式
 
