@@ -18,7 +18,6 @@
       "body": "貸借対照表（B/S）とは、ある一時点における企業の財政状態を表す財務諸表である。左側（借方）に資産、右側（貸方）に負債と純資産を記載し、「資産 ＝ 負債 ＋ 純資産」の等式が常に成立する。損益計算書・CF計算書とともに財務三表を構成する。",
       "noteText": "一時点のストック情報\n（P/LとC/Fはフロー）",
       "slug": "balance-sheet",
-      "_legacySource": "_backlog/2026/2026-09-01-balance-sheet",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/balance-sheet/img/bs-structure.svg",
       "note": "貸借対照表（B/S）とは、ある一時点における企業の財政状態を表す財務諸表である。"
     },
@@ -37,7 +36,6 @@
       "body": "キャッシュ・フロー計算書（C/F）とは、資金（現金及び現金同等物）の増減を表す財務諸表である。損益計算書が発生主義の利益を示すのに対しC/Fは実際の現金の動きを示す。利益があっても資金が不足すれば黒字倒産に至り、CF管理は経営の要となる。",
       "noteText": "利益≠資金。黒字倒産はCF管理で防ぐ",
       "slug": "cash-flow-statement",
-      "_legacySource": "_backlog/2026/2026-10-23-cash-flow-statement",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/cash-flow-statement/img/cf-changes-matrix.svg",
       "note": "キャッシュ・フロー計算書（C/F）とは、資金（現金及び現金同等物）の増減を表す財務諸表である。"
     },
@@ -51,14 +49,14 @@
     {
       "type": "board",
       "heading": "減価償却",
-      "body": "減価償却の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "減価償却とは、減価償却資産の取得に要した金額を一定の方法によって各年分の必要経費として配分していく手続（費用の期間配分）である（法人税法施行令に基づく）。",
       "noteText": "",
       "slug": "depreciation"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "財務会計の主要 5 キーワードを経済性管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

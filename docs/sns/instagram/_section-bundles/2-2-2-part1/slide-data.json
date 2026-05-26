@@ -15,86 +15,86 @@
     {
       "type": "board",
       "heading": "要求品質",
-      "body": "要求品質の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "要求品質（RequiredQuality）とは、顧客が製品・サービスに対して求める品質ニーズを体系的に整理したものである。",
       "noteText": "",
       "slug": "required-quality"
     },
     {
       "type": "board",
       "heading": "設計品質",
-      "body": "設計品質の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "設計品質（DesignQuality）とは、顧客の要求品質を満たすために設計段階で規定される目標品質であり、ねらいの品質とも呼ばれる。",
       "noteText": "",
       "slug": "design-quality"
     },
     {
       "type": "board",
       "heading": "製造品質",
-      "body": "製造品質の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "製造品質（ManufacturingQuality）とは、製造工程で実際に達成された品質水準であり、できばえの品質（適合の品質）とも呼ばれる。",
       "noteText": "",
       "slug": "manufacturing-quality"
     },
     {
       "type": "board",
       "heading": "品質特性",
-      "body": "品質特性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "品質特性（QualityCharacteristic）とは、製品・サービスに本来備わっている特性のうち、品質に関する要求事項と比較・評価の対象となるものである。強度・寸法・外観・耐久性など、品質を数値や等級で表現するための指標を指す。",
       "noteText": "",
       "slug": "quality-characteristics"
     },
     {
       "type": "board",
       "heading": "品質方針",
-      "body": "品質方針の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "品質方針（QualityPolicy）とは、組織のトップマネジメントが正式に表明する、品質に関する全体的な意図及び方向づけである。",
       "noteText": "",
       "slug": "quality-policy"
     },
     {
       "type": "board",
       "heading": "品質目標",
-      "body": "品質目標の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "品質目標（QualityObjective）とは、品質方針と整合し、組織の関連する機能・階層で設定される測定可能な品質に関する達成目標である。",
       "noteText": "",
       "slug": "quality-objectives"
     },
     {
       "type": "board",
       "heading": "品質計画",
-      "body": "品質計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "品質計画（QualityPlanning）とは、品質目標を設定し、その目標を達成するために必要なプロセス・資源を規定する活動である。",
       "noteText": "",
       "slug": "quality-planning"
     },
     {
       "type": "figure",
       "heading": "品質管理",
-      "body": "品質管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "品質管理（QC:QualityControl）とは、品質要求事項を満たすことに焦点を合わせた品質マネジメントの一部である。",
       "noteText": "",
       "slug": "quality-control",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/quality-control/img/qc-seven-tools.svg",
-      "note": "品質管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "品質管理（QC:QualityControl）とは、品質要求事項を満たすことに焦点を合わせた品質マネジメントの一部である。"
     },
     {
       "type": "board",
       "heading": "品質保証",
-      "body": "品質保証の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "品質保証（QA:QualityAssurance）とは、品質要求事項が満たされるという確信を与えることに焦点を合わせた品質マネジメントの一部である。",
       "noteText": "",
       "slug": "quality-assurance"
     },
     {
       "type": "board",
       "heading": "品質改善活動",
-      "body": "品質改善活動の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "品質改善活動（QualityImprovement）とは、品質要求事項を満たす能力を高めることに焦点を合わせた品質マネジメントの一部である。現状の品質水準に満足せず、継続的に改善を推進する組織的活動を指す。",
       "noteText": "",
       "slug": "quality-improvement"
     },
     {
       "type": "board",
       "heading": "製造物責任（PL）",
-      "body": "製造物責任（PL）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "製造物責任（PL:ProductLiability）とは、製造物の欠陥により人の生命・身体・財産に被害が生じた場合に、製造者が損害賠償責任を負う法的責任である。",
       "noteText": "",
       "slug": "product-liability"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "品質の管理の主要 11 キーワードを経済性管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

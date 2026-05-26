@@ -18,7 +18,6 @@
       "body": "管理限界とは、上方管理限界線（UCL）と下方管理限界線（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。通常、中心線（CL）から±3σの位置に設定される。",
       "noteText": "UCL・CL・LCLの3線で管理図を構成する",
       "slug": "control-limits",
-      "_legacySource": "_backlog/2026/2026-06-02-control-limits",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/control-limits/img/control-chart.svg",
       "note": "管理限界とは、上方管理限界線（UCL）と下方管理限界線（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。"
     },
@@ -28,28 +27,27 @@
       "body": "工程能力指数とは、規格内で製品を生産する工程の能力を定量化する指標である。ばらつきと規格幅の比で表され、値が大きいほど工程能力が高い。算出には工程が管理状態にあることが前提となる。",
       "noteText": "管理状態（統計的安定）が前提条件",
       "slug": "process-capability-index",
-      "_legacySource": "_backlog/2026/2026-05-15-process-capability-index",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/process-capability-index/img/normal-distribution-3sigma.svg",
       "note": "工程能力指数とは、規格内で製品を生産する工程の能力を定量化する指標である。"
     },
     {
       "type": "board",
       "heading": "不適合品率／適合品率",
-      "body": "不適合品率／適合品率の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "不適合品率とは、検査したロットまたは工程から産出された製品のうち、規格・基準を満たさない不適合品の割合である。",
       "noteText": "",
       "slug": "nonconformity-rate"
     },
     {
       "type": "board",
       "heading": "全数検査／抜取検査",
-      "body": "全数検査／抜取検査の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "全数検査とは、ロット内の全製品を検査して不適合品を排除する方式である。抜取検査とは、ロットからサンプルを抜き取って検査し、その結果でロット全体の合否を判定する方式である。",
       "noteText": "",
       "slug": "inspection-methods"
     },
     {
       "type": "board",
       "heading": "HACCP",
-      "body": "HACCPの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "HACCP（HazardAnalysisandCriticalControlPoint：危害要因分析重要管理点）とは、食品の安全性を確保するために、原材料の受入から最終製品までの各工程で危害要因を分析し、重要管理点を設定して継続的に監視・記録する管理手法である。",
       "noteText": "",
       "slug": "haccp"
     },
@@ -70,7 +68,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "品質の管理の主要 7 キーワードを経済性管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

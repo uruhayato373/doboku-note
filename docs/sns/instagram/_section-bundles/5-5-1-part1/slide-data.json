@@ -59,8 +59,7 @@
       "heading": "オールハザードアプローチ",
       "body": "オールハザードアプローチとは、あらゆる種類のハザード（危険事象）に対して共通の危機管理体制・手順で対応する考え方である。ハザードの種類を問わず同じ指揮体系・手順を適用する。米国FEMAが推進し国際的に普及した。",
       "noteText": "利点：想定外・複合災害に対応可能。欠点：個別ハザードの専門性が薄れるリスク",
-      "slug": "all-hazard-approach",
-      "_legacySource": "_backlog/2026/2026-07-28-all-hazard-approach"
+      "slug": "all-hazard-approach"
     },
     {
       "type": "board",
@@ -74,16 +73,14 @@
       "heading": "消費者安全",
       "body": "消費者安全とは、消費者の生命・身体・財産を商品・サービス・取引に起因する危害から守ることである。消費者安全法（2009年）を中心に、製品安全・食品安全・取引安全を包括する法体系が構築されている。",
       "noteText": "5.1 安全の概念に位置づけられるキーワード",
-      "slug": "consumer-safety",
-      "_legacySource": "_backlog/2027/2027-01-05-consumer-safety"
+      "slug": "consumer-safety"
     },
     {
       "type": "board",
       "heading": "インフラ老朽化対策",
       "body": "インフラ老朽化対策とは、高度経済成長期に集中整備された社会インフラ（橋・トンネル・水道・下水道等）が一斉に更新時期を迎える問題に対し、計画的な維持管理・更新によって機能と安全を確保する取組である。",
       "noteText": "事後保全から予防保全への転換とメンテナンスサイクル構築が中核方策",
-      "slug": "aging-infrastructure",
-      "_legacySource": "_backlog/2026/2026-07-17-aging-infrastructure"
+      "slug": "aging-infrastructure"
     },
     {
       "type": "board",
@@ -104,7 +101,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "安全の概念の主要 12 キーワードを安全管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

@@ -22,14 +22,14 @@
     {
       "type": "board",
       "heading": "ハザード（潜在的危険要因）",
-      "body": "ハザード（潜在的危険要因）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "ハザード（Hazard）とは、危害を引き起こす潜在的な源である。",
       "noteText": "",
       "slug": "hazard"
     },
     {
       "type": "board",
       "heading": "リスクマップ／リスクマトリクス",
-      "body": "リスクマップ／リスクマトリクスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "リスクマップ（RiskMap）／リスクマトリクス（RiskMatrix）とは、リスクを「起こりやすさ」と「影響の大きさ」の2軸で整理し、視覚的に表現するツールである。",
       "noteText": "",
       "slug": "risk-map-matrix"
     },
@@ -43,21 +43,21 @@
     {
       "type": "board",
       "heading": "影響（影響の種類・影響の規模）",
-      "body": "影響（影響の種類・影響の規模）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "影響（Impact/Consequence）とは、事象が発生した場合に目的に及ぼす結果である。",
       "noteText": "",
       "slug": "impact"
     },
     {
       "type": "board",
       "heading": "リスクマネジメント計画",
-      "body": "リスクマネジメント計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "リスクマネジメント計画とは、リスクマネジメントの枠組みの中で、具体的な活動・手順・資源・スケジュールを定めた計画である。",
       "noteText": "",
       "slug": "risk-management-plan"
     },
     {
       "type": "board",
       "heading": "リスク基準",
-      "body": "リスク基準の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "リスク基準（RiskCriteria）とは、リスクの重大性を評価するための目安であり、リスクの許容可否を判断するための基準である（JISQ31000:2019）。",
       "noteText": "",
       "slug": "risk-criteria"
     },
@@ -71,14 +71,14 @@
     {
       "type": "board",
       "heading": "リスクマネジメント方針",
-      "body": "リスクマネジメント方針の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "リスクマネジメント方針（RiskManagementPolicy）とは、リスクマネジメントに関する組織の意図及び方向付けを、トップマネジメントが正式に表明したものである。",
       "noteText": "",
       "slug": "risk-management-policy"
     },
     {
       "type": "board",
       "heading": "リスク特定",
-      "body": "リスク特定の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "リスク特定（RiskIdentification）とは、リスクを発見、認識及び記述するプロセスである（JISQ31000:2019）。",
       "noteText": "",
       "slug": "risk-identification"
     },
@@ -95,7 +95,7 @@
       "body": "リスク評価の定義・リスクアセスメントの3段階（特定・分析・評価）・リスク基準との比較（ALARP原則）・リスク対応の4戦略・定性/定量手法を解説。",
       "noteText": "",
       "slug": "risk-assessment",
-      "imagePath": ".local/r2/posts/pe-comprehensive-management/risk-assessment/img/chemical-ra-flow.svg",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/risk-assessment/img/risk-matrix.svg",
       "note": "リスク評価の定義・リスクアセスメントの3段階（特定・分析・評価）・リスク基準との比較（ALARP原則）・リスク対応の4戦略・定性/定量手法を解説。"
     },
     {
@@ -108,14 +108,14 @@
     {
       "type": "board",
       "heading": "リスクモニタリング",
-      "body": "リスクモニタリングの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "リスクモニタリング（RiskMonitoring）とは、リスクマネジメントプロセスの全段階にわたって、リスクの状態を継続的に観察・監視し、必要に応じて是正を行うことである。",
       "noteText": "",
       "slug": "risk-monitoring"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "安全に関するリスクマネジメントの主要 14 キーワードを安全管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

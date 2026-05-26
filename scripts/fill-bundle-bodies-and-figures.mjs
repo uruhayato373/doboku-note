@@ -60,7 +60,46 @@ function buildLegacyBodyMap() {
   return map;
 }
 
-/** frontmatter description を抽出（短く整形） */
+/** 汎用 SEO テンプレートかを判定（IG では使い物にならない自動生成風文） */
+const GENERIC_TEMPLATE_RES = [
+  /の定義[、，].*?を.*?技術士総合技術監理.*?視点で整理/,
+  /の定義[、，]種類[、，]実務上の要点[、，]関連用語/,
+  /キーワード集.*?の.*?項目/,
+];
+
+function isGenericTemplate(text) {
+  return GENERIC_TEMPLATE_RES.some((re) => re.test(text));
+}
+
+/** markdown 記号を除去して plain text に */
+function stripMarkdown(text) {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/\*([^*]+)\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+    .replace(/<[^>]+>/g, "")
+    .trim();
+}
+
+/** 本文から定義段落を抽出（## 定義 セクション直後の最初の段落） */
+function extractDefinitionParagraph(content) {
+  // ## 定義 or ### 定義 や、## 〜とは
+  const sectionMatch = content.match(
+    /^##+\s*(?:定義|.+?とは)\s*\n+([\s\S]+?)(?=\n##|\n#\s|$)/m,
+  );
+  if (sectionMatch) {
+    const section = sectionMatch[1].trim();
+    // 最初の段落（空行までor end）
+    const para = section.split(/\n\s*\n/)[0].trim();
+    const clean = stripMarkdown(para).replace(/\s+/g, "");
+    if (clean.length < 20) return null;
+    return clean.length > 140 ? clean.slice(0, 140) + "…" : clean;
+  }
+  return null;
+}
+
+/** frontmatter description を抽出（汎用テンプレなら null） */
 function extractDescriptionFromMdx(mdxPath) {
   if (!existsSync(mdxPath)) return null;
   const content = readFileSync(mdxPath, "utf8");
@@ -68,35 +107,60 @@ function extractDescriptionFromMdx(mdxPath) {
   const fmMatch = content.match(/^---\s*\n([\s\S]*?)\n---\s*\n/);
   if (!fmMatch) return null;
   const fm = fmMatch[1];
-  // description: "..." or description: '...' or description: >- ... のいずれか
   const descMatch = fm.match(/^description:\s*['"]?([\s\S]*?)['"]?\s*$/m);
-  if (!descMatch) return null;
-  let desc = descMatch[1].trim();
-  // 引用符を除去
-  desc = desc.replace(/^['"]/, "").replace(/['"]$/, "");
-  // 改行を吸収
-  desc = desc.replace(/\s*\n\s*/g, "");
-  // 末尾の付加情報（「。技術士〜キーワード集2026（〜）」等）を削除し最初の主要文だけ採用
-  // 例: "ハインリッヒの法則の定義・1:29:300の比率・安全管理への応用を解説。技術士総合技術監理キーワード集2026（安全管理）。"
-  //   → "ハインリッヒの法則の定義・1:29:300の比率・安全管理への応用を解説。"
-  const sentences = desc.split(/。/).filter(Boolean);
-  if (sentences.length === 0) return null;
-  // 最初の文だけ採用（「技術士〜」「総合技術監理〜」で始まる文は除外）
-  const filtered = sentences.filter(
-    (s) => !s.startsWith("技術士") && !s.startsWith("総合技術監理"),
-  );
-  return (filtered[0] || sentences[0]) + "。";
+  let desc = null;
+  if (descMatch) {
+    desc = descMatch[1].trim();
+    desc = desc.replace(/^['"]/, "").replace(/['"]$/, "");
+    desc = desc.replace(/\s*\n\s*/g, "");
+
+    // 汎用テンプレなら本文抽出にフォールバック
+    if (isGenericTemplate(desc)) {
+      desc = null;
+    } else {
+      const sentences = desc.split(/。/).filter(Boolean);
+      const filtered = sentences.filter(
+        (s) =>
+          !s.startsWith("技術士") &&
+          !s.startsWith("総合技術監理") &&
+          !s.includes("キーワード集") &&
+          !s.includes("解説。"),
+      );
+      desc = filtered[0] ? filtered[0] + "。" : null;
+    }
+  }
+
+  // 本文から定義段落抽出（description が使えない場合のフォールバック）
+  if (!desc) {
+    const bodyMatch = content.match(/^---\s*\n[\s\S]*?\n---\s*\n([\s\S]*)$/);
+    if (bodyMatch) {
+      desc = extractDefinitionParagraph(bodyMatch[1]);
+    }
+  }
+  return desc;
 }
 
-/** KW slug の SVG figure を 1 つ検出（複数あれば最初の 1 つ） */
+/**
+ * KW slug の SVG figure を検出。
+ * article.mdx で本文中に参照されている SVG のみ採用（無関係な残骸 SVG を除外）。
+ */
 function findFigureSvg(slug) {
-  const imgDir = join(POSTS_DIR, slug, "img");
-  if (!existsSync(imgDir)) return null;
-  const files = readdirSync(imgDir).filter((f) => /\.svg$/i.test(f));
-  if (files.length === 0) return null;
-  // 関連性が高そうな figure-*.svg を優先、なければ最初の SVG
-  const priority = files.find((f) => f.startsWith("figure-")) || files[0];
-  return `.local/r2/posts/pe-comprehensive-management/${slug}/img/${priority}`;
+  const mdxPath = join(POSTS_DIR, slug, "article.mdx");
+  if (!existsSync(mdxPath)) return null;
+  const content = readFileSync(mdxPath, "utf8");
+  // src 属性 + 該当 slug の img ディレクトリパスで一致
+  const re = /src=["']([^"']*\.svg)["']/g;
+  const matches = [...content.matchAll(re)];
+  const relevant = matches.find((m) => m[1].includes(`/${slug}/img/`));
+  if (!relevant) return null;
+  let svgPath = relevant[1];
+  // /posts/... を .local/r2/posts/... に正規化
+  if (svgPath.startsWith("/posts/")) {
+    svgPath = ".local/r2" + svgPath;
+  } else if (svgPath.startsWith("posts/")) {
+    svgPath = ".local/r2/" + svgPath;
+  }
+  return svgPath;
 }
 
 function processBundle(bundleDir, legacyMap) {
@@ -108,15 +172,33 @@ function processBundle(bundleDir, legacyMap) {
   let bodyFromMdx = 0;
   let bodyStillEmpty = 0;
   let figureAdded = 0;
+  let summaryFilled = 0;
 
   for (const slide of data.slides || []) {
+    if (slide.type === "summary") {
+      // summary の body 自動生成（空のときだけ）
+      if (!slide.body || slide.body === "") {
+        const sectionTitle = data._meta?.sectionTitle || data.cover?.subtitle || "";
+        const kwCount = data._meta?.keywordCount || (data.slides || []).filter((s) => s.type === "board" || s.type === "figure").length;
+        const chapterTitle = data._meta?.chapterTitle || "";
+        slide.body = `${sectionTitle}の主要 ${kwCount} キーワードを${chapterTitle}視点で整理。\n試験前のチェックリストとして保存推奨。`;
+        slide.noteText = "保存して試験前日に見返してください";
+        summaryFilled++;
+      }
+      continue;
+    }
     if (slide.type !== "board") continue;
     if (!slide.slug) continue;
+
+    // 既存 body が汎用テンプレならクリア
+    if (slide.body && isGenericTemplate(slide.body)) {
+      slide.body = "";
+    }
 
     // 1. body 充実
     if (!slide.body || slide.body === "") {
       const legacy = legacyMap.get(slide.slug);
-      if (legacy?.body) {
+      if (legacy?.body && !isGenericTemplate(legacy.body)) {
         slide.body = legacy.body;
         if (legacy.noteText) slide.noteText = legacy.noteText;
         bodyFromLegacy++;
@@ -132,12 +214,10 @@ function processBundle(bundleDir, legacyMap) {
       }
     }
 
-    // 2. SVG figure 統合（body 充実後）
+    // 2. SVG figure 統合（body 充実後・figure-*.svg のみ）
     const svgPath = findFigureSvg(slide.slug);
     if (svgPath) {
-      // board → figure に切替
       const originalBody = slide.body || "";
-      // 100 字程度の note に圧縮（最初の 1 文または 100 字）
       const noteSentences = originalBody.split(/[。\n]/).filter(Boolean);
       slide.type = "figure";
       slide.imagePath = svgPath;
@@ -148,7 +228,7 @@ function processBundle(bundleDir, legacyMap) {
     }
   }
 
-  return { bodyFromLegacy, bodyFromMdx, bodyStillEmpty, figureAdded, data };
+  return { bodyFromLegacy, bodyFromMdx, bodyStillEmpty, figureAdded, summaryFilled, data };
 }
 
 function main() {
@@ -162,7 +242,7 @@ function main() {
   console.log("\nProcessing bundles ...");
   const bundleDirs = readdirSync(BUNDLES_DIR).filter((d) => !d.startsWith("."));
 
-  let totLegacy = 0, totMdx = 0, totEmpty = 0, totFigure = 0;
+  let totLegacy = 0, totMdx = 0, totEmpty = 0, totFigure = 0, totSummary = 0;
   const reports = [];
 
   for (const bundleId of bundleDirs) {
@@ -173,6 +253,7 @@ function main() {
     totMdx += result.bodyFromMdx;
     totEmpty += result.bodyStillEmpty;
     totFigure += result.figureAdded;
+    totSummary += result.summaryFilled;
     reports.push({ bundleId, ...result });
 
     if (!checkOnly) {
@@ -189,7 +270,8 @@ function main() {
   console.log(`  Body filled from legacy:  ${totLegacy}`);
   console.log(`  Body filled from MDX:     ${totMdx}`);
   console.log(`  Body still empty:         ${totEmpty}`);
-  console.log(`  Figures (SVG) added:      ${totFigure}`);
+  console.log(`  Figures (SVG figure-*):   ${totFigure}`);
+  console.log(`  Summary auto-generated:   ${totSummary}`);
 
   if (checkOnly) {
     console.log("\n(--check mode: no files written)");

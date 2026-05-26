@@ -18,14 +18,13 @@
       "body": "特性要因図とは品質問題の原因を体系的に整理し、主原因（大骨）と副原因（中骨・小骨）の関係を魚の骨状の図式で表現する分析手法である。考案者の名から「イシカワ図（Ishikawa Diagram）」、形状から「フィッシュボーン図」とも呼ばれる。",
       "noteText": "別名：イシカワ図・フィッシュボーン図",
       "slug": "cause-and-effect-diagram",
-      "_legacySource": "_backlog/2026/2026-10-27-cause-and-effect-diagram",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/cause-and-effect-diagram/img/fishbone-4m.svg",
       "note": "特性要因図とは品質問題の原因を体系的に整理し、主原因（大骨）と副原因（中骨・小骨）の関係を魚の骨状の図式で表現する分析手法である。"
     },
     {
       "type": "board",
       "heading": "発想法",
-      "body": "発想法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "創造的な問題解決を促進するため、集団または個人が構造化されたプロセスで新しいアイデアを生み出す技法の総称。ブレインストーミング、NM法（名義群集法）、デルファイ法などがある。",
       "noteText": "",
       "slug": "idea-generation-methods"
     },
@@ -78,7 +77,7 @@
     {
       "type": "board",
       "heading": "ゲーム理論",
-      "body": "ゲーム理論の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "ゲーム理論（GameTheory）とは、意思決定をする主体（プレイヤー）が複数存在する状況を数学的に取り扱う方法論である。",
       "noteText": "",
       "slug": "game-theory"
     },
@@ -88,7 +87,6 @@
       "body": "階層分析法（AHP）は多基準意思決定法の一つで、複雑な問題を「目標→評価基準→代替案」の3層構造に分解し、一対比較（ペアワイズ比較）で重み付けして最適案を導く手法である。1970年代にサーティが提唱した。",
       "noteText": "定性的判断を数値化して合意形成に活用できる",
       "slug": "analytic-hierarchy-process",
-      "_legacySource": "_backlog/2026/2026-08-04-analytic-hierarchy-process",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/analytic-hierarchy-process/img/ahp-hierarchy.svg",
       "note": "階層分析法（AHP）は多基準意思決定法の一つで、複雑な問題を「目標→評価基準→代替案」の3層構造に分解し、一対比較（ペアワイズ比較）で重み付けして最適案を導く手法である。"
     },
@@ -102,30 +100,30 @@
     {
       "type": "board",
       "heading": "現価（現在価値）・年価・終価",
-      "body": "現価（現在価値）・年価・終価の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "現価・年価・終価とは、貨幣の時間的価値を考慮して異なる時点の金額を同一時点に換算するための3つの基本概念である。現在の100万円と将来の100万円は等価ではなく、現在の資金は運用することで将来より大きな価値を生むため、投資判断・設備更新判断では金額を同一時点に揃えて比較する必要が…",
       "noteText": "",
       "slug": "present-annual-future-value"
     },
     {
       "type": "board",
       "heading": "機会損失",
-      "body": "機会損失の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "機会損失（OpportunityCost：機会費用）とは、ある選択をしたことにより、選ばなかった代替案から得られたであろう最大の利益のことである。",
       "noteText": "",
       "slug": "opportunity-cost"
     },
     {
       "type": "figure",
       "heading": "VE・VA",
-      "body": "価値工学（VE）の定義、機能分類（使用機能／貴重機能）、基本 3 ステップ、機能系統図（FAST ダイアグラム）を技術士総合技術監理の視点で整理。",
+      "body": "価値工学（VE:ValueEngineering）は、製品やサービスの機能と価格のバランスを最適化し、コスト削減と価値向上を同時に実現する手法である。既存製品の改善に適用する場合はVA（価値分析）と呼ばれることもあるが、総監試験では両者を同義としてVEと総称する。",
       "noteText": "",
       "slug": "value-engineering",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/value-engineering/img/ve-basic-steps.svg",
-      "note": "価値工学（VE）の定義、機能分類（使用機能／貴重機能）、基本 3 ステップ、機能系統図（FAST ダイアグラム）を技術士総合技術監理の視点で整理。"
+      "note": "価値工学（VE:ValueEngineering）は、製品やサービスの機能と価格のバランスを最適化し、コスト削減と価値向上を同時に実現する手法である。"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "計画・管理の数理的手法の主要 14 キーワードを経済性管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

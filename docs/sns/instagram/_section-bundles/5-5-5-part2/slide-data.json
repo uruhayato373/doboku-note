@@ -17,32 +17,28 @@
       "heading": "危機広報",
       "body": "危機広報（Crisis Communication）とは、危機発生時に組織が利害関係者や社会に対して迅速かつ正確に情報を発信し、信頼の維持・回復を図る広報活動である。",
       "noteText": "単なる情報発信でなく\n信頼維持の手段",
-      "slug": "crisis-communication",
-      "_legacySource": "_backlog/2027/2027-02-02-crisis-communication"
+      "slug": "crisis-communication"
     },
     {
       "type": "board",
       "heading": "優先順位",
       "body": "危機管理における優先順位とは、限られた資源のもとで危機対応の行動順序を決定するための判断基準である。すべての課題を同時に解決することは不可能であるため、4段階の原則にもとづいて行動順序を決定する。",
       "noteText": "限られた資源の最適配分\n事前にマニュアルへ明記",
-      "slug": "crisis-priority",
-      "_legacySource": "_backlog/2027/2027-02-09-crisis-priority"
+      "slug": "crisis-priority"
     },
     {
       "type": "board",
       "heading": "危機管理マニュアル",
       "body": "危機管理マニュアルとは、危機発生時の対応手順・組織体制・役割分担等を事前に文書化した行動指針である。BCPと一体的に整備し、危機広報の手順も含めた総合的な危機対応の基盤となる。",
       "noteText": "事前文書化で初動を安定化\nBCPと一体的に整備",
-      "slug": "crisis-management-manual",
-      "_legacySource": "_backlog/2027/2027-02-05-crisis-management-manual"
+      "slug": "crisis-management-manual"
     },
     {
       "type": "board",
       "heading": "国民保護法",
       "body": "国民保護法は、武力攻撃事態等において国民の生命・身体・財産を保護するための措置を定めた法律であり、2004年に成立・施行された。",
       "noteText": "正式名称：武力攻撃事態等における国民の保護のための措置に関する法律",
-      "slug": "civil-protection-act",
-      "_legacySource": "_backlog/2026/2026-11-24-civil-protection-act"
+      "slug": "civil-protection-act"
     },
     {
       "type": "board",
@@ -54,7 +50,7 @@
     {
       "type": "board",
       "heading": "国土強靱化基本法",
-      "body": "国土強靱化基本法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "国土強靱化基本法（強くしなやかな国民生活の実現を図るための防災・減災等に資する国土強靱化基本法）とは、大規模自然災害等に備え、事前防災・減災と迅速な復旧・復興に資する施策を総合的かつ計画的に推進するための法律である（2013年施行）。",
       "noteText": "",
       "slug": "national-resilience-act"
     },
@@ -63,20 +59,19 @@
       "heading": "BCP・BCM",
       "body": "BCP（事業継続計画）とは、自然災害・感染症・テロなどの緊急事態が発生した際に、事業資産の損害を最小限にとどめつつ中核事業の継続または早期復旧を可能にする計画である。",
       "noteText": "被害を受けることを前提に事業継続を図る点が従来の防災計画と異なる",
-      "slug": "business-continuity-plan",
-      "_legacySource": "_backlog/2026/2026-10-06-business-continuity-plan"
+      "slug": "business-continuity-plan"
     },
     {
       "type": "board",
       "heading": "ICS",
-      "body": "ICSの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "ICS（IncidentCommandSystem：現場指揮システム）とは、災害・事故等の緊急事態に対応するための標準化された指揮・管理体制である。米国で開発され、日本でも導入が進んでいる。",
       "noteText": "",
       "slug": "ics"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "危機管理の主要 8 キーワードを安全管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

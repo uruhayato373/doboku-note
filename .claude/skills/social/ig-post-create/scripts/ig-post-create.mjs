@@ -305,7 +305,10 @@ const SLIDES = [
   }),
   {
     file: `${padNum(slideData.slides.length + 1)}-cta.png`,
-    slide: { type: 'notebook-cta', data: { ...slideData.cta, management } },
+    slide: {
+      type: 'notebook-cta',
+      data: { ...slideData.cta, management, isBundle: mode === 'bundle' },
+    },
   },
 ];
 

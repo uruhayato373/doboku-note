@@ -31,27 +31,26 @@
       "heading": "ALARPの原則",
       "body": "ALARP原則とは、リスクを「合理的に実行可能な限り低く（As Low As Reasonably Practicable）」することを求める概念である。リスクゼロは不可能なため費用と便益のバランスを考慮し合理的な範囲で最大限低減を図る。",
       "noteText": "英国HSEが体系化。日本では2000年代以降に原子力・化学プラント分野で参照",
-      "slug": "alarp-principle",
-      "_legacySource": "_backlog/2026/2026-07-21-alarp-principle"
+      "slug": "alarp-principle"
     },
     {
       "type": "board",
       "heading": "残留リスク",
-      "body": "残留リスクの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "残留リスク（ResidualRisk）とは、リスク対応を実施した後に残るリスクである。",
       "noteText": "",
       "slug": "residual-risk"
     },
     {
       "type": "board",
       "heading": "正常性バイアス",
-      "body": "正常性バイアスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "正常性バイアス（NormalcyBias）とは、異常な事態が発生しても「自分は大丈夫」「まだ正常の範囲内だ」と判断してしまう認知傾向である。",
       "noteText": "",
       "slug": "normalcy-bias"
     },
     {
       "type": "board",
       "heading": "楽観主義バイアス",
-      "body": "楽観主義バイアスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "楽観主義バイアス（OptimismBias）とは、物事の明るい側面を見ようとし、自分にとって好ましくない事象が起こる可能性を過小に評価する傾向である。",
       "noteText": "",
       "slug": "optimism-bias"
     },
@@ -60,35 +59,33 @@
       "heading": "カタストロフィーバイアス",
       "body": "カタストロフィーバイアスとは、極めてまれにしか起きないが被害規模が巨大な事象に対して、そのリスクを過大に評価する傾向である。航空機事故や原子力事故のように発生確率は極めて低いが、一度発生すると壊滅的な被害をもたらす事象が対象となる。",
       "noteText": "発生確率は低いが→リスクを過大評価",
-      "slug": "catastrophe-bias",
-      "_legacySource": "_backlog/2026/2026-10-27-catastrophe-bias"
+      "slug": "catastrophe-bias"
     },
     {
       "type": "board",
       "heading": "同調バイアス",
       "body": "同調バイアスとは、周囲の判断や行動に合わせてしまい、自分自身の正確な判断が歪められる傾向である。集団の中では、たとえ自分の判断が正しくても多数派の意見に従いやすくなる。",
       "noteText": "情報的影響と規範的影響の2経路で生じる",
-      "slug": "conformity-bias",
-      "_legacySource": "_backlog/2026/2026-12-25-conformity-bias"
+      "slug": "conformity-bias"
     },
     {
       "type": "board",
       "heading": "ベテランバイアス",
-      "body": "ベテランバイアスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "ベテランバイアス（VeteranBias）とは、豊富な経験を持つ者が、その経験に基づいてリスクの兆候を過小に評価してしまう傾向である。",
       "noteText": "",
       "slug": "veteran-bias"
     },
     {
       "type": "board",
       "heading": "バージンバイアス",
-      "body": "バージンバイアスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "バージンバイアス（VirginBias）とは、経験したことのない事象について、そのリスクを過大もしくは過小に評価してしまい、合理的な判断ができない傾向である。",
       "noteText": "",
       "slug": "virgin-bias"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "安全に関するリスクマネジメントの主要 10 キーワードを安全管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

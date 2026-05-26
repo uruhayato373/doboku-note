@@ -24,8 +24,7 @@
       "heading": "セキュリティ評価基準CC（ISO/IEC 15408）",
       "body": "CC（Common Criteria）は、IT製品・システムのセキュリティ機能を第三者が客観的に評価・認証するための国際規格（ISO/IEC 15408）である。TCSEC（米）とITSEC（欧）を統合し1999年に国際規格化された。",
       "noteText": "ISMSは組織の管理体制を認証、CCはIT製品の機能を評価する",
-      "slug": "common-criteria",
-      "_legacySource": "_backlog/2026/2026-12-11-common-criteria"
+      "slug": "common-criteria"
     },
     {
       "type": "board",
@@ -58,7 +57,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "情報セキュリティの主要 6 キーワードを情報管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

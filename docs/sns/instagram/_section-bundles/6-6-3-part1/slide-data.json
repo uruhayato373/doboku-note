@@ -43,14 +43,14 @@
     {
       "type": "board",
       "heading": "未然防止原則",
-      "body": "未然防止原則の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "未然防止原則（PreventionPrinciple）とは、科学的に因果関係が判明している環境被害について、被害が発生する前に予防的な対策を講じるべきとする原則である。",
       "noteText": "",
       "slug": "prevention-principle"
     },
     {
       "type": "board",
       "heading": "予防原則",
-      "body": "予防原則の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "予防原則（PrecautionaryPrinciple）とは、科学的な因果関係が十分に証明されていない段階でも、深刻かつ不可逆的な環境被害のおそれがある場合には、予防的措置を講じるべきとする原則である。",
       "noteText": "",
       "slug": "precautionary-principle"
     },
@@ -78,7 +78,7 @@
     {
       "type": "board",
       "heading": "エンドオブパイプ型対策",
-      "body": "エンドオブパイプ型対策の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "エンドオブパイプ型対策（End-of-PipeTreatment）とは、生産工程の末端（出口）で発生した汚染物質を処理・除去する環境対策である。",
       "noteText": "",
       "slug": "end-of-pipe"
     },
@@ -94,13 +94,12 @@
       "heading": "行為規制",
       "body": "行為規制とは、環境保全のために特定の行為や方法を直接規制する手法である。規制的手法（直接規制）の一つであり、何をすべきか・してはならないかを具体的に指定することで確実性が高い規制効果を発揮する。",
       "noteText": "規制対象は「行為・方法」であり「結果」ではない",
-      "slug": "behavioral-regulation",
-      "_legacySource": "_backlog/2026/2026-09-08-behavioral-regulation"
+      "slug": "behavioral-regulation"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "環境保全の基本原則の主要 12 キーワードを社会環境管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

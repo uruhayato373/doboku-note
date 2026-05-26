@@ -18,7 +18,6 @@
       "body": "FMEAとは、システムの構成要素ごとに想定される故障モードとその影響を体系的に分析する手法である。帰納的・ボトムアップ型の分析手法であり、構成要素レベルからシステムレベルへ影響を積み上げて評価する。",
       "noteText": "ボトムアップ型：構成要素の故障モードからシステムへの影響を分析",
       "slug": "fmea",
-      "_legacySource": "_backlog/2026/2026-06-05-fmea",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/fmea/img/fmea-rpn-flow.svg",
       "note": "FMEAとは、システムの構成要素ごとに想定される故障モードとその影響を体系的に分析する手法である。"
     },
@@ -28,7 +27,6 @@
       "body": "HAZOPとは、ガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、ハザードや運転上の問題を特定する手法である。1960年代に英国ICI社が化学プラントの設計審査手法として開発した。",
       "noteText": "プロセスパラメータの逸脱をガイドワードで体系的に検討する手法",
       "slug": "hazop",
-      "_legacySource": "_backlog/2026/2026-06-09-hazop",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/hazop/img/hazop-guidewords.svg",
       "note": "HAZOPとは、ガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、ハザードや運転上の問題を特定する手法である。"
     },
@@ -69,8 +67,7 @@
       "heading": "ボウタイ分析",
       "body": "ボウタイ分析（Bow-Tie Analysis）とは、ハザードを中心に据え、左側に原因（脅威）と予防バリア、右側に結果と緩和バリアを蝶ネクタイ状に図示して、リスクの全体像を可視化する手法である。",
       "noteText": "ISO 31010:2019 の推奨技法\n化学・石油・ガス産業で普及",
-      "slug": "bowtie-analysis",
-      "_legacySource": "_backlog/2026/2026-09-29-bowtie-analysis"
+      "slug": "bowtie-analysis"
     },
     {
       "type": "board",
@@ -117,7 +114,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "システム安全工学手法の主要 13 キーワードを安全管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

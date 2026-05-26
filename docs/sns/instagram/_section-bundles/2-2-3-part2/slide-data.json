@@ -17,79 +17,76 @@
       "heading": "ボトムアップ見積り",
       "body": "ボトムアップ見積り（Bottom-Up Estimation）とは、作業をWBS（作業分解構造）で最小単位（ワークパッケージ）まで分解し、各作業の所要時間・コストを個別に見積もって積み上げる手法である。",
       "noteText": "精度が最も高い見積り手法\n工数と時間がかかる点が限界",
-      "slug": "bottom-up-estimation",
-      "_legacySource": "_backlog/2026/2026-09-25-bottom-up-estimation"
+      "slug": "bottom-up-estimation"
     },
     {
       "type": "board",
       "heading": "類推見積り",
       "body": "類推見積り（Analogous Estimation）とは、過去の類似プロジェクトの実績データをもとに、現在のプロジェクトの工期・コスト・工数を概算する手法である。トップダウン見積りとも呼ばれる。",
       "noteText": "WBS 未整備でも初期段階で概算可能",
-      "slug": "analogous-estimation",
-      "_legacySource": "_backlog/2026/2026-07-31-analogous-estimation"
+      "slug": "analogous-estimation"
     },
     {
       "type": "board",
       "heading": "パラメトリック見積り",
-      "body": "パラメトリック見積りの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "パラメトリック見積り（ParametricEstimation）とは、過去の実績データから導出した統計的パラメータ（単価・生産性係数等）を用いてコスト・工期・工数を算出する見積り手法である。日本語では係数見積りとも呼ばれる。",
       "noteText": "",
       "slug": "parametric-estimation"
     },
     {
       "type": "board",
       "heading": "三点見積り",
-      "body": "三点見積りの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "三点見積り（Three-PointEstimation）とは、楽観値・最頻値・悲観値の3つの見積りを用いて不確実性を考慮した期待値を算出する見積り手法である。",
       "noteText": "",
       "slug": "three-point-estimation"
     },
     {
       "type": "figure",
       "heading": "PERT/CPM",
-      "body": "PERT/CPMの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "-PERT（ProgramEvaluationandReviewTechnique）：作業時間に確率的変動を考慮したネットワーク手法",
       "noteText": "",
       "slug": "pert-cpm",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/pert-cpm/img/pert-network-diagram.svg",
-      "note": "PERT/CPMの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "-PERT（ProgramEvaluationandReviewTechnique）：作業時間に確率的変動を考慮したネットワーク手法。"
     },
     {
       "type": "figure",
       "heading": "進捗管理",
-      "body": "進捗管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "進捗管理（ProgressManagement）とは、工程計画に対する作業の進み具合を把握し、計画と実績の差異を是正する管理活動である。",
       "noteText": "",
       "slug": "progress-management",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/progress-management/img/banana-curve.svg",
-      "note": "進捗管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "進捗管理（ProgressManagement）とは、工程計画に対する作業の進み具合を把握し、計画と実績の差異を是正する管理活動である。"
     },
     {
       "type": "board",
       "heading": "余力管理",
       "body": "余力管理（Capacity Management）とは、各工程の生産能力と負荷工数の差（余力）を把握し、過不足を調整する管理活動である。余力がマイナスなら能力不足、プラスなら遊休を意味する。JIS Z 8141では工数管理の別称もある。",
       "noteText": "余力＝生産能力−負荷工数（JIS Z 8141 用語番号 4103）",
-      "slug": "capacity-management",
-      "_legacySource": "_backlog/2026/2026-10-09-capacity-management"
+      "slug": "capacity-management"
     },
     {
       "type": "board",
       "heading": "現品管理",
-      "body": "現品管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "現品管理（InventoryControl）とは、資材・仕掛品・完成品などの現物について、その数量・品質・所在を正確に把握し管理する活動である。",
       "noteText": "",
       "slug": "inventory-control"
     },
     {
       "type": "board",
       "heading": "可視化（目で見る管理）",
-      "body": "可視化（目で見る管理）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "可視化（VisualManagement）とは、作業の進捗・設備の状態・品質の状況などを誰でも一目で把握できるように表示・掲示する管理手法である。",
       "noteText": "",
       "slug": "visual-management"
     },
     {
       "type": "figure",
       "heading": "5S",
-      "body": "5Sの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "5Sとは、職場環境の維持・改善のための5つの活動の総称であり、生産管理・安全管理の基盤となる。",
       "noteText": "",
       "slug": "five-s",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/five-s/img/5s-quality-map.svg",
-      "note": "5Sの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "5Sとは、職場環境の維持・改善のための5つの活動の総称であり、生産管理・安全管理の基盤となる。"
     },
     {
       "type": "board",
@@ -101,7 +98,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "工程管理の主要 11 キーワードを経済性管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

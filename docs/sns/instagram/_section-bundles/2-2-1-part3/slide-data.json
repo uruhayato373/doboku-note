@@ -17,8 +17,7 @@
       "heading": "工事計画",
       "body": "工事計画とは、建設工事の目的・規模・条件に応じて、品質・工程・原価・安全・環境の各管理項目を総合的に計画する文書である。施工方法・仮設計画・工程計画・安全衛生計画・環境対策を一体的に策定する。",
       "noteText": "5管理のトレードオフを最適化する計画文書",
-      "slug": "construction-plan",
-      "_legacySource": "_backlog/2026/2026-12-29-construction-plan"
+      "slug": "construction-plan"
     },
     {
       "type": "board",
@@ -39,8 +38,7 @@
       "heading": "予算計画",
       "body": "予算計画とは、事業目標の達成に必要な資金の調達・配分を、期間・項目ごとに数値化して策定する計画である。経営計画と連動し、売上予算・原価予算・設備投資予算・資金予算等を体系的に編成する。",
       "noteText": "2.1 事業企画に位置づけ\n経営計画との整合性が重要",
-      "slug": "budget-planning",
-      "_legacySource": "_backlog/2026/2026-10-02-budget-planning"
+      "slug": "budget-planning"
     },
     {
       "type": "board",
@@ -52,30 +50,30 @@
     {
       "type": "board",
       "heading": "工法計画",
-      "body": "工法計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "工法計画とは、建設工事における各工種の施工方法を、品質・工程・原価・安全・環境の観点から比較検討し、最適な工法を選定する計画である。",
       "noteText": "",
       "slug": "method-planning"
     },
     {
       "type": "board",
       "heading": "生産の4M",
-      "body": "生産の4Mの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "生産管理における4つの主要要素：Man（人），Machine（機械），Material（材料），Method（方法）",
       "noteText": "",
       "slug": "four-m-of-production"
     },
     {
       "type": "figure",
       "heading": "PDCAサイクル",
-      "body": "PDCAサイクルの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "継続的改善を実現するための循環型マネジメント手法。Plan（計画）→Do（実行）→Check（検証）→Act（改善）の4段階を繰り返す。",
       "noteText": "",
       "slug": "pdca-cycle",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/pdca-cycle/img/pdca-cycle.svg",
-      "note": "PDCAサイクルの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "継続的改善を実現するための循環型マネジメント手法。"
     },
     {
       "type": "board",
       "heading": "KGI・KSF・KPI",
-      "body": "KGI・KSF・KPIの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "経営目標の達成度を測定するための指標群：",
       "noteText": "",
       "slug": "key-performance-indicators"
     },
@@ -98,7 +96,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "事業企画の主要 11 キーワードを経済性管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

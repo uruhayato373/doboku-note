@@ -22,30 +22,30 @@
     {
       "type": "figure",
       "heading": "JIT生産方式",
-      "body": "JIT生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "JIT生産方式（JustInTimeProduction）とは、必要なものを、必要な時に、必要な量だけ生産・供給する方式である。",
       "noteText": "",
       "slug": "jit-production",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/jit-production/img/kanban-two-types-flow.svg",
-      "note": "JIT生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "JIT生産方式（JustInTimeProduction）とは、必要なものを、必要な時に、必要な量だけ生産・供給する方式である。"
     },
     {
       "type": "board",
       "heading": "プッシュ型生産方式",
-      "body": "プッシュ型生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "プッシュ型生産方式（PushProductionSystem）とは、需要予測に基づいて生産計画を立て、前工程から後工程へ製品を押し出す方式である。",
       "noteText": "",
       "slug": "push-production"
     },
     {
       "type": "board",
       "heading": "プル型生産方式",
-      "body": "プル型生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "プル型生産方式（PullProductionSystem）とは、後工程の要求（実需）に基づいて前工程が必要な量だけ生産する方式である。",
       "noteText": "",
       "slug": "pull-production"
     },
     {
       "type": "board",
       "heading": "制約条件の理論（TOC）",
-      "body": "制約条件の理論（TOC）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "制約条件の理論（TOC:TheoryofConstraints）とは、システム全体のスループット（産出量）を決定しているボトルネック（制約条件）を特定し、その制約を集中的に改善することで全体最適を図る管理手法である。",
       "noteText": "",
       "slug": "theory-of-constraints"
     },
@@ -59,44 +59,44 @@
     {
       "type": "figure",
       "heading": "作業計画",
-      "body": "作業計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "作業計画（WorkPlanning）とは、個々の作業について、作業方法・作業手順・使用資機材・所要時間・担当者を具体的に定めた計画である。",
       "noteText": "",
       "slug": "work-planning",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/work-planning/img/standard-time-tree.svg",
-      "note": "作業計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "作業計画（WorkPlanning）とは、個々の作業について、作業方法・作業手順・使用資機材・所要時間・担当者を具体的に定めた計画である。"
     },
     {
       "type": "board",
       "heading": "リードタイム",
-      "body": "リードタイムの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "リードタイム（LeadTime）とは、発注・着手から完成・納品までに要する総所要時間である。",
       "noteText": "",
       "slug": "lead-time"
     },
     {
       "type": "board",
       "heading": "稼働率",
-      "body": "稼働率の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "稼働率（UtilizationRate）とは、利用可能な時間（操業時間）に対して実際に稼働した時間の割合を示す指標である。",
       "noteText": "",
       "slug": "utilization-rate"
     },
     {
       "type": "board",
       "heading": "負荷工数・生産能力",
-      "body": "負荷工数・生産能力の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "工程管理においては、処理すべき仕事量（負荷）と処理できる最大能力（生産能力）を数値で把握し、両者のバランスを継続的に管理することが基本となる。",
       "noteText": "",
       "slug": "load-capacity"
     },
     {
       "type": "board",
       "heading": "負荷平準化（山積み・山くずし）",
-      "body": "負荷平準化（山積み・山くずし）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "負荷平準化とは、各工程・各期間に割り当てられた作業負荷の偏りを均一化し、生産能力を効率的に活用する調整活動である。特定の期間や工程に負荷が集中すると、残業・外注費の増大や品質低下を招くため、負荷を能力の範囲内に収める工程管理の基本手法として位置づけられる。",
       "noteText": "",
       "slug": "load-leveling"
     },
     {
       "type": "board",
       "heading": "大日程計画・中日程計画・小日程計画",
-      "body": "大日程計画・中日程計画・小日程計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "日程計画は大日程計画・中日程計画・小日程計画の3階層で構成され、上位から下位へ段階的に具体化される。上位計画が全体の方針と制約条件を定め、下位計画がその制約のなかで詳細を決定する、という階層的な意思決定の構造を持つ。",
       "noteText": "",
       "slug": "master-schedule-planning"
     },
@@ -106,14 +106,13 @@
       "body": "ガントチャートとは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図である。直感的に工程全体を把握でき、小日程計画や進捗管理に広く用いられる。",
       "noteText": "小日程計画・進捗報告に適した直感的な手法",
       "slug": "gantt-chart",
-      "_legacySource": "_backlog/2026/2026-06-02-gantt-chart",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/gantt-chart/img/gantt-chart-example.svg",
       "note": "ガントチャートとは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図である。"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "工程管理の主要 13 キーワードを経済性管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

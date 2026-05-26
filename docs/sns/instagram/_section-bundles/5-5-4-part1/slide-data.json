@@ -15,7 +15,7 @@
     {
       "type": "board",
       "heading": "安全教育",
-      "body": "安全教育の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "安全教育とは、労働者が安全に作業を行うために必要な知識・技能・態度を習得させる教育訓練である。",
       "noteText": "",
       "slug": "safety-education"
     },
@@ -24,13 +24,12 @@
       "heading": "事故対応訓練",
       "body": "事故対応訓練とは、事故や災害の際に組織として迅速かつ適切に対応する能力を高めるための訓練である。初動対応・情報伝達・避難誘導・応急措置等を実践的に行い、有事の対応力を養う。総監の4E対策ではEducation（教育）に位置づけられる。",
       "noteText": "目的：有事の対応力向上\n4Eの教育（Education）",
-      "slug": "accident-response-drill",
-      "_legacySource": "_backlog/2026/2026-06-26-accident-response-drill"
+      "slug": "accident-response-drill"
     },
     {
       "type": "board",
       "heading": "防災訓練",
-      "body": "防災訓練の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "防災訓練とは、地震・風水害・火災等の自然災害や大規模事故に備え、避難・救助・情報伝達等の対応行動を事前に体系的に訓練する取組である。",
       "noteText": "",
       "slug": "disaster-drill"
     },
@@ -39,13 +38,12 @@
       "heading": "ブラインド型訓練",
       "body": "ブラインド型訓練（Blind Drill）とは、事前にシナリオを参加者に知らせず、災害や事故の発生を模擬的に通知して対応させることで、実践的な判断力・対応力を養う訓練手法である。",
       "noteText": "シナリオ非公開→即興判断が求められる",
-      "slug": "blind-drill",
-      "_legacySource": "_backlog/2026/2026-09-22-blind-drill"
+      "slug": "blind-drill"
     },
     {
       "type": "board",
       "heading": "不安全状態／不安全行動",
-      "body": "不安全状態・不安全行動の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "不安全状態（UnsafeCondition）とは、機械・設備・作業環境において、労働者に危害を及ぼす可能性がある物理的な状態をいう。不安全行動（UnsafeAct）とは、労働者自身が行う安全でない行為をいう。",
       "noteText": "",
       "slug": "unsafe-conditions-behavior"
     },
@@ -62,37 +60,36 @@
       "body": "ハーバート・ウィリアム・ハインリッヒが1929年に約50万件の労働災害事故を調査した結果から導き出した経験則である。「事後対応から予防的管理へ」というパラダイムシフトを促した。",
       "noteText": "損害保険会社の安全技師が1929年に導出",
       "slug": "heinrich-law",
-      "_legacySource": "_backlog/2026/2026-05-10-heinrich-law",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/heinrich-law/img/heinrich-pyramid.svg",
       "note": "ハーバート・ウィリアム・ハインリッヒが1929年に約50万件の労働災害事故を調査した結果から導き出した経験則である。"
     },
     {
       "type": "figure",
       "heading": "本質安全",
-      "body": "本質安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "本質安全（InherentSafety）とは、危険源そのものを除去することで本質的に安全な状態を実現する設計思想である。",
       "noteText": "",
       "slug": "inherent-safety",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/inherent-safety/img/three-step-method.svg",
-      "note": "本質安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
+      "note": "本質安全（InherentSafety）とは、危険源そのものを除去することで本質的に安全な状態を実現する設計思想である。"
     },
     {
       "type": "board",
       "heading": "機能安全",
-      "body": "機能安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "機能安全（FunctionalSafety）とは、安全関連系（安全装置・制御システム）が正しく動作することによって達成される安全である。",
       "noteText": "",
       "slug": "functional-safety"
     },
     {
       "type": "board",
       "heading": "人間工学原則の遵守",
-      "body": "人間工学原則の遵守の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
+      "body": "人間工学原則の遵守とは、機械・設備・作業環境の設計において、人間の身体的特性（体格・筋力・可動域）や認知的特性（注意力・判断力）に適合した設計を行うことである。",
       "noteText": "",
       "slug": "ergonomic-principles"
     },
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "事故・災害の未然防止活動・技術の主要 10 キーワードを安全管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

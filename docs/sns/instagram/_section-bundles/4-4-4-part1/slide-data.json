@@ -17,8 +17,7 @@
       "heading": "集中化と分散化",
       "body": "集中処理とは1台の大型コンピュータに処理を集約し端末からアクセスする方式、分散処理とは複数のコンピュータに処理を分担させネットワークで協調動作させる方式である。どちらを採用するかは、コスト・信頼性・拡張性・管理性を多角的に評価して決定する。",
       "noteText": "集中は管理しやすく、分散は耐障害性に優れる",
-      "slug": "centralization-decentralization",
-      "_legacySource": "_backlog/2026/2026-11-03-centralization-decentralization"
+      "slug": "centralization-decentralization"
     },
     {
       "type": "board",
@@ -33,7 +32,6 @@
       "body": "クラウドコンピューティングとは、サーバ・ストレージ等のITリソースをインターネット経由でオンデマンドに利用できるサービス形態であり、必要な分だけ従量課金で使える。",
       "noteText": "NIST定義の5特性：オンデマンド・広範アクセス・プーリング・弾力性・計測",
       "slug": "cloud-on-premises",
-      "_legacySource": "_backlog/2026/2026-12-01-cloud-on-premises",
       "imagePath": ".local/r2/posts/pe-comprehensive-management/cloud-on-premises/img/figure-1.svg",
       "note": "クラウドコンピューティングとは、サーバ・ストレージ等のITリソースをインターネット経由でオンデマンドに利用できるサービス形態であり、必要な分だけ従量課金で使える。"
     },
@@ -107,7 +105,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "情報通信技術動向の主要 12 キーワードを情報管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],

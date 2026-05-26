@@ -17,8 +17,7 @@
       "heading": "コミュニケーション計画",
       "body": "コミュニケーション計画とは、誰に・何を・いつ・どのような方法で情報を伝達するかを事前に定める計画である。ステークホルダーの情報ニーズを分析し、効果的な情報伝達の仕組みを設計することが目的である。",
       "noteText": "単なる計画書作成ではなく計画・実行・監視のPDCAサイクルが核心",
-      "slug": "communication-planning",
-      "_legacySource": "_backlog/2026/2026-12-15-communication-planning"
+      "slug": "communication-planning"
     },
     {
       "type": "board",
@@ -32,8 +31,7 @@
       "heading": "コミュニケーション・コントロール",
       "body": "コミュニケーション・コントロールとは、コミュニケーション活動が計画どおりに実施されているかを監視・管理し、必要に応じて是正措置を講じるプロセスである。PDCAサイクルのC（Check）とA（Act）に相当する。",
       "noteText": "計画（Plan）と実行（Do）は別プロセス、コントロールはCAを担う",
-      "slug": "communication-control",
-      "_legacySource": "_backlog/2026/2026-12-15-communication-control"
+      "slug": "communication-control"
     },
     {
       "type": "board",
@@ -52,7 +50,7 @@
     {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
-      "body": "",
+      "body": "コミュニケーションの主要 5 キーワードを情報管理視点で整理。\n試験前のチェックリストとして保存推奨。",
       "noteText": "保存して試験前日に見返してください"
     }
   ],
