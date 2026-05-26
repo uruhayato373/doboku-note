@@ -22,7 +22,7 @@ noteStatus: draft
 
 ### 1.1 定義: 5つの管理間の対立構造
 
-トレードオフとは、一方を改善しようとすると他方が悪化する関係のことです。総監の文脈では、**5つの管理（[経済性管理](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[人的資源管理](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[情報管理](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[安全管理](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[社会環境管理](https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）の間で生じる対立構造**を指します。
+トレードオフとは、一方を改善しようとすると他方が悪化する関係のことです。総監の文脈では、**5つの管理**（[経済性管理](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[人的資源管理](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[情報管理](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[安全管理](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[社会環境管理](https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）**の間で生じる対立構造**を指します。
 
 たとえば、土木工事で安全設備を充実させれば（安全管理の向上）、そのぶんコストが増加し工期が延びます（経済性管理の悪化）。これが最も典型的なトレードオフです。
 
@@ -85,7 +85,7 @@ noteStatus: draft
 
 記述式で最も評価されるのは「対立する 2 管理を解決するために **第三の管理を持ち込む** 構造」です。10 ペアそれぞれで、最も有効な第三の管理と具体施策キーワードを以下に整理しました。
 
-**S/A ランク（最頻出 + 頻出）**
+**S/A ランク**（最頻出 + 頻出）
 
 - 経済性 × 安全（**S**）— 第三：**情報管理** / 施策キーワード: AI による事故予兆検知 / IoT モニタリング / 過去災害データのシミュレーション
 - 経済性 × 社会環境（**S**）— 第三：**人的資源管理** / 施策: 環境教育 / グリーンスキル研修 / ESG 視点での意思決定権限委譲
@@ -94,7 +94,7 @@ noteStatus: draft
 - 人的資源 × 安全（**A**）— 第三：**経済性管理** / 施策: 安全装備の費用便益分析 / 教育コストの定量評価 / 労災保険コスト最適化
 - 安全 × 社会環境（**A**）— 第三：**人的資源管理** / 施策: 防災教育 / 住民参加型ワークショップ / ステークホルダー対話の組織化
 
-**B/C ランク（中・低頻出）**
+**B/C ランク**（中・低頻出）
 
 - 人的資源 × 情報（**B**）— 第三：**安全管理** / 施策: アクセス権限の段階化 / セキュリティ教育 / 心理的安全性の確保
 - 情報 × 安全（**B**）— 第三：**経済性管理** / 施策: サイバー保険 / セキュリティ投資 ROI / 損害賠償リスクの定量化
@@ -152,7 +152,7 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 - **適用条件**: 人的資源管理・社会環境管理との対立。利害関係者が複数（住民・労組・取引先・行政）で対立しやすい場合
 - **答案フレーズ例**: 「住民説明会・労使協議会・パブリックコメントの 3 段階で意見を聴取し、影響評価結果と対策案を併せて公表する」
-- **NG パターン**: 「ステークホルダーと話し合う」だけ。**手段（説明会・協議会・調査）と段階** を具体化する必要あり
+- **NG パターン**: 「ステークホルダーと話し合う」だけ。**手段**（説明会・協議会・調査）**と段階** を具体化する必要あり
 
 #### ⑤ リスクベース意思決定（Risk-Based Decision Making）
 
@@ -160,7 +160,7 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 - **適用条件**: 経済性管理と安全管理・情報管理・社会環境管理の対立すべて。資源制約下での優先順位付けが必要な場合
 - **答案フレーズ例**: 「リスクマトリクス（発生頻度 × 影響度）で重大リスクを 3 件抽出し、対策投資額を 7:2:1 の比率で配分する」
-- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法（マトリクス・PRA・FMEA）と配分根拠** を示さないと採点者には届かない
+- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法**（マトリクス・PRA・FMEA）**と配分根拠** を示さないと採点者には届かない
 
 下図は、この 5 つのフレームが 10 の管理ペアに対してどう適用できるかをまとめたものです。
 
@@ -184,13 +184,13 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 ---
 
-理論編はここで終わりです。答案サンプル 2 本（R02 異常気象 BCP / R06 カーボンニュートラル）と 3 週間集中ドリルは、続編の**[実践編（note リンク）](https://note.com/dobokunote)**で扱います。
+理論編はここで終わりです。答案サンプル 2 本（R02 異常気象 BCP / R06 カーボンニュートラル）と 3 週間集中ドリルは、続編の**[実践編**（note リンク）**](https://note.com/dobokunote)**で扱います。
 
 ---
 
 ## 関連リソース
 
-**doboku-note — 17 年分の過去問 + 650 キーワード解説（無料）**
+**doboku-note — 17 年分の過去問 + 650 キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking
 
 - 17 年分の択一式過去問（全問解答解説付き）
@@ -198,6 +198,6 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 - 5 管理間トレードオフの解決フレーム（[詳細記事](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）
 - スマホ対応（通勤中の学習に最適）
 
-**マガジン購入で割引（総監記述式 完全対策セット）**
+**マガジン購入で割引**（総監記述式 完全対策セット）
 - 本書 ¥1,200 + 実践編 + 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 + 総監記述式 論文骨子テンプレート（A-1）¥1,980 = 単品合計 ¥4,160
 - セット価格 **¥3,480**（16% OFF）

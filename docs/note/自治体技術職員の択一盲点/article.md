@@ -105,7 +105,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 関連リソース
 
-**doboku-note — 17年分の過去問 + 700キーワード解説（無料）**
+**doboku-note — 17年分の過去問 + 700キーワード解説**（無料）
 
 https://doboku-note.com
 

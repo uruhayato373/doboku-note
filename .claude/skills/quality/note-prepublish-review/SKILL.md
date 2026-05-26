@@ -96,10 +96,13 @@ done
 #   Pattern A は旧 Pattern B（リンク+全角括弧限定）を内包する超集合。リンク無しの素の
 #   **地方自治体の土木職（発注者）として** 形式・複数全角括弧を含む長い太字
 #   （資格列挙・施策列挙等）の崩れもこれで捕捉する。content-principles.md §14-b 準拠
+#
+#   Pattern A の検出には **stateful parse** を使う（Node スクリプト）。単純 grep は
+#   `**作成日**: 2026-04-17（v1）/ **SSOT**` のような複数 bold 間の括弧を false-positive
+#   として誤検出するため。Pattern B' のみは行内の隣接パターンなので grep で十分
 echo "BOLD_RENDER:"
-A=$(grep -nE '\*\*[^*]*[（）][^*]*\*\*' "$F")
+node "$ROOT/.claude/scripts/check-note-bold-paren.mjs" "$F"
 Bp=$(grep -nE '\)\*\*（' "$F")
-[ -z "$A" ]  && echo "  Pattern A  : OK"  || { echo "  Pattern A  : NG"; echo "$A" | sed 's/^/    /'; }
 [ -z "$Bp" ] && echo "  Pattern B' : OK" || { echo "  Pattern B' : NG"; echo "$Bp" | sed 's/^/    /'; }
 
 # 4c. リンク anchor↔slug 整合性（pe-chapters.json + frontmatter fallback）

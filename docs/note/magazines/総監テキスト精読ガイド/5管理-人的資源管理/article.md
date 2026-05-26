@@ -150,7 +150,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ### リーダーシップ
 
-**[PM理論](https://doboku-note.com/docs/pe-comprehensive-management-pm-theory?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （三隅二不二）— リーダーシップを **目標達成機能（P：Performance）** と **集団維持機能（M：Maintenance）** の組み合わせで4タイプに分類します。
+**[PM理論](https://doboku-note.com/docs/pe-comprehensive-management-pm-theory?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （三隅二不二）— リーダーシップを **目標達成機能**（P：Performance） と **集団維持機能**（M：Maintenance） の組み合わせで4タイプに分類します。
 
 - **PM型** — 成果を上げ、人望もありグループをまとめる力もある（最も望ましい）
 - **Pm型** — 成果を上げるが、人望がなくまとめるのが苦手
@@ -183,7 +183,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 労働関係法と労務管理（優先度: 高）
 
-択一式で **毎年5〜7問出題** される最大ボリュームの分野です。法令名・条文番号の暗記よりも、**各法律が「何を禁止・義務化しているか」の要旨を理解する** ことに注力してください。労働三権（[**日本国憲法第28条**](https://laws.e-gov.go.jp/law/321CONSTITUTION#Mp-At_28)）は **団結権・団体交渉権・団体行動権（争議権）** の3つで、労働関係法体系の根幹です。
+択一式で **毎年5〜7問出題** される最大ボリュームの分野です。法令名・条文番号の暗記よりも、**各法律が「何を禁止・義務化しているか」の要旨を理解する** ことに注力してください。労働三権（[**日本国憲法第28条**](https://laws.e-gov.go.jp/law/321CONSTITUTION#Mp-At_28)）は **団結権・団体交渉権・団体行動権**（争議権） の3つで、労働関係法体系の根幹です。
 
 ### 労働基準法の重要事項
 
@@ -256,7 +256,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 **[労働者派遣法](https://doboku-note.com/docs/pe-comprehensive-management-worker-dispatch-act?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （[**派遣法**](https://laws.e-gov.go.jp/law/360AC0000000088)）— 派遣元・派遣先・派遣労働者の三者関係。**雇用主は派遣元** （賃金支払・社会保険加入の責任）、**労働時間管理の義務は派遣先**。**派遣可能期間は3年**、延長時は過半数労組等の意見聴取が必要。
 
 > **【出題例: [R3年度 Ⅰ-1-10](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-10)】** 労働者派遣法に関する記述として最も不適切なものを選ぶ問題。
-> → **正答3：事業所単位の期間制限（3年）を延長する場合の意見聴取は適切な規定だが、ある選択肢は派遣禁止業務や雇用安定措置の解釈を誤っており不適切。**
+> → **正答3：事業所単位の期間制限**（3年）**を延長する場合の意見聴取は適切な規定だが、ある選択肢は派遣禁止業務や雇用安定措置の解釈を誤っており不適切。**
 
 ### その他の労働関係法
 
@@ -292,7 +292,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 セキュリティ対策として **BYOD** （Bring Your Own Device、私物端末利用）の場合は通信回線・端末費用負担が必要。**シンクライアント型端末** （ほとんどの機能がサーバ処理）はデータ持出を避けられるためセキュリティ上有効です。
 
 > **【出題例: [R4年度 Ⅰ-1-11](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-11)】** 厚生労働省のテレワーク導入ガイドラインに関する記述として最も適切なものを選ぶ問題。
-> → **正答2：テレワークガイドラインでは各種労働時間制度（通常・変形・フレックス・事業場外みなし・裁量労働制）すべてでテレワーク利用が可能とされている。**
+> → **正答2：テレワークガイドラインでは各種労働時間制度**（通常・変形・フレックス・事業場外みなし・裁量労働制）**すべてでテレワーク利用が可能とされている。**
 
 **[パワーハラスメント](https://doboku-note.com/docs/pe-comprehensive-management-power-harassment?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — ①優越的関係を背景／②業務上必要かつ相当な範囲を超える／③就業環境を害する、の **3要素すべてを満たす** ものをいいます（厚労省指針）。**6類型** — ①身体的攻撃／②精神的攻撃／③人間関係からの切り離し／④過大な要求／⑤過小な要求／⑥個の侵害。
 
@@ -311,8 +311,8 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 採用計画は **職務分析** から始まります。採用関連の **7用語** を整理します。
 
-- **職務記述書（Job Description）** — 義務・責任・難易度・必要知識・技能・経験・専門能力
-- **職務明細書（Job Specification）** — 知識・技能・経験・適性・心身特性など人的特性
+- **職務記述書**（Job Description） — 義務・責任・難易度・必要知識・技能・経験・専門能力
+- **職務明細書**（Job Specification） — 知識・技能・経験・適性・心身特性など人的特性
 - **[インターンシップ](https://doboku-note.com/docs/pe-comprehensive-management-internship?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 在学中の就業体験。学生と企業のミスマッチ解消手段
 - **自己申告制度** — 社員本人から会社に希望を申告
 - **社内公募制度** — 新規事業や空きポスト発生時の社内人材公募
@@ -373,15 +373,15 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[人事考課管理](https://doboku-note.com/docs/pe-comprehensive-management-personnel-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の重視点は **2つ** — Ⓐ **透明性** （評価基準・ルールの公開、被考課者へのフィードバック）／Ⓑ **加点主義** （減点主義は無難志向を生むため、革新的業務への挑戦意欲を刺激する加点主義が望ましい）。
 
-**評価3指標** — Ⓐ **[情意考課](https://doboku-note.com/docs/pe-comprehensive-management-attitude-appraisal?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （勤務態度・意欲）／Ⓑ **[業績考課（成績考課）](https://doboku-note.com/docs/pe-comprehensive-management-performance-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （目標達成度・活動）／Ⓒ **[能力考課](https://doboku-note.com/docs/pe-comprehensive-management-competency-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （難易度の高い仕事の達成度）。情意・業績は短期、能力はやや長期で評価するのが一般的です。
+**評価3指標** — Ⓐ **[情意考課](https://doboku-note.com/docs/pe-comprehensive-management-attitude-appraisal?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （勤務態度・意欲）／Ⓑ **[業績考課**（成績考課）**](https://doboku-note.com/docs/pe-comprehensive-management-performance-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （目標達成度・活動）／Ⓒ **[能力考課](https://doboku-note.com/docs/pe-comprehensive-management-competency-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** （難易度の高い仕事の達成度）。情意・業績は短期、能力はやや長期で評価するのが一般的です。
 
 **[人事考課の3原則](https://doboku-note.com/docs/pe-comprehensive-management-appraisal-three-principles?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 公平の原則・客観性の原則・透明性の原則。
 
 **[相対評価・絶対評価](https://doboku-note.com/docs/pe-comprehensive-management-relative-absolute-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 絶対評価は基準作成が困難で評価項目過多になりやすく、相対評価はグループ全体レベルに左右される。両者の調整が必要。
 
-**[MBO（目標管理制度）](https://doboku-note.com/docs/pe-comprehensive-management-mbo?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 期初に従業員に自ら目標設定させ、上司と相談で決定。マグレガーのY理論の実践版。経営戦略 → 部門方針 → 個人目標 へのカスケードが基本。
+**[MBO**（目標管理制度）**](https://doboku-note.com/docs/pe-comprehensive-management-mbo?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 期初に従業員に自ら目標設定させ、上司と相談で決定。マグレガーのY理論の実践版。経営戦略 → 部門方針 → 個人目標 へのカスケードが基本。
 
-**[多面評価（360度評価）](https://doboku-note.com/docs/pe-comprehensive-management-360-degree-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 上司・同僚・部下・本人など多方向からの評価。公正性向上の利点と、実施コスト・評価者負担増のトレードオフ。
+**[多面評価**（360度評価）**](https://doboku-note.com/docs/pe-comprehensive-management-360-degree-evaluation?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 上司・同僚・部下・本人など多方向からの評価。公正性向上の利点と、実施コスト・評価者負担増のトレードオフ。
 
 **[成果主義賃金](https://doboku-note.com/docs/pe-comprehensive-management-performance-based-pay?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 短期的成果への努力集中の利点がある一方、個人主義の蔓延・短期成果分野への興味偏重・長期教育の困難化が弊害。**MBOが根幹** となります。
 
@@ -405,7 +405,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ### 人的資源開発（10教育訓練手法）
 
-人材育成手法は **[OJT（職場内訓練）と OFF-JT（職場外訓練）](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の二項対立が基本です。
+人材育成手法は **[OJT**（職場内訓練）**と OFF-JT**（職場外訓練）**](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** の二項対立が基本です。
 
 - **OJT** — 実際の仕事を通じた計画的訓練。即効性があるが、知識の体系的取得は困難
 - **OFF-JT** — 集合教育・通信教育・社内外講習会。専門家から知識・情報を得られ、社員の一体感醸成にも有効
@@ -431,7 +431,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[QCサークル](https://doboku-note.com/docs/pe-comprehensive-management-qc-circle?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 第一線職場の小集団による継続的な品質管理・改善活動。**3基本理念** ：①人間能力発揮（自分のため）／②人間性尊重・生きがい職場（仲間のため）／③企業体質改善・発展（会社のため）。
 
-**TQM（Total Quality Management、総合品質管理）** — 企業活動全般の品質維持・向上のための考え方。製品だけでなく経営的課題も扱います。経営者・管理者は人材育成・職場活性化の観点からTQM活動を実践し、QCサークルへの全員参加を支援する必要があります。
+**TQM**（Total Quality Management、総合品質管理） — 企業活動全般の品質維持・向上のための考え方。製品だけでなく経営的課題も扱います。経営者・管理者は人材育成・職場活性化の観点からTQM活動を実践し、QCサークルへの全員参加を支援する必要があります。
 
 > **【出題例: [R5年度 Ⅰ-1-15](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management#1-15)】** 教育訓練の4技法（A〜D）と効果説明（ア〜エ）の組合せ問題。
 > → **正答5：A=イ、B=ウ、C=エ、D=ア の対応関係がすべて正しい。**
@@ -451,14 +451,14 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 関連リソース
 
-**doboku-note — 17 年分の過去問 + 650 キーワード解説（無料）**
+**doboku-note — 17 年分の過去問 + 650 キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management
 
 - **[人的資源管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)** — 関連キーワードの全体マップ
 - **択一式過去問** — [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R04](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management) ／ [R03](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)
-- **[記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**
+- **[記述式過去問 R04**（DX）**](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-human-resource-management)**
 
-**マガジン購入で割引（総監テキスト精読ガイド 5 管理セット）**
+**マガジン購入で割引**（総監テキスト精読ガイド 5 管理セット）
 
 - 人的資源管理（本書）＋ 安全管理 ＋ 経済性管理 ＋ 情報管理 ＋ 社会環境管理 = 単品合計 ¥2,500（¥500 × 5本）
 - セット価格 **¥1,980** （単品4本分の値段で5本・21% OFF）

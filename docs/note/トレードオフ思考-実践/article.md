@@ -62,24 +62,24 @@ noteStatus: draft
 
 ## 2. 答案サンプル 2 本 — どう書けば評価されるのか
 
-> **サンプルの位置づけ**: このサンプルは **「Ⅱ 施策」設問の 1 枚分（600 字）を対象としたフレーム**です。5 枚全体の三層構造（Ⅰ 管理対象と前提条件 → Ⅱ 施策 → Ⅲ 将来展望）の設計方法は、[記述式試験の解答戦略（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice)で詳解しています。論文全体の骨格を先に把握してからサンプルを読むと、「この1枚が5枚のどこに当たるか」が見えて理解が深まります。
+> **サンプルの位置づけ**: このサンプルは **「Ⅱ 施策」設問の 1 枚分**（600 字）**を対象としたフレーム**です。5 枚全体の三層構造（Ⅰ 管理対象と前提条件 → Ⅱ 施策 → Ⅲ 将来展望）の設計方法は、[記述式試験の解答戦略（doboku-note）](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice)で詳解しています。論文全体の骨格を先に把握してからサンプルを読むと、「この1枚が5枚のどこに当たるか」が見えて理解が深まります。
 
-ここまでの理論を「実際の答案でどう書くか」に翻訳します。過去問 2 年（[令和 2 年度 異常気象 BCP](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice)・[令和 6 年度 カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice)）を題材に、**4 段構造で 600 字 × 1 枚分の答案骨子** を示します。各サンプルに採点者視点の **添削コメント（◎ 高評価点 / × 減点リスク）** を付けています。
+ここまでの理論を「実際の答案でどう書くか」に翻訳します。過去問 2 年（[令和 2 年度 異常気象 BCP](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice)・[令和 6 年度 カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice)）を題材に、**4 段構造で 600 字 × 1 枚分の答案骨子** を示します。各サンプルに採点者視点の **添削コメント**（◎ 高評価点 / × 減点リスク） を付けています。
 
 ### 2.1 サンプル A: R02 異常気象 BCP（経済性管理 × 安全管理 + 第三：情報管理）
 
 **事業設定**: 製造業の生産工場における事業継続計画。豪雨災害により浸水リスクが顕在化。設備保護のための嵩上げ工事は工期 6 ヶ月・投資 1.5 億円が必要。
 
-**第 1 段（150 字）対立特定**
-本事業では、設備保護のための嵩上げ工事（[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) 結果は浸水確率 30 年 1 回・損害額 5 億円）と、工事中の生産停止 6 ヶ月による機会損失 8 億円が対立する。**安全管理（事業場保護）と経済性管理（短期収益）の典型的トレードオフ** であり、ALARP 領域で最適解を探索する。
+**第 1 段**（150 字）**対立特定**
+本事業では、設備保護のための嵩上げ工事（[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) 結果は浸水確率 30 年 1 回・損害額 5 億円）と、工事中の生産停止 6 ヶ月による機会損失 8 億円が対立する。**安全管理**（事業場保護）**と経済性管理**（短期収益）**の典型的トレードオフ** であり、ALARP 領域で最適解を探索する。
 
-**第 2 段（200 字）第三の管理（情報管理）の活用**
+**第 2 段**（200 字）**第三の管理**（情報管理）**の活用**
 第三の視点として **情報管理を持ち込む**。具体施策として、(1) 過去 30 年の気象データと生産設備配置を組み合わせた **浸水シミュレーション** を実施し、被害が集中する重要設備 3 ラインを特定。(2) 当該 3 ラインのみを優先的に嵩上げする **段階的実施**（Phase 1: 工期 2 ヶ月・投資 6,000 万円）に切り替え。(3) IoT センサーで地下水位と降雨量を **リアルタイムモニタリング** し、稼働継続判断を自動化する。
 
-**第 3 段（150 字）施策の効果と副次効果**
+**第 3 段**（150 字）**施策の効果と副次効果**
 この施策により、初年度投資を 1.5 億円 → 6,000 万円に圧縮しつつ、浸水損害の 80% を軽減できる見込み。副次効果として、IoT データは **品質管理**（製造プロセスの環境制御）にも転用可能で、人的資源管理の観点からも、現場作業員の災害判断負荷が軽減される。
 
-**第 4 段（100 字）残留リスクと継続改善**
+**第 4 段**（100 字）**残留リスクと継続改善**
 残留リスクとして、**シミュレーション精度の限界**（過去データに含まれない極端事象）が残る。これに対しては、年 1 回の事業継続計画見直し（[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) 訓練）と、シミュレーションモデルの定期更新で対応する。
 
 **添削コメント**:
@@ -92,16 +92,16 @@ noteStatus: draft
 
 **事業設定**: 建設会社における 2050 年カーボンニュートラル対応。重機の電動化・水素化を進める必要があるが、現場作業員の操作習熟・整備技能の刷新が課題。
 
-**第 1 段（150 字）対立特定**
+**第 1 段**（150 字）**対立特定**
 本事業では、[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) のための電動・水素重機への転換（社会環境管理：CO2 削減 60%）と、初期投資 5 億円・新型重機の燃費／メンテコスト未確定（経済性管理）が対立する。**LCA と LCC の両軸で評価し、移行期の経済性悪化をどう吸収するかが論点**。
 
-**第 2 段（200 字）第三の管理（人的資源管理）の活用**
-第三の視点として **人的資源管理を持ち込む**。具体施策として、(1) **環境教育とグリーンスキル研修** を全現場作業員（300 名）に実施。電動／水素重機の特性を理解した作業員自身が、燃費最適化と稼働率改善を主導できる体制を構築。(2) ESG 視点の意思決定権限を **現場リーダー（30 名）** に委譲し、現場ごとの最適化判断を可能にする。(3) [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-consensus-instruments?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) として、労使協議会で移行スケジュールと評価制度を共有し、不安を低減する。
+**第 2 段**（200 字）**第三の管理**（人的資源管理）**の活用**
+第三の視点として **人的資源管理を持ち込む**。具体施策として、(1) **環境教育とグリーンスキル研修** を全現場作業員（300 名）に実施。電動／水素重機の特性を理解した作業員自身が、燃費最適化と稼働率改善を主導できる体制を構築。(2) ESG 視点の意思決定権限を **現場リーダー**（30 名） に委譲し、現場ごとの最適化判断を可能にする。(3) [合意形成](https://doboku-note.com/docs/pe-comprehensive-management-consensus-instruments?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) として、労使協議会で移行スケジュールと評価制度を共有し、不安を低減する。
 
-**第 3 段（150 字）施策の効果と副次効果**
+**第 3 段**（150 字）**施策の効果と副次効果**
 教育投資 1,500 万円で作業員の主体的な省エネ運用を引き出し、電動化導入後 3 年で年間燃費コスト 20% 削減を見込む。LCC 試算では従来重機との総コストが 8 年で逆転。副次効果として、グリーンスキル人材の採用差別化（**社会環境 × 人的資源**）が進み、若手応募が増加する見込み。
 
-**第 4 段（100 字）残留リスクと継続改善**
+**第 4 段**（100 字）**残留リスクと継続改善**
 残留リスクとして、**水素供給インフラの整備遅延**（社外要因）がある。これに対しては、電動・ハイブリッドを並行導入する **段階的実施** と、業界団体経由のロビーイングで対応する。
 
 **添削コメント**:
@@ -148,7 +148,7 @@ noteStatus: draft
     - 第 3 段（150 字）: 施策の効果と並行で発生する副次効果
     - 第 4 段（100 字）: 残留リスクと継続的改善
 3. §2 の答案サンプル 2 本と自分の答案を見比べ、削れる冗長表現・足りない数値を確認
-4. 書いた 1 枚が **論文全体の三層構造（Ⅰ 管理対象 → Ⅱ 施策 → Ⅲ 将来展望）のどの層に相当する設問か** を確認し、残りの層をどう書くかの骨子を余白にメモする（三層構造の詳細は [記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) 参照）
+4. 書いた 1 枚が **論文全体の三層構造**（Ⅰ 管理対象 → Ⅱ 施策 → Ⅲ 将来展望）**のどの層に相当する設問か** を確認し、残りの層をどう書くかの骨子を余白にメモする（三層構造の詳細は [記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice) 参照）
 
 **セルフチェック**:
 - [ ] ALARP / LCA / LCC / 段階的実施 / 合意形成 / リスクベース のいずれかを **名指しで** 答案に書いたか
@@ -168,9 +168,9 @@ noteStatus: draft
 - [ ] 2 〜 3 枚目で **少なくとも 2 組のトレードオフ** を異なる管理間で特定したか
 - [ ] 各トレードオフで **第三の管理 + 解決フレーム名** を明示したか
 - [ ] 4 〜 5 枚目で **残留リスク・継続改善・PDCA** に触れたか
-- [ ] 全体を通じて **同一管理内（QCD）に閉じたトレードオフ** を書いていないか
+- [ ] 全体を通じて **同一管理内**（QCD）**に閉じたトレードオフ** を書いていないか
 - [ ] 専門用語（ALARP、LCA、LCC、リスクマトリクス等）を **誤用していない** か
-- [ ] **三層構造（Ⅰ→Ⅱ→Ⅲ）の因果がつながっているか** — Ⅲ の課題・リスクは Ⅱ を進めた結果として自然に出てくるか（Ⅱ と無関係な新技術の突然の持ち出し・スケールの急拡大をしていないか）
+- [ ] **三層構造**（Ⅰ→Ⅱ→Ⅲ）**の因果がつながっているか** — Ⅲ の課題・リスクは Ⅱ を進めた結果として自然に出てくるか（Ⅱ と無関係な新技術の突然の持ち出し・スケールの急拡大をしていないか）
 - [ ] **Ⅰ の前提条件が Ⅱ の施策と直結しているか** — Ⅰ で書いていない課題を Ⅱ で突然解決していないか
 - [ ] **Ⅲ の最大リスクを 1 つに絞れているか** — あれもこれもと並列列挙していないか
 
@@ -185,7 +185,7 @@ noteStatus: draft
 
 ## 関連リソース
 
-**doboku-note — 17 年分の過去問 + 650 キーワード解説（無料）**
+**doboku-note — 17 年分の過去問 + 650 キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice
 
 - 17 年分の択一式過去問（全問解答解説付き）
@@ -193,6 +193,6 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 - 5 管理間トレードオフの解決フレーム（[詳細記事](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking-practice)）
 - スマホ対応（通勤中の学習に最適）
 
-**マガジン購入で割引（総監記述式 完全対策セット）**
+**マガジン購入で割引**（総監記述式 完全対策セット）
 - 理論編 ¥1,200 + 本書（実践編）+ 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 + 総監記述式 論文骨子テンプレート（A-1）¥1,980 = 単品合計 ¥4,160
 - セット価格 **¥3,480**（16% OFF）

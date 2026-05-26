@@ -44,11 +44,11 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 [記述統計](https://doboku-note.com/docs/pe-comprehensive-management-descriptive-statistics?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)は収集済みデータの特徴を把握する手法です。代表値には平均値・中央値・最頻値・四分位数があり、それぞれ適した場面が異なります。
 
-**平均値（算術平均）** — 全値を足してデータ数で割った値。すべての値が反映される一方、外れ値の影響を大きく受けます。試験の平均点や月収の集計など「単純な代表値が欲しい」場面で使います。
+**平均値**（算術平均） — 全値を足してデータ数で割った値。すべての値が反映される一方、外れ値の影響を大きく受けます。試験の平均点や月収の集計など「単純な代表値が欲しい」場面で使います。
 
-**中央値（メディアン）** — データを小さい順に並べたときの中央の値。外れ値に強い頑健な統計量です。年収分布など偏りが大きいデータで信頼できる代表値になります。
+**中央値**（メディアン） — データを小さい順に並べたときの中央の値。外れ値に強い頑健な統計量です。年収分布など偏りが大きいデータで信頼できる代表値になります。
 
-**最頻値（モード）** — 最も個数が多い値。カテゴリデータ（血液型・都市名など）にも使えます。データ数が少ない場合は信頼性が下がります。
+**最頻値**（モード） — 最も個数が多い値。カテゴリデータ（血液型・都市名など）にも使えます。データ数が少ない場合は信頼性が下がります。
 
 **四分位数** — データを4等分した境界値。第1四分位数（下位25%）・第2四分位数（中央値）・第3四分位数（上位25%）で分布の広がりを把握します。
 
@@ -60,7 +60,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ![3種類の平均 — 算術・幾何・調和の使い分け](./img/figure-4-three-averages.png)
 
-**数値データの4尺度（頻出）**
+**数値データの4尺度**（頻出）
 
 名義尺度・順序尺度・間隔尺度・比例尺度の4分類と、適切な統計量の対応関係は択一の定番論点です。
 
@@ -83,7 +83,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **仮説検定** — 母集団に関する仮説が統計的に成り立つかを判断する手法。帰無仮説（「差がない」という否定的仮説）を設定し、それを棄却できるかを検討します。
 
-> **【出題例: [R5年度 Ⅰ-1-21](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-21)】** 5日間の来客数データから母平均μの信頼区間を求める。4.「信頼係数95%の信頼区間は信頼係数99%の信頼区間より広い」→ **正答4：逆。信頼係数が高いほど区間は広くなる（95%＜99%）。**
+> **【出題例: [R5年度 Ⅰ-1-21](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-21)】** 5日間の来客数データから母平均μの信頼区間を求める。4.「信頼係数95%の信頼区間は信頼係数99%の信頼区間より広い」→ **正答4：逆。信頼係数が高いほど区間は広くなる**（95%＜99%）**。**
 
 > **【出題例: [R3年度 Ⅰ-1-21](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-21)】** 統計分析の記述で最も不適切なもの。2.「相関分析は説明変数が被説明変数に与える効果を分析する」→ **正答2：相関分析は変数間の関連の強さを分析する手法であり、因果関係を仮定しない。因果関係の分析は回帰分析。**
 
@@ -113,7 +113,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **[機械学習](https://doboku-note.com/docs/pe-comprehensive-management-machine-learning?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — AIがデータから反復的に学習し、自ら相関関係やパターンを発見する技術。分類・回帰・クラスタリング等の手法が含まれます。混同行列（正解率・適合率・再現率・F値）は機械学習モデルの評価指標として択一に出題されています。
 
-> **【出題例: [R3年度 Ⅰ-1-17](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-17)】** 混同行列（4,500データ：真陽性30・偽陰性20・偽陽性70・真陰性4,380）に20個の偽陽性データを追加したとき、どの指標が変化するか。→ **正答1：正解率・適合率・F値は低下するが、再現率は変化しない（再現率の分母＝実際の陽性数50は変わらない）。**
+> **【出題例: [R3年度 Ⅰ-1-17](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-17)】** 混同行列（4,500データ：真陽性30・偽陰性20・偽陽性70・真陰性4,380）に20個の偽陽性データを追加したとき、どの指標が変化するか。→ **正答1：正解率・適合率・F値は低下するが、再現率は変化しない**（再現率の分母＝実際の陽性数50は変わらない）**。**
 
 > **【出題例: [R6年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** データ解析・データマイニングの技法に関する記述で最も不適切なもの。→ **主成分分析・ロジスティック回帰・クラスター分析の定義の区別が問われる。技法名と用途の対応を正確に覚える。**
 
@@ -147,16 +147,16 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 **[暗黙知](https://doboku-note.com/docs/pe-comprehensive-management-tacit-knowledge?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 言語化や形式化が難しい、個人の経験・直感・技能・人脈など。ベテラン職人の技術が典型例。
 
-**SECIモデル（4つの知識変換プロセス）**
+**SECIモデル**（4つの知識変換プロセス）
 
-- **共同化（Socialization）** — 暗黙知→暗黙知。体験・観察・模倣による共有（OJT・現場巡回）
-- **表出化（Externalization）** — 暗黙知→形式知。言語化・概念化（マニュアル化・ナレッジベース構築）
-- **連結化（Combination）** — 形式知→形式知。体系化・統合（データベース整備・報告書まとめ）
-- **内面化（Internalization）** — 形式知→暗黙知。実践による体得（マニュアルを読んで実際に試す）
+- **共同化**（Socialization） — 暗黙知→暗黙知。体験・観察・模倣による共有（OJT・現場巡回）
+- **表出化**（Externalization） — 暗黙知→形式知。言語化・概念化（マニュアル化・ナレッジベース構築）
+- **連結化**（Combination） — 形式知→形式知。体系化・統合（データベース整備・報告書まとめ）
+- **内面化**（Internalization） — 形式知→暗黙知。実践による体得（マニュアルを読んで実際に試す）
 
 ![SECIモデル4象限 — 暗黙知と形式知の相互変換プロセス](./img/figure-2-seci-model.png)
 
-> **【出題例: [R5年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** ナレッジマネジメントで最も適切なもの。5.「組織的に形式知化された知識を自分自身のものとして採り入れることで、形式知を暗黙知にすることができる」→ **正答5：SECIモデルの内面化（I）の正確な説明。形式知を実践で暗黙知に変換する。**
+> **【出題例: [R5年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** ナレッジマネジメントで最も適切なもの。5.「組織的に形式知化された知識を自分自身のものとして採り入れることで、形式知を暗黙知にすることができる」→ **正答5：SECIモデルの内面化**（I）**の正確な説明。形式知を実践で暗黙知に変換する。**
 
 択一では「暗黙知はすべて形式知にすべき」「連結化は非効率」といった誤った記述が選択肢に出ます。SECIモデルは4プロセスが連続する螺旋構造であり、どのプロセスも不可欠です。
 
@@ -199,7 +199,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 5. **審議検討等情報** — 意思決定の中立性を不当に害し、国民の混乱を招くおそれのある情報
 6. **事務事業情報** — 行政機関等の事務・事業の適正な遂行に支障を及ぼす情報
 
-**適時開示（タイムリー・ディスクロージャー）** — 上場企業が株価に影響する重要情報を、正確性に配慮しつつ速報性を重視して公表する義務。証券取引所によって課せられており、決定事実・発生事実・業績修正等が対象です。
+**適時開示**（タイムリー・ディスクロージャー） — 上場企業が株価に影響する重要情報を、正確性に配慮しつつ速報性を重視して公表する義務。証券取引所によって課せられており、決定事実・発生事実・業績修正等が対象です。
 
 ### 社会的受容（パブリック・アクセプタンス）
 
@@ -241,7 +241,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 [産業財産権](https://doboku-note.com/docs/pe-comprehensive-management-industrial-property-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（特許法・実用新案法・意匠法・商標法の4法）と著作権法を中心に、知的財産基本法が全体を統括する体系です。
 
-**存続期間（頻出まとめ）**
+**存続期間**（頻出まとめ）
 
 - **[特許権](https://doboku-note.com/docs/pe-comprehensive-management-patent-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から20年（医薬品等は最大5年延長可）
 - **[実用新案権](https://doboku-note.com/docs/pe-comprehensive-management-utility-model-rights?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 出願日から10年（無審査主義）
@@ -253,7 +253,7 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 ![知的財産権の存続期間比較 — 特許・実用新案・意匠・商標・著作権](./img/figure-3-ip-rights-duration.png)
 
-> **【出題例: [R6年度 Ⅰ-1-22](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-22)】** 2023年4月1日出願の産業財産権4種の存続期間の組合せ。→ **正答3：特許20年・実用新案10年・意匠25年・商標10年（更新可）。「特許10年」「商標5年」は典型的な誤り選択肢。**
+> **【出題例: [R6年度 Ⅰ-1-22](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-22)】** 2023年4月1日出願の産業財産権4種の存続期間の組合せ。→ **正答3：特許20年・実用新案10年・意匠25年・商標10年**（更新可）**。「特許10年」「商標5年」は典型的な誤り選択肢。**
 
 知的財産権の体系は「知的創作物（特許・実用新案・意匠・著作物等）」と「営業上の標識（商標・商号等）」の2軸で構成されています。
 
@@ -289,21 +289,21 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 [著作権](https://doboku-note.com/docs/pe-comprehensive-management-copyright?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)は産業財産権と異なり、**創作と同時に自動的に発生**します（登録不要）。保護期間は原則として著作者の死後70年です。
 
-**著作者人格権（譲渡不可・一身専属）**
+**著作者人格権**（譲渡不可・一身専属）
 
 1. **公表権** — 未公表の著作物をいつ・どのように公表するか決める権利
 2. **氏名表示権** — 実名・変名・無名表示を選択する権利
 3. **同一性保持権** — 著作物の内容・題号を無断で改変されない権利
 
-**著作権（財産権）（譲渡可能）** — 複製権・上演権・演奏権・上映権・公衆送信権・口述権・展示権・頒布権・譲渡権・貸与権・翻訳権・翻案権の12種類。
+**著作権**（財産権）（譲渡可能） — 複製権・上演権・演奏権・上映権・公衆送信権・口述権・展示権・頒布権・譲渡権・貸与権・翻訳権・翻案権の12種類。
 
 著作者人格権は**譲渡不可**、著作財産権は**譲渡可能**という区別が択一の最頻出引っかけです。
 
 **制限規定** — 私的使用のための複製（[著作権法第30条](https://laws.e-gov.go.jp/law/345AC0000000048#Mp-At_30)）は個人・家庭内での複製に限り許可されます。企業内教育での複製配付は「私的使用」に該当せず許諾が必要です。近年は[第30条の4](https://laws.e-gov.go.jp/law/345AC0000000048#Mp-At_30_4)（情報解析等の享受を目的としないAI学習目的の利用）が出題されています。
 
-> **【出題例: [R4年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** 知的財産権に関して最も不適切な事例はどれか。→ **正答3：「従業員教育のため市販書籍を許諾なくコピーして配付」は著作権法の私的使用（第30条）に該当せず不適切。個人のバックアップコピー・美術品の原作品展示・保護期間満了著作物の掲載は問題なし。**
+> **【出題例: [R4年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** 知的財産権に関して最も不適切な事例はどれか。→ **正答3：「従業員教育のため市販書籍を許諾なくコピーして配付」は著作権法の私的使用**（第30条）**に該当せず不適切。個人のバックアップコピー・美術品の原作品展示・保護期間満了著作物の掲載は問題なし。**
 
-> **【出題例: [R7年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** 肖像権で最も不適切なもの。1.「肖像権は法律上明文化された権利である」→ **正答1：肖像権は法律に明文規定がなく、判例法（裁判例の積み重ね）で確立された権利。著作権（著作権法に明文化）との違いに注意。**
+> **【出題例: [R7年度 Ⅰ-1-18](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-18)】** 肖像権で最も不適切なもの。1.「肖像権は法律上明文化された権利である」→ **正答1：肖像権は法律に明文規定がなく、判例法**（裁判例の積み重ね）**で確立された権利。著作権**（著作権法に明文化）**との違いに注意。**
 
 ---
 
@@ -331,13 +331,13 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 情報セキュリティの基本は**CIAの3要素**です。
 
-- **[機密性（Confidentiality）](https://doboku-note.com/docs/pe-comprehensive-management-confidentiality?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 許可された者のみが情報にアクセスできる状態
-- **[完全性（Integrity）](https://doboku-note.com/docs/pe-comprehensive-management-integrity-security?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 情報が正確かつ完全であり、不正に改ざんされていない状態
-- **可用性（Availability）** — 許可された者が必要な時に情報にアクセスできる状態
+- **[機密性**（Confidentiality）**](https://doboku-note.com/docs/pe-comprehensive-management-confidentiality?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 許可された者のみが情報にアクセスできる状態
+- **[完全性**（Integrity）**](https://doboku-note.com/docs/pe-comprehensive-management-integrity-security?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 情報が正確かつ完全であり、不正に改ざんされていない状態
+- **可用性**（Availability） — 許可された者が必要な時に情報にアクセスできる状態
 
-[ISMS（情報セキュリティマネジメントシステム）](https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) — ISO/IEC 27001に準拠したマネジメントシステム。情報セキュリティ方針は**トップマネジメント（経営者）が確立・発行**する点が択一の引っかけです（実務担当者ではない）。
+[ISMS（情報セキュリティマネジメントシステム）](https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) — ISO/IEC 27001に準拠したマネジメントシステム。情報セキュリティ方針は**トップマネジメント**（経営者）**が確立・発行**する点が択一の引っかけです（実務担当者ではない）。
 
-**[ISO/IEC 15408（コモンクライテリア）](https://doboku-note.com/docs/pe-comprehensive-management-common-criteria?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — セキュリティ製品・システムの**技術的機能**を評価する国際規格。組織の運用・管理面はISMSの範疇であり、ISO/IEC 15408の評価対象外です。CCRA制度により加盟国間で認証を相互承認できます。
+**[ISO/IEC 15408**（コモンクライテリア）**](https://doboku-note.com/docs/pe-comprehensive-management-common-criteria?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — セキュリティ製品・システムの**技術的機能**を評価する国際規格。組織の運用・管理面はISMSの範疇であり、ISO/IEC 15408の評価対象外です。CCRA制度により加盟国間で認証を相互承認できます。
 
 **[プライバシーマーク制度](https://doboku-note.com/docs/pe-comprehensive-management-privacy-mark?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)** — 個人情報保護マネジメントシステム（JIS Q 15001）に準拠した評価制度。ISMSとは別制度です。
 
@@ -345,9 +345,9 @@ RFM分析 — Recency（最終購買日）・Frequency（購買頻度）・Monet
 
 > **【出題例: [R5年度 Ⅰ-1-19](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-19)】** 情報セキュリティ認証制度の規格番号の組合せ。→ **正答①：ISMS適合性評価＝JIS Q 27001・プライバシーマーク＝JIS Q 15001・ITセキュリティ評価＝ISO/IEC 15408。**
 
-> **【出題例: [R6年度 Ⅰ-1-19](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-19)】** JIS Q 27001に基づく情報セキュリティ方針で最も適切なもの。→ **正答5：「必要に応じて利害関係者が入手できるようにする」。情報セキュリティ方針はトップマネジメントが確立・発行する（「実務管理者が確立」は誤り）。**
+> **【出題例: [R6年度 Ⅰ-1-19](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-19)】** JIS Q 27001に基づく情報セキュリティ方針で最も適切なもの。→ **正答5：「必要に応じて利害関係者が入手できるようにする」。情報セキュリティ方針はトップマネジメントが確立・発行する**（「実務管理者が確立」は誤り）**。**
 
-> **【出題例: [R7年度 Ⅰ-1-20](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-20)】** 情報セキュリティの認証制度で最も不適切なもの。4.「ISO/IEC 15408は組織面での運用・管理が適切に実装されていることを評価対象とする」→ **正答4：ISO/IEC 15408は製品の技術的機能のみが評価対象。組織の運用・管理面はISMS（27001）の範疇。**
+> **【出題例: [R7年度 Ⅰ-1-20](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management#1-20)】** 情報セキュリティの認証制度で最も不適切なもの。4.「ISO/IEC 15408は組織面での運用・管理が適切に実装されていることを評価対象とする」→ **正答4：ISO/IEC 15408は製品の技術的機能のみが評価対象。組織の運用・管理面はISMS**（27001）**の範疇。**
 
 ### ゼロトラストセキュリティ
 
@@ -377,13 +377,13 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 関連リソース
 
-**doboku-note — 17年分の過去問 + 約700キーワード解説（無料）**
+**doboku-note — 17年分の過去問 + 約700キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-information-management
 
 - [情報管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（関連キーワードの全体マップ）
 - 択一式過去問: [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) / [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management) / [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)（情報管理の問題を確認）
 - [記述式過去問 R04（DX）](https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-information-management)
 
-**マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
+**マガジン購入で割引**（総監テキスト精読ガイド 5管理セット）
 - 情報管理（本書）＋ 安全管理 ＋ 経済性管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥2,500（¥500 × 5本）
 - セット価格 **¥1,980**（単品4本分の値段で5本・21% OFF）

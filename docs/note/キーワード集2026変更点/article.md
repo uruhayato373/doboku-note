@@ -43,7 +43,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ### 経済性管理
 
-- **[サプライチェーンマネジメント（SCM）](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management)** や **[BCP・BCM](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan)** が、事業企画の中でより明確に位置づけられました。近年の自然災害やパンデミックを踏まえ、事業継続の観点が経済性管理にも統合されています
+- **[サプライチェーンマネジメント**（SCM）**](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management)** や **[BCP・BCM](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan)** が、事業企画の中でより明確に位置づけられました。近年の自然災害やパンデミックを踏まえ、事業継続の観点が経済性管理にも統合されています
 - **[ESG・環境評価](https://doboku-note.com/docs/pe-comprehensive-management-esg-environmental-assessment)** が事業企画セクションに追加されました。投資判断におけるESGの視点が総監の経済性管理にも反映されています
 - **[ライフサイクルマネジメント](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-management)** の記載が拡充されています。設備のライフサイクル全体を見据えた管理の重要性が強調されています
 
@@ -80,7 +80,7 @@ https://note.com/dobokunote/n/n9f48dd4d895a
 
 ### 安全管理
 
-- **[Safety2.0（協調安全）](https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0)** が安全の概念に追加されました。IoT時代の安全の在り方として、人と機械の協調による安全確保の概念が明記されています
+- **[Safety2.0**（協調安全）**](https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0)** が安全の概念に追加されました。IoT時代の安全の在り方として、人と機械の協調による安全確保の概念が明記されています
 - **南海トラフ地震臨時情報** 関連のガイドラインが危機管理の文脈でより重要になっています
 
 変更点をふまえて安全管理の全体を体系的に整理したい方はこちら（有料マガジン収録）
@@ -89,8 +89,8 @@ https://note.com/dobokunote/n/nb68184641be8
 
 ### 社会環境管理
 
-- **[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral)**・**[GX（グリーントランスフォーメーション）](https://doboku-note.com/docs/pe-comprehensive-management-green-transformation)** の記載が充実しています。2050年[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral)宣言以降の政策動向が反映されています
-- **[サーキュラーエコノミー（循環経済）](https://doboku-note.com/docs/pe-comprehensive-management-circular-economy)** が、従来の3R（Reduce, Reuse, Recycle）の発展形として位置づけられました
+- **[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral)**・**[GX**（グリーントランスフォーメーション）**](https://doboku-note.com/docs/pe-comprehensive-management-green-transformation)** の記載が充実しています。2050年[カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral)宣言以降の政策動向が反映されています
+- **[サーキュラーエコノミー**（循環経済）**](https://doboku-note.com/docs/pe-comprehensive-management-circular-economy)** が、従来の3R（Reduce, Reuse, Recycle）の発展形として位置づけられました
 
 変更点をふまえて社会環境管理の全体を体系的に整理したい方はこちら（有料マガジン収録）
 
@@ -128,12 +128,12 @@ https://note.com/dobokunote/n/n4424bc5ce1c9
 
 ![新キーワード 学び直し優先度マトリクス](img/figure-2-priority-matrix.png)
 
-**最優先（択一式で即出題される可能性）:**
+**最優先**（択一式で即出題される可能性）**:**
 1. [生成AI](https://doboku-note.com/docs/pe-comprehensive-management-generative-ai)・LLM -- 定義・活用場面・リスク（著作権、ハルシネーション、情報漏洩）
 2. [ゼロトラスト](https://doboku-note.com/docs/pe-comprehensive-management-zero-trust) -- 境界型セキュリティとの違い、主要技術（多要素認証、マイクロセグメンテーション）
 3. 人的資本経営 -- 定義・開示義務・ISO 30414との関連
 
-**次点（今後数年で出題される可能性）:**
+**次点**（今後数年で出題される可能性）**:**
 4. [Safety2.0](https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0) -- Safety1.0との違い、協調安全の概念
 5. [リスキリング](https://doboku-note.com/docs/pe-comprehensive-management-reskilling) -- 定義・DXとの関連・企業の取組事例
 6. [カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral)・[GX](https://doboku-note.com/docs/pe-comprehensive-management-green-transformation) -- 2050年目標・GX推進法・排出量取引
@@ -155,7 +155,7 @@ https://note.com/dobokunote/n/n4424bc5ce1c9
 
 2026版の変更点を把握したら、次のステップは各管理分野の全体を体系的に固めることです。
 
-**技術士 総監｜5管理 テキスト精読ガイド（¥1,980）**
+**技術士 総監｜5管理 テキスト精読ガイド**（¥1,980）
 
 5管理（経済性管理・人的資源管理・情報管理・安全管理・社会環境管理）を択一・記述に直結する形でまとめた全5本のシリーズです。各記事は doboku-note の解説ページへのリンク付きで、キーワードごとの詳細確認がすぐできます。
 
@@ -170,7 +170,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 関連リソース
 
-**doboku-note — キーワード集 2026 全文（Web 版） + 650 キーワード解説（無料）**
+**doboku-note — キーワード集 2026 全文**（Web 版）** + 650 キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management
 
 - キーワード集 2026 を Web 上で閲覧・全文検索可能

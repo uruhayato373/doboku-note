@@ -54,13 +54,13 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 択一では「4つの文化のどれか」という定義照合が頻出です。特に「**報告する文化**（収集部門と処分部門の分離が前提）」は引っかけポイントになります。
 
-**製造物責任法（PL法）**
+**製造物責任法**（PL法）
 
 [製造物責任法](https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の最大の特徴は「過失の証明が不要」という無過失責任です。
 
 被害者は①製造物に欠陥が存在したこと、②損害が発生したこと、③欠陥と損害の因果関係、この3点を証明するだけで製造業者等の責任を問えます。
 
-**欠陥の3分類（頻出）**
+**欠陥の3分類**（頻出）
 
 - **設計上の欠陥** — 合理的な設計を採用しなかった結果、製造物全体が安全性を欠いた場合
 - **製造上の欠陥** — 設計仕様を逸脱して製造・加工されたことで安全性を損なった場合
@@ -68,7 +68,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 **製造物の範囲** — 「製造または加工された動産」。不動産は対象外。ソフトウェア単体も対象外ですが、ソフトウェアを用いる機械全体として損害が生じた場合は対象になります。
 
-**免責事由（開発危険の抗弁）** — 引き渡し時点の科学・技術の知見では欠陥を認識できなかった場合は免責されます。
+**免責事由**（開発危険の抗弁） — 引き渡し時点の科学・技術の知見では欠陥を認識できなかった場合は免責されます。
 
 **時効** — 被害者またはその法定代理人が損害と賠償義務者を知った時から**3年**、製造業者が製造物を引き渡した時から**10年**で消滅します。ただし身体に蓄積する物質や潜伏期間のある損害は損害が生じた時から起算されます。
 
@@ -170,7 +170,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 - **リスク評価** — [リスク分析](https://doboku-note.com/docs/pe-comprehensive-management-risk-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の結果を[リスク基準](https://doboku-note.com/docs/pe-comprehensive-management-risk-criteria?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)と比較するプロセス
 - **モニタリング** — 期待されたパフォーマンスレベルとの差異を特定するために状態を継続的に点検すること
 
-**実施内容（厚生労働省指針）**
+**実施内容**（厚生労働省指針）
 
 A. 危険性または有害性の特定  
 B. 負傷・疾病の重篤度および発生可能性の見積り  
@@ -179,11 +179,11 @@ D. 優先度に対応したリスク低減措置の実施
 
 **実施時期** — ①建設物の設置・変更・解体時、②設備の新規採用・変更時、③原材料の新規採用・変更時、④作業方法・手順の新規採用・変更時、⑤労働災害発生で過去調査に問題があった場合、⑥前回調査から一定期間が経過した場合。
 
-**リスク低減措置の優先順位（最重要）**
+**リスク低減措置の優先順位**（最重要）
 
 厚生労働省の「危険性又は有害性等の調査等に関する指針」では、リスク低減措置を以下の優先順位で検討することが定められています。
 
-1. **本質的対策（排除・代替）** — 設計や計画の段階から危険性を除去する措置（最優先）
+1. **本質的対策**（排除・代替） — 設計や計画の段階から危険性を除去する措置（最優先）
 2. **工学的対策** — ガード・安全装置・インターロック等の機械的・電気的対策
 3. **管理的対策** — マニュアルの整備・教育訓練・作業手順の標準化
 4. **個人用保護具の使用** — 上記で残ったリスクへの最後の手段
@@ -192,7 +192,7 @@ D. 優先度に対応したリスク低減措置の実施
 
 ![リスク低減措置の優先順位（厚生労働省指針）](img/figure-1-risk-reduction-pyramid.png)
 
-> **【出題例: [R5年度 Ⅰ-1-28](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-28)】** [リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)指針で最も不適切なものはどれか。5.「リスク低減措置の優先順位は ア）個人用保護具の使用 → イ）管理的対策 → ウ）本質的対策 の順」→ **正答5：優先順位は逆。本質的対策（排除・代替）を最優先し、個人用保護具は最後の手段。**
+> **【出題例: [R5年度 Ⅰ-1-28](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-28)】** [リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)指針で最も不適切なものはどれか。5.「リスク低減措置の優先順位は ア）個人用保護具の使用 → イ）管理的対策 → ウ）本質的対策 の順」→ **正答5：優先順位は逆。本質的対策**（排除・代替）**を最優先し、個人用保護具は最後の手段。**
 
 **リスク対応**
 
@@ -204,10 +204,10 @@ D. 優先度に対応したリスク低減措置の実施
 
 JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
-**A. リスク低減（軽減）** — 発生確率を下げる、影響度（損害額）を少なくする、またはその両方をとる。  
-**B. リスク移転（転嫁）** — 専門家に委託する、または保険をかける。専門家はリスク値を低くする術を持つ。  
+**A. リスク低減**（軽減） — 発生確率を下げる、影響度（損害額）を少なくする、またはその両方をとる。  
+**B. リスク移転**（転嫁） — 専門家に委託する、または保険をかける。専門家はリスク値を低くする術を持つ。  
 **C. リスク回避** — リスク値が高く具体的な低減対策がない場合に、手法変更・事業断念等で回避する。  
-**D. リスク保有（受容）** — 積極的対策を実施する方が高くつく場合等に、リスク自体を受容してモニタリングを継続しながら対策を先延ばしする。
+**D. リスク保有**（受容） — 積極的対策を実施する方が高くつく場合等に、リスク自体を受容してモニタリングを継続しながら対策を先延ばしする。
 
 なお、[リスク対応](https://doboku-note.com/docs/pe-comprehensive-management-risk-treatment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は「対象リスクを小さくするが、別のリスクを派生させることがある」とも示されており、リスクをゼロにする**絶対安全**にはできません。
 
@@ -259,7 +259,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 リスク（＝発生確率×影響の大きさ）値で故障の重要度を一元的に評価し、リスクの高低によって作業の順位付けをします。
 
-**RBI（リスクベース検査）**は、設備・システムを要素レベルまで分類して不具合分析を行い、最適な検査手法や時期を検討して計画する手法です。
+**RBI**（リスクベース検査）は、設備・システムを要素レベルまで分類して不具合分析を行い、最適な検査手法や時期を検討して計画する手法です。
 
 ---
 
@@ -273,17 +273,17 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 [労安法第3条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_3)では「事業者は快適な職場環境の実現と安全衛生水準の向上に努める義務」を規定しており、択一の引っかけとして「主たる義務者は職場の長」という選択肢が頻出します。
 
-> **【出題例: [R7年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** 企業経営と安全に関する記述で最も不適切なものはどれか。4.「[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の主たる義務者は、職場の長など現場の管理監督者である」→ **正答4：主たる義務者は「事業者」（経営者・法人）。管理監督者は実施役であり義務の主体ではない。**
+> **【出題例: [R7年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** 企業経営と安全に関する記述で最も不適切なものはどれか。4.「[労働安全衛生法](https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の主たる義務者は、職場の長など現場の管理監督者である」→ **正答4：主たる義務者は「事業者」**（経営者・法人）**。管理監督者は実施役であり義務の主体ではない。**
 
 **[安全衛生管理体制](https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)**
 
-- **総括安全衛生管理者（[第10条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_10)）** — 建設業・製造業等100人以上、その他業種300人以上の事業場ごとに選任
-- **安全管理者（[第11条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_11)）** — 常時50人以上の事業場ごとに選任（安全に係る技術的事項を管理）
-- **衛生管理者（[第12条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_12)）** — 常時50人以上の事業場ごとに選任（衛生に係る技術的事項を管理）
-- **産業医（[第13条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_13)）** — 常時50人以上の事業場ごとに選任
-- **安全委員会（[第17条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_17)）** — 建設業等50人以上の事業場に設置
-- **衛生委員会（[第18条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_18)）** — 常時50人以上の事業場に設置
-- **安全衛生委員会（[第19条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_19)）** — 安全委員会と衛生委員会の設置が必要なときは統合設置も可
+- **総括安全衛生管理者**（[第10条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_10)） — 建設業・製造業等100人以上、その他業種300人以上の事業場ごとに選任
+- **安全管理者**（[第11条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_11)） — 常時50人以上の事業場ごとに選任（安全に係る技術的事項を管理）
+- **衛生管理者**（[第12条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_12)） — 常時50人以上の事業場ごとに選任（衛生に係る技術的事項を管理）
+- **産業医**（[第13条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_13)） — 常時50人以上の事業場ごとに選任
+- **安全委員会**（[第17条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_17)） — 建設業等50人以上の事業場に設置
+- **衛生委員会**（[第18条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_18)） — 常時50人以上の事業場に設置
+- **安全衛生委員会**（[第19条](https://laws.e-gov.go.jp/law/347AC0000000057#Mp-At_19)） — 安全委員会と衛生委員会の設置が必要なときは統合設置も可
 
 **化学物質の[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （平成28年6月改正で義務化）
 
@@ -314,9 +314,9 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 ![メンタルヘルス 3段階予防 — 取組内容の対応](img/figure-10-mental-health-prevention.png)
 
-> **【出題例: [R6年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** [メンタルヘルス](https://doboku-note.com/docs/pe-comprehensive-management-mental-health?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)対策で最も不適切なものはどれか。3.「健康不全の早期発見・早期対処については、労働時間管理・人事労務管理・仕事の方法・評価制度などの改善が中心となる」→ **正答3：労働環境の改善は一次予防（未然防止）の内容。二次予防の中心ではない。**
+> **【出題例: [R6年度 Ⅰ-1-26](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-26)】** [メンタルヘルス](https://doboku-note.com/docs/pe-comprehensive-management-mental-health?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)対策で最も不適切なものはどれか。3.「健康不全の早期発見・早期対処については、労働時間管理・人事労務管理・仕事の方法・評価制度などの改善が中心となる」→ **正答3：労働環境の改善は一次予防**（未然防止）**の内容。二次予防の中心ではない。**
 
-**墜落制止用器具（平成30年改正）**
+**墜落制止用器具**（平成30年改正）
 
 「安全帯」が「**墜落制止用器具**」に改称されました。ハーネス型（一本つり）と胴ベルト型（一本つり）の2種類があります。
 
@@ -324,7 +324,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 高さ2m以上で作業床を設けることが困難な場所でフルハーネス型を使用する業務には、特別教育の受講が必要です。
 
-**OSHMS（労働安全衛生マネジメントシステム）**
+**OSHMS**（労働安全衛生マネジメントシステム）
 
 [OSHMS](https://doboku-note.com/docs/pe-comprehensive-management-oshms?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)はISO 45001に対応したPDCAサイクルによる継続的改善の仕組みです。
 
@@ -407,7 +407,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 **フェールセーフ化の4制御機構**（工作機械等の制御機構フェールセーフ化ガイドライン）も択一で問われます。
 
-- **インターロック（ガード用）** — 機械の運転中に作業者が危険領域内へ侵入するのを防止
+- **インターロック**（ガード用） — 機械の運転中に作業者が危険領域内へ侵入するのを防止
 - **急停止用** — 機械側で何らかの異常を感知したときに直ちに運転を停止
 - **[非常停止用](https://doboku-note.com/docs/pe-comprehensive-management-emergency-stop-device?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 作業者が異常を感知したときに直ちに運転を停止
 - **ホールド・ツー・ラン** — 操作装置を押している間だけ機械が運転、手を離すと停止
@@ -420,19 +420,19 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 [事故の4M要因分析](https://doboku-note.com/docs/pe-comprehensive-management-four-m-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、事故・災害の原因分析で以下4つの視点から要因を抽出します。
 
-- **Man（人）** — 関与した人に関する要因（心理的要因・生理的要因・職場的要因）
-- **Machine（設備）** — 設備・機械等に関する要因（欠陥・整備不良・設計ミス）
-- **Media（作業環境）** — ManとMachineの媒体に関する要因（作業環境・マニュアル・不適切手順設定）
-- **Management（管理）** — 管理システムに関する要因（規定・教育訓練・監理・監督）
+- **Man**（人） — 関与した人に関する要因（心理的要因・生理的要因・職場的要因）
+- **Machine**（設備） — 設備・機械等に関する要因（欠陥・整備不良・設計ミス）
+- **Media**（作業環境） — ManとMachineの媒体に関する要因（作業環境・マニュアル・不適切手順設定）
+- **Management**（管理） — 管理システムに関する要因（規定・教育訓練・監理・監督）
 
 **事故の4E対策**
 
 [事故の4E対策](https://doboku-note.com/docs/pe-comprehensive-management-four-e-countermeasures?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、事故・災害の対策検討で以下4つの視点から対策を立てます。
 
-- **Engineering（工学的対策）** — 技術的・物理的な安全対策（設備改善・安全装置の設置）
-- **Education（教育）** — 安全教育・訓練の実施
-- **Enforcement（強調・強化）** — 規則・法令の強化・徹底
-- **Example（模範）** — 管理者・リーダーが模範を示す
+- **Engineering**（工学的対策） — 技術的・物理的な安全対策（設備改善・安全装置の設置）
+- **Education**（教育） — 安全教育・訓練の実施
+- **Enforcement**（強調・強化） — 規則・法令の強化・徹底
+- **Example**（模範） — 管理者・リーダーが模範を示す
 
 記述式論文では「[4M分析](https://doboku-note.com/docs/pe-comprehensive-management-four-m-analysis?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で原因を特定し、[4E](https://doboku-note.com/docs/pe-comprehensive-management-four-e-countermeasures?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で対策を論じる」構成が使えます。
 
@@ -440,7 +440,7 @@ JIS Q31000が示す一般的なリスク対応の4分類は以下です。
 
 第4のEは管理者が率先して手本を示す「**Example**（模範）」です。
 
-> **【出題例: [R7年度 Ⅰ-1-25](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-25)】** 事故・災害の未然防止対応活動に関する記述で最も不適切なものはどれか。4.「4E対策は Education・Engineering・Enforcement・**Economy** の4つの観点から対策を検討する手法」→ **正答4：Economy（経済性）は誤り。正しくは Example（模範）。管理者が率先して手本を示す文化づくりが第4のEです。**
+> **【出題例: [R7年度 Ⅰ-1-25](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-25)】** 事故・災害の未然防止対応活動に関する記述で最も不適切なものはどれか。4.「4E対策は Education・Engineering・Enforcement・**Economy** の4つの観点から対策を検討する手法」→ **正答4：Economy**（経済性）**は誤り。正しくは Example**（模範）**。管理者が率先して手本を示す文化づくりが第4のEです。**
 
 **小集団活動**
 
@@ -456,7 +456,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 **KY活動とKYT** — 日々の労働前に職場で行われる危険予知（KY）活動。KYT（危険予知訓練）では①現状把握→②本質追及→③対策樹立→④目標設定の**4ラウンド法**が用いられます。
 
-**[TBM（ツールボックスミーティング）](https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 作業前に職場で行われる小集団ミーティング。[KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（危険予知訓練）が実施されます。
+**[TBM**（ツールボックスミーティング）**](https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** — 作業前に職場で行われる小集団ミーティング。[KYT](https://doboku-note.com/docs/pe-comprehensive-management-kyt?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（危険予知訓練）が実施されます。
 
 **自動走行に関するガイドライン**
 
@@ -482,7 +482,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 特定の災害種別に限定しない対応体制の考え方で、一つの組織行動原則です。
 
-**危機への対応（4段階）**
+**危機への対応**（4段階）
 
 [危機管理マニュアル](https://doboku-note.com/docs/pe-comprehensive-management-crisis-management-manual?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の対応は以下の段階で事前に検討・準備されている必要があります。なお危機管理においては人の安全だけでなく、危機時の警備対策や**[サイバーセキュリティ](https://doboku-note.com/docs/pe-comprehensive-management-cybersecurity-safety?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)対策**も含めて検討する必要があります。
 
@@ -501,11 +501,11 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 4. 責任と権限が明確である
 5. 見直しや改正の手続きが明確である
 
-**事業継続マネジメント（BCP・BCM）**
+**事業継続マネジメント**（BCP・BCM）
 
 [BCP（Business Continuity Plan：事業継続計画）](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は、大地震等の自然災害・[感染症](https://doboku-note.com/docs/pe-comprehensive-management-infectious-disease-pandemic?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)まん延・[テロ](https://doboku-note.com/docs/pe-comprehensive-management-terrorism?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)・大事故・サプライチェーンの途絶など不測の事態が発生しても、重要な事業を中断させない、または中断しても可能な限り短い期間で復旧させるための方針・体制・手順等を示した計画です（内閣府『事業継続ガイドライン』より）。
 
-**BCM（Business Continuity Management：事業継続マネジメント）**は、[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)策定や維持・更新、予算・資源の確保、事前対策、教育・訓練、継続的改善などを行う平常時からのマネジメント活動で、経営レベルの戦略的活動として位置付けられます。
+**BCM**（Business Continuity Management：事業継続マネジメント）は、[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)策定や維持・更新、予算・資源の確保、事前対策、教育・訓練、継続的改善などを行う平常時からのマネジメント活動で、経営レベルの戦略的活動として位置付けられます。
 
 択一では「**[BCP](https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management) は計画**（文書）**、BCM はそれを組織に組み込んだマネジメントシステム**」という区別が問われます。
 
@@ -567,7 +567,7 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 ![警戒レベル — 5段階の対応行動](img/figure-3-alert-levels.png)
 
-> **【出題例: [R7年度 Ⅰ-1-28](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-28)】** 「避難情報に関するガイドライン」で最も適切なものはどれか。5.「高齢者等避難は、災害が発生し、避難に時間を要する高齢者等の要配慮者を緊急に避難させる必要がある場合に発令する」→ **正答5：誤り。高齢者等避難（レベル3）は災害発生「前」の早期避難情報。**
+> **【出題例: [R7年度 Ⅰ-1-28](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management#1-28)】** 「避難情報に関するガイドライン」で最も適切なものはどれか。5.「高齢者等避難は、災害が発生し、避難に時間を要する高齢者等の要配慮者を緊急に避難させる必要がある場合に発令する」→ **正答5：誤り。高齢者等避難**（レベル3）**は災害発生「前」の早期避難情報。**
 
 **南海トラフ地震臨時情報**
 
@@ -597,27 +597,27 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 ![システム安全工学手法 — FMEA / FTA / ETA / HAZOP 比較](img/figure-4-safety-engineering-matrix.png)
 
-**FMEA（故障モード影響分析）**
+**FMEA**（故障モード影響分析）
 
 [FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Failure Mode and Effects Analysis）は、設計の不完全な点や製品の潜在的欠陥を見つけるため、構成要素の**故障モード**を解析してシステム全体への影響を調べる**帰納的手法**（ボトムアップ）です。
 
 部品→システムの方向で一つひとつ影響を評価します。
 
-**FTA（故障の木分析）**
+**FTA**（故障の木分析）
 
 [FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Fault Tree Analysis）は、信頼性・安全性の面から好ましくない事象（**頂上事象**）を取り上げ、その原因となる事象と発生確率を論理ゲートで遡る**演繹的手法**（トップダウン）です。
 
 確率計算による定量的評価が可能です。頂上事象から一次事象、二次事象と枝分かれして広がる形状から「故障の木」と呼ばれます。
 
-**ETA（事象の木分析）**
+**ETA**（事象の木分析）
 
 [ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Event Tree Analysis）は、災害の引き金になる**初期事象**を設定し、それから結果として生じうる事象をシーケンスに列記していき、最終的に発生する災害とその発生確率を評価する**帰納的手法**です。
 
 各事象の発生をYES/NOで表し、それぞれの発生確率を計算して二分岐させていきます。
 
-**「[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は原因の遡及（トップダウン）、[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は事象の展開（ボトムアップ）」**という対比が択一の定番です。
+**「[FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は原因の遡及**（トップダウン）**、[ETA](https://doboku-note.com/docs/pe-comprehensive-management-eta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)は事象の展開**（ボトムアップ）**」**という対比が択一の定番です。
 
-**HAZOP（危険と運転性の研究）**
+**HAZOP**（危険と運転性の研究）
 
 [HAZOP](https://doboku-note.com/docs/pe-comprehensive-management-hazop?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（Hazard and Operability Study）は、主に化学プラントの設計・運転における危険性を明らかにする手法です。
 
@@ -666,11 +666,11 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 **主要な信頼性指標**
 
-- **MTTR（Mean Time To Repair）** — 修理開始から修復完了までの平均時間（平均修復時間）
-- **MTBF（Mean Time Between Failures）** — ある故障から次の故障までの平均間隔（平均故障間隔）。故障率 f ＝ 1 ÷ MTBF
+- **MTTR**（Mean Time To Repair） — 修理開始から修復完了までの平均時間（平均修復時間）
+- **MTBF**（Mean Time Between Failures） — ある故障から次の故障までの平均間隔（平均故障間隔）。故障率 f ＝ 1 ÷ MTBF
 - **[アベイラビリティ](https://doboku-note.com/docs/pe-comprehensive-management-system-availability?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)** （A）— A ＝ MTBF ÷ (MTBF + MTTR)
 
-**複合システム（直列＋並列）の計算手順** — まず並列部の信頼度を `1−(1−R₁)(1−R₂)` で求め、次に直列部を `R₁×R₂` で結合します。[信頼性ブロック図](https://doboku-note.com/docs/pe-comprehensive-management-reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の構造（どのユニットが並列でどこから直列か）を正確に読み取ることが計算の前提です。
+**複合システム**（直列＋並列）**の計算手順** — まず並列部の信頼度を `1−(1−R₁)(1−R₂)` で求め、次に直列部を `R₁×R₂` で結合します。[信頼性ブロック図](https://doboku-note.com/docs/pe-comprehensive-management-reliability-block-diagram?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)の構造（どのユニットが並列でどこから直列か）を正確に読み取ることが計算の前提です。
 
 ![信頼性ブロック図 — 直列・並列・複合](img/figure-5-reliability-block-diagram.png)
 
@@ -684,15 +684,15 @@ QCサークル活動のほか、**ZD 運動** （Zero Defects、従業員の創�
 
 [FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)で使用する論理回路（2値論理回路）の基本は以下の2種類です。
 
-**OR回路（論理和）** — 入力端子のどれか1つが1であれば出力が1になる論理回路。  
-**AND回路（論理積）** — 入力端子のすべてに1が入ったときだけ出力が1になる論理回路。
+**OR回路**（論理和） — 入力端子のどれか1つが1であれば出力が1になる論理回路。  
+**AND回路**（論理積） — 入力端子のすべてに1が入ったときだけ出力が1になる論理回路。
 
 [FTA](https://doboku-note.com/docs/pe-comprehensive-management-fta?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)のゲートとして、頂上事象に向かってOR/ANDが組み合わされます。
 
 **FTAの確率計算ルール**
 
-- **OR（和事象）** — `P = 1−(1−P₁)(1−P₂)`。事象が独立な場合の和事象の発生確率（どちらか1つでも起きる確率）
-- **AND（積事象）** — `P = P₁ × P₂`。すべての事象が同時に起きる確率（冗長系・並列系の故障計算に対応）
+- **OR**（和事象） — `P = 1−(1−P₁)(1−P₂)`。事象が独立な場合の和事象の発生確率（どちらか1つでも起きる確率）
+- **AND**（積事象） — `P = P₁ × P₂`。すべての事象が同時に起きる確率（冗長系・並列系の故障計算に対応）
 
 **計算例**
 
@@ -714,13 +714,13 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 関連リソース
 
-**doboku-note — 17年分の過去問 + 650キーワード解説（無料）**
+**doboku-note — 17年分の過去問 + 650キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management
 
 - [安全管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（関連キーワードの全体マップ）
 - 択一式過去問: [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management) / [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management) / [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)（安全管理の問題を確認）
 - [記述式過去問 R05（高齢化社会・建設DX）](https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-safety-management)
 
-**マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
+**マガジン購入で割引**（総監テキスト精読ガイド 5管理セット）
 - 安全管理（本書）＋ 情報管理 ＋ 経済性管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥2,500（¥500 × 5本）
 - セット価格 **¥1,980**（単品4本分の値段で5本・21% OFF）

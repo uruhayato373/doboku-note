@@ -68,24 +68,24 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ![投資判断3手法の比較（NPV・IRR・回収期間法）](img/figure-2-investment-methods.png)
 
-**現在価値（PV：Present Value）の式**
+**現在価値**（PV：Present Value）**の式**
 
 > PV = M_t / (1 + r)^t  
 > （M_t：t 年後の支払い額、r：年間利率）
 
 3手法の使い分けが経済性管理で最頻出の論点です。
 
-**[NPV（正味現在価値法）](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 将来キャッシュフローを現在価値に割り引いて合計し、初期投資と比較。**NPV > 0 なら投資可**。時間価値を考慮できる最も理論的に正確な手法。
+**[NPV**（正味現在価値法）**](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 将来キャッシュフローを現在価値に割り引いて合計し、初期投資と比較。**NPV > 0 なら投資可**。時間価値を考慮できる最も理論的に正確な手法。
 
 **[回収期間法](https://doboku-note.com/docs/pe-comprehensive-management-payback-period-method?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 毎年の正味現金流入額で投資額を何年で回収できるかを計算。シンプルだが「**回収後のキャッシュフローを考慮しない**」のが最大の弱点。リスク重視の企業に適する。
 
-**ROI（投資利益率法）** — 利益額 ÷ 投資額 × 100[%]。複数年の場合は平均利益額を使用。「**時間価値を考慮しない**」弱点。投資利益率 > 平均借入率なら採算性あり。
+**ROI**（投資利益率法） — 利益額 ÷ 投資額 × 100[%]。複数年の場合は平均利益額を使用。「**時間価値を考慮しない**」弱点。投資利益率 > 平均借入率なら採算性あり。
 
 3手法の頻出比較：「**NPV ＝ 時間価値考慮・最も理論的／回収期間法 ＝ シンプルだが回収後 CF 無視／ROI ＝ 時間価値無視**」。
 
 > **【出題例: [R3年度 Ⅰ-1-1](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-1)】** 政策評価・投資評価で最も適切なものはどれか。5「回収期間法による投資案の評価では、投資回収後のキャッシュ・フローは考慮されない」 → **正答5：回収期間法の最大の弱点は「回収後 CF を無視」する点。記述式論文でも頻出のキーフレーズ。**
 
-> **【出題例: [R6年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** 初期投資 2,000 万円・5 年間で毎年 500 万円収益のプロジェクトに、3 年目年初に追加投資 400 万円を行う場合の年間追加収益最低額を求める計算問題 → **正答3：NPV ベースで 400/1.05² ＝ x ×（1/1.05³ + 1/1.05⁴ + 1/1.05⁵）を解くと x ≒ 147 万円。**
+> **【出題例: [R6年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** 初期投資 2,000 万円・5 年間で毎年 500 万円収益のプロジェクトに、3 年目年初に追加投資 400 万円を行う場合の年間追加収益最低額を求める計算問題 → **正答3：NPV ベースで 400/1.05² ＝ x ×**（1/1.05³ + 1/1.05⁴ + 1/1.05⁵）**を解くと x ≒ 147 万円。**
 
 **事業評価**
 
@@ -118,9 +118,9 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 事業の成果測定に使う3指標。
 
-- **[KGI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（重要目標達成指標）** — 最終ゴールの達成度を定量的に測る指標。例：「売上20%アップ」
-- **[KPI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（重要業績評価指標）** — KGI を分解した中間ゴール。部署や担当者別の集客率・売上アップ率等
-- **[KSF](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（重要成功要因）** — 数値ではなく、事業を成功させるために必要な要因を**言語化**したもの
+- **[KGI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（重要目標達成指標） — 最終ゴールの達成度を定量的に測る指標。例：「売上20%アップ」
+- **[KPI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（重要業績評価指標） — KGI を分解した中間ゴール。部署や担当者別の集客率・売上アップ率等
+- **[KSF](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（重要成功要因） — 数値ではなく、事業を成功させるために必要な要因を**言語化**したもの
 
 「[KGI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)/[KPI](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) = 数値化、[KSF](https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) = 言語化」の区別が択一で問われます。
 
@@ -136,7 +136,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ![PFI 4方式の比較（BTO・BOT・RO・コンセッション）](img/figure-1-pfi-schemes.png)
 
-**VFM（Value For Money）** — 一定の支払い（Money）に対して最も価値の高いサービス（Value）を供給する考え方。従来方式と比較して PFI で総事業費をどれだけ削減できるかを示す割合。
+**VFM**（Value For Money） — 一定の支払い（Money）に対して最も価値の高いサービス（Value）を供給する考え方。従来方式と比較して PFI で総事業費をどれだけ削減できるかを示す割合。
 
 **リスク分担の5原則**
 
@@ -146,7 +146,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 4. **不可抗力リスク** — 天災等は協定で事前に分担を取り決め
 5. **物価・金利・為替・税制変動リスク** — 影響度を勘案して事前協議
 
-> **【出題例: [R3年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** PFI 法に関する記述で最も適切なもの。4「コンセッション方式とは、施設の所有権を公共主体が有したまま、施設の運営権が民間事業者に設定される」 → **正答4：コンセッション ＝ 所有権公共・運営権民間。BTO（建設後すぐ移転）／BOT（事業終了後移転）との3者識別が頻出。**
+> **【出題例: [R3年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** PFI 法に関する記述で最も適切なもの。4「コンセッション方式とは、施設の所有権を公共主体が有したまま、施設の運営権が民間事業者に設定される」 → **正答4：コンセッション ＝ 所有権公共・運営権民間。BTO**（建設後すぐ移転）**／BOT**（事業終了後移転）**との3者識別が頻出。**
 
 **プロジェクトマネジメント**
 
@@ -167,13 +167,13 @@ PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サ�
 
 第7版では従来の「プロセス中心」から「**原則中心**（12 原則）」に転換しました。
 
-**WBS（Work Breakdown Structure）** — プロジェクトを「フェーズ」に分割しフェーズごとに成果物を定義。詳細作業内容を**ツリー構造**で階層的に表現したもの。スコープを目に見える形にする手法。
+**WBS**（Work Breakdown Structure） — プロジェクトを「フェーズ」に分割しフェーズごとに成果物を定義。詳細作業内容を**ツリー構造**で階層的に表現したもの。スコープを目に見える形にする手法。
 
 ---
 
 ## 品質管理（優先度: 最高）
 
-[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（広義）は **品質方針 → 品質計画 → 品質管理（狭義）→ [品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) → 品質改善** の活動サイクルです。**QC7つ道具・新QC7つ道具・正規分布**は経済性管理で最も安定した高頻度出題エリアです。
+[品質管理](https://doboku-note.com/docs/pe-comprehensive-management-quality-control?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（広義）は **品質方針 → 品質計画 → 品質管理**（狭義）**→ [品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) → 品質改善** の活動サイクルです。**QC7つ道具・新QC7つ道具・正規分布**は経済性管理で最も安定した高頻度出題エリアです。
 
 **品質方針と品質計画**
 
@@ -183,7 +183,7 @@ PMBOK 第7版では、プロジェクトを「**独自のプロダクト・サ�
 
 **[品質計画](https://doboku-note.com/docs/pe-comprehensive-management-quality-planning?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 品質目標の設定と達成計画の立案プロセス。組織全体の品質方針を部門ごとに展開し、活動進捗で随時見直す。
 
-**QC7つ道具（数値データ）**
+**QC7つ道具**（数値データ）
 
 ![QC7つ道具 vs 新QC7つ道具（数値データ／言語データ）](img/figure-3-qc7-tools.png)
 
@@ -201,7 +201,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 > **【出題例: [R5年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 品質管理で用いられる図やグラフ（パレート図／特性要因図／チェックシート／散布図／ヒストグラム）と用途例の組合せ問題 → **正答1：用途別マッチングは毎年形を変えて出題されるため、各図の主用途を明確に区別して暗記する必要がある。**
 
-**新QC7つ道具（言語データ）**
+**新QC7つ道具**（言語データ）
 
 新QC7つ道具は主に**言語データ**を扱うことに適した7手法です。
 
@@ -239,11 +239,11 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 **[抜取検査](https://doboku-note.com/docs/pe-comprehensive-management-inspection-methods?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 量産品でランダムにサンプルを抽出してロット単位で合否判定。「**ロットからのランダム抽出**」が前提条件。
 
-検査方式の性能を表す **OC 曲線（Operating Characteristic curve）** の読み方も出題されます。
+検査方式の性能を表す **OC 曲線**（Operating Characteristic curve） の読み方も出題されます。
 
 > **【出題例: [R3年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 品質管理の統計的手法で最も不適切なもの。1「管理図の管理限界は、製品の規格が定められている場合、規格値に設定すべきである」 → **正答1：管理限界は工程データの平均値±3σ から統計的に設定するもの。製品規格値とは別概念で、両者の混同を狙った頻出引っかけ。**
 
-> **【出題例: [R6年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 検査・合否判定抜取検査に関する記述で最も適切なもの → **正答4：計量値（連続量）／サンプルサイズ（抜取検査の計画要素）／生産者危険（合格品を誤って不合格とする確率）の3者の定義組合せが正確。**
+> **【出題例: [R6年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 検査・合否判定抜取検査に関する記述で最も適切なもの → **正答4：計量値**（連続量）**／サンプルサイズ**（抜取検査の計画要素）**／生産者危険**（合格品を誤って不合格とする確率）**の3者の定義組合せが正確。**
 
 **[品質保証](https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**
 
@@ -276,7 +276,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 - **PSTG マーク** — ガス事業法
 - **PSPG マーク** — 液化石油ガスの保安の確保及び取引の適正化に関する法律
 
-**顧客満足（CS）**
+**顧客満足**（CS）
 
 満足度の高い製品提供に加え、購入後のサービスが重要です。
 
@@ -311,7 +311,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 - **生産能力調整** — 残業・外注・人員変動などで能力側を変える
 - **需要平準化** — 需要側を平準化する（価格政策など）
 
-**ジャストインタイム（JIT）生産方式**
+**ジャストインタイム**（JIT）**生産方式**
 
 [JIT（Just-In-Time）生産方式](https://doboku-note.com/docs/pe-comprehensive-management-jit-production?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) — JIS Z 8141 で「すべての工程が、後工程の要求に合わせて、必要な物を、必要なときに、必要な量だけ生産する生産方式」と定義。中間仕掛品の滞留や工程の遊休を生じさせないことがねらい。
 
@@ -325,23 +325,23 @@ JIT を実現する基盤が **平準化生産**（最終組立工程の生産�
 
 [SCM（サプライチェーンマネジメント）](https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) — 材料供給から生産・流通・販売に至る物・サービスの供給連鎖をネットワークで結び、需要情報を企業間でリアルタイム共有することで業務全体のスピードと効率を高める経営コンセプト。
 
-基本的な考え方は **[TOC（制約条件の理論：Theory of Constraints）](https://doboku-note.com/docs/pe-comprehensive-management-theory-of-constraints?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — ボトルネック工程を継続的に改善して全体システムのパフォーマンスを向上させます。
+基本的な考え方は **[TOC**（制約条件の理論：Theory of Constraints）**](https://doboku-note.com/docs/pe-comprehensive-management-theory-of-constraints?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — ボトルネック工程を継続的に改善して全体システムのパフォーマンスを向上させます。
 
 **ブルウィップ効果** — 川下から川上に段階がさかのぼるにつれ、[需要予測](https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)量の変動が増幅していく現象。SCM の典型的失敗パターンとして択一に出ます。
 
 SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠点の分散化／部品の標準化／サプライチェーンの可視化。
 
-> **【出題例: [R3年度 Ⅰ-1-5](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-5)】** SCM と生産方式に関する記述で最も適切なもの → **正答2：受注後に在庫から出荷するか・組立て出荷するか・設計から行うか（MTS／ATO／MTO／ETO のデカップリングポイント）で SCM の形態が変わる。**
+> **【出題例: [R3年度 Ⅰ-1-5](https://doboku-note.com/docs/pe-comprehensive-management-r03-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-5)】** SCM と生産方式に関する記述で最も適切なもの → **正答2：受注後に在庫から出荷するか・組立て出荷するか・設計から行うか**（MTS／ATO／MTO／ETO のデカップリングポイント）**で SCM の形態が変わる。**
 
 **MRP・ERP・CALS**
 
-**MPS（基準生産計画）** — 総合生産計画を最終的に製品アイテム単位に分解。
+**MPS**（基準生産計画） — 総合生産計画を最終的に製品アイテム単位に分解。
 
-**MRP（資材所要量計画）** — 必要な部品を必要な時期に必要な量だけ調達・製造する手法。**BOM（構成部品表）**・[リードタイム](https://doboku-note.com/docs/pe-comprehensive-management-lead-time?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・手持在庫量・受入確定量が情報源。
+**MRP**（資材所要量計画） — 必要な部品を必要な時期に必要な量だけ調達・製造する手法。**BOM**（構成部品表）・[リードタイム](https://doboku-note.com/docs/pe-comprehensive-management-lead-time?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)・手持在庫量・受入確定量が情報源。
 
-**ERP（統合業務システム）** — 受注から納入までの一連業務を処理。MRP を組み込み、会計・販売・人事まで包含。
+**ERP**（統合業務システム） — 受注から納入までの一連業務を処理。MRP を組み込み、会計・販売・人事まで包含。
 
-**CALS（生産・調達・運用支援統合情報システム）** — 原材料調達から設計・開発・生産・運用・保守まで全情報を電子化・一元管理。
+**CALS**（生産・調達・運用支援統合情報システム） — 原材料調達から設計・開発・生産・運用・保守まで全情報を電子化・一元管理。
 
 **手順計画と標準時間**
 
@@ -372,7 +372,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **[類推見積り](https://doboku-note.com/docs/pe-comprehensive-management-analogous-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去の類似作業の実績データを使う見積り。簡便だが類似プロジェクトがないと使えない。
 
-**[パラメトリック見積り（係数見積り）](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去のデータをもとに得られたパラメータ（係数）を使う。
+**[パラメトリック見積り**（係数見積り）**](https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 過去のデータをもとに得られたパラメータ（係数）を使う。
 
 **[三点見積り](https://doboku-note.com/docs/pe-comprehensive-management-three-point-estimation?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 悲観値（P）・最頻値（M）・楽観値（O）を加重平均する手法。
 
@@ -386,7 +386,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **PERT**（Program Evaluation and Review Technique） — 1950 年代に米海軍がミサイル開発のために開発したスケジューリング手法。所要時間からネットワーク図（アローダイアグラム）を作成。
 
-**[CPM（Critical Path Method）](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 1950 年代に建設計画用に開発。前進計算で**最早開始日・最早終了日**を、後退計算で**最遅開始日・最遅終了日**を求め、その差から**フロート**（余裕日）を計算します。
+**[CPM**（Critical Path Method）**](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 1950 年代に建設計画用に開発。前進計算で**最早開始日・最早終了日**を、後退計算で**最遅開始日・最遅終了日**を求め、その差から**フロート**（余裕日）を計算します。
 
 **フロート** — プロジェクト終了日を遅らせず当該作業を遅らせられる余裕日。プロジェクト全体の余裕日を**トータルフロート**、2つの作業関係だけで継続作業を遅らせず先行作業を遅らせられる余裕日を**フリーフロート**と呼びます。
 
@@ -394,7 +394,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 「**クリティカルパス ＝ フロートゼロの最長経路**」が択一の核心。ネットワーク図からクリティカルパスを特定する計算問題も毎年出ます。
 
-> **【出題例: [R7年度 Ⅰ-1-8](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-8)】** あるプロジェクトのクリティカルパス上にある作業をすべて列挙する問題 → **正答5：A→B→E→F と A→C→F の両クリティカルパス（各23 日）を見抜く。クリティカルパスが**複数存在**する場合の見落としが頻出引っかけ。**
+> **【出題例: [R7年度 Ⅰ-1-8](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-8)】** あるプロジェクトのクリティカルパス上にある作業をすべて列挙する問題 → **正答5：A→B→E→F と A→C→F の両クリティカルパス**（各23 日）**を見抜く。クリティカルパスが**複数存在**する場合の見落としが頻出引っかけ。**
 
 **生産統制**
 
@@ -406,7 +406,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 3者の使い分けは「**現品 ＝ モノ／余力 ＝ 工数／進捗 ＝ 時間**」と整理すると択一で迷いません。
 
-> **【出題例: [R5年度 Ⅰ-1-8](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-8)】** 現品管理の活動として最も不適切なもの。5「バスタブ曲線を用いた需要予測」 → **正答5：バスタブ曲線は故障率の時間推移を示す指標で、現品管理（資材・仕掛品の運搬・移動・保管）とは無関係。「現品管理の対象 ＝ 物の流れ」と覚える。**
+> **【出題例: [R5年度 Ⅰ-1-8](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-8)】** 現品管理の活動として最も不適切なもの。5「バスタブ曲線を用いた需要予測」 → **正答5：バスタブ曲線は故障率の時間推移を示す指標で、現品管理**（資材・仕掛品の運搬・移動・保管）**とは無関係。「現品管理の対象 ＝ 物の流れ」と覚える。**
 
 **改善活動**
 
@@ -432,7 +432,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 「ウォーターフォール ＝ 順序固定／アジャイル ＝ 短いイテレーション／V字 ＝ 折り返し対応」の3者比較が頻出です。
 
-> **【出題例: [R4年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** 開発プロセスの種類に関する記述で最も適切なもの → **正答4：アジャイル型の特徴（短期間の反復、優先度順の実装、フィードバック重視）の記述が正確。各手法の本質的な違いを覚える。**
+> **【出題例: [R4年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** 開発プロセスの種類に関する記述で最も適切なもの → **正答4：アジャイル型の特徴**（短期間の反復、優先度順の実装、フィードバック重視）**の記述が正確。各手法の本質的な違いを覚える。**
 
 ---
 
@@ -466,20 +466,20 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 **予定原価計算** — 前年実績などをもとに予定単価・予定消費量を設定して算出。
 
-**活動基準原価計算（ABC）**
+**活動基準原価計算**（ABC）
 
-**[活動基準原価計算（ABC：Activity Based Costing）](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 活動ごとに発生した原価を正しく振り分ける手法。
+**[活動基準原価計算**（ABC：Activity Based Costing）**](https://doboku-note.com/docs/pe-comprehensive-management-activity-abc?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 活動ごとに発生した原価を正しく振り分ける手法。
 
 **伝統的原価計算の問題** — 多量生産品に間接費が多く配賦され、少量生産品の間接費負担が過小になる。ABC は **少量生産品に製造間接費を多く配賦** する結果になります。金融業・サービス業でも活用されています。
 
 **[コストドライバー](https://doboku-note.com/docs/pe-comprehensive-management-cost-driver?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)**（配賦基準）には2系統あります。
 
-1. **資源（リソース）ドライバー** — 各活動が消費した資源コストを活動ごとに割り当て
-2. **活動（アクティビティ）ドライバー** — 各製品が消費した活動を製品ごとに割り当て
+1. **資源**（リソース）**ドライバー** — 各活動が消費した資源コストを活動ごとに割り当て
+2. **活動**（アクティビティ）**ドライバー** — 各製品が消費した活動を製品ごとに割り当て
 
 例：部品数・段取り回数・検査回数・仕様書枚数・開発者数。
 
-> **【出題例: [R6年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 製造間接費 900 万円を 3 プロジェクトに配賦するとき、個別原価計算と ABC で原価が異なる場合の計算 → **正答5：直接労務費（作業時間）比率 3:1:1 で X 配賦額 ＝ 900 ×（3/5）＝ 540 万円。X の総原価 ＝ 1,300 ＋ 540 ＝ 1,840 万円。配賦基準により原価が変わる ABC の本質。**
+> **【出題例: [R6年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 製造間接費 900 万円を 3 プロジェクトに配賦するとき、個別原価計算と ABC で原価が異なる場合の計算 → **正答5：直接労務費**（作業時間）**比率 3:1:1 で X 配賦額 ＝ 900 ×**（3/5）**＝ 540 万円。X の総原価 ＝ 1,300 ＋ 540 ＝ 1,840 万円。配賦基準により原価が変わる ABC の本質。**
 
 **管理会計と損益分岐点**
 
@@ -495,11 +495,11 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 固定費が増えるか変動費率が上がると、損益分岐点はグラフの**右側**に移動します（達成しにくくなる）。
 
-> **【出題例: [R7年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 販売価格 1,000 円・変動費 400 円・固定費 384,000 円・予定 800 個での損益分岐点分析 → **正答4：限界利益率 ＝ 600/1,000 ＝ 0.6、損益分岐点売上高 ＝ 384,000/0.6 ＝ 640,000 円。変動費率（40%）と限界利益率（60%）の混同が頻出引っかけ。**
+> **【出題例: [R7年度 Ⅰ-1-3](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-3)】** 販売価格 1,000 円・変動費 400 円・固定費 384,000 円・予定 800 個での損益分岐点分析 → **正答4：限界利益率 ＝ 600/1,000 ＝ 0.6、損益分岐点売上高 ＝ 384,000/0.6 ＝ 640,000 円。変動費率**（40%）**と限界利益率**（60%）**の混同が頻出引っかけ。**
 
-**マテリアルフローコスト会計（MFCA）**
+**マテリアルフローコスト会計**（MFCA）
 
-**MFCA（Material Flow Cost Accounting）** — 製造プロセスでロスとなったマテリアル（原材料・副資材・エネルギー）を**「負の製品コスト」**として算出する会計手法。
+**MFCA**（Material Flow Cost Accounting） — 製造プロセスでロスとなったマテリアル（原材料・副資材・エネルギー）を**「負の製品コスト」**として算出する会計手法。
 
 経営者に対して**廃棄物削減を動機付ける**点が特徴で、環境会計と原価管理を結びつける手法として近年注目されています。
 
@@ -521,23 +521,23 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 6. **保守主義の原則** — 不利な影響に備え健全な処理
 7. **単一性の原則** — 異なる目的の財務諸表でも会計記録は一致
 
-**貸借対照表（B/S）**
+**貸借対照表**（B/S）
 
 ![財務3表の関係（B/S・P/L・C/F）](img/figure-6-financial-statements.png)
 
-**[貸借対照表（B/S：Balance Sheet）](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定時点（通常は決算日）の財政状態を表す書類。**借方（資産）と貸方（負債＋純資産）を一致させる**のが基本構造です。
+**[貸借対照表**（B/S：Balance Sheet）**](https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定時点（通常は決算日）の財政状態を表す書類。**借方**（資産）**と貸方**（負債＋純資産）**を一致させる**のが基本構造です。
 
-**借方（資産）** — 流動資産／固定資産（有形固定資産・無形固定資産・投資その他の資産）／繰延資産
+**借方**（資産） — 流動資産／固定資産（有形固定資産・無形固定資産・投資その他の資産）／繰延資産
 
-**貸方（負債＋純資産）** — 流動負債／固定負債／純資産（株主資本・その他の包括利益累計額・新株予約権）
+**貸方**（負債＋純資産） — 流動負債／固定負債／純資産（株主資本・その他の包括利益累計額・新株予約権）
 
 **[減価償却費](https://doboku-note.com/docs/pe-comprehensive-management-depreciation-residual-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 有形固定資産に含まれ、費用でありながら支出を伴わないため、**その分が内部に留保される**効果が生じます（後述の C/F でも重要）。
 
-**損益計算書（P/L）**
+**損益計算書**（P/L）
 
-**[損益計算書（P/L：Profit and Loss Statement）](https://doboku-note.com/docs/pe-comprehensive-management-income-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定期間（通常 1 年）の経営成績を表します。**5 段階の利益**が階層的に算出されます。
+**[損益計算書**（P/L：Profit and Loss Statement）**](https://doboku-note.com/docs/pe-comprehensive-management-income-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 一定期間（通常 1 年）の経営成績を表します。**5 段階の利益**が階層的に算出されます。
 
-1. **売上総利益（粗利）** ＝ 売上高 − 売上原価
+1. **売上総利益**（粗利） ＝ 売上高 − 売上原価
 2. **営業利益** ＝ 売上総利益 − 販売費及び一般管理費
 3. **経常利益** ＝ 営業利益 ± 営業外損益
 4. **税引前当期純利益** ＝ 経常利益 ± 特別損益
@@ -547,15 +547,15 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 > **【出題例: [R7年度 Ⅰ-1-7](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-7)】** 財務会計に関する記述で最も適切なもの。3「減価償却の定義（取得金額を各年の必要経費として配分する手続）」 → **正答3：減価償却の本質は「取得原価を耐用年数にわたり費用配分する手続」。費用でありながら支出を伴わない**非現金支出費用**として C/F でも重要。**
 
-**キャッシュ・フロー計算書（C/F）**
+**キャッシュ・フロー計算書**（C/F）
 
-**[キャッシュ・フロー計算書（C/F）](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 営業活動・投資活動・財務活動の3区分で現金の出入りを記載。
+**[キャッシュ・フロー計算書**（C/F）**](https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 営業活動・投資活動・財務活動の3区分で現金の出入りを記載。
 
 - **営業 CF** — 本業による収入。[減価償却費](https://doboku-note.com/docs/pe-comprehensive-management-depreciation-residual-value?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)は**非現金支出費用**のため利益に加え戻されて記載
 - **投資 CF** — 設備や有価証券の取得・売却による増減。投資が多い製造業では通常マイナス
 - **財務 CF** — 借入・返済・社債発行・配当などによる増減
 
-**フリー・キャッシュ・フロー（FCF）** ＝ 営業 CF ＋ 投資 CF。自由に使える現金を示す指標です。
+**フリー・キャッシュ・フロー**（FCF） ＝ 営業 CF ＋ 投資 CF。自由に使える現金を示す指標です。
 
 **増減符号の覚え方**
 
@@ -566,7 +566,7 @@ SCM 見直しの方向性は4つ — 部素材調達先の多様化／生産拠�
 
 「**利益が出ていてもキャッシュが回らず倒産する黒字倒産**」は財務管理の核心論点として記述式でも引用できます。
 
-> **【出題例: [R6年度 Ⅰ-1-1](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-1)】** キャッシュ・フロー計算書の3区分（営業／投資／財務）と支出項目の対応問題 → **正答3：営業活動（税金支出・仕入支出）／投資活動（設備取得・株式取得）／財務活動（配当支払・社債償還）の3 分類が正確。「税金 ＝ 営業」「配当 ＝ 財務」が引っかけ。**
+> **【出題例: [R6年度 Ⅰ-1-1](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-1)】** キャッシュ・フロー計算書の3区分（営業／投資／財務）と支出項目の対応問題 → **正答3：営業活動**（税金支出・仕入支出）**／投資活動**（設備取得・株式取得）**／財務活動**（配当支払・社債償還）**の3 分類が正確。「税金 ＝ 営業」「配当 ＝ 財務」が引っかけ。**
 
 ---
 
@@ -627,7 +627,7 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 事後保全は2分類 — **緊急保全**（突発故障時に直ちに行う）と**通常事後保全**（代替機がある設備の故障後対応）。
 
-> **【出題例: [R4年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 設備管理における保全活動の内容と名称の組合せ問題 → **正答4：ア＝予知保全（劣化傾向を診断技術で管理）、イ＝保全予防（計画段階から不良対策織り込み）、ウ＝改良保全（性能向上）の組合せが正しい。6 種の定義照合は毎年出題。**
+> **【出題例: [R4年度 Ⅰ-1-4](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-4)】** 設備管理における保全活動の内容と名称の組合せ問題 → **正答4：ア＝予知保全**（劣化傾向を診断技術で管理）**、イ＝保全予防**（計画段階から不良対策織り込み）**、ウ＝改良保全**（性能向上）**の組合せが正しい。6 種の定義照合は毎年出題。**
 
 ---
 
@@ -654,13 +654,13 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 **パレート最適** — 他の個人の満足を減じることなしに、どの個人の満足も増加できない状態。**多目的最適化**ではパレート最適を考える必要があり、最良解は意思決定者の選好に依存します。
 
-**階層化意思決定法（AHP）**
+**階層化意思決定法**（AHP）
 
-**[AHP（Analytic Hierarchy Process）](https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 階層構造を使って代替案を定量評価する手法。複数階層の評価要因の**重要度係数**と**評価値**から代替案の総合評価値を算出します。
+**[AHP**（Analytic Hierarchy Process）**](https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)** — 階層構造を使って代替案を定量評価する手法。複数階層の評価要因の**重要度係数**と**評価値**から代替案の総合評価値を算出します。
 
 **重要度係数の制約** — 各階層での合計が 1（W₁ ＋ W₂ ＝ 1、W₁₁ ＋ W₁₂ ＝ 1 など）。
 
-**総合評価値の計算式（A 案、2 階層 4 要因の例）**
+**総合評価値の計算式**（A 案、2 階層 4 要因の例）
 
 > Sa ＝ W₁ × W₁₁ × A₁ ＋ W₁ × W₁₂ × A₂ ＋ W₂ × W₂₁ × A₃ ＋ W₂ × W₂₂ × A₄
 
@@ -672,24 +672,24 @@ JIS Z 8115 で定義される追加用語も択一で問われます。
 
 **デルファイ法**（収束アンケート法） — 複数の専門家に同じテーマで何度かアンケートを繰り返し、回答が収束していくことを利用。**匿名性**により特定関係者の影響力を排除できます。通常 3 回のアンケートでまとまることが多いとされます。
 
-**ブレインストーミング法** — 創造性開発のための集団的思考技術。4 ルール — 他人を批判しない／自由奔放を歓迎／質より量／他人のアイデアを発展。出されたアイデアの整理に**特性要因図（魚の骨ダイアグラム）**や**親和図**を使用します。
+**ブレインストーミング法** — 創造性開発のための集団的思考技術。4 ルール — 他人を批判しない／自由奔放を歓迎／質より量／他人のアイデアを発展。出されたアイデアの整理に**特性要因図**（魚の骨ダイアグラム）や**親和図**を使用します。
 
-**過程決定計画図（PDPC：Process Decision Program Chart）** — 危機的状況に陥ったとき、将来起こり得る重要な局面と結果を有向グラフで表し、要所で的確な判断ができるよう準備する手法。
+**過程決定計画図**（PDPC：Process Decision Program Chart） — 危機的状況に陥ったとき、将来起こり得る重要な局面と結果を有向グラフで表し、要所で的確な判断ができるよう準備する手法。
 
 **ゲーム理論** — 意思決定主体が複数存在する状況を数学的に扱う方法論。2 系統あります。
 
 - **非協力ゲーム** — プレイヤー間の話し合いがない、またはあっても拘束力なし
 - **協力ゲーム** — プレイヤー間の合意に拘束力がある状態
 
-**VE（Value Engineering）** — 製品・サービスの価値を、機能とコストの関係で把握して価値向上を図る手法。
+**VE**（Value Engineering） — 製品・サービスの価値を、機能とコストの関係で把握して価値向上を図る手法。
 
 > 価値 ＝ 機能 ÷ コスト
 
 機能は**使用機能**（効果・性能）と**貴重機能**（魅力機能・デザイン・色彩）に分類。基本ステップは **機能定義 → 機能評価 → 代替案作成** です。
 
-> **【出題例: [R4年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** VE に関する記述で最も適切なもの → **正答3：使用機能（目的に関わる機能）と魅力機能（感覚的満足に関わる機能）の分類が正確。「価値 ＝ 機能 ÷ コスト」と「機能定義 → 機能評価 → 代替案作成」の3ステップが頻出。**
+> **【出題例: [R4年度 Ⅰ-1-2](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-2)】** VE に関する記述で最も適切なもの → **正答3：使用機能**（目的に関わる機能）**と魅力機能**（感覚的満足に関わる機能）**の分類が正確。「価値 ＝ 機能 ÷ コスト」と「機能定義 → 機能評価 → 代替案作成」の3ステップが頻出。**
 
-> **【出題例: [R7年度 Ⅰ-1-6](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-6)】** 計画・管理の科学的・数理的手法に関する記述で最も適切なもの → **正答2：ゲーム理論の定義（複数主体の意思決定）と分類（非協力ゲーム／協力ゲーム）が正確。AHP・モンテカルロ・線形計画と並び、各手法の用途識別が必須。**
+> **【出題例: [R7年度 Ⅰ-1-6](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-6)】** 計画・管理の科学的・数理的手法に関する記述で最も適切なもの → **正答2：ゲーム理論の定義**（複数主体の意思決定）**と分類**（非協力ゲーム／協力ゲーム）**が正確。AHP・モンテカルロ・線形計画と並び、各手法の用途識別が必須。**
 
 ---
 
@@ -711,13 +711,13 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 関連リソース
 
-**doboku-note — 17年分の過去問 + 約700キーワード解説（無料）**
+**doboku-note — 17年分の過去問 + 約700キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management
 
 - [経済性管理ピラーページ](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（関連キーワードの全体マップ）
 - 択一式過去問: [R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) / [R06](https://doboku-note.com/docs/pe-comprehensive-management-r06-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management) / [R05](https://doboku-note.com/docs/pe-comprehensive-management-r05-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)（経済性管理の問題を確認）
 - [記述式過去問 R07](https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)
 
-**マガジン購入で割引（総監テキスト精読ガイド 5管理セット）**
+**マガジン購入で割引**（総監テキスト精読ガイド 5管理セット）
 - 経済性管理（本書）＋ 安全管理 ＋ 情報管理 ＋ 人的資源管理 ＋ 社会環境管理 = 単品合計 ¥2,500（¥500 × 5本）
 - セット価格 **¥1,980**（単品4本分の値段で5本・21% OFF）

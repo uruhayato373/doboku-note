@@ -110,7 +110,7 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ## 関連リソース
 
-**doboku-note — 17 年分の過去問 + 650 キーワード解説（無料）**
+**doboku-note — 17 年分の過去問 + 650 キーワード解説**（無料）
 https://doboku-note.com/category/pe-comprehensive-management
 
 - 17 年分の択一式過去問（全問解答解説付き）
