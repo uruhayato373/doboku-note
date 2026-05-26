@@ -1,0 +1,166 @@
+{
+  "cover": {
+    "keyword": "事故・災害の未然防止活動・技術 Part 2",
+    "subtitle": "事故・災害の未然防止活動・技術",
+    "stickyText": "安全管理\n18KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "安全計装システム、非常停止装置、フォールトアボイダンス、フォールトトレランス、フェールソフト、フールプルーフ、フェールセーフ、インターロック（安全装置・安全機構）、安全確認型システム／危険検出型システム、隔離安全／停止安全、冗長安全、安全立証／安全論証、LOPA、テクニカルスキル／ノンテクニカルスキル、事故の4M要因分析、事故の4E対策、小集団活動（ZD運動，改善提案活動，TPM，TQC等）、労働災害防止計画",
+      "noteText": "安全管理 事故・災害の未然防止活動・技術（システムの高信頼化）"
+    },
+    {
+      "type": "board",
+      "heading": "安全計装システム",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-instrumented-system"
+    },
+    {
+      "type": "board",
+      "heading": "非常停止装置",
+      "body": "",
+      "noteText": "",
+      "slug": "emergency-stop-device"
+    },
+    {
+      "type": "board",
+      "heading": "フォールトアボイダンス",
+      "body": "",
+      "noteText": "",
+      "slug": "fault-avoidance"
+    },
+    {
+      "type": "board",
+      "heading": "フォールトトレランス",
+      "body": "",
+      "noteText": "",
+      "slug": "fault-tolerance"
+    },
+    {
+      "type": "board",
+      "heading": "フェールソフト",
+      "body": "",
+      "noteText": "",
+      "slug": "fail-soft"
+    },
+    {
+      "type": "board",
+      "heading": "フールプルーフ",
+      "body": "",
+      "noteText": "",
+      "slug": "fool-proof"
+    },
+    {
+      "type": "board",
+      "heading": "フェールセーフ",
+      "body": "",
+      "noteText": "",
+      "slug": "fail-safe"
+    },
+    {
+      "type": "board",
+      "heading": "インターロック（安全装置・安全機構）",
+      "body": "",
+      "noteText": "",
+      "slug": "interlock"
+    },
+    {
+      "type": "board",
+      "heading": "安全確認型システム／危険検出型システム",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-confirmation-system"
+    },
+    {
+      "type": "board",
+      "heading": "隔離安全／停止安全",
+      "body": "",
+      "noteText": "",
+      "slug": "isolation-stop-safety"
+    },
+    {
+      "type": "board",
+      "heading": "冗長安全",
+      "body": "",
+      "noteText": "",
+      "slug": "redundancy-safety"
+    },
+    {
+      "type": "board",
+      "heading": "安全立証／安全論証",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-case"
+    },
+    {
+      "type": "board",
+      "heading": "LOPA",
+      "body": "",
+      "noteText": "",
+      "slug": "lopa"
+    },
+    {
+      "type": "board",
+      "heading": "テクニカルスキル／ノンテクニカルスキル",
+      "body": "",
+      "noteText": "",
+      "slug": "technical-nontechnical-skills"
+    },
+    {
+      "type": "board",
+      "heading": "事故の4M要因分析",
+      "body": "",
+      "noteText": "",
+      "slug": "four-m-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "事故の4E対策",
+      "body": "",
+      "noteText": "",
+      "slug": "four-e-countermeasures"
+    },
+    {
+      "type": "board",
+      "heading": "小集団活動（ZD運動，改善提案活動，TPM，TQC等）",
+      "body": "",
+      "noteText": "",
+      "slug": "small-group-activities"
+    },
+    {
+      "type": "board",
+      "heading": "労働災害防止計画",
+      "body": "",
+      "noteText": "",
+      "slug": "occupational-accident-prevention-plan"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "安全計装システム",
+      "非常停止装置",
+      "フォールトアボイダンス",
+      "フォールトトレランス"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.4-part2",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "事故・災害の未然防止活動・技術",
+    "groupNames": [
+      "システムの高信頼化"
+    ],
+    "keywordCount": 18,
+    "partOf": "5.4"
+  }
+}

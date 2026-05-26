@@ -1,0 +1,119 @@
+{
+  "cover": {
+    "keyword": "労働安全衛生管理",
+    "subtitle": "労働安全衛生管理",
+    "stickyText": "安全管理\n11KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "災害統計、災害コスト、職業病、メンタルヘルス、労働基準法、労働安全衛生法、労働安全衛生管理システム、労働安全衛生マネジメントシステム（OSHMS）、安全衛生方針、安全衛生教育、安全衛生管理体制",
+      "noteText": "安全管理 労働安全衛生管理（労働災害・労働安全衛生関連法・労働安全衛生管理）"
+    },
+    {
+      "type": "board",
+      "heading": "災害統計",
+      "body": "",
+      "noteText": "",
+      "slug": "accident-statistics"
+    },
+    {
+      "type": "board",
+      "heading": "災害コスト",
+      "body": "",
+      "noteText": "",
+      "slug": "accident-cost"
+    },
+    {
+      "type": "board",
+      "heading": "職業病",
+      "body": "",
+      "noteText": "",
+      "slug": "occupational-disease"
+    },
+    {
+      "type": "board",
+      "heading": "メンタルヘルス",
+      "body": "",
+      "noteText": "",
+      "slug": "mental-health"
+    },
+    {
+      "type": "board",
+      "heading": "労働基準法",
+      "body": "",
+      "noteText": "",
+      "slug": "labor-standards-act"
+    },
+    {
+      "type": "board",
+      "heading": "労働安全衛生法",
+      "body": "",
+      "noteText": "",
+      "slug": "occupational-safety-act"
+    },
+    {
+      "type": "board",
+      "heading": "労働安全衛生管理システム",
+      "body": "",
+      "noteText": "",
+      "slug": "osh-management-system"
+    },
+    {
+      "type": "board",
+      "heading": "労働安全衛生マネジメントシステム（OSHMS）",
+      "body": "",
+      "noteText": "",
+      "slug": "oshms"
+    },
+    {
+      "type": "board",
+      "heading": "安全衛生方針",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-health-policy"
+    },
+    {
+      "type": "board",
+      "heading": "安全衛生教育",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-health-education"
+    },
+    {
+      "type": "board",
+      "heading": "安全衛生管理体制",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-health-org-structure"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "災害統計",
+      "災害コスト",
+      "職業病",
+      "メンタルヘルス"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.3",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "労働安全衛生管理",
+    "groupNames": [
+      "労働災害",
+      "労働安全衛生関連法",
+      "労働安全衛生管理"
+    ],
+    "keywordCount": 11,
+    "partOf": null
+  }
+}

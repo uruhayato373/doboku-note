@@ -1,0 +1,82 @@
+{
+  "cover": {
+    "keyword": "安全に関するリスクマネジメント Part 2",
+    "subtitle": "安全に関するリスクマネジメント",
+    "stickyText": "安全管理\n6KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "正常性バイアス、楽観主義バイアス、カタストロフィーバイアス、同調バイアス、ベテランバイアス、バージンバイアス",
+      "noteText": "安全管理 安全に関するリスクマネジメント（リスク認知のバイアス）"
+    },
+    {
+      "type": "board",
+      "heading": "正常性バイアス",
+      "body": "",
+      "noteText": "",
+      "slug": "normalcy-bias"
+    },
+    {
+      "type": "board",
+      "heading": "楽観主義バイアス",
+      "body": "",
+      "noteText": "",
+      "slug": "optimism-bias"
+    },
+    {
+      "type": "board",
+      "heading": "カタストロフィーバイアス",
+      "body": "",
+      "noteText": "",
+      "slug": "catastrophe-bias"
+    },
+    {
+      "type": "board",
+      "heading": "同調バイアス",
+      "body": "",
+      "noteText": "",
+      "slug": "conformity-bias"
+    },
+    {
+      "type": "board",
+      "heading": "ベテランバイアス",
+      "body": "",
+      "noteText": "",
+      "slug": "veteran-bias"
+    },
+    {
+      "type": "board",
+      "heading": "バージンバイアス",
+      "body": "",
+      "noteText": "",
+      "slug": "virgin-bias"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "正常性バイアス",
+      "楽観主義バイアス",
+      "カタストロフィーバイアス",
+      "同調バイアス"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.2-part2",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "安全に関するリスクマネジメント",
+    "groupNames": [
+      "リスク認知のバイアス"
+    ],
+    "keywordCount": 6,
+    "partOf": "5.2"
+  }
+}

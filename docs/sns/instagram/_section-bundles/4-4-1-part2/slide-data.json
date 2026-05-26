@@ -1,0 +1,126 @@
+{
+  "cover": {
+    "keyword": "情報分析と情報活用 Part 2",
+    "subtitle": "情報分析と情報活用",
+    "stickyText": "情報管理\n12KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "SWOT分析、バリューチェーン分析、3C分析、4P分析、PPM分析、形式知、暗黙知、集合知、データウェアハウス、知識共有化、デザイン思考、官民データ活用推進基本法",
+      "noteText": "情報管理 情報分析と情報活用（経営・マーケティング分析・ナレッジマネジメント・オープンデータ）"
+    },
+    {
+      "type": "board",
+      "heading": "SWOT分析",
+      "body": "",
+      "noteText": "",
+      "slug": "swot-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "バリューチェーン分析",
+      "body": "",
+      "noteText": "",
+      "slug": "value-chain-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "3C分析",
+      "body": "",
+      "noteText": "",
+      "slug": "three-c-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "4P分析",
+      "body": "",
+      "noteText": "",
+      "slug": "four-p-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "PPM分析",
+      "body": "",
+      "noteText": "",
+      "slug": "ppm-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "形式知",
+      "body": "",
+      "noteText": "",
+      "slug": "explicit-knowledge"
+    },
+    {
+      "type": "board",
+      "heading": "暗黙知",
+      "body": "",
+      "noteText": "",
+      "slug": "tacit-knowledge"
+    },
+    {
+      "type": "board",
+      "heading": "集合知",
+      "body": "",
+      "noteText": "",
+      "slug": "collective-intelligence"
+    },
+    {
+      "type": "board",
+      "heading": "データウェアハウス",
+      "body": "",
+      "noteText": "",
+      "slug": "data-warehouse"
+    },
+    {
+      "type": "board",
+      "heading": "知識共有化",
+      "body": "",
+      "noteText": "",
+      "slug": "knowledge-sharing"
+    },
+    {
+      "type": "board",
+      "heading": "デザイン思考",
+      "body": "",
+      "noteText": "",
+      "slug": "design-thinking"
+    },
+    {
+      "type": "board",
+      "heading": "官民データ活用推進基本法",
+      "body": "",
+      "noteText": "",
+      "slug": "public-private-data-act"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "SWOT分析",
+      "バリューチェーン分析",
+      "3C分析",
+      "4P分析"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.1-part2",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "情報分析と情報活用",
+    "groupNames": [
+      "経営・マーケティング分析",
+      "ナレッジマネジメント",
+      "オープンデータ"
+    ],
+    "keywordCount": 12,
+    "partOf": "4.1"
+  }
+}

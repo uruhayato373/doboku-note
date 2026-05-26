@@ -1,0 +1,147 @@
+{
+  "cover": {
+    "keyword": "安全の概念 Part 1",
+    "subtitle": "安全の概念",
+    "stickyText": "安全管理\n15KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "安全マネジメントシステム、安全管理、安全目標、安全投資、防災、レジリエンス、オールハザードアプローチ、公衆安全、消費者安全、インフラ老朽化対策、スマート保安、サイバーセキュリティ、プロセスセーフティマネジメント（PSM）、システム安全、製品安全",
+      "noteText": "安全管理 安全の概念（安全マネジメント・社会安全・プロセス安全）"
+    },
+    {
+      "type": "board",
+      "heading": "安全マネジメントシステム",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-management-system"
+    },
+    {
+      "type": "board",
+      "heading": "安全管理",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-control"
+    },
+    {
+      "type": "board",
+      "heading": "安全目標",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-objectives"
+    },
+    {
+      "type": "board",
+      "heading": "安全投資",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-investment"
+    },
+    {
+      "type": "board",
+      "heading": "防災",
+      "body": "",
+      "noteText": "",
+      "slug": "disaster-prevention"
+    },
+    {
+      "type": "board",
+      "heading": "レジリエンス",
+      "body": "",
+      "noteText": "",
+      "slug": "resilience"
+    },
+    {
+      "type": "board",
+      "heading": "オールハザードアプローチ",
+      "body": "",
+      "noteText": "",
+      "slug": "all-hazard-approach"
+    },
+    {
+      "type": "board",
+      "heading": "公衆安全",
+      "body": "",
+      "noteText": "",
+      "slug": "public-safety"
+    },
+    {
+      "type": "board",
+      "heading": "消費者安全",
+      "body": "",
+      "noteText": "",
+      "slug": "consumer-safety"
+    },
+    {
+      "type": "board",
+      "heading": "インフラ老朽化対策",
+      "body": "",
+      "noteText": "",
+      "slug": "aging-infrastructure"
+    },
+    {
+      "type": "board",
+      "heading": "スマート保安",
+      "body": "",
+      "noteText": "",
+      "slug": "smart-safety"
+    },
+    {
+      "type": "board",
+      "heading": "サイバーセキュリティ",
+      "body": "",
+      "noteText": "",
+      "slug": "cybersecurity-safety"
+    },
+    {
+      "type": "board",
+      "heading": "プロセスセーフティマネジメント（PSM）",
+      "body": "",
+      "noteText": "",
+      "slug": "process-safety-mgmt"
+    },
+    {
+      "type": "board",
+      "heading": "システム安全",
+      "body": "",
+      "noteText": "",
+      "slug": "system-safety"
+    },
+    {
+      "type": "board",
+      "heading": "製品安全",
+      "body": "",
+      "noteText": "",
+      "slug": "product-safety"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "安全マネジメントシステム",
+      "安全管理",
+      "安全目標",
+      "安全投資"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.1-part1",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "安全の概念",
+    "groupNames": [
+      "安全マネジメント",
+      "社会安全",
+      "プロセス安全"
+    ],
+    "keywordCount": 15,
+    "partOf": "5.1"
+  }
+}

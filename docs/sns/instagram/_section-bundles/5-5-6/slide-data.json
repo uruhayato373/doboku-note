@@ -1,0 +1,161 @@
+{
+  "cover": {
+    "keyword": "システム安全工学手法",
+    "subtitle": "システム安全工学手法",
+    "stickyText": "安全管理\n17KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "FMEA、HAZOP、HAZID、デシジョンツリー分析、フォールトツリー分析（FTA）、イベントツリー分析（ETA）、ボウタイ分析、PHA、人的過誤確率（HEP）、トライポッド理論、THERP、行動形成要因（PSF）、VTA法、信頼性ブロック図、直列システム、並列システム、根本原因分析（RCA）",
+      "noteText": "安全管理 システム安全工学手法（システム安全工学手法・ヒューマンエラー分析（人的過誤分析）・システム信頼度解析）"
+    },
+    {
+      "type": "board",
+      "heading": "FMEA",
+      "body": "",
+      "noteText": "",
+      "slug": "fmea"
+    },
+    {
+      "type": "board",
+      "heading": "HAZOP",
+      "body": "",
+      "noteText": "",
+      "slug": "hazop"
+    },
+    {
+      "type": "board",
+      "heading": "HAZID",
+      "body": "",
+      "noteText": "",
+      "slug": "hazid"
+    },
+    {
+      "type": "board",
+      "heading": "デシジョンツリー分析",
+      "body": "",
+      "noteText": "",
+      "slug": "decision-tree-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "フォールトツリー分析（FTA）",
+      "body": "",
+      "noteText": "",
+      "slug": "fta"
+    },
+    {
+      "type": "board",
+      "heading": "イベントツリー分析（ETA）",
+      "body": "",
+      "noteText": "",
+      "slug": "eta"
+    },
+    {
+      "type": "board",
+      "heading": "ボウタイ分析",
+      "body": "",
+      "noteText": "",
+      "slug": "bowtie-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "PHA",
+      "body": "",
+      "noteText": "",
+      "slug": "pha"
+    },
+    {
+      "type": "board",
+      "heading": "人的過誤確率（HEP）",
+      "body": "",
+      "noteText": "",
+      "slug": "human-error-probability"
+    },
+    {
+      "type": "board",
+      "heading": "トライポッド理論",
+      "body": "",
+      "noteText": "",
+      "slug": "tripod-theory"
+    },
+    {
+      "type": "board",
+      "heading": "THERP",
+      "body": "",
+      "noteText": "",
+      "slug": "therp"
+    },
+    {
+      "type": "board",
+      "heading": "行動形成要因（PSF）",
+      "body": "",
+      "noteText": "",
+      "slug": "performance-shaping-factors"
+    },
+    {
+      "type": "board",
+      "heading": "VTA法",
+      "body": "",
+      "noteText": "",
+      "slug": "vta-method"
+    },
+    {
+      "type": "board",
+      "heading": "信頼性ブロック図",
+      "body": "",
+      "noteText": "",
+      "slug": "reliability-block-diagram"
+    },
+    {
+      "type": "board",
+      "heading": "直列システム",
+      "body": "",
+      "noteText": "",
+      "slug": "series-system"
+    },
+    {
+      "type": "board",
+      "heading": "並列システム",
+      "body": "",
+      "noteText": "",
+      "slug": "parallel-system"
+    },
+    {
+      "type": "board",
+      "heading": "根本原因分析（RCA）",
+      "body": "",
+      "noteText": "",
+      "slug": "root-cause-analysis"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "FMEA",
+      "HAZOP",
+      "HAZID",
+      "デシジョンツリー分析"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.6",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "システム安全工学手法",
+    "groupNames": [
+      "システム安全工学手法",
+      "ヒューマンエラー分析（人的過誤分析）",
+      "システム信頼度解析"
+    ],
+    "keywordCount": 17,
+    "partOf": null
+  }
+}

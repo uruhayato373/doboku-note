@@ -1,0 +1,157 @@
+{
+  "cover": {
+    "keyword": "原価管理・管理会計",
+    "subtitle": "原価管理・管理会計",
+    "stickyText": "経済性管理\n16KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "製造直接費、製造間接費、減価償却費・残存価値、目標原価（＝許容原価）、総合原価計算、個別原価計算、標準原価計算、直接原価計算、品質原価計算、アクティビティ、コストドライバー、原価差異分析、原価維持、ライフサイクルコスティング、損益分岐点・限界利益・優劣分岐点、WACC・ROIC",
+      "noteText": "経済性管理 原価管理・管理会計（製造原価（＝製品原価）・原価企画・原価計算・活動基準原価計算（ABC）・原価改善・損益分岐点分析）"
+    },
+    {
+      "type": "board",
+      "heading": "製造直接費",
+      "body": "",
+      "noteText": "",
+      "slug": "direct-manufacturing-cost"
+    },
+    {
+      "type": "board",
+      "heading": "製造間接費",
+      "body": "",
+      "noteText": "",
+      "slug": "indirect-manufacturing-cost"
+    },
+    {
+      "type": "board",
+      "heading": "減価償却費・残存価値",
+      "body": "",
+      "noteText": "",
+      "slug": "depreciation-residual-value"
+    },
+    {
+      "type": "board",
+      "heading": "目標原価（＝許容原価）",
+      "body": "",
+      "noteText": "",
+      "slug": "target-cost"
+    },
+    {
+      "type": "board",
+      "heading": "総合原価計算",
+      "body": "",
+      "noteText": "",
+      "slug": "process-costing"
+    },
+    {
+      "type": "board",
+      "heading": "個別原価計算",
+      "body": "",
+      "noteText": "",
+      "slug": "job-order-costing"
+    },
+    {
+      "type": "board",
+      "heading": "標準原価計算",
+      "body": "",
+      "noteText": "",
+      "slug": "standard-costing"
+    },
+    {
+      "type": "board",
+      "heading": "直接原価計算",
+      "body": "",
+      "noteText": "",
+      "slug": "direct-costing"
+    },
+    {
+      "type": "board",
+      "heading": "品質原価計算",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-costing"
+    },
+    {
+      "type": "board",
+      "heading": "アクティビティ",
+      "body": "",
+      "noteText": "",
+      "slug": "activity-abc"
+    },
+    {
+      "type": "board",
+      "heading": "コストドライバー",
+      "body": "",
+      "noteText": "",
+      "slug": "cost-driver"
+    },
+    {
+      "type": "board",
+      "heading": "原価差異分析",
+      "body": "",
+      "noteText": "",
+      "slug": "cost-variance-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "原価維持",
+      "body": "",
+      "noteText": "",
+      "slug": "cost-maintenance"
+    },
+    {
+      "type": "board",
+      "heading": "ライフサイクルコスティング",
+      "body": "",
+      "noteText": "",
+      "slug": "lifecycle-costing-method"
+    },
+    {
+      "type": "board",
+      "heading": "損益分岐点・限界利益・優劣分岐点",
+      "body": "",
+      "noteText": "",
+      "slug": "break-even-point"
+    },
+    {
+      "type": "board",
+      "heading": "WACC・ROIC",
+      "body": "",
+      "noteText": "",
+      "slug": "wacc-roic"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "製造直接費",
+      "製造間接費",
+      "減価償却費・残存価値",
+      "目標原価（＝許容原価）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.4",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "原価管理・管理会計",
+    "groupNames": [
+      "製造原価（＝製品原価）",
+      "原価企画",
+      "原価計算",
+      "活動基準原価計算（ABC）",
+      "原価改善",
+      "損益分岐点分析"
+    ],
+    "keywordCount": 16,
+    "partOf": null
+  }
+}

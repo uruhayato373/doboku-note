@@ -1,0 +1,110 @@
+{
+  "cover": {
+    "keyword": "情報セキュリティ Part 2",
+    "subtitle": "情報セキュリティ",
+    "stickyText": "情報管理\n10KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "情報漏洩・改ざん・消失、システム停止・性能低下、不正アクセス、オペレーションミス、マルウェア、DoS・DDoS、標的型攻撃、フィッシング詐欺・ファーミング詐欺、ソーシャルエンジニアリング、脆弱性（セキュリティホール）",
+      "noteText": "情報管理 情報セキュリティ（情報セキュリティの脅威）"
+    },
+    {
+      "type": "board",
+      "heading": "情報漏洩・改ざん・消失",
+      "body": "",
+      "noteText": "",
+      "slug": "data-leak-tampering-loss"
+    },
+    {
+      "type": "board",
+      "heading": "システム停止・性能低下",
+      "body": "",
+      "noteText": "",
+      "slug": "system-outage-degradation"
+    },
+    {
+      "type": "board",
+      "heading": "不正アクセス",
+      "body": "",
+      "noteText": "",
+      "slug": "unauthorized-access"
+    },
+    {
+      "type": "board",
+      "heading": "オペレーションミス",
+      "body": "",
+      "noteText": "",
+      "slug": "operation-errors"
+    },
+    {
+      "type": "board",
+      "heading": "マルウェア",
+      "body": "",
+      "noteText": "",
+      "slug": "malware"
+    },
+    {
+      "type": "board",
+      "heading": "DoS・DDoS",
+      "body": "",
+      "noteText": "",
+      "slug": "dos-ddos"
+    },
+    {
+      "type": "board",
+      "heading": "標的型攻撃",
+      "body": "",
+      "noteText": "",
+      "slug": "targeted-attack"
+    },
+    {
+      "type": "board",
+      "heading": "フィッシング詐欺・ファーミング詐欺",
+      "body": "",
+      "noteText": "",
+      "slug": "phishing-pharming"
+    },
+    {
+      "type": "board",
+      "heading": "ソーシャルエンジニアリング",
+      "body": "",
+      "noteText": "",
+      "slug": "social-engineering"
+    },
+    {
+      "type": "board",
+      "heading": "脆弱性（セキュリティホール）",
+      "body": "",
+      "noteText": "",
+      "slug": "vulnerability"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "情報漏洩・改ざん・消失",
+      "システム停止・性能低下",
+      "不正アクセス",
+      "オペレーションミス"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.5-part2",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "情報セキュリティ",
+    "groupNames": [
+      "情報セキュリティの脅威"
+    ],
+    "keywordCount": 10,
+    "partOf": "4.5"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "cover": {
+    "keyword": "環境保全の基本原則 Part 2",
+    "subtitle": "環境保全の基本原則",
+    "stickyText": "社会環境管理\n3KW",
+    "management": "environment"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "バックキャスティング、ライフサイクルアセスメント、ESD",
+      "noteText": "社会環境管理 環境保全の基本原則（自主的取組手法・環境教育）"
+    },
+    {
+      "type": "board",
+      "heading": "バックキャスティング",
+      "body": "",
+      "noteText": "",
+      "slug": "backcasting"
+    },
+    {
+      "type": "board",
+      "heading": "ライフサイクルアセスメント",
+      "body": "",
+      "noteText": "",
+      "slug": "lifecycle-assessment"
+    },
+    {
+      "type": "board",
+      "heading": "ESD",
+      "body": "",
+      "noteText": "",
+      "slug": "esd"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "バックキャスティング",
+      "ライフサイクルアセスメント",
+      "ESD"
+    ]
+  },
+  "_meta": {
+    "bundleId": "6-6.3-part2",
+    "chapterTitle": "社会環境管理",
+    "sectionTitle": "環境保全の基本原則",
+    "groupNames": [
+      "自主的取組手法",
+      "環境教育"
+    ],
+    "keywordCount": 3,
+    "partOf": "6.3"
+  }
+}

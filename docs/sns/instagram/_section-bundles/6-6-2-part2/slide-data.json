@@ -1,0 +1,132 @@
+{
+  "cover": {
+    "keyword": "地域環境問題 Part 2",
+    "subtitle": "地域環境問題",
+    "stickyText": "社会環境管理\n13KW",
+    "management": "environment"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "GFC、POPs条約、水俣条約、REACH規制（化学品の登録，評価，認可及び制限に関する規則）、RoHS規制・WEEE規制、ダイオキシン類対策特別措置法、化審法、化管法／PRTR法、ヒートアイランド現象、都市型水害、ハザードマップ、Eco-DRR（生態系を活用した防災・減災）、グリーンインフラ",
+      "noteText": "社会環境管理 地域環境問題（化学物質と環境リスク・異常気象と防災）"
+    },
+    {
+      "type": "board",
+      "heading": "GFC",
+      "body": "",
+      "noteText": "",
+      "slug": "gfc-chemicals-framework"
+    },
+    {
+      "type": "board",
+      "heading": "POPs条約",
+      "body": "",
+      "noteText": "",
+      "slug": "pops-convention"
+    },
+    {
+      "type": "board",
+      "heading": "水俣条約",
+      "body": "",
+      "noteText": "",
+      "slug": "minamata-convention"
+    },
+    {
+      "type": "board",
+      "heading": "REACH規制（化学品の登録，評価，認可及び制限に関する規則）",
+      "body": "",
+      "noteText": "",
+      "slug": "reach-regulation"
+    },
+    {
+      "type": "board",
+      "heading": "RoHS規制・WEEE規制",
+      "body": "",
+      "noteText": "",
+      "slug": "rohs-weee"
+    },
+    {
+      "type": "board",
+      "heading": "ダイオキシン類対策特別措置法",
+      "body": "",
+      "noteText": "",
+      "slug": "dioxin-countermeasures-act"
+    },
+    {
+      "type": "board",
+      "heading": "化審法",
+      "body": "",
+      "noteText": "",
+      "slug": "chemical-substances-review-act"
+    },
+    {
+      "type": "board",
+      "heading": "化管法／PRTR法",
+      "body": "",
+      "noteText": "",
+      "slug": "prtr-act"
+    },
+    {
+      "type": "board",
+      "heading": "ヒートアイランド現象",
+      "body": "",
+      "noteText": "",
+      "slug": "heat-island-effect"
+    },
+    {
+      "type": "board",
+      "heading": "都市型水害",
+      "body": "",
+      "noteText": "",
+      "slug": "urban-flood"
+    },
+    {
+      "type": "board",
+      "heading": "ハザードマップ",
+      "body": "",
+      "noteText": "",
+      "slug": "hazard-map"
+    },
+    {
+      "type": "board",
+      "heading": "Eco-DRR（生態系を活用した防災・減災）",
+      "body": "",
+      "noteText": "",
+      "slug": "eco-drr"
+    },
+    {
+      "type": "board",
+      "heading": "グリーンインフラ",
+      "body": "",
+      "noteText": "",
+      "slug": "green-infrastructure"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "GFC",
+      "POPs条約",
+      "水俣条約",
+      "REACH規制（化学品の登録，評価，認可及び制限に関する規則）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "6-6.2-part2",
+    "chapterTitle": "社会環境管理",
+    "sectionTitle": "地域環境問題",
+    "groupNames": [
+      "化学物質と環境リスク",
+      "異常気象と防災"
+    ],
+    "keywordCount": 13,
+    "partOf": "6.2"
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "cover": {
+    "keyword": "事業企画 Part 2",
+    "subtitle": "事業企画",
+    "stickyText": "経済性管理\n16KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "信頼性設計・保全性設計、コンカレントエンジニアリング、デザインレビュー、デザインイン、フロントローディング、工事計画、仮設計画、工程計画、予算計画、安全衛生計画、工法計画、生産の4M、PDCAサイクル、KGI・KSF・KPI、PFI、PMBOK",
+      "noteText": "経済性管理 事業企画（設計管理・施工計画・プロジェクトマネジメント）"
+    },
+    {
+      "type": "board",
+      "heading": "信頼性設計・保全性設計",
+      "body": "",
+      "noteText": "",
+      "slug": "reliability-maintainability-design"
+    },
+    {
+      "type": "board",
+      "heading": "コンカレントエンジニアリング",
+      "body": "",
+      "noteText": "",
+      "slug": "concurrent-engineering"
+    },
+    {
+      "type": "board",
+      "heading": "デザインレビュー",
+      "body": "",
+      "noteText": "",
+      "slug": "design-review"
+    },
+    {
+      "type": "board",
+      "heading": "デザインイン",
+      "body": "",
+      "noteText": "",
+      "slug": "design-in"
+    },
+    {
+      "type": "board",
+      "heading": "フロントローディング",
+      "body": "",
+      "noteText": "",
+      "slug": "front-loading"
+    },
+    {
+      "type": "board",
+      "heading": "工事計画",
+      "body": "",
+      "noteText": "",
+      "slug": "construction-plan"
+    },
+    {
+      "type": "board",
+      "heading": "仮設計画",
+      "body": "",
+      "noteText": "",
+      "slug": "temporary-works-plan"
+    },
+    {
+      "type": "board",
+      "heading": "工程計画",
+      "body": "",
+      "noteText": "",
+      "slug": "process-planning-construction"
+    },
+    {
+      "type": "board",
+      "heading": "予算計画",
+      "body": "",
+      "noteText": "",
+      "slug": "budget-planning"
+    },
+    {
+      "type": "board",
+      "heading": "安全衛生計画",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-health-plan"
+    },
+    {
+      "type": "board",
+      "heading": "工法計画",
+      "body": "",
+      "noteText": "",
+      "slug": "method-planning"
+    },
+    {
+      "type": "board",
+      "heading": "生産の4M",
+      "body": "",
+      "noteText": "",
+      "slug": "four-m-of-production"
+    },
+    {
+      "type": "board",
+      "heading": "PDCAサイクル",
+      "body": "",
+      "noteText": "",
+      "slug": "pdca-cycle"
+    },
+    {
+      "type": "board",
+      "heading": "KGI・KSF・KPI",
+      "body": "",
+      "noteText": "",
+      "slug": "key-performance-indicators"
+    },
+    {
+      "type": "board",
+      "heading": "PFI",
+      "body": "",
+      "noteText": "",
+      "slug": "pfi"
+    },
+    {
+      "type": "board",
+      "heading": "PMBOK",
+      "body": "",
+      "noteText": "",
+      "slug": "pmbok"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "信頼性設計・保全性設計",
+      "コンカレントエンジニアリング",
+      "デザインレビュー",
+      "デザインイン"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.1-part2",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "事業企画",
+    "groupNames": [
+      "設計管理",
+      "施工計画",
+      "プロジェクトマネジメント"
+    ],
+    "keywordCount": 16,
+    "partOf": "2.1"
+  }
+}

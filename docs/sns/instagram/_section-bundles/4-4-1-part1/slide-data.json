@@ -1,0 +1,148 @@
+{
+  "cover": {
+    "keyword": "情報分析と情報活用 Part 1",
+    "subtitle": "情報分析と情報活用",
+    "stickyText": "情報管理\n15KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "アンケート分析、情報検索、情報推薦、記述統計、線形回帰と最小二乗法、ロジスティック回帰、相関分析、推定・検定、データ収集、データクレンジング、データマイニング、クラスター分析、データ可視化、機械学習、生成AI",
+      "noteText": "情報管理 情報分析と情報活用（情報分析技法・統計分析・ビッグデータ分析・人工知能（AI））"
+    },
+    {
+      "type": "board",
+      "heading": "アンケート分析",
+      "body": "",
+      "noteText": "",
+      "slug": "survey-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "情報検索",
+      "body": "",
+      "noteText": "",
+      "slug": "information-retrieval"
+    },
+    {
+      "type": "board",
+      "heading": "情報推薦",
+      "body": "",
+      "noteText": "",
+      "slug": "recommendation-systems"
+    },
+    {
+      "type": "board",
+      "heading": "記述統計",
+      "body": "",
+      "noteText": "",
+      "slug": "descriptive-statistics"
+    },
+    {
+      "type": "board",
+      "heading": "線形回帰と最小二乗法",
+      "body": "",
+      "noteText": "",
+      "slug": "linear-regression"
+    },
+    {
+      "type": "board",
+      "heading": "ロジスティック回帰",
+      "body": "",
+      "noteText": "",
+      "slug": "logistic-regression"
+    },
+    {
+      "type": "board",
+      "heading": "相関分析",
+      "body": "",
+      "noteText": "",
+      "slug": "correlation-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "推定・検定",
+      "body": "",
+      "noteText": "",
+      "slug": "estimation-testing"
+    },
+    {
+      "type": "board",
+      "heading": "データ収集",
+      "body": "",
+      "noteText": "",
+      "slug": "data-collection"
+    },
+    {
+      "type": "board",
+      "heading": "データクレンジング",
+      "body": "",
+      "noteText": "",
+      "slug": "data-cleansing"
+    },
+    {
+      "type": "board",
+      "heading": "データマイニング",
+      "body": "",
+      "noteText": "",
+      "slug": "data-mining"
+    },
+    {
+      "type": "board",
+      "heading": "クラスター分析",
+      "body": "",
+      "noteText": "",
+      "slug": "cluster-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "データ可視化",
+      "body": "",
+      "noteText": "",
+      "slug": "data-visualization"
+    },
+    {
+      "type": "board",
+      "heading": "機械学習",
+      "body": "",
+      "noteText": "",
+      "slug": "machine-learning"
+    },
+    {
+      "type": "board",
+      "heading": "生成AI",
+      "body": "",
+      "noteText": "",
+      "slug": "generative-ai"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "アンケート分析",
+      "情報検索",
+      "情報推薦",
+      "記述統計"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.1-part1",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "情報分析と情報活用",
+    "groupNames": [
+      "情報分析技法",
+      "統計分析",
+      "ビッグデータ分析",
+      "人工知能（AI）"
+    ],
+    "keywordCount": 15,
+    "partOf": "4.1"
+  }
+}

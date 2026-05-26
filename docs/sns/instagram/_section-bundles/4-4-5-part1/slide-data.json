@@ -1,0 +1,104 @@
+{
+  "cover": {
+    "keyword": "情報セキュリティ Part 1",
+    "subtitle": "情報セキュリティ",
+    "stickyText": "情報管理\n9KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "機密性、完全性、可用性、真正性、責任追跡性、信頼性、否認防止、データガバナンス、情報セキュリティ教育",
+      "noteText": "情報管理 情報セキュリティ（情報セキュリティの要素・情報セキュリティポリシー）"
+    },
+    {
+      "type": "board",
+      "heading": "機密性",
+      "body": "",
+      "noteText": "",
+      "slug": "confidentiality"
+    },
+    {
+      "type": "board",
+      "heading": "完全性",
+      "body": "",
+      "noteText": "",
+      "slug": "integrity-security"
+    },
+    {
+      "type": "board",
+      "heading": "可用性",
+      "body": "",
+      "noteText": "",
+      "slug": "system-availability"
+    },
+    {
+      "type": "board",
+      "heading": "真正性",
+      "body": "",
+      "noteText": "",
+      "slug": "authenticity"
+    },
+    {
+      "type": "board",
+      "heading": "責任追跡性",
+      "body": "",
+      "noteText": "",
+      "slug": "accountability-traceability"
+    },
+    {
+      "type": "board",
+      "heading": "信頼性",
+      "body": "",
+      "noteText": "",
+      "slug": "system-reliability"
+    },
+    {
+      "type": "board",
+      "heading": "否認防止",
+      "body": "",
+      "noteText": "",
+      "slug": "non-repudiation"
+    },
+    {
+      "type": "board",
+      "heading": "データガバナンス",
+      "body": "",
+      "noteText": "",
+      "slug": "data-governance"
+    },
+    {
+      "type": "board",
+      "heading": "情報セキュリティ教育",
+      "body": "",
+      "noteText": "",
+      "slug": "security-education"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "機密性",
+      "完全性",
+      "可用性",
+      "真正性"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.5-part1",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "情報セキュリティ",
+    "groupNames": [
+      "情報セキュリティの要素",
+      "情報セキュリティポリシー"
+    ],
+    "keywordCount": 9,
+    "partOf": "4.5"
+  }
+}

@@ -1,0 +1,167 @@
+{
+  "cover": {
+    "keyword": "安全に関するリスクマネジメント Part 1",
+    "subtitle": "安全に関するリスクマネジメント",
+    "stickyText": "安全管理\n18KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "リスク、ハザード（潜在的危険要因）、リスクマップ／リスクマトリクス、起こりやすさ（発生確率・頻度）、影響（影響の種類・影響の規模）、リスクマネジメント計画、リスク基準、リスクマネジメントシステム、リスクマネジメント方針、リスク特定、リスク分析、リスク評価、リスク対応、リスクモニタリング、社会的受容（PA）、リスク認知、ALARPの原則、残留リスク",
+      "noteText": "安全管理 安全に関するリスクマネジメント（リスクアセスメント・リスクコミュニケーション）"
+    },
+    {
+      "type": "board",
+      "heading": "リスク",
+      "body": "",
+      "noteText": "",
+      "slug": "risk"
+    },
+    {
+      "type": "board",
+      "heading": "ハザード（潜在的危険要因）",
+      "body": "",
+      "noteText": "",
+      "slug": "hazard"
+    },
+    {
+      "type": "board",
+      "heading": "リスクマップ／リスクマトリクス",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-map-matrix"
+    },
+    {
+      "type": "board",
+      "heading": "起こりやすさ（発生確率・頻度）",
+      "body": "",
+      "noteText": "",
+      "slug": "likelihood"
+    },
+    {
+      "type": "board",
+      "heading": "影響（影響の種類・影響の規模）",
+      "body": "",
+      "noteText": "",
+      "slug": "impact"
+    },
+    {
+      "type": "board",
+      "heading": "リスクマネジメント計画",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-management-plan"
+    },
+    {
+      "type": "board",
+      "heading": "リスク基準",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-criteria"
+    },
+    {
+      "type": "board",
+      "heading": "リスクマネジメントシステム",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-management-system"
+    },
+    {
+      "type": "board",
+      "heading": "リスクマネジメント方針",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-management-policy"
+    },
+    {
+      "type": "board",
+      "heading": "リスク特定",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-identification"
+    },
+    {
+      "type": "board",
+      "heading": "リスク分析",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "リスク評価",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-assessment"
+    },
+    {
+      "type": "board",
+      "heading": "リスク対応",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-treatment"
+    },
+    {
+      "type": "board",
+      "heading": "リスクモニタリング",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-monitoring"
+    },
+    {
+      "type": "board",
+      "heading": "社会的受容（PA）",
+      "body": "",
+      "noteText": "",
+      "slug": "public-acceptance"
+    },
+    {
+      "type": "board",
+      "heading": "リスク認知",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-perception"
+    },
+    {
+      "type": "board",
+      "heading": "ALARPの原則",
+      "body": "",
+      "noteText": "",
+      "slug": "alarp-principle"
+    },
+    {
+      "type": "board",
+      "heading": "残留リスク",
+      "body": "",
+      "noteText": "",
+      "slug": "residual-risk"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "リスク",
+      "ハザード（潜在的危険要因）",
+      "リスクマップ／リスクマトリクス",
+      "起こりやすさ（発生確率・頻度）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.2-part1",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "安全に関するリスクマネジメント",
+    "groupNames": [
+      "リスクアセスメント",
+      "リスクコミュニケーション"
+    ],
+    "keywordCount": 18,
+    "partOf": "5.2"
+  }
+}

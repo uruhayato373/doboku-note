@@ -1,0 +1,75 @@
+{
+  "cover": {
+    "keyword": "危機管理 Part 2",
+    "subtitle": "危機管理",
+    "stickyText": "安全管理\n5KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "国民保護法、災害対策基本法、国土強靱化基本法、BCP・BCM、ICS",
+      "noteText": "安全管理 危機管理（災害対策関係法等）"
+    },
+    {
+      "type": "board",
+      "heading": "国民保護法",
+      "body": "",
+      "noteText": "",
+      "slug": "civil-protection-act"
+    },
+    {
+      "type": "board",
+      "heading": "災害対策基本法",
+      "body": "",
+      "noteText": "",
+      "slug": "disaster-countermeasures-act"
+    },
+    {
+      "type": "board",
+      "heading": "国土強靱化基本法",
+      "body": "",
+      "noteText": "",
+      "slug": "national-resilience-act"
+    },
+    {
+      "type": "board",
+      "heading": "BCP・BCM",
+      "body": "",
+      "noteText": "",
+      "slug": "business-continuity-plan"
+    },
+    {
+      "type": "board",
+      "heading": "ICS",
+      "body": "",
+      "noteText": "",
+      "slug": "ics"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "国民保護法",
+      "災害対策基本法",
+      "国土強靱化基本法",
+      "BCP・BCM"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.5-part2",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "危機管理",
+    "groupNames": [
+      "災害対策関係法等"
+    ],
+    "keywordCount": 5,
+    "partOf": "5.5"
+  }
+}

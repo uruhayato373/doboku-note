@@ -1,0 +1,77 @@
+{
+  "cover": {
+    "keyword": "財務会計",
+    "subtitle": "財務会計",
+    "stickyText": "経済性管理\n5KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "貸借対照表（B/S）、損益計算書（P/L）、キャッシュ・フロー計算書（C/F）、国際会計基準（IFRS）、減価償却",
+      "noteText": "経済性管理 財務会計（財務諸表・企業会計基準・減価償却）"
+    },
+    {
+      "type": "board",
+      "heading": "貸借対照表（B/S）",
+      "body": "",
+      "noteText": "",
+      "slug": "balance-sheet"
+    },
+    {
+      "type": "board",
+      "heading": "損益計算書（P/L）",
+      "body": "",
+      "noteText": "",
+      "slug": "income-statement"
+    },
+    {
+      "type": "board",
+      "heading": "キャッシュ・フロー計算書（C/F）",
+      "body": "",
+      "noteText": "",
+      "slug": "cash-flow-statement"
+    },
+    {
+      "type": "board",
+      "heading": "国際会計基準（IFRS）",
+      "body": "",
+      "noteText": "",
+      "slug": "ifrs"
+    },
+    {
+      "type": "board",
+      "heading": "減価償却",
+      "body": "",
+      "noteText": "",
+      "slug": "depreciation"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "貸借対照表（B/S）",
+      "損益計算書（P/L）",
+      "キャッシュ・フロー計算書（C/F）",
+      "国際会計基準（IFRS）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.5",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "財務会計",
+    "groupNames": [
+      "財務諸表",
+      "企業会計基準",
+      "減価償却"
+    ],
+    "keywordCount": 5,
+    "partOf": null
+  }
+}

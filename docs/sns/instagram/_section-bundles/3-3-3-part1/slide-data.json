@@ -1,0 +1,52 @@
+{
+  "cover": {
+    "keyword": "人材活用計画 Part 1",
+    "subtitle": "人材活用計画",
+    "stickyText": "人的資源管理\n2KW",
+    "management": "hr"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "公式組織・非公式組織、人事管理",
+      "noteText": "人的資源管理 人材活用計画（人間関係管理）"
+    },
+    {
+      "type": "board",
+      "heading": "公式組織・非公式組織",
+      "body": "",
+      "noteText": "",
+      "slug": "formal-informal-organization"
+    },
+    {
+      "type": "board",
+      "heading": "人事管理",
+      "body": "",
+      "noteText": "",
+      "slug": "personnel-management"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "公式組織・非公式組織",
+      "人事管理"
+    ]
+  },
+  "_meta": {
+    "bundleId": "3-3.3-part1",
+    "chapterTitle": "人的資源管理",
+    "sectionTitle": "人材活用計画",
+    "groupNames": [
+      "人間関係管理"
+    ],
+    "keywordCount": 2,
+    "partOf": "3.3"
+  }
+}

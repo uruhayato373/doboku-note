@@ -1,0 +1,126 @@
+{
+  "cover": {
+    "keyword": "情報通信技術動向 Part 1",
+    "subtitle": "情報通信技術動向",
+    "stickyText": "情報管理\n12KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "集中化と分散化、WEBサービス、クラウドコンピューティング／オンプレミス、エッジコンピューティング、信頼性（Reliability）、可用性（Availability）、保守性（Serviceability）、保全性（Integrity）、安全性（Security）、インターネット、固定通信、移動通信",
+      "noteText": "情報管理 情報通信技術動向（情報システム実現方法の動向・システム評価指標（RASIS）・通信インフラ）"
+    },
+    {
+      "type": "board",
+      "heading": "集中化と分散化",
+      "body": "",
+      "noteText": "",
+      "slug": "centralization-decentralization"
+    },
+    {
+      "type": "board",
+      "heading": "WEBサービス",
+      "body": "",
+      "noteText": "",
+      "slug": "web-services"
+    },
+    {
+      "type": "board",
+      "heading": "クラウドコンピューティング／オンプレミス",
+      "body": "",
+      "noteText": "",
+      "slug": "cloud-on-premises"
+    },
+    {
+      "type": "board",
+      "heading": "エッジコンピューティング",
+      "body": "",
+      "noteText": "",
+      "slug": "edge-computing"
+    },
+    {
+      "type": "board",
+      "heading": "信頼性（Reliability）",
+      "body": "",
+      "noteText": "",
+      "slug": "system-reliability"
+    },
+    {
+      "type": "board",
+      "heading": "可用性（Availability）",
+      "body": "",
+      "noteText": "",
+      "slug": "system-availability"
+    },
+    {
+      "type": "board",
+      "heading": "保守性（Serviceability）",
+      "body": "",
+      "noteText": "",
+      "slug": "system-serviceability"
+    },
+    {
+      "type": "board",
+      "heading": "保全性（Integrity）",
+      "body": "",
+      "noteText": "",
+      "slug": "system-integrity"
+    },
+    {
+      "type": "board",
+      "heading": "安全性（Security）",
+      "body": "",
+      "noteText": "",
+      "slug": "system-security"
+    },
+    {
+      "type": "board",
+      "heading": "インターネット",
+      "body": "",
+      "noteText": "",
+      "slug": "internet"
+    },
+    {
+      "type": "board",
+      "heading": "固定通信",
+      "body": "",
+      "noteText": "",
+      "slug": "fixed-communication"
+    },
+    {
+      "type": "board",
+      "heading": "移動通信",
+      "body": "",
+      "noteText": "",
+      "slug": "mobile-communication"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "集中化と分散化",
+      "WEBサービス",
+      "クラウドコンピューティング／オンプレミス",
+      "エッジコンピューティング"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.4-part1",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "情報通信技術動向",
+    "groupNames": [
+      "情報システム実現方法の動向",
+      "システム評価指標（RASIS）",
+      "通信インフラ"
+    ],
+    "keywordCount": 12,
+    "partOf": "4.4"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "cover": {
+    "keyword": "安全の概念 Part 2",
+    "subtitle": "安全の概念",
+    "stickyText": "安全管理\n9KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "消防法、高圧ガス保安法、消費生活用製品安全法、製造物責任法（PL法）、機械の包括的な安全基準に関する指針、Safety2.0、ELSI、安全文化、安全／安心",
+      "noteText": "安全管理 安全の概念（安全法規）"
+    },
+    {
+      "type": "board",
+      "heading": "消防法",
+      "body": "",
+      "noteText": "",
+      "slug": "fire-service-act"
+    },
+    {
+      "type": "board",
+      "heading": "高圧ガス保安法",
+      "body": "",
+      "noteText": "",
+      "slug": "high-pressure-gas-act"
+    },
+    {
+      "type": "board",
+      "heading": "消費生活用製品安全法",
+      "body": "",
+      "noteText": "",
+      "slug": "consumer-product-safety-act"
+    },
+    {
+      "type": "board",
+      "heading": "製造物責任法（PL法）",
+      "body": "",
+      "noteText": "",
+      "slug": "product-liability-act"
+    },
+    {
+      "type": "board",
+      "heading": "機械の包括的な安全基準に関する指針",
+      "body": "",
+      "noteText": "",
+      "slug": "machinery-safety-guidelines"
+    },
+    {
+      "type": "board",
+      "heading": "Safety2.0",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-2-0"
+    },
+    {
+      "type": "board",
+      "heading": "ELSI",
+      "body": "",
+      "noteText": "",
+      "slug": "elsi"
+    },
+    {
+      "type": "board",
+      "heading": "安全文化",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-culture"
+    },
+    {
+      "type": "board",
+      "heading": "安全／安心",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-and-security"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "消防法",
+      "高圧ガス保安法",
+      "消費生活用製品安全法",
+      "製造物責任法（PL法）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.1-part2",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "安全の概念",
+    "groupNames": [
+      "安全法規"
+    ],
+    "keywordCount": 9,
+    "partOf": "5.1"
+  }
+}

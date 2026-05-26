@@ -1,0 +1,168 @@
+{
+  "cover": {
+    "keyword": "品質の管理",
+    "subtitle": "品質の管理",
+    "stickyText": "経済性管理\n18KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "要求品質、設計品質、製造品質、品質特性、品質方針、品質目標、品質計画、品質管理、品質保証、品質改善活動、製造物責任（PL）、管理限界、工程能力指数（Cp・Cpk）、不適合品率／適合品率、全数検査／抜取検査、HACCP、製品安全、**顧客満足（CS）**",
+      "noteText": "経済性管理 品質の管理（品質・品質管理（広義）・品質管理の統計的手法）"
+    },
+    {
+      "type": "board",
+      "heading": "要求品質",
+      "body": "",
+      "noteText": "",
+      "slug": "required-quality"
+    },
+    {
+      "type": "board",
+      "heading": "設計品質",
+      "body": "",
+      "noteText": "",
+      "slug": "design-quality"
+    },
+    {
+      "type": "board",
+      "heading": "製造品質",
+      "body": "",
+      "noteText": "",
+      "slug": "manufacturing-quality"
+    },
+    {
+      "type": "board",
+      "heading": "品質特性",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-characteristics"
+    },
+    {
+      "type": "board",
+      "heading": "品質方針",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-policy"
+    },
+    {
+      "type": "board",
+      "heading": "品質目標",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-objectives"
+    },
+    {
+      "type": "board",
+      "heading": "品質計画",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-planning"
+    },
+    {
+      "type": "board",
+      "heading": "品質管理",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-control"
+    },
+    {
+      "type": "board",
+      "heading": "品質保証",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-assurance"
+    },
+    {
+      "type": "board",
+      "heading": "品質改善活動",
+      "body": "",
+      "noteText": "",
+      "slug": "quality-improvement"
+    },
+    {
+      "type": "board",
+      "heading": "製造物責任（PL）",
+      "body": "",
+      "noteText": "",
+      "slug": "product-liability"
+    },
+    {
+      "type": "board",
+      "heading": "管理限界",
+      "body": "",
+      "noteText": "",
+      "slug": "control-limits"
+    },
+    {
+      "type": "board",
+      "heading": "工程能力指数（Cp・Cpk）",
+      "body": "",
+      "noteText": "",
+      "slug": "process-capability-index"
+    },
+    {
+      "type": "board",
+      "heading": "不適合品率／適合品率",
+      "body": "",
+      "noteText": "",
+      "slug": "nonconformity-rate"
+    },
+    {
+      "type": "board",
+      "heading": "全数検査／抜取検査",
+      "body": "",
+      "noteText": "",
+      "slug": "inspection-methods"
+    },
+    {
+      "type": "board",
+      "heading": "HACCP",
+      "body": "",
+      "noteText": "",
+      "slug": "haccp"
+    },
+    {
+      "type": "board",
+      "heading": "製品安全",
+      "body": "",
+      "noteText": "",
+      "slug": "product-safety"
+    },
+    {
+      "type": "board",
+      "heading": "**顧客満足（CS）**",
+      "body": "",
+      "noteText": "",
+      "slug": "customer-satisfaction"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "要求品質",
+      "設計品質",
+      "製造品質",
+      "品質特性"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.2",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "品質の管理",
+    "groupNames": [
+      "品質",
+      "品質管理（広義）",
+      "品質管理の統計的手法"
+    ],
+    "keywordCount": 18,
+    "partOf": null
+  }
+}

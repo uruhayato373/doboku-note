@@ -1,0 +1,171 @@
+{
+  "cover": {
+    "keyword": "工程管理 Part 1",
+    "subtitle": "工程管理",
+    "stickyText": "経済性管理\n18KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "PQCDSME、JIT生産方式、プッシュ型生産方式、プル型生産方式、制約条件の理論（TOC）、工程計画、作業計画、リードタイム、稼働率、負荷工数・生産能力、負荷平準化（山積み・山くずし）、大日程計画・中日程計画・小日程計画、ガントチャート、ボトムアップ見積り、類推見積り、パラメトリック見積り、三点見積り、PERT/CPM",
+      "noteText": "経済性管理 工程管理（生産活動指標・生産方式・手順計画・負荷計画・日程計画・工数見積り）"
+    },
+    {
+      "type": "board",
+      "heading": "PQCDSME",
+      "body": "",
+      "noteText": "",
+      "slug": "pqcdsme"
+    },
+    {
+      "type": "board",
+      "heading": "JIT生産方式",
+      "body": "",
+      "noteText": "",
+      "slug": "jit-production"
+    },
+    {
+      "type": "board",
+      "heading": "プッシュ型生産方式",
+      "body": "",
+      "noteText": "",
+      "slug": "push-production"
+    },
+    {
+      "type": "board",
+      "heading": "プル型生産方式",
+      "body": "",
+      "noteText": "",
+      "slug": "pull-production"
+    },
+    {
+      "type": "board",
+      "heading": "制約条件の理論（TOC）",
+      "body": "",
+      "noteText": "",
+      "slug": "theory-of-constraints"
+    },
+    {
+      "type": "board",
+      "heading": "工程計画",
+      "body": "",
+      "noteText": "",
+      "slug": "process-planning-construction"
+    },
+    {
+      "type": "board",
+      "heading": "作業計画",
+      "body": "",
+      "noteText": "",
+      "slug": "work-planning"
+    },
+    {
+      "type": "board",
+      "heading": "リードタイム",
+      "body": "",
+      "noteText": "",
+      "slug": "lead-time"
+    },
+    {
+      "type": "board",
+      "heading": "稼働率",
+      "body": "",
+      "noteText": "",
+      "slug": "utilization-rate"
+    },
+    {
+      "type": "board",
+      "heading": "負荷工数・生産能力",
+      "body": "",
+      "noteText": "",
+      "slug": "load-capacity"
+    },
+    {
+      "type": "board",
+      "heading": "負荷平準化（山積み・山くずし）",
+      "body": "",
+      "noteText": "",
+      "slug": "load-leveling"
+    },
+    {
+      "type": "board",
+      "heading": "大日程計画・中日程計画・小日程計画",
+      "body": "",
+      "noteText": "",
+      "slug": "master-schedule-planning"
+    },
+    {
+      "type": "board",
+      "heading": "ガントチャート",
+      "body": "",
+      "noteText": "",
+      "slug": "gantt-chart"
+    },
+    {
+      "type": "board",
+      "heading": "ボトムアップ見積り",
+      "body": "",
+      "noteText": "",
+      "slug": "bottom-up-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "類推見積り",
+      "body": "",
+      "noteText": "",
+      "slug": "analogous-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "パラメトリック見積り",
+      "body": "",
+      "noteText": "",
+      "slug": "parametric-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "三点見積り",
+      "body": "",
+      "noteText": "",
+      "slug": "three-point-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "PERT/CPM",
+      "body": "",
+      "noteText": "",
+      "slug": "pert-cpm"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "PQCDSME",
+      "JIT生産方式",
+      "プッシュ型生産方式",
+      "プル型生産方式"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.3-part1",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "工程管理",
+    "groupNames": [
+      "生産活動指標",
+      "生産方式",
+      "手順計画",
+      "負荷計画",
+      "日程計画",
+      "工数見積り"
+    ],
+    "keywordCount": 18,
+    "partOf": "2.3"
+  }
+}

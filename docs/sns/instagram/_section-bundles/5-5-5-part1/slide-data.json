@@ -1,0 +1,155 @@
+{
+  "cover": {
+    "keyword": "危機管理 Part 1",
+    "subtitle": "危機管理",
+    "stickyText": "安全管理\n16KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "緊急事態、不測事態、極端現象、防災気象情報、液状化現象、警戒レベル、タイムライン、自然災害に起因する産業事故（Natech）、危険物施設防災、確率論的リスク評価、深層防護、テロリズム、感染症・パンデミック、危機広報、優先順位、危機管理マニュアル",
+      "noteText": "安全管理 危機管理（危機・自然災害・原子力防災・危機管理体制）"
+    },
+    {
+      "type": "board",
+      "heading": "緊急事態",
+      "body": "",
+      "noteText": "",
+      "slug": "emergency"
+    },
+    {
+      "type": "board",
+      "heading": "不測事態",
+      "body": "",
+      "noteText": "",
+      "slug": "contingency"
+    },
+    {
+      "type": "board",
+      "heading": "極端現象",
+      "body": "",
+      "noteText": "",
+      "slug": "extreme-events"
+    },
+    {
+      "type": "board",
+      "heading": "防災気象情報",
+      "body": "",
+      "noteText": "",
+      "slug": "disaster-weather-info"
+    },
+    {
+      "type": "board",
+      "heading": "液状化現象",
+      "body": "",
+      "noteText": "",
+      "slug": "liquefaction"
+    },
+    {
+      "type": "board",
+      "heading": "警戒レベル",
+      "body": "",
+      "noteText": "",
+      "slug": "alert-levels"
+    },
+    {
+      "type": "board",
+      "heading": "タイムライン",
+      "body": "",
+      "noteText": "",
+      "slug": "timeline-disaster"
+    },
+    {
+      "type": "board",
+      "heading": "自然災害に起因する産業事故（Natech）",
+      "body": "",
+      "noteText": "",
+      "slug": "natech"
+    },
+    {
+      "type": "board",
+      "heading": "危険物施設防災",
+      "body": "",
+      "noteText": "",
+      "slug": "hazardous-facility-disaster-prevention"
+    },
+    {
+      "type": "board",
+      "heading": "確率論的リスク評価",
+      "body": "",
+      "noteText": "",
+      "slug": "probabilistic-risk-assessment"
+    },
+    {
+      "type": "board",
+      "heading": "深層防護",
+      "body": "",
+      "noteText": "",
+      "slug": "defense-in-depth"
+    },
+    {
+      "type": "board",
+      "heading": "テロリズム",
+      "body": "",
+      "noteText": "",
+      "slug": "terrorism"
+    },
+    {
+      "type": "board",
+      "heading": "感染症・パンデミック",
+      "body": "",
+      "noteText": "",
+      "slug": "infectious-disease-pandemic"
+    },
+    {
+      "type": "board",
+      "heading": "危機広報",
+      "body": "",
+      "noteText": "",
+      "slug": "crisis-communication"
+    },
+    {
+      "type": "board",
+      "heading": "優先順位",
+      "body": "",
+      "noteText": "",
+      "slug": "crisis-priority"
+    },
+    {
+      "type": "board",
+      "heading": "危機管理マニュアル",
+      "body": "",
+      "noteText": "",
+      "slug": "crisis-management-manual"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "緊急事態",
+      "不測事態",
+      "極端現象",
+      "防災気象情報"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.5-part1",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "危機管理",
+    "groupNames": [
+      "危機",
+      "自然災害",
+      "原子力防災",
+      "危機管理体制"
+    ],
+    "keywordCount": 16,
+    "partOf": "5.5"
+  }
+}

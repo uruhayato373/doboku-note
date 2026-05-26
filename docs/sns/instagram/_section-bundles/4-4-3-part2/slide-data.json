@@ -1,0 +1,132 @@
+{
+  "cover": {
+    "keyword": "知的財産権と情報の保護と活用 Part 2",
+    "subtitle": "知的財産権と情報の保護と活用",
+    "stickyText": "情報管理\n13KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "個人情報、匿名加工情報、個人情報の保護措置、オプトイン／オプトアウト、個人情報の活用・流通、個人情報の漏洩時対応、マイナンバー法、私的独占、不当な取引制限、不公正な取引方法、下請法、独占禁止法とコンプライアンス、談合",
+      "noteText": "情報管理 知的財産権と情報の保護と活用（個人情報保護法・独占禁止法）"
+    },
+    {
+      "type": "board",
+      "heading": "個人情報",
+      "body": "",
+      "noteText": "",
+      "slug": "personal-information"
+    },
+    {
+      "type": "board",
+      "heading": "匿名加工情報",
+      "body": "",
+      "noteText": "",
+      "slug": "anonymized-information"
+    },
+    {
+      "type": "board",
+      "heading": "個人情報の保護措置",
+      "body": "",
+      "noteText": "",
+      "slug": "personal-info-protection"
+    },
+    {
+      "type": "board",
+      "heading": "オプトイン／オプトアウト",
+      "body": "",
+      "noteText": "",
+      "slug": "opt-in-opt-out"
+    },
+    {
+      "type": "board",
+      "heading": "個人情報の活用・流通",
+      "body": "",
+      "noteText": "",
+      "slug": "personal-info-utilization"
+    },
+    {
+      "type": "board",
+      "heading": "個人情報の漏洩時対応",
+      "body": "",
+      "noteText": "",
+      "slug": "data-breach-response"
+    },
+    {
+      "type": "board",
+      "heading": "マイナンバー法",
+      "body": "",
+      "noteText": "",
+      "slug": "my-number-act"
+    },
+    {
+      "type": "board",
+      "heading": "私的独占",
+      "body": "",
+      "noteText": "",
+      "slug": "private-monopoly"
+    },
+    {
+      "type": "board",
+      "heading": "不当な取引制限",
+      "body": "",
+      "noteText": "",
+      "slug": "unreasonable-trade-restraint"
+    },
+    {
+      "type": "board",
+      "heading": "不公正な取引方法",
+      "body": "",
+      "noteText": "",
+      "slug": "unfair-trade-practices"
+    },
+    {
+      "type": "board",
+      "heading": "下請法",
+      "body": "",
+      "noteText": "",
+      "slug": "subcontracting-act"
+    },
+    {
+      "type": "board",
+      "heading": "独占禁止法とコンプライアンス",
+      "body": "",
+      "noteText": "",
+      "slug": "antitrust-compliance"
+    },
+    {
+      "type": "board",
+      "heading": "談合",
+      "body": "",
+      "noteText": "",
+      "slug": "bid-rigging"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "個人情報",
+      "匿名加工情報",
+      "個人情報の保護措置",
+      "オプトイン／オプトアウト"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.3-part2",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "知的財産権と情報の保護と活用",
+    "groupNames": [
+      "個人情報保護法",
+      "独占禁止法"
+    ],
+    "keywordCount": 13,
+    "partOf": "4.3"
+  }
+}

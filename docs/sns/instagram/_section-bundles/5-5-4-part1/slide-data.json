@@ -1,0 +1,111 @@
+{
+  "cover": {
+    "keyword": "事故・災害の未然防止活動・技術 Part 1",
+    "subtitle": "事故・災害の未然防止活動・技術",
+    "stickyText": "安全管理\n10KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "安全教育、事故対応訓練、防災訓練、ブラインド型訓練、不安全状態／不安全行動、ヒューマンファクタ、ハインリッヒの法則、本質安全、機能安全、人間工学原則の遵守",
+      "noteText": "安全管理 事故・災害の未然防止活動・技術（訓練・ヒヤリハット）"
+    },
+    {
+      "type": "board",
+      "heading": "安全教育",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-education"
+    },
+    {
+      "type": "board",
+      "heading": "事故対応訓練",
+      "body": "",
+      "noteText": "",
+      "slug": "accident-response-drill"
+    },
+    {
+      "type": "board",
+      "heading": "防災訓練",
+      "body": "",
+      "noteText": "",
+      "slug": "disaster-drill"
+    },
+    {
+      "type": "board",
+      "heading": "ブラインド型訓練",
+      "body": "",
+      "noteText": "",
+      "slug": "blind-drill"
+    },
+    {
+      "type": "board",
+      "heading": "不安全状態／不安全行動",
+      "body": "",
+      "noteText": "",
+      "slug": "unsafe-conditions-behavior"
+    },
+    {
+      "type": "board",
+      "heading": "ヒューマンファクタ",
+      "body": "",
+      "noteText": "",
+      "slug": "human-factors"
+    },
+    {
+      "type": "board",
+      "heading": "ハインリッヒの法則",
+      "body": "",
+      "noteText": "",
+      "slug": "heinrich-law"
+    },
+    {
+      "type": "board",
+      "heading": "本質安全",
+      "body": "",
+      "noteText": "",
+      "slug": "inherent-safety"
+    },
+    {
+      "type": "board",
+      "heading": "機能安全",
+      "body": "",
+      "noteText": "",
+      "slug": "functional-safety"
+    },
+    {
+      "type": "board",
+      "heading": "人間工学原則の遵守",
+      "body": "",
+      "noteText": "",
+      "slug": "ergonomic-principles"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "安全教育",
+      "事故対応訓練",
+      "防災訓練",
+      "ブラインド型訓練"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.4-part1",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "事故・災害の未然防止活動・技術",
+    "groupNames": [
+      "訓練",
+      "ヒヤリハット"
+    ],
+    "keywordCount": 10,
+    "partOf": "5.4"
+  }
+}

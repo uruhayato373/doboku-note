@@ -1,0 +1,162 @@
+{
+  "cover": {
+    "keyword": "事業企画 Part 1",
+    "subtitle": "事業企画",
+    "stickyText": "経済性管理\n17KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "市場調査、需要予測、投資回収計画、割引率、NPV、DCF法、回収期間法、内部収益率法、費用効果分析、アウトカム指標、アウトプット指標、インプット指標、リスク評価、ESG・環境評価、ライフサイクルマネジメント、サプライチェーンマネジメント（SCM）、BCP・BCM",
+      "noteText": "経済性管理 事業企画（フィージビリティスタディ・事業投資計画・事業投資評価・事業評価（政策評価））"
+    },
+    {
+      "type": "board",
+      "heading": "市場調査",
+      "body": "",
+      "noteText": "",
+      "slug": "market-research"
+    },
+    {
+      "type": "board",
+      "heading": "需要予測",
+      "body": "",
+      "noteText": "",
+      "slug": "demand-forecasting"
+    },
+    {
+      "type": "board",
+      "heading": "投資回収計画",
+      "body": "",
+      "noteText": "",
+      "slug": "investment-recovery-plan"
+    },
+    {
+      "type": "board",
+      "heading": "割引率",
+      "body": "",
+      "noteText": "",
+      "slug": "discount-rate"
+    },
+    {
+      "type": "board",
+      "heading": "NPV",
+      "body": "",
+      "noteText": "",
+      "slug": "npv-net-present-value"
+    },
+    {
+      "type": "board",
+      "heading": "DCF法",
+      "body": "",
+      "noteText": "",
+      "slug": "dcf-method"
+    },
+    {
+      "type": "board",
+      "heading": "回収期間法",
+      "body": "",
+      "noteText": "",
+      "slug": "payback-period-method"
+    },
+    {
+      "type": "board",
+      "heading": "内部収益率法",
+      "body": "",
+      "noteText": "",
+      "slug": "internal-rate-of-return"
+    },
+    {
+      "type": "board",
+      "heading": "費用効果分析",
+      "body": "",
+      "noteText": "",
+      "slug": "cost-effectiveness-analysis"
+    },
+    {
+      "type": "board",
+      "heading": "アウトカム指標",
+      "body": "",
+      "noteText": "",
+      "slug": "outcome-indicators"
+    },
+    {
+      "type": "board",
+      "heading": "アウトプット指標",
+      "body": "",
+      "noteText": "",
+      "slug": "output-indicators"
+    },
+    {
+      "type": "board",
+      "heading": "インプット指標",
+      "body": "",
+      "noteText": "",
+      "slug": "input-indicators"
+    },
+    {
+      "type": "board",
+      "heading": "リスク評価",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-assessment"
+    },
+    {
+      "type": "board",
+      "heading": "ESG・環境評価",
+      "body": "",
+      "noteText": "",
+      "slug": "esg-environmental-assessment"
+    },
+    {
+      "type": "board",
+      "heading": "ライフサイクルマネジメント",
+      "body": "",
+      "noteText": "",
+      "slug": "lifecycle-management"
+    },
+    {
+      "type": "board",
+      "heading": "サプライチェーンマネジメント（SCM）",
+      "body": "",
+      "noteText": "",
+      "slug": "supply-chain-management"
+    },
+    {
+      "type": "board",
+      "heading": "BCP・BCM",
+      "body": "",
+      "noteText": "",
+      "slug": "business-continuity-plan"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "市場調査",
+      "需要予測",
+      "投資回収計画",
+      "割引率"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.1-part1",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "事業企画",
+    "groupNames": [
+      "フィージビリティスタディ",
+      "事業投資計画",
+      "事業投資評価",
+      "事業評価（政策評価）"
+    ],
+    "keywordCount": 17,
+    "partOf": "2.1"
+  }
+}

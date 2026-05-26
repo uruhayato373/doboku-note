@@ -1,0 +1,110 @@
+{
+  "cover": {
+    "keyword": "人材開発 Part 1",
+    "subtitle": "人材開発",
+    "stickyText": "人的資源管理\n10KW",
+    "management": "hr"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "情意考課、業績考課（成績考課）、能力考課、多面評価（360度評価）、目標管理制度（MBO）、加点主義・減点主義、人事考課の三原則、相対評価・絶対評価、バイアス、評価誤差",
+      "noteText": "人的資源管理 人材開発（人事考課管理）"
+    },
+    {
+      "type": "board",
+      "heading": "情意考課",
+      "body": "",
+      "noteText": "",
+      "slug": "attitude-appraisal"
+    },
+    {
+      "type": "board",
+      "heading": "業績考課（成績考課）",
+      "body": "",
+      "noteText": "",
+      "slug": "performance-evaluation"
+    },
+    {
+      "type": "board",
+      "heading": "能力考課",
+      "body": "",
+      "noteText": "",
+      "slug": "competency-evaluation"
+    },
+    {
+      "type": "board",
+      "heading": "多面評価（360度評価）",
+      "body": "",
+      "noteText": "",
+      "slug": "360-degree-evaluation"
+    },
+    {
+      "type": "board",
+      "heading": "目標管理制度（MBO）",
+      "body": "",
+      "noteText": "",
+      "slug": "mbo"
+    },
+    {
+      "type": "board",
+      "heading": "加点主義・減点主義",
+      "body": "",
+      "noteText": "",
+      "slug": "merit-demerit-system"
+    },
+    {
+      "type": "board",
+      "heading": "人事考課の三原則",
+      "body": "",
+      "noteText": "",
+      "slug": "appraisal-three-principles"
+    },
+    {
+      "type": "board",
+      "heading": "相対評価・絶対評価",
+      "body": "",
+      "noteText": "",
+      "slug": "relative-absolute-evaluation"
+    },
+    {
+      "type": "board",
+      "heading": "バイアス",
+      "body": "",
+      "noteText": "",
+      "slug": "evaluation-bias"
+    },
+    {
+      "type": "board",
+      "heading": "評価誤差",
+      "body": "",
+      "noteText": "",
+      "slug": "halo-effect-errors"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "情意考課",
+      "業績考課（成績考課）",
+      "能力考課",
+      "多面評価（360度評価）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "3-3.4-part1",
+    "chapterTitle": "人的資源管理",
+    "sectionTitle": "人材開発",
+    "groupNames": [
+      "人事考課管理"
+    ],
+    "keywordCount": 10,
+    "partOf": "3.4"
+  }
+}

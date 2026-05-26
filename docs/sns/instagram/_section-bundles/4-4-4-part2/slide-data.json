@@ -1,0 +1,168 @@
+{
+  "cover": {
+    "keyword": "情報通信技術動向 Part 2",
+    "subtitle": "情報通信技術動向",
+    "stickyText": "情報管理\n18KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "ERP、財務会計・管理会計システム、人事システム、販売管理システム、顧客管理（CRM）システム、営業支援（SFA）システム、生産管理システム、サプライチェーンマネジメント（SCM）システム、企業内ポータル・イントラネット、ビジネスインテリジェンス（BI）、RPA、デジタルツイン・サイバーフィジカルシステム（CPS）、IoT（Internet of Things）、VR・AR・メタバース、ブロックチェーン・暗号資産、API、ウォーターフォール、アジャイル",
+      "noteText": "情報管理 情報通信技術動向（情報システム活用方法の動向・デジタルトランスフォーメーション（DX）の技術・システム開発プロセス）"
+    },
+    {
+      "type": "board",
+      "heading": "ERP",
+      "body": "",
+      "noteText": "",
+      "slug": "erp"
+    },
+    {
+      "type": "board",
+      "heading": "財務会計・管理会計システム",
+      "body": "",
+      "noteText": "",
+      "slug": "accounting-systems"
+    },
+    {
+      "type": "board",
+      "heading": "人事システム",
+      "body": "",
+      "noteText": "",
+      "slug": "hr-systems"
+    },
+    {
+      "type": "board",
+      "heading": "販売管理システム",
+      "body": "",
+      "noteText": "",
+      "slug": "sales-management-system"
+    },
+    {
+      "type": "board",
+      "heading": "顧客管理（CRM）システム",
+      "body": "",
+      "noteText": "",
+      "slug": "crm-system"
+    },
+    {
+      "type": "board",
+      "heading": "営業支援（SFA）システム",
+      "body": "",
+      "noteText": "",
+      "slug": "sfa-system"
+    },
+    {
+      "type": "board",
+      "heading": "生産管理システム",
+      "body": "",
+      "noteText": "",
+      "slug": "production-management-system"
+    },
+    {
+      "type": "board",
+      "heading": "サプライチェーンマネジメント（SCM）システム",
+      "body": "",
+      "noteText": "",
+      "slug": "scm-system"
+    },
+    {
+      "type": "board",
+      "heading": "企業内ポータル・イントラネット",
+      "body": "",
+      "noteText": "",
+      "slug": "enterprise-portal-intranet"
+    },
+    {
+      "type": "board",
+      "heading": "ビジネスインテリジェンス（BI）",
+      "body": "",
+      "noteText": "",
+      "slug": "business-intelligence"
+    },
+    {
+      "type": "board",
+      "heading": "RPA",
+      "body": "",
+      "noteText": "",
+      "slug": "rpa"
+    },
+    {
+      "type": "board",
+      "heading": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+      "body": "",
+      "noteText": "",
+      "slug": "digital-twin-cps"
+    },
+    {
+      "type": "board",
+      "heading": "IoT（Internet of Things）",
+      "body": "",
+      "noteText": "",
+      "slug": "iot"
+    },
+    {
+      "type": "board",
+      "heading": "VR・AR・メタバース",
+      "body": "",
+      "noteText": "",
+      "slug": "vr-ar-metaverse"
+    },
+    {
+      "type": "board",
+      "heading": "ブロックチェーン・暗号資産",
+      "body": "",
+      "noteText": "",
+      "slug": "blockchain-crypto"
+    },
+    {
+      "type": "board",
+      "heading": "API",
+      "body": "",
+      "noteText": "",
+      "slug": "api"
+    },
+    {
+      "type": "board",
+      "heading": "ウォーターフォール",
+      "body": "",
+      "noteText": "",
+      "slug": "waterfall"
+    },
+    {
+      "type": "board",
+      "heading": "アジャイル",
+      "body": "",
+      "noteText": "",
+      "slug": "agile"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "ERP",
+      "財務会計・管理会計システム",
+      "人事システム",
+      "販売管理システム"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.4-part2",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "情報通信技術動向",
+    "groupNames": [
+      "情報システム活用方法の動向",
+      "デジタルトランスフォーメーション（DX）の技術",
+      "システム開発プロセス"
+    ],
+    "keywordCount": 18,
+    "partOf": "4.4"
+  }
+}

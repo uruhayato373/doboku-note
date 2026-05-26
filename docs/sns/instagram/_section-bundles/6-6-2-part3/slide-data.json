@@ -1,0 +1,82 @@
+{
+  "cover": {
+    "keyword": "地域環境問題 Part 3",
+    "subtitle": "地域環境問題",
+    "stickyText": "社会環境管理\n6KW",
+    "management": "environment"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "原子力災害対策特別措置法、放射性物質汚染対処特別措置法、放射性廃棄物、中間貯蔵施設、ALPS処理水、クリアランスレベル",
+      "noteText": "社会環境管理 地域環境問題（放射性物質による環境問題）"
+    },
+    {
+      "type": "board",
+      "heading": "原子力災害対策特別措置法",
+      "body": "",
+      "noteText": "",
+      "slug": "nuclear-disaster-act"
+    },
+    {
+      "type": "board",
+      "heading": "放射性物質汚染対処特別措置法",
+      "body": "",
+      "noteText": "",
+      "slug": "radioactive-decontamination-act"
+    },
+    {
+      "type": "board",
+      "heading": "放射性廃棄物",
+      "body": "",
+      "noteText": "",
+      "slug": "radioactive-waste"
+    },
+    {
+      "type": "board",
+      "heading": "中間貯蔵施設",
+      "body": "",
+      "noteText": "",
+      "slug": "interim-storage-facility"
+    },
+    {
+      "type": "board",
+      "heading": "ALPS処理水",
+      "body": "",
+      "noteText": "",
+      "slug": "alps-treated-water"
+    },
+    {
+      "type": "board",
+      "heading": "クリアランスレベル",
+      "body": "",
+      "noteText": "",
+      "slug": "clearance-level"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "原子力災害対策特別措置法",
+      "放射性物質汚染対処特別措置法",
+      "放射性廃棄物",
+      "中間貯蔵施設"
+    ]
+  },
+  "_meta": {
+    "bundleId": "6-6.2-part3",
+    "chapterTitle": "社会環境管理",
+    "sectionTitle": "地域環境問題",
+    "groupNames": [
+      "放射性物質による環境問題"
+    ],
+    "keywordCount": 6,
+    "partOf": "6.2"
+  }
+}

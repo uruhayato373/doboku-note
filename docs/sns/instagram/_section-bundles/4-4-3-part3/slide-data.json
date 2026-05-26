@@ -1,0 +1,96 @@
+{
+  "cover": {
+    "keyword": "知的財産権と情報の保護と活用 Part 3",
+    "subtitle": "知的財産権と情報の保護と活用",
+    "stickyText": "情報管理\n8KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "知的財産の創造、知的財産の保護、知的財産の活用、標準化戦略、デジュール標準、フォーラム標準、デファクト標準、ライセンス（技術実施許諾）",
+      "noteText": "情報管理 知的財産権と情報の保護と活用（知的財産戦略）"
+    },
+    {
+      "type": "board",
+      "heading": "知的財産の創造",
+      "body": "",
+      "noteText": "",
+      "slug": "ip-creation"
+    },
+    {
+      "type": "board",
+      "heading": "知的財産の保護",
+      "body": "",
+      "noteText": "",
+      "slug": "ip-protection"
+    },
+    {
+      "type": "board",
+      "heading": "知的財産の活用",
+      "body": "",
+      "noteText": "",
+      "slug": "ip-utilization"
+    },
+    {
+      "type": "board",
+      "heading": "標準化戦略",
+      "body": "",
+      "noteText": "",
+      "slug": "standardization-strategy"
+    },
+    {
+      "type": "board",
+      "heading": "デジュール標準",
+      "body": "",
+      "noteText": "",
+      "slug": "de-jure-standard"
+    },
+    {
+      "type": "board",
+      "heading": "フォーラム標準",
+      "body": "",
+      "noteText": "",
+      "slug": "forum-standard"
+    },
+    {
+      "type": "board",
+      "heading": "デファクト標準",
+      "body": "",
+      "noteText": "",
+      "slug": "de-facto-standard"
+    },
+    {
+      "type": "board",
+      "heading": "ライセンス（技術実施許諾）",
+      "body": "",
+      "noteText": "",
+      "slug": "technology-licensing"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "知的財産の創造",
+      "知的財産の保護",
+      "知的財産の活用",
+      "標準化戦略"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.3-part3",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "知的財産権と情報の保護と活用",
+    "groupNames": [
+      "知的財産戦略"
+    ],
+    "keywordCount": 8,
+    "partOf": "4.3"
+  }
+}

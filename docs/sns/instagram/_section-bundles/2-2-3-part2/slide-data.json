@@ -1,0 +1,83 @@
+{
+  "cover": {
+    "keyword": "工程管理 Part 2",
+    "subtitle": "工程管理",
+    "stickyText": "経済性管理\n6KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "進捗管理、余力管理、現品管理、可視化（目で見る管理）、5S、ECRSの原則（Eliminate, Combine, Rearrange, Simplify）",
+      "noteText": "経済性管理 工程管理（生産統制・改善活動）"
+    },
+    {
+      "type": "board",
+      "heading": "進捗管理",
+      "body": "",
+      "noteText": "",
+      "slug": "progress-management"
+    },
+    {
+      "type": "board",
+      "heading": "余力管理",
+      "body": "",
+      "noteText": "",
+      "slug": "capacity-management"
+    },
+    {
+      "type": "board",
+      "heading": "現品管理",
+      "body": "",
+      "noteText": "",
+      "slug": "inventory-control"
+    },
+    {
+      "type": "board",
+      "heading": "可視化（目で見る管理）",
+      "body": "",
+      "noteText": "",
+      "slug": "visual-management"
+    },
+    {
+      "type": "board",
+      "heading": "5S",
+      "body": "",
+      "noteText": "",
+      "slug": "five-s"
+    },
+    {
+      "type": "board",
+      "heading": "ECRSの原則（Eliminate, Combine, Rearrange, Simplify）",
+      "body": "",
+      "noteText": "",
+      "slug": "ecrs-principle"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "進捗管理",
+      "余力管理",
+      "現品管理",
+      "可視化（目で見る管理）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.3-part2",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "工程管理",
+    "groupNames": [
+      "生産統制",
+      "改善活動"
+    ],
+    "keywordCount": 6,
+    "partOf": "2.3"
+  }
+}
