@@ -1,4 +1,5 @@
-import LinkCardClient from "../LinkCard/LinkCardClient";
+import Image from "next/image";
+import { ExternalLink } from "lucide-react";
 
 interface NoteLinkProps {
   /** note 記事の URL（例: https://note.com/dobokunote/n/nc360aaa381b0） */
@@ -7,17 +8,42 @@ interface NoteLinkProps {
   readonly title: string;
   /** 記事の要約（任意・2 行で line-clamp される） */
   readonly description?: string;
-  /** カバー画像のパス（任意・/images/note-covers/ 配下を推奨）。省略時はテキストカードになる */
+  /**
+   * カバー画像のパス（任意・/images/note-covers/ 配下を推奨）。省略時はテキストカードになる。
+   *
+   * 注: 1280×670 横長 PNG/WebP のパスを渡しても、内部で自動的に
+   * `-square.webp` 命名へ置換して中央 630×630 セーフティゾーンの
+   * 正方形版を表示する。事前に
+   * `node scripts/generate-note-square-covers.mjs` を実行して
+   * 正方形版を生成しておくこと。
+   */
   readonly coverImage?: string;
 }
 
 /**
- * note 記事への導線専用カード。
+ * 与えられた cover 画像パスを `-square.webp` 命名に置換する。
+ *
+ * 例:
+ *   /images/note-covers/nb4e6f088f0e8.webp → /images/note-covers/nb4e6f088f0e8-square.webp
+ *   /images/note-covers/nb4e6f088f0e8.png  → /images/note-covers/nb4e6f088f0e8-square.webp
+ *
+ * 既に `-square` を含む場合はそのまま返す（冪等）。
+ */
+function toSquareImage(src: string): string {
+  if (/-square\.(png|webp)$/.test(src)) return src;
+  return src.replace(/\.(png|webp)$/, "-square.webp");
+}
+
+/**
+ * note 記事への導線専用カード（正方形画像版）。
  *
  * doboku-note から note.com 記事へリンクするときの唯一の正規コンポーネント。
- * `siteName` / `category` をプリセットし、`LinkCardClient`（props 直描画・
- * サーバーフェッチなし）をラップするだけの薄い層。note.com は OGP の bot
- * 取得をブロックするため、サムネを出す場合は `coverImage` を明示指定する。
+ * `MagazineInlineCard` と視覚的に統一した「画像左 240px aspect-square + テキスト右」
+ * レイアウトを採用し、サイト内 note 関連カードの見た目を一貫させる。
+ *
+ * note.com は OGP の bot 取得をブロックするため、サムネを出す場合は
+ * `coverImage` を明示指定する。1280×670 のフルカバーパスを渡すと、
+ * 内部で `-square.webp` を参照する（中央 630×630 セーフティゾーン crop）。
  *
  * 使い分けの真実源: `.claude/reference/content-authoring.md`
  * 「リンク系コンポーネントの使い分け」
@@ -28,16 +54,51 @@ export default function NoteLink({
   description,
   coverImage,
 }: NoteLinkProps) {
-  // exactOptionalPropertyTypes: 未指定の任意 prop は明示的 undefined を渡さず省略する
+  const imageUrl = coverImage ? toSquareImage(coverImage) : null;
+
   return (
-    <LinkCardClient
-      url={url}
-      title={title}
-      siteName="note（dobokunote）"
-      category="note 解説記事"
-      variant="hero"
-      {...(description !== undefined ? { description } : {})}
-      {...(coverImage !== undefined ? { imageUrl: coverImage } : {})}
-    />
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+    >
+      <div className="flex flex-col sm:flex-row">
+        {imageUrl && (
+          <div className="relative w-full sm:w-[240px] shrink-0 aspect-square bg-gray-100 dark:bg-gray-800">
+            <Image
+              src={imageUrl}
+              alt={title}
+              fill
+              className="object-cover group-hover:scale-105 transition-transform duration-300"
+              unoptimized
+              sizes="(max-width: 640px) 100vw, 240px"
+            />
+            <div
+              className="absolute top-1.5 left-1.5 px-1.5 py-0.5 text-[10px] font-medium text-white rounded-sm shadow-sm"
+              style={{ background: "var(--color-brand)" }}
+            >
+              note 解説記事
+            </div>
+          </div>
+        )}
+        <div className="min-w-0 flex-1 p-3 sm:p-4">
+          <div className="flex items-start justify-between gap-2 mb-1.5">
+            <span className="text-[11px] text-ink-muted dark:text-gray-500 font-medium">
+              note（dobokunote）
+            </span>
+            <ExternalLink className="w-3.5 h-3.5 text-gray-400 dark:text-gray-500 group-hover:text-brand dark:group-hover:text-brand transition-colors shrink-0" />
+          </div>
+          <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong dark:text-gray-100 leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
+            {title}
+          </div>
+          {description && (
+            <p className="mt-1.5 text-[12px] sm:text-[13px] leading-snug text-ink-body dark:text-gray-400 line-clamp-2 sm:line-clamp-3">
+              {description}
+            </p>
+          )}
+        </div>
+      </div>
+    </a>
   );
 }
