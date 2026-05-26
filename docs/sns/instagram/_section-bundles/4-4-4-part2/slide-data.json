@@ -13,11 +13,13 @@
       "noteText": "情報管理 情報通信技術動向（情報システム活用方法の動向）"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ERP",
-      "body": "",
+      "body": "ERP（Enterprise Resource Planning）の定義・主要モジュール・導入効果・他システムとの連携を解説。",
       "noteText": "",
-      "slug": "erp"
+      "slug": "erp",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/erp/img/figure-1.svg",
+      "note": "ERP（Enterprise Resource Planning）の定義・主要モジュール・導入効果・他システムとの連携を解説。"
     },
     {
       "type": "board",
@@ -30,14 +32,14 @@
     {
       "type": "board",
       "heading": "人事システム",
-      "body": "",
+      "body": "人事システム（HRIS/HCM）の定義・主な機能モジュール・導入効果・タレントマネジメントとの関係を解説。",
       "noteText": "",
       "slug": "hr-systems"
     },
     {
       "type": "board",
       "heading": "販売管理システム",
-      "body": "",
+      "body": "販売管理システムの定義・主な機能（受注・売上・請求・在庫管理）・導入効果・他システムとの連携を解説。",
       "noteText": "",
       "slug": "sales-management-system"
     },
@@ -52,28 +54,28 @@
     {
       "type": "board",
       "heading": "営業支援（SFA）システム",
-      "body": "",
+      "body": "SFA（Sales Force Automation）の定義・主な機能・CRMとの違い・導入効果を解説。",
       "noteText": "",
       "slug": "sfa-system"
     },
     {
       "type": "board",
       "heading": "生産管理システム",
-      "body": "",
+      "body": "生産管理システムの定義・MRP/MES/APSの違い・主な機能・導入効果・ERPやSCMとの連携を解説。",
       "noteText": "",
       "slug": "production-management-system"
     },
     {
       "type": "board",
       "heading": "サプライチェーンマネジメント（SCM）システム",
-      "body": "",
+      "body": "SCM（サプライチェーンマネジメント）システムの定義・主な機能・ブルウィップ効果・導入効果・ERPとの連携を解説。",
       "noteText": "",
       "slug": "scm-system"
     },
     {
       "type": "board",
       "heading": "企業内ポータル・イントラネット",
-      "body": "",
+      "body": "企業内ポータルとイントラネットの定義・構成要素・導入効果を解説。",
       "noteText": "",
       "slug": "enterprise-portal-intranet"
     },
@@ -86,11 +88,13 @@
       "_legacySource": "_backlog/2026/2026-10-06-business-intelligence"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "RPA",
-      "body": "",
+      "body": "RPAの定義・自動化レベル・導入効果・課題を解説。",
       "noteText": "",
-      "slug": "rpa"
+      "slug": "rpa",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/rpa/img/figure-1.svg",
+      "note": "RPAの定義・自動化レベル・導入効果・課題を解説。"
     },
     {
       "type": "summary",

@@ -15,73 +15,75 @@
     {
       "type": "board",
       "heading": "設備の管理特性",
-      "body": "",
+      "body": "設備の管理特性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "equipment-characteristics"
     },
     {
       "type": "board",
       "heading": "設備の信頼性",
-      "body": "",
+      "body": "設備の信頼性の定義、MTBF（平均故障間隔）の計算方法、故障率曲線（バスタブカーブ）との関係を解説。",
       "noteText": "",
       "slug": "equipment-reliability"
     },
     {
       "type": "board",
       "heading": "設備の保全性",
-      "body": "",
+      "body": "設備の保全性の定義、MTTR（平均修理時間）の計算方法、保全方式の分類と選択基準を解説。",
       "noteText": "",
       "slug": "equipment-maintainability"
     },
     {
       "type": "board",
       "heading": "設備の経済性",
-      "body": "",
+      "body": "設備の経済性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "equipment-economics"
     },
     {
       "type": "board",
       "heading": "設備総合効率",
-      "body": "",
+      "body": "設備総合効率（OEE）の定義、計算式（時間稼働率×性能稼働率×良品率）、計算例とロスの分類を解説。",
       "noteText": "",
       "slug": "overall-equipment-effectiveness"
     },
     {
       "type": "board",
       "heading": "初期投資",
-      "body": "",
+      "body": "初期投資の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "initial-investment"
     },
     {
       "type": "board",
       "heading": "使用計画期間",
-      "body": "",
+      "body": "使用計画期間の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "planned-usage-period"
     },
     {
       "type": "board",
       "heading": "取替費用",
-      "body": "",
+      "body": "設備管理における取替費用の定義、設備取替と設備更新の違い、取替判断の経済計算手法を解説。",
       "noteText": "",
       "slug": "replacement-cost"
     },
     {
       "type": "board",
       "heading": "設備維持費用",
-      "body": "",
+      "body": "設備維持費用（保全費）の定義、構成要素、保全費と資本的支出の区別、維持費用の最適化手法を解説。",
       "noteText": "",
       "slug": "maintenance-cost"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "バスタブカーブ",
       "body": "バスタブカーブ（寿命特性曲線）とは、設備や部品の故障率が使用開始からの時間経過とともにどのように変化するかを示した曲線である。横軸に時間、縦軸に故障率をとると浴槽の断面に似た形状を描くことからこの名称が付けられた。",
       "noteText": "設備のライフサイクル全体の故障傾向を把握する基本概念",
       "slug": "bathtub-curve",
-      "_legacySource": "_backlog/2026/2026-09-04-bathtub-curve"
+      "_legacySource": "_backlog/2026/2026-09-04-bathtub-curve",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/bathtub-curve/img/bathtub-curve-phases.svg",
+      "note": "バスタブカーブ（寿命特性曲線）とは、設備や部品の故障率が使用開始からの時間経過とともにどのように変化するかを示した曲線である。"
     },
     {
       "type": "summary",

@@ -23,14 +23,14 @@
     {
       "type": "board",
       "heading": "定期保全",
-      "body": "",
+      "body": "定期保全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "periodic-maintenance"
     },
     {
       "type": "board",
       "heading": "予知保全",
-      "body": "",
+      "body": "予知保全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "predictive-maintenance"
     },
@@ -43,23 +43,25 @@
       "_legacySource": "_backlog/2027/2027-01-19-corrective-maintenance"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "予防保全",
-      "body": "",
+      "body": "予防保全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "preventive-maintenance"
+      "slug": "preventive-maintenance",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/preventive-maintenance/img/figure-1.svg",
+      "note": "予防保全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "改良保全",
-      "body": "",
+      "body": "改良保全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "improvement-maintenance"
     },
     {
       "type": "board",
       "heading": "保全予防",
-      "body": "",
+      "body": "保全予防の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "maintenance-prevention"
     },

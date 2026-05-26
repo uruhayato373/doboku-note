@@ -15,16 +15,18 @@
     {
       "type": "board",
       "heading": "小集団活動（ZD運動，改善提案活動，TPM，TQC等）",
-      "body": "",
+      "body": "小集団活動の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "small-group-activities"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "労働災害防止計画",
-      "body": "",
+      "body": "労働災害防止計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "occupational-accident-prevention-plan"
+      "slug": "occupational-accident-prevention-plan",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/occupational-accident-prevention-plan/img/accident-factors.svg",
+      "note": "労働災害防止計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "summary",

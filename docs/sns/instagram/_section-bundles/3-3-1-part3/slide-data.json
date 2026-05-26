@@ -13,44 +13,46 @@
       "noteText": "人的資源管理 人の行動と組織（リーダーシップ）"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "PM理論",
-      "body": "",
+      "body": "三隅二不二が提唱したPM理論（P機能：目標達成機能・M機能：集団維持機能）の4類型を解説。",
       "noteText": "",
-      "slug": "pm-theory"
+      "slug": "pm-theory",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/pm-theory/img/pm-quadrant.svg",
+      "note": "三隅二不二が提唱したPM理論（P機能：目標達成機能・M機能：集団維持機能）の4類型を解説。"
     },
     {
       "type": "board",
       "heading": "SL理論",
-      "body": "",
+      "body": "ハーシーとブランチャードが提唱したSL理論（状況対応型リーダーシップ）を解説。",
       "noteText": "",
       "slug": "sl-theory"
     },
     {
       "type": "board",
       "heading": "サーバントリーダーシップ",
-      "body": "",
+      "body": "サーバントリーダーシップの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "servant-leadership"
     },
     {
       "type": "board",
       "heading": "フォロワーシップ",
-      "body": "",
+      "body": "ケリーのフォロワーシップ理論を解説。",
       "noteText": "",
       "slug": "followership"
     },
     {
       "type": "board",
       "heading": "メイヨーのホーソン実験",
-      "body": "",
+      "body": "メイヨーらが実施したホーソン実験を解説。",
       "noteText": "",
       "slug": "hawthorne-experiment"
     },
     {
       "type": "board",
       "heading": "テイラーの科学的管理法",
-      "body": "",
+      "body": "テイラーの科学的管理法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "scientific-management"
     },

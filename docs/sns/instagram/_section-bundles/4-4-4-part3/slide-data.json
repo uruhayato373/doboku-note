@@ -13,56 +13,68 @@
       "noteText": "情報管理 情報通信技術動向（デジタルトランスフォーメーション（DX）の技術・システム開発プロセス）"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "デジタルツイン・サイバーフィジカルシステム（CPS）",
-      "body": "",
+      "body": "デジタルツインとサイバーフィジカルシステム（CPS）の定義・構成・活用事例を解説。",
       "noteText": "",
-      "slug": "digital-twin-cps"
+      "slug": "digital-twin-cps",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/digital-twin-cps/img/figure-1.svg",
+      "note": "デジタルツインとサイバーフィジカルシステム（CPS）の定義・構成・活用事例を解説。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "IoT（Internet of Things）",
-      "body": "",
+      "body": "IoT（モノのインターネット）の定義・アーキテクチャ・通信技術・セキュリティ・活用事例を解説。",
       "noteText": "",
-      "slug": "iot"
+      "slug": "iot",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/iot/img/figure-1.svg",
+      "note": "IoT（モノのインターネット）の定義・アーキテクチャ・通信技術・セキュリティ・活用事例を解説。"
     },
     {
       "type": "board",
       "heading": "VR・AR・メタバース",
-      "body": "",
+      "body": "VR・AR・MR・メタバースの定義・技術要素・活用事例を解説。",
       "noteText": "",
       "slug": "vr-ar-metaverse"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ブロックチェーン・暗号資産",
       "body": "ブロックチェーン（Blockchain）とは、取引データをブロックにまとめ、暗号学的ハッシュ関数を用いてブロック同士を時系列に連結した分散型台帳技術である。中央管理者を必要とせず、参加者全員が正当性を検証・合意する。",
       "noteText": "2008年サトシ・ナカモトが提案\nビットコインの基盤技術",
       "slug": "blockchain-crypto",
-      "_legacySource": "_backlog/2026/2026-09-22-blockchain-crypto"
+      "_legacySource": "_backlog/2026/2026-09-22-blockchain-crypto",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/blockchain-crypto/img/figure-1.svg",
+      "note": "ブロックチェーン（Blockchain）とは、取引データをブロックにまとめ、暗号学的ハッシュ関数を用いてブロック同士を時系列に連結した分散型台帳技術である。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "API",
       "body": "APIとは、ソフトウェアやアプリケーション同士がデータや機能をやり取りするための取り決め（インターフェース仕様）である。利用側は呼び出し規則に従うだけで、提供側の内部実装を知る必要がない。",
       "noteText": "実装の隠蔽により同じ機能を複数から再利用できる",
       "slug": "api",
-      "_legacySource": "_backlog/2026/2026-08-11-api"
+      "_legacySource": "_backlog/2026/2026-08-11-api",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/api/img/figure-1.svg",
+      "note": "APIとは、ソフトウェアやアプリケーション同士がデータや機能をやり取りするための取り決め（インターフェース仕様）である。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ウォーターフォール",
-      "body": "",
+      "body": "ウォーターフォールモデルの定義・工程・メリット・デメリットを解説。",
       "noteText": "",
-      "slug": "waterfall"
+      "slug": "waterfall",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/waterfall/img/figure-1.svg",
+      "note": "ウォーターフォールモデルの定義・工程・メリット・デメリットを解説。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "アジャイル",
       "body": "アジャイル開発とは、短い開発サイクル（イテレーション）を繰り返しながら、動作するソフトウェアを段階的に開発・リリースする反復型・漸進型の開発手法の総称である。2001年の「アジャイルソフトウェア開発宣言」を起源とする。",
       "noteText": "ウォーターフォールは初期要件確定、アジャイルは段階的に要件を詳細化する",
       "slug": "agile",
-      "_legacySource": "_backlog/2026/2026-07-14-agile"
+      "_legacySource": "_backlog/2026/2026-07-14-agile",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/agile/img/figure-1.svg",
+      "note": "アジャイル開発とは、短い開発サイクル（イテレーション）を繰り返しながら、動作するソフトウェアを段階的に開発・リリースする反復型・漸進型の開発手法の総称である。"
     },
     {
       "type": "summary",

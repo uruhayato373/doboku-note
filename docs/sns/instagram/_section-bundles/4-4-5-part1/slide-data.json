@@ -23,14 +23,14 @@
     {
       "type": "board",
       "heading": "完全性",
-      "body": "",
+      "body": "情報セキュリティにおける完全性の定義、データの正確性・一貫性を確保する手法、改ざん検知技術、機密性・可用性との関係を解説。",
       "noteText": "",
       "slug": "integrity-security"
     },
     {
       "type": "board",
       "heading": "可用性",
-      "body": "",
+      "body": "可用性の定義・稼働率の計算（MTBF/MTTR）・冗長構成・ナインの数・CIA拡張・RTO/RPO・冗長化/DR/SLA等の確保手法を解説。",
       "noteText": "",
       "slug": "system-availability"
     },
@@ -51,30 +51,32 @@
       "_legacySource": "_backlog/2026/2026-06-30-accountability-traceability"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "信頼性",
-      "body": "",
+      "body": "RASIS/CIA拡張要素としての信頼性を解説。",
       "noteText": "",
-      "slug": "system-reliability"
+      "slug": "system-reliability",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-configuration.svg",
+      "note": "RASIS/CIA拡張要素としての信頼性を解説。"
     },
     {
       "type": "board",
       "heading": "否認防止",
-      "body": "",
+      "body": "情報セキュリティの拡張要素である否認防止の定義、電子署名・タイムスタンプによる実現手法、電子契約での重要性を解説。",
       "noteText": "",
       "slug": "non-repudiation"
     },
     {
       "type": "board",
       "heading": "データガバナンス",
-      "body": "",
+      "body": "データの品質・セキュリティ・利活用を統制するデータガバナンスの定義、フレームワーク、組織体制、情報セキュリティとの関係を解説。",
       "noteText": "",
       "slug": "data-governance"
     },
     {
       "type": "board",
       "heading": "情報セキュリティ教育",
-      "body": "",
+      "body": "従業員のセキュリティ意識向上を目的とした情報セキュリティ教育の体系、実施手法、標的型攻撃訓練、効果測定を解説。",
       "noteText": "",
       "slug": "security-education"
     },

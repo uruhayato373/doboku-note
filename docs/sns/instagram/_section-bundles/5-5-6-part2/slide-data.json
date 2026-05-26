@@ -15,28 +15,28 @@
     {
       "type": "board",
       "heading": "信頼性ブロック図",
-      "body": "",
+      "body": "信頼性ブロック図（RBD）の定義・直列/並列/複合構成の表現方法・信頼度計算を解説。",
       "noteText": "",
       "slug": "reliability-block-diagram"
     },
     {
       "type": "board",
       "heading": "直列システム",
-      "body": "",
+      "body": "直列システムの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "series-system"
     },
     {
       "type": "board",
       "heading": "並列システム",
-      "body": "",
+      "body": "並列システムの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "parallel-system"
     },
     {
       "type": "board",
       "heading": "根本原因分析（RCA）",
-      "body": "",
+      "body": "根本原因分析（RCA）とは事故・品質トラブルの表面的な原因でなく根本原因を特定する手法。",
       "noteText": "",
       "slug": "root-cause-analysis"
     },

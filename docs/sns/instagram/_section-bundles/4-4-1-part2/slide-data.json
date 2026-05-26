@@ -13,66 +13,72 @@
       "noteText": "情報管理 情報分析と情報活用（人工知能（AI）・経営・マーケティング分析・ナレッジマネジメント・オープンデータ）"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "機械学習",
-      "body": "",
+      "body": "機械学習とは、データからパターンや規則性を自動的に学習し予測・判断を行う人工知能の中核技術であり、教師あり学習・教師なし学習・強化学習・ディープラーニングに大別される。",
       "noteText": "",
-      "slug": "machine-learning"
+      "slug": "machine-learning",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/machine-learning/img/ml-workflow.svg",
+      "note": "機械学習とは、データからパターンや規則性を自動的に学習し予測・判断を行う人工知能の中核技術であり、教師あり学習・教師なし学習・強化学習・ディープラーニングに大別される。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "生成AI",
-      "body": "",
+      "body": "生成AIとは、テキスト・画像・音声・コード等の新しいコンテンツを自動生成する人工知能技術であり、大規模言語モデル（LLM）がその中核を担う。",
       "noteText": "",
-      "slug": "generative-ai"
+      "slug": "generative-ai",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/generative-ai/img/figure-1.svg",
+      "note": "生成AIとは、テキスト・画像・音声・コード等の新しいコンテンツを自動生成する人工知能技術であり、大規模言語モデル（LLM）がその中核を担う。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "SWOT分析",
       "body": "SWOT分析とは、組織の内部環境（強み・弱み）と外部環境（機会・脅威）を4象限で整理し、戦略立案の基盤とする経営分析フレームワークである。内部環境は自社で制御可能、外部環境は市場動向・法規制など制御困難な要素である。",
       "noteText": "内部（S/W）=制御可能\n外部（O/T）=制御困難",
       "slug": "swot-analysis",
-      "_legacySource": "_backlog/2026/2026-06-12-swot-analysis"
+      "_legacySource": "_backlog/2026/2026-06-12-swot-analysis",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/swot-analysis/img/swot-matrix.svg",
+      "note": "SWOT分析とは、組織の内部環境（強み・弱み）と外部環境（機会・脅威）を4象限で整理し、戦略立案の基盤とする経営分析フレームワークである。"
     },
     {
       "type": "board",
       "heading": "バリューチェーン分析",
-      "body": "",
+      "body": "バリューチェーン分析とは、企業の事業活動を主活動と支援活動に分解し、各活動の付加価値と競争優位の源泉を特定するポーターの経営分析フレームワークである。",
       "noteText": "",
       "slug": "value-chain-analysis"
     },
     {
       "type": "board",
       "heading": "3C分析",
-      "body": "",
+      "body": "3C分析とは、自社（Company）・顧客（Customer）・競合（Competitor）の3つの視点から市場環境を体系的に分析する大前研一が提唱した経営分析フレームワークである。",
       "noteText": "",
       "slug": "three-c-analysis"
     },
     {
       "type": "board",
       "heading": "4P分析",
-      "body": "",
+      "body": "マーケティング・ミックスの基本フレームワーク。",
       "noteText": "",
       "slug": "four-p-analysis"
     },
     {
       "type": "board",
       "heading": "PPM分析",
-      "body": "",
+      "body": "PPM（プロダクト・ポートフォリオ・マネジメント）分析とは、市場成長率と相対市場シェアの2軸で事業を花形・金のなる木・問題児・負け犬の4象限に分類し、経営資源配分の優先順位を決定するフレームワーク。",
       "noteText": "",
       "slug": "ppm-analysis"
     },
     {
       "type": "board",
       "heading": "形式知",
-      "body": "",
+      "body": "言語・数式・図表などで明示的に表現できる知識。",
       "noteText": "",
       "slug": "explicit-knowledge"
     },
     {
       "type": "board",
       "heading": "暗黙知",
-      "body": "",
+      "body": "個人の経験・勘・ノウハウに根差し、言語化が困難な知識。",
       "noteText": "",
       "slug": "tacit-knowledge"
     },
@@ -87,28 +93,30 @@
     {
       "type": "board",
       "heading": "データウェアハウス",
-      "body": "",
+      "body": "企業内の大量データを統合・蓄積し、意思決定支援に活用する情報基盤。",
       "noteText": "",
       "slug": "data-warehouse"
     },
     {
       "type": "board",
       "heading": "知識共有化",
-      "body": "",
+      "body": "組織内の暗黙知・形式知を体系的に共有・活用する取り組み。",
       "noteText": "",
       "slug": "knowledge-sharing"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "デザイン思考",
-      "body": "",
+      "body": "ユーザーへの共感を起点に、反復的なプロトタイピングで課題解決を図るイノベーション手法。",
       "noteText": "",
-      "slug": "design-thinking"
+      "slug": "design-thinking",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/design-thinking/img/5-steps-iterative-flow.svg",
+      "note": "ユーザーへの共感を起点に、反復的なプロトタイピングで課題解決を図るイノベーション手法。"
     },
     {
       "type": "board",
       "heading": "官民データ活用推進基本法",
-      "body": "",
+      "body": "官民データの適正かつ効果的な活用を推進するための基本法。",
       "noteText": "",
       "slug": "public-private-data-act"
     },

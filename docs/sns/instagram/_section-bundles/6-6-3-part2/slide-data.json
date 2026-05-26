@@ -23,30 +23,32 @@
     {
       "type": "board",
       "heading": "課徴金",
-      "body": "",
+      "body": "課徴金の定義・環境政策における位置づけ・税との違い・国内外の適用例を解説。",
       "noteText": "",
       "slug": "surcharge"
     },
     {
       "type": "board",
       "heading": "デポジット制度",
-      "body": "",
+      "body": "デポジット制度の定義・仕組み・メリット/デメリット・国内外の事例を解説。",
       "noteText": "",
       "slug": "deposit-system"
     },
     {
       "type": "board",
       "heading": "環境ラベル",
-      "body": "",
+      "body": "環境ラベルの定義・ISO分類（タイプI/II/III）・日本の主要制度を解説。",
       "noteText": "",
       "slug": "eco-label"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "環境影響評価法",
-      "body": "",
+      "body": "環境影響評価法（環境アセスメント法）の定義・対象事業・手続きの流れ・戦略的環境アセスメントを解説。",
       "noteText": "",
-      "slug": "environmental-impact-assessment"
+      "slug": "environmental-impact-assessment",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/environmental-impact-assessment/img/eia-target-categories.svg",
+      "note": "環境影響評価法（環境アセスメント法）の定義・対象事業・手続きの流れ・戦略的環境アセスメントを解説。"
     },
     {
       "type": "board",
@@ -67,14 +69,14 @@
     {
       "type": "board",
       "heading": "ライフサイクルアセスメント",
-      "body": "",
+      "body": "ライフサイクルアセスメント（LCA）の定義・ISO規格・4段階の実施手順を解説。",
       "noteText": "",
       "slug": "lifecycle-assessment"
     },
     {
       "type": "board",
       "heading": "ESD",
-      "body": "",
+      "body": "ESD（持続可能な開発のための教育）の定義・国連の取組・日本の推進体制を解説。",
       "noteText": "",
       "slug": "esd"
     },

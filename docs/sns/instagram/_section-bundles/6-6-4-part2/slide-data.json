@@ -13,51 +13,53 @@
       "noteText": "社会環境管理 組織の社会的責任と環境管理活動（社会的責任（SR））"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "CSR",
-      "body": "",
+      "body": "CSRの定義・歴史的経緯・ISO 26000の7つの中核主題・CSVとの違いを解説。",
       "noteText": "",
-      "slug": "csr"
+      "slug": "csr",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/csr/img/csr-4-pillars.svg",
+      "note": "CSRの定義・歴史的経緯・ISO 26000の7つの中核主題・CSVとの違いを解説。"
     },
     {
       "type": "board",
       "heading": "CSV（共通価値創造）",
-      "body": "",
+      "body": "CSVの定義・マイケル・ポーターの提唱・CSRとの違い・3つのアプローチを解説。",
       "noteText": "",
       "slug": "csv"
     },
     {
       "type": "board",
       "heading": "社会的責任投資（SRI）",
-      "body": "",
+      "body": "社会的責任投資（SRI）の定義・歴史・ESG投資との違い・スクリーニング手法を解説。",
       "noteText": "",
       "slug": "sri"
     },
     {
       "type": "board",
       "heading": "ESG投資・ESG金融",
-      "body": "",
+      "body": "ESG投資の定義・7つの投資手法・PRI（責任投資原則）・SRIとの違いを解説。",
       "noteText": "",
       "slug": "esg-investment"
     },
     {
       "type": "board",
       "heading": "グリーンボンド",
-      "body": "",
+      "body": "グリーンボンドの定義・GBP（グリーンボンド原則）の4要件・サステナビリティボンドとの違いを解説。",
       "noteText": "",
       "slug": "green-bond"
     },
     {
       "type": "board",
       "heading": "TCFD提言",
-      "body": "",
+      "body": "TCFD提言の定義・4つの開示推奨項目・シナリオ分析・TNFDとの関係を解説。",
       "noteText": "",
       "slug": "tcfd"
     },
     {
       "type": "board",
       "heading": "TNFD提言",
-      "body": "",
+      "body": "TNFD提言の定義・LEAPアプローチ（Locate→Evaluate→Assess→Prepare）・TCFDとの比較を解説。",
       "noteText": "",
       "slug": "tnfd"
     },
@@ -72,30 +74,32 @@
     {
       "type": "board",
       "heading": "グローバル・コンパクト",
-      "body": "",
+      "body": "国連グローバル・コンパクトの定義・10原則・4分野・SDGsとの関係を解説。",
       "noteText": "",
       "slug": "global-compact"
     },
     {
       "type": "board",
       "heading": "ISO 14000シリーズ",
-      "body": "",
+      "body": "ISO 14000シリーズの概要。",
       "noteText": "",
       "slug": "iso-14000"
     },
     {
       "type": "board",
       "heading": "エコアクション21",
-      "body": "",
+      "body": "エコアクション21の定義・ISO 14001との違い・認証制度の仕組みを解説。",
       "noteText": "",
       "slug": "eco-action-21"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ISO 26000",
-      "body": "",
+      "body": "ISO 26000の定義・7つの中核主題・ISO 14001やCSRとの違いを解説。",
       "noteText": "",
-      "slug": "iso-26000"
+      "slug": "iso-26000",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/iso-26000/img/iso-26000-7-core-subjects.svg",
+      "note": "ISO 26000の定義・7つの中核主題・ISO 14001やCSRとの違いを解説。"
     },
     {
       "type": "board",
@@ -108,21 +112,21 @@
     {
       "type": "board",
       "heading": "環境適合設計",
-      "body": "",
+      "body": "環境適合設計（DfE）の定義・設計段階での環境配慮項目・3Rとの関係・LCAとの連携を解説。",
       "noteText": "",
       "slug": "design-for-environment"
     },
     {
       "type": "board",
       "heading": "環境会計",
-      "body": "",
+      "body": "環境会計の定義・環境省ガイドラインの構成・環境保全コストと効果の分類を解説。",
       "noteText": "",
       "slug": "environmental-accounting"
     },
     {
       "type": "board",
       "heading": "環境コミュニケーション",
-      "body": "",
+      "body": "環境コミュニケーションの定義・環境報告書・CSR報告書・ステークホルダーとの対話手法を解説。",
       "noteText": "",
       "slug": "environmental-communication"
     },

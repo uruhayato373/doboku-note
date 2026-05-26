@@ -15,7 +15,7 @@
     {
       "type": "board",
       "heading": "安全教育",
-      "body": "",
+      "body": "安全教育の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "safety-education"
     },
@@ -30,7 +30,7 @@
     {
       "type": "board",
       "heading": "防災訓練",
-      "body": "",
+      "body": "防災訓練の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "disaster-drill"
     },
@@ -45,43 +45,47 @@
     {
       "type": "board",
       "heading": "不安全状態／不安全行動",
-      "body": "",
+      "body": "不安全状態・不安全行動の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "unsafe-conditions-behavior"
     },
     {
       "type": "board",
       "heading": "ヒューマンファクタ",
-      "body": "",
+      "body": "ヒューマンファクタの定義・SHELモデル・ヒューマンエラーとの関係を解説。",
       "noteText": "",
       "slug": "human-factors"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ハインリッヒの法則",
       "body": "ハーバート・ウィリアム・ハインリッヒが1929年に約50万件の労働災害事故を調査した結果から導き出した経験則である。「事後対応から予防的管理へ」というパラダイムシフトを促した。",
       "noteText": "損害保険会社の安全技師が1929年に導出",
       "slug": "heinrich-law",
-      "_legacySource": "_backlog/2026/2026-05-10-heinrich-law"
+      "_legacySource": "_backlog/2026/2026-05-10-heinrich-law",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/heinrich-law/img/heinrich-pyramid.svg",
+      "note": "ハーバート・ウィリアム・ハインリッヒが1929年に約50万件の労働災害事故を調査した結果から導き出した経験則である。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "本質安全",
-      "body": "",
+      "body": "本質安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "inherent-safety"
+      "slug": "inherent-safety",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/inherent-safety/img/three-step-method.svg",
+      "note": "本質安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "機能安全",
-      "body": "",
+      "body": "機能安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "functional-safety"
     },
     {
       "type": "board",
       "heading": "人間工学原則の遵守",
-      "body": "",
+      "body": "人間工学原則の遵守の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "ergonomic-principles"
     },

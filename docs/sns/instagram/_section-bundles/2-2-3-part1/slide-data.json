@@ -15,94 +15,100 @@
     {
       "type": "board",
       "heading": "PQCDSME",
-      "body": "",
+      "body": "PQCDSME（生産性・品質・コスト・納期・安全・意欲・環境）の7要素の意味と管理指標例、QCDとの関係を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "pqcdsme"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "JIT生産方式",
-      "body": "",
+      "body": "JIT生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "jit-production"
+      "slug": "jit-production",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/jit-production/img/kanban-two-types-flow.svg",
+      "note": "JIT生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "プッシュ型生産方式",
-      "body": "",
+      "body": "プッシュ型生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "push-production"
     },
     {
       "type": "board",
       "heading": "プル型生産方式",
-      "body": "",
+      "body": "プル型生産方式の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "pull-production"
     },
     {
       "type": "board",
       "heading": "制約条件の理論（TOC）",
-      "body": "",
+      "body": "制約条件の理論（TOC）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "theory-of-constraints"
     },
     {
       "type": "board",
       "heading": "工程計画",
-      "body": "",
+      "body": "工程計画の定義・3要素（手順・日程・負荷）・計画の階層（大/中/小日程）・工程表の種類・CPM/PERT・工期短縮手法を解説。",
       "noteText": "",
       "slug": "process-planning-construction"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "作業計画",
-      "body": "",
+      "body": "作業計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "work-planning"
+      "slug": "work-planning",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/work-planning/img/standard-time-tree.svg",
+      "note": "作業計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "リードタイム",
-      "body": "",
+      "body": "リードタイムの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "lead-time"
     },
     {
       "type": "board",
       "heading": "稼働率",
-      "body": "",
+      "body": "稼働率の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "utilization-rate"
     },
     {
       "type": "board",
       "heading": "負荷工数・生産能力",
-      "body": "",
+      "body": "負荷工数・生産能力の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "load-capacity"
     },
     {
       "type": "board",
       "heading": "負荷平準化（山積み・山くずし）",
-      "body": "",
+      "body": "負荷平準化（山積み・山くずし）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "load-leveling"
     },
     {
       "type": "board",
       "heading": "大日程計画・中日程計画・小日程計画",
-      "body": "",
+      "body": "大日程計画・中日程計画・小日程計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "master-schedule-planning"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ガントチャート",
       "body": "ガントチャートとは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図である。直感的に工程全体を把握でき、小日程計画や進捗管理に広く用いられる。",
       "noteText": "小日程計画・進捗報告に適した直感的な手法",
       "slug": "gantt-chart",
-      "_legacySource": "_backlog/2026/2026-06-02-gantt-chart"
+      "_legacySource": "_backlog/2026/2026-06-02-gantt-chart",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/gantt-chart/img/gantt-chart-example.svg",
+      "note": "ガントチャートとは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図である。"
     },
     {
       "type": "summary",

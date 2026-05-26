@@ -15,80 +15,86 @@
     {
       "type": "board",
       "heading": "アンケート分析",
-      "body": "",
+      "body": "アンケート分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "survey-analysis"
     },
     {
       "type": "board",
       "heading": "情報検索",
-      "body": "",
+      "body": "情報検索の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "information-retrieval"
     },
     {
       "type": "board",
       "heading": "情報推薦",
-      "body": "",
+      "body": "情報推薦（レコメンドシステム）の基本手法を解説。",
       "noteText": "",
       "slug": "recommendation-systems"
     },
     {
       "type": "board",
       "heading": "記述統計",
-      "body": "",
+      "body": "記述統計の基本指標を体系的に解説。",
       "noteText": "",
       "slug": "descriptive-statistics"
     },
     {
       "type": "board",
       "heading": "線形回帰と最小二乗法",
-      "body": "",
+      "body": "線形回帰分析の基本モデル（単回帰・重回帰）と最小二乗法による係数推定を解説。",
       "noteText": "",
       "slug": "linear-regression"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ロジスティック回帰",
-      "body": "",
+      "body": "ロジスティック回帰の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "logistic-regression"
+      "slug": "logistic-regression",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/logistic-regression/img/figure-1.svg",
+      "note": "ロジスティック回帰の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "相関分析",
       "body": "相関分析（Correlation Analysis）とは、2つの変数の間にどの程度の関連性があるかを定量的に評価する統計手法である。相関は「関連の強さと方向」を測定するものであり、因果関係を証明するものではない点に注意が必要である。",
       "noteText": "相関=関連の強さ\n因果の証明でない",
       "slug": "correlation-analysis",
-      "_legacySource": "_backlog/2027/2027-01-19-correlation-analysis"
+      "_legacySource": "_backlog/2027/2027-01-19-correlation-analysis",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/correlation-analysis/img/correlation-scatter-patterns.svg",
+      "note": "相関分析（Correlation Analysis）とは、2つの変数の間にどの程度の関連性があるかを定量的に評価する統計手法である。"
     },
     {
       "type": "board",
       "heading": "推定・検定",
-      "body": "",
+      "body": "統計的推定と仮説検定の基本概念を解説。",
       "noteText": "",
       "slug": "estimation-testing"
     },
     {
       "type": "board",
       "heading": "データ収集",
-      "body": "",
+      "body": "データ収集の方法論を体系的に解説。",
       "noteText": "",
       "slug": "data-collection"
     },
     {
       "type": "board",
       "heading": "データクレンジング",
-      "body": "",
+      "body": "データクレンジングとは、データベースやデータセット内の誤り・欠損・重複・不整合を検出し修正するデータ品質管理プロセスである。",
       "noteText": "",
       "slug": "data-cleansing"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "データマイニング",
-      "body": "",
+      "body": "データマイニングとは、大量のデータから統計学・機械学習・パターン認識等の手法を用いて、有用な知識やパターンを自動的に発見する技術である。",
       "noteText": "",
-      "slug": "data-mining"
+      "slug": "data-mining",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/data-mining/img/big-data-analysis-flow.svg",
+      "note": "データマイニングとは、大量のデータから統計学・機械学習・パターン認識等の手法を用いて、有用な知識やパターンを自動的に発見する技術である。"
     },
     {
       "type": "board",
@@ -101,7 +107,7 @@
     {
       "type": "board",
       "heading": "データ可視化",
-      "body": "",
+      "body": "データ可視化とは、数値データや分析結果をグラフ・チャート・地図等の視覚的表現に変換し、パターンや傾向の理解・伝達を促進する技術である。",
       "noteText": "",
       "slug": "data-visualization"
     },

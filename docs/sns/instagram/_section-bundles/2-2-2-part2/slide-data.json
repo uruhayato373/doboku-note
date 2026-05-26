@@ -13,53 +13,57 @@
       "noteText": "経済性管理 品質の管理（品質管理の統計的手法）"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "管理限界",
       "body": "管理限界とは、上方管理限界線（UCL）と下方管理限界線（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。通常、中心線（CL）から±3σの位置に設定される。",
       "noteText": "UCL・CL・LCLの3線で管理図を構成する",
       "slug": "control-limits",
-      "_legacySource": "_backlog/2026/2026-06-02-control-limits"
+      "_legacySource": "_backlog/2026/2026-06-02-control-limits",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/control-limits/img/control-chart.svg",
+      "note": "管理限界とは、上方管理限界線（UCL）と下方管理限界線（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "工程能力指数（Cp・Cpk）",
       "body": "工程能力指数とは、規格内で製品を生産する工程の能力を定量化する指標である。ばらつきと規格幅の比で表され、値が大きいほど工程能力が高い。算出には工程が管理状態にあることが前提となる。",
       "noteText": "管理状態（統計的安定）が前提条件",
       "slug": "process-capability-index",
-      "_legacySource": "_backlog/2026/2026-05-15-process-capability-index"
+      "_legacySource": "_backlog/2026/2026-05-15-process-capability-index",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/process-capability-index/img/normal-distribution-3sigma.svg",
+      "note": "工程能力指数とは、規格内で製品を生産する工程の能力を定量化する指標である。"
     },
     {
       "type": "board",
       "heading": "不適合品率／適合品率",
-      "body": "",
+      "body": "不適合品率／適合品率の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "nonconformity-rate"
     },
     {
       "type": "board",
       "heading": "全数検査／抜取検査",
-      "body": "",
+      "body": "全数検査／抜取検査の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "inspection-methods"
     },
     {
       "type": "board",
       "heading": "HACCP",
-      "body": "",
+      "body": "HACCPの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "haccp"
     },
     {
       "type": "board",
       "heading": "製品安全",
-      "body": "",
+      "body": "製品安全の定義・関連法規（消安法・PL法等）・リスク低減の3ステップ・ライフサイクル管理・PSマーク制度を解説。",
       "noteText": "",
       "slug": "product-safety"
     },
     {
       "type": "board",
       "heading": "**顧客満足（CS）**",
-      "body": "",
+      "body": "顧客満足（CS）の定義・構成要素を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "customer-satisfaction"
     },

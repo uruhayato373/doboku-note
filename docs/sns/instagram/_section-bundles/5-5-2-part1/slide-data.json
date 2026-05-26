@@ -15,98 +15,100 @@
     {
       "type": "board",
       "heading": "リスク",
-      "body": "",
+      "body": "リスクの定義・ISO 31000における位置づけ・リスクレベルの算定方法を解説。",
       "noteText": "",
       "slug": "risk"
     },
     {
       "type": "board",
       "heading": "ハザード（潜在的危険要因）",
-      "body": "",
+      "body": "ハザード（潜在的危険要因）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "hazard"
     },
     {
       "type": "board",
       "heading": "リスクマップ／リスクマトリクス",
-      "body": "",
+      "body": "リスクマップ／リスクマトリクスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "risk-map-matrix"
     },
     {
       "type": "board",
       "heading": "起こりやすさ（発生確率・頻度）",
-      "body": "",
+      "body": "起こりやすさの定義・定量的評価と定性的評価の手法・リスクレベル算定における役割を解説。",
       "noteText": "",
       "slug": "likelihood"
     },
     {
       "type": "board",
       "heading": "影響（影響の種類・影響の規模）",
-      "body": "",
+      "body": "影響（影響の種類・影響の規模）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "impact"
     },
     {
       "type": "board",
       "heading": "リスクマネジメント計画",
-      "body": "",
+      "body": "リスクマネジメント計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "risk-management-plan"
     },
     {
       "type": "board",
       "heading": "リスク基準",
-      "body": "",
+      "body": "リスク基準の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "risk-criteria"
     },
     {
       "type": "board",
       "heading": "リスクマネジメントシステム",
-      "body": "",
+      "body": "リスクマネジメントシステムの定義・ISO 31000に基づく枠組み・PDCAサイクルを解説。",
       "noteText": "",
       "slug": "risk-management-system"
     },
     {
       "type": "board",
       "heading": "リスクマネジメント方針",
-      "body": "",
+      "body": "リスクマネジメント方針の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "risk-management-policy"
     },
     {
       "type": "board",
       "heading": "リスク特定",
-      "body": "",
+      "body": "リスク特定の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "risk-identification"
     },
     {
       "type": "board",
       "heading": "リスク分析",
-      "body": "",
+      "body": "リスク分析の定義・定量的手法と定性的手法・リスクレベルの算定方法を解説。",
       "noteText": "",
       "slug": "risk-analysis"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "リスク評価",
-      "body": "",
+      "body": "リスク評価の定義・リスクアセスメントの3段階（特定・分析・評価）・リスク基準との比較（ALARP原則）・リスク対応の4戦略・定性/定量手法を解説。",
       "noteText": "",
-      "slug": "risk-assessment"
+      "slug": "risk-assessment",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/risk-assessment/img/chemical-ra-flow.svg",
+      "note": "リスク評価の定義・リスクアセスメントの3段階（特定・分析・評価）・リスク基準との比較（ALARP原則）・リスク対応の4戦略・定性/定量手法を解説。"
     },
     {
       "type": "board",
       "heading": "リスク対応",
-      "body": "",
+      "body": "リスク対応の定義・4つの基本戦略（回避・低減・移転・保有）・対応策の選定方法を解説。",
       "noteText": "",
       "slug": "risk-treatment"
     },
     {
       "type": "board",
       "heading": "リスクモニタリング",
-      "body": "",
+      "body": "リスクモニタリングの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "risk-monitoring"
     },

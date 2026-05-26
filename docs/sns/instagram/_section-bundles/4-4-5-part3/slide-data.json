@@ -15,16 +15,18 @@
     {
       "type": "board",
       "heading": "セキュリティ対策ソフト",
-      "body": "",
+      "body": "セキュリティ対策ソフトの種類と検知方式を解説。",
       "noteText": "",
       "slug": "security-software"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "パスワード強化",
-      "body": "",
+      "body": "パスワードセキュリティの基本方針と強化策を解説。",
       "noteText": "",
-      "slug": "password-security"
+      "slug": "password-security",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/password-security/img/wifi-encryption-strength.svg",
+      "note": "パスワードセキュリティの基本方針と強化策を解説。"
     },
     {
       "type": "board",
@@ -45,51 +47,55 @@
     {
       "type": "board",
       "heading": "脅威攻撃の手口学習",
-      "body": "",
+      "body": "脅威攻撃の手口学習の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "threat-awareness-training"
     },
     {
       "type": "board",
       "heading": "ファイアウォール・侵入検知",
-      "body": "",
+      "body": "ファイアウォール・侵入検知の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "firewall-ids"
     },
     {
       "type": "board",
       "heading": "暗号化・電子署名",
-      "body": "",
+      "body": "暗号化・電子署名の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "encryption-digital-signature"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "VPN",
-      "body": "",
+      "body": "VPNの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "vpn"
+      "slug": "vpn",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/vpn/img/figure-1.svg",
+      "note": "VPNの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "DMZ",
-      "body": "",
+      "body": "DMZの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "dmz"
     },
     {
       "type": "board",
       "heading": "多要素認証",
-      "body": "",
+      "body": "多要素認証の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "multi-factor-authentication"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ゼロトラスト",
-      "body": "",
+      "body": "ゼロトラストの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "zero-trust"
+      "slug": "zero-trust",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/zero-trust/img/figure-1.svg",
+      "note": "ゼロトラストの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "summary",

@@ -15,70 +15,70 @@
     {
       "type": "board",
       "heading": "情報漏洩・改ざん・消失",
-      "body": "",
+      "body": "情報セキュリティの3大脅威である漏洩・改ざん・消失の手口・原因、被害事例、技術的・組織的対策を体系的に解説。",
       "noteText": "",
       "slug": "data-leak-tampering-loss"
     },
     {
       "type": "board",
       "heading": "システム停止・性能低下",
-      "body": "",
+      "body": "情報セキュリティの脅威であるシステム停止・性能低下の原因分類、DDoS攻撃等の手口、BCP・冗長化による対策を解説。",
       "noteText": "",
       "slug": "system-outage-degradation"
     },
     {
       "type": "board",
       "heading": "不正アクセス",
-      "body": "",
+      "body": "不正アクセスの定義と不正アクセス禁止法の概要、主な手口、検知・防止対策、罰則を解説。",
       "noteText": "",
       "slug": "unauthorized-access"
     },
     {
       "type": "board",
       "heading": "オペレーションミス",
-      "body": "",
+      "body": "情報セキュリティにおけるオペレーションミスの類型と対策を解説。",
       "noteText": "",
       "slug": "operation-errors"
     },
     {
       "type": "board",
       "heading": "マルウェア",
-      "body": "",
+      "body": "マルウェアの種類と特徴を体系的に解説。",
       "noteText": "",
       "slug": "malware"
     },
     {
       "type": "board",
       "heading": "DoS・DDoS",
-      "body": "",
+      "body": "DoS攻撃・DDoS攻撃の仕組みと種類を解説。",
       "noteText": "",
       "slug": "dos-ddos"
     },
     {
       "type": "board",
       "heading": "標的型攻撃",
-      "body": "",
+      "body": "標的型攻撃（APT）の手法と段階を解説。",
       "noteText": "",
       "slug": "targeted-attack"
     },
     {
       "type": "board",
       "heading": "フィッシング詐欺・ファーミング詐欺",
-      "body": "",
+      "body": "フィッシング詐欺とファーミング詐欺の手口と違いを解説。",
       "noteText": "",
       "slug": "phishing-pharming"
     },
     {
       "type": "board",
       "heading": "ソーシャルエンジニアリング",
-      "body": "",
+      "body": "ソーシャルエンジニアリングの手法と対策を解説。",
       "noteText": "",
       "slug": "social-engineering"
     },
     {
       "type": "board",
       "heading": "脆弱性（セキュリティホール）",
-      "body": "",
+      "body": "脆弱性（セキュリティホール）の定義と管理体制を解説。",
       "noteText": "",
       "slug": "vulnerability"
     },

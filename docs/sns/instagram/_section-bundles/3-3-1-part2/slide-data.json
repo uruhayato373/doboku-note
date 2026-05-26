@@ -15,49 +15,49 @@
     {
       "type": "board",
       "heading": "職能別組織",
-      "body": "",
+      "body": "職能別組織の定義・特徴・メリットとデメリットを解説。",
       "noteText": "",
       "slug": "functional-organization"
     },
     {
       "type": "board",
       "heading": "事業部制組織",
-      "body": "",
+      "body": "事業部制組織の定義・特徴・メリットとデメリットを解説。",
       "noteText": "",
       "slug": "divisional-organization"
     },
     {
       "type": "board",
       "heading": "マトリクス組織",
-      "body": "",
+      "body": "マトリクス組織の定義・特徴・メリットとデメリットを解説。",
       "noteText": "",
       "slug": "matrix-organization"
     },
     {
       "type": "board",
       "heading": "フラット組織",
-      "body": "",
+      "body": "フラット組織の定義・特徴・メリットとデメリットを解説。",
       "noteText": "",
       "slug": "flat-organization"
     },
     {
       "type": "board",
       "heading": "ネットワーク組織",
-      "body": "",
+      "body": "ネットワーク組織の定義・特徴・メリットとデメリットを解説。",
       "noteText": "",
       "slug": "network-organization"
     },
     {
       "type": "board",
       "heading": "ピラミッド組織",
-      "body": "",
+      "body": "ピラミッド組織の定義・特徴・メリットとデメリットを解説。",
       "noteText": "",
       "slug": "pyramid-organization"
     },
     {
       "type": "board",
       "heading": "ティール組織",
-      "body": "",
+      "body": "ティール組織の定義とラルーの5段階組織モデルを解説。",
       "noteText": "",
       "slug": "teal-organization"
     },
@@ -72,25 +72,29 @@
     {
       "type": "board",
       "heading": "マクレガーのＸ理論とＹ理論",
-      "body": "",
+      "body": "マクレガーのX理論・Y理論の定義と特徴を解説。",
       "noteText": "",
       "slug": "mcgregor-xy-theory"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "マズローの欲求５段階説",
       "body": "マズローの欲求5段階説とは、アメリカの心理学者アブラハム・マズロー（1908–1970）が1943年に発表した動機づけ理論である。人間の欲求を5つの階層に分類し、低次の欲求が満たされると高次の欲求が動機づけの源泉になると説明する。",
       "noteText": "1943年発表の動機づけ理論",
       "slug": "maslow-hierarchy-of-needs",
-      "_legacySource": "_backlog/2026/2026-05-19-maslow-hierarchy-of-needs"
+      "_legacySource": "_backlog/2026/2026-05-19-maslow-hierarchy-of-needs",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/maslow-hierarchy-of-needs/img/maslow-pyramid.svg",
+      "note": "マズローの欲求5段階説とは、アメリカの心理学者アブラハム・マズロー（1908–1970）が1943年に発表した動機づけ理論である。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "ハーズバーグの二要因理論",
       "body": "ハーズバーグが1959年に発表した動機づけ理論である。職務満足と不満足は別々の要因で生じるとし、従来の一元的な考え方を否定した。動機づけ要因と衛生要因の2種類に分類するため「動機づけ・衛生理論」とも呼ばれる。",
       "noteText": "満足と不満足は独立した別軸\n1要因改善でも他軸に影響しない",
       "slug": "herzberg-two-factor-theory",
-      "_legacySource": "_backlog/2026/2026-06-16-herzberg-two-factor-theory"
+      "_legacySource": "_backlog/2026/2026-06-16-herzberg-two-factor-theory",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/herzberg-two-factor-theory/img/herzberg-two-factor.svg",
+      "note": "ハーズバーグが1959年に発表した動機づけ理論である。"
     },
     {
       "type": "board",

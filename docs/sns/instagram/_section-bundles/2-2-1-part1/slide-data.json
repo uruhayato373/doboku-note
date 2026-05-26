@@ -15,56 +15,60 @@
     {
       "type": "board",
       "heading": "市場調査",
-      "body": "",
+      "body": "市場調査の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "market-research"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "需要予測",
-      "body": "",
+      "body": "需要予測の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "demand-forecasting"
+      "slug": "demand-forecasting",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/demand-forecasting/img/figure-1.svg",
+      "note": "需要予測の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "投資回収計画",
-      "body": "",
+      "body": "投資回収計画の定義と策定プロセス、NPV法・回収期間法・IRR法・ROI法の評価手法を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "investment-recovery-plan"
     },
     {
       "type": "board",
       "heading": "割引率",
-      "body": "",
+      "body": "割引率の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "discount-rate"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "NPV",
-      "body": "",
+      "body": "NPVの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "npv-net-present-value"
+      "slug": "npv-net-present-value",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/npv-net-present-value/img/normal-distribution-sigma.svg",
+      "note": "NPVの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "DCF法",
-      "body": "",
+      "body": "DCF法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "dcf-method"
     },
     {
       "type": "board",
       "heading": "回収期間法",
-      "body": "",
+      "body": "回収期間法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "payback-period-method"
     },
     {
       "type": "board",
       "heading": "内部収益率法",
-      "body": "",
+      "body": "内部収益率法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "internal-rate-of-return"
     },

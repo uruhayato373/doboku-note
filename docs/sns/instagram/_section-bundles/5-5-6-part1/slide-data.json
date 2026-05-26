@@ -13,48 +13,56 @@
       "noteText": "安全管理 システム安全工学手法（システム安全工学手法・ヒューマンエラー分析（人的過誤分析））"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "FMEA",
       "body": "FMEAとは、システムの構成要素ごとに想定される故障モードとその影響を体系的に分析する手法である。帰納的・ボトムアップ型の分析手法であり、構成要素レベルからシステムレベルへ影響を積み上げて評価する。",
       "noteText": "ボトムアップ型：構成要素の故障モードからシステムへの影響を分析",
       "slug": "fmea",
-      "_legacySource": "_backlog/2026/2026-06-05-fmea"
+      "_legacySource": "_backlog/2026/2026-06-05-fmea",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/fmea/img/fmea-rpn-flow.svg",
+      "note": "FMEAとは、システムの構成要素ごとに想定される故障モードとその影響を体系的に分析する手法である。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "HAZOP",
       "body": "HAZOPとは、ガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、ハザードや運転上の問題を特定する手法である。1960年代に英国ICI社が化学プラントの設計審査手法として開発した。",
       "noteText": "プロセスパラメータの逸脱をガイドワードで体系的に検討する手法",
       "slug": "hazop",
-      "_legacySource": "_backlog/2026/2026-06-09-hazop"
+      "_legacySource": "_backlog/2026/2026-06-09-hazop",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/hazop/img/hazop-guidewords.svg",
+      "note": "HAZOPとは、ガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、ハザードや運転上の問題を特定する手法である。"
     },
     {
       "type": "board",
       "heading": "HAZID",
-      "body": "",
+      "body": "HAZID（Hazard Identification Study）の定義・実施手順・PHAとの関係を解説。",
       "noteText": "",
       "slug": "hazid"
     },
     {
       "type": "board",
       "heading": "デシジョンツリー分析",
-      "body": "",
+      "body": "デシジョンツリー分析の定義・構成要素（決定ノード・確率ノード・結果ノード）・期待値計算を解説。",
       "noteText": "",
       "slug": "decision-tree-analysis"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "フォールトツリー分析（FTA）",
-      "body": "",
+      "body": "FTA（Fault Tree Analysis）の定義・手順・論理ゲート（AND/OR）の使い方を解説。",
       "noteText": "",
-      "slug": "fta"
+      "slug": "fta",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/fta/img/fault-tree-diagram.svg",
+      "note": "FTA（Fault Tree Analysis）の定義・手順・論理ゲート（AND/OR）の使い方を解説。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "イベントツリー分析（ETA）",
-      "body": "",
+      "body": "ETA（Event Tree Analysis）の定義・手順・成功/失敗分岐の考え方を解説。",
       "noteText": "",
-      "slug": "eta"
+      "slug": "eta",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/eta/img/eta-gas-leak-example.svg",
+      "note": "ETA（Event Tree Analysis）の定義・手順・成功/失敗分岐の考え方を解説。"
     },
     {
       "type": "board",
@@ -67,42 +75,42 @@
     {
       "type": "board",
       "heading": "PHA",
-      "body": "",
+      "body": "PHA（予備ハザード分析）の定義・実施手順・リスクマトリクスの使い方を解説。",
       "noteText": "",
       "slug": "pha"
     },
     {
       "type": "board",
       "heading": "人的過誤確率（HEP）",
-      "body": "",
+      "body": "人的過誤確率（HEP）の定義・代表的な数値・エラータイプ別の特徴を解説。",
       "noteText": "",
       "slug": "human-error-probability"
     },
     {
       "type": "board",
       "heading": "トライポッド理論",
-      "body": "",
+      "body": "トライポッド理論（Tripod Theory）の定義・3層構造（基盤原因・前提条件・不安全行為）・スイスチーズモデルとの関係を解説。",
       "noteText": "",
       "slug": "tripod-theory"
     },
     {
       "type": "board",
       "heading": "THERP",
-      "body": "",
+      "body": "THERP（人的過誤率予測法）の定義・分析手順・HEPイベントツリーの考え方を解説。",
       "noteText": "",
       "slug": "therp"
     },
     {
       "type": "board",
       "heading": "行動形成要因（PSF）",
-      "body": "",
+      "body": "行動形成要因（PSF）の定義・主要な分類（内的要因・外的要因）・HEPへの影響を解説。",
       "noteText": "",
       "slug": "performance-shaping-factors"
     },
     {
       "type": "board",
       "heading": "VTA法",
-      "body": "",
+      "body": "VTA法（Variation Tree Analysis）の定義・分析手順・通常からの逸脱の可視化を解説。",
       "noteText": "",
       "slug": "vta-method"
     },

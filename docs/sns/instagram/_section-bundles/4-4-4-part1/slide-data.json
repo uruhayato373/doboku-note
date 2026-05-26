@@ -23,78 +23,84 @@
     {
       "type": "board",
       "heading": "WEBサービス",
-      "body": "",
+      "body": "WEBサービスの技術体系（SOAP・REST・API）と情報システムにおける活用形態を解説する。",
       "noteText": "",
       "slug": "web-services"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "クラウドコンピューティング／オンプレミス",
       "body": "クラウドコンピューティングとは、サーバ・ストレージ等のITリソースをインターネット経由でオンデマンドに利用できるサービス形態であり、必要な分だけ従量課金で使える。",
       "noteText": "NIST定義の5特性：オンデマンド・広範アクセス・プーリング・弾力性・計測",
       "slug": "cloud-on-premises",
-      "_legacySource": "_backlog/2026/2026-12-01-cloud-on-premises"
+      "_legacySource": "_backlog/2026/2026-12-01-cloud-on-premises",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/cloud-on-premises/img/figure-1.svg",
+      "note": "クラウドコンピューティングとは、サーバ・ストレージ等のITリソースをインターネット経由でオンデマンドに利用できるサービス形態であり、必要な分だけ従量課金で使える。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "エッジコンピューティング",
-      "body": "",
+      "body": "エッジコンピューティングの概念、クラウドとの使い分け、IoTとの関係、適用領域を解説する。",
       "noteText": "",
-      "slug": "edge-computing"
+      "slug": "edge-computing",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/edge-computing/img/figure-1.svg",
+      "note": "エッジコンピューティングの概念、クラウドとの使い分け、IoTとの関係、適用領域を解説する。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "信頼性（Reliability）",
-      "body": "",
+      "body": "RASIS/CIA拡張要素としての信頼性を解説。",
       "noteText": "",
-      "slug": "system-reliability"
+      "slug": "system-reliability",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/system-reliability/img/series-parallel-configuration.svg",
+      "note": "RASIS/CIA拡張要素としての信頼性を解説。"
     },
     {
       "type": "board",
       "heading": "可用性（Availability）",
-      "body": "",
+      "body": "可用性の定義・稼働率の計算（MTBF/MTTR）・冗長構成・ナインの数・CIA拡張・RTO/RPO・冗長化/DR/SLA等の確保手法を解説。",
       "noteText": "",
       "slug": "system-availability"
     },
     {
       "type": "board",
       "heading": "保守性（Serviceability）",
-      "body": "",
+      "body": "RASISの保守性指標について、MTTRとの関係、保守性を高める設計手法、保守運用体制を解説する。",
       "noteText": "",
       "slug": "system-serviceability"
     },
     {
       "type": "board",
       "heading": "保全性（Integrity）",
-      "body": "",
+      "body": "RASISの保全性指標について、データの完全性・一貫性の確保手法、情報セキュリティとの関係を解説する。",
       "noteText": "",
       "slug": "system-integrity"
     },
     {
       "type": "board",
       "heading": "安全性（Security）",
-      "body": "",
+      "body": "RASISの安全性指標について、情報セキュリティの3要素（CIA）、脅威と対策、セキュリティ管理体制を解説する。",
       "noteText": "",
       "slug": "system-security"
     },
     {
       "type": "board",
       "heading": "インターネット",
-      "body": "",
+      "body": "インターネットの基盤技術、SNS・クラウドサービスを含む活用形態、社会インフラとしての役割を解説する。",
       "noteText": "",
       "slug": "internet"
     },
     {
       "type": "board",
       "heading": "固定通信",
-      "body": "",
+      "body": "固定通信の定義・主要技術（光ファイバ・ADSL・CATV等）と通信インフラにおける役割を解説。",
       "noteText": "",
       "slug": "fixed-communication"
     },
     {
       "type": "board",
       "heading": "移動通信",
-      "body": "",
+      "body": "移動通信の世代別技術（3G〜5G・Beyond 5G）と特徴、社会インフラとしての役割を解説。",
       "noteText": "",
       "slug": "mobile-communication"
     },

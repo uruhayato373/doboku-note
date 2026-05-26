@@ -15,77 +15,79 @@
     {
       "type": "board",
       "heading": "要求品質",
-      "body": "",
+      "body": "要求品質の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "required-quality"
     },
     {
       "type": "board",
       "heading": "設計品質",
-      "body": "",
+      "body": "設計品質の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "design-quality"
     },
     {
       "type": "board",
       "heading": "製造品質",
-      "body": "",
+      "body": "製造品質の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "manufacturing-quality"
     },
     {
       "type": "board",
       "heading": "品質特性",
-      "body": "",
+      "body": "品質特性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "quality-characteristics"
     },
     {
       "type": "board",
       "heading": "品質方針",
-      "body": "",
+      "body": "品質方針の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "quality-policy"
     },
     {
       "type": "board",
       "heading": "品質目標",
-      "body": "",
+      "body": "品質目標の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "quality-objectives"
     },
     {
       "type": "board",
       "heading": "品質計画",
-      "body": "",
+      "body": "品質計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "quality-planning"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "品質管理",
-      "body": "",
+      "body": "品質管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "quality-control"
+      "slug": "quality-control",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/quality-control/img/qc-seven-tools.svg",
+      "note": "品質管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "品質保証",
-      "body": "",
+      "body": "品質保証の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "quality-assurance"
     },
     {
       "type": "board",
       "heading": "品質改善活動",
-      "body": "",
+      "body": "品質改善活動の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "quality-improvement"
     },
     {
       "type": "board",
       "heading": "製造物責任（PL）",
-      "body": "",
+      "body": "製造物責任（PL）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "product-liability"
     },

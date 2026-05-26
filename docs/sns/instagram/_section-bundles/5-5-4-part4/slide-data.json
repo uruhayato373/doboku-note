@@ -15,42 +15,44 @@
     {
       "type": "board",
       "heading": "未然防止活動",
-      "body": "",
+      "body": "未然防止活動の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "prevention-activities"
     },
     {
       "type": "board",
       "heading": "定期点検活動",
-      "body": "",
+      "body": "定期点検活動の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "periodic-inspection"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "危険予知訓練（KYT）",
-      "body": "",
+      "body": "KYT（危険予知訓練）の定義・KYT基礎4ラウンド法・実施方法を解説。",
       "noteText": "",
-      "slug": "kyt"
+      "slug": "kyt",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/kyt/img/kyt-four-rounds.svg",
+      "note": "KYT（危険予知訓練）の定義・KYT基礎4ラウンド法・実施方法を解説。"
     },
     {
       "type": "board",
       "heading": "TBM（ツールボックスミーティング）",
-      "body": "",
+      "body": "TBM（ツールボックスミーティング）の定義・実施方法・KYTとの関係を解説。",
       "noteText": "",
       "slug": "tbm-toolbox-meeting"
     },
     {
       "type": "board",
       "heading": "標準作業手順書（SOP）",
-      "body": "",
+      "body": "標準作業手順書（SOP）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "sop"
     },
     {
       "type": "board",
       "heading": "安全衛生パトロール",
-      "body": "",
+      "body": "安全衛生パトロールの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "safety-patrol"
     },

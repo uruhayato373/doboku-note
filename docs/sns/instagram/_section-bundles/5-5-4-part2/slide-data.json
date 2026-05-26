@@ -15,115 +15,119 @@
     {
       "type": "board",
       "heading": "安全計装システム",
-      "body": "",
+      "body": "安全計装システム（SIS）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "safety-instrumented-system"
     },
     {
       "type": "board",
       "heading": "非常停止装置",
-      "body": "",
+      "body": "非常停止装置の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "emergency-stop-device"
     },
     {
       "type": "board",
       "heading": "フォールトアボイダンス",
-      "body": "",
+      "body": "フォールトアボイダンスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "fault-avoidance"
     },
     {
       "type": "board",
       "heading": "フォールトトレランス",
-      "body": "",
+      "body": "フォールトトレランスの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "fault-tolerance"
     },
     {
       "type": "board",
       "heading": "フェールソフト",
-      "body": "",
+      "body": "フェールソフトの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "fail-soft"
     },
     {
       "type": "board",
       "heading": "フールプルーフ",
-      "body": "",
+      "body": "フールプルーフの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "fool-proof"
     },
     {
       "type": "board",
       "heading": "フェールセーフ",
-      "body": "",
+      "body": "フェールセーフの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "fail-safe"
     },
     {
       "type": "board",
       "heading": "インターロック（安全装置・安全機構）",
-      "body": "",
+      "body": "インターロックの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "interlock"
     },
     {
       "type": "board",
       "heading": "安全確認型システム／危険検出型システム",
-      "body": "",
+      "body": "安全確認型システム・危険検出型システムの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "safety-confirmation-system"
     },
     {
       "type": "board",
       "heading": "隔離安全／停止安全",
-      "body": "",
+      "body": "隔離安全・停止安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "isolation-stop-safety"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "冗長安全",
       "body": "冗長性とは、システムの構成要素を多重化し、一部が故障しても他の要素が機能を代替することで、システム全体の信頼性を向上させる設計手法である。安全機能を冗長化することで単一故障による安全機能の喪失を防止する。",
       "noteText": "多重化により単一故障でもシステムの安全機能を維持する",
       "slug": "redundancy-safety",
-      "_legacySource": "_backlog/2026/2026-06-09-redundancy-safety"
+      "_legacySource": "_backlog/2026/2026-06-09-redundancy-safety",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/redundancy-safety/img/redundancy-types.svg",
+      "note": "冗長性とは、システムの構成要素を多重化し、一部が故障しても他の要素が機能を代替することで、システム全体の信頼性を向上させる設計手法である。"
     },
     {
       "type": "board",
       "heading": "安全立証／安全論証",
-      "body": "",
+      "body": "セーフティケース（安全立証）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "safety-case"
     },
     {
       "type": "board",
       "heading": "LOPA",
-      "body": "",
+      "body": "LOPAの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "lopa"
     },
     {
       "type": "board",
       "heading": "テクニカルスキル／ノンテクニカルスキル",
-      "body": "",
+      "body": "テクニカルスキルとノンテクニカルスキルの定義・分類・安全管理への応用を解説。",
       "noteText": "",
       "slug": "technical-nontechnical-skills"
     },
     {
       "type": "board",
       "heading": "事故の4M要因分析",
-      "body": "",
+      "body": "事故の4M要因分析（Man・Machine・Media・Management）の定義と具体例を解説。",
       "noteText": "",
       "slug": "four-m-analysis"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "事故の4E対策",
-      "body": "",
+      "body": "事故の4E対策（Education・Engineering・Enforcement・Example）の定義と具体例を解説。",
       "noteText": "",
-      "slug": "four-e-countermeasures"
+      "slug": "four-e-countermeasures",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/four-e-countermeasures/img/four-e-overview.svg",
+      "note": "事故の4E対策（Education・Engineering・Enforcement・Example）の定義と具体例を解説。"
     },
     {
       "type": "summary",

@@ -13,87 +13,93 @@
       "noteText": "情報管理 知的財産権と情報の保護と活用（知的財産権（知的財産基本法）・情報の保護）"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "産業財産権",
-      "body": "",
+      "body": "産業財産権（特許権・実用新案権・意匠権・商標権）の4権利の定義・保護対象・存続期間の比較と出願手続を解説。",
       "noteText": "",
-      "slug": "industrial-property-rights"
+      "slug": "industrial-property-rights",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/industrial-property-rights/img/ip-laws-system.svg",
+      "note": "産業財産権（特許権・実用新案権・意匠権・商標権）の4権利の定義・保護対象・存続期間の比較と出願手続を解説。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "特許権（特許法）",
-      "body": "",
+      "body": "特許権の定義・保護対象・出願から登録までの手続・存続期間20年・職務発明制度・侵害時の救済措置を解説。",
       "noteText": "",
-      "slug": "patent-rights"
+      "slug": "patent-rights",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/patent-rights/img/patent-application-flow.svg",
+      "note": "特許権の定義・保護対象・出願から登録までの手続・存続期間20年・職務発明制度・侵害時の救済措置を解説。"
     },
     {
       "type": "board",
       "heading": "実用新案権（実用新案法）",
-      "body": "",
+      "body": "実用新案権の定義・保護対象（物品の形状・構造の考案）・無審査登録制度・存続期間10年・特許権との違いを解説。",
       "noteText": "",
       "slug": "utility-model-rights"
     },
     {
       "type": "board",
       "heading": "意匠権（意匠法）",
-      "body": "",
+      "body": "意匠権の定義・保護対象（物品・建築物・画像のデザイン）・存続期間25年・関連意匠制度・出願手続を解説。",
       "noteText": "",
       "slug": "design-rights"
     },
     {
       "type": "board",
       "heading": "商標権（商標法）",
-      "body": "",
+      "body": "商標権の定義・保護対象・登録要件・出願手続・存続期間10年（更新で半永久）・商標の種類・侵害時の救済を解説。",
       "noteText": "",
       "slug": "trademark-rights"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "著作権（著作権法）",
       "body": "著作権とは、思想又は感情を創作的に表現したもの（著作物）を保護する権利である。著作権法（昭和45年法律第48号）に基づき、著作物の創作と同時に権利が自動的に発生する無方式主義を採用し、産業財産権のような出願・登録は不要である。",
       "noteText": "無方式=登録不要\n産業財産権と対比",
       "slug": "copyright",
-      "_legacySource": "_backlog/2027/2027-01-15-copyright"
+      "_legacySource": "_backlog/2027/2027-01-15-copyright",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/copyright/img/authors-rights-structure.svg",
+      "note": "著作権とは、思想又は感情を創作的に表現したもの（著作物）を保護する権利である。"
     },
     {
       "type": "board",
       "heading": "先使用権制度",
-      "body": "",
+      "body": "先使用権の定義・成立要件・立証方法・特許権との関係を解説。",
       "noteText": "",
       "slug": "prior-use-rights"
     },
     {
       "type": "board",
       "heading": "国際出願制度",
-      "body": "",
+      "body": "知的財産権の国際出願制度（PCT出願・マドリッド議定書・ハーグ協定）の仕組み・手続・パリ条約との関係を解説。",
       "noteText": "",
       "slug": "international-filing-system"
     },
     {
       "type": "board",
       "heading": "特定秘密保護法",
-      "body": "",
+      "body": "特定秘密保護法の概要・特定秘密の4分野・指定要件・適性評価制度・罰則・情報公開との関係を解説。",
       "noteText": "",
       "slug": "state-secrets-act"
     },
     {
       "type": "board",
       "heading": "不正競争防止法",
-      "body": "",
+      "body": "不正競争防止法の概要・不正競争行為の類型（営業秘密侵害・周知表示混同惹起等）・営業秘密の3要件・救済措置を解説。",
       "noteText": "",
       "slug": "unfair-competition-prevention-act"
     },
     {
       "type": "board",
       "heading": "肖像権・パブリシティ権・プライバシー権",
-      "body": "",
+      "body": "肖像権・パブリシティ権・プライバシー権の定義・法的根拠・保護範囲の違い・侵害の判断基準・救済措置を解説。",
       "noteText": "",
       "slug": "portrait-publicity-privacy"
     },
     {
       "type": "board",
       "heading": "デジタルライツ",
-      "body": "",
+      "body": "デジタルライツの定義とDRM技術を解説。",
       "noteText": "",
       "slug": "digital-rights"
     },

@@ -13,104 +13,114 @@
       "noteText": "経済性管理 計画・管理の数理的手法（シミュレーション・数理計画法（最適化手法）・経済性工学（EE））"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "特性要因図",
       "body": "特性要因図とは品質問題の原因を体系的に整理し、主原因（大骨）と副原因（中骨・小骨）の関係を魚の骨状の図式で表現する分析手法である。考案者の名から「イシカワ図（Ishikawa Diagram）」、形状から「フィッシュボーン図」とも呼ばれる。",
       "noteText": "別名：イシカワ図・フィッシュボーン図",
       "slug": "cause-and-effect-diagram",
-      "_legacySource": "_backlog/2026/2026-10-27-cause-and-effect-diagram"
+      "_legacySource": "_backlog/2026/2026-10-27-cause-and-effect-diagram",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/cause-and-effect-diagram/img/fishbone-4m.svg",
+      "note": "特性要因図とは品質問題の原因を体系的に整理し、主原因（大骨）と副原因（中骨・小骨）の関係を魚の骨状の図式で表現する分析手法である。"
     },
     {
       "type": "board",
       "heading": "発想法",
-      "body": "",
+      "body": "発想法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "idea-generation-methods"
     },
     {
       "type": "board",
       "heading": "デルファイ法",
-      "body": "",
+      "body": "デルファイ法の定義・実施手順・匿名性と反復フィードバックの特徴を解説。",
       "noteText": "",
       "slug": "delphi-method"
     },
     {
       "type": "board",
       "heading": "過程決定計画図（PDPC法）",
-      "body": "",
+      "body": "PDPC法（Process Decision Program Chart）の定義・作成手順・新QC七つ道具としての位置づけを解説。",
       "noteText": "",
       "slug": "pdpc-method"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "モンテカルロシミュレーション",
-      "body": "",
+      "body": "モンテカルロシミュレーションの定義・乱数を用いた確率的解析手順・適用分野を解説。",
       "noteText": "",
-      "slug": "monte-carlo-simulation"
+      "slug": "monte-carlo-simulation",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/monte-carlo-simulation/img/monte-carlo-s-curve.svg",
+      "note": "モンテカルロシミュレーションの定義・乱数を用いた確率的解析手順・適用分野を解説。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "線形計画法",
-      "body": "",
+      "body": "線形計画法（LP）の定義・定式化手順・シンプレックス法の考え方を解説。",
       "noteText": "",
-      "slug": "linear-programming"
+      "slug": "linear-programming",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/linear-programming/img/lp-graphical-method.svg",
+      "note": "線形計画法（LP）の定義・定式化手順・シンプレックス法の考え方を解説。"
     },
     {
       "type": "board",
       "heading": "整数計画法",
-      "body": "",
+      "body": "整数計画法（IP）の定義・線形計画法との違い・主要な解法（分枝限定法等）を解説。",
       "noteText": "",
       "slug": "integer-programming"
     },
     {
       "type": "board",
       "heading": "多目的最適化",
-      "body": "",
+      "body": "多目的最適化の定義・パレート最適解・代表的手法（重み付け法・制約法等）を解説。",
       "noteText": "",
       "slug": "multi-objective-optimization"
     },
     {
       "type": "board",
       "heading": "ゲーム理論",
-      "body": "",
+      "body": "ゲーム理論の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "game-theory"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "階層分析法（階層化意思決定法：AHP）",
       "body": "階層分析法（AHP）は多基準意思決定法の一つで、複雑な問題を「目標→評価基準→代替案」の3層構造に分解し、一対比較（ペアワイズ比較）で重み付けして最適案を導く手法である。1970年代にサーティが提唱した。",
       "noteText": "定性的判断を数値化して合意形成に活用できる",
       "slug": "analytic-hierarchy-process",
-      "_legacySource": "_backlog/2026/2026-08-04-analytic-hierarchy-process"
+      "_legacySource": "_backlog/2026/2026-08-04-analytic-hierarchy-process",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/analytic-hierarchy-process/img/ahp-hierarchy.svg",
+      "note": "階層分析法（AHP）は多基準意思決定法の一つで、複雑な問題を「目標→評価基準→代替案」の3層構造に分解し、一対比較（ペアワイズ比較）で重み付けして最適案を導く手法である。"
     },
     {
       "type": "board",
       "heading": "経済性の比較の原則",
-      "body": "",
+      "body": "経済性の比較の原則（有利性の判定基準・比較の3原則）の定義と適用方法を解説。",
       "noteText": "",
       "slug": "economic-comparison-principle"
     },
     {
       "type": "board",
       "heading": "現価（現在価値）・年価・終価",
-      "body": "",
+      "body": "現価（現在価値）・年価・終価の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "present-annual-future-value"
     },
     {
       "type": "board",
       "heading": "機会損失",
-      "body": "",
+      "body": "機会損失の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "opportunity-cost"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "VE・VA",
-      "body": "",
+      "body": "価値工学（VE）の定義、機能分類（使用機能／貴重機能）、基本 3 ステップ、機能系統図（FAST ダイアグラム）を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "value-engineering"
+      "slug": "value-engineering",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/value-engineering/img/ve-basic-steps.svg",
+      "note": "価値工学（VE）の定義、機能分類（使用機能／貴重機能）、基本 3 ステップ、機能系統図（FAST ダイアグラム）を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "summary",

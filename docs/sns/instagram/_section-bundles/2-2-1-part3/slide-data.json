@@ -23,14 +23,14 @@
     {
       "type": "board",
       "heading": "仮設計画",
-      "body": "",
+      "body": "仮設計画の定義と構成を解説。",
       "noteText": "",
       "slug": "temporary-works-plan"
     },
     {
       "type": "board",
       "heading": "工程計画",
-      "body": "",
+      "body": "工程計画の定義・3要素（手順・日程・負荷）・計画の階層（大/中/小日程）・工程表の種類・CPM/PERT・工期短縮手法を解説。",
       "noteText": "",
       "slug": "process-planning-construction"
     },
@@ -45,49 +45,53 @@
     {
       "type": "board",
       "heading": "安全衛生計画",
-      "body": "",
+      "body": "安全衛生計画の定義と構成を解説。",
       "noteText": "",
       "slug": "safety-health-plan"
     },
     {
       "type": "board",
       "heading": "工法計画",
-      "body": "",
+      "body": "工法計画の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "method-planning"
     },
     {
       "type": "board",
       "heading": "生産の4M",
-      "body": "",
+      "body": "生産の4Mの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "four-m-of-production"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "PDCAサイクル",
-      "body": "",
+      "body": "PDCAサイクルの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "pdca-cycle"
+      "slug": "pdca-cycle",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/pdca-cycle/img/pdca-cycle.svg",
+      "note": "PDCAサイクルの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "KGI・KSF・KPI",
-      "body": "",
+      "body": "KGI・KSF・KPIの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "key-performance-indicators"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "PFI",
-      "body": "",
+      "body": "PFIの定義・VFM・BTO/BOT/コンセッション方式・5リスク分担を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "pfi"
+      "slug": "pfi",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/pfi/img/pfi-four-types.svg",
+      "note": "PFIの定義・VFM・BTO/BOT/コンセッション方式・5リスク分担を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "PMBOK",
-      "body": "",
+      "body": "PMBOK（プロジェクトマネジメント知識体系）の定義・第7版パフォーマンス領域・第6版知識エリア・アジャイルとの関係を解説。",
       "noteText": "",
       "slug": "pmbok"
     },

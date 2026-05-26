@@ -15,112 +15,114 @@
     {
       "type": "board",
       "heading": "労働基準法",
-      "body": "",
+      "body": "労働基準法の目的・法定労働時間・三六協定・年次有給休暇・就業規則・災害補償・労働安全衛生法との関係を解説。",
       "noteText": "",
       "slug": "labor-standards-act"
     },
     {
       "type": "board",
       "heading": "労働組合法",
-      "body": "",
+      "body": "労働組合法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "labor-union-act"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "労働関係調整法",
-      "body": "",
+      "body": "労働関係調整法の目的・主要規定を解説。",
       "noteText": "",
-      "slug": "labor-relations-adjustment-act"
+      "slug": "labor-relations-adjustment-act",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/labor-relations-adjustment-act/img/labor-dispute-resolution-flow.svg",
+      "note": "労働関係調整法の目的・主要規定を解説。"
     },
     {
       "type": "board",
       "heading": "個別労働紛争解決促進法",
-      "body": "",
+      "body": "個別労働紛争解決促進法の目的・制度を解説。",
       "noteText": "",
       "slug": "individual-labor-dispute-act"
     },
     {
       "type": "board",
       "heading": "労働審判法",
-      "body": "",
+      "body": "労働審判法の目的・手続きを解説。",
       "noteText": "",
       "slug": "labor-tribunal-act"
     },
     {
       "type": "board",
       "heading": "労働契約法",
-      "body": "",
+      "body": "労働契約法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "labor-contract-act"
     },
     {
       "type": "board",
       "heading": "最低賃金法",
-      "body": "",
+      "body": "最低賃金法の目的・制度を解説。",
       "noteText": "",
       "slug": "minimum-wage-act"
     },
     {
       "type": "board",
       "heading": "労働安全衛生法",
-      "body": "",
+      "body": "労働安全衛生法の目的・安全衛生管理体制・特定元方事業者体制・危険防止措置・安全衛生教育・健康管理・ストレスチェックを解説。",
       "noteText": "",
       "slug": "occupational-safety-act"
     },
     {
       "type": "board",
       "heading": "職業安定法",
-      "body": "",
+      "body": "職業安定法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "employment-security-act"
     },
     {
       "type": "board",
       "heading": "職業能力開発促進法",
-      "body": "",
+      "body": "職業能力開発促進法の目的・制度を解説。",
       "noteText": "",
       "slug": "vocational-training-act"
     },
     {
       "type": "board",
       "heading": "パートタイム・有期雇用労働法",
-      "body": "",
+      "body": "パートタイム・有期雇用労働法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "part-time-fixed-term-act"
     },
     {
       "type": "board",
       "heading": "高年齢者雇用安定法",
-      "body": "",
+      "body": "高年齢者雇用安定法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "elderly-employment-act"
     },
     {
       "type": "board",
       "heading": "障害者雇用促進法",
-      "body": "",
+      "body": "障害者雇用促進法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "disability-employment-act"
     },
     {
       "type": "board",
       "heading": "障害者差別解消法",
-      "body": "",
+      "body": "障害者差別解消法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "disability-discrimination-act"
     },
     {
       "type": "board",
       "heading": "労働者派遣法",
-      "body": "",
+      "body": "労働者派遣法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "worker-dispatch-act"
     },
     {
       "type": "board",
       "heading": "男女雇用機会均等法",
-      "body": "",
+      "body": "男女雇用機会均等法の目的・主要規定を解説。",
       "noteText": "",
       "slug": "equal-employment-act"
     },

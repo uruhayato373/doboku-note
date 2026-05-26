@@ -23,49 +23,51 @@
     {
       "type": "board",
       "heading": "アウトカム指標",
-      "body": "",
+      "body": "アウトカム指標の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "outcome-indicators"
     },
     {
       "type": "board",
       "heading": "アウトプット指標",
-      "body": "",
+      "body": "アウトプット指標の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "output-indicators"
     },
     {
       "type": "board",
       "heading": "インプット指標",
-      "body": "",
+      "body": "インプット指標の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "input-indicators"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "リスク評価",
-      "body": "",
+      "body": "リスク評価の定義・リスクアセスメントの3段階（特定・分析・評価）・リスク基準との比較（ALARP原則）・リスク対応の4戦略・定性/定量手法を解説。",
       "noteText": "",
-      "slug": "risk-assessment"
+      "slug": "risk-assessment",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/risk-assessment/img/chemical-ra-flow.svg",
+      "note": "リスク評価の定義・リスクアセスメントの3段階（特定・分析・評価）・リスク基準との比較（ALARP原則）・リスク対応の4戦略・定性/定量手法を解説。"
     },
     {
       "type": "board",
       "heading": "ESG・環境評価",
-      "body": "",
+      "body": "ESG・環境評価の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "esg-environmental-assessment"
     },
     {
       "type": "board",
       "heading": "ライフサイクルマネジメント",
-      "body": "",
+      "body": "ライフサイクルマネジメント（LCM）の定義・背景・5段階プロセス・LCC計算・5管理との横断的関係を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "lifecycle-management"
     },
     {
       "type": "board",
       "heading": "サプライチェーンマネジメント（SCM）",
-      "body": "",
+      "body": "サプライチェーンマネジメント（SCM）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "supply-chain-management"
     },
@@ -80,40 +82,46 @@
     {
       "type": "board",
       "heading": "信頼性設計・保全性設計",
-      "body": "",
+      "body": "MTBF・MTTR・稼働率の定義と計算方法、フォールトアボイダンス・フォールトトレランスなどの信頼性設計手法、直列・並列構成の信頼性計算、予防保全・予知保全を解説。",
       "noteText": "",
       "slug": "reliability-maintainability-design"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "コンカレントエンジニアリング",
       "body": "コンカレントエンジニアリング（CE）とは、製品の設計・生産準備・販売準備等の各工程を同時並行的に進めることで、開発期間の短縮と品質向上を図る手法である。1製品の各工程を並行させるものであり、複数製品の同時開発ではない。",
       "noteText": "逐次型開発から並行型開発へのプロセス変革",
       "slug": "concurrent-engineering",
-      "_legacySource": "_backlog/2026/2026-05-26-concurrent-engineering"
+      "_legacySource": "_backlog/2026/2026-05-26-concurrent-engineering",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/concurrent-engineering/img/sequential-vs-concurrent.svg",
+      "note": "コンカレントエンジニアリング（CE）とは、製品の設計・生産準備・販売準備等の各工程を同時並行的に進めることで、開発期間の短縮と品質向上を図る手法である。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "デザインレビュー",
       "body": "デザインレビュー（DR: Design Review）とは、製品のライフサイクル全体を考慮し、設計の各段階で設計内容の妥当性を体系的・計画的に審査する活動である。設計者以外の関係部門が参加し多角的な視点から設計品質を検証する。",
       "noteText": "最終検査ではなく各フェーズの品質ゲート",
       "slug": "design-review",
-      "_legacySource": "_backlog/2026/2026-05-22-design-review"
+      "_legacySource": "_backlog/2026/2026-05-22-design-review",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/design-review/img/dr-stages.svg",
+      "note": "デザインレビュー（DR: Design Review）とは、製品のライフサイクル全体を考慮し、設計の各段階で設計内容の妥当性を体系的・計画的に審査する活動である。"
     },
     {
       "type": "board",
       "heading": "デザインイン",
-      "body": "",
+      "body": "デザインインの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "design-in"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "フロントローディング",
       "body": "フロントローディングとは、開発プロセスの初期段階に負荷を集中させ、後工程で発生しうる問題を前倒しで検討・解決する手法である。品質向上・工期短縮・コスト低減を同時に実現する。",
       "noteText": "設計変更コストは後工程ほど指数関数的に増大する",
       "slug": "front-loading",
-      "_legacySource": "_backlog/2026/2026-05-26-front-loading"
+      "_legacySource": "_backlog/2026/2026-05-26-front-loading",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/front-loading/img/front-loading-comparison.svg",
+      "note": "フロントローディングとは、開発プロセスの初期段階に負荷を集中させ、後工程で発生しうる問題を前倒しで検討・解決する手法である。"
     },
     {
       "type": "summary",

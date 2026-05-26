@@ -31,30 +31,34 @@
     {
       "type": "board",
       "heading": "パラメトリック見積り",
-      "body": "",
+      "body": "パラメトリック見積りの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "parametric-estimation"
     },
     {
       "type": "board",
       "heading": "三点見積り",
-      "body": "",
+      "body": "三点見積りの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "three-point-estimation"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "PERT/CPM",
-      "body": "",
+      "body": "PERT/CPMの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "pert-cpm"
+      "slug": "pert-cpm",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/pert-cpm/img/pert-network-diagram.svg",
+      "note": "PERT/CPMの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "進捗管理",
-      "body": "",
+      "body": "進捗管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "progress-management"
+      "slug": "progress-management",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/progress-management/img/banana-curve.svg",
+      "note": "進捗管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
@@ -67,28 +71,30 @@
     {
       "type": "board",
       "heading": "現品管理",
-      "body": "",
+      "body": "現品管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "inventory-control"
     },
     {
       "type": "board",
       "heading": "可視化（目で見る管理）",
-      "body": "",
+      "body": "可視化（目で見る管理）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
       "slug": "visual-management"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "5S",
-      "body": "",
+      "body": "5Sの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。",
       "noteText": "",
-      "slug": "five-s"
+      "slug": "five-s",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/five-s/img/5s-quality-map.svg",
+      "note": "5Sの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。"
     },
     {
       "type": "board",
       "heading": "ECRSの原則（Eliminate, Combine, Rearrange, Simplify）",
-      "body": "",
+      "body": "業務・工程改善のフレームワーク「ECRSの原則」の定義と適用順序（E→C→R→S）、関連手法（合理化の3S・5S）との違いを解説。",
       "noteText": "",
       "slug": "ecrs-principle"
     },

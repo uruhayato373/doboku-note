@@ -15,42 +15,42 @@
     {
       "type": "board",
       "heading": "安全マネジメントシステム",
-      "body": "",
+      "body": "安全マネジメントシステムの定義と構成を解説。",
       "noteText": "",
       "slug": "safety-management-system"
     },
     {
       "type": "board",
       "heading": "安全管理",
-      "body": "",
+      "body": "安全管理の定義と体系を解説。",
       "noteText": "",
       "slug": "safety-control"
     },
     {
       "type": "board",
       "heading": "安全目標",
-      "body": "",
+      "body": "安全目標の定義と設定手法を解説。",
       "noteText": "",
       "slug": "safety-objectives"
     },
     {
       "type": "board",
       "heading": "安全投資",
-      "body": "",
+      "body": "安全投資の概念と経済性評価を解説。",
       "noteText": "",
       "slug": "safety-investment"
     },
     {
       "type": "board",
       "heading": "防災",
-      "body": "",
+      "body": "防災の概念と体系を解説。",
       "noteText": "",
       "slug": "disaster-prevention"
     },
     {
       "type": "board",
       "heading": "レジリエンス",
-      "body": "",
+      "body": "レジリエンスの定義と安全管理への適用を解説。",
       "noteText": "",
       "slug": "resilience"
     },
@@ -65,7 +65,7 @@
     {
       "type": "board",
       "heading": "公衆安全",
-      "body": "",
+      "body": "公衆安全の定義と技術者の責務を解説。",
       "noteText": "",
       "slug": "public-safety"
     },
@@ -88,16 +88,18 @@
     {
       "type": "board",
       "heading": "スマート保安",
-      "body": "",
+      "body": "スマート保安の定義と技術を解説。",
       "noteText": "",
       "slug": "smart-safety"
     },
     {
-      "type": "board",
+      "type": "figure",
       "heading": "サイバーセキュリティ",
-      "body": "",
+      "body": "サイバーセキュリティの定義と法的枠組みを解説。",
       "noteText": "",
-      "slug": "cybersecurity-safety"
+      "slug": "cybersecurity-safety",
+      "imagePath": ".local/r2/posts/pe-comprehensive-management/cybersecurity-safety/img/cyber-physical-cascade.svg",
+      "note": "サイバーセキュリティの定義と法的枠組みを解説。"
     },
     {
       "type": "summary",
