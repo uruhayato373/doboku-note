@@ -23,7 +23,18 @@
 ## Evaluator / Generator
 
 - **Evaluator**: `cem-qa` エージェント（5 軸ルーブリック）
-- **Generator**: `keyword-rewriter` エージェント（拡張パターン A-G 適用）
+- **Generator**: `keyword-rewriter` エージェント（拡張パターン **A-H** 適用、H=標準テキスト由来事実取り込み）
+
+## 採点フロー（2026-05-26 改訂、9 ステップ）
+
+- Step 0: キーワード類型判定（現場運用/歴史政策/法令制度/概念理論）— 詳細は `cem-qa.md`「キーワード類型タクソノミ」
+- Step 0.5: description boilerplate 除外（「5管理トレードオフ・過去問演習リンク付き」等は contract 対象外）
+- Step 0.7: インライン出典チェック（factual table 直下に `> 出典:` blockquote、§22、lint カテゴリ 14）
+- Step 1-7: 既存 lint・5軸採点フロー（[02_採点ルーブリック方針.md](../../../../../docs/project/02_コンテンツ/02_採点ルーブリック方針.md) 参照）
+
+## リライト閾値（2026-05-26 改訂）
+
+「weighted < 2.5 **または** いずれかの軸が ≤ 1 点」がリライト推奨対象。境界ケース（=2.5 で mobile=1 等の HIGH 違反保有）を取りこぼさない。
 
 ## モード
 
@@ -46,8 +57,14 @@
 # 全件評価
 node .claude/skills/quality/quality-cycle/scripts-cem/quality-cycle.mjs --mode score
 
+# 章別評価（§6.1 等の特定セクション、2026-05-26 追加）
+node .claude/skills/quality/quality-cycle/scripts-cem/quality-cycle.mjs --mode score --section 6.1
+
 # リライト（5 件）
 node .claude/skills/quality/quality-cycle/scripts-cem/quality-cycle.mjs --mode rewrite --threshold 2.5 --max 5
+
+# 章別リライト
+node .claude/skills/quality/quality-cycle/scripts-cem/quality-cycle.mjs --mode rewrite --section 6.1 --threshold 2.5
 
 # スコア集約
 node .claude/skills/quality/quality-cycle/scripts-cem/merge-scores.mjs /tmp/cem-score-results.json
