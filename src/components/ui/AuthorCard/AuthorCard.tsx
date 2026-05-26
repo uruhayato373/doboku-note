@@ -54,7 +54,7 @@ export default function AuthorCard({
             </span>
           </div>
           <p className="mt-2 text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
-            {AUTHOR.bio}
+            {AUTHOR.shortBio}
           </p>
           {(published || updated || lastReviewed) && (
             <div className="mt-3 text-xs text-gray-500 dark:text-gray-400 flex flex-wrap gap-x-4 gap-y-1">
@@ -67,22 +67,21 @@ export default function AuthorCard({
                 )}
             </div>
           )}
-          <div className="mt-3 flex flex-col gap-1.5">
-            <a
-              href={AUTHOR.noteUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block text-xs text-primary-600 dark:text-primary-400 hover:underline"
-            >
-              {AUTHOR.noteLabel}
-            </a>
-            <Link
-              href="/about"
-              className="inline-block text-xs text-primary-600 dark:text-primary-400 hover:underline"
-            >
-              運営者・編集方針について →
-            </Link>
-          </div>
+          <a
+            href={AUTHOR.noteUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-primary-600 dark:bg-primary-500 text-white text-sm font-bold shadow-sm hover:bg-primary-700 dark:hover:bg-primary-400 transition-colors"
+          >
+            <span aria-hidden>📘</span>
+            <span>{AUTHOR.noteLabel}</span>
+          </a>
+          <Link
+            href="/about"
+            className="mt-2 block text-xs text-gray-500 dark:text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 hover:underline"
+          >
+            運営者・編集方針について →
+          </Link>
         </div>
       </div>
     </MetaCard>

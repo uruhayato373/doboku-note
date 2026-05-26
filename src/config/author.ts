@@ -8,7 +8,11 @@ export const AUTHOR = {
   penName: "架（かける）",
   url: "https://doboku-note.com/about",
   jobTitle: "元・地方自治体 土木職（発注者）／技術士（建設部門・総合技術監理部門）",
+  // フル版 bio（/about ページ・Article schema 用）
   bio: "地方自治体の土木職（発注者）として、道路・河川等の公共インフラの計画・設計・発注・工事監督・維持管理を横断的に担い退職。在職中から退職後にかけて、1級土木施工管理技士・1級舗装施工管理技術者・コンクリート主任技士・コンクリート診断士・技術士（建設部門）・技術士（総合技術監理部門）を取得。ペンネーム「架（かける）」には、橋を架けるように、受験者と合格・実務と試験・現役と次世代のあいだに橋渡しをするというコンセプトを込めている。発注者として培った「事業全体を俯瞰し、経済性・安全・人的資源・情報・社会環境の5管理を統合する」視点を、これから受験に向かう技術者へ架け渡していく。",
+  // 短縮版 bio（記事末尾 AuthorCard 用・92 字）
+  shortBio:
+    "元・地方自治体土木職（発注者）。技術士（建設部門・総合技術監理部門）・1 級土木・1 級舗装・コンクリート主任技士／診断士を取得。発注者視点で土木系資格受験者の合格を支援。",
   qualifications: [
     "1級土木施工管理技士",
     "技術士（建設部門）",
@@ -43,5 +47,5 @@ export const AUTHOR = {
   // 各記事末尾の AuthorCard からの送客動線として参照される（UTM 付き）
   noteUrl:
     "https://note.com/dobokunote/n/n3d73729e6cc7?utm_source=site&utm_medium=author-card&utm_campaign=profile-fixed-roadmap",
-  noteLabel: "📘 note で総監 R08 対策の続編を発信中 →",
+  noteLabel: "note で総監 R08 対策の続編を発信中",
 } as const;
