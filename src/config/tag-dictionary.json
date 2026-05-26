@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-25T08:14:56.099Z",
+  "generated_at": "2026-05-26T00:45:02.817Z",
   "summary": {
-    "total_mdx_files": 824,
-    "total_unique_tags": 87,
+    "total_mdx_files": 821,
+    "total_unique_tags": 85,
     "allowlist_size": 123,
-    "known_count": 52,
-    "unknown_count": 35,
+    "known_count": 51,
+    "unknown_count": 34,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1128,7 +1128,7 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 48,
+      "count": 45,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
@@ -1168,15 +1168,12 @@
         "pe-comprehensive-management-r07-essay-road-municipality",
         "pe-comprehensive-management-r07-primary",
         "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-r8-essay-theme-aging-society",
         "pe-comprehensive-management-r8-essay-theme-ai-governance",
         "pe-comprehensive-management-r8-essay-theme-circular-economy",
         "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
         "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
         "pe-comprehensive-management-r8-essay-theme-economic-security",
-        "pe-comprehensive-management-r8-essay-theme-gx-energy-security",
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-comprehensive-management-r8-essay-theme-labor-shortage",
         "pe-comprehensive-management-value-engineering",
         "pe-comprehensive-management-whitepaper-study-map"
       ]
@@ -1224,7 +1221,7 @@
     },
     {
       "name": "記述式対策",
-      "count": 30,
+      "count": 27,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-pattern-cross-year-application",
@@ -1248,15 +1245,12 @@
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality",
         "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-r8-essay-theme-aging-society",
         "pe-comprehensive-management-r8-essay-theme-ai-governance",
         "pe-comprehensive-management-r8-essay-theme-circular-economy",
         "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
         "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
         "pe-comprehensive-management-r8-essay-theme-economic-security",
-        "pe-comprehensive-management-r8-essay-theme-gx-energy-security",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-comprehensive-management-r8-essay-theme-labor-shortage"
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
       ]
     },
     {
@@ -1386,25 +1380,6 @@
       ]
     },
     {
-      "name": "5管理",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs",
-        "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-r8-essay-theme-aging-society",
-        "pe-comprehensive-management-r8-essay-theme-ai-governance",
-        "pe-comprehensive-management-r8-essay-theme-circular-economy",
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-comprehensive-management-r8-essay-theme-economic-security",
-        "pe-comprehensive-management-r8-essay-theme-gx-energy-security",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-comprehensive-management-r8-essay-theme-labor-shortage",
-        "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
       "name": "exam-preparation",
       "count": 11,
       "inAllowlist": true,
@@ -1423,24 +1398,6 @@
       ]
     },
     {
-      "name": "試験ガイド",
-      "count": 11,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-keyword-forecast",
-        "pe-comprehensive-management-r8-essay-theme-aging-society",
-        "pe-comprehensive-management-r8-essay-theme-ai-governance",
-        "pe-comprehensive-management-r8-essay-theme-circular-economy",
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
-        "pe-comprehensive-management-r8-essay-theme-economic-security",
-        "pe-comprehensive-management-r8-essay-theme-gx-energy-security",
-        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
-        "pe-comprehensive-management-r8-essay-theme-labor-shortage",
-        "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
       "name": "exam-questions",
       "count": 10,
       "inAllowlist": false,
@@ -1455,6 +1412,22 @@
         "civil-construction-1-secondary-experience-writing-guide",
         "civil-construction-1-secondary-quality-management-basics",
         "civil-construction-1-secondary-quality-management-past-problems"
+      ]
+    },
+    {
+      "name": "5管理",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-ai-governance",
+        "pe-comprehensive-management-r8-essay-theme-circular-economy",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-comprehensive-management-r8-essay-theme-economic-security",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -1502,6 +1475,21 @@
         "pe-comprehensive-management-pdca-cycle",
         "pe-comprehensive-management-pfi",
         "pe-comprehensive-management-value-engineering"
+      ]
+    },
+    {
+      "name": "試験ガイド",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-keyword-forecast",
+        "pe-comprehensive-management-r8-essay-theme-ai-governance",
+        "pe-comprehensive-management-r8-essay-theme-circular-economy",
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+        "pe-comprehensive-management-r8-essay-theme-economic-security",
+        "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+        "pe-comprehensive-management-whitepaper-study-map"
       ]
     },
     {
@@ -1676,17 +1664,6 @@
       ]
     },
     {
-      "name": "少子高齢化",
-      "count": 4,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r07-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-comprehensive-management-r8-essay-theme-aging-society"
-      ]
-    },
-    {
       "name": "kinki-design-manual",
       "count": 3,
       "inAllowlist": true,
@@ -1744,6 +1721,16 @@
         "pe-comprehensive-management-r03-essay-general-contractor",
         "pe-comprehensive-management-r03-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "少子高齢化",
+      "count": 3,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
@@ -1854,14 +1841,6 @@
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-floodgate"
-      ]
-    },
-    {
-      "name": "GX",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-gx-energy-security"
       ]
     },
     {
@@ -2057,14 +2036,6 @@
       ]
     },
     {
-      "name": "担い手不足",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-labor-shortage"
-      ]
-    },
-    {
       "name": "直前対策",
       "count": 1,
       "inAllowlist": false,
@@ -2157,10 +2128,10 @@
     "砂防",
     "施工",
     "quality",
-    "少子高齢化",
     "schedule",
     "SWOT分析",
     "データ利活用",
+    "少子高齢化",
     "2026年版",
     "AI ガバナンス",
     "DX推進",
@@ -2173,7 +2144,6 @@
     "経済安全保障",
     "出願",
     "循環経済",
-    "担い手不足",
     "直前対策",
     "複合災害",
     "流用戦略",

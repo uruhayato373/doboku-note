@@ -130,6 +130,21 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 2.4. r8-essay-keyword-forecast (forecast hub) → R8 予想問題集マガジンへの強 CTA
+  //      2026-05-26 改修: 9 テーマ俯瞰 → 6 テーマ俯瞰 + note 各記事への導線役に再設計。
+  //      note 無料記事 (n8e92e4673a99) 公開済みに合わせて hub の役割を「予測解説」から
+  //      「note 有料マガジン M3 へのリードページ」へ転換した（feedback by user 2026-05-26）。
+  if (slug === 'pe-comprehensive-management-r8-essay-keyword-forecast') {
+    return {
+      inline: [
+        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
+        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
+      ],
+      sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
   // 2.5. r8-essay-theme-{topic} → R8 予想問題 spoke (固定 3 ペルソナ縦串学習、強 CTA)
   //     設計: spoke は固定 3 ペルソナ (ゼネコン/河川コンサル/自治体 道路担当) を縦串展開し、
   //     M3「R8 予想問題集」を主、M4「3D マトリクス」を業界外救済として副配置する。

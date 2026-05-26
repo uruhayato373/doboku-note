@@ -35,6 +35,7 @@ export default function NoteLink({
       title={title}
       siteName="note（dobokunote）"
       category="note 解説記事"
+      variant="hero"
       {...(description !== undefined ? { description } : {})}
       {...(coverImage !== undefined ? { imageUrl: coverImage } : {})}
     />
