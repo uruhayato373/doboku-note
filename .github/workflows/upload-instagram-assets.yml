@@ -1,0 +1,88 @@
+name: 📤 Upload Instagram assets to R2
+
+# docs/sns/instagram/{slug}/ 配下の素材を R2 にアップロードする。
+# post-instagram-scheduled.yml が公開 URL から取得する前に実行する。
+#
+# トリガー:
+#   - docs/sns/instagram/** の変更で main にマージされたとき
+#   - workflow_dispatch で手動実行（特定 slug の再アップロード等）
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "docs/sns/instagram/**"
+
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "対象 slug (例: 2026-05-29-pdca-cycle)。空なら docs/sns/instagram/ 全件"
+        required: false
+      domain:
+        description: "R2 ドメイン分類 (default: ig)"
+        required: false
+        default: "ig"
+      dry_run:
+        description: "Dry run"
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: upload-instagram-assets
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Determine target slugs
+        id: targets
+        run: |
+          if [ -n "${{ inputs.slug }}" ]; then
+            echo "slugs=${{ inputs.slug }}" >> "$GITHUB_OUTPUT"
+          else
+            SLUGS=$(ls docs/sns/instagram/ | grep -v '^_' | tr '\n' ' ')
+            echo "slugs=${SLUGS}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Upload to R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          DRY=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then DRY="--dry-run"; fi
+          DOMAIN="${{ inputs.domain }}"
+          if [ -z "$DOMAIN" ]; then DOMAIN="ig"; fi
+          for SLUG in ${{ steps.targets.outputs.slugs }}; do
+            [ -d "docs/sns/instagram/$SLUG" ] || continue
+            # caption.txt が未生成なら生成
+            if [ ! -f "docs/sns/instagram/$SLUG/caption.txt" ] && [ -f "docs/sns/instagram/$SLUG/slide-data.json" ]; then
+              echo "Generating caption.txt for $SLUG"
+              node .claude/scripts/instagram/generate-caption.cjs "docs/sns/instagram/$SLUG/slide-data.json"
+            fi
+            echo "Uploading $SLUG (domain=$DOMAIN)"
+            node .claude/scripts/instagram/upload-to-r2.mjs "$SLUG" --domain "$DOMAIN" $DRY
+          done
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## Upload IG Assets Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Trigger: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Dry run: ${{ inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Slugs: ${{ steps.targets.outputs.slugs }}" >> $GITHUB_STEP_SUMMARY
