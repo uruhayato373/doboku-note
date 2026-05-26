@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-05-26T05:06:09.929Z",
+  "generatedAt": "2026-05-26T05:37:33.816Z",
   "source": "src/config/pe-keyword-bundles.json",
   "config": {
-    "maxKwPerBundle": 20,
-    "softMaxKw": 18,
+    "maxKwPerBundle": 16,
+    "softMaxKw": 14,
     "minKwPerBundle": 5
   },
   "stats": {
-    "totalBundles": 51,
+    "totalBundles": 65,
     "totalKeywords": 655,
     "sizeDistribution": {
-      "1-5": 6,
-      "6-10": 12,
-      "11-15": 11,
-      "16-20": 22,
+      "1-5": 9,
+      "6-10": 22,
+      "11-15": 27,
+      "16-20": 7,
       "21+": 0
     },
-    "minKw": 2,
-    "maxKw": 20,
-    "avgKw": "12.8"
+    "minKw": 1,
+    "maxKw": 16,
+    "avgKw": "10.1"
   },
   "bundles": [
     {
@@ -29,8 +29,7 @@
       "groupNames": [
         "フィージビリティスタディ",
         "事業投資計画",
-        "事業投資評価",
-        "事業評価（政策評価）"
+        "事業投資評価"
       ],
       "keywords": [
         {
@@ -64,7 +63,20 @@
         {
           "slug": "internal-rate-of-return",
           "title": "内部収益率法"
-        },
+        }
+      ],
+      "partOf": "2.1"
+    },
+    {
+      "bundleId": "2-2.1-part2",
+      "chapterTitle": "経済性管理",
+      "sectionTitle": "事業企画",
+      "bundleTitle": "事業企画 Part 2",
+      "groupNames": [
+        "事業評価（政策評価）",
+        "設計管理"
+      ],
+      "keywords": [
         {
           "slug": "cost-effectiveness-analysis",
           "title": "費用効果分析"
@@ -100,21 +112,7 @@
         {
           "slug": "business-continuity-plan",
           "title": "BCP・BCM"
-        }
-      ],
-      "partOf": "2.1"
-    },
-    {
-      "bundleId": "2-2.1-part2",
-      "chapterTitle": "経済性管理",
-      "sectionTitle": "事業企画",
-      "bundleTitle": "事業企画 Part 2",
-      "groupNames": [
-        "設計管理",
-        "施工計画",
-        "プロジェクトマネジメント"
-      ],
-      "keywords": [
+        },
         {
           "slug": "reliability-maintainability-design",
           "title": "信頼性設計・保全性設計"
@@ -134,7 +132,20 @@
         {
           "slug": "front-loading",
           "title": "フロントローディング"
-        },
+        }
+      ],
+      "partOf": "2.1"
+    },
+    {
+      "bundleId": "2-2.1-part3",
+      "chapterTitle": "経済性管理",
+      "sectionTitle": "事業企画",
+      "bundleTitle": "事業企画 Part 3",
+      "groupNames": [
+        "施工計画",
+        "プロジェクトマネジメント"
+      ],
+      "keywords": [
         {
           "slug": "construction-plan",
           "title": "工事計画"
@@ -183,14 +194,13 @@
       "partOf": "2.1"
     },
     {
-      "bundleId": "2-2.2",
+      "bundleId": "2-2.2-part1",
       "chapterTitle": "経済性管理",
       "sectionTitle": "品質の管理",
-      "bundleTitle": "品質の管理",
+      "bundleTitle": "品質の管理 Part 1",
       "groupNames": [
         "品質",
-        "品質管理（広義）",
-        "品質管理の統計的手法"
+        "品質管理（広義）"
       ],
       "keywords": [
         {
@@ -236,7 +246,19 @@
         {
           "slug": "product-liability",
           "title": "製造物責任（PL）"
-        },
+        }
+      ],
+      "partOf": "2.2"
+    },
+    {
+      "bundleId": "2-2.2-part2",
+      "chapterTitle": "経済性管理",
+      "sectionTitle": "品質の管理",
+      "bundleTitle": "品質の管理 Part 2",
+      "groupNames": [
+        "品質管理の統計的手法"
+      ],
+      "keywords": [
         {
           "slug": "control-limits",
           "title": "管理限界"
@@ -266,7 +288,7 @@
           "title": "**顧客満足（CS）**"
         }
       ],
-      "partOf": null
+      "partOf": "2.2"
     },
     {
       "bundleId": "2-2.3-part1",
@@ -278,8 +300,7 @@
         "生産方式",
         "手順計画",
         "負荷計画",
-        "日程計画",
-        "工数見積り"
+        "日程計画"
       ],
       "keywords": [
         {
@@ -333,7 +354,21 @@
         {
           "slug": "gantt-chart",
           "title": "ガントチャート"
-        },
+        }
+      ],
+      "partOf": "2.3"
+    },
+    {
+      "bundleId": "2-2.3-part2",
+      "chapterTitle": "経済性管理",
+      "sectionTitle": "工程管理",
+      "bundleTitle": "工程管理 Part 2",
+      "groupNames": [
+        "工数見積り",
+        "生産統制",
+        "改善活動"
+      ],
+      "keywords": [
         {
           "slug": "bottom-up-estimation",
           "title": "ボトムアップ見積り"
@@ -353,20 +388,7 @@
         {
           "slug": "pert-cpm",
           "title": "PERT/CPM"
-        }
-      ],
-      "partOf": "2.3"
-    },
-    {
-      "bundleId": "2-2.3-part2",
-      "chapterTitle": "経済性管理",
-      "sectionTitle": "工程管理",
-      "bundleTitle": "工程管理 Part 2",
-      "groupNames": [
-        "生産統制",
-        "改善活動"
-      ],
-      "keywords": [
+        },
         {
           "slug": "progress-management",
           "title": "進捗管理"
@@ -510,14 +532,13 @@
       "partOf": null
     },
     {
-      "bundleId": "2-2.6",
+      "bundleId": "2-2.6-part1",
       "chapterTitle": "経済性管理",
       "sectionTitle": "設備管理",
-      "bundleTitle": "設備管理",
+      "bundleTitle": "設備管理 Part 1",
       "groupNames": [
         "設備管理",
-        "設備計画",
-        "設備保全"
+        "設備計画"
       ],
       "keywords": [
         {
@@ -559,7 +580,19 @@
         {
           "slug": "bathtub-curve",
           "title": "バスタブカーブ"
-        },
+        }
+      ],
+      "partOf": "2.6"
+    },
+    {
+      "bundleId": "2-2.6-part2",
+      "chapterTitle": "経済性管理",
+      "sectionTitle": "設備管理",
+      "bundleTitle": "設備管理 Part 2",
+      "groupNames": [
+        "設備保全"
+      ],
+      "keywords": [
         {
           "slug": "autonomous-maintenance",
           "title": "自主保全"
@@ -589,7 +622,7 @@
           "title": "保全予防"
         }
       ],
-      "partOf": null
+      "partOf": "2.6"
     },
     {
       "bundleId": "2-2.7",
@@ -669,8 +702,7 @@
       "groupNames": [
         "組織開発",
         "動機付け",
-        "組織文化",
-        "組織構造"
+        "組織文化"
       ],
       "keywords": [
         {
@@ -708,7 +740,20 @@
         {
           "slug": "wellbeing-org",
           "title": "ウェルビーイング"
-        },
+        }
+      ],
+      "partOf": "3.1"
+    },
+    {
+      "bundleId": "3-3.1-part2",
+      "chapterTitle": "人的資源管理",
+      "sectionTitle": "人の行動と組織",
+      "bundleTitle": "人の行動と組織 Part 2",
+      "groupNames": [
+        "組織構造",
+        "人の行動モデル"
+      ],
+      "keywords": [
         {
           "slug": "functional-organization",
           "title": "職能別組織"
@@ -740,20 +785,7 @@
         {
           "slug": "achievement-organization",
           "title": "達成型組織"
-        }
-      ],
-      "partOf": "3.1"
-    },
-    {
-      "bundleId": "3-3.1-part2",
-      "chapterTitle": "人的資源管理",
-      "sectionTitle": "人の行動と組織",
-      "bundleTitle": "人の行動と組織 Part 2",
-      "groupNames": [
-        "人の行動モデル",
-        "リーダーシップ"
-      ],
-      "keywords": [
+        },
         {
           "slug": "mcgregor-xy-theory",
           "title": "マクレガーのＸ理論とＹ理論"
@@ -769,7 +801,19 @@
         {
           "slug": "asch-conformity-experiment",
           "title": "アッシュ研究"
-        },
+        }
+      ],
+      "partOf": "3.1"
+    },
+    {
+      "bundleId": "3-3.1-part3",
+      "chapterTitle": "人的資源管理",
+      "sectionTitle": "人の行動と組織",
+      "bundleTitle": "人の行動と組織 Part 3",
+      "groupNames": [
+        "リーダーシップ"
+      ],
+      "keywords": [
         {
           "slug": "pm-theory",
           "title": "PM理論"
@@ -869,7 +913,19 @@
         {
           "slug": "equal-employment-act",
           "title": "男女雇用機会均等法"
-        },
+        }
+      ],
+      "partOf": "3.2"
+    },
+    {
+      "bundleId": "3-3.2-part3",
+      "chapterTitle": "人的資源管理",
+      "sectionTitle": "労働関係法と労務管理",
+      "bundleTitle": "労働関係法と労務管理｜労働関係法 (2/2)",
+      "groupNames": [
+        "労働関係法"
+      ],
+      "keywords": [
         {
           "slug": "gender-equality-act",
           "title": "男女共同参画社会基本法"
@@ -885,19 +941,7 @@
         {
           "slug": "childcare-nursing-leave-act",
           "title": "育児・介護休業法"
-        }
-      ],
-      "partOf": "3.2"
-    },
-    {
-      "bundleId": "3-3.2-part3",
-      "chapterTitle": "人的資源管理",
-      "sectionTitle": "労働関係法と労務管理",
-      "bundleTitle": "労働関係法と労務管理｜労働関係法 (2/2)",
-      "groupNames": [
-        "労働関係法"
-      ],
-      "keywords": [
+        },
         {
           "slug": "immigration-control-act",
           "title": "出入国管理及び難民認定法"
@@ -927,9 +971,7 @@
       "sectionTitle": "労働関係法と労務管理",
       "bundleTitle": "労働関係法と労務管理 Part 4",
       "groupNames": [
-        "賃金管理",
-        "働き方改革",
-        "テレワーク"
+        "賃金管理"
       ],
       "keywords": [
         {
@@ -975,7 +1017,21 @@
         {
           "slug": "labor-share-ratio",
           "title": "労働分配率"
-        },
+        }
+      ],
+      "partOf": "3.2"
+    },
+    {
+      "bundleId": "3-3.2-part5",
+      "chapterTitle": "人的資源管理",
+      "sectionTitle": "労働関係法と労務管理",
+      "bundleTitle": "労働関係法と労務管理 Part 5",
+      "groupNames": [
+        "働き方改革",
+        "テレワーク",
+        "職業性ストレス"
+      ],
+      "keywords": [
         {
           "slug": "work-life-balance",
           "title": "ワーク・ライフ・バランス"
@@ -1003,22 +1059,7 @@
         {
           "slug": "health-management",
           "title": "健康経営"
-        }
-      ],
-      "partOf": "3.2"
-    },
-    {
-      "bundleId": "3-3.2-part5",
-      "chapterTitle": "人的資源管理",
-      "sectionTitle": "労働関係法と労務管理",
-      "bundleTitle": "労働関係法と労務管理 Part 5",
-      "groupNames": [
-        "職業性ストレス",
-        "雇用制度",
-        "ハラスメント",
-        "人的資本経営"
-      ],
-      "keywords": [
+        },
         {
           "slug": "stress-check-system",
           "title": "ストレスチェック制度"
@@ -1026,7 +1067,21 @@
         {
           "slug": "mental-health-care",
           "title": "メンタルヘルスケア"
-        },
+        }
+      ],
+      "partOf": "3.2"
+    },
+    {
+      "bundleId": "3-3.2-part6",
+      "chapterTitle": "人的資源管理",
+      "sectionTitle": "労働関係法と労務管理",
+      "bundleTitle": "労働関係法と労務管理 Part 6",
+      "groupNames": [
+        "雇用制度",
+        "ハラスメント",
+        "人的資本経営"
+      ],
+      "keywords": [
         {
           "slug": "highly-professional-system",
           "title": "高度プロフェッショナル制度"
@@ -1102,7 +1157,7 @@
       "bundleId": "3-3.3-part2",
       "chapterTitle": "人的資源管理",
       "sectionTitle": "人材活用計画",
-      "bundleTitle": "人材活用計画 Part 2",
+      "bundleTitle": "人材活用計画｜雇用管理 (1/2)",
       "groupNames": [
         "雇用管理"
       ],
@@ -1170,7 +1225,19 @@
         {
           "slug": "recruitment-management",
           "title": "採用管理"
-        },
+        }
+      ],
+      "partOf": "3.3"
+    },
+    {
+      "bundleId": "3-3.3-part3",
+      "chapterTitle": "人的資源管理",
+      "sectionTitle": "人材活用計画",
+      "bundleTitle": "人材活用計画｜雇用管理 (2/2)",
+      "groupNames": [
+        "雇用管理"
+      ],
+      "keywords": [
         {
           "slug": "second-career",
           "title": "セカンドキャリア"
@@ -1183,10 +1250,10 @@
       "partOf": "3.3"
     },
     {
-      "bundleId": "3-3.3-part3",
+      "bundleId": "3-3.3-part4",
       "chapterTitle": "人的資源管理",
       "sectionTitle": "人材活用計画",
-      "bundleTitle": "人材活用計画 Part 3",
+      "bundleTitle": "人材活用計画 Part 4",
       "groupNames": [
         "ダイバーシティ・マネジメント"
       ],
@@ -1346,7 +1413,19 @@
         {
           "slug": "human-resource-assessment",
           "title": "人材アセスメント"
-        },
+        }
+      ],
+      "partOf": "3.4"
+    },
+    {
+      "bundleId": "3-3.4-part3",
+      "chapterTitle": "人的資源管理",
+      "sectionTitle": "人材開発",
+      "bundleTitle": "人材開発｜人的資源開発（HRD） (2/2)",
+      "groupNames": [
+        "人的資源開発（HRD）"
+      ],
+      "keywords": [
         {
           "slug": "skill-standards",
           "title": "スキル標準"
@@ -1362,19 +1441,7 @@
         {
           "slug": "qc-circle",
           "title": "QCサークル"
-        }
-      ],
-      "partOf": "3.4"
-    },
-    {
-      "bundleId": "3-3.4-part3",
-      "chapterTitle": "人的資源管理",
-      "sectionTitle": "人材開発",
-      "bundleTitle": "人材開発｜人的資源開発（HRD） (2/2)",
-      "groupNames": [
-        "人的資源開発（HRD）"
-      ],
-      "keywords": [
+        },
         {
           "slug": "foreign-trainee-program",
           "title": "外国人研修・技能実習制度"
@@ -1398,8 +1465,7 @@
       "groupNames": [
         "情報分析技法",
         "統計分析",
-        "ビッグデータ分析",
-        "人工知能（AI）"
+        "ビッグデータ分析"
       ],
       "keywords": [
         {
@@ -1453,14 +1519,6 @@
         {
           "slug": "data-visualization",
           "title": "データ可視化"
-        },
-        {
-          "slug": "machine-learning",
-          "title": "機械学習"
-        },
-        {
-          "slug": "generative-ai",
-          "title": "生成AI"
         }
       ],
       "partOf": "4.1"
@@ -1471,11 +1529,20 @@
       "sectionTitle": "情報分析と情報活用",
       "bundleTitle": "情報分析と情報活用 Part 2",
       "groupNames": [
+        "人工知能（AI）",
         "経営・マーケティング分析",
         "ナレッジマネジメント",
         "オープンデータ"
       ],
       "keywords": [
+        {
+          "slug": "machine-learning",
+          "title": "機械学習"
+        },
+        {
+          "slug": "generative-ai",
+          "title": "生成AI"
+        },
         {
           "slug": "swot-analysis",
           "title": "SWOT分析"
@@ -1528,17 +1595,15 @@
       "partOf": "4.1"
     },
     {
-      "bundleId": "4-4.2",
+      "bundleId": "4-4.2-part1",
       "chapterTitle": "情報管理",
       "sectionTitle": "コミュニケーション",
-      "bundleTitle": "コミュニケーション",
+      "bundleTitle": "コミュニケーション Part 1",
       "groupNames": [
         "コミュニケーション方法",
         "アカウンタビリティ（説明責任）",
         "対外コミュニケーション",
-        "デジタル・コミュニケーション・ツール",
-        "コミュニケーション・マネジメント",
-        "緊急時の情報管理"
+        "デジタル・コミュニケーション・ツール"
       ],
       "keywords": [
         {
@@ -1596,7 +1661,20 @@
         {
           "slug": "online-meetings",
           "title": "オンライン会議・Web会議"
-        },
+        }
+      ],
+      "partOf": "4.2"
+    },
+    {
+      "bundleId": "4-4.2-part2",
+      "chapterTitle": "情報管理",
+      "sectionTitle": "コミュニケーション",
+      "bundleTitle": "コミュニケーション Part 2",
+      "groupNames": [
+        "コミュニケーション・マネジメント",
+        "緊急時の情報管理"
+      ],
+      "keywords": [
         {
           "slug": "communication-planning",
           "title": "コミュニケーション計画"
@@ -1618,7 +1696,7 @@
           "title": "緊急時の情報処理"
         }
       ],
-      "partOf": null
+      "partOf": "4.2"
     },
     {
       "bundleId": "4-4.3-part1",
@@ -1858,9 +1936,7 @@
       "sectionTitle": "情報通信技術動向",
       "bundleTitle": "情報通信技術動向 Part 2",
       "groupNames": [
-        "情報システム活用方法の動向",
-        "デジタルトランスフォーメーション（DX）の技術",
-        "システム開発プロセス"
+        "情報システム活用方法の動向"
       ],
       "keywords": [
         {
@@ -1906,7 +1982,20 @@
         {
           "slug": "rpa",
           "title": "RPA"
-        },
+        }
+      ],
+      "partOf": "4.4"
+    },
+    {
+      "bundleId": "4-4.4-part3",
+      "chapterTitle": "情報管理",
+      "sectionTitle": "情報通信技術動向",
+      "bundleTitle": "情報通信技術動向 Part 3",
+      "groupNames": [
+        "デジタルトランスフォーメーション（DX）の技術",
+        "システム開発プロセス"
+      ],
+      "keywords": [
         {
           "slug": "digital-twin-cps",
           "title": "デジタルツイン・サイバーフィジカルシステム（CPS）"
@@ -2045,8 +2134,7 @@
       "sectionTitle": "情報セキュリティ",
       "bundleTitle": "情報セキュリティ Part 3",
       "groupNames": [
-        "情報セキュリティ対策技術",
-        "情報セキュリティの認証制度"
+        "情報セキュリティ対策技術"
       ],
       "keywords": [
         {
@@ -2092,7 +2180,19 @@
         {
           "slug": "zero-trust",
           "title": "ゼロトラスト"
-        },
+        }
+      ],
+      "partOf": "4.5"
+    },
+    {
+      "bundleId": "4-4.5-part4",
+      "chapterTitle": "情報管理",
+      "sectionTitle": "情報セキュリティ",
+      "bundleTitle": "情報セキュリティ Part 4",
+      "groupNames": [
+        "情報セキュリティの認証制度"
+      ],
+      "keywords": [
         {
           "slug": "isms-iso27001",
           "title": "ISMS（ISO/IEC 27001）"
@@ -2127,8 +2227,7 @@
       "bundleTitle": "安全の概念 Part 1",
       "groupNames": [
         "安全マネジメント",
-        "社会安全",
-        "プロセス安全"
+        "社会安全"
       ],
       "keywords": [
         {
@@ -2178,7 +2277,20 @@
         {
           "slug": "cybersecurity-safety",
           "title": "サイバーセキュリティ"
-        },
+        }
+      ],
+      "partOf": "5.1"
+    },
+    {
+      "bundleId": "5-5.1-part2",
+      "chapterTitle": "安全管理",
+      "sectionTitle": "安全の概念",
+      "bundleTitle": "安全の概念 Part 2",
+      "groupNames": [
+        "プロセス安全",
+        "安全法規"
+      ],
+      "keywords": [
         {
           "slug": "process-safety-mgmt",
           "title": "プロセスセーフティマネジメント（PSM）"
@@ -2190,19 +2302,7 @@
         {
           "slug": "product-safety",
           "title": "製品安全"
-        }
-      ],
-      "partOf": "5.1"
-    },
-    {
-      "bundleId": "5-5.1-part2",
-      "chapterTitle": "安全管理",
-      "sectionTitle": "安全の概念",
-      "bundleTitle": "安全の概念 Part 2",
-      "groupNames": [
-        "安全法規"
-      ],
-      "keywords": [
+        },
         {
           "slug": "fire-service-act",
           "title": "消防法"
@@ -2248,8 +2348,7 @@
       "sectionTitle": "安全に関するリスクマネジメント",
       "bundleTitle": "安全に関するリスクマネジメント Part 1",
       "groupNames": [
-        "リスクアセスメント",
-        "リスクコミュニケーション"
+        "リスクアセスメント"
       ],
       "keywords": [
         {
@@ -2307,7 +2406,20 @@
         {
           "slug": "risk-monitoring",
           "title": "リスクモニタリング"
-        },
+        }
+      ],
+      "partOf": "5.2"
+    },
+    {
+      "bundleId": "5-5.2-part2",
+      "chapterTitle": "安全管理",
+      "sectionTitle": "安全に関するリスクマネジメント",
+      "bundleTitle": "安全に関するリスクマネジメント Part 2",
+      "groupNames": [
+        "リスクコミュニケーション",
+        "リスク認知のバイアス"
+      ],
+      "keywords": [
         {
           "slug": "public-acceptance",
           "title": "社会的受容（PA）"
@@ -2323,19 +2435,7 @@
         {
           "slug": "residual-risk",
           "title": "残留リスク"
-        }
-      ],
-      "partOf": "5.2"
-    },
-    {
-      "bundleId": "5-5.2-part2",
-      "chapterTitle": "安全管理",
-      "sectionTitle": "安全に関するリスクマネジメント",
-      "bundleTitle": "安全に関するリスクマネジメント Part 2",
-      "groupNames": [
-        "リスク認知のバイアス"
-      ],
-      "keywords": [
+        },
         {
           "slug": "normalcy-bias",
           "title": "正常性バイアス"
@@ -2478,7 +2578,7 @@
       "bundleId": "5-5.4-part2",
       "chapterTitle": "安全管理",
       "sectionTitle": "事故・災害の未然防止活動・技術",
-      "bundleTitle": "事故・災害の未然防止活動・技術 Part 2",
+      "bundleTitle": "事故・災害の未然防止活動・技術｜システムの高信頼化 (1/2)",
       "groupNames": [
         "システムの高信頼化"
       ],
@@ -2546,7 +2646,19 @@
         {
           "slug": "four-e-countermeasures",
           "title": "事故の4E対策"
-        },
+        }
+      ],
+      "partOf": "5.4"
+    },
+    {
+      "bundleId": "5-5.4-part3",
+      "chapterTitle": "安全管理",
+      "sectionTitle": "事故・災害の未然防止活動・技術",
+      "bundleTitle": "事故・災害の未然防止活動・技術｜システムの高信頼化 (2/2)",
+      "groupNames": [
+        "システムの高信頼化"
+      ],
+      "keywords": [
         {
           "slug": "small-group-activities",
           "title": "小集団活動（ZD運動，改善提案活動，TPM，TQC等）"
@@ -2559,10 +2671,10 @@
       "partOf": "5.4"
     },
     {
-      "bundleId": "5-5.4-part3",
+      "bundleId": "5-5.4-part4",
       "chapterTitle": "安全管理",
       "sectionTitle": "事故・災害の未然防止活動・技術",
-      "bundleTitle": "事故・災害の未然防止活動・技術 Part 3",
+      "bundleTitle": "事故・災害の未然防止活動・技術 Part 4",
       "groupNames": [
         "自主保安活動"
       ],
@@ -2602,8 +2714,7 @@
       "groupNames": [
         "危機",
         "自然災害",
-        "原子力防災",
-        "危機管理体制"
+        "原子力防災"
       ],
       "keywords": [
         {
@@ -2657,7 +2768,20 @@
         {
           "slug": "infectious-disease-pandemic",
           "title": "感染症・パンデミック"
-        },
+        }
+      ],
+      "partOf": "5.5"
+    },
+    {
+      "bundleId": "5-5.5-part2",
+      "chapterTitle": "安全管理",
+      "sectionTitle": "危機管理",
+      "bundleTitle": "危機管理 Part 2",
+      "groupNames": [
+        "危機管理体制",
+        "災害対策関係法等"
+      ],
+      "keywords": [
         {
           "slug": "crisis-communication",
           "title": "危機広報"
@@ -2669,19 +2793,7 @@
         {
           "slug": "crisis-management-manual",
           "title": "危機管理マニュアル"
-        }
-      ],
-      "partOf": "5.5"
-    },
-    {
-      "bundleId": "5-5.5-part2",
-      "chapterTitle": "安全管理",
-      "sectionTitle": "危機管理",
-      "bundleTitle": "危機管理 Part 2",
-      "groupNames": [
-        "災害対策関係法等"
-      ],
-      "keywords": [
+        },
         {
           "slug": "civil-protection-act",
           "title": "国民保護法"
@@ -2706,14 +2818,13 @@
       "partOf": "5.5"
     },
     {
-      "bundleId": "5-5.6",
+      "bundleId": "5-5.6-part1",
       "chapterTitle": "安全管理",
       "sectionTitle": "システム安全工学手法",
-      "bundleTitle": "システム安全工学手法",
+      "bundleTitle": "システム安全工学手法 Part 1",
       "groupNames": [
         "システム安全工学手法",
-        "ヒューマンエラー分析（人的過誤分析）",
-        "システム信頼度解析"
+        "ヒューマンエラー分析（人的過誤分析）"
       ],
       "keywords": [
         {
@@ -2767,7 +2878,19 @@
         {
           "slug": "vta-method",
           "title": "VTA法"
-        },
+        }
+      ],
+      "partOf": "5.6"
+    },
+    {
+      "bundleId": "5-5.6-part2",
+      "chapterTitle": "安全管理",
+      "sectionTitle": "システム安全工学手法",
+      "bundleTitle": "システム安全工学手法 Part 2",
+      "groupNames": [
+        "システム信頼度解析"
+      ],
+      "keywords": [
         {
           "slug": "reliability-block-diagram",
           "title": "信頼性ブロック図"
@@ -2785,7 +2908,7 @@
           "title": "根本原因分析（RCA）"
         }
       ],
-      "partOf": null
+      "partOf": "5.6"
     },
     {
       "bundleId": "6-6.1-part1",
@@ -2793,8 +2916,7 @@
       "sectionTitle": "地球的規模の環境問題",
       "bundleTitle": "地球的規模の環境問題 Part 1",
       "groupNames": [
-        "持続可能な開発",
-        "気候変動・エネルギー問題"
+        "持続可能な開発"
       ],
       "keywords": [
         {
@@ -2852,7 +2974,19 @@
         {
           "slug": "doughnut-economics",
           "title": "ドーナツ経済"
-        },
+        }
+      ],
+      "partOf": "6.1"
+    },
+    {
+      "bundleId": "6-6.1-part2",
+      "chapterTitle": "社会環境管理",
+      "sectionTitle": "地球的規模の環境問題",
+      "bundleTitle": "地球的規模の環境問題 Part 2",
+      "groupNames": [
+        "気候変動・エネルギー問題"
+      ],
+      "keywords": [
         {
           "slug": "climate-change-international",
           "title": "気候変動・国際対応"
@@ -2865,10 +2999,10 @@
       "partOf": "6.1"
     },
     {
-      "bundleId": "6-6.1-part2",
+      "bundleId": "6-6.1-part3",
       "chapterTitle": "社会環境管理",
       "sectionTitle": "地球的規模の環境問題",
-      "bundleTitle": "地球的規模の環境問題｜生物多様性",
+      "bundleTitle": "地球的規模の環境問題｜生物多様性 (1/2)",
       "groupNames": [
         "生物多様性"
       ],
@@ -2936,7 +3070,19 @@
         {
           "slug": "species-preservation-act",
           "title": "種の保存法"
-        },
+        }
+      ],
+      "partOf": "6.1"
+    },
+    {
+      "bundleId": "6-6.1-part4",
+      "chapterTitle": "社会環境管理",
+      "sectionTitle": "地球的規模の環境問題",
+      "bundleTitle": "地球的規模の環境問題｜生物多様性 (2/2)",
+      "groupNames": [
+        "生物多様性"
+      ],
+      "keywords": [
         {
           "slug": "nature-restoration-act",
           "title": "自然再生推進法"
@@ -2962,8 +3108,7 @@
       "sectionTitle": "地域環境問題",
       "bundleTitle": "地域環境問題 Part 1",
       "groupNames": [
-        "循環型社会の形成と廃棄物処理",
-        "公害"
+        "循環型社会の形成と廃棄物処理"
       ],
       "keywords": [
         {
@@ -3001,7 +3146,20 @@
         {
           "slug": "sound-water-cycle",
           "title": "健全な水循環系"
-        },
+        }
+      ],
+      "partOf": "6.2"
+    },
+    {
+      "bundleId": "6-6.2-part2",
+      "chapterTitle": "社会環境管理",
+      "sectionTitle": "地域環境問題",
+      "bundleTitle": "地域環境問題 Part 2",
+      "groupNames": [
+        "公害",
+        "化学物質と環境リスク"
+      ],
+      "keywords": [
         {
           "slug": "four-major-pollution-diseases",
           "title": "四大公害病"
@@ -3025,20 +3183,7 @@
         {
           "slug": "asbestos-issue",
           "title": "アスベスト問題"
-        }
-      ],
-      "partOf": "6.2"
-    },
-    {
-      "bundleId": "6-6.2-part2",
-      "chapterTitle": "社会環境管理",
-      "sectionTitle": "地域環境問題",
-      "bundleTitle": "地域環境問題 Part 2",
-      "groupNames": [
-        "化学物質と環境リスク",
-        "異常気象と防災"
-      ],
-      "keywords": [
+        },
         {
           "slug": "gfc-chemicals-framework",
           "title": "GFC"
@@ -3070,7 +3215,20 @@
         {
           "slug": "prtr-act",
           "title": "化管法／PRTR法"
-        },
+        }
+      ],
+      "partOf": "6.2"
+    },
+    {
+      "bundleId": "6-6.2-part3",
+      "chapterTitle": "社会環境管理",
+      "sectionTitle": "地域環境問題",
+      "bundleTitle": "地域環境問題 Part 3",
+      "groupNames": [
+        "異常気象と防災",
+        "放射性物質による環境問題"
+      ],
+      "keywords": [
         {
           "slug": "heat-island-effect",
           "title": "ヒートアイランド現象"
@@ -3090,19 +3248,7 @@
         {
           "slug": "green-infrastructure",
           "title": "グリーンインフラ"
-        }
-      ],
-      "partOf": "6.2"
-    },
-    {
-      "bundleId": "6-6.2-part3",
-      "chapterTitle": "社会環境管理",
-      "sectionTitle": "地域環境問題",
-      "bundleTitle": "地域環境問題 Part 3",
-      "groupNames": [
-        "放射性物質による環境問題"
-      ],
-      "keywords": [
+        },
         {
           "slug": "nuclear-disaster-act",
           "title": "原子力災害対策特別措置法"
@@ -3138,10 +3284,7 @@
       "groupNames": [
         "環境基本法",
         "協働原則",
-        "規制的手法",
-        "経済的手法",
-        "情報的手法",
-        "手続き的手法"
+        "規制的手法"
       ],
       "keywords": [
         {
@@ -3191,7 +3334,23 @@
         {
           "slug": "behavioral-regulation",
           "title": "行為規制"
-        },
+        }
+      ],
+      "partOf": "6.3"
+    },
+    {
+      "bundleId": "6-6.3-part2",
+      "chapterTitle": "社会環境管理",
+      "sectionTitle": "環境保全の基本原則",
+      "bundleTitle": "環境保全の基本原則 Part 2",
+      "groupNames": [
+        "経済的手法",
+        "情報的手法",
+        "手続き的手法",
+        "自主的取組手法",
+        "環境教育"
+      ],
+      "keywords": [
         {
           "slug": "carbon-pricing",
           "title": "環境税・カーボンプライシング"
@@ -3215,20 +3374,7 @@
         {
           "slug": "consensus-instruments",
           "title": "合意的手法"
-        }
-      ],
-      "partOf": "6.3"
-    },
-    {
-      "bundleId": "6-6.3-part2",
-      "chapterTitle": "社会環境管理",
-      "sectionTitle": "環境保全の基本原則",
-      "bundleTitle": "環境保全の基本原則 Part 2",
-      "groupNames": [
-        "自主的取組手法",
-        "環境教育"
-      ],
-      "keywords": [
+        },
         {
           "slug": "backcasting",
           "title": "バックキャスティング"
@@ -3245,18 +3391,28 @@
       "partOf": "6.3"
     },
     {
-      "bundleId": "6-6.4",
+      "bundleId": "6-6.4-part1",
       "chapterTitle": "社会環境管理",
       "sectionTitle": "組織の社会的責任と環境管理活動",
-      "bundleTitle": "組織の社会的責任と環境管理活動",
-      "groupNames": [
-        "社会的責任（SR）"
-      ],
+      "bundleTitle": "組織の社会的責任と環境管理活動 Part 1",
+      "groupNames": [],
       "keywords": [
         {
           "slug": "pollution-control-manager",
           "title": "公害防止管理者"
-        },
+        }
+      ],
+      "partOf": "6.4"
+    },
+    {
+      "bundleId": "6-6.4-part2",
+      "chapterTitle": "社会環境管理",
+      "sectionTitle": "組織の社会的責任と環境管理活動",
+      "bundleTitle": "組織の社会的責任と環境管理活動｜社会的責任（SR）",
+      "groupNames": [
+        "社会的責任（SR）"
+      ],
+      "keywords": [
         {
           "slug": "csr",
           "title": "CSR"
@@ -3322,7 +3478,7 @@
           "title": "環境コミュニケーション"
         }
       ],
-      "partOf": null
+      "partOf": "6.4"
     }
   ]
 }

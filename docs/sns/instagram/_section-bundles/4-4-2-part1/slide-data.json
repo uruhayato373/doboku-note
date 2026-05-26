@@ -1,16 +1,16 @@
 {
   "cover": {
-    "keyword": "コミュニケーション",
+    "keyword": "コミュニケーション Part 1",
     "subtitle": "コミュニケーション",
-    "stickyText": "情報管理\n19KW",
+    "stickyText": "情報管理\n14KW",
     "management": "info"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "言語／非言語コミュニケーション、マス・コミュニケーション、パーソナル・コミュニケーション、情報開示、開示請求、社会的受容（PA）、ステーク・ホルダー、情報公開法、知る権利、開示基準、パブリック・リレーションズ（PR）、住民参加、グループウェア、オンライン会議・Web会議、コミュニケーション計画、会議設計、コミュニケーション・コントロール、緊急時情報システム・サービス、緊急時の情報処理",
-      "noteText": "情報管理 コミュニケーション（コミュニケーション方法・アカウンタビリティ（説明責任）・対外コミュニケーション・デジタル・コミュニケーション・ツール・コミュニケーション・マネジメント・緊急時の情報管理）"
+      "body": "言語／非言語コミュニケーション、マス・コミュニケーション、パーソナル・コミュニケーション、情報開示、開示請求、社会的受容（PA）、ステーク・ホルダー、情報公開法、知る権利、開示基準、パブリック・リレーションズ（PR）、住民参加、グループウェア、オンライン会議・Web会議",
+      "noteText": "情報管理 コミュニケーション（コミュニケーション方法・アカウンタビリティ（説明責任）・対外コミュニケーション・デジタル・コミュニケーション・ツール）"
     },
     {
       "type": "board",
@@ -92,9 +92,10 @@
     {
       "type": "board",
       "heading": "住民参加",
-      "body": "",
-      "noteText": "",
-      "slug": "citizen-participation"
+      "body": "住民参加とは、公共事業や政策決定のプロセスに影響を受ける住民・市民が関与し、意見を反映させる仕組みである。民主主義の理念に基づき行政の透明性・説明責任を高め、事業の社会的受容性を向上させる機能を持つ。",
+      "noteText": "情報管理の観点: ステークホルダーとの合意形成",
+      "slug": "citizen-participation",
+      "_legacySource": "_backlog/2026/2026-11-20-citizen-participation"
     },
     {
       "type": "board",
@@ -109,41 +110,6 @@
       "body": "",
       "noteText": "",
       "slug": "online-meetings"
-    },
-    {
-      "type": "board",
-      "heading": "コミュニケーション計画",
-      "body": "",
-      "noteText": "",
-      "slug": "communication-planning"
-    },
-    {
-      "type": "board",
-      "heading": "会議設計",
-      "body": "",
-      "noteText": "",
-      "slug": "meeting-design"
-    },
-    {
-      "type": "board",
-      "heading": "コミュニケーション・コントロール",
-      "body": "",
-      "noteText": "",
-      "slug": "communication-control"
-    },
-    {
-      "type": "board",
-      "heading": "緊急時情報システム・サービス",
-      "body": "",
-      "noteText": "",
-      "slug": "emergency-info-systems"
-    },
-    {
-      "type": "board",
-      "heading": "緊急時の情報処理",
-      "body": "",
-      "noteText": "",
-      "slug": "emergency-info-processing"
     },
     {
       "type": "summary",
@@ -161,18 +127,16 @@
     ]
   },
   "_meta": {
-    "bundleId": "4-4.2",
+    "bundleId": "4-4.2-part1",
     "chapterTitle": "情報管理",
     "sectionTitle": "コミュニケーション",
     "groupNames": [
       "コミュニケーション方法",
       "アカウンタビリティ（説明責任）",
       "対外コミュニケーション",
-      "デジタル・コミュニケーション・ツール",
-      "コミュニケーション・マネジメント",
-      "緊急時の情報管理"
+      "デジタル・コミュニケーション・ツール"
     ],
-    "keywordCount": 19,
-    "partOf": null
+    "keywordCount": 14,
+    "partOf": "4.2"
   }
 }

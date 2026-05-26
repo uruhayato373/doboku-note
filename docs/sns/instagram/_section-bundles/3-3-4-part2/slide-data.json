@@ -2,14 +2,14 @@
   "cover": {
     "keyword": "人材開発｜人的資源開発（HRD） (1/2)",
     "subtitle": "人材開発",
-    "stickyText": "人的資源管理\n20KW",
+    "stickyText": "人的資源管理\n16KW",
     "management": "hr"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "階層別研修、専門別研修、課題別研修、自己啓発、eラーニング、OJT/OFF-JT、課題設定能力、職務遂行能力、対人能力、問題解決能力、コンピテンシー、グローバル人材開発、リスキリング、メンター、教育訓練技法（ブレインストーミング，ケーススタディ，インバスケット，ロールプレイング等）、人材アセスメント、スキル標準、CPD、ジョブローテーション、QCサークル",
+      "body": "階層別研修、専門別研修、課題別研修、自己啓発、eラーニング、OJT/OFF-JT、課題設定能力、職務遂行能力、対人能力、問題解決能力、コンピテンシー、グローバル人材開発、リスキリング、メンター、教育訓練技法（ブレインストーミング，ケーススタディ，インバスケット，ロールプレイング等）、人材アセスメント",
       "noteText": "人的資源管理 人材開発（人的資源開発（HRD））"
     },
     {
@@ -85,9 +85,10 @@
     {
       "type": "board",
       "heading": "コンピテンシー",
-      "body": "",
-      "noteText": "",
-      "slug": "competency-hr"
+      "body": "コンピテンシー（Competency）とは、高い業績を上げる人材に共通して見られる行動特性である。マクレランド（McClelland）が1973年に論文で提唱した概念で、IQや学歴ではなく実際の業務行動に着目する。",
+      "noteText": "R02 Ⅰ-1-16：コンピテンシー＝競争環境は誤答。行動特性が正答",
+      "slug": "competency-hr",
+      "_legacySource": "_backlog/2026/2026-12-22-competency-hr"
     },
     {
       "type": "board",
@@ -125,34 +126,6 @@
       "slug": "human-resource-assessment"
     },
     {
-      "type": "board",
-      "heading": "スキル標準",
-      "body": "",
-      "noteText": "",
-      "slug": "skill-standards"
-    },
-    {
-      "type": "board",
-      "heading": "CPD",
-      "body": "",
-      "noteText": "",
-      "slug": "cpd"
-    },
-    {
-      "type": "board",
-      "heading": "ジョブローテーション",
-      "body": "",
-      "noteText": "",
-      "slug": "job-rotation"
-    },
-    {
-      "type": "board",
-      "heading": "QCサークル",
-      "body": "",
-      "noteText": "",
-      "slug": "qc-circle"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -174,7 +147,7 @@
     "groupNames": [
       "人的資源開発（HRD）"
     ],
-    "keywordCount": 20,
+    "keywordCount": 16,
     "partOf": "3.4"
   }
 }

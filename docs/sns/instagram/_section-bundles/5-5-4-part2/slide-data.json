@@ -1,15 +1,15 @@
 {
   "cover": {
-    "keyword": "事故・災害の未然防止活動・技術 Part 2",
+    "keyword": "事故・災害の未然防止活動・技術｜システムの高信頼化 (1/2)",
     "subtitle": "事故・災害の未然防止活動・技術",
-    "stickyText": "安全管理\n18KW",
+    "stickyText": "安全管理\n16KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "安全計装システム、非常停止装置、フォールトアボイダンス、フォールトトレランス、フェールソフト、フールプルーフ、フェールセーフ、インターロック（安全装置・安全機構）、安全確認型システム／危険検出型システム、隔離安全／停止安全、冗長安全、安全立証／安全論証、LOPA、テクニカルスキル／ノンテクニカルスキル、事故の4M要因分析、事故の4E対策、小集団活動（ZD運動，改善提案活動，TPM，TQC等）、労働災害防止計画",
+      "body": "安全計装システム、非常停止装置、フォールトアボイダンス、フォールトトレランス、フェールソフト、フールプルーフ、フェールセーフ、インターロック（安全装置・安全機構）、安全確認型システム／危険検出型システム、隔離安全／停止安全、冗長安全、安全立証／安全論証、LOPA、テクニカルスキル／ノンテクニカルスキル、事故の4M要因分析、事故の4E対策",
       "noteText": "安全管理 事故・災害の未然防止活動・技術（システムの高信頼化）"
     },
     {
@@ -85,9 +85,10 @@
     {
       "type": "board",
       "heading": "冗長安全",
-      "body": "",
-      "noteText": "",
-      "slug": "redundancy-safety"
+      "body": "冗長性とは、システムの構成要素を多重化し、一部が故障しても他の要素が機能を代替することで、システム全体の信頼性を向上させる設計手法である。安全機能を冗長化することで単一故障による安全機能の喪失を防止する。",
+      "noteText": "多重化により単一故障でもシステムの安全機能を維持する",
+      "slug": "redundancy-safety",
+      "_legacySource": "_backlog/2026/2026-06-09-redundancy-safety"
     },
     {
       "type": "board",
@@ -125,20 +126,6 @@
       "slug": "four-e-countermeasures"
     },
     {
-      "type": "board",
-      "heading": "小集団活動（ZD運動，改善提案活動，TPM，TQC等）",
-      "body": "",
-      "noteText": "",
-      "slug": "small-group-activities"
-    },
-    {
-      "type": "board",
-      "heading": "労働災害防止計画",
-      "body": "",
-      "noteText": "",
-      "slug": "occupational-accident-prevention-plan"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -160,7 +147,7 @@
     "groupNames": [
       "システムの高信頼化"
     ],
-    "keywordCount": 18,
+    "keywordCount": 16,
     "partOf": "5.4"
   }
 }

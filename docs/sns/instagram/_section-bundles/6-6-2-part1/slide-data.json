@@ -2,22 +2,23 @@
   "cover": {
     "keyword": "地域環境問題 Part 1",
     "subtitle": "地域環境問題",
-    "stickyText": "社会環境管理\n15KW",
+    "stickyText": "社会環境管理\n9KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "サーキュラーエコノミー、地域循環共生圏、循環型社会形成推進基本法、廃棄物処理法、バーゼル条約、E-waste問題、海洋プラスチック問題、サステナブルファッション、健全な水循環系、四大公害病、典型７公害、大気汚染防止法、水質汚濁防止法、土壌汚染対策法、アスベスト問題",
-      "noteText": "社会環境管理 地域環境問題（循環型社会の形成と廃棄物処理・公害）"
+      "body": "サーキュラーエコノミー、地域循環共生圏、循環型社会形成推進基本法、廃棄物処理法、バーゼル条約、E-waste問題、海洋プラスチック問題、サステナブルファッション、健全な水循環系",
+      "noteText": "社会環境管理 地域環境問題（循環型社会の形成と廃棄物処理）"
     },
     {
       "type": "board",
       "heading": "サーキュラーエコノミー",
-      "body": "",
-      "noteText": "",
-      "slug": "circular-economy"
+      "body": "サーキュラーエコノミー（循環経済）とは、製品・素材・資源の価値を可能な限り長く保持し、廃棄物の発生を最小化する経済モデルである。エレン・マッカーサー財団が提唱し、EUが政策の柱として採用したことで世界的な転換が加速している。",
+      "noteText": "線形経済（採取→製造→使用→廃棄）からの脱却",
+      "slug": "circular-economy",
+      "_legacySource": "_backlog/2026/2026-11-13-circular-economy"
     },
     {
       "type": "board",
@@ -29,9 +30,10 @@
     {
       "type": "board",
       "heading": "循環型社会形成推進基本法",
-      "body": "",
-      "noteText": "",
-      "slug": "circular-society-basic-act"
+      "body": "循環型社会形成推進基本法（2000年制定）は、大量生産・大量消費・大量廃棄型の社会を転換し、循環型社会の形成を推進するための基本法である。個別リサイクル法の上位法として機能し、3Rの優先順位を法的に明確化したことに最大の特徴がある。",
+      "noteText": "2000年は循環型社会元年\n建設リサイクル法も同年制定",
+      "slug": "circular-society-basic-act",
+      "_legacySource": "_backlog/2026/2026-11-17-circular-society-basic-act"
     },
     {
       "type": "board",
@@ -43,9 +45,10 @@
     {
       "type": "board",
       "heading": "バーゼル条約",
-      "body": "",
-      "noteText": "",
-      "slug": "basel-convention"
+      "body": "バーゼル条約は、有害廃棄物の越境移動を規制し、途上国への不適正な輸出を防止するために1989年に採択された国際条約である。1980年代に先進国から途上国への不法輸出が社会問題化したことを背景に、UNEPの主導で採択された。",
+      "noteText": "日本は1993年締結・バーゼル法で国内実施",
+      "slug": "basel-convention",
+      "_legacySource": "_backlog/2026/2026-09-01-basel-convention"
     },
     {
       "type": "board",
@@ -76,48 +79,6 @@
       "slug": "sound-water-cycle"
     },
     {
-      "type": "board",
-      "heading": "四大公害病",
-      "body": "",
-      "noteText": "",
-      "slug": "four-major-pollution-diseases"
-    },
-    {
-      "type": "board",
-      "heading": "典型７公害",
-      "body": "",
-      "noteText": "",
-      "slug": "seven-types-of-pollution"
-    },
-    {
-      "type": "board",
-      "heading": "大気汚染防止法",
-      "body": "",
-      "noteText": "",
-      "slug": "air-pollution-control-act"
-    },
-    {
-      "type": "board",
-      "heading": "水質汚濁防止法",
-      "body": "",
-      "noteText": "",
-      "slug": "water-pollution-control-act"
-    },
-    {
-      "type": "board",
-      "heading": "土壌汚染対策法",
-      "body": "",
-      "noteText": "",
-      "slug": "soil-contamination-act"
-    },
-    {
-      "type": "board",
-      "heading": "アスベスト問題",
-      "body": "",
-      "noteText": "",
-      "slug": "asbestos-issue"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -137,10 +98,9 @@
     "chapterTitle": "社会環境管理",
     "sectionTitle": "地域環境問題",
     "groupNames": [
-      "循環型社会の形成と廃棄物処理",
-      "公害"
+      "循環型社会の形成と廃棄物処理"
     ],
-    "keywordCount": 15,
+    "keywordCount": 9,
     "partOf": "6.2"
   }
 }

@@ -1,0 +1,91 @@
+{
+  "cover": {
+    "keyword": "品質の管理 Part 2",
+    "subtitle": "品質の管理",
+    "stickyText": "経済性管理\n7KW",
+    "management": "economy"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "管理限界、工程能力指数（Cp・Cpk）、不適合品率／適合品率、全数検査／抜取検査、HACCP、製品安全、**顧客満足（CS）**",
+      "noteText": "経済性管理 品質の管理（品質管理の統計的手法）"
+    },
+    {
+      "type": "board",
+      "heading": "管理限界",
+      "body": "管理限界とは、上方管理限界線（UCL）と下方管理限界線（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。通常、中心線（CL）から±3σの位置に設定される。",
+      "noteText": "UCL・CL・LCLの3線で管理図を構成する",
+      "slug": "control-limits",
+      "_legacySource": "_backlog/2026/2026-06-02-control-limits"
+    },
+    {
+      "type": "board",
+      "heading": "工程能力指数（Cp・Cpk）",
+      "body": "工程能力指数とは、規格内で製品を生産する工程の能力を定量化する指標である。ばらつきと規格幅の比で表され、値が大きいほど工程能力が高い。算出には工程が管理状態にあることが前提となる。",
+      "noteText": "管理状態（統計的安定）が前提条件",
+      "slug": "process-capability-index",
+      "_legacySource": "_backlog/2026/2026-05-15-process-capability-index"
+    },
+    {
+      "type": "board",
+      "heading": "不適合品率／適合品率",
+      "body": "",
+      "noteText": "",
+      "slug": "nonconformity-rate"
+    },
+    {
+      "type": "board",
+      "heading": "全数検査／抜取検査",
+      "body": "",
+      "noteText": "",
+      "slug": "inspection-methods"
+    },
+    {
+      "type": "board",
+      "heading": "HACCP",
+      "body": "",
+      "noteText": "",
+      "slug": "haccp"
+    },
+    {
+      "type": "board",
+      "heading": "製品安全",
+      "body": "",
+      "noteText": "",
+      "slug": "product-safety"
+    },
+    {
+      "type": "board",
+      "heading": "**顧客満足（CS）**",
+      "body": "",
+      "noteText": "",
+      "slug": "customer-satisfaction"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "管理限界",
+      "工程能力指数（Cp・Cpk）",
+      "不適合品率／適合品率",
+      "全数検査／抜取検査"
+    ]
+  },
+  "_meta": {
+    "bundleId": "2-2.2-part2",
+    "chapterTitle": "経済性管理",
+    "sectionTitle": "品質の管理",
+    "groupNames": [
+      "品質管理の統計的手法"
+    ],
+    "keywordCount": 7,
+    "partOf": "2.2"
+  }
+}

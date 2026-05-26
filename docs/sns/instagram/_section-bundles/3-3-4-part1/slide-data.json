@@ -15,9 +15,10 @@
     {
       "type": "board",
       "heading": "情意考課",
-      "body": "",
-      "noteText": "",
-      "slug": "attitude-appraisal"
+      "body": "情意考課とは、業務に対する姿勢・意欲・態度を評価する人事考課の一分野である。成果考課（業務成果）・能力考課（知識・技能）とともに人事考課の三要素を構成し、主に継続的な行動観察によって判断される。",
+      "noteText": "人事考課の三要素のうち\n最も主観が入りやすい",
+      "slug": "attitude-appraisal",
+      "_legacySource": "_backlog/2026/2026-08-21-attitude-appraisal"
     },
     {
       "type": "board",
@@ -29,16 +30,18 @@
     {
       "type": "board",
       "heading": "能力考課",
-      "body": "",
-      "noteText": "",
-      "slug": "competency-evaluation"
+      "body": "能力考課とは、業務遂行に必要な知識・技能・判断力等の保有能力を評価する人事考課の一分野である。業績考課（成績考課）・情意考課とともに人事考課の三分野を構成するインプット評価の柱である。",
+      "noteText": "人事考課三分野：業績考課・能力考課・情意考課",
+      "slug": "competency-evaluation",
+      "_legacySource": "_backlog/2026/2026-12-18-competency-evaluation"
     },
     {
       "type": "board",
       "heading": "多面評価（360度評価）",
-      "body": "",
-      "noteText": "",
-      "slug": "360-degree-evaluation"
+      "body": "多面評価（360度評価）とは、上司だけでなく、同僚・部下・本人（自己評価）など複数の視点から対象者を評価する手法である。評価者の多角化により、上司一人では捕捉できない協調性・リーダーシップ・部下指導力を可視化し、評価誤差を構造的に低減する。",
+      "noteText": "上司/同僚/部下/本人の4視点\n顧客・取引先も含めうる",
+      "slug": "360-degree-evaluation",
+      "_legacySource": "_backlog/2026/2026-06-16-360-degree-evaluation"
     },
     {
       "type": "board",
@@ -57,9 +60,10 @@
     {
       "type": "board",
       "heading": "人事考課の三原則",
-      "body": "",
-      "noteText": "",
-      "slug": "appraisal-three-principles"
+      "body": "人事考課の三原則とは、人事評価を適正に行うために遵守すべき「公正」「客観」「透明」の3つの基本原則である。1990年代以降の成果主義人事管理の普及を背景に体系化されたメタルールである。",
+      "noteText": "業績・能力・情意の各考課に横断的に適用",
+      "slug": "appraisal-three-principles",
+      "_legacySource": "_backlog/2026/2026-08-14-appraisal-three-principles"
     },
     {
       "type": "board",

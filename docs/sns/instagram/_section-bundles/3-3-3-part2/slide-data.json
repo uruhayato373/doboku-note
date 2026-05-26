@@ -1,15 +1,15 @@
 {
   "cover": {
-    "keyword": "人材活用計画 Part 2",
+    "keyword": "人材活用計画｜雇用管理 (1/2)",
     "subtitle": "人材活用計画",
-    "stickyText": "人的資源管理\n18KW",
+    "stickyText": "人的資源管理\n16KW",
     "management": "hr"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "職能資格制度、職務等級制度、役割等級制度、複線型人事制度、勤務地限定社員制度、専門職制度、社内公募制、再雇用制度、継続雇用制度、自己申告制度、ジョブ型（職務主義）、メンバーシップ型（属人主義）、総合職・一般職、職務分析、職務設計、採用管理、セカンドキャリア、役職定年制",
+      "body": "職能資格制度、職務等級制度、役割等級制度、複線型人事制度、勤務地限定社員制度、専門職制度、社内公募制、再雇用制度、継続雇用制度、自己申告制度、ジョブ型（職務主義）、メンバーシップ型（属人主義）、総合職・一般職、職務分析、職務設計、採用管理",
       "noteText": "人的資源管理 人材活用計画（雇用管理）"
     },
     {
@@ -71,9 +71,10 @@
     {
       "type": "board",
       "heading": "継続雇用制度",
-      "body": "",
-      "noteText": "",
-      "slug": "continued-employment-system"
+      "body": "継続雇用制度とは、定年に達した従業員を引き続き雇用する制度の総称である。高年齢者雇用安定法に基づき、企業は65歳までの雇用確保措置（定年引上げ・継続雇用・定年廃止）のいずれかを講じる義務がある。",
+      "noteText": "総称がポイント\n引上げ廃止も含む",
+      "slug": "continued-employment-system",
+      "_legacySource": "_backlog/2027/2027-01-12-continued-employment-system"
     },
     {
       "type": "board",
@@ -99,9 +100,10 @@
     {
       "type": "board",
       "heading": "総合職・一般職",
-      "body": "",
-      "noteText": "",
-      "slug": "career-track-system"
+      "body": "総合職・一般職とは、業務内容・責任範囲・転勤の有無によって従業員を区分するコース別雇用管理制度の代表的な区分である。1986年の男女雇用機会均等法施行を契機に、性別に代わる合理的な区分として多くの企業が導入した。",
+      "noteText": "均等法施行→性別区分からコース別へ転換",
+      "slug": "career-track-system",
+      "_legacySource": "_backlog/2026/2026-10-20-career-track-system"
     },
     {
       "type": "board",
@@ -125,20 +127,6 @@
       "slug": "recruitment-management"
     },
     {
-      "type": "board",
-      "heading": "セカンドキャリア",
-      "body": "",
-      "noteText": "",
-      "slug": "second-career"
-    },
-    {
-      "type": "board",
-      "heading": "役職定年制",
-      "body": "",
-      "noteText": "",
-      "slug": "mandatory-management-retirement"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -160,7 +148,7 @@
     "groupNames": [
       "雇用管理"
     ],
-    "keywordCount": 18,
+    "keywordCount": 16,
     "partOf": "3.3"
   }
 }

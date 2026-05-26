@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "危機管理 Part 1",
     "subtitle": "危機管理",
-    "stickyText": "安全管理\n16KW",
+    "stickyText": "安全管理\n13KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "緊急事態、不測事態、極端現象、防災気象情報、液状化現象、警戒レベル、タイムライン、自然災害に起因する産業事故（Natech）、危険物施設防災、確率論的リスク評価、深層防護、テロリズム、感染症・パンデミック、危機広報、優先順位、危機管理マニュアル",
-      "noteText": "安全管理 危機管理（危機・自然災害・原子力防災・危機管理体制）"
+      "body": "緊急事態、不測事態、極端現象、防災気象情報、液状化現象、警戒レベル、タイムライン、自然災害に起因する産業事故（Natech）、危険物施設防災、確率論的リスク評価、深層防護、テロリズム、感染症・パンデミック",
+      "noteText": "安全管理 危機管理（危機・自然災害・原子力防災）"
     },
     {
       "type": "board",
@@ -22,9 +22,10 @@
     {
       "type": "board",
       "heading": "不測事態",
-      "body": "",
-      "noteText": "",
-      "slug": "contingency"
+      "body": "不測事態（Contingency）とは、事前に予測・想定することが困難な、組織の存続や事業継続に重大な影響を及ぼす事態である。自然災害・事故・テロ・パンデミック・重大な法令違反の発覚などが該当する。",
+      "noteText": "5.5 危機管理に位置づけられるキーワード",
+      "slug": "contingency",
+      "_legacySource": "_backlog/2027/2027-01-08-contingency"
     },
     {
       "type": "board",
@@ -50,9 +51,10 @@
     {
       "type": "board",
       "heading": "警戒レベル",
-      "body": "",
-      "noteText": "",
-      "slug": "alert-levels"
+      "body": "警戒レベルとは、災害時に住民がとるべき行動を5段階で示す避難情報の体系である。2021年の災害対策基本法改正で「避難勧告」が廃止され「避難指示」に一本化された際に整理され、運用方針は内閣府の「避難情報に関するガイドライン」に示されている。",
+      "noteText": "レベル1〜2は気象庁が発令、レベル3〜5は市町村長が発令",
+      "slug": "alert-levels",
+      "_legacySource": "_backlog/2026/2026-07-24-alert-levels"
     },
     {
       "type": "board",
@@ -104,27 +106,6 @@
       "slug": "infectious-disease-pandemic"
     },
     {
-      "type": "board",
-      "heading": "危機広報",
-      "body": "",
-      "noteText": "",
-      "slug": "crisis-communication"
-    },
-    {
-      "type": "board",
-      "heading": "優先順位",
-      "body": "",
-      "noteText": "",
-      "slug": "crisis-priority"
-    },
-    {
-      "type": "board",
-      "heading": "危機管理マニュアル",
-      "body": "",
-      "noteText": "",
-      "slug": "crisis-management-manual"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -146,10 +127,9 @@
     "groupNames": [
       "危機",
       "自然災害",
-      "原子力防災",
-      "危機管理体制"
+      "原子力防災"
     ],
-    "keywordCount": 16,
+    "keywordCount": 13,
     "partOf": "5.5"
   }
 }

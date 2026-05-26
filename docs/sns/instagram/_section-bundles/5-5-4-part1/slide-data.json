@@ -22,9 +22,10 @@
     {
       "type": "board",
       "heading": "事故対応訓練",
-      "body": "",
-      "noteText": "",
-      "slug": "accident-response-drill"
+      "body": "事故対応訓練とは、事故や災害の際に組織として迅速かつ適切に対応する能力を高めるための訓練である。初動対応・情報伝達・避難誘導・応急措置等を実践的に行い、有事の対応力を養う。総監の4E対策ではEducation（教育）に位置づけられる。",
+      "noteText": "目的：有事の対応力向上\n4Eの教育（Education）",
+      "slug": "accident-response-drill",
+      "_legacySource": "_backlog/2026/2026-06-26-accident-response-drill"
     },
     {
       "type": "board",
@@ -36,9 +37,10 @@
     {
       "type": "board",
       "heading": "ブラインド型訓練",
-      "body": "",
-      "noteText": "",
-      "slug": "blind-drill"
+      "body": "ブラインド型訓練（Blind Drill）とは、事前にシナリオを参加者に知らせず、災害や事故の発生を模擬的に通知して対応させることで、実践的な判断力・対応力を養う訓練手法である。",
+      "noteText": "シナリオ非公開→即興判断が求められる",
+      "slug": "blind-drill",
+      "_legacySource": "_backlog/2026/2026-09-22-blind-drill"
     },
     {
       "type": "board",
@@ -57,9 +59,10 @@
     {
       "type": "board",
       "heading": "ハインリッヒの法則",
-      "body": "",
-      "noteText": "",
-      "slug": "heinrich-law"
+      "body": "ハーバート・ウィリアム・ハインリッヒが1929年に約50万件の労働災害事故を調査した結果から導き出した経験則である。「事後対応から予防的管理へ」というパラダイムシフトを促した。",
+      "noteText": "損害保険会社の安全技師が1929年に導出",
+      "slug": "heinrich-law",
+      "_legacySource": "_backlog/2026/2026-05-10-heinrich-law"
     },
     {
       "type": "board",

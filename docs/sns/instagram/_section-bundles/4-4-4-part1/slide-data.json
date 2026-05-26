@@ -15,9 +15,10 @@
     {
       "type": "board",
       "heading": "集中化と分散化",
-      "body": "",
-      "noteText": "",
-      "slug": "centralization-decentralization"
+      "body": "集中処理とは1台の大型コンピュータに処理を集約し端末からアクセスする方式、分散処理とは複数のコンピュータに処理を分担させネットワークで協調動作させる方式である。どちらを採用するかは、コスト・信頼性・拡張性・管理性を多角的に評価して決定する。",
+      "noteText": "集中は管理しやすく、分散は耐障害性に優れる",
+      "slug": "centralization-decentralization",
+      "_legacySource": "_backlog/2026/2026-11-03-centralization-decentralization"
     },
     {
       "type": "board",
@@ -29,9 +30,10 @@
     {
       "type": "board",
       "heading": "クラウドコンピューティング／オンプレミス",
-      "body": "",
-      "noteText": "",
-      "slug": "cloud-on-premises"
+      "body": "クラウドコンピューティングとは、サーバ・ストレージ等のITリソースをインターネット経由でオンデマンドに利用できるサービス形態であり、必要な分だけ従量課金で使える。",
+      "noteText": "NIST定義の5特性：オンデマンド・広範アクセス・プーリング・弾力性・計測",
+      "slug": "cloud-on-premises",
+      "_legacySource": "_backlog/2026/2026-12-01-cloud-on-premises"
     },
     {
       "type": "board",

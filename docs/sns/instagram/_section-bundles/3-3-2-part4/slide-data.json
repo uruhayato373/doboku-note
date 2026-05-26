@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "労働関係法と労務管理 Part 4",
     "subtitle": "労働関係法と労務管理",
-    "stickyText": "人的資源管理\n18KW",
+    "stickyText": "人的資源管理\n11KW",
     "management": "hr"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "総額賃金管理、個別賃金管理、職務給、職能給、年俸制、年功賃金、成果主義賃金、業績連動型賞与制度、同一労働同一賃金、労働生産性、労働分配率、ワーク・ライフ・バランス、フレックスタイム制、変形労働時間制度、裁量労働制、職場復帰支援、副業・兼業、健康経営",
-      "noteText": "人的資源管理 労働関係法と労務管理（賃金管理・働き方改革・テレワーク）"
+      "body": "総額賃金管理、個別賃金管理、職務給、職能給、年俸制、年功賃金、成果主義賃金、業績連動型賞与制度、同一労働同一賃金、労働生産性、労働分配率",
+      "noteText": "人的資源管理 労働関係法と労務管理（賃金管理）"
     },
     {
       "type": "board",
@@ -43,9 +43,10 @@
     {
       "type": "board",
       "heading": "年俸制",
-      "body": "",
-      "noteText": "",
-      "slug": "annual-salary-system"
+      "body": "年俸制とは、従業員の賃金を1年単位で決定する賃金制度である。前年度の業績・成果の評価に基づいて翌年度の年俸額を決定する方式が一般的で、管理職や専門職を対象に導入する企業が多い。",
+      "noteText": "1990年代以降、成果主義の広がりとともに普及",
+      "slug": "annual-salary-system",
+      "_legacySource": "_backlog/2026/2026-08-04-annual-salary-system"
     },
     {
       "type": "board",
@@ -90,55 +91,6 @@
       "slug": "labor-share-ratio"
     },
     {
-      "type": "board",
-      "heading": "ワーク・ライフ・バランス",
-      "body": "",
-      "noteText": "",
-      "slug": "work-life-balance"
-    },
-    {
-      "type": "board",
-      "heading": "フレックスタイム制",
-      "body": "",
-      "noteText": "",
-      "slug": "flextime-system"
-    },
-    {
-      "type": "board",
-      "heading": "変形労働時間制度",
-      "body": "",
-      "noteText": "",
-      "slug": "variable-work-hours"
-    },
-    {
-      "type": "board",
-      "heading": "裁量労働制",
-      "body": "",
-      "noteText": "",
-      "slug": "discretionary-work-system"
-    },
-    {
-      "type": "board",
-      "heading": "職場復帰支援",
-      "body": "",
-      "noteText": "",
-      "slug": "return-to-work-support"
-    },
-    {
-      "type": "board",
-      "heading": "副業・兼業",
-      "body": "",
-      "noteText": "",
-      "slug": "side-jobs"
-    },
-    {
-      "type": "board",
-      "heading": "健康経営",
-      "body": "",
-      "noteText": "",
-      "slug": "health-management"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -158,11 +110,9 @@
     "chapterTitle": "人的資源管理",
     "sectionTitle": "労働関係法と労務管理",
     "groupNames": [
-      "賃金管理",
-      "働き方改革",
-      "テレワーク"
+      "賃金管理"
     ],
-    "keywordCount": 18,
+    "keywordCount": 11,
     "partOf": "3.2"
   }
 }

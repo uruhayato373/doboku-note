@@ -1,65 +1,30 @@
 {
   "cover": {
-    "keyword": "人材活用計画 Part 3",
+    "keyword": "人材活用計画｜雇用管理 (2/2)",
     "subtitle": "人材活用計画",
-    "stickyText": "人的資源管理\n7KW",
+    "stickyText": "人的資源管理\n2KW",
     "management": "hr"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "障害者雇用、ジェンダーギャップ、LGBTQ、ポジティブアクション、アンコンシャス・バイアス、タレントマネジメント、インターンシップ",
-      "noteText": "人的資源管理 人材活用計画（ダイバーシティ・マネジメント）"
+      "body": "セカンドキャリア、役職定年制",
+      "noteText": "人的資源管理 人材活用計画（雇用管理）"
     },
     {
       "type": "board",
-      "heading": "障害者雇用",
+      "heading": "セカンドキャリア",
       "body": "",
       "noteText": "",
-      "slug": "disability-employment"
+      "slug": "second-career"
     },
     {
       "type": "board",
-      "heading": "ジェンダーギャップ",
+      "heading": "役職定年制",
       "body": "",
       "noteText": "",
-      "slug": "gender-gap"
-    },
-    {
-      "type": "board",
-      "heading": "LGBTQ",
-      "body": "",
-      "noteText": "",
-      "slug": "lgbtq"
-    },
-    {
-      "type": "board",
-      "heading": "ポジティブアクション",
-      "body": "",
-      "noteText": "",
-      "slug": "positive-action"
-    },
-    {
-      "type": "board",
-      "heading": "アンコンシャス・バイアス",
-      "body": "",
-      "noteText": "",
-      "slug": "unconscious-bias"
-    },
-    {
-      "type": "board",
-      "heading": "タレントマネジメント",
-      "body": "",
-      "noteText": "",
-      "slug": "talent-management"
-    },
-    {
-      "type": "board",
-      "heading": "インターンシップ",
-      "body": "",
-      "noteText": "",
-      "slug": "internship"
+      "slug": "mandatory-management-retirement"
     },
     {
       "type": "summary",
@@ -70,10 +35,8 @@
   ],
   "cta": {
     "related": [
-      "障害者雇用",
-      "ジェンダーギャップ",
-      "LGBTQ",
-      "ポジティブアクション"
+      "セカンドキャリア",
+      "役職定年制"
     ]
   },
   "_meta": {
@@ -81,9 +44,9 @@
     "chapterTitle": "人的資源管理",
     "sectionTitle": "人材活用計画",
     "groupNames": [
-      "ダイバーシティ・マネジメント"
+      "雇用管理"
     ],
-    "keywordCount": 7,
+    "keywordCount": 2,
     "partOf": "3.3"
   }
 }

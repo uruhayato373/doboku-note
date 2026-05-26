@@ -1,8 +1,8 @@
-# Instagram カルーセル 51 bundle 集約運用ガイド
+# Instagram カルーセル 65 bundle 集約運用ガイド
 
-`src/config/ig-section-bundles.json` を SoT とする Instagram カルーセル投稿の集約モデル。1 bundle = 1 投稿で 5 管理 600+ キーワードを **51 投稿**で全網羅する設計。
+`src/config/ig-section-bundles.json` を SoT とする Instagram カルーセル投稿の集約モデル。1 bundle = 1 投稿で 5 管理 600+ キーワードを **65 投稿**で全網羅する設計。1 投稿 = cover(1) + intro(1) + board×N(1-16) + summary(1) + cta(1) = **最大 20 枚** (IG 上限ぴったり)。
 
-最終更新: 2026-05-26
+最終更新: 2026-05-26（Phase 2 パイプライン拡張完了）
 
 ## 1. 設計思想
 
@@ -14,7 +14,7 @@
 
 ### 新モデル（2026-05-26〜）
 - 1 bundle = 1 投稿 = 10-20 KW のカルーセル
-- 5 管理 26 セクション 124 太字グループから **51 bundle** に再集約
+- 5 管理 26 セクション 124 太字グループから **65 bundle** に再集約
 - 公式キーワード集の章立てに準拠
 - 利点: 投稿数 92% 削減・体系学習動線・「保存して試験前日に見返す」価値最大化
 - 欠点: 個別 KW 検索流入は弱体化（→ サイト記事側で補完）
@@ -24,22 +24,22 @@
 ```
 src/config/
 ├── pe-keyword-bundles.json       ← MDX パース結果（L1/L2/L3/L4 階層）
-└── ig-section-bundles.json       ← 51 投稿 bundle SoT（パイプラインから参照）
+└── ig-section-bundles.json       ← 65 投稿 bundle SoT（パイプラインから参照）
 
 scripts/
 ├── extract-pe-keyword-bundles.mjs  ← keyword-2026/article.mdx パーサ
-└── generate-ig-bundle-plan.mjs     ← 集約ルール適用器（51 bundle 計算）
+└── generate-ig-bundle-plan.mjs     ← 集約ルール適用器（65 bundle 計算）
 └── generate-ig-bundle-dirs.mjs     ← bundle ディレクトリ + slide-data.json 生成器
 
 docs/sns/instagram/
-├── _section-bundles/               ← 新構造（51 ディレクトリ）
+├── _section-bundles/               ← 新構造（65 ディレクトリ）
 │   ├── 2-2-1-part1/                ← 経済性管理 事業企画 Part 1
 │   │   ├── slide-data.json
 │   │   ├── carousel/img/
 │   │   └── reels/
 │   ├── 2-2-1-part2/
 │   ├── 2-2-2/
-│   └── ...（計 51）
+│   └── ...（計 65）
 │
 │   ※ `_` prefix で upload-instagram-assets.yml の `grep -v '^_'` 除外ルールに乗る
 │     → 本番準備未完了 bundle が R2 にアップロードされる事故を防止
@@ -65,7 +65,7 @@ src/config/pe-keyword-bundles.json (5 章 × 26 セクション × 124 グルー
   │
   ▼ scripts/generate-ig-bundle-plan.mjs (集約ルール適用: 1 投稿 ≤ 20 KW)
   │
-src/config/ig-section-bundles.json (51 bundle)
+src/config/ig-section-bundles.json (65 bundle)
   │
   ▼ scripts/generate-ig-bundle-dirs.mjs (ディレクトリ生成)
   │
@@ -150,7 +150,7 @@ bundleId は `<chapter-id>-<section-id>[-part<N>]` 形式：
 | 期間 | ペース | 完了 |
 |---|---|---|
 | 試験前 (〜2026-07-13) | 慎重期。投稿せず原稿準備 | — |
-| Phase R-1 (2026-07〜) | Carousel 週 2 本 | 約 6.4 ヶ月で全 51 bundle 配信完了 |
+| Phase R-1 (2026-07〜) | Carousel 週 2 本 | 約 6.4 ヶ月で全 65 bundle 配信完了 |
 | 2 周目 (2027-01〜) | bundle 内容の更新 + 新作 KW 追加 | 翌年新 KW 反映と組み合わせ |
 
 ### 配信優先順位（推奨）
@@ -165,32 +165,69 @@ bundleId は `<chapter-id>-<section-id>[-part<N>]` 形式：
 
 詳細な配信スケジュールは `.claude/state/instagram-schedule.json` で管理（次フェーズで bundle ID 対応）。
 
-## 7. 次フェーズ: パイプライン書き換え
+## 7. パイプライン書き換え（2026-05-26 完了 ✅）
 
-### 必須改修ファイル
+### 完了済みの改修
 
-| ファイル | 改修内容 | 影響 |
+| ファイル | 改修内容 | 状態 |
 |---|---|---|
-| `.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs` | `--bundle <bundleId>` フラグ追加。slide-data.json の `intro` / `summary` type を新規対応 | 投稿生成スクリプト |
-| `.claude/scripts/sns/bulk-generate.mjs` | 入力を slug リスト → bundleId リストに切替 | 一括生成 |
-| `.claude/state/instagram-schedule.json` | content_key を slug → bundleId に | スケジューラ |
-| `.claude/skills/social/ig-post-create/SKILL.md` | type1 definition → bundle 集約モデルの仕様書更新 | スキル定義 |
-| `.claude/skills/social/ig-post-create/design/` | intro/summary slide テンプレート追加 | デザイン定義 |
+| `.claude/scripts/lib/sns-common/notebook-slides.mjs` | `buildNotebookIntro()` / `buildNotebookSummary()` 新規追加 + management alias (economy/hr/environment) | ✅ |
+| `.claude/scripts/lib/sns-common/slide-render.mjs` | `notebook-intro` / `notebook-summary` の dispatch 追加 | ✅ |
+| `.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs` | `--bundle <bundleId>` フラグ追加 (排他制御・パス分岐・SLIDES 構築拡張・IG_MAX=20 警告) | ✅ |
+| `.claude/scripts/instagram/generate-caption.cjs` | bundle 検知（`_meta.bundleId`）で見出しを「【{管理名}】{セクション}（N キーワードまとめ）」に切替 | ✅ |
+| `scripts/generate-ig-bundle-plan.mjs` | MAX_KW_PER_BUNDLE を 20 → 16 に調整（IG 20 枚上限内に収める） | ✅ |
 
-### 改修順序
+### 動作確認済み
 
-1. `ig-post-create.mjs` の `--bundle` フラグ実装（既存 `--slug` と並行運用可能に）
-2. テンプレートデザイン拡張（intro / summary slide）
-3. テスト 1 bundle を実生成（e.g., `2-2-2 品質の管理` 18 KW）
-4. `bulk-generate.mjs` 切替
-5. `instagram-schedule.json` を bundle ID に再設定
-6. Meta API 認証（T-003 ブロッカー）解消後、実投稿開始
+```bash
+# 最小 bundle (5 KW = 9 slides)
+node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --bundle 2-2-5 --size carousel
+
+# 最大 bundle (16 KW = 20 slides・IG 上限ぴったり)
+node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --bundle 6-6-4-part2 --size carousel
+```
 
 ### 既存資産の互換性
 
 - `slide-data.json` の `cover` / `cta` フィールドは旧構造と互換
 - 旧スキーマの `board` / `figure` type は引き続き使える
 - 新 type `intro` / `summary` は追加のみ（既存ロジックを壊さない）
+- `--slug` モード（単独 KW）は引き続き利用可能（並行運用）
+
+## 8. Phase 3: 本文一括充実 → 全 bundle 画像生成
+
+### 本文ソースの現状
+
+`docs/sns/instagram/_backlog/**/slide-data.json` から旧 body を抽出した結果：
+- 旧 `_backlog/` には **118 ユニーク slug** の body データのみ
+- 新 65 bundle の全 655 KW 中、約 18%（114 件）が自動充実
+- 残り 82%（約 540 KW）は本文プレースホルダ `""` のまま
+
+### 本文補完の選択肢
+
+| ソース | カバー範囲 | 品質 | リスク |
+|---|---|---|---|
+| 旧 `_backlog/` 再利用 (実施済) | 18%（114/655） | 高 | なし |
+| サイト記事 article.mdx から要約抽出 | 〜100% | 中 | Red Line #4 該当外（IG PNG は SEO 影響なし） |
+| AI 自動要約 | 〜100% | 中 | コスト・要レビュー |
+| 運営者手書き | 100% | 最高 | 数週間 |
+
+### 一括生成スクリプト（次フェーズで追加）
+
+```bash
+# 全 65 bundle を一括生成
+for bundle in $(ls docs/sns/instagram/_section-bundles/); do
+  node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --bundle "$bundle" --size both
+done
+```
+
+または専用スクリプト `scripts/bulk-generate-ig-bundles.mjs` を追加。
+
+### スケジューラ統合
+
+- `.claude/state/instagram-schedule.json` の `content_key` を bundle ID（例: `2-2-5`）に変更
+- `.github/workflows/upload-instagram-assets.yml` の対象パスは `docs/sns/instagram/_section-bundles/` 配下に切替（`_` prefix 除外を一時解除）
+- `post-from-schedule.cjs` の参照パスを bundle 構造に対応
 
 ## 8. やらないこと
 
@@ -229,7 +266,7 @@ console.log('max KW:', Math.max(...d.bundles.map(b => b.keywords.length)));
 
 # 物理ディレクトリ数
 ls docs/sns/instagram/_section-bundles/ | wc -l
-# 期待値: 51
+# 期待値: 65
 
 # _backlog 退避数
 find docs/sns/instagram/_backlog -mindepth 2 -maxdepth 2 -type d | wc -l
@@ -248,3 +285,4 @@ find docs/sns/instagram/_backlog -mindepth 2 -maxdepth 2 -type d | wc -l
 ## 12. 改訂履歴
 
 - 2026-05-26 v1: 初版。MDX パース + 集約ルール (≤20 KW/bundle) で 660 → 51 bundle 圧縮。旧 722 ディレクトリは `_backlog/` 退避
+- 2026-05-26 v2 (Phase 2): パイプライン拡張完了。`notebook-intro/summary` ビルダー追加、`ig-post-create.mjs --bundle` 対応、`generate-caption.cjs` の bundle 検知。MAX_KW_PER_BUNDLE を 16 に調整し 51 → **65 bundle** に再計画（IG 20 枚上限ぴったり）

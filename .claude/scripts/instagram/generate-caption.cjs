@@ -34,16 +34,25 @@ const data = JSON.parse(fs.readFileSync(inputPath, "utf-8"));
 const dir = path.dirname(inputPath);
 const outputPath = path.join(dir, "caption.txt");
 
-const { cover, slides, cta } = data;
+const { cover, slides, cta, _meta } = data;
 if (!cover?.keyword) {
   console.error("slide-data.json に cover.keyword が必要です");
   process.exit(1);
 }
 
+const isBundle = Boolean(_meta?.bundleId);
+const kwCount = _meta?.keywordCount
+  ?? (Array.isArray(slides) ? slides.filter((s) => s.type === "board").length : 0);
+
 const lines = [];
 
-// タイトル行
-lines.push(`【用語集】${cover.keyword}${cover.subtitle ? ` — ${cover.subtitle}` : ""}`);
+// タイトル行（単独 KW モード or bundle モード）
+if (isBundle) {
+  const chapterLabel = _meta?.chapterTitle ? `【${_meta.chapterTitle}】` : "【保存版】";
+  lines.push(`${chapterLabel}${cover.keyword}（${kwCount}キーワードまとめ）`);
+} else {
+  lines.push(`【用語集】${cover.keyword}${cover.subtitle ? ` — ${cover.subtitle}` : ""}`);
+}
 lines.push("");
 
 // body 要約（最大 3 件）
@@ -58,7 +67,11 @@ for (const s of boards) {
 
 // CTA
 lines.push("─────────");
-lines.push("📌 保存して試験前日に見返す用語集");
+lines.push(
+  isBundle
+    ? "📌 保存して試験前日に見返すまとめ"
+    : "📌 保存して試験前日に見返す用語集",
+);
 lines.push("🔗 詳細解説はプロフィールの doboku-note サイトで");
 lines.push("");
 

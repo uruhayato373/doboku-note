@@ -1,58 +1,30 @@
 {
   "cover": {
-    "keyword": "事故・災害の未然防止活動・技術 Part 3",
+    "keyword": "事故・災害の未然防止活動・技術｜システムの高信頼化 (2/2)",
     "subtitle": "事故・災害の未然防止活動・技術",
-    "stickyText": "安全管理\n6KW",
+    "stickyText": "安全管理\n2KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "未然防止活動、定期点検活動、危険予知訓練（KYT）、TBM（ツールボックスミーティング）、標準作業手順書（SOP）、安全衛生パトロール",
-      "noteText": "安全管理 事故・災害の未然防止活動・技術（自主保安活動）"
+      "body": "小集団活動（ZD運動，改善提案活動，TPM，TQC等）、労働災害防止計画",
+      "noteText": "安全管理 事故・災害の未然防止活動・技術（システムの高信頼化）"
     },
     {
       "type": "board",
-      "heading": "未然防止活動",
+      "heading": "小集団活動（ZD運動，改善提案活動，TPM，TQC等）",
       "body": "",
       "noteText": "",
-      "slug": "prevention-activities"
+      "slug": "small-group-activities"
     },
     {
       "type": "board",
-      "heading": "定期点検活動",
+      "heading": "労働災害防止計画",
       "body": "",
       "noteText": "",
-      "slug": "periodic-inspection"
-    },
-    {
-      "type": "board",
-      "heading": "危険予知訓練（KYT）",
-      "body": "",
-      "noteText": "",
-      "slug": "kyt"
-    },
-    {
-      "type": "board",
-      "heading": "TBM（ツールボックスミーティング）",
-      "body": "",
-      "noteText": "",
-      "slug": "tbm-toolbox-meeting"
-    },
-    {
-      "type": "board",
-      "heading": "標準作業手順書（SOP）",
-      "body": "",
-      "noteText": "",
-      "slug": "sop"
-    },
-    {
-      "type": "board",
-      "heading": "安全衛生パトロール",
-      "body": "",
-      "noteText": "",
-      "slug": "safety-patrol"
+      "slug": "occupational-accident-prevention-plan"
     },
     {
       "type": "summary",
@@ -63,10 +35,8 @@
   ],
   "cta": {
     "related": [
-      "未然防止活動",
-      "定期点検活動",
-      "危険予知訓練（KYT）",
-      "TBM（ツールボックスミーティング）"
+      "小集団活動（ZD運動，改善提案活動，TPM，TQC等）",
+      "労働災害防止計画"
     ]
   },
   "_meta": {
@@ -74,9 +44,9 @@
     "chapterTitle": "安全管理",
     "sectionTitle": "事故・災害の未然防止活動・技術",
     "groupNames": [
-      "自主保安活動"
+      "システムの高信頼化"
     ],
-    "keywordCount": 6,
+    "keywordCount": 2,
     "partOf": "5.4"
   }
 }

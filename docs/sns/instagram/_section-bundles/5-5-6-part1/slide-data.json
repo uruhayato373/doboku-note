@@ -1,30 +1,32 @@
 {
   "cover": {
-    "keyword": "システム安全工学手法",
+    "keyword": "システム安全工学手法 Part 1",
     "subtitle": "システム安全工学手法",
-    "stickyText": "安全管理\n17KW",
+    "stickyText": "安全管理\n13KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "FMEA、HAZOP、HAZID、デシジョンツリー分析、フォールトツリー分析（FTA）、イベントツリー分析（ETA）、ボウタイ分析、PHA、人的過誤確率（HEP）、トライポッド理論、THERP、行動形成要因（PSF）、VTA法、信頼性ブロック図、直列システム、並列システム、根本原因分析（RCA）",
-      "noteText": "安全管理 システム安全工学手法（システム安全工学手法・ヒューマンエラー分析（人的過誤分析）・システム信頼度解析）"
+      "body": "FMEA、HAZOP、HAZID、デシジョンツリー分析、フォールトツリー分析（FTA）、イベントツリー分析（ETA）、ボウタイ分析、PHA、人的過誤確率（HEP）、トライポッド理論、THERP、行動形成要因（PSF）、VTA法",
+      "noteText": "安全管理 システム安全工学手法（システム安全工学手法・ヒューマンエラー分析（人的過誤分析））"
     },
     {
       "type": "board",
       "heading": "FMEA",
-      "body": "",
-      "noteText": "",
-      "slug": "fmea"
+      "body": "FMEAとは、システムの構成要素ごとに想定される故障モードとその影響を体系的に分析する手法である。帰納的・ボトムアップ型の分析手法であり、構成要素レベルからシステムレベルへ影響を積み上げて評価する。",
+      "noteText": "ボトムアップ型：構成要素の故障モードからシステムへの影響を分析",
+      "slug": "fmea",
+      "_legacySource": "_backlog/2026/2026-06-05-fmea"
     },
     {
       "type": "board",
       "heading": "HAZOP",
-      "body": "",
-      "noteText": "",
-      "slug": "hazop"
+      "body": "HAZOPとは、ガイドワードを用いてプロセスパラメータの逸脱を網羅的に検討し、ハザードや運転上の問題を特定する手法である。1960年代に英国ICI社が化学プラントの設計審査手法として開発した。",
+      "noteText": "プロセスパラメータの逸脱をガイドワードで体系的に検討する手法",
+      "slug": "hazop",
+      "_legacySource": "_backlog/2026/2026-06-09-hazop"
     },
     {
       "type": "board",
@@ -57,9 +59,10 @@
     {
       "type": "board",
       "heading": "ボウタイ分析",
-      "body": "",
-      "noteText": "",
-      "slug": "bowtie-analysis"
+      "body": "ボウタイ分析（Bow-Tie Analysis）とは、ハザードを中心に据え、左側に原因（脅威）と予防バリア、右側に結果と緩和バリアを蝶ネクタイ状に図示して、リスクの全体像を可視化する手法である。",
+      "noteText": "ISO 31010:2019 の推奨技法\n化学・石油・ガス産業で普及",
+      "slug": "bowtie-analysis",
+      "_legacySource": "_backlog/2026/2026-09-29-bowtie-analysis"
     },
     {
       "type": "board",
@@ -104,34 +107,6 @@
       "slug": "vta-method"
     },
     {
-      "type": "board",
-      "heading": "信頼性ブロック図",
-      "body": "",
-      "noteText": "",
-      "slug": "reliability-block-diagram"
-    },
-    {
-      "type": "board",
-      "heading": "直列システム",
-      "body": "",
-      "noteText": "",
-      "slug": "series-system"
-    },
-    {
-      "type": "board",
-      "heading": "並列システム",
-      "body": "",
-      "noteText": "",
-      "slug": "parallel-system"
-    },
-    {
-      "type": "board",
-      "heading": "根本原因分析（RCA）",
-      "body": "",
-      "noteText": "",
-      "slug": "root-cause-analysis"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -147,15 +122,14 @@
     ]
   },
   "_meta": {
-    "bundleId": "5-5.6",
+    "bundleId": "5-5.6-part1",
     "chapterTitle": "安全管理",
     "sectionTitle": "システム安全工学手法",
     "groupNames": [
       "システム安全工学手法",
-      "ヒューマンエラー分析（人的過誤分析）",
-      "システム信頼度解析"
+      "ヒューマンエラー分析（人的過誤分析）"
     ],
-    "keywordCount": 17,
-    "partOf": null
+    "keywordCount": 13,
+    "partOf": "5.6"
   }
 }

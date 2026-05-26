@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "工程管理 Part 1",
     "subtitle": "工程管理",
-    "stickyText": "経済性管理\n18KW",
+    "stickyText": "経済性管理\n13KW",
     "management": "economy"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "PQCDSME、JIT生産方式、プッシュ型生産方式、プル型生産方式、制約条件の理論（TOC）、工程計画、作業計画、リードタイム、稼働率、負荷工数・生産能力、負荷平準化（山積み・山くずし）、大日程計画・中日程計画・小日程計画、ガントチャート、ボトムアップ見積り、類推見積り、パラメトリック見積り、三点見積り、PERT/CPM",
-      "noteText": "経済性管理 工程管理（生産活動指標・生産方式・手順計画・負荷計画・日程計画・工数見積り）"
+      "body": "PQCDSME、JIT生産方式、プッシュ型生産方式、プル型生産方式、制約条件の理論（TOC）、工程計画、作業計画、リードタイム、稼働率、負荷工数・生産能力、負荷平準化（山積み・山くずし）、大日程計画・中日程計画・小日程計画、ガントチャート",
+      "noteText": "経済性管理 工程管理（生産活動指標・生産方式・手順計画・負荷計画・日程計画）"
     },
     {
       "type": "board",
@@ -99,44 +99,10 @@
     {
       "type": "board",
       "heading": "ガントチャート",
-      "body": "",
-      "noteText": "",
-      "slug": "gantt-chart"
-    },
-    {
-      "type": "board",
-      "heading": "ボトムアップ見積り",
-      "body": "",
-      "noteText": "",
-      "slug": "bottom-up-estimation"
-    },
-    {
-      "type": "board",
-      "heading": "類推見積り",
-      "body": "",
-      "noteText": "",
-      "slug": "analogous-estimation"
-    },
-    {
-      "type": "board",
-      "heading": "パラメトリック見積り",
-      "body": "",
-      "noteText": "",
-      "slug": "parametric-estimation"
-    },
-    {
-      "type": "board",
-      "heading": "三点見積り",
-      "body": "",
-      "noteText": "",
-      "slug": "three-point-estimation"
-    },
-    {
-      "type": "board",
-      "heading": "PERT/CPM",
-      "body": "",
-      "noteText": "",
-      "slug": "pert-cpm"
+      "body": "ガントチャートとは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を横棒（バー）で表す工程管理図である。直感的に工程全体を把握でき、小日程計画や進捗管理に広く用いられる。",
+      "noteText": "小日程計画・進捗報告に適した直感的な手法",
+      "slug": "gantt-chart",
+      "_legacySource": "_backlog/2026/2026-06-02-gantt-chart"
     },
     {
       "type": "summary",
@@ -162,10 +128,9 @@
       "生産方式",
       "手順計画",
       "負荷計画",
-      "日程計画",
-      "工数見積り"
+      "日程計画"
     ],
-    "keywordCount": 18,
+    "keywordCount": 13,
     "partOf": "2.3"
   }
 }

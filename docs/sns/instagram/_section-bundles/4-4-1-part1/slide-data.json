@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "情報分析と情報活用 Part 1",
     "subtitle": "情報分析と情報活用",
-    "stickyText": "情報管理\n15KW",
+    "stickyText": "情報管理\n13KW",
     "management": "info"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "アンケート分析、情報検索、情報推薦、記述統計、線形回帰と最小二乗法、ロジスティック回帰、相関分析、推定・検定、データ収集、データクレンジング、データマイニング、クラスター分析、データ可視化、機械学習、生成AI",
-      "noteText": "情報管理 情報分析と情報活用（情報分析技法・統計分析・ビッグデータ分析・人工知能（AI））"
+      "body": "アンケート分析、情報検索、情報推薦、記述統計、線形回帰と最小二乗法、ロジスティック回帰、相関分析、推定・検定、データ収集、データクレンジング、データマイニング、クラスター分析、データ可視化",
+      "noteText": "情報管理 情報分析と情報活用（情報分析技法・統計分析・ビッグデータ分析）"
     },
     {
       "type": "board",
@@ -57,9 +57,10 @@
     {
       "type": "board",
       "heading": "相関分析",
-      "body": "",
-      "noteText": "",
-      "slug": "correlation-analysis"
+      "body": "相関分析（Correlation Analysis）とは、2つの変数の間にどの程度の関連性があるかを定量的に評価する統計手法である。相関は「関連の強さと方向」を測定するものであり、因果関係を証明するものではない点に注意が必要である。",
+      "noteText": "相関=関連の強さ\n因果の証明でない",
+      "slug": "correlation-analysis",
+      "_legacySource": "_backlog/2027/2027-01-19-correlation-analysis"
     },
     {
       "type": "board",
@@ -92,9 +93,10 @@
     {
       "type": "board",
       "heading": "クラスター分析",
-      "body": "",
-      "noteText": "",
-      "slug": "cluster-analysis"
+      "body": "クラスター分析（cluster analysis）とは、複数のデータを類似性に基づいてグループ（クラスター）に分類する多変量解析手法であり、事前にグループ定義を与えない教師なし学習の代表手法である。",
+      "noteText": "R04出題：顧客購買履歴のプロファイリングにクラスター分析が正答",
+      "slug": "cluster-analysis",
+      "_legacySource": "_backlog/2026/2026-12-08-cluster-analysis"
     },
     {
       "type": "board",
@@ -102,20 +104,6 @@
       "body": "",
       "noteText": "",
       "slug": "data-visualization"
-    },
-    {
-      "type": "board",
-      "heading": "機械学習",
-      "body": "",
-      "noteText": "",
-      "slug": "machine-learning"
-    },
-    {
-      "type": "board",
-      "heading": "生成AI",
-      "body": "",
-      "noteText": "",
-      "slug": "generative-ai"
     },
     {
       "type": "summary",
@@ -139,10 +127,9 @@
     "groupNames": [
       "情報分析技法",
       "統計分析",
-      "ビッグデータ分析",
-      "人工知能（AI）"
+      "ビッグデータ分析"
     ],
-    "keywordCount": 15,
+    "keywordCount": 13,
     "partOf": "4.1"
   }
 }

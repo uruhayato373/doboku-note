@@ -30,8 +30,11 @@ const ROOT = join(__dirname, "..");
 const INPUT_JSON = join(ROOT, "src/config/pe-keyword-bundles.json");
 const OUTPUT_JSON = join(ROOT, "src/config/ig-section-bundles.json");
 
-const MAX_KW_PER_BUNDLE = 20; // IG カルーセル 20 枚上限から逆算 (タイトル+まとめ含めて約 18 KW 枠)
-const SOFT_MAX_KW = 18; // ソフト上限。これを超えたら次 bundle へ
+// IG カルーセル 20 枚上限から逆算
+// 1 bundle = cover(1) + intro(1) + board×N + summary(1) + cta(1) = N + 4 ≤ 20
+// → N ≤ 16
+const MAX_KW_PER_BUNDLE = 16;
+const SOFT_MAX_KW = 14; // ソフト上限。これを超えたら次 bundle へ
 const MIN_KW_PER_BUNDLE = 5; // 最小サイズ目安（これ未満は隣接マージ希望）
 
 function planSection(chapter, section) {

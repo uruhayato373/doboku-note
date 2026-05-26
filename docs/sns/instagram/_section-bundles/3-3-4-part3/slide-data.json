@@ -2,15 +2,44 @@
   "cover": {
     "keyword": "人材開発｜人的資源開発（HRD） (2/2)",
     "subtitle": "人材開発",
-    "stickyText": "人的資源管理\n3KW",
+    "stickyText": "人的資源管理\n7KW",
     "management": "hr"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "外国人研修・技能実習制度、キャリアパス、キャリアオーナーシップ",
+      "body": "スキル標準、CPD、ジョブローテーション、QCサークル、外国人研修・技能実習制度、キャリアパス、キャリアオーナーシップ",
       "noteText": "人的資源管理 人材開発（人的資源開発（HRD））"
+    },
+    {
+      "type": "board",
+      "heading": "スキル標準",
+      "body": "",
+      "noteText": "",
+      "slug": "skill-standards"
+    },
+    {
+      "type": "board",
+      "heading": "CPD",
+      "body": "CPD（継続的専門能力開発）とは、技術者が資格取得後も継続的に専門能力の向上・開発を行う活動の総称であり、継続研鑽とも呼ばれる。技術士法第47条の2で資質向上の責務が規定されている。",
+      "noteText": "資格取得後も継続研鑽\n技術士法で義務化",
+      "slug": "cpd",
+      "_legacySource": "_backlog/2027/2027-02-02-cpd"
+    },
+    {
+      "type": "board",
+      "heading": "ジョブローテーション",
+      "body": "",
+      "noteText": "",
+      "slug": "job-rotation"
+    },
+    {
+      "type": "board",
+      "heading": "QCサークル",
+      "body": "",
+      "noteText": "",
+      "slug": "qc-circle"
     },
     {
       "type": "board",
@@ -22,16 +51,18 @@
     {
       "type": "board",
       "heading": "キャリアパス",
-      "body": "",
-      "noteText": "",
-      "slug": "career-path"
+      "body": "キャリアパスとは、組織内でのキャリア形成における昇進・昇格・異動の道筋を体系的に示したものである。単線型（管理職昇進のみ）・複線型（管理職コースと専門職コースを並立するデュアルラダー）・マトリックス型の3類型がある。",
+      "noteText": "単線型と複線型の違いが出題頻出。デュアルラダーは技術系専門人材の確保に有効",
+      "slug": "career-path",
+      "_legacySource": "_backlog/2026/2026-10-20-career-path"
     },
     {
       "type": "board",
       "heading": "キャリアオーナーシップ",
-      "body": "",
-      "noteText": "",
-      "slug": "career-ownership"
+      "body": "キャリアオーナーシップとは、個人が自らのキャリアの主体者として、形成の方向性を自律的に考え行動することである（キャリア自律とも呼ぶ）。背景には終身雇用の変容・職業人生の長期化・環境変化の加速・多様な働き方の拡大がある。",
+      "noteText": "組織主導のキャリア管理から個人主導のキャリア自律へ転換",
+      "slug": "career-ownership",
+      "_legacySource": "_backlog/2026/2026-10-16-career-ownership"
     },
     {
       "type": "summary",
@@ -42,9 +73,10 @@
   ],
   "cta": {
     "related": [
-      "外国人研修・技能実習制度",
-      "キャリアパス",
-      "キャリアオーナーシップ"
+      "スキル標準",
+      "CPD",
+      "ジョブローテーション",
+      "QCサークル"
     ]
   },
   "_meta": {
@@ -54,7 +86,7 @@
     "groupNames": [
       "人的資源開発（HRD）"
     ],
-    "keywordCount": 3,
+    "keywordCount": 7,
     "partOf": "3.4"
   }
 }

@@ -1,156 +1,31 @@
 {
   "cover": {
-    "keyword": "地球的規模の環境問題｜生物多様性",
+    "keyword": "地球的規模の環境問題 Part 2",
     "subtitle": "地球的規模の環境問題",
-    "stickyText": "社会環境管理\n20KW",
+    "stickyText": "社会環境管理\n2KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "昆明・モントリオール生物多様性枠組、名古屋議定書、バイオセーフティ、IPBES、ミレニアム生態系評価、生態系サービス、ネイチャーポジティブ、SATOYAMAイニシアティブ、レッドリスト、ラムサール条約、ワシントン条約、生物多様性条約、生物多様性基本法、自然環境保全法、自然公園法、種の保存法、自然再生推進法、鳥獣保護管理法、特定外来生物、森里川海プロジェクト",
-      "noteText": "社会環境管理 地球的規模の環境問題（生物多様性）"
+      "body": "気候変動・国際対応、エネルギー",
+      "noteText": "社会環境管理 地球的規模の環境問題（気候変動・エネルギー問題）"
     },
     {
       "type": "board",
-      "heading": "昆明・モントリオール生物多様性枠組",
-      "body": "",
-      "noteText": "",
-      "slug": "kunming-montreal-framework"
+      "heading": "気候変動・国際対応",
+      "body": "IPCC（政府間気候変動パネル）は1988年にWMOとUNEPが設立した政府間組織であり、科学的知見を統合した評価報告書を定期公表し各国の気候変動政策の科学的基盤を提供する。",
+      "noteText": "AR6（2021〜23年）：人間活動が温暖化の原因と「疑う余地がない」と断定",
+      "slug": "climate-change-international",
+      "_legacySource": "_backlog/2026/2026-12-01-climate-change-international"
     },
     {
       "type": "board",
-      "heading": "名古屋議定書",
+      "heading": "エネルギー",
       "body": "",
       "noteText": "",
-      "slug": "nagoya-protocol"
-    },
-    {
-      "type": "board",
-      "heading": "バイオセーフティ",
-      "body": "",
-      "noteText": "",
-      "slug": "biosafety"
-    },
-    {
-      "type": "board",
-      "heading": "IPBES",
-      "body": "",
-      "noteText": "",
-      "slug": "ipbes"
-    },
-    {
-      "type": "board",
-      "heading": "ミレニアム生態系評価",
-      "body": "",
-      "noteText": "",
-      "slug": "millennium-ecosystem-assessment"
-    },
-    {
-      "type": "board",
-      "heading": "生態系サービス",
-      "body": "",
-      "noteText": "",
-      "slug": "ecosystem-services"
-    },
-    {
-      "type": "board",
-      "heading": "ネイチャーポジティブ",
-      "body": "",
-      "noteText": "",
-      "slug": "nature-positive"
-    },
-    {
-      "type": "board",
-      "heading": "SATOYAMAイニシアティブ",
-      "body": "",
-      "noteText": "",
-      "slug": "satoyama-initiative"
-    },
-    {
-      "type": "board",
-      "heading": "レッドリスト",
-      "body": "",
-      "noteText": "",
-      "slug": "red-list"
-    },
-    {
-      "type": "board",
-      "heading": "ラムサール条約",
-      "body": "",
-      "noteText": "",
-      "slug": "ramsar-convention"
-    },
-    {
-      "type": "board",
-      "heading": "ワシントン条約",
-      "body": "",
-      "noteText": "",
-      "slug": "cites"
-    },
-    {
-      "type": "board",
-      "heading": "生物多様性条約",
-      "body": "",
-      "noteText": "",
-      "slug": "convention-on-biodiversity"
-    },
-    {
-      "type": "board",
-      "heading": "生物多様性基本法",
-      "body": "",
-      "noteText": "",
-      "slug": "biodiversity-basic-act"
-    },
-    {
-      "type": "board",
-      "heading": "自然環境保全法",
-      "body": "",
-      "noteText": "",
-      "slug": "nature-conservation-act"
-    },
-    {
-      "type": "board",
-      "heading": "自然公園法",
-      "body": "",
-      "noteText": "",
-      "slug": "natural-parks-act"
-    },
-    {
-      "type": "board",
-      "heading": "種の保存法",
-      "body": "",
-      "noteText": "",
-      "slug": "species-preservation-act"
-    },
-    {
-      "type": "board",
-      "heading": "自然再生推進法",
-      "body": "",
-      "noteText": "",
-      "slug": "nature-restoration-act"
-    },
-    {
-      "type": "board",
-      "heading": "鳥獣保護管理法",
-      "body": "",
-      "noteText": "",
-      "slug": "wildlife-protection-act"
-    },
-    {
-      "type": "board",
-      "heading": "特定外来生物",
-      "body": "",
-      "noteText": "",
-      "slug": "invasive-alien-species"
-    },
-    {
-      "type": "board",
-      "heading": "森里川海プロジェクト",
-      "body": "",
-      "noteText": "",
-      "slug": "forests-villages-rivers-seas"
+      "slug": "energy"
     },
     {
       "type": "summary",
@@ -161,10 +36,8 @@
   ],
   "cta": {
     "related": [
-      "昆明・モントリオール生物多様性枠組",
-      "名古屋議定書",
-      "バイオセーフティ",
-      "IPBES"
+      "気候変動・国際対応",
+      "エネルギー"
     ]
   },
   "_meta": {
@@ -172,9 +45,9 @@
     "chapterTitle": "社会環境管理",
     "sectionTitle": "地球的規模の環境問題",
     "groupNames": [
-      "生物多様性"
+      "気候変動・エネルギー問題"
     ],
-    "keywordCount": 20,
+    "keywordCount": 2,
     "partOf": "6.1"
   }
 }

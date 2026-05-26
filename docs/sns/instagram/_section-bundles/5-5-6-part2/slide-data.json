@@ -1,0 +1,68 @@
+{
+  "cover": {
+    "keyword": "システム安全工学手法 Part 2",
+    "subtitle": "システム安全工学手法",
+    "stickyText": "安全管理\n4KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "信頼性ブロック図、直列システム、並列システム、根本原因分析（RCA）",
+      "noteText": "安全管理 システム安全工学手法（システム信頼度解析）"
+    },
+    {
+      "type": "board",
+      "heading": "信頼性ブロック図",
+      "body": "",
+      "noteText": "",
+      "slug": "reliability-block-diagram"
+    },
+    {
+      "type": "board",
+      "heading": "直列システム",
+      "body": "",
+      "noteText": "",
+      "slug": "series-system"
+    },
+    {
+      "type": "board",
+      "heading": "並列システム",
+      "body": "",
+      "noteText": "",
+      "slug": "parallel-system"
+    },
+    {
+      "type": "board",
+      "heading": "根本原因分析（RCA）",
+      "body": "",
+      "noteText": "",
+      "slug": "root-cause-analysis"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "信頼性ブロック図",
+      "直列システム",
+      "並列システム",
+      "根本原因分析（RCA）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.6-part2",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "システム安全工学手法",
+    "groupNames": [
+      "システム信頼度解析"
+    ],
+    "keywordCount": 4,
+    "partOf": "5.6"
+  }
+}

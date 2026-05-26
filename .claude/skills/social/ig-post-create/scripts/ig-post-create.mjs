@@ -2,20 +2,25 @@
  * Instagram Study Notebook スライド PNG 生成スクリプト
  *
  * 使い方:
+ *   # 単一 KW モード（旧運用）
  *   node ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size both
  *
+ *   # bundle モード（51 bundle 集約・現行運用）
+ *   node ig-post-create.mjs --bundle 2-2-2 --size both
+ *
  * オプション:
- *   --slug      キーワードスラグ（pe-comprehensive-management 配下のディレクトリ名）[必須]
- *   --date      投稿日（YYYY-MM-DD）[省略時: 今日]
+ *   --slug      キーワードスラグ（単一 KW モード・--bundle と排他）
+ *   --bundle    bundle ID（例: 2-2-2, 3-3-2-part4）。slide-data.json は
+ *               docs/sns/instagram/_section-bundles/<bundleId>/ から読む
+ *   --date      投稿日（YYYY-MM-DD）[省略時: 今日。bundle モードでは使われない]
  *   --size      reels | carousel | both [省略時: both]
  *   --category  カテゴリ（デフォルト: pe-comprehensive-management）
- *   --reset       slide-data.json を無視して MDX から再生成
+ *   --reset       slide-data.json を無視して MDX から再生成（slug モードのみ）
  *   --config-only slide-data.json のみ生成（PNG 生成スキップ）
  *
  * 出力先:
- *   docs/sns/instagram/{date}-{slug}/slide-data.json  ← 手動編集可能な設定ファイル
- *   docs/sns/instagram/{date}-{slug}/reels/img/       (1080×1920)
- *   docs/sns/instagram/{date}-{slug}/carousel/img/    (1080×1350)
+ *   slug モード: docs/sns/instagram/{date}-{slug}/{reels,carousel}/img/
+ *   bundle モード: docs/sns/instagram/_section-bundles/{bundleId}/{reels,carousel}/img/
  */
 
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -170,16 +175,26 @@ const { renderSlide } = await import(
 
 const args = parseArgs(process.argv.slice(2));
 const slug = args.slug;
+const bundleId = args.bundle;
 const category = args.category ?? 'pe-comprehensive-management';
 const date = args.date ?? new Date().toISOString().slice(0, 10);
 const sizeArg = args.size ?? 'both';
 const resetFlag = 'reset' in args;
 const configOnly = 'config-only' in args;
 
-if (!slug) {
-  console.error('Usage: node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both] [--reset] [--config-only]');
+if (!slug && !bundleId) {
+  console.error('Usage:');
+  console.error('  node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both] [--reset]');
+  console.error('  node ig-post-create.mjs --bundle <bundleId> [--size reels|carousel|both]');
   process.exit(1);
 }
+
+if (slug && bundleId) {
+  console.error('Error: --slug と --bundle は排他です');
+  process.exit(1);
+}
+
+const mode = bundleId ? 'bundle' : 'slug';
 
 const ALL_SIZES = [
   { name: 'reels',    width: 1080, height: 1920 },
@@ -194,14 +209,25 @@ if (sizes.length === 0) {
   process.exit(1);
 }
 
-const outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
+const outBase = mode === 'bundle'
+  ? resolve(ROOT, `docs/sns/instagram/_section-bundles/${bundleId}`)
+  : resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
 const configPath = resolve(outBase, 'slide-data.json');
 
-console.log(`\n[ig-post-create] slug: ${slug}  date: ${date}  size: ${sizeArg}`);
+console.log(`\n[ig-post-create] mode: ${mode}  ${mode === 'bundle' ? `bundle: ${bundleId}` : `slug: ${slug}  date: ${date}`}  size: ${sizeArg}`);
 
 let slideData;
 
-if (existsSync(configPath) && !resetFlag) {
+if (mode === 'bundle') {
+  // bundle モード: 既存 slide-data.json を読むのみ（MDX 抽出はしない）
+  if (!existsSync(configPath)) {
+    console.error(`Error: bundle slide-data.json not found: ${configPath}`);
+    console.error('Hint: node scripts/generate-ig-bundle-dirs.mjs で生成してください');
+    process.exit(1);
+  }
+  slideData = JSON.parse(readFileSync(configPath, 'utf8'));
+  console.log(`  [config] bundle slide-data.json を使用 (${slideData.slides?.length ?? 0} slides)`);
+} else if (existsSync(configPath) && !resetFlag) {
   // 再実行: slide-data.json から読み込み（MDX 解析スキップ）
   slideData = normalizeSlideData(JSON.parse(readFileSync(configPath, 'utf8')));
   console.log(`  [config] slide-data.json を使用`);
@@ -254,14 +280,28 @@ if (configOnly) {
 const management = slideData.cover?.management || 'safety';
 const padNum = (n) => String(n).padStart(2, '0');
 
+const SLIDE_TYPE_MAP = {
+  intro:   'notebook-intro',
+  board:   'notebook-board',
+  figure:  'notebook-figure',
+  summary: 'notebook-summary',
+};
+
+function slideFilePart(type) {
+  if (type === 'intro') return 'intro';
+  if (type === 'figure') return 'figure';
+  if (type === 'summary') return 'summary';
+  return 'board';
+}
+
 const SLIDES = [
   { file: '00-cover.png', slide: { type: 'notebook-cover', data: slideData.cover } },
   ...slideData.slides.map((s, i) => {
-    const data = { ...resolveFigureImage(s), management };
+    const resolved = s.type === 'figure' ? resolveFigureImage(s) : s;
+    const data = { ...resolved, management };
     const num = padNum(i + 1);
-    return s.type === 'figure'
-      ? { file: `${num}-figure.png`, slide: { type: 'notebook-figure', data } }
-      : { file: `${num}-board.png`,  slide: { type: 'notebook-board',  data } };
+    const notebookType = SLIDE_TYPE_MAP[s.type] || 'notebook-board';
+    return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: notebookType, data } };
   }),
   {
     file: `${padNum(slideData.slides.length + 1)}-cta.png`,
@@ -269,8 +309,9 @@ const SLIDES = [
   },
 ];
 
-if (SLIDES.length < 3 || SLIDES.length > 10) {
-  console.warn(`  [warn] カルーセル ${SLIDES.length} 枚（Instagram 制約 2-10・推奨 3-10）`);
+const IG_MAX = 20; // Instagram カルーセル上限（2024-02 以降 20 枚）
+if (SLIDES.length < 3 || SLIDES.length > IG_MAX) {
+  console.warn(`  [warn] カルーセル ${SLIDES.length} 枚（Instagram 制約 2-${IG_MAX}）`);
 }
 console.log(`  slides: ${SLIDES.length} 枚 (cover + ${slideData.slides.length} + cta)`);
 

@@ -22,9 +22,10 @@
     {
       "type": "board",
       "heading": "匿名加工情報",
-      "body": "",
-      "noteText": "",
-      "slug": "anonymized-information"
+      "body": "匿名加工情報とは、個人情報を加工して特定の個人を識別できないようにし、かつ復元できないようにしたものをいう（個人情報保護法第2条第6項）。2015年改正で新設され、本人同意なく第三者提供が可能である。",
+      "noteText": "ビッグデータ・オープンデータ活用の基盤",
+      "slug": "anonymized-information",
+      "_legacySource": "_backlog/2026/2026-08-07-anonymized-information"
     },
     {
       "type": "board",
@@ -92,16 +93,18 @@
     {
       "type": "board",
       "heading": "独占禁止法とコンプライアンス",
-      "body": "",
-      "noteText": "",
-      "slug": "antitrust-compliance"
+      "body": "独占禁止法（私的独占の禁止及び公正取引の確保に関する法律）とは、公正かつ自由な競争を促進し、事業者の自主的な経済活動と消費者利益を守ることを目的とする法律である。公正取引委員会が所管する。",
+      "noteText": "企業の事業活動に不可欠な基本法規のひとつ",
+      "slug": "antitrust-compliance",
+      "_legacySource": "_backlog/2026/2026-08-11-antitrust-compliance"
     },
     {
       "type": "board",
       "heading": "談合",
-      "body": "",
-      "noteText": "",
-      "slug": "bid-rigging"
+      "body": "談合（入札談合）とは、入札に参加する事業者同士が事前に話し合い、落札者や落札価格を取り決める行為である。独占禁止法が禁止する不当な取引制限（カルテル）の一類型であり、公正競争を阻害して発注者に損害を与える。刑法上の談合罪にも該当しうる。",
+      "noteText": "独禁法第3条に違反する不当な取引制限",
+      "slug": "bid-rigging",
+      "_legacySource": "_backlog/2026/2026-09-11-bid-rigging"
     },
     {
       "type": "summary",

@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "安全に関するリスクマネジメント Part 1",
     "subtitle": "安全に関するリスクマネジメント",
-    "stickyText": "安全管理\n18KW",
+    "stickyText": "安全管理\n14KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "リスク、ハザード（潜在的危険要因）、リスクマップ／リスクマトリクス、起こりやすさ（発生確率・頻度）、影響（影響の種類・影響の規模）、リスクマネジメント計画、リスク基準、リスクマネジメントシステム、リスクマネジメント方針、リスク特定、リスク分析、リスク評価、リスク対応、リスクモニタリング、社会的受容（PA）、リスク認知、ALARPの原則、残留リスク",
-      "noteText": "安全管理 安全に関するリスクマネジメント（リスクアセスメント・リスクコミュニケーション）"
+      "body": "リスク、ハザード（潜在的危険要因）、リスクマップ／リスクマトリクス、起こりやすさ（発生確率・頻度）、影響（影響の種類・影響の規模）、リスクマネジメント計画、リスク基準、リスクマネジメントシステム、リスクマネジメント方針、リスク特定、リスク分析、リスク評価、リスク対応、リスクモニタリング",
+      "noteText": "安全管理 安全に関するリスクマネジメント（リスクアセスメント）"
     },
     {
       "type": "board",
@@ -111,34 +111,6 @@
       "slug": "risk-monitoring"
     },
     {
-      "type": "board",
-      "heading": "社会的受容（PA）",
-      "body": "",
-      "noteText": "",
-      "slug": "public-acceptance"
-    },
-    {
-      "type": "board",
-      "heading": "リスク認知",
-      "body": "",
-      "noteText": "",
-      "slug": "risk-perception"
-    },
-    {
-      "type": "board",
-      "heading": "ALARPの原則",
-      "body": "",
-      "noteText": "",
-      "slug": "alarp-principle"
-    },
-    {
-      "type": "board",
-      "heading": "残留リスク",
-      "body": "",
-      "noteText": "",
-      "slug": "residual-risk"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -158,10 +130,9 @@
     "chapterTitle": "安全管理",
     "sectionTitle": "安全に関するリスクマネジメント",
     "groupNames": [
-      "リスクアセスメント",
-      "リスクコミュニケーション"
+      "リスクアセスメント"
     ],
-    "keywordCount": 18,
+    "keywordCount": 14,
     "partOf": "5.2"
   }
 }

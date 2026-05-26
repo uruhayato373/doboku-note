@@ -1,16 +1,16 @@
 {
   "cover": {
-    "keyword": "設備管理",
+    "keyword": "設備管理 Part 1",
     "subtitle": "設備管理",
-    "stickyText": "経済性管理\n17KW",
+    "stickyText": "経済性管理\n10KW",
     "management": "economy"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "設備の管理特性、設備の信頼性、設備の保全性、設備の経済性、設備総合効率、初期投資、使用計画期間、取替費用、設備維持費用、バスタブカーブ、自主保全、定期保全、予知保全、事後保全、予防保全、改良保全、保全予防",
-      "noteText": "経済性管理 設備管理（設備管理・設備計画・設備保全）"
+      "body": "設備の管理特性、設備の信頼性、設備の保全性、設備の経済性、設備総合効率、初期投資、使用計画期間、取替費用、設備維持費用、バスタブカーブ",
+      "noteText": "経済性管理 設備管理（設備管理・設備計画）"
     },
     {
       "type": "board",
@@ -78,58 +78,10 @@
     {
       "type": "board",
       "heading": "バスタブカーブ",
-      "body": "",
-      "noteText": "",
-      "slug": "bathtub-curve"
-    },
-    {
-      "type": "board",
-      "heading": "自主保全",
-      "body": "",
-      "noteText": "",
-      "slug": "autonomous-maintenance"
-    },
-    {
-      "type": "board",
-      "heading": "定期保全",
-      "body": "",
-      "noteText": "",
-      "slug": "periodic-maintenance"
-    },
-    {
-      "type": "board",
-      "heading": "予知保全",
-      "body": "",
-      "noteText": "",
-      "slug": "predictive-maintenance"
-    },
-    {
-      "type": "board",
-      "heading": "事後保全",
-      "body": "",
-      "noteText": "",
-      "slug": "corrective-maintenance"
-    },
-    {
-      "type": "board",
-      "heading": "予防保全",
-      "body": "",
-      "noteText": "",
-      "slug": "preventive-maintenance"
-    },
-    {
-      "type": "board",
-      "heading": "改良保全",
-      "body": "",
-      "noteText": "",
-      "slug": "improvement-maintenance"
-    },
-    {
-      "type": "board",
-      "heading": "保全予防",
-      "body": "",
-      "noteText": "",
-      "slug": "maintenance-prevention"
+      "body": "バスタブカーブ（寿命特性曲線）とは、設備や部品の故障率が使用開始からの時間経過とともにどのように変化するかを示した曲線である。横軸に時間、縦軸に故障率をとると浴槽の断面に似た形状を描くことからこの名称が付けられた。",
+      "noteText": "設備のライフサイクル全体の故障傾向を把握する基本概念",
+      "slug": "bathtub-curve",
+      "_legacySource": "_backlog/2026/2026-09-04-bathtub-curve"
     },
     {
       "type": "summary",
@@ -147,15 +99,14 @@
     ]
   },
   "_meta": {
-    "bundleId": "2-2.6",
+    "bundleId": "2-2.6-part1",
     "chapterTitle": "経済性管理",
     "sectionTitle": "設備管理",
     "groupNames": [
       "設備管理",
-      "設備計画",
-      "設備保全"
+      "設備計画"
     ],
-    "keywordCount": 17,
-    "partOf": null
+    "keywordCount": 10,
+    "partOf": "2.6"
   }
 }

@@ -2,15 +2,52 @@
   "cover": {
     "keyword": "工程管理 Part 2",
     "subtitle": "工程管理",
-    "stickyText": "経済性管理\n6KW",
+    "stickyText": "経済性管理\n11KW",
     "management": "economy"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "進捗管理、余力管理、現品管理、可視化（目で見る管理）、5S、ECRSの原則（Eliminate, Combine, Rearrange, Simplify）",
-      "noteText": "経済性管理 工程管理（生産統制・改善活動）"
+      "body": "ボトムアップ見積り、類推見積り、パラメトリック見積り、三点見積り、PERT/CPM、進捗管理、余力管理、現品管理、可視化（目で見る管理）、5S、ECRSの原則（Eliminate, Combine, Rearrange, Simplify）",
+      "noteText": "経済性管理 工程管理（工数見積り・生産統制・改善活動）"
+    },
+    {
+      "type": "board",
+      "heading": "ボトムアップ見積り",
+      "body": "ボトムアップ見積り（Bottom-Up Estimation）とは、作業をWBS（作業分解構造）で最小単位（ワークパッケージ）まで分解し、各作業の所要時間・コストを個別に見積もって積み上げる手法である。",
+      "noteText": "精度が最も高い見積り手法\n工数と時間がかかる点が限界",
+      "slug": "bottom-up-estimation",
+      "_legacySource": "_backlog/2026/2026-09-25-bottom-up-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "類推見積り",
+      "body": "類推見積り（Analogous Estimation）とは、過去の類似プロジェクトの実績データをもとに、現在のプロジェクトの工期・コスト・工数を概算する手法である。トップダウン見積りとも呼ばれる。",
+      "noteText": "WBS 未整備でも初期段階で概算可能",
+      "slug": "analogous-estimation",
+      "_legacySource": "_backlog/2026/2026-07-31-analogous-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "パラメトリック見積り",
+      "body": "",
+      "noteText": "",
+      "slug": "parametric-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "三点見積り",
+      "body": "",
+      "noteText": "",
+      "slug": "three-point-estimation"
+    },
+    {
+      "type": "board",
+      "heading": "PERT/CPM",
+      "body": "",
+      "noteText": "",
+      "slug": "pert-cpm"
     },
     {
       "type": "board",
@@ -22,9 +59,10 @@
     {
       "type": "board",
       "heading": "余力管理",
-      "body": "",
-      "noteText": "",
-      "slug": "capacity-management"
+      "body": "余力管理（Capacity Management）とは、各工程の生産能力と負荷工数の差（余力）を把握し、過不足を調整する管理活動である。余力がマイナスなら能力不足、プラスなら遊休を意味する。JIS Z 8141では工数管理の別称もある。",
+      "noteText": "余力＝生産能力−負荷工数（JIS Z 8141 用語番号 4103）",
+      "slug": "capacity-management",
+      "_legacySource": "_backlog/2026/2026-10-09-capacity-management"
     },
     {
       "type": "board",
@@ -63,10 +101,10 @@
   ],
   "cta": {
     "related": [
-      "進捗管理",
-      "余力管理",
-      "現品管理",
-      "可視化（目で見る管理）"
+      "ボトムアップ見積り",
+      "類推見積り",
+      "パラメトリック見積り",
+      "三点見積り"
     ]
   },
   "_meta": {
@@ -74,10 +112,11 @@
     "chapterTitle": "経済性管理",
     "sectionTitle": "工程管理",
     "groupNames": [
+      "工数見積り",
       "生産統制",
       "改善活動"
     ],
-    "keywordCount": 6,
+    "keywordCount": 11,
     "partOf": "2.3"
   }
 }

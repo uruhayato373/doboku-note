@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "安全の概念 Part 1",
     "subtitle": "安全の概念",
-    "stickyText": "安全管理\n15KW",
+    "stickyText": "安全管理\n12KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "安全マネジメントシステム、安全管理、安全目標、安全投資、防災、レジリエンス、オールハザードアプローチ、公衆安全、消費者安全、インフラ老朽化対策、スマート保安、サイバーセキュリティ、プロセスセーフティマネジメント（PSM）、システム安全、製品安全",
-      "noteText": "安全管理 安全の概念（安全マネジメント・社会安全・プロセス安全）"
+      "body": "安全マネジメントシステム、安全管理、安全目標、安全投資、防災、レジリエンス、オールハザードアプローチ、公衆安全、消費者安全、インフラ老朽化対策、スマート保安、サイバーセキュリティ",
+      "noteText": "安全管理 安全の概念（安全マネジメント・社会安全）"
     },
     {
       "type": "board",
@@ -57,9 +57,10 @@
     {
       "type": "board",
       "heading": "オールハザードアプローチ",
-      "body": "",
-      "noteText": "",
-      "slug": "all-hazard-approach"
+      "body": "オールハザードアプローチとは、あらゆる種類のハザード（危険事象）に対して共通の危機管理体制・手順で対応する考え方である。ハザードの種類を問わず同じ指揮体系・手順を適用する。米国FEMAが推進し国際的に普及した。",
+      "noteText": "利点：想定外・複合災害に対応可能。欠点：個別ハザードの専門性が薄れるリスク",
+      "slug": "all-hazard-approach",
+      "_legacySource": "_backlog/2026/2026-07-28-all-hazard-approach"
     },
     {
       "type": "board",
@@ -71,16 +72,18 @@
     {
       "type": "board",
       "heading": "消費者安全",
-      "body": "",
-      "noteText": "",
-      "slug": "consumer-safety"
+      "body": "消費者安全とは、消費者の生命・身体・財産を商品・サービス・取引に起因する危害から守ることである。消費者安全法（2009年）を中心に、製品安全・食品安全・取引安全を包括する法体系が構築されている。",
+      "noteText": "5.1 安全の概念に位置づけられるキーワード",
+      "slug": "consumer-safety",
+      "_legacySource": "_backlog/2027/2027-01-05-consumer-safety"
     },
     {
       "type": "board",
       "heading": "インフラ老朽化対策",
-      "body": "",
-      "noteText": "",
-      "slug": "aging-infrastructure"
+      "body": "インフラ老朽化対策とは、高度経済成長期に集中整備された社会インフラ（橋・トンネル・水道・下水道等）が一斉に更新時期を迎える問題に対し、計画的な維持管理・更新によって機能と安全を確保する取組である。",
+      "noteText": "事後保全から予防保全への転換とメンテナンスサイクル構築が中核方策",
+      "slug": "aging-infrastructure",
+      "_legacySource": "_backlog/2026/2026-07-17-aging-infrastructure"
     },
     {
       "type": "board",
@@ -95,27 +98,6 @@
       "body": "",
       "noteText": "",
       "slug": "cybersecurity-safety"
-    },
-    {
-      "type": "board",
-      "heading": "プロセスセーフティマネジメント（PSM）",
-      "body": "",
-      "noteText": "",
-      "slug": "process-safety-mgmt"
-    },
-    {
-      "type": "board",
-      "heading": "システム安全",
-      "body": "",
-      "noteText": "",
-      "slug": "system-safety"
-    },
-    {
-      "type": "board",
-      "heading": "製品安全",
-      "body": "",
-      "noteText": "",
-      "slug": "product-safety"
     },
     {
       "type": "summary",
@@ -138,10 +120,9 @@
     "sectionTitle": "安全の概念",
     "groupNames": [
       "安全マネジメント",
-      "社会安全",
-      "プロセス安全"
+      "社会安全"
     ],
-    "keywordCount": 15,
+    "keywordCount": 12,
     "partOf": "5.1"
   }
 }

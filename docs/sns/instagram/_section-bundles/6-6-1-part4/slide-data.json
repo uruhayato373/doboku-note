@@ -1,0 +1,68 @@
+{
+  "cover": {
+    "keyword": "地球的規模の環境問題｜生物多様性 (2/2)",
+    "subtitle": "地球的規模の環境問題",
+    "stickyText": "社会環境管理\n4KW",
+    "management": "environment"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "自然再生推進法、鳥獣保護管理法、特定外来生物、森里川海プロジェクト",
+      "noteText": "社会環境管理 地球的規模の環境問題（生物多様性）"
+    },
+    {
+      "type": "board",
+      "heading": "自然再生推進法",
+      "body": "",
+      "noteText": "",
+      "slug": "nature-restoration-act"
+    },
+    {
+      "type": "board",
+      "heading": "鳥獣保護管理法",
+      "body": "",
+      "noteText": "",
+      "slug": "wildlife-protection-act"
+    },
+    {
+      "type": "board",
+      "heading": "特定外来生物",
+      "body": "",
+      "noteText": "",
+      "slug": "invasive-alien-species"
+    },
+    {
+      "type": "board",
+      "heading": "森里川海プロジェクト",
+      "body": "",
+      "noteText": "",
+      "slug": "forests-villages-rivers-seas"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "自然再生推進法",
+      "鳥獣保護管理法",
+      "特定外来生物",
+      "森里川海プロジェクト"
+    ]
+  },
+  "_meta": {
+    "bundleId": "6-6.1-part4",
+    "chapterTitle": "社会環境管理",
+    "sectionTitle": "地球的規模の環境問題",
+    "groupNames": [
+      "生物多様性"
+    ],
+    "keywordCount": 4,
+    "partOf": "6.1"
+  }
+}

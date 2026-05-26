@@ -36,6 +36,10 @@ export const MANAGEMENT_MAP = {
   info:     { index: 2, stickyColor: '#e0d4f7', label: '情報管理' },
   safety:   { index: 3, stickyColor: '#fde58a', label: '安全管理' },
   social:   { index: 4, stickyColor: '#f5d4d4', label: '社会環境管理' },
+  // alias for bundle SoT (ig-section-bundles.json)
+  economy:     { index: 0, stickyColor: '#bfdcef', label: '経済性管理' },
+  hr:          { index: 1, stickyColor: '#d0e8d0', label: '人的資源管理' },
+  environment: { index: 4, stickyColor: '#f5d4d4', label: '社会環境管理' },
 };
 
 const MGMT_LABELS = ['経済性', '人的', '情報', '安全', '社会'];
@@ -516,6 +520,186 @@ export function buildNotebookCta({ width, height, data }) {
       ]),
     ]),
 
+  ]);
+}
+
+/**
+ * notebook-intro スライド (bundle カルーセル用)
+ *
+ * bundle 1 投稿の 2 枚目に配置し、含まれる全 KW を一覧表示する。
+ *
+ * data: {
+ *   heading: string,     // 'この投稿で学ぶこと' 等
+ *   keywords: string[],  // 含まれる KW タイトル一覧
+ *   noteText: string,    // 'セクション名 + グループ名' 等の文脈
+ *   management: string,
+ *   date: string,
+ *   caption: string,
+ * }
+ */
+export function buildNotebookIntro({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const keywords = Array.isArray(data.keywords)
+    ? data.keywords
+    : (data.body || '').split(/[、,]\s*/).filter(Boolean);
+  const noteLines = (data.noteText || '').split('\n');
+
+  // KW 数で 2 列に分けるかを判定
+  const useTwoColumns = keywords.length > 8;
+  const halfPoint = Math.ceil(keywords.length / 2);
+  const leftCol = useTwoColumns ? keywords.slice(0, halfPoint) : keywords;
+  const rightCol = useTwoColumns ? keywords.slice(halfPoint) : [];
+
+  const renderKwList = (list) =>
+    d({
+      flexDirection: 'column',
+      gap: 8,
+      flexGrow: 1,
+    }, list.map((kw, i) =>
+      d({
+        fontSize: useTwoColumns ? L.bodyFontSize - 4 : L.bodyFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.ink,
+        lineHeight: 1.4,
+      }, `${useTwoColumns ? '・' : '▷ '}${kw}`)
+    ));
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+
+    d({
+      position: 'absolute',
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+      flexDirection: 'column',
+    }, [
+      // 管理区分バッジ
+      d({
+        fontSize: L.labelFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.inkBody,
+        background: mgmt.stickyColor,
+        paddingTop: 8, paddingBottom: 8,
+        paddingLeft: 20, paddingRight: 20,
+        alignSelf: 'flex-start',
+        marginBottom: 20,
+        letterSpacing: '0.06em',
+      }, `▌ ${mgmt.label}`),
+
+      // 見出し
+      d({
+        fontSize: L.headingFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.brandDeep,
+        borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
+        paddingBottom: 12,
+        marginBottom: 28,
+      }, data.heading || 'この投稿で学ぶこと'),
+
+      // KW 一覧（1 列 or 2 列）
+      useTwoColumns
+        ? d({
+            flexGrow: 1,
+            gap: 32,
+          }, [renderKwList(leftCol), renderKwList(rightCol)])
+        : renderKwList(leftCol),
+
+      // フッターメモ（破線下線）
+      data.noteText
+        ? d({
+            marginTop: 24,
+            paddingTop: 18,
+            borderTop: `2px dashed ${NOTEBOOK_TOKENS.paperLine}`,
+            flexDirection: 'column',
+            fontSize: L.bodyFontSize - 8,
+            fontWeight: 700,
+            color: NOTEBOOK_TOKENS.inkBody,
+            lineHeight: 1.5,
+          }, noteLines.map(line => d({ display: 'flex' }, line || ' ')))
+        : null,
+    ]),
+  ]);
+}
+
+/**
+ * notebook-summary スライド (bundle カルーセル用)
+ *
+ * bundle 1 投稿の最終枚目近くに配置し、まとめ・試験ポイントを示す。
+ *
+ * data: {
+ *   heading: string,     // 'まとめ｜試験のポイント' 等
+ *   body: string,        // まとめ本文（'\n' で改行）
+ *   noteText: string,    // '保存して試験前日に見返してください' 等
+ *   management: string,
+ *   date: string,
+ *   caption: string,
+ * }
+ */
+export function buildNotebookSummary({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const bodyLines = (data.body || '').split('\n');
+  const noteLines = (data.noteText || '保存して試験前日に見返してください').split('\n');
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+
+    d({
+      position: 'absolute',
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+      flexDirection: 'column',
+      justifyContent: 'center',
+    }, [
+      // 見出し（マーカー風）
+      d({
+        fontSize: L.headingFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.ink,
+        borderBottom: `12px solid ${NOTEBOOK_TOKENS.marker}`,
+        paddingBottom: 6,
+        alignSelf: 'flex-start',
+        marginBottom: 36,
+      }, data.heading || 'まとめ｜試験のポイント'),
+
+      // 本文
+      data.body
+        ? d({
+            flexDirection: 'column',
+            fontSize: L.bodyFontSize,
+            fontWeight: 600,
+            color: NOTEBOOK_TOKENS.inkBody,
+            lineHeight: 1.7,
+            marginBottom: 40,
+          }, bodyLines.map(line => d({ display: 'flex' }, line || ' ')))
+        : null,
+
+      // 黄色付箋風のリマインダーカード
+      d({
+        background: NOTEBOOK_TOKENS.sticky,
+        paddingTop: 24, paddingBottom: 24,
+        paddingLeft: 32, paddingRight: 32,
+        flexDirection: 'column',
+        gap: 8,
+        boxShadow: '4px 6px 12px rgba(0,0,0,0.10)',
+        transform: 'rotate(-1.5deg)',
+        alignSelf: 'flex-start',
+        maxWidth: '85%',
+      }, [
+        d({
+          fontSize: 30,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.red,
+        }, '▶ 保存推奨'),
+        ...noteLines.map(line => d({
+          fontSize: L.bodyFontSize - 4,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.ink,
+          lineHeight: 1.5,
+        }, line || ' ')),
+      ]),
+    ]),
   ]);
 }
 

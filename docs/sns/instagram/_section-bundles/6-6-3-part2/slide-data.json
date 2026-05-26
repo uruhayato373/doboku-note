@@ -2,22 +2,67 @@
   "cover": {
     "keyword": "環境保全の基本原則 Part 2",
     "subtitle": "環境保全の基本原則",
-    "stickyText": "社会環境管理\n3KW",
+    "stickyText": "社会環境管理\n9KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "バックキャスティング、ライフサイクルアセスメント、ESD",
-      "noteText": "社会環境管理 環境保全の基本原則（自主的取組手法・環境教育）"
+      "body": "環境税・カーボンプライシング、課徴金、デポジット制度、環境ラベル、環境影響評価法、合意的手法、バックキャスティング、ライフサイクルアセスメント、ESD",
+      "noteText": "社会環境管理 環境保全の基本原則（経済的手法・情報的手法・手続き的手法・自主的取組手法・環境教育）"
+    },
+    {
+      "type": "board",
+      "heading": "環境税・カーボンプライシング",
+      "body": "カーボンプライシングとは、CO2等の温室効果ガスの排出に価格を付けることで排出削減のインセンティブを与える経済的手法である。汚染者負担原則（PPP）を市場メカニズムで実現する手段として位置づけられる。",
+      "noteText": "主な類型：炭素税・排出量取引・クレジット取引の3種",
+      "slug": "carbon-pricing",
+      "_legacySource": "_backlog/2026/2026-10-13-carbon-pricing"
+    },
+    {
+      "type": "board",
+      "heading": "課徴金",
+      "body": "",
+      "noteText": "",
+      "slug": "surcharge"
+    },
+    {
+      "type": "board",
+      "heading": "デポジット制度",
+      "body": "",
+      "noteText": "",
+      "slug": "deposit-system"
+    },
+    {
+      "type": "board",
+      "heading": "環境ラベル",
+      "body": "",
+      "noteText": "",
+      "slug": "eco-label"
+    },
+    {
+      "type": "board",
+      "heading": "環境影響評価法",
+      "body": "",
+      "noteText": "",
+      "slug": "environmental-impact-assessment"
+    },
+    {
+      "type": "board",
+      "heading": "合意的手法",
+      "body": "合意的手法とは、行政と事業者が協議・合意に基づき、環境保全に関する目標や行動を自主的に取り決める政策手法である。公害防止協定・自主行動計画・環境協定が主な形態として挙げられる。",
+      "noteText": "規制・経済・情報的手法と並ぶ4手法の一つ",
+      "slug": "consensus-instruments",
+      "_legacySource": "_backlog/2026/2026-12-29-consensus-instruments"
     },
     {
       "type": "board",
       "heading": "バックキャスティング",
-      "body": "",
-      "noteText": "",
-      "slug": "backcasting"
+      "body": "バックキャスティングとは、将来のあるべき姿（目標）を先に設定し、そこから現在に向けて逆算して施策・行動を導くアプローチである。現状の制約を取り払い、理想から今を規定する思考法である。",
+      "noteText": "フォアキャスティング：現状から\n未来を予測（方向が正反対）",
+      "slug": "backcasting",
+      "_legacySource": "_backlog/2026/2026-08-28-backcasting"
     },
     {
       "type": "board",
@@ -42,9 +87,10 @@
   ],
   "cta": {
     "related": [
-      "バックキャスティング",
-      "ライフサイクルアセスメント",
-      "ESD"
+      "環境税・カーボンプライシング",
+      "課徴金",
+      "デポジット制度",
+      "環境ラベル"
     ]
   },
   "_meta": {
@@ -52,10 +98,13 @@
     "chapterTitle": "社会環境管理",
     "sectionTitle": "環境保全の基本原則",
     "groupNames": [
+      "経済的手法",
+      "情報的手法",
+      "手続き的手法",
       "自主的取組手法",
       "環境教育"
     ],
-    "keywordCount": 3,
+    "keywordCount": 9,
     "partOf": "6.3"
   }
 }

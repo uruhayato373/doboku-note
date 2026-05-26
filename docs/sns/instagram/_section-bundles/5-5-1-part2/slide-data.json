@@ -2,15 +2,36 @@
   "cover": {
     "keyword": "安全の概念 Part 2",
     "subtitle": "安全の概念",
-    "stickyText": "安全管理\n9KW",
+    "stickyText": "安全管理\n12KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "消防法、高圧ガス保安法、消費生活用製品安全法、製造物責任法（PL法）、機械の包括的な安全基準に関する指針、Safety2.0、ELSI、安全文化、安全／安心",
-      "noteText": "安全管理 安全の概念（安全法規）"
+      "body": "プロセスセーフティマネジメント（PSM）、システム安全、製品安全、消防法、高圧ガス保安法、消費生活用製品安全法、製造物責任法（PL法）、機械の包括的な安全基準に関する指針、Safety2.0、ELSI、安全文化、安全／安心",
+      "noteText": "安全管理 安全の概念（プロセス安全・安全法規）"
+    },
+    {
+      "type": "board",
+      "heading": "プロセスセーフティマネジメント（PSM）",
+      "body": "",
+      "noteText": "",
+      "slug": "process-safety-mgmt"
+    },
+    {
+      "type": "board",
+      "heading": "システム安全",
+      "body": "",
+      "noteText": "",
+      "slug": "system-safety"
+    },
+    {
+      "type": "board",
+      "heading": "製品安全",
+      "body": "",
+      "noteText": "",
+      "slug": "product-safety"
     },
     {
       "type": "board",
@@ -29,9 +50,10 @@
     {
       "type": "board",
       "heading": "消費生活用製品安全法",
-      "body": "",
-      "noteText": "",
-      "slug": "consumer-product-safety-act"
+      "body": "消費生活用製品安全法（消安法）は、消費生活用製品による一般消費者の生命・身体に対する危害の防止を目的とする法律である（1973年制定）。PSCマーク制度・重大製品事故報告義務・長期使用製品安全制度の3本柱で構成される。",
+      "noteText": "5.1 安全の概念に位置づけられるキーワード",
+      "slug": "consumer-product-safety-act",
+      "_legacySource": "_backlog/2027/2027-01-01-consumer-product-safety-act"
     },
     {
       "type": "board",
@@ -84,10 +106,10 @@
   ],
   "cta": {
     "related": [
-      "消防法",
-      "高圧ガス保安法",
-      "消費生活用製品安全法",
-      "製造物責任法（PL法）"
+      "プロセスセーフティマネジメント（PSM）",
+      "システム安全",
+      "製品安全",
+      "消防法"
     ]
   },
   "_meta": {
@@ -95,9 +117,10 @@
     "chapterTitle": "安全管理",
     "sectionTitle": "安全の概念",
     "groupNames": [
+      "プロセス安全",
       "安全法規"
     ],
-    "keywordCount": 9,
+    "keywordCount": 12,
     "partOf": "5.1"
   }
 }

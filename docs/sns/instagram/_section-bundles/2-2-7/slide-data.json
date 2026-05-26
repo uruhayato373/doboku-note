@@ -15,9 +15,10 @@
     {
       "type": "board",
       "heading": "特性要因図",
-      "body": "",
-      "noteText": "",
-      "slug": "cause-and-effect-diagram"
+      "body": "特性要因図とは品質問題の原因を体系的に整理し、主原因（大骨）と副原因（中骨・小骨）の関係を魚の骨状の図式で表現する分析手法である。考案者の名から「イシカワ図（Ishikawa Diagram）」、形状から「フィッシュボーン図」とも呼ばれる。",
+      "noteText": "別名：イシカワ図・フィッシュボーン図",
+      "slug": "cause-and-effect-diagram",
+      "_legacySource": "_backlog/2026/2026-10-27-cause-and-effect-diagram"
     },
     {
       "type": "board",
@@ -78,9 +79,10 @@
     {
       "type": "board",
       "heading": "階層分析法（階層化意思決定法：AHP）",
-      "body": "",
-      "noteText": "",
-      "slug": "analytic-hierarchy-process"
+      "body": "階層分析法（AHP）は多基準意思決定法の一つで、複雑な問題を「目標→評価基準→代替案」の3層構造に分解し、一対比較（ペアワイズ比較）で重み付けして最適案を導く手法である。1970年代にサーティが提唱した。",
+      "noteText": "定性的判断を数値化して合意形成に活用できる",
+      "slug": "analytic-hierarchy-process",
+      "_legacySource": "_backlog/2026/2026-08-04-analytic-hierarchy-process"
     },
     {
       "type": "board",

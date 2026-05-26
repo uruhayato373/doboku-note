@@ -2,15 +2,50 @@
   "cover": {
     "keyword": "地域環境問題 Part 3",
     "subtitle": "地域環境問題",
-    "stickyText": "社会環境管理\n6KW",
+    "stickyText": "社会環境管理\n11KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "原子力災害対策特別措置法、放射性物質汚染対処特別措置法、放射性廃棄物、中間貯蔵施設、ALPS処理水、クリアランスレベル",
-      "noteText": "社会環境管理 地域環境問題（放射性物質による環境問題）"
+      "body": "ヒートアイランド現象、都市型水害、ハザードマップ、Eco-DRR（生態系を活用した防災・減災）、グリーンインフラ、原子力災害対策特別措置法、放射性物質汚染対処特別措置法、放射性廃棄物、中間貯蔵施設、ALPS処理水、クリアランスレベル",
+      "noteText": "社会環境管理 地域環境問題（異常気象と防災・放射性物質による環境問題）"
+    },
+    {
+      "type": "board",
+      "heading": "ヒートアイランド現象",
+      "body": "",
+      "noteText": "",
+      "slug": "heat-island-effect"
+    },
+    {
+      "type": "board",
+      "heading": "都市型水害",
+      "body": "",
+      "noteText": "",
+      "slug": "urban-flood"
+    },
+    {
+      "type": "board",
+      "heading": "ハザードマップ",
+      "body": "",
+      "noteText": "",
+      "slug": "hazard-map"
+    },
+    {
+      "type": "board",
+      "heading": "Eco-DRR（生態系を活用した防災・減災）",
+      "body": "",
+      "noteText": "",
+      "slug": "eco-drr"
+    },
+    {
+      "type": "board",
+      "heading": "グリーンインフラ",
+      "body": "",
+      "noteText": "",
+      "slug": "green-infrastructure"
     },
     {
       "type": "board",
@@ -43,16 +78,18 @@
     {
       "type": "board",
       "heading": "ALPS処理水",
-      "body": "",
-      "noteText": "",
-      "slug": "alps-treated-water"
+      "body": "ALPS処理水とは、福島第一原発の汚染水をALPS（多核種除去設備）等で浄化処理し、トリチウム以外の放射性物質を規制基準以下まで除去した水である。ALPSで62種類の放射性核種を除去できるが、トリチウムは化学的に分離が困難で除去できない。",
+      "noteText": "汚染水（処理前）≠ ALPS処理水（処理後）≠ 処理途上水（再処理が必要）を区別する",
+      "slug": "alps-treated-water",
+      "_legacySource": "_backlog/2026/2026-07-28-alps-treated-water"
     },
     {
       "type": "board",
       "heading": "クリアランスレベル",
-      "body": "",
-      "noteText": "",
-      "slug": "clearance-level"
+      "body": "クリアランスレベルとは、放射性廃棄物の放射能濃度が十分に低く人の健康への影響が無視できるとして定められた基準値であり、この基準値以下の廃棄物は規制から除外される。",
+      "noteText": "判断基準：年間10μSv以下（自然放射線の約1/100）",
+      "slug": "clearance-level",
+      "_legacySource": "_backlog/2026/2026-11-24-clearance-level"
     },
     {
       "type": "summary",
@@ -63,10 +100,10 @@
   ],
   "cta": {
     "related": [
-      "原子力災害対策特別措置法",
-      "放射性物質汚染対処特別措置法",
-      "放射性廃棄物",
-      "中間貯蔵施設"
+      "ヒートアイランド現象",
+      "都市型水害",
+      "ハザードマップ",
+      "Eco-DRR（生態系を活用した防災・減災）"
     ]
   },
   "_meta": {
@@ -74,9 +111,10 @@
     "chapterTitle": "社会環境管理",
     "sectionTitle": "地域環境問題",
     "groupNames": [
+      "異常気象と防災",
       "放射性物質による環境問題"
     ],
-    "keywordCount": 6,
+    "keywordCount": 11,
     "partOf": "6.2"
   }
 }

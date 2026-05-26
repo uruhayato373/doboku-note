@@ -1,0 +1,93 @@
+{
+  "cover": {
+    "keyword": "情報通信技術動向 Part 3",
+    "subtitle": "情報通信技術動向",
+    "stickyText": "情報管理\n7KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "デジタルツイン・サイバーフィジカルシステム（CPS）、IoT（Internet of Things）、VR・AR・メタバース、ブロックチェーン・暗号資産、API、ウォーターフォール、アジャイル",
+      "noteText": "情報管理 情報通信技術動向（デジタルトランスフォーメーション（DX）の技術・システム開発プロセス）"
+    },
+    {
+      "type": "board",
+      "heading": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+      "body": "",
+      "noteText": "",
+      "slug": "digital-twin-cps"
+    },
+    {
+      "type": "board",
+      "heading": "IoT（Internet of Things）",
+      "body": "",
+      "noteText": "",
+      "slug": "iot"
+    },
+    {
+      "type": "board",
+      "heading": "VR・AR・メタバース",
+      "body": "",
+      "noteText": "",
+      "slug": "vr-ar-metaverse"
+    },
+    {
+      "type": "board",
+      "heading": "ブロックチェーン・暗号資産",
+      "body": "ブロックチェーン（Blockchain）とは、取引データをブロックにまとめ、暗号学的ハッシュ関数を用いてブロック同士を時系列に連結した分散型台帳技術である。中央管理者を必要とせず、参加者全員が正当性を検証・合意する。",
+      "noteText": "2008年サトシ・ナカモトが提案\nビットコインの基盤技術",
+      "slug": "blockchain-crypto",
+      "_legacySource": "_backlog/2026/2026-09-22-blockchain-crypto"
+    },
+    {
+      "type": "board",
+      "heading": "API",
+      "body": "APIとは、ソフトウェアやアプリケーション同士がデータや機能をやり取りするための取り決め（インターフェース仕様）である。利用側は呼び出し規則に従うだけで、提供側の内部実装を知る必要がない。",
+      "noteText": "実装の隠蔽により同じ機能を複数から再利用できる",
+      "slug": "api",
+      "_legacySource": "_backlog/2026/2026-08-11-api"
+    },
+    {
+      "type": "board",
+      "heading": "ウォーターフォール",
+      "body": "",
+      "noteText": "",
+      "slug": "waterfall"
+    },
+    {
+      "type": "board",
+      "heading": "アジャイル",
+      "body": "アジャイル開発とは、短い開発サイクル（イテレーション）を繰り返しながら、動作するソフトウェアを段階的に開発・リリースする反復型・漸進型の開発手法の総称である。2001年の「アジャイルソフトウェア開発宣言」を起源とする。",
+      "noteText": "ウォーターフォールは初期要件確定、アジャイルは段階的に要件を詳細化する",
+      "slug": "agile",
+      "_legacySource": "_backlog/2026/2026-07-14-agile"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "デジタルツイン・サイバーフィジカルシステム（CPS）",
+      "IoT（Internet of Things）",
+      "VR・AR・メタバース",
+      "ブロックチェーン・暗号資産"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.4-part3",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "情報通信技術動向",
+    "groupNames": [
+      "デジタルトランスフォーメーション（DX）の技術",
+      "システム開発プロセス"
+    ],
+    "keywordCount": 7,
+    "partOf": "4.4"
+  }
+}

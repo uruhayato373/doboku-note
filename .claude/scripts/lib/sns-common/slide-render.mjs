@@ -17,7 +17,7 @@ import { dirname, resolve } from 'node:path';
 
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
-import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
+import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, buildNotebookIntro, buildNotebookSummary, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
 import { SNS_CONFIG } from './sns-config.mjs';
 
 const NT = NOTEBOOK_TOKENS;
@@ -137,6 +137,10 @@ async function buildElement({ width, height, slide, config }) {
       return buildNotebookCta({ width, height, data: slide.data || {} });
     case 'notebook-figure':
       return buildNotebookFigure({ width, height, data: slide.data || {} });
+    case 'notebook-intro':
+      return buildNotebookIntro({ width, height, data: slide.data || {} });
+    case 'notebook-summary':
+      return buildNotebookSummary({ width, height, data: slide.data || {} });
     case 'image':
       return buildImageElement({ width, height, data: slide.data || {} });
     default:

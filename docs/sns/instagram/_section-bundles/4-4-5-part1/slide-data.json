@@ -15,9 +15,10 @@
     {
       "type": "board",
       "heading": "機密性",
-      "body": "",
-      "noteText": "",
-      "slug": "confidentiality"
+      "body": "機密性（Confidentiality）とは、許可された者だけが情報にアクセスできる状態を確保することである。JIS Q 27001（ISO/IEC 27001）では「認可されていない者に情報を使用・開示しない特性」と定義される。",
+      "noteText": "CIA三要素：機密性・完全性（Integrity）・可用性（Availability）",
+      "slug": "confidentiality",
+      "_legacySource": "_backlog/2026/2026-12-22-confidentiality"
     },
     {
       "type": "board",
@@ -36,16 +37,18 @@
     {
       "type": "board",
       "heading": "真正性",
-      "body": "",
-      "noteText": "",
-      "slug": "authenticity"
+      "body": "真正性（Authenticity）とは、情報の送信者・作成者が本人であること、および情報そのものが本物であることを確認できる特性である。JIS Q 27001では「ある主体又は資源が、主張どおりであることを確実にする特性」と定義される。",
+      "noteText": "CIA基本3要素に加えた\n拡張4要素の1つ",
+      "slug": "authenticity",
+      "_legacySource": "_backlog/2026/2026-08-25-authenticity"
     },
     {
       "type": "board",
       "heading": "責任追跡性",
-      "body": "",
-      "noteText": "",
-      "slug": "accountability-traceability"
+      "body": "責任追跡性（Accountability）とは、情報システム上の操作や変更について誰が・いつ・何を行ったかを追跡できる特性である。JIS Q 27001では「動作から動作主のエンティティまで一意に追跡できる特性」と定義される。",
+      "noteText": "CIAトライアドの拡張要素（真正性・否認防止を支える）",
+      "slug": "accountability-traceability",
+      "_legacySource": "_backlog/2026/2026-06-30-accountability-traceability"
     },
     {
       "type": "board",

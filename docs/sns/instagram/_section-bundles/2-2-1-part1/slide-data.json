@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "事業企画 Part 1",
     "subtitle": "事業企画",
-    "stickyText": "経済性管理\n17KW",
+    "stickyText": "経済性管理\n8KW",
     "management": "economy"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "市場調査、需要予測、投資回収計画、割引率、NPV、DCF法、回収期間法、内部収益率法、費用効果分析、アウトカム指標、アウトプット指標、インプット指標、リスク評価、ESG・環境評価、ライフサイクルマネジメント、サプライチェーンマネジメント（SCM）、BCP・BCM",
-      "noteText": "経済性管理 事業企画（フィージビリティスタディ・事業投資計画・事業投資評価・事業評価（政策評価））"
+      "body": "市場調査、需要予測、投資回収計画、割引率、NPV、DCF法、回収期間法、内部収益率法",
+      "noteText": "経済性管理 事業企画（フィージビリティスタディ・事業投資計画・事業投資評価）"
     },
     {
       "type": "board",
@@ -69,69 +69,6 @@
       "slug": "internal-rate-of-return"
     },
     {
-      "type": "board",
-      "heading": "費用効果分析",
-      "body": "",
-      "noteText": "",
-      "slug": "cost-effectiveness-analysis"
-    },
-    {
-      "type": "board",
-      "heading": "アウトカム指標",
-      "body": "",
-      "noteText": "",
-      "slug": "outcome-indicators"
-    },
-    {
-      "type": "board",
-      "heading": "アウトプット指標",
-      "body": "",
-      "noteText": "",
-      "slug": "output-indicators"
-    },
-    {
-      "type": "board",
-      "heading": "インプット指標",
-      "body": "",
-      "noteText": "",
-      "slug": "input-indicators"
-    },
-    {
-      "type": "board",
-      "heading": "リスク評価",
-      "body": "",
-      "noteText": "",
-      "slug": "risk-assessment"
-    },
-    {
-      "type": "board",
-      "heading": "ESG・環境評価",
-      "body": "",
-      "noteText": "",
-      "slug": "esg-environmental-assessment"
-    },
-    {
-      "type": "board",
-      "heading": "ライフサイクルマネジメント",
-      "body": "",
-      "noteText": "",
-      "slug": "lifecycle-management"
-    },
-    {
-      "type": "board",
-      "heading": "サプライチェーンマネジメント（SCM）",
-      "body": "",
-      "noteText": "",
-      "slug": "supply-chain-management"
-    },
-    {
-      "type": "board",
-      "heading": "BCP・BCM",
-      "body": "",
-      "noteText": "",
-      "slug": "business-continuity-plan"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -153,10 +90,9 @@
     "groupNames": [
       "フィージビリティスタディ",
       "事業投資計画",
-      "事業投資評価",
-      "事業評価（政策評価）"
+      "事業投資評価"
     ],
-    "keywordCount": 17,
+    "keywordCount": 8,
     "partOf": "2.1"
   }
 }

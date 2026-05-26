@@ -1,0 +1,82 @@
+{
+  "cover": {
+    "keyword": "人の行動と組織 Part 3",
+    "subtitle": "人の行動と組織",
+    "stickyText": "人的資源管理\n6KW",
+    "management": "hr"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "PM理論、SL理論、サーバントリーダーシップ、フォロワーシップ、メイヨーのホーソン実験、テイラーの科学的管理法",
+      "noteText": "人的資源管理 人の行動と組織（リーダーシップ）"
+    },
+    {
+      "type": "board",
+      "heading": "PM理論",
+      "body": "",
+      "noteText": "",
+      "slug": "pm-theory"
+    },
+    {
+      "type": "board",
+      "heading": "SL理論",
+      "body": "",
+      "noteText": "",
+      "slug": "sl-theory"
+    },
+    {
+      "type": "board",
+      "heading": "サーバントリーダーシップ",
+      "body": "",
+      "noteText": "",
+      "slug": "servant-leadership"
+    },
+    {
+      "type": "board",
+      "heading": "フォロワーシップ",
+      "body": "",
+      "noteText": "",
+      "slug": "followership"
+    },
+    {
+      "type": "board",
+      "heading": "メイヨーのホーソン実験",
+      "body": "",
+      "noteText": "",
+      "slug": "hawthorne-experiment"
+    },
+    {
+      "type": "board",
+      "heading": "テイラーの科学的管理法",
+      "body": "",
+      "noteText": "",
+      "slug": "scientific-management"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "PM理論",
+      "SL理論",
+      "サーバントリーダーシップ",
+      "フォロワーシップ"
+    ]
+  },
+  "_meta": {
+    "bundleId": "3-3.1-part3",
+    "chapterTitle": "人的資源管理",
+    "sectionTitle": "人の行動と組織",
+    "groupNames": [
+      "リーダーシップ"
+    ],
+    "keywordCount": 6,
+    "partOf": "3.1"
+  }
+}

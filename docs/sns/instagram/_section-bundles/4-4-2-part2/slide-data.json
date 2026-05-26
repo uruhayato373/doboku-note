@@ -1,0 +1,78 @@
+{
+  "cover": {
+    "keyword": "コミュニケーション Part 2",
+    "subtitle": "コミュニケーション",
+    "stickyText": "情報管理\n5KW",
+    "management": "info"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "コミュニケーション計画、会議設計、コミュニケーション・コントロール、緊急時情報システム・サービス、緊急時の情報処理",
+      "noteText": "情報管理 コミュニケーション（コミュニケーション・マネジメント・緊急時の情報管理）"
+    },
+    {
+      "type": "board",
+      "heading": "コミュニケーション計画",
+      "body": "コミュニケーション計画とは、誰に・何を・いつ・どのような方法で情報を伝達するかを事前に定める計画である。ステークホルダーの情報ニーズを分析し、効果的な情報伝達の仕組みを設計することが目的である。",
+      "noteText": "単なる計画書作成ではなく計画・実行・監視のPDCAサイクルが核心",
+      "slug": "communication-planning",
+      "_legacySource": "_backlog/2026/2026-12-15-communication-planning"
+    },
+    {
+      "type": "board",
+      "heading": "会議設計",
+      "body": "",
+      "noteText": "",
+      "slug": "meeting-design"
+    },
+    {
+      "type": "board",
+      "heading": "コミュニケーション・コントロール",
+      "body": "コミュニケーション・コントロールとは、コミュニケーション活動が計画どおりに実施されているかを監視・管理し、必要に応じて是正措置を講じるプロセスである。PDCAサイクルのC（Check）とA（Act）に相当する。",
+      "noteText": "計画（Plan）と実行（Do）は別プロセス、コントロールはCAを担う",
+      "slug": "communication-control",
+      "_legacySource": "_backlog/2026/2026-12-15-communication-control"
+    },
+    {
+      "type": "board",
+      "heading": "緊急時情報システム・サービス",
+      "body": "",
+      "noteText": "",
+      "slug": "emergency-info-systems"
+    },
+    {
+      "type": "board",
+      "heading": "緊急時の情報処理",
+      "body": "",
+      "noteText": "",
+      "slug": "emergency-info-processing"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "コミュニケーション計画",
+      "会議設計",
+      "コミュニケーション・コントロール",
+      "緊急時情報システム・サービス"
+    ]
+  },
+  "_meta": {
+    "bundleId": "4-4.2-part2",
+    "chapterTitle": "情報管理",
+    "sectionTitle": "コミュニケーション",
+    "groupNames": [
+      "コミュニケーション・マネジメント",
+      "緊急時の情報管理"
+    ],
+    "keywordCount": 5,
+    "partOf": "4.2"
+  }
+}

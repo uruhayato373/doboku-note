@@ -2,15 +2,45 @@
   "cover": {
     "keyword": "労働関係法と労務管理｜労働関係法 (2/2)",
     "subtitle": "労働関係法と労務管理",
-    "stickyText": "人的資源管理\n5KW",
+    "stickyText": "人的資源管理\n9KW",
     "management": "hr"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "出入国管理及び難民認定法、労働施策総合推進法、若者雇用促進法、LGBT理解増進法、子ども・子育て支援法",
+      "body": "男女共同参画社会基本法、女性活躍推進法、次世代育成支援対策推進法、育児・介護休業法、出入国管理及び難民認定法、労働施策総合推進法、若者雇用促進法、LGBT理解増進法、子ども・子育て支援法",
       "noteText": "人的資源管理 労働関係法と労務管理（労働関係法）"
+    },
+    {
+      "type": "board",
+      "heading": "男女共同参画社会基本法",
+      "body": "",
+      "noteText": "",
+      "slug": "gender-equality-act"
+    },
+    {
+      "type": "board",
+      "heading": "女性活躍推進法",
+      "body": "",
+      "noteText": "",
+      "slug": "women-empowerment-act"
+    },
+    {
+      "type": "board",
+      "heading": "次世代育成支援対策推進法",
+      "body": "次世代育成支援対策推進法（次世代法）は2003年に制定された時限立法で、次代の社会を担う子どもが健やかに育成される環境整備を目的とする。2035年3月末まで延長されている。",
+      "noteText": "少子化対策の法的枠組み\n企業の当事者化を促す",
+      "slug": "child-rearing-support-act",
+      "_legacySource": "_backlog/2026/2026-11-06-child-rearing-support-act"
+    },
+    {
+      "type": "board",
+      "heading": "育児・介護休業法",
+      "body": "育児・介護休業法は、労働者が育児や介護を理由に離職することなく働き続けられるよう、休業制度や勤務時間の配慮を定めた法律である。1991年に育児休業法として制定され、1995年に介護休業を追加して現在の名称となった。",
+      "noteText": "ワーク・ライフ・バランス推進の法的基盤",
+      "slug": "childcare-nursing-leave-act",
+      "_legacySource": "_backlog/2026/2026-11-10-childcare-nursing-leave-act"
     },
     {
       "type": "board",
@@ -43,9 +73,10 @@
     {
       "type": "board",
       "heading": "子ども・子育て支援法",
-      "body": "",
-      "noteText": "",
-      "slug": "child-support-act"
+      "body": "子ども・子育て支援法は、すべての子どもに良質な成育環境を保障し、社会全体で支援することを目的として2012年に制定された法律である。「子ども・子育て関連3法」の一つとして成立し、2015年4月から新制度が施行された。",
+      "noteText": "消費税引上げ分を含む約1兆円超の恒久財源",
+      "slug": "child-support-act",
+      "_legacySource": "_backlog/2026/2026-11-10-child-support-act"
     },
     {
       "type": "summary",
@@ -56,10 +87,10 @@
   ],
   "cta": {
     "related": [
-      "出入国管理及び難民認定法",
-      "労働施策総合推進法",
-      "若者雇用促進法",
-      "LGBT理解増進法"
+      "男女共同参画社会基本法",
+      "女性活躍推進法",
+      "次世代育成支援対策推進法",
+      "育児・介護休業法"
     ]
   },
   "_meta": {
@@ -69,7 +100,7 @@
     "groupNames": [
       "労働関係法"
     ],
-    "keywordCount": 5,
+    "keywordCount": 9,
     "partOf": "3.2"
   }
 }

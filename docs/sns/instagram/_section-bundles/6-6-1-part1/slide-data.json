@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "地球的規模の環境問題 Part 1",
     "subtitle": "地球的規模の環境問題",
-    "stickyText": "社会環境管理\n16KW",
+    "stickyText": "社会環境管理\n14KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "国連人間環境会議、ローマクラブ、WCED、国連環境開発会議（UNCED）、環境と開発に関するリオ宣言、アジェンダ21、エコロジカル・フットプリント、人間開発指数（HDI）、持続可能な開発目標（SDGs）、デカップリング、オゾン層保護、酸性雨、プラネタリー・バウンダリー（地球の限界）、ドーナツ経済、気候変動・国際対応、エネルギー",
-      "noteText": "社会環境管理 地球的規模の環境問題（持続可能な開発・気候変動・エネルギー問題）"
+      "body": "国連人間環境会議、ローマクラブ、WCED、国連環境開発会議（UNCED）、環境と開発に関するリオ宣言、アジェンダ21、エコロジカル・フットプリント、人間開発指数（HDI）、持続可能な開発目標（SDGs）、デカップリング、オゾン層保護、酸性雨、プラネタリー・バウンダリー（地球の限界）、ドーナツ経済",
+      "noteText": "社会環境管理 地球的規模の環境問題（持続可能な開発）"
     },
     {
       "type": "board",
@@ -22,9 +22,10 @@
     {
       "type": "board",
       "heading": "ローマクラブ",
-      "body": "",
-      "noteText": "",
-      "slug": "club-of-rome"
+      "body": "ローマクラブ（Club of Rome）は、1968年にイタリアの実業家ペッチェイとスコットランドの科学者キングの呼びかけで設立された民間シンクタンクであり、地球規模の課題を研究・提言する。",
+      "noteText": "科学者・経済学者・実業家・政治家など世界各国の有識者で構成",
+      "slug": "club-of-rome",
+      "_legacySource": "_backlog/2026/2026-12-04-club-of-rome"
     },
     {
       "type": "board",
@@ -50,9 +51,10 @@
     {
       "type": "board",
       "heading": "アジェンダ21",
-      "body": "",
-      "noteText": "",
-      "slug": "agenda-21"
+      "body": "アジェンダ21（Agenda 21）は1992年の地球サミット（UNCED）で採択された持続可能な開発の包括的行動計画である。リオ宣言の27原則を実行に移す具体的プログラムとして4部構成・全40章・約800ページの行動指針を示している。",
+      "noteText": "法的拘束力はないが各国の環境政策・行動計画の基盤として機能",
+      "slug": "agenda-21",
+      "_legacySource": "_backlog/2026/2026-07-14-agenda-21"
     },
     {
       "type": "board",
@@ -92,9 +94,10 @@
     {
       "type": "board",
       "heading": "酸性雨",
-      "body": "",
-      "noteText": "",
-      "slug": "acid-rain"
+      "body": "酸性雨（Acid Rain）とは、大気中のSOx・NOxが雨水に溶け込みpH5.6以下となった降水の総称である。広義には霧・雪・乾性沈着を含む「酸性沈着」として扱われ、日本の雨のpHは4.5〜5.0程度である。",
+      "noteText": "清浄な雨のpH5.6はCO2溶解の理論値",
+      "slug": "acid-rain",
+      "_legacySource": "_backlog/2026/2026-07-07-acid-rain"
     },
     {
       "type": "board",
@@ -109,20 +112,6 @@
       "body": "",
       "noteText": "",
       "slug": "doughnut-economics"
-    },
-    {
-      "type": "board",
-      "heading": "気候変動・国際対応",
-      "body": "",
-      "noteText": "",
-      "slug": "climate-change-international"
-    },
-    {
-      "type": "board",
-      "heading": "エネルギー",
-      "body": "",
-      "noteText": "",
-      "slug": "energy"
     },
     {
       "type": "summary",
@@ -144,10 +133,9 @@
     "chapterTitle": "社会環境管理",
     "sectionTitle": "地球的規模の環境問題",
     "groupNames": [
-      "持続可能な開発",
-      "気候変動・エネルギー問題"
+      "持続可能な開発"
     ],
-    "keywordCount": 16,
+    "keywordCount": 14,
     "partOf": "6.1"
   }
 }

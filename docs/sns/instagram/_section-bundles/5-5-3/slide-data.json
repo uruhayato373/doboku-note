@@ -15,16 +15,18 @@
     {
       "type": "board",
       "heading": "災害統計",
-      "body": "",
-      "noteText": "",
-      "slug": "accident-statistics"
+      "body": "災害統計とは、労働災害の発生状況を定量的に把握・比較するための統計指標である。事業場間・業種間・年度間で発生頻度や重篤度を比較し、安全衛生対策の効果を評価するために用いられる。",
+      "noteText": "発生頻度と重篤度を別々の指標で測るのがポイント",
+      "slug": "accident-statistics",
+      "_legacySource": "_backlog/2026/2026-06-30-accident-statistics"
     },
     {
       "type": "board",
       "heading": "災害コスト",
-      "body": "",
-      "noteText": "",
-      "slug": "accident-cost"
+      "body": "災害コストとは、労働災害の発生に伴って事業者が負担する費用の総額である。治療費・休業補償等の直接的な費用だけでなく、生産停止・代替要員確保・企業イメージ低下など多方面にわたるコストが発生し、安全投資の費用対効果を経営的に評価する基礎となる。",
+      "noteText": "目に見えやすい直接費と\n見えにくい間接費の2層構造",
+      "slug": "accident-cost",
+      "_legacySource": "_backlog/2026/2026-06-23-accident-cost"
     },
     {
       "type": "board",

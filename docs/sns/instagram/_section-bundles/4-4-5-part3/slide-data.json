@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "情報セキュリティ Part 3",
     "subtitle": "情報セキュリティ",
-    "stickyText": "情報管理\n17KW",
+    "stickyText": "情報管理\n11KW",
     "management": "info"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "セキュリティ対策ソフト、パスワード強化、アクセス制御・アクセス権限設定、アクセスログ分析、脅威攻撃の手口学習、ファイアウォール・侵入検知、暗号化・電子署名、VPN、DMZ、多要素認証、ゼロトラスト、ISMS（ISO/IEC 27001）、セキュリティ評価基準CC（ISO/IEC 15408）、ITセキュリティ評価及び認証制度（JISEC）、政府情報システムのためのセキュリティ評価制度（ISMAP）、プライバシーマーク、サイバー安全保障",
-      "noteText": "情報管理 情報セキュリティ（情報セキュリティ対策技術・情報セキュリティの認証制度）"
+      "body": "セキュリティ対策ソフト、パスワード強化、アクセス制御・アクセス権限設定、アクセスログ分析、脅威攻撃の手口学習、ファイアウォール・侵入検知、暗号化・電子署名、VPN、DMZ、多要素認証、ゼロトラスト",
+      "noteText": "情報管理 情報セキュリティ（情報セキュリティ対策技術）"
     },
     {
       "type": "board",
@@ -29,16 +29,18 @@
     {
       "type": "board",
       "heading": "アクセス制御・アクセス権限設定",
-      "body": "",
-      "noteText": "",
-      "slug": "access-control"
+      "body": "アクセス制御とは、情報資産やシステムに対して「誰が・何に・どの操作を」行えるかを管理・制限する仕組みである。不正アクセス防止・情報漏洩抑止・内部不正防止を目的とし、情報セキュリティの中核的対策に位置づけられる。",
+      "noteText": "目的：不正アクセス防止\n内部不正防止・情報漏洩抑止",
+      "slug": "access-control",
+      "_legacySource": "_backlog/2026/2026-06-19-access-control"
     },
     {
       "type": "board",
       "heading": "アクセスログ分析",
-      "body": "",
-      "noteText": "",
-      "slug": "access-log-analysis"
+      "body": "アクセスログ分析とは、情報システムやネットワーク機器が記録するアクセス履歴を収集・蓄積・分析し、不正アクセスの検知・インシデント調査・利用状況把握を行う活動である。ログは「いつ・誰が・何に・どの操作を」行ったかを事後追跡する基盤となる。",
+      "noteText": "ログ=行動記録の基盤\n事後追跡で証跡を保全する",
+      "slug": "access-log-analysis",
+      "_legacySource": "_backlog/2026/2026-06-23-access-log-analysis"
     },
     {
       "type": "board",
@@ -90,48 +92,6 @@
       "slug": "zero-trust"
     },
     {
-      "type": "board",
-      "heading": "ISMS（ISO/IEC 27001）",
-      "body": "",
-      "noteText": "",
-      "slug": "isms-iso27001"
-    },
-    {
-      "type": "board",
-      "heading": "セキュリティ評価基準CC（ISO/IEC 15408）",
-      "body": "",
-      "noteText": "",
-      "slug": "common-criteria"
-    },
-    {
-      "type": "board",
-      "heading": "ITセキュリティ評価及び認証制度（JISEC）",
-      "body": "",
-      "noteText": "",
-      "slug": "jisec"
-    },
-    {
-      "type": "board",
-      "heading": "政府情報システムのためのセキュリティ評価制度（ISMAP）",
-      "body": "",
-      "noteText": "",
-      "slug": "ismap"
-    },
-    {
-      "type": "board",
-      "heading": "プライバシーマーク",
-      "body": "",
-      "noteText": "",
-      "slug": "privacy-mark"
-    },
-    {
-      "type": "board",
-      "heading": "サイバー安全保障",
-      "body": "",
-      "noteText": "",
-      "slug": "cyber-security"
-    },
-    {
       "type": "summary",
       "heading": "まとめ｜試験のポイント",
       "body": "",
@@ -151,10 +111,9 @@
     "chapterTitle": "情報管理",
     "sectionTitle": "情報セキュリティ",
     "groupNames": [
-      "情報セキュリティ対策技術",
-      "情報セキュリティの認証制度"
+      "情報セキュリティ対策技術"
     ],
-    "keywordCount": 17,
+    "keywordCount": 11,
     "partOf": "4.5"
   }
 }

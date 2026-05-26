@@ -15,9 +15,10 @@
     {
       "type": "board",
       "heading": "貸借対照表（B/S）",
-      "body": "",
-      "noteText": "",
-      "slug": "balance-sheet"
+      "body": "貸借対照表（B/S）とは、ある一時点における企業の財政状態を表す財務諸表である。左側（借方）に資産、右側（貸方）に負債と純資産を記載し、「資産 ＝ 負債 ＋ 純資産」の等式が常に成立する。損益計算書・CF計算書とともに財務三表を構成する。",
+      "noteText": "一時点のストック情報\n（P/LとC/Fはフロー）",
+      "slug": "balance-sheet",
+      "_legacySource": "_backlog/2026/2026-09-01-balance-sheet"
     },
     {
       "type": "board",
@@ -29,9 +30,10 @@
     {
       "type": "board",
       "heading": "キャッシュ・フロー計算書（C/F）",
-      "body": "",
-      "noteText": "",
-      "slug": "cash-flow-statement"
+      "body": "キャッシュ・フロー計算書（C/F）とは、資金（現金及び現金同等物）の増減を表す財務諸表である。損益計算書が発生主義の利益を示すのに対しC/Fは実際の現金の動きを示す。利益があっても資金が不足すれば黒字倒産に至り、CF管理は経営の要となる。",
+      "noteText": "利益≠資金。黒字倒産はCF管理で防ぐ",
+      "slug": "cash-flow-statement",
+      "_legacySource": "_backlog/2026/2026-10-23-cash-flow-statement"
     },
     {
       "type": "board",

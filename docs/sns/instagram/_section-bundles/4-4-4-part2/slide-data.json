@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "情報通信技術動向 Part 2",
     "subtitle": "情報通信技術動向",
-    "stickyText": "情報管理\n18KW",
+    "stickyText": "情報管理\n11KW",
     "management": "info"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "ERP、財務会計・管理会計システム、人事システム、販売管理システム、顧客管理（CRM）システム、営業支援（SFA）システム、生産管理システム、サプライチェーンマネジメント（SCM）システム、企業内ポータル・イントラネット、ビジネスインテリジェンス（BI）、RPA、デジタルツイン・サイバーフィジカルシステム（CPS）、IoT（Internet of Things）、VR・AR・メタバース、ブロックチェーン・暗号資産、API、ウォーターフォール、アジャイル",
-      "noteText": "情報管理 情報通信技術動向（情報システム活用方法の動向・デジタルトランスフォーメーション（DX）の技術・システム開発プロセス）"
+      "body": "ERP、財務会計・管理会計システム、人事システム、販売管理システム、顧客管理（CRM）システム、営業支援（SFA）システム、生産管理システム、サプライチェーンマネジメント（SCM）システム、企業内ポータル・イントラネット、ビジネスインテリジェンス（BI）、RPA",
+      "noteText": "情報管理 情報通信技術動向（情報システム活用方法の動向）"
     },
     {
       "type": "board",
@@ -22,9 +22,10 @@
     {
       "type": "board",
       "heading": "財務会計・管理会計システム",
-      "body": "",
-      "noteText": "",
-      "slug": "accounting-systems"
+      "body": "財務会計システムとは、企業の経済活動を貨幣額で記録・集計し、株主・債権者・税務当局等の外部利害関係者に報告するための情報システムである。管理会計システムとは、経営者や管理者が意思決定や業績管理に必要な情報を提供するための情報システムである。",
+      "noteText": "財務＝法定開示・過去実績 / 管理＝意思決定・将来予測",
+      "slug": "accounting-systems",
+      "_legacySource": "_backlog/2026/2026-07-03-accounting-systems"
     },
     {
       "type": "board",
@@ -43,9 +44,10 @@
     {
       "type": "board",
       "heading": "顧客管理（CRM）システム",
-      "body": "",
-      "noteText": "",
-      "slug": "crm-system"
+      "body": "CRM（顧客関係管理）システムとは、顧客との関係を長期的に構築・維持・強化するために、顧客情報を一元管理し、マーケティング・営業・サービスの各活動を支援する情報システムである。",
+      "noteText": "新規獲得→LTV最大化へ\n既存顧客の維持が核心",
+      "slug": "crm-system",
+      "_legacySource": "_backlog/2027/2027-02-09-crm-system"
     },
     {
       "type": "board",
@@ -78,9 +80,10 @@
     {
       "type": "board",
       "heading": "ビジネスインテリジェンス（BI）",
-      "body": "",
-      "noteText": "",
-      "slug": "business-intelligence"
+      "body": "BI（ビジネスインテリジェンス）とは、企業が蓄積する大量のデータを収集・統合・分析し、経営上の意思決定を支援する手法・技術・ツールの総称である。ETLによるデータ収集からダッシュボードによる可視化まで一連のパイプラインで構成される。",
+      "noteText": "意思決定支援システム（DSS）の発展形として位置づけられる",
+      "slug": "business-intelligence",
+      "_legacySource": "_backlog/2026/2026-10-06-business-intelligence"
     },
     {
       "type": "board",
@@ -88,55 +91,6 @@
       "body": "",
       "noteText": "",
       "slug": "rpa"
-    },
-    {
-      "type": "board",
-      "heading": "デジタルツイン・サイバーフィジカルシステム（CPS）",
-      "body": "",
-      "noteText": "",
-      "slug": "digital-twin-cps"
-    },
-    {
-      "type": "board",
-      "heading": "IoT（Internet of Things）",
-      "body": "",
-      "noteText": "",
-      "slug": "iot"
-    },
-    {
-      "type": "board",
-      "heading": "VR・AR・メタバース",
-      "body": "",
-      "noteText": "",
-      "slug": "vr-ar-metaverse"
-    },
-    {
-      "type": "board",
-      "heading": "ブロックチェーン・暗号資産",
-      "body": "",
-      "noteText": "",
-      "slug": "blockchain-crypto"
-    },
-    {
-      "type": "board",
-      "heading": "API",
-      "body": "",
-      "noteText": "",
-      "slug": "api"
-    },
-    {
-      "type": "board",
-      "heading": "ウォーターフォール",
-      "body": "",
-      "noteText": "",
-      "slug": "waterfall"
-    },
-    {
-      "type": "board",
-      "heading": "アジャイル",
-      "body": "",
-      "noteText": "",
-      "slug": "agile"
     },
     {
       "type": "summary",
@@ -158,11 +112,9 @@
     "chapterTitle": "情報管理",
     "sectionTitle": "情報通信技術動向",
     "groupNames": [
-      "情報システム活用方法の動向",
-      "デジタルトランスフォーメーション（DX）の技術",
-      "システム開発プロセス"
+      "情報システム活用方法の動向"
     ],
-    "keywordCount": 18,
+    "keywordCount": 11,
     "partOf": "4.4"
   }
 }

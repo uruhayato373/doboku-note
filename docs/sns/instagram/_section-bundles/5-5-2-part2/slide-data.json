@@ -2,15 +2,44 @@
   "cover": {
     "keyword": "安全に関するリスクマネジメント Part 2",
     "subtitle": "安全に関するリスクマネジメント",
-    "stickyText": "安全管理\n6KW",
+    "stickyText": "安全管理\n10KW",
     "management": "safety"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "正常性バイアス、楽観主義バイアス、カタストロフィーバイアス、同調バイアス、ベテランバイアス、バージンバイアス",
-      "noteText": "安全管理 安全に関するリスクマネジメント（リスク認知のバイアス）"
+      "body": "社会的受容（PA）、リスク認知、ALARPの原則、残留リスク、正常性バイアス、楽観主義バイアス、カタストロフィーバイアス、同調バイアス、ベテランバイアス、バージンバイアス",
+      "noteText": "安全管理 安全に関するリスクマネジメント（リスクコミュニケーション・リスク認知のバイアス）"
+    },
+    {
+      "type": "board",
+      "heading": "社会的受容（PA）",
+      "body": "",
+      "noteText": "",
+      "slug": "public-acceptance"
+    },
+    {
+      "type": "board",
+      "heading": "リスク認知",
+      "body": "",
+      "noteText": "",
+      "slug": "risk-perception"
+    },
+    {
+      "type": "board",
+      "heading": "ALARPの原則",
+      "body": "ALARP原則とは、リスクを「合理的に実行可能な限り低く（As Low As Reasonably Practicable）」することを求める概念である。リスクゼロは不可能なため費用と便益のバランスを考慮し合理的な範囲で最大限低減を図る。",
+      "noteText": "英国HSEが体系化。日本では2000年代以降に原子力・化学プラント分野で参照",
+      "slug": "alarp-principle",
+      "_legacySource": "_backlog/2026/2026-07-21-alarp-principle"
+    },
+    {
+      "type": "board",
+      "heading": "残留リスク",
+      "body": "",
+      "noteText": "",
+      "slug": "residual-risk"
     },
     {
       "type": "board",
@@ -29,16 +58,18 @@
     {
       "type": "board",
       "heading": "カタストロフィーバイアス",
-      "body": "",
-      "noteText": "",
-      "slug": "catastrophe-bias"
+      "body": "カタストロフィーバイアスとは、極めてまれにしか起きないが被害規模が巨大な事象に対して、そのリスクを過大に評価する傾向である。航空機事故や原子力事故のように発生確率は極めて低いが、一度発生すると壊滅的な被害をもたらす事象が対象となる。",
+      "noteText": "発生確率は低いが→リスクを過大評価",
+      "slug": "catastrophe-bias",
+      "_legacySource": "_backlog/2026/2026-10-27-catastrophe-bias"
     },
     {
       "type": "board",
       "heading": "同調バイアス",
-      "body": "",
-      "noteText": "",
-      "slug": "conformity-bias"
+      "body": "同調バイアスとは、周囲の判断や行動に合わせてしまい、自分自身の正確な判断が歪められる傾向である。集団の中では、たとえ自分の判断が正しくても多数派の意見に従いやすくなる。",
+      "noteText": "情報的影響と規範的影響の2経路で生じる",
+      "slug": "conformity-bias",
+      "_legacySource": "_backlog/2026/2026-12-25-conformity-bias"
     },
     {
       "type": "board",
@@ -63,10 +94,10 @@
   ],
   "cta": {
     "related": [
-      "正常性バイアス",
-      "楽観主義バイアス",
-      "カタストロフィーバイアス",
-      "同調バイアス"
+      "社会的受容（PA）",
+      "リスク認知",
+      "ALARPの原則",
+      "残留リスク"
     ]
   },
   "_meta": {
@@ -74,9 +105,10 @@
     "chapterTitle": "安全管理",
     "sectionTitle": "安全に関するリスクマネジメント",
     "groupNames": [
+      "リスクコミュニケーション",
       "リスク認知のバイアス"
     ],
-    "keywordCount": 6,
+    "keywordCount": 10,
     "partOf": "5.2"
   }
 }

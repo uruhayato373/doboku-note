@@ -2,15 +2,15 @@
   "cover": {
     "keyword": "環境保全の基本原則 Part 1",
     "subtitle": "環境保全の基本原則",
-    "stickyText": "社会環境管理\n18KW",
+    "stickyText": "社会環境管理\n12KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "環境基本計画、環境基準、汚染者負担原則（PPP）、拡大生産者責任（EPR）、未然防止原則、予防原則、源流対策原則、パートナーシップ、補完性原則・補完性原理、エンドオブパイプ型対策、パフォーマンス規制、行為規制、環境税・カーボンプライシング、課徴金、デポジット制度、環境ラベル、環境影響評価法、合意的手法",
-      "noteText": "社会環境管理 環境保全の基本原則（環境基本法・協働原則・規制的手法・経済的手法・情報的手法・手続き的手法）"
+      "body": "環境基本計画、環境基準、汚染者負担原則（PPP）、拡大生産者責任（EPR）、未然防止原則、予防原則、源流対策原則、パートナーシップ、補完性原則・補完性原理、エンドオブパイプ型対策、パフォーマンス規制、行為規制",
+      "noteText": "社会環境管理 環境保全の基本原則（環境基本法・協働原則・規制的手法）"
     },
     {
       "type": "board",
@@ -92,51 +92,10 @@
     {
       "type": "board",
       "heading": "行為規制",
-      "body": "",
-      "noteText": "",
-      "slug": "behavioral-regulation"
-    },
-    {
-      "type": "board",
-      "heading": "環境税・カーボンプライシング",
-      "body": "",
-      "noteText": "",
-      "slug": "carbon-pricing"
-    },
-    {
-      "type": "board",
-      "heading": "課徴金",
-      "body": "",
-      "noteText": "",
-      "slug": "surcharge"
-    },
-    {
-      "type": "board",
-      "heading": "デポジット制度",
-      "body": "",
-      "noteText": "",
-      "slug": "deposit-system"
-    },
-    {
-      "type": "board",
-      "heading": "環境ラベル",
-      "body": "",
-      "noteText": "",
-      "slug": "eco-label"
-    },
-    {
-      "type": "board",
-      "heading": "環境影響評価法",
-      "body": "",
-      "noteText": "",
-      "slug": "environmental-impact-assessment"
-    },
-    {
-      "type": "board",
-      "heading": "合意的手法",
-      "body": "",
-      "noteText": "",
-      "slug": "consensus-instruments"
+      "body": "行為規制とは、環境保全のために特定の行為や方法を直接規制する手法である。規制的手法（直接規制）の一つであり、何をすべきか・してはならないかを具体的に指定することで確実性が高い規制効果を発揮する。",
+      "noteText": "規制対象は「行為・方法」であり「結果」ではない",
+      "slug": "behavioral-regulation",
+      "_legacySource": "_backlog/2026/2026-09-08-behavioral-regulation"
     },
     {
       "type": "summary",
@@ -160,12 +119,9 @@
     "groupNames": [
       "環境基本法",
       "協働原則",
-      "規制的手法",
-      "経済的手法",
-      "情報的手法",
-      "手続き的手法"
+      "規制的手法"
     ],
-    "keywordCount": 18,
+    "keywordCount": 12,
     "partOf": "6.3"
   }
 }

@@ -1,23 +1,16 @@
 {
   "cover": {
-    "keyword": "組織の社会的責任と環境管理活動",
+    "keyword": "組織の社会的責任と環境管理活動｜社会的責任（SR）",
     "subtitle": "組織の社会的責任と環境管理活動",
-    "stickyText": "社会環境管理\n17KW",
+    "stickyText": "社会環境管理\n16KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "公害防止管理者、CSR、CSV（共通価値創造）、社会的責任投資（SRI）、ESG投資・ESG金融、グリーンボンド、TCFD提言、TNFD提言、CDP・SBT・RE100、グローバル・コンパクト、ISO 14000シリーズ、エコアクション21、ISO 26000、バイオエコノミー、環境適合設計、環境会計、環境コミュニケーション",
+      "body": "CSR、CSV（共通価値創造）、社会的責任投資（SRI）、ESG投資・ESG金融、グリーンボンド、TCFD提言、TNFD提言、CDP・SBT・RE100、グローバル・コンパクト、ISO 14000シリーズ、エコアクション21、ISO 26000、バイオエコノミー、環境適合設計、環境会計、環境コミュニケーション",
       "noteText": "社会環境管理 組織の社会的責任と環境管理活動（社会的責任（SR））"
-    },
-    {
-      "type": "board",
-      "heading": "公害防止管理者",
-      "body": "",
-      "noteText": "",
-      "slug": "pollution-control-manager"
     },
     {
       "type": "board",
@@ -71,9 +64,10 @@
     {
       "type": "board",
       "heading": "CDP・SBT・RE100",
-      "body": "",
-      "noteText": "",
-      "slug": "cdp-sbt-re100"
+      "body": "CDP・SBT・RE100は、企業の気候変動対応を推進する代表的な国際イニシアティブである。CDPは環境情報の開示・評価、SBTは科学的根拠に基づく削減目標の設定・認定、RE100は事業電力を100%再生可能エネルギー化する仕組みである。",
+      "noteText": "3つは相互連携。CDPが共通情報基盤として機能",
+      "slug": "cdp-sbt-re100",
+      "_legacySource": "_backlog/2026/2026-10-30-cdp-sbt-re100"
     },
     {
       "type": "board",
@@ -106,9 +100,10 @@
     {
       "type": "board",
       "heading": "バイオエコノミー",
-      "body": "",
-      "noteText": "",
-      "slug": "bioeconomy"
+      "body": "バイオエコノミーとは、再生可能な生物資源とバイオテクノロジーを活用して持続可能な経済活動を実現する概念である。2009年にOECDが提唱した報告書で農業・林業・漁業の生物資源を経済的価値に変換する考え方を国際的に定式化した。",
+      "noteText": "OECDが2009年に提唱した経済概念",
+      "slug": "bioeconomy",
+      "_legacySource": "_backlog/2026/2026-09-15-bioeconomy"
     },
     {
       "type": "board",
@@ -140,20 +135,20 @@
   ],
   "cta": {
     "related": [
-      "公害防止管理者",
       "CSR",
       "CSV（共通価値創造）",
-      "社会的責任投資（SRI）"
+      "社会的責任投資（SRI）",
+      "ESG投資・ESG金融"
     ]
   },
   "_meta": {
-    "bundleId": "6-6.4",
+    "bundleId": "6-6.4-part2",
     "chapterTitle": "社会環境管理",
     "sectionTitle": "組織の社会的責任と環境管理活動",
     "groupNames": [
       "社会的責任（SR）"
     ],
-    "keywordCount": 17,
-    "partOf": null
+    "keywordCount": 16,
+    "partOf": "6.4"
   }
 }

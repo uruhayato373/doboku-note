@@ -2,22 +2,37 @@
   "cover": {
     "keyword": "情報分析と情報活用 Part 2",
     "subtitle": "情報分析と情報活用",
-    "stickyText": "情報管理\n12KW",
+    "stickyText": "情報管理\n14KW",
     "management": "info"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "SWOT分析、バリューチェーン分析、3C分析、4P分析、PPM分析、形式知、暗黙知、集合知、データウェアハウス、知識共有化、デザイン思考、官民データ活用推進基本法",
-      "noteText": "情報管理 情報分析と情報活用（経営・マーケティング分析・ナレッジマネジメント・オープンデータ）"
+      "body": "機械学習、生成AI、SWOT分析、バリューチェーン分析、3C分析、4P分析、PPM分析、形式知、暗黙知、集合知、データウェアハウス、知識共有化、デザイン思考、官民データ活用推進基本法",
+      "noteText": "情報管理 情報分析と情報活用（人工知能（AI）・経営・マーケティング分析・ナレッジマネジメント・オープンデータ）"
+    },
+    {
+      "type": "board",
+      "heading": "機械学習",
+      "body": "",
+      "noteText": "",
+      "slug": "machine-learning"
+    },
+    {
+      "type": "board",
+      "heading": "生成AI",
+      "body": "",
+      "noteText": "",
+      "slug": "generative-ai"
     },
     {
       "type": "board",
       "heading": "SWOT分析",
-      "body": "",
-      "noteText": "",
-      "slug": "swot-analysis"
+      "body": "SWOT分析とは、組織の内部環境（強み・弱み）と外部環境（機会・脅威）を4象限で整理し、戦略立案の基盤とする経営分析フレームワークである。内部環境は自社で制御可能、外部環境は市場動向・法規制など制御困難な要素である。",
+      "noteText": "内部（S/W）=制御可能\n外部（O/T）=制御困難",
+      "slug": "swot-analysis",
+      "_legacySource": "_backlog/2026/2026-06-12-swot-analysis"
     },
     {
       "type": "board",
@@ -64,9 +79,10 @@
     {
       "type": "board",
       "heading": "集合知",
-      "body": "",
-      "noteText": "",
-      "slug": "collective-intelligence"
+      "body": "集合知（Collective Intelligence）とは、多数の個人が持つ知識・経験・判断を集約・統合することで、個々人の能力を超えた優れた知見や意思決定が得られる現象である。",
+      "noteText": "スロウィッキー『みんなの意見は案外正しい』（2004年）が実証的に整理",
+      "slug": "collective-intelligence",
+      "_legacySource": "_backlog/2026/2026-12-08-collective-intelligence"
     },
     {
       "type": "board",
@@ -105,10 +121,10 @@
   ],
   "cta": {
     "related": [
+      "機械学習",
+      "生成AI",
       "SWOT分析",
-      "バリューチェーン分析",
-      "3C分析",
-      "4P分析"
+      "バリューチェーン分析"
     ]
   },
   "_meta": {
@@ -116,11 +132,12 @@
     "chapterTitle": "情報管理",
     "sectionTitle": "情報分析と情報活用",
     "groupNames": [
+      "人工知能（AI）",
       "経営・マーケティング分析",
       "ナレッジマネジメント",
       "オープンデータ"
     ],
-    "keywordCount": 12,
+    "keywordCount": 14,
     "partOf": "4.1"
   }
 }

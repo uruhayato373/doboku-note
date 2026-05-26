@@ -78,30 +78,34 @@
     {
       "type": "board",
       "heading": "アクティビティ",
-      "body": "",
-      "noteText": "",
-      "slug": "activity-abc"
+      "body": "活動基準原価計算（ABC: Activity Based Costing）とは、製品やサービスが消費するアクティビティ（活動）を基準に間接費を配賦する原価計算手法である。従来の直接作業時間配賦では製品間の原価が歪むという問題を解消する。",
+      "noteText": "多品種少量生産で特に有効",
+      "slug": "activity-abc",
+      "_legacySource": "_backlog/2026/2026-05-19-activity-abc"
     },
     {
       "type": "board",
       "heading": "コストドライバー",
-      "body": "",
-      "noteText": "",
-      "slug": "cost-driver"
+      "body": "コストドライバー（Cost Driver）とは、原価（コスト）の発生量を左右する要因・活動量のことであり、ABC（活動基準原価計算）における間接費の配賦基準として用いられる。コストとドライバーの間に因果関係があることが選定の基本条件である。",
+      "noteText": "ABCの配賦基準\n因果関係が必須",
+      "slug": "cost-driver",
+      "_legacySource": "_backlog/2027/2027-01-22-cost-driver"
     },
     {
       "type": "board",
       "heading": "原価差異分析",
-      "body": "",
-      "noteText": "",
-      "slug": "cost-variance-analysis"
+      "body": "原価差異分析とは、標準原価と実際原価の差異を算出し、その原因を価格差異・数量差異等に分解して分析する手法である。原価維持・原価改善の基盤となる管理ツールである。",
+      "noteText": "原価差異＝標準−実際\n正（＋）有利・負（−）不利",
+      "slug": "cost-variance-analysis",
+      "_legacySource": "_backlog/2027/2027-01-29-cost-variance-analysis"
     },
     {
       "type": "board",
       "heading": "原価維持",
-      "body": "",
-      "noteText": "",
-      "slug": "cost-maintenance"
+      "body": "原価維持とは、設定された標準原価を日常の製造活動において達成・維持するための管理活動である。原価管理は原価維持（日常管理）と原価改善（原価低減）の2つに大別される。",
+      "noteText": "原価維持＝日常管理\n原価改善＝標準引き下げ",
+      "slug": "cost-maintenance",
+      "_legacySource": "_backlog/2027/2027-01-26-cost-maintenance"
     },
     {
       "type": "board",
@@ -113,9 +117,10 @@
     {
       "type": "board",
       "heading": "損益分岐点・限界利益・優劣分岐点",
-      "body": "",
-      "noteText": "",
-      "slug": "break-even-point"
+      "body": "損益分岐点（BEP: Break-Even Point）とは、売上高と総費用が等しくなり利益がゼロとなる売上高または販売数量である。CVP分析の中核概念であり、費用を固定費と変動費に分解して分析する。",
+      "noteText": "固定費：売上に関わらず一定\n変動費：売上に比例して増減",
+      "slug": "break-even-point",
+      "_legacySource": "_backlog/2026/2026-09-29-break-even-point"
     },
     {
       "type": "board",

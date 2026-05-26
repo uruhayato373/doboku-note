@@ -2,15 +2,59 @@
   "cover": {
     "keyword": "地域環境問題 Part 2",
     "subtitle": "地域環境問題",
-    "stickyText": "社会環境管理\n13KW",
+    "stickyText": "社会環境管理\n14KW",
     "management": "environment"
   },
   "slides": [
     {
       "type": "intro",
       "heading": "この投稿で学ぶこと",
-      "body": "GFC、POPs条約、水俣条約、REACH規制（化学品の登録，評価，認可及び制限に関する規則）、RoHS規制・WEEE規制、ダイオキシン類対策特別措置法、化審法、化管法／PRTR法、ヒートアイランド現象、都市型水害、ハザードマップ、Eco-DRR（生態系を活用した防災・減災）、グリーンインフラ",
-      "noteText": "社会環境管理 地域環境問題（化学物質と環境リスク・異常気象と防災）"
+      "body": "四大公害病、典型７公害、大気汚染防止法、水質汚濁防止法、土壌汚染対策法、アスベスト問題、GFC、POPs条約、水俣条約、REACH規制（化学品の登録，評価，認可及び制限に関する規則）、RoHS規制・WEEE規制、ダイオキシン類対策特別措置法、化審法、化管法／PRTR法",
+      "noteText": "社会環境管理 地域環境問題（公害・化学物質と環境リスク）"
+    },
+    {
+      "type": "board",
+      "heading": "四大公害病",
+      "body": "",
+      "noteText": "",
+      "slug": "four-major-pollution-diseases"
+    },
+    {
+      "type": "board",
+      "heading": "典型７公害",
+      "body": "",
+      "noteText": "",
+      "slug": "seven-types-of-pollution"
+    },
+    {
+      "type": "board",
+      "heading": "大気汚染防止法",
+      "body": "大気汚染防止法は、工場・事業場のばい煙・粉じん、自動車排出ガスによる大気汚染を防止し、国民の健康保護と生活環境保全を目的とする法律である。1968年制定。環境基準（行政上の目標値）と排出基準（事業者への規制値）の二層構造で運用される。",
+      "noteText": "公害対策基本法（現・環境基本法）の個別規制法として機能",
+      "slug": "air-pollution-control-act",
+      "_legacySource": "_backlog/2026/2026-07-21-air-pollution-control-act"
+    },
+    {
+      "type": "board",
+      "heading": "水質汚濁防止法",
+      "body": "",
+      "noteText": "",
+      "slug": "water-pollution-control-act"
+    },
+    {
+      "type": "board",
+      "heading": "土壌汚染対策法",
+      "body": "",
+      "noteText": "",
+      "slug": "soil-contamination-act"
+    },
+    {
+      "type": "board",
+      "heading": "アスベスト問題",
+      "body": "アスベスト（石綿）は耐熱性・絶縁性に優れ建材に大量使用されたが、吸入により中皮腫・肺がん等の重篤な健康被害を引き起こすことが判明した。日本では2006年に製造・輸入・使用が全面禁止となった。",
+      "noteText": "過去使用の建築物解体が\n2030年頃にピークを迎える",
+      "slug": "asbestos-issue",
+      "_legacySource": "_backlog/2026/2026-08-18-asbestos-issue"
     },
     {
       "type": "board",
@@ -57,9 +101,10 @@
     {
       "type": "board",
       "heading": "化審法",
-      "body": "",
-      "noteText": "",
-      "slug": "chemical-substances-review-act"
+      "body": "化審法とは、新規化学物質の製造・輸入前に審査を行い、性状に応じた規制で人の健康及び生活環境動植物への被害を防止する法律である。1973年にPCB汚染問題を契機に世界初の事前審査制度として制定され、日本の化学物質管理の根幹をなす。",
+      "noteText": "PCB問題→1973年制定。欧州REACH（2007）より34年先行",
+      "slug": "chemical-substances-review-act",
+      "_legacySource": "_backlog/2026/2026-11-03-chemical-substances-review-act"
     },
     {
       "type": "board",
@@ -67,41 +112,6 @@
       "body": "",
       "noteText": "",
       "slug": "prtr-act"
-    },
-    {
-      "type": "board",
-      "heading": "ヒートアイランド現象",
-      "body": "",
-      "noteText": "",
-      "slug": "heat-island-effect"
-    },
-    {
-      "type": "board",
-      "heading": "都市型水害",
-      "body": "",
-      "noteText": "",
-      "slug": "urban-flood"
-    },
-    {
-      "type": "board",
-      "heading": "ハザードマップ",
-      "body": "",
-      "noteText": "",
-      "slug": "hazard-map"
-    },
-    {
-      "type": "board",
-      "heading": "Eco-DRR（生態系を活用した防災・減災）",
-      "body": "",
-      "noteText": "",
-      "slug": "eco-drr"
-    },
-    {
-      "type": "board",
-      "heading": "グリーンインフラ",
-      "body": "",
-      "noteText": "",
-      "slug": "green-infrastructure"
     },
     {
       "type": "summary",
@@ -112,10 +122,10 @@
   ],
   "cta": {
     "related": [
-      "GFC",
-      "POPs条約",
-      "水俣条約",
-      "REACH規制（化学品の登録，評価，認可及び制限に関する規則）"
+      "四大公害病",
+      "典型７公害",
+      "大気汚染防止法",
+      "水質汚濁防止法"
     ]
   },
   "_meta": {
@@ -123,10 +133,10 @@
     "chapterTitle": "社会環境管理",
     "sectionTitle": "地域環境問題",
     "groupNames": [
-      "化学物質と環境リスク",
-      "異常気象と防災"
+      "公害",
+      "化学物質と環境リスク"
     ],
-    "keywordCount": 13,
+    "keywordCount": 14,
     "partOf": "6.2"
   }
 }

@@ -1,0 +1,82 @@
+{
+  "cover": {
+    "keyword": "事故・災害の未然防止活動・技術 Part 4",
+    "subtitle": "事故・災害の未然防止活動・技術",
+    "stickyText": "安全管理\n6KW",
+    "management": "safety"
+  },
+  "slides": [
+    {
+      "type": "intro",
+      "heading": "この投稿で学ぶこと",
+      "body": "未然防止活動、定期点検活動、危険予知訓練（KYT）、TBM（ツールボックスミーティング）、標準作業手順書（SOP）、安全衛生パトロール",
+      "noteText": "安全管理 事故・災害の未然防止活動・技術（自主保安活動）"
+    },
+    {
+      "type": "board",
+      "heading": "未然防止活動",
+      "body": "",
+      "noteText": "",
+      "slug": "prevention-activities"
+    },
+    {
+      "type": "board",
+      "heading": "定期点検活動",
+      "body": "",
+      "noteText": "",
+      "slug": "periodic-inspection"
+    },
+    {
+      "type": "board",
+      "heading": "危険予知訓練（KYT）",
+      "body": "",
+      "noteText": "",
+      "slug": "kyt"
+    },
+    {
+      "type": "board",
+      "heading": "TBM（ツールボックスミーティング）",
+      "body": "",
+      "noteText": "",
+      "slug": "tbm-toolbox-meeting"
+    },
+    {
+      "type": "board",
+      "heading": "標準作業手順書（SOP）",
+      "body": "",
+      "noteText": "",
+      "slug": "sop"
+    },
+    {
+      "type": "board",
+      "heading": "安全衛生パトロール",
+      "body": "",
+      "noteText": "",
+      "slug": "safety-patrol"
+    },
+    {
+      "type": "summary",
+      "heading": "まとめ｜試験のポイント",
+      "body": "",
+      "noteText": "保存して試験前日に見返してください"
+    }
+  ],
+  "cta": {
+    "related": [
+      "未然防止活動",
+      "定期点検活動",
+      "危険予知訓練（KYT）",
+      "TBM（ツールボックスミーティング）"
+    ]
+  },
+  "_meta": {
+    "bundleId": "5-5.4-part4",
+    "chapterTitle": "安全管理",
+    "sectionTitle": "事故・災害の未然防止活動・技術",
+    "groupNames": [
+      "自主保安活動"
+    ],
+    "keywordCount": 6,
+    "partOf": "5.4"
+  }
+}
