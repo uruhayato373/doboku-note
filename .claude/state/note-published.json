@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-05-25T00:00:00.000Z",
+  "updatedAt": "2026-05-26T01:56:11.383Z",
   "items": [
     {
       "slug": "4フェーズ学習法",
@@ -11,6 +11,16 @@
       "series": "学習戦略",
       "utmCampaign": "4-phase-learning-strategy",
       "title": "総監 二次試験 学習スケジュール完全版｜試験前 6-7 ヶ月を 4 フェーズに分けて合格ラインに届く設計"
+    },
+    {
+      "slug": "R8予想問題",
+      "noteUrl": "https://note.com/dobokunote/n/n8e92e4673a99",
+      "noteId": "n8e92e4673a99",
+      "publishedAt": "2026-05-25",
+      "pricing": "free",
+      "series": "R8予想問題",
+      "utmCampaign": "r8-essay-forecast-intro",
+      "title": "令和8年度 総監記述式 R8予想問題｜出題予想6大テーマと三層構造で書き切る解答型"
     },
     {
       "slug": "キーワード集2026変更点",
@@ -53,6 +63,16 @@
       "title": "【土木系公務員】自治体の技術職員が技術士総監を取る5つのメリット｜発注者の視点から"
     },
     {
+      "slug": "公務員の総監学習設計",
+      "noteUrl": "https://note.com/dobokunote/n/nc7d70c92b8b0",
+      "noteId": "nc7d70c92b8b0",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "96-civil-servant-study-design",
+      "title": "【公務員向け】働きながら総監に挑む学習設計｜発注者業務の繁忙期を避ける逆算カレンダー"
+    },
+    {
       "slug": "公務員技術者の定年後資格戦略",
       "noteUrl": "https://note.com/dobokunote/n/nbdfe9446f887",
       "noteId": "nbdfe9446f887",
@@ -81,6 +101,46 @@
       "series": "公務員受験",
       "utmCampaign": "97-translate-5mgmt",
       "title": "【総監対策】発注者の日常を5管理に翻訳する｜「自分の仕事」で総監を腹落ちさせる"
+    },
+    {
+      "slug": "発注者視点の記述式の組み立て",
+      "noteUrl": "https://note.com/dobokunote/n/nced3f11b7641",
+      "noteId": "nced3f11b7641",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "98-owner-essay-build",
+      "title": "【総監記述式】発注者（自治体）の立場で記述式をどう組み立てるか｜三層構造と陥りやすい罠"
+    },
+    {
+      "slug": "白書R7完全対応集",
+      "noteUrl": "https://note.com/dobokunote/n/n60efbccd728b",
+      "noteId": "n60efbccd728b",
+      "publishedAt": "2026-05-25",
+      "pricing": "free",
+      "series": null,
+      "utmCampaign": "whitepaper-r7-strategy",
+      "title": "国土交通白書 R7 完全対応集"
+    },
+    {
+      "slug": "総監R08合格ロードマップ",
+      "noteUrl": "https://note.com/dobokunote/n/n3d73729e6cc7",
+      "noteId": "n3d73729e6cc7",
+      "publishedAt": "2026-05-26",
+      "pricing": "free",
+      "series": "総監R08合格ロードマップ",
+      "utmCampaign": "profile-fixed-roadmap",
+      "title": "【はじめての方へ】技術士総監・R08 合格のための note ロードマップ"
+    },
+    {
+      "slug": "総監をAIで勉強する",
+      "noteUrl": "https://note.com/dobokunote/n/n89da1120ccaa",
+      "noteId": "n89da1120ccaa",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "学習戦略",
+      "utmCampaign": "ai-study-method",
+      "title": "【技術士総監】AIで勉強を効率化する｜NotebookLM・Claude Code の使い分けと「AI任せの限界」"
     },
     {
       "slug": "総監択一式17年分分析",
@@ -121,6 +181,16 @@
       "series": "総監択一式",
       "utmCampaign": "calc-problems-6patterns",
       "title": "総監択一式 頻出計算問題 6パターン完全攻略｜毎年3〜5問を確実な得点源にする解法集"
+    },
+    {
+      "slug": "道路担当の記述式テーマ選び",
+      "noteUrl": "https://note.com/dobokunote/n/n6a992fc189c8",
+      "noteId": "n6a992fc189c8",
+      "publishedAt": null,
+      "pricing": "free",
+      "series": "公務員受験",
+      "utmCampaign": "99-road-essay-theme",
+      "title": "【総監記述式】自治体 道路担当が記述式の「お題」をどう選ぶか｜題材選びで答案は半分決まる"
     },
     {
       "slug": "magazines/総監テキスト精読ガイド/5管理-人的資源管理",
@@ -343,14 +413,70 @@
       "title": "令和7年度 総監記述式 模範論文｜自治体 道路担当版（少子高齢化）"
     },
     {
-      "slug": "白書R7完全対応集",
-      "noteUrl": "https://note.com/dobokunote/n/n60efbccd728b",
-      "noteId": "n60efbccd728b",
+      "slug": "magazines/総監記述式-R8予想問題集/AI社会",
+      "magazine": "総監記述式-R8予想問題集",
+      "noteUrl": "https://note.com/dobokunote/n/nb4e6f088f0e8",
+      "noteId": "nb4e6f088f0e8",
       "publishedAt": "2026-05-25",
-      "pricing": "free",
-      "series": null,
-      "utmCampaign": "whitepaper-r7-strategy",
-      "title": "国土交通白書 R7 完全対応集｜7大テーマ × 5管理トレードオフ × 過去問適用パスポート"
+      "pricing": "paid",
+      "series": "総監記述式-R8予想問題集",
+      "utmCampaign": "essay-r8-forecast-ai-governance",
+      "title": "令和8年度 総監記述式 R8予想問題｜AI社会 × 情報ガバナンス（自治体 道路担当フル模範論文）"
+    },
+    {
+      "slug": "magazines/総監記述式-R8予想問題集/気候変動適応",
+      "magazine": "総監記述式-R8予想問題集",
+      "noteUrl": "https://note.com/dobokunote/n/n05314b15b375",
+      "noteId": "n05314b15b375",
+      "publishedAt": "2026-05-25",
+      "pricing": "paid",
+      "series": "総監記述式-R8予想問題集",
+      "utmCampaign": "essay-r8-forecast-climate-adaptation",
+      "title": "令和8年度 総監記述式 R8予想問題｜気候変動適応 × グリーンインフラ（自治体 道路担当フル模範論文）"
+    },
+    {
+      "slug": "magazines/総監記述式-R8予想問題集/災害復旧",
+      "magazine": "総監記述式-R8予想問題集",
+      "noteUrl": "https://note.com/dobokunote/n/nf12d75c3e606",
+      "noteId": "nf12d75c3e606",
+      "publishedAt": "2026-05-25",
+      "pricing": "paid",
+      "series": "総監記述式-R8予想問題集",
+      "utmCampaign": "essay-r8-forecast-disaster-recovery",
+      "title": "令和8年度 総監記述式 R8予想問題｜災害復旧 × 複合災害対応（自治体 道路担当フル模範論文）"
+    },
+    {
+      "slug": "magazines/総監記述式-R8予想問題集/経済安全保障",
+      "magazine": "総監記述式-R8予想問題集",
+      "noteUrl": "https://note.com/dobokunote/n/n0c52cfabab78",
+      "noteId": "n0c52cfabab78",
+      "publishedAt": "2026-05-25",
+      "pricing": "paid",
+      "series": "総監記述式-R8予想問題集",
+      "utmCampaign": "essay-r8-forecast-economic-security",
+      "title": "令和8年度 総監記述式 R8予想問題｜経済安全保障 × サプライチェーン強靱化（自治体 道路担当フル模範論文）"
+    },
+    {
+      "slug": "magazines/総監記述式-R8予想問題集/老朽化インフラ",
+      "magazine": "総監記述式-R8予想問題集",
+      "noteUrl": "https://note.com/dobokunote/n/naace4eeaa230",
+      "noteId": "naace4eeaa230",
+      "publishedAt": "2026-05-25",
+      "pricing": "paid",
+      "series": "総監記述式-R8予想問題集",
+      "utmCampaign": "essay-r8-forecast-infrastructure-maintenance",
+      "title": "令和8年度 総監記述式 R8予想問題｜老朽化インフラ × 予防保全（自治体 道路担当フル模範論文）"
+    },
+    {
+      "slug": "magazines/総監記述式-R8予想問題集/資源循環",
+      "magazine": "総監記述式-R8予想問題集",
+      "noteUrl": "https://note.com/dobokunote/n/n5116639ee21f",
+      "noteId": "n5116639ee21f",
+      "publishedAt": "2026-05-25",
+      "pricing": "paid",
+      "series": "総監記述式-R8予想問題集",
+      "utmCampaign": "essay-r8-forecast-resource-circulation",
+      "title": "令和8年度 総監記述式 R8予想問題｜資源循環 × サプライチェーン強靭化（自治体 道路担当フル模範論文）"
     }
   ]
 }

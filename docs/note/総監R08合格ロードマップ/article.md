@@ -2,7 +2,9 @@
 notePricing: free
 noteSeries: 総監R08合格ロードマップ
 utmCampaign: profile-fixed-roadmap
-noteUrl: ""
+noteUrl: https://note.com/dobokunote/n/n3d73729e6cc7
+noteId: n3d73729e6cc7
+notePublishedAt: 2026-05-26
 coverTitle:
   - 【はじめての方へ】
   - 技術士総監・R08合格のための
