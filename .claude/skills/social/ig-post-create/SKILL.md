@@ -1,161 +1,215 @@
 ---
 name: ig-post-create
-description: 技術士総監キーワードの Instagram 投稿画像（Study Notebook デザイン）を生成。MDX からデータ抽出 → Satori レンダリング → PNG 3 枚（cover / board / cta）出力。Reels (1080×1920) と Carousel (1080×1350) の両サイズ対応。
+description: Instagram カルーセル PNG 生成。2 系統運用 (A: 択一クイズパック / B: 過去問パック)。Satori vDOM → Resvg PNG。1080×1350 (Carousel) と 1080×1920 (Reels) 対応。
 allowed-tools: Bash, Read, Write
 ---
 
-# Instagram キーワード解説投稿 生成スキル
+# Instagram カルーセル投稿 生成スキル
 
-`.local/r2/posts/pe-comprehensive-management/{slug}/article.mdx` を入力に、**Study Notebook（案C）デザイン**の Instagram スライド画像 3 枚を生成する。
+doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シリーズ運用**：
 
-## 現在の実装状態
+| シリーズ | 用途 | デザイン | パイプライン |
+|---|---|---|---|
+| **A. 択一クイズパック** | 運営者作問のシンプル知識クイズ | 既存 SVG ベース（明色） | `.claude/scripts/sns/render-quiz-pack.mjs` |
+| **B. 過去問パック** | 公式試験問題 H21-R7 全 640 問 | type3 デザイン（5管理別色） | `ig-post-create.mjs --exam` |
+| C. 単独 KW 解説（旧） | キーワード 1 件の Study Notebook | notebook デザイン | `ig-post-create.mjs --slug` |
 
-| コンポーネント | 状態 | 場所 |
-|---|---|---|
-| スライドテンプレート | ✅ 実装済み | `.claude/scripts/lib/sns-common/notebook-slides.mjs` |
-| レンダラ統合 | ✅ 実装済み | `.claude/scripts/lib/sns-common/slide-render.mjs` |
-| サンプル生成スクリプト | ✅ 実装済み（ハインリッヒの法則） | `.claude/scripts/gen-notebook-sample.mjs` |
-| MDX データ抽出 | ✅ 既存 | `.claude/scripts/lib/sns-common/mdx-extract.mjs` |
-| 量産スクリプト（slug 指定） | ✅ 実装済み | `.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs` |
+新規投稿の主軸は **A** または **B**。C は旧運用で残置（量産は基本しない）。
 
-## デザイン仕様（Study Notebook 案C）
+## 関連ファイル
 
-仕様詳細: `.tmp/youtube-handoff/doboku-note-youtube/project/design-C-study-notebook.md`
-
-| 要素 | 値 |
+| 役割 | ファイル |
 |---|---|
-| 紙地 | `#f7f3ea`（クリーム紙）+ 横罫線 72px ピッチ |
-| 左端 | 朱色マージン縦線（`#b22234`, opacity 0.6） |
-| 右端 | 5管理タブインデックス（アクティブ管理のみ反転） |
-| 付箋 | 管理ごとに色が変わる（安全=黄 `#fde58a` 等）|
-| フォント | Noto Sans JP Bold のみ |
-| キャンバス | Reels 1080×1920 / Carousel 1080×1350 の両対応 |
+| 過去問パック生成 (B) | `.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs` (`--exam`) |
+| 過去問 MDX パーサ | `scripts/parse-exam-questions.mjs` |
+| 過去問パック構造化 | `scripts/generate-exam-pack-dirs.mjs` |
+| 過去問パック 一括生成 | `scripts/bulk-generate-exam-packs.mjs` |
+| 過去問 SoT | `src/config/exam-questions.json` (640 問) |
+| 過去問 slide-data SoT | `docs/sns/instagram/_exam-packs/<year>/pack-<NN>/slide-data.json` |
+| 過去問 type3 ビルダー | `.claude/scripts/lib/sns-common/quiz-slides.mjs` |
+| 択一クイズパック生成 (A) | `.claude/scripts/sns/render-quiz-pack.mjs` |
+| 択一クイズ source パーサ | `.claude/scripts/sns/lib/quiz-parser.mjs` |
+| 択一クイズテンプレ | `.claude/scripts/sns/templates/quiz-ig.mjs` |
+| 単独 KW (notebook) ビルダー | `.claude/scripts/lib/sns-common/notebook-slides.mjs` |
+| キャプション生成 | `.claude/scripts/instagram/generate-caption.cjs` |
 
-## スライド構成（3 枚）
+---
 
-| 型 | 役割 | 主要コンテンツ |
+## B. 過去問パック（type3 デザイン・現行主軸）
+
+### 構造
+
+**1 パック = 1 管理 = 4 問 = 10 枚カルーセル**
+
+| 枚 | ファイル | 内容 |
 |---|---|---|
-| `notebook-cover` | 表紙・Hook | ★今日のキーワード + 大見出し + 副題 + 数値ピラミッド + 付箋 |
-| `notebook-board` | 板書・定義 | 見出し + 本文 + 「→ ここが本質」破線ボックス |
-| `notebook-cta` | CTA・関連 | RELATED カード（▷ キーワードリスト）+ 概要欄付箋 |
+| 1 | 00-cover.png | 「総監択一クイズ」+ 管理名（大）+ 「<年度> 4問パック」+ セクションタグ |
+| 2 | 01-problem.png | PROBLEM 1/4 + 問題本文 + 5 択カード（動的高さ） |
+| 3 | 02-answer.png | ANSWER 1/4 + 緑カード（正答番号 + 主題）+ EXPLANATION |
+| 4-9 | 03..08 | Q2-Q4 の problem / answer 計 6 枚 |
+| 10 | 09-cta.png | 「もっと解きたい人は doboku-note で 全 640 問・全章解説」 |
 
-## サンプル画像の生成（動作確認用）
+### 5 管理別色テーマ
+
+| 管理 | primary | deep | light |
+|---|---|---|---|
+| economic | #2e6da4 (青) | #1a3a5c | #e8f0fe |
+| human | #a36b2c (橙) | #5e3d18 | #fce8d0 |
+| info | #5a3aa3 (紫) | #321f5e | #ede4fa |
+| safety | #b22234 (赤) | #6b1320 | #fce0e3 |
+| social | #3a7d44 (緑) | #1f4824 | #d8eddc |
+
+### 運用手順
 
 ```bash
-# ハインリッヒの法則サンプル 6 枚（Reels × 3 + Carousel × 3）
-node .claude/scripts/gen-notebook-sample.mjs
+# 1. 過去問 MDX をパース（H21-R7 全 640 問抽出）
+node scripts/parse-exam-questions.mjs
 
-# 出力先
-# .tmp/notebook-sample/reels/00-cover.png    (1080×1920)
-# .tmp/notebook-sample/reels/01-board.png
-# .tmp/notebook-sample/reels/02-cta.png
-# .tmp/notebook-sample/carousel/00-cover.png (1080×1350)
-# .tmp/notebook-sample/carousel/01-board.png
-# .tmp/notebook-sample/carousel/02-cta.png
+# 2. R7 全年度を 4 問パックに集約（管理別グループ化）
+node scripts/generate-exam-pack-dirs.mjs --year r07
+# → docs/sns/instagram/_exam-packs/r07/pack-{01..09}/slide-data.json
+
+# 3. 1 パック分の PNG + caption 生成
+node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel
+
+# 4. 全パック一括生成
+node scripts/bulk-generate-exam-packs.mjs --year r07 --size carousel
+
+# 5. 全年度展開
+node scripts/generate-exam-pack-dirs.mjs --force  # H21-R7 全パック
+node scripts/bulk-generate-exam-packs.mjs --all   # 約 130 パック生成
 ```
 
-## データモデル
+### slide-data.json スキーマ（exam パック）
 
-```js
-// notebook-cover
+```jsonc
 {
-  keyword: 'ハインリッヒの法則',
-  keywordLines: ['ハインリッヒの', '法則'],  // 省略時は splitKeyword() が自動分割
-  subtitle: '1 : 29 : 300',
-  numbers: [                                 // 省略可。数値ピラミッドを表示
-    { n: 1,   label: '重大事故（死亡・重傷）',     color: '#b22234' },
-    { n: 29,  label: '軽微事故（休業 4 日未満）',  color: '#d4a017' },
-    { n: 300, label: 'ヒヤリハット（無傷の異常）', color: '#2e6da4' },
+  "slides": [
+    { "type": "cover", "title": "経済性管理", "subtitle": "R07 4問パック", "sectionTag": "2 経済性管理", "pageIndex": 1, "totalPages": 10 },
+    { "type": "problem", "bodyLines": [...], "options": [{num, text}], "qNum": 1, "totalQ": 4 },
+    { "type": "answer", "correctNum": 2, "correctText": "...", "correctSub": "...", "explanationLines": [...], "qNum": 1, "totalQ": 4 },
+    // Q2-Q4 ...
+    { "type": "cta", "pageIndex": 10, "totalPages": 10 }
   ],
-  stickyText: '1929年\n50万件\n調査',
-  management: 'safety',   // 'economic'|'human'|'info'|'safety'|'social'
-  date: '2026-05-09',
-  caption: '労災 1:29:300\nこれ、何の比率？',
-}
-
-// notebook-board
-{
-  heading: 'ハインリッヒの法則',   // mdx.title を自動挿入
-  body: '重大事故 1 件の背後に\n軽微事故 29 件\nヒヤリハット 300 件が潜む経験則',
-  noteText: '300 の段階で気付けば\n事故は防げる ＝ KYT の根拠',
-  management: 'safety',
-  caption: 'ヒヤリハット段階で予防＝KYT',
-}
-
-// notebook-cta
-{
-  related: ['バードの法則', 'KYT', '4M-4E', '不安全行動'],
-  management: 'safety',
-  caption: '続きは doboku-note で',
+  "_meta": { "year": "r07", "packNum": "01", "totalPacks": 9, "management": "economic", "questionIds": [...] }
 }
 ```
 
-## 量産スクリプト
+### 動的レイアウト
+
+- **問題文フォント**: 文字数で 26-42px 動的（短いほど大きく）
+- **選択肢カード高さ**: 1 行 116px / 2 行 156px / 3 行 196px
+- **解説フォント**: 行数で 24-44px 動的
+- **改行**: 句点で必ず改行・読点で idealLen 超過時改行 + Satori 自動 wrap
+- **緑カード correctText**: 20 字超で 32px / 以下で 38px（単文字分断防止）
+
+---
+
+## A. 択一クイズパック（運営者作問・別パイプライン）
+
+### 構造
+
+**1 パック = 1 管理 = 4 問 = 10 枚カルーセル**（B と同枚数だが内容・デザイン別）
+
+| 枚 | ファイル | 内容 |
+|---|---|---|
+| 1 | 01-cover.svg/png | 「総監択一クイズ」+ 管理名（大）+ 「4問パック」+ 5管理シリーズチップ |
+| 2-9 | 02-q1 〜 09-a4 | Q/A 4 ペア |
+| 10 | 10-cta.svg/png | 「もっと解きたい人は doboku-note で全問解説を見る」 |
+
+### 運用手順
 
 ```bash
-node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs \
-  --slug heinrich-law \
-  --date 2026-05-09 \
-  --size both         # reels | carousel | both
+# 1. source.md を運営者が手書き作成
+# 場所: docs/sns/<channel>/draft/<NNN>-クイズ-...-/source.md
+# フォーマットは docs/sns/instagram/_quiz-sample/source.md 参照
+
+# 2. レンダリング
+node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/<channel>/draft/<NNN>-...
+
+# 出力: <pack-dir>/instagram-carousel/img/{NN-管理名}/{01..10}.{svg,png}
 ```
 
-出力先:
-```
-docs/sns/instagram/{date}-{slug}/slide-data.json  ← 手動編集可能な設定ファイル
-docs/sns/instagram/{date}-{slug}/{size}/img/
-```
+### source.md フォーマット
 
-**ワークフロー**:
+```markdown
+## 経済性管理（Q1〜Q4）
 
-| 実行パターン | コマンド | 動作 |
-|---|---|---|
-| 初回生成 | `--slug foo --date YYYY-MM-DD` | MDX 抽出 → slide-data.json 生成 → PNG 出力 |
-| 再実行（手動編集を保持） | 同上 | slide-data.json 読み込み → PNG 再出力（MDX 解析スキップ） |
-| MDX から再抽出 | `--reset` 追加 | slide-data.json を上書き → PNG 再出力 |
+### Q1. {topic}
 
-**slide-data.json スキーマ**（手動編集対象）:
+**問題文**: {問題文}
 
-```json
-{
-  "cover": {
-    "keyword": "キーワード名",
-    "subtitle": "1 : 29 : 300",
-    "stickyText": "1929年\n50万件\n調査",
-    "management": "safety",
-    "caption": "キャプション文"
-  },
-  "board": {
-    "heading": "キーワード名",
-    "body": "定義文（改行は \\n）",
-    "noteText": "本質メモ",
-    "management": "safety",
-    "caption": "キャプション文"
-  },
-  "cta": {
-    "related": ["関連KW1", "関連KW2", "関連KW3", "関連KW4"],
-    "management": "safety",
-    "caption": "続きは doboku-note で"
-  }
-}
+**選択肢**:
+(1) {選択肢1}
+(2) {選択肢2}
+(3) {選択肢3}
+(4) {選択肢4}
+
+**正答**: ({N})
+
+**解説**: {解説本文}
+
+**関連キーワード**: [{label}](/docs/...)
 ```
 
-`management` の値: `economic` / `human` / `info` / `safety` / `social`
+5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）に対応。
 
-## Satori 制約（実装済みの回避策）
+### サンプル
 
-| 制約 | 回避策 |
+- ソース: `docs/sns/instagram/_quiz-sample/source.md`
+- 出力: `docs/sns/instagram/_quiz-sample/instagram-carousel/img/01-経済性/{01..10}.png`
+
+---
+
+## C. 単独 KW 解説（旧運用・参考保持）
+
+```bash
+node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size carousel
+```
+
+- 出力: `docs/sns/instagram/{date}-{slug}/{reels,carousel}/img/`
+- 構造: cover + board (定義) + figure (図解 任意) + board (応用) + board (試験ポイント) + cta = 6 枚程度
+- データ: `.local/r2/posts/pe-comprehensive-management/<slug>/article.mdx` から自動抽出
+
+---
+
+## 共通仕様
+
+### サイズ
+
+| 用途 | 解像度 |
 |---|---|
-| `display: 'flex'` 全コンテナ必須 | `d()` ヘルパーで自動付与 |
-| `justifyContent: 'space-evenly'` 非対応 | `'space-around'` で代替 |
-| インライン span の `background` グラデーション | `borderBottom: '8px solid #fff7a8'` でハイライター代替 |
-| 絵文字（📌📎）フォント未搭載 | `▶` `▷` テキスト記号で代替 |
-| `fontWeight: 800` | 700 にフォールバック（NotoSansJP-Bold は 700 のみ）|
+| Instagram Carousel | 1080×1350 (4:5) |
+| Instagram Reels / YouTube Shorts | 1080×1920 (9:16) |
 
-## 関連
+### フォント
 
-- デザイン仕様書: `.tmp/youtube-handoff/doboku-note-youtube/project/design-C-study-notebook.md`
-- テンプレート実装: `.claude/scripts/lib/sns-common/notebook-slides.mjs`
-- レンダラ: `.claude/scripts/lib/sns-common/slide-render.mjs`
-- YT Shorts（同じ `sns-common` 基盤を使用）: `.claude/skills/social/yt-shorts-create/SKILL.md`
-- 親タスク: task-queue T-001「SNS 自動投稿基盤（YouTube × Instagram）」
-- 量産: task-queue T-005「SNS 型・チャネル拡充（試験後 2026-08〜）」
+`.claude/skills/conversion/ogp-create/assets/fonts/`
+- NotoSansJP-Bold.ttf (日本語・700)
+- Inter-Bold.ttf (英数字・700)
+
+Satori 制約：fontWeight 800/900 → 700 にフォールバック。絵文字は搭載なし（▷ ▶ 等で代替）。
+
+### 使い分け方針
+
+| シーン | 推奨 |
+|---|---|
+| 試験前 6 ヶ月の高頻度配信 | **B (過去問パック)** — 自動量産可能（130 パック / 4 年運用） |
+| 「気軽に解いて学ぶ」初学者向け | **A (択一クイズパック)** — 運営者作問の質の高さ |
+| 単独 KW を深掘り（バイラル狙い） | **C (単独 KW)** — 量産せず厳選 |
+
+### 投稿ペース試算（戦略 v6 §IG: Carousel 週 2 本）
+
+- B: 130 パック ÷ 週 1 本 = **約 2.5 年で全網羅**
+- A: 月 1-2 パック（運営者作問のペース）
+- 両者並行で週 2 本ペースを実現
+
+---
+
+## 廃止された運用（参考）
+
+| 旧運用 | 廃止日 | 理由 |
+|---|---|---|
+| 65 bundle 集約モデル（`_section-bundles/`） | 2026-05-26 | サイト記事の自動要約では IG カルーセルの情報密度に合わず、過去問パック方式に切替 |
+| `--bundle` CLI モード | 2026-05-26 | 同上、`--slug` / `--exam` の 2 モードに整理 |
+| `notebook-intro` / `notebook-summary` スライド型 | 2026-05-26 | bundle 集約専用だったため廃止 |

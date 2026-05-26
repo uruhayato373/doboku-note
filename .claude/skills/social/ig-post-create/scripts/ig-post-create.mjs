@@ -1,26 +1,33 @@
 /**
- * Instagram Study Notebook スライド PNG 生成スクリプト
+ * Instagram カルーセル PNG 生成スクリプト
+ *
+ * 2 つの運用モード:
+ *   1. --slug : 単独キーワード解説（Study Notebook デザイン・notebook-cover/board/cta）
+ *   2. --exam : 過去問パック（type3 デザイン・5 管理別色・4 問パック 10 枚構成）
  *
  * 使い方:
- *   # 単一 KW モード（旧運用）
- *   node ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size both
+ *   # 単独 KW モード
+ *   node ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size carousel
  *
- *   # bundle モード（51 bundle 集約・現行運用）
- *   node ig-post-create.mjs --bundle 2-2-2 --size both
+ *   # 過去問パックモード
+ *   node ig-post-create.mjs --exam r07-pack-01 --size carousel
  *
  * オプション:
- *   --slug      キーワードスラグ（単一 KW モード・--bundle と排他）
- *   --bundle    bundle ID（例: 2-2-2, 3-3-2-part4）。slide-data.json は
- *               docs/sns/instagram/_section-bundles/<bundleId>/ から読む
- *   --date      投稿日（YYYY-MM-DD）[省略時: 今日。bundle モードでは使われない]
- *   --size      reels | carousel | both [省略時: both]
- *   --category  カテゴリ（デフォルト: pe-comprehensive-management）
- *   --reset       slide-data.json を無視して MDX から再生成（slug モードのみ）
+ *   --slug        単独 KW のスラグ（--exam と排他）
+ *   --exam        過去問パック ID (例: r07-pack-01)。slide-data.json は
+ *                 docs/sns/instagram/_exam-packs/<year>/pack-<NN>/ から読む
+ *   --date        投稿日（YYYY-MM-DD）[省略時: 今日。--exam では未使用]
+ *   --size        reels | carousel | both [省略時: both]
+ *   --category    カテゴリ（デフォルト: pe-comprehensive-management）
+ *   --reset       slide-data.json を無視して MDX から再生成（--slug のみ）
  *   --config-only slide-data.json のみ生成（PNG 生成スキップ）
  *
  * 出力先:
- *   slug モード: docs/sns/instagram/{date}-{slug}/{reels,carousel}/img/
- *   bundle モード: docs/sns/instagram/_section-bundles/{bundleId}/{reels,carousel}/img/
+ *   --slug: docs/sns/instagram/{date}-{slug}/{reels,carousel}/img/
+ *   --exam: docs/sns/instagram/_exam-packs/{year}/pack-{NN}/{reels,carousel}/img/
+ *
+ * 関連スキル:
+ *   - 択一クイズパック（運営者作問・シリーズ A）: .claude/scripts/sns/render-quiz-pack.mjs
  */
 
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -175,28 +182,26 @@ const { renderSlide } = await import(
 
 const args = parseArgs(process.argv.slice(2));
 const slug = args.slug;
-const bundleId = args.bundle;
-const examId = args.exam; // 例: r07-01
+const examId = args.exam; // 例: r07-pack-01
 const category = args.category ?? 'pe-comprehensive-management';
 const date = args.date ?? new Date().toISOString().slice(0, 10);
 const sizeArg = args.size ?? 'both';
 const resetFlag = 'reset' in args;
 const configOnly = 'config-only' in args;
 
-const modeFlags = [slug, bundleId, examId].filter(Boolean);
+const modeFlags = [slug, examId].filter(Boolean);
 if (modeFlags.length === 0) {
   console.error('Usage:');
   console.error('  node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both] [--reset]');
-  console.error('  node ig-post-create.mjs --bundle <bundleId> [--size reels|carousel|both]');
-  console.error('  node ig-post-create.mjs --exam <examId>   (例: r07-01) [--size reels|carousel|both]');
+  console.error('  node ig-post-create.mjs --exam <examId>   (例: r07-pack-01) [--size reels|carousel|both]');
   process.exit(1);
 }
 if (modeFlags.length > 1) {
-  console.error('Error: --slug / --bundle / --exam は排他です');
+  console.error('Error: --slug と --exam は排他です');
   process.exit(1);
 }
 
-const mode = examId ? 'exam' : (bundleId ? 'bundle' : 'slug');
+const mode = examId ? 'exam' : 'slug';
 
 const ALL_SIZES = [
   { name: 'reels',    width: 1080, height: 1920 },
@@ -212,10 +217,7 @@ if (sizes.length === 0) {
 }
 
 let outBase;
-if (mode === 'bundle') {
-  outBase = resolve(ROOT, `docs/sns/instagram/_section-bundles/${bundleId}`);
-} else if (mode === 'exam') {
-  // examId は "r07-pack-01" 形式
+if (mode === 'exam') {
   const match = examId.match(/^([hr]\d+)-pack-(\d+)$/);
   if (!match) {
     console.error(`Error: --exam の形式は <year>-pack-<NN> (例: r07-pack-01)`);
@@ -228,23 +230,19 @@ if (mode === 'bundle') {
 }
 const configPath = resolve(outBase, 'slide-data.json');
 
-const modeLabel = mode === 'bundle' ? `bundle: ${bundleId}` : (mode === 'exam' ? `exam: ${examId}` : `slug: ${slug}  date: ${date}`);
+const modeLabel = mode === 'exam' ? `exam: ${examId}` : `slug: ${slug}  date: ${date}`;
 console.log(`\n[ig-post-create] mode: ${mode}  ${modeLabel}  size: ${sizeArg}`);
 
 let slideData;
 
-if (mode === 'bundle' || mode === 'exam') {
-  // 既存 slide-data.json を読むのみ（MDX 抽出はしない）
+if (mode === 'exam') {
   if (!existsSync(configPath)) {
     console.error(`Error: slide-data.json not found: ${configPath}`);
-    const hint = mode === 'bundle'
-      ? 'node scripts/generate-ig-bundle-dirs.mjs で生成してください'
-      : 'node scripts/generate-exam-question-dirs.mjs で生成してください';
-    console.error(`Hint: ${hint}`);
+    console.error('Hint: node scripts/generate-exam-pack-dirs.mjs で生成してください');
     process.exit(1);
   }
   slideData = JSON.parse(readFileSync(configPath, 'utf8'));
-  console.log(`  [config] ${mode} slide-data.json を使用 (${slideData.slides?.length ?? 0} slides)`);
+  console.log(`  [config] exam slide-data.json を使用 (${slideData.slides?.length ?? 0} slides)`);
 } else if (existsSync(configPath) && !resetFlag) {
   // 再実行: slide-data.json から読み込み（MDX 解析スキップ）
   slideData = normalizeSlideData(JSON.parse(readFileSync(configPath, 'utf8')));
@@ -301,12 +299,10 @@ const management = mode === 'exam'
 const padNum = (n) => String(n).padStart(2, '0');
 
 const SLIDE_TYPE_MAP = {
-  // bundle / notebook 系
-  intro:    'notebook-intro',
+  // 単独 KW 系 (notebook デザイン)
   board:    'notebook-board',
   figure:   'notebook-figure',
-  summary:  'notebook-summary',
-  // exam / quiz 系 (type3 デザイン)
+  // 過去問パック系 (type3 デザイン)
   cover:    'quiz-cover',
   problem:  'quiz-problem',
   pause:    'quiz-pause',
@@ -315,9 +311,7 @@ const SLIDE_TYPE_MAP = {
 };
 
 function slideFilePart(type) {
-  if (type === 'intro') return 'intro';
   if (type === 'figure') return 'figure';
-  if (type === 'summary') return 'summary';
   if (type === 'cover') return 'cover';
   if (type === 'problem') return 'problem';
   if (type === 'pause') return 'pause';
@@ -352,7 +346,7 @@ if (mode === 'exam') {
       file: `${padNum(slideData.slides.length + 1)}-cta.png`,
       slide: {
         type: 'notebook-cta',
-        data: { ...slideData.cta, management, isBundle: mode === 'bundle' },
+        data: { ...slideData.cta, management, isBundle: false },
       },
     },
   ];
