@@ -50,7 +50,7 @@ status: handoff
 ### 5. note フォロワー獲得施策の基盤整備
 
 - 全 7 記事末尾に「📅 noteのフォローで更新情報をお届け」セクション追加
-- 固定記事用ナビゲーション記事「総監対策ハブ案内」を新規作成（`docs/note/総監対策ハブ案内/article.md`）
+- 固定記事用ナビゲーション記事「【はじめての方へ】技術士総監・R08 合格のための note ロードマップ」を新規作成（`docs/note/総監R08合格ロードマップ/article.md`、旧名「総監対策ハブ案内」から 2026-05-26 リネーム）
 - プロフィール文案を提示済（300 字、コピペ可）
 
 ### 6. 販売戦略タイムライン（2026-05-25 策定）
@@ -62,7 +62,7 @@ status: handoff
 ### 5/26〜31（試験 6 週前）：基盤整備
 
 - [ ] **note プロフィール編集**（ユーザー作業）：自己紹介文案をコピペ反映（30 分）
-- [ ] **固定記事公開**（ユーザー作業）：`docs/note/総監対策ハブ案内/article.md` を note にコピペ→無料公開→固定記事設定（30 分）
+- [ ] **固定記事公開**（ユーザー作業）：`docs/note/総監R08合格ロードマップ/article.md` を note にコピペ→無料公開→固定記事設定（30 分）
 - [ ] **固定記事 URL を私に共有**：frontmatter に `noteUrl/noteId/notePublishedAt` 反映で 1 commit
 - [ ] **既存 7 記事の note 側更新**（ユーザー作業）：markdown は更新済みだが note 上は未反映。優先度①リード記事 ②出題予想スコア上位 3 本（AI社会/資源循環/経済安全保障）③残り 3 本
 
@@ -128,7 +128,7 @@ status: handoff
 - 計画：`docs/note/noteコンテンツ計画.md`（販売戦略タイムラインセクション）
 - レビュー手順：`docs/reference/note-essay-review-checklist.md`
 - 品質原則：`docs/reference/content-principles.md` § note 模範論文の品質原則
-- 固定記事ドラフト：`docs/note/総監対策ハブ案内/article.md`
+- 固定記事ドラフト：`docs/note/総監R08合格ロードマップ/article.md`
 - メモリ：`feedback_essay_char_limit.md` / `feedback_essay_q2_prose.md` / `feedback_essay_q3_general_level.md` / `feedback_essay_persona_label.md` / `feedback_whitepaper_source_check.md` / `project_r8_essay_magazine.md`
 
 ## このセッションの commit 数
