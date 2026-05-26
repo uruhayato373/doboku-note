@@ -178,14 +178,37 @@ export function buildQuizCover({ width, height, data }) {
   ]);
 }
 
+/** 選択肢テキストの行数を文字数から推定（フォント 24px、横幅 752px の前提） */
+function estimateOptionLines(text, charsPerLine = 28) {
+  const len = [...(text || '')].length;
+  if (len === 0) return 1;
+  return Math.min(3, Math.ceil(len / charsPerLine));
+}
+
+/** 行数に応じた選択肢カード高さ */
+function optionCardHeight(lineCount) {
+  if (lineCount === 1) return 80;
+  if (lineCount === 2) return 110;
+  return 140;
+}
+
+/** 問題文の文字数に応じたフォントサイズ */
+function problemFontSizeFromLength(charCount) {
+  if (charCount <= 40) return 38;
+  if (charCount <= 80) return 34;
+  if (charCount <= 130) return 30;
+  if (charCount <= 180) return 28;
+  return 26;
+}
+
 /**
- * quiz-problem スライド (4 問パック版)
+ * quiz-problem スライド (4 問パック版・動的レイアウト)
  *
  * data: {
  *   bodyLines: string[],
  *   options: [{ num: number, text: string }],
- *   qNum: number,         // パック内の問番号 (1-4)
- *   totalQ: number,       // パック内の総問数 (通常 4)
+ *   qNum: number,
+ *   totalQ: number,
  *   management: string,
  *   pageIndex?: number,
  *   totalPages?: number,
@@ -193,85 +216,109 @@ export function buildQuizCover({ width, height, data }) {
  */
 export function buildQuizProblem({ width, height, data }) {
   const theme = getTheme(data.management);
-  const bodyLines = Array.isArray(data.bodyLines)
-    ? data.bodyLines
-    : (data.body || '').split('\n');
+  // 問題本文: 行配列を join して句点で段落分け、各段落を単一 div で自動 wrap
+  const fullBody = Array.isArray(data.bodyLines)
+    ? data.bodyLines.join('')
+    : (data.body || '');
+  const paragraphs = fullBody
+    .split('。')
+    .map((p) => p.trim())
+    .filter((p) => p)
+    .map((p, i, arr) => (i < arr.length - 1 || fullBody.endsWith('。') ? p + '。' : p));
   const options = data.options || [];
 
-  // 5 択は縦に並ぶので、各カード高さを縮める
-  const cardHeight = options.length >= 5 ? 86 : 100;
-  const cardGap = options.length >= 5 ? 12 : 18;
-  // 5 択時は問題本文を最大 4 行に圧縮
-  const maxBodyLines = options.length >= 5 ? 4 : 5;
-  const optionsTop = options.length >= 5 ? 460 : 500;
+  // 問題本文のフォントサイズを「全文字数」で動的調整
+  const bodyFontSize = problemFontSizeFromLength([...fullBody].length);
+
+  // 各選択肢の行数を推定 → 高さを動的計算
+  const optionsWithMeta = options.slice(0, 5).map((opt) => {
+    const lines = estimateOptionLines(opt.text);
+    return { ...opt, lineCount: lines, cardHeight: optionCardHeight(lines) };
+  });
 
   return d(frame(width, height, QUIZ_TOKENS.paper), [
     pageBadge(data.pageIndex ?? 2, data.totalPages ?? 10),
 
-    // PROBLEM ラベル + 下線
-    d({
-      position: 'absolute',
-      top: 90, left: 80,
-      flexDirection: 'column',
-      gap: 6,
-    }, [
-      d({
-        fontSize: 26,
-        fontWeight: 700,
-        color: theme.primary,
-        letterSpacing: '0.08em',
-      }, `PROBLEM ${data.qNum ?? ''}${data.totalQ ? ` / ${data.totalQ}` : ''}`),
-      d({ width: 100, height: 3, background: theme.primary }),
-    ]),
-
-    // 問題本文
-    d({
-      position: 'absolute',
-      top: 180, left: 80, right: 80,
-      flexDirection: 'column',
-      gap: 10,
-      fontSize: 34,
-      fontWeight: 700,
-      color: QUIZ_TOKENS.ink,
-      lineHeight: 1.45,
-    }, bodyLines.slice(0, maxBodyLines).map((line) => d({ display: 'flex' }, line || ' '))),
-
-    // 選択肢カード群（縦並び）
-    d({
-      position: 'absolute',
-      top: optionsTop, left: 80, right: 80,
-      flexDirection: 'column',
-      gap: cardGap,
-    }, options.slice(0, 5).map((opt) =>
-      d({
-        height: cardHeight,
-        background: QUIZ_TOKENS.cardBg,
-        border: `1px solid ${QUIZ_TOKENS.cardBorder}`,
-        borderRadius: 14,
-        paddingLeft: 24, paddingRight: 24,
-        alignItems: 'center',
+    // 全体: flex column で自然な縦流し
+    d(
+      {
+        position: 'absolute',
+        top: 90, left: 80, right: 80, bottom: 70,
+        flexDirection: 'column',
         gap: 20,
-      }, [
-        d({
-          width: 56, height: 56,
-          borderRadius: 28,
-          background: theme.primary,
-          color: '#ffffff',
-          fontSize: 30,
-          fontWeight: 700,
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexShrink: 0,
-        }, String(opt.num)),
-        d({
-          fontSize: 26,
-          fontWeight: 600,
-          color: QUIZ_TOKENS.ink,
-          lineHeight: 1.35,
-          flexShrink: 1,
-        }, opt.text || ''),
-      ]),
-    )),
+      },
+      [
+        // PROBLEM ラベル + 下線
+        d({ flexDirection: 'column', gap: 4 }, [
+          d({
+            fontSize: 26,
+            fontWeight: 700,
+            color: theme.primary,
+            letterSpacing: '0.08em',
+          }, `PROBLEM ${data.qNum ?? ''}${data.totalQ ? ` / ${data.totalQ}` : ''}`),
+          d({ width: 100, height: 3, background: theme.primary }),
+        ]),
+
+        // 問題本文（句点で段落分け、各段落は単一 div で Satori 自動 wrap）
+        d(
+          {
+            flexDirection: 'column',
+            gap: 6,
+            fontSize: bodyFontSize,
+            fontWeight: 700,
+            color: QUIZ_TOKENS.ink,
+            lineHeight: 1.55,
+          },
+          paragraphs.map((p) => d({ display: 'flex' }, p)),
+        ),
+
+        // 選択肢カード群（動的高さ）
+        d(
+          { flexDirection: 'column', gap: 12, flexGrow: 1 },
+          optionsWithMeta.map((opt) =>
+            d(
+              {
+                height: opt.cardHeight,
+                background: QUIZ_TOKENS.cardBg,
+                border: `1px solid ${QUIZ_TOKENS.cardBorder}`,
+                borderRadius: 14,
+                paddingLeft: 20, paddingRight: 20,
+                paddingTop: 12, paddingBottom: 12,
+                alignItems: 'center',
+                gap: 18,
+                flexShrink: 0,
+              },
+              [
+                d(
+                  {
+                    width: 52, height: 52,
+                    borderRadius: 26,
+                    background: theme.primary,
+                    color: '#ffffff',
+                    fontSize: 28,
+                    fontWeight: 700,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0,
+                  },
+                  String(opt.num),
+                ),
+                d(
+                  {
+                    fontSize: opt.lineCount >= 2 ? 22 : 24,
+                    fontWeight: 600,
+                    color: QUIZ_TOKENS.ink,
+                    lineHeight: 1.4,
+                    flexShrink: 1,
+                  },
+                  opt.text || '',
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
   ]);
 }
 
@@ -340,109 +387,104 @@ export function buildQuizAnswer({ width, height, data }) {
   const explanationLines = Array.isArray(data.explanationLines)
     ? data.explanationLines
     : (data.explanation || '').split('\n').filter((l) => l.trim());
+  // 解説の行数で本文フォントサイズ動的調整
+  const explFontSize = explanationLines.length <= 6 ? 28 : (explanationLines.length <= 8 ? 25 : 22);
 
   return d(frame(width, height, QUIZ_TOKENS.paper), [
     pageBadge(data.pageIndex ?? 4, data.totalPages ?? 10),
 
-    // ANSWER ラベル + 下線
-    d({
-      position: 'absolute',
-      top: 90, left: 80,
-      flexDirection: 'column',
-      gap: 6,
-    }, [
-      d({
-        fontSize: 26,
-        fontWeight: 700,
-        color: theme.primary,
-        letterSpacing: '0.08em',
-      }, `ANSWER ${data.qNum ?? ''}${data.totalQ ? ` / ${data.totalQ}` : ''}`),
-      d({ width: 100, height: 3, background: theme.primary }),
-    ]),
-
-    // 「正解」
-    d({
-      position: 'absolute',
-      top: 200, left: 80,
-      fontSize: 60,
-      fontWeight: 700,
-      color: QUIZ_TOKENS.ink,
-    }, '正解'),
-
-    // 緑カード
-    d({
-      position: 'absolute',
-      top: 296, left: 80, right: 80,
-      height: 220,
-      background: QUIZ_TOKENS.correctBg,
-      border: `3px solid ${QUIZ_TOKENS.correctMark}`,
-      borderRadius: 16,
-      paddingLeft: 30, paddingRight: 30,
-      alignItems: 'center',
-      gap: 30,
-    }, [
-      // 番号バッジ（円）
-      d({
-        width: 120, height: 120,
-        borderRadius: 60,
-        background: QUIZ_TOKENS.correctMark,
-        color: '#ffffff',
-        fontSize: 60,
-        fontWeight: 700,
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexShrink: 0,
-      }, String(data.correctNum || '?')),
-
-      // テキスト 2 段
-      d({
+    // 全体を flex column で流す
+    d(
+      {
+        position: 'absolute',
+        top: 90, left: 80, right: 80, bottom: 70,
         flexDirection: 'column',
-        gap: 8,
-        flexShrink: 1,
-      }, [
+        gap: 18,
+      },
+      [
+        // ANSWER ラベル + 下線
+        d({ flexDirection: 'column', gap: 4 }, [
+          d({
+            fontSize: 26,
+            fontWeight: 700,
+            color: theme.primary,
+            letterSpacing: '0.08em',
+          }, `ANSWER ${data.qNum ?? ''}${data.totalQ ? ` / ${data.totalQ}` : ''}`),
+          d({ width: 100, height: 3, background: theme.primary }),
+        ]),
+
+        // 緑カード（正答番号 + 主題）
         d({
-          fontSize: 44,
-          fontWeight: 700,
-          color: QUIZ_TOKENS.ink,
-          lineHeight: 1.3,
-        }, data.correctText || ''),
-        data.correctSub
-          ? d({
-              fontSize: 26,
-              fontWeight: 500,
-              color: QUIZ_TOKENS.inkSoft,
-            }, data.correctSub)
-          : null,
-      ]),
-    ]),
+          background: QUIZ_TOKENS.correctBg,
+          border: `3px solid ${QUIZ_TOKENS.correctMark}`,
+          borderRadius: 16,
+          paddingTop: 24, paddingBottom: 24,
+          paddingLeft: 24, paddingRight: 24,
+          alignItems: 'center',
+          gap: 24,
+          flexShrink: 0,
+        }, [
+          d({
+            width: 100, height: 100,
+            borderRadius: 50,
+            background: QUIZ_TOKENS.correctMark,
+            color: '#ffffff',
+            fontSize: 52,
+            fontWeight: 700,
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexShrink: 0,
+          }, String(data.correctNum || '?')),
+          d({
+            flexDirection: 'column',
+            gap: 6,
+            flexShrink: 1,
+          }, [
+            d({
+              fontSize: 36,
+              fontWeight: 700,
+              color: QUIZ_TOKENS.ink,
+              lineHeight: 1.35,
+            }, data.correctText || ''),
+            data.correctSub
+              ? d({
+                  fontSize: 22,
+                  fontWeight: 500,
+                  color: QUIZ_TOKENS.inkSoft,
+                  lineHeight: 1.4,
+                }, data.correctSub)
+              : null,
+          ]),
+        ]),
 
-    // EXPLANATION ラベル + 下線
-    d({
-      position: 'absolute',
-      top: 596, left: 80,
-      flexDirection: 'column',
-      gap: 6,
-    }, [
-      d({
-        fontSize: 30,
-        fontWeight: 700,
-        color: theme.primary,
-        letterSpacing: '0.08em',
-      }, 'EXPLANATION'),
-      d({ width: 200, height: 3, background: theme.primary }),
-    ]),
+        // EXPLANATION ラベル + 下線
+        d({ flexDirection: 'column', gap: 4 }, [
+          d({
+            fontSize: 26,
+            fontWeight: 700,
+            color: theme.primary,
+            letterSpacing: '0.08em',
+          }, 'EXPLANATION'),
+          d({ width: 180, height: 3, background: theme.primary }),
+        ]),
 
-    // 解説本文
-    d({
-      position: 'absolute',
-      top: 676, left: 80, right: 80,
-      flexDirection: 'column',
-      gap: 8,
-      fontSize: 30,
-      fontWeight: 600,
-      color: QUIZ_TOKENS.ink,
-      lineHeight: 1.55,
-    }, explanationLines.slice(0, 8).map((line) => d({ display: 'flex' }, line || ' '))),
+        // 解説本文（動的フォントサイズ）
+        d(
+          {
+            flexDirection: 'column',
+            gap: 6,
+            fontSize: explFontSize,
+            fontWeight: 600,
+            color: QUIZ_TOKENS.ink,
+            lineHeight: 1.55,
+            flexGrow: 1,
+          },
+          explanationLines.slice(0, 12).map((line) =>
+            d({ display: 'flex' }, line || ' '),
+          ),
+        ),
+      ],
+    ),
   ]);
 }
 

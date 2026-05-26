@@ -40,17 +40,23 @@ const MGMT_SECTION_PREFIX = {
   social: "6",
 };
 
-/** 問題本文を 28 字程度で折り返した行配列にする */
-function wrapBody(text, maxLen = 28) {
+/** 問題本文を句読点優先で自然に折り返す */
+function wrapBody(text, idealLen = 22, maxLen = 30) {
   if (!text) return [];
   const lines = [];
   let buf = "";
   for (const ch of text) {
     buf += ch;
-    if (buf.length >= maxLen && /[。、）」』]/.test(ch)) {
+    if (ch === "。") {
+      // 句点で必ず改行
       lines.push(buf);
       buf = "";
-    } else if (buf.length >= maxLen + 4) {
+    } else if (buf.length >= idealLen && /[、）」』]/.test(ch)) {
+      // 理想長を超えた読点・括弧閉じで改行
+      lines.push(buf);
+      buf = "";
+    } else if (buf.length >= maxLen) {
+      // 最大長超過は強制改行
       lines.push(buf);
       buf = "";
     }
@@ -66,19 +72,33 @@ function makeQuestionSlides(q, qNum, totalQ) {
   const correctOption = q.options.find((o) => o.num === q.correct);
   const correctText = q.examPoint?.summary || (correctOption?.text || "").slice(0, 28);
 
-  // 解説本文
+  // 解説本文（正答理由 → 誤答理由 → ExamPoint items）
   const wrongJudgments = q.judgments.filter((j) => j.result === "❌");
   const parts = [];
   if (correctJudgment) {
-    parts.push(`正答 ${q.correct}: ${correctJudgment.text}`);
+    // 「正答 N」は card で既に表示されているので冗長。「○ 正答の根拠:」だけに
+    parts.push(`○ 正答の根拠: ${correctJudgment.text}`);
   }
   for (const w of wrongJudgments.slice(0, 2)) {
     parts.push(`✗ ${w.num}: ${w.text}`);
   }
-  for (const item of (q.examPoint?.items || []).slice(0, 2)) {
+  // ExamPoint items の表示数: judgments が少ない場合は多めに（解説欠落対策）
+  const examPointItemCount = parts.length === 0
+    ? 5
+    : parts.length === 1
+      ? 4
+      : 2;
+  for (const item of (q.examPoint?.items || []).slice(0, examPointItemCount)) {
     parts.push(`▷ ${item}`);
   }
-  const explanationLines = parts.flatMap((p) => wrapBody(p, 30));
+  // それでも解説が極端に少なければ correctText を再掲（最終フォールバック）
+  if (parts.length === 0 || parts.length === 1) {
+    const correctOptionText = (correctOption?.text || "").slice(0, 80);
+    if (correctOptionText) {
+      parts.push(`○ 正答 ${q.correct}: ${correctOptionText}`);
+    }
+  }
+  const explanationLines = parts.flatMap((p) => wrapBody(p, 24, 32));
 
   return [
     {
