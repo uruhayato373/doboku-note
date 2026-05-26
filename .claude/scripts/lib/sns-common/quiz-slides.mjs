@@ -178,25 +178,25 @@ export function buildQuizCover({ width, height, data }) {
   ]);
 }
 
-/** 選択肢テキストの行数を文字数から推定（フォント 24px、横幅 752px の前提） */
-function estimateOptionLines(text, charsPerLine = 28) {
+/** 選択肢テキストの行数を文字数から推定（フォント 28px、横幅 752px の前提） */
+function estimateOptionLines(text, charsPerLine = 24) {
   const len = [...(text || '')].length;
   if (len === 0) return 1;
   return Math.min(3, Math.ceil(len / charsPerLine));
 }
 
-/** 行数に応じた選択肢カード高さ */
+/** 行数に応じた選択肢カード高さ（5 択を縦に並べて画面下まで埋める） */
 function optionCardHeight(lineCount) {
-  if (lineCount === 1) return 80;
-  if (lineCount === 2) return 110;
-  return 140;
+  if (lineCount === 1) return 116;
+  if (lineCount === 2) return 156;
+  return 196;
 }
 
-/** 問題文の文字数に応じたフォントサイズ */
+/** 問題文の文字数に応じたフォントサイズ（選択肢 5 つを下に並べる余地を確保） */
 function problemFontSizeFromLength(charCount) {
-  if (charCount <= 40) return 38;
-  if (charCount <= 80) return 34;
-  if (charCount <= 130) return 30;
+  if (charCount <= 40) return 42;
+  if (charCount <= 80) return 36;
+  if (charCount <= 130) return 32;
   if (charCount <= 180) return 28;
   return 26;
 }
@@ -239,19 +239,19 @@ export function buildQuizProblem({ width, height, data }) {
   return d(frame(width, height, QUIZ_TOKENS.paper), [
     pageBadge(data.pageIndex ?? 2, data.totalPages ?? 10),
 
-    // 全体: flex column で自然な縦流し
+    // 全体: flex column で画面いっぱいに（余白圧縮）
     d(
       {
         position: 'absolute',
-        top: 90, left: 80, right: 80, bottom: 70,
+        top: 60, left: 60, right: 60, bottom: 40,
         flexDirection: 'column',
-        gap: 20,
+        gap: 16,
       },
       [
         // PROBLEM ラベル + 下線
         d({ flexDirection: 'column', gap: 4 }, [
           d({
-            fontSize: 26,
+            fontSize: 28,
             fontWeight: 700,
             color: theme.primary,
             letterSpacing: '0.08em',
@@ -263,18 +263,18 @@ export function buildQuizProblem({ width, height, data }) {
         d(
           {
             flexDirection: 'column',
-            gap: 6,
+            gap: 8,
             fontSize: bodyFontSize,
             fontWeight: 700,
             color: QUIZ_TOKENS.ink,
-            lineHeight: 1.55,
+            lineHeight: 1.5,
           },
           paragraphs.map((p) => d({ display: 'flex' }, p)),
         ),
 
-        // 選択肢カード群（動的高さ）
+        // 選択肢カード群（動的高さ + 画面下まで広げる）
         d(
-          { flexDirection: 'column', gap: 12, flexGrow: 1 },
+          { flexDirection: 'column', gap: 14, flexGrow: 1, justifyContent: 'flex-end' },
           optionsWithMeta.map((opt) =>
             d(
               {
@@ -282,20 +282,20 @@ export function buildQuizProblem({ width, height, data }) {
                 background: QUIZ_TOKENS.cardBg,
                 border: `1px solid ${QUIZ_TOKENS.cardBorder}`,
                 borderRadius: 14,
-                paddingLeft: 20, paddingRight: 20,
-                paddingTop: 12, paddingBottom: 12,
+                paddingLeft: 24, paddingRight: 24,
+                paddingTop: 14, paddingBottom: 14,
                 alignItems: 'center',
-                gap: 18,
+                gap: 20,
                 flexShrink: 0,
               },
               [
                 d(
                   {
-                    width: 52, height: 52,
-                    borderRadius: 26,
+                    width: 60, height: 60,
+                    borderRadius: 30,
                     background: theme.primary,
                     color: '#ffffff',
-                    fontSize: 28,
+                    fontSize: 32,
                     fontWeight: 700,
                     alignItems: 'center',
                     justifyContent: 'center',
@@ -305,10 +305,10 @@ export function buildQuizProblem({ width, height, data }) {
                 ),
                 d(
                   {
-                    fontSize: opt.lineCount >= 2 ? 22 : 24,
+                    fontSize: opt.lineCount === 1 ? 32 : opt.lineCount === 2 ? 28 : 24,
                     fontWeight: 600,
                     color: QUIZ_TOKENS.ink,
-                    lineHeight: 1.4,
+                    lineHeight: 1.45,
                     flexShrink: 1,
                   },
                   opt.text || '',
@@ -387,25 +387,33 @@ export function buildQuizAnswer({ width, height, data }) {
   const explanationLines = Array.isArray(data.explanationLines)
     ? data.explanationLines
     : (data.explanation || '').split('\n').filter((l) => l.trim());
-  // 解説の行数で本文フォントサイズ動的調整
-  const explFontSize = explanationLines.length <= 6 ? 28 : (explanationLines.length <= 8 ? 25 : 22);
+  // 解説の行数でフォント動的調整（少ない場合は大きく、多い場合は小さく）
+  const explFontSize = explanationLines.length <= 4
+    ? 44
+    : explanationLines.length <= 6
+      ? 38
+      : explanationLines.length <= 8
+        ? 32
+        : explanationLines.length <= 10
+          ? 28
+          : 24;
 
   return d(frame(width, height, QUIZ_TOKENS.paper), [
     pageBadge(data.pageIndex ?? 4, data.totalPages ?? 10),
 
-    // 全体を flex column で流す
+    // 全体を flex column で画面いっぱいに
     d(
       {
         position: 'absolute',
-        top: 90, left: 80, right: 80, bottom: 70,
+        top: 60, left: 60, right: 60, bottom: 40,
         flexDirection: 'column',
-        gap: 18,
+        gap: 16,
       },
       [
         // ANSWER ラベル + 下線
         d({ flexDirection: 'column', gap: 4 }, [
           d({
-            fontSize: 26,
+            fontSize: 28,
             fontWeight: 700,
             color: theme.primary,
             letterSpacing: '0.08em',
@@ -418,18 +426,18 @@ export function buildQuizAnswer({ width, height, data }) {
           background: QUIZ_TOKENS.correctBg,
           border: `3px solid ${QUIZ_TOKENS.correctMark}`,
           borderRadius: 16,
-          paddingTop: 24, paddingBottom: 24,
-          paddingLeft: 24, paddingRight: 24,
+          paddingTop: 28, paddingBottom: 28,
+          paddingLeft: 28, paddingRight: 28,
           alignItems: 'center',
-          gap: 24,
+          gap: 28,
           flexShrink: 0,
         }, [
           d({
-            width: 100, height: 100,
-            borderRadius: 50,
+            width: 110, height: 110,
+            borderRadius: 55,
             background: QUIZ_TOKENS.correctMark,
             color: '#ffffff',
-            fontSize: 52,
+            fontSize: 60,
             fontWeight: 700,
             alignItems: 'center',
             justifyContent: 'center',
@@ -437,18 +445,18 @@ export function buildQuizAnswer({ width, height, data }) {
           }, String(data.correctNum || '?')),
           d({
             flexDirection: 'column',
-            gap: 6,
+            gap: 8,
             flexShrink: 1,
           }, [
             d({
-              fontSize: 36,
+              fontSize: ([...(data.correctText || '')].length > 20) ? 32 : 38,
               fontWeight: 700,
               color: QUIZ_TOKENS.ink,
               lineHeight: 1.35,
             }, data.correctText || ''),
             data.correctSub
               ? d({
-                  fontSize: 22,
+                  fontSize: 26,
                   fontWeight: 500,
                   color: QUIZ_TOKENS.inkSoft,
                   lineHeight: 1.4,
@@ -460,7 +468,7 @@ export function buildQuizAnswer({ width, height, data }) {
         // EXPLANATION ラベル + 下線
         d({ flexDirection: 'column', gap: 4 }, [
           d({
-            fontSize: 26,
+            fontSize: 28,
             fontWeight: 700,
             color: theme.primary,
             letterSpacing: '0.08em',
@@ -468,18 +476,19 @@ export function buildQuizAnswer({ width, height, data }) {
           d({ width: 180, height: 3, background: theme.primary }),
         ]),
 
-        // 解説本文（動的フォントサイズ）
+        // 解説本文（動的フォントサイズ・画面下まで広げる）
         d(
           {
             flexDirection: 'column',
-            gap: 6,
+            gap: 8,
             fontSize: explFontSize,
             fontWeight: 600,
             color: QUIZ_TOKENS.ink,
             lineHeight: 1.55,
             flexGrow: 1,
+            justifyContent: 'flex-start',
           },
-          explanationLines.slice(0, 12).map((line) =>
+          explanationLines.slice(0, 14).map((line) =>
             d({ display: 'flex' }, line || ' '),
           ),
         ),
