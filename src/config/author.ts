@@ -39,4 +39,9 @@ export const AUTHOR = {
   ],
   imageUrl: "/img/admin-avatar-flat.png",
   twitterUrl: "https://x.com/dobokunotecom",
+  // note アカウント固定記事「【はじめての方へ】技術士総監・R08 合格のための note ロードマップ」
+  // 各記事末尾の AuthorCard からの送客動線として参照される（UTM 付き）
+  noteUrl:
+    "https://note.com/dobokunote/n/n3d73729e6cc7?utm_source=site&utm_medium=author-card&utm_campaign=profile-fixed-roadmap",
+  noteLabel: "📘 note で総監 R08 対策の続編を発信中 →",
 } as const;

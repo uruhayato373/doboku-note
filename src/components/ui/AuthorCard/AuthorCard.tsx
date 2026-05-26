@@ -67,12 +67,22 @@ export default function AuthorCard({
                 )}
             </div>
           )}
-          <Link
-            href="/about"
-            className="mt-3 inline-block text-xs text-primary-600 dark:text-primary-400 hover:underline"
-          >
-            運営者・編集方針について →
-          </Link>
+          <div className="mt-3 flex flex-col gap-1.5">
+            <a
+              href={AUTHOR.noteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block text-xs text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              {AUTHOR.noteLabel}
+            </a>
+            <Link
+              href="/about"
+              className="inline-block text-xs text-primary-600 dark:text-primary-400 hover:underline"
+            >
+              運営者・編集方針について →
+            </Link>
+          </div>
         </div>
       </div>
     </MetaCard>
