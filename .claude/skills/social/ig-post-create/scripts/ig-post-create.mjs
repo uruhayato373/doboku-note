@@ -176,25 +176,27 @@ const { renderSlide } = await import(
 const args = parseArgs(process.argv.slice(2));
 const slug = args.slug;
 const bundleId = args.bundle;
+const examId = args.exam; // 例: r07-01
 const category = args.category ?? 'pe-comprehensive-management';
 const date = args.date ?? new Date().toISOString().slice(0, 10);
 const sizeArg = args.size ?? 'both';
 const resetFlag = 'reset' in args;
 const configOnly = 'config-only' in args;
 
-if (!slug && !bundleId) {
+const modeFlags = [slug, bundleId, examId].filter(Boolean);
+if (modeFlags.length === 0) {
   console.error('Usage:');
   console.error('  node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both] [--reset]');
   console.error('  node ig-post-create.mjs --bundle <bundleId> [--size reels|carousel|both]');
+  console.error('  node ig-post-create.mjs --exam <examId>   (例: r07-01) [--size reels|carousel|both]');
+  process.exit(1);
+}
+if (modeFlags.length > 1) {
+  console.error('Error: --slug / --bundle / --exam は排他です');
   process.exit(1);
 }
 
-if (slug && bundleId) {
-  console.error('Error: --slug と --bundle は排他です');
-  process.exit(1);
-}
-
-const mode = bundleId ? 'bundle' : 'slug';
+const mode = examId ? 'exam' : (bundleId ? 'bundle' : 'slug');
 
 const ALL_SIZES = [
   { name: 'reels',    width: 1080, height: 1920 },
@@ -209,24 +211,40 @@ if (sizes.length === 0) {
   process.exit(1);
 }
 
-const outBase = mode === 'bundle'
-  ? resolve(ROOT, `docs/sns/instagram/_section-bundles/${bundleId}`)
-  : resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
+let outBase;
+if (mode === 'bundle') {
+  outBase = resolve(ROOT, `docs/sns/instagram/_section-bundles/${bundleId}`);
+} else if (mode === 'exam') {
+  // examId は "r07-pack-01" 形式
+  const match = examId.match(/^([hr]\d+)-pack-(\d+)$/);
+  if (!match) {
+    console.error(`Error: --exam の形式は <year>-pack-<NN> (例: r07-pack-01)`);
+    process.exit(1);
+  }
+  const [, year, packNum] = match;
+  outBase = resolve(ROOT, `docs/sns/instagram/_exam-packs/${year}/pack-${packNum}`);
+} else {
+  outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
+}
 const configPath = resolve(outBase, 'slide-data.json');
 
-console.log(`\n[ig-post-create] mode: ${mode}  ${mode === 'bundle' ? `bundle: ${bundleId}` : `slug: ${slug}  date: ${date}`}  size: ${sizeArg}`);
+const modeLabel = mode === 'bundle' ? `bundle: ${bundleId}` : (mode === 'exam' ? `exam: ${examId}` : `slug: ${slug}  date: ${date}`);
+console.log(`\n[ig-post-create] mode: ${mode}  ${modeLabel}  size: ${sizeArg}`);
 
 let slideData;
 
-if (mode === 'bundle') {
-  // bundle モード: 既存 slide-data.json を読むのみ（MDX 抽出はしない）
+if (mode === 'bundle' || mode === 'exam') {
+  // 既存 slide-data.json を読むのみ（MDX 抽出はしない）
   if (!existsSync(configPath)) {
-    console.error(`Error: bundle slide-data.json not found: ${configPath}`);
-    console.error('Hint: node scripts/generate-ig-bundle-dirs.mjs で生成してください');
+    console.error(`Error: slide-data.json not found: ${configPath}`);
+    const hint = mode === 'bundle'
+      ? 'node scripts/generate-ig-bundle-dirs.mjs で生成してください'
+      : 'node scripts/generate-exam-question-dirs.mjs で生成してください';
+    console.error(`Hint: ${hint}`);
     process.exit(1);
   }
   slideData = JSON.parse(readFileSync(configPath, 'utf8'));
-  console.log(`  [config] bundle slide-data.json を使用 (${slideData.slides?.length ?? 0} slides)`);
+  console.log(`  [config] ${mode} slide-data.json を使用 (${slideData.slides?.length ?? 0} slides)`);
 } else if (existsSync(configPath) && !resetFlag) {
   // 再実行: slide-data.json から読み込み（MDX 解析スキップ）
   slideData = normalizeSlideData(JSON.parse(readFileSync(configPath, 'utf8')));
@@ -277,40 +295,68 @@ if (configOnly) {
   process.exit(0);
 }
 
-const management = slideData.cover?.management || 'safety';
+const management = mode === 'exam'
+  ? (slideData._meta?.management || 'safety')
+  : (slideData.cover?.management || 'safety');
 const padNum = (n) => String(n).padStart(2, '0');
 
 const SLIDE_TYPE_MAP = {
-  intro:   'notebook-intro',
-  board:   'notebook-board',
-  figure:  'notebook-figure',
-  summary: 'notebook-summary',
+  // bundle / notebook 系
+  intro:    'notebook-intro',
+  board:    'notebook-board',
+  figure:   'notebook-figure',
+  summary:  'notebook-summary',
+  // exam / quiz 系 (type3 デザイン)
+  cover:    'quiz-cover',
+  problem:  'quiz-problem',
+  pause:    'quiz-pause',
+  answer:   'quiz-answer',
+  cta:      'quiz-cta',
 };
 
 function slideFilePart(type) {
   if (type === 'intro') return 'intro';
   if (type === 'figure') return 'figure';
   if (type === 'summary') return 'summary';
+  if (type === 'cover') return 'cover';
+  if (type === 'problem') return 'problem';
+  if (type === 'pause') return 'pause';
+  if (type === 'answer') return 'answer';
+  if (type === 'cta') return 'cta';
   return 'board';
 }
 
-const SLIDES = [
-  { file: '00-cover.png', slide: { type: 'notebook-cover', data: slideData.cover } },
-  ...slideData.slides.map((s, i) => {
-    const resolved = s.type === 'figure' ? resolveFigureImage(s) : s;
-    const data = { ...resolved, management };
-    const num = padNum(i + 1);
-    const notebookType = SLIDE_TYPE_MAP[s.type] || 'notebook-board';
-    return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: notebookType, data } };
-  }),
-  {
-    file: `${padNum(slideData.slides.length + 1)}-cta.png`,
-    slide: {
-      type: 'notebook-cta',
-      data: { ...slideData.cta, management, isBundle: mode === 'bundle' },
+let SLIDES;
+
+if (mode === 'exam') {
+  // exam モード: slide-data.json の slides 配列をそのままマップ
+  // (cover / problem / pause / answer / cta が含まれる)
+  SLIDES = slideData.slides.map((s, i) => {
+    const data = { ...s, management };
+    const num = padNum(i);
+    const quizType = SLIDE_TYPE_MAP[s.type] || s.type;
+    return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: quizType, data } };
+  });
+} else {
+  // bundle / slug モード: cover + slides + cta を自動構築
+  SLIDES = [
+    { file: '00-cover.png', slide: { type: 'notebook-cover', data: slideData.cover } },
+    ...slideData.slides.map((s, i) => {
+      const resolved = s.type === 'figure' ? resolveFigureImage(s) : s;
+      const data = { ...resolved, management };
+      const num = padNum(i + 1);
+      const notebookType = SLIDE_TYPE_MAP[s.type] || 'notebook-board';
+      return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: notebookType, data } };
+    }),
+    {
+      file: `${padNum(slideData.slides.length + 1)}-cta.png`,
+      slide: {
+        type: 'notebook-cta',
+        data: { ...slideData.cta, management, isBundle: mode === 'bundle' },
+      },
     },
-  },
-];
+  ];
+}
 
 const IG_MAX = 20; // Instagram カルーセル上限（2024-02 以降 20 枚）
 if (SLIDES.length < 3 || SLIDES.length > IG_MAX) {

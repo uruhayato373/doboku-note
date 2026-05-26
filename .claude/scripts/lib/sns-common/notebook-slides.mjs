@@ -798,6 +798,255 @@ export function buildNotebookSummary({ width, height, data }) {
 }
 
 /**
+ * notebook-question スライド（過去問用）
+ *
+ * data: {
+ *   heading: string,     // "問題"
+ *   body: string,        // 問題本文
+ *   management: string,
+ * }
+ */
+export function buildNotebookQuestion({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const bodyLines = (data.body || "").split("\n");
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+      },
+      [
+        d({
+          fontSize: L.headingFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brandDeep,
+          borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
+          paddingBottom: 10,
+          marginBottom: 20,
+          alignSelf: "flex-start",
+          paddingLeft: 20, paddingRight: 20,
+        }, `▶ ${data.heading || "問題"}`),
+        d({
+          flexDirection: "column",
+          fontSize: L.bodyFontSize - 4,
+          fontWeight: 600,
+          color: NOTEBOOK_TOKENS.ink,
+          lineHeight: 1.75,
+        }, bodyLines.map((line) => d({ display: "flex" }, line || " "))),
+      ],
+    ),
+  ]);
+}
+
+/**
+ * notebook-options スライド（過去問選択肢）
+ *
+ * data: {
+ *   heading: string,
+ *   options: [{ num: number, text: string }, ...],
+ *   management: string,
+ * }
+ */
+export function buildNotebookOptions({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const options = data.options || [];
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+      },
+      [
+        d({
+          fontSize: L.headingFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brandDeep,
+          borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
+          paddingBottom: 10,
+          marginBottom: 16,
+          alignSelf: "flex-start",
+          paddingLeft: 20, paddingRight: 20,
+        }, `▶ ${data.heading || "選択肢"}`),
+        d(
+          { flexDirection: "column", gap: 14, flexGrow: 1 },
+          options.map((opt) =>
+            d(
+              {
+                flexDirection: "row",
+                gap: 16,
+                alignItems: "flex-start",
+              },
+              [
+                d({
+                  fontSize: 32,
+                  fontWeight: 700,
+                  color: NOTEBOOK_TOKENS.brand,
+                  minWidth: 44,
+                  flexShrink: 0,
+                  paddingTop: 2,
+                }, `${opt.num}.`),
+                d({
+                  fontSize: L.bodyFontSize - 10,
+                  fontWeight: 600,
+                  color: NOTEBOOK_TOKENS.inkBody,
+                  lineHeight: 1.5,
+                  flexShrink: 1,
+                }, opt.text),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  ]);
+}
+
+/**
+ * notebook-think スライド（過去問の「答えはスワイプ↓」エンゲージ仕掛け）
+ *
+ * data: { heading: string, body: string, management: string }
+ */
+export function buildNotebookThink({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 40,
+      },
+      [
+        d({
+          fontSize: L.keywordFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brandDeep,
+          textAlign: "center",
+        }, data.heading || "答えは？"),
+        d({
+          fontSize: L.subtitleFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.inkBody,
+          borderBottom: `8px solid ${NOTEBOOK_TOKENS.marker}`,
+          paddingBottom: 6,
+        }, data.body || "次のスライドで解答"),
+        d({
+          fontSize: L.keywordFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brand,
+        }, "↓"),
+      ],
+    ),
+  ]);
+}
+
+/**
+ * notebook-answer スライド（過去問の正答 + 解説 + ExamPoint）
+ *
+ * data: {
+ *   heading: string,            // "正答：N"
+ *   body: string,               // 解説（各選択肢の理由 1-3 行）
+ *   examPointSummary?: string,  // ExamPoint.summary
+ *   examPointItems?: string[],  // ExamPoint.items（最大 2 件表示）
+ *   management: string,
+ * }
+ */
+export function buildNotebookAnswer({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const bodyLines = (data.body || "").split("\n").filter((l) => l.trim());
+  const items = (data.examPointItems || []).slice(0, 2);
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+      },
+      [
+        // 正答ヘッダ（黄色付箋風）
+        d({
+          fontSize: L.headingFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.ink,
+          background: NOTEBOOK_TOKENS.sticky,
+          paddingTop: 12, paddingBottom: 12,
+          paddingLeft: 20, paddingRight: 24,
+          alignSelf: "flex-start",
+          marginBottom: 20,
+          boxShadow: "4px 6px 12px rgba(0,0,0,0.10)",
+          transform: "rotate(-1deg)",
+        }, `▶ ${data.heading || "正答"}`),
+
+        // 解説
+        d({
+          flexDirection: "column",
+          gap: 10,
+          fontSize: L.bodyFontSize - 10,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.inkBody,
+          lineHeight: 1.55,
+          marginBottom: 20,
+        }, bodyLines.map((line) => d({ display: "flex" }, line))),
+
+        // ExamPoint カード（あれば）
+        data.examPointSummary
+          ? d({
+              flexGrow: 1,
+              paddingTop: 18, paddingBottom: 18,
+              paddingLeft: 24, paddingRight: 24,
+              background: "#ffffff",
+              border: `3px dashed ${NOTEBOOK_TOKENS.red}`,
+              flexDirection: "column",
+              gap: 8,
+            }, [
+              d({
+                fontSize: 28,
+                fontWeight: 700,
+                color: NOTEBOOK_TOKENS.red,
+              }, `▶ 試験のポイント`),
+              d({
+                fontSize: L.bodyFontSize - 6,
+                fontWeight: 700,
+                color: NOTEBOOK_TOKENS.ink,
+                lineHeight: 1.5,
+              }, data.examPointSummary),
+              ...items.map((item) =>
+                d({
+                  fontSize: L.bodyFontSize - 14,
+                  fontWeight: 600,
+                  color: NOTEBOOK_TOKENS.inkBody,
+                  lineHeight: 1.5,
+                  paddingLeft: 16,
+                }, `・${item}`),
+              ),
+            ])
+          : null,
+      ],
+    ),
+  ]);
+}
+
+/**
  * notebook-figure スライド
  *
  * 図版（SVG/PNG）を主役にするスライド。図がまだ無い場合は figureSpec を

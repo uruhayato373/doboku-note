@@ -34,44 +34,73 @@ const data = JSON.parse(fs.readFileSync(inputPath, "utf-8"));
 const dir = path.dirname(inputPath);
 const outputPath = path.join(dir, "caption.txt");
 
-const { cover, slides, cta, _meta } = data;
-if (!cover?.keyword) {
-  console.error("slide-data.json に cover.keyword が必要です");
+const { slides, cta, _meta } = data;
+// 旧スキーマ (cover フィールド) と新スキーマ (slides[0].type === 'cover') 両対応
+const coverSlide = Array.isArray(slides)
+  ? slides.find((s) => s.type === "cover")
+  : null;
+const cover = data.cover || coverSlide || {};
+const coverTitle = cover.keyword || cover.title;
+
+if (!coverTitle) {
+  console.error("slide-data.json に cover.keyword/title が必要です");
   process.exit(1);
 }
 
 const isBundle = Boolean(_meta?.bundleId);
+const isExamPack = Boolean(_meta?.year && _meta?.packNum);
 const kwCount = _meta?.keywordCount
   ?? (Array.isArray(slides) ? slides.filter((s) => s.type === "board").length : 0);
+const qCount = Array.isArray(slides)
+  ? slides.filter((s) => s.type === "problem").length
+  : 0;
 
 const lines = [];
 
-// タイトル行（単独 KW モード or bundle モード）
-if (isBundle) {
+// タイトル行（モード別）
+if (isExamPack) {
+  const yearLabel = _meta.year.toUpperCase();
+  lines.push(`【過去問】${coverTitle}｜${yearLabel} ${qCount}問パック`);
+} else if (isBundle) {
   const chapterLabel = _meta?.chapterTitle ? `【${_meta.chapterTitle}】` : "【保存版】";
-  lines.push(`${chapterLabel}${cover.keyword}（${kwCount}キーワードまとめ）`);
+  lines.push(`${chapterLabel}${coverTitle}（${kwCount}キーワードまとめ）`);
 } else {
-  lines.push(`【用語集】${cover.keyword}${cover.subtitle ? ` — ${cover.subtitle}` : ""}`);
+  lines.push(`【用語集】${coverTitle}${cover.subtitle ? ` — ${cover.subtitle}` : ""}`);
 }
 lines.push("");
 
 // body 要約（最大 3 件）
-const boards = (slides || []).filter((s) => s.type === "board").slice(0, 3);
-for (const s of boards) {
-  const body = (s.body || "").replace(/\s+/g, "");
-  const truncated = body.length > 80 ? body.slice(0, 80) + "…" : body;
-  lines.push(`▶ ${s.heading || ""}`);
-  lines.push(truncated);
-  lines.push("");
+if (isExamPack) {
+  // 過去問パック: 各 problem の冒頭 + 正答番号を要約
+  const problems = (slides || []).filter((s) => s.type === "problem");
+  const answers = (slides || []).filter((s) => s.type === "answer");
+  problems.slice(0, 3).forEach((p, i) => {
+    const bodyText = Array.isArray(p.bodyLines) ? p.bodyLines.join("") : (p.body || "");
+    const truncated = bodyText.length > 70 ? bodyText.slice(0, 70) + "…" : bodyText;
+    const ans = answers[i];
+    lines.push(`▶ Q${p.qNum ?? i + 1}: ${truncated}`);
+    if (ans?.correctNum) {
+      lines.push(`  → 正答 ${ans.correctNum}`);
+    }
+    lines.push("");
+  });
+} else {
+  const boards = (slides || []).filter((s) => s.type === "board").slice(0, 3);
+  for (const s of boards) {
+    const body = (s.body || "").replace(/\s+/g, "");
+    const truncated = body.length > 80 ? body.slice(0, 80) + "…" : body;
+    lines.push(`▶ ${s.heading || ""}`);
+    lines.push(truncated);
+    lines.push("");
+  }
 }
 
 // CTA
 lines.push("─────────");
-lines.push(
-  isBundle
-    ? "📌 保存して試験前日に見返すまとめ"
-    : "📌 保存して試験前日に見返す用語集",
-);
+let saveLabel = "📌 保存して試験前日に見返す用語集";
+if (isExamPack) saveLabel = "📌 保存して試験前日に見返す過去問パック";
+else if (isBundle) saveLabel = "📌 保存して試験前日に見返すまとめ";
+lines.push(saveLabel);
 lines.push("🔗 詳細解説はプロフィールの doboku-note サイトで");
 lines.push("");
 

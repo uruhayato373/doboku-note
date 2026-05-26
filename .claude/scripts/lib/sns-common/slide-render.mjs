@@ -17,7 +17,8 @@ import { dirname, resolve } from 'node:path';
 
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
-import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, buildNotebookIntro, buildNotebookSummary, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
+import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, buildNotebookIntro, buildNotebookSummary, buildNotebookQuestion, buildNotebookOptions, buildNotebookThink, buildNotebookAnswer, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
+import { buildQuizCover, buildQuizProblem, buildQuizPause, buildQuizAnswer, buildQuizCta } from './quiz-slides.mjs';
 import { SNS_CONFIG } from './sns-config.mjs';
 
 const NT = NOTEBOOK_TOKENS;
@@ -141,6 +142,24 @@ async function buildElement({ width, height, slide, config }) {
       return buildNotebookIntro({ width, height, data: slide.data || {} });
     case 'notebook-summary':
       return buildNotebookSummary({ width, height, data: slide.data || {} });
+    case 'notebook-question':
+      return buildNotebookQuestion({ width, height, data: slide.data || {} });
+    case 'notebook-options':
+      return buildNotebookOptions({ width, height, data: slide.data || {} });
+    case 'notebook-think':
+      return buildNotebookThink({ width, height, data: slide.data || {} });
+    case 'notebook-answer':
+      return buildNotebookAnswer({ width, height, data: slide.data || {} });
+    case 'quiz-cover':
+      return buildQuizCover({ width, height, data: slide.data || {} });
+    case 'quiz-problem':
+      return buildQuizProblem({ width, height, data: slide.data || {} });
+    case 'quiz-pause':
+      return buildQuizPause({ width, height, data: slide.data || {} });
+    case 'quiz-answer':
+      return buildQuizAnswer({ width, height, data: slide.data || {} });
+    case 'quiz-cta':
+      return buildQuizCta({ width, height, data: slide.data || {} });
     case 'image':
       return buildImageElement({ width, height, data: slide.data || {} });
     default:
