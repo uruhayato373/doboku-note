@@ -42,18 +42,35 @@
     {
       "type": "answer",
       "correctNum": 4,
-      "correctText": "ISO/IEC 15408は製品の技術機能のみが評価対象で、組織の運用・管理面はISMS（ISO/IEC 27001）の範疇",
-      "correctSub": null,
-      "explanationLines": [
-        "○ 正答の根拠: ISMS適合性評価制度はISO/IEC 270",
-        "01準拠の第三者評価制度であり定義は適切",
-        "✗ 4: ISO/IEC 15408は製品の技術的機能のみが評価",
-        "対象であり、組織面の運用・管理は含まれないため誤り",
-        "▷ ISMS適合性評価（ISO/IEC 27001）",
-        "：組織のマネジメントシステム全体（方針・計画・実装・運用・管理）",
-        "▷ コモンクライテリア（ISO/IEC 15408）",
-        "：セキュリティ製品・システムの技術的機能のみ"
+      "correctText": "情報セキュリティの認証",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "ISMS適合性評価制度はISO/IEC 27001準拠の第三者評価制度であり定義は適切。"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "個別解説は省略"
+        }
       ],
+      "pointText": "ISO/IEC 15408は製品の技術機能のみが評価対象で、組織の運用・管理面はISMS（ISO/IEC 27001）の範疇。ISMS適合性評価（ISO/IEC 27001）：組織のマネジメントシステム全体（方針・計画・実装・運用・管理）／コモンクライテリア（ISO/IEC 15408）：セキュリティ製品・システムの技術的機能のみ",
       "qNum": 1,
       "totalQ": 4
     },
@@ -91,18 +108,35 @@
     {
       "type": "answer",
       "correctNum": 3,
-      "correctText": "VPNは境界型セキュリティの手段であり、ゼロトラストとは異なる",
-      "correctSub": null,
-      "explanationLines": [
-        "○ 正答の根拠: 境界型セキュリティは内外の境界で遮断する考え方",
-        "であり定義は適切",
-        "✗ 3: VPNは境界型セキュリティの代表的手段であり、",
-        "ゼロトラストの考え方とは異なるため誤り",
-        "▷ VPN：社内ネットワークへのトンネル接続 = 境界型セキュリ",
-        "ティの延長",
-        "▷ ゼロトラスト：すべてのアクセスを個別に認証・検証（VPNに依",
-        "存しない）"
+      "correctText": "境界型・ゼロトラスト",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "境界型セキュリティは内外の境界で遮断する考え方であり定義は適切。"
+        },
+        {
+          "num": 4,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "個別解説は省略"
+        }
       ],
+      "pointText": "VPNは境界型セキュリティの手段であり、ゼロトラストとは異なる。VPN：社内ネットワークへのトンネル接続 = 境界型セキュリティの延長／ゼロトラスト：すべてのアクセスを個別に認証・検証（VPNに依存しない）",
       "qNum": 2,
       "totalQ": 4
     },
@@ -142,16 +176,35 @@
     {
       "type": "answer",
       "correctNum": 5,
-      "correctText": "高齢者等避難は警戒レベル3で災害発生「前」に発令される早期避難情報",
-      "correctSub": null,
-      "explanationLines": [
-        "○ 正答の根拠: 警戒レベル相当情報の入手環境整備と平時からの周",
-        "知は重要であり適切",
-        "✗ 5: 高齢者等避難は災害発生「前」（警戒レベル3）",
-        "に早期避難を促すものであり、災害発生後の緊急避難とする記述は誤り",
-        "▷ 警戒レベル3：高齢者等避難（災害発生前の早期避難）",
-        "▷ 警戒レベル4：避難指示（全員避難）"
+      "correctText": "避難情報のガイドライン",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 4,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 5,
+          "correct": true,
+          "text": "警戒レベル相当情報の入手環境整備と平時からの周知は重要であり適切。"
+        }
       ],
+      "pointText": "高齢者等避難は警戒レベル3で災害発生「前」に発令される早期避難情報。警戒レベル3：高齢者等避難（災害発生前の早期避難）／警戒レベル4：避難指示（全員避難）",
       "qNum": 3,
       "totalQ": 4
     },
@@ -194,16 +247,35 @@
     {
       "type": "answer",
       "correctNum": 4,
-      "correctText": "Safety1.0は隔離・分離による安全、Safety2.0はIoT・協調による安全",
-      "correctSub": null,
-      "explanationLines": [
-        "▷ Safety1.0：機械安全・機能安全（隔離",
-        "▷ 自動停止、保安装置）",
-        "▷ Safety2.0：協調安全（IoT",
-        "▷ 情報共有、人と機械の協調）",
-        "▷ キーワード：「協調」「情報共有」「IoT」→ Safety2",
-        ".0"
+      "correctText": "Safety 1.0 / 2.0",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "本問の正答。"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "個別解説は省略"
+        }
       ],
+      "pointText": "Safety1.0は隔離・分離による安全、Safety2.0はIoT・協調による安全。Safety1.0：機械安全・機能安全（隔離／自動停止、保安装置）",
       "qNum": 4,
       "totalQ": 4
     },

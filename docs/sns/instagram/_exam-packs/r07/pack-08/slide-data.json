@@ -45,16 +45,35 @@
     {
       "type": "answer",
       "correctNum": 2,
-      "correctText": "BCM はサプライチェーン全体の視点が重要",
-      "correctSub": null,
-      "explanationLines": [
-        "○ 正答の根拠: 自然災害や経営環境の変化への対応計画としてBC",
-        "Pの定義は適切",
-        "✗ 2: 委託先・調達先・供給先もBCMの検討範囲に含まれるため",
-        "、含まれないとする記述は誤り",
-        "▷ 自社の人的・物的被害軽減だけが目的ではない",
-        "▷ 委託先・調達先・供給先の事業継続も自社事業継続に直結"
+      "correctText": "事業継続ガイドライン",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": true,
+          "text": "自然災害や経営環境の変化への対応計画としてBCPの定義は適切。"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 4,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "個別解説は省略"
+        }
       ],
+      "pointText": "BCM はサプライチェーン全体の視点が重要。自社の人的・物的被害軽減だけが目的ではない／委託先・調達先・供給先の事業継続も自社事業継続に直結",
       "qNum": 1,
       "totalQ": 4
     },
@@ -92,17 +111,35 @@
     {
       "type": "answer",
       "correctNum": 4,
-      "correctText": "事故の4E対策は Education, Engineering, Enforcement, Example",
-      "correctSub": null,
-      "explanationLines": [
-        "○ 正答の根拠: 4M方式（Man, Machine, Medi",
-        "a, Management）の災害分析手法として正確",
-        "✗ 4: 正しくはEducation, Engineering,",
-        " Enforcement, Example（模範）",
-        "であり、Economyは含まれない",
-        "▷ Education（教育）：安全教育・訓練",
-        "▷ Engineering（技術）：設備・技術的対策"
+      "correctText": "事故・災害の未然防止",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "4M方式（Man, Machine, Media, Management）の災害分析手法として正確。"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "個別解説は省略"
+        }
       ],
+      "pointText": "事故の4E対策は Education, Engineering, Enforcement, Example。Education（教育）：安全教育・訓練／Engineering（技術）：設備・技術的対策",
       "qNum": 2,
       "totalQ": 4
     },
@@ -140,16 +177,35 @@
     {
       "type": "answer",
       "correctNum": 4,
-      "correctText": "労働安全衛生法の主たる義務者は「事業者」",
-      "correctSub": null,
-      "explanationLines": [
-        "○ 正答の根拠: 安全管理を経営課題として戦略的に管理する考え方",
-        "は適切",
-        "✗ 4: 主たる義務者は「事業者」であり、職場の長や管理監督者で",
-        "はないため誤り",
-        "▷ 事業者（≒経営者・法人）が安全衛生の最終責任を負う",
-        "▷ 管理監督者は事業者の指揮下で安全管理を実施する立場"
+      "correctText": "企業経営と安全",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "安全管理を経営課題として戦略的に管理する考え方は適切。"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "個別解説は省略"
+        }
       ],
+      "pointText": "労働安全衛生法の主たる義務者は「事業者」。事業者（≒経営者・法人）が安全衛生の最終責任を負う／管理監督者は事業者の指揮下で安全管理を実施する立場",
       "qNum": 3,
       "totalQ": 4
     },
@@ -188,16 +244,35 @@
     {
       "type": "answer",
       "correctNum": 3,
-      "correctText": "南海トラフ地震臨時情報（巨大地震警戒）の最も警戒する期間は「1週間」",
-      "correctSub": null,
-      "explanationLines": [
-        "○ 正答の根拠: 一定規模以上の地震発生時に調査開始を発表する気",
-        "象庁の対応手順として正確",
-        "✗ 3: 最も警戒する期間は1週間が基本であり、",
-        "1か月間とする記述は誤り",
-        "▷ 巨大地震警戒：最も警戒する期間は地震発生後1週間が基本",
-        "▷ 1週間経過後も注意は継続するが、最大警戒レベルは解除"
+      "correctText": "南海トラフ防災対応",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "一定規模以上の地震発生時に調査開始を発表する気象庁の対応手順として正確。"
+        },
+        {
+          "num": 4,
+          "correct": false,
+          "text": "個別解説は省略"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "個別解説は省略"
+        }
       ],
+      "pointText": "南海トラフ地震臨時情報（巨大地震警戒）の最も警戒する期間は「1週間」。巨大地震警戒：最も警戒する期間は地震発生後1週間が基本／1週間経過後も注意は継続するが、最大警戒レベルは解除",
       "qNum": 4,
       "totalQ": 4
     },
