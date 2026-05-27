@@ -545,11 +545,8 @@ export function buildQuizAnswer({ width, height, data }) {
           },
           exRows.map((row) => {
             const incorrect = row.correct === false;
-            const markColor = incorrect ? SEM.incorrect.primary : INK.muted;
-            const markSize = incorrect ? TY.exMarkIncorrect.size : TY.exMark.size;
-            const numBg = incorrect ? SEM.incorrect.primary : SURFACE.sunken;
-            const numColor = incorrect ? '#ffffff' : INK.body;
-            const numBorder = incorrect ? SEM.incorrect.primary : SURFACE.line;
+            // 解説エリアでは色で正誤を強調しない（○/X の形状だけで識別）。
+            // 正答強調は a-hero（緑）、論点強調は a-point（青枠）に集中させる。
             return d(
               {
                 paddingTop: GEO.aExplain.rowPaddingY,
@@ -558,33 +555,32 @@ export function buildQuizAnswer({ width, height, data }) {
                 gap: GEO.aExplain.columnGap,
               },
               [
-                // ex-num（選択肢番号バッジ、誤答は coral 塗りつぶし）
+                // ex-num（選択肢番号バッジ、正誤に関わらず sunken 背景 + ink-body）
                 d(
                   {
                     width: GEO.exNum.size,
                     height: GEO.exNum.size,
                     borderRadius: GEO.exNum.radius,
-                    background: numBg,
+                    background: SURFACE.sunken,
                     borderWidth: GEO.exNum.borderWidth,
                     borderStyle: 'solid',
-                    borderColor: numBorder,
+                    borderColor: SURFACE.line,
                     alignItems: 'center',
                     justifyContent: 'center',
-                    ...ty('exNum', { color: numColor }),
+                    ...ty('exNum', { color: INK.body }),
                     flexShrink: 0,
                   },
                   String(row.num ?? ''),
                 ),
-                // ex-mark ○ / X（誤答は純粋な Latin X を Manrope で描画）
+                // ex-mark ○ / X（どちらも ink-muted、形状だけで識別）
                 d(
                   {
                     width: 44,
                     height: 44,
                     alignItems: 'center',
                     justifyContent: 'center',
-                    ...ty(incorrect ? 'exMarkIncorrect' : 'exMark', {
-                      color: markColor,
-                      fontSize: markSize,
+                    ...ty('exMark', {
+                      color: INK.muted,
                       fontFamily: incorrect ? 'Manrope' : 'NotoSansJP',
                     }),
                     flexShrink: 0,
