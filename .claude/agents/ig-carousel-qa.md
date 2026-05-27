@@ -58,6 +58,14 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
    - `answer` に `optionExplanations[5]` と `pointText` が両方存在するか
    - 旧 `explanationLines` が残っていれば指摘（廃止済み・移行必要）
 
+   **構造化チェック（lint 自動実行で機械検出可）**:
+   - 採点前にまず `node scripts/lint-exam-pack-structure.mjs <year>/<pack>` を実行
+   - E1: bodyLines に「（ア）（イ）」等の列挙が 2 個以上あるのに `lists` 未設定 → 散文化 NG
+   - E2: bodyLines に `|` 含む行（markdown 表残骸）があるのに `table` 未設定 → 表崩壊 NG
+   - W1: optionExplanations にプレースホルダ「個別解説は省略」残存 → 補完未完了
+   - lint で ERROR 検出 → デザイン統一性軸を -2 点（構造違反は visual に直結）
+   - 採点コメントに lint 出力を貼る
+
 ## 出力形式
 
 ```

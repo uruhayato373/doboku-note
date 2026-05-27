@@ -9,6 +9,12 @@
  *   node scripts/bulk-generate-exam-packs.mjs --all                # 全年度
  *   node scripts/bulk-generate-exam-packs.mjs --only r07-pack-01,r07-pack-02
  *   node scripts/bulk-generate-exam-packs.mjs --skip-caption
+ *   node scripts/bulk-generate-exam-packs.mjs --year r07 --skip-lint
+ *
+ * pre-check:
+ *   生成前に scripts/lint-exam-pack-structure.mjs を実行し、構造違反
+ *   (E1: 列挙散文化 / E2: markdown 表残骸) があれば生成を中止する。
+ *   緊急時のみ --skip-lint で迂回可能。
  */
 
 import { execSync } from "node:child_process";
@@ -57,6 +63,23 @@ if (!yearArg && !allFlag && !onlyList) {
 if (!existsSync(BASE)) {
   console.error(`Error: ${BASE} not found. Run generate-exam-pack-dirs.mjs first.`);
   process.exit(1);
+}
+
+// ─── pre-check: 構造 lint ─────────────────────────────────────
+const skipLint = Boolean(args["skip-lint"]);
+if (!skipLint) {
+  const lintScript = join(__dirname, "lint-exam-pack-structure.mjs");
+  if (existsSync(lintScript)) {
+    const lintTarget = yearArg || (onlyList && onlyList[0]?.replace(/^(.+?)-pack-(\d+)$/, "$1/pack-$2")) || "";
+    try {
+      execSync(`node "${lintScript}" ${lintTarget}`, { stdio: "inherit" });
+    } catch (e) {
+      console.error("");
+      console.error("✗ pre-check (lint) で構造違反を検出。生成を中止します。");
+      console.error("  修正後に再実行するか、緊急時のみ --skip-lint で迂回してください。");
+      process.exit(1);
+    }
+  }
 }
 
 const yearDirs = readdirSync(BASE).filter((d) => /^[hr]\d+$/.test(d));

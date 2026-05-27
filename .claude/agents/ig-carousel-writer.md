@@ -80,6 +80,11 @@ model: sonnet
 - 固有名詞・数値・年号・法則名は MDX 本文に忠実にする（推測で補わない）。
 - MDX は読むだけ。編集しない。
 - 画像は生成しない（Phase 2 の一括レンダリング工程が担当）。
+- **構造化必須ルール**: problem の bodyLines は **問題の主文だけ** を書く。以下のデータは構造化フィールドへ：
+  - **並列列挙データ**（「（ア）」「（イ）」「（A）」「（B）」など 2 個以上の項目）→ `lists: [{ items: [...] }]` フィールドへ
+  - **markdown 表**（`| col | col |` 形式）→ `table: { headers: [...], rows: [...] }` フィールドへ
+  - これらを bodyLines に散文で書くと PNG 上で読みにくく、しかも lint で E1/E2 エラーになる
+- 執筆後は必ず `node scripts/lint-exam-pack-structure.mjs r07/pack-NN` を実行して構造違反 0 を確認する
 - **色・フォント・余白を本文に書かない**。デザインは `docs/design-system/instagram-carousel-tokens.json` が真実源で、`quiz-slides.mjs` が tokens から塗る。slide-data.json には文字列・数値・選択肢のみを書く。
 - 過去問パック（exam モード）の `cover.title` は管理名（経済性管理／人的資源管理／情報管理／安全管理／社会環境管理）のうち 1 つ。156px で 1 行に収まる長さ。
 - 過去問パックで 5管理別配色を意識する記述（`color`, `theme`, `mgmtColor` 等のキー）を slide-data.json に書かない。**5管理別配色は廃止済み**で、識別は cover-title のテキストのみ。
