@@ -52,11 +52,11 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 
 | 枚 | ファイル | 内容 |
 |---|---|---|
-| 1 | 00-cover.png | 「総監択一クイズ」+ 管理名（大）+ 「<年度> 4問パック」+ セクションタグ |
+| 1 | 00-cover.png | 「総監過去問」pill + 管理名 156px（大）+ 「<年度> ／ 4問パック」+ cover-big-q "Q" 装飾 + 「スワイプで4問にチャレンジ →」chip |
 | 2 | 01-problem.png | PROBLEM 1/4 + 問題本文 + 5 択カード（動的高さ） |
 | 3 | 02-answer.png | ANSWER 1/4 + 緑カード（正答番号 + 主題）+ EXPLANATION |
 | 4-9 | 03..08 | Q2-Q4 の problem / answer 計 6 枚 |
-| 10 | 09-cta.png | 「もっと解きたい人は doboku-note で 全 640 問・全章解説」 |
+| 10 | 09-cta.png | 「もっと解きたい人は doboku-note で全問解説をチェック」+ stats（640問 PRACTICE / 5管理 SCOPE）+ 保存ボタン（brand 塗りつぶし）|
 
 ### 5 管理別色テーマ
 

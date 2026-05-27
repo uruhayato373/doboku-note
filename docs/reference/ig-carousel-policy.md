@@ -115,7 +115,7 @@
 |---|---|---|
 | `type` | `"cta"` | |
 
-文言（FULL CONTENT / 640問 / All章 / 保存ボタンを押して 等）はすべて tokens.json が真実源。slide-data.json には書かない。
+文言（FULL CONTENT / 640問・PRACTICE / 5管理・SCOPE / 「doboku-note で全問解説をチェック」/ 保存ボタンを押して 等）はすべて tokens.json が真実源。slide-data.json には書かない。
 
 ---
 

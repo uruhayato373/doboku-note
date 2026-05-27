@@ -79,7 +79,7 @@ doboku-note の Instagram カルーセル（B シリーズ：過去問パック�
 ### 5.1 cover (01)
 
 要素構成:
-1. topbar: `cover-tag`「総監択一クイズ」（pill / brand-tint 背景 / brand-deep 文字）+ `page` 番号
+1. topbar: `cover-tag`「総監過去問」（pill / brand-tint 背景 / brand-deep 文字、B シリーズ専用）+ `page` 番号
 2. cover-body:
    - `cover-big-q` 装飾 "Q"（240px Manrope 800 / brand-tint 色、右上に半分はみ出す）
    - `cover-meta`「R07 ／ 4問パック」（Manrope 700 26px brand 色 letter-spacing 0.08）
@@ -147,7 +147,7 @@ tokens.slides.cover に文字列テンプレ。
    - `cta-hello`「もっと解きたい人は」(500 28px white/70)
    - `cta-headline`（900 96px white、`<accent>doboku-note</accent>` は #6FB0FF）
    - `cta-stats` 2 カード:
-     - 「640問 / PRACTICE」「All章 / EXPLANATION」（数字 Manrope 800 56px、small 28px）
+     - 「640問 / PRACTICE」「5管理 / SCOPE」（数字 Manrope 800 56px、unit 28px、量×範囲の対比）
    - `cta-action` 白カード:
      - icon（brand-tint 背景の保存マーク SVG）
      - 「保存ボタンを押して 試験前日に見返そう」(brand 色 Manrope 800 22px + ink 700 20px)
