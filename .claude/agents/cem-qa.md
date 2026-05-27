@@ -52,16 +52,18 @@ CEM キーワードは内容性質により 4 類型に分かれる。**採点�
 
 ## インライン出典チェック（2026-05-26 追加、content-principles §22）
 
-verifiable claim（数値・年代・固有名詞・法令条文番号・指定数・罰則金額・統計データ）を含む table・段落の直下に `> 出典:` blockquote 形式のインライン出典がない場合、MEDIUM 違反として指摘する。
+verifiable claim（数値・年代・固有名詞・法令条文番号・指定数・罰則金額・統計データ）を含む table・段落の直下に `<Callout type="reference" title="出典">` 形式のインライン出典がない場合、MEDIUM 違反として指摘する。
 
 **判定基準**:
 - 表セル内に**具体的数値・年代・指定数**を含む factual table → 表直下に出典必要
 - 散文段落で**特定の条文番号・施行年・罰則金額・批准国数**を引用 → 段落直下に出典必要
 - 概念定義表（メリット・デメリット・比較概念）→ 不要
 
-**指摘形式**: `[M] L<行>: factual table/段落の直下にインライン出典がない（§22）。一次ソースを WebFetch 実在確認の上で「> 出典: ...」を追加`
+**指摘形式**: `[M] L<行>: factual table/段落の直下にインライン出典がない（§22）。一次ソースを WebFetch 実在確認の上で「<Callout type="reference" title="出典">...</Callout>」を追加`
 
 footer の §12 参考資料 とは独立評価：footer に同じ URL があっても、インライン出典がなければ MEDIUM 違反。両者の役割分担は §22 を参照。
+
+**書式履歴**: 2026-05-27 に blockquote 形式 `> 出典: ...` から `<Callout type="reference">` 形式へ統一（既存 17 ページ migration 済み）。
 
 ## description boilerplate 除外ルール（2026-05-26 追加）
 

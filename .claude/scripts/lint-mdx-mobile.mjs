@@ -59,7 +59,7 @@
  *  12-3 LOW    group: guide で末尾 H2 が承認パターン外（次のステップ / 関連リソース / ○○の選択肢）
  *  13-1 MEDIUM r8-essay-theme-* spoke で許可外の ### ペルソナ名を検出（content-principles.md §21）
  *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 4 個でない（content-principles.md §21、3 ペルソナ + 業界外救済 = 4 個が正常）
- *  14-1 MEDIUM factual table（数値・年代・指定数・統計データを含む verifiable claim 表）の直下に `> 出典:` blockquote がない（content-principles.md §22）
+ *  14-1 MEDIUM factual table（数値・年代・指定数・統計データを含む verifiable claim 表）の直下に `<Callout type="reference" title="出典">` がない（content-principles.md §22）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -1346,7 +1346,7 @@ function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
  */
 /**
  * 14-1: factual table（数値・年代・指定数・統計データを含む表）の直下に
- *       `> 出典:` blockquote がない（content-principles.md §22）
+ *       `<Callout type="reference" title="出典">` がない（content-principles.md §22）
  *
  * verifiable claim 検出ヒューリスティック:
  *   - 数字 + 単位（年・条・種・件・万円・億円・%・トン・gha・km・m・kg・ha・個・回・名・人）
@@ -1355,6 +1355,9 @@ function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
  *
  * 概念定義表（メリット/デメリット表・カテゴリ説明表）は誤検知を避けるため、
  * セルに上記パターンを含まない限り対象外。
+ *
+ * 旧形式（`> 出典:` blockquote）は 2026-05-27 以降サポート外。旧形式を検出した場合も
+ * 不検出として扱い、Callout への移行を促す（migration script で一括変換済み）。
  */
 function lintInlineSource(table, lines, findings) {
   // verifiable claim のヒューリスティック
@@ -1381,18 +1384,18 @@ function lintInlineSource(table, lines, findings) {
 
   if (!hasVerifiableClaim) return;
 
-  // テーブル直下（空行を許容して最大 3 行先まで）に `> 出典:` blockquote があるか
+  // テーブル直下（空行を許容して最大 3 行先まで）に `<Callout type="reference" title="出典">` があるか
   // table.endLine は 1-based inclusive
   let idx = table.endLine; // 0-based index of next line
   let foundSource = false;
   for (let scan = 0; scan < 3 && idx < lines.length; scan++, idx++) {
     const line = lines[idx];
     if (line.trim() === '') continue;
-    if (/^\s*>\s*出典[:：]/.test(line)) {
+    if (/<Callout\s+type=["']reference["']\s+title=["']出典["']/.test(line)) {
       foundSource = true;
       break;
     }
-    // 出典 blockquote 以外の非空行が来たら打ち切り（散文が割り込んだら出典なしと判定）
+    // Callout 以外の非空行が来たら打ち切り（散文が割り込んだら出典なしと判定）
     break;
   }
 
@@ -1402,7 +1405,7 @@ function lintInlineSource(table, lines, findings) {
       rule: '14-1',
       line: table.startLine,
       endLine: table.endLine,
-      message: `factual table（数値・年代等の verifiable claim を含む）の直下に「> 出典: ...」blockquote がない（§22）。一次ソースを既存 ## 参考資料 から再利用して追加すること`,
+      message: `factual table（数値・年代等の verifiable claim を含む）の直下にインライン出典がない（§22）。「<Callout type="reference" title="出典">[タイトル（機関）](URL)</Callout>」形式で一次ソースを追加すること（既存 ## 参考資料 から再利用可）`,
     });
   }
 }

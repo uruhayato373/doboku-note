@@ -688,15 +688,19 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 
 ### 22. インライン出典（factual table・段落直下に出典リンク）
 
-数値・年度・固有名詞・法令条文番号・指定数・罰則金額等の **verifiable claim** を含む table または段落の直下に、blockquote 形式で出典リンクを配置する。
+数値・年度・固有名詞・法令条文番号・指定数・罰則金額等の **verifiable claim** を含む table または段落の直下に、`<Callout type="reference" title="出典">` 形式で出典リンクを配置する。
 
 ```mdx
 | 指標 | 値 | 評価 |
 |---|---|---|
 | ... | ... | ... |
 
-> 出典: [タイトル（機関）](URL) / [タイトル2（機関）](URL)
+<Callout type="reference" title="出典">
+[タイトル（機関）](URL) / [タイトル2（機関）](URL)
+</Callout>
 ```
+
+**書式の変更履歴**: 2026-04-25 公式化時点では blockquote 形式 `> 出典: ...` を採用していたが、視覚的な弱さ（generic quote と区別がつかない）から 2026-05-27 に `<Callout type="reference">` へ統一。Link2 アイコン + slate トーンで「参考文献誘導」の意味論と一致させた。既存 17 ページは migration script で一括変換済み。
 
 **§12（footer §9 参考資料）との役割分担**:
 - 本節（§22）: ピンポイント検証用、特定の数値・年代がどの一次ソース由来かを明示
@@ -720,7 +724,7 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 - インライン出典を増やすために本文記述を細切れに装飾しない（散文中心 §17 の精神を維持）
 
 **lint（cem-qa による自動検知）**:
-- カテゴリ 14（インライン出典）: verifiable claim を含む table・段落の直下に `> 出典:` blockquote がない場合 MEDIUM 違反
+- カテゴリ 14（インライン出典）: verifiable claim を含む table・段落の直下に `<Callout type="reference" title="出典">` がない場合 MEDIUM 違反
 - lint 9-x（強制降格）対象外、関連付け軸または参考資料軸の判定材料として使用
 
 ## コンテンツ品質レベル（L1 / L2 / L3）
