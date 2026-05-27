@@ -372,10 +372,13 @@ export function buildQuizCover({ width, height, data }) {
   // 管理混在問題を回避するため、cover-title は固定 2 行文言（tokens 駆動）。
   // slide-data.json の cover.title / subtitle は無視。pack 番号は titleLine2 の末尾に
   // 80px で大きく表示（ユーザーが一目で「過去問 #N」と認識できる位置）。
-  const titleLine1 = SLIDES.cover.titleLine1 || '令和7年度';
   const year = data.year ?? data._meta?.year ?? 'r07';
   const packNum = data.packNum ?? data._meta?.packNum ?? '01';
   const packNumLabel = String(packNum).replace(/^0+/, '') || packNum;
+  // year は "r07" / "h28" 等。先頭の r/R/h/H と 0 を剥がして年番号だけ取り出す
+  const yearN = String(year).replace(/^[rRhH]0?/, '') || '7';
+  const titleLine1 = (SLIDES.cover.titleLine1Template || SLIDES.cover.titleLine1 || '令和{yearN}年度')
+    .replace('{yearN}', yearN);
   const titleLine2 = (SLIDES.cover.titleLine2Template || '択一式 過去問 #{packNum}')
     .replace('{packNum}', packNumLabel);
   const metaText = (SLIDES.cover.metaTemplate || '{year} 4問パック')

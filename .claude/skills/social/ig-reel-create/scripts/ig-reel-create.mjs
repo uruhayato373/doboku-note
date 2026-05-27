@@ -40,8 +40,15 @@ const { values: args } = parseArgs({
     speaker: { type: 'string', default: '1' },
     'skip-png': { type: 'boolean' },
     'script-only': { type: 'boolean' },  // 台本だけ事前生成（VOICEVOX/ffmpeg 不要）
+    'problem-pause': { type: 'string', default: '3' },  // problem 後の沈黙秒数
   },
 });
+
+const problemPauseSec = Number(args['problem-pause']);
+if (!Number.isFinite(problemPauseSec) || problemPauseSec < 0) {
+  console.error('--problem-pause は 0 以上の数値で指定してください');
+  process.exit(1);
+}
 
 if (!args.exam) {
   console.error('Usage: node ig-reel-create.mjs --exam r07-pack-01');
@@ -162,8 +169,21 @@ for (let i = 0; i < scripts.length; i++) {
   const wav = await synthesize({ text, speaker: Number(args.speaker) });
   const wavPath = join(wavDir, `slide-${String(i).padStart(2, '0')}.wav`);
   writeFileSync(wavPath, wav);
-  wavPaths.push(wavPath);
-  process.stdout.write(`  ✓ slide-${String(i).padStart(2, '0')}.wav (${(wav.length / 1024).toFixed(0)}KB)\n`);
+
+  // problem スライドのみ、末尾に無音 padding を追加
+  let finalWavPath = wavPath;
+  if (slides[i]?.type === 'problem' && problemPauseSec > 0) {
+    const paddedPath = join(wavDir, `slide-${String(i).padStart(2, '0')}-padded.wav`);
+    execSync(
+      `ffmpeg -y -i "${wavPath}" -af "apad=pad_dur=${problemPauseSec}" "${paddedPath}"`,
+      { stdio: 'pipe' },
+    );
+    finalWavPath = paddedPath;
+    process.stdout.write(`  ✓ slide-${String(i).padStart(2, '0')}.wav (${(wav.length / 1024).toFixed(0)}KB) + ${problemPauseSec}s silence\n`);
+  } else {
+    process.stdout.write(`  ✓ slide-${String(i).padStart(2, '0')}.wav (${(wav.length / 1024).toFixed(0)}KB)\n`);
+  }
+  wavPaths.push(finalWavPath);
 }
 
 // ─── 4) ffmpeg で連結 ──────────────────────────────────────

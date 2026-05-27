@@ -35,6 +35,7 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 | `--exam` | ✅ | - | パック ID（例: `r07-pack-01`） |
 | `--speaker` | - | 1（四国めたん） | VOICEVOX speaker ID |
 | `--skip-png` | - | false | PNG 再生成をスキップ（既存 reels/img/*.png を使う） |
+| `--problem-pause` | - | 3 | problem スライド読み上げ後に挿入する無音秒数（考える間）。`0` で無効 |
 
 ## 出力
 
