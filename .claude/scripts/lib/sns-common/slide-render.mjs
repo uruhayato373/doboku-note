@@ -67,7 +67,7 @@ function loadFonts() {
       style: 'normal',
     })),
     // NotoSansJP (@fontsource/noto-sans-jp, japanese subset, woff)
-    ...[500, 700, 800, 900].map((weight) => ({
+    ...[500, 600, 700, 800, 900].map((weight) => ({
       name: 'NotoSansJP',
       data: readFileSync(resolve(FONTSOURCE_DIR, `noto-sans-jp/files/noto-sans-jp-japanese-${weight}-normal.woff`)),
       weight,

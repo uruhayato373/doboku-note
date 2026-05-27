@@ -88,7 +88,7 @@
     "coverSwipeArrow":{ "fontFamily": "Manrope",    "weight": 800, "size": 40 },
     "qLabel":         { "fontFamily": "NotoSansJP", "weight": 700, "size": 24 },
     "qTag":           { "fontFamily": "Manrope",    "weight": 800, "size": 22,  "letterSpacing": 0.06 },
-    "qText":          { "fontFamily": "NotoSansJP", "weight": 700, "size": 44,  "lineHeight": 1.45,  "letterSpacing": 0.005 },
+    "qText":          { "fontFamily": "NotoSansJP", "weight": 600, "size": 44,  "lineHeight": 1.45,  "letterSpacing": 0.005 },
     "qTextBold":      { "fontFamily": "NotoSansJP", "weight": 800 },
     "tableHeader":    { "fontFamily": "NotoSansJP", "weight": 800, "size": 22,  "letterSpacing": 0.04 },
     "tableCell":      { "fontFamily": "NotoSansJP", "weight": 600, "size": 24 },
