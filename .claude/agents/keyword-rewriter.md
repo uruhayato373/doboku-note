@@ -46,6 +46,8 @@ Pattern H（標準テキスト由来事実取り込み）使用時は section→
 - 既存本文を**尊重**（削除最小限、G パターンの表→箇条書き変換のみ in-place 変更を許可）
 - 拡張は「総合技術監理における位置づけ」と「参考資料」の間に H2 で追加
 - **散文中心**（content-principles §17）、本文薄ページは既存節への散文追記を優先
+- **shallow concept table の prose 化**（§4 拡張、2026-05-27 追加）: 「**用語**（bold）| 定義 | 例」型 3列 table（2-3 行、定義のみ）を発見したら散文段落に展開する。**箇条書きではなく段落**で書く（背景・例外・関連を補足できるのが prose の強み）。優先順位は **散文 > 箇条書き > 表**
+- **history-only H2 の削除候補化**（2026-05-27 追加）: H2 タイトルに「歴史」「成立」「経緯」「展開」「沿革」を含み試験不出題かつ他セクション重複が 50%+ なら削除提案する（cem-qa の LOW 違反と連動）
 - 1 ページ最大 **2 パターン**、3 つ以上の詰め込み禁止
 - frontmatter: `reviewStatus: needs-review` / `lastRewrittenAt: ISO 8601 秒単位` / `revisionCycle: +1`
 - 他 frontmatter フィールド（title, seoTitle, category, section, published 等）は変更しない
