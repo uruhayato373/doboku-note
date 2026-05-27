@@ -49,31 +49,31 @@
       "optionExplanations": [
         {
           "num": 1,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 2,
           "correct": true,
           "text": "自然災害や経営環境の変化への対応計画としてBCPの定義は適切。"
         },
         {
-          "num": 3,
+          "num": 2,
           "correct": false,
-          "text": "個別解説は省略"
+          "text": "委託先・調達先・供給先もBCMの検討範囲に含まれるため、含まれないとする記述は誤り。"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "事業停止時の影響を定量的に評価する手法として適切。"
         },
         {
           "num": 4,
-          "correct": false,
-          "text": "個別解説は省略"
+          "correct": true,
+          "text": "許容限界より厳しい基準を設定するという記述は適切。"
         },
         {
           "num": 5,
-          "correct": false,
-          "text": "個別解説は省略"
+          "correct": true,
+          "text": "拠点・要員確保などの具体的な事業継続対策として適切。"
         }
       ],
-      "pointText": "BCM はサプライチェーン全体の視点が重要。自社の人的・物的被害軽減だけが目的ではない／委託先・調達先・供給先の事業継続も自社事業継続に直結",
+      "pointText": "BCM はサプライチェーン全体の視点が重要",
       "qNum": 1,
       "totalQ": 4
     },
@@ -115,31 +115,31 @@
       "optionExplanations": [
         {
           "num": 1,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 2,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 3,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 4,
           "correct": true,
           "text": "4M方式（Man, Machine, Media, Management）の災害分析手法として正確。"
         },
         {
-          "num": 5,
+          "num": 2,
+          "correct": true,
+          "text": "危険予知訓練とKYT基礎4ラウンド法の説明として正確。"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "ノンテクニカルスキルとテクニカルスキルのバランス向上が安全に寄与し適切。"
+        },
+        {
+          "num": 4,
           "correct": false,
-          "text": "個別解説は省略"
+          "text": "正しくはEducation, Engineering, Enforcement, Example（模範）であり、Economyは含まれない。"
+        },
+        {
+          "num": 5,
+          "correct": true,
+          "text": "安全衛生パトロールによる潜在危険の発見と改善の手法として適切。"
         }
       ],
-      "pointText": "事故の4E対策は Education, Engineering, Enforcement, Example。Education（教育）：安全教育・訓練／Engineering（技術）：設備・技術的対策",
+      "pointText": "事故の4E対策は Education, Engineering, Enforcement, Example",
       "qNum": 2,
       "totalQ": 4
     },
@@ -181,31 +181,31 @@
       "optionExplanations": [
         {
           "num": 1,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 2,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 3,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 4,
           "correct": true,
           "text": "安全管理を経営課題として戦略的に管理する考え方は適切。"
         },
         {
-          "num": 5,
+          "num": 2,
+          "correct": true,
+          "text": "労働災害対策に加え広範な安全・安心がCSRとして求められており適切。"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "経営者が安全方針を示し組織的に取り組むトップマネジメントの責任として適切。"
+        },
+        {
+          "num": 4,
           "correct": false,
-          "text": "個別解説は省略"
+          "text": "主たる義務者は「事業者」であり、職場の長や管理監督者ではないため誤り。"
+        },
+        {
+          "num": 5,
+          "correct": true,
+          "text": "安全衛生対策が経営・人材確保にもプラスとなるという趣旨は適切。"
         }
       ],
-      "pointText": "労働安全衛生法の主たる義務者は「事業者」。事業者（≒経営者・法人）が安全衛生の最終責任を負う／管理監督者は事業者の指揮下で安全管理を実施する立場",
+      "pointText": "労働安全衛生法の主たる義務者は「事業者」",
       "qNum": 3,
       "totalQ": 4
     },
@@ -248,31 +248,31 @@
       "optionExplanations": [
         {
           "num": 1,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 2,
-          "correct": false,
-          "text": "個別解説は省略"
-        },
-        {
-          "num": 3,
           "correct": true,
           "text": "一定規模以上の地震発生時に調査開始を発表する気象庁の対応手順として正確。"
         },
         {
-          "num": 4,
+          "num": 2,
+          "correct": true,
+          "text": "突発的大規模地震への備えが基本であり、事前警戒なしの発生も想定すべきで適切。"
+        },
+        {
+          "num": 3,
           "correct": false,
-          "text": "個別解説は省略"
+          "text": "最も警戒する期間は1週間が基本であり、1か月間とする記述は誤り。"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "住民への情報提供と個人検討の促進は地方公共団体の役割として適切。"
         },
         {
           "num": 5,
-          "correct": false,
-          "text": "個別解説は省略"
+          "correct": true,
+          "text": "日常生活を維持しつつ防災行動をとるという注意喚起の基本として適切。"
         }
       ],
-      "pointText": "南海トラフ地震臨時情報（巨大地震警戒）の最も警戒する期間は「1週間」。巨大地震警戒：最も警戒する期間は地震発生後1週間が基本／1週間経過後も注意は継続するが、最大警戒レベルは解除",
+      "pointText": "南海トラフ地震臨時情報（巨大地震警戒）の最も警戒する期間は「1週間」",
       "qNum": 4,
       "totalQ": 4
     },
