@@ -1,0 +1,50 @@
+<svg width="400" height="280" viewBox="0 0 400 280"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="経済成長・天然資源の利用・環境影響の3線が時間とともに乖離していくデカップリングの概念図。経済成長は右上に伸び続け、天然資源は緩やかに頭打ち（相対的デカップリング）、環境影響は中盤でピークを打って減少へ転じる（絶対的デカップリング）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-axis  { font-size: 12px; fill: #555; }
+      .t-line  { font-size: 12px; font-weight: bold; }
+      .t-anno  { font-size: 11px; fill: #555; }
+      .l-economic { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l-resource { stroke: #d4a017; stroke-width: 2.5; fill: none; }
+      .l-impact   { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .axis       { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .anno       { stroke: #8a8a8a; stroke-width: 1; fill: none; stroke-dasharray: 3,2; }
+    </style>
+    <marker id="aTop" markerWidth="6" markerHeight="6" refX="3" refY="0" orient="auto">
+      <polygon points="0,6 6,6 3,0" fill="#8a8a8a"/>
+    </marker>
+    <marker id="aBot" markerWidth="6" markerHeight="6" refX="3" refY="6" orient="auto">
+      <polygon points="0,0 6,0 3,6" fill="#8a8a8a"/>
+    </marker>
+    <marker id="aRight" markerWidth="8" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,1 8,4 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <text class="t-title" x="200" y="22" text-anchor="middle">デカップリングの概念図</text>
+
+  <line class="axis" x1="35" y1="230" x2="295" y2="230" marker-end="url(#aRight)"/>
+  <line class="axis" x1="35" y1="235" x2="35" y2="40"/>
+
+  <text class="t-axis" x="295" y="252" text-anchor="end">時間</text>
+
+  <path class="l-economic" d="M 35,220 C 130,212 210,148 290,55"/>
+  <path class="l-resource" d="M 35,220 C 130,202 225,135 290,118"/>
+  <path class="l-impact"   d="M 35,220 C 90,205 145,135 180,135 C 235,135 270,165 290,180"/>
+
+  <text class="t-line" x="297" y="58" fill="#2e6da4">経済成長</text>
+  <text class="t-line" x="297" y="121" fill="#d4a017">天然資源の利用</text>
+  <text class="t-line" x="297" y="183" fill="#b22234">環境影響</text>
+
+  <line class="anno" x1="240" y1="89" x2="240" y2="133" marker-start="url(#aTop)" marker-end="url(#aBot)"/>
+  <text class="t-anno" x="232" y="115" text-anchor="end">相対的</text>
+
+  <line class="anno" x1="270" y1="148" x2="270" y2="178" marker-end="url(#aBot)"/>
+  <text class="t-anno" x="262" y="167" text-anchor="end">絶対的</text>
+</svg>
