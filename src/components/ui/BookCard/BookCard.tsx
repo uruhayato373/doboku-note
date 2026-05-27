@@ -1,6 +1,6 @@
 "use client";
 
-import Script from "next/script";
+import { useEffect } from "react";
 import affiliateBooks from "@/config/affiliate-books.json";
 
 interface BookCardProps {
@@ -22,32 +22,93 @@ interface BookCardProps {
  *
  * ステマ規制（2023-10〜）対応として「PR」表示を付与する。
  * 配置原則: 記事末・hub 末の補完導線。ファーストビュー禁止。
+ *
+ * 実装メモ:
+ * - 旧実装は `next/script strategy="lazyOnload"` でローダを発火していたが、
+ *   moshimo bundle.js は IIFE 内で `window.addEventListener("DOMContentLoaded"|"load", F)`
+ *   としてキュー処理関数 F をリスナ登録するだけで即時呼ばない。
+ *   lazyOnload は window.load 後に発火するため両イベントが既に通過済みで、
+ *   F が永遠に呼ばれず `window.msmaflink.q` が処理されない不具合があった。
+ *   useEffect 内で手動ロード後に load イベントを再ディスパッチして F を起動する。
  */
 
-// もしも かんたんリンク公式ローダ（bundle.js を1度だけ body に注入し、
-// msmaflink 呼び出しをキューイングする IIFE）。
-const MOSHIMO_LOADER =
-  "(function(b,c,f,g,a,d,e){b.MoshimoAffiliateObject=a;" +
-  "b[a]=b[a]||function(){arguments.currentScript=c.currentScript" +
-  "||c.scripts[c.scripts.length-2];(b[a].q=b[a].q||[]).push(arguments)};" +
-  "c.getElementById(a)||(d=c.createElement(f),d.src=g,d.id=a," +
-  'e=c.getElementsByTagName("body")[0],e.appendChild(d))})' +
-  '(window,document,"script",' +
-  '"//dn.msmstatic.com/site/cardlink/bundle.js?20220329","msmaflink");';
+const BUNDLE_URL = "https://dn.msmstatic.com/site/cardlink/bundle.js?20220329";
+const SCRIPT_ID = "msmaflink";
+
+type MsmaflinkWindow = typeof window & {
+  MoshimoAffiliateObject?: string;
+  msmaflink?: {
+    (payload: unknown): void;
+    q?: unknown[];
+  };
+};
+
+function ensureLoaderQueue(): void {
+  const w = window as MsmaflinkWindow;
+  if (w.msmaflink) return;
+  w.MoshimoAffiliateObject = "msmaflink";
+  const fn = function (this: unknown) {
+    // eslint-disable-next-line prefer-rest-params
+    const args = arguments as unknown as { currentScript?: Element | null };
+    args.currentScript = document.currentScript;
+    // eslint-disable-next-line prefer-rest-params
+    (fn.q = fn.q || []).push(arguments);
+  } as MsmaflinkWindow["msmaflink"] & { q?: unknown[] };
+  w.msmaflink = fn;
+}
+
+function triggerQueueProcess(): void {
+  // bundle.js の F は DOMContentLoaded / load のリスナとして登録されるだけで、
+  // 自前では即時実行しない。load が既に通過済みなら手動でディスパッチして起動する。
+  if (document.readyState === "complete") {
+    window.dispatchEvent(new Event("load"));
+  }
+}
+
+function loadBundleOnce(): void {
+  const existing = document.getElementById(SCRIPT_ID) as HTMLScriptElement | null;
+  if (existing) {
+    // 既にロード済み（同ページの別 BookCard が先に注入）→ キュー追記後すぐ起動
+    if (existing.dataset.loaded === "true") {
+      triggerQueueProcess();
+    } else {
+      existing.addEventListener("load", triggerQueueProcess, { once: true });
+    }
+    return;
+  }
+  const script = document.createElement("script");
+  script.id = SCRIPT_ID;
+  script.src = BUNDLE_URL;
+  script.async = true;
+  script.addEventListener(
+    "load",
+    () => {
+      script.dataset.loaded = "true";
+      triggerQueueProcess();
+    },
+    { once: true },
+  );
+  document.body.appendChild(script);
+}
 
 export default function BookCard({ asin }: BookCardProps) {
   const books = affiliateBooks as Record<string, unknown>;
   const payload = books[asin];
+  const eid =
+    payload && typeof payload === "object"
+      ? (payload as { eid?: string }).eid
+      : undefined;
 
-  if (!payload || typeof payload !== "object") {
+  useEffect(() => {
+    if (!payload || !eid) return;
+    ensureLoaderQueue();
+    (window as MsmaflinkWindow).msmaflink?.(payload);
+    loadBundleOnce();
+  }, [eid, payload]);
+
+  if (!payload || typeof payload !== "object" || !eid) {
     return null;
   }
-
-  const eid = (payload as { eid?: string }).eid;
-  if (!eid) return null;
-
-  // </script> によるブレイクアウトを防ぐため < をエスケープ
-  const payloadJson = JSON.stringify(payload).replace(/</g, "\\u003c");
 
   return (
     <div className="not-prose my-6">
@@ -63,10 +124,6 @@ export default function BookCard({ asin }: BookCardProps) {
           アフィリエイトリンクを含みます
         </span>
       </div>
-
-      <Script id={`msmaf-${eid}`} strategy="lazyOnload">
-        {`${MOSHIMO_LOADER}msmaflink(${payloadJson});`}
-      </Script>
 
       <div id={`msmaflink-${eid}`}>リンク</div>
     </div>
