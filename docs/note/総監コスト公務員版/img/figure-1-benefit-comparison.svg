@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+<text x="1172" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+
+  <!-- タイトル -->
+  <text x="600" y="68" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222" text-anchor="middle">公務員 vs 民間 — 総監保有の 30 年累積ベネフィット</text>
+  <text x="600" y="106" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="middle">資格手当 + 自己啓発支援金の累計（投資 ¥17,000 で得られる cash return の推定）</text>
+
+  <!-- 軸目盛り -->
+  <line x1="390" y1="152" x2="1020" y2="152" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="390" y="144" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="start">¥0</text>
+  <text x="705" y="144" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="middle">¥2.5M</text>
+  <text x="1020" y="144" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">¥5M</text>
+
+
+  
+  <text x="380" y="184" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">一般市町村（公務員）</text>
+  <text x="380" y="212" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="end">資格手当少 or なし</text>
+  <rect x="390" y="172" width="126" height="36" rx="6" fill="#555555"/>
+  <text x="532" y="198" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#222222">¥0.9M</text>
+  
+  <text x="380" y="260" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">ゼネコン勤務</text>
+  <text x="380" y="288" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#2e6da4" text-anchor="end">業務命令時のみ</text>
+  <rect x="390" y="248" width="140" height="36" rx="6" fill="#2e6da4"/>
+  <text x="546" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#222222">¥1.0M</text>
+  
+  <text x="380" y="336" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">建設コンサル勤務</text>
+  <text x="380" y="364" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#2e6da4" text-anchor="end">会社補助厚め</text>
+  <rect x="390" y="324" width="252" height="36" rx="6" fill="#2e6da4"/>
+  <text x="658" y="350" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#222222">¥1.8M</text>
+  
+  <text x="380" y="412" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">中核市・特例市（公務員）</text>
+  <text x="380" y="440" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#3a7d44" text-anchor="end">中庸</text>
+  <rect x="390" y="400" width="378" height="36" rx="6" fill="#3a7d44"/>
+  <text x="784" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#222222">¥2.7M</text>
+  <rect x="20" y="460" width="1160" height="68" rx="8" fill="#e8f5e9"/>
+  <text x="380" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="end">都道府県（公務員）</text>
+  <text x="380" y="516" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#3a7d44" text-anchor="end">安定</text>
+  <rect x="390" y="476" width="504" height="36" rx="6" fill="#3a7d44"/>
+  <text x="910" y="502" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#222222">¥3.6M</text>
+  <rect x="20" y="536" width="1160" height="68" rx="8" fill="#e8f5e9"/>
+  <text x="380" y="564" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="end">政令指定都市（公務員）</text>
+  <text x="380" y="592" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#3a7d44" text-anchor="end">最大</text>
+  <rect x="390" y="552" width="630" height="36" rx="6" fill="#3a7d44"/>
+  <text x="1036" y="578" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#222222">¥4.5M</text>
+
+  <!-- 注釈 -->
+  <rect x="40" y="620" width="1120" height="56" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="60" y="644" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#1a3a5c">投資 ¥17,000（受験料 + マガジン）で、公務員（政令市）は 30 年で ¥4.5M の return</text>
+  <text x="60" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">※ 資格手当・支援金は自治体条例次第。本図は政令市〜一般市の平均的傾向の推定値です。</text>
+</svg>
