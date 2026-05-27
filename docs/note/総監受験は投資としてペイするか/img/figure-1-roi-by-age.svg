@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
-  <rect width="1200" height="900" fill="#f8fafc"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+  <rect width="1200" height="920" fill="#f8fafc"/>
 
   <!-- タイトル -->
   <text x="600" y="72" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="800" fill="#222222" text-anchor="middle">年代別 投資回収シミュレーション</text>
@@ -68,5 +68,5 @@
   <!-- 注釈 -->
   <text x="60" y="862" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="400" fill="#8a8a8a" text-anchor="start">※ 自社に資格手当制度がない / 勤続予定 3 年未満の場合はペイしない（本文「3 つのペイしないパターン」参照）</text>
 
-  <text x="1172" y="878" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  <text x="1172" y="898" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
 </svg>

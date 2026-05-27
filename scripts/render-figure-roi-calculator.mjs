@@ -7,7 +7,7 @@
 //   - 左: 年代ラベル / 中央: コスト→回収→累積リターン / 右: 評価バッジ
 //
 // 設計ルール（docs/reference/note-svg-policy.md 準拠）:
-//   - キャンバス幅 1200、高さ 900 固定
+//   - キャンバス幅 1200、高さ 920 固定（末尾余白 80px 確保）
 //   - フォント ≥ 18px（補足含む）
 //   - タイトル下 40px → コンテンツ開始
 //   - カード間隙間 24px、カード内パディング 20px 以上
@@ -41,7 +41,7 @@ const WARN_FILL    = '#fdf2e0';
 const FONT = 'Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif';
 
 const W = 1200;
-const H = 900;
+const H = 920;
 
 function xml(s) {
   return String(s)
