@@ -727,13 +727,13 @@ export function buildQuizCta({ width, height }) {
       [
         d({ ...ty('ctaHello', { color: ONDARK.secondary }) }, cfg.helloText),
 
-        // headline（HTML プロト: <span>doboku-note</span> で<br>全章解説をチェック）
+        // headline（HTML プロト: <span>doboku-note</span> で<br>全問解説をチェック を 2 行で配置）
         d({ flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }, [
           d({ ...ty('ctaHeadline', { color: ONDARK.primary }), alignItems: 'center' }, [
             d({ color: CTA.accent }, cfg.headlineAccent),
-            d({}, ' で'),
+            d({}, cfg.headlineConnector),
           ]),
-          d({ ...ty('ctaHeadline', { color: ONDARK.primary }) }, '全章解説をチェック'),
+          d({ ...ty('ctaHeadline', { color: ONDARK.primary }) }, cfg.headlineLine2),
         ]),
 
         // cta-stats
