@@ -241,12 +241,12 @@ export function buildQuizCover({ width, height, data }) {
       pageBadge(data.pageIndex ?? 1, data.totalPages ?? 10),
     ),
 
-    // cover-big-q（装飾）
+    // cover-big-q（装飾、画面内に 40px 余白を確保して切れて見えないように）
     d(
       {
         position: 'absolute',
         top: 200,
-        right: -20,
+        right: 40,
         ...ty('coverBigQ', { color: BRAND.tint }),
       },
       SLIDES.cover.bigQText,

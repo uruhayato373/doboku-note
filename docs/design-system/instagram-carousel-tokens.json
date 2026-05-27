@@ -138,7 +138,7 @@
   "slides": {
     "order": ["cover", "problem", "answer", "problem", "answer", "problem", "answer", "problem", "answer", "cta"],
     "_footerNote": "cover/answer/cta の右下は空白（左下のウォーターマークと URL が重複するため撤廃）。problem だけ誘導テキスト 'next' を右下に出す。",
-    "cover":   { "tagText": "総監択一クイズ", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "metaTemplate": "{year} ／ 4問パック" },
+    "cover":   { "tagText": "総監過去問", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "metaTemplate": "{year} ／ 4問パック", "_tagNote": "B シリーズ（_exam-packs）専用。A シリーズ（運営者作問）は別の表記を使う。" },
     "problem": { "eyebrowTemplate": "PROBLEM {n} / {total}", "nextText": "次ページで解答 →", "qTagText": "Q" },
     "answer":  { "eyebrowTemplate": "ANSWER {n} / {total}", "heroLabel": "正答 ／ ANSWER", "pointLabel": "ここがポイント", "pointIconChar": "!", "correctMark": "○", "incorrectMark": "X", "_markNote": "incorrect は純粋な Latin X を Manrope 800 で描画。色は付けない（○/X の形状だけで識別、解説エリアは中立色）。" },
     "cta":     {
