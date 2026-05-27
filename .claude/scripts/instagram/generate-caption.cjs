@@ -43,8 +43,11 @@ if (!fs.existsSync(inputPath)) {
 
 const data = JSON.parse(fs.readFileSync(inputPath, "utf-8"));
 const dir = path.dirname(inputPath);
-const outputFile = formatArg === "reels" ? "caption-reels.txt" : "caption.txt";
-const outputPath = path.join(dir, outputFile);
+// メディア別サブディレクトリに保存（carousel/caption.txt or reels/caption.txt）
+// pack 直下に置くと「どのフォーマット用か」が一目でわからないため
+const outputDir = path.join(dir, formatArg);
+if (!fs.existsSync(outputDir)) fs.mkdirSync(outputDir, { recursive: true });
+const outputPath = path.join(outputDir, "caption.txt");
 
 const { slides, cta, _meta } = data;
 // 旧スキーマ (cover フィールド) と新スキーマ (slides[0].type === 'cover') 両対応

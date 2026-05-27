@@ -131,11 +131,16 @@ for (let i = 0; i < allPacks.length; i++) {
     );
     process.stdout.write(` PNG OK (${((Date.now() - t0) / 1000).toFixed(1)}s)`);
     if (!skipCaption) {
+      // carousel/caption.txt と reels/caption.txt の両方を生成
       execSync(
-        `node "${CAPTION_GEN}" "${slideJson}"`,
+        `node "${CAPTION_GEN}" "${slideJson}" --format carousel`,
         { cwd: ROOT, stdio: "pipe" },
       );
-      process.stdout.write(" + caption OK");
+      execSync(
+        `node "${CAPTION_GEN}" "${slideJson}" --format reels`,
+        { cwd: ROOT, stdio: "pipe" },
+      );
+      process.stdout.write(" + caption OK (carousel+reels)");
     }
     process.stdout.write("\n");
     ok++;
