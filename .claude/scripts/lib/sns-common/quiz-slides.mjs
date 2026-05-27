@@ -86,6 +86,29 @@ function frame(width, height, bg) {
   };
 }
 
+// canvas より大きい縦長キャンバス (reels 1080×1920) で中央寄せするためのラッパー。
+// 1350 以下のときは children をそのまま返し、それ以外は (height-1350)/2 の余白を上下に分配する。
+function reelsWrapper(width, height, children) {
+  const yOffset = (height - TOKENS.canvas.height) / 2;
+  if (yOffset <= 0) return children;
+  return [
+    {
+      type: 'div',
+      props: {
+        style: {
+          display: 'flex',
+          position: 'absolute',
+          top: yOffset,
+          left: 0,
+          width: `${TOKENS.canvas.width}px`,
+          height: `${TOKENS.canvas.height}px`,
+        },
+        children: Array.isArray(children) ? children : [children],
+      },
+    },
+  ];
+}
+
 // ─── 共通パーツ ───────────────────────────────────────────────
 
 /** ページ番号 "<b>03</b> / 10" */
@@ -220,7 +243,7 @@ export function buildQuizCover({ width, height, data }) {
   const subText = (data.subtitle && !year) ? null : (data.subtext || '');
   const chips = Array.isArray(data.chips) ? data.chips.slice(0, 4) : [];
 
-  return d(frame(width, height, SURFACE.page), [
+  return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     // topbar
     topbar(
       d(
@@ -331,7 +354,7 @@ export function buildQuizCover({ width, height, data }) {
 
     // cover の右下は空白（左下のウォーターマークと URL が重複するため）
     brandFooter(null),
-  ]);
+  ]));
 }
 
 // ─── problem ──────────────────────────────────────────────────
@@ -531,7 +554,7 @@ export function buildQuizProblem({ width, height, data }) {
     ? ty('qText', { color: INK.strong, fontSize: 36, lineHeight: 1.4 })
     : ty('qText', { color: INK.strong });
 
-  return d(frame(width, height, SURFACE.page), [
+  return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     topbar(
       eyebrow(`PROBLEM ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
       pageBadge(data.pageIndex ?? 2, data.totalPages ?? 10),
@@ -618,13 +641,13 @@ export function buildQuizProblem({ width, height, data }) {
 
     // problem だけ右下に「次ページで解答 →」を出す（誘導テキスト）
     brandFooter(SLIDES.problem.nextText),
-  ]);
+  ]));
 }
 
 // ─── pause（互換維持、新意匠では使われない） ─────────────────
 
 export function buildQuizPause({ width, height, data }) {
-  return d(frame(width, height, SURFACE.sunken), [
+  return d(frame(width, height, SURFACE.sunken), reelsWrapper(width, height, [
     pageBadge(data.pageIndex ?? 3, data.totalPages ?? 10),
     d(
       {
@@ -641,7 +664,7 @@ export function buildQuizPause({ width, height, data }) {
         d({ ...ty('optText', { color: INK.body }) }, data.subhead || 'スワイプで答え合わせ →'),
       ],
     ),
-  ]);
+  ]));
 }
 
 // ─── answer ───────────────────────────────────────────────────
@@ -665,7 +688,7 @@ export function buildQuizAnswer({ width, height, data }) {
     ? data.optionExplanations.slice(0, 5)
     : [];
 
-  return d(frame(width, height, SURFACE.page), [
+  return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     topbar(
       eyebrow(`ANSWER ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
       pageBadge(data.pageIndex ?? 3, data.totalPages ?? 10),
@@ -846,7 +869,7 @@ export function buildQuizAnswer({ width, height, data }) {
 
     // answer の右下は空白（URL 重複を避ける）
     brandFooter(null),
-  ]);
+  ]));
 }
 
 // ─── cta ──────────────────────────────────────────────────────
@@ -861,7 +884,7 @@ export function buildQuizAnswer({ width, height, data }) {
  */
 export function buildQuizCta({ width, height }) {
   const cfg = SLIDES.cta;
-  return d(frame(width, height, CTA.background), [
+  return d(frame(width, height, CTA.background), reelsWrapper(width, height, [
     // 装飾円（右上）
     d({
       position: 'absolute',
@@ -984,5 +1007,5 @@ export function buildQuizCta({ width, height }) {
 
     // cta の右下は空白（左下の白反転ウォーターマークで充足）
     brandFooter(null, { onDark: true }),
-  ]);
+  ]));
 }
