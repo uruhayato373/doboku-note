@@ -65,6 +65,19 @@ footer の §12 参考資料 とは独立評価：footer に同じ URL があっ
 
 **書式履歴**: 2026-05-27 に blockquote 形式 `> 出典: ...` から `<Callout type="reference">` 形式へ統一（既存 17 ページ migration 済み）。
 
+## 参考資料 URL 捏造の検出（2026-05-27 追加、§12 拡張）
+
+新規ページの 参考資料 URL は **全件 WebFetch で実在確認** する。404 を発見した場合、**HIGH 違反** として surface し参考資料軸を **1 点以下に強制** する。
+
+**危険パターン**（特に注意）:
+- `emira-t.jp/pedia/{数字}/` — Generator がパターン補完で捏造しやすい
+- `{site}.com/category/{id}/` 形式の連番 URL
+- Wikipedia 中黒（・）の有無の表記ゆれ（「デザインイン」≠「デザイン・イン」）
+
+**指摘形式**: `[H] L<行>: 参考資料 URL <URL> が HTTP 404（実在しない）。Generator のパターン補完による捏造の可能性。差し替えまたは削除を要する（§12）`
+
+**過去事例**: 2026-05-27 のエネルギー分割作業（commit c7f5aa167）で EMIRA URL を 3 件捏造 → cem-qa 並列評価で全件 surface → 修正 commit 646d2461f。
+
 ## shallow concept table の手動チェック（2026-05-27 追加、content-principles §4 拡張）
 
 「用語+定義+例」型 shallow table が散文化されずに残っているケースを **MEDIUM 違反** として surface する。LLM 校正のバイアス（「表で要約しがち」）を構造で潰す。
@@ -108,7 +121,7 @@ description の本文 contract として扱うのは boilerplate を除いた残
 | `node .claude/scripts/lint-mdx-mobile.mjs` | カテゴリ1（表）・6（導入文）・8（リンク）・9（コンポーネント原則）・12（散文密度）の機械チェック | モバイル / コンテンツ原則 |
 | `/check-mdx --rules syntax` | MDX 構文チェック（ビルドエラー予防） | 構造 |
 | `/check-mdx --rules links` | 参考資料リンク存在確認（HTTP HEAD） | 参考資料（補助） |
-| `WebFetch` | 参考資料の実体確認（§12 準拠、毎回必須） | 参考資料 |
+| `WebFetch` | 参考資料の実体確認（§12 準拠、毎回必須）— **404 / redirect 検出を HIGH 違反として surface（捏造 URL 防止、2026-05-27 強化）** | 参考資料 |
 | `/exam-backlinks` | 過去問⇔キーワード紐付け確認 | 関連付け |
 
 ### lint カテゴリ → 採点軸の強制ルール
