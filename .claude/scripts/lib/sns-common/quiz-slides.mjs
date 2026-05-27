@@ -467,28 +467,20 @@ export function buildQuizPause({ width, height, data }) {
  * quiz-answer スライド
  *
  * data: {
- *   correctNum: number,
- *   correctText: string,      // 正答の主題
- *   correctSub?: string,
- *   explanationLines: string[],
+ *   correctNum: number,                       // 正答番号 (1-5)
+ *   correctText: string,                      // 正答の主題（a-hero title）例: '品質管理の統計的手法'
+ *   optionExplanations: [{ num, correct, text }], // 5 択それぞれの正誤と理由
+ *   pointText: string,                        // a-point 本文（ここがポイント）
  *   qNum: number,
  *   totalQ: number,
- *   pointText?: string,       // a-point の本文（無ければ correctText 再掲）
  *   pageIndex?: number,
  *   totalPages?: number,
  * }
  */
 export function buildQuizAnswer({ width, height, data }) {
-  const lines = Array.isArray(data.explanationLines)
-    ? data.explanationLines
-    : (data.explanation || '').split('\n').filter((l) => l.trim());
-  // 行頭の○/✕/▷を分離してマークと本文に
-  const exRows = lines.slice(0, 6).map((line) => {
-    const m = line.match(/^\s*([○✗✕▷])\s*(.*)$/);
-    return m
-      ? { mark: m[1], text: m[2], correct: m[1] === '○' }
-      : { mark: null, text: line, correct: true };
-  });
+  const exRows = Array.isArray(data.optionExplanations)
+    ? data.optionExplanations.slice(0, 5)
+    : [];
 
   return d(frame(width, height, SURFACE.page), [
     topbar(
@@ -542,7 +534,7 @@ export function buildQuizAnswer({ width, height, data }) {
           ],
         ),
 
-        // a-explain（explanationLines を ex-row 風に表示）
+        // a-explain（5 行：選択肢番号バッジ + ○/✕ + 本文。border-bottom 線なし）
         d(
           {
             flexDirection: 'column',
@@ -551,45 +543,61 @@ export function buildQuizAnswer({ width, height, data }) {
             paddingRight: 16,
             flexShrink: 1,
           },
-          exRows.map((row, i) => {
-            const incorrect = row.mark === '✗' || row.mark === '✕';
+          exRows.map((row) => {
+            const incorrect = row.correct === false;
             const markColor = incorrect ? SEM.incorrect.primary : INK.muted;
             const markSize = incorrect ? TY.exMarkIncorrect.size : TY.exMark.size;
+            const numBg = incorrect ? SEM.incorrect.primary : SURFACE.sunken;
+            const numColor = incorrect ? '#ffffff' : INK.body;
+            const numBorder = incorrect ? SEM.incorrect.primary : SURFACE.line;
             return d(
               {
                 paddingTop: GEO.aExplain.rowPaddingY,
                 paddingBottom: GEO.aExplain.rowPaddingY,
-                borderBottomWidth: i === exRows.length - 1 ? 0 : GEO.aExplain.borderBottomWidth,
-                borderBottomStyle: 'solid',
-                borderBottomColor: SURFACE.line,
-                alignItems: 'flex-start',
+                alignItems: 'center',
                 gap: GEO.aExplain.columnGap,
               },
               [
-                // mark（プレフィックスが無ければ空 div、文字が切れないよう余裕を持たせる）
-                row.mark
-                  ? d(
-                      {
-                        width: 44,
-                        height: 44,
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        ...ty(incorrect ? 'exMarkIncorrect' : 'exMark', {
-                          color: markColor,
-                          fontSize: markSize,
-                          fontFamily: 'NotoSansJP',
-                        }),
-                        flexShrink: 0,
-                      },
-                      row.mark === '✗' ? '✕' : row.mark,
-                    )
-                  : d({ width: 44, height: 44, flexShrink: 0 }),
+                // ex-num（選択肢番号バッジ、誤答は coral 塗りつぶし）
+                d(
+                  {
+                    width: GEO.exNum.size,
+                    height: GEO.exNum.size,
+                    borderRadius: GEO.exNum.radius,
+                    background: numBg,
+                    borderWidth: GEO.exNum.borderWidth,
+                    borderStyle: 'solid',
+                    borderColor: numBorder,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    ...ty('exNum', { color: numColor }),
+                    flexShrink: 0,
+                  },
+                  String(row.num ?? ''),
+                ),
+                // ex-mark ○ / ✕
+                d(
+                  {
+                    width: 44,
+                    height: 44,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    ...ty(incorrect ? 'exMarkIncorrect' : 'exMark', {
+                      color: markColor,
+                      fontSize: markSize,
+                      fontFamily: 'NotoSansJP',
+                    }),
+                    flexShrink: 0,
+                  },
+                  incorrect ? '✕' : '○',
+                ),
+                // ex-text 解説本文
                 d(
                   {
                     flex: 1,
                     ...ty('exText', { color: INK.strong }),
                   },
-                  row.text,
+                  row.text || '',
                 ),
               ],
             );

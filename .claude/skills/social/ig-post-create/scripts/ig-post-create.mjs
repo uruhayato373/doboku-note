@@ -325,8 +325,14 @@ let SLIDES;
 if (mode === 'exam') {
   // exam モード: slide-data.json の slides 配列をそのままマップ
   // (cover / problem / pause / answer / cta が含まれる)
+  const totalPages = slideData.slides.length;
   SLIDES = slideData.slides.map((s, i) => {
-    const data = { ...s, management };
+    const data = {
+      ...s,
+      management,
+      pageIndex: s.pageIndex ?? i + 1,
+      totalPages: s.totalPages ?? totalPages,
+    };
     const num = padNum(i);
     const quizType = SLIDE_TYPE_MAP[s.type] || s.type;
     return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: quizType, data } };
