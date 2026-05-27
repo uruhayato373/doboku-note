@@ -238,7 +238,7 @@ coverTitle:
 この記事は総監の独立特化だが、立場が異なる方向けに以下の記事も別途書いている。
 
 - 民間建設技術者の総監メリット（会社員として総監を持つ意義）
-- [総監受験は投資としてペイするか — 2026年最新数値で計算するコスト vs リターン](https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy?utm_source=note&utm_medium=referral&utm_campaign=96-independence-income)
+- 総監受験は投資としてペイするか — 2026年最新数値で計算するコスト vs リターン（同マガジンの別記事）
 
 ## まとめ：独立は "総監を持っているか" より "発信し続けたか" で決まる
 
