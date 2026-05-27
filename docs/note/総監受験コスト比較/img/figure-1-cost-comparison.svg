@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+<text x="1172" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+
+  <!-- タイトル -->
+  <text x="600" y="70" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222" text-anchor="middle">総監合格までの総支出比較（受験料 ¥14,000 込み）</text>
+  <text x="600" y="108" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="middle">独学 6 回受験 ¥84,000 は、マガジン路線の約 5 倍／最安スクール路線の約 2 倍</text>
+
+  <!-- 軸目盛り -->
+  <line x1="360" y1="152" x2="1060" y2="152" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="360" y="144" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="start">¥0</text>
+  <text x="710" y="144" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="middle">¥100,000</text>
+  <text x="1060" y="144" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">¥200,000</text>
+
+
+  
+  <text x="350" y="181" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">独学 1 回合格</text>
+  <text x="350" y="207" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="end">理想形</text>
+  <rect x="360" y="168" width="51" height="34" rx="6" fill="#555555"/>
+  <text x="427" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">¥14,000</text>
+  <rect x="20" y="220" width="1160" height="58" rx="8" fill="#e8f5e9"/>
+  <text x="350" y="245" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="end">マガジン 1 冊 + 1 回合格</text>
+  <text x="350" y="271" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44" text-anchor="end">推奨</text>
+  <rect x="360" y="232" width="60" height="34" rx="6" fill="#3a7d44"/>
+  <text x="436" y="257" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">¥16,480</text>
+  <rect x="20" y="284" width="1160" height="58" rx="8" fill="#e8f5e9"/>
+  <text x="350" y="309" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="end">マガジン全 6 + 1 回合格</text>
+  <text x="350" y="335" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44" text-anchor="end">全網羅</text>
+  <rect x="360" y="296" width="105" height="34" rx="6" fill="#3a7d44"/>
+  <text x="481" y="321" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">¥28,880</text>
+  
+  <text x="350" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">スタディング + 1 回合格</text>
+  <text x="350" y="399" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#2e6da4" text-anchor="end">最安スクール</text>
+  <rect x="360" y="360" width="159" height="34" rx="6" fill="#2e6da4"/>
+  <text x="535" y="385" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">¥43,700</text>
+  <rect x="20" y="412" width="1160" height="58" rx="8" fill="#fbe6e9"/>
+  <text x="350" y="437" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="end">独学 6 回受験</text>
+  <text x="350" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234" text-anchor="end">数学的期待値</text>
+  <rect x="360" y="424" width="306" height="34" rx="6" fill="#b22234"/>
+  <text x="682" y="449" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">¥84,000</text>
+  
+  <text x="350" y="501" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">アガルート フル + 1 回合格</text>
+  <text x="350" y="527" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#2e6da4" text-anchor="end">添削+口頭模試</text>
+  <rect x="360" y="488" width="474" height="34" rx="6" fill="#2e6da4"/>
+  <text x="850" y="513" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">¥130,000</text>
+  
+  <text x="350" y="565" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">JES 総監 + 1 回合格</text>
+  <text x="350" y="591" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#1a3a5c" text-anchor="end">個別対応</text>
+  <rect x="360" y="552" width="700" height="34" rx="6" fill="#1a3a5c"/>
+  <text x="1076" y="577" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">¥192,100</text>
+
+  <!-- 凡例 -->
+  <g transform="translate(40, 660)">
+    <rect x="0" y="-12" width="18" height="18" rx="3" fill="#3a7d44"/>
+    <text x="26" y="3" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#555555">doboku-note 路線</text>
+    <rect x="220" y="-12" width="18" height="18" rx="3" fill="#b22234"/>
+    <text x="246" y="3" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#555555">独学多数回（数学的期待値）</text>
+    <rect x="610" y="-12" width="18" height="18" rx="3" fill="#2e6da4"/>
+    <text x="636" y="3" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#555555">主要スクール（2026年5月時点）</text>
+  </g>
+</svg>
