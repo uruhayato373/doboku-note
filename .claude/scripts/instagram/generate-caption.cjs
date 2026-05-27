@@ -78,7 +78,7 @@ if (isExamPack) {
   // 年度ベースの統一タイトル + パック番号で識別。
   const yearLabel = _meta.year.toUpperCase();
   const packNumLabel = String(_meta.packNum).replace(/^0+/, '') || _meta.packNum;
-  lines.push(`【令和7年度 択一式 過去問】${yearLabel} 4問パック #${packNumLabel}`);
+  lines.push(`【令和7年度 択一式 過去問】${yearLabel} 過去問 #${packNumLabel}`);
 } else if (isBundle) {
   const chapterLabel = _meta?.chapterTitle ? `【${_meta.chapterTitle}】` : "【保存版】";
   lines.push(`${chapterLabel}${coverTitle}（${kwCount}キーワードまとめ）`);
