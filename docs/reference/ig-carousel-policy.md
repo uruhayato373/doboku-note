@@ -53,6 +53,72 @@
 |---|---|---|
 | `related` | 関連キーワード配列 | 2〜4 件。MDX の RelatedKeywords から採る |
 
+---
+
+## 過去問パック（exam モード）専用スキーマ
+
+`docs/sns/instagram/_exam-packs/<year>/pack-<NN>/slide-data.json` は別構造。
+デザイン真実源は [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json)、仕様書は [`docs/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)。
+
+```jsonc
+{
+  "slides": [
+    { "type": "cover",   ... },     // 1 枚目
+    { "type": "problem", ... },     // 2/4/6/8 枚目
+    { "type": "answer",  ... },     // 3/5/7/9 枚目
+    { "type": "cta",     ... }      // 10 枚目
+  ]
+}
+```
+
+合計 10 枚固定。`pageIndex` / `totalPages` は `ig-post-create.mjs` が index から自動算出するので省略可。
+
+### exam-cover
+
+| フィールド | 内容 | ルール |
+|---|---|---|
+| `type` | `"cover"` | |
+| `title` | 管理名 | 経済性管理／人的資源管理／情報管理／安全管理／社会環境管理 のいずれか。156px 1 行 |
+| `subtitle` | サブ情報 | `R07 4問パック` などの年度表記 |
+| `sectionTag` | セクションタグ | 任意。`2 経済性管理` 等 |
+
+### exam-problem
+
+| フィールド | 内容 | ルール |
+|---|---|---|
+| `type` | `"problem"` | |
+| `bodyLines` | 問題本文の配列 | 各行 25-32 字目安。Satori が句点で自動 wrap |
+| `options` | 5 択 | `[{ num: 1-5, text: "..." }]` 5 要素必須 |
+| `qNum` | 問番号 | 1-4 |
+| `totalQ` | 総問数 | 通常 4 |
+
+### exam-answer ⭐ 新スキーマ（2026-05-27 確定）
+
+| フィールド | 内容 | ルール |
+|---|---|---|
+| `type` | `"answer"` | |
+| `correctNum` | 正答番号 | 1-5 |
+| `correctText` | **問題の主題**（a-hero title） | 例「品質管理の統計的手法」「損益分岐点の分析」。**「ここがポイント」の論点ではなく問題の主題** |
+| `optionExplanations` | **5 要素必須**・選択肢別の正誤と理由 | `[{ "num": 1-5, "correct": true/false, "text": "..." }]`。`text` は 60 字以内目安・1 文 |
+| `pointText` | a-point 枠の本文（ここがポイント） | 80 字以内。論点を 1 行で抽出 |
+| `qNum` / `totalQ` | 問番号・総問数 | |
+
+**廃止フィールド**: `explanationLines`（旧スキーマ、フォールバックなし）。
+
+**`correct` の判定ルール**:
+- 「最も**適切**なものはどれか」型 → `correctNum` と一致する選択肢のみ `correct: true`
+- 「最も**不適切**なものはどれか」型 → `correctNum` と一致する選択肢のみ `correct: false`（**それ以外** 4 つが `true`）
+
+### exam-cta
+
+| フィールド | 内容 | ルール |
+|---|---|---|
+| `type` | `"cta"` | |
+
+文言（FULL CONTENT / 640問 / All章 / 保存ボタンを押して 等）はすべて tokens.json が真実源。slide-data.json には書かない。
+
+---
+
 ## 5 軸ルーブリック
 
 各軸を 1〜5 で採点する。

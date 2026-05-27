@@ -41,16 +41,22 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
    - 軸4（字数）はスキーマの字数ルールに照らして機械的に判定。超過フィールドを指摘に列挙
    - 軸5（試験的正確性）は固有名詞・数値・年号・法則名を MDX 本文と厳格に突合
 5. **軸 6（デザイン統一性、過去問パックのみ）**を 1〜5 で採点する:
-   - 対象ディレクトリの `carousel/img/00-cover.png` 〜 `09-cta.png` を読む（Read tool で PNG）
-   - tokens.json と照合:
-     - cover-tag が brand-tint 背景の pill 形式か（`#EDF3FB` 系）
-     - cover-title が ink-strong（`#14191F`）の 156px 級（管理名表示）
-     - cover-big-q が brand-tint 色で右上に配置されているか
-     - eyebrow（PROBLEM N / ANSWER N / FULL CONTENT）が Manrope 800・brand 色・下線 3px
-     - answer の a-hero が green-tint 背景（`#E5F2EB` 系）
-     - cta が navy 背景（`#0E2C53`）+ accent `#6FB0FF` の "doboku-note" ハイライト
-     - brand footer の dot（28×28、brand 色）+ wordmark "doboku-note"（Manrope 800）
-   - 旧 5管理別配色（橙・紫・赤・緑）が混入していたら -1 点ずつ減点（廃止済み）
+   - 対象ディレクトリの `carousel/img/00-cover.png` 〜 `09-cta.png` を Read tool で PNG として読む
+   - slide-data.json と tokens.json の両方を読んで照合
+
+   **必須確認項目（各 1 点減点、合計 5 点満点）**:
+   - **配色**: cover-tag が brand-tint pill / cover-title が ink-strong 156px / cover-big-q が brand-tint で右上 / answer a-hero が green-tint / cta が navy + accent `#6FB0FF`
+   - **タイポ**: eyebrow (PROBLEM/ANSWER/FULL CONTENT) が Manrope 800 + brand 下線 3px、brand wordmark が Manrope 800 24px
+   - **answer 構造**: a-hero（番号 + 主題）+ a-explain 5 行（**選択肢 1〜5 すべての ○/X + 理由**）+ a-point「ここがポイント」枠の 3 ブロックが揃っているか
+   - **解説エリアの色強調なし**: ex-num が正誤に関わらず sunken 背景 + ink-body、ex-mark は ○/X どちらも ink-muted（**coral 赤が解説エリアに残っていないか**）
+   - **X 表記**: 誤答マークが純粋な Latin X（Manrope 800）であり、`✕` (U+2715) や `✗` (U+2717) ではないこと
+   - **a-explain の罫線なし**: 行間に border-bottom 1.5px 線が無く、gap 12-16px の余白だけで区切られているか
+   - **右下空白**: cover/answer/cta は右下が空白（`doboku-note.com` が表示されていない）、problem だけ右下「次ページで解答 →」
+   - **5管理別配色の残骸なし**: 橙・紫・赤・緑のスライド全面着色が混入していないか（廃止済み）
+
+   **slide-data.json スキーマ確認**:
+   - `answer` に `optionExplanations[5]` と `pointText` が両方存在するか
+   - 旧 `explanationLines` が残っていれば指摘（廃止済み・移行必要）
 
 ## 出力形式
 

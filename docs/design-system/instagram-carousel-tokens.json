@@ -135,10 +135,11 @@
 
   "slides": {
     "order": ["cover", "problem", "answer", "problem", "answer", "problem", "answer", "problem", "answer", "cta"],
-    "cover":   { "tagText": "総監択一クイズ", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "metaTemplate": "{year} ／ 4問パック", "footerUrl": "doboku-note.com" },
-    "problem": { "eyebrowTemplate": "PROBLEM {n} / {total}", "footerUrl": "次ページで解答 →", "qTagText": "Q" },
-    "answer":  { "eyebrowTemplate": "ANSWER {n} / {total}", "footerUrl": "doboku-note.com", "heroLabel": "正答 ／ ANSWER", "pointLabel": "ここがポイント", "pointIconChar": "!", "correctMark": "○", "incorrectMark": "✕" },
-    "cta":     { "eyebrowText": "FULL CONTENT", "helloText": "もっと解きたい人は", "headlineAccent": "doboku-note", "headlineSuffix": " で全章解説をチェック", "stats": [{ "num": "640", "unit": "問", "label": "PRACTICE" }, { "num": "All", "unit": "章", "label": "EXPLANATION" }], "actionTitle": "保存ボタンを押して", "actionSubtitle": "試験前日に見返そう", "footerUrl": "doboku-note.com" }
+    "_footerNote": "cover/answer/cta の右下は空白（左下のウォーターマークと URL が重複するため撤廃）。problem だけ誘導テキスト 'next' を右下に出す。",
+    "cover":   { "tagText": "総監択一クイズ", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "metaTemplate": "{year} ／ 4問パック" },
+    "problem": { "eyebrowTemplate": "PROBLEM {n} / {total}", "nextText": "次ページで解答 →", "qTagText": "Q" },
+    "answer":  { "eyebrowTemplate": "ANSWER {n} / {total}", "heroLabel": "正答 ／ ANSWER", "pointLabel": "ここがポイント", "pointIconChar": "!", "correctMark": "○", "incorrectMark": "X", "_markNote": "incorrect は純粋な Latin X を Manrope 800 で描画。色は付けない（○/X の形状だけで識別、解説エリアは中立色）。" },
+    "cta":     { "eyebrowText": "FULL CONTENT", "helloText": "もっと解きたい人は", "headlineAccent": "doboku-note", "headlineSuffix": " で全章解説をチェック", "stats": [{ "num": "640", "unit": "問", "label": "PRACTICE" }, { "num": "All", "unit": "章", "label": "EXPLANATION" }], "actionTitle": "保存ボタンを押して", "actionSubtitle": "試験前日に見返そう" }
   },
 
   "variants": {

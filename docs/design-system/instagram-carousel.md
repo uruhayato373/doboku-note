@@ -87,7 +87,7 @@ doboku-note の Instagram カルーセル（B シリーズ：過去問パック�
    - `cover-sub` サブタイトル（32px 700 ink-body）
    - `cover-chips` 4問のタイトル予告（2×2 grid、各 chip に Manrope 800 番号 + 短いタイトル）
    - `cover-swipe`「スワイプで4問にチャレンジ →」（brand 色）
-3. brand footer
+3. brand footer: **左下のみ**（brand-dot + "doboku-note"）。右下は空白
 
 tokens.slides.cover に文字列テンプレ。
 
@@ -102,25 +102,42 @@ tokens.slides.cover に文字列テンプレ。
      - 左 78px に `opt-num` Manrope 800 34px brand 色（sunken 背景）
      - 右に `opt-text` 500 26px ink-strong padding 22/26
      - 長文時は `data-density="dense"` で min-height 92 / 24px / padding 18/24
-3. brand footer（url=「次ページで解答 →」）
+3. brand footer: 左下に brand-dot + "doboku-note" / **右下に「次ページで解答 →」**（誘導テキスト・problem のみ）
 
 ### 5.3 answer (03/05/07/09)
+
+**slide-data.json スキーマ**:
+```jsonc
+{
+  "type": "answer",
+  "correctNum": 1,                 // 1-5
+  "correctText": "品質管理の統計的手法",  // a-hero の title（主題、800 30px）
+  "optionExplanations": [          // 必須・5 要素・順序は num 順
+    { "num": 1, "correct": false, "text": "管理限界は統計的に計算される工程監視用の値であり、規格値に設定するのは誤り。" },
+    { "num": 2, "correct": true,  "text": "工程能力が不十分な場合に不適合品リスクが大きい、という記述は適切。" },
+    ...
+  ],
+  "pointText": "管理限界＝工程監視の値／規格値＝顧客要求の許容範囲。混同の引っかけが頻出。",
+  "qNum": 1, "totalQ": 4
+}
+```
+`explanationLines` は **廃止**（旧スキーマ、互換維持なし）。
 
 要素構成:
 1. topbar: `eyebrow` "ANSWER N / 4" + `page`
 2. body:
    - `a-hero`: 正答カード（green-tint 背景 / green-line border 2 / radius 20 / padding 22/28）
      - `a-hero-badge` 96×96 円 green 背景 / 白 Manrope 800 56px 正答番号
-     - `a-hero-meta`: label「正答 ／ ANSWER」(800 20px green-deep letter-spacing 0.12) + title 主題（800 30px ink-strong）
-   - `a-explain`: 5 行（grid 56/36/1fr、border-bottom 1.5 line）
-     - `ex-num` 56×56 radius 14（正答行=sunken+ink-body、誤答行=incorrect+白）
-     - `ex-mark` ○（正答行 muted 28px）/ ✕（誤答行 incorrect 30px）
-     - `ex-text` 500 24px ink-strong + `<b>` で重要句強調
-   - `a-point`: 「ここがポイント」（白背景 / brand 3px border / radius 18 / margin-top 36）
+     - `a-hero-meta`: label「正答 ／ ANSWER」(800 20px green-deep letter-spacing 0.12) + title `correctText` (800 30px ink-strong)
+   - `a-explain`: **5 行固定**（`optionExplanations[5]` から描画、**border-bottom 線なし**、gap 12-16px で区切り）
+     - `ex-num` 56×56 radius 14 / **正誤に関わらず sunken 背景 + ink-body**（解説エリアで色強調しない）
+     - `ex-mark` ○（NotoSansJP 28px ink-muted）/ X（Manrope 800 30px ink-muted、純粋な Latin X）
+     - `ex-text` 500 24px ink-strong / `<b>` で重要句強調
+   - `a-point`: 「ここがポイント」（白背景 / brand 3px border / radius 18 / margin-top 36）。`pointText` 必須
      - `a-point-label` 浮きラベル（brand 背景 / 白 800 20px）
      - `a-point-icon` 44×44 brand-tint 背景 / brand 色 / `!` 800 26px
      - `a-point-text` 700 26px ink-strong / `<b>` は 800 brand-deep
-3. brand footer（url=`doboku-note.com`）
+3. brand footer: **左下のみ**（brand-dot + "doboku-note"）。右下は空白
 
 ### 5.4 cta (10)
 
@@ -135,7 +152,7 @@ tokens.slides.cover に文字列テンプレ。
      - icon（brand-tint 背景の保存マーク SVG）
      - 「保存ボタンを押して 試験前日に見返そう」(brand 色 Manrope 800 22px + ink 700 20px)
 3. 装飾: 右上 460×460 / 左下 360×360 の navy-2 円（背後）
-4. brand footer（dot は白反転、url=`doboku-note.com`）
+4. brand footer: 左下に brand-dot（白反転）+ "doboku-note"（白）。右下は空白
 
 ## 6. variant（拡張オプション、Phase A スコープ外）
 
@@ -180,9 +197,12 @@ const geo   = TOKENS.geometry;
 第 6 軸「デザイン統一性」で以下を確認:
 1. cover 背景が `#FFFFFF`、cover-big-q `#EDF3FB`、cover-title 文字が ink-strong
 2. eyebrow が Manrope 24px、brand-line 3px underline
-3. ex-num の誤答行が `#C8443A`、正答行が surface-sunken
-4. CTA 背景が `#0E2C53`、accent が `#6FB0FF`
-5. brand-dot 28×28、footer wordmark が Manrope 800 24px
+3. ex-num の正誤に関わらず sunken 背景 + ink-body（**色強調なし**）
+4. ex-mark は ○ (NotoSansJP) / X (Manrope 800 純粋な Latin)、いずれも ink-muted
+5. CTA 背景が `#0E2C53`、accent が `#6FB0FF`
+6. brand-dot 28×28、footer wordmark が Manrope 800 24px、**右下は problem のみ「次ページで解答 →」、cover/answer/cta は空白**
+7. a-explain に **border-bottom 線が無い**こと（gap だけで区切る）
+8. 「ここがポイント」枠が a-point として表示されている（`pointText` 必須）
 
 ## 9. 失敗パターン
 
@@ -193,6 +213,11 @@ const geo   = TOKENS.geometry;
 | q-text の `<b>` が描画されない | NotoSansJP 800 weight が Satori に登録されていない | `ig-post-create.mjs` の fonts 配列に 800 を追加 |
 | Manrope が描画されない | `@fontsource/manrope` 未インストール、または fontFamily 指定が `'Manrope, sans-serif'` のような複合形式になっている | Satori は単一フォント名を期待。fontFamily は `'Manrope'` 単独で渡す |
 | 5管理別の色が出る | 旧 MGMT_THEME 参照コードの残骸 | `quiz-slides.mjs` の `MGMT_THEME` を完全削除し、tokens.colors.brand.presets を参照 |
+| answer の解説エリアが赤一色 | ex-num / ex-mark に coral 色が残っている | 色強調は a-hero（緑）と a-point（青枠）に集中、解説エリアは sunken+ink-muted で中立に |
+| answer に「ここがポイント」枠が出ない | slide-data.json に `pointText` キーが無い | writer が新スキーマで `pointText` を必須記述する |
+| answer の解説が選択肢別になっていない | `explanationLines` 旧スキーマを使っている | `optionExplanations[5]` に分解する。旧 `explanationLines` は廃止 |
+| ex-mark の ✕ がフォントで掠れる | `✕` (U+2715) はフォントによって描画品質が落ちる | 純粋な Latin `X` を Manrope 800 で描画する（仕様確定） |
+| 右下に `doboku-note.com` が表示される | 旧コードの `brandFooter(SLIDES.*.footerUrl)` 残骸 | `brandFooter(null)` を渡す。problem のみ `nextText` を渡す |
 
 ## 10. 関連ドキュメント
 

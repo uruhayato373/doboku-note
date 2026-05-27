@@ -437,7 +437,8 @@ export function buildQuizProblem({ width, height, data }) {
       ],
     ),
 
-    brandFooter(SLIDES.problem.footerUrl),
+    // problem だけ右下に「次ページで解答 →」を出す（誘導テキスト）
+    brandFooter(SLIDES.problem.nextText),
   ]);
 }
 

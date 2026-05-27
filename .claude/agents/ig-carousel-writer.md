@@ -48,6 +48,32 @@ model: sonnet
    - 字数ルール（policy のスキーマ表）を守る。執筆後に各フィールドの字数を数える。
 6. MDX を読む過程で気づいた doboku-note 側の問題（説明不足・事実誤認・図が欲しい箇所）は、**MDX を直接編集せず** `docs/sns/instagram/_keyword-findings.md` に追記する。
 
+### 過去問パック（exam モード）の answer スライド執筆ルール
+
+過去問 4 問パックの `slides[*].type === 'answer'` は **以下の 2 キーが必須**（HTML プロト準拠の 5 行 ex-row + ここがポイント枠を出すため）:
+
+```jsonc
+{
+  "type": "answer",
+  "correctNum": 1,
+  "correctText": "品質管理の統計的手法",   // 主題（a-hero title）。a-point の文言ではなく問題の主題
+  "optionExplanations": [               // 5 要素必須・選択肢 num の昇順
+    { "num": 1, "correct": false, "text": "管理限界は統計的に計算される工程監視用の値であり、規格値に設定するのは誤り。" },
+    { "num": 2, "correct": true,  "text": "工程能力が不十分な場合に不適合品リスクが大きい、という記述は適切。" },
+    { "num": 3, "correct": true,  "text": "..." },
+    { "num": 4, "correct": true,  "text": "..." },
+    { "num": 5, "correct": true,  "text": "..." }
+  ],
+  "pointText": "管理限界＝工程監視の値／規格値＝顧客要求の許容範囲。混同の引っかけが頻出。",
+  "qNum": 1, "totalQ": 4
+}
+```
+
+- `optionExplanations[].text` は **1 文 60 字以内**を目安に簡潔化（24px 2 行で収まる）
+- `correct` は `correctNum` と整合させる（`correctNum: 1` なら `optionExplanations[0].correct: true`、それ以外 `false` のはず ※「最も不適切なものは」では逆）
+- `pointText` は a-point 枠の本文。**80 字以内**。「混同を狙う引っかけが頻出」型の論点抽出を 1 行で
+- 旧 `explanationLines` は廃止。書かない
+
 ## 品質ガード
 
 - `slide-data.json` は UTF-8・LF。JSON 構造を壊さない。
