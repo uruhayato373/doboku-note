@@ -236,11 +236,15 @@ function brandFooter(rightText, { onDark = false } = {}) {
  * }
  */
 export function buildQuizCover({ width, height, data }) {
-  const title = data.title || '';
-  // subtitle が 'R07 4問パック' 形式なら meta に、それ以外は sub に。
-  const year = data.year ?? (data.subtitle?.match(/^([HRhr]\d+)/)?.[1] || null);
-  const metaText = year ? `${year.toUpperCase()} ／ 4問パック` : (data.subtitle || SLIDES.cover.tagText);
-  const subText = (data.subtitle && !year) ? null : (data.subtext || '');
+  // 管理混在問題を回避するため、cover-title は固定 2 行文言（tokens 駆動）。
+  // slide-data.json の cover.title / subtitle は無視。pack 番号で各パックを区別。
+  const titleLine1 = SLIDES.cover.titleLine1 || '令和7年度';
+  const titleLine2 = SLIDES.cover.titleLine2 || '択一式 過去問';
+  const year = data.year ?? data._meta?.year ?? 'r07';
+  const packNum = data.packNum ?? data._meta?.packNum ?? '01';
+  const metaText = (SLIDES.cover.metaTemplate || '{year} 4問パック #{packNum}')
+    .replace('{year}', year.toUpperCase())
+    .replace('{packNum}', String(packNum).replace(/^0+/, '') || packNum);
   const chips = Array.isArray(data.chips) ? data.chips.slice(0, 4) : [];
 
   return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
@@ -287,10 +291,9 @@ export function buildQuizCover({ width, height, data }) {
       },
       [
         d({ ...ty('coverMeta', { color: BRAND.primary, marginBottom: 20 }) }, metaText),
-        d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 28 }) }, title),
-        subText
-          ? d({ ...ty('coverSub', { color: INK.body, marginBottom: 48 }) }, subText)
-          : null,
+        // 2 行構成（管理名混在を避けるための統一タイトル）
+        d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 12 }) }, titleLine1),
+        d({ ...ty('coverSub', { color: INK.body, marginBottom: 48 }) }, titleLine2),
         chips.length
           ? d(
               {

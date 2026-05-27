@@ -80,8 +80,8 @@
     "coverTag":       { "fontFamily": "NotoSansJP", "weight": 700, "size": 32,  "letterSpacing": 0.04 },
     "coverBigQ":      { "fontFamily": "Manrope",    "weight": 800, "size": 240, "lineHeight": 0.85, "_note": "HTML プロトでも 800（ExtraBold）。Manrope 900 は fontsource で未提供。" },
     "coverMeta":      { "fontFamily": "Manrope",    "weight": 700, "size": 38,  "letterSpacing": 0.08 },
-    "coverTitle":     { "fontFamily": "NotoSansJP", "weight": 900, "size": 156, "lineHeight": 1.0,  "letterSpacing": -0.02 },
-    "coverSub":       { "fontFamily": "NotoSansJP", "weight": 700, "size": 32,  "letterSpacing": 0.02 },
+    "coverTitle":     { "fontFamily": "NotoSansJP", "weight": 900, "size": 120, "lineHeight": 1.0,  "letterSpacing": -0.02 },
+    "coverSub":       { "fontFamily": "NotoSansJP", "weight": 700, "size": 80,  "lineHeight": 1.05, "letterSpacing": -0.01 },
     "coverChip":      { "fontFamily": "NotoSansJP", "weight": 700, "size": 24 },
     "coverChipNum":   { "fontFamily": "Manrope",    "weight": 800, "size": 24 },
     "coverSwipe":     { "fontFamily": "NotoSansJP", "weight": 700, "size": 32,  "letterSpacing": 0.04 },
@@ -144,7 +144,7 @@
   "slides": {
     "order": ["cover", "problem", "answer", "problem", "answer", "problem", "answer", "problem", "answer", "cta"],
     "_footerNote": "cover/answer/cta の右下は空白（左下のウォーターマークと URL が重複するため撤廃）。problem だけ誘導テキスト 'next' を右下に出す。",
-    "cover":   { "tagText": "総監過去問", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "metaTemplate": "{year} ／ 4問パック", "_tagNote": "B シリーズ（_exam-packs）専用。A シリーズ（運営者作問）は別の表記を使う。" },
+    "cover":   { "tagText": "総監過去問", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "metaTemplate": "{year} 4問パック #{packNum}", "titleLine1": "令和7年度", "titleLine2": "択一式 過去問", "_tagNote": "B シリーズ（_exam-packs）専用。A シリーズ（運営者作問）は別の表記を使う。", "_titleNote": "管理混在問題を回避するため、cover-title は年度ベースの統一文言（titleLine1+titleLine2）。slide-data.json の cover.title は無視され、pack 番号で区別。" },
     "problem": { "eyebrowTemplate": "PROBLEM {n} / {total}", "nextText": "次ページで解答 →", "qTagText": "Q" },
     "answer":  { "eyebrowTemplate": "ANSWER {n} / {total}", "heroLabel": "正答 ／ ANSWER", "pointLabel": "ここがポイント", "pointIconChar": "!", "correctMark": "○", "incorrectMark": "X", "_markNote": "incorrect は純粋な Latin X を Manrope 800 で描画。色は付けない（○/X の形状だけで識別、解説エリアは中立色）。" },
     "cta":     {

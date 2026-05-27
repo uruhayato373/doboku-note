@@ -326,12 +326,17 @@ if (mode === 'exam') {
   // exam モード: slide-data.json の slides 配列をそのままマップ
   // (cover / problem / pause / answer / cta が含まれる)
   const totalPages = slideData.slides.length;
+  // _meta から year と packNum を取り出して各 slide.data に注入（cover の固定タイトル/meta 表示用）
+  const examYear = slideData._meta?.year || examId.split('-')[0];
+  const examPackNum = slideData._meta?.packNum || examId.match(/pack-(\d+)/)?.[1] || '01';
   SLIDES = slideData.slides.map((s, i) => {
     const data = {
       ...s,
       management,
       pageIndex: s.pageIndex ?? i + 1,
       totalPages: s.totalPages ?? totalPages,
+      year: examYear,
+      packNum: examPackNum,
     };
     const num = padNum(i);
     const quizType = SLIDE_TYPE_MAP[s.type] || s.type;
