@@ -158,15 +158,20 @@ tokens.slides.cover に文字列テンプレ。
 
 `variants.available: ['refined', 'bold', 'editorial']`。Phase A では `refined` のみ実装。bold（opt 全面塗り / a-hero 全面 green）と editorial（border-bottom のみのミニマル）は将来。
 
-## 7. 動的フォントサイズ規則（運用ルール）
+## 7. 4 段階自動圧縮モード（problem スライド）
 
-q-text と opt-text は文字数によらず HTML プロト準拠の固定サイズで描く。**意図的に文字を切り詰める/折り返す方針**：
+q-text と opt-text は問題文と選択肢の総文字数で **4 段階を自動判定**して圧縮する。table/lists がある問題（複雑度高）も compact 以上に格上げ：
 
-- `q-text` 44px固定。文字数が多すぎる設問は slide-data.json 編集時に短く調整する（writer の責務）
-- `options` の `data-density="dense"` は writer / quiz-slides.mjs が「選択肢中で 1 つでも 60 字超」「全選択肢の合計 250 字超」のいずれかを満たすときに自動付与
-- `cover-title` は 156px 固定。管理名（5 文字前後）でない長文タイトルは禁止
+| モード | 発動条件 | q-text | opt min-height | opt text | block gap |
+|---|---|---|---|---|---|
+| **normal** | 総文字数 ≤ 320 | 44px / 600 | 96px | 26px / 500 | 36 |
+| **dense** | 320-550 字 or 選択肢 60+ 字 | 36px / 600 | 84px | 24px / 500 | 26 |
+| **compact** | 550-700 字 or 選択肢 100+ 字 or `table`/`lists` あり | 30px / 600 | 76px | 24px / 500 | 18 |
+| **ultra** | 700+ 字 | 26px / 600 | 68px | 22px / 500 | 14 |
 
-旧 `quiz-slides.mjs` の動的フォントスケール表（40字以下:42px / 80字以下:36px / ...）は廃止する。
+`cover-title` は **156px 固定**。管理名（5 文字前後）でない長文タイトルは禁止。
+
+旧 `quiz-slides.mjs` の動的フォントスケール表（40字以下:42px / 80字以下:36px / ...）は廃止。`MGMT_THEME` も廃止。
 
 ## 8. トークン参照方法
 

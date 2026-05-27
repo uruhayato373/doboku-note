@@ -41,10 +41,16 @@ docs/sns/instagram/
 ├── _exam-packs/                       ← B 過去問パック (新)
 │   ├── r07/
 │   │   ├── pack-01/
-│   │   │   ├── slide-data.json
-│   │   │   ├── caption.txt
-│   │   │   ├── carousel/img/{00-09}.png
-│   │   │   └── reels/
+│   │   │   ├── slide-data.json        ← データソース（cover/problem/answer/cta）
+│   │   │   ├── carousel/              ← フィード投稿用
+│   │   │   │   ├── caption.txt        ← 正答リスト + 保存喚起 CTA
+│   │   │   │   └── img/{00-09}.png    ← 1080×1350 PNG × 10
+│   │   │   └── reels/                 ← Reels / ストーリー用
+│   │   │       ├── caption.txt        ← 主題のみ（ネタバレなし）+ エンゲージメント CTA
+│   │   │       ├── img/{00-09}.png    ← 1080×1920 PNG × 10
+│   │   │       ├── script.txt         ← TTS 読み上げ台本（ig-reel-create）
+│   │   │       ├── wav/slide-NN.wav   ← VOICEVOX 音声（中間ファイル）
+│   │   │       └── video.mp4          ← 最終 Reels 動画（VOICEVOX + ffmpeg 合成）
 │   │   └── pack-02..09/
 │   ├── r06/...
 │   └── h21..r05/
@@ -287,10 +293,36 @@ node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-
 
 ---
 
-## 11. 関連ドキュメント
+## 11. 投稿フロー全体図（B シリーズ・過去問パック）
+
+```
+slide-data.json
+       ↓
+[ig-post-create]  ← --size both: 1080×1350 (carousel) + 1080×1920 (reels) PNG 各 10 枚
+       ↓
+[generate-caption] ← --format carousel|reels: メディア別 caption.txt 生成
+       ↓
+[ig-reel-create]  ← reels PNG + VOICEVOX TTS + ffmpeg で video.mp4 生成（任意）
+       ↓
+┌─────────────────────────────────┬─────────────────────────────────┐
+│ カルーセル投稿（フィード）       │ Reels 投稿                       │
+│ - carousel/img/*.png (10 枚)     │ - reels/video.mp4               │
+│ - carousel/caption.txt           │ - reels/caption.txt             │
+│ → 保存ストック                   │ → リーチ獲得（+ ストーリー転用） │
+└─────────────────────────────────┴─────────────────────────────────┘
+```
+
+トークン変更後の一括再生成は `ig-carousel-restyle --year r07`（lint pre-check 付き）。
+
+## 12. 関連ドキュメント
 
 - `docs/project/03_SNS/01_SNS集客戦略.md` — IG 戦略 v6
 - `docs/sns/instagram/profile.md` — IG プロフィール SoT
 - `docs/sns/instagram/README.md` — IG 運用基本
-- `.claude/skills/social/ig-post-create/SKILL.md` — スキル詳細
+- `.claude/skills/social/ig-post-create/SKILL.md` — カルーセル PNG 生成
+- `.claude/skills/social/ig-carousel-restyle/SKILL.md` — 一括再生成
+- `.claude/skills/social/ig-reel-create/SKILL.md` — Reels 動画生成
+- `scripts/lint-exam-pack-structure.mjs` — 構造違反 lint
+- `docs/design-system/instagram-carousel.md` — デザイン仕様
+- `docs/design-system/instagram-carousel-tokens.json` — トークン真実源
 - `docs/reference/links-hub.md` — `/links` SNS bio 中継ページ

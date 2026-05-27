@@ -124,6 +124,12 @@ title: スキル ガバナンス記録
 | 2026-05-27 | `ig-post-create` / `slide-render.mjs` | （フォント拡張） | `@fontsource/manrope` + `@fontsource/noto-sans-jp` を npm 導入し、Satori `fonts` 配列に Manrope 500/700/800 + NotoSansJP 500/700/800/900 を追加（既存 Inter 700 / Noto Sans JP 700 は互換維持） |
 | 2026-05-27 | `ig-carousel-qa` | v2.0（軸追加） | テキスト 5 軸に加え、過去問パック専用「デザイン統一性」第 6 軸を追加。PNG を Read tool で読み tokens.json と照合する |
 | 2026-05-27 | `ig-carousel-writer` | （ガード追加） | slide-data.json に色・フォント・余白を書かないルールを明記。5管理別配色は廃止済みで識別は cover-title テキストで行う旨を追記 |
+| 2026-05-27 | `quiz-slides.mjs` | （4 段階圧縮モード） | normal/dense/compact/ultra の 4 段階を総文字数で自動判定。`MGMT_THEME` 完全廃止 + reelsWrapper（1920 中央寄せ）追加 + buildTable / buildLists 汎用ビルダー追加 |
+| 2026-05-27 | `slide-data.json` スキーマ | （拡張） | problem に `lists`/`table` フィールド、answer に `optionExplanations[5]`/`pointText` 必須化。`explanationLines` 廃止 |
+| 2026-05-27 | `ig-reel-create` | v1.0（新規） | カルーセル PNG ベースの Reels 動画生成スキル。`--exam <pack-id>` で 1080×1920 PNG → VOICEVOX TTS → ffmpeg 連結 → mp4。旧 YT Shorts (142 dir / 37 mp4) を全削除して新設 |
+| 2026-05-27 | `lint-exam-pack-structure.mjs` | v1.0（新規） | 構造違反検出 lint。E1 (列挙散文化) / E2 (markdown 表残骸) / W1 (プレースホルダ残存)。bulk-generate-exam-packs.mjs に pre-check として統合 |
+| 2026-05-27 | `generate-caption.cjs` | （拡張） | `--format carousel\|reels` オプション追加。caption.txt を `<pack>/carousel/caption.txt` と `<pack>/reels/caption.txt` の 2 ファイルに分離。Reels 用は正答ネタバレなし + エンゲージメント CTA |
+| 2026-05-27 | デザイントークン | （多数調整） | qText 700→600 / cover 補助拡大 (tag 32, page 28, meta 38) / brandUrl 28 / cover-swipe chip 化 / cta-action 拡大 (title 32, subtitle 26, icon 72 brand 塗) / CTA 文言「全章→全問」「All章→5管理 SCOPE」/ cover-tag「総監択一クイズ→総監過去問」/ Q ロゴ right -20→40 / 装飾円を pageBadge/brand バッジ化 |
 
 ### カテゴリ変更履歴
 

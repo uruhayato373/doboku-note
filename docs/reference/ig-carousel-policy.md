@@ -87,10 +87,22 @@
 | フィールド | 内容 | ルール |
 |---|---|---|
 | `type` | `"problem"` | |
-| `bodyLines` | 問題本文の配列 | 各行 25-32 字目安。Satori が句点で自動 wrap |
-| `options` | 5 択 | `[{ num: 1-5, text: "..." }]` 5 要素必須 |
+| `bodyLines` | 問題本文の配列 | 各行 25-32 字目安。Satori が句点で自動 wrap。**並列列挙（（ア）（イ）等）・markdown 表（`\|...\|`）を書かない**（下記 `lists` / `table` へ） |
+| `options` | 5 択 | `[{ num: 1-5, text: "..." }]` 5 要素必須。組合せ表問題で「①〜⑤」が表内にある場合は空配列でも可 |
+| `lists` | 並列列挙データ（任意） | `[{ items: ["（ア）...", "（イ）..."] }]`。「（ア）（イ）」「（A）（B）」等の項目が 2 個以上ある場合は必須 |
+| `table` | 表データ（任意） | `{ headers: ["列1", "列2"], rows: [["a","b"]] }`。原典に markdown 表がある場合は必須 |
 | `qNum` | 問番号 | 1-4 |
 | `totalQ` | 総問数 | 通常 4 |
+
+**lists / table を使う判定基準**（lint で機械検出可・`scripts/lint-exam-pack-structure.mjs`）:
+- E1: bodyLines に「（ア）」「（A）」等が 2 個以上 → `lists` 必須
+- E2: bodyLines に `|` 含む行 2 行以上 → `table` 必須
+
+**圧縮モード自動判定**（`quiz-slides.mjs` の 4 段階）:
+- normal: 総文字数 ≤ 320 → q-text 44px / opt minH 96px
+- dense: 320-550 字 or 選択肢 60+ 字 → q-text 36px / opt minH 84px
+- compact: 550-700 字 or 選択肢 100+ 字 or table/lists あり → q-text 30px / opt minH 76px
+- ultra: 700+ 字 → q-text 26px / opt minH 68px / 選択肢 22px
 
 ### exam-answer ⭐ 新スキーマ（2026-05-27 確定）
 
