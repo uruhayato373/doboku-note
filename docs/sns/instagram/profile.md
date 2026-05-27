@@ -118,15 +118,24 @@ https://doboku-note.com/links
 bio 直下に固定表示できる丸アイコン。プロフィール訪問者の目的別ナビとして機能。
 最大 5 個までフィード可視（それ以上は横スクロール）。1 ハイライトあたり最大 100 ストーリー収納可能。
 
-### 推奨 5 ハイライト構成
+### 推奨 5 ハイライト構成（v2 / 2026-05-27 更新）
 
-| 順 | Highlights | カバー画像 | 中身 | 素材ソース |
+**詳細スペック（Story 単位のコピー + 視覚仕様）は [stories/highlights/script-v1.md](./stories/highlights/script-v1.md) を参照**。
+
+| 順 | Highlights | brand-color | 主CTA先 | 素材ソース |
 |---|---|---|---|---|
-| ① | **はじめに** | 自己紹介（顔ハッタリ風） | 経歴・6 資格・編集方針の 3-4 枚 | 新規制作 |
-| ② | **総監過去問** | 「R07」「過去問」 | 年度目次（summary）と各パック厳選 4 枚（cover/Q1/A1/CTA）の併用 | `_exam-packs/<year>/_summary/reels/` + `pack-NN/stories/img/` |
-| ③ | **5管理早見表** | 「5管理」 | 経済性・人的・情報・安全・社会環境 各 1 枚要約 | 新規制作（戦略 docs §IG type1 流用可） |
-| ④ | **note 商品** | note ロゴ | M9 / M5 / M6 / M8 / M3 紹介を 1 ストーリーずつ | `docs/note/_magazines/` cover 流用 |
-| ⑤ | **試験まで** | カウントダウン | 試験日カウントダウン投稿（試験 30 日前から） | 動的更新（試験期のみ） |
+| ① | **1級土木** | warmRed (#D9533F) | `/docs/keyword-2026` ほか | civil-construction-1 配下のガイドページ |
+| ② | **技術士総監** | default blue (#1858B5) | `/docs/whitepaper-study-map` | `_exam-packs/` カルーセル + 5管理コンテンツ |
+| ③ | **note 無料** | teal (#0F766E) | M2 完全無料記事 | `note.com/dobokunote/n/n60efbccd728b` |
+| ④ | **note 有料** | violet (#4338CA) | `/links`（5マガジン分岐） | `src/lib/note-magazines.ts` の cover |
+| ⑤ | **YouTube** | ink-strong (#14191F) | YouTube チャンネル（**URL 未登録のため保留**） | チャンネル開設後 |
+
+> [!warning]
+> ⑤ YouTube は `src/config/author.ts` に `youtubeUrl` が未登録のため**チャンネル開設まで保留**。それまでは ①〜④ の 4 枠運用とする。
+
+### v1（旧 plan・参考保管）
+
+戦略 v6 初期の構成（2026-05-26）は「① はじめに / ② 総監過去問 / ③ 5管理早見表 / ④ note 商品 / ⑤ 試験まで」だったが、bio + サイトの自己紹介経路が `/about` `/links` で確保できているため「はじめに」を独立枠から外し、5 チャネル動線（1級土木・総監・note 無料・note 有料・YouTube）優先に再編。「試験まで」カウントダウンは試験 30 日前〜の期間限定で⑤YouTube枠を一時差替える運用に変更。
 
 ### 運用フロー
 
@@ -165,12 +174,12 @@ node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
 ハイライトのカバー画像は **正方形 1080×1080 推奨**（IG が円形にトリミング）。
 最小 161×161 で OK。中央寄せでアイコン的に作る（テキストは大きく）。
 
-カバー画像ソース：
-- ① はじめに: avatar (`src/config/author.ts` の imageUrl) を流用
-- ② 総監過去問: 「R07 / R06」など年度ロゴ
-- ③ 5管理早見表: 5 色の円が並ぶアイコン
-- ④ note 商品: note の n ロゴ
-- ⑤ 試験まで: 「試験 30 日前」のような大きな数字
+カバー画像ソース（v2 構成）:
+- ① 1級土木: warmRed bg + 「1級／土木」大文字（script-v1.md §① 参照）
+- ② 技術士総監: default blue bg + 「総監」大文字
+- ③ note 無料: teal bg + 「無料／note」大文字
+- ④ note 有料: violet bg + 「有料／note」大文字
+- ⑤ YouTube: ink-strong bg + 「▶」プレイアイコン（保留中）
 
 ### 戦略的価値
 
@@ -179,13 +188,15 @@ node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
 - **note 商品 LP 化**: ハイライト ④ が note 売上の補助 CTA に
 - **指名検索強化**: 「専門アカウント」の見栄えが上がる
 
-### 着手順序
+### 着手順序（v2）
 
-1. **まず ④ note 商品** — 既存 magazine cover を IG アプリでアップして 5 ストーリー → ハイライト
-2. **次に ① はじめに** — 短い自己紹介 3-4 枚を新規制作
-3. **③ 5管理早見表** — 5 ストーリーで完結する固定コンテンツ
-4. **② 総監過去問** — 過去問パックの reels 版を順次追加（試験前期にラッシュ）
-5. **⑤ 試験まで** — 試験 30 日前から開始
+1. **まず ④ note 有料** — 既存 magazine cover を流用、最短起動
+2. **次に ③ note 無料** — リード磁石（M2）は流入起点として最重要
+3. **③ 技術士総監** — 既存 5管理コンテンツ（`_exam-packs/` カルーセル）の流用が効く
+4. **① 1級土木** — `keyword-2026` `guide-last-minute-2026` のスクショ流用
+5. **⑤ YouTube** — チャンネル開設後に保留解除（`src/config/author.ts` に `youtubeUrl` 追加が前提）
+
+詳細な各 Story のコピー・レイアウト・Link Sticker URL は [stories/highlights/script-v1.md](./stories/highlights/script-v1.md)。
 
 ---
 
