@@ -117,7 +117,7 @@
     "ctaActionSub":   { "fontFamily": "NotoSansJP", "weight": 700, "size": 26 },
     "ctaEyebrow":     { "fontFamily": "Manrope",    "weight": 800, "size": 24,  "letterSpacing": 0.12 },
     "brandName":      { "fontFamily": "Manrope",    "weight": 800, "size": 24,  "letterSpacing": -0.01 },
-    "brandUrl":       { "fontFamily": "Manrope",    "weight": 600, "size": 20 }
+    "brandUrl":       { "fontFamily": "Manrope",    "weight": 600, "size": 28, "_note": "実質的に problem 右下の「次ページで解答 →」誘導テキスト専用（cover/answer/cta は右下空白）。" }
   },
 
   "geometry": {
