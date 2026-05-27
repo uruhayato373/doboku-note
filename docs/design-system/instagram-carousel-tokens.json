@@ -136,7 +136,7 @@
     "ctaStat":    { "radius": 16, "padding": [20, 32], "borderWidth": 1.5, "gap": 32 },
     "ctaAction":  { "radius": 20, "padding": [32, 48], "minWidth": 720, "iconSize": 72, "iconRadius": 16, "gap": 24 },
     "coverSwipeChip": { "radius": 999, "padding": [14, 28], "borderWidth": 2, "gap": 16 },
-    "ctaDecor":   { "topRight": { "size": 460, "offset": [-120, -120] }, "bottomLeft": { "size": 360, "offset": [-100, -80] } },
+    "ctaDecor":   { "topRight": { "size": 240, "offset": [-25, -18] }, "bottomLeft": { "size": 320, "offset": [-65, -74] }, "_note": "円の中心にテキスト要素（右上=pageBadge、左下=brand wordmark）が重なるようサイズと offset を調整" },
     "brand":      { "dotSize": 28, "dotRadius": 8, "innerRingInset": 7, "innerRingBorder": 2.5, "centerDotInset": 11 },
     "eyebrow":    { "borderBottomWidth": 3, "padding": [8, 0], "gap": 14 }
   },
