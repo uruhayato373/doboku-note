@@ -237,14 +237,17 @@ function brandFooter(rightText, { onDark = false } = {}) {
  */
 export function buildQuizCover({ width, height, data }) {
   // 管理混在問題を回避するため、cover-title は固定 2 行文言（tokens 駆動）。
-  // slide-data.json の cover.title / subtitle は無視。pack 番号で各パックを区別。
+  // slide-data.json の cover.title / subtitle は無視。pack 番号は titleLine2 の末尾に
+  // 80px で大きく表示（ユーザーが一目で「過去問 #N」と認識できる位置）。
   const titleLine1 = SLIDES.cover.titleLine1 || '令和7年度';
-  const titleLine2 = SLIDES.cover.titleLine2 || '択一式 過去問';
   const year = data.year ?? data._meta?.year ?? 'r07';
   const packNum = data.packNum ?? data._meta?.packNum ?? '01';
-  const metaText = (SLIDES.cover.metaTemplate || '{year} 4問パック #{packNum}')
+  const packNumLabel = String(packNum).replace(/^0+/, '') || packNum;
+  const titleLine2 = (SLIDES.cover.titleLine2Template || '択一式 過去問 #{packNum}')
+    .replace('{packNum}', packNumLabel);
+  const metaText = (SLIDES.cover.metaTemplate || '{year} 4問パック')
     .replace('{year}', year.toUpperCase())
-    .replace('{packNum}', String(packNum).replace(/^0+/, '') || packNum);
+    .replace('{packNum}', packNumLabel);
   const chips = Array.isArray(data.chips) ? data.chips.slice(0, 4) : [];
 
   return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
