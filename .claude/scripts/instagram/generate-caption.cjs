@@ -69,18 +69,29 @@ if (isExamPack) {
 }
 lines.push("");
 
-// body 要約（最大 3 件）
+// body 要約
 if (isExamPack) {
-  // 過去問パック: 各 problem の冒頭 + 正答番号を要約
+  // 過去問パック: 各 problem の主題（answer.correctText）+ 正答番号 + 論点（pointText）を要約
+  // 4 問パックなので 4 問すべて表示する
   const problems = (slides || []).filter((s) => s.type === "problem");
   const answers = (slides || []).filter((s) => s.type === "answer");
-  problems.slice(0, 3).forEach((p, i) => {
-    const bodyText = Array.isArray(p.bodyLines) ? p.bodyLines.join("") : (p.body || "");
-    const truncated = bodyText.length > 70 ? bodyText.slice(0, 70) + "…" : bodyText;
+  problems.forEach((p, i) => {
     const ans = answers[i];
-    lines.push(`▶ Q${p.qNum ?? i + 1}: ${truncated}`);
+    // 主題は answer.correctText（pack-02 Q1 なら「品質管理の統計的手法」）
+    // フォールバック: problem の bodyLines 冒頭 50 字
+    let topic = ans?.correctText?.trim();
+    if (!topic) {
+      const bodyText = Array.isArray(p.bodyLines) ? p.bodyLines.join("") : (p.body || "");
+      topic = bodyText.length > 50 ? bodyText.slice(0, 50) + "…" : bodyText;
+    }
+    lines.push(`▶ Q${p.qNum ?? i + 1}: ${topic}`);
+    // 正答番号 + 論点を 1 行に
     if (ans?.correctNum) {
-      lines.push(`  → 正答 ${ans.correctNum}`);
+      const point = ans.pointText
+        ? (ans.pointText.length > 50 ? ans.pointText.slice(0, 50) + "…" : ans.pointText)
+        : "";
+      const suffix = point ? `: ${point}` : "";
+      lines.push(`  → 正答 ${ans.correctNum}${suffix}`);
     }
     lines.push("");
   });

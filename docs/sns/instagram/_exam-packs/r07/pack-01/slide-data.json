@@ -44,11 +44,31 @@
       "correctNum": 1,
       "correctText": "品質管理の統計的手法",
       "optionExplanations": [
-        { "num": 1, "correct": false, "text": "管理限界は統計的に計算される工程監視用の値であり、規格値に設定するのは誤り。" },
-        { "num": 2, "correct": true,  "text": "工程能力が不十分な場合に不適合品リスクが大きい、という記述は適切。" },
-        { "num": 3, "correct": true,  "text": "不適合品率の定義（不適合数 ÷ 検査総数）として適切。" },
-        { "num": 4, "correct": true,  "text": "全数検査は新製品や高信頼性製品で採用されるという記述は適切。" },
-        { "num": 5, "correct": true,  "text": "抜取検査の前提（一定の不適合混入を許容）の記述として適切。" }
+        {
+          "num": 1,
+          "correct": false,
+          "text": "管理限界は統計的に計算される工程監視用の値であり、規格値に設定するのは誤り。"
+        },
+        {
+          "num": 2,
+          "correct": true,
+          "text": "工程能力が不十分な場合に不適合品リスクが大きい、という記述は適切。"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "不適合品率の定義（不適合数 ÷ 検査総数）として適切。"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "全数検査は新製品や高信頼性製品で採用されるという記述は適切。"
+        },
+        {
+          "num": 5,
+          "correct": true,
+          "text": "抜取検査の前提（一定の不適合混入を許容）の記述として適切。"
+        }
       ],
       "pointText": "管理限界＝工程監視の値／規格値＝顧客要求の許容範囲。混同の引っかけが頻出。",
       "qNum": 1,
@@ -93,11 +113,31 @@
       "correctNum": 4,
       "correctText": "損益分岐点の分析",
       "optionExplanations": [
-        { "num": 1, "correct": false, "text": "800個販売時の利益＝(1,000−400)×800−384,000＝96,000円。" },
-        { "num": 2, "correct": false, "text": "1個当たり限界利益＝1,000−400＝600円。" },
-        { "num": 3, "correct": false, "text": "変動費率＝400÷1,000＝40%。" },
-        { "num": 4, "correct": true,  "text": "損益分岐点売上高＝384,000÷0.6＝640,000円。" },
-        { "num": 5, "correct": false, "text": "必要売上高＝(384,000＋150,000)÷0.6＝890,000円。" }
+        {
+          "num": 1,
+          "correct": false,
+          "text": "800個販売時の利益＝(1,000−400)×800−384,000＝96,000円。"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "1個当たり限界利益＝1,000−400＝600円。"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "変動費率＝400÷1,000＝40%。"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "損益分岐点売上高＝384,000÷0.6＝640,000円。"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "必要売上高＝(384,000＋150,000)÷0.6＝890,000円。"
+        }
       ],
       "pointText": "損益分岐点＝固定費÷限界利益率。変動費率と限界利益率は補数の関係。",
       "qNum": 2,
@@ -139,11 +179,31 @@
       "correctNum": 3,
       "correctText": "設備総合効率（OEE）",
       "optionExplanations": [
-        { "num": 1, "correct": true,  "text": "加工精度向上→不適合品減少→品質効率向上でOEE↑。" },
-        { "num": 2, "correct": true,  "text": "故障修理時間の短縮→ダウンタイム削減→稼働率向上。" },
-        { "num": 3, "correct": false, "text": "作業者数を減らしても設備の停止時間は不変。OEEに影響しない。" },
-        { "num": 4, "correct": true,  "text": "速度を上げて加工数増→性能効率向上でOEE↑。" },
-        { "num": 5, "correct": true,  "text": "清掃徹底→チョコ停減→稼働率向上でOEE↑。" }
+        {
+          "num": 1,
+          "correct": true,
+          "text": "加工精度向上→不適合品減少→品質効率向上でOEE↑。"
+        },
+        {
+          "num": 2,
+          "correct": true,
+          "text": "故障修理時間の短縮→ダウンタイム削減→稼働率向上。"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "作業者数を減らしても設備の停止時間は不変。OEEに影響しない。"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "速度を上げて加工数増→性能効率向上でOEE↑。"
+        },
+        {
+          "num": 5,
+          "correct": true,
+          "text": "清掃徹底→チョコ停減→稼働率向上でOEE↑。"
+        }
       ],
       "pointText": "OEE＝稼働率×性能効率×品質効率。この3軸のどこかが動くかで判断。",
       "qNum": 3,
@@ -185,11 +245,31 @@
       "correctNum": 2,
       "correctText": "工程管理・改善活動",
       "optionExplanations": [
-        { "num": 1, "correct": true,  "text": "改善はトップが率先して危機意識を持つ、という記述は適切。" },
-        { "num": 2, "correct": false, "text": "ECRSの「R」はRearrange（再配置）。Reuseは誤り。" },
-        { "num": 3, "correct": true,  "text": "合理化の3S＝単純化・標準化・専門化の頭文字で適切。" },
-        { "num": 4, "correct": true,  "text": "動作経済の原則（最短距離・円滑・重力利用 等）として適切。" },
-        { "num": 5, "correct": true,  "text": "5Sの「清潔」＝整理・整頓・清掃の維持、という定義は適切。" }
+        {
+          "num": 1,
+          "correct": true,
+          "text": "改善はトップが率先して危機意識を持つ、という記述は適切。"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "ECRSの「R」はRearrange（再配置）。Reuseは誤り。"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "合理化の3S＝単純化・標準化・専門化の頭文字で適切。"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "動作経済の原則（最短距離・円滑・重力利用 等）として適切。"
+        },
+        {
+          "num": 5,
+          "correct": true,
+          "text": "5Sの「清潔」＝整理・整頓・清掃の維持、という定義は適切。"
+        }
       ],
       "pointText": "ECRSはEliminate／Combine／Rearrange／Simplify。Rの引っかけ注意。",
       "qNum": 4,
@@ -200,5 +280,17 @@
       "pageIndex": 10,
       "totalPages": 10
     }
-  ]
+  ],
+  "_meta": {
+    "year": "r07",
+    "packNum": "01",
+    "totalPacks": 9,
+    "management": "economic",
+    "questionIds": [
+      "r07-02",
+      "r07-03",
+      "r07-04",
+      "r07-05"
+    ]
+  }
 }
