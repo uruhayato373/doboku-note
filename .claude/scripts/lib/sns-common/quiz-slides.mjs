@@ -172,7 +172,7 @@ function brandDot({ onDark = false } = {}) {
   );
 }
 
-/** brand footer */
+/** brand footer。rightText が falsy なら右側を描画しない（URL 重複を避ける） */
 function brandFooter(rightText, { onDark = false } = {}) {
   const nameColor = onDark ? ONDARK.primary : BRAND.primary;
   const urlColor = onDark ? ONDARK.tertiary : INK.muted;
@@ -190,7 +190,9 @@ function brandFooter(rightText, { onDark = false } = {}) {
         brandDot({ onDark }),
         d({ ...ty('brandName', { color: nameColor }) }, 'doboku-note'),
       ]),
-      d({ ...ty('brandUrl', { color: urlColor, whiteSpace: 'nowrap' }) }, rightText || SLIDES.answer.footerUrl),
+      rightText
+        ? d({ ...ty('brandUrl', { color: urlColor, whiteSpace: 'nowrap' }) }, rightText)
+        : null,
     ],
   );
 }
@@ -317,7 +319,8 @@ export function buildQuizCover({ width, height, data }) {
       ],
     ),
 
-    brandFooter(SLIDES.cover.footerUrl),
+    // cover の右下は空白（左下のウォーターマークと URL が重複するため）
+    brandFooter(null),
   ]);
 }
 
@@ -661,7 +664,8 @@ export function buildQuizAnswer({ width, height, data }) {
       ],
     ),
 
-    brandFooter(SLIDES.answer.footerUrl),
+    // answer の右下は空白（URL 重複を避ける）
+    brandFooter(null),
   ]);
 }
 
@@ -797,6 +801,7 @@ export function buildQuizCta({ width, height }) {
       ],
     ),
 
-    brandFooter(cfg.footerUrl, { onDark: true }),
+    // cta の右下は空白（左下の白反転ウォーターマークで充足）
+    brandFooter(null, { onDark: true }),
   ]);
 }
