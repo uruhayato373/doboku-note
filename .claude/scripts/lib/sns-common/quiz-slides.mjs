@@ -421,6 +421,43 @@ function buildTable(table) {
   );
 }
 
+/**
+ * 箇条書きリスト群ビルダー（汎用）
+ * lists: [{ items: string[] }] — 複数リスト並列対応（例: 用語リスト + 事例リスト）
+ * 各リストは sunken 背景のカードとして描画される。
+ */
+function buildLists(lists) {
+  if (!Array.isArray(lists) || lists.length === 0) return null;
+  return d(
+    {
+      flexDirection: 'column',
+      gap: GEO.lists.groupGap,
+    },
+    lists.map((list) => {
+      const items = Array.isArray(list?.items) ? list.items : [];
+      if (!items.length) return null;
+      return d(
+        {
+          flexDirection: 'column',
+          gap: GEO.lists.itemGap,
+          background: SURFACE.sunken,
+          borderWidth: GEO.lists.borderWidth,
+          borderStyle: 'solid',
+          borderColor: SURFACE.line,
+          borderRadius: GEO.lists.radius,
+          paddingTop: GEO.lists.padding[0],
+          paddingBottom: GEO.lists.padding[0],
+          paddingLeft: GEO.lists.padding[1],
+          paddingRight: GEO.lists.padding[1],
+        },
+        items.map((item) =>
+          d({ ...ty('listItem', { color: INK.strong }) }, String(item)),
+        ),
+      );
+    }).filter(Boolean),
+  );
+}
+
 /** 行数推定（HTML プロトの opt は wrap 2 行までを前提） */
 function isDenseOptions(options) {
   const long = options.some((o) => [...(o.text || '')].length > 60);
@@ -460,16 +497,18 @@ export function buildQuizProblem({ width, height, data }) {
     });
   const fullBody = bodyTextOnly.join('');
   const tableEl = data.table ? buildTable(data.table) : null;
+  const listsEl = data.lists ? buildLists(data.lists) : null;
   const options = (data.options || []).slice(0, 5);
-  // table がある場合は dense 強制 + q-text 縮小 + 選択肢をさらにコンパクトに
-  const dense = !!tableEl || isDenseOptions(options);
+  // table/lists がある場合は dense 強制 + q-text 縮小 + 選択肢をコンパクトに
+  const isComplex = !!tableEl || !!listsEl;
+  const dense = isComplex || isDenseOptions(options);
   const optTextStyle = dense ? ty('optTextDense') : ty('optText');
-  const optMinHeight = tableEl ? 76 : (dense ? GEO.opt.minHeightDense : GEO.opt.minHeight);
-  const optTextPadding = tableEl ? [12, 22] : (dense ? GEO.opt.textPaddingDense : GEO.opt.textPadding);
-  const optionsGap = tableEl ? 10 : 14;
-  const blockGap = tableEl ? 22 : 36;
-  const qTextStyle = tableEl
-    ? ty('qText', { color: INK.strong, fontSize: 32, lineHeight: 1.35 })
+  const optMinHeight = isComplex ? 76 : (dense ? GEO.opt.minHeightDense : GEO.opt.minHeight);
+  const optTextPadding = isComplex ? [12, 22] : (dense ? GEO.opt.textPaddingDense : GEO.opt.textPadding);
+  const optionsGap = isComplex ? 10 : 14;
+  const blockGap = isComplex ? 18 : 36;
+  const qTextStyle = isComplex
+    ? ty('qText', { color: INK.strong, fontSize: 30, lineHeight: 1.35 })
     : ty('qText', { color: INK.strong });
 
   return d(frame(width, height, SURFACE.page), [
@@ -508,6 +547,7 @@ export function buildQuizProblem({ width, height, data }) {
               ])
             : null,
           d(qTextStyle, fullBody),
+          listsEl,
           tableEl,
         ]),
 
