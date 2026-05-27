@@ -502,16 +502,19 @@ export function buildQuizProblem({ width, height, data }) {
 
   // 4 段階の圧縮モード判定（総文字数で動的に発動）
   //   ultra:   超長文 > 700字 → q-text 26 / opt 68 / gap 14
-  //   compact: table/lists あり、または 600-700字 → q-text 30 / opt 76
-  //   dense:   350-600字 or 選択肢長い → q-text 36 / opt 84
+  //   compact: table/lists あり、または 550字超 or 選択肢最長 > 100字 → q-text 30 / opt 76
+  //   dense:   320字超 or 選択肢長い → q-text 36 / opt 84
   //   normal:  通常 → q-text 44 / opt 96（HTML プロト基準）
+  //
+  // 注：optMax 単独で ultra 格上げしない（選択肢 1 つが長いだけで全体縮小は過剰）。
+  //     優先するのは「総文字量」で、ultra は本当に長文 (>700字) のみに限定。
   const bodyChars = [...fullBody].length;
   const optChars = options.reduce((s, o) => s + [...(o.text || '')].length, 0);
   const optMax = Math.max(0, ...options.map((o) => [...(o.text || '')].length));
   const totalContent = bodyChars + optChars;
-  const isUltra = totalContent > 700 || optMax > 110;
-  const isCompact = !isUltra && (!!tableEl || !!listsEl || totalContent > 600 || optMax > 100);
-  const isDense = !isUltra && !isCompact && (isDenseOptions(options) || totalContent > 350 || optMax > 60);
+  const isUltra = totalContent > 700;
+  const isCompact = !isUltra && (!!tableEl || !!listsEl || totalContent > 550 || optMax > 100);
+  const isDense = !isUltra && !isCompact && (isDenseOptions(options) || totalContent > 320 || optMax > 60);
 
   const optTextStyle = isUltra
     ? ty('optTextDense', { fontSize: 22, lineHeight: 1.4 })
