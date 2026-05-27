@@ -23,6 +23,7 @@ title: サブエージェント詳細レジストリ
 | `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter`           | 評価 → リライト → 再評価ループ |
 | `/audit-exam-mapping`                     | `exam-keyword-mapping-auditor`                                   | 紐づけ精度の semantic 評価 |
 | `/note-prepublish-review`                 | `note-link-injector`, `note-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列     |
+| `/civil-figure-rework`                    | `civil-exam-figure-extractor`, `civil-exam-figure-auditor`       | 過去問1次 図クロップ品質ループ（1ページ最大3反復） |
 | `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出      |
 | `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
 | `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
@@ -59,6 +60,8 @@ title: サブエージェント詳細レジストリ
 | `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface                           | Evaluator    | sonnet  | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照    | ✅ 運用中（2026-05-11 起動）                      |
 | `ig-carousel-writer`           | Instagram カルーセル `slide-data.json` v2 を1キーワードずつ執筆（枚数可変・figure 判断・findings ログ追記）。色を本文に書かない                | Generator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `docs/design-system/instagram-carousel.md` 参照 | 🚧 Phase 1 着手中（2026-05-20 起動）             |
 | `ig-carousel-qa`               | Instagram カルーセル の **6 軸**ルーブリック品質評価（テキスト 5 軸 + デザイン統一性 1 軸）。過去問パックは PNG を Read し tokens.json と照合 | Evaluator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `docs/design-system/instagram-carousel-tokens.json` 参照 | 🚧 Phase 1 着手中（2026-05-20 起動、2026-05-27 第6軸追加） |
+| `civil-exam-figure-extractor`  | 1級土木 primary（過去問1次）図クロップ bbox spec の Generator。事前レンダリング済み PDF ページ画像を Read し JSON spec を返す | Generator | sonnet | `/civil-figure-rework` 連携、`image-policy.md` L165-177 準拠 alt 生成 | ✅ 運用中（2026-05-28 起動） |
+| `civil-exam-figure-auditor`    | 1級土木 primary 図 PNG の 4 軸ルーブリック品質評価（クリップ純度・本文重複・alt 精度・MDX 結線）。次反復用 feedback JSON 返却 | Evaluator | sonnet | `/civil-figure-rework` 連携、`note-figure-auditor` の 4 軸構造を参考 | ✅ 運用中（2026-05-28 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
@@ -92,6 +95,7 @@ title: サブエージェント詳細レジストリ
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 | **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |
 | **ig-carousel-qa** | `slide-data.json`（v2）+ 過去問パックは `carousel/img/*.png` | スライド構成・文の完結性・図文整合・字数視認性・試験的正確性（5軸）+ デザイン統一性（過去問パック、tokens.json 照合） | IG カルーセル設定ファイル執筆後 / restyle 後 |
+| **civil-exam-figure-auditor** | `.local/r2/posts/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
 
