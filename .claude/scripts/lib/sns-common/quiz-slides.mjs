@@ -534,7 +534,7 @@ export function buildQuizAnswer({ width, height, data }) {
           ],
         ),
 
-        // a-explain（5 行：選択肢番号バッジ + ○/✕ + 本文。border-bottom 線なし）
+        // a-explain（5 行：選択肢番号バッジ + ○/X + 本文。border-bottom 線なし）
         d(
           {
             flexDirection: 'column',
@@ -575,7 +575,7 @@ export function buildQuizAnswer({ width, height, data }) {
                   },
                   String(row.num ?? ''),
                 ),
-                // ex-mark ○ / ✕
+                // ex-mark ○ / X（誤答は純粋な Latin X を Manrope で描画）
                 d(
                   {
                     width: 44,
@@ -585,11 +585,11 @@ export function buildQuizAnswer({ width, height, data }) {
                     ...ty(incorrect ? 'exMarkIncorrect' : 'exMark', {
                       color: markColor,
                       fontSize: markSize,
-                      fontFamily: 'NotoSansJP',
+                      fontFamily: incorrect ? 'Manrope' : 'NotoSansJP',
                     }),
                     flexShrink: 0,
                   },
-                  incorrect ? '✕' : '○',
+                  incorrect ? 'X' : '○',
                 ),
                 // ex-text 解説本文
                 d(
