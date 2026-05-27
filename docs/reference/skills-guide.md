@@ -54,7 +54,8 @@ title: スキル ナビゲーションガイド
 |---|---|---|
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成 | `ハッシュタグ生成`, `/note-hashtags` |
-| `/ig-post-create` | Instagram Study Notebook スライド PNG 生成 | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
+| `/ig-post-create` | Instagram カルーセル PNG 生成（過去問パック・KW 解説の単発） | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
+| `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成 | `Xカード作成`, `X投稿カード`, `/create-x-card` |
 | `/publish-x` | Playwright で X 投稿を自動化（即時・予約） | `X投稿`, `自動投稿`, `/publish-x` |
 | `/yt-shorts-create` | 総監キーワード MDX → YouTube Shorts mp4 生成 | `YouTube Shorts`, `動画生成`, `/yt-shorts-create` |

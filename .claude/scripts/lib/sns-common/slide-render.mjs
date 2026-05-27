@@ -40,10 +40,12 @@ function notebookContainer(width, height) {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONT_DIR = resolve(__dirname, '../../../skills/conversion/ogp-create/assets/fonts');
+const FONTSOURCE_DIR = resolve(__dirname, '../../../../node_modules/@fontsource');
 
 let cachedFonts = null;
 function loadFonts() {
   if (cachedFonts) return cachedFonts;
+  // 互換用既存（Inter + Noto Sans JP 700）+ IG カルーセル新意匠用（Manrope 500/700/800 + NotoSansJP 500/700/800/900）
   cachedFonts = [
     {
       name: 'Noto Sans JP',
@@ -57,6 +59,20 @@ function loadFonts() {
       weight: 700,
       style: 'normal',
     },
+    // Manrope (@fontsource/manrope, latin subset, woff)
+    ...[500, 700, 800].map((weight) => ({
+      name: 'Manrope',
+      data: readFileSync(resolve(FONTSOURCE_DIR, `manrope/files/manrope-latin-${weight}-normal.woff`)),
+      weight,
+      style: 'normal',
+    })),
+    // NotoSansJP (@fontsource/noto-sans-jp, japanese subset, woff)
+    ...[500, 700, 800, 900].map((weight) => ({
+      name: 'NotoSansJP',
+      data: readFileSync(resolve(FONTSOURCE_DIR, `noto-sans-jp/files/noto-sans-jp-japanese-${weight}-normal.woff`)),
+      weight,
+      style: 'normal',
+    })),
   ];
   return cachedFonts;
 }

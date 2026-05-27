@@ -78,3 +78,17 @@ WCAG 2.1 AA 準拠:
 4. **h4 はアイコンプレフィックス** — Font Awesome のアロー（`\f138`）で項を示す
 5. **数式は横スクロール可能** — `scroll-equation` クラスで対応
 6. **表は中央寄せ** — `table-wrapper` で flex 中央配置
+
+---
+
+## 7. Instagram カルーセル系（独立サブシステム）
+
+本文記事の UI/SVG とは別系統で、Instagram カルーセル（_exam-packs）専用のデザイントークンを管理する。1080×1350 のラスター画像生成専用で、`src/styles/globals.css` の `--color-*` とは独立。
+
+- **真実源 JSON**: [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json)
+- **人間可読仕様書**: [`instagram-carousel.md`](./instagram-carousel.md)
+- **生成パイプライン**: Satori vDOM → Resvg PNG（`.claude/scripts/lib/sns-common/quiz-slides.mjs`）
+- **フォント**: Manrope（英数）+ NotoSansJP（日本語）の 2 フォントスタック
+- **配色方針**: 5管理別カラーテーマは廃止。単一 brand 色 + semantic（green 正答 / coral 誤答 / navy CTA）に統一。管理識別は cover-title 156px のテキストで行う
+
+詳細は [`instagram-carousel.md`](./instagram-carousel.md) を読む。

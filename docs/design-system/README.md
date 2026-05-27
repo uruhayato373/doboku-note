@@ -8,9 +8,12 @@
 
 | ファイル | 内容 |
 |---|---|
-| `principles.md` | 5つのデザイン原則 |
+| `principles.md` | 5つのデザイン原則 + § 7 Instagram カルーセル系への入口 |
 | `prohibited.md` | 禁止パターン一覧（SSOT） |
 | `quick-reference.md` | コンポーネント・レイアウトのクイックリファレンス |
+| `svg-tokens.json` | 記事内 SVG 用デザイントークン真実源（colors / font / geometry） |
+| `instagram-carousel.md` | Instagram カルーセル（_exam-packs）デザイン仕様書 |
+| `instagram-carousel-tokens.json` | Instagram カルーセル用デザイントークン真実源（Satori vDOM 生成が参照） |
 | `proposals/` | リデザイン検討案アーカイブ（各サブフォルダに README + 静的プレビュー） |
 
 ## 読み方

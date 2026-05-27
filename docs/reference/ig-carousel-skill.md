@@ -17,7 +17,7 @@ doboku-note の Instagram カルーセル投稿は **2 系統** で運用する�
 |---|---|---|
 | **ソース** | 運営者手書き source.md | 公式 article.mdx (H21-R7) |
 | **問題の質** | 入門〜中級・シンプルな知識クイズ | 公式試験問題そのまま（長文） |
-| **デザイン** | 明色 SVG ベース（既存 quiz-ig.mjs） | type3 デザイン・5管理別色 |
+| **デザイン** | 明色 SVG ベース（既存 quiz-ig.mjs） | AIDesigner 新意匠（単一 brand + semantic、Manrope+NotoSansJP） |
 | **選択肢** | 4 択 | 5 択 |
 | **生成パイプライン** | `.claude/scripts/sns/render-quiz-pack.mjs` | `ig-post-create.mjs --exam` |
 | **1 パック構造** | cover + 4×(Q+A) + cta = 10 枚 | cover + 4×(problem+answer) + cta = 10 枚 |
@@ -168,16 +168,22 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/instagram/_quiz-sample
 
 ## 8. デザイン仕様
 
-### B 過去問パック（type3）
+### B 過去問パック（AIDesigner 新意匠）
 
-| 要素 | 仕様 |
-|---|---|
-| キャンバス | 1080×1350 (Carousel) / 1080×1920 (Reels) |
-| 配色 | 5 管理別テーマ（[SKILL.md](../../.claude/skills/social/ig-post-create/SKILL.md) §B 参照） |
-| フォント | NotoSansJP-Bold (日本語) / Inter-Bold (英数) |
-| 改行ロジック | 句点で必ず改行 + Satori 自動 wrap |
-| 動的フォントサイズ | 問題文 26-42px / 解説 24-44px |
-| 選択肢カード高さ | 1 行 116px / 2 行 156px / 3 行 196px |
+> **真実源**: [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json) + [`docs/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)
+
+| 要素 | 仕様 | tokens path |
+|---|---|---|
+| キャンバス | 1080×1350 (Carousel) / 1080×1920 (Reels) | `canvas.width` / `canvas.height` |
+| 配色 | 単一 brand（`#1858B5`）+ semantic（green 正答 / coral 誤答 / navy CTA）。**5管理別配色は廃止** | `colors.brand.presets[active]` |
+| フォント | Manrope (latin, weights 500/700/800) + NotoSansJP (jp, 500-900) | `fonts.primary` / `fonts.japanese` |
+| パッケージ | `@fontsource/manrope` + `@fontsource/noto-sans-jp`（`--legacy-peer-deps` 必須） | — |
+| 改行ロジック | 文字数固定（writer が短く調整）+ Satori 自動 wrap | — |
+| dense 切り替え | 選択肢中 60 字超 or 合計 250 字超で自動 | `geometry.opt.*Dense` |
+| スライド枚数 | cover 1 + (problem + answer) × 4 + cta 1 = 10 枚 | `slides.order` |
+| 管理識別 | cover-title 156px（例「経済性管理」） | `typography.coverTitle` |
+
+**変更フロー**: tokens.json を編集 → `ig-carousel-restyle --pack ...` で再生成 → `ig-carousel-qa` で 6 軸採点。
 
 ### A 択一クイズパック（既存 SVG）
 

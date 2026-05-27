@@ -1,54 +1,51 @@
 /**
- * 過去問クイズカルーセル スライド要素ビルダー（type3 デザイン）。
+ * 過去問クイズカルーセル スライド要素ビルダー（AIDesigner 新意匠）。
  *
- * type3-1〜5.svg を Satori vDOM 形式で再現する。
- * 5 枚構成: cover / problem / pause / answer / cta
+ * 真実源: docs/design-system/instagram-carousel-tokens.json
+ * 仕様書: docs/design-system/instagram-carousel.md
  *
  * 1080×1350 (IG Carousel) を主、1080×1920 (Reels) はレイアウト微調整で対応。
  *
+ * 5 枚構成 → 10 枚構成へ拡張:
+ *   cover / problem / answer (×4) / cta（quiz-pause は互換のため残置）
+ *
  * Satori 制約への対応:
- *   - 絵文字 ⏱ 🔍 はフォント未搭載 → 代替記号 (▷ / SEARCH ラベル) で再現
- *   - fontWeight 900/800 → 700 にフォールバック
- *   - letter-spacing は em 単位 ('0.06em' 等)
+ *   - fontFamily は単一名 'Manrope' / 'NotoSansJP' を使用（複合スタックは Satori で解決不可）
+ *   - letter-spacing は em 単位の文字列 ('0.04em' 等)
  *   - すべての flex コンテナに display: 'flex'
+ *   - 重複した position absolute / left+right による配置
  */
 
-const QUIZ_TOKENS = {
-  brand:       '#2e6da4',
-  brandDeep:   '#1a3a5c',
-  brandLight:  '#e8f0fe',
-  brandPaler:  '#a8c4dc',
-  brandPale:   '#cfdef0',
-  ink:         '#222222',
-  inkSoft:     '#555555',
-  inkMuted:    '#8a8a8a',
-  paper:       '#ffffff',
-  paperGray:   '#f5f5f5',
-  cardBg:      '#f5f5f5',
-  cardBorder:  '#d7d7d7',
-  correctBg:   '#d0e8d0',
-  correctMark: '#3a7d44',
-  pageIndex:   '#8a8a8a',
-};
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 
-/** 5 管理別の主題色（cover/CTA で使用） */
-const MGMT_THEME = {
-  economic: { primary: '#2e6da4', deep: '#1a3a5c', light: '#e8f0fe', paler: '#a8c4dc', label: '経済性管理' },
-  human:    { primary: '#a36b2c', deep: '#5e3d18', light: '#fce8d0', paler: '#d8b08a', label: '人的資源管理' },
-  info:     { primary: '#5a3aa3', deep: '#321f5e', light: '#ede4fa', paler: '#b8a4dc', label: '情報管理' },
-  safety:   { primary: '#b22234', deep: '#6b1320', light: '#fce0e3', paler: '#dca5ad', label: '安全管理' },
-  social:   { primary: '#3a7d44', deep: '#1f4824', light: '#d8eddc', paler: '#a4cab0', label: '社会環境管理' },
-};
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const TOKENS = JSON.parse(
+  readFileSync(
+    resolve(__dirname, '../../../../docs/design-system/instagram-carousel-tokens.json'),
+    'utf8',
+  ),
+);
 
-function getTheme(mgmt) {
-  return MGMT_THEME[mgmt] || MGMT_THEME.safety;
-}
+// ─── Token shortcuts ──────────────────────────────────────────
 
-/** Satori vDOM ヘルパー（div） */
+const C = TOKENS.colors;
+const BRAND = C.brand.presets[C.brand.active] ?? C.brand.presets.default;
+const SEM = C.semantic;
+const SURFACE = C.surface;
+const INK = C.ink;
+const CTA = C.cta;
+const ONDARK = C.onDark;
+const TY = TOKENS.typography;
+const GEO = TOKENS.geometry;
+const PAD = TOKENS.canvas.padding;
+const SLIDES = TOKENS.slides;
+
+// ─── vDOM helpers ─────────────────────────────────────────────
+
 function d(style, children) {
-  const ch = Array.isArray(children)
-    ? children.filter((c) => c != null)
-    : (children ?? '');
+  const ch = Array.isArray(children) ? children.filter((c) => c != null) : (children ?? '');
   return {
     type: 'div',
     props: {
@@ -58,14 +55,22 @@ function d(style, children) {
   };
 }
 
-function pageBadge(currentIdx, totalSlides, colorOverride) {
-  return d({
-    position: 'absolute',
-    top: 32, right: 80,
-    fontSize: 22,
-    fontWeight: 500,
-    color: colorOverride || QUIZ_TOKENS.pageIndex,
-  }, `${currentIdx} / ${totalSlides}`);
+function ls(em) {
+  if (em == null) return undefined;
+  return `${em}em`;
+}
+
+/** タイポグラフィトークンを Satori style に展開 */
+function ty(name, overrides = {}) {
+  const t = TY[name];
+  if (!t) return overrides;
+  const out = {};
+  if (t.fontFamily) out.fontFamily = t.fontFamily;
+  if (t.weight != null) out.fontWeight = t.weight;
+  if (t.size != null) out.fontSize = t.size;
+  if (t.lineHeight != null) out.lineHeight = t.lineHeight;
+  if (t.letterSpacing != null) out.letterSpacing = ls(t.letterSpacing);
+  return { ...out, ...overrides };
 }
 
 function frame(width, height, bg) {
@@ -74,428 +79,589 @@ function frame(width, height, bg) {
     display: 'flex',
     width: `${width}px`,
     height: `${height}px`,
-    background: bg || QUIZ_TOKENS.paper,
-    fontFamily: '"Noto Sans JP", system-ui, sans-serif',
-    color: QUIZ_TOKENS.ink,
+    background: bg || SURFACE.page,
+    fontFamily: 'NotoSansJP',
+    color: INK.strong,
     overflow: 'hidden',
   };
 }
 
+// ─── 共通パーツ ───────────────────────────────────────────────
+
+/** ページ番号 "<b>03</b> / 10" */
+function pageBadge(current, total, { onDark = false } = {}) {
+  const muted = onDark ? ONDARK.tertiary : INK.muted;
+  const strong = onDark ? ONDARK.primary : INK.strong;
+  return d(
+    {
+      ...ty('page', { color: muted, whiteSpace: 'nowrap' }),
+    },
+    [
+      d({ ...ty('pageBold', { color: strong }) }, String(current).padStart(2, '0')),
+      d({ marginLeft: 4, marginRight: 4 }, ' / '),
+      d({}, String(total)),
+    ],
+  );
+}
+
+/** eyebrow "PROBLEM 1 / 4" (Manrope 800 24px brand 色 + underline 3px brand) */
+function eyebrow(text, { color = BRAND.primary, onDark = false } = {}) {
+  return d(
+    {
+      ...ty('eyebrow', { color }),
+      paddingTop: GEO.eyebrow.padding[0],
+      paddingBottom: GEO.eyebrow.padding[0],
+      borderBottomWidth: GEO.eyebrow.borderBottomWidth,
+      borderBottomStyle: 'solid',
+      borderBottomColor: onDark ? ONDARK.secondary : color,
+      whiteSpace: 'nowrap',
+    },
+    text,
+  );
+}
+
+/** topbar 共通レイアウト */
+function topbar(left, right) {
+  return d(
+    {
+      position: 'absolute',
+      top: PAD.y,
+      left: PAD.x,
+      right: PAD.x,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    [left, right],
+  );
+}
+
+/** brand-dot（28×28 brand 色 + 同心円白装飾） */
+function brandDot({ onDark = false } = {}) {
+  const outer = onDark ? '#ffffff' : BRAND.primary;
+  const inner = onDark ? CTA.background : '#ffffff';
+  return d(
+    {
+      position: 'relative',
+      width: GEO.brand.dotSize,
+      height: GEO.brand.dotSize,
+      borderRadius: GEO.brand.dotRadius,
+      background: outer,
+    },
+    [
+      d({
+        position: 'absolute',
+        top: GEO.brand.innerRingInset,
+        left: GEO.brand.innerRingInset,
+        right: GEO.brand.innerRingInset,
+        bottom: GEO.brand.innerRingInset,
+        borderWidth: GEO.brand.innerRingBorder,
+        borderStyle: 'solid',
+        borderColor: inner,
+        borderRadius: 999,
+      }),
+      d({
+        position: 'absolute',
+        top: GEO.brand.centerDotInset,
+        left: GEO.brand.centerDotInset,
+        right: GEO.brand.centerDotInset,
+        bottom: GEO.brand.centerDotInset,
+        background: inner,
+        borderRadius: 999,
+      }),
+    ],
+  );
+}
+
+/** brand footer */
+function brandFooter(rightText, { onDark = false } = {}) {
+  const nameColor = onDark ? ONDARK.primary : BRAND.primary;
+  const urlColor = onDark ? ONDARK.tertiary : INK.muted;
+  return d(
+    {
+      position: 'absolute',
+      bottom: PAD.y,
+      left: PAD.x,
+      right: PAD.x,
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    [
+      d({ alignItems: 'center', gap: 12 }, [
+        brandDot({ onDark }),
+        d({ ...ty('brandName', { color: nameColor }) }, 'doboku-note'),
+      ]),
+      d({ ...ty('brandUrl', { color: urlColor, whiteSpace: 'nowrap' }) }, rightText || SLIDES.answer.footerUrl),
+    ],
+  );
+}
+
+// ─── cover ────────────────────────────────────────────────────
+
 /**
- * quiz-cover スライド (4 問パック版)
+ * quiz-cover スライド
  *
  * data: {
- *   title: string,         // 管理名 (例: '経済性管理')
- *   subtitle: string,      // パック情報 (例: 'R07 4問パック')
- *   sectionTag: string,    // 5管理ラベル (例: '2 経済性管理')
- *   management: string,    // 管理 slug (economic/human/info/safety/social)
- *   pageIndex?: number,    // デフォルト 1
- *   totalPages?: number,   // デフォルト 10
+ *   title: string,       // 管理名 (例: '経済性管理')
+ *   subtitle?: string,   // サブ (例: 'R07 4問パック' / '品質・コスト・工程改善の頻出論点')
+ *   sectionTag?: string, // セクション (例: '2 経済性管理')
+ *   pageIndex?: number,
+ *   totalPages?: number,
+ *   chips?: string[],    // 4問のタイトル予告（任意。無ければ非表示）
+ *   year?: string,       // 'R07' 等。meta テンプレ {year} ／ 4問パック の置換用
  * }
  */
 export function buildQuizCover({ width, height, data }) {
-  const theme = getTheme(data.management);
+  const title = data.title || '';
+  // subtitle が 'R07 4問パック' 形式なら meta に、それ以外は sub に。
+  const year = data.year ?? (data.subtitle?.match(/^([HRhr]\d+)/)?.[1] || null);
+  const metaText = year ? `${year.toUpperCase()} ／ 4問パック` : (data.subtitle || SLIDES.cover.tagText);
+  const subText = (data.subtitle && !year) ? null : (data.subtext || '');
+  const chips = Array.isArray(data.chips) ? data.chips.slice(0, 4) : [];
 
-  return d(frame(width, height, QUIZ_TOKENS.paper), [
-    pageBadge(data.pageIndex ?? 1, data.totalPages ?? 10),
+  return d(frame(width, height, SURFACE.page), [
+    // topbar
+    topbar(
+      d(
+        {
+          ...ty('coverTag', { color: BRAND.deep, background: BRAND.tint, borderRadius: GEO.coverTag.radius }),
+          paddingTop: GEO.coverTag.padding[0],
+          paddingBottom: GEO.coverTag.padding[0],
+          paddingLeft: GEO.coverTag.padding[1],
+          paddingRight: GEO.coverTag.padding[1],
+          alignItems: 'center',
+          gap: 10,
+        },
+        [
+          d({ width: 8, height: 8, borderRadius: 999, background: BRAND.primary }),
+          d({}, SLIDES.cover.tagText),
+        ],
+      ),
+      pageBadge(data.pageIndex ?? 1, data.totalPages ?? 10),
+    ),
 
-    // 上部 QUIZ ラベル（中央配置）
-    d({
-      position: 'absolute',
-      top: 130, left: 0, right: 0,
-      justifyContent: 'center',
-      fontSize: 30,
-      fontWeight: 700,
-      color: theme.primary,
-      letterSpacing: '0.16em',
-    }, '総監択一クイズ'),
+    // cover-big-q（装飾）
+    d(
+      {
+        position: 'absolute',
+        top: 200,
+        right: -20,
+        ...ty('coverBigQ', { color: BRAND.tint }),
+      },
+      SLIDES.cover.bigQText,
+    ),
 
-    // 中央巨大 Q
-    d({
-      position: 'absolute',
-      top: 200, left: 0, right: 0,
-      justifyContent: 'center',
-      fontSize: 380,
-      fontWeight: 700,
-      color: theme.light,
-      lineHeight: 1,
-    }, 'Q'),
+    // cover-body（中央配置）
+    d(
+      {
+        position: 'absolute',
+        top: 320,
+        left: PAD.x,
+        right: PAD.x,
+        flexDirection: 'column',
+        gap: 0,
+      },
+      [
+        d({ ...ty('coverMeta', { color: BRAND.primary, marginBottom: 20 }) }, metaText),
+        d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 28 }) }, title),
+        subText
+          ? d({ ...ty('coverSub', { color: INK.body, marginBottom: 48 }) }, subText)
+          : null,
+        chips.length
+          ? d(
+              {
+                flexDirection: 'column',
+                gap: 14,
+              },
+              // 2x2 グリッド: 2 行 × 2 列。flex で row 2 つ。
+              [0, 2].map((rowStart) =>
+                d({ gap: 14 }, chips.slice(rowStart, rowStart + 2).map((chip, i) => {
+                  const num = String(rowStart + i + 1).padStart(2, '0');
+                  return d(
+                    {
+                      flex: '1 1 0',
+                      ...ty('coverChip', { color: INK.strong }),
+                      background: SURFACE.sunken,
+                      borderWidth: GEO.coverChip.borderWidth,
+                      borderStyle: 'solid',
+                      borderColor: SURFACE.line,
+                      borderRadius: GEO.coverChip.radius,
+                      paddingTop: GEO.coverChip.padding[0],
+                      paddingBottom: GEO.coverChip.padding[0],
+                      paddingLeft: GEO.coverChip.padding[1],
+                      paddingRight: GEO.coverChip.padding[1],
+                      alignItems: 'center',
+                      gap: 12,
+                    },
+                    [
+                      d({ ...ty('coverChipNum', { color: BRAND.primary }) }, num),
+                      d({ flexShrink: 1 }, chip),
+                    ],
+                  );
+                })),
+              ),
+            )
+          : null,
+        d(
+          {
+            ...ty('coverSwipe', { color: BRAND.primary }),
+            marginTop: 40,
+            alignItems: 'center',
+            gap: 12,
+            alignSelf: 'flex-start',
+          },
+          [
+            d({}, SLIDES.cover.swipeText),
+            d({ fontSize: 28, fontWeight: 700 }, '→'),
+          ],
+        ),
+      ],
+    ),
 
-    // 管理名 (大)
-    d({
-      position: 'absolute',
-      top: 680, left: 0, right: 0,
-      justifyContent: 'center',
-      fontSize: 88,
-      fontWeight: 700,
-      color: QUIZ_TOKENS.ink,
-      letterSpacing: '0.04em',
-    }, data.title || ''),
-
-    // パック情報 (中)
-    d({
-      position: 'absolute',
-      top: 810, left: 0, right: 0,
-      justifyContent: 'center',
-      fontSize: 40,
-      fontWeight: 500,
-      color: QUIZ_TOKENS.inkSoft,
-      letterSpacing: '0.06em',
-    }, data.subtitle || ''),
-
-    // セクションタグ (中央寄せ)
-    d({
-      position: 'absolute',
-      top: 950, left: 0, right: 0,
-      justifyContent: 'center',
-    }, d({
-      paddingTop: 14, paddingBottom: 14,
-      paddingLeft: 32, paddingRight: 32,
-      background: theme.light,
-      borderRadius: 8,
-      fontSize: 28,
-      fontWeight: 700,
-      color: theme.deep,
-      letterSpacing: '0.04em',
-    }, data.sectionTag || '')),
-
-    // doboku-note フッター
-    d({
-      position: 'absolute',
-      bottom: 88, left: 80,
-      fontSize: 34,
-      fontWeight: 700,
-      color: theme.primary,
-      letterSpacing: '0.04em',
-    }, 'doboku-note'),
-    d({
-      position: 'absolute',
-      bottom: 52, left: 80,
-      fontSize: 22,
-      fontWeight: 400,
-      color: QUIZ_TOKENS.inkMuted,
-    }, 'doboku-note.com'),
+    brandFooter(SLIDES.cover.footerUrl),
   ]);
 }
 
-/** 選択肢テキストの行数を文字数から推定（フォント 28px、横幅 752px の前提） */
-function estimateOptionLines(text, charsPerLine = 24) {
-  const len = [...(text || '')].length;
-  if (len === 0) return 1;
-  return Math.min(3, Math.ceil(len / charsPerLine));
-}
+// ─── problem ──────────────────────────────────────────────────
 
-/** 行数に応じた選択肢カード高さ（5 択を縦に並べて画面下まで埋める） */
-function optionCardHeight(lineCount) {
-  if (lineCount === 1) return 116;
-  if (lineCount === 2) return 156;
-  return 196;
-}
-
-/** 問題文の文字数に応じたフォントサイズ（選択肢 5 つを下に並べる余地を確保） */
-function problemFontSizeFromLength(charCount) {
-  if (charCount <= 40) return 42;
-  if (charCount <= 80) return 36;
-  if (charCount <= 130) return 32;
-  if (charCount <= 180) return 28;
-  return 26;
+/** 行数推定（HTML プロトの opt は wrap 2 行までを前提） */
+function isDenseOptions(options) {
+  const long = options.some((o) => [...(o.text || '')].length > 60);
+  const total = options.reduce((s, o) => s + [...(o.text || '')].length, 0);
+  return long || total > 250;
 }
 
 /**
- * quiz-problem スライド (4 問パック版・動的レイアウト)
+ * quiz-problem スライド
  *
  * data: {
  *   bodyLines: string[],
  *   options: [{ num: number, text: string }],
  *   qNum: number,
  *   totalQ: number,
- *   management: string,
+ *   topic?: string,    // q-label の主題（任意）
  *   pageIndex?: number,
  *   totalPages?: number,
  * }
  */
 export function buildQuizProblem({ width, height, data }) {
-  const theme = getTheme(data.management);
-  // 問題本文: 行配列を join して句点で段落分け、各段落を単一 div で自動 wrap
-  const fullBody = Array.isArray(data.bodyLines)
-    ? data.bodyLines.join('')
-    : (data.body || '');
-  const paragraphs = fullBody
-    .split('。')
-    .map((p) => p.trim())
-    .filter((p) => p)
-    .map((p, i, arr) => (i < arr.length - 1 || fullBody.endsWith('。') ? p + '。' : p));
-  const options = data.options || [];
+  const fullBody = Array.isArray(data.bodyLines) ? data.bodyLines.join('') : (data.body || '');
+  const options = (data.options || []).slice(0, 5);
+  const dense = isDenseOptions(options);
+  const optTextStyle = dense ? ty('optTextDense') : ty('optText');
+  const optMinHeight = dense ? GEO.opt.minHeightDense : GEO.opt.minHeight;
+  const optTextPadding = dense ? GEO.opt.textPaddingDense : GEO.opt.textPadding;
 
-  // 問題本文のフォントサイズを「全文字数」で動的調整
-  const bodyFontSize = problemFontSizeFromLength([...fullBody].length);
+  return d(frame(width, height, SURFACE.page), [
+    topbar(
+      eyebrow(`PROBLEM ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
+      pageBadge(data.pageIndex ?? 2, data.totalPages ?? 10),
+    ),
 
-  // 各選択肢の行数を推定 → 高さを動的計算
-  const optionsWithMeta = options.slice(0, 5).map((opt) => {
-    const lines = estimateOptionLines(opt.text);
-    return { ...opt, lineCount: lines, cardHeight: optionCardHeight(lines) };
-  });
-
-  return d(frame(width, height, QUIZ_TOKENS.paper), [
-    pageBadge(data.pageIndex ?? 2, data.totalPages ?? 10),
-
-    // 全体: flex column で画面いっぱいに（余白圧縮）
     d(
       {
         position: 'absolute',
-        top: 60, left: 60, right: 60, bottom: 40,
+        top: PAD.y + 96,
+        left: PAD.x,
+        right: PAD.x,
+        bottom: PAD.y + 80,
         flexDirection: 'column',
-        gap: 16,
+        gap: 36,
       },
       [
-        // PROBLEM ラベル + 下線
-        d({ flexDirection: 'column', gap: 4 }, [
-          d({
-            fontSize: 28,
-            fontWeight: 700,
-            color: theme.primary,
-            letterSpacing: '0.08em',
-          }, `PROBLEM ${data.qNum ?? ''}${data.totalQ ? ` / ${data.totalQ}` : ''}`),
-          d({ width: 100, height: 3, background: theme.primary }),
+        // q-block
+        d({ flexDirection: 'column', gap: 14 }, [
+          data.topic
+            ? d({ ...ty('qLabel', { color: INK.body }), alignItems: 'center', gap: 12 }, [
+                d(
+                  {
+                    ...ty('qTag', { color: '#ffffff', background: BRAND.primary }),
+                    borderRadius: GEO.qTag.radius,
+                    paddingTop: GEO.qTag.padding[0],
+                    paddingBottom: GEO.qTag.padding[0],
+                    paddingLeft: GEO.qTag.padding[1],
+                    paddingRight: GEO.qTag.padding[1],
+                  },
+                  SLIDES.problem.qTagText,
+                ),
+                d({}, data.topic),
+              ])
+            : null,
+          d({ ...ty('qText', { color: INK.strong }) }, fullBody),
         ]),
 
-        // 問題本文（句点で段落分け、各段落は単一 div で Satori 自動 wrap）
-        d(
-          {
-            flexDirection: 'column',
-            gap: 8,
-            fontSize: bodyFontSize,
-            fontWeight: 700,
-            color: QUIZ_TOKENS.ink,
-            lineHeight: 1.5,
-          },
-          paragraphs.map((p) => d({ display: 'flex' }, p)),
-        ),
-
-        // 選択肢カード群（動的高さ + 画面下まで広げる）
-        d(
-          { flexDirection: 'column', gap: 14, flexGrow: 1, justifyContent: 'flex-end' },
-          optionsWithMeta.map((opt) =>
-            d(
-              {
-                height: opt.cardHeight,
-                background: QUIZ_TOKENS.cardBg,
-                border: `1px solid ${QUIZ_TOKENS.cardBorder}`,
-                borderRadius: 14,
-                paddingLeft: 24, paddingRight: 24,
-                paddingTop: 14, paddingBottom: 14,
-                alignItems: 'center',
-                gap: 20,
-                flexShrink: 0,
-              },
-              [
-                d(
-                  {
-                    width: 60, height: 60,
-                    borderRadius: 30,
-                    background: theme.primary,
-                    color: '#ffffff',
-                    fontSize: 32,
-                    fontWeight: 700,
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  },
-                  String(opt.num),
-                ),
-                d(
-                  {
-                    fontSize: opt.lineCount === 1 ? 32 : opt.lineCount === 2 ? 28 : 24,
-                    fontWeight: 600,
-                    color: QUIZ_TOKENS.ink,
-                    lineHeight: 1.45,
-                    flexShrink: 1,
-                  },
-                  opt.text || '',
-                ),
-              ],
-            ),
+        // options
+        d({ flexDirection: 'column', gap: 14 }, options.map((opt) =>
+          d(
+            {
+              minHeight: optMinHeight,
+              background: SURFACE.page,
+              borderWidth: GEO.opt.borderWidth,
+              borderStyle: 'solid',
+              borderColor: SURFACE.line,
+              borderRadius: GEO.opt.radius,
+              overflow: 'hidden',
+            },
+            [
+              d(
+                {
+                  width: GEO.opt.numColWidth,
+                  background: SURFACE.sunken,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  ...ty('optNum', { color: BRAND.primary }),
+                  borderRightWidth: GEO.opt.borderWidth,
+                  borderRightStyle: 'solid',
+                  borderRightColor: SURFACE.line,
+                },
+                String(opt.num),
+              ),
+              d(
+                {
+                  flex: 1,
+                  ...optTextStyle,
+                  color: INK.strong,
+                  paddingTop: optTextPadding[0],
+                  paddingBottom: optTextPadding[0],
+                  paddingLeft: optTextPadding[1],
+                  paddingRight: optTextPadding[1],
+                  alignItems: 'center',
+                },
+                opt.text || '',
+              ),
+            ],
           ),
-        ),
+        )),
+      ],
+    ),
+
+    brandFooter(SLIDES.problem.footerUrl),
+  ]);
+}
+
+// ─── pause（互換維持、新意匠では使われない） ─────────────────
+
+export function buildQuizPause({ width, height, data }) {
+  return d(frame(width, height, SURFACE.sunken), [
+    pageBadge(data.pageIndex ?? 3, data.totalPages ?? 10),
+    d(
+      {
+        position: 'absolute',
+        top: 0, bottom: 0, left: 0, right: 0,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 40,
+      },
+      [
+        d({ fontSize: 180, fontWeight: 800, color: BRAND.primary, fontFamily: 'Manrope' }, '▷'),
+        d({ ...ty('qText', { color: INK.strong }) }, data.headline || '考えてみよう'),
+        d({ ...ty('optText', { color: INK.body }) }, data.subhead || 'スワイプで答え合わせ →'),
       ],
     ),
   ]);
 }
 
-/**
- * quiz-pause スライド
- *
- * data: {
- *   headline?: string,    // '考えてみよう' 等
- *   subhead?: string,     // 'スワイプで答え合わせ →' 等
- *   pageIndex?: number,
- *   totalPages?: number,
- * }
- */
-export function buildQuizPause({ width, height, data }) {
-  return d(frame(width, height, QUIZ_TOKENS.paperGray), [
-    pageBadge(data.pageIndex ?? 3, data.totalPages ?? 5),
-
-    // 中央コンテンツ
-    d({
-      position: 'absolute',
-      top: 0, bottom: 0, left: 0, right: 0,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'center',
-      gap: 40,
-    }, [
-      // 大きな ▷
-      d({
-        fontSize: 180,
-        fontWeight: 700,
-        color: QUIZ_TOKENS.brand,
-        lineHeight: 1,
-      }, '▷'),
-
-      // 「考えてみよう」
-      d({
-        fontSize: 64,
-        fontWeight: 700,
-        color: QUIZ_TOKENS.ink,
-      }, data.headline || '考えてみよう'),
-
-      // サブ
-      d({
-        fontSize: 36,
-        fontWeight: 500,
-        color: QUIZ_TOKENS.inkSoft,
-      }, data.subhead || 'スワイプで答え合わせ →'),
-    ]),
-  ]);
-}
+// ─── answer ───────────────────────────────────────────────────
 
 /**
  * quiz-answer スライド
  *
  * data: {
- *   correctNum: number,             // 正答番号 (1-5)
- *   correctText: string,            // 正答の主題 (例: '委託先・調達先・供給先も BCM 対象')
- *   correctSub?: string,            // 正答の補足 (例: '内閣府ガイドライン 令和5年3月')
- *   explanationLines: string[],     // 解説の各行 (折り返し済)
+ *   correctNum: number,
+ *   correctText: string,      // 正答の主題
+ *   correctSub?: string,
+ *   explanationLines: string[],
+ *   qNum: number,
+ *   totalQ: number,
+ *   pointText?: string,       // a-point の本文（無ければ correctText 再掲）
  *   pageIndex?: number,
  *   totalPages?: number,
  * }
  */
 export function buildQuizAnswer({ width, height, data }) {
-  const theme = getTheme(data.management);
-  const explanationLines = Array.isArray(data.explanationLines)
+  const lines = Array.isArray(data.explanationLines)
     ? data.explanationLines
     : (data.explanation || '').split('\n').filter((l) => l.trim());
-  // 解説の行数でフォント動的調整（少ない場合は大きく、多い場合は小さく）
-  const explFontSize = explanationLines.length <= 4
-    ? 44
-    : explanationLines.length <= 6
-      ? 38
-      : explanationLines.length <= 8
-        ? 32
-        : explanationLines.length <= 10
-          ? 28
-          : 24;
+  // 行頭の○/✕/▷を分離してマークと本文に
+  const exRows = lines.slice(0, 6).map((line) => {
+    const m = line.match(/^\s*([○✗✕▷])\s*(.*)$/);
+    return m
+      ? { mark: m[1], text: m[2], correct: m[1] === '○' }
+      : { mark: null, text: line, correct: true };
+  });
 
-  return d(frame(width, height, QUIZ_TOKENS.paper), [
-    pageBadge(data.pageIndex ?? 4, data.totalPages ?? 10),
+  return d(frame(width, height, SURFACE.page), [
+    topbar(
+      eyebrow(`ANSWER ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
+      pageBadge(data.pageIndex ?? 3, data.totalPages ?? 10),
+    ),
 
-    // 全体を flex column で画面いっぱいに
     d(
       {
         position: 'absolute',
-        top: 60, left: 60, right: 60, bottom: 40,
+        top: PAD.y + 96,
+        left: PAD.x,
+        right: PAD.x,
+        bottom: PAD.y + 80,
         flexDirection: 'column',
-        gap: 16,
+        gap: 22,
       },
       [
-        // ANSWER ラベル + 下線
-        d({ flexDirection: 'column', gap: 4 }, [
-          d({
-            fontSize: 28,
-            fontWeight: 700,
-            color: theme.primary,
-            letterSpacing: '0.08em',
-          }, `ANSWER ${data.qNum ?? ''}${data.totalQ ? ` / ${data.totalQ}` : ''}`),
-          d({ width: 100, height: 3, background: theme.primary }),
-        ]),
-
-        // 緑カード（正答番号 + 主題）
-        d({
-          background: QUIZ_TOKENS.correctBg,
-          border: `3px solid ${QUIZ_TOKENS.correctMark}`,
-          borderRadius: 16,
-          paddingTop: 28, paddingBottom: 28,
-          paddingLeft: 28, paddingRight: 28,
-          alignItems: 'center',
-          gap: 28,
-          flexShrink: 0,
-        }, [
-          d({
-            width: 110, height: 110,
-            borderRadius: 55,
-            background: QUIZ_TOKENS.correctMark,
-            color: '#ffffff',
-            fontSize: 60,
-            fontWeight: 700,
+        // a-hero
+        d(
+          {
+            background: SEM.correct.tint,
+            borderWidth: GEO.aHero.borderWidth,
+            borderStyle: 'solid',
+            borderColor: SEM.correct.line,
+            borderRadius: GEO.aHero.radius,
+            paddingTop: GEO.aHero.padding[0],
+            paddingBottom: GEO.aHero.padding[0],
+            paddingLeft: GEO.aHero.padding[1],
+            paddingRight: GEO.aHero.padding[1],
             alignItems: 'center',
-            justifyContent: 'center',
-            flexShrink: 0,
-          }, String(data.correctNum || '?')),
-          d({
-            flexDirection: 'column',
-            gap: 8,
-            flexShrink: 1,
-          }, [
-            d({
-              fontSize: ([...(data.correctText || '')].length > 20) ? 32 : 38,
-              fontWeight: 700,
-              color: QUIZ_TOKENS.ink,
-              lineHeight: 1.35,
-            }, data.correctText || ''),
-            data.correctSub
-              ? d({
-                  fontSize: 26,
-                  fontWeight: 500,
-                  color: QUIZ_TOKENS.inkSoft,
-                  lineHeight: 1.4,
-                }, data.correctSub)
-              : null,
-          ]),
-        ]),
+            gap: GEO.aHero.gap,
+          },
+          [
+            d(
+              {
+                width: GEO.aHero.badgeSize,
+                height: GEO.aHero.badgeSize,
+                borderRadius: GEO.aHero.badgeRadius,
+                background: SEM.correct.primary,
+                alignItems: 'center',
+                justifyContent: 'center',
+                ...ty('aHeroBadge', { color: '#ffffff' }),
+              },
+              String(data.correctNum || '?'),
+            ),
+            d({ flexDirection: 'column', flexShrink: 1, gap: 6 }, [
+              d({ ...ty('aHeroLabel', { color: SEM.correct.deep }) }, SLIDES.answer.heroLabel),
+              d({ ...ty('aHeroTitle', { color: INK.strong }) }, data.correctText || ''),
+            ]),
+          ],
+        ),
 
-        // EXPLANATION ラベル + 下線
-        d({ flexDirection: 'column', gap: 4 }, [
-          d({
-            fontSize: 28,
-            fontWeight: 700,
-            color: theme.primary,
-            letterSpacing: '0.08em',
-          }, 'EXPLANATION'),
-          d({ width: 180, height: 3, background: theme.primary }),
-        ]),
-
-        // 解説本文（動的フォントサイズ・画面下まで広げる）
+        // a-explain（explanationLines を ex-row 風に表示）
         d(
           {
             flexDirection: 'column',
-            gap: 8,
-            fontSize: explFontSize,
-            fontWeight: 600,
-            color: QUIZ_TOKENS.ink,
-            lineHeight: 1.55,
-            flexGrow: 1,
-            justifyContent: 'flex-start',
+            gap: GEO.aExplain.rowGap,
+            paddingLeft: 16,
+            paddingRight: 16,
+            flexShrink: 1,
           },
-          explanationLines.slice(0, 14).map((line) =>
-            d({ display: 'flex' }, line || ' '),
-          ),
+          exRows.map((row, i) => {
+            const incorrect = row.mark === '✗' || row.mark === '✕';
+            const markColor = incorrect ? SEM.incorrect.primary : INK.muted;
+            const markSize = incorrect ? TY.exMarkIncorrect.size : TY.exMark.size;
+            return d(
+              {
+                paddingTop: GEO.aExplain.rowPaddingY,
+                paddingBottom: GEO.aExplain.rowPaddingY,
+                borderBottomWidth: i === exRows.length - 1 ? 0 : GEO.aExplain.borderBottomWidth,
+                borderBottomStyle: 'solid',
+                borderBottomColor: SURFACE.line,
+                alignItems: 'flex-start',
+                gap: GEO.aExplain.columnGap,
+              },
+              [
+                // mark（プレフィックスが無ければ空 div、文字が切れないよう余裕を持たせる）
+                row.mark
+                  ? d(
+                      {
+                        width: 44,
+                        height: 44,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        ...ty(incorrect ? 'exMarkIncorrect' : 'exMark', {
+                          color: markColor,
+                          fontSize: markSize,
+                          fontFamily: 'NotoSansJP',
+                        }),
+                        flexShrink: 0,
+                      },
+                      row.mark === '✗' ? '✕' : row.mark,
+                    )
+                  : d({ width: 44, height: 44, flexShrink: 0 }),
+                d(
+                  {
+                    flex: 1,
+                    ...ty('exText', { color: INK.strong }),
+                  },
+                  row.text,
+                ),
+              ],
+            );
+          }),
         ),
+
+        // a-point
+        data.pointText
+          ? d(
+              {
+                position: 'relative',
+                background: SURFACE.page,
+                borderWidth: GEO.aPoint.borderWidth,
+                borderStyle: 'solid',
+                borderColor: BRAND.primary,
+                borderRadius: GEO.aPoint.radius,
+                paddingTop: GEO.aPoint.padding[0],
+                paddingBottom: GEO.aPoint.padding[0],
+                paddingLeft: GEO.aPoint.padding[1],
+                paddingRight: GEO.aPoint.padding[1],
+                marginTop: GEO.aPoint.marginTop,
+                alignItems: 'center',
+                gap: GEO.aPoint.gap,
+              },
+              [
+                // 浮きラベル
+                d(
+                  {
+                    position: 'absolute',
+                    top: GEO.aPoint.labelOffsetY,
+                    left: GEO.aPoint.labelOffsetX,
+                    paddingTop: GEO.aPoint.labelPadding[0],
+                    paddingBottom: GEO.aPoint.labelPadding[0],
+                    paddingLeft: GEO.aPoint.labelPadding[1],
+                    paddingRight: GEO.aPoint.labelPadding[1],
+                    background: BRAND.primary,
+                    borderRadius: GEO.aPoint.labelRadius,
+                    ...ty('aPointLabel', { color: '#ffffff' }),
+                  },
+                  SLIDES.answer.pointLabel,
+                ),
+                d(
+                  {
+                    width: GEO.aPoint.iconSize,
+                    height: GEO.aPoint.iconSize,
+                    borderRadius: GEO.aPoint.iconRadius,
+                    background: BRAND.tint,
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    ...ty('aPointIcon', { color: BRAND.primary }),
+                    flexShrink: 0,
+                  },
+                  SLIDES.answer.pointIconChar,
+                ),
+                d(
+                  {
+                    ...ty('aPointText', { color: INK.strong }),
+                    flexShrink: 1,
+                  },
+                  data.pointText,
+                ),
+              ],
+            )
+          : null,
       ],
     ),
+
+    brandFooter(SLIDES.answer.footerUrl),
   ]);
 }
+
+// ─── cta ──────────────────────────────────────────────────────
 
 /**
  * quiz-cta スライド
@@ -505,100 +671,128 @@ export function buildQuizAnswer({ width, height, data }) {
  *   totalPages?: number,
  * }
  */
-export function buildQuizCta({ width, height, data }) {
-  const theme = getTheme(data.management);
-
-  return d(frame(width, height, theme.deep), [
-    pageBadge(data.pageIndex ?? 10, data.totalPages ?? 10, theme.paler),
-
-    // 装飾円 (左下)
+export function buildQuizCta({ width, height }) {
+  const cfg = SLIDES.cta;
+  return d(frame(width, height, CTA.background), [
+    // 装飾円（右上）
     d({
       position: 'absolute',
-      top: 930, left: -20,
-      width: 440, height: 440,
-      borderRadius: 220,
-      background: theme.primary,
-      opacity: 0.2,
+      top: GEO.ctaDecor.topRight.offset[0],
+      right: GEO.ctaDecor.topRight.offset[1],
+      width: GEO.ctaDecor.topRight.size,
+      height: GEO.ctaDecor.topRight.size,
+      borderRadius: 999,
+      background: CTA.decor,
     }),
-    // 装飾円 (右上)
+    // 装飾円（左下）
     d({
       position: 'absolute',
-      top: -80, right: -80,
-      width: 560, height: 560,
-      borderRadius: 280,
-      background: theme.primary,
-      opacity: 0.3,
+      bottom: GEO.ctaDecor.bottomLeft.offset[0],
+      left: GEO.ctaDecor.bottomLeft.offset[1],
+      width: GEO.ctaDecor.bottomLeft.size,
+      height: GEO.ctaDecor.bottomLeft.size,
+      borderRadius: 999,
+      background: CTA.decor,
     }),
 
-    // タイトル群
-    d({
-      position: 'absolute',
-      top: 380, left: 0, right: 0,
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: 18,
-    }, [
-      d({
-        fontSize: 40,
-        fontWeight: 600,
-        color: theme.paler,
-        letterSpacing: '0.12em',
-      }, 'もっと解きたい人は'),
-      d({
-        fontSize: 88,
-        fontWeight: 700,
-        color: '#ffffff',
-        letterSpacing: '0.04em',
-      }, 'doboku-note で'),
-      d({
-        fontSize: 56,
-        fontWeight: 700,
-        color: '#ffffff',
-        letterSpacing: '0.04em',
-        marginTop: 8,
-      }, '全 640 問・全章解説'),
-    ]),
+    // topbar
+    topbar(
+      d({ ...ty('ctaEyebrow', { color: ONDARK.secondary }), whiteSpace: 'nowrap' }, cfg.eyebrowText),
+      pageBadge(10, 10, { onDark: true }),
+    ),
 
-    // 「保存して見返す」カード
-    d({
-      position: 'absolute',
-      top: 800, left: 140, right: 140,
-      paddingTop: 22, paddingBottom: 22,
-      paddingLeft: 32, paddingRight: 32,
-      borderRadius: 18,
-      background: '#ffffff',
-      flexDirection: 'column',
-      alignItems: 'center',
-      gap: 6,
-    }, [
-      d({
-        fontSize: 30,
-        fontWeight: 700,
-        color: theme.primary,
-        letterSpacing: '0.08em',
-      }, '保存ボタンを押して'),
-      d({
-        fontSize: 30,
-        fontWeight: 700,
-        color: QUIZ_TOKENS.ink,
-      }, '試験前日に見返そう'),
-    ]),
+    // cta-body
+    d(
+      {
+        position: 'absolute',
+        top: PAD.y + 96,
+        left: PAD.x,
+        right: PAD.x,
+        bottom: PAD.y + 80,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 24,
+        textAlign: 'center',
+      },
+      [
+        d({ ...ty('ctaHello', { color: ONDARK.secondary }) }, cfg.helloText),
 
-    // フッター
-    d({
-      position: 'absolute',
-      bottom: 88, left: 80,
-      fontSize: 34,
-      fontWeight: 700,
-      color: '#ffffff',
-      letterSpacing: '0.04em',
-    }, 'doboku-note'),
-    d({
-      position: 'absolute',
-      bottom: 52, left: 80,
-      fontSize: 22,
-      fontWeight: 400,
-      color: theme.paler,
-    }, 'doboku-note.com'),
+        // headline（HTML プロト: <span>doboku-note</span> で<br>全章解説をチェック）
+        d({ flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }, [
+          d({ ...ty('ctaHeadline', { color: ONDARK.primary }), alignItems: 'center' }, [
+            d({ color: CTA.accent }, cfg.headlineAccent),
+            d({}, ' で'),
+          ]),
+          d({ ...ty('ctaHeadline', { color: ONDARK.primary }) }, '全章解説をチェック'),
+        ]),
+
+        // cta-stats
+        d({ gap: GEO.ctaStat.gap, marginTop: 12, marginBottom: 36 }, cfg.stats.map((s) =>
+          d(
+            {
+              background: ONDARK.subtleBg,
+              borderWidth: GEO.ctaStat.borderWidth,
+              borderStyle: 'solid',
+              borderColor: ONDARK.subtleLine,
+              borderRadius: GEO.ctaStat.radius,
+              paddingTop: GEO.ctaStat.padding[0],
+              paddingBottom: GEO.ctaStat.padding[0],
+              paddingLeft: GEO.ctaStat.padding[1],
+              paddingRight: GEO.ctaStat.padding[1],
+              flexDirection: 'column',
+              alignItems: 'center',
+              gap: 8,
+            },
+            [
+              d({ ...ty('ctaStatNum', { color: ONDARK.primary, whiteSpace: 'nowrap' }) }, [
+                d({}, s.num),
+                d({ ...ty('ctaStatNumSm', { color: ONDARK.secondary }), marginLeft: 6 }, s.unit),
+              ]),
+              d({ ...ty('ctaStatLabel', { color: ONDARK.quaternary }) }, s.label),
+            ],
+          ),
+        )),
+
+        // cta-action
+        d(
+          {
+            background: SURFACE.page,
+            borderRadius: GEO.ctaAction.radius,
+            paddingTop: GEO.ctaAction.padding[0],
+            paddingBottom: GEO.ctaAction.padding[0],
+            paddingLeft: GEO.ctaAction.padding[1],
+            paddingRight: GEO.ctaAction.padding[1],
+            minWidth: GEO.ctaAction.minWidth,
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: GEO.ctaAction.gap,
+          },
+          [
+            d(
+              {
+                width: GEO.ctaAction.iconSize,
+                height: GEO.ctaAction.iconSize,
+                borderRadius: GEO.ctaAction.iconRadius,
+                background: BRAND.tint,
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: 26,
+                fontWeight: 800,
+                color: BRAND.primary,
+                fontFamily: 'Manrope',
+              },
+              '★',
+            ),
+            d({ flexDirection: 'column', alignItems: 'flex-start', gap: 2 }, [
+              d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, cfg.actionTitle),
+              d({ ...ty('ctaActionSub', { color: INK.strong }) }, cfg.actionSubtitle),
+            ]),
+          ],
+        ),
+      ],
+    ),
+
+    brandFooter(cfg.footerUrl, { onDark: true }),
   ]);
 }

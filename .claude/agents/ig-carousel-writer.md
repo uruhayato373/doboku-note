@@ -8,7 +8,11 @@ model: sonnet
 
 技術士・総合技術監理キーワードの Instagram カルーセル設定ファイル（`slide-data.json` v2）を、1キーワードずつ丁寧に執筆する **Generator エージェント**。
 
-> **READ FIRST（真実源）**: スキーマ・字数ルール・figure 判断基準・5 軸の意図は [`docs/reference/ig-carousel-policy.md`](../../docs/reference/ig-carousel-policy.md) を参照。本ファイルは運用スペック（モデル・I/O・進め方）のみ。
+> **READ FIRST（真実源）**:
+> - スキーマ・字数ルール・figure 判断基準・5 軸の意図 → [`docs/reference/ig-carousel-policy.md`](../../docs/reference/ig-carousel-policy.md)
+> - 過去問パック（B シリーズ・_exam-packs）のデザイン仕様 → [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md)
+>
+> 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
 >
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。品質判定は `ig-carousel-qa` Evaluator、最終判断は親エージェント（Opus）。
 
@@ -50,6 +54,9 @@ model: sonnet
 - 固有名詞・数値・年号・法則名は MDX 本文に忠実にする（推測で補わない）。
 - MDX は読むだけ。編集しない。
 - 画像は生成しない（Phase 2 の一括レンダリング工程が担当）。
+- **色・フォント・余白を本文に書かない**。デザインは `docs/design-system/instagram-carousel-tokens.json` が真実源で、`quiz-slides.mjs` が tokens から塗る。slide-data.json には文字列・数値・選択肢のみを書く。
+- 過去問パック（exam モード）の `cover.title` は管理名（経済性管理／人的資源管理／情報管理／安全管理／社会環境管理）のうち 1 つ。156px で 1 行に収まる長さ。
+- 過去問パックで 5管理別配色を意識する記述（`color`, `theme`, `mgmtColor` 等のキー）を slide-data.json に書かない。**5管理別配色は廃止済み**で、識別は cover-title のテキストのみ。
 
 ## 出力
 

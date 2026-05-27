@@ -119,6 +119,11 @@ title: スキル ガバナンス記録
 | 2026-05-21 | `pe-essay-cycle` | （属性整理） | 環境調査ペルソナ廃止に伴い、受験者属性を 4 種 → 3 種（general-contractor / river-consultant / road-municipality）に変更 |
 | 2026-05-21 | `pe-note-plan` | （属性整理） | 環境調査ペルソナ廃止に伴い、属性 × 年度マトリクスを 4 属性 → 3 属性に変更 |
 | 2026-05-21 | `lint-mdx-mobile.mjs` | （配列整理） | 環境調査ペルソナ廃止に伴い、`R8_SPOKE_ALLOWED_PERSONAS` から `'環境調査'` を除去（4 固定ペルソナ + 業界外救済 → 3 固定ペルソナ + 業界外救済） |
+| 2026-05-27 | `ig-carousel-restyle` | v1.0（新規） | AIDesigner 新意匠の tokens.json 真実源化に伴い新設。`docs/design-system/instagram-carousel-tokens.json` 更新後に `_exam-packs/**` の PNG を一括再生成するラッパー。引数 `--pack`/`--year`/`--all`。内部で `scripts/bulk-generate-exam-packs.mjs` を呼ぶ |
+| 2026-05-27 | `quiz-slides.mjs` | （全面書き換え） | AIDesigner プロト準拠の新意匠に書き換え。5管理別カラーテーマ（MGMT_THEME 5 セット）を廃止し、単一 brand + semantic（green 正答 / coral 誤答 / navy CTA）に統一。フォントを NotoSansJP-Bold/Inter-Bold → Manrope（latin）+ NotoSansJP（jp）に変更。tokens.json から値を import |
+| 2026-05-27 | `ig-post-create` / `slide-render.mjs` | （フォント拡張） | `@fontsource/manrope` + `@fontsource/noto-sans-jp` を npm 導入し、Satori `fonts` 配列に Manrope 500/700/800 + NotoSansJP 500/700/800/900 を追加（既存 Inter 700 / Noto Sans JP 700 は互換維持） |
+| 2026-05-27 | `ig-carousel-qa` | v2.0（軸追加） | テキスト 5 軸に加え、過去問パック専用「デザイン統一性」第 6 軸を追加。PNG を Read tool で読み tokens.json と照合する |
+| 2026-05-27 | `ig-carousel-writer` | （ガード追加） | slide-data.json に色・フォント・余白を書かないルールを明記。5管理別配色は廃止済みで識別は cover-title テキストで行う旨を追記 |
 
 ### カテゴリ変更履歴
 

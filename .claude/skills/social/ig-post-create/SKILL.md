@@ -11,7 +11,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 | シリーズ | 用途 | デザイン | パイプライン |
 |---|---|---|---|
 | **A. 択一クイズパック** | 運営者作問のシンプル知識クイズ | 既存 SVG ベース（明色） | `.claude/scripts/sns/render-quiz-pack.mjs` |
-| **B. 過去問パック** | 公式試験問題 H21-R7 全 640 問 | type3 デザイン（5管理別色） | `ig-post-create.mjs --exam` |
+| **B. 過去問パック** | 公式試験問題 H21-R7 全 640 問 | AIDesigner 新意匠（単一 brand + semantic、Manrope+NotoSansJP） | `ig-post-create.mjs --exam` |
 | C. 単独 KW 解説（旧） | キーワード 1 件の Study Notebook | notebook デザイン | `ig-post-create.mjs --slug` |
 
 新規投稿の主軸は **A** または **B**。C は旧運用で残置（量産は基本しない）。
@@ -26,7 +26,8 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 | 過去問パック 一括生成 | `scripts/bulk-generate-exam-packs.mjs` |
 | 過去問 SoT | `src/config/exam-questions.json` (640 問) |
 | 過去問 slide-data SoT | `docs/sns/instagram/_exam-packs/<year>/pack-<NN>/slide-data.json` |
-| 過去問 type3 ビルダー | `.claude/scripts/lib/sns-common/quiz-slides.mjs` |
+| 過去問スライドビルダー | `.claude/scripts/lib/sns-common/quiz-slides.mjs`（tokens.json 参照） |
+| 過去問デザイン真実源 | `docs/design-system/instagram-carousel-tokens.json` + `docs/design-system/instagram-carousel.md` |
 | 択一クイズパック生成 (A) | `.claude/scripts/sns/render-quiz-pack.mjs` |
 | 択一クイズ source パーサ | `.claude/scripts/sns/lib/quiz-parser.mjs` |
 | 択一クイズテンプレ | `.claude/scripts/sns/templates/quiz-ig.mjs` |
@@ -35,7 +36,15 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 
 ---
 
-## B. 過去問パック（type3 デザイン・現行主軸）
+## B. 過去問パック（AIDesigner 新意匠・現行主軸）
+
+> **デザイン真実源**: [`docs/design-system/instagram-carousel-tokens.json`](../../../../docs/design-system/instagram-carousel-tokens.json) と [`docs/design-system/instagram-carousel.md`](../../../../docs/design-system/instagram-carousel.md)。色・フォント・余白・スライド種別仕様はすべて tokens.json が真実源。`quiz-slides.mjs` はここから値を import する。
+>
+> **配色方針**: 単一 brand 色（デフォルト `#1858B5`）+ semantic（green 正答 / coral 誤答 / navy CTA）。**5 管理別配色は廃止**。管理識別は cover-title の 156px テキスト（例「経済性管理」）で行う。
+>
+> **フォント**: Manrope (latin) + NotoSansJP (jp)。`@fontsource/manrope` / `@fontsource/noto-sans-jp` を npm で導入し、`slide-render.mjs` の `loadFonts` が weight 別に登録する。
+>
+> **トークン変更後の一括再生成**: `ig-carousel-restyle` スキル。
 
 ### 構造
 
