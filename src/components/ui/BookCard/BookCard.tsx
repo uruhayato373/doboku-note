@@ -111,7 +111,7 @@ export default function BookCard({ asin }: BookCardProps) {
   }
 
   return (
-    <div className="not-prose my-6">
+    <div className="not-prose">
       <div className="mb-1.5 flex items-center gap-1.5">
         <span
           className="inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
