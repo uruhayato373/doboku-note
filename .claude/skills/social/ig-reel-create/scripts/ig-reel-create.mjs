@@ -39,6 +39,7 @@ const { values: args } = parseArgs({
     exam: { type: 'string' },
     speaker: { type: 'string', default: '1' },
     'skip-png': { type: 'boolean' },
+    'script-only': { type: 'boolean' },  // 台本だけ事前生成（VOICEVOX/ffmpeg 不要）
   },
 });
 
@@ -54,16 +55,21 @@ if (!m) {
 }
 const [, year, packNum] = m;
 
-// ─── 環境チェック ─────────────────────────────────────────────
+// ─── 環境チェック（script-only モードはスキップ） ──────────────
 
-if (!ffmpegAvailable()) {
-  console.error('Error: ffmpeg が PATH に見つかりません');
-  process.exit(1);
-}
-if (!(await isRunning())) {
-  console.error('Error: VOICEVOX エンジンが起動していません');
-  console.error('       docker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-latest');
-  process.exit(1);
+const scriptOnly = !!args['script-only'];
+if (!scriptOnly) {
+  if (!ffmpegAvailable()) {
+    console.error('Error: ffmpeg が PATH に見つかりません');
+    console.error('       台本だけ事前生成したい場合は --script-only フラグを使ってください');
+    process.exit(1);
+  }
+  if (!(await isRunning())) {
+    console.error('Error: VOICEVOX エンジンが起動していません');
+    console.error('       docker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-latest');
+    console.error('       台本だけ事前生成したい場合は --script-only フラグを使ってください');
+    process.exit(1);
+  }
 }
 
 // ─── パック情報 ──────────────────────────────────────────────
@@ -99,9 +105,11 @@ console.log('\n[2/4] 台本生成中...');
 
 function buildScript(sl, idx, meta) {
   if (sl.type === 'cover') {
-    const yearLabel = (meta?.year || year).toUpperCase().replace('R', '令和').replace(/^令和(0)?/, '令和');
-    const yearText = yearLabel.includes('令和') ? yearLabel : `R${meta?.year?.replace(/^r/, '') || '07'}`;
-    return `${sl.title}。${yearText}、4問パック。スワイプして挑戦しましょう。`;
+    // cover-title が「令和7年度／択一式 過去問 #N」に統一されたので、台本も同じ形に。
+    // 旧 sl.title（管理名）は使わない。
+    const yearN = (meta?.year || year).replace(/^[rR]0?/, '');
+    const packN = String(meta?.packNum || packNum).replace(/^0+/, '') || '1';
+    return `令和${yearN}年度の択一式過去問、${packN}番です。スワイプして4問にチャレンジしましょう。`;
   }
   if (sl.type === 'problem') {
     const body = (sl.bodyLines || [])
@@ -131,6 +139,12 @@ writeFileSync(
   'utf8',
 );
 scripts.forEach((s, i) => console.log(`  [${String(i).padStart(2, '0')}] ${s.slice(0, 60)}${s.length > 60 ? '…' : ''}`));
+
+if (scriptOnly) {
+  console.log(`\n✓ 台本のみ生成完了 → ${join(reelsDir, 'script.txt')}`);
+  console.log('  TTS / mp4 生成は VOICEVOX + ffmpeg 環境準備後に --script-only なしで再実行してください');
+  process.exit(0);
+}
 
 // ─── 3) TTS（VOICEVOX） ──────────────────────────────────────
 
