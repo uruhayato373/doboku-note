@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-05-27T05:39:12.821Z",
+  "generated_at": "2026-05-27T07:49:27.627Z",
   "summary": {
-    "total_mdx_files": 821,
+    "total_mdx_files": 825,
     "total_unique_tags": 85,
     "allowlist_size": 123,
     "known_count": 51,
@@ -12,7 +12,7 @@
   "tags": [
     {
       "name": "keyword",
-      "count": 650,
+      "count": 654,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-360-degree-evaluation",
@@ -196,6 +196,7 @@
         "pe-comprehensive-management-encryption-digital-signature",
         "pe-comprehensive-management-end-of-pipe",
         "pe-comprehensive-management-energy",
+        "pe-comprehensive-management-energy-conservation-act",
         "pe-comprehensive-management-enterprise-portal-intranet",
         "pe-comprehensive-management-environmental-accounting",
         "pe-comprehensive-management-environmental-basic-act",
@@ -512,6 +513,7 @@
         "pe-comprehensive-management-relative-absolute-evaluation",
         "pe-comprehensive-management-reliability-block-diagram",
         "pe-comprehensive-management-reliability-maintainability-design",
+        "pe-comprehensive-management-renewable-energy-act",
         "pe-comprehensive-management-replacement-cost",
         "pe-comprehensive-management-required-quality",
         "pe-comprehensive-management-residual-risk",
@@ -536,6 +538,7 @@
         "pe-comprehensive-management-role-grade-system",
         "pe-comprehensive-management-root-cause-analysis",
         "pe-comprehensive-management-rpa",
+        "pe-comprehensive-management-s-plus-3e",
         "pe-comprehensive-management-safety-2-0",
         "pe-comprehensive-management-safety-and-security",
         "pe-comprehensive-management-safety-case",
@@ -624,6 +627,7 @@
         "pe-comprehensive-management-three-point-estimation",
         "pe-comprehensive-management-timeline-disaster",
         "pe-comprehensive-management-tnfd",
+        "pe-comprehensive-management-top-runner-system",
         "pe-comprehensive-management-total-wage-management",
         "pe-comprehensive-management-trademark-rights",
         "pe-comprehensive-management-training-techniques",
@@ -669,7 +673,7 @@
     },
     {
       "name": "総合技術監理",
-      "count": 388,
+      "count": 392,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-access-control",
@@ -779,6 +783,7 @@
         "pe-comprehensive-management-employment-insurance",
         "pe-comprehensive-management-employment-security-act",
         "pe-comprehensive-management-encryption-digital-signature",
+        "pe-comprehensive-management-energy-conservation-act",
         "pe-comprehensive-management-enterprise-portal-intranet",
         "pe-comprehensive-management-environmental-basic-act",
         "pe-comprehensive-management-equal-employment-act",
@@ -963,6 +968,7 @@
         "pe-comprehensive-management-reemployment-system",
         "pe-comprehensive-management-regional-circular-symbiosis",
         "pe-comprehensive-management-reliability-maintainability-design",
+        "pe-comprehensive-management-renewable-energy-act",
         "pe-comprehensive-management-replacement-cost",
         "pe-comprehensive-management-resilience",
         "pe-comprehensive-management-return-to-work-support",
@@ -974,6 +980,7 @@
         "pe-comprehensive-management-rohs-weee",
         "pe-comprehensive-management-role-grade-system",
         "pe-comprehensive-management-rpa",
+        "pe-comprehensive-management-s-plus-3e",
         "pe-comprehensive-management-safety-2-0",
         "pe-comprehensive-management-safety-and-security",
         "pe-comprehensive-management-safety-control",
@@ -1030,6 +1037,7 @@
         "pe-comprehensive-management-temporary-works-plan",
         "pe-comprehensive-management-threat-awareness-training",
         "pe-comprehensive-management-three-c-analysis",
+        "pe-comprehensive-management-top-runner-system",
         "pe-comprehensive-management-total-wage-management",
         "pe-comprehensive-management-trademark-rights",
         "pe-comprehensive-management-un-human-environment-conf",
