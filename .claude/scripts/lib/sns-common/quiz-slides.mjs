@@ -336,6 +336,91 @@ export function buildQuizCover({ width, height, data }) {
 
 // ─── problem ──────────────────────────────────────────────────
 
+/**
+ * 表ビルダー（汎用）
+ * table: { headers: string[], rows: string[][] }
+ * Satori vDOM の flex grid で罫線付きの表を描画する。
+ */
+function buildTable(table) {
+  const headers = Array.isArray(table?.headers) ? table.headers : [];
+  const rows = Array.isArray(table?.rows) ? table.rows : [];
+  const colCount = headers.length;
+  if (!colCount) return null;
+
+  const cellBorderRight = (idx) =>
+    idx === colCount - 1
+      ? {}
+      : {
+          borderRightWidth: GEO.table.borderWidth,
+          borderRightStyle: 'solid',
+          borderRightColor: SURFACE.line,
+        };
+
+  const headerRow = d(
+    {
+      background: SURFACE.sunken,
+      minHeight: GEO.table.headerMinHeight,
+    },
+    headers.map((h, i) =>
+      d(
+        {
+          flex: 1,
+          paddingTop: GEO.table.headerPadding[0],
+          paddingBottom: GEO.table.headerPadding[0],
+          paddingLeft: GEO.table.headerPadding[1],
+          paddingRight: GEO.table.headerPadding[1],
+          alignItems: 'center',
+          justifyContent: 'center',
+          ...cellBorderRight(i),
+          ...ty('tableHeader', { color: INK.body }),
+        },
+        String(h),
+      ),
+    ),
+  );
+
+  const dataRows = rows.map((row) =>
+    d(
+      {
+        borderTopWidth: GEO.table.borderWidth,
+        borderTopStyle: 'solid',
+        borderTopColor: SURFACE.line,
+        minHeight: GEO.table.rowMinHeight,
+      },
+      row.map((cell, ci) =>
+        d(
+          {
+            flex: 1,
+            paddingTop: GEO.table.cellPadding[0],
+            paddingBottom: GEO.table.cellPadding[0],
+            paddingLeft: GEO.table.cellPadding[1],
+            paddingRight: GEO.table.cellPadding[1],
+            alignItems: 'center',
+            justifyContent: 'center',
+            ...cellBorderRight(ci),
+            ...ty('tableCell', { color: INK.strong }),
+          },
+          String(cell ?? ''),
+        ),
+      ),
+    ),
+  );
+
+  return d(
+    {
+      flexDirection: 'column',
+      background: SURFACE.page,
+      borderWidth: GEO.table.borderWidth,
+      borderStyle: 'solid',
+      borderColor: SURFACE.line,
+      borderRadius: GEO.table.radius,
+      overflow: 'hidden',
+      flexShrink: 0,
+    },
+    [headerRow, ...dataRows],
+  );
+}
+
 /** 行数推定（HTML プロトの opt は wrap 2 行までを前提） */
 function isDenseOptions(options) {
   const long = options.some((o) => [...(o.text || '')].length > 60);
@@ -357,12 +442,35 @@ function isDenseOptions(options) {
  * }
  */
 export function buildQuizProblem({ width, height, data }) {
-  const fullBody = Array.isArray(data.bodyLines) ? data.bodyLines.join('') : (data.body || '');
+  // bodyLines に markdown 表行 (|...|) が含まれている場合は除外（旧データ互換、
+  // 新規データは data.table フィールドで構造化する）。
+  // 各要素の内部に \r\n が混在しているケースもあるので flatMap で分割してから判定。
+  const rawLines = Array.isArray(data.bodyLines) ? data.bodyLines : [String(data.body || '')];
+  const bodyTextOnly = rawLines
+    .flatMap((l) => l.split(/\r?\n/))
+    .filter((l) => {
+      const t = l.trim();
+      if (!t) return false;
+      // パイプ記号 | を含む行は markdown 表残骸として除外
+      // （IG カルーセル本文に | を使う正規ケースは想定しない。必要なら data.table へ）
+      if (t.includes('|')) return false;
+      // 区切り行（--- :--- など）
+      if (/^[-:]+$/.test(t)) return false;
+      return true;
+    });
+  const fullBody = bodyTextOnly.join('');
+  const tableEl = data.table ? buildTable(data.table) : null;
   const options = (data.options || []).slice(0, 5);
-  const dense = isDenseOptions(options);
+  // table がある場合は dense 強制 + q-text 縮小 + 選択肢をさらにコンパクトに
+  const dense = !!tableEl || isDenseOptions(options);
   const optTextStyle = dense ? ty('optTextDense') : ty('optText');
-  const optMinHeight = dense ? GEO.opt.minHeightDense : GEO.opt.minHeight;
-  const optTextPadding = dense ? GEO.opt.textPaddingDense : GEO.opt.textPadding;
+  const optMinHeight = tableEl ? 76 : (dense ? GEO.opt.minHeightDense : GEO.opt.minHeight);
+  const optTextPadding = tableEl ? [12, 22] : (dense ? GEO.opt.textPaddingDense : GEO.opt.textPadding);
+  const optionsGap = tableEl ? 10 : 14;
+  const blockGap = tableEl ? 22 : 36;
+  const qTextStyle = tableEl
+    ? ty('qText', { color: INK.strong, fontSize: 32, lineHeight: 1.35 })
+    : ty('qText', { color: INK.strong });
 
   return d(frame(width, height, SURFACE.page), [
     topbar(
@@ -378,10 +486,10 @@ export function buildQuizProblem({ width, height, data }) {
         right: PAD.x,
         bottom: PAD.y + 80,
         flexDirection: 'column',
-        gap: 36,
+        gap: blockGap,
       },
       [
-        // q-block
+        // q-block (+ table があれば挿入)
         d({ flexDirection: 'column', gap: 14 }, [
           data.topic
             ? d({ ...ty('qLabel', { color: INK.body }), alignItems: 'center', gap: 12 }, [
@@ -399,11 +507,12 @@ export function buildQuizProblem({ width, height, data }) {
                 d({}, data.topic),
               ])
             : null,
-          d({ ...ty('qText', { color: INK.strong }) }, fullBody),
+          d(qTextStyle, fullBody),
+          tableEl,
         ]),
 
         // options
-        d({ flexDirection: 'column', gap: 14 }, options.map((opt) =>
+        d({ flexDirection: 'column', gap: optionsGap }, options.map((opt) =>
           d(
             {
               minHeight: optMinHeight,
