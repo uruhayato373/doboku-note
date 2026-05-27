@@ -40,20 +40,31 @@ B のみで全網羅: 130 ÷ 52 ≈ **約 2.5 年**
 docs/sns/instagram/
 ├── _exam-packs/                       ← B 過去問パック (新)
 │   ├── r07/
+│   │   ├── _summary/                  ← 年度目次カルーセル（ストーリー入口）
+│   │   │   ├── slide-data.json
+│   │   │   ├── carousel/img/{00-03}.png  ← 1080×1350 PNG × 4
+│   │   │   └── reels/img/{00-03}.png     ← 1080×1920 PNG × 4（ストーリー投稿用）
 │   │   ├── pack-01/
 │   │   │   ├── slide-data.json        ← データソース（cover/problem/answer/cta）
 │   │   │   ├── carousel/              ← フィード投稿用
 │   │   │   │   ├── caption.txt        ← 正答リスト + 保存喚起 CTA
 │   │   │   │   └── img/{00-09}.png    ← 1080×1350 PNG × 10
-│   │   │   └── reels/                 ← Reels / ストーリー用
-│   │   │       ├── caption.txt        ← 主題のみ（ネタバレなし）+ エンゲージメント CTA
-│   │   │       ├── img/{00-09}.png    ← 1080×1920 PNG × 10
-│   │   │       ├── script.txt         ← TTS 読み上げ台本（ig-reel-create）
-│   │   │       ├── wav/slide-NN.wav   ← VOICEVOX 音声（中間ファイル）
-│   │   │       └── video.mp4          ← 最終 Reels 動画（VOICEVOX + ffmpeg 合成）
+│   │   │   ├── reels/                 ← Reels 投稿用
+│   │   │   │   ├── caption.txt        ← 主題のみ（ネタバレなし）+ エンゲージメント CTA
+│   │   │   │   ├── img/{00-09}.png    ← 1080×1920 PNG × 10
+│   │   │   │   ├── script.txt         ← TTS 読み上げ台本（ig-reel-create）
+│   │   │   │   ├── wav/slide-NN.wav   ← VOICEVOX 音声（中間ファイル）
+│   │   │   │   └── video.mp4          ← 最終 Reels 動画（VOICEVOX + ffmpeg 合成）
+│   │   │   └── stories/               ← ストーリー連投用（reels から 4 枚厳選）
+│   │   │       ├── img/01-cover.png   ← 表紙
+│   │   │       ├── img/02-problem.png ← Q1（典型問題）
+│   │   │       ├── img/03-answer.png  ← A1（解説）
+│   │   │       ├── img/04-cta.png     ← CTA
+│   │   │       ├── caption.txt
+│   │   │       └── note.md            ← 投稿手順（リンクスタンプ・タグ）
 │   │   └── pack-02..09/
-│   ├── r06/...
-│   └── h21..r05/
+│   ├── r03..r06/（同構造）
+│   └── h21..r02/（未整備）
 ├── _quiz-sample/                       ← A 択一クイズサンプル
 │   ├── source.md
 │   ├── instagram-carousel/img/01-経済性/{01..10}.png
@@ -239,25 +250,38 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/instagram/_quiz-sample
 | ハイライト容量 | 1 つあたり最大 100 ストーリー |
 | 文字・スタンプ | IG アプリ内で後乗せ可（リンクスタンプ含む） |
 
-### 既存パイプラインでの対応
+### 実装（2026-05-27 完了）
 
-`ig-post-create.mjs` は **`--size reels` で 1080×1920 を生成**（Reels と同サイズ = ストーリーと同じ）：
+ストーリー素材は **reels サイズ（1080×1920）から 4 枚を厳選 → `stories/img/` にコピー** する自動化を採用：
 
 ```bash
-# 過去問パックをストーリー版で生成
+# Reels サイズ PNG を 1080×1920 で生成
 node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size reels
-# → docs/sns/instagram/_exam-packs/r07/pack-01/reels/img/{00..09}.png
+
+# stories/img/ に 4 枚（cover/Q1/A1/cta）を抽出 + caption + note.md 自動生成
+node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
+# → docs/sns/instagram/_exam-packs/r07/pack-01/stories/{img/01-cover.png ...}
 ```
 
-⚠️ `quiz-slides.mjs` のレイアウトは **1080×1350 基準で設計**されているため、1080×1920 で生成すると要素位置がズレる可能性あり。本格運用前に視覚検証が必要。
+`quiz-slides.mjs` は `reelsWrapper`（1350px コンテンツを 1920px キャンバスの中央に配置）で縦長キャンバスにも対応済み。R3-R7 全 42 パック × 4 枚 = 168 PNG 整備完了。
 
-### 3 つの実装オプション
+### 年度目次カルーセル（`_summary/`）
 
-| 案 | 内容 | 工数 | 仕上がり |
-|---|---|---|---|
-| **A. カルーセル PNG をそのまま流用** | 1080×1350 を IG アプリで 9:16 にトリミング（上下余白） | 0（手動のみ） | 余白多・簡易 |
-| **B. `--size reels` で 1080×1920 生成** ★推奨 | 既存パイプライン流用、縦長キャンバスで再レンダリング | 中（1-2 時間で微調整） | 既存と同内容で縦長 |
-| C. ストーリー専用デザイン | `buildStoryCover/Problem/Answer` を新規実装 | 大（5-8 時間） | 凝った仕上がり |
+**問題**: IG ストーリーのリンクスタンプは 1 個までで、1 ストーリーから 9 パックの個別投稿に直接リンクできない。
+
+**解決**: 各年度に「目次カルーセル」を新設し、ストーリー → 目次 → 個別パックの 3 階層誘導にする。
+
+```
+ストーリー（1 枚）= reels/img/00-cover.png をストーリーに投稿
+   ↓ リンクスタンプ
+目次カルーセル投稿（4 枚）= _summary/carousel/img/{00-cover, 01-pack-list, 02-pack-list, 03-cta}.png
+   ↓ プロフィール経由
+個別パック投稿（pack-01〜09）
+```
+
+生成は `.tmp/build-summary-slide-data.mjs <year>` → `.tmp/render-summary.mjs <year>` の 2 段（`pack-titles` から半自動生成）。出力は 5 年度 × 4 枚 × 2 サイズ = 40 PNG。
+
+将来は doboku-note サイト側に `/exam/r07` のような中継 LP を新設し、`IG 投稿 URL + サイト解説 URL` の二段構えに発展可能（試験後の課題）。
 
 ### ハイライト戦略例（doboku-note 向け）
 

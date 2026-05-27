@@ -130,6 +130,11 @@ title: スキル ガバナンス記録
 | 2026-05-27 | `lint-exam-pack-structure.mjs` | v1.0（新規） | 構造違反検出 lint。E1 (列挙散文化) / E2 (markdown 表残骸) / W1 (プレースホルダ残存)。bulk-generate-exam-packs.mjs に pre-check として統合 |
 | 2026-05-27 | `generate-caption.cjs` | （拡張） | `--format carousel\|reels` オプション追加。caption.txt を `<pack>/carousel/caption.txt` と `<pack>/reels/caption.txt` の 2 ファイルに分離。Reels 用は正答ネタバレなし + エンゲージメント CTA |
 | 2026-05-27 | デザイントークン | （多数調整） | qText 700→600 / cover 補助拡大 (tag 32, page 28, meta 38) / brandUrl 28 / cover-swipe chip 化 / cta-action 拡大 (title 32, subtitle 26, icon 72 brand 塗) / CTA 文言「全章→全問」「All章→5管理 SCOPE」/ cover-tag「総監択一クイズ→総監過去問」/ Q ロゴ right -20→40 / 装飾円を pageBadge/brand バッジ化 |
+| 2026-05-27 | cover-title 統一 | （仕様確定） | cover-title を「令和X年度 ／ 択一式 過去問 #N」固定文言に統一。`titleLine1` / `titleLine2Template` をトークン化し、パック横断で管理混在問題が表面化しない構造に変更（pack-05 が「経済性管理」ラベルだが社会環境問題を含む問題を契機に確定） |
+| 2026-05-27 | `ig-reel-create` | v1.1 | `--script-only` モード追加。VOICEVOX/ffmpeg 環境が未準備でも `reels/script.txt` の TTS 台本のみを先行生成可能に。Cover 台本テンプレを「令和X年度の択一式過去問、N番です。スワイプして4問にチャレンジしましょう。」に統一 |
+| 2026-05-27 | `build-stories.mjs` | v1.0（新規） | `.claude/scripts/instagram/build-stories.mjs` 新設。`reels/img/` から 4 枚（00-cover / 02-problem / 03-answer / 09-cta）を `stories/img/` にコピー + `stories/caption.txt` + `stories/note.md`（投稿手順）を生成。42 パック × 4 枚 = 168 PNG 整備 |
+| 2026-05-27 | summary 系スライド | v1.0（新規） | 年度目次カルーセル（`_summary/`）新設。`buildSummaryCover` / `buildSummaryPackList` / `buildSummaryCta` 3 ビルダー追加、`slide-render.mjs` の dispatcher と `ig-post-create.mjs` の `SLIDE_TYPE_MAP` に `summary-*` 系を追加。1 ストーリー → 目次カルーセル → 個別パックの 3 階層誘導を実現 |
+| 2026-05-27 | `generate-caption.cjs` | （文言確定） | カルーセル先頭行を「【令和X年度 択一式 過去問】R0X 過去問 #N」に固定。caption と cover-title を完全同期 |
 
 ### カテゴリ変更履歴
 

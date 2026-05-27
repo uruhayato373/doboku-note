@@ -123,7 +123,7 @@ bio 直下に固定表示できる丸アイコン。プロフィール訪問者�
 | 順 | Highlights | カバー画像 | 中身 | 素材ソース |
 |---|---|---|---|---|
 | ① | **はじめに** | 自己紹介（顔ハッタリ風） | 経歴・6 資格・編集方針の 3-4 枚 | 新規制作 |
-| ② | **総監過去問** | 「R07」「過去問」 | 過去問パック (B) を `--size reels` で再生成して投稿 | `_exam-packs/<year>/pack-NN/reels/img/` |
+| ② | **総監過去問** | 「R07」「過去問」 | 年度目次（summary）と各パック厳選 4 枚（cover/Q1/A1/CTA）の併用 | `_exam-packs/<year>/_summary/reels/` + `pack-NN/stories/img/` |
 | ③ | **5管理早見表** | 「5管理」 | 経済性・人的・情報・安全・社会環境 各 1 枚要約 | 新規制作（戦略 docs §IG type1 流用可） |
 | ④ | **note 商品** | note ロゴ | M9 / M5 / M6 / M8 / M3 紹介を 1 ストーリーずつ | `docs/note/_magazines/` cover 流用 |
 | ⑤ | **試験まで** | カウントダウン | 試験日カウントダウン投稿（試験 30 日前から） | 動的更新（試験期のみ） |
@@ -144,15 +144,21 @@ bio 直下に固定表示できる丸アイコン。プロフィール訪問者�
 
 ### カルーセルからのストーリー転載
 
-過去問パック (シリーズ B) は、既存パイプラインで縦長版を生成可能：
+過去問パック（シリーズ B）は 2 系統の素材で運用する：
 
 ```bash
-node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size reels
-# → docs/sns/instagram/_exam-packs/r07/pack-01/reels/img/{00..09}.png  (1080×1920)
+# 1. 各パックの「厳選 4 枚」を抽出（reels から cover/Q1/A1/cta をコピー）
+node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
+# → _exam-packs/r07/pack-01/stories/img/{01-cover, 02-problem, 03-answer, 04-cta}.png
+
+# 2. 年度入口の「目次カルーセル cover 1 枚」
+# 既に _exam-packs/<year>/_summary/reels/img/00-cover.png として整備済み
 ```
 
-ストーリー版は **1 パック = 10 ストーリー連投**、ハイライト ② に追加。
-詳細: `docs/reference/ig-carousel-skill.md` §10
+**パターン A**（年度入口）: 年度ごとに目次 cover 1 枚をストーリー投稿 → リンクスタンプで目次カルーセル投稿へ → 9 パックから選ぶ 3 階層誘導。  
+**パターン B**（個別パック宣伝）: パックごとに 4 枚連投 → リンクスタンプで該当カルーセル投稿へ。試験直前の高頻度配信期はこちら。
+
+両者を組み合わせてハイライト ② に追加。詳細: `docs/reference/ig-carousel-skill.md` §10
 
 ### カバー画像作成
 
