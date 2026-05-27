@@ -32,6 +32,7 @@ import { resolvePlacement } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
 import BookCard from '@/components/ui/BookCard/BookCard';
+import BookSection from '@/components/ui/BookSection/BookSection';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
 import TextbookNav from '@/components/ui/TextbookNav/TextbookNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
@@ -432,26 +433,20 @@ export default async function DocPage({
                 </div>
                 {/* 参考書籍（アフィリエイト・補完ポジション。記事末の最下部に配置） */}
                 <div className="mt-8">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    総監対策の定番キーワード集。択一の幅広い出題範囲をカバーしたいときに。
-                  </p>
-                  <BookCard asin="4274234746" />
+                  <BookSection caption="総監対策の定番キーワード集。択一の幅広い出題範囲をカバーしたいときに。">
+                    <BookCard asin="4274234746" />
+                  </BookSection>
                 </div>
               </>
             )}
 
             {/* PE past-exam: 参考書籍（アフィリエイト・補完ポジション） */}
             {category === 'pe-comprehensive-management' && docGroup === 'pastExam' && (
-              <>
-                <div className="mt-8">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    令和8年度の予想問題と模試で直前対策を仕上げたいときに。
-                  </p>
+              <div className="mt-8">
+                <BookSection caption="令和8年度の予想問題と模試で直前対策を仕上げたいときに。">
                   <BookCard asin="4798076546" />
-                </div>
-              </>
+                </BookSection>
+              </div>
             )}
 
             {/* Civil primary/secondary: 関連テキスト章 (過去問→教材) */}
@@ -465,12 +460,10 @@ export default async function DocPage({
                 過去問解説集（4886154557）+ 経験記述70パターン（4816378561）の固定ペア。） */}
             {category === 'civil-construction-1' && docGroup === 'secondary' && (
               <div className="mt-8">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  過去問演習と経験記述70パターンで二次対策を固めたいときに。
-                </p>
-                <BookCard asin="4886154557" />
-                <BookCard asin="4816378561" />
+                <BookSection caption="過去問演習と経験記述70パターンで二次対策を固めたいときに。">
+                  <BookCard asin="4886154557" />
+                  <BookCard asin="4816378561" />
+                </BookSection>
               </div>
             )}
 
@@ -486,12 +479,10 @@ export default async function DocPage({
                 {/* 参考書籍（Civil textbook: アフィリエイト・補完ポジション。
                     合格ガイド（4798176834・両用）+ 第1次徹底図解（4816378243・一次特化、R6追加分野対応）の固定ペア。） */}
                 <div className="mt-8">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    両用1冊で全体像をつかみ、一次特化テキストで R6 追加分野まで押さえたいときに。
-                  </p>
-                  <BookCard asin="4798176834" />
-                  <BookCard asin="4816378243" />
+                  <BookSection caption="両用1冊で全体像をつかみ、一次特化テキストで R6 追加分野まで押さえたいときに。">
+                    <BookCard asin="4798176834" />
+                    <BookCard asin="4816378243" />
+                  </BookSection>
                 </div>
                 <CivilSatProductCTA />
               </>
@@ -502,12 +493,10 @@ export default async function DocPage({
             {category === 'civil-construction-1' && docGroup === 'primary' && (
               <>
                 <div className="mt-8">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    解説重視と過去7年の演習量の両軸で一次過去問を仕上げたいときに。
-                  </p>
-                  <BookCard asin="4297154099" />
-                  <BookCard asin="4886154530" />
+                  <BookSection caption="解説重視と過去7年の演習量の両軸で一次過去問を仕上げたいときに。">
+                    <BookCard asin="4297154099" />
+                    <BookCard asin="4886154530" />
+                  </BookSection>
                 </div>
                 <CivilSatProductCTA />
               </>
@@ -519,12 +508,10 @@ export default async function DocPage({
             {category === 'civil-construction-1' && docGroup === 'guide' && (
               <>
                 <div className="mt-8">
-                  <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                    まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。
-                  </p>
-                  <BookCard asin="4798176834" />
-                  <BookCard asin="4297154099" />
+                  <BookSection caption="まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。">
+                    <BookCard asin="4798176834" />
+                    <BookCard asin="4297154099" />
+                  </BookSection>
                 </div>
                 <CivilSatProductCTA />
               </>
@@ -547,13 +534,15 @@ export default async function DocPage({
                 R8 予想ページは予想模試本、それ以外は受験万全対策本） */}
             {category === 'pe-comprehensive-management' && docGroup === 'guide' && (
               <div className="mt-8">
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">参考書籍</h2>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-                  {slugStr.includes('r8-essay')
-                    ? '令和8年度の予想問題と模試で直前対策を仕上げたいときに。'
-                    : '総監受験を申込書から口頭試験まで通して押さえたいときに。'}
-                </p>
-                <BookCard asin={slugStr.includes('r8-essay') ? '4798076546' : '4526084263'} />
+                <BookSection
+                  caption={
+                    slugStr.includes('r8-essay')
+                      ? '令和8年度の予想問題と模試で直前対策を仕上げたいときに。'
+                      : '総監受験を申込書から口頭試験まで通して押さえたいときに。'
+                  }
+                >
+                  <BookCard asin={slugStr.includes('r8-essay') ? '4798076546' : '4526084263'} />
+                </BookSection>
               </div>
             )}
 
