@@ -2,19 +2,18 @@
      xmlns="http://www.w3.org/2000/svg"
      style="max-width:400px;width:100%"
      role="img"
-     aria-label="経済成長は右上に伸び続け、天然資源の利用は緩やかに頭打ち、環境影響は中盤でピークを打って減少へ転じる。経済成長と天然資源の間の縦アーキが相対的デカップリング、経済成長と環境影響の間の縦アーキが絶対的デカップリング">
+     aria-label="経済成長は右上に伸び続け、天然資源の利用は緩やかに頭打ち、環境影響は中盤でピークを打って減少へ転じる。経済成長と天然資源の間の隙間が相対的デカップリング、経済成長と環境影響の間の隙間が絶対的デカップリング">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
       .t-title { font-size: 14px; font-weight: bold; fill: #222; }
       .t-axis  { font-size: 12px; fill: #555; }
       .t-line  { font-size: 12px; font-weight: bold; }
-      .t-anno  { font-size: 11px; font-weight: bold; fill: #222; }
+      .t-anno  { font-size: 11px; font-weight: bold; }
       .l-economic { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
       .l-resource { stroke: #d4a017; stroke-width: 2.5; fill: none; }
       .l-impact   { stroke: #b22234; stroke-width: 2.5; fill: none; }
       .axis       { stroke: #8a8a8a; stroke-width: 1; fill: none; }
-      .anno       { stroke: #555; stroke-width: 1.2; fill: none; stroke-dasharray: 3,2; }
     </style>
   </defs>
 
@@ -27,6 +26,9 @@
 
   <text class="t-axis" x="295" y="248" text-anchor="end">時間</text>
 
+  <path d="M 200,142 L 220,118 L 220,194 L 200,189 Z" fill="#b22234" opacity="0.18"/>
+  <path d="M 240,95  L 260,79  L 260,148 L 240,155 Z" fill="#d4a017" opacity="0.28"/>
+
   <path class="l-economic" d="M 35,220 C 90,210 200,150 290,45"/>
   <path class="l-resource" d="M 35,220 C 110,210 220,160 290,135"/>
   <path class="l-impact"   d="M 35,220 C 90,215 140,190 165,190 C 220,190 270,200 290,210"/>
@@ -35,17 +37,6 @@
   <text class="t-line" x="297" y="139" fill="#d4a017">天然資源の利用</text>
   <text class="t-line" x="297" y="213" fill="#b22234">環境影響</text>
 
-  <line class="anno" x1="210" y1="132" x2="210" y2="187"/>
-  <polygon points="210,124 206,132 214,132" fill="#555"/>
-  <polygon points="210,195 206,187 214,187" fill="#555"/>
-  <rect x="214" y="127" width="80" height="26" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="0.8"/>
-  <text class="t-anno" x="218" y="140">絶対的</text>
-  <text class="t-anno" x="218" y="152">デカップリング</text>
-
-  <line class="anno" x1="250" y1="91" x2="250" y2="145"/>
-  <polygon points="250,83 246,91 254,91" fill="#555"/>
-  <polygon points="250,153 246,145 254,145" fill="#555"/>
-  <rect x="254" y="100" width="80" height="26" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="0.8"/>
-  <text class="t-anno" x="258" y="113">相対的</text>
-  <text class="t-anno" x="258" y="125">デカップリング</text>
+  <text class="t-anno" x="210" y="110" text-anchor="middle" fill="#b22234">絶対的</text>
+  <text class="t-anno" x="250" y="70" text-anchor="middle" fill="#d4a017">相対的</text>
 </svg>
