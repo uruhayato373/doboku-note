@@ -6,8 +6,8 @@
  *
  * Usage:
  *   node scripts/quality-cycle.mjs --mode screen
- *   node scripts/quality-cycle.mjs --mode score [--top 200] [--slug <slug>]
- *   node scripts/quality-cycle.mjs --mode rewrite [--threshold 2.5] [--batch 3] [--slug <slug>]
+ *   node scripts/quality-cycle.mjs --mode score [--top 200] [--slug <slug>] [--section <X.Y>]
+ *   node scripts/quality-cycle.mjs --mode rewrite [--threshold 2.5] [--batch 3] [--slug <slug>] [--section <X.Y>]
  *   node scripts/quality-cycle.mjs --mode verify [--slug <slug>]
  *   node scripts/quality-cycle.mjs --mode review
  *   node scripts/quality-cycle.mjs --mode report
@@ -73,6 +73,7 @@ function parseArgs(argv) {
     else if (a === '--batch') args.batch = parseInt(argv[++i], 10);
     else if (a === '--order') args.order = argv[++i];
     else if (a === '--slug') args.slug = argv[++i];
+    else if (a === '--section') args.section = argv[++i];
     else if (a === '--dry-run') args.dryRun = true;
     else if (a === '--help' || a === '-h') args.help = true;
   }
@@ -294,7 +295,11 @@ function runScore(args) {
   // 候補上位 N 件を抽出（既評価はスキップ）
   let candidates = Object.entries(screen.pages)
     .sort(([, a], [, b]) => b.candidate_score - a.candidate_score)
-    .filter(([slug]) => !alreadyScored.has(slug))
+    .filter(([slug, p]) => {
+      if (alreadyScored.has(slug)) return false;
+      if (args.section && p.section !== args.section) return false;
+      return true;
+    })
     .slice(0, top);
 
   if (args.slug) {
@@ -361,6 +366,7 @@ function runRewrite(args) {
     .filter(([slug, p]) => {
       if (alreadyHandled.has(slug)) return false;
       if (args.flagshipOnly && !flagshipSet.has(slug)) return false;
+      if (args.section && p.section !== args.section) return false;
       if (p.weighted >= threshold) return false;
       if (args.minWeighted !== undefined && p.weighted < args.minWeighted) return false;
       // 直近 MIN_REWRITE_INTERVAL_MINUTES 以内に更新された slug は別プロセスが

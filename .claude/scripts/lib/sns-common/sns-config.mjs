@@ -60,6 +60,10 @@ export const SNS_CONFIG = {
   },
 
   // 5管理区分マップ（label + badge color）
+  // NOTE: color は notebook（slug モード）の cover-badge 専用。
+  //       IG カルーセル過去問パック（quiz-* / _exam-packs）は新意匠で 5管理別色を廃止し、
+  //       単一 brand に統一（docs/design-system/instagram-carousel-tokens.json）。
+  //       label は両系統で使う（cover-title 表示・MDX→検出など）。
   managementMap: {
     economic: { label: '経済性管理',   color: '#bfdcef' },
     human:    { label: '人的資源管理', color: '#d0e8d0' },

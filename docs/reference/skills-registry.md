@@ -119,6 +119,22 @@ title: スキル ガバナンス記録
 | 2026-05-21 | `pe-essay-cycle` | （属性整理） | 環境調査ペルソナ廃止に伴い、受験者属性を 4 種 → 3 種（general-contractor / river-consultant / road-municipality）に変更 |
 | 2026-05-21 | `pe-note-plan` | （属性整理） | 環境調査ペルソナ廃止に伴い、属性 × 年度マトリクスを 4 属性 → 3 属性に変更 |
 | 2026-05-21 | `lint-mdx-mobile.mjs` | （配列整理） | 環境調査ペルソナ廃止に伴い、`R8_SPOKE_ALLOWED_PERSONAS` から `'環境調査'` を除去（4 固定ペルソナ + 業界外救済 → 3 固定ペルソナ + 業界外救済） |
+| 2026-05-27 | `ig-carousel-restyle` | v1.0（新規） | AIDesigner 新意匠の tokens.json 真実源化に伴い新設。`docs/design-system/instagram-carousel-tokens.json` 更新後に `_exam-packs/**` の PNG を一括再生成するラッパー。引数 `--pack`/`--year`/`--all`。内部で `scripts/bulk-generate-exam-packs.mjs` を呼ぶ |
+| 2026-05-27 | `quiz-slides.mjs` | （全面書き換え） | AIDesigner プロト準拠の新意匠に書き換え。5管理別カラーテーマ（MGMT_THEME 5 セット）を廃止し、単一 brand + semantic（green 正答 / coral 誤答 / navy CTA）に統一。フォントを NotoSansJP-Bold/Inter-Bold → Manrope（latin）+ NotoSansJP（jp）に変更。tokens.json から値を import |
+| 2026-05-27 | `ig-post-create` / `slide-render.mjs` | （フォント拡張） | `@fontsource/manrope` + `@fontsource/noto-sans-jp` を npm 導入し、Satori `fonts` 配列に Manrope 500/700/800 + NotoSansJP 500/700/800/900 を追加（既存 Inter 700 / Noto Sans JP 700 は互換維持） |
+| 2026-05-27 | `ig-carousel-qa` | v2.0（軸追加） | テキスト 5 軸に加え、過去問パック専用「デザイン統一性」第 6 軸を追加。PNG を Read tool で読み tokens.json と照合する |
+| 2026-05-27 | `ig-carousel-writer` | （ガード追加） | slide-data.json に色・フォント・余白を書かないルールを明記。5管理別配色は廃止済みで識別は cover-title テキストで行う旨を追記 |
+| 2026-05-27 | `quiz-slides.mjs` | （4 段階圧縮モード） | normal/dense/compact/ultra の 4 段階を総文字数で自動判定。`MGMT_THEME` 完全廃止 + reelsWrapper（1920 中央寄せ）追加 + buildTable / buildLists 汎用ビルダー追加 |
+| 2026-05-27 | `slide-data.json` スキーマ | （拡張） | problem に `lists`/`table` フィールド、answer に `optionExplanations[5]`/`pointText` 必須化。`explanationLines` 廃止 |
+| 2026-05-27 | `ig-reel-create` | v1.0（新規） | カルーセル PNG ベースの Reels 動画生成スキル。`--exam <pack-id>` で 1080×1920 PNG → VOICEVOX TTS → ffmpeg 連結 → mp4。旧 YT Shorts (142 dir / 37 mp4) を全削除して新設 |
+| 2026-05-27 | `lint-exam-pack-structure.mjs` | v1.0（新規） | 構造違反検出 lint。E1 (列挙散文化) / E2 (markdown 表残骸) / W1 (プレースホルダ残存)。bulk-generate-exam-packs.mjs に pre-check として統合 |
+| 2026-05-27 | `generate-caption.cjs` | （拡張） | `--format carousel\|reels` オプション追加。caption.txt を `<pack>/carousel/caption.txt` と `<pack>/reels/caption.txt` の 2 ファイルに分離。Reels 用は正答ネタバレなし + エンゲージメント CTA |
+| 2026-05-27 | デザイントークン | （多数調整） | qText 700→600 / cover 補助拡大 (tag 32, page 28, meta 38) / brandUrl 28 / cover-swipe chip 化 / cta-action 拡大 (title 32, subtitle 26, icon 72 brand 塗) / CTA 文言「全章→全問」「All章→5管理 SCOPE」/ cover-tag「総監択一クイズ→総監過去問」/ Q ロゴ right -20→40 / 装飾円を pageBadge/brand バッジ化 |
+| 2026-05-27 | cover-title 統一 | （仕様確定） | cover-title を「令和X年度 ／ 択一式 過去問 #N」固定文言に統一。`titleLine1` / `titleLine2Template` をトークン化し、パック横断で管理混在問題が表面化しない構造に変更（pack-05 が「経済性管理」ラベルだが社会環境問題を含む問題を契機に確定） |
+| 2026-05-27 | `ig-reel-create` | v1.1 | `--script-only` モード追加。VOICEVOX/ffmpeg 環境が未準備でも `reels/script.txt` の TTS 台本のみを先行生成可能に。Cover 台本テンプレを「令和X年度の択一式過去問、N番です。スワイプして4問にチャレンジしましょう。」に統一 |
+| 2026-05-27 | `build-stories.mjs` | v1.0（新規） | `.claude/scripts/instagram/build-stories.mjs` 新設。`reels/img/` から 4 枚（00-cover / 02-problem / 03-answer / 09-cta）を `stories/img/` にコピー + `stories/caption.txt` + `stories/note.md`（投稿手順）を生成。42 パック × 4 枚 = 168 PNG 整備 |
+| 2026-05-27 | summary 系スライド | v1.0（新規） | 年度目次カルーセル（`_summary/`）新設。`buildSummaryCover` / `buildSummaryPackList` / `buildSummaryCta` 3 ビルダー追加、`slide-render.mjs` の dispatcher と `ig-post-create.mjs` の `SLIDE_TYPE_MAP` に `summary-*` 系を追加。1 ストーリー → 目次カルーセル → 個別パックの 3 階層誘導を実現 |
+| 2026-05-27 | `generate-caption.cjs` | （文言確定） | カルーセル先頭行を「【令和X年度 択一式 過去問】R0X 過去問 #N」に固定。caption と cover-title を完全同期 |
 
 ### カテゴリ変更履歴
 

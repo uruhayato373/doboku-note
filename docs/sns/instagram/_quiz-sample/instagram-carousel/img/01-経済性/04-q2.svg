@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1350" viewBox="0 0 1080 1350">
+  <rect x="0" y="0" width="1080" height="1350" rx="0" fill="#ffffff" />
+<rect x="80" y="60" width="380" height="64" rx="32" fill="#2e6da4" />
+  <text x="270" y="92" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">Q2 経済性管理</text>
+  <text x="1020" y="100" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="400" fill="#8a8a8a" text-anchor="end">slot 2/4</text>
+  <text x="80" y="220" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="48" font-weight="800" fill="#222222" text-anchor="start">ECRSの原則</text>
+  <line x1="80" y1="270" x2="1000" y2="270" stroke="#2e6da4" stroke-width="3" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="40" font-weight="500" fill="#222222"><tspan x="80" y="360">改善活動の ECRS の原則として正しい順序</tspan><tspan x="80" y="420">は次のうちどれか。</tspan></text>
+  <g>
+    <rect x="80" y="580" width="920" height="110" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="140" cy="635" r="32" fill="#2e6da4" />
+  <text x="140" y="635" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="35" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">1</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="400" fill="#222222"><tspan x="202" y="615.2">Eliminate → Combine →</tspan><tspan x="202" y="655.2"> Rearrange → Simplify</tspan></text>
+    </g>
+  <g>
+    <rect x="80" y="708" width="920" height="110" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="140" cy="763" r="32" fill="#2e6da4" />
+  <text x="140" y="763" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="35" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">2</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="400" fill="#222222"><tspan x="202" y="743.2">Easy → Cheap → Rapid </tspan><tspan x="202" y="783.2">→ Smart</tspan></text>
+    </g>
+  <g>
+    <rect x="80" y="836" width="920" height="110" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="140" cy="891" r="32" fill="#2e6da4" />
+  <text x="140" y="891" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="35" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">3</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="400" fill="#222222"><tspan x="202" y="871.2">Evaluate → Compare → </tspan><tspan x="202" y="911.2">Reduce → Standardize</tspan></text>
+    </g>
+  <g>
+    <rect x="80" y="964" width="920" height="110" rx="14" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="140" cy="1019" r="32" fill="#2e6da4" />
+  <text x="140" y="1019" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="35" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">4</text>
+    <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="400" fill="#222222"><tspan x="202" y="999.2">Execute → Control → R</tspan><tspan x="202" y="1039.2">eview → Sustain</tspan></text>
+    </g>
+  <text x="540" y="1230" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="600" fill="#2e6da4" text-anchor="middle">→ スワイプで答えを見る →</text>
+  <text x="1040" y="1318" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

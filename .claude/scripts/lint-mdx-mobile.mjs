@@ -59,6 +59,7 @@
  *  12-3 LOW    group: guide で末尾 H2 が承認パターン外（次のステップ / 関連リソース / ○○の選択肢）
  *  13-1 MEDIUM r8-essay-theme-* spoke で許可外の ### ペルソナ名を検出（content-principles.md §21）
  *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 4 個でない（content-principles.md §21、3 ペルソナ + 業界外救済 = 4 個が正常）
+ *  14-1 MEDIUM factual table（数値・年代・指定数・統計データを含む verifiable claim 表）の直下に `<Callout type="reference" title="出典">` がない（content-principles.md §22）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -1343,6 +1344,72 @@ function lintR8SpokeFixedPersonas(lines, raw, filePath, findings) {
  *
  * Docusaurus 由来の旧フィールドで doboku-note では未使用。migrate-civil-frontmatter.mjs で一括削除可。
  */
+/**
+ * 14-1: factual table（数値・年代・指定数・統計データを含む表）の直下に
+ *       `<Callout type="reference" title="出典">` がない（content-principles.md §22）
+ *
+ * verifiable claim 検出ヒューリスティック:
+ *   - 数字 + 単位（年・条・種・件・万円・億円・%・トン・gha・km・m・kg・ha・個・回・名・人）
+ *   - 西暦表記（19XX 年 / 20XX 年）
+ *   - 元号表記（昭和XX / 平成XX / 令和XX）
+ *
+ * 概念定義表（メリット/デメリット表・カテゴリ説明表）は誤検知を避けるため、
+ * セルに上記パターンを含まない限り対象外。
+ *
+ * 旧形式（`> 出典:` blockquote）は 2026-05-27 以降サポート外。旧形式を検出した場合も
+ * 不検出として扱い、Callout への移行を促す（migration script で一括変換済み）。
+ */
+function lintInlineSource(table, lines, findings) {
+  // verifiable claim のヒューリスティック
+  const VERIFIABLE_PATTERNS = [
+    /\d+\s*(年|条|種|件|主体|万円|億円|億|兆円|％|%|gha|トン|t|kg|km|m\b|個|回|名|人|箇所|か所|か国|ヶ国)/,
+    /(19|20)\d{2}\s*年/, // 西暦
+    /(昭和|平成|令和)\s*\d+/, // 元号
+  ];
+
+  // テーブル内の任意のセルに verifiable claim があるか
+  let hasVerifiableClaim = false;
+  const allRows = [table.headerLine, ...table.dataLines.map((d) => d.text)];
+  for (const row of allRows) {
+    const cells = splitRow(row);
+    for (const cell of cells) {
+      const cleaned = cell.replace(/\*\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+      if (VERIFIABLE_PATTERNS.some((p) => p.test(cleaned))) {
+        hasVerifiableClaim = true;
+        break;
+      }
+    }
+    if (hasVerifiableClaim) break;
+  }
+
+  if (!hasVerifiableClaim) return;
+
+  // テーブル直下（空行を許容して最大 3 行先まで）に `<Callout type="reference" title="出典">` があるか
+  // table.endLine は 1-based inclusive
+  let idx = table.endLine; // 0-based index of next line
+  let foundSource = false;
+  for (let scan = 0; scan < 3 && idx < lines.length; scan++, idx++) {
+    const line = lines[idx];
+    if (line.trim() === '') continue;
+    if (/<Callout\s+type=["']reference["']\s+title=["']出典["']/.test(line)) {
+      foundSource = true;
+      break;
+    }
+    // Callout 以外の非空行が来たら打ち切り（散文が割り込んだら出典なしと判定）
+    break;
+  }
+
+  if (!foundSource) {
+    findings.push({
+      severity: 'MEDIUM',
+      rule: '14-1',
+      line: table.startLine,
+      endLine: table.endLine,
+      message: `factual table（数値・年代等の verifiable claim を含む）の直下にインライン出典がない（§22）。「<Callout type="reference" title="出典">[タイトル（機関）](URL)</Callout>」形式で一次ソースを追加すること（既存 ## 参考資料 から再利用可）`,
+    });
+  }
+}
+
 function lintLegacyFrontmatter(raw, findings) {
   const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!fmMatch) return;
@@ -1404,6 +1471,7 @@ function lintFile(filePath) {
   for (const t of tables) {
     lintTable(t, findings);
     lintHeadingBeforeTable(t, lines, findings);
+    lintInlineSource(t, lines, findings);
   }
 
   lintRelatedKeywordList(lines, findings);

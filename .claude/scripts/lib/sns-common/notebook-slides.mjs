@@ -36,6 +36,10 @@ export const MANAGEMENT_MAP = {
   info:     { index: 2, stickyColor: '#e0d4f7', label: '情報管理' },
   safety:   { index: 3, stickyColor: '#fde58a', label: '安全管理' },
   social:   { index: 4, stickyColor: '#f5d4d4', label: '社会環境管理' },
+  // alias for bundle SoT (ig-section-bundles.json)
+  economy:     { index: 0, stickyColor: '#bfdcef', label: '経済性管理' },
+  hr:          { index: 1, stickyColor: '#d0e8d0', label: '人的資源管理' },
+  environment: { index: 4, stickyColor: '#f5d4d4', label: '社会環境管理' },
 };
 
 const MGMT_LABELS = ['経済性', '人的', '情報', '安全', '社会'];
@@ -335,7 +339,7 @@ export function buildNotebookCover({ width, height, data }) {
  * data: {
  *   heading: string,     // 板書見出し
  *   body: string,        // 本文（'\n' で改行）
- *   noteText: string,    // 破線ボックスのメモ（'\n' で改行）
+ *   noteText: string,    // 破線ボックスのメモ（'\n' で改行・空なら破線ボックス非表示）
  *   management: string,
  *   date: string,
  *   caption: string,
@@ -345,7 +349,8 @@ export function buildNotebookBoard({ width, height, data }) {
   const L = getLayout(height);
   const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
   const bodyLines = (data.body || '').split('\n');
-  const noteLines = (data.noteText || '').split('\n');
+  const noteLines = (data.noteText || '').split('\n').filter((l) => l.trim());
+  const hasNote = noteLines.length > 0;
 
   return d(frameStyle(width, height), [
     buildMarginLine(),
@@ -367,38 +372,32 @@ export function buildNotebookBoard({ width, height, data }) {
         marginBottom: 32,
       }, data.heading || '板書 ｜ 定義'),
 
-      // 本文
+      // 本文（noteText がない場合は density を上げる）
       d({
         flexDirection: 'column',
         fontSize: L.bodyFontSize,
         fontWeight: 600,
         color: NOTEBOOK_TOKENS.inkBody,
-        lineHeight: 1.7,
-        marginBottom: 44,
+        lineHeight: 1.75,
+        marginBottom: hasNote ? 36 : 0,
       }, bodyLines.map(line => d({ display: 'flex' }, line || ' '))),
 
-      // 破線メモボックス
-      d({
-        paddingTop: 22, paddingBottom: 22,
-        paddingLeft: 30, paddingRight: 30,
-        background: '#ffffff',
-        border: `3px dashed ${NOTEBOOK_TOKENS.ink}`,
-        flexDirection: 'column',
-      }, [
-        d({
-          fontSize: 30,
-          fontWeight: 700,
-          color: NOTEBOOK_TOKENS.red,
-          marginBottom: 8,
-        }, '→ ここが本質'),
-        d({
-          flexDirection: 'column',
-          fontSize: L.bodyFontSize - 4,
-          fontWeight: 700,
-          color: NOTEBOOK_TOKENS.ink,
-          lineHeight: 1.5,
-        }, noteLines.map(line => d({ display: 'flex' }, line || ' '))),
-      ]),
+      // メモボックス（noteText が実体ある場合のみ表示、「ここが本質」見出しは削除）
+      hasNote
+        ? d({
+            paddingTop: 22, paddingBottom: 22,
+            paddingLeft: 30, paddingRight: 30,
+            background: '#ffffff',
+            border: `3px dashed ${NOTEBOOK_TOKENS.ink}`,
+            flexDirection: 'column',
+          }, d({
+            flexDirection: 'column',
+            fontSize: L.bodyFontSize - 4,
+            fontWeight: 700,
+            color: NOTEBOOK_TOKENS.ink,
+            lineHeight: 1.5,
+          }, noteLines.map(line => d({ display: 'flex' }, line || ' '))))
+        : null,
     ]),
 
   ]);
@@ -408,43 +407,62 @@ export function buildNotebookBoard({ width, height, data }) {
  * notebook-cta スライド
  *
  * data: {
- *   related: string[],   // 関連キーワードリスト
+ *   related?: string[],   // 関連キーワードリスト（単独 KW モード用）
+ *   isBundle?: boolean,   // bundle モードなら doboku-note + note 商品の宣伝に切替
  *   management: string,
  *   date: string,
  *   caption: string,
  * }
  */
 export function buildNotebookCta({ width, height, data }) {
+  if (data?.isBundle) return buildBundleCta({ width, height, data });
+  return buildSingleKwCta({ width, height, data });
+}
+
+/** bundle 用 CTA: doboku-note + note 商品宣伝 */
+function buildBundleCta({ width, height, data }) {
   const L = getLayout(height);
   const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
-  const related = data.related || [];
 
   return d(frameStyle(width, height), [
     buildMarginLine(),
     buildTabIndex(mgmt.index, L),
 
-    // コンテンツ全体を space-evenly で縦分散配置
     d({
       position: 'absolute',
       top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
       flexDirection: 'column',
-      justifyContent: 'space-around',
+      justifyContent: 'space-between',
     }, [
       // 見出し
       d({
-        fontSize: L.headingFontSize - 4,
-        fontWeight: 700,
-        color: NOTEBOOK_TOKENS.brandDeep,
         flexDirection: 'column',
-      }, SNS_CONFIG.cta.heading.map(line => d({ display: 'flex' }, line))),
+        gap: 8,
+      }, [
+        d({
+          fontSize: 28,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brand,
+          letterSpacing: '0.08em',
+        }, '▶ MORE'),
+        d({
+          fontSize: L.headingFontSize - 6,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brandDeep,
+          borderBottom: `6px solid ${NOTEBOOK_TOKENS.marker}`,
+          paddingBottom: 4,
+          alignSelf: 'flex-start',
+        }, 'もっと学ぶ'),
+      ]),
 
-      // 関連カード（ホッチキス付き）
+      // doboku-note カード
       d({
         background: '#ffffff',
-        border: `2px solid ${NOTEBOOK_TOKENS.ink}`,
-        paddingTop: 44, paddingBottom: 32,
-        paddingLeft: 32, paddingRight: 32,
+        border: `3px solid ${NOTEBOOK_TOKENS.ink}`,
+        paddingTop: 24, paddingBottom: 24,
+        paddingLeft: 28, paddingRight: 28,
         flexDirection: 'column',
+        gap: 12,
         position: 'relative',
       }, [
         // ホッチキス
@@ -456,7 +474,102 @@ export function buildNotebookCta({ width, height, data }) {
           transform: 'rotate(-5deg)',
           borderRadius: 2,
         }),
+        d({
+          fontSize: 32,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.ink,
+          borderBottom: `8px solid ${NOTEBOOK_TOKENS.marker}`,
+          paddingBottom: 2,
+          alignSelf: 'flex-start',
+          marginBottom: 4,
+        }, 'doboku-note.com'),
+        d({ fontSize: 26, fontWeight: 700, color: NOTEBOOK_TOKENS.inkBody }, '▷ 過去問 H21-R7 全 680 問 解説'),
+        d({ fontSize: 26, fontWeight: 700, color: NOTEBOOK_TOKENS.inkBody }, '▷ 5管理キーワード 694 件 辞書'),
+        d({ fontSize: 26, fontWeight: 700, color: NOTEBOOK_TOKENS.inkBody }, '▷ 5管理トレードオフ 攻略'),
+      ]),
 
+      // note 限定 商品カード
+      d({
+        background: NOTEBOOK_TOKENS.markerPink,
+        paddingTop: 20, paddingBottom: 20,
+        paddingLeft: 24, paddingRight: 24,
+        flexDirection: 'column',
+        gap: 8,
+        border: `2px solid ${NOTEBOOK_TOKENS.ink}`,
+      }, [
+        d({
+          fontSize: 28,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.red,
+          marginBottom: 4,
+        }, '▶ note 限定（プロフィールから）'),
+        d({ fontSize: 24, fontWeight: 700, color: NOTEBOOK_TOKENS.ink }, '・模範論文（ゼネコン／河川／道路）'),
+        d({ fontSize: 24, fontWeight: 700, color: NOTEBOOK_TOKENS.ink }, '・R8 予想問題集 6 テーマ'),
+        d({ fontSize: 24, fontWeight: 700, color: NOTEBOOK_TOKENS.ink }, '・5管理 精読ガイド'),
+      ]),
+
+      // 黄色付箋（保存推奨）
+      d({
+        alignSelf: 'flex-end',
+        width: 320,
+        background: NOTEBOOK_TOKENS.sticky,
+        paddingTop: 20, paddingBottom: 20,
+        paddingLeft: 22, paddingRight: 22,
+        flexDirection: 'column',
+        fontSize: 24,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.ink,
+        lineHeight: 1.5,
+        boxShadow: '4px 6px 12px rgba(0,0,0,0.12)',
+        transform: 'rotate(-2deg)',
+      }, [
+        d({ fontSize: 26, fontWeight: 700, marginBottom: 6 }, '▶ 保存推奨'),
+        d({ display: 'flex' }, '試験前日に'),
+        d({ display: 'flex' }, '見返す用'),
+      ]),
+    ]),
+  ]);
+}
+
+/** 単独 KW 用 CTA: 既存の関連 KW 列挙パターン */
+function buildSingleKwCta({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const related = data.related || [];
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+
+    d({
+      position: 'absolute',
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+      flexDirection: 'column',
+      justifyContent: 'space-around',
+    }, [
+      d({
+        fontSize: L.headingFontSize - 4,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.brandDeep,
+        flexDirection: 'column',
+      }, SNS_CONFIG.cta.heading.map(line => d({ display: 'flex' }, line))),
+
+      d({
+        background: '#ffffff',
+        border: `2px solid ${NOTEBOOK_TOKENS.ink}`,
+        paddingTop: 44, paddingBottom: 32,
+        paddingLeft: 32, paddingRight: 32,
+        flexDirection: 'column',
+        position: 'relative',
+      }, [
+        d({
+          position: 'absolute',
+          top: -12, left: 32,
+          width: 60, height: 22,
+          background: NOTEBOOK_TOKENS.ink,
+          transform: 'rotate(-5deg)',
+          borderRadius: 2,
+        }),
         d({
           fontSize: 28,
           color: NOTEBOOK_TOKENS.brand,
@@ -464,7 +577,6 @@ export function buildNotebookCta({ width, height, data }) {
           letterSpacing: '0.1em',
           marginBottom: 12,
         }, 'RELATED'),
-
         d({
           flexDirection: 'column',
           gap: 6,
@@ -474,7 +586,6 @@ export function buildNotebookCta({ width, height, data }) {
           fontWeight: 700,
           color: NOTEBOOK_TOKENS.ink,
         }, `▷ ${kw}`))),
-
         d({
           borderTop: `1px solid ${NOTEBOOK_TOKENS.paperLine}`,
           paddingTop: 18,
@@ -494,7 +605,6 @@ export function buildNotebookCta({ width, height, data }) {
         ]),
       ]),
 
-      // 青付箋（flex child として右寄せ配置）
       d({
         alignSelf: 'flex-end',
         width: 320,
@@ -516,6 +626,423 @@ export function buildNotebookCta({ width, height, data }) {
       ]),
     ]),
 
+  ]);
+}
+
+/**
+ * notebook-intro スライド (bundle カルーセル用)
+ *
+ * bundle 1 投稿の 2 枚目に配置し、含まれる全 KW を一覧表示する。
+ *
+ * data: {
+ *   heading: string,     // 'この投稿で学ぶこと' 等
+ *   keywords: string[],  // 含まれる KW タイトル一覧
+ *   noteText: string,    // 'セクション名 + グループ名' 等の文脈
+ *   management: string,
+ *   date: string,
+ *   caption: string,
+ * }
+ */
+export function buildNotebookIntro({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const keywords = Array.isArray(data.keywords)
+    ? data.keywords
+    : (data.body || '').split(/[、,]\s*/).filter(Boolean);
+  const noteLines = (data.noteText || '').split('\n');
+
+  // KW 数で 2 列に分けるかを判定
+  const useTwoColumns = keywords.length > 8;
+  const halfPoint = Math.ceil(keywords.length / 2);
+  const leftCol = useTwoColumns ? keywords.slice(0, halfPoint) : keywords;
+  const rightCol = useTwoColumns ? keywords.slice(halfPoint) : [];
+
+  const renderKwList = (list) =>
+    d({
+      flexDirection: 'column',
+      gap: 8,
+      flexGrow: 1,
+    }, list.map((kw, i) =>
+      d({
+        fontSize: useTwoColumns ? L.bodyFontSize - 4 : L.bodyFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.ink,
+        lineHeight: 1.4,
+      }, `${useTwoColumns ? '・' : '▷ '}${kw}`)
+    ));
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+
+    d({
+      position: 'absolute',
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+      flexDirection: 'column',
+    }, [
+      // 管理区分バッジ
+      d({
+        fontSize: L.labelFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.inkBody,
+        background: mgmt.stickyColor,
+        paddingTop: 8, paddingBottom: 8,
+        paddingLeft: 20, paddingRight: 20,
+        alignSelf: 'flex-start',
+        marginBottom: 16,
+        letterSpacing: '0.06em',
+      }, `▌ ${mgmt.label}`),
+
+      // 見出し
+      d({
+        fontSize: L.headingFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.brandDeep,
+        borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
+        paddingBottom: 12,
+        marginBottom: 24,
+      }, data.heading || 'この投稿で学ぶこと'),
+
+      // KW 一覧（1 列 or 2 列）— flexGrow で残りスペースを KW 一覧で埋める
+      useTwoColumns
+        ? d({
+            flexGrow: 1,
+            gap: 32,
+          }, [renderKwList(leftCol), renderKwList(rightCol)])
+        : renderKwList(leftCol),
+
+      // フッターは廃止（冗長な「セクション名 + グループ名」表示は除去）
+    ]),
+  ]);
+}
+
+/**
+ * notebook-summary スライド (bundle カルーセル用)
+ *
+ * bundle 1 投稿の最終枚目近くに配置し、まとめ・試験ポイントを示す。
+ *
+ * data: {
+ *   heading: string,     // 'まとめ｜試験のポイント' 等
+ *   body: string,        // まとめ本文（'\n' で改行）
+ *   noteText: string,    // '保存して試験前日に見返してください' 等
+ *   management: string,
+ *   date: string,
+ *   caption: string,
+ * }
+ */
+export function buildNotebookSummary({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const bodyLines = (data.body || '').split('\n');
+  const noteLines = (data.noteText || '保存して試験前日に見返してください').split('\n');
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+
+    d({
+      position: 'absolute',
+      top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+      flexDirection: 'column',
+      justifyContent: 'center',
+    }, [
+      // 見出し（マーカー風）
+      d({
+        fontSize: L.headingFontSize,
+        fontWeight: 700,
+        color: NOTEBOOK_TOKENS.ink,
+        borderBottom: `12px solid ${NOTEBOOK_TOKENS.marker}`,
+        paddingBottom: 6,
+        alignSelf: 'flex-start',
+        marginBottom: 36,
+      }, data.heading || 'まとめ｜試験のポイント'),
+
+      // 本文
+      data.body
+        ? d({
+            flexDirection: 'column',
+            fontSize: L.bodyFontSize,
+            fontWeight: 600,
+            color: NOTEBOOK_TOKENS.inkBody,
+            lineHeight: 1.7,
+            marginBottom: 40,
+          }, bodyLines.map(line => d({ display: 'flex' }, line || ' ')))
+        : null,
+
+      // 黄色付箋風のリマインダーカード
+      d({
+        background: NOTEBOOK_TOKENS.sticky,
+        paddingTop: 24, paddingBottom: 24,
+        paddingLeft: 32, paddingRight: 32,
+        flexDirection: 'column',
+        gap: 8,
+        boxShadow: '4px 6px 12px rgba(0,0,0,0.10)',
+        transform: 'rotate(-1.5deg)',
+        alignSelf: 'flex-start',
+        maxWidth: '85%',
+      }, [
+        d({
+          fontSize: 30,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.red,
+        }, '▶ 保存推奨'),
+        ...noteLines.map(line => d({
+          fontSize: L.bodyFontSize - 4,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.ink,
+          lineHeight: 1.5,
+        }, line || ' ')),
+      ]),
+    ]),
+  ]);
+}
+
+/**
+ * notebook-question スライド（過去問用）
+ *
+ * data: {
+ *   heading: string,     // "問題"
+ *   body: string,        // 問題本文
+ *   management: string,
+ * }
+ */
+export function buildNotebookQuestion({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const bodyLines = (data.body || "").split("\n");
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+      },
+      [
+        d({
+          fontSize: L.headingFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brandDeep,
+          borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
+          paddingBottom: 10,
+          marginBottom: 20,
+          alignSelf: "flex-start",
+          paddingLeft: 20, paddingRight: 20,
+        }, `▶ ${data.heading || "問題"}`),
+        d({
+          flexDirection: "column",
+          fontSize: L.bodyFontSize - 4,
+          fontWeight: 600,
+          color: NOTEBOOK_TOKENS.ink,
+          lineHeight: 1.75,
+        }, bodyLines.map((line) => d({ display: "flex" }, line || " "))),
+      ],
+    ),
+  ]);
+}
+
+/**
+ * notebook-options スライド（過去問選択肢）
+ *
+ * data: {
+ *   heading: string,
+ *   options: [{ num: number, text: string }, ...],
+ *   management: string,
+ * }
+ */
+export function buildNotebookOptions({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const options = data.options || [];
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+      },
+      [
+        d({
+          fontSize: L.headingFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brandDeep,
+          borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
+          paddingBottom: 10,
+          marginBottom: 16,
+          alignSelf: "flex-start",
+          paddingLeft: 20, paddingRight: 20,
+        }, `▶ ${data.heading || "選択肢"}`),
+        d(
+          { flexDirection: "column", gap: 14, flexGrow: 1 },
+          options.map((opt) =>
+            d(
+              {
+                flexDirection: "row",
+                gap: 16,
+                alignItems: "flex-start",
+              },
+              [
+                d({
+                  fontSize: 32,
+                  fontWeight: 700,
+                  color: NOTEBOOK_TOKENS.brand,
+                  minWidth: 44,
+                  flexShrink: 0,
+                  paddingTop: 2,
+                }, `${opt.num}.`),
+                d({
+                  fontSize: L.bodyFontSize - 10,
+                  fontWeight: 600,
+                  color: NOTEBOOK_TOKENS.inkBody,
+                  lineHeight: 1.5,
+                  flexShrink: 1,
+                }, opt.text),
+              ],
+            ),
+          ),
+        ),
+      ],
+    ),
+  ]);
+}
+
+/**
+ * notebook-think スライド（過去問の「答えはスワイプ↓」エンゲージ仕掛け）
+ *
+ * data: { heading: string, body: string, management: string }
+ */
+export function buildNotebookThink({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 40,
+      },
+      [
+        d({
+          fontSize: L.keywordFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brandDeep,
+          textAlign: "center",
+        }, data.heading || "答えは？"),
+        d({
+          fontSize: L.subtitleFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.inkBody,
+          borderBottom: `8px solid ${NOTEBOOK_TOKENS.marker}`,
+          paddingBottom: 6,
+        }, data.body || "次のスライドで解答"),
+        d({
+          fontSize: L.keywordFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.brand,
+        }, "↓"),
+      ],
+    ),
+  ]);
+}
+
+/**
+ * notebook-answer スライド（過去問の正答 + 解説 + ExamPoint）
+ *
+ * data: {
+ *   heading: string,            // "正答：N"
+ *   body: string,               // 解説（各選択肢の理由 1-3 行）
+ *   examPointSummary?: string,  // ExamPoint.summary
+ *   examPointItems?: string[],  // ExamPoint.items（最大 2 件表示）
+ *   management: string,
+ * }
+ */
+export function buildNotebookAnswer({ width, height, data }) {
+  const L = getLayout(height);
+  const mgmt = MANAGEMENT_MAP[data.management] || MANAGEMENT_MAP.safety;
+  const bodyLines = (data.body || "").split("\n").filter((l) => l.trim());
+  const items = (data.examPointItems || []).slice(0, 2);
+
+  return d(frameStyle(width, height), [
+    buildMarginLine(),
+    buildTabIndex(mgmt.index, L),
+    d(
+      {
+        position: "absolute",
+        top: L.contentTop, bottom: L.contentBottom, left: 160, right: 160,
+        flexDirection: "column",
+      },
+      [
+        // 正答ヘッダ（黄色付箋風）
+        d({
+          fontSize: L.headingFontSize,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.ink,
+          background: NOTEBOOK_TOKENS.sticky,
+          paddingTop: 12, paddingBottom: 12,
+          paddingLeft: 20, paddingRight: 24,
+          alignSelf: "flex-start",
+          marginBottom: 20,
+          boxShadow: "4px 6px 12px rgba(0,0,0,0.10)",
+          transform: "rotate(-1deg)",
+        }, `▶ ${data.heading || "正答"}`),
+
+        // 解説
+        d({
+          flexDirection: "column",
+          gap: 10,
+          fontSize: L.bodyFontSize - 10,
+          fontWeight: 700,
+          color: NOTEBOOK_TOKENS.inkBody,
+          lineHeight: 1.55,
+          marginBottom: 20,
+        }, bodyLines.map((line) => d({ display: "flex" }, line))),
+
+        // ExamPoint カード（あれば）
+        data.examPointSummary
+          ? d({
+              flexGrow: 1,
+              paddingTop: 18, paddingBottom: 18,
+              paddingLeft: 24, paddingRight: 24,
+              background: "#ffffff",
+              border: `3px dashed ${NOTEBOOK_TOKENS.red}`,
+              flexDirection: "column",
+              gap: 8,
+            }, [
+              d({
+                fontSize: 28,
+                fontWeight: 700,
+                color: NOTEBOOK_TOKENS.red,
+              }, `▶ 試験のポイント`),
+              d({
+                fontSize: L.bodyFontSize - 6,
+                fontWeight: 700,
+                color: NOTEBOOK_TOKENS.ink,
+                lineHeight: 1.5,
+              }, data.examPointSummary),
+              ...items.map((item) =>
+                d({
+                  fontSize: L.bodyFontSize - 14,
+                  fontWeight: 600,
+                  color: NOTEBOOK_TOKENS.inkBody,
+                  lineHeight: 1.5,
+                  paddingLeft: 16,
+                }, `・${item}`),
+              ),
+            ])
+          : null,
+      ],
+    ),
   ]);
 }
 
@@ -547,14 +1074,15 @@ export function buildNotebookFigure({ width, height, data }) {
         justifyContent: 'center',
         background: '#ffffff',
         border: `2px solid ${NOTEBOOK_TOKENS.paperLine}`,
-        padding: 24,
+        padding: 16,
+        overflow: 'hidden',
       }, {
         type: 'img',
         props: {
           src: data.imageBase64,
           style: {
-            maxWidth: `${width - 420}px`,
-            maxHeight: `${L.figureMaxH}px`,
+            maxWidth: `${width - 360}px`,
+            maxHeight: '100%',
             objectFit: 'contain',
           },
         },
@@ -598,19 +1126,19 @@ export function buildNotebookFigure({ width, height, data }) {
         fontWeight: 700,
         color: NOTEBOOK_TOKENS.brandDeep,
         borderBottom: `4px solid ${NOTEBOOK_TOKENS.brandDeep}`,
-        paddingBottom: 12,
-        marginBottom: 28,
+        paddingBottom: 10,
+        marginBottom: 18,
       }, data.heading || '図解'),
 
       figureArea,
 
       data.note
         ? d({
-            marginTop: 24,
+            marginTop: 16,
             flexDirection: 'column',
-            fontSize: L.bodyFontSize - 6,
+            fontSize: L.bodyFontSize - 8,
             fontWeight: 700,
-            color: NOTEBOOK_TOKENS.red,
+            color: NOTEBOOK_TOKENS.inkBody,
             lineHeight: 1.5,
           }, noteLines.map(line => d({ display: 'flex' }, line || ' ')))
         : null,

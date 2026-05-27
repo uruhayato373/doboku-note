@@ -17,7 +17,8 @@ import { dirname, resolve } from 'node:path';
 
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
-import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
+import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, buildNotebookIntro, buildNotebookSummary, buildNotebookQuestion, buildNotebookOptions, buildNotebookThink, buildNotebookAnswer, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
+import { buildQuizCover, buildQuizProblem, buildQuizPause, buildQuizAnswer, buildQuizCta, buildSummaryCover, buildSummaryPackList, buildSummaryCta } from './quiz-slides.mjs';
 import { SNS_CONFIG } from './sns-config.mjs';
 
 const NT = NOTEBOOK_TOKENS;
@@ -39,10 +40,12 @@ function notebookContainer(width, height) {
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const FONT_DIR = resolve(__dirname, '../../../skills/conversion/ogp-create/assets/fonts');
+const FONTSOURCE_DIR = resolve(__dirname, '../../../../node_modules/@fontsource');
 
 let cachedFonts = null;
 function loadFonts() {
   if (cachedFonts) return cachedFonts;
+  // 互換用既存（Inter + Noto Sans JP 700）+ IG カルーセル新意匠用（Manrope 500/700/800 + NotoSansJP 500/700/800/900）
   cachedFonts = [
     {
       name: 'Noto Sans JP',
@@ -56,6 +59,20 @@ function loadFonts() {
       weight: 700,
       style: 'normal',
     },
+    // Manrope (@fontsource/manrope, latin subset, woff)
+    ...[500, 700, 800].map((weight) => ({
+      name: 'Manrope',
+      data: readFileSync(resolve(FONTSOURCE_DIR, `manrope/files/manrope-latin-${weight}-normal.woff`)),
+      weight,
+      style: 'normal',
+    })),
+    // NotoSansJP (@fontsource/noto-sans-jp, japanese subset, woff)
+    ...[500, 600, 700, 800, 900].map((weight) => ({
+      name: 'NotoSansJP',
+      data: readFileSync(resolve(FONTSOURCE_DIR, `noto-sans-jp/files/noto-sans-jp-japanese-${weight}-normal.woff`)),
+      weight,
+      style: 'normal',
+    })),
   ];
   return cachedFonts;
 }
@@ -137,6 +154,34 @@ async function buildElement({ width, height, slide, config }) {
       return buildNotebookCta({ width, height, data: slide.data || {} });
     case 'notebook-figure':
       return buildNotebookFigure({ width, height, data: slide.data || {} });
+    case 'notebook-intro':
+      return buildNotebookIntro({ width, height, data: slide.data || {} });
+    case 'notebook-summary':
+      return buildNotebookSummary({ width, height, data: slide.data || {} });
+    case 'notebook-question':
+      return buildNotebookQuestion({ width, height, data: slide.data || {} });
+    case 'notebook-options':
+      return buildNotebookOptions({ width, height, data: slide.data || {} });
+    case 'notebook-think':
+      return buildNotebookThink({ width, height, data: slide.data || {} });
+    case 'notebook-answer':
+      return buildNotebookAnswer({ width, height, data: slide.data || {} });
+    case 'quiz-cover':
+      return buildQuizCover({ width, height, data: slide.data || {} });
+    case 'quiz-problem':
+      return buildQuizProblem({ width, height, data: slide.data || {} });
+    case 'quiz-pause':
+      return buildQuizPause({ width, height, data: slide.data || {} });
+    case 'quiz-answer':
+      return buildQuizAnswer({ width, height, data: slide.data || {} });
+    case 'quiz-cta':
+      return buildQuizCta({ width, height, data: slide.data || {} });
+    case 'summary-cover':
+      return buildSummaryCover({ width, height, data: slide.data || {} });
+    case 'summary-pack-list':
+      return buildSummaryPackList({ width, height, data: slide.data || {} });
+    case 'summary-cta':
+      return buildSummaryCta({ width, height, data: slide.data || {} });
     case 'image':
       return buildImageElement({ width, height, data: slide.data || {} });
     default:

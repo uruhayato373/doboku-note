@@ -26,6 +26,7 @@ description: >
 | `--order <weakest\|newest>` | 任意 | rewrite モードの選定順序 |
 | `--max <N>` | 任意 | improve モード時、1セッションで処理する最大記事数（既定: 5） |
 | `--slug <slug>` | 任意 | 特定スラッグのみ対象 |
+| `--section <X.Y>` | 任意 | frontmatter `section: 'X.Y'` のページのみ対象（章別バルク処理、2026-05-26 追加） |
 | `--round <N>` | 任意 | issue モード時のラウンド番号 |
 | `--create` | 任意 | issue モード時、gh CLI で実際に issue 作成 |
 | `--dry-run` | 任意 | 対象とアクションだけ表示 |

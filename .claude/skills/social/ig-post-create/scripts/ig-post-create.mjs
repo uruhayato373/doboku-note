@@ -1,21 +1,33 @@
 /**
- * Instagram Study Notebook スライド PNG 生成スクリプト
+ * Instagram カルーセル PNG 生成スクリプト
+ *
+ * 2 つの運用モード:
+ *   1. --slug : 単独キーワード解説（Study Notebook デザイン・notebook-cover/board/cta）
+ *   2. --exam : 過去問パック（type3 デザイン・5 管理別色・4 問パック 10 枚構成）
  *
  * 使い方:
- *   node ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size both
+ *   # 単独 KW モード
+ *   node ig-post-create.mjs --slug heinrich-law --date 2026-05-09 --size carousel
+ *
+ *   # 過去問パックモード
+ *   node ig-post-create.mjs --exam r07-pack-01 --size carousel
  *
  * オプション:
- *   --slug      キーワードスラグ（pe-comprehensive-management 配下のディレクトリ名）[必須]
- *   --date      投稿日（YYYY-MM-DD）[省略時: 今日]
- *   --size      reels | carousel | both [省略時: both]
- *   --category  カテゴリ（デフォルト: pe-comprehensive-management）
- *   --reset       slide-data.json を無視して MDX から再生成
+ *   --slug        単独 KW のスラグ（--exam と排他）
+ *   --exam        過去問パック ID (例: r07-pack-01)。slide-data.json は
+ *                 docs/sns/instagram/_exam-packs/<year>/pack-<NN>/ から読む
+ *   --date        投稿日（YYYY-MM-DD）[省略時: 今日。--exam では未使用]
+ *   --size        reels | carousel | both [省略時: both]
+ *   --category    カテゴリ（デフォルト: pe-comprehensive-management）
+ *   --reset       slide-data.json を無視して MDX から再生成（--slug のみ）
  *   --config-only slide-data.json のみ生成（PNG 生成スキップ）
  *
  * 出力先:
- *   docs/sns/instagram/{date}-{slug}/slide-data.json  ← 手動編集可能な設定ファイル
- *   docs/sns/instagram/{date}-{slug}/reels/img/       (1080×1920)
- *   docs/sns/instagram/{date}-{slug}/carousel/img/    (1080×1350)
+ *   --slug: docs/sns/instagram/{date}-{slug}/{reels,carousel}/img/
+ *   --exam: docs/sns/instagram/_exam-packs/{year}/pack-{NN}/{reels,carousel}/img/
+ *
+ * 関連スキル:
+ *   - 択一クイズパック（運営者作問・シリーズ A）: .claude/scripts/sns/render-quiz-pack.mjs
  */
 
 import { writeFileSync, readFileSync, existsSync, mkdirSync } from 'node:fs';
@@ -170,16 +182,26 @@ const { renderSlide } = await import(
 
 const args = parseArgs(process.argv.slice(2));
 const slug = args.slug;
+const examId = args.exam; // 例: r07-pack-01
 const category = args.category ?? 'pe-comprehensive-management';
 const date = args.date ?? new Date().toISOString().slice(0, 10);
 const sizeArg = args.size ?? 'both';
 const resetFlag = 'reset' in args;
 const configOnly = 'config-only' in args;
 
-if (!slug) {
-  console.error('Usage: node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both] [--reset] [--config-only]');
+const modeFlags = [slug, examId].filter(Boolean);
+if (modeFlags.length === 0) {
+  console.error('Usage:');
+  console.error('  node ig-post-create.mjs --slug <slug> [--date YYYY-MM-DD] [--size reels|carousel|both] [--reset]');
+  console.error('  node ig-post-create.mjs --exam <examId>   (例: r07-pack-01) [--size reels|carousel|both]');
   process.exit(1);
 }
+if (modeFlags.length > 1) {
+  console.error('Error: --slug と --exam は排他です');
+  process.exit(1);
+}
+
+const mode = examId ? 'exam' : 'slug';
 
 const ALL_SIZES = [
   { name: 'reels',    width: 1080, height: 1920 },
@@ -194,14 +216,34 @@ if (sizes.length === 0) {
   process.exit(1);
 }
 
-const outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
+let outBase;
+if (mode === 'exam') {
+  const match = examId.match(/^([hr]\d+)-pack-(\d+)$/);
+  if (!match) {
+    console.error(`Error: --exam の形式は <year>-pack-<NN> (例: r07-pack-01)`);
+    process.exit(1);
+  }
+  const [, year, packNum] = match;
+  outBase = resolve(ROOT, `docs/sns/instagram/_exam-packs/${year}/pack-${packNum}`);
+} else {
+  outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
+}
 const configPath = resolve(outBase, 'slide-data.json');
 
-console.log(`\n[ig-post-create] slug: ${slug}  date: ${date}  size: ${sizeArg}`);
+const modeLabel = mode === 'exam' ? `exam: ${examId}` : `slug: ${slug}  date: ${date}`;
+console.log(`\n[ig-post-create] mode: ${mode}  ${modeLabel}  size: ${sizeArg}`);
 
 let slideData;
 
-if (existsSync(configPath) && !resetFlag) {
+if (mode === 'exam') {
+  if (!existsSync(configPath)) {
+    console.error(`Error: slide-data.json not found: ${configPath}`);
+    console.error('Hint: node scripts/generate-exam-pack-dirs.mjs で生成してください');
+    process.exit(1);
+  }
+  slideData = JSON.parse(readFileSync(configPath, 'utf8'));
+  console.log(`  [config] exam slide-data.json を使用 (${slideData.slides?.length ?? 0} slides)`);
+} else if (existsSync(configPath) && !resetFlag) {
   // 再実行: slide-data.json から読み込み（MDX 解析スキップ）
   slideData = normalizeSlideData(JSON.parse(readFileSync(configPath, 'utf8')));
   console.log(`  [config] slide-data.json を使用`);
@@ -251,26 +293,86 @@ if (configOnly) {
   process.exit(0);
 }
 
-const management = slideData.cover?.management || 'safety';
+const management = mode === 'exam'
+  ? (slideData._meta?.management || 'safety')
+  : (slideData.cover?.management || 'safety');
 const padNum = (n) => String(n).padStart(2, '0');
 
-const SLIDES = [
-  { file: '00-cover.png', slide: { type: 'notebook-cover', data: slideData.cover } },
-  ...slideData.slides.map((s, i) => {
-    const data = { ...resolveFigureImage(s), management };
-    const num = padNum(i + 1);
-    return s.type === 'figure'
-      ? { file: `${num}-figure.png`, slide: { type: 'notebook-figure', data } }
-      : { file: `${num}-board.png`,  slide: { type: 'notebook-board',  data } };
-  }),
-  {
-    file: `${padNum(slideData.slides.length + 1)}-cta.png`,
-    slide: { type: 'notebook-cta', data: { ...slideData.cta, management } },
-  },
-];
+const SLIDE_TYPE_MAP = {
+  // 単独 KW 系 (notebook デザイン)
+  board:    'notebook-board',
+  figure:   'notebook-figure',
+  // 過去問パック系 (type3 デザイン)
+  cover:    'quiz-cover',
+  problem:  'quiz-problem',
+  pause:    'quiz-pause',
+  answer:   'quiz-answer',
+  cta:      'quiz-cta',
+  // 年度目次カルーセル
+  'summary-cover':     'summary-cover',
+  'summary-pack-list': 'summary-pack-list',
+  'summary-cta':       'summary-cta',
+};
 
-if (SLIDES.length < 3 || SLIDES.length > 10) {
-  console.warn(`  [warn] カルーセル ${SLIDES.length} 枚（Instagram 制約 2-10・推奨 3-10）`);
+function slideFilePart(type) {
+  if (type === 'figure') return 'figure';
+  if (type === 'cover') return 'cover';
+  if (type === 'problem') return 'problem';
+  if (type === 'pause') return 'pause';
+  if (type === 'answer') return 'answer';
+  if (type === 'cta') return 'cta';
+  if (type === 'summary-cover') return 'cover';
+  if (type === 'summary-pack-list') return 'list';
+  if (type === 'summary-cta') return 'cta';
+  return 'board';
+}
+
+let SLIDES;
+
+if (mode === 'exam') {
+  // exam モード: slide-data.json の slides 配列をそのままマップ
+  // (cover / problem / pause / answer / cta が含まれる)
+  const totalPages = slideData.slides.length;
+  // _meta から year と packNum を取り出して各 slide.data に注入（cover の固定タイトル/meta 表示用）
+  const examYear = slideData._meta?.year || examId.split('-')[0];
+  const examPackNum = slideData._meta?.packNum || examId.match(/pack-(\d+)/)?.[1] || '01';
+  SLIDES = slideData.slides.map((s, i) => {
+    const data = {
+      ...s,
+      management,
+      pageIndex: s.pageIndex ?? i + 1,
+      totalPages: s.totalPages ?? totalPages,
+      year: examYear,
+      packNum: examPackNum,
+    };
+    const num = padNum(i);
+    const quizType = SLIDE_TYPE_MAP[s.type] || s.type;
+    return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: quizType, data } };
+  });
+} else {
+  // bundle / slug モード: cover + slides + cta を自動構築
+  SLIDES = [
+    { file: '00-cover.png', slide: { type: 'notebook-cover', data: slideData.cover } },
+    ...slideData.slides.map((s, i) => {
+      const resolved = s.type === 'figure' ? resolveFigureImage(s) : s;
+      const data = { ...resolved, management };
+      const num = padNum(i + 1);
+      const notebookType = SLIDE_TYPE_MAP[s.type] || 'notebook-board';
+      return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: notebookType, data } };
+    }),
+    {
+      file: `${padNum(slideData.slides.length + 1)}-cta.png`,
+      slide: {
+        type: 'notebook-cta',
+        data: { ...slideData.cta, management, isBundle: false },
+      },
+    },
+  ];
+}
+
+const IG_MAX = 20; // Instagram カルーセル上限（2024-02 以降 20 枚）
+if (SLIDES.length < 3 || SLIDES.length > IG_MAX) {
+  console.warn(`  [warn] カルーセル ${SLIDES.length} 枚（Instagram 制約 2-${IG_MAX}）`);
 }
 console.log(`  slides: ${SLIDES.length} 枚 (cover + ${slideData.slides.length} + cta)`);
 
