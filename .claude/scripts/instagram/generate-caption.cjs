@@ -18,9 +18,20 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const [, , inputArg] = process.argv;
+const args = process.argv.slice(2);
+const inputArg = args.find((a) => !a.startsWith("--"));
+const formatArg = (() => {
+  const i = args.findIndex((a) => a === "--format");
+  if (i >= 0 && args[i + 1]) return args[i + 1];
+  const eq = args.find((a) => a.startsWith("--format="));
+  return eq ? eq.slice(9) : "carousel";
+})();
 if (!inputArg) {
-  console.error("Usage: node generate-caption.cjs <slide-data.json>");
+  console.error("Usage: node generate-caption.cjs <slide-data.json> [--format carousel|reels]");
+  process.exit(1);
+}
+if (!["carousel", "reels"].includes(formatArg)) {
+  console.error(`--format は carousel または reels`);
   process.exit(1);
 }
 
@@ -32,7 +43,8 @@ if (!fs.existsSync(inputPath)) {
 
 const data = JSON.parse(fs.readFileSync(inputPath, "utf-8"));
 const dir = path.dirname(inputPath);
-const outputPath = path.join(dir, "caption.txt");
+const outputFile = formatArg === "reels" ? "caption-reels.txt" : "caption.txt";
+const outputPath = path.join(dir, outputFile);
 
 const { slides, cta, _meta } = data;
 // 旧スキーマ (cover フィールド) と新スキーマ (slides[0].type === 'cover') 両対応
@@ -71,30 +83,45 @@ lines.push("");
 
 // body 要約
 if (isExamPack) {
-  // 過去問パック: 各 problem の主題（answer.correctText）+ 正答番号 + 論点（pointText）を要約
-  // 4 問パックなので 4 問すべて表示する
   const problems = (slides || []).filter((s) => s.type === "problem");
   const answers = (slides || []).filter((s) => s.type === "answer");
-  problems.forEach((p, i) => {
-    const ans = answers[i];
-    // 主題は answer.correctText（pack-02 Q1 なら「品質管理の統計的手法」）
-    // フォールバック: problem の bodyLines 冒頭 50 字
-    let topic = ans?.correctText?.trim();
-    if (!topic) {
-      const bodyText = Array.isArray(p.bodyLines) ? p.bodyLines.join("") : (p.body || "");
-      topic = bodyText.length > 50 ? bodyText.slice(0, 50) + "…" : bodyText;
-    }
-    lines.push(`▶ Q${p.qNum ?? i + 1}: ${topic}`);
-    // 正答番号 + 論点を 1 行に
-    if (ans?.correctNum) {
-      const point = ans.pointText
-        ? (ans.pointText.length > 50 ? ans.pointText.slice(0, 50) + "…" : ans.pointText)
-        : "";
-      const suffix = point ? `: ${point}` : "";
-      lines.push(`  → 正答 ${ans.correctNum}${suffix}`);
-    }
+
+  if (formatArg === "reels") {
+    // Reels 用: 主題リストのみ（正答ネタバレなし）+ 「動画で確認」誘導
+    lines.push("🎯 動画で 4 問チャレンジ！");
     lines.push("");
-  });
+    problems.forEach((p, i) => {
+      const ans = answers[i];
+      let topic = ans?.correctText?.trim();
+      if (!topic) {
+        const bodyText = Array.isArray(p.bodyLines) ? p.bodyLines.join("") : (p.body || "");
+        topic = bodyText.length > 40 ? bodyText.slice(0, 40) + "…" : bodyText;
+      }
+      lines.push(`▶ Q${p.qNum ?? i + 1}: ${topic}`);
+    });
+    lines.push("");
+    lines.push("正答と論点解説は動画で ▶");
+    lines.push("");
+  } else {
+    // カルーセル用: 各問の主題 + 正答番号 + 論点
+    problems.forEach((p, i) => {
+      const ans = answers[i];
+      let topic = ans?.correctText?.trim();
+      if (!topic) {
+        const bodyText = Array.isArray(p.bodyLines) ? p.bodyLines.join("") : (p.body || "");
+        topic = bodyText.length > 50 ? bodyText.slice(0, 50) + "…" : bodyText;
+      }
+      lines.push(`▶ Q${p.qNum ?? i + 1}: ${topic}`);
+      if (ans?.correctNum) {
+        const point = ans.pointText
+          ? (ans.pointText.length > 50 ? ans.pointText.slice(0, 50) + "…" : ans.pointText)
+          : "";
+        const suffix = point ? `: ${point}` : "";
+        lines.push(`  → 正答 ${ans.correctNum}${suffix}`);
+      }
+      lines.push("");
+    });
+  }
 } else {
   const boards = (slides || []).filter((s) => s.type === "board").slice(0, 3);
   for (const s of boards) {
@@ -108,11 +135,19 @@ if (isExamPack) {
 
 // CTA
 lines.push("─────────");
-let saveLabel = "📌 保存して試験前日に見返す用語集";
-if (isExamPack) saveLabel = "📌 保存して試験前日に見返す過去問パック";
-else if (isBundle) saveLabel = "📌 保存して試験前日に見返すまとめ";
-lines.push(saveLabel);
-lines.push("🔗 詳細解説はプロフィールの doboku-note サイトで");
+if (formatArg === "reels" && isExamPack) {
+  // Reels はエンゲージメント喚起（IG アルゴリズム最適化: シェア・コメント・保存）
+  lines.push("📌 保存して試験前日に見返す");
+  lines.push("💬 「○問正解」をコメントで教えて！");
+  lines.push("↗ 友達にもシェア");
+  lines.push("🔗 全問解説はプロフィールの doboku-note サイトで");
+} else {
+  let saveLabel = "📌 保存して試験前日に見返す用語集";
+  if (isExamPack) saveLabel = "📌 保存して試験前日に見返す過去問パック";
+  else if (isBundle) saveLabel = "📌 保存して試験前日に見返すまとめ";
+  lines.push(saveLabel);
+  lines.push("🔗 詳細解説はプロフィールの doboku-note サイトで");
+}
 lines.push("");
 
 // 関連キーワード（cta.related があれば）
