@@ -499,16 +499,33 @@ export function buildQuizProblem({ width, height, data }) {
   const tableEl = data.table ? buildTable(data.table) : null;
   const listsEl = data.lists ? buildLists(data.lists) : null;
   const options = (data.options || []).slice(0, 5);
-  // table/lists がある場合は dense 強制 + q-text 縮小 + 選択肢をコンパクトに
-  const isComplex = !!tableEl || !!listsEl;
-  const dense = isComplex || isDenseOptions(options);
-  const optTextStyle = dense ? ty('optTextDense') : ty('optText');
-  const optMinHeight = isComplex ? 76 : (dense ? GEO.opt.minHeightDense : GEO.opt.minHeight);
-  const optTextPadding = isComplex ? [12, 22] : (dense ? GEO.opt.textPaddingDense : GEO.opt.textPadding);
-  const optionsGap = isComplex ? 10 : 14;
-  const blockGap = isComplex ? 18 : 36;
-  const qTextStyle = isComplex
+
+  // 4 段階の圧縮モード判定（総文字数で動的に発動）
+  //   ultra:   超長文 > 700字 → q-text 26 / opt 68 / gap 14
+  //   compact: table/lists あり、または 600-700字 → q-text 30 / opt 76
+  //   dense:   350-600字 or 選択肢長い → q-text 36 / opt 84
+  //   normal:  通常 → q-text 44 / opt 96（HTML プロト基準）
+  const bodyChars = [...fullBody].length;
+  const optChars = options.reduce((s, o) => s + [...(o.text || '')].length, 0);
+  const optMax = Math.max(0, ...options.map((o) => [...(o.text || '')].length));
+  const totalContent = bodyChars + optChars;
+  const isUltra = totalContent > 700 || optMax > 110;
+  const isCompact = !isUltra && (!!tableEl || !!listsEl || totalContent > 600 || optMax > 100);
+  const isDense = !isUltra && !isCompact && (isDenseOptions(options) || totalContent > 350 || optMax > 60);
+
+  const optTextStyle = isUltra
+    ? ty('optTextDense', { fontSize: 22, lineHeight: 1.4 })
+    : (isCompact || isDense ? ty('optTextDense') : ty('optText'));
+  const optMinHeight = isUltra ? 68 : (isCompact ? 76 : (isDense ? 84 : GEO.opt.minHeight));
+  const optTextPadding = isUltra ? [10, 20] : (isCompact ? [12, 22] : (isDense ? [14, 22] : GEO.opt.textPadding));
+  const optionsGap = isUltra ? 8 : (isCompact ? 10 : (isDense ? 12 : 14));
+  const blockGap = isUltra ? 14 : (isCompact ? 18 : (isDense ? 26 : 36));
+  const qTextStyle = isUltra
+    ? ty('qText', { color: INK.strong, fontSize: 26, lineHeight: 1.3 })
+    : isCompact
     ? ty('qText', { color: INK.strong, fontSize: 30, lineHeight: 1.35 })
+    : isDense
+    ? ty('qText', { color: INK.strong, fontSize: 36, lineHeight: 1.4 })
     : ty('qText', { color: INK.strong });
 
   return d(frame(width, height, SURFACE.page), [
