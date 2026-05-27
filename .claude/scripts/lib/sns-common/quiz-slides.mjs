@@ -303,17 +303,27 @@ export function buildQuizCover({ width, height, data }) {
               ),
             )
           : null,
+        // cover-swipe を chip 化（pill 形状 + brand-tint 背景 + 大きめ矢印）
         d(
           {
-            ...ty('coverSwipe', { color: BRAND.primary }),
-            marginTop: 40,
-            alignItems: 'center',
-            gap: 12,
+            ...ty('coverSwipe', { color: BRAND.deep }),
+            marginTop: 56,
             alignSelf: 'flex-start',
+            alignItems: 'center',
+            background: BRAND.tint,
+            borderWidth: GEO.coverSwipeChip.borderWidth,
+            borderStyle: 'solid',
+            borderColor: BRAND.line,
+            borderRadius: GEO.coverSwipeChip.radius,
+            paddingTop: GEO.coverSwipeChip.padding[0],
+            paddingBottom: GEO.coverSwipeChip.padding[0],
+            paddingLeft: GEO.coverSwipeChip.padding[1],
+            paddingRight: GEO.coverSwipeChip.padding[1],
+            gap: GEO.coverSwipeChip.gap,
           },
           [
             d({}, SLIDES.cover.swipeText),
-            d({ fontSize: 28, fontWeight: 700 }, '→'),
+            d({ ...ty('coverSwipeArrow', { color: BRAND.primary }) }, '→'),
           ],
         ),
       ],
@@ -778,22 +788,23 @@ export function buildQuizCta({ width, height }) {
             gap: GEO.ctaAction.gap,
           },
           [
+            // 保存アイコン: brand 塗りつぶし + 白アイコンに色反転（白カード内の視覚アンカー）
             d(
               {
                 width: GEO.ctaAction.iconSize,
                 height: GEO.ctaAction.iconSize,
                 borderRadius: GEO.ctaAction.iconRadius,
-                background: BRAND.tint,
+                background: BRAND.primary,
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: 26,
+                fontSize: 40,
                 fontWeight: 800,
-                color: BRAND.primary,
+                color: '#ffffff',
                 fontFamily: 'Manrope',
               },
               '★',
             ),
-            d({ flexDirection: 'column', alignItems: 'flex-start', gap: 2 }, [
+            d({ flexDirection: 'column', alignItems: 'flex-start', gap: 6 }, [
               d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, cfg.actionTitle),
               d({ ...ty('ctaActionSub', { color: INK.strong }) }, cfg.actionSubtitle),
             ]),
