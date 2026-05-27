@@ -18,7 +18,7 @@ import { dirname, resolve } from 'node:path';
 import { COLORS, FONTS } from './design-tokens.mjs';
 import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
 import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, buildNotebookIntro, buildNotebookSummary, buildNotebookQuestion, buildNotebookOptions, buildNotebookThink, buildNotebookAnswer, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
-import { buildQuizCover, buildQuizProblem, buildQuizPause, buildQuizAnswer, buildQuizCta } from './quiz-slides.mjs';
+import { buildQuizCover, buildQuizProblem, buildQuizPause, buildQuizAnswer, buildQuizCta, buildSummaryCover, buildSummaryPackList, buildSummaryCta } from './quiz-slides.mjs';
 import { SNS_CONFIG } from './sns-config.mjs';
 
 const NT = NOTEBOOK_TOKENS;
@@ -176,6 +176,12 @@ async function buildElement({ width, height, slide, config }) {
       return buildQuizAnswer({ width, height, data: slide.data || {} });
     case 'quiz-cta':
       return buildQuizCta({ width, height, data: slide.data || {} });
+    case 'summary-cover':
+      return buildSummaryCover({ width, height, data: slide.data || {} });
+    case 'summary-pack-list':
+      return buildSummaryPackList({ width, height, data: slide.data || {} });
+    case 'summary-cta':
+      return buildSummaryCta({ width, height, data: slide.data || {} });
     case 'image':
       return buildImageElement({ width, height, data: slide.data || {} });
     default:

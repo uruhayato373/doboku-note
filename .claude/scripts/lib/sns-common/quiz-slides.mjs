@@ -235,6 +235,139 @@ function brandFooter(rightText, { onDark = false } = {}) {
  *   year?: string,       // 'R07' 等。meta テンプレ {year} ／ 4問パック の置換用
  * }
  */
+// ─── summary（年度目次カルーセル） ─────────────────────────
+
+/**
+ * summary-cover: 年度目次カルーセルの 1 枚目（タイトル）
+ * data: { year: 'r07', totalPacks: 9, totalQuestions: 36 }
+ */
+export function buildSummaryCover({ width, height, data }) {
+  const year = (data.year || 'r07').toUpperCase();
+  const yearJp = year.replace(/^[RH]/, (m) => m === 'R' ? '令和' : '平成').replace(/^令和0?/, '令和');
+  return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
+    topbar(
+      d({
+        ...ty('coverTag', { color: BRAND.deep, background: BRAND.tint, borderRadius: GEO.coverTag.radius }),
+        paddingTop: GEO.coverTag.padding[0], paddingBottom: GEO.coverTag.padding[0],
+        paddingLeft: GEO.coverTag.padding[1], paddingRight: GEO.coverTag.padding[1],
+        alignItems: 'center', gap: 10,
+      }, [
+        d({ width: 8, height: 8, borderRadius: 999, background: BRAND.primary }),
+        d({}, '総監過去問 目次'),
+      ]),
+      pageBadge(data.pageIndex ?? 1, data.totalPages ?? 5),
+    ),
+    d({ position: 'absolute', top: 200, right: 40, ...ty('coverBigQ', { color: BRAND.tint }) }, '目'),
+    d({
+      position: 'absolute', top: 320, left: PAD.x, right: PAD.x,
+      flexDirection: 'column', gap: 0,
+    }, [
+      d({ ...ty('coverMeta', { color: BRAND.primary, marginBottom: 20 }) }, `${year} 全${data.totalPacks ?? 9}パック`),
+      d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 24 }) }, yearJp + '年度'),
+      d({ ...ty('coverSub', { color: INK.body, marginBottom: 48, paddingLeft: 24 }) }, '択一式 過去問 目次'),
+      d({
+        ...ty('coverSwipe', { color: BRAND.deep }), marginTop: 40, alignSelf: 'flex-start',
+        alignItems: 'center', background: BRAND.tint,
+        borderWidth: GEO.coverSwipeChip.borderWidth, borderStyle: 'solid', borderColor: BRAND.line,
+        borderRadius: GEO.coverSwipeChip.radius,
+        paddingTop: GEO.coverSwipeChip.padding[0], paddingBottom: GEO.coverSwipeChip.padding[0],
+        paddingLeft: GEO.coverSwipeChip.padding[1], paddingRight: GEO.coverSwipeChip.padding[1],
+        gap: GEO.coverSwipeChip.gap,
+      }, [
+        d({}, '全パックを一覧チェック'),
+        d({ ...ty('coverSwipeArrow', { color: BRAND.primary }) }, '→'),
+      ]),
+    ]),
+    brandFooter(null),
+  ]));
+}
+
+/**
+ * summary-pack-list: 年度目次カルーセルの中間ページ（パック一覧）
+ * data: { packs: [{ num, title, subtitle }], pageIndex, totalPages }
+ */
+export function buildSummaryPackList({ width, height, data }) {
+  const packs = Array.isArray(data.packs) ? data.packs : [];
+  const titleText = data.title || `R${(data.year || 'r07').replace(/^r0?/, '')} 過去問 パック一覧`;
+  return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
+    topbar(
+      eyebrow(`INDEX ${data.pageIndex ?? 2} / ${data.totalPages ?? 5}`),
+      pageBadge(data.pageIndex ?? 2, data.totalPages ?? 5),
+    ),
+    d({
+      position: 'absolute', top: PAD.y + 96, left: PAD.x, right: PAD.x, bottom: PAD.y + 80,
+      flexDirection: 'column', gap: 24,
+    }, [
+      d({ ...ty('qText', { color: INK.strong, fontSize: 36, lineHeight: 1.3 }) }, titleText),
+      d({ flexDirection: 'column', gap: 14, flexGrow: 1 }, packs.map((p) => d({
+        background: SURFACE.sunken,
+        borderWidth: 1.5, borderStyle: 'solid', borderColor: SURFACE.line,
+        borderRadius: 14, paddingTop: 18, paddingBottom: 18, paddingLeft: 22, paddingRight: 22,
+        alignItems: 'center', gap: 16,
+      }, [
+        d({
+          width: 64, height: 64, borderRadius: 999, background: BRAND.primary,
+          alignItems: 'center', justifyContent: 'center',
+          fontFamily: 'Manrope', fontWeight: 800, fontSize: 30, color: '#ffffff',
+          flexShrink: 0,
+        }, `#${p.num}`),
+        d({ flexDirection: 'column', flexShrink: 1, gap: 4 }, [
+          d({ ...ty('optText', { color: INK.strong, fontSize: 24, fontWeight: 700 }) }, p.title || '—'),
+          p.subtitle ? d({ ...ty('exText', { color: INK.body, fontSize: 20 }) }, p.subtitle) : null,
+        ]),
+      ]))),
+    ]),
+    brandFooter(null),
+  ]));
+}
+
+/**
+ * summary-cta: 年度目次カルーセルの最後（フィード誘導）
+ */
+export function buildSummaryCta({ width, height, data }) {
+  const year = (data.year || 'r07').toUpperCase();
+  return d(frame(width, height, CTA.background), reelsWrapper(width, height, [
+    d({ position: 'absolute', top: GEO.ctaDecor.topRight.offset[0], right: GEO.ctaDecor.topRight.offset[1], width: GEO.ctaDecor.topRight.size, height: GEO.ctaDecor.topRight.size, borderRadius: 999, background: CTA.decor }),
+    d({ position: 'absolute', bottom: GEO.ctaDecor.bottomLeft.offset[0], left: GEO.ctaDecor.bottomLeft.offset[1], width: GEO.ctaDecor.bottomLeft.size, height: GEO.ctaDecor.bottomLeft.size, borderRadius: 999, background: CTA.decor }),
+    topbar(
+      d({ ...ty('ctaEyebrow', { color: ONDARK.secondary }), whiteSpace: 'nowrap' }, 'CHECK ALL'),
+      pageBadge(data.pageIndex ?? 5, data.totalPages ?? 5, { onDark: true }),
+    ),
+    d({
+      position: 'absolute', top: PAD.y + 96, left: PAD.x, right: PAD.x, bottom: PAD.y + 80,
+      flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: 24, textAlign: 'center',
+    }, [
+      d({ ...ty('ctaHello', { color: ONDARK.secondary }) }, '気になるパックは'),
+      d({ flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }, [
+        d({ ...ty('ctaHeadline', { color: ONDARK.primary }), alignItems: 'center' }, [
+          d({ color: CTA.accent }, year),
+          d({}, ' の'),
+        ]),
+        d({ ...ty('ctaHeadline', { color: ONDARK.primary }) }, '個別投稿を見る'),
+      ]),
+      d({
+        background: SURFACE.page, borderRadius: GEO.ctaAction.radius,
+        paddingTop: GEO.ctaAction.padding[0], paddingBottom: GEO.ctaAction.padding[0],
+        paddingLeft: GEO.ctaAction.padding[1], paddingRight: GEO.ctaAction.padding[1],
+        minWidth: GEO.ctaAction.minWidth, alignItems: 'center', justifyContent: 'center', gap: GEO.ctaAction.gap,
+        marginTop: 36,
+      }, [
+        d({
+          width: GEO.ctaAction.iconSize, height: GEO.ctaAction.iconSize,
+          borderRadius: GEO.ctaAction.iconRadius, background: BRAND.primary,
+          alignItems: 'center', justifyContent: 'center',
+          fontSize: 40, fontWeight: 800, color: '#ffffff', fontFamily: 'Manrope',
+        }, '→'),
+        d({ flexDirection: 'column', alignItems: 'flex-start', gap: 6 }, [
+          d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, 'プロフィールから'),
+          d({ ...ty('ctaActionSub', { color: INK.strong }) }, '各パックをチェック'),
+        ]),
+      ]),
+    ]),
+    brandFooter(null, { onDark: true }),
+  ]));
+}
+
 export function buildQuizCover({ width, height, data }) {
   // 管理混在問題を回避するため、cover-title は固定 2 行文言（tokens 駆動）。
   // slide-data.json の cover.title / subtitle は無視。pack 番号は titleLine2 の末尾に

@@ -308,6 +308,10 @@ const SLIDE_TYPE_MAP = {
   pause:    'quiz-pause',
   answer:   'quiz-answer',
   cta:      'quiz-cta',
+  // 年度目次カルーセル
+  'summary-cover':     'summary-cover',
+  'summary-pack-list': 'summary-pack-list',
+  'summary-cta':       'summary-cta',
 };
 
 function slideFilePart(type) {
@@ -317,6 +321,9 @@ function slideFilePart(type) {
   if (type === 'pause') return 'pause';
   if (type === 'answer') return 'answer';
   if (type === 'cta') return 'cta';
+  if (type === 'summary-cover') return 'cover';
+  if (type === 'summary-pack-list') return 'list';
+  if (type === 'summary-cta') return 'cta';
   return 'board';
 }
 

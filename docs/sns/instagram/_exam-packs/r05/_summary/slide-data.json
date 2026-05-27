@@ -1,0 +1,75 @@
+{
+  "slides": [
+    {
+      "type": "summary-cover",
+      "year": "r05",
+      "totalPacks": 7,
+      "pageIndex": 1,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-pack-list",
+      "year": "r05",
+      "packs": [
+        {
+          "num": 1,
+          "title": "パック #1",
+          "subtitle": "動的計画法による資源配分 / 損益分岐点の分析 / 設計管理の用語と定義 / QC七つ道具の用途"
+        },
+        {
+          "num": 2,
+          "title": "パック #2",
+          "subtitle": "設備総合効率（OEE） / SPTルールとジョブ調整 / ECRSの原則 / 現品管理の概念"
+        },
+        {
+          "num": 3,
+          "title": "パック #3",
+          "subtitle": "パワーハラスメントの要件 / 組織開発の診断型と対話型 / 社員格付け制度の比較 / 教育訓練技法の組合せ"
+        },
+        {
+          "num": 4,
+          "title": "パック #4",
+          "subtitle": "不正競争防止法の類型 / SECIモデルの4プロセス / コミュニケーション管理計画 / BCMの結果事象アプローチ"
+        }
+      ],
+      "title": "R05 過去問 #1〜#4",
+      "pageIndex": 2,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-pack-list",
+      "year": "r05",
+      "packs": [
+        {
+          "num": 5,
+          "title": "パック #5",
+          "subtitle": "労働時間把握義務の対象 / 女性活躍・育児介護休業法 / 労働紛争の解決手段 / リスク低減措置の優先順位"
+        },
+        {
+          "num": 6,
+          "title": "パック #6",
+          "subtitle": "情報セキュリティ認証規格 / 信頼区間と信頼係数 / 緊急速報メールの配信方式 / デジタル技術略語の定義"
+        },
+        {
+          "num": 7,
+          "title": "パック #7",
+          "subtitle": "心理的安全性と業績基準 / リスクマネジメントプロセス / 消費生活用製品安全法の義務 / 南海トラフ地震応急対策"
+        }
+      ],
+      "title": "R05 過去問 #5〜#7",
+      "pageIndex": 3,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-cta",
+      "year": "r05",
+      "pageIndex": 4,
+      "totalPages": 4
+    }
+  ],
+  "_meta": {
+    "year": "r05",
+    "type": "summary",
+    "totalPacks": 7
+  }
+}
