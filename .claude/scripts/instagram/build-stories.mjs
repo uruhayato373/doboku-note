@@ -48,6 +48,11 @@ const data = JSON.parse(readFileSync(slideDataPath, 'utf8'));
 const year = data._meta?.year || basename(resolve(packDir, '..'));
 const packNum = data._meta?.packNum || basename(packDir).replace('pack-', '');
 const packNumLabel = String(packNum).replace(/^0+/, '') || packNum;
+// year は "r06" / "h28" 等。era + 年番号を導出（cover-title「令和{N}年度」と整合）
+const yearNum = String(year).replace(/^[rRhH]0*/, '') || packNum;
+const isHeisei = /^h/i.test(year);
+const yearLabel = `${isHeisei ? 'H' : 'R'}${yearNum}`;            // "R6"
+const yearJp = `${isHeisei ? '平成' : '令和'}${yearNum}年度`;     // "令和6年度"
 
 const reelsDir = join(packDir, 'reels', 'img');
 const storiesDir = join(packDir, 'stories');
@@ -110,7 +115,7 @@ const captionText = [
   '# ストーリー連投時のテキスト案（リンクスタンプと組み合わせて使用）',
   '',
   '## ① 01-cover.png',
-  '🆕 新作！令和7年度 択一式 過去問 #' + packNumLabel,
+  '🆕 新作！' + yearJp + ' 択一式 過去問 #' + packNumLabel,
   '今日のテーマで挑戦してみて 👇',
   '',
   '## ② 02-problem.png',
@@ -129,7 +134,7 @@ const captionText = [
   '',
   '### リンクスタンプ',
   '- カルーセル投稿の URL（投稿後コピー）',
-  '- または doboku-note.com の R7 解説ページ',
+  '- または doboku-note.com の ' + yearLabel + ' 解説ページ',
   '',
   '### メンション',
   '@doboku_note',
@@ -139,19 +144,19 @@ writeFileSync(join(storiesDir, 'caption.txt'), captionText, 'utf8');
 
 // note.md（投稿手順書）
 const noteText = [
-  `# R${year.replace(/^r0?/, '')} 過去問 #${packNumLabel} ストーリー投稿手順`,
+  `# ${yearLabel} 過去問 #${packNumLabel} ストーリー投稿手順`,
   '',
   '## 投稿フロー',
   '',
   '```',
-  '1. フィードに R07 過去問 #' + packNumLabel + ' カルーセル投稿（先に投稿しておく）',
+  '1. フィードに ' + yearLabel + ' 過去問 #' + packNumLabel + ' カルーセル投稿（先に投稿しておく）',
   '       ↓ 同日中',
   '2. ストーリーに 4 枚を順番に連投（01 → 02 → 03 → 04）',
   '   - 各ストーリーに caption.txt のテキストを重ねる（タップでテキスト追加）',
   '   - 02-problem, 04-cta にはリンクスタンプで カルーセル投稿 URL or サイト URL を貼る',
   '       ↓ 24h 以内',
   '3. ストーリーを「ハイライトに追加」',
-  '   - ハイライト名: 「R07 過去問」（複数パックを 1 ハイライトに集約）',
+  '   - ハイライト名: 「' + yearLabel + ' 過去問」（複数パックを 1 ハイライトに集約）',
   '   - 24h 過ぎたストーリーはハイライト追加不可',
   '```',
   '',
@@ -167,7 +172,7 @@ const noteText = [
   '',
   '### 推奨',
   '- 02-problem.png に「カルーセル投稿 URL」（IG 内部リンク）',
-  '- 04-cta.png に「doboku-note.com の R7 解説ページ」（外部リンク）',
+  '- 04-cta.png に「doboku-note.com の ' + yearLabel + ' 解説ページ」（外部リンク）',
   '',
   '### IG Web 版の場合',
   '- リンクスタンプ機能のみ利用可（投稿ステッカーは未対応）',
@@ -175,9 +180,9 @@ const noteText = [
   '',
   '## ハイライト戦略',
   '',
-  '- 1 ハイライト「R07 過去問」に 全 9 パック × 4 枚 = 36 ストーリーを集約（上限 100）',
-  '- IG プロフィール訪問者が「タップ 1 回で R07 全パックの試食」が可能',
-  '- 拡張：R6 完成時は「R06 過去問」ハイライト追加',
+  '- 1 ハイライト「' + yearLabel + ' 過去問」に 全パック × 4 枚を集約（上限 100）',
+  '- IG プロフィール訪問者が「タップ 1 回で ' + yearLabel + ' 全パックの試食」が可能',
+  '- 拡張：他年度完成時は年度別ハイライト（例「R05 過去問」）を追加',
   '',
 ].join('\n');
 writeFileSync(join(storiesDir, 'note.md'), noteText, 'utf8');
