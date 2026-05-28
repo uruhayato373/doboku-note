@@ -1,0 +1,72 @@
+{
+  "_meta": {
+    "kind": "highlight-intro",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 5,
+    "purpose": "ハイライト系統 A 1 種目「まず読む」用の 5 枚 Stories シリーズ。新規プロフィール訪問者の 3 秒判断通過用・運営者経歴と「ここでわかること」を伝える",
+    "policy": "docs/reference/ig-stories-policy.md §5 系統 A",
+    "strategy": "docs/project/03_SNS/01_SNS集客戦略.md v7.1 §2 Highlight 1 種目「まず読む」"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "tagText": "まず読む",
+      "title": "ここを読めば",
+      "subtitle": "doboku-note の歩き方",
+      "chipCta": "5 枚で全体像"
+    },
+    {
+      "index": 2,
+      "filename": "02-author.png",
+      "role": "author",
+      "tagText": "まず読む",
+      "title": "運営者プロフィール",
+      "subtitle": "土木系公務員 → 退職",
+      "body": [
+        "技術士（総合技術監理）合格済",
+        "技術士（建設部門）保有",
+        "1 級土木 / 1 級舗装 / コンクリート",
+        "主任技士・診断士の計 6 資格"
+      ]
+    },
+    {
+      "index": 3,
+      "filename": "03-scope.png",
+      "role": "scope",
+      "tagText": "まず読む",
+      "title": "扱う資格",
+      "subtitle": "Phase 1 の整備対象",
+      "body": [
+        "技術士 総合技術監理部門",
+        "1 級土木施工管理技士",
+        "（順次拡張予定）"
+      ]
+    },
+    {
+      "index": 4,
+      "filename": "04-content.png",
+      "role": "content",
+      "tagText": "まず読む",
+      "title": "ここでわかること",
+      "subtitle": "コンテンツの 4 つの柱",
+      "body": [
+        "650+ キーワード解説",
+        "680+ 過去問演習",
+        "5 管理トレードオフ図解",
+        "受験戦略・学習計画"
+      ]
+    },
+    {
+      "index": 5,
+      "filename": "05-cta.png",
+      "role": "cta",
+      "tagText": "まず読む",
+      "title": "サイトで全部読める",
+      "subtitle": "無料公開中",
+      "chipCta": "doboku-note.com"
+    }
+  ]
+}
