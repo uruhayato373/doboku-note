@@ -386,12 +386,18 @@ export function buildQuizCover({ width, height, data }) {
     .replace('{packNum}', packNumLabel);
   const chips = Array.isArray(data.chips) ? data.chips.slice(0, 4) : [];
 
-  // Reels モード判定: height >= 1920 を Reels とみなし swipeTextReels に分岐
-  // (Reels はスワイプではなく自動再生のため「答えは動画内で発表」相当に差し替える)
-  const isReels = height >= 1920;
-  const swipeText = isReels
-    ? (SLIDES.cover.swipeTextReels ?? SLIDES.cover.swipeText)
-    : SLIDES.cover.swipeText;
+  // 3 フォーマット別に swipeText 分岐
+  // - Stories: data.mode === 'stories' を最優先（Reels と同サイズなため mode 明示が必要）
+  //            1 問抜粋試食なので「まずは1問やってみる」相当
+  // - Reels:   height >= 1920 で自動判定。スワイプではなく自動再生のため「答えは動画内で発表」
+  // - Carousel: 既定。4 問スワイプ前提なので「スワイプで4問にチャレンジ」
+  const isStories = data.mode === 'stories';
+  const isReels = !isStories && height >= 1920;
+  const swipeText = isStories
+    ? (SLIDES.cover.swipeTextStories ?? SLIDES.cover.swipeText)
+    : isReels
+      ? (SLIDES.cover.swipeTextReels ?? SLIDES.cover.swipeText)
+      : SLIDES.cover.swipeText;
 
   return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     // topbar

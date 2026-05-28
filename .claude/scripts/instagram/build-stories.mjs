@@ -2,14 +2,20 @@
 /**
  * build-stories.mjs
  *
- * 各過去問パックの reels/img/ から「ストーリー連投用 4 枚」を選んで stories/img/ にコピー、
- * 投稿手順を note.md にまとめる。
+ * 各過去問パックの reels/img/ から「ストーリー連投用 4 枚」を整備する。
  *
  * 4 枚構成（IG ストーリーのベストプラクティス）:
  *   01-cover.png    ← 1 番目: 興味喚起「新パック」告知
- *   02-problem.png  ← 2 番目: Q1 を見せて「解いてみて」
- *   03-answer.png   ← 3 番目: Q1 の解答「答え合わせ」
- *   04-cta.png      ← 4 番目: 「全 10 枚はフィードへ」誘導
+ *                     **Stories 専用 cover** を renderSlide で独立生成
+ *                     (data.mode === 'stories' で「まずは1問やってみる」chip)
+ *   02-problem.png  ← 2 番目: Q1（reels からコピー）
+ *   03-answer.png   ← 3 番目: A1（reels からコピー）
+ *   04-cta.png      ← 4 番目: CTA（reels からコピー）
+ *
+ * 設計意図:
+ *   Stories は 1 問抜粋の試食なので、Carousel 用「スワイプで4問にチャレンジ」も
+ *   Reels 用「答えは動画内で発表」も文脈に合わない。Stories 専用 cover を
+ *   独立生成し、tokens.json の swipeTextStories で文言を分岐する。
  *
  * Usage:
  *   node .claude/scripts/instagram/build-stories.mjs <pack-dir>
@@ -23,6 +29,7 @@
 
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, basename, resolve } from 'node:path';
+import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 
 const target = process.argv[2];
 if (!target) {
@@ -54,15 +61,39 @@ if (!existsSync(reelsDir)) {
 
 mkdirSync(storiesImgDir, { recursive: true });
 
-// 4 枚選別（reels から指定スライドをコピー）
+// Stories 専用 01-cover.png を renderSlide で独立生成
+// (Reels の 00-cover.png をコピーすると Reels 用 chip 文言が Stories 文脈に合わない)
+const coverSlide = data.slides.find((s) => s.type === 'cover');
+if (coverSlide) {
+  const examYear = data._meta?.year || basename(resolve(packDir, '..'));
+  const examPackNum = data._meta?.packNum || basename(packDir).replace('pack-', '');
+  const storiesCoverData = {
+    ...coverSlide,
+    year: examYear,
+    packNum: examPackNum,
+    pageIndex: 1,
+    totalPages: data.slides.length,
+    mode: 'stories',  // quiz-slides.mjs の buildQuizCover が swipeTextStories に分岐
+  };
+  const png = await renderSlide({
+    width: 1080,
+    height: 1920,
+    slide: { type: 'quiz-cover', data: storiesCoverData },
+  });
+  writeFileSync(join(storiesImgDir, '01-cover.png'), png);
+}
+
+// 残り 3 枚（problem 1 / answer 1 / cta）は reels からコピーで足りる
 const sourceFiles = [
-  { src: '00-cover.png',    dst: '01-cover.png',   role: '興味喚起・パック告知' },
   { src: '01-problem.png',  dst: '02-problem.png', role: 'Q1 を見せて「解いてみて」' },
   { src: '02-answer.png',   dst: '03-answer.png',  role: 'Q1 の解答「答え合わせ」' },
   { src: '09-cta.png',      dst: '04-cta.png',     role: '「全パックはフィードへ」誘導' },
 ];
 
-const copied = [];
+const copied = [
+  // 01-cover は独立生成済みなので copied リストには手動追加（caption.txt 等のループ用）
+  { src: '(stories-mode renderSlide)', dst: '01-cover.png', role: '興味喚起・パック告知（Stories 専用文言）' },
+];
 for (const f of sourceFiles) {
   const srcPath = join(reelsDir, f.src);
   const dstPath = join(storiesImgDir, f.dst);
