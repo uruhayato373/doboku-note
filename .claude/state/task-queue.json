@@ -7,20 +7,20 @@
   "tasks": [
     {
       "id": "T-001",
-      "title": "SNS 自動投稿基盤（YouTube × Instagram）",
+      "title": "SNS 自動投稿基盤（Instagram 一次制作 + YouTube 派生）",
       "status": "in_progress",
       "category": "sns",
       "priority": "high",
       "source": "manual",
       "parent": null,
       "refs": [
-        "docs/project/07_SNS集客戦略.md",
-        "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"
+        "docs/project/03_SNS/01_SNS集客戦略.md",
+        "docs/project/03_SNS/02_チャネル動線設計.md"
       ],
       "dedupe_key": null,
       "created": "2026-05-14",
-      "updated": "2026-05-14",
-      "notes": "親タスク。YouTube はローカル稼働中、IG カルーセル生成も稼働。残: Meta 実投稿(T-003)→スケジューラ統合(T-004)→チャネル拡充(T-005)。（旧 Umbrella Issue #161）"
+      "updated": "2026-05-28",
+      "notes": "親タスク。2026-05-28 戦略 v7 化により Instagram 一次制作・YouTube 派生に再設計。残: Reels Generator/Evaluator (T-005a Phase B) → Stories Generator/Evaluator (T-005b Phase C) → YT 派生スクリプト + Evaluator (T-005c Phase D) → Meta 実投稿 (T-003) → スケジューラ統合 (T-004)。詳細プラン: C:\\Users\\m004195\\.claude\\plans\\youtube-instagram-youtube-claude-instagr-proud-mitten.md。（旧 Umbrella Issue #161）"
     },
     {
       "id": "T-002",
