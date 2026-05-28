@@ -13,19 +13,21 @@
     {
       "index": 1,
       "filename": "01-cover.png",
-      "role": "興味喚起・中立フレーミング",
+      "role": "cover",
       "title": "合格者の本棚",
       "subtitle": "note で書いている教材",
       "tagText": "教材紹介",
-      "swipeText": "実際の本棚をのぞく →",
+      "chipCta": "実際の本棚をのぞく",
       "stickers": [],
       "_note": "売り込み感を避けるため「本棚」「のぞく」の中立表現。直接「買って」は使わない。"
     },
     {
       "index": 2,
       "filename": "02-author.png",
-      "role": "運営者の信頼性訴求",
-      "title": "実際に書いている人",
+      "role": "author",
+      "tagText": "教材紹介",
+      "title": "これを書いた人",
+      "subtitle": "運営者プロフィール",
       "body": [
         "技術士（総合技術監理）合格済",
         "自治体土木職退職 + 6 資格保有",
@@ -42,9 +44,10 @@
     {
       "index": 3,
       "filename": "03-essay.png",
-      "role": "模範論文マガジン紹介",
-      "title": "模範論文 5年分セット",
-      "subtitle": "R03〜R07 の 3,000 字級フル論文",
+      "role": "essay",
+      "tagText": "教材紹介",
+      "title": "模範論文 5年分",
+      "subtitle": "R03〜R07・3,000 字級フル論文",
       "items": [
         {
           "magazineId": "essay-river-consultant-magazine",
@@ -74,13 +77,14 @@
     {
       "index": 4,
       "filename": "04-readguide.png",
-      "role": "精読ガイド紹介",
-      "title": "5管理 精読ガイド",
-      "subtitle": "論点 + 択一頻出 + 解説リンク",
+      "role": "readguide",
+      "tagText": "教材紹介",
+      "title": "精読ガイド",
+      "subtitle": "5管理 × 約 7 万字",
       "body": [
-        "サイトの 650+ キーワード解説と連動",
-        "5 管理ごとの頻出論点と引っかけパターン",
-        "約 7 万字、各論点から本サイトへ直リンク"
+        "650+ キーワード解説と連動",
+        "5管理ごとの頻出論点と引っかけ",
+        "サイトへ直リンク付き"
       ],
       "stickers": [
         {
@@ -94,13 +98,15 @@
     {
       "index": 5,
       "filename": "05-sample.png",
-      "role": "無料記事誘導（無料サンプル動線）",
-      "title": "ここからまず読める",
-      "subtitle": "無料記事サンプル",
+      "role": "sample",
+      "tagText": "教材紹介",
+      "title": "無料で読める",
+      "subtitle": "note 無料記事サンプル",
       "body": [
-        "教材を買う前に、まず無料記事を読んでください",
-        "中身の質感・運営者の文体が分かります"
+        "まずは無料記事で文体を確認",
+        "中身の質感が分かります"
       ],
+      "chipCta": "note プロフィールへ",
       "stickers": [
         {
           "type": "link",
@@ -113,9 +119,11 @@
     {
       "index": 6,
       "filename": "06-cta.png",
-      "role": "着地点・最終 CTA",
-      "title": "迷ったらまず無料記事から",
-      "subtitle": "note プロフィール",
+      "role": "cta",
+      "tagText": "教材紹介",
+      "title": "無料記事から",
+      "subtitle": "迷ったらまずここへ",
+      "chipCta": "プロフィールへ移動",
       "stickers": [
         {
           "type": "link",
