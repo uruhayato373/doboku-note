@@ -63,6 +63,7 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
    - 採点前にまず `node scripts/lint-exam-pack-structure.mjs <year>/<pack>` を実行
    - E1: bodyLines に「（ア）（イ）」等の列挙が 2 個以上あるのに `lists` 未設定 → 散文化 NG
    - E2: bodyLines に `|` 含む行（markdown 表残骸）があるのに `table` 未設定 → 表崩壊 NG
+   - E3: problem が最大圧縮でも領域(1014px)に収まらない → 選択肢が画面外にはみ出す（本文短縮 or 表行数削減）。`chooseProblemLayout` 共有で生成物と検査が一致
    - W1: optionExplanations にプレースホルダ「個別解説は省略」残存 → 補完未完了
    - lint で ERROR 検出 → デザイン統一性軸を -2 点（構造違反は visual に直結）
    - 採点コメントに lint 出力を貼る

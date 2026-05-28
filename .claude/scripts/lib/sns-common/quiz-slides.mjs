@@ -741,54 +741,66 @@ function estimateProblemHeight(mode, { bodyChars, options, table, lists, hasTopi
  *   totalPages?: number,
  * }
  */
-export function buildQuizProblem({ width, height, data }) {
-  // bodyLines に markdown 表行 (|...|) が含まれている場合は除外（旧データ互換、
-  // 新規データは data.table フィールドで構造化する）。
-  // 各要素の内部に \r\n が混在しているケースもあるので flatMap で分割してから判定。
+// problem スライドの本文を抽出（bodyLines を結合し markdown 表残骸/区切り行を除外）。
+// 旧データ互換 — 新規データは表は data.table、列挙は data.lists に構造化する。
+export function parseProblemBody(data) {
   const rawLines = Array.isArray(data.bodyLines) ? data.bodyLines : [String(data.body || '')];
-  const bodyTextOnly = rawLines
+  return rawLines
     .flatMap((l) => l.split(/\r?\n/))
     .filter((l) => {
       const t = l.trim();
       if (!t) return false;
-      // パイプ記号 | を含む行は markdown 表残骸として除外
-      // （IG カルーセル本文に | を使う正規ケースは想定しない。必要なら data.table へ）
-      if (t.includes('|')) return false;
-      // 区切り行（--- :--- など）
-      if (/^[-:]+$/.test(t)) return false;
+      if (t.includes('|')) return false;      // markdown 表残骸
+      if (/^[-:]+$/.test(t)) return false;     // 区切り行（--- :--- など）
       return true;
-    });
-  const fullBody = bodyTextOnly.join('');
-  const listsEl = data.lists ? buildLists(data.lists) : null;
-  const options = (data.options || []).slice(0, 5);
+    })
+    .join('');
+}
 
-  // 圧縮モード判定 — 2 段構え:
-  //   ① 文字数ベースで「上限モード」(最大フォント) を決める（normal/dense/compact/ultra）
-  //   ② 推定高さ(estimateProblemHeight)がコンテンツ領域を超える間 1 段ずつ縮小して
-  //      必ず収める（成長はしない＝現状 OK のスライドは不変、はみ出すものだけ縮小）。
-  // 文字数だけでは「本文 + 表 + 折返し選択肢」の合算高さを取りこぼすため、②の実高さ
-  // チェックで table+長い5択や 長文+極短選択肢のはみ出しを構造的に解消する。
+// 圧縮モード + 表スケールを決定する単一真実源。レンダラー(buildQuizProblem)と
+// lint(lint-exam-pack-structure.mjs E3)が共有し、生成物と検査を一致させる。
+//   ① 文字数で「上限モード」(最大フォント)を決める（成長させない）
+//   ② 推定高さがコンテンツ領域(1014px)を超える間テキストを ultra まで縮小
+//   ③ ultra でもなお超える場合のみ表を段階圧縮（×0.85/0.72/0.62）
+// fits=false は「最大圧縮でも収まらない＝本文/表行数を削るべき」を意味する。
+export function chooseProblemLayout(data) {
+  const fullBody = parseProblemBody(data);
   const bodyChars = [...fullBody].length;
+  const options = (data.options || []).slice(0, 5);
   const optChars = options.reduce((s, o) => s + [...(o.text || '')].length, 0);
   const optMax = Math.max(0, ...options.map((o) => [...(o.text || '')].length));
   const totalContent = bodyChars + optChars;
+  const hasLists = Array.isArray(data.lists) && data.lists.some((g) => (g?.items || []).length);
   const ceilUltra = totalContent > 700 || bodyChars > 430;
-  const ceilCompact = !ceilUltra && (!!data.table || !!listsEl || totalContent > 550 || bodyChars > 255 || optMax > 100);
+  const ceilCompact = !ceilUltra && (!!data.table || hasLists || totalContent > 550 || bodyChars > 255 || optMax > 100);
   const ceilDense = !ceilUltra && !ceilCompact && (isDenseOptions(options) || totalContent > 320 || bodyChars > 140 || optMax > 60);
   let modeIdx = ceilUltra ? 3 : ceilCompact ? 2 : ceilDense ? 1 : 0;
   let tableScale = 1;
-  const estCtx = { bodyChars, options, table: data.table, lists: data.lists, hasTopic: !!data.topic, tableScale };
-  // ②-a まずテキストモードを縮小
-  while (modeIdx < 3 && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], estCtx) > PROBLEM_SAFE_H) modeIdx++;
-  // ②-b 最小モード(ultra)でもなお超える場合のみ、表を段階圧縮（7 行表など固定高対策）
+  const ctx = { bodyChars, options, table: data.table, lists: data.lists, hasTopic: !!data.topic };
+  while (modeIdx < 3 && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...ctx, tableScale }) > PROBLEM_SAFE_H) modeIdx++;
   const TABLE_SCALE_STEPS = [0.85, 0.72, 0.62];
   for (let i = 0; i < TABLE_SCALE_STEPS.length
-    && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...estCtx, tableScale }) > PROBLEM_SAFE_H; i++) {
+    && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...ctx, tableScale }) > PROBLEM_SAFE_H; i++) {
     tableScale = TABLE_SCALE_STEPS[i];
   }
-  const isUltra = modeIdx === 3;
-  const isCompact = modeIdx === 2;
-  const isDense = modeIdx === 1;
+  const estHeight = Math.round(estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...ctx, tableScale }));
+  return {
+    mode: PROBLEM_MODE_ORDER[modeIdx], modeIdx, tableScale, fullBody,
+    estHeight, avail: PROBLEM_AVAIL_H, fits: estHeight <= PROBLEM_AVAIL_H,
+  };
+}
+
+export function buildQuizProblem({ width, height, data }) {
+  const layout = chooseProblemLayout(data);
+  const { fullBody, tableScale } = layout;
+  const isUltra = layout.modeIdx === 3;
+  const isCompact = layout.modeIdx === 2;
+  const isDense = layout.modeIdx === 1;
+  if (!layout.fits) {
+    console.warn(`[quiz-slides] problem overflow risk: Q${data.qNum ?? '?'} est=${layout.estHeight}px > ${layout.avail}px (mode=${layout.mode}, tableScale=${tableScale}) — 本文/表行数を削減してください`);
+  }
+  const listsEl = data.lists ? buildLists(data.lists) : null;
+  const options = (data.options || []).slice(0, 5);
   const tableEl = data.table ? buildTable(data.table, tableScale) : null;
 
   const optTextStyle = isUltra
