@@ -310,6 +310,12 @@ export default function AboutPage() {
                 1級土木施工管理技士 →
               </Link>
               <Link
+                href="/category/civil-construction-2"
+                className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all font-serif font-bold text-[var(--ink)] text-lg"
+              >
+                2級土木施工管理技士 →
+              </Link>
+              <Link
                 href="/category/pe-comprehensive-management"
                 className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 hover:border-[var(--accent)] hover:shadow-soft transition-all font-serif font-bold text-[var(--ink)] text-lg"
               >

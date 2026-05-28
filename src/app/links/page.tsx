@@ -195,6 +195,17 @@ export default function LinksPage() {
                 </div>
               </Link>
               <Link
+                href="/category/civil-construction-2"
+                className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+              >
+                <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
+                  2級土木施工管理技士 試験ガイド
+                </div>
+                <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
+                  受験資格緩和後の若手向け、過去問解説、経験記述ガイド
+                </div>
+              </Link>
+              <Link
                 href="/about"
                 className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
               >

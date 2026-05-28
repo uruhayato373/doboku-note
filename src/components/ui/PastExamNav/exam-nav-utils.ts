@@ -113,11 +113,64 @@ function buildCivilData(articles: DocMeta[]): PastExamNavData | null {
   };
 }
 
+/**
+ * 2級土木 用: 前期/後期 + 第2次
+ * 1級と異なり slug は `(r|h)(\d+)-(zenki|kouki)` 形式。
+ */
+function buildCivil2Data(articles: DocMeta[]): PastExamNavData | null {
+  const primaryDocs = articles.filter((m) => classifyDoc(m) === 'primary');
+  const secondaryDocs = articles.filter((m) => classifyDoc(m) === 'secondary');
+
+  // primary: slug末尾 (r|h)(\d+)-(zenki|kouki)
+  const yearMap = new Map<string, { zenki?: string; kouki?: string; secondary?: string }>();
+  for (const doc of primaryDocs) {
+    const match = doc.slug?.match(/(r|h)(\d+)-(zenki|kouki)$/);
+    if (!match) continue;
+    const yearCode = `${match[1]}${match[2]}`;
+    const part = match[3] as 'zenki' | 'kouki';
+    if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
+    yearMap.get(yearCode)![part] = doc.slug;
+  }
+
+  // secondary: slug末尾 secondary-(r|h)(\d+)
+  for (const doc of secondaryDocs) {
+    const match = doc.slug?.match(/secondary-(r|h)(\d+)$/);
+    if (!match) continue;
+    const yearCode = `${match[1]}${match[2]}`;
+    if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
+    yearMap.get(yearCode)!.secondary = doc.slug;
+  }
+
+  if (yearMap.size === 0) return null;
+  const hasSecondary = Array.from(yearMap.values()).some((v) => v.secondary);
+
+  const years: ExamYear[] = Array.from(yearMap.keys())
+    .sort(sortYearsDesc)
+    .map((code) => {
+      const entry = yearMap.get(code)!;
+      return {
+        yearCode: code,
+        label: yearLabel(code),
+        col1: entry.zenki ? { slug: entry.zenki } : undefined,
+        col2: entry.kouki ? { slug: entry.kouki } : undefined,
+        col3: entry.secondary ? { slug: entry.secondary } : undefined,
+      };
+    });
+
+  return {
+    col1Header: '前期',
+    col2Header: '後期',
+    col3Header: hasSecondary ? '2次' : undefined,
+    years,
+  };
+}
+
 export function buildPastExamNavData(
   category: string,
   categoryArticles: DocMeta[],
 ): PastExamNavData | null {
   if (category === 'pe-comprehensive-management') return buildPeData(categoryArticles);
   if (category === 'civil-construction-1') return buildCivilData(categoryArticles);
+  if (category === 'civil-construction-2') return buildCivil2Data(categoryArticles);
   return null;
 }
