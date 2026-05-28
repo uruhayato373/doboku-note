@@ -1,95 +1,93 @@
 ---
 name: yt-shorts-create
-description: 技術士総監キーワードの YouTube Shorts 自動生成。MDX → Satori スライド + VOICEVOX TTS → ffmpeg 字幕焼き込み → mp4 までをローカルで完結する。
+description: IG Reels パック (slide-NN.mp4) から 30-60 秒の YouTube Shorts mp4 + meta.json を派生生成する。戦略 v7 (Instagram 一次・YouTube 二次展開) に整合。
 allowed-tools: Bash, Read, Write
 ---
 
-# YouTube Shorts 自動生成スキル
+# YouTube Shorts 派生スキル（v7）
 
-`.local/r2/posts/pe-comprehensive-management/{slug}/article.mdx` を入力に、**1080×1920 縦型 30-60 秒の YouTube Shorts を完全機械生成**する。本スキルは mp4 出力までを担当（YouTube への upload は `media-uploader.mjs` で別途）。
+`docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 出力 + meta.json までを担当（YouTube への upload は `media-uploader.mjs` で別途）。
+
+**v7 で MDX 直結モード（旧 `--slug`）は廃止**。詳細は [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7、品質ルーブリックは [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)。
 
 ## 前提
 
 1. **ffmpeg / ffprobe が PATH にある**
    ```bash
-   brew install ffmpeg          # macOS
-   ffmpeg -version              # 確認
+   # macOS
+   brew install ffmpeg
+   # Linux
+   sudo apt install ffmpeg
+   # Windows (winget)
+   winget install Gyan.FFmpeg
+   ffmpeg -version
    ```
-2. **VOICEVOX エンジンがローカル起動している**
-   ```bash
-   docker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-latest
-   curl http://localhost:50021/version
-   ```
-3. **共通基盤** `.claude/scripts/lib/sns-common/` が存在する（PR #169 で整備、merge 待ち）
+2. **対象パックの Reels mp4 が既に生成済み**
+   - `ig-reel-create` で生成: `docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/slide-NN.mp4`
+   - 必要なファイル: `slide-00.mp4` (cover) / `slide-01.mp4` (problem 1) / `slide-02.mp4` (answer 1) / `slide-09.mp4` (cta)
+3. **slide-data.json が存在**: `docs/sns/instagram/_exam-packs/<year>/pack-NN/slide-data.json`
 
 ## 使い方
 
 ```bash
 node .claude/skills/social/yt-shorts-create/scripts/yt-shorts-create.mjs \
-  --slug followership --date 2026-05-02
+  --from-reels r03-pack-01
 ```
 
 ### 引数
 
 | 引数 | 必須 | 既定 | 説明 |
 |---|---|---|---|
-| `--slug` | ✅ | - | キーワード slug（例: `followership`、`mbo`）|
-| `--date` | ✅ | - | 出力日（YYYY-MM-DD）。`.tmp/sns/{date}/` に出力 |
-| `--category` | - | `pe-comprehensive-management` | コンテンツカテゴリ |
-| `--speaker` | - | env or 1 | VOICEVOX speaker ID（1 = 四国めたん）|
-| `--out` | - | `.tmp/sns/{date}/{slug}-shorts/` | 出力ディレクトリ |
+| `--from-reels` | ✅ | - | IG Reels パック ID（例: `r03-pack-01`） |
+| `--out` | - | `docs/sns/youtube/<date>-<pack-id>/` | 出力ディレクトリ |
+
+### 廃止された引数（v7）
+
+| 引数 | 状態 | 移行 |
+|---|---|---|
+| `--slug` | **廃止（v7 で deprecated）** | IG Reels 一次制作（ig-reels-writer + ig-reel-create）→ `--from-reels <pack-id>` に移行 |
+| `--date` | 廃止 | 出力 dir 自動生成（今日の日付） |
+| `--category` | 廃止 | pe-comprehensive-management 固定 |
+| `--speaker` | 廃止 | IG Reels mp4 の音声をそのまま流用 |
 
 ## 出力
 
 ```
-.tmp/sns/{date}/{slug}-shorts/
+docs/sns/youtube/<date>-<pack-id>/
 ├ shorts.mp4              最終動画（YouTube Shorts として upload 可能）
-├ thumbnail.png           1280×720 サムネイル
-├ meta.json               YouTube タイトル・概要欄・ハッシュタグ・privacyStatus
-├ slide-NN.png            各スライド画像（中間ファイル）
-├ slide-NN.wav            各スライド TTS 音声
-├ slide-NN.mp4            各スライド個別動画（中間ファイル、デバッグ用）
-├ subtitle.ass            字幕ファイル
-├ concat.txt              ffmpeg concat list
-└ _combined.mp4           字幕焼き込み前
+├ thumbnail.png           1080×1920 サムネ（cover をコピー）
+└ meta.json               タイトル・概要欄（UTM 付き）・タグ・privacyStatus
 ```
 
-## スライド構成（5 枚・30-60 秒）
+## 派生ロジック（v7）
 
-| # | 型 | 内容 | 想定尺 |
-|---|---|---|---|
-| 1 | `cover` | タイトル + 「技術士総監」ラベル | 3-5 秒 |
-| 2 | `definition` | 「〜とは」短い定義（80 字以内）| 8-12 秒 |
-| 3 | `examPoint` | 試験ポイント 1 | 8-12 秒 |
-| 4 | `examPoint` | 試験ポイント 2 | 8-12 秒 |
-| 5 | `cta` | doboku-note 誘導 | 4-6 秒 |
+10 スライド構成（cover + problem×4 + answer×4 + cta）から **4 スライドを抜粋して concat**：
 
-## アーキテクチャ
+| YT スライド | IG Reels 由来 | 役割 |
+|---|---|---|
+| 1 | `slide-00.mp4` | cover（題材告知） |
+| 2 | `slide-01.mp4` | problem 1（出題） |
+| 3 | `slide-02.mp4` | answer 1（解答 + 解説） |
+| 4 | `slide-09.mp4` | cta（サイト誘導） |
+
+各スライドは IG Reels で既に **VOICEVOX TTS が乗った独立 mp4** なので、ffmpeg concat で結合するだけで音声付きの 30-60 秒 mp4 になる。
 
 ```
-MDX article.mdx
-  ↓ #lib/sns-common/mdx-extract.mjs
-{ title, description, definition, examPoints, ... }
-  ↓ lib/build-storyboard.mjs
-[ cover, def, ep1, ep2, cta ] (5 slides)
-  ↓ lib/build-script.mjs
-[ "ナレーション 1", ... "ナレーション 5" ]
-  ↓ #lib/sns-common/slide-render.mjs（Satori + @resvg）
-[ slide-00.png ... slide-04.png ]
-  ↓ #lib/sns-common/tts-client.mjs（VOICEVOX HTTP）
-[ slide-00.wav ... slide-04.wav ]
-  ↓ ffprobe → lib/build-subtitle.mjs
-subtitle.ass
-  ↓ lib/ffmpeg-compose.mjs（ffmpeg）
-shorts.mp4 + thumbnail.png + meta.json
+docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/
+  slide-00.mp4 (cover)        ┐
+  slide-01.mp4 (problem 1)    │ ffmpeg concat
+  slide-02.mp4 (answer 1)     │ → shorts.mp4 (約 40-50 秒)
+  slide-09.mp4 (cta)          ┘
+  img/00-cover.png            → thumbnail.png (cover をそのまま使用)
+slide-data.json + _meta       → meta.json (UTM = utm_source=youtube)
 ```
 
-## 字幕方式
+## 字幕（MVP では未対応）
 
-- `lib/build-subtitle.mjs` が **TTS 出力 wav の duration を計測 → スライド単位で .ass 字幕を生成**
-- whisper.cpp は使わない（word-level 同期は不要、スライド単位で十分）
-- スタイル: Noto Sans JP Bold 48px、白文字 + 黒縁取り 4px、下部中央
-- 詳細: `docs/project/07_YouTube戦略_技術士総監.md` v4 §字幕
+v7 MVP では字幕焼き込み無し。IG Reels の slide-NN.mp4 に既に音声があるため字幕無しでも 30-60 秒視聴は成立する。
+
+字幕焼き込みは Phase D2 で対応予定:
+- IG Reels の `reels/subtitle.ass`（存在する場合）から該当 4 スライド分を抽出 → ffmpeg `-vf subtitles=` で焼き込み
 
 ## 検証
 
@@ -97,30 +95,39 @@ shorts.mp4 + thumbnail.png + meta.json
 # 1. ffmpeg 起動確認
 ffmpeg -version
 
-# 2. VOICEVOX 起動
-docker run --rm -p 50021:50021 voicevox/voicevox_engine:cpu-latest &
+# 2. 対象 IG Reels パックが生成済みか確認
+ls docs/sns/instagram/_exam-packs/r03/pack-01/reels/slide-{00,01,02,09}.mp4
 
-# 3. サンプル生成（フォロワーシップ）
-node .claude/skills/social/yt-shorts-create/scripts/yt-shorts-create.mjs \
-  --slug followership --date 2026-05-02
+# 3. YT 派生実行
+node .claude/skills/social/yt-shorts-create/scripts/yt-shorts-create.mjs --from-reels r03-pack-01
 
 # 4. 出力確認
-ls .tmp/sns/2026-05-02/followership-shorts/
-# 期待: shorts.mp4, thumbnail.png, meta.json, slide-00..04.png/.wav/.mp4, subtitle.ass
+ls docs/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
+# 期待: shorts.mp4, thumbnail.png, meta.json
 
 # 5. 動画再生確認
-open .tmp/sns/2026-05-02/followership-shorts/shorts.mp4
+# Windows: start docs/sns/youtube/.../shorts.mp4
+# macOS:   open docs/sns/youtube/.../shorts.mp4
+
+# 6. 品質チェック（yt-shorts-publisher-qa エージェント呼出）
+# 親エージェントから yt-shorts-publisher-qa --pack-id r03-pack-01 で 4 軸採点
 ```
 
-## 範囲外（後続タスクで対応）
+## 範囲外（後続タスク）
 
-- **YouTube Data API へのアップロード** → `media-uploader.mjs` で実装済み（PR #169。実投稿は task-queue T-003 Meta 認証準備の後）
-- スケジューラ統合（cron）→ task-queue T-004「SNS スケジューラ統合」
-- Instagram Reels への mp4 流用 → task-queue T-005「SNS 型・チャネル拡充」
-- whisper.cpp による word-level 字幕 → 視聴完了率データを見てから判断
+- **YouTube Data API upload** → `media-uploader.mjs`（PR #169、実投稿は T-003 Meta 認証準備の後）
+- **スケジューラ統合** → task-queue T-004
+- **字幕焼き込み** → Phase D2（IG Reels subtitle.ass からの派生実装）
+- **動的な抜粋スライド選択** → 現状は cover + problem 1 + answer 1 + cta 固定。問題 2/3/4 のどれを抜粋するかは将来対応
 
 ## 関連
 
-- 戦略: `docs/project/07_YouTube戦略_技術士総監.md` (v4)
-- 親タスク: task-queue T-001「SNS 自動投稿基盤（YouTube × Instagram）」
-- 共通基盤: `.claude/scripts/lib/sns-common/`
+- 戦略: [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7
+- 品質ルーブリック: [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)
+- 上流: `ig-reel-create` スキル（IG Reels mp4 を生成）+ `ig-reels-writer` エージェント（script.json 執筆）
+- 親タスク: task-queue T-005c（YT 派生スクリプト + Evaluator、v7 Phase D）
+
+## 改訂履歴
+
+- v2（2026-05-28）: 戦略 v7 化に伴い `--slug` 廃止 → `--from-reels` 一本化。IG Reels mp4 から ffmpeg concat で派生する設計に再構築。
+- v1（2026-05-02）: 初版。MDX 直結で TTS + 字幕焼き込み（v6 まで）。

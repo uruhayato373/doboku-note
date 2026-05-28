@@ -1,24 +1,32 @@
 #!/usr/bin/env node
 /**
- * YouTube Shorts 自動生成 CLI（VOICEVOX → 字幕付き mp4 まで）。
+ * YouTube Shorts 自動生成 CLI。
+ *
+ * v7 で MDX 直結モード (--slug) は廃止し、IG Reels mp4 から派生する
+ * --from-reels モード一本に再設計。詳細は SKILL.md と
+ * docs/project/03_SNS/01_SNS集客戦略.md v7 を参照。
  *
  * Usage:
+ *   # v7 (現行): IG Reels パックから 30-60 秒の YT Shorts mp4 を派生
+ *   node yt-shorts-create.mjs --from-reels r03-pack-01
+ *
+ *   # 旧 (v6 以前): MDX 直結。v7 で廃止 → エラー終了
  *   node yt-shorts-create.mjs --slug followership --date 2026-05-02
  *
- * 全工程:
- *   1. MDX → storyboard（5 枚構成）
- *   2. 各スライドの台本（TTS 入力）
- *   3. スライド PNG レンダリング（Satori + @resvg）
- *   4. VOICEVOX で TTS wav 生成
- *   5. wav の duration 計測 → .ass 字幕生成
- *   6. ffmpeg で mp4 合成 + 字幕焼き込み
- *   7. サムネ生成 + meta.json 出力
+ * 派生フロー (v7):
+ *   1. docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/ の
+ *      slide-00 (cover) / 01 (problem) / 02 (answer) / 09 (cta) mp4 を
+ *      ffmpeg concat → 30-60 秒の結合 mp4
+ *   2. thumbnail.png: reels/img/00-cover.png をコピー
+ *   3. meta.json: slide-data.json から派生したタイトル + 概要欄テンプレ
+ *      + UTM (utm_source=youtube) を生成
  */
 
-import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
-import { join } from 'node:path';
+import { mkdirSync, writeFileSync, readFileSync, copyFileSync, existsSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
+import { spawnSync } from 'node:child_process';
 
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 import { synthesize } from '#lib/sns-common/tts-client.mjs';
@@ -52,12 +60,23 @@ function parseCliArgs(argv) {
       out: { type: 'string' },
       reset: { type: 'boolean' },
       'config-only': { type: 'boolean' },
+      'from-reels': { type: 'string' },  // v7: IG Reels mp4 派生モード
     },
   });
-  if (!values.slug) throw new Error('--slug is required');
-  if (!values.date) throw new Error('--date is required (YYYY-MM-DD)');
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(values.date)) {
-    throw new Error(`--date must be YYYY-MM-DD format, got: ${values.date}`);
+  // v7: --slug モードは廃止（IG 一次・YT 派生に再設計）
+  if (values.slug) {
+    throw new Error(
+      '--slug mode is deprecated (戦略 v7: 2026-05-28)。--from-reels <pack-id> を使用してください。\n' +
+      '詳細: docs/project/03_SNS/01_SNS集客戦略.md v7 の §1 基本方針・§2 YouTube Shorts。\n' +
+      '移行例: --slug followership → IG Reels 一次制作 (ig-reels-writer) → --from-reels <pack-id>'
+    );
+  }
+  if (!values['from-reels']) {
+    throw new Error('--from-reels <pack-id> is required (例: --from-reels r03-pack-01)');
+  }
+  // pack-id 形式チェック
+  if (!/^[rh]\d{2}-pack-\d{2}$/.test(values['from-reels'])) {
+    throw new Error(`--from-reels の形式は <year>-pack-<NN> (例: r03-pack-01)。got: ${values['from-reels']}`);
   }
   return values;
 }
@@ -260,17 +279,144 @@ function buildScriptTxt({ storyboard, scripts, date }) {
   return header + sections.join('\n\n') + '\n';
 }
 
+// ─── v7: --from-reels モード（IG Reels mp4 派生） ─────────────────
+
+/**
+ * IG Reels の slide-NN.mp4 から YT Shorts (30-60 秒) を派生生成する。
+ *
+ * 抜粋戦略: 10 スライド構成 (cover + problem×4 + answer×4 + cta) から
+ * cover + problem 1 + answer 1 + cta の 4 スライドを concat。
+ * IG Reels の各 slide-NN.mp4 は VOICEVOX TTS 入り独立 mp4。
+ *
+ * @param {object} args
+ * @param {string} args.packId  例: "r03-pack-01"
+ * @param {string} [args.outDir]
+ * @returns {Promise<{ mp4Path, thumbPath, metaPath, durationSec }>}
+ */
+export async function createShortsFromReels({ packId, outDir }) {
+  if (!ffmpegAvailable()) {
+    throw new Error('ffmpeg not found in PATH. Install with: brew install ffmpeg (macOS) or apt install ffmpeg (Linux)');
+  }
+
+  const m = packId.match(/^([rh]\d{2})-pack-(\d{2})$/);
+  if (!m) throw new Error(`Invalid pack-id: ${packId}`);
+  const [, year, packNum] = m;
+  const packNumLabel = String(Number(packNum));
+
+  // IG Reels パックのパスを解決
+  const reelsDir = join('docs', 'sns', 'instagram', '_exam-packs', year, `pack-${packNum}`, 'reels');
+  const slideDataPath = join('docs', 'sns', 'instagram', '_exam-packs', year, `pack-${packNum}`, 'slide-data.json');
+  if (!existsSync(reelsDir)) {
+    throw new Error(`Reels ディレクトリが見つかりません: ${reelsDir}\n  先に ig-reel-create で生成してください`);
+  }
+  if (!existsSync(slideDataPath)) {
+    throw new Error(`slide-data.json が見つかりません: ${slideDataPath}`);
+  }
+
+  const slideData = JSON.parse(readFileSync(slideDataPath, 'utf8'));
+  const date = new Date().toISOString().slice(0, 10);
+  const docsDir = outDir ?? join('docs', 'sns', 'youtube', `${date}-${packId}`);
+  const tmpDir = join('.tmp', 'sns', date, `${packId}-shorts`);
+  mkdirSync(docsDir, { recursive: true });
+  mkdirSync(tmpDir, { recursive: true });
+
+  // [1/3] 抜粋する slide-NN.mp4 を concat
+  // cover (00) + problem 1 (01) + answer 1 (02) + cta (09) の 4 スライド
+  const sourceSlides = ['00', '01', '02', '09'];
+  const missing = sourceSlides.filter((n) => !existsSync(join(reelsDir, `slide-${n}.mp4`)));
+  if (missing.length > 0) {
+    throw new Error(`Reels の slide mp4 が不足: ${missing.map((n) => `slide-${n}.mp4`).join(', ')}\n  ig-reel-create を先に走らせてください`);
+  }
+
+  // 絶対パスで concat.txt を生成（ffmpeg は concat.txt のあるディレクトリからの相対解釈をするため、絶対パスが最も安全）
+  const concatTxt = sourceSlides
+    .map((n) => `file '${resolve(reelsDir, `slide-${n}.mp4`).replace(/\\/g, '/')}'`)
+    .join('\n') + '\n';
+  const concatPath = join(tmpDir, 'concat.txt');
+  writeFileSync(concatPath, concatTxt, 'utf8');
+
+  process.stdout.write(`[1/3] Concat ${sourceSlides.length} slides from IG Reels → mp4...\n`);
+  const mp4Path = join(docsDir, 'shorts.mp4');
+  const concatResult = spawnSync(
+    'ffmpeg',
+    ['-y', '-f', 'concat', '-safe', '0', '-i', concatPath, '-c', 'copy', mp4Path],
+    { stdio: ['ignore', 'pipe', 'pipe'] },
+  );
+  if (concatResult.status !== 0) {
+    throw new Error(`ffmpeg concat 失敗:\n${concatResult.stderr?.toString() ?? ''}`);
+  }
+
+  // 動画長を計測（probeDuration は wav 用だが mp4 でも動く）
+  const durationSec = await probeDuration(mp4Path);
+  if (durationSec < 15 || durationSec > 70) {
+    process.stdout.write(`  ⚠ 動画尺 ${durationSec.toFixed(1)}秒 は YT Shorts 推奨 30-60 秒の範囲外\n`);
+  }
+
+  // [2/3] サムネイル（Reels cover を流用）
+  process.stdout.write(`[2/3] Thumbnail (copy from reels cover)...\n`);
+  const thumbPath = join(docsDir, 'thumbnail.png');
+  copyFileSync(join(reelsDir, 'img', '00-cover.png'), thumbPath);
+
+  // [3/3] meta.json
+  process.stdout.write(`[3/3] Generating meta.json...\n`);
+  const meta = buildMetaFromReels({ slideData, packId, year, packNumLabel, durationSec });
+  const metaPath = join(docsDir, 'meta.json');
+  writeFileSync(metaPath, JSON.stringify(meta, null, 2));
+
+  process.stdout.write(`\n✓ Generated: ${mp4Path}\n`);
+  process.stdout.write(`  Thumbnail: ${thumbPath}\n`);
+  process.stdout.write(`  Meta:      ${metaPath}\n`);
+  process.stdout.write(`  Duration:  ${durationSec.toFixed(1)}s\n`);
+
+  return { mp4Path, thumbPath, metaPath, durationSec };
+}
+
+/**
+ * IG Reels 派生 mp4 用の meta.json を組み立てる。
+ * IG Reels のキャプションテキストは別ファイル (reels/caption.txt) で
+ * IG 用に書かれているため、YT 用は本関数で別途生成する。
+ */
+function buildMetaFromReels({ slideData, packId, year, packNumLabel, durationSec }) {
+  const yt = SNS_CONFIG.youtube;
+  const yearLabel = `令和${year.replace(/^[rRhH]0?/, '')}年度`;
+  const management = slideData._meta?.management || slideData.cover?.management || '';
+  const titleBase = `${yearLabel} 択一式 過去問 #${packNumLabel}${management ? `（${management}）` : ''}`;
+
+  const utm = yt.utmParams.replace('campaign=shorts', `campaign=exam-pack-${packId}`);
+  const description = [
+    `${titleBase} — ${SNS_CONFIG.profession}`,
+    '',
+    'この動画は IG Reels で公開した過去問パックから 1 問抜粋した YouTube Shorts 派生版です。',
+    '',
+    yt.descriptionHeaders.site,
+    `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management/${year}?${utm}`,
+    '',
+    yt.descriptionHeaders.note,
+    `${SNS_CONFIG.noteUrl}?${utm.replace(/campaign=[^&]+/, 'campaign=note')}`,
+    '',
+    yt.hashtags,
+  ].join('\n');
+
+  return {
+    title: `${yt.titlePrefix}${titleBase}`,
+    description,
+    tags: dedupe([...yt.tags, `${yearLabel}`, '過去問', '択一式', management].filter(Boolean)),
+    categoryId: yt.categoryId,
+    privacyStatus: yt.privacyStatus,
+    sourcePackId: packId,
+    sourceYear: year,
+    sourceUrl: `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management/${year}`,
+    durationSeconds: Number(durationSec.toFixed(2)),
+    derivedFrom: 'instagram-reels',
+  };
+}
+
 // CLI 起動判定（argv[1] が無い動的 import では false）
 const isCli = process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href;
 if (isCli) {
   const args = parseCliArgs(process.argv);
-  await createShorts({
-    category: args.category,
-    slug: args.slug,
-    date: args.date,
-    speaker: args.speaker,
+  await createShortsFromReels({
+    packId: args['from-reels'],
     outDir: args.out,
-    reset: args.reset === true,
-    configOnly: args['config-only'] === true,
   });
 }

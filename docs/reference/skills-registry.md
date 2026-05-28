@@ -135,6 +135,8 @@ title: スキル ガバナンス記録
 | 2026-05-27 | `build-stories.mjs` | v1.0（新規） | `.claude/scripts/instagram/build-stories.mjs` 新設。`reels/img/` から 4 枚（00-cover / 02-problem / 03-answer / 09-cta）を `stories/img/` にコピー + `stories/caption.txt` + `stories/note.md`（投稿手順）を生成。42 パック × 4 枚 = 168 PNG 整備 |
 | 2026-05-27 | summary 系スライド | v1.0（新規） | 年度目次カルーセル（`_summary/`）新設。`buildSummaryCover` / `buildSummaryPackList` / `buildSummaryCta` 3 ビルダー追加、`slide-render.mjs` の dispatcher と `ig-post-create.mjs` の `SLIDE_TYPE_MAP` に `summary-*` 系を追加。1 ストーリー → 目次カルーセル → 個別パックの 3 階層誘導を実現 |
 | 2026-05-27 | `generate-caption.cjs` | （文言確定） | カルーセル先頭行を「【令和X年度 択一式 過去問】R0X 過去問 #N」に固定。caption と cover-title を完全同期 |
+| 2026-05-28 | `yt-shorts-create` | v1.0 → v2.0（破壊的変更） | **戦略 v7 化に伴い `--slug` モード（MDX 直結）廃止 → `--from-reels <pack-id>` 一本化**。IG Reels パックの `slide-{00,01,02,09}.mp4` を ffmpeg concat で 30-60 秒に派生。`buildMeta` を別途 `buildMetaFromReels` に分岐し、UTM を `utm_source=youtube&utm_campaign=exam-pack-<pack-id>` に。`--slug` 呼出時は deprecation エラーで exit 1。MVP では字幕焼き込み未対応（Phase D2 で対応予定）。SKILL.md 全面書き換え |
+| 2026-05-28 | `quiz-slides.mjs` | （Reels モード分岐追加） | `buildQuizCover` で `height >= 1920` を判定し `SLIDES.cover.swipeTextReels`（"答えは動画内で発表"）に分岐。tokens.json に `swipeTextReels` フィールド追加。「スワイプで4問にチャレンジ」がカルーセル流用バグで Reels に残っていた問題を構造的に解消 |
 
 ### カテゴリ変更履歴
 
