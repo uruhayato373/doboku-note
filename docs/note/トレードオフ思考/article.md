@@ -167,7 +167,7 @@ noteStatus: draft
 
 #### ② LCA / LCC（[ライフサイクル評価](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-management?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）
 
-LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle Cost、総コスト評価）を組み合わせる。**両者を混同しないことが採点上きわめて重要**（LCA = 環境、LCC = コスト）。
+[LCA（ライフサイクルアセスメント）](https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle Cost、総コスト評価）を組み合わせる。**両者を混同しないことが採点上きわめて重要**（LCA = 環境、LCC = コスト）。
 
 - **適用条件**: 経済性管理と社会環境管理の対立。短期コストと長期環境負荷が競合する場合
 - **答案フレーズ例**: 「LCC で総保有コストを比較しつつ、LCA で CO2 排出と廃棄影響を定量評価し、両軸で最適解を選定する」
@@ -194,8 +194,8 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 リスク量（発生確率 × 影響度）に比例した資源配分を行う。最頻出の万能フレームで、ALARP・LCC とも組み合わせやすい。
 
 - **適用条件**: 経済性管理と安全管理・情報管理・社会環境管理の対立すべて。資源制約下での優先順位付けが必要な場合
-- **答案フレーズ例**: 「リスクマトリクス（発生頻度 × 影響度）で重大リスクを 3 件抽出し、対策投資額を 7:2:1 の比率で配分する」
-- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法**（マトリクス・PRA・FMEA）**と配分根拠** を示さないと採点者には届かない
+- **答案フレーズ例**: 「[リスクマトリクス](https://doboku-note.com/docs/pe-comprehensive-management-risk-map-matrix?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)（発生頻度 × 影響度）で重大リスクを 3 件抽出し、対策投資額を 7:2:1 の比率で配分する」
+- **NG パターン**: 「重要なリスクから対策する」だけ。**リスク評価の手法**（マトリクス・PRA・[FMEA](https://doboku-note.com/docs/pe-comprehensive-management-fmea?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）**と配分根拠** を示さないと採点者には届かない
 
 下図は、この 5 つのフレームが 10 の管理ペアに対してどう適用できるかをまとめたもの。
 
@@ -211,7 +211,7 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 - 経済性 × 安全（**S**）— 第三：**情報管理** / 施策キーワード: AI による事故予兆検知 / IoT モニタリング / 過去災害データのシミュレーション
 - 経済性 × 社会環境（**S**）— 第三：**人的資源管理** / 施策: 環境教育 / グリーンスキル研修 / ESG 視点での意思決定権限委譲
-- 経済性 × 人的資源（**A**）— 第三：**情報管理** / 施策: OJT 効果測定 KPI 可視化 / 教育 ROI 分析 / スキルマップのデータベース化
+- 経済性 × 人的資源（**A**）— 第三：**情報管理** / 施策: [OJT](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 効果測定 KPI 可視化 / 教育 ROI 分析 / スキルマップのデータベース化
 - 経済性 × 情報（**A**）— 第三：**安全管理** / 施策: ALARP に基づくセキュリティ投資 / リスクベース投資判断 / 損害コスト評価
 - 人的資源 × 安全（**A**）— 第三：**経済性管理** / 施策: 安全装備の費用便益分析 / 教育コストの定量評価 / 労災保険コスト最適化
 - 安全 × 社会環境（**A**）— 第三：**人的資源管理** / 施策: 防災教育 / 住民参加型ワークショップ / ステークホルダー対話の組織化
@@ -267,7 +267,7 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 選んだトレードオフに対し、「第三の管理で解決する」アプローチを適用する。
 
-具体的な管理技術の名称（PERT、[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)、OJT 等）を挙げながら、実現可能な対策を示す。
+具体的な管理技術の名称（PERT、[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)、[OJT](https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking) 等）を挙げながら、実現可能な対策を示す。
 
 **第 4 段階：残留リスクと継続的改善**
 
@@ -290,9 +290,9 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 ここまでの理論を「実際の答案でどう書くか」に翻訳する。
 
-過去問 2 年（[令和 2 年度 異常気象 BCP](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 6 年度 カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）を題材に、**4 段構造で 600 字 × 1 枚分の答案骨子** を示す。各サンプルに採点者視点の **添削コメント**（◎ 高評価点 / × 減点リスク）を付ける。
+過去問 2 年（[令和 2 年度 異常な自然現象 BCP](https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)・[令和 6 年度 カーボンニュートラル](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）を題材に、**4 段構造で 600 字 × 1 枚分の答案骨子** を示す。各サンプルに採点者視点の **添削コメント**（◎ 高評価点 / × 減点リスク）を付ける。
 
-### 6.1 サンプル A：R02 異常気象 BCP（経済性管理 × 安全管理 + 第三：情報管理）
+### 6.1 サンプル A：R02 異常な自然現象 BCP（経済性管理 × 安全管理 + 第三：情報管理）
 
 **事業設定**：製造業の生産工場における事業継続計画。豪雨災害により浸水リスクが顕在化。設備保護のための嵩上げ工事は工期 6 ヶ月・投資 1.5 億円が必要。
 
@@ -302,7 +302,7 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 具体的には、設備保護のための嵩上げ工事（[リスクアセスメント](https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)結果は浸水確率 30 年 1 回・損害額 5 億円）と、工事中の生産停止 6 ヶ月による機会損失 8 億円が対立する。
 
-**第 2 段**（200 字）**第三の管理（情報管理）の活用**
+**第 2 段**（200 字）**第三の管理＝情報管理の活用**
 
 第三の視点として **情報管理を持ち込む**。
 
@@ -336,7 +336,7 @@ LCA（Life Cycle Assessment、環境負荷の一体評価）と LCC（Life Cycle
 
 具体的には、[脱炭素](https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)のための電動・水素重機への転換（CO2 削減 60%）と、初期投資 5 億円・新型重機の燃費／メンテコスト未確定が対立する。**LCA と LCC の両軸で評価し、移行期の経済性悪化をどう吸収するかが論点**。
 
-**第 2 段**（200 字）**第三の管理（人的資源管理）の活用**
+**第 2 段**（200 字）**第三の管理＝人的資源管理の活用**
 
 第三の視点として **人的資源管理を持ち込む**。
 
@@ -474,7 +474,7 @@ LCC 試算では従来重機との総コストが 8 年で逆転。副次効果�
 
 ## 関連リソース
 
-**doboku-note — 17 年分の過去問 + 650 キーワード解説（無料）**
+**doboku-note — 17 年分の過去問 + 650 キーワード解説** （無料）
 
 https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking
 
