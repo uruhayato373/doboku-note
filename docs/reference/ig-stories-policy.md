@@ -122,7 +122,7 @@
 
 ### 系統 C: 教材（v7.1 で新設、note 二段ロケット）
 
-系統 A の 6 種目に対応する Stories シリーズ。雛形は `docs/sns/instagram/highlight-materials/` に。
+系統 A の 6 種目に対応する Stories シリーズ。雛形は `docs/sns/instagram/highlights/materials/` に。他の 5 種も `docs/sns/instagram/highlights/{intro,carousel-index,reels-roundup,faq,announcement}/` に整備済み。
 
 **6 枚構成**:
 

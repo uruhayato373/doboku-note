@@ -8,19 +8,19 @@
  * ポリシー: docs/reference/ig-stories-policy.md §5 系統 A / C
  *
  * 対応ハイライト:
- *   - docs/sns/instagram/highlight-materials/         教材 (系統 C)
- *   - docs/sns/instagram/highlight-intro/             まず読む
- *   - docs/sns/instagram/highlight-faq/               FAQ
- *   - docs/sns/instagram/highlight-carousel-index/    カルーセル目次
- *   - docs/sns/instagram/highlight-reels-roundup/     Reels まとめ
- *   - docs/sns/instagram/highlight-announcement/      お知らせ（テンプレ）
+ *   - docs/sns/instagram/highlights/materials/         教材 (系統 C)
+ *   - docs/sns/instagram/highlights/intro/             まず読む
+ *   - docs/sns/instagram/highlights/faq/               FAQ
+ *   - docs/sns/instagram/highlights/carousel-index/    カルーセル目次
+ *   - docs/sns/instagram/highlights/reels-roundup/     Reels まとめ
+ *   - docs/sns/instagram/highlights/announcement/      お知らせ（テンプレ）
  *
  * Usage:
  *   # 単一ハイライト
- *   node .claude/scripts/instagram/build-highlight-materials.mjs --dir docs/sns/instagram/highlight-faq
- *   # 全 highlight-* を一括生成
+ *   node .claude/scripts/instagram/build-highlight-materials.mjs --dir docs/sns/instagram/highlights/faq
+ *   # 全ハイライト (highlights/<name>/slide-data.json) を一括生成
  *   node .claude/scripts/instagram/build-highlight-materials.mjs --all
- *   # 既定（後方互換: highlight-materials のみ）
+ *   # 既定（後方互換: highlights/materials のみ）
  *   node .claude/scripts/instagram/build-highlight-materials.mjs
  *
  * 構造:
@@ -38,6 +38,7 @@ import { renderSlide } from '#lib/sns-common/slide-render.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../../..');
 const IG_BASE = join(ROOT, 'docs', 'sns', 'instagram');
+const HIGHLIGHTS_BASE = join(IG_BASE, 'highlights');
 
 const WIDTH = 1080;
 const HEIGHT = 1920;
@@ -76,7 +77,11 @@ async function generateOne(packDir) {
   mkdirSync(outDir, { recursive: true });
 
   const total = slideData.slides.length;
-  const tag = packDir.replace(`${IG_BASE}\\`, '').replace(`${IG_BASE}/`, '');
+  const tag = packDir
+    .replace(`${HIGHLIGHTS_BASE}\\`, 'highlights/')
+    .replace(`${HIGHLIGHTS_BASE}/`, 'highlights/')
+    .replace(`${IG_BASE}\\`, '')
+    .replace(`${IG_BASE}/`, '');
   console.log(`\n[${tag}] ${total} 枚生成 → ${outDir}`);
 
   let ok = 0;
@@ -118,16 +123,19 @@ async function main() {
 
   let targets = [];
   if (args.all) {
-    // highlight-* を自動列挙
-    targets = readdirSync(IG_BASE)
-      .filter((d) => d.startsWith('highlight-'))
-      .map((d) => join(IG_BASE, d))
+    // highlights/*/slide-data.json を自動列挙
+    if (!existsSync(HIGHLIGHTS_BASE)) {
+      console.error(`Not found: ${HIGHLIGHTS_BASE}`);
+      process.exit(1);
+    }
+    targets = readdirSync(HIGHLIGHTS_BASE)
+      .map((d) => join(HIGHLIGHTS_BASE, d))
       .filter((p) => existsSync(join(p, 'slide-data.json')));
   } else if (args.dir) {
     targets = [resolve(args.dir)];
   } else {
-    // 後方互換: 引数なしは highlight-materials のみ
-    targets = [join(IG_BASE, 'highlight-materials')];
+    // 後方互換: 引数なしは highlights/materials のみ
+    targets = [join(HIGHLIGHTS_BASE, 'materials')];
   }
 
   if (targets.length === 0) {
