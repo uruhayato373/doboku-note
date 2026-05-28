@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-28T02:30:30.638Z",
+  "generated_at": "2026-05-28T03:34:46.154Z",
   "summary": {
-    "total": 831,
-    "published": 806,
+    "total": 840,
+    "published": 815,
     "unpublished": 25,
     "by_category": {
       "civil-construction-1": 83,
-      "civil-construction-2": 6,
+      "civil-construction-2": 15,
       "pe-comprehensive-management": 717
     }
   },
@@ -2661,10 +2661,10 @@
         }
       ]
     },
-    "civil-construction-2-primary-r06-kouki": {
-      "title": "令和6年度 第1次検定 後期",
-      "description": "2級土木施工管理技士 令和6年度第1次検定（後期）の全66問を解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅。",
-      "seoTitle": "令和6年度 第1次検定 後期 | 2級土木施工管理技士 | doboku-note",
+    "civil-construction-2-primary-r03-kouki": {
+      "title": "令和3年度 第1次検定 後期",
+      "description": "2級土木施工管理技士 令和3年度第1次検定（後期）の全61問を解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅。",
+      "seoTitle": "令和3年度 第1次検定 後期 | 2級土木施工管理技士 | doboku-note",
       "category": "civil-construction-2",
       "group": "primary",
       "tags": [
@@ -2673,18 +2673,110 @@
       ],
       "exam": "civil-construction-2",
       "examType": "primary",
-      "year": "r06",
+      "year": "r03",
       "sub": "kouki",
-      "questionCount": 66,
+      "questionCount": 61,
       "published": true,
       "publishedAt": "2026-05-28",
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2
     },
-    "civil-construction-2-primary-r06-zenki": {
-      "title": "令和6年度 第1次検定 前期",
-      "description": "2級土木施工管理技士 令和6年度第1次検定（前期）の全61問を無料で解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅し、各問の引っかけ論点を解答後すぐに確認できる過去問演習。",
-      "seoTitle": "2級土木 第1次検定 令和6年度 前期｜全61問の解答・解説【無料｜土木一般/専門/法規/施工管理】",
+    "civil-construction-2-primary-r03-zenki": {
+      "title": "令和3年度 第1次検定 前期",
+      "description": "2級土木施工管理技士 令和3年度第1次検定（前期）の全61問を無料で解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅し、各問の引っかけ論点を解答後すぐに確認できる過去問演習。",
+      "seoTitle": "2級土木 第1次検定 令和3年度 前期｜全61問の解答・解説【無料｜土木一般/専門/法規/施工管理】",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r03",
+      "sub": "zenki",
+      "questionCount": 61,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "civil-construction-2-primary-r04-kouki": {
+      "title": "令和4年度 第1次検定 後期",
+      "description": "2級土木施工管理技士 令和4年度第1次検定（後期）の全61問を解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅。",
+      "seoTitle": "令和4年度 第1次検定 後期 | 2級土木施工管理技士 | doboku-note",
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r04",
+      "sub": "kouki",
+      "questionCount": 61,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2,
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28"
+    },
+    "civil-construction-2-primary-r04-zenki": {
+      "title": "令和4年度 第1次検定 前期",
+      "description": "2級土木施工管理技士 令和4年度第1次検定（前期）の全61問を無料で解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅し、各問の引っかけ論点を解答後すぐに確認できる過去問演習。",
+      "seoTitle": "2級土木 第1次検定 令和4年度 前期｜全61問の解答・解説【無料｜土木一般/専門/法規/施工管理】",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r04",
+      "sub": "zenki",
+      "questionCount": 61,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2,
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28"
+    },
+    "civil-construction-2-primary-r05-kouki": {
+      "title": "令和5年度 第1次検定 後期",
+      "description": "2級土木施工管理技士 令和5年度第1次検定（後期）の全61問を解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅。",
+      "seoTitle": "令和5年度 第1次検定 後期 | 2級土木施工管理技士 | doboku-note",
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r05",
+      "sub": "kouki",
+      "questionCount": 61,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2,
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28"
+    },
+    "civil-construction-2-primary-r05-zenki": {
+      "title": "令和05年度 第1次検定 前期",
+      "description": "2級土木施工管理技士 令和05年度第1次検定（前期）の全61問を無料で解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅し、各問の引っかけ論点を解答後すぐに確認できる過去問演習。",
+      "seoTitle": "2級土木 第1次検定 令和05年度 前期｜全61問の解答・解説【無料｜土木一般/専門/法規/施工管理】",
       "exams": [
         "civil-construction-2"
       ],
@@ -2702,7 +2794,56 @@
       "published": true,
       "publishedAt": "2026-05-28",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28"
+    },
+    "civil-construction-2-primary-r06-kouki": {
+      "title": "令和06年度 第1次検定 後期",
+      "description": "2級土木施工管理技士 令和06年度第1次検定（後期）の全66問を解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅。",
+      "seoTitle": "令和06年度 第1次検定 後期 | 2級土木施工管理技士 | doboku-note",
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r06",
+      "sub": "kouki",
+      "questionCount": 66,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2,
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28"
+    },
+    "civil-construction-2-primary-r06-zenki": {
+      "title": "令和06年度 第1次検定 前期",
+      "description": "2級土木施工管理技士 令和06年度第1次検定（前期）の全66問を無料で解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅し、各問の引っかけ論点を解答後すぐに確認できる過去問演習。",
+      "seoTitle": "2級土木 第1次検定 令和06年度 前期｜全66問の解答・解説【無料｜土木一般/専門/法規/施工管理】",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r05",
+      "sub": "zenki",
+      "questionCount": 66,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2,
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28"
     },
     "civil-construction-2-primary-r07-kouki": {
       "title": "令和7年度 第1次検定 後期",
@@ -2751,9 +2892,55 @@
       "created": "2026-05-28",
       "dateModified": "2026-05-28"
     },
-    "civil-construction-2-secondary-r06": {
-      "title": "令和6年度 第2次検定",
-      "description": "2級土木施工管理技士 令和6年度第2次検定の全問と模範解答・解説。経験記述・土工・コンクリート工・建設リサイクル法・安全管理・工程管理を網羅した記述式過去問対策。",
+    "civil-construction-2-secondary-r03": {
+      "title": "令和3年度 第2次検定",
+      "description": "2級土木施工管理技士 令和3年度第2次検定の全問と模範解答・解説。経験記述・フレッシュコンクリート・移動式クレーン安全管理・盛土の締固め・コンクリート打込み・盛土の施工・鉄筋と型枠の品質管理・近接掘削の安全対策・工程表を網羅した記述式過去問対策。",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "secondary",
+      "tags": [
+        "secondary",
+        "past-questions"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "seoTitle": "令和 3 年度 第 2 次検定 解答例｜経験記述・フレッシュコンクリート・盛土の締固め・鉄筋と型枠【2級土木施工管理技士 過去問】",
+      "created": "2026-05-28T00:00:00.000Z",
+      "dateModified": "2026-05-28T00:00:00.000Z",
+      "exam": "civil-construction-2",
+      "examType": "secondary",
+      "year": "r03",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "civil-construction-2-secondary-r04": {
+      "title": "令和4年度 第2次検定",
+      "description": "2級土木施工管理技士 令和4年度第2次検定の全問と模範解答・解説。経験記述・工程表・事前調査・コンクリート養生・盛土材料・原位置試験・レディーミクストコンクリート・墜落防止・騒音防止を網羅した記述式過去問対策。",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "secondary",
+      "tags": [
+        "secondary",
+        "past-questions"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "seoTitle": "令和 4 年度 第 2 次検定 解答例｜経験記述・工程表・コンクリート養生・盛土・受入検査【2級土木施工管理技士 過去問】",
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "exam": "civil-construction-2",
+      "examType": "secondary",
+      "year": "r04",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "civil-construction-2-secondary-r05": {
+      "title": "令和05年度 第2次検定",
+      "description": "2級土木施工管理技士 令和05年度第2次検定の全問と模範解答・解説。経験記述・土工・コンクリート工・建設リサイクル法・安全管理・工程管理を網羅した記述式過去問対策。",
       "exams": [
         "civil-construction-2"
       ],
@@ -2766,11 +2953,34 @@
       "published": true,
       "publishedAt": "2026-05-28",
       "seoTitle": "令和 6 年度 第 2 次検定 解答例｜経験記述・土工・コンクリート工・リサイクル法・安全管理【2級土木施工管理技士 過去問】",
-      "created": "2026-05-28T00:00:00.000Z",
-      "dateModified": "2026-05-28T00:00:00.000Z",
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28",
       "exam": "civil-construction-2",
       "examType": "secondary",
       "year": "r06",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "civil-construction-2-secondary-r06": {
+      "title": "令和06年度 第2次検定",
+      "description": "2級土木施工管理技士 令和06年度第2次検定の全問と模範解答・解説。経験記述・土工・コンクリート工・品質管理・工程管理・安全管理を網羅した記述式過去問対策。",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "secondary",
+      "tags": [
+        "secondary",
+        "past-questions"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "seoTitle": "令和 5 年度 第 2 次検定 解答例｜経験記述・土工・コンクリート工・品質管理・安全管理【2級土木施工管理技士 過去問】",
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "exam": "civil-construction-2",
+      "examType": "secondary",
+      "year": "r05",
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2
     },
