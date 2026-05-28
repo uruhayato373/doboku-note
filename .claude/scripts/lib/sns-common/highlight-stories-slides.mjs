@@ -35,6 +35,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { pickTitleSize } from './fit-title.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
@@ -46,6 +47,13 @@ const TOKENS = JSON.parse(
 
 const HS = TOKENS.highlightStories;
 const INK = TOKENS.colors.ink;
+
+// hero の 3 階層 (auto-fit 用)
+const HERO_SIZES = {
+  large:  HS.typography.hero,    // 132px, _maxLen: 7
+  medium: HS.typography.heroMid, // 100px, _maxLen: 11
+  small:  HS.typography.heroSm,  // 80px,  _maxLen: 16
+};
 
 // ─── helpers ──────────────────────────────────────────────────
 
@@ -105,10 +113,20 @@ export function buildHighlightStoriesSlide({ width, height, data }) {
 
   const centerChildren = [];
 
-  // hero title
+  // hero title (auto-fit: title の visualLength に応じて hero / heroMid / heroSm を自動選択)
+  // 8 字以上の不適切改行を構造的に防ぐ。詳細: docs/reference/ig-highlight-design-policy.md §4
+  let heroStyle = null;
   if (data.title) {
+    heroStyle = pickTitleSize(data.title, HERO_SIZES);
+    const heroTypography = {
+      fontFamily: heroStyle.fontFamily,
+      fontWeight: heroStyle.weight,
+      fontSize: heroStyle.size,
+      lineHeight: heroStyle.lineHeight,
+      letterSpacing: heroStyle.letterSpacing != null ? `${heroStyle.letterSpacing}em` : undefined,
+    };
     centerChildren.push(
-      d({ ...ty('hero', { color: INK.strong, marginBottom: 32 }) }, data.title),
+      d({ ...heroTypography, color: INK.strong, marginBottom: 32 }, data.title),
     );
   }
 

@@ -19,6 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { pickTitleSize } from './fit-title.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
@@ -38,6 +39,24 @@ const INK = C.ink;
 const CTA = C.cta;
 const ONDARK = C.onDark;
 const TY = TOKENS.typography;
+
+// coverTitle の 3 階層 (auto-fit 用)
+const COVER_TITLE_SIZES = {
+  large:  TY.coverTitle,    // 120px, _maxLen: 7
+  medium: TY.coverTitleMid, // 90px,  _maxLen: 11
+  small:  TY.coverTitleSm,  // 72px,  _maxLen: 16
+};
+
+/** ty() と同等の typography 展開を fit 結果に適用 */
+function tyFit(fitStyle, overrides = {}) {
+  const out = {};
+  if (fitStyle.fontFamily) out.fontFamily = fitStyle.fontFamily;
+  if (fitStyle.weight != null) out.fontWeight = fitStyle.weight;
+  if (fitStyle.size != null) out.fontSize = fitStyle.size;
+  if (fitStyle.lineHeight != null) out.lineHeight = fitStyle.lineHeight;
+  if (fitStyle.letterSpacing != null) out.letterSpacing = `${fitStyle.letterSpacing}em`;
+  return { ...out, ...overrides };
+}
 const GEO = TOKENS.geometry;
 const PAD = TOKENS.canvas.padding;
 const SLIDES = TOKENS.slides;

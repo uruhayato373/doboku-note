@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-05-28T02:11:12.081Z",
+  "generated_at": "2026-05-28T02:30:36.159Z",
   "summary": {
-    "total_mdx_files": 828,
+    "total_mdx_files": 831,
     "total_unique_tags": 85,
     "allowlist_size": 123,
     "known_count": 51,
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "past-questions",
-      "count": 60,
+      "count": 63,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1104,8 +1104,11 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07",
+        "civil-construction-2-primary-r06-kouki",
+        "civil-construction-2-primary-r06-zenki",
         "civil-construction-2-primary-r07-kouki",
         "civil-construction-2-primary-r07-zenki",
+        "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07",
         "pe-comprehensive-management-h21-primary",
         "pe-comprehensive-management-h21-secondary",
@@ -1231,6 +1234,41 @@
       ]
     },
     {
+      "name": "primary",
+      "count": 28,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-primary-h26-a",
+        "civil-construction-1-primary-h26-b",
+        "civil-construction-1-primary-h27-a",
+        "civil-construction-1-primary-h27-b",
+        "civil-construction-1-primary-h28-a",
+        "civil-construction-1-primary-h28-b",
+        "civil-construction-1-primary-h29-a",
+        "civil-construction-1-primary-h29-b",
+        "civil-construction-1-primary-h30-a",
+        "civil-construction-1-primary-h30-b",
+        "civil-construction-1-primary-r01-a",
+        "civil-construction-1-primary-r01-b",
+        "civil-construction-1-primary-r02-a",
+        "civil-construction-1-primary-r02-b",
+        "civil-construction-1-primary-r03-a",
+        "civil-construction-1-primary-r03-b",
+        "civil-construction-1-primary-r04-a",
+        "civil-construction-1-primary-r04-b",
+        "civil-construction-1-primary-r05-a",
+        "civil-construction-1-primary-r05-b",
+        "civil-construction-1-primary-r06-a",
+        "civil-construction-1-primary-r06-b",
+        "civil-construction-1-primary-r07-a",
+        "civil-construction-1-primary-r07-b",
+        "civil-construction-2-primary-r06-kouki",
+        "civil-construction-2-primary-r06-zenki",
+        "civil-construction-2-primary-r07-kouki",
+        "civil-construction-2-primary-r07-zenki"
+      ]
+    },
+    {
       "name": "記述式対策",
       "count": 27,
       "inAllowlist": true,
@@ -1262,39 +1300,6 @@
         "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
         "pe-comprehensive-management-r8-essay-theme-economic-security",
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
-      ]
-    },
-    {
-      "name": "primary",
-      "count": 26,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-primary-h26-a",
-        "civil-construction-1-primary-h26-b",
-        "civil-construction-1-primary-h27-a",
-        "civil-construction-1-primary-h27-b",
-        "civil-construction-1-primary-h28-a",
-        "civil-construction-1-primary-h28-b",
-        "civil-construction-1-primary-h29-a",
-        "civil-construction-1-primary-h29-b",
-        "civil-construction-1-primary-h30-a",
-        "civil-construction-1-primary-h30-b",
-        "civil-construction-1-primary-r01-a",
-        "civil-construction-1-primary-r01-b",
-        "civil-construction-1-primary-r02-a",
-        "civil-construction-1-primary-r02-b",
-        "civil-construction-1-primary-r03-a",
-        "civil-construction-1-primary-r03-b",
-        "civil-construction-1-primary-r04-a",
-        "civil-construction-1-primary-r04-b",
-        "civil-construction-1-primary-r05-a",
-        "civil-construction-1-primary-r05-b",
-        "civil-construction-1-primary-r06-a",
-        "civil-construction-1-primary-r06-b",
-        "civil-construction-1-primary-r07-a",
-        "civil-construction-1-primary-r07-b",
-        "civil-construction-2-primary-r07-kouki",
-        "civil-construction-2-primary-r07-zenki"
       ]
     },
     {
@@ -1350,7 +1355,7 @@
     },
     {
       "name": "secondary",
-      "count": 16,
+      "count": 17,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -1368,6 +1373,7 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07",
+        "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07"
       ]
     },
