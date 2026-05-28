@@ -116,7 +116,7 @@ function buildScript(sl, idx, meta) {
     // 旧 sl.title（管理名）は使わない。
     const yearN = (meta?.year || year).replace(/^[rR]0?/, '');
     const packN = String(meta?.packNum || packNum).replace(/^0+/, '') || '1';
-    return `令和${yearN}年度の択一式過去問、${packN}番です。スワイプして4問にチャレンジしましょう。`;
+    return `令和${yearN}年度の択一式過去問、${packN}番です。全4問、答えは動画内で発表します。`;
   }
   if (sl.type === 'problem') {
     const body = (sl.bodyLines || [])
@@ -131,7 +131,8 @@ function buildScript(sl, idx, meta) {
     return `正答は${sl.correctNum}番。${sl.correctText}。${point}`;
   }
   if (sl.type === 'cta') {
-    return '保存して、試験前日に見返しましょう。ドボクノートで全問解説をチェック。';
+    // Reels はリーチ獲得器のため、保存より新規フォロー誘導を主にする（ig-reels-policy.md）。
+    return 'フォローすると毎週、過去問解説が届きます。全問解説はドボクノートでチェック。';
   }
   return '';
 }

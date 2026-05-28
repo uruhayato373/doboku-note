@@ -1148,6 +1148,12 @@ export function buildQuizAnswer({ width, height, data }) {
  */
 export function buildQuizCta({ width, height }) {
   const cfg = SLIDES.cta;
+  // Reels(height>=1920) は action カードを保存→フォロー誘導に分岐。Carousel は保存維持。
+  // 理由: Reels はリーチ獲得器のためリーチ→フォロワー転換を主にする（ig-reels-policy.md）。
+  const isReels = height >= 1920;
+  const actionTitle = isReels ? (cfg.actionTitleReels ?? cfg.actionTitle) : cfg.actionTitle;
+  const actionSubtitle = isReels ? (cfg.actionSubtitleReels ?? cfg.actionSubtitle) : cfg.actionSubtitle;
+  const actionIcon = isReels ? (cfg.actionIconReels ?? cfg.actionIcon ?? '★') : (cfg.actionIcon ?? '★');
   return d(frame(width, height, CTA.background), reelsWrapper(width, height, [
     // 装飾円（右上）
     d({
@@ -1258,11 +1264,11 @@ export function buildQuizCta({ width, height }) {
                 color: '#ffffff',
                 fontFamily: 'Manrope',
               },
-              '★',
+              actionIcon,
             ),
             d({ flexDirection: 'column', alignItems: 'flex-start', gap: 6 }, [
-              d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, cfg.actionTitle),
-              d({ ...ty('ctaActionSub', { color: INK.strong }) }, cfg.actionSubtitle),
+              d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, actionTitle),
+              d({ ...ty('ctaActionSub', { color: INK.strong }) }, actionSubtitle),
             ]),
           ],
         ),

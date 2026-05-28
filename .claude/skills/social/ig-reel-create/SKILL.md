@@ -60,10 +60,10 @@ docs/sns/instagram/_exam-packs/<year>/pack-<NN>/reels/
 
 | スライド | 台本 |
 |---|---|
-| **cover** | 「{管理名}。{年度} 4 問パック。スワイプして挑戦しましょう」 |
+| **cover** | 「令和{年度}年度の択一式過去問、{N}番です。全 4 問、答えは動画内で発表します」（Reels は自動再生のため「スワイプ」表現は使わない → [ig-reels-policy.md](../../../../docs/reference/ig-reels-policy.md)） |
 | **problem** | 「問題{N}。{bodyLines}」 |
 | **answer** | 「正答は{N}番。{correctText}。{pointText}」 |
-| **cta** | 「保存して試験前日に見返しましょう。doboku-note で全問解説をチェック」 |
+| **cta** | 「フォローすると毎週、過去問解説が届きます。全問解説はドボクノートでチェック」（Reels はリーチ獲得器のため保存より新規フォロー誘導を主にする → [ig-reels-policy.md](../../../../docs/reference/ig-reels-policy.md)） |
 
 選択肢は読み上げない（時間制約のため、視聴者は画面で読む）。
 

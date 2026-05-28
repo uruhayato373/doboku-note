@@ -157,7 +157,12 @@
       "headlineLine2": "全問解説をチェック",
       "stats": [{ "num": "640", "unit": "問", "label": "PRACTICE" }, { "num": "5", "unit": "管理", "label": "SCOPE" }],
       "actionTitle": "保存ボタンを押して",
-      "actionSubtitle": "試験前日に見返そう"
+      "actionSubtitle": "試験前日に見返そう",
+      "actionIcon": "★",
+      "actionTitleReels": "フォローして毎週",
+      "actionSubtitleReels": "過去問解説が届く",
+      "actionIconReels": "＋",
+      "_ctaReelsNote": "Reels(height>=1920) は action カードを保存→フォロー誘導に分岐(actionTitleReels/actionSubtitleReels/actionIconReels)。Carousel は保存維持。理由: Reels はリーチ獲得器(非フォロワー接触)のため、保存ストックの Carousel と役割が異なり、リーチ→フォロワー転換を CTA の主とする(docs/project/03_SNS/01_SNS集客戦略.md L229-230,247-250)。見出し(doboku-note で全問解説)は note 導線として従の位置で共用。"
     }
   },
 

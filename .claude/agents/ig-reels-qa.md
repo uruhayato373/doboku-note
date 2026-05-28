@@ -54,9 +54,11 @@ Instagram Reels 用読み上げ台本（`reels/script.json`）・生成 mp4（`r
    - PNG に表示されない情報を音声で勝手に補足していないか
    - 「スワイプで」等のカルーセル流用文言が narration に残っていれば -2（重大）
 
-   **軸 5: 保存導線**
+   **軸 5: フォロー/note 導線**
    - cta スライドの narration が PNG の cta 文言と一致
-   - caption.txt の保存喚起 CTA が cta PNG の文言と整合
+   - **フォロー誘導が主**になっているか（Reels はリーチ獲得器＝リーチ→フォロワー転換が役割）。action カードが「フォローして毎週／過去問解説が届く」相当・narration が「フォローすると毎週…」相当
+   - 「保存ボタンを押して／試験前日に見返そう」等カルーセル流用の保存 CTA が Reels cta に主として残れば -2（重大）。保存喚起の併記は従なら可
+   - note 導線（doboku-note で全問解説）が従として整合
    - 「概要欄」等の YT 専用表現がそのまま残っていないか（IG は「プロフィール」「ハイライト」）
 
 5. 平均スコアと合否判定を出力する。
@@ -69,7 +71,7 @@ Instagram Reels 用読み上げ台本（`reels/script.json`）・生成 mp4（`r
 読み上げ完結性    : 4点 (△ slides[3].narration が体言止め)
 キャプション/タグ : 4点 (✓ 22 件 3 階層 mix)
 音声画面整合      : 5点 (✓ cover narration が swipeTextReels と一致)
-保存導線          : 4点 (✓ cta PNG ↔ caption 整合)
+フォロー/note導線 : 4点 (✓ フォロー誘導が主・cta PNG ↔ caption 整合)
 ──────────────────────────────
 平均              : 4.4 / 5.0 → 合格
 

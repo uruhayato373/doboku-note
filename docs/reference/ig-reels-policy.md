@@ -92,7 +92,7 @@ VOICEVOX の読み上げ速度を基準に **1 文字あたり 0.18-0.22 秒**�
 - **ネタバレ禁止**: 答えの番号・解説を本文に書かない（「答えは動画内で」前提）
 - 年度・パック番号・管理分野を含める
 - 絵文字は 1-3 個まで（土木系の信頼感を損なわないよう抑制）
-- 末尾に「保存推奨」相当の CTA
+- 末尾は「フォロー推奨」相当の CTA を主にする（Reels はリーチ獲得器＝非フォロワー接触のため、保存ストックの Carousel と異なり新規フォロー誘導を優先。保存喚起は併記しても従）
 
 ---
 
@@ -103,6 +103,12 @@ VOICEVOX の読み上げ速度を基準に **1 文字あたり 0.18-0.22 秒**�
 `docs/design-system/instagram-carousel-tokens.json` の `slides.cover.swipeTextReels` で **「答えは動画内で発表」**（または相当文言）を定義。`quiz-slides.mjs` の `buildQuizCover` が `height >= 1920`（Reels サイズ）の場合に自動分岐する。
 
 **禁忌**: narration や caption.txt に「スワイプで4問にチャレンジ」「スワイプで答えを見る」等のカルーセル前提 CTA を残してはいけない。Reels はスワイプではなく自動再生のため、視聴者の行動と矛盾する。
+
+### cta の actionTitleReels（フォロー誘導分岐）
+
+`slides.cta.actionTitleReels` / `actionSubtitleReels` / `actionIconReels`（＋）で **保存→フォロー誘導**を定義。`buildQuizCta` が `height >= 1920`（Reels サイズ）で自動分岐し、action カード（白カードの視覚アンカー）を「フォローして毎週／過去問解説が届く」に切替える。Carousel（保存ストック）は `actionTitle`「保存ボタンを押して」を維持。見出し（doboku-note で全問解説）は note 導線として両フォーマット共用（従）。
+
+**役割の根拠**: Reels = フィード偶発接触のリーチ獲得器（KPI=リーチ）、Carousel = 保存ストック教材（KPI=保存数）。ファネルは Reels リーチ→プロフィール訪問→フォロー判断→note 教材（`docs/project/03_SNS/01_SNS集客戦略.md` L229-230, L247-250）。よって Reels の CTA はリーチ→フォロワー転換を主とする。
 
 ### YT 派生時の差替
 
@@ -121,13 +127,14 @@ YT Shorts 派生（`yt-shorts-create --from-reels`）では：
 | **2. 読み上げ完結性** | 体言止め禁止・句読点配置・記号棒読み無し | すべて完結文・VOICEVOX で自然読み上げ |
 | **3. キャプション/タグ品質** | 字数・3 階層 mix・スパム判定回避 | 100-200 字 + 20-25 件 3 階層 mix |
 | **4. 音声 ↔ 画面整合** | narration と PNG テキストが矛盾しない・カルーセル流用 CTA 無し | cover/cta/problem/answer すべて整合 |
-| **5. 保存導線** | cta narration と caption の CTA 整合・IG 表現遵守 | 「保存推奨」「プロフィール」等 IG ネイティブ |
+| **5. フォロー/note 導線** | cta narration と caption の CTA 整合・フォロー誘導が主・IG 表現遵守 | 「フォロー推奨」主＋note 従・「プロフィール」等 IG ネイティブ |
 
 ### 合否ライン
 
 - **合格**: 平均 4.0 以上 **かつ** 全軸 3 以上
 - **重大減点**:
   - 軸 4 で「スワイプで」等カルーセル流用 CTA → **-2 点**
+  - 軸 5 で「保存ボタンを押して／試験前日に見返そう」等カルーセル流用の保存 CTA が Reels cta に主として残る（フォロー誘導が無い） → **-2 点**
   - 軸 1 で totalDurationSec > 110 秒 → **-2 点**
 
 ---
