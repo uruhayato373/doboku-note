@@ -35,17 +35,19 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 ## 採点手順
 
 1. `docs/reference/ig-highlight-design-policy.md` を読む。
-2. 対象ハイライトの `slide-data.json` と `img/*.png` を Read で確認する。
-3. 4 軸を 1〜5 で採点する：
+2. **lint 実行（必須）**: `node .claude/scripts/lint-stories-titles.mjs --dir docs/sns/instagram/highlights/<NN_name>` で字数判定の機械結果を取得。Bash 出力を Read で確認し、軸 2 採点に引用する（自己判定ではなく機械結果を採点根拠にする）。
+3. 対象ハイライトの `slide-data.json` と `img/*.png` を Read で確認する。
+4. 4 軸を 1〜5 で採点する：
 
    **軸 1: サムネ識別性**
    - 1 枚目（cover）の **色面背景**がジャンル別パレット（intro=blue / carousel-index=green / reels-roundup=purple / faq=amber / announcement=rose / materials=slate）に正しくマッピング
    - 大型 icon（→/▦/▷/?/!/¶）が背景装飾として opacity 0.08 で右上に配置
-   - hero title が 4-7 文字、132px で 1 行収まり
+   - hero/heroMid/heroSm の auto-fit で title が 1 行収まり（lint ERROR がなければ折り返しは構造的に発生しない）
    - プロフィール上の小さなサムネ円形でも何のハイライトか 1 秒で判別可能か
 
    **軸 2: リードコピー力**
-   - 全スライドの title が 7 文字以内で折り返しなし
+   - lint 出力を引用: ERROR があれば必ず -2 重大減点（17 字超で auto-fit でも収まらない）
+   - WARN (8-11) / NOTICE (12-16) は減点しないが、採点コメントに記載し「意味が崩れない範囲で短縮できれば視覚インパクト向上（hero 132px が最も強い）」と note を残す
    - subtitle が 1-2 行で意味が取れる
    - 抽象的・専門用語連発を避け、**3 秒で伝わる言葉**を選んでいるか
    - 絵文字を使っていない（モダンシック意匠の基本）
@@ -82,9 +84,10 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 合否判定（policy 準拠）:
 - **合格**: 平均 4.0 以上 **かつ** 全軸 3 以上
 - **重大減点**:
-  - 軸 1: hero title が 8 文字以上で折り返し → **-2 点**
+  - 軸 2: lint **ERROR** あり（visualLength 17+ で auto-fit でも収まらない）→ **-2 点**
   - 軸 3: 06_materials で直接 note 有料リンクを置いている → **-2 点**
   - 軸 4: 本文が y >= 1280 まで侵入してステッカー余白を潰している → **-2 点**
+- **WARN/NOTICE は減点なし**: builder の auto-fit (hero/heroMid/heroSm) で折り返しは構造的に発生しないため。採点コメントに記載のみ。
 
 ## 担当外
 

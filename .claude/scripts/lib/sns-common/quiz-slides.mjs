@@ -282,7 +282,7 @@ export function buildSummaryCover({ width, height, data }) {
       flexDirection: 'column', gap: 0,
     }, [
       d({ ...ty('coverMeta', { color: BRAND.primary, marginBottom: 20 }) }, `${year} 全${data.totalPacks ?? 9}パック`),
-      d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 24 }) }, yearJp + '年度'),
+      d({ ...tyFit(pickTitleSize(yearJp + '年度', COVER_TITLE_SIZES), { color: INK.strong, marginBottom: 24 }) }, yearJp + '年度'),
       d({ ...ty('coverSub', { color: INK.body, marginBottom: 48, paddingLeft: 24 }) }, '択一式 過去問 目次'),
       d({
         ...ty('coverSwipe', { color: BRAND.deep }), marginTop: 40, alignSelf: 'flex-start',
@@ -464,7 +464,8 @@ export function buildQuizCover({ width, height, data }) {
         d({ ...ty('coverMeta', { color: BRAND.primary, marginBottom: 20 }) }, metaText),
         // 2 行構成（管理名混在を避けるための統一タイトル）
         // 1 行目「令和7年度」120px 900、2 行目「択一式 過去問」80px 700 を左インデント 24px で階層感
-        d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 24 }) }, titleLine1),
+        // auto-fit: titleLine1 の visualLength で coverTitle/Mid/Sm を自動分岐（fit-title.mjs）
+        d({ ...tyFit(pickTitleSize(titleLine1, COVER_TITLE_SIZES), { color: INK.strong, marginBottom: 24 }) }, titleLine1),
         d({ ...ty('coverSub', { color: INK.body, marginBottom: 48, paddingLeft: 24 }) }, titleLine2),
         chips.length
           ? d(

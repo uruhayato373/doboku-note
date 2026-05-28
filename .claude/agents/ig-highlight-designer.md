@@ -58,27 +58,37 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 5. **データ駆動レイアウト**: 色・フォント・余白を slide-data.json に書かない。`tokens.json highlightStories` が真実源。
 6. **二段ロケット遵守**: 06_materials は note プロフィール経由の自然遷移設計（直接 note 有料リンク禁止）。
 
-## title の字数制約（最重要）
+## title の段階フォント auto-fit（v7.1）
 
-hero フォント 132px (NotoSansJP 900) で 1 行に収まる目安：
-- **4-7 文字**（漢字・ひらがな・カタカナ）が安全圏
-- 8 文字以上は折り返しリスク
-- 数字・英字混在は字幅が小さくなり 8-10 文字でも収まることがある
+`highlight-stories-slides.mjs` が title の visualLength を計測して 3 階層（hero 132 / heroMid 100 / heroSm 80）に自動分岐。**折り返しは構造的に発生しない**：
 
-例：
-- ✅ 「ここを読めば」(6 文字)、「これを書いた人」(7 文字)
-- ✅ 「カルーセル目次」(7 文字)、「総監とは？」(5 文字)
-- ❌ 「運営者プロフィール」(9 文字、折り返し)
-- ❌ 「全部サイトで読める」(9 文字、折り返し)
+| 視覚字数 | フォント | 推奨度 | 例 |
+|---|---|---|---|
+| `<= 7` | hero (132px) | ✅ 推奨 | 「ここを読めば」(6) |
+| `8-11` | heroMid (100px) | ⚠ 許容 | 「ここでわかること」(8)、「Reels ピックアップ」(9.3) |
+| `12-16` | heroSm (80px) | ⚠⚠ 警告 | — |
+| `17+` | — | ❌ エラー（必須短縮）| — |
+
+**判断原則**:
+- **意味が崩れない範囲で短縮優先**: 「わかること」(5) より「ここでわかること」(8) の方が意味が明確なら、後者を選び heroMid で表示
+- **無理な短縮で意味を希薄化させない**: 「全部サイトで読める」(9) を「全部サイトに」(6) に短縮した結果、意味が変わるなら元のままで heroMid を選ぶ
+- 推奨字数（4-7）に収まる短い表現が見つかれば、視覚インパクトが最大の hero 132px が使われる
+
+執筆後に `node .claude/scripts/lint-stories-titles.mjs --dir docs/sns/instagram/highlights/<NN_name>` を実行し、ERROR があれば必ず短縮、WARN/NOTICE は意味との trade-off で判断する。
 
 ## 品質ガード
 
-- 各スライドの title は 7 文字以内
+- 各スライドの title は visualLength **16 字以内**（hero/heroMid/heroSm の auto-fit 範囲内）
+  - 4-7 字: hero 132px ✅ 推奨
+  - 8-11 字: heroMid 100px ⚠ 許容（意味が崩れない範囲で短縮検討）
+  - 12-16 字: heroSm 80px ⚠⚠ 警告（可能なら短縮）
+  - 17 字超: ❌ エラー（必須短縮）
 - subtitle は 1-2 行で収まる長さ（15 文字以内推奨）
 - body は 4-7 行、各行 18 文字程度
 - 絵文字は使わない（モダンシック意匠は記号・アイコンで装飾）
 - 色・フォント・余白を slide-data.json に書かない
 - 06_materials のリンクスタンプは note プロフィール URL に統一着地
+- 執筆後に lint 実行: `node .claude/scripts/lint-stories-titles.mjs --dir <path>`
 
 ## 出力
 

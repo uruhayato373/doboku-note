@@ -46,6 +46,7 @@ model: sonnet
    - figure は「図で理解が進む論点」にのみ使う。既存 SVG があれば `imagePath`、新規図版が有用なら `figureSpec`（実制作は別工程）。
    - `cover.hook`（任意）は **そのキーワード固有**の問いかけ・暗記喚起にする。汎用文や他キーワードでも通用する文は書かない（カバーで「ーー {hook}」と表示される）。
    - 字数ルール（policy のスキーマ表）を守る。執筆後に各フィールドの字数を数える。
+   - **cover-title は auto-fit（v7.1）**: visualLength で coverTitle 120 / coverTitleMid 90 / coverTitleSm 72 を自動分岐。`tokens.json typography.coverTitle*._maxLen` の 4 段階を遵守（推奨 4-7 / 許容 8-11 / 警告 12-16 / エラー 17+）。執筆後に `node .claude/scripts/lint-stories-titles.mjs --dir <pack-dir>` を実行して ERROR が無いことを確認。
 6. MDX を読む過程で気づいた doboku-note 側の問題（説明不足・事実誤認・図が欲しい箇所）は、**MDX を直接編集せず** `docs/sns/instagram/_keyword-findings.md` に追記する。
 
 ### 過去問パック（exam モード）の answer スライド執筆ルール

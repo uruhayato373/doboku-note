@@ -184,6 +184,19 @@ figure スライドが「図で理解が進む論点」に使われているか�
 - **合格**: 5 軸平均 4.0 以上 **かつ** 全軸 3 以上。
 - 不合格は Generator に差し戻す。軸4（字数）は機械チェックで事前にゲートする。
 
+### cover-title の段階フォント auto-fit（v7.1）
+
+`quiz-slides.mjs` の `buildQuizCover` が visualLength で coverTitle 120 / coverTitleMid 90 / coverTitleSm 72 を自動分岐する。**folder back（折り返し）は構造的に発生しない**：
+
+| 視覚字数 | フォント | 推奨度 |
+|---|---|---|
+| `<= 7` | coverTitle (120px) | ✅ 推奨 |
+| `8-11` | coverTitleMid (90px) | ⚠ 許容（lint WARN）|
+| `12-16` | coverTitleSm (72px) | ⚠⚠ 警告（lint NOTICE）|
+| `17+` | — | ❌ エラー（lint ERROR、必須短縮）|
+
+機械検証: `node .claude/scripts/lint-stories-titles.mjs` で全 slide-data.json の字数判定を一覧化。Evaluator (`ig-carousel-qa`) は lint 出力を Read して軸 4 採点に反映する（ERROR は -2 重大減点、WARN/NOTICE は減点なし・コメントのみ）。
+
 ## 相互改善ループ（IG ↔ doboku-note）
 
 writer / QA がキーワード MDX を読む過程で気づいた doboku-note 側の問題（説明不足・事実誤認・図が欲しい箇所）は、MDX を直接編集せず **findings ログ** `docs/sns/instagram/_keyword-findings.md` に追記する。IG 用に作った良い図版の「doboku-note 寄贈候補」も同ログに記録する。キーワードページ改善・SVG 寄贈は別途まとめて直列に反映する（MDX 編集衝突を防ぐため discovery と application を分離）。

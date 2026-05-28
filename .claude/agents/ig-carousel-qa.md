@@ -39,6 +39,7 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
 4. **軸 1〜5（テキスト系）**を 1〜5 で採点する:
    - 構成の妥当性／文の完結性／図文整合・figure 判断／字数・視認性／試験的正確性
    - 軸4（字数）はスキーマの字数ルールに照らして機械的に判定。超過フィールドを指摘に列挙
+   - **cover-title は auto-fit (v7.1)**: `node .claude/scripts/lint-stories-titles.mjs --dir <pack-dir>` を実行し出力を Read。ERROR があれば -2 重大減点。WARN/NOTICE は builder が auto-fit するため減点しないが採点コメントに記載
    - 軸5（試験的正確性）は固有名詞・数値・年号・法則名を MDX 本文と厳格に突合
 5. **軸 6（デザイン統一性、過去問パックのみ）**を 1〜5 で採点する:
    - 対象ディレクトリの `carousel/img/00-cover.png` 〜 `09-cta.png` を Read tool で PNG として読む
