@@ -402,7 +402,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 - [ ] 7 月初: **Instagram 本番運用開始**（Carousel 週 2 火金 07:00 + Reels 週 3 月水金 19:30、`slide-data.json` 一次制作）
 - [ ] 7 月初: **YouTube Shorts 派生稼働開始**（IG Reels mp4 を 30-60 秒に短縮、週 1〜2 本、JST 月木 07:00）
-- [ ] **7 月中旬（Carousel 4-5 本投稿後）: ハイライト 6 種整備**（まず読む / カルーセル目次 / Reels まとめ / FAQ / お知らせ / **教材**）— フォロワー獲得開始前の必須整備、所要 1-2 時間。6 種すべて `docs/sns/instagram/highlights/{intro,carousel-index,reels-roundup,faq,announcement,materials}/` に slide-data + PNG が雛形済み。6 種目「教材」は二段ロケット設計（policy: `docs/reference/ig-stories-policy.md` §5）
+- [ ] **7 月中旬（Carousel 4-5 本投稿後）: ハイライト 6 種整備**（まず読む / カルーセル目次 / Reels まとめ / FAQ / お知らせ / **教材**）— フォロワー獲得開始前の必須整備、所要 1-2 時間。6 種すべて `docs/sns/instagram/highlights/{01_intro, 02_carousel-index, 03_reels-roundup, 04_faq, 05_announcement, 06_materials}/` に slide-data + PNG が雛形済み（数値プレフィックスは投稿順）。6 種目「教材」は二段ロケット設計（policy: `docs/reference/ig-stories-policy.md` §5）
 - [x] 運営者は技術士総監 2 次筆記試験に合格済み（合格者ポジションで送客フックを強化）
 - [ ] 7 月下旬: note E-1 を販売開始、YouTube 概要欄 + IG bio から送客
 - [ ] 7 月下旬: **note 売上トラッキング開始**（`.claude/state/note-sales/`）→ [27 §7 弱点 4](./02_チャネル動線設計.md)
@@ -556,7 +556,7 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 ## 改訂履歴
 
-- **v7.1（2026-05-28）**: ハイライトを 5 種 → **6 種**に拡張。6 種目「教材」を追加し note プロフィール → 無料記事 → 有料マガジン（M5/M6/M8/精読ガイド/論文骨子テンプレート）の **二段ロケット動線**を確立。直接 note 有料リンクは置かず、まず note 無料記事に着地させて自然遷移する設計で売り込み感を回避。「合格者の本棚」中立フレーミングで設計。教材ハイライト用 Stories シリーズ（6 枚構成）の雛形を `docs/sns/instagram/highlights/materials/` に新設、`docs/reference/ig-stories-policy.md` §5 を 2 系統 → 3 系統に拡張。後続改修で残り 5 種（intro / carousel-index / reels-roundup / faq / announcement）も同 `docs/sns/instagram/highlights/` 配下に集約・slide-data + PNG を整備
+- **v7.1（2026-05-28）**: ハイライトを 5 種 → **6 種**に拡張。6 種目「教材」を追加し note プロフィール → 無料記事 → 有料マガジン（M5/M6/M8/精読ガイド/論文骨子テンプレート）の **二段ロケット動線**を確立。直接 note 有料リンクは置かず、まず note 無料記事に着地させて自然遷移する設計で売り込み感を回避。「合格者の本棚」中立フレーミングで設計。教材ハイライト用 Stories シリーズ（6 枚構成）の雛形を `docs/sns/instagram/highlights/06_materials/` に新設、`docs/reference/ig-stories-policy.md` §5 を 2 系統 → 3 系統に拡張。後続改修で残り 5 種（01_intro / 02_carousel-index / 03_reels-roundup / 04_faq / 05_announcement）も同 `docs/sns/instagram/highlights/` 配下に集約・数値プレフィックスで投稿順を表現・slide-data + PNG を整備
 - **v7（2026-05-28）**: 戦略と実装の乖離を解消。「YT Shorts mp4 → IG Reels 流用」（v5/v6）を逆転し、**Instagram を一次制作・YouTube Shorts を IG Reels mp4 の二次展開（30-60 秒トリム + 字幕焼き込み + 概要欄差替）に再定義**。`yt-shorts-create.mjs` の MDX 直結モード（旧 `--slug`）は廃止。エージェント分業を拡大：既存 `ig-carousel-writer` + `ig-carousel-qa` ペアに加え、`ig-reels-writer` + `ig-reels-qa` / `ig-stories-writer` + `ig-stories-qa` / `yt-shorts-publisher-qa` を新設。Reels の cover CTA は Reels モード分岐をテンプレレンダラに実装し、「スワイプで4問にチャレンジ」のようなカルーセル流用バグを構造的に解消
 - v1（2026-04-04 想定）: 合成音声スライド型を想定
 - v2（2026-04 中旬）: VOICEVOX 採用方針

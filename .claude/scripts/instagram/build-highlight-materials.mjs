@@ -7,20 +7,20 @@
  * 戦略: docs/project/03_SNS/01_SNS集客戦略.md v7.1 §2 Highlight 6 種
  * ポリシー: docs/reference/ig-stories-policy.md §5 系統 A / C
  *
- * 対応ハイライト:
- *   - docs/sns/instagram/highlights/materials/         教材 (系統 C)
- *   - docs/sns/instagram/highlights/intro/             まず読む
- *   - docs/sns/instagram/highlights/faq/               FAQ
- *   - docs/sns/instagram/highlights/carousel-index/    カルーセル目次
- *   - docs/sns/instagram/highlights/reels-roundup/     Reels まとめ
- *   - docs/sns/instagram/highlights/announcement/      お知らせ（テンプレ）
+ * 対応ハイライト (戦略 v7.1 §2 のハイライト 1〜6 種の順序):
+ *   - docs/sns/instagram/highlights/01_intro/             まず読む
+ *   - docs/sns/instagram/highlights/02_carousel-index/    カルーセル目次
+ *   - docs/sns/instagram/highlights/03_reels-roundup/     Reels まとめ
+ *   - docs/sns/instagram/highlights/04_faq/               FAQ
+ *   - docs/sns/instagram/highlights/05_announcement/      お知らせ（テンプレ）
+ *   - docs/sns/instagram/highlights/06_materials/         教材 (系統 C)
  *
  * Usage:
  *   # 単一ハイライト
- *   node .claude/scripts/instagram/build-highlight-materials.mjs --dir docs/sns/instagram/highlights/faq
- *   # 全ハイライト (highlights/<name>/slide-data.json) を一括生成
+ *   node .claude/scripts/instagram/build-highlight-materials.mjs --dir docs/sns/instagram/highlights/04_faq
+ *   # 全ハイライト (highlights/<NN_name>/slide-data.json) を一括生成
  *   node .claude/scripts/instagram/build-highlight-materials.mjs --all
- *   # 既定（後方互換: highlights/materials のみ）
+ *   # 既定（後方互換: highlights/06_materials のみ）
  *   node .claude/scripts/instagram/build-highlight-materials.mjs
  *
  * 構造:
@@ -134,8 +134,8 @@ async function main() {
   } else if (args.dir) {
     targets = [resolve(args.dir)];
   } else {
-    // 後方互換: 引数なしは highlights/materials のみ
-    targets = [join(HIGHLIGHTS_BASE, 'materials')];
+    // 後方互換: 引数なしは highlights/06_materials のみ
+    targets = [join(HIGHLIGHTS_BASE, '06_materials')];
   }
 
   if (targets.length === 0) {
