@@ -386,6 +386,13 @@ export function buildQuizCover({ width, height, data }) {
     .replace('{packNum}', packNumLabel);
   const chips = Array.isArray(data.chips) ? data.chips.slice(0, 4) : [];
 
+  // Reels モード判定: height >= 1920 を Reels とみなし swipeTextReels に分岐
+  // (Reels はスワイプではなく自動再生のため「答えは動画内で発表」相当に差し替える)
+  const isReels = height >= 1920;
+  const swipeText = isReels
+    ? (SLIDES.cover.swipeTextReels ?? SLIDES.cover.swipeText)
+    : SLIDES.cover.swipeText;
+
   return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     // topbar
     topbar(
@@ -488,7 +495,7 @@ export function buildQuizCover({ width, height, data }) {
             gap: GEO.coverSwipeChip.gap,
           },
           [
-            d({}, SLIDES.cover.swipeText),
+            d({}, swipeText),
             d({ ...ty('coverSwipeArrow', { color: BRAND.primary }) }, '→'),
           ],
         ),

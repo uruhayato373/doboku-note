@@ -59,6 +59,8 @@ title: サブエージェント詳細レジストリ
 | `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface                           | Evaluator    | sonnet  | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照    | ✅ 運用中（2026-05-11 起動）                      |
 | `ig-carousel-writer`           | Instagram カルーセル `slide-data.json` v2 を1キーワードずつ執筆（枚数可変・figure 判断・findings ログ追記）。色を本文に書かない                | Generator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `docs/design-system/instagram-carousel.md` 参照 | 🚧 Phase 1 着手中（2026-05-20 起動）             |
 | `ig-carousel-qa`               | Instagram カルーセル の **6 軸**ルーブリック品質評価（テキスト 5 軸 + デザイン統一性 1 軸）。過去問パックは PNG を Read し tokens.json と照合 | Evaluator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `docs/design-system/instagram-carousel-tokens.json` 参照 | 🚧 Phase 1 着手中（2026-05-20 起動、2026-05-27 第6軸追加） |
+| `ig-reels-writer`              | Instagram Reels の `reels/script.json`（読み上げ台本・想定秒数・無音 pause）+ `caption.txt`（ネタバレなし・ハッシュタグ 3 階層 mix）を 1 パックずつ執筆 | Generator    | sonnet  | `docs/reference/ig-reels-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase B）       |
+| `ig-reels-qa`                  | Instagram Reels の **5 軸**ルーブリック品質評価（尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線）。「スワイプで」等カルーセル流用 CTA を重大減点 | Evaluator    | sonnet  | `docs/reference/ig-reels-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase B）       |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
@@ -92,6 +94,7 @@ title: サブエージェント詳細レジストリ
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 | **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |
 | **ig-carousel-qa** | `slide-data.json`（v2）+ 過去問パックは `carousel/img/*.png` | スライド構成・文の完結性・図文整合・字数視認性・試験的正確性（5軸）+ デザイン統一性（過去問パック、tokens.json 照合） | IG カルーセル設定ファイル執筆後 / restyle 後 |
+| **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
 
