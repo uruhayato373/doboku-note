@@ -2,18 +2,20 @@
  * 関連テキスト（Civil第1次/第2次検定問題用）
  *
  * 2 つの経路でランキング:
- *   1. civil-exam-textbook-index.json (build-civil-exam-textbook-index.mjs 生成)
+ *   1. civil-exam-textbook-index{,-2}.json (build-civil-exam-textbook-index.mjs 生成)
  *      → 過去問の各問題セクション本文と textbook タイトルの照合スコア
  *   2. tags 共通数 (フォールバック)
  *
- * civil-construction-1 の primary/secondary 過去問は通常 tags が空に近いため、
+ * civil-construction-1/2 の primary/secondary 過去問は通常 tags が空に近いため、
  * (1) の index 経由を優先する。それでも 0 件なら (2) を試す。
+ * 1級と2級でそれぞれ別 index を持つ（civil-exam-textbook-index.json / -2.json）。
  */
 import Link from 'next/link';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc } from '@/lib/doc-classifier';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import examTextbookIndex from '@/config/civil-exam-textbook-index.json';
+import examTextbookIndex2 from '@/config/civil-exam-textbook-index-2.json';
 
 interface RelatedTextbooksProps {
   currentMeta: DocMeta;
@@ -35,18 +37,25 @@ interface IndexShape {
   textbookToQuestions: Record<string, unknown>;
 }
 
-const INDEX = examTextbookIndex as unknown as IndexShape;
-const SHORT_SLUG_PREFIX = 'civil-construction-1-';
+const INDEX_1 = examTextbookIndex as unknown as IndexShape;
+const INDEX_2 = examTextbookIndex2 as unknown as IndexShape;
 
-/** civil-construction-1-primary-r07-a → primary-r07-a に正規化 */
-function toShortSlug(fullSlug: string): string {
-  if (fullSlug.startsWith(SHORT_SLUG_PREFIX)) return fullSlug.slice(SHORT_SLUG_PREFIX.length);
+const CIVIL_INDEX_MAP: Record<string, { index: IndexShape; prefix: string }> = {
+  'civil-construction-1': { index: INDEX_1, prefix: 'civil-construction-1-' },
+  'civil-construction-2': { index: INDEX_2, prefix: 'civil-construction-2-' },
+};
+
+/** civil-construction-{1,2}-primary-r07-a → primary-r07-a に正規化（category 別 prefix で削除） */
+function toShortSlug(fullSlug: string, prefix: string): string {
+  if (fullSlug.startsWith(prefix)) return fullSlug.slice(prefix.length);
   return fullSlug;
 }
 
-function rankByIndex(currentSlug: string): { slug: string; title: string; score: number }[] {
-  const shortSlug = toShortSlug(currentSlug);
-  const examMap = INDEX.questionToTextbooks?.[shortSlug];
+function rankByIndex(currentSlug: string, category: string): { slug: string; title: string; score: number }[] {
+  const config = CIVIL_INDEX_MAP[category];
+  if (!config) return [];
+  const shortSlug = toShortSlug(currentSlug, config.prefix);
+  const examMap = config.index.questionToTextbooks?.[shortSlug];
   if (!examMap) return [];
 
   // 各問題の textbook を集約してスコア合算
@@ -95,22 +104,26 @@ function rankByTags(currentMeta: DocMeta, categoryArticles: DocMeta[]): { slug: 
 }
 
 export default function RelatedTextbooks({ currentMeta, categoryArticles }: RelatedTextbooksProps) {
+  const category = currentMeta.category || 'civil-construction-1';
+  const civilConfig = CIVIL_INDEX_MAP[category];
+  const prefix = civilConfig?.prefix || 'civil-construction-1-';
+
   // 1) 過去問→教材インデックスを優先
-  const indexed = rankByIndex(currentMeta.slug);
+  const indexed = rankByIndex(currentMeta.slug, category);
   let entries: { slug: string; title: string; description?: string }[] = [];
 
   if (indexed.length > 0) {
     // index のショート slug をフル slug に変換し、description も取得
     const textbookMap = new Map<string, DocMeta>();
     for (const m of categoryArticles) {
-      const short = toShortSlug(m.slug);
+      const short = toShortSlug(m.slug, prefix);
       textbookMap.set(short, m);
     }
     entries = indexed
       .map((item) => {
         const fullMeta = textbookMap.get(item.slug);
         const e: { slug: string; title: string; description?: string } = {
-          slug: fullMeta?.slug || `civil-construction-1-${item.slug}`,
+          slug: fullMeta?.slug || `${prefix}${item.slug}`,
           title: fullMeta?.title || item.title,
         };
         if (fullMeta?.description) e.description = fullMeta.description;

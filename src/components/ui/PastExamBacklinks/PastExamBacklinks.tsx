@@ -1,16 +1,18 @@
 /**
  * 過去問逆引きリンク
  *
- * 2 つのデータソースを統合:
+ * 3 つのデータソースを統合:
  *   1. pe-comprehensive-management (PE 総監): past-exam-backlinks.json (キーワード→過去問)
  *   2. civil-construction-1: civil-exam-textbook-index.json の textbookToQuestions (教材→過去問)
+ *   3. civil-construction-2: civil-exam-textbook-index-2.json の textbookToQuestions (2級用、Phase 1 投入後)
  *
  * 更新は `npm run build-backlinks` (PE) と
- * `node .claude/scripts/build-civil-exam-textbook-index.mjs` (Civil) で再生成。
+ * `node .claude/scripts/build-civil-exam-textbook-index.mjs` (Civil 1級/2級両方) で再生成。
  */
 import Link from 'next/link';
 import backlinksData from '@/config/past-exam-backlinks.json';
 import civilExamTextbookIndex from '@/config/civil-exam-textbook-index.json';
+import civilExamTextbookIndex2 from '@/config/civil-exam-textbook-index-2.json';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
 
@@ -37,16 +39,23 @@ interface CivilIndexShape {
   textbookToQuestions: Record<string, CivilBacklinkEntry[]>;
 }
 
-const CIVIL_INDEX = civilExamTextbookIndex as unknown as CivilIndexShape;
-const SHORT_SLUG_PREFIX = 'civil-construction-1-';
+const CIVIL_INDEX_1 = civilExamTextbookIndex as unknown as CivilIndexShape;
+const CIVIL_INDEX_2 = civilExamTextbookIndex2 as unknown as CivilIndexShape;
+
+const CIVIL_CONFIGS: Record<string, { index: CivilIndexShape; prefix: string; label: string }> = {
+  'civil-construction-1': { index: CIVIL_INDEX_1, prefix: 'civil-construction-1-', label: '1 級土木' },
+  'civil-construction-2': { index: CIVIL_INDEX_2, prefix: 'civil-construction-2-', label: '2 級土木' },
+};
 
 export default function PastExamBacklinks({ category, currentSlug }: PastExamBacklinksProps) {
-  // === Civil: textbook → 過去問 の逆引き ===
-  if (category === 'civil-construction-1') {
-    const shortSlug = currentSlug.startsWith(SHORT_SLUG_PREFIX)
-      ? currentSlug.slice(SHORT_SLUG_PREFIX.length)
+  // === Civil: textbook → 過去問 の逆引き（1級・2級共通ロジック） ===
+  const civilConfig = CIVIL_CONFIGS[category];
+  if (civilConfig) {
+    const { index, prefix, label } = civilConfig;
+    const shortSlug = currentSlug.startsWith(prefix)
+      ? currentSlug.slice(prefix.length)
       : currentSlug;
-    const civilEntries = CIVIL_INDEX.textbookToQuestions?.[shortSlug];
+    const civilEntries = index.textbookToQuestions?.[shortSlug];
     if (!civilEntries || civilEntries.length === 0) return null;
 
     return (
@@ -55,13 +64,13 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
           過去問での出題
         </h2>
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-          この教材の分野が登場した 1 級土木の過去問 ({civilEntries.length} 件)
+          この教材の分野が登場した {label}の過去問 ({civilEntries.length} 件)
         </p>
         <ul className="space-y-2">
           {civilEntries.map((b, i) => (
             <li key={`${b.examSlug}-${b.section}-${i}`}>
               <Link
-                href={`/docs/${SHORT_SLUG_PREFIX}${b.examSlug}`}
+                href={`/docs/${prefix}${b.examSlug}`}
                 className="block group"
               >
                 <MetaListItem

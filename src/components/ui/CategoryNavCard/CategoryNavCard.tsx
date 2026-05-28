@@ -366,7 +366,7 @@ export default function CategoryNavCard({ variant, category, currentSlug, docGro
     }
   }
 
-  if (category === 'civil-construction-1') {
+  if (category === 'civil-construction-1' || category === 'civil-construction-2') {
     switch (docGroup) {
       case 'guide': {
         const guides = categoryArticles.filter((m) => classifyDoc(m) === 'guide');

@@ -260,7 +260,25 @@ function processCategory({ category, outFile }) {
   const outPath = resolve(`src/config/${outFile}`);
 
   if (!existsSync(base)) {
-    console.log(`[${category}] skipped (directory does not exist: ${base})`);
+    // ディレクトリ未存在でも空 JSON は維持（PastExamBacklinks 等が import するため）
+    const emptyResult = {
+      questionToTextbooks: {},
+      textbookToQuestions: {},
+      meta: {
+        generatedAt: new Date().toISOString(),
+        textbookCount: 0,
+        examCount: 0,
+        questionsWithMatches: 0,
+        totalMatches: 0,
+        threshold: 0.45,
+        note: `${category} ディレクトリ未存在のため空。コンテンツ投入後に再生成される`,
+      },
+    };
+    if (!DRY_RUN) {
+      mkdirSync(dirname(outPath), { recursive: true });
+      writeFileSync(outPath, JSON.stringify(emptyResult, null, 2), 'utf-8');
+    }
+    console.log(`[${category}] skipped (directory does not exist), wrote empty placeholder: ${outPath}`);
     return;
   }
 

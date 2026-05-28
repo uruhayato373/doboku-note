@@ -75,7 +75,9 @@ function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
         ? "技術士 総合技術監理部門 キーワード集 2026"
         : category === "civil-construction-1"
           ? "1級土木施工管理技士 キーワード集"
-          : "土木系資格試験 キーワード集",
+          : category === "civil-construction-2"
+            ? "2級土木施工管理技士 キーワード集"
+            : "土木系資格試験 キーワード集",
       url: category === "pe-comprehensive-management"
         ? `${baseUrl}/docs/pe-comprehensive-management-keyword-2026`
         : `${baseUrl}/category/${category}`,
@@ -93,6 +95,8 @@ function getExamName(category: string | undefined): string {
   switch (category) {
     case "civil-construction-1":
       return "1級土木施工管理技士";
+    case "civil-construction-2":
+      return "2級土木施工管理技士";
     case "pe-comprehensive-management":
       return "技術士 総合技術監理部門";
     default:

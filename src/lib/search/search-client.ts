@@ -64,6 +64,8 @@ async function getPagefind(): Promise<PagefindModule> {
 function categoryFromPath(path: string): string {
   if (path.startsWith("/docs/pe-comprehensive-management"))
     return "pe-comprehensive-management";
+  if (path.startsWith("/docs/civil-construction-2"))
+    return "civil-construction-2";
   if (path.startsWith("/docs/civil-construction-1"))
     return "civil-construction-1";
   return "";
