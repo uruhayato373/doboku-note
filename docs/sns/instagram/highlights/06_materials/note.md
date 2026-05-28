@@ -27,28 +27,25 @@
 ## 投稿フロー
 
 ```
-1. PNG 6 枚を生成（Phase 1: 運営者が手動 or 専用スクリプト整備時）
+1. 6 枚 PNG 確認
+   node .claude/scripts/instagram/build-highlight-materials.mjs --dir docs/sns/instagram/highlights/06_materials
        ↓
 2. IG アプリで Stories 6 枚を順番に連投（01 → 02 → ... → 06）
    - 各 Stories に caption.txt のテキストを重ねる
-   - リンクスタンプを貼る（note プロフィール URL）
+   - リンクスタンプを貼る（note プロフィール URL に統一）
        ↓ 24h 以内
-3. ストーリーを「ハイライトに追加」
-   - ハイライト名: 「教材」（系統 A 6 種目）
-   - カバー画像: brand 色（#1858B5）+ 本のアイコン
+3. ハイライト名「教材」に追加
+   - 並び順: プロフィール一行目の右端（system A 6 種目）
+   - カバー画像: 01-cover.png をそのまま使用 or 円形にトリミング
        ↓ 半年後を目安に
 4. 更新タイミング: note マガジン追加・廃止時、または運営者が新教材を出したとき
 ```
 
-## PNG 生成タイミング
+## 更新タイミング
 
-教材ハイライトの PNG 6 枚生成は以下のいずれかのタイミングで実施:
-
-| タイミング | 担当 | 備考 |
-|---|---|---|
-| 戦略 v7 Q3 7 月中旬の固定 6 種一括整備時 | 運営者 | 他 5 種（まず読む / カルーセル目次 / Reels まとめ / FAQ / お知らせ）と同時 |
-| note マガジン追加時 | 運営者 | 03-essay または 04-readguide の差し替え |
-| 専用 generator スキル整備後 | エージェント | 将来の `ig-highlight-create` スキル候補（未着手） |
+- **note マガジン追加・廃止時**: 03-essay の items / 04-readguide の body を編集 → 再生成
+- **半年に 1 度**: コンテンツが古くないか見直し
+- slide-data.json の文言を変更する場合は `build-highlight-materials.mjs --dir` で個別再生成
 
 ## SoT 参照
 
@@ -57,6 +54,19 @@
 | note プロフィール URL | `.claude/scripts/lib/sns-common/sns-config.mjs` の `noteUrl` |
 | マガジン一覧・公開状況・URL | `src/lib/note-magazines.ts` |
 | マガジン価格 | `src/lib/note-magazines.ts`（MDX 本文には書かない・SoT 一元化） |
+
+## UTM 設計
+
+全 6 スライドで note プロフィール URL を共有するが UTM は付与する：
+
+```
+?utm_source=instagram
+&utm_medium=highlight
+&utm_campaign=materials
+&utm_content={author|essay|readguide|sample|cta}
+```
+
+`utm_content` でスライド別の経路分析。直接 note 有料リンクは置かない（二段ロケット原則）。
 
 ## 系統 A / B / C の使い分け（再掲）
 
@@ -70,4 +80,5 @@
 
 ## 改訂履歴
 
+- **v2（2026-05-28）**: PNG 生成手順を `build-highlight-materials.mjs --dir` に明示。UTM 設計セクション追加。他 5 ハイライトの note.md とテンプレ整合性を取る
 - v1（2026-05-28）: 初版。SNS 戦略 v7.1 化に伴い、ハイライト 6 種目「教材」用の雛形として新設。
