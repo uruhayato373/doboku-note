@@ -699,21 +699,24 @@ export function buildQuizProblem({ width, height, data }) {
   const listsEl = data.lists ? buildLists(data.lists) : null;
   const options = (data.options || []).slice(0, 5);
 
-  // 4 段階の圧縮モード判定（総文字数で動的に発動）
-  //   ultra:   超長文 > 700字 → q-text 26 / opt 68 / gap 14
-  //   compact: table/lists あり、または 550字超 or 選択肢最長 > 100字 → q-text 30 / opt 76
-  //   dense:   320字超 or 選択肢長い → q-text 36 / opt 84
+  // 4 段階の圧縮モード判定（総文字数 + 本文単独文字数で動的に発動）
+  //   ultra:   超長文 > 700字 or 本文 > 430字 → q-text 26 / opt 68 / gap 14
+  //   compact: table/lists あり、550字超 or 本文 > 255字 or 選択肢最長 > 100字 → q-text 30 / opt 76
+  //   dense:   320字超 or 本文 > 140字 or 選択肢長い → q-text 36 / opt 84
   //   normal:  通常 → q-text 44 / opt 96（HTML プロト基準）
   //
   // 注：optMax 単独で ultra 格上げしない（選択肢 1 つが長いだけで全体縮小は過剰）。
-  //     優先するのは「総文字量」で、ultra は本当に長文 (>700字) のみに限定。
+  // 注：bodyChars 基準を併用する理由 — 選択肢が極短い長文問題（例 NPV 計算問題の
+  //     本文 299字 + 選択肢「133」等）は totalContent が閾値を下回り normal(44px) に
+  //     落ちてはみ出す。本文高さはコンテンツ領域 1014px をほぼ独占するため、選択肢量に
+  //     依らず本文単独の文字数でも圧縮を発動させる（normal は 5択込みで本文 ~145字が上限）。
   const bodyChars = [...fullBody].length;
   const optChars = options.reduce((s, o) => s + [...(o.text || '')].length, 0);
   const optMax = Math.max(0, ...options.map((o) => [...(o.text || '')].length));
   const totalContent = bodyChars + optChars;
-  const isUltra = totalContent > 700;
-  const isCompact = !isUltra && (!!tableEl || !!listsEl || totalContent > 550 || optMax > 100);
-  const isDense = !isUltra && !isCompact && (isDenseOptions(options) || totalContent > 320 || optMax > 60);
+  const isUltra = totalContent > 700 || bodyChars > 430;
+  const isCompact = !isUltra && (!!tableEl || !!listsEl || totalContent > 550 || bodyChars > 255 || optMax > 100);
+  const isDense = !isUltra && !isCompact && (isDenseOptions(options) || totalContent > 320 || bodyChars > 140 || optMax > 60);
 
   const optTextStyle = isUltra
     ? ty('optTextDense', { fontSize: 22, lineHeight: 1.4 })
