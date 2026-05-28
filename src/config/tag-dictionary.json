@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-05-28T01:49:37.293Z",
+  "generated_at": "2026-05-28T02:11:12.081Z",
   "summary": {
-    "total_mdx_files": 825,
+    "total_mdx_files": 828,
     "total_unique_tags": 85,
     "allowlist_size": 123,
     "known_count": 51,
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "past-questions",
-      "count": 57,
+      "count": 60,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1104,6 +1104,9 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07",
+        "civil-construction-2-primary-r07-kouki",
+        "civil-construction-2-primary-r07-zenki",
+        "civil-construction-2-secondary-r07",
         "pe-comprehensive-management-h21-primary",
         "pe-comprehensive-management-h21-secondary",
         "pe-comprehensive-management-h22-primary",
@@ -1263,7 +1266,7 @@
     },
     {
       "name": "primary",
-      "count": 24,
+      "count": 26,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1289,7 +1292,9 @@
         "civil-construction-1-primary-r06-a",
         "civil-construction-1-primary-r06-b",
         "civil-construction-1-primary-r07-a",
-        "civil-construction-1-primary-r07-b"
+        "civil-construction-1-primary-r07-b",
+        "civil-construction-2-primary-r07-kouki",
+        "civil-construction-2-primary-r07-zenki"
       ]
     },
     {
@@ -1344,6 +1349,29 @@
       ]
     },
     {
+      "name": "secondary",
+      "count": 16,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-1-secondary-r03",
+        "civil-construction-1-secondary-r04",
+        "civil-construction-1-secondary-r05",
+        "civil-construction-1-secondary-r06",
+        "civil-construction-1-secondary-r07",
+        "civil-construction-2-secondary-r07"
+      ]
+    },
+    {
       "name": "guide",
       "count": 15,
       "inAllowlist": true,
@@ -1363,28 +1391,6 @@
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy",
         "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
-      "name": "secondary",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-1-secondary-r03",
-        "civil-construction-1-secondary-r04",
-        "civil-construction-1-secondary-r05",
-        "civil-construction-1-secondary-r06",
-        "civil-construction-1-secondary-r07"
       ]
     },
     {

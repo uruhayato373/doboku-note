@@ -1,12 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-28T01:49:32.156Z",
+  "generated_at": "2026-05-28T02:11:05.250Z",
   "summary": {
-    "total": 825,
-    "published": 800,
+    "total": 828,
+    "published": 803,
     "unpublished": 25,
     "by_category": {
       "civil-construction-1": 83,
+      "civil-construction-2": 3,
       "pe-comprehensive-management": 717
     }
   },
@@ -2659,6 +2660,72 @@
           "a": "施工順序にしたがって着手日から決める順行法、竣工期日からたどって着手日を決める逆算法、季節や契約条件などに基づいて重点工種の日程を固定してその前後を決める重点法の3通りがあります。"
         }
       ]
+    },
+    "civil-construction-2-primary-r07-kouki": {
+      "title": "令和7年度 第1次検定 後期",
+      "description": "2級土木施工管理技士 令和7年度第1次検定（後期）の全66問を解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅。",
+      "seoTitle": "令和7年度 第1次検定 後期 | 2級土木施工管理技士 | doboku-note",
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r07",
+      "sub": "kouki",
+      "questionCount": 66,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "civil-construction-2-primary-r07-zenki": {
+      "title": "令和7年度 第1次検定 前期",
+      "description": "2級土木施工管理技士 令和7年度第1次検定（前期）の全66問を無料で解説。土木一般・専門土木・法規・共通工学・施工管理法を網羅し、各問の引っかけ論点を解答後すぐに確認できる過去問演習。",
+      "seoTitle": "2級土木 第1次検定 令和7年度 前期｜全66問の解答・解説【無料｜土木一般/専門/法規/施工管理】",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "primary",
+      "tags": [
+        "primary",
+        "past-questions"
+      ],
+      "exam": "civil-construction-2",
+      "examType": "primary",
+      "year": "r07",
+      "sub": "zenki",
+      "questionCount": 66,
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "civil-construction-2-secondary-r07": {
+      "title": "令和7年度 第2次検定",
+      "description": "2級土木施工管理技士 令和7年度第2次検定の全問と模範解答・解説。経験記述・土工・コンクリート工・品質管理・工程管理・安全管理を網羅した記述式過去問対策。",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "secondary",
+      "tags": [
+        "secondary",
+        "past-questions"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-28",
+      "seoTitle": "令和 7 年度 第 2 次検定 解答例｜経験記述・土工・コンクリート工・品質管理・安全管理【2級土木施工管理技士 過去問】",
+      "created": "2026-05-28",
+      "dateModified": "2026-05-28",
+      "exam": "civil-construction-2",
+      "examType": "secondary",
+      "year": "r07",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
     },
     "pe-comprehensive-management-360-degree-evaluation": {
       "title": "多面評価",
@@ -9398,7 +9465,7 @@
       "published": true,
       "publishedAt": "2026-04-02T00:00:00.000Z",
       "seoTitle": "総合技術監理 キーワード集 2026（全文・5管理600+キーワード詳細解説リンク付き） ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-05-28"
     },
     "pe-comprehensive-management-knowledge-sharing": {
       "title": "知識共有化",
@@ -16332,7 +16399,7 @@
           "a": "経済性管理は「経済財政白書 + 中小企業白書」、人的資源管理は「厚生労働白書 + 労働経済の分析」、情報管理は「情報通信白書 + 情報セキュリティ白書」、安全管理は「防災白書 + 労働災害発生状況」、社会環境管理は「環境白書合冊 + エネルギー白書 + 国土交通白書」がそれぞれ核です。まずこの12冊の最新版概要を押さえることを推奨します。"
         }
       ],
-      "dateModified": "2026-05-18"
+      "dateModified": "2026-05-28"
     },
     "pe-comprehensive-management-wildlife-protection-act": {
       "title": "鳥獣保護管理法",

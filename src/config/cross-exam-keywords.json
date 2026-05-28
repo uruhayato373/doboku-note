@@ -1,12 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-28T01:49:34.690Z",
+  "generated_at": "2026-05-28T02:11:08.270Z",
   "summary": {
-    "total_mdx_files": 825,
-    "with_exams_field": 29,
+    "total_mdx_files": 828,
+    "with_exams_field": 31,
     "cross_exam_count": 0,
     "by_exam": {
-      "civil-construction-1": 29
+      "civil-construction-1": 29,
+      "civil-construction-2": 2
     }
   },
   "by_exam": {
@@ -445,6 +446,38 @@
           "civil-construction-1"
         ],
         "source_path": ".local\\r2\\posts\\civil-construction-1\\secondary-r07\\article.mdx"
+      }
+    ],
+    "civil-construction-2": [
+      {
+        "slug": "civil-construction-2-primary-r07-zenki",
+        "title": "令和7年度 第1次検定 前期",
+        "category": "civil-construction-2",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\primary-r07-zenki\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-secondary-r07",
+        "title": "令和7年度 第2次検定",
+        "category": "civil-construction-2",
+        "group": "secondary",
+        "tags": [
+          "secondary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\secondary-r07\\article.mdx"
       }
     ]
   },
