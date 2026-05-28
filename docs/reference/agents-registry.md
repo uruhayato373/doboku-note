@@ -65,7 +65,7 @@ title: サブエージェント詳細レジストリ
 | `ig-stories-qa`                | Instagram Stories の **3 軸**ルーブリック品質評価（コピー力・リンク導線整合・ステッカー双方向性）。テンプレ未差替（「令和7年度」のまま等）と 02/03 ステッカー誤配置を減点 | Evaluator    | sonnet  | `docs/reference/ig-stories-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase C）       |
 | `yt-shorts-publisher-qa`       | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の **4 軸**ルーブリック品質評価（尺・UTM 整合・タイトル長/検索性・字幕整合）。IG 用 UTM 混入を重大減点 | Evaluator    | sonnet  | `docs/reference/yt-shorts-publisher-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase D）       |
 | `ig-highlight-designer`        | Instagram ハイライト（`highlights/NN_*/slide-data.json`）の Stories 用構造化データを 1 ハイライトずつ執筆。モダンシック意匠 + データ駆動レイアウト | Generator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
-| `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分）。hero title 8 文字以上の折り返しと 06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
+| `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア）。IG UI セーフエリア侵入（overline が y<200）・本文の y>=1280 侵入・06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
@@ -102,7 +102,7 @@ title: サブエージェント詳細レジストリ
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
 | **ig-stories-qa** | `stories/caption.txt` + `stories/note.md` + 対応 `stories/img/01-04.png` | コピー力・リンク導線整合・ステッカー双方向性（3軸）。テンプレ未差替・ステッカー誤配置を減点 | IG Stories caption.txt 執筆後 |
 | **yt-shorts-publisher-qa** | `docs/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
-| **ig-highlight-qa** | `highlights/NN_*/slide-data.json` + `img/*.png` | サムネ識別性・リードコピー力・ジャンル一貫性・余白配分（4軸）。hero title 8 文字以上の折り返しと 06_materials の note 有料直リンクを重大減点。`ig-stories-qa`（過去問 4 枚連投）とは別文脈 | IG ハイライト slide-data.json 執筆後 / PNG 生成後 |
+| **ig-highlight-qa** | `highlights/NN_*/slide-data.json` + `img/*.png` | サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア（4軸）。IG UI セーフエリア侵入・本文 y>=1280 侵入・06_materials の note 有料直リンクを重大減点。`ig-stories-qa`（過去問 4 枚連投）とは別文脈 | IG ハイライト slide-data.json 執筆後 / PNG 生成後 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
 

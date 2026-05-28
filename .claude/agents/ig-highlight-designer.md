@@ -84,9 +84,9 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
   - 12-16 字: heroSm 80px ⚠⚠ 警告（可能なら短縮）
   - 17 字超: ❌ エラー（必須短縮）
 - subtitle は 1-2 行で収まる長さ（15 文字以内推奨）
-- body は 4-7 行、各行 18 文字程度
+- body は 4-7 行、各行 18 文字程度（7 行を超えると下部セーフエリア／ステッカー余白を侵すため上限厳守。policy §3.1）
 - 絵文字は使わない（モダンシック意匠は記号・アイコンで装飾）
-- 色・フォント・余白を slide-data.json に書かない
+- 色・フォント・余白を slide-data.json に書かない（上下の IG UI セーフエリアは tokens.json の `overlineTop`/`heroTop`/`_safeArea` が構造的に確保。slide-data 側では行数を守るだけでよい）
 - 06_materials のリンクスタンプは note プロフィール URL に統一着地
 - 執筆後に lint 実行: `node .claude/scripts/lint-stories-titles.mjs --dir <path>`
 

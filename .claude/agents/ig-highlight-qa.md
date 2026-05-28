@@ -58,10 +58,10 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
    - icon もジャンル別 symbol で統一
    - 06_materials の最終着地点が note プロフィール URL（直接 note 有料リンク禁止 = 二段ロケット遵守）
 
-   **軸 4: 余白配分**
-   - 本文（hero + subtitle + body + chipCta）が y < 1280 に収まり、y >= 1280 はリンクスタンプ/投票ステッカー用の余白として残っている
-   - 上部 overline（HIGHLIGHT NN/MM）が見切れていない
-   - 右下 credit が見切れていない
+   **軸 4: 余白配分・セーフエリア**（policy §3.1）
+   - **トップセーフエリア**: overline（HIGHLIGHT NN/MM）と右上 tag chip が y >= 200 にあり、IG のプログレスバー/プロフィール行/⋯・× ボタンと重ならない（PNG 上端〜約 250px の帯に重要要素が無いか目視確認）
+   - **本文**: hero + subtitle + body + chipCta が y < 1280 に収まり、y >= 1280 はリンクスタンプ/投票ステッカー用の余白（＝下部セーフエリア兼用）として残っている
+   - 上部 overline・右下 credit が見切れていない
    - body 行が 4-7 行（少なすぎず多すぎず）
 
 4. 平均スコアと合否判定を出力する。
@@ -86,7 +86,7 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 - **重大減点**:
   - 軸 2: lint **ERROR** あり（visualLength 17+ で auto-fit でも収まらない）→ **-2 点**
   - 軸 3: 06_materials で直接 note 有料リンクを置いている → **-2 点**
-  - 軸 4: 本文が y >= 1280 まで侵入してステッカー余白を潰している → **-2 点**
+  - 軸 4: 本文が y >= 1280 まで侵入してステッカー余白を潰している、または overline / tag がトップセーフエリア（y < 200）に侵入して IG UI と衝突している → **-2 点**
 - **WARN/NOTICE は減点なし**: builder の auto-fit (hero/heroMid/heroSm) で折り返しは構造的に発生しないため。採点コメントに記載のみ。
 
 ## 担当外

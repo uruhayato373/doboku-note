@@ -195,14 +195,15 @@
     },
     "geometry": {
       "padding": { "x": 80, "y": 96 },
-      "overlineTop": 96,
-      "heroTop": 280,
+      "overlineTop": 220,
+      "heroTop": 350,
       "bodyTop": 720,
       "chipPadding": [20, 36],
       "chipRadius": 999,
       "accentBarHeight": 8,
       "accentBarWidth": 120,
-      "_stickerArea": "y >= 1280 はリンクスタンプ/投票ステッカー用余白として意図的に空ける。本文は y < 1200 に収める。"
+      "_safeArea": "IG Stories セーフエリア: 上端から約 250px はプログレスバー＋プロフィール行＋⋯/× ボタン、下端から約 250px は返信バーが UI オーバーレイで重なる。overlineTop はトップセーフエリアを抜けるため >= 200 必須（現 220）。本文・credit を含む全可視要素は y=200〜1280 のバンドに収める。",
+      "_stickerArea": "y >= 1280 はリンクスタンプ/投票ステッカー用余白として意図的に空ける（下部セーフエリアも兼ねる）。本文は y < 1200 に収める。"
     },
     "icons": {
       "_use": "ハイライト別の symbol。大型 (size 280px) で hero text の背景に薄く配置 (opacity 0.12)",
