@@ -540,11 +540,22 @@ export function buildQuizCover({ width, height, data }) {
  * table: { headers: string[], rows: string[][] }
  * Satori vDOM の flex grid で罫線付きの表を描画する。
  */
-function buildTable(table) {
+function buildTable(table, scale = 1) {
   const headers = Array.isArray(table?.headers) ? table.headers : [];
   const rows = Array.isArray(table?.rows) ? table.rows : [];
   const colCount = headers.length;
   if (!colCount) return null;
+
+  // scale < 1 は問題スライドが ultra でも収まらない場合の表圧縮（フォント/余白/行高）。
+  const r = (v) => Math.round(v * scale);
+  const headerMinH = r(GEO.table.headerMinHeight);
+  const rowMinH = r(GEO.table.rowMinHeight);
+  const headerPadV = r(GEO.table.headerPadding[0]);
+  const headerPadH = r(GEO.table.headerPadding[1]);
+  const cellPadV = r(GEO.table.cellPadding[0]);
+  const cellPadH = r(GEO.table.cellPadding[1]);
+  const headerFont = r(TY.tableHeader.size);
+  const cellFont = r(TY.tableCell.size);
 
   const cellBorderRight = (idx) =>
     idx === colCount - 1
@@ -558,20 +569,20 @@ function buildTable(table) {
   const headerRow = d(
     {
       background: SURFACE.sunken,
-      minHeight: GEO.table.headerMinHeight,
+      minHeight: headerMinH,
     },
     headers.map((h, i) =>
       d(
         {
           flex: 1,
-          paddingTop: GEO.table.headerPadding[0],
-          paddingBottom: GEO.table.headerPadding[0],
-          paddingLeft: GEO.table.headerPadding[1],
-          paddingRight: GEO.table.headerPadding[1],
+          paddingTop: headerPadV,
+          paddingBottom: headerPadV,
+          paddingLeft: headerPadH,
+          paddingRight: headerPadH,
           alignItems: 'center',
           justifyContent: 'center',
           ...cellBorderRight(i),
-          ...ty('tableHeader', { color: INK.body }),
+          ...ty('tableHeader', { color: INK.body, fontSize: headerFont }),
         },
         String(h),
       ),
@@ -584,20 +595,20 @@ function buildTable(table) {
         borderTopWidth: GEO.table.borderWidth,
         borderTopStyle: 'solid',
         borderTopColor: SURFACE.line,
-        minHeight: GEO.table.rowMinHeight,
+        minHeight: rowMinH,
       },
       row.map((cell, ci) =>
         d(
           {
             flex: 1,
-            paddingTop: GEO.table.cellPadding[0],
-            paddingBottom: GEO.table.cellPadding[0],
-            paddingLeft: GEO.table.cellPadding[1],
-            paddingRight: GEO.table.cellPadding[1],
+            paddingTop: cellPadV,
+            paddingBottom: cellPadV,
+            paddingLeft: cellPadH,
+            paddingRight: cellPadH,
             alignItems: 'center',
             justifyContent: 'center',
             ...cellBorderRight(ci),
-            ...ty('tableCell', { color: INK.strong }),
+            ...ty('tableCell', { color: INK.strong, fontSize: cellFont }),
           },
           String(cell ?? ''),
         ),
@@ -664,6 +675,59 @@ function isDenseOptions(options) {
   return long || total > 250;
 }
 
+// ── problem スライドの推定高さ（圧縮モード自動エスカレーション用） ──────────
+// 文字数の単純閾値では「本文 + 表 + 折返し選択肢」の合算高さを捉えきれず、
+// 選択肢が極短い長文（normal すり抜け）や 表+長い5択（compact 超過）がはみ出す。
+// 各モードの本文/表/リスト/選択肢の折返しを概算し、コンテンツ領域に収まる
+// 最大モードを選ぶ。表/リストは圧縮モードに依らず固定サイズ（tableCell/listItem）。
+const PROBLEM_AVAIL_H = TOKENS.canvas.height - (PAD.y + 96) - (PAD.y + 80); // = 1014
+const PROBLEM_SAFE_H = PROBLEM_AVAIL_H - 34;                                // 安全マージン
+const PROBLEM_INNER_W = TOKENS.canvas.width - PAD.x * 2;                    // = 936
+const PROBLEM_MODE_ORDER = ['normal', 'dense', 'compact', 'ultra'];
+const PROBLEM_MODE_PARAMS = {
+  normal:  { qSize: 44, qLh: 1.45, optSize: 26, optLh: 1.5, optMinH: 96, optPadV: 22, optPadH: 26, optGap: 14, blockGap: 36 },
+  dense:   { qSize: 36, qLh: 1.40, optSize: 24, optLh: 1.5, optMinH: 84, optPadV: 14, optPadH: 22, optGap: 12, blockGap: 26 },
+  compact: { qSize: 30, qLh: 1.35, optSize: 24, optLh: 1.5, optMinH: 76, optPadV: 12, optPadH: 22, optGap: 10, blockGap: 18 },
+  ultra:   { qSize: 26, qLh: 1.30, optSize: 22, optLh: 1.4, optMinH: 68, optPadV: 10, optPadH: 20, optGap: 8,  blockGap: 14 },
+};
+
+function estimateProblemHeight(mode, { bodyChars, options, table, lists, hasTopic, tableScale = 1 }) {
+  const m = PROBLEM_MODE_PARAMS[mode];
+  const bodyCpl = Math.max(1, Math.floor(PROBLEM_INNER_W / m.qSize));
+  const bodyH = Math.ceil(bodyChars / bodyCpl) * m.qSize * m.qLh;
+  const rows = table && Array.isArray(table.rows) ? table.rows.length : 0;
+  // 行高は minHeight ではなく実セル高（フォント×行間 + 上下余白）で見積もる。
+  // tableScale でフォント/余白/行高が一括縮小される（buildTable と整合）。
+  const rowH = Math.max(GEO.table.rowMinHeight * tableScale,
+    TY.tableCell.size * tableScale * 1.25 + GEO.table.cellPadding[0] * tableScale * 2) + GEO.table.borderWidth;
+  const headH = Math.max(GEO.table.headerMinHeight * tableScale,
+    TY.tableHeader.size * tableScale * 1.25 + GEO.table.headerPadding[0] * tableScale * 2);
+  const tableH = rows > 0 ? (headH + rows * rowH + 6) : 0;
+  let listsH = 0, groups = 0;
+  if (Array.isArray(lists)) {
+    for (const g of lists) {
+      const items = Array.isArray(g?.items) ? g.items.length : 0;
+      if (!items) continue;
+      groups++;
+      const lh = TY.listItem.lineHeight || 1.45;
+      listsH += GEO.lists.padding[0] * 2 + items * TY.listItem.size * lh + (items - 1) * GEO.lists.itemGap;
+    }
+    if (groups > 1) listsH += (groups - 1) * GEO.lists.groupGap;
+  }
+  const opts = (options || []).slice(0, 5);
+  const optTextW = PROBLEM_INNER_W - GEO.opt.numColWidth - m.optPadH * 2;
+  const optCpl = Math.max(1, Math.floor(optTextW / m.optSize));
+  let optionsH = 0;
+  for (const o of opts) {
+    const lines = Math.max(1, Math.ceil([...(o.text || '')].length / optCpl));
+    optionsH += Math.max(m.optMinH, lines * m.optSize * m.optLh + m.optPadV * 2);
+  }
+  if (opts.length > 1) optionsH += (opts.length - 1) * m.optGap;
+  const qGaps = (1 + (hasTopic ? 1 : 0) + (listsH > 0 ? 1 : 0) + (tableH > 0 ? 1 : 0) - 1) * 14;
+  const topicH = hasTopic ? 40 : 0;
+  return bodyH + qGaps + tableH + listsH + topicH + (opts.length > 0 ? m.blockGap : 0) + optionsH;
+}
+
 /**
  * quiz-problem スライド
  *
@@ -695,28 +759,37 @@ export function buildQuizProblem({ width, height, data }) {
       return true;
     });
   const fullBody = bodyTextOnly.join('');
-  const tableEl = data.table ? buildTable(data.table) : null;
   const listsEl = data.lists ? buildLists(data.lists) : null;
   const options = (data.options || []).slice(0, 5);
 
-  // 4 段階の圧縮モード判定（総文字数 + 本文単独文字数で動的に発動）
-  //   ultra:   超長文 > 700字 or 本文 > 430字 → q-text 26 / opt 68 / gap 14
-  //   compact: table/lists あり、550字超 or 本文 > 255字 or 選択肢最長 > 100字 → q-text 30 / opt 76
-  //   dense:   320字超 or 本文 > 140字 or 選択肢長い → q-text 36 / opt 84
-  //   normal:  通常 → q-text 44 / opt 96（HTML プロト基準）
-  //
-  // 注：optMax 単独で ultra 格上げしない（選択肢 1 つが長いだけで全体縮小は過剰）。
-  // 注：bodyChars 基準を併用する理由 — 選択肢が極短い長文問題（例 NPV 計算問題の
-  //     本文 299字 + 選択肢「133」等）は totalContent が閾値を下回り normal(44px) に
-  //     落ちてはみ出す。本文高さはコンテンツ領域 1014px をほぼ独占するため、選択肢量に
-  //     依らず本文単独の文字数でも圧縮を発動させる（normal は 5択込みで本文 ~145字が上限）。
+  // 圧縮モード判定 — 2 段構え:
+  //   ① 文字数ベースで「上限モード」(最大フォント) を決める（normal/dense/compact/ultra）
+  //   ② 推定高さ(estimateProblemHeight)がコンテンツ領域を超える間 1 段ずつ縮小して
+  //      必ず収める（成長はしない＝現状 OK のスライドは不変、はみ出すものだけ縮小）。
+  // 文字数だけでは「本文 + 表 + 折返し選択肢」の合算高さを取りこぼすため、②の実高さ
+  // チェックで table+長い5択や 長文+極短選択肢のはみ出しを構造的に解消する。
   const bodyChars = [...fullBody].length;
   const optChars = options.reduce((s, o) => s + [...(o.text || '')].length, 0);
   const optMax = Math.max(0, ...options.map((o) => [...(o.text || '')].length));
   const totalContent = bodyChars + optChars;
-  const isUltra = totalContent > 700 || bodyChars > 430;
-  const isCompact = !isUltra && (!!tableEl || !!listsEl || totalContent > 550 || bodyChars > 255 || optMax > 100);
-  const isDense = !isUltra && !isCompact && (isDenseOptions(options) || totalContent > 320 || bodyChars > 140 || optMax > 60);
+  const ceilUltra = totalContent > 700 || bodyChars > 430;
+  const ceilCompact = !ceilUltra && (!!data.table || !!listsEl || totalContent > 550 || bodyChars > 255 || optMax > 100);
+  const ceilDense = !ceilUltra && !ceilCompact && (isDenseOptions(options) || totalContent > 320 || bodyChars > 140 || optMax > 60);
+  let modeIdx = ceilUltra ? 3 : ceilCompact ? 2 : ceilDense ? 1 : 0;
+  let tableScale = 1;
+  const estCtx = { bodyChars, options, table: data.table, lists: data.lists, hasTopic: !!data.topic, tableScale };
+  // ②-a まずテキストモードを縮小
+  while (modeIdx < 3 && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], estCtx) > PROBLEM_SAFE_H) modeIdx++;
+  // ②-b 最小モード(ultra)でもなお超える場合のみ、表を段階圧縮（7 行表など固定高対策）
+  const TABLE_SCALE_STEPS = [0.85, 0.72, 0.62];
+  for (let i = 0; i < TABLE_SCALE_STEPS.length
+    && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...estCtx, tableScale }) > PROBLEM_SAFE_H; i++) {
+    tableScale = TABLE_SCALE_STEPS[i];
+  }
+  const isUltra = modeIdx === 3;
+  const isCompact = modeIdx === 2;
+  const isDense = modeIdx === 1;
+  const tableEl = data.table ? buildTable(data.table, tableScale) : null;
 
   const optTextStyle = isUltra
     ? ty('optTextDense', { fontSize: 22, lineHeight: 1.4 })
