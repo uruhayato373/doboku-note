@@ -20,6 +20,7 @@ import { wrapTitle, pickFontSize } from './jp-text-wrap.mjs';
 import { buildNotebookCover, buildNotebookBoard, buildNotebookCta, buildNotebookFigure, buildNotebookIntro, buildNotebookSummary, buildNotebookQuestion, buildNotebookOptions, buildNotebookThink, buildNotebookAnswer, NOTEBOOK_TOKENS, buildMarginLine } from './notebook-slides.mjs';
 import { buildQuizCover, buildQuizProblem, buildQuizPause, buildQuizAnswer, buildQuizCta, buildSummaryCover, buildSummaryPackList, buildSummaryCta } from './quiz-slides.mjs';
 import { buildHighlightMaterial } from './highlight-slides.mjs';
+import { buildHighlightStoriesSlide } from './highlight-stories-slides.mjs';
 import { SNS_CONFIG } from './sns-config.mjs';
 
 const NT = NOTEBOOK_TOKENS;
@@ -179,6 +180,8 @@ async function buildElement({ width, height, slide, config }) {
       return buildQuizCta({ width, height, data: slide.data || {} });
     case 'highlight-material':
       return buildHighlightMaterial({ width, height, data: slide.data || {} });
+    case 'highlight-stories':
+      return buildHighlightStoriesSlide({ width, height, data: slide.data || {} });
     case 'summary-cover':
       return buildSummaryCover({ width, height, data: slide.data || {} });
     case 'summary-pack-list':

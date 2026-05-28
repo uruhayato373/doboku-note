@@ -163,5 +163,51 @@
     "active": "refined",
     "available": ["refined", "bold", "editorial"],
     "_note": "Phase A では refined のみ実装。bold / editorial は future scope。"
+  },
+
+  "highlightStories": {
+    "_meta": {
+      "purpose": "IG Stories ハイライト用モダンシック意匠。docs/sns/instagram/highlights/** で使用。過去問パック (1080×1350) と意匠を切り分け、サムネ識別性とジャンル別カラーで 3 秒判断通過を狙う。",
+      "consumedBy": [".claude/scripts/lib/sns-common/highlight-stories-slides.mjs"],
+      "policy": "docs/reference/ig-highlight-design-policy.md",
+      "canvas": "1080×1920 Stories sizes"
+    },
+    "_paletteNote": "ハイライト 6 種を背景色面で識別。低彩度のトーンで信頼感を保ちつつ、ジャンル別に視覚区別。背景は -50 系の淡色、アクセントは -600 系の濃色、テキストは ink.strong (#14191F) で共通。",
+    "palettes": {
+      "01_intro":           { "bg": "#EFF6FF", "accent": "#1858B5", "accentLight": "#D6E5F8", "label": "blue (信頼)" },
+      "02_carousel-index":  { "bg": "#F0FDF4", "accent": "#16A34A", "accentLight": "#D1FAE5", "label": "green (体系)" },
+      "03_reels-roundup":   { "bg": "#FAF5FF", "accent": "#7C3AED", "accentLight": "#E9D5FF", "label": "purple (動的)" },
+      "04_faq":             { "bg": "#FFFBEB", "accent": "#D97706", "accentLight": "#FEF3C7", "label": "amber (問答)" },
+      "05_announcement":    { "bg": "#FFF1F2", "accent": "#E11D48", "accentLight": "#FECDD3", "label": "rose (告知)" },
+      "06_materials":       { "bg": "#F8FAFC", "accent": "#1858B5", "accentLight": "#E2E8F0", "label": "slate (落ち着き)" }
+    },
+    "typography": {
+      "overline": { "fontFamily": "Manrope", "weight": 800, "size": 28, "letterSpacing": 0.15, "lineHeight": 1.2, "_use": "tag テキスト 'HIGHLIGHT N/6' 等の上部 small caps" },
+      "hero":     { "fontFamily": "NotoSansJP", "weight": 900, "size": 132, "lineHeight": 1.15, "letterSpacing": -0.02, "_use": "メインタイトル 4-7 文字" },
+      "lead":     { "fontFamily": "NotoSansJP", "weight": 700, "size": 56, "lineHeight": 1.3, "_use": "サブタイトル 8-15 文字" },
+      "body":     { "fontFamily": "NotoSansJP", "weight": 500, "size": 38, "lineHeight": 1.5, "_use": "body 行" },
+      "chip":     { "fontFamily": "NotoSansJP", "weight": 700, "size": 34, "lineHeight": 1.2, "_use": "下部 CTA chip" },
+      "credit":   { "fontFamily": "Manrope", "weight": 700, "size": 26, "letterSpacing": 0.05, "_use": "右下のクレジット 'doboku-note'" }
+    },
+    "geometry": {
+      "padding": { "x": 80, "y": 96 },
+      "overlineTop": 96,
+      "heroTop": 280,
+      "bodyTop": 720,
+      "chipPadding": [20, 36],
+      "chipRadius": 999,
+      "accentBarHeight": 8,
+      "accentBarWidth": 120,
+      "_stickerArea": "y >= 1280 はリンクスタンプ/投票ステッカー用余白として意図的に空ける。本文は y < 1200 に収める。"
+    },
+    "icons": {
+      "_use": "ハイライト別の symbol。大型 (size 280px) で hero text の背景に薄く配置 (opacity 0.12)",
+      "01_intro":           "→",
+      "02_carousel-index":  "▦",
+      "03_reels-roundup":   "▷",
+      "04_faq":             "?",
+      "05_announcement":    "!",
+      "06_materials":       "¶"
+    }
   }
 }

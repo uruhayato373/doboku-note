@@ -82,7 +82,10 @@ async function generateOne(packDir) {
     .replace(`${HIGHLIGHTS_BASE}/`, 'highlights/')
     .replace(`${IG_BASE}\\`, '')
     .replace(`${IG_BASE}/`, '');
-  console.log(`\n[${tag}] ${total} 枚生成 → ${outDir}`);
+  // ディレクトリ名 (例: highlights/01_intro → 01_intro) を highlightSlug として渡す
+  // → tokens.json highlightStories.palettes のキーと一致させる
+  const highlightSlug = tag.replace(/^highlights[\\/]/, '');
+  console.log(`\n[${tag}] ${total} 枚生成 → ${outDir} (slug: ${highlightSlug})`);
 
   let ok = 0;
   let failed = 0;
@@ -99,10 +102,12 @@ async function generateOne(packDir) {
         width: WIDTH,
         height: HEIGHT,
         slide: {
-          type: 'highlight-material',
+          // v7.1: highlight-material → highlight-stories に切替（モダンシック意匠）
+          type: 'highlight-stories',
           data: {
             ...slide,
             _totalSlides: total,
+            highlightSlug,
           },
         },
       });
