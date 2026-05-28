@@ -56,11 +56,11 @@ title: スキル ナビゲーションガイド
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成 | `ハッシュタグ生成`, `/note-hashtags` |
 | `/ig-post-create` | Instagram カルーセル PNG 生成（過去問パック・KW 解説の単発） | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
-| `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
+| `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg） | `IG リール作成`, `動画化`, `/ig-reel-create --exam r07-pack-01` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成 | `Xカード作成`, `X投稿カード`, `/create-x-card` |
 | `/publish-x` | Playwright で X 投稿を自動化（即時・予約） | `X投稿`, `自動投稿`, `/publish-x` |
-| `/yt-shorts-create` | 総監キーワード MDX → YouTube Shorts mp4 生成 | `YouTube Shorts`, `動画生成`, `/yt-shorts-create` |
+| `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（30-60 秒トリム + 概要欄差替、`--from-reels`。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
 
 ### 開発（dev）
 
@@ -121,11 +121,18 @@ title: スキル ナビゲーションガイド
 1. `/quality-cycle --profile cem --mode auto-loop` — 全件スコアリング → 低スコア自動リライト → 再評価（閉ループ）
 2. `/audit-exam-mapping` — 紐づけ精度の一括 semantic 監査
 
-### SNS 投稿を量産したい
+### SNS 投稿を量産したい（v7: IG 一次 → YT 派生）
 
-1. `/ig-post-create --slug {kw}` — Instagram Study Notebook スライド
-2. `/yt-shorts-create --slug {slug} --date {YYYY-MM-DD}` — YouTube Shorts mp4
-3. `/create-x-card` + `/publish-x` — X 投稿カード作成 → 自動投稿
+1. `/ig-post-create --exam {pack-id}` — Instagram カルーセル/Reels PNG（一次制作）
+2. `/ig-reel-create --exam {pack-id}` — カルーセル PNG → Reels mp4（VOICEVOX + ffmpeg）
+3. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
+4. `/create-x-card` + `/publish-x` — X 投稿カード作成 → 自動投稿
+
+**IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
+- `node .claude/scripts/instagram/build-highlight-materials.mjs --all` — 6 ハイライト × 32 PNG 一括生成（モダンシック意匠、ジャンル別カラー）
+- `node .claude/scripts/lint-stories-titles.mjs` — title 字数 lint（auto-fit 4 段階判定）
+- エージェント: `ig-highlight-designer`（slide-data 執筆）→ `ig-highlight-qa`（4 軸採点）
+- 詳細: `docs/reference/ig-highlight-design-policy.md`
 
 ### PDF を MDX に変換したい
 

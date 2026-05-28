@@ -1,16 +1,19 @@
 #!/usr/bin/env node
 // .claude/scripts/build-civil-exam-textbook-index.mjs
 //
-// 1級土木施工管理技士 (civil-construction-1) の過去問⇔教材相互リンクインデックスを生成。
+// 1級・2級 土木施工管理技士 (civil-construction-1, civil-construction-2) の
+// 過去問⇔教材相互リンクインデックスを生成。
 //
 // 入力:
-//   - .local/r2/posts/civil-construction-1/primary-*/article.mdx
-//   - .local/r2/posts/civil-construction-1/secondary-*/article.mdx
-//   - .local/r2/posts/civil-construction-1/textbook-*/article.mdx
-//   - .local/r2/posts/civil-construction-1/guide-*/article.mdx
+//   - .local/r2/posts/civil-construction-{1,2}/primary-*/article.mdx
+//   - .local/r2/posts/civil-construction-{1,2}/secondary-*/article.mdx
+//   - .local/r2/posts/civil-construction-{1,2}/textbook-*/article.mdx
+//   - .local/r2/posts/civil-construction-{1,2}/guide-*/article.mdx
 //
-// 出力:
-//   - src/config/civil-exam-textbook-index.json
+// 出力（カテゴリごとに別ファイル、後方互換のため 1級は既存ファイル名を維持）:
+//   - src/config/civil-exam-textbook-index.json       (1級)
+//   - src/config/civil-exam-textbook-index-2.json     (2級、2級ディレクトリが存在する場合のみ生成)
+//
 //     {
 //       "questionToTextbooks": {
 //         "primary-r07-a": {
@@ -28,20 +31,26 @@
 //     }
 //
 // AdSense 不合格対策プラン P1-1。詳細: /Users/minamidaisuke/.claude/plans/gentle-questing-sketch.md
+// 2級対応: 2026-05-28 (Phase 0 一括追加)
 //
 // Usage:
-//   node .claude/scripts/build-civil-exam-textbook-index.mjs
+//   node .claude/scripts/build-civil-exam-textbook-index.mjs                # 1級・2級 両方
+//   node .claude/scripts/build-civil-exam-textbook-index.mjs --category=civil-construction-1
 //   node .claude/scripts/build-civil-exam-textbook-index.mjs --verbose
-//   node .claude/scripts/build-civil-exam-textbook-index.mjs --dry-run  # 書き出さない
+//   node .claude/scripts/build-civil-exam-textbook-index.mjs --dry-run     # 書き出さない
 
-import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, statSync, mkdirSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
 import matter from 'gray-matter';
 
-const BASE = resolve('.local/r2/posts/civil-construction-1');
-const OUT_PATH = resolve('src/config/civil-exam-textbook-index.json');
 const VERBOSE = process.argv.includes('--verbose');
 const DRY_RUN = process.argv.includes('--dry-run');
+const CATEGORY_ARG = (process.argv.find((a) => a.startsWith('--category=')) || '').replace('--category=', '');
+
+const CATEGORY_CONFIGS = [
+  { category: 'civil-construction-1', outFile: 'civil-exam-textbook-index.json' },
+  { category: 'civil-construction-2', outFile: 'civil-exam-textbook-index-2.json' },
+];
 
 function collectMdx(dir) {
   const out = [];
@@ -160,12 +169,12 @@ function parseExamQuestions(examFile) {
   };
 }
 
-function buildIndex() {
-  const all = collectMdx(BASE);
+function buildIndex(base, categoryLabel) {
+  const all = collectMdx(base);
   const textbooks = all.filter((f) => f.slug.startsWith('textbook-') || f.slug.startsWith('guide-'));
   const exams = all.filter((f) => f.slug.startsWith('primary-') || f.slug.startsWith('secondary-'));
 
-  console.log(`Textbooks/guides: ${textbooks.length}, Exams: ${exams.length}`);
+  console.log(`[${categoryLabel}] Textbooks/guides: ${textbooks.length}, Exams: ${exams.length}`);
 
   // textbook side index
   const textbookIdx = buildTextbookIndex(textbooks);
@@ -246,15 +255,40 @@ function buildIndex() {
   return result;
 }
 
-function main() {
-  const result = buildIndex();
-  console.log(`\n${'='.repeat(60)}`);
-  console.log(`Questions with matches: ${result.meta.questionsWithMatches}`);
-  console.log(`Total exam→textbook matches: ${result.meta.totalMatches}`);
-  console.log(`Textbooks referenced: ${Object.keys(result.textbookToQuestions).length}`);
+function processCategory({ category, outFile }) {
+  const base = resolve(`.local/r2/posts/${category}`);
+  const outPath = resolve(`src/config/${outFile}`);
+
+  if (!existsSync(base)) {
+    // ディレクトリ未存在でも空 JSON は維持（PastExamBacklinks 等が import するため）
+    const emptyResult = {
+      questionToTextbooks: {},
+      textbookToQuestions: {},
+      meta: {
+        generatedAt: new Date().toISOString(),
+        textbookCount: 0,
+        examCount: 0,
+        questionsWithMatches: 0,
+        totalMatches: 0,
+        threshold: 0.45,
+        note: `${category} ディレクトリ未存在のため空。コンテンツ投入後に再生成される`,
+      },
+    };
+    if (!DRY_RUN) {
+      mkdirSync(dirname(outPath), { recursive: true });
+      writeFileSync(outPath, JSON.stringify(emptyResult, null, 2), 'utf-8');
+    }
+    console.log(`[${category}] skipped (directory does not exist), wrote empty placeholder: ${outPath}`);
+    return;
+  }
+
+  const result = buildIndex(base, category);
+  console.log(`[${category}] Questions with matches: ${result.meta.questionsWithMatches}`);
+  console.log(`[${category}] Total exam→textbook matches: ${result.meta.totalMatches}`);
+  console.log(`[${category}] Textbooks referenced: ${Object.keys(result.textbookToQuestions).length}`);
 
   if (VERBOSE) {
-    console.log('\n--- Sample (first exam) ---');
+    console.log(`\n--- [${category}] Sample (first exam) ---`);
     const firstExam = Object.keys(result.questionToTextbooks)[0];
     if (firstExam) {
       console.log(`${firstExam}:`);
@@ -269,12 +303,29 @@ function main() {
   }
 
   if (DRY_RUN) {
-    console.log(`\n(--dry-run mode, no file written)`);
+    console.log(`[${category}] (--dry-run mode, no file written)`);
     return;
   }
-  mkdirSync(dirname(OUT_PATH), { recursive: true });
-  writeFileSync(OUT_PATH, JSON.stringify(result, null, 2), 'utf-8');
-  console.log(`\nWritten: ${OUT_PATH}`);
+  mkdirSync(dirname(outPath), { recursive: true });
+  writeFileSync(outPath, JSON.stringify(result, null, 2), 'utf-8');
+  console.log(`[${category}] Written: ${outPath}`);
+}
+
+function main() {
+  const targets = CATEGORY_ARG
+    ? CATEGORY_CONFIGS.filter((c) => c.category === CATEGORY_ARG)
+    : CATEGORY_CONFIGS;
+
+  if (targets.length === 0) {
+    console.error(`Unknown category: ${CATEGORY_ARG}`);
+    process.exit(1);
+  }
+
+  for (const config of targets) {
+    console.log(`\n${'='.repeat(60)}`);
+    processCategory(config);
+  }
+  console.log(`\n${'='.repeat(60)}\nDone.`);
 }
 
 main();

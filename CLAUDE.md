@@ -71,6 +71,10 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/sns-image-policy.md](docs/reference/sns-image-policy.md) | SNS 投稿画像ポリシー（IG/X/Shorts のキャンバス・スワイプ方向・記号統一・wrap 算法・長文選択肢自動切替） | `docs/sns/{instagram,x,youtube}/` 配下の画像を作成・修正するとき |
 | [docs/reference/links-hub.md](docs/reference/links-hub.md) | `/links` SNS bio 用リンクハブの設計・UTM 設計・メンテ手順・KPI（Linktree 代替の自前実装） | `/links` 新 商品追加・Featured 切替・SNS bio リンク変更時 |
 | [docs/reference/ig-carousel-skill.md](docs/reference/ig-carousel-skill.md) | IG カルーセル 2 シリーズ運用（A: 択一クイズパック・運営者作問 / B: 過去問パック・H21-R7 全 640 問）・5 管理別色テーマ・slide-data.json スキーマ・配信ロードマップ | IG カルーセル投稿準備・パック編集・SoT 再生成時 |
+| [docs/reference/ig-reels-policy.md](docs/reference/ig-reels-policy.md) | IG Reels の `reels/script.json` スキーマ・キャプション/ハッシュタグルール・5 軸ルーブリック・Reels モード分岐の禁忌（カルーセル流用 CTA 禁止）。戦略 v7 で新設 | IG Reels 台本作成・採点・YT 派生時 |
+| [docs/reference/ig-stories-policy.md](docs/reference/ig-stories-policy.md) | IG Stories の 4 枚連投・stories/caption.txt + note.md スキーマ・3 軸ルーブリック（コピー力／リンク導線／ステッカー双方向性）・ハイライト戦略。戦略 v7 で新設 | IG Stories キュレーション・採点・ハイライト整備時 |
+| [docs/reference/yt-shorts-publisher-policy.md](docs/reference/yt-shorts-publisher-policy.md) | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の 4 軸ルーブリック・UTM 必須要素・タイトル/概要欄テンプレ。戦略 v7 で新設、yt-shorts-create --from-reels と対応 | YT Shorts 派生生成後の品質採点・概要欄テンプレ確認時 |
+| [docs/reference/ig-highlight-design-policy.md](docs/reference/ig-highlight-design-policy.md) | IG ハイライト（highlights/NN_*）モダンシック意匠の slide-data.json スキーマ・6 種パレット/アイコン・タイポ階層 4 段・4 軸ルーブリック。戦略 v7.1 で新設 | IG ハイライト Stories 設計・採点・新ハイライト追加時 |
 | [docs/reference/exam-content-policy.md](docs/reference/exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
 | [docs/reference/skills-guide.md](docs/reference/skills-guide.md) | アクティブスキル カテゴリ別早引き＋用途別ガイド（今やること別スキル推奨組み合わせ） | 使えるスキルを素早く探すとき |
 | [docs/reference/skills-registry.md](docs/reference/skills-registry.md) | スキルのガバナンス記録（退役ログ・カテゴリ変更履歴・テンプレート駆動設計） | 退役スキル確認・設計変更履歴・新スキル重複チェック |

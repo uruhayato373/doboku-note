@@ -10,6 +10,9 @@
  *       → 並列列挙データが散文に埋もれている。lists フィールドに分離すべき
  *   E2: problem.bodyLines に `|` で始まる行（markdown 表残骸）があるのに table 未設定
  *       → table フィールドに構造化すべき
+ *   E3: problem が最大圧縮(ultra + 表×0.62)でもコンテンツ領域(1014px)に収まらない
+ *       → 選択肢が画面外へはみ出す。本文を短縮 or 表行数を削減すべき
+ *       （quiz-slides.mjs の chooseProblemLayout を共有＝生成物と検査が一致）
  *
  * 検出ルール（WARN）:
  *   W1: answer.optionExplanations に「個別解説は省略」プレースホルダが残存
@@ -29,6 +32,7 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { chooseProblemLayout } from '../.claude/scripts/lib/sns-common/quiz-slides.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -79,6 +83,16 @@ function lintPack(packDir, packId) {
           where: `${packId} Q${qNum}`,
           msg: `bodyLines に ${tableLines.length} 行の markdown 表残骸があるのに table が未設定`,
           fix: 'table: { headers: [...], rows: [...] } フィールドに構造化する',
+        });
+      }
+      // E3: 最大圧縮でもコンテンツ領域に収まらない（選択肢のはみ出し）
+      const layout = chooseProblemLayout(sl);
+      if (!layout.fits) {
+        errors.push({
+          rule: 'E3',
+          where: `${packId} Q${qNum}`,
+          msg: `最大圧縮(${layout.mode} + 表×${layout.tableScale})でも推定 ${layout.estHeight}px > 領域 ${layout.avail}px ではみ出す`,
+          fix: '本文(bodyLines)を短縮、または table の行数を削減する',
         });
       }
     }

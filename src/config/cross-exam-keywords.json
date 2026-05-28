@@ -1,12 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-27T22:23:32.785Z",
+  "generated_at": "2026-05-28T08:09:51.793Z",
   "summary": {
-    "total_mdx_files": 825,
-    "with_exams_field": 29,
+    "total_mdx_files": 840,
+    "with_exams_field": 39,
     "cross_exam_count": 0,
     "by_exam": {
-      "civil-construction-1": 29
+      "civil-construction-1": 29,
+      "civil-construction-2": 10
     }
   },
   "by_exam": {
@@ -24,7 +25,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h26-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h26-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h26-b",
@@ -39,7 +40,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h26-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h26-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h27-a",
@@ -54,7 +55,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h27-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h27-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h27-b",
@@ -69,7 +70,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h27-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h27-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h28-a",
@@ -84,7 +85,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h28-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h28-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h28-b",
@@ -99,7 +100,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h28-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h28-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h29-a",
@@ -114,7 +115,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h29-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h29-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h29-b",
@@ -129,7 +130,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h29-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h29-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h30-a",
@@ -144,7 +145,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h30-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h30-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-h30-b",
@@ -159,7 +160,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-h30-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-h30-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r01-a",
@@ -174,7 +175,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r01-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r01-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r01-b",
@@ -189,7 +190,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r01-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r01-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r02-a",
@@ -204,7 +205,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r02-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r02-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r02-b",
@@ -219,7 +220,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r02-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r02-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r03-a",
@@ -234,7 +235,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r03-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r03-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r03-b",
@@ -249,7 +250,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r03-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r03-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r04-a",
@@ -264,7 +265,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r04-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r04-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r04-b",
@@ -279,7 +280,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r04-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r04-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r05-a",
@@ -294,7 +295,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r05-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r05-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r05-b",
@@ -309,7 +310,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r05-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r05-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r06-a",
@@ -324,7 +325,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r06-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r06-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r06-b",
@@ -339,7 +340,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r06-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r06-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r07-a",
@@ -354,7 +355,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r07-a/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r07-a\\article.mdx"
       },
       {
         "slug": "civil-construction-1-primary-r07-b",
@@ -369,7 +370,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/primary-r07-b/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\primary-r07-b\\article.mdx"
       },
       {
         "slug": "civil-construction-1-secondary-r03",
@@ -384,7 +385,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/secondary-r03/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\secondary-r03\\article.mdx"
       },
       {
         "slug": "civil-construction-1-secondary-r04",
@@ -399,7 +400,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/secondary-r04/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\secondary-r04\\article.mdx"
       },
       {
         "slug": "civil-construction-1-secondary-r05",
@@ -414,7 +415,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/secondary-r05/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\secondary-r05\\article.mdx"
       },
       {
         "slug": "civil-construction-1-secondary-r06",
@@ -429,7 +430,7 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/secondary-r06/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\secondary-r06\\article.mdx"
       },
       {
         "slug": "civil-construction-1-secondary-r07",
@@ -444,7 +445,159 @@
         "exams": [
           "civil-construction-1"
         ],
-        "source_path": ".local/r2/posts/civil-construction-1/secondary-r07/article.mdx"
+        "source_path": ".local\\r2\\posts\\civil-construction-1\\secondary-r07\\article.mdx"
+      }
+    ],
+    "civil-construction-2": [
+      {
+        "slug": "civil-construction-2-primary-r03-zenki",
+        "title": "令和3年度 第1次検定 前期",
+        "category": "civil-construction-2",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\primary-r03-zenki\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-primary-r04-zenki",
+        "title": "令和4年度 第1次検定 前期",
+        "category": "civil-construction-2",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\primary-r04-zenki\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-primary-r05-zenki",
+        "title": "令和5年度 第1次検定 前期",
+        "category": "civil-construction-2",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\primary-r05-zenki\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-primary-r06-zenki",
+        "title": "令和6年度 第1次検定 前期",
+        "category": "civil-construction-2",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\primary-r06-zenki\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-primary-r07-zenki",
+        "title": "令和7年度 第1次検定 前期",
+        "category": "civil-construction-2",
+        "group": "primary",
+        "tags": [
+          "primary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\primary-r07-zenki\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-secondary-r03",
+        "title": "令和3年度 第2次検定",
+        "category": "civil-construction-2",
+        "group": "secondary",
+        "tags": [
+          "secondary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\secondary-r03\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-secondary-r04",
+        "title": "令和4年度 第2次検定",
+        "category": "civil-construction-2",
+        "group": "secondary",
+        "tags": [
+          "secondary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\secondary-r04\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-secondary-r05",
+        "title": "令和5年度 第2次検定",
+        "category": "civil-construction-2",
+        "group": "secondary",
+        "tags": [
+          "secondary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\secondary-r05\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-secondary-r06",
+        "title": "令和6年度 第2次検定",
+        "category": "civil-construction-2",
+        "group": "secondary",
+        "tags": [
+          "secondary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\secondary-r06\\article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-secondary-r07",
+        "title": "令和7年度 第2次検定",
+        "category": "civil-construction-2",
+        "group": "secondary",
+        "tags": [
+          "secondary",
+          "past-questions"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local\\r2\\posts\\civil-construction-2\\secondary-r07\\article.mdx"
       }
     ]
   },

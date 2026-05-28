@@ -7,20 +7,20 @@
   "tasks": [
     {
       "id": "T-001",
-      "title": "SNS 自動投稿基盤（YouTube × Instagram）",
+      "title": "SNS 自動投稿基盤（Instagram 一次制作 + YouTube 派生）",
       "status": "in_progress",
       "category": "sns",
       "priority": "high",
       "source": "manual",
       "parent": null,
       "refs": [
-        "docs/project/07_SNS集客戦略.md",
-        "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"
+        "docs/project/03_SNS/01_SNS集客戦略.md",
+        "docs/project/03_SNS/02_チャネル動線設計.md"
       ],
       "dedupe_key": null,
       "created": "2026-05-14",
-      "updated": "2026-05-14",
-      "notes": "親タスク。YouTube はローカル稼働中、IG カルーセル生成も稼働。残: Meta 実投稿(T-003)→スケジューラ統合(T-004)→チャネル拡充(T-005)。（旧 Umbrella Issue #161）"
+      "updated": "2026-05-28",
+      "notes": "親タスク。2026-05-28 戦略 v7 化により Instagram 一次制作・YouTube 派生に再設計。Phase A-D 完了 (commits b896a2a77, 11e2749a6, d03c4e538, d143b3b5e)。残: Meta 実投稿 (T-003) → スケジューラ統合 (T-004) → ffmpeg E2E 検証 (Phase D2、字幕焼き込みも併せて対応)。詳細プラン: C:\\Users\\m004195\\.claude\\plans\\youtube-instagram-youtube-claude-instagr-proud-mitten.md。（旧 Umbrella Issue #161）"
     },
     {
       "id": "T-002",
@@ -72,19 +72,73 @@
     },
     {
       "id": "T-005",
-      "title": "SNS 型・チャネル拡充（試験後 2026-08〜）",
-      "status": "todo",
+      "title": "SNS 型・チャネル拡充（v7 で T-005a/b/c に分割済み）",
+      "status": "completed",
       "category": "sns",
       "priority": "low",
       "source": "manual",
       "parent": "T-001",
       "refs": [
-        "docs/ig-posts/26_Instagram投稿自動化アーキテクチャ.md"
+        "docs/project/03_SNS/01_SNS集客戦略.md"
       ],
       "dedupe_key": null,
       "created": "2026-05-14",
-      "updated": "2026-05-14",
-      "notes": "IG 型を 6 種に拡張・IG Reels・YouTube 標準動画を追加。2026-07 試験後に着手。前提: T-004。（旧 Issue #168）"
+      "updated": "2026-05-28",
+      "notes": "2026-05-28 戦略 v7 化で T-005a (Reels) / T-005b (Stories) / T-005c (YT 派生) に分割。本タスクは clone 元として close。（旧 Issue #168）"
+    },
+    {
+      "id": "T-005a",
+      "title": "Reels Generator/Evaluator 整備 + CTA モード分岐（v7 Phase B）",
+      "status": "completed",
+      "category": "sns",
+      "priority": "high",
+      "source": "manual",
+      "parent": "T-001",
+      "refs": [
+        "docs/reference/ig-reels-policy.md",
+        ".claude/agents/ig-reels-writer.md",
+        ".claude/agents/ig-reels-qa.md"
+      ],
+      "dedupe_key": null,
+      "created": "2026-05-28",
+      "updated": "2026-05-28",
+      "notes": "戦略 v7 Phase B 完了 (2026-05-28、commit 11e2749a6)。ig-reels-writer / ig-reels-qa 新設、tokens.json に swipeTextReels 追加、quiz-slides.mjs で height >= 1920 を Reels モード自動判定。「スワイプで4問にチャレンジ」CTA 矛盾を構造的に解消"
+    },
+    {
+      "id": "T-005b",
+      "title": "Stories Generator/Evaluator 整備（v7 Phase C）",
+      "status": "completed",
+      "category": "sns",
+      "priority": "mid",
+      "source": "manual",
+      "parent": "T-001",
+      "refs": [
+        "docs/reference/ig-stories-policy.md",
+        ".claude/agents/ig-stories-writer.md",
+        ".claude/agents/ig-stories-qa.md"
+      ],
+      "dedupe_key": null,
+      "created": "2026-05-28",
+      "updated": "2026-05-28",
+      "notes": "戦略 v7 Phase C 完了 (2026-05-28、commit d03c4e538)。ig-stories-writer / ig-stories-qa 新設、ig-stories-policy.md で 3 軸ルーブリック (コピー力・リンク導線整合・ステッカー双方向性) を確定。T-007 (旧 Issue #184) も本タスクに統合し close"
+    },
+    {
+      "id": "T-005c",
+      "title": "YT 派生スクリプト + Evaluator（v7 Phase D）",
+      "status": "completed",
+      "category": "sns",
+      "priority": "mid",
+      "source": "manual",
+      "parent": "T-001",
+      "refs": [
+        "docs/reference/yt-shorts-publisher-policy.md",
+        ".claude/agents/yt-shorts-publisher-qa.md",
+        ".claude/skills/social/yt-shorts-create/SKILL.md"
+      ],
+      "dedupe_key": null,
+      "created": "2026-05-28",
+      "updated": "2026-05-28",
+      "notes": "戦略 v7 Phase D 完了 (2026-05-28、commit d143b3b5e)。yt-shorts-create を --slug 廃止 → --from-reels 一本化、yt-shorts-publisher-qa 新設。ffmpeg E2E 検証は未実施 (ローカル ffmpeg 未インストール) のため、CI または VOICEVOX 起動済み環境で別途検証。字幕焼き込みは Phase D2 で対応予定"
     },
     {
       "id": "T-006",
@@ -102,19 +156,19 @@
     },
     {
       "id": "T-007",
-      "title": "IG ストーリー活用パターン集のガイド化",
-      "status": "todo",
+      "title": "IG ストーリー活用パターン集のガイド化（v7 で T-005b に統合）",
+      "status": "completed",
       "category": "sns",
       "priority": "low",
       "source": "manual",
       "parent": "T-001",
       "refs": [
-        "docs/project/07_SNS集客戦略.md"
+        "docs/reference/ig-stories-policy.md"
       ],
       "dedupe_key": null,
       "created": "2026-05-14",
-      "updated": "2026-05-14",
-      "notes": "クイズ/投票/質問ステッカーの運用パターン（A-D）を docs/sns-drafts/instagram-story-tactics.md にガイド化。サンプル画像生成。（旧 Issue #184）"
+      "updated": "2026-05-28",
+      "notes": "2026-05-28 戦略 v7 Phase C で T-005b に統合 close。クイズ/投票/質問ステッカーの運用パターンは ig-stories-policy.md §1-§4 (役割表・caption.txt スキーマ・3 軸ルーブリック・ハイライト戦略) に集約済み。（旧 Issue #184）"
     },
     {
       "id": "T-008",

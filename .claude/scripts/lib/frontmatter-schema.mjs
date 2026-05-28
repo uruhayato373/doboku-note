@@ -13,6 +13,7 @@ import { z } from 'zod';
 
 export const ExamId = z.enum([
   'civil-construction-1',
+  'civil-construction-2',
   'pe-comprehensive-management',
 ]);
 

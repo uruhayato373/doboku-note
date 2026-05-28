@@ -11,14 +11,14 @@ description: >
 ## 引数
 
 ```
-/exam-questions-import --exam {civil-primary|civil-secondary|pe-primary} --year <year> [--sub {a|b}] [--pages N-M] [--mode add-answers]
+/exam-questions-import --exam {civil-primary|civil-secondary|civil-primary-2|civil-secondary-2|pe-primary} --year <year> [--sub {a|b|zenki|kouki}] [--pages N-M] [--mode add-answers]
 ```
 
 | 引数 | 必須 | 説明 |
 |---|---|---|
 | `--exam` | 必須 | 試験・検定を指定。template 切替に使用 |
 | `--year` | 必須 | 年度（例: `r07` / `r02` / `h30`） |
-| `--sub` | 条件付 | 問題 A/B の指定（civil-primary のみ） |
+| `--sub` | 条件付 | 試験別の区分指定。**1級**: 問題 A/B（`a` / `b`） **2級**: 前期/後期（`zenki` / `kouki`） |
 | `--pages` | 任意 | PDF ページ範囲（省略時は template で自動推定） |
 | `--mode add-answers` | 任意 | 既存 MDX の未解答設問に解答・解説を追加（旧 `/add-exam-answers` 吸収） |
 
@@ -28,6 +28,8 @@ description: >
 |---|---|---|---|
 | `civil-primary` | 1級土木施工管理 第1次検定 | 4 択選択式 | `templates/civil-primary.md` |
 | `civil-secondary` | 1級土木施工管理 第2次検定 | 記述式 | `templates/civil-secondary.md` |
+| `civil-primary-2` | 2級土木施工管理 第1次検定（前期/後期） | 4 択選択式 | `templates/civil-primary-2.md` |
+| `civil-secondary-2` | 2級土木施工管理 第2次検定 | 記述式 | `templates/civil-secondary-2.md` |
 | `pe-primary` | 技術士総合技術監理 第1次試験 | 5 択選択式 | `templates/pe-primary.md` |
 
 新試験を追加する場合は `templates/{exam-id}.md` を新規作成のみ。
@@ -92,9 +94,35 @@ node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 | `figures_check.status` | `extra` | MDX に余分な画像参照、要削除確認 |
 | `coverage.rate` | `< 0.8` | 章節見出し網羅率が低い、本文抜け確認 |
 
-すべて ok なら Step 6 へ進む。warn / error がある場合はユーザーに表示して判断を仰ぐ。
+すべて ok なら Step 5.7 へ進む。warn / error がある場合はユーザーに表示して判断を仰ぐ。
 
 **過去の具体例**（Issue #128 で発見）: R02 primary で keyword audit が見落とした図版欠損 2 件、R01 primary で「데이터」というハングル文字混入の OCR バグ等。本ガードで早期検出できるようにする。
+
+### Step 5.7: 原典視覚突合（必須品質ゲート、2026-05-28 追加）
+
+> **これが最重要の品質ゲート。正解番号の機械突合だけで合格としてはならない。**
+
+**背景（2級土木 過去問15本の大規模ハルシネーション、2026-05-28）**: PDF→MDX 生成時、特に**画像ベース（OCR 不良）PDF で問題文・選択肢をハルシネーション（捏造）**する事故が多発した。全15本を原典突合した結果 **約240箇所の相違**（問題文の取り違え・設問極性の逆転・選択肢文言の意味反転・別問題の混入）を是正。決定的な教訓:
+
+- **正解番号が正答PDFと一致していても、問題文・選択肢が捏造されていることがある**。正解番号機械突合は品質保証にならない
+- **`verify-pdf-mdx.mjs` の coverage / OCR チェックや content-qa の構造採点では検出できない**（content-qa 3.0満点でも問題文に4問捏造の実例）
+- **OCR品質に関わらず発生**。公式PDF（OCR良好）の R07 でも一次に46問のハルシネーション
+
+**必須手順**:
+
+1. 問題 PDF を PyMuPDF で 250-300dpi 画像化（pdftotext は CID 埋込で日本語抽出不能なことが多い）:
+```bash
+python -c "import fitz,os; os.makedirs('/tmp/verify',exist_ok=True); d=fitz.open('{pdf}'); [d[i].get_pixmap(dpi=250).save(f'/tmp/verify/p{i+1:03d}.png') for i in range(d.page_count)]; d.close()"
+```
+2. 各ページ画像を Read で視覚確認し、**全問について以下を MDX と照合**:
+   - 問題文の主旨が PDF と一致するか
+   - 設問極性（「適当なもの」/「適当でないもの」）が一致するか
+   - 選択肢 (1)〜(4) の文言が PDF と一致するか
+   - 正解番号が正答PDFと一致し、❌/✅ が設問極性と整合するか
+3. 相違があれば PDF 忠実に修正（推測禁止、視覚転記）。相違が広範なら該当問を再構築
+4. 二次（記述式）は OCR 影響が小さく相違は少ないが、穴埋め語句・選択語句群は同様に照合
+
+大規模変換では年度別サブエージェントに「原典突合再検証」を委譲し、各エージェントが PDF 全ページを視覚転記して MDX と1問ずつ照合する。詳細は memory `feedback_exam_pdf_cross_reference` 参照。
 
 ### Step 6: 品質検証
 
@@ -102,7 +130,7 @@ node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 /check-mdx {path} --rules syntax
 ```
 
-ビルドエラーがなければ完了。
+ビルドエラーがなく、Step 5.7 の原典視覚突合で全問 PDF 一致を確認できたら完了。
 
 ## 使い方の例
 
@@ -112,6 +140,15 @@ node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 
 # 1級土木 令和6年度 第2次（記述式）
 /exam-questions-import --exam civil-secondary --year r06
+
+# 2級土木 令和7年度 第1次（前期）
+/exam-questions-import --exam civil-primary-2 --year r07 --sub zenki
+
+# 2級土木 令和7年度 第1次（後期）
+/exam-questions-import --exam civil-primary-2 --year r07 --sub kouki
+
+# 2級土木 令和7年度 第2次
+/exam-questions-import --exam civil-secondary-2 --year r07
 
 # 技術士総監 令和7年度 第1次
 /exam-questions-import --exam pe-primary --year r07

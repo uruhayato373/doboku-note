@@ -318,7 +318,7 @@ export default async function DocPage({
 
   // Determine page classification for navigation cards
   const docGroup = classifyDoc(doc.meta);
-  const hasCategoryNavCard = category === 'pe-comprehensive-management' || category === 'civil-construction-1';
+  const hasCategoryNavCard = category === 'pe-comprehensive-management' || category === 'civil-construction-1' || category === 'civil-construction-2';
   const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
   const sectionStr = doc.meta.section as string | undefined;
 
@@ -449,8 +449,8 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* Civil primary/secondary: 関連テキスト章 (過去問→教材) */}
-            {category === 'civil-construction-1' && (docGroup === 'primary' || docGroup === 'secondary') && (
+            {/* Civil primary/secondary: 関連テキスト章 (過去問→教材、1級・2級共通) */}
+            {(category === 'civil-construction-1' || category === 'civil-construction-2') && (docGroup === 'primary' || docGroup === 'secondary') && (
               <div className="mt-8">
                 <RelatedTextbooks currentMeta={doc.meta} categoryArticles={categoryArticles} />
               </div>
@@ -467,8 +467,8 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* Civil textbook: 前後章ナビ + 過去問逆引き */}
-            {category === 'civil-construction-1' && docGroup === 'textbook' && (
+            {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
+            {(category === 'civil-construction-1' || category === 'civil-construction-2') && docGroup === 'textbook' && (
               <>
                 <div className="mt-8">
                   <TextbookNav currentSlug={slugStr} categoryArticles={categoryArticles} />

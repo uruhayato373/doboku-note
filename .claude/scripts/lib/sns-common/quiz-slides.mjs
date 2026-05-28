@@ -19,6 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
+import { pickTitleSize } from './fit-title.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
@@ -38,6 +39,24 @@ const INK = C.ink;
 const CTA = C.cta;
 const ONDARK = C.onDark;
 const TY = TOKENS.typography;
+
+// coverTitle の 3 階層 (auto-fit 用)
+const COVER_TITLE_SIZES = {
+  large:  TY.coverTitle,    // 120px, _maxLen: 7
+  medium: TY.coverTitleMid, // 90px,  _maxLen: 11
+  small:  TY.coverTitleSm,  // 72px,  _maxLen: 16
+};
+
+/** ty() と同等の typography 展開を fit 結果に適用 */
+function tyFit(fitStyle, overrides = {}) {
+  const out = {};
+  if (fitStyle.fontFamily) out.fontFamily = fitStyle.fontFamily;
+  if (fitStyle.weight != null) out.fontWeight = fitStyle.weight;
+  if (fitStyle.size != null) out.fontSize = fitStyle.size;
+  if (fitStyle.lineHeight != null) out.lineHeight = fitStyle.lineHeight;
+  if (fitStyle.letterSpacing != null) out.letterSpacing = `${fitStyle.letterSpacing}em`;
+  return { ...out, ...overrides };
+}
 const GEO = TOKENS.geometry;
 const PAD = TOKENS.canvas.padding;
 const SLIDES = TOKENS.slides;
@@ -263,7 +282,7 @@ export function buildSummaryCover({ width, height, data }) {
       flexDirection: 'column', gap: 0,
     }, [
       d({ ...ty('coverMeta', { color: BRAND.primary, marginBottom: 20 }) }, `${year} 全${data.totalPacks ?? 9}パック`),
-      d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 24 }) }, yearJp + '年度'),
+      d({ ...tyFit(pickTitleSize(yearJp + '年度', COVER_TITLE_SIZES), { color: INK.strong, marginBottom: 24 }) }, yearJp + '年度'),
       d({ ...ty('coverSub', { color: INK.body, marginBottom: 48, paddingLeft: 24 }) }, '択一式 過去問 目次'),
       d({
         ...ty('coverSwipe', { color: BRAND.deep }), marginTop: 40, alignSelf: 'flex-start',
@@ -386,6 +405,19 @@ export function buildQuizCover({ width, height, data }) {
     .replace('{packNum}', packNumLabel);
   const chips = Array.isArray(data.chips) ? data.chips.slice(0, 4) : [];
 
+  // 3 フォーマット別に swipeText 分岐
+  // - Stories: data.mode === 'stories' を最優先（Reels と同サイズなため mode 明示が必要）
+  //            1 問抜粋試食なので「まずは1問やってみる」相当
+  // - Reels:   height >= 1920 で自動判定。スワイプではなく自動再生のため「答えは動画内で発表」
+  // - Carousel: 既定。4 問スワイプ前提なので「スワイプで4問にチャレンジ」
+  const isStories = data.mode === 'stories';
+  const isReels = !isStories && height >= 1920;
+  const swipeText = isStories
+    ? (SLIDES.cover.swipeTextStories ?? SLIDES.cover.swipeText)
+    : isReels
+      ? (SLIDES.cover.swipeTextReels ?? SLIDES.cover.swipeText)
+      : SLIDES.cover.swipeText;
+
   return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     // topbar
     topbar(
@@ -432,7 +464,8 @@ export function buildQuizCover({ width, height, data }) {
         d({ ...ty('coverMeta', { color: BRAND.primary, marginBottom: 20 }) }, metaText),
         // 2 行構成（管理名混在を避けるための統一タイトル）
         // 1 行目「令和7年度」120px 900、2 行目「択一式 過去問」80px 700 を左インデント 24px で階層感
-        d({ ...ty('coverTitle', { color: INK.strong, marginBottom: 24 }) }, titleLine1),
+        // auto-fit: titleLine1 の visualLength で coverTitle/Mid/Sm を自動分岐（fit-title.mjs）
+        d({ ...tyFit(pickTitleSize(titleLine1, COVER_TITLE_SIZES), { color: INK.strong, marginBottom: 24 }) }, titleLine1),
         d({ ...ty('coverSub', { color: INK.body, marginBottom: 48, paddingLeft: 24 }) }, titleLine2),
         chips.length
           ? d(
@@ -488,7 +521,7 @@ export function buildQuizCover({ width, height, data }) {
             gap: GEO.coverSwipeChip.gap,
           },
           [
-            d({}, SLIDES.cover.swipeText),
+            d({}, swipeText),
             d({ ...ty('coverSwipeArrow', { color: BRAND.primary }) }, '→'),
           ],
         ),
@@ -507,11 +540,22 @@ export function buildQuizCover({ width, height, data }) {
  * table: { headers: string[], rows: string[][] }
  * Satori vDOM の flex grid で罫線付きの表を描画する。
  */
-function buildTable(table) {
+function buildTable(table, scale = 1) {
   const headers = Array.isArray(table?.headers) ? table.headers : [];
   const rows = Array.isArray(table?.rows) ? table.rows : [];
   const colCount = headers.length;
   if (!colCount) return null;
+
+  // scale < 1 は問題スライドが ultra でも収まらない場合の表圧縮（フォント/余白/行高）。
+  const r = (v) => Math.round(v * scale);
+  const headerMinH = r(GEO.table.headerMinHeight);
+  const rowMinH = r(GEO.table.rowMinHeight);
+  const headerPadV = r(GEO.table.headerPadding[0]);
+  const headerPadH = r(GEO.table.headerPadding[1]);
+  const cellPadV = r(GEO.table.cellPadding[0]);
+  const cellPadH = r(GEO.table.cellPadding[1]);
+  const headerFont = r(TY.tableHeader.size);
+  const cellFont = r(TY.tableCell.size);
 
   const cellBorderRight = (idx) =>
     idx === colCount - 1
@@ -525,20 +569,20 @@ function buildTable(table) {
   const headerRow = d(
     {
       background: SURFACE.sunken,
-      minHeight: GEO.table.headerMinHeight,
+      minHeight: headerMinH,
     },
     headers.map((h, i) =>
       d(
         {
           flex: 1,
-          paddingTop: GEO.table.headerPadding[0],
-          paddingBottom: GEO.table.headerPadding[0],
-          paddingLeft: GEO.table.headerPadding[1],
-          paddingRight: GEO.table.headerPadding[1],
+          paddingTop: headerPadV,
+          paddingBottom: headerPadV,
+          paddingLeft: headerPadH,
+          paddingRight: headerPadH,
           alignItems: 'center',
           justifyContent: 'center',
           ...cellBorderRight(i),
-          ...ty('tableHeader', { color: INK.body }),
+          ...ty('tableHeader', { color: INK.body, fontSize: headerFont }),
         },
         String(h),
       ),
@@ -551,20 +595,20 @@ function buildTable(table) {
         borderTopWidth: GEO.table.borderWidth,
         borderTopStyle: 'solid',
         borderTopColor: SURFACE.line,
-        minHeight: GEO.table.rowMinHeight,
+        minHeight: rowMinH,
       },
       row.map((cell, ci) =>
         d(
           {
             flex: 1,
-            paddingTop: GEO.table.cellPadding[0],
-            paddingBottom: GEO.table.cellPadding[0],
-            paddingLeft: GEO.table.cellPadding[1],
-            paddingRight: GEO.table.cellPadding[1],
+            paddingTop: cellPadV,
+            paddingBottom: cellPadV,
+            paddingLeft: cellPadH,
+            paddingRight: cellPadH,
             alignItems: 'center',
             justifyContent: 'center',
             ...cellBorderRight(ci),
-            ...ty('tableCell', { color: INK.strong }),
+            ...ty('tableCell', { color: INK.strong, fontSize: cellFont }),
           },
           String(cell ?? ''),
         ),
@@ -631,6 +675,59 @@ function isDenseOptions(options) {
   return long || total > 250;
 }
 
+// ── problem スライドの推定高さ（圧縮モード自動エスカレーション用） ──────────
+// 文字数の単純閾値では「本文 + 表 + 折返し選択肢」の合算高さを捉えきれず、
+// 選択肢が極短い長文（normal すり抜け）や 表+長い5択（compact 超過）がはみ出す。
+// 各モードの本文/表/リスト/選択肢の折返しを概算し、コンテンツ領域に収まる
+// 最大モードを選ぶ。表/リストは圧縮モードに依らず固定サイズ（tableCell/listItem）。
+const PROBLEM_AVAIL_H = TOKENS.canvas.height - (PAD.y + 96) - (PAD.y + 80); // = 1014
+const PROBLEM_SAFE_H = PROBLEM_AVAIL_H - 34;                                // 安全マージン
+const PROBLEM_INNER_W = TOKENS.canvas.width - PAD.x * 2;                    // = 936
+const PROBLEM_MODE_ORDER = ['normal', 'dense', 'compact', 'ultra'];
+const PROBLEM_MODE_PARAMS = {
+  normal:  { qSize: 44, qLh: 1.45, optSize: 26, optLh: 1.5, optMinH: 96, optPadV: 22, optPadH: 26, optGap: 14, blockGap: 36 },
+  dense:   { qSize: 36, qLh: 1.40, optSize: 24, optLh: 1.5, optMinH: 84, optPadV: 14, optPadH: 22, optGap: 12, blockGap: 26 },
+  compact: { qSize: 30, qLh: 1.35, optSize: 24, optLh: 1.5, optMinH: 76, optPadV: 12, optPadH: 22, optGap: 10, blockGap: 18 },
+  ultra:   { qSize: 26, qLh: 1.30, optSize: 22, optLh: 1.4, optMinH: 68, optPadV: 10, optPadH: 20, optGap: 8,  blockGap: 14 },
+};
+
+function estimateProblemHeight(mode, { bodyChars, options, table, lists, hasTopic, tableScale = 1 }) {
+  const m = PROBLEM_MODE_PARAMS[mode];
+  const bodyCpl = Math.max(1, Math.floor(PROBLEM_INNER_W / m.qSize));
+  const bodyH = Math.ceil(bodyChars / bodyCpl) * m.qSize * m.qLh;
+  const rows = table && Array.isArray(table.rows) ? table.rows.length : 0;
+  // 行高は minHeight ではなく実セル高（フォント×行間 + 上下余白）で見積もる。
+  // tableScale でフォント/余白/行高が一括縮小される（buildTable と整合）。
+  const rowH = Math.max(GEO.table.rowMinHeight * tableScale,
+    TY.tableCell.size * tableScale * 1.25 + GEO.table.cellPadding[0] * tableScale * 2) + GEO.table.borderWidth;
+  const headH = Math.max(GEO.table.headerMinHeight * tableScale,
+    TY.tableHeader.size * tableScale * 1.25 + GEO.table.headerPadding[0] * tableScale * 2);
+  const tableH = rows > 0 ? (headH + rows * rowH + 6) : 0;
+  let listsH = 0, groups = 0;
+  if (Array.isArray(lists)) {
+    for (const g of lists) {
+      const items = Array.isArray(g?.items) ? g.items.length : 0;
+      if (!items) continue;
+      groups++;
+      const lh = TY.listItem.lineHeight || 1.45;
+      listsH += GEO.lists.padding[0] * 2 + items * TY.listItem.size * lh + (items - 1) * GEO.lists.itemGap;
+    }
+    if (groups > 1) listsH += (groups - 1) * GEO.lists.groupGap;
+  }
+  const opts = (options || []).slice(0, 5);
+  const optTextW = PROBLEM_INNER_W - GEO.opt.numColWidth - m.optPadH * 2;
+  const optCpl = Math.max(1, Math.floor(optTextW / m.optSize));
+  let optionsH = 0;
+  for (const o of opts) {
+    const lines = Math.max(1, Math.ceil([...(o.text || '')].length / optCpl));
+    optionsH += Math.max(m.optMinH, lines * m.optSize * m.optLh + m.optPadV * 2);
+  }
+  if (opts.length > 1) optionsH += (opts.length - 1) * m.optGap;
+  const qGaps = (1 + (hasTopic ? 1 : 0) + (listsH > 0 ? 1 : 0) + (tableH > 0 ? 1 : 0) - 1) * 14;
+  const topicH = hasTopic ? 40 : 0;
+  return bodyH + qGaps + tableH + listsH + topicH + (opts.length > 0 ? m.blockGap : 0) + optionsH;
+}
+
 /**
  * quiz-problem スライド
  *
@@ -644,43 +741,67 @@ function isDenseOptions(options) {
  *   totalPages?: number,
  * }
  */
-export function buildQuizProblem({ width, height, data }) {
-  // bodyLines に markdown 表行 (|...|) が含まれている場合は除外（旧データ互換、
-  // 新規データは data.table フィールドで構造化する）。
-  // 各要素の内部に \r\n が混在しているケースもあるので flatMap で分割してから判定。
+// problem スライドの本文を抽出（bodyLines を結合し markdown 表残骸/区切り行を除外）。
+// 旧データ互換 — 新規データは表は data.table、列挙は data.lists に構造化する。
+export function parseProblemBody(data) {
   const rawLines = Array.isArray(data.bodyLines) ? data.bodyLines : [String(data.body || '')];
-  const bodyTextOnly = rawLines
+  return rawLines
     .flatMap((l) => l.split(/\r?\n/))
     .filter((l) => {
       const t = l.trim();
       if (!t) return false;
-      // パイプ記号 | を含む行は markdown 表残骸として除外
-      // （IG カルーセル本文に | を使う正規ケースは想定しない。必要なら data.table へ）
-      if (t.includes('|')) return false;
-      // 区切り行（--- :--- など）
-      if (/^[-:]+$/.test(t)) return false;
+      if (t.includes('|')) return false;      // markdown 表残骸
+      if (/^[-:]+$/.test(t)) return false;     // 区切り行（--- :--- など）
       return true;
-    });
-  const fullBody = bodyTextOnly.join('');
-  const tableEl = data.table ? buildTable(data.table) : null;
-  const listsEl = data.lists ? buildLists(data.lists) : null;
-  const options = (data.options || []).slice(0, 5);
+    })
+    .join('');
+}
 
-  // 4 段階の圧縮モード判定（総文字数で動的に発動）
-  //   ultra:   超長文 > 700字 → q-text 26 / opt 68 / gap 14
-  //   compact: table/lists あり、または 550字超 or 選択肢最長 > 100字 → q-text 30 / opt 76
-  //   dense:   320字超 or 選択肢長い → q-text 36 / opt 84
-  //   normal:  通常 → q-text 44 / opt 96（HTML プロト基準）
-  //
-  // 注：optMax 単独で ultra 格上げしない（選択肢 1 つが長いだけで全体縮小は過剰）。
-  //     優先するのは「総文字量」で、ultra は本当に長文 (>700字) のみに限定。
+// 圧縮モード + 表スケールを決定する単一真実源。レンダラー(buildQuizProblem)と
+// lint(lint-exam-pack-structure.mjs E3)が共有し、生成物と検査を一致させる。
+//   ① 文字数で「上限モード」(最大フォント)を決める（成長させない）
+//   ② 推定高さがコンテンツ領域(1014px)を超える間テキストを ultra まで縮小
+//   ③ ultra でもなお超える場合のみ表を段階圧縮（×0.85/0.72/0.62）
+// fits=false は「最大圧縮でも収まらない＝本文/表行数を削るべき」を意味する。
+export function chooseProblemLayout(data) {
+  const fullBody = parseProblemBody(data);
   const bodyChars = [...fullBody].length;
+  const options = (data.options || []).slice(0, 5);
   const optChars = options.reduce((s, o) => s + [...(o.text || '')].length, 0);
   const optMax = Math.max(0, ...options.map((o) => [...(o.text || '')].length));
   const totalContent = bodyChars + optChars;
-  const isUltra = totalContent > 700;
-  const isCompact = !isUltra && (!!tableEl || !!listsEl || totalContent > 550 || optMax > 100);
-  const isDense = !isUltra && !isCompact && (isDenseOptions(options) || totalContent > 320 || optMax > 60);
+  const hasLists = Array.isArray(data.lists) && data.lists.some((g) => (g?.items || []).length);
+  const ceilUltra = totalContent > 700 || bodyChars > 430;
+  const ceilCompact = !ceilUltra && (!!data.table || hasLists || totalContent > 550 || bodyChars > 255 || optMax > 100);
+  const ceilDense = !ceilUltra && !ceilCompact && (isDenseOptions(options) || totalContent > 320 || bodyChars > 140 || optMax > 60);
+  let modeIdx = ceilUltra ? 3 : ceilCompact ? 2 : ceilDense ? 1 : 0;
+  let tableScale = 1;
+  const ctx = { bodyChars, options, table: data.table, lists: data.lists, hasTopic: !!data.topic };
+  while (modeIdx < 3 && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...ctx, tableScale }) > PROBLEM_SAFE_H) modeIdx++;
+  const TABLE_SCALE_STEPS = [0.85, 0.72, 0.62];
+  for (let i = 0; i < TABLE_SCALE_STEPS.length
+    && estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...ctx, tableScale }) > PROBLEM_SAFE_H; i++) {
+    tableScale = TABLE_SCALE_STEPS[i];
+  }
+  const estHeight = Math.round(estimateProblemHeight(PROBLEM_MODE_ORDER[modeIdx], { ...ctx, tableScale }));
+  return {
+    mode: PROBLEM_MODE_ORDER[modeIdx], modeIdx, tableScale, fullBody,
+    estHeight, avail: PROBLEM_AVAIL_H, fits: estHeight <= PROBLEM_AVAIL_H,
+  };
+}
+
+export function buildQuizProblem({ width, height, data }) {
+  const layout = chooseProblemLayout(data);
+  const { fullBody, tableScale } = layout;
+  const isUltra = layout.modeIdx === 3;
+  const isCompact = layout.modeIdx === 2;
+  const isDense = layout.modeIdx === 1;
+  if (!layout.fits) {
+    console.warn(`[quiz-slides] problem overflow risk: Q${data.qNum ?? '?'} est=${layout.estHeight}px > ${layout.avail}px (mode=${layout.mode}, tableScale=${tableScale}) — 本文/表行数を削減してください`);
+  }
+  const listsEl = data.lists ? buildLists(data.lists) : null;
+  const options = (data.options || []).slice(0, 5);
+  const tableEl = data.table ? buildTable(data.table, tableScale) : null;
 
   const optTextStyle = isUltra
     ? ty('optTextDense', { fontSize: 22, lineHeight: 1.4 })
@@ -1027,6 +1148,12 @@ export function buildQuizAnswer({ width, height, data }) {
  */
 export function buildQuizCta({ width, height }) {
   const cfg = SLIDES.cta;
+  // Reels(height>=1920) は action カードを保存→フォロー誘導に分岐。Carousel は保存維持。
+  // 理由: Reels はリーチ獲得器のためリーチ→フォロワー転換を主にする（ig-reels-policy.md）。
+  const isReels = height >= 1920;
+  const actionTitle = isReels ? (cfg.actionTitleReels ?? cfg.actionTitle) : cfg.actionTitle;
+  const actionSubtitle = isReels ? (cfg.actionSubtitleReels ?? cfg.actionSubtitle) : cfg.actionSubtitle;
+  const actionIcon = isReels ? (cfg.actionIconReels ?? cfg.actionIcon ?? '★') : (cfg.actionIcon ?? '★');
   return d(frame(width, height, CTA.background), reelsWrapper(width, height, [
     // 装飾円（右上）
     d({
@@ -1137,11 +1264,11 @@ export function buildQuizCta({ width, height }) {
                 color: '#ffffff',
                 fontFamily: 'Manrope',
               },
-              '★',
+              actionIcon,
             ),
             d({ flexDirection: 'column', alignItems: 'flex-start', gap: 6 }, [
-              d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, cfg.actionTitle),
-              d({ ...ty('ctaActionSub', { color: INK.strong }) }, cfg.actionSubtitle),
+              d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, actionTitle),
+              d({ ...ty('ctaActionSub', { color: INK.strong }) }, actionSubtitle),
             ]),
           ],
         ),

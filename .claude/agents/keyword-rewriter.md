@@ -48,6 +48,7 @@ Pattern H（標準テキスト由来事実取り込み）使用時は section→
 - **散文中心**（content-principles §17）、本文薄ページは既存節への散文追記を優先
 - **shallow concept table の prose 化**（§4 拡張、2026-05-27 追加）: 「**用語**（bold）| 定義 | 例」型 3列 table（2-3 行、定義のみ）を発見したら散文段落に展開する。**箇条書きではなく段落**で書く（背景・例外・関連を補足できるのが prose の強み）。優先順位は **散文 > 箇条書き > 表**
 - **history-only H2 の削除候補化**（2026-05-27 追加）: H2 タイトルに「歴史」「成立」「経緯」「展開」「沿革」を含み試験不出題かつ他セクション重複が 50%+ なら削除提案する（cem-qa の LOW 違反と連動）
+- **横断トレードオフガイドの §23 適用**（2026-05-28 追加）: `management-tradeoffs` 等の `group: guide` 横断ガイド記事を編集する際は **content-principles §23 を必ず Read** してから着手。`### {管理A}×{管理B}` H3 では (1) 核同士の対称関係宣言 → (2) 具体的トレードオフ → (3) 複数解決策の組み合わせ → (4) SpecSheetList の 4 ブロック構造を守る。固有事業名・特定インシデント・特定数値は記述しない（§23.4）
 - 1 ページ最大 **2 パターン**、3 つ以上の詰め込み禁止
 - frontmatter: `reviewStatus: needs-review` / `lastRewrittenAt: ISO 8601 秒単位` / `revisionCycle: +1`
 - 他 frontmatter フィールド（title, seoTitle, category, section, published 等）は変更しない

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-05-27T22:23:32.942Z",
+  "generated_at": "2026-05-28T08:09:54.992Z",
   "summary": {
-    "total_mdx_files": 825,
+    "total_mdx_files": 840,
     "total_unique_tags": 85,
     "allowlist_size": 123,
     "known_count": 51,
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "past-questions",
-      "count": 57,
+      "count": 72,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1104,6 +1104,21 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07",
+        "civil-construction-2-primary-r03-kouki",
+        "civil-construction-2-primary-r03-zenki",
+        "civil-construction-2-primary-r04-kouki",
+        "civil-construction-2-primary-r04-zenki",
+        "civil-construction-2-primary-r05-kouki",
+        "civil-construction-2-primary-r05-zenki",
+        "civil-construction-2-primary-r06-kouki",
+        "civil-construction-2-primary-r06-zenki",
+        "civil-construction-2-primary-r07-kouki",
+        "civil-construction-2-primary-r07-zenki",
+        "civil-construction-2-secondary-r03",
+        "civil-construction-2-secondary-r04",
+        "civil-construction-2-secondary-r05",
+        "civil-construction-2-secondary-r06",
+        "civil-construction-2-secondary-r07",
         "pe-comprehensive-management-h21-primary",
         "pe-comprehensive-management-h21-secondary",
         "pe-comprehensive-management-h22-primary",
@@ -1187,6 +1202,47 @@
       ]
     },
     {
+      "name": "primary",
+      "count": 34,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-primary-h26-a",
+        "civil-construction-1-primary-h26-b",
+        "civil-construction-1-primary-h27-a",
+        "civil-construction-1-primary-h27-b",
+        "civil-construction-1-primary-h28-a",
+        "civil-construction-1-primary-h28-b",
+        "civil-construction-1-primary-h29-a",
+        "civil-construction-1-primary-h29-b",
+        "civil-construction-1-primary-h30-a",
+        "civil-construction-1-primary-h30-b",
+        "civil-construction-1-primary-r01-a",
+        "civil-construction-1-primary-r01-b",
+        "civil-construction-1-primary-r02-a",
+        "civil-construction-1-primary-r02-b",
+        "civil-construction-1-primary-r03-a",
+        "civil-construction-1-primary-r03-b",
+        "civil-construction-1-primary-r04-a",
+        "civil-construction-1-primary-r04-b",
+        "civil-construction-1-primary-r05-a",
+        "civil-construction-1-primary-r05-b",
+        "civil-construction-1-primary-r06-a",
+        "civil-construction-1-primary-r06-b",
+        "civil-construction-1-primary-r07-a",
+        "civil-construction-1-primary-r07-b",
+        "civil-construction-2-primary-r03-kouki",
+        "civil-construction-2-primary-r03-zenki",
+        "civil-construction-2-primary-r04-kouki",
+        "civil-construction-2-primary-r04-zenki",
+        "civil-construction-2-primary-r05-kouki",
+        "civil-construction-2-primary-r05-zenki",
+        "civil-construction-2-primary-r06-kouki",
+        "civil-construction-2-primary-r06-zenki",
+        "civil-construction-2-primary-r07-kouki",
+        "civil-construction-2-primary-r07-zenki"
+      ]
+    },
+    {
       "name": "textbook",
       "count": 34,
       "inAllowlist": true,
@@ -1262,34 +1318,30 @@
       ]
     },
     {
-      "name": "primary",
-      "count": 24,
+      "name": "secondary",
+      "count": 20,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-primary-h26-a",
-        "civil-construction-1-primary-h26-b",
-        "civil-construction-1-primary-h27-a",
-        "civil-construction-1-primary-h27-b",
-        "civil-construction-1-primary-h28-a",
-        "civil-construction-1-primary-h28-b",
-        "civil-construction-1-primary-h29-a",
-        "civil-construction-1-primary-h29-b",
-        "civil-construction-1-primary-h30-a",
-        "civil-construction-1-primary-h30-b",
-        "civil-construction-1-primary-r01-a",
-        "civil-construction-1-primary-r01-b",
-        "civil-construction-1-primary-r02-a",
-        "civil-construction-1-primary-r02-b",
-        "civil-construction-1-primary-r03-a",
-        "civil-construction-1-primary-r03-b",
-        "civil-construction-1-primary-r04-a",
-        "civil-construction-1-primary-r04-b",
-        "civil-construction-1-primary-r05-a",
-        "civil-construction-1-primary-r05-b",
-        "civil-construction-1-primary-r06-a",
-        "civil-construction-1-primary-r06-b",
-        "civil-construction-1-primary-r07-a",
-        "civil-construction-1-primary-r07-b"
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-1-secondary-r03",
+        "civil-construction-1-secondary-r04",
+        "civil-construction-1-secondary-r05",
+        "civil-construction-1-secondary-r06",
+        "civil-construction-1-secondary-r07",
+        "civil-construction-2-secondary-r03",
+        "civil-construction-2-secondary-r04",
+        "civil-construction-2-secondary-r05",
+        "civil-construction-2-secondary-r06",
+        "civil-construction-2-secondary-r07"
       ]
     },
     {
@@ -1363,28 +1415,6 @@
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy",
         "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
-      "name": "secondary",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-1-secondary-r03",
-        "civil-construction-1-secondary-r04",
-        "civil-construction-1-secondary-r05",
-        "civil-construction-1-secondary-r06",
-        "civil-construction-1-secondary-r07"
       ]
     },
     {
@@ -1584,9 +1614,9 @@
       ]
     },
     {
-      "name": "建設コンサル",
+      "name": "河川",
       "count": 6,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-river-consultant",
@@ -1597,35 +1627,9 @@
       ]
     },
     {
-      "name": "択一式",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r02-primary",
-        "pe-comprehensive-management-r03-primary",
-        "pe-comprehensive-management-r04-primary",
-        "pe-comprehensive-management-r05-primary",
-        "pe-comprehensive-management-r06-primary",
-        "pe-comprehensive-management-r07-primary"
-      ]
-    },
-    {
-      "name": "施工",
+      "name": "建設コンサル",
       "count": 6,
       "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "河川",
-      "count": 6,
-      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-river-consultant",
@@ -1646,6 +1650,32 @@
         "pe-comprehensive-management-r05-essay-river-consultant",
         "pe-comprehensive-management-r06-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-river-consultant"
+      ]
+    },
+    {
+      "name": "施工",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
+      "name": "択一式",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r02-primary",
+        "pe-comprehensive-management-r03-primary",
+        "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-primary",
+        "pe-comprehensive-management-r07-primary"
       ]
     },
     {
@@ -1948,11 +1978,123 @@
       ]
     },
     {
+      "name": "安全管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-safety-management-pillar"
+      ]
+    },
+    {
+      "name": "気候変動適応",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
+      ]
+    },
+    {
+      "name": "記述式",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-exam-strategy"
+      ]
+    },
+    {
+      "name": "記述式試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "経済安全保障",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-economic-security"
+      ]
+    },
+    {
+      "name": "索引",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
+      "name": "参考資料",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
+      "name": "社会環境管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
+      "name": "出願",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "循環経済",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-circular-economy"
+      ]
+    },
+    {
+      "name": "情報管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-information-management-pillar"
+      ]
+    },
+    {
       "name": "人的資源管理",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-human-resource-management-pillar"
+      ]
+    },
+    {
+      "name": "直前対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "複合災害",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery"
+      ]
+    },
+    {
+      "name": "流用戦略",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application"
       ]
     },
     {
@@ -2004,123 +2146,11 @@
       ]
     },
     {
-      "name": "出願",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "参考資料",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "安全管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-safety-management-pillar"
-      ]
-    },
-    {
-      "name": "循環経済",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-circular-economy"
-      ]
-    },
-    {
-      "name": "情報管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-information-management-pillar"
-      ]
-    },
-    {
-      "name": "気候変動適応",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
-      ]
-    },
-    {
-      "name": "流用戦略",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application"
-      ]
-    },
-    {
-      "name": "直前対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "社会環境管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-social-environment-management-pillar"
-      ]
-    },
-    {
-      "name": "索引",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
-      "name": "経済安全保障",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-economic-security"
-      ]
-    },
-    {
       "name": "老朽化インフラ",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
-      ]
-    },
-    {
-      "name": "複合災害",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery"
-      ]
-    },
-    {
-      "name": "記述式",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy"
-      ]
-    },
-    {
-      "name": "記述式試験",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
       ]
     }
   ],
@@ -2133,8 +2163,8 @@
     "地方公共団体",
     "ゼネコン",
     "建設コンサル",
-    "施工",
     "砂防",
+    "施工",
     "quality",
     "schedule",
     "SWOT分析",
@@ -2147,18 +2177,18 @@
     "keyword-analysis",
     "keyword-index",
     "キーワード集",
+    "気候変動適応",
+    "記述式試験",
+    "経済安全保障",
+    "出願",
+    "循環経済",
+    "直前対策",
+    "複合災害",
+    "流用戦略",
     "令和2年度",
     "令和3年度",
     "令和4年度",
-    "出願",
-    "循環経済",
-    "気候変動適応",
-    "流用戦略",
-    "直前対策",
-    "経済安全保障",
-    "老朽化インフラ",
-    "複合災害",
-    "記述式試験"
+    "老朽化インフラ"
   ],
   "typo_candidates": [
     {

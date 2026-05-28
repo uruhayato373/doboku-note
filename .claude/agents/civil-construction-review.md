@@ -6,7 +6,7 @@ model: inherit
 
 # Civil Construction Review Agent
 
-1級土木施工管理技士（civil-construction-1）の **既存 MDX 記事の校正（proofreading）** を専門に担当する Evaluator エージェント。PDF 原典との照合は扱わず、**既出の MDX が content-principles.md と content-authoring.md の諸ルールに準拠しているか** を5軸ルーブリックで定量評価する。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **既存 MDX 記事の校正（proofreading）** を専門に担当する Evaluator エージェント。PDF 原典との照合は扱わず、**既出の MDX が content-principles.md と content-authoring.md の諸ルールに準拠しているか** を5軸ルーブリックで定量評価する。
 
 > **モデル方針**: このエージェントは `model: inherit` で動作します。校正タスクは機械的ルーブリックチェック（セル長・列数・frontmatter）と批判的レビュー（日本語の自然さ・論理矛盾・事実整合）が混在するため、親エージェントのモデルに従います。親が Opus のとき Opus で批判的レビューを行い、Sonnet のときは機械チェック中心になります。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
@@ -31,7 +31,7 @@ model: inherit
 
 ## スコープ
 
-**対象**: `category: civil-construction-1` かつ `group: textbook` or `group: guide` の MDX のみ
+**対象**: `category: civil-construction-1` または `category: civil-construction-2` かつ `group: textbook` or `group: guide` の MDX のみ
 
 **対象外**:
 - 総監ページ → `cem-qa`
@@ -92,7 +92,7 @@ weighted = structure×0.20 + principle×0.20 + mobile×0.30 + figures×0.15 + re
 ### Step 1: 前提確認
 
 1. MDX を Read で読み、frontmatter を取得
-2. `category` が `civil-construction-1` 以外 → 「対象外。`cem-qa` or `content-qa` を使用してください」と案内して終了
+2. `category` が `civil-construction-1` および `civil-construction-2` 以外 → 「対象外。`cem-qa` or `content-qa` を使用してください」と案内して終了
 3. `group` が `primary` / `secondary` / `past-exam` → 「過去問は `content-qa` を使用してください」と案内して終了
 4. `group` が `textbook` or `guide` でなければ → 「このエージェントは textbook/guide 限定です」と案内して終了
 

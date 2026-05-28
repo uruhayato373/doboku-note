@@ -80,7 +80,9 @@
     "coverTag":       { "fontFamily": "NotoSansJP", "weight": 700, "size": 32,  "letterSpacing": 0.04 },
     "coverBigQ":      { "fontFamily": "Manrope",    "weight": 800, "size": 240, "lineHeight": 0.85, "_note": "HTML プロトでも 800（ExtraBold）。Manrope 900 は fontsource で未提供。" },
     "coverMeta":      { "fontFamily": "Manrope",    "weight": 700, "size": 38,  "letterSpacing": 0.08 },
-    "coverTitle":     { "fontFamily": "NotoSansJP", "weight": 900, "size": 120, "lineHeight": 1.0,  "letterSpacing": -0.03 },
+    "coverTitle":     { "fontFamily": "NotoSansJP", "weight": 900, "size": 120, "lineHeight": 1.0,  "letterSpacing": -0.03, "_maxLen": 7,  "_use": "推奨 4-7 字、auto-fit 大型" },
+    "coverTitleMid":  { "fontFamily": "NotoSansJP", "weight": 900, "size": 90,  "lineHeight": 1.05, "letterSpacing": -0.03, "_maxLen": 11, "_use": "8-11 字、auto-fit 中型（quiz-slides.mjs の buildQuizCover が visualLength で自動分岐）" },
+    "coverTitleSm":   { "fontFamily": "NotoSansJP", "weight": 900, "size": 72,  "lineHeight": 1.1,  "letterSpacing": -0.03, "_maxLen": 16, "_use": "12-16 字、auto-fit 小型。これ以上は lint ERROR で手動短縮必須" },
     "coverSub":       { "fontFamily": "NotoSansJP", "weight": 700, "size": 80,  "lineHeight": 1.05, "letterSpacing": 0.02 },
     "coverChip":      { "fontFamily": "NotoSansJP", "weight": 700, "size": 24 },
     "coverChipNum":   { "fontFamily": "Manrope",    "weight": 800, "size": 24 },
@@ -144,7 +146,7 @@
   "slides": {
     "order": ["cover", "problem", "answer", "problem", "answer", "problem", "answer", "problem", "answer", "cta"],
     "_footerNote": "cover/answer/cta の右下は空白（左下のウォーターマークと URL が重複するため撤廃）。problem だけ誘導テキスト 'next' を右下に出す。",
-    "cover":   { "tagText": "総監過去問", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "metaTemplate": "{year} 4問パック", "titleLine1Template": "令和{yearN}年度", "titleLine2Template": "択一式 過去問 #{packNum}", "_tagNote": "B シリーズ（_exam-packs）専用。A シリーズ（運営者作問）は別の表記を使う。", "_titleNote": "管理混在問題を回避するため、cover-title は年度ベースの統一文言。titleLine2 末尾の #N をフォント 80px で大きく表示することで、パック番号を一目で識別できる。" },
+    "cover":   { "tagText": "総監過去問", "bigQText": "Q", "swipeText": "スワイプで4問にチャレンジ", "swipeTextReels": "答えは動画内で発表", "swipeTextStories": "まずは1問やってみる", "metaTemplate": "{year} 4問パック", "titleLine1Template": "令和{yearN}年度", "titleLine2Template": "択一式 過去問 #{packNum}", "_tagNote": "B シリーズ（_exam-packs）専用。A シリーズ（運営者作問）は別の表記を使う。", "_titleNote": "管理混在問題を回避するため、cover-title は年度ベースの統一文言。titleLine2 末尾の #N をフォント 80px で大きく表示することで、パック番号を一目で識別できる。", "_swipeTextNote": "3 フォーマット別に分岐: swipeText=Carousel(1080×1350、4 問スワイプ前提) / swipeTextReels=Reels(1080×1920、自動再生) / swipeTextStories=Stories(1080×1920、1 問抜粋試食)。quiz-slides.mjs の buildQuizCover が data.mode === 'stories' を最優先、その後 height で Reels と Carousel を分岐。Stories は Reels と同サイズのため mode 明示が必要。" },
     "problem": { "eyebrowTemplate": "PROBLEM {n} / {total}", "nextText": "次ページで解答 →", "qTagText": "Q" },
     "answer":  { "eyebrowTemplate": "ANSWER {n} / {total}", "heroLabel": "正答 ／ ANSWER", "pointLabel": "ここがポイント", "pointIconChar": "!", "correctMark": "○", "incorrectMark": "X", "_markNote": "incorrect は純粋な Latin X を Manrope 800 で描画。色は付けない（○/X の形状だけで識別、解説エリアは中立色）。" },
     "cta":     {
@@ -155,7 +157,12 @@
       "headlineLine2": "全問解説をチェック",
       "stats": [{ "num": "640", "unit": "問", "label": "PRACTICE" }, { "num": "5", "unit": "管理", "label": "SCOPE" }],
       "actionTitle": "保存ボタンを押して",
-      "actionSubtitle": "試験前日に見返そう"
+      "actionSubtitle": "試験前日に見返そう",
+      "actionIcon": "★",
+      "actionTitleReels": "フォローして毎週",
+      "actionSubtitleReels": "過去問解説が届く",
+      "actionIconReels": "＋",
+      "_ctaReelsNote": "Reels(height>=1920) は action カードを保存→フォロー誘導に分岐(actionTitleReels/actionSubtitleReels/actionIconReels)。Carousel は保存維持。理由: Reels はリーチ獲得器(非フォロワー接触)のため、保存ストックの Carousel と役割が異なり、リーチ→フォロワー転換を CTA の主とする(docs/project/03_SNS/01_SNS集客戦略.md L229-230,247-250)。見出し(doboku-note で全問解説)は note 導線として従の位置で共用。"
     }
   },
 
@@ -163,5 +170,54 @@
     "active": "refined",
     "available": ["refined", "bold", "editorial"],
     "_note": "Phase A では refined のみ実装。bold / editorial は future scope。"
+  },
+
+  "highlightStories": {
+    "_meta": {
+      "purpose": "IG Stories ハイライト用モダンシック意匠。docs/sns/instagram/highlights/** で使用。過去問パック (1080×1350) と意匠を切り分け、サムネ識別性とジャンル別カラーで 3 秒判断通過を狙う。",
+      "consumedBy": [".claude/scripts/lib/sns-common/highlight-stories-slides.mjs"],
+      "policy": "docs/reference/ig-highlight-design-policy.md",
+      "canvas": "1080×1920 Stories sizes"
+    },
+    "_paletteNote": "ハイライト 6 種を背景色面で識別。低彩度のトーンで信頼感を保ちつつ、ジャンル別に視覚区別。背景は -50 系の淡色、アクセントは -600 系の濃色、テキストは ink.strong (#14191F) で共通。",
+    "palettes": {
+      "01_intro":           { "bg": "#EFF6FF", "accent": "#1858B5", "accentLight": "#D6E5F8", "label": "blue (信頼)" },
+      "02_carousel-index":  { "bg": "#F0FDF4", "accent": "#16A34A", "accentLight": "#D1FAE5", "label": "green (体系)" },
+      "03_reels-roundup":   { "bg": "#FAF5FF", "accent": "#7C3AED", "accentLight": "#E9D5FF", "label": "purple (動的)" },
+      "04_faq":             { "bg": "#FFFBEB", "accent": "#D97706", "accentLight": "#FEF3C7", "label": "amber (問答)" },
+      "05_announcement":    { "bg": "#FFF1F2", "accent": "#E11D48", "accentLight": "#FECDD3", "label": "rose (告知)" },
+      "06_materials":       { "bg": "#F8FAFC", "accent": "#1858B5", "accentLight": "#E2E8F0", "label": "slate (落ち着き)" }
+    },
+    "typography": {
+      "overline": { "fontFamily": "Manrope", "weight": 800, "size": 28, "letterSpacing": 0.15, "lineHeight": 1.2, "_use": "tag テキスト 'HIGHLIGHT N/6' 等の上部 small caps" },
+      "hero":     { "fontFamily": "NotoSansJP", "weight": 900, "size": 132, "lineHeight": 1.15, "letterSpacing": -0.02, "_maxLen": 7,  "_use": "推奨 4-7 字、auto-fit 大型" },
+      "heroMid":  { "fontFamily": "NotoSansJP", "weight": 900, "size": 100, "lineHeight": 1.2,  "letterSpacing": -0.02, "_maxLen": 11, "_use": "8-11 字、auto-fit 中型（builder が visualLength で自動分岐）" },
+      "heroSm":   { "fontFamily": "NotoSansJP", "weight": 900, "size": 80,  "lineHeight": 1.25, "letterSpacing": -0.02, "_maxLen": 16, "_use": "12-16 字、auto-fit 小型。これ以上は lint ERROR で手動短縮必須" },
+      "lead":     { "fontFamily": "NotoSansJP", "weight": 700, "size": 56, "lineHeight": 1.3, "_use": "サブタイトル 8-15 文字" },
+      "body":     { "fontFamily": "NotoSansJP", "weight": 500, "size": 38, "lineHeight": 1.5, "_use": "body 行" },
+      "chip":     { "fontFamily": "NotoSansJP", "weight": 700, "size": 34, "lineHeight": 1.2, "_use": "下部 CTA chip" },
+      "credit":   { "fontFamily": "Manrope", "weight": 700, "size": 26, "letterSpacing": 0.05, "_use": "右下のクレジット 'doboku-note'" }
+    },
+    "geometry": {
+      "padding": { "x": 80, "y": 96 },
+      "overlineTop": 220,
+      "heroTop": 350,
+      "bodyTop": 720,
+      "chipPadding": [20, 36],
+      "chipRadius": 999,
+      "accentBarHeight": 8,
+      "accentBarWidth": 120,
+      "_safeArea": "IG Stories セーフエリア: 上端から約 250px はプログレスバー＋プロフィール行＋⋯/× ボタン、下端から約 250px は返信バーが UI オーバーレイで重なる。overlineTop はトップセーフエリアを抜けるため >= 200 必須（現 220）。本文・credit を含む全可視要素は y=200〜1280 のバンドに収める。",
+      "_stickerArea": "y >= 1280 はリンクスタンプ/投票ステッカー用余白として意図的に空ける（下部セーフエリアも兼ねる）。本文は y < 1200 に収める。"
+    },
+    "icons": {
+      "_use": "ハイライト別の symbol。大型 (size 280px) で hero text の背景に薄く配置 (opacity 0.12)",
+      "01_intro":           "→",
+      "02_carousel-index":  "▦",
+      "03_reels-roundup":   "▷",
+      "04_faq":             "?",
+      "05_announcement":    "!",
+      "06_materials":       "¶"
+    }
   }
 }

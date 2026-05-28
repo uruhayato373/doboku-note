@@ -1,9 +1,30 @@
 ---
 name: exam-guide
 description: >
-  既存テキスト・問題集から試験対策ガイドを生成する。1級土木・技術士など試験別の設定ファイル（.claude/skills/authoring/templates/exam-guide/{exam}.md）を参照しパラメタライズ。
+  既存テキスト・問題集から試験対策ガイドを生成する。1級土木・2級土木・技術士など試験別の設定ファイル（.claude/skills/authoring/templates/exam-guide/{exam}.md）を参照しパラメタライズ。
   Use when user asks to [試験対策ガイドを作りたい, 頻出テーマ抽出, ガイド生成, /exam-guide].
 ---
+
+## 引数
+
+```
+/exam-guide [<topic>] [--exam {civil-construction-1|civil-construction-2|pe}]
+```
+
+| 引数 | 必須 | 説明 |
+|---|---|---|
+| `<topic>` | 任意 | 分野名（例: `earthwork`、`concrete`）。省略時はテンプレで列挙された全カテゴリを生成 |
+| `--exam` | 任意 | 試験ID。省略時は `civil-construction-1`（後方互換） |
+
+## 利用可能テンプレート
+
+| exam | 対応試験 | テンプレート | 出力先 |
+|---|---|---|---|
+| `civil-construction-1` | 1級土木施工管理技士 | `templates/exam-guide/civil-construction-1.md` | `.local/r2/posts/civil-construction-1/guide-*/article.mdx` |
+| `civil-construction-2` | 2級土木施工管理技士 | `templates/exam-guide/civil-construction-2.md` | `.local/r2/posts/civil-construction-2/guide-2-*/article.mdx` |
+| `pe` | 技術士総合技術監理 | `templates/exam-guide/pe.md` | （PE 用、別途） |
+
+新試験は `templates/exam-guide/{exam-id}.md` を新規作成するのみ（スキル本体は変更不要）。
 
 ### 構成テンプレート
 
@@ -85,6 +106,9 @@ content/general/exam-guide/
 **1級土木施工管理技士向けの設定:**
 → `.claude/skills/authoring/templates/exam-guide/civil-construction-1.md`
 
+**2級土木施工管理技士向けの設定**（2026-05-28 追加）:
+→ `.claude/skills/authoring/templates/exam-guide/civil-construction-2.md`
+
 このファイルには以下が定義されています：
 - ソースコンテンツのパス（土工・コンクリート・施工管理テキスト等）
 - 外部情報源（著作権フリーの公開資料）
@@ -92,22 +116,22 @@ content/general/exam-guide/
 - 出力先ディレクトリ
 - サイドバー登録の slug
 
-### Phase 2 への移行
+### Phase 2 リファクタ（2026-05-28 部分実装）
 
-**2026年秋予定**: このスキルを複数試験対応の汎用化へリファクタリングします。
+複数試験対応のため `--exam` パラメータを追加。
 
 ```bash
-# Phase 1（現在）
+# 後方互換（civil-construction-1 がデフォルト）
 /exam-guide earthwork
 
-# Phase 2（予定）
-/exam-guide --exam civil-construction-1 --topic earthwork
+# 明示指定
+/exam-guide --exam civil-construction-1 earthwork
+/exam-guide --exam civil-construction-2 --slug guide-2-strategy
 ```
 
 新資格（コンクリート技士・測量士等）対応時は：
 1. `templates/exam-guide/{exam-id}.md` を新規作成（テンプレート参照）
 2. このスキル側の変更は **不要**（設定ファイル追加のみ）
-3. Phase 2 汎用化時に `--exam` パラメータで自動統合
 
 ## PE ガイド記事の末尾テンプレ
 
@@ -176,9 +200,10 @@ templates/
 ├── README.md              ← フォルダの目的と運用ルール
 └── exam-guide/
     ├── _schema.md         ← 試験別設定ファイルの仕様定義
-    ├── civil-construction-1.md  ← 本スキルが使用（当ファイル）
+    ├── civil-construction-1.md  ← 1級土木（既定）
+    ├── civil-construction-2.md  ← 2級土木（2026-05-28 追加）
     ├── pe.md              ← /exam-guide --exam pe が使用
-    ├── concrete-engineer.md     ← Phase 2で対応予定
+    ├── concrete-engineer.md     ← 将来追加予定
     └── _new-exam-template.md    ← 新資格追加時のコピー用雛形
 ```
 

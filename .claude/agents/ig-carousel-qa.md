@@ -39,6 +39,7 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
 4. **軸 1〜5（テキスト系）**を 1〜5 で採点する:
    - 構成の妥当性／文の完結性／図文整合・figure 判断／字数・視認性／試験的正確性
    - 軸4（字数）はスキーマの字数ルールに照らして機械的に判定。超過フィールドを指摘に列挙
+   - **cover-title は auto-fit (v7.1)**: `node .claude/scripts/lint-stories-titles.mjs --dir <pack-dir>` を実行し出力を Read。ERROR があれば -2 重大減点。WARN/NOTICE は builder が auto-fit するため減点しないが採点コメントに記載
    - 軸5（試験的正確性）は固有名詞・数値・年号・法則名を MDX 本文と厳格に突合
 5. **軸 6（デザイン統一性、過去問パックのみ）**を 1〜5 で採点する:
    - 対象ディレクトリの `carousel/img/00-cover.png` 〜 `09-cta.png` を Read tool で PNG として読む
@@ -62,6 +63,7 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
    - 採点前にまず `node scripts/lint-exam-pack-structure.mjs <year>/<pack>` を実行
    - E1: bodyLines に「（ア）（イ）」等の列挙が 2 個以上あるのに `lists` 未設定 → 散文化 NG
    - E2: bodyLines に `|` 含む行（markdown 表残骸）があるのに `table` 未設定 → 表崩壊 NG
+   - E3: problem が最大圧縮でも領域(1014px)に収まらない → 選択肢が画面外にはみ出す（本文短縮 or 表行数削減）。`chooseProblemLayout` 共有で生成物と検査が一致
    - W1: optionExplanations にプレースホルダ「個別解説は省略」残存 → 補完未完了
    - lint で ERROR 検出 → デザイン統一性軸を -2 点（構造違反は visual に直結）
    - 採点コメントに lint 出力を貼る

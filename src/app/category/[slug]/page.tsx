@@ -51,6 +51,12 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
     primary: '年度別の過去問と解説（問題A: 土木一般・専門土木・法規 / 問題B: 施工管理）',
     secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
   },
+  'civil-construction-2': {
+    guide: '出題傾向の分析・得点戦略・分野別の基礎ポイント（2級向け）',
+    textbook: '試験テキスト・基準類の解説（将来追加予定）',
+    primary: '年度別の過去問と解説（前期: 6月実施・後期: 10月実施）',
+    secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
+  },
   'pe-comprehensive-management': {
     guide: '試験の構成・出題傾向・学習ガイド',
     pillar: '5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）の体系学習ガイド',
@@ -61,7 +67,7 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
 
 /** Sort functions per group */
 function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
-  if (category === 'civil-construction-1') {
+  if (category === 'civil-construction-1' || category === 'civil-construction-2') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         if (a.slug?.includes('strategy')) return -1;
@@ -193,6 +199,94 @@ function yearLabel(code: string): string {
   if (!match) return code;
   const era = match[1] === 'r' ? '令和' : '平成';
   return `${era}${match[2]}年度`;
+}
+
+/**
+ * 第1次検定の過去問をテーブル形式で表示（2級向け、前期/後期）
+ * 年度ごとに前期・後期・第2次をまとめる
+ */
+function PrimaryExamTable2({ docs, secondaryDocs = [] }: { docs: DocMeta[]; secondaryDocs?: DocMeta[] | undefined }) {
+  // 年度コードでグループ化
+  const yearMap = new Map<string, { zenki?: DocMeta; kouki?: DocMeta }>();
+  for (const doc of docs) {
+    const match = doc.slug?.match(/(r|h)(\d+)-(zenki|kouki)$/);
+    if (!match) continue;
+    const yearCode = `${match[1]}${match[2]}`;
+    const part = match[3] as 'zenki' | 'kouki';
+    if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
+    yearMap.get(yearCode)![part] = doc;
+  }
+
+  // 第2次検定のマップ
+  const secondaryMap = new Map<string, DocMeta>();
+  if (secondaryDocs) {
+    for (const doc of secondaryDocs) {
+      const match = doc.slug?.match(/(r|h)(\d+)$/);
+      if (match) {
+        secondaryMap.set(`${match[1]}${match[2]}`, doc);
+      }
+    }
+  }
+
+  // 年度ソート（新しい順）
+  const years = Array.from(yearMap.keys()).sort((a, b) => {
+    const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1));
+    const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1));
+    return valB - valA;
+  });
+
+  const hasSecondary = secondaryMap.size > 0;
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-base border-collapse">
+        <thead>
+          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
+            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
+            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第1次 前期（6月）</th>
+            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第1次 後期（10月）</th>
+            {hasSecondary && (
+              <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">第2次検定</th>
+            )}
+          </tr>
+        </thead>
+        <tbody>
+          {years.map(yearCode => {
+            const pair = yearMap.get(yearCode)!;
+            const secondary = secondaryMap.get(yearCode);
+            return (
+              <tr key={yearCode} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{yearLabel(yearCode)}</td>
+                <td className="py-3 px-4 text-center">
+                  {pair.zenki ? (
+                    <Link href={`/docs/${pair.zenki.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      前期
+                    </Link>
+                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                </td>
+                <td className="py-3 px-4 text-center">
+                  {pair.kouki ? (
+                    <Link href={`/docs/${pair.kouki.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      後期
+                    </Link>
+                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                </td>
+                {hasSecondary && (
+                  <td className="py-3 px-4 text-center">
+                    {secondary ? (
+                      <Link href={`/docs/${secondary.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                        第2次
+                      </Link>
+                    ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                  </td>
+                )}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
 }
 
 /**
@@ -459,7 +553,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: DocMeta[]; k
   );
 }
 
-function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'pe-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
+function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
   return (
     <section>
       <div className="mb-6">
@@ -471,6 +565,8 @@ function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?
       </div>
       {layout === 'exam-table' ? (
         <PrimaryExamTable docs={group.docs} secondaryDocs={secondaryDocs} />
+      ) : layout === 'exam-table-2' ? (
+        <PrimaryExamTable2 docs={group.docs} secondaryDocs={secondaryDocs} />
       ) : layout === 'pe-exam-table' ? (
         <PeExamTable docs={group.docs} />
       ) : (
@@ -499,7 +595,7 @@ export default async function CategoryPage({
   const allDocs = await getDocsMetaByCategory(slug);
   const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !(d as any).hideFromCategory);
 
-  const groups = (slug === 'civil-construction-1' || slug === 'pe-comprehensive-management')
+  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management')
     ? groupDocs(docs, slug)
     : null;
 
@@ -613,6 +709,49 @@ export default async function CategoryPage({
                           group={{
                             title: '第2次検定 分野別対策',
                             description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問',
+                            docs: secondaryTopicDocs,
+                          }}
+                        />
+                      )}
+                    </>
+                  );
+                })()
+              ) : slug === 'civil-construction-2' ? (
+                /* civil-construction-2: 2級向け、前期/後期テーブル */
+                (() => {
+                  const guideGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'guide'));
+                  const textbookGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'textbook'));
+                  const primaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'primary'));
+                  const secondaryGroup = groups.find(g => g.title === getGroupLabel('civil-construction-2', 'secondary'));
+
+                  const secondaryYearDocs = secondaryGroup?.docs.filter(d =>
+                    /secondary-(r|h)\d+$/.test(d.slug || '')
+                  ) || [];
+                  const secondaryTopicDocs = secondaryGroup?.docs.filter(d =>
+                    !/secondary-(r|h)\d+$/.test(d.slug || '')
+                  ) || [];
+
+                  return (
+                    <>
+                      {guideGroup && <DocSection group={guideGroup} />}
+                      {textbookGroup && <DocSection group={textbookGroup} />}
+                      {primaryGroup && (
+                        <DocSection
+                          group={{
+                            ...primaryGroup,
+                            title: '過去問',
+                            description: '年度別の第1次検定（前期・後期）と第2次検定',
+                            docs: primaryGroup.docs,
+                          }}
+                          layout="exam-table-2"
+                          secondaryDocs={secondaryYearDocs}
+                        />
+                      )}
+                      {secondaryTopicDocs.length > 0 && (
+                        <DocSection
+                          group={{
+                            title: '第2次検定 分野別対策',
+                            description: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
                             docs: secondaryTopicDocs,
                           }}
                         />

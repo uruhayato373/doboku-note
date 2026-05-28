@@ -37,7 +37,7 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
     return 'keyword';
   }
 
-  if (category === 'civil-construction-1') {
+  if (category === 'civil-construction-1' || category === 'civil-construction-2') {
     if (tags.includes('textbook')) return 'textbook';
     if (tags.includes('guide')) return 'guide';
     if (tags.includes('primary')) return 'primary';
@@ -61,11 +61,17 @@ export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> 
     primary: '第1次検定',
     secondary: '第2次検定',
   },
+  'civil-construction-2': {
+    guide: '試験ガイド',
+    textbook: 'テキスト（教科書）',
+    primary: '第1次検定',
+    secondary: '第2次検定',
+  },
 };
 
 export function getGroupOrder(category: string): DocGroupKey[] {
   if (category === 'pe-comprehensive-management') return PE_GROUP_ORDER;
-  if (category === 'civil-construction-1') return CIVIL_GROUP_ORDER;
+  if (category === 'civil-construction-1' || category === 'civil-construction-2') return CIVIL_GROUP_ORDER;
   return ['keyword'];
 }
 

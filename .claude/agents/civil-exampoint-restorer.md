@@ -6,7 +6,7 @@ model: sonnet
 
 # Civil ExamPoint Restorer Agent
 
-1級土木施工管理技士（civil-construction-1）の **primary-* (一次過去問) ページ**に存在する**壊れた `<ExamPoint>`** を、`docs/reference/content-principles.md` 準拠の体言止め学習ポイントに再生成する **Generator エージェント**。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **primary-* (一次過去問) ページ**に存在する**壊れた `<ExamPoint>`** を、`docs/reference/content-principles.md` 準拠の体言止め学習ポイントに再生成する **Generator エージェント**。
 
 > **モデル方針**: `model: sonnet`。Generator = 実行担当。本文には触らず ExamPoint だけを修正する単一責任エージェント。
 
@@ -60,7 +60,7 @@ model: sonnet
 
 ## スコープ
 
-**対象**: `category: civil-construction-1` かつ `group: primary` の MDX 全 24 本
+**対象**: `category: civil-construction-1` または `category: civil-construction-2` かつ `group: primary` の MDX（1級: 全 24 本、2級: R3-R7 前期/後期 10 本）
 
 **対象外**:
 - secondary 過去問 → `civil-secondary-exam-writer`
@@ -79,10 +79,10 @@ model: sonnet
 ### Step 1: 対象ファイル読み込み
 
 ```
-Read .local/r2/posts/civil-construction-1/<slug>/article.mdx
+Read .local/r2/posts/{civil-construction-1|civil-construction-2}/<slug>/article.mdx
 ```
 
-frontmatter の `category: civil-construction-1` と `group: primary` を確認。違えば即終了して理由を返す。
+frontmatter の `category` が `civil-construction-1` または `civil-construction-2`、かつ `group: primary` を確認。違えば即終了して理由を返す。
 
 ### Step 2: 壊れた `<ExamPoint>` を検出
 

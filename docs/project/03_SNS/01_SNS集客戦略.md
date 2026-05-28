@@ -1,21 +1,22 @@
-# SNS集客戦略 v6
+# SNS集客戦略 v7
 
 doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施工管理技士 / 技術士総合技術監理部門 を整備中）への流入を SNS から獲得するための方針。X / YouTube / Instagram の 3 チャネルを統合管理する。
 
-**最終更新**: 2026-05-22（v6: 運営者の総監合格判明を受け、X を「キーワード送客器」から「note 誘導・受験生コミュニティ動線」へ転換。IG/YT＝SEO・カタログ動線／X＝信頼・マネタイズ動線の二系統に再定義）
+**最終更新**: 2026-05-28（v7: 実装と整合のため Instagram を一次制作チャネルに格上げ。YouTube Shorts は IG Reels mp4 の二次展開（短縮＋字幕焼き込み＋概要欄差替）に再定義。「YT Shorts mp4 を IG Reels に流用」という v5/v6 の仮定を逆転）
 **運営者**: 技術士（総合技術監理部門）合格済み。土木系公務員（発注者）の退職者
-**旧最終更新**: 2026-04-28（v5: Instagram を Carousel + Reels の両軸へ転換、YT Shorts mp4 を IG Reels に流用）
+**旧最終更新**: 2026-05-22（v6: 運営者の総監合格判明を受け、X を「キーワード送客器」から「note 誘導・受験生コミュニティ動線」へ転換。IG/YT＝SEO・カタログ動線／X＝信頼・マネタイズ動線の二系統に再定義）
+**さらに旧**: 2026-04-28（v5: Instagram を Carousel + Reels の両軸へ転換、YT Shorts mp4 を IG Reels に流用）
 **関連**: [../01_戦略/03_事業戦略.md](./../01_戦略/03_事業戦略.md) / [../01_戦略/04_収益化戦略.md](./../01_戦略/04_収益化戦略.md)
 **実行タスク**: `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤、親）と子タスク T-003〜T-009 — 進捗の真実源
 
-## 1. 基本方針（v5）
+## 1. 基本方針（v7）
 
 - **X（Q2〜継続）は引き続き主力**。受験生コミュニティへの即効性チャネル。手動運用ベース、`/social-post x` で下書き支援
-- **YouTube は SNS 量産チャネルに転換**。TTS（VOICEVOX）+ Satori 自動スライド + ffmpeg + YouTube Data API による完全自動投稿。週 3 本（cron）。Q2 基盤 → Q3 量産開始
-- **Instagram は Carousel + Reels の両軸**で運用。Carousel（4:5 PNG）は「保存して試験前日に見返す」ストック教材、Reels（9:16 mp4）は YT Shorts の mp4 をそのまま流用したリーチ獲得器。共通基盤 sns-common により 1 ソース → 多チャネル派生
+- **Instagram が SNS 量産の一次制作チャネル**。`slide-data.json` を起点に、Carousel（4:5 PNG）と Reels（9:16 mp4）を同一データソースから派生生成。Carousel は「保存して試験前日に見返す」ストック教材、Reels は VOICEVOX TTS + ffmpeg で組み立てた音声付き縦動画。**Reels の cover/題材/CTA は Reels 専用テンプレで生成**し、カルーセル流用に起因する「スワイプ」CTA 等の不整合を構造的に排除
+- **YouTube Shorts は IG Reels mp4 の二次展開チャネル**。IG Reels（90-110 秒）を ffmpeg で 30-60 秒に短縮 + 字幕焼き込み + 概要欄 UTM 差替で派生生成。YouTube 単独パイプライン（旧 MDX 直結モード）は廃止し、IG Reels が動かない週は YT も発信しない（パイプライン障害は IG カルーセル単独稼働でしのぐ）
 - **運営者は総監合格済み（土木系公務員〔発注者〕の退職者）**。v5 までの「合格者を名乗れない（受験中）」制約は解消。**X では合格者の視点・思考・受験体験の断片を一次情報として発信**し、信頼と指名検索を作る。フル受験記・解答再現は引き続き note 有料商品（E-1〜E-4）に囲い込む
-- **二系統のチャネル設計**: **IG / YouTube = SEO・カタログ動線**（キーワード・過去問を検索/保存資産として量産 → サイト → note）。**X = 信頼・コミュニティ・マネタイズ動線**（合格者の発信で関係を作り → note 無料記事 → note 有料マガジン）
-- 共通基盤 `.claude/scripts/lib/sns-common/` を YouTube・Instagram で共有
+- **二系統のチャネル設計**: **IG → YT = SEO・カタログ動線**（IG が一次制作 → YT は派生・再リーチ／キーワード・過去問を検索/保存資産として量産 → サイト → note）。**X = 信頼・コミュニティ・マネタイズ動線**（合格者の発信で関係を作り → note 無料記事 → note 有料マガジン）
+- 共通基盤 `.claude/scripts/lib/sns-common/` を Instagram・YouTube で共有（1080×1350 と 1080×1920 の両サイズ対応済み）
 - NSM（月間オーガニック検索流入ユーザー数）への直接貢献は限定的でも、**指名検索・被リンク・権威性**を通じて間接的に SEO を底上げする
 
 ### v3 → v4 の主要変更点（2026-04-26）
@@ -39,6 +40,16 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 | Instagram の投稿頻度 | 週 2-3 投稿（Carousel のみ） | **Carousel 週 2 + Reels 週 3 = 週 5 タッチ** | Reels は YT Shorts と同時投稿のため追加コストなし |
 | Instagram の意思決定 | Phase 1 試走後に判断 | **6 週運用後に KPI トリガーで比率判断**（Reels リーチ vs Carousel 保存数） | データドリブンで本格判断 |
 
+### v6 → v7 の主要変更点（2026-05-28）
+
+| 項目 | v6 | v7（採用） | 理由 |
+|---|---|---|---|
+| 一次制作チャネル | YouTube Shorts（週 3 本主力） | **Instagram（Carousel + Reels）** | 実装はすでに「IG カルーセル PNG → 9:16 再生成 → VOICEVOX TTS → mp4」になっており、YT mp4 流用ではなく IG 起点。戦略の建前が実装に追従していなかった |
+| YouTube Shorts の位置づけ | 主力・週 3 本 | **二次展開・週 1〜2 本**（IG Reels mp4 を 30-60 秒に短縮＋字幕焼き込み＋概要欄 UTM 差替） | mp4 生成パイプラインを 1 本に集約し、YT 用の独立保守を不要にする |
+| IG Reels の生成元 | 「YT Shorts mp4 をそのまま流用」 | **`slide-data.json` 一次制作。Reels 専用テンプレ（cover CTA 等）で生成** | 「スワイプで4問にチャレンジ」のようなカルーセル流用に起因する不整合 CTA を構造的に排除 |
+| エージェント分業 | カルーセルのみ Generator/Evaluator 分離（ig-carousel-writer / ig-carousel-qa） | **Reels / Stories / YT 派生にも Generator/Evaluator を展開**（ig-reels-writer + ig-reels-qa / ig-stories-writer + ig-stories-qa / yt-shorts-publisher-qa） | カルーセルで確立した品質チェック構造を全 SNS フォーマットに拡大、Reels CTA 矛盾のような事故を未然に止める |
+| YT Shorts の MDX 直結モード | `--slug` で MDX → mp4 直結 | **廃止**。`--from-reels <pack-id>` 一本化 | パイプライン二重保守の解消。IG が動かない週は YT も止めるが、復旧時は同一 mp4 から自動派生されるため復旧コストは低い |
+
 ### v5 → v6 の主要変更点（2026-05-22）
 
 | 項目 | v5 | v6（採用） | 理由 |
@@ -50,7 +61,7 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 | X からの送客先 | サイト（キーワードページ） | **note（無料記事→有料マガジン）を主、サイトを従**。直接「X→有料」は跳躍が大きいため note 無料記事を一段挟む | 模範論文マガジン（M5/M6/M8）・公務員クラスターはペルソナのフックが明快で X スレッド題材に向く |
 | X の投稿頻度 | 1 日 1〜2 投稿 | **週数本（本数より 1 本の価値）** | スレッド・体験談は手作りで制作コストが高い。Red Line「サイト整備を止めない」と両立する範囲で |
 
-## 2. チャネル別の位置づけ（v6）
+## 2. チャネル別の位置づけ（v7）
 
 ### X（主力・信頼/マネタイズ動線・Q2〜継続）
 
@@ -67,19 +78,20 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 - **KPI**: フォロワー数、プロフィールクリック率、**note への遷移数・有料マガジン経由売上**
 - **トレードオフ**: スレッド・体験談は手作りで制作コストが高い。本数より質。投稿が流れやすいため継続が必須
 
-### YouTube（Q2 基盤 → Q3 量産）
+### YouTube（IG Reels の二次展開・Q3〜）
 
 #### 採用フォーマット
 
-**Shorts（主力・週 3 本）**
+**Shorts（二次展開・週 1〜2 本）**
 
 - 解像度: 1080×1920 (9:16)
-- 尺: 30-60 秒
-- 内容: 1 動画 = 1 キーワード or 1 過去問
-- 音声: VOICEVOX TTS
-- スライド: 共通基盤 `slide-render.mjs` で自動生成（5-7 枚）
-- 字幕: whisper.cpp で TTS 音声から自動逆生成 → ffmpeg で焼き込み
+- 尺: 30-60 秒（IG Reels 90-110 秒からの短縮派生）
+- 内容: 1 動画 = 1 過去問パック（cover + 1 問 + a1 + cta が原則）または 1 キーワード
+- 生成元: **`docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/video.mp4` を ffmpeg でトリム**
+- 字幕: IG Reels 用 ASS を 30-60 秒尺に合わせて再生成 → ffmpeg で焼き込み
 - 投稿: YouTube Data API v3 (`videos.insert` resumable upload)
+- 概要欄: IG Reels と独立した UTM (`utm_source=youtube`) と doboku-note / note リンク差替
+- **MDX 直結モード（旧 `--slug`）は v7 で廃止**。YouTube 単独制作はしない
 
 **標準動画（補助・月 4-6 本、Phase 4 以降）**
 
@@ -170,9 +182,9 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 | 1 動画あたりの再生数 | △ 補助指標 | コンテンツ品質の参考値 |
 | 視聴完了率 | △ 補助指標 | テンポ改善のシグナル |
 
-### Instagram（Q2 基盤 → Q3 量産）
+### Instagram（一次制作チャネル・Q2 基盤 → Q3 量産）
 
-#### 採用フォーマット（v5: Carousel + Reels 両軸）
+#### 採用フォーマット（v7: 一次制作チャネル・Carousel + Reels 両軸）
 
 **Carousel（4:5 PNG・週 2 本・火金 07:00 JST）**
 
@@ -182,47 +194,51 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 - パイプライン: 共通基盤 `slide-render.mjs` で Satori → PNG → Meta Graph API
 - Phase 1 MVP: type1（definition）+ type3（quiz）のみ（IG Carousel MVP、SNS 基盤 T-001 の子作業）
 
-**Reels（9:16 mp4・週 3 本・月水金 19:30 JST、YT Shorts と同時）**
+**Reels（9:16 mp4・週 3 本・月水金 19:30 JST）— 一次制作**
 
 - 解像度: 1080×1920 (9:16 portrait)
-- 尺: 30-60 秒
-- 内容: **YT Shorts MVP が生成する mp4 をそのまま流用**
+- 尺: 90-110 秒
+- 内容: **`slide-data.json` を起点に Reels 専用 PNG を生成 → VOICEVOX TTS → ffmpeg で連結**
 - 役割: フィード偶発接触のリーチ獲得器（検索意図ゼロでも届く）
-- パイプライン: `ig-reel-publish.mjs`（新設、約 100 行）→ media-uploader → Meta Graph API REELS endpoint
-- キャプションのみ IG 用に再生成（hashtag 密度を YT より上げる）
+- パイプライン: `.claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs` で Reels 専用 PNG（cover の CTA をカルーセルと分岐）→ TTS → mp4 → Meta Graph API REELS endpoint
+- 台本・キャプション・ハッシュタグは `ig-reels-writer` エージェントが `reels/script.json` として執筆 → `ig-reels-qa` が 5 軸採点
+- **重要**: cover の CTA は Reels モードで「答えは動画内で発表 →」相当に分岐（旧「スワイプで4問にチャレンジ」はカルーセル流用バグ。v7 で構造的に解消）
 
-**Highlight（プロフィール上部・5 種固定・整備は 1 回）**
+**Highlight（プロフィール上部・6 種固定・整備は 1 回）**
 
 - 形式: ストーリー（9:16 静止画 or 15 秒動画）を永続化する IG 標準機能
-- 役割: **新規プロフィール訪問者の 3 秒判断を通過させる目次・自己紹介・FAQ**。Carousel/Reels 投稿への二次動線
+- 役割: **新規プロフィール訪問者の 3 秒判断を通過させる目次・自己紹介・FAQ** + **note 教材への二段ロケット動線**。Carousel/Reels 投稿への二次動線
 - 整備順序: Carousel 4-5 本投稿後（Phase 1 開始から 2 週間後）に **1 回まとめて整備**。以降は四半期に 1 回更新
-- 構成（5 種）:
+- 構成（6 種、v7.1 で「教材」を追加）:
   1. **まず読む**: 運営者経歴（自治体土木職退職 + 6 資格保有 + 技術士総監筆記合格）と「ここでわかること」
   2. **カルーセル目次**: 5 管理別の代表 Carousel（各 1 本 × 5 = 5 ストーリー）への入口
   3. **Reels まとめ**: 直近の代表 Reels 5 本への入口
   4. **FAQ**: 受験相談の定型回答（「総監とは」「6 ヶ月で間に合うか」等 5 件）
   5. **お知らせ**: 新記事公開・キャンペーン・受験期スポット情報（フロー型・随時更新）
+  6. **教材**（v7.1 で追加）: note プロフィール → 無料記事 → 有料マガジン（M5/M6/M8/精読ガイド/論文骨子テンプレート）の **二段ロケット動線**。直接 note 有料への直リンクは置かず、まず note 無料記事に着地させて自然遷移
 - 投稿フロー: フィード投稿 → 「ストーリーズに投稿を追加」 → ストーリーに見出し追記 → ハイライト追加
-- カバー画像: 5 管理別の色トークン（経=青 / 人=緑 / 情=紫 / 安=赤 / 社=橙）で統一
-- 重要原則: **ハイライトは「フォロワー獲得の前提条件」**。フォロー判断は 3 秒、空のハイライトは離脱要因
+- カバー画像: 5 管理別の色トークン（経=青 / 人=緑 / 情=紫 / 安=赤 / 社=橙）で統一、6 種目「教材」は brand 色（`#1858B5`）+ 本のアイコン
+- 重要原則:
+  - **ハイライトは「フォロワー獲得の前提条件」**。フォロー判断は 3 秒、空のハイライトは離脱要因
+  - **6 種目「教材」は二段ロケット必須**。Stories の最終着地点は note 無料記事。「note マガジン買ってください」直球は売り込み感でフォロワー離脱 → 「合格者の本棚」「私が書いた教材」の中立フレーミングで設計（詳細: [`docs/reference/ig-stories-policy.md`](../../reference/ig-stories-policy.md) §5）
 
-**役割の棲み分け**
+**役割の棲み分け（v7）**
 
 | チャネル | 独占ジョブ |
 |---|---|
-| **IG Carousel** | 図解＋テキストのストック型「保存して試験前日に見返す」教材（目のスキマ時間） |
-| **IG Reels** | フィード偶発接触のリーチ獲得器（YT Shorts と同 mp4・キャプションのみ IG 用調整） |
+| **IG Carousel** | 図解＋テキストのストック型「保存して試験前日に見返す」教材（目のスキマ時間）— **一次制作** |
+| **IG Reels** | フィード偶発接触のリーチ獲得器（音声＋字幕でスキマ時間に流れる）— **一次制作** |
 | **IG Highlight** | 新規訪問者のフォロー判断 3 秒を通過させる目次・自己紹介・FAQ（投稿への二次動線） |
-| **YouTube Shorts** | 検索ベースのキーワード辞書化（概要欄 UTM 流入） |
+| **YouTube Shorts** | 検索ベースのキーワード辞書化＋概要欄 UTM 流入 — **IG Reels mp4 から派生（30-60 秒短縮）** |
 | **X** | リアルタイム会話・受験生コミュニティ（手動運用、固定ポストにサイト紹介） |
 | **note** | 一次情報の有料囲い込み（受験記・解答再現） |
 
-**YT Shorts と IG Reels の同 mp4 流用が妥当な理由**
+**IG → YT の派生フローが妥当な理由（v7）**
 
-- 両方 1080×1920 / 9:16 / 30-60 秒で技術要件一致
-- IG はクリエイターのクロスポスト推奨（他社プラットフォームのウォーターマーク検知のみペナルティ）
-- 自家製エンコード mp4 ならウォーターマークなし → リポスト判定リスクなし
-- YT は検索流入、IG は Explore/フィード = 視聴者が両方で出会う確率は低く、ザイオンス効果で指名検索強化
+- 共通基盤 `sns-common` は両サイズ（1080×1350 と 1080×1920）対応済み → IG 一次制作で再利用効率最大
+- 動画は IG Reels（90-110 秒）の方が YT Shorts（30-60 秒）より長く、**長尺から短尺への派生は ffmpeg トリムで機械化可能**（逆は再撮影相当でコスト高）
+- YT は検索流入・IG は Explore/フィード = 視聴者が両方で出会う確率は低く、ザイオンス効果で指名検索強化
+- YouTube クロスポスト時のウォーターマーク無し（自家製 mp4 のため）
 
 #### Instagram KPI（v5）
 
@@ -361,7 +377,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
   - bio リンク: サイトトップ（または Linktree で過去問・キーワードへ複数導線）
 - **YouTube**: ブランドアカウント（SNS 共通基盤整備の事前作業として開設・OAuth トークン取得）
 
-## 4. 四半期別ロードマップ（v5）
+## 4. 四半期別ロードマップ（v7）
 
 > **季節 × チャネル施策マトリクス**は [02_チャネル動線設計.md §6](./02_チャネル動線設計.md) を真実源とする。本セクションは Phase ごとの主要マイルストーンのみを扱う。詳細な実装ロードマップ（UTM 統一・bio link 着地点・Red Line スキル等の Phase 別タスク）は [02_チャネル動線設計.md §8](./02_チャネル動線設計.md) を参照。
 
@@ -382,11 +398,11 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 
 **Q2 で本番投稿はしない**: テストチャンネル or 非公開設定で品質確認のみ。
 
-### Q3（2026年7-9月）: ★YouTube + Instagram 量産稼働（v5: Reels 同時投稿）
+### Q3（2026年7-9月）: ★Instagram 一次制作 + YouTube 派生稼働（v7）
 
-- [ ] 7 月初: YouTube 本番チャンネル運用開始（週 3 本 cron、JST 月水金 07:00）
-- [ ] 7 月初: **Instagram 並列稼働開始**（Carousel 週 2 火金 07:00 + Reels 週 3 月水金 19:30 = YT Shorts と同時）
-- [ ] **7 月中旬（Carousel 4-5 本投稿後）: ハイライト 5 種整備**（まず読む / カルーセル目次 / Reels まとめ / FAQ / お知らせ）— フォロワー獲得開始前の必須整備、所要 1-2 時間
+- [ ] 7 月初: **Instagram 本番運用開始**（Carousel 週 2 火金 07:00 + Reels 週 3 月水金 19:30、`slide-data.json` 一次制作）
+- [ ] 7 月初: **YouTube Shorts 派生稼働開始**（IG Reels mp4 を 30-60 秒に短縮、週 1〜2 本、JST 月木 07:00）
+- [ ] **7 月中旬（Carousel 4-5 本投稿後）: ハイライト 6 種整備**（まず読む / カルーセル目次 / Reels まとめ / FAQ / お知らせ / **教材**）— フォロワー獲得開始前の必須整備、所要 1-2 時間。6 種すべて `docs/sns/instagram/highlights/{01_intro, 02_carousel-index, 03_reels-roundup, 04_faq, 05_announcement, 06_materials}/` に slide-data + PNG が雛形済み（数値プレフィックスは投稿順）。6 種目「教材」は二段ロケット設計（policy: `docs/reference/ig-stories-policy.md` §5）
 - [x] 運営者は技術士総監 2 次筆記試験に合格済み（合格者ポジションで送客フックを強化）
 - [ ] 7 月下旬: note E-1 を販売開始、YouTube 概要欄 + IG bio から送客
 - [ ] 7 月下旬: **note 売上トラッキング開始**（`.claude/state/note-sales/`）→ [27 §7 弱点 4](./02_チャネル動線設計.md)
@@ -418,9 +434,11 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 ## 6. やらないこと
 
 - **有料広告は当面使わない**。オーガニックと SEO に集中
-- **毎日複数プラットフォームを同時運用しない**。Phase ごとに1チャネルずつ立ち上げる（Q2 は X、Q3 で YouTube + IG 並列）
+- **毎日複数プラットフォームを同時運用しない**。Phase ごとに1チャネルずつ立ち上げる（Q2 は X、Q3 で IG 一次制作 + YT 派生）
 - **個人的な意見・政治・時事ネタへの言及は避ける**。試験対策アカウントとしての信頼性を守る
 - **YouTube に受験記の中身を投稿しない**。一次情報は note 商品で囲い込む
+- **YouTube Shorts を Instagram とは別パイプラインで作らない**（v7 で廃止）。MDX 直結モード（旧 `yt-shorts-create --slug`）は再開しない。YT は必ず IG Reels mp4 から派生させる
+- **Reels に「スワイプで…」等のカルーセル前提 CTA を流用しない**。Reels モード分岐を `slide-data.json` レンダラで持つ（v7 で構造的に対応）
 
 ## 7. フォロワーゼロから立ち上げる1年戦略（X 限定）
 
@@ -478,28 +496,32 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 - **試験日程に全振り**: 6月・10月・1月の3ピークを逃さない
 - **3ヶ月で諦めない**: X は3ヶ月目までが最も伸び悩む。ここで多くが脱落する
 
-## 8. リスクと対策（YouTube・Instagram 量産チャネル）
+## 8. リスクと対策（Instagram 一次制作 + YouTube 派生チャネル）
 
 | リスク | 影響度 | 対策 |
 |---|---|---|
-| TTS 量産で SEO 評価ペナルティ | 中 | YouTube 説明欄の文章は MDX 由来で品質担保。サムネ・タイトル品質で差別化 |
-| YouTube アルゴリズムの初動評価で埋もれる | 中 | 週 3 本の定期投稿を 3 ヶ月以上継続。共通基盤で「途中で止まる」リスクを構造的に排除 |
+| **IG パイプライン障害が YT も道連れに（v7 単一障害点）** | 高 | YT は IG Reels mp4 から派生するため、IG が止まると YT も発信停止。**フォールバックは IG カルーセル単独運用に縮退**（カルーセルは静止画のみで Reels パイプラインに依存しない）。Reels mp4 さえ復旧すれば YT は同 mp4 から自動派生のため復旧経路は最短 |
+| TTS 量産で SEO 評価ペナルティ | 中 | YouTube 説明欄の文章は IG Reels script.json 由来で品質担保。サムネ・タイトル品質で差別化 |
+| YouTube アルゴリズムの初動評価で埋もれる | 低 | v7 で「主力 → 二次展開」に格下げのため重要度低下。IG Reels の月水金リーチで補う |
 | Lock-On 等が「総監×スキマ時間」に参入 | 低 | 有料講座販促モデルとバッティング、参入可能性は低い |
 | VOICEVOX の商用利用規約違反 | 低 | SNS-prereq の事前作業で採用キャラのライセンスを確認済み。問題があれば差し替え |
-| API レート制限超過 | 低 | YouTube Data API 10,000 units/day で月 60 動画 upload は余裕 |
+| API レート制限超過 | 低 | YouTube Data API 10,000 units/day で月 8 動画派生は余裕 |
 | OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時は `task-queue.json` に追記（`source: ci:sns-publish` + `dedupe_key`） |
+| Reels CTA とカルーセル CTA の混入バグ | 中 | Reels モード分岐をテンプレレンダラ（`.claude/scripts/sns/templates/quiz-ig.mjs`）で持ち、`ig-reels-qa` の軸 4（音声 ↔ 画面整合）で検証 |
 
-## 9. 次のアクション（優先順位付き・v5）
+## 9. 次のアクション（優先順位付き・v7）
 
 > 進捗の真実源は `.claude/state/task-queue.json` の T-001（SNS 自動投稿基盤）と子タスク。SNS-prereq/SNS-0/SNS-1/SNS-2 は SNS 共通基盤整備として完了済み。
 
 1. **SNS-prereq**（完了）: YouTube + Instagram ブランドアカウント開設・OAuth トークン取得
 2. **SNS-0**（完了）: 共通基盤 6 ファイルの実装（PR #169）
-3. **SNS-2**（完了）: YouTube Shorts MVP（PR #170）
-4. **SNS-1**（完了）: Instagram Carousel MVP（type1 + type3）+ **ig-reel-publish.mjs 追加**（YT Shorts mp4 を IG Reels に投稿）
-5. **T-004 SNS-3**: スケジューラ統合（queue.json で Carousel + Reels を管理）
-6. **T-005 SNS-4**: 型拡充（試験後 2026-08〜、Carousel 残り 4 型 + Remotion 高度 Reel）
-7. （X 単独）`/social-post x` での日次運用継続
+3. **SNS-1**（完了）: Instagram Carousel MVP（type1 + type3）
+4. **SNS-2**（完了）: YouTube Shorts MVP（PR #170）※ v7 で MDX 直結モードは廃止、IG Reels 派生に再設計予定
+5. **T-005a Reels Generator/Evaluator 整備**: `ig-reels-writer` + `ig-reels-qa` 追加、`quiz-ig.mjs` に Reels モード分岐、CTA 差替（v7 Phase B）
+6. **T-005b Stories Generator/Evaluator 整備**: `ig-stories-writer` + `ig-stories-qa` 追加（v7 Phase C）
+7. **T-005c YT 派生スクリプト + Evaluator**: `yt-shorts-create.mjs` を `--from-reels` 一本化、`yt-shorts-publisher-qa` 追加、MDX 直結モード削除（v7 Phase D）
+8. **T-004 SNS-3**: スケジューラ統合（queue.json で Carousel + Reels + YT 派生を管理）
+9. （X 単独）`/social-post x` での日次運用継続
 
 ## 関連ドキュメント
 
@@ -534,6 +556,8 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 ## 改訂履歴
 
+- **v7.1（2026-05-28）**: ハイライトを 5 種 → **6 種**に拡張。6 種目「教材」を追加し note プロフィール → 無料記事 → 有料マガジン（M5/M6/M8/精読ガイド/論文骨子テンプレート）の **二段ロケット動線**を確立。直接 note 有料リンクは置かず、まず note 無料記事に着地させて自然遷移する設計で売り込み感を回避。「合格者の本棚」中立フレーミングで設計。教材ハイライト用 Stories シリーズ（6 枚構成）の雛形を `docs/sns/instagram/highlights/06_materials/` に新設、`docs/reference/ig-stories-policy.md` §5 を 2 系統 → 3 系統に拡張。後続改修で残り 5 種（01_intro / 02_carousel-index / 03_reels-roundup / 04_faq / 05_announcement）も同 `docs/sns/instagram/highlights/` 配下に集約・数値プレフィックスで投稿順を表現・slide-data + PNG を整備
+- **v7（2026-05-28）**: 戦略と実装の乖離を解消。「YT Shorts mp4 → IG Reels 流用」（v5/v6）を逆転し、**Instagram を一次制作・YouTube Shorts を IG Reels mp4 の二次展開（30-60 秒トリム + 字幕焼き込み + 概要欄差替）に再定義**。`yt-shorts-create.mjs` の MDX 直結モード（旧 `--slug`）は廃止。エージェント分業を拡大：既存 `ig-carousel-writer` + `ig-carousel-qa` ペアに加え、`ig-reels-writer` + `ig-reels-qa` / `ig-stories-writer` + `ig-stories-qa` / `yt-shorts-publisher-qa` を新設。Reels の cover CTA は Reels モード分岐をテンプレレンダラに実装し、「スワイプで4問にチャレンジ」のようなカルーセル流用バグを構造的に解消
 - v1（2026-04-04 想定）: 合成音声スライド型を想定
 - v2（2026-04 中旬）: VOICEVOX 採用方針
 - v3（2026-04-13）: 運営者本人の肉声 + 受験記を中核に転換、合格体験者ポジションを SNS で活用する構想

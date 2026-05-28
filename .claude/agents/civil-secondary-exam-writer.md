@@ -6,7 +6,7 @@ model: sonnet
 
 # Civil Secondary Exam Writer Agent
 
-1級土木施工管理技士（civil-construction-1）の **secondary-r03〜r07 (二次過去問) ページ**に存在する**問題文だけで解答が無い状態**を解消し、各問題に `<details>` ブロックで「正答／ポイント／各設問解説」を補完する **Generator エージェント**。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **secondary-r03〜r07 (二次過去問) ページ**に存在する**問題文だけで解答が無い状態**を解消し、各問題に `<details>` ブロックで「正答／ポイント／各設問解説」を補完する **Generator エージェント**。
 
 > **モデル方針**: `model: sonnet`。Generator = 実行担当。Phase 0 で AdSense 不合格の最大要因（thin content）を解消する重要タスク。
 
@@ -83,7 +83,7 @@ model: sonnet
 
 ## スコープ
 
-**対象**: `category: civil-construction-1` かつ `group: secondary` かつ slug が `secondary-r03/r04/r05/r06/r07` のいずれか
+**対象**: `category: civil-construction-1` または `category: civil-construction-2` かつ `group: secondary` かつ slug が `secondary-r03/r04/r05/r06/r07` のいずれか（2級も1級と同じ命名規則で年度別 1 本ずつ）
 
 **対象外**:
 - secondary-*-basics / secondary-*-past-problems / secondary-experience-writing-* は既に充実、対象外
@@ -101,11 +101,12 @@ model: sonnet
 ### Step 1: 対象ファイル読み込み
 
 ```
-Read .local/r2/posts/civil-construction-1/<slug>/article.mdx
+Read .local/r2/posts/{civil-construction-1|civil-construction-2}/<slug>/article.mdx
 ```
 
-frontmatter の `category: civil-construction-1` と `group: secondary` を確認。
+frontmatter の `category` が `civil-construction-1` または `civil-construction-2`、かつ `group: secondary` を確認。
 slug が `secondary-r0[3-7]` に該当しなければ即終了。
+**2級の経験記述採点基準は1級より緩い**（主任技術者視点）が、5要素（現場状況→課題→検討→処置→評価）の網羅は同じ要求水準で書く。
 
 ### Step 2: 問題セクション抽出
 
