@@ -6,7 +6,7 @@ model: sonnet
 
 # Civil Construction QA Agent
 
-1級土木施工管理技士（civil-construction-1）の **textbook / guide ページの品質評価** を専門に担当する Evaluator エージェント。**生成（Generator）とは独立した評価者** として機能する。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **textbook / guide ページの品質評価** を専門に担当する Evaluator エージェント。**生成（Generator）とは独立した評価者** として機能する。
 
 > **モデル方針**: このエージェントは `model: sonnet` で動作します。視覚検証・網羅率チェック・ルーブリックは手順化されているため Sonnet で実行し、最終判断は親エージェント（Opus）が行います。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
@@ -24,7 +24,7 @@ PDF 教科書から MDX を生成した Generator（`/pdf-to-mdx --exam civil-co
 
 ## スコープ
 
-**対象**: `category: civil-construction-1` の MDX ページのみ
+**対象**: `category: civil-construction-1` または `category: civil-construction-2` の MDX ページのみ
 
 **対象外**:
 - 総監ページ（`pe-comprehensive-management`）→ `cem-qa` を使用
@@ -95,7 +95,8 @@ PDF 教科書から MDX を生成した Generator（`/pdf-to-mdx --exam civil-co
 
 1. MDX を Read で読み、frontmatter を取得
 2. `category` をチェック:
-   - `civil-construction-1` 以外 → 「対象外。cem-qa or content-qa を使ってください」と案内して終了
+   - `civil-construction-1` および `civil-construction-2` 以外 → 「対象外。cem-qa or content-qa を使ってください」と案内して終了
+   - 注: 2級対応の PDF_ROOT 切替（verify-pdf-mdx.mjs）は Phase 1 で対応。Phase 0 時点では 2級 textbook/guide が無いため呼び出しは想定されない
 3. `group` で動作モードを決定:
    - `textbook` → Mode A
    - `guide` → Mode B

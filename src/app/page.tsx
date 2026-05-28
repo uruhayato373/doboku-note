@@ -27,6 +27,15 @@ const EXAM_DATA = [
     variant: "civil" as const,
   },
   {
+    slug: "civil-construction-2",
+    label: "2級土木施工管理技士",
+    en: "CCCE Grade 2",
+    subtitle: "第1次・第2次検定 完全対策（前期・後期2回開催）",
+    description: "受験資格緩和後の若手技術者向け。令和3年度〜7年度 過去問解説、経験記述ガイド、分野別の基礎ポイントを収録。",
+    nextExam: "2026年6月 前期 / 10月 後期・第2次",
+    variant: "civil" as const,
+  },
+  {
     slug: "pe-comprehensive-management",
     label: "技術士（総合技術監理部門）",
     en: "PE Comprehensive Management",
@@ -71,6 +80,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
 export default async function HomePage() {
   const allMeta = getAllDocsMeta();
   const civil = getDocsMetaByCategory("civil-construction-1");
+  const civil2 = getDocsMetaByCategory("civil-construction-2");
   const pe = getDocsMetaByCategory("pe-comprehensive-management");
 
   const exams = [
@@ -84,6 +94,14 @@ export default async function HomePage() {
     },
     {
       ...EXAM_DATA[1]!,
+      stats: [
+        { k: "記事", v: civil2.length.toLocaleString() },
+        { k: "過去問", v: civil2.filter((m) => m.tags?.includes("past-questions") || m.group === "primary" || m.group === "secondary").length.toLocaleString() },
+        { k: "ガイド", v: civil2.filter((m) => m.tags?.includes("guide") || m.group === "guide").length.toLocaleString() },
+      ],
+    },
+    {
+      ...EXAM_DATA[2]!,
       stats: [
         { k: "記事", v: pe.length.toLocaleString() },
         { k: "キーワード", v: pe.filter((m) => m.group === "keyword" || m.tags?.includes("keyword")).length.toLocaleString() },

@@ -18,7 +18,7 @@ description: >
 | 役割 | 担当 | 性質 |
 |---|---|---|
 | **評価（5軸ルーブリック）** | `civil-construction-qa` / `cem-qa` / `content-qa` | Evaluator 専任（修正しない） |
-| **PDF→MDX 変換** | `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}` | Generator（初回変換） |
+| **PDF→MDX 変換** | `/pdf-to-mdx --exam {cem\|civil-construction-1\|civil-construction-2\|general}` | Generator（初回変換） |
 | **キーワードページリライト** | `keyword-rewriter` | Generator（バルク改訂） |
 | **SVG 図版作成** | `/create-svg` | Generator（図版） |
 | **バルク品質サイクル** | `/quality-cycle`（CEM 専用） | Orchestrator（700 件回す） |
@@ -59,6 +59,8 @@ Generator / Evaluator 分離原則は維持する。本スキルは「評価を�
 |---|---|---|
 | `civil-construction-1` | `textbook` / `guide` | `civil-construction-qa` |
 | `civil-construction-1` | `primary` / `secondary` / `past-exam` | `content-qa` |
+| `civil-construction-2` | `textbook` / `guide` | `civil-construction-qa` |
+| `civil-construction-2` | `primary` / `secondary` / `past-exam` | `content-qa` |
 | `pe-comprehensive-management` | `keyword` | `cem-qa` |
 | `pe-comprehensive-management` | `exam-index` / `section` / `r*-primary` | `cem-qa`（モード自動判別） |
 | その他 | — | `content-qa` |
@@ -222,6 +224,9 @@ frontmatter の `category` / `group` から呼び出す Evaluator を決定:
 | `civil-construction-1` | `textbook` | `civil-construction-qa` | textbook（視覚検証＋網羅率 95%）|
 | `civil-construction-1` | `guide` | `civil-construction-qa` | guide（topic_rate 80%）|
 | `civil-construction-1` | `primary` / `secondary` / `past-exam` | `content-qa` | 静的 5 軸 |
+| `civil-construction-2` | `textbook` | `civil-construction-qa` | textbook（視覚検証＋網羅率 95%）|
+| `civil-construction-2` | `guide` | `civil-construction-qa` | guide（topic_rate 80%）|
+| `civil-construction-2` | `primary` / `secondary` / `past-exam` | `content-qa` | 静的 5 軸 |
 | `pe-comprehensive-management` | `keyword` | `cem-qa` | — |
 | `pe-comprehensive-management` | `past-exam` / `guide` / `r*-primary` | `content-qa` | — |
 | その他 | — | 「対応するエージェントがありません」と案内 | — |

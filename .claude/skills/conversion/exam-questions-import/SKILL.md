@@ -11,14 +11,14 @@ description: >
 ## 引数
 
 ```
-/exam-questions-import --exam {civil-primary|civil-secondary|pe-primary} --year <year> [--sub {a|b}] [--pages N-M] [--mode add-answers]
+/exam-questions-import --exam {civil-primary|civil-secondary|civil-primary-2|civil-secondary-2|pe-primary} --year <year> [--sub {a|b|zenki|kouki}] [--pages N-M] [--mode add-answers]
 ```
 
 | 引数 | 必須 | 説明 |
 |---|---|---|
 | `--exam` | 必須 | 試験・検定を指定。template 切替に使用 |
 | `--year` | 必須 | 年度（例: `r07` / `r02` / `h30`） |
-| `--sub` | 条件付 | 問題 A/B の指定（civil-primary のみ） |
+| `--sub` | 条件付 | 試験別の区分指定。**1級**: 問題 A/B（`a` / `b`） **2級**: 前期/後期（`zenki` / `kouki`） |
 | `--pages` | 任意 | PDF ページ範囲（省略時は template で自動推定） |
 | `--mode add-answers` | 任意 | 既存 MDX の未解答設問に解答・解説を追加（旧 `/add-exam-answers` 吸収） |
 
@@ -28,6 +28,8 @@ description: >
 |---|---|---|---|
 | `civil-primary` | 1級土木施工管理 第1次検定 | 4 択選択式 | `templates/civil-primary.md` |
 | `civil-secondary` | 1級土木施工管理 第2次検定 | 記述式 | `templates/civil-secondary.md` |
+| `civil-primary-2` | 2級土木施工管理 第1次検定（前期/後期） | 4 択選択式 | `templates/civil-primary-2.md` |
+| `civil-secondary-2` | 2級土木施工管理 第2次検定 | 記述式 | `templates/civil-secondary-2.md` |
 | `pe-primary` | 技術士総合技術監理 第1次試験 | 5 択選択式 | `templates/pe-primary.md` |
 
 新試験を追加する場合は `templates/{exam-id}.md` を新規作成のみ。
@@ -112,6 +114,15 @@ node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 
 # 1級土木 令和6年度 第2次（記述式）
 /exam-questions-import --exam civil-secondary --year r06
+
+# 2級土木 令和7年度 第1次（前期）
+/exam-questions-import --exam civil-primary-2 --year r07 --sub zenki
+
+# 2級土木 令和7年度 第1次（後期）
+/exam-questions-import --exam civil-primary-2 --year r07 --sub kouki
+
+# 2級土木 令和7年度 第2次
+/exam-questions-import --exam civil-secondary-2 --year r07
 
 # 技術士総監 令和7年度 第1次
 /exam-questions-import --exam pe-primary --year r07

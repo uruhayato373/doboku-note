@@ -192,13 +192,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 4.5. (廃止) 国土交通白書ハブ記事 (mlit-whitepaper-2025) は 2026-05-18 撤回済み。
   //       M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ転換、note 単独記事化。
 
-  // 4.6. management-tradeoffs (5管理間トレードオフ 横断ガイド) → 自治体 道路担当 magazine の直リンク
-  //     2026-05-28 追加: 6 ペアの「具体的模範解答」言及からハブ 2-hop で行く動線を、
-  //     記事末尾の inline magazine card で 1-hop 化する（feedback by user 2026-05-28）。
-  //     3 ペルソナ並列ではなく道路担当 1 本に絞る（記事内で参照しているフル論文がいずれも自治体道路担当版のため）。
+  // 4.6. management-tradeoffs (5管理間トレードオフ 横断ガイド) → 自治体 道路担当 magazine
+  //     2026-05-28: 当初は記事末尾 inline + sidebar の両方を出していたが、
+  //     ユーザ要望により inline を撤回し、本文中の <MagazineCard> 直接配置に切替。
+  //     sidebar 側のみ placement 経由で維持（PC 右ペインの固定可視性を確保）。
   if (slug === 'pe-comprehensive-management-management-tradeoffs') {
     return {
-      inline: [slot('essay-road-municipality-magazine', slug, 'inline-1')],
+      inline: [],
       sidebar: [slot('essay-road-municipality-magazine', slug, 'sidebar-1')],
       inlineMobileOnly: false,
     };

@@ -6,7 +6,7 @@ title: 試験別コンテンツ整備方針 + レビュー視点
 
 doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / どこまで / どの粒度で書くか**」が異なる。デザインの一貫性は保ちつつ、コンテンツ密度・忠実性・出題反映度は試験ごとに方針を変える。
 
-**いつ読むか**: PDF→MDX 変換時（`/pdf-to-mdx --exam civil-construction-1`, `/pdf-to-mdx --exam cem`, `/pdf-to-mdx`）、品質レビュー時（`/improve-article --mode verify`, `/review`）、新資格追加時。
+**いつ読むか**: PDF→MDX 変換時（`/pdf-to-mdx --exam {civil-construction-1|civil-construction-2|cem|general}`）、過去問変換時（`/exam-questions-import --exam {civil-primary|civil-primary-2|civil-secondary|civil-secondary-2|pe-primary}`）、品質レビュー時（`/improve-article --mode verify`, `/review`）、新資格追加時。
 
 このファイルは **執筆フェーズ（Generator 側）** と **レビューフェーズ（Evaluator 側）** の両方の判断基準を統合している。
 
@@ -16,16 +16,21 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 
 ### 試験別の整備方針差分
 
-| 観点 | 1級土木 textbook | 1級土木 guide | 総監キーワード | 総監過去問 |
-|---|---|---|---|---|
-| **目的** | 教科書の電子化 | 出題傾向の要約 | キーワード集の概念解説 | 過去問の解説 |
-| **真実源** | 教科書 PDF 原本 | 過去問+編集判断 | キーワード集2026 | 過去問 PDF |
-| **コンテンツ密度** | 高（網羅95%以上） | 中（ポイント抽出） | 低（要約中心） | 高（逐条+解説） |
-| **典型的な長さ** | 5,000-15,000字 | 2,000-5,000字 | 800-2,500字 | 3,000-8,000字 |
-| **図の標準量** | 多数（断面・配筋・施工写真） | 少数（重要箇所のみ） | ほぼゼロ（テキスト中心） | 原本準拠（あれば） |
-| **数式** | 頻出（W/C 比・配合・力学） | 限定的 | 少ない | 問題文に応じて |
-| **Generator スキル** | `/pdf-to-mdx --exam civil-construction-1` | 手動編集 | `/keyword-page` | `/pdf-to-mdx` `/pdf-to-mdx --exam cem` |
-| **Evaluator エージェント** | `civil-construction-qa` (textbook mode) | `civil-construction-qa` (guide mode) | `cem-qa` | `content-qa` |
+| 観点 | 1級土木 textbook | 1級土木 guide | 2級土木 guide | 2級土木 過去問 | 総監キーワード | 総監過去問 |
+|---|---|---|---|---|---|---|
+| **目的** | 教科書の電子化 | 出題傾向の要約 | 基礎範囲の解説（独自執筆） | 公開過去問の逐条解説 | キーワード集の概念解説 | 過去問の解説 |
+| **真実源** | 教科書 PDF 原本 | 過去問+編集判断 | 過去問+編集判断（2級向け基礎） | 過去問 PDF | キーワード集2026 | 過去問 PDF |
+| **コンテンツ密度** | 高（網羅95%以上） | 中（ポイント抽出） | 中（基礎重視） | 高（逐条+解説） | 低（要約中心） | 高（逐条+解説） |
+| **典型的な長さ** | 5,000-15,000字 | 2,000-5,000字 | 2,000-4,000字 | 第1次3,000-5,000字 / 第2次4,000-8,000字 | 800-2,500字 | 3,000-8,000字 |
+| **図の標準量** | 多数（断面・配筋・施工写真） | 少数（重要箇所のみ） | 少数（基礎の図のみ） | 原本準拠（あれば） | ほぼゼロ（テキスト中心） | 原本準拠（あれば） |
+| **数式** | 頻出（W/C 比・配合・力学） | 限定的 | 基礎数式のみ | 問題文に応じて | 少ない | 問題文に応じて |
+| **Generator スキル** | `/pdf-to-mdx --exam civil-construction-1` | 手動編集 | `/exam-guide --exam civil-construction-2` | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` | `/keyword-page` | `/pdf-to-mdx` `/pdf-to-mdx --exam cem` |
+| **Evaluator エージェント** | `civil-construction-qa` (textbook mode) | `civil-construction-qa` (guide mode) | `civil-construction-qa` (guide mode、category フィルタ拡張済み) | `content-qa` | `cem-qa` | `content-qa` |
+
+**2級土木の補足**:
+- **前期/後期の区分**: 2級は第1次が前期（6月）/後期（10月）の2回開催。過去問 MDX は `primary-{year}-{zenki\|kouki}` 命名（1級の `primary-{year}-{a\|b}` と命名規則が異なる）
+- **guide 方針**: 1級ガイドの流用ではなく独自執筆（読者層・難易度が異なる、SEO 重複回避）。10本のコア guide（`guide-2-strategy`, `guide-2-experience-writing-basics` 等）を Phase 2 で整備
+- **経験記述採点基準**: 1級より緩い（主任技術者視点）が、5要素（現場状況→課題→検討→処置→評価）の網羅は同水準で書く
 
 ### 試験別の判断ガイド
 

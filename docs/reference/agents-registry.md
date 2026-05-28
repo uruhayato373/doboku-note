@@ -83,7 +83,7 @@ title: サブエージェント詳細レジストリ
 
 - **PDF→MDX 変換**: `/pdf-to-mdx`（Generator スキル）→ `content-qa`（Evaluator エージェント）
 - **キーワードページ**: `/keyword-page`（Generator スキル）→ `cem-qa`（Evaluator エージェント）
-- **1級土木 textbook/guide**: `/pdf-to-mdx --exam civil-construction-1`（Generator スキル）→ `civil-construction-qa`（Evaluator エージェント）
+- **1級・2級土木 textbook/guide**: `/pdf-to-mdx --exam {civil-construction-1|civil-construction-2}`（Generator スキル）→ `civil-construction-qa`（Evaluator エージェント、category フィルタで両級対応）
 
 ### Evaluator エージェントの区別
 
@@ -117,7 +117,8 @@ title: サブエージェント詳細レジストリ
 | 週次 PDCA（簡略版） | strategy-advisor（weekly-review → weekly-plan） |
 | キーワードページ作成 | `/keyword-page`（Generator） → `cem-qa`（Evaluator）→ 不合格なら再修正 |
 | キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
-| 1級土木 textbook 変換 | `/pdf-to-mdx --exam civil-construction-1`（Generator） → `civil-construction-qa`（Evaluator） → `/improve-article --mode verify` |
+| 1級・2級土木 textbook 変換 | `/pdf-to-mdx --exam {civil-construction-1\|civil-construction-2}`（Generator） → `civil-construction-qa`（Evaluator） → `/improve-article --mode verify` |
+| 2級土木 過去問変換 | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` --year r0X [--sub zenki\|kouki]（Generator） → `content-qa`（Evaluator） → `civil-secondary-exam-writer`（解答補完、Phase 1 対応予定） |
 | 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-review`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
 | UI コンポーネント変更 | 親エージェント（Generator） → `/design-review --visual`（視覚検証・スキル層で完結） → `/simplify` で修正 |
 

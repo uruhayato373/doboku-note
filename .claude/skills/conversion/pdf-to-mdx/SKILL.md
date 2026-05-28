@@ -11,7 +11,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 ## 引数
 
 ```
-/pdf-to-mdx <pdf-path> --exam {general|cem|civil-construction-1} [--pages N-M] [--output-dir ...]
+/pdf-to-mdx <pdf-path> --exam {general|cem|civil-construction-1|civil-construction-2} [--pages N-M] [--output-dir ...]
 ```
 
 | 引数 | 必須 | 説明 |
@@ -28,7 +28,8 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 |---|---|---|---|
 | `general` | 汎用変換（土木一般・施工管理・法律等） | `templates/general.md` | `.local/r2/posts/{category}/` |
 | `cem` | 技術士総合技術監理（論文・事例） | `templates/cem.md` | `.local/r2/posts/pe-comprehensive-management/` |
-| `civil-construction-1` | 1級土木施工管理（過去問・基準類） | `templates/civil-construction-1.md` | `.local/r2/posts/civil-construction-1/` |
+| `civil-construction-1` | 1級土木施工管理（教科書・ガイド・基準類） | `templates/civil-construction-1.md` | `.local/r2/posts/civil-construction-1/` |
+| `civil-construction-2` | 2級土木施工管理（教科書・ガイド・基準類） | `templates/civil-construction-2.md` | `.local/r2/posts/civil-construction-2/` |
 
 新試験を追加する場合は `templates/{exam-id}.md` を新規作成するのみ（スキル本体は変更不要）。
 

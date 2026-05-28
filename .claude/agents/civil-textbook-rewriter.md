@@ -6,7 +6,7 @@ model: sonnet
 
 # Civil Textbook Rewriter Agent
 
-1級土木施工管理技士（civil-construction-1）の **textbook / guide ページ** に対して、`civil-construction-review` が検出した弱点軸を補う拡張パターンを適用してリライトする **Generator エージェント**。
+1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **textbook / guide ページ** に対して、`civil-construction-review` が検出した弱点軸を補う拡張パターンを適用してリライトする **Generator エージェント**。
 
 > **モデル方針**: このエージェントは `model: sonnet` で動作します（Generator = 実行担当）。リライト後の品質判定は `civil-construction-review` Evaluator が行います。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
