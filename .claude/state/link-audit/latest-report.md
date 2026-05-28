@@ -1,13 +1,23 @@
 # 内部リンク監査レポート
 
-- 生成: 2026-05-21T22:31:34.429Z
+- 生成: 2026-05-28T22:35:35.365Z
 - スコープ: all
-- 走査ファイル: 875
-- チェックしたリンク: 12291
-- リンク切れ（HIGH）: 66
+- 走査ファイル: 905
+- チェックしたリンク: 12276
+- リンク切れ（HIGH）: 75
 - プレースホルダ（INFO）: 0
 
 ## リンク切れ（要修正）
+
+### .local/r2/posts/civil-construction-2/primary-r03-zenki/article.mdx
+
+- L1762 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-zenki"
+- L1763 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-kouki"
+
+### .local/r2/posts/civil-construction-2/primary-r05-zenki/article.mdx
+
+- L1553 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-zenki"
+- L1554 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-kouki"
 
 ### .local/r2/posts/pe-comprehensive-management/access-control/article.mdx
 
@@ -48,7 +58,7 @@
 
 ### .local/r2/posts/pe-comprehensive-management/disaster-weather-info/article.mdx
 
-- L47 `BROKEN_ANCHOR (slug=pe-comprehensive-management-h30-primary, #132)` — /docs/pe-comprehensive-management-h30-primary#132
+- L49 `BROKEN_ANCHOR (slug=pe-comprehensive-management-h30-primary, #132)` — /docs/pe-comprehensive-management-h30-primary#132
 
 ### .local/r2/posts/pe-comprehensive-management/economic-comparison-principle/article.mdx
 
@@ -106,11 +116,17 @@
 
 ### .local/r2/posts/pe-comprehensive-management/r03-essay-general-contractor/article.mdx
 
+- L122 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 - L124 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #合意形成情報開示)` — /docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示
 
 ### .local/r2/posts/pe-comprehensive-management/r03-essay-river-consultant/article.mdx
 
+- L119 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 - L121 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #合意形成情報開示)` — /docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示
+
+### .local/r2/posts/pe-comprehensive-management/r04-essay-general-contractor/article.mdx
+
+- L147 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 
 ### .local/r2/posts/pe-comprehensive-management/r04-essay-river-consultant/article.mdx
 
@@ -118,14 +134,18 @@
 
 ### .local/r2/posts/pe-comprehensive-management/r05-essay-general-contractor/article.mdx
 
+- L120 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 - L122 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #合意形成情報開示)` — /docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示
 
 ### .local/r2/posts/pe-comprehensive-management/r05-essay-river-consultant/article.mdx
 
+- L120 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
+- L121 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 - L122 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #合意形成情報開示)` — /docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示
 
 ### .local/r2/posts/pe-comprehensive-management/r06-essay-general-contractor/article.mdx
 
+- L110 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 - L111 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #合意形成情報開示)` — /docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示
 
 ### .local/r2/posts/pe-comprehensive-management/r06-essay-river-consultant/article.mdx
@@ -134,8 +154,10 @@
 
 ### .local/r2/posts/pe-comprehensive-management/r07-essay-general-contractor/article.mdx
 
+- L129 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 - L130 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #合意形成情報開示)` — /docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示
 - L131 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #合意形成情報開示)` — /docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示
+- L132 `BROKEN_ANCHOR (slug=pe-comprehensive-management-management-tradeoffs, #段階的実施)` — /docs/pe-comprehensive-management-management-tradeoffs#段階的実施
 
 ### .local/r2/posts/pe-comprehensive-management/r07-essay-river-consultant/article.mdx
 
@@ -178,14 +200,4 @@
 
 - L56 `BROKEN_SLUG` — /docs/pe-comprehensive-management-human-error
 - L56 `BROKEN_SLUG` — /docs/pe-comprehensive-management-toolbox-meeting
-
-### docs/note/r8予想問題-気候変動適応/article.md
-
-- L84 `BROKEN_SLUG` — https://doboku-note.com/docs/pattern-essay-road-municipality
-- L85 `BROKEN_SLUG` — https://doboku-note.com/docs/essay-pattern-cross-year-application
-
-### docs/note/r8予想問題-資源循環サプライチェーン/article.md
-
-- L86 `BROKEN_SLUG` — https://doboku-note.com/docs/pattern-essay-road-municipality
-- L87 `BROKEN_SLUG` — https://doboku-note.com/docs/essay-pattern-cross-year-application
 
