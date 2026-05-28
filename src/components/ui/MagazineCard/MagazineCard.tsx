@@ -33,8 +33,8 @@ export default function MagazineCard({ id, utmContent }: MagazineCardProps) {
       title={magazine.title}
       description={magazine.description}
       imageUrl={magazine.imageUrl}
-      price={magazine.price}
       badge={magazine.badge}
+      {...(magazine.price ? { price: magazine.price } : {})}
     />
   );
 }
