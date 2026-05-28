@@ -16,12 +16,18 @@
 
 | # | ファイル | reels 由来 | 役割 | 推奨ステッカー |
 |---|---|---|---|---|
-| 01 | `01-cover.png` | `reels/img/00-cover.png` | 興味喚起・新パック告知 | （任意） |
-| 02 | `02-problem.png` | `reels/img/01-problem.png` | Q1 を見せて「解いてみて」 | **投票**（1〜5） |
-| 03 | `03-answer.png` | `reels/img/02-answer.png` | Q1 の解答「答え合わせ」 | **質問**（双方向） |
-| 04 | `04-cta.png` | `reels/img/09-cta.png` | 「全パックはフィードへ」誘導 | **リンクスタンプ**必須 |
+| 01 | `01-cover.png` | **独立生成**（`data.mode === 'stories'`）| 興味喚起・新パック告知 | （任意） |
+| 02 | `02-problem.png` | `reels/img/01-problem.png` (copyFileSync) | Q1 を見せて「解いてみて」 | **投票**（1〜5） |
+| 03 | `03-answer.png` | `reels/img/02-answer.png` (copyFileSync) | Q1 の解答「答え合わせ」 | **質問**（双方向） |
+| 04 | `04-cta.png` | `reels/img/09-cta.png` (copyFileSync) | 「全パックはフィードへ」誘導 | **リンクスタンプ**必須 |
 
-選別ロジックは `.claude/scripts/instagram/build-stories.mjs` が機械処理。Writer は文言のキュレーションのみ。
+### cover の独立生成（v7 で確立）
+
+01-cover.png のみ Reels からのコピーではなく `build-stories.mjs` が `renderSlide({ slide: { type: 'quiz-cover', data: { mode: 'stories', ... } } })` で独立生成する。`quiz-slides.mjs` の `buildQuizCover` が `data.mode === 'stories'` を判定して `tokens.json` の `swipeTextStories`（「まずは1問やってみる」）に分岐する。
+
+**禁忌**: cover を Reels からのコピー（`copyFileSync(reels/img/00-cover.png, ...)`）に戻すと、Reels 用「答えは動画内で発表」または Carousel 用「スワイプで4問にチャレンジ」が Stories に流入する。これは Stories（1 問抜粋の試食）の文脈と矛盾するため、`ig-stories-qa` の軸 1 で **-2 重大減点**される。
+
+残り 3 枚（02-problem / 03-answer / 04-cta）は Reels と完全同一なのでコピーで足りる。
 
 ---
 

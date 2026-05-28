@@ -35,6 +35,11 @@ Instagram Stories 用 `stories/caption.txt` と `stories/note.md` の **品質�
    - 4 枚それぞれの文言が **3 秒で意味が取れる**短さか
    - 絵文字 1〜3 個に抑制されているか（4 個以上は -1）
    - 年度・管理分野・パック番号が **具体値**（テンプレの「令和7年度」のまま等は -1）
+   - **01-cover.png chip が Stories 文脈（1 問抜粋・試食）に合うか**を Read tool で実物確認:
+     - 期待値: 「まずは1問やってみる →」（tokens.json `swipeTextStories`）
+     - **重大減点 (-2)**:「スワイプで4問にチャレンジ」（Carousel 流用）が残存
+     - **重大減点 (-2)**:「答えは動画内で発表」（Reels 流用）が残存
+     - これは `build-stories.mjs` が Reels から cover をコピーしている旧実装の残骸を検出するためのチェック
 
    **軸 2: リンク導線整合**
    - 04-cta のリンクスタンプ URL が `note.md` に明記され、対応キーワードハブが実在するか

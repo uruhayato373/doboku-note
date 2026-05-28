@@ -137,6 +137,8 @@ title: スキル ガバナンス記録
 | 2026-05-27 | `generate-caption.cjs` | （文言確定） | カルーセル先頭行を「【令和X年度 択一式 過去問】R0X 過去問 #N」に固定。caption と cover-title を完全同期 |
 | 2026-05-28 | `yt-shorts-create` | v1.0 → v2.0（破壊的変更） | **戦略 v7 化に伴い `--slug` モード（MDX 直結）廃止 → `--from-reels <pack-id>` 一本化**。IG Reels パックの `slide-{00,01,02,09}.mp4` を ffmpeg concat で 30-60 秒に派生。`buildMeta` を別途 `buildMetaFromReels` に分岐し、UTM を `utm_source=youtube&utm_campaign=exam-pack-<pack-id>` に。`--slug` 呼出時は deprecation エラーで exit 1。MVP では字幕焼き込み未対応（Phase D2 で対応予定）。SKILL.md 全面書き換え |
 | 2026-05-28 | `quiz-slides.mjs` | （Reels モード分岐追加） | `buildQuizCover` で `height >= 1920` を判定し `SLIDES.cover.swipeTextReels`（"答えは動画内で発表"）に分岐。tokens.json に `swipeTextReels` フィールド追加。「スワイプで4問にチャレンジ」がカルーセル流用バグで Reels に残っていた問題を構造的に解消 |
+| 2026-05-28 | `quiz-slides.mjs` + `build-stories.mjs` | （Stories モード分岐追加） | Stories cover の独立生成を導入。`build-stories.mjs` が Reels の 00-cover.png をコピーするのを止め、`renderSlide({ slide: { type: 'quiz-cover', data: { mode: 'stories', ... } } })` で独立生成。`buildQuizCover` は `data.mode === 'stories'` を最優先判定し `SLIDES.cover.swipeTextStories`（"まずは1問やってみる"）に分岐。Reels と同サイズ（1080×1920）のため height では区別不可、mode 明示が必要。tokens.json に `swipeTextStories` フィールド追加。再発防止: 3 フォーマット同時再生成ルールを ig-carousel-restyle スキルに明記 |
+| 2026-05-28 | `ig-carousel-restyle` | v1.0 → v2.0（3 フォーマット対応） | tokens.json / quiz-slides.mjs 変更後の再生成範囲を Carousel 単独から **Carousel + Reels + Stories の 3 フォーマット必須**に変更。手順 §3 で 3 ステップ連続実行（Carousel → Reels → Stories の順、Stories は Reels に依存）を明文化。1 フォーマットだけ再生成して他に古い PNG が残るインシデント（v7 Phase B で Stories cover が古いまま残った）の再発防止 |
 
 ### カテゴリ変更履歴
 

@@ -1,19 +1,26 @@
 ---
 name: ig-carousel-restyle
-description: 新意匠/tokens 更新後に Instagram 過去問パック PNG を統一再生成するスキル。--pack/--year/--all で範囲指定。内部で bulk-generate-exam-packs.mjs を呼び出し、生成後にトークン整合性を簡易検証する。
+description: 新意匠/tokens 更新後に Instagram 過去問パック PNG を 3 フォーマット (Carousel/Reels/Stories) 統一再生成するスキル。--pack/--year/--all で範囲指定。内部で bulk-generate-exam-packs.mjs + build-stories.mjs を呼び出し、生成後にトークン整合性を簡易検証する。
 allowed-tools: Bash, Read
 ---
 
-# IG Carousel Restyle スキル
+# IG Carousel Restyle スキル（3 フォーマット対応）
 
-`docs/design-system/instagram-carousel-tokens.json` を変更した後に、既存 `_exam-packs/**` の PNG を新意匠で **統一再生成**するためのラッパー。
+`docs/design-system/instagram-carousel-tokens.json` または `quiz-slides.mjs` を変更した後に、既存 `_exam-packs/**` の PNG を **3 フォーマット（Carousel + Reels + Stories）すべてで統一再生成**するためのラッパー。
 
 ## いつ使うか
 
 - tokens.json の色・フォントサイズ・余白を変更したとき
+- tokens.json の `slides.cover.*Text*`（swipeText / swipeTextReels / swipeTextStories）を変更したとき
 - `quiz-slides.mjs` の構造を変更したとき
 - AIDesigner プロト等から新意匠を取り入れたとき
 - Manrope / NotoSansJP の weight を増減したとき
+
+## 重要: 3 フォーマット同時再生成の必須性
+
+cover の swipeText 系トークンや `quiz-slides.mjs` の `buildQuizCover` 内のロジックを変えた場合、**Carousel / Reels / Stories の 3 フォーマットすべてで PNG が変わる可能性**がある。1 フォーマットだけ再生成すると他フォーマットに古い PNG が残り、リリース時に不整合バグになる（v7 Phase B/C で実際に発生したインシデント）。
+
+本スキルは規定で 3 フォーマット連続実行する。Carousel だけ・Reels だけの部分再生成は **オプション** であり既定ではない。
 
 ## ig-post-create との違い
 
@@ -39,15 +46,29 @@ allowed-tools: Bash, Read
    ```bash
    node -e "JSON.parse(require('fs').readFileSync('docs/design-system/instagram-carousel-tokens.json'))" && echo OK
    ```
-2. 範囲を決定:
-   - `--pack r07-pack-01` → `scripts/bulk-generate-exam-packs.mjs --only r07-pack-01`
-   - `--year r07` → `scripts/bulk-generate-exam-packs.mjs --year r07`
-   - `--all` → ユーザーに「全 130 パック × 10 枚 = 1,300 枚を再生成します。続行しますか？」と確認後 `scripts/bulk-generate-exam-packs.mjs --all`
-3. 実行後、各パックの `carousel/img/00-cover.png` を 1 枚ずつ Read で表示し、tokens 準拠を確認:
-   - 表紙が白背景（`#FFFFFF`）+ 巨大「経済性管理」相当のタイトル + cover-big-q "Q"
-   - footer の「doboku-note」が brand 色（`#1858B5`）
-4. 不整合があれば指摘事項を返す（修正はしない）。
-5. ユーザーが OK したら `git status` で差分を提示。commit は別途。
+2. 範囲を決定（変数 RANGE）:
+   - `--pack r07-pack-01` → RANGE=`--only r07-pack-01`
+   - `--year r07` → RANGE=`--year r07`
+   - `--all` → ユーザーに「全 42 パック × 3 フォーマット = 約 1,260 枚を再生成します。続行しますか？」と確認後 RANGE=`--all`
+3. **3 フォーマット連続実行**（必須順序）:
+   ```bash
+   # ステップ A: Carousel (1080×1350)
+   node scripts/bulk-generate-exam-packs.mjs $RANGE --size carousel --skip-caption --skip-lint
+   # ステップ B: Reels (1080×1920)
+   node scripts/bulk-generate-exam-packs.mjs $RANGE --size reels --skip-caption --skip-lint
+   # ステップ C: Stories (1080×1920、cover のみ独立生成 + 他 3 枚は Reels コピー)
+   for d in <対象 pack-dir 群>; do
+     node .claude/scripts/instagram/build-stories.mjs "$d"
+   done
+   ```
+   Stories は Reels の slide-NN.mp4 / PNG に依存するため **必ず Reels の後**。
+4. 実行後、3 フォーマットの cover を 1 枚ずつ Read で表示し、文言が tokens 準拠かを確認:
+   - Carousel `carousel/img/00-cover.png`: chip 文言 = tokens.json `slides.cover.swipeText`
+   - Reels `reels/img/00-cover.png`: chip 文言 = tokens.json `slides.cover.swipeTextReels`
+   - Stories `stories/img/01-cover.png`: chip 文言 = tokens.json `slides.cover.swipeTextStories`
+   - 共通: cover-big-q "Q"・footer brand 色（`#1858B5`）
+5. 不整合があれば指摘事項を返す（修正はしない）。
+6. ユーザーが OK したら `git status` で差分を提示。commit は別途。
 
 ## 出力
 
