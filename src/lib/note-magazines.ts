@@ -141,7 +141,7 @@ const MAGAZINES_RAW = {
   },
 
   // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
-  // 原稿配置: docs/note/magazines/2級土木-施工経験記述-完成答案集/
+  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-完成答案集/
   // 公開準備中 (published: false)。note 公開で noteUrl 取得後に true へ。
   'civil-2-experience-essay': {
     id: 'civil-2-experience-essay',
@@ -155,6 +155,24 @@ const MAGAZINES_RAW = {
       '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
     imageUrl: '/images/magazines/civil-2-experience-essay-cover.webp',
     price: '¥1,980（3本セット）',
+    badge: 'note 限定',
+  },
+
+  // ----- 1級土木 施工経験記述ライン (2026-05-29) -----
+  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-完成答案集/
+  // 公開準備中 (published: false)。note 公開で noteUrl 取得後に true へ。
+  'civil-1-experience-essay': {
+    id: 'civil-1-experience-essay',
+    published: false,
+    noteUrl: '',
+    title: '1級土木 施工経験記述｜工種×テーマ別 完成答案集（5管理）',
+    description:
+      '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。品質・安全・工程・施工計画・環境対策の5管理別に、複数工種のフル完成答案（監理技術者レベル）＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）に対応。',
+    shortTitle: '1級土木 施工経験記述 完成答案集',
+    shortDescription:
+      '5管理別 完成答案（監理技術者レベル）＋置換ガイド＋採点者視点。R6新形式対応。',
+    imageUrl: '/images/magazines/civil-1-experience-essay-cover.webp',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
 } as const satisfies Record<string, NoteMagazine>;

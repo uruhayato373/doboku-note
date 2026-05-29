@@ -241,5 +241,18 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 8. 1級土木 施工経験記述（guide / examples / 年度別 secondary r0X）
+  //    → 完成答案集マガジン（civil-1-experience-essay、5管理・監理技術者レベル）。
+  //    published: false の間は getMagazine が null を返し CTA 非表示（防御的）。
+  if (
+    /^civil-construction-1-secondary-(experience-writing-(guide|examples)|r0[1-9])$/.test(slug)
+  ) {
+    return {
+      inline: [slot('civil-1-experience-essay', slug, 'inline-1')],
+      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
   return EMPTY;
 }
