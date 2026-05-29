@@ -1,0 +1,103 @@
+name: Audit R2 image sync
+
+# .local/r2/posts の画像が R2 バケットに正しく同期されているかを定期監査する。
+#
+# 目的: r2-sync の「サイレント失敗」を早期検知する二重チェック。
+#   2026-05 に R2 トークンが失効し、upload スクリプトが個別失敗を握りつぶして
+#   exit 0 を返していたため、約2週間「Uploaded: 0」が success 表示のまま放置され、
+#   本番画像が 404 になっていた。r2-sync 側は失敗で赤く落ちるよう修正済みだが、
+#   本監査はそれが走らないケース（画像 push を伴わない drift 等）の backstop。
+#
+# diff-r2 は読み取り専用（ListObjectsV2）。書き込み権限は不要。
+# 基準は main: R2 は main push 時のみ同期されるため、develop-only コンテンツを
+#   比較対象にすると「未同期」と誤検知する。よって main を checkout して比較する。
+
+on:
+  schedule:
+    - cron: "0 22 * * 0" # 毎週月曜 07:00 JST（日曜 22:00 UTC）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout main (production source)
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Diff local (main) vs R2 — images only
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set +e
+          node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --images-only --json > r2-diff.json
+          DIFF_EXIT=$?
+          set -e
+
+          # diff-r2 は creds 不足で exit 2（stdout に JSON を出さない）、
+          # トークン無効だと S3 例外で異常終了する。JSON が無ければ「監査実行不能」= 失敗。
+          if ! node -e "JSON.parse(require('fs').readFileSync('r2-diff.json','utf8'))" 2>/dev/null; then
+            echo "::error::diff-r2 が JSON を出力しませんでした（R2 認証失敗/権限不足の可能性, exit=$DIFF_EXIT）"
+            {
+              echo "## R2 監査: 実行失敗"
+              echo ""
+              echo "diff-r2 が JSON を返しませんでした（exit=$DIFF_EXIT）。"
+              echo "R2 トークン（CLOUDFLARE_R2_ACCESS_KEY_ID / SECRET）の有効性・権限を確認してください。"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          node -e '
+            const fs = require("fs");
+            const d = JSON.parse(fs.readFileSync("r2-diff.json", "utf8"));
+            const miss = d.onlyLocal || [];       // local にあるが R2 に無い = 同期漏れ（致命）
+            const mism = d.sizeMismatch || [];     // サイズ不一致 = 古い/壊れた同期
+            const orphan = d.onlyRemote || [];     // R2 のみ = 削除済みの残骸（許容）
+            const out = [];
+            out.push("## R2 画像同期 監査");
+            out.push("");
+            out.push("| 指標 | 件数 |");
+            out.push("|---|---|");
+            out.push(`| local(main) 画像 | ${d.localCount} |`);
+            out.push(`| R2 画像 | ${d.remoteCount} |`);
+            out.push(`| **未同期 (local にあるが R2 に無い)** | **${miss.length}** |`);
+            out.push(`| **サイズ不一致** | **${mism.length}** |`);
+            out.push(`| R2 のみ (orphan・許容) | ${orphan.length} |`);
+            const samples = [...miss, ...mism].slice(0, 15);
+            if (samples.length) {
+              out.push("");
+              out.push("### 要対応の例");
+              for (const x of samples) out.push(`- ${x.key}`);
+              const total = miss.length + mism.length;
+              if (total > 15) out.push(`- ... 他 ${total - 15} 件`);
+            }
+            const fail = miss.length > 0 || mism.length > 0;
+            out.push("");
+            if (fail) {
+              out.push("> **対処**: R2 トークンの有効性を確認し、`gh workflow run r2-sync.yml` で再同期してください。");
+            } else {
+              out.push("OK: main の画像はすべて R2 に同期されています。");
+            }
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join("\n") + "\n");
+            if (fail) {
+              console.error(`R2 同期漏れ: 未同期 ${miss.length} 件 / サイズ不一致 ${mism.length} 件`);
+              process.exit(1);
+            }
+            console.log("R2 in sync (images).");
+          '

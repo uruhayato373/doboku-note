@@ -24,6 +24,10 @@ if (fs.existsSync(envPath)) {
 }
 const contentDir = path.join(root, '.local', 'r2', 'posts');
 
+// R2 のキーは常に '/' 区切り。Windows の path.join は '\\' を返すため正規化する
+// （未正規化だと R2 キーが 'posts/...\\...\\q01.webp' になり URL と一致せず 404 になる）。
+const toPosix = (p) => p.split(path.sep).join('/');
+
 const ACCOUNT_ID = process.env.CLOUDFLARE_ACCOUNT_ID;
 const ACCESS_KEY = process.env.CLOUDFLARE_R2_ACCESS_KEY_ID;
 const SECRET_KEY = process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY;
@@ -97,10 +101,12 @@ function findMdxFiles(dir, base = '') {
 
 let items = [];
 
+const normPrefix = filterPrefix ? toPosix(filterPrefix) : null;
+
 if (uploadBoth || !mdxOnly) {
   const images = findImages(contentDir);
-  if (filterPrefix) {
-    items.push(...images.filter((img) => img.rel.startsWith(filterPrefix)));
+  if (normPrefix) {
+    items.push(...images.filter((img) => toPosix(img.rel).startsWith(normPrefix)));
   } else {
     items.push(...images);
   }
@@ -108,8 +114,8 @@ if (uploadBoth || !mdxOnly) {
 
 if (uploadBoth || mdxOnly) {
   const mdxFiles = findMdxFiles(contentDir);
-  if (filterPrefix) {
-    items.push(...mdxFiles.filter((mdx) => mdx.rel.startsWith(filterPrefix)));
+  if (normPrefix) {
+    items.push(...mdxFiles.filter((mdx) => toPosix(mdx.rel).startsWith(normPrefix)));
   } else {
     items.push(...mdxFiles);
   }
@@ -119,7 +125,7 @@ console.log(`Found ${items.length} items${dryRun ? ' (dry-run)' : ''}`);
 if (filterPrefix) console.log(`  Prefix: ${filterPrefix}`);
 
 if (dryRun) {
-  for (const item of items.slice(0, 20)) console.log(`  ${item.rel}`);
+  for (const item of items.slice(0, 20)) console.log(`  posts/${toPosix(item.rel)}`);
   if (items.length > 20) console.log(`  ... and ${items.length - 20} more`);
   process.exit(0);
 }
@@ -130,7 +136,7 @@ let failed = 0;
 const startTime = Date.now();
 
 async function uploadOne(item) {
-  const key = `posts/${item.rel}`;
+  const key = `posts/${toPosix(item.rel)}`;
   let contentType;
 
   if (item.type === 'mdx') {
@@ -181,3 +187,11 @@ for (let i = 0; i < items.length; i += CONCURRENCY) {
 
 const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
 console.log(`\nDone in ${elapsed}s! Uploaded: ${uploaded}, Skipped: ${skipped}, Failed: ${failed}`);
+
+// 1 件でも失敗したら非ゼロ終了で CI を赤くする。
+// （旧実装は個別失敗を握りつぶし exit 0 を返すため、R2 トークン失効が約2週間
+//  サイレントに進行し本番画像 404 を放置していた。2026-05-29 再発防止で追加）
+if (failed > 0) {
+  console.error(`\nERROR: ${failed} upload(s) failed. R2 認証(トークン)・権限を確認してください。`);
+  process.exitCode = 1;
+}

@@ -8,6 +8,55 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-05-16〜29: R2 アップロード Unauthorized の握り潰しによる本番画像 404（約2週間サイレント）
+
+### 現象
+
+- 本番（`storage.doboku-note.com`）で civil-construction-2 の図版（47 webp）等が 404。ローカル `npm run dev` では表示される。
+- `r2-sync.yml`（main push で `img/**` 変更時に `upload-images-r2 --images-only` 実行）は毎回 **"success" 表示**。
+- だが実ログは `Done in Xs! Uploaded: 0, Skipped: 0, Failed: 2647`（全件 Unauthorized）。少なくとも 2026-05-16 以降の全 run で `Uploaded: 0`。
+
+### 根本原因
+
+- R2 API トークン（GitHub Secret `CLOUDFLARE_R2_ACCESS_KEY_ID` / `SECRET`）が失効/無効で、PutObject が `Unauthorized`。
+- `upload-images-to-r2.mjs` が **個別ファイルの失敗を try/catch で握り潰し、`failed` をカウントするだけで exit 0** を返していたため、workflow が緑（success）のまま。
+- 失効前にアップ済みの旧画像（pe / civil-1）は R2 に残り 200 → **「一部だけ出ない」**状態で気づきにくかった。
+
+### 気づきの遅延理由（致命度: 中）
+
+- workflow が success 表示＝監視上は健全に見えた（exit 0 の握り潰し）ため、約2週間誰も気づかず。
+- ユーザーが「ローカルでは出るが本番で画像が出ない」と気づいて初めて発覚。
+
+### 検証中に踏んだ「外部検証アクセスの罠」（このサンドボックス固有・再利用可）
+
+- **S3 API 直叩き不可**: `@aws-sdk/client-s3` の HeadObject がプロキシ/TLS で全件 `Unknown` エラー（CDN 200 のオブジェクトすら MISSING と誤判定）。バケット実在判定に使えない。
+- **`curl -I` の罠**: `HTTP/1.0 200 Connection established` はプロキシの CONNECT トンネル応答であり実 HTTP ステータスではない。実ステータスは **`curl -s -o /dev/null -w "%{http_code}"`** で取る。
+- **CDN 404 キャッシュの切り分け**: 通常 URL が 404 でも「オブジェクト不在」か「404 キャッシュ」か不明 → **`?cb=<random>` のキャッシュバスター**でオリジン(R2)を直に叩いて判定（cb 付きも 404 なら真にバケット不在）。
+- **`git cat-file -e <ref>:<path>` の罠（Windows bash）**: `origin/main:path` の `:` が `;`・`/` が `\` に変換され false negative になる。存在判定は **`git ls-tree -r <ref> -- <path>`** を使う。
+
+### 適用した対策
+
+- ユーザーが Cloudflare で R2 トークン再発行 + GitHub Secrets 更新 → `gh workflow run r2-sync.yml` で再同期（`Uploaded: 2647, Failed: 0`）。本番 200 確認。
+- **再発防止（code）**: `upload-images-to-r2.mjs` を **失敗1件でも `process.exitCode = 1`** に変更 → 次回トークン失効時は CI が赤く落ちる。併せて Windows パス区切り正規化（`toPosix`。未正規化だと R2 キーが `posts/…\…` になり別の 404 を生む）。
+- **二重チェック（CI）**: `.github/workflows/r2-audit.yml` 新設。週次 + 手動で `diff-r2 --images-only --json` を **main 基準**で実行し、未同期 / サイズ不一致 / 認証失敗で赤落ち。
+- 注: 上記 code/CI 変更は 2026-05-29 時点で feature ブランチ上に**未コミット保留**（並行セッションとの衝突回避）。handoff `2026-05-29-r2-content-fallback-removal.md` 参照。
+
+### 教訓
+
+1. **一括アップロード/同期スクリプトは「個別失敗の握り潰し + exit 0」を避ける**。1 件でも失敗したら非ゼロ終了で CI を赤くする。success 表示は「全件成功」を意味しなければならない。
+2. **"workflow success" は "処理成功" ではない**。集計ログ（Uploaded / Failed）まで見ないと握り潰しを見抜けない。監視は exit code に依存させる。
+3. **トークン失効は部分的な症状で出る**（新規追加分だけ欠落、既存は残存）。「一部だけ出ない」は権限/同期の部分失敗をまず疑う。CLAUDE.md §12「Cloudflare トークン期限切れを仮説 1 番」と整合。
+4. **本番/ストレージ検証はこのサンドボックスで罠が多い**: 実ステータスは `curl %{http_code}`、CDN キャッシュ切り分けは cache-buster、バケット実在は CDN 経由で確認（S3 直叩きはプロキシで不可）、git の `ref:path` 判定は `ls-tree`。
+5. **R2 同期の健全性を受動監視（push 時）だけに頼らない**。`diff-r2` の定期監査で「local にあるが R2 に無い」を能動検知する。
+
+### 関連
+
+- `.claude/scripts/upload-images-to-r2.mjs` - 同期スクリプト（exit 1 化 + パス正規化）
+- `.github/workflows/r2-sync.yml` - main push 時の R2 同期
+- `.github/workflows/r2-audit.yml` - 週次 diff-r2 監査（新設）
+- `.claude/skills/dev/diff-r2/scripts/diff-r2.mjs` - 差分監査
+- handoff `docs/handoffs/2026-05-29-r2-content-fallback-removal.md`
+
 ## 2026-04-26: GA4 direct US bot スパイクと weekly-metrics 母数汚染
 
 ### 現象
