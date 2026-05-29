@@ -241,14 +241,25 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 8. 1級土木 施工経験記述（guide / examples / 年度別 secondary r0X）
-  //    → 完成答案集マガジン（civil-1-experience-essay、5管理・監理技術者レベル）。
-  //    published: false の間は getMagazine が null を返し CTA 非表示（防御的）。
-  if (
-    /^civil-construction-1-secondary-(experience-writing-(guide|examples)|r0[1-9])$/.test(slug)
-  ) {
+  // 8. 1級土木 施工経験記述 → 2マガジン（過去問年度別＋テーマ別5管理）。
+  //    年度別ページ(r0X)は過去問マガジン(pastexam)が年度一致で主、テーマ別(experience)が副。
+  //    guide/examples は両方を提示。published: false の間は getMagazine が null で CTA 非表示。
+  if (/^civil-construction-1-secondary-r0[1-9]$/.test(slug)) {
     return {
-      inline: [slot('civil-1-experience-essay', slug, 'inline-1')],
+      inline: [
+        slot('civil-1-pastexam-essay', slug, 'inline-1'),
+        slot('civil-1-experience-essay', slug, 'inline-2'),
+      ],
+      sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+  if (/^civil-construction-1-secondary-experience-writing-(guide|examples)$/.test(slug)) {
+    return {
+      inline: [
+        slot('civil-1-experience-essay', slug, 'inline-1'),
+        slot('civil-1-pastexam-essay', slug, 'inline-2'),
+      ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
     };

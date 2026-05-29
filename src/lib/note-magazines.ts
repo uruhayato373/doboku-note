@@ -175,6 +175,23 @@ const MAGAZINES_RAW = {
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
+
+  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/
+  // 過去問の年度別模範答案集（テーマ別の civil-1-experience-essay と対）。published: false。
+  'civil-1-pastexam-essay': {
+    id: 'civil-1-pastexam-essay',
+    published: false,
+    noteUrl: '',
+    title: '1級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
+    description:
+      '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対するフル模範答案（監理技術者レベル）＋置換ガイド＋採点者視点を収録。令和6年度以降の2テーマ必答にも対応。',
+    shortTitle: '1級土木 施工経験記述 過去問模範答案集',
+    shortDescription:
+      'R03-R07 年度別 フル模範答案（実問題文再掲・監理技術者レベル）。R6新形式対応。',
+    imageUrl: '/images/magazines/civil-1-pastexam-essay-cover.webp',
+    price: '¥2,480（5本セット）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
