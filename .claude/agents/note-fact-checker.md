@@ -30,8 +30,23 @@ note 公開用ドラフトの本文中の **数値・固有名詞・頻度主張
 | **B. キーワードページ参照** | 本文中のリンク先キーワードページ（`pe-comprehensive-management-{slug}/article.mdx`）の説明と本文記述が矛盾しないか | `.local/r2/posts/pe-comprehensive-management/{slug}/article.mdx` |
 | **C. 過去問データ参照** | 「17 年中 15 年で出題」「R03 以降毎年出題」等の頻度主張を実データと突合 | 同上 + `src/config/past-exam-backlinks.json`（過去問⇔キーワード紐付け JSON） |
 
+| **D. 白書ローカル一次照合** | 本文中の「白書由来の数値・固有名・事業名」（予防保全約3割縮減・八潮市・群マネ11件40団体・成瀬ダム・名古屋港サイバー攻撃 等）が**ローカル白書 PDF 原文に実在**するか（offline grep 照合、ハルシネーション検出） | `docs/textbook/白書等/*.pdf`（`.claude/scripts/whitepaper-grep-check.mjs` 経由） |
+
 **スコープ外**:
-- D. 外部ファクト（法令の数値・統計値を一次資料で確認）→ 別フラグ `--external-fact` で opt-in（本エージェントの守備範囲外）
+- E. 外部 Web ファクト（白書以外の一次資料・最新統計を Web で確認）→ 必要時は WebSearch/WebFetch を親が別途実行
+
+### スコープ D の実行（2026-05-29 追加、白書連動 note 記事の必須チェック）
+
+白書（国土交通白書・交通施策白書 等）の固有数値・事業名を引用する note 記事（5管理クロストレードオフ・白書R7完全対応集・R8予想問題集・模範論文の白書事例 等）では、**スコープ D を必ず実行**する。NotebookLM 抽出値や生成本文には数値ハルシネーション（120万人・2,600件・932港湾のような連番/固有数値のパターン補完）が混入しやすく、内部データ（A/B/C）では検出できないため。
+
+```bash
+# 記事内の白書由来 数値・固有名を自動抽出してローカル白書原文に grep 照合
+node .claude/scripts/whitepaper-grep-check.mjs --file docs/note/.../article.md
+# JSON で MISS だけ拾う / 他白書も含める
+node .claude/scripts/whitepaper-grep-check.mjs --file <path> --json --papers "国土交通,交通施策,情報通信,環境"
+```
+
+**判定**: MISS = 「白書原文に未ヒット」。原因は ①表記ゆれ（カンマ・全角半角・空白 → checker が吸収済みなので残れば真の不一致寄り）②出典白書が対象外（`--papers` に追加）③**数値捏造・年月の誤り**（要修正）。MISS を ⚠️ 要確認 として surface し、③に該当すれば ❌ 矛盾扱い。スクリプトの normalize は空白・カンマ・全半角を吸収するので、それでも MISS なら原典に無い疑いが濃い。
 
 ## 検査対象（典型例）
 
