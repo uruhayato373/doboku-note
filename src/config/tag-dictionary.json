@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T03:52:39.133Z",
+  "generated_at": "2026-05-29T08:05:00.525Z",
   "summary": {
-    "total_mdx_files": 842,
-    "total_unique_tags": 85,
+    "total_mdx_files": 845,
+    "total_unique_tags": 86,
     "allowlist_size": 123,
     "known_count": 51,
-    "unknown_count": 34,
+    "unknown_count": 35,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1373,6 +1373,31 @@
       ]
     },
     {
+      "name": "guide",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-career-path",
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-market-value",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-keyword-2026",
+        "civil-construction-2-guide-career",
+        "pe-comprehensive-management-course-selection-guide",
+        "pe-comprehensive-management-essay-exam-strategy",
+        "pe-comprehensive-management-exam-application-guide",
+        "pe-comprehensive-management-exam-passing-strategy",
+        "pe-comprehensive-management-primary-statistics-2026"
+      ]
+    },
+    {
       "name": "受験者属性別",
       "count": 18,
       "inAllowlist": false,
@@ -1395,28 +1420,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "guide",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-keyword-2026",
-        "pe-comprehensive-management-course-selection-guide",
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-exam-application-guide",
-        "pe-comprehensive-management-exam-passing-strategy",
-        "pe-comprehensive-management-primary-statistics-2026"
       ]
     },
     {
@@ -1714,6 +1717,16 @@
         "civil-construction-1-textbook-histogram",
         "civil-construction-1-textbook-quality-inspection",
         "civil-construction-1-textbook-quality-overview"
+      ]
+    },
+    {
+      "name": "career",
+      "count": 3,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-construction-1-guide-career-path",
+        "civil-construction-1-guide-market-value",
+        "civil-construction-2-guide-career"
       ]
     },
     {
@@ -2172,6 +2185,7 @@
     "砂防",
     "施工",
     "quality",
+    "career",
     "schedule",
     "SWOT分析",
     "データ利活用",

@@ -327,7 +327,30 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
   // 注: 旧実装の "Meta+v" は Windows では Win+V（クリップボードマネージャ起動）になり
   // ペーストされず、textbox 空のまま投稿ボタンが disabled → 投稿失敗していた（2026-05-25 修正）
   await page.keyboard.press("ControlOrMeta+v");
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(1500);
+
+  // ★ 入力検証 ★ — 2026-05-29 事故再発防止
+  // clipboard paste が不発（権限・フォーカス喪失等）だと contenteditable が空のままになり、
+  // 予約ボタンが disabled → クリックしても何も起きないのに success を返す「偽成功」が発生する
+  // （実際に 9 件が空振り予約ゼロ）。空なら keyboard.insertText で再入力し、
+  // それでも空なら投稿を中止する（偽成功を物理的に出さない）。
+  const readBackLen = async (): Promise<number> =>
+    (await textbox.innerText().catch(() => "")).replace(/\s+/g, "").length;
+  if ((await readBackLen()) === 0) {
+    console.log("⚠️  clipboard paste 不発、keyboard.insertText で再入力します");
+    await textbox.click();
+    await page.waitForTimeout(300);
+    await page.keyboard.insertText(tweet.text);
+    await page.waitForTimeout(1500);
+  }
+  const typedLen = await readBackLen();
+  if (typedLen === 0) {
+    console.error(`🚨 本文入力失敗（textbox が空）: ${label} — 投稿を中止します`);
+    await saveScreenshot(page, `${label}-empty-textbox`);
+    return false;
+  }
+  console.log(`⌨️  本文入力確認OK（${typedLen} 文字）`);
+  await page.waitForTimeout(500);
 
   // 予約設定
   if (scheduledDate) {
@@ -466,11 +489,43 @@ async function publishTweet(page: Page, job: PostJob, index: number, total: numb
       return true;
     }
 
-    const postBtn = page.getByTestId("tweetButton").first();
-    try {
-      await postBtn.click({ timeout: 5000 });
-    } catch {
-      await postBtn.click({ force: true });
+    // 予約確定 — 2026-05-29 事故再発防止
+    // tweetButton.click() は X の React onClick が不発で compose が閉じず、保存されないのに
+    // success を返していた（予約モード確認OK でも実際にはキューに入らない）。即時投稿側と同様に
+    // Ctrl+Enter（予約モードでは「予約設定」が primary action）で確定し、compose が閉じたことを
+    // 必ず検証する。閉じなければ保存失敗とみなして中止（偽成功を物理的に出さない）。
+    const composeClosed = async (): Promise<boolean> => {
+      const open = await page.evaluate(
+        () => document.querySelector('[data-testid="tweetTextarea_0"]') !== null
+      );
+      return !open || !page.url().startsWith("https://x.com/compose/post");
+    };
+    await textbox.focus();
+    await page.waitForTimeout(300);
+    await page.keyboard.press("ControlOrMeta+Enter");
+    let scheduled = false;
+    for (let i = 0; i < 16; i++) {
+      await page.waitForTimeout(500);
+      if (await composeClosed()) { scheduled = true; break; }
+    }
+    if (!scheduled) {
+      console.log("  Ctrl+Enter 不発、予約設定ボタンの DOM クリックを試行...");
+      const postBtn = page.getByTestId("tweetButton").first();
+      if ((await postBtn.count()) > 0) {
+        await postBtn.evaluate((el: HTMLElement) => el.click());
+        for (let i = 0; i < 8; i++) {
+          await page.waitForTimeout(500);
+          if (await composeClosed()) { scheduled = true; break; }
+        }
+      }
+    }
+    if (!scheduled) {
+      console.error(`🚨 予約確定失敗（compose が閉じない＝キューに保存されず）: ${label}`);
+      await saveScreenshot(page, `${label}-schedule-not-saved`);
+      await page.keyboard.press("Escape").catch(() => {});
+      await page.waitForTimeout(800);
+      await page.keyboard.press("Escape").catch(() => {});
+      return false;
     }
     console.log(`✅ 予約投稿完了: ${label}`);
     await page.waitForTimeout(3000);
