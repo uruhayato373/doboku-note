@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-05-16T10:00:00.000Z",
+  "updated_at": "2026-05-30T00:00:00.000Z",
   "experiments": [
     {
       "id": "EXP-002",
@@ -152,7 +152,7 @@
         "created_at": "2026-04-15",
         "source": "fetch-gsc-data 28d / fetch-psi-data mobile"
       },
-      "status": "running",
+      "status": "measuring",
       "created_at": "2026-04-14T22:06:02.245Z",
       "started_at": "2026-04-14T22:06:02.249Z",
       "result": null,
@@ -231,6 +231,11 @@
             "civil-construction-1-textbook-construction-mgmt-overview",
             "civil-construction-1-guide-earthwork-key-points"
           ]
+        },
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "measured",
+          "summary": "28d impr 66→8091 / clicks 2→209。target(200)大幅超過で success 判定。running→measuring。"
         }
       ],
       "interim_findings": {
@@ -250,7 +255,24 @@
         "key_insight_4": "business-continuity-plan など 10 件は 200 OK だが GSC 上は未認識。sitemap 未登録 + indexing request 未実施が原因と推定"
       },
       "pending_user_actions": [],
-      "next_check_date": "2026-04-29"
+      "next_check_date": "2026-04-29",
+      "measurement": {
+        "date": "2026-05-30T00:00:00.000Z",
+        "window": "2026-04-28〜2026-05-26 (28d)",
+        "source": "gsc-page-2026-05-29T23-25-28.json",
+        "baseline": {
+          "impr_28d": 66,
+          "clicks_28d": 2
+        },
+        "current": {
+          "impr_28d": 8091,
+          "clicks_28d": 209
+        },
+        "delta": "impr 66→8091 (123x) / clicks 2→209 (104x)",
+        "target": "impr_28d >= 200",
+        "verdict": "success (target を大幅超過)",
+        "note": "インデックス解放の効果が決定的に確認された。W22 週次の『impressions -38% WoW』は短期ノイズで、28日トレンドは激増。NSM 増の裏付け。"
+      }
     },
     {
       "id": "perf-lcp-mobile-2026-W17",
@@ -464,7 +486,11 @@
           "clicks": 0,
           "ctr": 0,
           "position_range": "8-12",
-          "queries": ["jisec", "jisecとは", "jisec読み方"],
+          "queries": [
+            "jisec",
+            "jisecとは",
+            "jisec読み方"
+          ],
           "expected_delta_clicks": "+2〜3"
         },
         "pe-comprehensive-management-asch-conformity-experiment": {
@@ -479,7 +505,7 @@
         "combined_clicks": 1,
         "source": "gsc-page-2026-05-16T06-22-44.json + gsc-query-2026-05-16T06-22-40.json"
       },
-      "status": "running",
+      "status": "measuring",
       "created_at": "2026-05-16T10:00:00.000Z",
       "started_at": "2026-05-16T10:00:00.000Z",
       "result": null,
@@ -492,7 +518,31 @@
         "4. dd04c8e17: asch-conformity-experiment の seoTitle に英語表記 (conformity bias) 追加 + 本文初出にも併記"
       ],
       "next_check_date": "2026-05-30",
-      "measurement_method": "/fetch-gsc-data --dimension page --days 28 を再実行し、上記 5 URL の clicks 差分を比較。combined_clicks ≥ 20 で成功判定。"
+      "measurement_method": "/fetch-gsc-data --dimension page --days 28 を再実行し、上記 5 URL の clicks 差分を比較。combined_clicks ≥ 20 で成功判定。",
+      "measurement": {
+        "date": "2026-05-30T00:00:00.000Z",
+        "window": "2026-04-28〜2026-05-26 (28d)",
+        "source": "gsc-page-2026-05-29T23-25-28.json",
+        "baseline": {
+          "combined_clicks": 1,
+          "combined_impr": 450
+        },
+        "current": {
+          "combined_clicks": 5,
+          "combined_impr": 1379
+        },
+        "delta": "clicks 1→5 / impr 450→1379 (3x)",
+        "target": "combined_clicks >= 20",
+        "verdict": "partial (impr 3倍だが clicks は目標未達)",
+        "caveat": "変更日 2026-05-16。28d窓(04-28〜05-26)の大半が変更前を含むため過小評価。クリーンな判定は 2026-06-13 頃に再measure 推奨。"
+      },
+      "history": [
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "measured",
+          "summary": "combined clicks 1→5 / impr 450→1379(3x)。target(20)未達=partial。窓が変更前を含むため06-13に再measure。"
+        }
+      ]
     },
     {
       "id": "EXP-004",
@@ -509,7 +559,7 @@
         "individual_clicks_total": 1,
         "source": "gsc-page-2026-05-16T06-22-44.json (上位 200 件には r07-a/r07-b/r06-a 以外ほぼ出現せず、推定値)"
       },
-      "status": "running",
+      "status": "measuring",
       "created_at": "2026-05-16T10:00:00.000Z",
       "started_at": "2026-05-16T10:00:00.000Z",
       "result": null,
@@ -521,7 +571,31 @@
       ],
       "next_check_date": "2026-05-30",
       "measurement_method": "/fetch-gsc-data --dimension page --days 28 で primary-h26-r06 全 21 件の clicks 合計を baseline (1 件) と比較。aggregate clicks ≥ 8 で成功判定。",
-      "secondary_check": "Pre-commit warning [publishedAt-missing] が 23 件 → 0 件に減少していることを確認 (b941f298c の効果検証)。"
+      "secondary_check": "Pre-commit warning [publishedAt-missing] が 23 件 → 0 件に減少していることを確認 (b941f298c の効果検証)。",
+      "measurement": {
+        "date": "2026-05-30T00:00:00.000Z",
+        "window": "2026-04-28〜2026-05-26 (28d)",
+        "source": "gsc-page-2026-05-29T23-25-28.json",
+        "baseline": {
+          "aggregate_clicks": 1
+        },
+        "current": {
+          "aggregate_clicks": 0,
+          "aggregate_impr": 193,
+          "urls_visible": "13/21"
+        },
+        "delta": "clicks 1→0 / impr 193",
+        "target": "aggregate_clicks >= 8",
+        "verdict": "no-effect (現時点)",
+        "caveat": "変更日 2026-05-16。28d窓が変更前主体のため判定保留。元々 impr 0-20 の薄いページ群。2026-06-13 頃に再measure。secondary(publishedAt-missing 23→0)は別途要確認。"
+      },
+      "history": [
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "measured",
+          "summary": "aggregate clicks 1→0 / impr 193(13/21URL)。target(8)未達。窓が変更前主体のため06-13に再measure。"
+        }
+      ]
     }
   ]
 }
