@@ -87,9 +87,13 @@ B. 実験進捗レポート:
 オフラインフォールバック（クラウドルーティン等 creds が無い環境）:
 - ライブ呼び出しの代わりに、CI（`fetch-metrics.yml` が毎週金曜 06:00 JST に commit）が残した
   コミット済みスナップショットを読んで WoW を自前算出する:
-  - GA4: `.claude/state/metrics/ga4/ga4-channel-*.json`（`japanOnly:true`）の最新2ファイルを
-    ファイル名日付で sort → 各 rows から `channel=="Organic Search"` の activeUsers を NSM として比較
-  - GSC: `.claude/state/metrics/gsc/gsc-query-*.json` の最新2ファイルで clicks/impressions 合計を比較
+  - GA4 NSM（推奨）: `.claude/state/metrics/ga4/ga4-channel-organic-*.json`（7日窓・JP・Organic Search のみ）の
+    最新2ファイルをファイル名日付で sort → 各 rows の activeUsers を NSM として前週比を算出。
+    **これがクリーンな7日 WoW**。`ga4-channel-organic-*` が無い場合のみ `ga4-channel-*.json`（28日窓）に
+    フォールバックし、その場合は「28日ローリング比較」と明記する（クリーンな WoW ではない）。
+  - GSC（推奨）: `.claude/state/metrics/gsc/gsc-date-*.json`（7日窓・日次）の最新2ファイルで
+    日次 clicks/impressions を合計して前週比。無ければ `gsc-query-*.json`（28日窓）にフォールバックし
+    「28日ローリング」と明記。GSC は3日遅延があるため直近数日は未確定（両週同条件なので方向は有効）。
   - PSI: `.claude/state/metrics/psi/psi-batch-*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
 - スナップショットが2週分揃わない場合のみ「NSM セクション: スキップ」と記録
 
