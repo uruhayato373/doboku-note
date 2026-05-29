@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T10:32:32.401Z",
+  "generated_at": "2026-05-29T10:36:26.588Z",
   "summary": {
-    "total": 843,
-    "published": 818,
+    "total": 849,
+    "published": 824,
     "unpublished": 25,
     "by_category": {
-      "civil-construction-1": 84,
-      "civil-construction-2": 17,
+      "civil-construction-1": 87,
+      "civil-construction-2": 20,
       "pe-comprehensive-management": 717
     }
   },
@@ -28,8 +28,8 @@
       "publishedAt": "2026-05-29",
       "seoTitle": "1級土木施工管理技士の年収はいくら？資格手当の相場・2級との差・転職での価値【2026】",
       "reviewStatus": "draft",
-      "created": "2026-05-29T00:00:00.000Z",
-      "dateModified": "2026-05-29T00:00:00.000Z"
+      "created": "2026-05-29",
+      "dateModified": "2026-05-29"
     },
     "civil-construction-1-guide-concrete-key-points": {
       "title": "コンクリートの重要ポイント — 1級土木施工管理技士試験対策",
@@ -115,6 +115,24 @@
         }
       ]
     },
+    "civil-construction-1-guide-difficulty": {
+      "title": "1級土木施工管理技士の難易度と合格率 — 推移と制度改正の影響",
+      "description": "1級土木施工管理技士の難易度を、第1次検定・第2次検定の合格率と令和6年度の受験資格改正の影響から分析します。合格に必要な勉強時間の目安と、難易度を踏まえた対策の方向性まで整理します。",
+      "shortTitle": "難易度・合格率",
+      "subtitle": "第1次・第2次の合格率推移と令和6年度の制度改正",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "1級土木施工管理技士の難易度は？合格率の推移と制度改正の影響を分析【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
     "civil-construction-1-guide-earthwork-key-points": {
       "title": "土工の重要ポイント — 1級土木施工管理技士試験対策",
       "description": "1級土木施工管理技士試験で頻出の土工分野（土質試験・土量変化率・盛土施工・軟弱地盤対策・のり面保護工）の重要ポイントを整理。過去問の出題傾向に基づく学習の優先順位付き。",
@@ -198,6 +216,25 @@
           "a": "敷地境界で85dB以下です。振動規制法は75dB以下。2日以上にわたって実施される著しい騒音・振動の作業が特定建設作業に該当します。"
         }
       ]
+    },
+    "civil-construction-1-guide-grade-comparison": {
+      "title": "1級と2級 土木施工管理技士はどちらを受けるべきか",
+      "description": "土木施工管理技士の1級と2級を、受験資格・難易度・できる仕事の範囲・年収の4つの観点で比較します。自分が今どちらを受けるべきかを判断できるよう、ケース別の選び方まで整理します。",
+      "shortTitle": "1級と2級の違い",
+      "subtitle": "受験資格・難易度・できる仕事・年収の比較",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "career",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "土木施工管理技士は1級と2級どちらを受ける？違いと選び方を比較【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
     },
     "civil-construction-1-guide-last-minute-2026": {
       "title": "1級土木施工管理技士 直前対策2026",
@@ -403,6 +440,24 @@
           "a": "最低3周が目安です。同じ問題が表現を変えて繰り返し出題されるため、反復が最大の得点源になります。"
         }
       ]
+    },
+    "civil-construction-1-guide-study-method": {
+      "title": "1級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
+      "description": "1級土木施工管理技士に独学で合格するための勉強法を、勉強時間の目安・令和6年度の受験資格・第1次検定と第2次検定それぞれの進め方に分けて解説します。働きながら合格を目指す人向けの学習計画の立て方まで示します。",
+      "shortTitle": "独学の勉強法",
+      "subtitle": "勉強時間の目安・受験資格・第1次/第2次の進め方",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "1級土木施工管理技士は独学で合格できる？勉強時間・勉強法・受験資格を解説【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
     },
     "civil-construction-1-keyword-2026": {
       "title": "1級土木施工管理技士 全分野キーワード索引 2026（教科書 34 章・カテゴリ別目次）",
@@ -2679,6 +2734,70 @@
           "a": "施工順序にしたがって着手日から決める順行法、竣工期日からたどって着手日を決める逆算法、季節や契約条件などに基づいて重点工種の日程を固定してその前後を決める重点法の3通りがあります。"
         }
       ]
+    },
+    "civil-construction-2-guide-career": {
+      "title": "2級土木施工管理技士のキャリア — 年収・資格手当と1級へのステップアップ",
+      "description": "2級土木施工管理技士を取得すると年収やキャリアがどう変わるかを、資格手当の相場・転職市場での評価・1級へのステップアップの3点で解説します。2級を起点にどうキャリアを伸ばすかの道筋を示します。",
+      "shortTitle": "取得後のキャリア",
+      "subtitle": "資格手当・年収・転職と1級への進み方",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "career",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "2級土木施工管理技士の年収・キャリアは？資格手当と1級へのステップアップ【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
+    "civil-construction-2-guide-overview": {
+      "title": "2級土木施工管理技士とは — 難易度・合格率・試験内容",
+      "description": "2級土木施工管理技士とは何かを、試験構成・受験資格・難易度と合格率・取得後にできる仕事の4点から解説します。令和6年度の制度改正で第一次検定が17歳以上で受験できるようになった点も押さえます。",
+      "shortTitle": "2級とは（概要）",
+      "subtitle": "試験構成・受験資格・合格率・できる仕事",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "2級土木施工管理技士とは？難易度・合格率・試験内容をわかりやすく解説【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
+    "civil-construction-2-guide-study-method": {
+      "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
+      "description": "2級土木施工管理技士に独学で合格するための勉強法を、勉強時間の目安・令和6年度の受験資格・第1次検定と第2次検定の進め方に分けて解説します。過去問中心で効率よく合格ラインに届く学習計画の立て方を示します。",
+      "shortTitle": "独学の勉強法",
+      "subtitle": "勉強時間の目安・受験資格・第1次/第2次の進め方",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "2級土木施工管理技士は独学で合格できる？勉強時間・勉強法・受験資格を解説【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
     },
     "civil-construction-2-primary-r03-kouki": {
       "title": "令和3年度 第1次検定 後期",

@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T10:32:32.712Z",
+  "generated_at": "2026-05-29T10:36:26.913Z",
   "summary": {
-    "total_mdx_files": 843,
-    "with_exams_field": 39,
+    "total_mdx_files": 849,
+    "with_exams_field": 42,
     "cross_exam_count": 0,
     "by_exam": {
       "civil-construction-1": 29,
-      "civil-construction-2": 10
+      "civil-construction-2": 13
     }
   },
   "by_exam": {
@@ -449,6 +449,52 @@
       }
     ],
     "civil-construction-2": [
+      {
+        "slug": "civil-construction-2-guide-career",
+        "title": "2級土木施工管理技士のキャリア — 年収・資格手当と1級へのステップアップ",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "career",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-career/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-overview",
+        "title": "2級土木施工管理技士とは — 難易度・合格率・試験内容",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-overview/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-study-method",
+        "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-study-method/article.mdx"
+      },
       {
         "slug": "civil-construction-2-primary-r03-zenki",
         "title": "令和3年度 第1次検定 前期",
