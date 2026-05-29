@@ -23,6 +23,12 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 --tweet 1 2026-05-09T08
 - 失敗: `schedule-mode-not-confirmed.png` を確認してセレクタ修正
 - **dry-run 成功後**に `--dry-run` を外して本番実行
 
+## ⚠️ 重要: 「予約投稿完了」ログを信用せず予約キューを実体検証（2026-05-29）
+
+`✅ 予約投稿完了` ログは投稿成功の証拠にならない。実際に X 予約キュー（`https://x.com/compose/post/unsent/scheduled`）を開き、仮想スクロールで全セルをロードして本文・送信時刻の実在を確認するまで「完了」と報告しない。プロフィール（`x.com/<handle>`）のポスト数で即時投稿の誤爆も併せて確認する。検証パターンは [[feedback_publish_x_false_success]] / `.tmp/verify-final.mjs`（cellInnerDiv 末尾 scrollIntoView で全件ロード→regex マッチ＋時刻ヒストグラム）。
+
+> **2026-05-29 事故**: 9 件を予約したつもりが 0 件しか入っていなかった。原因は予約確定の `tweetButton.click()` が React onClick を発火できず compose が閉じない（=保存されない）のに、その手前の `予約モード確認OK` だけで success を返していたこと。下記の通り Ctrl+Enter 確定＋compose 閉鎖検証に修正済み。
+
 ## 使い方
 
 ```bash
@@ -109,6 +115,8 @@ npx tsx .claude/skills/social/publish-x/publish-x.ts 004 \
 | 日時 select | `[role="dialog"] select` × 5（options 内容からロール自動判定） |
 | 確認ボタン | `[data-testid="scheduledConfirmationPrimaryAction"]` |
 | 予約モード検証 | `[data-testid="tweetButton"]:has-text("予約設定")` |
+| 予約確定 | textbox focus → `ControlOrMeta+Enter`（`tweetButton.click()` は onClick 不発で保存されない）。確定後 compose クローズをループ検証し、閉じなければ中止＝偽成功を出さない（2026-05-29 修正） |
+| 本文入力検証 | paste 後 `textbox.innerText()` を読み戻し、空なら `keyboard.insertText` フォールバック → なお空なら中止（clipboard 不発の偽成功防止、2026-05-29 追加） |
 
 セレクタが壊れた場合は SKILL.md の表を更新すること。
 
