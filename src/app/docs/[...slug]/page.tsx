@@ -565,6 +565,11 @@ export default async function DocPage({
               </>
             )}
 
+            {/* Civil 2級 guide（キャリア記事）: 転職CTAのみ。書籍は付けない（2級 guide=転職 / 過去問=SAT の住み分け）。 */}
+            {category === 'civil-construction-2' && docGroup === 'guide' && (
+              <CivilCareerCTA />
+            )}
+
             {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
             {(category === 'civil-construction-1' || category === 'civil-construction-2') && docGroup === 'textbook' && (
               <>
