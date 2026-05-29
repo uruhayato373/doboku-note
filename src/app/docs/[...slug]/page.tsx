@@ -334,6 +334,10 @@ export default async function DocPage({
       .filter((x): x is RenderableSlot => x.magazine !== null);
   const inlineMagazines = filterRenderable(magazinePlacement.inline);
   const sidebarMagazines = filterRenderable(magazinePlacement.sidebar);
+  // 自社の有料マガジン (price あり = 模範論文/予想/テンプレ) がサイドバーに出るページでは
+  // アフィリエイト (SAT/独学サポート) を非表示にしてカニバリ回避。
+  // 精読ガイド (tankan, price なし) のみのページ (secondary / hub 等) はアフィリと併存させる。
+  const sidebarHasPaidMagazine = sidebarMagazines.some(({ magazine }) => Boolean(magazine.price));
 
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
@@ -583,30 +587,48 @@ export default async function DocPage({
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
           <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10">
             <div className="sticky top-6">
-              {/* note 有料マガジン CTA (sidebar)。配置解決済みのマガジン群を上部に並べる。
-                  shortTitle / shortDescription が定義されていれば sidebar 用の短縮テキストを使用。 */}
+              {/* note 有料マガジン CTA (sidebar)。配置解決済みのマガジンを画像オンリーで上部に並べる。
+                  文言・価格はバナー画像 (sidebarImageUrl, 300×250) に焼き込む方針。 */}
               {sidebarMagazines.length > 0 && (
                 <div className="mb-3 space-y-3">
-                  {sidebarMagazines.map(({ slot, magazine }) => (
-                    <MagazineSidebarCard
-                      key={slot.magazineId}
-                      url={buildMagazineUrl(magazine, slot.utmContent)}
-                      title={magazine.shortTitle ?? magazine.title}
-                      description={magazine.shortDescription ?? magazine.description}
-                      imageUrl={magazine.imageUrl}
-                      badge={magazine.badge}
-                      {...(magazine.price ? { price: magazine.price } : {})}
-                    />
-                  ))}
+                  {sidebarMagazines.map(({ slot, magazine }) =>
+                    magazine.sidebarImageUrl ? (
+                      <MagazineSidebarCard
+                        key={slot.magazineId}
+                        href={buildMagazineUrl(magazine, slot.utmContent)}
+                        imageUrl={magazine.sidebarImageUrl}
+                        alt={magazine.shortTitle ?? magazine.title}
+                      />
+                    ) : null,
+                  )}
                 </div>
               )}
+              {/* 汎用キーワードページ (個別キーワード辞書ページ): 単一マガジン直送ではなく
+                  note 有料教材まとめ /links へ誘導する画像バナー。hub/essay 等は上の
+                  コンテキスト一致マガジンが出るため、ここは sidebarMagazines 空のときのみ。 */}
+              {category === 'pe-comprehensive-management' &&
+                docGroup === 'keyword' &&
+                sidebarMagazines.length === 0 && (
+                  <div className="mb-3">
+                    <MagazineSidebarCard
+                      href="/links"
+                      imageUrl="/images/magazines/links-hub-sidebar.webp"
+                      alt="note 有料教材まとめ"
+                      external={false}
+                    />
+                  </div>
+                )}
               {/* アフィリエイト サイドバー（2026-05-25 以降: 上部配置でインプレッション最大化）:
                   自社マガジン CTA を最上位に維持しつつ、TOC・ナビカードより上に配置。
                   - 1級土木 textbook / primary: 独学サポート（経験記述添削特化）
                   - PE keyword/guide/pastExam + 1級土木 guide / secondary: SAT（総合講座）
                   住み分けは docGroup で排他。 */}
+              {/* アフィリエイトは自社の有料マガジン CTA が出ているページでは非表示にしてカニバリ回避
+                  (!sidebarHasPaidMagazine = 有料マガジンなしのページで表示。精読ガイドのみの
+                  secondary / hub 等はアフィリと併存)。 */}
               {category === 'civil-construction-1' &&
-                (docGroup === 'textbook' || docGroup === 'primary') && (
+                (docGroup === 'textbook' || docGroup === 'primary') &&
+                !sidebarHasPaidMagazine && (
                   <div className="mb-3">
                     <SidebarAdBanner {...CIVIL_SIDEBAR_AD} />
                   </div>
@@ -614,11 +636,12 @@ export default async function DocPage({
               {((category === 'pe-comprehensive-management' &&
                 (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam')) ||
                 (category === 'civil-construction-1' &&
-                  (docGroup === 'guide' || docGroup === 'secondary'))) && (
-                <div className="mb-3">
-                  <SidebarAdBanner {...SAT_SIDEBAR_AD} />
-                </div>
-              )}
+                  (docGroup === 'guide' || docGroup === 'secondary'))) &&
+                !sidebarHasPaidMagazine && (
+                  <div className="mb-3">
+                    <SidebarAdBanner {...SAT_SIDEBAR_AD} />
+                  </div>
+                )}
               {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
               {hasCategoryNavCard && category && (
                 <div className="mt-3">

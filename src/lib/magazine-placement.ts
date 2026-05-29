@@ -213,12 +213,16 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 6. keyword / keyword-2026 → 精読ガイド単独 CTA（M1 撤回 2026-05-18、keyword-2026 ハブも精読ガイドに集約）
+  // 6. keyword / keyword-2026
+  //    - hub (keyword-2026): 精読ガイドをサイドバーにコンテキスト一致 CTA として表示
+  //    - 個別キーワード辞書ページ: 単一マガジン直送をやめ、サイドバーは空にして
+  //      page.tsx 側で note 有料教材まとめ /links へ誘導するバナーを出す（2026-05-29 改修）。
+  //      inline (モバイル) は従来どおり精読ガイドを維持。
   if (docGroup === 'keyword' || slug === 'pe-comprehensive-management-keyword-2026') {
     const isHub = slug === 'pe-comprehensive-management-keyword-2026';
     return {
       inline: [slot('tankan-reading-guide', slug, isHub ? 'inline-1' : 'inline-mobile')],
-      sidebar: [slot('tankan-reading-guide', slug, 'sidebar-1')],
+      sidebar: isHub ? [slot('tankan-reading-guide', slug, 'sidebar-1')] : [],
       inlineMobileOnly: !isHub,
     };
   }
