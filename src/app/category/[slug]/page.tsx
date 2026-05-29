@@ -63,6 +63,11 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
     pastExam: '年度別の択一式・記述式問題と解説',
     keyword: 'キーワード解説',
   },
+  'concrete-chief-engineer': {
+    guide: '試験概要・出題傾向・小論文対策',
+    textbook: '8分野（材料・性質・耐久性・配合設計・製造品質管理・施工・製品・構造設計）の体系的な解説',
+    primary: '分野別の四肢択一 過去問と解説',
+  },
 };
 
 /** Sort functions per group */
@@ -103,6 +108,21 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         const isBasicsA = slugA.endsWith('-basics') || slugA.endsWith('-guide') ? 0 : 1;
         const isBasicsB = slugB.endsWith('-basics') || slugB.endsWith('-guide') ? 0 : 1;
         return isBasicsA - isBasicsB;
+      });
+    }
+  } else if (category === 'concrete-chief-engineer') {
+    if (group === 'guide') {
+      docs.sort((a, b) => {
+        const orderA = a.guide_order ?? 999;
+        const orderB = b.guide_order ?? 999;
+        if (orderA !== orderB) return orderA - orderB;
+        return (a.title || '').localeCompare(b.title || '', 'ja');
+      });
+    } else if (group === 'primary' || group === 'textbook') {
+      docs.sort((a, b) => {
+        const sa = parseFloat((a.section as string | undefined) ?? '99');
+        const sb = parseFloat((b.section as string | undefined) ?? '99');
+        return sa - sb;
       });
     }
   } else if (category === 'pe-comprehensive-management') {
@@ -595,7 +615,7 @@ export default async function CategoryPage({
   const allDocs = await getDocsMetaByCategory(slug);
   const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !(d as any).hideFromCategory);
 
-  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management')
+  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'concrete-chief-engineer')
     ? groupDocs(docs, slug)
     : null;
 

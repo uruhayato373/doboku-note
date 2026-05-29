@@ -44,6 +44,15 @@ const EXAM_DATA = [
     nextExam: "2026年7月 筆記 / 12月 口頭",
     variant: "pe" as const,
   },
+  {
+    slug: "concrete-chief-engineer",
+    label: "コンクリート主任技師",
+    en: "JCI Senior Concrete Engineer",
+    subtitle: "四肢択一・小論文 完全対策",
+    description: "材料・配合設計・施工・耐久性・品質管理など8分野を体系整理。分野別の過去問解説・テキスト・小論文対策を収録。",
+    nextExam: "2026年11月（予定）",
+    variant: "civil" as const,
+  },
 ];
 
 function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
@@ -82,6 +91,7 @@ export default async function HomePage() {
   const civil = getDocsMetaByCategory("civil-construction-1");
   const civil2 = getDocsMetaByCategory("civil-construction-2");
   const pe = getDocsMetaByCategory("pe-comprehensive-management");
+  const concrete = getDocsMetaByCategory("concrete-chief-engineer");
 
   const exams = [
     {
@@ -106,6 +116,14 @@ export default async function HomePage() {
         { k: "記事", v: pe.length.toLocaleString() },
         { k: "キーワード", v: pe.filter((m) => m.group === "keyword" || m.tags?.includes("keyword")).length.toLocaleString() },
         { k: "過去問", v: pe.filter((m) => m.group === "pastExam" || m.tags?.includes("past-questions")).length.toLocaleString() },
+      ],
+    },
+    {
+      ...EXAM_DATA[3]!,
+      stats: [
+        { k: "記事", v: concrete.length.toLocaleString() },
+        { k: "過去問", v: concrete.filter((m) => m.group === "primary" || m.tags?.includes("past-questions")).length.toLocaleString() },
+        { k: "テキスト", v: concrete.filter((m) => m.group === "textbook").length.toLocaleString() },
       ],
     },
   ];

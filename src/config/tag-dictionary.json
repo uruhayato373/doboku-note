@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T12:57:47.912Z",
+  "generated_at": "2026-05-29T22:18:56.813Z",
   "summary": {
-    "total_mdx_files": 859,
-    "total_unique_tags": 86,
+    "total_mdx_files": 865,
+    "total_unique_tags": 89,
     "allowlist_size": 125,
-    "known_count": 52,
-    "unknown_count": 34,
+    "known_count": 53,
+    "unknown_count": 36,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "past-questions",
-      "count": 72,
+      "count": 75,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1119,6 +1119,9 @@
         "civil-construction-2-secondary-r05",
         "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07",
+        "concrete-chief-engineer-primary-durability",
+        "concrete-chief-engineer-primary-materials",
+        "concrete-chief-engineer-primary-products",
         "pe-comprehensive-management-h21-primary",
         "pe-comprehensive-management-h21-secondary",
         "pe-comprehensive-management-h22-primary",
@@ -1203,7 +1206,7 @@
     },
     {
       "name": "primary",
-      "count": 34,
+      "count": 37,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1239,7 +1242,52 @@
         "civil-construction-2-primary-r06-kouki",
         "civil-construction-2-primary-r06-zenki",
         "civil-construction-2-primary-r07-kouki",
-        "civil-construction-2-primary-r07-zenki"
+        "civil-construction-2-primary-r07-zenki",
+        "concrete-chief-engineer-primary-durability",
+        "concrete-chief-engineer-primary-materials",
+        "concrete-chief-engineer-primary-products"
+      ]
+    },
+    {
+      "name": "guide",
+      "count": 35,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-career-agents",
+        "civil-construction-1-guide-career-path",
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-difficulty",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-market-value",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-guide-study-method",
+        "civil-construction-1-guide-textbooks",
+        "civil-construction-1-keyword-2026",
+        "civil-construction-2-guide-career",
+        "civil-construction-2-guide-concrete-key-points",
+        "civil-construction-2-guide-earthwork-key-points",
+        "civil-construction-2-guide-law-key-points",
+        "civil-construction-2-guide-overview",
+        "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-schedule-management",
+        "civil-construction-2-guide-study-method",
+        "civil-construction-2-guide-textbooks",
+        "concrete-chief-engineer-guide-essay",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "pe-comprehensive-management-course-selection-guide",
+        "pe-comprehensive-management-essay-exam-strategy",
+        "pe-comprehensive-management-exam-application-guide",
+        "pe-comprehensive-management-exam-passing-strategy",
+        "pe-comprehensive-management-primary-statistics-2026"
       ]
     },
     {
@@ -1284,45 +1332,6 @@
       ]
     },
     {
-      "name": "guide",
-      "count": 32,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-agents",
-        "civil-construction-1-guide-career-path",
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-difficulty",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-market-value",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-guide-study-method",
-        "civil-construction-1-guide-textbooks",
-        "civil-construction-1-keyword-2026",
-        "civil-construction-2-guide-career",
-        "civil-construction-2-guide-concrete-key-points",
-        "civil-construction-2-guide-earthwork-key-points",
-        "civil-construction-2-guide-law-key-points",
-        "civil-construction-2-guide-overview",
-        "civil-construction-2-guide-quality-management",
-        "civil-construction-2-guide-schedule-management",
-        "civil-construction-2-guide-study-method",
-        "civil-construction-2-guide-textbooks",
-        "pe-comprehensive-management-course-selection-guide",
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-exam-application-guide",
-        "pe-comprehensive-management-exam-passing-strategy",
-        "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
       "name": "記述式対策",
       "count": 27,
       "inAllowlist": true,
@@ -1358,7 +1367,7 @@
     },
     {
       "name": "exam-preparation",
-      "count": 24,
+      "count": 26,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-salary",
@@ -1384,6 +1393,8 @@
         "civil-construction-2-guide-schedule-management",
         "civil-construction-2-guide-study-method",
         "civil-construction-2-guide-textbooks",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
         "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
@@ -1839,6 +1850,15 @@
       ]
     },
     {
+      "name": "concrete-chief-engineer",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends"
+      ]
+    },
+    {
       "name": "DX",
       "count": 2,
       "inAllowlist": true,
@@ -1915,11 +1935,27 @@
       ]
     },
     {
+      "name": "essay",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-guide-essay"
+      ]
+    },
+    {
       "name": "exam-statistics",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-primary-statistics-2026"
+      ]
+    },
+    {
+      "name": "exam-trends",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "concrete-chief-engineer-guide-trends"
       ]
     },
     {
@@ -2219,10 +2255,12 @@
     "SWOT分析",
     "データ利活用",
     "少子高齢化",
+    "concrete-chief-engineer",
     "2026年版",
     "AI ガバナンス",
     "DX推進",
     "exam-statistics",
+    "exam-trends",
     "keyword-analysis",
     "keyword-index",
     "キーワード集",
