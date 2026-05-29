@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T12:06:15.118Z",
+  "generated_at": "2026-05-29T12:35:55.753Z",
   "summary": {
     "total_mdx_files": 857,
     "total_unique_tags": 86,
-    "allowlist_size": 123,
-    "known_count": 51,
-    "unknown_count": 35,
+    "allowlist_size": 125,
+    "known_count": 52,
+    "unknown_count": 34,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1726,7 +1726,7 @@
     {
       "name": "career",
       "count": 4,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-agents",
         "civil-construction-1-guide-career-salary",
@@ -2211,7 +2211,6 @@
     "建設コンサル",
     "施工",
     "砂防",
-    "career",
     "quality",
     "schedule",
     "SWOT分析",
