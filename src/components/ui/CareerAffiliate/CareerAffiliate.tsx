@@ -1,0 +1,127 @@
+import { ArrowRight, Check } from "lucide-react";
+
+interface CareerAffiliateProps {
+  /** サービス名（例: "RSG建設転職"） */
+  readonly service: string;
+  /** カテゴリ・職種ラベル（例: "施工管理 転職エージェント"） */
+  readonly category: string;
+  /** 補足説明（任意） */
+  readonly description?: string;
+  /** アフィリエイトリンク URL */
+  readonly href: string;
+  /** バナー画像 URL（任意。無い場合はテキスト主体カードで描画） */
+  readonly imageSrc?: string;
+  /**
+   * 計測ピクセルの完全 URL（任意）。
+   * ASP ごとに配信ドメインが異なる（A8 は www10〜www29、ValueCommerce / アクセストレード等は別）ため、
+   * CourseAffiliate のようにドメインをハードコードせず、発行された 1x1 ピクセル URL をそのまま渡す。
+   */
+  readonly trackingPixelUrl?: string;
+  /** 訴求ポイントの箇条書き（任意、最大 3 件目安）。転職サービスの強み訴求に使う */
+  readonly points?: readonly string[];
+  /** CTA ボタンテキスト（デフォルト「無料で相談する」） */
+  readonly cta?: string;
+}
+
+/**
+ * CareerAffiliate — 建設・施工管理の転職サービスのアフィリエイトリンクを統一カードで表示する。
+ *
+ * CourseAffiliate（資格講座用）の姉妹コンポーネント。転職案件向けに以下を拡張:
+ * - `trackingPixelUrl` を完全 URL で受け取り、ASP（A8 / ValueCommerce / アクセストレード / レントラックス等）の
+ *   配信ドメイン差を吸収する（CourseAffiliate は www19 をハードコードしている）
+ * - `points` で「年収 UP 率」「求人数」などの訴求ポイントを箇条書き表示できる
+ * - `imageSrc` を任意にし、バナーが無い案件でもテキスト主体カードで描画できる
+ *
+ * ステマ規制（2023-10〜）対応のため「PR」バッジを必ず表示。
+ * rel="nofollow sponsored noopener" / target="_blank" は自動付与。
+ *
+ * 配置原則: 記事末・hub 末の CTA、年収/キャリア文脈の Callout 内。
+ * ファーストビュー禁止（「ここだけで合格できる」メイン導線と矛盾するため）。
+ */
+export default function CareerAffiliate({
+  service,
+  category,
+  description,
+  href,
+  imageSrc,
+  trackingPixelUrl,
+  points,
+  cta = "無料で相談する",
+}: CareerAffiliateProps) {
+  return (
+    <div className="not-prose my-6">
+      <a
+        href={href}
+        rel="nofollow sponsored noopener"
+        target="_blank"
+        className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
+        style={{ textDecoration: "none" }}
+      >
+        <span
+          className="absolute right-3 top-3 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
+          style={{ background: "var(--color-ink-muted)" }}
+          aria-label="広告"
+        >
+          PR
+        </span>
+
+        {imageSrc && (
+          <div className="flex shrink-0 items-center justify-center sm:w-40 w-full">
+            <img
+              src={imageSrc}
+              alt={`${service} ${category}`}
+              loading="lazy"
+              className="max-h-32 sm:max-h-28 w-auto object-contain"
+            />
+          </div>
+        )}
+
+        <div className="flex min-w-0 flex-1 flex-col justify-center pr-10 sm:pr-12">
+          <div className="text-[11px] font-bold tracking-wider text-brand-deep dark:text-brand uppercase">
+            {category}
+          </div>
+          <div className="mt-0.5 text-[15px] font-bold text-ink-strong dark:text-gray-100 group-hover:underline">
+            {service}
+          </div>
+          {description && (
+            <div className="mt-1.5 text-sm leading-6 text-ink-body dark:text-gray-400">
+              {description}
+            </div>
+          )}
+          {points && points.length > 0 && (
+            <ul className="mt-2 flex flex-col gap-1">
+              {points.map((point) => (
+                <li
+                  key={point}
+                  className="flex items-start gap-1.5 text-sm leading-6 text-ink-body dark:text-gray-300"
+                >
+                  <Check
+                    className="mt-1 h-3.5 w-3.5 shrink-0 text-brand"
+                    aria-hidden
+                  />
+                  <span>{point}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+          <div className="mt-2.5 inline-flex items-center gap-1 text-sm font-bold text-brand dark:text-brand group-hover:gap-2 transition-all">
+            {cta}
+            <ArrowRight className="h-4 w-4" aria-hidden />
+          </div>
+        </div>
+      </a>
+
+      {trackingPixelUrl && (
+        <img
+          src={trackingPixelUrl}
+          width={1}
+          height={1}
+          alt=""
+          aria-hidden
+          style={{ position: "absolute", left: "-9999px" }}
+          suppressHydrationWarning
+        />
+      )}
+    </div>
+  );
+}

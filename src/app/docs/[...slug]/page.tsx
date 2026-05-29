@@ -608,15 +608,18 @@ export default async function DocPage({
             {/* 参考書籍（Civil guide: アフィリエイト・補完ポジション。
                 guide 4ページ（strategy / earthwork / concrete / law）の主要流入ページに配置。
                 合格テキスト1冊 + 一次過去問1冊の固定ペア。
-                記事末CTA は guide=転職 / 過去問=SAT の住み分けで CivilCareerCTA（SAT サイドバーは別途常設）。） */}
+                記事末CTA は guide=転職 / 過去問=SAT の住み分けで CivilCareerCTA（SAT サイドバーは別途常設）。
+                例外: guide-textbooks は自前で全ラインナップを BookCard 配置するため自動 BookSection は出さない。） */}
             {category === 'civil-construction-1' && docGroup === 'guide' && (
               <>
-                <div className="mt-8">
-                  <BookSection caption="まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。">
-                    <BookCard asin="4798176834" />
-                    <BookCard asin="4297154099" />
-                  </BookSection>
-                </div>
+                {slugStr !== 'civil-construction-1-guide-textbooks' && (
+                  <div className="mt-8">
+                    <BookSection caption="まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。">
+                      <BookCard asin="4798176834" />
+                      <BookCard asin="4297154099" />
+                    </BookSection>
+                  </div>
+                )}
                 <CivilCareerCTA />
               </>
             )}

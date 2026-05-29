@@ -31,6 +31,7 @@ export const commonComponents = {
   StatsCard: "StatsCard",
   PdcaCycle: "PdcaCycle",
   CourseAffiliate: "CourseAffiliate",
+  CareerAffiliate: "CareerAffiliate",
   BookCard: "BookCard",
   // 汎用コンポーネント（将来追加予定）
   // ImageGallery: 'ImageGallery',
