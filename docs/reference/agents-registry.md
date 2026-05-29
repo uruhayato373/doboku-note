@@ -27,6 +27,7 @@ title: サブエージェント詳細レジストリ
 | `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出      |
 | `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
 | `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
+| `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
@@ -69,6 +70,7 @@ title: サブエージェント詳細レジストリ
 | `yt-shorts-publisher-qa`       | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の **4 軸**ルーブリック品質評価（尺・UTM 整合・タイトル長/検索性・字幕整合）。IG 用 UTM 混入を重大減点 | Evaluator    | sonnet  | `docs/reference/yt-shorts-publisher-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase D）       |
 | `ig-highlight-designer`        | Instagram ハイライト（`highlights/NN_*/slide-data.json`）の Stories 用構造化データを 1 ハイライトずつ執筆。モダンシック意匠 + データ駆動レイアウト | Generator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア）。IG UI セーフエリア侵入（overline が y<200）・本文の y>=1280 侵入・06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
+| `magazine-pdf-builder`         | note マガジンの article.md を「問題文＋解答」紙用 PDF に変換する spec(JSON) を作成し `scripts/magazine-to-pdf.mjs` を実行。新規/構造不明マガジンの include/exclude 設計が主戦場。複数解答（A/B案）両収録を社則化 | Generator    | sonnet  | `/magazine-to-pdf` 連携、`scripts/magazine-to-pdf.mjs` DSL 準拠 | ✅ 運用中（2026-05-29 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 

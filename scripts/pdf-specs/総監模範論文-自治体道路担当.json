@@ -1,0 +1,40 @@
+{
+  "srcDir": "docs/note/magazines/総監模範論文-自治体道路担当",
+  "deliverTo": "desktop",
+  "articles": [
+    {
+      "src": "R03/article.md",
+      "out": "模範論文-自治体道路-R03",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R04/article.md",
+      "out": "模範論文-自治体道路-R04",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R05/article.md",
+      "out": "模範論文-自治体道路-R05",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R06/article.md",
+      "out": "模範論文-自治体道路-R06",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R07/article.md",
+      "out": "模範論文-自治体道路-R07",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R08-yosou/article.md",
+      "out": "模範論文-自治体道路-R08予想",
+      "include": [
+        { "from": "^## 予想問題\\s*1", "to": "^## 予想問題\\s*2" },
+        { "from": "^## 予想問題\\s*2", "to": "^## 試験当日" }
+      ],
+      "exclude": [{ "from": "###\\s+出題予想根拠", "to": "###\\s+.*フル模範論文" }]
+    }
+  ]
+}

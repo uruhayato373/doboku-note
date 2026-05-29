@@ -31,6 +31,7 @@ title: スキル ナビゲーションガイド
 | `/pdf-to-mdx` | PDF/画像 → MDX 変換（試験別テンプレート） | `PDF変換`, `MDX化`, `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}` |
 | `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary}` |
 | `/ogp-create` | カテゴリ別テンプレートで OGP 画像生成 | `OGP画像`, `/ogp-create` |
+| `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
 
 ### 品質管理（quality）
 
@@ -138,6 +139,11 @@ title: スキル ナビゲーションガイド
 
 1. `/pdf-to-mdx --exam {cem|civil-construction-1|general}` — テキスト・図版含む変換
 2. `/exam-questions-import --exam {civil-primary|civil-secondary|pe-primary}` — 過去問集
+
+### マガジン記事を紙用 PDF にしたい
+
+1. `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` — spec 済みマガジンを「問題文＋解答」PDF に再生成
+2. 新規マガジン（spec 無し）は `magazine-pdf-builder` エージェントに spec 作成から委譲（A/B案など複数解答は両方収録）
 
 ### 週次 PDCA を回したい
 

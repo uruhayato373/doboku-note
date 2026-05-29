@@ -16,7 +16,7 @@ title: スキル ガバナンス記録
 ```
 .claude/skills/
 ├── authoring/       # 8 — 記事を作る
-├── conversion/      # 3 — 外部形式から MDX への変換
+├── conversion/      # 4 — 形式変換（MDX / OGP 画像 / 紙用 PDF）
 ├── quality/         # 12 — MDX・note 公開前品質検査
 ├── management/      # 11 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
@@ -25,7 +25,7 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **54 スキル**（Phase 2 待機を除く）。
+合計 **55 スキル**（Phase 2 待機を除く）。
 
 ---
 
@@ -144,6 +144,7 @@ title: スキル ガバナンス記録
 | 2026-05-28 | `fit-title.mjs` | v1.0（新規） | 大型タイトル auto-fit 共通 util。`visualLength`（全角=1.0/半角=0.55）+ `pickTitleSize`（3 階層自動選択）+ `classifyTitle`（OK/WARN/NOTICE/ERROR）。highlight-stories-slides.mjs / quiz-slides.mjs で共有し、不適切改行を構造的に防止 |
 | 2026-05-28 | `lint-stories-titles.mjs` | v1.0（新規） | title 字数 lint。highlights/*/ + _exam-packs/**/ の slide-data.json をスキャンし visualLength を 4 段階判定（OK<=7 / WARN 8-11 / NOTICE 12-16 / ERROR 17+）。Evaluator（ig-highlight-qa / ig-carousel-qa）が出力を Read して採点に引用。ERROR で exit 1 |
 | 2026-05-28 | `quiz-slides.mjs` + `highlight-stories-slides.mjs` | （title auto-fit 追加） | cover-title / hero の固定サイズ（156/132px）を 3 階層 auto-fit に変更。tokens.json に coverTitle/Mid/Sm + hero/heroMid/heroSm（各 `_maxLen` 付き）追加。「文字数制限による意味希薄化」と「フォント縮小による視覚崩壊」の両ジレンマを段階フォントで吸収。ユーザー指摘「不適切改行が他 PNG/SVG でも繰り返される課題」への構造的対策 |
+| 2026-05-29 | `magazine-to-pdf` | v1.0（新規・conversion） | note マガジンの article.md を「問題文＋解答」中心の A4 PDF に変換する conversion スキル。汎用 `scripts/magazine-to-pdf.mjs`（spec 駆動 include/exclude DSL、remark → Chrome --print-to-pdf）＋ `scripts/pdf-specs/*.json`。複数解答（A/B案）両収録・CTA/採点者視点/出題予想根拠を除外。新規マガジンの spec 作成は Generator `magazine-pdf-builder` に委譲。当初マガジン別の一時スクリプト 2 本で着手したが汎用化して統合 |
 
 ### カテゴリ変更履歴
 
