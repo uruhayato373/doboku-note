@@ -102,6 +102,7 @@ title: スキル ナビゲーションガイド
 | `/critical-review` | 批判的レビュー | `批判的に見て`, `/critical-review` |
 | `/pre-mortem` | Pre-Mortem の実施 | `Pre-Mortem`, `リスク洗い出し`, `/pre-mortem` |
 | `/distill-proofread-learnings` | 校正作業から新規ルール・ユーザー嗜好を抽出 | `校正から学ぶ`, `新ルール抽出`, `/distill-proofread-learnings` |
+| `/routines` | クラウドルーティン（/schedule）を一覧・監査（重複・残骸・平文トークン・cron 衝突検出）。**新規作成前の重複チェック必須** | `ルーティン一覧`, `ルーティン監査`, `/routines` |
 
 ### UI/UX（ui）
 
