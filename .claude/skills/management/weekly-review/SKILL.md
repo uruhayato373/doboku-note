@@ -18,6 +18,11 @@ description: >
 
 サブエージェントで並列に実績データを収集し、計画との差分を分析し、成果・課題・学びを構造化して記録する。
 
+> **出力方式: md ファイル保存（GitHub Issue は使わない）**
+> CLAUDE.md §8 準拠で、レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存する（旧「Issue 一本化」方式は廃止）。
+> 本スキル内に残る `gh issue list` などの参照はレガシーであり、open Umbrella が無ければスキップしてよい。
+> なお、サブエージェントは Bash 不可（記憶 `feedback_agent_bash.md`）なため、データ収集は親が Bash で実行し、抽出済みテキストを分析に使う。
+
 ## 手順
 
 ### Phase 1: 実績収集（並列サブエージェント）
@@ -78,6 +83,19 @@ B. 実験進捗レポート:
 - .env.local に GOOGLE_SERVICE_ACCOUNT_KEY_PATH と GA4_PROPERTY_ID が設定されている
 - サービスアカウントが GSC と GA4 の両方で閲覧者権限を持つ
 - 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
+
+オフラインフォールバック（クラウドルーティン等 creds が無い環境）:
+- ライブ呼び出しの代わりに、CI（`fetch-metrics.yml` が毎週金曜 06:00 JST に commit）が残した
+  コミット済みスナップショットを読んで WoW を自前算出する:
+  - GA4 NSM（推奨）: `.claude/state/metrics/ga4/ga4-channel-organic-*.json`（7日窓・JP・Organic Search のみ）の
+    最新2ファイルをファイル名日付で sort → 各 rows の activeUsers を NSM として前週比を算出。
+    **これがクリーンな7日 WoW**。`ga4-channel-organic-*` が無い場合のみ `ga4-channel-*.json`（28日窓）に
+    フォールバックし、その場合は「28日ローリング比較」と明記する（クリーンな WoW ではない）。
+  - GSC（推奨）: `.claude/state/metrics/gsc/gsc-date-*.json`（7日窓・日次）の最新2ファイルで
+    日次 clicks/impressions を合計して前週比。無ければ `gsc-query-*.json`（28日窓）にフォールバックし
+    「28日ローリング」と明記。GSC は3日遅延があるため直近数日は未確定（両週同条件なので方向は有効）。
+  - PSI: `.claude/state/metrics/psi/psi-batch-*.json`（Agent C2 と同じ）を使う（ライブ PSI 呼び出し不要）
+- スナップショットが2週分揃わない場合のみ「NSM セクション: スキップ」と記録
 
 出力形式:
 - A の markdown 出力をそのまま「## NSM（オーガニック検索流入）」に
@@ -271,37 +289,36 @@ B. 実験進捗レポート:
 3. **課題・ブロッカー**: 未達タスクの原因分析
 4. **学び**: 発見・改善点
 
-### Phase 3: 出力（GitHub Issue 一本化）
+### Phase 3: 出力（md ファイル保存）
 
-下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、**GitHub Issue** に投稿する。
+下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、**`docs/reviews/weekly/YYYY-Www-review.md`** に保存する（`writeMdxFile` 経由は不要、通常の md なので Write でよい）。
 
-```bash
-# 1. Issue body を /tmp に生成
-cat > /tmp/weekly-pdca-YYYY-Www.md <<'EOF'
-（セクション 1〜N を順に埋め込む）
-EOF
+ファイル先頭は H1 + 作成日 + 対象期間（既存 `2026-W21-review.md` と同形式）:
 
-# 2. Issue 作成
-gh issue create \
-  --title "[PDCA] YYYY-Www" \
-  --label "weekly-pdca" \
-  --body-file /tmp/weekly-pdca-YYYY-Www.md
+```markdown
+# 週次レビュー YYYY-Www
+
+作成日: YYYY-MM-DD
+対象期間: YYYY-MM-DD 〜 YYYY-MM-DD
+
+---
+
+（以降、下記「出力フォーマット」のセクション 1〜N を順に埋め込む）
 ```
 
-既存 Issue があり更新する場合は `gh issue edit <N> --body-file /tmp/weekly-pdca-YYYY-Www.md`。
-
 **重要**:
-- レビュー md は作らない（Issue 一本化。W16 以前は `gh issue list --label weekly-pdca --state all` および git history を参照）
-- frontmatter は Issue body に不要（title/label/日付は Issue のメタデータで管理）
-- 前週の `[PDCA]` Issue は、本週 Issue 作成時に close する
+- 保存先は `docs/reviews/weekly/`（zone A = docs/。`.claude/state/*.md` は新規作成禁止）
+- 既存の同名ファイルがあれば上書きせず内容を統合してから Write する
+- 前週レビューへの相対リンク `[YYYY-W(N-1)-review.md](./YYYY-W(N-1)-review.md)` を冒頭に入れると追跡しやすい
+- GitHub Issue は作成しない（CLAUDE.md §8 準拠）
 
 ### Phase 4: 週次計画の自動生成
 
-レビュー完了後、**自動的に `/weekly-plan` を実行**して同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する（`gh issue edit --body-file` で更新）。
+レビュー完了後、**自動的に `/weekly-plan` を実行**して翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する（review 本体とは別ファイル。`weekly-plan` 側の出力先に従う）。レビューの「来週への申し送り」が計画の入力になる。
 
-## 出力フォーマット（Issue body）
+## 出力フォーマット（md 本文）
 
-Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 markdown 全体を `--body-file` で投稿。
+ファイル名は `docs/reviews/weekly/YYYY-Www-review.md`。先頭に H1 `# 週次レビュー YYYY-Www` と作成日・対象期間を置き、以降に下記セクションを順に並べる。
 
 ```markdown
 ## サマリー
@@ -447,10 +464,10 @@ Issue title は `[PDCA] YYYY-Www`（body 側に H1 は書かない）。本 mark
 ## 運用ルール
 
 - **毎週金曜 PM に実行**（同日 06:00 JST の fetch-metrics 完了後）
-- レビュー完了後に `/weekly-plan` が自動実行され、同じ `[PDCA]` Issue の body に「来週の計画」セクションを追記する
-- 前週の `[PDCA]` Issue は本週 Issue 作成時に close
-- 未完了アクションは次週 Issue の「計画」セクションに引き継ぐ
-- 週次レビューの md は作らない（W17 以降は Issue 一本化、W16 以前の旧 md archive は 2026-04-27 に削除）
+- レビューは `docs/reviews/weekly/YYYY-Www-review.md` に保存（GitHub Issue は使わない）
+- レビュー完了後に `/weekly-plan` が自動実行され、翌週の計画を `docs/reviews/weekly/YYYY-Www.md` に保存する
+- 未完了アクションは「来週への申し送り」→ 次週計画へ引き継ぐ
+- 履歴は `docs/reviews/weekly/` 配下の md と git history で参照（旧 Issue 一本化方式・W16 以前の旧 md archive は廃止済み）
 
 ## 参照
 

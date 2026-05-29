@@ -157,3 +157,9 @@ title: スキル ガバナンス記録
 | `conversion` | 新設 | 2026-04-24（Phase C） |
 | `authoring` | 新設 | 2026-04-24（Phase D） |
 | `content` | 廃止（解体） | 2026-04-24（Phase D） |
+
+### 設計変更履歴
+
+| スキル | 変更 | 日付 |
+|---|---|---|
+| `management/weekly-review` | 出力先を GitHub Issue 一本化 → md 保存（`docs/reviews/weekly/YYYY-Www-review.md`）へ変更。CLAUDE.md §8「Issue 廃止」と整合。Phase 3/4・運用ルール・出力フォーマットを md ベースに修正、残存 `gh issue` 参照はレガシー扱い | 2026-05-30 |
