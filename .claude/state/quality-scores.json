@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-05-17T08:54:36.582Z",
+  "scored_at": "2026-05-29T05:50:43.349Z",
   "pages": {
     "balance-sheet": {
       "slug": "balance-sheet",
@@ -483,18 +483,16 @@
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.45,
-      "weak_axes": [
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:34.112Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "5管理トレードオフH3欠落・歴史H2の順序ズレ・公的参考資料なし。関連付けは充実。weighted=2.10で合格ラインクリアだがリライト推奨。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "pert-cpm": {
       "slug": "pert-cpm",
@@ -1651,17 +1649,16 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 2,
-        "reference": 2,
+        "principle": 3,
+        "reference": 1,
         "linking": 3
       },
-      "weighted": 2.65,
+      "weighted": 2.7,
       "weak_axes": [
-        "principle",
         "reference"
       ],
-      "qualitative_comment": "数字スペース混在(§14)とPDFリンク切れ。公的+民間の実在は確保済み。",
-      "scored_at": "2026-05-17T08:49:40.343Z"
+      "qualitative_comment": "参考資料 PDF と Wikipedia が 404。公的・民間各 1 件は有効だが捏造 URL 疑いで参考資料軸 1 点強制。他 4 軸は全て 3 点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "basel-convention": {
       "slug": "basel-convention",
@@ -1882,14 +1879,14 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 3,
+        "principle": 2,
         "reference": 3,
-        "linking": 3
+        "linking": 2
       },
-      "weighted": 3,
+      "weighted": 2.7,
       "weak_axes": [],
-      "qualitative_comment": "全5軸満点。lint通過、参考資料4件実在確認済、公的・民間各2件揃い。",
-      "scored_at": "2026-05-17T08:49:40.343Z"
+      "qualitative_comment": "lint 違反ゼロ・参考資料4件全200OK。shallow table（L27）とインライン出典欠落（L65）がコンテンツ原則の弱点。「関連テーマ記事」H2が空。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "career-ownership": {
       "slug": "career-ownership",
@@ -3293,16 +3290,16 @@
     "circular-economy": {
       "slug": "circular-economy",
       "scores": {
-        "structure": 3,
-        "mobile": 3,
-        "principle": 3,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 3,
+      "weighted": 2.25,
       "weak_axes": [],
-      "qualitative_comment": "全軸満点。lint通過・参考資料公的2件+民間1件・5管理連動も明示。",
-      "scored_at": "2026-05-17T08:46:46.819Z"
+      "qualitative_comment": "参考資料・関連付けは強固。MEDIUM2件（factual table直下のインライン出典欠落）と「発展経緯」H2の重複が弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "circular-society-basic-act": {
       "slug": "circular-society-basic-act",
@@ -3466,18 +3463,16 @@
     "competency-hr": {
       "slug": "competency-hr",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.45,
-      "weak_axes": [
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:56:59.941Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "歴史H2が位置づけ後に挿入しセクション順ズレ。shallow table・ExamPoint位置・§22インライン出典の3件MEDIUM。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "concurrent-engineering": {
       "slug": "concurrent-engineering",
@@ -3796,19 +3791,16 @@
     "csv": {
       "slug": "csv",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
         "principle": 2,
-        "reference": 3,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.55,
-      "weak_axes": [
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "ExamPoint配置が52%地点(9-2 MEDIUM)。CSV/CSR比較表は許容範囲内だが散文とのバランスは維持。",
-      "scored_at": "2026-05-17T08:46:46.819Z"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint位置(52%地点)がMEDIUM1件。CSV/CSR比較が箇条書き依存で散文薄。参考資料は公的+民間揃い・URL実在確認済み。構造・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "cyber-security": {
       "slug": "cyber-security",
@@ -3941,16 +3933,16 @@
     "decision-tree-analysis": {
       "slug": "decision-tree-analysis",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 3,
-        "principle": 3,
+        "principle": 2,
         "reference": 3,
-        "linking": 3
+        "linking": 2
       },
-      "weighted": 3,
+      "weighted": 2.4,
       "weak_axes": [],
-      "qualitative_comment": "全軸満点。lint違反ゼロ・公的+民間参考資料実在確認済み・section一致・双方向リンク揃い。",
-      "scored_at": "2026-05-17T08:46:46.819Z"
+      "qualitative_comment": "構造・モバイル・参考資料は良好。ISO 31010 factual claim のインライン出典欠落（§22 MEDIUM）と歴史 H2 削除候補が弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "decoupling": {
       "slug": "decoupling",
@@ -3974,35 +3966,16 @@
         "structure": 3,
         "mobile": 2,
         "principle": 2,
-        "reference": 3,
-        "linking": 3
+        "reference": 2,
+        "linking": 2
       },
-      "weighted": 2.55,
-      "weak_axes": [
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "ExamPoint配置が38%地点（末尾推奨）。参考資料・リンクは充実。全体的に高品質。",
-      "scored_at": "2026-05-17T08:46:46.819Z"
+      "weighted": 2.3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸2点以上で合格圏。ExamPoint末尾欠落（§5）・1996年IAEA記述のインライン出典なし（§22）が指摘事項。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "delphi-method": {
       "slug": "delphi-method",
-      "scores": {
-        "structure": 3,
-        "mobile": 2,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 2.45,
-      "weak_axes": [
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:04.373Z",
-      "scoring_method": "auto"
-    },
-    "deposit-system": {
-      "slug": "deposit-system",
       "scores": {
         "structure": 2,
         "mobile": 2,
@@ -4011,81 +3984,79 @@
         "linking": 3
       },
       "weighted": 2.25,
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "全セクション揃い・参考資料は公的+民間。RelatedKeywords→ExamPoint逆順・Calloutゼロが弱点。",
-      "scored_at": "2026-05-17T08:49:40.343Z"
+      "weak_axes": [],
+      "qualitative_comment": "参考資料・関連付けは満点。ExamPoint 配置位置（56%）と実施手順表直下のインライン出典欠落が共通弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
+    },
+    "deposit-system": {
+      "slug": "deposit-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "構造・リンクは完備。§22インライン出典欠落（L35/L49-51）とlint 9-4（民間参考資料なし）がMEDIUM2件。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "depreciation": {
       "slug": "depreciation",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 2,
-        "linking": 2
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
+        "linking": 3
       },
-      "weighted": 2.25,
-      "weak_axes": [
-        "mobile"
-      ],
-      "scored_at": "2026-04-17T05:57:04.688Z",
-      "scoring_method": "auto"
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "lint 違反ゼロ・参考資料全件実在確認済み。歴史段落の verifiable claim にインライン出典欠如（§22 MEDIUM）が1件。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "depreciation-residual-value": {
       "slug": "depreciation-residual-value",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 2,
         "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 2.25,
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "ExamPoint位置ズレ・表前導入文欠落・制度史H2割り込み。参考資料・関連付けは満点。",
-      "scored_at": "2026-05-17T08:49:40.343Z"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "モバイル・原則軸でMEDIUM各2件。定額/定率比較表前の導入文欠落、ExamPoint位置ズレ、税制改正段落のインライン出典なし。参考資料・関連付けは完備。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "design-for-environment": {
       "slug": "design-for-environment",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 2,
         "principle": 2,
-        "reference": 1,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 1.95,
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "参考資料が公的2件のみで民間欠落。ExamPoint位置42%地点。",
-      "scored_at": "2026-05-17T08:49:40.343Z"
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "構造・リンク良好。ExamPoint末尾欠落・民間参考資料なし・80%数値にインライン出典なしの3点がMEDIUM違反。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "design-in": {
       "slug": "design-in",
       "scores": {
-        "structure": 2,
+        "structure": 3,
         "mobile": 2,
         "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 2.25,
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "ExamPointが中間配置・発生背景H2が位置づけ後に置かれ構造順序ズレ。",
-      "scored_at": "2026-05-17T08:52:16.848Z"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・参照リンク実在確認済み。ExamPoint配置MEDIUM1件・効果セクション散文薄が弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "design-quality": {
       "slug": "design-quality",
@@ -4097,12 +4068,9 @@
         "linking": 3
       },
       "weighted": 2.55,
-      "weak_axes": [
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "ExamPointが記事中盤、過去問核心Callout欠落。",
-      "scored_at": "2026-05-17T08:52:16.848Z"
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint が記事中盤（L44）に配置されており§5違反（lint 9-2 MEDIUM）。参考資料・リンクは良好。概念理論型のため5管理H3は不要。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "design-review": {
       "slug": "design-review",
@@ -4115,8 +4083,8 @@
       },
       "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "全5軸満点。lint違反ゼロ・参考資料3件全実在・双方向リンク完備。",
-      "scored_at": "2026-05-17T08:52:16.848Z"
+      "qualitative_comment": "全5軸クリア。lint完全パス、参考資料3件全件実在確認済み、5管理・過去問backlink・双方向リンク完備。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "design-rights": {
       "slug": "design-rights",
@@ -4205,16 +4173,12 @@
         "mobile": 2,
         "principle": 2,
         "reference": 2,
-        "linking": 3
+        "linking": 2
       },
-      "weighted": 2.4,
-      "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "過去問核心Callout欠落・末尾関連KW列挙行・Wikipedia単独民間資料。",
-      "scored_at": "2026-05-17T08:52:16.848Z"
+      "weighted": 2.3,
+      "weak_axes": [],
+      "qualitative_comment": "法令制度類型として条文・罰則・基準値を網羅。§22 インライン出典欠落（環境基準表・排出基準・罰則）が3件、lint 8-1（関連キーワード列挙行）が1件。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "direct-costing": {
       "slug": "direct-costing",
@@ -4226,28 +4190,23 @@
         "linking": 3
       },
       "weighted": 2.55,
-      "weak_axes": [
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "表前導入文なし・ExamPointが43%地点。",
-      "scored_at": "2026-05-17T08:52:16.848Z"
+      "weak_axes": [],
+      "qualitative_comment": "MEDIUM2件（表前導入文なし・ExamPoint末尾配置なし）。参考資料・リンクは良好。概念理論型で5管理H3不要。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "direct-manufacturing-cost": {
       "slug": "direct-manufacturing-cost",
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 2,
-        "reference": 3,
+        "principle": 3,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.8,
-      "weak_axes": [
-        "principle"
-      ],
-      "qualitative_comment": "過去問核心Callout欠落。Callout追加で原則3点到達可能。",
-      "scored_at": "2026-05-17T08:53:26.873Z"
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "lint 全パス・双方向リンク完備。参考資料の国税庁 URL がラベルと内容ミスマッチ（差し替え要）、年代段落のインライン出典欠落が弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "disability-discrimination-act": {
       "slug": "disability-discrimination-act",
@@ -4333,11 +4292,9 @@
         "linking": 3
       },
       "weighted": 2.85,
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "参考資料が気象庁+Wikipediaのみ。公的副資料追加で満点圏。",
-      "scored_at": "2026-05-17T08:53:26.873Z"
+      "weak_axes": [],
+      "qualitative_comment": "lint 全 pass・URL 実在確認済み。参考資料は公的+Wikipedia の2件のみで民間解説サイト欠。全軸 2 点以上で合格水準。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "discretionary-work-system": {
       "slug": "discretionary-work-system",
@@ -4392,16 +4349,14 @@
       "scores": {
         "structure": 3,
         "mobile": 2,
-        "principle": 3,
+        "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 2.75,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "モバイルMEDIUM1件（太字42字）。他は高品質。",
-      "scored_at": "2026-05-17T08:53:26.873Z"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "全体品質は良好。MEDIUM 1件（太字スコープ超過）と歴史H2の試験論点外リスクが軽微な弱点。参考資料・関連付けは完備。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "e-waste": {
       "slug": "e-waste",
@@ -4424,14 +4379,14 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 3,
-        "reference": 3,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 3,
+      "weighted": 2.65,
       "weak_axes": [],
-      "qualitative_comment": "全軸満点。lint違反ゼロ・参考資料実在確認済・散文中心構成。",
-      "scored_at": "2026-05-17T08:53:26.873Z"
+      "qualitative_comment": "lint ゼロ通過・構造完備。策定背景の年代記述にインライン出典なし（§22 MEDIUM）、民間参考資料 URL が 301 移転済み。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "eco-drr": {
       "slug": "eco-drr",
@@ -4455,17 +4410,15 @@
         "structure": 2,
         "mobile": 1,
         "principle": 2,
-        "reference": 3,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2,
+      "weighted": 1.85,
       "weak_axes": [
-        "mobile",
-        "structure",
-        "principle"
+        "mobile"
       ],
-      "qualitative_comment": "表セル超過3件でモバイル1点。「制度の歴史」H2が§9-7相当。",
-      "scored_at": "2026-05-17T08:53:26.873Z"
+      "qualitative_comment": "ISOタイプ表のセル長超過MEDIUM4件でモバイル軸1点。インライン出典欠落・歴史H2位置ズレが追加指摘。参考資料・リンクは充実。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "ecological-footprint": {
       "slug": "ecological-footprint",
@@ -4488,14 +4441,14 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 3,
-        "reference": 3,
-        "linking": 3
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
       },
-      "weighted": 3,
+      "weighted": 2.55,
       "weak_axes": [],
-      "qualitative_comment": "全軸満点。lint違反ゼロ、公的+民間参考資料実在確認済み、構造・散文ともに完備。",
-      "scored_at": "2026-05-17T08:46:46.819Z"
+      "qualitative_comment": "lint クリーン・frontmatter 完備。MA 統計段落の§22インライン出典欠落(M)、歴史H2の削除候補(L)が残存。参考資料は公的1件のみでやや弱め。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "elderly-employment-act": {
       "slug": "elderly-employment-act",
@@ -4532,14 +4485,16 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 3,
+        "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 3,
-      "weak_axes": [],
-      "qualitative_comment": "全軸満点。lint違反ゼロ、公的＋民間参考資料実在確認済、ExamPoint末尾配置。",
-      "scored_at": "2026-05-17T08:54:36.577Z"
+      "weighted": 2.8,
+      "weak_axes": [
+        "principle"
+      ],
+      "qualitative_comment": "「違い」H2が箇条書きのみで散文ゼロ（12-2相当）。参考資料・構造・モバイル・関連付けは満点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "emergency-info-systems": {
       "slug": "emergency-info-systems",
@@ -4562,14 +4517,14 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 3,
+        "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 3,
+      "weighted": 2.8,
       "weak_axes": [],
-      "qualitative_comment": "全5軸満点。lint完全通過、参考資料実在確認済、散文充実。",
-      "scored_at": "2026-05-17T08:54:36.577Z"
+      "qualitative_comment": "lint違反ゼロ・参考資料実在確認OK。L57の成立年記述（1922/1947/1974年）直下にインライン出典なし（§22 MEDIUM）のみ要修正。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "employment-security-act": {
       "slug": "employment-security-act",
@@ -4592,16 +4547,16 @@
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 3,
-        "reference": 3,
-        "linking": 2
+        "principle": 2,
+        "reference": 2,
+        "linking": 3
       },
-      "weighted": 2.4,
+      "weighted": 2.15,
       "weak_axes": [
         "mobile"
       ],
-      "qualitative_comment": "散文・構造優秀。モバイルのみ表セル字数超過3件で減点。",
-      "scored_at": "2026-05-17T08:54:36.577Z"
+      "qualitative_comment": "モバイル軸でMEDIUM3件（表セル超過×2）。§22インライン出典不足も要修正。参考資料は公的のみ判定。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "energy": {
       "slug": "energy",
@@ -4638,32 +4593,28 @@
       "scores": {
         "structure": 3,
         "mobile": 3,
-        "principle": 3,
-        "reference": 3,
-        "linking": 3
-      },
-      "weighted": 3,
-      "weak_axes": [],
-      "qualitative_comment": "全5軸違反ゼロ。lint合格・参考資料実在確認・双方向リンク完備。",
-      "scored_at": "2026-05-17T08:54:36.577Z"
-    },
-    "environmental-communication": {
-      "slug": "environmental-communication",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
         "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 2.25,
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "ExamPointが51%地点・表前導入文欠落。3軸2点でリライト候補水準。",
-      "scored_at": "2026-05-17T08:54:36.577Z"
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "lint違反ゼロ・参考資料実在確認済み。L33の「標準テキスト図表5.11・平成26年度出題」段落直下にインライン出典なし（§22 MEDIUM1件）で原則軸2点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
+    },
+    "environmental-communication": {
+      "slug": "environmental-communication",
+      "scores": {
+        "structure": 3,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
+        "linking": 2
+      },
+      "weighted": 2.45,
+      "weak_axes": [],
+      "qualitative_comment": "構造・参考資料は良好。ExamPoint 配置が51%地点（§5違反）、発展背景の年代 verifiable claim にインライン出典なし（§22）が要修正。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "environmental-impact-assessment": {
       "slug": "environmental-impact-assessment",
@@ -4802,87 +4753,80 @@
     "esd": {
       "slug": "esd",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:11.881Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "MEDIUM 4件（表前導入文×2・ExamPoint位置・§22インライン出典）。成立背景H2がExamPoint後に置かれ構造順ズレ。参考資料・関連付けは完備。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "esg-environmental-assessment": {
       "slug": "esg-environmental-assessment",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:12.001Z",
-      "scoring_method": "auto"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "参考資料URL実在確認済み。表前導入文欠如（L33）とPRI年代記述のインライン出典欠如（L27-29、§22）がMEDIUM2件。加重2.55で合格。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "evaluation-bias": {
       "slug": "evaluation-bias",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:12.416Z",
-      "scoring_method": "auto"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint位置(58%)とH2散文薄が弱点。参考資料・リンクは良好。概念理論類型で5管理H3は不要。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "extended-producer-responsibility": {
       "slug": "extended-producer-responsibility",
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 3,
+        "principle": 1,
         "reference": 1,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.8,
       "weak_axes": [
         "mobile",
+        "principle",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:12.601Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "HIGH違反(9-11 ExamPoint句読点)で原則軸1点強制。3列表のセル超過が多数。OECD URL が301リダイレクト（カテゴリtopへ転送、指定文書に未到達）で参考資料軸1点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "extreme-events": {
       "slug": "extreme-events",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.8,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:12.699Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "lint クリーン・参考資料3件全存在確認済み。IPCC AR6段落・SREX段落にインライン出典（§22）が欠落しMEDIUM×2。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "extrinsic-motivation": {
       "slug": "extrinsic-motivation",
@@ -4949,35 +4893,34 @@
       "slug": "flextime-system",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:13.796Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "4列表とExamPoint位置のMEDIUM2件。5管理トレードオフH3欠如（現場運用類型でmandatory）とfactual table直下の§22インライン出典漏れ2件が原則軸を圧迫。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "fmea": {
       "slug": "fmea",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.95,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure"
       ],
-      "scored_at": "2026-04-17T05:57:13.895Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "現場運用類型で必須の5管理トレードオフH3が欠落。参考資料・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "followership": {
       "slug": "followership",
@@ -4997,15 +4940,17 @@
       "slug": "foreign-trainee-program",
       "scores": {
         "structure": 3,
-        "mobile": 3,
-        "principle": 3,
+        "mobile": 1,
+        "principle": 2,
         "reference": 3,
         "linking": 3
       },
-      "weighted": 3,
-      "weak_axes": [],
-      "qualitative_comment": "全軸満点。散文・過去問Callout・内部リンク・参考資料いずれも原則準拠。",
-      "scored_at": "2026-05-17T08:47:54.223Z"
+      "weighted": 2.3,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "モバイル軸がMEDIUM3件（§22インライン出典欠落）で1点。構造・参考資料・関連付けは揃っている。リライト推奨。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "formal-informal-organization": {
       "slug": "formal-informal-organization",
@@ -5080,19 +5025,18 @@
     "front-loading": {
       "slug": "front-loading",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.85,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:15.092Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "mobile=1（MEDIUM 3件: ExamPoint位置・alt超過・太字36字）、§22インライン出典欠如、URL2件とも実在確認済み",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "functional-organization": {
       "slug": "functional-organization",
@@ -5131,18 +5075,15 @@
       "slug": "gantt-chart",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:15.618Z",
-      "scoring_method": "auto"
+      "weighted": 2.65,
+      "weak_axes": [],
+      "qualitative_comment": "lint完全パス・参考資料実在確認済み。現場運用類型だが5管理トレードオフH3不在（mandatory未充足）で原則2点。歴史H2削除推奨。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "gender-equality-act": {
       "slug": "gender-equality-act",
@@ -5189,53 +5130,44 @@
     "global-compact": {
       "slug": "global-compact",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:16.213Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "全軸2点止まり。参考資料に公的資料なし、ExamPoint位置ズレ、L49数値のインライン出典欠落が主因。weighted=2.10で合格だがリライト候補。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "global-hr-development": {
       "slug": "global-hr-development",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:16.310Z",
-      "scoring_method": "auto"
+      "weighted": 2.15,
+      "weak_axes": [],
+      "qualitative_comment": "背景H2が位置づけH2の後に配置（構造逸脱）、ExamPoint位置ずれ、インライン出典なし（§22）。参考資料は公的＋民間で満点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "green-bond": {
       "slug": "green-bond",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:16.411Z",
-      "scoring_method": "auto"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "MEDIUM 2件（表前導入文・ExamPoint位置）とL55付近の数値段落にインライン出典欠落。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "green-infrastructure": {
       "slug": "green-infrastructure",
@@ -5268,19 +5200,19 @@
     "halo-effect-errors": {
       "slug": "halo-effect-errors",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
+        "principle": 2,
         "reference": 1,
-        "linking": 3
+        "linking": 2
       },
-      "weighted": 2.2,
+      "weighted": 1.6,
       "weak_axes": [
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:16.809Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "MEDIUM3件（表導入文欠・ExamPoint位置・参考資料民間のみ）。歴史H2が構造末尾に残存。公的機関リンク不足が最重点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "hawthorne-experiment": {
       "slug": "hawthorne-experiment",
@@ -5314,69 +5246,62 @@
       "slug": "hazardous-facility-disaster-prevention",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:17.220Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "構造・参考資料・関連付けは良好。ExamPoint位置(43%)と太字CommonMark違反(L61)、立法背景段落のインライン出典欠如(§22)が弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "hazop": {
       "slug": "hazop",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.95,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure"
       ],
-      "scored_at": "2026-04-17T05:57:17.467Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "現場運用類型だが5管理トレードオフH3が欠落（mandatory）。alt超過とインライン出典なしのMEDIUM2件あり。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "health-management": {
       "slug": "health-management",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:17.573Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "構造・モバイル・原則・参考資料が各2点で均等に弱い。5管理H3欠落、shallow table、§22インライン出典不備が主因。関連付けのみ良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "heinrich-law": {
       "slug": "heinrich-law",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:17.790Z",
-      "scoring_method": "auto"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "現場運用型だが5管理トレードオフH3不在。表セル超過(L38)とインライン出典欠落(L23/L34/L54)がMEDIUM計4件。参考資料・構造・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "herzberg-two-factor-theory": {
       "slug": "herzberg-two-factor-theory",
@@ -5395,19 +5320,16 @@
     "hierarchical-training": {
       "slug": "hierarchical-training",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:18.010Z",
-      "scoring_method": "auto"
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "モバイル・参考資料・関連付けは合格水準。現場運用類型で必須の5管理トレードオフH3が欠落、制度化背景H2が試験論点と乖離。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "high-pressure-gas-act": {
       "slug": "high-pressure-gas-act",
@@ -5482,36 +5404,32 @@
     "human-resource-assessment": {
       "slug": "human-resource-assessment",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:18.832Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "全軸2点止まり。5管理トレードオフH3欠落・ExamPoint位置ズレ・§22インライン出典違反が主要課題。history H2は削除候補。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "ics": {
       "slug": "ics",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
         "reference": 1,
-        "linking": 3
+        "linking": 2
       },
-      "weighted": 2.2,
+      "weighted": 1.85,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:18.932Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "参考資料が民間2件のみ（公的ソース欠落）で参考資料軸1点。ExamPoint位置ズレ・開発背景H2が位置づけ後に来る構造乱れも残存。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "idea-generation-methods": {
       "slug": "idea-generation-methods",
@@ -5586,19 +5504,16 @@
     "indirect-manufacturing-cost": {
       "slug": "indirect-manufacturing-cost",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:19.894Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "構造・モバイル・原則の3軸に軽微問題。shallow table・セル超過・歴史H2が主な指摘。参考資料と関連付けは充足。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "individual-labor-dispute-act": {
       "slug": "individual-labor-dispute-act",
@@ -5631,18 +5546,16 @@
     "infectious-disease-pandemic": {
       "slug": "infectious-disease-pandemic",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.45,
-      "weak_axes": [
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:20.305Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "構造順序ズレ（歴史H2が位置づけH2より後）、事業継続H2が箇条書きのみで散文ゼロ、歴史段落に年代多数だがインライン出典なし。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "information-disclosure-act": {
       "slug": "information-disclosure-act",
@@ -5692,35 +5605,32 @@
       "slug": "input-indicators",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:20.941Z",
-      "scoring_method": "auto"
+      "weighted": 2.65,
+      "weak_axes": [],
+      "qualitative_comment": "lint完全パス・構造順序正常。§22違反：L64「2001年施行の政策評価法」段落にインライン出典なし（MEDIUM）。参考資料URLはWebFetch網絡制限で実在未確認。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "inspection-methods": {
       "slug": "inspection-methods",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "principle": 1,
+        "reference": 2,
+        "linking": 2
       },
-      "weighted": 2.2,
+      "weighted": 1.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:21.041Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ExamPoint 位置違反・5管理H3 欠落・重複bullet・導入文なしが重なりモバイル/原則とも1点。参考資料は実在確認済み。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "integrity-security": {
       "slug": "integrity-security",
@@ -5802,35 +5712,29 @@
       "slug": "internship",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:22.046Z",
-      "scoring_method": "auto"
+      "weighted": 2.3,
+      "weak_axes": [],
+      "qualitative_comment": "現場運用型だが5管理H3・過去問Calloutゼロ、factual表の§22インライン出典欠如、参考資料が公的のみの3点が要修正。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "interpersonal-skills": {
       "slug": "interpersonal-skills",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:22.182Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "5管理トレードオフH3欠落（現場運用mandatory）と過去問Calloutゼロが主因。参考資料・関連付けは適切。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "intrinsic-motivation": {
       "slug": "intrinsic-motivation",
@@ -5863,36 +5767,34 @@
     "inventory-control": {
       "slug": "inventory-control",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
       "weighted": 2.2,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure"
       ],
-      "scored_at": "2026-04-17T05:57:22.490Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "現場運用類型だが5管理トレードオフH3が欠落（構造1点）。参考資料・リンク・モバイルは全て良好。インライン出典不足(§22)が残存。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "investment-recovery-plan": {
       "slug": "investment-recovery-plan",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
+        "mobile": 3,
+        "principle": 2,
         "reference": 1,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.5,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:22.592Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "JOGMEC・freee URL が 404、MLIT URL は内容不一致。参考資料軸が唯一の弱点で本文品質は高い。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "iot": {
       "slug": "iot",
@@ -5967,36 +5869,32 @@
     "iso-26000": {
       "slug": "iso-26000",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.85,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:23.540Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイル MEDIUM 4件（表前導入文・ExamPoint位置・太字記法・参考資料公的欠落）で1点。公的参考資料・インライン出典追加が優先修正点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "jit-production": {
       "slug": "jit-production",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:23.868Z",
-      "scoring_method": "auto"
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "lint完全パス・参考資料・関連付け良好。現場運用類型で必須の5管理トレードオフH3が欠落し構造・原則各2点。成立背景段落にインライン出典なし（§22 MEDIUM）。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "job-based-pay": {
       "slug": "job-based-pay",
@@ -6032,52 +5930,43 @@
       "slug": "job-execution-ability",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:24.325Z",
-      "scoring_method": "auto"
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "lint 違反ゼロ・参考資料両種確認済み。現場運用型だが5管理トレードオフH3が欠落し原則軸2点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "job-order-costing": {
       "slug": "job-order-costing",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:24.557Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "現場運用型だが5管理トレードオフH3が欠落（mandatory）。末尾総括ExamPoint欠落（lint 9-2）。参考資料・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "job-rotation": {
       "slug": "job-rotation",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:24.657Z",
-      "scoring_method": "auto"
+      "weighted": 2.65,
+      "weak_axes": [],
+      "qualitative_comment": "lint違反ゼロ・参考資料実在確認済み。現場運用類型だが5管理トレードオフH3が明示なく、過去問核心Calloutも不在。全軸2点以上で合格水準。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "job-type-employment": {
       "slug": "job-type-employment",
@@ -6222,19 +6111,19 @@
     "lead-time": {
       "slug": "lead-time",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
+        "principle": 2,
         "reference": 1,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.7,
       "weak_axes": [
         "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:26.188Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "SPT数式・計算例など経済性管理の核心は充実。参考資料が民間のみ・MEDIUM3件でモバイル/参考資料軸が弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "lgbt-understanding-act": {
       "slug": "lgbt-understanding-act",
@@ -6272,69 +6161,61 @@
       "slug": "lifecycle-assessment",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:26.497Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全5軸クリア。lint違反ゼロ、参考資料URL実在確認済み、概念理論類型として5管理H3なしも正しい。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "lifecycle-costing-method": {
       "slug": "lifecycle-costing-method",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:26.653Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "構造・モバイル・原則がいずれも2点。背景H2の順序ズレ、表前導入文欠如、§22インライン出典欠落が三大弱点。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "lifecycle-management": {
       "slug": "lifecycle-management",
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.3,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:27.003Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイルがMEDIUM4件（見出し重複3件+ExamPoint位置）で弱点。インライン出典欠落も要対処。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "likelihood": {
       "slug": "likelihood",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:27.106Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイル軸HIGH違反1件（表セル内KaTeX）が主因。ExamPoint位置ズレとfactual table直下インライン出典欠落（§22）がMEDIUM2件。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "linear-programming": {
       "slug": "linear-programming",
@@ -6369,53 +6250,48 @@
     "liquefaction": {
       "slug": "liquefaction",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.05,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:27.437Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "MEDIUM 3件（lint太字2件＋§22インライン出典欠落）でコンテンツ原則1点。参考資料・関連付けは良好。5管理言及が歴史H2末尾1文に埋没。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "load-capacity": {
       "slug": "load-capacity",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.8,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:27.539Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "現場運用類型だが5管理トレードオフH3が欠落（mandatory）。他軸はlint違反ゼロ・参考資料実在確認済みで良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "load-leveling": {
       "slug": "load-leveling",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:27.639Z",
-      "scoring_method": "auto"
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "lint違反ゼロ・参考資料OK。山積み/山くずし定義表がshallow table（§4拡張）のためコンテンツ原則2点。5管理トレードオフは段落内で言及あり。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "location-limited-employee": {
       "slug": "location-limited-employee",
@@ -6512,53 +6388,47 @@
     "mandatory-management-retirement": {
       "slug": "mandatory-management-retirement",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:28.538Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "参考資料・関連付けは満点。ExamPoint位置ズレ(49%)・§22インライン出典不足・5管理H3欠落が重なりコンテンツ3軸が2点止まり。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "manufacturing-quality": {
       "slug": "manufacturing-quality",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:28.636Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "5管理トレードオフH3が現場運用類型で欠落。モバイルはL31表セル超過1件（MEDIUM）。参考資料・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "market-research": {
       "slug": "market-research",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:28.734Z",
-      "scoring_method": "auto"
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "構造・関連付けは良好。モバイル1件（太字デリミタ）、年代記述の§22インライン出典欠落がそれぞれ2点の要因。参考資料は一次公的ソース1件のみでやや薄い。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "maslow-hierarchy-of-needs": {
       "slug": "maslow-hierarchy-of-needs",
@@ -6595,19 +6465,16 @@
     "master-schedule-planning": {
       "slug": "master-schedule-planning",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:29.031Z",
-      "scoring_method": "auto"
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "歴史H2が「位置づけ」後に挿入で構造ズレ。過去問核心Calloutゼロ(§16)・5管理H3不在(§19現場運用mandatory)がコンテンツ軸を下げる。lint全パス・参考資料実在確認済み。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "matrix-organization": {
       "slug": "matrix-organization",
@@ -6629,18 +6496,15 @@
       "slug": "mbo",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:29.246Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "5軸全項目合格。lint違反ゼロ・参考資料実在確認済み・5管理トレードオフを散文で記述・過去問3件逆引き完備。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "mcgregor-xy-theory": {
       "slug": "mcgregor-xy-theory",
@@ -6740,35 +6604,29 @@
       "slug": "merit-demerit-system",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:30.050Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸クリア。lint ゼロ・frontmatter 完備・参考資料両者実在確認済み。概念理論類型として5管理省略も適切。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "method-planning": {
       "slug": "method-planning",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:30.159Z",
-      "scoring_method": "auto"
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "lint違反ゼロ・参考資料実在確認済み。工法選定5要素表と箇条書きの冗長性（L29-43）と背景H2の歴史記述が軽微な減点要因。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "millennium-ecosystem-assessment": {
       "slug": "millennium-ecosystem-assessment",
@@ -6819,19 +6677,16 @@
     "multi-objective-optimization": {
       "slug": "multi-objective-optimization",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:30.921Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "概念理論類型。ExamPoint位置・参考資料民間のみ・インライン出典欠落の MEDIUM 3件。加重合計 2.20 で合格だがリライト推奨。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "multi-track-hr-system": {
       "slug": "multi-track-hr-system",
@@ -6884,19 +6739,19 @@
     "natech": {
       "slug": "natech",
       "scores": {
-        "structure": 3,
+        "structure": 1,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "principle": 2,
+        "reference": 2,
+        "linking": 2
       },
-      "weighted": 2.2,
+      "weighted": 1.45,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "structure",
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:31.326Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "現場運用類型で5管理トレードオフH3が欠落。モバイルはMEDIUM3件（factual table出典・ExamPoint位置・参考資料民間欠落）。参考資料は公的2件のみ。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "national-resilience-act": {
       "slug": "national-resilience-act",
@@ -7008,18 +6863,17 @@
       "slug": "nonconformity-rate",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.8,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:32.131Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "lint PASS・参考資料実在確認済み。現場運用型なのに5管理トレードオフH3が散文内包のみ、過去問核心Callout皆無が弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "nuclear-disaster-act": {
       "slug": "nuclear-disaster-act",
@@ -7103,18 +6957,15 @@
       "slug": "opportunity-cost",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:33.308Z",
-      "scoring_method": "auto"
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "shallow table（機会損失vs埋没費用 2行）が散文化未対応。参考資料は公的機関扱いが曖昧で lint が民間のみと判定。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "opt-in-opt-out": {
       "slug": "opt-in-opt-out",
@@ -7150,18 +7001,15 @@
       "slug": "outcome-indicators",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 3,
         "principle": 3,
-        "reference": 1,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:33.891Z",
-      "scoring_method": "auto"
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸クリア。lint PASS・参考資料3件実在確認済み。§14数字スペース（1990年代・2001年）が軽微に残る程度。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "parametric-estimation": {
       "slug": "parametric-estimation",
@@ -7196,19 +7044,16 @@
     "partnership": {
       "slug": "partnership",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:34.631Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint位置ズレ(L45,§5)・§22インライン出典欠落(L73-77)がMEDIUM2件。参考資料は公的+民間揃い。構造・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "password-security": {
       "slug": "password-security",
@@ -7231,17 +7076,16 @@
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.3,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:34.833Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイル軸 MEDIUM 6件（表前導入文×2・3列表セル超過×2・alt超過・§22インライン出典欠落）が集中。構造・参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "payback-period-method": {
       "slug": "payback-period-method",
@@ -7278,16 +7122,15 @@
         "mobile": 3,
         "principle": 2,
         "reference": 3,
-        "linking": 2
+        "linking": 3
       },
-      "weighted": 2.4,
+      "weighted": 2.5,
       "weak_axes": [
         "structure",
-        "principle",
-        "linking"
+        "principle"
       ],
-      "qualitative_comment": "開発背景H2がExamPoint後に配置（9-7相当）、過去問核心Callout欠落。参考資料は完全準拠。",
-      "scored_at": "2026-05-17T08:47:54.223Z"
+      "qualitative_comment": "構造は開発背景 H2 が RelatedKeywords 後に出現し順序違反。現場運用型に必須の 5管理トレードオフ H3 が欠落。§22 インライン出典も未対応。参考資料・モバイルは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "pension-system": {
       "slug": "pension-system",
@@ -7324,19 +7167,16 @@
     "performance-evaluation": {
       "slug": "performance-evaluation",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:35.446Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "5管理トレードオフH3欠落（現場運用類型mandatory）・ExamPoint位置違反・固有企業名混入が主な弱点。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "performance-linked-bonus": {
       "slug": "performance-linked-bonus",
@@ -7358,35 +7198,29 @@
       "slug": "performance-regulation",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:35.693Z",
-      "scoring_method": "auto"
+      "weighted": 2.65,
+      "weak_axes": [],
+      "qualitative_comment": "lint 全通過・構造完備。歴史 H2 は LOW 懸念。参考資料は公的+Wikipedia のみで民間解説が欠落。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "periodic-inspection": {
       "slug": "periodic-inspection",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:35.941Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "構造順序・ExamPoint配置・参考資料構成に軽微違反。制度的背景H2が位置づけ後に配置されている点と施行年の§22インライン出典漏れが主な指摘。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "personal-communication": {
       "slug": "personal-communication",
@@ -7409,17 +7243,16 @@
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "principle": 2,
+        "reference": 3,
+        "linking": 2
       },
       "weighted": 2.2,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:36.288Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイル MEDIUM 11件（3列表セル超過4件・表前導入文4件・末尾列挙行・インライン出典欠落2件）が集中。参考資料は公的2件＋民間1件で合格水準。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "personal-info-utilization": {
       "slug": "personal-info-utilization",
@@ -7499,17 +7332,15 @@
       "slug": "pm-theory",
       "scores": {
         "structure": 3,
-        "mobile": 1,
+        "mobile": 2,
         "principle": 3,
         "reference": 2,
-        "linking": 2
+        "linking": 3
       },
-      "weighted": 2.25,
-      "weak_axes": [
-        "mobile"
-      ],
-      "scored_at": "2026-04-17T05:57:37.368Z",
-      "scoring_method": "auto"
+      "weighted": 2.6,
+      "weak_axes": [],
+      "qualitative_comment": "概念理論類型・散文中心で構造・原則・関連付けは全3点。民間参考資料欠落（§9）が唯一の弱点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "pmbok": {
       "slug": "pmbok",
@@ -7548,18 +7379,18 @@
       "slug": "pops-convention",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.55,
       "weak_axes": [
         "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:37.784Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "§22 factual table 2件にインライン出典なし、セル1字超過。参考資料3件は全件実在。法令制度類型として構造・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "positive-action": {
       "slug": "positive-action",
@@ -7610,19 +7441,18 @@
     "pqcdsme": {
       "slug": "pqcdsme",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:38.285Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイル軸MEDIUM3件（見出し重複・太字スコープ超・太字デリミタ）で要修正。5管理トレードオフH3欠落とISO14001年代のインライン出典不足も要対応。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "precautionary-principle": {
       "slug": "precautionary-principle",
@@ -7747,13 +7577,9 @@
         "linking": 2
       },
       "weighted": 2.4,
-      "weak_axes": [
-        "structure",
-        "principle",
-        "linking"
-      ],
-      "qualitative_comment": "構造は求められる場面H2が位置づけ前に挟まる軽微ズレ。過去問核心Callout欠落。",
-      "scored_at": "2026-05-17T08:47:54.223Z"
+      "weak_axes": [],
+      "qualitative_comment": "shallow concept table（問題/課題2行）とセクション順ズレが残存。参考資料・モバイルは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "problem-solving-ability": {
       "slug": "problem-solving-ability",
@@ -8028,8 +7854,8 @@
       "weak_axes": [
         "principle"
       ],
-      "qualitative_comment": "lint全パス・参考資料公的+民間揃いで堅実。過去問核心Calloutが不在で原則軸が2点止まり。",
-      "scored_at": "2026-05-17T08:47:54.223Z"
+      "qualitative_comment": "現場運用類型なのに5管理トレードオフH3が欠落（mandatory）。導入文不足1箇所と§22インライン出典不備あり。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "quality-improvement": {
       "slug": "quality-improvement",
@@ -8135,18 +7961,20 @@
     "ramsar-convention": {
       "slug": "ramsar-convention",
       "scores": {
-        "structure": 3,
-        "mobile": 3,
-        "principle": 3,
-        "reference": 2,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.85,
+      "weighted": 2.25,
       "weak_axes": [
-        "reference"
+        "structure",
+        "mobile",
+        "principle"
       ],
-      "qualitative_comment": "外務省リンク403で実体未確認。環境省+Wikipediaは実在済み。他4軸は満点。",
-      "scored_at": "2026-05-17T08:47:54.223Z"
+      "qualitative_comment": "歴史政策類型。背景H2の順序ズレ・shallow table・§22出典欠落・5管理接続文（歴史政策禁則）が重複。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "reach-regulation": {
       "slug": "reach-regulation",
@@ -8312,19 +8140,16 @@
     "risk-management-policy": {
       "slug": "risk-management-policy",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:45.187Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "歴史H2が位置づけ後に順序ズレ、末尾総括ExamPoint欠落、factual段落インライン出典2件未整備が主な弱点。参考資料・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "rohs-weee": {
       "slug": "rohs-weee",
@@ -8628,19 +8453,16 @@
     "self-development": {
       "slug": "self-development",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:48.764Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "歴史H2が2個重複・順序ズレ、ExamPoint位置違反、§22インライン出典欠落、過去問Calloutなし。参考資料・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "seniority-wage": {
       "slug": "seniority-wage",
@@ -8784,18 +8606,15 @@
       "slug": "skill-standards",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:49.967Z",
-      "scoring_method": "auto"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "参考資料・関連付けは良好。活用方法H2が散文ゼロ・策定背景と歴史H2の内容重複・§22インライン出典欠落が原則軸を2点に押し下げ。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "smart-safety": {
       "slug": "smart-safety",
@@ -8844,19 +8663,16 @@
     "sop": {
       "slug": "sop",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:50.575Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "歴史H2が2つ重複（L66/L74）し位置づけH2の後に置かれ構造順ズレ。参考資料・関連付けは満点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "sound-water-cycle": {
       "slug": "sound-water-cycle",
@@ -8944,35 +8760,29 @@
       "slug": "sri",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:51.217Z",
-      "scoring_method": "auto"
+      "weighted": 2.55,
+      "weak_axes": [],
+      "qualitative_comment": "概念理論型。参考資料・関連付けは適切。歴史表の直前導入文欠落とfactual table直下インライン出典欠落（各MEDIUM）が2軸に影響。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "standard-costing": {
       "slug": "standard-costing",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:51.436Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "5管理トレードオフH3欠落（現場運用類型でmandatory）、shallow table・インライン出典なし・参考資料URL500エラーの4件MEDIUM。全軸2点以上で合格水準だがリライト推奨。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "standardization-strategy": {
       "slug": "standardization-strategy",
@@ -9056,17 +8866,16 @@
       "scores": {
         "structure": 3,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.15,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:52.413Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイル軸 MEDIUM 3件（表前導入文欠落・ExamPoint位置・民間参考資料なし）で1点。参考資料は公的のみ。構造・関連付けは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "sustainable-fashion": {
       "slug": "sustainable-fashion",
@@ -9177,53 +8986,48 @@
     "target-cost": {
       "slug": "target-cost",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
+        "structure": 2,
+        "mobile": 3,
+        "principle": 2,
         "reference": 1,
-        "linking": 3
+        "linking": 2
       },
-      "weighted": 2.2,
+      "weighted": 2.1,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:53.972Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "参考資料に公的機関リンクがなく1件はHTTP 500。5管理トレードオフH3欠落（現場運用類型）。lint違反ゼロで散文品質は良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "targeted-attack": {
       "slug": "targeted-attack",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:54.083Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "全軸2点以上で合格水準。被害例の具体数値（125万件・SolarWinds2020）にインライン出典がない（§22 MEDIUM×2）。L101の関連キーワード列挙行（lint 8-1）。歴史H2は試験関連度あるがスリム化余地あり（LOW）。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "task-based-training": {
       "slug": "task-based-training",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
         "reference": 1,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.95,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:54.194Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "ハラスメントURL(L85)が404。5管理トレードオフH3欠落（現場運用型）。歴史H2削除候補。ExamPoint位置ズレ。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "tbm-toolbox-meeting": {
       "slug": "tbm-toolbox-meeting",
@@ -9308,36 +9112,30 @@
     "terrorism": {
       "slug": "terrorism",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:54.919Z",
-      "scoring_method": "auto"
+      "weighted": 2.15,
+      "weak_axes": [],
+      "qualitative_comment": "歴史H2がセクション末尾に挿入で順序ズレ。ExamPoint位置と§22インライン出典欠落がMEDIUM。参考資料は公的+民間揃い。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "theory-of-constraints": {
       "slug": "theory-of-constraints",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:55.034Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "全軸2点安定。DBRセクション散文ゼロ・ExamPoint位置ズレ・公的機関リンク不在が共通弱点。歴史背景H2は削除候補。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "threat-awareness-training": {
       "slug": "threat-awareness-training",
@@ -9356,52 +9154,46 @@
     "three-point-estimation": {
       "slug": "three-point-estimation",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 2,
-        "principle": 3,
-        "reference": 1,
+        "principle": 2,
+        "reference": 2,
         "linking": 3
       },
-      "weighted": 2.45,
-      "weak_axes": [
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:55.496Z",
-      "scoring_method": "auto"
+      "weighted": 2.1,
+      "weak_axes": [],
+      "qualitative_comment": "5管理トレードオフH3欠落（現場運用mandatory）とExamPoint位置違反（57%）が主な減点。参考資料は実在確認済みだが公的一次資料なし。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "timeline-disaster": {
       "slug": "timeline-disaster",
       "scores": {
         "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 2.8,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "principle"
       ],
-      "scored_at": "2026-04-17T05:57:55.601Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "歴史段落（L86）の数値・固有事象にインライン出典（§22）が未記載。他軸は全て優秀。歴史H2は削除推奨ライン未達（試験関連性あり）。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "tnfd": {
       "slug": "tnfd",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:55.707Z",
-      "scoring_method": "auto"
+      "weighted": 2.25,
+      "weak_axes": [],
+      "qualitative_comment": "参考資料・関連付けは満点。構造は歴史H2の順序ズレ、モバイル/コンテンツはfactual table出典欠落とExamPoint位置違反（各MEDIUM 2件）で減点。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "total-wage-management": {
       "slug": "total-wage-management",
@@ -9438,19 +9230,18 @@
     "training-techniques": {
       "slug": "training-techniques",
       "scores": {
-        "structure": 3,
+        "structure": 2,
         "mobile": 1,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
+        "principle": 2,
+        "reference": 3,
+        "linking": 2
       },
-      "weighted": 2.2,
+      "weighted": 1.9,
       "weak_axes": [
-        "mobile",
-        "reference"
+        "mobile"
       ],
-      "scored_at": "2026-04-17T05:57:56.035Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "モバイルMEDIUM5件（表前導入文欠落・セル超過・ExamPoint位置）が主弱点。現場運用類型で5管理H3欠落、歴史H2の配置・必要性も要確認。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "tripod-theory": {
       "slug": "tripod-theory",
@@ -9579,19 +9370,16 @@
     "utilization-rate": {
       "slug": "utilization-rate",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:57.313Z",
-      "scoring_method": "auto"
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "現場運用類型で5管理トレードオフH3が欠落（mandatory）。歴史H2がTOC位置づけと重複。§22インライン出典なし2件。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "value-chain-analysis": {
       "slug": "value-chain-analysis",
@@ -9656,19 +9444,18 @@
     "visual-management": {
       "slug": "visual-management",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
         "reference": 1,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.95,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:58.066Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "公的参考資料ゼロ・5管理H3欠落（現場運用型）・歴史H2が位置づけ後に置かれ構造順序ズレ",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "vocational-training-act": {
       "slug": "vocational-training-act",
@@ -9721,19 +9508,18 @@
     "wacc-roic": {
       "slug": "wacc-roic",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
+        "structure": 2,
+        "mobile": 2,
+        "principle": 2,
         "reference": 1,
         "linking": 3
       },
-      "weighted": 2.2,
+      "weighted": 1.95,
       "weak_axes": [
-        "mobile",
         "reference"
       ],
-      "scored_at": "2026-04-17T05:57:58.746Z",
-      "scoring_method": "auto"
+      "qualitative_comment": "参考資料2件とも具体コンテンツ未到達URL。歴史H2が位置づけ後に挟まり構造順ズレ。ExamPoint位置・インライン出典も要修正。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "waste-management-act": {
       "slug": "waste-management-act",
@@ -9878,19 +9664,16 @@
     "work-planning": {
       "slug": "work-planning",
       "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 3,
-        "reference": 1,
+        "structure": 2,
+        "mobile": 3,
+        "principle": 2,
+        "reference": 3,
         "linking": 3
       },
-      "weighted": 2.2,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "scored_at": "2026-04-17T05:57:59.879Z",
-      "scoring_method": "auto"
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "現場運用類型だが5管理トレードオフH3が欠落。歴史的背景H2は試験論点直結度が低く削除候補。lint・参考資料・リンクは良好。",
+      "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "worker-dispatch-act": {
       "slug": "worker-dispatch-act",
