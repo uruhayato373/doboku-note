@@ -58,17 +58,18 @@ const CIVIL_SIDEBAR_AD = {
 } as const;
 
 /**
- * SAT 通信講座（A8.net）の 300×250 creative。
- * SAT は技術士・1級土木施工管理 両方の講座を提供しているため、PE 系全種類 +
- * 1級土木 guide / secondary に配置（textbook / primary は既存 CIVIL_SIDEBAR_AD と住み分け）。
- * 2026-05-25 新規追加。
+ * SAT 通信講座（A8.net）の 300×250 creative。A8 配信のブランド汎用バナー（級非依存）。
+ * SAT は技術士・1級/2級土木施工管理 すべての講座を提供しているため、PE 系全種類 +
+ * 1級土木 guide / secondary（textbook / primary は既存 CIVIL_SIDEBAR_AD と住み分け）+
+ * 2級土木 primary / secondary（2級に独学サポート相当が無いため primary も SAT）に配置。
+ * 2026-05-25 新規追加、2026-05-29 2級横断配置（専用 creative 無しのため同一 creative 流用・alt 中立化）。
  * creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
  */
 const SAT_SIDEBAR_AD = {
   href: 'https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YZ75',
   imageSrc: 'https://www29.a8.net/svt/bgt?aid=260516555420&wid=001&eno=01&mid=s00000027186001003000&mc=1',
   pixelSrc: 'https://www14.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YZ75',
-  alt: 'SAT 通信講座（技術士・1級土木施工管理）',
+  alt: 'SAT 通信講座（技術士・土木施工管理）',
   width: 300,
   height: 250,
 } as const;
@@ -620,9 +621,10 @@ export default async function DocPage({
                 )}
               {/* アフィリエイト サイドバー（2026-05-25 以降: 上部配置でインプレッション最大化）:
                   自社マガジン CTA を最上位に維持しつつ、TOC・ナビカードより上に配置。
-                  - 1級土木 textbook / primary: 独学サポート（経験記述添削特化）
-                  - PE keyword/guide/pastExam + 1級土木 guide / secondary: SAT（総合講座）
-                  住み分けは docGroup で排他。 */}
+                  - 1級土木 textbook / primary: 独学サポート（経験記述添削特化・1級専用）
+                  - PE keyword/guide/pastExam + 1級土木 guide / secondary + 2級土木 primary / secondary: SAT（総合講座）
+                  住み分けは docGroup で排他。2級は独学サポート相当が無いため primary も SAT 側。
+                  2級 secondary はマガジン公開後 sidebarHasPaidMagazine=true で自動抑制 → primary に SAT 残存。 */}
               {/* アフィリエイトは自社の有料マガジン CTA が出ているページでは非表示にしてカニバリ回避
                   (!sidebarHasPaidMagazine = 有料マガジンなしのページで表示。精読ガイドのみの
                   secondary / hub 等はアフィリと併存)。 */}
@@ -636,7 +638,9 @@ export default async function DocPage({
               {((category === 'pe-comprehensive-management' &&
                 (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam')) ||
                 (category === 'civil-construction-1' &&
-                  (docGroup === 'guide' || docGroup === 'secondary'))) &&
+                  (docGroup === 'guide' || docGroup === 'secondary')) ||
+                (category === 'civil-construction-2' &&
+                  (docGroup === 'primary' || docGroup === 'secondary'))) &&
                 !sidebarHasPaidMagazine && (
                   <div className="mb-3">
                     <SidebarAdBanner {...SAT_SIDEBAR_AD} />
