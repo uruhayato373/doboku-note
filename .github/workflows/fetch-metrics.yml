@@ -44,10 +44,26 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-data -- --dimension date
 
+      # 週次レビュー(オフライン)用: クリーンな7日窓の Organic Search スナップショット。
+      # 既定の channel フェッチは28日窓のため WoW にならない。これは ga4-channel-organic-*.json として出力され、
+      # weekly-review のオフライン経路が最新2ファイルで NSM の週次比較を算出する。
+      - name: Fetch GA4 (organic, 7d for weekly NSM)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension channel --days 7 --organic-only
+
       - name: Fetch GSC
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data
+
+      # 週次レビュー(オフライン)用: クリーンな7日窓の日次 GSC スナップショット（gsc-date-*.json）。
+      # 既定の query フェッチは28日窓。最新2ファイルの日次 clicks/impressions 合計で週次比較を算出する。
+      - name: Fetch GSC (date, 7d for weekly trend)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimension date --days 7
 
       - name: Check data integrity
         id: integrity
