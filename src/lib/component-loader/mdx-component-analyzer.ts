@@ -11,6 +11,7 @@ export const availableComponents = {
   LinkCard: "LinkCard",
   NoteLink: "NoteLink",
   CourseAffiliate: "CourseAffiliate",
+  CareerAffiliate: "CareerAffiliate",
 
   // 投資関連コンポーネント
   CardList: "CardList",
