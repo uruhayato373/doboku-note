@@ -139,6 +139,24 @@ const MAGAZINES_RAW = {
     price: '¥2,980',
     badge: 'note 限定 プレミアム',
   },
+
+  // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
+  // 原稿配置: docs/note/magazines/2級土木-施工経験記述-完成答案集/
+  // 公開準備中 (published: false)。note 公開で noteUrl 取得後に true へ。
+  'civil-2-experience-essay': {
+    id: 'civil-2-experience-essay',
+    published: false,
+    noteUrl: '',
+    title: '2級土木 施工経験記述｜工種×テーマ別 完成答案集（安全・品質・工程）',
+    description:
+      '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。安全・品質・工程の3テーマ別に、複数工種のフル完成答案＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）に対応。',
+    shortTitle: '2級土木 施工経験記述 完成答案集',
+    shortDescription:
+      '安全・品質・工程の3テーマ別 完成答案＋置換ガイド＋採点者視点。R6新形式対応。',
+    imageUrl: '/images/magazines/civil-2-experience-essay-cover.webp',
+    price: '¥1,980（3本セット）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;

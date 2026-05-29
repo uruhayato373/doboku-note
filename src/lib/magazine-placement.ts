@@ -36,7 +36,8 @@ const EMPTY: ResolvedPlacement = { inline: [], sidebar: [], inlineMobileOnly: tr
 function utmContentFor(slug: string, position: string): string {
   const short = slug
     .replace(/^pe-comprehensive-management-/, '')
-    .replace(/^civil-construction-1-/, '');
+    .replace(/^civil-construction-1-/, '')
+    .replace(/^civil-construction-2-/, '');
   return `${short}-${position}`;
 }
 
@@ -224,6 +225,19 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [slot('tankan-reading-guide', slug, isHub ? 'inline-1' : 'inline-mobile')],
       sidebar: isHub ? [slot('tankan-reading-guide', slug, 'sidebar-1')] : [],
       inlineMobileOnly: !isHub,
+    };
+  }
+
+  // 7. 2級土木 施工経験記述（guide / examples / 年度別 secondary r0X）
+  //    → 完成答案集マガジン（civil-2-experience-essay）。
+  //    published: false の間は getMagazine が null を返し CTA 非表示（防御的）。
+  if (
+    /^civil-construction-2-secondary-(experience-writing-(guide|examples)|r0[1-9])$/.test(slug)
+  ) {
+    return {
+      inline: [slot('civil-2-experience-essay', slug, 'inline-1')],
+      sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: false,
     };
   }
 
