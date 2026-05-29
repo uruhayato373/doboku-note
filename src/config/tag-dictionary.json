@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-05-28T08:09:54.992Z",
+  "generated_at": "2026-05-29T02:39:13.130Z",
   "summary": {
-    "total_mdx_files": 840,
+    "total_mdx_files": 842,
     "total_unique_tags": 85,
     "allowlist_size": 123,
     "known_count": 51,
@@ -1319,7 +1319,7 @@
     },
     {
       "name": "secondary",
-      "count": 20,
+      "count": 22,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -1337,6 +1337,8 @@
         "civil-construction-1-secondary-r05",
         "civil-construction-1-secondary-r06",
         "civil-construction-1-secondary-r07",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
         "civil-construction-2-secondary-r03",
         "civil-construction-2-secondary-r04",
         "civil-construction-2-secondary-r05",
@@ -1418,6 +1420,25 @@
       ]
     },
     {
+      "name": "exam-questions",
+      "count": 12,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide"
+      ]
+    },
+    {
       "name": "exam-preparation",
       "count": 11,
       "inAllowlist": true,
@@ -1433,23 +1454,6 @@
         "civil-construction-1-guide-strategy",
         "civil-construction-1-keyword-2026",
         "pe-comprehensive-management-exam-passing-strategy"
-      ]
-    },
-    {
-      "name": "exam-questions",
-      "count": 10,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems"
       ]
     },
     {
@@ -1691,6 +1695,17 @@
       ]
     },
     {
+      "name": "experience-writing",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide"
+      ]
+    },
+    {
       "name": "quality",
       "count": 4,
       "inAllowlist": false,
@@ -1796,15 +1811,6 @@
       "usedIn": [
         "civil-construction-1-secondary-earthwork-basics",
         "civil-construction-1-secondary-earthwork-past-problems"
-      ]
-    },
-    {
-      "name": "experience-writing",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide"
       ]
     },
     {
