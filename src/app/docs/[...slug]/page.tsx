@@ -472,11 +472,21 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* 参考書籍（Civil 2級 primary/secondary: アフィリエイト・補完ポジション。
-                両用テキスト1冊（4816378383・一次&二次 徹底図解）を単独配置。ペア化する場合は
-                2級の過去問解説集等を affiliate-books.json に追加して2冊目を足す。
+            {/* 参考書籍（Civil 2級 primary: アフィリエイト・補完ポジション。
+                両用テキスト（4816378383・一次&二次 徹底図解）+ 一次特化対策書（4770329784・第一次検定）のペア。
                 SAT 商品CTA（1級教材写真）は級ミスマッチ回避のため2級では呼ばない → サイドバーバナーに集約。） */}
-            {category === 'civil-construction-2' && (docGroup === 'primary' || docGroup === 'secondary') && (
+            {category === 'civil-construction-2' && docGroup === 'primary' && (
+              <div className="mt-8">
+                <BookSection caption="両用1冊で全体像をつかみ、一次特化の対策書で第一次検定を仕上げたいときに。">
+                  <BookCard asin="4816378383" />
+                  <BookCard asin="4770329784" />
+                </BookSection>
+              </div>
+            )}
+
+            {/* 参考書籍（Civil 2級 secondary: アフィリエイト・補完ポジション。
+                両用テキスト1冊（4816378383）。二次・経験記述特化本を追加でペア化可。） */}
+            {category === 'civil-construction-2' && docGroup === 'secondary' && (
               <div className="mt-8">
                 <BookSection caption="まず1冊で一次・二次の全体像をつかみたいときに。">
                   <BookCard asin="4816378383" />
