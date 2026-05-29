@@ -472,6 +472,18 @@ export default async function DocPage({
               </div>
             )}
 
+            {/* 参考書籍（Civil 2級 primary/secondary: アフィリエイト・補完ポジション。
+                両用テキスト1冊（4816378383・一次&二次 徹底図解）を単独配置。ペア化する場合は
+                2級の過去問解説集等を affiliate-books.json に追加して2冊目を足す。
+                SAT 商品CTA（1級教材写真）は級ミスマッチ回避のため2級では呼ばない → サイドバーバナーに集約。） */}
+            {category === 'civil-construction-2' && (docGroup === 'primary' || docGroup === 'secondary') && (
+              <div className="mt-8">
+                <BookSection caption="まず1冊で一次・二次の全体像をつかみたいときに。">
+                  <BookCard asin="4816378383" />
+                </BookSection>
+              </div>
+            )}
+
             {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
             {(category === 'civil-construction-1' || category === 'civil-construction-2') && docGroup === 'textbook' && (
               <>
