@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T08:05:00.525Z",
+  "generated_at": "2026-05-29T13:53:21.178Z",
   "summary": {
-    "total_mdx_files": 845,
-    "total_unique_tags": 86,
+    "total_mdx_files": 849,
+    "total_unique_tags": 89,
     "allowlist_size": 123,
-    "known_count": 51,
-    "unknown_count": 35,
+    "known_count": 52,
+    "unknown_count": 37,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "past-questions",
-      "count": 72,
+      "count": 73,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1119,6 +1119,7 @@
         "civil-construction-2-secondary-r05",
         "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07",
+        "concrete-chief-engineer-primary-materials",
         "pe-comprehensive-management-h21-primary",
         "pe-comprehensive-management-h21-secondary",
         "pe-comprehensive-management-h22-primary",
@@ -1203,7 +1204,7 @@
     },
     {
       "name": "primary",
-      "count": 34,
+      "count": 35,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1239,7 +1240,8 @@
         "civil-construction-2-primary-r06-kouki",
         "civil-construction-2-primary-r06-zenki",
         "civil-construction-2-primary-r07-kouki",
-        "civil-construction-2-primary-r07-zenki"
+        "civil-construction-2-primary-r07-zenki",
+        "concrete-chief-engineer-primary-materials"
       ]
     },
     {
@@ -1347,6 +1349,34 @@
       ]
     },
     {
+      "name": "guide",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-career-path",
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-market-value",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-keyword-2026",
+        "civil-construction-2-guide-career",
+        "concrete-chief-engineer-guide-essay",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "pe-comprehensive-management-course-selection-guide",
+        "pe-comprehensive-management-essay-exam-strategy",
+        "pe-comprehensive-management-exam-application-guide",
+        "pe-comprehensive-management-exam-passing-strategy",
+        "pe-comprehensive-management-primary-statistics-2026"
+      ]
+    },
+    {
       "name": "模範論文",
       "count": 19,
       "inAllowlist": false,
@@ -1370,31 +1400,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "guide",
-      "count": 18,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-path",
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-market-value",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-keyword-2026",
-        "civil-construction-2-guide-career",
-        "pe-comprehensive-management-course-selection-guide",
-        "pe-comprehensive-management-essay-exam-strategy",
-        "pe-comprehensive-management-exam-application-guide",
-        "pe-comprehensive-management-exam-passing-strategy",
-        "pe-comprehensive-management-primary-statistics-2026"
       ]
     },
     {
@@ -1423,6 +1428,26 @@
       ]
     },
     {
+      "name": "exam-preparation",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-keyword-2026",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "pe-comprehensive-management-exam-passing-strategy"
+      ]
+    },
+    {
       "name": "exam-questions",
       "count": 12,
       "inAllowlist": false,
@@ -1439,24 +1464,6 @@
         "civil-construction-1-secondary-quality-management-past-problems",
         "civil-construction-2-secondary-experience-writing-examples",
         "civil-construction-2-secondary-experience-writing-guide"
-      ]
-    },
-    {
-      "name": "exam-preparation",
-      "count": 11,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-keyword-2026",
-        "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
     {
@@ -1621,9 +1628,9 @@
       ]
     },
     {
-      "name": "河川",
+      "name": "建設コンサル",
       "count": 6,
-      "inAllowlist": true,
+      "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-river-consultant",
@@ -1634,9 +1641,35 @@
       ]
     },
     {
-      "name": "建設コンサル",
+      "name": "択一式",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r02-primary",
+        "pe-comprehensive-management-r03-primary",
+        "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-primary",
+        "pe-comprehensive-management-r07-primary"
+      ]
+    },
+    {
+      "name": "施工",
       "count": 6,
       "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
+      "name": "河川",
+      "count": 6,
+      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-river-consultant",
@@ -1657,32 +1690,6 @@
         "pe-comprehensive-management-r05-essay-river-consultant",
         "pe-comprehensive-management-r06-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-river-consultant"
-      ]
-    },
-    {
-      "name": "施工",
-      "count": 6,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "択一式",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r02-primary",
-        "pe-comprehensive-management-r03-primary",
-        "pe-comprehensive-management-r04-primary",
-        "pe-comprehensive-management-r05-primary",
-        "pe-comprehensive-management-r06-primary",
-        "pe-comprehensive-management-r07-primary"
       ]
     },
     {
@@ -1809,6 +1816,15 @@
       ]
     },
     {
+      "name": "concrete-chief-engineer",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends"
+      ]
+    },
+    {
       "name": "DX",
       "count": 2,
       "inAllowlist": true,
@@ -1885,11 +1901,27 @@
       ]
     },
     {
+      "name": "essay",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-guide-essay"
+      ]
+    },
+    {
       "name": "exam-statistics",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-primary-statistics-2026"
+      ]
+    },
+    {
+      "name": "exam-trends",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "concrete-chief-engineer-guide-trends"
       ]
     },
     {
@@ -1997,123 +2029,11 @@
       ]
     },
     {
-      "name": "安全管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-safety-management-pillar"
-      ]
-    },
-    {
-      "name": "気候変動適応",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
-      ]
-    },
-    {
-      "name": "記述式",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy"
-      ]
-    },
-    {
-      "name": "記述式試験",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "経済安全保障",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-economic-security"
-      ]
-    },
-    {
-      "name": "索引",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
-      "name": "参考資料",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "社会環境管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-social-environment-management-pillar"
-      ]
-    },
-    {
-      "name": "出願",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "循環経済",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-circular-economy"
-      ]
-    },
-    {
-      "name": "情報管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-information-management-pillar"
-      ]
-    },
-    {
       "name": "人的資源管理",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-human-resource-management-pillar"
-      ]
-    },
-    {
-      "name": "直前対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "複合災害",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery"
-      ]
-    },
-    {
-      "name": "流用戦略",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application"
       ]
     },
     {
@@ -2165,11 +2085,123 @@
       ]
     },
     {
+      "name": "出願",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "参考資料",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
+      "name": "安全管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-safety-management-pillar"
+      ]
+    },
+    {
+      "name": "循環経済",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-circular-economy"
+      ]
+    },
+    {
+      "name": "情報管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-information-management-pillar"
+      ]
+    },
+    {
+      "name": "気候変動適応",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
+      ]
+    },
+    {
+      "name": "流用戦略",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application"
+      ]
+    },
+    {
+      "name": "直前対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "社会環境管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
+      "name": "索引",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
+      "name": "経済安全保障",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-economic-security"
+      ]
+    },
+    {
       "name": "老朽化インフラ",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
+      ]
+    },
+    {
+      "name": "複合災害",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery"
+      ]
+    },
+    {
+      "name": "記述式",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-exam-strategy"
+      ]
+    },
+    {
+      "name": "記述式試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
       ]
     }
   ],
@@ -2182,33 +2214,35 @@
     "地方公共団体",
     "ゼネコン",
     "建設コンサル",
-    "砂防",
     "施工",
+    "砂防",
     "quality",
     "career",
     "schedule",
     "SWOT分析",
     "データ利活用",
     "少子高齢化",
+    "concrete-chief-engineer",
     "2026年版",
     "AI ガバナンス",
     "DX推進",
     "exam-statistics",
+    "exam-trends",
     "keyword-analysis",
     "keyword-index",
     "キーワード集",
-    "気候変動適応",
-    "記述式試験",
-    "経済安全保障",
-    "出願",
-    "循環経済",
-    "直前対策",
-    "複合災害",
-    "流用戦略",
     "令和2年度",
     "令和3年度",
     "令和4年度",
-    "老朽化インフラ"
+    "出願",
+    "循環経済",
+    "気候変動適応",
+    "流用戦略",
+    "直前対策",
+    "経済安全保障",
+    "老朽化インフラ",
+    "複合災害",
+    "記述式試験"
   ],
   "typo_candidates": [
     {
