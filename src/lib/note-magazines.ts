@@ -192,6 +192,40 @@ const MAGAZINES_RAW = {
     price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
+
+  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
+  // 2級 過去問の年度別模範答案集。published: false。
+  'civil-2-pastexam-essay': {
+    id: 'civil-2-pastexam-essay',
+    published: false,
+    noteUrl: '',
+    title: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
+    description:
+      '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対するフル模範答案（主任技術者レベル）＋置換ガイド＋採点者視点を収録。選択制（R03-R05）と2テーマ必答（R06-R07）の両方に対応。',
+    shortTitle: '2級土木 施工経験記述 過去問模範答案集',
+    shortDescription:
+      'R03-R07 年度別 フル模範答案（実問題文再掲・主任技術者レベル）。選択制/R6新形式対応。',
+    imageUrl: '/images/magazines/civil-2-pastexam-essay-cover.webp',
+    price: '¥2,480（5本セット）',
+    badge: 'note 限定',
+  },
+
+  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-予想問題集/
+  // 2級 令和6年度 新方向（条件提示型・新項目・日常業務）の予想問題集。published: false。
+  'civil-2-yosou-essay': {
+    id: 'civil-2-yosou-essay',
+    published: false,
+    noteUrl: '',
+    title: '2級土木 施工経験記述｜予想問題集（令和6年度 新方向対応）',
+    description:
+      '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の予想問題集。令和6年度の検定見直しで現れた新方向（条件提示型・環境対策/出来形などの新項目・ヒヤリハット/作業日誌などの日常業務記述）に特化し、予想問題＋模範答案（記述例）＋採点者視点を収録。標準3管理の完成答案集を補完する。',
+    shortTitle: '2級土木 施工経験記述 予想問題集',
+    shortDescription:
+      '条件提示型・新項目・日常業務記述の予想問題＋記述例。R6新方向に特化。',
+    imageUrl: '/images/magazines/civil-2-yosou-essay-cover.webp',
+    price: '¥1,480（3本セット）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
