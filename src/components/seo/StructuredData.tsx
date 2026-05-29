@@ -99,6 +99,8 @@ function getExamName(category: string | undefined): string {
       return "2級土木施工管理技士";
     case "pe-comprehensive-management":
       return "技術士 総合技術監理部門";
+    case "concrete-chief-engineer":
+      return "コンクリート主任技師";
     default:
       return "土木系資格試験";
   }

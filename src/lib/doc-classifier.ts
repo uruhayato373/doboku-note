@@ -20,6 +20,7 @@ const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
 
 const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pillar', 'pastExam', 'keyword'];
 const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
+const CONCRETE_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary'];
 
 export function classifyDoc(meta: DocMeta): DocGroupKey {
   // 明示的 group フィールドがあれば優先
@@ -45,6 +46,13 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
     return 'guide';
   }
 
+  if (category === 'concrete-chief-engineer') {
+    if (tags.includes('textbook')) return 'textbook';
+    if (tags.includes('primary') || tags.includes('past-questions')) return 'primary';
+    if (tags.includes('guide')) return 'guide';
+    return 'guide';
+  }
+
   return 'keyword';
 }
 
@@ -67,11 +75,17 @@ export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> 
     primary: '第1次検定',
     secondary: '第2次検定',
   },
+  'concrete-chief-engineer': {
+    guide: '試験ガイド',
+    textbook: 'テキスト（分野別解説）',
+    primary: '過去問',
+  },
 };
 
 export function getGroupOrder(category: string): DocGroupKey[] {
   if (category === 'pe-comprehensive-management') return PE_GROUP_ORDER;
   if (category === 'civil-construction-1' || category === 'civil-construction-2') return CIVIL_GROUP_ORDER;
+  if (category === 'concrete-chief-engineer') return CONCRETE_GROUP_ORDER;
   return ['keyword'];
 }
 
