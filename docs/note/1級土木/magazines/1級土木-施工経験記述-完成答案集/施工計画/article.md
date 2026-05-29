@@ -8,6 +8,16 @@ noteId: ""
 notePublishedAt: ""
 coverTitle: ["1級土木 施工経験記述", "施工計画 完成答案集"]
 price: 600
+cover:
+  leadIn: "1級土木施工管理技士 二次"
+  hi: "施工"
+  hiSuffix: "計画"
+  banner: "完成答案と添削例"
+  meta: "有料マガジン"
+  chips:
+    - { icon: doc, text: "完成答案" }
+    - { icon: edit, text: "添削例つき" }
+    - { icon: check, text: "減点ポイント" }
 ---
 # 1級土木 施工経験記述｜施工計画 完成答案集（近接施工・河川仮締切 ほか）
 

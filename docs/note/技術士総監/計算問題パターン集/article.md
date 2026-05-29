@@ -8,6 +8,16 @@ coverTitle:
   - 総監択一式
   - 計算問題 6 パターン
 noteStatus: published
+cover:
+  leadIn: "総監択一 頻出計算問題"
+  hi: "6"
+  hiSuffix: "パターン攻略"
+  banner: "計算問題 得点源"
+  meta: "有料マガジン"
+  chips:
+    - { icon: chart, text: "毎年3〜5問" }
+    - { icon: edit, text: "解法手順" }
+    - { icon: check, text: "確実な得点源" }
 ---
 # 総監択一式 頻出計算問題 6パターン完全攻略｜毎年3〜5問を確実な得点源にする解法集
 

@@ -364,9 +364,28 @@ node scripts/generate-note-covers.mjs {管理名スラッグ}
 # → docs/note/{slug}/img/cover.{svg,png} が生成される
 ```
 
-### H1 の確認
+### デザイン: G2（試験色分け）を推奨
 
-カバーの中央メインタイトルは `extractTitle(H1)` で抽出される（`generate-note-covers.mjs:51`）。
+`article.md` frontmatter に `cover:` ブロックがあれば **G2「全幅バナー帯」**（試験区分=ベース色 / 系列=濃淡、1級土木=青 / 2級土木=緑 / 総監=濃紺 / 共通=ブロンズ）で描画される。無ければ従来 `mono-tag`（`coverTitle` から）にフォールバック。試験区分は `docs/note/{試験}/` のトップ dir から自動解決。
+
+```yaml
+cover:
+  leadIn: "1級土木施工管理技士 二次"
+  hi: "安全"
+  hiSuffix: "管理"
+  banner: "完成答案と添削例"   # 最重要・正方形クロップでも残る
+  meta: "有料マガジン"
+  chips:
+    - { icon: doc,   text: "完成答案" }
+    - { icon: edit,  text: "添削例つき" }
+    - { icon: check, text: "減点ポイント" }
+```
+
+仕様・試験パレット・アイコン一覧 → `docs/design-system/note-cover.md` / `note-cover-tokens.json`。
+
+### H1 の確認（mono-tag フォールバック時）
+
+`cover:` が無い記事はカバー中央タイトルを `extractTitle(H1)` で抽出する（`generate-note-covers.mjs`）。
 
 - `｜` 以降は切り捨て
 - `【...】` は除去
@@ -374,8 +393,8 @@ node scripts/generate-note-covers.mjs {管理名スラッグ}
 
 ### 検証
 
-- 中央 630×630 セーフティゾーン内にメインタイトル・カテゴリチップが収まる
-- note 一覧の中央クロップでも欠けない
+- 中央 630×630 セーフティゾーン内にバナー帯テキスト・強調キーワード（mono-tag ならメインタイトル）が収まる（`--debug-safety` で赤枠確認）
+- note 一覧・リンクカードの中央クロップでも欠けない（バナーは自動で 590px 幅にフィット）
 - `1280×670` のサイズが維持されている
 
 ---

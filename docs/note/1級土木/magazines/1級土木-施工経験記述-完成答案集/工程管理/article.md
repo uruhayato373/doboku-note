@@ -8,6 +8,16 @@ noteId: ""
 notePublishedAt: ""
 coverTitle: ["1級土木 施工経験記述", "工程管理 完成答案集"]
 price: 600
+cover:
+  leadIn: "1級土木施工管理技士 二次"
+  hi: "工程"
+  hiSuffix: "管理"
+  banner: "完成答案と添削例"
+  meta: "有料マガジン"
+  chips:
+    - { icon: doc, text: "完成答案" }
+    - { icon: edit, text: "添削例つき" }
+    - { icon: check, text: "減点ポイント" }
 ---
 # 1級土木 施工経験記述｜工程管理 完成答案集（大規模造成・山岳トンネル ほか）
 

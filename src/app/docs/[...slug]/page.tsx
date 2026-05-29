@@ -485,11 +485,12 @@ export default async function DocPage({
             )}
 
             {/* 参考書籍（Civil 2級 secondary: アフィリエイト・補完ポジション。
-                両用テキスト1冊（4816378383）。二次・経験記述特化本を追加でペア化可。） */}
+                両用テキスト（4816378383）+ 二次特化テキスト&過去問題集（4911687207・第二次検定）のペア。） */}
             {category === 'civil-construction-2' && docGroup === 'secondary' && (
               <div className="mt-8">
-                <BookSection caption="まず1冊で一次・二次の全体像をつかみたいときに。">
+                <BookSection caption="両用1冊で全体像をつかみ、二次特化のテキスト＆過去問で第二次検定を仕上げたいときに。">
                   <BookCard asin="4816378383" />
+                  <BookCard asin="4911687207" />
                 </BookSection>
               </div>
             )}

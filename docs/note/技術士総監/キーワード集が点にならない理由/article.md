@@ -9,6 +9,16 @@ noteStatus: published
 notePublishedAt: 2026-05-21
 noteUrl: https://note.com/dobokunote/n/n14c71f3b4d72
 noteId: n14c71f3b4d72
+cover:
+  leadIn: "キーワード集を1周したのに"
+  hi: "3"
+  hiSuffix: "つの点が取れない理由"
+  banner: "キーワードの罠"
+  meta: "無料記事"
+  chips:
+    - { icon: target, text: "出題視点で読む" }
+    - { icon: doc, text: "暗記の落とし穴" }
+    - { icon: check, text: "5管理で再構成" }
 ---
 # 【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す
 

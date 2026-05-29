@@ -8,6 +8,16 @@ noteId: ""
 notePublishedAt: ""
 coverTitle: ["2級土木 施工経験記述", "品質管理 完成答案集"]
 price: 780
+cover:
+  leadIn: "2級土木施工管理技士 二次"
+  hi: "品質"
+  hiSuffix: "管理"
+  banner: "完成答案と添削例"
+  meta: "有料マガジン"
+  chips:
+    - { icon: doc, text: "完成答案" }
+    - { icon: edit, text: "添削例つき" }
+    - { icon: check, text: "減点ポイント" }
 ---
 # 2級土木 施工経験記述｜品質管理 完成答案集（河川築堤・函渠 ほか）
 

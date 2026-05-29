@@ -42,6 +42,18 @@ doboku-note で採用する OGP / note カバー共通テンプレ T06 Mono Tag 
 | クロップ耐性 | ヘッダー帯＝マガジン名のみ表示／マガジントップ・Twitter＝全体表示／doboku-note サイトの aspect-square カード＝中央寄せのため全要素が残る |
 | 実装 | `ogp-templates.mjs` の `renderMagazineBanner`（`HEADER_BAND_HEIGHT = 216`） |
 
+## 派生テンプレ: note-cover-g2（note 記事カバー・試験色分け）
+
+| 観点 | 仕様 |
+|---|---|
+| 出典 | Claude Design (claude.ai/design) handoff `noteカバー画像-handoff.zip` 内 `covers-g2-all.jsx`（G2 案）を satori へ移植（2026-05-29） |
+| 用途 | note 記事/マガジン記事のカバー（`generate-note-covers.mjs`、`cover:` ブロックがある記事）。サイト OGP には mono-tag を使う |
+| 二軸カラー | **試験区分=ベース色**（1級土木=青 `#1E73C8` / 2級土木=緑 `#2A7050` / 総監=濃紺 `#16365C` / 共通=ブロンズ `#9A6B1E`）、**系列=濃淡**（notePricing paid→deep / free→base、`cover.tone` で上書き可） |
+| レイアウト | 紙面背景（グラデ＋グリッド＋同心円）／左上ロゴ・右上メタ／リード文→強調キーワード(HiBox)→**全幅バナー帯**→アイコンチップ3つ |
+| クロップ耐性 | バナー帯テキストは中央 630×630 セーフ幅(590px)に自動フィット。ロゴ・右上メタ・両端チップは正方形クロップで欠けて良い |
+| 真実源 | `docs/design-system/note-cover-tokens.json`（値）/ `docs/design-system/note-cover.md`（仕様） |
+| 実装 | `ogp-templates.mjs` の `renderNoteCoverG2` |
+
 ## 履歴: 旧 5 種テンプレ（撤去済み）
 
 2026-04-23 〜 2026-04-29 まで以下 5 種を併用していた。背景画像 (`assets/fonts/ogp-backgrounds/dark-wood.png` `blackboard.png`) は履歴として残置するが、現運用では参照されない。

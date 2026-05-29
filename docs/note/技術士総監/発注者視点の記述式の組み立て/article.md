@@ -8,6 +8,16 @@ utmCampaign: 98-owner-essay-build
 coverTitle:
   - 発注者の立場で
   - 総監記述式を組み立てる
+cover:
+  leadIn: "発注者（自治体）の立場で"
+  hi: "三層"
+  hiSuffix: "構造で組み立てる"
+  banner: "記述式の組み立て"
+  meta: "無料記事"
+  chips:
+    - { icon: layers, text: "三層構造" }
+    - { icon: edit, text: "立場の明示" }
+    - { icon: check, text: "陥りやすい罠" }
 ---
 # 【総監記述式】発注者（自治体）の立場で記述式をどう組み立てるか｜三層構造と陥りやすい罠
 

@@ -9,6 +9,16 @@ coverTitle:
   - 【はじめての方へ】
   - 技術士総監・R08合格のための
   - noteロードマップ
+cover:
+  leadIn: "はじめての方へ"
+  hi: "R08"
+  hiSuffix: "合格ロードマップ"
+  banner: "noteの道しるべ"
+  meta: "無料記事"
+  chips:
+    - { icon: flag, text: "どこから読む" }
+    - { icon: book, text: "無料記事ガイド" }
+    - { icon: target, text: "有料マガジン" }
 ---
 # 【はじめての方へ】技術士総監・R08 合格のための note ロードマップ
 

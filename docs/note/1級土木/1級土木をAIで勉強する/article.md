@@ -9,6 +9,16 @@ coverTitle:
   - 1級土木施工管理技士を
   - AIで勉強する
 noteStatus: draft
+cover:
+  leadIn: "1級土木施工管理技士を"
+  hi: "AI"
+  hiSuffix: "で勉強する"
+  banner: "独学の勉強法"
+  meta: "無料記事"
+  chips:
+    - { icon: book, text: "一次の暗記" }
+    - { icon: edit, text: "二次の経験記述" }
+    - { icon: check, text: "独学でOK" }
 ---
 # 【1級土木施工管理技士】AIで勉強を効率化する — 一次の暗記・二次の経験記述
 

@@ -13,6 +13,16 @@ parentArticle: docs/note/総監受験コスト比較/article.md
 relatedReferences:
   - docs/reference/pe-cem-pass-rate-history.md
   - docs/reference/pe-cem-school-prices.md
+cover:
+  leadIn: "地方自治体 土木職の"
+  hi: "総監"
+  hiSuffix: "コスト計算"
+  banner: "公務員版 試算"
+  meta: "無料記事"
+  chips:
+    - { icon: yen, text: "受験料補助" }
+    - { icon: chart, text: "昇進加点" }
+    - { icon: check, text: "自己啓発支援" }
 ---
 
 # 地方自治体土木職が総監を取るコスト計算 — 受験料補助・自己啓発支援・課長級昇進加点を織り込む

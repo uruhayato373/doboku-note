@@ -29,9 +29,13 @@ note 公開用ドラフト（`docs/note/`）のカバー画像（1280×670）も
 
 | ID | 用途 | デザイン |
 |---|---|---|
-| `mono-tag` | 全ページ共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + 大タイトル + 下部メタ |
+| `mono-tag` | サイト OGP（1200×630）共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + 大タイトル + 下部メタ |
+| `magazine-banner` | note マガジンヘッダー（1280×670） | 中央 1280×216 帯クロップ対応。`generate-magazine-covers.mjs` 専用 |
+| `note-cover-g2` | note 記事カバー（1280×670） | 全幅バナー帯。**試験区分=ベース色 / 系列=濃淡** で 1級土木・2級土木・総監・共通 を色で判別。リード文→強調キーワード(HiBox)→全幅バナー帯→チップ3つ |
 
 過去 Phase で 5 種テンプレ（navy-white / dark-wood / red-line / blackboard / dark-grid）を併用していたが、2026-04-29 に T06 Mono Tag に統一（理由: SNS シェアでブランド一貫性を担保 + メンテ単純化）。旧テンプレの背景画像 (`assets/fonts/ogp-backgrounds/*.png`) は履歴として残置しているが現在は参照されない。
+
+**note 記事カバーは `note-cover-g2`（2026-05-29 追加）が標準**。サイト OGP（`mono-tag`）とは別系統で、note のフィード・リンクカードで試験区分が色で一目でわかることを優先する。値の真実源は [`docs/design-system/note-cover-tokens.json`](../../../../docs/design-system/note-cover-tokens.json)、仕様は [`docs/design-system/note-cover.md`](../../../../docs/design-system/note-cover.md)。
 
 ## セーフティゾーンとは
 
@@ -142,15 +146,37 @@ ogp:
 `src/lib/r2-image-loader.ts` の `getOgpImageUrl` が返す URL と 1:1 対応する。
 本番配信は `https://storage.doboku-note.com/posts/{category}/{localSlug}/ogp.png`。
 
-## note カバー（兄弟スクリプト）
+## note カバー（兄弟スクリプト・G2 試験色分け）
 
-`scripts/generate-note-covers.mjs` が同じ `renderTemplate('mono-tag', ..., { width: 1280, height: 670 })` を呼び出して `docs/note/{slug}/img/cover.png` を出力する。テンプレロジックは本スキルが真実源。
+`scripts/generate-note-covers.mjs` が `docs/note/{slug}/img/cover.png`（1280×670）を出力する。テンプレロジックは本スキルが真実源。
+
+- **article.md に `cover:` ブロックがあれば `note-cover-g2`**（試験色分け・全幅バナー帯）で描画。
+- **無ければ `mono-tag`**（`coverTitle` から）にフォールバック。
+- 試験区分は `docs/note/{技術士総監,1級土木,2級土木,共通}/` のトップ dir から自動解決し、ベース色を決める。系列(濃淡)は `notePricing`（paid→濃 / free→標準）または `cover.tone` で決まる。
 
 ```bash
 node scripts/generate-note-covers.mjs            # 全 note 記事
-node scripts/generate-note-covers.mjs 総監       # slug 前方一致で対象を絞る
-node scripts/generate-note-covers.mjs 総監 --debug-safety
+node scripts/generate-note-covers.mjs 1級土木    # slug 部分一致で対象を絞る
+node scripts/generate-note-covers.mjs 安全管理 --debug-safety
 ```
+
+### `cover:` ブロック（G2 を出すための frontmatter）
+
+```yaml
+cover:
+  leadIn: "1級土木施工管理技士 二次"   # 上部リード文（37px）
+  hi: "安全"                          # 強調キーワード（色ボックス HiBox）
+  hiSuffix: "管理"                    # HiBox 直後の語（58px）
+  banner: "完成答案と添削例"           # 全幅バナー帯。最重要・正方形クロップでも残す（自動で590px幅にフィット）
+  meta: "有料マガジン"                 # 右上メタ（任意）
+  tone: deep                          # 任意。省略時は notePricing から自動
+  chips:                              # 必ず3個。icon は tokens の catalog から
+    - { icon: doc,   text: "完成答案" }
+    - { icon: edit,  text: "添削例つき" }
+    - { icon: check, text: "減点ポイント" }
+```
+
+仕様詳細・試験パレット・アイコン一覧は [`docs/design-system/note-cover.md`](../../../../docs/design-system/note-cover.md) と [`note-cover-tokens.json`](../../../../docs/design-system/note-cover-tokens.json) を参照。
 
 ## 事前条件
 
@@ -172,7 +198,8 @@ node scripts/generate-note-covers.mjs 総監 --debug-safety
 - テンプレ定義: `.claude/config/ogp/templates.json`
 - ルール: `.claude/config/ogp/rules.json`
 - 改行・フォント設定: `.claude/config/ogp/text.json`
-- レンダラ: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`（T06 Mono Tag 実装の真実源）
+- レンダラ: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs`（mono-tag / magazine-banner / note-cover-g2 実装の真実源）
 - 改行・フォント計算: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs`
 - エントリポイント: `.claude/skills/conversion/ogp-create/scripts/ogp-create.mjs`
-- note カバー: `scripts/generate-note-covers.mjs`（同テンプレを 1280×670 で再利用）
+- note カバー: `scripts/generate-note-covers.mjs`（cover: ありは note-cover-g2、無しは mono-tag）
+- note カバー G2 仕様・トークン: `docs/design-system/note-cover.md` / `docs/design-system/note-cover-tokens.json`（値の真実源）

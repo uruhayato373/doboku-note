@@ -1,6 +1,16 @@
 ---
 notePricing: paid
 noteStatus: draft
+cover:
+  leadIn: "総監再受験者向け 不合格要因を"
+  hi: "3"
+  hiSuffix: "パターンで特定"
+  banner: "再受験戦略"
+  meta: "有料マガジン"
+  chips:
+    - { icon: target, text: "B判定の戦略" }
+    - { icon: doc, text: "C判定の戦略" }
+    - { icon: check, text: "根本対策" }
 ---
 
 # 【総監再受験者向け】不合格要因を特定する3パターン分析｜B判定とC判定で根本的に異なる再受験戦略

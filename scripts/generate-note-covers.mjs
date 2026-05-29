@@ -32,12 +32,40 @@ const ROOT = join(__dirname, '..');
 const NOTE_DIR = join(ROOT, 'docs/note');
 const FONTS_DIR = join(ROOT, '.claude/skills/conversion/ogp-create/assets/fonts');
 const TEXT_CONFIG = require(join(ROOT, '.claude/config/ogp/text.json'));
+// note カバー G2 デザイントークン（試験パレット・系列濃淡）の真実源
+const COVER_TOKENS = require(join(ROOT, 'docs/design-system/note-cover-tokens.json'));
 
 // note カバーは 1280×670（note 推奨）
 const W = 1280;
 const H = 670;
 
 const DEFAULT_CATEGORY = '技術士（総合技術監理部門）';
+
+/**
+ * dirName（NOTE_DIR からの相対パス）の先頭セグメントから試験 exam キーを解決する。
+ * 例: "1級土木/magazines/.../安全管理" → "civil-1"。未知 dir は "pe-comprehensive" にフォールバック。
+ */
+function resolveExam(dirName) {
+  const top = String(dirName).split('/')[0];
+  const exams = COVER_TOKENS.exams;
+  for (const key of Object.keys(exams)) {
+    if (exams[key].dir === top) return key;
+  }
+  return 'pe-comprehensive';
+}
+
+/**
+ * 系列=濃淡。バナー帯/HiBox に使う試験色トーンを解決する。
+ * 優先順: cover.tone > notePricing(paid→deep / free→base) > base。
+ * 戻り値は描画用パレット { band, accent, label }。
+ */
+function resolvePalette(examKey, { tone, pricing }) {
+  const ex = COVER_TOKENS.exams[examKey] || COVER_TOKENS.exams['pe-comprehensive'];
+  let toneKey = tone;
+  if (!toneKey) toneKey = pricing === 'paid' ? 'deep' : 'base';
+  const band = ex[toneKey] || ex.base;
+  return { band, accent: ex.accent || ex.base, label: ex.label };
+}
 
 function loadFonts() {
   const noto = readFileSync(join(FONTS_DIR, 'NotoSansJP-Bold.ttf'));
@@ -62,21 +90,32 @@ function extractTitle(h1) {
   return raw;
 }
 
-async function renderCover({ dirName, title, coverTitle, category, debugSafety, fonts }) {
-  let lines;
-  if (Array.isArray(coverTitle) && coverTitle.length > 0) {
-    lines = coverTitle.map((s) => String(s));
-  } else if (typeof coverTitle === 'string' && coverTitle.trim()) {
-    lines = await wrapTitle(coverTitle, TEXT_CONFIG);
+async function renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety, fonts }) {
+  let element;
+  // cover: ブロックがあれば G2（試験色分け・全幅バナー帯）、無ければ従来 mono-tag にフォールバック
+  if (cover && (cover.banner || cover.hi || cover.leadIn)) {
+    const palette = resolvePalette(examKey, { tone: cover.tone, pricing });
+    element = renderTemplate(
+      'note-cover-g2',
+      { cover, palette, debugSafety },
+      { width: W, height: H },
+    );
   } else {
-    lines = await wrapTitle(title, TEXT_CONFIG);
+    let lines;
+    if (Array.isArray(coverTitle) && coverTitle.length > 0) {
+      lines = coverTitle.map((s) => String(s));
+    } else if (typeof coverTitle === 'string' && coverTitle.trim()) {
+      lines = await wrapTitle(coverTitle, TEXT_CONFIG);
+    } else {
+      lines = await wrapTitle(title, TEXT_CONFIG);
+    }
+    const fontSize = pickFontSize(lines, TEXT_CONFIG);
+    element = renderTemplate(
+      'mono-tag',
+      { lines, categoryLabel: category, fontSize, debugSafety },
+      { width: W, height: H },
+    );
   }
-  const fontSize = pickFontSize(lines, TEXT_CONFIG);
-  const element = renderTemplate(
-    'mono-tag',
-    { lines, categoryLabel: category, fontSize, debugSafety },
-    { width: W, height: H },
-  );
   const svg = await satori(element, { width: W, height: H, fonts });
   const dir = join(NOTE_DIR, dirName);
   const imgDir = join(dir, 'img');
@@ -121,9 +160,12 @@ async function processOne(dirName, args, fonts) {
     return;
   }
   const title = extractTitle(h1);
-  const category = data.category || DEFAULT_CATEGORY;
+  const examKey = resolveExam(dirName);
+  const category = data.category || COVER_TOKENS.exams[examKey]?.label || DEFAULT_CATEGORY;
   const coverTitle = data.coverTitle;
-  await renderCover({ dirName, title, coverTitle, category, debugSafety: args.debugSafety, fonts });
+  const cover = data.cover;
+  const pricing = data.notePricing;
+  await renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety: args.debugSafety, fonts });
 }
 
 async function main() {

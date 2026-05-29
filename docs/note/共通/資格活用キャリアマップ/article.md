@@ -9,6 +9,16 @@ coverTitle:
   - 土木・建設の資格は
   - 「取った後」どう得するか
 noteStatus: draft
+cover:
+  leadIn: "土木・建設の資格は取った後"
+  hi: "お金"
+  hiSuffix: "とキャリアで得する"
+  banner: "資格活用マップ"
+  meta: "無料記事"
+  chips:
+    - { icon: chart, text: "年収インパクト" }
+    - { icon: flag, text: "昇進・転職" }
+    - { icon: target, text: "独立の選択肢" }
 ---
 # 土木・建設の資格は「取った後」どう得するか — キャリア×お金マップ
 

@@ -14,6 +14,8 @@
 | `svg-tokens.json` | 記事内 SVG 用デザイントークン真実源（colors / font / geometry） |
 | `instagram-carousel.md` | Instagram カルーセル（_exam-packs）デザイン仕様書 |
 | `instagram-carousel-tokens.json` | Instagram カルーセル用デザイントークン真実源（Satori vDOM 生成が参照） |
+| `note-cover.md` | note カバー画像（G2「全幅バナー帯」）デザイン仕様書。試験=色 / 系列=濃淡 |
+| `note-cover-tokens.json` | note カバー用デザイントークン真実源（generate-note-covers.mjs / renderNoteCoverG2 が参照） |
 | `proposals/` | リデザイン検討案アーカイブ（各サブフォルダに README + 静的プレビュー） |
 
 ## 読み方

@@ -8,6 +8,16 @@ utmCampaign: 96-independence-income
 coverTitle:
   - 総監を取って独立した
   - 技術者の収入実態
+cover:
+  leadIn: "総監を取って独立した技術士の"
+  hi: "5"
+  hiSuffix: "つのリアルケース"
+  banner: "独立後の収入実態"
+  meta: "無料記事"
+  chips:
+    - { icon: chart, text: "公開情報分析" }
+    - { icon: target, text: "独立の現実" }
+    - { icon: yen, text: "5ケース" }
 ---
 # 総監を取って独立した技術士の収入実態 — 公開情報から見える5つのリアルケース
 

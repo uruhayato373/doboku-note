@@ -8,6 +8,16 @@ utmCampaign: 94-civil-servant-retirement
 coverTitle:
   - 定年後を見据えた
   - 公務員技術者の資格戦略
+cover:
+  leadIn: "公務員技術者の"
+  hi: "定年後"
+  hiSuffix: "を見据えた戦略"
+  banner: "再就職で効く総監"
+  meta: "無料記事"
+  chips:
+    - { icon: flag, text: "再就職" }
+    - { icon: target, text: "OB活動" }
+    - { icon: check, text: "60代の備え" }
 ---
 # 【公務員技術者】定年後を見据えた資格戦略｜技術士総監が再就職・OB活動でどう効くか
 

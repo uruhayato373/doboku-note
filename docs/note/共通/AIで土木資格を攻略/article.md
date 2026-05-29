@@ -9,6 +9,16 @@ coverTitle:
   - 土木・建設資格を
   - AIで攻略する勉強法
 noteStatus: draft
+cover:
+  leadIn: "土木・建設資格を"
+  hi: "AI"
+  hiSuffix: "で攻略する"
+  banner: "資格別 勉強法"
+  meta: "無料記事"
+  chips:
+    - { icon: book, text: "1級土木" }
+    - { icon: edit, text: "技術士" }
+    - { icon: check, text: "総監" }
 ---
 # 【土木・建設資格】AIで攻略する勉強法 — 1級土木・技術士・総監の資格別ガイド
 

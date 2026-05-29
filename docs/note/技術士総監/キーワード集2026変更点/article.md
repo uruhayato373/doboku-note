@@ -5,6 +5,16 @@ utmCampaign: 99-keyword-2026-changes
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n3923cbfb651b
 noteId: n3923cbfb651b
+cover:
+  leadIn: "2026最新 総監キーワード集の"
+  hi: "変更点"
+  hiSuffix: "と優先順位"
+  banner: "キーワード変更点"
+  meta: "無料記事"
+  chips:
+    - { icon: book, text: "2024版と比較" }
+    - { icon: target, text: "学び直し順位" }
+    - { icon: check, text: "追加語句" }
 ---
 # 【2026年最新】総監キーワード集の変更点と学び直す優先順位｜2024版から何が変わったか徹底解剖
 

@@ -9,6 +9,16 @@ notePublishedAt: 2026-05-25
 coverTitle:
   - 国土交通白書 R7 完全対応集
   - 7大テーマ × 5管理トレードオフ
+cover:
+  leadIn: "国土交通白書 R7"
+  hi: "7"
+  hiSuffix: "大テーマ完全対応"
+  banner: "白書R7対応集"
+  meta: "無料記事"
+  chips:
+    - { icon: book, text: "白書原典つき" }
+    - { icon: target, text: "過去問適用" }
+    - { icon: chart, text: "出題確率スコア" }
 ---
 
 # 国土交通白書 R7 完全対応集

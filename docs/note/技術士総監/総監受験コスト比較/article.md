@@ -12,6 +12,16 @@ noteStatus: draft
 relatedReferences:
   - docs/reference/pe-cem-pass-rate-history.md
   - docs/reference/pe-cem-school-prices.md
+cover:
+  leadIn: "6回受験・スクール・独学の"
+  hi: "コスト"
+  hiSuffix: "を徹底比較"
+  banner: "最安ルートを試算"
+  meta: "無料記事"
+  chips:
+    - { icon: chart, text: "公式統計" }
+    - { icon: book, text: "スクール価格" }
+    - { icon: check, text: "最安ルート" }
 ---
 
 # 総監 6 回受験 vs スクール vs ¥2,480 マガジン｜公式統計と主要スクール価格で算出した "本当のコスト"

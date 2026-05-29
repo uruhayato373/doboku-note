@@ -8,6 +8,16 @@ utmCampaign: 93-civil-servant-merits
 coverTitle:
   - 自治体の技術職員が
   - 総監を取る5つのメリット
+cover:
+  leadIn: "土木系公務員が総監を取る"
+  hi: "5"
+  hiSuffix: "つのメリット"
+  banner: "発注者視点の価値"
+  meta: "無料記事"
+  chips:
+    - { icon: flag, text: "昇進・評価" }
+    - { icon: target, text: "発注力の向上" }
+    - { icon: check, text: "OB活動" }
 ---
 # 【土木系公務員】自治体の技術職員が技術士総監を取る5つのメリット｜発注者の視点から
 

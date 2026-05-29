@@ -4,6 +4,16 @@ noteUrl: https://note.com/dobokunote/n/n7fb7f92f7841
 noteId: n7fb7f92f7841
 notePricing: free
 noteStatus: published
+cover:
+  leadIn: "一般部門の合格者が落ちる"
+  hi: "3"
+  hiSuffix: "つの理由"
+  banner: "総監で通用しない訳"
+  meta: "無料記事"
+  chips:
+    - { icon: chart, text: "合格率10%の壁" }
+    - { icon: target, text: "思考の違い" }
+    - { icon: check, text: "4つの対策" }
 ---
 # 【一般部門の合格者が落ちる】総監で通用しない3つの理由｜合格率10%の壁を超える4つの対策
 

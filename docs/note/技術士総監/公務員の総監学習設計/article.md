@@ -8,6 +8,16 @@ utmCampaign: 96-civil-servant-study-design
 coverTitle:
   - 働きながら総監に挑む
   - 公務員の学習設計
+cover:
+  leadIn: "公務員 働きながら挑む"
+  hi: "逆算"
+  hiSuffix: "カレンダー設計"
+  banner: "総監 学習設計"
+  meta: "無料記事"
+  chips:
+    - { icon: calendar, text: "繁忙期を回避" }
+    - { icon: chart, text: "逆算スケジュール" }
+    - { icon: check, text: "両立のコツ" }
 ---
 # 【公務員向け】働きながら総監に挑む学習設計｜発注者業務の繁忙期を避ける逆算カレンダー
 

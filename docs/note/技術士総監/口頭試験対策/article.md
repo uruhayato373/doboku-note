@@ -1,6 +1,16 @@
 ---
 notePricing: paid
 noteStatus: draft
+cover:
+  leadIn: "総監口頭試験"
+  hi: "20分"
+  hiSuffix: "で落ちない語り方"
+  banner: "業務経歴の語り方"
+  meta: "有料マガジン"
+  chips:
+    - { icon: edit, text: "5管理で再構成" }
+    - { icon: doc, text: "想定質問" }
+    - { icon: check, text: "実演例つき" }
 ---
 
 # 総監口頭試験20分で落ちない「業務経歴」の語り方｜5管理で再構成する実演例と想定質問対策

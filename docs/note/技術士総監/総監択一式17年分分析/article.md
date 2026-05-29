@@ -6,6 +6,16 @@ notePricing: free
 noteSeries: 総監択一式分析
 utmCampaign: 90-soukan-analysis
 noteStatus: published
+cover:
+  leadIn: "総監択一式 17年分"
+  hi: "680"
+  hiSuffix: "問を徹底分析"
+  banner: "頻出テーマ分析"
+  meta: "無料記事"
+  chips:
+    - { icon: chart, text: "5管理分野別" }
+    - { icon: target, text: "頻出テーマ" }
+    - { icon: check, text: "学習優先順位" }
 ---
 # 【学習優先順位がわかる】総監択一式17年分680問を徹底分析｜5管理分野別の頻出テーマと学習戦略
 

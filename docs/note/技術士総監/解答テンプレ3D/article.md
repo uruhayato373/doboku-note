@@ -1,3 +1,17 @@
+---
+coverTitle:
+  - 技術士総監 記述式
+  - 解答テンプレ完全攻略
+cover:
+  leadIn: "テーマ×5管理×業務領域"
+  hi: "3D"
+  hiSuffix: "マトリクス"
+  banner: "解答テンプレ攻略"
+  chips:
+    - { icon: layers, text: "400セル" }
+    - { icon: edit, text: "5分で骨子" }
+    - { icon: check, text: "穴埋め式" }
+---
 # 技術士総監 記述式 解答テンプレ完全攻略
 ## テーマ × 5 管理 × 業務領域の 3D マトリクスで論文骨子が 5 分で組める
 

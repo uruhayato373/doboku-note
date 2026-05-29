@@ -8,6 +8,16 @@ utmCampaign: 95-civil-servant-qualifications
 coverTitle:
   - 自治体の技術職員の
   - キャリアと資格地図
+cover:
+  leadIn: "自治体の技術職員"
+  hi: "資格"
+  hiSuffix: "とキャリアの地図"
+  banner: "資格の位置づけ"
+  meta: "無料記事"
+  chips:
+    - { icon: target, text: "1級土木" }
+    - { icon: flag, text: "技術士・総監" }
+    - { icon: check, text: "RCCM" }
 ---
 # 【自治体の技術職員】キャリアと資格の地図｜1級土木施工管理技士・技術士・総監・RCCMの位置づけ
 

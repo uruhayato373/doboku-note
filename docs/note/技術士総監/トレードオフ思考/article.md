@@ -3,6 +3,16 @@ notePricing: free
 noteSeries: 総監記述式
 utmCampaign: 99-tradeoff-thinking
 noteStatus: draft
+cover:
+  leadIn: "総監の合否を分ける"
+  hi: "5管理"
+  hiSuffix: "の対立を見抜く"
+  banner: "トレードオフ思考"
+  meta: "無料記事"
+  chips:
+    - { icon: layers, text: "対立構造" }
+    - { icon: edit, text: "論文の核に" }
+    - { icon: target, text: "統合解決" }
 ---
 # 総監の合否を分ける「トレードオフ思考」完全ガイド｜5管理間の対立構造を見抜き、論文の核に据える
 

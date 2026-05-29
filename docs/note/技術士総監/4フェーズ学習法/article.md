@@ -9,6 +9,16 @@ coverTitle:
   - 総監 二次試験
   - 4 フェーズ学習法
 noteStatus: published
+cover:
+  leadIn: "総監二次 6-7ヶ月の学習を"
+  hi: "4"
+  hiSuffix: "フェーズで設計"
+  banner: "学習スケジュール"
+  meta: "無料記事"
+  chips:
+    - { icon: calendar, text: "月別タスク" }
+    - { icon: chart, text: "80-15-5の法則" }
+    - { icon: check, text: "合格ライン設計" }
 ---
 # 総監 二次試験 学習スケジュール完全版｜試験前 6-7 ヶ月を 4 フェーズに分けて合格ラインに届く設計
 

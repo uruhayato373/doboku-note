@@ -8,6 +8,16 @@ utmCampaign: ai-study-method
 coverTitle:
   - 総監の勉強を
   - AIで効率化する
+cover:
+  leadIn: "技術士総監を"
+  hi: "AI"
+  hiSuffix: "で効率化する"
+  banner: "AI学習法"
+  meta: "無料記事"
+  chips:
+    - { icon: bulb, text: "NotebookLM" }
+    - { icon: edit, text: "Claude Code" }
+    - { icon: check, text: "AI任せの限界" }
 ---
 # 【技術士総監】AIで勉強を効率化する｜NotebookLM・Claude Code の使い分けと「AI任せの限界」
 

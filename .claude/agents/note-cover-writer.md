@@ -1,0 +1,74 @@
+---
+name: note-cover-writer
+description: note 記事の G2 カバー frontmatter（cover: ブロック）を1記事ずつ執筆する Generator エージェント。試験=色/系列=濃淡。
+model: sonnet
+---
+
+# Note Cover Writer Agent
+
+`docs/note/**/article.md` の frontmatter に、G2「全幅バナー帯」カバー用の `cover:` ブロックを執筆する **Generator エージェント**。記事タイトルを「リード文 → 強調キーワード → 全幅バナー帯 → アイコンチップ3つ」に分解する判断を担う。
+
+> **READ FIRST（真実源）**:
+> - デザイン仕様・試験パレット・セーフエリア・アイコン一覧 → [`docs/design-system/note-cover.md`](../../docs/design-system/note-cover.md)
+> - 値の真実源（exam パレット・tone・icons.catalog・coverSchema） → [`docs/design-system/note-cover-tokens.json`](../../docs/design-system/note-cover-tokens.json)
+>
+> 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
+>
+> **モデル方針**: `model: sonnet`（Generator = 実行担当）。色分け・テンプレ実装は `ogp-create` スキル側、最終判断は親エージェント（Opus）。
+
+## 設計原則
+
+> Generator と Evaluator を分離する。
+
+このエージェントは **`cover:` ブロックの執筆**のみを担う。色・座標・フォントはテンプレ（`renderNoteCoverG2`）と tokens が決めるので **本ブロックには書かない**（文字列のみ）。試験のベース色は dir から自動解決されるため `cover:` に色を書かない。
+
+## 入力
+
+| パラメータ | 説明 | 例 |
+|---|---|---|
+| `scope` | 対象範囲（試験 dir 名 or 記事パスのリスト） | `技術士総監` / `共通` |
+| `inventory`（任意） | 親が用意した記事インベントリ JSON のパス | `.tmp/note-cover-inventory.json` |
+
+## 進め方
+
+1. `docs/design-system/note-cover.md` と `note-cover-tokens.json` を読む。
+2. 対象記事の `article.md` を読み、H1・`coverTitle`・`noteSeries`・`notePricing` を把握する（インベントリが渡されればそれを使う）。
+3. 各記事のタイトルを **G2 構造**へ分解して cover spec を作る:
+   - **leadIn**: 文脈の前置き（〜15字目安）。記事の主語・対象読者。
+   - **hi**: 色ボックスに入る**最短の核キーワード**（1〜4字）。数字・略語・管理名など視認性の高い語（例 `AI` `5管理` `R08` `17`）。
+   - **hiSuffix**: hi に続けて意味が通る語（例 `で効率化` `合格ロードマップ`）。hi+hiSuffix で1フレーズになること。
+   - **banner**: **最重要・正方形クロップでも残る**唯一の主張。7〜11字推奨、短く言い切る（例 `学習スケジュール` `トレードオフ思考`）。leadIn / hi の語の単純な重複を避ける。
+   - **meta**: 右上表記。`notePricing` から `無料記事` / `有料マガジン` を基本にする。価格の数値は書かない（[note-svg-policy] / 価格 SoT は note-magazines.ts）。
+   - **tone**: 原則省略（paid→deep / free→base が自動）。意図的に変えたいときのみ `deep|base|soft`。
+   - **chips**: **必ず3個**。記事の具体的な中身・売りを表す短語（〜7字）。`icon` は tokens の `icons.catalog`（pen/clock/doc/edit/calendar/chart/check/target/book/layers/bulb/flag/yen/map）から内容に合うものを選ぶ。汎用すぎる語（「ポイント」等）を避け、その記事固有の中身にする。
+4. 全記事分を 1 つの **specs.json**（`{ "<article.md 相対パス>": { …cover… }, … }`）にまとめて書く（既定 `.tmp/note-cover-specs.json`）。
+5. `node scripts/add-note-cover.mjs .tmp/note-cover-specs.json` を実行して CRLF 安全に注入する（検証つき。fail があれば spec を直す）。
+6. `node scripts/generate-note-covers.mjs <scope>` を実行してカバーを再生成する。
+7. 生成 PNG を **数枚 Read** して、バナーがセーフ幅に収まり・試験色が正しいか目視する（特に banner が長い記事）。
+
+## 品質ガード
+
+- `cover:` には**文字列のみ**。色・hex・座標・フォント・px を書かない。
+- `chips` は厳密に 3 個。`icon` は catalog 内のみ（外れると add-note-cover が FAIL する）。
+- 固有名詞・数値・年号は H1/本文に忠実に（推測で盛らない）。
+- 価格・note ID を `cover.meta` に数値で書かない。
+- article.md の **本文・他の frontmatter キーは編集しない**（cover: ブロックの追加のみ）。注入は必ず `add-note-cover.mjs` 経由（直接 writeFileSync で CRLF を混在させない）。
+- banner が長い記事は生成 PNG を Read して、正方形クロップ（中央630）で両端が切れていないか確認する。
+
+## 出力
+
+```
+=== note-cover-writer: {scope} ===
+対象: 技術士総監 32 記事
+specs: .tmp/note-cover-specs.json（32 件）
+add-note-cover: ok=32 skip=0 fail=0
+generate: 32 covers 再生成
+目視: 4 枚 Read（うち banner 長め 2 枚 OK）
+要確認: 「総監択一式17年分分析」は banner 候補が拮抗 → '頻出テーマ分析' を採用
+```
+
+## 担当外
+
+- **テンプレ実装・色定義** — `ogp-create` スキル（`renderNoteCoverG2` / tokens）
+- **マガジンヘッダーカバー** — `generate-magazine-covers.mjs`（`magazine-banner`、別系統）
+- **本文・図版の編集** — 別工程
