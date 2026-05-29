@@ -1,17 +1,35 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T11:39:05.953Z",
+  "generated_at": "2026-05-29T12:06:14.372Z",
   "summary": {
-    "total": 849,
-    "published": 824,
+    "total": 857,
+    "published": 832,
     "unpublished": 25,
     "by_category": {
-      "civil-construction-1": 87,
-      "civil-construction-2": 20,
+      "civil-construction-1": 89,
+      "civil-construction-2": 26,
       "pe-comprehensive-management": 717
     }
   },
   "docs": {
+    "civil-construction-1-guide-career-agents": {
+      "title": "施工管理の転職エージェントの選び方 — 特化型と総合型の違い",
+      "description": "土木施工管理技士が転職を考えるときの、転職エージェント・転職サイトの選び方を解説します。建設特化型と総合型の違い、エージェントと求人サイトの使い分け、利用前の準備まで整理し、資格を活かして年収を上げるための動き方を示します。",
+      "shortTitle": "転職エージェントの選び方",
+      "subtitle": "特化型と総合型・エージェントと求人サイトの使い分け",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "career"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "施工管理の転職エージェントの選び方｜特化型と総合型の違い【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
     "civil-construction-1-guide-career-salary": {
       "title": "1級土木施工管理技士の年収・キャリア — 資格手当と転職市場価値",
       "description": "1級土木施工管理技士を取得すると年収はどう変わるかを、資格手当の相場（月1〜3万円）・2級との年収差・転職市場での評価という3つの視点で解説します。監理技術者として配置できる立場が年収に直結する理由まで整理します。",
@@ -458,6 +476,24 @@
       "reviewStatus": "draft",
       "created": "2026-05-29",
       "dateModified": "2026-05-29"
+    },
+    "civil-construction-1-guide-textbooks": {
+      "title": "1級土木施工管理技士のおすすめ参考書・問題集 — 用途別の選び方",
+      "description": "1級土木施工管理技士の独学に使うテキスト・過去問・第2次検定対策本を、用途別に整理して紹介します。1冊で全体像をつかむ合格ガイド、第1次の図解テキストと過去問、第2次の経験記述対策まで、王道の組み合わせを解説します。",
+      "shortTitle": "おすすめ参考書",
+      "subtitle": "テキスト・過去問・第2次対策の選び方と組み合わせ",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "1級土木施工管理技士のおすすめ参考書・問題集｜用途別の選び方【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
     },
     "civil-construction-1-keyword-2026": {
       "title": "1級土木施工管理技士 全分野キーワード索引 2026（教科書 34 章・カテゴリ別目次）",
@@ -2757,6 +2793,69 @@
       "created": "2026-05-29",
       "dateModified": "2026-05-29"
     },
+    "civil-construction-2-guide-concrete-key-points": {
+      "title": "コンクリートの重要ポイント — 2級土木施工管理技士試験対策",
+      "description": "2級土木施工管理技士で頻出のコンクリート分野を、材料（骨材・セメント・混和材料）・配合とスランプ・打込みと締固め・養生とひび割れの要点に絞って整理します。第一次検定で落とせない定番論点をまとめました。",
+      "shortTitle": "コンクリートのポイント",
+      "subtitle": "材料・配合・打込み・養生・ひび割れ",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "コンクリートの重要ポイント｜材料・配合・打込み・養生【2級土木施工管理技士】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
+    "civil-construction-2-guide-earthwork-key-points": {
+      "title": "土工の重要ポイント — 2級土木施工管理技士試験対策",
+      "description": "2級土木施工管理技士で頻出の土工分野を、土質試験とN値・土量変化率L/C・盛土と締固め・のり面と軟弱地盤の要点に絞って整理します。第一次検定で確実に得点するためのコアをコンパクトにまとめました。",
+      "shortTitle": "土工のポイント",
+      "subtitle": "土質試験・N値・土量変化率・盛土・締固め",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "土工の重要ポイント｜土質試験・土量変化率・盛土【2級土木施工管理技士】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
+    "civil-construction-2-guide-law-key-points": {
+      "title": "法規の重要ポイント — 2級土木施工管理技士試験対策",
+      "description": "2級土木施工管理技士で頻出の法規を、労働基準法・労働安全衛生法・建設業法・道路関係法令・河川法・騒音振動規制法の要点に絞って整理します。第一次検定で確実に得点するための条文ポイントをまとめました。",
+      "shortTitle": "法規のポイント",
+      "subtitle": "労働基準法・労働安全衛生法・建設業法・道路/河川/騒音規制法",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "法規の重要ポイント｜労基法・労安法・建設業法【2級土木施工管理技士】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
     "civil-construction-2-guide-overview": {
       "title": "2級土木施工管理技士とは — 難易度・合格率・試験内容",
       "description": "2級土木施工管理技士とは何かを、試験構成・受験資格・難易度と合格率・取得後にできる仕事の4点から解説します。令和6年度の制度改正で第一次検定が17歳以上で受験できるようになった点も押さえます。",
@@ -2778,6 +2877,48 @@
       "created": "2026-05-29",
       "dateModified": "2026-05-29"
     },
+    "civil-construction-2-guide-quality-management": {
+      "title": "品質管理の重要ポイント — 2級土木施工管理技士試験対策",
+      "description": "2級土木施工管理技士で頻出の品質管理を、品質管理の目的とPDCA・ヒストグラムなどのQC手法・盛土の締固め管理・レディーミクストコンクリートの受入検査に絞って整理します。施工管理法で確実に得点するための要点をまとめました。",
+      "shortTitle": "品質管理のポイント",
+      "subtitle": "品質特性・ヒストグラム・締固め管理・レディーミクストコンクリート",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "品質管理の重要ポイント｜ヒストグラム・締固め管理・受入検査【2級土木施工管理技士】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
+    "civil-construction-2-guide-schedule-management": {
+      "title": "工程管理の重要ポイント — 2級土木施工管理技士試験対策",
+      "description": "2級土木施工管理技士で頻出の工程管理を、工程表の種類と特徴・ネットワーク式工程表とクリティカルパスの基礎・出来高累計曲線（バナナ曲線）に絞って整理します。施工管理法で得点を伸ばすための要点をまとめました。",
+      "shortTitle": "工程管理のポイント",
+      "subtitle": "工程表の種類・ネットワーク式・クリティカルパス・出来高累計曲線",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "工程管理の重要ポイント｜工程表の種類・ネットワーク・クリティカルパス【2級土木施工管理技士】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
+    },
     "civil-construction-2-guide-study-method": {
       "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
       "description": "2級土木施工管理技士に独学で合格するための勉強法を、勉強時間の目安・令和6年度の受験資格・第1次検定と第2次検定の進め方に分けて解説します。過去問中心で効率よく合格ラインに届く学習計画の立て方を示します。",
@@ -2798,6 +2939,27 @@
       "reviewStatus": "draft",
       "created": "2026-05-29",
       "dateModified": "2026-05-29"
+    },
+    "civil-construction-2-guide-textbooks": {
+      "title": "2級土木施工管理技士のおすすめ参考書・問題集 — 用途別の選び方",
+      "description": "2級土木施工管理技士の独学に使うテキスト・過去問・第2次検定対策本を、用途別に整理して紹介します。図解の多い入門テキスト、第1次の過去問、第2次の経験記述対策まで、初学者でも迷わない選び方を解説します。",
+      "shortTitle": "おすすめ参考書",
+      "subtitle": "テキスト・過去問・第2次対策の選び方と組み合わせ",
+      "exams": [
+        "civil-construction-2"
+      ],
+      "category": "civil-construction-2",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "exam-preparation"
+      ],
+      "published": true,
+      "publishedAt": "2026-05-29",
+      "seoTitle": "2級土木施工管理技士のおすすめ参考書・問題集｜用途別の選び方【2026】",
+      "reviewStatus": "draft",
+      "created": "2026-05-29T00:00:00.000Z",
+      "dateModified": "2026-05-29T00:00:00.000Z"
     },
     "civil-construction-2-primary-r03-kouki": {
       "title": "令和3年度 第1次検定 後期",

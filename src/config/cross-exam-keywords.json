@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-05-29T11:39:06.453Z",
+  "generated_at": "2026-05-29T12:06:14.753Z",
   "summary": {
-    "total_mdx_files": 849,
-    "with_exams_field": 42,
+    "total_mdx_files": 857,
+    "with_exams_field": 48,
     "cross_exam_count": 0,
     "by_exam": {
       "civil-construction-1": 29,
-      "civil-construction-2": 13
+      "civil-construction-2": 19
     }
   },
   "by_exam": {
@@ -466,6 +466,51 @@
         "source_path": ".local/r2/posts/civil-construction-2/guide-career/article.mdx"
       },
       {
+        "slug": "civil-construction-2-guide-concrete-key-points",
+        "title": "コンクリートの重要ポイント — 2級土木施工管理技士試験対策",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-concrete-key-points/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-earthwork-key-points",
+        "title": "土工の重要ポイント — 2級土木施工管理技士試験対策",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-earthwork-key-points/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-law-key-points",
+        "title": "法規の重要ポイント — 2級土木施工管理技士試験対策",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-law-key-points/article.mdx"
+      },
+      {
         "slug": "civil-construction-2-guide-overview",
         "title": "2級土木施工管理技士とは — 難易度・合格率・試験内容",
         "category": "civil-construction-2",
@@ -481,6 +526,36 @@
         "source_path": ".local/r2/posts/civil-construction-2/guide-overview/article.mdx"
       },
       {
+        "slug": "civil-construction-2-guide-quality-management",
+        "title": "品質管理の重要ポイント — 2級土木施工管理技士試験対策",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-quality-management/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-schedule-management",
+        "title": "工程管理の重要ポイント — 2級土木施工管理技士試験対策",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-schedule-management/article.mdx"
+      },
+      {
         "slug": "civil-construction-2-guide-study-method",
         "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
         "category": "civil-construction-2",
@@ -494,6 +569,21 @@
           "civil-construction-2"
         ],
         "source_path": ".local/r2/posts/civil-construction-2/guide-study-method/article.mdx"
+      },
+      {
+        "slug": "civil-construction-2-guide-textbooks",
+        "title": "2級土木施工管理技士のおすすめ参考書・問題集 — 用途別の選び方",
+        "category": "civil-construction-2",
+        "group": "guide",
+        "tags": [
+          "guide",
+          "exam-preparation"
+        ],
+        "sections": null,
+        "exams": [
+          "civil-construction-2"
+        ],
+        "source_path": ".local/r2/posts/civil-construction-2/guide-textbooks/article.mdx"
       },
       {
         "slug": "civil-construction-2-primary-r03-zenki",

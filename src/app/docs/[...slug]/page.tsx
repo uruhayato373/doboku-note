@@ -508,8 +508,12 @@ export default async function DocPage({
 
             {/* 参考書籍（Civil guide: アフィリエイト・補完ポジション。
                 guide 4ページ（strategy / earthwork / concrete / law）の主要流入ページに配置。
-                合格テキスト1冊 + 一次過去問1冊の固定ペア。） */}
-            {category === 'civil-construction-1' && docGroup === 'guide' && (
+                合格テキスト1冊 + 一次過去問1冊の固定ペア。
+                例外: guide-textbooks（自前で全ラインナップを BookCard 配置）と
+                guide-career-agents（転職特化ページで書籍・講座は文脈外）は自動注入しない。） */}
+            {category === 'civil-construction-1' && docGroup === 'guide' &&
+              slugStr !== 'civil-construction-1-guide-textbooks' &&
+              slugStr !== 'civil-construction-1-guide-career-agents' && (
               <>
                 <div className="mt-8">
                   <BookSection caption="まずは1冊で全体像をつかみ、過去問演習で出題傾向に慣れる王道ペア。">
