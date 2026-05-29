@@ -15,7 +15,7 @@ title: スキル ガバナンス記録
 
 ```
 .claude/skills/
-├── authoring/       # 8 — 記事を作る
+├── authoring/       # 9 — 記事を作る
 ├── conversion/      # 4 — 形式変換（MDX / OGP 画像 / 紙用 PDF）
 ├── quality/         # 12 — MDX・note 公開前品質検査
 ├── management/      # 11 — 計画・分析・戦略
@@ -25,7 +25,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **55 スキル**（Phase 2 待機を除く）。
+合計 **56 スキル**（Phase 2 待機を除く）。
+
+> 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
 
 ---
 

@@ -226,6 +226,24 @@ const MAGAZINES_RAW = {
     price: '¥1,480（3本セット）',
     badge: 'note 限定',
   },
+
+  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-予想問題集/
+  // 1級 令和6年度 新方向（条件提示型・日常業務・予想2テーマ組合せ）の予想問題集。published: false。
+  // エージェント駆動（civil-keiken-essay-writer）で生成した初回マガジン。
+  'civil-1-yosou-essay': {
+    id: 'civil-1-yosou-essay',
+    published: false,
+    noteUrl: '',
+    title: '1級土木 施工経験記述｜予想問題集（令和6年度 新方向対応）',
+    description:
+      '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の予想問題集。令和6年度の検定見直しで現れた新方向（条件提示型・監理技術者の日常統括業務・予想2テーマ組合せ）に特化し、予想問題＋模範答案（記述例）＋採点者視点を収録。テーマ別完成答案集（5管理）を補完する。',
+    shortTitle: '1級土木 施工経験記述 予想問題集',
+    shortDescription:
+      '条件提示型・日常業務・予想2テーマ組合せ（監理技術者レベル）。R6新方向に特化。',
+    imageUrl: '/images/magazines/civil-1-yosou-essay-cover.webp',
+    price: '¥1,480（3本セット）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;

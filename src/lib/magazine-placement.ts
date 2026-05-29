@@ -254,14 +254,15 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 8. 1級土木 施工経験記述 → 2マガジン（過去問年度別＋テーマ別5管理）。
-  //    年度別ページ(r0X)は過去問マガジン(pastexam)が年度一致で主、テーマ別(experience)が副。
-  //    guide/examples は両方を提示。published: false の間は getMagazine が null で CTA 非表示。
+  // 8. 1級土木 施工経験記述 → 3マガジン（過去問年度別＋テーマ別5管理＋予想問題集）。
+  //    年度別ページ(r0X)は過去問(pastexam)が年度一致で主、テーマ別(experience)・予想(yosou)が副。
+  //    guide/examples はテーマ別が主、過去問・予想が副。published: false の間は CTA 非表示。
   if (/^civil-construction-1-secondary-r0[1-9]$/.test(slug)) {
     return {
       inline: [
         slot('civil-1-pastexam-essay', slug, 'inline-1'),
         slot('civil-1-experience-essay', slug, 'inline-2'),
+        slot('civil-1-yosou-essay', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -272,6 +273,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [
         slot('civil-1-experience-essay', slug, 'inline-1'),
         slot('civil-1-pastexam-essay', slug, 'inline-2'),
+        slot('civil-1-yosou-essay', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
