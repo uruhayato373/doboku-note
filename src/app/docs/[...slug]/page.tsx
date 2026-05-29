@@ -134,6 +134,70 @@ function CivilSatProductCTA() {
   );
 }
 
+/**
+ * 施工管理 転職支援サービス（A8.net）の 300×250 creative。記事末「資格取得後のキャリア」用。
+ * 1級 guide（過去問=SAT との住み分けで guide=転職）+ 2級 primary / secondary に配置。
+ * 2026-05-29 新規追加。creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ */
+const CIVIL_CAREER_AD = {
+  href: 'https://px.a8.net/svt/ejp?a8mat=4B3VR8+F0LMU2+4R40+TSBE9',
+  imageSrc: 'https://www29.a8.net/svt/bgt?aid=260521604908&wid=002&eno=01&mid=s00000022176005003000&mc=1',
+  pixelSrc: 'https://www15.a8.net/0.gif?a8mat=4B3VR8+F0LMU2+4R40+TSBE9',
+  alt: '施工管理 転職支援サービス',
+  width: 300,
+  height: 250,
+} as const;
+
+/**
+ * 記事末用：施工管理 転職 CTA カード（資格取得後のキャリア導線）。
+ * 300×250 をネイティブサイズで中央寄せ（引き伸ばさない）。PR表示・計測ピクセル同梱。
+ * 1級 guide / 2級 primary・secondary で使用（過去問の SAT 商品CTA とは docGroup で住み分け）。
+ */
+function CivilCareerCTA() {
+  return (
+    <div className="mt-8">
+      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-1">資格取得後のキャリア</h2>
+      <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
+        施工管理の実務経験＋資格は転職市場で高く評価されます。今の市場価値を把握したいときに。
+      </p>
+      <div className="not-prose relative inline-block overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-2 shadow-card-content">
+        <span
+          className="absolute right-2 top-2 z-10 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
+          style={{ background: 'var(--color-ink-muted)' }}
+          aria-label="広告"
+        >
+          PR
+        </span>
+        <a
+          href={CIVIL_CAREER_AD.href}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          className="block"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={CIVIL_CAREER_AD.imageSrc}
+            alt={CIVIL_CAREER_AD.alt}
+            width={CIVIL_CAREER_AD.width}
+            height={CIVIL_CAREER_AD.height}
+            loading="lazy"
+            className="block h-auto"
+          />
+        </a>
+      </div>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={CIVIL_CAREER_AD.pixelSrc}
+        width={1}
+        height={1}
+        alt=""
+        aria-hidden
+        style={{ position: 'absolute', left: '-9999px' }}
+      />
+    </div>
+  );
+}
+
 const mdxOptions = {
   blockJS: false as const,
   blockDangerousJS: true as const,
@@ -476,23 +540,29 @@ export default async function DocPage({
                 両用テキスト（4816378383・一次&二次 徹底図解）+ 一次特化対策書（4770329784・第一次検定）のペア。
                 SAT 商品CTA（1級教材写真）は級ミスマッチ回避のため2級では呼ばない → サイドバーバナーに集約。） */}
             {category === 'civil-construction-2' && docGroup === 'primary' && (
-              <div className="mt-8">
-                <BookSection caption="両用1冊で全体像をつかみ、一次特化の対策書で第一次検定を仕上げたいときに。">
-                  <BookCard asin="4816378383" />
-                  <BookCard asin="4770329784" />
-                </BookSection>
-              </div>
+              <>
+                <div className="mt-8">
+                  <BookSection caption="両用1冊で全体像をつかみ、一次特化の対策書で第一次検定を仕上げたいときに。">
+                    <BookCard asin="4816378383" />
+                    <BookCard asin="4770329784" />
+                  </BookSection>
+                </div>
+                <CivilCareerCTA />
+              </>
             )}
 
             {/* 参考書籍（Civil 2級 secondary: アフィリエイト・補完ポジション。
                 両用テキスト（4816378383）+ 二次特化テキスト&過去問題集（4911687207・第二次検定）のペア。） */}
             {category === 'civil-construction-2' && docGroup === 'secondary' && (
-              <div className="mt-8">
-                <BookSection caption="両用1冊で全体像をつかみ、二次特化のテキスト＆過去問で第二次検定を仕上げたいときに。">
-                  <BookCard asin="4816378383" />
-                  <BookCard asin="4911687207" />
-                </BookSection>
-              </div>
+              <>
+                <div className="mt-8">
+                  <BookSection caption="両用1冊で全体像をつかみ、二次特化のテキスト＆過去問で第二次検定を仕上げたいときに。">
+                    <BookCard asin="4816378383" />
+                    <BookCard asin="4911687207" />
+                  </BookSection>
+                </div>
+                <CivilCareerCTA />
+              </>
             )}
 
             {/* Civil textbook: 前後章ナビ + 過去問逆引き（1級・2級共通） */}
@@ -532,7 +602,8 @@ export default async function DocPage({
 
             {/* 参考書籍（Civil guide: アフィリエイト・補完ポジション。
                 guide 4ページ（strategy / earthwork / concrete / law）の主要流入ページに配置。
-                合格テキスト1冊 + 一次過去問1冊の固定ペア。） */}
+                合格テキスト1冊 + 一次過去問1冊の固定ペア。
+                記事末CTA は guide=転職 / 過去問=SAT の住み分けで CivilCareerCTA（SAT サイドバーは別途常設）。） */}
             {category === 'civil-construction-1' && docGroup === 'guide' && (
               <>
                 <div className="mt-8">
@@ -541,7 +612,7 @@ export default async function DocPage({
                     <BookCard asin="4297154099" />
                   </BookSection>
                 </div>
-                <CivilSatProductCTA />
+                <CivilCareerCTA />
               </>
             )}
 
