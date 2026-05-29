@@ -1,7 +1,7 @@
 {
   "meta": {
     "schema": 1,
-    "updated_at": "2026-05-14T00:00:00.000Z",
+    "updated_at": "2026-05-29T23:31:44.999Z",
     "description": "doboku-note の全タスクの単一正源。スキーマ・運用ルールは .claude/reference/information-architecture.md を参照。人間用ビューは docs/project/TODO.md（npm run build-todo で生成）。"
   },
   "tasks": [
@@ -476,6 +476,20 @@
       "created": "2026-05-21",
       "updated": "2026-05-21",
       "notes": "2026-05-21 環境調査ペルソナ廃止に伴うペルソナ再編の後続。発注者視点を道路に次ぐ二大分野である河川へ展開する新ペルソナ「公務員河川担当」（自治体＋国・地方整備局を含む「公務員」呼称）を新設。検証ゲート付きで進める: R06・R07 を先行制作・公開 → 実売確認 → 実売が確認できた段階で R03-R05 を backfill。設計軸は立場主軸・分野従。背景は noteコンテンツ計画.md「ペルソナ再編判断記（2026-05-21）」を参照。"
+    },
+    {
+      "id": "T-027",
+      "title": "EXP-003/004 を再measure（クリーンな28d窓）",
+      "status": "todo",
+      "category": "seo",
+      "priority": "mid",
+      "source": "nsm-experiment:measure",
+      "parent": null,
+      "refs": [],
+      "dedupe_key": "nsm:exp-003-004-remeasure",
+      "created": "2026-05-29",
+      "updated": "2026-05-29",
+      "notes": "変更日2026-05-16。05-30の28d窓は変更前主体で判定保留(EXP-003=partial clk1→5/EXP-004=no-effect clk1→0)。2026-06-13以降にローカルで npm run fetch-gsc-data --dimension page --days 28 を取得し、EXP-003の5URL combined_clicks(目標20)とEXP-004の21URL aggregate_clicks(目標8)を再判定。クラウドルーティン不可(GSCライブcreds必要・ページ次元はCI未コミット)。"
     }
   ]
 }

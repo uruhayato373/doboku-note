@@ -152,12 +152,16 @@
         "created_at": "2026-04-15",
         "source": "fetch-gsc-data 28d / fetch-psi-data mobile"
       },
-      "status": "measuring",
+      "status": "done",
       "created_at": "2026-04-14T22:06:02.245Z",
       "started_at": "2026-04-14T22:06:02.249Z",
-      "result": null,
-      "learnings": null,
-      "closed_at": null,
+      "result": "success",
+      "learnings": [
+        "インデックス解放（sitemap 検証 + 未indexページへの手動 indexing request）は新規/低評価サイトの GSC impressions を桁違いに伸ばす最有効施策。28d impr 66→8091（123x）/ clicks 2→209（104x）。target(200)を大幅超過。",
+        "効果は週次 WoW では誤読する。W22 週次で impr -38% に見えたが、28d トレンドは激増。インデックス系施策は必ず28dトレンドで判定する。",
+        "impressions の短期減を即 noindex/失敗と判断しないのが正しい（noindex-timing の方針と整合）。NSM(オーガニックユーザー)増の裏付けが取れた。"
+      ],
+      "closed_at": "2026-05-30T00:00:00.000Z",
       "actions": [
         "1. sitemap.xml の内容検証（旧 URL 除外 + 現行 748 URL 網羅の確認）",
         "2. 現行サイト全 URL を .local/r2/posts/ から slug ベースで列挙",
@@ -236,6 +240,11 @@
           "date": "2026-05-30T00:00:00.000Z",
           "action": "measured",
           "summary": "28d impr 66→8091 / clicks 2→209。target(200)大幅超過で success 判定。running→measuring。"
+        },
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "closed",
+          "summary": "success 判定で close。28d impr 66→8091(123x)/clicks 2→209。W22 のimpr -38%WoWは短期ノイズと確定。"
         }
       ],
       "interim_findings": {
