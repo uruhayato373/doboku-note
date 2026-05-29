@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/自治体技術職員の資格地図/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/自治体技術職員の資格地図/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-qualification-map: 「自治体の技術職員 キャリアと資格の3層地図」
 //   - 3層を縦に積み重ねた帯（下から上へ: 施工現場系→専門技術系→管理統合系）
@@ -25,7 +25,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/自治体技術職員の資格地図/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/自治体技術職員の資格地図/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

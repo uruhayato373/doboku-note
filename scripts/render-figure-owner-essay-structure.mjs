@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/発注者視点の記述式の組み立て/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/発注者視点の記述式の組み立て/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-three-layer: 「発注者の立場で書く 総監記述式の三層構造」
 //   - 3層を縦に積み重ねた帯（上から: 第3層=将来展望 → 第2層=施策 → 第1層=管理対象と前提条件）
@@ -25,7 +25,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/発注者視点の記述式の組み立て/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/発注者視点の記述式の組み立て/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

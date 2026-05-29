@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/公務員技術者の定年後資格戦略/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/公務員技術者の定年後資格戦略/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-retirement-options:
 //   「公務員技術者の定年後 — 選択肢と総監の効き方」
@@ -29,7 +29,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/公務員技術者の定年後資格戦略/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/公務員技術者の定年後資格戦略/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

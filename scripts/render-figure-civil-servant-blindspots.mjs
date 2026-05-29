@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/自治体技術職員の択一盲点/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/自治体技術職員の択一盲点/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-coverage-gap: 「発注者の実務感覚と択一出題範囲のズレ」
 //   - 5管理 × 4列の表（5管理 / 発注者の実務との距離 / 択一の出題 / 盲点）
@@ -22,7 +22,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/自治体技術職員の択一盲点/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/自治体技術職員の択一盲点/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

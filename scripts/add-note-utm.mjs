@@ -35,16 +35,32 @@ function parseArgs(argv) {
   return args;
 }
 
+// 2026-05-29 再編: docs/note は試験別ディレクトリ配下に記事を持つ。
+const EXAM_DIRS = ['技術士総監', '1級土木', '2級土木', '共通'];
+
 function resolveDirectory(target) {
-  const all = readdirSync(NOTE_DIR, { withFileTypes: true })
-    .filter((e) => e.isDirectory())
-    .map((e) => e.name);
-  if (all.includes(target)) return target;
-  // slug 前方一致（例: "総監" → "総監択一式17年分分析"）
-  const matches = all.filter((d) => d.startsWith(target));
+  // 全 exam dir 配下の記事 slug を {exam}/{slug}（magazines 除く）で収集
+  const all = [];
+  for (const exam of EXAM_DIRS) {
+    let subs;
+    try {
+      subs = readdirSync(join(NOTE_DIR, exam), { withFileTypes: true })
+        .filter((e) => e.isDirectory() && e.name !== 'magazines')
+        .map((e) => e.name);
+    } catch {
+      continue;
+    }
+    for (const s of subs) all.push({ slug: s, rel: `${exam}/${s}` });
+  }
+  // slug 完全一致
+  const exact = all.filter((a) => a.slug === target);
+  if (exact.length === 1) return exact[0].rel;
+  if (exact.length > 1) throw new Error(`ambiguous slug "${target}": ${exact.map((a) => a.rel).join(', ')}`);
+  // slug 前方一致（例: "総監択一" → "技術士総監/総監択一式17年分分析"）
+  const matches = all.filter((a) => a.slug.startsWith(target));
   if (matches.length === 0) throw new Error(`no note directory matches "${target}"`);
-  if (matches.length > 1) throw new Error(`ambiguous prefix "${target}": ${matches.join(', ')}`);
-  return matches[0];
+  if (matches.length > 1) throw new Error(`ambiguous prefix "${target}": ${matches.map((a) => a.rel).join(', ')}`);
+  return matches[0].rel;
 }
 
 function injectUtm(url, campaign) {

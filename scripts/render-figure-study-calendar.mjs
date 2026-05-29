@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/公務員の総監学習設計/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/公務員の総監学習設計/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-study-calendar: 「働きながら総監に挑む 逆算学習カレンダー」
 //   - 5つの時期を縦に積んだステップ表（各行＝時期カード）
@@ -27,7 +27,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/公務員の総監学習設計/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/公務員の総監学習設計/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

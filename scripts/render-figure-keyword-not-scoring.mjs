@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/キーワード集が点にならない理由/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/キーワード集が点にならない理由/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-reading-shift: 「通読の失敗を『出題視点』で読み直す」
 //   - 3行の before → after 対応図
@@ -21,7 +21,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/キーワード集が点にならない理由/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/キーワード集が点にならない理由/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

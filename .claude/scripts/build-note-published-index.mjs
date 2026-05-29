@@ -1,8 +1,9 @@
 #!/usr/bin/env node
-// docs/note/{slug}/article.md および
-// docs/note/magazines/{magazine}/{year}/article.md を走査し、frontmatter に
+// docs/note/{exam}/{slug}/article.md および
+// docs/note/{exam}/magazines/{magazine}/{year}/article.md を走査し、frontmatter に
 // noteUrl を持つ公開済み記事の一覧を .claude/state/note-published.json に集計する。
-// マガジン記事は slug を "magazines/{magazine}/{year}" とし magazine フィールドを付す。
+// exam は技術士総監/1級土木/2級土木/共通。マガジン記事は slug を
+// "{exam}/magazines/{magazine}/{year}" とし magazine フィールドを付す。
 //
 // 使い方:
 //   node .claude/scripts/build-note-published-index.mjs
@@ -50,9 +51,13 @@ function toItem(slug, data, content, extra = {}) {
     ...extra,
     noteUrl: data.noteUrl,
     noteId: data.noteId || null,
-    publishedAt: data.notePublishedAt
-      ? new Date(data.notePublishedAt).toISOString().slice(0, 10)
-      : null,
+    // notePublishedAt は未設定や "TBD" 等の不正値があり得るため、
+    // 無効な日付は null にフォールバックして集計をクラッシュさせない。
+    publishedAt: (() => {
+      if (!data.notePublishedAt) return null;
+      const d = new Date(data.notePublishedAt);
+      return Number.isNaN(d.getTime()) ? null : d.toISOString().slice(0, 10);
+    })(),
     pricing: data.notePricing || null,
     series: data.noteSeries || null,
     utmCampaign: data.utmCampaign || null,
@@ -72,34 +77,42 @@ function subDirs(dir) {
   }
 }
 
+// 試験別ディレクトリ。2026-05-29 に docs/note を試験別へ再編。
+// docs/note/{exam}/{slug}/article.md と
+// docs/note/{exam}/magazines/{magazine}/{year}/article.md を走査する。
+const EXAM_DIRS = ['技術士総監', '1級土木', '2級土木', '共通'];
+
 function build() {
   const items = [];
-  // 1. フラットな単独記事 docs/note/{slug}/article.md
-  for (const d of subDirs(NOTE_DIR)) {
-    if (d === 'magazines') continue;
-    let raw;
-    try {
-      raw = readFileSync(join(NOTE_DIR, d, 'article.md'), 'utf-8');
-    } catch {
-      continue;
-    }
-    const { data, content } = matter(raw);
-    if (!data?.noteUrl) continue;
-    items.push(toItem(d, data, content));
-  }
-  // 2. マガジン記事 docs/note/magazines/{magazine}/{year}/article.md
-  const MAG_DIR = join(NOTE_DIR, 'magazines');
-  for (const mag of subDirs(MAG_DIR)) {
-    for (const y of subDirs(join(MAG_DIR, mag))) {
+  for (const exam of EXAM_DIRS) {
+    const examDir = join(NOTE_DIR, exam);
+    // 1. フラットな単独記事 docs/note/{exam}/{slug}/article.md
+    for (const d of subDirs(examDir)) {
+      if (d === 'magazines') continue;
       let raw;
       try {
-        raw = readFileSync(join(MAG_DIR, mag, y, 'article.md'), 'utf-8');
+        raw = readFileSync(join(examDir, d, 'article.md'), 'utf-8');
       } catch {
         continue;
       }
       const { data, content } = matter(raw);
       if (!data?.noteUrl) continue;
-      items.push(toItem(`magazines/${mag}/${y}`, data, content, { magazine: mag }));
+      items.push(toItem(`${exam}/${d}`, data, content));
+    }
+    // 2. マガジン記事 docs/note/{exam}/magazines/{magazine}/{year}/article.md
+    const MAG_DIR = join(examDir, 'magazines');
+    for (const mag of subDirs(MAG_DIR)) {
+      for (const y of subDirs(join(MAG_DIR, mag))) {
+        let raw;
+        try {
+          raw = readFileSync(join(MAG_DIR, mag, y, 'article.md'), 'utf-8');
+        } catch {
+          continue;
+        }
+        const { data, content } = matter(raw);
+        if (!data?.noteUrl) continue;
+        items.push(toItem(`${exam}/magazines/${mag}/${y}`, data, content, { magazine: mag }));
+      }
     }
   }
   return items;

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/キーワード集2026変更点/img/ のSVGをPNGに変換する。
+// docs/note/技術士総監/キーワード集2026変更点/img/ のSVGをPNGに変換する。
 //
 // 使い方:
 //   node scripts/render-figure-keyword-2026.mjs
@@ -11,7 +11,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const IMG_DIR = join(ROOT, 'docs/note/キーワード集2026変更点/img');
+const IMG_DIR = join(ROOT, 'docs/note/技術士総監/キーワード集2026変更点/img');
 
 async function renderSvgToPng(svgName) {
   const svgPath = join(IMG_DIR, svgName);

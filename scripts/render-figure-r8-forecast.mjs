@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/magazines/r8-essay-forecast/img/ に本文用 PNG/SVG 図版 3 枚を生成する。
+// docs/note/技術士総監/magazines/r8-essay-forecast/img/ に本文用 PNG/SVG 図版 3 枚を生成する。
 //
 // 設計ルール（docs/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
@@ -17,7 +17,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/R8予想問題/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/R8予想問題/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン

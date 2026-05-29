@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/出題傾向変遷マップ/img/ に本文用 PNG 図版を生成する。
+// docs/note/技術士総監/出題傾向変遷マップ/img/ に本文用 PNG 図版を生成する。
 //
 // 元の markdown 表（17 行 × 5 列の年度別出題テーマ表）は note でレンダーされない
 // ため、SVG で描画して PNG に書き出す。設計ルールは docs/reference/note-svg-policy.md
@@ -15,7 +15,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/出題傾向変遷マップ/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/出題傾向変遷マップ/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

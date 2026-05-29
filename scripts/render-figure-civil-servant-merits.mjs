@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/公務員が総監を取るメリット/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/公務員が総監を取るメリット/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-five-merits: 「自治体の技術職員が総監を取る5つのメリット」
 //   - 5枚の番号付きカードを縦に積む
@@ -26,7 +26,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/公務員が総監を取るメリット/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/公務員が総監を取るメリット/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

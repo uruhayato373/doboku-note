@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/総監を取って独立した技術者の収入実態/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/総監を取って独立した技術者の収入実態/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-independence-cases: 「独立した技術士の収入実態 5 ケース」
 //   - 5枚のケースカードを縦に積む
@@ -27,7 +27,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/総監を取って独立した技術者の収入実態/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/総監を取って独立した技術者の収入実態/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

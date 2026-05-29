@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/民間建設技術者の総監メリット/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/民間建設技術者の総監メリット/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-money-chain: 「3レイヤー金銭構造 — 経審 Z 点から月7.5万円手当まで連鎖する仕組み」
 //   - 3枚のカードを横並び（左→右）に矢印で結ぶ連鎖図
@@ -23,7 +23,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/民間建設技術者の総監メリット/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/民間建設技術者の総監メリット/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

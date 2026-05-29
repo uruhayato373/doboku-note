@@ -1,7 +1,7 @@
 #!/usr/bin/env node
-// docs/note/解答テンプレ3D/img/ に PNG/SVG 図版 3 枚を生成する。
-// （2026-05-25 まで docs/note/magazines/essay-template-3d/img/ に配置していたが、
-//  単独記事の standard 配置〔docs/note/{日本語名}/〕へ移動）
+// docs/note/技術士総監/解答テンプレ3D/img/ に PNG/SVG 図版 3 枚を生成する。
+// （2026-05-25 まで docs/note/技術士総監/magazines/essay-template-3d/img/ に配置していたが、
+//  単独記事の standard 配置〔docs/note/技術士総監/{日本語名}/〕へ移動）
 //
 // 設計ルール（docs/reference/note-svg-policy.md 準拠）:
 //   - キャンバス幅 1200（同一記事内で統一）
@@ -19,7 +19,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/解答テンプレ3D/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/解答テンプレ3D/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン

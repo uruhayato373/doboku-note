@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/発注者業務を5管理に翻訳/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/発注者業務を5管理に翻訳/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-translate-table: 「発注者の日常業務を5管理に翻訳する」
 //   - 5管理 × 3列の表（5管理 / 発注者の日常業務の例 / 翻訳のしやすさ）
@@ -23,7 +23,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/発注者業務を5管理に翻訳/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/発注者業務を5管理に翻訳/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

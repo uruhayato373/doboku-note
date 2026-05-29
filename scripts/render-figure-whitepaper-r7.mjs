@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// docs/note/白書R7完全対応集/img/ に note 用 PNG/SVG 図版 3 枚を生成する。
-// （2026-05-25 まで docs/note/magazines/whitepaper-r7-strategy/img/ に配置していたが、
+// docs/note/技術士総監/白書R7完全対応集/img/ に note 用 PNG/SVG 図版 3 枚を生成する。
+// （2026-05-25 まで docs/note/技術士総監/magazines/whitepaper-r7-strategy/img/ に配置していたが、
 //  M2 を ¥2,480 magazine → 完全無料リード磁石へ転換した際に単独記事配置へ移動）
 //
 // 設計ルール（docs/reference/note-svg-policy.md 準拠）:
@@ -19,7 +19,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/白書R7完全対応集/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/白書R7完全対応集/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン

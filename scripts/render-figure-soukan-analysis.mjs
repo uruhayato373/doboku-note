@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/総監択一式17年分分析/img/ に本文用 PNG 図版を 2 枚生成する。
+// docs/note/技術士総監/総監択一式17年分分析/img/ に本文用 PNG 図版を 2 枚生成する。
 //
 // note は markdown の表記法 (| ... | ... |) をレンダリングしないため、本文中の表 2 つを
 // 図版に置き換える。設計ルールは docs/reference/note-svg-policy.md に準拠。
@@ -13,7 +13,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/総監択一式17年分分析/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/総監択一式17年分分析/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

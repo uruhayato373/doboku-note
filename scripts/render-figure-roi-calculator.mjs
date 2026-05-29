@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/総監受験は投資としてペイするか/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/総監受験は投資としてペイするか/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-roi-by-age: 「年代別 投資回収シミュレーション — 30代/40代/50代で総監はペイするか」
 //   - 前提カード 1 枚（brand-fill 背景）
@@ -24,7 +24,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/総監受験は投資としてペイするか/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/総監受験は投資としてペイするか/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）

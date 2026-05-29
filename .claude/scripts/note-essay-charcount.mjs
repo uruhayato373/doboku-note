@@ -227,7 +227,7 @@ function targets(args) {
   // 引数省略時: 模範論文系マガジン（模範論文 + R8予想問題集）の article.md。
   // 精読ガイド等の非・論文マガジンは対象外。
   const out = execSync(
-    'git ls-files "docs/note/magazines/総監模範論文-*/*/article.md" "docs/note/magazines/総監記述式-*/*/article.md"',
+    'git ls-files "docs/note/技術士総監/magazines/総監模範論文-*/*/article.md" "docs/note/技術士総監/magazines/総監記述式-*/*/article.md"',
     { cwd: ROOT, encoding: 'utf8' }
   );
   return out

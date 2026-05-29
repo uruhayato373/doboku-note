@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/総監コスト公務員版/img/ に本文用 PNG 図版を生成する。
+// docs/note/技術士総監/総監コスト公務員版/img/ に本文用 PNG 図版を生成する。
 //
 // 設計ルールは docs/reference/note-svg-policy.md 準拠:
 // - キャンバス 1200×720
@@ -15,7 +15,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/総監コスト公務員版/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/総監コスト公務員版/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 const BRAND = '#2e6da4';

@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/道路担当の記述式テーマ選び/img/ に本文用 PNG/SVG 図版を生成する。
+// docs/note/技術士総監/道路担当の記述式テーマ選び/img/ に本文用 PNG/SVG 図版を生成する。
 //
 // figure-1-theme-conditions: 「記述式に向く『良い題材』の3条件」
 //   - 3つの番号付きカードを縦に積む
@@ -23,7 +23,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/道路担当の記述式テーマ選び/img');
+const OUT_DIR = join(ROOT, 'docs/note/技術士総監/道路担当の記述式テーマ選び/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 // ブランドトークン（src/styles/globals.css と整合）
