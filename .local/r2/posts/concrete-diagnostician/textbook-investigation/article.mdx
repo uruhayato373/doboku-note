@@ -42,7 +42,7 @@ dateModified: '2026-05-30'
 
 スプリングで打撃子を打ち付けたときの跳ね返り量（反発度 R）を測定し、表面硬度からコンクリートの圧縮強度を推定する手法である。操作が簡便で広面積の調査に向くが、表面含水状態・カーボネーション（炭酸化）・骨材種類・型枠の影響を受けるため、単独で強度を確定することは難しい。コア試験と組み合わせて補正式を構築し、精度を高めるのが実務上の標準的な使い方だ。
 
-![反発度と圧縮強度の相関グラフ](./img/figure-01.png)
+<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-01.webp" alt="反発度と圧縮強度の相関グラフ" width={1223} height={1700} />
 
 ### 超音波法（弾性波法）
 
@@ -80,7 +80,7 @@ X線をコンクリートに透過させ、内部の鉄筋・空洞・異物を�
 
 コアは構造物からドリルで切り出した円柱供試体であり、実構造物の材料試験に必要な「実物サンプル」を提供する。コア径は一般に $\phi$ 50〜100 mm が使われ、径が大きいほど代表性は高まるが、採取による損傷範囲も広がる。
 
-![コア採取装置と採取手順の模式図](./img/figure-02.png)
+<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-02.webp" alt="コア採取装置と採取手順の模式図" width={1205} height={1700} />
 
 ### 圧縮強度試験
 
@@ -110,7 +110,7 @@ $$
 
 鉄筋が腐食すると半電池電位が変化する。鉄筋とコンクリート表面の照合電極（飽和甘汞電極：SCE、または銅/硫酸銅電極：CSE）との間の電位差（自然電位）を測定し、鉄筋の腐食活性の程度を面的に把握する手法である。
 
-![自然電位法の測定回路模式図](./img/figure-03.png)
+<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-03.webp" alt="自然電位法の測定回路模式図" width={1300} height={1428} />
 
 ASTM C 876 では CSE を基準として、次のような腐食確率の目安が示されている。
 
@@ -119,6 +119,10 @@ ASTM C 876 では CSE を基準として、次のような腐食確率の目安�
 | $-200$ mV より貴 | 腐食する確率 90% 未満 |
 | $-200$ 〜 $-350$ mV | 不確定域 |
 | $-350$ mV より卑 | 腐食する確率 90% 以上 |
+
+<Callout type="reference" title="出典">
+[ASTM C876 Standard Test Method for Corrosion Potentials of Uncoated Reinforcing Steel in Concrete（ASTM International）](https://www.astm.org/c0876-15.html)
+</Callout>
 
 自然電位は腐食の**活動度**を示すが、腐食速度（実際にどれだけ断面が失われているか）は表さない。また測定値はコンクリートの含水状態・酸素供給量・温度に大きく依存するため、単独での解釈には注意が必要である。
 
@@ -132,7 +136,7 @@ $$
 
 で推定される。ここで $B$ は Stern-Geary 定数（一般に 26 mV が用いられることが多い）である。$i_\text{corr}$ が大きいほど腐食速度が速く、断面減少速度を定量的に評価できる点で自然電位法を補完する。
 
-![分極抵抗法の測定回路と腐食電流の関係](./img/figure-04.png)
+<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-04.webp" alt="分極抵抗法の測定回路と腐食電流の関係" width={1244} height={1700} />
 
 ### はつり調査
 
@@ -144,7 +148,7 @@ $$
 
 電子線を試料に照射し、発生する特性X線のエネルギーまたは波長を分析することで元素の面分布・線分析・点分析が可能な手法である。コンクリートの劣化分析では、塩化物イオンの深さ方向の分布、硫酸塩浸食によるエトリンガイトや石膏の生成域の確認、アルカリシリカゲルの分布などに活用される。空間分解能は数 $\mu$m 程度であり、劣化反応の局所的な実態把握に優れる。
 
-![SEM観察による劣化コンクリートの微細組織像](./img/figure-05.png)
+<ArticleImage src="/posts/concrete-diagnostician/textbook-investigation/img/figure-05.webp" alt="SEM観察による劣化コンクリートの微細組織像" width={1300} height={1517} />
 
 ### SEM（走査型電子顕微鏡）
 
@@ -163,6 +167,8 @@ EPMA は「どこに・何が・どれくらい」の面分布を把握するの
 </Callout>
 
 ## 各調査手法の測定対象と適用・限界
+
+主要な調査手法は、それぞれ測定できる対象と適用上の限界が異なる。劣化機構と求めたい情報に応じて、複数の手法を組み合わせて選定することが診断の要点である。代表的な手法の対応関係を整理する。
 
 | 手法 | 主な測定対象 | 主な限界 |
 |---|---|---|
