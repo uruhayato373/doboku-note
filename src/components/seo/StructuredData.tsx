@@ -101,6 +101,8 @@ function getExamName(category: string | undefined): string {
       return "技術士 総合技術監理部門";
     case "concrete-chief-engineer":
       return "コンクリート主任技師";
+    case "concrete-diagnostician":
+      return "コンクリート診断士";
     default:
       return "土木系資格試験";
   }

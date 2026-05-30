@@ -591,6 +591,8 @@ function isExamArchive(filePath) {
   if (/civil-construction-1[\\\/](?:primary|secondary)-/.test(filePath)) return true;
   // コンクリート主任技師 形式: 分野別過去問 primary-materials/, primary-construction/ 等
   if (/concrete-chief-engineer[\\\/]primary-/.test(filePath)) return true;
+  // コンクリート診断士 形式: 分野別過去問 primary-deterioration/, primary-investigation/ 等
+  if (/concrete-diagnostician[\\\/]primary-/.test(filePath)) return true;
   return false;
 }
 

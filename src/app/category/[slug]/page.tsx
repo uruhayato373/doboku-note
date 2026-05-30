@@ -68,6 +68,11 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
     textbook: '8分野（材料・性質・耐久性・配合設計・製造品質管理・施工・製品・構造設計）の体系的な解説',
     primary: '分野別の四肢択一 過去問と解説',
   },
+  'concrete-diagnostician': {
+    guide: '試験概要・出題傾向・記述式（問題A/B）対策',
+    textbook: '劣化機構・調査・診断評価・補修・補強・維持管理の体系的な解説',
+    primary: '分野別の四肢択一 過去問と解説',
+  },
 };
 
 /** Sort functions per group */
@@ -110,7 +115,7 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         return isBasicsA - isBasicsB;
       });
     }
-  } else if (category === 'concrete-chief-engineer') {
+  } else if (category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         const orderA = a.guide_order ?? 999;
@@ -615,7 +620,7 @@ export default async function CategoryPage({
   const allDocs = await getDocsMetaByCategory(slug);
   const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !(d as any).hideFromCategory);
 
-  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'concrete-chief-engineer')
+  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician')
     ? groupDocs(docs, slug)
     : null;
 
