@@ -59,7 +59,7 @@ export default function ExamCards({ exams }: ExamCardsProps) {
   return (
     <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
       <div className="mb-6 sm:mb-8">
-        <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">対応する二つの試験</h2>
+        <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">対応する資格・試験</h2>
         <p className="text-[14px] text-[var(--ink-muted)] mt-1.5">現場と試験を往復する、体系的な学習コンテンツ</p>
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
