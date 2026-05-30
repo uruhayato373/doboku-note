@@ -153,6 +153,13 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/authoring/improve-article --mode verify/SKILL.md`）に行を追加
 6. このファイル（exam-content-policy.md）と `agents-registry.md` を更新
 
+### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設）
+
+- groups = guide / textbook / primary。variant=civil / order=2.6 / **visible:false**（下書き段階）。
+- **テキスト**: 原典（技報堂スキャン）の文を写さず独自散文で合成し、図・写真のみクロップ→webp 埋込（`<ArticleImage>`）。図は当面ラフな頁領域クロップ。公開前に精密トリミング/SVG化＋著作権差替が前提。
+- **過去問（択一・厳選101問）**: スキャン転記を rotate→transcribe→verify で試行したが、**問題の約6割が図依存（選択肢が図）・逐語誤り頻発・正答が別頁**のため反捏造ゲートで**非出荷**。正しく整備するには「図依存問題の図クロップ＋解答一覧で正答確定＋逐語 self-repair」が必要。代替=運営者オリジナル作問。詳細・継続手順 → `docs/handoffs/2026-05-30-concrete-diagnostician.md`。
+- スキャンは頁により回転が不統一（問題頁90°回転 / 解答頁正立）。
+
 ---
 
 **真実源参照**: このファイル内の情報が他のドキュメント（CLAUDE.md・SKILL.md・エージェント定義）と矛盾した場合、`docs/reference/content-principles.md` > このファイル > 他 の優先順位で判断する。
