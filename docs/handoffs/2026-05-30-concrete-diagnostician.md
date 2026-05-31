@@ -43,6 +43,16 @@
 
 代替案（参考）: 完全公開可能にするなら、択一は**運営者オリジナル作問**（分野別）へ差替える選択肢もある。
 
+## 記述式 → note 有料マガジン（draft）
+
+記述式（問題A・問題B）はサイトではなく **note 有料マガジン**で展開（ユーザー方針 2026-05-31）。`docs/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/`（commit `7b2b9a38d`）。
+
+- **8記事**: 解法ガイド1 ＋ 問題A模範答案2（維持管理 / 診断士の役割）＋ 問題B模範答案5（塩害 / 中性化 / ASR / 凍害 / 疲労複合）。各 想定問題（オリジナル代表例）＋フル模範答案（問題A 800-1000字級・問題B 1000-1400字級, 5ステップ型）＋採点者視点＋置換ガイド。
+- **著作権**: 実在過去問を逐語再現せず**オリジナル代表問題**で構成（診断士の記述問題は非公開のため）。固有数値は `〇〇` 置換前提。本文に価格・URL 無し。→ **択一と違い公開に支障なし（sellable）**。
+- 価格: `_meta.yaml` setPrice ¥1,980 / articlePrice ¥500 / 8本。`note-magazines.ts` に `cd-essay-magazine`（published:false）登録済。
+- **公開時の残作業**: (1) note で記事/マガジン公開→ `_meta.yaml` の各 `noteUrl` と `note-magazines.ts` の `noteUrl`/`published:true` を埋める (2) cover 画像 `/images/magazines/cd-essay-cover.webp` 作成 (3) `magazine-placement.ts` に診断士ページ→マガジンの placement 追加（site CTA 発火、診断士 vertical 公開後）。
+- 品質採点は未実施（`civil-keiken-essay-qa` は施工経験記述専用で診断士論述に非対応）。公開前に人手レビュー推奨。
+
 ## 並行セッション注意
 
 本作業中、同一ブランチ `feat/concrete-chief-engineer` で**別セッションがコンクリート主任技師の図版作業を並行コミット**。その `git add` が診断士スキャンPDF（`04062a1c4`）と初期版テキスト4本（`7c670c675`）を巻き込んだ。修正版は上書きコミット済で最終状態は正。**index 再生成（refresh-indexes）は競合回避のため未実行** — 公開前または並行作業終息後に実行する。
