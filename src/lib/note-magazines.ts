@@ -244,6 +244,24 @@ const MAGAZINES_RAW = {
     price: '¥1,480（3本セット）',
     badge: 'note 限定',
   },
+
+  // 原稿配置: docs/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/
+  // コンクリート診断士 記述式（問題A・問題B）模範答案集。劣化機構別フル答案 8 本。published: false。
+  // 公開時: noteUrl 埋め + cover 画像作成 + published: true。site 側は診断士 vertical 公開後に CTA 発火。
+  'cd-essay-magazine': {
+    id: 'cd-essay-magazine',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート診断士 記述式｜問題A・問題B 模範答案集',
+    description:
+      'コンクリート診断士試験 記述式（問題A・問題B）のフル模範答案集。問題A（資質・論述）2本、問題B（具体構造物の診断・対策提案）5本を塩害・中性化・ASR・凍害・疲労複合の劣化機構別に収録。答案の型と採点視点をまとめた解法ガイド1本付き。想定問題はオリジナル代表例、固有数値は置換前提。',
+    shortTitle: 'コンクリート診断士 記述式 模範答案集',
+    shortDescription:
+      '問題A・問題Bのフル模範答案を劣化機構別に8本。変状把握→劣化機構推定→調査→評価→対策の型を反復。',
+    imageUrl: '/images/magazines/cd-essay-cover.webp',
+    price: '¥1,980（8本セット）',
+    badge: 'note 限定 教材',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
