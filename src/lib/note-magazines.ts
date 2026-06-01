@@ -140,6 +140,25 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 プレミアム',
   },
 
+  // ----- 総監 5管理クロストレードオフ (2026-06-01 全記事公開) -----
+  // 原稿配置: docs/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/
+  // 序章（無料）+ 有料5記事（安全/経済性/情報/人的資源/社会環境）
+  'tradeoff-5kanri': {
+    id: 'tradeoff-5kanri',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m921fbe060575',
+    title: '技術士 総監｜記述式 5管理クロス・トレードオフ全網羅（20セル）',
+    description:
+      '5管理それぞれを主役に「その管理 × 他4管理」のトレードオフを 20 セル全網羅。起こりうる衝突パターンを複数列挙し、各パターンに ALARP・RBM・LCC・群マネ等の総監フレームと答案ひな型を配置。どんなお題が来ても引き出せる解決策の型を身につける。序章（無料）+ 有料5記事セット。',
+    shortTitle: '5管理クロストレードオフ',
+    shortDescription:
+      '20セル全網羅・総監フレーム辞書・答案ひな型付き。序章無料＋有料5記事。',
+    imageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
+    sidebarImageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
+    price: '¥1,980（5本セット、21%OFF）',
+    badge: 'note 限定',
+  },
+
   // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
   // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-完成答案集/
   // 公開準備中 (published: false)。note 公開で noteUrl 取得後に true へ。
