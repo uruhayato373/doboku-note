@@ -3,12 +3,12 @@ notePricing: paid
 noteSeries: 総監記述式-5管理クロストレードオフ
 noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-economy
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n01444c9aa4a6"
+noteId: "n01444c9aa4a6"
+notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "経済性管理 × 他4管理"]
 price: 500
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "経済性 × 他4管理の衝突を"
   hi: "4"
