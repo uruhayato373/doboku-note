@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-01T13:10:45.951Z",
+  "generated_at": "2026-06-01T19:28:13.183Z",
   "summary": {
-    "total_mdx_files": 873,
+    "total_mdx_files": 874,
     "total_unique_tags": 87,
     "allowlist_size": 125,
     "known_count": 57,
@@ -1218,7 +1218,7 @@
     },
     {
       "name": "guide",
-      "count": 43,
+      "count": 44,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-agents",
@@ -1263,6 +1263,7 @@
         "pe-comprehensive-management-essay-exam-strategy",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy",
+        "pe-comprehensive-management-general-vs-comprehensive",
         "pe-comprehensive-management-primary-statistics-2026"
       ]
     },
