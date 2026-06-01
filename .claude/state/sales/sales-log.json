@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-01",
+  "currency": "JPY",
+  "source": "note クリエイターダッシュボード「販売履歴」の手動転記",
+  "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
+  "howToUpdate": "note ダッシュボード → 販売履歴 を開き、未記録の月の取引を sales[] に追記。productId は src/lib/note-magazines.ts の id に合わせる（単品記事は article:<slug>）。type は magazine | article。追記後 npm run sales-summary で検算。",
+  "sales": [
+    { "date": "2026-05-11", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
+    { "date": "2026-05-15", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
+    { "date": "2026-05-16", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
+    { "date": "2026-05-21", "productId": "essay-road-municipality-magazine", "title": "模範論文 自治体 道路担当", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-22", "productId": "essay-general-contractor-magazine", "title": "模範論文 ゼネコン", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-24", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
+    { "date": "2026-05-26", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-27", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-27", "productId": "essay-river-consultant-magazine", "title": "模範論文 建設コンサル 河川・砂防", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-28", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
+    { "date": "2026-05-28", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-28", "productId": "essay-road-municipality-magazine", "title": "模範論文 自治体 道路担当", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-30", "productId": "article:r8-economic-security-supply-chain", "title": "R8予想問題 経済安全保障 × サプライチェーン強靱化", "type": "article", "price": 500 },
+    { "date": "2026-05-30", "productId": "article:r8-disaster-recovery-compound", "title": "R8予想問題 災害復旧 × 複合災害対応", "type": "article", "price": 500 },
+    { "date": "2026-05-30", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
+    { "date": "2026-05-31", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 }
+  ]
+}

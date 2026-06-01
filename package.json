@@ -15,6 +15,7 @@
     "build-pillar-exam-questions": "node .claude/scripts/build-pillar-exam-questions.mjs",
     "insert-keyword-relations": "node .claude/skills/quality/exam-backlinks/scripts/insert-keyword-relations.mjs",
     "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-keyword-relations && npm run build-pillar-exam-questions",
+    "sales-summary": "node scripts/sales-summary.mjs",
     "generate-webp": "node .claude/scripts/generate-webp.mjs",
     "update-image-refs": "node .claude/scripts/update-mdx-image-refs.mjs",
     "prebuild": "npm run generate-webp && npm run update-image-refs",
