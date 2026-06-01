@@ -7,8 +7,8 @@ cover:
   hiSuffix: つの国家施策
   banner: AIガバナンス
   chips:
-    - icon: layers
-      text: 施策6案
+    - icon: check
+      text: トレードオフ明示
     - icon: doc
       text: 答案1枚相当
     - icon: book

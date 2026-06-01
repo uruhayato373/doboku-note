@@ -7,8 +7,8 @@ cover:
   hiSuffix: つの国家施策
   banner: 地方創生と一極集中
   chips:
-    - icon: layers
-      text: 施策6案
+    - icon: check
+      text: トレードオフ明示
     - icon: doc
       text: 答案1枚相当
     - icon: book
