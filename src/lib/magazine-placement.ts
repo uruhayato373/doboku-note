@@ -276,5 +276,16 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 9. コンクリート主任技師 小論文 → 小論文 模範答案集マガジン。
+  //    小論文対策ガイド(guide-essay)が最も整合する送客元。published: false の間は
+  //    getMagazine が null を返し CTA 非表示（防御的）。
+  if (slug === 'concrete-chief-engineer-guide-essay') {
+    return {
+      inline: [slot('cce-essay-magazine', slug, 'inline-1')],
+      sidebar: [slot('cce-essay-magazine', slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
   return EMPTY;
 }

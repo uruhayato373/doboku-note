@@ -304,6 +304,25 @@ const MAGAZINES_RAW = {
     price: '¥1,980（8本セット）',
     badge: 'note 限定 教材',
   },
+
+  // 原稿配置: docs/note/コンクリート主任技師/magazines/コンクリート主任技師-小論文-模範答案集/
+  // コンクリート主任技師 小論文（記述式）模範答案集。解法ガイド + テーマ別フル模範小論文 4 本。published: false。
+  // concrete-chief-engineer vertical は公開済 (guide/textbook/primary 計19記事 published:true)。
+  // 公開時: noteUrl 埋め + cover 画像作成 + published: true。CTA は guide-essay 等の小論文系ページで発火。
+  'cce-essay-magazine': {
+    id: 'cce-essay-magazine',
+    published: false,
+    noteUrl: '',
+    title: 'コンクリート主任技師 小論文｜評価される答案の型 + テーマ別 模範答案集',
+    description:
+      'コンクリート主任技師試験の小論文対策フル模範答案集。択一とは評価軸が異なる小論文（実務経験を技術論述に変換する試験）を、答案の型と4観点で攻略する。解法ガイド1本＋テーマ別フル模範小論文4本（耐久性・品質管理・環境配慮・施工トラブル）。各テーマは想定問題＋答案の方針＋1200〜1700字級フル模範小論文（固有数値は置換前提）＋採点者視点＋置換ガイドで構成。実在過去問の逐語再現はしない。',
+    shortTitle: 'コンクリート主任技師 小論文 模範答案集',
+    shortDescription:
+      '解法ガイド＋テーマ別フル模範小論文4本（耐久性・品質管理・環境配慮・施工トラブル）。序論・本論・結論の型と採点4観点で攻略。',
+    imageUrl: '/images/magazines/cce-essay-cover.webp',
+    price: '¥1,480（5本セット）',
+    badge: 'note 限定 教材',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
