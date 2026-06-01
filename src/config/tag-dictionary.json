@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-06-01T20:37:53.056Z",
+  "generated_at": "2026-06-01T21:05:58.525Z",
   "summary": {
-    "total_mdx_files": 879,
-    "total_unique_tags": 87,
-    "allowlist_size": 125,
-    "known_count": 57,
-    "unknown_count": 30,
+    "total_mdx_files": 910,
+    "total_unique_tags": 89,
+    "allowlist_size": 133,
+    "known_count": 61,
+    "unknown_count": 28,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "past-questions",
-      "count": 87,
+      "count": 100,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1131,9 +1131,22 @@
         "civil-construction-2-secondary-r05",
         "civil-construction-2-secondary-r06",
         "civil-construction-2-secondary-r07",
+        "concrete-chief-engineer-primary-construction",
         "concrete-chief-engineer-primary-durability",
         "concrete-chief-engineer-primary-materials",
+        "concrete-chief-engineer-primary-mix-design",
+        "concrete-chief-engineer-primary-production-qc",
         "concrete-chief-engineer-primary-products",
+        "concrete-chief-engineer-primary-properties",
+        "concrete-chief-engineer-primary-structural-design",
+        "concrete-diagnostician-primary-exercise-01",
+        "concrete-diagnostician-primary-exercise-02",
+        "concrete-diagnostician-primary-exercise-03",
+        "concrete-diagnostician-primary-exercise-04",
+        "concrete-diagnostician-primary-exercise-05",
+        "concrete-diagnostician-primary-exercise-06",
+        "concrete-diagnostician-primary-exercise-07",
+        "concrete-diagnostician-primary-exercise-08",
         "pe-comprehensive-management-h21-primary",
         "pe-comprehensive-management-h21-secondary",
         "pe-comprehensive-management-h22-primary",
@@ -1166,7 +1179,7 @@
     },
     {
       "name": "guide",
-      "count": 49,
+      "count": 53,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1209,6 +1222,10 @@
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
+        "concrete-diagnostician-guide-essay",
+        "concrete-diagnostician-guide-overview",
+        "concrete-diagnostician-guide-study-method",
+        "concrete-diagnostician-guide-trends",
         "pe-comprehensive-management-course-selection-guide",
         "pe-comprehensive-management-essay-exam-strategy",
         "pe-comprehensive-management-exam-application-guide",
@@ -1218,6 +1235,120 @@
         "pe-comprehensive-management-private-engineer-comprehensive-merit",
         "pe-comprehensive-management-public-engineer-qualification-map",
         "pe-comprehensive-management-public-servant-comprehensive-merit"
+      ]
+    },
+    {
+      "name": "primary",
+      "count": 52,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-study-plan",
+        "civil-construction-1-primary-h26-a",
+        "civil-construction-1-primary-h26-b",
+        "civil-construction-1-primary-h27-a",
+        "civil-construction-1-primary-h27-b",
+        "civil-construction-1-primary-h28-a",
+        "civil-construction-1-primary-h28-b",
+        "civil-construction-1-primary-h29-a",
+        "civil-construction-1-primary-h29-b",
+        "civil-construction-1-primary-h30-a",
+        "civil-construction-1-primary-h30-b",
+        "civil-construction-1-primary-r01-a",
+        "civil-construction-1-primary-r01-b",
+        "civil-construction-1-primary-r02-a",
+        "civil-construction-1-primary-r02-b",
+        "civil-construction-1-primary-r03-a",
+        "civil-construction-1-primary-r03-b",
+        "civil-construction-1-primary-r04-a",
+        "civil-construction-1-primary-r04-b",
+        "civil-construction-1-primary-r05-a",
+        "civil-construction-1-primary-r05-b",
+        "civil-construction-1-primary-r06-a",
+        "civil-construction-1-primary-r06-b",
+        "civil-construction-1-primary-r07-a",
+        "civil-construction-1-primary-r07-b",
+        "civil-construction-2-guide-study-plan",
+        "civil-construction-2-primary-r03-kouki",
+        "civil-construction-2-primary-r03-zenki",
+        "civil-construction-2-primary-r04-kouki",
+        "civil-construction-2-primary-r04-zenki",
+        "civil-construction-2-primary-r05-kouki",
+        "civil-construction-2-primary-r05-zenki",
+        "civil-construction-2-primary-r06-kouki",
+        "civil-construction-2-primary-r06-zenki",
+        "civil-construction-2-primary-r07-kouki",
+        "civil-construction-2-primary-r07-zenki",
+        "concrete-chief-engineer-primary-construction",
+        "concrete-chief-engineer-primary-durability",
+        "concrete-chief-engineer-primary-materials",
+        "concrete-chief-engineer-primary-mix-design",
+        "concrete-chief-engineer-primary-production-qc",
+        "concrete-chief-engineer-primary-products",
+        "concrete-chief-engineer-primary-properties",
+        "concrete-chief-engineer-primary-structural-design",
+        "concrete-diagnostician-primary-exercise-01",
+        "concrete-diagnostician-primary-exercise-02",
+        "concrete-diagnostician-primary-exercise-03",
+        "concrete-diagnostician-primary-exercise-04",
+        "concrete-diagnostician-primary-exercise-05",
+        "concrete-diagnostician-primary-exercise-06",
+        "concrete-diagnostician-primary-exercise-07",
+        "concrete-diagnostician-primary-exercise-08"
+      ]
+    },
+    {
+      "name": "textbook",
+      "count": 48,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-crane",
+        "civil-construction-1-textbook-demolition",
+        "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-grader-compaction",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-leveling",
+        "civil-construction-1-textbook-loader",
+        "civil-construction-1-textbook-machinery-overview",
+        "civil-construction-1-textbook-machinery-structure",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-network-schedule",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-schedule-overview",
+        "civil-construction-1-textbook-scraper",
+        "civil-construction-1-textbook-shovel-excavator",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-standard-contract",
+        "civil-construction-1-textbook-surveying-basics",
+        "civil-construction-1-textbook-tractor-bulldozer",
+        "civil-construction-1-textbook-transport-machinery",
+        "civil-construction-1-textbook-work-scheduling",
+        "concrete-chief-engineer-textbook-construction",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-chief-engineer-textbook-structural-design",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-deterioration",
+        "concrete-diagnostician-textbook-investigation",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "concrete-diagnostician-textbook-variation"
       ]
     },
     {
@@ -1273,90 +1404,37 @@
       ]
     },
     {
-      "name": "primary",
-      "count": 39,
+      "name": "exam-preparation",
+      "count": 27,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-guide-study-plan",
-        "civil-construction-1-primary-h26-a",
-        "civil-construction-1-primary-h26-b",
-        "civil-construction-1-primary-h27-a",
-        "civil-construction-1-primary-h27-b",
-        "civil-construction-1-primary-h28-a",
-        "civil-construction-1-primary-h28-b",
-        "civil-construction-1-primary-h29-a",
-        "civil-construction-1-primary-h29-b",
-        "civil-construction-1-primary-h30-a",
-        "civil-construction-1-primary-h30-b",
-        "civil-construction-1-primary-r01-a",
-        "civil-construction-1-primary-r01-b",
-        "civil-construction-1-primary-r02-a",
-        "civil-construction-1-primary-r02-b",
-        "civil-construction-1-primary-r03-a",
-        "civil-construction-1-primary-r03-b",
-        "civil-construction-1-primary-r04-a",
-        "civil-construction-1-primary-r04-b",
-        "civil-construction-1-primary-r05-a",
-        "civil-construction-1-primary-r05-b",
-        "civil-construction-1-primary-r06-a",
-        "civil-construction-1-primary-r06-b",
-        "civil-construction-1-primary-r07-a",
-        "civil-construction-1-primary-r07-b",
-        "civil-construction-2-guide-study-plan",
-        "civil-construction-2-primary-r03-kouki",
-        "civil-construction-2-primary-r03-zenki",
-        "civil-construction-2-primary-r04-kouki",
-        "civil-construction-2-primary-r04-zenki",
-        "civil-construction-2-primary-r05-kouki",
-        "civil-construction-2-primary-r05-zenki",
-        "civil-construction-2-primary-r06-kouki",
-        "civil-construction-2-primary-r06-zenki",
-        "civil-construction-2-primary-r07-kouki",
-        "civil-construction-2-primary-r07-zenki",
-        "concrete-chief-engineer-primary-durability",
-        "concrete-chief-engineer-primary-materials",
-        "concrete-chief-engineer-primary-products"
-      ]
-    },
-    {
-      "name": "textbook",
-      "count": 34,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-building-standards",
-        "civil-construction-1-textbook-construction-business",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-control-chart",
-        "civil-construction-1-textbook-crane",
-        "civil-construction-1-textbook-demolition",
-        "civil-construction-1-textbook-distance-angle",
-        "civil-construction-1-textbook-explosives-act",
-        "civil-construction-1-textbook-grader-compaction",
-        "civil-construction-1-textbook-histogram",
-        "civil-construction-1-textbook-labor-standards",
-        "civil-construction-1-textbook-law-compliance",
-        "civil-construction-1-textbook-leveling",
-        "civil-construction-1-textbook-loader",
-        "civil-construction-1-textbook-machinery-overview",
-        "civil-construction-1-textbook-machinery-structure",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-network-schedule",
-        "civil-construction-1-textbook-port-regulations",
-        "civil-construction-1-textbook-quality-inspection",
-        "civil-construction-1-textbook-quality-overview",
-        "civil-construction-1-textbook-river-act",
-        "civil-construction-1-textbook-road-act",
-        "civil-construction-1-textbook-schedule-charts",
-        "civil-construction-1-textbook-schedule-overview",
-        "civil-construction-1-textbook-scraper",
-        "civil-construction-1-textbook-shovel-excavator",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-standard-contract",
-        "civil-construction-1-textbook-surveying-basics",
-        "civil-construction-1-textbook-tractor-bulldozer",
-        "civil-construction-1-textbook-transport-machinery",
-        "civil-construction-1-textbook-work-scheduling"
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-difficulty",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-guide-study-method",
+        "civil-construction-1-guide-textbooks",
+        "civil-construction-1-keyword-2026",
+        "civil-construction-2-guide-concrete-key-points",
+        "civil-construction-2-guide-earthwork-key-points",
+        "civil-construction-2-guide-law-key-points",
+        "civil-construction-2-guide-overview",
+        "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-schedule-management",
+        "civil-construction-2-guide-study-method",
+        "civil-construction-2-guide-textbooks",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "concrete-diagnostician-guide-overview",
+        "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
     {
@@ -1391,39 +1469,6 @@
         "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
         "pe-comprehensive-management-r8-essay-theme-economic-security",
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
-      ]
-    },
-    {
-      "name": "exam-preparation",
-      "count": 26,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-difficulty",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-guide-study-method",
-        "civil-construction-1-guide-textbooks",
-        "civil-construction-1-keyword-2026",
-        "civil-construction-2-guide-concrete-key-points",
-        "civil-construction-2-guide-earthwork-key-points",
-        "civil-construction-2-guide-law-key-points",
-        "civil-construction-2-guide-overview",
-        "civil-construction-2-guide-quality-management",
-        "civil-construction-2-guide-schedule-management",
-        "civil-construction-2-guide-study-method",
-        "civil-construction-2-guide-textbooks",
-        "concrete-chief-engineer-guide-overview",
-        "concrete-chief-engineer-guide-trends",
-        "pe-comprehensive-management-exam-passing-strategy"
       ]
     },
     {
@@ -1482,6 +1527,31 @@
       ]
     },
     {
+      "name": "concrete-diagnostician",
+      "count": 18,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-diagnostician-guide-essay",
+        "concrete-diagnostician-guide-overview",
+        "concrete-diagnostician-guide-study-method",
+        "concrete-diagnostician-guide-trends",
+        "concrete-diagnostician-primary-exercise-01",
+        "concrete-diagnostician-primary-exercise-02",
+        "concrete-diagnostician-primary-exercise-03",
+        "concrete-diagnostician-primary-exercise-04",
+        "concrete-diagnostician-primary-exercise-05",
+        "concrete-diagnostician-primary-exercise-06",
+        "concrete-diagnostician-primary-exercise-07",
+        "concrete-diagnostician-primary-exercise-08",
+        "concrete-diagnostician-textbook-assessment",
+        "concrete-diagnostician-textbook-deterioration",
+        "concrete-diagnostician-textbook-investigation",
+        "concrete-diagnostician-textbook-maintenance",
+        "concrete-diagnostician-textbook-repair",
+        "concrete-diagnostician-textbook-variation"
+      ]
+    },
+    {
       "name": "受験者属性別",
       "count": 18,
       "inAllowlist": false,
@@ -1523,6 +1593,23 @@
         "civil-construction-2-guide-exam-overview",
         "civil-construction-2-guide-job-reality",
         "civil-construction-2-guide-salary"
+      ]
+    },
+    {
+      "name": "concrete-chief-engineer",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "concrete-chief-engineer-textbook-construction",
+        "concrete-chief-engineer-textbook-durability",
+        "concrete-chief-engineer-textbook-materials",
+        "concrete-chief-engineer-textbook-mix-design",
+        "concrete-chief-engineer-textbook-production-qc",
+        "concrete-chief-engineer-textbook-products",
+        "concrete-chief-engineer-textbook-properties",
+        "concrete-chief-engineer-textbook-structural-design"
       ]
     },
     {
@@ -1867,15 +1954,6 @@
       ]
     },
     {
-      "name": "concrete-chief-engineer",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "concrete-chief-engineer-guide-overview",
-        "concrete-chief-engineer-guide-trends"
-      ]
-    },
-    {
       "name": "DX",
       "count": 2,
       "inAllowlist": true,
@@ -1891,6 +1969,24 @@
       "usedIn": [
         "civil-construction-1-secondary-earthwork-basics",
         "civil-construction-1-secondary-earthwork-past-problems"
+      ]
+    },
+    {
+      "name": "essay",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-guide-essay",
+        "concrete-diagnostician-guide-essay"
+      ]
+    },
+    {
+      "name": "exam-trends",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-chief-engineer-guide-trends",
+        "concrete-diagnostician-guide-trends"
       ]
     },
     {
@@ -1943,27 +2039,11 @@
       ]
     },
     {
-      "name": "essay",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "concrete-chief-engineer-guide-essay"
-      ]
-    },
-    {
       "name": "exam-statistics",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
-      "name": "exam-trends",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "concrete-chief-engineer-guide-trends"
       ]
     },
     {
@@ -2044,6 +2124,14 @@
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-tunnel-02"
+      ]
+    },
+    {
+      "name": "study-method",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "concrete-diagnostician-guide-study-method"
       ]
     },
     {
@@ -2258,12 +2346,10 @@
     "SWOT分析",
     "データ利活用",
     "少子高齢化",
-    "concrete-chief-engineer",
     "2026年版",
     "AI ガバナンス",
     "DX推進",
     "exam-statistics",
-    "exam-trends",
     "keyword-analysis",
     "キーワード集",
     "令和2年度",
