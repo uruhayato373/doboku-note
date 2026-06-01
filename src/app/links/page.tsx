@@ -52,6 +52,8 @@ const PAID_MAGAZINE_IDS: MagazineId[] = [
   "essay-river-consultant-magazine",
   "essay-road-municipality-magazine",
   "r8-essay-forecast",
+  "setsumon3-policy-bank",
+  "tradeoff-5kanri",
 ];
 
 export default function LinksPage() {
