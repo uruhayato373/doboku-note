@@ -1,6 +1,9 @@
 ---
-notePricing: paid
-noteStatus: draft
+notePricing: free
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/n3eb135ebdff7
+noteId: n3eb135ebdff7
+notePublishedAt: 2026-06-01
 coverTitle:
   - 総監記述式 設問(3)
   - 国家施策バンク

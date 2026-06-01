@@ -128,17 +128,17 @@ const MAGAZINES_RAW = {
   //     原稿（docs/note/技術士総監/解答テンプレ3D/）も 2026-06-01 削除（記述式対策は他コンテンツで網羅のため）。
 
   // 原稿配置: docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/（序章 + 11 テーマ）
-  // 設問(3)専用の国家施策オプション集。published: false（note 未公開）。公開時に noteUrl を埋める。
+  // 設問(3)専用の国家施策オプション集。2026-06-01 全12記事+マガジン公開。
   'setsumon3-policy-bank': {
     id: 'setsumon3-policy-bank',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m91516dfc27ac',
     title: '総監記述式 設問(3)国家施策バンク｜将来課題11テーマ × 国家施策オプション集',
     description:
       '設問(3)専用。2050年前後の将来課題11テーマ（人口減少・地方創生・担い手不足・GX・気候変動適応・循環経済・インフラ老朽化・Society5.0・食料安保・経済安保・物流危機）ごとに、国家スケールの施策を5〜8案ずつ（①課題と施策／②有効性と実現性／③重大な障害と克服策・トレードオフ明示）約600字＝答案用紙1枚相当で収録（計68案）。どのテーマが出ても引き出せる施策の弾薬庫。',
     shortTitle: '設問3 国家施策バンク',
     shortDescription:
-      '将来課題11テーマ × 国家施策6案（各約600字・答案1枚相当）。設問(3)専用の引き出し集。',
+      '将来課題11テーマ × 国家施策68案（各約600字・答案1枚相当）。設問(3)専用の引き出し集。',
     imageUrl: '/images/magazines/magazine-setsumon3-policy-bank-cover.webp',
     price: '¥2,480',
     badge: 'note 限定',
@@ -160,6 +160,25 @@ const MAGAZINES_RAW = {
     imageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
     sidebarImageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
     price: '¥1,980（5本セット、21%OFF）',
+    badge: 'note 限定',
+  },
+
+  // ----- 総監記述式 完全パック (2026-06-01 企画、設問3バンク公開後に実装) -----
+  // 既存5マガジン（クロストレードオフ + 設問3バンク + R8予想 + 模範論文3ペルソナ）のバンドル。
+  // 恒常¥7,980 / 試験直前限定¥5,980（試験後に¥7,980へ戻す）。実装前提は noteコンテンツ計画.md M13 参照。
+  // published: false（note 上にバンドル未構築・noteUrl 未取得）。カバーは generate-magazine-covers.mjs で要追加。
+  'essay-complete-pack': {
+    id: 'essay-complete-pack',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 完全パック｜型×設問3×予想×模範論文 全部入り',
+    description:
+      '記述式の答案完成パイプラインを1パックで完結。クロストレードオフ（5管理対立の型）＋設問3国家施策バンク（設問3の弾薬）＋R8予想問題集（予想演習）＋模範論文3ペルソナ（フル実演・全ペルソナ）を収録。単品合計¥14,380相当。',
+    shortTitle: '記述式 完全パック',
+    shortDescription:
+      '型×設問3×予想×模範論文の全部入り。記述式対策の決定版バンドル。',
+    imageUrl: '/images/magazines/magazine-essay-complete-pack-cover.webp',
+    price: '¥7,980（試験直前限定 ¥5,980）',
     badge: 'note 限定',
   },
 
