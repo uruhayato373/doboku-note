@@ -16,6 +16,7 @@
     "insert-keyword-relations": "node .claude/skills/quality/exam-backlinks/scripts/insert-keyword-relations.mjs",
     "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-keyword-relations && npm run build-pillar-exam-questions",
     "sales-summary": "node scripts/sales-summary.mjs",
+    "note-lint": "node scripts/note-lint.mjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
     "generate-webp": "node .claude/scripts/generate-webp.mjs",

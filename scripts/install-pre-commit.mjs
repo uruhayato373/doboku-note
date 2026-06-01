@@ -28,6 +28,12 @@ node scripts/lint-ui.mjs
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+# note article (.md) note-compat lint (markdown 表 / 太字内全角括弧 / 文字化け)
+node scripts/note-lint.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {
