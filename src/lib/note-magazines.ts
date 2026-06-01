@@ -140,6 +140,23 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 プレミアム',
   },
 
+  // 原稿配置: docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/（序章 + 11 テーマ）
+  // 設問(3)専用の国家施策オプション集。published: false（note 未公開）。公開時に noteUrl を埋める。
+  'setsumon3-policy-bank': {
+    id: 'setsumon3-policy-bank',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 設問(3)国家施策バンク｜将来課題11テーマ × 国家施策オプション集',
+    description:
+      '設問(3)専用。2050年前後の将来課題11テーマ（人口減少・地方創生・担い手不足・GX・気候変動適応・循環経済・インフラ老朽化・Society5.0・食料安保・経済安保・物流危機）ごとに、国家スケールの施策を6案ずつ（①課題と施策／②有効性と実現性／③重大な障害と克服策・トレードオフ明示）約600字＝答案用紙1枚相当で収録。どのテーマが出ても引き出せる施策の弾薬庫。',
+    shortTitle: '設問3 国家施策バンク',
+    shortDescription:
+      '将来課題11テーマ × 国家施策6案（各約600字・答案1枚相当）。設問(3)専用の引き出し集。',
+    imageUrl: '/images/magazines/magazine-setsumon3-policy-bank-cover.webp',
+    price: '¥2,480',
+    badge: 'note 限定',
+  },
+
   // ----- 総監 5管理クロストレードオフ (2026-06-01 全記事公開) -----
   // 原稿配置: docs/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/
   // 序章（無料）+ 有料5記事（安全/経済性/情報/人的資源/社会環境）
