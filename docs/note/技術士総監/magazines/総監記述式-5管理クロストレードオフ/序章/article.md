@@ -3,11 +3,11 @@ notePricing: free
 noteSeries: 総監記述式-5管理クロストレードオフ
 noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-intro
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/ndb524ed63c92"
+noteId: "ndb524ed63c92"
+notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "序章｜トレードオフ思考のOS"]
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "5管理の衝突を型で解く"
   hi: "20"
