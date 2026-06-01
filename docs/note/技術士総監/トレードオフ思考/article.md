@@ -2,7 +2,10 @@
 notePricing: free
 noteSeries: 総監記述式
 utmCampaign: 99-tradeoff-thinking
-noteStatus: draft
+noteUrl: https://note.com/dobokunote/n/n1b325d339f59
+noteId: n1b325d339f59
+notePublishedAt: "2026-06-01"
+noteStatus: published
 cover:
   leadIn: "総監の合否を分ける"
   hi: "5管理"
