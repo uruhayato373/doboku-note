@@ -493,6 +493,14 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 - 5 管理間トレードオフの解決フレーム（[詳細記事](https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?utm_source=note&utm_medium=referral&utm_campaign=99-tradeoff-thinking)）
 - スマホ対応（通勤中の学習に最適）
 
+---
+
+トレードオフの思考フレームを、5管理×他4管理の20セル全網羅で引き出し化したマガジンも公開しています。各セルに起こりうる衝突パターンを複数列挙し、ALARP・RBM・LCC・群マネ等の解決フレームと答案ひな型をセットで収録。どんなお題でも対立構造と解決策を即座に引き出せる状態を目指せます。
+
+https://note.com/dobokunote/m/m921fbe060575
+
+---
+
 **さらに踏み込みたい人へ — note 有料コンテンツ**
 
 本記事のフレームをペルソナ別・テーマ別に展開した実践教材を note で提供している。
