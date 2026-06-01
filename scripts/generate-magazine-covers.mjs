@@ -91,6 +91,13 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
+  {
+    id: 'setsumon3-policy-bank',
+    fileBaseName: 'magazine-setsumon3-policy-bank-cover',
+    lines: ['設問(3) 国家施策バンク', '将来課題 11 テーマ × 施策 6 案', '答案 1 枚相当・転写即戦力'],
+    category: '技術士（総合技術監理部門）',
+    fontSize: 44,
+  },
 ];
 
 async function renderOne(mag, fonts) {
