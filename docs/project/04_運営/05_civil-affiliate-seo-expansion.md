@@ -99,7 +99,7 @@ GKS（施工管理 転職支援・無料登録/面談で成果）への導線を
 
 - [x] 1.4.g カード `points` に GKS 公称値を掲載し数値訴求を強化（2026-06-01）— 提携3,000社以上・内定率86%・定着率97%（全 5 カード）＋ 未経験記事のみ 入社2年後 平均年収470万円。末尾「（サービス公表値）」明示・本文編集記述には不掲載（広告/編集分離）
 - [x] 1.4.h guide 追加 3 本（2026-06-01・同じインライン CareerAffiliate 数値訴求版）— `civil-construction-2-guide-study-plan`（2級 勉強法・母数）/ `civil-construction-1-guide-study-plan`（1級 勉強法・guide-strategy と差別化）/ `civil-construction-2-guide-job-reality`（施工管理の仕事・将来性・きつい？＝未経験/転職 intent）。計 8 guide にインライン導線
-- [x] 1.4.i 過去問ページの設問間に GKS インラインを一括挿入（2026-06-01）— primary 34（1級24＋2級10）＋ secondary 年度別 10（1級5＋2級5）＝ 計44ページ × 2枚（前半/後半）。`.tmp/insert-career-mid.mjs`（writeMdxFile・EOL保持・冪等）。ピクセルは1ページ1発火（1級は末尾GKS無しのため前半カードに同梱、2級は末尾GKS発火のためmidは無し）。1級 primary は「mid=GKS＋末尾=SAT」併存（住み分けは記事末のみ維持）
+- [x] 1.4.i 過去問ページの設問間に GKS インラインを一括挿入（2026-06-01）— primary 34（1級24＋2級10）＋ secondary 年度別 10（1級5＋2級5）＋ テーマ別 secondary past-problems 4（1級 concrete/construction-plan/earthwork/quality-management）＝ 計48ページ × 2枚（前半/後半）。`*-basics`（散文・設問構造なし）と experience-writing（既 CourseAffiliate）は対象外。`.tmp/insert-career-mid.mjs`（writeMdxFile・EOL保持・冪等）。ピクセルは1ページ1発火（1級は末尾GKS無しのため前半カードに同梱、2級は末尾GKS発火のためmidは無し）。1級 primary は「mid=GKS＋末尾=SAT」併存（住み分けは記事末のみ維持）
 
 **検証ポイント（Phase 3 で計測）**: 試験概要 2 本は informational で母数を取り、年収/転職/未経験 3 本は transactional でクリック・無料登録 CVR を取る設計。数値訴求版のクリック/CVR を計測し、効果が薄ければ汎用訴求へ戻す／LP 更新時は公称値を追従。
 
