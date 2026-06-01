@@ -4,6 +4,19 @@ noteStatus: draft
 coverTitle:
   - 総監記述式 設問(3)
   - 国家施策バンク
+cover:
+  leadIn: 総監記述式 設問(3) 専用
+  hi: '11'
+  hiSuffix: テーマ網羅
+  banner: 国家施策バンク
+  chips:
+    - icon: layers
+      text: 施策66案
+    - icon: doc
+      text: 答案1枚相当
+    - icon: book
+      text: 白書根拠
+  meta: '有料マガジン ／ ¥2,480'
 ---
 
 # 総監記述式 設問(3)国家施策バンク｜将来課題テーマ別・国家スケール施策の引き出し集

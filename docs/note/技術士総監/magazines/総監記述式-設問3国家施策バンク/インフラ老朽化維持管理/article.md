@@ -1,6 +1,19 @@
 ---
 notePricing: paid
 noteStatus: draft
+cover:
+  leadIn: 設問(3)で問われる将来課題
+  hi: '6'
+  hiSuffix: つの国家施策
+  banner: インフラ老朽化
+  chips:
+    - icon: layers
+      text: 施策6案
+    - icon: doc
+      text: 答案1枚相当
+    - icon: book
+      text: 白書根拠
+  meta: '有料マガジン ／ ¥2,480'
 ---
 
 # インフラ老朽化・維持管理｜設問(3)国家施策バンク
