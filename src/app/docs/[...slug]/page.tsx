@@ -27,6 +27,7 @@ import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
+import SchoolAffiliate from '@/components/ui/SchoolAffiliate/SchoolAffiliate';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
@@ -194,6 +195,79 @@ function CivilCareerCTA() {
         aria-hidden
         style={{ position: 'absolute', left: '-9999px' }}
       />
+    </div>
+  );
+}
+
+/**
+ * 通信講座（スクール系）アフィリエイトの 2 creative。記事末のテキストリンク カード用。
+ * 右サイドバーから転職バナー（GKS）に置き換わった分、SAT は記事内テキストリンクへ移設（2026-06-02）。
+ * creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ */
+const SCHOOL_SAT = {
+  provider: 'SAT',
+  course: 'すべての人に最高の教材を【eラーニング・現場系国家資格】',
+  description:
+    '記述添削や体系的な学習サポートで独学の穴を埋めたいときに。e ラーニングで現場系の国家資格を効率よく対策できます。',
+  href: 'https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM',
+  pixelUrl: 'https://www12.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM',
+} as const;
+
+/** 独学サポート（1級土木専用）。経験記述の添削・作文サポートに特化。1級土木ページでのみ使用。 */
+const SCHOOL_DOKUGAKU = {
+  provider: '独学サポート',
+  course: '1級土木施工管理技士・独学サポート受験対策講座',
+  description:
+    '経験記述の添削・作文サポートなど、独学では埋めにくい二次対策の穴を補いたいときに（1級土木に特化）。',
+  href: 'https://px.a8.net/svt/ejp?a8mat=4B3VR8+FAQ04A+4ASS+64Z8Y',
+  pixelUrl: 'https://www16.a8.net/0.gif?a8mat=4B3VR8+FAQ04A+4ASS+64Z8Y',
+} as const;
+
+type SchoolCreative = {
+  provider: string;
+  course: string;
+  description?: string;
+  href: string;
+  pixelUrl?: string;
+};
+
+/**
+ * slug を決定論的にハッシュして 2 校を約 50/50 に分配する（SSR 安全・記事ごとに固定）。
+ * Math.random / Date を使わないため hydration mismatch を起こさない。
+ * FNV-1a でビット拡散し、共通プレフィックス（civil-construction-1-guide-…）で偏らないよう
+ * 下位ビットの偶奇ではなく上位ビットを判定に使う。
+ */
+function pickSchoolBySlug(slug: string): SchoolCreative {
+  let h = 0x811c9dc5; // FNV-1a offset basis
+  for (let i = 0; i < slug.length; i++) {
+    h ^= slug.charCodeAt(i);
+    h = Math.imul(h, 0x01000193); // FNV prime
+  }
+  return ((h >>> 17) & 1) === 0 ? SCHOOL_SAT : SCHOOL_DOKUGAKU;
+}
+
+/**
+ * 記事末用：通信講座 CTA（スクール系のテキストリンク カード）。
+ * 1級土木 guide は SAT ⇄ 独学サポート を slug で交互表示。
+ * 1級土木 secondary は SAT 固定（experience-writing / r03〜r07 が MDX 内に独学 CourseAffiliate を
+ * 持つため、独学の二重表示・二重ピクセルを避ける）。2級土木も SAT 固定（独学文言が1級専用のため）。
+ * 右サイドバーが GKS 転職バナーに置き換わった civil ページの記事内 SAT/スクール導線を担う。
+ */
+function SchoolCourseCTA({
+  category,
+  slug,
+  docGroup,
+}: {
+  category: string;
+  slug: string;
+  docGroup: string;
+}) {
+  const rotate = category === 'civil-construction-1' && docGroup === 'guide';
+  const creative = rotate ? pickSchoolBySlug(slug) : SCHOOL_SAT;
+  return (
+    <div className="mt-8">
+      <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2">独学をサポートする通信講座</h2>
+      <SchoolAffiliate {...creative} />
     </div>
   );
 }
@@ -528,12 +602,16 @@ export default async function DocPage({
             {/* 参考書籍（Civil 第二次検定: アフィリエイト・補完ポジション。
                 過去問解説集（4886154557）+ 経験記述70パターン（4816378561）の固定ペア。） */}
             {category === 'civil-construction-1' && docGroup === 'secondary' && (
-              <div className="mt-8">
-                <BookSection caption="過去問演習と経験記述70パターンで二次対策を固めたいときに。">
-                  <BookCard asin="4886154557" />
-                  <BookCard asin="4816378561" />
-                </BookSection>
-              </div>
+              <>
+                <div className="mt-8">
+                  <BookSection caption="過去問演習と経験記述70パターンで二次対策を固めたいときに。">
+                    <BookCard asin="4886154557" />
+                    <BookCard asin="4816378561" />
+                  </BookSection>
+                </div>
+                {/* 記事末スクール CTA: 1級は SAT ⇄ 独学サポート を slug で交互（旧サイドバー SAT の移設先）。 */}
+                <SchoolCourseCTA category={category} slug={slugStr} docGroup={docGroup} />
+              </>
             )}
 
             {/* 参考書籍（Civil 2級 primary: アフィリエイト・補完ポジション。
@@ -547,7 +625,8 @@ export default async function DocPage({
                     <BookCard asin="4770329784" />
                   </BookSection>
                 </div>
-                <CivilCareerCTA />
+                {/* GKS 転職はサイドバーに移設（2026-06-02）。記事末は SAT スクール CTA（2級は SAT 固定）。 */}
+                <SchoolCourseCTA category={category} slug={slugStr} docGroup={docGroup} />
               </>
             )}
 
@@ -561,7 +640,8 @@ export default async function DocPage({
                     <BookCard asin="4911687207" />
                   </BookSection>
                 </div>
-                <CivilCareerCTA />
+                {/* GKS 転職はサイドバーに移設（2026-06-02）。記事末は SAT スクール CTA（2級は SAT 固定）。 */}
+                <SchoolCourseCTA category={category} slug={slugStr} docGroup={docGroup} />
               </>
             )}
 
@@ -608,7 +688,8 @@ export default async function DocPage({
             {/* 参考書籍（Civil guide: アフィリエイト・補完ポジション。
                 guide 4ページ（strategy / earthwork / concrete / law）の主要流入ページに配置。
                 合格テキスト1冊 + 一次過去問1冊の固定ペア。
-                記事末CTA は guide=転職 / 過去問=SAT の住み分けで CivilCareerCTA（SAT サイドバーは別途常設）。
+                記事末CTA は SchoolCourseCTA（SAT ⇄ 独学サポート テキストリンク）。GKS 転職はサイドバーに移設（2026-06-02）。
+                本文インライン CareerAffiliate（GKS・href のみ）は維持。
                 例外: guide-textbooks は自前で全ラインナップを BookCard 配置するため自動 BookSection は出さない。） */}
             {category === 'civil-construction-1' && docGroup === 'guide' && (
               <>
@@ -620,7 +701,7 @@ export default async function DocPage({
                     </BookSection>
                   </div>
                 )}
-                <CivilCareerCTA />
+                <SchoolCourseCTA category={category} slug={slugStr} docGroup={docGroup} />
               </>
             )}
 
@@ -721,12 +802,13 @@ export default async function DocPage({
                     />
                   </div>
                 )}
-              {/* アフィリエイト サイドバー（2026-05-25 以降: 上部配置でインプレッション最大化）:
+              {/* アフィリエイト サイドバー（上部配置でインプレッション最大化）:
                   自社マガジン CTA を最上位に維持しつつ、TOC・ナビカードより上に配置。
                   - 1級土木 textbook / primary: 独学サポート（経験記述添削特化・1級専用）
-                  - PE keyword/guide/pastExam + 1級土木 guide / secondary + 2級土木 primary / secondary: SAT（総合講座）
-                  住み分けは docGroup で排他。2級は独学サポート相当が無いため primary も SAT 側。
-                  2級 secondary はマガジン公開後 sidebarHasPaidMagazine=true で自動抑制 → primary に SAT 残存。 */}
+                  - PE keyword/guide/pastExam: SAT（総合講座）
+                  - 1級土木 guide / secondary + 2級土木 primary / secondary: GKS 転職（2026-06-02 で SAT から置換）
+                  住み分けは docGroup で排他。SAT は土木では記事末 SchoolCourseCTA（テキストリンク）へ移設。
+                  2級 secondary はマガジン公開後 sidebarHasPaidMagazine=true で自動抑制。 */}
               {/* アフィリエイトは自社の有料マガジン CTA が出ているページでは非表示にしてカニバリ回避
                   (!sidebarHasPaidMagazine = 有料マガジンなしのページで表示。精読ガイドのみの
                   secondary / hub 等はアフィリと併存)。 */}
@@ -737,15 +819,24 @@ export default async function DocPage({
                     <SidebarAdBanner {...CIVIL_SIDEBAR_AD} />
                   </div>
                 )}
-              {((category === 'pe-comprehensive-management' &&
-                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam')) ||
-                (category === 'civil-construction-1' &&
-                  (docGroup === 'guide' || docGroup === 'secondary')) ||
+              {/* 技術士（PE）keyword/guide/pastExam: SAT 総合講座バナー（土木の転職案件は関連度が低いため SAT 据え置き）。 */}
+              {category === 'pe-comprehensive-management' &&
+                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam') &&
+                !sidebarHasPaidMagazine && (
+                  <div className="mb-3">
+                    <SidebarAdBanner {...SAT_SIDEBAR_AD} />
+                  </div>
+                )}
+              {/* 土木 1級 guide/secondary + 2級 primary/secondary: GKS 転職バナー（インプレッション最大化のため
+                  旧 SAT 枠を置換、2026-06-02）。SAT は記事末の SchoolCourseCTA テキストリンクへ移設。
+                  このページ群では記事末 CivilCareerCTA（同 GKS バナー）を出さず 1 ページ 1 GKS ピクセルに統一。 */}
+              {((category === 'civil-construction-1' &&
+                (docGroup === 'guide' || docGroup === 'secondary')) ||
                 (category === 'civil-construction-2' &&
                   (docGroup === 'primary' || docGroup === 'secondary'))) &&
                 !sidebarHasPaidMagazine && (
                   <div className="mb-3">
-                    <SidebarAdBanner {...SAT_SIDEBAR_AD} />
+                    <SidebarAdBanner {...CIVIL_CAREER_AD} />
                   </div>
                 )}
               {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
