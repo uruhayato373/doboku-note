@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-06-01T12:04:42.194Z",
+  "generated_at": "2026-06-01T12:48:03.990Z",
   "summary": {
     "total_mdx_files": 873,
-    "total_unique_tags": 89,
+    "total_unique_tags": 87,
     "allowlist_size": 125,
-    "known_count": 53,
-    "unknown_count": 36,
+    "known_count": 57,
+    "unknown_count": 30,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "past-questions",
-      "count": 75,
+      "count": 87,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-primary-h26-a",
@@ -1099,6 +1099,16 @@
         "civil-construction-1-primary-r06-b",
         "civil-construction-1-primary-r07-a",
         "civil-construction-1-primary-r07-b",
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-secondary-experience-writing-examples",
+        "civil-construction-1-secondary-experience-writing-guide",
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
         "civil-construction-1-secondary-r03",
         "civil-construction-1-secondary-r04",
         "civil-construction-1-secondary-r05",
@@ -1114,6 +1124,8 @@
         "civil-construction-2-primary-r06-zenki",
         "civil-construction-2-primary-r07-kouki",
         "civil-construction-2-primary-r07-zenki",
+        "civil-construction-2-secondary-experience-writing-examples",
+        "civil-construction-2-secondary-experience-writing-guide",
         "civil-construction-2-secondary-r03",
         "civil-construction-2-secondary-r04",
         "civil-construction-2-secondary-r05",
@@ -1508,25 +1520,6 @@
       ]
     },
     {
-      "name": "exam-questions",
-      "count": 12,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-secondary-experience-writing-examples",
-        "civil-construction-1-secondary-experience-writing-guide",
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-2-secondary-experience-writing-examples",
-        "civil-construction-2-secondary-experience-writing-guide"
-      ]
-    },
-    {
       "name": "5管理",
       "count": 9,
       "inAllowlist": true,
@@ -1543,25 +1536,9 @@
       ]
     },
     {
-      "name": "law",
+      "name": "construction-machinery",
       "count": 9,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-1-textbook-building-standards",
-        "civil-construction-1-textbook-construction-business",
-        "civil-construction-1-textbook-explosives-act",
-        "civil-construction-1-textbook-labor-standards",
-        "civil-construction-1-textbook-law-compliance",
-        "civil-construction-1-textbook-port-regulations",
-        "civil-construction-1-textbook-river-act",
-        "civil-construction-1-textbook-road-act",
-        "civil-construction-1-textbook-standard-contract"
-      ]
-    },
-    {
-      "name": "machinery",
-      "count": 9,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-crane",
         "civil-construction-1-textbook-grader-compaction",
@@ -1572,6 +1549,22 @@
         "civil-construction-1-textbook-shovel-excavator",
         "civil-construction-1-textbook-tractor-bulldozer",
         "civil-construction-1-textbook-transport-machinery"
+      ]
+    },
+    {
+      "name": "related-laws",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-standard-contract"
       ]
     },
     {
@@ -1672,6 +1665,19 @@
         "pe-comprehensive-management-r05-essay-road-municipality",
         "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "quality-management",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview"
       ]
     },
     {
@@ -1776,17 +1782,6 @@
       ]
     },
     {
-      "name": "quality",
-      "count": 4,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-1-textbook-control-chart",
-        "civil-construction-1-textbook-histogram",
-        "civil-construction-1-textbook-quality-inspection",
-        "civil-construction-1-textbook-quality-overview"
-      ]
-    },
-    {
       "name": "kinki-design-manual",
       "count": 3,
       "inAllowlist": true,
@@ -1797,9 +1792,9 @@
       ]
     },
     {
-      "name": "schedule",
+      "name": "schedule-management",
       "count": 3,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-network-schedule",
         "civil-construction-1-textbook-schedule-charts",
@@ -1893,15 +1888,6 @@
       ]
     },
     {
-      "name": "quality-management",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems"
-      ]
-    },
-    {
       "name": "river-structure",
       "count": 2,
       "inAllowlist": true,
@@ -1991,6 +1977,14 @@
       ]
     },
     {
+      "name": "index",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-keyword-2026"
+      ]
+    },
+    {
       "name": "inverted-siphon",
       "count": 1,
       "inAllowlist": true,
@@ -2004,14 +1998,6 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-primary-statistics-2026"
-      ]
-    },
-    {
-      "name": "keyword-index",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-construction-1-keyword-2026"
       ]
     },
     {
@@ -2258,16 +2244,11 @@
   "unknown": [
     "模範論文",
     "受験者属性別",
-    "exam-questions",
-    "law",
-    "machinery",
     "地方公共団体",
     "ゼネコン",
     "建設コンサル",
     "施工",
     "砂防",
-    "quality",
-    "schedule",
     "SWOT分析",
     "データ利活用",
     "少子高齢化",
@@ -2278,7 +2259,6 @@
     "exam-statistics",
     "exam-trends",
     "keyword-analysis",
-    "keyword-index",
     "キーワード集",
     "令和2年度",
     "令和3年度",
