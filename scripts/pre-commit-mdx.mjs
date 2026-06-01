@@ -172,8 +172,9 @@ function checkImageDimensions(file, content) {
 function checkBoldEndingParen(file, content) {
   const warnings = [];
   const closeBracket = /[）」』】）]/u; // 太字内容の末尾がこれだと崩壊リスク
-  // 直後が「安全」な文字（崩壊しない）= 空白・区切り・各種括弧。これ以外（かな/漢字/英数字）のみ警告。
-  const safeFollower = /[\s:：,，。、！？「」『』【】〔〕（）()[\]｛｝・…‥]/u;
+  // CommonMark: 閉じ ** の直後が「文字/数字」（\p{L}/\p{N}＝かな・漢字・英数字）のときのみ
+  // right-flanking が崩れて崩壊する。空白・句読点・記号・各種括弧（〈〉等含む）は安全。
+  const wordFollower = /[\p{L}\p{N}]/u;
   const lines = content.split("\n");
   lines.forEach((line, idx) => {
     const stars = [];
@@ -185,7 +186,7 @@ function checkBoldEndingParen(file, content) {
       const lastContentChar = line[close - 1]; // 閉じ ** の直前
       if (!lastContentChar || !closeBracket.test(lastContentChar)) continue;
       const after = line[close + 2]; // 閉じ ** の直後
-      if (after === undefined || safeFollower.test(after)) continue;
+      if (after === undefined || !wordFollower.test(after)) continue;
       warnings.push({
         file,
         error: `bold ending with full-width bracket won't render (line ${idx + 1}): move ）outside **`,
