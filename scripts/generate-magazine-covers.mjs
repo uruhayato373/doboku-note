@@ -77,13 +77,7 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 48,
   },
-  {
-    id: 'essay-template-3d',
-    fileBaseName: 'magazine-essay-template-3d-cover',
-    lines: ['解答テンプレ集', '3D マトリクス 300 セル', '30 分で骨子が組める'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 48,
-  },
+  // essay-template-3d「解答テンプレ3D」は 2026-06-01 企画中止により cover 生成エントリを削除
   {
     id: 'tradeoff-5kanri',
     fileBaseName: 'magazine-tradeoff-5kanri-cover',

@@ -125,7 +125,7 @@ const MAGAZINES_RAW = {
 
   // 注: essay-template-3d「解答テンプレ 3D マトリクス」(¥2,980) は 2026-06-01 に企画中止。
   //     SoT エントリと magazine-placement.ts の配線を削除した（whitepaper-r7-strategy と同様の退役）。
-  //     原稿は docs/note/技術士総監/解答テンプレ3D/ に残置（再開判断用）。
+  //     原稿（docs/note/技術士総監/解答テンプレ3D/）も 2026-06-01 削除（記述式対策は他コンテンツで網羅のため）。
 
   // 原稿配置: docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/（序章 + 11 テーマ）
   // 設問(3)専用の国家施策オプション集。published: false（note 未公開）。公開時に noteUrl を埋める。
