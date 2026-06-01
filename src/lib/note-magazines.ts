@@ -123,22 +123,9 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // 原稿配置: docs/note/解答テンプレ3D/ （2026-05-25 まで docs/note/magazines/essay-template-3d/）
-  // id は note 商品識別子として維持（site CTA cover も既存パス据置）
-  'essay-template-3d': {
-    id: 'essay-template-3d',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 解答テンプレ集｜3D マトリクス 300 セル',
-    description:
-      'テーマ 20 × 5 管理 × 3 ペルソナ = 300 セルの 3D マトリクス。30 分骨子組立フロー + トレードオフ 16 ペア + 三層構造テンプレ。プレミアム約 51,000 字。',
-    shortTitle: '解答テンプレ 3D',
-    shortDescription:
-      '300 セル 3D マトリクス + 30 分骨子フロー + 16 トレードオフ。',
-    imageUrl: '/images/magazines/magazine-essay-template-3d-cover.webp',
-    price: '¥2,980',
-    badge: 'note 限定 プレミアム',
-  },
+  // 注: essay-template-3d「解答テンプレ 3D マトリクス」(¥2,980) は 2026-06-01 に企画中止。
+  //     SoT エントリと magazine-placement.ts の配線を削除した（whitepaper-r7-strategy と同様の退役）。
+  //     原稿は docs/note/技術士総監/解答テンプレ3D/ に残置（再開判断用）。
 
   // 原稿配置: docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/（序章 + 11 テーマ）
   // 設問(3)専用の国家施策オプション集。published: false（note 未公開）。公開時に noteUrl を埋める。

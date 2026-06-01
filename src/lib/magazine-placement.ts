@@ -82,11 +82,11 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
  * M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ戦略転換 (SoT 削除)。
  * 配置原則:
  * - r8-essay-forecast (¥2,480): R07 年度ページ + essay-exam-strategy hub
- * - essay-template-3d (¥2,980 プレミアム): essay-exam-strategy + pattern-essay 3 ペルソナハブ
+ *
+ * 注: essay-template-3d「解答テンプレ 3D」(¥2,980) は 2026-06-01 企画中止により配線削除。
  */
 const NEW_MAGAZINES = {
   r8Forecast: 'r8-essay-forecast' as const,
-  template3d: 'essay-template-3d' as const,
 } satisfies Record<string, MagazineId>;
 
 /**
@@ -104,13 +104,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [
         slot('tankan-reading-guide', slug, 'inline-1'),
-        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-3'),
         ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 4}`)),
       ],
       sidebar: [
         slot('tankan-reading-guide', slug, 'sidebar-1'),
-        slot(NEW_MAGAZINES.template3d, slug, 'sidebar-2'),
       ],
       inlineMobileOnly: false,
     };
@@ -118,13 +116,12 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
 
   // 1.5. (廃止) essay-data-2026 + M1「データ駆動戦略」は 2026-05-18 撤回済み
 
-  // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン + テンプレ 3D (ハブ、強 CTA)
+  // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン (ハブ、強 CTA)
   const patternMag = matchPatternEssay(slug);
   if (patternMag) {
     return {
       inline: [
         slot(patternMag, slug, 'inline-1'),
-        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
       ],
       sidebar: [slot(patternMag, slug, 'sidebar')],
       inlineMobileOnly: false,
@@ -139,7 +136,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       inline: [
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
-        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
       ],
       sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -148,13 +144,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
 
   // 2.5. r8-essay-theme-{topic} → R8 予想問題 spoke (固定 3 ペルソナ縦串学習、強 CTA)
   //     設計: spoke は固定 3 ペルソナ (ゼネコン/河川コンサル/自治体 道路担当) を縦串展開し、
-  //     M3「R8 予想問題集」を主、M4「3D マトリクス」を業界外救済として副配置する。
+  //     M3「R8 予想問題集」を主配置する。
+  //     （M4「3D マトリクス」副配置は 2026-06-01 企画中止により削除）
   //     真実源: content-principles.md §21 + noteコンテンツ計画.md Red Line #8
   if (/^pe-comprehensive-management-r8-essay-theme-[a-z0-9-]+$/.test(slug)) {
     return {
       inline: [
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
-        slot(NEW_MAGAZINES.template3d, slug, 'inline-2'),
       ],
       sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
       inlineMobileOnly: false,
