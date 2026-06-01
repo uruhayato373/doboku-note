@@ -117,3 +117,19 @@ https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs?ut
 4. 最後に §5 の「残余リスク締め」で閉じます。
 
 この4ステップを 20 セルのどこから始めても回せるようにしておけば、お題が読めない局面でも対立構造と解決策を即座に引き出せます。
+
+## あわせて読みたい｜模範論文で「型」を実戦に
+
+本マガジンで身につけたトレードオフの型は、3,000 字級のフル模範論文で「実際の答案にどう落ちるか」を見ると一気に立体化します。立場（ペルソナ）別に3シリーズを公開しているので、自分の専門分野に近いものから読み進めるのがおすすめです。
+
+**ゼネコン土木部門｜「安全 × 経済性 × 人的資源」を主軸に**
+
+https://note.com/dobokunote/m/m32aaa137f22e?utm_source=note&utm_medium=referral&utm_campaign=essay-tradeoff-matrix-intro&utm_content=joshou-essay-kaiyu
+
+**建設コンサル 河川・砂防｜部長視点で R03〜R07 の5年分**
+
+https://note.com/dobokunote/m/m32132ecb3033?utm_source=note&utm_medium=referral&utm_campaign=essay-tradeoff-matrix-intro&utm_content=joshou-essay-kaiyu
+
+**自治体 道路担当（発注者）｜「経済性 × 安全 × 社会環境」＋ R8予想**
+
+https://note.com/dobokunote/m/m52186ffd12ca?utm_source=note&utm_medium=referral&utm_campaign=essay-tradeoff-matrix-intro&utm_content=joshou-essay-kaiyu
