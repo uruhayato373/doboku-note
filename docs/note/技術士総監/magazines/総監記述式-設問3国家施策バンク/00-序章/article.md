@@ -1,6 +1,9 @@
 ---
 notePricing: paid
 noteStatus: draft
+coverTitle:
+  - 総監記述式 設問(3)
+  - 国家施策バンク
 ---
 
 # 総監記述式 設問(3)国家施策バンク｜将来課題テーマ別・国家スケール施策の引き出し集
