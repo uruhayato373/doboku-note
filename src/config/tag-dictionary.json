@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-01T19:58:51.326Z",
+  "generated_at": "2026-06-01T20:14:28.936Z",
   "summary": {
-    "total_mdx_files": 878,
+    "total_mdx_files": 879,
     "total_unique_tags": 87,
     "allowlist_size": 125,
     "known_count": 57,
@@ -1166,9 +1166,10 @@
     },
     {
       "name": "guide",
-      "count": 48,
+      "count": 49,
       "inAllowlist": true,
       "usedIn": [
+        "civil-construction-1-guide-1-vs-2",
         "civil-construction-1-guide-career-agents",
         "civil-construction-1-guide-career-path",
         "civil-construction-1-guide-career-salary",

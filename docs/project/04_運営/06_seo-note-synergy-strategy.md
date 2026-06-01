@@ -59,16 +59,18 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 - [x] **A5**: 高imp低CTR 7ページの seoTitle/description リライト（jisec / break-even-point / conformity-bias / cost-driver / digital-rights / push-production / tripod-theory）— 2026-06-02（workflow）
 
 ### Phase B — Civil 横展開（型を流用）
-- [x] **B1**: Civil guide 新設 — `civil-construction-1-guide-vs-pe`（施工管理技士と技術士の違い・civil↔PE 橋渡し）採用。**`guide-1-vs-2` は既存 `guide-grade-comparison`（1級と2級の比較）との内部重複が判明し削除**（未デプロイのため SEO 損失なし）— 2026-06-02
-- [x] **B2（一部）**: `guide-vs-pe` を `guide-career-path` の関連に配線。civil 経験記述マガジンは**既に各2本サイトリンク済み**のため note→site は概ね達成済み（追加は過剰リンク回避で見送り）— 2026-06-02
+- [x] **B1**: Civil guide 新設 — `civil-construction-1-guide-vs-pe`（施工管理技士と技術士の違い・civil↔PE 橋渡し）採用 — 2026-06-02
+- [x] **B2**: `guide-vs-pe` を `guide-career-path` の関連に配線。civil 経験記述マガジンは**既に各2本サイトリンク済み**のため note→site は達成済み（追加は過剰リンク回避で見送り）— 2026-06-02
 
-> **重要所見（2026-06-02）— Civil guide クラスタの内部重複**: B2 着手時、civil-1 guide に複数の重複トピックを検出（いずれも live）。**拡充より統合が先**。
-> - 1級vs2級: `guide-grade-comparison` ⇔ `guide-1-vs-2`（削除済）
-> - 勉強法: `guide-study-method` ⇔ `guide-study-plan`
-> - 年収: `guide-career-salary` ⇔ `guide-salary-up` ⇔ `guide-market-value`
-> - 難易度: `guide-difficulty` ⇔ `guide-exam-overview`（合格率節）
+> **重要所見（2026-06-02）— Civil guide クラスタは「重複」でなく「切り口違いのクラスタ」**: B2 着手時、近接トピックの guide が複数あることを検出したが、精査の結果 **seoTitle/intent が分かれ、SeeAlso/RelatedKeywords で相互リンク済み**（前制作で差別化＋クラスタ化されていた）。**削除/統合は不要**と判断（流入を増やす検索面積として活かす方針）。カニばりは「同一クエリの正面競合」時のみ実害で、切り口が分かれていれば両立する。
 >
-> **推奨次アクション（要ユーザー判断）**: 各クラスタで canonical を1本選び、重複を 301 リダイレクト（`_redirects`）で統合 → 内部カニばり解消。live・indexed ページの削除/統合は SEO 影響があるため、本戦略では自動実行せず統合計画を別途承認のうえ実施する。
+> **対応（2026-06-02・削除なし）**: 近接ペアの差別化シグナルと相互リンクのみ補強。
+> - 1級vs2級: `guide-1-vs-2`（違いの**詳細比較**）と `guide-grade-comparison`（**どちらを選ぶ**判断ガイド）に役割分担。一旦削除した `guide-1-vs-2` を復活し、shortTitle/相互リンクで差別化。
+> - 勉強法: `guide-study-method`（独学で合格できる?・受験資格・勉強時間=**入口**）⇔ `guide-study-plan`（**学習スケジュール・進め方**）を相互リンク。
+> - 年収: `guide-market-value`（市場価値）/ `guide-salary-up`（上げ方how-to）/ `guide-career-salary`（年収いくら・手当相場）は intent が分かれ相互リンク済み → 現状維持。
+> - 難易度: `guide-difficulty`（難易度・合格率）と `guide-exam-overview`（試験概要）は別クエリ → 現状維持。
+>
+> 効果は **C1（GSC 再計測）** で判定し、もし同一クエリで正面競合が確認されたら、その時に canonical 選定＋301 統合を再検討する。
 
 ### Phase C — 計測
 - [ ] C1: 2–4週後 GSC 再計測（impressions/CTR/position）。効いた型を増産、効かない型は撤退
