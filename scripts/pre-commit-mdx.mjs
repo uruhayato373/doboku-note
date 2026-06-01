@@ -158,28 +158,41 @@ function checkImageDimensions(file, content) {
  * 全角閉じ括弧類が最頻出パターン。§14-b 参照。
  */
 /**
- * CommonMark 仕様: bold 閉じ ** の直前が Unicode punctuation の場合、
- * 直後が通常文字だと right-flanking と認識されず bold が無音で崩壊する。
- * 全角閉じ括弧類が最頻出パターン。§14-b 参照。
+ * CommonMark 仕様: bold 閉じ ** の直前が Unicode punctuation（全角閉じ括弧類）の場合、
+ * 直後が通常文字だと right-flanking と認識されず bold が無音で崩壊する。§14-b 参照。
  *
- * 誤検知除外: ）** の直後が : ： 等の区切り文字・空白・行末のときは
- * right-flanking 判定が成立するため警告しない（箇条書き **label（...）**: 形式）。
+ * 検出は行内の `**` を左から (0,1)(2,3)… とペアリングして「太字スパン」を復元し、
+ * 各スパンの閉じ ** のみを判定する（regex 一括マッチ方式は隣接太字 `**A**…（x）**B**`
+ * の "隙間" を誤検知し、開き括弧フォロワー `**…」**（` も誤検知していた。2026-06-01 改善）。
+ *
+ * 誤検知除外（＝右 flanking が成立し崩壊しないケース）:
+ *  - 閉じ ** の直後が 空白 / 行末 / 区切り記号 / 各種括弧（開き・閉じ）
+ *  - 隣接太字の "隙間"（先頭 ** が前の太字の閉じデリミタ）はペアリングで構造的に除外される
  */
 function checkBoldEndingParen(file, content) {
   const warnings = [];
-  // ）** の直後が通常文字（ひらがな・カタカナ・漢字・ASCII英数字）のときのみ検知
-  const pattern = /\*\*[^*\n]*[）」』】）]\*\*(?=[^\s:：,，。、！？」』】）\n])/gu;
-  let lineNum = 0;
-  for (const line of content.split("\n")) {
-    lineNum++;
-    pattern.lastIndex = 0;
-    if (pattern.test(line)) {
+  const closeBracket = /[）」』】）]/u; // 太字内容の末尾がこれだと崩壊リスク
+  // 直後が「安全」な文字（崩壊しない）= 空白・区切り・各種括弧。これ以外（かな/漢字/英数字）のみ警告。
+  const safeFollower = /[\s:：,，。、！？「」『』【】〔〕（）()[\]｛｝・…‥]/u;
+  const lines = content.split("\n");
+  lines.forEach((line, idx) => {
+    const stars = [];
+    for (let i = 0; i + 1 < line.length; i++) {
+      if (line[i] === "*" && line[i + 1] === "*") { stars.push(i); i++; }
+    }
+    for (let p = 0; p + 1 < stars.length; p += 2) {
+      const close = stars[p + 1];
+      const lastContentChar = line[close - 1]; // 閉じ ** の直前
+      if (!lastContentChar || !closeBracket.test(lastContentChar)) continue;
+      const after = line[close + 2]; // 閉じ ** の直後
+      if (after === undefined || safeFollower.test(after)) continue;
       warnings.push({
         file,
-        error: `bold ending with full-width bracket won't render (line ${lineNum}): move ）outside **`,
+        error: `bold ending with full-width bracket won't render (line ${idx + 1}): move ）outside **`,
       });
+      break; // 1行1警告
     }
-  }
+  });
   return warnings;
 }
 
