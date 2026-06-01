@@ -1,0 +1,46 @@
+title: "技術士 総監｜記述式 完全パック（型×設問3×予想×模範論文 全部入り）"
+description: |
+  技術士総合技術監理部門 記述式（必須科目Ⅰ）対策の note 教材を1つに束ねた
+  完全パック。記述式の答案完成パイプライン「型 → 設問(3)の弾薬 → 予想演習 →
+  フル実演」を、6マガジンの全部入りでカバーする。
+
+  収録（単品合計¥14,380相当）:
+  - 5管理クロス・トレードオフ（型・解決フレーム・答案ひな型）
+  - 設問(3)国家施策バンク（将来課題11テーマ×国家施策68案）
+  - R8予想問題集（6テーマ フル論述演習）
+  - 模範論文 3ペルソナ（ゼネコン／河川コンサル／自治体道路担当・フル実演）
+
+  精読ガイドは択一・論点中心で記述式論述とは別系統のため除外。案内（序章）は
+  無料で、パック全体像・使い方・既購入者フォローを解説する。
+
+# バンドル商品（既存マガジンの束）。articlePrice×count 型ではないため bundle 構造で表現。
+type: bundle
+setPrice: 7980
+limitedPrice: 5980
+limitedNote: "試験直前限定価格。試験後は恒常価格 ¥7,980 へ戻す（偽の期間限定にしない）"
+singleTotal: 14380
+includedMagazines:
+  - id: tradeoff-5kanri
+    title: 5管理クロス・トレードオフ
+    magazineUrl: "https://note.com/dobokunote/m/m921fbe060575"
+  - id: setsumon3-policy-bank
+    title: 設問(3)国家施策バンク
+    magazineUrl: "https://note.com/dobokunote/m/m91516dfc27ac"
+  - id: r8-essay-forecast
+    title: R8予想問題集
+    magazineUrl: "https://note.com/dobokunote/m/m6854c7437d4d"
+  - id: essay-general-contractor-magazine
+    title: 模範論文 ゼネコン
+    magazineUrl: "https://note.com/dobokunote/m/m32aaa137f22e"
+  - id: essay-river-consultant-magazine
+    title: 模範論文 河川コンサル
+    magazineUrl: "https://note.com/dobokunote/m/m32132ecb3033"
+  - id: essay-road-municipality-magazine
+    title: 模範論文 自治体道路担当
+    magazineUrl: "https://note.com/dobokunote/m/m52186ffd12ca"
+freeIntro:
+  slug: 00-はじめに
+  noteUrl: ""
+magazineUrl: ""
+publishTiming: "2026-06（試験直前）"
+status: draft

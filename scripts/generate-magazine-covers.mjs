@@ -92,6 +92,13 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
+  {
+    id: 'essay-complete-pack',
+    fileBaseName: 'magazine-essay-complete-pack-cover',
+    lines: ['記述式 完全パック', '型 × 設問3 × 予想 × 模範論文', '6 マガジン全部入り'],
+    category: '技術士（総合技術監理部門）',
+    fontSize: 44,
+  },
 ];
 
 async function renderOne(mag, fonts) {
