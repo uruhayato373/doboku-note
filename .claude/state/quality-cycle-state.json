@@ -11432,6 +11432,546 @@
           "wave": "G-8-reverify"
         }
       ]
+    },
+    "pollution-control-manager": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:43:49.950Z",
+          "action": "rewritten",
+          "wave": "G-8-W26",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1784,
+          "after_chars": 2543,
+          "added_chars": 759,
+          "mojibake": false
+        }
+      ]
+    },
+    "pops-convention": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:43:49.950Z",
+          "action": "rewritten",
+          "wave": "G-8-W26",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 3145,
+          "after_chars": 3664,
+          "added_chars": 519,
+          "mojibake": false
+        }
+      ]
+    },
+    "pqcdsme": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:43:49.950Z",
+          "action": "rewritten",
+          "wave": "G-8-W26",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2640,
+          "after_chars": 3457,
+          "added_chars": 817,
+          "mojibake": false
+        }
+      ]
+    },
+    "precautionary-principle": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:46:13.110Z",
+          "action": "rewritten",
+          "wave": "G-8-W27",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1050,
+          "after_chars": 2400,
+          "added_chars": 1350,
+          "mojibake": false
+        }
+      ]
+    },
+    "present-annual-future-value": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:46:13.110Z",
+          "action": "rewritten",
+          "wave": "G-8-W27",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2373,
+          "after_chars": 2863,
+          "added_chars": 490,
+          "mojibake": false
+        }
+      ]
+    },
+    "probabilistic-risk-assessment": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:46:13.110Z",
+          "action": "rewritten",
+          "wave": "G-8-W27",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2019,
+          "after_chars": 2945,
+          "added_chars": 926,
+          "mojibake": false
+        }
+      ]
+    },
+    "problem-solving-ability": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:48:56.602Z",
+          "action": "rewritten",
+          "wave": "G-8-W28",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 850,
+          "after_chars": 2715,
+          "added_chars": 1865,
+          "mojibake": false
+        }
+      ]
+    },
+    "process-costing": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:48:56.602Z",
+          "action": "rewritten",
+          "wave": "G-8-W28",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1649,
+          "after_chars": 2421,
+          "added_chars": 772,
+          "mojibake": false
+        }
+      ]
+    },
+    "progress-management": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:48:56.602Z",
+          "action": "rewritten",
+          "wave": "G-8-W28",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 3773,
+          "after_chars": 4700,
+          "added_chars": 927,
+          "mojibake": false
+        }
+      ]
+    },
+    "pull-production": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:51:34.391Z",
+          "action": "rewritten",
+          "wave": "G-8-W29",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1444,
+          "after_chars": 2179,
+          "added_chars": 735,
+          "mojibake": false
+        }
+      ]
+    },
+    "push-production": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:51:34.391Z",
+          "action": "rewritten",
+          "wave": "G-8-W29",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1604,
+          "after_chars": 2503,
+          "added_chars": 899,
+          "mojibake": false
+        }
+      ]
+    },
+    "qc-circle": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:51:34.391Z",
+          "action": "rewritten",
+          "wave": "G-8-W29",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2217,
+          "after_chars": 2775,
+          "added_chars": 558,
+          "mojibake": false
+        }
+      ]
+    },
+    "quality-assurance": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:54:20.105Z",
+          "action": "rewritten",
+          "wave": "G-8-W30",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2685,
+          "after_chars": 3364,
+          "added_chars": 679,
+          "mojibake": false
+        }
+      ]
+    },
+    "quality-characteristics": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:54:20.105Z",
+          "action": "rewritten",
+          "wave": "G-8-W30",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1050,
+          "after_chars": 2417,
+          "added_chars": 1367,
+          "mojibake": false
+        }
+      ]
+    },
+    "quality-improvement": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:54:20.105Z",
+          "action": "rewritten",
+          "wave": "G-8-W30",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2584,
+          "after_chars": 3318,
+          "added_chars": 734,
+          "mojibake": false
+        }
+      ]
+    },
+    "quality-objectives": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:58:44.413Z",
+          "action": "rewritten",
+          "wave": "G-8-W31",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1655,
+          "after_chars": 2390,
+          "added_chars": 735,
+          "mojibake": false
+        }
+      ]
+    },
+    "quality-planning": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:58:44.413Z",
+          "action": "rewritten",
+          "wave": "G-8-W31",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1436,
+          "after_chars": 2211,
+          "added_chars": 775,
+          "mojibake": false
+        }
+      ]
+    },
+    "quality-policy": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T04:58:44.413Z",
+          "action": "rewritten",
+          "wave": "G-8-W31",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1710,
+          "after_chars": 2328,
+          "added_chars": 618,
+          "mojibake": false
+        }
+      ]
+    },
+    "radioactive-decontamination-act": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:01:29.865Z",
+          "action": "rewritten",
+          "wave": "G-8-W32",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 5397,
+          "after_chars": 7417,
+          "added_chars": 2020,
+          "mojibake": false
+        }
+      ]
+    },
+    "relative-absolute-evaluation": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:01:29.865Z",
+          "action": "rewritten",
+          "wave": "G-8-W32",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1802,
+          "after_chars": 2434,
+          "added_chars": 632,
+          "mojibake": false
+        }
+      ]
+    },
+    "required-quality": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:01:29.865Z",
+          "action": "rewritten",
+          "wave": "G-8-W32",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1615,
+          "after_chars": 2331,
+          "added_chars": 716,
+          "mojibake": false
+        }
+      ]
+    },
+    "reskilling": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:07:34.697Z",
+          "action": "rewritten",
+          "wave": "G-8-W33",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1722,
+          "after_chars": 2586,
+          "added_chars": 864,
+          "mojibake": false
+        }
+      ]
+    },
+    "risk-management-policy": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:07:34.697Z",
+          "action": "rewritten",
+          "wave": "G-8-W33",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2068,
+          "after_chars": 2676,
+          "added_chars": 608,
+          "mojibake": false
+        }
+      ]
+    },
+    "safety-case": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:07:34.697Z",
+          "action": "rewritten",
+          "wave": "G-8-W33",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1707,
+          "after_chars": 2680,
+          "added_chars": 973,
+          "mojibake": false
+        }
+      ]
+    },
+    "self-development": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:10:23.382Z",
+          "action": "rewritten",
+          "wave": "G-8-W34",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1944,
+          "after_chars": 2765,
+          "added_chars": 821,
+          "mojibake": false
+        }
+      ]
+    },
+    "skill-standards": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:10:23.382Z",
+          "action": "rewritten",
+          "wave": "G-8-W34",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1812,
+          "after_chars": 2587,
+          "added_chars": 775,
+          "mojibake": false
+        }
+      ]
+    },
+    "sop": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:10:23.382Z",
+          "action": "rewritten",
+          "wave": "G-8-W34",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1637,
+          "after_chars": 2411,
+          "added_chars": 774,
+          "mojibake": false
+        }
+      ]
+    },
+    "source-control-principle": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:14:54.428Z",
+          "action": "rewritten",
+          "wave": "G-8-W35",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 2967,
+          "after_chars": 3098,
+          "added_chars": 131,
+          "mojibake": false
+        }
+      ]
+    },
+    "specialized-training": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:14:54.428Z",
+          "action": "rewritten",
+          "wave": "G-8-W35",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1680,
+          "after_chars": 2127,
+          "added_chars": 447,
+          "mojibake": false
+        }
+      ]
+    },
+    "subsidiarity-principle": {
+      "status": "rewritten",
+      "history": [
+        {
+          "date": "2026-05-17T05:14:54.428Z",
+          "action": "rewritten",
+          "wave": "G-8-W35",
+          "applied_patterns": [
+            "G",
+            "D"
+          ],
+          "before_chars": 1782,
+          "after_chars": 2633,
+          "added_chars": 851,
+          "mojibake": false
+        }
+      ]
     }
   }
 }
