@@ -3,12 +3,12 @@ notePricing: paid
 noteSeries: 総監記述式-5管理クロストレードオフ
 noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-safety
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n771c1f2357f0"
+noteId: "n771c1f2357f0"
+notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "安全管理 × 他4管理"]
 price: 500
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "安全 × 他4管理の衝突を"
   hi: "4"
