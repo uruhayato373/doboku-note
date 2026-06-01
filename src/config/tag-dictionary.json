@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-01T11:42:45.752Z",
+  "generated_at": "2026-06-01T12:04:42.194Z",
   "summary": {
-    "total_mdx_files": 870,
+    "total_mdx_files": 873,
     "total_unique_tags": 89,
     "allowlist_size": 125,
     "known_count": 53,
@@ -1206,7 +1206,7 @@
     },
     {
       "name": "guide",
-      "count": 40,
+      "count": 43,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-agents",
@@ -1227,6 +1227,7 @@
         "civil-construction-1-guide-schedule-management",
         "civil-construction-1-guide-strategy",
         "civil-construction-1-guide-study-method",
+        "civil-construction-1-guide-study-plan",
         "civil-construction-1-guide-textbooks",
         "civil-construction-1-keyword-2026",
         "civil-construction-2-guide-career",
@@ -1234,12 +1235,14 @@
         "civil-construction-2-guide-concrete-key-points",
         "civil-construction-2-guide-earthwork-key-points",
         "civil-construction-2-guide-exam-overview",
+        "civil-construction-2-guide-job-reality",
         "civil-construction-2-guide-law-key-points",
         "civil-construction-2-guide-overview",
         "civil-construction-2-guide-quality-management",
         "civil-construction-2-guide-salary",
         "civil-construction-2-guide-schedule-management",
         "civil-construction-2-guide-study-method",
+        "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
@@ -1253,9 +1256,10 @@
     },
     {
       "name": "primary",
-      "count": 37,
+      "count": 39,
       "inAllowlist": true,
       "usedIn": [
+        "civil-construction-1-guide-study-plan",
         "civil-construction-1-primary-h26-a",
         "civil-construction-1-primary-h26-b",
         "civil-construction-1-primary-h27-a",
@@ -1280,6 +1284,7 @@
         "civil-construction-1-primary-r06-b",
         "civil-construction-1-primary-r07-a",
         "civil-construction-1-primary-r07-b",
+        "civil-construction-2-guide-study-plan",
         "civil-construction-2-primary-r03-kouki",
         "civil-construction-2-primary-r03-zenki",
         "civil-construction-2-primary-r04-kouki",
@@ -1484,6 +1489,25 @@
       ]
     },
     {
+      "name": "career",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-career-agents",
+        "civil-construction-1-guide-career-path",
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-exam-overview",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-market-value",
+        "civil-construction-1-guide-salary-up",
+        "civil-construction-2-guide-career",
+        "civil-construction-2-guide-career-change",
+        "civil-construction-2-guide-exam-overview",
+        "civil-construction-2-guide-job-reality",
+        "civil-construction-2-guide-salary"
+      ]
+    },
+    {
       "name": "exam-questions",
       "count": 12,
       "inAllowlist": false,
@@ -1500,24 +1524,6 @@
         "civil-construction-1-secondary-quality-management-past-problems",
         "civil-construction-2-secondary-experience-writing-examples",
         "civil-construction-2-secondary-experience-writing-guide"
-      ]
-    },
-    {
-      "name": "career",
-      "count": 11,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-agents",
-        "civil-construction-1-guide-career-path",
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-exam-overview",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-market-value",
-        "civil-construction-1-guide-salary-up",
-        "civil-construction-2-guide-career",
-        "civil-construction-2-guide-career-change",
-        "civil-construction-2-guide-exam-overview",
-        "civil-construction-2-guide-salary"
       ]
     },
     {
