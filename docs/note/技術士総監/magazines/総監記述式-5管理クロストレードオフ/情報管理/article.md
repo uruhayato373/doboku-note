@@ -9,6 +9,16 @@ notePublishedAt: ""
 coverTitle: ["5管理クロストレードオフ", "情報管理 × 他4管理"]
 price: 500
 noteStatus: draft
+cover:
+  leadIn: "情報 × 他4管理の衝突を"
+  hi: "4"
+  hiSuffix: "ペア×3シナリオ"
+  banner: "DX時代のCIA管理"
+  meta: "有料マガジン"
+  chips:
+    - { icon: layers, text: "OTセキュリティ" }
+    - { icon: target, text: "フェールソフト" }
+    - { icon: pen, text: "答案ひな型付" }
 ---
 
 # 情報管理 × 他4管理｜トレードオフ構造と総監的解決策（4セル）

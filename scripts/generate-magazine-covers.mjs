@@ -84,6 +84,13 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 48,
   },
+  {
+    id: 'tradeoff-5kanri',
+    fileBaseName: 'magazine-tradeoff-5kanri-cover',
+    lines: ['5 管理クロス・トレードオフ', '20 セル全網羅 + 答案ひな型', '解決フレーム辞書付き'],
+    category: '技術士（総合技術監理部門）',
+    fontSize: 44,
+  },
 ];
 
 async function renderOne(mag, fonts) {

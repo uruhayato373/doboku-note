@@ -9,6 +9,16 @@ notePublishedAt: ""
 coverTitle: ["5管理クロストレードオフ", "安全管理 × 他4管理"]
 price: 500
 noteStatus: draft
+cover:
+  leadIn: "安全 × 他4管理の衝突を"
+  hi: "4"
+  hiSuffix: "ペア×3シナリオ"
+  banner: "安全の核を守る技術"
+  meta: "有料マガジン"
+  chips:
+    - { icon: target, text: "RBM・ALARP" }
+    - { icon: layers, text: "フェールセーフ" }
+    - { icon: pen, text: "答案ひな型付" }
 ---
 
 # 安全管理 × 他4管理｜トレードオフ構造と総監的解決策（4セル）

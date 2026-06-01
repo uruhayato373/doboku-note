@@ -9,6 +9,16 @@ notePublishedAt: ""
 coverTitle: ["5管理クロストレードオフ", "経済性管理 × 他4管理"]
 price: 500
 noteStatus: draft
+cover:
+  leadIn: "経済性 × 他4管理の衝突を"
+  hi: "4"
+  hiSuffix: "ペア×3シナリオ"
+  banner: "コスト最適の論理"
+  meta: "有料マガジン"
+  chips:
+    - { icon: yen, text: "LCC・VFM" }
+    - { icon: chart, text: "PoC・RBM" }
+    - { icon: pen, text: "答案ひな型付" }
 ---
 
 # 経済性管理 × 他4管理｜トレードオフ構造と総監的解決策（4セル）
