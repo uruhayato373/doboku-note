@@ -72,8 +72,27 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 >
 > 効果は **C1（GSC 再計測）** で判定し、もし同一クエリで正面競合が確認されたら、その時に canonical 選定＋301 統合を再検討する。
 
-### Phase C — 計測
-- [ ] C1: 2–4週後 GSC 再計測（impressions/CTR/position）。効いた型を増産、効かない型は撤退
+### Phase C — 計測（効果判定）
+
+- [ ] **C1: 本SEO群の効果判定（評価目安日 〜2026-06-30）** — デプロイ起点 2026-06-02 ＋ 約4週。新規ページのインデックス・順位確立に数週かかるため。
+
+**データ源（新規取得は不要）**: 既存自動計測を参照する。
+- 金 06:00 JST の CI `fetch-metrics.yml` が `npm run fetch-gsc-data` で `.claude/state/metrics/gsc/`（`gsc-query-*` / 7日窓 `gsc-date-*`）にコミット。
+- 日 22:03 JST のクラウドルーティン `doboku-note weekly PDCA` が上記を読み review + PR。
+- → C1 は「~6/30 頃の週次レビュー時に、下記の軸で**この実験固有の効果**を見る」だけでよい。専用ルーティンは作らない（routine 重複禁止の教訓）。
+
+**評価軸と決定ルール**:
+
+| 軸（対応レバー） | 見るもの | 成功＝次アクション | 不発＝次アクション |
+|---|---|---|---|
+| 新規guide獲得（L1） | 6新guideが対象クエリで impressions>0・indexed か | 型が機能 → 空白guide増産・Civil横展開 | タイトル/内容/内部リンク見直し or 撤退 |
+| CTR改善（L4） | CTRリライト7ページの clicks/CTR が前（〜05-28）比で改善か | 他の高imp低CTRへ展開 | seoTitle/description 再考 |
+| カニばり監査 | 近接ペアが**同一クエリ**で両方表示され position 分散/低迷か | （別クエリで住み分け＝OK・維持） | 同一クエリ競合確定 → canonical選定＋301統合へ切替 |
+| hub配線（L2） | exam-index 経由で新guideがインデックス/評価されているか | 維持 | 内部リンク増強 |
+
+**対象（クエリ例）**: general-vs-comprehensive（技術士 一般部門 総監 違い）/ public-engineer-qualification-map（自治体 技術職員 資格）/ public-servant・private-merit（公務員・建設会社 総監 メリット）/ guide-vs-pe（施工管理技士 技術士 違い）。CTR: jisec / break-even-point / conformity-bias / cost-driver / digital-rights / push-production / tripod-theory。カニばり監視ペア: grade-comparison⇔guide-1-vs-2 / study-method⇔study-plan。
+
+**留意**: ベースライン低・受験季節影響・小数値ノイズ大 → 単月の増減でなく**傾向**で判断。クリーンな7日WoWは organic スナップショットが溜まる時期以降。
 
 ### 実装メモ（2026-06-02）
 - A1–A5・B1 を 1 セッションで実装（A2/A5/B1 は workflow で並行生成 → 親が QA・hub配線・索引・コミット統合）。
