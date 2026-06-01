@@ -61,7 +61,9 @@ https://note.com/dobokunote/n/nc9a3d01b8129
 
 https://note.com/dobokunote/n/ne5ad458ebd84
 
-※ 人的資源管理 × 他4管理 は準備中です。
+**人的資源管理 × 他4管理**
+
+https://note.com/dobokunote/n/nc62f62f5c507
 
 ---
 

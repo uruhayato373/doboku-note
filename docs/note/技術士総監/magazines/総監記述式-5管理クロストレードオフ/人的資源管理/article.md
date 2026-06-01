@@ -3,12 +3,12 @@ notePricing: paid
 noteSeries: 総監記述式-5管理クロストレードオフ
 noteMagazine: 総監記述式-5管理クロストレードオフ
 utmCampaign: essay-tradeoff-matrix-hr
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nc62f62f5c507"
+noteId: "nc62f62f5c507"
+notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "人的資源管理 × 他4管理"]
 price: 500
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "人的資源 × 他4管理の衝突を"
   hi: "4"
