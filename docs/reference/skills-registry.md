@@ -18,16 +18,17 @@ title: スキル ガバナンス記録
 ├── authoring/       # 9 — 記事を作る
 ├── conversion/      # 4 — 形式変換（MDX / OGP 画像 / 紙用 PDF）
 ├── quality/         # 12 — MDX・note 公開前品質検査
-├── management/      # 11 — 計画・分析・戦略
+├── management/      # 12 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 6 — SNS 投稿
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **56 スキル**（Phase 2 待機を除く）。
+合計 **57 スキル**（Phase 2 待機を除く）。
 
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
+> 2026-05-30 追加: `management/routines`（クラウドルーティン /schedule の一覧・監査。重複・残骸 one-shot・平文シークレット・cron 衝突を検出。weekly-review 重複作成事故[2026-05-30]の再発防止。create 前 list-first を運用ルール化）。
 
 ---
 
