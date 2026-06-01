@@ -1,6 +1,9 @@
 ---
 notePricing: paid
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/n6c7d4299e048
+noteId: n6c7d4299e048
+notePublishedAt: 2026-06-01
 cover:
   leadIn: 設問(3)で問われる将来課題
   hi: '6'
