@@ -84,6 +84,21 @@ GSC 2026-04-15〜05-13（4週間）/ GA4 2026-05-03〜05-16（2週間）の突�
 承認後の配置案:
 - アガルート: 経験記述添削の選択肢として secondary 系（独学サポートと併置）
 
+### 1.4 キャリア/年収/試験概要 guide を新設し GKS 転職導線を強化（2026-06-01）
+
+GKS（施工管理 転職支援・無料登録/面談で成果）への導線を増やすため、「無料でできること（求人・想定年収の確認）」を訴求するキャリア/年収/試験概要の guide 記事を新設。各記事は `group: guide` のため記事末 `CivilCareerCTA` バナーが自動表示され、加えて本文中に `CareerAffiliate`（テキストカード・登録無料訴求）をインライン配置（「インライン＋記事末」の 2 点導線）。
+
+- [x] 1.4.a `civil-construction-2-guide-exam-overview` — 2級 試験概要（受験資格・科目・合格率・日程）＝ 流入の母数を取る informational
+- [x] 1.4.b `civil-construction-1-guide-exam-overview` — 1級 試験概要（同上）
+- [x] 1.4.c `civil-construction-1-guide-salary-up` — 土木施工管理で年収を上げる方法（昇進・資格手当・転職・独立）＝ 最も転職 intent が高い
+- [x] 1.4.d `civil-construction-2-guide-salary` — 2級の年収・手当（既存 guide-career のメリット訴求と差別化し年収特化）
+- [x] 1.4.e `civil-construction-2-guide-career-change` — 未経験から施工管理への転職（GKS の未経験・資格支援訴求と直結）
+- [x] 1.4.f `refresh-indexes` 実行＋ dev サーバー curl 検証（全 5 ページ HTTP 200 / `<main>` / インライン+末尾 CTA の nofollow sponsored・PR 表示・「無料で」訴求を確認）
+
+配置方針の転換（旧「1 ページ 1 広告」→ guide は 2 点導線）と creative 詳細は [02_アフィリエイト提携状況.md](./02_アフィリエイト提携状況.md) の「転職・キャリア」節が真実源。
+
+**検証ポイント（Phase 3 で計測）**: 試験概要 2 本は informational で母数を取り、年収/転職/未経験 3 本は transactional でクリック・無料登録 CVR を取る設計。CVR が出れば GKS 公称値（内定率86% 等）をカード文言に追加し訴求強化を検討。
+
 ---
 
 ## Phase 2: SEO/CTR 改善（労力中・効果遅延）
