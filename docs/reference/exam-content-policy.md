@@ -153,6 +153,22 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/authoring/improve-article --mode verify/SKILL.md`）に行を追加
 6. このファイル（exam-content-policy.md）と `agents-registry.md` を更新
 
+### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設）
+
+- groups = guide / textbook / primary。variant=civil / order=2.6 / **visible:false**（下書き段階）。
+- **テキスト**: 原典（技報堂スキャン）の文を写さず独自散文で合成し、図・写真のみクロップ→webp 埋込（`<ArticleImage>`）。図は当面ラフな頁領域クロップ。公開前に精密トリミング/SVG化＋著作権差替が前提。
+- **過去問（択一・厳選101問）**: スキャンが頁により回転不統一・約6割が図依存・逐語誤り頻発のため、**rotate→transcribe→verify→self-repair（自己修復ループ）＋図依存問題の図クロップ＋正答は頁内解説＋独立解答で確定** という正攻法で整備（98問・図59点、`primary-exercise-01〜08`, 全 `published:false`）。低確度正答は記事冒頭の下書き注記 Callout に明示。**原典＝技報堂の問題は JCI 過去問の再録のため、公開には権利確認が必須＝当面 draft 固定**。低確度問題の人手校正・欠番(48/56/85)補完・図トリミングが公開前の残課題。詳細 → `docs/handoffs/2026-05-30-concrete-diagnostician.md`。
+- スキャンは頁により回転が不統一（問題頁90°回転 / 解答頁正立）。
+
+### 新資格メモ: コンクリート主任技師（`concrete-chief-engineer`、2026-05-30 公開）
+
+- groups = guide / textbook / primary（第1次/第2次区分なし、四肢択一＋小論文の単一試験）。variant=civil / order=2.5。
+- **公開構成（2024年版底本）**: ガイド3 + 過去問8分野（材料/性質/耐久性/配合設計/製造QC/施工/製品/構造設計, 令和元〜5年度118問）+ テキスト8分野 = 計19記事 published:true。診断士と異なり**出荷済**。差は「①問題の図依存率が低く逐語転記が安定 ②正答が各問末尾 [正解(n)] にあり確定可能」だったこと。
+- **図依存問題の図クロップ手法（実証済）**: 事前レンダリング済み頁 PNG をサブエージェントに読ませ、図の外接矩形を**「頁全体に対する割合 x/y/w/h」で返させる**→ 親が `magick -crop {w*W}x{h*H}+{x*W}+{y*H}` で実ピクセル切り出し→ `-quality 82` で webp。選択肢が図の問題は「問題図（全選択肢/全曲線）」を収録し**解説図（正答強調）は除外**。データ表（計量値・配合条件等）は4列超でも**インライン markdown 転記**（モバイルより完全性優先、過去問の慣行）。手順 → [[reference-scanned-pdf-pipeline]]。
+- **テキスト合成手法（実証済）**: 各分野の過去問解説を**唯一の主根拠**にサブエージェント（model:sonnet）が論点別の散文学習教材を生成（問題番号・正答に言及しない）。生成後に**2エージェントで過去問解説と突合する fact-check** を必ず実施（捏造JIS規格番号・矛盾数値を検出。今回 HIGH 0）。frontmatter は `group:textbook` / `section:N` / tags=`[textbook, concrete-chief-engineer]`。
+- **公開前 必須QA**: ①内部整合性（`正答番号` と各肢 ✅/❌ マーカー・設問極性の一致。マーカー反転・正答欠落を全問チェック）②図依存問題の正答が計算で再現できるか（今回 R元問2・R5問7 の「正答別頁で未確定」を容積法/図読取りで確定）。
+- **残**: 2022年版（H29-30）の追加収録は未着手（過去問の年度拡張）。
+
 ---
 
 **真実源参照**: このファイル内の情報が他のドキュメント（CLAUDE.md・SKILL.md・エージェント定義）と矛盾した場合、`docs/reference/content-principles.md` > このファイル > 他 の優先順位で判断する。
