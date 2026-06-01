@@ -52,18 +52,23 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 
 ### Phase A — PE で型を確立
 - [x] **A0**: 本戦略doc 作成（2026-06-02）
-- [ ] **A1（最優先ステップ）**: 「技術士 一般部門と総合技術監理部門の違い」guide 新設（中立比較リファレンス。`general-overview`/`exam-index` とは別角度、note `一般部門との違い` とは別粒度）
-- [ ] A2: PE guide クラスタの空白埋め（差別化前提）— 公務員が総監を取る意味 / 自治体技術職員の資格地図（site 0本）/ 定年後資格戦略（`second-career` と相補）。各 note フリー記事を deep-dive 誘導先に
-- [ ] A3: `exam-index` hub を強化し新 guide 群を spoke として相互リンク（L2）
-- [ ] A4: note→サイト deep-link 監査（L3）。新 canonical ページへ張り替え
-- [ ] A5: 高imp低CTR トップ10の seoTitle/description リライト（L4）
+- [x] **A1**: `general-vs-comprehensive`（一般部門と総監の違い）新設（中立比較リファレンス・note funnel）— 2026-06-02
+- [x] **A2**: PE guide 3本新設（差別化）— `public-engineer-qualification-map`（資格地図・site 0本）/ `public-servant-comprehensive-merit`（公務員メリット・発注者視点）/ `private-engineer-comprehensive-merit`（民間メリット・経審）— 2026-06-02（workflow）
+- [x] **A3**: `exam-index` hub に「関連ガイド」節を追加し新 guide 4本へ spoke 配線 — 2026-06-02
+- [ ] A4: note→サイト deep-link 監査（L3）— **保留**（note 現状維持の方針。新 canonical ページへの張替えは note 編集を伴うため次段階で判断）。現状 note→サイト被リンクは75本で健全
+- [x] **A5**: 高imp低CTR 7ページの seoTitle/description リライト（jisec / break-even-point / conformity-bias / cost-driver / digital-rights / push-production / tripod-theory）— 2026-06-02（workflow）
 
 ### Phase B — Civil 横展開（型を流用）
-- [ ] B1: 空白 guide を Civil に複製（難易度・合格率の実態 等。既存 exam-overview/study-plan/career と相補）
-- [ ] B2: Civil 内部クラスタ ＋ civil 経験記述マガジン note → サイト deep-link
+- [x] **B1**: Civil guide 2本新設 — `civil-construction-1-guide-1-vs-2`（1級と2級の違い）/ `civil-construction-1-guide-vs-pe`（施工管理技士と技術士の違い・civil↔PE 橋渡し）— 2026-06-02（workflow）
+- [ ] B2: Civil 内部クラスタ拡充 ＋ civil 経験記述マガジン note → サイト deep-link（次段階）
 
 ### Phase C — 計測
 - [ ] C1: 2–4週後 GSC 再計測（impressions/CTR/position）。効いた型を増産、効かない型は撤退
+
+### 実装メモ（2026-06-02）
+- A1–A5・B1 を 1 セッションで実装（A2/A5/B1 は workflow で並行生成 → 親が QA・hub配線・索引・コミット統合）。
+- QA で検出・修正: guide-1-vs-2 の資格手当具体額 → site 方針（一律相場なし）へ／guide-1-vs-2 の太字崩れ（経審）→ 括弧外出し／guide-vs-pe 誤字。
+- 全6新ページ dev curl HTTP200・コンパイル/太字/文字化けなしを確認。commit: cd5641935 / b3cd98922 / 31ee0bf35（develop, 未push）。
 
 ## 参照
 
