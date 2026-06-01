@@ -41,6 +41,19 @@
     "defaultMode": "bypassPermissions"
   },
   "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/x-sync-status.mjs --dry 2>/dev/null || true",
+            "timeout": 60,
+            "statusMessage": "X 投稿状況を確認中...",
+            "async": true
+          }
+        ]
+      }
+    ],
     "PreToolUse": [
       {
         "matcher": "Bash",
