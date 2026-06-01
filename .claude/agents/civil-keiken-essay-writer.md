@@ -63,6 +63,16 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 
 `writeMdxFile` 経由（CRLF 統一）。`docs/note/{級}/magazines/{magazine}/{slug}/article.md`。
 
+### Step 6: note-lint ゲート（返却前・必須）
+
+書き込み後、必ず `node scripts/note-lint.mjs <書いた article.md の絶対パス>` を実行し **exit 0（OK）** を確認してから完了報告する。検出される note 非互換は次の3つで、いずれも返却前に自己修正する。
+
+- **markdown 表（pipe 表）**: note 非対応 → 箇条書き（見出し語を `**太字**`）へ変換
+- **太字内全角括弧 Pattern A**: note で描画崩れ → `**A 管理 × B 管理**（補足）` の形（全角括弧は必ず太字 `**` の外）へ
+- **U+FFFD（文字化け）**: 該当箇所を修正
+
+違反が残ったまま返却しない（pre-commit でも自動ブロックされるが、ここで潰してから返す）。
+
 ## ルール
 
 ### やるべきこと

@@ -73,9 +73,10 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
    F="docs/note/{slug}/article.md"
    echo "総リンク数: $(grep -oE '\[[^]]+\]\(https://doboku-note.com/docs/pe-[^)]+\)' "$F" | wc -l)"
    echo "ユニーク slug: $(grep -oE '/docs/pe-comprehensive-management-[a-z0-9-]+' "$F" | sort -u | wc -l)"
-   echo "pipe=$(grep -c '^|' "$F") blockquote=$(grep -c '^>' "$F") U+FFFD=$(grep -cP '\xef\xbf\xbd' "$F")"
+   # note 非互換ゲート（markdown表 / 太字内全角括弧 Pattern A / U+FFFD を一括検査・exit 0 必須）
+   node scripts/note-lint.mjs "$F"
    ```
-   期待値: `pipe=0 blockquote=0 U+FFFD=0`
+   期待値: `note-lint: ... OK`（exit 0）。違反が出たら返却前に必ず修正（表→箇条書き、太字内全角括弧→`**A**（B）`、文字化け修正）。
 5. 各 slug が `.local/r2/posts/pe-comprehensive-management/{slug}/article.mdx` で `published: true` になっているか確認（404 防止）
 
 ## 報告フォーマット（最後に必ず返す）
@@ -101,7 +102,7 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
 
 ### 検証結果
 
-pipe=0 blockquote=0 U+FFFD=0 / 全 slug 公開済み → OK
+note-lint OK（表/太字内全角括弧/文字化け 0）/ 全 slug 公開済み → OK
 ```
 
 ## 制約
