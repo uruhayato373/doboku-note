@@ -219,11 +219,11 @@ const MAGAZINES_RAW = {
   },
 
   // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/
-  // 過去問の年度別模範答案集（テーマ別の civil-1-experience-essay と対）。published: false。
+  // 過去問の年度別模範答案集（テーマ別の civil-1-experience-essay と対）。2026-06-02 note 公開。
   'civil-1-pastexam-essay': {
     id: 'civil-1-pastexam-essay',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m3a578194a0a9',
     title: '1級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
     description:
       '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対し各年度3工事（想定工事①②③）のフル模範答案（監理技術者レベル）＋置換ガイド＋採点者視点を収録。自分の工事に近い例を選べる。令和6年度以降の2テーマ必答にも対応。',
