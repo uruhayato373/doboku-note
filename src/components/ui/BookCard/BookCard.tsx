@@ -32,6 +32,14 @@ interface BookCardProps {
  *   useEffect 内で手動ロード後に load イベントを再ディスパッチして F を起動する。
  */
 
+/**
+ * もしもアフィリエイト「かんたんリンク」の一括表示フラグ。
+ * false の間はどの ASIN でも何も描画せず、moshimo bundle.js もロードしない。
+ * affiliate-books.json の payload と MDX 側の <BookCard /> 配置はそのまま残すため、
+ * true に戻すだけで全カードが復活する（一時非表示用のキルスイッチ）。
+ */
+const AFFILIATE_LINKS_ENABLED = false;
+
 const BUNDLE_URL = "https://dn.msmstatic.com/site/cardlink/bundle.js?20220329";
 const SCRIPT_ID = "msmaflink";
 
@@ -100,11 +108,16 @@ export default function BookCard({ asin }: BookCardProps) {
       : undefined;
 
   useEffect(() => {
+    if (!AFFILIATE_LINKS_ENABLED) return;
     if (!payload || !eid) return;
     ensureLoaderQueue();
     (window as MsmaflinkWindow).msmaflink?.(payload);
     loadBundleOnce();
   }, [eid, payload]);
+
+  if (!AFFILIATE_LINKS_ENABLED) {
+    return null;
+  }
 
   if (!payload || typeof payload !== "object" || !eid) {
     return null;
