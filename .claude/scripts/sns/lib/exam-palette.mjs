@@ -38,7 +38,8 @@ export function officialNameLines(key) {
   const e = resolveExam(key);
   const label = e.label;
   if (e.slug === 'pe-comprehensive') {
-    return [ { text: '技術士', size: 46 }, { text: '総合技術監理部門', size: 84 } ];
+    // 1行表記（全試験1行で統一・帯内すっきり）。括弧を外しスペース区切り。
+    return [ { text: '技術士 総合技術監理部門', size: 72 } ];
   }
   // 1行。文字数で size を auto-fit（usable≈960px）
   const n = [...label].length;
