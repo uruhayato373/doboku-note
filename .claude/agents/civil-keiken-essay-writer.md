@@ -51,9 +51,9 @@ model: sonnet
 
 ### Step 3: 執筆
 
-frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign` / `noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` / `coverTitle` / `price`）＋本文。本文構成は既存記事のテンプレに合わせる（こんな人 / わかること / マガジン案内 / 失格注意 / 採点者ポイント or 問題文再掲 / 完成答案 / もう一方の組合せ早見 / 置換ガイド / NG→OK or 採点者視点 / 出典(pastexam) / 関連リンク / note 投稿用ハッシュタグ）。
+frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign` / `noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` / `coverTitle` / `price`）＋本文。本文構成は既存記事のテンプレに合わせる（こんな人 / わかること / マガジン案内 / 失格注意 / 採点者ポイント or 問題文再掲 / 完成答案 / もう一方の組合せ早見 / 置換ガイド / NG→OK or 採点者視点 / 出典(pastexam) / 関連リンク）。
 
-- **note 投稿用ハッシュタグ節（末尾）**: 関連リンクの後に `**note 投稿用ハッシュタグ**`（太字内に全角括弧を入れない＝note-lint Pattern A 回避）＋ `#tag` 行を置く。半角 `#`・タグ間は半角スペースのみ（`# ` だと markdown 見出し化するので `#` 直後は非空白）。基底タグ（資格名・各種検定表記・5管理・学習/キャリア・土木ドメイン・note 文化 約75）＋年度/工種別（年度表記・想定工事の工種 約15）で **80–90 個**。リンクカード用にマガジン URL を貼る場合も URL 単独行で置く（[[feedback_note_link_card]]）。
+- **ハッシュタグは本文に入れない**。note タグの SoT は別ファイル `{記事dir}/hashtags.txt`（既存全 note 記事の規約。`/note-hashtags` 準拠・**単一行 space 区切り**・`#tag` のみ・最大99・80–90個目安）。記事生成後に `/note-hashtags {slug}` で生成する。マガジン/関連記事への導線リンクカード用 URL のみ本文に単独行で置く（[[feedback_note_link_card]]）。
 
 **解答欄字数の厳守（最重要・商品価値の核）**: 各設問の答案本文は本番の解答欄（罫線・約25字/行）に**そのまま書き写せる字数**で書く。これを超えると「完成答案・雛形」として機能しない。真実源は `.claude/config/keiken-answer-sheet-limits.json`、各設問の目標は **上限の約95%以内**（余裕を残す）：
 - 現行2テーマ(R06〜) 各区画 = 8行 → **190字以内**（上限200）
