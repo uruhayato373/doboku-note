@@ -278,8 +278,8 @@ const MAGAZINES_RAW = {
   // 全10記事生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)。published: false（note公開で noteUrl 取得後 true へ）。カバー未生成。
   'civil-1-combo-essay': {
     id: 'civil-1-combo-essay',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m74cfd7c695d6',
     title: '1級土木 施工経験記述｜2テーマ組合せ大全（5管理 全10組合せ）',
     description:
       '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の2テーマ組合せ大全。令和6年度以降の現行形式（5管理から2テーマが選ばれ、同一工事で設問1・設問2に書き分ける・同一内容不可）に対し、C(5,2)=10通りの全組合せを網羅。各組合せに別現場・別工種の想定工事①②③のフル模範答案（監理技術者レベル）を収録し、どの2テーマが出ても自分の経験工事に当てはめて書ける。投機的な予想ではなく現行形式の全網羅。',
