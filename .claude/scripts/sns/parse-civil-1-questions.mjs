@@ -52,7 +52,31 @@ function parseArticle(dir) {
     // 正答
     const corrM = b.match(/\*\*正答[：:]\s*([1-4])\*\*/);
     const correct = corrM ? parseInt(corrM[1], 10) : null;
-    out.push({ id: `${year}-${part.toLowerCase()}-${String(no).padStart(2, '0')}`, no, part, body: stem, options, correct, igEligible });
+    // 解説（details 内の `N. 〜 ✅/❌` を選択肢別に抽出）
+    const detailsM = b.match(/<details>([\s\S]*?)<\/details>/);
+    const optionExplanations = [];
+    if (detailsM) {
+      const dlines = detailsM[1].split(/\r?\n/);
+      let cur = null;
+      for (const ln of dlines) {
+        const hm = ln.match(/^\s*([1-4])[.．]\s+(.*)$/);
+        if (hm) {
+          if (cur) optionExplanations.push(cur);
+          cur = { num: parseInt(hm[1], 10), text: hm[2] };
+        } else if (cur && ln.trim() && !/^\*\*正答/.test(ln)) {
+          cur.text += ' ' + ln.trim();
+        }
+      }
+      if (cur) optionExplanations.push(cur);
+      for (const oe of optionExplanations) {
+        oe.correct = /❌/.test(oe.text) ? false : (/✅/.test(oe.text) ? true : null);
+        oe.text = oe.text.replace(/[✅❌]/g, '').replace(/\s+/g, ' ').trim();
+      }
+    }
+    const correctText = (correct && options[correct - 1]) ? options[correct - 1].text : null;
+    // packEligible: IGスライド化に必要な要素が完全に揃った問題のみ（テキストのみ＋選択肢4＋解説4＋正答）
+    const packEligible = igEligible && options.length === 4 && optionExplanations.length === 4 && correct != null;
+    out.push({ id: `${year}-${part.toLowerCase()}-${String(no).padStart(2, '0')}`, no, part, body: stem, options, correct, correctText, optionExplanations, igEligible, packEligible });
   }
   return { year, part, questions: out };
 }
@@ -73,6 +97,9 @@ const tot = years.reduce((s, y) => s + y.questions.length, 0);
 const ige = years.reduce((s, y) => s + y.questions.filter((q) => q.igEligible).length, 0);
 const noCorrect = years.reduce((s, y) => s + y.questions.filter((q) => q.correct == null).length, 0);
 const badOpts = years.reduce((s, y) => s + y.questions.filter((q) => q.igEligible && q.options.length !== 4).length, 0);
+const badExpl = years.reduce((s, y) => s + y.questions.filter((q) => q.igEligible && q.optionExplanations.length !== 4).length, 0);
 console.log(`年度: ${years.map((y) => `${y.year}(${y.questions.length})`).join(' ')}`);
-console.log(`総問題: ${tot} / igEligible(テキストのみ): ${ige} / 正答抽出失敗: ${noCorrect} / IG対象で選択肢数≠4: ${badOpts}`);
+const packOk = years.reduce((s, y) => s + y.questions.filter((q) => q.packEligible).length, 0);
+console.log(`総問題: ${tot} / igEligible(テキストのみ): ${ige} / 正答抽出失敗: ${noCorrect} / IG対象で選択肢数≠4: ${badOpts} / IG対象で解説数≠4: ${badExpl}`);
+console.log(`packEligible(完全クリーン＝パック生成対象): ${packOk}（≒ ${Math.floor(packOk / 4)} パック分）`);
 console.log(`出力: ${OUT}`);
