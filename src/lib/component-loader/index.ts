@@ -44,6 +44,7 @@ export async function getCommonComponents() {
     PdcaCycle: (await import("@/components/ui/PdcaCycle/PdcaCycle")).default,
     CourseAffiliate: (await import("@/components/ui/CourseAffiliate/CourseAffiliate")).default,
     CareerAffiliate: (await import("@/components/ui/CareerAffiliate/CareerAffiliate")).default,
+    DokugakuBanner: (await import("@/components/ui/DokugakuBanner/DokugakuBanner")).default,
     BookCard: (await import("@/components/ui/BookCard/BookCard")).default,
     Question: (await import("@/components/ui/ChatBubble/Question")).default,
     Answer: (await import("@/components/ui/ChatBubble/Answer")).default,
