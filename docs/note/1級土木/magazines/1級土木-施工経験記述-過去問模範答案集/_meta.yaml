@@ -20,17 +20,17 @@ articlePrice: 600
 articleCount: 5
 singleTotal: 3000
 discountPercent: 17
-# noteUrl はマガジン URL（個別記事 n/ URL を取得したら各 slug に差し替え）
+# noteUrl は各記事の個別 URL（n/...）。magazineUrl はマガジン全体（m/...）
 magazineUrl: "https://note.com/dobokunote/m/m3a578194a0a9"
 articles:
   - slug: R03
-    noteUrl: "https://note.com/dobokunote/m/m3a578194a0a9"
+    noteUrl: "https://note.com/dobokunote/n/n970211edffaf?magazine_key=m3a578194a0a9"
   - slug: R04
-    noteUrl: "https://note.com/dobokunote/m/m3a578194a0a9"
+    noteUrl: "https://note.com/dobokunote/n/nf953cb5b1f09?magazine_key=m3a578194a0a9"
   - slug: R05
-    noteUrl: "https://note.com/dobokunote/m/m3a578194a0a9"
+    noteUrl: "https://note.com/dobokunote/n/n8d30a6dfc7e7?magazine_key=m3a578194a0a9"
   - slug: R06
-    noteUrl: "https://note.com/dobokunote/m/m3a578194a0a9"
+    noteUrl: "https://note.com/dobokunote/n/nded084d4f646?magazine_key=m3a578194a0a9"
   - slug: R07
-    noteUrl: "https://note.com/dobokunote/m/m3a578194a0a9"
+    noteUrl: "https://note.com/dobokunote/n/n9dbc2ecdf84b?magazine_key=m3a578194a0a9"
 publishTiming: "公開済（2026-06-02）"
