@@ -28,8 +28,14 @@
  */
 
 import { readFileSync, writeFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs';
-import { join, basename, resolve } from 'node:path';
+import { join, basename, resolve, dirname } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { renderSlide } from '#lib/sns-common/slide-render.mjs';
+
+// .claude/scripts/instagram/ → リポジトリルートへ 3 階層
+const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '../../..');
+const { renderExamCoverIg } = await import(pathToFileURL(resolve(ROOT, '.claude/scripts/sns/templates/exam-cover-ig.mjs')).href);
+const { svgToPng } = await import(pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/svg-to-png.mjs')).href);
 
 const target = process.argv[2];
 if (!target) {
@@ -72,19 +78,34 @@ const coverSlide = data.slides.find((s) => s.type === 'cover');
 if (coverSlide) {
   const examYear = data._meta?.year || basename(resolve(packDir, '..'));
   const examPackNum = data._meta?.packNum || basename(packDir).replace('pack-', '');
-  const storiesCoverData = {
-    ...coverSlide,
-    year: examYear,
-    packNum: examPackNum,
-    pageIndex: 1,
-    totalPages: data.slides.length,
-    mode: 'stories',  // quiz-slides.mjs の buildQuizCover が swipeTextStories に分岐
-  };
-  const png = await renderSlide({
-    width: 1080,
-    height: 1920,
-    slide: { type: 'quiz-cover', data: storiesCoverData },
-  });
+  let png;
+  if (data._meta?.exam) {
+    // 多資格: 試験識別カバー（stories レイアウト・上下 UI 域を確保）
+    const svg = renderExamCoverIg({
+      exam: data._meta.examDir || data._meta.exam,
+      tag: coverSlide.sectionTag || '過去問',
+      year: coverSlide.title || examYear,
+      fmtLabel: data._meta.fmtLabel || coverSlide.subtitle || '',
+      page: [1, data.slides.length],
+      format: 'stories',
+    });
+    png = await svgToPng(svg, { width: 1080 });
+  } else {
+    // 従来（総監レガシー等 _meta.exam 無し）: quiz-cover の stories モード
+    const storiesCoverData = {
+      ...coverSlide,
+      year: examYear,
+      packNum: examPackNum,
+      pageIndex: 1,
+      totalPages: data.slides.length,
+      mode: 'stories',  // quiz-slides.mjs の buildQuizCover が swipeTextStories に分岐
+    };
+    png = await renderSlide({
+      width: 1080,
+      height: 1920,
+      slide: { type: 'quiz-cover', data: storiesCoverData },
+    });
+  }
   writeFileSync(join(storiesImgDir, '01-cover.png'), png);
 }
 

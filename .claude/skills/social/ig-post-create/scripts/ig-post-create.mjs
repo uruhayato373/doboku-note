@@ -404,9 +404,9 @@ for (const size of sizes) {
   for (const { file, slide, examCover } of SLIDES) {
     const start = Date.now();
     let png;
-    if (examCover && size.name === 'carousel') {
-      // 試験識別カバー（1080×1350 carousel 専用）
-      const svg = renderExamCoverIg({ ...examCover });
+    if (examCover && (size.name === 'carousel' || size.name === 'reels')) {
+      // 試験識別カバー（carousel 1080×1350 / reels 1080×1920）。format でレイアウト分岐
+      const svg = renderExamCoverIg({ ...examCover, format: size.name });
       png = await svgToPng(svg, { width: size.width });
     } else {
       png = await renderSlide({ width: size.width, height: size.height, slide });
