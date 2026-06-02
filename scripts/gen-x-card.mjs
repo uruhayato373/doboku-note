@@ -33,6 +33,19 @@ const CATEGORY_COLORS = {
 };
 const DEFAULT_COLORS = { bg: "#2e6da4", fill: "#e8f0fe" };
 
+// 試験別カード設定（多資格）。総監は従来どおり管理分野色＋「総監キーワード解説」。
+// 1級/2級は試験色固定＋「{1級/2級}土木 過去問」。色は x-post-policy.md §7 準拠。
+const EXAM_CONFIG = {
+  "pe-comprehensive": { headerLabel: "総監キーワード解説", titleRe: /【総監キーワード解説】(.+?) ?#\d+/, badge: null, colors: null },
+  "civil-1": { headerLabel: "1級土木 過去問", titleRe: /【1級土木 過去問】(.+?) ?#\d+/, badge: "1級土木", colors: { bg: "#155293", fill: "#e7f0fa" } },
+  "civil-2": { headerLabel: "2級土木 過去問", titleRe: /【2級土木 過去問】(.+?) ?#\d+/, badge: "2級土木", colors: { bg: "#1c5038", fill: "#e8f3ec" } },
+};
+function detectExam(folderName) {
+  if (/-civil1-|1級/.test(folderName)) return "civil-1";
+  if (/-civil2-|2級/.test(folderName)) return "civil-2";
+  return "pe-comprehensive"; // 既定（識別子なしの既存総監ドラフトを含む）
+}
+
 // ─── テキスト処理 ────────────────────────────────────────────────────────────
 
 function escapeXml(str) {
@@ -73,7 +86,8 @@ function wrapJa(text, maxChars = 32) {
 
 // ─── tweets.md パース ────────────────────────────────────────────────────────
 
-function parseTweetsFile(content) {
+function parseTweetsFile(content, exam = "pe-comprehensive") {
+  const cfg = EXAM_CONFIG[exam] || EXAM_CONFIG["pe-comprehensive"];
   const blocks = content.split(/^## Tweet /m).filter((_, i) => i > 0);
   return blocks
     .map((block) => {
@@ -84,22 +98,19 @@ function parseTweetsFile(content) {
       const num = parseInt(headerMatch[1]);
       const sectionTitle = headerMatch[2].trim();
 
-      // 管理分野をハッシュタグから検出
-      const hashtagLine = lines
-        .filter((l) => /^#[^\d]/.test(l.trim()))
-        .join(" ");
+      // 管理分野をハッシュタグから検出（総監のみ。1級/2級は試験色固定）
       let category = null;
-      for (const cat of Object.keys(CATEGORY_COLORS)) {
-        if (hashtagLine.includes(cat)) {
-          category = cat;
-          break;
+      if (exam === "pe-comprehensive") {
+        const hashtagLine = lines.filter((l) => /^#[^\d]/.test(l.trim())).join(" ");
+        for (const cat of Object.keys(CATEGORY_COLORS)) {
+          if (hashtagLine.includes(cat)) { category = cat; break; }
         }
       }
 
-      // キーワード名を 【総監キーワード解説】<名前> #N パターンから抽出
+      // 主題（キーワード名/問題主題）を試験別ヘッダパターンから抽出
       const allText = lines.join("\n");
       let keywordName = "";
-      const kwMatch = allText.match(/【総監キーワード解説】(.+?) ?#\d+/);
+      const kwMatch = allText.match(cfg.titleRe);
       if (kwMatch) keywordName = kwMatch[1].trim();
 
       // 本文コンテンツ（先頭ヘッダ行・URL・ハッシュタグ・区切り線を除外）
@@ -107,23 +118,26 @@ function parseTweetsFile(content) {
         const t = l.trim();
         if (!t) return false;
         if (t === "---") return false;
-        if (/^【総監/.test(t)) return false;
+        if (/^【/.test(t)) return false; // 試験ラベル行（【…】）を除外
         if (/^#[^\d]/.test(t)) return false;
         if (/^https?:\/\//.test(t)) return false;
         if (/^(解説|詳しい解説|全解説) →/.test(t)) return false;
         return true;
       });
 
-      return { num, sectionTitle, keywordName, category, contentLines };
+      return { num, sectionTitle, keywordName, category, contentLines, exam };
     })
     .filter(Boolean);
 }
 
 // ─── SVG 生成 ────────────────────────────────────────────────────────────────
 
-function buildSvg({ num, sectionTitle, keywordName, category, contentLines }) {
-  const { bg, fill } = CATEGORY_COLORS[category] || DEFAULT_COLORS;
-  const catLabel = category || "総合技術監理";
+function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam = "pe-comprehensive" }) {
+  const cfg = EXAM_CONFIG[exam] || EXAM_CONFIG["pe-comprehensive"];
+  // 1級/2級は試験色固定、総監は管理分野色（無ければデフォルト）
+  const { bg, fill } = cfg.colors || CATEGORY_COLORS[category] || DEFAULT_COLORS;
+  const headerLabel = cfg.headerLabel;
+  const catLabel = cfg.badge || category || "総合技術監理";
   const badgeW = Math.max(100, catLabel.length * 23 + 40);
   const badgeX = 1160 - badgeW;
 
@@ -160,7 +174,7 @@ function buildSvg({ num, sectionTitle, keywordName, category, contentLines }) {
 
   <!-- Header band -->
   <rect width="1200" height="80" fill="${bg}"/>
-  <text x="40" y="40" font-family="${FONT}" font-size="28" font-weight="700" fill="white" dominant-baseline="middle">総監キーワード解説 #${num}</text>
+  <text x="40" y="40" font-family="${FONT}" font-size="28" font-weight="700" fill="white" dominant-baseline="middle">${escapeXml(headerLabel)} #${num}</text>
 
   <!-- Category badge -->
   <rect x="${badgeX}" y="18" width="${badgeW}" height="44" rx="22" fill="white"/>
@@ -219,10 +233,11 @@ async function generateForDraft(draftId, force = false) {
   const imgDir = join(dir, "img");
   mkdirSync(imgDir, { recursive: true });
 
+  const exam = detectExam(name);
   const content = readFileSync(tweetsPath, "utf8");
-  const tweets = parseTweetsFile(content);
+  const tweets = parseTweetsFile(content, exam);
 
-  console.log(`\n📁 ${name} (${tweets.length} tweets, slug: ${slug})`);
+  console.log(`\n📁 ${name} (${tweets.length} tweets, slug: ${slug}, exam: ${exam})`);
 
   for (const tweet of tweets) {
     const nn = String(tweet.num).padStart(2, "0");

@@ -30,6 +30,7 @@ title: サブエージェント詳細レジストリ
 | `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
 | `/civil-keiken-magazine`                  | `civil-keiken-essay-writer`, `civil-keiken-essay-qa`            | 施工経験記述マガジン模範答案の生成 → 5軸採点ループ |
 | note カバーロールアウト（親が起動）              | `note-cover-writer`                                              | 記事の G2 `cover:` ブロック執筆 → `add-note-cover.mjs` → 再生成 |
+| X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
@@ -76,6 +77,8 @@ title: サブエージェント詳細レジストリ
 | `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア）。IG UI セーフエリア侵入（overline が y<200）・本文の y>=1280 侵入・06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `magazine-pdf-builder`         | note マガジンの article.md を「問題文＋解答」紙用 PDF に変換する spec(JSON) を作成し `scripts/magazine-to-pdf.mjs` を実行。新規/構造不明マガジンの include/exclude 設計が主戦場。複数解答（A/B案）両収録を社則化 | Generator    | sonnet  | `/magazine-to-pdf` 連携、`scripts/magazine-to-pdf.mjs` DSL 準拠 | ✅ 運用中（2026-05-29 起動） |
 | `note-cover-writer`            | note 記事の G2 カバー frontmatter（`cover:` ブロック）を1記事ずつ執筆。タイトルを leadIn/hi/hiSuffix/banner/chips×3 に分解。色は書かず文字列のみ（試験色は dir から自動）。注入は `add-note-cover.mjs`（CRLF安全）、再生成は `generate-note-covers.mjs` | Generator    | sonnet  | `docs/design-system/note-cover.md` + `note-cover-tokens.json` 参照、`ogp-create` スキルと対 | ✅ 運用中（2026-05-29 起動） |
+| `x-post-writer`                | X(旧Twitter)投稿 `tweets.md` を多資格（総監/1級土木/2級土木）横断で執筆。過去問/キーワードからネタ生成、280 weighted 以下・試験別ベースタグ・サイト誘導を遵守。`social-post`/`create-x-card`/`publish-x` と連携 | Generator    | sonnet  | `docs/reference/x-post-policy.md` 参照、`x-post-qa` と対 | ✅ 運用中（2026-06-02 起動） |
+| `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-02 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
