@@ -270,8 +270,8 @@ const MAGAZINES_RAW = {
   },
 
   // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-予想問題集/
-  // 1級 令和6年度 新方向（条件提示型・日常業務・予想2テーマ組合せ）の予想問題集。published: false。
-  // エージェント駆動（civil-keiken-essay-writer）で生成した初回マガジン。
+  // 2026-06-02 civil-1-combo-essay（2テーマ組合せ大全）へ転換・superseded。原稿は archive として残置。
+  // 予想（条件提示型・日常業務）は出題実績のない投機のため、現行形式の全網羅に置換。published: false のまま。
   'civil-1-yosou-essay': {
     id: 'civil-1-yosou-essay',
     published: false,
@@ -284,6 +284,24 @@ const MAGAZINES_RAW = {
       '条件提示型・日常業務・予想2テーマ組合せ（監理技術者レベル）。R6新方向に特化。',
     imageUrl: '/images/magazines/civil-1-yosou-essay-cover.webp',
     price: '¥1,480（3本セット）',
+    badge: 'note 限定',
+  },
+
+  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/
+  // 予想問題集を転換。5管理の2テーマ全10組合せ × 想定工事①②③ で現行形式(R06+)を全網羅。
+  // 全10記事生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)。published: false（note公開で noteUrl 取得後 true へ）。カバー未生成。
+  'civil-1-combo-essay': {
+    id: 'civil-1-combo-essay',
+    published: false,
+    noteUrl: '',
+    title: '1級土木 施工経験記述｜2テーマ組合せ大全（5管理 全10組合せ）',
+    description:
+      '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の2テーマ組合せ大全。令和6年度以降の現行形式（5管理から2テーマが選ばれ、同一工事で設問1・設問2に書き分ける・同一内容不可）に対し、C(5,2)=10通りの全組合せを網羅。各組合せに別現場・別工種の想定工事①②③のフル模範答案（監理技術者レベル）を収録し、どの2テーマが出ても自分の経験工事に当てはめて書ける。投機的な予想ではなく現行形式の全網羅。',
+    shortTitle: '1級土木 施工経験記述 2テーマ組合せ大全',
+    shortDescription:
+      '5管理の2テーマ全10組合せ × 想定工事①②③ フル模範答案。現行形式（R06+）を全網羅。',
+    imageUrl: '/images/magazines/civil-1-combo-essay-cover.webp',
+    price: '¥3,980（10本セット、34%OFF）',
     badge: 'note 限定',
   },
 
