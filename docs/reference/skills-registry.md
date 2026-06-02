@@ -29,7 +29,8 @@ title: スキル ガバナンス記録
 
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
 > 2026-05-30 追加: `management/routines`（クラウドルーティン /schedule の一覧・監査。重複・残骸 one-shot・平文シークレット・cron 衝突を検出。weekly-review 重複作成事故[2026-05-30]の再発防止。create 前 list-first を運用ルール化）。
-> 2026-06-02 追加: `quality/keiken-charcount`（1級・2級土木 施工経験記述マガジン答案を**解答欄しきい値で字数チェック**する決定論的スクリプト `scripts/keiken-charcount.mjs` ＋ 真実源 config `.claude/config/keiken-answer-sheet-limits.json`）。`**(N)` マーカー型／`### 記述例` 型／`### 〔設問〕(N)` 見出し型を両対応で抽出、リスト記号除去・中身算入。Evaluator `civil-keiken-essay-qa` の字数ゲートとして連携、圧縮は Generator `civil-keiken-essay-writer`。総監記述式用 `note-essay-charcount.mjs`（原稿用紙マス・答案枚数上限）とは**別系統**（こちらは土木の設問別解答欄字数）。**しきい値は暫定値**（公式解答用紙の行数未確定。確定後に config 差し替え＋必須ゲート化）。
+> 2026-06-02 追加: `quality/keiken-charcount`（1級・2級土木 施工経験記述マガジン答案を**解答欄しきい値で字数チェック**する決定論的スクリプト `scripts/keiken-charcount.mjs` ＋ 真実源 config `.claude/config/keiken-answer-sheet-limits.json`）。`**(N)` マーカー型／`### 記述例` 型／`### 〔設問〕(N)` 見出し型を両対応で抽出、リスト記号除去・中身算入、答案直後の太字注釈ラベル（`**○○か△○か**：…`）は除外。Evaluator `civil-keiken-essay-qa` の**必須ゲート**として `--strict` 連携、圧縮は Generator `civil-keiken-essay-writer`。総監記述式用 `note-essay-charcount.mjs`（原稿用紙マス・答案枚数上限）とは**別系統**（こちらは土木の設問別解答欄字数）。
+> 2026-06-02 更新: しきい値を Web調査で出典ベース確定（罫線方式）＋**級別化**（`grades.civil-1`/`civil-2`、パスから級判定）。**1級**=現行R06〜各欄8行×25字=200字／旧形式(1)9行(2)11行(3)7行。**2級**=現行各欄7行×30字=210字（1級と別物。公式R6問題＋2級添削フォームの罫線7本を実画像確認）、旧形式は2級現物の解答用紙が非公開で行数暫定。`severity` 4分類（ok/borderline+10%/要圧縮/大幅×1.3超）。1級13記事・2級6記事の超過答案を圧縮し全件 ×/✗ 0 を確認済。
 
 ---
 
