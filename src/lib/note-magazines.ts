@@ -269,23 +269,9 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-予想問題集/
-  // 2026-06-02 civil-1-combo-essay（2テーマ組合せ大全）へ転換・superseded。原稿は archive として残置。
-  // 予想（条件提示型・日常業務）は出題実績のない投機のため、現行形式の全網羅に置換。published: false のまま。
-  'civil-1-yosou-essay': {
-    id: 'civil-1-yosou-essay',
-    published: false,
-    noteUrl: '',
-    title: '1級土木 施工経験記述｜予想問題集（令和6年度 新方向対応）',
-    description:
-      '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の予想問題集。令和6年度の検定見直しで現れた新方向（条件提示型・監理技術者の日常統括業務・予想2テーマ組合せ）に特化し、予想問題＋模範答案（記述例）＋採点者視点を収録。テーマ別完成答案集（5管理）を補完する。',
-    shortTitle: '1級土木 施工経験記述 予想問題集',
-    shortDescription:
-      '条件提示型・日常業務・予想2テーマ組合せ（監理技術者レベル）。R6新方向に特化。',
-    imageUrl: '/images/magazines/civil-1-yosou-essay-cover.webp',
-    price: '¥1,480（3本セット）',
-    badge: 'note 限定',
-  },
+  // 注: civil-1-yosou-essay（1級 予想問題集）は 2026-06-02 完全退役。
+  //     出題実績のない投機（条件提示型・日常業務）のため、現行形式を全網羅する
+  //     civil-1-combo-essay（2テーマ組合せ大全）へ転換。原稿・SoT・placement・cover を削除。
 
   // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/
   // 予想問題集を転換。5管理の2テーマ全10組合せ × 想定工事①②③ で現行形式(R06+)を全網羅。
