@@ -25,10 +25,11 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **57 スキル**（Phase 2 待機を除く）。
+合計 **58 スキル**（Phase 2 待機を除く）。
 
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
 > 2026-05-30 追加: `management/routines`（クラウドルーティン /schedule の一覧・監査。重複・残骸 one-shot・平文シークレット・cron 衝突を検出。weekly-review 重複作成事故[2026-05-30]の再発防止。create 前 list-first を運用ルール化）。
+> 2026-06-02 追加: `quality/keiken-charcount`（1級・2級土木 施工経験記述マガジン答案を**解答欄しきい値で字数チェック**する決定論的スクリプト `scripts/keiken-charcount.mjs` ＋ 真実源 config `.claude/config/keiken-answer-sheet-limits.json`）。`**(N)` マーカー型／`### 記述例` 型／`### 〔設問〕(N)` 見出し型を両対応で抽出、リスト記号除去・中身算入。Evaluator `civil-keiken-essay-qa` の字数ゲートとして連携、圧縮は Generator `civil-keiken-essay-writer`。総監記述式用 `note-essay-charcount.mjs`（原稿用紙マス・答案枚数上限）とは**別系統**（こちらは土木の設問別解答欄字数）。**しきい値は暫定値**（公式解答用紙の行数未確定。確定後に config 差し替え＋必須ゲート化）。
 
 ---
 

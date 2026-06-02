@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "purpose": "1級・2級土木 第2次検定 問題1（施工経験記述）の解答欄しきい値。scripts/keiken-charcount.mjs が参照する真実源。",
+    "provisional": true,
+    "provisional_note": "現在のしきい値は暫定値。公式解答用紙の行数×1行字数が未確定のため、実測値＋余裕から仮置きしている。公式行数が判明したら maxChars を行数×字/行で差し替え、provisional を false にすること。根拠が確定するまで OVER 判定は『参考』として扱う。",
+    "format_detection": "article 内に **(3) で始まる見出しがあれば legacy3、なければ current2。### 記述例 段落は yosou。",
+    "char_count_rule": "答案段落から markdown 装飾(*` )と <sup> 等タグを除去した実文字数。プレースホルダ 〇 は受験時に同程度桁の数値へ置換されるため文字数に算入する。"
+  },
+  "limits": {
+    "current2_q1": { "maxChars": 250, "label": "現行2テーマ 設問(1) 現場状況＋技術的課題＋検討項目" },
+    "current2_q2": { "maxChars": 290, "label": "現行2テーマ 設問(2) 対応処置＋評価" },
+    "legacy3_q1": { "maxChars": 200, "label": "旧3項目 設問(1) 技術的課題" },
+    "legacy3_q2": { "maxChars": 250, "label": "旧3項目 設問(2) 検討項目・検討理由及び検討内容（番号付きリスト本文を含む）" },
+    "legacy3_q3": { "maxChars": 290, "label": "旧3項目 設問(3) 対応処置と評価" },
+    "yosou": { "maxChars": 330, "label": "予想問題 記述例（日常業務・条件提示型）" }
+  }
+}

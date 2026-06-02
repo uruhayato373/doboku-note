@@ -22,6 +22,7 @@ model: sonnet
 1. 対象 article.md を Read。frontmatter と本文を分離。
 2. 同級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}`（pastexam は対象年度 `secondary-r0X` も）を Read。
 3. 下記5軸を各 0〜3 で採点し、機械チェックを実行。
+4. 字数ゲート: `node scripts/keiken-charcount.mjs <対象 article.md>` を実行し、OVER 件数を確認（しきい値の真実源は `.claude/config/keiken-answer-sheet-limits.json`、現状は暫定値のため OVER は「参考」扱い）。
 
 ## 5軸ルーブリック（各0〜3、合格 = 平均≥2.0 かつ 必須ゲート全通過）
 
@@ -39,6 +40,7 @@ model: sonnet
 - 本文（frontmatter 除く）に価格（¥ / XXX円）・note URL 直書き = 0
 - サイトとの答案重複長文行（frontmatter・リンク除く）= 0
 - pastexam：問題文がサイト `secondary-r0X` と整合（捏造でない）
+- 字数: `keiken-charcount` の OVER（解答欄しきい値超過）を報告。**現状は暫定しきい値のため不合格ゲートにはせず**、超過設問を `issues` に列挙し圧縮を提案（公式行数確定後に必須ゲート化）。
 
 ## 出力
 
@@ -48,6 +50,7 @@ model: sonnet
   "scores": { "dedup": 3, "format": 3, "no_fabrication": 3, "copyright_adapt": 3, "grader_view": 2 },
   "average": 2.8,
   "gates": { "fffd": true, "no_body_price": true, "no_site_dup": true, "problem_text_ok": true },
+  "charcount": { "over": 0, "provisional": true },
   "verdict": "pass",
   "issues": ["指摘があれば具体的に（行・箇所）"]
 }
@@ -62,4 +65,5 @@ model: sonnet
 
 - `.claude/agents/civil-keiken-essay-writer.md`（対の Generator）
 - `docs/reference/content-principles.md`
-- メモリ: [[feedback_exam_pdf_cross_reference]] / [[feedback_no_price_in_mdx_body]]
+- 字数ゲート: `/keiken-charcount`（`scripts/keiken-charcount.mjs` + `.claude/config/keiken-answer-sheet-limits.json`）
+- メモリ: [[feedback_exam_pdf_cross_reference]] / [[feedback_no_price_in_mdx_body]] / [[feedback_essay_char_limit]]
