@@ -8,6 +8,16 @@ notePublishedAt: ""
 noteMagazine: コンクリート主任技師-小論文-模範答案集
 price: 500
 coverTitle: "小論文 模範答案｜耐久性（厳しい環境下の耐久性確保）"
+cover:
+  leadIn: "コンクリート主任技師 小論文"
+  hi: "耐久性"
+  hiSuffix: "模範答案"
+  banner: "厳しい環境下の耐久性確保"
+  meta: "小論文模範答案"
+  chips:
+    - { icon: pen, text: "答案の型で解説" }
+    - { icon: layers, text: "論点整理" }
+    - { icon: check, text: "採点視点つき" }
 ---
 
 # コンクリート主任技師 小論文 模範答案｜厳しい環境下のコンクリート構造物の耐久性確保

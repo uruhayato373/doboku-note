@@ -8,6 +8,16 @@ notePublishedAt: ""
 noteMagazine: コンクリート診断士-記述式-模範答案集
 price: 500
 coverTitle: "問題A 模範答案｜予防保全と維持管理"
+cover:
+  leadIn: "コンクリート診断士 記述式"
+  hi: "問題A"
+  hiSuffix: "模範答案"
+  banner: "予防保全とライフサイクル"
+  meta: "記述式模範答案"
+  chips:
+    - { icon: pen, text: "答案の型で解説" }
+    - { icon: layers, text: "論点整理" }
+    - { icon: check, text: "採点視点つき" }
 ---
 
 # コンクリート診断士 記述式 問題A 模範答案｜予防保全とライフサイクルの視点
