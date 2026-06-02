@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-01T21:05:58.525Z",
+  "generated_at": "2026-06-02T16:21:19.533Z",
   "summary": {
     "total_mdx_files": 910,
     "total_unique_tags": 89,
@@ -1787,9 +1787,9 @@
       ]
     },
     {
-      "name": "建設コンサル",
+      "name": "河川",
       "count": 6,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-river-consultant",
@@ -1800,35 +1800,9 @@
       ]
     },
     {
-      "name": "択一式",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r02-primary",
-        "pe-comprehensive-management-r03-primary",
-        "pe-comprehensive-management-r04-primary",
-        "pe-comprehensive-management-r05-primary",
-        "pe-comprehensive-management-r06-primary",
-        "pe-comprehensive-management-r07-primary"
-      ]
-    },
-    {
-      "name": "施工",
+      "name": "建設コンサル",
       "count": 6,
       "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "河川",
-      "count": 6,
-      "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-r03-essay-river-consultant",
@@ -1849,6 +1823,32 @@
         "pe-comprehensive-management-r05-essay-river-consultant",
         "pe-comprehensive-management-r06-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-river-consultant"
+      ]
+    },
+    {
+      "name": "施工",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-general-contractor"
+      ]
+    },
+    {
+      "name": "択一式",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r02-primary",
+        "pe-comprehensive-management-r03-primary",
+        "pe-comprehensive-management-r04-primary",
+        "pe-comprehensive-management-r05-primary",
+        "pe-comprehensive-management-r06-primary",
+        "pe-comprehensive-management-r07-primary"
       ]
     },
     {
@@ -2159,11 +2159,123 @@
       ]
     },
     {
+      "name": "安全管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-safety-management-pillar"
+      ]
+    },
+    {
+      "name": "気候変動適応",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
+      ]
+    },
+    {
+      "name": "記述式",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-essay-exam-strategy"
+      ]
+    },
+    {
+      "name": "記述式試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "経済安全保障",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-economic-security"
+      ]
+    },
+    {
+      "name": "索引",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-exam-index"
+      ]
+    },
+    {
+      "name": "参考資料",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-whitepaper-study-map"
+      ]
+    },
+    {
+      "name": "社会環境管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-social-environment-management-pillar"
+      ]
+    },
+    {
+      "name": "出願",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-exam-application-guide"
+      ]
+    },
+    {
+      "name": "循環経済",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-circular-economy"
+      ]
+    },
+    {
+      "name": "情報管理",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-information-management-pillar"
+      ]
+    },
+    {
       "name": "人的資源管理",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-human-resource-management-pillar"
+      ]
+    },
+    {
+      "name": "直前対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-last-minute-2026"
+      ]
+    },
+    {
+      "name": "複合災害",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-r8-essay-theme-disaster-recovery"
+      ]
+    },
+    {
+      "name": "流用戦略",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-pattern-cross-year-application"
       ]
     },
     {
@@ -2215,123 +2327,11 @@
       ]
     },
     {
-      "name": "出願",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-exam-application-guide"
-      ]
-    },
-    {
-      "name": "参考資料",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "安全管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-safety-management-pillar"
-      ]
-    },
-    {
-      "name": "循環経済",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-circular-economy"
-      ]
-    },
-    {
-      "name": "情報管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-information-management-pillar"
-      ]
-    },
-    {
-      "name": "気候変動適応",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-climate-adaptation"
-      ]
-    },
-    {
-      "name": "流用戦略",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application"
-      ]
-    },
-    {
-      "name": "直前対策",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "社会環境管理",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-social-environment-management-pillar"
-      ]
-    },
-    {
-      "name": "索引",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-exam-index"
-      ]
-    },
-    {
-      "name": "経済安全保障",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-economic-security"
-      ]
-    },
-    {
       "name": "老朽化インフラ",
       "count": 1,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
-      ]
-    },
-    {
-      "name": "複合災害",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r8-essay-theme-disaster-recovery"
-      ]
-    },
-    {
-      "name": "記述式",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-essay-exam-strategy"
-      ]
-    },
-    {
-      "name": "記述式試験",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-last-minute-2026"
       ]
     }
   ],
@@ -2341,8 +2341,8 @@
     "地方公共団体",
     "ゼネコン",
     "建設コンサル",
-    "施工",
     "砂防",
+    "施工",
     "SWOT分析",
     "データ利活用",
     "少子高齢化",
@@ -2352,18 +2352,18 @@
     "exam-statistics",
     "keyword-analysis",
     "キーワード集",
+    "気候変動適応",
+    "記述式試験",
+    "経済安全保障",
+    "出願",
+    "循環経済",
+    "直前対策",
+    "複合災害",
+    "流用戦略",
     "令和2年度",
     "令和3年度",
     "令和4年度",
-    "出願",
-    "循環経済",
-    "気候変動適応",
-    "流用戦略",
-    "直前対策",
-    "経済安全保障",
-    "老朽化インフラ",
-    "複合災害",
-    "記述式試験"
+    "老朽化インフラ"
   ],
   "typo_candidates": [
     {
