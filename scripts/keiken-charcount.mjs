@@ -24,6 +24,17 @@ const inputs = args.filter((a) => !a.startsWith('--'));
 const config = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8'));
 const LIMITS = config.limits;
 const PROVISIONAL = !!(config._meta && config._meta.provisional);
+const TOL = (config._meta && config._meta.borderline_tolerance) || 0; // +10% は28字/行なら収まる帯
+const SEVERE = 1.3; // ×1.3 超は解答欄に物理的に収まらない
+
+// severity: ok / borderline(≤+tol) / over(要圧縮) / severe(×1.3超)
+function severity(chars, max) {
+  if (max == null) return 'nocat';
+  if (chars <= max) return 'ok';
+  if (chars <= Math.round(max * (1 + TOL))) return 'borderline';
+  if (chars <= Math.round(max * SEVERE)) return 'over';
+  return 'severe';
+}
 
 // --- 走査対象の article.md を集める -----------------------------------------
 function walk(dir, acc) {
@@ -143,8 +154,9 @@ function classify(num, isLegacy3) {
 
 // --- 実行 --------------------------------------------------------------------
 const report = [];
-let overCount = 0;
+const tally = { ok: 0, borderline: 0, over: 0, severe: 0, nocat: 0 };
 let totalParas = 0;
+let gateFails = 0; // borderline 超（over+severe）= 要圧縮
 
 for (const f of files) {
   const body = stripFrontmatter(readFileSync(f, 'utf-8'));
@@ -153,16 +165,20 @@ for (const f of files) {
   const rows = answers.map((a) => {
     const lim = LIMITS[a.category];
     const max = lim ? lim.maxChars : null;
-    const over = max != null && a.chars > max;
-    if (over) overCount++;
+    const sev = severity(a.chars, max);
+    tally[sev]++;
     totalParas++;
-    return { ...a, max, over };
+    if (sev === 'over' || sev === 'severe') gateFails++;
+    return { ...a, max, severity: sev };
   });
   report.push({ file: rel, rows });
 }
 
+const MARK = { ok: '○', borderline: '△', over: '×', severe: '✗', nocat: '?' };
+const LABEL = { ok: 'ok', borderline: 'borderline', over: '要圧縮', severe: '大幅超過', nocat: 'cat?' };
+
 if (asJson) {
-  console.log(JSON.stringify({ provisional: PROVISIONAL, overCount, totalParas, files: report }, null, 2));
+  console.log(JSON.stringify({ provisional: PROVISIONAL, tolerance: TOL, tally, gateFails, totalParas, files: report }, null, 2));
 } else {
   for (const r of report) {
     const short = r.file.replace(/^docs\/note\//, '').replace('/article.md', '');
@@ -172,12 +188,15 @@ if (asJson) {
       continue;
     }
     for (const row of r.rows) {
-      const flag = row.over ? `OVER (上限${row.max})` : row.max != null ? `ok  (上限${row.max})` : 'cat? ';
-      const mark = row.over ? '×' : '○';
-      console.log(`   ${mark} [${row.category.padEnd(12)}] ${String(row.chars).padStart(3)}字 ${flag}  ${row.heading.slice(0, 34)}`);
+      const tag = row.max != null ? `${LABEL[row.severity]}(上限${row.max})` : 'cat?';
+      console.log(`   ${MARK[row.severity]} [${row.category.padEnd(12)}] ${String(row.chars).padStart(3)}字 ${tag.padEnd(16)} ${row.heading.slice(0, 32)}`);
     }
   }
-  console.log(`\n--- 合計 ${totalParas} 段落 / OVER ${overCount} 件${PROVISIONAL ? '（しきい値は暫定。公式解答欄行数で要確定）' : ''} ---`);
+  console.log(
+    `\n--- 合計 ${totalParas} 段落 / ○ok ${tally.ok} / △borderline ${tally.borderline} / ×要圧縮 ${tally.over} / ✗大幅 ${tally.severe}` +
+      `${PROVISIONAL ? '（しきい値=暫定）' : '（しきい値=出典ベース, 25字/行）'} ---`
+  );
 }
 
-if (strict && overCount > 0) process.exit(1);
+// borderline は28字/行なら収まり得るため通過。要圧縮(over)以上で fail。
+if (strict && gateFails > 0) process.exit(1);

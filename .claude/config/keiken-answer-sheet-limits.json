@@ -1,17 +1,30 @@
 {
   "_meta": {
     "purpose": "1級・2級土木 第2次検定 問題1（施工経験記述）の解答欄しきい値。scripts/keiken-charcount.mjs が参照する真実源。",
-    "provisional": true,
-    "provisional_note": "現在のしきい値は暫定値。公式解答用紙の行数×1行字数が未確定のため、実測値＋余裕から仮置きしている。公式行数が判明したら maxChars を行数×字/行で差し替え、provisional を false にすること。根拠が確定するまで OVER 判定は『参考』として扱う。",
-    "format_detection": "article 内に **(3) で始まる見出しがあれば legacy3、なければ current2。### 記述例 段落は yosou。",
-    "char_count_rule": "答案段落から markdown 装飾(*` )と <sup> 等タグを除去した実文字数。プレースホルダ 〇 は受験時に同程度桁の数値へ置換されるため文字数に算入する。"
+    "provisional": false,
+    "basis": "解答用紙は罫線方式・約25字/行（範囲24〜28、中心値25）。各設問の罫線行数 × 25字 を maxChars とする。2026-06-02 Web調査で出典確認。",
+    "char_per_line": 25,
+    "char_per_line_note": "罫線方式のため厳密なマス数はない。25字/行は eq-seko『行の文字数が25程度』＋官製再現用紙(s-henshu R4/R5)の罫線実幅計測(24〜28字)の中心値。実上限は ±10%（28字/行で約+12%）程度の幅がある。",
+    "borderline_tolerance": 0.1,
+    "borderline_note": "maxChars の +10% 以内は『borderline（28字/行なら収まる可能性）』として扱い、+10%超は要圧縮。大幅超過（×1.3超）は解答欄に物理的に収まらず減点相当。",
+    "sources": {
+      "ruled_25_per_line": "https://eq-seko.com/analysis-civil-exp/ ／ 官製再現用紙 http://www.s-henshu.info/1dskm2310/1dskm2310jitti_kaitouyoushi.pdf",
+      "current2_8rows": "全国建設研修センター公式R07問題 https://www.jctc.jp/wjctcp/wp-content/uploads/2025/10/20251006d_mondai.pdf（構造）＋建設データ㈱ https://kensetsu-data.co.jp/journal/post-3267/ ＋受験者複数一致（各区画8行）",
+      "legacy3_rows_measured": "官製再現用紙 s-henshu R4 http://www.s-henshu.info/1dskm2210/1dskm2210jitti_kaitouyoushi.pdf ／ R5 同2310 の罫線実計数（(1)9行/(2)11行/(3)7行）"
+    },
+    "caveats": [
+      "現行R06〜の8行は公式問題の構造＋対策本/受験者の複数一致による高信頼値。ただし公式の罫線解答用紙PDFはJCTC非公表のため官製実測ではない（市ヶ谷R06再現URLは404＝実在せず不採用）。",
+      "2級の現行形式は1級と同型（公式R07 2級問題で確認）だが、2級NEW形式の区画別行数を明記した出典は未発見。1級と同じ8行を適用（要確認）。",
+      "予想問題集(yosou)の記述例は新傾向問題のため公式解答欄が存在しない。現行1区画=8行=200字相当を仮適用。",
+      "format_detection: article 内に **(3) で始まる見出しがあれば legacy3、なければ current2。### 記述例 段落は yosou。"
+    ]
   },
   "limits": {
-    "current2_q1": { "maxChars": 250, "label": "現行2テーマ 設問(1) 現場状況＋技術的課題＋検討項目" },
-    "current2_q2": { "maxChars": 290, "label": "現行2テーマ 設問(2) 対応処置＋評価" },
-    "legacy3_q1": { "maxChars": 200, "label": "旧3項目 設問(1) 技術的課題" },
-    "legacy3_q2": { "maxChars": 250, "label": "旧3項目 設問(2) 検討項目・検討理由及び検討内容（番号付きリスト本文を含む）" },
-    "legacy3_q3": { "maxChars": 290, "label": "旧3項目 設問(3) 対応処置と評価" },
-    "yosou": { "maxChars": 330, "label": "予想問題 記述例（日常業務・条件提示型）" }
+    "current2_q1": { "maxChars": 200, "label": "現行2テーマ 設問(1) 現場状況＋技術的課題＋検討項目（8行×25字）" },
+    "current2_q2": { "maxChars": 200, "label": "現行2テーマ 設問(2) 対応処置＋評価（8行×25字）" },
+    "legacy3_q1": { "maxChars": 225, "label": "旧3項目 設問(1) 技術的課題（9行×25字・官製再現用紙実測）" },
+    "legacy3_q2": { "maxChars": 275, "label": "旧3項目 設問(2) 検討項目・検討理由及び検討内容（11行×25字・実測）" },
+    "legacy3_q3": { "maxChars": 175, "label": "旧3項目 設問(3) 対応処置と評価（7行×25字・実測）" },
+    "yosou": { "maxChars": 200, "label": "予想問題 記述例（公式解答欄なし・現行8行=200字を仮適用）" }
   }
 }
