@@ -108,6 +108,7 @@ const MAGAZINES = [
     category: '1級土木施工管理技士',
     fontSize: 42,
     accentColor: '#155293',
+    fillBg: '#155293',
   },
   {
     id: 'civil-2-experience',
@@ -117,6 +118,7 @@ const MAGAZINES = [
     category: '2級土木施工管理技士',
     fontSize: 42,
     accentColor: '#1C5038',
+    fillBg: '#1C5038',
   },
   {
     id: 'civil-1-pastexam',
@@ -126,6 +128,7 @@ const MAGAZINES = [
     category: '1級土木施工管理技士',
     fontSize: 44,
     accentColor: '#155293',
+    fillBg: '#155293',
   },
   {
     id: 'civil-2-pastexam',
@@ -135,6 +138,7 @@ const MAGAZINES = [
     category: '2級土木施工管理技士',
     fontSize: 44,
     accentColor: '#1C5038',
+    fillBg: '#1C5038',
   },
   {
     id: 'civil-1-yosou',
@@ -144,6 +148,7 @@ const MAGAZINES = [
     category: '1級土木施工管理技士',
     fontSize: 44,
     accentColor: '#155293',
+    fillBg: '#155293',
   },
   {
     id: 'civil-2-yosou',
@@ -153,6 +158,7 @@ const MAGAZINES = [
     category: '2級土木施工管理技士',
     fontSize: 44,
     accentColor: '#1C5038',
+    fillBg: '#1C5038',
   },
 ];
 
@@ -164,6 +170,7 @@ async function renderOne(mag, fonts) {
       categoryLabel: mag.category,
       fontSize: mag.fontSize,
       ...(mag.accentColor ? { accentColor: mag.accentColor } : {}),
+      ...(mag.fillBg ? { fillBg: mag.fillBg } : {}),
     },
     { width: W, height: H },
   );

@@ -306,12 +306,37 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height 
 
 const HEADER_BAND_HEIGHT = 216;
 
-function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor }, { width, height }) {
-  // accentColor 指定時はカテゴリバッジ背景・下部アクセント線を試験別色にする（既定はネイビー/シアン）
-  const badgeBg = accentColor || C_INK_NAVY;
-  const barColor = accentColor || C_CYAN;
-  const fineGridUrl = gridDataUrl(30, 'rgba(15,30,63,0.04)', 1);
-  const majorGridUrl = gridDataUrl(120, 'rgba(15,30,63,0.09)', 1.25);
+function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor, fillBg }, { width, height }) {
+  // fillBg 指定時は背景全体を試験色で塗り、文字を白系へ反転（棚での一目識別を強化）。
+  // accentColor のみ指定時は淡色背景＋色バッジ/アクセント線。両方なし時は既定ネイビー/シアン。
+  const filled = !!fillBg;
+  const pal = filled
+    ? {
+        bg: fillBg,
+        ink: '#ffffff',
+        title: '#ffffff',
+        muted: 'rgba(255,255,255,0.72)',
+        badgeBg: 'rgba(255,255,255,0.16)',
+        arrow: 'rgba(255,255,255,0.9)',
+        bar: '#ffffff',
+        dash: '#ffffff',
+        gridFine: 'rgba(255,255,255,0.06)',
+        gridMajor: 'rgba(255,255,255,0.12)',
+      }
+    : {
+        bg: C_BG,
+        ink: C_INK_NAVY,
+        title: C_INK_DEEP,
+        muted: C_INK_MUTED,
+        badgeBg: accentColor || C_INK_NAVY,
+        arrow: C_CYAN_ACCENT,
+        bar: accentColor || C_CYAN,
+        dash: C_CYAN,
+        gridFine: 'rgba(15,30,63,0.04)',
+        gridMajor: 'rgba(15,30,63,0.09)',
+      };
+  const fineGridUrl = gridDataUrl(30, pal.gridFine, 1);
+  const majorGridUrl = gridDataUrl(120, pal.gridMajor, 1.25);
 
   const bandTop = Math.round((height - HEADER_BAND_HEIGHT) / 2);
   const bottomTop = bandTop + HEADER_BAND_HEIGHT;
@@ -333,12 +358,12 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
               fontSize: '24px',
               fontWeight: 800,
               letterSpacing: '-0.6px',
-              color: C_INK_NAVY,
+              color: pal.ink,
               marginRight: '16px',
             },
             children: [
               { type: 'span', props: { style: { display: 'flex' }, children: 'doboku' } },
-              { type: 'span', props: { style: { display: 'flex', color: C_CYAN }, children: '-' } },
+              { type: 'span', props: { style: { display: 'flex', color: pal.dash }, children: '-' } },
               { type: 'span', props: { style: { display: 'flex' }, children: 'note' } },
             ],
           },
@@ -349,7 +374,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
             style: {
               display: 'flex',
               fontSize: '15px',
-              color: C_INK_MUTED,
+              color: pal.muted,
               letterSpacing: '1.5px',
               fontFamily: '"Noto Sans JP", Inter, sans-serif',
             },
@@ -369,7 +394,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
             alignItems: 'center',
             marginTop: '22px',
             padding: '7px 16px',
-            background: badgeBg,
+            background: pal.badgeBg,
             color: '#ffffff',
             fontFamily: '"Noto Sans JP", Inter, sans-serif',
             fontSize: '18px',
@@ -382,7 +407,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
               props: {
                 style: {
                   display: 'flex',
-                  color: C_CYAN_ACCENT,
+                  color: pal.arrow,
                   fontSize: '14px',
                   marginRight: '10px',
                   fontFamily: 'Inter, "Noto Sans JP", sans-serif',
@@ -404,7 +429,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
         fontSize: `${fontSize}px`,
         fontWeight: 800,
         lineHeight: 1.35,
-        color: C_INK_DEEP,
+        color: pal.title,
         letterSpacing: '-0.4px',
       },
       children: line,
@@ -418,7 +443,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
         display: 'flex',
         width: '72px',
         height: '4px',
-        background: barColor,
+        background: pal.bar,
         marginBottom: '18px',
       },
       children: [],
@@ -431,7 +456,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
       style: {
         display: 'flex',
         fontSize: '15px',
-        color: C_INK_MUTED,
+        color: pal.muted,
         letterSpacing: '2px',
         textTransform: 'uppercase',
         fontFamily: 'Inter, "Noto Sans JP", sans-serif',
@@ -491,7 +516,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor
         height: `${height}px`,
         display: 'flex',
         position: 'relative',
-        background: C_BG,
+        background: pal.bg,
         fontFamily: '"Noto Sans JP", Inter, sans-serif',
       },
       children,
