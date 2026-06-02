@@ -22,10 +22,21 @@ const strict = args.includes('--strict');
 const inputs = args.filter((a) => !a.startsWith('--'));
 
 const config = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8'));
-const LIMITS = config.limits;
-const PROVISIONAL = !!(config._meta && config._meta.provisional);
-const TOL = (config._meta && config._meta.borderline_tolerance) || 0; // +10% は28字/行なら収まる帯
+const GRADES = config.grades || {};
+const DEFAULT_GRADE = (config._meta && config._meta.default_grade) || 'civil-1';
+const TOL = (config._meta && config._meta.borderline_tolerance) || 0; // +10% は1行字数の幅で収まる帯
 const SEVERE = 1.3; // ×1.3 超は解答欄に物理的に収まらない
+
+// パスから級を判定（2級土木 → civil-2、1級土木 → civil-1、不明 → default）
+function gradeOf(filePath) {
+  const p = filePath.replace(/\\/g, '/');
+  if (p.includes('2級土木')) return 'civil-2';
+  if (p.includes('1級土木')) return 'civil-1';
+  return DEFAULT_GRADE;
+}
+function limitsFor(grade) {
+  return (GRADES[grade] && GRADES[grade].limits) || {};
+}
 
 // severity: ok / borderline(≤+tol) / over(要圧縮) / severe(×1.3超)
 function severity(chars, max) {
@@ -158,10 +169,14 @@ const tally = { ok: 0, borderline: 0, over: 0, severe: 0, nocat: 0 };
 let totalParas = 0;
 let gateFails = 0; // borderline 超（over+severe）= 要圧縮
 
+const gradesSeen = new Set();
 for (const f of files) {
   const body = stripFrontmatter(readFileSync(f, 'utf-8'));
   const answers = extractAnswers(body);
   const rel = relative(ROOT, f).replace(/\\/g, '/');
+  const grade = gradeOf(f);
+  gradesSeen.add(grade);
+  const LIMITS = limitsFor(grade);
   const rows = answers.map((a) => {
     const lim = LIMITS[a.category];
     const max = lim ? lim.maxChars : null;
@@ -171,18 +186,19 @@ for (const f of files) {
     if (sev === 'over' || sev === 'severe') gateFails++;
     return { ...a, max, severity: sev };
   });
-  report.push({ file: rel, rows });
+  report.push({ file: rel, grade, rows });
 }
 
 const MARK = { ok: '○', borderline: '△', over: '×', severe: '✗', nocat: '?' };
 const LABEL = { ok: 'ok', borderline: 'borderline', over: '要圧縮', severe: '大幅超過', nocat: 'cat?' };
 
 if (asJson) {
-  console.log(JSON.stringify({ provisional: PROVISIONAL, tolerance: TOL, tally, gateFails, totalParas, files: report }, null, 2));
+  console.log(JSON.stringify({ tolerance: TOL, grades: [...gradesSeen], tally, gateFails, totalParas, files: report }, null, 2));
 } else {
   for (const r of report) {
     const short = r.file.replace(/^docs\/note\//, '').replace('/article.md', '');
-    console.log(`\n■ ${short}`);
+    const cpl = (GRADES[r.grade] && GRADES[r.grade].char_per_line) || '?';
+    console.log(`\n■ ${short}  [${r.grade}/${cpl}字per行]`);
     if (r.rows.length === 0) {
       console.log('   (答案段落を検出できず — 見出し形式を確認)');
       continue;
@@ -194,7 +210,7 @@ if (asJson) {
   }
   console.log(
     `\n--- 合計 ${totalParas} 段落 / ○ok ${tally.ok} / △borderline ${tally.borderline} / ×要圧縮 ${tally.over} / ✗大幅 ${tally.severe}` +
-      `${PROVISIONAL ? '（しきい値=暫定）' : '（しきい値=出典ベース, 25字/行）'} ---`
+      ` （級別しきい値: ${[...gradesSeen].join(',')}） ---`
   );
 }
 
