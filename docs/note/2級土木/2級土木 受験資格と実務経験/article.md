@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 受験ガイド
 utmCampaign: 2c-eligibility
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n6e6db14f4dfc
+noteId: n6e6db14f4dfc
+notePublishedAt: 2026-06-03
 coverTitle:
   - 2級土木
   - 受験資格と実務経験
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木施工管理技士"
   hi: "受験資格"
