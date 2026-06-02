@@ -36,7 +36,7 @@ export default function KakomonQuizPage() {
             <nav aria-label="breadcrumb" className="font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest mb-3 flex items-center gap-2">
               <Link href="/" className="hover:text-[var(--accent)] transition-colors">Home</Link>
               <span aria-hidden className="opacity-60">›</span>
-              <span>Tools</span>
+              <Link href="/tools" className="hover:text-[var(--accent)] transition-colors">Tools</Link>
             </nav>
             <div className="inline-flex items-center gap-1.5 font-mono text-[11px] uppercase tracking-wider text-[var(--accent)] px-2.5 py-1 bg-[var(--accent-fill)] rounded-full mb-4">
               無料ツール
