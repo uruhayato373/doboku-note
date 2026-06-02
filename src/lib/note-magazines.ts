@@ -287,7 +287,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '5管理の2テーマ全10組合せ × 想定工事①②③ フル模範答案。現行形式（R06+）を全網羅。',
     imageUrl: '/images/magazines/civil-1-combo-essay-cover.webp',
-    price: '¥3,980（10本セット、34%OFF）',
+    price: '¥3,480（10本セット、42%OFF）',
     badge: 'note 限定',
   },
 

@@ -32,7 +32,7 @@ setPrice: 3480
 articlePrice: 600
 articleCount: 10
 singleTotal: 6000
-discountPercent: 34
+discountPercent: 42
 # noteUrl はマガジン URL（個別記事 n/ URL を取得したら各 slug に差し替え）
 magazineUrl: "https://note.com/dobokunote/m/m74cfd7c695d6"
 articles:
