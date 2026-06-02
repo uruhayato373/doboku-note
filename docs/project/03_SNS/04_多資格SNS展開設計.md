@@ -1,6 +1,6 @@
 # 多資格 SNS 展開設計（IG / X の試験軸対応）
 
-作成: 2026-06-02 ／ 状態: 設計確定待ち（実装は本設計合意後）
+作成: 2026-06-02 ／ 状態: **実装完了（IG carousel/reels 静止素材・X 多資格分業）。残は mp4 再生成と X 実投稿運用**（§8 参照）
 
 ## 1. 背景・課題
 
@@ -104,13 +104,16 @@ IG 過去問パックは「**試験軸つきの問題データ SoT**」から生
 
 ## 8. 実装タスク（順番・本設計合意後）
 
+> 状態: **大部分を実装完了（2026-06-02 セッション）**。IG carousel/reels 静止素材は総監/1級/2級で揃った。残は mp4 再生成（ffmpeg/VOICEVOX 環境）と X 実投稿運用。
+
 1. ✅ 本設計の合意（このドキュメント）
-2. `note-cover-tokens.json` に concrete 系追加 ＋ SNS 共有 exam→色 ローダ
-3. 既存総監 IG パックの `{試験}/{年度}` 移行 ＋ 生成器パス対応
-4. 1級土木・コンクリの過去問を試験軸つきデータ SoT へ統合（パーサ拡張）
-5. カバーテンプレに「試験識別レイヤー」実装 ＋ `slide-data._meta` に `exam` 追加
-6. `docs/reference/sns-image-policy.md` に「試験識別レイヤー＋セーフゾーン」節を追記（5管理色はアクセントへ降格）
-7. X draft の命名規約（`{連番}-{試験}-{名前}`）を運用に反映
+2. ✅ `exam-palette.mjs`（`note-cover-tokens.json` の exams を解決する SNS 共有ローダ）。concrete 系は tokens に定義済み
+3. ✅ 既存総監 IG パックを `_exam-packs/技術士総監/{年度}/` へ移行（git mv, 1909b6f23）＋ `ig-post-create`/`ig-reel-create`/`yt-shorts-create` の `--exam-dir`（既定=技術士総監）・examId `[zk]` 対応
+4. ✅ 1級土木（`parse-civil-1`＋`civil-1-exam-questions.json`）・2級土木（`parse-civil-2`＋`civil-2-exam-questions.json`、前期 r05z/後期 r05k 分離）を試験軸データ SoT へ統合
+5. ✅ `exam-cover-ig.mjs` を試験識別レイヤー＋**3 フォーマット（carousel/reels/stories）**対応に実装。`slide-data._meta.exam` 注入。正式名称 1 行・レイアウト洗練（C3）。CTA は `buildQuizCta` が試験別 stats/色を出し分け
+6. ✅ パック生成: 1級 carousel 228 + reels 228、2級 carousel 123 + reels 123、総監 carousel/reels/stories カバー＋CTA 刷新。caption は `generate-caption.cjs` が試験別タグで生成
+7. ✅ X 多資格分業: `x-post-policy.md`・`x-post-writer`/`x-post-qa` 新設、`gen-x-card.mjs` 試験別色、X draft 命名 `{連番}-{試験}-{名前}`
+8. ⏳ 残: reels `video.mp4` 再生成（ffmpeg/VOICEVOX 環境）、r03-r06 reels 09-cta は世代統一済、X 実投稿運用（`x-post-writer` 量産→`publish-x`）
 
 ## 9. 未決事項
 

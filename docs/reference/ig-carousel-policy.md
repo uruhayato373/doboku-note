@@ -75,12 +75,17 @@
 
 ### exam-cover
 
+> **試験識別カバー（多資格・2026-06-02 刷新）**: `_meta.exam` がある過去問パックは `exam-cover-ig.mjs` で描画する（`quiz-slides` の旧 quiz-cover ではない）。**年度を主役（大）**にし、試験色帯＋正式名称（1 行）＋形式ラベルで構成。試験別に色が変わる（総監=紺 / 1級=青 / 2級=緑、`exam-palette.mjs` 経由）。carousel(1080×1350)/reels(1080×1920)/stories(1080×1920) の 3 フォーマットに対応（`format` 引数で Y レイアウト分岐、CTA/ブランドは共通寸法）。レイアウトは左基準 mx=96・タグ左 72・形式右 120 のインデント体系。真実源は `docs/reference/x-post-policy.md` ではなく本 § と `exam-cover-ig.mjs`。
+
 | フィールド | 内容 | ルール |
 |---|---|---|
 | `type` | `"cover"` | |
-| `title` | 管理名 | 経済性管理／人的資源管理／情報管理／安全管理／社会環境管理 のいずれか。156px 1 行 |
-| `subtitle` | サブ情報 | `R07 4問パック` などの年度表記 |
-| `sectionTag` | セクションタグ | 任意。`2 経済性管理` 等 |
+| `title` | **年度ラベル** | `令和7年度` 等。試験識別カバーの主役（大フォント）。※旧 quiz-cover では管理名だったが、試験識別カバーでは年度 |
+| `subtitle` | 形式ラベル | `択一式 過去問`（総監）/ `第一次検定 過去問`（1級）/ `第一次検定 前期`（2級前期）等。`_meta.fmtLabel` 優先 |
+| `sectionTag` | タグピル文言 | `過去問`。帯内のタグピルに表示 |
+| `_meta.exam` | 試験キー | `pe-comprehensive` / `civil-1` / `civil-2`。これがあると試験識別カバーで描画。正式名称（1 行）・帯色を解決 |
+
+正式名称は `officialNameLines(exam)` が返す（総監「技術士 総合技術監理部門」1 行 72px、1級2級は label 1 行）。slide-data には色を書かない。
 
 ### exam-problem
 
@@ -127,7 +132,15 @@
 |---|---|---|
 | `type` | `"cta"` | |
 
-文言（FULL CONTENT / 640問・PRACTICE / 5管理・SCOPE / 「doboku-note で全問解説をチェック」/ 保存ボタンを押して 等）はすべて tokens.json が真実源。slide-data.json には書かない。
+文言（FULL CONTENT /「doboku-note で全問解説をチェック」/ 保存ボタンを押して 等）と stats・色は **`quiz-slides.mjs` の `buildQuizCta` が `_meta.exam` で試験別に出し分け**（slide-data.json には書かない）。`ig-post-create` が各 slide.data に `_meta.exam` を注入する。
+
+| 試験 (`_meta.exam`) | stats | 色 |
+|---|---|---|
+| `pe-comprehensive`（総監） | 640問・PRACTICE / 5管理・SCOPE | 紺（tokens 既定） |
+| `civil-1`（1級土木） | 1162問・PRACTICE / 12年度・YEARS | 青 |
+| `civil-2`（2級土木） | 630問・PRACTICE / 10回・EXAMS | 緑 |
+
+> 採点時の注意（`ig-carousel-qa`）: 「640問/5管理」は**総監固有**。1級/2級パックの CTA が 640問/5管理・紺になっていたら**誤り**（試験別出し分けの未反映）。reels の CTA は保存→フォロー誘導に分岐（`actionTitleReels`）。
 
 ---
 

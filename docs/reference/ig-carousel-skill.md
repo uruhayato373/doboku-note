@@ -69,9 +69,10 @@ docs/sns/instagram/
 │   │       │       ├── caption.txt
 │   │       │       └── note.md        ← 投稿手順（リンクスタンプ・タグ）
 │   │       └── pack-02..09/
-│   ├── 1級土木/                        ← 第一次検定 過去問（h26..r07, 228 パック・carousel）
+│   ├── 1級土木/                        ← 第一次検定 過去問（h26..r07, 228 パック・carousel+reels）
 │   │   └── {年度}/pack-NN/（同構造）
-│   └── 2級土木/（将来・規約のみ確定）
+│   └── 2級土木/                        ← 第一次検定 過去問（前期/後期分離 r05z/r05k 等, 10回 123 パック・carousel+reels）
+│       └── {年度z|年度k}/pack-NN/（同構造。z=前期 k=後期）
 ├── _quiz-sample/                       ← A 択一クイズサンプル
 │   ├── source.md
 │   ├── instagram-carousel/img/01-経済性/{01..10}.png
