@@ -12,7 +12,6 @@ generated: 2026-06-03
 
 【1級土木 頻出論点】土工
 切土と盛土のバランスを調整する土工の配分計画では、変化率Cを用いる。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -23,7 +22,6 @@ https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】鉄道（在来線）の営業線及びこれに近接した工事
 複線以上の区間では上下線それぞれに列車見張員を配置。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
@@ -34,7 +32,6 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】土留め支保工
 継手位置は、応力的に余裕のある切ばりや火打ちの支点に近い箇所に設ける。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -55,7 +52,6 @@ https://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】道路のアスファルト舗装
 安定処理材は、砂質系材料の場合はセメントが、粘性土の場合は石灰が一般的に有効である。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -66,7 +62,6 @@ https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】河川法
 一級河川は国土交通大臣二級河川は都道府県知事が管理。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
@@ -76,8 +71,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 <!-- 投稿予定: 2026-10-09 07:00 JST / daily-fill -->
 
 【1級土木 頻出論点】道路のコンクリート舗装
-大量荷卸しの場合、コンクリート横引き時に材料分離がしやすくなることや敷均し作業が効率的でないことから、1回あ…。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
+大量荷卸しの場合、コンクリート横引き時に材料分離がしやすくなることや敷均し作業が効率的でないことから、1回あたりの荷卸し量は適切な量とする。
 https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -98,7 +92,6 @@ https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】舗装工事
 出来形管理用TSによる出来形管理は、新設舗装工事だけでなく舗装修繕工事にも適用できる。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -109,7 +102,6 @@ https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】建築基準法
 昇降機は建築基準法上の建築設備に含まれる。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
@@ -120,7 +112,6 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】山岳トンネルの覆工コンクリート
 天端部は背面に空隙を残さず、つま部まで完全に充填することが重要である。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -141,7 +132,6 @@ https://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】労働基準法令に定められている就業
 10kgという制限は満16歳未満の男性に適用されるものである。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -152,7 +142,6 @@ https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】公共工事で発注者が示す設計図
 実施工程表は受注者作成で設計図書ではない。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
@@ -162,8 +151,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 <!-- 投稿予定: 2026-10-22 07:00 JST / daily-fill -->
 
 【1級土木 頻出論点】施工計画の作成
-施工方法の選定にあたっては、在来工法のみにとらわれず、新工法を総合的に検討して、現場に最も合致した計画を採用するこ…。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
+施工方法の選定にあたっては、在来工法のみにとらわれず、新工法を総合的に検討して、現場に最も合致した計画を採用することが必要である。
 https://doboku-note.com/docs/primary-h29-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
@@ -184,7 +172,6 @@ https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】擁壁のコンクリート
 打ち込みの段階で、表面が一区画内でほぼ水平になるように打込むことを原則とする。
-逆に覚えていると失点しやすい定番論点。詳しい解説はリンクへ。
 https://doboku-note.com/docs/primary-h29-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
