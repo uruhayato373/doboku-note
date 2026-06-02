@@ -25,10 +25,19 @@ user-invocable: true
 ## 実行手順
 
 1. **既存把握（重複回避）**: 対象級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}` を確認し、**使用済み工種・現場設定を「テーマ×工種マトリクス」として書き出す**（下記「量産」参照）。`pastexam` はサイト `secondary-r0X` の問題1（公式問題文）を正として用意。
-2. **生成**: `civil-keiken-essay-writer`（Generator/sonnet）を slug ごとに起動。**未使用の工種・現場設定を親が明示指定**、規格値は `〇〇`（法定・規格の固定値はリテラル）、形式は級・年度どおり、答案は **ⅰ）型完結文の散文**、複数工種は `想定工事①②…`（2級選択制は同一工事と分かる表記）、置換ガイド・失格注意を必須。
+2. **生成**: `civil-keiken-essay-writer`（Generator/sonnet）を slug ごとに起動。**未使用の工種・現場設定を親が明示指定**、規格値は `〇〇`（法定・規格の固定値はリテラル）、形式は級・年度どおり、答案は **ⅰ）型完結文の散文**、複数工種は `想定工事①②…`（2級選択制は同一工事と分かる表記）、置換ガイド・失格注意・**末尾の note 投稿用ハッシュタグ節（80–90個・`#` 直後非空白で見出し化回避）**を必須。**ⅰ）型は列挙マーカーも字数算入される**ので `1.`型から変えたら `--strict` 再実行。
 3. **採点**: `civil-keiken-essay-qa`（Evaluator/sonnet）で5軸採点＋必須ゲート（字数 `--strict`／散文形式／inter-article 重複／固定値リテラル／構造欠落なし）。平均≥2.0 かつ全ゲート通過で合格。不合格は Generator に修正指示で再走。
 4. **配線（親）**: `_meta.yaml` / `note-magazines.ts` エントリ / `magazine-placement.ts` / `scripts/pdf-specs/{magazine}.json` を整備（PDF は生成せず spec の JSON 妥当性＋見出し存在のみ確認＝オンデマンド方針）。マガジンカバーは `node scripts/generate-magazine-covers.mjs {id}` で `public/images/magazines/` ＋ マガジンdir `_cover.png` を生成（資格別 `fillBg` 背景塗り：1級青#155293/2級緑#1C5038）。
 5. **検証・commit（親）**: `npm run type-check`、明示パスで commit（並行作業を巻き込まない）。
+
+## 公開時（note 公開後の URL 反映）
+
+note でマガジンを公開し URL（`note.com/.../m/...`）を取得したら **3 箇所**に反映する（[[feedback_no_price_in_mdx_body]] / [[feedback_note_link_card]]）。
+
+1. **SoT**: `note-magazines.ts` の該当 id を `published: true` ＋ `noteUrl: '<マガジンURL>'` に更新（これで `MagazineCard`／`magazine-placement` の購入導線が描画・稼働）。
+2. **本文プレースホルダ**: 各記事の「（マガジン公開後に URL を反映）」等を **マガジン URL 単独行**（note リンクカード）に置換。収録記事ごとにマガジン全体への回遊導線になる（QA gate は導線リンクカード URL を許可）。
+3. **_meta.yaml**: `magazineUrl:` を追加、各 slug の `noteUrl` を（個別 n/ URL 取得まで）マガジン URL に、`publishTiming` を公開済へ。
+4. 個別記事 n/ URL を取得したら _meta と本文リンクカードを n/ URL に差し替え。`npm run type-check` ＋ 明示パス commit。
 
 ## 量産（テーマ×工事マトリクス）
 
@@ -49,6 +58,7 @@ user-invocable: true
 - 法定・規格の固定値はリテラル、現場固有値のみ `〇〇`
 - Evaluator 合格（平均≥2.0・全ゲート通過）
 - 形式が級・年度どおり（PDF spec の include 見出しと整合）、複数工種は `想定工事①②…` で対称構造
+- 末尾に note 投稿用ハッシュタグ節（80–90個・見出し化なし・太字内全角括弧なし）
 
 ## 担当エージェント
 
