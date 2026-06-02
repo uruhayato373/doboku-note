@@ -46,18 +46,24 @@ function loadFonts() {
 const MAGAZINES = [
   {
     id: 'river-consultant',
+    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-河川コンサル',
+    fillBg: '#16365C',
     lines: ['総監記述式 模範論文', '建設コンサル河川・砂防', '5年分セット (R03-R07)'],
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
   {
     id: 'general-contractor',
+    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-ゼネコン',
+    fillBg: '#16365C',
     lines: ['総監記述式 模範論文', 'ゼネコン土木部門', '5年分セット (R03-R07)'],
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
   {
     id: 'road-municipality',
+    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体道路担当',
+    fillBg: '#16365C',
     lines: ['総監記述式 模範論文', '自治体 道路担当（発注者）', '過去問5年＋R8予想セット'],
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
@@ -65,6 +71,7 @@ const MAGAZINES = [
   // ----- 新規 3 マガジン (Series 1/3/4/5 — M1 撤回済 2026-05-18) -----
   {
     id: 'whitepaper-r7-strategy',
+    fillBg: '#16365C',
     fileBaseName: 'magazine-whitepaper-r7-strategy-cover',
     lines: ['白書 R7 × 5 管理', '7 大テーマ完全対応', 'R08 再出題確率付き'],
     category: '技術士（総合技術監理部門）',
@@ -72,6 +79,8 @@ const MAGAZINES = [
   },
   {
     id: 'r8-essay-forecast',
+    magazineDir: 'docs/note/技術士総監/magazines/総監記述式-R8予想問題集',
+    fillBg: '#16365C',
     fileBaseName: 'magazine-r8-essay-forecast-cover',
     lines: ['R8 予想問題集', '3 大テーマ × 三層構造', '3 ペルソナ別アレンジ'],
     category: '技術士（総合技術監理部門）',
@@ -80,6 +89,8 @@ const MAGAZINES = [
   // essay-template-3d「解答テンプレ3D」は 2026-06-01 企画中止により cover 生成エントリを削除
   {
     id: 'tradeoff-5kanri',
+    magazineDir: 'docs/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ',
+    fillBg: '#16365C',
     fileBaseName: 'magazine-tradeoff-5kanri-cover',
     lines: ['5 管理クロス・トレードオフ', '20 セル全網羅 + 答案ひな型', '解決フレーム辞書付き'],
     category: '技術士（総合技術監理部門）',
@@ -87,6 +98,8 @@ const MAGAZINES = [
   },
   {
     id: 'setsumon3-policy-bank',
+    magazineDir: 'docs/note/技術士総監/magazines/総監記述式-設問3国家施策バンク',
+    fillBg: '#16365C',
     fileBaseName: 'magazine-setsumon3-policy-bank-cover',
     lines: ['設問(3) 国家施策バンク', '将来課題 11 テーマ × 国家施策 68 案', '答案 1 枚相当・転写即戦力'],
     category: '技術士（総合技術監理部門）',
@@ -94,6 +107,8 @@ const MAGAZINES = [
   },
   {
     id: 'essay-complete-pack',
+    magazineDir: 'docs/note/技術士総監/magazines/総監記述式-完全パック',
+    fillBg: '#16365C',
     fileBaseName: 'magazine-essay-complete-pack-cover',
     lines: ['記述式 完全パック', '型 × 設問3 × 予想 × 模範論文', '6 マガジン全部入り'],
     category: '技術士（総合技術監理部門）',
