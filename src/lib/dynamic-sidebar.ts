@@ -39,7 +39,7 @@ export async function generateDynamicSidebar(
     if (!meta || meta.published === false) continue;
     docs.push({
       slug: slugs[i]!,
-      label: meta.sidebar_label || meta.title || slugs[i]!,
+      label: meta.sidebar_label || meta.shortTitle || meta.title || slugs[i]!,
       group: classifyDoc(meta),
       textbook_order: Number(meta.textbook_order) || 999,
     });
