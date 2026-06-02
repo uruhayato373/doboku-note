@@ -33,10 +33,21 @@ if (!y) { console.error(`年度 ${year} が無い`); process.exit(1); }
 const pool = y.questions.filter((q) => q.packEligible);
 console.log(`${year}: packEligible ${pool.length} 問 → ${Math.floor(pool.length / 4)} パック`);
 
+// 入口サニタイズ: HTML数値文字参照（丸数字①〜等）をデコードし、Markdown太字記号を除去
+function decodeEntities(s) {
+  return String(s)
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(parseInt(n, 10)));
+}
+function clean(s) {
+  return decodeEntities(s).replace(/\*\*/g, '');
+}
+
 function shortTopic(body) {
-  const m = body.match(/^(.{4,24}?)に関する/);
+  const b = clean(body);
+  const m = b.match(/^(.{4,24}?)に関する/);
   if (m) return m[1];
-  return [...body.replace(/\*\*/g, '')].slice(0, 18).join('');
+  return [...b].slice(0, 18).join('');
 }
 
 function buildPack(questions, packNum) {
@@ -48,8 +59,8 @@ function buildPack(questions, packNum) {
     const qNum = i + 1;
     slides.push({
       type: 'problem',
-      bodyLines: wrapByCharCount(q.body.replace(/\*\*/g, ''), 26),
-      options: q.options,
+      bodyLines: wrapByCharCount(clean(q.body), 26),
+      options: q.options.map((o) => ({ ...o, text: clean(o.text) })),
       qNum, totalQ,
     });
     // pointText: 正答（=該当肢）の解説を要約として流用
@@ -58,8 +69,8 @@ function buildPack(questions, packNum) {
       type: 'answer',
       correctNum: q.correct,
       correctText: shortTopic(q.body),
-      optionExplanations: q.optionExplanations,
-      pointText: ansExpl ? wrapByCharCount(ansExpl.text, 38).slice(0, 2).join('') : '',
+      optionExplanations: q.optionExplanations.map((e) => ({ ...e, text: clean(e.text) })),
+      pointText: ansExpl ? wrapByCharCount(clean(ansExpl.text), 38).slice(0, 2).join('') : '',
       qNum, totalQ,
     });
   });
