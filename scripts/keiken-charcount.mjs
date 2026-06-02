@@ -116,7 +116,13 @@ function markerKind(line) {
   return null;
 }
 
-// マーカー直後から「次のマーカー or 次の見出し(#)」までを答案ブロックとして収集。
+// 答案直後に置かれる読者向け注釈ラベル（行頭の太字ラベル）。例: **安全と品質のどちらを選ぶか**：…
+// これは受験者が解答欄に書く本文ではないため字数に含めない。**(数) 設問マーカーは別途 markerKind が処理。
+function isLabelNote(s) {
+  return s.startsWith('**') && /^\*\*[^*]+\*\*[：:]/.test(s);
+}
+
+// マーカー直後から「次のマーカー / 次の見出し(#) / 太字注釈ラベル」までを答案ブロックとして収集。
 // リスト記号は除去して中身は算入、blockquote(>)編集注記・hr(---)は除外。
 function gatherBlock(lines, start) {
   let j = start;
@@ -125,7 +131,7 @@ function gatherBlock(lines, start) {
   while (j < lines.length) {
     const raw = lines[j];
     const s = raw.trim();
-    if (markerKind(raw) || s.startsWith('#')) break; // 次の設問 or 次セクション
+    if (markerKind(raw) || s.startsWith('#') || isLabelNote(s)) break; // 次の設問 / 次セクション / 注釈ラベル
     if (s === '' || s.startsWith('>') || s.startsWith('---')) {
       j++;
       continue;
