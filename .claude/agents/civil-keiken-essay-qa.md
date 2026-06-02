@@ -22,7 +22,7 @@ model: sonnet
 1. 対象 article.md を Read。frontmatter と本文を分離。
 2. 同級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}`（pastexam は対象年度 `secondary-r0X` も）を Read。
 3. 下記5軸を各 0〜3 で採点し、機械チェックを実行。
-4. 字数ゲート: `node scripts/keiken-charcount.mjs <対象 article.md>` を実行し、OVER 件数を確認（しきい値の真実源は `.claude/config/keiken-answer-sheet-limits.json`、現状は暫定値のため OVER は「参考」扱い）。
+4. 字数ゲート: `node scripts/keiken-charcount.mjs <対象 article.md> --strict` を実行（しきい値の真実源は `.claude/config/keiken-answer-sheet-limits.json`、出典ベース確定値）。要圧縮(×)・大幅(✗)が1件でもあれば**不合格**。borderline(△, +10%以内)は許容。
 
 ## 5軸ルーブリック（各0〜3、合格 = 平均≥2.0 かつ 必須ゲート全通過）
 
@@ -40,7 +40,7 @@ model: sonnet
 - 本文（frontmatter 除く）に価格（¥ / XXX円）・note URL 直書き = 0
 - サイトとの答案重複長文行（frontmatter・リンク除く）= 0
 - pastexam：問題文がサイト `secondary-r0X` と整合（捏造でない）
-- 字数: `keiken-charcount` の OVER（解答欄しきい値超過）を報告。**現状は暫定しきい値のため不合格ゲートにはせず**、超過設問を `issues` に列挙し圧縮を提案（公式行数確定後に必須ゲート化）。
+- 字数: `keiken-charcount --strict` が exit 0（要圧縮(×)・大幅(✗)= 0）。1件でも超過なら不合格。解答欄に収まらない答案は「完成答案・雛形」として機能せず商品価値を満たさないため必須ゲート。超過設問は `issues` に列挙。
 
 ## 出力
 
