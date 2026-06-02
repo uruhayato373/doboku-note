@@ -158,10 +158,10 @@ bio 直下に固定表示できる丸アイコン。プロフィール訪問者�
 ```bash
 # 1. 各パックの「厳選 4 枚」を抽出（reels から cover/Q1/A1/cta をコピー）
 node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
-# → _exam-packs/r07/pack-01/stories/img/{01-cover, 02-problem, 03-answer, 04-cta}.png
+# → _exam-packs/技術士総監/r07/pack-01/stories/img/{01-cover, 02-problem, 03-answer, 04-cta}.png
 
 # 2. 年度入口の「目次カルーセル cover 1 枚」
-# 既に _exam-packs/<year>/_summary/reels/img/00-cover.png として整備済み
+# 既に _exam-packs/{試験}/<year>/_summary/reels/img/00-cover.png として整備済み
 ```
 
 **パターン A**（年度入口）: 年度ごとに目次 cover 1 枚をストーリー投稿 → リンクスタンプで目次カルーセル投稿へ → 9 パックから選ぶ 3 階層誘導。  

@@ -25,7 +25,7 @@ doboku-note の Instagram カルーセル投稿用 PNG を生成する。**2 シ
 | 過去問パック構造化 | `scripts/generate-exam-pack-dirs.mjs` |
 | 過去問パック 一括生成 | `scripts/bulk-generate-exam-packs.mjs` |
 | 過去問 SoT | `src/config/exam-questions.json` (640 問) |
-| 過去問 slide-data SoT | `docs/sns/instagram/_exam-packs/<year>/pack-<NN>/slide-data.json` |
+| 過去問 slide-data SoT | `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json` |
 | 過去問スライドビルダー | `.claude/scripts/lib/sns-common/quiz-slides.mjs`（tokens.json 参照） |
 | 過去問デザイン真実源 | `docs/design-system/instagram-carousel-tokens.json` + `docs/design-system/instagram-carousel.md` |
 | 択一クイズパック生成 (A) | `.claude/scripts/sns/render-quiz-pack.mjs` |
@@ -76,7 +76,7 @@ node scripts/parse-exam-questions.mjs
 
 # 2. R7 全年度を 4 問パックに集約（管理別グループ化）
 node scripts/generate-exam-pack-dirs.mjs --year r07
-# → docs/sns/instagram/_exam-packs/r07/pack-{01..09}/slide-data.json
+# → docs/sns/instagram/_exam-packs/技術士総監/r07/pack-{01..09}/slide-data.json
 
 # 3. 1 パック分の PNG + caption 生成
 node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-pack-01 --size carousel

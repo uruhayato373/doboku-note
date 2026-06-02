@@ -24,7 +24,7 @@ Instagram ハイライト系統 A 6 種（`docs/sns/instagram/highlights/NN_*/`�
 
 | エージェント | 対象 | 評価軸 |
 |---|---|---|
-| `ig-stories-qa` | `_exam-packs/<year>/pack-NN/stories/` の caption.txt + note.md | 3 軸（コピー力 / リンク導線整合 / ステッカー双方向性）。過去問 4 枚連投の運用 |
+| `ig-stories-qa` | `_exam-packs/{試験}/<year>/pack-NN/stories/` の caption.txt + note.md | 3 軸（コピー力 / リンク導線整合 / ステッカー双方向性）。過去問 4 枚連投の運用 |
 | **`ig-highlight-qa`**（本エージェント） | `highlights/NN_*/slide-data.json` + `img/*.png` | 4 軸（サムネ識別性 / リードコピー力 / ジャンル一貫性 / 余白配分）。ハイライト用 6-7 枚 Stories の意匠 |
 
 ## 入力 / 出力

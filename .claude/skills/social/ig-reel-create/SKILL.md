@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Write
 
 # Instagram Reels 自動生成スキル
 
-`docs/sns/instagram/_exam-packs/<year>/pack-<NN>/slide-data.json` を入力に、**1080×1920 縦型 60-120 秒の IG Reels 動画を完全機械生成**する。
+`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json` を入力に、**1080×1920 縦型 60-120 秒の IG Reels 動画を完全機械生成**する。
 
 ## 前提
 
@@ -40,7 +40,7 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 ## 出力
 
 ```
-docs/sns/instagram/_exam-packs/<year>/pack-<NN>/reels/
+docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/reels/
 ├ video.mp4              最終動画（IG Reels として upload 可能）
 ├ img/{00..09}.png       1080×1920 各スライド PNG（中間ファイル）
 ├ wav/slide-NN.wav       各スライドの TTS 音声（中間ファイル）

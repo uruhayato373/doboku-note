@@ -29,7 +29,7 @@ Instagram Reels 用読み上げ台本（`reels/script.json`）・生成 mp4（`r
 ## 採点手順
 
 1. `docs/reference/ig-reels-policy.md` を読む。
-2. 対象パックの `docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/script.json` / `caption.txt` / `video.mp4`（存在すれば）を読む。
+2. 対象パックの `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/script.json` / `caption.txt` / `video.mp4`（存在すれば）を読む。
 3. 同パックの `slide-data.json` と `reels/img/00-cover.png ... 09-cta.png` を Read で確認する（PNG は cover の Reels モード分岐が正しく適用されているかも確認）。
 4. 5 軸を 1〜5 で採点する：
 

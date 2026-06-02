@@ -19,10 +19,10 @@
  *
  * Usage:
  *   node .claude/scripts/instagram/build-stories.mjs <pack-dir>
- *   node .claude/scripts/instagram/build-stories.mjs docs/sns/instagram/_exam-packs/r07/pack-01
+ *   node .claude/scripts/instagram/build-stories.mjs docs/sns/instagram/_exam-packs/技術士総監/r07/pack-01
  *
  * バッチで全パック:
- *   for d in docs/sns/instagram/_exam-packs/r{03..07}/pack-*; do
+ *   for d in docs/sns/instagram/_exam-packs/技術士総監/r{03..07}/pack-*; do
  *     node .claude/scripts/instagram/build-stories.mjs "$d"
  *   done
  */

@@ -14,7 +14,7 @@
  *   node yt-shorts-create.mjs --slug followership --date 2026-05-02
  *
  * 派生フロー (v7):
- *   1. docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/ の
+ *   1. docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/ の
  *      slide-00 (cover) / 01 (problem) / 02 (answer) / 09 (cta) mp4 を
  *      ffmpeg concat → 30-60 秒の結合 mp4
  *   2. thumbnail.png: reels/img/00-cover.png をコピー
@@ -293,7 +293,7 @@ function buildScriptTxt({ storyboard, scripts, date }) {
  * @param {string} [args.outDir]
  * @returns {Promise<{ mp4Path, thumbPath, metaPath, durationSec }>}
  */
-export async function createShortsFromReels({ packId, outDir }) {
+export async function createShortsFromReels({ packId, outDir, examDir = '技術士総監' }) {
   if (!ffmpegAvailable()) {
     throw new Error('ffmpeg not found in PATH. Install with: brew install ffmpeg (macOS) or apt install ffmpeg (Linux)');
   }
@@ -303,9 +303,9 @@ export async function createShortsFromReels({ packId, outDir }) {
   const [, year, packNum] = m;
   const packNumLabel = String(Number(packNum));
 
-  // IG Reels パックのパスを解決
-  const reelsDir = join('docs', 'sns', 'instagram', '_exam-packs', year, `pack-${packNum}`, 'reels');
-  const slideDataPath = join('docs', 'sns', 'instagram', '_exam-packs', year, `pack-${packNum}`, 'slide-data.json');
+  // IG Reels パックのパスを解決（試験軸: 省略時=技術士総監）
+  const reelsDir = join('docs', 'sns', 'instagram', '_exam-packs', examDir, year, `pack-${packNum}`, 'reels');
+  const slideDataPath = join('docs', 'sns', 'instagram', '_exam-packs', examDir, year, `pack-${packNum}`, 'slide-data.json');
   if (!existsSync(reelsDir)) {
     throw new Error(`Reels ディレクトリが見つかりません: ${reelsDir}\n  先に ig-reel-create で生成してください`);
   }
@@ -418,5 +418,6 @@ if (isCli) {
   await createShortsFromReels({
     packId: args['from-reels'],
     outDir: args.out,
+    ...(typeof args['exam-dir'] === 'string' && args['exam-dir'] ? { examDir: args['exam-dir'] } : {}),
   });
 }

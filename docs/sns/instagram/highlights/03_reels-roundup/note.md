@@ -16,7 +16,7 @@
 | 04-r3 | 頻出引っかけ | 頻出引っかけ Reels の代表投稿 URL |
 | 05-cta | Reels 全件 | `https://instagram.com/doboku_note/reels/`（自プロフィール Reels タブ） |
 
-過去問パック Reels は `docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/video.mp4` から派生投稿される。実投稿後の URL は IG アプリから取得。
+過去問パック Reels は `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/video.mp4` から派生投稿される。実投稿後の URL は IG アプリから取得。
 
 ## 投稿フロー
 
@@ -41,7 +41,7 @@
 
 | 情報 | 参照先 |
 |---|---|
-| Reels の真実源 | `docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/`（過去問パック）/ 将来の単独 Reels ディレクトリ |
+| Reels の真実源 | `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/`（過去問パック）/ 将来の単独 Reels ディレクトリ |
 | Reels 台本ポリシー | `docs/reference/ig-reels-policy.md` |
 | Reels と Carousel/YT の役割分担 | `docs/project/03_SNS/01_SNS集客戦略.md` v7.1 §2 役割棲み分け表 |
 

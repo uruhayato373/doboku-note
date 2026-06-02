@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Write
 
 # YouTube Shorts 派生スキル（v7）
 
-`docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 出力 + meta.json までを担当（YouTube への upload は `media-uploader.mjs` で別途）。
+`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 出力 + meta.json までを担当（YouTube への upload は `media-uploader.mjs` で別途）。
 
 **v7 で MDX 直結モード（旧 `--slug`）は廃止**。詳細は [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7、品質ルーブリックは [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)。
 
@@ -23,9 +23,9 @@ allowed-tools: Bash, Read, Write
    ffmpeg -version
    ```
 2. **対象パックの Reels mp4 が既に生成済み**
-   - `ig-reel-create` で生成: `docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/slide-NN.mp4`
+   - `ig-reel-create` で生成: `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/slide-NN.mp4`
    - 必要なファイル: `slide-00.mp4` (cover) / `slide-01.mp4` (problem 1) / `slide-02.mp4` (answer 1) / `slide-09.mp4` (cta)
-3. **slide-data.json が存在**: `docs/sns/instagram/_exam-packs/<year>/pack-NN/slide-data.json`
+3. **slide-data.json が存在**: `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/slide-data.json`
 
 ## 使い方
 
@@ -73,7 +73,7 @@ docs/sns/youtube/<date>-<pack-id>/
 各スライドは IG Reels で既に **VOICEVOX TTS が乗った独立 mp4** なので、ffmpeg concat で結合するだけで音声付きの 30-60 秒 mp4 になる。
 
 ```
-docs/sns/instagram/_exam-packs/<year>/pack-NN/reels/
+docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/
   slide-00.mp4 (cover)        ┐
   slide-01.mp4 (problem 1)    │ ffmpeg concat
   slide-02.mp4 (answer 1)     │ → shorts.mp4 (約 40-50 秒)
@@ -96,7 +96,7 @@ v7 MVP では字幕焼き込み無し。IG Reels の slide-NN.mp4 に既に音�
 ffmpeg -version
 
 # 2. 対象 IG Reels パックが生成済みか確認
-ls docs/sns/instagram/_exam-packs/r03/pack-01/reels/slide-{00,01,02,09}.mp4
+ls docs/sns/instagram/_exam-packs/技術士総監/r03/pack-01/reels/slide-{00,01,02,09}.mp4
 
 # 3. YT 派生実行
 node .claude/skills/social/yt-shorts-create/scripts/yt-shorts-create.mjs --from-reels r03-pack-01

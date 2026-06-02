@@ -36,35 +36,42 @@ B のみで全網羅: 130 ÷ 52 ≈ **約 2.5 年**
 
 ## 3. ファイル構造
 
+> [!note] ディレクトリ規約（試験軸）
+> `_exam-packs/{試験}/{年度}/pack-NN/` で**全資格を対称配置**する。試験軸は
+> `技術士総監` / `1級土木` / `2級土木`（将来）。`ig-post-create.mjs` 等の
+> `--exam-dir` 省略時は `技術士総監` が既定。1級・2級は明示指定する。
+
 ```
 docs/sns/instagram/
 ├── _exam-packs/                       ← B 過去問パック (新)
-│   ├── r07/
-│   │   ├── _summary/                  ← 年度目次カルーセル（ストーリー入口）
-│   │   │   ├── slide-data.json
-│   │   │   ├── carousel/img/{00-03}.png  ← 1080×1350 PNG × 4
-│   │   │   └── reels/img/{00-03}.png     ← 1080×1920 PNG × 4（ストーリー投稿用）
-│   │   ├── pack-01/
-│   │   │   ├── slide-data.json        ← データソース（cover/problem/answer/cta）
-│   │   │   ├── carousel/              ← フィード投稿用
-│   │   │   │   ├── caption.txt        ← 正答リスト + 保存喚起 CTA
-│   │   │   │   └── img/{00-09}.png    ← 1080×1350 PNG × 10
-│   │   │   ├── reels/                 ← Reels 投稿用
-│   │   │   │   ├── caption.txt        ← 主題のみ（ネタバレなし）+ エンゲージメント CTA
-│   │   │   │   ├── img/{00-09}.png    ← 1080×1920 PNG × 10
-│   │   │   │   ├── script.txt         ← TTS 読み上げ台本（ig-reel-create）
-│   │   │   │   ├── wav/slide-NN.wav   ← VOICEVOX 音声（中間ファイル）
-│   │   │   │   └── video.mp4          ← 最終 Reels 動画（VOICEVOX + ffmpeg 合成）
-│   │   │   └── stories/               ← ストーリー連投用（reels から 4 枚厳選）
-│   │   │       ├── img/01-cover.png   ← 表紙
-│   │   │       ├── img/02-problem.png ← Q1（典型問題）
-│   │   │       ├── img/03-answer.png  ← A1（解説）
-│   │   │       ├── img/04-cta.png     ← CTA
-│   │   │       ├── caption.txt
-│   │   │       └── note.md            ← 投稿手順（リンクスタンプ・タグ）
-│   │   └── pack-02..09/
-│   ├── r03..r06/（同構造）
-│   └── h21..r02/（未整備）
+│   ├── 技術士総監/                     ← 試験軸（既定）。1級土木 / 2級土木 と対称
+│   │   └── r07/                       ← （以下 技術士総監/r07 を例示）
+│   │       ├── _summary/              ← 年度目次カルーセル（ストーリー入口）
+│   │       │   ├── slide-data.json
+│   │       │   ├── carousel/img/{00-03}.png  ← 1080×1350 PNG × 4
+│   │       │   └── reels/img/{00-03}.png     ← 1080×1920 PNG × 4（ストーリー投稿用）
+│   │       ├── pack-01/
+│   │       │   ├── slide-data.json    ← データソース（cover/problem/answer/cta）
+│   │       │   ├── carousel/          ← フィード投稿用
+│   │       │   │   ├── caption.txt    ← 正答リスト + 保存喚起 CTA
+│   │       │   │   └── img/{00-09}.png  ← 1080×1350 PNG × 10
+│   │       │   ├── reels/             ← Reels 投稿用
+│   │       │   │   ├── caption.txt    ← 主題のみ（ネタバレなし）+ エンゲージメント CTA
+│   │       │   │   ├── img/{00-09}.png  ← 1080×1920 PNG × 10
+│   │       │   │   ├── script.txt     ← TTS 読み上げ台本（ig-reel-create）
+│   │       │   │   ├── wav/slide-NN.wav  ← VOICEVOX 音声（中間ファイル）
+│   │       │   │   └── video.mp4      ← 最終 Reels 動画（VOICEVOX + ffmpeg 合成）
+│   │       │   └── stories/           ← ストーリー連投用（reels から 4 枚厳選）
+│   │       │       ├── img/01-cover.png   ← 表紙
+│   │       │       ├── img/02-problem.png ← Q1（典型問題）
+│   │       │       ├── img/03-answer.png  ← A1（解説）
+│   │       │       ├── img/04-cta.png     ← CTA
+│   │       │       ├── caption.txt
+│   │       │       └── note.md        ← 投稿手順（リンクスタンプ・タグ）
+│   │       └── pack-02..09/
+│   ├── 1級土木/                        ← 第一次検定 過去問（h26..r07, 228 パック・carousel）
+│   │   └── {年度}/pack-NN/（同構造）
+│   └── 2級土木/（将来・規約のみ確定）
 ├── _quiz-sample/                       ← A 択一クイズサンプル
 │   ├── source.md
 │   ├── instagram-carousel/img/01-経済性/{01..10}.png
@@ -179,7 +186,7 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/instagram/_quiz-sample
 
 ## 7. やらないこと
 
-- **両シリーズを混同する命名**: A は `<NNN>-クイズ-...`、B は `_exam-packs/<year>/pack-<NN>` で物理的に分離
+- **両シリーズを混同する命名**: A は `<NNN>-クイズ-...`、B は `_exam-packs/{試験}/<year>/pack-<NN>` で物理的に分離
 - **B の自動生成内容を投稿前に確認しない**: 必ず 1 パックずつ視覚確認してから投稿
 - **A の source.md を機械生成する**: 運営者の手書きクラフトが A の価値の中核
 
@@ -260,7 +267,7 @@ node .claude/skills/social/ig-post-create/scripts/ig-post-create.mjs --exam r07-
 
 # stories/img/ に 4 枚（cover/Q1/A1/cta）を抽出 + caption + note.md 自動生成
 node .claude/scripts/instagram/build-stories.mjs --pack r07-pack-01
-# → docs/sns/instagram/_exam-packs/r07/pack-01/stories/{img/01-cover.png ...}
+# → docs/sns/instagram/_exam-packs/技術士総監/r07/pack-01/stories/{img/01-cover.png ...}
 ```
 
 `quiz-slides.mjs` は `reelsWrapper`（1350px コンテンツを 1920px キャンバスの中央に配置）で縦長キャンバスにも対応済み。R3-R7 全 42 パック × 4 枚 = 168 PNG 整備完了。

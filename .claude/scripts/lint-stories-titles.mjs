@@ -10,7 +10,7 @@
  *
  * スキャン対象:
  *   - docs/sns/instagram/highlights/<NN_*>/slide-data.json
- *   - docs/sns/instagram/_exam-packs/<year>/pack-<NN>/slide-data.json
+ *   - docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json
  *   - docs/sns/instagram/highlights/highlight-materials/ (旧パスはスキップ)
  *
  * Usage:

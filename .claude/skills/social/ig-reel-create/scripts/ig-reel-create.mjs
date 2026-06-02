@@ -81,7 +81,9 @@ if (!scriptOnly) {
 
 // ─── パック情報 ──────────────────────────────────────────────
 
-const packDir = resolve(ROOT, `docs/sns/instagram/_exam-packs/${year}/pack-${packNum}`);
+// 試験軸: --exam-dir 省略時=技術士総監（既定）。多資格は 1級土木 / 2級土木 等を明示。
+const examDir = (typeof args['exam-dir'] === 'string' && args['exam-dir']) || '技術士総監';
+const packDir = resolve(ROOT, `docs/sns/instagram/_exam-packs/${examDir}/${year}/pack-${packNum}`);
 const slideDataPath = join(packDir, 'slide-data.json');
 if (!existsSync(slideDataPath)) {
   console.error(`Error: ${slideDataPath} not found`);

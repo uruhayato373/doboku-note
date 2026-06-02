@@ -39,7 +39,7 @@ model: sonnet
 ## 進め方
 
 1. `docs/reference/ig-reels-policy.md` を読む。
-2. exam モードの場合: 対象パックの `docs/sns/instagram/_exam-packs/<year>/pack-NN/slide-data.json` を読み、carousel と同一の slide 構造（cover / problem×4 / answer×4 / cta = 10 枚）を把握する。
+2. exam モードの場合: 対象パックの `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/slide-data.json` を読み、carousel と同一の slide 構造（cover / problem×4 / answer×4 / cta = 10 枚）を把握する。
 3. 各 slide の **読み上げ台本**を `reels/script.json` に書く。
    - **尺**: 合計 90-110 秒以内。各スライドの想定秒数を `durationSec` で明示
    - **読み上げ文**: 体言止め禁止（VOICEVOX が破綻するため句読点と完結文が必須）

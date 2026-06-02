@@ -57,7 +57,7 @@
 
 ## 過去問パック（exam モード）専用スキーマ
 
-`docs/sns/instagram/_exam-packs/<year>/pack-<NN>/slide-data.json` は別構造。
+`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/slide-data.json` は別構造。
 デザイン真実源は [`docs/design-system/instagram-carousel-tokens.json`](../design-system/instagram-carousel-tokens.json)、仕様書は [`docs/design-system/instagram-carousel.md`](../design-system/instagram-carousel.md)。
 
 ```jsonc
