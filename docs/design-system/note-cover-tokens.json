@@ -50,6 +50,26 @@
       "soft": "#3E9069",
       "accent": "#155293"
     },
+    "concrete-chief": {
+      "dir": "コンクリート主任技師",
+      "label": "コンクリート主任技士",
+      "short": "コンクリ主任",
+      "hue": "teal",
+      "base": "#0F6E6E",
+      "deep": "#0A4F4F",
+      "soft": "#2A8A8A",
+      "accent": "#16365C"
+    },
+    "concrete-diagnosis": {
+      "dir": "コンクリート診断士",
+      "label": "コンクリート診断士",
+      "short": "コンクリ診断",
+      "hue": "plum",
+      "base": "#6E3A8C",
+      "deep": "#522A69",
+      "soft": "#8B57A8",
+      "accent": "#16365C"
+    },
     "common": {
       "dir": "共通",
       "label": "土木・建設 共通",
