@@ -165,16 +165,6 @@ const MAGAZINES = [
     accentColor: '#155293',
     fillBg: '#155293',
   },
-  {
-    id: 'civil-2-yosou',
-    fileBaseName: 'civil-2-yosou-essay-cover',
-    magazineDir: 'docs/note/2級土木/magazines/2級土木-施工経験記述-予想問題集',
-    lines: ['2級土木 施工経験記述', '予想問題集', '令和6年度 新方向対応'],
-    category: '2級土木施工管理技士',
-    fontSize: 44,
-    accentColor: '#1C5038',
-    fillBg: '#1C5038',
-  },
 ];
 
 async function renderOne(mag, fonts) {

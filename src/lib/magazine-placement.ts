@@ -224,15 +224,15 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 7. 2級土木 施工経験記述 → 3マガジン（過去問年度別 / テーマ別完成答案集 / 予想問題集）。
-  //    年度別ページ(r0X)は過去問が主、guide/examples は完成答案集が主。予想問題集は副。
+  // 7. 2級土木 施工経験記述 → 2マガジン（過去問年度別 / テーマ別完成答案集）。
+  //    年度別ページ(r0X)は過去問が主、guide/examples は完成答案集が主。
   //    published: false の間は getMagazine が null を返し CTA 非表示（防御的）。
+  //    （予想問題集 civil-2-yosou-essay は 2026-06-02 退役。環境対策のみ完成答案集へ昇格）
   if (/^civil-construction-2-secondary-r0[1-9]$/.test(slug)) {
     return {
       inline: [
         slot('civil-2-pastexam-essay', slug, 'inline-1'),
         slot('civil-2-experience-essay', slug, 'inline-2'),
-        slot('civil-2-yosou-essay', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-pastexam-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,
@@ -243,7 +243,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [
         slot('civil-2-experience-essay', slug, 'inline-1'),
         slot('civil-2-pastexam-essay', slug, 'inline-2'),
-        slot('civil-2-yosou-essay', slug, 'inline-3'),
       ],
       sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
       inlineMobileOnly: false,

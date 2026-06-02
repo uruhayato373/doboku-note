@@ -252,22 +252,9 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-予想問題集/
-  // 2級 令和6年度 新方向（条件提示型・新項目・日常業務）の予想問題集。published: false。
-  'civil-2-yosou-essay': {
-    id: 'civil-2-yosou-essay',
-    published: false,
-    noteUrl: '',
-    title: '2級土木 施工経験記述｜予想問題集（令和6年度 新方向対応）',
-    description:
-      '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の予想問題集。令和6年度の検定見直しで現れた新方向（条件提示型・環境対策/出来形などの新項目・ヒヤリハット/作業日誌などの日常業務記述）に特化し、予想問題＋模範答案（記述例）＋採点者視点を収録。標準3管理の完成答案集を補完する。',
-    shortTitle: '2級土木 施工経験記述 予想問題集',
-    shortDescription:
-      '条件提示型・新項目・日常業務記述の予想問題＋記述例。R6新方向に特化。',
-    imageUrl: '/images/magazines/civil-2-yosou-essay-cover.webp',
-    price: '¥1,480（3本セット）',
-    badge: 'note 限定',
-  },
+  // 注: civil-2-yosou-essay（2級 予想問題集）は 2026-06-02 退役。出題実績のない投機
+  //     （条件提示型・出来形・日常業務）かつ無料ガイドの「3管理で十分」と矛盾するため。
+  //     根拠のある「環境対策」のみ civil-2-experience-essay（完成答案集）へ4テーマ目として昇格。
 
   // 注: civil-1-yosou-essay（1級 予想問題集）は 2026-06-02 完全退役。
   //     出題実績のない投機（条件提示型・日常業務）のため、現行形式を全網羅する
