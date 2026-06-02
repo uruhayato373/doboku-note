@@ -183,11 +183,11 @@ const MAGAZINES_RAW = {
 
   // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
   // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-完成答案集/
-  // 公開準備中 (published: false)。note 公開で noteUrl 取得後に true へ。
+  // 2026-06-03 note 公開。
   'civil-2-experience-essay': {
     id: 'civil-2-experience-essay',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m1881a9578027',
     title: '2級土木 施工経験記述｜工種×テーマ別 完成答案集（安全・品質・工程）',
     description:
       '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。安全・品質・工程の3テーマ別に、複数工種のフル完成答案＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）と令和5年度以前の3項目形式の両方に対応。',
