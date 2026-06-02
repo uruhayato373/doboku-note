@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 学習戦略
 utmCampaign: 2c-study-design
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n0d6a78c48cef
+noteId: n0d6a78c48cef
+notePublishedAt: 2026-06-03
 coverTitle:
   - 2級土木
   - 独学合格の学習設計
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木施工管理技士"
   hi: "独学合格"
