@@ -2,9 +2,9 @@
   "slides": [
     {
       "type": "cover",
-      "title": "安全管理",
-      "subtitle": "R06 4問パック",
-      "sectionTag": "5 安全管理",
+      "title": "令和6年度",
+      "subtitle": "択一式 過去問",
+      "sectionTag": "過去問",
       "pageIndex": 1,
       "totalPages": 10
     },
@@ -323,6 +323,9 @@
       "r06-32",
       "r06-37",
       "r06-40"
-    ]
+    ],
+    "exam": "pe-comprehensive",
+    "examDir": "技術士総監",
+    "fmtLabel": "択一式 過去問"
   }
 }

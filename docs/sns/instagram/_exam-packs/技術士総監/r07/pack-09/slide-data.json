@@ -2,9 +2,9 @@
   "slides": [
     {
       "type": "cover",
-      "title": "社会環境管理",
-      "subtitle": "R07 4問パック",
-      "sectionTag": "6 社会環境管理",
+      "title": "令和7年度",
+      "subtitle": "択一式 過去問",
+      "sectionTag": "過去問",
       "pageIndex": 1,
       "totalPages": 10
     },
@@ -290,6 +290,9 @@
       "r07-36",
       "r07-37",
       "r07-39"
-    ]
+    ],
+    "exam": "pe-comprehensive",
+    "examDir": "技術士総監",
+    "fmtLabel": "択一式 過去問"
   }
 }

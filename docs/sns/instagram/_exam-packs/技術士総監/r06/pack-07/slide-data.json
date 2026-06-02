@@ -2,9 +2,9 @@
   "slides": [
     {
       "type": "cover",
-      "title": "情報管理",
-      "subtitle": "R06 4問パック",
-      "sectionTag": "4 情報管理",
+      "title": "令和6年度",
+      "subtitle": "択一式 過去問",
+      "sectionTag": "過去問",
       "pageIndex": 1,
       "totalPages": 10
     },
@@ -334,6 +334,9 @@
       "r06-19",
       "r06-21",
       "r06-25"
-    ]
+    ],
+    "exam": "pe-comprehensive",
+    "examDir": "技術士総監",
+    "fmtLabel": "択一式 過去問"
   }
 }

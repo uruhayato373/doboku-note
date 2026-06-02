@@ -2,9 +2,9 @@
   "slides": [
     {
       "type": "cover",
-      "title": "人的資源管理",
-      "subtitle": "R04 4問パック",
-      "sectionTag": "3 人的資源管理",
+      "title": "令和4年度",
+      "subtitle": "択一式 過去問",
+      "sectionTag": "過去問",
       "pageIndex": 1,
       "totalPages": 10
     },
@@ -334,6 +334,9 @@
       "r04-10",
       "r04-11",
       "r04-12"
-    ]
+    ],
+    "exam": "pe-comprehensive",
+    "examDir": "技術士総監",
+    "fmtLabel": "択一式 過去問"
   }
 }

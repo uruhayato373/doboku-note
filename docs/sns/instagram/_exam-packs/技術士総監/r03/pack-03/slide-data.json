@@ -2,9 +2,9 @@
   "slides": [
     {
       "type": "cover",
-      "title": "経済性管理",
-      "subtitle": "R03 4問パック",
-      "sectionTag": "2 経済性管理",
+      "title": "令和3年度",
+      "subtitle": "択一式 過去問",
+      "sectionTag": "過去問",
       "pageIndex": 1,
       "totalPages": 10
     },
@@ -333,6 +333,9 @@
       "r03-12",
       "r03-13",
       "r03-15"
-    ]
+    ],
+    "exam": "pe-comprehensive",
+    "examDir": "技術士総監",
+    "fmtLabel": "択一式 過去問"
   }
 }
