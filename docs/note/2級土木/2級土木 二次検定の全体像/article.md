@@ -2,13 +2,13 @@
 notePricing: free
 noteSeries: 受験ガイド
 utmCampaign: 2c-secondary-overview
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n27455b88bcd5
+noteId: n27455b88bcd5
+notePublishedAt: 2026-06-03
 coverTitle:
   - 2級土木 第二次検定
   - 何が問われるか
-noteStatus: draft
+noteStatus: published
 cover:
   leadIn: "2級土木施工管理技士"
   hi: "第二次検定"
