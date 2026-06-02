@@ -306,7 +306,10 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height 
 
 const HEADER_BAND_HEIGHT = 216;
 
-function renderMagazineBanner({ lines, categoryLabel: cat, fontSize }, { width, height }) {
+function renderMagazineBanner({ lines, categoryLabel: cat, fontSize, accentColor }, { width, height }) {
+  // accentColor 指定時はカテゴリバッジ背景・下部アクセント線を試験別色にする（既定はネイビー/シアン）
+  const badgeBg = accentColor || C_INK_NAVY;
+  const barColor = accentColor || C_CYAN;
   const fineGridUrl = gridDataUrl(30, 'rgba(15,30,63,0.04)', 1);
   const majorGridUrl = gridDataUrl(120, 'rgba(15,30,63,0.09)', 1.25);
 
@@ -366,7 +369,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize }, { width, 
             alignItems: 'center',
             marginTop: '22px',
             padding: '7px 16px',
-            background: C_INK_NAVY,
+            background: badgeBg,
             color: '#ffffff',
             fontFamily: '"Noto Sans JP", Inter, sans-serif',
             fontSize: '18px',
@@ -415,7 +418,7 @@ function renderMagazineBanner({ lines, categoryLabel: cat, fontSize }, { width, 
         display: 'flex',
         width: '72px',
         height: '4px',
-        background: C_CYAN,
+        background: barColor,
         marginBottom: '18px',
       },
       children: [],

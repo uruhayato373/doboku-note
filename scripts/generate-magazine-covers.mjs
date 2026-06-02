@@ -99,6 +99,55 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
+  // ----- 土木 1級/2級 施工経験記述 6 マガジン (資格別配色: 1級青 #155293 / 2級緑 #1C5038) -----
+  {
+    id: 'civil-1-experience',
+    fileBaseName: 'civil-1-experience-essay-cover',
+    lines: ['1級土木 施工経験記述', '工種×テーマ別 完成答案集', '品質・安全・工程・施工計画・環境'],
+    category: '1級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#155293',
+  },
+  {
+    id: 'civil-2-experience',
+    fileBaseName: 'civil-2-experience-essay-cover',
+    lines: ['2級土木 施工経験記述', '工種×テーマ別 完成答案集', '安全・品質・工程の3テーマ'],
+    category: '2級土木施工管理技士',
+    fontSize: 42,
+    accentColor: '#1C5038',
+  },
+  {
+    id: 'civil-1-pastexam',
+    fileBaseName: 'civil-1-pastexam-essay-cover',
+    lines: ['1級土木 施工経験記述', '過去問 模範答案集', '年度別 R03〜R07（5年分）'],
+    category: '1級土木施工管理技士',
+    fontSize: 44,
+    accentColor: '#155293',
+  },
+  {
+    id: 'civil-2-pastexam',
+    fileBaseName: 'civil-2-pastexam-essay-cover',
+    lines: ['2級土木 施工経験記述', '過去問 模範答案集', '年度別 R03〜R07（5年分）'],
+    category: '2級土木施工管理技士',
+    fontSize: 44,
+    accentColor: '#1C5038',
+  },
+  {
+    id: 'civil-1-yosou',
+    fileBaseName: 'civil-1-yosou-essay-cover',
+    lines: ['1級土木 施工経験記述', '予想問題集', '令和6年度 新方向対応'],
+    category: '1級土木施工管理技士',
+    fontSize: 44,
+    accentColor: '#155293',
+  },
+  {
+    id: 'civil-2-yosou',
+    fileBaseName: 'civil-2-yosou-essay-cover',
+    lines: ['2級土木 施工経験記述', '予想問題集', '令和6年度 新方向対応'],
+    category: '2級土木施工管理技士',
+    fontSize: 44,
+    accentColor: '#1C5038',
+  },
 ];
 
 async function renderOne(mag, fonts) {
@@ -108,6 +157,7 @@ async function renderOne(mag, fonts) {
       lines: mag.lines,
       categoryLabel: mag.category,
       fontSize: mag.fontSize,
+      ...(mag.accentColor ? { accentColor: mag.accentColor } : {}),
     },
     { width: W, height: H },
   );
