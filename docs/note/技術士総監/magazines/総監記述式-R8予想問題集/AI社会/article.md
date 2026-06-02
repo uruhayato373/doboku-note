@@ -8,6 +8,16 @@ noteId: nb4e6f088f0e8
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "AI社会と情報ガバナンス"]
 price: 500
+cover:
+  leadIn: "令和8年度 総監記述式"
+  hi: "R8"
+  hiSuffix: "予想問題"
+  banner: "AI社会 × 情報ガバナンス"
+  meta: "R8予想問題"
+  chips:
+    - { icon: flag, text: "出題根拠つき" }
+    - { icon: pen, text: "3,000字級フル論文" }
+    - { icon: layers, text: "3ペルソナ早見表" }
 ---
 # 令和8年度 総監記述式 R8予想問題｜AI社会 × 情報ガバナンス（自治体 道路担当フル模範論文）
 

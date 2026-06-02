@@ -7,6 +7,16 @@ noteId: nf5c45c995254
 notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-河川コンサル
 price: 500
+cover:
+  leadIn: "令和4年度 総監記述式"
+  hi: "R4"
+  hiSuffix: "河川コンサル版"
+  banner: "DX推進計画｜3,000字級フル論文"
+  meta: "フル模範論文"
+  chips:
+    - { icon: pen, text: "答案そのまま展開" }
+    - { icon: layers, text: "5管理トレードオフ" }
+    - { icon: check, text: "採点チェック付" }
 ---
 # 令和4年度 総監記述式 模範論文｜河川コンサル版（DX 推進計画）
 

@@ -5,6 +5,16 @@ utmCampaign: essay-road-r08-yosou
 noteUrl: ""
 noteMagazine: 総監模範論文-自治体道路担当
 price: 500
+cover:
+  leadIn: "令和8年度 R8予想"
+  hi: "R8"
+  hiSuffix: "道路担当版"
+  banner: "気候変動適応＋資源循環｜3千字級"
+  meta: "R8予想問題"
+  chips:
+    - { icon: flag, text: "出題根拠つき" }
+    - { icon: pen, text: "フル模範論文" }
+    - { icon: layers, text: "5管理トレードオフ" }
 ---
 # 令和8年度 総監記述式 R8 予想問題集｜自治体 道路担当版（気候変動適応 + 資源循環）
 

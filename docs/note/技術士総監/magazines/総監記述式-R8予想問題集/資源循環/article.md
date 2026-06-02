@@ -8,6 +8,16 @@ noteId: n5116639ee21f
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "資源循環"]
 price: 500
+cover:
+  leadIn: "令和8年度 総監記述式"
+  hi: "R8"
+  hiSuffix: "予想問題"
+  banner: "資源循環 × サプライチェーン"
+  meta: "R8予想問題"
+  chips:
+    - { icon: flag, text: "出題根拠つき" }
+    - { icon: pen, text: "3,000字級フル論文" }
+    - { icon: layers, text: "3ペルソナ早見表" }
 ---
 # 令和8年度 総監記述式 R8予想問題｜資源循環 × サプライチェーン強靭化（自治体 道路担当フル模範論文）
 

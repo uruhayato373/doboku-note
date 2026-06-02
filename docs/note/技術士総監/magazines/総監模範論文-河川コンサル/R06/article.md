@@ -7,6 +7,16 @@ noteId: n0c57fc5085c9
 notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-河川コンサル
 price: 500
+cover:
+  leadIn: "令和6年度 総監記述式"
+  hi: "R6"
+  hiSuffix: "河川コンサル版"
+  banner: "カーボンニュートラル｜3千字級"
+  meta: "フル模範論文"
+  chips:
+    - { icon: pen, text: "答案そのまま展開" }
+    - { icon: layers, text: "5管理トレードオフ" }
+    - { icon: check, text: "採点チェック付" }
 ---
 # 令和6年度 総監記述式 模範論文｜河川コンサル版（カーボンニュートラル）
 

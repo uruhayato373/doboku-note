@@ -7,6 +7,16 @@ noteId: n357c7c44cccc
 notePublishedAt: 2026-05-21
 noteMagazine: 総監模範論文-自治体道路担当
 price: 500
+cover:
+  leadIn: "令和5年度 総監記述式"
+  hi: "R5"
+  hiSuffix: "道路担当版"
+  banner: "SWOT分析｜3,000字級フル論文"
+  meta: "フル模範論文"
+  chips:
+    - { icon: pen, text: "答案そのまま展開" }
+    - { icon: layers, text: "5管理トレードオフ" }
+    - { icon: check, text: "採点チェック付" }
 ---
 # 令和5年度 総監記述式 模範論文｜自治体 道路担当版（SWOT 分析・戦略立案）
 

@@ -8,6 +8,16 @@ noteId: n05314b15b375
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "気候変動適応"]
 price: 500
+cover:
+  leadIn: "令和8年度 総監記述式"
+  hi: "R8"
+  hiSuffix: "予想問題"
+  banner: "気候変動適応 × グリーンインフラ"
+  meta: "R8予想問題"
+  chips:
+    - { icon: flag, text: "出題根拠つき" }
+    - { icon: pen, text: "3,000字級フル論文" }
+    - { icon: layers, text: "3ペルソナ早見表" }
 ---
 # 令和8年度 総監記述式 R8予想問題｜気候変動適応 × グリーンインフラ（自治体 道路担当フル模範論文）
 
