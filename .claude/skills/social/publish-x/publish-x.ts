@@ -75,11 +75,13 @@ function parseTweetMd(draftDir: string): TweetBlock[] {
     const num = parseInt(headMatch[1], 10);
     const title = headMatch[2].trim();
 
-    // ヘッダ行を除いた残り。リプライ部分と末尾の "---" セパレータは除去
+    // ヘッダ行を除いた残り。HTML コメント（投稿予定注記等）・リプライ部分・末尾 "---" は除去
     const body = block
       .replace(/^## Tweet \d+:.+\n/, "")
+      .replace(/<!--[\s\S]*?-->/g, "")
       .replace(/\n--- リプライ ---[\s\S]*/, "")
       .replace(/\n---\s*$/, "")
+      .replace(/^\n+/, "")
       .trim();
 
     // 画像: tweet-{NN}-{*.png} を探す（svg より png 優先）
