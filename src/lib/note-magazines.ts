@@ -202,11 +202,11 @@ const MAGAZINES_RAW = {
 
   // ----- 1級土木 施工経験記述ライン (2026-05-29) -----
   // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-完成答案集/
-  // 公開準備中 (published: false)。note 公開で noteUrl 取得後に true へ。
+  // 2026-06-02 note 公開。
   'civil-1-experience-essay': {
     id: 'civil-1-experience-essay',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m150c9db08902',
     title: '1級土木 施工経験記述｜工種×テーマ別 完成答案集（5管理）',
     description:
       '1級土木施工管理技士 第2次検定 問題1（施工経験記述）の完成答案集。品質・安全・工程・施工計画・環境対策の5管理別に、複数工種のフル完成答案（監理技術者レベル）＋自分の現場への置換ガイド＋減点回避の添削例＋採点者視点を収録。令和6年度の新形式（2テーマ必答）に対応。',

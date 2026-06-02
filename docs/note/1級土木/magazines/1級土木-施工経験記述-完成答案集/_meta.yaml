@@ -22,15 +22,17 @@ articlePrice: 600
 articleCount: 5
 singleTotal: 3000
 discountPercent: 17
+# noteUrl はマガジン URL（個別記事 n/ URL を取得したら各 slug に差し替え）
+magazineUrl: "https://note.com/dobokunote/m/m150c9db08902"
 articles:
   - slug: 品質管理
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/m150c9db08902"
   - slug: 安全管理
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/m150c9db08902"
   - slug: 工程管理
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/m150c9db08902"
   - slug: 施工計画
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/m150c9db08902"
   - slug: 環境対策
-    noteUrl: ""
-publishTiming: "未定（2級マガジンの実績・site流入を見て判断）"
+    noteUrl: "https://note.com/dobokunote/m/m150c9db08902"
+publishTiming: "公開済（2026-06-02）"
