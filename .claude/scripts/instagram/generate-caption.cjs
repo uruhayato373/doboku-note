@@ -80,7 +80,9 @@ if (isExamPack) {
   const yearNum = String(_meta.year).replace(/^[rRhH]0*/, '') || _meta.year;
   const eraJp = /^h/i.test(_meta.year) ? '平成' : '令和';
   const packNumLabel = String(_meta.packNum).replace(/^0+/, '') || _meta.packNum;
-  lines.push(`【${eraJp}${yearNum}年度 択一式 過去問】${yearLabel} 過去問 #${packNumLabel}`);
+  // fmtLabel があれば採用（例: 1級土木「第一次検定 過去問」）。無ければ従来の「択一式 過去問」。
+  const fmtLabel = _meta.fmtLabel || '択一式 過去問';
+  lines.push(`【${eraJp}${yearNum}年度 ${fmtLabel}】${yearLabel} 過去問 #${packNumLabel}`);
 } else if (isBundle) {
   const chapterLabel = _meta?.chapterTitle ? `【${_meta.chapterTitle}】` : "【保存版】";
   lines.push(`${chapterLabel}${coverTitle}（${kwCount}キーワードまとめ）`);
@@ -165,26 +167,50 @@ if (Array.isArray(cta?.related) && cta.related.length > 0) {
 }
 
 // ハッシュタグ（v5 §252-255: 大3 + 中5 + 小ニッチ7 = 15 個）
-const hashtags = [
-  // 大（発見性）
-  "#技術士",
-  "#資格勉強",
-  "#国家資格",
-  // 中（関連性）
-  "#技術士総監",
-  "#技術士総合技術監理",
-  "#1級土木施工管理技士",
-  "#施工管理技士",
-  "#建設業",
-  // 小ニッチ（受験者直撃）
-  "#技術士総監受験",
-  "#2026年技術士",
-  "#社会人勉強垢",
-  "#資格取得",
-  "#土木技術者",
-  "#建設技術者",
-  "#総監キーワード",
-];
+// 試験別に切替（_meta.exam）。総監（exam 未設定）は従来セットを維持。
+const HASHTAG_SETS = {
+  "civil-1": [
+    // 大（発見性）
+    "#資格勉強",
+    "#国家資格",
+    "#施工管理技士",
+    // 中（関連性）
+    "#1級土木施工管理技士",
+    "#土木施工管理技士",
+    "#土木",
+    "#建設業",
+    "#現場監督",
+    // 小ニッチ（受験者直撃）
+    "#1級土木",
+    "#施工管理",
+    "#2026年受験",
+    "#社会人勉強垢",
+    "#土木技術者",
+    "#建設技術者",
+    "#過去問",
+  ],
+  default: [
+    // 大（発見性）
+    "#技術士",
+    "#資格勉強",
+    "#国家資格",
+    // 中（関連性）
+    "#技術士総監",
+    "#技術士総合技術監理",
+    "#1級土木施工管理技士",
+    "#施工管理技士",
+    "#建設業",
+    // 小ニッチ（受験者直撃）
+    "#技術士総監受験",
+    "#2026年技術士",
+    "#社会人勉強垢",
+    "#資格取得",
+    "#土木技術者",
+    "#建設技術者",
+    "#総監キーワード",
+  ],
+};
+const hashtags = HASHTAG_SETS[_meta?.exam] || HASHTAG_SETS.default;
 
 lines.push(hashtags.join(" "));
 
