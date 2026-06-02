@@ -41,6 +41,7 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 | L2 | 内部 hub-spoke リンク（新guideを `exam-index`/5ピラーへ束ねる） | 中 | 小 | 権威＋回遊 |
 | L3 | note→サイト deep-link 監査（被リンクをトップでなく新canonicalページへ） | 中 | 小 | 権威フロー・低工数 |
 | L4 | 高imp低CTR ページの seoTitle/description 改善 | 小〜中 | 小 | 既存impの換金・即効 |
+| L5 | striking-distance（pos5-9）ページへの FAQ schema 付与（CTR/PAA・SERP feature） | 小〜中 | 小 | 既存impの換金・PE keyword の構造化データ欠落是正 |
 
 ## 着手前チェック（新規ページ重複回避）
 
@@ -93,6 +94,16 @@ North star = **impressions（検索面積 ＋ トピック権威）**。clicks �
 **対象（クエリ例）**: general-vs-comprehensive（技術士 一般部門 総監 違い）/ public-engineer-qualification-map（自治体 技術職員 資格）/ public-servant・private-merit（公務員・建設会社 総監 メリット）/ guide-vs-pe（施工管理技士 技術士 違い）。CTR: jisec / break-even-point / conformity-bias / cost-driver / digital-rights / push-production / tripod-theory。カニばり監視ペア: grade-comparison⇔guide-1-vs-2 / study-method⇔study-plan。
 
 **留意**: ベースライン低・受験季節影響・小数値ノイズ大 → 単月の増減でなく**傾向**で判断。クリーンな7日WoWは organic スナップショットが溜まる時期以降。
+
+### 実装メモ（2026-06-02 追補: L5 FAQ schema = striking-distance 強化）
+GSC ページ単位（2026-04-27〜05-25）で striking-distance を実査した結果の知見と施策:
+- **最重要所見**: 高imp ページ（`textbook-scraper` 753imp/pos8.7、`primary-r07-a/b` 286/122imp、過去問全般）は **seoTitle・定義・FAQ 等が既に最適化済み** → 0% CTR は on-page でなく **順位（権威）律速**。表の重複追加（冗長概要表禁止）になるため churn せず "rank-limited" と判定。
+- **構造化データの体系的欠落を是正**: PE keyword ページは FAQ schema 未付与が多数（civil は完備）。**page-1（pos5-9）かつ高imp** の PE 9ページに FAQPage（frontmatter `faqs`）を追加（回答は各ページ本文から正確に派生・捏造なし）:
+  - 第1弾: `jisec`(163imp) / `asch-conformity-experiment`(121) / `blind-drill`(104) ＋ `keyword-2026`(363) の冗長 seoTitle 短縮（commit 2d271a30c）
+  - 第2弾: `break-even-point`(63) / `catastrophe-bias`(61) / `appraisal-three-principles`(51) / `end-of-pipe`(58) / `cost-driver`(56)（commit 262f52d9c）
+- **pos25+ の rank-buried ページは対象外**（FAQ ではクリック改善しない＝順位律速）。L5 の費用対効果は pos5-9 の少数ページに限定するのが妥当。
+- **C1 計測対象に追加**: 上記9ページの CTR / position 推移を ~6/30 の週次レビューで確認。
+- **次レバーの本命（所見）**: striking-distance on-page は概ね出し切り → 残りは L1/L2（権威・面積、進行中）と **P2 = 被リンク資産（無料 web ツール等、サイト未保有）** が上限を上げる本命。
 
 ### 実装メモ（2026-06-02）
 - A1–A5・B1 を 1 セッションで実装（A2/A5/B1 は workflow で並行生成 → 親が QA・hub配線・索引・コミット統合）。
