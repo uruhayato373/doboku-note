@@ -202,17 +202,12 @@ function SchoolCourseCTA({
 }) {
   const rotate = category === 'civil-construction-1' && docGroup === 'guide';
   const creative = rotate ? pickSchoolBySlug(slug) : SCHOOL_SAT;
-  // 参考書籍（BookSection）と枠・見出しラベルを統一して縦に並べる。
-  // 大きな h2 を BookSection の小ラベル（"通信講座"）へ格下げし、グレー枠の中にカードを収める。
-  // SchoolAffiliate の既定 my-6 は枠内では過剰なため my-0 に上書きして余白を書籍カードと揃える。
+  // SchoolAffiliate は provider ラベル + 講座名 + 説明文 + CTA を自身のカード内に持つ自己完結カード。
+  // 以前は BookSection（灰背景 + 左右パディング）で囲っていたが、内側カードが本文より一回り
+  // 小さく inset され見出しが枠外に浮くため、ラッパーを外して本文と同じ全幅カードで描画する。
   return (
     <div className="mt-8">
-      <BookSection
-        title="通信講座"
-        caption="独学を補完する選択肢として。"
-      >
-        <SchoolAffiliate {...creative} className="my-0" />
-      </BookSection>
+      <SchoolAffiliate {...creative} className="my-0" />
     </div>
   );
 }
