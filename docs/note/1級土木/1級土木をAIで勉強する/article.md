@@ -85,10 +85,10 @@ https://doboku-note.com
 
 https://doboku-note.com
 
-**AIで土木資格を攻略する勉強法（資格別ガイド）**
+**AIで土木資格を攻略する勉強法**（資格別ガイド）
 
 （公開後にURL反映）
 
-**総監をAIで勉強する（AIツール使い分けの詳細）**
+**総監をAIで勉強する**（AIツール使い分けの詳細）
 
 https://note.com/dobokunote/n/n89da1120ccaa
