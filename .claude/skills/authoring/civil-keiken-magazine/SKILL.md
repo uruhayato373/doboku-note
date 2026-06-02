@@ -24,17 +24,29 @@ user-invocable: true
 
 ## 実行手順
 
-1. **既存把握（重複回避）**: 対象級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}` を確認し、使用済み工種・現場設定を洗い出す。`pastexam` はサイト `secondary-r0X` の問題1（公式問題文）を正として用意。
-2. **生成**: `civil-keiken-essay-writer`（Generator/sonnet）を slug ごとに起動。工種は既存と別、規格値は `〇〇` プレースホルダ、形式は級・年度どおり、置換ガイド・失格注意を必須。
-3. **採点**: `civil-keiken-essay-qa`（Evaluator/sonnet）で5軸採点＋必須ゲート。平均≥2.0 かつ全ゲート通過で合格。不合格は Generator に修正指示で再走。
-4. **配線（親）**: `_meta.yaml` / `note-magazines.ts` エントリ / `magazine-placement.ts` / `scripts/pdf-specs/{magazine}.json` を整備（PDF は生成せず spec の JSON 妥当性＋見出し存在のみ確認＝オンデマンド方針）。
+1. **既存把握（重複回避）**: 対象級の既存マガジン全 article.md ＋ サイト `secondary-experience-writing-{guide,examples}` を確認し、**使用済み工種・現場設定を「テーマ×工種マトリクス」として書き出す**（下記「量産」参照）。`pastexam` はサイト `secondary-r0X` の問題1（公式問題文）を正として用意。
+2. **生成**: `civil-keiken-essay-writer`（Generator/sonnet）を slug ごとに起動。**未使用の工種・現場設定を親が明示指定**、規格値は `〇〇`（法定・規格の固定値はリテラル）、形式は級・年度どおり、答案は **ⅰ）型完結文の散文**、複数工種は `想定工事①②…`（2級選択制は同一工事と分かる表記）、置換ガイド・失格注意を必須。
+3. **採点**: `civil-keiken-essay-qa`（Evaluator/sonnet）で5軸採点＋必須ゲート（字数 `--strict`／散文形式／inter-article 重複／固定値リテラル／構造欠落なし）。平均≥2.0 かつ全ゲート通過で合格。不合格は Generator に修正指示で再走。
+4. **配線（親）**: `_meta.yaml` / `note-magazines.ts` エントリ / `magazine-placement.ts` / `scripts/pdf-specs/{magazine}.json` を整備（PDF は生成せず spec の JSON 妥当性＋見出し存在のみ確認＝オンデマンド方針）。マガジンカバーは `node scripts/generate-magazine-covers.mjs {id}` で `public/images/magazines/` ＋ マガジンdir `_cover.png` を生成（資格別 `fillBg` 背景塗り：1級青#155293/2級緑#1C5038）。
 5. **検証・commit（親）**: `npm run type-check`、明示パスで commit（並行作業を巻き込まない）。
+
+## 量産（テーマ×工種マトリクス）
+
+完成答案集を「テーマ×工種」で厚くするとき（例: テーマ別に想定工事①②③…）は、**重複を体系で防ぐ**ことが最優先。
+
+1. **マトリクス台帳を作る**: 行=テーマ（品質/安全/工程/施工計画/環境…）、列=工種（土工事/コンクリート/舗装/管渠・下水道/河川・護岸/構造物/橋梁…）。各セルに「使用済み（記事パス）／未使用」を記録。既存マガジン＋過去問＋（旧）サイト例文を読んで埋める。
+2. **未使用セルを生成対象に**: 各セルは**別工種・別現場設定・別の対策の組合せ**であること。同一工種でも現場条件（市街地/山間部/河川内、夏季/冬季/出水期 等）で差別化できるが、対策の中身が被らないこと。
+3. **1サイクル**: `civil-keiken-essay-writer`（工種を明示）→ 自己 `keiken-charcount --strict` → `civil-keiken-essay-qa`（**inter-article 重複を既存note全体に対して**検査）→ 親が diff 検証＋commit。これをセル単位で回す。
+4. **品質＞量**: 1テーマ3工種が費用対効果の良い帯（それ以上は重複感・保守コスト増で逓減）。silent な打ち切りはせず、どのセルを埋め残したか台帳に記録。
+5. **値付け（親）**: 厚くするなら上位商品（例「工種別 完成答案 大全」）として `note-magazines.ts` に新規 id ＋価格、or 既存完成答案集の増補。本文に価格直書きしない（SoT は note-magazines.ts）。
 
 ## 完了条件
 
-- 各記事 U+FFFD 0 / 本文価格直書き 0 / サイト・既存マガジンと答案重複 0
+- 各記事 U+FFFD 0 / 本文価格直書き 0 / サイト・**既存note全体**と答案重複 0（逐語＋意味的）
+- 答案が解答欄字数内（`keiken-charcount --strict` exit 0）かつ **ⅰ）型完結文の散文**（断片化なし）
+- 法定・規格の固定値はリテラル、現場固有値のみ `〇〇`
 - Evaluator 合格（平均≥2.0・全ゲート通過）
-- 形式が級・年度どおり（PDF spec の include 見出しと整合）
+- 形式が級・年度どおり（PDF spec の include 見出しと整合）、複数工種は `想定工事①②…` で対称構造
 
 ## 担当エージェント
 
