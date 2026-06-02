@@ -357,6 +357,7 @@ if (mode === 'exam') {
       totalPages: s.totalPages ?? totalPages,
       year: examYear,
       packNum: examPackNum,
+      exam: slideData._meta?.exam, // CTA の試験別色・統計の出し分け用
     };
     const num = padNum(i);
     const quizType = SLIDE_TYPE_MAP[s.type] || s.type;

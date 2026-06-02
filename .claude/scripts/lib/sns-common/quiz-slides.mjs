@@ -1146,15 +1146,30 @@ export function buildQuizAnswer({ width, height, data }) {
  *   totalPages?: number,
  * }
  */
-export function buildQuizCta({ width, height }) {
+// CTA の色・統計を試験別に出し分け（多資格）。総監は既存 tokens 値＝差分ゼロ維持。
+const CTA_THEME = {
+  'pe-comprehensive': { bg: CTA.background, decor: CTA.decor, accent: CTA.accent, brand: BRAND.primary },
+  'civil-1': { bg: '#10355F', decor: '#1B527E', accent: '#7FB8F5', brand: '#1E73C8' },
+  'civil-2': { bg: '#11402C', decor: '#1C5B40', accent: '#6FCF9A', brand: '#2A7050' },
+};
+const CTA_STATS = {
+  'pe-comprehensive': SLIDES.cta.stats, // 640問 / 5管理（総監固有）
+  'civil-1': [{ num: '1162', unit: '問', label: 'PRACTICE' }, { num: '12', unit: '年度', label: 'YEARS' }],
+  'civil-2': [{ num: '630', unit: '問', label: 'PRACTICE' }, { num: '10', unit: '回', label: 'EXAMS' }],
+};
+
+export function buildQuizCta({ width, height, data = {} }) {
   const cfg = SLIDES.cta;
+  const exam = data.exam || 'pe-comprehensive';
+  const theme = CTA_THEME[exam] || CTA_THEME['pe-comprehensive'];
+  const stats = CTA_STATS[exam] || CTA_STATS['pe-comprehensive'];
   // Reels(height>=1920) は action カードを保存→フォロー誘導に分岐。Carousel は保存維持。
   // 理由: Reels はリーチ獲得器のためリーチ→フォロワー転換を主にする（ig-reels-policy.md）。
   const isReels = height >= 1920;
   const actionTitle = isReels ? (cfg.actionTitleReels ?? cfg.actionTitle) : cfg.actionTitle;
   const actionSubtitle = isReels ? (cfg.actionSubtitleReels ?? cfg.actionSubtitle) : cfg.actionSubtitle;
   const actionIcon = isReels ? (cfg.actionIconReels ?? cfg.actionIcon ?? '★') : (cfg.actionIcon ?? '★');
-  return d(frame(width, height, CTA.background), reelsWrapper(width, height, [
+  return d(frame(width, height, theme.bg), reelsWrapper(width, height, [
     // 装飾円（右上）
     d({
       position: 'absolute',
@@ -1163,7 +1178,7 @@ export function buildQuizCta({ width, height }) {
       width: GEO.ctaDecor.topRight.size,
       height: GEO.ctaDecor.topRight.size,
       borderRadius: 999,
-      background: CTA.decor,
+      background: theme.decor,
     }),
     // 装飾円（左下）
     d({
@@ -1173,7 +1188,7 @@ export function buildQuizCta({ width, height }) {
       width: GEO.ctaDecor.bottomLeft.size,
       height: GEO.ctaDecor.bottomLeft.size,
       borderRadius: 999,
-      background: CTA.decor,
+      background: theme.decor,
     }),
 
     // topbar
@@ -1202,14 +1217,14 @@ export function buildQuizCta({ width, height }) {
         // headline（HTML プロト: <span>doboku-note</span> で<br>全問解説をチェック を 2 行で配置）
         d({ flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }, [
           d({ ...ty('ctaHeadline', { color: ONDARK.primary }), alignItems: 'center' }, [
-            d({ color: CTA.accent }, cfg.headlineAccent),
+            d({ color: theme.accent }, cfg.headlineAccent),
             d({}, cfg.headlineConnector),
           ]),
           d({ ...ty('ctaHeadline', { color: ONDARK.primary }) }, cfg.headlineLine2),
         ]),
 
         // cta-stats
-        d({ gap: GEO.ctaStat.gap, marginTop: 12, marginBottom: 36 }, cfg.stats.map((s) =>
+        d({ gap: GEO.ctaStat.gap, marginTop: 12, marginBottom: 36 }, stats.map((s) =>
           d(
             {
               background: ONDARK.subtleBg,
@@ -1256,7 +1271,7 @@ export function buildQuizCta({ width, height }) {
                 width: GEO.ctaAction.iconSize,
                 height: GEO.ctaAction.iconSize,
                 borderRadius: GEO.ctaAction.iconRadius,
-                background: BRAND.primary,
+                background: theme.brand,
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontSize: 40,
@@ -1267,7 +1282,7 @@ export function buildQuizCta({ width, height }) {
               actionIcon,
             ),
             d({ flexDirection: 'column', alignItems: 'flex-start', gap: 6 }, [
-              d({ ...ty('ctaActionTitle', { color: BRAND.primary }) }, actionTitle),
+              d({ ...ty('ctaActionTitle', { color: theme.brand }) }, actionTitle),
               d({ ...ty('ctaActionSub', { color: INK.strong }) }, actionSubtitle),
             ]),
           ],
