@@ -15,10 +15,12 @@ interface BookSectionProps {
  * BookSection — 記事末・トップ末の補完導線として、見出し + キャプション + BookCard 群を
  * 1つの軽量コンテナにまとめて表示するセクションラッパー。
  *
- * 設計判断（2026-05-27）:
- * - moshimo `.easyLink-box` は独自に白背景 + 1px border + 20px padding を持つため、
- *   外側に border 付きカードを被せると二重カードになる。
- *   → 外側は薄い背景 (bg-gray-50/dark:bg-gray-900/40) のみで境界を作る。
+ * 設計判断（2026-05-27 → 2026-06-03 改訂）:
+ * - moshimo `.easyLink-box` / SchoolAffiliate は独自に白背景 + border を持つ「カード」のため、
+ *   外側に灰背景 + 左右パディングを被せると、内側カードが他の全幅カード（Callout 等）より
+ *   一回り小さく inset され、見出しがカードの外（灰帯）に浮く二重ボックスになっていた。
+ *   → 外側の灰背景・左右パディングを撤去し、見出し + キャプションを「リード文」として
+ *     上に置き、子カードを本文と同じ全幅で描画する（内側カード = 唯一のカード境界）。
  * - 旧実装は `<h2>` を使っており TOC に紛れていた。
  *   → div + 小ラベル（uppercase tracking-wide）に格下げし TOC ノイズを除去。
  * - 複数 BookCard（civil-textbook の合格テキスト + 一次過去問ペア等）を1キャプションで
@@ -30,15 +32,10 @@ export default function BookSection({
   children,
   className,
 }: BookSectionProps) {
-  const containerClass = [
-    "rounded-card-content bg-gray-50 dark:bg-gray-900/40 px-4 py-4",
-    className,
-  ]
-    .filter(Boolean)
-    .join(" ");
+  const containerClass = [className].filter(Boolean).join(" ");
 
   return (
-    <section className={containerClass}>
+    <section className={containerClass || undefined}>
       <div className="text-[11px] font-bold tracking-[0.12em] text-ink-muted dark:text-gray-500 mb-1 uppercase">
         {title}
       </div>
