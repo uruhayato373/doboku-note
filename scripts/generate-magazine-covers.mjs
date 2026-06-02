@@ -103,6 +103,7 @@ const MAGAZINES = [
   {
     id: 'civil-1-experience',
     fileBaseName: 'civil-1-experience-essay-cover',
+    magazineDir: 'docs/note/1級土木/magazines/1級土木-施工経験記述-完成答案集',
     lines: ['1級土木 施工経験記述', '工種×テーマ別 完成答案集', '品質・安全・工程・施工計画・環境'],
     category: '1級土木施工管理技士',
     fontSize: 42,
@@ -111,6 +112,7 @@ const MAGAZINES = [
   {
     id: 'civil-2-experience',
     fileBaseName: 'civil-2-experience-essay-cover',
+    magazineDir: 'docs/note/2級土木/magazines/2級土木-施工経験記述-完成答案集',
     lines: ['2級土木 施工経験記述', '工種×テーマ別 完成答案集', '安全・品質・工程の3テーマ'],
     category: '2級土木施工管理技士',
     fontSize: 42,
@@ -119,6 +121,7 @@ const MAGAZINES = [
   {
     id: 'civil-1-pastexam',
     fileBaseName: 'civil-1-pastexam-essay-cover',
+    magazineDir: 'docs/note/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集',
     lines: ['1級土木 施工経験記述', '過去問 模範答案集', '年度別 R03〜R07（5年分）'],
     category: '1級土木施工管理技士',
     fontSize: 44,
@@ -127,6 +130,7 @@ const MAGAZINES = [
   {
     id: 'civil-2-pastexam',
     fileBaseName: 'civil-2-pastexam-essay-cover',
+    magazineDir: 'docs/note/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集',
     lines: ['2級土木 施工経験記述', '過去問 模範答案集', '年度別 R03〜R07（5年分）'],
     category: '2級土木施工管理技士',
     fontSize: 44,
@@ -135,6 +139,7 @@ const MAGAZINES = [
   {
     id: 'civil-1-yosou',
     fileBaseName: 'civil-1-yosou-essay-cover',
+    magazineDir: 'docs/note/1級土木/magazines/1級土木-施工経験記述-予想問題集',
     lines: ['1級土木 施工経験記述', '予想問題集', '令和6年度 新方向対応'],
     category: '1級土木施工管理技士',
     fontSize: 44,
@@ -143,6 +148,7 @@ const MAGAZINES = [
   {
     id: 'civil-2-yosou',
     fileBaseName: 'civil-2-yosou-essay-cover',
+    magazineDir: 'docs/note/2級土木/magazines/2級土木-施工経験記述-予想問題集',
     lines: ['2級土木 施工経験記述', '予想問題集', '令和6年度 新方向対応'],
     category: '2級土木施工管理技士',
     fontSize: 44,
@@ -170,6 +176,13 @@ async function renderOne(mag, fonts) {
   writeFileSync(pngPath, pngBuffer);
   await sharp(pngBuffer).webp({ quality: 90 }).toFile(webpPath);
   console.log(`  ok: ${baseName}.{png,webp}`);
+  // マガジンdir直下にも _cover.png を配置（note アップロード用。総監マガジンと同規約）
+  if (mag.magazineDir) {
+    const magDirAbs = join(ROOT, mag.magazineDir);
+    mkdirSync(magDirAbs, { recursive: true });
+    writeFileSync(join(magDirAbs, '_cover.png'), pngBuffer);
+    console.log(`  ok: ${mag.magazineDir}/_cover.png`);
+  }
 }
 
 async function main() {
