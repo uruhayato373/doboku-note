@@ -7,6 +7,8 @@ interface SchoolAffiliateProps {
   readonly href: string;
   readonly pixelUrl?: string;
   readonly cta?: string;
+  /** 外側コンテナの縦マージン等を上書き。BookSection 等に内包する場合は "my-0" を渡す。既定は単独配置用の "my-6"。 */
+  readonly className?: string;
 }
 
 /**
@@ -28,9 +30,10 @@ export default function SchoolAffiliate({
   href,
   pixelUrl,
   cta = "講座を見る",
+  className = "my-6",
 }: SchoolAffiliateProps) {
   return (
-    <div className="not-prose my-6">
+    <div className={`not-prose ${className}`}>
       <a
         href={href}
         rel="nofollow sponsored noopener"
