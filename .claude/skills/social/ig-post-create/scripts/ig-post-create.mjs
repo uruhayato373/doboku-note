@@ -179,10 +179,18 @@ const { extractMdx } = await import(
 const { renderSlide } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/slide-render.mjs')).href
 );
+// 試験識別カバー（多資格）: _meta.exam がある時だけ cover をこの SVG で差し替える
+const { renderExamCoverIg } = await import(
+  pathToFileURL(resolve(ROOT, '.claude/scripts/sns/templates/exam-cover-ig.mjs')).href
+);
+const { svgToPng } = await import(
+  pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/svg-to-png.mjs')).href
+);
 
 const args = parseArgs(process.argv.slice(2));
 const slug = args.slug;
 const examId = args.exam; // 例: r07-pack-01
+const examDir = typeof args['exam-dir'] === 'string' ? args['exam-dir'] : null; // 試験軸（例: 1級土木）。省略時は総監（従来パス）
 const category = args.category ?? 'pe-comprehensive-management';
 const date = args.date ?? new Date().toISOString().slice(0, 10);
 const sizeArg = args.size ?? 'both';
@@ -224,7 +232,10 @@ if (mode === 'exam') {
     process.exit(1);
   }
   const [, year, packNum] = match;
-  outBase = resolve(ROOT, `docs/sns/instagram/_exam-packs/${year}/pack-${packNum}`);
+  // 試験軸: --exam-dir 指定時は _exam-packs/{試験}/{年度}/pack-NN（多資格）。省略時は従来パス（総監）
+  outBase = examDir
+    ? resolve(ROOT, `docs/sns/instagram/_exam-packs/${examDir}/${year}/pack-${packNum}`)
+    : resolve(ROOT, `docs/sns/instagram/_exam-packs/${year}/pack-${packNum}`);
 } else {
   outBase = resolve(ROOT, `docs/sns/instagram/${date}-${slug}`);
 }
@@ -347,7 +358,15 @@ if (mode === 'exam') {
     };
     const num = padNum(i);
     const quizType = SLIDE_TYPE_MAP[s.type] || s.type;
-    return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: quizType, data } };
+    // _meta.exam がある cover は試験識別カバーで差し替え（多資格）
+    const examCover = s.type === 'cover' && slideData._meta?.exam ? {
+      exam: slideData._meta.examDir || slideData._meta.exam,
+      tag: s.sectionTag || '過去問',
+      year: s.title || examYear,
+      fmtLabel: slideData._meta.fmtLabel || s.subtitle || '',
+      page: [s.pageIndex ?? 1, s.totalPages ?? totalPages],
+    } : null;
+    return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: quizType, data }, examCover };
   });
 } else {
   // bundle / slug モード: cover + slides + cta を自動構築
@@ -381,9 +400,16 @@ for (const size of sizes) {
   mkdirSync(imgDir, { recursive: true });
 
   console.log(`\n[${size.name}] ${size.width}×${size.height}`);
-  for (const { file, slide } of SLIDES) {
+  for (const { file, slide, examCover } of SLIDES) {
     const start = Date.now();
-    const png = await renderSlide({ width: size.width, height: size.height, slide });
+    let png;
+    if (examCover && size.name === 'carousel') {
+      // 試験識別カバー（1080×1350 carousel 専用）
+      const svg = renderExamCoverIg({ ...examCover });
+      png = await svgToPng(svg, { width: size.width });
+    } else {
+      png = await renderSlide({ width: size.width, height: size.height, slide });
+    }
     const outPath = resolve(imgDir, file);
     writeFileSync(outPath, png);
     console.log(`  ✓ ${file}  (${Date.now() - start}ms, ${(png.length / 1024).toFixed(0)}KB)`);
