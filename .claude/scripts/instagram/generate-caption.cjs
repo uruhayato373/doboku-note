@@ -76,11 +76,14 @@ const lines = [];
 if (isExamPack) {
   // 管理混在問題を回避するため、cover-title の管理名（経済性管理など）は出さず、
   // 年度ベースの統一タイトル + パック番号で識別。
-  const yearLabel = _meta.year.toUpperCase();
-  const yearNum = String(_meta.year).replace(/^[rRhH]0*/, '') || _meta.year;
+  // 年度コードは [rh]NN（総監/1級）に加え 2級の前期/後期サフィックス z/k を許容。
+  // 期は fmtLabel 側に入る(例「第一次検定 前期」)ため、yearLabel からは z/k を除く。
+  const ym = String(_meta.year).match(/^([rRhH])(\d+)([zk])?$/);
+  const yearLabel = ym ? `${ym[1].toUpperCase()}${ym[2]}` : _meta.year.toUpperCase();
+  const yearNum = ym ? String(parseInt(ym[2], 10)) : (String(_meta.year).replace(/^[rRhH]0*/, '') || _meta.year);
   const eraJp = /^h/i.test(_meta.year) ? '平成' : '令和';
   const packNumLabel = String(_meta.packNum).replace(/^0+/, '') || _meta.packNum;
-  // fmtLabel があれば採用（例: 1級土木「第一次検定 過去問」）。無ければ従来の「択一式 過去問」。
+  // fmtLabel があれば採用（例: 1級「第一次検定 過去問」/ 2級「第一次検定 前期」）。無ければ従来の「択一式 過去問」。
   const fmtLabel = _meta.fmtLabel || '択一式 過去問';
   lines.push(`【${eraJp}${yearNum}年度 ${fmtLabel}】${yearLabel} 過去問 #${packNumLabel}`);
 } else if (isBundle) {
@@ -182,6 +185,26 @@ const HASHTAG_SETS = {
     "#現場監督",
     // 小ニッチ（受験者直撃）
     "#1級土木",
+    "#施工管理",
+    "#2026年受験",
+    "#社会人勉強垢",
+    "#土木技術者",
+    "#建設技術者",
+    "#過去問",
+  ],
+  "civil-2": [
+    // 大（発見性）
+    "#資格勉強",
+    "#国家資格",
+    "#施工管理技士",
+    // 中（関連性）
+    "#2級土木施工管理技士",
+    "#土木施工管理技士",
+    "#土木",
+    "#建設業",
+    "#現場監督",
+    // 小ニッチ（受験者直撃）
+    "#2級土木",
     "#施工管理",
     "#2026年受験",
     "#社会人勉強垢",

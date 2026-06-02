@@ -227,9 +227,10 @@ if (sizes.length === 0) {
 
 let outBase;
 if (mode === 'exam') {
-  const match = examId.match(/^([hr]\d+)-pack-(\d+)$/);
+  // 年度コードは [hr]NN（1級/総監）に加え 2級の前期/後期サフィックス z/k を許容（例 r05z-pack-01）
+  const match = examId.match(/^([hr]\d+[zk]?)-pack-(\d+)$/);
   if (!match) {
-    console.error(`Error: --exam の形式は <year>-pack-<NN> (例: r07-pack-01)`);
+    console.error(`Error: --exam の形式は <year>-pack-<NN> (例: r07-pack-01 / r05z-pack-01)`);
     process.exit(1);
   }
   const [, year, packNum] = match;
