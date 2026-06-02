@@ -82,10 +82,15 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
  * M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ戦略転換 (SoT 削除)。
  * 配置原則:
  * - r8-essay-forecast (¥2,480): R07 年度ページ + essay-exam-strategy hub
+ * - essay-complete-pack / tradeoff-5kanri / setsumon3-policy-bank (2026-06-03 配線):
+ *   essay-exam-strategy hub にパイプライン順で追加。完全パックを筆頭の強 CTA に。
  *
  * 注: essay-template-3d「解答テンプレ 3D」(¥2,980) は 2026-06-01 企画中止により配線削除。
  */
 const NEW_MAGAZINES = {
+  completePack: 'essay-complete-pack' as const,
+  tradeoff5kanri: 'tradeoff-5kanri' as const,
+  setsumon3Bank: 'setsumon3-policy-bank' as const,
   r8Forecast: 'r8-essay-forecast' as const,
 } satisfies Record<string, MagazineId>;
 
@@ -101,11 +106,17 @@ const NEW_MAGAZINES = {
 export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
   // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 3 ペルソナ模範論文を提示 (強 CTA)
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
+    // パイプライン順 (完全パック → 型 → 設問3 → 予想 → 模範論文 → 精読基礎)。
+    // 完全パックを inline 筆頭の強 CTA に。sidebar は sidebarImageUrl を持つ
+    // 精読ガイドを維持（完全パックは sidebarImageUrl 未設定のため画像カードが出ない）。
     return {
       inline: [
-        slot('tankan-reading-guide', slug, 'inline-1'),
-        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-3'),
-        ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 4}`)),
+        slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
+        slot(NEW_MAGAZINES.tradeoff5kanri, slug, 'inline-2'),
+        slot(NEW_MAGAZINES.setsumon3Bank, slug, 'inline-3'),
+        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-4'),
+        ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 5}`)),
+        slot('tankan-reading-guide', slug, 'inline-8'),
       ],
       sidebar: [
         slot('tankan-reading-guide', slug, 'sidebar-1'),

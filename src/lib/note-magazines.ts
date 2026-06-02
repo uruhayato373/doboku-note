@@ -163,14 +163,13 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // ----- 総監記述式 完全パック (2026-06-01 企画、設問3バンク公開後に実装) -----
+  // ----- 総監記述式 完全パック (2026-06-01 企画、2026-06-03 note 公開) -----
   // 既存5マガジン（クロストレードオフ + 設問3バンク + R8予想 + 模範論文3ペルソナ）のバンドル。
   // 恒常¥7,980 / 試験直前限定¥5,980（試験後に¥7,980へ戻す）。実装前提は noteコンテンツ計画.md M13 参照。
-  // published: false（note 上にバンドル未構築・noteUrl 未取得）。カバーは generate-magazine-covers.mjs で要追加。
   'essay-complete-pack': {
     id: 'essay-complete-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m171222175fac',
     title: '総監記述式 完全パック｜型×設問3×予想×模範論文 全部入り',
     description:
       '記述式の答案完成パイプラインを1パックで完結。クロストレードオフ（5管理対立の型）＋設問3国家施策バンク（設問3の弾薬）＋R8予想問題集（予想演習）＋模範論文3ペルソナ（フル実演・全ペルソナ）を収録。単品合計¥14,380相当。',
