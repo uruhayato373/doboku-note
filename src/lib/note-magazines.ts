@@ -239,8 +239,8 @@ const MAGAZINES_RAW = {
   // 2級 過去問の年度別模範答案集。published: false。
   'civil-2-pastexam-essay': {
     id: 'civil-2-pastexam-essay',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/md3aa0f9a37d7',
     title: '2級土木 施工経験記述｜過去問 模範答案集（R03-R07 年度別）',
     description:
       '2級土木施工管理技士 第2次検定 問題1（施工経験記述）の過去問模範答案集。令和3〜7年度の実際の試験問題を年度別に再掲し、その年の出題管理項目に対し各年度3工事（想定工事①②③）のフル模範答案（主任技術者レベル）＋置換ガイド＋採点者視点を収録。自分の工事に近い例を選べる。選択制（R03-R05）と2テーマ必答（R06-R07）の両方に対応。',

@@ -14,20 +14,35 @@ description: |
   経験に基づく独自表現で、テーマ別マガジン・予想問題マガジンとは別の工種・
   現場設定で書き下ろし。丸写しは失格につながるため、必ず自分が経験した
   工事に置き換えて使用する前提の教材。
+
+# note ペイウォール内に表示する販売アピール文（マガジン管理画面に手入力）
+appealPoint: |
+  2級土木 第2次検定 問題1（施工経験記述）を、過去問R03-R07の年度別に攻略する
+  模範答案集です。
+
+  各年度の実際の試験問題を再掲し、その年の出題テーマに対して別々の3工事（想定工事
+  ①②③）の主任技術者・現場代理人レベルのフル模範答案を収録。令和5年度以前の選択制と
+  令和6年度以降の2テーマ必答（R06品質×工程、R07安全×工程）の両方に対応します。
+
+  答案はすべて運営者の実務に基づく独自表現で、必ず自分の経験工事に置き換えて使う
+  前提の教材です。
+
 setPrice: 2480
 articlePrice: 600
 articleCount: 5
 singleTotal: 3000
 discountPercent: 17
+# noteUrl はマガジン URL（個別記事 n/ URL を取得したら各 slug に差し替え）
+magazineUrl: "https://note.com/dobokunote/m/md3aa0f9a37d7"
 articles:
   - slug: R03
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/md3aa0f9a37d7"
   - slug: R04
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/md3aa0f9a37d7"
   - slug: R05
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/md3aa0f9a37d7"
   - slug: R06
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/m/md3aa0f9a37d7"
   - slug: R07
-    noteUrl: ""
-publishTiming: "未定"
+    noteUrl: "https://note.com/dobokunote/m/md3aa0f9a37d7"
+publishTiming: "公開済（2026-06-02）"
