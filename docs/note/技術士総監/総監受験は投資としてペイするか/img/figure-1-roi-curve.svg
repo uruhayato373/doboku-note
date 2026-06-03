@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#f8fafc"/>
+
+  <text x="600" y="62" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">総監受験の投資回収カーブ</text>
+  <text x="600" y="102" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">ケースB（建コン中堅・月3万円手当）｜初期コスト76万円を2年目に回収し、以降は手当が積み上がる</text>
+
+  <line x1="150" y1="600" x2="1120" y2="600" stroke="#e2e6ea" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="134" y="607" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="end">-100万</text>
+  <line x1="150" y1="504.76190476190476" x2="1120" y2="504.76190476190476" stroke="#222222" stroke-width="2.5" />
+  <text x="134" y="511.76190476190476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#222222" text-anchor="end">0万</text>
+  <line x1="150" y1="409.5238095238095" x2="1120" y2="409.5238095238095" stroke="#e2e6ea" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="134" y="416.5238095238095" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="end">+100万</text>
+  <line x1="150" y1="314.2857142857143" x2="1120" y2="314.2857142857143" stroke="#e2e6ea" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="134" y="321.2857142857143" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="end">+200万</text>
+  <line x1="150" y1="219.0476190476191" x2="1120" y2="219.0476190476191" stroke="#e2e6ea" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="134" y="226.0476190476191" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="end">+300万</text>
+  <text x="1120" y="492.76190476190476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#222222" text-anchor="end">損益分岐（累計0）</text>
+  <text x="150" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#222222" text-anchor="middle">0</text>
+  <text x="247" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">1</text>
+  <text x="344" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">2</text>
+  <text x="441" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">3</text>
+  <text x="538" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">4</text>
+  <text x="635" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">5</text>
+  <text x="732" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">6</text>
+  <text x="829" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">7</text>
+  <text x="926" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">8</text>
+  <text x="1023" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">9</text>
+  <text x="1120" y="634" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">10</text>
+  <text x="635" y="670" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">受験からの経過年数（年）</text>
+  <polygon points="150,504.76190476190476 150,577.1428571428571 247,519.047619047619 287.41666666666663,504.76190476190476" fill="#b22234" fill-opacity="0.10"/>
+  <polygon points="287.41666666666663,504.76190476190476 344,484.76190476190476 441,450.4761904761905 538,416.1904761904762 635,381.9047619047619 732,347.6190476190476 829,313.3333333333333 926,279.04761904761904 1023,244.76190476190476 1120,210.47619047619048 1120,504.76190476190476" fill="#3a7d44" fill-opacity="0.12"/>
+  <polyline points="150,577.1428571428571 247,519.047619047619 344,484.76190476190476 441,450.4761904761905 538,416.1904761904762 635,381.9047619047619 732,347.6190476190476 829,313.3333333333333 926,279.04761904761904 1023,244.76190476190476 1120,210.47619047619048" fill="none" stroke="#2e6da4" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/>
+  <circle cx="150" cy="577.1428571428571" r="6" fill="#b22234"/>
+  <circle cx="247" cy="519.047619047619" r="6" fill="#b22234"/>
+  <circle cx="344" cy="484.76190476190476" r="6" fill="#3a7d44"/>
+  <circle cx="441" cy="450.4761904761905" r="6" fill="#3a7d44"/>
+  <circle cx="538" cy="416.1904761904762" r="6" fill="#3a7d44"/>
+  <circle cx="635" cy="381.9047619047619" r="6" fill="#3a7d44"/>
+  <circle cx="732" cy="347.6190476190476" r="6" fill="#3a7d44"/>
+  <circle cx="829" cy="313.3333333333333" r="6" fill="#3a7d44"/>
+  <circle cx="926" cy="279.04761904761904" r="6" fill="#3a7d44"/>
+  <circle cx="1023" cy="244.76190476190476" r="6" fill="#3a7d44"/>
+  <circle cx="1120" cy="210.47619047619048" r="6" fill="#3a7d44"/>
+  <text x="150" y="611.1428571428571" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#b22234" text-anchor="middle">−76万</text>
+  <text x="247" y="553.047619047619" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#b22234" text-anchor="middle">−15万</text>
+  <text x="344" y="466.76190476190476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#1a5c2e" text-anchor="middle">+21万</text>
+  <text x="1120" y="192.47619047619048" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#1a5c2e" text-anchor="middle">+309万</text>
+  <line x1="287.41666666666663" y1="200" x2="287.41666666666663" y2="600" stroke="#3a7d44" stroke-width="2" stroke-dasharray="6,4"/>
+  <rect x="301.41666666666663" y="206" width="168" height="36" rx="18" fill="#3a7d44"/>
+  <text x="385.41666666666663" y="231" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">2年目で回収</text>
+    <text x="1172" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>
