@@ -123,9 +123,21 @@ function svgIndependenceCases() {
     },
     {
       num: '3',
+      title: '新規開業技術士支援研究会',
+      body1: '開業1〜8年目の技術士が在籍',
+      body2: '独立後の相互支援組織（CEA）',
+      metric: '収入数字は非公開',
+      badgeFill:  BRAND,
+      cardBg:     '#ffffff',
+      cardStroke: BRAND,
+      titleFill:  BRAND_DEEP,
+      metricFill: INK_MUTED,
+    },
+    {
+      num: '4',
       title: '建設部門 独立者',
       body1: '公共系コンサルから独立',
-      body2: '専門案件を継続受注',
+      body2: '元請10年 ＋ 人脈が前提',
       metric: '初年度 売上 2,000万超',
       badgeFill:  BRAND,
       cardBg:     '#ffffff',
@@ -134,28 +146,16 @@ function svgIndependenceCases() {
       metricFill: POSITIVE,
     },
     {
-      num: '4',
-      title: '独立開業研究会 会員',
-      body1: '1〜8年目の会員が体験を共有',
-      body2: '部門横断のネットワーク',
-      metric: '1,000万超 会員 存在',
+      num: '5',
+      title: '技術士独立開業研究会',
+      body1: '「年1,000万円」を掲げる会',
+      body2: '達成している会員も存在',
+      metric: '1,000万円/年 が目標',
       badgeFill:  BRAND,
       cardBg:     '#ffffff',
       cardStroke: BRAND,
       titleFill:  BRAND_DEEP,
       metricFill: POSITIVE,
-    },
-    {
-      num: '5',
-      title: '技術士報酬アンケート（参考）',
-      body1: '全独立技術士の収入分布',
-      body2: '（秋元ブログ経由引用）',
-      metric: '年商100万以下 7割',
-      badgeFill:  WARN,
-      cardBg:     WARN_FILL,
-      cardStroke: WARN,
-      titleFill:  WARN_DEEP,
-      metricFill: WARN,
     },
   ];
 
@@ -172,7 +172,7 @@ function svgIndependenceCases() {
   body += `
   <!-- タイトル -->
   <text x="${W / 2}" y="${TITLE_Y}" font-family="${FONT}" font-size="36" font-weight="800" fill="${INK_STRONG}" text-anchor="middle">独立した技術士の収入実態 5ケース</text>
-  <text x="${W / 2}" y="${SUBTITLE_Y}" font-family="${FONT}" font-size="22" font-weight="400" fill="${INK_BODY}" text-anchor="middle">公開ブログ・note 記事から抽出した売上推移と独立タイミング</text>
+  <text x="${W / 2}" y="${SUBTITLE_Y}" font-family="${FONT}" font-size="22" font-weight="400" fill="${INK_BODY}" text-anchor="middle">公開情報5事例。独立技術士は年商100万円以下が約7割という二極化が前提</text>
 `;
 
   // ---- 各ケースカード ----

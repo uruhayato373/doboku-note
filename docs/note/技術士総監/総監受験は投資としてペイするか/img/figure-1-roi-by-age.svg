@@ -22,8 +22,8 @@
   <line x1="228" y1="300" x2="228" y2="430" stroke="#3a7d44" stroke-width="1" stroke-dasharray="4 4"/>
 
   <!-- 中央: メイン行 + サブ行 -->
-  <text x="252" y="357" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  3 年目で回収  →  +¥972 万</text>
-  <text x="252" y="395" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">（¥36 万 × 27 年）</text>
+  <text x="252" y="357" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  2 年目で回収</text>
+  <text x="252" y="395" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">30 年で累計 ¥1,105 万（一時金 ＋ 手当）</text>
 
   <!-- 右: 評価バッジ -->
   <rect x="892" y="338" width="224" height="54" rx="6" fill="#3a7d44"/>
@@ -40,8 +40,8 @@
   <line x1="228" y1="494" x2="228" y2="624" stroke="#3a7d44" stroke-width="1" stroke-dasharray="4 4"/>
 
   <!-- 中央: メイン行 + サブ行 -->
-  <text x="252" y="551" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  3 年目で回収  →  +¥612 万</text>
-  <text x="252" y="589" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">（¥36 万 × 17 年）</text>
+  <text x="252" y="551" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  2 年目で回収</text>
+  <text x="252" y="589" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">20 年で累計 ¥745 万（一時金 ＋ 手当）</text>
 
   <!-- 右: 評価バッジ -->
   <rect x="892" y="532" width="224" height="54" rx="6" fill="#3a7d44"/>
@@ -58,15 +58,15 @@
   <line x1="228" y1="688" x2="228" y2="818" stroke="#c87e1e" stroke-width="1" stroke-dasharray="4 4"/>
 
   <!-- 中央: メイン行 + サブ行 -->
-  <text x="252" y="745" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  3 年目で回収  →  +¥252 万</text>
-  <text x="252" y="783" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">（¥36 万 × 7 年）+ 定年後再就職プレミアム</text>
+  <text x="252" y="745" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  2 年目で回収</text>
+  <text x="252" y="783" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">10 年で累計 ¥385 万 ＋ 定年後プレミアム</text>
 
   <!-- 右: 評価バッジ -->
   <rect x="892" y="726" width="224" height="54" rx="6" fill="#c87e1e"/>
   <text x="1004" y="764" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">△ 定年後で逆転</text>
 
   <!-- 注釈 -->
-  <text x="60" y="862" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="400" fill="#8a8a8a" text-anchor="start">※ 自社に資格手当制度がない / 勤続予定 3 年未満の場合はペイしない（本文「3 つのペイしないパターン」参照）</text>
+  <text x="60" y="862" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="400" fill="#8a8a8a" text-anchor="start">※ 自社に資格手当制度がない / 勤続予定 2 年未満の場合はペイしない（本文「3 つのペイしないパターン」参照）</text>
 
   <text x="1172" y="898" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
 </svg>

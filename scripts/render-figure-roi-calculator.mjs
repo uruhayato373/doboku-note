@@ -93,8 +93,8 @@ function svgRoiByAge() {
     {
       age: '30 代',
       remaining: '残り 30 年',
-      main: 'コスト ¥76 万  →  3 年目で回収  →  +¥972 万',
-      sub: '（¥36 万 × 27 年）',
+      main: 'コスト ¥76 万  →  2 年目で回収',
+      sub: '30 年で累計 ¥1,105 万（一時金 ＋ 手当）',
       eval: '◎ ペイする',
       cardBg: POSITIVE_FILL,
       cardStroke: POSITIVE,
@@ -104,8 +104,8 @@ function svgRoiByAge() {
     {
       age: '40 代',
       remaining: '残り 20 年',
-      main: 'コスト ¥76 万  →  3 年目で回収  →  +¥612 万',
-      sub: '（¥36 万 × 17 年）',
+      main: 'コスト ¥76 万  →  2 年目で回収',
+      sub: '20 年で累計 ¥745 万（一時金 ＋ 手当）',
       eval: '○ ペイする',
       cardBg: POSITIVE_FILL,
       cardStroke: POSITIVE,
@@ -115,8 +115,8 @@ function svgRoiByAge() {
     {
       age: '50 代',
       remaining: '残り 10 年',
-      main: 'コスト ¥76 万  →  3 年目で回収  →  +¥252 万',
-      sub: '（¥36 万 × 7 年）+ 定年後再就職プレミアム',
+      main: 'コスト ¥76 万  →  2 年目で回収',
+      sub: '10 年で累計 ¥385 万 ＋ 定年後プレミアム',
       eval: '△ 定年後で逆転',
       cardBg: WARN_FILL,
       cardStroke: WARN,
@@ -191,7 +191,7 @@ function svgRoiByAge() {
   const NOTE_Y = 862;
   body += `
   <!-- 注釈 -->
-  <text x="${PAD_X}" y="${NOTE_Y}" font-family="${FONT}" font-size="18" font-weight="400" fill="${INK_MUTED}" text-anchor="start">※ 自社に資格手当制度がない / 勤続予定 3 年未満の場合はペイしない（本文「3 つのペイしないパターン」参照）</text>
+  <text x="${PAD_X}" y="${NOTE_Y}" font-family="${FONT}" font-size="18" font-weight="400" fill="${INK_MUTED}" text-anchor="start">※ 自社に資格手当制度がない / 勤続予定 2 年未満の場合はペイしない（本文「3 つのペイしないパターン」参照）</text>
 `;
 
   // ---- ブランドマーク ----

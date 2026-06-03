@@ -3,7 +3,7 @@
 
   <!-- タイトル -->
   <text x="600" y="75" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="800" fill="#222222" text-anchor="middle">独立した技術士の収入実態 5ケース</text>
-  <text x="600" y="115" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">公開ブログ・note 記事から抽出した売上推移と独立タイミング</text>
+  <text x="600" y="115" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">公開情報5事例。独立技術士は年商100万円以下が約7割という二極化が前提</text>
 
   <!-- ケース 1 カード -->
   <rect x="60" y="155" width="1080" height="160" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
@@ -43,12 +43,12 @@
   <text x="118" y="601" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
 
   <!-- ケース 3 中央テキスト -->
-  <text x="180" y="572" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">建設部門 独立者</text>
-  <text x="180" y="608" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">公共系コンサルから独立</text>
-  <text x="180" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="start">専門案件を継続受注</text>
+  <text x="180" y="572" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">新規開業技術士支援研究会</text>
+  <text x="180" y="608" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">開業1〜8年目の技術士が在籍</text>
+  <text x="180" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="start">独立後の相互支援組織（CEA）</text>
 
   <!-- ケース 3 収入指標 -->
-  <text x="1020" y="597" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">初年度 売上 2,000万超</text>
+  <text x="1020" y="597" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#8a8a8a" text-anchor="middle">収入数字は非公開</text>
 
   <!-- ケース 4 カード -->
   <rect x="60" y="683" width="1080" height="160" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
@@ -58,27 +58,27 @@
   <text x="118" y="777" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">4</text>
 
   <!-- ケース 4 中央テキスト -->
-  <text x="180" y="748" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">独立開業研究会 会員</text>
-  <text x="180" y="784" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">1〜8年目の会員が体験を共有</text>
-  <text x="180" y="812" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="start">部門横断のネットワーク</text>
+  <text x="180" y="748" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">建設部門 独立者</text>
+  <text x="180" y="784" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">公共系コンサルから独立</text>
+  <text x="180" y="812" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="start">元請10年 ＋ 人脈が前提</text>
 
   <!-- ケース 4 収入指標 -->
-  <text x="1020" y="773" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">1,000万超 会員 存在</text>
+  <text x="1020" y="773" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">初年度 売上 2,000万超</text>
 
   <!-- ケース 5 カード -->
-  <rect x="60" y="859" width="1080" height="160" rx="8" fill="#fdf2e0" stroke="#c87e1e" stroke-width="2"/>
+  <rect x="60" y="859" width="1080" height="160" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
 
   <!-- 番号バッジ -->
-  <circle cx="118" cy="939" r="34" fill="#c87e1e"/>
+  <circle cx="118" cy="939" r="34" fill="#2e6da4"/>
   <text x="118" y="953" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">5</text>
 
   <!-- ケース 5 中央テキスト -->
-  <text x="180" y="924" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#8c5a14" text-anchor="start">技術士報酬アンケート（参考）</text>
-  <text x="180" y="960" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">全独立技術士の収入分布</text>
-  <text x="180" y="988" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="start">（秋元ブログ経由引用）</text>
+  <text x="180" y="924" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">技術士独立開業研究会</text>
+  <text x="180" y="960" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">「年1,000万円」を掲げる会</text>
+  <text x="180" y="988" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="start">達成している会員も存在</text>
 
   <!-- ケース 5 収入指標 -->
-  <text x="1020" y="949" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#c87e1e" text-anchor="middle">年商100万以下 7割</text>
+  <text x="1020" y="949" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">1,000万円/年 が目標</text>
 
   <line x1="890" y1="171" x2="890" y2="299" stroke="#d0d0d0" stroke-width="1"/>
   <line x1="890" y1="347" x2="890" y2="475" stroke="#d0d0d0" stroke-width="1"/>
