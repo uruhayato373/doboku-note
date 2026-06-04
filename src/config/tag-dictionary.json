@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-06-04T04:18:06.142Z",
+  "generated_at": "2026-06-04T05:31:10.393Z",
   "summary": {
-    "total_mdx_files": 911,
-    "total_unique_tags": 91,
+    "total_mdx_files": 919,
+    "total_unique_tags": 93,
     "allowlist_size": 141,
-    "known_count": 63,
+    "known_count": 65,
     "unknown_count": 28,
     "typo_candidates_count": 5
   },
@@ -1661,6 +1661,22 @@
       ]
     },
     {
+      "name": "技術士（第一次試験）",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r07-aptitude",
+        "pe-first-stage-r07-basic",
+        "pe-first-stage-r07-construction"
+      ]
+    },
+    {
       "name": "経済性管理",
       "count": 8,
       "inAllowlist": true,
@@ -1875,6 +1891,39 @@
       ]
     },
     {
+      "name": "令和5年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r05-primary",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r05-construction"
+      ]
+    },
+    {
+      "name": "令和6年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r06-primary",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r06-construction"
+      ]
+    },
+    {
+      "name": "令和7年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r07-primary",
+        "pe-first-stage-r07-aptitude",
+        "pe-first-stage-r07-basic",
+        "pe-first-stage-r07-construction"
+      ]
+    },
+    {
       "name": "kinki-design-manual",
       "count": 3,
       "inAllowlist": true,
@@ -1935,6 +1984,26 @@
       ]
     },
     {
+      "name": "基礎科目",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r07-basic"
+      ]
+    },
+    {
+      "name": "専門科目（建設部門）",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r07-construction"
+      ]
+    },
+    {
       "name": "少子高齢化",
       "count": 3,
       "inAllowlist": false,
@@ -1942,6 +2011,16 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "適性科目",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r07-aptitude"
       ]
     },
     {
@@ -1996,15 +2075,6 @@
       "usedIn": [
         "reference-materials-floodgate",
         "reference-materials-inverted-siphon"
-      ]
-    },
-    {
-      "name": "令和7年度",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r07-primary",
-        "pe-first-stage-r07-aptitude"
       ]
     },
     {
@@ -2200,22 +2270,6 @@
       ]
     },
     {
-      "name": "令和5年度",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r05-primary"
-      ]
-    },
-    {
-      "name": "令和6年度",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r06-primary"
-      ]
-    },
-    {
       "name": "出願",
       "count": 1,
       "inAllowlist": false,
@@ -2253,14 +2307,6 @@
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-information-management-pillar"
-      ]
-    },
-    {
-      "name": "技術士（第一次試験）",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r07-aptitude"
       ]
     },
     {
@@ -2341,14 +2387,6 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-last-minute-2026"
-      ]
-    },
-    {
-      "name": "適性科目",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r07-aptitude"
       ]
     }
   ],
