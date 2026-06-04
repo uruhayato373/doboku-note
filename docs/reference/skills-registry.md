@@ -45,7 +45,7 @@ title: スキル ガバナンス記録
 |---|---|---|
 | `authoring/templates/exam-guide/` | 試験ガイド生成 | civil-construction-1 / pe |
 | `conversion/pdf-to-mdx/templates/` | PDF→MDX 試験別ルール | general / cem / civil-construction-1 |
-| `conversion/exam-questions-import/templates/` | 過去問取込 | civil-primary / civil-secondary / pe-primary |
+| `conversion/exam-questions-import/templates/` | 過去問取込 | civil-primary / civil-secondary / pe-primary / pe-first-stage |
 | `quality/quality-cycle/templates/` | 品質サイクル プロファイル | cem / civil-textbook |
 
 新試験追加時の手順:

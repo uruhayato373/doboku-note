@@ -137,6 +137,7 @@ title: サブエージェント詳細レジストリ
 | キーワードページ品質サイクル | `/quality-cycle`（オーケストレータ） → `cem-qa`（評価） → `keyword-rewriter`（改訂） → 再評価 → 人間レビュー |
 | 1級・2級土木 textbook 変換 | `/pdf-to-mdx --exam {civil-construction-1\|civil-construction-2}`（Generator） → `civil-construction-qa`（Evaluator） → `/improve-article --mode verify` |
 | 2級土木 過去問変換 | `/exam-questions-import --exam {civil-primary-2\|civil-secondary-2}` --year r0X [--sub zenki\|kouki]（Generator） → `content-qa`（Evaluator） → `civil-secondary-exam-writer`（解答補完、Phase 1 対応予定） |
+| 技術士第一次 過去問変換 | `/exam-questions-import --exam pe-first-stage` --year r0X --sub {basic\|aptitude\|construction}（Generator） → `content-qa`（Evaluator、`pe-first-stage` + `primary`） |
 | 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-review`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
 | UI コンポーネント変更 | 親エージェント（Generator） → `/design-review --visual`（視覚検証・スキル層で完結） → `/simplify` で修正 |
 

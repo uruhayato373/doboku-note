@@ -30,7 +30,7 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/pdf-to-mdx` | PDF/画像 → MDX 変換（試験別テンプレート） | `PDF変換`, `MDX化`, `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}` |
-| `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary}` |
+| `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary\|pe-first-stage}` |
 | `/ogp-create` | サイト OGP（mono-tag）＋ note 記事カバー（G2・試験色分け）生成 | `OGP画像`, `noteカバー`, `/ogp-create` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
 

@@ -63,6 +63,7 @@ Generator / Evaluator 分離原則は維持する。本スキルは「評価を�
 | `civil-construction-2` | `primary` / `secondary` / `past-exam` | `content-qa` |
 | `pe-comprehensive-management` | `keyword` | `cem-qa` |
 | `pe-comprehensive-management` | `exam-index` / `section` / `r*-primary` | `cem-qa`（モード自動判別） |
+| `pe-first-stage` | `primary` | `content-qa` |
 | その他 | — | `content-qa` |
 
 Agent を呼び出す際は Agent tool の `subagent_type` で指定し、対象 MDX パスと `--mode auto` を渡す。

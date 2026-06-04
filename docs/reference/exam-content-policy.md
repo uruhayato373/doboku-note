@@ -169,6 +169,15 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **公開前 必須QA**: ①内部整合性（`正答番号` と各肢 ✅/❌ マーカー・設問極性の一致。マーカー反転・正答欠落を全問チェック）②図依存問題の正答が計算で再現できるか（今回 R元問2・R5問7 の「正答別頁で未確定」を容積法/図読取りで確定）。
 - **残**: 2022年版（H29-30）の追加収録は未着手（過去問の年度拡張）。
 
+### 新資格メモ: 技術士 第一次試験（`pe-first-stage`、2026-06-04 新設）
+
+- **総監（`pe-comprehensive-management`）とは別カテゴリ**。総監の `{year}-primary` は内部呼称が「第1次」だが実体は総監第二次の択一式。本カテゴリは全部門共通の**真の第一次試験**（基礎・適性・専門）。混同回避のため独立カテゴリ化。variant=pe / order=2.2 / visible=true。
+- groups = primary（科目別ページ）。`--sub basic|aptitude|construction` で科目切替。出力先 `.local/r2/posts/pe-first-stage/{year}-{basic|aptitude|construction}/article.mdx`。
+- **科目範囲**: 基礎科目（全部門共通・5群30問）＋適性科目（共通・15問）＋専門科目は**建設部門のみ**（土木読者向け。専門は20部門あるが建設に限定）。初回は R5〜R7。
+- **PDF 特性**: 問題 PDF（engineer.or.jp 公式）は**画像ベースでテキスト抽出不可**＝全問を rotate なしの 200dpi 画像から視覚転記。正答 PDF（`{R##}-正答.pdf`）は**テキスト抽出可**で年度1ファイルに全科目の正答番号表が入る＝正答は機械突合で確定可。ただし問題文・選択肢の捏造防止に原典視覚突合は必須。
+- **RelatedKeywords は当面省略**（建設一次の論点に対応するキーワードページが未整備。リンク先のない RelatedKeywords は置かない）。
+- Generator = `/exam-questions-import --exam pe-first-stage`。Evaluator = `content-qa`。ソース PDF = `docs/textbook/技術士第一次試験/`。
+
 ---
 
 **真実源参照**: このファイル内の情報が他のドキュメント（CLAUDE.md・SKILL.md・エージェント定義）と矛盾した場合、`docs/reference/content-principles.md` > このファイル > 他 の優先順位で判断する。
