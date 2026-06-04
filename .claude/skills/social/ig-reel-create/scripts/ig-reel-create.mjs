@@ -37,6 +37,7 @@ const { values: args } = parseArgs({
   args: process.argv.slice(2),
   options: {
     exam: { type: 'string' },
+    'exam-dir': { type: 'string' },  // 試験軸（既定: 技術士総監）。多資格は 1級土木 / 2級土木 等を明示
     speaker: { type: 'string', default: '1' },
     'skip-png': { type: 'boolean' },
     'script-only': { type: 'boolean' },  // 台本だけ事前生成（VOICEVOX/ffmpeg 不要）
@@ -55,9 +56,10 @@ if (!args.exam) {
   process.exit(1);
 }
 
-const m = args.exam.match(/^([hr]\d+)-pack-(\d+)$/);
+// 2級土木は年度に前期(z)/後期(k)接尾辞が付く（例: r07k-pack-01）
+const m = args.exam.match(/^([hr]\d+[kz]?)-pack-(\d+)$/);
 if (!m) {
-  console.error('--exam の形式は <year>-pack-<NN> (例: r07-pack-01)');
+  console.error('--exam の形式は <year>-pack-<NN> (例: r07-pack-01 / r07k-pack-01)');
   process.exit(1);
 }
 const [, year, packNum] = m;
@@ -114,11 +116,18 @@ console.log('\n[2/4] 台本生成中...');
 
 function buildScript(sl, idx, meta) {
   if (sl.type === 'cover') {
-    // cover-title が「令和7年度／択一式 過去問 #N」に統一されたので、台本も同じ形に。
-    // 旧 sl.title（管理名）は使わない。
-    const yearN = (meta?.year || year).replace(/^[rR]0?/, '');
-    const packN = String(meta?.packNum || packNum).replace(/^0+/, '') || '1';
-    return `令和${yearN}年度の択一式過去問、${packN}番です。全4問、答えは動画内で発表します。`;
+    const packN = String(packNum).replace(/^0+/, '') || '1';
+    if (examDir === '技術士総監') {
+      // cover-title が「令和7年度／択一式 過去問 #N」に統一されたので、台本も同じ形に。
+      // 旧 sl.title（管理名）は使わない。
+      const yearN = year.replace(/^[rR]0?/, '');
+      return `令和${yearN}年度の択一式過去問、${packN}番です。全4問、答えは動画内で発表します。`;
+    }
+    // 土木（1級/2級）: 年度末尾 k=後期 / z=前期、先頭 h=平成 / r=令和
+    const era = /^[hH]/.test(year) ? '平成' : '令和';
+    const eraN = year.replace(/^[hHrR]0?/, '').replace(/[kz]$/, '');
+    const kikan = /k$/.test(year) ? '後期' : /z$/.test(year) ? '前期' : '';
+    return `${era}${eraN}年度${kikan}の第一次検定 過去問、${packN}番です。全4問、答えは動画内で発表します。`;
   }
   if (sl.type === 'problem') {
     const body = (sl.bodyLines || [])
