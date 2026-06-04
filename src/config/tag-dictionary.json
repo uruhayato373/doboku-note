@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-06-04T05:31:10.393Z",
+  "generated_at": "2026-06-04T07:46:04.482Z",
   "summary": {
-    "total_mdx_files": 919,
-    "total_unique_tags": 93,
-    "allowlist_size": 141,
-    "known_count": 65,
-    "unknown_count": 28,
-    "typo_candidates_count": 5
+    "total_mdx_files": 931,
+    "total_unique_tags": 94,
+    "allowlist_size": 149,
+    "known_count": 69,
+    "unknown_count": 25,
+    "typo_candidates_count": 2
   },
   "tags": [
     {
@@ -1501,6 +1501,34 @@
       ]
     },
     {
+      "name": "技術士（第一次試験）",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r01-aptitude",
+        "pe-first-stage-r01-basic",
+        "pe-first-stage-r01-construction",
+        "pe-first-stage-r02-aptitude",
+        "pe-first-stage-r02-basic",
+        "pe-first-stage-r02-construction",
+        "pe-first-stage-r03-aptitude",
+        "pe-first-stage-r03-basic",
+        "pe-first-stage-r03-construction",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r04-construction",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r07-aptitude",
+        "pe-first-stage-r07-basic",
+        "pe-first-stage-r07-construction"
+      ]
+    },
+    {
       "name": "模範論文",
       "count": 19,
       "inAllowlist": false,
@@ -1661,22 +1689,6 @@
       ]
     },
     {
-      "name": "技術士（第一次試験）",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r05-aptitude",
-        "pe-first-stage-r05-basic",
-        "pe-first-stage-r05-construction",
-        "pe-first-stage-r06-aptitude",
-        "pe-first-stage-r06-basic",
-        "pe-first-stage-r06-construction",
-        "pe-first-stage-r07-aptitude",
-        "pe-first-stage-r07-basic",
-        "pe-first-stage-r07-construction"
-      ]
-    },
-    {
       "name": "経済性管理",
       "count": 8,
       "inAllowlist": true,
@@ -1763,6 +1775,34 @@
       ]
     },
     {
+      "name": "基礎科目",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r01-basic",
+        "pe-first-stage-r02-basic",
+        "pe-first-stage-r03-basic",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r07-basic"
+      ]
+    },
+    {
+      "name": "専門科目（建設部門）",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r01-construction",
+        "pe-first-stage-r02-construction",
+        "pe-first-stage-r03-construction",
+        "pe-first-stage-r04-construction",
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r07-construction"
+      ]
+    },
+    {
       "name": "道路",
       "count": 7,
       "inAllowlist": true,
@@ -1774,6 +1814,20 @@
         "pe-comprehensive-management-r05-essay-road-municipality",
         "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "適性科目",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-r01-aptitude",
+        "pe-first-stage-r02-aptitude",
+        "pe-first-stage-r03-aptitude",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r07-aptitude"
       ]
     },
     {
@@ -1891,6 +1945,39 @@
       ]
     },
     {
+      "name": "令和2年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r02-primary",
+        "pe-first-stage-r02-aptitude",
+        "pe-first-stage-r02-basic",
+        "pe-first-stage-r02-construction"
+      ]
+    },
+    {
+      "name": "令和3年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r03-primary",
+        "pe-first-stage-r03-aptitude",
+        "pe-first-stage-r03-basic",
+        "pe-first-stage-r03-construction"
+      ]
+    },
+    {
+      "name": "令和4年度",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-r04-primary",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r04-construction"
+      ]
+    },
+    {
       "name": "令和5年度",
       "count": 4,
       "inAllowlist": true,
@@ -1984,23 +2071,13 @@
       ]
     },
     {
-      "name": "基礎科目",
+      "name": "令和元年度",
       "count": 3,
       "inAllowlist": true,
       "usedIn": [
-        "pe-first-stage-r05-basic",
-        "pe-first-stage-r06-basic",
-        "pe-first-stage-r07-basic"
-      ]
-    },
-    {
-      "name": "専門科目（建設部門）",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r05-construction",
-        "pe-first-stage-r06-construction",
-        "pe-first-stage-r07-construction"
+        "pe-first-stage-r01-aptitude",
+        "pe-first-stage-r01-basic",
+        "pe-first-stage-r01-construction"
       ]
     },
     {
@@ -2011,16 +2088,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "適性科目",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r05-aptitude",
-        "pe-first-stage-r06-aptitude",
-        "pe-first-stage-r07-aptitude"
       ]
     },
     {
@@ -2246,30 +2313,6 @@
       ]
     },
     {
-      "name": "令和2年度",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r02-primary"
-      ]
-    },
-    {
-      "name": "令和3年度",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r03-primary"
-      ]
-    },
-    {
-      "name": "令和4年度",
-      "count": 1,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-r04-primary"
-      ]
-    },
-    {
       "name": "出願",
       "count": 1,
       "inAllowlist": false,
@@ -2407,9 +2450,6 @@
     "exam-statistics",
     "keyword-analysis",
     "キーワード集",
-    "令和2年度",
-    "令和3年度",
-    "令和4年度",
     "出願",
     "循環経済",
     "気候変動適応",
@@ -2429,21 +2469,6 @@
     {
       "tag": "キーワード集",
       "suggestion": "キーワード",
-      "distance": 1
-    },
-    {
-      "tag": "令和2年度",
-      "suggestion": "令和5年度",
-      "distance": 1
-    },
-    {
-      "tag": "令和3年度",
-      "suggestion": "令和5年度",
-      "distance": 1
-    },
-    {
-      "tag": "令和4年度",
-      "suggestion": "令和5年度",
       "distance": 1
     }
   ]

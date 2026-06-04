@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "generated_at": "2026-06-04T05:31:09.538Z",
+  "generated_at": "2026-06-04T07:46:03.588Z",
   "summary": {
-    "total": 919,
-    "published": 876,
+    "total": 931,
+    "published": 888,
     "unpublished": 43,
     "by_category": {
       "civil-construction-1": 96,
       "civil-construction-2": 31,
       "concrete-chief-engineer": 19,
       "pe-comprehensive-management": 721,
-      "pe-first-stage": 9
+      "pe-first-stage": 21
     }
   },
   "docs": {
@@ -18258,6 +18258,222 @@
       "created": "2026-05-21",
       "dateModified": "2026-06-02"
     },
+    "pe-first-stage-r01-aptitude": {
+      "title": "令和元年度 技術士第一次試験 適性科目",
+      "description": "技術士第一次試験 令和元年度 適性科目の全15問と解答解説。技術士法第4章の義務、コンピテンシー、製造物責任法（PL法）、個人情報保護法、産業財産権、品質不正、秘密情報管理、ALARP、男女雇用機会均等法、BCP、SDGs など頻出論点を全問収録。",
+      "shortTitle": "令和元年度 適性科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "適性科目",
+        "令和元年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/006/attached/attach_6834_2.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和元年度 技術士第一次試験 適性科目 過去問解説｜技術士法・PL法・産業財産権・ALARP【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r01-basic": {
+      "title": "令和元年度 技術士第一次試験 基礎科目",
+      "description": "技術士第一次試験 令和元年度 基礎科目の全30問（5群×6問）と解答解説。設計・計画群のEOQ・待ち行列、情報・論理群の基数変換・二分探索木、解析群のベクトル発散・ヤコビ行列・ひずみエネルギー、材料化学バイオ群、環境エネルギー技術群を全問収録。",
+      "shortTitle": "令和元年度 基礎科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "基礎科目",
+        "令和元年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/006/attached/attach_6834_1.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和元年度 技術士第一次試験 基礎科目 過去問解説｜EOQ・待ち行列・二分探索木・発散【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r01-construction": {
+      "title": "令和元年度 技術士第一次試験 専門科目（建設部門）",
+      "description": "技術士第一次試験 令和元年度 専門科目（建設部門）の全35問と解答解説。土質・地盤、構造力学、鋼構造・コンクリート、水理、河川・海岸、道路・鉄道・トンネル、施工・環境まで主要分野を全問収録。",
+      "shortTitle": "令和元年度 専門科目（建設部門）",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "専門科目（建設部門）",
+        "令和元年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/006/attached/attach_6834_11.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和元年度 技術士第一次試験 専門科目（建設部門）過去問解説｜土質・構造力学・水理【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r02-aptitude": {
+      "title": "令和2年度 技術士第一次試験 適性科目",
+      "description": "技術士第一次試験 令和2年度 適性科目の全15問と解答解説。技術士法第4章の義務、技術者倫理、COI、営業秘密、産業財産権、ISO/IECGuideのリスクアセスメントとPL法、BCP、ISO26000、テレワーク、内部告発など頻出論点を全問収録。",
+      "shortTitle": "令和2年度 適性科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "適性科目",
+        "令和2年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/007/attached/attach_7438_2.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和2年度 技術士第一次試験 適性科目 過去問解説｜技術士法第4章・産業財産権・PL法【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r02-basic": {
+      "title": "令和2年度 技術士第一次試験 基礎科目",
+      "description": "技術士第一次試験 令和2年度 基礎科目（5群×6問）の解答解説。ユニバーサルデザイン、信頼性設計、情報圧縮、論理式、発散・勾配・面積座標、固有振動数、ベルヌーイ、結晶構造、PCR、プラスチック資源循環など主要論点を収録。",
+      "shortTitle": "令和2年度 基礎科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "基礎科目",
+        "令和2年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/007/attached/attach_7438_1.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和2年度 技術士第一次試験 基礎科目 過去問解説｜信頼性設計・解析・材料化学バイオ【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r02-construction": {
+      "title": "令和2年度 技術士第一次試験 専門科目（建設部門）",
+      "description": "技術士第一次試験 令和2年度 専門科目（建設部門）の全35問と解答解説。土質・透水試験・土圧理論、構造力学（曲げモーメント・断面二次モーメント）、コンクリート、水理学（ベルヌーイ・開水路）、河川・海岸・道路・鉄道・トンネル・施工・環境まで頻出論点を全問収録。",
+      "shortTitle": "令和2年度 専門科目（建設部門）",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "専門科目（建設部門）",
+        "令和2年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/007/attached/attach_7438_11.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和2年度 技術士第一次試験 専門科目（建設部門）過去問解説｜土質・構造力学・水理学【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r03-aptitude": {
+      "title": "令和3年度 技術士第一次試験 適性科目",
+      "description": "技術士第一次試験 令和3年度 適性科目の全15問と解答解説。技術士法第4章の義務、技術士者倫理、SDGs、AI社会原則、安全保障貿易管理、製造物責任法、産業財産権、ISO/IEC Guide51、労働安全衛生、リスクアセスメントなど頻出論点を全問収録。",
+      "shortTitle": "令和3年度 適性科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "適性科目",
+        "令和3年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/008/attached/attach_8183_2.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和3年度 技術士第一次試験 適性科目 過去問解説｜技術士法・SDGs・安全保障貿易管理【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r03-basic": {
+      "title": "令和3年度 技術士第一次試験 基礎科目",
+      "description": "技術士第一次試験 令和3年度 基礎科目の全30問と解答解説。設計・計画（信頼度・PDCA）、情報・論理（暗号・論理式・逆ポーランド）、解析（rot・数値積分・有限要素・熱応力）、材料化学バイオ（同位体・酸化還元・製錬・DNA）、環境エネルギー技術の5群を全問収録。",
+      "shortTitle": "令和3年度 基礎科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "基礎科目",
+        "令和3年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/008/attached/attach_8183_1.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和3年度 技術士第一次試験 基礎科目 過去問解説｜信頼度・逆ポーランド・rot・熱応力【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r03-construction": {
+      "title": "令和3年度 技術士第一次試験 専門科目（建設部門）",
+      "description": "技術士第一次試験 令和3年度 専門科目（建設部門）の全35問と解答解説。土質・土圧・一軸圧縮・構造力学・主応力・鋼材・コンクリート・水理・河川・海岸・港湾・都市計画・道路・鉄道・トンネル・施工・建設環境まで主要分野を全問収録。",
+      "shortTitle": "令和3年度 専門科目（建設部門）",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "専門科目（建設部門）",
+        "令和3年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/008/attached/attach_8183_11.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和3年度 技術士第一次試験 専門科目（建設部門）過去問解説｜土質・構造力学・水理・施工【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r04-aptitude": {
+      "title": "令和4年度 技術士第一次試験 適性科目",
+      "description": "技術士第一次試験 令和4年度 適性科目の全15問と解答解説。技術士法第4章の義務、PDCAサイクル、ISO26000、Society5.0、情報セキュリティ、知的財産権、製造物責任法（PL法）、公益通報者保護法、SDGs、CPD など頻出論点を全問収録。",
+      "shortTitle": "令和4年度 適性科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "適性科目",
+        "令和4年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/009/attached/attach_9126_2.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和4年度 技術士第一次試験 適性科目 過去問解説｜技術士法・ISO26000・Society5.0【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r04-basic": {
+      "title": "令和4年度 技術士第一次試験 基礎科目",
+      "description": "技術士第一次試験 令和4年度 基礎科目の全30問と解答解説。設計・計画、情報・論理（ハミング距離・LRU・基数変換）、解析（差分・ベクトル・トラス・振動）、材料・化学・バイオ、環境・エネルギーの5群を全問収録し、計算問題はKaTeXで詳説。",
+      "shortTitle": "令和4年度 基礎科目",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "基礎科目",
+        "令和4年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/009/attached/attach_9126_1.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和4年度 技術士第一次試験 基礎科目 過去問解説｜設計計画・情報論理・解析・環境エネルギー【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
+    "pe-first-stage-r04-construction": {
+      "title": "令和4年度 技術士第一次試験 専門科目（建設部門）",
+      "description": "技術士第一次試験 令和4年度 専門科目（建設部門）の全35問と解答解説。土質・乾燥密度・圧密・斜面安定・構造力学・断面二次モーメント・静水圧・管路水理・開水路・河川・海岸・港湾・道路・鉄道・トンネル・施工管理・環境影響評価など建設部門の頻出論点を全問収録。",
+      "shortTitle": "令和4年度 専門科目（建設部門）",
+      "category": "pe-first-stage",
+      "group": "primary",
+      "tags": [
+        "技術士（第一次試験）",
+        "専門科目（建設部門）",
+        "令和4年度"
+      ],
+      "source_pdf": "https://www.engineer.or.jp/c_topics/009/attached/attach_9126_11.pdf",
+      "published": true,
+      "publishedAt": "2026-06-04",
+      "seoTitle": "令和4年度 技術士第一次試験 専門科目（建設部門）過去問解説｜土質・構造力学・水理・河川・道路・トンネル【技術士 第一次試験】",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2
+    },
     "pe-first-stage-r05-aptitude": {
       "title": "令和5年度 技術士第一次試験 適性科目",
       "description": "技術士第一次試験 令和5年度 適性科目の全15問と解答解説。技術士法第4章の義務、秘密保持、知的財産権、公益通報者保護法、製造物責任法、リスクマネジメント、ALARP、環境基本法の典型7公害など頻出論点を全問収録。",
@@ -18274,7 +18490,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和5年度 技術士第一次試験 適性科目 過去問解説｜技術士法・PL法・ALARP【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     },
     "pe-first-stage-r05-basic": {
       "title": "令和5年度 技術士第一次試験 基礎科目",
@@ -18292,7 +18510,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和5年度 技術士第一次試験 基礎科目 過去問解説｜設計計画・解析・環境エネルギー【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     },
     "pe-first-stage-r05-construction": {
       "title": "令和5年度 技術士第一次試験 専門科目（建設部門）",
@@ -18310,7 +18530,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和5年度 技術士第一次試験 専門科目（建設部門）過去問解説｜土質・構造力学・水理・施工【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     },
     "pe-first-stage-r06-aptitude": {
       "title": "令和6年度 技術士第一次試験 適性科目",
@@ -18328,7 +18550,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和6年度 技術士第一次試験 適性科目 過去問解説｜技術士法・SDGs・PL法・リスクアセスメント【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     },
     "pe-first-stage-r06-basic": {
       "title": "令和6年度 技術士第一次試験 基礎科目",
@@ -18346,7 +18570,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和6年度 技術士第一次試験 基礎科目 過去問解説｜設計計画・情報論理・解析・材料化学バイオ・環境エネルギー【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     },
     "pe-first-stage-r06-construction": {
       "title": "令和6年度 技術士第一次試験 専門科目（建設部門）",
@@ -18364,7 +18590,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和6年度 技術士第一次試験 専門科目（建設部門）過去問解説｜土質・構造・コンクリート【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     },
     "pe-first-stage-r07-aptitude": {
       "title": "令和7年度 技術士第一次試験 適性科目",
@@ -18402,7 +18630,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和7年度 技術士第一次試験 基礎科目 過去問解説｜設計計画・解析・環境エネルギー【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     },
     "pe-first-stage-r07-construction": {
       "title": "令和7年度 技術士第一次試験 専門科目（建設部門）",
@@ -18420,7 +18650,9 @@
       "publishedAt": "2026-06-04",
       "seoTitle": "令和7年度 技術士第一次試験 専門科目（建設部門）過去問解説｜土質・構造力学・水理・コンクリート【技術士 第一次試験】",
       "toc_min_heading_level": 2,
-      "toc_max_heading_level": 2
+      "toc_max_heading_level": 2,
+      "created": "2026-06-04",
+      "dateModified": "2026-06-04"
     }
   }
 }
