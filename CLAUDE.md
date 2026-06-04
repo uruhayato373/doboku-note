@@ -1,10 +1,10 @@
 # doboku-note - 土木・建設系試験対策ハブ
 
-土木・建設系の実務資格受験者向け試験対策サイト。現在は1級土木施工管理技士・技術士（総合技術監理部門）・技術士第一次試験（基礎/適性/専門・建設部門）を整備中。Next.js + MDX + Cloudflare Pages で構築。
+土木・建設系の実務資格受験者向け試験対策サイト。現在は1級土木施工管理技士と技術士（総合技術監理部門）を整備中。Next.js + MDX + Cloudflare Pages で構築。
 
 ## プロジェクトコンテキスト
 
-**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ iOS アプリ（過去問演習）の流れでコンテンツを管理。収益モデルは AdSense + note 有料記事 + YouTube + iOS アプリ。詳細: `docs/project/01_戦略/02_設計思想.md`、`docs/project/01_戦略/03_事業戦略.md`
+**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは AdSense + note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/project/01_戦略/02_設計思想.md`、`docs/project/01_戦略/03_事業戦略.md`、`docs/project/05_プロダクト/06_PWA過去問アプリ設計方針.md`
 
 **技術スタック**
 
@@ -27,7 +27,6 @@
 .local/r2/posts/               # すべてのコンテンツ（git 追跡下）
   civil-construction-1/        # 1級土木施工管理技士（Convention A: 個別ファイル名）
   pe-comprehensive-management/ # 技術士・総合技術監理（Convention B: article.mdx）
-  pe-first-stage/              # 技術士第一次試験（基礎/適性/建設・Convention B: article.mdx）
 src/                           # コンポーネント・CSS・レイアウト
 docs/project/                  # プロジェクト管理ドキュメント
 docs/reference/             # 作業マニュアル（詳細・手順）
