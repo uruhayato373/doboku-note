@@ -1,23 +1,64 @@
 # 内部リンク監査レポート
 
-- 生成: 2026-05-28T22:35:35.365Z
+- 生成: 2026-06-04T22:34:02.847Z
 - スコープ: all
-- 走査ファイル: 905
-- チェックしたリンク: 12276
-- リンク切れ（HIGH）: 75
+- 走査ファイル: 1148
+- チェックしたリンク: 12443
+- リンク切れ（HIGH）: 67
 - プレースホルダ（INFO）: 0
 
 ## リンク切れ（要修正）
 
+### .local/r2/posts/civil-construction-1/guide-career-path/article.mdx
+
+- L114 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+
+### .local/r2/posts/civil-construction-1/guide-market-value/article.mdx
+
+- L103 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+
+### .local/r2/posts/civil-construction-1/guide-salary-up/article.mdx
+
+- L97 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-salary"
+
+### .local/r2/posts/civil-construction-2/guide-career/article.mdx
+
+- L98 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-secondary-experience-writing-guide"
+
+### .local/r2/posts/civil-construction-2/guide-career-change/article.mdx
+
+- L87 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-exam-overview"
+- L88 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+
+### .local/r2/posts/civil-construction-2/guide-exam-overview/article.mdx
+
+- L120 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+- L121 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-salary"
+
+### .local/r2/posts/civil-construction-2/guide-job-reality/article.mdx
+
+- L94 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career-change"
+- L95 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+
+### .local/r2/posts/civil-construction-2/guide-salary/article.mdx
+
+- L86 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+
+### .local/r2/posts/civil-construction-2/guide-study-plan/article.mdx
+
+- L96 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-exam-overview"
+- L97 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-secondary-experience-writing-guide"
+- L98 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-guide-career"
+
 ### .local/r2/posts/civil-construction-2/primary-r03-zenki/article.mdx
 
-- L1762 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-zenki"
-- L1763 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-kouki"
+- L1788 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-zenki"
+- L1789 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r04-kouki"
 
 ### .local/r2/posts/civil-construction-2/primary-r05-zenki/article.mdx
 
-- L1553 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-zenki"
-- L1554 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-kouki"
+- L1579 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-zenki"
+- L1580 `BROKEN_SLUG` — RelatedKeywords slug="civil-construction-2-primary-r07-kouki"
 
 ### .local/r2/posts/pe-comprehensive-management/access-control/article.mdx
 
@@ -38,19 +79,10 @@
 - L60 `BROKEN_SLUG` — /docs/pe-comprehensive-management-tqm
 - L60 `BROKEN_SLUG` — /docs/pe-comprehensive-management-qc-seven-tools
 
-### .local/r2/posts/pe-comprehensive-management/centralization-decentralization/article.mdx
-
-- L78 `BROKEN_SLUG` — RelatedKeywords slug="rasis"
-- L79 `BROKEN_SLUG` — RelatedKeywords slug="information-security"
-
 ### .local/r2/posts/pe-comprehensive-management/communication-planning/article.mdx
 
 - L45 `BROKEN_SLUG` — /docs/pe-comprehensive-management-integration-management
-- L116 `BROKEN_SLUG` — /docs/pe-comprehensive-management-human-resource-management
-- L118 `BROKEN_SLUG` — /docs/pe-comprehensive-management-information-sharing
 - L118 `BROKEN_SLUG` — /docs/pe-comprehensive-management-economic-management
-- L132 `BROKEN_SLUG` — RelatedKeywords slug="information-sharing"
-- L134 `BROKEN_SLUG` — RelatedKeywords slug="human-resource-management"
 
 ### .local/r2/posts/pe-comprehensive-management/csv/article.mdx
 
@@ -67,22 +99,10 @@
 ### .local/r2/posts/pe-comprehensive-management/extended-producer-responsibility/article.mdx
 
 - L72 `BROKEN_SLUG` — /docs/pe-comprehensive-management-3r
-- L146 `BROKEN_SLUG` — RelatedKeywords slug="3r"
 
 ### .local/r2/posts/pe-comprehensive-management/five-s/article.mdx
 
 - L76 `BROKEN_SLUG` — /docs/pe-comprehensive-management-iso-45001
-
-### .local/r2/posts/pe-comprehensive-management/green-infrastructure/article.mdx
-
-- L106 `BROKEN_SLUG` — /docs/pe-comprehensive-management-compact-city
-- L107 `BROKEN_SLUG` — /docs/pe-comprehensive-management-river-basin-management
-- L126 `BROKEN_SLUG` — RelatedKeywords slug="compact-city"
-- L127 `BROKEN_SLUG` — RelatedKeywords slug="river-basin-management"
-
-### .local/r2/posts/pe-comprehensive-management/h29-primary/article.mdx
-
-- L980 `BROKEN_SLUG` — RelatedKeywords slug="risk-communication"
 
 ### .local/r2/posts/pe-comprehensive-management/isolation-stop-safety/article.mdx
 
@@ -94,20 +114,9 @@
 - L50 `BROKEN_SLUG` — /docs/pe-comprehensive-management-balanced-scorecard
 - L61 `BROKEN_SLUG` — /docs/pe-comprehensive-management-balanced-scorecard
 
-### .local/r2/posts/pe-comprehensive-management/monte-carlo-simulation/article.mdx
-
-- L95 `BROKEN_SLUG` — RelatedKeywords slug="risk-management"
-- L96 `BROKEN_SLUG` — RelatedKeywords slug="decision-theory"
-
 ### .local/r2/posts/pe-comprehensive-management/occupational-disease/article.mdx
 
 - L53 `BROKEN_SLUG` — /docs/pe-comprehensive-management-human-error
-
-### .local/r2/posts/pe-comprehensive-management/ppm-analysis/article.mdx
-
-- L81 `BROKEN_SLUG` — /docs/pe-comprehensive-management-five-forces
-- L108 `BROKEN_SLUG` — RelatedKeywords slug="five-forces"
-- L111 `BROKEN_SLUG` — RelatedKeywords slug="management-strategy"
 
 ### .local/r2/posts/pe-comprehensive-management/quality-control/article.mdx
 
@@ -174,14 +183,6 @@
 ### .local/r2/posts/pe-comprehensive-management/risk-criteria/article.mdx
 
 - L56 `BROKEN_SLUG` — /docs/pe-comprehensive-management-risk-communication
-
-### .local/r2/posts/pe-comprehensive-management/root-cause-analysis/article.mdx
-
-- L86 `BROKEN_SLUG` — /docs/pe-comprehensive-management-heinrichs-law
-- L101 `BROKEN_SLUG` — /docs/pe-comprehensive-management-heinrichs-law
-- L102 `BROKEN_SLUG` — /docs/pe-comprehensive-management-swiss-cheese-model
-- L130 `BROKEN_SLUG` — RelatedKeywords slug="heinrichs-law"
-- L131 `BROKEN_SLUG` — RelatedKeywords slug="swiss-cheese-model"
 
 ### .local/r2/posts/pe-comprehensive-management/safety-education/article.mdx
 
