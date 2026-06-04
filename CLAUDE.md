@@ -1,6 +1,6 @@
 # doboku-note - 土木・建設系試験対策ハブ
 
-土木・建設系の実務資格受験者向け試験対策サイト。現在は1級土木施工管理技士と技術士（総合技術監理部門）を整備中。Next.js + MDX + Cloudflare Pages で構築。
+土木・建設系の実務資格受験者向け試験対策サイト。現在は1級土木施工管理技士・技術士（総合技術監理部門）・技術士第一次試験（基礎/適性/専門・建設部門）を整備中。Next.js + MDX + Cloudflare Pages で構築。
 
 ## プロジェクトコンテキスト
 
@@ -27,6 +27,7 @@
 .local/r2/posts/               # すべてのコンテンツ（git 追跡下）
   civil-construction-1/        # 1級土木施工管理技士（Convention A: 個別ファイル名）
   pe-comprehensive-management/ # 技術士・総合技術監理（Convention B: article.mdx）
+  pe-first-stage/              # 技術士第一次試験（基礎/適性/建設・Convention B: article.mdx）
 src/                           # コンポーネント・CSS・レイアウト
 docs/project/                  # プロジェクト管理ドキュメント
 docs/reference/             # 作業マニュアル（詳細・手順）
