@@ -32,6 +32,15 @@
     "order": 2.2
   },
   {
+    "slug": "pe-construction",
+    "label": "技術士第二次試験（建設部門）",
+    "subtitle": "必須・選択11科目 記述式 過去問（R元〜R7）",
+    "description": "技術士第二次試験 建設部門の過去問アーカイブ。必須科目と選択科目11科目（土質及び基礎・鋼構造及びコンクリート・河川砂防・道路・トンネル・施工計画ほか）の令和元年度〜令和7年度 記述式問題を年度別・科目別に収録。",
+    "variant": "pe",
+    "order": 2.3,
+    "visible": false
+  },
+  {
     "slug": "concrete-chief-engineer",
     "label": "コンクリート主任技師",
     "subtitle": "四肢択一・小論文 完全対策",

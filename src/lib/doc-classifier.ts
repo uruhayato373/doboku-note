@@ -19,6 +19,7 @@ const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
 };
 
 const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pillar', 'pastExam', 'keyword'];
+const PE_CONSTRUCTION_GROUP_ORDER: DocGroupKey[] = ['guide', 'pastExam', 'keyword'];
 const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
 const CONCRETE_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary'];
 
@@ -75,6 +76,11 @@ export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> 
     primary: '第1次検定',
     secondary: '第2次検定',
   },
+  'pe-construction': {
+    guide: '試験ガイド',
+    pastExam: '過去問',
+    keyword: 'キーワード',
+  },
   'concrete-chief-engineer': {
     guide: '試験ガイド',
     textbook: 'テキスト（分野別解説）',
@@ -89,6 +95,7 @@ export const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> 
 
 export function getGroupOrder(category: string): DocGroupKey[] {
   if (category === 'pe-comprehensive-management') return PE_GROUP_ORDER;
+  if (category === 'pe-construction') return PE_CONSTRUCTION_GROUP_ORDER;
   if (category === 'civil-construction-1' || category === 'civil-construction-2') return CIVIL_GROUP_ORDER;
   if (category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') return CONCRETE_GROUP_ORDER;
   return ['keyword'];
