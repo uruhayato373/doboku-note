@@ -99,6 +99,19 @@ node .claude/skills/conversion/pdf-to-mdx/scripts/verify-pdf-mdx.mjs \
 
 **過去の具体例**（Issue #128 で発見）: R02 primary で keyword audit が見落とした図版欠損 2 件、R01 primary で「데이터」というハングル文字混入の OCR バグ等。本ガードで早期検出できるようにする。
 
+### Step 5.6: 構造ガード（重複選択肢・正答整合、2026-06-04 追加）
+
+`verify-pdf-mdx.mjs` では拾えない 2 つの転記ミスを機械的に検出する。生成直後と公開前に全ページへ実行する。
+
+```bash
+# ① 重複選択肢検出: ○×組合せ・語句組合せで2選択肢が完全一致＝転記ミス確定
+node .claude/skills/conversion/exam-questions-import/scripts/check-option-dup.mjs <article.mdx ...>
+# ② 正答整合: **正答：N** と ✅/❌ バッジ位置の不一致・正答欠落・ExamPoint内バッジ混入
+node .claude/skills/conversion/exam-questions-import/scripts/check-answer-consistency.mjs <article.mdx ...>
+```
+
+①が 1 行でも出たら原典 PDF で該当選択肢を視覚確認し訂正（実試験に同一選択肢は存在しない）。②の「正答 行なし」は救済等の意図的欠落なら無視可。**この①は視覚突合（Step 5.7）を通過したページでも誤転記を検出する**（2026-06-04 の技術士第一次 R5〜R7 で実証）ため、視覚突合の代替ではなく追加ガードとして必ず回す。あわせて本文の不等号は全角 ＜＞（半角 `<` は MDX の details を破壊）とし、`@mdx-js/mdx` 単体コンパイルで `COMPILE OK` を確認する。
+
 ### Step 5.7: 原典視覚突合（必須品質ゲート、2026-05-28 追加）
 
 > **これが最重要の品質ゲート。正解番号の機械突合だけで合格としてはならない。**
