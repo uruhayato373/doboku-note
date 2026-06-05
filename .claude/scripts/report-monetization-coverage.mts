@@ -33,6 +33,10 @@ import {
   resolveCategoryMagazines,
 } from "../../src/lib/magazine-placement.ts";
 import { getMagazine } from "../../src/lib/note-magazines.ts";
+import {
+  resolveCategoryAffiliate,
+  HOME_AFFILIATE,
+} from "../../src/config/affiliate-creatives.ts";
 
 const ROOT = process.cwd();
 const GA4_DIR = join(ROOT, ".claude/state/metrics/ga4");
@@ -178,18 +182,22 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
 for (const [page, t] of traffic) {
   let category: string | null = null;
   let noteCta: string[] = [];
+  let affiliate: string | null = null;
   if (page === "/") {
     noteCta = ["home-links-hub"]; // /links 教材ハブ banner（src/app/page.tsx）
+    affiliate = HOME_AFFILIATE.kind === "career" ? "GKS" : "SAT";
   } else if (page.startsWith("/category/")) {
     category = page.slice("/category/".length);
     noteCta = resolveCategoryMagazines(category)
       .filter((s) => getMagazine(s.magazineId))
       .map((s) => s.magazineId);
+    const aff = resolveCategoryAffiliate(category);
+    affiliate = aff ? (aff.kind === "career" ? "GKS" : "SAT") : null;
   } else {
     continue;
   }
   const users = t.users;
-  const monetized = noteCta.length > 0;
+  const monetized = noteCta.length > 0 || affiliate !== null;
   rows.push({
     slug: page,
     page,
@@ -198,7 +206,7 @@ for (const [page, t] of traffic) {
     users,
     sessions: t.sessions,
     noteCta,
-    affiliate: null,
+    affiliate,
     linksFallback: false,
     noteClicks: clickFile ? noteClicks.get(page) ?? 0 : null,
     affClicks: clickFile ? affClicks.get(page) ?? 0 : null,

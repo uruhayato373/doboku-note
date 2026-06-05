@@ -43,6 +43,7 @@ import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
+import { CIVIL_CAREER_AD, SCHOOL_SAT } from '@/config/affiliate-creatives';
 
 /**
  * SAT 通信講座（A8.net）の 300×250 creative。A8 配信のブランド汎用バナー（級非依存）。
@@ -122,36 +123,8 @@ function CivilSatProductCTA() {
   );
 }
 
-/**
- * GKSキャリア（施工管理 転職支援・A8.net）の 300×250 creative。右サイドバー上部用。
- * 1級土木・2級土木 の全ページ（docGroup 不問）の右サイドバー sticky 上部に配置し、
- * GKS の計測ピクセル（pixelSrc, www15）はこのサイドバー枠を唯一の発火源とする
- * （本文インライン CareerAffiliate は href のみ＝1 ページ 1 GKS ピクセル）。
- * 2026-05-29 記事末バナーとして新規追加 → 2026-06-02 サイドバー全 civil 昇格。
- * creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
- */
-const CIVIL_CAREER_AD = {
-  href: 'https://px.a8.net/svt/ejp?a8mat=4B3VR8+F0LMU2+4R40+TSBE9',
-  imageSrc: 'https://www29.a8.net/svt/bgt?aid=260521604908&wid=002&eno=01&mid=s00000022176005003000&mc=1',
-  pixelSrc: 'https://www15.a8.net/0.gif?a8mat=4B3VR8+F0LMU2+4R40+TSBE9',
-  alt: '施工管理 転職支援サービス',
-  width: 300,
-  height: 250,
-} as const;
-
-/**
- * 通信講座（スクール系）アフィリエイトの 2 creative。記事末のテキストリンク カード用。
- * 右サイドバーから転職バナー（GKS）に置き換わった分、SAT は記事内テキストリンクへ移設（2026-06-02）。
- * creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
- */
-const SCHOOL_SAT = {
-  provider: 'SAT',
-  course: 'すべての人に最高の教材を【eラーニング・現場系国家資格】',
-  description:
-    '記述添削や体系的な学習サポートで独学の穴を埋めたいときに。e ラーニングで現場系の国家資格を効率よく対策できます。',
-  href: 'https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM',
-  pixelUrl: 'https://www12.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM',
-} as const;
+// CIVIL_CAREER_AD（GKS 転職）と SCHOOL_SAT（SAT 講座）は複数サーフェス（docs / カテゴリ /
+// トップ）で再利用するため @/config/affiliate-creatives に集約（計測ピクセルの drift 防止）。
 
 /** 独学サポート（1級土木専用）。経験記述の添削・作文サポートに特化。1級土木ページでのみ使用。 */
 const SCHOOL_DOKUGAKU = {

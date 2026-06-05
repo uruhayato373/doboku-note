@@ -11,6 +11,9 @@ import type { PeChapter } from '@/config/pe-chapters';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
+import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
+import SchoolAffiliate from '@/components/ui/SchoolAffiliate/SchoolAffiliate';
+import { resolveCategoryAffiliate } from '@/config/affiliate-creatives';
 
 const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
@@ -632,6 +635,9 @@ export default async function CategoryPage({
     .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
     .filter((x): x is { slot: typeof x.slot; magazine: NonNullable<typeof x.magazine> } => Boolean(x.magazine));
 
+  // アフィリエイト（記事末・hub 末。note CTA とは別位置でカニバリ回避）。1 ページ 1 ピクセル。
+  const categoryAffiliate = resolveCategoryAffiliate(slug);
+
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
@@ -873,6 +879,18 @@ export default async function CategoryPage({
             </div>
           )}
         </div>
+
+        {/* アフィリエイト（hub 末・ファーストビュー外）。docs サイドバー条件をミラー:
+            civil→GKS 転職 / PE→SAT 講座。note CTA は hero 直下、アフィリは末尾で位置を分離。 */}
+        {categoryAffiliate && (
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pb-12">
+            {categoryAffiliate.kind === 'career' ? (
+              <CareerAffiliate {...categoryAffiliate.props} />
+            ) : (
+              <SchoolAffiliate {...categoryAffiliate.props} />
+            )}
+          </div>
+        )}
       </main>
 
       <Footer />

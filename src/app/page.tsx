@@ -3,6 +3,8 @@ import Footer from "@/components/layout/Footer";
 import BookCard from "@/components/ui/BookCard/BookCard";
 import BookSection from "@/components/ui/BookSection/BookSection";
 import MagazineSidebarCard from "@/components/ui/MagazineSidebarCard";
+import SchoolAffiliate from "@/components/ui/SchoolAffiliate/SchoolAffiliate";
+import { HOME_AFFILIATE } from "@/config/affiliate-creatives";
 import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
@@ -161,6 +163,12 @@ export default async function HomePage() {
             />
           </div>
         </div>
+        {/* アフィリエイト（ファーストビュー外・最下部。複数資格横断のため汎用 SAT 講座） */}
+        {HOME_AFFILIATE.kind === "school" && (
+          <div className="mx-auto max-w-3xl px-4 pt-10">
+            <SchoolAffiliate {...HOME_AFFILIATE.props} />
+          </div>
+        )}
         {/* 参考書籍（補完ポジション・トップ最下部。ファーストビュー外） */}
         <div className="mx-auto max-w-3xl px-4 py-10">
           <BookSection

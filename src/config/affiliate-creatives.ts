@@ -1,0 +1,89 @@
+/**
+ * アフィリエイト creative の単一ソース（複数サーフェスで再利用する分のみ）。
+ *
+ * docs ページ（src/app/docs/[...slug]/page.tsx）に加え、カテゴリ hub
+ * （src/app/category/[slug]/page.tsx）・トップ（src/app/page.tsx）でも同じ creative を
+ * 使うため、計測ピクセル URL（a8mat）の二重管理＝drift を避けて 1 箇所に集約する。
+ *
+ * 1 ページ 1 ピクセルの原則: 同一ページで同じ a8mat のピクセルを 2 回発火させない。
+ * カテゴリ/トップは現状アフィリ枠ゼロなので、各ページに 1 creative = 1 pixel で追加する。
+ *
+ * creative 情報の人間向け真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ */
+
+/** GKSキャリア（施工管理 転職支援・A8.net）。300×250 banner + 計測ピクセル。 */
+export const CIVIL_CAREER_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4B3VR8+F0LMU2+4R40+TSBE9",
+  imageSrc:
+    "https://www29.a8.net/svt/bgt?aid=260521604908&wid=002&eno=01&mid=s00000022176005003000&mc=1",
+  pixelSrc: "https://www15.a8.net/0.gif?a8mat=4B3VR8+F0LMU2+4R40+TSBE9",
+  alt: "施工管理 転職支援サービス",
+  width: 300,
+  height: 250,
+} as const;
+
+/** SAT 通信講座（スクール系・A8.net）。記事末テキストリンク カード用 creative。 */
+export const SCHOOL_SAT = {
+  provider: "SAT",
+  course: "すべての人に最高の教材を【eラーニング・現場系国家資格】",
+  description:
+    "記述添削や体系的な学習サポートで独学の穴を埋めたいときに。e ラーニングで現場系の国家資格を効率よく対策できます。",
+  href: "https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM",
+  pixelUrl: "https://www12.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM",
+} as const;
+
+export type CategoryAffiliate =
+  | {
+      readonly kind: "career";
+      readonly props: {
+        service: string;
+        category: string;
+        description?: string;
+        href: string;
+        imageSrc?: string;
+        trackingPixelUrl?: string;
+        points?: readonly string[];
+      };
+    }
+  | {
+      readonly kind: "school";
+      readonly props: {
+        provider: string;
+        course: string;
+        description?: string;
+        href: string;
+        pixelUrl?: string;
+      };
+    };
+
+/**
+ * カテゴリ hub に出すアフィリエイト（docs ページのサイドバー条件をミラー）:
+ * - civil-1 / civil-2 → GKS 転職（CareerAffiliate）
+ * - pe-comprehensive-management → SAT 講座（SchoolAffiliate）
+ * - それ以外（concrete 系 / pe-construction / pe-first-stage）→ なし（docs でもアフィリ無し）
+ */
+export function resolveCategoryAffiliate(category: string): CategoryAffiliate | null {
+  if (category === "civil-construction-1" || category === "civil-construction-2") {
+    return {
+      kind: "career",
+      props: {
+        service: "GKSキャリア",
+        category: "施工管理 転職エージェント",
+        href: CIVIL_CAREER_AD.href,
+        imageSrc: CIVIL_CAREER_AD.imageSrc,
+        trackingPixelUrl: CIVIL_CAREER_AD.pixelSrc,
+        points: ["施工管理に特化した求人", "在職中でも無料で相談 OK"],
+      },
+    };
+  }
+  if (category === "pe-comprehensive-management") {
+    return { kind: "school", props: { ...SCHOOL_SAT } };
+  }
+  return null;
+}
+
+/** トップ（複数資格横断）に出すアフィリエイト。汎用の SAT 講座。 */
+export const HOME_AFFILIATE: CategoryAffiliate = {
+  kind: "school",
+  props: { ...SCHOOL_SAT },
+};
