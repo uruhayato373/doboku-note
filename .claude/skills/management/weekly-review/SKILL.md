@@ -57,11 +57,20 @@ description: >
 ```
 調査方法 (2 段階):
 
-A. NSM 指標取得:
-- `node .claude/scripts/lib/metrics-reader.mjs` を実行（markdown 出力）
-  → GA4 と GSC から今週 vs 前週の NSM 関連メトリクスを取得
-  → Organic Search users（NSM）、全体 sessions、CTR、検索順位、トップクエリ
-- 出力をそのまま「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
+> **大原則（誤読防止）**: 計測は CI/CD 供給が正。`fetch-metrics.yml`（毎週金 06:00 JST）が
+> GA4/GSC を取得し `.claude/state/metrics/{ga4,gsc}/` に commit、`psi-audit.yml` が PSI を
+> 日次 commit する。**コミット済みスナップショットを読むのが既定の取得元**であり、ローカル
+> creds は設計上不要。「creds 未設定＝計測基盤未整備」と扱わない。会社 PC は社内プロキシで
+> 外部 API（Google/Meta）が遮断されるため、ライブ fetch は基本通らない。
+> 詳細・恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05 エントリ）
+
+A. NSM 指標取得（既定 = スナップショット読み）:
+- まず後述「スナップショット読み」でコミット済み JSON から WoW を算出するのが既定。
+- creds + 外部到達性が両方ある環境（例: creds 入り macOS）に限り、任意で
+  `node .claude/scripts/lib/metrics-reader.mjs`（markdown 出力）でライブ取得してもよい
+  → GA4 と GSC から今週 vs 前週の NSM 関連メトリクス（Organic Search users（NSM）、
+     全体 sessions、CTR、検索順位、トップクエリ）
+- いずれの出力も「## NSM（オーガニック検索流入）」セクションとしてレビューに埋め込む
 
 B. 実験進捗レポート:
 - `.claude/state/experiments.json` を読み、status 別にグループ化:
@@ -79,13 +88,15 @@ B. 実験進捗レポート:
   - `npm run fetch-ga4-data -- --dimension page --days 7 --limit 20`
   - `npm run fetch-gsc-data -- --dimension page --days 7`
 
-前提条件:
+ライブ fetch（任意経路）の前提条件:
 - .env.local に GOOGLE_SERVICE_ACCOUNT_KEY_PATH と GA4_PROPERTY_ID が設定されている
 - サービスアカウントが GSC と GA4 の両方で閲覧者権限を持つ
-- 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
+- かつ外部 API に到達できる（会社 PC のプロキシ配下では不可）
+- これらが揃わない環境（＝既定）では下記スナップショット読みを使う。creds 未設定を
+  「計測基盤未整備」とは記録しない（基盤は CI 側で稼働している）
 
-オフラインフォールバック（クラウドルーティン等 creds が無い環境）:
-- ライブ呼び出しの代わりに、CI（`fetch-metrics.yml` が毎週金曜 06:00 JST に commit）が残した
+スナップショット読み（既定の取得元）:
+- CI（`fetch-metrics.yml` が毎週金曜 06:00 JST に commit）が残した
   コミット済みスナップショットを読んで WoW を自前算出する:
   - GA4 NSM（推奨）: `.claude/state/metrics/ga4/ga4-channel-organic-*.json`（7日窓・JP・Organic Search のみ）の
     最新2ファイルをファイル名日付で sort → 各 rows の activeUsers を NSM として前週比を算出。

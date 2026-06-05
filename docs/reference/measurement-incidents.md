@@ -8,6 +8,45 @@ title: 計測・検証事故の記録
 
 個別事例は時系列の逆順（新しい順）で追記する。各事例は「現象 / 根本原因 / 気づきの遅延理由（or 検出経緯）/ 適用した対策 / 教訓」を明記する。
 
+## 2026-06-05: 計測は CI/CD 供給が正 — 「ローカル creds 未設定＝ブロッカー」は誤り（恒久ルール）
+
+### 現象
+
+週次レビュー（W23）生成時に、NSM/GSC を「ローカルで計測できない・creds 未設定＝制約／ブロッカー」とフレーミングしてレビューに記載してしまった。実際は計測は CI/CD で完結しており、コミット済みスナップショットを読むのが正規手順だった。
+
+同セッションで Instagram API 投稿の検証中、`graph.facebook.com` 呼び出しが **会社 PC のプロキシ（Digital Arts i-FILTER / Palo Alto Networks `auris vsys5`）でブロック**されることも判明（`503` + ブロック HTML が返る）。
+
+### 根本原因（2 つ）
+
+1. **環境の制約**: この作業 PC（Windows）は社内 Web フィルタの背後にあり、**外部 API（Google GA4/GSC、Meta `graph.facebook.com` 等）への直接通信が遮断**される。ローカルから `metrics-reader.mjs` / `fetch-ga4-data.mjs` / `fetch-gsc-data.mjs` や Meta API を叩いても通らない（creds の有無以前にネットワークで失敗）。
+2. **ドキュメントの framing 欠陥**: weekly-review / weekly-plan / weekly-improve / nsm-experiment の各スキルが「`.env.local` の `GOOGLE_SERVICE_ACCOUNT_KEY_PATH` / `GA4_PROPERTY_ID` が**前提**。未達なら『NSM セクション: スキップ（計測基盤未整備）』」と書き、**スナップショット読みを「オフラインフォールバック」扱い**していた。これがローカル作業者に「計測できない＝基盤未整備」と誤読させた。
+
+### 正しいモデル（恒久ルール）
+
+- **計測は CI/CD が供給する**: `fetch-metrics.yml`（毎週金 06:00 JST）が GA4（channel 28d / date / **organic 7d**）+ GSC（全体 / **date 7d**）を取得して `.claude/state/metrics/{ga4,gsc}/` に commit。`psi-audit.yml` が PSI を日次 commit。
+- **コミット済みスナップショットを読むのが既定の正規手順**（フォールバックではない）。ローカル creds は設計上不要で、**未設定をブロッカー扱いしない**。
+- **ライブ fetch は creds + 外部到達性が両方ある環境（例: creds 入りの macOS）限定の任意経路**。会社 PC では到達不能なので使わない。
+- スナップショットが 2 週分揃わない等で WoW が出せないときだけ「クリーン WoW は次週から」と注記する。「計測基盤未整備」とは書かない。
+
+### 適用した対策
+
+- 本ファイルに恒久ルールとして記録（真実源）。
+- `weekly-review` / `weekly-plan` / `weekly-improve` / `nsm-experiment` の各 SKILL.md の「前提条件 / 条件未達→スキップ」「オフラインフォールバック」記述を、**「コミット済みスナップショットが既定の取得元。ライブ fetch は creds+到達性がある環境のみ任意」** に統一し、本ファイルへポインタを張った。
+- Meta API（IG 投稿）も同根で会社 PC 不可 → トークン取得/テストは Mac、本番投稿は GitHub Actions（`.claude/scripts/instagram/SETUP-mac.md`）。
+
+### 教訓
+
+1. **「計測データが要る」≠「ローカルで API を叩く」**。本プロジェクトの計測は CI/CD 供給で、エージェントは `.claude/state/metrics/` のスナップショットを読むのが正。
+2. **外部 API を使う作業は、ローカルの到達性を先に疑う**。会社 PC は Google/Meta 等を社内フィルタで遮断する。到達不能を「設定不足/基盤未整備」と誤診しない。
+3. **ドキュメントの framing が誤判断を生む**: 既定手順を「fallback」と書くと、それが主経路の環境で「劣化・未整備」と誤読される。主経路は主経路として書く。
+
+### 関連
+
+- `.github/workflows/fetch-metrics.yml` - 週次 GA4/GSC 取得・commit（計測の本体）
+- `.github/workflows/psi-audit.yml` - 日次 PSI 取得・commit
+- `.claude/state/metrics/{ga4,gsc,psi}/` - 計測スナップショット（エージェントの既定取得元）
+- `.claude/scripts/instagram/SETUP-mac.md` - 同根の Meta API 遮断と Mac/Actions 役割分担
+
 ## 2026-05-16〜29: R2 アップロード Unauthorized の握り潰しによる本番画像 404（約2週間サイレント）
 
 ### 現象

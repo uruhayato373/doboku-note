@@ -28,7 +28,9 @@ node .claude/scripts/snapshot-weekly-metrics.mjs
 
 現在の週の NSM データ（GA4 + GSC の前週比較）を `.claude/state/weekly-metrics/YYYY-Www.json` に保存し、index.json に追記する。既に実行済みの週は skip（`--force` で上書き可）。
 
-この出力が Phase 1 Agent C のインプットになる。計測基盤が未整備なら skip 可（警告を表示）。
+この出力が Phase 1 Agent C のインプットになる。`snapshot-weekly-metrics.mjs` がライブ取得できない環境（会社 PC のプロキシ配下など）では skip し、Agent C は **CI がコミットした `.claude/state/metrics/{ga4,gsc}/` のスナップショットを直接読む**（既定経路）。
+
+> 計測は CI/CD 供給が正（`fetch-metrics.yml` 金 06:00 JST / `psi-audit.yml` 日次）。ローカル creds は設計上不要で「計測基盤未整備」とは扱わない。恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05）。
 
 ### Phase 0.5: 閾値違反の task-queue 登録（Weekly Metrics PDCA）
 
@@ -96,8 +98,10 @@ node .claude/scripts/build-todo-view.mjs
 
 ```
 調査方法:
-1. Phase 0 で生成された .claude/state/weekly-metrics/YYYY-Www.json を読む
-   - 無ければ metrics-reader を直接呼ぶ fallback
+1. NSM データの取得（既定 = スナップショット読み）:
+   - CI がコミットした `.claude/state/metrics/{ga4,gsc}/` の最新スナップショットを読む（既定）
+   - Phase 0 で `.claude/state/weekly-metrics/YYYY-Www.json` が生成済みならそれを使ってもよい
+   - creds + 外部到達性がある環境に限り、任意で metrics-reader を直接呼んでもよい
 2. .claude/state/experiments.json を読んで以下を把握:
    - running 実験: 経過日数、baseline との gap
    - measuring 実験: 前後比較の中間サマリ
@@ -129,10 +133,12 @@ node .claude/scripts/build-todo-view.mjs
 - Should: 候補 2 を backlog に追加（experiments.json に proposed で残す）
 ```
 
-**前提条件**:
-- Step 1-3 の計測基盤が有効（.env.local の GOOGLE_SERVICE_ACCOUNT_KEY_PATH と GA4_PROPERTY_ID）
-- サービスアカウントが GSC/GA4 両方で閲覧者権限を持つ
-- 条件未達時は「NSM セクション: スキップ (計測基盤未整備)」と記録
+**取得元の優先順位**:
+- 既定: CI がコミットした `.claude/state/metrics/{ga4,gsc}/` スナップショットを読む（creds 不要）
+- 任意: creds（.env.local の GOOGLE_SERVICE_ACCOUNT_KEY_PATH / GA4_PROPERTY_ID）+ 外部到達性が
+  両方ある環境のみライブ fetch 可。会社 PC のプロキシ配下では不可
+- スナップショットも揃わない真のデータ欠損時のみ「NSM セクション: スキップ（データ未取得）」と記録。
+  creds 未設定そのものは「計測基盤未整備」ではない（基盤は CI 側で稼働）
 
 #### Agent C2: オープンの改善タスク
 

@@ -8,7 +8,10 @@ user-invocable: true
 
 # /weekly-improve — 週次 計測→改善サイクル
 
-**実行環境**: macOS only。GA4/GSC の計測基盤（`.env.local` 設定済み）が前提。
+**実行環境**: ライブ fetch を伴うため **macOS（creds + 外部到達性あり）専用**。会社 PC（社内プロキシで Google API 遮断）では Phase 1 の取得が通らない。
+
+> その環境では本スキルではなく `/weekly-review` を使う（CI がコミットした `.claude/state/metrics/` のスナップショットを読む＝既定経路）。計測自体は CI/CD 供給が正で、ローカル creds 未設定は「計測基盤未整備」ではない。恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05）。
+> なお `--no-fetch` を付ければ本スキルもコミット済み最新メトリクスで動く。
 
 ## なぜこのスキルがあるのか
 
