@@ -26,14 +26,28 @@
 const fs = require("node:fs");
 const path = require("node:path");
 
-const TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN;
-const IG_USER_ID = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID;
+// .env.local をロード（Mac 等のローカル実行用。GitHub Actions では存在しないので無視される）
+const ENV_LOCAL = path.join(process.cwd(), ".env.local");
+if (fs.existsSync(ENV_LOCAL)) {
+  for (const line of fs.readFileSync(ENV_LOCAL, "utf8").split("\n")) {
+    const m = line.match(/^([A-Z0-9_]+)=(.+)$/);
+    if (m && !process.env[m[1]]) process.env[m[1]] = m[2];
+  }
+}
+
+// Facebook ログイン版（Page トークン）= get-meta-token.mjs が書く META_* も互換で受ける
+const TOKEN = process.env.INSTAGRAM_ACCESS_TOKEN || process.env.META_LONG_LIVED_TOKEN;
+const IG_USER_ID =
+  process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID ||
+  process.env.META_INSTAGRAM_BUSINESS_ACCOUNT_ID;
 const PUBLIC_R2_BASE = process.env.IG_PUBLIC_R2_BASE || "https://storage.doboku-note.com";
 const SCHEDULE_FILE =
   process.env.IG_SCHEDULE_FILE || ".claude/state/instagram-schedule.json";
 const FORCE_DATE = process.env.IG_FORCE_DATE; // YYYY-MM-DD
 
-const GRAPH = "https://graph.instagram.com/v21.0";
+// 認証ルート: Facebook ログイン版（graph.facebook.com + Page トークン + instagram_business_account.id）。
+// Instagram ログイン版に切り替える場合は IG_GRAPH_BASE=https://graph.instagram.com/v21.0 を設定。
+const GRAPH = process.env.IG_GRAPH_BASE || "https://graph.facebook.com/v21.0";
 
 if (!TOKEN || !IG_USER_ID) {
   console.error("❌ INSTAGRAM_ACCESS_TOKEN または INSTAGRAM_BUSINESS_ACCOUNT_ID が未設定");
