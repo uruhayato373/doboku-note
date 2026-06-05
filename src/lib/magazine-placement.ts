@@ -127,6 +127,26 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
 
   // 1.5. (廃止) essay-data-2026 + M1「データ駆動戦略」は 2026-05-18 撤回済み
 
+  // 1.6. 受験期 guide 系ハブ（直前対策 / 試験ガイド索引）→ 完全パック + R8 予想 強 CTA。
+  //     これらは group:guide のため従来 resolvePlacement が EMPTY に落ち、/links フォールバック
+  //     (keyword 限定) も発火せず "無導線" だった。予想・直前需要が実際に着地する高トラフィック
+  //     ハブなので明示配線する（2026-06-06: GA4 で last-minute-2026 / exam-index への
+  //     予想・直前意図の流入を確認。r8-essay-keyword-forecast hub も最終ステップとして
+  //     last-minute-2026 へ送客している）。
+  if (
+    slug === 'pe-comprehensive-management-last-minute-2026' ||
+    slug === 'pe-comprehensive-management-exam-index'
+  ) {
+    return {
+      inline: [
+        slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
+        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-2'),
+      ],
+      sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
   // 2. pattern-essay-{persona} → 該当ペルソナ模範論文マガジン (ハブ、強 CTA)
   const patternMag = matchPatternEssay(slug);
   if (patternMag) {
@@ -228,10 +248,26 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //      inline (モバイル) は従来どおり精読ガイドを維持。
   if (docGroup === 'keyword' || slug === 'pe-comprehensive-management-keyword-2026') {
     const isHub = slug === 'pe-comprehensive-management-keyword-2026';
+    if (isHub) {
+      // 受験期最大の入口（GA4 トップ）。精読ガイド（文脈一致）を軸に据えつつ、完全パック +
+      // R8 予想を加えて予想・直前需要も拾う。sidebar は sidebarImageUrl を持つ R8 予想 + 精読ガイド。
+      return {
+        inline: [
+          slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
+          slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-2'),
+          slot('tankan-reading-guide', slug, 'inline-3'),
+        ],
+        sidebar: [
+          slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1'),
+          slot('tankan-reading-guide', slug, 'sidebar-2'),
+        ],
+        inlineMobileOnly: false,
+      };
+    }
     return {
-      inline: [slot('tankan-reading-guide', slug, isHub ? 'inline-1' : 'inline-mobile')],
-      sidebar: isHub ? [slot('tankan-reading-guide', slug, 'sidebar-1')] : [],
-      inlineMobileOnly: !isHub,
+      inline: [slot('tankan-reading-guide', slug, 'inline-mobile')],
+      sidebar: [],
+      inlineMobileOnly: true,
     };
   }
 
