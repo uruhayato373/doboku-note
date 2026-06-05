@@ -379,8 +379,10 @@ export async function createShortsFromReels({ packId, outDir, examDir = '技術�
 function buildMetaFromReels({ slideData, packId, year, packNumLabel, durationSec }) {
   const yt = SNS_CONFIG.youtube;
   const yearLabel = `令和${year.replace(/^[rRhH]0?/, '')}年度`;
-  const management = slideData._meta?.management || slideData.cover?.management || '';
-  const titleBase = `${yearLabel} 択一式 過去問 #${packNumLabel}${management ? `（${management}）` : ''}`;
+  const managementKey = slideData._meta?.management || slideData.cover?.management || '';
+  // 英語キー → 日本語ラベル（economic→経済性管理 等）。生のキーをタイトル/タグに出さない。
+  const management = SNS_CONFIG.managementMap?.[managementKey]?.label || managementKey;
+  const titleBase = `${yearLabel} 択一式 過去問${management ? `（${management}）` : ''}`;
 
   const utm = yt.utmParams.replace('campaign=shorts', `campaign=exam-pack-${packId}`);
   const description = [
@@ -389,7 +391,7 @@ function buildMetaFromReels({ slideData, packId, year, packNumLabel, durationSec
     'この動画は IG Reels で公開した過去問パックから 1 問抜粋した YouTube Shorts 派生版です。',
     '',
     yt.descriptionHeaders.site,
-    `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management/${year}?${utm}`,
+    `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management-${year}-primary?${utm}`,
     '',
     yt.descriptionHeaders.note,
     `${SNS_CONFIG.noteUrl}?${utm.replace(/campaign=[^&]+/, 'campaign=note')}`,
@@ -398,14 +400,15 @@ function buildMetaFromReels({ slideData, packId, year, packNumLabel, durationSec
   ].join('\n');
 
   return {
-    title: `${yt.titlePrefix}${titleBase}`,
+    // 過去問では「【総監キーワード】」prefix を使わない。論点別の最終タイトルは投稿時に人手で設定（policy §2 タイトル規約・§6 使い回し禁止）。
+    title: `技術士総監 ${titleBase}`,
     description,
     tags: dedupe([...yt.tags, `${yearLabel}`, '過去問', '択一式', management].filter(Boolean)),
     categoryId: yt.categoryId,
     privacyStatus: yt.privacyStatus,
     sourcePackId: packId,
     sourceYear: year,
-    sourceUrl: `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management/${year}`,
+    sourceUrl: `${SNS_CONFIG.domainUrl}/docs/pe-comprehensive-management-${year}-primary`,
     durationSeconds: Number(durationSec.toFixed(2)),
     derivedFrom: 'instagram-reels',
   };

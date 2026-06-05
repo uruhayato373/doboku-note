@@ -31,6 +31,7 @@ title: サブエージェント詳細レジストリ
 | `/civil-keiken-magazine`                  | `civil-keiken-essay-writer`, `civil-keiken-essay-qa`            | 施工経験記述マガジン模範答案の生成 → 5軸採点ループ |
 | note カバーロールアウト（親が起動）              | `note-cover-writer`                                              | 記事の G2 `cover:` ブロック執筆 → `add-note-cover.mjs` → 再生成 |
 | X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
+| `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
@@ -72,7 +73,8 @@ title: サブエージェント詳細レジストリ
 | `ig-reels-qa`                  | Instagram Reels の **5 軸**ルーブリック品質評価（尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線）。「スワイプで」等カルーセル流用 CTA を重大減点 | Evaluator    | sonnet  | `docs/reference/ig-reels-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase B）       |
 | `ig-stories-writer`            | Instagram Stories の `stories/caption.txt` と `stories/note.md` をパック固有にキュレーション。投票/質問ステッカー文言・リンクスタンプ URL 確定 | Generator    | sonnet  | `docs/reference/ig-stories-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase C）       |
 | `ig-stories-qa`                | Instagram Stories の **3 軸**ルーブリック品質評価（コピー力・リンク導線整合・ステッカー双方向性）。テンプレ未差替（「令和7年度」のまま等）と 02/03 ステッカー誤配置を減点 | Evaluator    | sonnet  | `docs/reference/ig-stories-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase C）       |
-| `yt-shorts-publisher-qa`       | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の **4 軸**ルーブリック品質評価（尺・UTM 整合・タイトル長/検索性・字幕整合）。IG 用 UTM 混入を重大減点 | Evaluator    | sonnet  | `docs/reference/yt-shorts-publisher-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase D）       |
+| `yt-shorts-title-writer`       | YouTube Shorts（過去問派生）の**論点ベースのタイトル**を執筆し meta.json の既定タイトルを上書き（`技術士総監 令和X年度 択一｜論点 #Shorts`・40字以内・使い回し/ネタバレ禁止）。親が featured 設問文を抽出して渡す | Generator    | sonnet  | `docs/reference/yt-shorts-publisher-policy.md` §2 参照、`yt-shorts-publisher-qa` と対 | ✅ 運用中（2026-06-05 起動）            |
+| `yt-shorts-publisher-qa`       | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の **4 軸**ルーブリック品質評価（尺=**≤60秒ゲート**〔60秒超は通常動画扱いで不合格〕・UTM 整合・タイトル長/検索性・字幕整合）。IG 用 UTM 混入を重大減点、予約後は `videos.list` で偽成功検証（policy §7） | Evaluator    | sonnet  | `docs/reference/yt-shorts-publisher-policy.md` 参照（戦略 v7 で新設、2026-06-05 v2 確定） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase D）       |
 | `ig-highlight-designer`        | Instagram ハイライト（`highlights/NN_*/slide-data.json`）の Stories 用構造化データを 1 ハイライトずつ執筆。モダンシック意匠 + データ駆動レイアウト | Generator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア）。IG UI セーフエリア侵入（overline が y<200）・本文の y>=1280 侵入・06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `magazine-pdf-builder`         | note マガジンの article.md を「問題文＋解答」紙用 PDF に変換する spec(JSON) を作成し `scripts/magazine-to-pdf.mjs` を実行。新規/構造不明マガジンの include/exclude 設計が主戦場。複数解答（A/B案）両収録を社則化 | Generator    | sonnet  | `/magazine-to-pdf` 連携、`scripts/magazine-to-pdf.mjs` DSL 準拠 | ✅ 運用中（2026-05-29 起動） |
@@ -116,7 +118,7 @@ title: サブエージェント詳細レジストリ
 | **civil-exam-figure-auditor** | `.local/r2/posts/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
 | **ig-stories-qa** | `stories/caption.txt` + `stories/note.md` + 対応 `stories/img/01-04.png` | コピー力・リンク導線整合・ステッカー双方向性（3軸）。テンプレ未差替・ステッカー誤配置を減点 | IG Stories caption.txt 執筆後 |
-| **yt-shorts-publisher-qa** | `docs/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
+| **yt-shorts-publisher-qa** | `docs/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺=**≤60秒ゲート**・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点、予約後 `videos.list` 実査 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
 | **ig-highlight-qa** | `highlights/NN_*/slide-data.json` + `img/*.png` | サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア（4軸）。IG UI セーフエリア侵入・本文 y>=1280 侵入・06_materials の note 有料直リンクを重大減点。`ig-stories-qa`（過去問 4 枚連投）とは別文脈 | IG ハイライト slide-data.json 執筆後 / PNG 生成後 |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。

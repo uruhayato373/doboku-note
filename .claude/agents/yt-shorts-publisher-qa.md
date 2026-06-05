@@ -33,10 +33,11 @@ YT 派生用 Generator エージェントは新設しない（既存スキル `y
 3. 参照のため対応 IG Reels パック `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/` の `slide-data.json` を読む。
 4. 4 軸を 1〜5 で採点する：
 
-   **軸 1: 尺適正**
-   - `meta.json` の `durationSeconds` が 30-60 秒範囲内（5 点）
-   - 30-70 秒の範囲外なら -1（YT Shorts 推奨外）
-   - 15 秒未満 or 90 秒超は -2（重大）
+   **軸 1: 尺適正（Short 成立条件）**
+   - `meta.json` の `durationSeconds` が **≤60 秒**（必須）。30-50 秒推奨（5 点）
+   - **60 秒超 → 軸1=0 点・不合格**（YouTube が「通常動画」扱いにし Shorts フィードに乗らない＝実機確認 2026-06-05）
+   - 15 秒未満は -2
+   - 透かし: `thumbnail.png`/動画に IG 等他社ロゴが無いこと（あれば -2 / policy §6）
 
    **軸 2: 概要欄 UTM 整合**
    - `meta.json.description` 内のサイト URL が `utm_source=youtube` を含む
@@ -73,9 +74,11 @@ YT 派生用 Generator エージェントは新設しない（既存スキル `y
 
 合否判定（policy 準拠）:
 - **合格**: 平均 4.0 以上 **かつ** 全軸 3 以上
-- **重大減点**:
-  - 軸 1: 尺 15 秒未満 or 90 秒超 → -2
+- **重大減点 / 不合格ゲート**:
+  - 軸 1: **尺 60 秒超 → 軸1=0 点・不合格**（Short 不成立）。15 秒未満は -2
   - 軸 2: IG 用 UTM（`utm_source=instagram`）混入 → -2
+  - 軸 3: タイトル使い回し（他 Short と同一テンプレで論点差が無い）→ -1（policy §2・§6）
+- **予約アップロード済みの場合**: `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7 偽成功検証）。`upload.js` のログ「公開設定: unlisted」は表示バグ＝実値 private。ログのみの完了報告は差し戻し。
 - 不合格時は指摘事項リストのみ返す（**自分では修正しない**）
 
 ## 担当外

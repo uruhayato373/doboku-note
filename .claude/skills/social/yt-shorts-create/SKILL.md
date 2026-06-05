@@ -113,6 +113,14 @@ ls docs/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 # 親エージェントから yt-shorts-publisher-qa --pack-id r03-pack-01 で 4 軸採点
 ```
 
+## 投稿運用（2026-06-05 確定 / 真実源 policy §5-7）
+
+- **必ずこの `shorts.mp4`（≤60 秒）をアップロードする**。IG Reels のフル `video.mp4`（≈145 秒）を直アップすると **YouTube が「通常動画」扱い**にし Shorts フィードに乗らない（実機確認）。
+- **予約投稿**: `node .claude/scripts/youtube/upload.js <shorts.mp4> --title … --description … --tags … --schedule <ISO8601>`（または `post.js <dir>`）。`--schedule` で `private + publishAt` ＝指定時刻に自動公開。
+- **カーデンス**: 1 日 3 本・JST 07:30 / 12:30 / 20:00（policy §5）。quota は約 6 本/日が上限。
+- **タイトル**: **`yt-shorts-title-writer`（Generator）が論点タイトルを自動生成**して既定タイトルを上書き（policy §2）。親が featured 設問文を抽出して渡す（agent は Bash 不可）。`yt-shorts-publisher-qa` が規約適合を採点。
+- **偽成功検証**: アップロード後 `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7）。`upload.js` のログ「公開設定: unlisted」は表示バグで実値は private。
+
 ## 範囲外（後続タスク）
 
 - **YouTube Data API upload** → `media-uploader.mjs`（PR #169、実投稿は T-003 Meta 認証準備の後）
