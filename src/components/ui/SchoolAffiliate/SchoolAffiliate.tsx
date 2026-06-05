@@ -38,6 +38,8 @@ export default function SchoolAffiliate({
         href={href}
         rel="nofollow sponsored noopener"
         target="_blank"
+        data-cta="affiliate"
+        data-cta-label={provider}
         className="group relative block rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 pr-12 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
         style={{ textDecoration: "none" }}
       >

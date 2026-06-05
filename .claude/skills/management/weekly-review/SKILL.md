@@ -147,6 +147,29 @@ B. 実験進捗レポート:
 出力形式: 以下の「## PSI パフォーマンス推移」セクションに埋め込む
 ```
 
+#### Agent C3: 収益カバレッジ ダッシュボード
+
+```
+目的: 高流入ページに note 有料マガジン / アフィリエイトの収益導線が張れているかを
+機械突合し、「高流入なのに無導線」のギャップを surface する（手作業監査の自動化）。
+
+調査方法（オフライン・コミット済みスナップショット読み）:
+- `npm run report-monetization-coverage` を実行（tsx, 外部 API 不要）。
+  - 入力: 最新 `.claude/state/metrics/ga4/ga4-page-*.json`（流入）+ `ga4-cta-clicks-*.json`（クリック, あれば）
+  - 配置の真実源: `src/lib/magazine-placement.ts`（note）/ `src/app/docs/[...slug]/page.tsx`（アフィリ）
+  - 出力: `.claude/state/metrics/monetization/coverage-latest.md`（+ coverage-*.json）
+- いずれも CI（`fetch-metrics.yml`）が page 次元と CTA クリックを毎週 commit するため、
+  ライブ fetch は不要。creds 未設定でも成立する。
+
+分析項目:
+- 「要対応ギャップ（高流入 × 無導線）」の件数と顔ぶれ（≥15 users で収益導線ゼロ）
+- 上位ページの note CTA / アフィリ カバレッジと CTR（クリック未蓄積時は n.d.）
+- CTR が著しく低い高流入ページ（クリックデータが揃ってから）
+
+出力形式: `coverage-latest.md` の内容をそのまま「## 収益カバレッジ ダッシュボード」
+セクションとして埋め込む。ギャップがあれば「## 課題・ブロッカー」にも 1 行で起票する。
+```
+
 #### Agent D: 計画との差分
 
 ```
@@ -402,6 +425,12 @@ B. 実験進捗レポート:
 
 ### 洞察
 - 改善が見える領域・退行した領域・次週の焦点
+
+## 収益カバレッジ ダッシュボード
+
+<!-- Agent C3 が `npm run report-monetization-coverage` の出力（coverage-latest.md）を
+     そのまま埋め込む。高流入 × 無導線のギャップ、上位ページの note/アフィリ カバレッジと
+     CTR（クリック未蓄積時は n.d.）。ギャップは「## 課題・ブロッカー」にも 1 行起票。 -->
 
 ## 過去問起点の校正サイクル
 

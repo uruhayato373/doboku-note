@@ -131,6 +131,10 @@ title: スキル ガバナンス記録
 | 2026-05-21 | `pe-essay-draft` | v1.5 → v1.6 | 設問3 国家施策ガードレール（v1.3）の例示が少子高齢化テーマに偏り、CN（R06）で業界・流域に閉じた施策が生成された欠陥を修正。設問3 国家施策例を**テーマ別**（CN／少子高齢化）に再構成し「複数省庁にまたがる国家政策として説明できるか」を判定基準として明示 |
 | 2026-05-22 | 共有スクリプト `note-essay-charcount.mjs` | （大幅拡張） | 答案用紙の枚数上限を年度別に試験問題から自動抽出し、設問別＋組合せ（施策／方法）別に OK/WARN/NG を判定する形へ拡張。`### 設問` H3 構造（R8予想問題集）に対応、組合せ検出を見出し型／散文型／序数型×施策／方法に拡張、字数を原稿用紙マス数推定（全角1・半角2字で1マス）へ変更、exit code 追加。検証で R8予想問題集6本は全件適合、既存模範論文マガジン（M5-M8）は枚数超過の疑い多数を surface（要・別途精査）。当初 `verify-essay-length` 新規スキルとして着手したが既存スクリプトとの重複を検出し統合（新規スキルは破棄） |
 | 2026-05-22 | `note-prepublish-review` | （記述更新） | `note-essay-charcount.mjs` 拡張に追従。section 7c の解答字数判定の説明を「制限文言の突合」から「script が年度別上限を自動抽出し OK/WARN/NG 判定・NG は失格相当・過少は85%未満で WARN」へ更新 |
+| 2026-06-05 | `social/yt-shorts-create` | （ガード追加） | カバー同期ガード `assertCoverInSync` を新設。`--from-reels` 派生前に slide-00.mp4 の1枚目と最新 img/00-cover.png を SSIM 比較し 0.90 未満で中断。カバーPNG/テンプレ刷新後に reel 動画を再生成しない desync（2026-06-02 cover刷新で video.mp4 1枚目が旧カバーのまま残った事故）の再発防止。不変条件「カバーPNGだけ更新する運用は禁止＝ig-reel-create で動画も同時再生成」を SKILL.md に明記 |
+| 2026-06-05 | `social/ig-reel-create` | （バグ修正） | `--exam-dir` が parseArgs 未登録で弾かれるバグを修正（コードは `args['exam-dir']` を参照していた）。多資格（1級/2級土木）の reel 再生成が可能に。SKILL.md 引数表に追記＋`--skip-png` 誤用警告（テンプレ刷新時は付けない）を明記 |
+| 2026-06-05 | 共有 `sns-common/reading-dict.mjs` | （辞書追加） | VOICEVOX が「問」を訓読みして `過去問→かことい`・`全問→ぜんとい` と誤読していたため、`過去問→かこもん`・`全問→ぜんもん` を読み辞書に追加。cover(slide-00)/cta(slide-09) ナレーションが該当。`ig-reel-create`・`yt-shorts-create` 双方の TTS に効く。`全4問`（ぜんよんもん）は数字が入るため誤読せず辞書対象外 |
+| 2026-06-06 | `social/yt-shorts-create` | v2 → v3（機能追加） | `per-problem-shorts.mjs`（1パック4問の全問展開・1パック=4本）新設。YT が IG 用 PNG を流用すると「N/10」「PROBLEM 1/4」「まずは1問やってみる/次ページで解答」スワイプCTAが単発1問動画に不整合になる問題を、**YT専用描画 `ytMode`** で解消。`quiz-slides.mjs`（problem/answer/cta）と `exam-cover-ig.mjs`（cover: `hidePage`/`showCta`/`topic`）に `ytMode` を実装し、IG固有チャームを抑止。IG mp4 を流用せず slide PNG を再描画＋`reels/wav` の TTS を再利用して再合成。カバーは年度共通汎用ナレ＋問別「この動画の論点」表示。タイトルは `yt-shorts-title-writer` 出力 JSON（`--titles`）を採用 |
 | 2026-05-22 | `pe-essay-review` | v1.5 → v1.6 | `note-essay-charcount.mjs` 拡張に追従。解答字数の記述を script の判定結果（NG=上限超過=失格相当）利用へ、字数基準を markdown 込みプロキシ値から原稿用紙マス数推定へ更新 |
 | 2026-05-21 | `note-prepublish-review` | （機能追加） | マガジン専用チェックに section 7f を追加。設問(3) が「事業や組織の枠を超えた国としての施策」を問う年度で、各施策がペルソナ業界・所管インフラに閉じていないかの目視確認を喚起（grep で設問文言を検出して WARN 出力） |
 | 2026-05-21 | `pe-essay-draft` | v1.6 → v1.7 | 環境調査ペルソナ（`environment-survey`）を廃止。属性キー表を 4 種 → 3 種に変更し、使用例を river-consultant に差し替え |
@@ -179,3 +183,4 @@ title: スキル ガバナンス記録
 | スキル | 変更 | 日付 |
 |---|---|---|
 | `management/weekly-review` | 出力先を GitHub Issue 一本化 → md 保存（`docs/reviews/weekly/YYYY-Www-review.md`）へ変更。CLAUDE.md §8「Issue 廃止」と整合。Phase 3/4・運用ルール・出力フォーマットを md ベースに修正、残存 `gh issue` 参照はレガシー扱い | 2026-05-30 |
+| `management/weekly-review` | Agent C3「収益カバレッジ ダッシュボード」を新設。`npm run report-monetization-coverage`（GA4 流入 × note/アフィリ CTA 配置の機械突合）で「高流入 × 無導線」ギャップを自動検出し、新セクション「## 収益カバレッジ ダッシュボード」に埋め込む。計装は `AnalyticsProvider` のデリゲートリスナー（`data-cta`）→ GA4 イベント、CI（`fetch-metrics.yml`）が page 次元 + CTA クリックを毎週 commit。手作業監査（last-minute-2026 無導線発見）の自動化 | 2026-06-06 |

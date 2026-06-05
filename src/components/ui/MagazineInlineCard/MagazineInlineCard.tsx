@@ -7,6 +7,8 @@ interface MagazineInlineCardProps {
   readonly imageUrl: string;
   readonly price?: string;
   readonly badge: string;
+  /** GA4 クリック計測ラベル（通常は utm_content）。AnalyticsProvider のデリゲートリスナーが拾う。 */
+  readonly trackLabel?: string;
 }
 
 /**
@@ -26,12 +28,15 @@ export default function MagazineInlineCard({
   imageUrl,
   price,
   badge,
+  trackLabel,
 }: MagazineInlineCardProps) {
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
+      data-cta="note"
+      data-cta-label={trackLabel}
       className="not-prose group my-6 block max-w-2xl rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">

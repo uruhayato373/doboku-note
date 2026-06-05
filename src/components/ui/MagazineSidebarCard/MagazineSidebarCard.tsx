@@ -6,6 +6,8 @@ interface MagazineSidebarCardProps {
   readonly alt: string;
   /** 外部リンク (note 等) は別タブ。内部リンク (/links) は同タブ。 */
   readonly external?: boolean;
+  /** GA4 クリック計測ラベル（通常は utm_content、/links バナーは "links-hub"）。 */
+  readonly trackLabel?: string;
 }
 
 /**
@@ -18,6 +20,7 @@ export default function MagazineSidebarCard({
   imageUrl,
   alt,
   external = true,
+  trackLabel,
 }: MagazineSidebarCardProps) {
   const linkProps = external
     ? { target: "_blank", rel: "noopener noreferrer" }
@@ -26,6 +29,8 @@ export default function MagazineSidebarCard({
     <a
       href={href}
       {...linkProps}
+      data-cta="note"
+      data-cta-label={trackLabel}
       className="not-prose group block rounded-card-content overflow-hidden border border-gray-200 dark:border-gray-700 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <Image

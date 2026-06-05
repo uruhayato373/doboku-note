@@ -96,6 +96,8 @@ function CivilSatProductCTA() {
           href={SAT_DOBOKU_PRODUCT.href}
           rel="nofollow sponsored noopener"
           target="_blank"
+          data-cta="affiliate"
+          data-cta-label="SAT"
           className="block"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -692,6 +694,7 @@ export default async function DocPage({
                     description={magazine.description}
                     imageUrl={magazine.imageUrl}
                     badge={magazine.badge}
+                    trackLabel={slot.utmContent}
                     {...(magazine.price ? { price: magazine.price } : {})}
                   />
                 ))}
@@ -720,6 +723,7 @@ export default async function DocPage({
                         href={buildMagazineUrl(magazine, slot.utmContent)}
                         imageUrl={magazine.sidebarImageUrl}
                         alt={magazine.shortTitle ?? magazine.title}
+                        trackLabel={slot.utmContent}
                       />
                     ) : null,
                   )}
@@ -737,6 +741,7 @@ export default async function DocPage({
                       imageUrl="/images/magazines/links-hub-sidebar.webp"
                       alt="note 有料教材まとめ"
                       external={false}
+                      trackLabel="links-hub"
                     />
                   </div>
                 )}

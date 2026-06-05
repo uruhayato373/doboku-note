@@ -32,6 +32,8 @@
     "diff-r2": "node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs",
     "fetch-gsc-data": "node .claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs",
     "fetch-ga4-data": "node .claude/scripts/fetch-ga4-data.mjs",
+    "fetch-ga4-cta-clicks": "node .claude/scripts/fetch-ga4-cta-clicks.mjs",
+    "report-monetization-coverage": "tsx .claude/scripts/report-monetization-coverage.mts",
     "audit-ga4-bot-ratio": "node .claude/scripts/audit-ga4-bot-ratio.mjs",
     "fetch-psi-data": "node .claude/scripts/fetch-psi-data.mjs",
     "fetch-psi-audit": "node .claude/scripts/fetch-psi-data.mjs --file .claude/config/psi-urls.txt --strategy mobile && node .claude/scripts/fetch-psi-data.mjs --file .claude/config/psi-urls.txt --strategy desktop",

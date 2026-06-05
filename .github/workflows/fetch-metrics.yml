@@ -65,6 +65,22 @@ jobs:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
         run: npm run fetch-gsc-data -- --dimension date --days 7
 
+      # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
+      # 最新 ga4-page-*.json を読む）。
+      - name: Fetch GA4 (page, for monetization coverage)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension page --limit 100
+
+      # 収益カバレッジ ダッシュボード用: note/アフィリ CTA クリック（eventName × pagePath）。
+      # 本番クリックが蓄積するまで 0 件が正常（計装は AnalyticsProvider のデリゲートリスナー）。
+      - name: Fetch GA4 (CTA clicks, for monetization coverage)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks
+
       - name: Check data integrity
         id: integrity
         continue-on-error: true
