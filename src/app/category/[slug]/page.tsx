@@ -8,6 +8,9 @@ import { getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
 import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
+import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
+import { resolveCategoryMagazines } from '@/lib/magazine-placement';
+import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 
 const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
@@ -624,6 +627,11 @@ export default async function CategoryPage({
     ? groupDocs(docs, slug)
     : null;
 
+  // note 有料マガジン CTA（カテゴリ hub 用・文脈一致）。公開済みのみ残す（防御的）。
+  const categoryMagazines = resolveCategoryMagazines(slug)
+    .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
+    .filter((x): x is { slot: typeof x.slot; magazine: NonNullable<typeof x.magazine> } => Boolean(x.magazine));
+
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
@@ -649,6 +657,25 @@ export default async function CategoryPage({
             </div>
           </div>
         </div>
+
+        {/* note 有料マガジン CTA（カテゴリ hub・文脈一致）。docs ページの placement とは別系統で、
+            試験単位の旗艦商品を提示する。未公開マガジンは getMagazine で除外済み。 */}
+        {categoryMagazines.length > 0 && (
+          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pt-8 space-y-3">
+            {categoryMagazines.map(({ slot, magazine }) => (
+              <MagazineInlineCard
+                key={slot.magazineId}
+                url={buildMagazineUrl(magazine, slot.utmContent)}
+                title={magazine.title}
+                description={magazine.description}
+                imageUrl={magazine.imageUrl}
+                badge={magazine.badge}
+                trackLabel={slot.utmContent}
+                {...(magazine.price ? { price: magazine.price } : {})}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (

@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BookCard from "@/components/ui/BookCard/BookCard";
 import BookSection from "@/components/ui/BookSection/BookSection";
+import MagazineSidebarCard from "@/components/ui/MagazineSidebarCard";
 import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
@@ -143,6 +144,23 @@ export default async function HomePage() {
         <ExamCards exams={exams} />
         <LatestArticles articles={latest} />
         <AboutSection />
+        {/* note 有料教材ハブへの導線（複数資格を横断するトップは単一商品でなく /links 集約へ）。
+            data-cta="note" で AnalyticsProvider のクリック計測対象になる。 */}
+        <div className="mx-auto max-w-3xl px-4 pt-10">
+          <h2 className="text-lg font-bold text-ink-strong dark:text-white mb-1">note 有料教材</h2>
+          <p className="text-sm text-ink-muted dark:text-gray-400 mb-3">
+            記述式・経験記述の模範答案集や精読ガイドをまとめています。
+          </p>
+          <div className="max-w-sm">
+            <MagazineSidebarCard
+              href="/links"
+              imageUrl="/images/magazines/links-hub-sidebar.webp"
+              alt="note 有料教材まとめ"
+              external={false}
+              trackLabel="home-links-hub"
+            />
+          </div>
+        </div>
         {/* 参考書籍（補完ポジション・トップ最下部。ファーストビュー外） */}
         <div className="mx-auto max-w-3xl px-4 py-10">
           <BookSection

@@ -28,7 +28,10 @@ import {
 } from "fs";
 import { join } from "path";
 import { classifyDoc } from "../../src/lib/doc-classifier.ts";
-import { resolvePlacement } from "../../src/lib/magazine-placement.ts";
+import {
+  resolvePlacement,
+  resolveCategoryMagazines,
+} from "../../src/lib/magazine-placement.ts";
 import { getMagazine } from "../../src/lib/note-magazines.ts";
 
 const ROOT = process.cwd();
@@ -167,6 +170,40 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
     affClicks: clickFile ? affClicks.get(page) ?? 0 : null,
     monetized,
     gap,
+  });
+}
+
+// 非 doc の高流入ハブ（/ と /category/*）も収益カバレッジに含める。
+// これらは docs の placement 系統外（別テンプレ）だが GA4 流入・CTA クリックは取れる。
+for (const [page, t] of traffic) {
+  let category: string | null = null;
+  let noteCta: string[] = [];
+  if (page === "/") {
+    noteCta = ["home-links-hub"]; // /links 教材ハブ banner（src/app/page.tsx）
+  } else if (page.startsWith("/category/")) {
+    category = page.slice("/category/".length);
+    noteCta = resolveCategoryMagazines(category)
+      .filter((s) => getMagazine(s.magazineId))
+      .map((s) => s.magazineId);
+  } else {
+    continue;
+  }
+  const users = t.users;
+  const monetized = noteCta.length > 0;
+  rows.push({
+    slug: page,
+    page,
+    category: category ?? "(home)",
+    docGroup: "hub",
+    users,
+    sessions: t.sessions,
+    noteCta,
+    affiliate: null,
+    linksFallback: false,
+    noteClicks: clickFile ? noteClicks.get(page) ?? 0 : null,
+    affClicks: clickFile ? affClicks.get(page) ?? 0 : null,
+    monetized,
+    gap: users >= MIN_USERS && !monetized,
   });
 }
 

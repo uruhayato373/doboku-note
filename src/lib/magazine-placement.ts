@@ -336,3 +336,29 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
 
   return EMPTY;
 }
+
+/**
+ * カテゴリ ランディング（/category/{slug}）に出す note マガジン配置。
+ *
+ * docs ページ（resolvePlacement）と異なり、カテゴリ hub は試験単位の広い入口なので
+ * 「その試験の旗艦商品」を文脈一致 CTA として並べる。表示の最終可否は呼び出し側で
+ * getMagazine() が公開判定（published + noteUrl）する（未公開は防御的に非表示）。
+ *
+ * 2026-06-06 新設: GA4 で /category/pe-comprehensive-management が全体 2 位の高流入
+ * ながら収益導線ゼロだったため、カテゴリ hub にも CTA を張る。
+ */
+const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
+  "pe-comprehensive-management": ["essay-complete-pack", "tankan-reading-guide"],
+  "civil-construction-1": ["civil-1-experience-essay", "civil-1-pastexam-essay"],
+  "civil-construction-2": ["civil-2-experience-essay", "civil-2-pastexam-essay"],
+  "concrete-chief-engineer": ["cce-essay-magazine"],
+  "concrete-diagnostician": ["cd-essay-magazine"],
+};
+
+export function resolveCategoryMagazines(category: string): PlacementSlot[] {
+  const ids = CATEGORY_MAGAZINES[category] ?? [];
+  return ids.map((magazineId, i) => ({
+    magazineId,
+    utmContent: `category-${category}-${i + 1}`,
+  }));
+}
