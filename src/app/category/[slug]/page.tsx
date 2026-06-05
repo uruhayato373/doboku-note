@@ -677,7 +677,6 @@ export default async function CategoryPage({
                 imageUrl={magazine.imageUrl}
                 badge={magazine.badge}
                 trackLabel={slot.utmContent}
-                {...(magazine.price ? { price: magazine.price } : {})}
               />
             ))}
           </div>

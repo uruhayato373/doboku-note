@@ -15,8 +15,9 @@ interface MagazineCardProps {
 /**
  * MagazineCard — MDX 本文中に置く note マガジン CTA（SoT 解決版）。
  *
- * `note-magazines.ts` SoT から url/title/description/imageUrl/price/badge を解決し、
- * `MagazineInlineCard` で描画する。MDX には id と utmContent のみを書けばよい。
+ * `note-magazines.ts` SoT から url/title/description/imageUrl/badge を解決し、
+ * `MagazineInlineCard` で描画する（price は UI 非表示方針のため渡さない）。MDX には
+ * id と utmContent のみを書けばよい。
  *
  * 使い分け:
  * - `resolvePlacement` 経由の inline / sidebar card → 記事末尾・サイドバーに自動配置
@@ -34,7 +35,6 @@ export default function MagazineCard({ id, utmContent }: MagazineCardProps) {
       description={magazine.description}
       imageUrl={magazine.imageUrl}
       badge={magazine.badge}
-      {...(magazine.price ? { price: magazine.price } : {})}
     />
   );
 }

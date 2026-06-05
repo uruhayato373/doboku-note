@@ -668,7 +668,6 @@ export default async function DocPage({
                     imageUrl={magazine.imageUrl}
                     badge={magazine.badge}
                     trackLabel={slot.utmContent}
-                    {...(magazine.price ? { price: magazine.price } : {})}
                   />
                 ))}
               </div>
