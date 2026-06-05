@@ -717,26 +717,21 @@ export default async function DocPage({
                     />
                   </div>
                 )}
-              {/* アフィリエイト サイドバー（上部配置でインプレッション最大化。
-                  自社マガジン CTA を最上位に維持しつつ、TOC・ナビカードより上に配置）:
-                  - 1級土木・2級土木 の全ページ（docGroup 不問）: GKSキャリア 転職バナー
-                    （2026-06-02 で全 civil に統一）。サイドバーが唯一の GKS ピクセル源
-                    （本文インライン CareerAffiliate は href のみ＝1 ページ 1 GKS ピクセル）。
-                    SAT は土木では記事末 SchoolCourseCTA（テキストリンク）へ、独学サポートは記事内導線へ移設。
-                  - PE keyword/guide/pastExam: SAT（総合講座。土木の転職案件は関連度が低いため SAT 据え置き）。
-                  いずれも自社の有料マガジン CTA が出ているページ（sidebarHasPaidMagazine）では
-                  非表示にしてカニバリ回避（精読ガイドのみの secondary / hub 等はアフィリと併存）。 */}
-              {(category === 'civil-construction-1' || category === 'civil-construction-2') &&
-                !sidebarHasPaidMagazine && (
-                  <div className="mb-3">
-                    <SidebarAdBanner {...CIVIL_CAREER_AD} />
-                  </div>
-                )}
+              {/* dck = GKSキャリア（転職）を全 docs サイドバー上部に常設（位置 A: note CTA の下・
+                  既存アフィリの上）。全 docs 無条件表示（sidebarHasPaidMagazine の抑制対象外）。
+                  2026-06-06: 従来は civil のみだったが全 docs へ拡大。GKS ピクセル（www15）は
+                  この 1 枠が唯一の発火源（civil の旧 GKS サイドバー枠は撤去、本文インライン
+                  CareerAffiliate は href のみ）＝1 ページ 1 GKS ピクセルを維持。 */}
+              <div className="mb-3">
+                <SidebarAdBanner {...CIVIL_CAREER_AD} trackLabel="GKS" />
+              </div>
+              {/* PE keyword/guide/pastExam は SAT 講座を GKS の下に併置（別 mat = 別ピクセルで併存可）。
+                  自社マガジン CTA が出ているページ（sidebarHasPaidMagazine）では SAT のみ抑制してカニバリ回避。 */}
               {category === 'pe-comprehensive-management' &&
                 (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam') &&
                 !sidebarHasPaidMagazine && (
                   <div className="mb-3">
-                    <SidebarAdBanner {...SAT_SIDEBAR_AD} />
+                    <SidebarAdBanner {...SAT_SIDEBAR_AD} trackLabel="SAT" />
                   </div>
                 )}
               {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}

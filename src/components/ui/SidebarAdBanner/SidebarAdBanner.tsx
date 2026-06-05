@@ -5,6 +5,8 @@ interface SidebarAdBannerProps {
   readonly width: number;
   readonly height: number;
   readonly pixelSrc?: string;
+  /** GA4 クリック計測ラベル（例: "GKS" / "SAT"）。AnalyticsProvider のデリゲートリスナーが拾う。 */
+  readonly trackLabel?: string;
 }
 
 /**
@@ -25,6 +27,7 @@ export default function SidebarAdBanner({
   width,
   height,
   pixelSrc,
+  trackLabel,
 }: SidebarAdBannerProps) {
   return (
     <div className="not-prose mt-3">
@@ -40,6 +43,8 @@ export default function SidebarAdBanner({
           href={href}
           rel="nofollow sponsored noopener"
           target="_blank"
+          data-cta="affiliate"
+          data-cta-label={trackLabel}
           className="block"
         >
           <img

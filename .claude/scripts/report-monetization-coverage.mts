@@ -62,22 +62,19 @@ function normPath(p: string): string {
 }
 
 // ── アフィリエイト サイドバー配置の導出（page.tsx のミラー。SoT は page.tsx） ──
-// 表示条件: (civil-1/2 → GKS) / (PE keyword|guide|pastExam → SAT)。
-// ただし priced な note マガジンが sidebar に出ているページ (sidebarHasPaidMagazine) では
-// カニバリ回避で非表示。tankan(精読ガイド)は price 無し＝アフィリと併存する。
+// 2026-06-06: dck = GKS を全 docs サイドバー上部に常設（無条件）。SAT は PE keyword/guide/
+// pastExam に GKS の下で併置（priced な note マガジンが sidebar にある時 = sidebarHasPaidMagazine
+// は SAT のみ抑制、GKS は常設）。docs は全て最低 GKS が出るため affiliate は常に非 null。
 function deriveAffiliate(
   category: string,
   docGroup: string,
   sidebarHasPaidMagazine: boolean,
 ): string | null {
-  if (sidebarHasPaidMagazine) return null;
-  if (category === "civil-construction-1" || category === "civil-construction-2") return "GKS";
-  if (
+  const hasSat =
     category === "pe-comprehensive-management" &&
-    (docGroup === "keyword" || docGroup === "guide" || docGroup === "pastExam")
-  )
-    return "SAT";
-  return null;
+    (docGroup === "keyword" || docGroup === "guide" || docGroup === "pastExam") &&
+    !sidebarHasPaidMagazine;
+  return hasSat ? "GKS+SAT" : "GKS";
 }
 
 // ── load ──
