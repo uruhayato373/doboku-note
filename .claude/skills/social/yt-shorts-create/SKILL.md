@@ -89,6 +89,46 @@ v7 MVP では字幕焼き込み無し。IG Reels の slide-NN.mp4 に既に音�
 字幕焼き込みは Phase D2 で対応予定:
 - IG Reels の `reels/subtitle.ass`（存在する場合）から該当 4 スライド分を抽出 → ffmpeg `-vf subtitles=` で焼き込み
 
+## カバー同期ガード（2026-06-05 新設）
+
+`--from-reels` は派生前に **`assertCoverInSync`** を実行する。reel の `slide-00.mp4`（動画1枚目）の先頭フレームと最新 `img/00-cover.png` を **SSIM で内容比較**し、**0.90 未満なら例外を投げて派生を中断**する。
+
+- **背景**: カバーPNG/テンプレだけ刷新して reel 動画を再生成しないと「サムネ＝新・動画1枚目＝旧」の desync が起きる（2026-06-02 cover刷新で `video.mp4` 1枚目が旧カバーのまま残った事故、2026-06-05 検出）。
+- **検知時の復旧**: `node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs --exam-dir <試験> --exam <pack-id>` で reel を再生成してから派生する。
+- **不変条件**: **カバーPNGだけを更新する運用は禁止**。テンプレ刷新時は必ず ig-reel-create で動画も同時再生成する。
+- ffmpeg 不在・SSIM 非搭載・フレーム抽出失敗時は安全側でスキップ（誤検知で正規生成を止めない）。
+
+## 全問展開モード（`per-problem-shorts.mjs`・2026-06-06 新設）
+
+`--from-reels`（1 パック＝1 本・先頭問のみ）に対し、**1 パックの 4 問すべてを個別ショート化**（1 パック＝4 本）するモード。年度の全問を Shorts 化する量産用。
+
+```bash
+# 全パック一括（タイトルは yt-shorts-title-writer 出力の JSON を渡す）
+node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
+  --exam-dir 技術士総監 --titles .tmp/yt-gen/titles.json
+# 年度/パック限定
+node .../per-problem-shorts.mjs --exam-dir 技術士総監 --pack r07-pack-02
+```
+
+### YT 専用描画（`ytMode`）— IG 流用をやめた理由
+
+IG 用 PNG には **「N / 10」ページ番号・「PROBLEM 1 / 4」通し番号・「まずは1問やってみる →」/「次ページで解答 →」スワイプ前提 CTA** が焼かれており、**単発 1 問動画の YT に流用すると不整合**（4 スライドなのに「N/10」、1 問なのに「1/4」、スワイプできないのに誘導）。2026-06-06 に判明。
+
+→ YT は IG mp4 を流用せず、**`ytMode` で slide PNG を再描画**する（`quiz-slides.mjs` problem/answer/cta ＋ `exam-cover-ig.mjs` cover に実装）。`ytMode` は IG チャームを抑止する。
+
+| スライド | YT 描画（ytMode） | 音声 |
+|---|---|---|
+| cover | ページ番号・スワイプ CTA を出さず **「この動画の論点 / 〇〇」** を表示 | 年度共通の汎用ナレ（VOICEVOX・年度ごと1回キャッシュ） |
+| problem | eyebrow「PROBLEM」のみ（`1/4` なし）・ページ番号なし | **YT専用の短いナレ**「問題。テーマは〇〇。最も適切なものを選んでみましょう」＋3秒読み取りポーズ |
+| answer | eyebrow「ANSWER」のみ・ページ番号なし | reel の解答 wav を再利用（簡潔なので可） |
+| cta | ページ番号なし（フォロー導線は維持） | reel の cta wav を再利用 |
+
+- **問題ナレーションは reel 流用不可**: reel は設問全文（数式・表含む）を読み上げ、長文設問で最大157秒になる。YT は設問本文を PNG に表示し、音声は「テーマ＋出題形式」のみ（約8秒）にして ≤60 秒に収める。事前生成スクリプトで全問の wav をキャッシュ（VOICEVOX を長時間ループから分離＝クラッシュ耐性）。
+- **60秒ガード**: concat 後に >60 秒なら `capDuration` で ≤57 秒へ等速圧縮（atempo=音声ピッチ保持・setpts=映像）。
+- **不変条件**: YT 画像・問題音声は IG と別系統。**IG の slide-NN.mp4 / img PNG / 問題 wav を YT にそのまま使わない**。
+- 出力 dir: `docs/sns/youtube/<date>-<year>-pack-<NN>-q<N>/`。タイトルは `--titles` JSON（`{"<year>-pack-<NN>-q<N>": "<full title>"}`）を採用、無ければ `answer.correctText` から機械フォールバック。
+- 要 VOICEVOX（汎用カバー＋問題ナレーション合成。いずれも事前キャッシュ可で本体ループは非依存）。
+
 ## 検証
 
 ```bash
@@ -137,5 +177,6 @@ ls docs/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 
 ## 改訂履歴
 
+- v3（2026-06-06）: `per-problem-shorts.mjs`（1パック4問の全問展開）新設。YT 専用描画 `ytMode`（`quiz-slides.mjs` / `exam-cover-ig.mjs`）で IG 固有チャーム（N/10・PROBLEM 1/4・スワイプ CTA）を抑止し、IG mp4 流用をやめて TTS wav 再利用で再合成する設計に。カバーは年度共通汎用ナレ＋問別論点表示。
 - v2（2026-05-28）: 戦略 v7 化に伴い `--slug` 廃止 → `--from-reels` 一本化。IG Reels mp4 から ffmpeg concat で派生する設計に再構築。
 - v1（2026-05-02）: 初版。MDX 直結で TTS + 字幕焼き込み（v6 まで）。

@@ -328,6 +328,11 @@ export async function createShortsFromReels({ packId, outDir, examDir = '技術�
     throw new Error(`Reels の slide mp4 が不足: ${missing.map((n) => `slide-${n}.mp4`).join(', ')}\n  ig-reel-create を先に走らせてください`);
   }
 
+  // カバー同期ガード: slide-00.mp4 に焼かれたカバーが最新 img/00-cover.png と乖離していたら中断。
+  // カバーPNG/テンプレを刷新したのに reel 動画を再生成せず古いカバーのまま派生する事故を防ぐ
+  // （2026-06-02 cover刷新で video.mp4 1枚目が旧カバーのまま残った desync の再発防止）。
+  assertCoverInSync({ reelsDir, tmpDir, packId, examDir });
+
   // 絶対パスで concat.txt を生成（ffmpeg は concat.txt のあるディレクトリからの相対解釈をするため、絶対パスが最も安全）
   const concatTxt = sourceSlides
     .map((n) => `file '${resolve(reelsDir, `slide-${n}.mp4`).replace(/\\/g, '/')}'`)
@@ -412,6 +417,40 @@ function buildMetaFromReels({ slideData, packId, year, packNumLabel, durationSec
     durationSeconds: Number(durationSec.toFixed(2)),
     derivedFrom: 'instagram-reels',
   };
+}
+
+/**
+ * カバー同期ガード。slide-00.mp4 の1枚目フレームと img/00-cover.png を SSIM で内容比較し、
+ * 乖離（カバー未反映）なら例外を投げて派生を止める。
+ *
+ * 背景: カバーPNG/テンプレだけ刷新し reel 動画（slide-00.mp4）を再生成しないと、
+ * サムネ=新・動画1枚目=旧 の desync が発生する（2026-06-05 検出）。本ガードはその再発防止。
+ * ffmpeg 不在・SSIM フィルタ非搭載・フレーム抽出失敗時は安全側でスキップ（誤検知で正規生成を止めない）。
+ */
+function assertCoverInSync({ reelsDir, tmpDir, packId, examDir }) {
+  const coverPng = join(reelsDir, 'img', '00-cover.png');
+  const coverMp4 = join(reelsDir, 'slide-00.mp4');
+  if (!existsSync(coverPng) || !existsSync(coverMp4)) return; // 比較材料が無ければスキップ
+
+  const framePng = join(tmpDir, '_cover-frame.png');
+  const ex = spawnSync('ffmpeg', ['-y', '-i', coverMp4, '-frames:v', '1', framePng], { stdio: ['ignore', 'ignore', 'pipe'] });
+  if (ex.status !== 0 || !existsSync(framePng)) return; // 抽出失敗時はスキップ
+
+  const ss = spawnSync('ffmpeg', ['-i', framePng, '-i', coverPng, '-filter_complex', 'ssim', '-f', 'null', '-'], { encoding: 'utf8' });
+  const out = `${ss.stdout ?? ''}${ss.stderr ?? ''}`;
+  const m = out.match(/All:\s*([0-9.]+)/);
+  if (!m) return; // SSIM フィルタ非搭載等はスキップ
+  const ssim = parseFloat(m[1]);
+  if (ssim < 0.90) {
+    throw new Error(
+      `カバー desync 検知 (SSIM=${ssim.toFixed(3)} < 0.90)。\n` +
+      `  slide-00.mp4 の1枚目が img/00-cover.png と乖離しています。\n` +
+      `  → カバーPNG/テンプレ刷新後に reel 動画が再生成されていない可能性。\n` +
+      `  先に reel を再生成してください:\n` +
+      `    node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs --exam-dir ${examDir} --exam ${packId}\n` +
+      `  （カバーPNGだけ更新する運用は禁止。動画も同時に再生成すること）`
+    );
+  }
 }
 
 // CLI 起動判定（argv[1] が無い動的 import では false）

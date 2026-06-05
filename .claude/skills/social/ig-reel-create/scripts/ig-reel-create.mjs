@@ -37,6 +37,7 @@ const { values: args } = parseArgs({
   args: process.argv.slice(2),
   options: {
     exam: { type: 'string' },
+    'exam-dir': { type: 'string' },  // 試験軸ディレクトリ（省略時=技術士総監）。コードは args['exam-dir'] を参照するが未登録だった
     speaker: { type: 'string', default: '1' },
     'skip-png': { type: 'boolean' },
     'script-only': { type: 'boolean' },  // 台本だけ事前生成（VOICEVOX/ffmpeg 不要）

@@ -1,0 +1,79 @@
+name: ▶️ YouTube scheduled post (daily)
+
+# .claude/state/youtube-schedule.json の pending のうち publishAt が近いものを
+# 毎日 cron で R2 から取得 → private+publishAt で YouTube にアップ（quota ≈6本/日）。
+# YouTube が publishAt 時刻に自動公開する。投稿実績は台帳と yt-posted-log.jsonl に記録。
+#
+# 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
+#               CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY
+# 実装パターン: post-instagram-scheduled.yml を参考
+
+on:
+  schedule:
+    - cron: "0 19 * * *" # 04:00 JST（UTC 19:00）。publishAt で公開時刻は別途制御
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "1回のアップ上限（空なら台帳の uploadBatchPerDay=6）"
+        required: false
+      dry_run:
+        description: "true で対象表示のみ（アップしない）"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post-youtube-scheduled
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 🧰 Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: 📦 Install deps
+        run: npm ci
+
+      - name: ▶️ Upload due scheduled shorts
+        id: post
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set -o pipefail
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${{ inputs.max }}" ]; then ARGS="$ARGS --max ${{ inputs.max }}"; fi
+          node .claude/scripts/youtube/post-from-schedule.cjs $ARGS 2>&1 | tee /tmp/yt-post.log
+
+      - name: 📝 Commit ledger + log
+        if: success() && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '0'
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add .claude/state/youtube-schedule.json .claude/state/yt-posted-log.jsonl
+          git diff --cached --quiet || git commit -m "chore(yt): upload ${{ steps.post.outputs.uploaded }} scheduled shorts [skip ci]"
+          git push origin main || true
+
+      - name: 💬 Notify on failure
+        if: failure()
+        run: |
+          echo "::error::YouTube 予約投稿失敗。/tmp/yt-post.log を確認してください"
+          tail -40 /tmp/yt-post.log || true

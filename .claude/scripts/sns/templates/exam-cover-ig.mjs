@@ -32,7 +32,7 @@ const LAYOUTS = {
   stories:  { height: 1920, mx: 96, tagX: 72, fmtX: 120, band: 640, tagY: 320, nameY1: 482, nameY2: 574, nameSolo: 550, yearY: 1030, yearS: 150, fmtY: 1142, fmtS: 56, ctaY: 1310, brandY: 1530 },
 };
 
-export function renderExamCoverIg({ exam, tag = '過去問', year, fmtLabel, page = [1, 10], tone, format = 'carousel' }) {
+export function renderExamCoverIg({ exam, tag = '過去問', year, fmtLabel, page = [1, 10], tone, format = 'carousel', hidePage = false, showCta = true, topic = null }) {
   const L = LAYOUTS[format] || LAYOUTS.carousel;
   const c = examColor(exam, tone);
   const hue = c.use, deep = c.deep;
@@ -45,7 +45,10 @@ export function renderExamCoverIg({ exam, tag = '過去問', year, fmtLabel, pag
   const tagW = [...tag].length * 38 + 56;
   body.push(rect({ x: L.tagX, y: L.tagY, w: tagW, h: 64, rx: 32, fill: deep }));
   body.push(text({ x: L.tagX + tagW / 2, y: L.tagY + 42, content: tag, size: 30, weight: 700, fill: COLORS.white, anchor: 'middle' }));
-  body.push(text({ x: W - L.mx, y: L.tagY + 42, content: `${String(page[0]).padStart(2, '0')} / ${page[1]}`, size: 30, weight: 700, fill: '#ffffffcc', anchor: 'end' }));
+  // YT（単発動画）は「N / 10」ページ番号を出さない（IG カルーセル/リール専用チャーム）。
+  if (!hidePage) {
+    body.push(text({ x: W - L.mx, y: L.tagY + 42, content: `${String(page[0]).padStart(2, '0')} / ${page[1]}`, size: 30, weight: 700, fill: '#ffffffcc', anchor: 'end' }));
+  }
 
   // 正式名称（略称なし。総監は2行、他は1行）
   const lines = officialNameLines(exam);
@@ -60,9 +63,15 @@ export function renderExamCoverIg({ exam, tag = '過去問', year, fmtLabel, pag
   if (year) body.push(text({ x: L.mx, y: L.yearY, content: year, size: L.yearS, weight: 700, fill: COLORS.inkStrong }));
   if (fmtLabel) body.push(text({ x: L.fmtX, y: L.fmtY, content: fmtLabel, size: L.fmtS, weight: 700, fill: COLORS.inkBody }));
 
-  // CTA ピル（全フォーマット共通寸法）
-  body.push(rect({ x: L.mx, y: L.ctaY, w: 520, h: 96, rx: 48, fill: `${hue}1a`, stroke: hue, sw: 2 }));
-  body.push(text({ x: L.mx + 50, y: L.ctaY + 60, content: 'まずは1問やってみる →', size: 40, weight: 700, fill: hue }));
+  // CTA ピル（IG はスワイプ誘導）。YT は単発動画でスワイプ概念がないため出さず、代わりにこの動画の論点を主役表示する。
+  if (showCta) {
+    body.push(rect({ x: L.mx, y: L.ctaY, w: 520, h: 96, rx: 48, fill: `${hue}1a`, stroke: hue, sw: 2 }));
+    body.push(text({ x: L.mx + 50, y: L.ctaY + 60, content: 'まずは1問やってみる →', size: 40, weight: 700, fill: hue }));
+  } else if (topic) {
+    const tSize = [...topic].length > 13 ? 44 : 52;
+    body.push(text({ x: L.mx, y: L.ctaY + 16, content: 'この動画の論点', size: 30, weight: 700, fill: hue }));
+    body.push(text({ x: L.mx, y: L.ctaY + 84, content: topic, size: tSize, weight: 700, fill: COLORS.inkStrong }));
+  }
 
   // ブランド（全フォーマット共通寸法）
   body.push(rect({ x: L.mx, y: L.brandY, w: 40, h: 40, rx: 8, fill: hue }));

@@ -820,8 +820,10 @@ export function buildQuizProblem({ width, height, data }) {
 
   return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     topbar(
-      eyebrow(`PROBLEM ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
-      pageBadge(data.pageIndex ?? 2, data.totalPages ?? 10),
+      // YT（単発1問動画）は「1 / 4」が誤誘導になるため番号を出さない。IG カルーセル/リールのみ通し番号。
+      eyebrow(data.ytMode ? 'PROBLEM' : `PROBLEM ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
+      // YT はパック内ページ概念がないため「N / 10」を出さない（IG 専用チャーム）。
+      data.ytMode ? null : pageBadge(data.pageIndex ?? 2, data.totalPages ?? 10),
     ),
 
     d(
@@ -903,8 +905,8 @@ export function buildQuizProblem({ width, height, data }) {
       ],
     ),
 
-    // problem だけ右下に「次ページで解答 →」を出す（誘導テキスト）
-    brandFooter(SLIDES.problem.nextText),
+    // problem だけ右下に「次ページで解答 →」を出す（誘導テキスト）。YT は単発動画でスワイプ概念がないため出さない。
+    brandFooter(data.ytMode ? null : SLIDES.problem.nextText),
   ]));
 }
 
@@ -954,8 +956,8 @@ export function buildQuizAnswer({ width, height, data }) {
 
   return d(frame(width, height, SURFACE.page), reelsWrapper(width, height, [
     topbar(
-      eyebrow(`ANSWER ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
-      pageBadge(data.pageIndex ?? 3, data.totalPages ?? 10),
+      eyebrow(data.ytMode ? 'ANSWER' : `ANSWER ${data.qNum ?? 1} / ${data.totalQ ?? 4}`),
+      data.ytMode ? null : pageBadge(data.pageIndex ?? 3, data.totalPages ?? 10),
     ),
 
     d(
@@ -1194,7 +1196,7 @@ export function buildQuizCta({ width, height, data = {} }) {
     // topbar
     topbar(
       d({ ...ty('ctaEyebrow', { color: ONDARK.secondary }), whiteSpace: 'nowrap' }, cfg.eyebrowText),
-      pageBadge(10, 10, { onDark: true }),
+      data.ytMode ? null : pageBadge(10, 10, { onDark: true }),
     ),
 
     // cta-body

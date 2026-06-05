@@ -96,6 +96,11 @@ docs/x-posts/draft/**/status.json
 # Pagefind generated index (rebuild with: npm run build)
 public/pagefind/
 
+# YouTube Shorts: docs/sns/youtube/ 配下は全てビルド成果物（mp4/サムネ/meta）で再生成可能。
+# mp4 は R2（sns/youtube-shorts/）に保管、再現の SoT は exam-packs の slide-data + 事前生成ナレ。
+# 「どの動画をいつ予約したか」の記録は .claude/state/youtube-schedule.json（台帳）が唯一の真実源。
+docs/sns/youtube/
+
 # Large PDF files exceeding GitHub 100MB limit
 docs/textbook/経営学/経営学.pdf
 docs/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf

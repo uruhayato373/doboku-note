@@ -33,9 +33,13 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 | 引数 | 必須 | 既定 | 説明 |
 |---|---|---|---|
 | `--exam` | ✅ | - | パック ID（例: `r07-pack-01`） |
+| `--exam-dir` | - | 技術士総監 | 試験軸ディレクトリ（`1級土木` / `2級土木` 等）。※2026-06-05 まで parseArgs 未登録のバグで弾かれていた（修正済） |
 | `--speaker` | - | 1（四国めたん） | VOICEVOX speaker ID |
 | `--skip-png` | - | false | PNG 再生成をスキップ（既存 reels/img/*.png を使う） |
 | `--problem-pause` | - | 3 | problem スライド読み上げ後に挿入する無音秒数（考える間）。`0` で無効 |
+
+> [!warning]
+> **カバー/テンプレ刷新時は `--skip-png` を付けない。** カバーPNGテンプレ（`exam-cover-ig`）や 09-cta テンプレを更新した後は、PNG から再生成しないと旧テンプレが動画に残る。`--skip-png` は「PNG が現行テンプレと一致している」と確信できる時だけ使う。カバーPNGだけ別途更新して動画を再生成しない運用は **desync を生むため禁止**（`yt-shorts-create` の `assertCoverInSync` ガードが派生時に SSIM<0.90 で検知・中断する）。
 
 ## 出力
 
