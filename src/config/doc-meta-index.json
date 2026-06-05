@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-06-04T21:48:18.751Z",
+  "generated_at": "2026-06-05T07:27:41.163Z",
   "summary": {
     "total": 1015,
     "published": 972,
@@ -2685,7 +2685,7 @@
     },
     "civil-construction-1-textbook-scraper": {
       "title": "スクレーパ",
-      "description": "スクレーパとは何かを 1 級土木施工管理技士の試験対策視点で解説。被けん引式・モータスクレーパ・スクレープドーザの 3 種類、運搬距離（60〜1,200 m）、掘削・積込・運搬・敷均を 1 台で行う一貫作業の特徴まで網羅。",
+      "description": "スクレープドーザ・スクレーパとは何かを 1 級土木施工管理技士の試験対策視点で解説。被けん引式・モータスクレーパ・スクレープドーザの 3 種類の違い、運搬距離（40〜1,200 m）、掘削・積込・運搬・敷均を 1 台で行う一貫作業の特徴まで網羅。",
       "shortTitle": "スクレーパ",
       "subtitle": "被けん引式・モータ式・スクレープドーザの種類と運搬距離",
       "category": "civil-construction-1",
@@ -2697,7 +2697,7 @@
       "textbook_order": 115,
       "published": true,
       "publishedAt": "2026-04-16",
-      "seoTitle": "スクレーパ・スクレープドーザとは｜種類と運搬距離【1級土木施工管理技士】",
+      "seoTitle": "スクレープドーザ・スクレーパとは｜種類・運搬距離・掘削作業の違い【1級土木】",
       "created": "2026-04-16",
       "dateModified": "2026-06-02",
       "reviewStatus": "needs-review",
@@ -5017,7 +5017,7 @@
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 2,
-      "seoTitle": "優劣分岐点とは？損益分岐点・限界利益との違いを総監視点で解説",
+      "seoTitle": "優劣分岐点とは｜計算式・損益分岐点との違い・CVP分析【技術士総監 経済性管理】",
       "created": "2026-04-05",
       "dateModified": "2026-06-02",
       "faqs": [
@@ -5773,7 +5773,7 @@
       "lastRewrittenAt": "2026-05-16T06:23:36+09:00",
       "revisionCycle": 1,
       "publishedAt": "2026-04-09",
-      "seoTitle": "Conformity Bias（同調バイアス）定義・実験・安全管理への影響",
+      "seoTitle": "Conformity bias（同調バイアス）とは｜アッシュ実験・災害避難行動への影響【総監 安全管理】",
       "created": "2026-04-05",
       "dateModified": "2026-06-02"
     },
@@ -10827,7 +10827,7 @@
       "lastRewrittenAt": "2026-04-15",
       "revisionCycle": 1,
       "publishedAt": "2026-04-08",
-      "seoTitle": "JISECとは｜IPAが運営するCC認証制度・評価プロセスと政府調達での役割",
+      "seoTitle": "JISEC（ジセック）とは・読み方｜CC認証制度・評価プロセスと政府調達での役割",
       "created": "2026-04-05",
       "dateModified": "2026-06-02",
       "faqs": [
@@ -13997,7 +13997,7 @@
     },
     "pe-comprehensive-management-production-management-system": {
       "title": "生産管理システム",
-      "description": "生産管理システムの定義・MRP/MES/APSの違い・主な機能・導入効果・ERPやSCMとの連携を解説。技術士総合技術監理キーワード集2026（情報管理）。",
+      "description": "見込生産・受注生産の違いと生産管理システム（MRP/MES/APS）の役割を解説。大日程・中日程計画との関係、ERP/SCMとの連携まで総合技術監理 情報管理の視点で体系化。",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "section": "4.4",
@@ -14010,7 +14010,7 @@
       "reviewStatus": "approved",
       "lastRewrittenAt": "2026-04-17",
       "revisionCycle": 1,
-      "seoTitle": "生産管理システム ｜ 技術士 総合技術監理部門 キーワード集",
+      "seoTitle": "生産管理システム・見込生産とは｜MRP/MES/APS・大日程計画との関係【総監 情報管理】",
       "created": "2026-04-05",
       "dateModified": "2026-05-26"
     },
