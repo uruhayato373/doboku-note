@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-08T08:19:02.958Z",
+  "generated_at": "2026-06-08T08:20:04.402Z",
   "summary": {
-    "total_mdx_files": 1015,
+    "total_mdx_files": 1016,
     "total_unique_tags": 107,
     "allowlist_size": 149,
     "known_count": 70,
@@ -1445,11 +1445,12 @@
     },
     {
       "name": "guide",
-      "count": 53,
+      "count": 54,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
         "civil-construction-1-guide-career-agents",
+        "civil-construction-1-guide-career-cases",
         "civil-construction-1-guide-career-path",
         "civil-construction-1-guide-career-salary",
         "civil-construction-1-guide-concrete-key-points",
@@ -2053,10 +2054,11 @@
     },
     {
       "name": "career",
-      "count": 12,
+      "count": 13,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-agents",
+        "civil-construction-1-guide-career-cases",
         "civil-construction-1-guide-career-path",
         "civil-construction-1-guide-career-salary",
         "civil-construction-1-guide-exam-overview",
