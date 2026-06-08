@@ -17,8 +17,8 @@
 
 | ファイル | 役割 |
 |---|---|
-| `shorts.mp4` | 30-60 秒の縦動画（IG Reels の slide-00/01/02/09 を concat） |
-| `thumbnail.png` | 1080×1920 サムネ（IG Reels の cover を流用） |
+| `shorts.mp4` | 30-60 秒の縦動画（IG Reels の slide-00/01/02/09 を concat、または `per-problem-shorts.mjs` の YT 専用描画） |
+| `thumbnail.png` | 1080×1920 サムネ（`per-problem-shorts.mjs` は `renderExamCoverIg` で YT 専用生成、`yt-shorts-create` は IG cover を直コピー） |
 | `meta.json` | YT Data API 投稿用メタ（タイトル・概要欄・タグ・privacyStatus・UTM 付き URL） |
 
 字幕焼き込みは v7 MVP では未対応（Phase D2 で対応予定）。
@@ -97,9 +97,12 @@ https://note.com/{author}?utm_source=youtube&utm_medium=description&utm_campaign
 |---|---|
 | IG Reels mp4 / slide-NN.mp4 の生成 | `ig-reel-create.mjs`（上流・別工程） |
 | IG Reels script.json / caption.txt の執筆 | `ig-reels-writer`（上流） |
-| YT Shorts 派生 mp4 + meta.json 生成 | `yt-shorts-create --from-reels`（機械処理） |
+| YT Shorts 派生 mp4 + meta.json 生成 | `yt-shorts-create --from-reels` または `per-problem-shorts.mjs`（機械処理） |
+| サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ）、または `generate-thumbnails.mjs`（単独実行） |
 | 4 軸採点 | `yt-shorts-publisher-qa` |
-| YouTube Data API 投稿 | `media-uploader.mjs`（別工程） |
+| YouTube Data API 投稿（台帳駆動 CI） | `post-from-schedule.cjs` + `post-youtube-scheduled.yml`（日次 cron、`youtube-schedule.json` 台帳管理） |
+| 台帳整合性バリデーション | `validate-schedule.mjs`（CI pre-check。publishAt 重複・perDay 超過・videoId 重複を検知） |
+| 投稿済み動画へのサムネイル後付け | `set-thumbnail-uploaded.mjs`（一回限りの補完ツール） |
 
 ## 5. 投稿カーデンス・スケジューリング（2026-06-05 確定）
 
@@ -118,11 +121,13 @@ https://note.com/{author}?utm_source=youtube&utm_medium=description&utm_campaign
 
 ## 7. 偽成功検証（予約アップロード）
 
-- `upload.js`/`post.js` のログ「公開予約完了」「公開設定: unlisted」は**表示が紛らわしい**（`--schedule` 指定時の実値は `privacyStatus: private` + `publishAt`）。
+- `post-from-schedule.cjs` のログ「公開設定: unlisted」は**表示バグ**（`publishAt` 指定時の実値は `privacyStatus: private` + `publishAt`）。
 - **報告前に `videos.list(part=status)` で実査**: `privacyStatus === "private"` かつ `publishAt` 設定済み、さらに `durationSeconds ≤ 60`（Short 成立）を確認する。
-- これは X `publish-x` の偽成功検証と同じ思想（ログを信じず実体を確認）。検証例: `.tmp/yt-verify.js`。
+- これは X `publish-x` の偽成功検証と同じ思想（ログを信じず実体を確認）。
+- サムネイル設定（`thumbnails.set`）の確認: `thumbnails.list(videoId)` で `default`/`medium` に画像が設定されているかを実査する。未設定のままだと YouTube が自動選択したフレームが表示され、クリック率が下がる。
 
 ## 改訂履歴
 
+- v3（2026-06-08）: §1 thumbnail 説明を YT 専用生成（`renderExamCoverIg`）に更新。§4 担当境界を `post-from-schedule.cjs`（台帳駆動 CI）・`validate-schedule.mjs`・`generate-thumbnails.mjs` 等の実装に合わせて更新。§7 偽成功検証にサムネイル実査を追加。`upload.js`/`post.js` への言及を削除。
 - v2（2026-06-05）: 尺ゲートを **≤60 秒**（Short 成立条件・60 秒超は通常動画扱い）に厳格化。投稿カーデンス（3 本/日・JST 07:30/12:30/20:00）・シャドウバン回避（§6）・偽成功検証（§7 videos.list）・1 問 1 答タイトル規約（§2）を確定。
 - v1（2026-05-28）: 初版。SNS 戦略 v7 化に伴い、YT Shorts 派生 mp4 の品質基準を新設。v7 MVP では字幕焼き込み未対応のため軸 4 は暫定運用。
