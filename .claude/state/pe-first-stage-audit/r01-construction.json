@@ -2,26 +2,30 @@
   "slug": "pe-first-stage-r01-construction",
   "year": "R01",
   "sub": "construction",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 35,
-    "official_count": 35,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "partial",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-33",
+        "type": "choice_text_mismatch",
+        "detail": "Choice 2 polarity reversed. PDF: 「時間的に余裕のない経路（critical path）であるかを確認することができない。」 MDX: 「時間的に余裕のない経路（critical path）であるかを確認することができる。」 The word 「できない」in the PDF was transcribed as 「できる」in the MDX, inverting the meaning of the choice. The correct answer is 2 in both versions, but with the MDX wording, choice 2 reads as a correct statement rather than an incorrect one, which would confuse test-takers."
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 35,
     "expected_count": 35,
     "details_count": 35,
-    "q_extracted": 35,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "All 35 questions present (Ⅲ-1 through Ⅲ-35) with no gaps. frontmatter contains title, seoTitle, description, category, group, published, source_pdf, tags."
+  }
 }

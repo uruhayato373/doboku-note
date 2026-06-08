@@ -2,15 +2,15 @@
   "slug": "pe-first-stage-r03-construction",
   "year": "R03",
   "sub": "construction",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 35,
-    "official_count": 35,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
+    "status": "pass",
+    "checked_count": 35,
     "issues": []
   },
   "structure_check": {
@@ -18,10 +18,8 @@
     "exam_point_count": 35,
     "expected_count": 35,
     "details_count": 35,
-    "q_extracted": 35,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "frontmatter fields present: title, category, group, published, source_pdf. All 35 question headings (Ⅲ-1 through Ⅲ-35) confirmed with no gaps. PDF has 19 pages. 4 questions have figures in PDF (Ⅲ-3, Ⅲ-6, Ⅲ-7, Ⅲ-17) and all 4 have corresponding <ArticleImage> tags in MDX. All question polarity markers (不適切/最も不適切/最も適切/適切) match between PDF and MDX. All 35 questions have exactly 5 choices, matching the PDF. Visual cross-reference confirmed across all 19 PDF pages."
+  }
 }

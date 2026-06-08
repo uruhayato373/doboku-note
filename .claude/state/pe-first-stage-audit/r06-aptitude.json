@@ -2,15 +2,15 @@
   "slug": "pe-first-stage-r06-aptitude",
   "year": "R06",
   "sub": "aptitude",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 15,
-    "official_count": 15,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
+    "status": "pass",
+    "checked_count": 15,
     "issues": []
   },
   "structure_check": {
@@ -18,10 +18,8 @@
     "exam_point_count": 15,
     "expected_count": 15,
     "details_count": 15,
-    "q_extracted": 15,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "frontmatter fields present: title, category, group, published, source_pdf. Question headings Ⅱ-1 through Ⅱ-15 are consecutive with no gaps."
+  }
 }

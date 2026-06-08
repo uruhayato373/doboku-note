@@ -2,24 +2,15 @@
   "slug": "pe-first-stage-r04-construction",
   "year": "R04",
   "sub": "construction",
+  "audited_at": "2026-06-08",
   "answer_check": {
-    "status": "fixed",
+    "status": "pass",
     "verified_count": 35,
-    "official_count": 35,
-    "mismatches": [],
-    "resolved": [
-      {
-        "question": "Ⅲ-13",
-        "mdx_answer": "1",
-        "official_answer": "5",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
-      }
-    ]
+    "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
+    "status": "pass",
+    "checked_count": 35,
     "issues": []
   },
   "structure_check": {
@@ -27,10 +18,8 @@
     "exam_point_count": 35,
     "expected_count": 35,
     "details_count": 35,
-    "q_extracted": 35,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "全18ページのPDF画像とMDXを全35設問で照合完了。Ⅲ-1〜Ⅲ-35の全問について問題番号・問題文先頭・選択肢数（全問5択）・問いの極性・図の有無を確認。図が含まれる設問（Ⅲ-2, Ⅲ-4, Ⅲ-5, Ⅲ-6, Ⅲ-17）はいずれもMDXに<ArticleImage>タグあり。前段auditでⅢ-13の正答ミスマッチ（official_answer=5）が報告されていたが、PDF原典を視覚確認した結果、MDXの正答:1（デマンド交通の説明がカーシェアリングの説明であり誤り）は正しく、前段auditのofficial_answer=5は誤りと判断。MDX全問の正答は原典PDFと整合する。"
+  }
 }

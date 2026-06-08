@@ -2,35 +2,42 @@
   "slug": "pe-first-stage-r05-aptitude",
   "year": "R05",
   "sub": "aptitude",
+  "audited_at": "2026-06-08",
   "answer_check": {
-    "status": "fixed",
+    "status": "fail",
     "verified_count": 15,
-    "official_count": 15,
-    "mismatches": [],
-    "resolved": [
+    "mismatches": [
       {
         "question": "Ⅱ-10",
         "mdx_answer": "2",
         "official_answer": "3",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
+        "note": "MDX の **正答：2** が公式正答 3 と不一致。解説本文も ア○・イ×・ウ○・エ○ → 選択肢2が正しいと記述しており正答番号の誤りと判断。"
       }
     ]
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "fail",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-11",
+        "type": "choice_text_mismatch",
+        "detail": "選択肢2・3のウ/エ列が PDF と MDX で入れ替わっている。PDF choice②: ウ=美徳, エ=世評。MDX choice 2: ウ=世評, エ=美徳。PDF choice③: ウ=世評, エ=常識。MDX choice 3: ウ=美徳, エ=常識。正答番号は両者とも2で一致しているが、MDX の choice 2 の内容が PDF と異なる。MDX の説明（ウ=世評, エ=美徳）は MDX 側選択肢と整合するが PDF とは不整合。修正要。"
+      },
+      {
+        "question": "Ⅱ-8",
+        "type": "figure_present",
+        "detail": "PDF に図1（リスクマネジメントプロセス）が存在し、MDX は ArticleImage タグで /posts/pe-first-stage/r05-aptitude/img/q08-fig.webp を参照している。alt テキストもアセスメント枠内の ア→イ→ウ→エ 構成を記述しており構造上問題なし。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 15,
     "expected_count": 15,
     "details_count": 15,
-    "q_extracted": 15,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "全設問見出し Ⅱ-1〜Ⅱ-15 の連番が揃っている。frontmatter に title/seoTitle/description/category/tags/published/source_pdf/group がすべて存在。ExamPoint 15個・details 15個ともに期待値と一致。視覚確認で Ⅱ-11 の選択肢2・3 のウ/エ入れ替わりを検出。"
+  }
 }

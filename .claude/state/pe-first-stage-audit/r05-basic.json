@@ -2,49 +2,73 @@
   "slug": "pe-first-stage-r05-basic",
   "year": "R05",
   "sub": "basic",
+  "audited_at": "2026-06-08",
   "answer_check": {
-    "status": "fixed",
+    "status": "fail",
     "verified_count": 30,
-    "official_count": 30,
-    "mismatches": [],
-    "resolved": [
+    "mismatches": [
       {
         "question": "Ⅰ-2-2",
         "mdx_answer": "5",
         "official_answer": "4",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
-      },
-      {
-        "question": "Ⅰ-2-5",
-        "mdx_answer": "4",
-        "official_answer": "1",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
+        "note": "MDXの正答：5（ウ=R）は誤り。PDF flowchartを目視確認。R=0になった時点でB変数に最大公約数が保持されているため、出力（ウ）はB。ア=R≠0、イ=R=0、ウ=B → 正答4。"
       },
       {
         "question": "Ⅰ-5-1",
         "mdx_answer": "1",
         "official_answer": "3",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
+        "note": "MDXの正答：1は誤り。PDF p016を目視確認。選択肢③は「農地、水路・ため池、農用林などの利用拡大等により里地里山を構成する野生生物の生息・生育地が減少した」と記述するが、里地里山衰退の実因は利用縮小・放棄であり「利用拡大」は事実と逆。最も不適切は③が正しい。"
       }
     ]
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "partial",
+    "checked_count": 30,
+    "issues": [
+      {
+        "question": "Ⅰ-2-2",
+        "type": "wrong_answer",
+        "detail": "PDF p006のユークリッド互除法流れ図を目視確認。R≠0のとき(ア)分岐でA←B,B←Rループ、R=0のとき(イ)分岐で(ウ)を出力して終了。R=0の時点でBが最大公約数を保持するためウ=B。MDXのウ=R（選択肢5）は誤りで正答は選択肢4（ウ=B）。"
+      },
+      {
+        "question": "Ⅰ-5-1",
+        "type": "wrong_answer",
+        "detail": "PDF p016の選択肢③を目視確認。「農地、水路・ため池、農用林などの利用拡大等により里地里山を構成する野生生物の生息・生育地が減少した」と記述。里地里山衰退の実因は利用縮小・放棄であり、「利用拡大」は事実と逆で最も不適切。MDXは正答1としているが、正答は3。"
+      },
+      {
+        "question": "Ⅰ-1-2",
+        "type": "figure_check",
+        "detail": "PDF p002に圧縮荷重を受ける細い針金の図が存在。MDXにはArticleImageタグ（q112-fig.webp）が記載されており対応済み。"
+      },
+      {
+        "question": "Ⅰ-1-4",
+        "type": "figure_check",
+        "detail": "PDF p003にシステム構成図（信頼度0.7×3個、2/3多数決スイッチ）が存在。MDXにはArticleImageタグ（q114-fig.webp）が記載されており対応済み。"
+      },
+      {
+        "question": "Ⅰ-2-2",
+        "type": "figure_check",
+        "detail": "PDF p006にユークリッド互除法の流れ図が存在。MDXにはArticleImageタグ（q222-fig.webp）が記載されており対応済み。"
+      },
+      {
+        "question": "Ⅰ-3-5",
+        "type": "figure_check",
+        "detail": "PDF p011にモータ・変速機・円盤から構成される回転軸系の図が存在。MDXには図のArticleImageタグが存在しない。ただし問題文は計算問題であり図はあくまで補助。"
+      },
+      {
+        "question": "Ⅰ-3-6",
+        "type": "figure_check",
+        "detail": "PDF p012に回路図(a)(b)(c)が存在。MDXにはArticleImageタグ（q336-fig.webp）が記載されており対応済み。MDXのalt記述は「ひし形に中央の縦線」だが、PDF実物は中央縦線のあるひし形でalt記述と概ね一致。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 30,
     "expected_count": 30,
     "details_count": 30,
-    "q_extracted": 30,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "全30問の見出し（Ⅰ-1-1〜Ⅰ-5-6）が連番で揃っている。frontmatterはtitle/seoTitle/category/group/published/source_pdf が全て存在。ExamPointとdetailsはいずれも30個で期待値と一致。前段audit結果を引き継ぎ。"
+  }
 }

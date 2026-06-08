@@ -2,26 +2,30 @@
   "slug": "pe-first-stage-r02-aptitude",
   "year": "R02",
   "sub": "aptitude",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 15,
-    "official_count": 15,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "fail",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-12",
+        "type": "問題文誤字",
+        "detail": "選択肢（ア）の冒頭「出荷等を遵守した上で」は誤り。PDF原典では「法令等を遵守した上で」が正しい表記。解説文（705行目）でも同じ誤字が繰り返されている。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 15,
     "expected_count": 15,
     "details_count": 15,
-    "q_extracted": 15,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "全15問の見出し（Ⅱ-1〜Ⅱ-15）が連番で揃っている。frontmatterにtitle/seoTitle/category/group/published/source_pdfがすべて存在する。ExamPoint=15、details=15でいずれも期待値一致。"
+  }
 }

@@ -2,26 +2,35 @@
   "slug": "pe-first-stage-r01-aptitude",
   "year": "R01",
   "sub": "aptitude",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 15,
-    "official_count": 15,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "fail",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-10",
+        "type": "character_error",
+        "detail": "設問(エ)に2箇所の誤字。(1)「重要な存有情報の漏洩は」→ PDF原典は「重要な専有情報の漏洩は」（存有→専有）。(2)「不要になった有有情報が保存されている」→ PDF原典は「不要になった専有情報が保存されている」（有有→専有、OCRアーティファクト）。"
+      },
+      {
+        "question": "Ⅱ-10",
+        "type": "character_error",
+        "detail": "設問(オ)に誤字。MDX「利用することを以外は施錠可能な場所に保存した」→ PDF原典は「利用するとき以外は施錠可能な場所に保存した」（「ことを」→「とき」、余分な「を」混入）。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 15,
     "expected_count": 15,
     "details_count": 15,
-    "q_extracted": 15,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "Headings Ⅱ-1 through Ⅱ-15 are all present with no gaps. Frontmatter has title, category, group, published, source_pdf, seoTitle."
+  }
 }

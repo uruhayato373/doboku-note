@@ -2,26 +2,40 @@
   "slug": "pe-first-stage-r06-construction",
   "year": "R06",
   "sub": "construction",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 35,
-    "official_count": 35,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "fail",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-5",
+        "type": "missing_figure",
+        "detail": "PDF p003 shows a column figure (長柱, pinned at both ends, dimensions L and a labelled) referenced by '下図に示すように' in the problem text. MDX has no <ArticleImage> tag for this figure. The boundary condition diagram is needed to fully understand the buckling problem setup."
+      },
+      {
+        "question": "Ⅲ-17",
+        "type": "missing_figure",
+        "detail": "PDF p009 shows a figure of a vertical wall (平板) with water depth h and hatching. MDX has no <ArticleImage> tag. The problem text is largely self-contained so impact is minor, but '下図のとおりとなる場合' is unresolved."
+      },
+      {
+        "question": "Ⅲ-30",
+        "type": "transcription_error",
+        "detail": "MDX choice 2 reads '上下方向の軌間変位、左右方向の軌間変位がある' but PDF p016 reads '上下方向の水準変位、左右方向の軌間変位がある'. The first term should be '水準変位' not '軌間変位'. The 解説 section on the same question correctly uses '水準変位' confirming the body text (choice 2) is a transcription error."
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 35,
     "expected_count": 35,
     "details_count": 35,
-    "q_extracted": 35,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "All 35 questions present (Ⅲ-1 through Ⅲ-35). Frontmatter has title, category, group, published, source_pdf. ExamPoint=35, details=35."
+  }
 }

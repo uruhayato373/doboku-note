@@ -2,26 +2,40 @@
   "slug": "pe-first-stage-r01-basic",
   "year": "R01",
   "sub": "basic",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 30,
-    "official_count": 30,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "partial",
+    "checked_count": 30,
+    "issues": [
+      {
+        "question": "Ⅰ-1-4",
+        "type": "missing_figure",
+        "detail": "PDF p.4 に「上端に圧縮荷重を加えた場合の水平面に垂直に固定した細い針金」の図（圧縮座屈の概念図）が存在するが、MDX に <ArticleImage> がなく「下図に示すように」との本文参照のみ。"
+      },
+      {
+        "question": "Ⅰ-3-5",
+        "type": "missing_figure",
+        "detail": "PDF p.14 に「図 荷重を受けている棒」（左端固定・右端荷重Pの棒の概念図）が存在するが、MDX に <ArticleImage> がなく「下図に示すように」との本文参照のみ。"
+      },
+      {
+        "question": "Ⅰ-3-6",
+        "type": "missing_figure",
+        "detail": "PDF p.15 に「図 剛体振り子」（角度θの剛体振り子の図）が存在するが、MDX に <ArticleImage> がなく「下図に示すように」との本文参照のみ。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 30,
     "expected_count": 30,
     "details_count": 30,
-    "q_extracted": 30,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "frontmatter fields confirmed: title, category, group, published, source_pdf. All 30 question headings Ⅰ-1-1 through Ⅰ-5-6 present with no gaps."
+  }
 }

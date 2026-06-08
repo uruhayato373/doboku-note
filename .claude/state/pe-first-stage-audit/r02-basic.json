@@ -2,15 +2,15 @@
   "slug": "pe-first-stage-r02-basic",
   "year": "R02",
   "sub": "basic",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 30,
-    "official_count": 30,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
+    "status": "pass",
+    "checked_count": 30,
     "issues": []
   },
   "structure_check": {
@@ -18,10 +18,8 @@
     "exam_point_count": 30,
     "expected_count": 30,
     "details_count": 30,
-    "q_extracted": 30,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "全30問の見出し（Ⅰ-1-1〜Ⅰ-5-6）が連番で揃っている。frontmatterにtitle/category/group/published/source_pdfが全て存在。ExamPoint30個・details30個とも期待値一致。"
+  }
 }

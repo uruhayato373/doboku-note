@@ -2,26 +2,35 @@
   "slug": "pe-first-stage-r03-aptitude",
   "year": "R03",
   "sub": "aptitude",
+  "audited_at": "2026-06-08",
   "answer_check": {
     "status": "pass",
     "verified_count": 15,
-    "official_count": 15,
     "mismatches": []
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "partial",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-4",
+        "type": "transcription_error",
+        "detail": "選択肢②の本文中「必要な要素にならていないことを確認した」は誤字。PDF原典は「必要な要素になっていないことを確認した」（「にならていない」→「になっていない」）。"
+      },
+      {
+        "question": "Ⅱ-6",
+        "type": "explanation_inconsistency",
+        "detail": "解説内に「あきらかに該当しないものは **0** ……ではなく、設問の正答は **1**（公式正答に従う）」という矛盾した記述あり。正答欄は「正答：1」（選択肢番号1＝0個）と示しているが、その直後の選択肢別解説では「あきらかに該当しないものが1つで正しい ✅」と選択肢②（値＝1）を正解としており、正答番号と説明が一致していない。原典PDFの正解番号を別途確認して修正要。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 15,
     "expected_count": 15,
     "details_count": 15,
-    "q_extracted": 15,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "All 15 headings Ⅱ-1 through Ⅱ-15 present with no gaps. ExamPoint=15, details=15. Frontmatter fields title/category/published/source_pdf all present."
+  }
 }

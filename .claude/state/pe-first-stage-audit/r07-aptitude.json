@@ -2,35 +2,47 @@
   "slug": "pe-first-stage-r07-aptitude",
   "year": "R07",
   "sub": "aptitude",
+  "audited_at": "2026-06-08",
   "answer_check": {
-    "status": "fixed",
+    "status": "fail",
     "verified_count": 15,
-    "official_count": 15,
-    "mismatches": [],
-    "resolved": [
+    "mismatches": [
       {
         "question": "Ⅱ-10",
         "mdx_answer": "2",
         "official_answer": "3",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
+        "note": "MDXの解説本文は「適切なものは（ア）・（エ）の2つ」と正しく述べているが、**正答：2** と記載している。選択肢構成は 1=4つ/2=3つ/3=2つ/4=1つ/5=0つ であり、2つが適切なら正答は選択肢3。公式正答も3。"
       }
     ]
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "partial",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-9",
+        "type": "choice_text_mismatch",
+        "detail": "選択肢3のア・イが逆。PDF原典③はア=農耕/イ=狩猟だが、MDX選択肢3はア=狩猟/イ=農耕と記載されている。他の選択肢（①②④⑤）はすべてPDFと一致。"
+      },
+      {
+        "question": "Ⅱ-10",
+        "type": "explanation_body_inconsistency",
+        "detail": "見出し行は正答：3（正しい）に修正済みだが、解説本文の「2. （ア）・（エ）の2つが適切で正しい ✅」「3. 適切な数が異なるため誤り ❌」が逆のままで矛盾している。選択肢構成（1=4つ/2=3つ/3=2つ/4=1つ/5=0つ）と照合すると、正答は選択肢3であり本文の✅/❌が誤り。"
+      },
+      {
+        "question": "Ⅱ-14",
+        "type": "figure_check_ok",
+        "detail": "PDF p014にキャロットダイアグラム図が存在。MDXに<ArticleImage src='...alarp-carrot-diagram.webp'...>が記載されており対応済み。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 15,
     "expected_count": 15,
     "details_count": 15,
-    "q_extracted": 15,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "設問見出し Ⅱ-1〜Ⅱ-15 連番欠落なし。frontmatter に title/category/group/published/source_pdf/seoTitle すべて存在。"
+  }
 }

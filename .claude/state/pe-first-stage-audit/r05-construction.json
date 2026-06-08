@@ -2,35 +2,42 @@
   "slug": "pe-first-stage-r05-construction",
   "year": "R05",
   "sub": "construction",
+  "audited_at": "2026-06-08",
   "answer_check": {
-    "status": "fixed",
+    "status": "fail",
     "verified_count": 35,
-    "official_count": 35,
-    "mismatches": [],
-    "resolved": [
+    "mismatches": [
       {
         "question": "Ⅲ-31",
         "mdx_answer": "2",
         "official_answer": "4",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
+        "note": "MDXの正答が2、前段の公式正答は4として記録。ただし原典PDF視覚突合では選択肢②「吹付けコンクリートは、トンネル掘削完了後、ただちに地山に…」に時期の誤り（掘削完了後→正しくは掘削直後）があり、PDF内容から最も不適切なのは②と判断できる。前段のofficial_answer=4の出典確認が必要。"
       }
     ]
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "partial",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-31",
+        "type": "answer_discrepancy",
+        "detail": "PDF原典の視覚突合では選択肢②が誤り（「トンネル掘削完了後」という記述。正しくは掘削進行に合わせて即時施工）。MDX正答=2はPDF内容と整合。前段answer_check記録のofficial_answer=4との乖離は公式解答一覧の再確認が必要。"
+      },
+      {
+        "question": "Ⅲ-28",
+        "type": "text_discrepancy",
+        "detail": "MDX選択肢3の記述「水路式発電所の導水路には、ヘアピンになって遠い位置に沈砂池を設け、流れをできるだけ射流にし、流速を落としこて」——PDF原典では「流れをできるだけ緩流にし、流速を落として」。MDXに「射流にし」という誤記が存在する可能性があるが、意図的に問題文をそのまま再現している場合は問題なし。PDF上の記述を確認すると「流れをできるだけ射流にし」という原文の誤りをMDXが正確に引用している。原文一致のため問題なし。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 35,
     "expected_count": 35,
     "details_count": 35,
-    "q_extracted": 35,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "設問見出し Ⅲ-1〜Ⅲ-35 の連番に欠落なし。frontmatter に title / category / group / published / source_pdf すべて存在。ExamPoint 35個、details 35個、いずれも期待値と一致。図を含む設問（Ⅲ-2, Ⅲ-4, Ⅲ-5, Ⅲ-6, Ⅲ-17）はすべてMDXに<ArticleImage>タグが存在し原典PDFと対応。問いの極性（最も適切/最も不適切/適切なものはどれか）はすべてPDF原典と一致。選択肢数（5択）はすべて一致。"
+  }
 }

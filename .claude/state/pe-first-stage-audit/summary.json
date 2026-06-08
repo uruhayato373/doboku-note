@@ -1,115 +1,177 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "last_run": "2026-06-08",
   "scope": {
-    "years": [
-      "R01",
-      "R02",
-      "R03",
-      "R04",
-      "R05",
-      "R06",
-      "R07"
-    ],
-    "subs": [
-      "aptitude",
-      "basic",
-      "construction"
-    ]
+    "years": ["R01", "R02", "R03", "R04", "R05", "R06", "R07"],
+    "subs": ["aptitude", "basic", "construction"]
   },
   "totals": {
     "pages": 21,
-    "answer_ok": 13,
-    "answer_fixed": 8,
-    "answer_fail": 0,
-    "visual_ok": 0,
-    "visual_not_run": 21,
-    "structure_ok": 21,
+    "answer_pass": 14,
+    "answer_fail": 7,
+    "visual_pass": 6,
+    "visual_partial": 7,
+    "visual_fail": 6,
+    "visual_issues_count": 2,
+    "structure_pass": 21,
     "structure_fail": 0
   },
+  "answer_fail_detail": [
+    { "slug": "r02-construction", "question": "Ⅲ-13", "mdx": "1", "official": "2" },
+    { "slug": "r04-basic", "question": "Ⅰ-2-5", "mdx": "3", "official": "5" },
+    { "slug": "r05-aptitude", "question": "Ⅱ-10", "mdx": "2", "official": "3" },
+    { "slug": "r05-basic", "question": "Ⅰ-2-2", "mdx": "5", "official": "4" },
+    { "slug": "r05-basic", "question": "Ⅰ-5-1", "mdx": "1", "official": "3" },
+    { "slug": "r05-construction", "question": "Ⅲ-31", "mdx": "2", "official": "4", "note": "要出典確認" },
+    { "slug": "r07-aptitude", "question": "Ⅱ-10", "mdx": "2", "official": "3" },
+    { "slug": "r07-construction", "question": "Ⅲ-17", "mdx": "5", "official": "3" }
+  ],
   "pages": {
     "r01-aptitude": {
-      "status": "pass",
+      "status": "visual_fail",
+      "answer_check": "pass",
+      "visual_check": "fail",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r01-basic": {
-      "status": "pass",
+      "status": "visual_partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r01-construction": {
-      "status": "pass",
+      "status": "visual_partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r02-aptitude": {
-      "status": "pass",
+      "status": "visual_fail",
+      "answer_check": "pass",
+      "visual_check": "fail",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r02-basic": {
       "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r02-construction": {
-      "status": "fixed",
+      "status": "answer_fail",
+      "answer_check": "fail",
+      "visual_check": "pass",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-aptitude": {
-      "status": "pass",
+      "status": "visual_partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-basic": {
-      "status": "pass",
+      "status": "visual_partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-construction": {
       "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-aptitude": {
-      "status": "pass",
+      "status": "visual_fail",
+      "answer_check": "pass",
+      "visual_check": "fail",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-basic": {
-      "status": "fixed",
+      "status": "answer_fail",
+      "answer_check": "fail",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-construction": {
-      "status": "fixed",
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r05-aptitude": {
-      "status": "fixed",
+      "status": "answer_fail",
+      "answer_check": "fail",
+      "visual_check": "fail",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r05-basic": {
-      "status": "fixed",
+      "status": "answer_fail",
+      "answer_check": "fail",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r05-construction": {
-      "status": "fixed",
+      "status": "answer_fail",
+      "answer_check": "fail",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r06-aptitude": {
       "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r06-basic": {
-      "status": "pass",
+      "status": "visual_fail",
+      "answer_check": "pass",
+      "visual_check": "fail",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r06-construction": {
-      "status": "pass",
+      "status": "visual_fail",
+      "answer_check": "pass",
+      "visual_check": "fail",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-aptitude": {
-      "status": "fixed",
+      "status": "answer_fail",
+      "answer_check": "fail",
+      "visual_check": "partial",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-basic": {
       "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-construction": {
-      "status": "fixed",
+      "status": "answer_fail",
+      "answer_check": "fail",
+      "visual_check": "pass",
+      "structure_check": "pass",
       "audited_at": "2026-06-08"
     }
   }

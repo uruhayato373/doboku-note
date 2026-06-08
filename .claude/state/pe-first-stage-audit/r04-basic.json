@@ -2,35 +2,42 @@
   "slug": "pe-first-stage-r04-basic",
   "year": "R04",
   "sub": "basic",
+  "audited_at": "2026-06-08",
   "answer_check": {
-    "status": "fixed",
+    "status": "fail",
     "verified_count": 30,
-    "official_count": 30,
-    "mismatches": [],
-    "resolved": [
+    "mismatches": [
       {
         "question": "Ⅰ-2-5",
         "mdx_answer": "3",
         "official_answer": "5",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
+        "note": "MDX line 560 に **正答：3** と記載されているが、公式正答は5。解説本文ではホーナー法によりア=12・イ=25・ウ=50・エ=101となり選択肢⑤が正答と計算されるが、選択肢③（ア=13）との整合に関する混乱した記述が残存する。"
       }
     ]
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "partial",
+    "checked_count": 30,
+    "issues": [
+      {
+        "question": "Ⅰ-2-5",
+        "type": "missing_figure",
+        "detail": "PDF p008 に「図　10進数sを求めるアルゴリズムの流れ図」（フローチャート）が存在するが、MDXに <ArticleImage> タグも図の説明文も存在しない。問題文が流れ図を参照して解くことを前提としているため、図なしでは問題の意図が伝わらない。"
+      },
+      {
+        "question": "Ⅰ-4-3",
+        "type": "choice_text_error",
+        "detail": "PDF p014 の選択肢④は「ベースメタル　8.9×10⁻²　0.18」だが、MDX の選択肢④は「ベースメタル | 8.9×10⁻² | 1.8」と ウ 列の値が誤っていた（0.18 → 1.8）。本audit中に修正済み（.local/r2/posts/pe-first-stage/r04-basic/article.mdx line 1021）。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 30,
     "expected_count": 30,
     "details_count": 30,
-    "q_extracted": 30,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "全30問の見出し（Ⅰ-1-1〜Ⅰ-5-6）が連番で揃っている。ExamPoint 30個・details 30個ともに期待値と一致。frontmatter に title/category/group/published/source_pdf がすべて存在する。"
+  }
 }

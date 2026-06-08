@@ -2,35 +2,42 @@
   "slug": "pe-first-stage-r07-construction",
   "year": "R07",
   "sub": "construction",
+  "audited_at": "2026-06-08",
   "answer_check": {
-    "status": "fixed",
+    "status": "fail",
     "verified_count": 34,
-    "official_count": 34,
-    "mismatches": [],
-    "resolved": [
+    "mismatches": [
       {
         "question": "Ⅲ-17",
         "mdx_answer": "5",
         "official_answer": "3",
-        "resolved": true,
-        "fixed_at": "2026-06-08"
+        "note": "MDX解説の導出（p_B = ρg(z_C - z_B)）は選択肢3に一致するが、MDXは公式正答として選択肢5（2ρg(z_C-z_B)）を正答とマークしている。原典PDF画像でも選択肢③がρg(z_C-z_B)で数学的正答。前段audit結果を引き継ぎ。"
       }
     ]
   },
   "visual_check": {
-    "status": "not_run",
-    "checked_count": 0,
-    "issues": []
+    "status": "pass",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-17",
+        "type": "answer_mismatch",
+        "detail": "PDFでの選択肢③はρ·g·(z_C−z_B)。ベルヌーイ方程式の導出（p_B/ρg = z_C − z_B）と一致しMDXの記述でも同様の導出をしているが、MDX正答欄では選択肢5（2ρg(z_C−z_B)）を正答としており矛盾がある。公式正答は3。"
+      },
+      {
+        "question": "Ⅲ-13",
+        "type": "note",
+        "detail": "問題の極性が他の設問と異なり『最も適切なものはどれか』（他は最も不適切）。MDXもPDFも同じ表記で一致しており問題なし。確認済み。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",
     "exam_point_count": 35,
     "expected_count": 35,
     "details_count": 35,
-    "q_extracted": 34,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": ""
-  },
-  "audited_at": "2026-06-08"
+    "notes": "全35問（Ⅲ-1〜Ⅲ-35）の見出しが連番で揃っている。frontmatterにtitle/category/group/published/source_pdfすべて存在。ExamPoint・detailsとも35個で一致。原典PDF全20ページを視覚照合完了。設問番号・問題文先頭・選択肢数（全問5択）・問いの極性（Ⅲ-13のみ最も適切、他は最も不適切）・図の有無（Ⅲ-1,Ⅲ-5,Ⅲ-6,Ⅲ-17に図あり）すべてMDXと一致。Ⅲ-17の正答表記のみ不一致（answer_checkに記載）。"
+  }
 }
