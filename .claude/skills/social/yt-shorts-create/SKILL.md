@@ -6,7 +6,7 @@ allowed-tools: Bash, Read, Write
 
 # YouTube Shorts 派生スキル（v7）
 
-`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 出力 + meta.json までを担当（YouTube への upload は `media-uploader.mjs` で別途）。
+`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/` の **IG Reels mp4 から、1080×1920 縦型 30-60 秒の YouTube Shorts を派生生成**する。本スキルは mp4 + thumbnail.png + meta.json の生成まで担当。YouTube への投稿は `post-from-schedule.cjs`（台帳 CI 運用）が担う。
 
 **v7 で MDX 直結モード（旧 `--slug`）は廃止**。詳細は [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7、品質ルーブリックは [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)。
 
@@ -153,18 +153,20 @@ ls docs/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 # 親エージェントから yt-shorts-publisher-qa --pack-id r03-pack-01 で 4 軸採点
 ```
 
-## 投稿運用（2026-06-05 確定 / 真実源 policy §5-7）
+## 投稿運用（2026-06-08 更新 / 真実源 policy §5-7）
 
 - **必ずこの `shorts.mp4`（≤60 秒）をアップロードする**。IG Reels のフル `video.mp4`（≈145 秒）を直アップすると **YouTube が「通常動画」扱い**にし Shorts フィードに乗らない（実機確認）。
-- **予約投稿**: `node .claude/scripts/youtube/upload.js <shorts.mp4> --title … --description … --tags … --schedule <ISO8601>`（または `post.js <dir>`）。`--schedule` で `private + publishAt` ＝指定時刻に自動公開。
-- **カーデンス**: 1 日 3 本・JST 07:30 / 12:30 / 20:00（policy §5）。quota は約 6 本/日が上限。
+- **予約投稿フロー（台帳 CI 運用）**:
+  1. `upload-shorts-to-r2.mjs` で `shorts.mp4` + `thumbnail.png` を Cloudflare R2 へアップ
+  2. `youtube-schedule.json`（台帳）に `r2Key` / `publishAt` / `status=pending` エントリを追加
+  3. GitHub Actions の日次 cron（`post-youtube-scheduled.yml`、UTC 19:00 = JST 04:00）が `post-from-schedule.cjs` を実行して自動投稿 + `thumbnails.set`
+- **カーデンス**: 1 日 3 本・JST 07:30 / 12:30 / 20:00（policy §5）。quota は約 6 本/日が上限。leadDays=4 で 4 日先まで先行アップ。
+- **重複防止**: 台帳追加前に `validate-schedule.mjs` で publishAt 重複・perDay 超過・videoId 重複を検証する。CI の pre-check にも組み込まれている。
 - **タイトル**: **`yt-shorts-title-writer`（Generator）が論点タイトルを自動生成**して既定タイトルを上書き（policy §2）。親が featured 設問文を抽出して渡す（agent は Bash 不可）。`yt-shorts-publisher-qa` が規約適合を採点。
-- **偽成功検証**: アップロード後 `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7）。`upload.js` のログ「公開設定: unlisted」は表示バグで実値は private。
+- **偽成功検証**: アップロード後 `videos.list(part=status)` で privacyStatus=private + publishAt + duration≤60s を実査（policy §7）。CI ログ「公開設定: unlisted」は表示バグで実値は private。
 
 ## 範囲外（後続タスク）
 
-- **YouTube Data API upload** → `media-uploader.mjs`（PR #169、実投稿は T-003 Meta 認証準備の後）
-- **スケジューラ統合** → task-queue T-004
 - **字幕焼き込み** → Phase D2（IG Reels subtitle.ass からの派生実装）
 - **動的な抜粋スライド選択** → 現状は cover + problem 1 + answer 1 + cta 固定。問題 2/3/4 のどれを抜粋するかは将来対応
 
@@ -177,6 +179,7 @@ ls docs/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 
 ## 改訂履歴
 
+- v4（2026-06-08）: 投稿運用を `upload.js`/`post.js` → 台帳 CI 運用（`upload-shorts-to-r2.mjs` + `post-from-schedule.cjs` + `post-youtube-scheduled.yml`）に更新。重複防止（`validate-schedule.mjs`）・サムネイル設定（`thumbnails.set`）・関連スクリプト（`generate-thumbnails.mjs`, `set-thumbnail-uploaded.mjs`）を追加。`media-uploader.mjs` 言及を削除。
 - v3（2026-06-06）: `per-problem-shorts.mjs`（1パック4問の全問展開）新設。YT 専用描画 `ytMode`（`quiz-slides.mjs` / `exam-cover-ig.mjs`）で IG 固有チャーム（N/10・PROBLEM 1/4・スワイプ CTA）を抑止し、IG mp4 流用をやめて TTS wav 再利用で再合成する設計に。カバーは年度共通汎用ナレ＋問別論点表示。
 - v2（2026-05-28）: 戦略 v7 化に伴い `--slug` 廃止 → `--from-reels` 一本化。IG Reels mp4 から ffmpeg concat で派生する設計に再構築。
 - v1（2026-05-02）: 初版。MDX 直結で TTS + 字幕焼き込み（v6 まで）。
