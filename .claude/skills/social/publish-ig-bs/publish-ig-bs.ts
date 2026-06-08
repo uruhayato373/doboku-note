@@ -158,6 +158,18 @@ const SEL = {
   scheduleConfirm: (p: Page): Locator => p.getByRole("button", { name: "日時を指定" }),
   // 即時公開ボタン
   publishNow: (p: Page): Locator => p.getByRole("button", { name: "公開する" }),
+
+  // ── リール（2026-06-09 実測）──
+  reelEntry: (p: Page): Locator => p.getByRole("button", { name: "リール動画を作成" }),
+  reelComposerReady: (p: Page): Locator[] => [
+    p.getByRole("button", { name: "動画を追加" }),
+    p.getByText("リール動画を作成"),
+  ],
+  reelAddVideo: (p: Page): Locator => p.getByRole("button", { name: "動画を追加" }),
+  reelNext: (p: Page): Locator => p.getByRole("button", { name: /次へ/ }), // 右下を位置で選別
+  reelScheduleOption: (p: Page): Locator => p.getByRole("button", { name: "日時を指定" }),
+  reelScheduleConfirm: (p: Page): Locator => p.getByRole("button", { name: "公開日時を指定" }),
+  reelPublishNow: (p: Page): Locator => p.getByRole("button", { name: "今すぐシェア" }),
 };
 
 // 予約モードかどうか（実測: 予約 ON で最終ボタンが「公開する」→「日時を指定」になる）
@@ -171,8 +183,10 @@ async function isScheduledMode(page: Page): Promise<boolean> {
 
 // ─── パック解決 ────────────────────────────────────────
 interface Pack {
-  dir: string;        // パックのルート（caption/img を含む）
-  images: string[];   // ソート済み画像フルパス
+  dir: string;        // パックのルート
+  kind: "carousel" | "reel";
+  images: string[];   // carousel: ソート済み画像フルパス / reel: []
+  video: string | null; // reel: video.mp4 のパス
   caption: string;
   slug: string;       // status / ログ用
 }
@@ -190,10 +204,36 @@ function findFirstExisting(paths: string[]): string | null {
   return null;
 }
 
-function loadPack(arg: string): Pack {
-  const dir = resolvePackDir(arg);
+function readCaption(captionPath: string): string {
+  const caption = fs.readFileSync(captionPath, "utf-8").trim();
+  if ([...caption].length > IG_CAPTION_LIMIT) {
+    throw new Error(`caption が ${IG_CAPTION_LIMIT} 文字を超過: ${[...caption].length} 文字（Instagram 上限）`);
+  }
+  return caption;
+}
 
-  // 画像ディレクトリ: <dir>/carousel/img → <dir>/img → <dir> 自身
+function loadPack(arg: string, kind: "carousel" | "reel" = "carousel"): Pack {
+  const dir = resolvePackDir(arg);
+  const slug = path.relative(IG_DIR, dir).replace(/[\\/]/g, "-") || path.basename(dir);
+
+  if (kind === "reel") {
+    // 動画: <dir>/reels/video.mp4 → <dir>/video.mp4
+    const video = findFirstExisting([
+      path.join(dir, "reels", "video.mp4"),
+      path.join(dir, "video.mp4"),
+    ]);
+    if (!video) {
+      throw new Error(`reels/video.mp4 が見つかりません: ${dir}\n  （ig-reel-create で mp4 を先に生成）`);
+    }
+    const captionPath = findFirstExisting([
+      path.join(dir, "reels", "caption.txt"),
+      path.join(dir, "caption.txt"),
+    ]);
+    if (!captionPath) throw new Error(`reels/caption.txt が見つかりません: ${dir}`);
+    return { dir, kind, images: [], video, caption: readCaption(captionPath), slug };
+  }
+
+  // ── carousel ──
   const imgDir =
     findFirstExisting([
       path.join(dir, "carousel", "img"),
@@ -209,8 +249,6 @@ function loadPack(arg: string): Pack {
       `カルーセル画像は ${CAROUSEL_MIN}-${CAROUSEL_MAX} 枚。検出 ${images.length} 枚（${imgDir}）`
     );
   }
-
-  // caption: <dir>/carousel/caption.txt → <dir>/caption.txt
   const captionPath = findFirstExisting([
     path.join(dir, "carousel", "caption.txt"),
     path.join(dir, "caption.txt"),
@@ -218,15 +256,7 @@ function loadPack(arg: string): Pack {
   if (!captionPath) {
     throw new Error(`caption.txt が見つかりません（carousel/caption.txt か caption.txt）: ${dir}`);
   }
-  const caption = fs.readFileSync(captionPath, "utf-8").trim();
-  if ([...caption].length > IG_CAPTION_LIMIT) {
-    throw new Error(
-      `caption が ${IG_CAPTION_LIMIT} 文字を超過: ${[...caption].length} 文字（Instagram 上限）`
-    );
-  }
-
-  const slug = path.relative(IG_DIR, dir).replace(/[\\/]/g, "-") || path.basename(dir);
-  return { dir, images, caption, slug };
+  return { dir, kind: "carousel", images, video: null, caption: readCaption(captionPath), slug };
 }
 
 // ─── status.json 更新 ─────────────────────────────────
@@ -239,17 +269,19 @@ function updateStatus(pack: Pack, scheduledDate: Date | null): void {
   const scheduledJst = scheduledDate
     ? new Date(scheduledDate.getTime() + 9 * 60 * 60 * 1000).toISOString().replace("Z", "+09:00")
     : null;
-  cur.carousel = {
-    ...(cur.carousel || {}),
+  cur[pack.kind] = {
+    ...(cur[pack.kind] || {}),
     channel: "business-suite",
     status: scheduledDate ? "scheduled" : "posted",
     scheduled_at: scheduledJst,
     posted_at: scheduledDate ? null : nowJst,
-    image_count: pack.images.length,
+    ...(pack.kind === "reel"
+      ? { video: pack.video ? path.basename(pack.video) : null }
+      : { image_count: pack.images.length }),
     updated_at: nowJst,
   };
   fs.writeFileSync(statusPath, JSON.stringify(cur, null, 2) + "\n", "utf-8");
-  console.log(`📝 status.json 更新: ${scheduledDate ? "scheduled" : "posted"}`);
+  console.log(`📝 status.json 更新: ${pack.kind} → ${scheduledDate ? "scheduled" : "posted"}`);
 }
 
 // ─── ログイン確認 ──────────────────────────────────────
@@ -467,10 +499,11 @@ async function fillCaption(page: Page, caption: string): Promise<boolean> {
   return true;
 }
 
-// ─── 予約日時の設定（2026-06-09 実測ウィジェット）────────────
-//   1) 「日時を設定」スイッチを ON → 日付/時/分の欄が出現
-//   2) 全ての日付/時/分 欄に同一日時を入れる（投稿先が複数行でも取りこぼさない）
-async function setSchedule(page: Page, when: Date): Promise<boolean> {
+// ─── 日付・時刻欄の入力（カルーセル/リール 共通。2026-06-09 実測ウィジェット）──
+//   日付: input[placeholder="yyyy/mm/dd"]（複数あれば全て＝FB/IG 両行）
+//   時/分: role="spinbutton"。値は .value ではなく aria-valuenow（ゼロ埋め無し "8"）。
+//          keyboard.type で設定し aria-valuenow を parseInt 比較で検証＋リトライ（分が既定値のまま残る事故対策）。
+async function fillDateTimeFields(page: Page, when: Date): Promise<boolean> {
   const yyyy = when.getFullYear();
   const mm = String(when.getMonth() + 1).padStart(2, "0");
   const dd = String(when.getDate()).padStart(2, "0");
@@ -478,25 +511,10 @@ async function setSchedule(page: Page, when: Date): Promise<boolean> {
   const MM = String(when.getMinutes()).padStart(2, "0");
   const dateStr = `${yyyy}/${mm}/${dd}`;
 
-  // 1) 予約スイッチ ON
-  const toggle = await firstVisible(SEL.scheduleToggle(page), 5000);
-  if (!toggle) {
-    console.error("🚨 予約スイッチ「日時を設定」が見つかりません");
-    await shot(page, "schedule-toggle-missing");
-    return false;
-  }
-  const checked = await toggle.getAttribute("aria-checked").catch(() => null);
-  if (checked !== "true") {
-    await clickResilient(toggle);
-    await page.waitForTimeout(1500);
-  }
-  await shot(page, "schedule-toggle-on");
-
-  // 2) 日付欄（複数あれば全て）
   const dateInputs = SEL.dateInputs(page);
   const dCount = await dateInputs.count();
   if (dCount === 0) {
-    console.error("🚨 日付入力欄が出現しません（予約スイッチが効いていない可能性）");
+    console.error("🚨 日付入力欄が出現しません");
     await shot(page, "schedule-date-missing");
     return false;
   }
@@ -511,9 +529,6 @@ async function setSchedule(page: Page, when: Date): Promise<boolean> {
     await page.waitForTimeout(300);
   }
 
-  // 3) 時・分欄（複数あれば全て）
-  // 実測: 時刻欄は role="spinbutton"。値は .value ではなく aria-valuenow（ゼロ埋め無し "8" 等）。
-  // keyboard.type で設定し aria-valuenow を parseInt 比較で検証＋リトライ（分が既定値のまま残る事故対策）。
   const fillVerified = async (el: Locator, value: string, label: string): Promise<boolean> => {
     const target = parseInt(value, 10);
     for (let attempt = 0; attempt < 3; attempt++) {
@@ -535,16 +550,13 @@ async function setSchedule(page: Page, when: Date): Promise<boolean> {
       return false;
     }
     let ok = true;
-    for (let i = 0; i < n; i++) {
-      const r = await fillVerified(loc.nth(i), value, `${label}#${i}`);
-      ok = ok && r;
-    }
+    for (let i = 0; i < n; i++) ok = (await fillVerified(loc.nth(i), value, `${label}#${i}`)) && ok;
     return ok;
   };
   const hourOk = await fillAll(SEL.hourInputs(page), HH, "時間");
   const minOk = await fillAll(SEL.minuteInputs(page), MM, "分");
   if (!hourOk || !minOk) {
-    console.error("🚨 時刻入力を検証できませんでした — 予約を中止（誤時刻での予約を防止）");
+    console.error("🚨 時刻入力を検証できませんでした — 中止（誤時刻での予約を防止）");
     await shot(page, "schedule-time-verify-failed");
     return false;
   }
@@ -553,6 +565,23 @@ async function setSchedule(page: Page, when: Date): Promise<boolean> {
   await shot(page, "schedule-filled");
   console.log(`🗓  予約日時セット: ${dateStr} ${HH}:${MM}（日付欄 ${dCount} 個）`);
   return true;
+}
+
+// ─── カルーセル予約: 「日時を設定」スイッチ ON → 日付/時刻 ──
+async function setSchedule(page: Page, when: Date): Promise<boolean> {
+  const toggle = await firstVisible(SEL.scheduleToggle(page), 5000);
+  if (!toggle) {
+    console.error("🚨 予約スイッチ「日時を設定」が見つかりません");
+    await shot(page, "schedule-toggle-missing");
+    return false;
+  }
+  const checked = await toggle.getAttribute("aria-checked").catch(() => null);
+  if (checked !== "true") {
+    await clickResilient(toggle);
+    await page.waitForTimeout(1500);
+  }
+  await shot(page, "schedule-toggle-on");
+  return await fillDateTimeFields(page, when);
 }
 
 // ─── 投稿実行 ──────────────────────────────────────────
@@ -683,26 +712,265 @@ async function publish(page: Page, pack: Pack, when: Date | null, keepFb: boolea
   return true;
 }
 
+// ════════════════════════════════════════════════════════
+//  リール（2026-06-09 実測フロー）
+//   ホーム→「リール動画を作成」→ reels_composer（3ステップ: 作成→編集→シェアする）
+//   作成: 投稿先 IG単独化 / 動画アップ＋処理待ち / キャプション
+//   シェアする: 「日時を指定」→日付/時刻（共通）→「公開日時を指定」で確定
+// ════════════════════════════════════════════════════════
+async function openReelComposer(page: Page): Promise<boolean> {
+  await page.goto("https://business.facebook.com/latest/home", { waitUntil: "domcontentloaded" });
+  await page.waitForTimeout(4000);
+  const entry = await firstVisible([SEL.reelEntry(page)], 6000);
+  if (!entry) {
+    console.error("🚨 「リール動画を作成」ボタンが見つかりません");
+    await shot(page, "reel-entry-missing");
+    return false;
+  }
+  await clickResilient(entry);
+  await page.waitForTimeout(4500);
+  const ready = await firstVisible(SEL.reelComposerReady(page), 8000);
+  if (!ready) {
+    console.error("🚨 リールコンポーザが開けませんでした");
+    await shot(page, "reel-composer-not-ready");
+    return false;
+  }
+  console.log("✅ リールコンポーザ表示");
+  return true;
+}
+
+async function uploadVideo(page: Page, videoPath: string): Promise<boolean> {
+  console.log(`🎬 動画アップロード: ${path.basename(videoPath)}`);
+  const addBtn = await firstVisible([SEL.reelAddVideo(page)], 5000);
+  if (addBtn) {
+    try {
+      const [chooser] = await Promise.all([
+        page.waitForEvent("filechooser", { timeout: 8000 }),
+        clickResilient(addBtn),
+      ]);
+      await chooser.setFiles(videoPath);
+    } catch {
+      const input = page.locator('input[type="file"]').first();
+      if ((await input.count()) === 0) {
+        console.error("🚨 動画の filechooser も input も検出できず");
+        await shot(page, "reel-upload-failed");
+        return false;
+      }
+      await input.setInputFiles(videoPath);
+    }
+  } else {
+    const input = page.locator('input[type="file"]').first();
+    if ((await input.count()) === 0) {
+      console.error("🚨 動画追加 UI が見つかりません");
+      await shot(page, "reel-upload-ui-missing");
+      return false;
+    }
+    await input.setInputFiles(videoPath);
+  }
+
+  // 処理完了待ち（自動生成サムネ or 「公開できます」表示が出るまで最大 ~44s）
+  console.log("⏳ 動画処理待ち...");
+  let processed = false;
+  for (let i = 0; i < 22; i++) {
+    await page.waitForTimeout(2000);
+    const thumb = await page.getByRole("button", { name: /自動生成サムネイル/ }).first().isVisible().catch(() => false);
+    const ok = await page.getByText(/公開できます|安全に公開/).first().isVisible().catch(() => false);
+    if (thumb || ok) { processed = true; break; }
+  }
+  if (!processed) console.log("⚠️  処理完了シグナル未検出（続行）");
+  await page.waitForTimeout(1500);
+  await shot(page, "reel-after-upload");
+  return true;
+}
+
+// リールウィザードの現在ステップ（作成/編集/シェアする）
+async function currentReelStep(page: Page): Promise<string> {
+  return await page.evaluate(() => {
+    let s = "";
+    document.querySelectorAll("[aria-current]").forEach((el) => {
+      const t = (el.textContent || "").trim();
+      if (t === "作成" || t === "編集" || t === "シェアする") s = t;
+    });
+    return s;
+  });
+}
+
+// 右下（最大 x+y）の visible な「次へ」を座標 click（サムネ送りの「次へ」を誤爆しない）
+async function clickBottomRightNext(page: Page): Promise<boolean> {
+  const nexts = SEL.reelNext(page);
+  const n = await nexts.count();
+  let best: { cx: number; cy: number } | null = null;
+  let bestScore = -1;
+  for (let i = 0; i < n; i++) {
+    const b = nexts.nth(i);
+    if (!(await b.isVisible().catch(() => false))) continue;
+    const bb = await b.boundingBox().catch(() => null);
+    if (!bb) continue;
+    const score = bb.x + bb.y;
+    if (score > bestScore) { bestScore = score; best = { cx: bb.x + bb.width / 2, cy: bb.y + bb.height / 2 }; }
+  }
+  if (!best) return false;
+  await page.mouse.click(best.cx, best.cy);
+  return true;
+}
+
+// 作成→編集→シェアする へ進める
+async function advanceToShareStep(page: Page): Promise<boolean> {
+  for (let i = 0; i < 4; i++) {
+    if ((await currentReelStep(page)) === "シェアする") return true;
+    if (!(await clickBottomRightNext(page))) {
+      console.error("🚨 「次へ」ボタンが見つかりません");
+      await shot(page, "reel-next-missing");
+      return false;
+    }
+    await page.waitForTimeout(4000);
+  }
+  const step = await currentReelStep(page);
+  if (step === "シェアする") return true;
+  console.error(`🚨 シェアするステップに到達できず（現在: ${step || "不明"}）`);
+  await shot(page, "reel-share-step-not-reached");
+  return false;
+}
+
+// 予約後の成功モーダルを検知して「後で」で閉じる（カルーセルと共通の出し分けに対応）
+async function awaitSuccessAndDismiss(page: Page): Promise<boolean> {
+  const successModal = async (): Promise<boolean> => {
+    const t = await page
+      .getByText(/日時が指定されました|時間を節約|別の投稿を日時指定|予約しました|スケジュール(し|され)|投稿を予約|シェアされました|Scheduled/i)
+      .first().isVisible().catch(() => false);
+    if (t) return true;
+    return await page.getByRole("button", { name: "後で" }).first().isVisible().catch(() => false);
+  };
+  let done = false;
+  for (let i = 0; i < 20; i++) {
+    await page.waitForTimeout(500);
+    if (await successModal()) { done = true; console.log("📅 予約成功モーダルを検出"); break; }
+  }
+  if (!done) return false;
+  const later = await firstVisible([
+    page.getByRole("button", { name: "後で" }),
+    page.getByRole("button", { name: /閉じる|Close/ }),
+  ], 2000);
+  if (later) { await clickResilient(later); await page.waitForTimeout(800); }
+  return true;
+}
+
+async function publishReel(page: Page, pack: Pack, when: Date | null, keepFb: boolean): Promise<boolean> {
+  console.log(`\n━━━ [リール] ${pack.slug} ━━━`);
+  console.log(`動画: ${path.basename(pack.video!)} / caption ${[...pack.caption].length} 文字`);
+  console.log(when ? `予約日時: ${when.toLocaleString("ja-JP", { timeZone: "Asia/Tokyo" })}` : "即時シェアモード（--now）");
+
+  if (!(await openReelComposer(page))) return false;
+  if (!(await uploadVideo(page, pack.video!))) return false;
+  await setPlacementInstagramOnly(page, keepFb);
+  if (!(await fillCaption(page, pack.caption))) return false;
+
+  if (IS_PAUSE) {
+    console.log("\n⏸  --pause: Inspector を起動。リール固有セレクタを採取してください。\n");
+    await page.pause();
+  }
+
+  // 作成→編集→シェアする
+  if (!(await advanceToShareStep(page))) return false;
+  console.log("✅ シェアするステップ到達");
+
+  // ── 予約モード ──
+  if (when) {
+    const opt = await firstVisible([SEL.reelScheduleOption(page)], 6000);
+    if (!opt) {
+      console.error("🚨 リール予約オプション「日時を指定」が見つかりません");
+      await shot(page, "reel-schedule-option-missing");
+      return false;
+    }
+    await clickResilient(opt);
+    await page.waitForTimeout(1500);
+    await shot(page, "reel-schedule-opened");
+    if (!(await fillDateTimeFields(page, when))) return false;
+
+    // fail-safe: 確定ボタン「公開日時を指定」が出るまで確認（即時シェアの誤爆防止）
+    let confirmed = false;
+    const start = Date.now();
+    while (Date.now() - start < 8000) {
+      if (await SEL.reelScheduleConfirm(page).first().isVisible().catch(() => false)) { confirmed = true; break; }
+      await page.waitForTimeout(500);
+    }
+    if (!confirmed) {
+      console.error("🚨 予約モード未確認 — 中止（即時シェアを回避）");
+      await shot(page, "reel-schedule-mode-not-confirmed");
+      return false;
+    }
+    console.log("📅 予約モード確認 OK");
+
+    if (IS_DRY_RUN) {
+      console.log("🧪 dry-run: 「公開日時を指定」の手前で停止。");
+      await shot(page, "dry-run-reel-scheduled-ready");
+      return true;
+    }
+    const btn = await firstVisible([SEL.reelScheduleConfirm(page)], 5000);
+    if (!btn) {
+      console.error("🚨 確定ボタン「公開日時を指定」が見つかりません");
+      await shot(page, "reel-confirm-missing");
+      return false;
+    }
+    await clickResilient(btn);
+    if (!(await awaitSuccessAndDismiss(page))) {
+      console.error("🚨 リール予約の成功を確認できません");
+      await shot(page, "reel-schedule-not-saved");
+      return false;
+    }
+    console.log("✅ リール予約 完了（要・実体確認: プランナーで予約キューを目視）");
+    await shot(page, "reel-scheduled-done");
+    return true;
+  }
+
+  // ── 即時シェア（--now）──
+  if (IS_DRY_RUN) {
+    console.log("🧪 dry-run: 「今すぐシェア」の手前で停止。");
+    await shot(page, "dry-run-reel-immediate-ready");
+    return true;
+  }
+  const nowBtn = await firstVisible([SEL.reelPublishNow(page)], 5000);
+  if (!nowBtn) {
+    console.error("🚨 「今すぐシェア」ボタンが見つかりません");
+    await shot(page, "reel-publish-missing");
+    return false;
+  }
+  await clickResilient(nowBtn);
+  if (!(await awaitSuccessAndDismiss(page))) {
+    // 即時はモーダルが出ない場合もあるため、コンポーザ離脱でも成功とみなす
+    const gone = !(await firstVisible(SEL.reelComposerReady(page), 1500));
+    if (!gone) {
+      console.error("🚨 リール即時シェアの成功を確認できません");
+      await shot(page, "reel-publish-not-confirmed");
+      return false;
+    }
+  }
+  console.log("✅ リール即時シェア 完了");
+  return true;
+}
+
 // ─── 引数パース ────────────────────────────────────────
 interface Cli {
   mode: "login" | "post";
   packArg?: string;
   when?: Date | null;
   keepFb: boolean;
+  reel: boolean;
 }
 
 function parseArgs(): Cli {
   const args = process.argv.slice(2);
   const mode = args[0];
 
-  if (mode === "login") return { mode: "login", keepFb: false };
+  if (mode === "login") return { mode: "login", keepFb: false, reel: false };
 
   if (mode !== "post") {
     console.error(
       "使い方:\n" +
         "  npx tsx publish-ig-bs.ts login\n" +
-        "  npx tsx publish-ig-bs.ts post <pack> --schedule YYYY-MM-DDTHH:MM [--dry-run] [--pause] [--keep-fb]\n" +
-        "  npx tsx publish-ig-bs.ts post <pack> --now [--dry-run]"
+        "  npx tsx publish-ig-bs.ts post <pack> --schedule YYYY-MM-DDTHH:MM [--reel] [--dry-run] [--pause] [--keep-fb]\n" +
+        "  npx tsx publish-ig-bs.ts post <pack> --now [--reel] [--dry-run]\n" +
+        "    --reel : カルーセルでなく reels/video.mp4 をリール予約投稿"
     );
     process.exit(1);
   }
@@ -716,6 +984,7 @@ function parseArgs(): Cli {
   let when: Date | null = null;
   let now = false;
   let keepFb = false;
+  let reel = false;
 
   for (let i = 2; i < args.length; i++) {
     const a = args[i];
@@ -725,6 +994,8 @@ function parseArgs(): Cli {
       IS_PAUSE = true;
     } else if (a === "--keep-fb") {
       keepFb = true;
+    } else if (a === "--reel") {
+      reel = true;
     } else if (a === "--now") {
       now = true;
     } else if (a === "--schedule") {
@@ -755,7 +1026,7 @@ function parseArgs(): Cli {
     }
   }
 
-  return { mode: "post", packArg, when, keepFb };
+  return { mode: "post", packArg, when, keepFb, reel };
 }
 
 // ─── メイン ────────────────────────────────────────────
@@ -790,16 +1061,22 @@ async function main() {
   }
 
   // post モード
-  const pack = loadPack(cli.packArg!);
-  console.log(`🚀 IG カルーセル${cli.when ? "予約" : "即時"}投稿`);
+  const pack = loadPack(cli.packArg!, cli.reel ? "reel" : "carousel");
+  console.log(`🚀 IG ${cli.reel ? "リール" : "カルーセル"}${cli.when ? "予約" : "即時"}投稿`);
   if (IS_DRY_RUN) console.log("🧪 DRY RUN: 確定の手前で停止しスクショ");
   console.log(`   パック: ${pack.dir}`);
-  console.log(`   画像: ${pack.images.length} 枚 / caption ${[...pack.caption].length} 文字\n`);
+  console.log(
+    cli.reel
+      ? `   動画: ${path.basename(pack.video!)} / caption ${[...pack.caption].length} 文字\n`
+      : `   画像: ${pack.images.length} 枚 / caption ${[...pack.caption].length} 文字\n`
+  );
 
   const { context, page } = await launch();
   try {
     await ensureLogin(page);
-    const ok = await publish(page, pack, cli.when ?? null, cli.keepFb);
+    const ok = cli.reel
+      ? await publishReel(page, pack, cli.when ?? null, cli.keepFb)
+      : await publish(page, pack, cli.when ?? null, cli.keepFb);
     if (ok && !IS_DRY_RUN) updateStatus(pack, cli.when ?? null);
     console.log(`\n${ok ? "✅ 完了" : "❌ 失敗"}: ${pack.slug}`);
     if (!ok) console.log(`   → ${path.relative(PROJECT_ROOT, DEBUG_DIR)}/ のスクショを確認`);

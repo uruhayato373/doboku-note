@@ -1,14 +1,14 @@
 ---
 name: publish-ig-bs
 description: >
-  Playwright（永続プロファイル）で Meta Business Suite のコンポーザを自動操作し、
-  Instagram カルーセル（画像 2-10 枚）を予約投稿する。docs/sns/instagram 配下の
-  carousel/img/*.png + carousel/caption.txt を読み取り、1 パックずつ投稿。
+  Playwright（永続プロファイル）で Meta Business Suite を自動操作し、Instagram
+  カルーセル（画像 2-10 枚）または **リール（reels/video.mp4）** を予約投稿する。
+  docs/sns/instagram 配下の carousel/ または reels/ を読み取り 1 パックずつ投稿。
   Graph API（scripts/publish-ig.mjs）と違い「予約投稿」に対応するのが本スキルの存在意義。
-  Use when user says "IG予約投稿", "インスタ予約", "Business Suite 投稿".
+  Use when user says "IG予約投稿", "インスタ予約", "リール予約", "Business Suite 投稿".
   **初回 / セレクタ更新後は必ず --dry-run で事前検証すること**。
 disable-model-invocation: true
-argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--dry-run] [--pause] [--keep-fb] | login"
+argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--reel] [--dry-run] [--pause] [--keep-fb] | login"
 ---
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
@@ -113,9 +113,35 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 
 セレクタを直したら**この表と `SEL` を同時に更新**。
 
+## リール（`--reel`）2026-06-09 実機検証済み
+
+`--reel` で `reels/video.mp4` + `reels/caption.txt` を読み、リールを予約投稿する。カルーセルとは別 UI フロー。
+
+```bash
+# 予約（初回・更新後は --dry-run 必須）
+npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
+  "_exam-packs/技術士総監/r04/pack-07" --reel --schedule 2026-06-20T09:00 [--dry-run]
+```
+
+- 動画は `reels/video.mp4`（無ければ `<pack>/video.mp4`）。**未生成なら `ig-reel-create` で先に作成**。
+- パック構造: `<pack>/reels/{video.mp4, caption.txt}`。投稿後 `status.json` に `reel.{...}` を記録。
+
+### リールフローの実測（カルーセルとの差分）
+
+| 操作 | セレクタ／挙動 |
+|---|---|
+| 入口 | ホーム → `role=button name="リール動画を作成"` → `/latest/reels_composer` |
+| 動画追加 | `role=button name="動画を追加"` → filechooser。**アップ後 ~20-40s 処理待ち**（自動生成サムネ出現で判定） |
+| 投稿先 IG 単独化 | カルーセルと同じ `role=option`（FB ページを外す） |
+| キャプション | 共通（contenteditable textbox） |
+| ステップ送り | 3 ステップ（作成→編集→シェアする）。**右下の「次へ」を座標で click**（サムネ送りの「次へ」ZWSP を誤爆しない） |
+| 予約 | シェアするで `role=button name="日時を指定"` → 日付/時刻（共通 spinbutton）→ 確定 `role=button name="公開日時を指定"` |
+| 即時 | `role=button name="今すぐシェア"`（`--now`） |
+| fail-safe | 「公開日時を指定」ボタンが出るまで確認できなければ中止（即時シェア誤爆防止） |
+
 ## 「予約完了」ログを信用しない（実体検証）
 
-`✅ 予約投稿 完了` ログは成功の証拠にしない。Business Suite の **プランナー（コンテンツ → カレンダー/予定）** を開き、当該カルーセルが正しい日時・正しいアカウント（Instagram のみ）で予約キューに実在することを目視するまで「完了」と報告しない。
+`✅ 予約投稿 完了` / `✅ リール予約 完了` ログは成功の証拠にしない。Business Suite の **プランナー（コンテンツ → カレンダー/予定）** を開き、当該カルーセル/リールが正しい日時・正しいアカウント（Instagram のみ）で予約キューに実在することを目視するまで「完了」と報告しない。
 
 ## スクリプト本体
 
