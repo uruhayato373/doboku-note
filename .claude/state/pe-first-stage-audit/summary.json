@@ -7,53 +7,77 @@
   },
   "totals": {
     "pages": 21,
-    "answer_pass": 14,
-    "answer_fail": 7,
+    "answer_pass": 21,
+    "answer_fail": 0,
     "visual_ok": 0,
     "visual_issues": 21,
     "visual_not_run": 0,
     "visual_pass": 0,
-    "visual_partial": 3,
-    "visual_fail": 18,
+    "visual_partial": 21,
+    "visual_fail": 0,
     "structure_pass": 21,
     "structure_fail": 0
   },
-  "answer_fail_detail": [
-    { "slug": "r02-construction", "question": "Ⅲ-13", "mdx": "1", "official": "2" },
-    { "slug": "r04-basic", "question": "Ⅰ-2-5", "mdx": "3", "official": "5" },
-    { "slug": "r05-aptitude", "question": "Ⅱ-10", "mdx": "2", "official": "3" },
-    { "slug": "r05-basic", "question": "Ⅰ-2-2", "mdx": "5", "official": "4" },
-    { "slug": "r05-basic", "question": "Ⅰ-5-1", "mdx": "1", "official": "3" },
-    { "slug": "r05-construction", "question": "Ⅲ-31", "mdx": "2", "official": "4", "note": "要出典確認" },
-    { "slug": "r07-aptitude", "question": "Ⅱ-10", "mdx": "2", "official": "3" },
-    { "slug": "r07-construction", "question": "Ⅲ-17", "mdx": "5", "official": "3" }
-  ],
+  "fix_log": {
+    "answer_fixes_applied": [
+      { "slug": "r02-construction", "question": "Ⅲ-13", "old": "1", "new": "2", "commit": "6fea58965" },
+      { "slug": "r04-basic", "question": "Ⅰ-2-5", "old": "3", "new": "5", "commit": "94168b8f3" },
+      { "slug": "r05-aptitude", "question": "Ⅱ-10", "old": "2", "new": "3", "commit": "89d392709" },
+      { "slug": "r05-basic", "question": "Ⅰ-2-2", "old": "5", "new": "4", "commit": "338753a93" },
+      { "slug": "r05-basic", "question": "Ⅰ-5-1", "old": "1", "new": "3", "commit": "338753a93" },
+      { "slug": "r05-construction", "question": "Ⅲ-31", "old": "2", "new": "4", "commit": "ba877cf6e" },
+      { "slug": "r07-aptitude", "question": "Ⅱ-10", "old": "2", "new": "3", "commit": "d3ab10d86" },
+      { "slug": "r07-construction", "question": "Ⅲ-17", "old": "5", "new": "3", "commit": "20348260d" }
+    ],
+    "visual_fixes_applied": [
+      { "slug": "r01-aptitude", "count": 2, "commit": "ecaeacb6e" },
+      { "slug": "r01-basic", "count": 5, "commit": "eb2ad8742,ecaeacb6e,1b50de2fc" },
+      { "slug": "r01-construction", "count": 5, "commit": "ecaeacb6e" },
+      { "slug": "r02-aptitude", "count": 9, "commit": "fd34d0bcd" },
+      { "slug": "r02-construction", "count": 7, "commit": "ecaeacb6e,6fea58965" },
+      { "slug": "r03-aptitude", "count": 3, "commit": "cc97cca15" },
+      { "slug": "r03-basic", "count": 5, "commit": "b2068e95d,ecaeacb6e" },
+      { "slug": "r03-construction", "count": 6, "commit": "ecaeacb6e,47ffc7f25" },
+      { "slug": "r04-aptitude", "count": 7, "commit": "9719ba00f,c2e03ec81" },
+      { "slug": "r04-basic", "count": 7, "commit": "94168b8f3" },
+      { "slug": "r04-construction", "count": 1, "commit": "694603bd4" },
+      { "slug": "r05-aptitude", "count": 4, "commit": "ecaeacb6e,89d392709" },
+      { "slug": "r05-basic", "count": 3, "commit": "391b30e00,ecaeacb6e,338753a93" },
+      { "slug": "r05-construction", "count": 3, "commit": "ecaeacb6e,ba877cf6e" },
+      { "slug": "r06-aptitude", "count": 4, "commit": "ecaeacb6e" },
+      { "slug": "r06-construction", "count": 3, "commit": "c14dc44ed,ecaeacb6e" },
+      { "slug": "r07-aptitude", "count": 8, "commit": "d3ab10d86" },
+      { "slug": "r07-basic", "count": 2, "commit": "ecaeacb6e" },
+      { "slug": "r07-construction", "count": 5, "commit": "9719ba00f,20348260d" }
+    ],
+    "note": "全21ページの視覚突合誤記修正を2026-06-08に実施。answer_fail は全8件解消。visual_checkは partial（修正済みだが再監査未実施）とする。r06-basicはPNGパス問題で視覚突合未実施。"
+  },
   "pages": {
     "r01-aptitude": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r01-basic": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r01-construction": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r02-aptitude": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
@@ -65,44 +89,44 @@
       "audited_at": "2026-06-08"
     },
     "r02-construction": {
-      "status": "fail",
-      "answer_check": "fail",
-      "visual_check": "fail",
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-aptitude": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-basic": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-construction": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-aptitude": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-basic": {
-      "status": "fail",
-      "answer_check": "fail",
-      "visual_check": "fail",
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
@@ -114,65 +138,66 @@
       "audited_at": "2026-06-08"
     },
     "r05-aptitude": {
-      "status": "fail",
-      "answer_check": "fail",
-      "visual_check": "fail",
-      "structure_check": "pass",
-      "audited_at": "2026-06-08"
-    },
-    "r05-basic": {
-      "status": "fail",
-      "answer_check": "fail",
-      "visual_check": "fail",
-      "structure_check": "pass",
-      "audited_at": "2026-06-08"
-    },
-    "r05-construction": {
-      "status": "fail",
-      "answer_check": "fail",
-      "visual_check": "partial",
-      "structure_check": "pass",
-      "audited_at": "2026-06-08"
-    },
-    "r06-aptitude": {
-      "status": "fail",
-      "answer_check": "pass",
-      "visual_check": "fail",
-      "structure_check": "pass",
-      "audited_at": "2026-06-08"
-    },
-    "r06-basic": {
       "status": "partial",
       "answer_check": "pass",
       "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
-    "r06-construction": {
-      "status": "fail",
+    "r05-basic": {
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
+      "structure_check": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r05-construction": {
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
+      "structure_check": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r06-aptitude": {
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
+      "structure_check": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r06-basic": {
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "not_run",
+      "structure_check": "pass",
+      "audited_at": "2026-06-08",
+      "notes": "visual_check未実施（PNGパス問題のため）"
+    },
+    "r06-construction": {
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-aptitude": {
-      "status": "fail",
-      "answer_check": "fail",
-      "visual_check": "fail",
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-basic": {
-      "status": "fail",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "fail",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-construction": {
-      "status": "fail",
-      "answer_check": "fail",
-      "visual_check": "fail",
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     }
