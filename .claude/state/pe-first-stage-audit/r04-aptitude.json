@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r04-aptitude",
+  "year": "R04",
+  "sub": "aptitude",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "official_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "not_run",
+    "checked_count": 0,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "q_extracted": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": ""
+  },
+  "audited_at": "2026-06-08"
+}

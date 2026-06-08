@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r06-basic",
+  "year": "R06",
+  "sub": "basic",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "official_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "not_run",
+    "checked_count": 0,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "q_extracted": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": ""
+  },
+  "audited_at": "2026-06-08"
+}

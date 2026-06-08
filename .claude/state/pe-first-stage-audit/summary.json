@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "last_run": "2026-06-08",
+  "scope": {
+    "years": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07"
+    ],
+    "subs": [
+      "aptitude",
+      "basic",
+      "construction"
+    ]
+  },
+  "totals": {
+    "pages": 21,
+    "answer_ok": 13,
+    "answer_fixed": 8,
+    "answer_fail": 0,
+    "visual_ok": 0,
+    "visual_not_run": 21,
+    "structure_ok": 21,
+    "structure_fail": 0
+  },
+  "pages": {
+    "r01-aptitude": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r01-basic": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r01-construction": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r02-aptitude": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r02-basic": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r02-construction": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    },
+    "r03-aptitude": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r03-basic": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r03-construction": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r04-aptitude": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r04-basic": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    },
+    "r04-construction": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    },
+    "r05-aptitude": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    },
+    "r05-basic": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    },
+    "r05-construction": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    },
+    "r06-aptitude": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r06-basic": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r06-construction": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r07-aptitude": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    },
+    "r07-basic": {
+      "status": "pass",
+      "audited_at": "2026-06-08"
+    },
+    "r07-construction": {
+      "status": "fixed",
+      "audited_at": "2026-06-08"
+    }
+  }
+}

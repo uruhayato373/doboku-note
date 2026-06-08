@@ -1,0 +1,36 @@
+{
+  "slug": "pe-first-stage-r07-aptitude",
+  "year": "R07",
+  "sub": "aptitude",
+  "answer_check": {
+    "status": "fixed",
+    "verified_count": 15,
+    "official_count": 15,
+    "mismatches": [],
+    "resolved": [
+      {
+        "question": "Ⅱ-10",
+        "mdx_answer": "2",
+        "official_answer": "3",
+        "resolved": true,
+        "fixed_at": "2026-06-08"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "not_run",
+    "checked_count": 0,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "q_extracted": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": ""
+  },
+  "audited_at": "2026-06-08"
+}

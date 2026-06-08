@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-r01-construction",
+  "year": "R01",
+  "sub": "construction",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "official_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "not_run",
+    "checked_count": 0,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "q_extracted": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": ""
+  },
+  "audited_at": "2026-06-08"
+}

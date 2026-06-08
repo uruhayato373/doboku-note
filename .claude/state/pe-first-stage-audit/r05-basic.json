@@ -1,0 +1,50 @@
+{
+  "slug": "pe-first-stage-r05-basic",
+  "year": "R05",
+  "sub": "basic",
+  "answer_check": {
+    "status": "fixed",
+    "verified_count": 30,
+    "official_count": 30,
+    "mismatches": [],
+    "resolved": [
+      {
+        "question": "Ⅰ-2-2",
+        "mdx_answer": "5",
+        "official_answer": "4",
+        "resolved": true,
+        "fixed_at": "2026-06-08"
+      },
+      {
+        "question": "Ⅰ-2-5",
+        "mdx_answer": "4",
+        "official_answer": "1",
+        "resolved": true,
+        "fixed_at": "2026-06-08"
+      },
+      {
+        "question": "Ⅰ-5-1",
+        "mdx_answer": "1",
+        "official_answer": "3",
+        "resolved": true,
+        "fixed_at": "2026-06-08"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "not_run",
+    "checked_count": 0,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "q_extracted": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": ""
+  },
+  "audited_at": "2026-06-08"
+}
