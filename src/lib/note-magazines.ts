@@ -295,6 +295,25 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
+  // ----- 技術士 建設部門 第二次試験 模範解答ライン (2026-06-09 追加) -----
+  // 原稿配置: docs/note/技術士建設部門/magazines/BK-I_必須科目I/
+  // 全受験者共通の必須科目I（3枚・1,674字）の R03〜R07 フル模範解答集。
+  // 公開時: noteUrl 埋め + cover 画像作成 + published: true。CTA はガイドページで発火。
+  'pe-construction-required': {
+    id: 'pe-construction-required',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門｜必須科目I フル模範解答集 R03〜R07（5年分）',
+    description:
+      '技術士第二次試験 建設部門 必須科目I（全受験者共通・答案3枚・1,674字）の R03〜R07 フル模範解答集。担い手確保・DX・防災・老朽化など5年分の出題テーマに対し、元公務員（発注者）視点の「制度設計×行政調整×発注者責任」を盛り込んだ答案をプロセス型4段構成で収録。設問(1)の観点明記・(2)解決策・(3)将来懸念・(4)倫理の書き方解説付き。',
+    shortTitle: '建設部門 必須科目I 模範解答集',
+    shortDescription:
+      'R03〜R07 の 5 年分フル模範解答。発注者視点の制度・行政調整論述が差別化軸。',
+    imageUrl: '/images/magazines/pe-construction-required-cover.webp',
+    price: '¥1,980（5本セット）',
+    badge: 'note 限定',
+  },
+
   // 原稿配置: docs/note/コンクリート主任技師/magazines/コンクリート主任技師-小論文-模範答案集/
   // コンクリート主任技師 小論文（記述式）模範答案集。解法ガイド + テーマ別フル模範小論文 4 本。published: false。
   // concrete-chief-engineer vertical は公開済 (guide/textbook/primary 計19記事 published:true)。

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-06-05T23:43:39.554Z",
+  "generated_at": "2026-06-08T20:21:17.874Z",
   "summary": {
-    "total_mdx_files": 1015,
-    "total_unique_tags": 107,
+    "total_mdx_files": 1016,
+    "total_unique_tags": 111,
     "allowlist_size": 149,
     "known_count": 70,
-    "unknown_count": 37,
+    "unknown_count": 41,
     "typo_candidates_count": 3
   },
   "tags": [
@@ -1262,10 +1262,11 @@
       ]
     },
     {
-      "name": "技術士（第二次試験）",
-      "count": 84,
+      "name": "建設部門",
+      "count": 85,
       "inAllowlist": false,
       "usedIn": [
+        "pe-construction-guide-required-essay",
         "pe-construction-r01-construction-planning",
         "pe-construction-r01-environment",
         "pe-construction-r01-geotechnical",
@@ -1353,7 +1354,7 @@
       ]
     },
     {
-      "name": "建設部門",
+      "name": "技術士（第二次試験）",
       "count": 84,
       "inAllowlist": false,
       "usedIn": [
@@ -2848,6 +2849,14 @@
       ]
     },
     {
+      "name": "技術士第二次試験",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-guide-required-essay"
+      ]
+    },
+    {
       "name": "経済安全保障",
       "count": 1,
       "inAllowlist": false,
@@ -2920,6 +2929,22 @@
       ]
     },
     {
+      "name": "答案の書き方",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-guide-required-essay"
+      ]
+    },
+    {
+      "name": "必須科目I",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-guide-required-essay"
+      ]
+    },
+    {
       "name": "複合災害",
       "count": 1,
       "inAllowlist": false,
@@ -2942,11 +2967,19 @@
       "usedIn": [
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance"
       ]
+    },
+    {
+      "name": "論述対策",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-guide-required-essay"
+      ]
     }
   ],
   "unknown": [
-    "技術士（第二次試験）",
     "建設部門",
+    "技術士（第二次試験）",
     "模範論文",
     "受験者属性別",
     "河川、砂防及び海岸・海洋",
@@ -2975,13 +3008,17 @@
     "キーワード集",
     "気候変動適応",
     "記述式試験",
+    "技術士第二次試験",
     "経済安全保障",
     "出願",
     "循環経済",
     "直前対策",
+    "答案の書き方",
+    "必須科目I",
     "複合災害",
     "流用戦略",
-    "老朽化インフラ"
+    "老朽化インフラ",
+    "論述対策"
   ],
   "typo_candidates": [
     {
