@@ -62,6 +62,10 @@ public/posts
 .local/playwright-x-profile/
 .local/playwright-x-debug/
 
+# Playwright IG Business Suite 投稿スクリプト用（セッション・デバッグ）
+.local/playwright-ig-bs-profile/
+.local/playwright-ig-bs-debug/
+
 # SNS 投稿スケジュール状態（ツール生成キャッシュ）
 docs/x-posts/draft/**/status.json
 /*.png
