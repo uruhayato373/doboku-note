@@ -309,9 +309,15 @@ export async function generateMetadata({
     (doc.meta as any).publishedAt
   );
 
+  // 幽霊ページ（公開60日以上 impressions=0 等）は frontmatter noindex:true で
+  // 検索インデックスから除外。follow:true で内部リンク資産（回遊・トピック権威）は保持。
+  // sitemap.xml からの除外は generate-sitemap.mjs 側で同フラグを参照。
+  const isNoindex = (doc.meta as any).noindex === true;
+
   return {
     title,
     description,
+    ...(isNoindex && { robots: { index: false, follow: true } }),
     alternates: {
       canonical: `/docs/${slugStr}`,
     },
