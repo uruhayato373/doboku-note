@@ -212,6 +212,12 @@ utmCampaign: pe-construction-secondary
 - 本文中に価格（¥・円）の直書きがないこと
 - 設問番号と解答番号が 1 対 1 で対応していること
 
+> **注意**: このエージェントの自己申告字数は実測と乖離することがある。生成後は親エージェント（またはユーザー）が以下のコマンドで実測確認すること:
+> ```bash
+> awk '/^## フル模範解答/{found=1} found && /^## 採点者/{found=0} found' article.md \
+>   | grep -v '^#' | grep -v '^---' | grep -v '^$' | tr -d '　 ' | tr -d '\n' | wc -m
+> ```
+
 ### Step 6: 書き込み
 
 ```js
