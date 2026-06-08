@@ -9,9 +9,20 @@
     "mismatches": []
   },
   "visual_check": {
-    "status": "pass",
+    "status": "fail",
     "checked_count": 30,
-    "issues": []
+    "issues": [
+      {
+        "question": "Ⅰ-4-6 選択肢④",
+        "type": "text_mismatch",
+        "detail": "PDF(p014)の選択肢④は「核酸は細菌細胞を構成する巨大分子の中で最も重量比が大きい。」だが、MDXでは「核酸は細胞質を構成する巨大分子の中で最も重量比が大きい。」となっており、「細菌細胞」が「細胞質」に書き換わっている。"
+      },
+      {
+        "question": "Ⅰ-5-1 選択肢③",
+        "type": "text_mismatch",
+        "detail": "PDF(p015)の選択肢③は「HFCsは強力な温室効果ガスであることから回収・適正処理等が求められている」だが、MDXでは「回収・破壊処理等が求められている」と「適正処理」が「破壊処理」に置き換わっている。正答が⑤である設問の選択肢本文の相違で、解答判断上は影響しないが、本文の正確性に問題がある。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",

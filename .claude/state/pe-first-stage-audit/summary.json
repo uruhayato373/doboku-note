@@ -9,10 +9,12 @@
     "pages": 21,
     "answer_pass": 14,
     "answer_fail": 7,
-    "visual_pass": 6,
-    "visual_partial": 7,
-    "visual_fail": 6,
-    "visual_issues_count": 2,
+    "visual_ok": 0,
+    "visual_issues": 21,
+    "visual_not_run": 0,
+    "visual_pass": 0,
+    "visual_partial": 3,
+    "visual_fail": 18,
     "structure_pass": 21,
     "structure_fail": 0
   },
@@ -28,149 +30,149 @@
   ],
   "pages": {
     "r01-aptitude": {
-      "status": "visual_fail",
+      "status": "fail",
       "answer_check": "pass",
       "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r01-basic": {
-      "status": "visual_partial",
+      "status": "fail",
       "answer_check": "pass",
-      "visual_check": "partial",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r01-construction": {
-      "status": "visual_partial",
+      "status": "fail",
       "answer_check": "pass",
-      "visual_check": "partial",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r02-aptitude": {
-      "status": "visual_fail",
+      "status": "fail",
       "answer_check": "pass",
       "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r02-basic": {
-      "status": "pass",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "pass",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r02-construction": {
-      "status": "answer_fail",
+      "status": "fail",
       "answer_check": "fail",
-      "visual_check": "pass",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-aptitude": {
-      "status": "visual_partial",
+      "status": "fail",
       "answer_check": "pass",
-      "visual_check": "partial",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-basic": {
-      "status": "visual_partial",
+      "status": "fail",
       "answer_check": "pass",
-      "visual_check": "partial",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r03-construction": {
-      "status": "pass",
+      "status": "fail",
       "answer_check": "pass",
-      "visual_check": "pass",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-aptitude": {
-      "status": "visual_fail",
+      "status": "fail",
       "answer_check": "pass",
       "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-basic": {
-      "status": "answer_fail",
+      "status": "fail",
       "answer_check": "fail",
-      "visual_check": "partial",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r04-construction": {
-      "status": "pass",
+      "status": "partial",
       "answer_check": "pass",
-      "visual_check": "pass",
+      "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r05-aptitude": {
-      "status": "answer_fail",
+      "status": "fail",
       "answer_check": "fail",
       "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r05-basic": {
-      "status": "answer_fail",
+      "status": "fail",
       "answer_check": "fail",
-      "visual_check": "partial",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r05-construction": {
-      "status": "answer_fail",
+      "status": "fail",
       "answer_check": "fail",
       "visual_check": "partial",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r06-aptitude": {
-      "status": "pass",
-      "answer_check": "pass",
-      "visual_check": "pass",
-      "structure_check": "pass",
-      "audited_at": "2026-06-08"
-    },
-    "r06-basic": {
-      "status": "visual_fail",
+      "status": "fail",
       "answer_check": "pass",
       "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
+    "r06-basic": {
+      "status": "partial",
+      "answer_check": "pass",
+      "visual_check": "partial",
+      "structure_check": "pass",
+      "audited_at": "2026-06-08"
+    },
     "r06-construction": {
-      "status": "visual_fail",
+      "status": "fail",
       "answer_check": "pass",
       "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-aptitude": {
-      "status": "answer_fail",
+      "status": "fail",
       "answer_check": "fail",
-      "visual_check": "partial",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-basic": {
-      "status": "pass",
+      "status": "fail",
       "answer_check": "pass",
-      "visual_check": "pass",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     },
     "r07-construction": {
-      "status": "answer_fail",
+      "status": "fail",
       "answer_check": "fail",
-      "visual_check": "pass",
+      "visual_check": "fail",
       "structure_check": "pass",
       "audited_at": "2026-06-08"
     }

@@ -22,43 +22,23 @@
     ]
   },
   "visual_check": {
-    "status": "partial",
+    "status": "fail",
     "checked_count": 30,
     "issues": [
       {
-        "question": "Ⅰ-2-2",
-        "type": "wrong_answer",
-        "detail": "PDF p006のユークリッド互除法流れ図を目視確認。R≠0のとき(ア)分岐でA←B,B←Rループ、R=0のとき(イ)分岐で(ウ)を出力して終了。R=0の時点でBが最大公約数を保持するためウ=B。MDXのウ=R（選択肢5）は誤りで正答は選択肢4（ウ=B）。"
+        "question": "Ⅰ-1-1",
+        "type": "text_mismatch",
+        "detail": "鉄鋼の価格の数値が相違。PDF原典：「価格は60〔円／kg〕」。MDX：「価格は160〔円／kg〕」。正しくは60円/kgであり、MDXに誤字（160）が混入している。"
       },
       {
-        "question": "Ⅰ-5-1",
-        "type": "wrong_answer",
-        "detail": "PDF p016の選択肢③を目視確認。「農地、水路・ため池、農用林などの利用拡大等により里地里山を構成する野生生物の生息・生育地が減少した」と記述。里地里山衰退の実因は利用縮小・放棄であり、「利用拡大」は事実と逆で最も不適切。MDXは正答1としているが、正答は3。"
+        "question": "Ⅰ-1-3",
+        "type": "text_mismatch",
+        "detail": "塑性の説明文が破損。PDF原典：「き裂を生じたり分離はしないが、復元しない性質を〔ウ〕という」。MDX：「く度をもとに分離しないが、復元しない性質を」。MDXの「く度をもとに」は意味不明の文字列で、原典の「き裂を生じたり」が正しい。"
       },
       {
-        "question": "Ⅰ-1-2",
-        "type": "figure_check",
-        "detail": "PDF p002に圧縮荷重を受ける細い針金の図が存在。MDXにはArticleImageタグ（q112-fig.webp）が記載されており対応済み。"
-      },
-      {
-        "question": "Ⅰ-1-4",
-        "type": "figure_check",
-        "detail": "PDF p003にシステム構成図（信頼度0.7×3個、2/3多数決スイッチ）が存在。MDXにはArticleImageタグ（q114-fig.webp）が記載されており対応済み。"
-      },
-      {
-        "question": "Ⅰ-2-2",
-        "type": "figure_check",
-        "detail": "PDF p006にユークリッド互除法の流れ図が存在。MDXにはArticleImageタグ（q222-fig.webp）が記載されており対応済み。"
-      },
-      {
-        "question": "Ⅰ-3-5",
-        "type": "figure_check",
-        "detail": "PDF p011にモータ・変速機・円盤から構成される回転軸系の図が存在。MDXには図のArticleImageタグが存在しない。ただし問題文は計算問題であり図はあくまで補助。"
-      },
-      {
-        "question": "Ⅰ-3-6",
-        "type": "figure_check",
-        "detail": "PDF p012に回路図(a)(b)(c)が存在。MDXにはArticleImageタグ（q336-fig.webp）が記載されており対応済み。MDXのalt記述は「ひし形に中央の縦線」だが、PDF実物は中央縦線のあるひし形でalt記述と概ね一致。"
+        "question": "Ⅰ-2-5",
+        "type": "text_mismatch",
+        "detail": "演算式の演算子が相違。PDF原典：C = (((A⊕B)⊕B)⊕A)·A（第3の演算はXOR）。MDX：C = (((A⊕B)⊕B)·A)·A（第3の演算がANDに変わっている）。両式とも結果は00000000で正答番号は変わらないが、問題文の数式として誤りである。"
       }
     ]
   },
