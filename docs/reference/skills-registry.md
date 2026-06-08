@@ -21,11 +21,11 @@ title: スキル ガバナンス記録
 ├── management/      # 12 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 6 — SNS 投稿
+├── social/          # 7 — SNS 投稿
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **58 スキル**（Phase 2 待機を除く）。
+合計 **59 スキル**（Phase 2 待機を除く）。
 
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
 > 2026-05-30 追加: `management/routines`（クラウドルーティン /schedule の一覧・監査。重複・残骸 one-shot・平文シークレット・cron 衝突を検出。weekly-review 重複作成事故[2026-05-30]の再発防止。create 前 list-first を運用ルール化）。
@@ -35,6 +35,7 @@ title: スキル ガバナンス記録
 > 2026-06-02 更新: しきい値を Web調査で出典ベース確定（罫線方式）＋**級別化**（`grades.civil-1`/`civil-2`、パスから級判定）。**1級**=現行R06〜各欄8行×25字=200字／旧形式(1)9行(2)11行(3)7行。**2級**=問題文に文字数規定なし（マス目でもない）、通説目安『1項目約250字・1行20〜25字・解答欄8割充足』に基づき各欄250字（doboku-koji/建設データ/知恵袋一致。1級200字とは別物で2級の方が項目あたり目安は大きめ）。`severity` 4分類（ok/borderline+10%/要圧縮/大幅×1.3超）。1級13記事・2級6記事の超過答案を圧縮し全件 ×/✗ 0 を確認済（※2級は当初210基準で一部過剰圧縮、後に250基準へ是正）。
 > 2026-06-05 更新（計測 framing 統一）: `management/weekly-review`・`weekly-plan`・`weekly-improve`・`nsm-experiment` の4スキルで「`.env.local` creds が計測の**前提**・未達なら『計測基盤未整備』スキップ／スナップショットは**fallback**」という誤 framing を是正。**計測は CI/CD 供給（`fetch-metrics.yml` 金06:00JST／`psi-audit.yml` 日次）が正で、`.claude/state/metrics/` のコミット済みスナップショット読みが既定経路。ライブ fetch は creds＋外部到達性がある環境（macOS等）限定の任意経路**に統一。会社 PC は社内プロキシ（Digital Arts/Palo Alto）で外部 API 遮断のためライブ不可。恒久ルールの真実源は `docs/reference/measurement-incidents.md`（2026-06-05 エントリ）。スキルの description/一覧は不変のため skills-guide.md は変更なし。
 > 2026-06-02 更新（過去問QA是正セッション）: 経験記述3点を実体験から追加 hardening（skill `authoring/civil-keiken-magazine` ＋ agents `civil-keiken-essay-writer`/`civil-keiken-essay-qa`）。①**ⅰ）型の列挙マーカーは字数算入**（`1.`リストはカウンタが行頭記号を除去するが ⅰ）は本文インライン算入。`1.`→ⅰ）体裁統一で旧形式(3)対応処置175字が溢れやすく、変更後 `keiken-charcount --strict` 再実行必須）を writer/qa に明記。②**note タグは別ファイル `hashtags.txt` が SoT**（既存全 note 記事の規約。`/note-hashtags`・単一行 space 区切り・最大99・80–90個目安。**本文には入れない**）を writer/skill/qa に明記（当初 body 末尾節と誤記したが既存 `hashtags.txt` 規約に合わせ即訂正。1級過去問5本の hashtags.txt を15→90個へ更新）。③**マガジン公開後の URL 反映フロー**（note-magazines.ts `published:true`＋`noteUrl`／本文プレースホルダ→マガジンURL単独行リンクカード／_meta `magazineUrl`）を skill に新設。併せて qa gate「本文 note URL 直書き=0」を**導線リンクカード URL は許可**へ是正（[[feedback_note_link_card]] との矛盾解消）、改変前提キーワードを同義表現（雛形・改変前提のテンプレート等）可へ緩和。
+> 2026-06-08 追加: `social/x-repost`（X 引用リポスト curation。`discover`=Playwright で技術士総監/1級・2級土木の高エンゲージツイートを `min_faves` 検索収集 → サブエージェント `x-repost-curator`〔Pro/Max 枠・API 課金なし〕で安全ゲート＋引用コメント生成 → `exec`=Playwright で引用RP）。`publish-x` の永続プロファイル/システム Chrome/偽成功ガードを踏襲。**規約グレー（ToS は API 外自動操作を禁止）＋ローカル実行のみ（X セッションはローカル、datacenter IP はボット判定→クラウド cron 不可、定期は `/loop`）＋完全自動はコメント無検閲**ゆえ、初回 `--dry-run` 必須・`PAUSED` キルスイッチ・config.blocklist と curator の二重安全ゲート・reposted-log.json 重複防止で hardening。ユーザーが規約リスクを理解の上で採用判断（2026-06-08）。
 
 ---
 
