@@ -9,9 +9,15 @@
     "mismatches": []
   },
   "visual_check": {
-    "status": "pass",
-    "checked_count": 30,
-    "issues": []
+    "status": "partial",
+    "checked_count": 0,
+    "issues": [
+      {
+        "question": "全設問（Ⅰ-1-1〜Ⅰ-5-6）",
+        "type": "other",
+        "detail": "原典PDF画像ファイル（C:\\tmp\\pe-audit\\r02\\basic\\p001.png〜p022.png）が存在しないため、原典視覚突合を実施できなかった。ディレクトリ C:\\tmp\\pe-audit\\r02\\basic 自体が未作成。MDX側の確認のみ実施済み：設問数30問（Ⅰ-1-1〜Ⅰ-5-6の5群×6問）は揃っており、番号の飛びや重複なし。極性フレーズは「最も不適切なものはどれか」がⅠ-2-1・Ⅰ-2-3・Ⅰ-5-2・Ⅰ-5-3・Ⅰ-5-5の5問、「正しいものはどれか」がⅠ-2-2の1問、残り24問は「最も適切なものはどれか」。PDF画像との極性一致確認・問題文冒頭照合は未実施のため、polarity_errorの有無は判定不能。"
+      }
+    ]
   },
   "structure_check": {
     "status": "pass",

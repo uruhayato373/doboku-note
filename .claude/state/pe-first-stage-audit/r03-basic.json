@@ -9,28 +9,28 @@
     "mismatches": []
   },
   "visual_check": {
-    "status": "partial",
+    "status": "fail",
     "checked_count": 30,
     "issues": [
       {
         "question": "Ⅰ-1-1",
-        "type": "polarity",
-        "detail": "MDXの問題文は「最も適切なものはどれか」だが、PDF p001は「最も不適切なものはどれか」。解答(4)・解説はPDF版（最も不適切）と整合しているため、問題文の「不」が脱落している。"
+        "type": "polarity_error",
+        "detail": "PDFの問題文末尾は「最も不適切なものはどれか」だが、MDXでは「最も適切なものはどれか」となっている。極性が逆。なおMDX内の解説は④を❌（不適切）として扱っており、解説内容は「不適切」問として正しく記述されているが、問い文が誤っている。"
       },
       {
-        "question": "Ⅰ-3-4",
-        "type": "missing_figure",
-        "detail": "MDX問題文に「下図に示すように」とあるが<ArticleImage>タグが存在しない。PDF p013に両端固定された棒の図がある。"
+        "question": "Ⅰ-4-4",
+        "type": "text_mismatch",
+        "detail": "PDFの選択肢④⑤のア欄は「銅」（copper）だが、MDXでは「鋼」（steel）となっている。PDF p018で目視確認済み。"
       },
       {
-        "question": "Ⅰ-3-5",
-        "type": "missing_figure",
-        "detail": "PDF p014にばね-質点系の図があるが、MDXに<ArticleImage>タグが存在しない。"
+        "question": "Ⅰ-4-5",
+        "type": "text_mismatch",
+        "detail": "PDF問題文は「R基に脂肪族炭化水素鎖や芳香族炭化水素鎖を持つイソロイシンやフェニルアラニンは」だが、MDXでは「ロイシンやフェニルアラニンは」となっており「イソ」が欠落している。PDF p019で目視確認済み。"
       },
       {
-        "question": "Ⅰ-3-6",
-        "type": "missing_figure",
-        "detail": "MDX問題文に「下図に示すように」とあるが<ArticleImage>タグが存在しない。PDF p015に四分円の板の図（座標軸付き）がある。"
+        "question": "Ⅰ-5-2",
+        "type": "text_mismatch",
+        "detail": "PDF選択肢⑤は「下水処理の工程は一次処理から三次処理に分類できるが」だが、MDXでは「一次処理から二次処理に分類できるが」となっており「三次」が「二次」に誤っている。PDF p022で目視確認済み。"
       }
     ]
   },
