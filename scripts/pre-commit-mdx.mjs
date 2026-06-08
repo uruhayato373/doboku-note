@@ -197,6 +197,43 @@ function checkBoldEndingParen(file, content) {
   return warnings;
 }
 
+/**
+ * NoteLink の coverImage パスを検証する。
+ *
+ * 2 つの HIGH エラーを検出してコミットをブロックする:
+ *   (a) パスが /images/note-covers/ 以外（/posts/... 等のR2パス誤用）
+ *   (b) public/ 以下に {stem}-square.webp が存在しない
+ *
+ * 過去事例: exam-passing-strategy で /posts/ パスを使い -square.webp 未生成のまま
+ * コミットされ、本番でカード画像が表示されなかった (2026-06-08 修正 commit 6b1df7f37)
+ */
+function checkNoteLinkCoverImage(file, content) {
+  const issues = [];
+  const regex = /coverImage="([^"]+)"/g;
+  let m;
+  while ((m = regex.exec(content)) !== null) {
+    const src = m[1];
+    // (a) 正規パス以外
+    if (!src.startsWith("/images/note-covers/")) {
+      issues.push({
+        file,
+        error: `NoteLink coverImage must use /images/note-covers/ path, got: ${src}`,
+      });
+      continue; // (b) の判定はスキップ（パスが違う時点でファイルも存在しない）
+    }
+    // (b) -square.webp の存在確認
+    const squarePath = src.replace(/\.(png|webp)$/, "-square.webp");
+    const localSquare = "public" + squarePath;
+    if (!existsSync(localSquare)) {
+      issues.push({
+        file,
+        error: `NoteLink coverImage: ${localSquare} not found. Run: node scripts/generate-note-square-covers.mjs`,
+      });
+    }
+  }
+  return issues;
+}
+
 async function main() {
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
@@ -296,6 +333,12 @@ async function main() {
         file,
         error: `[${f.pattern}] line ${f.line}: ${f.snippet}`,
       });
+    }
+
+    // NoteLink coverImage パス検証（HIGH — コミットブロック）
+    // /images/note-covers/ 以外のパスや -square.webp 未生成を検出
+    for (const e of checkNoteLinkCoverImage(file, content)) {
+      errors.push(e);
     }
   }
 

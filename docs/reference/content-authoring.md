@@ -54,6 +54,11 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 
 - **note 記事リンクは例外なく `<NoteLink>`**。`coverImage` は `/images/note-covers/` 配下を渡す（省略可・省略時はテキストカード）。note.com は OGP の bot 取得をブロックするため `<LinkCard>` の自動取得は機能しない
 - 自動検出: `/check-mdx --rules note-link`（`lint-mdx-mobile.mjs` ルール 8-3）が `<NoteLink>` 外の note リンクを MEDIUM 警告
+- **`coverImage` を指定する場合の手順**（pre-commit が HIGH エラーでブロック）:
+  1. カバー PNG（1280×670）を `public/images/note-covers/{name}.png` に配置
+  2. `node scripts/generate-note-square-covers.mjs` で `-square.webp` を生成
+  3. MDX には `/images/note-covers/{name}.webp` を渡す（`/posts/...` 等の R2 パス禁止）
+  4. `public/images/note-covers/{name}.png` + `{name}-square.{png,webp}` の 3 点を git add してコミット
 
 ## 過去問 MDX の構造ルール
 
