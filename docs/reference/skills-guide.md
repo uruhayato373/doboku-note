@@ -24,6 +24,7 @@ title: スキル ナビゲーションガイド
 | `/visual-research` | NotebookLM×参照URL → SVG 概念図生成 | `概念図をSVGで`, `URL直接渡す図版`, `/visual-research` |
 | `/exam-guide` | 試験対策ガイド生成（テンプレート駆動） | `試験ガイドを作りたい`, `/exam-guide` |
 | `/civil-keiken-magazine` | 1級・2級土木 施工経験記述 note有料マガジンのフル模範答案を生成・採点（Generator→Evaluator、過去問年度別/テーマ別/予想の3種） | `施工経験記述マガジン`, `模範答案を作成`, `予想問題集を作る`, `/civil-keiken-magazine` |
+| `pe-secondary-exam-writer` エージェント | 技術士建設部門 2次試験 note有料マガジン用 模範解答を生成（全11専門分野・科目種別I/II-1/II-2/III。元公務員発注者視点注入、合格3科目=合格者訴求・残8科目=発注者監修訴求） | `建設部門note模範解答`, `技術士2次マガジン`, `pe-secondary-exam-writer` |
 
 ### 変換（conversion）
 
@@ -142,6 +143,12 @@ title: スキル ナビゲーションガイド
 
 1. `/pdf-to-mdx --exam {cem|civil-construction-1|general}` — テキスト・図版含む変換
 2. `/exam-questions-import --exam {civil-primary|civil-secondary|pe-primary}` — 過去問集
+
+### 建設部門 2次 note 模範解答を生成したい
+
+1. `pe-secondary-exam-writer` エージェントに `year` / `subject` / `exam_type` / `magazine_id` を渡す
+2. 運営者が article.md をレビューして note 投稿（noteUrl を frontmatter に記入）
+3. 詳細: `docs/note/技術士建設部門/noteコンテンツ計画.md`、エージェント: `.claude/agents/pe-secondary-exam-writer.md`
 
 ### マガジン記事を紙用 PDF にしたい
 
