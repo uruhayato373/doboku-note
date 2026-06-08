@@ -323,6 +323,72 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 8.5. 1級土木 secondary テーマ別残余（basics / past-problems 等）→ 3マガジン
+  //      secondary-r0X / experience-writing 以外の secondary ページ（分野別）をカバー。
+  if (docGroup === 'secondary' && slug.startsWith('civil-construction-1-')) {
+    return {
+      inline: [
+        slot('civil-1-pastexam-essay', slug, 'inline-1'),
+        slot('civil-1-experience-essay', slug, 'inline-2'),
+        slot('civil-1-combo-essay', slug, 'inline-3'),
+      ],
+      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
+  // 10. 1級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 3マガジン 強 CTA
+  if (docGroup === 'guide' && slug.startsWith('civil-construction-1-')) {
+    return {
+      inline: [
+        slot('civil-1-experience-essay', slug, 'inline-1'),
+        slot('civil-1-pastexam-essay', slug, 'inline-2'),
+        slot('civil-1-combo-essay', slug, 'inline-3'),
+      ],
+      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
+  // 11. 2級土木 guide（試験概要・学習法・戦略等の検索着地ページ）→ 2マガジン 強 CTA
+  if (docGroup === 'guide' && slug.startsWith('civil-construction-2-')) {
+    return {
+      inline: [
+        slot('civil-2-experience-essay', slug, 'inline-1'),
+        slot('civil-2-pastexam-essay', slug, 'inline-2'),
+      ],
+      sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
+  // 12. 1級土木 textbook → sidebar のみ軽め CTA（テキスト学習者に二次検定への橋渡し）
+  if (docGroup === 'textbook' && slug.startsWith('civil-construction-1-')) {
+    return {
+      inline: [slot('civil-1-experience-essay', slug, 'inline-mobile')],
+      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: true,
+    };
+  }
+
+  // 13. 1級土木 primary（一次過去問）→ sidebar のみ軽め CTA（一次合格後に二次を意識させる）
+  if (docGroup === 'primary' && slug.startsWith('civil-construction-1-')) {
+    return {
+      inline: [slot('civil-1-experience-essay', slug, 'inline-mobile')],
+      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: true,
+    };
+  }
+
+  // 14. 2級土木 primary（一次過去問）→ sidebar のみ軽め CTA
+  if (docGroup === 'primary' && slug.startsWith('civil-construction-2-')) {
+    return {
+      inline: [slot('civil-2-experience-essay', slug, 'inline-mobile')],
+      sidebar: [slot('civil-2-experience-essay', slug, 'sidebar-1')],
+      inlineMobileOnly: true,
+    };
+  }
+
   // 9. コンクリート主任技師 小論文 → 小論文 模範答案集マガジン。
   //    小論文対策ガイド(guide-essay)が最も整合する送客元。published: false の間は
   //    getMagazine が null を返し CTA 非表示（防御的）。
