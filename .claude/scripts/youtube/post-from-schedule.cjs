@@ -80,6 +80,14 @@ function safePublishAt(iso, now) {
   return new Date(now + 10 * 60000).toISOString();
 }
 
+/**
+ * 台帳をディスクから読み込んで最新状態を返す。
+ * アップロード直前にも呼んで、並行プロセスが先に済ませていないか確認する（楽観的ロック）。
+ */
+function reloadLedger() {
+  return JSON.parse(fs.readFileSync(LEDGER, 'utf8'));
+}
+
 async function main() {
   const now = Date.now();
   const due = ledger.items
@@ -97,6 +105,14 @@ async function main() {
   for (const it of due) {
     const tmp = path.join(os.tmpdir(), `${it.key}.mp4`);
     try {
+      // --- 楽観的ロック: アップ直前に台帳を再読み込みして重複アップを防ぐ ---
+      const fresh = reloadLedger();
+      const freshItem = fresh.items.find((x) => x.key === it.key);
+      if (!freshItem || freshItem.status !== 'pending') {
+        console.log(`  ⚡ ${it.key}: 別プロセスが先にアップ済み → スキップ`);
+        continue;
+      }
+      // freshItem が pending のままなら、インメモリ ledger の参照を使って続行
       await downloadR2(it.r2Key, tmp);
       const publishAt = safePublishAt(it.publishAt, Date.now());
       const res = await youtube.videos.insert({
@@ -112,6 +128,8 @@ async function main() {
       it.videoId = videoId;
       it.uploadedAt = new Date().toISOString();
       it.publishAt = publishAt;
+      // 台帳を即時書き込み（各アップ後に保存してクラッシュ耐性を高める）
+      fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 2) + '\n');
       fs.appendFileSync(LOG, JSON.stringify({ key: it.key, videoId, publishAt, title: it.title, uploadedAt: it.uploadedAt }) + '\n');
       console.log(`  ✓ ${it.key} → https://youtube.com/watch?v=${videoId}  (公開予約 ${publishAt})`);
       uploaded++;
@@ -124,6 +142,7 @@ async function main() {
       if (fs.existsSync(tmp)) fs.unlinkSync(tmp);
     }
   }
+  // ループ後も最終状態を書き込み（ループ内での個別書き込みの補完）
   fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 2) + '\n');
   console.log(`\nアップ ${uploaded} 本完了。台帳更新済み。残り pending ${ledger.items.filter((x) => x.status === 'pending').length}`);
   // workflow 用の出力
