@@ -80,6 +80,11 @@ docs/x-posts/draft/**/status.json
 # exam-keyword-cycle 進捗サマリ drafts (ephemeral, regenerable)
 .claude/state/exam-keyword-cycles/umbrella-drafts/*.md
 
+# x-repost のランタイム生成物（候補・承認・キルスイッチは ephemeral。config と reposted-log は追跡）
+.claude/state/x-repost/candidates.json
+.claude/state/x-repost/approved.json
+.claude/state/x-repost/PAUSED
+
 # Claude Code harness runtime state（マシンごとに生成される lock ファイル）
 .claude/scheduled_tasks.lock
 
