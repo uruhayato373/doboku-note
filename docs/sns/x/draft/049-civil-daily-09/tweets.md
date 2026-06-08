@@ -22,7 +22,7 @@ https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】土量の変化率
 土量の変化率Cは、土工の配分計画にとって重要な指標であり、運搬計画にとって重要なのは変化率Lである。
-https://doboku-note.com/docs/primary-h27-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h27-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -32,7 +32,7 @@ https://doboku-note.com/docs/primary-h27-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】航路及び航法
 突端を右げんに見るときはできるだけ近寄って航行する。
-https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -42,7 +42,7 @@ https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】コンクリートのひび割れ
 暑中コンクリートでは、打設時のコンクリート温度が高くなりコンクリートの凝結硬化が速くなるため、一般に遅延形の混和剤を用いる。
-https://doboku-note.com/docs/primary-h27-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h27-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -62,7 +62,7 @@ https://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】道路のアスファルト舗装
 構築路床の安定処理は、一般に路上混合方式で行うが、1層の仕上り厚さには限界があるため、所定の厚さが厚い場合は2層以上に分けて施工する。
-https://doboku-note.com/docs/primary-h27-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h27-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -72,7 +72,7 @@ https://doboku-note.com/docs/primary-h27-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】保護帽の使用
 大きな衝撃を受けた保護帽は外観異常がなくても廃棄。
-https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -82,7 +82,7 @@ https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】道路舗装の品質管理
 平たん性の試験方法は、3mプロフィルメータによる測定や直読式等である。
-https://doboku-note.com/docs/primary-h27-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h27-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -102,7 +102,7 @@ https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】土量の変化率
 ほぐした土量は地山の土量よりも大きくなるため、Lの値は1.0以上である。
-https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -112,7 +112,7 @@ https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】アスファルト舗装の品質特性と試験方法
 路床の支持力はCBR試験で判定する。
-https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -122,7 +122,7 @@ https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】鉄筋の加工・組立
 鋼製のスペーサは腐食のおそれがあり、使用する場合は防錆処理等の配慮が必要である。
-https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -142,7 +142,7 @@ https://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】既製杭
 あふれ出ることで、杭周固定液が杭頭部まで注入されていることが確認できる。
-https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -152,7 +152,7 @@ https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】既製杭の杭打ち後の打撃
 ドロップハンマは杭重量以上のハンマで打撃する。
-https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -162,7 +162,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】河川護岸
 護岸の法覆工は、低水護岸では施工中に流水によって法面が洗掘されないように、下流から上流に向かって施工する。
-https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -182,7 +182,7 @@ https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】道路の路床・路盤
 構築路床の安定処理は、一般に路上混合方式で行い、所定の締固め度を得られることが確認できれば全厚を一層で仕上げることができる。
-https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -192,7 +192,7 @@ https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】道路のアスファルト舗装
 石灰安定処理は最適含水比付近で締固める。
-https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -202,7 +202,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】土留め壁
 二段腹起しは、一方向切ばりの土留めや切ばりのない立坑に用いられる。
-https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -222,7 +222,7 @@ https://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】フィルダムの盛立て
 撒出しは排水を考慮して上下流方向に2%程度の勾配をつけてもよい。
-https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h28-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -232,7 +232,7 @@ https://doboku-note.com/docs/primary-h28-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】ダム
 RCD用コンクリートは単位セメント量が少なく水和熱を抑制。
-https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -242,7 +242,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】土の原位置試験
 試験結果から求められるものはN値ではなく、荷重と貫入量・回転数の関係である。
-https://doboku-note.com/docs/primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h29-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---

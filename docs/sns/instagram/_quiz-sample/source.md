@@ -19,7 +19,7 @@
 
 **解説**: OEE = 稼働率 × 性能効率 × 品質効率 で計算される。稼働率はダウンタイム、性能効率は速度、品質効率は不適合品率の影響を受ける。製造業の現場改善で最重要指標。
 
-**関連キーワード**: [設備総合効率（OEE）](https://doboku-note.com/docs/pe-comprehensive-management-oee)
+**関連キーワード**: [設備総合効率（OEE）](https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness)
 
 ### Q2. ECRSの原則
 
@@ -35,7 +35,7 @@
 
 **解説**: ECRS は改善の優先順位を示すフレームワーク。E（排除）→ C（結合）→ R（再配置）→ S（単純化）の順で検討する。R を Reuse と混同しないこと。
 
-**関連キーワード**: [ECRSの原則](https://doboku-note.com/docs/pe-comprehensive-management-ecrs)
+**関連キーワード**: [ECRSの原則](https://doboku-note.com/docs/pe-comprehensive-management-ecrs-principle)
 
 ### Q3. ゲーム理論
 

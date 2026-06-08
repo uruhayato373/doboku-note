@@ -9,10 +9,10 @@ schedule:
   phaseA2: 2026-09-20 to 2026-10-20 (後期一次対策)
   phaseB:  2026-10-18 to 2026-10-23 (後期二次・記述)
 urls:
-  r07z: https://doboku-note.com/docs/primary-r07-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
-  r07k: https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
-  r06z: https://doboku-note.com/docs/primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
-  r06k: https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+  r07z: https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+  r07k: https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+  r06z: https://doboku-note.com/docs/civil-construction-2-primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+  r06k: https://doboku-note.com/docs/civil-construction-2-primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 ---
 
 ## Tweet 1: 【2級土木 直前】軟弱地盤改良・載荷工法の覚え方
@@ -23,7 +23,7 @@ urls:
 載荷工法＝「重さを乗せて圧密を促す」工法。代表例はプレローディング工法。
 バイブロフローテーションは締固め工法、ウェルポイントは地下水低下工法。分類の違いが頻出引っかけです。
 
-https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -37,7 +37,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 1箇所あたりの挿入時間は「5〜15秒」が標準。「30秒以上」は過大で誤り。
 挿入間隔は50cm以下、下層へ約10cm挿入して打継ぎ面を一体化する、も一緒に確認を。
 
-https://doboku-note.com/docs/primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -51,7 +51,7 @@ https://doboku-note.com/docs/primary-r06-zenki?utm_source=x&utm_medium=social&ut
 低温では水和反応が遅れるため、養生期間は長くとる必要があります。
 混合セメント使用時も同様。明日の本番、落ち着いて臨んでください。
 
-https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -66,7 +66,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 弾性限界以下=弾性（元に戻る）、限界超=塑性（残留変形）が正解。
 R06前期で出題、後期一次でも同類問題に要注意。
 
-https://doboku-note.com/docs/primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -81,7 +81,7 @@ https://doboku-note.com/docs/primary-r06-zenki?utm_source=x&utm_medium=social&ut
 また「堤内地」=堤防で守られた側（市街地）、「堤外地」=水が流れる側。
 この逆引っかけが繰り返し出題されています。
 
-https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r06-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -95,7 +95,7 @@ https://doboku-note.com/docs/primary-r06-kouki?utm_source=x&utm_medium=social&ut
 「深層混合処理工法は改良後すぐに大きな強度が得られる」→誤り。強度発現には養生期間が必要。
 薬液注入は水質モニタリングが必須。工法分類と特徴をセットで覚えると得点源になる分野。
 
-https://doboku-note.com/docs/primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r06-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -110,7 +110,7 @@ https://doboku-note.com/docs/primary-r06-zenki?utm_source=x&utm_medium=social&ut
 「災害等の臨時の必要があれば時間外労働を制限なく命じられる」→誤り。臨時でも労基署への届出が必要。
 法規は例外条件をしっかり確認。
 
-https://doboku-note.com/docs/primary-r07-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -125,7 +125,7 @@ https://doboku-note.com/docs/primary-r07-zenki?utm_source=x&utm_medium=social&ut
 ブルドーザ・空気圧縮機・ディーゼルハンマは対象。
 対象外の機械は意外に少ない。例外を押さえると正答しやすい問題です。
 
-https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -140,7 +140,7 @@ JIS A 5308のコンクリート圧縮強度判定、数字を確認。
 1回の試験値は呼び強度の85%以上が必要。
 品質管理の数値問題は正確に覚えないと引っかかる。R07後期で出題済。
 
-https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -154,7 +154,7 @@ https://doboku-note.com/docs/primary-r07-kouki?utm_source=x&utm_medium=social&ut
 安全管理テーマでは「危険源の特定→リスク低減措置→効果確認」の流れが評価されます。
 「安全に注意した」では0点。工種・場所・対象作業者まで具体的に書くことが合否を分けます。
 
-https://doboku-note.com/docs/primary-r07-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 

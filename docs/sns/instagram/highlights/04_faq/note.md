@@ -21,10 +21,10 @@
 | スライド | リンクスタンプ着地点 |
 |---|---|
 | 01-cover | （任意） |
-| 02-q1 (総監とは？) | `https://doboku-note.com/docs/pe-comprehensive-management/`（総監ハブ） |
+| 02-q1 (総監とは？) | `https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026`（総監ハブ） |
 | 03-q2 (学習計画) | サイトの学習計画ガイドページ（あれば） or サイトトップ |
 | 04-q3 (建設部門) | サイトの技術士入門ガイド or サイトトップ |
-| 05-q4 (過去問範囲) | `https://doboku-note.com/docs/pe-comprehensive-management/`（年度別過去問索引） |
+| 05-q4 (過去問範囲) | `https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026`（年度別過去問索引） |
 | 06-q5 (口頭試験) | note の口頭試験対策（E-4）or サイトトップ |
 
 直接 note 有料は **06_materials のみ**に集約する（系統 C 二段ロケット原則）。FAQ は **サイト着地が原則**。

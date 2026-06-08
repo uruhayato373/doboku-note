@@ -12,7 +12,7 @@ generated: 2026-06-03
 
 【1級土木 頻出論点】盛土
 勾配は縦断方向ではなく横断方向に付け、排水はのり肩に側溝を設けて、のり面への雨水流下も防止する。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -22,7 +22,7 @@ https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】盛土
 構造物縁部の締固めは小型機械で入念に行う。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -32,7 +32,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】建設発生土の利用
 建設発生土を石灰やセメントを用いて安定処理すると、一般に透水性は低くなるので裏込め材として利用する場合は、注意が必要である。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -42,7 +42,7 @@ https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】地盤改良工法
 サンドマットは軟弱地盤上に砂を敷く排水層工法。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -52,7 +52,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】暑中コンクリート
 日平均気温が25°Cを超える時期に施工することが想定される場合は、暑中コンクリートとしての施工計画をたて、施工を行う。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -62,7 +62,7 @@ https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】コンクリートの劣化機構
 凍結融解の繰返しによる劣化は凍害。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -72,7 +72,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】堤防を開削する場合の仮締切り工
 二重締切り工の中埋め土は、壁体の剛性を増す目的と鋼矢板に作用する土圧を出来るだけ低減する目的のために、良質の砂質土によることを原則とする。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -82,7 +82,7 @@ https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】道路のアスファルト舗装
 アスファルト締固めは継目→初→二次→仕上げの順。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -92,7 +92,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】道路のアスファルト舗装
 ただし粒状の生石灰（0〜5mm）を使用する場合は、一回の混合で済ませてもよい。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -102,7 +102,7 @@ https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】海岸堤防の形式の特徴
 傾斜型は軟弱地盤かつ土砂が得やすい場所に適する。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -112,7 +112,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】山岳トンネルの掘削
 必要に応じて早期閉合を行うことも可能で、比較的広範囲の地山条件や変化に富んだ地山にも有効である。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -132,7 +132,7 @@ https://note.com/dobokunote/m/m1881a9578027?utm_source=x&utm_medium=social&utm_c
 
 【1級土木 頻出論点】下水道の管きょの接合
 管きょ径が変化する場合又は2本の管きょが合流する場合の接合方法は、原則として水面接合又は管頂接合とする。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -142,7 +142,7 @@ https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】ケーソン式混成堤
 ケーソン据付けの注水は位置を確認しながら慎重に行う。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -152,7 +152,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】小口径管推進工法
 砂質地盤の場合、薬液注入による固化などの安定処理の検討が必要である。
-https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -162,7 +162,7 @@ https://doboku-note.com/docs/primary-h30-a?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】シールド工法
 密閉型シールドは切羽と機内を隔壁で仕切ったもの。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -172,7 +172,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】レディーミクストコンクリートの受入れ検査
 スランプ12cmと指定されたレディーミクストコンクリートのスランプの許容差は、±2.5cmである。
-https://doboku-note.com/docs/primary-h30-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---
@@ -182,7 +182,7 @@ https://doboku-note.com/docs/primary-h30-b?utm_source=x&utm_medium=social&utm_ca
 
 【2級土木 頻出論点】下水道管渠の剛性管
 地盤強度に応じ砂・コンクリート・はしご胴木基礎を選定。
-https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r03-kouki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 #2級土木施工管理技士 #施工管理技士
 
 ---
@@ -192,7 +192,7 @@ https://doboku-note.com/docs/primary-r03-kouki?utm_source=x&utm_medium=social&ut
 
 【1級土木 頻出論点】鉄筋コンクリート構造物
 鉄筋の腐食状況を診断する電気化学的方法の代表的なものが、自然電位法と分極抵抗法である。
-https://doboku-note.com/docs/primary-h30-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-h30-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 #1級土木施工管理技士 #施工管理技士
 
 ---

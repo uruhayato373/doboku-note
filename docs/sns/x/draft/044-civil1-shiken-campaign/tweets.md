@@ -16,7 +16,7 @@ generated: 2026-06-03
 サンドコンパクション工法＝砂杭を振動で造成し液状化防止。
 ドレーン工法と混同しやすい。工法名と施工内容をセットで。
 
-https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -28,7 +28,7 @@ https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_ca
 【1級土木 鉄筋】スペーサは「1m²当たり1個以下」は誤り。
 正しくは2個以上が目安。かぶりを確保する重要な管理値。r07一次で出題済み。数値は両方向から狙われる。
 
-https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -41,7 +41,7 @@ https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_ca
 「盛土中央から法尻へ」は誤り。
 正解は「法尻から盛土中央へ」。局部破壊防止のため。r05一次の引っかけ。
 
-https://doboku-note.com/docs/primary-r05-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r05-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -54,7 +54,7 @@ https://doboku-note.com/docs/primary-r05-a?utm_source=x&utm_medium=social&utm_ca
 水分はASRを促進する。正解は水分の遮断・乾燥状態の維持。
 r07一次の論点。
 
-https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -66,7 +66,7 @@ https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_ca
 【1級土木 材料】サンドマット工法で使うのは「砕石」ではなく「砂」。
 透水性の高い砂を薄層に敷き上部排水を促進、施工機械のトラフィカビリティーを確保する。r04一次。
 
-https://doboku-note.com/docs/primary-r04-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r04-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -78,7 +78,7 @@ https://doboku-note.com/docs/primary-r04-a?utm_source=x&utm_medium=social&utm_ca
 【1級土木 排水工】しゃ断排水層は「降雨による盛土内の浸透水を排水する」ものではない。
 本来は地下水の毛管上昇をしゃ断（遮断）する目的で路盤の下方に設ける層。排水と遮断の取り違えが引っかけ。r05一次。
 
-https://doboku-note.com/docs/primary-r05-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r05-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -90,7 +90,7 @@ https://doboku-note.com/docs/primary-r05-a?utm_source=x&utm_medium=social&utm_ca
 【1級土木 法規】違約金・損害賠償額の予定契約をする「必要がある」は誤り。
 労働基準法第16条はこれを禁止している。「必要→禁止」の逆転が頻出論点。r07一次。
 
-https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r07-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士 #法規
 
@@ -102,7 +102,7 @@ https://doboku-note.com/docs/primary-r07-a?utm_source=x&utm_medium=social&utm_ca
 【1級土木 安全管理】特定元方事業者の作業場所の巡視は「作業前日」に行う→誤り。
 正しくは「毎作業日に少なくとも1回」（安衛則第637条）。頻度の取り違えが出題の定番。
 
-https://doboku-note.com/docs/primary-r05-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r05-b?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -115,7 +115,7 @@ https://doboku-note.com/docs/primary-r05-b?utm_source=x&utm_medium=social&utm_ca
 「吹付→金網張り」は誤り。
 正しくは「金網をアンカーピンで固定→モルタル吹付」。法面工事の定番。r04一次出題。
 
-https://doboku-note.com/docs/primary-r04-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r04-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 
@@ -127,7 +127,7 @@ https://doboku-note.com/docs/primary-r04-a?utm_source=x&utm_medium=social&utm_ca
 【1級土木 施工管理法】盛土の情報化施工は「品質規定方式」ではなく「工法規定方式」。
 まき出し厚・締固め回数で管理=工法規定、締固め度=品質規定。r04一次の頻出論点。
 
-https://doboku-note.com/docs/primary-r04-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
+https://doboku-note.com/docs/civil-construction-1-primary-r04-a?utm_source=x&utm_medium=social&utm_campaign=civil1-kako
 
 #1級土木施工管理技士 #施工管理技士
 

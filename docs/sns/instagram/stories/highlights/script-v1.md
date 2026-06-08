@@ -47,7 +47,7 @@ bio から流入したユーザーに「目的別」の入口を提供する 5 �
 ?utm_source=ig&utm_medium=highlight&utm_campaign={highlight_id}&utm_content={story_name}
 ```
 
-例: `https://doboku-note.com/docs/keyword-2026?utm_source=ig&utm_medium=highlight&utm_campaign=civil&utm_content=hero`
+例: `https://doboku-note.com/docs/civil-construction-1-keyword-2026?utm_source=ig&utm_medium=highlight&utm_campaign=civil&utm_content=hero`
 
 ### Story 共通レイアウト規約
 
@@ -119,7 +119,7 @@ layout:
       align: center, y: 1560
 linkSticker:
   label: "1級土木 入口"
-  url: https://doboku-note.com/docs/keyword-2026?utm_source=ig&utm_medium=highlight&utm_campaign=civil&utm_content=hero
+  url: https://doboku-note.com/docs/civil-construction-1-keyword-2026?utm_source=ig&utm_medium=highlight&utm_campaign=civil&utm_content=hero
 ```
 
 ### Story-02: 直前対策ピックアップ
@@ -156,7 +156,7 @@ layout:
       align: center, y: 1560
 linkSticker:
   label: "直前対策ガイド"
-  url: https://doboku-note.com/docs/guide-last-minute-2026?utm_source=ig&utm_medium=highlight&utm_campaign=civil&utm_content=last-minute
+  url: https://doboku-note.com/docs/civil-construction-1-guide-last-minute-2026?utm_source=ig&utm_medium=highlight&utm_campaign=civil&utm_content=last-minute
 ```
 
 ---
@@ -218,7 +218,7 @@ layout:
       align: center, y: 1560
 linkSticker:
   label: "総監対策 入口"
-  url: https://doboku-note.com/docs/whitepaper-study-map?utm_source=ig&utm_medium=highlight&utm_campaign=pe-cem&utm_content=hero
+  url: https://doboku-note.com/docs/pe-comprehensive-management-whitepaper-study-map?utm_source=ig&utm_medium=highlight&utm_campaign=pe-cem&utm_content=hero
   _verifyUrl: "whitepaper-study-map が総監 hub として最適か要確認（他候補なければこのまま）"
 ```
 
@@ -258,7 +258,7 @@ layout:
       align: center, y: 1560
 linkSticker:
   label: "5管理 解説"
-  url: https://doboku-note.com/docs/whitepaper-study-map?utm_source=ig&utm_medium=highlight&utm_campaign=pe-cem&utm_content=5mgmt
+  url: https://doboku-note.com/docs/pe-comprehensive-management-whitepaper-study-map?utm_source=ig&utm_medium=highlight&utm_campaign=pe-cem&utm_content=5mgmt
 ```
 
 ---

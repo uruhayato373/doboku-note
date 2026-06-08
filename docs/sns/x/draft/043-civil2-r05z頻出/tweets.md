@@ -4,7 +4,7 @@ exam: civil-2
 type: question
 topic: r05z
 source: src/config/civil-2-exam-questions.json (year=r05z)
-url-base: https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+url-base: https://doboku-note.com/docs/civil-construction-2-primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 ---
 
@@ -13,7 +13,7 @@ url-base: https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium
 バックホゥは「機械位置より高い場所の掘削」に用いる—これは誤り。
 正しくは機械位置より低い場所の掘削が用途。頻出の引っかけ、確認を。
 
-https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -25,7 +25,7 @@ https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&ut
 セメント等の固化材を混合する固結工法です。
 工法の分類（置換・固結・締固め・排水）を整理すると解ける問題です。
 
-https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -36,7 +36,7 @@ https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&ut
 スランプコーンにコンクリートを「2層」に分けて詰める—これは誤り。
 正しくは3層。層数の違いが引っかけのポイントです。
 
-https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
 
@@ -47,6 +47,6 @@ https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&ut
 初転圧温度は「90〜100℃」—これは誤り。
 正しくは110〜140℃。工程ごとの温度管理を区別して覚えましょう。
 
-https://doboku-note.com/docs/primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
+https://doboku-note.com/docs/civil-construction-2-primary-r05-zenki?utm_source=x&utm_medium=social&utm_campaign=civil2-kako
 
 #2級土木施工管理技士 #施工管理技士
