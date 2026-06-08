@@ -132,8 +132,9 @@ title: スキル ナビゲーションガイド
 
 1. `/ig-post-create --exam {pack-id}` — Instagram カルーセル/Reels PNG（一次制作）
 2. `/ig-reel-create --exam {pack-id}` — カルーセル PNG → Reels mp4（VOICEVOX + ffmpeg）
-3. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
-4. `/create-x-card` + `/publish-x` — X 投稿カード作成 → 自動投稿
+3. `/publish-ig-bs post {pack} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `node scripts/publish-ig.mjs` = Graph API・公式）
+4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
+5. `/create-x-card` + `/publish-x` — X 投稿カード作成 → 自動投稿
 
 **IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
 - `node .claude/scripts/instagram/build-highlight-materials.mjs --all` — 6 ハイライト × 32 PNG 一括生成（モダンシック意匠、ジャンル別カラー）
