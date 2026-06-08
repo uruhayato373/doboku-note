@@ -21,7 +21,7 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const { google } = require('googleapis');
-const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
+const { S3Client, GetObjectCommand, HeadObjectCommand } = require('@aws-sdk/client-s3');
 
 const LEDGER = '.claude/state/youtube-schedule.json';
 const LOG = '.claude/state/yt-posted-log.jsonl';
@@ -71,6 +71,35 @@ async function downloadR2(key, dest) {
   const chunks = [];
   for await (const c of obj.Body) chunks.push(c);
   fs.writeFileSync(dest, Buffer.concat(chunks));
+}
+
+/** サムネイルの R2 キーを r2Key（mp4）から導出する。台帳に thumbnailR2Key があればそちら優先。 */
+function thumbnailR2Key(it) {
+  if (it.thumbnailR2Key) return it.thumbnailR2Key;
+  // sns/youtube-shorts/r03-pack-01-q1.mp4 → sns/youtube-thumbnails/r03-pack-01-q1.png
+  return it.r2Key.replace('sns/youtube-shorts/', 'sns/youtube-thumbnails/').replace(/\.mp4$/, '.png');
+}
+
+async function r2Exists(key) {
+  try { await s3.send(new HeadObjectCommand({ Bucket: BUCKET, Key: key })); return true; } catch { return false; }
+}
+
+/** YouTube にサムネイルを設定する（R2 から PNG を取得して thumbnails.set）。失敗しても投稿自体は続行。 */
+async function setThumbnail(videoId, thumbKey) {
+  const tmpPng = path.join(os.tmpdir(), `${videoId}-thumbnail.png`);
+  try {
+    if (!await r2Exists(thumbKey)) { console.log(`  ⚠ サムネイル R2 なし: ${thumbKey} → スキップ`); return; }
+    await downloadR2(thumbKey, tmpPng);
+    await youtube.thumbnails.set({
+      videoId,
+      media: { mimeType: 'image/png', body: fs.createReadStream(tmpPng) },
+    });
+    console.log(`    🖼  サムネイル設定済み`);
+  } catch (e) {
+    console.warn(`    ⚠ サムネイル設定失敗（動画投稿には影響なし）: ${e.message}`);
+  } finally {
+    if (fs.existsSync(tmpPng)) fs.unlinkSync(tmpPng);
+  }
 }
 
 /** publishAt は未来でなければ YouTube が弾く。過去/直近なら now+10分へ繰り下げ。 */
@@ -132,6 +161,8 @@ async function main() {
       fs.writeFileSync(LEDGER, JSON.stringify(ledger, null, 2) + '\n');
       fs.appendFileSync(LOG, JSON.stringify({ key: it.key, videoId, publishAt, title: it.title, uploadedAt: it.uploadedAt }) + '\n');
       console.log(`  ✓ ${it.key} → https://youtube.com/watch?v=${videoId}  (公開予約 ${publishAt})`);
+      // サムネイル設定（失敗しても投稿は完了扱い）
+      await setThumbnail(videoId, thumbnailR2Key(it));
       uploaded++;
     } catch (e) {
       const detail = e.response?.data ? JSON.stringify(e.response.data) : e.message;
