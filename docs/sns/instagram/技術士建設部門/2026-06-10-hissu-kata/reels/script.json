@@ -1,0 +1,52 @@
+{
+  "packId": "2026-06-10-hissu-kata",
+  "mode": "editorial",
+  "totalDurationSec": 75,
+  "slides": [
+    {
+      "slideIndex": 0,
+      "type": "cover",
+      "durationSec": 6,
+      "narration": "技術士二次、建設部門の必須科目I。設問ごとの答案の型を解説します。"
+    },
+    {
+      "slideIndex": 1,
+      "type": "hook",
+      "durationSec": 10,
+      "narration": "設問(1)から(3)まで、何を書けばいいか迷っていませんか。各設問に明確なパターンがあります。"
+    },
+    {
+      "slideIndex": 2,
+      "type": "step",
+      "stepLabel": "設問(1)",
+      "durationSec": 14,
+      "narration": "設問(1)は技術課題を3つ抽出します。観点を先に述べてから課題を示す順番が必須です。生産性、制度、コスト管理の3軸で整理してください。"
+    },
+    {
+      "slideIndex": 3,
+      "type": "step",
+      "stepLabel": "設問(2)",
+      "durationSec": 13,
+      "narration": "設問(2)は最重要課題に対する複数の解決策です。発注者が実行できる施策を主軸にし、実施主体と効果をセットで述べてください。"
+    },
+    {
+      "slideIndex": 4,
+      "type": "step",
+      "stepLabel": "設問(3)",
+      "durationSec": 12,
+      "narration": "設問(3)は解決策が生む将来的な懸念事項と対策です。デジタルデバイドなど副作用として生じるリスクを専門技術で論じてください。"
+    },
+    {
+      "slideIndex": 5,
+      "type": "summary",
+      "durationSec": 11,
+      "narration": "(1)は3観点で課題抽出、(2)は発注者視点の解決策、(3)は副作用と対策。この型で練習してください。"
+    },
+    {
+      "slideIndex": 6,
+      "type": "cta",
+      "durationSec": 9,
+      "narration": "R03からR07の模範解答はプロフィールリンクのnoteで公開中です。フォローもお願いします。"
+    }
+  ]
+}
