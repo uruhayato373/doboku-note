@@ -1,5 +1,5 @@
-// 択一過去問を「年度別」ではなく「論点別」に再構成した note 有料 PDF 用の
-// 教材ソースを生成する試作ジェネレータ。
+// 択一過去問を「年度別」ではなく「論点別」に再構成した教材ソースを生成する試作
+// ジェネレータ。1 ソースから note 用（Markdown / 印刷 HTML）と Kindle 用（EPUB）を出す。
 //
 // 生の年度別過去問（サイトで無料公開中・無料代替も飽和）との差別化として、
 //   1) 同一テーマの択一を H26〜R07 で横断集約（出題パターンが体で分かる）
@@ -8,16 +8,32 @@
 // を付与する。入力は build-time 済みの構造化全問 JSON。
 //
 // 使い方:
-//   node scripts/build-takuitsu-reconstruct.mjs --theme anzen [--outDir .tmp/takuitsu-anzen]
+//   node scripts/build-takuitsu-reconstruct.mjs --theme anzen [--format both]
+//     --format md | epub | both（既定 both）
+//     --outDir <dir>（既定 .tmp/takuitsu-<theme>）
 //
-// 出力: <outDir>/article.md（note 貼付用 SoT）と <outDir>/print.html（印刷HTML）。
-// 最終 PDF は印刷HTML を Chrome で「PDF に保存」(Ctrl+P) するだけ。レイアウト CSS は
-// scripts/magazine-to-pdf.mjs と同系統（紙のハウススタイル）。
+// 出力:
+//   <outDir>/article.md   note 貼付用 SoT（Markdown）
+//   <outDir>/print.html   印刷用 HTML（Chrome で PDF 保存 → note PDF 販売用）
+//   <outDir>/<theme>.epub Kindle 入稿用 EPUB（KDP にアップロード）
+//
+// 図版に依存する設問（「下図」等を含む body）は、JSON に画像が無いため自動除外する。
 
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs'
+import { readFileSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
 import { join, resolve } from 'node:path'
+import { execFileSync } from 'node:child_process'
+import { randomUUID } from 'node:crypto'
 
 const REPO = resolve(import.meta.dirname, '..')
+
+// ---- 著者・出版者・出典クレジット（src/config/author.ts と整合）-----------
+const AUTHOR = '架（かける）'
+const PUBLISHER = 'doboku-note'
+// 1級/2級土木は試験実施機関のクレジット表示で過去問を使用する
+const CREDIT_BODY =
+  '一般財団法人 全国建設研修センターが実施する土木施工管理技術検定（第一次検定）の過去問題を出典としています。問題文の著作権は同センターに帰属します。解答・解説および論点別の編集・再構成は著者によるものです。'
+const DISCLAIMER =
+  '本書は正確を期して作成していますが、内容を保証するものではありません。法令・基準は改正されることがあるため、受験にあたっては必ず最新の一次情報をご確認ください。'
 
 // ---- テーマ定義（試作は安全管理1本。追加時はここに足す）------------------
 const THEMES = {
@@ -25,11 +41,10 @@ const THEMES = {
     key: 'anzen',
     label: '安全管理',
     examLabel: '1級土木施工管理技士 第1次検定',
+    examOrg: '全国建設研修センター',
     src: 'src/config/civil-1-exam-questions.json',
-    // テーマ抽出（body 一致＝精度優先）
     include:
       /安全|墜落|足場|労働災害|酸素欠乏|クレーン|玉掛け|型枠支保工|土止め|土留め|明り|地山|崩壊|建設機械|架空線|感電|有機溶剤|粉じん|保護具|ずい道.*(安全|換気)|作業主任者|安全衛生/,
-    // サブ論点（優先順。先に一致したものに割当。最後は受け皿）
     subtopics: [
       { key: 'scaffold', label: '足場・墜落・高所作業', re: /足場|墜落|高さ|安全帯|要求性能墜落制止|手すり|作業床|親綱/ },
       { key: 'excavation', label: '明り掘削・土止め支保工', re: /掘削|土止め|土留め|明り|地山|崩壊|のり面|法面/ },
@@ -45,16 +60,19 @@ const THEMES = {
 }
 
 function parseArgs(argv) {
-  const a = { theme: 'anzen', outDir: null }
+  const a = { theme: 'anzen', outDir: null, format: 'both' }
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--theme') a.theme = argv[++i]
     else if (argv[i] === '--outDir') a.outDir = argv[++i]
+    else if (argv[i] === '--format') a.format = argv[++i]
   }
   return a
 }
 
-const YEAR_LABEL = (y) =>
-  y.startsWith('h') ? `H${y.slice(1)}` : `R${y.slice(1)}`
+const YEAR_LABEL = (y) => (y.startsWith('h') ? `H${y.slice(1)}` : `R${y.slice(1)}`)
+
+// 図版に依存する設問（画像なしでは成立しない）を検出
+const FIGURE_RE = /下図|次図|次の図|下記の図|上図|図のように|図に示す|右図|左図/
 
 // 正規化（重複検出・論点まとめの dedupe 用）
 const norm = (s) =>
@@ -78,7 +96,6 @@ function buildRonten(questions) {
       if (!e.correct) continue
       let t = (e.text || '').trim()
       if (t.length < 12) continue
-      // 文末整形
       t = t.replace(/\s+/g, '').replace(/[。.]$/, '')
       const k = norm(t).slice(0, 28)
       if (seen.has(k)) continue
@@ -89,48 +106,79 @@ function buildRonten(questions) {
   return bullets
 }
 
-function renderQuestion(q) {
-  const yl = YEAR_LABEL(q.year)
-  const tag = `${yl} ${q.part}-${String(q.no).padStart(2, '0')}`
-  const opts = (q.options || [])
-    .map((o) => `${o.num}. ${o.text}`)
-    .join('\n')
+const correctPoint = (q) => {
   const ce = (q.optionExplanations || []).find((e) => e.num === q.correct)
-  const point = ce ? ce.text.replace(/\s+/g, '').replace(/[。.]$/, '') : ''
-  return [
-    `**［${tag}］** ${q.body}`,
-    '',
-    opts,
-    '',
-    `**正答 ${q.correct}** ― ${point}`,
-  ].join('\n')
+  return ce ? ce.text.replace(/\s+/g, '').replace(/[。.]$/, '') : ''
 }
 
-function buildMarkdown(theme, questions) {
-  // サブ論点割当
-  const buckets = new Map(theme.subtopics.map((s) => [s.key, []]))
-  for (const q of questions) buckets.get(assignSubtopic(theme, q)).push(q)
-  // 各バケツ: 年度→No 昇順、同一趣旨(body正規化一致)は最古年のみ残し再出年を注記
-  for (const [, arr] of buckets) {
-    arr.sort((a, b) => (a.year < b.year ? -1 : a.year > b.year ? 1 : a.no - b.no))
-  }
+// ---- モデル構築（チャネル非依存の中間表現）--------------------------------
+function buildModel(theme, questions) {
+  const usable = questions.filter((q) => !FIGURE_RE.test(q.body))
+  const figureSkipped = questions.length - usable.length
 
+  const buckets = new Map(theme.subtopics.map((s) => [s.key, []]))
+  for (const q of usable) buckets.get(assignSubtopic(theme, q)).push(q)
+
+  let dupCompressed = 0
+  let rendered = 0
+  const chapters = []
+  let n = 0
+  for (const st of theme.subtopics) {
+    const arr = buckets.get(st.key)
+    if (!arr.length) continue
+    arr.sort((a, b) => (a.year < b.year ? -1 : a.year > b.year ? 1 : a.no - b.no))
+
+    const usedBody = new Map()
+    const items = []
+    for (const q of arr) {
+      const bk = norm(q.body)
+      if (usedBody.has(bk)) {
+        usedBody.get(bk).dupYears.push(YEAR_LABEL(q.year))
+        dupCompressed++
+        continue
+      }
+      const item = { q, dupYears: [] }
+      usedBody.set(bk, item)
+      items.push(item)
+      rendered++
+    }
+    n++
+    chapters.push({
+      n,
+      key: st.key,
+      label: st.label,
+      ronten: buildRonten(arr).slice(0, 18),
+      items,
+    })
+  }
+  return {
+    theme,
+    title: `${theme.examLabel} 択一・論点別トレーニング`,
+    subtitle: theme.label,
+    chapters,
+    stats: { extracted: questions.length, figureSkipped, dupCompressed, rendered },
+  }
+}
+
+// =====================================================================
+// Markdown / 印刷 HTML レンダラ（note 用）
+// =====================================================================
+function renderMarkdown(model) {
+  const t = model.theme
   const fm = [
     '---',
-    `title: "${theme.examLabel} 択一・論点別トレーニング ― ${theme.label}"`,
+    `title: "${model.title} ― ${model.subtitle}"`,
     'notePricing: paid',
-    `noteSeries: "1級土木 択一・論点別トレーニング"`,
+    'noteSeries: "1級土木 択一・論点別トレーニング"',
     'published: false',
     '---',
     '',
   ].join('\n')
 
-  const out = [fm]
-  out.push(`# ${theme.examLabel} 択一・論点別トレーニング ― ${theme.label}`)
-  out.push('')
+  const out = [fm, `# ${model.title} ― ${model.subtitle}`, '']
   out.push(
     [
-      `本書は ${theme.examLabel}「${theme.label}」の択一過去問（H26〜R07）を、`,
+      `本書は ${t.examLabel}「${t.label}」の択一過去問（H26〜R07）を、`,
       '**年度別ではなく論点別**に解体・再構成した暗記特化教材です。同じ論点の問題を',
       '年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。',
       '各論点の冒頭に、過去問の正答選択肢から抽出した**「論点まとめ（覚える正しい知識）」**を',
@@ -138,56 +186,30 @@ function buildMarkdown(theme, questions) {
     ].join('\n'),
   )
   out.push('')
+  out.push(`> ${CREDIT_BODY}`)
+  out.push('')
 
-  let n = 0
-  for (const st of theme.subtopics) {
-    const arr = buckets.get(st.key)
-    if (!arr.length) continue
-    n++
-    out.push(`## ${n}. ${st.label}`)
-    out.push('')
-
-    // 論点まとめ
-    const ronten = buildRonten(arr).slice(0, 18)
-    if (ronten.length) {
-      out.push('### 論点まとめ（覚える正しい知識）')
-      out.push('')
-      for (const b of ronten) out.push(`- ${b}`)
+  for (const ch of model.chapters) {
+    out.push(`## ${ch.n}. ${ch.label}`, '')
+    if (ch.ronten.length) {
+      out.push('### 論点まとめ（覚える正しい知識）', '')
+      for (const b of ch.ronten) out.push(`- ${b}`)
       out.push('')
     }
-
-    // 一問一答（同一趣旨圧縮）
-    out.push(`### 一問一答（${arr.length} 問・H26〜R07）`)
-    out.push('')
-    const usedBody = new Map()
-    const rendered = []
-    let dup = 0
-    for (const q of arr) {
-      const bk = norm(q.body)
-      if (usedBody.has(bk)) {
-        usedBody.get(bk).push(YEAR_LABEL(q.year))
-        dup++
-        continue
-      }
-      usedBody.set(bk, [YEAR_LABEL(q.year)])
-      rendered.push({ q, bk })
+    out.push(`### 一問一答（${ch.items.length} 問・H26〜R07）`, '')
+    for (const { q, dupYears } of ch.items) {
+      const tag = `${YEAR_LABEL(q.year)} ${q.part}-${String(q.no).padStart(2, '0')}`
+      out.push(`**［${tag}］** ${q.body}`, '')
+      out.push((q.options || []).map((o) => `${o.num}. ${o.text}`).join('\n'), '')
+      out.push(`**正答 ${q.correct}** ― ${correctPoint(q)}`)
+      if (dupYears.length) out.push('', `> 同趣旨で再出題: ${dupYears.join(' / ')}`)
+      out.push('', '---', '')
     }
-    for (const { q, bk } of rendered) {
-      out.push(renderQuestion(q))
-      const years = usedBody.get(bk)
-      if (years.length > 1)
-        out.push(`\n> 同趣旨で再出題: ${years.join(' / ')}`)
-      out.push('')
-      out.push('---')
-      out.push('')
-    }
-    if (dup) out.push(`*（同一趣旨 ${dup} 問を圧縮）*\n`)
   }
-
   return out.join('\n')
 }
 
-const CSS = `
+const PRINT_CSS = `
   @page { size: A4; margin: 16mm 15mm 18mm; }
   * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   body { font-family:"Yu Gothic","YuGothic","Meiryo",sans-serif;
@@ -209,68 +231,214 @@ const CSS = `
   hr { border:none; border-top:1px solid #e0d3c4; margin:12px 0; }
 `
 
-const esc = (s) =>
-  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-const inline = (s) =>
-  esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+const esc = (s) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const inline = (s) => esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
 
-// 本ジェネレータが出力する限定構文だけを扱う軽量 md→html（依存ゼロ）
 function mdToHtml(md) {
   const lines = md.split('\n')
   const html = []
   let para = []
   let list = []
   const flushP = () => {
-    if (para.length) {
-      html.push(`<p>${para.map(inline).join('<br>')}</p>`)
-      para = []
-    }
+    if (para.length) { html.push(`<p>${para.map(inline).join('<br/>')}</p>`); para = [] }
   }
   const flushList = () => {
-    if (list.length) {
-      html.push(`<ul>${list.map((t) => `<li>${inline(t)}</li>`).join('')}</ul>`)
-      list = []
-    }
+    if (list.length) { html.push(`<ul>${list.map((t) => `<li>${inline(t)}</li>`).join('')}</ul>`); list = [] }
   }
-  const flush = () => {
-    flushP()
-    flushList()
-  }
+  const flush = () => { flushP(); flushList() }
   for (const raw of lines) {
     const line = raw.replace(/\s+$/, '')
-    if (!line.trim()) {
-      flush()
-    } else if (/^### /.test(line)) {
-      flush()
-      html.push(`<h3>${inline(line.slice(4))}</h3>`)
-    } else if (/^## /.test(line)) {
-      flush()
-      html.push(`<h2>${inline(line.slice(3))}</h2>`)
-    } else if (/^# /.test(line)) {
-      flush()
-      html.push(`<h1>${inline(line.slice(2))}</h1>`)
-    } else if (/^---$/.test(line)) {
-      flush()
-      html.push('<hr>')
-    } else if (/^> /.test(line)) {
-      flush()
-      html.push(`<blockquote>${inline(line.slice(2))}</blockquote>`)
-    } else if (/^- /.test(line)) {
-      flushP()
-      list.push(line.slice(2))
-    } else {
-      flushList()
-      para.push(line)
-    }
+    if (!line.trim()) flush()
+    else if (/^### /.test(line)) { flush(); html.push(`<h3>${inline(line.slice(4))}</h3>`) }
+    else if (/^## /.test(line)) { flush(); html.push(`<h2>${inline(line.slice(3))}</h2>`) }
+    else if (/^# /.test(line)) { flush(); html.push(`<h1>${inline(line.slice(2))}</h1>`) }
+    else if (/^---$/.test(line)) { flush(); html.push('<hr/>') }
+    else if (/^> /.test(line)) { flush(); html.push(`<blockquote>${inline(line.slice(2))}</blockquote>`) }
+    else if (/^- /.test(line)) { flushP(); list.push(line.slice(2)) }
+    else { flushList(); para.push(line) }
   }
   flush()
   return html.join('\n')
 }
 
-function toHtml(md, title) {
-  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>${esc(title)}</title><style>${CSS}</style></head><body>${mdToHtml(md)}</body></html>`
+function renderPrintHtml(md, title) {
+  const body = mdToHtml(md.replace(/^---[\s\S]*?---\n/, ''))
+  return `<!doctype html><html lang="ja"><head><meta charset="utf-8"><title>${esc(title)}</title><style>${PRINT_CSS}</style></head><body>${body}</body></html>`
 }
 
+// =====================================================================
+// EPUB レンダラ（Kindle / KDP 用・リフロー）
+// =====================================================================
+const xesc = (s) =>
+  (s || '')
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+const xinline = (s) => xesc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+
+const EPUB_CSS = `
+body { font-family: serif; line-height: 1.7; margin: 0 4%; }
+h1 { font-size: 1.5em; line-height: 1.4; margin: 1em 0 0.8em;
+  border-bottom: 3px solid #b5651d; padding-bottom: 0.3em; color: #7a3e0c; }
+h2 { font-size: 1.2em; margin: 1.4em 0 0.6em; padding: 0.3em 0.5em;
+  background: #fbf0e4; border-left: 4px solid #b5651d; color: #7a3e0c; }
+p { margin: 0 0 0.6em; }
+ul { margin: 0 0 1em; padding-left: 1.2em; }
+li { margin-bottom: 0.4em; }
+ol.opts { margin: 0.4em 0 0.6em; padding-left: 1.4em; }
+ol.opts li { margin-bottom: 0.3em; }
+.tag { font-weight: bold; color: #7a3e0c; }
+.qbody { margin-top: 1em; }
+.ans { background: #f4f8f4; border-left: 3px solid #2f7a3e; padding: 0.3em 0.6em; }
+.dup { font-size: 0.85em; color: #666; }
+.cover-title { text-align: center; margin-top: 25%; }
+.cover-title h1 { border: none; font-size: 1.9em; color: #7a3e0c; }
+.cover-title .sub { font-size: 1.3em; margin-top: 0.5em; }
+.cover-title .author { margin-top: 3em; font-size: 1.1em; }
+.front { margin-top: 2em; }
+.front h1 { border-bottom: none; }
+.credit { font-size: 0.9em; color: #444; line-height: 1.9; }
+hr { border: none; border-top: 1px solid #ddd; margin: 1em 0; }
+`
+
+function xhtmlDoc(title, inner) {
+  return `<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja">
+<head><meta charset="utf-8"/><title>${xesc(title)}</title>
+<link rel="stylesheet" type="text/css" href="style.css"/></head>
+<body>${inner}</body></html>`
+}
+
+function chapterXhtml(model, ch) {
+  const parts = [`<h1>${ch.n}. ${xesc(ch.label)}</h1>`]
+  if (ch.ronten.length) {
+    parts.push('<h2>論点まとめ（覚える正しい知識）</h2>')
+    parts.push(`<ul>${ch.ronten.map((b) => `<li>${xinline(b)}</li>`).join('')}</ul>`)
+  }
+  parts.push(`<h2>一問一答（${ch.items.length} 問・H26〜R07）</h2>`)
+  for (const { q, dupYears } of ch.items) {
+    const tag = `${YEAR_LABEL(q.year)} ${q.part}-${String(q.no).padStart(2, '0')}`
+    const opts = [...(q.options || [])]
+      .sort((a, b) => a.num - b.num)
+      .map((o) => `<li>${xesc(o.text)}</li>`)
+      .join('')
+    parts.push('<div class="q">')
+    parts.push(`<p class="qbody"><span class="tag">［${xesc(tag)}］</span> ${xesc(q.body)}</p>`)
+    parts.push(`<ol class="opts">${opts}</ol>`)
+    parts.push(`<p class="ans"><strong>正答 ${q.correct}</strong> ― ${xesc(correctPoint(q))}</p>`)
+    if (dupYears.length) parts.push(`<p class="dup">同趣旨で再出題: ${xesc(dupYears.join(' / '))}</p>`)
+    parts.push('</div><hr/>')
+  }
+  return xhtmlDoc(`${ch.n}. ${ch.label}`, parts.join('\n'))
+}
+
+function renderEpub(model, outDir) {
+  const t = model.theme
+  const uuid = `urn:uuid:${randomUUID()}`
+  const work = join(outDir, '_epub')
+  rmSync(work, { recursive: true, force: true })
+  mkdirSync(join(work, 'META-INF'), { recursive: true })
+  mkdirSync(join(work, 'OEBPS'), { recursive: true })
+
+  const W = (rel, data) => writeFileSync(join(work, rel), data, 'utf8')
+
+  // 固定ファイル
+  W('mimetype', 'application/epub+zip')
+  W('META-INF/container.xml',
+    `<?xml version="1.0" encoding="utf-8"?>
+<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">
+<rootfiles><rootfile full-path="OEBPS/content.opf" media-type="application/oebps-package+xml"/></rootfiles>
+</container>`)
+  W('OEBPS/style.css', EPUB_CSS)
+
+  // 前付け
+  const titlePage = xhtmlDoc(model.title,
+    `<div class="cover-title"><h1>${xesc(model.title)}</h1>
+<p class="sub">― ${xesc(model.subtitle)} ―</p>
+<p class="author">${xesc(AUTHOR)}</p></div>`)
+  const creditPage = xhtmlDoc('出典・免責',
+    `<div class="front"><h1>出典・免責</h1>
+<p class="credit"><strong>出典</strong><br/>${xesc(CREDIT_BODY)}</p>
+<p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
+<p class="credit"><strong>著者</strong>　${xesc(AUTHOR)}<br/>
+<strong>発行</strong>　${xesc(PUBLISHER)}</p></div>`)
+  const introPage = xhtmlDoc('本書の使い方',
+    `<div class="front"><h1>本書の使い方</h1>
+<p>本書は ${xesc(t.examLabel)}「${xesc(t.label)}」の択一過去問（H26〜R07）を、<strong>年度別ではなく論点別</strong>に解体・再構成した暗記特化教材です。</p>
+<p>同じ論点の問題を年度をまたいで連続演習することで「どこが繰り返し問われるか」が体で分かります。各論点の冒頭には、過去問の正答選択肢から抽出した<strong>「論点まとめ（覚える正しい知識）」</strong>を配置しました。生の年度別過去問では得られない、横断・体系化された一冊です。</p>
+<p>図版を要する設問は本書では割愛し、文章で完結する設問のみを収録しています。</p></div>`)
+  W('OEBPS/p-title.xhtml', titlePage)
+  W('OEBPS/p-credit.xhtml', creditPage)
+  W('OEBPS/p-intro.xhtml', introPage)
+
+  // 各章
+  for (const ch of model.chapters) W(`OEBPS/chap-${String(ch.n).padStart(2, '0')}.xhtml`, chapterXhtml(model, ch))
+
+  // spine 構成
+  const front = [
+    { id: 'p-title', href: 'p-title.xhtml', label: '扉' },
+    { id: 'p-credit', href: 'p-credit.xhtml', label: '出典・免責' },
+    { id: 'p-intro', href: 'p-intro.xhtml', label: '本書の使い方' },
+  ]
+  const chaps = model.chapters.map((ch) => ({
+    id: `chap-${String(ch.n).padStart(2, '0')}`,
+    href: `chap-${String(ch.n).padStart(2, '0')}.xhtml`,
+    label: `${ch.n}. ${ch.label}`,
+  }))
+  const all = [...front, ...chaps]
+
+  // nav.xhtml（EPUB3）
+  const navList = all.map((p) => `<li><a href="${p.href}">${xesc(p.label)}</a></li>`).join('\n')
+  W('OEBPS/nav.xhtml', xhtmlDoc('目次',
+    `<nav epub:type="toc" xmlns:epub="http://www.idpf.org/2007/ops" id="toc"><h1>目次</h1><ol>${navList}</ol></nav>`))
+
+  // toc.ncx（EPUB2 互換・Kindle 安定化）
+  const navPoints = all.map((p, i) =>
+    `<navPoint id="np-${i}" playOrder="${i + 1}"><navLabel><text>${xesc(p.label)}</text></navLabel><content src="${p.href}"/></navPoint>`).join('\n')
+  W('OEBPS/toc.ncx',
+    `<?xml version="1.0" encoding="utf-8"?>
+<ncx xmlns="http://www.daisy.org/z3986/2005/ncx/" version="2005-1">
+<head><meta name="dtb:uid" content="${uuid}"/></head>
+<docTitle><text>${xesc(model.title)} ― ${xesc(model.subtitle)}</text></docTitle>
+<navMap>${navPoints}</navMap></ncx>`)
+
+  // content.opf
+  const manifestItems = [
+    '<item id="nav" href="nav.xhtml" media-type="application/xhtml+xml" properties="nav"/>',
+    '<item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>',
+    '<item id="css" href="style.css" media-type="text/css"/>',
+    ...all.map((p) => `<item id="${p.id}" href="${p.href}" media-type="application/xhtml+xml"/>`),
+  ].join('\n')
+  const spineItems = all.map((p) => `<itemref idref="${p.id}"/>`).join('\n')
+  const today = new Date().toISOString().slice(0, 10)
+  W('OEBPS/content.opf',
+    `<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://www.idpf.org/2007/opf" version="3.0" unique-identifier="bookid" xml:lang="ja">
+<metadata xmlns:dc="http://purl.org/dc/elements/1.1/">
+<dc:identifier id="bookid">${uuid}</dc:identifier>
+<dc:title>${xesc(model.title)} ― ${xesc(model.subtitle)}</dc:title>
+<dc:creator>${xesc(AUTHOR)}</dc:creator>
+<dc:publisher>${xesc(PUBLISHER)}</dc:publisher>
+<dc:language>ja</dc:language>
+<dc:date>${today}</dc:date>
+<dc:description>${xesc(t.examLabel)}「${xesc(t.label)}」の択一過去問（H26〜R07）を論点別に再構成した暗記特化教材。</dc:description>
+<dc:rights>${xesc(CREDIT_BODY)}</dc:rights>
+<meta property="dcterms:modified">${today}T00:00:00Z</meta>
+</metadata>
+<manifest>${manifestItems}</manifest>
+<spine toc="ncx">${spineItems}</spine>
+</package>`)
+
+  // zip（mimetype を無圧縮で先頭に）
+  const epubPath = join(outDir, `${t.key}.epub`)
+  rmSync(epubPath, { force: true })
+  execFileSync('zip', ['-X', '-0', epubPath, 'mimetype'], { cwd: work, stdio: 'pipe' })
+  execFileSync('zip', ['-rgq', epubPath, 'META-INF', 'OEBPS', '-x', 'mimetype'], { cwd: work, stdio: 'pipe' })
+  rmSync(work, { recursive: true, force: true })
+  return epubPath
+}
+
+// =====================================================================
 async function main() {
   const args = parseArgs(process.argv.slice(2))
   const theme = THEMES[args.theme]
@@ -284,19 +452,27 @@ async function main() {
   const outDir = resolve(REPO, args.outDir || `.tmp/takuitsu-${theme.key}`)
   mkdirSync(outDir, { recursive: true })
 
-  const md = buildMarkdown(theme, questions)
-  // frontmatter を除いた本文を HTML 化
-  const mdBody = md.replace(/^---[\s\S]*?---\n/, '')
-  const title = `${theme.examLabel} 択一・論点別トレーニング ― ${theme.label}`
-  const html = toHtml(mdBody, title)
+  const model = buildModel(theme, questions)
+  const title = `${model.title} ― ${model.subtitle}`
 
-  writeFileSync(join(outDir, 'article.md'), md, 'utf8')
-  writeFileSync(join(outDir, 'print.html'), html, 'utf8')
+  const outs = []
+  if (args.format === 'md' || args.format === 'both') {
+    const md = renderMarkdown(model)
+    writeFileSync(join(outDir, 'article.md'), md, 'utf8')
+    writeFileSync(join(outDir, 'print.html'), renderPrintHtml(md, title), 'utf8')
+    outs.push('article.md', 'print.html')
+  }
+  if (args.format === 'epub' || args.format === 'both') {
+    const epub = renderEpub(model, outDir)
+    outs.push(epub.split('/').pop())
+  }
 
+  const s = model.stats
   console.log(`テーマ: ${theme.label}`)
-  console.log(`抽出: ${questions.length} 問`)
-  console.log(`出力: ${join(outDir, 'article.md')}`)
-  console.log(`     ${join(outDir, 'print.html')}`)
+  console.log(`抽出 ${s.extracted} 問 → 図版依存 ${s.figureSkipped} 問除外 / 同趣旨 ${s.dupCompressed} 問圧縮 → 収録 ${s.rendered} 問`)
+  console.log(`章: ${model.chapters.length} 論点`)
+  console.log(`出力先: ${outDir}`)
+  for (const o of outs) console.log(`  - ${o}`)
 }
 
 main().catch((e) => {
