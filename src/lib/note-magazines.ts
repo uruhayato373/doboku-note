@@ -152,8 +152,8 @@ const MAGAZINES_RAW = {
 
   'essay-river-municipality-magazine': {
     id: 'essay-river-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m32a8a5b3b473',
     title: '総監記述式 模範論文｜自治体 河川担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 の 5 年分セット。河川砂防・海岸海洋分野合格者視点、堤防維持管理 × 河川改修の A案/B案 2 バージョン。5 管理間トレードオフが主軸。',
