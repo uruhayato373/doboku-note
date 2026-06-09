@@ -82,7 +82,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/agents-registry.md](docs/reference/agents-registry.md) | エージェント詳細表＋スキル→エージェント呼出マップ＋Generator/Evaluator 分離原則 | サブエージェント呼出時の担当範囲確認・連携設計時 |
 | [docs/reference/skills-design-guide.md](docs/reference/skills-design-guide.md) | Skills 設計チェックリスト（frontmatter 必須要件・description 形式・progressive disclosure・`.claude/pdfs/guide.pdf` 準拠） | 新規スキル・エージェント作成時 / 既存 description レビュー時 |
 | [docs/reference/workflows.md](docs/reference/workflows.md) | 週次運用・PDF→MDX 変換フロー・キーワードページ作成フロー・ブランチ詳細・Phase 別ロードマップ | 週次 PDCA・変換作業・ブランチ運用詳細確認時 |
-| [docs/reference/information-architecture.md](docs/reference/information-architecture.md) | 情報の 4 ゾーンモデル（docs / reference / state / skills）・判断フロー・task-queue 仕様。GitHub Issue 廃止の真実源 | 新しい情報の置き場に迷うとき・CI/スキル/ドキュメント設計時 |
+| [docs/reference/information-architecture.md](docs/reference/information-architecture.md) | 情報の 4 ゾーンモデル（docs / reference / state / skills）・判断フロー。GitHub Issue 廃止の真実源 | 新しい情報の置き場に迷うとき・CI/スキル/ドキュメント設計時 |
 | [docs/reference/measurement-incidents.md](docs/reference/measurement-incidents.md) | 計測データの欠損・誤報・不整合 + 外部検証アクセスの罠（2026-W16 BAILOUT、2026-04-25 Cloudflare Bot 等）+ **計測は CI/CD 供給が正・ローカル creds 不要の恒久ルール（2026-06-05）** | 計測スキル/エージェント設計時・外部 Validator/ボットを使う作業時・**計測やAPIをローカルで叩こうとするとき（会社 PC はプロキシで外部 API 遮断）** |
 | [docs/reference/data-storage-decision.md](docs/reference/data-storage-decision.md) | データストレージ判断 ADR（D1 不採用・frontmatter + build-time JSON 継続・再検討トリガー条件） | DB 導入を検討するとき／iOS アプリ着手時／コンテンツ規模が大きく変わるとき |
 | [docs/reference/book-list.md](docs/reference/book-list.md) | Amazonアソシエイト紹介書籍リスト（資格別×用途別の手動キュレーション台帳、PA-API 移行ロードマップ） | 書籍紹介を追加・更新するとき／PA-API 実装時の seed として |
@@ -157,7 +157,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 
 ### 8. 書く前に読む
 
-- **情報の置き場（4 ゾーンモデル）**: A=`docs/`（戦略・設計・進捗・週次 PDCA・引き継ぎ）/ B=`docs/reference/`（運用手順・ポリシー）/ C=`.claude/state/`・`.claude/config/`（機械データ・`task-queue.json`、`.claude/state/*.md` 新規作成禁止）/ D=`.claude/skills/`・`.claude/agents/`（実行能力）。**GitHub Issue は使わない**（廃止、タスクは `task-queue.json` に集約）。真実源・判断フローは [information-architecture.md](docs/reference/information-architecture.md)
+- **情報の置き場（4 ゾーンモデル）**: A=`docs/`（戦略・設計・進捗・週次 PDCA・引き継ぎ）/ B=`docs/reference/`（運用手順・ポリシー）/ C=`.claude/state/`・`.claude/config/`（機械データ、`.claude/state/*.md` 新規作成禁止）/ D=`.claude/skills/`・`.claude/agents/`（実行能力）。**タスク管理は `docs/project/todo/`**（annual / monthly / weekly の3層）。**GitHub Issue は使わない**。真実源・判断フローは [information-architecture.md](docs/reference/information-architecture.md)
 - **スキル/エージェント更新ルール**: `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で `docs/reference/skills-guide.md`（一覧）と `docs/reference/skills-registry.md`（退役ログ）または `docs/reference/agents-registry.md` を必ず更新する
 - MDX を追加・編集する前に `docs/reference/content-authoring.md` を Read する
 - **クラウドルーティン作成ルール**: `/schedule`（RemoteTrigger）で定期エージェントを新規作成する前に、必ず `/routines`（または `RemoteTrigger {action:"list"}`）で既存を確認し、同一成果物を生成する重複・cron 衝突がないか検証する（2026-05-30 weekly-review 重複事故の再発防止）

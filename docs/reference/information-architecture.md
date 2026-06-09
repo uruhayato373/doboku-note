@@ -21,7 +21,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 ## 判断フロー
 
-1. open/close したい実行タスク → `.claude/state/task-queue.json` エントリ
+1. 実行タスク・計画 → `docs/project/todo/`（annual / monthly / weekly）
 2. CI・エージェントが programmatic に読む → Zone C（JSON）
 3. 2 ヶ月後も参照価値あり → Why なら Zone A（`docs/project/`）、手順なら Zone B（`docs/reference/`）
 4. Claude Code の能力定義 → Zone D
@@ -39,31 +39,17 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 自動チェック: `.claude/hooks/check-doc-sync.sh`（settings.json の PreToolUse に登録済み）
 
-## task-queue.json 仕様
+## todo/ ディレクトリ仕様
 
-すべての「やるべきこと」の単一正源。GitHub Issue・散文 TODO リストは使わない。
+すべての計画・タスクの単一正源。GitHub Issue・task-queue.json は使わない。
 
-ファイルパス: `.claude/state/task-queue.json`
+ディレクトリ: `docs/project/todo/`
 
-```json
-{
-  "meta": { "schema": 1, "updated_at": "ISO8601" },
-  "tasks": [{
-    "id": "T-001",
-    "title": "...",
-    "status": "todo | in_progress | blocked | done",
-    "category": "content | sns | seo | infra | quality | meta",
-    "priority": "high | mid | low",
-    "source": "manual | ci:<workflow> | skill:<name>",
-    "parent": "T-000",
-    "refs": ["docs/project/01_戦略/02_設計思想.md"],
-    "dedupe_key": "ci:psi:lcp",
-    "created": "YYYY-MM-DD",
-    "updated": "YYYY-MM-DD",
-    "notes": "..."
-  }]
-}
-```
+| ファイル | 粒度 | 更新タイミング |
+|---|---|---|
+| `annual.md` | 年（試験カレンダー × 商品投入計画） | 戦略転換時 |
+| `monthly.md` | 月（今月のフォーカス + 締切） | 月初 |
+| `weekly.md` | 週（今週やること 3〜5件） | 週初（Claude と協働） |
 
 ## .claude/ の残留ファイル
 
@@ -91,4 +77,6 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 - `.claude/content-principles.md` — 移行先は `docs/reference/content-principles.md`
 - `.claude/design-system/` — 移行先は `docs/design-system/`
 - `.claude/reference/docs-issue-separation.md` — 削除済み。本ドキュメントに統合
-- GitHub Issue — 廃止。タスクは `task-queue.json` に集約
+- GitHub Issue — 廃止。タスクは `docs/project/todo/` に集約
+- `task-queue.json` — 廃止（2026-06-10）。`docs/project/todo/` に移行
+- `docs/project/TODO.md` — 廃止（2026-06-10）。自動生成ビューは不要と判断
