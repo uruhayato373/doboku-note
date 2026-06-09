@@ -21,7 +21,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 ## 判断フロー
 
-1. 実行タスク・計画 → `docs/project/todo/`（annual / monthly / weekly）
+1. 実行タスク・計画 → `docs/todo/`（annual / monthly / weekly）
 2. CI・エージェントが programmatic に読む → Zone C（JSON）
 3. 2 ヶ月後も参照価値あり → Why なら Zone A（`docs/project/`）、手順なら Zone B（`docs/reference/`）
 4. Claude Code の能力定義 → Zone D
@@ -43,7 +43,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 
 すべての計画・タスクの単一正源。GitHub Issue・task-queue.json は使わない。
 
-ディレクトリ: `docs/project/todo/`
+ディレクトリ: `docs/todo/`
 
 | ファイル | 粒度 | 更新タイミング |
 |---|---|---|
@@ -77,6 +77,6 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 - `.claude/content-principles.md` — 移行先は `docs/reference/content-principles.md`
 - `.claude/design-system/` — 移行先は `docs/design-system/`
 - `.claude/reference/docs-issue-separation.md` — 削除済み。本ドキュメントに統合
-- GitHub Issue — 廃止。タスクは `docs/project/todo/` に集約
-- `task-queue.json` — 廃止（2026-06-10）。`docs/project/todo/` に移行
+- GitHub Issue — 廃止。タスクは `docs/todo/` に集約
+- `task-queue.json` — 廃止（2026-06-10）。`docs/todo/` に移行
 - `docs/project/TODO.md` — 廃止（2026-06-10）。自動生成ビューは不要と判断

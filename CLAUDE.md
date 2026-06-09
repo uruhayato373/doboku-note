@@ -158,7 +158,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 
 ### 8. 書く前に読む
 
-- **情報の置き場（4 ゾーンモデル）**: A=`docs/`（戦略・設計・進捗・週次 PDCA・引き継ぎ）/ B=`docs/reference/`（運用手順・ポリシー）/ C=`.claude/state/`・`.claude/config/`（機械データ、`.claude/state/*.md` 新規作成禁止）/ D=`.claude/skills/`・`.claude/agents/`（実行能力）。**タスク管理は `docs/project/todo/`**（annual / monthly / weekly の3層）。**GitHub Issue は使わない**。真実源・判断フローは [information-architecture.md](docs/reference/information-architecture.md)
+- **情報の置き場（4 ゾーンモデル）**: A=`docs/`（戦略・設計・進捗・週次 PDCA・引き継ぎ）/ B=`docs/reference/`（運用手順・ポリシー）/ C=`.claude/state/`・`.claude/config/`（機械データ、`.claude/state/*.md` 新規作成禁止）/ D=`.claude/skills/`・`.claude/agents/`（実行能力）。**タスク管理は `docs/todo/`**（annual / monthly / weekly の3層）。**GitHub Issue は使わない**。真実源・判断フローは [information-architecture.md](docs/reference/information-architecture.md)
 - **スキル/エージェント更新ルール**: `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で `docs/reference/skills-guide.md`（一覧）と `docs/reference/skills-registry.md`（退役ログ）または `docs/reference/agents-registry.md` を必ず更新する
 - MDX を追加・編集する前に `docs/reference/content-authoring.md` を Read する
 - **クラウドルーティン作成ルール**: `/schedule`（RemoteTrigger）で定期エージェントを新規作成する前に、必ず `/routines`（または `RemoteTrigger {action:"list"}`）で既存を確認し、同一成果物を生成する重複・cron 衝突がないか検証する（2026-05-30 weekly-review 重複事故の再発防止）
