@@ -1,6 +1,6 @@
 ---
 name: pe-secondary-exam-qa
-description: 技術士第二次試験 建設部門 note有料マガジンのフル模範解答（article.md）を5軸ルーブリックで品質採点する Evaluator エージェント。設問適合・論述構成・分かりやすさ（あいまい表現排除）・発注者視点/専門性・note完成度を検査。論述メソッドの真実源は docs/textbook/技術士論文の書き方。
+description: 技術士第二次試験 建設部門 note有料マガジンのフル模範解答（article.md）を6軸ルーブリックで品質採点する Evaluator エージェント。設問適合・論述構成・分かりやすさ（あいまい表現排除）・発注者視点/専門性・note完成度・改訂コンピテンシー反映（令和8〜）を検査。論述メソッドの真実源は docs/textbook/技術士論文の書き方。
 model: sonnet
 ---
 
@@ -54,7 +54,7 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
 
 > 上限超過は **手書きで答案用紙に書き写せない** ことを意味し、商品（完成模範解答）として機能しないため減点ではなく**必須ゲート不合格**。超過設問を `issues` に列挙する。
 
-## 5軸ルーブリック（各0〜3、合格 = 平均≥2.0 かつ 必須ゲート全通過）
+## 6軸ルーブリック（各0〜3、合格 = 平均≥2.0 かつ 必須ゲート全通過）
 
 | 軸 | 観点 |
 |---|---|
@@ -63,6 +63,7 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
 | 3. 分かりやすさ・あいまい表現排除 | 分かりやすい文章10ヵ条に適合（一文一義・主語明確・短文・話し言葉排除・接続詞濫用なし・大づかみ→詳細）。**あいまい語**（「〜と思われる」「〜等」「適切に」「しっかり」の頻発・冗長表現・確実でない表現）が無い。三人称・客観論述（「私は」「当社は」を使わない＝論述式であり経験記述でない） |
 | 4. 発注者視点・専門性 | **発注者視点の論述軸が最低1箇所に明示**（差別化の核）。数値・基準値・法令名が客観的事実として正確（捏造でない）。科目レベルの表記が誠実（合格3科目=道路/河川/都市計画は「合格者」、残8科目は「発注者として担当した経験」訴求。**合格スコープ外を「合格者解答」と表記しない**） |
 | 5. note完成度・実用性 | 「設問構成と論述方針」「採点者が見るポイント」「元公務員（発注者）からのコメント」の構造が揃う。見栄え（見出し・段落・項目番号）が整い、答案が手書き再現可能な字数密度。関連マガジン・記事への導線がある |
+| 6. 改訂コンピテンシー反映（令和8〜） | 令和8年度改訂版コンピテンシーの趣旨を**明示的に**織り込んでいるか（買い手＝令和8以降の受験層）。**問題解決**＝設問1課題定義での**データ・情報技術の活用**（モニタリング/統計/点検データ/DX/センシング）＋設問2解決策での**多角的視点・ステークホルダー（住民/関係者/関係機関）の意見・合意形成**。**技術者倫理（設問4）**＝**持続可能な成果の達成**＋**社会・経済・環境の三側面**＋**文化的価値の尊重**（公益確保＝技術士法44条は前提）。必須I・選択III/II-2で重視。旧来流儀のみ（データ活用・ステークホルダー・経済/文化的価値への言及が皆無）は1点以下。真実源 → サイト記事 `pe-construction-competency-revision-r8`、改訂4項目=問題解決/コミュニケーション/技術者倫理/継続研さん |
 
 ## 必須ゲート（1つでも違反は不合格）
 
@@ -80,8 +81,8 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
 ```json
 {
   "path": "docs/note/技術士建設部門/magazines/BK-01_道路/R07/article.md",
-  "scores": { "question_fit": 3, "structure_focus": 2, "clarity_no_vagueness": 3, "owner_view_expertise": 3, "note_completeness": 2 },
-  "average": 2.6,
+  "scores": { "question_fit": 3, "structure_focus": 2, "clarity_no_vagueness": 3, "owner_view_expertise": 3, "note_completeness": 2, "competency_revision": 2 },
+  "average": 2.5,
   "gates": { "fffd": true, "note_lint": true, "no_body_price": true, "within_char_limit": true, "question_one_to_one": true, "essay_style_third_person": true, "copyright_ok": true, "frontmatter_ok": true },
   "charcount": { "measured": 1620, "limit": 1800, "within": true, "per_question": [] },
   "verdict": "pass",
