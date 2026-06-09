@@ -54,7 +54,9 @@ function measureArticle(path) {
     if (!SHISAKU_HEAD2.test('### ' + head)) continue;
     const len = cjkLen(b);
     if (len < 120) continue;
-    res.push({ head: head.slice(0, 36), len, over: len > LIMIT });
+    // 散文性: 答案ブロック内の箇条書き（- **効果**: / - **障害**: 等）は禁止
+    const bulletLines = (b.match(/^\s*-\s+\*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|克服|前提|背景)/gm) || []).length;
+    res.push({ head: head.slice(0, 36), len, over: len > LIMIT, bullets: bulletLines });
   }
   return res;
 }
@@ -78,15 +80,18 @@ if (!target) {
 // 個別
 const path = existsSync(target) ? target : join(ROOT, target);
 const arts = articlesIn(path);
-let over = 0, blk = 0;
+let over = 0, blk = 0, proseNg = 0;
 for (const a of arts) {
   const res = measureArticle(a);
-  const ov = res.filter((r) => r.over);
-  blk += res.length; over += ov.length;
-  if (DETAIL || ov.length) {
+  const ng = res.filter((r) => r.over || r.bullets > 0);
+  blk += res.length; over += res.filter((r) => r.over).length; proseNg += res.filter((r) => r.bullets > 0).length;
+  if (DETAIL || ng.length) {
     console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}`);
-    for (const r of (DETAIL ? res : ov)) console.log(`  ${r.over ? '✗' : '✓'} ${String(r.len).padStart(4)}字  ${r.head}`);
+    for (const r of (DETAIL ? res : ng)) {
+      const mark = r.over ? '✗字' : r.bullets > 0 ? '✗散' : '✓ ';
+      console.log(`  ${mark} ${String(r.len).padStart(4)}字${r.bullets ? ` 箇条${r.bullets}` : ''}  ${r.head}`);
+    }
   }
 }
-console.log(`\n施策ブロック ${blk} / 600字超過 ${over}`);
-if (STRICT && over > 0) process.exit(1);
+console.log(`\n施策ブロック ${blk} / 600字超過 ${over} / 箇条書き混入 ${proseNg}`);
+if (STRICT && (over > 0 || proseNg > 0)) process.exit(1);
