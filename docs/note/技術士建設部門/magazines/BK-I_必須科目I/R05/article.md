@@ -7,7 +7,7 @@ exam_type: I
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜必須科目 I R05 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
@@ -45,7 +45,7 @@ utmCampaign: pe-construction-secondary
 
 必須科目Iの元公務員（発注者）視点の過去5年分（R03〜R07）をセットにした**マガジン**もあわせてご覧ください。
 
-（※note公開後にURLを追加予定）
+https://note.com/dobokunote/m/m0f3bc3933454
 
 ---
 
@@ -320,4 +320,4 @@ AI 診断が高精度化するほど技術者の直接判断機会が失われ�
 
 - [技術士第二次試験 建設部門 令和5年度 必須科目 I 問題文（日本技術士会公式PDF）](https://www.engineer.or.jp/c_topics/009/attached/attach_9639_1.pdf)
 - [pe-construction/ R05 必須科目 I 問題ページ](https://doboku-note.com/docs/r05-required)
-- [BK-I マガジン：必須科目 I 模範解答集（R03〜R07）](https://note.com/)
+- [BK-I マガジン：必須科目 I 模範解答集（R03〜R07）](https://note.com/dobokunote/m/m0f3bc3933454)

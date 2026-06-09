@@ -7,7 +7,7 @@ exam_type: I
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜必須科目I R04 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
@@ -45,7 +45,7 @@ utmCampaign: pe-construction-secondary
 
 必須科目Iの元公務員（発注者）視点の過去5年分（R03〜R07）をセットにした**マガジン**もあわせてご覧ください。
 
-（※note公開後にURLを追加予定）
+https://note.com/dobokunote/m/m0f3bc3933454
 
 ---
 
