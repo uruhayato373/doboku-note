@@ -12,11 +12,15 @@ appealPoint: |
   「発注者視点の採点軸（安全・品質・コスト・環境の統合判断、住民対応、行政責任）」
   を補います。各年度に設問全文を再掲し、設問の問い分解 → 多面的な論点の絞り込み
   →「現状→課題→解決策→効果・リスク」の骨格で組み立てたフル模範解答を収録。
-  1年あたり約396円（5年分セット）。
-setPrice: 1980
-articlePrice: 500
-singleTotal: 2500
-discountPercent: 21
+  1年あたり約496円（5年分セット）。
+# 【2026-06-09 価格改訂】¥1,980統一を撤回し分量段階化（noteコンテンツ計画.md「価格」節）。
+# 必須科目Ⅰ = 全受験者必須・科目パック必須要素として ¥2,480。
+# 【ライブ注意】本マガジンは note 公開済（m0f3bc3933454）。¥1,980 → ¥2,480 への変更は
+# note マガジン管理画面で手動実施 → 完了後に SoT(src/lib/note-magazines.ts) を同期。
+setPrice: 2480
+articlePrice: 600
+singleTotal: 3000
+discountPercent: 17
 priceModel: set
 articleCount: 5
 noteMagazineUrl: "https://note.com/dobokunote/m/m0f3bc3933454"
@@ -32,8 +36,8 @@ articles:
   - slug: R07
     noteUrl: "https://note.com/dobokunote/n/nffe6938dc40c"
 
-# R8予想問題（2026-06-09 新設）。予想問題文のみ作成済み・解答は後日追加。過去問セット(¥1,980)とは別計上。
-# 公開時は単品¥500 で BK-I マガジンに追加（過去問＋予想の拡張）。
+# R8予想問題（2026-06-09 新設）。予想問題文のみ作成済み・解答は後日追加。過去問セット(¥2,480)に内包拡張。
+# 公開時は単品¥600 で BK-I マガジンに追加（過去問＋予想の拡張）。
 forecastArticles:
   - slug: R08-yosou-1
     theme: 担い手確保と建設DX・生産性革命

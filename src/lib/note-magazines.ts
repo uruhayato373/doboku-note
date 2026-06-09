@@ -510,8 +510,10 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
-  // 技術士 建設部門 2次（BK シリーズ）。公開準備中（published:false）。
-  // 公開時: note でマガジン公開 → noteUrl 埋め + published: true。CTA は pe-construction-r0X-required ページで発火。
+  // 技術士 建設部門 2次（BK シリーズ）必須科目I。公開済（LIVE / m0f3bc3933454）。
+  // 【価格改訂 2026-06-09・要手動対応】¥1,980→¥2,480 へ値上げ予定（分量段階化）。本エントリの price は
+  // note マガジン管理画面で ¥2,480 へ変更完了するまで ¥1,980 表示を維持（site が note より高く出さないため）。
+  // note 反映後に price を '¥2,480（5本セット）' へ更新し shortDescription の「約396円」も「約496円」へ同期。
   'pe-construction-required-magazine': {
     id: 'pe-construction-required-magazine',
     published: true,
@@ -527,20 +529,27 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
+  // 価格改訂 2026-06-09: ¥1,980統一を撤回し分量段階化（道路は35本特盛で¥3,980）。未公開のため初回公開時に本価格で反映。
   'pe-construction-road-magazine': {
     id: 'pe-construction-road-magazine',
     published: false,
     noteUrl: '',
     title: '技術士 建設部門 2次｜道路 選択科目 模範解答集（R03-R07）',
     description:
-      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1・II-2・III の全答案でフル解答した模範解答集（5年分 × 3答案 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイント・元公務員（発注者）からのコメントを収録。',
+      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1（4問個別）・II-2・III（III-1・III-2）の全設問でフル解答した模範解答集（5年分 × 7設問 ＝ 35記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイント・元公務員（発注者）からのコメントを収録。',
     shortTitle: '建設部門2次｜道路 模範解答集',
     shortDescription:
-      'R03〜R07 の II-1/II-2/III 全15記事。道路科目 合格者＋発注者視点でフル解答。',
+      'R03〜R07 の II-1/II-2/III 全35記事。道路科目 合格者＋発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
-    price: '¥1,980（15記事セット）',
+    price: '¥3,980（35記事セット）',
     badge: 'note 限定',
   },
+
+  // ----- 科目別 合格パック（必須Ⅰ＋選択1科目） -----
+  // 建設部門の自然なバンドル単位。総監の「全記事パック」型は科目排他のため不採用（道路受験者は
+  // トンネル/港湾の解答を使わない）。ローンチ ¥4,980（受験料¥20,500の約1/7・通信講座¥30,000〜の数分の1）。
+  // プリローンチ（Phase B-0=試験後）。note でパック作成後に published:true + noteUrl を埋め、科目ごとに横展開。
+  // 設計仕様: docs/note/技術士建設部門/noteコンテンツ計画.md「科目別 合格パック」節。
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
