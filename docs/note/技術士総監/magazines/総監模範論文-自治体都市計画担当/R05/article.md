@@ -45,7 +45,7 @@ cover:
 
 各記事を単品でそろえるよりお得なセット価格です。
 
-https://note.com/dobokunote/m/（※公開後に追加）
+https://note.com/dobokunote/m/mf8c77e995511
 
 ---
 
@@ -278,4 +278,4 @@ R5 の SWOT 分析は「組織として継続的にアウトプットを出す�
 
 テーマは毎年異なりますが、自治体 都市計画担当として書ける論点とトレードオフには共通パターンがあります。まとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-https://note.com/dobokunote/m/（※公開後に追加）
+https://note.com/dobokunote/m/mf8c77e995511

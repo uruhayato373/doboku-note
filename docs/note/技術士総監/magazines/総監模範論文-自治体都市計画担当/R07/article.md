@@ -43,7 +43,7 @@ cover:
 
 各記事を単品でそろえるよりお得なセット価格です。
 
-https://note.com/dobokunote/m/（※公開後に追加）
+https://note.com/dobokunote/m/mf8c77e995511
 
 ---
 
@@ -247,4 +247,4 @@ R7 の三層構造は「現在の限界 → 5 年以内の現実的施策 → �
 
 テーマは毎年異なりますが、自治体 都市計画担当として書ける論点とトレードオフには共通パターンがあります。まとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-https://note.com/dobokunote/m/（※公開後に追加）
+https://note.com/dobokunote/m/mf8c77e995511
