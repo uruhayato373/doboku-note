@@ -9,7 +9,7 @@ description: >
 ## 概要
 
 技術士第一次試験（R01〜R07 × 適性科目・基礎科目・専門科目（建設部門））の全21ページを
-3軸で監査する品質ゲートスキル。
+3軸で監査する品質ゲートスキル。監査後は発見した誤記を修正し、再監査するサイクルを繰り返す。
 
 ## 引数
 
@@ -49,12 +49,15 @@ description: >
 
 ### 軸2: 原典視覚突合（Visual Check）
 
-1. `{R##}-{科目}.pdf` を PyMuPDF で 200dpi PNG 化 → `.tmp/pe-audit/{year}/{sub}/` に一時保存
+1. `{R##}-{科目}.pdf` を PyMuPDF で **150dpi** PNG 化 → `.tmp/pe-audit/{year}/{sub}/` に一時保存
+   - **year ディレクトリ名は小文字**: `r01`, `r02`, … `r07`（R01 等の大文字は不可）
+   - `.tmp/` は `.local/r2/` と同じ作業ルートからの相対パス（`C:\Users\m004195\doboku-note\.tmp\` 相当）
 2. 各ページ PNG を Read で読み込み、対応する MDX 設問と突合:
    - 問題番号（Ⅱ-1, Ⅰ-1-1, Ⅲ-1 等）の一致
    - 問題文の先頭30〜50文字の一致（OCR誤字・捏造検出）
    - 選択肢数（適性・基礎=5択 / 専門=5択）の一致
    - 問いの極性（「最も適切」/「最も不適切」/「誤っているもの」等）の一致
+   - `<ArticleImage>` の有無（PDF に図があれば MDX にも必要）
 3. 不一致・疑義を `visual_issues` に記録
 
 ### 軸3: 構造検査（Structure Check）
@@ -66,6 +69,26 @@ MDX 本文を静的解析:
 - frontmatter 必須フィールド（title/category/group/published/source_pdf）の存在
 - 設問見出し（`## Ⅱ-`、`## Ⅰ-`、`## Ⅲ-`）の連番欠落確認
 
+## 監査後の修正フロー
+
+監査で発見した問題は以下のサイクルで修正する:
+
+```
+Phase 1: 監査実行    — /audit-pe-first-stage で全ページを走査
+Phase 2: 分類        — answer_fail（正答誤り）と visual_fail（テキスト誤記）を分離
+Phase 3: 修正実行    — 以下のルールで Workflow 並列修正
+Phase 4: コミット    — ファイルごとに個別コミット + refresh-indexes
+Phase 5: 再監査      — 修正箇所のみ /audit-pe-first-stage --year X で確認
+```
+
+### 修正時の重要ルール
+
+1. **writeMdxFile 必須**: MDX の書き込みは必ず `import { writeMdxFile } from './.claude/scripts/lib/mdx-io.mjs'` 経由。Python `write_text()` は CRLF を混入するので禁止
+2. **LF 正規化**: `readFileSync` 後に `content.replace(/\r\n/g, '\n')` を適用
+3. **課題上限**: 並列 fix エージェントに渡す課題は **1エージェントあたり最大5件**。超えると一部がスキップされる
+4. **PNG 参照**: fix エージェントは `.tmp/pe-audit/{year}/{sub}/pNNN.png` を Read ツールで参照してから修正すること（先入観で修正しない）
+5. **git commit**: `git add` は修正したファイルのみ明示指定（`git add -A` 禁止）
+
 ## 記録フォーマット
 
 ```
@@ -74,21 +97,41 @@ MDX 本文を静的解析:
   {year}-{sub}.json     # ページ単位の詳細記録（例: r07-aptitude.json）
 ```
 
-### summary.json スキーマ
+### summary.json スキーマ (v2.0)
 
 ```json
 {
-  "schema_version": "1.0",
+  "schema_version": "2.0",
   "last_run": "ISO8601",
   "scope": { "years": ["R01",...], "subs": ["aptitude",...] },
   "totals": {
     "pages": 21,
-    "answer_ok": 0, "answer_fail": 0,
-    "visual_ok": 0, "visual_issues": 0,
-    "structure_ok": 0, "structure_fail": 0
+    "answer_pass": 0, "answer_fail": 0,
+    "visual_ok": 0, "visual_issues": 0, "visual_not_run": 0,
+    "visual_pass": 0, "visual_partial": 0, "visual_fail": 0,
+    "structure_pass": 0, "structure_fail": 0
+  },
+  "answer_fail_detail": [
+    { "slug": "r07-aptitude", "question": "Ⅱ-10", "mdx": "2", "official": "3", "note": "" }
+  ],
+  "fix_log": {
+    "answer_fixes_applied": [
+      { "slug": "r07-aptitude", "question": "Ⅱ-10", "old": "2", "new": "3", "commit": "abc1234" }
+    ],
+    "visual_fixes_applied": [
+      { "slug": "r07-aptitude", "count": 5, "commit": "abc5678" }
+    ],
+    "note": "修正サマリのフリーテキスト"
   },
   "pages": {
-    "r07-aptitude": { "status": "pass|fail|partial", "audited_at": "ISO8601" }
+    "r07-aptitude": {
+      "status": "pass|fail|partial",
+      "answer_check": "pass|fail",
+      "visual_check": "pass|fail|partial|not_run",
+      "structure_check": "pass|fail",
+      "audited_at": "ISO8601",
+      "notes": ""
+    }
   }
 }
 ```
@@ -104,14 +147,14 @@ MDX 本文を静的解析:
     "status": "pass|fail",
     "verified_count": 15,
     "mismatches": [
-      { "question": "Ⅱ-5", "mdx_answer": 3, "official_answer": 1, "note": "" }
+      { "question": "Ⅱ-5", "mdx_answer": "3", "official_answer": "1", "note": "" }
     ]
   },
   "visual_check": {
-    "status": "pass|fail|partial",
+    "status": "pass|fail|partial|not_run",
     "checked_count": 15,
     "issues": [
-      { "question": "Ⅱ-3", "type": "text_mismatch|missing_question|polarity_error", "detail": "" }
+      { "question": "Ⅱ-3", "type": "text_mismatch|missing_question|polarity_error|missing_figure", "detail": "" }
     ]
   },
   "structure_check": {
@@ -142,11 +185,18 @@ Phase C: 記録書き出し — JSON 記録 + docs/handoffs/ に Markdown レポ
 /audit-pe-first-stage --year R07 --sub aptitude  # 1ページのみ
 ```
 
+## 既知の注意事項
+
+- **r06-basic の PNG**: 過去セッションで `.tmp/pe-audit/r06/basic/` へのレンダリングが行われなかった場合は、監査前に PyMuPDF で再生成すること
+- **○×組合せ表**: 適性科目の組合せ表（ア/イ/ウ/エ × 選択肢1〜5）はテキスト抽出が困難。必ず PNG 視覚確認を行う
+- **極性（最も適切/不適切）**: 問題文の極性ミスは解説ラベル（✅/❌）の整合性チェックも必須
+
 ## 連携
 
-- PDF 画像化: PyMuPDF（`python -X utf8 -c "import fitz..."` via Bash）
+- PDF 画像化: PyMuPDF（`python -X utf8 -c "import fitz..."` via Bash）、150dpi
 - 一時画像: `.tmp/pe-audit/{year}/{sub}/pNNN.png`（コミット不要）
 - 記録コミット: `git add .claude/state/pe-first-stage-audit/ && git commit`
+- インデックス: MDX 修正後は必ず `npm run refresh-indexes` を実行してからコミット
 
 ## 参照
 
