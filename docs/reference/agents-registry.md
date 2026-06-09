@@ -31,6 +31,7 @@ title: サブエージェント詳細レジストリ
 | `/civil-keiken-magazine`                  | `civil-keiken-essay-writer`, `civil-keiken-essay-qa`            | 施工経験記述マガジン模範答案の生成 → 5軸採点ループ |
 | note カバーロールアウト（親が起動）              | `note-cover-writer`                                              | 記事の G2 `cover:` ブロック執筆 → `add-note-cover.mjs` → 再生成 |
 | X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
+| `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
 | `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
@@ -61,6 +62,7 @@ title: サブエージェント詳細レジストリ
 | `civil-exampoint-restorer`     | 1級土木 primary-* (一次過去問) の壊れた `<ExamPoint>` を体言止め学習ポイントに再生成（migrate-civil-answer-style.mjs 句読点分割バグの修復） | Generator    | sonnet  | civil-textbook-cycle 連携、lint 9-11 検証                                  | ✅ 運用中（2026-05-16 起動、AdSense 再申請対応）        |
 | `civil-secondary-exam-writer`  | 1級土木 secondary-r03〜r07 (二次過去問) の解答・ポイント・各設問解説を `<details>` で補完（公式解答の逐語転載禁止、著者独自表現で再構成）               | Generator    | sonnet  | civil-textbook-cycle 連携、lint 9-12 検証                                  | ✅ 運用中（2026-05-16 起動、AdSense 再申請対応）        |
 | `civil-keiken-essay-writer`    | 1級・2級土木 施工経験記述 note有料マガジンのフル模範答案 article.md を生成（過去問年度別/テーマ別完成答案集/予想問題集、規格値プレースホルダ・工種重複回避・改変前提テンプレ。**返却前 `note-lint` ゲート必須**）         | Generator    | sonnet  | civil-keiken-magazine 連携、civil-keiken-essay-qa と対                    | ✅ 運用中（2026-05-29 起動）                      |
+| `pe-secondary-exam-writer`     | 技術士第二次試験 建設部門 note有料マガジン用 模範解答 article.md を生成（必須科目I・選択科目II-1/II-2/III の全科目種別・全11専門分野。元公務員発注者視点を全科目に注入。合格3科目=道路/河川/都市計画は合格者訴求、残8科目は発注者監修訴求）  | Generator    | sonnet  | `docs/note/技術士建設部門/noteコンテンツ計画.md` 参照、将来 `pe-secondary-exam-qa` と対 | ✅ 運用中（2026-06-08 起動）                      |
 | `note-link-injector`           | note ドラフトに doboku-note キーワードページへのインラインリンクを全 occurrence 注入（synonym 判断を含む semantic マッチ。**返却前 `note-lint` ゲート必須**）                | Generator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/pe-chapters.json` 参照         | ✅ 運用中（2026-04-29 起動）                      |
 | `note-figure-auditor`          | note ドラフトの図版を `note-svg-policy.md` 準拠で 4 軸監査（キャンバス・フォント・ブランド・密度）                                     | Evaluator    | sonnet  | note-prepublish-review 連携                                             | ✅ 運用中（2026-04-29 起動）                      |
 | `note-fact-checker`            | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）+ **D（白書ローカル一次照合）** でファクトチェック                          | Evaluator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照、**`.claude/scripts/whitepaper-grep-check.mjs`（スコープ D）** | ✅ 運用中（2026-04-29 起動、2026-05-29 スコープ D 追加） |
@@ -81,6 +83,7 @@ title: サブエージェント詳細レジストリ
 | `note-cover-writer`            | note 記事の G2 カバー frontmatter（`cover:` ブロック）を1記事ずつ執筆。タイトルを leadIn/hi/hiSuffix/banner/chips×3 に分解。色は書かず文字列のみ（試験色は dir から自動）。注入は `add-note-cover.mjs`（CRLF安全）、再生成は `generate-note-covers.mjs` | Generator    | sonnet  | `docs/design-system/note-cover.md` + `note-cover-tokens.json` 参照、`ogp-create` スキルと対 | ✅ 運用中（2026-05-29 起動） |
 | `x-post-writer`                | X(旧Twitter)投稿 `tweets.md` を多資格（総監/1級土木/2級土木）横断で執筆。過去問/キーワードからネタ生成、280 weighted 以下・試験別ベースタグ・サイト誘導を遵守。`social-post`/`create-x-card`/`publish-x` と連携 | Generator    | sonnet  | `docs/reference/x-post-policy.md` 参照、`x-post-qa` と対 | ✅ 運用中（2026-06-02 起動） |
 | `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-02 起動） |
+| `x-repost-curator`             | X 引用RP 候補（`candidates.json`）を安全ゲート（誤情報/炎上/宣伝/無関係/古さ）＋関連性で選別し、引用コメントを生成して `approved.json` を出力。完全自動運用ではコメントが無検閲で投稿されるため「迷ったら reject」既定 | Evaluator+Generator | sonnet  | `.claude/skills/social/x-repost/SKILL.md` 参照 | ✅ 運用中（2026-06-08 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 

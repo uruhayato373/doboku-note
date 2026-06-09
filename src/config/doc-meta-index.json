@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "generated_at": "2026-06-08T09:05:11.975Z",
+  "generated_at": "2026-06-09T00:22:06.601Z",
   "summary": {
-    "total": 1016,
-    "published": 973,
+    "total": 1017,
+    "published": 974,
     "unpublished": 43,
     "by_category": {
       "civil-construction-1": 97,
       "civil-construction-2": 31,
       "concrete-chief-engineer": 19,
       "pe-comprehensive-management": 721,
-      "pe-construction": 84,
+      "pe-construction": 85,
       "pe-first-stage": 21
     }
   },
@@ -18290,6 +18290,24 @@
       "seoTitle": "ゼロトラスト ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
       "dateModified": "2026-05-26"
+    },
+    "pe-construction-guide-required-essay": {
+      "title": "技術士第二次試験 建設部門 必須科目I 合格答案の書き方",
+      "description": "技術士第二次試験 建設部門 必須科目Iの合格答案を書くための実践ガイド。プロセス型4段構成の設問構造・字数配分・観点明記のコツ・発注者視点の活かし方を元公務員（合格者）が解説。R03〜R07の出題テーマも収録。",
+      "seoTitle": "技術士建設部門 必須科目I 答案の書き方｜設問構造・字数配分・発注者視点",
+      "category": "pe-construction",
+      "group": "guide",
+      "tags": [
+        "技術士第二次試験",
+        "建設部門",
+        "必須科目I",
+        "論述対策",
+        "答案の書き方"
+      ],
+      "published": true,
+      "publishedAt": "2026-06-09",
+      "dateModified": "2026-06-09",
+      "created": "2026-06-09"
     },
     "pe-construction-r01-construction-planning": {
       "title": "技術士第二次試験 建設部門 令和元年度 選択科目（0910 施工計画、施工設備及び積算） 問題",

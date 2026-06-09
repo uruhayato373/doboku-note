@@ -47,6 +47,9 @@ jobs:
       - name: 📦 Install deps
         run: npm ci
 
+      - name: 🔍 Validate schedule (重複チェック)
+        run: node .claude/scripts/youtube/validate-schedule.mjs
+
       - name: ▶️ Upload due scheduled shorts
         id: post
         env:
@@ -64,13 +67,15 @@ jobs:
           node .claude/scripts/youtube/post-from-schedule.cjs $ARGS 2>&1 | tee /tmp/yt-post.log
 
       - name: 📝 Commit ledger + log
-        if: success() && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '0'
+        if: success() && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           git add .claude/state/youtube-schedule.json .claude/state/yt-posted-log.jsonl
-          git diff --cached --quiet || git commit -m "chore(yt): upload ${{ steps.post.outputs.uploaded }} scheduled shorts [skip ci]"
-          git push origin main || true
+          git diff --cached --quiet && exit 0
+          git pull --rebase origin main
+          git commit -m "chore(yt): upload ${{ steps.post.outputs.uploaded }} scheduled shorts [skip ci]"
+          git push origin main
 
       - name: 💬 Notify on failure
         if: failure()

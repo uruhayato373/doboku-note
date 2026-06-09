@@ -102,6 +102,144 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
+  'essay-river-municipality-magazine': {
+    id: 'essay-river-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 河川担当 R3-R7 + R8予想セット',
+    description:
+      'R03〜R07 の 5 年分セット。河川砂防・海岸海洋分野合格者視点、堤防維持管理 × 河川改修の A案/B案 2 バージョン。5 管理間トレードオフが主軸。',
+    shortTitle: '模範論文｜自治体河川担当',
+    shortDescription:
+      'R03〜R07 の 5 年分 + R8 予想。堤防・護岸維持管理版と河川改修版の A案/B案 2 バージョン。',
+    imageUrl: '/images/magazines/essay-river-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-urban-municipality-magazine': {
+    id: 'essay-urban-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 都市計画担当 R3-R7 + R8予想セット',
+    description:
+      'R03〜R07 の 5 年分セット。都市及び地方計画分野合格者視点、立地適正化計画 × 市街地再開発の A案/B案 2 バージョン。5 管理間トレードオフが主軸。',
+    shortTitle: '模範論文｜自治体都市計画担当',
+    shortDescription:
+      'R03〜R07 の 5 年分 + R8 予想。立地適正化計画（制度運用）版と再開発事業版の A案/B案 2 バージョン。',
+    imageUrl: '/images/magazines/essay-urban-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+
+  'essay-sewage-municipality-magazine': {
+    id: 'essay-sewage-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 下水道担当 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜自治体下水道担当',
+    description: '下水道担当（発注者）視点。老朽管路更新版と浸水対策雨水幹線整備版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-sewage-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-sabo-municipality-magazine': {
+    id: 'essay-sabo-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 砂防担当 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜自治体砂防担当',
+    description: '砂防担当（発注者）視点。砂防施設維持管理版と砂防堰堤新設版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-sabo-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-agri-municipality-magazine': {
+    id: 'essay-agri-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 農業農村整備担当 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜農業農村整備担当',
+    description: '農業農村整備担当（発注者）視点。農業水利施設保全版とほ場整備版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-agri-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-port-municipality-magazine': {
+    id: 'essay-port-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 港湾担当 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜自治体港湾担当',
+    description: '港湾担当（発注者）視点。港湾施設維持管理版と岸壁改良版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-port-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-park-municipality-magazine': {
+    id: 'essay-park-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 公園緑地担当 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜自治体公園緑地担当',
+    description: '公園緑地担当（発注者）視点。公園施設維持管理版と防災公園新設版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-park-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-water-municipality-magazine': {
+    id: 'essay-water-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 上水道担当 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜自治体上水道担当',
+    description: '上水道担当（発注者）視点。老朽管路更新版と浄水場改修版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-water-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-arch-municipality-magazine': {
+    id: 'essay-arch-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 建築・営繕担当 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜自治体建築・営繕担当',
+    description: '建築・営繕担当（発注者）視点。公共施設長寿命化版と新庁舎ZEB化版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-arch-municipality-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-road-consultant-magazine': {
+    id: 'essay-road-consultant-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜道路・橋梁設計コンサルタント R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜道路橋梁コンサル',
+    description: '道路・橋梁設計コンサルタント（受注者）視点。橋梁点検補修設計版と道路改良設計版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-road-consultant-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-urban-consultant-magazine': {
+    id: 'essay-urban-consultant-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜都市計画コンサルタント R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜都市計画コンサル',
+    description: '都市計画コンサルタント（受注者）視点。立地適正化計画策定版と再開発計画版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-urban-consultant-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-nexco-magazine': {
+    id: 'essay-nexco-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜NEXCO（高速道路管理）R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜NEXCO',
+    description: 'NEXCO（高速道路管理）視点。橋梁大規模更新版とスマートIC設置版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-nexco-cover.webp',
+    badge: 'note 限定',
+  },
+  'essay-power-civil-magazine': {
+    id: 'essay-power-civil-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜電力会社 土木部門 R3-R7 + R8予想セット',
+    shortTitle: '模範論文｜電力会社土木',
+    description: '電力会社土木部門視点。ダム老朽化対策版と洋上風力基礎土木版のA案/B案2バージョン。',
+    imageUrl: '/images/magazines/essay-power-civil-cover.webp',
+    badge: 'note 限定',
+  },
+
   // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成、M1 は 2026-05-18 撤回) -----
   // 注: whitepaper-r7-strategy は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ
   //     戦略転換。SoT エントリも削除し、note 上で単独無料記事として公開する。
@@ -293,6 +431,25 @@ const MAGAZINES_RAW = {
     imageUrl: '/images/magazines/cd-essay-cover.webp',
     price: '¥1,980（8本セット）',
     badge: 'note 限定 教材',
+  },
+
+  // ----- 技術士 建設部門 第二次試験 模範解答ライン (2026-06-09 追加) -----
+  // 原稿配置: docs/note/技術士建設部門/magazines/BK-I_必須科目I/
+  // 全受験者共通の必須科目I（3枚・1,674字）の R03〜R07 フル模範解答集。
+  // 公開時: noteUrl 埋め + cover 画像作成 + published: true。CTA はガイドページで発火。
+  'pe-construction-required': {
+    id: 'pe-construction-required',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門｜必須科目I フル模範解答集 R03〜R07（5年分）',
+    description:
+      '技術士第二次試験 建設部門 必須科目I（全受験者共通・答案3枚・1,674字）の R03〜R07 フル模範解答集。担い手確保・DX・防災・老朽化など5年分の出題テーマに対し、元公務員（発注者）視点の「制度設計×行政調整×発注者責任」を盛り込んだ答案をプロセス型4段構成で収録。設問(1)の観点明記・(2)解決策・(3)将来懸念・(4)倫理の書き方解説付き。',
+    shortTitle: '建設部門 必須科目I 模範解答集',
+    shortDescription:
+      'R03〜R07 の 5 年分フル模範解答。発注者視点の制度・行政調整論述が差別化軸。',
+    imageUrl: '/images/magazines/pe-construction-required-cover.webp',
+    price: '¥1,980（5本セット）',
+    badge: 'note 限定',
   },
 
   // 原稿配置: docs/note/コンクリート主任技師/magazines/コンクリート主任技師-小論文-模範答案集/

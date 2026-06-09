@@ -24,6 +24,7 @@ title: スキル ナビゲーションガイド
 | `/visual-research` | NotebookLM×参照URL → SVG 概念図生成 | `概念図をSVGで`, `URL直接渡す図版`, `/visual-research` |
 | `/exam-guide` | 試験対策ガイド生成（テンプレート駆動） | `試験ガイドを作りたい`, `/exam-guide` |
 | `/civil-keiken-magazine` | 1級・2級土木 施工経験記述 note有料マガジンのフル模範答案を生成・採点（Generator→Evaluator、過去問年度別/テーマ別/予想の3種） | `施工経験記述マガジン`, `模範答案を作成`, `予想問題集を作る`, `/civil-keiken-magazine` |
+| `pe-secondary-exam-writer` エージェント | 技術士建設部門 2次試験 note有料マガジン用 模範解答を生成（全11専門分野・科目種別I/II-1/II-2/III。元公務員発注者視点注入、合格3科目=合格者訴求・残8科目=発注者監修訴求） | `建設部門note模範解答`, `技術士2次マガジン`, `pe-secondary-exam-writer` |
 
 ### 変換（conversion）
 
@@ -64,6 +65,8 @@ title: スキル ナビゲーションガイド
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg） | `IG リール作成`, `動画化`, `/ig-reel-create --exam r07-pack-01` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成（多資格＝総監/1級/2級の試験別色・ヘッダに自動切替） | `Xカード作成`, `X投稿カード`, `/create-x-card` |
 | `/publish-x` | Playwright で X 投稿を自動化（即時・予約） | `X投稿`, `自動投稿`, `/publish-x` |
+| `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `scripts/publish-ig.mjs`（Graph API） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
+| `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
 | `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（**≤60秒**トリム〔60秒超は通常動画扱い〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
 
 ### 開発（dev）
@@ -130,8 +133,9 @@ title: スキル ナビゲーションガイド
 
 1. `/ig-post-create --exam {pack-id}` — Instagram カルーセル/Reels PNG（一次制作）
 2. `/ig-reel-create --exam {pack-id}` — カルーセル PNG → Reels mp4（VOICEVOX + ffmpeg）
-3. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
-4. `/create-x-card` + `/publish-x` — X 投稿カード作成 → 自動投稿
+3. `/publish-ig-bs post {pack} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `node scripts/publish-ig.mjs` = Graph API・公式）
+4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
+5. `/create-x-card` + `/publish-x` — X 投稿カード作成 → 自動投稿
 
 **IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
 - `node .claude/scripts/instagram/build-highlight-materials.mjs --all` — 6 ハイライト × 32 PNG 一括生成（モダンシック意匠、ジャンル別カラー）
@@ -143,6 +147,12 @@ title: スキル ナビゲーションガイド
 
 1. `/pdf-to-mdx --exam {cem|civil-construction-1|general}` — テキスト・図版含む変換
 2. `/exam-questions-import --exam {civil-primary|civil-secondary|pe-primary}` — 過去問集
+
+### 建設部門 2次 note 模範解答を生成したい
+
+1. `pe-secondary-exam-writer` エージェントに `year` / `subject` / `exam_type` / `magazine_id` を渡す
+2. 運営者が article.md をレビューして note 投稿（noteUrl を frontmatter に記入）
+3. 詳細: `docs/note/技術士建設部門/noteコンテンツ計画.md`、エージェント: `.claude/agents/pe-secondary-exam-writer.md`
 
 ### マガジン記事を紙用 PDF にしたい
 
