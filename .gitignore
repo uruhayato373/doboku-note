@@ -117,6 +117,12 @@ docs/sns/youtube/
 # mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。再生成は per-problem-shorts.mjs --ig-mode。
 docs/sns/instagram/_exam-packs/**/reels-pp/**/*.mp4
 
+# IG リールのフル動画（reels/video.mp4・_combined.mp4）も再生成可能な派生物（JIT 生成）。
+# SoT は slide-data.json + reels/wav。投稿時に生成→Business Suite 予約→削除する運用（scripts/publish-reel-jit.mjs）。
+# 注: slide-NN.mp4 は yt-shorts --from-reels の入力のため残す。
+docs/sns/instagram/_exam-packs/**/reels/video.mp4
+docs/sns/instagram/_exam-packs/**/reels/_combined.mp4
+
 # Large PDF files exceeding GitHub 100MB limit
 docs/textbook/経営学/経営学.pdf
 docs/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf

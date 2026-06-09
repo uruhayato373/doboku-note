@@ -288,7 +288,8 @@ ol.opts { margin: 0.4em 0 0.6em; padding-left: 1.4em; }
 ol.opts li { margin-bottom: 0.3em; }
 .tag { font-weight: bold; color: #7a3e0c; }
 .qbody { margin-top: 1em; }
-.ans { background: #f4f8f4; border-left: 3px solid #2f7a3e; padding: 0.3em 0.6em; }
+.ans { background: #f4f8f4; border-left: 3px solid #2f7a3e; padding: 0.3em 0.6em;
+  break-before: page; page-break-before: always; }
 .dup { font-size: 0.85em; color: #666; }
 .cover-title { text-align: center; margin-top: 25%; }
 .cover-title h1 { border: none; font-size: 1.9em; color: #7a3e0c; }
@@ -320,12 +321,12 @@ function chapterXhtml(model, ch) {
     const tag = `${YEAR_LABEL(q.year)} ${q.part}-${String(q.no).padStart(2, '0')}`
     const opts = [...(q.options || [])]
       .sort((a, b) => a.num - b.num)
-      .map((o) => `<li>${xesc(o.text)}</li>`)
+      .map((o) => `<li>${xinline(o.text)}</li>`)
       .join('')
     parts.push('<div class="q">')
-    parts.push(`<p class="qbody"><span class="tag">［${xesc(tag)}］</span> ${xesc(q.body)}</p>`)
+    parts.push(`<p class="qbody"><span class="tag">［${xesc(tag)}］</span> ${xinline(q.body)}</p>`)
     parts.push(`<ol class="opts">${opts}</ol>`)
-    parts.push(`<p class="ans"><strong>正答 ${q.correct}</strong> ― ${xesc(correctPoint(q))}</p>`)
+    parts.push(`<p class="ans"><strong>正答 ${q.correct}</strong> ― ${xinline(correctPoint(q))}</p>`)
     if (dupYears.length) parts.push(`<p class="dup">同趣旨で再出題: ${xesc(dupYears.join(' / '))}</p>`)
     parts.push('</div><hr/>')
   }
