@@ -166,8 +166,8 @@ async function processOne(dirName, args, fonts) {
       console.warn(`  skip: no H1 in ${dirName}/${fname}`);
       continue;
     }
-    // article.md → cover、article-II1.md → cover-II1
-    const m = fname.match(/^article-([A-Za-z0-9]+)\.md$/);
+    // article.md → cover、article-II1.md → cover-II1、article-II1-1.md → cover-II1-1
+    const m = fname.match(/^article-([A-Za-z0-9][A-Za-z0-9-]*)\.md$/);
     const outName = m ? `cover-${m[1]}` : 'cover';
     const category = data.category || COVER_TOKENS.exams[examKey]?.label || DEFAULT_CATEGORY;
     await renderCover({

@@ -16,21 +16,21 @@ appealPoint: |
   「現状→課題→解決策→効果・リスク」の骨格で組み立てたフル模範解答を各設問に収録。
 setPrice: 1980
 priceModel: set
-articleCount: 25
-articleStructure: "R03-R07 × (II-1a / II-1b / II-2 / III-1 / III-2)"
+articleCount: 35
+articleStructure: "R03-R07 × (II-1-1 / II-1-2 / II-1-3 / II-1-4 / II-2 / III-1 / III-2)"
 articles:
   - year: R03
-    files: [article-II1, article-II1b, article-II2, article, article-III2]
+    files: [article-II1-1, article-II1-2, article-II1-3, article-II1-4, article-II2, article-III-1, article-III-2]
     noteUrl: ""
   - year: R04
-    files: [article-II1, article-II1b, article-II2, article-III1, article]
+    files: [article-II1-1, article-II1-2, article-II1-3, article-II1-4, article-II2, article-III-1, article-III-2]
     noteUrl: ""
   - year: R05
-    files: [article-II1, article-II1b, article-II2, article, article-III2]
+    files: [article-II1-1, article-II1-2, article-II1-3, article-II1-4, article-II2, article-III-1, article-III-2]
     noteUrl: ""
   - year: R06
-    files: [article-II1, article-II1b, article-II2, article, article-III2]
+    files: [article-II1-1, article-II1-2, article-II1-3, article-II1-4, article-II2, article-III-1, article-III-2]
     noteUrl: ""
   - year: R07
-    files: [article-II1, article-II1b, article-II2, article, article-III2]
+    files: [article-II1-1, article-II1-2, article-II1-3, article-II1-4, article-II2, article-III-1, article-III-2]
     noteUrl: ""

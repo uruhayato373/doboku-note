@@ -13,17 +13,31 @@ note.com は記事 1 本に最大 99 個までハッシュタグを設定でき�
 ## 引数
 
 ```
-/note-hashtags {slug} [--max N]
+/note-hashtags {slug} [--article {suffix}] [--max N]
 ```
 
 | 引数 | 説明 |
 |---|---|
 | `{slug}` | 対象記事ディレクトリ名（例: `総監択一式17年分分析`）。slug の先頭一致でも解決可 |
+| `--article {suffix}` | 対象 article ファイルのサフィックス（例: `--article II1-1` → `article-II1-1.md` を解析して `hashtags-II1-1.txt` を出力）。省略時は `article.md` → `hashtags.txt` |
 | `--max N` | 上限を 99 から N 個に縮める（既定: 99） |
 
 ## 出力ファイル
 
-`docs/note/{slug}/hashtags.txt`
+| 対象記事ファイル | 出力ハッシュタグファイル |
+|---|---|
+| `article.md` | `hashtags.txt` |
+| `article-II1.md` | `hashtags-II1.txt` |
+| `article-II1-1.md` | `hashtags-II1-1.txt` |
+| `article-II1-2.md` | `hashtags-II1-2.txt` |
+| `article-II1-3.md` | `hashtags-II1-3.txt` |
+| `article-II1-4.md` | `hashtags-II1-4.txt` |
+| `article-II2-1.md` | `hashtags-II2-1.txt` |
+| `article-II2-2.md` | `hashtags-II2-2.txt` |
+| `article-III-1.md` | `hashtags-III-1.txt` |
+| `article-III-2.md` | `hashtags-III-2.txt` |
+
+`--article {suffix}` を省略した場合: `hashtags.txt`（後方互換）
 
 **フォーマット要件**（ファイル全選択コピーで note に貼付できる前提）:
 - 1 行 1 ハッシュタグ

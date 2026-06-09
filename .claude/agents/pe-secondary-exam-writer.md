@@ -61,11 +61,30 @@ model: sonnet
 
 > 答案用紙は 600 字/枚（25 字 × 24 行）が目安。目標は上限の **約 93%** 以内（試験本番に手書きで書き写せる密度を保つ）。
 
-## 出力先
+## 出力先・命名規則
+
+**同一 year ディレクトリに複数 exam_type の記事が共存する**。科目種別 + 設問番号まで含めた一意なファイル名を必ず使うこと。
+
+### ファイル命名規則（厳守）
+
+| exam_type | 設問 | ファイル名 | カバー画像 | ハッシュタグ |
+|---|---|---|---|---|
+| `II-1` | II-1-1 | `article-II1-1.md` | `img/cover-II1-1.png` | `hashtags-II1-1.txt` |
+| `II-1` | II-1-2 | `article-II1-2.md` | `img/cover-II1-2.png` | `hashtags-II1-2.txt` |
+| `II-1` | II-1-3 | `article-II1-3.md` | `img/cover-II1-3.png` | `hashtags-II1-3.txt` |
+| `II-1` | II-1-4 | `article-II1-4.md` | `img/cover-II1-4.png` | `hashtags-II1-4.txt` |
+| `II-2` | II-2-1 | `article-II2-1.md` | `img/cover-II2-1.png` | `hashtags-II2-1.txt` |
+| `II-2` | II-2-2 | `article-II2-2.md` | `img/cover-II2-2.png` | `hashtags-II2-2.txt` |
+| `III` | III-1 | `article-III-1.md` | `img/cover-III-1.png` | `hashtags-III-1.txt` |
+| `III` | III-2 | `article-III-2.md` | `img/cover-III-2.png` | `hashtags-III-2.txt` |
+
+> **過去の誤命名（廃止）**: `article.md`・`article-II1.md`・`article-II1b.md` 等は廃止。設問番号が不明なファイル名を使わない。
+
+### 出力ディレクトリ
 
 ```
-docs/note/技術士建設部門/magazines/{magazine_id}_{subject}/{year}/article.md
-例: docs/note/技術士建設部門/magazines/BK-01_道路/R07/article.md
+docs/note/技術士建設部門/magazines/{magazine_id}_{subject}/{year}/
+例: docs/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1-3.md
 ```
 
 マガジンディレクトリが存在しない場合は作成する。
