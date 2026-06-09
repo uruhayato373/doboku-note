@@ -97,6 +97,7 @@ async function searchQuery(
   blockHandles: Set<string>,
   bannedKeywords: string[],
   seenIds: Set<string>,
+  cooledHandles: Set<string>,
   perQueryLimit: number
 ): Promise<Candidate[]> {
   const fullQ = `${q} min_faves:${minFaves} -filter:replies -filter:nativeretweets lang:ja`;
@@ -135,6 +136,7 @@ async function searchQuery(
 
         if (handle.toLowerCase() === ownHandle.toLowerCase()) continue;        // 自投稿除外
         if (blockHandles.has(handle.toLowerCase())) continue;                  // blocklist 除外
+        if (cooledHandles.has(handle.toLowerCase())) continue;                 // ハンドルクールダウン除外
 
         const text = (await art.locator('[data-testid="tweetText"]').first().innerText().catch(() => "")).trim();
         if (!text || text.length < 10) continue;
@@ -177,14 +179,27 @@ async function main() {
     process.exit(1);
   }
 
-  const log = loadJson<{ reposted: { id: string }[] }>(LOG_PATH, { reposted: [] });
+  const log = loadJson<{ reposted: { id: string; url?: string; repostedAt?: string }[] }>(LOG_PATH, { reposted: [] });
   const seenIds = new Set<string>(log.reposted.map((r) => r.id));
   const blockHandles = new Set<string>((config.blocklist?.handles || []).map((h: string) => h.replace(/^@/, "").toLowerCase()));
   const bannedKeywords: string[] = config.blocklist?.bannedKeywords || [];
   const maxCandidates: number = config.maxCandidates || 40;
   const perQueryLimit = Math.max(5, Math.ceil(maxCandidates / Math.max(1, config.queries.length)));
 
-  console.log(`🚀 x-repost discover 開始（own=@${ownHandle}, 既リポスト ${seenIds.size} 件除外）`);
+  // ハンドルクールダウン: 直近 N 日にリポストした相手は候補から除外
+  const handleCooldownDays: number = config.handleCooldownDays ?? 14;
+  const cooldownMs = handleCooldownDays * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+  const cooledHandles = new Set<string>();
+  for (const r of log.reposted) {
+    if (!r.repostedAt || !r.url) continue;
+    if (now - new Date(r.repostedAt).getTime() < cooldownMs) {
+      const m = r.url.match(/x\.com\/([A-Za-z0-9_]+)\/status\//);
+      if (m) cooledHandles.add(m[1].toLowerCase());
+    }
+  }
+
+  console.log(`🚀 x-repost discover 開始（own=@${ownHandle}, 既リポスト ${seenIds.size} 件除外, ハンドルCD ${cooledHandles.size} 件除外）`);
 
   if (!fs.existsSync(PROFILE_DIR)) fs.mkdirSync(PROFILE_DIR, { recursive: true });
   const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, {
@@ -203,7 +218,7 @@ async function main() {
 
     const globalSeen = new Set<string>(seenIds);
     for (const { exam, q, minFaves } of config.queries) {
-      const got = await searchQuery(page, exam, q, minFaves ?? 8, ownHandle, blockHandles, bannedKeywords, globalSeen, perQueryLimit);
+      const got = await searchQuery(page, exam, q, minFaves ?? 8, ownHandle, blockHandles, bannedKeywords, globalSeen, cooledHandles, perQueryLimit);
       for (const c of got) { if (!globalSeen.has(c.id)) { globalSeen.add(c.id); all.push(c); } }
       await page.waitForTimeout(1500 + Math.floor(Math.random() * 2000));
     }

@@ -85,7 +85,7 @@ title: サブエージェント詳細レジストリ
 | `note-cover-writer`            | note 記事の G2 カバー frontmatter（`cover:` ブロック）を1記事ずつ執筆。タイトルを leadIn/hi/hiSuffix/banner/chips×3 に分解。色は書かず文字列のみ（試験色は dir から自動）。注入は `add-note-cover.mjs`（CRLF安全）、再生成は `generate-note-covers.mjs` | Generator    | sonnet  | `docs/design-system/note-cover.md` + `note-cover-tokens.json` 参照、`ogp-create` スキルと対 | ✅ 運用中（2026-05-29 起動） |
 | `x-post-writer`                | X(旧Twitter)投稿 `tweets.md` を多資格（総監/1級土木/2級土木）横断で執筆。過去問/キーワードからネタ生成、280 weighted 以下・試験別ベースタグ・サイト誘導を遵守。`angle` パラメータで同一ネタを結論/理由/体験/反論/数字/ハウツーの6切り口でリパーパス展開可能。`social-post`/`create-x-card`/`publish-x` と連携 | Generator    | sonnet  | `docs/reference/x-post-policy.md` §5.5 参照、`x-post-qa` と対 | ✅ 運用中（2026-06-10 更新） |
 | `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-02 起動） |
-| `x-repost-curator`             | X 引用RP 候補（`candidates.json`）を安全ゲート（誤情報/炎上/宣伝/無関係/古さ）＋関連性で選別し、引用コメントを生成して `approved.json` を出力。完全自動運用ではコメントが無検閲で投稿されるため「迷ったら reject」既定 | Evaluator+Generator | sonnet  | `.claude/skills/social/x-repost/SKILL.md` 参照 | ✅ 運用中（2026-06-08 起動） |
+| `x-repost-curator`             | X 引用RP 候補（`candidates.json`）を安全ゲート（誤情報/炎上/宣伝/無関係/古さ）＋関連性で選別し、引用コメントを生成して `approved.json` を出力。**exam 多様性ゲート**: 1セット内で同 exam は1件まで・reposted-log 直近10件を確認して連続回避。完全自動運用ではコメントが無検閲で投稿されるため「迷ったら reject」既定 | Evaluator+Generator | sonnet  | `.claude/skills/social/x-repost/SKILL.md` 参照 | ✅ 運用中（2026-06-08 起動、2026-06-10 exam多様性ゲート追加） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 

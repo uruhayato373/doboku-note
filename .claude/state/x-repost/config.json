@@ -11,6 +11,8 @@
   "_delay_note": "引用RP 間のランダム待機秒の下限/上限（人間的な間隔・検出回避）。",
   "maxCandidates": 40,
   "_maxCandidates_note": "discover が収集する候補の最大数（curate に渡す母数）。",
+  "handleCooldownDays": 14,
+  "_handleCooldownDays_note": "同一ハンドルへのリポスト間隔（日）。直近この日数以内にリポストしたアカウントは discover 時に除外する。",
   "queries": [
     { "exam": "pe-comprehensive", "q": "技術士 総合技術監理", "minFaves": 10 },
     { "exam": "pe-comprehensive", "q": "総合技術監理部門", "minFaves": 8 },

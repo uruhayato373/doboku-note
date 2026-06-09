@@ -30,7 +30,7 @@ const PAUSED_PATH = path.join(STATE_DIR, "PAUSED");
 const DRY_RUN = process.argv.includes("--dry-run");
 const HEADED = process.argv.includes("--headed") || DRY_RUN;
 
-interface Approved { id: string; url: string; comment: string; }
+interface Approved { id: string; url: string; comment: string; exam?: string; reason?: string; }
 
 function loadJson<T>(p: string, fallback: T): T {
   try { return JSON.parse(fs.readFileSync(p, "utf-8")) as T; } catch { return fallback; }
@@ -53,7 +53,9 @@ const COMMENT_LIMIT = 250; // 280 - 引用カード(~23) - 余白
 
 function appendLog(entry: Approved & { repostedAt: string }): void {
   const log = loadJson<{ reposted: any[]; _comment?: string }>(LOG_PATH, { reposted: [] });
-  log.reposted.push(entry);
+  const handleMatch = entry.url.match(/x\.com\/([A-Za-z0-9_]+)\/status\//);
+  const handle = handleMatch ? handleMatch[1] : undefined;
+  log.reposted.push({ ...entry, handle });
   fs.writeFileSync(LOG_PATH, JSON.stringify(log, null, 2) + "\n", "utf-8");
 }
 
