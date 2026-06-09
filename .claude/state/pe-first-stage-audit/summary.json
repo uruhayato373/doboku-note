@@ -12,8 +12,8 @@
     "visual_ok": 0,
     "visual_issues": 21,
     "visual_not_run": 0,
-    "visual_pass": 0,
-    "visual_partial": 21,
+    "visual_pass": 1,
+    "visual_partial": 20,
     "visual_fail": 0,
     "structure_pass": 21,
     "structure_fail": 0
@@ -166,12 +166,12 @@
       "audited_at": "2026-06-08"
     },
     "r06-basic": {
-      "status": "partial",
+      "status": "pass",
       "answer_check": "pass",
-      "visual_check": "not_run",
+      "visual_check": "pass",
       "structure_check": "pass",
-      "audited_at": "2026-06-08",
-      "notes": "visual_check未実施（PNGパス問題のため）"
+      "audited_at": "2026-06-09",
+      "notes": "2026-06-09に視覚突合実施。Ⅰ-2-1選択肢②④の2進数誤記・Ⅰ-2-5 ExamPoint式を修正（commit f81d3d2e6）"
     },
     "r06-construction": {
       "status": "partial",
