@@ -128,6 +128,11 @@ docs/sns/instagram/_exam-packs/**/reels/_combined.mp4
 docs/sns/instagram/_exam-packs/**/reels/img/
 docs/sns/instagram/_exam-packs/**/reels/slide-*.mp4
 
+# editorial reels（再生成可能な派生物）
+docs/sns/instagram/**/reels/video.mp4
+docs/sns/instagram/**/reels/wav/
+docs/sns/instagram/**/reels/subtitles.ass
+
 # Large PDF files exceeding GitHub 100MB limit
 docs/textbook/経営学/経営学.pdf
 docs/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf
