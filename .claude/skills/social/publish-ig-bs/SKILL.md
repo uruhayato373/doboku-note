@@ -123,8 +123,11 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
   "_exam-packs/技術士総監/r04/pack-07" --reel --schedule 2026-06-20T09:00 [--dry-run]
 ```
 
-- 動画は `reels/video.mp4`（無ければ `<pack>/video.mp4`）。**未生成なら `ig-reel-create` で先に作成**。
-- パック構造: `<pack>/reels/{video.mp4, caption.txt}`。投稿後 `status.json` に `reel.{...}` を記録。
+- 2 種のリールを扱える（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:
+  - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。生成は `ig-reel-create`。
+  - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
+- **動画は git に持たない（JIT）**: mp4 は再生成可能な派生物で gitignore（SoT は slide-data + reels/wav）。**`video.mp4` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4削除）が1コマンド化。
+- 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡）。
 
 ### リールフローの実測（カルーセルとの差分）
 

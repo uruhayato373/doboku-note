@@ -163,8 +163,9 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 - **構成/尺**: cover → problem → answer → cta の4スライド concat、**実測 36-45 秒**。`ytMode` 流用でカルーセルチャーム（`N/10`・`PROBLEM 1/4`・スワイプCTA）を抑止＝単発リール整合。
 - **素材**: 問題短ナレ `.tmp/yt-gen/narration/<key>.wav`（≈9秒）＋既存 `reels/wav`（解答/CTA）＋カバーキャッシュ `cover-<year>.wav` を流用＝**新規 TTS ゼロ**（要 ffmpeg のみ）。
 - **出力**: `<pack>/reels-pp/q<N>/{video.mp4, caption.txt}` の**自己完結ディレクトリ**。caption は論点（`answer.correctText`）主役＋管理ハッシュタグ（`buildIgReelCaption`）。
-- **公開**: `publish-ig-bs post <pack>/reels-pp/q<N> --reel --schedule …` を**無改修**で1本ずつ予約（フル reel と別系統。フル `video.mp4` は温存）。
-- **採用判断**: 2026-06-09 に R7 5管理×各2問=10本を 12:30/日次で感触テスト予約。良ければ全年度ロールアウト＋フル reel(video.mp4/_combined.mp4) 整理を別タスクで。
+- **公開**: `publish-ig-bs post <pack>/reels-pp/q<N> --reel --schedule …` を**無改修**で1本ずつ予約。JIT は `scripts/publish-reel-jit.mjs`（生成→予約→mp4削除）が1コマンド化。
+- **動画は JIT・git に持たない**（2026-06-09）: reel の mp4 / img(PNG) / slide-NN.mp4 は再生成可能な派生物で **gitignore**。**SoT は slide-data.json + reels/wav** だけコミット。`video.mp4` が無いのは正常。作業ツリー約1.15GB削減・今後の肥大停止。
+- **採用判断**: R7 5管理×各2問=10本を 12:30/日次で感触テスト予約済（2026-06-09）。良ければ全年度ロールアウト。
 
 ## 改訂履歴
 

@@ -110,6 +110,24 @@ node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
 node .../per-problem-shorts.mjs --exam-dir 技術士総監 --pack r07-pack-02
 ```
 
+### IG「1問1リール」出力（`--ig-mode` / `--questions`・2026-06-09 追加）
+
+同じエンジンで **IG リール（1問1本・36-45秒）** も生成できる。出力先と包装だけが YT と異なる。
+
+```bash
+node .../per-problem-shorts.mjs --ig-mode --year r07 --pack r07-pack-01 [--questions 1,2]
+# → docs/sns/instagram/_exam-packs/<軸>/<year>/pack-<NN>/reels-pp/q<N>/{video.mp4, caption.txt}
+```
+
+| | YT（既定） | IG（`--ig-mode`） |
+|---|---|---|
+| 出力 | `docs/sns/youtube/<date>-…/` | `<pack>/reels-pp/q<N>/`（自己完結） |
+| メタ | `meta.json`＋`thumbnail.png` | `caption.txt`（論点＋管理ハッシュタグ） |
+| 尺ガード | ≤60秒（厳格） | ≤90秒 |
+| 公開 | YT API | `publish-ig-bs --reel <q-dir>`（無改修）/ JIT は `scripts/publish-reel-jit.mjs` |
+
+`--questions 1,2` で問番を限定（既定=全4問）。詳細・運用は [ig-reels-policy.md §6](../../../../docs/reference/ig-reels-policy.md)。
+
 ### YT 専用描画（`ytMode`）— IG 流用をやめた理由
 
 IG 用 PNG には **「N / 10」ページ番号・「PROBLEM 1 / 4」通し番号・「まずは1問やってみる →」/「次ページで解答 →」スワイプ前提 CTA** が焼かれており、**単発 1 問動画の YT に流用すると不整合**（4 スライドなのに「N/10」、1 問なのに「1/4」、スワイプできないのに誘導）。2026-06-06 に判明。
