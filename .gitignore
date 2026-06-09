@@ -119,9 +119,14 @@ docs/sns/instagram/_exam-packs/**/reels-pp/**/*.mp4
 
 # IG リールのフル動画（reels/video.mp4・_combined.mp4）も再生成可能な派生物（JIT 生成）。
 # SoT は slide-data.json + reels/wav。投稿時に生成→Business Suite 予約→削除する運用（scripts/publish-reel-jit.mjs）。
-# 注: slide-NN.mp4 は yt-shorts --from-reels の入力のため残す。
 docs/sns/instagram/_exam-packs/**/reels/video.mp4
 docs/sns/instagram/_exam-packs/**/reels/_combined.mp4
+
+# reels/img（PNG・中間生成物、ig-reel-create が毎回再生成）と slide-NN.mp4（legacy --from-reels の入力。
+# 現行 YT 経路は per-problem-shorts で wav 使用＝slide-NN.mp4 不要）も JIT/ephemeral 化。
+# SoT は slide-data.json + reels/wav。--from-reels を使う場合は ig-reel-create で先に reels/img・slide-NN.mp4 を再生成。
+docs/sns/instagram/_exam-packs/**/reels/img/
+docs/sns/instagram/_exam-packs/**/reels/slide-*.mp4
 
 # Large PDF files exceeding GitHub 100MB limit
 docs/textbook/経営学/経営学.pdf
