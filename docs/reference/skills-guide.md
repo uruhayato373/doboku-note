@@ -59,7 +59,7 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/social-post` | note / X 投稿テキスト生成の統合スキル | `note投稿文`, `X投稿テキスト`, `/social-post --platform {note\|x}` |
-| `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成 | `ハッシュタグ生成`, `/note-hashtags` |
+| `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
 | `/ig-post-create` | Instagram カルーセル PNG 生成（過去問パック・KW 解説の単発） | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
 | `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg） | `IG リール作成`, `動画化`, `/ig-reel-create --exam r07-pack-01` |
@@ -122,7 +122,7 @@ title: スキル ナビゲーションガイド
 ### note 記事を公開前に仕上げたい
 
 1. `/note-prepublish-review` — 公開前チェックゲート（inline + 3 エージェント並列）
-2. `/note-hashtags {NN-...}` — ハッシュタグ 99 個を生成
+2. `/note-hashtags {slug}` — ハッシュタグ 99 個を生成（選択科目: `--article II1-1` 等でファイル別出力 → `hashtags-II1-1.txt`）
 
 ### キーワード品質を上げたい
 

@@ -280,9 +280,9 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
 
 1. **article.md** — frontmatter に **`cover:` ブロック**（`leadIn`/`hi`/`hiSuffix`/`banner`/`meta`/`chips`）を含める（`coverTitle` だけでは記事カバーが生成されない）。改訂コンピテンシー反映記事は冒頭明示も付ける
 2. **img/cover.png** — `node scripts/generate-note-covers.mjs "{magazine名}"` で生成（`cover:` ブロックから）。色は `note-cover-tokens.json` の試験キーで解決（**技術士建設部門は `pe-construction`＝インディゴ #33356B を登録済み**。未登録だと総監navyにフォールバック）
-3. **hashtags.txt** — **`/note-hashtags` スキルで生成**（owner）。**1行1個**・最大99個・空行/コメント/重複禁止（note貼付前提。`行数==タグ数`）。**スペース区切り1行は不可**（note にコピペできない。2026-06-09 是正）。BK は年度/科目テーマ＋建設部門共通で~90個。選択科目は `hashtags-II1.txt` 等を記事別に
+3. **hashtags-{suffix}.txt** — **`/note-hashtags {slug} --article {suffix}` スキルで生成**（owner）。**1行1個**・最大99個・空行/コメント/重複禁止（note貼付前提。`行数==タグ数`）。**スペース区切り1行は不可**（note にコピペできない。2026-06-09 是正）。BK は年度/科目テーマ＋建設部門共通で~90個。命名は `hashtags-II1-1.txt` / `hashtags-II2-1.txt` / `hashtags-III-1.txt` 等（上の命名規則テーブル参照）
 
-**選択科目（道路・河川等）は1年度dirに `article.md`(=III) + `article-II1.md` + `article-II2.md` の3記事**が同居する。各々が別 note 記事なので、**カバー（`cover-II1.png` 等）・hashtags（`hashtags-II1.txt` 等）も記事別**に作る。価格除去・出典追加・note-lint・QA 等の一括処理は **必ず `article*.md`（`-name "*.md"`）を対象**にする（`article.md` だけだと II-1/II-2 を取りこぼす。[[project_pe_construction_bk_magazines]]）。
+**選択科目（道路・河川等）は1年度dirに最大7記事が同居する**（`article-II1-1.md`〜`article-II1-4.md` / `article-II2-1.md` / `article-II2-2.md` / `article-III-1.md` / `article-III-2.md`）。各々が別 note 記事なので、**カバー（`cover-II1-1.png` 等）・hashtags（`hashtags-II1-1.txt` 等）も記事別**に作る。価格除去・出典追加・note-lint・QA 等の一括処理は **必ず `article*.md`（`-name "*.md"`）を対象**にする（`article.md` だけだと II-1/II-2/III を取りこぼす。[[project_pe_construction_bk_magazines]]）。
 
 **マガジン階層**も別途必要：`_meta.yaml` + `_cover.png`（`generate-magazine-covers.mjs`）+ `hashtags.txt` + `src/lib/note-magazines.ts` 登録（公開前 `published:false`）+ `src/lib/magazine-placement.ts` 配線。これらは親オーケストレーションの担当。
 
