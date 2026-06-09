@@ -31,3 +31,23 @@ articles:
     noteUrl: "https://note.com/dobokunote/n/nf7881f25de47"
   - slug: R07
     noteUrl: "https://note.com/dobokunote/n/nffe6938dc40c"
+
+# R8予想問題（2026-06-09 新設）。予想問題文のみ作成済み・解答は後日追加。過去問セット(¥1,980)とは別計上。
+# 公開時は単品¥500 で BK-I マガジンに追加（過去問＋予想の拡張）。
+forecastArticles:
+  - slug: R08-yosou-1
+    theme: 担い手確保と建設DX・生産性革命
+    status: draft-problem-only
+    noteUrl: ""
+  - slug: R08-yosou-2
+    theme: 気候変動適応・国土強靱化・防災
+    status: draft-problem-only
+    noteUrl: ""
+  - slug: R08-yosou-3
+    theme: インフラ老朽化のアセットマネジメント深化
+    status: draft-problem-only
+    noteUrl: ""
+  - slug: R08-yosou-4
+    theme: カーボンニュートラル・GX（建設分野の脱炭素）
+    status: draft-problem-only
+    noteUrl: ""
