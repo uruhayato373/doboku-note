@@ -79,12 +79,14 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 
 /**
  * 技術士 建設部門 2次（pe-construction）。
- * 必須科目I の過去問ページ（pe-construction-r0X-required）と論文の書き方ガイドを
- * BK-I 必須科目I 模範解答集へ送客する。公開可否は呼び出し側 getMagazine() で判定
+ * 必須科目I・道路 の過去問ページ（pe-construction-r0X-{required,road}）と論文の書き方
+ * ガイドを、該当する BK 模範解答集へ送客する。公開可否は呼び出し側 getMagazine() で判定
  * （現状 published:false のため CTA は表示されない＝公開時に自動発火）。
  */
-function matchPeConstructionRequired(slug: string): MagazineId | null {
+function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-r0[1-9]-required$/.test(slug)) return 'pe-construction-required-magazine';
+  if (/^pe-construction-r0[1-9]-road$/.test(slug)) return 'pe-construction-road-magazine';
+  // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
   if (slug === 'pe-construction-pe-secondary-essay-guide') return 'pe-construction-required-magazine';
   return null;
 }
@@ -159,12 +161,12 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 1.7. 技術士 建設部門 2次: 必須科目I 過去問 + 論文ガイド → BK-I 模範解答集（公開時に発火）
-  const peRequiredMag = matchPeConstructionRequired(slug);
-  if (peRequiredMag) {
+  // 1.7. 技術士 建設部門 2次: 必須科目I・道路 過去問 + 論文ガイド → 該当 BK 模範解答集（公開時に発火）
+  const peEssayMag = matchPeConstructionEssay(slug);
+  if (peEssayMag) {
     return {
-      inline: [slot(peRequiredMag, slug, 'inline-1')],
-      sidebar: [slot(peRequiredMag, slug, 'sidebar-1')],
+      inline: [slot(peEssayMag, slug, 'inline-1')],
+      sidebar: [slot(peEssayMag, slug, 'sidebar-1')],
       inlineMobileOnly: false,
     };
   }

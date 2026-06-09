@@ -535,6 +535,21 @@ const MAGAZINES_RAW = {
     price: '¥1,980（5本セット）',
     badge: 'note 限定',
   },
+
+  'pe-construction-road-magazine': {
+    id: 'pe-construction-road-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜道路 選択科目 模範解答集（R03-R07）',
+    description:
+      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1・II-2・III の全答案でフル解答した模範解答集（5年分 × 3答案 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイント・元公務員（発注者）からのコメントを収録。',
+    shortTitle: '建設部門2次｜道路 模範解答集',
+    shortDescription:
+      'R03〜R07 の II-1/II-2/III 全15記事。道路科目 合格者＋発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
+    price: '¥1,980（15記事セット）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;

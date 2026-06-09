@@ -304,6 +304,15 @@ const MAGAZINES = [
     fontSize: 44,
     fillBg: '#33356B',
   },
+  {
+    id: 'bk-01-road',
+    fileBaseName: 'pe-construction-bk-01-road-cover',
+    magazineDir: 'docs/note/技術士建設部門/magazines/BK-01_道路',
+    lines: ['技術士 建設部門 2次', '道路 選択科目 模範解答集', 'II-1/II-2/III × R03-R07'],
+    category: '技術士（建設部門・第二次）',
+    fontSize: 42,
+    fillBg: '#33356B',
+  },
 ];
 
 async function renderOne(mag, fonts) {
