@@ -92,11 +92,35 @@ function answerBodyBullets(path) {
   return (body.match(/^\s*-\s+\*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|克服|施策)/gm) || []).length;
 }
 
-let bodyBulletTotal = 0;
+// 導入部（frontmatter後〜最初の ## 試験問題/予想問題/A 案）の文体混在を検出する。
+// 規約: 導入部はですます調で統一（答案本文は である調）。導入部の散文に である調
+// （である/であり/だった/ではない 等）が混じると混在＝警告。
+function introToneMixing(path) {
+  const raw = readFileSync(path, 'utf8').split('\r\n').join('\n');
+  const introEnd = raw.search(/^##\s*(試験問題|予想問題|A\s*案)/m);
+  let intro = introEnd > 0 ? raw.slice(0, introEnd) : raw;
+  intro = intro.replace(/^---[\s\S]*?\n---\n/, ''); // frontmatter除去
+  const hits = [];
+  for (const line of intro.split('\n')) {
+    if (/^\s*(#|-|\*|>|https?:)/.test(line) || !line.trim()) continue; // 見出し/箇条書き/URL除外
+    // である調の明確なマーカーのみ（連体形「であること」・連結語「のではなく」等の誤検知を避ける）
+    const m = line.match(/(である[。、]|であり、|であった|だった|だ。|ではない[。、])/g);
+    if (m) hits.push(line.trim().slice(0, 40));
+  }
+  return hits;
+}
+
+let bodyBulletTotal = 0, toneMixTotal = 0;
 for (const a of arts) {
   const res = measureArticle(a);
   const ng = res.filter((r) => r.over || r.bullets > 0);
   const bb = answerBodyBullets(a);
+  const tone = introToneMixing(a);
+  toneMixTotal += tone.length;
+  if (tone.length) {
+    console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}  【導入部 文体混在(である調) ${tone.length}件・警告】`);
+    for (const t of tone) console.log(`  ⚠ ${t}`);
+  }
   blk += res.length; over += res.filter((r) => r.over).length; proseNg += res.filter((r) => r.bullets > 0).length;
   bodyBulletTotal += bb;
   if (DETAIL || ng.length || bb > 0) {
@@ -107,5 +131,7 @@ for (const a of arts) {
     }
   }
 }
-console.log(`\n施策ブロック ${blk} / 600字超過 ${over} / 箇条書き混入 ${proseNg} / 答案箇条書き(全体) ${bodyBulletTotal}`);
+console.log(`\n施策ブロック ${blk} / 600字超過 ${over} / 箇条書き混入 ${proseNg} / 答案箇条書き(全体) ${bodyBulletTotal} / 導入部文体混在(警告) ${toneMixTotal}`);
+// 導入部の文体混在は「警告」（exit には含めない）。導入部はですます調で統一が規約だが、
+// 既存記事の許容判断は人間が行う。新規生成時は手順書 Step 3b に従い ですます で書く。
 if (STRICT && (over > 0 || proseNg > 0 || bodyBulletTotal > 0)) process.exit(1);
