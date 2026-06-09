@@ -153,6 +153,28 @@ ls docs/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/hashta
 
 未生成なら公開不可。新規ペルソナ作成時は **6 記事すべて**に対して生成する。
 
+## Step 6d: 見出し構成チェック（正準=自治体道路担当）
+
+```
+node scripts/check-essay-heading-structure.mjs "{persona}" --strict
+```
+
+ペルソナの見出し構成を正準（自治体道路担当）の構造不変条件で検査する。**特に R08予想は事故多発**（独立「## 試験問題」セクションの分離・`### A案:/B案:/C案:` 直下ラベル・各予想問題配下の `### 問題文`/`### 出題予想根拠`/`…フル模範論文` 欠落・選択フロー欠落）。違反があれば道路担当 R08 と同型に再編する：
+
+- 独立「## 試験問題」を作らず、問題文は各 `## 予想問題 N` 配下の `### 問題文` へ
+- essay 見出しは `### A案:…` でなく `### 自治体 {分野}担当フル模範論文（A案: …版）`
+- R03-R07 は `## 試験問題` / `## A 案`・`## B 案` / 各案 `設問（１）(２)(３)` / `## 採点者…` を備える
+
+## Step 6e: 印刷用PDF（記事別）の生成・配置・冒頭訴求
+
+1. spec を作成（道路担当 `scripts/pdf-specs/総監模範論文-自治体道路担当.json` を複製し srcDir/out を差し替え）
+2. 記事別PDFを各記事dirへ直接生成：
+   ```
+   node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/{persona}.json --in-place
+   ```
+   （`--in-place` で各 `{RXX}/` 配下に `{out}.pdf` を配置。試験問題＋模範論文のみ＝note CTA・採点者視点・出題予想根拠は除外）
+3. 各記事冒頭「**この記事でわかること**」末尾に PDF 訴求 1 行を追加（例:「**本記事の模範論文を印刷できる PDF 付き** — 答案用紙への手書き書き写し練習に使えます（購入者は本記事からダウンロード可）」）
+
 ## Step 7: 修正方針の提示とユーザー承認
 
 Step 2〜6 で検出した問題を一覧化し、**修正方針を提示してユーザーの承認を得てから着手**する。試行錯誤を避けるため、複数論点を抱えるなら案 α/β を比較表で出してから選んでもらう。
@@ -170,6 +192,26 @@ Step 2 のスクリプトで字数を再計測し、各施策が 600 字 ±50 �
 ```
 content(note): {theme}/article.md を公開レベルに引き上げ（字数圧縮・散文化・専門度調整）
 ```
+
+## Step 10: note 公開後のURL反映
+
+note でマガジン作成後、運営者から URL を受領したら：
+
+1. 各記事本文のプレースホルダ（冒頭・末尾の `https://note.com/dobokunote/m/（※公開後に追加）` 等）を実URLに置換（単独行＝note リンクカード）
+2. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl` に更新
+3. 個別記事も note 投稿済みなら各 PDF を有料エリアに添付（Step 6e の冒頭訴求と対応）
+
+## 横展開ランブック（公開工程の決定論ゲート）
+
+新ペルソナを公開レベルにする際は、以下を**全て PASS**させる：
+
+| ゲート | コマンド | 合格条件 |
+|---|---|---|
+| 字数・散文性 | `node scripts/essay-shisaku-charcount.mjs "{persona}" --strict` | 超過0・箇条書き混入0 |
+| note 互換 | `node scripts/note-lint.mjs $(find …/{persona} -name article.md)` | 表・太字内全角括弧・文字化け 0 |
+| 見出し構成 | `node scripts/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
+| 引用記号 | Step 6b | フレーミング文に blockquote を使わない |
+| 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | 6記事すべて生成済み |
 
 ---
 
