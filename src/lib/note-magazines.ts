@@ -267,26 +267,10 @@ const MAGAZINES_RAW = {
     imageUrl: '/images/magazines/essay-urban-consultant-cover.webp',
     badge: 'note 限定',
   },
-  'essay-nexco-magazine': {
-    id: 'essay-nexco-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜NEXCO（高速道路管理）R3-R7 + R8予想セット',
-    shortTitle: '模範論文｜NEXCO',
-    description: 'NEXCO（高速道路管理）視点。橋梁大規模更新版とスマートIC設置版のA案/B案2バージョン。',
-    imageUrl: '/images/magazines/essay-nexco-cover.webp',
-    badge: 'note 限定',
-  },
-  'essay-power-civil-magazine': {
-    id: 'essay-power-civil-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜電力会社 土木部門 R3-R7 + R8予想セット',
-    shortTitle: '模範論文｜電力会社土木',
-    description: '電力会社土木部門視点。ダム老朽化対策版と洋上風力基礎土木版のA案/B案2バージョン。',
-    imageUrl: '/images/magazines/essay-power-civil-cover.webp',
-    badge: 'note 限定',
-  },
+  // 注: essay-nexco-magazine / essay-power-civil-magazine は 2026-06-09 不採用。
+  //     著者ペルソナ＝元自治体土木（発注者）の真実の経験座から外れる異業種（電力＝民間ダム/発電、
+  //     NEXCO＝高速道路会社）で、一人称模範論文の真実性とドメイン精度を担保できないため。
+  //     いずれも未公開（published:false・URL空）でサンクコストなし。
 
   // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成、M1 は 2026-05-18 撤回) -----
   // 注: whitepaper-r7-strategy は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ

@@ -181,22 +181,7 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
-  {
-    id: 'nexco',
-    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-NEXCO',
-    fillBg: '#16365C',
-    lines: ['総監記述式 模範論文', 'NEXCO（高速道路管理）', '過去問5年＋R8予想セット'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 44,
-  },
-  {
-    id: 'power-civil',
-    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-電力会社土木',
-    fillBg: '#16365C',
-    lines: ['総監記述式 模範論文', '電力会社 土木部門', '過去問5年＋R8予想セット'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 44,
-  },
+  // nexco / power-civil は 2026-06-09 不採用（著者＝元自治体発注者の経験座外の異業種）。
   // ----- 新規 3 マガジン (Series 1/3/4/5 — M1 撤回済 2026-05-18) -----
   {
     id: 'whitepaper-r7-strategy',
