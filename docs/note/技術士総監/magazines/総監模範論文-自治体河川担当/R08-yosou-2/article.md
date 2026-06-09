@@ -11,7 +11,7 @@ cover:
   leadIn: "令和8年度 R8予想"
   hi: "R8"
   hiSuffix: "河川②(資源循環)"
-  banner: "資源循環 × サプライチェーン強靭化｜3,000字級フル論文"
+  banner: "資源循環｜3,000字級フル論文"
   meta: "R8予想問題"
   chips:
     - { icon: pen, text: "答案そのまま展開" }

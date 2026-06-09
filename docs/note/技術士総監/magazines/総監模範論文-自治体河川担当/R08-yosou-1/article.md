@@ -11,7 +11,7 @@ cover:
   leadIn: "令和8年度 R8予想"
   hi: "R8"
   hiSuffix: "河川①(気候変動)"
-  banner: "気候変動適応 × 流域治水｜3,000字級フル論文"
+  banner: "気候変動適応｜3,000字級フル論文"
   meta: "R8予想問題"
   chips:
     - { icon: pen, text: "答案そのまま展開" }
