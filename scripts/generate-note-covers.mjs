@@ -147,10 +147,11 @@ function collectArticleDirs(absDir, relDir) {
 
 async function processOne(dirName, args, fonts) {
   const dir = join(NOTE_DIR, dirName);
-  // 1 ディレクトリ内の全 article ファイルを対象にする（選択科目は article.md=III に加え
-  // article-II1.md / article-II2.md が同居する。各々を別 note 記事のカバーとして出力する）。
+  // 1 ディレクトリ内の全 article ファイルを対象にする（選択科目は article.md に加え
+  // article-II1-1.md 〜 article-II1-4.md / article-II2-1.md 等が同居する。
+  // 各々を別 note 記事のカバーとして出力する）。
   const articleFiles = readdirSync(dir, { withFileTypes: true })
-    .filter((e) => e.isFile() && /^article(-[A-Za-z0-9]+)?\.md$/.test(e.name))
+    .filter((e) => e.isFile() && /^article(-[A-Za-z0-9][A-Za-z0-9-]*)?\.md$/.test(e.name))
     .map((e) => e.name)
     .sort();
   if (articleFiles.length === 0) {
