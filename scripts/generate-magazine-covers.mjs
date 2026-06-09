@@ -68,6 +68,30 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
+  {
+    id: 'procurement-municipality',
+    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体契約調達担当',
+    fillBg: '#16365C',
+    lines: ['総監記述式 模範論文', '自治体 契約・調達担当（発注者）', '過去問5年＋R8予想セット'],
+    category: '技術士（総合技術監理部門）',
+    fontSize: 44,
+  },
+  {
+    id: 'standards-municipality',
+    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体技術基準担当',
+    fillBg: '#16365C',
+    lines: ['総監記述式 模範論文', '自治体 技術基準担当（発注者）', '過去問5年＋R8予想セット'],
+    category: '技術士（総合技術監理部門）',
+    fontSize: 44,
+  },
+  {
+    id: 'assetmgmt-municipality',
+    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体アセットマネジメント担当',
+    fillBg: '#16365C',
+    lines: ['総監記述式 模範論文', '自治体 アセットマネジメント担当', '過去問5年＋R8予想セット'],
+    category: '技術士（総合技術監理部門）',
+    fontSize: 44,
+  },
   // ----- 新規 3 マガジン (Series 1/3/4/5 — M1 撤回済 2026-05-18) -----
   {
     id: 'whitepaper-r7-strategy',
