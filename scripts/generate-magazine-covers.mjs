@@ -294,6 +294,16 @@ const MAGAZINES = [
     accentColor: '#155293',
     fillBg: '#155293',
   },
+  // ----- 技術士 建設部門 2次 模範解答集（BK シリーズ・2026-06-09） -----
+  {
+    id: 'bk-i-required',
+    fileBaseName: 'pe-construction-bk-i-required-cover',
+    magazineDir: 'docs/note/技術士建設部門/magazines/BK-I_必須科目I',
+    lines: ['技術士 建設部門 2次', '必須科目I 模範解答集', '5年分セット (R03-R07)'],
+    category: '技術士（建設部門・第二次）',
+    fontSize: 44,
+    fillBg: '#33356B',
+  },
 ];
 
 async function renderOne(mag, fonts) {

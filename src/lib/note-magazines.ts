@@ -518,6 +518,23 @@ const MAGAZINES_RAW = {
     price: '¥1,480（5本セット）',
     badge: 'note 限定 教材',
   },
+
+  // 技術士 建設部門 2次（BK シリーズ）。公開準備中（published:false）。
+  // 公開時: note でマガジン公開 → noteUrl 埋め + published: true。CTA は pe-construction-r0X-required ページで発火。
+  'pe-construction-required-magazine': {
+    id: 'pe-construction-required-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜必須科目I 模範解答集（R03-R07）',
+    description:
+      '技術士第二次試験 建設部門で全受験者必須の「必須科目I」を、令和3〜7年度の5年分まとめた模範解答集。元・地方自治体の土木職（発注者）視点で、安全・品質・コスト・環境の統合判断や住民対応・行政責任といった採点軸を補う。各年度に設問全文（出典明記）を再掲し、設問構成と論述方針・約1,500〜1,650字のフル模範解答・採点者が見るポイント・元公務員（発注者）からのコメントを収録。',
+    shortTitle: '建設部門2次｜必須I 模範解答集',
+    shortDescription:
+      'R03〜R07 の5年分セット。必須科目I を元公務員（発注者）視点でフル解答。1年あたり約396円。',
+    imageUrl: '/images/magazines/pe-construction-bk-i-required-cover.webp',
+    price: '¥1,980（5本セット）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
