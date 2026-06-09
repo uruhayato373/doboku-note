@@ -52,7 +52,11 @@ description: >
 1. `{R##}-{科目}.pdf` を PyMuPDF で **150dpi** PNG 化 → `.tmp/pe-audit/{year}/{sub}/` に一時保存
    - **year ディレクトリ名は小文字**: `r01`, `r02`, … `r07`（R01 等の大文字は不可）
    - `.tmp/` は `.local/r2/` と同じ作業ルートからの相対パス（`C:\Users\m004195\doboku-note\.tmp\` 相当）
-2. 各ページ PNG を Read で読み込み、対応する MDX 設問と突合:
+2. 各ページ PNG を **Read ツール（絶対パス）** で読み込み: `C:\Users\m004195\doboku-note\.tmp\pe-audit\{year}\{sub}\pNNN.png`
+   - **`C:\tmp\pe-audit\...` は誤り**（過去の再監査ワークフローで複数エージェントがこの絶対 Windows パス誤りを起こした）
+   - 相対パス `.tmp/pe-audit/...` はスクリプト内での生成用。Read ツールには常に絶対パスを渡す
+   - **実在確認**: `ls C:/Users/m004195/doboku-note/.tmp/pe-audit/{year}/{sub}/ | head -5` で PNG 存在を確認してから突合開始
+   - 対応する MDX 設問と突合:
    - 問題番号（Ⅱ-1, Ⅰ-1-1, Ⅲ-1 等）の一致
    - 問題文の先頭30〜50文字の一致（OCR誤字・捏造検出）
    - 選択肢数（適性・基礎=5択 / 専門=5択）の一致

@@ -12,8 +12,8 @@
     "visual_ok": 0,
     "visual_issues": 0,
     "visual_not_run": 0,
-    "visual_pass": 19,
-    "visual_partial": 2,
+    "visual_pass": 21,
+    "visual_partial": 0,
     "visual_fail": 0,
     "structure_pass": 21,
     "structure_fail": 0
@@ -51,7 +51,7 @@
       { "slug": "r07-basic", "count": 2, "commit": "ecaeacb6e,44f37cfa0,12520738e" },
       { "slug": "r07-construction", "count": 9, "commit": "9719ba00f,20348260d,3e573e34e" }
     ],
-    "note": "全21ページの視覚突合誤記修正を2026-06-08〜09に実施。answer_fail全8件・visual_issues合計100件以上を修正完了。r02-basic/r06-constructionはPNG参照バグ(C:\\tmp vs .tmp)で再監査エージェントが視覚突合不能だったため別エージェントで補完中。"
+    "note": "全21ページの視覚突合誤記修正を2026-06-08〜09に実施。answer_fail全8件・visual_issues合計100件以上を修正完了。全21ページ visual_pass 達成。r02-basic/r06-constructionはPNG参照バグ(C:\\tmp vs .tmp)で再監査エージェントが視覚突合不能だったが別エージェントで補完完了。"
   },
   "pages": {
     "r01-aptitude": {
@@ -83,12 +83,12 @@
       "audited_at": "2026-06-09"
     },
     "r02-basic": {
-      "status": "partial",
+      "status": "pass",
       "answer_check": "pass",
-      "visual_check": "partial",
+      "visual_check": "pass",
       "structure_check": "pass",
       "audited_at": "2026-06-09",
-      "notes": "視覚突合エージェントがPNGパス誤り(C:\\tmp)で突合不能。.tmp/pe-audit/r02/basic/に22ファイル確認済み。補完エージェント実行中。"
+      "notes": "Ⅰ-3-3選択肢4「ほぼ」補完・Ⅰ-3-4選択肢1/2内心外心数値修正・Ⅰ-4-5好気呼吸式6H₂O補完（commit 24dbb2e70）"
     },
     "r02-construction": {
       "status": "pass",
@@ -176,12 +176,12 @@
       "notes": "2026-06-09に視覚突合実施。Ⅰ-2-1選択肢②④の2進数誤記・Ⅰ-2-5 ExamPoint式を修正（commit f81d3d2e6）"
     },
     "r06-construction": {
-      "status": "partial",
+      "status": "pass",
       "answer_check": "pass",
-      "visual_check": "partial",
+      "visual_check": "pass",
       "structure_check": "pass",
       "audited_at": "2026-06-09",
-      "notes": "Ⅲ-13(下水道→上水道)/Ⅲ-30(軌間変位→水準変位)は修正済み。Ⅲ-12選択肢④の膨張圧欠落は補完エージェントで対処中。"
+      "notes": "Ⅲ-9⑤車軸/Ⅲ-10②材料分離逆転/Ⅲ-12④膨張圧全面修正/Ⅲ-34④判定記述修正（commit c7a46dea8）"
     },
     "r07-aptitude": {
       "status": "pass",
