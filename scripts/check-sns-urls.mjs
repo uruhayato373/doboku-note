@@ -14,9 +14,10 @@
 // broken が 1 件でもあれば exit 1。各 broken に対し、一意に決まる正しい slug を提案する。
 //
 // 注（2026-06-09）: SNS は `doboku-note.com/docs/{slug}`、MDX本文は bare `/docs/{slug}` 形式で
-// 内部リンクするため URL 正規表現を分けている。MDX本文の slug 誤りは従来 pre-commit で未検知だった
-// （essay ガイドで実際に発生）。現状 .local/r2/posts に約40件の壊れ内部リンクがあるため、--mdx は
-// 当面手動/CI 実行用とし、クリーンアップ後に pre-commit へ組込む。
+// 内部リンクするため URL 正規表現をファイル別に分けている。MDX本文の slug 誤りは従来 pre-commit で
+// 未検知だった（essay ガイドで実際に発生、旧slug 40件をクリーンアップ済み 2026-06-09）。
+// 現在は `--staged`（pre-commit）が docs/sns に加えて staged の .local/r2/posts/*.mdx も検査する。
+// `--mdx` は .local/r2/posts 全体を手動/CI で一括検査する用途。
 
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -48,20 +49,25 @@ if (MDX) {
 } else if (STAGED) {
   const staged = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
     .split('\n').map((s) => s.trim()).filter(Boolean);
-  files = staged.filter((f) => f.startsWith('docs/sns/') && /\.(md|txt|json)$/.test(f) && existsSync(f));
+  // SNS（docs/sns の md/txt/json）＋ MDX本文（.local/r2/posts の mdx）の両方を staged から検査
+  files = staged.filter((f) => existsSync(f) && (
+    (f.startsWith('docs/sns/') && /\.(md|txt|json)$/.test(f)) ||
+    (f.startsWith('.local/r2/posts/') && /\.mdx$/.test(f))
+  ));
 } else {
   files = walk('docs/sns');
 }
 
-// SNS は doboku-note.com/docs/{slug}、MDX本文は bare /docs/{slug}（markdownリンク）。テンプレ変数は除外。
-const slugRe = MDX
-  ? /\]\(\/docs\/([a-z0-9-]+)\)/g
-  : /doboku-note\.com\/docs\/([a-z0-9-]+)(?![a-z0-9-])/g;
+// ファイル別に URL 形式を切替: SNS = doboku-note.com/docs/{slug}、MDX本文 = bare /docs/{slug}（markdownリンク）。
+const RE_SNS = /doboku-note\.com\/docs\/([a-z0-9-]+)(?![a-z0-9-])/g;
+const RE_MDX = /\]\(\/docs\/([a-z0-9-]+)\)/g;
+const reFor = (f) => (MDX || f.startsWith('.local/r2/posts/')) ? RE_MDX : RE_SNS;
 const problems = [];
 
 for (const f of files) {
   const raw = readFileSync(f, 'utf8');
   const lines = raw.split(/\r?\n/);
+  const slugRe = reFor(f);
   lines.forEach((line, i) => {
     // テンプレ行（プレースホルダ変数）はスキップ: <year> / {年度} / ｛...｝
     if (/[<>{}｛｝]/.test(line)) return;
@@ -80,8 +86,8 @@ for (const f of files) {
 if (problems.length) {
   console.error(`[check-sns-urls] ✗ 本番に存在しない /docs/ リンク ${problems.length} 件:`);
   for (const p of problems) console.error('  ' + p);
-  console.error('\n対処: SNS の URL は「カテゴリ-ディレクトリ」のフラット slug を使う');
-  console.error('（例: primary-r03-kouki ではなく civil-construction-2-primary-r03-kouki）');
+  console.error('\n対処: /docs/ リンクは「カテゴリ-ディレクトリ」のフラット slug を使う');
+  console.error('（例: r07-required ではなく pe-construction-r07-required、SNS/MDX本文とも同じ）');
   process.exit(1);
 }
 console.log(`[check-sns-urls] ✓ ${files.length} ファイルの /docs/ リンクは全て本番に実在`);
