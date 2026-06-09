@@ -9,6 +9,16 @@ noteId: ""
 notePublishedAt: ""
 price: 1980
 coverTitle: "技術士 建設部門｜必須科目 I R07 模範解答"
+cover:
+  leadIn: "技術士 建設部門 2次"
+  hi: "R07"
+  hiSuffix: "必須科目I"
+  banner: "持続可能な建設業｜模範解答"
+  meta: "必須科目I 模範解答"
+  chips:
+    - { icon: pen, text: "フル模範解答" }
+    - { icon: layers, text: "発注者視点" }
+    - { icon: check, text: "令和8改訂対応" }
 utmCampaign: pe-construction-secondary
 ---
 
