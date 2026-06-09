@@ -9,8 +9,10 @@
     "mismatches": []
   },
   "visual_check": {
-    "status": "partial",
+    "status": "pass",
     "checked_count": 30,
+    "fixed_at": "2026-06-09",
+    "fix_commit": "f81d3d2e6",
     "issues": [
       {
         "question": "Ⅰ-2-1",
