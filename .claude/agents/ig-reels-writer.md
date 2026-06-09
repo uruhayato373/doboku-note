@@ -10,6 +10,7 @@ model: sonnet
 
 > **READ FIRST（真実源）**:
 > - script.json スキーマ・字数ルール・キャプション/ハッシュタグルール・5 軸ルーブリックの意図 → [`docs/reference/ig-reels-policy.md`](../../docs/reference/ig-reels-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
 > - 過去問パック（B シリーズ・_exam-packs）のデザイン仕様 → [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md)
 > - SNS 戦略 v7（IG 一次・YT 派生） → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../docs/project/03_SNS/01_SNS集客戦略.md)
 >
@@ -35,11 +36,13 @@ model: sonnet
 | `pack-id` | 過去問パック ID（exam モード） | `r03-pack-01` |
 | `slug` | キーワードスラグ（slug モード、現時点では過去問パック優先） | `heinrich-law` |
 | `category` | カテゴリ | `pe-comprehensive-management`（既定） |
+| `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` |
 
 ## 進め方
 
-1. `docs/reference/ig-reels-policy.md` を読む。
-2. exam モードの場合: 対象パックの `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/slide-data.json` を読み、carousel と同一の slide 構造（cover / problem×4 / answer×4 / cta = 10 枚）を把握する。
+1. `docs/reference/ig-reels-policy.md` と `docs/reference/sns-repurpose-policy.md` を読む。
+2. `angle` が指定されていれば、その切り口を冒頭 narration（最初の6秒 Hook）に反映する（repurpose-policy §2 Reels 欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1本作れる。
+3. exam モードの場合: 対象パックの `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/slide-data.json` を読み、carousel と同一の slide 構造（cover / problem×4 / answer×4 / cta = 10 枚）を把握する。
 3. 各 slide の **読み上げ台本**を `reels/script.json` に書く。
    - **尺**: 合計 90-110 秒以内。各スライドの想定秒数を `durationSec` で明示
    - **読み上げ文**: 体言止め禁止（VOICEVOX が破綻するため句読点と完結文が必須）

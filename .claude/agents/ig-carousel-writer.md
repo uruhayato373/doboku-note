@@ -10,6 +10,7 @@ model: sonnet
 
 > **READ FIRST（真実源）**:
 > - スキーマ・字数ルール・figure 判断基準・5 軸の意図 → [`docs/reference/ig-carousel-policy.md`](../../docs/reference/ig-carousel-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
 > - 過去問パック（B シリーズ・_exam-packs）のデザイン仕様 → [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md)
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
@@ -33,11 +34,13 @@ model: sonnet
 | `slug` | キーワードのスラグ | `heinrich-law` |
 | `date` | 投稿日（カルーセルフォルダの日付） | `2026-05-10` |
 | `category` | カテゴリ | `pe-comprehensive-management`（既定） |
+| `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` |
 
 ## 進め方
 
-1. `docs/reference/ig-carousel-policy.md` を読む。
-2. キーワード MDX `.local/r2/posts/{category}/{slug}/article.mdx` を読み、定義・試験ポイント・関連キーワード・管理区分を把握する。
+1. `docs/reference/ig-carousel-policy.md` と `docs/reference/sns-repurpose-policy.md` を読む。
+2. `angle` が指定されていれば、その切り口でカバーの `hook` とスライド構成を設計する（repurpose-policy §2 カルーセル欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1パック作れる。
+3. キーワード MDX `.local/r2/posts/{category}/{slug}/article.mdx` を読み、定義・試験ポイント・関連キーワード・管理区分を把握する。
 3. 既存 SVG `.local/r2/posts/{category}/{slug}/img/*.svg` の有無を確認する。あれば figure スライドでの再利用を検討する。
 4. キーワードの説明量に応じて **スライド枚数を決める**（slides 1〜8 枚、合計 3〜10 枚）。固定枚数にしない。
 5. `docs/sns/instagram/{date}-{slug}/slide-data.json` を v2 スキーマで執筆する。

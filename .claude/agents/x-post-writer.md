@@ -10,6 +10,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 
 > **READ FIRST（真実源）**:
 > - 文字数ルール・試験別タグ・投稿型・UTM・カード仕様 → [`docs/reference/x-post-policy.md`](../../docs/reference/x-post-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
 > - 戦略上の位置づけ → `docs/project/03_SNS/01_SNS集客戦略.md` の X 節
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
@@ -31,13 +32,16 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 | `type` | 投稿型 | `keyword` / `question` / `trap`（引っかけ）/ `mnemonic`（暗記）/ `magazine` |
 | `topic` | 対象（slug / 年度パック / テーマ） | `heinrich-law` / `r05z-pack-01` / `施工経験記述` |
 | `count` | 生成ツイート数 | `4`（既定） |
-| `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` |
+| `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` / `all`（全6本） |
 
 ## 進め方
 
 1. `docs/reference/x-post-policy.md` を読む（文字数・試験別タグ・投稿型・リパーパス戦略・偽成功検証）。
-2. `angle` が指定されていれば、同一 `topic` を**指定切り口の視点**で書く（policy §5.5）。
-   指定なしで `count` が複数の場合は**切り口を自然にばらす**（結論/理由/体験/反論/数字/ハウツーを混在）。
+2. `angle` の処理（`sns-repurpose-policy.md` §3 参照）：
+   - `angle=all` → 6切り口それぞれで1本ずつ、計6本生成する
+   - `angle` 指定あり → その切り口の視点1本のみ生成する
+   - `angle` 未指定 → 文脈から最適な切り口を選ぶ。`count` が複数なら切り口を自然にばらす
+   - いずれの切り口でも必ず書ける（「数字がない」と諦めない — 合格率・出題年度・定義の字数など何らかの数字は必ずある）
 3. `exam` と `type` からネタ源を決める：
    - `keyword`: `.local/r2/posts/{category}/{slug}/article.mdx` の定義・試験ポイント。
    - `question` / `trap`: `src/config/{civil-1,civil-2}-exam-questions.json`（総監は `exam-questions.json`）。**表・図問題（`igEligible:false`）は避ける**。正答は**論点提示に留め全文ネタバレしない**。

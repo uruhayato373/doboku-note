@@ -10,6 +10,7 @@ model: sonnet
 
 > **READ FIRST（真実源）**:
 > - 3 軸ルーブリック・キャプションルール・ステッカー運用は [`docs/reference/ig-stories-policy.md`](../../docs/reference/ig-stories-policy.md)
+> - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
 > - パック構造・4 枚選別の機械処理は [`docs/reference/ig-carousel-skill.md`](../../docs/reference/ig-carousel-skill.md)
 > - SNS 戦略 v7 → [`docs/project/03_SNS/01_SNS集客戦略.md`](../../docs/project/03_SNS/01_SNS集客戦略.md)
 >
@@ -28,12 +29,14 @@ model: sonnet
 | パラメータ | 説明 | 例 |
 |---|---|---|
 | `pack-id` | 過去問パック ID | `r03-pack-01` |
+| `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` |
 | 前提 | `stories/img/01-cover.png ... 04-cta.png` と `stories/caption.txt` / `note.md` の初版が存在すること（`build-stories.mjs` 出力） | — |
 
 ## 進め方
 
-1. `docs/reference/ig-stories-policy.md` を読む。
-2. 対象パックの `slide-data.json`、`stories/img/*.png`、`stories/caption.txt`（初版）、`stories/note.md`（初版）を読む。
+1. `docs/reference/ig-stories-policy.md` と `docs/reference/sns-repurpose-policy.md` を読む。
+2. `angle` が指定されていれば、その切り口で4枚のストーリー弧を設計する（repurpose-policy §2 Stories 欄参照）。未指定なら文脈から最適な切り口を選ぶ。いずれの切り口でも必ず1パック作れる。
+3. 対象パックの `slide-data.json`、`stories/img/*.png`、`stories/caption.txt`（初版）、`stories/note.md`（初版）を読む。
 3. `stories/caption.txt` を **パック固有の文言**に書き直す。
    - **管理分野・年度・パック番号**を具体的に反映（テンプレの「令和7年度」「#X」を実値に）
    - **投票ステッカー文言**を 02-problem に追加（例: 「Q1 の答えは？／1〜5 を投票」）
