@@ -55,7 +55,7 @@ function measureArticle(path) {
     const len = cjkLen(b);
     if (len < 120) continue;
     // 散文性: 答案ブロック内の箇条書き（- **効果**: / - **障害**: 等）は禁止
-    const bulletLines = (b.match(/^\s*-\s+\*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|克服|前提|背景)/gm) || []).length;
+    const bulletLines = (b.match(/^\s*-\s+\*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|克服)/gm) || []).length;
     res.push({ head: head.slice(0, 36), len, over: len > LIMIT, bullets: bulletLines });
   }
   return res;
@@ -81,17 +81,31 @@ if (!target) {
 const path = existsSync(target) ? target : join(ROOT, target);
 const arts = articlesIn(path);
 let over = 0, blk = 0, proseNg = 0;
+// 答案領域全体の箇条書き答案（- **内容/効果/障害…**: ）を数える。
+// ### 施策ブロックに限らず、## 設問 直下の箇条書きも検出する（散文性の全体ゲート）。
+function answerBodyBullets(path) {
+  const raw = readFileSync(path, 'utf8').split('\r\n').join('\n');
+  let body = raw;
+  const start = body.search(/##\s*(A\s*案|フル模範|予想問題\s*1|試験問題)/);
+  const end = body.search(/##\s*(採点者|元公務員|関連)/);
+  if (start >= 0) body = body.slice(start, end > start ? end : undefined);
+  return (body.match(/^\s*-\s+\*\*(内容|根拠|効果|障害|課題|方法|利活用|リスク|克服|施策)/gm) || []).length;
+}
+
+let bodyBulletTotal = 0;
 for (const a of arts) {
   const res = measureArticle(a);
   const ng = res.filter((r) => r.over || r.bullets > 0);
+  const bb = answerBodyBullets(a);
   blk += res.length; over += res.filter((r) => r.over).length; proseNg += res.filter((r) => r.bullets > 0).length;
-  if (DETAIL || ng.length) {
-    console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}`);
+  bodyBulletTotal += bb;
+  if (DETAIL || ng.length || bb > 0) {
+    console.log(`\n${a.replace(ROOT + '/', '').replace(/\\/g, '/')}${bb > 0 ? `  【答案箇条書き ${bb}か所】` : ''}`);
     for (const r of (DETAIL ? res : ng)) {
       const mark = r.over ? '✗字' : r.bullets > 0 ? '✗散' : '✓ ';
       console.log(`  ${mark} ${String(r.len).padStart(4)}字${r.bullets ? ` 箇条${r.bullets}` : ''}  ${r.head}`);
     }
   }
 }
-console.log(`\n施策ブロック ${blk} / 600字超過 ${over} / 箇条書き混入 ${proseNg}`);
-if (STRICT && (over > 0 || proseNg > 0)) process.exit(1);
+console.log(`\n施策ブロック ${blk} / 600字超過 ${over} / 箇条書き混入 ${proseNg} / 答案箇条書き(全体) ${bodyBulletTotal}`);
+if (STRICT && (over > 0 || proseNg > 0 || bodyBulletTotal > 0)) process.exit(1);

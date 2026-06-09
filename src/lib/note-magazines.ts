@@ -156,10 +156,10 @@ const MAGAZINES_RAW = {
     noteUrl: 'https://note.com/dobokunote/m/m32a8a5b3b473',
     title: '総監記述式 模範論文｜自治体 河川担当 R3-R7 + R8予想セット',
     description:
-      'R03〜R07 の 5 年分セット。河川砂防・海岸海洋分野合格者視点、堤防維持管理 × 河川改修の A案/B案 2 バージョン。5 管理間トレードオフが主軸。',
+      'R03〜R07 過去問（各 A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・資源循環、各 A案/B案）の計 7 記事。河川砂防・海岸海洋分野合格者視点、堤防維持管理 × 河川改修。5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     shortTitle: '模範論文｜自治体河川担当',
     shortDescription:
-      'R03〜R07 の 5 年分 + R8 予想。堤防・護岸維持管理版と河川改修版の A案/B案 2 バージョン。',
+      'R03〜R07 + R8予想2記事 = 計7記事。維持管理版/河川改修版の A案/B案＋印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-river-municipality-cover.webp',
     badge: 'note 限定',
   },

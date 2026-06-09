@@ -70,9 +70,21 @@ for (const p of personas) {
     const iss = checkPastYear(hs);
     if (iss.length) { lines.push(`  ${y}: ${iss.join(' / ')}`); total += iss.length; }
   }
-  const r8 = headings(join(ROOT, p, 'R08-yosou', 'article.md'));
-  if (!r8) { lines.push('  R08-yosou: 記事欠落'); total++; }
-  else { const iss = checkR08(r8); if (iss.length) { lines.push(`  R08-yosou: ${iss.join(' / ')}`); total += iss.length; } }
+  // R08予想（新標準）: 予想問題ごとに R08-yosou-1 / R08-yosou-2 の2記事・各 過去問型(A/B案)。
+  // 旧形式（単一 R08-yosou に2問併記）は要2記事化として違反扱い。
+  const r1 = headings(join(ROOT, p, 'R08-yosou-1', 'article.md'));
+  const r2 = headings(join(ROOT, p, 'R08-yosou-2', 'article.md'));
+  if (r1 && r2) {
+    for (const [slug, hs] of [['R08-yosou-1', r1], ['R08-yosou-2', r2]]) {
+      const iss = checkPastYear(hs); // R08記事も過去問型（試験問題/A案/B案/設問1-3/採点者）
+      if (iss.length) { lines.push(`  ${slug}: ${iss.join(' / ')}`); total += iss.length; }
+    }
+  } else if (headings(join(ROOT, p, 'R08-yosou', 'article.md'))) {
+    lines.push('  R08: 旧単一記事（R08-yosou）。新標準=予想問題ごと R08-yosou-1/-2 の2記事×A/B案へ分割が必要');
+    total++;
+  } else {
+    lines.push('  R08予想: 記事欠落（R08-yosou-1 / R08-yosou-2）'); total++;
+  }
 
   if (lines.length) { console.log(`\n✗ ${p.replace('総監模範論文-', '')}`); lines.forEach((l) => console.log(l)); }
   else if (only) console.log(`✓ ${p.replace('総監模範論文-', '')}: 構造不変条件すべて満たす`);
