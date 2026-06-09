@@ -183,7 +183,8 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 下水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体下水道担当',
-    description: '下水道担当（発注者）視点。老朽管路更新版と浸水対策雨水幹線整備版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（老朽管路更新版/浸水対策雨水幹線整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・浸水対策／資源循環・下水汚泥資源化、各 A案/B案）の計 7 記事。下水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-sewage-municipality-cover.webp',
     badge: 'note 限定',
   },
