@@ -83,7 +83,7 @@ note 販売は記事単位のため、article.md 単体では公開不可。次�
 
 - **`cover:` frontmatter ブロック**の有無（`coverTitle` だけでは記事カバーが生成されない）
 - **`{記事dir}/img/cover.png`** の有無（選択科目は `cover-II1.png` / `cover-II2.png` も。`generate-note-covers.mjs` で生成）
-- **`{記事dir}/hashtags.txt`** の有無と**タグ数（目安90個・最低でも~80）**。選択科目は `hashtags-II1.txt` 等も記事別に必要
+- **`{記事dir}/hashtags.txt`** の有無と**タグ数（目安90個・最低でも~80）**＋**1行1個フォーマット（`行数==タグ数`、スペース区切り1行は不可＝note貼付不可）**。生成は `/note-hashtags` スキルが owner。選択科目は `hashtags-II1.txt` 等も記事別に必要
 - **マガジン階層**: `_meta.yaml` / `_cover.png` / `hashtags.txt` / `note-magazines.ts` 登録（公開前 published:false）/ `magazine-placement.ts` 配線の有無
 - **選択科目の取りこぼし注意**: 1年度dirに `article.md`(=III) + `article-II1.md` + `article-II2.md` が同居。採点・梱包確認は `article*.md` 全件を対象にする
 
