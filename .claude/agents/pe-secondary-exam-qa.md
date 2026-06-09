@@ -75,6 +75,17 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
 - 文体ゲート: 「私は」「当社は」等の一人称・経験記述スタイルが本文（コメント欄除く）に無い（技術士2次は論述式）
 - 著作権: 問題文を全文転載する場合は **出典明記** があること（例「出典：公益社団法人 日本技術士会 技術士第二次試験 建設部門 令和X年度…」）。問題文は公表物のため出典明記があれば全文転載を可とする（2026-06-09 方針確定。`civil-secondary-exam-writer` の「公益目的・出典明示で OK」と整合）。**模範解答（解答本文）は著者独自表現**であること（公式解答の逐語転載は不可）。合格スコープ外8科目が「合格者解答」と表記されていない
 - frontmatter: `noteUrl` / `noteId` / `notePublishedAt` が空文字（投稿前）。`notePricing: paid` / `noteMagazine` / `year` / `subject` / `exam_type` が入力と一致
+- **経験記述免責の誤流用なし**: 「自分の業務経験を答案の型に変換…経験事例に置き換えて再構成」等の経験記述／総監流用免責文が無い（建設部門は論述式で不適合。2026-06-09 是正。[[project_pe_construction_bk_magazines]]）
+
+## 記事単位の完全梱包チェック（推奨・非ゲートだが note 公開前に必須）
+
+note 販売は記事単位のため、article.md 単体では公開不可。次を確認し、欠落は `issues` に列挙する（[[feedback_note_article_three_set_dod]]）:
+
+- **`cover:` frontmatter ブロック**の有無（`coverTitle` だけでは記事カバーが生成されない）
+- **`{記事dir}/img/cover.png`** の有無（選択科目は `cover-II1.png` / `cover-II2.png` も。`generate-note-covers.mjs` で生成）
+- **`{記事dir}/hashtags.txt`** の有無と**タグ数（目安90個・最低でも~80）**。選択科目は `hashtags-II1.txt` 等も記事別に必要
+- **マガジン階層**: `_meta.yaml` / `_cover.png` / `hashtags.txt` / `note-magazines.ts` 登録（公開前 published:false）/ `magazine-placement.ts` 配線の有無
+- **選択科目の取りこぼし注意**: 1年度dirに `article.md`(=III) + `article-II1.md` + `article-II2.md` が同居。採点・梱包確認は `article*.md` 全件を対象にする
 
 ## 出力
 
@@ -83,8 +94,9 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
   "path": "docs/note/技術士建設部門/magazines/BK-01_道路/R07/article.md",
   "scores": { "question_fit": 3, "structure_focus": 2, "clarity_no_vagueness": 3, "owner_view_expertise": 3, "note_completeness": 2, "competency_revision": 2 },
   "average": 2.5,
-  "gates": { "fffd": true, "note_lint": true, "no_body_price": true, "within_char_limit": true, "question_one_to_one": true, "essay_style_third_person": true, "copyright_ok": true, "frontmatter_ok": true },
+  "gates": { "fffd": true, "note_lint": true, "no_body_price": true, "within_char_limit": true, "question_one_to_one": true, "essay_style_third_person": true, "copyright_ok": true, "frontmatter_ok": true, "no_keiken_disclaimer": true },
   "charcount": { "measured": 1620, "limit": 1800, "within": true, "per_question": [] },
+  "packaging": { "has_cover_block": true, "cover_png_exists": true, "hashtags_count": 90, "magazine_meta_exists": true },
   "verdict": "pass",
   "issues": ["指摘があれば具体的に（設問番号・箇所・あいまい語の該当行など）"]
 }

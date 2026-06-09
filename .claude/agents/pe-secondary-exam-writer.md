@@ -253,6 +253,19 @@ writeFileSync(outPath, content, 'utf8');
 - 合格3科目（道路・河川・都市計画）には「合格者として」の訴求コメントを追加
 - 答案字数を **exam_type × 枚数 × 600 字の 93% 以内** に収める
 - frontmatter の `noteUrl` / `noteId` / `notePublishedAt` は空文字のまま（投稿後にユーザーが記入）
+- **記事単位の完全梱包を満たす**（下記「記事・マガジンの完全梱包」参照）。article.md だけで終えない
+
+### 記事・マガジンの完全梱包（DoD・再発防止 2026-06-09）
+
+note の販売は**記事（年度・科目）単位**。article.md だけでは公開できない。1 記事 = 次の 3 点セット：
+
+1. **article.md** — frontmatter に **`cover:` ブロック**（`leadIn`/`hi`/`hiSuffix`/`banner`/`meta`/`chips`）を含める（`coverTitle` だけでは記事カバーが生成されない）。改訂コンピテンシー反映記事は冒頭明示も付ける
+2. **img/cover.png** — `node scripts/generate-note-covers.mjs "{magazine名}"` で生成（`cover:` ブロックから）。色は `note-cover-tokens.json` の試験キーで解決（**技術士建設部門は `pe-construction`＝インディゴ #33356B を登録済み**。未登録だと総監navyにフォールバック）
+3. **hashtags.txt** — **約90個**（共通タグ群＋年度/科目テーマ、総監マガジンと同水準）。20個程度で止めない
+
+**選択科目（道路・河川等）は1年度dirに `article.md`(=III) + `article-II1.md` + `article-II2.md` の3記事**が同居する。各々が別 note 記事なので、**カバー（`cover-II1.png` 等）・hashtags（`hashtags-II1.txt` 等）も記事別**に作る。価格除去・出典追加・note-lint・QA 等の一括処理は **必ず `article*.md`（`-name "*.md"`）を対象**にする（`article.md` だけだと II-1/II-2 を取りこぼす。[[project_pe_construction_bk_magazines]]）。
+
+**マガジン階層**も別途必要：`_meta.yaml` + `_cover.png`（`generate-magazine-covers.mjs`）+ `hashtags.txt` + `src/lib/note-magazines.ts` 登録（公開前 `published:false`）+ `src/lib/magazine-placement.ts` 配線。これらは親オーケストレーションの担当。
 
 ### やってはいけないこと
 
@@ -260,6 +273,7 @@ writeFileSync(outPath, content, 'utf8');
 - ❌ 答案字数が上限を超える（手書きで書き写せなくなる）
 - ❌ 本文中に価格を直書きする（¥1,980 等）
 - ❌ 「私は○○工事で」のような施工経験記述スタイルで書く（技術士2次は論述式）
+- ❌ **経験記述・総監からの流用免責文を貼る**（「本解答は自分の業務経験を答案の型に変換するためのテンプレート…経験事例に置き換えて再構成する前提」等）。建設部門は一般論述式で「自分の業務経験」を書く試験ではないため不適合。免責を置くなら「論述の型を学ぶ模範例／丸暗記せず自分の言葉で再現」程度の論述式向け文にする（2026-06-09 是正）
 - ❌ 問題文を **出典明記なし** で転載する（問題文の全文転載自体は公益目的で可だが、必ず「出典：公益社団法人 日本技術士会 技術士第二次試験 建設部門 令和X年度…」の出典行を `## 試験問題` 見出し直後に置く。2026-06-09 方針確定）
 - ❌ 合格スコープ外の8科目を「合格者解答」と表記する
 - ❌ **markdown 表（pipe 表 `| … |`）を使う** — note は表非対応。「採点者が見るポイント」等は必ず**箇条書き**で書く（2項目は `- **{項目}**：{内容}`）
@@ -290,7 +304,11 @@ writeFileSync(outPath, content, 'utf8');
   "within_limit": true,
   "questions_covered": 3,
   "has_kokumin_viewpoint": true,
-  "frontmatter_noteUrl_blank": true
+  "frontmatter_noteUrl_blank": true,
+  "has_cover_block": true,
+  "hashtags_count": 90,
+  "competency_reflected": true,
+  "no_keiken_disclaimer": true
 }
 ```
 
