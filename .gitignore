@@ -113,6 +113,10 @@ public/pagefind/
 # 「どの動画をいつ予約したか」の記録は .claude/state/youtube-schedule.json（台帳）が唯一の真実源。
 docs/sns/youtube/
 
+# IG「1問1リール」(per-problem, --ig-mode) の動画は再生成可能な派生物（YT shorts と同様）。
+# mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。再生成は per-problem-shorts.mjs --ig-mode。
+docs/sns/instagram/_exam-packs/**/reels-pp/**/*.mp4
+
 # Large PDF files exceeding GitHub 100MB limit
 docs/textbook/経営学/経営学.pdf
 docs/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf
