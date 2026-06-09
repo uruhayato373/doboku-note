@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
@@ -84,6 +84,12 @@ const X = ({ className }: IconProps) => (
   </SvgIcon>
 );
 
+const ChevronDown = ({ className }: IconProps) => (
+  <SvgIcon className={className}>
+    <path d="m6 9 6 6 6-6" />
+  </SvgIcon>
+);
+
 function CategoryIcon({ variant, className }: { variant: string; className?: string }) {
   const cn = className || "w-5 h-5";
   if (variant === "civil") return <HardHat className={cn} />;
@@ -93,42 +99,41 @@ function CategoryIcon({ variant, className }: { variant: string; className?: str
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const categoryDropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
+  const toggleCategoryDropdown = () => setIsCategoryOpen(prev => !prev);
+  const closeCategoryDropdown = () => setIsCategoryOpen(false);
 
-  // クライアントサイドでのマウント確認
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // ESCキーでの閉じる機能
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isMenuOpen) {
-        closeMenu();
+      if (e.key === 'Escape') {
+        if (isMenuOpen) closeMenu();
+        if (isCategoryOpen) closeCategoryDropdown();
       }
     };
-
     document.addEventListener('keydown', handleEscape);
     return () => document.removeEventListener('keydown', handleEscape);
-  }, [isMenuOpen]);
+  }, [isMenuOpen, isCategoryOpen]);
 
-  // スクロールロックの実装
-  /*
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-
-    return () => {
-      document.body.style.overflow = 'unset';
+    if (!isCategoryOpen) return;
+    const handleClickOutside = (e: MouseEvent) => {
+      if (categoryDropdownRef.current && !categoryDropdownRef.current.contains(e.target as Node)) {
+        closeCategoryDropdown();
+      }
     };
-  }, [isMenuOpen]);
-  */
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isCategoryOpen]);
+
   return (
     <>
       <header
@@ -181,16 +186,37 @@ export default function Header() {
                 <Search className="w-5 h-5" />
                 <span className="text-[11px] font-medium">検索</span>
               </Link>
-              {categories.map(cat => (
-                <Link
-                  key={cat.slug}
-                  href={`/category/${cat.slug}`}
+
+              {/* 資格一覧ドロップダウン */}
+              <div className="relative" ref={categoryDropdownRef}>
+                <button
+                  onClick={toggleCategoryDropdown}
+                  aria-expanded={isCategoryOpen}
+                  aria-haspopup="true"
                   className="flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
                 >
-                  <CategoryIcon variant={cat.variant} />
-                  <span className="text-[11px] font-medium">{cat.label}</span>
-                </Link>
-              ))}
+                  <GraduationCap className="w-5 h-5" />
+                  <span className="flex items-center gap-0.5 text-[11px] font-medium">
+                    資格一覧
+                    <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isCategoryOpen ? 'rotate-180' : ''}`} />
+                  </span>
+                </button>
+                {isCategoryOpen && (
+                  <div className="absolute top-full right-0 mt-1 w-64 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content shadow-lift z-50 overflow-hidden">
+                    {categories.map(cat => (
+                      <Link
+                        key={cat.slug}
+                        href={`/category/${cat.slug}`}
+                        onClick={closeCategoryDropdown}
+                        className="flex items-center gap-3 px-4 py-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] transition-colors"
+                      >
+                        <CategoryIcon variant={cat.variant} className="w-4 h-4 shrink-0" />
+                        <span className="text-sm">{cat.label}</span>
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
 
               <Link
                 href="/about"

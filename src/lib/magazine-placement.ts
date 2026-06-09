@@ -78,6 +78,20 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 ] as const;
 
 /**
+ * 技術士 建設部門 2次（pe-construction）。
+ * 必須科目I・道路 の過去問ページ（pe-construction-r0X-{required,road}）と論文の書き方
+ * ガイドを、該当する BK 模範解答集へ送客する。公開可否は呼び出し側 getMagazine() で判定
+ * （現状 published:false のため CTA は表示されない＝公開時に自動発火）。
+ */
+function matchPeConstructionEssay(slug: string): MagazineId | null {
+  if (/^pe-construction-r0[1-9]-required$/.test(slug)) return 'pe-construction-required-magazine';
+  if (/^pe-construction-r0[1-9]-road$/.test(slug)) return 'pe-construction-road-magazine';
+  // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
+  if (slug === 'pe-construction-pe-secondary-essay-guide') return 'pe-construction-required-magazine';
+  return null;
+}
+
+/**
  * 2026-05-17 新規マガジン (Series 3/4)。M1「データ駆動戦略」は 2026-05-18 撤回、
  * M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ戦略転換 (SoT 削除)。
  * 配置原則:
@@ -143,6 +157,16 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-2'),
       ],
       sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
+      inlineMobileOnly: false,
+    };
+  }
+
+  // 1.7. 技術士 建設部門 2次: 必須科目I・道路 過去問 + 論文ガイド → 該当 BK 模範解答集（公開時に発火）
+  const peEssayMag = matchPeConstructionEssay(slug);
+  if (peEssayMag) {
+    return {
+      inline: [slot(peEssayMag, slug, 'inline-1')],
+      sidebar: [slot(peEssayMag, slug, 'sidebar-1')],
       inlineMobileOnly: false,
     };
   }

@@ -31,7 +31,7 @@
 // 行頭アンカー(^)が使える。to を省くと当該レンジは EOF まで。
 
 import { readFileSync, mkdirSync, writeFileSync, renameSync, copyFileSync, rmSync, existsSync } from 'node:fs'
-import { join, resolve, basename } from 'node:path'
+import { join, resolve, basename, dirname } from 'node:path'
 import { homedir } from 'node:os'
 import { pathToFileURL } from 'node:url'
 import { execFileSync } from 'node:child_process'
@@ -48,6 +48,7 @@ function parseArgs(argv) {
   for (let i = 0; i < argv.length; i++) {
     if (argv[i] === '--spec') args.spec = argv[++i]
     else if (argv[i] === '--desktop') args.desktop = true
+    else if (argv[i] === '--in-place') args.inPlace = true
   }
   if (!args.spec) throw new Error('--spec <path> を指定してください')
   return args
@@ -127,6 +128,7 @@ async function main() {
   const outDir = spec.outDir || `C:\\tmp\\${basename(spec.srcDir)}-pdf`
   const workDir = join(outDir, '_work')
   const toDesktop = args.desktop || spec.deliverTo === 'desktop'
+  const inPlace = args.inPlace || spec.deliverTo === 'in-place'
   const desktopDir = join(homedir(), 'Desktop')
 
   rmSync(workDir, { recursive: true, force: true })
@@ -164,6 +166,7 @@ async function main() {
     const finalPath = join(outDir, `${art.out}.pdf`)
     renameSync(pdfTmp, finalPath)
     if (toDesktop) copyFileSync(finalPath, join(desktopDir, `${art.out}.pdf`))
+    if (inPlace) copyFileSync(finalPath, join(srcDir, dirname(art.src), `${art.out}.pdf`))
     made.push(`${art.out}.pdf`)
     console.log(`  OK  ${art.out}.pdf`)
   }

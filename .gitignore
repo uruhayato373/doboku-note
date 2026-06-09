@@ -99,6 +99,9 @@ docs/x-posts/draft/**/status.json
 .obsidian/workspaces.json
 .obsidian/plugins/*/data.json
 
+# docs/ を専用保管庫として開くためのローカル設定コピー（リポジトリには含めない）
+docs/.obsidian/
+
 # Handoff archives（Box / docs 一括エクスポート用 zip、リポジトリには含めない）
 /*.zip
 

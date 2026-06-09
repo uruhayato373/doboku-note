@@ -63,6 +63,9 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
     primary: '年度別の過去問と解説（前期: 6月実施・後期: 10月実施）',
     secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
   },
+  'pe-first-stage': {
+    primary: '年度別の適性科目・基礎科目・専門科目（建設部門）全問解説',
+  },
   'pe-comprehensive-management': {
     guide: '試験の構成・出題傾向・学習ガイド',
     pillar: '5 管理（経済性 / 人的資源 / 情報 / 安全 / 社会環境）の体系学習ガイド',
@@ -134,6 +137,19 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         const sa = parseFloat((a.section as string | undefined) ?? '99');
         const sb = parseFloat((b.section as string | undefined) ?? '99');
         return sa - sb;
+      });
+    }
+  } else if (category === 'pe-first-stage') {
+    if (group === 'primary') {
+      docs.sort((a, b) => {
+        const yearA = a.slug?.match(/(r|h)(\d+)/);
+        const yearB = b.slug?.match(/(r|h)(\d+)/);
+        if (yearA && yearB) {
+          const valA = (yearA[1] === 'r' ? 100 : 0) + parseInt(yearA[2]!);
+          const valB = (yearB[1] === 'r' ? 100 : 0) + parseInt(yearB[2]!);
+          return valB - valA;
+        }
+        return 0;
       });
     }
   } else if (category === 'pe-comprehensive-management') {
@@ -478,6 +494,74 @@ function PeExamTable({ docs }: { docs: DocMeta[] }) {
 }
 
 /**
+ * 技術士第一次試験の過去問をテーブル形式で表示
+ * 年度ごとに適性科目・基礎科目・専門科目（建設部門）をまとめる
+ */
+function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
+  const yearMap = new Map<string, { aptitude?: DocMeta; basic?: DocMeta; construction?: DocMeta }>();
+  for (const doc of docs) {
+    const match = doc.slug?.match(/(r|h)(\d+)-(aptitude|basic|construction)$/);
+    if (!match) continue;
+    const yearCode = `${match[1]}${match[2]}`;
+    const type = match[3] as 'aptitude' | 'basic' | 'construction';
+    if (!yearMap.has(yearCode)) yearMap.set(yearCode, {});
+    yearMap.get(yearCode)![type] = doc;
+  }
+
+  const years = Array.from(yearMap.keys()).sort((a, b) => {
+    const valA = (a.startsWith('r') ? 100 : 0) + parseInt(a.slice(1));
+    const valB = (b.startsWith('r') ? 100 : 0) + parseInt(b.slice(1));
+    return valB - valA;
+  });
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-base border-collapse">
+        <thead>
+          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
+            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">年度</th>
+            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">適性科目</th>
+            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">基礎科目</th>
+            <th className="text-center py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">専門科目（建設）</th>
+          </tr>
+        </thead>
+        <tbody>
+          {years.map(yearCode => {
+            const row = yearMap.get(yearCode)!;
+            return (
+              <tr key={yearCode} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{yearLabel(yearCode)}</td>
+                <td className="py-3 px-4 text-center">
+                  {row.aptitude ? (
+                    <Link href={`/docs/${row.aptitude.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      適性科目
+                    </Link>
+                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                </td>
+                <td className="py-3 px-4 text-center">
+                  {row.basic ? (
+                    <Link href={`/docs/${row.basic.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      基礎科目
+                    </Link>
+                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                </td>
+                <td className="py-3 px-4 text-center">
+                  {row.construction ? (
+                    <Link href={`/docs/${row.construction.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">
+                      専門科目
+                    </Link>
+                  ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
  * PE セクション別ツリー表示
  * キーワード集の5管理体系に基づきキーワードをグルーピング
  */
@@ -584,7 +668,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: DocMeta[]; k
   );
 }
 
-function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
+function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table' | 'pe-first-stage-table'; secondaryDocs?: DocMeta[] | undefined }) {
   return (
     <section>
       <div className="mb-6">
@@ -600,6 +684,8 @@ function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?
         <PrimaryExamTable2 docs={group.docs} secondaryDocs={secondaryDocs} />
       ) : layout === 'pe-exam-table' ? (
         <PeExamTable docs={group.docs} />
+      ) : layout === 'pe-first-stage-table' ? (
+        <PeFirstStageExamTable docs={group.docs} />
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {group.docs.map(doc => (
@@ -626,7 +712,7 @@ export default async function CategoryPage({
   const allDocs = await getDocsMetaByCategory(slug);
   const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !(d as any).hideFromCategory);
 
-  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician')
+  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'pe-first-stage' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician')
     ? groupDocs(docs, slug)
     : null;
 
@@ -812,6 +898,17 @@ export default async function CategoryPage({
                             docs: secondaryTopicDocs,
                           }}
                         />
+                      )}
+                    </>
+                  );
+                })()
+              ) : slug === 'pe-first-stage' ? (
+                (() => {
+                  const primaryGroup = groups.find(g => g.title === getGroupLabel('pe-first-stage', 'primary'));
+                  return (
+                    <>
+                      {primaryGroup && (
+                        <DocSection group={primaryGroup} layout="pe-first-stage-table" />
                       )}
                     </>
                   );

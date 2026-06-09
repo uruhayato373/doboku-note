@@ -1,0 +1,68 @@
+{
+  "slug": "pe-first-stage-r07-aptitude",
+  "year": "R07",
+  "sub": "aptitude",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "fail",
+    "verified_count": 15,
+    "mismatches": [
+      {
+        "question": "Ⅱ-10",
+        "mdx_answer": "2",
+        "official_answer": "3",
+        "note": "MDXの解説本文は「適切なものは（ア）・（エ）の2つ」と正しく述べているが、**正答：2** と記載している。選択肢構成は 1=4つ/2=3つ/3=2つ/4=1つ/5=0つ であり、2つが適切なら正答は選択肢3。公式正答も3。"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-3",
+        "type": "text_mismatch",
+        "detail": "PDFではイントロ段落と(ア)〜(オ)の間に「私利私欲」「恐れ」「自己欺瞞」の3つの阻害要因を示す箇条書き（・私利私欲：…・恐れ：…・自己欺瞞：…）が存在するが、MDXではこれらがすべて省略されている。"
+      },
+      {
+        "question": "Ⅱ-3",
+        "type": "text_mismatch",
+        "detail": "（イ）自己中心的志向の定義がPDFとMDXで異なる。PDF：「自分が置かれている状況を、自分自身の立場からだけ判断し、客観的な状況分析ができないこと。」 MDX：「自分に都合が良い情報だけで判断し、客観的な状況分析を欠くこと。」"
+      },
+      {
+        "question": "Ⅱ-3",
+        "type": "text_mismatch",
+        "detail": "（エ）権威への無批判な受け入れの定義がPDFとMDXで異なる。PDF：「指導者や上司の意向や指示を無批判に受け入れること。」 MDX：「権威者などの言動や指示を無批判に受け入れること。」"
+      },
+      {
+        "question": "Ⅱ-6",
+        "type": "text_mismatch",
+        "detail": "（ア）の記述がPDFとMDXで2箇所異なる。①「技術をつなぐプラットフォーム」（PDF）→「技術者をつなぐプラットフォーム」（MDX）。②「誰もが能力を発揮し」（PDF）→「誰もが声を発揮し」（MDX）。"
+      },
+      {
+        "question": "Ⅱ-7",
+        "type": "text_mismatch",
+        "detail": "問題文本文中のウの位置・文脈がPDFとMDXで異なる。PDF：「AIは、データ解析からロボット技術、[ウ]、製造業など、あらゆる技術や業種に…」（ウ＝医療がロボット技術と製造業の間に入る）。MDX：「AIは、データ解析からビジネス、製造業など…[ウ]型生成AIなどのように」（ウの位置・文脈が全く異なる構造）。選択肢の答えは一致しているが本文再現が不正確。"
+      },
+      {
+        "question": "Ⅱ-9",
+        "type": "text_mismatch",
+        "detail": "MDX「第6期基本計画が同時施行された」に対し、PDF原文は「令和３年４月より、現在の第６期基本計画が開始された」。「同時施行」という語句は原文に存在しない。"
+      },
+      {
+        "question": "Ⅱ-12",
+        "type": "text_mismatch",
+        "detail": "選択肢4の文言がPDFとMDXで異なる。PDF：「この法律で規定する損害賠償の請求権には消費者保護を優先し、時効はない。」 MDX：「この法律で規定する損害賠償の請求権による保護を優先し、時効はない。」（「消費者保護を優先し」→「請求権による保護を優先し」）"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "設問見出し Ⅱ-1〜Ⅱ-15 連番欠落なし。frontmatter に title/category/group/published/source_pdf/seoTitle すべて存在。"
+  }
+}

@@ -7,7 +7,7 @@ description: |
   R6（カーボンニュートラル）・R7（少子高齢化）の
   過去問 5 年分は、いずれも立地適正化計画・コンパクトシティ版と
   市街地再開発・駅前整備版の A 案／B 案 2 バージョン
-  併記。R8 予想は気候変動適応 + 資源循環の 2 本フル解答。
+  併記。R8 予想は気候変動適応・資源循環を予想問題ごとに2記事化（各 A 案／B 案 併記）。
   各記事に解答対象の設問全文を再掲し、5 管理間トレードオフを
   論じた 3,000 字級フル論文 + 採点者視点の詳細解説を収録。
 
@@ -18,24 +18,28 @@ appealPoint: |
   過去問5年分は、立地適正化計画（制度運用）版と市街地再開発（事業整備）版の
   A案／B案2バージョンを併記。発注者・行政官ならどちらの設定でも自分の業務に
   重ねやすくしています。各記事に設問全文を再掲し、5管理間トレードオフを論じた
-  3,000字級フル論文＋採点者視点の詳細解説を収録。R8予想2本付きです。
+  3,000字級フル論文＋採点者視点の詳細解説を収録。
+  R8予想は気候変動適応・資源循環を予想問題ごと2記事（各A/B案）で収録、計7記事です。
 
 setPrice: 2480
 articlePrice: 500
-articleCount: 6
-singleTotal: 3000
-discountPercent: 17
+articleCount: 7
+singleTotal: 3500
+discountPercent: 29
 articles:
   - slug: R03
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/na1b32751a6d5"
   - slug: R04
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/nf5f4b1485562"
   - slug: R05
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/ne001e519f261"
   - slug: R06
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/nfc3e05a10a2d"
   - slug: R07
-    noteUrl: ""
-  - slug: R08-yosou
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/n9fdc9ce98694"
+  - slug: R08-yosou-1
+    noteUrl: "https://note.com/dobokunote/n/n1a75d0e04cd8"
+    publishTiming: "2026-06"
+  - slug: R08-yosou-2
+    noteUrl: "https://note.com/dobokunote/n/ndc04ca72bde4"
     publishTiming: "2026-06"

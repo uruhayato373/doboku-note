@@ -1,0 +1,46 @@
+{
+  "slug": "pe-first-stage-r04-aptitude",
+  "year": "R04",
+  "sub": "aptitude",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-1",
+        "type": "text_mismatch",
+        "detail": "選択肢（オ）の記述が原典PDFと異なる。PDF：「技術士等は、その業務を行うに当たっては、公共の安全、環境の保全その他の公益を害することのないよう努めなければならないが、顧客の利益を害する場合は守秘義務を優先する必要がある。」MDX：「技術士補は、その業務を行うに当たっては、公共の安全、環境の保全その他の公益を害することのないよう努めなければならない義務がある。」主語が「技術士等」→「技術士補」に変わっており、後半の顧客利益・守秘義務に関する記述が丸ごと欠落している。"
+      },
+      {
+        "question": "Ⅱ-1",
+        "type": "text_mismatch",
+        "detail": "選択肢（カ）の記述が原典PDFと異なる。PDF：「企業に所属している技術士補は、顧客がその専門分野の能力を認めた場合は、技術士補の名称を表示して技術士に代わって主体的に業務を行ってよい。」MDX：「…技術士補の名称を表示して単独で業務を行うことができる。」PDFは「技術士に代わって主体的に」、MDXは「単独で」と表現が異なる。"
+      },
+      {
+        "question": "Ⅱ-7",
+        "type": "text_mismatch",
+        "detail": "選択肢②のウ欄の語句がPDFと異なる。PDF：「② 最大利潤　個人の権利　人が望むことを自分にせよ　健康」MDX：「ア：最大利潤　イ：個人の権利　ウ：自分の望むことを自分にせよ　エ：健康」。ウが「人が望むことを自分にせよ」（PDF）→「自分の望むことを自分にせよ」（MDX）に変わっており意味が異なる。"
+      },
+      {
+        "question": "Ⅱ-11",
+        "type": "text_mismatch",
+        "detail": "原典PDFには選択肢（ク）「マンションの管理組合が保守点検を発注したエレベータについて、その保守専門業者の作業ミスによる不具合により、その作業終了後の住民使用開始時に住民が死亡した場合。」が存在するが、MDXには完全に欠落している。PDFの問題文は「次の（ア）〜（ク）のうち」（8項目）であるのに対し、MDXは「次の（ア）〜（キ）のうち」（7項目）となっており、(ク)が丸ごと抜け落ちている。この欠落により正答の根拠となる選択肢構成も変わるため重大な誤り。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "frontmatter fields confirmed: title, category, group, published, source_pdf all present. All 15 question headings ## Ⅱ-1 through ## Ⅱ-15 present with no gaps."
+  }
+}

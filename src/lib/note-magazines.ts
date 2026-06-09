@@ -102,29 +102,77 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  'essay-river-municipality-magazine': {
-    id: 'essay-river-municipality-magazine',
+  'essay-procurement-municipality-magazine': {
+    id: 'essay-procurement-municipality-magazine',
     published: false,
     noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 契約・調達担当 R3-R7 + R8予想セット',
+    description:
+      'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分 + R08 予想問題集の計 6 記事。市区町村の契約検査課/技術管理課（発注者）の立場で、入札・契約制度運用版と工事検査・契約変更管理版の A 案／B 案 2 バージョンを併記。「コスト最適化 × 入札の公正性 × 担い手確保」の調達固有のトレードオフを主軸に、各記事に設問全文を再掲して組み立てた 3,000 字級フル論文を収録。',
+    shortTitle: '模範論文｜自治体 契約・調達担当',
+    shortDescription:
+      'R03〜R07 過去問（全 A/B 2 案）+ R08 予想 = 計 6 記事。調達・契約視点の決定版。',
+    imageUrl: '/images/magazines/essay-procurement-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-procurement-municipality-cover.webp',
+    price: '¥2,480（6本セット、単品比17%OFF）',
+    badge: 'note 限定',
+  },
+
+  'essay-standards-municipality-magazine': {
+    id: 'essay-standards-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 技術基準担当 R3-R7 + R8予想セット',
+    description:
+      'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分 + R08 予想問題集の計 6 記事。都道府県の技術管理課（発注者）の立場で、設計基準・標準仕様の策定改定版と BIM/CIM・電子納品・技術情報DB版の A 案／B 案 2 バージョンを併記。「技術標準の統一 × 現場個別性 × 技術伝承」の基準担当固有のトレードオフを主軸に、各記事に設問全文を再掲して組み立てた 3,000 字級フル論文を収録。',
+    shortTitle: '模範論文｜自治体 技術基準担当',
+    shortDescription:
+      'R03〜R07 過去問（全 A/B 2 案）+ R08 予想 = 計 6 記事。情報管理・標準化視点の決定版。',
+    imageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
+    price: '¥2,480（6本セット、単品比17%OFF）',
+    badge: 'note 限定',
+  },
+
+  'essay-assetmgmt-municipality-magazine': {
+    id: 'essay-assetmgmt-municipality-magazine',
+    published: false,
+    noteUrl: '',
+    title: '総監記述式 模範論文｜自治体 アセットマネジメント担当 R3-R7 + R8予想セット',
+    description:
+      'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分 + R08 予想問題集の計 6 記事。市区町村の道路維持課/公共施設マネジメント課（発注者）の立場で、道路橋梁長寿命化修繕計画版と公共施設等総合管理計画版の A 案／B 案 2 バージョンを併記。「劣化・事故防止 × LCC最小化・財政制約 × 住民合意」の維持管理固有のトレードオフを主軸に、各記事に設問全文を再掲して組み立てた 3,000 字級フル論文を収録。',
+    shortTitle: '模範論文｜自治体 アセットマネジメント担当',
+    shortDescription:
+      'R03〜R07 過去問（全 A/B 2 案）+ R08 予想 = 計 6 記事。長寿命化・維持管理視点の決定版。',
+    imageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
+    sidebarImageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
+    price: '¥2,480（6本セット、単品比17%OFF）',
+    badge: 'note 限定',
+  },
+
+  'essay-river-municipality-magazine': {
+    id: 'essay-river-municipality-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m32a8a5b3b473',
     title: '総監記述式 模範論文｜自治体 河川担当 R3-R7 + R8予想セット',
     description:
-      'R03〜R07 の 5 年分セット。河川砂防・海岸海洋分野合格者視点、堤防維持管理 × 河川改修の A案/B案 2 バージョン。5 管理間トレードオフが主軸。',
+      'R03〜R07 過去問（各 A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・資源循環、各 A案/B案）の計 7 記事。河川砂防・海岸海洋分野合格者視点、堤防維持管理 × 河川改修。5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     shortTitle: '模範論文｜自治体河川担当',
     shortDescription:
-      'R03〜R07 の 5 年分 + R8 予想。堤防・護岸維持管理版と河川改修版の A案/B案 2 バージョン。',
+      'R03〜R07 + R8予想2記事 = 計7記事。維持管理版/河川改修版の A案/B案＋印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-river-municipality-cover.webp',
     badge: 'note 限定',
   },
   'essay-urban-municipality-magazine': {
     id: 'essay-urban-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf8c77e995511',
     title: '総監記述式 模範論文｜自治体 都市計画担当 R3-R7 + R8予想セット',
     description:
-      'R03〜R07 の 5 年分セット。都市及び地方計画分野合格者視点、立地適正化計画 × 市街地再開発の A案/B案 2 バージョン。5 管理間トレードオフが主軸。',
+      'R03〜R07 過去問（各 A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・資源循環、各 A案/B案）の計 7 記事。都市及び地方計画分野合格者視点、立地適正化計画（制度運用）× 市街地再開発（事業整備）。5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     shortTitle: '模範論文｜自治体都市計画担当',
     shortDescription:
-      'R03〜R07 の 5 年分 + R8 予想。立地適正化計画（制度運用）版と再開発事業版の A案/B案 2 バージョン。',
+      'R03〜R07 + R8予想2記事 = 計7記事。立地適正化計画版/再開発事業版の A案/B案＋印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-urban-municipality-cover.webp',
     badge: 'note 限定',
   },
@@ -135,7 +183,8 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 下水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体下水道担当',
-    description: '下水道担当（発注者）視点。老朽管路更新版と浸水対策雨水幹線整備版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（老朽管路更新版/浸水対策雨水幹線整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・浸水対策／資源循環・下水汚泥資源化、各 A案/B案）の計 7 記事。下水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-sewage-municipality-cover.webp',
     badge: 'note 限定',
   },
@@ -185,7 +234,8 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 上水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体上水道担当',
-    description: '上水道担当（発注者）視点。老朽管路更新版と浄水場改修版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（老朽管路更新版/浄水場改修・高度浄水処理導入版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・強靭化／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。上水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-water-municipality-cover.webp',
     badge: 'note 限定',
   },
@@ -219,26 +269,10 @@ const MAGAZINES_RAW = {
     imageUrl: '/images/magazines/essay-urban-consultant-cover.webp',
     badge: 'note 限定',
   },
-  'essay-nexco-magazine': {
-    id: 'essay-nexco-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜NEXCO（高速道路管理）R3-R7 + R8予想セット',
-    shortTitle: '模範論文｜NEXCO',
-    description: 'NEXCO（高速道路管理）視点。橋梁大規模更新版とスマートIC設置版のA案/B案2バージョン。',
-    imageUrl: '/images/magazines/essay-nexco-cover.webp',
-    badge: 'note 限定',
-  },
-  'essay-power-civil-magazine': {
-    id: 'essay-power-civil-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜電力会社 土木部門 R3-R7 + R8予想セット',
-    shortTitle: '模範論文｜電力会社土木',
-    description: '電力会社土木部門視点。ダム老朽化対策版と洋上風力基礎土木版のA案/B案2バージョン。',
-    imageUrl: '/images/magazines/essay-power-civil-cover.webp',
-    badge: 'note 限定',
-  },
+  // 注: essay-nexco-magazine / essay-power-civil-magazine は 2026-06-09 不採用。
+  //     著者ペルソナ＝元自治体土木（発注者）の真実の経験座から外れる異業種（電力＝民間ダム/発電、
+  //     NEXCO＝高速道路会社）で、一人称模範論文の真実性とドメイン精度を担保できないため。
+  //     いずれも未公開（published:false・URL空）でサンクコストなし。
 
   // ----- Series 1/3/4/5 新規マガジン (2026-05-17 完成、M1 は 2026-05-18 撤回) -----
   // 注: whitepaper-r7-strategy は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ
@@ -469,6 +503,38 @@ const MAGAZINES_RAW = {
     imageUrl: '/images/magazines/cce-essay-cover.webp',
     price: '¥1,480（5本セット）',
     badge: 'note 限定 教材',
+  },
+
+  // 技術士 建設部門 2次（BK シリーズ）。公開準備中（published:false）。
+  // 公開時: note でマガジン公開 → noteUrl 埋め + published: true。CTA は pe-construction-r0X-required ページで発火。
+  'pe-construction-required-magazine': {
+    id: 'pe-construction-required-magazine',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m0f3bc3933454',
+    title: '技術士 建設部門 2次｜必須科目I 模範解答集（R03-R07）',
+    description:
+      '技術士第二次試験 建設部門で全受験者必須の「必須科目I」を、令和3〜7年度の5年分まとめた模範解答集。元・地方自治体の土木職（発注者）視点で、安全・品質・コスト・環境の統合判断や住民対応・行政責任といった採点軸を補う。各年度に設問全文（出典明記）を再掲し、設問構成と論述方針・約1,500〜1,650字のフル模範解答・採点者が見るポイント・元公務員（発注者）からのコメントを収録。',
+    shortTitle: '建設部門2次｜必須I 模範解答集',
+    shortDescription:
+      'R03〜R07 の5年分セット。必須科目I を元公務員（発注者）視点でフル解答。1年あたり約396円。',
+    imageUrl: '/images/magazines/pe-construction-bk-i-required-cover.webp',
+    price: '¥1,980（5本セット・単品¥500）',
+    badge: 'note 限定',
+  },
+
+  'pe-construction-road-magazine': {
+    id: 'pe-construction-road-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜道路 選択科目 模範解答集（R03-R07）',
+    description:
+      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1・II-2・III の全答案でフル解答した模範解答集（5年分 × 3答案 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイント・元公務員（発注者）からのコメントを収録。',
+    shortTitle: '建設部門2次｜道路 模範解答集',
+    shortDescription:
+      'R03〜R07 の II-1/II-2/III 全15記事。道路科目 合格者＋発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
+    price: '¥1,980（15記事セット）',
+    badge: 'note 限定',
   },
 } as const satisfies Record<string, NoteMagazine>;
 

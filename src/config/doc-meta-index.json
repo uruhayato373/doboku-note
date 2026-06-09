@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "generated_at": "2026-06-08T22:54:10.166Z",
+  "generated_at": "2026-06-09T07:14:06.216Z",
   "summary": {
-    "total": 1016,
-    "published": 973,
+    "total": 1019,
+    "published": 976,
     "unpublished": 43,
     "by_category": {
-      "civil-construction-1": 96,
+      "civil-construction-1": 97,
       "civil-construction-2": 31,
       "concrete-chief-engineer": 19,
       "pe-comprehensive-management": 721,
-      "pe-construction": 85,
+      "pe-construction": 87,
       "pe-first-stage": 21
     }
   },
@@ -30,7 +30,7 @@
       "seoTitle": "1級と2級 土木施工管理技士の違い｜監理技術者・受験資格・難易度・年収を比較",
       "reviewStatus": "approved",
       "created": "2026-06-02",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "1級と2級の土木施工管理技士では何が違いますか？",
@@ -66,7 +66,39 @@
       "seoTitle": "施工管理の転職エージェントの選び方｜特化型と総合型の違い【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02"
+      "dateModified": "2026-06-08"
+    },
+    "civil-construction-1-guide-career-cases": {
+      "title": "土木資格で年収を上げる3つの王道パターン — 1級土木・技術士の転職モデルケース",
+      "description": "1級土木施工管理技士・技術士を活かして年収を上げる代表的な3つのパターンを、想定モデルケースとして整理します。若手が企業規模を上げる、施工管理から発注者支援業務へ転身する、技術士で資格を活かせる企業へ移る——それぞれで年収がどう動くかを、経営事項審査や監理技術者制度の仕組み、公的な年収データに基づいて解説。発注者側で長く働いた運営者の視点も添えます。",
+      "shortTitle": "年収アップの王道パターン",
+      "subtitle": "若手の規模アップ・発注者支援への転身・技術士の器選び",
+      "category": "civil-construction-1",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "career"
+      ],
+      "published": true,
+      "publishedAt": "2026-06-08",
+      "seoTitle": "土木資格で年収を上げる3つの王道パターン｜1級土木・技術士の転職モデルケース",
+      "reviewStatus": "needs-review",
+      "created": "2026-06-08",
+      "dateModified": "2026-06-08",
+      "faqs": [
+        {
+          "q": "1級土木施工管理技士を取ると本当に年収は上がりますか？",
+          "a": "資格そのものが年収を保証するわけではありません。1級は監理技術者になれ、経営事項審査で会社を高く評価させるため「企業が制度上必要とする人材」になります。その需要の大きさが、資格手当・監理技術者手当や、より評価の高い企業への転職を通じて年収上昇につながる、という構造です。実際の金額は勤務先・地域・職務で大きく変わります。"
+        },
+        {
+          "q": "資格を取ったのに給料が上がりません。なぜですか？",
+          "a": "多くは実力不足ではなく、勤務先に「資格を活かす仕組み」がないためです。資格手当や評価制度は、企業規模や元請・下請の比率によって大きく異なります。経営事項審査で技術者資格が点数化される元請企業ほど、有資格者を厚遇する動機が強くなります。"
+        },
+        {
+          "q": "施工管理から働き方を改善したい場合、どんな選択肢がありますか？",
+          "a": "1級土木と施工管理経験を活かせる「発注者支援業務」（建設コンサルタント等が官公庁から受託し、積算・監督補助・技術審査を担う業務）が代表例です。原則カレンダー通りの休みで残業が比較的少ない一方、施工管理のスキルがそのまま評価されるため、年収を維持・向上しながら働き方を変えやすいルートとして知られます。"
+        }
+      ]
     },
     "civil-construction-1-guide-career-path": {
       "title": "土木施工管理技士のキャリアパス — 2級・1級・技術士で市場価値はどう変わるか",
@@ -84,7 +116,7 @@
       "seoTitle": "土木施工管理技士のキャリアパス｜2級・1級・技術士の年収と市場価値の違い",
       "reviewStatus": "approved",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "2級と1級の土木施工管理技士は何が違いますか？",
@@ -121,10 +153,10 @@
       "seoTitle": "1級土木施工管理技士の年収はいくら？資格手当の相場・2級との差・転職での価値【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-1-guide-concrete-key-points": {
-      "title": "コンクリートの重要ポイント — 1級土木施工管理技士試験対策",
+      "title": "コンクリートの重要ポイント",
       "description": "1級土木 第1次検定で毎年5〜8問出題される最重要分野コンクリート。骨材・打込み・養生・ひび割れ対策の頻出論点と引っかけパターンを過去問頻度順に整理。",
       "shortTitle": "コンクリート",
       "subtitle": "骨材・打込み・養生・ひび割れ対策",
@@ -141,7 +173,7 @@
       "lastRewrittenAt": "2026-05-17T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-15",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "1級土木施工管理技士でコンクリート分野は何問出題されますか？",
@@ -183,7 +215,7 @@
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-15",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "コンクリート構造物の維持管理の目的は？",
@@ -223,10 +255,10 @@
       "seoTitle": "1級土木施工管理技士の難易度は？合格率の推移と制度改正の影響を分析【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-1-guide-earthwork-key-points": {
-      "title": "土工の重要ポイント — 1級土木施工管理技士試験対策",
+      "title": "土工の重要ポイント",
       "description": "1級土木施工管理技士試験で頻出の土工分野（土質試験・土量変化率・盛土施工・軟弱地盤対策・のり面保護工）の重要ポイントを整理。過去問の出題傾向に基づく学習の優先順位付き。",
       "shortTitle": "土工",
       "subtitle": "土質試験・盛土・軟弱地盤・のり面",
@@ -243,7 +275,7 @@
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-15",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "土工分野は1級土木で何問出題されますか？",
@@ -283,7 +315,7 @@
       "seoTitle": "1級土木施工管理技士の試験概要｜受験資格・科目・合格率・日程【2026】",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "1級土木施工管理技士の受験資格は？",
@@ -304,7 +336,7 @@
       ]
     },
     "civil-construction-1-guide-four-management": {
-      "title": "施工管理4大管理まとめ — 1級土木施工管理技士試験対策",
+      "title": "施工管理4大管理まとめ",
       "description": "1級土木施工管理技士 第1次検定 問題B（施工管理）の4大管理（工程・品質・安全・環境）と施工計画の要点を整理。ネットワーク工程表、品質管理手法、労安法の頻出事項、環境保全法規をまとめて解説。",
       "shortTitle": "施工管理4大管理",
       "subtitle": "工程・品質・安全・環境＋施工計画",
@@ -321,7 +353,7 @@
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-15",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "第1次検定の問題B（施工管理）は何問必須ですか？",
@@ -362,7 +394,7 @@
       "seoTitle": "土木施工管理技士は1級と2級どちらを受ける？違いと選び方を比較【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-1-guide-last-minute-2026": {
       "title": "1級土木施工管理技士 直前対策2026",
@@ -378,7 +410,7 @@
       "published": true,
       "publishedAt": "2026-05-16T00:00:00.000Z",
       "created": "2026-05-16",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "seoTitle": "1級土木施工管理技士 直前対策2026 — 1次7月 / 2次10月対応の合格戦略",
       "faqs": [
         {
@@ -400,7 +432,7 @@
       ]
     },
     "civil-construction-1-guide-law-key-points": {
-      "title": "法規の重要ポイント — 1級土木施工管理技士試験対策",
+      "title": "法規の重要ポイント",
       "description": "1級土木 第1次検定 法規12問→8問選択の得点戦略。最頻出の労働安全衛生法・建設業法・労働基準法を中心に、9法の引っかけ論点をコンパクトに整理。",
       "shortTitle": "法規",
       "subtitle": "9法の頻出と12問中8問選択戦略",
@@ -417,7 +449,7 @@
       "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
       "revisionCycle": 2,
       "created": "2026-04-15",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "1級土木施工管理技士の法規分野は何問選択ですか？",
@@ -457,7 +489,7 @@
       "seoTitle": "1級土木施工管理技士の市場価値｜転職・年収・監理技術者・独立",
       "reviewStatus": "approved",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "1級土木施工管理技士はなぜ転職市場で評価されるのですか？",
@@ -478,7 +510,7 @@
       ]
     },
     "civil-construction-1-guide-quality-management": {
-      "title": "品質管理の重要ポイント — 1級土木施工管理技士試験対策",
+      "title": "品質管理の重要ポイント",
       "description": "1級土木施工管理技士試験で頻出の品質管理分野（ヒストグラム・X-R 管理図・品質特性・盛土締固め管理・コンクリート品質）の重要ポイントを整理。第 1 次の問題 B（5〜7 問）と第 2 次の経験記述・記述問題への対応を一気通貫でまとめた学習ガイド。",
       "shortTitle": "品質管理",
       "subtitle": "ヒストグラム・X-R 管理図・盛土締固め・コンクリート品質",
@@ -496,7 +528,7 @@
       "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-26",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "品質管理は1級土木で何問出題されますか？",
@@ -536,7 +568,7 @@
       "seoTitle": "土木施工管理技士が年収を上げる方法｜資格手当・役職・転職・独立",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "土木施工管理技士の年収はどのくらいですか？",
@@ -557,7 +589,7 @@
       ]
     },
     "civil-construction-1-guide-schedule-management": {
-      "title": "工程管理の重要ポイント — 1級土木施工管理技士試験対策",
+      "title": "工程管理の重要ポイント",
       "description": "1級土木施工管理技士試験で頻出の工程管理分野（ネットワーク式工程表・クリティカルパス計算・バーチャート・工程管理曲線・出来高累計曲線・工程と原価の関係）の重要ポイントを整理。第 1 次の問題 B（5〜7 問）と第 2 次の経験記述・記述問題への対応を一気通貫でまとめた学習ガイド。",
       "shortTitle": "工程管理",
       "subtitle": "ネットワーク式工程表・クリティカルパス・バーチャート・出来高累計曲線",
@@ -575,7 +607,7 @@
       "lastRewrittenAt": "2026-04-26T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-26",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "工程管理は1級土木で何問出題されますか？",
@@ -600,7 +632,7 @@
       ]
     },
     "civil-construction-1-guide-strategy": {
-      "title": "出題傾向と得点戦略 — 1級土木施工管理技士 第1次検定",
+      "title": "出題傾向と得点戦略",
       "description": "1級土木 第1次検定の合格ライン39問を、選択27問捨てで取る得点戦略を解説。過去7年度の分野別頻出と問題A・問題Bの攻略法、選択問題の優先順位を整理。",
       "shortTitle": "出題傾向と得点戦略",
       "subtitle": "7年度分の分野別頻出と選択戦略",
@@ -617,7 +649,7 @@
       "lastRewrittenAt": "2026-04-20T00:00:00.000Z",
       "revisionCycle": 1,
       "created": "2026-04-15",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "1級土木施工管理技士 第1次検定の合格基準は？",
@@ -657,7 +689,7 @@
       "seoTitle": "1級土木施工管理技士は独学で合格できる？勉強時間・勉強法・受験資格を解説【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-1-guide-study-plan": {
       "title": "1級土木施工管理技士の勉強法 — 学習スケジュールと独学の進め方",
@@ -675,7 +707,7 @@
       "seoTitle": "1級土木施工管理技士の勉強法｜学習スケジュールと独学の進め方",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "1級土木施工管理技士は独学で合格できますか？",
@@ -711,7 +743,7 @@
       "seoTitle": "1級土木施工管理技士のおすすめ参考書・問題集｜用途別の選び方【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-02"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-1-guide-vs-pe": {
       "title": "施工管理技士と技術士の違い — 役割・難易度・ダブルライセンスの価値",
@@ -728,7 +760,7 @@
       "seoTitle": "施工管理技士と技術士の違い｜役割・難易度・ダブルライセンスの価値を比較",
       "reviewStatus": "approved",
       "created": "2026-06-02",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "土木施工管理技士と技術士はどう違いますか？",
@@ -3040,7 +3072,7 @@
       "seoTitle": "2級土木施工管理技士のメリット｜できること・年収・転職・1級への道",
       "reviewStatus": "approved",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "2級土木施工管理技士を取ると何ができますか？",
@@ -3076,7 +3108,7 @@
       "seoTitle": "未経験から施工管理に転職するには｜土木の仕事内容・資格・年収・進め方",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-03",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "未経験から土木の施工管理に転職できますか？",
@@ -3097,7 +3129,7 @@
       ]
     },
     "civil-construction-2-guide-concrete-key-points": {
-      "title": "コンクリートの重要ポイント — 2級土木施工管理技士試験対策",
+      "title": "コンクリートの重要ポイント",
       "description": "2級土木施工管理技士で頻出のコンクリート分野を、材料（骨材・セメント・混和材料）・配合とスランプ・打込みと締固め・養生とひび割れの要点に絞って整理します。第一次検定で落とせない定番論点をまとめました。",
       "shortTitle": "コンクリートのポイント",
       "subtitle": "材料・配合・打込み・養生・ひび割れ",
@@ -3115,10 +3147,10 @@
       "seoTitle": "コンクリートの重要ポイント｜材料・配合・打込み・養生【2級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-guide-earthwork-key-points": {
-      "title": "土工の重要ポイント — 2級土木施工管理技士試験対策",
+      "title": "土工の重要ポイント",
       "description": "2級土木施工管理技士で頻出の土工分野を、土質試験とN値・土量変化率L/C・盛土と締固め・のり面と軟弱地盤の要点に絞って整理します。第一次検定で確実に得点するためのコアをコンパクトにまとめました。",
       "shortTitle": "土工のポイント",
       "subtitle": "土質試験・N値・土量変化率・盛土・締固め",
@@ -3136,7 +3168,7 @@
       "seoTitle": "土工の重要ポイント｜土質試験・土量変化率・盛土【2級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-guide-exam-overview": {
       "title": "2級土木施工管理技士の試験概要 — 受験資格・科目・合格率・日程",
@@ -3154,7 +3186,7 @@
       "seoTitle": "2級土木施工管理技士の試験概要｜受験資格・科目・合格率・日程【2026】",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "2級土木施工管理技士は誰でも受けられますか？",
@@ -3190,7 +3222,7 @@
       "seoTitle": "土木の施工管理はきつい？｜仕事内容・働き方・将来性を正直に解説",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-03",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "土木の施工管理はやはりきついですか？",
@@ -3211,7 +3243,7 @@
       ]
     },
     "civil-construction-2-guide-law-key-points": {
-      "title": "法規の重要ポイント — 2級土木施工管理技士試験対策",
+      "title": "法規の重要ポイント",
       "description": "2級土木施工管理技士で頻出の法規を、労働基準法・労働安全衛生法・建設業法・道路関係法令・河川法・騒音振動規制法の要点に絞って整理します。第一次検定で確実に得点するための条文ポイントをまとめました。",
       "shortTitle": "法規のポイント",
       "subtitle": "労働基準法・労働安全衛生法・建設業法・道路/河川/騒音規制法",
@@ -3229,7 +3261,7 @@
       "seoTitle": "法規の重要ポイント｜労基法・労安法・建設業法【2級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-guide-overview": {
       "title": "2級土木施工管理技士とは — 難易度・合格率・試験内容",
@@ -3250,10 +3282,10 @@
       "seoTitle": "2級土木施工管理技士とは？難易度・合格率・試験内容をわかりやすく解説【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-guide-quality-management": {
-      "title": "品質管理の重要ポイント — 2級土木施工管理技士試験対策",
+      "title": "品質管理の重要ポイント",
       "description": "2級土木施工管理技士で頻出の品質管理を、品質管理の目的とPDCA・ヒストグラムなどのQC手法・盛土の締固め管理・レディーミクストコンクリートの受入検査に絞って整理します。施工管理法で確実に得点するための要点をまとめました。",
       "shortTitle": "品質管理のポイント",
       "subtitle": "品質特性・ヒストグラム・締固め管理・レディーミクストコンクリート",
@@ -3271,7 +3303,7 @@
       "seoTitle": "品質管理の重要ポイント｜ヒストグラム・締固め管理・受入検査【2級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-guide-salary": {
       "title": "2級土木施工管理技士の年収は？ — 手当・転職での評価と上げ方",
@@ -3289,7 +3321,7 @@
       "seoTitle": "2級土木施工管理技士の年収｜資格手当・転職での評価・上げ方",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-03",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "2級土木施工管理技士の年収はどのくらいですか？",
@@ -3310,7 +3342,7 @@
       ]
     },
     "civil-construction-2-guide-schedule-management": {
-      "title": "工程管理の重要ポイント — 2級土木施工管理技士試験対策",
+      "title": "工程管理の重要ポイント",
       "description": "2級土木施工管理技士で頻出の工程管理を、工程表の種類と特徴・ネットワーク式工程表とクリティカルパスの基礎・出来高累計曲線（バナナ曲線）に絞って整理します。施工管理法で得点を伸ばすための要点をまとめました。",
       "shortTitle": "工程管理のポイント",
       "subtitle": "工程表の種類・ネットワーク式・クリティカルパス・出来高累計曲線",
@@ -3328,7 +3360,7 @@
       "seoTitle": "工程管理の重要ポイント｜工程表の種類・ネットワーク・クリティカルパス【2級土木施工管理技士】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-guide-study-method": {
       "title": "2級土木施工管理技士の独学勉強法 — 勉強時間と受験資格",
@@ -3349,7 +3381,7 @@
       "seoTitle": "2級土木施工管理技士は独学で合格できる？勉強時間・勉強法・受験資格を解説【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-guide-study-plan": {
       "title": "2級土木施工管理技士の勉強法 — 独学の学習スケジュールと過去問の使い方",
@@ -3367,7 +3399,7 @@
       "seoTitle": "2級土木施工管理技士の勉強法｜独学スケジュールと過去問の使い方",
       "reviewStatus": "approved",
       "created": "2026-06-01",
-      "dateModified": "2026-06-03",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "2級土木施工管理技士は独学で合格できますか？",
@@ -3406,7 +3438,7 @@
       "seoTitle": "2級土木施工管理技士のおすすめ参考書・問題集｜用途別の選び方【2026】",
       "reviewStatus": "needs-review",
       "created": "2026-05-29",
-      "dateModified": "2026-06-03"
+      "dateModified": "2026-06-08"
     },
     "civil-construction-2-primary-r03-kouki": {
       "title": "令和3年度 第1次検定 後期",
@@ -4452,7 +4484,7 @@
       "created": "2026-04-05",
       "lastRewrittenAt": "2026-05-09",
       "revisionCycle": 1,
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-all-hazard-approach": {
       "title": "オールハザードアプローチ",
@@ -4914,7 +4946,7 @@
       "revisionCycle": 2,
       "seoTitle": "バイオセーフティ ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-blind-drill": {
       "title": "ブラインド型訓練",
@@ -5510,7 +5542,7 @@
       "lastRewrittenAt": "2026-05-26T13:00:00+09:00",
       "revisionCycle": 2,
       "created": "2026-04-28",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-climate-change-international": {
       "title": "気候変動・国際対応",
@@ -5942,7 +5974,7 @@
       "lastRewrittenAt": "2026-05-26T13:00:00+09:00",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-copyright": {
       "title": "著作権",
@@ -7007,7 +7039,7 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "防災気象情報 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-disclosure-request": {
       "title": "開示請求",
@@ -7269,7 +7301,7 @@
       "lastRewrittenAt": "2026-05-26T17:43:05+09:00",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-economic-comparison-principle": {
       "title": "経済性の比較の原則",
@@ -7640,7 +7672,7 @@
       "lastRewrittenAt": "2026-05-27",
       "revisionCycle": 3,
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-energy-conservation-act": {
       "title": "省エネ法",
@@ -8226,7 +8258,7 @@
       "published": true,
       "publishedAt": "2026-04-11T00:00:00.000Z",
       "seoTitle": "総合技術監理部門 合格戦略 — トレードオフ思考と学習計画 ｜ 技術士 総合技術監理部門 キーワード集",
-      "dateModified": "2026-05-26",
+      "dateModified": "2026-06-08",
       "faqs": [
         {
           "q": "総監で合格を分ける最大の思考方法は？",
@@ -12222,7 +12254,7 @@
       "lastRewrittenAt": "2026-05-26T17:43:05+09:00",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-natech": {
       "title": "自然災害に起因する産業事故",
@@ -12315,7 +12347,7 @@
       "lastRewrittenAt": "2026-05-26T17:43:03+09:00",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-nature-restoration-act": {
       "title": "自然再生推進法",
@@ -13383,7 +13415,7 @@
       "revisionCycle": 2,
       "seoTitle": "プラネタリー・バウンダリー ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-planned-usage-period": {
       "title": "使用計画期間",
@@ -15233,7 +15265,7 @@
       "lastRewrittenAt": "2026-05-27",
       "revisionCycle": 1,
       "created": "2026-05-27",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-replacement-cost": {
       "title": "取替費用",
@@ -15717,7 +15749,7 @@
       "lastRewrittenAt": "2026-05-27",
       "revisionCycle": 1,
       "created": "2026-05-27",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-safety-2-0": {
       "title": "Safety2.0",
@@ -16093,7 +16125,7 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "SATOYAMAイニシアティブ ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-scientific-management": {
       "title": "テイラーの科学的管理法",
@@ -16681,7 +16713,7 @@
       "lastRewrittenAt": "2026-05-26T17:43:03+09:00",
       "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-sri": {
       "title": "社会的責任投資",
@@ -17437,7 +17469,7 @@
       "lastRewrittenAt": "2026-05-27",
       "revisionCycle": 1,
       "created": "2026-05-27",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-total-wage-management": {
       "title": "総額賃金管理",
@@ -17530,7 +17562,7 @@
       "revisionCycle": 1,
       "seoTitle": "国連人間環境会議 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-unauthorized-access": {
       "title": "不正アクセス",
@@ -17567,7 +17599,7 @@
       "revisionCycle": 2,
       "seoTitle": "国連環境開発会議 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-unconscious-bias": {
       "title": "アンコンシャス・バイアス",
@@ -18031,7 +18063,7 @@
       "revisionCycle": 2,
       "seoTitle": "WCED ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-web-services": {
       "title": "WEBサービス",
@@ -18126,7 +18158,7 @@
       "revisionCycle": 2,
       "seoTitle": "鳥獣保護管理法 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-27"
+      "dateModified": "2026-06-08"
     },
     "pe-comprehensive-management-women-empowerment-act": {
       "title": "女性活躍推進法",
@@ -18259,6 +18291,46 @@
       "created": "2026-04-05",
       "dateModified": "2026-05-26"
     },
+    "pe-construction-competency-revision-r8": {
+      "title": "技術士第二次試験 コンピテンシー改訂（令和8年度〜）— 新旧対照と答案への影響",
+      "description": "技術士に求められる資質能力（コンピテンシー）が改訂され、令和8年度の技術士第二次試験から適用される。問題解決・コミュニケーション・技術者倫理・継続研さんの4項目が変わり、データ・情報技術の活用、多角的な視点とステークホルダー、包摂的な協働、CPDによる新技術への適応が明文化された。新旧対照と、建設部門・総監の答案への影響を解説する。",
+      "shortTitle": "コンピテンシー改訂（令和8〜）",
+      "subtitle": "8つの資質能力のうち4項目が改訂。データ活用・多角的視点・包摂的協働・CPD適応力が問われる",
+      "category": "pe-construction",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "技術士（第二次試験）",
+        "コンピテンシー",
+        "令和8年度"
+      ],
+      "published": true,
+      "publishedAt": "2026-06-09",
+      "seoTitle": "技術士 コンピテンシー改訂 令和8年度｜新旧対照と二次試験への影響",
+      "reviewStatus": "approved",
+      "created": "2026-06-09",
+      "dateModified": "2026-06-09",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2,
+      "faqs": [
+        {
+          "q": "技術士のコンピテンシー改訂はいつの試験から適用されますか？",
+          "a": "令和8年度（2026年度）の技術士第二次試験から、改訂版コンピテンシーを適用した試験が実施されます。令和7年度までは従来版です。日本技術士会・文部科学省が公表しています。"
+        },
+        {
+          "q": "8つのコンピテンシーのうち、何が変わりましたか？",
+          "a": "改訂されたのは「問題解決」「コミュニケーション」「技術者倫理」「継続研さん」の4項目です。問題解決にデータ・情報技術の活用と多角的な視点・ステークホルダーの意見が、コミュニケーションに情報技術の活用と包摂的な協働が、技術者倫理に持続可能な成果と文化的価値の尊重が、継続研さんにCPDによる新技術への適応力が明文化されました。専門的学識・マネジメント・評価・リーダーシップは実質変更ありません。"
+        },
+        {
+          "q": "なぜコンピテンシーが改訂されたのですか？",
+          "a": "国際エンジニアリング連合（IEA）が定める知識・能力（GA／PC）の改訂に準拠し、DX・データ活用や国際的な通用性を反映するためです。技術士資格の国際的同等性を維持する目的があります。"
+        },
+        {
+          "q": "改訂で答案の書き方は大きく変わりますか？",
+          "a": "答案構成の骨格（課題抽出→解決策→効果・リスク）は変わりません。ただし採点の着眼点として、問題定義でのデータ活用、解決策での多角的視点とステークホルダー配慮、協働・包摂、持続可能性への言及を意識すると、改訂の趣旨に沿った答案になります。"
+        }
+      ]
+    },
     "pe-construction-guide-required-essay": {
       "title": "技術士第二次試験 建設部門 必須科目I 合格答案の書き方",
       "description": "技術士第二次試験 建設部門 必須科目Iの合格答案を書くための実践ガイド。プロセス型4段構成の設問構造・字数配分・観点明記のコツ・発注者視点の活かし方を元公務員（合格者）が解説。R03〜R07の出題テーマも収録。",
@@ -18276,6 +18348,47 @@
       "publishedAt": "2026-06-09",
       "dateModified": "2026-06-09",
       "created": "2026-06-09"
+    },
+    "pe-construction-pe-secondary-essay-guide": {
+      "title": "技術士第二次試験 建設部門 記述式答案の書き方ガイド — 設問対応・論点の絞り込み・分かりやすい文章",
+      "description": "技術士第二次試験 建設部門の記述式答案（論文）は、知識量より「答案の作り方」で差がつく。設問を問いに分解する手順、多面的な観点での論点の絞り込み、「現状→課題→解決策→効果・リスク」の骨格、分かりやすい文章の作法までを、過去問へのリンクとともに体系的に解説する。",
+      "shortTitle": "記述式答案の書き方ガイド",
+      "subtitle": "必須I・選択II-1/II-2/III に共通する論文の組み立て方を、元公務員（発注者）視点で体系化",
+      "category": "pe-construction",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "技術士（第二次試験）",
+        "建設部門",
+        "記述式",
+        "論文の書き方"
+      ],
+      "published": true,
+      "publishedAt": "2026-06-09",
+      "seoTitle": "技術士第二次試験 建設部門 論文の書き方｜記述式答案の組み立て方を体系解説",
+      "reviewStatus": "approved",
+      "created": "2026-06-09",
+      "dateModified": "2026-06-09",
+      "toc_min_heading_level": 2,
+      "toc_max_heading_level": 2,
+      "faqs": [
+        {
+          "q": "技術士第二次試験の記述式答案は、知識をたくさん書けば合格できますか？",
+          "a": "知識量だけでは合格しません。採点者は「設問の問いに正確に答えているか」「課題から解決策、効果・リスクまで論理が一貫しているか」「一読で理解できる文章か」を見ます。同じ知識でも、設問を問いに分解し、観点を明記して論点を絞り込み、決められた字数に収める答案づくりができているかで評価が分かれます。"
+        },
+        {
+          "q": "答案はどのくらいの速さで書く必要がありますか？",
+          "a": "答案用紙は1枚600字（25字×24行）が目安で、1枚あたり20分程度で書き切る速度が必要です。3枚の設問なら構想・メモに使える時間は限られるため、書き始める前に設問を問いに分解し、各問への配分字数を決めてから書き出すと破綻しません。"
+        },
+        {
+          "q": "「多面的な観点から課題を3つ挙げよ」とよく問われますが、どう考えればよいですか？",
+          "a": "安全・品質・コスト・工期・環境・維持管理・人材・地域社会といった軸を立て、互いに重複しない（MECE）3つを選びます。各課題は「観点を述べてから課題内容を示す」順序を守ると、設問の指示にも合致し、論点が絞り込まれた印象になります。"
+        },
+        {
+          "q": "模範解答はどこで読めますか？",
+          "a": "本サイトでは建設部門の過去問（問題文）を令和元年度〜令和7年度まで無料公開しています。各設問への元公務員（発注者）視点のフル模範解答は、note の有料マガジンで提供しています（必須科目I・道路ほか順次拡充）。"
+        }
+      ]
     },
     "pe-construction-r01-construction-planning": {
       "title": "技術士第二次試験 建設部門 令和元年度 選択科目（0910 施工計画、施工設備及び積算） 問題",
@@ -20143,7 +20256,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r01-basic": {
       "title": "令和元年度 技術士第一次試験 基礎科目",
@@ -20163,7 +20276,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r01-construction": {
       "title": "令和元年度 技術士第一次試験 専門科目（建設部門）",
@@ -20183,7 +20296,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r02-aptitude": {
       "title": "令和2年度 技術士第一次試験 適性科目",
@@ -20203,7 +20316,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r02-basic": {
       "title": "令和2年度 技術士第一次試験 基礎科目",
@@ -20223,7 +20336,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r02-construction": {
       "title": "令和2年度 技術士第一次試験 専門科目（建設部門）",
@@ -20243,7 +20356,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r03-aptitude": {
       "title": "令和3年度 技術士第一次試験 適性科目",
@@ -20263,7 +20376,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r03-basic": {
       "title": "令和3年度 技術士第一次試験 基礎科目",
@@ -20283,7 +20396,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r03-construction": {
       "title": "令和3年度 技術士第一次試験 専門科目（建設部門）",
@@ -20303,7 +20416,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r04-aptitude": {
       "title": "令和4年度 技術士第一次試験 適性科目",
@@ -20323,7 +20436,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r04-basic": {
       "title": "令和4年度 技術士第一次試験 基礎科目",
@@ -20343,7 +20456,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r04-construction": {
       "title": "令和4年度 技術士第一次試験 専門科目（建設部門）",
@@ -20363,7 +20476,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r05-aptitude": {
       "title": "令和5年度 技術士第一次試験 適性科目",
@@ -20383,7 +20496,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r05-basic": {
       "title": "令和5年度 技術士第一次試験 基礎科目",
@@ -20403,7 +20516,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r05-construction": {
       "title": "令和5年度 技術士第一次試験 専門科目（建設部門）",
@@ -20423,7 +20536,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r06-aptitude": {
       "title": "令和6年度 技術士第一次試験 適性科目",
@@ -20443,7 +20556,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r06-basic": {
       "title": "令和6年度 技術士第一次試験 基礎科目",
@@ -20463,7 +20576,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r06-construction": {
       "title": "令和6年度 技術士第一次試験 専門科目（建設部門）",
@@ -20483,7 +20596,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r07-aptitude": {
       "title": "令和7年度 技術士第一次試験 適性科目",
@@ -20503,7 +20616,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r07-basic": {
       "title": "令和7年度 技術士第一次試験 基礎科目",
@@ -20523,7 +20636,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     },
     "pe-first-stage-r07-construction": {
       "title": "令和7年度 技術士第一次試験 専門科目（建設部門）",
@@ -20543,7 +20656,7 @@
       "toc_min_heading_level": 2,
       "toc_max_heading_level": 2,
       "created": "2026-06-04",
-      "dateModified": "2026-06-04"
+      "dateModified": "2026-06-09"
     }
   }
 }

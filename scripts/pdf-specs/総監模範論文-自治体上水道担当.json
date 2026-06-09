@@ -1,0 +1,41 @@
+{
+  "srcDir": "docs/note/技術士総監/magazines/総監模範論文-自治体上水道担当",
+  "deliverTo": "in-place",
+  "articles": [
+    {
+      "src": "R03/article.md",
+      "out": "模範論文-自治体上水道-R03",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R04/article.md",
+      "out": "模範論文-自治体上水道-R04",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R05/article.md",
+      "out": "模範論文-自治体上水道-R05",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R06/article.md",
+      "out": "模範論文-自治体上水道-R06",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R07/article.md",
+      "out": "模範論文-自治体上水道-R07",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R08-yosou-1/article.md",
+      "out": "模範論文-自治体上水道-R08予想1-気候変動",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R08-yosou-2/article.md",
+      "out": "模範論文-自治体上水道-R08予想2-資源循環",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    }
+  ]
+}

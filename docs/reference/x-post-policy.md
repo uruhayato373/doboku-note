@@ -57,6 +57,7 @@ docs/sns/x/
 | 試験 (`exam`) | ベースタグ | 備考 |
 |---|---|---|
 | `pe-comprehensive`（総監） | `#技術士` `#総監` | `#技術士総監` は外した（2026-05-29）。`#総合技術監理部門` は重く要点限定 |
+| `pe-construction`（技術士建設部門） | `#技術士` `#建設部門` | 2026-06-09 追加。論点で `#技術士二次試験` 等を 1 個追加可。`#技術士建設部門` は重め |
 | `civil-1`（1級土木） | `#1級土木施工管理技士` `#施工管理技士` | 論点で `#施工管理` 等を 1 個追加可 |
 | `civil-2`（2級土木） | `#2級土木施工管理技士` `#施工管理技士` | 同上 |
 
@@ -80,6 +81,11 @@ docs/sns/x/
 - 投稿内 URL は 1 本まで（23 weighted）。
 - UTM 統一フォーマットは `docs/project/03_SNS/02_チャネル動線設計.md` 準拠（`utm_source=x`）。
 - リンクは短縮 URL を使い、weighted 23 固定の利点を活かす。
+- **`/docs/{slug}` は本番フラット slug ＝「カテゴリ-ディレクトリ」を必ず使う**（最重要・404 防止）。ページの**ディレクトリ名だけ**で組むと 404 になる。
+  - 誤: `/docs/primary-r03-kouki` → 正: `/docs/civil-construction-2-primary-r03-kouki`
+  - 誤: `/docs/keyword-2026`（総監/土木で分岐）→ 正: `/docs/pe-comprehensive-management-keyword-2026` 等
+  - slug の真実源は `src/config/doc-meta-index.json` の `docs` キー。執筆時はここに存在する slug かを必ず照合する。
+- **検証の仕組み化（2026-06-08 新設）**: `node scripts/check-sns-urls.mjs` が `docs/sns/**` の `/docs/` リンクを doc-meta-index と突合し、本番に無い slug を検出する。pre-commit に `--staged` で組込済み（broken があるとコミット不可）。背景: 2026-06 に X 投稿 149 件のリンク切れ（560+ impressions ロス）が発生 → 接頭辞欠落が原因。
 
 ## 7. サマリカード画像（create-x-card）
 

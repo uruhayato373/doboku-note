@@ -20,8 +20,9 @@ note マガジンの `article.md` を、紙に印刷して読むための A4 PDF
 |---|---|---|
 | `--spec <path>` | ✓ | 変換ルール JSON。`scripts/pdf-specs/{name}.json` |
 | `--desktop` | | 生成 PDF をデスクトップにもコピー（spec の `deliverTo: "desktop"` と同等） |
+| `--in-place` | | 生成 PDF を**各記事の `srcDir/{記事dir}/` 配下にも配置**（spec の `deliverTo: "in-place"` と同等）。note 有料記事への購入特典PDF添付用。各記事dirに `{out}.pdf` が置かれる |
 
-出力先は spec の `outDir`（既定 `C:\tmp\{マガジン名}-pdf`）。中間 HTML は `<outDir>/_work/`。
+出力先は spec の `outDir`（既定 `C:\tmp\{マガジン名}-pdf`）。中間 HTML は `<outDir>/_work/`。`--in-place` 指定時は各記事ディレクトリにもコピーされる（模範論文ペルソナの購入特典PDF運用）。
 
 ## 実行手順
 

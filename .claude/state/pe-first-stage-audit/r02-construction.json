@@ -1,0 +1,63 @@
+{
+  "slug": "pe-first-stage-r02-construction",
+  "year": "R02",
+  "sub": "construction",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "fail",
+    "verified_count": 35,
+    "mismatches": [
+      {
+        "question": "Ⅲ-13",
+        "mdx_answer": "1",
+        "official_answer": "2",
+        "note": "MDXは正答：1（用途地域の記述に誤り）としているが、公式正答は2（高度利用地区を「建築物の高さの最高限度又は最低限度を定める地区」と記述しているのが誤り。正しくは容積率・建ぺい率等を定める高度利用地区と、高さ限度を定める高度地区を混同している）。正答を2に修正する必要がある。"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-4",
+        "type": "text_mismatch",
+        "detail": "選択肢④（正答肢）のc・dの語句がPDFと逆。PDF: c=ランキン, d=クーロン。MDX: c=クーロン, d=ランキン。正答肢の組合せ表記が反転している。"
+      },
+      {
+        "question": "Ⅲ-9",
+        "type": "text_mismatch",
+        "detail": "選択肢①の主語と内容がPDFと異なる。PDF: 「吊橋の主ケーブル及び補剛桁を設計するには衝撃の影響は考慮しない」。MDX: 「床版の主ケーブル及び補剛桁を設計する際に作用の影響は考慮する」。「吊橋」→「床版」、かつ文意（考慮しない→考慮する）が逆転している。"
+      },
+      {
+        "question": "Ⅲ-17",
+        "type": "text_mismatch",
+        "detail": "選択肢②（正答肢）の式がPDFと異なる。PDF: ρ·g·(z_C − z_B)。MDX: ρ·g·(z_A − z_B)。z_C が z_A に誤記されている。正答肢の式が原典と一致しない。"
+      },
+      {
+        "question": "Ⅲ-27",
+        "type": "text_mismatch",
+        "detail": "選択肢①のD列・E列がPDFと逆。PDF ①: D=石油, E=石炭。MDX 1: D=石炭, E=石油。選択肢①のD・Eが入れ替わっている。"
+      },
+      {
+        "question": "Ⅲ-30",
+        "type": "text_mismatch",
+        "detail": "選択肢④（最も不適切とされる肢）の冒頭記述がPDFと異なる。PDF: 「PCまくら木は腐食，腐朽がなく耐用年数が長いが，ロングレールの敷設に適さない，保守費が高くなるといった欠点がある」。MDX: 「PCまくら木は重く，敷設が容易なく耐用年数が長いが，ロングレールの敷設に適しない。保守費が高くなるといった欠点がある」。「腐食・腐朽がなく」→「重く，敷設が容易なく」に誤記されている。"
+      },
+      {
+        "question": "Ⅲ-33",
+        "type": "text_mismatch",
+        "detail": "選択肢②の工事原価の定義文がPDFと異なる。PDF: 「材料，労務，機械，仮設物など工事管理に必要な全ての費用に」。MDX: 「材料，労務，仮設物など工事費用に必要な全ての費用に」。PDFにある「機械」が抜落ち、かつ「工事管理」→「工事費用」に改変されている。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "frontmatter に title/category/group/published/source_pdf すべて存在。設問見出し ## Ⅲ-1〜Ⅲ-35 の連番に欠落なし。ExamPoint 35個・details 35個でいずれも期待値と一致。図あり問題（Ⅲ-3, Ⅲ-4, Ⅲ-5, Ⅲ-6, Ⅲ-17）はすべて <ArticleImage> タグあり。PDF全18ページの設問番号・問題文先頭・選択肢数・問いの極性をすべて照合し、Ⅲ-13の正答番号以外に不一致なし。"
+  }
+}

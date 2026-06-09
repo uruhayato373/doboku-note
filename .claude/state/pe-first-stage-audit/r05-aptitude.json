@@ -1,0 +1,53 @@
+{
+  "slug": "pe-first-stage-r05-aptitude",
+  "year": "R05",
+  "sub": "aptitude",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "fail",
+    "verified_count": 15,
+    "mismatches": [
+      {
+        "question": "Ⅱ-10",
+        "mdx_answer": "2",
+        "official_answer": "3",
+        "note": "MDX の **正答：2** が公式正答 3 と不一致。解説本文も ア○・イ×・ウ○・エ○ → 選択肢2が正しいと記述しており正答番号の誤りと判断。"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-1",
+        "type": "text_mismatch",
+        "detail": "選択肢（ウ）の本文に食い違い。PDF:「所属する組織にその情報を速やかに公開するように働きかける」 → MDX:「所属する組織にその情報を進んだ上に公開するように働きかける」。「速やかに」が「進んだ上に」に書き換わっており、意味が大きく異なる。"
+      },
+      {
+        "question": "Ⅱ-7",
+        "type": "text_mismatch",
+        "detail": "選択肢の○×組合せ表がPDFと大きく異なる。PDFでは①〜④はそれぞれア/イ/ウ/エのうち1か所だけ×（①ア×、②イ×、③ウ×、④エ×）で残りすべて○、⑤はすべて○。MDXでは①がア:× ウ:×（2か所×）、③がイ:× エ:×（2か所×）、④がア:× エ:×（2か所×）となっており、選択肢1・3・4の○×パターンがPDF原典と不一致。"
+      },
+      {
+        "question": "Ⅱ-10",
+        "type": "text_mismatch",
+        "detail": "選択肢の○×組合せ表がPDFと大きく異なる。PDFでは①全○、②ア:×のみ、③イ:×のみ、④ウ:×のみ、⑤エ:×のみ（各選択肢1か所だけ×）。MDXでは②がイ:×（ア:○）、③がイ:× ウ:×（2か所×）、④がウ:× エ:×（2か所×）、⑤がイ:× エ:×（2か所×）となっており、②〜⑤すべてPDFと不一致。"
+      },
+      {
+        "question": "Ⅱ-10",
+        "type": "other",
+        "detail": "MDX内部の正答番号と解説が矛盾している。本文中に「正答：3」と記載されているが、解説内では「2. ア○・イ×・ウ○・エ○ で正しい ✅」と選択肢2を正答としており、正答番号の記載が誤り。PDF原典の選択肢表に合わせると「ア以外は○」の選択肢が②（ア:×）であり、正答は2が正しいと考えられる（ただし正答根拠はPDFの解答用紙が別途必要）。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "全設問見出し Ⅱ-1〜Ⅱ-15 の連番が揃っている。frontmatter に title/seoTitle/description/category/tags/published/source_pdf/group がすべて存在。ExamPoint 15個・details 15個ともに期待値と一致。視覚確認で Ⅱ-11 の選択肢2・3 のウ/エ入れ替わりを検出。"
+  }
+}

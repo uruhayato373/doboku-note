@@ -43,8 +43,11 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
    - 各ツイート **280 weighted 以下**（日本語×2・URL=23）。本文 ≒ 117 字 + URL 1 本が目安。
    - **試験別ベースタグ**（policy §4）＋論点タグ 1 個まで。計 **1〜3 個**。
    - URL は 1 本・UTM `utm_source=x`。
+   - **`/docs/` リンクは本番フラット slug ＝「カテゴリ-ディレクトリ」を必ず使う（404 防止・最重要）**。ネタ源のローカルパス `.local/r2/posts/{category}/{dir}/` の `{dir}` をそのまま使うと 404（誤 `/docs/primary-r03-kouki` → 正 `/docs/civil-construction-2-primary-r03-kouki`）。正しい slug は `src/config/doc-meta-index.json` の `docs` キーに存在するものに限る。曖昧な共通 dir 名（`keyword-2026` 等）は試験文脈で接頭辞を確定する。詳細は policy §6。
    - 誇張・捏造をしない。固有名詞・数値・法則名はソースに忠実。
-4. 執筆後 `node scripts/check-x-length.mjs --draft <NNN>` を実行し **違反 0** を確認（weighted を目視でも確認）。
+4. 執筆後の検証：
+   - `node scripts/check-x-length.mjs --draft <NNN>` で文字数 **違反 0**（weighted を目視でも確認）。
+   - `node scripts/check-sns-urls.mjs` で **`/docs/` リンクが全て本番に実在**することを確認（broken があれば提案された正 slug に修正）。pre-commit でも `--staged` で検証されるが、執筆段階で先に潰す。
 5. ネタ源 MDX で気づいた doboku-note 側の問題は**直接編集せず** `docs/sns/instagram/_keyword-findings.md` 等の findings に追記。
 
 ## 品質ガード

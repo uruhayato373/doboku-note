@@ -1,0 +1,68 @@
+{
+  "slug": "pe-first-stage-r04-basic",
+  "year": "R04",
+  "sub": "basic",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "fail",
+    "verified_count": 30,
+    "mismatches": [
+      {
+        "question": "Ⅰ-2-5",
+        "mdx_answer": "3",
+        "official_answer": "5",
+        "note": "MDX line 560 に **正答：3** と記載されているが、公式正答は5。解説本文ではホーナー法によりア=12・イ=25・ウ=50・エ=101となり選択肢⑤が正答と計算されるが、選択肢③（ア=13）との整合に関する混乱した記述が残存する。"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 30,
+    "issues": [
+      {
+        "question": "Ⅰ-1-1",
+        "type": "text_mismatch",
+        "detail": "選択肢②イ・ウの内容がPDFと異なる。PDF②：「引張／材料の温度が高い状態／大きい／小さく」、MDX②：「引張／材料の温度が低い状態／小さい／大きく」。さらにPDF④ウ：「小さい」に対しMDX④ウ：「大きい」も不一致。選択肢全体の組み合わせが原典と相違している。"
+      },
+      {
+        "question": "Ⅰ-1-5",
+        "type": "text_mismatch",
+        "detail": "選択肢②・④のウ欄がPDFと異なる。PDF②ウ：「3乗」、MDX②ウ：「4乗」。PDF④ウ：「3乗」、MDX④ウ：「4乗」。いずれも「4乗」に誤って統一されており、選択肢の組み合わせが正確でない。"
+      },
+      {
+        "question": "Ⅰ-2-3",
+        "type": "text_mismatch",
+        "detail": "説明例のページ参照列が異なる。PDF：「2⇒2⇒1⇒2 の順番」（4参照）、MDX：「$2\\Rightarrow1\\Rightarrow2$」（3参照）。例示の参照系列から1ステップ（最初の「2→2」）が脱落している。"
+      },
+      {
+        "question": "Ⅰ-2-4",
+        "type": "text_mismatch",
+        "detail": "選択肢④⑤のイ（送信ビット列）がPDFと異なる。PDF④イ：「1000110」、MDX④イ：「0100010」。PDF⑤イ：「1000011」、MDX⑤イ：「1000010」。正答⑤の送信ビット列の末尾1ビットが欠落している（011→010）。"
+      },
+      {
+        "question": "Ⅰ-4-1",
+        "type": "text_mismatch",
+        "detail": "選択肢③の表現が異なる。PDF：「水酸化ナトリウム，水酸化カリウム，水酸化カルシウム，水酸化バリウムは水に溶けて強塩基性を示す。」、MDX：「塩基性を示す。」（「強」が脱落）。"
+      },
+      {
+        "question": "Ⅰ-4-3",
+        "type": "text_mismatch",
+        "detail": "問題文中の鋼板寸法がPDFと大幅に異なる。PDF：「幅0.50m，長さ1.0m，厚さ0.60mm」、MDX：「幅50m，長さ1.0m，厚さ80mm」。幅・厚さがそれぞれ100倍・133倍になっており、計算値や選択肢の数値との整合性に影響する重大な誤り。"
+      },
+      {
+        "question": "Ⅰ-5-2",
+        "type": "text_mismatch",
+        "detail": "選択肢③の廃棄物系バイオマスの例示が異なる。PDF：「建設発生木材や食品廃棄物，下水汚泥など」、MDX：「家畜排せつ物や食品廃棄物、下水汚泥など」。「建設発生木材」が「家畜排せつ物」に誤って書き換えられている。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "全30問の見出し（Ⅰ-1-1〜Ⅰ-5-6）が連番で揃っている。ExamPoint 30個・details 30個ともに期待値と一致。frontmatter に title/category/group/published/source_pdf がすべて存在する。"
+  }
+}

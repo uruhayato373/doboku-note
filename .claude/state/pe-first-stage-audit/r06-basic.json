@@ -1,0 +1,62 @@
+{
+  "slug": "pe-first-stage-r06-basic",
+  "year": "R06",
+  "sub": "basic",
+  "audited_at": "2026-06-09",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "fixed_at": "2026-06-09",
+    "fix_commit": "f81d3d2e6",
+    "issues": [
+      {
+        "question": "Ⅰ-2-1",
+        "severity": "confirmed",
+        "type": "choice_text_mismatch",
+        "choice_no": 2,
+        "mdx_text": "0.0111001100110011",
+        "pdf_text": "0.1011001100110011",
+        "note": "PDFのp006画像において選択肢②の2進数列が明確に異なる。MDXは先頭ビット列が0.0111...だが原典PDFは0.1011...。誤りが確定しているが正答（選択肢1）には影響しない。"
+      },
+      {
+        "question": "Ⅰ-2-1",
+        "severity": "uncertain",
+        "type": "choice_text_mismatch",
+        "choice_no": 4,
+        "mdx_text": "0.1001100110011010",
+        "pdf_text": "0.1100110011001100 (推定、画像解像度による不確実性あり)",
+        "note": "PDFのp006画像において選択肢④の2進数列が異なる可能性がある。MDXの0.1001100110011010(≒0.600)は正答との差が末尾2ビットのみで自然な誤り選択肢だが、PDF画像は0.1100110011001100(≒0.800)のように見える。画像スキャンの解像度上限により確定不可。"
+      },
+      {
+        "question": "Ⅰ-2-5",
+        "severity": "minor",
+        "type": "exampoint_misleading",
+        "choice_no": null,
+        "mdx_text": "ExamPoint第3項：104×(−3)+65×5＝13 でベズーの等式が成立",
+        "pdf_text": null,
+        "note": "ExamPointの第3項が正答のイ=2, ウ=−3ではなく選択肢5の値(−3, 5)に基づくベズーの等式を示している。数式自体は正しい（別の整数解）が、正答の値(104×2+65×(−3)=13)と混乱を招く可能性がある。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "frontmatter_fields": {
+      "title": true,
+      "category": true,
+      "group": true,
+      "published": true,
+      "source_pdf": true
+    },
+    "missing_questions": [],
+    "notes": "全30問の見出し(Ⅰ-1-1〜Ⅰ-5-6)・ExamPoint・detailsタグが揃っており欠落なし"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "slug": "pe-first-stage-r01-basic",
+  "year": "R01",
+  "sub": "basic",
+  "audited_at": "2026-06-09",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "issues": [],
+    "resolved_issues": [
+      {
+        "question": "Ⅰ-1-1",
+        "type": "text_mismatch",
+        "detail": "（ア）の記述が現 MDX では「制約条件が線形式であるか否かは問わない」と PDF 原典と一致する表現に修正済み。",
+        "resolved_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-1-4",
+        "type": "text_mismatch",
+        "detail": "「縦圧縮」→「純圧縮」修正済み。現 MDX は PDF 原典と一致。",
+        "resolved_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-2-2",
+        "type": "text_mismatch",
+        "detail": "問題文のキー列記に 7 が欠落していた件は修正済み。さらに今回の再監査で選択肢⑤のキー登録順が PDF と異なる（MDX: 8,5,3,10,12,6,7 → 正: 8,5,3,12,6,10,7）ことを発見し修正。commit 67f8c3cde。",
+        "resolved_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-4-6",
+        "type": "text_mismatch",
+        "detail": "「隣接するアミノ酸と」の欠落は修正済み。現 MDX は PDF 原典と一致。",
+        "resolved_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-5-3",
+        "type": "text_mismatch",
+        "detail": "選択肢③の「石炭火力」→「石油火力」誤字は修正済み。現 MDX は「石油火力発電の比率は25〜27%程度」と正しく記述。",
+        "resolved_at": "2026-06-09"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "全30問（Ⅰ-1-1〜Ⅰ-5-6）確認。PDF 22ページ全枚を Read ツールで視覚突合。ArticleImage タグ3箇所（Ⅰ-1-4・Ⅰ-3-5・Ⅰ-3-6）いずれも PDF に図あり、MDX に対応タグあり。数値・表・選択肢すべて一致確認済み。"
+  }
+}

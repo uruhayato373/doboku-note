@@ -1,0 +1,51 @@
+{
+  "slug": "pe-first-stage-r01-construction",
+  "year": "R01",
+  "sub": "construction",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-2",
+        "type": "text_mismatch",
+        "detail": "選択肢②の透水係数の範囲が異なる。PDF: 「透水係数が10⁻⁹〜10⁻⁵[m/s]のシルトや細粒分を含む土に適用される」/ MDX: 「透水係数が10⁻⁵～10⁻³ [m/s] のシルトや細粒分を含む土に適用される」。両端の指数が2桁ずれており、問題文の内容が原典と一致しない。"
+      },
+      {
+        "question": "Ⅲ-13",
+        "type": "text_mismatch",
+        "detail": "選択肢⑤の施設名が異なる。PDF: 「少なくとも道路，公園及び上水道を定めるものとする」/ MDX: 「少なくとも道路、公園及び上下水道を定めるものとする」。「上水道」(PDF) が「上下水道」(MDX) になっており、出題意図（「下水道」が正しく「上水道」が誤り）と選択肢内容が変わってしまっている。"
+      },
+      {
+        "question": "Ⅲ-19",
+        "type": "text_mismatch",
+        "detail": "選択肢②の物体形状の表現が異なる。PDF: 「先端に丸みのある物体を置くと」/ MDX: 「先端にえみ込みのある物体を置くと」。「えみ込み」は原典にない表現であり、OCR誤変換または入力誤りと考えられる。"
+      },
+      {
+        "question": "Ⅲ-23",
+        "type": "text_mismatch",
+        "detail": "選択肢③の波屈折の説明中、波向線が直角になる領域の表現が異なる。PDF: 「波向線が浅い領域でより境界に直角になるように変化する」/ MDX: 「波向線が長い領域でより境界に直角になるように変化する」。「浅い領域」(PDF) が「長い領域」(MDX) に変わっており、波の屈折の物理的説明として異なる内容になっている。"
+      },
+      {
+        "question": "Ⅲ-28",
+        "type": "text_mismatch",
+        "detail": "選択肢③の無圧水路の説明で、損失の種別表現が異なる。PDF: 「落差の損失も小さくなるため発電力が増加する」/ MDX: 「勾配の損失も小さくなるため発電力が増加する」。「落差の損失」(PDF) が「勾配の損失」(MDX) になっており、問題文の誤り箇所の内容が変わっている。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "All 35 questions present (Ⅲ-1 through Ⅲ-35) with no gaps. frontmatter contains title, seoTitle, description, category, group, published, source_pdf, tags."
+  }
+}

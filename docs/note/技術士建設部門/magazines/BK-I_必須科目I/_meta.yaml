@@ -1,0 +1,53 @@
+title: "技術士 建設部門 2次｜必須科目I 模範解答集（R03-R07）"
+description: |
+  技術士第二次試験 建設部門 必須科目I の令和3〜7年度 過去問 5 年分を、
+  元公務員（発注者）視点でフル解答したセット。必須科目I は専門分野に依存せず
+  全受験者が解答する最重要科目。各年度に設問全文（出典明記）を再掲し、
+  設問構成と論述方針・約1,500〜1,650字のフル模範解答・採点者が見るポイント・
+  元公務員（発注者）からのコメントを収録。
+appealPoint: |
+  技術士第二次試験 建設部門で全受験者必須の「必須科目I」を、令和3〜7年度の
+  5年分まとめたセットです。元・地方自治体の土木職（発注者）として全分野の
+  工事発注・監督・積算審査に携わった筆者が、受注者側に偏りがちな論述へ
+  「発注者視点の採点軸（安全・品質・コスト・環境の統合判断、住民対応、行政責任）」
+  を補います。各年度に設問全文を再掲し、設問の問い分解 → 多面的な論点の絞り込み
+  →「現状→課題→解決策→効果・リスク」の骨格で組み立てたフル模範解答を収録。
+  1年あたり約396円（5年分セット）。
+setPrice: 1980
+articlePrice: 500
+singleTotal: 2500
+discountPercent: 21
+priceModel: set
+articleCount: 5
+noteMagazineUrl: "https://note.com/dobokunote/m/m0f3bc3933454"
+articles:
+  - slug: R03
+    noteUrl: "https://note.com/dobokunote/n/ne8b5b287351f"
+  - slug: R04
+    noteUrl: "https://note.com/dobokunote/n/n61e459a3c541"
+  - slug: R05
+    noteUrl: "https://note.com/dobokunote/n/n7c4de5d27342"
+  - slug: R06
+    noteUrl: "https://note.com/dobokunote/n/nf7881f25de47"
+  - slug: R07
+    noteUrl: "https://note.com/dobokunote/n/nffe6938dc40c"
+
+# R8予想問題（2026-06-09 新設）。予想問題文のみ作成済み・解答は後日追加。過去問セット(¥1,980)とは別計上。
+# 公開時は単品¥500 で BK-I マガジンに追加（過去問＋予想の拡張）。
+forecastArticles:
+  - slug: R08-yosou-1
+    theme: 担い手確保と建設DX・生産性革命
+    status: draft-problem-only
+    noteUrl: ""
+  - slug: R08-yosou-2
+    theme: 気候変動適応・国土強靱化・防災
+    status: draft-problem-only
+    noteUrl: ""
+  - slug: R08-yosou-3
+    theme: インフラ老朽化のアセットマネジメント深化
+    status: draft-problem-only
+    noteUrl: ""
+  - slug: R08-yosou-4
+    theme: カーボンニュートラル・GX（建設分野の脱炭素）
+    status: draft-problem-only
+    noteUrl: ""

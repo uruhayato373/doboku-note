@@ -7,7 +7,7 @@ description: |
   R6（カーボンニュートラル）・R7（少子高齢化）の
   過去問 5 年分は、いずれも河川堤防・護岸の維持管理版と
   河川改修事業（護岸整備）版の A 案／B 案 2 バージョン
-  併記。R8 予想は気候変動適応 + 資源循環の 2 本フル解答。
+  併記。R8 予想は気候変動適応・資源循環を予想問題ごとに2記事化（各 A 案／B 案 併記）。
   各記事に解答対象の設問全文を再掲し、5 管理間トレードオフを
   論じた 3,000 字級フル論文 + 採点者視点の詳細解説を収録。
 
@@ -18,24 +18,27 @@ appealPoint: |
   過去問5年分は、堤防・護岸の維持管理版と河川改修事業版の A案／B案2バージョンを併記。
   発注者ならどちらの設定でも自分の業務に重ねやすくしています。各記事に設問全文を再掲し、
   5管理間トレードオフを論じた3,000字級フル論文＋採点者視点の詳細解説を収録。
-  R8予想（気候変動適応＋資源循環）も2本付きです。
+  R8予想は気候変動適応・資源循環を予想問題ごと2記事（各A/B案）で収録、計7記事です。
 
 setPrice: 2480
 articlePrice: 500
-articleCount: 6
-singleTotal: 3000
-discountPercent: 17
+articleCount: 7
+singleTotal: 3500
+discountPercent: 29
 articles:
   - slug: R03
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/n20e3021691e8"
   - slug: R04
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/n5803667f9cbb"
   - slug: R05
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/n9f044d2e4548"
   - slug: R06
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/n0de62aaedfe0"
   - slug: R07
-    noteUrl: ""
-  - slug: R08-yosou
-    noteUrl: ""
+    noteUrl: "https://note.com/dobokunote/n/ne99677235c9b"
+  - slug: R08-yosou-1
+    noteUrl: "https://note.com/dobokunote/n/nb6d3380a2467"
+    publishTiming: "2026-06"
+  - slug: R08-yosou-2
+    noteUrl: "https://note.com/dobokunote/n/n184e3e27b860"
     publishTiming: "2026-06"

@@ -84,6 +84,10 @@ function walkMdxFiles(dir, gitDates, segments = [], results = []) {
     // src/lib/docs.ts::getDocMeta() と同じ公開フィルタ
     if (data.published === false) continue;
 
+    // noindex:true（幽霊ページ）は検索インデックス対象外なので sitemap からも除外。
+    // page.tsx generateMetadata の robots:{index:false} と対応。
+    if (data.noindex === true) continue;
+
     const lastmod = resolveLastmod(data, full, gitDates);
 
     results.push({ slug, lastmod, category: data.category });

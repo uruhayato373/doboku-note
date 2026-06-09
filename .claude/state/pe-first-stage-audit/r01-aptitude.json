@@ -1,0 +1,43 @@
+{
+  "slug": "pe-first-stage-r01-aptitude",
+  "year": "R01",
+  "sub": "aptitude",
+  "audited_at": "2026-06-09",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "Headings Ⅱ-1 through Ⅱ-15 are all present with no gaps. Frontmatter has title, category, group, published, source_pdf, seoTitle."
+  },
+  "fixes_history": [
+    {
+      "audited_at": "2026-06-08",
+      "fixes": [
+        "Ⅱ-3(ク): 「貝」→「菌」",
+        "Ⅱ-9(エ): 「見える化等とならないように」→「死角とならないように」",
+        "Ⅱ-10(エ): 「存有」「有有」→「専有」",
+        "Ⅱ-10(オ): 「することを以外」→「するとき以外」"
+      ]
+    },
+    {
+      "audited_at": "2026-06-09",
+      "fixes": [
+        "Ⅱ-10(エ): 「念のために」→「速やかに」(PDF原典との突合で新規発見)",
+        "Ⅱ-10(オ): 末尾「保存した」→「保管した」(PDF原典との突合で新規発見)"
+      ]
+    }
+  ]
+}

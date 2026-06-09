@@ -1,0 +1,208 @@
+{
+  "schema_version": "2.0",
+  "last_run": "2026-06-09",
+  "scope": {
+    "years": ["R01", "R02", "R03", "R04", "R05", "R06", "R07"],
+    "subs": ["aptitude", "basic", "construction"]
+  },
+  "totals": {
+    "pages": 21,
+    "answer_pass": 21,
+    "answer_fail": 0,
+    "visual_ok": 0,
+    "visual_issues": 0,
+    "visual_not_run": 0,
+    "visual_pass": 21,
+    "visual_partial": 0,
+    "visual_fail": 0,
+    "structure_pass": 21,
+    "structure_fail": 0
+  },
+  "fix_log": {
+    "answer_fixes_applied": [
+      { "slug": "r02-construction", "question": "Ⅲ-13", "old": "1", "new": "2", "commit": "6fea58965" },
+      { "slug": "r04-basic", "question": "Ⅰ-2-5", "old": "3", "new": "5", "commit": "94168b8f3" },
+      { "slug": "r05-aptitude", "question": "Ⅱ-10", "old": "2", "new": "3", "commit": "89d392709" },
+      { "slug": "r05-basic", "question": "Ⅰ-2-2", "old": "5", "new": "4", "commit": "338753a93" },
+      { "slug": "r05-basic", "question": "Ⅰ-5-1", "old": "1", "new": "3", "commit": "338753a93" },
+      { "slug": "r05-construction", "question": "Ⅲ-31", "old": "2", "new": "4", "commit": "ba877cf6e" },
+      { "slug": "r07-aptitude", "question": "Ⅱ-10", "old": "2", "new": "3", "commit": "d3ab10d86" },
+      { "slug": "r07-construction", "question": "Ⅲ-17", "old": "5", "new": "3", "commit": "20348260d" }
+    ],
+    "visual_fixes_applied": [
+      { "slug": "r01-aptitude", "count": 4, "commit": "ecaeacb6e,cf9660ca3" },
+      { "slug": "r01-basic", "count": 6, "commit": "eb2ad8742,ecaeacb6e,1b50de2fc,67f8c3cde" },
+      { "slug": "r01-construction", "count": 7, "commit": "ecaeacb6e,see-re-audit" },
+      { "slug": "r02-aptitude", "count": 15, "commit": "fd34d0bcd,a634c8a0c" },
+      { "slug": "r02-construction", "count": 11, "commit": "ecaeacb6e,6fea58965,96a49603f" },
+      { "slug": "r03-aptitude", "count": 5, "commit": "cc97cca15" },
+      { "slug": "r03-basic", "count": 10, "commit": "b2068e95d,ecaeacb6e,02bc1c548" },
+      { "slug": "r03-construction", "count": 9, "commit": "ecaeacb6e,47ffc7f25,a04b036a7" },
+      { "slug": "r04-aptitude", "count": 8, "commit": "9719ba00f,c2e03ec81,a249513b2" },
+      { "slug": "r04-basic", "count": 10, "commit": "94168b8f3,280ea7c37" },
+      { "slug": "r04-construction", "count": 5, "commit": "694603bd4,4a3d8cae4" },
+      { "slug": "r05-aptitude", "count": 5, "commit": "ecaeacb6e,89d392709,a0bf991c3" },
+      { "slug": "r05-basic", "count": 7, "commit": "391b30e00,ecaeacb6e,338753a93,44f37cfa0" },
+      { "slug": "r05-construction", "count": 10, "commit": "ecaeacb6e,ba877cf6e,6e2d19037" },
+      { "slug": "r06-aptitude", "count": 8, "commit": "ecaeacb6e,cf9660ca3,abb496089" },
+      { "slug": "r06-basic", "count": 3, "commit": "f81d3d2e6" },
+      { "slug": "r06-construction", "count": 5, "commit": "c14dc44ed,ecaeacb6e,12520738e" },
+      { "slug": "r07-aptitude", "count": 14, "commit": "d3ab10d86,abb496089" },
+      { "slug": "r07-basic", "count": 2, "commit": "ecaeacb6e,44f37cfa0,12520738e" },
+      { "slug": "r07-construction", "count": 9, "commit": "9719ba00f,20348260d,3e573e34e" }
+    ],
+    "note": "全21ページの視覚突合誤記修正を2026-06-08〜09に実施。answer_fail全8件・visual_issues合計100件以上を修正完了。全21ページ visual_pass 達成。r02-basic/r06-constructionはPNG参照バグ(C:\\tmp vs .tmp)で再監査エージェントが視覚突合不能だったが別エージェントで補完完了。"
+  },
+  "pages": {
+    "r01-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r01-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r01-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r02-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r02-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09",
+      "notes": "Ⅰ-3-3選択肢4「ほぼ」補完・Ⅰ-3-4選択肢1/2内心外心数値修正・Ⅰ-4-5好気呼吸式6H₂O補完（commit 24dbb2e70）"
+    },
+    "r02-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r03-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r03-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r03-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r04-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r04-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r04-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r05-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r05-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r05-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r06-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r06-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09",
+      "notes": "2026-06-09に視覚突合実施。Ⅰ-2-1選択肢②④の2進数誤記・Ⅰ-2-5 ExamPoint式を修正（commit f81d3d2e6）"
+    },
+    "r06-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09",
+      "notes": "Ⅲ-9⑤車軸/Ⅲ-10②材料分離逆転/Ⅲ-12④膨張圧全面修正/Ⅲ-34④判定記述修正（commit c7a46dea8）"
+    },
+    "r07-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r07-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    },
+    "r07-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-06-09"
+    }
+  }
+}
