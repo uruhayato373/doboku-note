@@ -37,10 +37,13 @@ model: sonnet
 4. 下記5軸を各 0〜3 で採点し、機械チェック（必須ゲート）を実行。
 5. **字数実測**: フル解答の総字数を実測し、`exam_type × 枚数 × 600字`（手書き上限）を超えていないか判定する。Generator の自己申告字数は信用しない。
 
+> **必ず下記 python で測る**。`awk | wc -m` は Windows（git-bash の非 UTF-8 ロケール）で日本語を**大幅に過小カウント**し（実測 1,600 字が 900 字台に化ける）、字数不足の偽陽性・上限超過の偽陰性を生むため**使用禁止**（[[feedback_tool_output_hallucination]]）。
+
 ```bash
-awk '/^## フル模範解答/{found=1} found && /^## 採点者/{found=0} found' "$path" \
-  | grep -v '^#' | grep -v '^---' | grep -v '^$' | tr -d '　 ' | tr -d '\n' | wc -m
+python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s=t.find('## フル模範解答'); e=t.find('## 採点者',s+1); seg=t[s:(e if e>0 else len(t))]; ls=[l for l in seg.split(chr(10)) if not l.startswith('#') and l.strip()!='---']; print(len(re.sub(r'\s+','',re.sub(r'[#*\`\-|\[\]()> 　\t]+','',' '.join(ls)))))" "$path"
 ```
+
+> 必須Iで I-1・I-2 の両答案を併載する記事は合算字数になる（1枚あたりではなく**選択1問分が枚数上限内**かで判定する。両答案併載は受験者がどちらかを選ぶ設計なので、各答案が上限内なら合格）。
 
 | exam_type | 枚数 | 上限字数（枚数×600） | 目標（約93%） |
 |---|---|---|---|

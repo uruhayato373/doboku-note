@@ -217,10 +217,9 @@ utmCampaign: pe-construction-secondary
 - 本文中に価格（¥・円）の直書きがないこと
 - 設問番号と解答番号が 1 対 1 で対応していること
 
-> **注意**: このエージェントの自己申告字数は実測と乖離することがある。生成後は親エージェント（またはユーザー）が以下のコマンドで実測確認すること:
+> **注意**: このエージェントの自己申告字数は実測と乖離することがある。生成後は親エージェント（またはユーザー）が以下の **python** コマンドで実測確認すること（`awk | wc -m` は Windows で日本語を過小カウントするため使用しない）:
 > ```bash
-> awk '/^## フル模範解答/{found=1} found && /^## 採点者/{found=0} found' article.md \
->   | grep -v '^#' | grep -v '^---' | grep -v '^$' | tr -d '　 ' | tr -d '\n' | wc -m
+> python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s=t.find('## フル模範解答'); e=t.find('## 採点者',s+1); seg=t[s:(e if e>0 else len(t))]; ls=[l for l in seg.split(chr(10)) if not l.startswith('#') and l.strip()!='---']; print(len(re.sub(r'\s+','',re.sub(r'[#*\`\-|\[\]()> 　\t]+','',' '.join(ls)))))" article.md
 > ```
 
 ### Step 6: 書き込み
