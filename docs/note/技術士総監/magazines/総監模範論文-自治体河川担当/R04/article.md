@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体河川担当ペルソナ
 utmCampaign: essay-river-muni-r04
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n5803667f9cbb
+noteId: n5803667f9cbb
+notePublishedAt: 2026-06-09
 noteMagazine: 総監模範論文-自治体河川担当
 price: 500
 cover:
