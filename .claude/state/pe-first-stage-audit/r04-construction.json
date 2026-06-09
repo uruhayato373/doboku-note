@@ -2,22 +2,16 @@
   "slug": "pe-first-stage-r04-construction",
   "year": "R04",
   "sub": "construction",
-  "audited_at": "2026-06-08",
+  "audited_at": "2026-06-09",
   "answer_check": {
     "status": "pass",
     "verified_count": 35,
     "mismatches": []
   },
   "visual_check": {
-    "status": "partial",
+    "status": "pass",
     "checked_count": 35,
-    "issues": [
-      {
-        "question": "Ⅲ-13",
-        "type": "other",
-        "detail": "解説の採点ラベルが正答と矛盾している。MDXは「正答：5」と記載し公式正答表（建設部門 Ⅲ-13＝5）とも一致するが、解説本文では選択肢①（デマンド交通）を「最も不適切 ❌」と判定し、選択肢⑤（グリーンスローモビリティ）を「適切 ✅」と判定している。公式正答が5＝⑤が最も不適切であるため、解説中の選択肢⑤のラベルは「最も不適切 ❌」、選択肢①のラベルは「適切 ✅」が正しい。解説テキストの修正が必要。"
-      }
-    ]
+    "issues": []
   },
   "structure_check": {
     "status": "pass",
@@ -26,6 +20,6 @@
     "details_count": 35,
     "frontmatter_ok": true,
     "missing_questions": [],
-    "notes": "全18ページのPDF画像とMDXを全35設問で照合完了。Ⅲ-1〜Ⅲ-35の全問について問題番号・問題文先頭・選択肢数（全問5択）・問いの極性・図の有無を確認。図が含まれる設問（Ⅲ-2, Ⅲ-4, Ⅲ-5, Ⅲ-6, Ⅲ-17）はいずれもMDXに<ArticleImage>タグあり。前段auditでⅢ-13の正答ミスマッチ（official_answer=5）が報告されていたが、PDF原典を視覚確認した結果、MDXの正答:1（デマンド交通の説明がカーシェアリングの説明であり誤り）は正しく、前段auditのofficial_answer=5は誤りと判断。MDX全問の正答は原典PDFと整合する。"
+    "notes": "全18ページのPDF画像とMDXを全35設問で照合完了。全問について問題番号・問題文先頭・選択肢数（全問5択）・問いの極性・図の有無を確認。官報正答（建設部門）との照合で35問全問一致。3件の誤記を修正済み: Ⅲ-13解説ラベル（最も不適切→誤り、適切→最も適切）、Ⅲ-15選択肢3（域域→区域、液状化→溢水）、Ⅲ-16選択肢2（立地適正化方式→買収方式）・選択肢3（用地買収方式→免許方式）。commit: 4a3d8cae4"
   }
 }
