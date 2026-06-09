@@ -90,7 +90,7 @@ function extractTitle(h1) {
   return raw;
 }
 
-async function renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety, fonts }) {
+async function renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety, fonts, outName = 'cover' }) {
   let element;
   // cover: ブロックがあれば G2（試験色分け・全幅バナー帯）、無ければ従来 mono-tag にフォールバック
   if (cover && (cover.banner || cover.hi || cover.leadIn)) {
@@ -120,9 +120,9 @@ async function renderCover({ dirName, title, coverTitle, cover, category, examKe
   const dir = join(NOTE_DIR, dirName);
   const imgDir = join(dir, 'img');
   mkdirSync(imgDir, { recursive: true });
-  writeFileSync(join(imgDir, 'cover.svg'), svg);
-  await sharp(Buffer.from(svg)).png().toFile(join(imgDir, 'cover.png'));
-  console.log(`  ok: ${dirName}`);
+  writeFileSync(join(imgDir, `${outName}.svg`), svg);
+  await sharp(Buffer.from(svg)).png().toFile(join(imgDir, `${outName}.png`));
+  console.log(`  ok: ${dirName}${outName === 'cover' ? '' : ` (${outName})`}`);
 }
 
 /**
@@ -147,25 +147,34 @@ function collectArticleDirs(absDir, relDir) {
 
 async function processOne(dirName, args, fonts) {
   const dir = join(NOTE_DIR, dirName);
-  const articlePath = join(dir, 'article.md');
-  if (!existsSync(articlePath)) {
-    console.warn(`  skip: article.md not found in ${dirName}`);
+  // 1 ディレクトリ内の全 article ファイルを対象にする（選択科目は article.md=III に加え
+  // article-II1.md / article-II2.md が同居する。各々を別 note 記事のカバーとして出力する）。
+  const articleFiles = readdirSync(dir, { withFileTypes: true })
+    .filter((e) => e.isFile() && /^article(-[A-Za-z0-9]+)?\.md$/.test(e.name))
+    .map((e) => e.name)
+    .sort();
+  if (articleFiles.length === 0) {
+    console.warn(`  skip: article*.md not found in ${dirName}`);
     return;
   }
-  const content = readFileSync(articlePath, 'utf-8');
-  const { data, content: body } = matter(content);
-  const h1 = body.split('\n').find((l) => l.startsWith('# '));
-  if (!h1) {
-    console.warn(`  skip: no H1 in ${dirName}`);
-    return;
-  }
-  const title = extractTitle(h1);
   const examKey = resolveExam(dirName);
-  const category = data.category || COVER_TOKENS.exams[examKey]?.label || DEFAULT_CATEGORY;
-  const coverTitle = data.coverTitle;
-  const cover = data.cover;
-  const pricing = data.notePricing;
-  await renderCover({ dirName, title, coverTitle, cover, category, examKey, pricing, debugSafety: args.debugSafety, fonts });
+  for (const fname of articleFiles) {
+    const content = readFileSync(join(dir, fname), 'utf-8');
+    const { data, content: body } = matter(content);
+    const h1 = body.split('\n').find((l) => l.startsWith('# '));
+    if (!h1) {
+      console.warn(`  skip: no H1 in ${dirName}/${fname}`);
+      continue;
+    }
+    // article.md → cover、article-II1.md → cover-II1
+    const m = fname.match(/^article-([A-Za-z0-9]+)\.md$/);
+    const outName = m ? `cover-${m[1]}` : 'cover';
+    const category = data.category || COVER_TOKENS.exams[examKey]?.label || DEFAULT_CATEGORY;
+    await renderCover({
+      dirName, title: extractTitle(h1), coverTitle: data.coverTitle, cover: data.cover,
+      category, examKey, pricing: data.notePricing, debugSafety: args.debugSafety, fonts, outName,
+    });
+  }
 }
 
 async function main() {

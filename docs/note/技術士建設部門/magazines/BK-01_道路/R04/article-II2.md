@@ -9,6 +9,16 @@ noteId: ""
 notePublishedAt: ""
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R04 選択科目II-2 模範解答"
+cover:
+  leadIn: "技術士 建設部門 2次"
+  hi: "R04"
+  hiSuffix: "道路II-2"
+  banner: "選択科目II-2 課題遂行｜模範解答"
+  meta: "道路 模範解答"
+  chips:
+    - { icon: pen, text: "フル模範解答" }
+    - { icon: layers, text: "発注者視点" }
+    - { icon: check, text: "採点ポイント付" }
 utmCampaign: pe-construction-secondary
 ---
 
