@@ -156,6 +156,16 @@ title: スキル ナビゲーションガイド
 2. 運営者が article.md をレビューして note 投稿（noteUrl を frontmatter に記入）
 3. 詳細: `docs/note/技術士建設部門/noteコンテンツ計画.md`、エージェント: `.claude/agents/pe-secondary-exam-writer.md`
 
+### Kindle EPUB（KDP 出版）を生成したい
+
+1. **Aシリーズ（1級土木 択一・論点別）**: `node scripts/build-takuitsu-reconstruct.mjs --theme {key} --format epub`
+   - `--theme` に指定できるキー: `anzen`（安全管理）、今後 `hoki`/`sekko`/`kankyo`/`hinshitsu`/`kotei` を追加
+   - 出力先: `.tmp/takuitsu-{key}/{key}.epub`（gitignore）
+   - Kindle Previewer 確認後、KDP（[kdp.amazon.co.jp](https://kdp.amazon.co.jp)）にアップロード
+2. **Bシリーズ（技術士総監 択一・年度別）**: ジェネレータ未設計（Phase 2 着手予定）
+3. **Cシリーズ（技術士建設部門 二次・模範解答）**: 着手条件「Web月収¥15k達成後」
+4. 戦略全体・ラインナップ一覧 → `docs/project/01_戦略/08_Kindle出版戦略.md`
+
 ### マガジン記事を紙用 PDF にしたい
 
 1. `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` — spec 済みマガジンを「問題文＋解答」PDF に再生成
