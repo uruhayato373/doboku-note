@@ -76,6 +76,8 @@ docs/sns/x/
 - 過去問型は **正答そのものの全文ネタバレを避け**、「論点」を提示してサイトへ誘導する（IG reels caption と同方針）。
 - 1級2級は過去問データ（`*-exam-questions.json`）が主資産。`packEligible` でなくても X 1 問単位なら使える（表・図問題は本文化が難しいので避ける）。
 
+> **コンテンツ角度（`angle`）との対応**: 上記投稿型は [content-angle-policy.md](./content-angle-policy.md) の 6 切り口に内包される。キーワード解説 = `reason`/`number`、引っかけ集 = `counter`、暗記フレーズ集 = `howto`、合格者の思考・体験の断片（新）= `experience`、マガジン宣伝 = `conclusion`。過去問 1 問 1 答は角度外の過去問クイズ型。`experience` は一次情報のフル放出をせず断片・フックまで（note 有料の囲い込みを割らない）。`number` は出典明記・捏造厳禁。主角度は 1 投稿 1 つに絞る。
+
 ## 6. URL / UTM
 
 - 投稿内 URL は 1 本まで（23 weighted）。
