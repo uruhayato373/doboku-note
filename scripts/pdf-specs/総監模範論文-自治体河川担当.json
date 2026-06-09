@@ -1,0 +1,40 @@
+{
+  "srcDir": "docs/note/技術士総監/magazines/総監模範論文-自治体河川担当",
+  "deliverTo": "desktop",
+  "articles": [
+    {
+      "src": "R03/article.md",
+      "out": "模範論文-自治体河川-R03",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R04/article.md",
+      "out": "模範論文-自治体河川-R04",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R05/article.md",
+      "out": "模範論文-自治体河川-R05",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R06/article.md",
+      "out": "模範論文-自治体河川-R06",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R07/article.md",
+      "out": "模範論文-自治体河川-R07",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R08-yosou/article.md",
+      "out": "模範論文-自治体河川-R08予想",
+      "include": [
+        { "from": "^## 予想問題\\s*1", "to": "^## 予想問題\\s*2" },
+        { "from": "^## 予想問題\\s*2", "to": "^## 試験当日" }
+      ],
+      "exclude": [{ "from": "###\\s+出題予想根拠", "to": "###\\s+.*フル模範論文" }]
+    }
+  ]
+}
