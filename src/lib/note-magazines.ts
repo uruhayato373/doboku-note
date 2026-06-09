@@ -234,7 +234,8 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 上水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体上水道担当',
-    description: '上水道担当（発注者）視点。老朽管路更新版と浄水場改修版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（老朽管路更新版/浄水場改修・高度浄水処理導入版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・強靭化／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。上水道担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-water-municipality-cover.webp',
     badge: 'note 限定',
   },
