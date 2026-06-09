@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体都市計画担当ペルソナ
 utmCampaign: essay-urban-muni-r06
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/nfc3e05a10a2d
+noteId: nfc3e05a10a2d
+notePublishedAt: 2026-06-09
 noteMagazine: 総監模範論文-自治体都市計画担当
 price: 500
 cover:
