@@ -151,6 +151,22 @@ YT Shorts 派生（`yt-shorts-create --from-reels`）では：
 | slide-data.json 執筆 | `ig-carousel-writer`（共有データソース） |
 | トークン JSON の修正 | design-system 担当（人手 or 別タスク） |
 
+## 6. 1問1リール（per-problem, `--ig-mode`）2026-06-09 追加
+
+`ig-reel-create.mjs` の**全4問フル reel（`video.mp4`、138-295秒）は IG には長すぎる**（理想 ≤90秒）。短い1問完結リールが欲しいときは YT の per-question エンジンを IG モードで流用する:
+
+```bash
+node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs \
+  --ig-mode --year r07 --pack r07-pack-01 [--questions 1,2]
+```
+
+- **構成/尺**: cover → problem → answer → cta の4スライド concat、**実測 36-45 秒**。`ytMode` 流用でカルーセルチャーム（`N/10`・`PROBLEM 1/4`・スワイプCTA）を抑止＝単発リール整合。
+- **素材**: 問題短ナレ `.tmp/yt-gen/narration/<key>.wav`（≈9秒）＋既存 `reels/wav`（解答/CTA）＋カバーキャッシュ `cover-<year>.wav` を流用＝**新規 TTS ゼロ**（要 ffmpeg のみ）。
+- **出力**: `<pack>/reels-pp/q<N>/{video.mp4, caption.txt}` の**自己完結ディレクトリ**。caption は論点（`answer.correctText`）主役＋管理ハッシュタグ（`buildIgReelCaption`）。
+- **公開**: `publish-ig-bs post <pack>/reels-pp/q<N> --reel --schedule …` を**無改修**で1本ずつ予約（フル reel と別系統。フル `video.mp4` は温存）。
+- **採用判断**: 2026-06-09 に R7 5管理×各2問=10本を 12:30/日次で感触テスト予約。良ければ全年度ロールアウト＋フル reel(video.mp4/_combined.mp4) 整理を別タスクで。
+
 ## 改訂履歴
 
 - v1（2026-05-28）: 初版。SNS 戦略 v7 化に伴い、Reels の Generator/Evaluator 分離を正式運用化。Reels モード分岐の禁忌（カルーセル流用 CTA）を明文化。
+- v2（2026-06-09）: §6「1問1リール（per-problem, `--ig-mode`）」を追加。

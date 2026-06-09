@@ -72,8 +72,7 @@ const PROBLEM_PAUSE_SEC = 3; // 問題提示後の読み取り間
 const NARRATION_DIR = join('.tmp', 'yt-gen', 'narration'); // 事前生成した YT 問題ナレーション
 
 /** 60秒超ショートを ≤57秒へ等速圧縮（atempo=音声ピッチ保持・setpts=映像）。YT Shorts は60秒厳守。 */
-function capDuration(mp4, dur, tmpDir) {
-  const target = 57;
+function capDuration(mp4, dur, tmpDir, target = 57) {
   const factor = dur / target; // 1.0〜1.5 程度（atempo 単段で可）
   const capped = join(tmpDir, 'capped.mp4');
   const r = spawnSync('ffmpeg', ['-y', '-i', mp4,
@@ -145,6 +144,39 @@ function buildMeta({ year, packNum, q, title, durationSec, management, exam }) {
   };
 }
 
+// 管理キー（slide-data _meta.management）→ 日本語ラベル
+const MGMT_LABEL = {
+  economic: '経済性管理', safety: '安全管理',
+  info: '情報管理', information: '情報管理',
+  human: '人的資源管理', 'human-resource': '人的資源管理',
+  social: '社会環境管理', 'social-environment': '社会環境管理',
+};
+
+// problem 本文の先頭1行を要約（表記号/区切り除外）
+function firstProblemLine(bodyLines) {
+  const ls = (Array.isArray(bodyLines) ? bodyLines : [String(bodyLines || '')])
+    .flatMap((l) => String(l).split(/\r?\n/)).map((l) => l.trim())
+    .filter((l) => l && !l.includes('|'));
+  return (ls[0] || '').replace(/[\s　]+/g, ' ').slice(0, 48);
+}
+
+// IG リール（1問1本）の caption。論点＝correctText を主役に。ig-reels-policy.md 準拠。
+function buildIgReelCaption({ pr, an, year, management }) {
+  const mgmt = MGMT_LABEL[management] || management;
+  const topic = an.correctText || '過去問';
+  const point = (an.pointText || '').replace(/\s+/g, ' ').trim().slice(0, 70);
+  const lines = [
+    `【${yearLabel(year)} 択一｜${mgmt}】${topic}`,
+    '',
+    `❓ ${firstProblemLine(pr.bodyLines)}…`,
+    `✅ 正答 ${an.correctNum}：${topic}`,
+  ];
+  if (point) lines.push('', `📌 ${point}`);
+  lines.push('', '🔗 全問解説はプロフィールの doboku-note サイトで', '');
+  lines.push(['#技術士', '#総合技術監理部門', '#技術士総監', `#${mgmt}`, '#過去問', '#択一式', '#資格勉強', '#技術士試験'].join(' '));
+  return lines.join('\n');
+}
+
 async function main() {
   const { values } = parseArgs({
     args: process.argv.slice(2),
@@ -156,6 +188,8 @@ async function main() {
       date: { type: 'string' },
       'covers-dir': { type: 'string', default: join('.tmp', 'yt-gen', 'covers') },
       'dry-run': { type: 'boolean' },
+      'ig-mode': { type: 'boolean' },   // IG リール出力（reels-pp/q<N>/video.mp4 + caption.txt）
+      questions: { type: 'string' },    // 生成する問番のみ（例 "1,2"。既定=全4問）
     },
   });
   const examDir = values['exam-dir'];
@@ -163,6 +197,10 @@ async function main() {
   const coversDir = values['covers-dir'];
   mkdirSync(coversDir, { recursive: true });
   const titles = values.titles && existsSync(values.titles) ? JSON.parse(readFileSync(values.titles, 'utf8')) : {};
+  const igMode = !!values['ig-mode'];
+  const qSet = values.questions
+    ? new Set(values.questions.split(',').map((s) => parseInt(s.trim(), 10)).filter((n) => n >= 1 && n <= 4))
+    : null;
 
   const root = examRoot(examDir);
   const targets = [];
@@ -214,12 +252,13 @@ async function main() {
     composeSlide(ctaPng, ctaWav, ctaMp4);
 
     for (let q = 1; q <= 4; q++) {
+      if (qSet && !qSet.has(q)) continue;
       const pr = byQ[q]?.problem, an = byQ[q]?.answer;
       if (!pr || !an) { console.log(`  ⚠ ${year}-pack-${packNum} q${q} スライドデータ欠落`); continue; }
       const key = `${year}-pack-${packNum}-q${q}`;
       let title = titles[key];
-      if (!title) { title = `技術士総監 ${yearLabel(year)} 択一｜${an.correctText || '過去問解説'} #Shorts`; fallbackTitle++; }
-      const topic = topicFromTitle(title) || an.correctText || '';
+      if (!title) { title = `技術士総監 ${yearLabel(year)} 択一｜${an.correctText || '過去問解説'} #Shorts`; if (!igMode) fallbackTitle++; }
+      const topic = igMode ? (an.correctText || '') : (topicFromTitle(title) || an.correctText || '');
 
       const answerSlot = String(2 * q).padStart(2, '0');
       // 問題音声: YT専用の短いナレーション（reelは設問全文を読み長すぎるため流用不可。設問本文はPNGに表示）
@@ -250,15 +289,22 @@ async function main() {
       composeSlide(answerPng, answerWav, answerMp4);
 
       // concat
-      const outDir = join(outRoot, `${date}-${key}`);
+      const outDir = igMode
+        ? join(packDir, 'reels-pp', `q${q}`)
+        : join(outRoot, `${date}-${key}`);
       mkdirSync(outDir, { recursive: true });
-      const outMp4 = join(outDir, 'shorts.mp4');
+      const outMp4 = join(outDir, igMode ? 'video.mp4' : 'shorts.mp4');
       concatCopy([coverMp4, problemMp4, answerMp4, ctaMp4], outMp4, qTmp);
       let dur = probeDur(outMp4);
-      if (dur > 60) { capDuration(outMp4, dur, qTmp); const capped = probeDur(outMp4); over60++; overList.push(`${key}:${dur.toFixed(0)}→${capped.toFixed(0)}s`); dur = capped; }
+      const capLimit = igMode ? 90 : 60;
+      if (dur > capLimit) { capDuration(outMp4, dur, qTmp, igMode ? 85 : 57); const capped = probeDur(outMp4); over60++; overList.push(`${key}:${dur.toFixed(0)}→${capped.toFixed(0)}s`); dur = capped; }
 
-      copyFileSync(coverPng, join(outDir, 'thumbnail.png'));
-      writeFileSync(join(outDir, 'meta.json'), JSON.stringify(buildMeta({ year, packNum, q, title, durationSec: dur, management, exam }), null, 2) + '\n');
+      if (igMode) {
+        writeFileSync(join(outDir, 'caption.txt'), buildIgReelCaption({ pr, an, year, management }) + '\n');
+      } else {
+        copyFileSync(coverPng, join(outDir, 'thumbnail.png'));
+        writeFileSync(join(outDir, 'meta.json'), JSON.stringify(buildMeta({ year, packNum, q, title, durationSec: dur, management, exam }), null, 2) + '\n');
+      }
       made++;
     }
     console.log(`  ✓ ${year}-pack-${packNum} (累計 ${made} 本)`);
