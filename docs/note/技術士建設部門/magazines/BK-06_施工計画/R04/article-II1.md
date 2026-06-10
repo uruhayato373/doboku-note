@@ -105,8 +105,10 @@ ECI方式（Early Contractor Involvement）とは、設計段階で施工者を�
 
 ECI方式は発注者側の負担が大きい手法です。設計段階で施工者と技術協議を重ねるには、発注者自身が施工技術を理解している必要があります。実際の行政現場では「施工者提案を断れない」という忖度が生じやすく、競争性と技術活用のバランスを保つには発注者の明確な基準設定が不可欠です。受験者の皆さんには、ECI方式をメリットだけで語らず、発注者の責任と能力維持の視点を盛り込むことで採点者の評価が上がることをお伝えしたいと思います。
 
-## 関連マガジン・記事
+## 関連記事・マガジン
 
-- [技術士第二次試験 建設部門 施工計画、施工設備及び積算 過去問（R04）](https://doboku-note.com/docs/pe-construction/r04-construction-planning)
-- [技術士第二次試験 建設部門 施工計画、施工設備及び積算 過去問（R03）](https://doboku-note.com/docs/pe-construction/r03-construction-planning)
-- [技術士建設部門 施工計画 note マガジン BK-06](https://note.com)
+技術士第二次試験 建設部門 令和4年度 施工計画 の問題文（全文）は、サイトで無料公開しています。
+
+https://doboku-note.com/docs/pe-construction-r04-construction-planning
+
+本記事は note 有料マガジン「BK-06 施工計画 選択科目 模範解答集（R03〜R07）」に収録しています。同マガジンには本年度の他区分（II-1／II-2／III）と全年度（R03〜R07）の模範解答を収めています。

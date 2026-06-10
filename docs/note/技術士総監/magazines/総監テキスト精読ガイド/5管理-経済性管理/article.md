@@ -297,7 +297,7 @@ QC7つ道具は主に**数値データ**を扱うことに適した7手法です
 
 - **無形性** — 形がなく触れられない
 - **同時性** — 顧客との共同作業、提供と消費が同時、元に戻せない
-- **変動性** — 季節・曜日・時間帯による需要変動で[サービス品質](https://doboku-note.com/docs/pe-comprehensive-management-service-quality?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management)が変わる
+- **変動性** — 季節・曜日・時間帯による需要変動でサービス品質が変わる
 - **消滅性** — サービス終了とともに消滅、在庫として持てない
 
 > **【出題例: [R4年度 Ⅰ-1-5](https://doboku-note.com/docs/pe-comprehensive-management-r04-primary?utm_source=note&utm_medium=referral&utm_campaign=99-economic-management#1-5)】** サービス特性で最も不適切なもの。3「サービスは安定した品質で繰り返し提供できる」 → **正答3：サービスは「変動性」があり、提供者・時間帯・状況により品質が変わるため、同一品質での反復提供は困難。**
