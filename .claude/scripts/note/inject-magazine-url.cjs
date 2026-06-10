@@ -38,6 +38,12 @@ const PLACEHOLDERS = [
   "※note 公開後に magazine URL を追加",
   "※note公開後にURLを追加予定",
   "※note 公開後に URL を追加予定",
+  // 旧セッション由来の空白・括弧バリアント（2026-06-10 追加・防御的）
+  "（※note公開後にURLを追加予定）",
+  "（※ note 公開後に URL を追加予定）",
+  "※ note 公開後に URL を追加予定",
+  "※ note 公開後にURLを追加予定",
+  "※ magazine URL は公開後に追加予定",
 ];
 
 function main() {
