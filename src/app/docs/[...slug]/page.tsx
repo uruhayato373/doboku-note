@@ -45,21 +45,6 @@ import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
 import { CIVIL_CAREER_AD, SCHOOL_SAT } from '@/config/affiliate-creatives';
 
-/**
- * SAT 通信講座（A8.net）の 300×250 creative。A8 配信のブランド汎用バナー（級非依存）。
- * 技術士（PE）keyword / guide / pastExam の右サイドバーに配置。
- * 2026-06-02 で土木のサイドバー枠は GKS（CIVIL_CAREER_AD）に統一されたため、SAT サイドバーは PE 専用。
- * 土木の SAT 露出は記事末テキストリンク（SchoolCourseCTA）へ移設済み。
- * 2026-05-25 新規追加。creative 情報の真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
- */
-const SAT_SIDEBAR_AD = {
-  href: 'https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YZ75',
-  imageSrc: 'https://www29.a8.net/svt/bgt?aid=260516555420&wid=001&eno=01&mid=s00000027186001003000&mc=1',
-  pixelSrc: 'https://www14.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YZ75',
-  alt: 'SAT 通信講座（技術士・土木施工管理）',
-  width: 300,
-  height: 250,
-} as const;
 
 /**
  * SAT 1級土木施工管理講座（A8.net）の商品リンク（記事末 CTA 用、教材セット画像）。
@@ -98,7 +83,7 @@ function CivilSatProductCTA() {
           rel="nofollow sponsored noopener"
           target="_blank"
           data-cta="affiliate"
-          data-cta-label="SAT"
+          data-cta-label="SAT-end"
           className="block"
         >
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -131,7 +116,7 @@ const SCHOOL_DOKUGAKU = {
   provider: '独学サポート',
   course: '1級土木施工管理技士・独学サポート受験対策講座',
   description:
-    '経験記述の添削・作文サポートなど、独学では埋めにくい二次対策の穴を補いたいときに（1級土木に特化）。',
+    '模範答案で型をつかんだあと、自分の工事で書いた答案を仕上げたいときに。経験記述の添削・作文代行（1級土木に特化）。',
   href: 'https://px.a8.net/svt/ejp?a8mat=4B3VR8+FAQ04A+4ASS+64Z8Y',
   pixelUrl: 'https://www16.a8.net/0.gif?a8mat=4B3VR8+FAQ04A+4ASS+64Z8Y',
 } as const;
@@ -520,6 +505,26 @@ export default async function DocPage({
               </div>
             )}
 
+            {/* note 有料マガジン CTA (inline)。slug + docGroup から配置を解決。
+                inlineMobileOnly が true の場合は PC 非表示 (sidebar 側で出る)。
+                ハブ系 (pillar / pattern-essay / r0X-secondary / essay-exam-strategy) は PC でも表示。
+                WP5 2026-06-11: civil の note CTA が書籍・講座 CTA より先に来るよう RelatedTextbooks 直後へ移動。 */}
+            {inlineMagazines.length > 0 && (
+              <div className={`mt-8 space-y-3 ${magazinePlacement.inlineMobileOnly ? 'zenn-desktop:hidden' : ''}`}>
+                {inlineMagazines.map(({ slot, magazine }) => (
+                  <MagazineInlineCard
+                    key={slot.magazineId}
+                    url={buildMagazineUrl(magazine, slot.utmContent)}
+                    title={magazine.title}
+                    description={magazine.description}
+                    imageUrl={magazine.imageUrl}
+                    badge={magazine.badge}
+                    trackLabel={slot.utmContent}
+                  />
+                ))}
+              </div>
+            )}
+
             {/* 参考書籍（Civil 第二次検定: アフィリエイト・補完ポジション。
                 過去問解説集（4886154557）+ 経験記述70パターン（4816378561）の固定ペア。） */}
             {category === 'civil-construction-1' && docGroup === 'secondary' && (
@@ -660,25 +665,6 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* note 有料マガジン CTA (inline)。slug + docGroup から配置を解決。
-                inlineMobileOnly が true の場合は PC 非表示 (sidebar 側で出る)。
-                ハブ系 (pillar / pattern-essay / r0X-secondary / essay-exam-strategy) は PC でも表示。 */}
-            {inlineMagazines.length > 0 && (
-              <div className={`mt-8 space-y-3 ${magazinePlacement.inlineMobileOnly ? 'zenn-desktop:hidden' : ''}`}>
-                {inlineMagazines.map(({ slot, magazine }) => (
-                  <MagazineInlineCard
-                    key={slot.magazineId}
-                    url={buildMagazineUrl(magazine, slot.utmContent)}
-                    title={magazine.title}
-                    description={magazine.description}
-                    imageUrl={magazine.imageUrl}
-                    badge={magazine.badge}
-                    trackLabel={slot.utmContent}
-                  />
-                ))}
-              </div>
-            )}
-
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
             <AuthorCard
               publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
@@ -711,7 +697,7 @@ export default async function DocPage({
                   note 有料教材まとめ /links へ誘導する画像バナー。hub/essay 等は上の
                   コンテキスト一致マガジンが出るため、ここは sidebarMagazines 空のときのみ。 */}
               {category === 'pe-comprehensive-management' &&
-                docGroup === 'keyword' &&
+                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam') &&
                 sidebarMagazines.length === 0 && (
                   <div className="mb-3">
                     <MagazineSidebarCard
@@ -729,17 +715,8 @@ export default async function DocPage({
                   この 1 枠が唯一の発火源（civil の旧 GKS サイドバー枠は撤去、本文インライン
                   CareerAffiliate は href のみ）＝1 ページ 1 GKS ピクセルを維持。 */}
               <div className="mb-3">
-                <SidebarAdBanner {...CIVIL_CAREER_AD} trackLabel="GKS" />
+                <SidebarAdBanner {...CIVIL_CAREER_AD} trackLabel="GKS-sidebar" />
               </div>
-              {/* PE keyword/guide/pastExam は SAT 講座を GKS の下に併置（別 mat = 別ピクセルで併存可）。
-                  自社マガジン CTA が出ているページ（sidebarHasPaidMagazine）では SAT のみ抑制してカニバリ回避。 */}
-              {category === 'pe-comprehensive-management' &&
-                (docGroup === 'keyword' || docGroup === 'guide' || docGroup === 'pastExam') &&
-                !sidebarHasPaidMagazine && (
-                  <div className="mb-3">
-                    <SidebarAdBanner {...SAT_SIDEBAR_AD} trackLabel="SAT" />
-                  </div>
-                )}
               {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
               {hasCategoryNavCard && category && (
                 <div className="mt-3">

@@ -258,6 +258,22 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 4.7. course-selection-guide（独学か講座か 選び方） → 完全パック + 精読ガイド
+  //      「穴を埋めるなら note の完成答案集から」のメッセージと整合させた配線（2026-06-11）。
+  if (slug === 'pe-comprehensive-management-course-selection-guide') {
+    return {
+      inline: [
+        slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
+        slot('tankan-reading-guide', slug, 'inline-2'),
+      ],
+      sidebar: [
+        slot(NEW_MAGAZINES.completePack, slug, 'sidebar-1'),
+        slot('tankan-reading-guide', slug, 'sidebar-2'),
+      ],
+      inlineMobileOnly: false,
+    };
+  }
+
   // 5. pillar → 精読ガイド単独 CTA（M1 撤回 2026-05-18 でエントリー CTA は精読ガイドに一本化）
   if (docGroup === 'pillar') {
     return {

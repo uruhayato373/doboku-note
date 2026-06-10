@@ -27,7 +27,7 @@ export const SCHOOL_SAT = {
   provider: "SAT",
   course: "すべての人に最高の教材を【eラーニング・現場系国家資格】",
   description:
-    "記述添削や体系的な学習サポートで独学の穴を埋めたいときに。e ラーニングで現場系の国家資格を効率よく対策できます。",
+    "一次からの学び直しや、体系的なフル講座で対策したいときに。e ラーニングで現場系国家資格を効率よく対策。",
   href: "https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM",
   pixelUrl: "https://www12.a8.net/0.gif?a8mat=4B3RUZ+6Y22UQ+5TRO+5YJRM",
 } as const;
@@ -59,7 +59,7 @@ export type CategoryAffiliate =
 /**
  * カテゴリ hub に出すアフィリエイト（docs ページのサイドバー条件をミラー）:
  * - civil-1 / civil-2 → GKS 転職（CareerAffiliate）
- * - pe-comprehensive-management → SAT 講座（SchoolAffiliate）
+ * - pe-comprehensive-management → なし（総監対応講座が市場に限られるため SAT カード撤去、2026-06-11）
  * - それ以外（concrete 系 / pe-construction / pe-first-stage）→ なし（docs でもアフィリ無し）
  */
 export function resolveCategoryAffiliate(category: string): CategoryAffiliate | null {
@@ -75,9 +75,6 @@ export function resolveCategoryAffiliate(category: string): CategoryAffiliate | 
         points: ["施工管理に特化した求人", "在職中でも無料で相談 OK"],
       },
     };
-  }
-  if (category === "pe-comprehensive-management") {
-    return { kind: "school", props: { ...SCHOOL_SAT } };
   }
   return null;
 }
