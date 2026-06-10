@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-10T09:27:17.257Z",
+  "generated_at": "2026-06-10T09:30:07.147Z",
   "summary": {
-    "total_mdx_files": 1030,
+    "total_mdx_files": 1031,
     "total_unique_tags": 116,
     "allowlist_size": 149,
     "known_count": 71,
@@ -1263,7 +1263,7 @@
     },
     {
       "name": "建設部門",
-      "count": 97,
+      "count": 98,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-construction-planning-exam-themes",
@@ -1358,6 +1358,7 @@
         "pe-construction-r07-tunnel",
         "pe-construction-r07-urban-planning",
         "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
         "pe-construction-steel-concrete-exam-themes",
@@ -1367,7 +1368,7 @@
     },
     {
       "name": "技術士（第二次試験）",
-      "count": 97,
+      "count": 98,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-competency-revision-r8",
@@ -1462,6 +1463,7 @@
         "pe-construction-r07-tunnel",
         "pe-construction-r07-urban-planning",
         "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
         "pe-construction-steel-concrete-exam-themes",
@@ -1471,7 +1473,7 @@
     },
     {
       "name": "guide",
-      "count": 67,
+      "count": 68,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1536,6 +1538,7 @@
         "pe-construction-port-airport-exam-themes",
         "pe-construction-power-civil-exam-themes",
         "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
         "pe-construction-steel-concrete-exam-themes",
@@ -2114,7 +2117,7 @@
     },
     {
       "name": "令和8年度",
-      "count": 12,
+      "count": 13,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-competency-revision-r8",
@@ -2124,6 +2127,7 @@
         "pe-construction-port-airport-exam-themes",
         "pe-construction-power-civil-exam-themes",
         "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
         "pe-construction-steel-concrete-exam-themes",
@@ -2133,7 +2137,7 @@
     },
     {
       "name": "出題傾向",
-      "count": 11,
+      "count": 12,
       "inAllowlist": true,
       "usedIn": [
         "pe-construction-construction-planning-exam-themes",
@@ -2142,6 +2146,7 @@
         "pe-construction-port-airport-exam-themes",
         "pe-construction-power-civil-exam-themes",
         "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
         "pe-construction-steel-concrete-exam-themes",
@@ -2151,7 +2156,7 @@
     },
     {
       "name": "過去問分析",
-      "count": 11,
+      "count": 12,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-construction-planning-exam-themes",
@@ -2160,6 +2165,7 @@
         "pe-construction-port-airport-exam-themes",
         "pe-construction-power-civil-exam-themes",
         "pe-construction-railway-exam-themes",
+        "pe-construction-required-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
         "pe-construction-steel-concrete-exam-themes",
@@ -2275,6 +2281,21 @@
         "pe-construction-r05-environment",
         "pe-construction-r06-environment",
         "pe-construction-r07-environment"
+      ]
+    },
+    {
+      "name": "必須科目",
+      "count": 8,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-r01-required",
+        "pe-construction-r02-required",
+        "pe-construction-r03-required",
+        "pe-construction-r04-required",
+        "pe-construction-r05-required",
+        "pe-construction-r06-required",
+        "pe-construction-r07-required",
+        "pe-construction-required-exam-themes"
       ]
     },
     {
@@ -2494,20 +2515,6 @@
         "pe-first-stage-r05-construction",
         "pe-first-stage-r06-construction",
         "pe-first-stage-r07-construction"
-      ]
-    },
-    {
-      "name": "必須科目",
-      "count": 7,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-r01-required",
-        "pe-construction-r02-required",
-        "pe-construction-r03-required",
-        "pe-construction-r04-required",
-        "pe-construction-r05-required",
-        "pe-construction-r06-required",
-        "pe-construction-r07-required"
       ]
     },
     {
@@ -3109,6 +3116,7 @@
     "過去問分析",
     "土質及び基礎",
     "建設環境",
+    "必須科目",
     "施工計画、施工設備及び積算",
     "河川、砂防及び海岸・海洋",
     "港湾及び空港",
@@ -3117,7 +3125,6 @@
     "鋼構造及びコンクリート",
     "電力土木",
     "地方公共団体",
-    "必須科目",
     "ゼネコン",
     "建設コンサル",
     "施工",
