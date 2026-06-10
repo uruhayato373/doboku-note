@@ -140,13 +140,13 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 アセットマネジメント担当 R3-R7 + R8予想セット',
     description:
-      'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分 + R08 予想問題集の計 6 記事。市区町村の道路維持課/公共施設マネジメント課（発注者）の立場で、道路橋梁長寿命化修繕計画版と公共施設等総合管理計画版の A 案／B 案 2 バージョンを併記。「劣化・事故防止 × LCC最小化・財政制約 × 住民合意」の維持管理固有のトレードオフを主軸に、各記事に設問全文を再掲して組み立てた 3,000 字級フル論文を収録。',
+      'R03〜R07 過去問（道路橋梁長寿命化修繕計画版/公共施設等総合管理計画版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×インフラ長寿命化・防災改修／資源循環×更新・修繕の資源循環調達、各 A案/B案）の計 7 記事。市区町村の道路維持課/公共施設マネジメント課（発注者）視点、「劣化・事故防止 × LCC最小化・財政制約 × 住民合意」の維持管理固有のトレードオフが主軸。各記事に印刷用PDF付き。',
     shortTitle: '模範論文｜自治体 アセットマネジメント担当',
     shortDescription:
-      'R03〜R07 過去問（全 A/B 2 案）+ R08 予想 = 計 6 記事。長寿命化・維持管理視点の決定版。',
+      'R03〜R07 過去問（全 A/B 2 案）+ R8予想2記事 = 計 7 記事。長寿命化・維持管理視点の決定版。',
     imageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
-    price: '¥2,480（6本セット、単品比17%OFF）',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
 
@@ -559,6 +559,20 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07 の II-1/II-2/III 全15記事。河川・砂防・海岸を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-02-river-cover.webp',
+    price: '¥1,980（15記事セット）',
+    badge: 'note 限定',
+  },
+  'pe-construction-urban-planning-magazine': {
+    id: 'pe-construction-urban-planning-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜都市及び地方計画 選択科目 模範解答集（R03-R07）',
+    description:
+      '技術士第二次試験 建設部門「都市及び地方計画」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として立地適正化・市街地再開発・公園緑地等の都市計画・まちづくり関連業務の発注・監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜都市計画 模範解答集',
+    shortDescription:
+      'R03〜R07 の II-1/II-2/III 全15記事。都市計画・まちづくりを発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-03-urban-cover.webp',
     price: '¥1,980（15記事セット）',
     badge: 'note 限定',
   },
