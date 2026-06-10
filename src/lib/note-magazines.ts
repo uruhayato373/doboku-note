@@ -197,8 +197,10 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 砂防担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体砂防担当',
-    description: '砂防担当（発注者）視点。砂防施設維持管理版と砂防堰堤新設版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（砂防施設維持管理版/砂防堰堤新設・急傾斜地対策版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・砂防施設リスク管理／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。砂防担当（発注者）視点、土砂災害リスク管理・流域管理・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-sabo-municipality-cover.webp',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
   'essay-agri-municipality-magazine': {
