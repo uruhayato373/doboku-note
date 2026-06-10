@@ -251,16 +251,6 @@ const MAGAZINES_RAW = {
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
-  'essay-arch-municipality-magazine': {
-    id: 'essay-arch-municipality-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜自治体 建築・営繕担当 R3-R7 + R8予想セット',
-    shortTitle: '模範論文｜自治体建築・営繕担当',
-    description: '建築・営繕担当（発注者）視点。公共施設長寿命化版と新庁舎ZEB化版のA案/B案2バージョン。',
-    imageUrl: '/images/magazines/essay-arch-municipality-cover.webp',
-    badge: 'note 限定',
-  },
   'essay-road-consultant-magazine': {
     id: 'essay-road-consultant-magazine',
     published: false,

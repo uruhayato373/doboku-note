@@ -158,14 +158,6 @@ const MAGAZINES = [
     fontSize: 44,
   },
   {
-    id: 'arch-municipality',
-    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体建築営繕担当',
-    fillBg: '#16365C',
-    lines: ['総監記述式 模範論文', '自治体 建築・営繕担当（発注者）', '過去問5年＋R8予想セット'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 44,
-  },
-  {
     id: 'road-consultant',
     magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル',
     fillBg: '#16365C',
