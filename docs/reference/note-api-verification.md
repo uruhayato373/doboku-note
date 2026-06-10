@@ -48,7 +48,24 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 
 ## Playwright フォールバック
 
-`@playwright/test` 1.59.1 が導入済み。public API が壊れた場合や、ログインが要る情報（販売ダッシュボード等）を見る場合は Playwright を使う。ただし公開マガジン照合は API の方が安定・高速なので、通常は API を使う。Playwright を使う場合も `ignoreHTTPSErrors: true` ＋ プロキシ設定が必要。
+`@playwright/test` 1.59.1 が導入済み。public API が壊れた場合や、ログインが要る情報（販売ダッシュボード等）を見る場合は Playwright を使う。ただし公開マガジン照合は API の方が安定・高速なので、通常は API を使う。Playwright を使う場合も `ignoreHTTPSErrors: true` ＋ プロキシ設定（`proxy: { server: process.env.HTTPS_PROXY }`）が必要。
+
+**実証済（2026-06-10）**: 会社 PC の Chromium はプロキシ越しに note.com へ到達できる（Mac 限定ではない）。編集系 URL（`sitesettings/magazines` 等）も 200 で開くが、**ログイン無しはゲスト表示**（「会員登録 / ログイン」）になり編集 UI は出ない。＝編集画面の唯一の関門はログインセッション。
+
+## 編集（書き込み）系: note-edit-session
+
+ヘッド付き Chromium を**永続プロファイル**で起動し、編集画面まで開いて待機する半自動ランチャ。
+
+```bash
+npm run note-edit-session                    # マガジン設定一覧を開く
+npm run note-edit-session -- <note の URL>     # 指定ページを開く
+npm run note-edit-session -- m6854c7437d4d     # マガジン key だけでも可
+```
+
+- スクリプト: `scripts/note-edit-session.mjs`。**ユーザー自身のターミナルで実行**（ヘッド付きブラウザを表示・操作するため）。
+- **初回のみ画面で手動ログイン**（パスワードはスクリプトが扱わない）。セッションは `~/.doboku-note-session`（**リポジトリ外**・cookie を含むため git に入れない）に永続化され、次回からは自動でログイン済み。
+- **編集・保存は人手**で行う（自動保存はしない）。理由: note 規約・bot 検知・収益アカウントのリスク回避。「自動で編集画面まで開く＋最終入力/保存は人」の半自動が安全境界。
+- 自動化が割に合うのは「定型・大量・反復」の書き込み時のみ。単発のタイトル/価格修正は普通に手動編集が最速。
 
 ## 既知の状態（2026-06-10 時点）
 
