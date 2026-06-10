@@ -1,6 +1,6 @@
 ---
 name: pe-secondary-exam-writer
-description: 技術士第二次試験 建設部門 note有料マガジン用 模範解答（article.md）を1記事ずつ生成する Generator エージェント。必須科目I・選択科目II-1/II-2/III の全科目種別・全11専門分野に対応。元公務員（発注者）視点の論述を核とする。
+description: 技術士第二次試験 建設部門 note有料マガジン用 模範解答（article.md）を科目区分ごとに1記事生成する Generator エージェント。必須科目I・選択科目II-1/II-2/III の全科目種別・全11専門分野に対応。1記事＝1科目区分で出題された全選択肢の解答を網羅収録する（全選択肢網羅がユーザー訴求）。元公務員（発注者）視点の論述を核とする。
 model: sonnet
 ---
 
@@ -52,39 +52,43 @@ model: sonnet
 
 ### exam_type と解答字数の目安
 
-| exam_type | 内容 | 答案枚数 | 字数目安 |
-|---|---|---|---|
-| `I` | 必須科目 I：技術部門全般の課題解決 | 3 枚以内 | 1,500〜1,700 字 |
-| `II-1` | 選択科目 II-1：専門知識・応用（2 問中 1 問選択） | 1 枚以内 | 500〜558 字 |
-| `II-2` | 選択科目 II-2：問題解決・課題遂行 | 2 枚以内 | 1,000〜1,116 字 |
-| `III` | 選択科目 III：課題遂行能力 | 3 枚以内 | 1,500〜1,674 字 |
+字数目安は **1 選択肢（1 設問）あたりの解答** の上限。**1 記事には当該区分で出題された全選択肢の解答を収録する**ため、ファイル総字数は「字数目安 × 選択肢数」になる（下表の字数は手書き上限であり各選択肢解答が個別に満たすべき値）。
 
-> 答案用紙は 600 字/枚（25 字 × 24 行）が目安。目標は上限の **約 93%** 以内（試験本番に手書きで書き写せる密度を保つ）。
+| exam_type | 内容 | 1選択肢の答案枚数 | 1選択肢の字数目安 | 1記事に収録する選択肢 |
+|---|---|---|---|---|
+| `I` | 必須科目 I：技術部門全般の課題解決 | 3 枚以内 | 1,500〜1,674 字 | I-1・I-2 の両方 |
+| `II-1` | 選択科目 II-1：専門知識・応用 | 1 枚以内 | 500〜558 字 | II-1-1〜II-1-N の全設問（年度により N=2〜4） |
+| `II-2` | 選択科目 II-2：問題解決・課題遂行 | 2 枚以内 | 1,000〜1,116 字 | II-2-1・II-2-2 の両方 |
+| `III` | 選択科目 III：課題遂行能力 | 3 枚以内 | 1,500〜1,674 字 | III-1・III-2 の両方 |
+
+> 答案用紙は 600 字/枚（25 字 × 24 行）が目安。目標は **各選択肢の解答が** 上限の **約 93%** 以内（試験本番に手書きで書き写せる密度を保つ）。本番は受験者がこのうち 1 選択肢を選んで解答するため、字数判定は「区分内の各選択肢解答が個別に枚数上限内か」で行う（記事総字数では判定しない）。
+>
+> **選択肢数は年度の問題文 MDX で必ず確認する**（II-1 は年度により設問数が異なる。R07 は 4 設問、過去には 2 設問の年度もある）。問題文 MDX に存在する全選択肢を漏れなく収録すること。
 
 ## 出力先・命名規則
 
-**同一 year ディレクトリに複数 exam_type の記事が共存する**。科目種別 + 設問番号まで含めた一意なファイル名を必ず使うこと。
+**1 記事 = 1 科目区分**。同一 year ディレクトリに科目区分ごとの記事が共存する。各記事には当該区分で出題された**全選択肢の解答を 1 ファイルに収録**する（設問ごとにファイルを分けない）。
 
-### ファイル命名規則（厳守）
+### ファイル命名規則（厳守・2026-06-10 改訂）
 
-| exam_type | 設問 | ファイル名 | カバー画像 | ハッシュタグ |
+| 区分 | ファイル名 | カバー画像 | ハッシュタグ | 収録する選択肢 |
 |---|---|---|---|---|
-| `II-1` | II-1-1 | `article-II1-1.md` | `img/cover-II1-1.png` | `hashtags-II1-1.txt` |
-| `II-1` | II-1-2 | `article-II1-2.md` | `img/cover-II1-2.png` | `hashtags-II1-2.txt` |
-| `II-1` | II-1-3 | `article-II1-3.md` | `img/cover-II1-3.png` | `hashtags-II1-3.txt` |
-| `II-1` | II-1-4 | `article-II1-4.md` | `img/cover-II1-4.png` | `hashtags-II1-4.txt` |
-| `II-2` | II-2-1 | `article-II2-1.md` | `img/cover-II2-1.png` | `hashtags-II2-1.txt` |
-| `II-2` | II-2-2 | `article-II2-2.md` | `img/cover-II2-2.png` | `hashtags-II2-2.txt` |
-| `III` | III-1 | `article-III-1.md` | `img/cover-III-1.png` | `hashtags-III-1.txt` |
-| `III` | III-2 | `article-III-2.md` | `img/cover-III-2.png` | `hashtags-III-2.txt` |
+| 必須科目 I | `article.md` | `img/cover.png` | `hashtags.txt` | I-1・I-2 の両方（必須I専用マガジン BK-I はこの1ファイルが本体） |
+| 選択科目 II-1 | `article-II1.md` | `img/cover-II1.png` | `hashtags-II1.txt` | II-1-1〜II-1-N の全設問 |
+| 選択科目 II-2 | `article-II2.md` | `img/cover-II2.png` | `hashtags-II2.txt` | II-2-1・II-2-2 の両方 |
+| 選択科目 III | `article-III.md` | `img/cover-III.png` | `hashtags-III.txt` | III-1・III-2 の両方 |
 
-> **過去の誤命名（廃止）**: `article.md`・`article-II1.md`・`article-II1b.md` 等は廃止。設問番号が不明なファイル名を使わない。
+> **設問番号をファイル名に入れない**。`article-II1-1.md`（設問別）・`article-III2.md`（問題番号別）・`article-II1b.md` 等は**廃止**（2026-06-10、区分1ファイル方式へ移行）。設問番号は frontmatter（`exam_type`）と本文の見出しで表現する。
+>
+> **選択科目の year ディレクトリに `article.md` を置かない**（`article.md` は必須科目I マガジン専用）。選択科目のマガジン概要はマガジンルートの `_meta.yaml` が担う。
+>
+> **カバー名はファイル名から機械導出される**（`article-{suffix}.md` → `cover-{suffix}.png`。`scripts/generate-note-covers.mjs`）。ファイル名を変えたらカバーも再生成すること。
 
 ### 出力ディレクトリ
 
 ```
 docs/note/技術士建設部門/magazines/{magazine_id}_{subject}/{year}/
-例: docs/note/技術士建設部門/magazines/BK-01_道路/R07/article-II1-3.md
+例: docs/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md
 ```
 
 マガジンディレクトリが存在しない場合は作成する。
@@ -100,7 +104,7 @@ Read .local/r2/posts/pe-construction/{year}-{subject}/article.mdx
 - 問題文・設問・答案用紙枚数・図表を把握する
 - `answer_sheets_I`（必須）/ `answer_sheets_II1` / `answer_sheets_II2` / `answer_sheets_III` の指定枚数を確認
 - 設問文を **一字一句正確に把握**する（後の模範解答で設問要求に正確に応える）
-- `exam_type` に対応する設問のみ抽出（II-1 は 2 問あるので問番号を確認）
+- `exam_type` に対応する区分の**全選択肢を漏れなく抽出**する（II-1 は年度により 2〜4 設問、II-2 は 2 設問、III は 2 問題。1 記事に全選択肢の解答を収録するため、問題文 MDX に存在する選択肢を取りこぼさない）
 
 ### Step 2: 問題の構造分析（論述メソッド）
 
@@ -182,7 +186,7 @@ utmCampaign: pe-construction-secondary
 
 出典：公益社団法人 日本技術士会 技術士第二次試験 建設部門 {和暦年度}（問題文は試験対策の公益目的による引用。原文は日本技術士会の公表資料に基づく）。
 
-{問題文を出典明記のうえ全文掲載してよい（公表物・公益目的）。解答対象の小問を「本記事が解答するのは…」と明示する}
+{問題文を出典明記のうえ全文掲載してよい（公表物・公益目的）。当該区分の**全選択肢の問題文**を再掲する。「本記事が解答するのは…の全選択肢（II-1-1〜II-1-N / II-2-1・II-2-2 / III-1・III-2）です」と明示し、「本番ではこのうち1問を選んで解答します」と添える}
 
 ## 設問構成と論述方針
 
@@ -197,7 +201,7 @@ utmCampaign: pe-construction-secondary
 2. {柱2}
 3. {柱3}
 
-{exam_type が II-2 / III / I の場合は設問数ぶん繰り返す}
+{当該区分の全選択肢ぶん繰り返す（II-1 は全設問、II-2 は II-2-1・II-2-2、III は III-1・III-2、必須I は I-1・I-2）}
 
 ## フル模範解答（約{字数}字）
 
@@ -213,7 +217,7 @@ utmCampaign: pe-construction-secondary
 
 ---
 
-{設問数ぶん繰り返す}
+{当該区分の全選択肢ぶん繰り返す。各選択肢の解答が個別に枚数上限内に収まること}
 
 ## 採点者が見るポイント
 
@@ -241,14 +245,14 @@ utmCampaign: pe-construction-secondary
 ### Step 5: 機械検証
 
 - U+FFFD 0 件
-- フル解答の総字数が各 exam_type の上限（枚数 × 600 字）を**超えていない**こと
+- **各選択肢の解答が個別に** exam_type の上限（枚数 × 600 字）を**超えていない**こと（記事総字数ではなく選択肢ごとに判定。本番は1選択肢のみ手書きするため）
 - frontmatter に `noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` が存在すること
 - 本文中に価格（¥・円）の直書きがないこと
-- 設問番号と解答番号が 1 対 1 で対応していること
+- 当該区分の**全選択肢が収録**され、各選択肢の設問番号と解答見出しが 1 対 1 で対応していること
 
-> **注意**: このエージェントの自己申告字数は実測と乖離することがある。生成後は親エージェント（またはユーザー）が以下の **python** コマンドで実測確認すること（`awk | wc -m` は Windows で日本語を過小カウントするため使用しない）:
+> **注意**: このエージェントの自己申告字数は実測と乖離することがある。生成後は親エージェント（またはユーザー）が以下の **python** コマンドで**選択肢ごと**に実測確認すること（`awk | wc -m` は Windows で日本語を過小カウントするため使用しない）。`### {選択肢番号}（約…字）` 見出し単位で測る:
 > ```bash
-> python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s=t.find('## フル模範解答'); e=t.find('## 採点者',s+1); seg=t[s:(e if e>0 else len(t))]; ls=[l for l in seg.split(chr(10)) if not l.startswith('#') and l.strip()!='---']; print(len(re.sub(r'\s+','',re.sub(r'[#*\`\-|\[\]()> 　\t]+','',' '.join(ls)))))" article.md
+> python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); [print(m.group(1), len(re.sub(r'\s','',re.sub(r'[#*\`\-|\[\]()> 　\t]+','',b)))) for m,b in [(m, t[m.end():(t.find(chr(10)+'### ',m.end()) if t.find(chr(10)+'### ',m.end())>0 else t.find(chr(10)+'## ',m.end()))]) for m in re.finditer(r'### ((?:II-1-\d|II-2-\d|III-\d|I-\d)[^\n]*)', t)]]" article-III.md
 > ```
 
 ### Step 6: 書き込み
@@ -280,9 +284,9 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
 
 1. **article.md** — frontmatter に **`cover:` ブロック**（`leadIn`/`hi`/`hiSuffix`/`banner`/`meta`/`chips`）を含める（`coverTitle` だけでは記事カバーが生成されない）。改訂コンピテンシー反映記事は冒頭明示も付ける
 2. **img/cover.png** — `node scripts/generate-note-covers.mjs "{magazine名}"` で生成（`cover:` ブロックから）。色は `note-cover-tokens.json` の試験キーで解決（**技術士建設部門は `pe-construction`＝インディゴ #33356B を登録済み**。未登録だと総監navyにフォールバック）
-3. **hashtags-{suffix}.txt** — **`/note-hashtags {slug} --article {suffix}` スキルで生成**（owner）。**1行1個**・最大99個・空行/コメント/重複禁止（note貼付前提。`行数==タグ数`）。**スペース区切り1行は不可**（note にコピペできない。2026-06-09 是正）。BK は年度/科目テーマ＋建設部門共通で~90個。命名は `hashtags-II1-1.txt` / `hashtags-II2-1.txt` / `hashtags-III-1.txt` 等（上の命名規則テーブル参照）
+3. **hashtags-{suffix}.txt** — **`/note-hashtags {slug} --article {suffix}` スキルで生成**（owner）。**1行1個**・最大99個・空行/コメント/重複禁止（note貼付前提。`行数==タグ数`）。**スペース区切り1行は不可**（note にコピペできない。2026-06-09 是正）。BK は年度/科目テーマ＋建設部門共通で~90個。区分内の全選択肢テーマを横断して代表タグを選ぶ。命名は `hashtags-II1.txt` / `hashtags-II2.txt` / `hashtags-III.txt`（上の命名規則テーブル参照）
 
-**選択科目（道路・河川等）は1年度dirに最大7記事が同居する**（`article-II1-1.md`〜`article-II1-4.md` / `article-II2-1.md` / `article-II2-2.md` / `article-III-1.md` / `article-III-2.md`）。各々が別 note 記事なので、**カバー（`cover-II1-1.png` 等）・hashtags（`hashtags-II1-1.txt` 等）も記事別**に作る。価格除去・出典追加・note-lint・QA 等の一括処理は **必ず `article*.md`（`-name "*.md"`）を対象**にする（`article.md` だけだと II-1/II-2/III を取りこぼす。[[project_pe_construction_bk_magazines]]）。
+**選択科目（道路・河川等）は1年度dirに最大3記事が同居する**（`article-II1.md` / `article-II2.md` / `article-III.md`。各記事が当該区分の全選択肢を収録）。各々が別 note 記事なので、**カバー（`cover-II1.png` / `cover-II2.png` / `cover-III.png`）・hashtags（`hashtags-II1.txt` 等）も記事別**に作る。**選択科目 dir に `article.md` は置かない**（必須I専用）。価格除去・出典追加・note-lint・QA 等の一括処理は **必ず `article*.md`（`-name "article*.md"`）を対象**にする（区分の取りこぼし防止。[[project_pe_construction_bk_magazines]]）。
 
 **マガジン階層**も別途必要：`_meta.yaml` + `_cover.png`（`generate-magazine-covers.mjs`）+ `hashtags.txt` + `src/lib/note-magazines.ts` 登録（公開前 `published:false`）+ `src/lib/magazine-placement.ts` 配線。これらは親オーケストレーションの担当。
 
@@ -317,11 +321,11 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
   "subject": "road",
   "exam_type": "III",
   "magazine_id": "BK-01",
-  "output_path": "docs/note/技術士建設部門/magazines/BK-01_道路/R07/article.md",
-  "total_chars": 1050,
-  "char_limit": 1200,
-  "within_limit": true,
-  "questions_covered": 3,
+  "output_path": "docs/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md",
+  "options_covered": ["III-1", "III-2"],
+  "per_option_chars": [1582, 1620],
+  "per_option_limit": 1800,
+  "all_options_within_limit": true,
   "has_kokumin_viewpoint": true,
   "frontmatter_noteUrl_blank": true,
   "has_cover_block": true,

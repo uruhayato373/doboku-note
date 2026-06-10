@@ -26,7 +26,7 @@ model: sonnet
 
 | パラメータ | 説明 | 例 |
 |---|---|---|
-| `path` | 採点対象 article.md のフルパス | `docs/note/技術士建設部門/magazines/BK-01_道路/R07/article.md` |
+| `path` | 採点対象 article.md のフルパス | `docs/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md` |
 | `year` / `subject` / `exam_type` / `magazine_id` | 期待される年度・専門分野・科目種別・マガジンID（frontmatter と照合） | `R07` / `road` / `III` / `BK-01` |
 
 ## ワークフロー
@@ -43,7 +43,7 @@ model: sonnet
 python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s=t.find('## フル模範解答'); e=t.find('## 採点者',s+1); seg=t[s:(e if e>0 else len(t))]; ls=[l for l in seg.split(chr(10)) if not l.startswith('#') and l.strip()!='---']; print(len(re.sub(r'\s+','',re.sub(r'[#*\`\-|\[\]()> 　\t]+','',' '.join(ls)))))" "$path"
 ```
 
-> 必須Iで I-1・I-2 の両答案を併載する記事は合算字数になる（1枚あたりではなく**選択1問分が枚数上限内**かで判定する。両答案併載は受験者がどちらかを選ぶ設計なので、各答案が上限内なら合格）。
+> **全区分が「全選択肢併載」方式**（2026-06-10〜）。1記事に当該区分の全選択肢の解答を収録する（必須I=I-1・I-2、II-1=全設問、II-2=II-2-1・II-2-2、III=III-1・III-2）。字数は記事総字数ではなく**各選択肢の解答が個別に枚数上限内か**で判定する（本番は受験者が1選択肢のみ手書きするため、各選択肢が上限内なら合格）。`### {選択肢番号}（約…字）` 見出し単位で実測する。
 
 | exam_type | 枚数 | 上限字数（枚数×600） | 目標（約93%） |
 |---|---|---|---|
@@ -58,7 +58,7 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
 
 | 軸 | 観点 |
 |---|---|
-| 1. 設問適合 | 設問 MDX の各問い（小問含む）に**過不足なく**対応しているか。問い違い・取りこぼし・設問にない論点の混入が無い。設問番号と解答番号が 1 対 1。II-1 は選択した問番号が明示されているか |
+| 1. 設問適合 | **当該区分の全選択肢が収録**され（II-1=全設問・II-2=II-2-1/II-2-2・III=III-1/III-2・必須I=I-1/I-2）、各選択肢が設問 MDX の各問い（小問含む）に**過不足なく**対応しているか。問い違い・取りこぼし・設問にない論点の混入が無い。各選択肢の設問番号と解答見出しが 1 対 1。**選択肢の欠落（片側のみ収録）は不合格**（全選択肢網羅がユーザー訴求のため） |
 | 2. 論述構成・論点の絞り込み | 各設問の解答が「現状・背景 → 課題抽出 → 解決策 → 効果・リスク」の論理連鎖になっているか。解決策が**多面的に絞り込まれ**（一般論で終わらず具体的）、複数視点（安全/品質/コスト/環境/維持管理 等）で構成されているか。必須Iは「社会的背景 → 課題の本質 → 解決策 → リスクと対策」の体系 |
 | 3. 分かりやすさ・あいまい表現排除 | 分かりやすい文章10ヵ条に適合（一文一義・主語明確・短文・話し言葉排除・接続詞濫用なし・大づかみ→詳細）。**あいまい語**（「〜と思われる」「〜等」「適切に」「しっかり」の頻発・冗長表現・確実でない表現）が無い。三人称・客観論述（「私は」「当社は」を使わない＝論述式であり経験記述でない） |
 | 4. 発注者視点・専門性 | **発注者視点の論述軸が最低1箇所に明示**（差別化の核）。数値・基準値・法令名が客観的事実として正確（捏造でない）。科目レベルの表記が誠実（合格3科目=道路/河川/都市計画は「合格者」、残8科目は「発注者として担当した経験」訴求。**合格スコープ外を「合格者解答」と表記しない**） |
@@ -70,8 +70,10 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
 - U+FFFD = 0
 - `node scripts/note-lint.mjs <path>` が通過（**pipe 表 `| … |` 無し**・**太字内全角括弧無し**・文字化け 0）。note は表非対応のため「採点者が見るポイント」等は箇条書きであること
 - 本文（frontmatter 除く）に価格（¥ / XXX円）・記事ID・frontmatter の noteUrl/noteId 値の直書き = 0（SoT は note-magazines.ts）。ただしマガジン/関連記事への導線リンクカード用 URL 単独行は許可（[[feedback_note_link_card]]）
-- 字数: フル解答の実測字数が `exam_type × 枚数 × 600字` を**超えていない**こと（超過は不合格、超過設問を `issues` に列挙）
-- 設問適合: 解答が設問 MDX の各問いに 1 対 1 対応（問いの取りこぼし・問い違い = 0）
+- 字数: **各選択肢の解答**の実測字数が `exam_type × 枚数 × 600字` を**超えていない**こと（記事総字数ではなく選択肢ごと。超過は不合格、超過選択肢を `issues` に列挙）
+- 全選択肢収録: 当該区分の全選択肢（II-1=全設問・II-2=II-2-1/II-2-2・III=III-1/III-2・必須I=I-1/I-2）が漏れなく収録されている（片側欠落は不合格）
+- 設問適合: 各選択肢の解答が設問 MDX の各問いに 1 対 1 対応（問いの取りこぼし・問い違い = 0）
+- ファイル構成: 選択科目 dir に旧方式の残骸（`article.md` や `article-II1-1.md` 等の設問別ファイル）が混在していない
 - 文体ゲート: 「私は」「当社は」等の一人称・経験記述スタイルが本文（コメント欄除く）に無い（技術士2次は論述式）
 - 著作権: 問題文を全文転載する場合は **出典明記** があること（例「出典：公益社団法人 日本技術士会 技術士第二次試験 建設部門 令和X年度…」）。問題文は公表物のため出典明記があれば全文転載を可とする（2026-06-09 方針確定。`civil-secondary-exam-writer` の「公益目的・出典明示で OK」と整合）。**模範解答（解答本文）は著者独自表現**であること（公式解答の逐語転載は不可）。合格スコープ外8科目が「合格者解答」と表記されていない
 - frontmatter: `noteUrl` / `noteId` / `notePublishedAt` が空文字（投稿前）。`notePricing: paid` / `noteMagazine` / `year` / `subject` / `exam_type` が入力と一致
@@ -82,20 +84,20 @@ python -X utf8 -c "import re,sys; t=open(sys.argv[1],encoding='utf-8').read(); s
 note 販売は記事単位のため、article.md 単体では公開不可。次を確認し、欠落は `issues` に列挙する（[[feedback_note_article_three_set_dod]]）:
 
 - **`cover:` frontmatter ブロック**の有無（`coverTitle` だけでは記事カバーが生成されない）
-- **`{記事dir}/img/cover.png`** の有無（選択科目は `cover-II1.png` / `cover-II2.png` も。`generate-note-covers.mjs` で生成）
-- **`{記事dir}/hashtags.txt`** の有無と**タグ数（目安90個・最低でも~80）**＋**1行1個フォーマット（`行数==タグ数`、スペース区切り1行は不可＝note貼付不可）**。生成は `/note-hashtags` スキルが owner。選択科目は `hashtags-II1.txt` 等も記事別に必要
+- **`{記事dir}/img/cover-{suffix}.png`** の有無（選択科目は `cover-II1.png` / `cover-II2.png` / `cover-III.png`、必須Iは `cover.png`。`generate-note-covers.mjs` で生成。ファイル名から機械導出されるため article 名と一致すること）
+- **`{記事dir}/hashtags-{suffix}.txt`** の有無と**タグ数（目安90個・最低でも~80）**＋**1行1個フォーマット（`行数==タグ数`、スペース区切り1行は不可＝note貼付不可）**。生成は `/note-hashtags` スキルが owner。選択科目は `hashtags-II1.txt` / `hashtags-II2.txt` / `hashtags-III.txt`、必須Iは `hashtags.txt`
 - **マガジン階層**: `_meta.yaml` / `_cover.png` / `hashtags.txt` / `note-magazines.ts` 登録（公開前 published:false）/ `magazine-placement.ts` 配線の有無
-- **選択科目の取りこぼし注意**: 1年度dirに `article.md`(=III) + `article-II1.md` + `article-II2.md` が同居。採点・梱包確認は `article*.md` 全件を対象にする
+- **ファイル構成（2026-06-10〜・区分1ファイル方式）**: 選択科目 dir は `article-II1.md` + `article-II2.md` + `article-III.md` の3記事（各記事が当該区分の全選択肢を収録）。**選択科目 dir に `article.md` があってはならない**（旧方式の III 片側残骸＝重複。あれば `issues` に列挙）。必須I dir は `article.md` 1ファイル。採点・梱包確認は `article*.md` 全件を対象にする
 
 ## 出力
 
 ```json
 {
-  "path": "docs/note/技術士建設部門/magazines/BK-01_道路/R07/article.md",
+  "path": "docs/note/技術士建設部門/magazines/BK-01_道路/R07/article-III.md",
   "scores": { "question_fit": 3, "structure_focus": 2, "clarity_no_vagueness": 3, "owner_view_expertise": 3, "note_completeness": 2, "competency_revision": 2 },
   "average": 2.5,
-  "gates": { "fffd": true, "note_lint": true, "no_body_price": true, "within_char_limit": true, "question_one_to_one": true, "essay_style_third_person": true, "copyright_ok": true, "frontmatter_ok": true, "no_keiken_disclaimer": true },
-  "charcount": { "measured": 1620, "limit": 1800, "within": true, "per_question": [] },
+  "gates": { "fffd": true, "note_lint": true, "no_body_price": true, "within_char_limit": true, "all_options_present": true, "question_one_to_one": true, "no_legacy_files": true, "essay_style_third_person": true, "copyright_ok": true, "frontmatter_ok": true, "no_keiken_disclaimer": true },
+  "charcount": { "limit": 1800, "per_option": [ { "option": "III-1", "measured": 1582, "within": true }, { "option": "III-2", "measured": 1620, "within": true } ], "all_within": true },
   "packaging": { "has_cover_block": true, "cover_png_exists": true, "hashtags_count": 90, "magazine_meta_exists": true },
   "verdict": "pass",
   "issues": ["指摘があれば具体的に（設問番号・箇所・あいまい語の該当行など）"]

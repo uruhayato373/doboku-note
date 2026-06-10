@@ -19,23 +19,21 @@ note.com は記事 1 本に最大 99 個までハッシュタグを設定でき�
 | 引数 | 説明 |
 |---|---|
 | `{slug}` | 対象記事ディレクトリ名（例: `総監択一式17年分分析`）。slug の先頭一致でも解決可 |
-| `--article {suffix}` | 対象 article ファイルのサフィックス（例: `--article II1-1` → `article-II1-1.md` を解析して `hashtags-II1-1.txt` を出力）。省略時は `article.md` → `hashtags.txt` |
+| `--article {suffix}` | 対象 article ファイルのサフィックス（例: `--article II1` → `article-II1.md` を解析して `hashtags-II1.txt` を出力）。省略時は `article.md` → `hashtags.txt` |
 | `--max N` | 上限を 99 から N 個に縮める（既定: 99） |
 
 ## 出力ファイル
 
+サフィックスは汎用（`article-{suffix}.md` → `hashtags-{suffix}.txt`）。技術士建設部門 BK マガジン（選択科目）の区分1ファイル方式（2026-06-10〜）では次のとおり:
+
 | 対象記事ファイル | 出力ハッシュタグファイル |
 |---|---|
-| `article.md` | `hashtags.txt` |
-| `article-II1.md` | `hashtags-II1.txt` |
-| `article-II1-1.md` | `hashtags-II1-1.txt` |
-| `article-II1-2.md` | `hashtags-II1-2.txt` |
-| `article-II1-3.md` | `hashtags-II1-3.txt` |
-| `article-II1-4.md` | `hashtags-II1-4.txt` |
-| `article-II2-1.md` | `hashtags-II2-1.txt` |
-| `article-II2-2.md` | `hashtags-II2-2.txt` |
-| `article-III-1.md` | `hashtags-III-1.txt` |
-| `article-III-2.md` | `hashtags-III-2.txt` |
+| `article.md`（必須科目I・概要） | `hashtags.txt` |
+| `article-II1.md`（II-1 全設問） | `hashtags-II1.txt` |
+| `article-II2.md`（II-2 全選択肢） | `hashtags-II2.txt` |
+| `article-III.md`（III 全問題） | `hashtags-III.txt` |
+
+> 区分内の全選択肢テーマを横断して代表タグを選ぶ（例: II-1 は全設問のキーワードから、III は III-1・III-2 双方のテーマから）。旧設問別命名（`hashtags-II1-1.txt` 等）は 2026-06-10 に廃止。
 
 `--article {suffix}` を省略した場合: `hashtags.txt`（後方互換）
 
