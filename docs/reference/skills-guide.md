@@ -64,7 +64,7 @@ title: スキル ナビゲーションガイド
 | `/note-hashtags` | note 公開用ハッシュタグ 99 個を生成（選択科目は `--article II1-1` 等でファイル別出力） | `ハッシュタグ生成`, `/note-hashtags {slug} [--article {suffix}]` |
 | `/ig-post-create` | Instagram カルーセル PNG 生成（過去問パック・KW 解説の単発） | `Instagram投稿作成`, `IG スライド`, `/ig-post-create --slug {kw}` |
 | `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
-| `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg） | `IG リール作成`, `動画化`, `/ig-reel-create --exam r07-pack-01` |
+| `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成（多資格＝総監/1級/2級の試験別色・ヘッダに自動切替） | `Xカード作成`, `X投稿カード`, `/create-x-card` |
 | `/publish-x` | Playwright で X 投稿を自動化（即時・予約） | `X投稿`, `自動投稿`, `/publish-x` |
 | `/publish-note` | browser-use CLI で note.com/dobokunote に模範論文マガジン記事を下書き/予約投稿（stats47 由来を適応）。本文paste・カバー・タグ自動／有料境界・PDF添付・リンクカードは半手動。**実行は Mac 推奨**（会社PCプロキシ制約） | `note投稿`, `note公開`, `note下書き作成`, `/publish-note <persona> <RXX>` |

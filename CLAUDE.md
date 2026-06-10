@@ -78,6 +78,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 | [docs/reference/yt-shorts-publisher-policy.md](docs/reference/yt-shorts-publisher-policy.md) | YouTube Shorts（IG Reels 派生 mp4 + meta.json）の 4 軸ルーブリック・UTM 必須要素・タイトル/概要欄テンプレ。戦略 v7 で新設、yt-shorts-create --from-reels と対応 | YT Shorts 派生生成後の品質採点・概要欄テンプレ確認時 |
 | [docs/reference/ig-highlight-design-policy.md](docs/reference/ig-highlight-design-policy.md) | IG ハイライト（highlights/NN_*）モダンシック意匠の slide-data.json スキーマ・6 種パレット/アイコン・タイポ階層 4 段・4 軸ルーブリック。戦略 v7.1 で新設 | IG ハイライト Stories 設計・採点・新ハイライト追加時 |
 | [docs/reference/x-post-policy.md](docs/reference/x-post-policy.md) | X(旧Twitter)投稿の多資格運用ポリシー（280 weighted 文字数・試験別ベースタグ/テンプレ・投稿型・5 軸ルーブリック・偽成功検証・create-x-card 試験別色）。`x-post-writer`/`x-post-qa` の真実源 | X 投稿執筆・採点・多資格展開・create-x-card 改修時 |
+| [docs/reference/content-angle-policy.md](docs/reference/content-angle-policy.md) | SNS コンテンツ角度の真実源（6 切り口=結論/理由/体験/反論/数字/ハウツー・既存 note/サイト資産マッピング・`angle` パラメータ分業設計・層別優先・Red Line・パイロット計画）。各 SNS Generator/Evaluator が共通参照 | 過去問以外の角度で SNS 投稿を企画・執筆・採点するとき／既存 note 記事を多媒体展開するとき |
 | [docs/reference/exam-content-policy.md](docs/reference/exam-content-policy.md) | 試験別コンテンツ整備方針＋コンテンツ別レビュー視点＋新資格追加手順 | PDF→MDX 変換・品質レビュー時 |
 | [docs/reference/skills-guide.md](docs/reference/skills-guide.md) | アクティブスキル カテゴリ別早引き＋用途別ガイド（今やること別スキル推奨組み合わせ） | 使えるスキルを素早く探すとき |
 | [docs/reference/skills-registry.md](docs/reference/skills-registry.md) | スキルのガバナンス記録（退役ログ・カテゴリ変更履歴・テンプレート駆動設計） | 退役スキル確認・設計変更履歴・新スキル重複チェック |

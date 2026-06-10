@@ -140,3 +140,10 @@ docs/sns/instagram/**/reels/subtitles.ass
 docs/textbook/経営学/経営学.pdf
 docs/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf
 docs/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf
+
+# IG Reels 中間ファイル（コミットするのは reels/video.mp4 + script.txt のみ）
+docs/sns/instagram/**/reels/wav/
+docs/sns/instagram/**/reels/slide-*.mp4
+docs/sns/instagram/**/reels/_combined.mp4
+docs/sns/instagram/**/reels/_empty.ass
+docs/sns/instagram/**/reels/concat.txt

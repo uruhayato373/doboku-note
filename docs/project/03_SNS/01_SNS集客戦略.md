@@ -61,6 +61,17 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 | X からの送客先 | サイト（キーワードページ） | **note（無料記事→有料マガジン）を主、サイトを従**。直接「X→有料」は跳躍が大きいため note 無料記事を一段挟む | 模範論文マガジン（M5/M6/M8）・公務員クラスターはペルソナのフックが明快で X スレッド題材に向く |
 | X の投稿頻度 | 1 日 1〜2 投稿 | **週数本（本数より 1 本の価値）** | スレッド・体験談は手作りで制作コストが高い。Red Line「サイト整備を止めない」と両立する範囲で |
 
+## コンテンツ角度フレームワーク（6 切り口・v7.2）
+
+現状の SNS は過去問パック（IG Carousel B / Reels / YT Shorts 派生）と一部キーワード定義に偏重し、実質「知識チェック型」1 角度 × 「現受験生」1 層しか刺さっていない。一方で note 記事・サイト記事の資産は **すでに 6 切り口（結論／理由／体験／反論／数字／ハウツー）をほぼ網羅して書かれている**のに SNS へ転用されていない。この既存資産を 6 切り口の編集レンズで多媒体へ展開し、TOFU（これから受験する潜在層）・公務員層の取りこぼしを埋める。
+
+- **設計**: 資格を `exam` で横断するのと同じ思想で、編集角度を `angle`（`conclusion` / `reason` / `experience` / `counter` / `number` / `howto`）で横断する。**角度別にエージェント/スキルは新設しない**（媒体 × Generator/Evaluator 分業に直交パラメータを足すだけ）。
+- **層別の当て方**: TOFU = `number`/`counter`/`conclusion`（気づきで入口化）／現受験生 = `howto`/`reason`（過去問に上乗せ）／公務員 = `experience`/`conclusion`（公務員クラスター 8 本が既存在庫）。
+- **源は手作り note 記事**: 「サイト description の自動要約」は過去に薄すぎて廃止済み。角度が立った既存 note 記事を源にする。
+- **Red Line**: `experience` は断片・フックまで（一次情報は note 有料 E-1〜E-4 の囲い込み）／`number` は出典明記・捏造厳禁／verbatim 転記禁止／主角度は 1 投稿 1 つに絞る。
+
+> 真実源は [`docs/reference/content-angle-policy.md`](../../reference/content-angle-policy.md)（6 切り口の定義・資産マッピング・`angle` パラメータ分業設計・パイロット計画）。各 Generator/Evaluator はこれを共通参照する。
+
 ## 2. チャネル別の位置づけ（v7）
 
 ### X（主力・信頼/マネタイズ動線・Q2〜継続）
@@ -557,6 +568,7 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 ## 改訂履歴
 
+- **v7.2（2026-06-09）**: 過去問偏重からの脱却として **コンテンツ角度フレームワーク（6 切り口: 結論／理由／体験／反論／数字／ハウツー）** を新設。既存の note 記事・サイト記事資産を `angle` パラメータ（`conclusion`/`reason`/`experience`/`counter`/`number`/`howto`）で多媒体展開し、TOFU・公務員層の取りこぼしを埋める。資格別にも角度別にもエージェントを増やさず、媒体 × Generator/Evaluator 分業に `angle` を直交パラメータとして足す設計。真実源は新規 [`docs/reference/content-angle-policy.md`](../../reference/content-angle-policy.md)。パイロットは `counter`→IG Carousel・`experience`→X の 2 本。
 - **v7.1（2026-05-28）**: ハイライトを 5 種 → **6 種**に拡張。6 種目「教材」を追加し note プロフィール → 無料記事 → 有料マガジン（M5/M6/M8/精読ガイド/論文骨子テンプレート）の **二段ロケット動線**を確立。直接 note 有料リンクは置かず、まず note 無料記事に着地させて自然遷移する設計で売り込み感を回避。「合格者の本棚」中立フレーミングで設計。教材ハイライト用 Stories シリーズ（6 枚構成）の雛形を `docs/sns/instagram/highlights/06_materials/` に新設、`docs/reference/ig-stories-policy.md` §5 を 2 系統 → 3 系統に拡張。後続改修で残り 5 種（01_intro / 02_carousel-index / 03_reels-roundup / 04_faq / 05_announcement）も同 `docs/sns/instagram/highlights/` 配下に集約・数値プレフィックスで投稿順を表現・slide-data + PNG を整備
 - **v7（2026-05-28）**: 戦略と実装の乖離を解消。「YT Shorts mp4 → IG Reels 流用」（v5/v6）を逆転し、**Instagram を一次制作・YouTube Shorts を IG Reels mp4 の二次展開（30-60 秒トリム + 字幕焼き込み + 概要欄差替）に再定義**。`yt-shorts-create.mjs` の MDX 直結モード（旧 `--slug`）は廃止。エージェント分業を拡大：既存 `ig-carousel-writer` + `ig-carousel-qa` ペアに加え、`ig-reels-writer` + `ig-reels-qa` / `ig-stories-writer` + `ig-stories-qa` / `yt-shorts-publisher-qa` を新設。Reels の cover CTA は Reels モード分岐をテンプレレンダラに実装し、「スワイプで4問にチャレンジ」のようなカルーセル流用バグを構造的に解消
 - v1（2026-04-04 想定）: 合成音声スライド型を想定

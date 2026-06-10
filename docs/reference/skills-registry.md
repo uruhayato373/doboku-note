@@ -177,6 +177,7 @@ title: スキル ガバナンス記録
 | 2026-05-28 | `lint-stories-titles.mjs` | v1.0（新規） | title 字数 lint。highlights/*/ + _exam-packs/**/ の slide-data.json をスキャンし visualLength を 4 段階判定（OK<=7 / WARN 8-11 / NOTICE 12-16 / ERROR 17+）。Evaluator（ig-highlight-qa / ig-carousel-qa）が出力を Read して採点に引用。ERROR で exit 1 |
 | 2026-05-28 | `quiz-slides.mjs` + `highlight-stories-slides.mjs` | （title auto-fit 追加） | cover-title / hero の固定サイズ（156/132px）を 3 階層 auto-fit に変更。tokens.json に coverTitle/Mid/Sm + hero/heroMid/heroSm（各 `_maxLen` 付き）追加。「文字数制限による意味希薄化」と「フォント縮小による視覚崩壊」の両ジレンマを段階フォントで吸収。ユーザー指摘「不適切改行が他 PNG/SVG でも繰り返される課題」への構造的対策 |
 | 2026-05-29 | `magazine-to-pdf` | v1.0（新規・conversion） | note マガジンの article.md を「問題文＋解答」中心の A4 PDF に変換する conversion スキル。汎用 `scripts/magazine-to-pdf.mjs`（spec 駆動 include/exclude DSL、remark → Chrome --print-to-pdf）＋ `scripts/pdf-specs/*.json`。複数解答（A/B案）両収録・CTA/採点者視点/出題予想根拠を除外。新規マガジンの spec 作成は Generator `magazine-pdf-builder` に委譲。当初マガジン別の一時スクリプト 2 本で着手したが汎用化して統合 |
+| 2026-06-04 | `ig-reel-create` | v1.2（多資格対応） | `--exam-dir <試験軸>` オプション追加で技術士総監以外（1級土木 / 2級土木）の Reels 生成に対応。`--exam` 正規表現を `^[hr]\d+[kz]?-pack-\d+$` に拡張し 2級の年度接尾辞（z=前期 / k=後期）を受理。cover 台本を試験軸別に分岐（土木は「{令和\|平成}X年度{前期\|後期}の第一次検定 過去問、N番です」、平成年度も対応）。中間ファイルを `.gitignore` 化（commit は video.mp4 + script.txt のみ）。1級r07・2級r07k/r07z 計44本を生成 |
 
 ### カテゴリ変更履歴
 
