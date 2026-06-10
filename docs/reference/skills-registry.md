@@ -21,11 +21,11 @@ title: スキル ガバナンス記録
 ├── management/      # 12 — 計画・分析・戦略
 ├── dev/             # 11 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 8 — SNS 投稿
+├── social/          # 9 — SNS 投稿
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **60 スキル**（Phase 2 待機を除く）。
+合計 **61 スキル**（Phase 2 待機を除く）。
 
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
 > 2026-05-30 追加: `management/routines`（クラウドルーティン /schedule の一覧・監査。重複・残骸 one-shot・平文シークレット・cron 衝突を検出。weekly-review 重複作成事故[2026-05-30]の再発防止。create 前 list-first を運用ルール化）。
@@ -35,6 +35,7 @@ title: スキル ガバナンス記録
 > 2026-06-02 更新: しきい値を Web調査で出典ベース確定（罫線方式）＋**級別化**（`grades.civil-1`/`civil-2`、パスから級判定）。**1級**=現行R06〜各欄8行×25字=200字／旧形式(1)9行(2)11行(3)7行。**2級**=問題文に文字数規定なし（マス目でもない）、通説目安『1項目約250字・1行20〜25字・解答欄8割充足』に基づき各欄250字（doboku-koji/建設データ/知恵袋一致。1級200字とは別物で2級の方が項目あたり目安は大きめ）。`severity` 4分類（ok/borderline+10%/要圧縮/大幅×1.3超）。1級13記事・2級6記事の超過答案を圧縮し全件 ×/✗ 0 を確認済（※2級は当初210基準で一部過剰圧縮、後に250基準へ是正）。
 > 2026-06-08 追加: `quality/pe-first-stage-audit`（技術士第一次試験 R01〜R07 全21ページの3軸監査スキル。正答照合＝正答.pdf PyMuPDF抽出と MDX 正答を突合、原典視覚突合＝問題PDF 150dpi PNG化×エージェント目視、構造検査＝ExamPoint/details タグ数・frontmatter・設問連番。記録先 `.claude/state/pe-first-stage-audit/`。初回実施で10問の正答誤りを発見・修正済）。
 > 2026-06-09 更新: SKILL.md を第2弾修正セッションの知見で改訂。①PNG 解像度を 150dpi に修正（200dpi は誤記）②年度ディレクトリは小文字（r01 等）と明記③summary.json を schema_version 2.0（`answer_fail_detail`・`fix_log` フィールド追加）に更新④監査後の修正フロー（audit→fix→commit→re-audit サイクル）を新設⑤fix エージェントへの課題上限を「1エージェントあたり最大5件」と明記⑥MDX書き込みは `writeMdxFile` 必須（Python `write_text()` 禁止）を修正ルールに追加。2026-06-08〜09 第2弾で正答誤り8件・視覚突合誤記75件以上・欠落図9点を修正完了（全21ページ answer_fail = 0）。
+> 2026-06-10 追加: `social/note-edit-magazine`（Playwright × システム Chrome で **note 有料マガジン設定＋収録記事単品価格を `_meta.yaml` 駆動で編集→保存**）。`publish-x` の channel:'chrome'/永続プロファイル/dry-run/偽成功ガードを踏襲。**サブエージェント化しない判断**＝編集は完全に決定的（URL遷移→入力→ボタン→API検証）で原則5「コードで決定できるものはサブエージェントに委ねない」に該当、ブラウザ自動化は全て skill+script（publish-x/note/ig-bs）という既存系譜に合わせた。実機で確定したノウハウ: ①マガジン編集 `/m/{key}/edit`（input[type=text]=タイトル/textarea[0]=説明/[1]=アピール/input[number]=価格/「更新」）②**文字数制限: タイトル≈30字・アピール≤250字**（超過で更新ボタン disabled=保存不可。アピール超過は abort）③fill() だけでは更新ボタンが有効化しない→input/change dispatch＋enabled 確認後クリック④記事価格は `editor.note.com` 公開フロー（公開に進む→価格→有料エリア設定→更新する）⑤保存後 note API で price/title 実体検証。R8予想問題集を ¥2,480→¥3,480・単品¥500→¥700 にライブ反映で実証（[[project_note_write_automation]]・真実源 `docs/reference/note-api-verification.md`）。
 > 2026-06-05 更新（計測 framing 統一）: `management/weekly-review`・`weekly-plan`・`weekly-improve`・`nsm-experiment` の4スキルで「`.env.local` creds が計測の**前提**・未達なら『計測基盤未整備』スキップ／スナップショットは**fallback**」という誤 framing を是正。**計測は CI/CD 供給（`fetch-metrics.yml` 金06:00JST／`psi-audit.yml` 日次）が正で、`.claude/state/metrics/` のコミット済みスナップショット読みが既定経路。ライブ fetch は creds＋外部到達性がある環境（macOS等）限定の任意経路**に統一。会社 PC は社内プロキシ（Digital Arts/Palo Alto）で外部 API 遮断のためライブ不可。恒久ルールの真実源は `docs/reference/measurement-incidents.md`（2026-06-05 エントリ）。スキルの description/一覧は不変のため skills-guide.md は変更なし。
 > 2026-06-02 更新（過去問QA是正セッション）: 経験記述3点を実体験から追加 hardening（skill `authoring/civil-keiken-magazine` ＋ agents `civil-keiken-essay-writer`/`civil-keiken-essay-qa`）。①**ⅰ）型の列挙マーカーは字数算入**（`1.`リストはカウンタが行頭記号を除去するが ⅰ）は本文インライン算入。`1.`→ⅰ）体裁統一で旧形式(3)対応処置175字が溢れやすく、変更後 `keiken-charcount --strict` 再実行必須）を writer/qa に明記。②**note タグは別ファイル `hashtags.txt` が SoT**（既存全 note 記事の規約。`/note-hashtags`・単一行 space 区切り・最大99・80–90個目安。**本文には入れない**）を writer/skill/qa に明記（当初 body 末尾節と誤記したが既存 `hashtags.txt` 規約に合わせ即訂正。1級過去問5本の hashtags.txt を15→90個へ更新）。③**マガジン公開後の URL 反映フロー**（note-magazines.ts `published:true`＋`noteUrl`／本文プレースホルダ→マガジンURL単独行リンクカード／_meta `magazineUrl`）を skill に新設。併せて qa gate「本文 note URL 直書き=0」を**導線リンクカード URL は許可**へ是正（[[feedback_note_link_card]] との矛盾解消）、改変前提キーワードを同義表現（雛形・改変前提のテンプレート等）可へ緩和。
 > 2026-06-09 更新（動画 JIT 化・ストレージ削減）: IG リール動画を**在庫として git に持たない**運用に変更。`scripts/publish-reel-jit.mjs`（生成→Business Suite 予約→mp4 削除）を新設し、reel の **mp4 / img(PNG) / slide-NN.mp4 を gitignore**（再生成可能な派生物）。**SoT は slide-data.json + reels/wav** のみコミット。`reels/video.mp4`(444MB)・`reels/img`(485MB)・`slide-NN.mp4`(218MB) を git rm で作業ツリーから除去（累計約1.15GB削減・今後の肥大停止）。注: `--from-reels`(legacy) を使う時は ig-reel-create で reels/img・slide-NN.mp4 を先に再生成。`.git` 履歴圧縮(filter-repo/force-push)は並行作業中の衝突リスクのため未実施。**`video.mp4` が無いのは正常**。

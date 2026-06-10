@@ -18,6 +18,7 @@
     "sales-summary": "node scripts/sales-summary.mjs",
     "verify-note-magazines": "node scripts/verify-note-magazines.mjs",
     "note-edit-session": "node scripts/note-edit-session.mjs",
+    "note-edit-magazine": "node scripts/note-edit-magazine.mjs",
     "note-lint": "node scripts/note-lint.mjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
