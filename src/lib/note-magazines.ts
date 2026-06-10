@@ -578,7 +578,7 @@ export const NOTE_MAGAZINES: Readonly<Record<MagazineId, NoteMagazine>> = MAGAZI
  */
 export function getMagazine(id: MagazineId): NoteMagazine | null {
   const mag = NOTE_MAGAZINES[id];
-  if (!mag.published || !mag.noteUrl) return null;
+  if (!mag || !mag.published || !mag.noteUrl) return null;
   return mag;
 }
 

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-10T09:02:27.362Z",
+  "generated_at": "2026-06-10T09:08:09.360Z",
   "summary": {
-    "total_mdx_files": 1022,
+    "total_mdx_files": 1023,
     "total_unique_tags": 116,
     "allowlist_size": 149,
     "known_count": 71,
@@ -1263,9 +1263,10 @@
     },
     {
       "name": "建設部門",
-      "count": 89,
+      "count": 90,
       "inAllowlist": false,
       "usedIn": [
+        "pe-construction-construction-planning-exam-themes",
         "pe-construction-guide-required-essay",
         "pe-construction-pe-secondary-essay-guide",
         "pe-construction-r01-construction-planning",
@@ -1359,10 +1360,11 @@
     },
     {
       "name": "技術士（第二次試験）",
-      "count": 89,
+      "count": 90,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-competency-revision-r8",
+        "pe-construction-construction-planning-exam-themes",
         "pe-construction-pe-secondary-essay-guide",
         "pe-construction-r01-construction-planning",
         "pe-construction-r01-environment",
@@ -1455,7 +1457,7 @@
     },
     {
       "name": "guide",
-      "count": 59,
+      "count": 60,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1513,6 +1515,7 @@
         "pe-comprehensive-management-public-engineer-qualification-map",
         "pe-comprehensive-management-public-servant-comprehensive-merit",
         "pe-construction-competency-revision-r8",
+        "pe-construction-construction-planning-exam-themes",
         "pe-construction-pe-secondary-essay-guide",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
@@ -2154,6 +2157,21 @@
       ]
     },
     {
+      "name": "施工計画、施工設備及び積算",
+      "count": 8,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-r01-construction-planning",
+        "pe-construction-r02-construction-planning",
+        "pe-construction-r03-construction-planning",
+        "pe-construction-r04-construction-planning",
+        "pe-construction-r05-construction-planning",
+        "pe-construction-r06-construction-planning",
+        "pe-construction-r07-construction-planning"
+      ]
+    },
+    {
       "name": "河川、砂防及び海岸・海洋",
       "count": 8,
       "inAllowlist": false,
@@ -2354,20 +2372,6 @@
       ]
     },
     {
-      "name": "施工計画、施工設備及び積算",
-      "count": 7,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-r01-construction-planning",
-        "pe-construction-r02-construction-planning",
-        "pe-construction-r03-construction-planning",
-        "pe-construction-r04-construction-planning",
-        "pe-construction-r05-construction-planning",
-        "pe-construction-r06-construction-planning",
-        "pe-construction-r07-construction-planning"
-      ]
-    },
-    {
       "name": "港湾及び空港",
       "count": 7,
       "inAllowlist": false,
@@ -2541,6 +2545,18 @@
       ]
     },
     {
+      "name": "令和8年度",
+      "count": 5,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-competency-revision-r8",
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-river-coast-exam-themes",
+        "pe-construction-road-exam-themes",
+        "pe-construction-urban-planning-exam-themes"
+      ]
+    },
+    {
       "name": "experience-writing",
       "count": 4,
       "inAllowlist": true,
@@ -2552,11 +2568,22 @@
       ]
     },
     {
-      "name": "令和8年度",
+      "name": "出題傾向",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-river-coast-exam-themes",
+        "pe-construction-road-exam-themes",
+        "pe-construction-urban-planning-exam-themes"
+      ]
+    },
+    {
+      "name": "過去問分析",
       "count": 4,
       "inAllowlist": false,
       "usedIn": [
-        "pe-construction-competency-revision-r8",
+        "pe-construction-construction-planning-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
         "pe-construction-urban-planning-exam-themes"
@@ -2623,16 +2650,6 @@
       ]
     },
     {
-      "name": "出題傾向",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-road-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
       "name": "少子高齢化",
       "count": 3,
       "inAllowlist": false,
@@ -2640,16 +2657,6 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
-      ]
-    },
-    {
-      "name": "過去問分析",
-      "count": 3,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-road-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
@@ -3049,13 +3056,13 @@
     "技術士（第二次試験）",
     "模範論文",
     "受験者属性別",
+    "施工計画、施工設備及び積算",
     "河川、砂防及び海岸・海洋",
     "都市及び地方計画",
     "土質及び基礎",
     "地方公共団体",
     "建設環境",
     "必須科目",
-    "施工計画、施工設備及び積算",
     "港湾及び空港",
     "鉄道",
     "鋼構造及びコンクリート",
@@ -3065,10 +3072,10 @@
     "施工",
     "砂防",
     "令和8年度",
+    "過去問分析",
     "SWOT分析",
     "データ利活用",
     "少子高齢化",
-    "過去問分析",
     "2026年版",
     "AI ガバナンス",
     "DX推進",
