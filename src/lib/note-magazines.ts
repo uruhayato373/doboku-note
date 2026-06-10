@@ -124,13 +124,13 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 技術基準担当 R3-R7 + R8予想セット',
     description:
-      'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分 + R08 予想問題集の計 6 記事。都道府県の技術管理課（発注者）の立場で、設計基準・標準仕様の策定改定版と BIM/CIM・電子納品・技術情報DB版の A 案／B 案 2 バージョンを併記。「技術標準の統一 × 現場個別性 × 技術伝承」の基準担当固有のトレードオフを主軸に、各記事に設問全文を再掲して組み立てた 3,000 字級フル論文を収録。',
+      'R03〜R07 過去問（設計基準・標準仕様の策定改定版/BIM・CIM・電子納品・技術情報DB版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×技術基準の改定／資源循環×調達仕様の改定、各 A案/B案）の計 7 記事。都道府県の技術管理課（発注者）視点、「技術標準の統一 × 現場個別性 × 技術伝承」の基準担当固有のトレードオフが主軸。各記事に印刷用PDF付き。',
     shortTitle: '模範論文｜自治体 技術基準担当',
     shortDescription:
-      'R03〜R07 過去問（全 A/B 2 案）+ R08 予想 = 計 6 記事。情報管理・標準化視点の決定版。',
+      'R03〜R07 過去問（全 A/B 2 案）+ R8予想2記事 = 計 7 記事。情報管理・標準化視点の決定版。',
     imageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
-    price: '¥2,480（6本セット、単品比17%OFF）',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
 
