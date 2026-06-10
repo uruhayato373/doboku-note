@@ -181,8 +181,8 @@ const MAGAZINES_RAW = {
 
   'essay-sewage-municipality-magazine': {
     id: 'essay-sewage-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf1cbc32d53aa',
     title: '総監記述式 模範論文｜自治体 下水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体下水道担当',
     description:

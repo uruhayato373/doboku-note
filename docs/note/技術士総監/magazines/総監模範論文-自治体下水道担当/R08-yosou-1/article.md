@@ -42,7 +42,7 @@ cover:
 
 各記事を単品でそろえるよりお得なセット価格です。
 
-https://note.com/dobokunote/m/（※公開後に追加）
+https://note.com/dobokunote/m/mf1cbc32d53aa
 
 ---
 
@@ -229,4 +229,4 @@ R8 予想テーマでは、過去問対策に加えて以下の 4 点が評価�
 
 管渠・ポンプ場・調整池・グリーンインフラの発注業務に引きつけた「自分用テンプレート」を構築するために、まとめて読むことをお勧めします。
 
-https://note.com/dobokunote/m/（※公開後に追加）
+https://note.com/dobokunote/m/mf1cbc32d53aa
