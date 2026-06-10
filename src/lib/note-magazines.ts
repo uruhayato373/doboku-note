@@ -217,8 +217,8 @@ const MAGAZINES_RAW = {
   },
   'essay-port-municipality-magazine': {
     id: 'essay-port-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf762f616c065',
     title: '総監記述式 模範論文｜自治体 港湾担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体港湾担当',
     description:
