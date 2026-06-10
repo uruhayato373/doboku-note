@@ -193,8 +193,8 @@ const MAGAZINES_RAW = {
   },
   'essay-sabo-municipality-magazine': {
     id: 'essay-sabo-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m7cd44bf57187',
     title: '総監記述式 模範論文｜自治体 砂防担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体砂防担当',
     description:

@@ -41,7 +41,7 @@ cover:
 
 自治体 砂防担当ペルソナの模範論文（R03-R07 過去問＋R8 予想）をまとめた **magazine** もあわせてご覧ください。各記事を単品でそろえるよりお得なセット価格です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m7cd44bf57187
 
 ---
 
@@ -227,7 +227,7 @@ cover:
 
 豪雨激甚化・土砂災害激化の時代背景を軸に据えることで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m7cd44bf57187
 
 ---
 
