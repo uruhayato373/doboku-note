@@ -235,8 +235,8 @@ const MAGAZINES_RAW = {
   },
   'essay-water-municipality-magazine': {
     id: 'essay-water-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf4c6792b4f9c',
     title: '総監記述式 模範論文｜自治体 上水道担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体上水道担当',
     description:

@@ -42,7 +42,7 @@ cover:
 
 各記事を単品でそろえるよりお得なセット価格です。
 
-https://note.com/dobokunote/m/（※公開後に追加）
+https://note.com/dobokunote/m/mf4c6792b4f9c
 
 ---
 
@@ -231,7 +231,7 @@ R8 予想テーマでは、過去問対策に加えて以下の 4 点が評価�
 
 老朽管路更新・浄水場改修・広域連携というペルソナ固有の管理対象を軸に、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-※ magazine URL は note 公開後に追加予定
+https://note.com/dobokunote/m/mf4c6792b4f9c
 
 ---
 

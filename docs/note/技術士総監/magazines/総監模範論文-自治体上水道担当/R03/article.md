@@ -41,7 +41,7 @@ cover:
 
 自治体 上水道担当ペルソナの模範論文（R03-R07 過去問＋R8 予想）をまとめた **magazine** もあわせてご覧ください。各記事を単品でそろえるよりお得なセット価格です。
 
-※note公開後にURLを追加予定
+https://note.com/dobokunote/m/mf4c6792b4f9c
 
 ---
 
@@ -227,7 +227,7 @@ cover:
 
 まとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-※note公開後にURLを追加予定
+https://note.com/dobokunote/m/mf4c6792b4f9c
 
 ---
 
