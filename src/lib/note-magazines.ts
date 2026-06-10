@@ -622,6 +622,20 @@ const MAGAZINES_RAW = {
     price: '¥2,980（18記事セット・単品¥500）',
     badge: 'note 限定',
   },
+  'pe-construction-tunnel-magazine': {
+    id: 'pe-construction-tunnel-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜トンネル 選択科目 模範解答集（R03-R07＋R8予想）',
+    description:
+      '技術士第二次試験 建設部門「トンネル」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）としてトンネル工事の設計発注・施工監督・点検に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜トンネル 模範解答集',
+    shortDescription:
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。山岳・シールド・維持管理を発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-11-tunnel-cover.webp',
+    price: '¥2,980（18記事セット・単品¥500）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
