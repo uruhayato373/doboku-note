@@ -89,6 +89,7 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-r0[1-9]-river-coast$/.test(slug)) return 'pe-construction-river-coast-magazine';
   if (/^pe-construction-r0[1-9]-urban-planning$/.test(slug)) return 'pe-construction-urban-planning-magazine';
   if (/^pe-construction-r0[1-9]-construction-planning$/.test(slug)) return 'pe-construction-construction-planning-magazine';
+  if (/^pe-construction-r0[1-9]-geotechnical$/.test(slug)) return 'pe-construction-geotechnical-magazine';
   // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
   if (slug === 'pe-construction-pe-secondary-essay-guide') return 'pe-construction-required-magazine';
   return null;
