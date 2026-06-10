@@ -290,7 +290,9 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
 
 **選択科目（道路・河川等）は1年度dirに最大3記事が同居する**（`article-II1.md` / `article-II2.md` / `article-III.md`。各記事が当該区分の全選択肢を収録）。各々が別 note 記事なので、**カバー（`cover-II1.png` / `cover-II2.png` / `cover-III.png`）・hashtags（`hashtags-II1.txt` 等）も記事別**に作る。**選択科目 dir に `article.md` は置かない**（必須I専用）。価格除去・出典追加・note-lint・QA 等の一括処理は **必ず `article*.md`（`-name "article*.md"`）を対象**にする（区分の取りこぼし防止。[[project_pe_construction_bk_magazines]]）。
 
-**マガジン階層**も別途必要：`note掲載文.txt` + `_cover.png`（`generate-magazine-covers.mjs`）+ `hashtags.txt` + `src/lib/note-magazines.ts` 登録（公開前 `published:false`）+ `src/lib/magazine-placement.ts` 配線。これらは親オーケストレーションの担当。
+**マガジン階層**も別途必要：`note掲載文.txt` + `_cover.png`（`generate-magazine-covers.mjs`）+ `hashtags.txt` + `src/lib/note-magazines.ts` 登録（公開前 `published:false`）+ `src/lib/magazine-placement.ts` 配線 + **各記事の印刷用PDF**。これらは親オーケストレーションの担当。
+
+> **印刷用PDF（総監模範論文と同方式・各記事1本）**: 「問題文＋フル模範解答」のみを抽出した A4 PDF を記事dirに置く（答案用紙への手書き書き写し練習用）。`scripts/pdf-specs/{magazine}.json`（include=`^## 試験問題`→`^## 設問構成と論述方針` ＋ `^## フル模範解答`→`^## 採点者が見る`、＝設問構成/採点ポイント/CTA/導入を除外）を作り `node scripts/magazine-to-pdf.mjs --spec ... --in-place` で生成（`magazine-pdf-builder` の担当）。**記事本文の「この記事でわかること」に『PDF付き』、`note掲載文.txt` の説明に『各記事に印刷用PDF付き』を明記**する。
 
 > **`note掲載文.txt`（コピペ用・総監模範論文と同方式・2026-06-10〜。旧 `_meta.yaml` は廃止）**: note にマガジンを作る際にそのまま貼れる公開文。書式は4セクション固定：
 > ```
