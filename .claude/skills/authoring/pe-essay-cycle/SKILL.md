@@ -43,7 +43,7 @@ user-invocable: true
 | `review` | `/pe-essay-review`（Evaluator スキル） | ③ 3 ペルソナ × 4 項目で添削 |
 | `revise` | `pe-essay-draft --mode revise`（Generator スキル） | ③ の添削レポートを反映（Evaluator は改変しない） |
 | `plan` | `pe-note-plan`（企画スキル） | ④ note 有料記事の編集ロードマップ提案 |
-| `publish` | `/note-prepublish-review` ＋ `.claude/reference/note-publish-enhancement.md` | note 公開前の品質ゲート＋公開工程 |
+| `publish` | `/note-prepublish-review` ＋ `docs/reference/note-essay-review-checklist.md`（ペルソナ別マガジン）／`docs/reference/note-publish-enhancement.md`（記事個別） | note 公開前の品質ゲート＋公開工程 |
 | `page` | `/keyword-page` / `/improve-article` / `/quality-cycle` のいずれか | ① doboku-note 記述式ページの整備（ルーティング指示のみ） |
 
 ## 実行手順
@@ -69,12 +69,13 @@ user-invocable: true
 
 ### plan — note 有料記事を企画する（④）
 
-1. `pe-note-plan` を実行（`docs/note/noteコンテンツ計画.md`・magazine 在庫・価格 yaml を読んで次の記事を提案）
+1. `pe-note-plan` を実行（`docs/note/noteコンテンツ計画.md`・magazine 在庫・価格を読んで次の記事を提案）。**模範論文ペルソナ別マガジンの価格 SoT は `src/lib/note-magazines.ts`（セット）＋記事 frontmatter `price:`（単品）で、`_meta.yaml` は使わない**
 
 ### publish — note 公開前ゲート
 
-1. `/note-prepublish-review` を実行
-2. 大規模公開は `.claude/reference/note-publish-enhancement.md` の B0〜B9 工程に従う
+1. `/note-prepublish-review` を実行（記事個別の note 互換・字数・構造）
+2. **総監模範論文ペルソナ別マガジン**（`総監模範論文-{persona}`）の公開品質化は `docs/reference/note-essay-review-checklist.md` の Step 0〜6f ＋ 横展開ランブックを全 PASS させる（R08予想の2記事化＝`R08-yosou-1`/`-2` 各 A/B 案・各施策600字・`note掲載文.txt` 作成・セット価格を `note-magazines.ts` へ・**`_meta.yaml` は作らない**）
+3. 大規模な記事公開は `docs/reference/note-publish-enhancement.md` の B0〜B9 工程に従う
 
 ### page — doboku-note 記述式ページの整備（①）
 
@@ -135,5 +136,6 @@ draft → needs-review → verified → approved
 - `.claude/skills/social/pe-note-plan/SKILL.md` — ④ note 有料記事 企画
 - `.claude/skills/quality/quality-cycle/SKILL.md` — キーワード/教科書版の品質サイクル（本スキルの設計元）
 - `.claude/skills/quality/note-prepublish-review/SKILL.md` — note 公開前ゲート
-- `.claude/reference/note-publish-enhancement.md` — note 公開引き上げ 10 工程
+- `docs/reference/note-essay-review-checklist.md` — **総監模範論文ペルソナ別マガジンの公開品質化 SoT**（Step 0〜6f・R08 2記事化・note掲載文.txt・価格・_meta.yaml 廃止）
+- `docs/reference/note-publish-enhancement.md` — note 公開引き上げ 10 工程
 - `CLAUDE.md` ハーネス設計原則 — Generator/Evaluator 分離

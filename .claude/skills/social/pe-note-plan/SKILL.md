@@ -35,7 +35,7 @@ note の段階投下は `docs/note/noteコンテンツ計画.md` に方針があ
 2. **収益化親戦略**: `docs/project/01_戦略/04_収益化戦略.md`・`docs/note/noteコンテンツ計画.md` の参照先
 3. **magazine 在庫**: `docs/note/magazines/総監模範論文-{属性}/R0X/` と `docs/note/magazines/総監テキスト精読ガイド/5管理-*/` の存在状況（どの属性 × 年度・どの管理が公開済み/未着手か）
 4. **単体 note 記事**: `docs/note/*/article.md` の `notePricing` / `notePublishedAt` / `noteUrl`（公開済みか・無料か有料か）
-5. **価格**: 価格定義の yaml（`docs/note/` 配下または magazine ディレクトリ内。`project_paid_note_pricing` メモ参照 — yaml が価格の真実源）
+5. **価格**: `src/lib/note-magazines.ts` の各エントリ `price`（マガジン/セット価格の真実源）＋各記事 `article.md` frontmatter `price:`（単品）。**模範論文ペルソナ別マガジンに `_meta.yaml` は無い**（2026-06-09 廃止）。精読ガイド等で価格 yaml を持つ商品は `project_paid_note_pricing` メモ参照
 6. **過去問カバレッジ**: `.local/r2/posts/pe-comprehensive-management/{r0X-essay-*,pattern-essay-*}/` — 模範論文ページが揃っている属性 × 年度
 
 ### Step 2: ギャップを突き合わせる
@@ -50,7 +50,7 @@ note の段階投下は `docs/note/noteコンテンツ計画.md` に方針があ
 
 - **何を**: 属性 × 年度 or 5 管理 or 単体テーマ
 - **媒体・ティア**: note 無料 / note 有料 / magazine セット
-- **価格**: 価格 yaml に整合（新規価格は yaml 更新を別途提案）
+- **価格**: `note-magazines.ts` の `price`（＋記事 frontmatter `price:`）に整合（新規価格は note-magazines.ts 更新を別途提案。模範論文ペルソナ別マガジンは `_meta.yaml` を作らない）
 - **投下順の根拠**: 在庫の穴・季節性（試験 7 月）・既存導線（doboku-note ページとの連携）
 - **バンドル**: magazine セット化の可否（例: 属性別 R03-R07 5 本セット）
 - **クロスプロモ**: 紐づけるべき doboku-note キーワードページ / 過去問ページ
@@ -79,7 +79,7 @@ note の段階投下は `docs/note/noteコンテンツ計画.md` に方針があ
 
 ## トラブルシューティング
 
-- **価格 yaml が見つからない**: `docs/note/` 配下を Glob で探す。見つからなければユーザーに場所を確認（推測で価格を出さない）
+- **価格が見つからない**: まず `src/lib/note-magazines.ts` の該当エントリ `price` と記事 frontmatter `price:` を確認（模範論文ペルソナ別マガジンの真実源）。精読ガイド等の価格 yaml はこれと別系統。いずれも無ければユーザーに確認（推測で価格を出さない）
 - **Red Line に抵触する候補**: 除外せず「なぜ抵触するか」と「無料/テンプレ化での代替案」をセットで提示する
 - **magazine と単体記事で重複しそう**: `noteコンテンツ計画` の Red Line 5（note と doboku-note の重複コンテンツ禁止）を適用。役割分離（note = 体験談・要約 / doboku-note = 体系解説）を守る
 

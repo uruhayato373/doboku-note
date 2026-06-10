@@ -193,7 +193,7 @@ ls docs/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/img/co
 ls docs/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/hashtags.txt
 ```
 
-未生成なら公開不可。新規ペルソナ作成時は **6 記事すべて**に対して生成する。
+未生成なら公開不可。新規ペルソナ作成時は **7 記事すべて**（R03〜R07 ＋ R08予想を予想問題ごとに2分割した `R08-yosou-1`/`R08-yosou-2`）に対して生成する。
 
 ## Step 6d: 見出し構成チェック（正準=自治体道路担当）
 
@@ -201,11 +201,11 @@ ls docs/note/技術士総監/magazines/総監模範論文-{persona}/{RXX}/hashta
 node scripts/check-essay-heading-structure.mjs "{persona}" --strict
 ```
 
-ペルソナの見出し構成を正準（自治体道路担当）の構造不変条件で検査する。**特に R08予想は事故多発**（独立「## 試験問題」セクションの分離・`### A案:/B案:/C案:` 直下ラベル・各予想問題配下の `### 問題文`/`### 出題予想根拠`/`…フル模範論文` 欠落・選択フロー欠落）。違反があれば道路担当 R08 と同型に再編する：
+ペルソナの見出し構成を正準（自治体道路担当）の構造不変条件で検査する。
 
-- 独立「## 試験問題」を作らず、問題文は各 `## 予想問題 N` 配下の `### 問題文` へ
-- essay 見出しは `### A案:…` でなく `### 自治体 {分野}担当フル模範論文（A案: …版）`
-- R03-R07 は `## 試験問題` / `## A 案`・`## B 案` / 各案 `設問（１）(２)(３)` / `## 採点者…` を備える
+**R03〜R07（過去問）**: `## 試験問題` / `## A 案`・`## B 案`（各「（前提条件）」付き） / 各案 `## A 案 設問（１）(２)(３)` / `## 採点者視点でのチェックポイント` を備える。設問(2)(3)の各施策は `### 施策 X-N:` 見出しで区切り、本文は散文化する（設問(2)＝`**内容**:`／`**効果**:`／`**障害と克服策**（トレードオフ）:`、設問(3)＝`**①施策の内容**`／`**②有効性と実現性**`／`**③重大な障害と克服策**`）。**各 `### 施策` ブロックは ①②③ 合算で 600 字以内**（Step 2 で実測）。手本＝自治体道路担当 R06。
+
+**R08予想（最重要・新標準＝予想問題ごとに2記事化）**: チェッカーは旧来の単一 `R08-yosou` を「要2記事化」で弾く。予想問題が2つ（例: 気候変動適応 / 資源循環）なら **`R08-yosou-1` / `R08-yosou-2` の2記事**へ分割し、**各記事に A 案・B 案の両方**を収録する（＝各予想テーマを2つの管理対象パターンで解く）。元データが「A案=予想1／B案=予想2」の非対称構成なら、各テーマに**欠けている案を新規生成**して対称化する。各記事の本文は R03〜R07 と同じ過去問形式（`## 試験問題` ＋ `### 出題予想根拠` / `## A 案`・`## B 案` / 設問（１）〜（３）/ `## 採点者…`）。手本＝自治体下水道担当 `R08-yosou-1`/`-2`。
 
 ## Step 6e: 印刷用PDF（記事別）の生成・配置・冒頭訴求
 
@@ -216,6 +216,34 @@ node scripts/check-essay-heading-structure.mjs "{persona}" --strict
    ```
    （`--in-place` で各 `{RXX}/` 配下に `{out}.pdf` を配置。試験問題＋模範論文のみ＝note CTA・採点者視点・出題予想根拠は除外）
 3. 各記事冒頭「**この記事でわかること**」末尾に PDF 訴求 1 行を追加（例:「**本記事の模範論文を印刷できる PDF 付き** — 答案用紙への手書き書き写し練習に使えます（購入者は本記事からダウンロード可）」）
+
+## Step 6f: マガジン掲載文（note掲載文.txt）と価格登録
+
+> **`_meta.yaml` は作らない（2026-06-09 廃止）**。ペルソナ別マガジンの `_meta.yaml` はどのビルド/ジェネレータからも参照されない死蔵メモだった（[[feedback_essay_magazine_meta_yaml_retired]]）。掲載文は `.txt`、価格は note-magazines.ts と記事 frontmatter に集約する。
+
+**1. `note掲載文.txt`（マガジン dir 直下・note へコピペする掲載文）**
+
+`docs/note/技術士総監/magazines/総監模範論文-{persona}/note掲載文.txt` を作る。note の入力欄制限に合わせ、以下を厳守：
+
+- **マガジンタイトル ≤ 30 字**（例: `総監 模範論文｜自治体下水道担当 R3-R7+R8予想`）
+- **説明 ≤ 400 字** / **アピールポイント ≤ 250 字**
+- 説明・アピールは **1 文 ≒ 1 段落**に区切る（note 可読性。本文は変えず改行のみ）
+- **価格欄**を併記（例: `単品 ¥500／セット ¥2,480（7本・単品比29%OFF）`）
+
+手本＝`総監模範論文-自治体下水道担当/note掲載文.txt`。文字数は実測する：
+
+```
+node -e "const fs=require('fs');const t=fs.readFileSync(process.argv[1],'utf8').split(/\r?\n/);/* タイトル/説明/アピール各行を [...s].length で確認 */" "<path>"
+```
+
+**2. 価格の真実源（SoT）**
+
+| 価格 | 記載先 | 形式 |
+|---|---|---|
+| 単品（¥500） | 各記事 `article.md` frontmatter | `price: 500` |
+| セット（¥2,480） | `src/lib/note-magazines.ts` の該当エントリ `price` フィールド | `price: '¥2,480（7本セット、単品比29%OFF）'` |
+
+7本×¥500＝¥3,500 → ¥2,480 で **29%OFF**（5本構成の旧ペルソナは「5本セット」「17%OFF」表記）。**note-magazines.ts の `price` 追記漏れに注意**（旧 `_meta.yaml` 廃止で宙に浮きやすい）。
 
 ## Step 7: 修正方針の提示とユーザー承認
 
@@ -237,10 +265,10 @@ content(note): {theme}/article.md を公開レベルに引き上げ（字数圧�
 
 ## Step 10: note 公開後のURL反映
 
-note でマガジン作成後、運営者から URL を受領したら：
+note でマガジンを作成する際は、**マガジン名・説明・価格は `note掲載文.txt`（Step 6f）からコピペ**する。運営者から URL を受領したら：
 
-1. 各記事本文のプレースホルダ（冒頭・末尾の `https://note.com/dobokunote/m/（※公開後に追加）` 等）を実URLに置換（単独行＝note リンクカード）
-2. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl` に更新
+1. 各記事本文のプレースホルダ（冒頭・末尾の `https://note.com/dobokunote/m/（※公開後に追加）` 等）を実URLに置換（単独行＝note リンクカード）。各記事の frontmatter `noteUrl:`/`noteId:` にも反映（公開済URLの真実源＝記事 frontmatter）
+2. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl`（マガジンURL）に更新。`price` フィールドは Step 6f で既に入っているはず（未記載なら追記）
 3. 個別記事も note 投稿済みなら各 PDF を有料エリアに添付（Step 6e の冒頭訴求と対応）
 
 ## 横展開ランブック（公開工程の決定論ゲート）
@@ -254,27 +282,27 @@ note でマガジン作成後、運営者から URL を受領したら：
 | note 互換 | `node scripts/note-lint.mjs $(find …/{persona} -name article.md)` | 表・太字内全角括弧・文字化け 0 |
 | 見出し構成 | `node scripts/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
 | 引用記号 | Step 6b | フレーミング文に blockquote を使わない |
-| 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | 6記事すべて生成済み |
+| 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | **7記事**すべて生成済み（R08予想2分割込み） |
+| マガジン掲載文・価格 | Step 6f | `note掲載文.txt` 作成（タイトル≤30/説明≤400/アピール≤250・段落分割・価格欄）／`_meta.yaml` 不在／note-magazines.ts に `price` |
 
 ---
 
-## 残作業リスト（2026-05-25 時点）
+## ペルソナ別 公開品質化の進捗（2026-06-09 時点）
 
-R8 予想問題集マガジン 6 記事の状況：
+ペルソナ別マガジン（`総監模範論文-{persona}`）の公開品質化（本チェックリスト Step 0〜6f を全 PASS）状況：
 
-| 記事 | 状況 |
-|---|---|
-| `AI社会/article.md` | ✅ 完了 |
-| `気候変動適応/article.md` | 🟡 未着手 |
-| `経済安全保障/article.md` | 🟡 未着手 |
-| `災害復旧/article.md` | 🟡 未着手 |
-| `資源循環/article.md` | 🟡 未着手 |
-| `老朽化インフラ/article.md` | 🟡 未着手 |
+| 区分 | ペルソナ | 状態 |
+|---|---|---|
+| 自治体（発注者・真正） | 河川 / 都市計画 / 下水道 / 上水道 | ✅ 公開品質化＋note掲載文.txt化済（_meta.yaml 廃止） |
+| 自治体（未着手） | 道路 / 砂防 / 港湾 / 公園緑地 / 建築営繕 / 農業農村 / 技術基準 / 契約調達 / アセットマネジメント | 🟡 旧 `_meta.yaml` 残存。公開品質化の際に Step 6f で `.txt` 化 |
+| 受注者系（保留） | ゼネコン / 河川コンサル / 都市計画コンサル / 道路橋梁コンサル | 著者の経験座と異なる（Step 0）。横展開前にユーザー確認 |
 
-進捗は `.claude/projects/.../memory/project_r8_essay_magazine.md` で追跡。
+進捗メモリ: `project_essay_persona_water_municipality`（上水道）、`feedback_essay_magazine_meta_yaml_retired`（掲載文/価格規約）、`feedback_essay_persona_authentic_seat`（採否）。
 
 ## 参照
 
 - `docs/reference/content-principles.md`「note 模範論文の品質原則」（5 原則の定義）
-- `docs/note/magazines/総監模範論文-*/R07/article.md`（ベンチマーク）
-- メモリ `feedback_essay_char_limit.md` `feedback_essay_q2_prose.md` `feedback_essay_q3_general_level.md` `feedback_essay_persona_label.md` `feedback_whitepaper_source_check.md`
+- `docs/note/技術士総監/magazines/総監模範論文-自治体道路担当/R06/article.md`（R03-R07 構造ベンチマーク）
+- `docs/note/技術士総監/magazines/総監模範論文-自治体下水道担当/R08-yosou-1`・`R08-yosou-2`（R08 2記事化の手本）
+- `docs/note/技術士総監/magazines/総監模範論文-自治体下水道担当/note掲載文.txt`（掲載文の手本）
+- メモリ `feedback_essay_char_limit.md` `feedback_essay_q2_prose.md` `feedback_essay_q3_general_level.md` `feedback_essay_persona_label.md` `feedback_whitepaper_source_check.md` `feedback_essay_magazine_meta_yaml_retired.md`
