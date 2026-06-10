@@ -10,6 +10,7 @@
  *   1. pipe 表（markdown テーブル）       — note 非対応
  *   2. 太字内全角括弧 Pattern A            — note 独自パーサで描画崩れ（check-note-bold-paren.mjs を再利用）
  *   3. U+FFFD（文字化け）
+ *   4. マガジンURL／{{MAGAZINE_URL}} の非単独行 — 括弧囲み・同一行テキストだと note でリンクカード化できない
  *
  * 使い方:
  *   node scripts/note-lint.mjs                       # staged の docs/note 配下の article.md を検査（pre-commit 用）
@@ -54,6 +55,28 @@ function checkMojibake(content) {
   content.split('\n').forEach((l, i) => { if (l.includes('�')) out.push({ line: i + 1, msg: 'U+FFFD（文字化け）' }); });
   return out;
 }
+// マガジン誘導URL（注入後の実URL）/ {{MAGAZINE_URL}} プレースホルダは「単独行」でなければ
+// note のリンクカードに変換できない（全角括弧で囲む・同一行に文がある＝ただのテキスト）。
+// 港湾R03の `（https://note.com/dobokunote/m/xxxx）` 事故の再発防止（2026-06-10 追加）。
+function checkMagazineLinkCard(content) {
+  const out = [];
+  let inFence = false;
+  content.split('\n').forEach((l, i) => {
+    if (/^\s*```/.test(l)) { inFence = !inFence; return; }
+    if (inFence) return;
+    const t = l.trim();
+    // {{MAGAZINE_URL}} は単独行のみ可
+    if (l.includes('{{MAGAZINE_URL}}') && t !== '{{MAGAZINE_URL}}') {
+      out.push({ line: i + 1, msg: `{{MAGAZINE_URL}} は単独行に（括弧/同一行テキスト不可・リンクカード化のため）: ${t.slice(0, 40)}` });
+    }
+    // 注入後の実マガジンURL（英数字ID）は単独行のみ可。markdown リンク [..](..) 内は除外。
+    const m = t.match(/https:\/\/note\.com\/dobokunote\/m\/[A-Za-z0-9]+/);
+    if (m && !/\]\(/.test(t) && t !== m[0]) {
+      out.push({ line: i + 1, msg: `マガジンURLは単独行（括弧なし）に＝リンクカード化のため: ${t.slice(0, 40)}` });
+    }
+  });
+  return out;
+}
 function checkBoldParen(file) {
   try {
     const r = execSync(`node "${BOLD_CHECKER}" "${file}"`, { encoding: 'utf8', cwd: ROOT });
@@ -84,7 +107,7 @@ if (files.length === 0) { process.exit(0); }
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkBoldParen(f)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
@@ -95,7 +118,8 @@ for (const f of files) {
 
 if (violations > 0) {
   console.error(`\n❌ note-lint: ${violations} 件の note 非互換を検出。コミットをブロックしました。`);
-  console.error('   表は箇条書きへ、太字内全角括弧は **A**（B）形式へ、文字化けは修正してください。');
+  console.error('   表は箇条書きへ、太字内全角括弧は **A**（B）形式へ、文字化けは修正、');
+  console.error('   マガジンURL/{{MAGAZINE_URL}} は括弧で囲まず URL 単独行にしてください（リンクカード化）。');
   process.exit(1);
 }
 console.log(`✅ note-lint: ${files.length} 記事 OK`);

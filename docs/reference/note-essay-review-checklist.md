@@ -300,7 +300,9 @@ content(note): {theme}/article.md を公開レベルに引き上げ（字数圧�
 
 note でマガジンを作成する際は、**マガジン名・説明・価格は `note掲載文.txt`（Step 6f）からコピペ**する。運営者から URL を受領したら：
 
-1. 各記事本文のプレースホルダ（冒頭・末尾の `https://note.com/dobokunote/m/（※公開後に追加）` 等）を実URLに置換（単独行＝note リンクカード）。各記事の frontmatter `noteUrl:`/`noteId:` にも反映（公開済URLの真実源＝記事 frontmatter）
+1. 各記事本文のプレースホルダを実URLに置換：`node .claude/scripts/note/inject-magazine-url.cjs {persona} {magazineURL}`（冒頭・末尾の2箇所×記事数を一括置換）。各記事の frontmatter `noteUrl:`/`noteId:` にも反映（公開済URLの真実源＝記事 frontmatter）
+   - **執筆時の規約**: マガジン誘導は **`{{MAGAZINE_URL}}` を単独行**で書く（推奨・新規はこの形式のみ）。`（{{MAGAZINE_URL}}）` のように**全角括弧で囲まない**／同一行に文を置かない（note でリンクカード化できず、注入後に `（https://note.com/.../m/xxxx）` の壊れたリンクになる＝港湾R03事故、2026-06-10）。
+   - **自動検知**: `scripts/note-lint.mjs`（pre-commit）が「マガジンURL／`{{MAGAZINE_URL}}` の非単独行」を BLOCK する。注入漏れ変種は `inject-magazine-url.cjs` の `PLACEHOLDERS` 配列で吸収（空白・括弧バリアントも登録済）。
 2. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl`（マガジンURL）に更新。`price` フィールドは Step 6f で既に入っているはず（未記載なら追記）
 3. 個別記事も note 投稿済みなら各 PDF を有料エリアに添付（Step 6e の冒頭訴求と対応）
 
