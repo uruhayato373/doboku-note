@@ -63,7 +63,8 @@ npm run note-edit-session -- m6854c7437d4d     # マガジン key だけでも�
 ```
 
 - スクリプト: `scripts/note-edit-session.mjs`。**ユーザー自身のターミナルで実行**（ヘッド付きブラウザを表示・操作するため）。
-- **初回のみ画面で手動ログイン**（パスワードはスクリプトが扱わない）。セッションは `~/.doboku-note-session`（**リポジトリ外**・cookie を含むため git に入れない）に永続化され、次回からは自動でログイン済み。
+- **`channel: 'chrome'`（システム Chrome）必須**。publish-x と同じ方式。組み込み Chromium だと Google/note に bot 判定されてログインが「安全でないブラウザ」で弾かれる。システム Chrome ＋ `--disable-blink-features=AutomationControlled` で `navigator.webdriver=false` になり検知回避（2026-06-10 実証）。**App-Bound 暗号化の cookie 抽出は不要**（実 Chrome が自分の cookie を使うだけ）。
+- **初回のみ画面で手動ログイン**（パスワードはスクリプトが扱わない）。セッションは `.local/playwright-note-profile/`（**gitignore 済**・cookie を含むため git に入れない）に永続化され、次回からは自動でログイン済み。
 - **編集・保存は人手**で行う（自動保存はしない）。理由: note 規約・bot 検知・収益アカウントのリスク回避。「自動で編集画面まで開く＋最終入力/保存は人」の半自動が安全境界。
 - 自動化が割に合うのは「定型・大量・反復」の書き込み時のみ。単発のタイトル/価格修正は普通に手動編集が最速。
 

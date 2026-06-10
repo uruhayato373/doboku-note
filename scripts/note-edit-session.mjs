@@ -23,11 +23,15 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { homedir } from 'node:os';
-import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { dirname, join } from 'node:path';
 
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const PROJECT_ROOT = join(__dirname, '..');
 const proxy = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
-const userDataDir = join(homedir(), '.doboku-note-session');
+// publish-x と同じ「システム Chrome + 永続プロファイル」方式。
+// 組み込み Chromium だと Google/note に bot 判定されるため channel:'chrome' 必須。
+const userDataDir = join(PROJECT_ROOT, '.local/playwright-note-profile');
 
 // 引数を URL へ正規化（フルURL / マガジンkey / パスのいずれも受ける）
 let target = process.argv[2] || 'https://note.com/sitesettings/magazines';
@@ -46,15 +50,17 @@ let ctx;
 try {
   ctx = await chromium.launchPersistentContext(userDataDir, {
     headless: false,
+    channel: 'chrome', // システム Chrome（組み込み Chromium は bot 判定される）
     proxy: proxy ? { server: proxy } : undefined,
     ignoreHTTPSErrors: true,
     viewport: { width: 1366, height: 900 },
+    args: ['--disable-blink-features=AutomationControlled'],
   });
 } catch (e) {
   const msg = String(e).split('\n')[0];
   console.error('\nLAUNCH_FAIL:', msg);
-  if (/Executable doesn't exist|browserType.launch/.test(msg)) {
-    console.error('→ chromium 未導入の可能性。`npx playwright install chromium` を実行してください。');
+  if (/not found|Executable doesn't exist|channel/.test(msg)) {
+    console.error('→ システム Chrome が見つからない可能性。Google Chrome をインストールしてください（Edge では channel を "msedge" に変更）。');
   }
   process.exit(11);
 }
