@@ -566,6 +566,20 @@ const MAGAZINES_RAW = {
     price: '¥2,980（18記事セット・単品¥500）',
     badge: 'note 限定',
   },
+  'pe-construction-construction-planning-magazine': {
+    id: 'pe-construction-construction-planning-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜施工計画、施工設備及び積算 選択科目 R8予想 模範解答集',
+    description:
+      '技術士第二次試験 建設部門「施工計画、施工設備及び積算」選択科目の令和8年度 予想問題＋フル模範解答集（II-1/II-2/III の3記事）。過去問7年分の出題傾向・国土交通行政の重点施策（i-Construction 2.0・担い手3法改正・働き方改革）・改訂コンピテンシーから導出した予想問題を、II-1（全4設問）・II-2（両設問）・III（両問題）の全選択肢でフル解答。元・地方自治体の土木職（発注者）として施工計画の審査・工事発注・施工監督・積算に携わった視点で、各記事に予想問題・予想の根拠・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録した試験直前対策です。',
+    shortTitle: '建設部門2次｜施工計画 R8予想',
+    shortDescription:
+      'R8予想 の II-1/II-2/III 全3記事。施工計画を発注者視点でフル解答（試験直前対策）。',
+    imageUrl: '/images/magazines/pe-construction-bk-04-construction-planning-cover.webp',
+    price: '予想3記事（単品¥500）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
