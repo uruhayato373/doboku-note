@@ -24,22 +24,33 @@ allowed-tools: Bash, Read, Write
 ## 使い方
 
 ```bash
+# 技術士総監（既定）
 node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
   --exam r07-pack-01
+
+# 1級土木（令和7年度）
+node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
+  --exam-dir 1級土木 --exam r07-pack-01 --skip-png
+
+# 2級土木（令和7年度 後期=k / 前期=z）
+node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
+  --exam-dir 2級土木 --exam r07k-pack-01 --skip-png
 ```
 
 ### 引数
 
 | 引数 | 必須 | 既定 | 説明 |
 |---|---|---|---|
-| `--exam` | ✅ | - | パック ID（例: `r07-pack-01`） |
-| `--exam-dir` | - | 技術士総監 | 試験軸ディレクトリ（`1級土木` / `2級土木` 等）。※2026-06-05 まで parseArgs 未登録のバグで弾かれていた（修正済） |
+| `--exam` | ✅ | - | パック ID（例: `r07-pack-01`）。2級土木は年度に前期/後期の接尾辞が付く（`r07z`=前期 / `r07k`=後期、例: `r07k-pack-01`） |
+| `--exam-dir` | - | 技術士総監 | 試験軸ディレクトリ（`1級土木` / `2級土木` 等）。`docs/sns/instagram/_exam-packs/<exam-dir>/<year>/` を参照 |
 | `--speaker` | - | 1（四国めたん） | VOICEVOX speaker ID |
-| `--skip-png` | - | false | PNG 再生成をスキップ（既存 reels/img/*.png を使う） |
+| `--skip-png` | - | false | PNG 再生成をスキップ（既存 reels/img/*.png を使う）。既存 PNG が 1080×1920 ならこれを付けて Satori 再生成を回避 |
 | `--problem-pause` | - | 3 | problem スライド読み上げ後に挿入する無音秒数（考える間）。`0` で無効 |
 
 > [!warning]
 > **カバー/テンプレ刷新時は `--skip-png` を付けない。** カバーPNGテンプレ（`exam-cover-ig`）や 09-cta テンプレを更新した後は、PNG から再生成しないと旧テンプレが動画に残る。`--skip-png` は「PNG が現行テンプレと一致している」と確信できる時だけ使う。カバーPNGだけ別途更新して動画を再生成しない運用は **desync を生むため禁止**（`yt-shorts-create` の `assertCoverInSync` ガードが派生時に SSIM<0.90 で検知・中断する）。
+
+> **コミット方針**: `reels/video.mp4` と `reels/script.txt` のみコミット。中間ファイル（`wav/` / `slide-NN.mp4` / `_combined.mp4` / `_empty.ass` / `concat.txt`）は `.gitignore` 済み。
 
 ## 出力
 
@@ -64,7 +75,7 @@ docs/sns/instagram/_exam-packs/{試験}/<year>/pack-<NN>/reels/
 
 | スライド | 台本 |
 |---|---|
-| **cover** | 「令和{年度}年度の択一式過去問、{N}番です。全 4 問、答えは動画内で発表します」（Reels は自動再生のため「スワイプ」表現は使わない → [ig-reels-policy.md](../../../../docs/reference/ig-reels-policy.md)） |
+| **cover** | 技術士総監:「令和{年度}年度の択一式過去問、{N}番です。全 4 問、答えは動画内で発表します」／土木:「{令和\|平成}{年度}年度{前期\|後期}の第一次検定 過去問、{N}番です。全 4 問、答えは動画内で発表します」（Reels は自動再生のため「スワイプ」表現は使わない → [ig-reels-policy.md](../../../../docs/reference/ig-reels-policy.md)） |
 | **problem** | 「問題{N}。{bodyLines}」 |
 | **answer** | 「正答は{N}番。{correctText}。{pointText}」 |
 | **cta** | 「フォローすると毎週、過去問解説が届きます。全問解説はドボクノートでチェック」（Reels はリーチ獲得器のため保存より新規フォロー誘導を主にする → [ig-reels-policy.md](../../../../docs/reference/ig-reels-policy.md)） |

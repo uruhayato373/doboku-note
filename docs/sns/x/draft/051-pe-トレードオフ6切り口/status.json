@@ -1,0 +1,41 @@
+{
+  "updated_at": "2026-06-04T21:31:32.308+09:00",
+  "tweets": {
+    "1": {
+      "title": "結論（claim）",
+      "status": "scheduled",
+      "scheduled_at": "2026-06-17T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "2": {
+      "title": "理由（why）",
+      "status": "scheduled",
+      "scheduled_at": "2026-06-18T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "3": {
+      "title": "体験（合格者の視点）",
+      "status": "scheduled",
+      "scheduled_at": "2026-06-19T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "4": {
+      "title": "反論（myth-bust）",
+      "status": "scheduled",
+      "scheduled_at": "2026-06-20T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "5": {
+      "title": "数字（data）",
+      "status": "scheduled",
+      "scheduled_at": "2026-06-21T08:00:00.000+09:00",
+      "posted_at": null
+    },
+    "6": {
+      "title": "ハウツー（how-to）＋ note 誘導",
+      "status": "scheduled",
+      "scheduled_at": "2026-06-22T08:00:00.000+09:00",
+      "posted_at": null
+    }
+  }
+}

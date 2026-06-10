@@ -29,7 +29,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 | パラメータ | 説明 | 例 |
 |---|---|---|
 | `exam` | 試験軸 | `pe-comprehensive` / `civil-1` / `civil-2` |
-| `type` | 投稿型 | `keyword` / `question` / `trap`（引っかけ）/ `mnemonic`（暗記）/ `magazine` |
+| `type` | 投稿型 | `keyword` / `question` / `trap`（引っかけ）/ `mnemonic`（暗記）/ `magazine` / `angle-slice`（切り口分割） |
 | `topic` | 対象（slug / 年度パック / テーマ） | `heinrich-law` / `r05z-pack-01` / `施工経験記述` |
 | `count` | 生成ツイート数 | `4`（既定） |
 | `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` / `all`（全6本） |
@@ -46,6 +46,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
    - `keyword`: `.local/r2/posts/{category}/{slug}/article.mdx` の定義・試験ポイント。
    - `question` / `trap`: `src/config/{civil-1,civil-2}-exam-questions.json`（総監は `exam-questions.json`）。**表・図問題（`igEligible:false`）は避ける**。正答は**論点提示に留め全文ネタバレしない**。
    - `magazine`: `note-magazines.ts` の該当マガジン（価格・ID は本文に書かない）。
+   - `angle-slice`: 1 テーマ（keyword/note 記事）を **結論・理由・体験・反論・数字・ハウツー** の 6 切り口に刻んで 6 ツイート化（作法は policy §5.1）。**体験軸は合格者の権威で書く**（運営者は総監合格者）。真実を超える固有値は捏造しない。URL は結論・ハウツーの 2 本のみ。
 3. `docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md` を執筆：
    - 各ツイート **280 weighted 以下**（日本語×2・URL=23）。本文 ≒ 117 字 + URL 1 本が目安。
    - **試験別ベースタグ**（policy §4）＋論点タグ 1 個まで。計 **1〜3 個**。
