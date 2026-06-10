@@ -298,6 +298,15 @@ const MAGAZINES = [
     fontSize: 42,
     fillBg: '#33356B',
   },
+  {
+    id: 'bk-02-river',
+    fileBaseName: 'pe-construction-bk-02-river-cover',
+    magazineDir: 'docs/note/技術士建設部門/magazines/BK-02_河川砂防',
+    lines: ['技術士 建設部門 2次', '河川・砂防・海岸 選択科目 模範解答集', 'II-1/II-2/III × R03-R07'],
+    category: '技術士（建設部門・第二次）',
+    fontSize: 40,
+    fillBg: '#33356B',
+  },
 ];
 
 async function renderOne(mag, fonts) {

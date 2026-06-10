@@ -542,6 +542,20 @@ const MAGAZINES_RAW = {
     price: '¥1,980（15記事セット）',
     badge: 'note 限定',
   },
+  'pe-construction-river-coast-magazine': {
+    id: 'pe-construction-river-coast-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜河川・砂防及び海岸・海洋 選択科目 模範解答集（R03-R07）',
+    description:
+      '技術士第二次試験 建設部門「河川、砂防及び海岸・海洋」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として河川・砂防・海岸の発注・監督・積算審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。',
+    shortTitle: '建設部門2次｜河川砂防 模範解答集',
+    shortDescription:
+      'R03〜R07 の II-1/II-2/III 全15記事。河川・砂防・海岸を発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-02-river-cover.webp',
+    price: '¥1,980（15記事セット）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;

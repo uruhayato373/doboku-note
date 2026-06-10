@@ -86,6 +86,7 @@ const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
 function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-r0[1-9]-required$/.test(slug)) return 'pe-construction-required-magazine';
   if (/^pe-construction-r0[1-9]-road$/.test(slug)) return 'pe-construction-road-magazine';
+  if (/^pe-construction-r0[1-9]-river-coast$/.test(slug)) return 'pe-construction-river-coast-magazine';
   // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
   if (slug === 'pe-construction-pe-secondary-essay-guide') return 'pe-construction-required-magazine';
   return null;
