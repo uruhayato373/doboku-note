@@ -231,8 +231,10 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 公園緑地担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体公園緑地担当',
-    description: '公園緑地担当（発注者）視点。公園施設維持管理版と防災公園新設版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（公園施設維持管理・老朽遊具更新版/防災公園新設・グリーンインフラ整備版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応×グリーンインフラ防災公園／資源循環×公園施設の更新管理、各 A案/B案）の計 7 記事。公園緑地担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-park-municipality-cover.webp',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
   'essay-water-municipality-magazine': {
