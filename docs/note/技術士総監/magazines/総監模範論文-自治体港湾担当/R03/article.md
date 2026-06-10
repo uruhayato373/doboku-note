@@ -41,7 +41,7 @@ cover:
 
 自治体 港湾担当ペルソナの模範論文（R03-R07 過去問＋R8 予想）をまとめた **magazine** もあわせてご覧ください。各記事を単品でそろえるよりお得なセット価格です。
 
-（https://note.com/dobokunote/m/mf762f616c065）
+https://note.com/dobokunote/m/mf762f616c065
 
 ---
 
@@ -225,7 +225,7 @@ cover:
 
 港湾及び空港分野の発注・監督に携わってきた経験を、総監記述式で最大限に活かすための論文集です。
 
-（https://note.com/dobokunote/m/mf762f616c065）
+https://note.com/dobokunote/m/mf762f616c065
 
 ---
 
