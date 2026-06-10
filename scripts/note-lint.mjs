@@ -70,9 +70,12 @@ function checkMagazineLinkCard(content) {
       out.push({ line: i + 1, msg: `{{MAGAZINE_URL}} は単独行に（括弧/同一行テキスト不可・リンクカード化のため）: ${t.slice(0, 40)}` });
     }
     // 注入後の実マガジンURL（英数字ID）は単独行のみ可。markdown リンク [..](..) 内は除外。
-    const m = t.match(/https:\/\/note\.com\/dobokunote\/m\/[A-Za-z0-9]+/);
-    if (m && !/\]\(/.test(t) && t !== m[0]) {
-      out.push({ line: i + 1, msg: `マガジンURLは単独行（括弧なし）に＝リンクカード化のため: ${t.slice(0, 40)}` });
+    // クエリ文字列（?utm_source=... 等）・フラグメント付きの単独行URLは正当（リンクカード化可）。
+    if (/https:\/\/note\.com\/dobokunote\/m\/[A-Za-z0-9]+/.test(t) && !/\]\(/.test(t)) {
+      const isPureUrl = /^https:\/\/note\.com\/dobokunote\/m\/[A-Za-z0-9]+(\?\S*)?$/.test(t);
+      if (!isPureUrl) {
+        out.push({ line: i + 1, msg: `マガジンURLは単独行（括弧・同一行テキスト不可）＝リンクカード化のため: ${t.slice(0, 40)}` });
+      }
     }
   });
   return out;
