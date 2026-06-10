@@ -104,7 +104,8 @@ DEEP 帯（>40位、ページはあるが要テコ入れ）:
 
 ### 監査結果
 - **SEO基盤: 良好**。docs ページは canonical・TechArticle JSON-LD・FAQPage schema・BreadcrumbList を出力済み。sitemap/RSS 生成あり。PSI 平均 SEO 98.8 / Performance 95.5 / A11y 95.7。
-- **CWV: ほぼ良好、局所違反2件のみ**。`textbook-quality-management-text`（PERF69/CLS0.11/TBT644）、`primary-h26-a`（TBT289）。`/category` が SEO83（description は出力済み、要因は別・低優先）。
+- **CWV: ほぼ良好**。`primary-h26-a`（TBT289）が軽微違反。`/category` が SEO83（description は出力済み、要因は別・低優先）。
+- **CWV「重いページ」は計測アーティファクトだった（2026-06-10 調査・修正済み）**: PERF69/CLS0.11/TBT644 と出ていた `textbook-quality-management-text` は本番で 301 リダイレクト済み（→ `textbook-quality-overview`）。PSI URL リスト（`psi-urls.txt`）が**旧URLのまま**で、301ホップ込みの計測だった。リダイレクト先は30,551字の大型テキストページだが**画像・Mermaid・数式ゼロ**＝CLS/TBT の典型要因なし。→ **`psi-urls.txt` の旧URL2件（quality/schedule の -management→-overview）を新URLへ更新**。次回 CI 計測で実スコアを確認すべき（おそらく良好）。
 - **🔴 最大の制約: インデックス未登録 ~40%**（2026-04-27 url-inspection 189URL サンプル: 登録113 / 検出-未登録61 / 未認識14）。未登録に `fmea` `fail-safe` `eta` 等の受験コア語を含む。**未登録ページは何をしても露出ゼロ**。
 - **未登録の原因切り分け**: 未登録ページは薄くない（平均2583字 vs 登録済み2720字・中央値2522字）。`fmea` は内部リンク8本＋pillar 構造あり。→ **薄さでもリンク不足でもなく、若いサイトが類似661ページを一度に出したことによる Google のクロール/インデックス予算の出し惜しみ**（典型）。
 - **訂正**: 先に「HAZOP/RCA は専用ページ無し」としたが誤り。`hazop`(HAZOP)・`root-cause-analysis`(根本原因分析) は存在。コンテンツギャップは実質なし。
