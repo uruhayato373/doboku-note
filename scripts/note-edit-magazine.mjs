@@ -31,6 +31,7 @@ import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -42,46 +43,28 @@ const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const KEY = getArg('--key');
-const META = getArg('--meta');
+const DIR = getArg('--dir');
+const TXT = getArg('--txt') || (DIR ? join(DIR, 'note掲載文.txt') : null);
 const DO_ARTICLES = argv.includes('--articles');
 const DRY = argv.includes('--dry-run');
-if (!KEY || !META) {
-  console.error('使い方: npm run note-edit-magazine -- --key <magazineKey> --meta <_meta.yaml> [--articles] [--dry-run]');
+if (!KEY || !TXT) {
+  console.error('使い方: npm run note-edit-magazine -- --key <magazineKey> --txt <note掲載文.txt>（or --dir <magazineDir>）[--articles] [--dry-run]');
   process.exit(64);
 }
 
-// ---- _meta.yaml 抽出（リテラル正規表現・block scalar） ----
-const meta = readFileSync(META, 'utf-8');
-const lines = meta.split(/\r?\n/);
-function block(startRe) {
-  let i = lines.findIndex((l) => startRe.test(l));
-  if (i < 0) return null;
-  const out = [];
-  for (i = i + 1; i < lines.length; i++) {
-    const ln = lines[i];
-    if (ln.trim() === '') { out.push(''); continue; }
-    if (/^\s{2,}/.test(ln)) out.push(ln.replace(/^ {2}/, ''));
-    else break;
-  }
-  return out.join('\n').replace(/\n+$/, '').trim();
-}
-const title = (lines.find((l) => /^title:/.test(l)) || '').match(/"(.+)"/)?.[1];
-const desc = block(/^description:\s*\|\s*$/);
-const appeal = block(/^appealPoint:\s*\|\s*$/);
-const setPrice = String((meta.match(/^setPrice:\s*(\d+)/m) || [])[1] || '');
-const articlePrice = String((meta.match(/^articlePrice:\s*(\d+)/m) || [])[1] || '');
-
+// ---- note掲載文.txt 抽出（共有 lib・SoT） ----
+const meta = parseNoteText(readFileSync(TXT, 'utf-8'));
+const title = meta.title, desc = meta.description, appeal = meta.appealPoint;
+const setPrice = String(meta.setPrice || ''), articlePrice = String(meta.articlePrice || '');
 if (!title || !desc || !appeal || !setPrice) {
-  console.error('PARSE_FAIL: title/description/appealPoint/setPrice のいずれかが取れません', { title: !!title, desc: !!desc, appeal: !!appeal, setPrice });
+  console.error('PARSE_FAIL: タイトル/説明/アピール/セット価格 のいずれかが取れません', { title: !!title, desc: !!desc, appeal: !!appeal, setPrice });
   process.exit(2);
 }
 console.log(`抽出: title=${title.length}字 desc=${desc.length} appeal=${appeal.length} setPrice=${setPrice} articlePrice=${articlePrice || '-'}`);
 
-// ---- note 文字数制限の事前チェック ----
-const warns = [];
-if (title.length > 30) warns.push(`タイトル ${title.length}字（note上限≈30字・超過で保存不可の恐れ）`);
-if (appeal.length > 250) { console.error(`ABORT: アピールポイント ${appeal.length}字 > note上限250字。短縮してください。`); process.exit(3); }
-if (warns.length) console.log('⚠ 警告:', warns.join(' / '));
+// ---- note 文字数制限の事前チェック（超過は abort・lint で是正） ----
+const lim = checkLimits(meta);
+if (lim.length) { console.error('ABORT: note文字数制限超過 →', lim.join(' / '), '（npm run note-meta-lint で是正してください）'); process.exit(3); }
 
 // ---- API helper（保存後検証） ----
 function curlJson(url) {
