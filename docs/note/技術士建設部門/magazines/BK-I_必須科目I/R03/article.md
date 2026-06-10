@@ -47,6 +47,8 @@ utmCampaign: pe-construction-secondary
 
 必須科目Iの元公務員（発注者）視点の過去5年分（R03〜R07）をセットにした**マガジン**もあわせてご覧ください。
 
+各記事を単品でそろえるよりお得なセット価格（¥1,980・単品比21%OFF）です。
+
 https://note.com/dobokunote/m/m0f3bc3933454
 
 ---
