@@ -1,7 +1,13 @@
 # アフィリエイト × note 有料マガジン 共存設計
 
-策定: 2026-06-10。アフィリ（SAT・独学サポート・GKS）と note 有料マガジン（¥1,980〜¥7,980）を
+策定: 2026-06-10。実装: 2026-06-11（WP1〜WP6 すべて完了）。
+アフィリ（SAT・独学サポート・GKS）と note 有料マガジン（¥1,980〜¥7,980）を
 各サーフェスでどう併置するかの設計書。実装は Sonnet サブエージェント（下記 WP1〜WP6）。
+
+> [!note] 実装ステータス（2026-06-11）
+> WP1〜WP6 すべて実施済み。GA4 自然実験（S1: PE サイドバー差し替え）は 2026-06-11 を起点に
+> 4 週間測定中。2026-07-09 前後の weekly-review で差の差を評価する（§4 参照）。
+> 残タスク: `02_アフィリエイト提携状況.md` の SAT サイドバー記述更新（WP1-4）。
 
 関連: `02_アフィリエイト提携状況.md`（creative 台帳）/ `src/lib/magazine-placement.ts`（note 配置 SoT）/
 `docs/note/noteコンテンツ計画.md`
@@ -56,21 +62,21 @@
 
 | # | サーフェス | 現状 | 判定 | 内容 |
 |---|---|---|---|---|
-| S1 | docs サイドバー SAT（keyword/guide/pastExam・`SAT_SIDEBAR_AD`） | SAT 300×250 | **変更** | SAT を撤去し、sidebarMagazines が空のとき `/links` note バナーに差し替え（keyword の既存フォールバックを guide/pastExam に拡張） |
-| S2 | カテゴリ hub の SAT カード（`resolveCategoryAffiliate`） | SchoolAffiliate(SAT) | **削除** | hub には既に完全パック + 精読ガイドの note CTA がある。S5 公開後は course-selection-guide への内部リンクカードに差し替え可 |
-| S3 | essay-exam-strategy 本文の SAT カード | CourseAffiliate(SAT) | **変更** | カード削除 → course-selection-guide への内部リンク段落に差し替え（公開前は management-tradeoffs 等への内部リンクで暫定） |
-| S4 | exam-application-guide 本文の SAT カード | CourseAffiliate(SAT) | **変更** | 文言修正で暫定維持（「総監部門の添削対応可否は資料請求で確認を」を明記、断定表現を除去）。アガルート承認後に総監対応講座へ差し替え |
-| S5 | course-selection-guide（独学か講座か） | draft 未公開 | **新規（公開）** | 「総監講座の空白マップ」セクションを追加し published:true。note CTA を placement.ts に配線。末尾の SAT カード（実在しない総監講座名）は削除。アガルート承認後のアフィリ受け皿 |
+| S1 | docs サイドバー SAT（keyword/guide/pastExam・`SAT_SIDEBAR_AD`） | SAT 300×250 | ✅ **変更** | SAT を撤去し、sidebarMagazines が空のとき `/links` note バナーに差し替え（keyword の既存フォールバックを guide/pastExam に拡張） |
+| S2 | カテゴリ hub の SAT カード（`resolveCategoryAffiliate`） | SchoolAffiliate(SAT) | ✅ **削除** | hub には既に完全パック + 精読ガイドの note CTA がある。S5 公開後は course-selection-guide への内部リンクカードに差し替え可 |
+| S3 | essay-exam-strategy 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | カード削除 → management-tradeoffs への内部リンク段落に差し替え（S5 公開後は course-selection-guide リンクへ更新予定） |
+| S4 | exam-application-guide 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | 文言修正で暫定維持（「総監部門の添削対応可否は資料請求で確認を」を明記、断定表現を除去）。アガルート承認後に総監対応講座へ差し替え |
+| S5 | course-selection-guide（独学か講座か） | draft 未公開 | ✅ **新規（公開）** | 「総監対応講座の現状」セクションを追加し published:true（2026-06-11）。note CTA を placement.ts に配線。末尾の SAT カード（実在しない総監講座名）は削除。アガルート承認後のアフィリ受け皿 |
 | S6 | docs サイドバー GKS（全 docs 常設） | GKS 300×250 | **維持** | 別 mat・note CTA より下位置。PE での CTR を 4 週間測定し、極端に低ければ PE のみ抑制を再検討 |
 
 ### Civil（1級・2級）
 
 | # | サーフェス | 現状 | 判定 | 内容 |
 |---|---|---|---|---|
-| S8 | docs 記事末の DOM 順（全カテゴリ共通） | 書籍→講座→note | **変更** | note inline マガジンを書籍・講座 CTA より前へ移動（原則 1）。目標順: 本文 → 過去問/textbook ナビ → **note マガジン** → FAQ → 書籍 → 講座/SAT CTA → AuthorCard |
-| S9 | civil-1 secondary の独学サポート inline（MDX 9 ページ） | 添削訴求 | **維持＋文言変更** | 「note で型と模範答案 → 自分の工事で書く → 仕上げに添削」の ladder 文言へ。note の前工程ではなく**次工程**として位置づけ |
-| S10 | experience-writing-guide（1級・2級） | 個別 CTA のみ | **新規** | 「経験記述 対策手段の選び方」3 択マップを 1 セクション追加（①模範答案で独学=note ②添削・代行=独学サポート ③体系講座=SAT）。比較表ではなく見出し＋段落（4 列表禁止） |
-| S11 | SchoolCourseCTA / CivilSatProductCTA 文言 | 汎用文言 | **変更** | ジョブ明示へ改稿（SAT=「一次からの学び直し・体系学習」、独学=「書いた答案の添削・代行」）。note と訴求が被らない文言に固定 |
+| S8 | docs 記事末の DOM 順（全カテゴリ共通） | 書籍→講座→note | ✅ **変更** | note inline マガジンを RelatedTextbooks 直後（書籍・講座 CTA より前）へ移動（原則 1）。実際の順: 本文 → RelatedTextbooks → **note マガジン** → 書籍 → 講座/SAT CTA → CategoryNavCard → FAQ → AuthorCard |
+| S9 | civil-1 secondary の独学サポート inline（MDX 7 ページ） | 添削訴求 | ✅ **維持＋文言変更** | 「note で型と模範答案 → 自分の工事で書く → 仕上げに添削」の ladder 文言へ。note の前工程ではなく**次工程**として位置づけ |
+| S10 | experience-writing-guide（1級・2級） | 個別 CTA のみ | ✅ **新規** | 「経験記述 対策手段の選び方」3 択マップを 1 セクション追加（①模範答案で独学=note ②添削・代行=独学サポート ③体系講座=SAT）。比較表ではなく見出し＋段落（4 列表禁止） |
+| S11 | SchoolCourseCTA / CivilSatProductCTA 文言 | 汎用文言 | ✅ **変更** | ジョブ明示へ改稿（SAT=「一次からの学び直し・体系学習」、独学=「書いた答案の添削・代行」）。note と訴求が被らない文言に固定 |
 | S12 | civil サイドバー（note マガジン → GKS） | - | **維持** | 順序は既に正しい |
 
 ### トップ・横断
@@ -78,7 +84,7 @@
 | # | サーフェス | 現状 | 判定 | 内容 |
 |---|---|---|---|---|
 | S7 | トップの HOME_AFFILIATE（SAT 汎用） | SchoolAffiliate | **維持** | creative は資格非依存の汎用文言で、順序も `/links note ハブ → SAT → 書籍` と note 優先済み。変更コスト対効果が低い |
-| S13 | data-cta-label 規約 | brand のみ | **変更** | `{brand}-{surface}` に統一（§4） |
+| S13 | data-cta-label 規約 | brand のみ | ✅ **変更** | `{brand}-{surface}` に統一（§4）。GKS→`GKS-sidebar`、SAT-end→`SAT-end` 適用済み |
 
 ---
 
@@ -168,7 +174,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 > - 変更ファイルのみ `git add` 明示指定、1 WP = 1 commit
 > - 完了条件: `npm run build` 通過 + 該当ページを `curl` で `<main>` 確認 + MDX 変更時は `npm run refresh-indexes`
 
-### WP1: PE サイドバー SAT → note 差し替え（S1）+ ラベル規約（S13）
+### ✅ WP1: PE サイドバー SAT → note 差し替え（S1）+ ラベル規約（S13）
 
 対象: `src/app/docs/[...slug]/page.tsx`
 
@@ -183,7 +189,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 4. `02_アフィリエイト提携状況.md` の SAT サイドバー記述を更新（「PE 専用」→「2026-06 撤去。総監講座
    非提供のため note /links バナーへ差し替え」）。
 
-### WP2: PE カテゴリ hub SAT 削除（S2）
+### ✅ WP2: PE カテゴリ hub SAT 削除（S2）
 
 対象: `src/config/affiliate-creatives.ts`
 
@@ -191,7 +197,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
    （コメントで理由: SAT は総監講座非提供。course-selection-guide 公開後に内部リンクカード化を検討）。
 2. `HOME_AFFILIATE`（トップ）は変更しない。
 
-### WP3: PE MDX 3 ページの SAT 表記是正（S3/S4/S5 前半）
+### ✅ WP3: PE MDX 3 ページの SAT 表記是正（S3/S4/S5 前半）
 
 対象: `.local/r2/posts/pe-comprehensive-management/{essay-exam-strategy,exam-application-guide}/article.mdx`
 
@@ -202,7 +208,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
    ピクセルもそのまま）。
 3. 文字化けチェック（U+FFFD）+ `npm run refresh-indexes`。
 
-### WP4: course-selection-guide リライト＋公開（S5）
+### ✅ WP4: course-selection-guide リライト＋公開（S5）
 
 対象: `.local/r2/posts/pe-comprehensive-management/course-selection-guide/article.mdx`、
 `src/lib/magazine-placement.ts`
@@ -220,7 +226,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
    `sidebar: [tankan-reading-guide(sidebar-1)]`、`inlineMobileOnly: false`。
 7. `npm run refresh-indexes` → commit。
 
-### WP5: civil 記事末 DOM 順序の入れ替え（S8）
+### ✅ WP5: civil 記事末 DOM 順序の入れ替え（S8）
 
 対象: `src/app/docs/[...slug]/page.tsx`
 
@@ -234,7 +240,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 4. 検証: civil-1 guide 1 ページ + secondary 1 ページ + PE hub 1 ページを `npm run dev` + curl で
    DOM 順確認。
 
-### WP6: civil CTA 文言の ladder 化（S9/S10/S11）
+### ✅ WP6: civil CTA 文言の ladder 化（S9/S10/S11）
 
 対象: `src/app/docs/[...slug]/page.tsx`（定数文言）、
 `.local/r2/posts/civil-construction-{1,2}/` の secondary 経験記述 MDX
@@ -255,12 +261,12 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 ### 実施順序と依存
 
 ```
-WP1 → WP2 → WP3   （PE 系、独立して即実施可。WP1 が測定開始トリガー）
-WP4               （運営者の講座事実確認が完了してから）
-WP5 → WP6         （civil 系。WP5 の順序変更を先に入れてから文言）
+✅ WP2 → WP1 → WP3   （PE 系、2026-06-11 実施済み）
+✅ WP4                （2026-06-11 実施済み）
+✅ WP5 → WP6          （civil 系、2026-06-11 実施済み）
 ```
 
-WP1 実施日を記録し、4 週後の weekly-review で §4 の差の差を評価する。
+WP1 実施日: **2026-06-11**。4 週後（2026-07-09 前後）の weekly-review で §4 の差の差を評価する。
 
 ---
 
