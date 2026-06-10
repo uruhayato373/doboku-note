@@ -319,7 +319,7 @@ note でマガジンを作成する際は、**マガジン名・説明・価格�
 | 見出し構成 | `node scripts/check-essay-heading-structure.mjs "{persona}" --strict` | 構造違反0（特にR08） |
 | 引用記号 | `grep -rc "^> " {persona}/*/article.md`（Step 6b） | フレーミング文（本記事の構成・本論文は・A案/B案対象者注記・R4は/R5は 等）に blockquote を使わない＝**全記事 0**（公開済 河川/都市計画/下水道が基準）。設問前文・白書原文の真正引用のみ例外 |
 | 記事ごとアセット | Step 6c（cover・hashtags）＋ Step 6e（PDF・冒頭訴求） | **7記事**すべて生成済み（R08予想2分割込み） |
-| マガジン掲載文・価格 | Step 6f | `note掲載文.txt` 作成（タイトル≤30/説明≤400/アピール≤250・段落分割・価格欄）／`_meta.yaml` 不在／note-magazines.ts に `price` |
+| マガジン掲載文・価格 | Step 6f | `note掲載文.txt` 作成（`npm run note-meta-lint` で タイトル≤30/説明≤400/アピール≤250 を検査・段落分割・価格欄＋任意の機械ブロック）／`_meta.yaml` 不在／note-magazines.ts に `price`／ドリフトは `npm run verify-note-magazines -- --vs-txt` |
 
 ---
 

@@ -101,7 +101,7 @@ note 販売は記事単位のため、article.md 単体では公開不可。次�
 - **`{記事dir}/img/cover-{suffix}.png`** の有無（選択科目は `cover-II1.png` / `cover-II2.png` / `cover-III.png`、必須Iは `cover.png`。`generate-note-covers.mjs` で生成。ファイル名から機械導出されるため article 名と一致すること）
 - **`{記事dir}/hashtags-{suffix}.txt`** の有無と**タグ数（目安90個・最低でも~80）**＋**1行1個フォーマット（`行数==タグ数`、スペース区切り1行は不可＝note貼付不可）**。生成は `/note-hashtags` スキルが owner。選択科目は `hashtags-II1.txt` / `hashtags-II2.txt` / `hashtags-III.txt`、必須Iは `hashtags.txt`
 - **マガジン階層**: `note掲載文.txt` / `_cover.png` / `hashtags.txt` / `note-magazines.ts` 登録（公開前 published:false）/ `magazine-placement.ts` 配線の有無。**`note-magazines.ts` の登録確認は id（`pe-construction-road-magazine` 等）で検索する**（"BK-01" 文字列では空振りする＝誤検知に注意）
-- **`note掲載文.txt`（コピペ用・総監模範論文と同方式。旧 `_meta.yaml` は廃止）**: 4セクション（■マガジンタイトル≤30字／■価格／■説明≤400字／■アピールポイント≤250字）が揃い各字数上限内であること。「元公務員（発注者）からのコメントを収録」等の廃止節言及が無いこと。**選択科目 dir に旧 `_meta.yaml` が残っていれば `issues` に列挙**（note掲載文.txt へ移行）
+- **`note掲載文.txt`（マガジン設定の単一SoT。旧 `_meta.yaml` は廃止）**: 4セクション（■マガジンタイトル／■価格／■説明／■アピールポイント）＋ **■機械用ブロック（セット価格/単品価格・編集しない自動同期）** で構成。字数上限は **`npm run note-meta-lint`**（タイトル≤30/説明≤400/アピール≤250）で検査し、違反を `issues` に列挙。「元公務員（発注者）からのコメントを収録」等の廃止節言及が無いこと。**■機械用ブロックは正常（flag しない）**。**選択科目 dir に旧 `_meta.yaml` が残っていれば `issues` に列挙**（note掲載文.txt へ移行）
 - **記事本文のプレースホルダー残骸**: `（※note公開後にURLを追加予定）` 等のドラフト文字列・未リンクの「本マガジンもあわせてご覧ください」自己言及ブロックが本文に無いこと（あれば `issues` に列挙）
 - **ファイル構成（2026-06-10〜・区分1ファイル方式）**: 選択科目 dir は `article-II1.md` + `article-II2.md` + `article-III.md` の3記事（各記事が当該区分の全選択肢を収録）。**選択科目 dir に `article.md` があってはならない**（旧方式の III 片側残骸＝重複。あれば `issues` に列挙）。必須I dir は `article.md` 1ファイル。採点・梱包確認は `article*.md` 全件を対象にする
 
