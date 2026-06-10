@@ -237,7 +237,11 @@ utmCampaign: pe-construction-secondary
 https://note.com/dobokunote/m/m0f3bc3933454
 ```
 
-> **必須科目I（exam_type=I）の記事**は逆向きに、該当しやすい選択科目マガジン（道路等 `pe-construction-{subject}-magazine`）への CTA にする（同一マガジンの自己言及は避ける）。当面マッピング未確定の場合は現行維持でも可。**選択科目→必須I のクロスセルを最優先**で実装すること。
+> **末尾CTAは全区分で必須科目I マガジンに統一**（2026-06-10）。リンク先は note-magazines.ts の `pe-construction-required-magazine`＝公開済 `https://note.com/dobokunote/m/m0f3bc3933454`。文面のみ区分で出し分ける：
+> - **選択科目（II-1/II-2/III）**: 「選択科目に加えて必須科目I の対策が欠かせません…必須科目I のフル模範解答集はこちら」のクロスセル
+> - **必須科目I（exam_type=I）**: 「本記事は年度別。全年度（R03〜R07）をそろえた必須科目I 模範解答集（セット）はこちら」の単品→セット アップセル
+>
+> いずれもサイト無料ページ（doboku-note.com/docs）を末尾CTAに使わない（有料ファネル維持）。
 
 ### Step 5: 機械検証
 
