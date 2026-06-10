@@ -184,6 +184,9 @@ node .claude/scripts/sns/render-quiz-pack.mjs docs/sns/instagram/_quiz-sample
 | 単独 KW を深掘り（バイラル狙い） | C (単独 KW モード) |
 | 5 管理シリーズ感を出す | A（5 管理同時パック生成可） |
 | 公式の難易度を体感させる | B（5 択・長文） |
+| **既存 note 記事を角度展開（反論・数字・ハウツー等）** | **角度型**（`angle` 指定・[content-angle-policy.md](./content-angle-policy.md)） |
+
+> **コンテンツ角度レイヤー（`angle`）**: A/B/C は出題・知識ベースのシリーズだが、その上に **6 切り口（結論／理由／体験／反論／数字／ハウツー）の角度型**を載せられる（[content-angle-policy.md](./content-angle-policy.md) が真実源）。源は角度が立った既存 note 記事（自動要約ではない＝§9 で廃止した汎用要約の轍を踏まない）。保存狙いの `counter`（反論）が IG Carousel と最も相性が良い。slide-data.json は `meta.angle` で角度を識別し、cover コピーと本文の論理骨子を角度別に切り替える。
 
 ## 7. やらないこと
 

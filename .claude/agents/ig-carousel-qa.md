@@ -38,6 +38,7 @@ Instagram カルーセル設定ファイル（`slide-data.json` v2）と生成 P
 3. 対象の `slide-data.json` とキーワード MDX（slug モード）または対応する過去問 MDX（exam モード）を読む。
 4. **軸 1〜5（テキスト系）**を 1〜5 で採点する:
    - 構成の妥当性／文の完結性／図文整合・figure 判断／字数・視認性／試験的正確性
+   - **角度型（`meta.angle` あり）の場合**は軸1（構成）で角度純度を見る: cover/本文が指定角度の論理骨子（[content-angle-policy.md §6.2](../../docs/reference/content-angle-policy.md)）に沿うか／主角度が 1 つに絞れているか。軸5（正確性）で `experience` のフル放出なし（断片まで・note 有料を割らない）・`number` の出典明記・source の verbatim 転記なしを確認。
    - 軸4（字数）はスキーマの字数ルールに照らして機械的に判定。超過フィールドを指摘に列挙
    - **cover-title は auto-fit (v7.1)**: `node .claude/scripts/lint-stories-titles.mjs --dir <pack-dir>` を実行し出力を Read。ERROR があれば -2 重大減点。WARN/NOTICE は builder が auto-fit するため減点しないが採点コメントに記載
    - 軸5（試験的正確性）は固有名詞・数値・年号・法則名を MDX 本文と厳格に突合

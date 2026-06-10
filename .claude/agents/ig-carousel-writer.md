@@ -12,6 +12,7 @@ model: sonnet
 > - スキーマ・字数ルール・figure 判断基準・5 軸の意図 → [`docs/reference/ig-carousel-policy.md`](../../docs/reference/ig-carousel-policy.md)
 > - 6切り口リパーパス戦略（全チャネル共通） → [`docs/reference/sns-repurpose-policy.md`](../../docs/reference/sns-repurpose-policy.md)
 > - 過去問パック（B シリーズ・_exam-packs）のデザイン仕様 → [`docs/design-system/instagram-carousel.md`](../../docs/design-system/instagram-carousel.md)
+> - **角度型（angle モード）の 6 切り口・資産マッピング・Red Line** → [`docs/reference/content-angle-policy.md`](../../docs/reference/content-angle-policy.md)
 >
 > 本ファイルは運用スペック（モデル・I/O・進め方）のみ。
 >
@@ -31,10 +32,11 @@ model: sonnet
 
 | パラメータ | 説明 | 例 |
 |---|---|---|
-| `slug` | キーワードのスラグ | `heinrich-law` |
+| `slug` | キーワードのスラグ（keyword モード） | `heinrich-law` |
 | `date` | 投稿日（カルーセルフォルダの日付） | `2026-05-10` |
 | `category` | カテゴリ | `pe-comprehensive-management`（既定） |
 | `angle` | リパーパス切り口（任意） | `結論` / `理由` / `体験` / `反論` / `数字` / `ハウツー` |
+| `source` | 角度の源となる既存 note 記事 dir / サイト slug（`angle` 指定時） | `docs/note/キーワード集が点にならない理由` |
 
 ## 進め方
 
@@ -78,7 +80,36 @@ model: sonnet
 - `pointText` は a-point 枠の本文。**80 字以内**。「混同を狙う引っかけが頻出」型の論点抽出を 1 行で
 - 旧 `explanationLines` は廃止。書かない
 
-## 品質ガード
+### 角度型カルーセル（angle モード）の執筆ルール【草案】
+
+過去問偏重から脱し、**角度が立った既存 note 記事を源に** 6 切り口で展開するモード（[content-angle-policy.md](../../docs/reference/content-angle-policy.md)）。パイロットは `counter`（反論）→ 保存狙い。
+
+> [!note] Phase 1 は既存 C モード（notebook-* 型）を再利用＝レンダリング可能
+> 角度型は **Phase 1 では既存の「C 単独 KW モード」スライド型（`notebook-cover` / `notebook-board` / `notebook-cta`）を再利用**して slide-data.json を組む。これらは汎用の見出し＋本文を描画するため **renderer のコード改修なしで PNG 化できる**（`ig-post-create --slug` 系の C モードで描画）。`meta.angle` は caption 生成と QA が読むメタ情報。
+> 角度ごとに専用ビジュアル（`counter` の通説/反証コントラスト、`number` の大数字 hero 等）が必要になった場合のみ、専用ビルダー追加を **Phase 2** とする。2 段階の実装設計とローカル検証手順 → `docs/handoffs/2026-06-09-content-angle-implementation.md`。
+
+進め方:
+
+1. `content-angle-policy.md` を読み、指定 `angle` の論理骨子（§6.2）と Red Line（§5）を把握する。
+2. `source`（既存 note 記事 / サイト slug）を読み、その角度で立っている論点を抽出する。**自動要約ではなく、源が手作りで角度が立っていることが前提**（薄い源なら findings に記録して中止）。
+3. `docs/sns/instagram/{date}-{angle}-{topic}/slide-data.json` を執筆する。Phase 1 は `notebook-cover`/`notebook-board`/`notebook-cta` 型で構成し、`meta.angle` に角度を記録、cover コピーと本文スライドを **角度別の論理骨子**で構成する:
+
+   | `angle` | cover コピーの型 | 本文の論理骨子 |
+   |---|---|---|
+   | `conclusion` | 言い切り見出し | 結論 → 根拠 3 点 → 一言補足 |
+   | `reason` | 「なぜ〜なのか」 | 問い → 理由 → 具体 → まとめ |
+   | `experience` | 一人称フック | 状況 → つまずき → 気づき（断片）→ note 誘導 |
+   | `counter` | 「〜は間違い／逆」 | 通説 → 反証 → 正しい理解 → 行動 |
+   | `number` | 数字を主役にした見出し | 数字 → 意味 → 受験への含意（出典明記） |
+   | `howto` | 「〜の手順／コツ」 | 手順 N ステップ → 注意点 → サイト誘導 |
+
+4. **主角度は 1 投稿 1 つに絞る**（混在で訴求がぼやける）。
+5. Red Line（§5）を遵守:
+   - `experience` は **断片・フックまで**。受験記・解答再現のフル放出をしない（note 有料 E-1〜E-4 の囲い込みを割らない）。末尾は note 誘導。
+   - `number` の数値は **出典（白書年度・統計名）を必ず添える**。捏造・曖昧な概数の権威付けを禁ずる。
+   - source 本文の **verbatim 転記をしない**（角度を変えて要約）。
+   - `howto`/`reason` はサイト送客、`experience`/`conclusion`（メリット）は note 送客。
+6. source で気づいた問題は MDX/記事を直接編集せず findings に追記。
 
 - `slide-data.json` は UTF-8・LF。JSON 構造を壊さない。
 - 固有名詞・数値・年号・法則名は MDX 本文に忠実にする（推測で補わない）。

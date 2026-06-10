@@ -100,7 +100,7 @@ docs/sns/x/
 
 ## 5.5 リパーパス戦略（同一コアを6切り口で展開）
 
-→ §5.1 の angle-slice 型を参照。X / IG / YT 全チャネル共通の戦略詳細は [`docs/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md) を参照。
+→ §5.1 の angle-slice 型を参照。X / IG / YT 全チャネル共通の戦略詳細は [`docs/reference/sns-repurpose-policy.md`](./sns-repurpose-policy.md) を参照。投稿型↔角度（`angle`）の全対応表は [`docs/reference/content-angle-policy.md`](./content-angle-policy.md) §6.3 参照。
 
 ## 6. URL / UTM
 
