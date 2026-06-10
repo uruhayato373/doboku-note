@@ -520,7 +520,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想6テーマ（各A/B案2バージョン）の全11記事。必須科目I を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-i-required-cover.webp',
-    price: '¥1,980（11記事セット・単品¥500）',
+    price: '¥2,480（11記事セット・単品¥500）',
     badge: 'note 限定',
   },
 
@@ -535,7 +535,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。道路科目 合格者＋発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
-    price: '¥1,980（18記事セット）',
+    price: '¥2,980（18記事セット・単品¥500）',
     badge: 'note 限定',
   },
   'pe-construction-river-coast-magazine': {
