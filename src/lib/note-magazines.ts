@@ -566,6 +566,90 @@ const MAGAZINES_RAW = {
     price: '¥2,980（18記事セット・単品¥500）',
     badge: 'note 限定',
   },
+  'pe-construction-construction-planning-magazine': {
+    id: 'pe-construction-construction-planning-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜施工計画、施工設備及び積算 選択科目 模範解答集（R03-R07＋R8予想）',
+    description:
+      '技術士第二次試験 建設部門「施工計画、施工設備及び積算」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として施工計画の審査・施工監督・積算審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜施工計画 模範解答集',
+    shortDescription:
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。施工計画・積算を発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-06-construction-planning-cover.webp',
+    price: '¥2,980（18記事セット・単品¥500）',
+    badge: 'note 限定',
+  },
+  'pe-construction-geotechnical-magazine': {
+    id: 'pe-construction-geotechnical-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜土質及び基礎 選択科目 模範解答集（R03-R07＋R8予想）',
+    description:
+      '技術士第二次試験 建設部門「土質及び基礎」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として土質・基礎の設計発注・地盤調査・施工監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜土質基礎 模範解答集',
+    shortDescription:
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。土質・基礎を発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-04-geotechnical-cover.webp',
+    price: '¥2,980（18記事セット・単品¥500）',
+    badge: 'note 限定',
+  },
+  'pe-construction-steel-concrete-magazine': {
+    id: 'pe-construction-steel-concrete-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜鋼構造及びコンクリート 選択科目 模範解答集（R03-R07＋R8予想）',
+    description:
+      '技術士第二次試験 建設部門「鋼構造及びコンクリート」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として橋梁等の鋼・コンクリート構造物の設計発注・点検・補修監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜鋼コン 模範解答集',
+    shortDescription:
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。鋼・コンクリート構造物を発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-05-steel-concrete-cover.webp',
+    price: '¥2,980（18記事セット・単品¥500）',
+    badge: 'note 限定',
+  },
+  'pe-construction-environment-magazine': {
+    id: 'pe-construction-environment-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜建設環境 選択科目 模範解答集（R03-R07＋R8予想）',
+    description:
+      '技術士第二次試験 建設部門「建設環境」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として公共事業の環境影響評価・環境保全対策・建設リサイクルの発注監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜建設環境 模範解答集',
+    shortDescription:
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。環境保全・リサイクルを発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-07-environment-cover.webp',
+    price: '¥2,980（18記事セット・単品¥500）',
+    badge: 'note 限定',
+  },
+  'pe-construction-tunnel-magazine': {
+    id: 'pe-construction-tunnel-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜トンネル 選択科目 模範解答集（R03-R07＋R8予想）',
+    description:
+      '技術士第二次試験 建設部門「トンネル」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）としてトンネル工事の設計発注・施工監督・点検に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜トンネル 模範解答集',
+    shortDescription:
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。山岳・シールド・維持管理を発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-11-tunnel-cover.webp',
+    price: '¥2,980（18記事セット・単品¥500）',
+    badge: 'note 限定',
+  },
+  'pe-construction-port-airport-magazine': {
+    id: 'pe-construction-port-airport-magazine',
+    published: false,
+    noteUrl: '',
+    title: '技術士 建設部門 2次｜港湾及び空港 選択科目 模範解答集（R03-R07＋R8予想）',
+    description:
+      '技術士第二次試験 建設部門「港湾及び空港」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として港湾・漁港・空港施設の設計発注・施工監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+    shortTitle: '建設部門2次｜港湾空港 模範解答集',
+    shortDescription:
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。防波堤・係船岸・空港を発注者視点でフル解答。',
+    imageUrl: '/images/magazines/pe-construction-bk-08-port-airport-cover.webp',
+    price: '¥2,980（18記事セット・単品¥500）',
+    badge: 'note 限定',
+  },
 } as const satisfies Record<string, NoteMagazine>;
 
 export type MagazineId = keyof typeof MAGAZINES_RAW;
