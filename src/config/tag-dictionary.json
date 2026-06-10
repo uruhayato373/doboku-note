@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-10T09:10:31.285Z",
+  "generated_at": "2026-06-10T09:13:44.136Z",
   "summary": {
-    "total_mdx_files": 1024,
+    "total_mdx_files": 1025,
     "total_unique_tags": 116,
     "allowlist_size": 149,
     "known_count": 71,
@@ -1263,7 +1263,7 @@
     },
     {
       "name": "建設部門",
-      "count": 91,
+      "count": 92,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-construction-planning-exam-themes",
@@ -1356,12 +1356,13 @@
         "pe-construction-r07-urban-planning",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
         "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
       "name": "技術士（第二次試験）",
-      "count": 91,
+      "count": 92,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-competency-revision-r8",
@@ -1454,12 +1455,13 @@
         "pe-construction-r07-urban-planning",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
         "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
       "name": "guide",
-      "count": 61,
+      "count": 62,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1522,6 +1524,7 @@
         "pe-construction-pe-secondary-essay-guide",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
         "pe-construction-urban-planning-exam-themes"
       ]
     },
@@ -2250,6 +2253,21 @@
       ]
     },
     {
+      "name": "鋼構造及びコンクリート",
+      "count": 8,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-r01-steel-concrete",
+        "pe-construction-r02-steel-concrete",
+        "pe-construction-r03-steel-concrete",
+        "pe-construction-r04-steel-concrete",
+        "pe-construction-r05-steel-concrete",
+        "pe-construction-r06-steel-concrete",
+        "pe-construction-r07-steel-concrete",
+        "pe-construction-steel-concrete-exam-themes"
+      ]
+    },
+    {
       "name": "construction-plan",
       "count": 7,
       "inAllowlist": true,
@@ -2303,6 +2321,20 @@
         "pe-construction-r05-tunnel",
         "pe-construction-r06-tunnel",
         "pe-construction-r07-tunnel"
+      ]
+    },
+    {
+      "name": "令和8年度",
+      "count": 7,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-competency-revision-r8",
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-geotechnical-exam-themes",
+        "pe-construction-river-coast-exam-themes",
+        "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
@@ -2418,20 +2450,6 @@
       ]
     },
     {
-      "name": "鋼構造及びコンクリート",
-      "count": 7,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-r01-steel-concrete",
-        "pe-construction-r02-steel-concrete",
-        "pe-construction-r03-steel-concrete",
-        "pe-construction-r04-steel-concrete",
-        "pe-construction-r05-steel-concrete",
-        "pe-construction-r06-steel-concrete",
-        "pe-construction-r07-steel-concrete"
-      ]
-    },
-    {
       "name": "電力土木",
       "count": 7,
       "inAllowlist": false,
@@ -2472,15 +2490,15 @@
       ]
     },
     {
-      "name": "令和8年度",
+      "name": "出題傾向",
       "count": 6,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
-        "pe-construction-competency-revision-r8",
         "pe-construction-construction-planning-exam-themes",
         "pe-construction-geotechnical-exam-themes",
         "pe-construction-river-coast-exam-themes",
         "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
         "pe-construction-urban-planning-exam-themes"
       ]
     },
@@ -2550,6 +2568,19 @@
       ]
     },
     {
+      "name": "過去問分析",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-construction-construction-planning-exam-themes",
+        "pe-construction-geotechnical-exam-themes",
+        "pe-construction-river-coast-exam-themes",
+        "pe-construction-road-exam-themes",
+        "pe-construction-steel-concrete-exam-themes",
+        "pe-construction-urban-planning-exam-themes"
+      ]
+    },
+    {
       "name": "reference",
       "count": 5,
       "inAllowlist": true,
@@ -2559,30 +2590,6 @@
         "reference-materials-inverted-siphon",
         "reference-materials-river-abandonment",
         "reference-materials-tunnel-02"
-      ]
-    },
-    {
-      "name": "出題傾向",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-construction-planning-exam-themes",
-        "pe-construction-geotechnical-exam-themes",
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-road-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "過去問分析",
-      "count": 5,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-construction-construction-planning-exam-themes",
-        "pe-construction-geotechnical-exam-themes",
-        "pe-construction-river-coast-exam-themes",
-        "pe-construction-road-exam-themes",
-        "pe-construction-urban-planning-exam-themes"
       ]
     },
     {
@@ -3067,15 +3074,15 @@
     "施工計画、施工設備及び積算",
     "河川、砂防及び海岸・海洋",
     "都市及び地方計画",
+    "鋼構造及びコンクリート",
+    "令和8年度",
     "地方公共団体",
     "建設環境",
     "必須科目",
     "港湾及び空港",
     "鉄道",
-    "鋼構造及びコンクリート",
     "電力土木",
     "ゼネコン",
-    "令和8年度",
     "建設コンサル",
     "施工",
     "砂防",
