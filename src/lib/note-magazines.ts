@@ -217,8 +217,10 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 港湾担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体港湾担当',
-    description: '港湾担当（発注者）視点。港湾施設維持管理版と岸壁改良版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（港湾施設維持管理版/岸壁改良・水深増深版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーン港湾／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。港湾担当（発注者）視点、物流機能維持・CNポート・5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-port-municipality-cover.webp',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
   'essay-park-municipality-magazine': {
