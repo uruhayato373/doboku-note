@@ -106,7 +106,7 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 - ❌ 問題文の創作（`pastexam` は必ずサイト `secondary-r0X` の原典を正として転記、出典明示）。
 - ❌ 出題形式の取り違え（旧3項目/現行2テーマ/選択制を年度・級で正確に）。
 - ❌ サイト・既存マガジンと答案本文の重複。
-- ❌ 本文に価格・note URL を直書き（SoT は note-magazines.ts / _meta.yaml）。
+- ❌ 本文に価格・note URL を直書き（SoT は note-magazines.ts / note掲載文.txt）。
 - ❌ 「模範解答」と断定し丸写しを誘発する表現（「改変前提テンプレ」と明示）。
 
 ## 出力
