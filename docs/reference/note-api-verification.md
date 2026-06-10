@@ -28,12 +28,14 @@ note.com の公開マガジン一覧・各マガジンの収録記事を **publi
 ## 使い方
 
 ```bash
-npm run verify-note-magazines              # 一覧取得 ＋ SoT 突合（高速）
+npm run verify-note-magazines              # 一覧取得 ＋ SoT 突合（note↔note-magazines.ts・高速）
+npm run verify-note-magazines -- --vs-txt   # note掲載文.txt(SoT)↔note も突合（タイトル/価格/説明/文字数）
 npm run verify-note-magazines -- --contents   # 各マガジンの収録記事も取得
 npm run verify-note-magazines -- --json       # スナップショットを JSON 保存
 ```
 
 - スクリプト: `scripts/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
+- **`--vs-txt`**: 各 `note掲載文.txt`（マガジン設定 SoT）を note 公開状態と突合。**説明文の先頭一致でマガジンを同定**（タイトルがドリフトしても照合可）し、タイトル差/価格差/説明差/文字数超過を検出。`note掲載文.txt` を編集したら本モードでドリフトを確認 → `note-edit-magazine` で push、の運用。
 - `--json` 出力先: `.claude/state/note/magazines-snapshot.json`（machine データ。コミット任意、毎回再生成可）。
 
 ### 検出するズレ

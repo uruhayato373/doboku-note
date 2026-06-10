@@ -19,16 +19,18 @@
  *     フォールバック。Nuxt SPA のため通常は API の方が堅牢。
  *
  * 使い方:
- *   npm run verify-note-magazines            # 一覧取得＋SoT突合
+ *   npm run verify-note-magazines              # 一覧取得＋SoT突合（note↔note-magazines.ts）
+ *   npm run verify-note-magazines -- --vs-txt  # note掲載文.txt(SoT)↔note も突合（タイトル/価格/説明/文字数）
  *   npm run verify-note-magazines -- --contents   # 各マガジンの収録記事も取得
  *   npm run verify-note-magazines -- --json       # スナップショットを JSON 保存
  * ---------------------------------------------------------------------------
  */
 
 import { spawnSync } from 'node:child_process';
-import { readFileSync, mkdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, mkdirSync, writeFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -39,6 +41,7 @@ const SNAPSHOT_DIR = join(ROOT, '.claude/state/note');
 const args = process.argv.slice(2);
 const WANT_CONTENTS = args.includes('--contents');
 const WANT_JSON = args.includes('--json');
+const WANT_VS_TXT = args.includes('--vs-txt');
 
 /** curl で JSON を取得（プロキシ + 失効チェック無効化）。HTML が返ったら null。 */
 function curlJson(url) {
@@ -77,6 +80,7 @@ function fetchAllMagazines() {
         id: m.id,
         name: m.name,
         price: m.price ?? null,
+        description: m.description ?? '',
         publishAt: m.publishAt ?? null,
       });
     }
@@ -135,6 +139,36 @@ function priceNum(str) {
   return m ? parseInt(m[1].replace(/,/g, ''), 10) : null;
 }
 
+/** note掲載文.txt（SoT）↔ note 公開状態 突合（--vs-txt）。 */
+const normT = (s) => (s || '').normalize('NFKC').replace(/\s+/g, '');
+function commonPrefix(a, b) { let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++; return i; }
+function findTxtFiles() {
+  let entries = [];
+  try { entries = readdirSync(join(ROOT, 'docs/note'), { recursive: true, encoding: 'utf-8' }); } catch { return []; }
+  return entries.filter((f) => f.endsWith('note掲載文.txt')).map((f) => join(ROOT, 'docs/note', f));
+}
+function reconcileTxt(mags) {
+  const out = [];
+  let checked = 0, unpublished = 0;
+  for (const p of findTxtFiles()) {
+    let m;
+    try { m = parseNoteText(readFileSync(p, 'utf-8')); } catch { continue; }
+    // 説明文の先頭一致で最良マッチ（タイトルがドリフトしても同定できる）
+    let best = null, bs = 0;
+    for (const n of mags) { const s = commonPrefix(normT(m.description), normT(n.description)); if (s > bs) { bs = s; best = n; } }
+    if (bs < 25 || !best) { unpublished++; continue; } // note に該当公開マガジン無し
+    checked++;
+    const label = p.split(/[/\\]/).slice(-2, -1)[0];
+    const a = normT(m.description), b = normT(best.description);
+    if (normT(m.title) !== normT(best.name)) out.push(`[タイトル差] ${label}: txt「${m.title}」≠ note「${best.name}」`);
+    if (String(m.setPrice) !== String(best.price)) out.push(`[価格差] ${label}: txt¥${m.setPrice} ≠ note¥${best.price}`);
+    if (!(a === b || a.startsWith(b.slice(0, 100)) || b.startsWith(a.slice(0, 100)))) out.push(`[説明差] ${label}`);
+    const lint = checkLimits(m);
+    if (lint.length) out.push(`[文字数超過] ${label}: ${lint.join(' / ')}`);
+  }
+  return { checked, unpublished, txtIssues: out };
+}
+
 function main() {
   console.log('=== note 公開マガジン照合 ===');
   console.log(`creator: ${CREATOR}`);
@@ -191,11 +225,21 @@ function main() {
     }
   }
 
-  console.log('\n--- 突合結果 ---');
+  console.log('\n--- 突合結果（note↔note-magazines.ts）---');
   if (issues.length === 0) {
     console.log('  OK: ズレなし（note公開↔SoT配線↔価格すべて一致）');
   } else {
     for (const i of issues) console.log(`  ${i}`);
+  }
+
+  // --- note掲載文.txt（SoT）↔ note 突合（--vs-txt）---
+  let txtIssues = [];
+  if (WANT_VS_TXT) {
+    const r = reconcileTxt(mags);
+    txtIssues = r.txtIssues;
+    console.log(`\n--- 突合結果（note掲載文.txt↔note・公開${r.checked}本/未公開${r.unpublished}本）---`);
+    if (txtIssues.length === 0) console.log('  OK: txt(SoT) と note 公開状態は一致');
+    else for (const i of txtIssues) console.log(`  ${i}`);
   }
 
   // --- 収録記事（任意）---
@@ -231,8 +275,9 @@ function main() {
     console.log(`\nスナップショット保存: ${outPath}`);
   }
 
-  console.log(`\n完了: マガジン ${mags.length} 件 / ズレ ${issues.length} 件`);
-  process.exit(issues.length === 0 ? 0 : 2);
+  const total = issues.length + txtIssues.length;
+  console.log(`\n完了: マガジン ${mags.length} 件 / SoTズレ ${issues.length} 件${WANT_VS_TXT ? ` / txtズレ ${txtIssues.length} 件` : ''}`);
+  process.exit(total === 0 ? 0 : 2);
 }
 
 main();
