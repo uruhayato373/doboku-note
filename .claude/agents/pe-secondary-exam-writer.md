@@ -291,6 +291,10 @@ note の販売は**記事（年度・科目）単位**。article.md だけでは
 
 **マガジン階層**も別途必要：`_meta.yaml` + `_cover.png`（`generate-magazine-covers.mjs`）+ `hashtags.txt` + `src/lib/note-magazines.ts` 登録（公開前 `published:false`）+ `src/lib/magazine-placement.ts` 配線。これらは親オーケストレーションの担当。
 
+> **`_meta.yaml` のフォーマット（区分1ファイル方式・2026-06-10）**: 選択科目は `articleCount: 15`（R03-R07 × 3区分）、`articleStructure: "R03-R07 × (II-1 / II-2 / III)"`、各 `files: [article-II1, article-II2, article-III]`。**設問別の旧命名（`article-II1-1`〜`article-III-2`）・`articleCount: 35`・「20記事」表記を使わない**。`description`/`appealPoint` に**「元公務員（発注者）からのコメントを収録」等の廃止節への言及を入れない**（販売ページのコピーに使われるため整合必須）。
+>
+> **記事本文（article*.md）に `（※note公開後にURLを追加予定）` 等のプレースホルダー行や「本マガジンもあわせてご覧ください」の未リンク自己言及ブロックを置かない**（公開時にドラフト感が出る）。マガジン横断の導線は末尾の必須科目I CTA に集約する。
+
 ### やってはいけないこと
 
 - ❌ 問題文 MDX を読まずに解答を捏造する
