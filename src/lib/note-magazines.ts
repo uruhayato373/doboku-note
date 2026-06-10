@@ -291,15 +291,15 @@ const MAGAZINES_RAW = {
     id: 'r8-essay-forecast',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m6854c7437d4d',
-    title: '令和 8 年度 総監記述式 R8 予想問題集｜6 テーマ × 自治体道路担当フル模範論文',
+    title: '令和8年度 総監記述式 R8予想問題集 2026最終予想｜出る6テーマ × 専門分野を問わない解答骨子',
     description:
-      'R8 予想 6 テーマ（AI 社会・気候変動適応・経済安全保障・災害復旧・資源循環・老朽化インフラ）を自治体道路担当ペルソナで論述。各テーマ予想問題本文＋出題予想根拠＋三層構造解答骨子＋3,000 字級フル模範論文の 6 記事構成。',
+      'R8 で出題が予想される6テーマ（AI社会・気候変動適応・経済安全保障・災害復旧・資源循環・老朽化インフラ）を、出題予想根拠＋専門分野を問わない三層構造の解答骨子＋3ペルソナ別アレンジ早見表で攻略。各テーマに自治体道路担当の3,000字級フル模範論文を実演サンプルとして収録。立場が違っても分野不問の骨子から自分の答案を組める。試験直前の最終予想・総仕上げに。',
     shortTitle: 'R8 予想問題集',
     shortDescription:
-      'R8 予想 6 テーマのフル模範論文集（各 3,000 字級・道路担当ペルソナ）',
+      'R8の出る6テーマを分野不問の三層骨子＋3ペルソナ早見表で攻略。道路担当フル論文を実演収録。試験直前の最終予想。',
     imageUrl: '/images/magazines/magazine-r8-essay-forecast-cover.webp',
     sidebarImageUrl: '/images/magazines/magazine-r8-essay-forecast-sidebar.webp',
-    price: '¥2,480（6本セット、単品比17%OFF）',
+    price: '¥3,480（6テーマセット・各¥700、単品比17%OFF）',
     badge: 'note 限定',
   },
 
