@@ -209,8 +209,10 @@ const MAGAZINES_RAW = {
     noteUrl: '',
     title: '総監記述式 模範論文｜自治体 農業農村整備担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜農業農村整備担当',
-    description: '農業農村整備担当（発注者）視点。農業水利施設保全版とほ場整備版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（農業水利施設・ため池の保全版/ほ場整備・農道新設版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応×農業水利施設の防災強靭化／資源循環×農村インフラの調達更新、各 A案/B案）の計 7 記事。農業農村整備担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-agri-municipality-cover.webp',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
   'essay-port-municipality-magazine': {
@@ -534,11 +536,11 @@ const MAGAZINES_RAW = {
 
   'pe-construction-road-magazine': {
     id: 'pe-construction-road-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m9e825cfd8348',
     title: '技術士 建設部門 2次｜道路 選択科目 模範解答集（R03-R07）',
     description:
-      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1・II-2・III の全答案でフル解答した模範解答集（5年分 × 3答案 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイント・元公務員（発注者）からのコメントを収録。',
+      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜道路 模範解答集',
     shortDescription:
       'R03〜R07 の II-1/II-2/III 全15記事。道路科目 合格者＋発注者視点でフル解答。',
