@@ -126,14 +126,16 @@ async function renderCover({ dirName, title, coverTitle, cover, category, examKe
 }
 
 /**
- * docs/note 配下を再帰的に走査し、article.md を持つディレクトリを
+ * docs/note 配下を再帰的に走査し、article*.md を持つディレクトリを
  * NOTE_DIR からの相対パスで返す。直下記事（slug/）と
  * マガジン配下記事（magazines/{magazine}/{RXX}/）の両方に対応する。
+ * 選択科目の区分1ファイル方式（article.md を持たず article-II1/II2/III.md のみ）の
+ * ディレクトリも検出する（2026-06-10、article.md 限定だと選択科目dirを取りこぼす）。
  */
 function collectArticleDirs(absDir, relDir) {
   const entries = readdirSync(absDir, { withFileTypes: true });
   let result = [];
-  if (entries.some((e) => e.isFile() && e.name === 'article.md')) {
+  if (entries.some((e) => e.isFile() && /^article(-[A-Za-z0-9][A-Za-z0-9-]*)?\.md$/.test(e.name))) {
     result.push(relDir);
   }
   for (const e of entries) {
