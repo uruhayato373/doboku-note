@@ -58,15 +58,15 @@ const MAGAZINES_RAW = {
     id: 'essay-river-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32132ecb3033',
-    title: '総監記述式 模範論文｜建設コンサル河川・砂防 5年分セット',
+    title: '総監記述式 模範論文｜建設コンサル河川・砂防 R3-R7 + R8予想セット',
     description:
-      'R03（データ利活用）〜R07（少子高齢化）の5年分。中堅建設コンサル河川・砂防部門 部長の立場で3,000字級フル論文＋5管理トレードオフ構造を解説。',
+      'R03〜R07 過去問（治水計画の調査計画版/河川管理施設の点検・補修更新設計版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・流域治水／資源循環・建設発生土、各 A案/B案）の計 7 記事。中堅建設コンサル河川・砂防部門 部長（調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     shortTitle: '模範論文｜河川コンサル',
     shortDescription:
-      'R03〜R07 の 5 年分セット。河川・砂防部門 部長視点で 3,000 字フル論文。',
+      'R03〜R07＋R8予想2記事の計7記事セット。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
     imageUrl: '/images/magazines/essay-river-consultant-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-river-consultant-sidebar.webp',
-    price: '¥2,480（5本セット）',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
 
@@ -74,15 +74,15 @@ const MAGAZINES_RAW = {
     id: 'essay-general-contractor-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32aaa137f22e',
-    title: '総監記述式 模範論文｜ゼネコン 5年分セット',
+    title: '総監記述式 模範論文｜ゼネコン R3-R7 + R8予想セット',
     description:
-      'R03（データ利活用）〜R07（少子高齢化）の5年分。中堅ゼネコン土木部門の立場で「安全 × 経済性 × 人的資源」のトレードオフ構造を中核に組み立てた模範論文。',
+      'R03〜R07 過去問（新設・改良施工版/維持・更新・補修施工版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・施工強靭化／資源循環・建設副産物再資源化、各 A案/B案）の計 7 記事。中堅〜大手ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 のトレードオフが主軸。各記事に印刷用PDF付き。',
     shortTitle: '模範論文｜ゼネコン',
     shortDescription:
-      'R03〜R07 の 5 年分セット。ゼネコン土木部門視点、安全 × 経済性 × 人的資源 が主軸。',
+      'R03〜R07＋R8予想2記事の計7記事セット。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
     imageUrl: '/images/magazines/essay-general-contractor-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-general-contractor-sidebar.webp',
-    price: '¥2,480（5本セット）',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
 
@@ -104,8 +104,8 @@ const MAGAZINES_RAW = {
 
   'essay-procurement-municipality-magazine': {
     id: 'essay-procurement-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m55b930cbfcf9',
     title: '総監記述式 模範論文｜自治体 契約・調達担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（入札・契約制度運用版/工事検査・契約変更管理版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×災害対応の契約・調達制度／資源循環×グリーン調達・総合評価制度、各 A案/B案）の計 7 記事。市区町村の契約検査課/技術管理課（発注者）視点、「コスト最適化 × 入札の公正性 × 担い手確保」の調達固有のトレードオフが主軸。各記事に印刷用PDF付き。',
@@ -120,8 +120,8 @@ const MAGAZINES_RAW = {
 
   'essay-standards-municipality-magazine': {
     id: 'essay-standards-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf9f281e2cb32',
     title: '総監記述式 模範論文｜自治体 技術基準担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（設計基準・標準仕様の策定改定版/BIM・CIM・電子納品・技術情報DB版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×技術基準の改定／資源循環×調達仕様の改定、各 A案/B案）の計 7 記事。都道府県の技術管理課（発注者）視点、「技術標準の統一 × 現場個別性 × 技術伝承」の基準担当固有のトレードオフが主軸。各記事に印刷用PDF付き。',
@@ -130,22 +130,6 @@ const MAGAZINES_RAW = {
       'R03〜R07 過去問（全 A/B 2 案）+ R8予想2記事 = 計 7 記事。情報管理・標準化視点の決定版。',
     imageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-standards-municipality-cover.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
-    badge: 'note 限定',
-  },
-
-  'essay-assetmgmt-municipality-magazine': {
-    id: 'essay-assetmgmt-municipality-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜自治体 アセットマネジメント担当 R3-R7 + R8予想セット',
-    description:
-      'R03〜R07 過去問（道路橋梁長寿命化修繕計画版/公共施設等総合管理計画版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×インフラ長寿命化・防災改修／資源循環×更新・修繕の資源循環調達、各 A案/B案）の計 7 記事。市区町村の道路維持課/公共施設マネジメント課（発注者）視点、「劣化・事故防止 × LCC最小化・財政制約 × 住民合意」の維持管理固有のトレードオフが主軸。各記事に印刷用PDF付き。',
-    shortTitle: '模範論文｜自治体 アセットマネジメント担当',
-    shortDescription:
-      'R03〜R07 過去問（全 A/B 2 案）+ R8予想2記事 = 計 7 記事。長寿命化・維持管理視点の決定版。',
-    imageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
@@ -203,18 +187,6 @@ const MAGAZINES_RAW = {
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
-  'essay-agri-municipality-magazine': {
-    id: 'essay-agri-municipality-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜自治体 農業農村整備担当 R3-R7 + R8予想セット',
-    shortTitle: '模範論文｜農業農村整備担当',
-    description:
-      'R03〜R07 過去問（農業水利施設・ため池の保全版/ほ場整備・農道新設版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応×農業水利施設の防災強靭化／資源循環×農村インフラの調達更新、各 A案/B案）の計 7 記事。農業農村整備担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-agri-municipality-cover.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
-    badge: 'note 限定',
-  },
   'essay-port-municipality-magazine': {
     id: 'essay-port-municipality-magazine',
     published: true,
@@ -229,8 +201,8 @@ const MAGAZINES_RAW = {
   },
   'essay-park-municipality-magazine': {
     id: 'essay-park-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m6d1810e50b0a',
     title: '総監記述式 模範論文｜自治体 公園緑地担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体公園緑地担当',
     description:
@@ -253,22 +225,26 @@ const MAGAZINES_RAW = {
   },
   'essay-road-consultant-magazine': {
     id: 'essay-road-consultant-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m09440aa379cf',
     title: '総監記述式 模範論文｜道路・橋梁設計コンサルタント R3-R7 + R8予想セット',
     shortTitle: '模範論文｜道路橋梁コンサル',
-    description: '道路・橋梁設計コンサルタント（受注者）視点。橋梁点検補修設計版と道路改良設計版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（橋梁点検補修設計版/道路改良設計版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・道路防災／資源循環・再生材活用設計、各 A案/B案）の計 7 記事。道路・橋梁設計コンサルタント（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-road-consultant-cover.webp',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
   'essay-urban-consultant-magazine': {
     id: 'essay-urban-consultant-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf0f98993407f',
     title: '総監記述式 模範論文｜都市計画コンサルタント R3-R7 + R8予想セット',
     shortTitle: '模範論文｜都市計画コンサル',
-    description: '都市計画コンサルタント（受注者）視点。立地適正化計画策定版と再開発計画版のA案/B案2バージョン。',
+    description:
+      'R03〜R07 過去問（立地適正化計画策定支援版/市街地整備・再開発計画版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーンインフラ／資源循環・コンパクトシティ資材戦略、各 A案/B案）の計 7 記事。建設コンサル都市計画部門（受注者・調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
     imageUrl: '/images/magazines/essay-urban-consultant-cover.webp',
+    price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
   // 注: essay-nexco-magazine / essay-power-civil-magazine は 2026-06-09 不採用。
@@ -530,124 +506,40 @@ const MAGAZINES_RAW = {
     noteUrl: 'https://note.com/dobokunote/m/m9e825cfd8348',
     title: '技術士 建設部門 2次｜道路 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
-      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/III の3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+      '技術士第二次試験 建設部門「道路」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。道路科目の合格者かつ元・地方自治体の土木職（発注者）の視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1、II-2 は計画系／維持管理／防災施工／施工系の4テーマ、III は脱炭素／4車線化／事前防災／xROAD の4テーマ＝計9記事）を収録した試験直前対策付き（全24記事）。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜道路 模範解答集',
     shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。道路科目 合格者＋発注者視点でフル解答。',
+      'R03〜R07＋R8予想 全24記事（予想は II-2・III を各4テーマ網羅）。道路科目 合格者＋発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
+    price: '¥3,980（24記事セット・単品¥500、約67%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-river-coast-magazine': {
     id: 'pe-construction-river-coast-magazine',
     published: false,
     noteUrl: '',
-    title: '技術士 建設部門 2次｜河川・砂防及び海岸・海洋 選択科目 模範解答集（R03-R07＋R8予想）',
+    title: '技術士 建設部門 2次｜河川・砂防及び海岸・海洋 選択科目 模範解答集（R03-R07）',
     description:
-      '技術士第二次試験 建設部門「河川、砂防及び海岸・海洋」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として河川・砂防・海岸の発注・監督・積算審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+      '技術士第二次試験 建設部門「河川、砂防及び海岸・海洋」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として河川・砂防・海岸の発注・監督・積算審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。',
     shortTitle: '建設部門2次｜河川砂防 模範解答集',
     shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。河川・砂防・海岸を発注者視点でフル解答。',
+      'R03〜R07 の II-1/II-2/III 全15記事。河川・砂防・海岸を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-02-river-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
+    price: '¥1,980（15記事セット）',
     badge: 'note 限定',
   },
   'pe-construction-urban-planning-magazine': {
     id: 'pe-construction-urban-planning-magazine',
     published: false,
     noteUrl: '',
-    title: '技術士 建設部門 2次｜都市及び地方計画 選択科目 模範解答集（R03-R07＋R8予想）',
+    title: '技術士 建設部門 2次｜都市及び地方計画 選択科目 模範解答集（R03-R07）',
     description:
-      '技術士第二次試験 建設部門「都市及び地方計画」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として立地適正化・市街地再開発・公園緑地等の都市計画・まちづくり関連業務の発注・監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
+      '技術士第二次試験 建設部門「都市及び地方計画」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として立地適正化・市街地再開発・公園緑地等の都市計画・まちづくり関連業務の発注・監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜都市計画 模範解答集',
     shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。都市計画・まちづくりを発注者視点でフル解答。',
+      'R03〜R07 の II-1/II-2/III 全15記事。都市計画・まちづくりを発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-03-urban-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
-    badge: 'note 限定',
-  },
-  'pe-construction-construction-planning-magazine': {
-    id: 'pe-construction-construction-planning-magazine',
-    published: false,
-    noteUrl: '',
-    title: '技術士 建設部門 2次｜施工計画、施工設備及び積算 選択科目 模範解答集（R03-R07＋R8予想）',
-    description:
-      '技術士第二次試験 建設部門「施工計画、施工設備及び積算」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として施工計画の審査・施工監督・積算審査に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
-    shortTitle: '建設部門2次｜施工計画 模範解答集',
-    shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。施工計画・積算を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-06-construction-planning-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
-    badge: 'note 限定',
-  },
-  'pe-construction-geotechnical-magazine': {
-    id: 'pe-construction-geotechnical-magazine',
-    published: false,
-    noteUrl: '',
-    title: '技術士 建設部門 2次｜土質及び基礎 選択科目 模範解答集（R03-R07＋R8予想）',
-    description:
-      '技術士第二次試験 建設部門「土質及び基礎」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として土質・基礎の設計発注・地盤調査・施工監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
-    shortTitle: '建設部門2次｜土質基礎 模範解答集',
-    shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。土質・基礎を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-04-geotechnical-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
-    badge: 'note 限定',
-  },
-  'pe-construction-steel-concrete-magazine': {
-    id: 'pe-construction-steel-concrete-magazine',
-    published: false,
-    noteUrl: '',
-    title: '技術士 建設部門 2次｜鋼構造及びコンクリート 選択科目 模範解答集（R03-R07＋R8予想）',
-    description:
-      '技術士第二次試験 建設部門「鋼構造及びコンクリート」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として橋梁等の鋼・コンクリート構造物の設計発注・点検・補修監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
-    shortTitle: '建設部門2次｜鋼コン 模範解答集',
-    shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。鋼・コンクリート構造物を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-05-steel-concrete-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
-    badge: 'note 限定',
-  },
-  'pe-construction-environment-magazine': {
-    id: 'pe-construction-environment-magazine',
-    published: false,
-    noteUrl: '',
-    title: '技術士 建設部門 2次｜建設環境 選択科目 模範解答集（R03-R07＋R8予想）',
-    description:
-      '技術士第二次試験 建設部門「建設環境」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として公共事業の環境影響評価・環境保全対策・建設リサイクルの発注監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
-    shortTitle: '建設部門2次｜建設環境 模範解答集',
-    shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。環境保全・リサイクルを発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-07-environment-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
-    badge: 'note 限定',
-  },
-  'pe-construction-tunnel-magazine': {
-    id: 'pe-construction-tunnel-magazine',
-    published: false,
-    noteUrl: '',
-    title: '技術士 建設部門 2次｜トンネル 選択科目 模範解答集（R03-R07＋R8予想）',
-    description:
-      '技術士第二次試験 建設部門「トンネル」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）としてトンネル工事の設計発注・施工監督・点検に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
-    shortTitle: '建設部門2次｜トンネル 模範解答集',
-    shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。山岳・シールド・維持管理を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-11-tunnel-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
-    badge: 'note 限定',
-  },
-  'pe-construction-port-airport-magazine': {
-    id: 'pe-construction-port-airport-magazine',
-    published: false,
-    noteUrl: '',
-    title: '技術士 建設部門 2次｜港湾及び空港 選択科目 模範解答集（R03-R07＋R8予想）',
-    description:
-      '技術士第二次試験 建設部門「港湾及び空港」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として港湾・漁港・空港施設の設計発注・施工監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・国土交通行政の重点施策・改訂コンピテンシーから導出した予想問題＋フル模範解答（II-1/II-2/IIIの3記事）を収録した試験直前対策付き（全18記事）。各記事に印刷用PDF付き。',
-    shortTitle: '建設部門2次｜港湾空港 模範解答集',
-    shortDescription:
-      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。防波堤・係船岸・空港を発注者視点でフル解答。',
-    imageUrl: '/images/magazines/pe-construction-bk-08-port-airport-cover.webp',
-    price: '¥2,980（18記事セット・単品¥500）',
+    price: '¥1,980（15記事セット）',
     badge: 'note 限定',
   },
 } as const satisfies Record<string, NoteMagazine>;
@@ -662,7 +554,7 @@ export const NOTE_MAGAZINES: Readonly<Record<MagazineId, NoteMagazine>> = MAGAZI
  */
 export function getMagazine(id: MagazineId): NoteMagazine | null {
   const mag = NOTE_MAGAZINES[id];
-  if (!mag || !mag.published || !mag.noteUrl) return null;
+  if (!mag.published || !mag.noteUrl) return null;
   return mag;
 }
 

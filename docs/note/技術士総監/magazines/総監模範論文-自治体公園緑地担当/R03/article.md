@@ -41,7 +41,7 @@ cover:
 
 自治体 公園緑地担当ペルソナの模範論文（R03-R07 過去問＋R8 予想）をまとめた **magazine** もあわせてご覧ください。各記事を単品でそろえるよりお得なセット価格です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m6d1810e50b0a
 
 ---
 
@@ -223,7 +223,7 @@ cover:
 
 まとめて読むことで、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m6d1810e50b0a
 
 ---
 

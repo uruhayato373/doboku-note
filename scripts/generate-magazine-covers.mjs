@@ -84,14 +84,6 @@ const MAGAZINES = [
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
-  {
-    id: 'assetmgmt-municipality',
-    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体アセットマネジメント担当',
-    fillBg: '#16365C',
-    lines: ['総監記述式 模範論文', '自治体 アセットマネジメント担当', '過去問5年＋R8予想セット'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 44,
-  },
   // ----- 既存ペルソナのカバー欠落分（13本・2026-06-09 補完） -----
   {
     id: 'river-municipality',
@@ -122,14 +114,6 @@ const MAGAZINES = [
     magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体砂防担当',
     fillBg: '#16365C',
     lines: ['総監記述式 模範論文', '自治体 砂防担当（発注者）', '過去問5年＋R8予想セット'],
-    category: '技術士（総合技術監理部門）',
-    fontSize: 44,
-  },
-  {
-    id: 'agri-municipality',
-    magazineDir: 'docs/note/技術士総監/magazines/総監模範論文-自治体農業農村整備担当',
-    fillBg: '#16365C',
-    lines: ['総監記述式 模範論文', '自治体 農業農村整備担当', '過去問5年＋R8予想セット'],
     category: '技術士（総合技術監理部門）',
     fontSize: 44,
   },
