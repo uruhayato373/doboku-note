@@ -24,7 +24,7 @@ title: スキル ナビゲーションガイド
 | `/visual-research` | NotebookLM×参照URL → SVG 概念図生成 | `概念図をSVGで`, `URL直接渡す図版`, `/visual-research` |
 | `/exam-guide` | 試験対策ガイド生成（テンプレート駆動） | `試験ガイドを作りたい`, `/exam-guide` |
 | `/civil-keiken-magazine` | 1級・2級土木 施工経験記述 note有料マガジンのフル模範答案を生成・採点（Generator→Evaluator、過去問年度別/テーマ別/予想の3種） | `施工経験記述マガジン`, `模範答案を作成`, `予想問題集を作る`, `/civil-keiken-magazine` |
-| `/pe-secondary-yosou` | 技術士建設部門2次 選択科目の R8予想を1科目分まるごと公開可能品質まで仕上げる統括（生成→**外部事実照合**→6軸採点→梱包→SoT→commit）。**クラウド実行前提**（factcheck は WebSearch 必須） | `建設部門の予想問題を仕上げて`, `BK-0Xの予想`, `{科目}の予想問題集`, `/pe-secondary-yosou` |
+| `/pe-secondary-yosou` | 技術士建設部門2次 選択科目の R8予想を1科目分まるごと公開可能品質まで仕上げる統括（生成→**外部事実照合**→6軸採点→梱包→SoT→commit）。**予想はテーマ別の独立記事（テーマ網羅型・1記事1ディレクトリ）**で作る（年度ミラー/区分1ファイルでなく）。記事内は h2 ブロック構成（予想問題→なぜ出るか→論述の骨子→フル模範解答→採点ポイント）。過去問は区分1ファイル据え置き。**クラウド実行前提**（factcheck は WebSearch 必須） | `建設部門の予想問題を仕上げて`, `BK-0Xの予想`, `{科目}の予想問題集`, `/pe-secondary-yosou` |
 | `pe-secondary-exam-writer` エージェント | 技術士建設部門 2次試験 note有料マガジン用 模範解答を生成（全11専門分野・科目種別I/II-1/II-2/III。元公務員発注者視点注入、合格3科目=合格者訴求・残8科目=発注者監修訴求。過去問＋forecast予想モード） | `建設部門note模範解答`, `技術士2次マガジン`, `pe-secondary-exam-writer` |
 | `pe-secondary-exam-factcheck` エージェント | 建設部門2次 模範解答の技術的事実を WebSearch で外部一次情報に照合（合格科目外の専門ハルシネーション捕捉。QA=構造／note-fact-checker=内部 を補完） | `予想の事実確認`, `技術的事実の照合`, `pe-secondary-exam-factcheck` |
 
