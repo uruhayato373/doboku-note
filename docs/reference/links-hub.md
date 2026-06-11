@@ -117,7 +117,7 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 
 - `docs/project/03_SNS/01_SNS集客戦略.md` — SNS チャネル別の役割（IG = SEO カタログ動線）
 - `docs/project/03_SNS/02_チャネル動線設計.md` — UTM 統一フォーマット・bio link 着地点の Phase 別ロードマップ
-- `docs/note/noteコンテンツ計画.md` — note 商品ラインナップとマガジン進捗
+- `docs/note/技術士総監/noteコンテンツ計画.md` — note 商品ラインナップとマガジン進捗
 - `src/lib/note-magazines.ts` — 有料マガジン SSoT
 - `src/config/author.ts` — 運営者情報 SSoT
 - `docs/reference/content-authoring.md` — MDX/コンテンツ執筆ルール
