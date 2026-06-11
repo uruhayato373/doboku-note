@@ -125,10 +125,6 @@ includedMagazines:
     title: 模範論文 自治体契約調達担当
     singlePrice: 2480
     magazineUrl: ""        # 公開待ち
-  - id: essay-building-municipality-magazine
-    title: 模範論文 自治体建築営繕担当
-    singlePrice: 2480
-    magazineUrl: ""        # 公開待ち
   - id: essay-standard-municipality-magazine
     title: 模範論文 自治体技術基準担当
     singlePrice: 2480
@@ -139,10 +135,6 @@ includedMagazines:
     magazineUrl: ""        # 公開待ち
   - id: essay-sabo-municipality-magazine
     title: 模範論文 自治体砂防担当
-    singlePrice: 2480
-    magazineUrl: ""        # 公開待ち
-  - id: essay-agri-municipality-magazine
-    title: 模範論文 自治体農業農村整備担当
     singlePrice: 2480
     magazineUrl: ""        # 公開待ち
 freeIntro:

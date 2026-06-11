@@ -187,18 +187,6 @@ const MAGAZINES_RAW = {
     price: '¥2,480（7本セット、単品比29%OFF）',
     badge: 'note 限定',
   },
-  'essay-agri-municipality-magazine': {
-    id: 'essay-agri-municipality-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜自治体 農業農村整備担当 R3-R7 + R8予想セット',
-    shortTitle: '模範論文｜農業農村整備担当',
-    description:
-      'R03〜R07 過去問（農業水利施設・ため池の保全版/ほ場整備・農道新設版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応×農業水利施設の防災強靭化／資源循環×農村インフラの調達更新、各 A案/B案）の計 7 記事。農業農村整備担当（発注者）視点、5 管理間トレードオフが主軸。各記事に印刷用PDF付き。',
-    imageUrl: '/images/magazines/essay-agri-municipality-cover.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
-    badge: 'note 限定',
-  },
   'essay-port-municipality-magazine': {
     id: 'essay-port-municipality-magazine',
     published: true,
