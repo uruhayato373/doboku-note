@@ -213,8 +213,8 @@ const MAGAZINES_RAW = {
   },
   'essay-park-municipality-magazine': {
     id: 'essay-park-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m6d1810e50b0a',
     title: '総監記述式 模範論文｜自治体 公園緑地担当 R3-R7 + R8予想セット',
     shortTitle: '模範論文｜自治体公園緑地担当',
     description:
