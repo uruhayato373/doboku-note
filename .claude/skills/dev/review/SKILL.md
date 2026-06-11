@@ -33,10 +33,10 @@ user-invocable: true
 | `.local/r2/posts/**/keyword-*/article.mdx` `.local/r2/posts/**/keyword-2026/article.mdx` | `/review-mobile` → `/check-mdx --rules syntax,links` | 外部リンクが多いページ |
 | `.local/r2/posts/pe-comprehensive-management/**/article.mdx`（キーワードページ）| `/review-mobile` → `/check-mdx --rules syntax` → **`/verify-exam-coverage`** | 総監キーワードページ。過去問論点カバー率の検証込み |
 | `.local/r2/posts/**/*.mdx`（上記以外の MDX） | `/review-mobile` → `/check-mdx --rules syntax` | 通常のキーワード/ガイドページ |
-| `src/components/ui/**/*.tsx` `src/app/globals.css` | `/code-review` → `/design-review --visual` | UI コンポーネント変更は視覚回帰（light/dark × desktop/mobile）まで実施 |
+| `src/components/ui/**/*.tsx` `src/styles/globals.css` | `/code-review` → `/design-review --visual` | UI コンポーネント変更は視覚回帰（light/dark × desktop/mobile）まで実施 |
 | `src/app/**/*.tsx` `src/components/**/*.tsx`（ui 以外） | `/code-review` → `/design-review` | UI コンポーネントは両面チェック |
 | `src/**/*.ts` `src/**/*.tsx`（UI以外） | `/code-review` | ロジック・ユーティリティは品質のみ |
-| `src/**/*.css` `src/**/*.scss` `src/app/globals.css` | `/design-review` | デザインシステム準拠 |
+| `src/**/*.css` `src/**/*.scss` `src/styles/globals.css` | `/design-review` | デザインシステム準拠 |
 | `docs/project/*.md` | `/critical-review` | 設計書・戦略ドキュメント |
 | `docs/note/**/*.md` | `/critical-review` | note 記事 |
 | それ以外（判定不能） | ユーザに確認 | 下記「判定できないとき」を参照 |

@@ -123,7 +123,7 @@ UI コンポーネントを書く Generator（Claude Code 本体）と視覚回�
 
 **対象**:
 - `src/components/ui/**/*.tsx`
-- `src/app/globals.css`（デザイントークン定義）の変更時
+- `src/styles/globals.css`（デザイントークン定義）の変更時
 
 **対象外**:
 - `.mdx` ファイル → `/improve-article --mode verify` で振り分け
