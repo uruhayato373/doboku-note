@@ -99,5 +99,5 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 - `.claude/design-system/` — 移行先は `docs/design-system/`
 - `.claude/reference/docs-issue-separation.md` — 削除済み。本ドキュメントに統合 <!-- doc-ref:ignore -->
 - GitHub Issue — 廃止。タスクは `docs/todo/` に集約
-- `task-queue.json` — 廃止（2026-06-10）。`docs/todo/` に移行
-- `docs/project/TODO.md` — 廃止（2026-06-10）。自動生成ビューは不要と判断 <!-- doc-ref:ignore -->
+- `task-queue.json` + `build-todo-view.mjs` + `npm run build-todo` — 廃止完了（2026-06-11）。CI 3本の自動起票・lib スクリプト・全スキル/エージェント参照を撤去し `docs/todo/`（手動運用）へ一本化。CI の違反検出は「CI 失敗 → GitHub 通知 → 手動起票」に置換
+- `docs/project/TODO.md` — 廃止（自動生成ビューは不要と判断）。task-queue.json 撤去で生成元も消滅 <!-- doc-ref:ignore -->

@@ -25,7 +25,7 @@ description: >
 | 計測対象 URL | `.claude/config/psi-urls.txt` | 新試験追加・テンプレ変更時 |
 | Strategy | `mobile` + `desktop` | モバイルのみに絞るなら mobile だけに |
 | 実行頻度 | 日次 JST 02:00（GitHub Actions） | `.github/workflows/psi-audit.yml` の cron |
-| 通知 | しきい値違反時に task-queue.json へ append（dedupe_key で重複防止） | 同 workflow の最終ステップ |
+| 通知 | しきい値違反時に CI を失敗させ GitHub 通知（docs/todo/ に手動起票） | 同 workflow の最終ステップ |
 
 変更時は config を編集してから本スキルを再実行する。
 
@@ -54,7 +54,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 1. `npm run fetch-psi-audit` で代表ページを計測
 2. `npm run psi-audit:check` でしきい値判定
 3. 結果を `develop` ブランチの `.claude/state/metrics/psi/` に直接 commit（`[skip ci]` 付き、ci.yml を回さない）
-4. しきい値違反があれば `.claude/state/task-queue.json` に append（`source: ci:psi-audit`、`dedupe_key: ci:psi-audit:threshold`）し `npm run build-todo` で `docs/todo/` を再生成
+4. しきい値違反があれば CI を失敗させて GitHub 通知（違反内容を docs/todo/ に手動起票）
 
 必要な GitHub Secret:
 - `PSI_API_KEY`（Google Cloud Console で発行した PageSpeed Insights API キー）

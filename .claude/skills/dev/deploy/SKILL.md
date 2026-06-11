@@ -96,7 +96,7 @@ curl -s https://doboku-note.pages.dev | grep -c "<main>"
 
 - HTTP 200 かつ `<main>` が 1 以上 → 正常
 - 500 の場合 → Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）
-- `<main>` が 0 → SSR 壊れ。`task-queue.json` に起票してユーザーに報告
+- `<main>` が 0 → SSR 壊れ。ユーザーに即報告し docs/todo/ に起票
 
 ### Step 8: 完了報告
 

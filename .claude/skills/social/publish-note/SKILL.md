@@ -33,7 +33,7 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 | ハッシュタグ | 記事内 | **`<RXX>/hashtags.txt`**（90 個前後・単一行 space 区切り） |
 | アイキャッチ | 生成画像 | **`<RXX>/img/cover.png`** |
 | 購入特典PDF | なし | **`<RXX>/模範論文-*.pdf`**（有料エリアに添付＝半自動） |
-| 公開URL記録 | `note-published-urls.json` + DB | **各記事 frontmatter `noteUrl`/`noteId`** ＋ `src/lib/note-magazines.ts`（マガジンURL・published） |
+| 公開URL記録 | `note-published.json`（items） | **各記事 frontmatter `noteUrl`/`noteId`** ＋ `src/lib/note-magazines.ts`（マガジンURL・published） |
 
 ## 引数（バッチ対応）
 

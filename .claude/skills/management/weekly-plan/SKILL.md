@@ -32,11 +32,11 @@ node .claude/scripts/snapshot-weekly-metrics.mjs
 
 > 計測は CI/CD 供給が正（`fetch-metrics.yml` 金 06:00 JST / `psi-audit.yml` 日次）。ローカル creds は設計上不要で「計測基盤未整備」とは扱わない。恒久ルール: `docs/reference/measurement-incidents.md`（2026-06-05）。
 
-### Phase 0.5: 閾値違反の task-queue 登録（Weekly Metrics PDCA）
+### Phase 0.5: 閾値違反の抽出（docs/todo/ 反映候補）
 
-Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を読み、以下の閾値ルールで違反項目を抽出し、`.claude/state/task-queue.json` にタスクとして登録する（旧 Umbrella #82 配下の子 Issue 起票の置換）。
+Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を読み、以下の閾値ルールで違反項目を抽出する。**task-queue.json 自動登録は廃止（2026-06-11、docs/todo/ 手動運用へ一本化）**。抽出した違反は Phase 1 Agent C の出力に含め、Phase 3「今週のタスク」候補としてユーザーが `docs/todo/` にキュレーションする。
 
-#### 登録対象の閾値
+#### 抽出対象の閾値
 
 | ソース | メトリクス | 閾値 | 優先度 |
 |---|---|---|---|
@@ -51,24 +51,13 @@ Phase 0 の snapshot 直後、`.claude/state/weekly-metrics/YYYY-Www.json` を�
 
 詳細な条件式は `.claude/agents/metrics-analyzer.md` および `.claude/agents/performance-auditor.md` 参照。
 
-#### 登録手順
+#### 抽出手順
 
-1. `.claude/state/task-queue.json` の既存タスクを読み、同じ週・同じ URL・同じメトリクスの重複がないか `dedupe_key` で確認
-2. 重複がなければ `task-queue.mjs add` で登録（`dedupe_key` が重複起票を防ぐ）:
+1. 上記閾値に該当する違反を一覧化する（URL × メトリクス）
+2. 前週の `docs/todo/weekly.md` と照合し、既に起票済みの項目は「継続」、新規のみ「今週新規」とする（重複起票を避ける）
+3. 抽出結果を Phase 1 Agent C の出力に含める（「閾値違反: 新規 N 件 / 継続 M 件」）。Phase 5 で `docs/todo/weekly.md` への反映候補として提示する
 
-```bash
-node .claude/scripts/lib/task-queue.mjs add \
-  --title "[Weekly/YYYY-Www][パターン名] <メトリクス概要>" \
-  --category <infra|seo|content> --priority <high|mid> \
-  --source skill:weekly-plan \
-  --dedupe-key "weekly:YYYY-Www:<url>:<metric>" \
-  --notes "Snapshot: .claude/state/weekly-metrics/YYYY-Www.json / 検出内容・原因仮説・対処・検証方法"
-node .claude/scripts/build-todo-view.mjs
-```
-
-3. 登録件数を Phase 1 Agent C の出力に含める（「今週新規登録: N 件」）
-
-**登録しない場合**: 「閾値違反なし」と明示的にログに残す。
+**違反なしの場合**: 「閾値違反なし」と明示的にログに残す。
 
 ### Phase 1: コンテキスト収集（並列サブエージェント）
 
@@ -144,12 +133,12 @@ node .claude/scripts/build-todo-view.mjs
 
 ```
 調査方法:
-- .claude/state/task-queue.json の未完了タスク（source: ci:* または category: infra/seo の todo/in_progress/blocked）
+- 前週の `docs/todo/weekly.md` の未完了項目（継続タスク。task-queue.json は廃止）
 - `.claude/state/improvements/psi-*.md` の直近 7 日分（performance-auditor の改善候補レポート）
   - 違反パターン別（LCP 肥大・CLS 発生等）の Critical / High 候補
 
 分析項目:
-- updated からの経過日数（放置期間）— 7 日以上は Must 候補
+- 前週から継続している項目 — 2 週以上の継続は Must 候補
 - priority: high の改善候補は件数多くても上位 2-3 件を Should に入れる
 - 同一 URL に複数タスクがある場合はまとめて 1 タスク化
 
@@ -157,10 +146,10 @@ node .claude/scripts/build-todo-view.mjs
 
 ## オープンの改善タスク
 
-### Critical（放置 7 日以上 または LCP/CLS 大幅超過）
-| ID | 内容 | 放置日数 | 対応方針 |
+### Critical（前週から継続 または LCP/CLS 大幅超過）
+| 対象 | 内容 | 継続 | 対応方針 |
 |---|---|---|---|
-| T-NN | /docs/xxx LCP 4.2s | 10 日 | Hero 画像 priority 指定 |
+| /docs/xxx | LCP 4.2s | 2 週 | Hero 画像 priority 指定 |
 
 ### High（PSI 改善候補から）
 | 候補 | 対象 URL | 改善パターン |
@@ -252,12 +241,12 @@ PDCA_FILE=docs/project/pdca/YYYY-Www.md
 
 ## オープンの改善タスク（前週からの継続）
 
-<!-- Agent C2 が .claude/state/task-queue.json（未完了の ci:* / infra / seo タスク）と
-     .claude/state/improvements/psi-*.md から自動生成。
+<!-- Agent C2 が前週 docs/todo/weekly.md の未完了項目と
+     .claude/state/improvements/psi-*.md から生成。
      Must/Should 候補の根拠となる。 -->
 
-### Critical（放置 7 日以上）
-| ID | 内容 | 放置日数 |
+### Critical（前週から継続）
+| 対象 | 内容 | 継続 |
 |---|---|---|
 
 ### High（今週対応候補）

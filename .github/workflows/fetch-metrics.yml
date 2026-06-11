@@ -125,59 +125,19 @@ jobs:
           git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
           git push origin develop
 
-      # GitHub Issue は廃止。違反検出は task-queue.json に append する
-      # （dedupe_key で重複起票防止 = 旧 find-or-create ロジックの置換）。
-      - name: Append to task-queue on data-integrity violation
+      # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、docs/todo/ 手動運用へ一本化)。
+      # 違反は CI 失敗として通知し、人が docs/todo/ に手動起票する。計測データは前ステップで commit 済み。
+      - name: Fail on data-integrity violation (アラート)
         if: steps.integrity.outputs.exit_code == '1'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          echo "::error::GA4 データ整合性違反を検出（check-data-integrity.mjs）。docs/todo/ に手動で起票してください。"
+          exit 1
 
-          git fetch origin develop
-          git checkout develop
-          git pull --rebase origin develop
-
-          DATE=$(date -u +%Y-%m-%d)
-          node .claude/scripts/lib/task-queue.mjs add \
-            --title "GA4 date 欠損検出 ${DATE}" \
-            --category infra --priority high --source ci:fetch-metrics \
-            --dedupe-key ci:fetch-metrics:data-integrity \
-            --notes "fetch-metrics で GA4 データ整合性違反を検出。詳細は check-data-integrity.mjs の出力（GitHub Actions ログ）"
-          npm run build-todo
-
-          git add .claude/state/task-queue.json docs/project/TODO.md
-          if git diff --cached --quiet; then
-            echo "No task-queue changes to publish"
-            exit 0
-          fi
-          git commit -m "chore(metrics): data-integrity violation -> task-queue $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git push origin develop
-
-      - name: Append to task-queue on daily-anomaly violation
+      - name: Fail on daily-anomaly violation (アラート)
         if: steps.anomaly.outputs.exit_code == '1'
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-          git fetch origin develop
-          git checkout develop
-          git pull --rebase origin develop
-
-          DATE=$(date -u +%Y-%m-%d)
-          node .claude/scripts/lib/task-queue.mjs add \
-            --title "GA4 日次異常検出 ${DATE}" \
-            --category infra --priority high --source ci:fetch-metrics \
-            --dedupe-key ci:fetch-metrics:daily-anomaly \
-            --notes "fetch-metrics で GA4 日次異常を検出。詳細は check-daily-anomaly.mjs の出力（GitHub Actions ログ）"
-          npm run build-todo
-
-          git add .claude/state/task-queue.json docs/project/TODO.md
-          if git diff --cached --quiet; then
-            echo "No task-queue changes to publish"
-            exit 0
-          fi
-          git commit -m "chore(metrics): daily-anomaly violation -> task-queue $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
-          git push origin develop
+          echo "::error::GA4 日次異常を検出（check-daily-anomaly.mjs）。docs/todo/ に手動で起票してください。"
+          exit 1
 
       - name: Cleanup credentials
         if: always()

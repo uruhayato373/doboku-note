@@ -24,7 +24,7 @@
  *   report : 全データを集計してコンソール表示
  *   issue  : civil-quality-scores.json からリライト候補（weighted < threshold）を
  *            markdown レポートに整形 → .tmp/civil-textbook-cycle-report.md
- *            （GitHub Issue は廃止。リライト候補は task-queue.json で追跡）
+ *            （GitHub Issue・task-queue.json は廃止。リライト候補は docs/todo/ で追跡）
  *
  * ──subagent モード（Claude Code 経由で動かす）──
  *   score  : civil-construction-review subagent で全 40 件評価 → civil-quality-scores.json
@@ -568,7 +568,7 @@ function runIssue(args) {
     console.log(`\n[issue] 注: GitHub Issue は廃止。--create は無効です。`);
   }
   console.log(`\n[issue] リライト候補レポートを ${ISSUE_DRAFT_PATH} に生成しました。`);
-  console.log(`[issue] 着手するタスクは .claude/state/task-queue.json に登録してください（category: quality）。`);
+  console.log(`[issue] 着手するタスクは docs/todo/ に追記してください（category: quality）。`);
 }
 
 // ── メイン ──────────────────────────────────────────────────────

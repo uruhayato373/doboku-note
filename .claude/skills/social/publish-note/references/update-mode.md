@@ -16,7 +16,7 @@
 
 ## 対象の制約
 
-- **公開済みの記事のみ**。`.claude/state/note-published-urls.json` の `articles` に
+- **公開済みの記事のみ**。`.claude/state/note-published.json` の `items` に
   該当 slug が無ければ「未公開のため更新不可」で中断する
 - **当面は無料記事を主対象**とする。有料記事の更新は本文差し替え後に有料エリア境界
   （`ここから先は有料部分:`）の再設定が絡むため、Phase 7-Pricing と同じく半自動
@@ -28,7 +28,7 @@ create モードとの差分のみ記す。共通手順は [editor-operations.md
 
 ```
 Phase 0        : draft.md 読み込み（create と同じ。title / body / images を抽出）
-Phase U-0.5    : slug → 公開 URL を note-published-urls.json から引く。無ければ中断
+Phase U-0.5    : slug → 公開 URL を note-published.json（items）から引く。無ければ中断
 Phase 1        : ブラウザ起動 + アカウント照合ゲート（stats47 か。create と同じ）
 Phase U-1      : 既存記事の編集画面を開く（/new ではない）
 Phase U-1.5    : アイキャッチ差し替え（カバー更新時のみ。editor-operations.md Phase 2 と同じ）
@@ -37,7 +37,7 @@ Phase U-3      : タイトル更新（draft.md と差があれば。無ければ
 Phase U-4      : 本文 paste（チャンク分割。editor-operations.md Phase 4-2 と同じ）
 Phase U-5      : 本文画像の再挿入（editor-operations.md Phase 5 と同じ）
 Phase U-6      : 「更新」（create の「公開」ではない）
-Phase 8 後     : note-published-urls.json の該当記事に updated_at を記録（URL は不変）
+Phase 8 後     : note-published.json の該当 item に updated_at を記録（URL は不変）
 → 終了クリーンアップ（SKILL.md と同じ 3 段 + browser-use-user-data-dir kill）
 ```
 

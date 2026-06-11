@@ -4,19 +4,19 @@
 
 ## 情報蓄積ルール（4 ゾーンモデル）
 
-本ディレクトリは **Zone C: 機械可読データ**。CI 出力・監査結果・サイクル状態・`task-queue.json` を JSON で持つ。
+本ディレクトリは **Zone C: 機械可読データ**。CI 出力・監査結果・サイクル状態を JSON で持つ。
 
 | Zone | 置き場 | 用途 |
 |---|---|---|
 | A | `docs/` | 戦略・設計・進捗・週次 PDCA・引き継ぎ（散文 md） |
 | B | `docs/reference/` | 運用手順・ポリシー・レジストリ（散文 md） |
-| **C**（本ディレクトリ） | `.claude/state/*.json`, `.claude/config/*.json` | 機械可読データ・`task-queue.json` |
+| **C**（本ディレクトリ） | `.claude/state/*.json`, `.claude/config/*.json` | 機械可読データ |
 | D | `.claude/skills/`, `.claude/agents/` | 実行可能な能力の定義 |
 
 ### 禁止事項
 
 - **新規 `.md` ファイルを置かない**（本 README.md を除く）。状態・進捗は JSON か Zone A/B の md へ
-- **GitHub Issue は使わない**。やるべきことは `task-queue.json` に集約する
+- **GitHub Issue は使わない**。やるべきことは `docs/todo/`（手動運用）に集約する（旧 `task-queue.json` 自動化は 2026-06-11 廃止）
 
 詳細・判断フロー: [information-architecture.md](../../docs/reference/information-architecture.md)
 
@@ -40,13 +40,13 @@
 
 - **スクリプト**: `.claude/skills/content/quality-cycle/scripts/quality-cycle.mjs` / `.claude/skills/content/civil-textbook-cycle/scripts/civil-textbook-cycle.mjs`
 - **エージェント**: `keyword-rewriter` / `civil-textbook-rewriter` / `performance-auditor` / `metrics-analyzer` / `strategy-advisor`
-- **スキル**: `quality-cycle` / `civil-textbook-cycle` / `exam-keyword-cycle` / `weekly-plan` / `weekly-review` / `nsm-experiment`
+- **スキル**: `quality-cycle` / `civil-textbook-cycle` / `weekly-plan` / `weekly-review` / `nsm-experiment`
 
 ## 設計方針
 
 - **git 管理対象**: 状態遷移の履歴を追跡可能にするため、差分コミットを許容
 - **Next.js ランタイム非依存**: `src/` から import されることはない（エージェント作業領域）
 - **`data/` からの移動**: 旧 `data/*.json` は 2026-04-15 に `.claude/state/` 配下へ集約（ADR: `docs/reference/data-storage-decision.md`）
-- **タスクの単一正源**: やるべきことは `task-queue.json` に集約。`docs/project/TODO.md` が人間用ビュー（生成物・直接編集禁止）
+- **タスクの単一正源**: やるべきことは `docs/todo/`（annual/monthly/weekly、手動運用）に集約。旧 `task-queue.json` + `docs/project/TODO.md` 自動生成は 2026-06-11 廃止
 
 詳細なアーキテクチャは [information-architecture.md](../../docs/reference/information-architecture.md) を参照。

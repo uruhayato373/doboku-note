@@ -193,7 +193,7 @@ ls docs/sns/youtube/$(date +%Y-%m-%d)-r03-pack-01/
 - 戦略: [`docs/project/03_SNS/01_SNS集客戦略.md`](../../../../docs/project/03_SNS/01_SNS集客戦略.md) v7
 - 品質ルーブリック: [`docs/reference/yt-shorts-publisher-policy.md`](../../../../docs/reference/yt-shorts-publisher-policy.md)
 - 上流: `ig-reel-create` スキル（IG Reels mp4 を生成）+ `ig-reels-writer` エージェント（script.json 執筆）
-- 親タスク: task-queue T-005c（YT 派生スクリプト + Evaluator、v7 Phase D）
+- 親タスク: YT 派生スクリプト + Evaluator（v7 Phase D。docs/todo/ で追跡）
 
 ## 改訂履歴
 

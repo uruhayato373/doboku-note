@@ -76,7 +76,7 @@ model: sonnet
 
 ## 出力先
 
-会話内で surface する。恒久保存が必要な分析は `/weekly-plan` の本文（`docs/project/pdca/YYYY-Www.md`）に反映するか、`.claude/state/task-queue.json` にタスクとして登録する。
+会話内で surface する。恒久保存が必要な分析は `/weekly-plan` の本文（`docs/project/pdca/YYYY-Www.md`）に反映するか、`docs/todo/` にタスクとして追記する。
 
 ## コンテンツ優先度の評価基準
 
