@@ -63,6 +63,13 @@
             "timeout": 30,
             "statusMessage": "origin との同期状況を確認中...",
             "async": true
+          },
+          {
+            "type": "command",
+            "command": "node scripts/prune-tmp.mjs 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": ".tmp の古いスクラッチを掃除中...",
+            "async": true
           }
         ]
       }
