@@ -134,22 +134,6 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  'essay-assetmgmt-municipality-magazine': {
-    id: 'essay-assetmgmt-municipality-magazine',
-    published: false,
-    noteUrl: '',
-    title: '総監記述式 模範論文｜自治体 アセットマネジメント担当 R3-R7 + R8予想セット',
-    description:
-      'R03〜R07 過去問（道路橋梁長寿命化修繕計画版/公共施設等総合管理計画版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×インフラ長寿命化・防災改修／資源循環×更新・修繕の資源循環調達、各 A案/B案）の計 7 記事。市区町村の道路維持課/公共施設マネジメント課（発注者）視点、「劣化・事故防止 × LCC最小化・財政制約 × 住民合意」の維持管理固有のトレードオフが主軸。各記事に印刷用PDF付き。',
-    shortTitle: '模範論文｜自治体 アセットマネジメント担当',
-    shortDescription:
-      'R03〜R07 過去問（全 A/B 2 案）+ R8予想2記事 = 計 7 記事。長寿命化・維持管理視点の決定版。',
-    imageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
-    sidebarImageUrl: '/images/magazines/essay-assetmgmt-municipality-cover.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
-    badge: 'note 限定',
-  },
-
   'essay-river-municipality-magazine': {
     id: 'essay-river-municipality-magazine',
     published: true,
