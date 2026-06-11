@@ -10,7 +10,7 @@
 > 残タスク: `02_アフィリエイト提携状況.md` の SAT サイドバー記述更新（WP1-4）。
 
 関連: `02_アフィリエイト提携状況.md`（creative 台帳）/ `src/lib/magazine-placement.ts`（note 配置 SoT）/
-`docs/note/noteコンテンツ計画.md`
+`docs/note/技術士総監/noteコンテンツ計画.md`
 
 ---
 

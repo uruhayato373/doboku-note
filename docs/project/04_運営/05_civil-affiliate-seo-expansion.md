@@ -170,4 +170,4 @@ GSC で `primary-r07-a` は **impr 119 / CTR 0.8% / pos 7.4** ＝ guide より�
 - アフィリエイト提携状況: [02_アフィリエイト提携状況.md](./02_アフィリエイト提携状況.md)
 - 書籍台帳: [docs/reference/book-list.md](../../reference/book-list.md)
 - 収益化戦略: [01_戦略/04_収益化戦略.md](../01_戦略/04_収益化戦略.md)
-- note コンテンツ計画: [docs/note/noteコンテンツ計画.md](../../note/noteコンテンツ計画.md)
+- note コンテンツ計画: [docs/note/技術士総監/noteコンテンツ計画.md](../../note/技術士総監/noteコンテンツ計画.md)

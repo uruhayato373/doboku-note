@@ -18,7 +18,7 @@
 - 5 チャネル全体動線（X / YT / IG / note / Web）→ [03_SNS/02_チャネル動線設計.md](./../03_SNS/02_チャネル動線設計.md)
 - iOS 画面単体の UI 仕様 → [02_iOS画面設計.md](./02_iOS画面設計.md)
 - データ取得契約 → [03_iOSデータパイプライン.md](./03_iOSデータパイプライン.md)
-- note 商品ラインナップ → [../note/noteコンテンツ計画.md](./../../note/noteコンテンツ計画.md)
+- note 商品ラインナップ → [../note/技術士総監/noteコンテンツ計画.md](./../../note/技術士総監/noteコンテンツ計画.md)
 - Red Line 役割分担（iOS vs note vs サイト）→ [01_戦略/04_収益化戦略.md](./../01_戦略/04_収益化戦略.md) §7
 
 ## 1. 3 層エコシステム構造
@@ -404,7 +404,7 @@ func appendUTM(to url: URL, medium: String, campaign: String, content: String? =
 - [03_iOSデータパイプライン.md](./03_iOSデータパイプライン.md) — データ取得契約
 - [../03_SNS/02_チャネル動線設計.md](./../03_SNS/02_チャネル動線設計.md) — 5 チャネル全体動線・UTM 統一フォーマット
 - [../01_戦略/04_収益化戦略.md](./../01_戦略/04_収益化戦略.md) §7 — Red Line 役割分担（iOS / note / Web）
-- [../note/noteコンテンツ計画.md](./../../note/noteコンテンツ計画.md) — note 商品ラインナップ
+- [../note/技術士総監/noteコンテンツ計画.md](./../../note/技術士総監/noteコンテンツ計画.md) — note 商品ラインナップ
 
 ## 11. 次のアクション
 

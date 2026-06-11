@@ -376,7 +376,7 @@ doboku-ios/
 
 - `docs/project/01_戦略/03_事業戦略.md`（v3） — 3 本柱戦略
 - `docs/project/01_戦略/04_収益化戦略.md`（v3） — iOS アプリ位置づけ
-- `../../note/noteコンテンツ計画.md` — note 連携
+- `../../note/技術士総監/noteコンテンツ計画.md` — note 連携
 - 2 次記述式の組み込みは v1.2 予定（記述式パターン分析は task-queue T-017 で進行中）
 
 ## 次のアクション
