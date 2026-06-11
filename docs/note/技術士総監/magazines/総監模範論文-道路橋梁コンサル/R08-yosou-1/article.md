@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-道路橋梁コンサルペルソナ
 utmCampaign: essay-road-consul-r08-yosou-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n60ab56033d14
+noteId: n60ab56033d14
+notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-道路橋梁コンサル
 price: 500
 cover:

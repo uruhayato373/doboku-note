@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体港湾担当ペルソナ
 utmCampaign: essay-port-muni-r03
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n6d097784a683
+noteId: n6d097784a683
+notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体港湾担当
 price: 500
 cover:

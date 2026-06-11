@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 2級土木-施工経験記述-完成答案集
 noteMagazine: 2級土木-施工経験記述-完成答案集
 utmCampaign: civil2-keiken-process
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n05309c70c7eb
+noteId: n05309c70c7eb
+notePublishedAt: 2026-06-03
 coverTitle: ["2級土木 施工経験記述", "工程管理 完成答案集"]
 price: 780
 cover:

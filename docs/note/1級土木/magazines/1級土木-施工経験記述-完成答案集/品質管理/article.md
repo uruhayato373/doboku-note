@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-quality
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n00a296b3089f
+noteId: n00a296b3089f
+notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理 完成答案集"]
 price: 600
 cover:

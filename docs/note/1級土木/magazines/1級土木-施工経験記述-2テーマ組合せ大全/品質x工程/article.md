@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 1級土木-施工経験記述-2テーマ組合せ大全
 noteMagazine: 1級土木-施工経験記述-2テーマ組合せ大全
 utmCampaign: civil1-keiken-combo-quality-process
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/ne0073ada57cd
+noteId: ne0073ada57cd
+notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理×工程管理"]
 price: 600
 cover:

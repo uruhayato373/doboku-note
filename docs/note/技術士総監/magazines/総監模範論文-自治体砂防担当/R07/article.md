@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体砂防担当ペルソナ
 utmCampaign: essay-sabo-muni-r07
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/nb2e21f0fbb7d
+noteId: nb2e21f0fbb7d
+notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体砂防担当
 price: 500
 cover:

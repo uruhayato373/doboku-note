@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体上水道担当ペルソナ
 utmCampaign: essay-water-muni-r07
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n3a7afe94c3cb
+noteId: n3a7afe94c3cb
+notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体上水道担当
 price: 500
 cover:

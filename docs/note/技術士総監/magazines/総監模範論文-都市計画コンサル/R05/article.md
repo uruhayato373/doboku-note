@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-都市計画コンサルペルソナ
 utmCampaign: essay-urban-consul-r05
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/ne2ac276c3795
+noteId: ne2ac276c3795
+notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-都市計画コンサル
 price: 500
 cover:

@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 1級土木-施工経験記述-2テーマ組合せ大全
 noteMagazine: 1級土木-施工経験記述-2テーマ組合せ大全
 utmCampaign: civil1-keiken-combo-safety-env
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n047355a30ea8
+noteId: n047355a30ea8
+notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "安全管理×環境対策"]
 price: 600
 cover:

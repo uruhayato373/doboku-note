@@ -6,9 +6,9 @@ subject: road
 exam_type: III
 forecast: true
 theme: "道路の脱炭素化（カーボンニュートラルポートフォリオ）"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n238cb3cc22b5
+noteId: n238cb3cc22b5
+notePublishedAt: 2026-06-11
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R8予想 III 予想① 脱炭素化"
 cover:

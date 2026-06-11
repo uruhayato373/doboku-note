@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体下水道担当ペルソナ
 utmCampaign: essay-sewage-muni-r08-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/nbca9de8b4e36
+noteId: nbca9de8b4e36
+notePublishedAt: 2026-06-10
 noteMagazine: 総監模範論文-自治体下水道担当
 price: 500
 cover:

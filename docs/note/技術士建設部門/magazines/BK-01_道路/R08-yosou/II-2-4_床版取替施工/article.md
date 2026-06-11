@@ -6,9 +6,9 @@ subject: road
 exam_type: II-2
 forecast: true
 theme: "供用下の橋梁RC床版取替えの施工計画"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n08c5223cca00
+noteId: n08c5223cca00
+notePublishedAt: 2026-06-11
 price: 1980
 coverTitle: "技術士 建設部門｜道路 R8予想 II-2 予想④ 橋梁RC床版取替"
 cover:

@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 2級土木-施工経験記述-過去問模範答案集
 noteMagazine: 2級土木-施工経験記述-過去問模範答案集
 utmCampaign: civil2-keiken-past-r04
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n9779e8f69932
+noteId: n9779e8f69932
+notePublishedAt: 2026-06-02
 coverTitle: ["2級土木 施工経験記述", "令和4年度 過去問"]
 price: 600
 cover:

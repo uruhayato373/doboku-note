@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-process
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n9039d688a0fe
+noteId: n9039d688a0fe
+notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "工程管理 完成答案集"]
 price: 600
 cover:

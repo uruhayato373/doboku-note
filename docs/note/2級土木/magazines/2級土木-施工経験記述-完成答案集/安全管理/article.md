@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 2級土木-施工経験記述-完成答案集
 noteMagazine: 2級土木-施工経験記述-完成答案集
 utmCampaign: civil2-keiken-safety
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n356ca0899c14
+noteId: n356ca0899c14
+notePublishedAt: 2026-06-03
 coverTitle: ["2級土木 施工経験記述", "安全管理 完成答案集"]
 price: 780
 cover:

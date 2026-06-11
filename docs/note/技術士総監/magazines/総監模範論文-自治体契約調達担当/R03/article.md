@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体契約調達担当ペルソナ
 utmCampaign: essay-procurement-muni-r03
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/ne93ccf5e81eb
+noteId: ne93ccf5e81eb
+notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体契約調達担当
 price: 500
 cover:

@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-environment
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n842ef5dd4d01
+noteId: n842ef5dd4d01
+notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "環境対策 完成答案集"]
 price: 600
 cover:

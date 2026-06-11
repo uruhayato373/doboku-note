@@ -2,9 +2,9 @@
 notePricing: paid
 noteSeries: 総監模範論文-自治体技術基準担当ペルソナ
 utmCampaign: essay-standard-muni-r04
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/nc287a856fc1f
+noteId: nc287a856fc1f
+notePublishedAt: 2026-06-11
 noteMagazine: 総監模範論文-自治体技術基準担当
 price: 500
 cover:

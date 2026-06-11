@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 1級土木-施工経験記述-過去問模範答案集
 noteMagazine: 1級土木-施工経験記述-過去問模範答案集
 utmCampaign: civil1-keiken-past-r04
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/nf953cb5b1f09
+noteId: nf953cb5b1f09
+notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "令和4年度 過去問"]
 price: 600
 cover:

@@ -3,9 +3,9 @@ notePricing: paid
 noteSeries: 1級土木-施工経験記述-完成答案集
 noteMagazine: 1級土木-施工経験記述-完成答案集
 utmCampaign: civil1-keiken-safety
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: https://note.com/dobokunote/n/n3c00de4e11e4
+noteId: n3c00de4e11e4
+notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "安全管理 完成答案集"]
 price: 600
 cover:
