@@ -237,8 +237,8 @@ const MAGAZINES_RAW = {
   },
   'essay-urban-consultant-magazine': {
     id: 'essay-urban-consultant-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf0f98993407f',
     title: '総監記述式 模範論文｜都市計画コンサルタント R3-R7 + R8予想セット',
     shortTitle: '模範論文｜都市計画コンサル',
     description:
