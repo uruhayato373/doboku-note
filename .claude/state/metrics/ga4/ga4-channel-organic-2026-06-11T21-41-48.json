@@ -1,0 +1,33 @@
+{
+  "meta": {
+    "startDate": "2026-06-04",
+    "endDate": "2026-06-10",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": true,
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Organic Search",
+      "activeUsers": 877,
+      "sessions": 1379,
+      "screenPageViewsPerSession": 2.255982596084119,
+      "averageSessionDuration": 321.6526884822335,
+      "engagementRate": 0.6323422770123278,
+      "bounceRate": 0.36765772298767224
+    }
+  ]
+}
