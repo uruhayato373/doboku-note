@@ -22,6 +22,7 @@
     "note-meta-lint": "node scripts/note-meta-lint.mjs",
     "note-meta-to-txt": "node scripts/note-meta-to-txt.mjs",
     "note-lint": "node scripts/note-lint.mjs",
+    "note-inject-magazine-url": "node .claude/scripts/note/inject-magazine-url.cjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
     "generate-webp": "node .claude/scripts/generate-webp.mjs",

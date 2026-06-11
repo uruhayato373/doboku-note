@@ -300,9 +300,10 @@ content(note): {theme}/article.md を公開レベルに引き上げ（字数圧�
 
 note でマガジンを作成する際は、**マガジン名・説明・価格は `note掲載文.txt`（Step 6f）からコピペ**する。運営者から URL を受領したら：
 
-1. 各記事本文のプレースホルダを実URLに置換：`node .claude/scripts/note/inject-magazine-url.cjs {persona} {magazineURL}`（冒頭・末尾の2箇所×記事数を一括置換）。各記事の frontmatter `noteUrl:`/`noteId:` にも反映（公開済URLの真実源＝記事 frontmatter）
+1. 各記事本文のプレースホルダを実URLに置換：**`npm run note-inject-magazine-url -- {persona} {magazineURL}`**（冒頭・末尾の2箇所×記事数を一括置換。実体は `.claude/scripts/note/inject-magazine-url.cjs`、CRLF保持・旧バリアント吸収・冪等）。各記事の frontmatter `noteUrl:`/`noteId:` にも反映（公開済URLの真実源＝記事 frontmatter）
+   - **手作業で置換しない**: `sed -i` は CRLF を LF に壊す、`{{MAGAZINE_URL}}` 以外の旧バリアントを取りこぼす、冪等性が無い——を全部自前で再実装することになり事故る（2026-06-11 Opus が既存スクリプトを探さず手置換し CRLF を一度破壊）。必ず上記スクリプトを使う（[[feedback_note_magazine_url_injection]]）。
    - **執筆時の規約**: マガジン誘導は **`{{MAGAZINE_URL}}` を単独行**で書く（推奨・新規はこの形式のみ）。`（{{MAGAZINE_URL}}）` のように**全角括弧で囲まない**／同一行に文を置かない（note でリンクカード化できず、注入後に `（https://note.com/.../m/xxxx）` の壊れたリンクになる＝港湾R03事故、2026-06-10）。
-   - **自動検知**: `scripts/note-lint.mjs`（pre-commit）が「マガジンURL／`{{MAGAZINE_URL}}` の非単独行」を BLOCK する。注入漏れ変種は `inject-magazine-url.cjs` の `PLACEHOLDERS` 配列で吸収（空白・括弧バリアントも登録済）。
+   - **自動検知**: `scripts/note-lint.mjs`（pre-commit）が「マガジンURL／`{{MAGAZINE_URL}}` の非単独行」に加え、**部分注入**（同一マガジンdir内に実URL注入済み記事がありながら `{{MAGAZINE_URL}}` が残る記事＝注入漏れ）を BLOCK し、修正コマンド `npm run note-inject-magazine-url -- <persona> <url>`（persona・実URL自動抽出）を提示する。公開前＝全記事 placeholder のときは発火しない。注入漏れ変種は `inject-magazine-url.cjs` の `PLACEHOLDERS` 配列で吸収（空白・括弧バリアントも登録済）。
 2. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl`（マガジンURL）に更新。`price` フィールドは Step 6f で既に入っているはず（未記載なら追記）
 3. 個別記事も note 投稿済みなら各 PDF を有料エリアに添付（Step 6e の冒頭訴求と対応）
 
