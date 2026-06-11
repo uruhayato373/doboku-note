@@ -60,6 +60,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 4. 執筆後の検証：
    - `node scripts/check-x-length.mjs --draft <NNN>` で文字数 **違反 0**（weighted を目視でも確認）。
    - `node scripts/check-sns-urls.mjs` で **`/docs/` リンクが全て本番に実在**することを確認（broken があれば提案された正 slug に修正）。pre-commit でも `--staged` で検証されるが、執筆段階で先に潰す。
+   - **凍結回避の自己点検（policy §11）**: ドラフト内の各ツイートが near-duplicate テンプレになっていないか（フック・語順・CTA が使い回しでないか）／同一 URL を多数のツイートに貼っていないか／ハッシュタグが毎回まったく同じ固定になっていないかを確認。連投系（1問1答・過去問・angle-slice）は特に骨格の反復に注意し、URL は一部のツイートだけに付ける。
 5. ネタ源 MDX で気づいた doboku-note 側の問題は**直接編集せず** `docs/sns/instagram/_keyword-findings.md` 等の findings に追記。
 
 ## 品質ガード
@@ -68,6 +69,8 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 - 280 weighted 超過を 1 件も残さない（reject の原因）。
 - ハッシュタグ 4 個以上にしない（エンゲージメント低下）。
 - 過去問の**正答全文をそのまま貼らない**（サイト誘導の価値を残す）。
+- **near-duplicate なテンプレ文面を量産しない（凍結回避・policy §11）**。各ツイートでフック・語順・CTA を変え、「【過去問】◯◯／正答の論点は…／詳しくは {URL}」のような定型骨格の反復を避ける。
+- **同一 URL を多数のツイートに貼らない**。連投系は一部のツイートだけに URL を付け、残りはリンクなしにする（X の spam/自動化検知＝凍結リスク回避）。
 - 投稿はしない（予約投稿は `publish-x`、偽成功検証込みで別工程）。
 
 ## 出力

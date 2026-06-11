@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-10",
+  "updatedAt": "2026-06-12",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」の手動転記",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
@@ -32,6 +32,10 @@
     { "date": "2026-06-06", "productId": "article:tankan-calc-6patterns", "title": "総監択一式 頻出計算問題 6パターン完全攻略", "type": "article", "price": 300 },
     { "date": "2026-06-07", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
     { "date": "2026-06-08", "productId": "article:tradeoff-information-management", "title": "情報管理 × 他4管理｜トレードオフ構造と総監的解決策", "type": "article", "price": 500 },
-    { "date": "2026-06-08", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 }
+    { "date": "2026-06-08", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
+    { "date": "2026-06-11", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 },
+    { "date": "2026-06-11", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 3480 },
+    { "date": "2026-06-11", "productId": "article:civil-2-pastexam-essay-r06", "title": "2級土木 施工経験記述 令和6年度 過去問 模範答案（品質管理＋工程管理）", "type": "article", "price": 600 },
+    { "date": "2026-06-11", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 }
   ]
 }

@@ -35,6 +35,7 @@ title: サブエージェント詳細レジストリ
 | X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
 | `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
+| `/doc-sync`（コード変更面の完了時に親が起動）          | `doc-sync-auditor`                                              | 変更 diff × 候補 doc を突合し prose・表・コマンド・件数・閾値の意味的陳腐化を検出（適用は親） |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
@@ -85,9 +86,10 @@ title: サブエージェント詳細レジストリ
 | `ig-highlight-qa`              | Instagram ハイライト の **4 軸**ルーブリック品質評価（サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア）。IG UI セーフエリア侵入（overline が y<200）・本文の y>=1280 侵入・06_materials の note 有料直リンクを重大減点 | Evaluator    | sonnet  | `docs/reference/ig-highlight-design-policy.md` 参照（戦略 v7.1 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7.1）              |
 | `magazine-pdf-builder`         | note マガジンの article.md を「問題文＋解答」紙用 PDF に変換する spec(JSON) を作成し `scripts/magazine-to-pdf.mjs` を実行。新規/構造不明マガジンの include/exclude 設計が主戦場。複数解答（A/B案）両収録を社則化 | Generator    | sonnet  | `/magazine-to-pdf` 連携、`scripts/magazine-to-pdf.mjs` DSL 準拠 | ✅ 運用中（2026-05-29 起動） |
 | `note-cover-writer`            | note 記事の G2 カバー frontmatter（`cover:` ブロック）を1記事ずつ執筆。タイトルを leadIn/hi/hiSuffix/banner/chips×3 に分解。色は書かず文字列のみ（試験色は dir から自動）。注入は `add-note-cover.mjs`（CRLF安全）、再生成は `generate-note-covers.mjs` | Generator    | sonnet  | `docs/design-system/note-cover.md` + `note-cover-tokens.json` 参照、`ogp-create` スキルと対 | ✅ 運用中（2026-05-29 起動） |
-| `x-post-writer`                | X(旧Twitter)投稿 `tweets.md` を多資格（総監/1級土木/2級土木）横断で執筆。過去問/キーワード/テーマからネタ生成（切り口分割 angle-slice・**`experience` 型新設**）、280 weighted 以下・試験別ベースタグ・サイト誘導を遵守。`social-post`/`create-x-card`/`publish-x` と連携 | Generator    | sonnet  | `docs/reference/x-post-policy.md` §5.1 + **`docs/reference/content-angle-policy.md`** 参照、`x-post-qa` と対 | ✅ 運用中（2026-06-10 更新） |
-| `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証。angle-slice 型は体験軸の合格捏造・**軸2 で角度純度（主角度 1 つ・experience 断片）** もチェック）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` + **`docs/reference/content-angle-policy.md`** 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-10 更新） |
+| `x-post-writer`                | X(旧Twitter)投稿 `tweets.md` を多資格（総監/1級土木/2級土木）横断で執筆。過去問/キーワード/テーマからネタ生成（切り口分割 angle-slice・**`experience` 型新設**）、280 weighted 以下・試験別ベースタグ・サイト誘導を遵守。**near-duplicate テンプレ/同一 URL 反復を避ける凍結回避（policy §11）も自己点検**。`social-post`/`create-x-card`/`publish-x` と連携 | Generator    | sonnet  | `docs/reference/x-post-policy.md` §5.1/§11 + **`docs/reference/content-angle-policy.md`** 参照、`x-post-qa` と対 | ✅ 運用中（2026-06-12 更新） |
+| `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証。angle-slice 型は体験軸の合格捏造・**軸2 で角度純度（主角度 1 つ・experience 断片）** もチェック）。**+ 凍結リスク（§11）を重大減点ゲート**（near-duplicate テンプレ/同一 URL 反復/機械的タグ固定）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` §11 + **`docs/reference/content-angle-policy.md`** 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-12 更新） |
 | `x-repost-curator`             | X 引用RP 候補（`candidates.json`）を安全ゲート（誤情報/炎上/宣伝/無関係/古さ）＋関連性で選別し、引用コメントを生成して `approved.json` を出力。**exam 多様性ゲート**: 1セット内で同 exam は1件まで・reposted-log 直近10件を確認して連続回避。完全自動運用ではコメントが無検閲で投稿されるため「迷ったら reject」既定 | Evaluator+Generator | sonnet  | `.claude/skills/social/x-repost/SKILL.md` 参照 | ✅ 運用中（2026-06-08 起動、2026-06-10 exam多様性ゲート追加） |
+| `doc-sync-auditor`             | コード/スクリプト/スキル/設定の変更 diff と候補 doc を突合し、**意味的に陳腐化**した記述（prose・表・コマンド・パス・件数・閾値）を `file:line + 引用 + 矛盾根拠 + 修正案 + severity` で報告。**検出専用＝自動修正しない**。Bash 不可で親（`/doc-sync`）が grep/diff を抽出して渡す。`check-doc-refs`（壊れ参照）・`check-doc-coupling`（台帳もれ）が拾えない semantic staleness を担当 | Evaluator    | sonnet  | `.claude/skills/dev/doc-sync/SKILL.md` 参照、CLAUDE.md §8 | ✅ 運用中（2026-06-12 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 

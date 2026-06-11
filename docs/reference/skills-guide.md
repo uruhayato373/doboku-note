@@ -66,7 +66,7 @@ title: スキル ナビゲーションガイド
 | `/ig-carousel-restyle` | tokens.json 更新後に過去問パック PNG を 3 フォーマット（Carousel/Reels/Stories）統一再生成 | `IGデザイン再適用`, `カルーセル再生成`, `/ig-carousel-restyle --year r07` |
 | `/ig-reel-create` | 過去問パックのカルーセル PNG から 1080×1920 Reels mp4 を生成（VOICEVOX TTS + ffmpeg）。`--exam-dir` で多資格対応（技術士総監 / 1級土木 / 2級土木、2級は年度に z=前期 / k=後期 接尾辞） | `IG リール作成`, `動画化`, `/ig-reel-create --exam-dir 1級土木 --exam r07-pack-01 --skip-png` |
 | `/create-x-card` | tweets.md から X 投稿用サマリカード PNG 生成（多資格＝総監/1級/2級の試験別色・ヘッダに自動切替） | `Xカード作成`, `X投稿カード`, `/create-x-card` |
-| `/publish-x` | Playwright で X 投稿を自動化（即時・予約） | `X投稿`, `自動投稿`, `/publish-x` |
+| `/publish-x` | Playwright で X 投稿を自動化（即時・予約）。**🛑 当面停止中（2026-06-12 凍結・異議却下）**: アカウント解除＋手動低頻度で再凍結しないと確認できるまで使わない（投稿は人手）。再開後も §11 ガード必須（1 日 3〜5 本・時刻ジッタ・連投回避・自動エンゲージ禁止） | `X投稿`, `自動投稿`, `/publish-x` |
 | `/publish-note` | browser-use CLI で note.com/dobokunote に模範論文マガジン記事を下書き/予約投稿（stats47 由来を適応）。本文paste・カバー・タグ自動／有料境界・PDF添付・リンクカードは半手動。**実行は Mac 推奨**（会社PCプロキシ制約） | `note投稿`, `note公開`, `note下書き作成`, `/publish-note <persona> <RXX>` |
 | `/note-magazine-sync` | note.com 公開マガジン（22件）と SoT（note-magazines.ts）の同期ズレを検出・自動修正。SoT 側（未配線/価格ドリフト）は自動 Edit+commit、note.com 側（空マガジン/異質記事）は残件報告。`node scripts/verify-note-magazines.mjs --contents` 駆動（npm run は intermittent 失敗あり → node 直呼び） | `noteの同期確認`, `SoT突合`, `マガジン公開状態チェック`, `ブラウザcliでnoteを確認`, `/note-magazine-sync` |
 | `/note-edit-magazine` | note 有料マガジン設定（タイトル/説明/アピール/価格）と収録記事の単品価格を **`note掲載文.txt`（単一SoT）駆動**で自動編集→保存（Playwright × システム Chrome）。文字数制限ガード（タイトル30/説明400/アピール250・超過 abort）・読み戻し照合・保存後 API 検証。dry-run 必須。文字数ゲートは `npm run note-meta-lint`、読取照合は `/note-magazine-sync`、入口は `npm run note-edit-session` | `noteマガジン編集`, `note価格変更`, `noteタイトル変更`, `/note-edit-magazine --key {key} --dir {magazineDir}` |
@@ -89,6 +89,7 @@ title: スキル ナビゲーションガイド
 | `/diff-r2` | ローカル ↔ R2 の双方向差分検出 | `R2差分`, `/diff-r2` |
 | `/monitor` | バックグラウンド監視 | `監視`, `/monitor` |
 | `/zenn-audit` | Zenn 本番 CSS との差分検出 | `Zenn差分`, `/zenn-audit` |
+| `/doc-sync` | コード/設定変更 diff × 候補 doc を `doc-sync-auditor` で突合し prose 陳腐化を検出→適用（機械ガード check-doc-refs/coupling の意味的な補完） | `ドキュメント同期`, `doc同期`, `仕様ズレ確認`, `/doc-sync` |
 
 ### 分析（analytics）
 
@@ -142,7 +143,7 @@ title: スキル ナビゲーションガイド
 3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `node scripts/publish-ig.mjs` = Graph API・公式）
    - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4 は gitignore（SoT は slide-data + reels/wav）
 4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
-5. `/create-x-card` + `/publish-x` — X 投稿カード作成 → 自動投稿
+5. `/create-x-card` — X 投稿カード作成（`/publish-x` 自動投稿は 2026-06-12 凍結を受け当面停止 → 投稿は人手。skills-guide §69 / policy §11）
 
 **IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
 - `node .claude/scripts/instagram/build-highlight-materials.mjs --all` — 6 ハイライト × 32 PNG 一括生成（モダンシック意匠、ジャンル別カラー）

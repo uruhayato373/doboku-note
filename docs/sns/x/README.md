@@ -121,6 +121,10 @@ node .tmp/count-x-chars.mjs docs/sns/x/draft/<NNN>-<name>/tweets.md
 - ❌ CTA を「詳しい解説 →」「全解説 →」と冗長に書く（**`→ ` 1 文字で十分**）
 - ❌ `▼ Cp（中心が規格中央にある場合）` のような長い行ヘッダ（**`Cp:`** で十分）
 - ❌ 表組み（`| Cp 値 | 判定 |` 形式）— X は表をレンダリングしない上に縦線で字数を浪費
+- ❌ **near-duplicate なテンプレ文面の量産**（「【過去問】◯◯／論点は…／詳しくは {URL}」の骨格反復）— spam 検知＝凍結リスク（凍結回避は `x-post-policy.md` §11）
+- ❌ **同一 URL を連投の何本にも貼る** — 連投系は一部のツイートだけに付け残りはリンクなし
+- ❌ **1 日に大量投稿・同時刻一括予約・バースト連投**（1 日 3〜5 本まで／時刻ジッタ／60〜90 分間隔）
+- ❌ 自動フォロー / 自動いいね / 自動リプライ系ツールの使用（規約直撃）
 
 ## やるべきこと
 
@@ -130,10 +134,12 @@ node .tmp/count-x-chars.mjs docs/sns/x/draft/<NNN>-<name>/tweets.md
 - ✅ URL は **1 本のみ**、utm 必須
 - ✅ 改行は **1 行空け**（連続改行は字数浪費）
 - ✅ ピュア URL は単独行に置く（note リンクカード表示・X もカード化）
+- ✅ **各ツイートでフック・語順・CTA を変える**（連投でも骨格を反復しない・凍結回避 §11）
+- ✅ **投稿は分散**（1 日 3〜5 本／時刻をばらす／半自動生成＋手動投稿が基本）
 
 ## チャネル別 SSOT
 
 - 画像生成: `scripts/gen-x-card.mjs`（[create-x-card](../../../.claude/skills/social/create-x-card/SKILL.md)）
-- 投稿: `.claude/skills/social/publish-x/publish-x.ts`（[publish-x](../../../.claude/skills/social/publish-x/SKILL.md)）
+- 投稿: `.claude/skills/social/publish-x/publish-x.ts`（[publish-x](../../../.claude/skills/social/publish-x/SKILL.md)）— **🛑 自動投稿は 2026-06-12 凍結を受け当面停止。投稿は人手**（再開条件 → `x-post-policy.md` §11.3）
 - 字数検証: `scripts/check-x-length.mjs`
 - マガジン CTA A/B: [magazine-ab-test.md](./magazine-ab-test.md)

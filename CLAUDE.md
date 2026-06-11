@@ -163,8 +163,9 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ### 8. 書く前に読む
 
 - **情報の置き場（4 ゾーンモデル）**: A=`docs/`（戦略・設計・進捗・週次 PDCA・引き継ぎ）/ B=`docs/reference/`（運用手順・ポリシー）/ C=`.claude/state/`・`.claude/config/`（機械データ、`.claude/state/*.md` 新規作成禁止）/ D=`.claude/skills/`・`.claude/agents/`（実行能力）。**タスク管理は `docs/todo/`**（annual / monthly / weekly の3層）。**GitHub Issue は使わない**。真実源・判断フローは [information-architecture.md](docs/reference/information-architecture.md)
-- **スキル/エージェント更新ルール**: `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で `docs/reference/skills-guide.md`（一覧）と `docs/reference/skills-registry.md`（退役ログ）または `docs/reference/agents-registry.md` を必ず更新する
+- **スキル/エージェント更新ルール**: `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で `docs/reference/skills-guide.md`（一覧）と `docs/reference/skills-registry.md`（退役ログ）または `docs/reference/agents-registry.md` を必ず更新する。**追加・削除・description 変更は `npm run check-doc-coupling` が pre-commit で機械検知してコミットを止める**（台帳更新もれ＝capability ドリフトの再発防止。正当に不要なら `SKIP_DOC_COUPLING=1` で回避）
 - **SSOT 参照規律**: doc を移動・リネーム・統廃合したら、参照していたスキル・エージェント・他 docs の `.md` 参照を同一 commit で全更新する。検出は `npm run check-doc-refs`（pre-commit でも staged を自動検査）。例示パスはプレースホルダ、廃止台帳行は `<!-- doc-ref:ignore -->`。真実源は [information-architecture.md](docs/reference/information-architecture.md)「SSOT と参照規律」（2026-06-11 制定、旧体系の壊れ参照 47 件の再発防止）
+- **ドキュメント同期プロトコル（意味的ズレ）**: `src/**` `scripts/**` `.claude/skills/**` `.claude/agents/**` `package.json` `src/config/**` `src/styles/**` 等「**ドキュメント化された面**」を変更したタスクは、**コミット前に `/doc-sync` を1回回す**（変更 diff × 候補 doc を `doc-sync-auditor` で突合し、prose・表・コマンド・件数・閾値の旧仕様化を検出→適用）。`check-doc-refs`/`check-doc-coupling`（機械）が拾えない陳腐化を埋める。純コンテンツ編集（`.local/r2/posts/**` MDX 記事・`docs/note,sns/**` 素材）では回さない（2026-06-12 新設）
 - MDX を追加・編集する前に `docs/reference/content-authoring.md` を Read する
 - **クラウドルーティン作成ルール**: `/schedule`（RemoteTrigger）で定期エージェントを新規作成する前に、必ず `/routines`（または `RemoteTrigger {action:"list"}`）で既存を確認し、同一成果物を生成する重複・cron 衝突がないか検証する（2026-05-30 weekly-review 重複事故の再発防止）
 
