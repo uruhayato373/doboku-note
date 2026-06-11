@@ -79,9 +79,23 @@ npm run note-edit-session -- m6854c7437d4d     # マガジン key だけでも�
 - **保存後検証**: note API（`creators/.../contents?kind=magazine`）で `name`/`price` を実体確認。更新したマガジンは page1 先頭へ移動する（updatedAt 順）。
 - **YAML 値の注入**: heredoc 内の `new RegExp()` はエスケープが壊れる。block scalar 抽出は**リテラル正規表現**で別 node ステップ化し、値を JSON に書き出してから Playwright スクリプトへ渡す。
 
-## 既知の状態（2026-06-10 時点）
+## 記事 frontmatter への公開URL backfill: backfill-note-article-meta
 
-- 公開マガジン 19 件（総監12・建設部門2・1/2級土木5）。SoT noteUrl 配線は一致。
+公開マガジンの収録記事 URL を、`docs/note/**/magazines/` 配下の各 `article.md` frontmatter（`noteUrl` / `noteId` / `notePublishedAt` / `price`）へ書き戻すツール。note 公開後に「ソース側へ URL を記録する」工程を自動化する（マガジン単位の `verify-note-magazines` に対し、こちらは**記事単位**）。
+
+```bash
+node scripts/backfill-note-article-meta.mjs            # dry-run（突合結果と埋める予定を一覧表示）
+node scripts/backfill-note-article-meta.mjs -- --apply # 空フィールドのみ書き込み（既存値は不変）
+```
+
+- **突合**: note 公開 API（`magazines/{key}/notes`）の記事名を NFKC 正規化し、ソース `article.md` の H1 見出しと照合（exact → 失敗時は末尾括弧を除いた語幹一致 loose、語幹が一意なときのみ採用）。dry-run で note 実名を併記し誤マッチを目視検査できる。
+- **冪等**: 既に `/n/` URL が入っている記事は触らない。新マガジン公開後に再実行すれば差分だけ充足（陳腐化を構造的に防ぐ）。
+- **自然に未突合になるもの**: `published:false` の下書きマガジン（note 未公開）、①②等で語幹が衝突するペルソナ R8予想、1ソース÷note複数記事の構造差。dry-run の「未突合」に列挙される。
+- 実績（2026-06-11）: マガジン収録 98 記事を backfill。
+
+## 既知の状態（2026-06-11 時点）
+
+- 公開マガジン 26 件（総監系19・建設部門2・1/2級土木5）。`verify-note-magazines` で **SoTズレ 0 件**（公開↔配線↔価格すべて一致）。
 - **完全パック（m171222175fac）= 53 記事**（ドキュメント記載「6本」と乖離。決定文書 §1・§2・§4 の前提修正が必要）。
-- R8予想問題集（m6854c7437d4d）= note 現価 **¥2,480**（SoT は ¥3,480 に先行変更済 → note.com 側の値上げが未反映）。
-- 建設部門 道路 選択科目（m9e825cfd8348）= 収録 0 件（公開済だが記事未登録）。
+- 解消済みドリフト: R8予想問題集（m6854c7437d4d）= note も **¥3,480** に追従（旧 ¥2,480 ドリフト解消）。建設部門 道路 選択科目（m9e825cfd8348）= **24 記事**登録済（旧 0 件解消）。
+- マガジン収録記事の frontmatter URL は `backfill-note-article-meta`（上節）で 98 記事 backfill 済。
