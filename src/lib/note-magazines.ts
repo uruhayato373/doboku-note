@@ -120,8 +120,8 @@ const MAGAZINES_RAW = {
 
   'essay-standards-municipality-magazine': {
     id: 'essay-standards-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mf9f281e2cb32',
     title: '総監記述式 模範論文｜自治体 技術基準担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（設計基準・標準仕様の策定改定版/BIM・CIM・電子納品・技術情報DB版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×技術基準の改定／資源循環×調達仕様の改定、各 A案/B案）の計 7 記事。都道府県の技術管理課（発注者）視点、「技術標準の統一 × 現場個別性 × 技術伝承」の基準担当固有のトレードオフが主軸。各記事に印刷用PDF付き。',
