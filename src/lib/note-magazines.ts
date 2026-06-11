@@ -225,8 +225,8 @@ const MAGAZINES_RAW = {
   },
   'essay-road-consultant-magazine': {
     id: 'essay-road-consultant-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m09440aa379cf',
     title: '総監記述式 模範論文｜道路・橋梁設計コンサルタント R3-R7 + R8予想セット',
     shortTitle: '模範論文｜道路橋梁コンサル',
     description:
