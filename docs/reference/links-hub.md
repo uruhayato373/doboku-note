@@ -2,7 +2,7 @@
 
 `src/app/links/page.tsx` に実装した SNS bio 用リンクハブ（ブリッジページ）の設計意図・運用方針・メンテ手順をまとめた内部ドキュメント。
 
-最終更新: 2026-05-26
+最終更新: 2026-06-11
 
 ## 1. 目的とポジショニング
 
@@ -42,10 +42,12 @@
 
 1. **プロフィールヒーロー**: アバター + アカウント名 + 1 行ティザー
 2. **導入文**: 運営者の信頼根拠 + サイト/note の役割分担 + 推奨入口の提示
-3. **Featured（M2 完全無料）**: 最目立つ accent カラーボタン
-4. **note 有料マガジン**: 精読ガイド / ゼネコン / 河川コンサル / 自治体道路担当 / R8予想問題集 / 設問3国家施策バンク / 5管理クロストレードオフ（計7件）— `note-magazines.ts` の `MagazineId` から動的取得（`PAID_MAGAZINE_IDS` 順）
-5. **無料サイトコンテンツ**: 総監カテゴリ / 1級土木カテゴリ / About
-6. **SNS**: X
+3. **試験別コンテンツ**（試験ファースト・データ駆動、2026-06-11 改修）: 各試験を〈**無料入口 → 有料マガジン**〉の funnel で構成。**旧グローバル Featured 白書を廃止**し、白書は総監の無料リードへ格下げ（多試験ハブで総監バイアスを排除）。
+   - **無料入口** (`freeLinks`): 各試験のサイト試験ガイド（`/category/*`）。総監はさらに白書R7完全対応集（無料 note）を併置。accent ボーダーで「無料」を識別。
+   - **有料マガジン**: `note-magazines.ts` の `published` を `examOf()`（id prefix）で試験別に自動描画（**ハードコード配列を廃止＝公開すれば自動掲載**）。総監はコア商品個別（**完全パックを accent 先頭**）＋職種別**模範論文ペルソナを「全N本」1エントリに集約**（`isPersonaEssay()`、14職種をボタン化すると長くなるため）。建設部門/1級/2級は個別表示。
+   - 建設部門の無料サイト導線は category `visible:false` のため未掲載（公開化時に `freeLinks` へ追加）。
+4. **運営者**: About カードへ
+5. **SNS**: X
 
 各セクション見出しに「**こんな方へ**」のサブテキストを 1 行添えて、訪問者が自分の目的に合う場所を素早く判断できるようにしている。
 
@@ -55,7 +57,7 @@
 |---|---|---|
 | 運営者情報（名前・アバター・職歴・X URL） | `src/config/author.ts` | プロフィールヒーロー + SNS セクション |
 | 有料マガジン情報（タイトル・description・URL） | `src/lib/note-magazines.ts` | note 有料マガジンセクション |
-| M2 完全無料記事 URL | このページ内に直書き（M2 は note-magazines.ts に含めない仕様） | Featured セクション |
+| M2 完全無料記事 URL | このページ内に直書き（`EXAM_SECTIONS[tankan].freeLinks`、M2 は note-magazines.ts に含めない仕様） | 総監の無料入口 |
 
 **M2 を note-magazines.ts に含めない理由**: M2 は 2026-05-25 に「¥2,480 magazine → 完全無料リード磁石」へ戦略転換され、note 上で単独無料記事として運用されているため、`NoteMagazine` 型（badge / price フィールド前提）に乗せていない。詳細は `docs/handoffs/2026-05-25-whitepaper-r7-free-lead-magnet.md` を参照。
 
@@ -77,24 +79,25 @@ GA4 で SNS bio → /links → 各送客先の流入経路を区別するため�
 
 ## 6. メンテ手順
 
-### 新しい有料マガジンを追加するとき
+### 新しい有料マガジンを追加するとき（データ駆動＝原則ページ編集不要）
 
 1. `src/lib/note-magazines.ts` に新エントリを追加し `published: true` + `noteUrl` を埋める
-2. `src/app/links/page.tsx` の `PAID_MAGAZINE_IDS` 配列に新 `MagazineId` を追加（順序が表示順）
-3. `npm run type-check` で型エラーなしを確認
-4. dev サーバーで `http://localhost:3020/links` を開き目視確認
+2. **これだけで /links に自動掲載される**（`examOf()` が id prefix で試験別セクションへ振り分け）。
+   - 模範論文ペルソナ（`essay-*-(consultant|municipality)-magazine` / `essay-general-contractor-magazine`）は自動的に「職種別 全N本」集約へ加算。
+   - 総監コア商品の表示順を変えるときのみ `TANKAN_CORE_ORDER` を編集。新試験区分を足すときのみ `EXAM_SECTIONS` + `examOf()` を編集。
+3. `npm run type-check` で型エラーなしを確認 → dev で `http://localhost:3020/links` を目視確認
 
 ### マガジンを一時非公開にしたいとき
 
-`note-magazines.ts` の対象エントリの `published: false` に変更するだけで、`getMagazine()` が `null` を返し /links から自動非表示になる。`PAID_MAGAZINE_IDS` 配列を編集する必要はない。
+`note-magazines.ts` の対象エントリを `published: false` に変更するだけで、`getMagazine()` が `null` を返し /links から自動非表示になる（ページ側の編集は不要）。
 
-### Featured（M2）を別の無料記事に切り替えるとき
+### 無料入口（白書・サイトガイド）を切り替えるとき
 
-`src/app/links/page.tsx` 上部の `M2_FREE_NOTE_URL` 定数とその直下のヒーロー導入文・Featured ボタンのタイトル/サブテキストを編集。完全無料リード磁石は試験季節と連動して入れ替わる前提（例: 試験直後は「2026 解答全文再現」が Featured に昇格しうる）。
+`src/app/links/page.tsx` の `M2_FREE_NOTE_URL` 定数、または `EXAM_SECTIONS[].freeLinks` の該当エントリ（label / sub / href）を編集。各試験の無料入口は試験季節と連動して入れ替えてよい（例: 試験直後は「解答全文再現」を総監 `freeLinks` 先頭へ）。
 
 ### 試験季節に合わせた強調変更
 
-試験 3 週前〜直前は M3 R8予想問題集を Featured に並列表示する案あり。実装するなら Featured セクションを `<section>` で 2 つ並べる構成に拡張。優先度判定は試験前 6 週間以内かどうかで `Date` 比較ロジックを入れる選択肢もあるが、現状は手動切替で十分。
+試験 3 週前〜直前は、該当試験の `freeLinks` 先頭に予想・直前系を一時掲出、または `TANKAN_CORE_ORDER` で R8 予想を上位へ移動。`Date` 比較で自動切替も可能だが、現状は手動で十分。
 
 ## 7. やらないこと
 
