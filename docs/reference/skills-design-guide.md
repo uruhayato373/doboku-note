@@ -85,6 +85,14 @@ my-skill/
 - SKILL.md から明示的に「詳細は `references/api-patterns.md` を参照」とリンクする
 - 巨大な表・仕様書・サンプルコードはここに置く
 
+### doc パス参照の規律（壊れ参照の再発防止）
+
+SKILL.md / references から docs を参照するときは [information-architecture.md](information-architecture.md)「SSOT と参照規律」に従う:
+
+- 章番号付きの揺れやすいパスより、安定したインデックス（README・本ガイド）か内容 SSOT を指す
+- 例示パスはプレースホルダ（`{slug}` / `YYYY-Www` / `r0X` 等）で書く（実在参照と区別、ガード誤検知を避ける）
+- スキルが参照する doc を移動・リネームしたら、同一 commit で参照を更新し `npm run check-doc-refs` で検証（pre-commit でも staged を自動検査）
+
 ---
 
 ## 3. SKILL.md 本体の推奨構造

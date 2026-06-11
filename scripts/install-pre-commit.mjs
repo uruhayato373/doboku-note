@@ -40,6 +40,12 @@ node scripts/check-sns-urls.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+# スキル/エージェント/docs の .md 参照がリポジトリ内に実在するか検証（SSOT ポインタ破損の再発防止）
+node scripts/check-doc-refs.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {

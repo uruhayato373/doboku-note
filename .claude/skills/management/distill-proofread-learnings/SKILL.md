@@ -208,7 +208,7 @@ surface した候補を Markdown レポート形式で会話に出力し、ユ�
 **仮説**: [採点軸の改修案 or リライト方法論の改修案]
 **反映先（議論承認後、Claude が同期更新）**:
 - 採点側の場合: `.claude/agents/cem-qa.md` + `docs/reference/content-principles.md` + `templates/cem.md`（3 ファイル同期）+ #205 本文「合意済み」へ
-- リライト側の場合: `.claude/skills/quality/exam-keyword-cycle/SKILL.md` ほか該当 SKILL.md + #206 本文「合意済み」へ
+- リライト側の場合: `.claude/skills/quality/quality-cycle/SKILL.md` ほか該当 SKILL.md + #206 本文「合意済み」へ
 
 **議論開始コマンド案**:
 ```bash
@@ -260,5 +260,5 @@ CLAUDE.md「ハーネス設計原則」との整合:
 - `.claude/state/proofread-learnings/` — 過去の学習ログ蓄積先
 - `.github/ISSUE_TEMPLATE/rubric-review.md` — 採点ルーブリック議論用 Issue テンプレ
 - `.github/ISSUE_TEMPLATE/rewrite-method.md` — リライト方法論議論用 Issue テンプレ
-- `.claude/skills/quality/exam-keyword-cycle/SKILL.md` §「Issue 駆動継続改善ループ」 — 本スキルとの連携全体図
+- `.claude/skills/quality/quality-cycle/SKILL.md` §「Issue 駆動継続改善ループ」 — 本スキルとの連携全体図
 - CLAUDE.md ハーネス設計原則 — Generator/Evaluator 分離・パラメタ化優先

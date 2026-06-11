@@ -9,7 +9,7 @@ sources:
   - https://pe.techno-con.co.jp/
   - https://ejes.jp/course_sogo
 appliesTo:
-  - docs/note/総監受験コスト比較/article.md
+  - docs/note/技術士総監/総監受験コスト比較/article.md
   - .local/r2/posts/pe-comprehensive-management/**
 ---
 

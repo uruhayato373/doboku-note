@@ -27,7 +27,7 @@ BK-04〜11（施工計画・土質及び基礎・鋼構造及びコンクリー�
 
 | パラメータ | 説明 | 例 |
 |---|---|---|
-| `path` | 採点対象 article*.md のフルパス | `docs/note/技術士建設部門/magazines/BK-05_土質基礎/R08-yosou/article-II1.md` |
+| `path` | 採点対象 article*.md のフルパス | `docs/note/技術士建設部門/magazines/{科目}/{年度}/article-II1.md` |
 | `subject` | 専門分野スラッグ（照合先の基準書選定に使う） | `geotechnical` |
 
 ## 照合対象（falsifiable な事実のみ）
@@ -74,7 +74,7 @@ BK-04〜11（施工計画・土質及び基礎・鋼構造及びコンクリー�
 
 ```json
 {
-  "path": "docs/note/技術士建設部門/magazines/BK-05_土質基礎/R08-yosou/article-II1.md",
+  "path": "docs/note/技術士建設部門/magazines/{科目}/{年度}/article-II1.md",
   "subject": "geotechnical",
   "websearch_available": true,
   "claims_checked": 11,

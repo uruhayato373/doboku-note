@@ -54,7 +54,7 @@ npm run psi-audit:check -- --output /tmp/psi-report.md
 1. `npm run fetch-psi-audit` で代表ページを計測
 2. `npm run psi-audit:check` でしきい値判定
 3. 結果を `develop` ブランチの `.claude/state/metrics/psi/` に直接 commit（`[skip ci]` 付き、ci.yml を回さない）
-4. しきい値違反があれば `.claude/state/task-queue.json` に append（`source: ci:psi-audit`、`dedupe_key: ci:psi-audit:threshold`）し `npm run build-todo` で `docs/project/TODO.md` を再生成
+4. しきい値違反があれば `.claude/state/task-queue.json` に append（`source: ci:psi-audit`、`dedupe_key: ci:psi-audit:threshold`）し `npm run build-todo` で `docs/todo/` を再生成
 
 必要な GitHub Secret:
 - `PSI_API_KEY`（Google Cloud Console で発行した PageSpeed Insights API キー）

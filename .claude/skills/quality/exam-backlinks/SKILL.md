@@ -306,7 +306,7 @@ grep -c '��' .local/r2/posts/pe-comprehensive-management/*/article.mdx | gre
 - `src/components/ui/KeywordsInExam/KeywordsInExam.tsx` — 過去問ページ表示
 - `src/components/ui/RelatedKeywords/RelatedKeywords.tsx` — 関連キーワード表示
 - `src/config/pe-chapters.json` — 全キーワードの正規マスタ
-- `docs/project/article-footer-design.md` — 記事末尾の情報設計ルール
+- 記事末尾の情報設計ルール（旧 article-footer-design は廃止、ルールは本スキルのリンク注入仕様に内包）
 
 ## 参照
 

@@ -9,7 +9,7 @@ coverTitle:
   - 公務員が総監を取る
   - 30 年累積 ¥4.5M の return
 noteStatus: draft
-parentArticle: docs/note/総監受験コスト比較/article.md
+parentArticle: docs/note/技術士総監/総監受験コスト比較/article.md
 relatedReferences:
   - docs/reference/pe-cem-pass-rate-history.md
   - docs/reference/pe-cem-school-prices.md

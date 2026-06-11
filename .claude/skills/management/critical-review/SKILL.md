@@ -8,7 +8,7 @@ description: >
 
 ## 引数
 
-$ARGUMENTS — レビュー対象のファイルパス（例: `docs/10_SNS戦略/01_SNSコンテンツ設計.md`）
+$ARGUMENTS — レビュー対象のファイルパス（例: `docs/project/03_SNS/01_SNS集客戦略.md`）
 
 ## 概要
 

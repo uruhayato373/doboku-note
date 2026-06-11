@@ -74,7 +74,7 @@ X 投稿の下書き（`docs/sns/x/draft/<NNN>-<exam>-<topic>/tweets.md`）を**
 
 ```
 === x-post-writer: civil-1 question r06-pack-01 ===
-draft: docs/sns/x/draft/043-civil1-r06頻出/tweets.md
+draft: docs/sns/x/draft/{draft-id}/tweets.md
 ツイート: 4（最大 weighted 268 / 全件 ≤280）
 タグ: #1級土木施工管理技士 #施工管理技士（+論点1）
 findings: 0

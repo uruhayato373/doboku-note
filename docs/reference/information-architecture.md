@@ -70,13 +70,34 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
   settings.local.json
 ```
 
+## SSOT と参照規律
+
+ドキュメントを移動・リネーム・統廃合したときに、参照していたスキル・エージェント・他 docs のパスが黙って壊れる事故（2026-06-11 に旧体系から蓄積した 47 件の壊れ参照が判明）を防ぐための恒久ルール。
+
+### 規律
+
+1. **1 トピック = 1 SSOT**。同じ事実を複数ファイルに重複させない。重複が必要なら「正」を 1 つ決め、他は 1 行ポインタ（`→ 最新は {path} 参照`）にする。
+2. **価格・リリースカレンダー・ロードマップは指定 SSOT のみに置く**。散在させない（真実源は各 `docs/note/{試験}/noteコンテンツ計画.md`）。
+3. **doc を移動・リネーム・統廃合したら、同一 commit で全参照を更新する**。検出は `npm run check-doc-refs`（下記）。
+4. **揺れやすいパスより安定したインデックスを指す**。章番号付き（`04_コンテンツロードマップ.md` 等）は再編で動きやすいので、可能なら README や本ドキュメント、内容 SSOT（`noteコンテンツ計画.md` 等）を参照する。
+5. **例示パスはプレースホルダで書く**（`{slug}` / `{magazine}` / `YYYY-Www` / `r0X` 等）。実在ファイル参照と区別され、ガードが誤検知しない。
+6. **廃止台帳・移行履歴など「死んだパスを記録として残す」行**は行末に `<!-- doc-ref:ignore -->` を付ける（このセクション直後の「廃止済み」がその例）。
+
+### ガード（再発防止）
+
+`scripts/check-doc-refs.mjs` が、スキル・エージェント・docs 内の `.md` / `.mdx` 参照がリポジトリ内に実在するかを検証する。
+
+- 全体検証: `npm run check-doc-refs`
+- pre-commit: staged の `.claude/skills/` `.claude/agents/` `docs/` `CLAUDE.md` を自動検査（`scripts/install-pre-commit.mjs` に登録済み）
+- 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/projects/**`（memory）・`docs/handoffs/**`・`docs/reviews/**`・`docs/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
+
 ## 廃止済み
 
 - `docs/ig-posts/` — 削除済み（2026-05-14）。SSOT は `docs/sns/instagram/`
 - `.claude/reference/` — 削除済み（2026-05-14）。移行先は `docs/reference/`
-- `.claude/content-principles.md` — 移行先は `docs/reference/content-principles.md`
+- `.claude/content-principles.md` — 移行先は `docs/reference/content-principles.md` <!-- doc-ref:ignore -->
 - `.claude/design-system/` — 移行先は `docs/design-system/`
-- `.claude/reference/docs-issue-separation.md` — 削除済み。本ドキュメントに統合
+- `.claude/reference/docs-issue-separation.md` — 削除済み。本ドキュメントに統合 <!-- doc-ref:ignore -->
 - GitHub Issue — 廃止。タスクは `docs/todo/` に集約
 - `task-queue.json` — 廃止（2026-06-10）。`docs/todo/` に移行
-- `docs/project/TODO.md` — 廃止（2026-06-10）。自動生成ビューは不要と判断
+- `docs/project/TODO.md` — 廃止（2026-06-10）。自動生成ビューは不要と判断 <!-- doc-ref:ignore -->

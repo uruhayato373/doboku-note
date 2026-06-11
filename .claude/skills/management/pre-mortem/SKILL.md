@@ -15,7 +15,7 @@ description: >
 
 ### Phase 3.5: ロードマップの Sprint 進捗評価
 
-`docs/02_実装計画/01_実装ロードマップ.md` を読み込み、四半期の区切りとして以下を評価・更新する:
+`docs/project/01_戦略/05_コンテンツロードマップ.md` を読み込み、四半期の区切りとして以下を評価・更新する:
 
 1. **「現在のステータス」テーブル**: Phase 1 で取得した実測値で更新（`/weekly-review` と同じ手順）
 2. **Sprint 完了判定**: 現在の Sprint の「完了条件」を実績データと照合。達成/未達を明記
@@ -47,5 +47,5 @@ description: >
 ## 参照
 
 - `docs/03_レビュー/pre-mortem/` — 過去の Pre-Mortem・対策書・批判的レビュー
-- `docs/02_実装計画/01_実装ロードマップ.md` — Sprint 進捗評価・実測値更新の対象
+- `docs/project/01_戦略/05_コンテンツロードマップ.md` — Sprint 進捗評価・実測値更新の対象
 - `.claude/skills/management/critical-review/SKILL.md` — 批判的レビュー（計画書向け、対になるスキル）

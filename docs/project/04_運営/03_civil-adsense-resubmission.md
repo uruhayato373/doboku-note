@@ -198,6 +198,6 @@ GSC で以下 8 URL を 1 件ずつ URL 検査 → 「インデックス登録�
 
 ## 関連ドキュメント
 
-- アーカイブ戦略: `docs/project/アーカイブ/12_adsense-resubmission-strategy.md`（現存）
+- アーカイブ戦略: 旧 12_adsense-resubmission-strategy（docs/project アーカイブ、廃止済み）
 - task-queue: `.claude/state/task-queue.json` T-010
 - 旧環境のみ（現環境に無し・参照不可）: プラン本体 `gentle-questing-sketch.md` / メモリ `project_quality_cycle_phase_g4.md` / 競合分析 `competitor-audit/2026-04-04_civil-construction-1.md`。再申請判断は本ドキュメントの G1〜G20 を真実源とする。

@@ -238,7 +238,7 @@ node .claude/skills/quality/check-mdx/scripts/rules/legal-citations/fix-legal-ci
 
 ### note-link — note 記事リンクのコンポーネント統一（`lint-mdx-mobile.mjs` ルール 8-3）
 
-note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コンポーネントに統一する規約（→ `.claude/reference/content-authoring.md`「リンク系コンポーネントの使い分け」）。生 markdown リンク・`<Callout type="reference">` 内・`<LinkCard>` で note 記事リンクを書いている箇所を MEDIUM で検出する。
+note.com 記事へのリンク（`note.com/dobokunote/n/`）は `<NoteLink>` コンポーネントに統一する規約（→ `docs/reference/content-authoring.md`「リンク系コンポーネントの使い分け」）。生 markdown リンク・`<Callout type="reference">` 内・`<LinkCard>` で note 記事リンクを書いている箇所を MEDIUM で検出する。
 
 - magazine リンク（`note.com/dobokunote/m/`）は `<MagazineInlineCard>` 担当のため対象外
 - フェンスコードブロック内は対象外

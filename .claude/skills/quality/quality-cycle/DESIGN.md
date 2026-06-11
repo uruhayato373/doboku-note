@@ -4,7 +4,7 @@
 > 現行の仕様（モード一覧・パス・コマンド）は `SKILL.md` を参照すること。
 > 本書は時間が経っても価値が落ちない「なぜこの設計か」のみを残す。
 >
-> **初版**: 2026-04-14（CEM 単独設計として `docs/project/13_quality-cycle-architecture.md` に作成）
+> **初版**: 2026-04-14（CEM 単独設計として作成（当初は docs/project 配下の別ファイル、本 DESIGN.md に統合））
 > **2026-04-23**: civil-textbook プロファイルを統合した汎用スキルに拡張（`--profile {cem|civil-textbook}`）
 > **2026-04-27**: `docs/project/13` を本書に集約し削除
 
@@ -153,5 +153,5 @@ unscored → scored → rewriting → needs-review → verified → approved
 - `.claude/agents/keyword-rewriter.md` / `civil-textbook-rewriter.md` — Generator 真実源
 - `docs/reference/content-principles.md` — コンテンツ原則の真実源
 - `.claude/scripts/lint-mdx-mobile.mjs` — Tier 1 機械的判定
-- `docs/project/アーカイブ/12_adsense-resubmission-strategy.md` — このシステムが使われた最初の文脈（実行は Issue #33）
-- `docs/project/アーカイブ/15_quality-cycle-cycle2-handoff.md` — Cycle 2 の handoff 履歴
+- このシステムが使われた最初の文脈（AdSense 再申請、2026-04。関連ドキュメントは廃止）
+- Cycle 2 の handoff 履歴（関連ドキュメントは廃止）

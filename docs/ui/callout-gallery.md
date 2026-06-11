@@ -168,7 +168,7 @@ doboku-note の `<Callout>` コンポーネントは、2026-04-22 の Claude Des
 
 ![reference Callout](images/callout-reference.png)
 
-- **用途**: 書籍・論文への誘導（参考文献）。**外部 URL 一般・note 記事には使わない** — note 記事は `<NoteLink>`、一般外部 URL は `<LinkCard>`（→ `.claude/reference/content-authoring.md` リンク系コンポーネントの使い分け）
+- **用途**: 書籍・論文への誘導（参考文献）。**外部 URL 一般・note 記事には使わない** — note 記事は `<NoteLink>`、一般外部 URL は `<LinkCard>`（→ `docs/reference/content-authoring.md` リンク系コンポーネントの使い分け）
 - **色**: 灰系（slate-500）/ アイコン: `Link2`
 
 ```mdx

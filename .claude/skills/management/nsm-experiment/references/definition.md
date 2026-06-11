@@ -1,6 +1,6 @@
 # NSM 定義と計測指標
 
-`/nsm-experiment` および関連スキル（`/weekly-plan`, `/weekly-review`）が参照する **NSM の戦略的定義と目標値の真実源**。旧 `docs/project/03_NSMと計測指標.md` を本 reference に移管（2026-04-14）。
+`/nsm-experiment` および関連スキル（`/weekly-plan`, `/weekly-review`）が参照する **NSM の戦略的定義と目標値の真実源**。旧 NSM 計測指標ドキュメント（docs/project 配下、廃止）を本 reference に移管（2026-04-14）。
 
 **progressive disclosure**: 本ファイルは必要時のみ skill から読み込まれる。変更時は改訂履歴に追記すること。
 
@@ -140,4 +140,4 @@ NSM = 検索表示回数 × CTR
 
 **改訂履歴**:
 
-- 2026-04-14: 旧 `docs/project/03_NSMと計測指標.md` から本 reference に移管。計測基盤の現状セクションを Step 1-3 完了後の実装ポインタに書き換え。「計測の開始条件（サービスアカウント未取得）」セクションは完了により削除。
+- 2026-04-14: 旧 NSM 計測指標ドキュメント（docs/project 配下、廃止）から本 reference に移管。計測基盤の現状セクションを Step 1-3 完了後の実装ポインタに書き換え。「計測の開始条件（サービスアカウント未取得）」セクションは完了により削除。
