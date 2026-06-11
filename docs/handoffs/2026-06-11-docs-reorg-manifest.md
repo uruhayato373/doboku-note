@@ -116,4 +116,8 @@ CI 調査の結果、F1 は「廃止済みの取り残し」ではなく **task-
 | F1 | `task-queue.json` 自動化の取り残し | CI 3本の自動起票を「違反時 CI 失敗（GitHub 通知）+ docs/todo/ 手動起票」に置換／lib スクリプト2本（task-queue.mjs・build-todo-view.mjs）削除／スキル7・エージェント2を docs/todo/ 参照に改訂／state README・info-arch 台帳を整合。SSR 故障アラート性は維持 | ✅ 解決 |
 | F2 | `note-published-urls.json` スキーマ不一致 | update-mode + SKILL の参照を実在する `note-published.json`（`items`）へ統一 | ✅ 解決 |
 
+### 追加: 唯一の hard-delete（2026-06-11）
+
+`docs/note/2級土木/2級伴走メンバーシップ設計.md`（先行ドラフト）を SSOT `1級・2級土木/noteコンテンツ計画.md` §7 に運用詳細（添削フロー・4層モデル・集客動線）を統合し、**ファイルごと削除**。出典引用（同ドラフト §X）は全て内部参照（§7 等）へ置換、外部 3 参照（README・添削テンプレ・exam-content-policy）も更新。これが今回唯一の実削除（他は固有内容を持ち参照されるため非破壊の参照化に留めた）。
+
 注: ガードは `.md`/`.mdx` 参照に焦点（誤検知ゼロ優先）。コード参照（`src/*.tsx`）は build/type-check/lint、ランタイム state（`.claude/state/*.json`）は生成タイミング依存のため対象外。F1/F2 はこの対象外領域の既知 drift。
