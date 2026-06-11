@@ -11,6 +11,8 @@
  *   2. 太字内全角括弧 Pattern A            — note 独自パーサで描画崩れ（check-note-bold-paren.mjs を再利用）
  *   3. U+FFFD（文字化け）
  *   4. マガジンURL／{{MAGAZINE_URL}} の非単独行 — 括弧囲み・同一行テキストだと note でリンクカード化できない
+ *   5. 部分注入 — 同一マガジンに実URL注入済み記事がありながら {{MAGAZINE_URL}} が残る記事（注入漏れ）
+ *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *
  * 使い方:
  *   node scripts/note-lint.mjs                       # staged の docs/note 配下の article.md を検査（pre-commit 用）
@@ -93,6 +95,54 @@ function checkBoldParen(file) {
   return [];
 }
 
+// --- 部分注入検知（総監模範論文ペルソナ別マガジン限定）---
+// 同一マガジンdir内に「実マガジンURLを単独行で注入済みの記事」と「{{MAGAZINE_URL}} 残存記事」が
+// 混在＝マガジン公開後の inject-magazine-url.cjs 実行漏れ。手作業置換でなく専用スクリプトに誘導する
+// （2026-06-11 追加。公開前＝全記事 placeholder のときは注入済み記事が無いので発火しない）。
+const PERSONA_RE = /docs\/note\/技術士総監\/magazines\/(総監模範論文-[^/]+)\/[^/]+\/article\.md$/;
+function injectedMagazineUrl(content) {
+  for (const l of content.split('\n')) {
+    const t = l.trim();
+    if (/^https:\/\/note\.com\/dobokunote\/m\/[A-Za-z0-9]+(\?\S*)?$/.test(t)) return t.replace(/\?\S*$/, '');
+  }
+  return null;
+}
+// 検査対象 files から関係するマガジンdir をディスク走査し、部分注入状態を作る。
+// 返り値: Map<magName, { url, persona, placeholderSet:Set<正規化絶対パス> }>
+function buildPartialInjectionState(files) {
+  const mags = new Map(); // magName -> { magDirAbs, persona }
+  for (const f of files) {
+    const m = f.replace(/\\/g, '/').match(PERSONA_RE);
+    if (!m) continue;
+    const norm = f.replace(/\\/g, '/');
+    const magDirAbs = norm.slice(0, norm.indexOf(m[1]) + m[1].length);
+    if (!mags.has(m[1])) mags.set(m[1], { magDirAbs, persona: m[1].replace(/^総監模範論文-/, '') });
+  }
+  const state = new Map();
+  for (const [magName, info] of mags) {
+    let url = null;
+    const placeholderSet = new Set();
+    let entries = [];
+    try { entries = readdirSync(info.magDirAbs); } catch { continue; }
+    for (const slug of entries) {
+      const af = join(info.magDirAbs, slug, 'article.md');
+      if (!existsSync(af) || !statSync(af).isFile()) continue;
+      const c = readFileSync(af, 'utf8');
+      if (!url) { const u = injectedMagazineUrl(c); if (u) url = u; }
+      if (c.includes('{{MAGAZINE_URL}}')) placeholderSet.add(af.replace(/\\/g, '/'));
+    }
+    if (url && placeholderSet.size) state.set(magName, { url, persona: info.persona, placeholderSet });
+  }
+  return state;
+}
+function checkPartialInjection(file, state) {
+  const m = file.replace(/\\/g, '/').match(PERSONA_RE);
+  if (!m) return [];
+  const st = state.get(m[1]);
+  if (!st || !st.placeholderSet.has(file.replace(/\\/g, '/'))) return [];
+  return [{ line: 0, msg: `部分注入: 同一マガジンに実URL注入済み記事があるのに本文へ {{MAGAZINE_URL}} 未反映 → 修正: npm run note-inject-magazine-url -- ${st.persona} ${st.url}` }];
+}
+
 // --- main ---
 const args = process.argv.slice(2);
 let files;
@@ -107,10 +157,12 @@ if (args.length === 0) {
 
 if (files.length === 0) { process.exit(0); }
 
+const partialState = buildPartialInjectionState(files);
+
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f), ...checkPartialInjection(f, partialState)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
