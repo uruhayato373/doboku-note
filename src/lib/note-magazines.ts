@@ -523,7 +523,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想 全21記事（予想は III を4テーマ網羅）。道路科目 合格者＋発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
-    price: '¥2,980（21記事セット・単品¥500）',
+    price: '¥3,980（21記事セット・単品¥500、約62%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-river-coast-magazine': {
