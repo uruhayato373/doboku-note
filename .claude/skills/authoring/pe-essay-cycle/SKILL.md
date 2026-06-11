@@ -69,7 +69,7 @@ user-invocable: true
 
 ### plan — note 有料記事を企画する（④）
 
-1. `pe-note-plan` を実行（`docs/note/noteコンテンツ計画.md`・magazine 在庫・価格を読んで次の記事を提案）。**模範論文ペルソナ別マガジンの価格 SoT は `src/lib/note-magazines.ts`（セット）＋記事 frontmatter `price:`（単品）で、`_meta.yaml` は使わない**
+1. `pe-note-plan` を実行（`docs/note/技術士総監/noteコンテンツ計画.md`・magazine 在庫・価格を読んで次の記事を提案）。**模範論文ペルソナ別マガジンの価格 SoT は `src/lib/note-magazines.ts`（セット）＋記事 frontmatter `price:`（単品）で、`_meta.yaml` は使わない**
 
 ### publish — note 公開前ゲート
 

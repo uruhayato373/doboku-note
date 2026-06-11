@@ -70,14 +70,14 @@
 | P2 | `docs/textbook/技術士（総監）/`・`docs/textbook/コンクリート主任技師*/` | textbook 原稿群の配置は `.local/r2/posts/`（プロダクション）との関係を含め別途設計が必要 | 成果物コンテンツ本体（read-only） |
 | P3 | `docs/reviews/weekly/2026-W21.md` と `2026-W21-review.md` の二重存在 | 命名規則の不統一。片方をリネームまたは統合 | 週次レビュー自動化（クラウドルーティン）の出力先仕様に依存。壊すと再発するため親判断待ち |
 
-### 報告のみ（このエージェントは触らない領域）
+### 報告のみ（このエージェントは触らない領域）→ 親が後続で全件解決済み（2026-06-11）
 
-| # | 対象 | 内容 |
-|---|---|---|
-| R1 | `.claude/skills/social/pe-note-plan/SKILL.md` | 旧パス `docs/note/noteコンテンツ計画.md` を 5 ヶ所参照（リンク切れ）。`技術士総監/noteコンテンツ計画.md` へ要修正（skills-guide.md 同時更新ルールがあるため別作業） |
-| R2 | `.claude/skills/authoring/pe-essay-cycle/SKILL.md` | 同上 1 ヶ所 |
-| R3 | memory `project_note_a1_rewrite.md` L29 | 旧 doc 番号（`04_コンテンツロードマップ.md`・`19_note段階投下プラン.md`・`08_記述式コンテンツ戦略.md`）が現パスと不一致 |
-| R4 | memory `project_pe_construction_secondary.md` L66 | 「価格は全商品¥1,980均一」が陳腐化（v3 で ¥2,480〜3,980 段階価格へ改訂済み） |
+| # | 対象 | 内容 | 状態 |
+|---|---|---|---|
+| R1 | `.claude/skills/social/pe-note-plan/SKILL.md` | 旧パス `docs/note/noteコンテンツ計画.md` を 5 ヶ所参照（リンク切れ）→ `技術士総監/noteコンテンツ計画.md` へ修正 | ✅ 解決（パス参照のみの修正のため skills-guide/registry の更新は不要＝カタログ項目に変化なし） |
+| R2 | `.claude/skills/authoring/pe-essay-cycle/SKILL.md` | 同上 1 ヶ所 | ✅ 解決 |
+| R3 | memory `project_note_a1_rewrite.md` L29 | 旧 doc 番号が現パスと不一致 | ✅ 解決（現行 SSOT パスへ更新） |
+| R4 | memory `project_pe_construction_secondary.md` | 「価格は全商品¥1,980均一」が陳腐化（¥2,480〜3,980 段階価格へ改訂済み） | ✅ 解決（段階価格＋SSOTポインタへ更新） |
 
 ## 検証（2026-06-11 完了）
 
