@@ -113,6 +113,7 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ### 1. コードを書く前に考える
 
 - **作業開始前に `git branch --show-current` でブランチ確認**。指示と異なれば作業を止めてユーザーに報告する（勝手に `git checkout` しない）
+- **同時に origin との遅れ（behind）を確認**: `git fetch -q && git log --oneline main..origin/main | head`。複数セッション・worktree 常態 + CI が deploy で main に自動マージするため、ローカルが数十コミット遅れるのは高頻度（2026-06-11、43 コミット遅れの古いツリーで作業し既存作業を重複・劣化させた事故）。遅れていれば同期してから着手し、**古いベース上のコミットを push しない**（破壊的な reset/同期はユーザー確認後、独自コミットは退避ブランチで保全）。SessionStart フック `scripts/check-git-sync.mjs` が開幕で自動警告する
 - 解釈が複数あれば、黙って選ばず候補を提示してユーザーに選ばせる
 
 ### 2. シンプルさを最優先する

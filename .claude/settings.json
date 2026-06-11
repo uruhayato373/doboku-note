@@ -56,6 +56,13 @@
             "command": "node scripts/check-plan-staleness.mjs 2>/dev/null || true",
             "timeout": 10,
             "async": true
+          },
+          {
+            "type": "command",
+            "command": "node scripts/check-git-sync.mjs 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "origin との同期状況を確認中...",
+            "async": true
           }
         ]
       }
