@@ -14,6 +14,7 @@
  *   5. 部分注入 — 同一マガジンに実URL注入済み記事がありながら {{MAGAZINE_URL}} が残る記事（注入漏れ）
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）
+ *   7. ツール呼び出しXML残骸 — antml: / <invoke> / <parameter> / <function> / <content>（生成時混入）
  *
  * 使い方:
  *   node scripts/note-lint.mjs                       # staged の docs/note 配下の article.md を検査（pre-commit 用）
@@ -155,6 +156,17 @@ function checkDeprecatedSection(content) {
   });
   return out;
 }
+// ツール呼び出しXMLの残骸（生成時にエージェントの function-call 断片が本文へ混入）。
+// note 試験対策記事にこれらのタグが正当に出ることはまずない＝100% 削除対象（契約調達R07事故、2026-06-11）。
+function checkToolArtifact(content) {
+  const out = [];
+  content.split('\n').forEach((l, i) => {
+    if (/antml:|<\/?(invoke|parameter|function)\b|<\/?content>/.test(l)) {
+      out.push({ line: i + 1, msg: `ツール呼び出しXML残骸（生成時混入）。削除せよ: ${l.trim().slice(0, 40)}` });
+    }
+  });
+  return out;
+}
 
 // --- main ---
 const args = process.argv.slice(2);
@@ -175,7 +187,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
