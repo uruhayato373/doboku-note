@@ -104,8 +104,8 @@ const MAGAZINES_RAW = {
 
   'essay-procurement-municipality-magazine': {
     id: 'essay-procurement-municipality-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m55b930cbfcf9',
     title: '総監記述式 模範論文｜自治体 契約・調達担当 R3-R7 + R8予想セット',
     description:
       'R03〜R07 過去問（入札・契約制度運用版/工事検査・契約変更管理版の A案／B案 2 バージョン）+ R8予想2記事（気候変動適応×災害対応の契約・調達制度／資源循環×グリーン調達・総合評価制度、各 A案/B案）の計 7 記事。市区町村の契約検査課/技術管理課（発注者）視点、「コスト最適化 × 入札の公正性 × 担い手確保」の調達固有のトレードオフが主軸。各記事に印刷用PDF付き。',

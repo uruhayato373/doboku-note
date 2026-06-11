@@ -42,7 +42,7 @@ cover:
 
 各記事を単品でそろえるよりお得なセット価格です。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m55b930cbfcf9
 
 ---
 
@@ -231,7 +231,7 @@ R8 予想テーマ × 契約・調達担当ペルソナでは、以下の 4 点�
 
 積算・入札・契約・検査という発注者本来の事務を軸に、テーマが変わっても応用できる「自分用テンプレート」が構築できます。
 
-{{MAGAZINE_URL}}
+https://note.com/dobokunote/m/m55b930cbfcf9
 
 ---
 
