@@ -79,9 +79,20 @@
 | R3 | memory `project_note_a1_rewrite.md` L29 | 旧 doc 番号（`04_コンテンツロードマップ.md`・`19_note段階投下プラン.md`・`08_記述式コンテンツ戦略.md`）が現パスと不一致 |
 | R4 | memory `project_pe_construction_secondary.md` L66 | 「価格は全商品¥1,980均一」が陳腐化（v3 で ¥2,480〜3,980 段階価格へ改訂済み） |
 
-## 検証
+## 検証（2026-06-11 完了）
 
-- [ ] 各 commit 後に U+FFFD / `﹖` の grep（0 件）
-- [ ] callout タイポ check（`grep -rE "^> \[!\w+\]" docs/ | grep -vE "\[!(note|warning|important|todo)\]"` 0 件）
-- [ ] `docs/note/noteコンテンツ計画.md` 旧パス残存 0 件（docs/・CLAUDE.md 内。.claude/skills/ は報告のみで残置）
-- [ ] CLAUDE.md リファレンス索引の全リンク存在確認
+- [x] 各 commit 後に U+FFFD / `﹖` の grep（0 件。`docs-markdown-style.md` の � はチェック手順例示の意図的な文字＝既存）
+- [x] callout タイポ check 0 件 — 走査で発見した既存違反 6 ヶ所（`[!tip]`×3 / `[!warn]`×3: 08_Kindle出版戦略・todo/annual・コンクリ主任技師_企画）も推奨 4 タイプへ正規化済み
+- [x] `docs/note/noteコンテンツ計画.md` 旧パス残存 0 件（docs/・CLAUDE.md 内。.claude/skills/ 内 2 ファイルは報告のみで残置 → R1/R2）
+- [x] CLAUDE.md リファレンス索引の全リンク存在確認（実パス欠落 0 件）
+- [x] 新設した相対リンクの解決確認（1級・2級土木 SSOT ↔ 各サブ文書 ↔ 戦略文書）
+
+## 実施 commit
+
+| commit | 内容 |
+|---|---|
+| 715e85ee4 | manifest 作成 |
+| 722bc00ea | Zone 1: docs/note（SSOT 統合・README 全面更新ほか #1〜#11） |
+| 37d3be003 | Zone 2: docs/project（04 v8 注記・05 アーカイブ化・リンク修復 #12〜#23） |
+| 4a429b1d3 | Zone 3: docs/reference + CLAUDE.md（#24〜#26） |
+| b03b7f985 | 追加発見: callout 4 タイプ正規化（6 ヶ所） |
