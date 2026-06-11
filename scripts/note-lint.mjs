@@ -13,6 +13,7 @@
  *   4. マガジンURL／{{MAGAZINE_URL}} の非単独行 — 括弧囲み・同一行テキストだと note でリンクカード化できない
  *   5. 部分注入 — 同一マガジンに実URL注入済み記事がありながら {{MAGAZINE_URL}} が残る記事（注入漏れ）
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
+ *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）
  *
  * 使い方:
  *   node scripts/note-lint.mjs                       # staged の docs/note 配下の article.md を検査（pre-commit 用）
@@ -142,6 +143,18 @@ function checkPartialInjection(file, state) {
   if (!st || !st.placeholderSet.has(file.replace(/\\/g, '/'))) return [];
   return [{ line: 0, msg: `部分注入: 同一マガジンに実URL注入済み記事があるのに本文へ {{MAGAZINE_URL}} 未反映 → 修正: npm run note-inject-magazine-url -- ${st.persona} ${st.url}` }];
 }
+// 廃止セクション見出し（2026-06-10 廃止: 合格者／元公務員からのコメント節）。採点者視点と重複し
+// 運営者の自己紹介フレーミングが不要なため全廃。建設部門二次QAでは減点ルール化済みだが、再混入を
+// pre-commit で物理的に止める（essay/建設部門の両方が対象。2026-06-11 追加）。
+function checkDeprecatedSection(content) {
+  const out = [];
+  content.split('\n').forEach((l, i) => {
+    if (/^##\s+.*からのコメント\s*$/.test(l)) {
+      out.push({ line: i + 1, msg: `廃止セクション見出し（2026-06-10 廃止: 合格者／元公務員からのコメント節）。削除し採点者視点に統合: ${l.trim().slice(0, 30)}` });
+    }
+  });
+  return out;
+}
 
 // --- main ---
 const args = process.argv.slice(2);
@@ -162,7 +175,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f), ...checkPartialInjection(f, partialState)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
