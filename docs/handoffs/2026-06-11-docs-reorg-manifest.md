@@ -105,12 +105,15 @@
 |---|---|
 | bd2bbe876 | 参照規律制定 + 壊れ `.md` 参照 47 件一括修正 + ガード新設（37 ファイル） |
 | 79f8cc3ca | globals.css 旧パス 3 ヶ所修正 |
+| b593811bb + d043359b0 | F1/F2 解決（task-queue.json 全廃 → docs/todo/ 一本化、note-published スキーマ整合） |
 
-### 残 follow-up（参照修正でなくワークフロー移行のため別途・要ユーザー判断）
+### 残 follow-up（解決済み 2026-06-11、Option A 採択）
 
-| # | 対象 | 内容 | 推奨 |
+CI 調査の結果、F1 は「廃止済みの取り残し」ではなく **task-queue.json が CI 3本で現役だが `npm run build-todo` 欠落で故障した半端な移行**と判明。ユーザー判断で **Option A（自動化を全廃し手書き docs/todo/ に一本化）** を採択し完了。
+
+| # | 対象 | 解決内容 | 状態 |
 |---|---|---|---|
-| F1 | `task-queue.json` ワークフロー廃止の取り残し | 5 スキル + 2 エージェント（weekly-plan / psi-audit / deploy / content-planner / seo-auditor ほか）が、廃止済みの `.claude/state/task-queue.json` 追記 + `npm run build-todo`（共に**実在しない**）を今も指示。`docs/todo/` は 2026-06-10 に手動運用へ移行済み | 自動スキルが手動 `docs/todo/` にどうタスクを発行するか（または発行をやめ会話 surface のみにするか）を決めてから 7 ファイルを一括改訂。トークン置換でなくロジック再設計を伴う |
-| F2 | `note-published-urls.json` スキーマ不一致 | `publish-note/references/update-mode.md` が `articles` キーを持つ `note-published-urls.json` を読むが、実在は `note-published.json`（`items` キー）。単純リネームでは壊れる | update-mode のロジックを実ファイル `note-published.json`（`items`）の構造に合わせて改訂、または frontmatter `noteUrl` 参照へ寄せる |
+| F1 | `task-queue.json` 自動化の取り残し | CI 3本の自動起票を「違反時 CI 失敗（GitHub 通知）+ docs/todo/ 手動起票」に置換／lib スクリプト2本（task-queue.mjs・build-todo-view.mjs）削除／スキル7・エージェント2を docs/todo/ 参照に改訂／state README・info-arch 台帳を整合。SSR 故障アラート性は維持 | ✅ 解決 |
+| F2 | `note-published-urls.json` スキーマ不一致 | update-mode + SKILL の参照を実在する `note-published.json`（`items`）へ統一 | ✅ 解決 |
 
 注: ガードは `.md`/`.mdx` 参照に焦点（誤検知ゼロ優先）。コード参照（`src/*.tsx`）は build/type-check/lint、ランタイム state（`.claude/state/*.json`）は生成タイミング依存のため対象外。F1/F2 はこの対象外領域の既知 drift。
