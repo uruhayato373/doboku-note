@@ -550,11 +550,12 @@ export const NOTE_MAGAZINES: Readonly<Record<MagazineId, NoteMagazine>> = MAGAZI
 
 /**
  * 公開済みかつ noteUrl が設定されているマガジンのみ取得。
- * 未公開 (published: false) や noteUrl 空のものは防御的に null を返す。
+ * 未登録 ID（MDX 側の dangling 参照）・未公開 (published: false)・noteUrl 空の
+ * いずれも防御的に null を返す（未登録 ID で prerender がクラッシュしないように）。
  */
 export function getMagazine(id: MagazineId): NoteMagazine | null {
   const mag = NOTE_MAGAZINES[id];
-  if (!mag.published || !mag.noteUrl) return null;
+  if (!mag || !mag.published || !mag.noteUrl) return null;
   return mag;
 }
 
