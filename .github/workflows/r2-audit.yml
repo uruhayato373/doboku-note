@@ -1,6 +1,7 @@
 name: Audit R2 image sync
 
 # .local/r2/posts の画像が R2 バケットに正しく同期されているかを定期監査する。
+# あわせて published 記事の OGP 画像(ogp.png)未生成も検知する（check-ogp-coverage）。
 #
 # 目的: r2-sync の「サイレント失敗」を早期検知する二重チェック。
 #   2026-05 に R2 トークンが失効し、upload スクリプトが個別失敗を握りつぶして
@@ -38,6 +39,12 @@ jobs:
 
       - name: Install dependencies
         run: npm ci --legacy-peer-deps --ignore-scripts
+
+      # OGP 未生成の能動検知（creds 不要のローカル検査）。diff-r2 は「local にあるが R2 に
+      # 無い」しか見ず「そもそも未生成」を素通りするため、published 記事の ogp.png 欠落を別途
+      # 捕捉する（2026-06-12 OGP 404 incident の backstop）。
+      - name: Check OGP coverage (published articles have ogp.png)
+        run: node scripts/check-ogp-coverage.mjs
 
       - name: Diff local (main) vs R2 — images only
         env:

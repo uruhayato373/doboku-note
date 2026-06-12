@@ -140,7 +140,8 @@ npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 - **UI/SSR 変更**: `curl` で `<main>` + 主要キーワード（土木/技術士）を確認
 - **deploy 後**: `curl` で `doboku-note.pages.dev` の HTTP 200 + `<main>` タグを確認してから「完了」と報告
 - **コンテンツ編集完了条件**: MDX 追加・変更後は `npm run refresh-indexes` を実行してからコミット（バックリンク・タグインデックスの不整合を防ぐ）
-- **画像追加**: `generate-webp` → webp 参照で commit → R2 は `main` push 時に CI が自動同期
+- **画像追加**: `generate-webp` → webp 参照で commit → R2 は `main` push 時に CI（`r2-sync.yml`）が自動同期（対象 path = `**/img/**` と `**/ogp.png|.webp`）
+- **OGP 画像**: 新規記事・**新カテゴリは `npm run ogp`**（未生成のみ生成）で `ogp.png` を作り commit。忘れると `og:image` が R2 で 404 → note/X 等の外部リンクカードが生成されない（2026-06-12 pe-construction 全114本）。CI ゲート `npm run check-ogp-coverage`（`r2-audit.yml`）が published 記事の欠落を赤落ちで検知
 - **deploy**: `develop` → `main` は `/deploy` スキル経由（タイミングはユーザー判断）
 
 ### 5. モデルは判断が必要な場面だけに使う

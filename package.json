@@ -37,6 +37,7 @@
     "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note",
     "upload-images-r2": "tsx .claude/scripts/upload-images-to-r2.mjs",
     "diff-r2": "node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs",
+    "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "fetch-gsc-data": "node .claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs",
     "fetch-ga4-data": "node .claude/scripts/fetch-ga4-data.mjs",
     "fetch-ga4-cta-clicks": "node .claude/scripts/fetch-ga4-cta-clicks.mjs",
