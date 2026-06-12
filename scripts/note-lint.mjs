@@ -11,6 +11,8 @@
  *   2. 太字内全角括弧 Pattern A            — note 独自パーサで描画崩れ（check-note-bold-paren.mjs を再利用）
  *   3. U+FFFD（文字化け）
  *   4. マガジンURL／{{MAGAZINE_URL}} の非単独行 — 括弧囲み・同一行テキストだと note でリンクカード化できない
+ *   4b. マガジンCTA形式（check-note-magazine-cta.mjs）— markdown リンク形式のマガジンURL / マガジンURL同一行の価格(¥)
+ *       → bare URL 単独行（リンクカード）に・価格は本文に書かない（改訂で陳腐化）。content-principles.md §14-c
  *   5. 部分注入 — 同一マガジンに実URL注入済み記事がありながら {{MAGAZINE_URL}} が残る記事（注入漏れ）
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）
@@ -28,6 +30,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
+const MAG_CTA_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-magazine-cta.mjs');
 
 function stagedNoteArticles() {
   try {
@@ -93,6 +96,26 @@ function checkBoldParen(file) {
   } catch (e) {
     const r = (e.stdout || '') + (e.stderr || '');
     if (/NG/.test(r)) return [{ line: 0, msg: '太字内全角括弧 Pattern A 検出（詳細は check-note-bold-paren.mjs）' }];
+  }
+  return [];
+}
+// マガジン導線CTAの形式ゲート（check-note-magazine-cta.mjs を再利用）:
+//   (1) markdown リンク形式のマガジンURL — bare URL 単独行（リンクカード）でないとカード化されない
+//       （旧 checkMagazineLinkCard は `](` 行を除外し markdown リンクがすり抜けていた＝2026-06-12 取りこぼし根本原因）
+//   (2) マガジンURL／{{MAGAZINE_URL}} と同一行の価格(¥) — 価格改訂で陳腐化。SoT は src/lib/note-magazines.ts。
+//   真実源: content-principles.md §14-c
+function checkMagazineCta(file) {
+  try {
+    const r = execSync(`node "${MAG_CTA_CHECKER}" "${file}"`, { encoding: 'utf8', cwd: ROOT });
+    if (/NG/.test(r)) {
+      return r.split('\n').filter((l) => /L\d+:/.test(l)).map((l) => ({ line: 0, msg: 'マガジンCTA形式: ' + l.trim() }));
+    }
+  } catch (e) {
+    const r = (e.stdout || '') + (e.stderr || '');
+    if (/NG/.test(r)) {
+      return r.split('\n').filter((l) => /L\d+:/.test(l)).map((l) => ({ line: 0, msg: 'マガジンCTA形式: ' + l.trim() }))
+        .concat(/L\d+:/.test(r) ? [] : [{ line: 0, msg: 'マガジンCTA形式違反（詳細は check-note-magazine-cta.mjs）' }]);
+    }
   }
   return [];
 }
@@ -187,7 +210,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
@@ -200,6 +223,7 @@ if (violations > 0) {
   console.error(`\n❌ note-lint: ${violations} 件の note 非互換を検出。コミットをブロックしました。`);
   console.error('   表は箇条書きへ、太字内全角括弧は **A**（B）形式へ、文字化けは修正、');
   console.error('   マガジンURL/{{MAGAZINE_URL}} は括弧で囲まず URL 単独行にしてください（リンクカード化）。');
+  console.error('   マガジン導線は markdown リンクでなく bare URL 単独行に・CTA に価格(¥)を書かない（content-principles.md §14-c）。');
   process.exit(1);
 }
 console.log(`✅ note-lint: ${files.length} 記事 OK`);

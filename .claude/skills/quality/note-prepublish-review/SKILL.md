@@ -48,7 +48,7 @@ user-invocable: true
   │
   └─ Phase 3: 結果集約・最終判定
       ├ inline 違反 1 件以上 → BLOCK（ブロッカー）
-      │   ・BLOCK 対象: ファイル不在 / pipe / U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern A・B'
+      │   ・BLOCK 対象: ファイル不在 / pipe / U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern A・B' / マガジンCTA形式（markdownリンク・URL同一行の¥）
       │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式 / 試験問題セクション欠落 / トレードオフ再掲節残存 / 設問別解答字数の健全帯逸脱 / 答案本文の箇条書き / 図版参照あり / 設問(3) 国家スケール設問の目視確認喚起
       ├ 各エージェントの加重スコア集計
       ├ 合格基準: inline 違反（BLOCK 対象）0 件 + 3 エージェント全て加重スコア 2.0+
@@ -107,6 +107,12 @@ Bp=$(grep -nE '\)\*\*（' "$F")
 
 # 4c. リンク anchor↔slug 整合性（pe-chapters.json + frontmatter fallback）
 node "$ROOT/.claude/scripts/check-note-link-anchor-match.mjs" "$F"
+
+# 4d. マガジン導線CTA形式（content-principles.md §14-c）
+#   ① markdown リンク形式のマガジンURL `[text](…/m/ID)` — bare URL 単独行（リンクカード）でないとカード化されない
+#   ② マガジンURL／{{MAGAZINE_URL}} と同一行の価格(¥) — 価格改訂で陳腐化。CTA に価格を書かない（SoT=note-magazines.ts）
+echo "MAGAZINE_CTA:"
+node "$ROOT/.claude/scripts/check-note-magazine-cta.mjs" "$F"
 
 # 5. 文字数（参考）
 chars=$(wc -m < "$F")

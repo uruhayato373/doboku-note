@@ -424,6 +424,11 @@ npm run check-links -- --scope note
 # 5. e-gov リンク確認
 grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md | sort -u
 # → WebSearch で実在確認済みの法令番号と突合
+
+# 6. note 非互換ゲート（pipe表・太字内全角括弧・マガジンCTA形式 = markdown リンク/同一行¥）
+node scripts/note-lint.mjs docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
+# → ✅ OK であること。commit 時に pre-commit でも自動 BLOCK（content-principles.md §14-c）。
+#   マガジン導線は markdown リンクでなく bare URL 単独行・CTA に価格(¥)を書かない。
 ```
 
 ### commit 戦略
