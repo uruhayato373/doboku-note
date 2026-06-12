@@ -306,6 +306,8 @@ DoD: ① 6 ヶ月 KPI で Tier 2 継続/縮小を判定 ② 最終合格発表�
 
 ## 13. 参考ソース（競合調査 2026-06-12）
 
+> フル競合分析（全チャンネル詳細表・隣接資格フォーマット研究の移植可能性・検索需要季節性・ギャップ分析・出典25件・未確認項目）は定点観測ドキュメント [05a_YouTube競合分析_技術士総監_2026-06.md](./05a_YouTube競合分析_技術士総監_2026-06.md) に保存。本節は意思決定に必要な主要ソースのみ抜粋。
+
 - [技術士 総監約3〜10分チャンネル](https://www.youtube.com/channel/UCMY7e9Ri9Vh_syU8b7kuMdA)（新発見・実態未確認）
 - [技術士Lock-On（匠習作）](https://www.youtube.com/channel/UCrbmFXXZvrb1a-nbQm-MOig)／[公式サイト](https://gijutsushi-goukaku.jp/)
 - [技術士ライトハウス（登録 2,300 人超の記載）](https://coolangeng.com/)
