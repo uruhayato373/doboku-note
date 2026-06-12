@@ -4,6 +4,10 @@
 > 14ペルソナ導線整備（commit `0bf834231` / `18caf4fa8`）で **repo は編集済だが note.com にまだ反映していない記事** と、**未修正のまま残っているドリフト** の worklist。
 > note.com への反映は Mac の `note-edit-session`（会社PCはプロキシで note write 不可）。真実源の手順は [project_note_write_automation] / `docs/reference/note-api-verification.md`。
 
+> [!tip] サイトデプロイ状況（2026-06-12）
+> サイト側（ハブ A + inbound）は **develop→main ff昇格でデプロイ実行済**（main = `7f2ba210d`、12コミット昇格、Cloudflare Pages CI 起動）。
+> これにより A-3 のサイトハブURL依存は解消見込み（CI 成功・`.pages.dev` 200 確認後に note 公開可）。**残るユーザー作業は下記 note.com への反映のみ**。
+
 ---
 
 ## A. note.com 再公開が必要（repo 編集済・確定 2件）
