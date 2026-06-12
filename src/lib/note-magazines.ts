@@ -58,15 +58,15 @@ const MAGAZINES_RAW = {
     id: 'essay-river-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32132ecb3033',
-    title: '総監記述式 模範論文｜建設コンサル河川・砂防 R3-R7 + R8予想セット',
+    title: '総監記述式 模範論文｜建設コンサル河川・砂防 R3-R7（5年分）',
     description:
-      'R03〜R07 過去問（治水計画の調査計画版/河川管理施設の点検・補修更新設計版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・流域治水／資源循環・建設発生土、各 A案/B案）の計 7 記事。中堅建設コンサル河川・砂防部門 部長（調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
+      'R03〜R07 過去問（治水計画の調査計画版/河川管理施設の点検・補修更新設計版の A案/B案 2 バージョン）の計 5 記事。中堅建設コンサル河川・砂防部門 部長（調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。R8予想はテーマ駆動の横断フラッグシップ「R8予想問題集」に集約（本マガジンは過去問evergreen）。',
     shortTitle: '模範論文｜河川コンサル',
     shortDescription:
-      'R03〜R07＋R8予想2記事の計7記事セット。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
+      'R03〜R07 過去問 5記事セット。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
     imageUrl: '/images/magazines/essay-river-consultant-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-river-consultant-sidebar.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
 
@@ -74,15 +74,15 @@ const MAGAZINES_RAW = {
     id: 'essay-general-contractor-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32aaa137f22e',
-    title: '総監記述式 模範論文｜ゼネコン R3-R7 + R8予想セット',
+    title: '総監記述式 模範論文｜ゼネコン R3-R7（5年分）',
     description:
-      'R03〜R07 過去問（新設・改良施工版/維持・更新・補修施工版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・施工強靭化／資源循環・建設副産物再資源化、各 A案/B案）の計 7 記事。中堅〜大手ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 のトレードオフが主軸。各記事に印刷用PDF付き。',
+      'R03〜R07 過去問（新設・改良施工版/維持・更新・補修施工版の A案/B案 2 バージョン）の計 5 記事。中堅〜大手ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 のトレードオフが主軸。各記事に印刷用PDF付き。R8予想はテーマ駆動の横断フラッグシップ「R8予想問題集」に集約（本マガジンは過去問evergreen）。',
     shortTitle: '模範論文｜ゼネコン',
     shortDescription:
-      'R03〜R07＋R8予想2記事の計7記事セット。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
+      'R03〜R07 過去問 5記事セット。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
     imageUrl: '/images/magazines/essay-general-contractor-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-general-contractor-sidebar.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
 
