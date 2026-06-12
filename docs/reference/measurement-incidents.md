@@ -96,6 +96,42 @@ title: 計測・検証事故の記録
 - `.claude/skills/dev/diff-r2/scripts/diff-r2.mjs` - 差分監査
 - handoff `docs/handoffs/_archive/2026-05-29-r2-content-fallback-removal.md`
 
+## 2026-06-12: OGP 画像が r2-sync の path フィルタ外で 404 → note 外部リンクカード生成不能
+
+### 現象
+
+- note 無料記事（技術士建設部門）から doboku-note の `/docs/pe-construction-*` を URL 単独行で貼っても**リンクカードが生成されない**（note 自身の URL はカード化される）。
+- ページ HTML・OGP テキストタグ（og:title/description/url）は**全 UA で 200・正常**。Cloudflare ボットブロックは無関係（`facebookexternalhit`/`Twitterbot`/空 UA/`Validator/1.0`/default-curl すべて 200 を実測）。
+- 壊れていたのは **`og:image`（`storage.doboku-note.com/.../ogp.png`）だけが 404**。note のカード生成器はサムネイル取得に失敗してカードを作れない。
+
+### 根本原因（2層）
+
+1. **OGP 生成は手動**: `ogp.png` は `npm run ogp -- --all`（`ogp-create`）で生成するが、新規カテゴリで未実行だと 0 枚。pe-construction(114)/civil-2(31)/concrete系/pe-first-stage が 0 枚だった（`published:false` ドラフトは仕様スキップ）。
+2. **R2 同期が ogp を拾わない（核心）**: R2 アップロードは `cloudflare-deploy.yml` ではなく専用 `r2-sync.yml`。その push トリガーの path フィルタが旧 `**/img/**` 限定で、`ogp.png` は記事ディレクトリ**直下**（img/ の外）にあるため **push しても自動同期されない**。既存カテゴリの OGP は過去の手動同期で上がっていただけ。
+
+### 監視がすり抜けた理由
+
+- `r2-audit.yml`（`diff-r2 --images-only`）は「**local にあるが R2 に無い**」は検知するが、「**そもそも local 未生成**」は検知できない（diff の母集合に入らない）。OGP 未生成カテゴリは丸ごと素通りした。
+
+### 適用した対策
+
+- 生成: `npm run ogp -- --all` で未生成 213 枚生成 → pathspec commit（`26630a1b3`）。
+- 反映: `gh workflow run r2-sync.yml -f images_only=true` で全画像 upload（`Uploaded: 3041, Failed: 0`）→ og:image 6/6 が 200 を実測。
+- **再発防止（code）**: `r2-sync.yml` の path フィルタに `**/ogp.png` `**/ogp.webp` を追加（`b33430063`、次回 deploy で main 反映）。
+- OGP 解決はファイル隣接ではなく **slug 解決**（`getOgpImageUrl`＝category プレフィックス剥がし）。`pe-construction-guide-required-essay/article.mdx` のような変則レイアウトは og:image が `pe-construction/guide-required-essay/ogp.png` を指す（隣接判定は誤検知する）。
+
+### 教訓
+
+1. **外部リンクカードが出ない＝まず og:image の到達性を疑う**（HTML/OGP テキストが 200 でも画像だけ 404 で全カードが死ぬ）。検証は `curl --ssl-no-revoke --retry 5 -A facebookexternalhit/1.1 .../ogp.png` の `%{http_code}`（プロキシ 407/000 はノイズ、retry 必須）。
+2. **能動監視（diff-r2）は「local にある前提」**。「未生成」は別途、**公開記事 → og:image 解決先の到達性**で検知する必要がある（プレビューは [[project_ogp_r2_sync_gap]]）。
+3. **path フィルタは成果物の実レイアウトに合わせる**。`ogp.png` は img/ の外＝`**/img/**` では拾えない。
+
+### 関連
+
+- `.github/workflows/r2-sync.yml` - path フィルタに ogp 追加済み
+- `.claude/skills/conversion/ogp-create/` - OGP 生成（手動・新規カテゴリで要実行）
+- `src/lib/r2-image-loader.ts` - `getOgpImageUrl`（slug→ogp パス解決の真実源）
+
 ## 2026-04-26: GA4 direct US bot スパイクと weekly-metrics 母数汚染
 
 ### 現象

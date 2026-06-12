@@ -152,6 +152,7 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 4. `/review` のディスパッチ表（`.claude/skills/dev/review/SKILL.md`）に行を追加
 5. `/improve-article --mode verify` のルートテーブル（`.claude/skills/authoring/improve-article --mode verify/SKILL.md`）に行を追加
 6. このファイル（exam-content-policy.md）と `agents-registry.md` を更新
+7. **OGP 画像を生成**（公開前必須）: `npm run ogp -- --all`（未生成分のみ生成）→ 新規 `ogp.png` を pathspec commit。**新カテゴリは OGP が 0 枚から始まる**ため、これを忘れると `og:image` が R2 で 404 になり、**note / X / Facebook 等の外部リンクカードが生成されない**（2026-06-12 pe-construction で全114本が該当）。`published:false` のドラフトは仕様上スキップされる＝公開化（`published:true`）のタイミングで再実行する。`ogp.png` は `r2-sync.yml` の path フィルタ（`**/ogp.png`）経由で main push 時に R2 同期される。詳細 → [measurement-incidents.md](./measurement-incidents.md)「2026-06-12 OGP 404」
 
 ### 新資格メモ: コンクリート診断士（`concrete-diagnostician`、2026-05-30 新設）
 
