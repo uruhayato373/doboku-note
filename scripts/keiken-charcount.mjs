@@ -4,7 +4,7 @@
 //
 // 使い方:
 //   node scripts/keiken-charcount.mjs [path ...] [--json] [--strict]
-//     path 省略時: docs/note/{1級,2級}土木/magazines 配下の「経験記述」を含む article.md を全走査
+//     path 省略時: docs/note/1級・2級土木/{1級,2級}土木/magazines 配下の「経験記述」を含む article.md を全走査
 //     --json   : 機械可読 JSON を出力（Evaluator 連携用）
 //     --strict : OVER が1件でもあれば exit 1（ゲート用途）
 //

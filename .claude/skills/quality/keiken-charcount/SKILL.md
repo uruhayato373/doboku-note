@@ -16,7 +16,7 @@ user-invocable: true
 ## 実行
 
 ```bash
-# 全マガジン一括（docs/note/{1級,2級}土木/magazines 配下の「経験記述」を含む article.md）
+# 全マガジン一括（docs/note/1級・2級土木/{1級,2級}土木/magazines 配下の「経験記述」を含む article.md）
 node scripts/keiken-charcount.mjs
 
 # 個別ファイル・ディレクトリ指定

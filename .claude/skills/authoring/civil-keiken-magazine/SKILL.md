@@ -69,4 +69,4 @@ note でマガジンを公開し URL（`note.com/.../m/...`）を取得したら
 
 - 紙用 PDF 化（オンデマンド）: `/magazine-to-pdf --spec scripts/pdf-specs/{magazine}.json`
 - サイト過去問ページの解答補完: `civil-secondary-exam-writer`
-- プラン: `docs/note/{1級土木,2級土木}/*施工経験記述プラン.md`
+- プラン: `docs/note/1級・2級土木/{1級土木,2級土木}/*施工経験記述プラン.md`
