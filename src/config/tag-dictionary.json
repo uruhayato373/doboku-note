@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-06-11T22:15:46.919Z",
+  "generated_at": "2026-06-12T04:50:53.814Z",
   "summary": {
-    "total_mdx_files": 1047,
+    "total_mdx_files": 1048,
     "total_unique_tags": 166,
     "allowlist_size": 149,
     "known_count": 77,
@@ -1505,7 +1505,7 @@
     },
     {
       "name": "guide",
-      "count": 84,
+      "count": 85,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1555,6 +1555,7 @@
         "concrete-diagnostician-guide-trends",
         "pe-comprehensive-management-course-selection-guide",
         "pe-comprehensive-management-essay-exam-strategy",
+        "pe-comprehensive-management-essay-persona-guide",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-passing-strategy",
         "pe-comprehensive-management-general-vs-comprehensive",
@@ -1710,13 +1711,14 @@
     },
     {
       "name": "技術士（総合技術監理部門）",
-      "count": 45,
+      "count": 46,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-analytic-hierarchy-process",
         "pe-comprehensive-management-course-selection-guide",
         "pe-comprehensive-management-essay-exam-strategy",
         "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-essay-persona-guide",
         "pe-comprehensive-management-exam-application-guide",
         "pe-comprehensive-management-exam-index",
         "pe-comprehensive-management-four-m-of-production",
@@ -1762,10 +1764,11 @@
     },
     {
       "name": "記述式対策",
-      "count": 40,
+      "count": 41,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-essay-persona-guide",
         "pe-comprehensive-management-management-tradeoffs",
         "pe-comprehensive-management-pattern-essay-general-contractor",
         "pe-comprehensive-management-pattern-essay-river-consultant",
@@ -1900,10 +1903,37 @@
     },
     {
       "name": "模範論文",
-      "count": 19,
+      "count": 20,
       "inAllowlist": false,
       "usedIn": [
         "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-essay-persona-guide",
+        "pe-comprehensive-management-pattern-essay-general-contractor",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-general-contractor",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-general-contractor",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-general-contractor",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "受験者属性別",
+      "count": 19,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-comprehensive-management-essay-persona-guide",
         "pe-comprehensive-management-pattern-essay-general-contractor",
         "pe-comprehensive-management-pattern-essay-river-consultant",
         "pe-comprehensive-management-pattern-essay-road-municipality",
@@ -1947,31 +1977,6 @@
         "concrete-diagnostician-textbook-maintenance",
         "concrete-diagnostician-textbook-repair",
         "concrete-diagnostician-textbook-variation"
-      ]
-    },
-    {
-      "name": "受験者属性別",
-      "count": 18,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-general-contractor",
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-general-contractor",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-general-contractor",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-general-contractor",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-road-municipality"
       ]
     },
     {
