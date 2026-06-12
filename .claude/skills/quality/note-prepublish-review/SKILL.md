@@ -39,6 +39,7 @@ user-invocable: true
   │   ├ リンク anchor↔slug 整合: anchor テキストとスラッグの title が概念一致しているか辞書（pe-chapters.json + frontmatter fallback）で突合（過去問スラッグは対象外）
   │   ├ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
   │   ├ 3点セット: img/cover.png + hashtags.txt 存在（4e・--require で BLOCK）+ ハッシュタグ形式（99 行以下 / 純粋 / 重複なし＝WARN）
+  │   ├ 段落長: >120 字の段落を WARN（4f・note 可読性。reflow ツールで文境界分割を適用）
   │   └ マガジン模範論文（magazines/ 配下のみ）: 試験問題セクション存在 / トレードオフ再掲節の不在 / 設問別解答字数（上限超過=NG・健全帯 85〜100%）/ 答案本文の散文化 / 図版なし / 設問(3) スコープ（国家施策設問の目視）
   │
   ├─ Phase 2: 3 エージェント並列実行
@@ -49,7 +50,7 @@ user-invocable: true
   └─ Phase 3: 結果集約・最終判定
       ├ inline 違反 1 件以上 → BLOCK（ブロッカー）
       │   ・BLOCK 対象: ファイル不在 / pipe / U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern A・B' / マガジンCTA形式（markdownリンク・URL同一行の¥）/ 3点セット欠落（cover.png・hashtags.txt）
-      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式 / 試験問題セクション欠落 / トレードオフ再掲節残存 / 設問別解答字数の健全帯逸脱 / 答案本文の箇条書き / 図版参照あり / 設問(3) 国家スケール設問の目視確認喚起
+      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式 / 段落長>120字（note 可読性） / 試験問題セクション欠落 / トレードオフ再掲節残存 / 設問別解答字数の健全帯逸脱 / 答案本文の箇条書き / 図版参照あり / 設問(3) 国家スケール設問の目視確認喚起
       ├ 各エージェントの加重スコア集計
       ├ 合格基準: inline 違反（BLOCK 対象）0 件 + 3 エージェント全て加重スコア 2.0+
       └ 公開可否判定 + 修正アクション一覧
@@ -119,6 +120,12 @@ node "$ROOT/.claude/scripts/check-note-magazine-cta.mjs" "$F"
 #   公開直前は noteUrl 未設定のことが多いため state を見ない。下書きのまま確認したいだけなら無視可。
 echo "THREE_SET:"
 node "$ROOT/.claude/scripts/check-note-3set.mjs" --require "$F"
+
+# 4f. 段落長（note 可読性・WARN・content-principles.md §14-e）
+#   note はモバイル閲覧主体で 1 段落が長いと読まれない。>120 字の段落を WARN として surface。
+#   自動分割（語句不変・文境界）は reflow ツールで適用、単文の長文は手動で 2 文に。
+echo "PARAGRAPH_LEN:"
+node "$ROOT/scripts/reflow-note-paragraphs.mjs" --dry --target 120 "$F"
 
 # 5. 文字数（参考）
 chars=$(wc -m < "$F")

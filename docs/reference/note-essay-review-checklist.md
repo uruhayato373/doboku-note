@@ -141,6 +141,8 @@ node scripts/split-essay-intro-paragraphs.mjs 自治体下水道担当         #
 
 frontmatter 後〜「## 試験問題/予想問題/A 案」直前の非構造行の内部「。」のみを「。\n\n」へ置換し、末尾の。や 。」、見出し・箇条書き・URL・引用は分割しない。再実行しても変化しない（冪等）。
 
+> **ツール使い分け**: 上記 `split-essay-intro-paragraphs.mjs` は essay マガジンの**導入部に特化**（1 文 1 段落・誤分割回避ロジックあり）。一般の note 記事（入口/ガイド/キーワードページ等）の本文段落を短くするときは汎用ツール `npm run note-reflow -- [--target N] <file|dir>`（`scripts/reflow-note-paragraphs.mjs`、>120 字を文境界で再パッキング・1〜2 文/段落・語句不変）を使う。note-reflow も「## 試験問題」以降の答案本文は自動保護するため essay 記事に誤適用しても答案は割れない。真実源: `content-principles.md §14-e`。
+
 PDF は `試験問題 → 採点者視点` のみ収録のため、導入部の段落分割は **PDF に影響しない**（再生成不要）。
 
 ## Step 4: 監理可能性チェック

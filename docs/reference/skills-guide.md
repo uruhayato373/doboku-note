@@ -129,6 +129,7 @@ title: スキル ナビゲーションガイド
 
 1. `/note-prepublish-review` — 公開前チェックゲート（inline + 3 エージェント並列）
 2. `/note-hashtags {slug}` — ハッシュタグ 99 個を生成（選択科目: `--article II1-1` 等でファイル別出力 → `hashtags-II1-1.txt`）
+3. `npm run note-reflow -- --dry <file>` — 段落長点検・一括リフロー（>120 字を文境界で短く・語句不変、`content-principles.md §14-e`）
 
 ### キーワード品質を上げたい
 
