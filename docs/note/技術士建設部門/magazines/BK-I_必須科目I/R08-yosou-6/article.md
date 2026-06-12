@@ -6,9 +6,9 @@ subject: required
 exam_type: I
 forecast: true
 theme: インフラ分野のDX・データ活用による生産性向上と質の確保
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n943bde735946"
+noteId: "n943bde735946"
+notePublishedAt: "2026-06-12"
 price: 500
 coverTitle: "技術士 建設部門｜必須科目I R8予想⑥ インフラDX・データ活用 模範解答"
 utmCampaign: pe-construction-secondary

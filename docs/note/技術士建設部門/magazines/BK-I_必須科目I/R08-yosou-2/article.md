@@ -6,9 +6,9 @@ subject: required
 exam_type: I
 forecast: true
 theme: 気候変動適応・国土強靱化・防災
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n0174f5234557"
+noteId: "n0174f5234557"
+notePublishedAt: "2026-06-12"
 price: 500
 coverTitle: "技術士 建設部門｜必須科目I R8予想② 気候変動適応・防災 模範解答"
 utmCampaign: pe-construction-secondary
