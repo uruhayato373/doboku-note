@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/nf12d75c3e606
 noteId: nf12d75c3e606
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "災害復旧と複合災害対応"]
-price: 500
+price: 700
 cover:
   leadIn: "令和8年度 総監記述式"
   hi: "R8"

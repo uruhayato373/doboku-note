@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/naace4eeaa230
 noteId: naace4eeaa230
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "老朽化インフラの予防保全"]
-price: 500
+price: 700
 cover:
   leadIn: "令和8年度 総監記述式"
   hi: "R8"
