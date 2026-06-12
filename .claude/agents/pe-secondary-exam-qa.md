@@ -82,7 +82,7 @@ frontmatter に `forecast: true`（`year: R{NN}-yosou`）がある予想問題�
 ## 必須ゲート（1つでも違反は不合格）
 
 - U+FFFD = 0
-- `node scripts/note-lint.mjs <path>` が通過（**pipe 表 `| … |` 無し**・**太字内全角括弧無し**・文字化け 0）。note は表非対応のため「採点者が見るポイント」等は箇条書きであること
+- `node scripts/note-lint.mjs <path>` が通過（**pipe 表 `| … |` 無し**・**太字内全角括弧無し**・**マガジンCTA形式**〔markdown リンク不可・URL同一行の価格不可〕・**3点セット**〔公開状態なら cover.png+hashtags.txt〕・文字化け 0。全 BLOCK 項目は note-lint.mjs が真実源）。note は表非対応のため「採点者が見るポイント」等は箇条書きであること
 - 本文（frontmatter 除く）に価格（¥ / XXX円）・記事ID・frontmatter の noteUrl/noteId 値の直書き = 0（SoT は note-magazines.ts）。ただしマガジン/関連記事への導線リンクカード用 URL 単独行は許可（[[feedback_note_link_card]]）
 - 字数: **各選択肢の解答**の実測字数が `exam_type × 枚数 × 600字` を**超えていない**こと（記事総字数ではなく選択肢ごと。超過は不合格、超過選択肢を `issues` に列挙）
 - 全選択肢収録: 当該区分の全選択肢（II-1=全設問・II-2=II-2-1/II-2-2・III=III-1/III-2・必須I=I-1/I-2）が漏れなく収録されている（片側欠落は不合格）
