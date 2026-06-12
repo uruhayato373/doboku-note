@@ -80,7 +80,7 @@ function subDirs(dir) {
 // 試験別ディレクトリ。2026-05-29 に docs/note を試験別へ再編。
 // docs/note/{exam}/{slug}/article.md と
 // docs/note/{exam}/magazines/{magazine}/{year}/article.md を走査する。
-const EXAM_DIRS = ['技術士総監', '1級土木', '2級土木', '共通'];
+const EXAM_DIRS = ['技術士総監', '1級・2級土木', '1級・2級土木/1級土木', '1級・2級土木/2級土木', '共通'];
 
 function build() {
   const items = [];

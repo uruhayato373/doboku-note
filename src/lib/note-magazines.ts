@@ -332,7 +332,7 @@ const MAGAZINES_RAW = {
   },
 
   // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
-  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-完成答案集/
+  // 原稿配置: docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/
   // 2026-06-03 note 公開。
   'civil-2-experience-essay': {
     id: 'civil-2-experience-essay',
@@ -350,7 +350,7 @@ const MAGAZINES_RAW = {
   },
 
   // ----- 1級土木 施工経験記述ライン (2026-05-29) -----
-  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-完成答案集/
+  // 原稿配置: docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/
   // 2026-06-02 note 公開。
   'civil-1-experience-essay': {
     id: 'civil-1-experience-essay',
@@ -367,7 +367,7 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/
+  // 原稿配置: docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/
   // 過去問の年度別模範答案集（テーマ別の civil-1-experience-essay と対）。2026-06-02 note 公開。
   'civil-1-pastexam-essay': {
     id: 'civil-1-pastexam-essay',
@@ -384,7 +384,7 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
+  // 原稿配置: docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
   // 2級 過去問の年度別模範答案集。published: false。
   'civil-2-pastexam-essay': {
     id: 'civil-2-pastexam-essay',
@@ -409,7 +409,7 @@ const MAGAZINES_RAW = {
   //     出題実績のない投機（条件提示型・日常業務）のため、現行形式を全網羅する
   //     civil-1-combo-essay（2テーマ組合せ大全）へ転換。原稿・SoT・placement・cover を削除。
 
-  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/
+  // 原稿配置: docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/
   // 予想問題集を転換。5管理の2テーマ全10組合せ × 想定工事①②③ で現行形式(R06+)を全網羅。
   // 全10記事生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)。published: false（note公開で noteUrl 取得後 true へ）。カバー未生成。
   'civil-1-combo-essay': {

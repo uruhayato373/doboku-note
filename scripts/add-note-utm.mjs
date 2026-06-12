@@ -36,7 +36,7 @@ function parseArgs(argv) {
 }
 
 // 2026-05-29 再編: docs/note は試験別ディレクトリ配下に記事を持つ。
-const EXAM_DIRS = ['技術士総監', '1級土木', '2級土木', '共通'];
+const EXAM_DIRS = ['技術士総監', '1級・2級土木', '1級・2級土木/1級土木', '1級・2級土木/2級土木', '共通'];
 
 function resolveDirectory(target) {
   // 全 exam dir 配下の記事 slug を {exam}/{slug}（magazines 除く）で収集

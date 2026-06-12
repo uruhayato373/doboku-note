@@ -27,11 +27,13 @@ const DEFAULT_GRADE = (config._meta && config._meta.default_grade) || 'civil-1';
 const TOL = (config._meta && config._meta.borderline_tolerance) || 0; // +10% は1行字数の幅で収まる帯
 const SEVERE = 1.3; // ×1.3 超は解答欄に物理的に収まらない
 
-// パスから級を判定（2級土木 → civil-2、1級土木 → civil-1、不明 → default）
+// パスから級を判定（/2級土木/ → civil-2、/1級土木/ → civil-1、不明 → default）
+// スラッシュ区切りで判定する（"1級・2級土木" が "2級土木" を部分文字列に含むため、
+// bare substring だと 1級・2級土木 配下の 1級記事を civil-2 に誤判定する。2026-06-12 dir 統合）
 function gradeOf(filePath) {
   const p = filePath.replace(/\\/g, '/');
-  if (p.includes('2級土木')) return 'civil-2';
-  if (p.includes('1級土木')) return 'civil-1';
+  if (p.includes('/2級土木/')) return 'civil-2';
+  if (p.includes('/1級土木/')) return 'civil-1';
   return DEFAULT_GRADE;
 }
 function limitsFor(grade) {
@@ -59,7 +61,7 @@ function walk(dir, acc) {
 
 function defaultTargets() {
   const acc = [];
-  for (const base of ['docs/note/1級土木/magazines', 'docs/note/2級土木/magazines']) {
+  for (const base of ['docs/note/1級・2級土木/1級土木/magazines', 'docs/note/1級・2級土木/2級土木/magazines']) {
     const abs = join(ROOT, base);
     if (existsSync(abs)) walk(abs, acc);
   }

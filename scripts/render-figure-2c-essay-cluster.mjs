@@ -9,7 +9,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const NOTE = join(ROOT, 'docs/note/2級土木');
+const NOTE = join(ROOT, 'docs/note/1級・2級土木/2級土木');
 
 const BRAND = '#2e6da4';
 const BRAND_FILL = '#e8f0fe';

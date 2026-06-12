@@ -140,5 +140,5 @@ SNS 投稿の **編集角度（content angle）** の真実源。過去問クイ
 
 - 戦略: [01_SNS集客戦略.md](../project/03_SNS/01_SNS集客戦略.md)（コンテンツ角度フレームワーク節）/ [02_チャネル動線設計.md](../project/03_SNS/02_チャネル動線設計.md)（UTM・季節）
 - パラレルポリシー: [x-post-policy.md](./x-post-policy.md) / [ig-carousel-skill.md](./ig-carousel-skill.md) / [ig-reels-policy.md](./ig-reels-policy.md) / [ig-stories-policy.md](./ig-stories-policy.md)
-- 資産源: [note 技術士総監コンテンツ計画](../note/技術士総監/noteコンテンツ計画.md) / [1級土木集客記事クラスター](../note/1級土木/1級土木-集客記事クラスター.md)
+- 資産源: [note 技術士総監コンテンツ計画](../note/技術士総監/noteコンテンツ計画.md) / [1級土木集客記事クラスター](../note/1級・2級土木/1級土木/1級土木-集客記事クラスター.md)
 - 数値検証: `note-fact-checker` エージェント（数字角度の突合）

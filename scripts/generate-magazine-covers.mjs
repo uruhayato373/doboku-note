@@ -208,7 +208,7 @@ const MAGAZINES = [
   {
     id: 'civil-1-experience',
     fileBaseName: 'civil-1-experience-essay-cover',
-    magazineDir: 'docs/note/1級土木/magazines/1級土木-施工経験記述-完成答案集',
+    magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集',
     lines: ['1級土木 施工経験記述', '工種×テーマ別 完成答案集', '品質・安全・工程・施工計画・環境'],
     category: '1級土木施工管理技士',
     fontSize: 42,
@@ -218,7 +218,7 @@ const MAGAZINES = [
   {
     id: 'civil-2-experience',
     fileBaseName: 'civil-2-experience-essay-cover',
-    magazineDir: 'docs/note/2級土木/magazines/2級土木-施工経験記述-完成答案集',
+    magazineDir: 'docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集',
     lines: ['2級土木 施工経験記述', '工種×テーマ別 完成答案集', '安全・品質・工程の3テーマ'],
     category: '2級土木施工管理技士',
     fontSize: 42,
@@ -228,7 +228,7 @@ const MAGAZINES = [
   {
     id: 'civil-1-pastexam',
     fileBaseName: 'civil-1-pastexam-essay-cover',
-    magazineDir: 'docs/note/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集',
+    magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集',
     lines: ['1級土木 施工経験記述', '過去問 模範答案集', '年度別 R03〜R07（5年分）'],
     category: '1級土木施工管理技士',
     fontSize: 44,
@@ -238,7 +238,7 @@ const MAGAZINES = [
   {
     id: 'civil-2-pastexam',
     fileBaseName: 'civil-2-pastexam-essay-cover',
-    magazineDir: 'docs/note/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集',
+    magazineDir: 'docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集',
     lines: ['2級土木 施工経験記述', '過去問 模範答案集', '年度別 R03〜R07（5年分）'],
     category: '2級土木施工管理技士',
     fontSize: 44,
@@ -248,7 +248,7 @@ const MAGAZINES = [
   {
     id: 'civil-1-combo',
     fileBaseName: 'civil-1-combo-essay-cover',
-    magazineDir: 'docs/note/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全',
+    magazineDir: 'docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全',
     lines: ['1級土木 施工経験記述', '2テーマ組合せ大全', '5管理 全10組合せ'],
     category: '1級土木施工管理技士',
     fontSize: 44,

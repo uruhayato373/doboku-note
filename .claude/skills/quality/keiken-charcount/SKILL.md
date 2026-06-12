@@ -20,7 +20,7 @@ user-invocable: true
 node scripts/keiken-charcount.mjs
 
 # 個別ファイル・ディレクトリ指定
-node scripts/keiken-charcount.mjs docs/note/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/R04/article.md
+node scripts/keiken-charcount.mjs docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/R04/article.md
 
 # Evaluator 連携用 JSON
 node scripts/keiken-charcount.mjs --json

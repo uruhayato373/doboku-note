@@ -42,15 +42,21 @@ const H = 670;
 const DEFAULT_CATEGORY = '技術士（総合技術監理部門）';
 
 /**
- * dirName（NOTE_DIR からの相対パス）の先頭セグメントから試験 exam キーを解決する。
- * 例: "1級土木/magazines/.../安全管理" → "civil-1"。未知 dir は "pe-comprehensive" にフォールバック。
+ * dirName（NOTE_DIR からの相対パス）のセグメントから試験 exam キーを解決する。
+ * 例: "1級・2級土木/1級土木/magazines/.../安全管理" → "civil-1"（級サブdirで色を維持）。
+ *     "1級・2級土木/経験記述-落ちる答案診断-無料" → "civil-1-2"。未知 dir は "pe-comprehensive"。
+ * 級別 dir（1級土木/2級土木）を combined（1級・2級土木）より先に判定するため、segments の
+ * 完全一致で照合する（substring 照合は "1級・2級土木" が "2級土木" を含み誤判定する）。
  */
 function resolveExam(dirName) {
-  const top = String(dirName).split('/')[0];
+  const segs = String(dirName).split('/');
   const exams = COVER_TOKENS.exams;
+  // 級別（civil-1/civil-2 等）を先に、combined（civil-1-2）は最後に判定
   for (const key of Object.keys(exams)) {
-    if (exams[key].dir === top) return key;
+    if (key === 'civil-1-2') continue;
+    if (segs.includes(exams[key].dir)) return key;
   }
+  if (segs.includes(exams['civil-1-2'].dir)) return 'civil-1-2';
   return 'pe-comprehensive';
 }
 
