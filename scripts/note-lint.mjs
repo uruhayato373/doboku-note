@@ -23,7 +23,7 @@
  *   node scripts/note-lint.mjs <file|dir> [...]      # 指定パスを検査（手動）。dir は再帰で article.md を探索
  *   npm run note-lint -- 総監記述式-設問3国家施策バンク
  */
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -89,7 +89,7 @@ function checkMagazineLinkCard(content) {
 }
 function checkBoldParen(file) {
   try {
-    const r = execSync(`node "${BOLD_CHECKER}" "${file}"`, { encoding: 'utf8', cwd: ROOT });
+    const r = execFileSync(process.execPath, [BOLD_CHECKER, file], { encoding: 'utf8', cwd: ROOT });
     if (/NG/.test(r)) {
       return r.split('\n').filter((l) => /L\d+:/.test(l)).map((l) => ({ line: 0, msg: '太字内全角括弧 Pattern A: ' + l.trim() }));
     }
@@ -106,7 +106,7 @@ function checkBoldParen(file) {
 //   真実源: content-principles.md §14-c
 function checkMagazineCta(file) {
   try {
-    const r = execSync(`node "${MAG_CTA_CHECKER}" "${file}"`, { encoding: 'utf8', cwd: ROOT });
+    const r = execFileSync(process.execPath, [MAG_CTA_CHECKER, file], { encoding: 'utf8', cwd: ROOT });
     if (/NG/.test(r)) {
       return r.split('\n').filter((l) => /L\d+:/.test(l)).map((l) => ({ line: 0, msg: 'マガジンCTA形式: ' + l.trim() }));
     }
