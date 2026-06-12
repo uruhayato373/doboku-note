@@ -13,6 +13,8 @@
  *   4. マガジンURL／{{MAGAZINE_URL}} の非単独行 — 括弧囲み・同一行テキストだと note でリンクカード化できない
  *   4b. マガジンCTA形式（check-note-magazine-cta.mjs）— markdown リンク形式のマガジンURL / マガジンURL同一行の価格(¥)
  *       → bare URL 単独行（リンクカード）に・価格は本文に書かない（改訂で陳腐化）。content-principles.md §14-c
+ *   4c. 3点セット充足（check-note-3set.mjs）— 公開状態（noteUrl 非空/noteStatus publish）の記事は
+ *       img/cover.png + hashtags.txt 必須（下書きは対象外）。生成漏れの本番到達を防止。content-principles.md §14-d
  *   5. 部分注入 — 同一マガジンに実URL注入済み記事がありながら {{MAGAZINE_URL}} が残る記事（注入漏れ）
  *      → 手作業でなく `npm run note-inject-magazine-url -- <persona> <url>` を使う（CRLF保持・冪等）
  *   6. 廃止セクション見出し — 「## …からのコメント」（合格者／元公務員からのコメント節、2026-06-10 廃止）
@@ -31,6 +33,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
 const MAG_CTA_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-magazine-cta.mjs');
+const SET_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-3set.mjs');
 
 function stagedNoteArticles() {
   try {
@@ -115,6 +118,22 @@ function checkMagazineCta(file) {
     if (/NG/.test(r)) {
       return r.split('\n').filter((l) => /L\d+:/.test(l)).map((l) => ({ line: 0, msg: 'マガジンCTA形式: ' + l.trim() }))
         .concat(/L\d+:/.test(r) ? [] : [{ line: 0, msg: 'マガジンCTA形式違反（詳細は check-note-magazine-cta.mjs）' }]);
+    }
+  }
+  return [];
+}
+// 3点セット充足ゲート（check-note-3set.mjs を再利用、既定モード=公開状態の記事のみ必須化）:
+//   公開状態（frontmatter noteUrl 非空 OR noteStatus に publish 含む）の article.md は
+//   img/cover.png + hashtags.txt を必須化。下書きは対象外（欠落が正常）。
+//   生成漏れの本番到達を構造防止（2026-06-12、公開済2本が hashtags.txt 欠落で公開された事例）。
+//   真実源: content-principles.md §14-d
+function checkNote3set(file) {
+  try {
+    execFileSync(process.execPath, [SET_CHECKER, file], { encoding: 'utf8', cwd: ROOT });
+  } catch (e) {
+    const r = (e.stdout || '') + (e.stderr || '');
+    if (/欠落/.test(r)) {
+      return r.split('\n').filter((l) => /^\s*欠落 /.test(l)).map((l) => ({ line: 0, msg: '3点セット未完: ' + l.trim() }));
     }
   }
   return [];
@@ -210,7 +229,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');
@@ -224,6 +243,7 @@ if (violations > 0) {
   console.error('   表は箇条書きへ、太字内全角括弧は **A**（B）形式へ、文字化けは修正、');
   console.error('   マガジンURL/{{MAGAZINE_URL}} は括弧で囲まず URL 単独行にしてください（リンクカード化）。');
   console.error('   マガジン導線は markdown リンクでなく bare URL 単独行に・CTA に価格(¥)を書かない（content-principles.md §14-c）。');
+  console.error('   公開状態の記事は 3点セット（img/cover.png + hashtags.txt）必須。生成: generate-note-covers.mjs / /note-hashtags（§14-d）。');
   process.exit(1);
 }
 console.log(`✅ note-lint: ${files.length} 記事 OK`);

@@ -484,6 +484,19 @@ note 記事本文（`docs/note/**/article.md`）から有料マガジンへ誘�
 
 **機械検知**: `.claude/scripts/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。関連: §14-b（太字内全角括弧）。
 
+### 14-d. note 記事の「3点セット」は公開状態で機械強制する
+
+note 記事1本の完成条件は **3点セット**: `article.md` + `img/cover.png`（アイキャッチ）+ `hashtags.txt`（タグ）。cover.png と hashtags.txt は本文執筆と別工程（`scripts/generate-note-covers.mjs` で frontmatter `cover:` ブロックを PNG 化／`/note-hashtags` でタグ生成）で後から作るため、**公開時に生成漏れが起きやすい**（2026-06-12、公開済 194 本中 2 本が `hashtags.txt` 欠落のまま公開されていた）。
+
+**ルール**: 記事が**公開状態**（frontmatter `noteUrl` 非空 OR `noteStatus` が `publish` を含む）になったら、`img/cover.png` と `hashtags.txt` は必須。**下書き（draft）は欠落して正常**（公開直前に仕上げる工程のため）。
+
+**機械検知**: `.claude/scripts/check-note-3set.mjs`。2 モードで運用する。
+
+- `scripts/note-lint.mjs`（pre-commit）: 既定モード＝**公開状態の記事のみ** BLOCK（下書き commit は止めない）。公開状態にしたのにアセットが無いコミットを自動で止める。
+- `/note-prepublish-review` Phase 1（4e）: `--require` モード＝公開意図なので**無条件必須**（公開直前は `noteUrl` 未設定のことが多く state を見ない）。
+
+cover.png はマガジン記事の共用図 `../img/cover.png` も探索する。生成: `node scripts/generate-note-covers.mjs <slug>`（カバー）/ `/note-hashtags <slug>`（タグ）。関連: §14-c（マガジン CTA）。
+
 ### 15. 総監ページに教材外の実務応用セクションを追加しない
 
 総合技術監理（pe-comprehensive-management）キーワードページには、教材『情報管理』『安全管理』『社会環境管理』『経済性管理』『人的資源管理』等の標準テキストに **書かれていない実務応用セクション**（建設現場での活用 / 業務での適用例 / 実務応用 / 現場での活用 / 建設実務での活用 / 業務での留意点 など）を独自に追加しない。
