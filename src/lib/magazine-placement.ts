@@ -71,10 +71,27 @@ function matchPatternEssay(slug: string): MagazineId | null {
   return null;
 }
 
+// 「全ペルソナ模範論文」配置用（essay-exam-strategy ハブ + r0X-secondary 年度ハブ）。
+// 14 ペルソナ全マガジンを立場別（受注者→発注者）に並べる。これ以前は 3 ペルソナのみで
+// 自治体系 10 + コンサル 2 が「サイトから一切送客されない孤立マガジン」だった（2026-06-13 拡張）。
+// spoke 個別記事（pattern-essay / r0X-essay）の固定 3 ペルソナ縦串とは別系統。
 const ALL_PERSONA_MAGAZINES: readonly MagazineId[] = [
-  'essay-river-consultant-magazine',
+  // 受注者系（ゼネコン・建設コンサル）
   'essay-general-contractor-magazine',
+  'essay-river-consultant-magazine',
+  'essay-road-consultant-magazine',
+  'essay-urban-consultant-magazine',
+  // 発注者系（自治体）
   'essay-road-municipality-magazine',
+  'essay-river-municipality-magazine',
+  'essay-urban-municipality-magazine',
+  'essay-sewage-municipality-magazine',
+  'essay-water-municipality-magazine',
+  'essay-sabo-municipality-magazine',
+  'essay-port-municipality-magazine',
+  'essay-park-municipality-magazine',
+  'essay-procurement-municipality-magazine',
+  'essay-standards-municipality-magazine',
 ] as const;
 
 /**
