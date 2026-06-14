@@ -84,16 +84,26 @@ function walkArticles() {
 
 function targetFiles() {
   if (STAGED) {
+    // -z（NUL 区切り・無クォート）で全 staged を取得し JS でフィルタ。
+    // 既定 core.quotePath=true だと日本語パスが \xxx エスケープ出力され existsSync が外すため -z が必須。
+    // pathspec グロブ（magazines/*/*/...）も非ASCIIで不安定なので使わず JS の正規表現で絞る。
     let out = "";
     try {
-      out = execSync(
-        'git diff --cached --name-only --diff-filter=ACM -- "docs/note/技術士建設部門/magazines/*/*/article*.md"',
-        { encoding: "utf-8" }
-      );
+      out = execSync("git diff --cached --name-only --diff-filter=ACM -z", {
+        encoding: "utf-8",
+        maxBuffer: 32 * 1024 * 1024,
+      });
     } catch {
       return [];
     }
-    return out.split("\n").map((s) => s.trim()).filter(Boolean).filter(existsSync);
+    return out
+      .split("\0")
+      .map((s) => s.trim())
+      .filter(Boolean)
+      .filter((p) =>
+        /(^|\/)docs\/note\/技術士建設部門\/magazines\/BK-[^/]+\/[^/]+\/article(-II1|-II2|-III)?\.md$/.test(p)
+      )
+      .filter(existsSync);
   }
   return walkArticles();
 }
