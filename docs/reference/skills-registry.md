@@ -27,6 +27,8 @@ title: スキル ガバナンス記録
 
 合計 **64 スキル**（Phase 2 待機を除く）。
 
+> 2026-06-14 追加（スキャン書籍取り込み）: `conversion/pdf-to-mdx` に **`--scanned` モード**を追加（テキスト層なしスキャン書籍を視覚 OCR で内部リファレンス `docs/textbook/**.md` ＋図に変換）。手順は `references/scanned-image-pipeline.md` に分離（pdfimages 抽出 → 90°回転/見開き分割 → 並列 OCR → 章分割 → 図 bbox 判定・精密クロップ埋め込み）。あわせて **新エージェント `scanned-textbook-transcriber`（Generator・sonnet）** を新設＝スキャンページ画像の逐語 OCR ファンアウトワーカー（Read 画像＋Write のみ・Bash 不可）。図 bbox は `civil-exam-figure-extractor` と同型 Generator を流用。落とし穴も収録（macOS bash3.2 の `declare -A` 不可・zsh 未クオート非分割 `${=var}`・`pdfimages -j` が pdftoppm より高速＋ネイティブ・ディスク逼迫 ENOSPC で静かに truncate→破損ページはスプレッド直接クロップで救済）。旧メモリ `reference_scanned_pdf_pipeline`（pdftoppm 方式）を pdfimages 方式へ更新。技術士建設部門「論文対策キーワード」168 見開き → 7 章 .md（約312k字）＋図31点で実証。[[project_pe_construction_secondary]]
+
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
 > 2026-05-30 追加: `management/routines`（クラウドルーティン /schedule の一覧・監査。重複・残骸 one-shot・平文シークレット・cron 衝突を検出。weekly-review 重複作成事故[2026-05-30]の再発防止。create 前 list-first を運用ルール化）。
 > 2026-06-02 更新: 経験記述3点（`authoring/civil-keiken-magazine` skill ＋ `civil-keiken-essay-writer`/`civil-keiken-essay-qa` agents）を当セッションの実体験事故から hardening。①散文形式の明文化（ⅰ）型完結文・断片「N.ラベル：文」禁止）②法定/規格の固定値はリテラル保持（現場固有値のみ〇〇。酸欠18%誤置換事故）③圧縮ガードレール（注釈/問題文/概要の削除・blockquote化での字数回避禁止）④想定工事①②③ 対称構造のテンプレ化（2級選択制は同一工事表記）⑤inter-article 重複検査を既存note全体へ拡張＋テーマ×工事マトリクス台帳（単位は工事=プロジェクト、工種=作業種別と区別）⑥量産パイプライン（writer→charcount --strict→qa→親commit）。詳細は各 .md。

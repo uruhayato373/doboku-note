@@ -3,7 +3,8 @@ name: pdf-to-mdx
 description: >
   PDF / 画像から MDX を生成する統合変換スキル。`--exam` フラグで試験別テンプレートを切替え、
   出力ディレクトリ構造・frontmatter スキーマ・カテゴリ推定・PDF 残骸除去を自動化する。
-  Use when user asks to [PDFをMDXに, PDF変換, 過去問取込, 総監PDF変換, 1級土木PDF変換, /pdf-to-mdx].
+  `--scanned` でテキスト層なしスキャン書籍を視覚 OCR（pdfimages＋サブエージェント）で内部リファレンス .md ＋図に変換するモードも持つ。
+  Use when user asks to [PDFをMDXに, PDF変換, 過去問取込, スキャン教材の文字起こし, 書籍OCR, 総監PDF変換, 1級土木PDF変換, /pdf-to-mdx, /pdf-to-mdx --scanned].
 ---
 
 PDF または画像ファイルから doboku-note 用 MDX を生成する統合スキル。**旧 `/pdf-to-mdx` / `/cem-pdf-to-mdx` / `/civil-construction-1-pdf-to-mdx` / `/clean-pdf-artifacts` を吸収**し、試験別の変換ルールを `templates/{exam}.md` に外出しして管理する。
@@ -21,6 +22,15 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 | `--pages` | 任意 | PDF のページ範囲（例: `1-50`）。省略時は全ページ |
 | `--output-dir` | 任意 | MDX 出力先。省略時は `--exam` から自動推定 |
 | `--skip-artifacts` | 任意 | PDF 残骸除去（重複ヘッダー・ページ番号等）をスキップ |
+| `--scanned` | 任意 | **テキスト層なしスキャン書籍モード**。下記参照 |
+
+## スキャン書籍モード（`--scanned`）
+
+テキスト抽出ができないスキャン書籍（自炊した教材・参考書・基準書）を、**視覚 OCR で内部リファレンス Markdown（`docs/textbook/`）＋図**に変換する。通常モード（テキスト層 → 公開 MDX）とは抽出方式・出力先・図処理がすべて異なるため、**手順は別ファイルに分離**:
+
+→ **`references/scanned-image-pipeline.md`** を参照（pdfimages 抽出 → 回転/見開き分割 → `scanned-textbook-transcriber` で並列 OCR → 章分割 → 図 bbox 判定・精密クロップ埋め込み。bash3.2/zsh/ディスク/破損ページの落とし穴も収録）。
+
+ワーカー: 本文 OCR = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 bbox = `civil-exam-figure-extractor` と同型の Generator。**市販書籍スキャンは内部リファレンス専用＝公開しない**（README に明記）。
 
 ## 利用可能な exam テンプレート
 

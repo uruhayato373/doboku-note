@@ -19,6 +19,7 @@ title: サブエージェント詳細レジストリ
 | 呼出元スキル                                    | 起動エージェント                                                         | 役割                 |
 | ----------------------------------------- | ---------------------------------------------------------------- | ------------------ |
 | `/pdf-to-mdx`                             | `content-qa`                                                     | 変換後品質評価（5軸ルーブリック）  |
+| `/pdf-to-mdx --scanned`                   | `scanned-textbook-transcriber`（図 bbox は `civil-exam-figure-extractor` 同型） | スキャン書籍ページ画像の並列 OCR 文字起こし |
 | `/quality-cycle --profile cem`            | `cem-qa`, `keyword-rewriter`                                     | 評価 → リライト → 再評価ループ |
 | `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter`           | 評価 → リライト → 再評価ループ |
 | `/audit-exam-mapping`                     | `exam-keyword-mapping-auditor`                                   | 紐づけ精度の semantic 評価 |
@@ -51,6 +52,7 @@ title: サブエージェント詳細レジストリ
 | エージェント                         | 役割                                                                                                   | 種別           | model   | 担当スキル                                                                 | Phase 1 対応                                |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------- | ------------ | ------- | --------------------------------------------------------------------- | ----------------------------------------- |
 | `content-qa`                   | PDF→MDX 変換の品質評価（5軸ルーブリック、過去問・基準書）                                                                    | Evaluator    | sonnet  | check-mdx, （Phase C で削除）                                              | ✅ 運用中                                     |
+| `scanned-textbook-transcriber` | スキャン書籍（テキスト層なし）ページ画像の逐語 OCR 文字起こし（Read 画像＋Write のみ・Bash 不可。`## ` はトップ節専用・図はプレースホルダ・本文は Write して戻り値は軽量ステータス） | Generator    | sonnet  | pdf-to-mdx（`--scanned` のファンアウト OCR ワーカー）                              | ✅ 運用中（2026-06-14 起動）                      |
 | `cem-qa`                       | 技術士総合技術監理キーワードページの品質評価（5軸ルーブリック）                                                                     | Evaluator    | sonnet  | lint-mdx-mobile, check-mdx, check-links, exam-backlinks               | ✅ 運用中                                     |
 | `civil-construction-qa`        | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック）                                               | Evaluator    | sonnet  | check-mdx, review-mobile, Playwright MCP                              | ✅ 運用中                                     |
 | `civil-construction-review`    | 1級土木 textbook/guide の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質）                      | Evaluator    | inherit | lint-mdx-mobile, check-mdx, check-links                               | ✅ 運用中                                     |

@@ -31,7 +31,7 @@ src/                           # コンポーネント・CSS・レイアウト
 docs/project/                  # プロジェクト管理ドキュメント
 docs/reference/             # 作業マニュアル（詳細・手順）
 .claude/skills/                # スキル定義（44スキル、8カテゴリ）
-.claude/agents/                # サブエージェント定義（14）
+.claude/agents/                # サブエージェント定義（41）
 ```
 
 **URL**: すべて `/docs/{slug}` フラット。Convention A（個別ファイル名）と Convention B（`article.mdx`）が共存。新規コンテンツは Convention B 推奨。詳細・frontmatter テンプレ → [content-authoring.md](docs/reference/content-authoring.md)
