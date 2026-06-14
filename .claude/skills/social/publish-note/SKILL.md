@@ -1,9 +1,9 @@
 ---
 name: publish-note
-description: browser-use CLI で note.com（note.com/dobokunote）エディタを自動操作し、総監模範論文ペルソナ別マガジンの記事を下書き保存または予約投稿する。Use when user says "note投稿", "note公開", "note下書き作成". 本文paste・カバー・タグを自動設定。実行は Mac 推奨（会社PCはプロキシ制約）。
+description: browser-use CLI で note.com（note.com/dobokunote）エディタを自動操作し、(1) 総監模範論文ペルソナ別マガジン記事（有料）または (2) 建設部門の無料ファネル記事（入口/キーワード, `--free`）を下書き保存・予約・即時公開する。Use when user says "note投稿", "note公開", "note下書き作成". 本文paste・カバー・タグを自動設定。実行は Mac 推奨（会社PCはプロキシ制約）。
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "<persona> <RXX>[ <M/D> <HH:MM>] [, <persona> <RXX> ...]"
+argument-hint: "<persona> <RXX>[ <M/D> <HH:MM>][, ...] | --free <docs/note配下dir>[ <M/D> <HH:MM>|now][, ...]"
 ---
 
 browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** のエディタを自動操作し、総監模範論文ペルソナ別マガジンの記事（`docs/note/技術士総監/magazines/総監模範論文-<persona>/<RXX>/article.md`）を下書き保存または予約投稿する。
@@ -46,6 +46,80 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 - **M/D HH:MM**: 予約日時（任意・省略時は下書き保存のみ）
 
 例: `/publish-note 自治体港湾担当 R03 7/1 08:00, 自治体港湾担当 R04 7/1 12:00`
+
+## 無料記事モード（建設部門 入口/キーワード記事）— `--free`
+
+総監マガジン（有料・ペルソナ/年度）とは**別系統**で、建設部門の**無料ファネル記事**（`notePricing: free`）を公開する。有料境界の分割・価格設定・特典PDF添付・マガジン設定を**すべてスキップ**する分、フローは単純。`docs/note/技術士建設部門/{theme}/article.md`（入口16本・論点キーワード6本）が対象。
+
+### 引数（無料モード）
+
+```
+/publish-note --free <技術士建設部門配下のdir>[ <M/D> <HH:MM> | now][, <dir2> ...]
+```
+
+- **dir**: `docs/note/` からの相対パス（例 `技術士建設部門/防災・減災の論点キーワード`）。スペースを含むので**カンマ区切りのバッチでは各 dir をそのまま**書く
+- **日時・`now` 省略 → 下書き保存のみ**（既定・最も安全。まず1本これで挙動確認するのを推奨）
+- **`now`** → 即時公開／**`<M/D> <HH:MM>`** → 予約公開（note プレミアム加入アカウントのみ）
+- 例（下書き）: `/publish-note --free 技術士建設部門/防災・減災の論点キーワード`
+- 例（即時公開）: `/publish-note --free 技術士建設部門/社会資本整備の論点キーワード now`
+
+### Phase 0-free: データ読み込み（無料記事版）
+
+`/tmp/note-prepare-free-<slug>.js` に書き出して実行する。**`notePricing: free` でなければ即中断**（有料記事を誤って無料公開しない安全弁）。
+
+```javascript
+// /tmp/note-prepare-free-<slug>.js
+const fs = require('fs');
+const path = require('path');
+const projectRoot = '/Users/minamidaisuke/doboku-note';
+const relDir = '<DIR>'; // 例: 技術士建設部門/防災・減災の論点キーワード
+const articleDir = path.join(projectRoot, 'docs/note', relDir);
+const articleFile = path.join(articleDir, 'article.md');
+if (!fs.existsSync(articleFile)) { console.error('ERROR: article.md not found: ' + articleFile); process.exit(1); }
+const raw = fs.readFileSync(articleFile, 'utf8');
+const fm = (raw.match(/^---\n([\s\S]*?)\n---/)?.[1]) ?? '';
+const fmField = (k) => { const m = fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')); return m ? (m[1] ?? m[2] ?? m[3] ?? '') : ''; };
+const notePricing = fmField('notePricing');
+if (notePricing !== 'free') { console.error('ABORT: notePricing != free (got "' + notePricing + '"). 無料記事モードは free 専用。'); process.exit(2); }
+const title = fmField('title');
+let body = raw.replace(/^---\n[\s\S]*?\n---\n*/, '');
+body = body.replace(/<!--[\s\S]*?-->\n?/g, '');   // HTML コメント除去
+body = body.replace(/!\[.*?\]\(.*?\)\n?/g, '');   // 画像参照除去（無料記事は通常なし）
+body = body.replace(/^---$/gm, '');               // 水平線除去
+body = body.replace(/^#\s+.*\n+/, '');            // 先頭 H1 除去（タイトル欄へ入れるため）
+body = body.trim();
+function splitSegments(text){ const segs=[]; let buf=[]; for(const line of text.split('\n')){ if(/^https?:\/\/\S+$/.test(line.trim())){ if(buf.length){segs.push({type:'text',content:buf.join('\n')});buf=[];} segs.push({type:'url',content:line.trim()});} else buf.push(line);} if(buf.length)segs.push({type:'text',content:buf.join('\n')}); return segs; }
+const segments = splitSegments(body);
+const tagsPath = path.join(articleDir, 'hashtags.txt');
+const tags = fs.existsSync(tagsPath) ? fs.readFileSync(tagsPath,'utf8').trim().split('\n').map(s=>s.trim()).filter(Boolean).slice(0,50) : [];
+const coverPath = path.join(articleDir, 'img/cover.png');
+const cover = fs.existsSync(coverPath) ? coverPath : null;
+const slug = relDir.replace(/[\/\s・／]+/g,'-');
+const result = { slug, articleDir, articleFile, title, isPaid:false, priceJpy:0, segments, segmentsFree:segments, segmentsPaid:[], tags, cover, segmentCount:segments.length, urlCount:segments.filter(s=>s.type==='url').length };
+fs.writeFileSync('/tmp/note-data-'+slug+'.json', JSON.stringify(result,null,2));
+console.log(JSON.stringify({ slug, title:title.substring(0,50), notePricing, segments:segments.length, urls:result.urlCount, tags:tags.length, cover: !!cover }));
+```
+
+実行: `node /tmp/note-prepare-free-<slug>.js`。中断（exit≠0）したら**その記事は公開しない**。
+
+### フロー（無料記事 = 有料フローからの差分）
+
+[references/editor-operations.md](references/editor-operations.md) の Phase を再利用しつつ、無料記事では次の差分を適用する。
+
+- **Phase 1 アカウント照合ゲート**: 共通（必須）。`dobokunote` 不一致なら即中断
+- **Phase 2 アイキャッチ**: `data.cover`（＝`<dir>/img/cover.png`）をアップロード。editor-operations の例にある `images/cover-1280x670.png` は読み替える
+- **Phase 3 タイトル**: `data.title`（先頭 H1 は除去済）
+- **Phase 4 本文**: `data.segments`（＝全文）を**チャンク注入機構で 1 回 paste**（無料記事は free/paid 分割なし＝全文が無料）。BK-I の note URL・サイト URL 行のカード化は半手動（行末 Enter→4 秒）
+- **Phase 5 挿絵**: スキップ（図版なし方針）
+- **Phase 6 下書き保存**: 共通
+- **Phase 7 公開設定**: **価格設定は行わない（無料）**。`<RXX>` 相当のタグは `data.tags`（hashtags.txt）。日時指定 → 予約公開、`now` → 即時公開、無指定 → 下書きのまま終了
+- **Phase 8 検証＆記録**: 偽成功の罠に従い本文文字数・カバー・タグを実体検証。**公開した場合のみ** 記事 URL を当該 `article.md` frontmatter `noteUrl`/`noteId`/`notePublishedAt` に反映（これらは空文字で用意済み）。下書きのみなら記録しない
+
+### 無料モードのガード
+
+- `notePricing != free` → 即中断（有料記事の無料公開防止）
+- 本文に `{{MAGAZINE_URL}}` 等プレースホルダが残存 → 中断
+- 既存の note 入口16本は `noteStatus: draft`。**公開順は無料入口→キーワード→有料マガジンの導線が開く順**を意識する（収益導線の整合）
 
 ## browser-use 共通設定
 
