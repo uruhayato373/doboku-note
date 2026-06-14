@@ -35,6 +35,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# 建設部門 BK マガジン模範解答の字数ハード上限（答案枚数×600字）超過検出（手書き不可答案の再発防止）
+node scripts/check-note-charlimits.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # SNS 投稿（docs/sns/**）の /docs/ リンクが本番に実在するか検証（404 投稿の再発防止）
 node scripts/check-sns-urls.mjs --staged
 if [ $? -ne 0 ]; then

@@ -305,7 +305,7 @@ https://note.com/dobokunote/m/m0f3bc3933454
 ### Step 5: 機械検証
 
 - U+FFFD 0 件
-- **各選択肢の解答が個別に** exam_type の上限（枚数 × 600 字）を**超えていない**こと（記事総字数ではなく選択肢ごとに判定。本番は1選択肢のみ手書きするため）
+- **各選択肢の解答が個別に** exam_type の上限（枚数 × 600 字）を**超えていない**こと（記事総字数ではなく選択肢ごとに判定。本番は1選択肢のみ手書きするため）。**常設ゲート `npm run check-note-charlimits`**（pre-commit が staged の BK article*.md の HARD 上限超過＝II-1:600/II-2:1200/III・必須I:1800 をブロック。`scripts/check-note-charlimits.mjs`）で機械検証する
 - frontmatter に `noteUrl: ""` / `noteId: ""` / `notePublishedAt: ""` が存在すること
 - 本文中に価格（¥・円）の直書きがないこと
 - 当該区分の**全選択肢が収録**され、各選択肢の設問番号と解答見出しが 1 対 1 で対応していること
