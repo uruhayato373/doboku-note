@@ -32,7 +32,7 @@
 
 import { readFileSync, mkdirSync, writeFileSync, renameSync, copyFileSync, rmSync, existsSync } from 'node:fs'
 import { join, resolve, basename, dirname } from 'node:path'
-import { homedir } from 'node:os'
+import { homedir, tmpdir } from 'node:os'
 import { pathToFileURL } from 'node:url'
 import { execFileSync } from 'node:child_process'
 import matter from 'gray-matter'
@@ -41,7 +41,8 @@ import remarkGfm from 'remark-gfm'
 import remarkHtml from 'remark-html'
 
 const REPO = resolve(import.meta.dirname, '..')
-const CHROME = 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
+// 既定は会社 PC（Windows）の Chrome パス。Mac/CI 等では CHROME_PATH 環境変数で上書きする。
+const CHROME = process.env.CHROME_PATH || 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe'
 
 function parseArgs(argv) {
   const args = { spec: null, desktop: false }
@@ -125,7 +126,12 @@ async function main() {
   const specPath = resolve(REPO, args.spec)
   const spec = JSON.parse(readFileSync(specPath, 'utf8'))
   const srcDir = resolve(REPO, spec.srcDir)
-  const outDir = spec.outDir || `C:\\tmp\\${basename(spec.srcDir)}-pdf`
+  // 既定の作業出力先。会社 PC（Windows）は C:\tmp、それ以外は OS の一時ディレクトリ（Mac/CI 対応）。
+  const outDir =
+    spec.outDir ||
+    (process.platform === 'win32'
+      ? `C:\\tmp\\${basename(spec.srcDir)}-pdf`
+      : join(tmpdir(), `${basename(spec.srcDir)}-pdf`))
   const workDir = join(outDir, '_work')
   const toDesktop = args.desktop || spec.deliverTo === 'desktop'
   const inPlace = args.inPlace || spec.deliverTo === 'in-place'
