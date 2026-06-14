@@ -299,100 +299,169 @@ function FreeLinkCard({ link }: { link: FreeLink }) {
   );
 }
 
-// note-magazines.ts の published を試験別に自動グルーピングし、各試験を無料→有料で描画
-function ExamSections() {
+// note-magazines.ts の published を試験別に自動グルーピング（ハードコード配列を廃し陳腐化を防止）。
+function buildByExam(): Record<string, PublishedMagazine[]> {
   const byExam: Record<string, PublishedMagazine[]> = {};
   (Object.keys(NOTE_MAGAZINES) as MagazineId[]).forEach((id) => {
     const mag = getMagazine(id);
     if (!mag) return;
     (byExam[examOf(id)] ??= []).push(mag);
   });
+  return byExam;
+}
+
+function sectionHasContent(
+  byExam: Record<string, PublishedMagazine[]>,
+  key: string,
+): boolean {
+  const sec = EXAM_SECTIONS.find((s) => s.key === key);
+  return (byExam[key]?.length ?? 0) > 0 || (sec?.freeLinks.length ?? 0) > 0;
+}
+
+// 1 試験ぶんのパネル（見出し + サブ + 無料入口→有料カード）。featured で内部 2 カラム化（総監=主力）。
+function ExamPanel({
+  secKey,
+  byExam,
+  featured = false,
+}: {
+  secKey: string;
+  byExam: Record<string, PublishedMagazine[]>;
+  featured?: boolean;
+}) {
+  const sec = EXAM_SECTIONS.find((s) => s.key === secKey);
+  if (!sec) return null;
+  const mags = byExam[secKey] ?? [];
+  if (mags.length === 0 && sec.freeLinks.length === 0) return null;
+
+  const isTankan = secKey === "tankan";
+  const personas = isTankan ? mags.filter((m) => isPersonaEssay(m.id)) : [];
+  const core = isTankan ? mags.filter((m) => !isPersonaEssay(m.id)) : mags;
+  const ordered = isTankan
+    ? [...core].sort(
+        (a, b) =>
+          (TANKAN_CORE_ORDER.indexOf(a.id) + 1 || 99) -
+          (TANKAN_CORE_ORDER.indexOf(b.id) + 1 || 99),
+      )
+    : core;
 
   return (
-    <div className="space-y-9">
-      {EXAM_SECTIONS.map((sec) => {
-        const mags = byExam[sec.key] ?? [];
-        if (mags.length === 0 && sec.freeLinks.length === 0) return null;
-
-        const isTankan = sec.key === "tankan";
-        const personas = isTankan ? mags.filter((m) => isPersonaEssay(m.id)) : [];
-        const core = isTankan ? mags.filter((m) => !isPersonaEssay(m.id)) : mags;
-        const ordered = isTankan
-          ? [...core].sort(
-              (a, b) =>
-                (TANKAN_CORE_ORDER.indexOf(a.id) + 1 || 99) -
-                (TANKAN_CORE_ORDER.indexOf(b.id) + 1 || 99),
-            )
-          : core;
-
-        return (
-          <div key={sec.key}>
-            <div className="flex items-center gap-2 mb-1">
-              <span
-                className="w-1 h-4 bg-[var(--accent)] rounded-full shrink-0"
-                aria-hidden="true"
-              />
-              <h3 className="font-serif text-base font-bold text-[var(--ink)]">
-                {sec.heading}
-              </h3>
-            </div>
-            <p className="text-xs text-[var(--ink-body)] mb-3 pl-3 leading-relaxed">
-              {sec.sub}
-            </p>
-            <div className="space-y-3">
-              {sec.freeLinks.map((link) => (
-                <FreeLinkCard key={link.href} link={link} />
-              ))}
-              {ordered.map((mag) => (
-                <MagazineCard
-                  key={mag.id}
-                  mag={mag}
-                  accent={mag.id === "essay-complete-pack"}
-                />
-              ))}
-              {personas.length > 0 && (
-                <PersonaAggregateCard count={personas.length} />
-              )}
-            </div>
-          </div>
-        );
-      })}
+    <div id={`exam-${secKey}`} className="scroll-mt-24">
+      <div className="flex items-center gap-2 mb-1">
+        <span
+          className="w-1 h-4 bg-[var(--accent)] rounded-full shrink-0"
+          aria-hidden="true"
+        />
+        <h3 className="font-serif text-base font-bold text-[var(--ink)]">
+          {sec.heading}
+        </h3>
+      </div>
+      <p className="text-xs text-[var(--ink-body)] mb-3 pl-3 leading-relaxed">
+        {sec.sub}
+      </p>
+      <div className={featured ? "grid sm:grid-cols-2 gap-3" : "space-y-3"}>
+        {sec.freeLinks.map((link) => (
+          <FreeLinkCard key={link.href} link={link} />
+        ))}
+        {ordered.map((mag) => (
+          <MagazineCard
+            key={mag.id}
+            mag={mag}
+            accent={mag.id === "essay-complete-pack"}
+          />
+        ))}
+        {personas.length > 0 && <PersonaAggregateCard count={personas.length} />}
+      </div>
     </div>
   );
 }
 
+// 総監=主力パネル（フル幅・内部2カラム）、建設/1級/2級=均等グリッド。
+function ExamSections() {
+  const byExam = buildByExam();
+  const others = ["pe-construction", "civil-1", "civil-2"].filter((k) =>
+    sectionHasContent(byExam, k),
+  );
+  const otherCols =
+    others.length >= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2";
+
+  return (
+    <div className="space-y-10">
+      {sectionHasContent(byExam, "tankan") && (
+        <ExamPanel secKey="tankan" byExam={byExam} featured />
+      )}
+      {others.length > 0 && (
+        <div
+          className={`grid grid-cols-1 ${otherCols} gap-x-6 gap-y-8 items-start`}
+        >
+          {others.map((key) => (
+            <ExamPanel key={key} secKey={key} byExam={byExam} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ヒーロー帯の試験チップ（該当セクションへジャンプ）。実コンテンツのある試験のみ描画。
+const HERO_CHIPS: { label: string; key: string }[] = [
+  { label: "技術士総監", key: "tankan" },
+  { label: "建設部門", key: "pe-construction" },
+  { label: "1級土木", key: "civil-1" },
+  { label: "2級土木", key: "civil-2" },
+];
+
 export default function LinksPage() {
+  const byExam = buildByExam();
+  const chips = HERO_CHIPS.filter((c) => sectionHasContent(byExam, c.key));
+
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
       <Header />
 
       <main className="flex-grow py-10 sm:py-14">
-        <div className="max-w-[600px] mx-auto px-4 sm:px-6">
-          {/* Profile Hero */}
-          <section className="text-center mb-8">
-            <img
-              src={AUTHOR.imageUrl}
-              alt={`${AUTHOR.name}のプロフィール画像`}
-              width={96}
-              height={96}
-              className="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-[var(--rule-soft)]"
-            />
-            <h1 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-2">
-              doboku-note
-            </h1>
-            <p className="font-serif text-base sm:text-lg font-bold text-[var(--accent)] mb-2 leading-snug">
-              発注者の視点で、土木・建設系資格の「合格」へ最短ルートを。
-            </p>
-            <p className="text-sm text-[var(--ink-body)] leading-relaxed">
-              技術士（総監・建設部門）・1級／2級土木施工管理技士の試験対策ハブ
-              <br />
-              元・地方自治体 土木職（発注者）｜技術士2部門ほか多数の資格を保有する運営者
-            </p>
+        <div className="max-w-5xl mx-auto px-4 sm:px-6">
+          {/* Hero band: アバター + 名乗り + キャッチ + 試験チップ（ジャンプ） */}
+          <section className="mb-8 rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] p-6 sm:p-8">
+            <div className="flex flex-col sm:flex-row items-center gap-5 sm:gap-7">
+              <img
+                src={AUTHOR.imageUrl}
+                alt={`${AUTHOR.name}のプロフィール画像`}
+                width={112}
+                height={112}
+                className="w-24 h-24 sm:w-28 sm:h-28 rounded-full border-2 border-[var(--rule-soft)] shrink-0"
+              />
+              <div className="text-center sm:text-left min-w-0">
+                <h1 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-1.5">
+                  doboku-note
+                </h1>
+                <p className="font-serif text-base sm:text-lg font-bold text-[var(--accent)] mb-1.5 leading-snug">
+                  発注者の視点で、土木・建設系資格の「合格」へ最短ルートを。
+                </p>
+                <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-4">
+                  技術士（総監・建設部門）・1級／2級土木施工管理技士の試験対策ハブ
+                  <br />
+                  元・地方自治体 土木職（発注者）｜技術士2部門ほか多数の資格を保有する運営者
+                </p>
+                {chips.length > 0 && (
+                  <div className="flex flex-wrap gap-2 justify-center sm:justify-start">
+                    {chips.map((chip) => (
+                      <a
+                        key={chip.key}
+                        href={`#exam-${chip.key}`}
+                        className="inline-flex items-center rounded-full border border-[var(--rule-soft)] px-3 py-1 text-xs font-bold text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                      >
+                        {chip.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </section>
 
           {/* 価値提案 — なぜここで合格できるのか（中身） */}
-          <section className="mb-10">
-            <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 mb-4">
+          <section className="mb-12">
+            <div className="max-w-3xl mx-auto bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 mb-5">
               <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-3">
                 市販のテキストや過去問演習だけでは、記述式・経験記述の
                 <strong className="text-[var(--ink)]">「合格答案の型」</strong>
@@ -412,13 +481,13 @@ export default function LinksPage() {
               </p>
             </div>
 
-            <div className="space-y-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
               {VALUE_PILLARS.map((p) => {
                 const Icon = p.icon;
                 return (
                   <div
                     key={p.title}
-                    className="flex items-start gap-3 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3"
+                    className="flex sm:flex-col items-start gap-3 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3"
                   >
                     <div className="w-9 h-9 rounded-full bg-[var(--accent-fill)] flex items-center justify-center shrink-0">
                       <Icon
@@ -441,11 +510,11 @@ export default function LinksPage() {
           </section>
 
           {/* 試験別: 無料入口 → 有料教材（試験ファースト funnel） */}
-          <section className="mb-10">
-            <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-1 text-center">
+          <section className="mb-12">
+            <h2 className="font-serif text-xl font-bold text-[var(--ink)] mb-1 text-center">
               試験別コンテンツ
             </h2>
-            <p className="text-xs text-[var(--ink-muted)] mb-6 text-center leading-relaxed">
+            <p className="text-xs text-[var(--ink-muted)] mb-8 text-center leading-relaxed">
               受験する試験を選択。
               <span className="text-[var(--accent)] font-bold">色付きの無料ガイド</span>
               で全体像をつかみ、必要に応じて note 教材で記述・経験記述を仕上げる流れがおすすめです
@@ -454,36 +523,41 @@ export default function LinksPage() {
             <ExamSections />
           </section>
 
-          {/* 運営者 */}
-          <section className="mb-10">
-            <Link
-              href="/about"
-              className="flex items-center justify-between bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
-            >
-              <div className="min-w-0 flex-1 pr-3">
-                <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-                  運営者プロフィール
+          {/* 運営者 + SNS（PC では 2 カラム） */}
+          <section className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div>
+              <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
+                運営者
+              </h2>
+              <p className="text-xs text-[var(--ink-muted)] mb-3">
+                どんな人が運営しているか知りたい方へ
+              </p>
+              <Link
+                href="/about"
+                className="flex items-center justify-between bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+              >
+                <div className="min-w-0 flex-1 pr-3">
+                  <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
+                    運営者プロフィール
+                  </div>
+                  <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
+                    {AUTHOR.jobTitle}。編集方針・保有資格の詳細はこちら
+                  </div>
                 </div>
-                <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-                  {AUTHOR.jobTitle}。編集方針・保有資格の詳細はこちら
-                </div>
-              </div>
-              <ArrowRight
-                className="w-4 h-4 text-[var(--ink-muted)] shrink-0"
-                aria-hidden="true"
-              />
-            </Link>
-          </section>
+                <ArrowRight
+                  className="w-4 h-4 text-[var(--ink-muted)] shrink-0"
+                  aria-hidden="true"
+                />
+              </Link>
+            </div>
 
-          {/* SNS */}
-          <section>
-            <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-1 text-center">
-              SNS
-            </h2>
-            <p className="text-xs text-[var(--ink-muted)] mb-4 text-center">
-              学習仲間との交流や最新情報・試験季節リマインダーが欲しい方へ
-            </p>
-            <div className="space-y-3">
+            <div>
+              <h2 className="font-serif text-base font-bold text-[var(--ink)] mb-1">
+                SNS
+              </h2>
+              <p className="text-xs text-[var(--ink-muted)] mb-3">
+                学習仲間との交流や最新情報・試験季節リマインダーが欲しい方へ
+              </p>
               <a
                 href={AUTHOR.twitterUrl}
                 target="_blank"
