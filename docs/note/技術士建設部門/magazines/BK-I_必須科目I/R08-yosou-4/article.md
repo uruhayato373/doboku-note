@@ -6,9 +6,9 @@ subject: required
 exam_type: I
 forecast: true
 theme: カーボンニュートラル・GX（建設分野の脱炭素）
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/ne5a0462bd180"
+noteId: "ne5a0462bd180"
+notePublishedAt: "2026-06-12"
 price: 500
 coverTitle: "技術士 建設部門｜必須科目I R8予想④ カーボンニュートラル・GX 模範解答"
 utmCampaign: pe-construction-secondary

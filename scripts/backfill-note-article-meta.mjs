@@ -98,7 +98,10 @@ const files = [];
   for (const e of readdirSync(d, { withFileTypes: true })) {
     const p = join(d, e.name);
     if (e.isDirectory()) walk(p);
-    else if (e.name === "article.md" && p.includes("/magazines/")) files.push(p);
+    else if (e.name === "article.md") {
+      const np = p.replace(/\\/g, "/"); // Windows のパス区切りを正規化（/magazines/ 判定と表示用）
+      if (np.includes("/magazines/")) files.push(np);
+    }
   }
 })("docs/note");
 

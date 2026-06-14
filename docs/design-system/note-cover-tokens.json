@@ -19,7 +19,7 @@
   },
 
   "exams": {
-    "comment": "試験区分=ベース色（hue）。dir 名 docs/note/{技術士総監,1級土木,2級土木,共通}/ から解決する。base=バナー帯/HiBox の基準色, deep=有料(濃), soft=無料の淡め強調, ink=チップ文字色。",
+    "comment": "試験区分=ベース色（hue）。dir 名 docs/note/{技術士総監,1級土木,2級土木,1級・2級土木,共通,...}/ から解決する。base=バナー帯/HiBox の基準色, deep=有料(濃), soft=無料の淡め強調, ink=チップ文字色。",
     "pe-comprehensive": {
       "dir": "技術士総監",
       "label": "技術士（総合技術監理部門）",
@@ -49,6 +49,16 @@
       "deep": "#1C5038",
       "soft": "#3E9069",
       "accent": "#155293"
+    },
+    "civil-1-2": {
+      "dir": "1級・2級土木",
+      "label": "1級・2級土木施工管理技士",
+      "short": "1級・2級土木",
+      "hue": "azure",
+      "base": "#1E73C8",
+      "deep": "#155293",
+      "soft": "#3E8FDC",
+      "accent": "#16365C"
     },
     "concrete-chief": {
       "dir": "コンクリート主任技師",

@@ -228,6 +228,8 @@ https://note.com/dobokunote/m/m32a8a5b3b473
 
 ---
 
+---
+
 **あわせて揃えたい共通装備｜note**
 
 模範論文はどのテーマでも「5 管理のトレードオフ」で書きます。その土台になる 3 点です。お持ちでなければ、自分のペルソナとセットでどうぞ。
@@ -240,8 +242,6 @@ https://note.com/dobokunote/m/m91516dfc27ac
 
 本番の「演習」｜R8 予想問題集:
 https://note.com/dobokunote/m/m6854c7437d4d
-
----
 
 **印刷用 PDF｜本記事の模範論文**
 

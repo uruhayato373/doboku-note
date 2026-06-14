@@ -114,7 +114,7 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 ```json
 {
   "grade": 1, "magazineType": "yosou", "slug": "条件提示型",
-  "path": "docs/note/1級土木/magazines/.../article.md",
+  "path": "docs/note/1級・2級土木/1級土木/magazines/.../article.md",
   "bytes": 0, "fffd": 0, "price_in_body": 0,
   "dup_lines_vs_existing_excl_boilerplate": 0,
   "dup_lines_vs_site": 0,
@@ -132,7 +132,7 @@ frontmatter（`notePricing: paid` / `noteSeries` / `noteMagazine` / `utmCampaign
 ## 参照
 
 - `.claude/agents/civil-secondary-exam-writer.md` — 姉妹 Generator（サイト過去問用）
-- `docs/note/1級土木/1級土木施工経験記述プラン.md` / `docs/note/2級土木/2級土木施工経験記述プラン.md`（プラン doc）
-- 既存マガジン（手本）: `docs/note/{1級土木,2級土木}/magazines/*-施工経験記述-*/`
+- `docs/note/1級・2級土木/1級土木/1級土木施工経験記述プラン.md` / `docs/note/1級・2級土木/2級土木/2級土木施工経験記述プラン.md`（プラン doc）
+- 既存マガジン（手本）: `docs/note/1級・2級土木/{1級土木,2級土木}/magazines/*-施工経験記述-*/`
 - `docs/reference/content-principles.md` / `.claude/scripts/lib/mdx-io.mjs`
 - メモリ: [[feedback_exam_pdf_cross_reference]]（ハルシネーション）/ [[feedback_no_price_in_mdx_body]]

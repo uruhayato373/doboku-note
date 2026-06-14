@@ -1,7 +1,14 @@
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
+import {
+  ExternalLink,
+  Compass,
+  FileText,
+  Layers,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
 import type { Metadata } from "next";
 import { AUTHOR } from "@/config/author";
 import {
@@ -14,7 +21,7 @@ import {
 export const metadata: Metadata = {
   title: "Links — doboku-note の入口",
   description:
-    "技術士総監・1級土木・2級土木の試験対策コンテンツ入口まとめ。無料 note 記事・有料マガジン・サイト試験ガイド・X アカウントへの動線。",
+    "発注者視点で土木・建設系資格の合格を支援。技術士総監・建設部門・1級／2級土木施工管理技士の無料サイト解説と、模範論文・施工経験記述・記述解答のフル教材（note）への入口まとめ。",
   alternates: {
     canonical: "https://doboku-note.com/links",
   },
@@ -22,7 +29,7 @@ export const metadata: Metadata = {
     type: "website",
     title: "Links — doboku-note の入口",
     description:
-      "技術士総監・1級土木・2級土木の試験対策。無料 note・有料マガジン・サイトハブ・X への動線まとめ。",
+      "発注者視点で土木・建設系資格の合格を支援。無料サイト解説と note フル教材への動線まとめ。",
     url: "https://doboku-note.com/links",
     images: [
       {
@@ -70,7 +77,7 @@ const EXAM_SECTIONS: {
   {
     key: "tankan",
     heading: "技術士（総合技術監理部門）",
-    sub: "まず無料で全体像、深掘りは有料教材で",
+    sub: "650+語の無料キーワード辞書で土台を固め、記述式は型・設問3・予想・模範論文で仕上げる",
     freeLinks: [
       {
         label: "サイト試験ガイド（無料）",
@@ -88,13 +95,13 @@ const EXAM_SECTIONS: {
   {
     key: "pe-construction",
     heading: "技術士（建設部門）第二次試験",
-    sub: "必須科目I・選択科目の模範解答集（発注者視点）",
+    sub: "必須科目I・選択科目を発注者視点で全選択肢フル解答（設問全文の再掲つき）",
     freeLinks: [],
   },
   {
     key: "civil-1",
     heading: "1級土木施工管理技士",
-    sub: "まず無料ガイド、記述対策は有料答案集で",
+    sub: "第1次・第2次の無料ガイドで全体像、施工経験記述はフル完成答案集で確実に",
     freeLinks: [
       {
         label: "サイト試験ガイド（無料）",
@@ -106,7 +113,7 @@ const EXAM_SECTIONS: {
   {
     key: "civil-2",
     heading: "2級土木施工管理技士",
-    sub: "まず無料ガイド、記述対策は有料答案集で",
+    sub: "受験資格緩和で増えた若手向け。無料ガイド＋経験記述の完成答案集で初挑戦を支える",
     freeLinks: [
       {
         label: "サイト試験ガイド（無料）",
@@ -144,6 +151,29 @@ const TANKAN_CORE_ORDER: string[] = [
 
 type PublishedMagazine = NonNullable<ReturnType<typeof getMagazine>>;
 
+// 教材の「中身」を語る3本柱（差別化軸）。既存有料商品の共通価値を言語化。
+const VALUE_PILLARS: {
+  icon: typeof Compass;
+  title: string;
+  body: string;
+}[] = [
+  {
+    icon: Compass,
+    title: "発注者・採点者の目線",
+    body: "出題者が何を評価するかを逆算。減点される書き方と、評価される書き方を具体的に示します。",
+  },
+  {
+    icon: FileText,
+    title: "骨子でなくフル答案",
+    body: "模範論文・施工経験記述・記述解答を丸ごと収録。自分の現場に差し替える置換ガイド付き。",
+  },
+  {
+    icon: Layers,
+    title: "過去問を全網羅",
+    body: "主要年度を全選択肢でカバー。A案／B案の併記と印刷用PDFで、どのお題が来ても対応できます。",
+  },
+];
+
 function MagazineCard({
   mag,
   accent = false,
@@ -158,36 +188,57 @@ function MagazineCard({
       rel="noopener noreferrer"
       className={
         accent
-          ? "flex items-center justify-between bg-[var(--accent)] text-white rounded-card-content px-4 py-3 hover:opacity-90 transition-opacity shadow-soft"
-          : "flex items-center justify-between bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+          ? "block bg-[var(--accent)] text-white rounded-card-content px-4 py-3.5 hover:opacity-95 transition-opacity shadow-soft"
+          : "block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
       }
     >
-      <div className="min-w-0 flex-1 pr-3">
-        <div
+      <div className="flex items-start justify-between gap-3">
+        <div className="min-w-0 flex-1">
+          {accent && (
+            <div className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-white/20 rounded-full px-2 py-0.5 mb-1.5">
+              <Sparkles className="w-3 h-3" aria-hidden="true" />
+              いちばん人気・全部入り
+            </div>
+          )}
+          <div
+            className={
+              accent
+                ? "font-serif font-bold text-sm sm:text-base"
+                : "font-serif font-bold text-[var(--ink)] text-sm sm:text-base"
+            }
+          >
+            {mag.shortTitle ?? mag.title}
+          </div>
+          <div
+            className={
+              accent
+                ? "text-xs opacity-95 mt-0.5 leading-snug"
+                : "text-xs text-[var(--ink-muted)] mt-0.5 leading-snug"
+            }
+          >
+            {mag.shortDescription ?? mag.description}
+          </div>
+        </div>
+        <ExternalLink
           className={
             accent
-              ? "font-serif font-bold text-sm sm:text-base"
-              : "font-serif font-bold text-[var(--ink)] text-sm sm:text-base"
+              ? "w-4 h-4 shrink-0 mt-0.5"
+              : "w-4 h-4 text-[var(--ink-muted)] shrink-0 mt-0.5"
           }
-        >
-          {mag.shortTitle ?? mag.title}
-        </div>
-        <div
-          className={
-            accent
-              ? "text-xs opacity-95 mt-0.5 leading-snug"
-              : "text-xs text-[var(--ink-muted)] mt-0.5 leading-snug"
-          }
-        >
-          {mag.shortDescription ?? mag.description}
-        </div>
+          aria-hidden="true"
+        />
       </div>
-      <ExternalLink
-        className={
-          accent ? "w-4 h-4 shrink-0" : "w-4 h-4 text-[var(--ink-muted)] shrink-0"
-        }
-        aria-hidden="true"
-      />
+      {mag.price && (
+        <div
+          className={
+            accent
+              ? "text-xs font-bold mt-2"
+              : "text-xs font-bold text-[var(--accent)] mt-2"
+          }
+        >
+          {mag.price}
+        </div>
+      )}
     </a>
   );
 }
@@ -206,7 +257,7 @@ function PersonaAggregateCard({ count }: { count: number }) {
           職種別 模範論文（全{count}本）
         </div>
         <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-          ゼネコン・建設コンサル・自治体各課の発注者／受注者視点フル論文。note マガジン一覧から選べます
+          ゼネコン・建設コンサル・自治体各課の発注者／受注者視点フル論文。自分の立場に最も近い1本を選べます
         </div>
       </div>
       <ExternalLink
@@ -220,7 +271,7 @@ function PersonaAggregateCard({ count }: { count: number }) {
 // 無料入口（サイトガイド・無料note）。accent ボーダーで「無料」を識別させる。
 function FreeLinkCard({ link }: { link: FreeLink }) {
   const cls =
-    "flex items-center justify-between bg-[var(--paper)] border border-[var(--accent)] rounded-card-content px-4 py-3 hover:shadow-soft transition-all";
+    "flex items-center justify-between bg-[var(--accent-fill)] border border-[var(--accent)] rounded-card-content px-4 py-3 hover:shadow-soft transition-all";
   const body = (
     <>
       <div className="min-w-0 flex-1 pr-3">
@@ -258,7 +309,7 @@ function ExamSections() {
   });
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-9">
       {EXAM_SECTIONS.map((sec) => {
         const mags = byExam[sec.key] ?? [];
         if (mags.length === 0 && sec.freeLinks.length === 0) return null;
@@ -276,10 +327,18 @@ function ExamSections() {
 
         return (
           <div key={sec.key}>
-            <h3 className="font-serif text-sm font-bold text-[var(--ink-muted)] uppercase tracking-wider mb-1">
-              {sec.heading}
-            </h3>
-            <p className="text-xs text-[var(--ink-muted)] mb-3">{sec.sub}</p>
+            <div className="flex items-center gap-2 mb-1">
+              <span
+                className="w-1 h-4 bg-[var(--accent)] rounded-full shrink-0"
+                aria-hidden="true"
+              />
+              <h3 className="font-serif text-base font-bold text-[var(--ink)]">
+                {sec.heading}
+              </h3>
+            </div>
+            <p className="text-xs text-[var(--ink-body)] mb-3 pl-3 leading-relaxed">
+              {sec.sub}
+            </p>
             <div className="space-y-3">
               {sec.freeLinks.map((link) => (
                 <FreeLinkCard key={link.href} link={link} />
@@ -321,33 +380,64 @@ export default function LinksPage() {
             <h1 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)] mb-2">
               doboku-note
             </h1>
+            <p className="font-serif text-base sm:text-lg font-bold text-[var(--accent)] mb-2 leading-snug">
+              発注者の視点で、土木・建設系資格の「合格」へ最短ルートを。
+            </p>
             <p className="text-sm text-[var(--ink-body)] leading-relaxed">
               技術士（総監・建設部門）・1級／2級土木施工管理技士の試験対策ハブ
               <br />
-              元・地方自治体土木職（発注者）／6資格保有の運営
+              元・地方自治体 土木職（発注者）｜技術士2部門ほか多数の資格を保有する運営者
             </p>
           </section>
 
-          {/* 導入文 */}
-          <section className="mb-10 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 text-sm text-[var(--ink-body)] leading-relaxed">
-            <p className="mb-3">
-              発注者として培った実務経験と6資格の受験知見をもとに、
-              <strong className="text-[var(--ink)]">
-                技術士（総合技術監理部門・建設部門）・1級／2級土木施工管理技士
-              </strong>
-              の合格を支援しています。
-            </p>
-            <p className="mb-3">
-              本サイト doboku-note.com は<strong className="text-[var(--ink)]">体系的な技術解説とキーワード辞書</strong>を無料で公開し、
-              note では<strong className="text-[var(--ink)]">模範論文・予想問題・施工経験記述答案集</strong>などの試験直結教材を提供しています。
-            </p>
-            <p>
-              下のリンクから、
-              <strong className="text-[var(--ink)]">受験する試験のセクション</strong>
-              へどうぞ。各試験まず
-              <strong className="text-[var(--accent)]">無料のサイトガイド</strong>
-              から始められます。
-            </p>
+          {/* 価値提案 — なぜここで合格できるのか（中身） */}
+          <section className="mb-10">
+            <div className="bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-5 mb-4">
+              <p className="text-sm text-[var(--ink-body)] leading-relaxed mb-3">
+                市販のテキストや過去問演習だけでは、記述式・経験記述の
+                <strong className="text-[var(--ink)]">「合格答案の型」</strong>
+                までは埋まりません。doboku-note
+                は、発注者として計画・発注・監督・審査に携わり、
+                <strong className="text-[var(--ink)]">
+                  技術士2部門を含む資格を実際に取得した運営者
+                </strong>
+                が、出題者・採点者の評価軸から逆算して教材を作っています。
+              </p>
+              <p className="text-sm text-[var(--ink-body)] leading-relaxed">
+                進め方はシンプル。まず
+                <strong className="text-[var(--accent)]">無料のサイト解説</strong>
+                で土台を固め、仕上げに
+                <strong className="text-[var(--ink)]">note のフル教材</strong>
+                で得点を取りに行く。下の「試験別コンテンツ」から、受験する試験を選んでください。
+              </p>
+            </div>
+
+            <div className="space-y-2.5">
+              {VALUE_PILLARS.map((p) => {
+                const Icon = p.icon;
+                return (
+                  <div
+                    key={p.title}
+                    className="flex items-start gap-3 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3"
+                  >
+                    <div className="w-9 h-9 rounded-full bg-[var(--accent-fill)] flex items-center justify-center shrink-0">
+                      <Icon
+                        className="w-4 h-4 text-[var(--accent)]"
+                        aria-hidden="true"
+                      />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="font-serif font-bold text-[var(--ink)] text-sm">
+                        {p.title}
+                      </div>
+                      <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-relaxed">
+                        {p.body}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
           </section>
 
           {/* 試験別: 無料入口 → 有料教材（試験ファースト funnel） */}
@@ -355,8 +445,10 @@ export default function LinksPage() {
             <h2 className="font-serif text-lg font-bold text-[var(--ink)] mb-1 text-center">
               試験別コンテンツ
             </h2>
-            <p className="text-xs text-[var(--ink-muted)] mb-6 text-center">
-              受験する試験を選び、まず無料ガイドから。必要に応じて note 教材へ
+            <p className="text-xs text-[var(--ink-muted)] mb-6 text-center leading-relaxed">
+              受験する試験を選択。
+              <span className="text-[var(--accent)] font-bold">色付きの無料ガイド</span>
+              で全体像をつかみ、必要に応じて note 教材で記述・経験記述を仕上げる流れがおすすめです
             </p>
 
             <ExamSections />
@@ -366,14 +458,20 @@ export default function LinksPage() {
           <section className="mb-10">
             <Link
               href="/about"
-              className="block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
+              className="flex items-center justify-between bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content px-4 py-3 hover:border-[var(--accent)] hover:shadow-soft transition-all"
             >
-              <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
-                運営者プロフィール
+              <div className="min-w-0 flex-1 pr-3">
+                <div className="font-serif font-bold text-[var(--ink)] text-sm sm:text-base">
+                  運営者プロフィール
+                </div>
+                <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
+                  {AUTHOR.jobTitle}。編集方針・保有資格の詳細はこちら
+                </div>
               </div>
-              <div className="text-xs text-[var(--ink-muted)] mt-0.5 leading-snug">
-                発注者退職・6 資格保有の運営者について
-              </div>
+              <ArrowRight
+                className="w-4 h-4 text-[var(--ink-muted)] shrink-0"
+                aria-hidden="true"
+              />
             </Link>
           </section>
 

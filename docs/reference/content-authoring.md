@@ -150,7 +150,7 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - **ローカル開発**: `public/posts` → `.local/r2/posts` のシンボリックリンク経由で配信
 - **本番**: Cloudflare Pages `_redirects` で R2 にリダイレクト
 - **マスター**: `.local/r2/posts/**/img/` は **git 追跡対象**（PNG・SVG 含む）。複数 PC 間で git pull により同期される
-- **R2 へのアップロード（本番反映）**: `node .claude/scripts/upload-images-to-r2.mjs`
+- **R2 へのアップロード（本番反映）**: 通常は `main` push 時に `r2-sync.yml`（CI）が自動同期する（対象 path = `**/img/**` / `**/ogp.png` / `**/ogp.webp`）。手動同期は `npm run upload-images-r2`（= `node .claude/scripts/upload-images-to-r2.mjs`）。**OGP 画像 `ogp.png` は `img/` の外＝記事ディレクトリ直下**にあり同じ経路で同期される（生成は `npm run ogp`、未生成は CI ゲート `check-ogp-coverage` が検知）
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - `static/img/` はサイト共通素材（favicon, logo 等）専用
 

@@ -152,7 +152,7 @@ ogp:
 
 - **article.md に `cover:` ブロックがあれば `note-cover-g2`**（試験色分け・全幅バナー帯）で描画。
 - **無ければ `mono-tag`**（`coverTitle` から）にフォールバック。
-- 試験区分は `docs/note/{技術士総監,1級土木,2級土木,共通}/` のトップ dir から自動解決し、ベース色を決める。系列(濃淡)は `notePricing`（paid→濃 / free→標準）または `cover.tone` で決まる。
+- 試験区分は `docs/note/{技術士総監,共通,...}/` のトップ dir、または `1級・2級土木/{1級土木,2級土木}/` の級サブ dir から（パスセグメント一致で）自動解決し、ベース色を決める（1級=青/2級=緑/1級・2級土木 直下=civil-1-2）。系列(濃淡)は `notePricing`（paid→濃 / free→標準）または `cover.tone` で決まる。
 
 ```bash
 node scripts/generate-note-covers.mjs            # 全 note 記事

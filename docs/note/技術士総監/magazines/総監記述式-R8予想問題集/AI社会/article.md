@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/nb4e6f088f0e8
 noteId: nb4e6f088f0e8
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "AI社会と情報ガバナンス"]
-price: 500
+price: 700
 cover:
   leadIn: "令和8年度 総監記述式"
   hi: "R8"

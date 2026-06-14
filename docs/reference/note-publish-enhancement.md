@@ -235,6 +235,7 @@ done
 - **接続詞を段落冒頭に置く** — 「一方で」「さらに」「ただし」を新段落の頭にして流れを保つ
 - **「評価軸：xxx」は独立段落にする** — トレードオフ章
 - **文章リライトはしない** — 改行調整のみ
+- **決定論ツールで一括適用可**: `npm run note-reflow -- [--target N] <file|dir>`（`scripts/reflow-note-paragraphs.mjs`）。>120 字の段落を文（。）境界で再パッキング（語句不変・改行のみ）。答案本文（`## 試験問題` 以降）・見出し・箇条書きは自動保護。`--dry` で点検先行。詳細: `content-principles.md §14-e`
 
 ### 番号削除（一括）
 
@@ -424,6 +425,15 @@ npm run check-links -- --scope note
 # 5. e-gov リンク確認
 grep -oE 'laws\.e-gov\.go\.jp/law/[A-Z0-9]+' docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md | sort -u
 # → WebSearch で実在確認済みの法令番号と突合
+
+# 6. note 非互換ゲート（pipe表・太字内全角括弧・マガジンCTA形式 = markdown リンク/同一行¥）
+node scripts/note-lint.mjs docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
+# → ✅ OK であること。commit 時に pre-commit でも自動 BLOCK（content-principles.md §14-c）。
+#   マガジン導線は markdown リンクでなく bare URL 単独行・CTA に価格(¥)を書かない。
+
+# 7. 段落長 WARN（note 可読性・content-principles.md §14-e）
+npm run note-reflow -- --dry docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md
+# → >120字段落の件数を WARN（0件でなくても GO 可・編集判断）。長段落は note-reflow で一括分割可（語句不変）。
 ```
 
 ### commit 戦略

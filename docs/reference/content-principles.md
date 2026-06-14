@@ -462,6 +462,51 @@ textbook（個別概念ページ）では原則 ExamPoint を 1 個末尾配置�
 
 **判断基準**: 太字を付けたい部分から全角括弧を取り除けない場合は、**太字を諦めるか、太字範囲を括弧の外側で区切る**。「資格列挙のような長文を 1 つの太字で囲む」スタイルは、note では特に **箇条書きに展開**するか **太字を付けない**選択を優先する。
 
+### 14-c. note 有料マガジン導線 CTA は「リンクカード＋価格なし」で書く
+
+note 記事本文（`docs/note/**/article.md`）から有料マガジンへ誘導する CTA は、次の 2 つを必ず守る。
+
+1. **マガジンURL は bare URL を単独行に置く（リンクカード化）**。`[テキスト](https://note.com/dobokunote/m/ID)` の markdown リンク形式は note でカード化されず、視覚的に弱くなる（CTR 低下）。適切な導入文のあとに **空行＋URL 単独行＋空行**で配置する。
+2. **CTA 本文に価格（¥）を書かない**。マガジンは価格改訂があり、本文直書きの価格は陳腐化して **誤記** になる（2026-06-12、建設部門入口記事 16 本が旧 ¥1,980 のまま放置され、実価格 ¥2,480 と乖離していた事例）。価格は note 販売ページに委譲する。価格・noteUrl の SoT は `src/lib/note-magazines.ts`。
+
+**NG → OK の例**:
+
+- NG: `[必須科目I 模範解答集（R03〜R07）](https://note.com/dobokunote/m/m0f3bc3933454)（¥1,980）では…`
+- OK:
+
+  ```
+  令和3〜7年度と令和8年度予想を収録した模範解答集です。
+
+  https://note.com/dobokunote/m/m0f3bc3933454
+
+  本記事の論点が、実際の答案でどう展開されるかを確認できます。
+  ```
+
+**機械検知**: `.claude/scripts/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。関連: §14-b（太字内全角括弧）。
+
+### 14-d. note 記事の「3点セット」は公開状態で機械強制する
+
+note 記事1本の完成条件は **3点セット**: `article.md` + `img/cover.png`（アイキャッチ）+ `hashtags.txt`（タグ）。cover.png と hashtags.txt は本文執筆と別工程（`scripts/generate-note-covers.mjs` で frontmatter `cover:` ブロックを PNG 化／`/note-hashtags` でタグ生成）で後から作るため、**公開時に生成漏れが起きやすい**（2026-06-12、公開済 194 本中 2 本が `hashtags.txt` 欠落のまま公開されていた）。
+
+**ルール**: 記事が**公開状態**（frontmatter `noteUrl` 非空 OR `noteStatus` が `publish` を含む）になったら、`img/cover.png` と `hashtags.txt` は必須。**下書き（draft）は欠落して正常**（公開直前に仕上げる工程のため）。
+
+**機械検知**: `.claude/scripts/check-note-3set.mjs`。2 モードで運用する。
+
+- `scripts/note-lint.mjs`（pre-commit）: 既定モード＝**公開状態の記事のみ** BLOCK（下書き commit は止めない）。公開状態にしたのにアセットが無いコミットを自動で止める。
+- `/note-prepublish-review` Phase 1（4e）: `--require` モード＝公開意図なので**無条件必須**（公開直前は `noteUrl` 未設定のことが多く state を見ない）。
+
+cover.png はマガジン記事の共用図 `../img/cover.png` も探索する。生成: `node scripts/generate-note-covers.mjs <slug>`（カバー）/ `/note-hashtags <slug>`（タグ）。関連: §14-c（マガジン CTA）。
+
+### 14-e. note 記事の段落は短く（1〜2 文・~120 字以下）
+
+note はモバイル閲覧が主体で、**1 段落が長いと読まれない**。本文の段落は **1〜2 文・~120 字以下**を目安にし、論点の切れ目で改行（空行）を入れて余白をつくる。1 段落 150〜300 字の塊は避ける（2026-06-12、建設部門入口 16 本で 402 段落中 185 段落が 120 字超だった）。
+
+**自動化（語句を変えず改行だけ足す）**: `node scripts/reflow-note-paragraphs.mjs [--target N] <file|dir>`（`npm run note-reflow`）。長い段落を**文（。）境界**で再パッキングする決定論ツールで、語句・文意は一切変えない（空白除去後の本文一致で検証可能）。見出し・箇条書き・URL 単独行・太字見出しは対象外。`--dry` で点検のみ。**essay マガジン記事の答案本文（`## 試験問題` 以降）は自動保護**して触らない（模範答案は連続散文のため）。導入部に特化した essay 専用ツールは `scripts/split-essay-intro-paragraphs.mjs`（note-essay-review-checklist Step 3c）。
+
+**残る長文**: `。` を含まない**単文で 120 字超**は機械分割できない（割ると語句改変になる）。これは `--dry`/公開前レビューが WARN で surface するので、**手動で 2 文に分ける**か、許容するか人が判断する。
+
+**機械検知**: `/note-prepublish-review` Phase 1（4f）が `reflow --dry` を呼び、>120 字の段落数を **WARN**（情報提供のみ・GO 判定に影響しない）で報告する。BLOCK にしないのは、段落の切り方が編集判断（読み味）であり一律強制に馴染まないため。関連: §14-c（CTA）/ §14-d（3 点セット）。
+
 ### 15. 総監ページに教材外の実務応用セクションを追加しない
 
 総合技術監理（pe-comprehensive-management）キーワードページには、教材『情報管理』『安全管理』『社会環境管理』『経済性管理』『人的資源管理』等の標準テキストに **書かれていない実務応用セクション**（建設現場での活用 / 業務での適用例 / 実務応用 / 現場での活用 / 建設実務での活用 / 業務での留意点 など）を独自に追加しない。

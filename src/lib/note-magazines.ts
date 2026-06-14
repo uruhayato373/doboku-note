@@ -58,15 +58,15 @@ const MAGAZINES_RAW = {
     id: 'essay-river-consultant-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32132ecb3033',
-    title: '総監記述式 模範論文｜建設コンサル河川・砂防 R3-R7 + R8予想セット',
+    title: '総監記述式 模範論文｜建設コンサル河川・砂防 R3-R7（5年分）',
     description:
-      'R03〜R07 過去問（治水計画の調査計画版/河川管理施設の点検・補修更新設計版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・流域治水／資源循環・建設発生土、各 A案/B案）の計 7 記事。中堅建設コンサル河川・砂防部門 部長（調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。',
+      'R03〜R07 過去問（治水計画の調査計画版/河川管理施設の点検・補修更新設計版の A案/B案 2 バージョン）の計 5 記事。中堅建設コンサル河川・砂防部門 部長（調査設計者）視点、5管理トレードオフが主軸。各記事に印刷用PDF付き。R8予想はテーマ駆動の横断フラッグシップ「R8予想問題集」に集約（本マガジンは過去問evergreen）。',
     shortTitle: '模範論文｜河川コンサル',
     shortDescription:
-      'R03〜R07＋R8予想2記事の計7記事セット。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
+      'R03〜R07 過去問 5記事セット。河川・砂防部門 部長（調査設計者）視点で 3,000 字フル論文。',
     imageUrl: '/images/magazines/essay-river-consultant-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-river-consultant-sidebar.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
 
@@ -74,15 +74,15 @@ const MAGAZINES_RAW = {
     id: 'essay-general-contractor-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m32aaa137f22e',
-    title: '総監記述式 模範論文｜ゼネコン R3-R7 + R8予想セット',
+    title: '総監記述式 模範論文｜ゼネコン R3-R7（5年分）',
     description:
-      'R03〜R07 過去問（新設・改良施工版/維持・更新・補修施工版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・施工強靭化／資源循環・建設副産物再資源化、各 A案/B案）の計 7 記事。中堅〜大手ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 のトレードオフが主軸。各記事に印刷用PDF付き。',
+      'R03〜R07 過去問（新設・改良施工版/維持・更新・補修施工版の A案/B案 2 バージョン）の計 5 記事。中堅〜大手ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 のトレードオフが主軸。各記事に印刷用PDF付き。R8予想はテーマ駆動の横断フラッグシップ「R8予想問題集」に集約（本マガジンは過去問evergreen）。',
     shortTitle: '模範論文｜ゼネコン',
     shortDescription:
-      'R03〜R07＋R8予想2記事の計7記事セット。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
+      'R03〜R07 過去問 5記事セット。ゼネコン土木部門（施工者）視点、安全 × 経済性 × 人的資源 が主軸。',
     imageUrl: '/images/magazines/essay-general-contractor-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-general-contractor-sidebar.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
+    price: '¥2,480（5本セット）',
     badge: 'note 限定',
   },
 
@@ -90,15 +90,15 @@ const MAGAZINES_RAW = {
     id: 'essay-road-municipality-magazine',
     published: true,
     noteUrl: 'https://note.com/dobokunote/m/m52186ffd12ca',
-    title: '総監記述式 模範論文｜自治体 道路担当 R3-R7 + R8予想セット',
+    title: '総監記述式 模範論文｜自治体 道路担当 R3-R7（5年分＋R8予想デモ）',
     description:
-      'R03〜R07 過去問（橋梁長寿命化〔維持管理〕版/バイパス整備・道路建設〔新設〕版の A案/B案 2 バージョン）+ R8予想2記事（気候変動適応・グリーンインフラ／資源循環・サプライチェーン強靭化、各 A案/B案）の計 7 記事。地方自治体の道路担当（発注者）視点、経済性 × 安全 × 社会環境 のトレードオフが主軸。各記事に設問全文を再掲して論文構成を解説。',
-    shortTitle: '模範論文｜自治体 道路担当 R3-R7+R8予想',
+      'R03（データ利活用）〜R07（少子高齢化）の過去問 5 年分（橋梁長寿命化〔維持管理〕版とバイパス整備・道路建設〔新設〕版の A 案／B 案 2 バージョン併記）＋ R8予想問題集のデモ 1 本（気候変動適応×グリーンインフラ、自治体 道路担当フル論文）の合計 6 記事。地方自治体の道路担当（発注者）の立場で「経済性 × 安全 × 社会環境」を主軸に、各記事に設問全文を再掲して論文構成を解説。R8予想のカノニカルはテーマ駆動の横断「R8予想問題集」に集約（本マガジンは過去問evergreen＋実演デモ1本）。',
+    shortTitle: '模範論文｜自治体 道路担当 R3-R7',
     shortDescription:
-      'R03〜R07＋R8予想2記事の計7記事セット。自治体 道路担当（発注者）視点、経済性 × 安全 × 社会環境 が主軸。',
+      'R03〜R07 過去問（全 A/B 2 案）＋ R8予想問題集デモ 1 本 = 計 6 記事。試験対策決定版。',
     imageUrl: '/images/magazines/essay-road-municipality-cover.webp',
     sidebarImageUrl: '/images/magazines/essay-road-municipality-sidebar.webp',
-    price: '¥2,480（7本セット、単品比29%OFF）',
+    price: '¥2,480（6本セット、単品比17%OFF）',
     badge: 'note 限定',
   },
 
@@ -332,7 +332,7 @@ const MAGAZINES_RAW = {
   },
 
   // ----- 2級土木 施工経験記述ライン (2026-05-29) -----
-  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-完成答案集/
+  // 原稿配置: docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/
   // 2026-06-03 note 公開。
   'civil-2-experience-essay': {
     id: 'civil-2-experience-essay',
@@ -350,7 +350,7 @@ const MAGAZINES_RAW = {
   },
 
   // ----- 1級土木 施工経験記述ライン (2026-05-29) -----
-  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-完成答案集/
+  // 原稿配置: docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/
   // 2026-06-02 note 公開。
   'civil-1-experience-essay': {
     id: 'civil-1-experience-essay',
@@ -367,7 +367,7 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/
+  // 原稿配置: docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/
   // 過去問の年度別模範答案集（テーマ別の civil-1-experience-essay と対）。2026-06-02 note 公開。
   'civil-1-pastexam-essay': {
     id: 'civil-1-pastexam-essay',
@@ -384,7 +384,7 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // 原稿配置: docs/note/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
+  // 原稿配置: docs/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/
   // 2級 過去問の年度別模範答案集。published: false。
   'civil-2-pastexam-essay': {
     id: 'civil-2-pastexam-essay',
@@ -409,7 +409,7 @@ const MAGAZINES_RAW = {
   //     出題実績のない投機（条件提示型・日常業務）のため、現行形式を全網羅する
   //     civil-1-combo-essay（2テーマ組合せ大全）へ転換。原稿・SoT・placement・cover を削除。
 
-  // 原稿配置: docs/note/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/
+  // 原稿配置: docs/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/
   // 予想問題集を転換。5管理の2テーマ全10組合せ × 想定工事①②③ で現行形式(R06+)を全網羅。
   // 全10記事生成済(keiken-charcount --strict=0 / note-lint OK / 答案重複0)。published: false（note公開で noteUrl 取得後 true へ）。カバー未生成。
   'civil-1-combo-essay': {

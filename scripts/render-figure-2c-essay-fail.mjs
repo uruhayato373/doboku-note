@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// docs/note/2級土木/施工経験記述で落ちる答案/img/ に本文用 PNG 図版を生成する。
+// docs/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/img/ に本文用 PNG 図版を生成する。
 // note-svg-policy.md 準拠（W=1200・本文 font 22+・余白 40/24・右下ブランド）。
 //   node scripts/render-figure-2c-essay-fail.mjs
 import { dirname, join } from 'node:path';
@@ -9,7 +9,7 @@ import sharp from 'sharp';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const OUT_DIR = join(ROOT, 'docs/note/2級土木/施工経験記述で落ちる答案/img');
+const OUT_DIR = join(ROOT, 'docs/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/img');
 mkdirSync(OUT_DIR, { recursive: true });
 
 const BRAND = '#2e6da4';
