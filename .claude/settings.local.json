@@ -73,7 +73,10 @@
       "Bash(jq --arg date 2026-04-23 '.\"covered\".\"pe-comprehensive-management-r02-primary\".\"1-37\" = { *)",
       "Bash(jq --arg date 2026-04-23 '.\"covered\".\"pe-comprehensive-management-r02-primary\".\"1-38\" = { *)",
       "Bash(jq --arg date 2026-04-23 '.\"covered\".\"pe-comprehensive-management-r02-primary\".\"1-39\" = { *)",
-      "Bash(jq --arg date 2026-04-23 '.\"covered\".\"pe-comprehensive-management-r02-primary\".\"1-40\" = { *)"
+      "Bash(jq --arg date 2026-04-23 '.\"covered\".\"pe-comprehensive-management-r02-primary\".\"1-40\" = { *)",
+      "mcp__Claude_in_Chrome__list_connected_browsers",
+      "mcp__mcp-registry__search_mcp_registry",
+      "mcp__mcp-registry__list_connectors"
     ],
     "defaultMode": "bypassPermissions"
   }
