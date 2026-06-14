@@ -105,6 +105,14 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
   if (/^pe-construction-r0[1-9]-road$/.test(slug)) return 'pe-construction-road-magazine';
   if (/^pe-construction-r0[1-9]-river-coast$/.test(slug)) return 'pe-construction-river-coast-magazine';
   if (/^pe-construction-r0[1-9]-urban-planning$/.test(slug)) return 'pe-construction-urban-planning-magazine';
+  if (/^pe-construction-r0[1-9]-geotechnical$/.test(slug)) return 'pe-construction-geotechnical-magazine';
+  if (/^pe-construction-r0[1-9]-steel-concrete$/.test(slug)) return 'pe-construction-steel-concrete-magazine';
+  if (/^pe-construction-r0[1-9]-construction-planning$/.test(slug)) return 'pe-construction-construction-planning-magazine';
+  if (/^pe-construction-r0[1-9]-environment$/.test(slug)) return 'pe-construction-environment-magazine';
+  if (/^pe-construction-r0[1-9]-port-airport$/.test(slug)) return 'pe-construction-port-airport-magazine';
+  if (/^pe-construction-r0[1-9]-power-civil$/.test(slug)) return 'pe-construction-power-civil-magazine';
+  if (/^pe-construction-r0[1-9]-railway$/.test(slug)) return 'pe-construction-railway-magazine';
+  if (/^pe-construction-r0[1-9]-tunnel$/.test(slug)) return 'pe-construction-tunnel-magazine';
   // 論文の書き方ガイドは全受験者向けの必須科目I マガジンへ送客
   if (slug === 'pe-construction-pe-secondary-essay-guide') return 'pe-construction-required-magazine';
   return null;
