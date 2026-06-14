@@ -20,7 +20,7 @@ export default function Hero({ articleCount, keywordCount, lastUpdated }: HeroPr
         土木の現場と試験を、ひとつのノートに。
       </h1>
       <p className="mt-5 sm:mt-6 text-[15px] sm:text-[17px] leading-[1.95] text-[var(--ink-body)] max-w-[62ch]">
-        <strong className="text-[var(--ink)]">1級土木施工管理技士</strong> および <strong className="text-[var(--ink)]">技術士（総合技術監理部門）</strong> の試験対策を中心とした学習ノート。現場経験に裏打ちされた設計・施工の知見を、体系的な読み物としてお届けします。
+<strong className="text-[var(--ink)]">1級・2級土木施工管理技士</strong>、<strong className="text-[var(--ink)]">技術士（建設部門・総合技術監理部門）</strong>、<strong className="text-[var(--ink)]">コンクリート主任技師</strong>など、土木・建設系の実務資格に対応した学習ノート。現場経験に裏打ちされた知見を、過去問・キーワード解説・記述式対策として体系的にお届けします。
       </p>
       <div className="mt-6 flex items-center gap-5 flex-wrap font-mono text-[11px] text-[var(--ink-muted)] tabular-nums">
         <span className="flex items-center gap-1.5">

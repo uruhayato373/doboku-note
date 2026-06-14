@@ -48,6 +48,15 @@ const EXAM_DATA = [
     variant: "pe" as const,
   },
   {
+    slug: "pe-construction",
+    label: "技術士（建設部門）",
+    en: "PE Civil Engineering",
+    subtitle: "必須・選択11科目 記述式 過去問（R元〜R7）",
+    description: "技術士第二次試験 建設部門の必須科目・選択科目11科目（道路・河川砂防・都市計画・土質・鋼コン・施工計画ほか）の記述式 過去問を年度別・科目別に収録。出題テーマの論点キーワードと論文の書き方も整理。",
+    nextExam: "2026年7月 筆記",
+    variant: "pe" as const,
+  },
+  {
     slug: "concrete-chief-engineer",
     label: "コンクリート主任技師",
     en: "JCI Senior Concrete Engineer",
@@ -95,6 +104,7 @@ export default async function HomePage() {
   const civil2 = getDocsMetaByCategory("civil-construction-2");
   const pe = getDocsMetaByCategory("pe-comprehensive-management");
   const concrete = getDocsMetaByCategory("concrete-chief-engineer");
+  const peConstruction = getDocsMetaByCategory("pe-construction");
 
   const exams = [
     {
@@ -123,6 +133,14 @@ export default async function HomePage() {
     },
     {
       ...EXAM_DATA[3]!,
+      stats: [
+        { k: "記事", v: peConstruction.length.toLocaleString() },
+        { k: "過去問", v: peConstruction.filter((m) => m.group === "past-exam" || m.tags?.includes("past-questions")).length.toLocaleString() },
+        { k: "ガイド", v: peConstruction.filter((m) => m.group === "guide" || m.tags?.includes("guide")).length.toLocaleString() },
+      ],
+    },
+    {
+      ...EXAM_DATA[4]!,
       stats: [
         { k: "記事", v: concrete.length.toLocaleString() },
         { k: "過去問", v: concrete.filter((m) => m.group === "primary" || m.tags?.includes("past-questions")).length.toLocaleString() },
