@@ -3,7 +3,7 @@
  *
  * 真実源: docs/design-system/note-cover-tokens.json の `exams`。
  * note カバー・IG・X・Shorts が同一 token を解決し、試験＝色相 をチャネル横断で統一する。
- * 設計: docs/project/03_SNS/04_多資格SNS展開設計.md ／ docs/reference/sns-image-policy.md §12
+ * 設計: docs/project/03_SNS/03_多資格SNS展開設計.md ／ docs/reference/sns-image-policy.md §12
  */
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';

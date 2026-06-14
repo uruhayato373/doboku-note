@@ -8,7 +8,7 @@
  *
  * 総監 exam-questions.json は一切触らない（試験別ファイルで分離＝既存ゼロリスク）。
  * igEligible: 図(img)・組合せ表(|)・数式($)を含まない＝テキストのみでIGスライド化可能。
- * 設計: docs/project/03_SNS/04_多資格SNS展開設計.md
+ * 設計: docs/project/03_SNS/03_多資格SNS展開設計.md
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';

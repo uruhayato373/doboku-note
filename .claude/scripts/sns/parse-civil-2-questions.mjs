@@ -9,7 +9,7 @@
  * 2級は年2回（前期 zenki / 後期 kouki）＝別試験。年度コードに期を付与（例 r05z / r05k）
  * して前期後期を分離（案1）。z=前期, k=後期。
  * 1級(parse-civil-1)と MDX 構造は同一。POSTS と dir 正規表現・年度コードのみ差分。
- * 設計: docs/project/03_SNS/04_多資格SNS展開設計.md
+ * 設計: docs/project/03_SNS/03_多資格SNS展開設計.md
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
