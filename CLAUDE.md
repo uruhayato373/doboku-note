@@ -30,7 +30,7 @@
 src/                           # コンポーネント・CSS・レイアウト
 docs/project/                  # プロジェクト管理ドキュメント
 docs/reference/             # 作業マニュアル（詳細・手順）
-.claude/skills/                # スキル定義（44スキル、8カテゴリ）
+.claude/skills/                # スキル定義（71スキル、8カテゴリ）
 .claude/agents/                # サブエージェント定義（41）
 ```
 
