@@ -30,7 +30,7 @@
     "generate-webp": "node .claude/scripts/generate-webp.mjs",
     "update-image-refs": "node .claude/scripts/update-mdx-image-refs.mjs",
     "prebuild": "npm run generate-webp && npm run update-image-refs",
-    "build": "rm -rf out && npm run refresh-indexes && next build && npx pagefind --site out --output-path out/pagefind && cp -r out/pagefind public/pagefind && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
+    "build": "rm -rf out && npm run refresh-indexes && next build && npx pagefind --site out --output-path out/pagefind && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
     "ogp": "node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs",
     "start": "next start -p 3020",
     "lint": "eslint src/",
