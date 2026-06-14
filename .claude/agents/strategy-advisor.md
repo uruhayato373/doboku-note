@@ -78,7 +78,7 @@ model: inherit
 
 ### 週次運用
 ```
-日曜〜月曜:
+金曜夜（自動・必要なら週末に手動）:
 1. /weekly-review          ← 実績を振り返る
 2. /discover-exam-season   ← 季節性を確認
 3. /weekly-plan            ← 来週の計画を立てる
