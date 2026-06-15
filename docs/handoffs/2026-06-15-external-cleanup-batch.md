@@ -40,7 +40,7 @@ runbook: `docs/handoffs/2026-06-10-bk04-11-yosou-cloud-runbook.md`。BK-04〜08/
 
 | 完了 | タスク | 出所 |
 |---|---|---|
-| [ ] | pdf-spec JSON を 2 本作成: `scripts/pdf-specs/BK-09_電力土木.json` / `BK-10_鉄道.json`（既存 BK spec を雛形に・repo 作業 S・任意のセッションで可） | #8 |
+| [x] | pdf-spec JSON 2 本作成済（`scripts/pdf-specs/BK-09_電力土木.json` / `BK-10_鉄道.json`・R03-R07×3＝各15記事・2026-06-15）。**R08-yosou 分は A(#5) 完了後に追記** | #8 |
 | [ ] | 8 マガジンの紙用 PDF を生成（pdf-spec が揃ってから） | #8 |
 | [ ] | takuitsu: カバー画像を生成 | #3 |
 | [ ] | takuitsu: epubcheck を実行（要 Java/epubcheck インストール） | #3 |

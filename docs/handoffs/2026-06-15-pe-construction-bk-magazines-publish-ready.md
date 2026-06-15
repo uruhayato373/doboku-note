@@ -36,7 +36,7 @@
 ## 残タスク（手動 / 別環境）
 
 1. **印刷用PDF（Windows必須）**: Mac の Chrome は `--headless=new`/`--headless=old` どちらでも `--print-to-pdf` 後にプロセスが終了せずハング（PDF自体は生成されるが execFileSync が120秒でタイムアウト）。**Windows PC で** `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-XX.json --in-place` を実行（CHROME_PATH 不要・既定の Windows パスで動く）。
-   - **BK-09 電力土木・BK-10 鉄道 は pdf-spec が未作成** → 先に `scripts/pdf-specs/BK-09_電力土木.json` `BK-10_鉄道.json` を他BKに倣って作成が必要
+   - **BK-09 電力土木・BK-10 鉄道 の pdf-spec は作成済み（2026-06-15・R03-R07×3＝各15記事）**。ただし R08-yosou 未生成のため現状 R03-R07 のみ収録。R08-yosou を cloud(#5) で生成後、他BKに倣い R08-yosou エントリを追記すること
    - 既存 BK-04-08,11 の pdf-spec は R08-yosou も含むため、そのまま実行で R03-R07＋yosou のPDFが出る
 2. **note 本投稿（ユーザー手動・Mac）**: `/publish-note` または手動。投稿後、各記事 frontmatter の `noteUrl`/`noteId`/`notePublishedAt` と `note-magazines.ts` の `noteUrl`/`published:true` を反映
 3. **BK-I 必須科目I の差し替え**: R03/R04/R06/R07 は**既に note 公開済み**。今回 I-1/I-2 両収録に補強したので、note 本体の更新＋印刷PDF差し替えが必要
