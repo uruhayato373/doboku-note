@@ -4,9 +4,9 @@ noteMagazine: BK-02
 year: R06
 subject: river-coast
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n30f156fdce3c"
+noteId: "n30f156fdce3c"
+notePublishedAt: "2026-06-15"
 price: 500
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R06 選択科目III 模範解答"
 cover:

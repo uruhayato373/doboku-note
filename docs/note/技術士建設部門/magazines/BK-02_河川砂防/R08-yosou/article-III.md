@@ -6,9 +6,9 @@ forecast: true
 subject: river-coast
 exam_type: III
 theme: "気候変動を踏まえた治水・防災（流域治水・土砂災害・海岸防災）"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n4448dca0797f"
+noteId: "n4448dca0797f"
+notePublishedAt: "2026-06-15"
 price: 500
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R8予想 選択科目III 予想問題＋模範解答"
 cover:

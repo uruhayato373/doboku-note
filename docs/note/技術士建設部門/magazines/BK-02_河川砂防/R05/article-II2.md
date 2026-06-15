@@ -4,9 +4,9 @@ noteMagazine: BK-02
 year: R05
 subject: river-coast
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n7335af02e09d"
+noteId: "n7335af02e09d"
+notePublishedAt: "2026-06-15"
 price: 500
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R05 選択科目II-2 模範解答"
 cover:
