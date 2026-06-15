@@ -1,6 +1,6 @@
 # ハンドオフ｜建設部門2次 出題テーマ分析記事（無料SEOハブ）残11科目 量産完了
 
-> 2026-06-10。`docs/handoffs/2026-06-10-exam-themes-seo-hub-runbook.md` に従い、road 以外の残11科目を一括生成・検証・commit・push した記録。次の担当者はここから「公開（deploy）」と「送客先マガジンの配線」に進む。
+> 2026-06-10。`docs/handoffs/_archive/2026-06-10-exam-themes-seo-hub-runbook.md` に従い、road 以外の残11科目を一括生成・検証・commit・push した記録。次の担当者はここから「公開（deploy）」と「送客先マガジンの配線」に進む。
 
 ## 1. 何をやったか（完了）
 
@@ -44,7 +44,7 @@ road（既存）と同型の **出題テーマ分析記事（無料サイト記�
 
 ## 4. 参照
 
-- runbook（型）: `docs/handoffs/2026-06-10-exam-themes-seo-hub-runbook.md`
+- runbook（型）: `docs/handoffs/_archive/2026-06-10-exam-themes-seo-hub-runbook.md`
 - テンプレ実物: `.local/r2/posts/pe-construction/road-exam-themes/article.mdx`
 - 送客先 SoT: `src/lib/note-magazines.ts`
 - 過去問（テーマ真実源）: `.local/r2/posts/pe-construction/r0[1-7]-{subject}/article.mdx`
