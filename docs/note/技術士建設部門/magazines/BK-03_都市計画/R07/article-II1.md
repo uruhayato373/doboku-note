@@ -4,9 +4,9 @@ noteMagazine: BK-03
 year: R07
 subject: urban-planning
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nabc1ccd9e72f"
+noteId: "nabc1ccd9e72f"
+notePublishedAt: "2026-06-15"
 price: 500
 coverTitle: "技術士 建設部門｜都市及び地方計画 R07 選択科目II-1 模範解答"
 cover:
