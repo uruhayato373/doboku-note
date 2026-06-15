@@ -26,7 +26,7 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -65,6 +65,10 @@ const isPaid = notePricing === 'paid' && price > 0;
 if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
 if (!title) { console.error('ABORT: タイトルが空'); process.exit(1); }
 console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} cover=${!!cover} tags=${tags.length} bodyChars=${[...body].length} mode=${COMMIT ? 'COMMIT(公開)' : 'DRAFT(下書きのみ)'}`);
+
+// 冪等ガード: 既に公開済み（frontmatter に noteUrl あり）ならスキップ（バッチ再実行で重複公開しない）
+const existingUrl = fmField('noteUrl');
+if (existingUrl && /^https?:\/\//.test(existingUrl)) { console.log('[skip] 既に公開済み: ' + existingUrl); process.exit(0); }
 
 const ctx = await chromium.launchPersistentContext(PROFILE, {
   headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
@@ -212,6 +216,20 @@ try {
       const close = page.getByRole('button', { name: '閉じる' }); if (await close.count()) { await close.first().click(); await sleep(1500); }
       publishedUrl = page.url();
       console.log('[12] 投稿する clicked → published:', publishedUrl);
+      // frontmatter へ noteUrl/noteId/notePublishedAt を反映（冪等＋記録）
+      try {
+        const id = (publishedUrl.match(/\/n\/([a-z0-9]+)/) || [])[1] || '';
+        if (id) {
+          const cleanUrl = `https://note.com/dobokunote/n/${id}`;
+          const today = new Date().toISOString().slice(0, 10);
+          const upd = raw
+            .replace(/^noteUrl:.*$/m, `noteUrl: "${cleanUrl}"`)
+            .replace(/^noteId:.*$/m, `noteId: "${id}"`)
+            .replace(/^notePublishedAt:.*$/m, `notePublishedAt: "${today}"`);
+          writeFileSync(articleAbs, upd);
+          console.log('[12] frontmatter 反映:', cleanUrl);
+        }
+      } catch (e) { console.log('[12] frontmatter 反映 skip:', e.message.split('\n')[0]); }
     } else console.log('[12] 投稿する 未検出');
   } else {
     if (COMMIT && !boundaryOk) console.log('[12] ★中断: 境界検証 NG（boundaryBeforeExam=false）→ 公開しない★');
