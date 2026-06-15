@@ -29,3 +29,5 @@
 ## メモ・ブロッカー
 
 <!-- 作業中に気づいたことや詰まったことをここに書く -->
+
+- 残 handoff の外部尻尾（note 投稿 / PDF / deploy / cloud）を環境別に集約したバッチ: [external-cleanup-batch](../handoffs/2026-06-15-external-cleanup-batch.md)。BK note 投稿の本体はそちら B 節（BK-I/BK-01 は本ファイルが SSOT）。
