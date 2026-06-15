@@ -47,7 +47,7 @@ if (!articleDir) { console.error('ERROR: note.md / draft.md not found for ' + sl
 const raw = fs.readFileSync(path.join(articleDir, articleFile), 'utf8');
 
 // frontmatter 解析 (quote 任意)
-const fmMatch = raw.match(/^---\n([\s\S]*?)\n---/);
+const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
 const fm = fmMatch?.[1] ?? '';
 const fmField = (key) => {
   const m = fm.match(new RegExp('^' + key + ':\\s*(?:"(.+?)"|\'(.+?)\'|(.+?))\\s*$', 'm'));
@@ -58,7 +58,7 @@ const isPaid = fmField('is_paid') === 'true';
 const priceJpy = parseInt(fmField('price_jpy') || '0', 10);
 
 // 本文準備
-let body = raw.replace(/^---\n[\s\S]*?\n---\n*/, '');
+let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
 // HTML コメントをすべて除去（<!-- SVG: ... --> / <!-- note投稿時 --> / <!-- circulation-footer --> 等）。
 // 残すと note 上に可視テキストとして混入する。
 body = body.replace(/<!--[\s\S]*?-->\n?/g, '');

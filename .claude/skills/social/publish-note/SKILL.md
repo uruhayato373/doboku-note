@@ -77,15 +77,15 @@ const articleDir = path.join(projectRoot, 'docs/note', relDir);
 const articleFile = path.join(articleDir, 'article.md');
 if (!fs.existsSync(articleFile)) { console.error('ERROR: article.md not found: ' + articleFile); process.exit(1); }
 const raw = fs.readFileSync(articleFile, 'utf8');
-const fm = (raw.match(/^---\n([\s\S]*?)\n---/)?.[1]) ?? '';
+const fm = (raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1]) ?? '';
 const fmField = (k) => { const m = fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')); return m ? (m[1] ?? m[2] ?? m[3] ?? '') : ''; };
 const notePricing = fmField('notePricing');
 if (notePricing !== 'free') { console.error('ABORT: notePricing != free (got "' + notePricing + '"). 無料記事モードは free 専用。'); process.exit(2); }
 // タイトルは本文先頭の H1（建設部門の無料記事は frontmatter に title: を持たず `# …` が表示タイトル）
-const bodyForTitle = raw.replace(/^---\n[\s\S]*?\n---\n*/, '');
+const bodyForTitle = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
 const title = (bodyForTitle.match(/^#\s+(.+)$/m)?.[1] ?? fmField('title')).trim();
 if (!title) { console.error('ABORT: タイトル（先頭 # H1）が見つからない。'); process.exit(3); }
-let body = raw.replace(/^---\n[\s\S]*?\n---\n*/, '');
+let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
 body = body.replace(/<!--[\s\S]*?-->\n?/g, '');   // HTML コメント除去
 body = body.replace(/!\[.*?\]\(.*?\)\n?/g, '');   // 画像参照除去（無料記事は通常なし）
 body = body.replace(/^---$/gm, '');               // 水平線除去

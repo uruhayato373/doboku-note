@@ -127,7 +127,7 @@ cover:
   banner: "{テーマ}｜予想問題＋模範解答"
   meta: "R8予想問題"
 ```
-（`price` は当該マガジン方針に従う。`noteUrl`/`noteId`/`notePublishedAt` は空文字）
+（`price` は **BK 単品＝¥500**〔道路マガジンSoT・note掲載文.txt 準拠。¥1,980 は旧誤デフォルト〕。マガジンのセット価格は note掲載文.txt が真実源。`noteUrl`/`noteId`/`notePublishedAt` は空文字）
 
 ### 本文の上書き（予想モード）
 
@@ -224,7 +224,7 @@ exam_type: {exam_type}
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜{専門分野名} {year} {科目種別} 模範解答"
 utmCampaign: pe-construction-secondary
 ---
