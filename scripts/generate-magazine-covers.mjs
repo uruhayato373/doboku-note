@@ -380,7 +380,7 @@ const MAGAZINES = [
     lines: ['コンクリート診断士 記述式', '問題A・問題B 模範答案集', '劣化機構別 全8本セット'],
     category: 'コンクリート診断士',
     fontSize: 42,
-    fillBg: '#155E63',
+    fillBg: '#6E3A8C',
   },
 ];
 
