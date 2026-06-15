@@ -38,14 +38,16 @@ runbook: `docs/handoffs/2026-06-10-bk04-11-yosou-cloud-runbook.md`。BK-04〜08/
 
 ## C. Windows ローカル（PDF 生成・画像・描画）— 外部 API 不要・ローカルツール依存
 
+> [!note] 訂正: 本リポジトリのプライマリ環境は Windows。ここの多くは**別環境へ行かずこのセッションで実行可能**（PDF/画像生成はローカル処理＝プロキシ非依存）。2026-06-15 に PDF生成・cd-essay カバーを実行済。残るは takuitsu カバー/epubcheck と P-1 描画（ローカルツール導入が要るもの）。
+
 | 完了 | タスク | 出所 |
 |---|---|---|
 | [x] | pdf-spec JSON 2 本作成済（`scripts/pdf-specs/BK-09_電力土木.json` / `BK-10_鉄道.json`・R03-R07×3＝各15記事・2026-06-15）。**R08-yosou 分は A(#5) 完了後に追記** | #8 |
-| [ ] | 8 マガジンの紙用 PDF を生成（pdf-spec が揃ってから） | #8 |
+| [x] | 8 マガジンの紙用 PDF 生成済（2026-06-15・本Windowsセッションで実行・BK-04〜11 計138本・in-place commit）。BK-09/10 は R03-R07 のみ＝R08 は A(#5) 後に spec 追記して再生成 | #8 |
 | [ ] | takuitsu: カバー画像を生成 | #3 |
 | [ ] | takuitsu: epubcheck を実行（要 Java/epubcheck インストール） | #3 |
 | [ ] | content-angle P-1: カルーセル PNG を描画（ffmpeg/@fontsource/VOICEVOX）→ ig-carousel-qa | #4 |
-| [ ] | concrete: `cd-essay-cover.webp` を生成 | #1 |
+| [x] | concrete: `cd-essay-cover.webp` 生成済（2026-06-15・コンクリート診断士=teal #155E63 を G2 に新規割当） | #1 |
 
 ---
 

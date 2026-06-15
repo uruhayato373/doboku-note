@@ -35,7 +35,7 @@
 
 ## 残タスク（手動 / 別環境）
 
-1. **印刷用PDF（Windows必須）**: Mac の Chrome は `--headless=new`/`--headless=old` どちらでも `--print-to-pdf` 後にプロセスが終了せずハング（PDF自体は生成されるが execFileSync が120秒でタイムアウト）。**Windows PC で** `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-XX.json --in-place` を実行（CHROME_PATH 不要・既定の Windows パスで動く）。
+1. **印刷用PDF** — ✅ **2026-06-15 生成済（BK-04〜11 計138本・Windowsセッションで in-place 実行・commit 済）**。BK-09/10 は R03-R07 のみ（R08-yosou は #5 後に spec 追記して再生成）。以下は手順記録: Mac の Chrome は `--print-to-pdf` 後にハング（execFileSync 120秒タイムアウト）するため **Windows で** `node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/BK-XX.json --in-place`（CHROME_PATH 不要・既定の Windows パスで動く）。
    - **BK-09 電力土木・BK-10 鉄道 の pdf-spec は作成済み（2026-06-15・R03-R07×3＝各15記事）**。ただし R08-yosou 未生成のため現状 R03-R07 のみ収録。R08-yosou を cloud(#5) で生成後、他BKに倣い R08-yosou エントリを追記すること
    - 既存 BK-04-08,11 の pdf-spec は R08-yosou も含むため、そのまま実行で R03-R07＋yosou のPDFが出る
 2. **note 本投稿（ユーザー手動・Mac）**: `/publish-note` または手動。投稿後、各記事 frontmatter の `noteUrl`/`noteId`/`notePublishedAt` と `note-magazines.ts` の `noteUrl`/`published:true` を反映
