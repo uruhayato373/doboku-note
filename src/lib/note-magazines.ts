@@ -553,16 +553,16 @@ const MAGAZINES_RAW = {
   },
   'pe-construction-urban-planning-magazine': {
     id: 'pe-construction-urban-planning-magazine',
-    published: false,
-    noteUrl: '',
-    title: '技術士 建設部門 2次｜都市及び地方計画 選択科目 模範解答集（R03-R07）',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/mc8bd949f1f51',
+    title: '技術士 建設部門 2次｜都市及び地方計画 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
-      '技術士第二次試験 建設部門「都市及び地方計画」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として立地適正化・市街地再開発・公園緑地等の都市計画・まちづくり関連業務の発注・監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。各記事に印刷用PDF付き。',
+      '技術士第二次試験 建設部門「都市及び地方計画」選択科目の令和3〜7年度を、II-1（全4設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集＋令和8年度予想（過去問 5年分×3区分＝15記事 ＋ R8予想3記事 ＝ 全18記事）。元・地方自治体の土木職（発注者）として立地適正化・市街地再開発・公園緑地等の都市計画・まちづくり関連業務の発注・監督に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。各記事に印刷用PDF付き。',
     shortTitle: '建設部門2次｜都市計画 模範解答集',
     shortDescription:
-      'R03〜R07 の II-1/II-2/III 全15記事。都市計画・まちづくりを発注者視点でフル解答。',
+      'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。都市計画・まちづくりを発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-03-urban-cover.webp',
-    price: '¥1,980（15記事セット）',
+    price: '¥2,980（18記事セット・過去問15＋R8予想3）',
     badge: 'note 限定',
   },
   'pe-construction-geotechnical-magazine': {
