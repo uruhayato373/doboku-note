@@ -130,6 +130,7 @@ function matchPeConstructionEssay(slug: string): MagazineId | null {
  */
 const NEW_MAGAZINES = {
   completePack: 'essay-complete-pack' as const,
+  corePack: 'essay-core-pack' as const,
   tradeoff5kanri: 'tradeoff-5kanri' as const,
   setsumon3Bank: 'setsumon3-policy-bank' as const,
   r8Forecast: 'r8-essay-forecast' as const,
@@ -147,17 +148,18 @@ const NEW_MAGAZINES = {
 export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedPlacement {
   // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 3 ペルソナ模範論文を提示 (強 CTA)
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
-    // パイプライン順 (完全パック → 型 → 設問3 → 予想 → 模範論文 → 精読基礎)。
-    // 完全パックを inline 筆頭の強 CTA に。sidebar は sidebarImageUrl を持つ
-    // 精読ガイドを維持（完全パックは sidebarImageUrl 未設定のため画像カードが出ない）。
+    // パイプライン順 (完全パック → コアパック → 型 → 設問3 → 予想 → 模範論文 → 精読基礎)。
+    // 上段=完全パック¥14,800 を筆頭の強 CTA、下段=コアパック¥5,480 を次点（2段ラダー）。
+    // sidebar は sidebarImageUrl を持つ精読ガイドを維持（パックは sidebarImageUrl 未設定）。
     return {
       inline: [
         slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
-        slot(NEW_MAGAZINES.tradeoff5kanri, slug, 'inline-2'),
-        slot(NEW_MAGAZINES.setsumon3Bank, slug, 'inline-3'),
-        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-4'),
-        ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 5}`)),
-        slot('tankan-reading-guide', slug, 'inline-8'),
+        slot(NEW_MAGAZINES.corePack, slug, 'inline-2'),
+        slot(NEW_MAGAZINES.tradeoff5kanri, slug, 'inline-3'),
+        slot(NEW_MAGAZINES.setsumon3Bank, slug, 'inline-4'),
+        slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-5'),
+        ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 6}`)),
+        slot('tankan-reading-guide', slug, 'inline-tankan'),
       ],
       sidebar: [
         slot('tankan-reading-guide', slug, 'sidebar-1'),
@@ -481,7 +483,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
  * ながら収益導線ゼロだったため、カテゴリ hub にも CTA を張る。
  */
 const CATEGORY_MAGAZINES: Partial<Record<string, readonly MagazineId[]>> = {
-  "pe-comprehensive-management": ["essay-complete-pack", "tankan-reading-guide"],
+  "pe-comprehensive-management": ["essay-complete-pack", "essay-core-pack", "tankan-reading-guide"],
   "civil-construction-1": ["civil-1-experience-essay", "civil-1-pastexam-essay"],
   "civil-construction-2": ["civil-2-experience-essay", "civil-2-pastexam-essay"],
   "concrete-chief-engineer": ["cce-essay-magazine"],
