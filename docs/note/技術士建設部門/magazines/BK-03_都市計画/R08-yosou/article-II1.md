@@ -9,7 +9,7 @@ theme: "R08予想問題・都市計画II-1"
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜都市及び地方計画 R8予想 選択科目II-1 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
