@@ -4,9 +4,9 @@ noteMagazine: BK-03
 year: R03
 subject: urban-planning
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n0881a019af8f"
+noteId: "n0881a019af8f"
+notePublishedAt: "2026-06-15"
 price: 500
 coverTitle: "技術士 建設部門｜都市及び地方計画 R03 選択科目III 模範解答"
 cover:
