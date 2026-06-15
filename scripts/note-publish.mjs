@@ -8,7 +8,7 @@
  *   会社PCの社内プロキシ(TLS傍受)を越える。
  *
  * 工程: account ゲート → エディタ → カバー(eyecatch) → タイトル → 本文(ClipboardEvent paste・
- *   markdown変換) → リンクカード化(best-effort・note ProseMirror で不確実＝失敗時は CTA を手動仕上げ) → 下書き保存 → 公開に進む → 有料+価格(#price JS setter)
+ *   markdown変換) → リンクカード化(各URL行を Range選択→Delete→type→Enter＝note の埋め込み検出は type で起動・paste不可) → 下書き保存 → 公開に進む → 有料+価格(#price JS setter)
  *   → タグ → 有料エリア設定 → 有料境界を「試験問題/予想問題」直前に設定 → ★境界検証ゲート★ → 投稿する。
  *
  * 安全弁（収益アカウントのため）:
@@ -112,18 +112,24 @@ try {
   const edChars = await page.evaluate(() => (document.querySelector('[contenteditable=true]')?.innerText || '').length);
   console.log('[5] body pasted, editor chars=' + edChars);
 
-  // 6. リンクカード化（URL 単独行の行末 Enter）。best-effort
+  // 6. リンクカード化: 各 URL 行を Range選択→Delete→type→Enter。
+  //    note の埋め込み検出は keyboard.type（実入力）で起動する（synthetic paste では起動しない＝v1-v5失敗・v6/v7で確定）。
   try {
-    const urlLineHandles = await page.evaluate(() => {
-      const eds = document.querySelectorAll('[contenteditable=true] p, [contenteditable=true] div');
-      let n = 0; eds.forEach((p) => { if (/^https?:\/\/\S+$/.test((p.innerText || '').trim())) { p.setAttribute('data-cardify', String(n++)); } }); return n;
-    });
-    for (let i = 0; i < urlLineHandles; i++) {
-      const loc = page.locator(`[data-cardify="${i}"]`);
-      if (await loc.count()) { await loc.first().click(); await page.keyboard.press('End'); await page.keyboard.press('Enter'); await sleep(4000); }
+    const urls = await page.evaluate(() => { const o = []; for (const b of document.querySelectorAll('[contenteditable=true] p, [contenteditable=true] div')) { const t = (b.innerText || '').trim(); if (/^https?:\/\/\S+$/.test(t)) o.push(t); } return [...new Set(o)]; });
+    let made = 0;
+    for (const u of urls) {
+      const ok = await page.evaluate((url) => {
+        const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+        const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT); let node = null, n;
+        while ((n = w.nextNode())) { if ((n.textContent || '').trim() === url) { node = n; break; } }
+        if (!node) return false;
+        const r = document.createRange(); r.selectNodeContents(node);
+        const s = window.getSelection(); s.removeAllRanges(); s.addRange(r); return true;
+      }, u);
+      if (ok) { await page.keyboard.press('Delete'); await sleep(450); await page.keyboard.type(u, { delay: 10 }); await sleep(700); await page.keyboard.press('Enter'); await sleep(4500); made++; }
     }
-    const cards = await page.evaluate(() => document.querySelectorAll('figure[embedded-service], [embedded-service]').length);
-    console.log(`[6] cardify: urlLines=${urlLineHandles} cardsNow=${cards}`);
+    const cards = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length);
+    console.log(`[6] cardify(type method): urls=${urls.length} processed=${made} cards=${cards}`);
   } catch (e) { console.log('[6] cardify skip:', e.message.split('\n')[0]); }
 
   // 7. 下書き保存（中間保存）

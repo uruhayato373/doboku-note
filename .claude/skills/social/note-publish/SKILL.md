@@ -40,16 +40,13 @@ node scripts/note-publish.mjs --article <article.md path> --commit # 実公開�
 | 価格（Shadow DOM `input#price` を JS setter で上書き） | ✅ |
 | タグ（公開設定パネルの「ハッシュタグを追加する」→type+Enter・先頭30） | ✅ |
 | **有料境界**（有料エリア設定画面で「試験問題/予想問題」H2 直前の「ラインをこの場所に変更」を DOM順で特定→クリック→検証） | ✅ |
-| **リンクカード化**（CTA の URL 単独行） | ❌ **手動仕上げ** |
+| **リンクカード化**（CTA の URL 単独行） | ✅ 自動（type 方式） |
 
-### リンクカード化が手動な理由（既存「未実装TODO」を実証）
+### リンクカード化の仕組み（type 方式・2026-06-15 確定）
 
-note のエディタ（ProseMirror/React）で URL→OGPカード変換の自動化は 3 方式とも失敗:
-1. URL 行末で Enter → 既存 URL は遡及カード化されない
-2. 属性マーク→locate → 再render で属性が消える
-3. `getByText` で掴む → contenteditable 内でクリック不能
+note の埋め込み検出は **`keyboard.type`（実入力）で起動し、synthetic な `ClipboardEvent` paste では起動しない**（v1〜v5 の paste/Enter 系は全失敗、v6/v7 の type で確定。真実源 `docs/reference/note-api-verification.md` L101「URL単独行で入力→Enterでリンクカード化」）。
 
-→ **公開後に CTA の URL 単独行を note UI で手動カード化**（URL 行末 Enter→約4秒。1記事1〜2リンク・5秒）。[[feedback_note_link_card]] の通りカードの方が CTR 高いので必ず仕上げる。
+実装（step 6）: 本文を bulk paste すると URL はプレーン文字列になるので、各 URL 行を **Range API で選択 → `Delete` → `keyboard.type(url)` → `Enter`** で「その場」をカードへ置換（周囲テキストは保持）。[[feedback_note_link_card]] 準拠（カードの方が CTR 高い）。
 
 ## 既知の限界・運用
 
