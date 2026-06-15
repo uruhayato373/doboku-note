@@ -58,6 +58,12 @@ node scripts/check-doc-coupling.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+# トップの資格カード(home-exam-cards.json)と categories.json の整合（公開済み新資格のトップ未掲載の再発防止）
+node scripts/check-home-exam-coverage.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {

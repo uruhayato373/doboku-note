@@ -9,6 +9,7 @@ import { Hero, ExamCards, LatestArticles, AboutSection } from "@/components/home
 import type { LatestArticle } from "@/components/home";
 import { getDocsMetaByCategory, getAllDocsMeta, type DocMeta } from "@/lib/docs";
 import categoriesData from "@/config/categories.json";
+import homeExamCardsData from "@/config/home-exam-cards.json";
 import { CategoryDef } from "@/lib/categories";
 
 // 2026-04-26 #84 LCP 追加改善（Task B-2 revert）:
@@ -19,62 +20,72 @@ import { CategoryDef } from "@/lib/categories";
 
 const categories = categoriesData as CategoryDef[];
 
-const EXAM_DATA = [
-  {
-    slug: "civil-construction-1",
-    label: "1級土木施工管理技士",
-    en: "CCCE Grade 1",
-    subtitle: "第1次・第2次検定 完全対策",
-    description: "土木工事の施工計画・品質管理・安全管理を体系的に整理。過去問題、キーワード解説、記述式の要点を収録。",
-    nextExam: "2026年7月 第1次 / 10月 第2次",
-    variant: "civil" as const,
-  },
-  {
-    slug: "civil-construction-2",
-    label: "2級土木施工管理技士",
-    en: "CCCE Grade 2",
-    subtitle: "第1次・第2次検定 完全対策（前期・後期2回開催）",
-    description: "受験資格緩和後の若手技術者向け。令和3年度〜7年度 過去問解説、経験記述ガイド、分野別の基礎ポイントを収録。",
-    nextExam: "2026年6月 前期 / 10月 後期・第2次",
-    variant: "civil" as const,
-  },
-  {
-    slug: "pe-comprehensive-management",
-    label: "技術士（総合技術監理部門）",
-    en: "PE Comprehensive Management",
-    subtitle: "筆記・口頭試験 論文対策",
-    description: "5つの管理技術（経済性・人的資源・情報・安全・社会環境）のキーワード集。各概念の定義・要点・過去問リンクを収録。",
-    nextExam: "2026年7月 筆記 / 12月 口頭",
-    variant: "pe" as const,
-  },
-  {
-    slug: "pe-construction",
-    label: "技術士（建設部門）",
-    en: "PE Civil Engineering",
-    subtitle: "必須・選択11科目 記述式 過去問（R元〜R7）",
-    description: "技術士第二次試験 建設部門の必須科目・選択科目11科目（道路・河川砂防・都市計画・土質・鋼コン・施工計画ほか）の記述式 過去問を年度別・科目別に収録。出題テーマの論点キーワードと論文の書き方も整理。",
-    nextExam: "2026年7月 筆記",
-    variant: "pe" as const,
-  },
-  {
-    slug: "concrete-chief-engineer",
-    label: "コンクリート主任技師",
-    en: "JCI Senior Concrete Engineer",
-    subtitle: "四肢択一・小論文 完全対策",
-    description: "材料・配合設計・施工・耐久性・品質管理など8分野を体系整理。分野別の過去問解説・テキスト・小論文対策を収録。",
-    nextExam: "2026年11月（予定）",
-    variant: "civil" as const,
-  },
-  {
-    slug: "pe-first-stage",
-    label: "技術士 第一次試験",
-    en: "PE First Stage",
-    subtitle: "適性・基礎・専門（建設部門）過去問（R元〜R7）",
-    description: "技術士第二次試験の前提となる第一次試験対策。令和元〜7年度の適性科目・基礎科目・専門科目（建設部門）の過去問を年度別・科目別に収録し、頻出論点と出題範囲を体系的に整理。",
-    nextExam: "2026年11月（予定）",
-    variant: "pe" as const,
-  },
-];
+// トップの資格カード固有のコピー（label/subtitle/description/en/nextExam/stats/order）は
+// ナビ用の categories.json と意図的に異なる（例: pe-construction はナビ「技術士第二次試験（建設部門）」
+// に対しカードは「技術士（建設部門）」）。そのためカード固有データは home-exam-cards.json に分離する。
+// 「どの資格をトップに出すか」は categories.json（visible / variant）が真実源で、両者の slug 整合は
+// scripts/check-home-exam-coverage.mjs（pre-commit / CI）が強制する。
+// → 新資格をトップに出すには home-exam-cards.json にカードを追加する。
+type HomeStatSpec = {
+  label: string;
+  total?: boolean;
+  groups?: string[];
+  tags?: string[];
+  distinctYear?: boolean;
+  value?: string;
+};
+type HomeExamCard = {
+  slug: string;
+  order: number;
+  label: string;
+  en: string;
+  subtitle: string;
+  description: string;
+  nextExam: string;
+  stats: HomeStatSpec[];
+};
+const homeExamCards = homeExamCardsData as HomeExamCard[];
+const categoryBySlug = new Map(categories.map((c) => [c.slug, c]));
+
+function computeStat(metas: DocMeta[], spec: HomeStatSpec): { k: string; v: string } {
+  if (spec.value !== undefined) return { k: spec.label, v: spec.value };
+  if (spec.distinctYear) {
+    const years = new Set(metas.map((m) => (String(m.slug).match(/r\d+/) || [])[0]).filter(Boolean));
+    return { k: spec.label, v: String(years.size) };
+  }
+  if (spec.total) return { k: spec.label, v: metas.length.toLocaleString() };
+  const groups = spec.groups ?? [];
+  const tags = spec.tags ?? [];
+  const n = metas.filter(
+    (m) => (m.group ? groups.includes(m.group) : false) || tags.some((t) => m.tags?.includes(t)),
+  ).length;
+  return { k: spec.label, v: n.toLocaleString() };
+}
+
+// categories.json（visible≠false・variant≠reference）に存在する資格だけを、
+// home-exam-cards.json の order 順でカード化する。variant はカテゴリ定義から取得（単一ソース）。
+function buildExamCards() {
+  return [...homeExamCards]
+    .filter((card) => {
+      const cat = categoryBySlug.get(card.slug);
+      return !!cat && cat.visible !== false && cat.variant !== "reference";
+    })
+    .sort((a, b) => a.order - b.order)
+    .map((card) => {
+      const cat = categoryBySlug.get(card.slug)!;
+      const metas = getDocsMetaByCategory(card.slug);
+      return {
+        slug: card.slug,
+        label: card.label,
+        en: card.en,
+        subtitle: card.subtitle,
+        description: card.description,
+        nextExam: card.nextExam,
+        variant: cat.variant as "civil" | "pe",
+        stats: card.stats.map((s) => computeStat(metas, s)),
+      };
+    });
+}
 
 function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
   const labelByCategory = new Map<string, string>();
@@ -109,65 +120,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
 
 export default async function HomePage() {
   const allMeta = getAllDocsMeta();
-  const civil = getDocsMetaByCategory("civil-construction-1");
-  const civil2 = getDocsMetaByCategory("civil-construction-2");
-  const pe = getDocsMetaByCategory("pe-comprehensive-management");
-  const concrete = getDocsMetaByCategory("concrete-chief-engineer");
-  const peConstruction = getDocsMetaByCategory("pe-construction");
-  const peFirstStage = getDocsMetaByCategory("pe-first-stage");
-
-  // 表示順は技術士系をまとめる（1級→2級→第一次→建設(二次)→総監→コンクリ主任）。
-  // EXAM_DATA の定義順とは独立に、ここで並べた順序がトップのカード並びになる。
-  const exams = [
-    {
-      ...EXAM_DATA[0]!,
-      stats: [
-        { k: "記事", v: civil.length.toLocaleString() },
-        { k: "過去問", v: civil.filter((m) => m.tags?.includes("past-questions") || m.group === "primary" || m.group === "secondary").length.toLocaleString() },
-        { k: "教科書", v: civil.filter((m) => m.tags?.includes("textbook") || m.group === "textbook").length.toLocaleString() },
-      ],
-    },
-    {
-      ...EXAM_DATA[1]!,
-      stats: [
-        { k: "記事", v: civil2.length.toLocaleString() },
-        { k: "過去問", v: civil2.filter((m) => m.tags?.includes("past-questions") || m.group === "primary" || m.group === "secondary").length.toLocaleString() },
-        { k: "ガイド", v: civil2.filter((m) => m.tags?.includes("guide") || m.group === "guide").length.toLocaleString() },
-      ],
-    },
-    {
-      ...EXAM_DATA[5]!,
-      stats: [
-        { k: "過去問", v: peFirstStage.filter((m) => m.group === "primary" || m.tags?.includes("past-questions")).length.toLocaleString() },
-        { k: "年度", v: String(new Set(peFirstStage.map((m) => (String(m.slug).match(/r\d+/) || [])[0]).filter(Boolean)).size) },
-        { k: "科目", v: "3" },
-      ],
-    },
-    {
-      ...EXAM_DATA[3]!,
-      stats: [
-        { k: "記事", v: peConstruction.length.toLocaleString() },
-        { k: "過去問", v: peConstruction.filter((m) => m.group === "past-exam" || m.tags?.includes("past-questions")).length.toLocaleString() },
-        { k: "ガイド", v: peConstruction.filter((m) => m.group === "guide" || m.tags?.includes("guide")).length.toLocaleString() },
-      ],
-    },
-    {
-      ...EXAM_DATA[2]!,
-      stats: [
-        { k: "記事", v: pe.length.toLocaleString() },
-        { k: "キーワード", v: pe.filter((m) => m.group === "keyword" || m.tags?.includes("keyword")).length.toLocaleString() },
-        { k: "過去問", v: pe.filter((m) => m.group === "pastExam" || m.tags?.includes("past-questions")).length.toLocaleString() },
-      ],
-    },
-    {
-      ...EXAM_DATA[4]!,
-      stats: [
-        { k: "記事", v: concrete.length.toLocaleString() },
-        { k: "過去問", v: concrete.filter((m) => m.group === "primary" || m.tags?.includes("past-questions")).length.toLocaleString() },
-        { k: "テキスト", v: concrete.filter((m) => m.group === "textbook").length.toLocaleString() },
-      ],
-    },
-  ];
+  const exams = buildExamCards();
 
   const articleCount = allMeta.filter((m) => m.published !== false).length;
 
