@@ -1,0 +1,92 @@
+#!/usr/bin/env node
+/**
+ * note-magazine-create.mjs
+ * note掲載文.txt 駆動で note 有料マガジンを新規作成（/magazines/new・有料単体）。
+ * 既定 probe（フォーム構造ダンプ・作成しない）。--commit で作成。--dir <magazineDir>。
+ * note-edit-magazine（編集専用）が扱わない「新規作成」を担う。
+ */
+import { chromium } from 'playwright';
+import { readFileSync, existsSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { parseNoteText } from './lib/note-meta.mjs';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
+const argv = process.argv.slice(2);
+const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
+const COMMIT = argv.includes('--commit');
+const DIR = getArg('--dir');
+if (!DIR) { console.error('--dir <magazineDir> required'); process.exit(1); }
+const txtPath = join(ROOT, DIR, 'note掲載文.txt');
+if (!existsSync(txtPath)) { console.error('note掲載文.txt not found: ' + txtPath); process.exit(1); }
+const meta = parseNoteText(readFileSync(txtPath, 'utf8'));
+console.log('[meta]', JSON.stringify({ title: meta.title, setPrice: meta.setPrice, descLen: (meta.description || '').length, appealLen: (meta.appealPoint || '').length }));
+const price = parseInt(String(meta.setPrice || '').replace(/[^0-9]/g, ''), 10) || 0;
+if (!meta.title || !price) { console.error('ABORT: title/price 解析失敗', meta.title, price); process.exit(1); }
+
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const ctx = await chromium.launchPersistentContext(PROFILE, {
+  headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
+  ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
+});
+try {
+  const page = ctx.pages()[0] || (await ctx.newPage());
+  await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }); await sleep(4000);
+  if (!/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { console.log('ABORT account'); await ctx.close(); process.exit(2); }
+  await page.goto('https://note.com/magazines/new', { waitUntil: 'domcontentloaded', timeout: 60000 }); await sleep(5000);
+  console.log('URL:', page.url());
+  // フォーム構造ダンプ
+  const form = await page.evaluate(() => ({
+    radios: Array.from(document.querySelectorAll('input[type=radio],[role=radio]')).map((r) => (r.closest('label')?.innerText || r.getAttribute('aria-label') || '').trim().slice(0, 12)).filter(Boolean),
+    textInputs: Array.from(document.querySelectorAll('input[type=text]')).map((i) => i.placeholder || i.getAttribute('aria-label') || '').slice(0, 6),
+    numberInputs: Array.from(document.querySelectorAll('input[type=number]')).map((i) => i.placeholder || '').length,
+    textareas: Array.from(document.querySelectorAll('textarea')).map((t) => t.placeholder || '').slice(0, 6),
+    selects: Array.from(document.querySelectorAll('select')).map((s) => Array.from(s.options).map((o) => o.text).slice(0, 8)),
+    buttons: Array.from(document.querySelectorAll('button')).map((b) => (b.innerText || '').trim()).filter(Boolean).slice(0, 12),
+    bodyHints: ['有料', '無料', 'マガジン名', 'カテゴリ', 'アピール', '価格'].filter((h) => document.body.innerText.includes(h)),
+  }));
+  console.log('[form-initial]', JSON.stringify(form, null, 1));
+  // 有料(単体) を選択して price/アピール/カテゴリ を出現させる
+  const paidBtn = page.getByRole('button', { name: '有料(単体)' });
+  if (await paidBtn.count()) { await paidBtn.first().click(); await sleep(2500); console.log('clicked 有料(単体)'); }
+  const form2 = await page.evaluate(() => ({
+    numberInputs: Array.from(document.querySelectorAll('input[type=number]')).map((i) => i.placeholder || i.getAttribute('aria-label') || i.id || '').slice(0, 6),
+    priceInput: !!document.querySelector('input[type=number], input#price'),
+    textareasNow: Array.from(document.querySelectorAll('textarea')).map((t) => (t.placeholder || '').slice(0, 24)).slice(0, 6),
+    selects: Array.from(document.querySelectorAll('select')).map((s) => Array.from(s.options).map((o) => o.text).slice(0, 12)),
+    appealHint: document.body.innerText.includes('アピール'),
+    categoryHint: document.body.innerText.includes('カテゴリ'),
+    buttons: Array.from(document.querySelectorAll('button')).map((b) => (b.innerText || '').trim()).filter(Boolean).slice(0, 12),
+  }));
+  console.log('[form-after-paid]', JSON.stringify(form2, null, 1));
+  await page.screenshot({ path: join(ROOT, '.tmp/mag-new-paid.png') });
+  if (!COMMIT) { console.log('PROBE のみ（--commit で作成）'); await ctx.close(); process.exit(0); }
+
+  // --- 作成（note掲載文.txt 駆動）---
+  await page.locator('input[type=text]').first().fill(meta.title); await sleep(400);
+  await page.locator('textarea[placeholder*="まとめ"]').first().fill(meta.description); await sleep(400);
+  await page.locator('input[type=number]').first().fill(String(price)); await sleep(400);
+  const appeal = page.locator('textarea[placeholder*="購読"]');
+  if (await appeal.count()) { await appeal.first().fill(meta.appealPoint); await sleep(400); }
+  const sel = page.locator('select');
+  if (await sel.count()) { await sel.first().selectOption({ label: 'キャリア' }).catch(async () => { await sel.first().selectOption({ index: 1 }); }); await sleep(400); }
+  // 読み戻し検証
+  const filled = await page.evaluate(() => ({
+    title: document.querySelector('input[type=text]')?.value || '',
+    price: document.querySelector('input[type=number]')?.value || '',
+    descLen: (document.querySelector('textarea[placeholder*="まとめ"]')?.value || '').length,
+    appealLen: (document.querySelector('textarea[placeholder*="購読"]')?.value || '').length,
+    category: (() => { const s = document.querySelector('select'); return s ? s.options[s.selectedIndex]?.text : ''; })(),
+  }));
+  console.log('[filled]', JSON.stringify(filled));
+  await page.screenshot({ path: join(ROOT, '.tmp/mag-create-filled.png') });
+  if (filled.title !== meta.title || filled.price !== String(price)) { console.log('ABORT: 読み戻し不一致→作成中止'); await ctx.close(); process.exit(3); }
+  // 作成
+  await page.getByRole('button', { name: '作成' }).first().click(); await sleep(5000);
+  const url = page.url();
+  const key = (url.match(/\/m\/(m[a-z0-9]+)/) || [])[1] || '';
+  console.log('[created] URL:', url, '| key:', key);
+  await page.screenshot({ path: join(ROOT, '.tmp/mag-created.png') });
+} finally { await ctx.close(); }
