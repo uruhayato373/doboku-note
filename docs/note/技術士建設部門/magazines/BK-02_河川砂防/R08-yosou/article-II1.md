@@ -8,7 +8,7 @@ exam_type: II-1
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 theme: "堤防安全性・砂防堰堤・河道管理・海岸侵食対策"
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R8予想 選択科目II-1 予想問題＋模範解答"
 cover:

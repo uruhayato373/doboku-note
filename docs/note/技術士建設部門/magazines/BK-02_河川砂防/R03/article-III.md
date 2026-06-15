@@ -7,7 +7,7 @@ exam_type: III
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜河川・砂防及び海岸・海洋 R03 選択科目III 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
