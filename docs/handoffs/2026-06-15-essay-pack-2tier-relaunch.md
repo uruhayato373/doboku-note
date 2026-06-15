@@ -52,12 +52,11 @@
 
 → 完成後、パックは全14ペルソナ＋コア4。**価格を ¥14,800 へ改定**（直前値引きなし・フラット）。
 
-## B. 下段 コアパック作成（Mac / note-edit-session）
+## B. 下段 コアパック作成
 
-1. note で新規マガジン作成「総監記述式 コアパック｜型×設問3×R8予想」。
-2. 既存3マガジンの記事を登録: 型 `m921fbe060575`／設問3 `m91516dfc27ac`／R8 `m6854c7437d4d`。
-3. 価格 ¥5,480 設定。noteUrl 取得。
-4. カバー生成（`magazine-essay-core-pack-cover.webp`）。
+> [!done] 完了（2026-06-15・Windows）。`m6e7de5e4ea3d` / ¥5,480 / 24記事収録・API検証済。`essay-core-pack` published:true 化、note掲載文.txt 作成済。
+> 手順実績: `/magazines/new` →「有料(単体)」選択→タイトル/説明/価格5480/アピール/カテゴリ=キャリア→作成（※note仕様: quick-create=無料・有料化不可。有料は必ず /magazines/new の有料(単体)で作る）→ `note-magazine-add --target m6e7de5e4ea3d --from m921fbe060575,m91516dfc27ac,m6854c7437d4d --commit`。
+> 残: カバー画像（`magazine-essay-core-pack-cover.webp`）、site 配置（magazine-placement.ts への下段配線）。
 
 ## C. repo 反映（A/B 完了後・私が実行可）
 

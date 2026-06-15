@@ -290,7 +290,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '将来課題11テーマ × 国家施策68案（各約600字・答案1枚相当）。設問(3)専用の引き出し集。',
     imageUrl: '/images/magazines/magazine-setsumon3-policy-bank-cover.webp',
-    price: '¥2,480',
+    price: '¥2,980',
     badge: 'note 限定',
   },
 
@@ -333,15 +333,16 @@ const MAGAZINES_RAW = {
     badge: 'note 限定',
   },
 
-  // ----- 記述式コアパック（下段・2026-06-15 決定で新設） -----
-  // 2段ラダーの下段。型+設問3+R8（ペルソナ非依存3本）のみ。3本とも note 公開済なので
-  // note でマガジン作成 → noteUrl 取得 → published: true へ。単品合計¥7,940（¥5,480＝31%OFF）。
+  // ----- 記述式コアパック（下段・2026-06-15 新設・有料¥5,480で note 作成済） -----
+  // 2段ラダーの下段。型+設問3+R8（ペルソナ非依存）の24記事を収録（¥5,480＝単品合計¥7,940の31%OFF）。
+  // 2026-06-15 に有料(単体)¥5,480で新規作成（/magazines/new・カテゴリ=キャリア）→ コア24記事を
+  // note-magazine-add で収録・API実体検証済（¥5480・24件）。
   // 構成元: 型 m921fbe060575／設問3 m91516dfc27ac／R8 m6854c7437d4d。精読は除外（択一/論点で別軸）。
   // 決定記録: docs/note/技術士総監/総監マガジン構成_決定2026.md §3-1 ＋ 2026-06-15 追補。
   'essay-core-pack': {
     id: 'essay-core-pack',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m6e7de5e4ea3d',
     title: '総監記述式 コアパック｜型 × 設問3 × R8予想（ペルソナ非依存3本）',
     description:
       '記述式の答案を完成させる最小セット。クロストレードオフ（5管理対立の型）＋設問(3)国家施策バンク（弾薬）＋R8予想問題集（演習）の3本を収録。どの分野・立場でも効く横断教材で、自分のペルソナ別模範論文は単品で1つ足すだけ。単品合計¥7,940相当。',
@@ -518,7 +519,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想6テーマ（各A/B案2バージョン）の全11記事。必須科目I を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-i-required-cover.webp',
-    price: '¥2,480（11記事セット・単品¥500）',
+    price: '¥3,480（11記事セット・単品¥500）',
     badge: 'note 限定',
   },
 
@@ -533,7 +534,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想 全24記事（予想は II-2・III を各4テーマ網羅）。道路科目 合格者＋発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
-    price: '¥3,980（24記事セット・単品¥500、約67%OFF）',
+    price: '¥3,480（24記事セット・単品¥500、約71%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-river-coast-magazine': {
