@@ -28,7 +28,7 @@ function ExamCard({ e }: { e: ExamData }) {
       className="group block bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-section p-6 sm:p-8 transition-all hover:border-[var(--accent)] hover:shadow-lift hover:-translate-y-0.5"
     >
       <div className="flex items-start justify-between gap-4 mb-5">
-        <div className="w-14 h-14 bg-[var(--accent-fill)] text-[var(--accent)] rounded-card-content flex items-center justify-center">
+        <div className="w-14 h-14 bg-[var(--accent-fill)] text-[var(--accent)] rounded-card-content flex items-center justify-center transition-colors group-hover:bg-[var(--accent)] group-hover:text-[var(--paper)]">
           <ExamIcon variant={e.variant} />
         </div>
         <div className="text-right">
@@ -57,8 +57,9 @@ function ExamCard({ e }: { e: ExamData }) {
 
 export default function ExamCards({ exams }: ExamCardsProps) {
   return (
-    <section className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
+    <section id="exams" className="scroll-mt-24 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
       <div className="mb-6 sm:mb-8">
+        <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink-muted)] mb-3">Exams</div>
         <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">対応する資格・試験</h2>
         <p className="text-[14px] text-[var(--ink-muted)] mt-1.5">現場と試験を往復する、体系的な学習コンテンツ</p>
       </div>

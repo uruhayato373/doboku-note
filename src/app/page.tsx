@@ -65,6 +65,15 @@ const EXAM_DATA = [
     nextExam: "2026年11月（予定）",
     variant: "civil" as const,
   },
+  {
+    slug: "pe-first-stage",
+    label: "技術士 第一次試験",
+    en: "PE First Stage",
+    subtitle: "適性・基礎・専門（建設部門）過去問（R元〜R7）",
+    description: "技術士第二次試験の前提となる第一次試験対策。令和元〜7年度の適性科目・基礎科目・専門科目（建設部門）の過去問を年度別・科目別に収録し、頻出論点と出題範囲を体系的に整理。",
+    nextExam: "2026年11月（予定）",
+    variant: "pe" as const,
+  },
 ];
 
 function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
@@ -105,7 +114,10 @@ export default async function HomePage() {
   const pe = getDocsMetaByCategory("pe-comprehensive-management");
   const concrete = getDocsMetaByCategory("concrete-chief-engineer");
   const peConstruction = getDocsMetaByCategory("pe-construction");
+  const peFirstStage = getDocsMetaByCategory("pe-first-stage");
 
+  // 表示順は技術士系をまとめる（1級→2級→第一次→建設(二次)→総監→コンクリ主任）。
+  // EXAM_DATA の定義順とは独立に、ここで並べた順序がトップのカード並びになる。
   const exams = [
     {
       ...EXAM_DATA[0]!,
@@ -124,11 +136,11 @@ export default async function HomePage() {
       ],
     },
     {
-      ...EXAM_DATA[2]!,
+      ...EXAM_DATA[5]!,
       stats: [
-        { k: "記事", v: pe.length.toLocaleString() },
-        { k: "キーワード", v: pe.filter((m) => m.group === "keyword" || m.tags?.includes("keyword")).length.toLocaleString() },
-        { k: "過去問", v: pe.filter((m) => m.group === "pastExam" || m.tags?.includes("past-questions")).length.toLocaleString() },
+        { k: "過去問", v: peFirstStage.filter((m) => m.group === "primary" || m.tags?.includes("past-questions")).length.toLocaleString() },
+        { k: "年度", v: String(new Set(peFirstStage.map((m) => (String(m.slug).match(/r\d+/) || [])[0]).filter(Boolean)).size) },
+        { k: "科目", v: "3" },
       ],
     },
     {
@@ -137,6 +149,14 @@ export default async function HomePage() {
         { k: "記事", v: peConstruction.length.toLocaleString() },
         { k: "過去問", v: peConstruction.filter((m) => m.group === "past-exam" || m.tags?.includes("past-questions")).length.toLocaleString() },
         { k: "ガイド", v: peConstruction.filter((m) => m.group === "guide" || m.tags?.includes("guide")).length.toLocaleString() },
+      ],
+    },
+    {
+      ...EXAM_DATA[2]!,
+      stats: [
+        { k: "記事", v: pe.length.toLocaleString() },
+        { k: "キーワード", v: pe.filter((m) => m.group === "keyword" || m.tags?.includes("keyword")).length.toLocaleString() },
+        { k: "過去問", v: pe.filter((m) => m.group === "pastExam" || m.tags?.includes("past-questions")).length.toLocaleString() },
       ],
     },
     {
@@ -167,8 +187,9 @@ export default async function HomePage() {
         {/* note 有料教材ハブへの導線（複数資格を横断するトップは単一商品でなく /links 集約へ）。
             data-cta="note" で AnalyticsProvider のクリック計測対象になる。 */}
         <div className="mx-auto max-w-3xl px-4 pt-10">
-          <h2 className="text-lg font-bold text-ink-strong dark:text-white mb-1">note 有料教材</h2>
-          <p className="text-sm text-ink-muted dark:text-gray-400 mb-3">
+          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[var(--ink-muted)] mb-3">Premium</div>
+          <h2 className="font-serif text-xl sm:text-2xl font-black text-[var(--ink)] mb-1.5">note 有料教材</h2>
+          <p className="text-[14px] text-[var(--ink-muted)] mb-4">
             記述式・経験記述の模範答案集や精読ガイドをまとめています。
           </p>
           <div className="max-w-sm">
