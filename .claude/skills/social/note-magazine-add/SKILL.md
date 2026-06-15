@@ -4,8 +4,8 @@ description: >
   既存の note 記事を別の有料マガジンへ「収録（追加）」するブラウザ CLI。追加対象は note 公開 API の
   差分で自動算出（手動列挙なし・冪等）。Playwright + システム Chrome（channel:'chrome'）で操作。
   Use when user says "マガジンに記事を追加", "完全パックに収録", "パックへ記事を入れる", "マガジン収録".
-  **既定は dry-run。実追加は --commit。収益アカウントのため追加後 API 検証まで必須。会社PCはプロキシで
-  note書き込み不可＝Mac実行。** note-edit-magazine（設定/価格）とは別操作。
+  **既定は dry-run。実追加は --commit。収益アカウントのため追加後 API 検証まで必須。Windows(会社PC)で
+  動作確認済（2026-06-15・channel:'chrome'＋ignoreHTTPSErrorsでプロキシ越え）・Macも可。** note-edit-magazine（設定/価格）とは別操作。
 disable-model-invocation: true
 argument-hint: "--target <magazineKey> (--from <k1,k2> | --notes <n1,n2>) [--plan-only] [--probe] [--commit] [--limit N]"
 ---
@@ -14,9 +14,9 @@ argument-hint: "--target <magazineKey> (--from <k1,k2> | --notes <n1,n2>) [--pla
 
 ## ⚠️ 前提
 
-1. **Mac で実行**（会社 PC はプロキシで note 書き込み不可、[[feedback_metrics_cicd_supplied]]）。
-2. **初回ログイン済み**: `npm run note-edit-session`（`channel:'chrome'` ＋ `.local/playwright-note-profile`）。
-3. **実 DOM 未検証の v0.1**: note の「マガジンに追加」UI セレクタは未実走確定。**初回は必ず `--probe`（dry-run）で `.tmp/note-add-*.png` とログのボタン/メニュー文言を確認**してからセレクタを詰める。既存スキルと同じ「UI変更で誤操作し得る→必ず dry-run」原則。
+1. **Windows(会社PC)で動作確認済**（2026-06-15、完全パックへ63記事を投入し API 検証）。`channel:'chrome'` ＋ `ignoreHTTPSErrors` で社内プロキシ(TLS傍受)を越える。Mac でも可。
+2. **初回ログイン済み**: `npm run note-edit-session`（`channel:'chrome'` ＋ `.local/playwright-note-profile`。セッションは永続化され再利用される）。未ログインなら本スクリプトが検知して中断・案内する。
+3. **確定フロー（実機検証済）**: 記事ページ `/n/{key}` の「記事を追加」ボタン → ダイアログ「記事を追加」（自分の全マガジン一覧・各行に 追加/追加済 トグル）→ ターゲットマガジン名の行の直後ボタンで状態判定 →「追加」なら押す。**UI 変更時は `--probe`（dry-run）で `.tmp/note-add-*.png` とダイアログ button 文言を確認**してからセレクタを詰める。
 
 ## 使い方
 
@@ -48,15 +48,15 @@ npm run note-magazine-add -- --target m171222175fac --notes nXXXXXXXX --commit
 
 ## 推奨手順（リスク最小）
 
-1. `--plan-only` で件数確認。
-2. **下段コアパック（3本）でパイロット** → `--probe`（dry-run）→ セレクタ確定 → `--commit` → API 検証。
-3. 確定したら完全パックへ展開（`--from` に9ペルソナ＋精読を列挙、`--commit`）。
+1. `--plan-only` で件数確認（ブラウザ起動せず・API差分のみ）。
+2. `--commit --limit 1` で1件だけ実追加 → API で +1 を確認（新規ターゲットや UI 変更後の安全確認）。
+3. 問題なければ `--limit` を外して一括 `--commit`。**一過性のダイアログ未展開で取りこぼしが出ることがある**（2026-06-15 実績: 62件中1件）→ **同コマンド再実行で冪等に拾う**。
 
 ## やってはいけない
 
-- `--probe`/dry-run を飛ばしていきなり `--commit`（UI 未検証のため誤操作リスク）。
+- 新ターゲット/UI 変更直後に `--limit 1` 確認を飛ばしていきなり全件 `--commit`。
 - 追加後の **API 検証を省略**して「完了」と報告（[[feedback_publish_x_false_success]] 偽成功の罠）。
-- 会社 PC での実行（プロキシで note write 不可）。
+- `miss>0`（target-not-in-dialog 等）を放置して完了扱い → 必ず再実行で 0 にする。
 
 ## 関連
 

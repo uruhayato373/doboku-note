@@ -18,7 +18,10 @@
  *   5. 完了後 note API でターゲット収録数・対象記事の収録を実体検証
  *      （[[feedback_publish_x_false_success]] 偽成功の罠を回避）。
  *
- * 会社 PC はプロキシで note 書き込み不可 → 本スクリプトは Mac で実行する。
+ * 実行環境: Windows(会社PC)で動作確認済（2026-06-15、完全パックへ63記事を投入し API 検証）。
+ *   channel:'chrome'＋ignoreHTTPSErrors で社内プロキシ(TLS傍受)を越える。Mac でも可。
+ * 確定フロー（実機 probe 済）: 記事ページ `/n/{key}` の「記事を追加」ボタン → ダイアログ
+ *   「記事を追加」（自分の全マガジン一覧・各行に 追加/追加済 トグル）→ ターゲット行で判定→押す。
  *
  * 使い方:
  *   # 計画だけ確認（API 差分・ブラウザ起動せず）
@@ -173,86 +176,57 @@ if (/会員登録/.test(head) && !/ログアウト|アカウント設定|クリ�
   process.exit(12);
 }
 
-/** probe: 現ページの操作候補（button / menuitem / aria-label）をダンプしてセレクタ確定を支援。 */
-async function probeUi(label) {
-  const dump = await page.evaluate(() => {
-    const pick = (els) => [...els].map((e) => (e.getAttribute('aria-label') || e.textContent || '').replace(/\s+/g, ' ').trim()).filter((t) => t && t.length <= 40);
-    return {
-      buttons: [...new Set(pick(document.querySelectorAll('button')))].slice(0, 60),
-      menuitems: [...new Set(pick(document.querySelectorAll('[role="menuitem"],[role="option"]')))].slice(0, 60),
-      ariaPopup: [...new Set(pick(document.querySelectorAll('[aria-haspopup],[aria-expanded]')))].slice(0, 40),
-    };
-  }).catch(() => ({ buttons: [], menuitems: [], ariaPopup: [] }));
-  console.log(`  [probe:${label}] buttons=${JSON.stringify(dump.buttons)}`);
-  console.log(`  [probe:${label}] menuitems=${JSON.stringify(dump.menuitems)}`);
-  console.log(`  [probe:${label}] aria-haspopup/expanded=${JSON.stringify(dump.ariaPopup)}`);
+/** ダイアログを閉じる（次の記事へ進む前のクリーンアップ）。 */
+async function closeDialog(dlg) {
+  try {
+    const c = dlg.getByRole('button', { name: /閉じる/ }).first();
+    if (await c.count()) { await c.click({ timeout: 3000 }); await page.waitForTimeout(400); }
+    else { await page.keyboard.press('Escape'); await page.waitForTimeout(300); }
+  } catch { /* noop */ }
 }
 
 /**
- * 1記事をターゲットマガジンへ追加する。
- * note UI（記事ページの「…」メニュー → 「マガジンに追加」→ モーダルで対象を選択）を
- * テキストベースのロケータ＋フォールバックで操作する。実 DOM 未検証のため dry-run/probe で確認すること。
+ * 1記事をターゲットマガジンへ収録する（確定フロー・2026-06-15 実機 probe 済）。
+ *   記事ページ `/n/{key}` の「記事を追加」ボタン → ダイアログ「記事を追加」（自分の全マガジン一覧）
+ *   → ターゲットマガジン名の行の次ボタン（「追加」/「追加済」）で状態判定 → 「追加」なら押す。
  */
 async function addOne(noteKey, idx) {
+  const name = targetMeta.name;
   const url = `https://note.com/${CREATOR}/n/${noteKey}`;
   await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 45000 }).catch(() => {});
-  await page.waitForTimeout(2500);
-  await page.screenshot({ path: join(TMP, `note-add-${idx}-01-article.png`) }).catch(() => {});
-  if (PROBE && idx === 1) await probeUi('article');
+  await page.waitForTimeout(2800);
+  if (PROBE && idx === 1) await page.screenshot({ path: join(TMP, `note-add-${idx}-01-article.png`) }).catch(() => {});
 
-  // (1) オーサー操作メニュー（「…」/「︙」/その他）を開く
-  const menuTriggers = [
-    page.getByRole('button', { name: /その他|メニュー|オプション|more/i }),
-    page.locator('button[aria-haspopup="menu"]'),
-    page.locator('header button[aria-label], main button[aria-label]').filter({ hasText: '' }),
-  ];
-  let opened = false;
-  for (const t of menuTriggers) {
-    try { if (await t.first().count()) { await t.first().click({ timeout: 4000 }); await page.waitForTimeout(900); opened = true; break; } } catch { /* try next */ }
+  // 「記事を追加」ボタン → マガジン選択ダイアログ
+  const trigger = page.getByRole('button', { name: '記事を追加' }).first();
+  if (!(await trigger.count())) { console.log(`  ${noteKey}: 「記事を追加」ボタンが無い（ログイン/オーナー権限/UI変更を確認）`); return 'trigger-miss'; }
+  await trigger.click({ timeout: 5000 }).catch(() => {});
+  await page.waitForTimeout(1800);
+  const dlg = page.locator('[role="dialog"],[aria-modal="true"]').first();
+  if (!(await dlg.count())) { console.log(`  ${noteKey}: ダイアログが開かず`); return 'dialog-miss'; }
+  if (PROBE && idx === 1) {
+    await page.screenshot({ path: join(TMP, `note-add-${idx}-02-dialog.png`) }).catch(() => {});
+    const btns = await dlg.locator('button').allInnerTexts().catch(() => []);
+    console.log(`  [probe] dialog buttons=${JSON.stringify([...new Set(btns.map((s) => s.replace(/\s+/g, ' ').trim()).filter(Boolean))].slice(0, 16))}`);
   }
-  if (PROBE && idx === 1) { await page.screenshot({ path: join(TMP, `note-add-${idx}-02-menu.png`) }).catch(() => {}); await probeUi('menu'); }
 
-  // (2) 「マガジンに追加」をクリック
-  const addToMag = page.getByText(/マガジンに追加|マガジンへ追加/).first();
-  if (!(await addToMag.count())) {
-    console.log(`  ${noteKey}: 「マガジンに追加」が見つからず（opened=${opened}）。probe スクショ確認 → セレクタ調整が必要。`);
-    return 'selector-miss';
-  }
-  await addToMag.click().catch(() => {});
+  // ターゲットマガジン行を名前で特定 → 直後のボタン（追加/追加済）で判定
+  const nameLoc = dlg.getByText(name, { exact: false }).first();
+  if (!(await nameLoc.count())) { console.log(`  ${noteKey}: ダイアログに「${name}」が無い`); await closeDialog(dlg); return 'target-not-in-dialog'; }
+  const stateBtn = nameLoc.locator('xpath=following::button[normalize-space()="追加" or normalize-space()="追加済"][1]');
+  if (!(await stateBtn.count())) { console.log(`  ${noteKey}: 行の追加ボタンが見つからず`); await closeDialog(dlg); return 'button-miss'; }
+  const label = (await stateBtn.first().innerText().catch(() => '')).replace(/\s+/g, '').trim();
+  if (label.includes('追加済')) { console.log(`  ${noteKey}: 既に追加済み (skip)`); await closeDialog(dlg); return 'already'; }
+
+  if (DRY) { console.log(`  ${noteKey}: [dry-run] 「${name}」行=「${label}」→ 追加直前で停止（押さない）`); await closeDialog(dlg); return 'dry-ok'; }
+
+  await stateBtn.first().click({ timeout: 5000 }).catch(() => {});
   await page.waitForTimeout(1200);
-  await page.screenshot({ path: join(TMP, `note-add-${idx}-03-dialog.png`) }).catch(() => {});
-  if (PROBE && idx === 1) await probeUi('dialog');
-
-  // (3) モーダル内でターゲットマガジン名の行を見つけ、その追加トグルを押す
-  const targetName = targetMeta.name;
-  const row = page.getByText(targetName, { exact: false }).first();
-  if (!(await row.count())) {
-    console.log(`  ${noteKey}: モーダルに「${targetName}」が見当たらず。probe/スクショ確認要。`);
-    return 'target-not-in-dialog';
-  }
-  // 既に「追加済み」かを判定（行近傍テキスト）
-  const rowText = (await row.textContent().catch(() => '')) || '';
-  if (/追加済|追加済み|✓/.test(rowText)) { console.log(`  ${noteKey}: 既に追加済み (skip)`); return 'already'; }
-
-  if (DRY) { console.log(`  ${noteKey}: [dry-run] 「${targetName}」へ追加の直前まで到達（クリックせず）。`); return 'dry-ok'; }
-
-  // 追加トグル/チェックを押す（行内のボタン or ラベルのチェックボックス）
-  const toggle = page.locator(`text=${targetName}`).first()
-    .locator('xpath=ancestor-or-self::*[self::li or self::label or self::div][1]')
-    .locator('button, input[type="checkbox"]').first();
-  try {
-    if (await toggle.count()) await toggle.click({ timeout: 4000 });
-    else await row.click({ timeout: 4000 });
-  } catch { await row.click({ timeout: 4000 }).catch(() => {}); }
-  await page.waitForTimeout(1000);
-
-  // 「保存」「完了」「閉じる」系があれば押す
-  for (const name of [/保存|追加する|完了|done|save/i]) {
-    const b = page.getByRole('button', { name }).first();
-    if (await b.count()) { await b.click().catch(() => {}); await page.waitForTimeout(800); break; }
-  }
-  await page.screenshot({ path: join(TMP, `note-add-${idx}-04-after.png`) }).catch(() => {});
-  return 'added';
+  // 読み戻し: 同行が「追加済」へ変化したか
+  const after = (await nameLoc.locator('xpath=following::button[normalize-space()="追加" or normalize-space()="追加済"][1]').first().innerText().catch(() => '')).replace(/\s+/g, '');
+  await page.screenshot({ path: join(TMP, `note-add-${idx}-03-after.png`) }).catch(() => {});
+  await closeDialog(dlg);
+  return after.includes('追加済') ? 'added' : 'added-unconfirmed';
 }
 
 const results = { added: 0, already: 0, dry: 0, miss: 0 };
