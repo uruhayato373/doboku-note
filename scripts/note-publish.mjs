@@ -218,7 +218,7 @@ try {
       console.log('[12] 投稿する clicked → published:', publishedUrl);
       // frontmatter へ noteUrl/noteId/notePublishedAt を反映（冪等＋記録）
       try {
-        const id = (publishedUrl.match(/\/n\/([a-z0-9]+)/) || [])[1] || '';
+        const id = (publishedUrl.match(/\/n(?:otes)?\/([a-z0-9]+)/) || [])[1] || '';
         if (id) {
           const cleanUrl = `https://note.com/dobokunote/n/${id}`;
           const today = new Date().toISOString().slice(0, 10);
