@@ -44,13 +44,13 @@ if (!ARTICLE) { console.error('--article <path> required'); process.exit(1); }
 const articleAbs = join(ROOT, ARTICLE);
 if (!existsSync(articleAbs)) { console.error('article not found: ' + articleAbs); process.exit(1); }
 const raw = readFileSync(articleAbs, 'utf8');
-const fm = raw.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '';
+const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '';
 const fmField = (k) => (fm.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')) || []).slice(1).find(Boolean) || '';
 const notePricing = fmField('notePricing');
 const price = parseInt(fmField('price') || '0', 10);
-let body = raw.replace(/^---\n[\s\S]*?\n---\n*/, '');
+let body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---\r?\n*/, '');
 const title = (body.match(/^#\s+(.+)$/m)?.[1] || fmField('coverTitle')).trim();
-body = body.replace(/<!--[\s\S]*?-->\n?/g, '').replace(/!\[.*?\]\(.*?\)\n?/g, '').replace(/^#\s+.*\n+/, '').trim();
+body = body.replace(/<!--[\s\S]*?-->\r?\n?/g, '').replace(/!\[.*?\]\(.*?\)\r?\n?/g, '').trim().replace(/^#\s+.*(?:\r?\n)+/, '').trim();
 // cover / hashtags を type サフィックスで解決（article-II1.md → cover-II1.png / hashtags-II1.txt）
 const dir = dirname(articleAbs);
 const typeSuffix = (basename(articleAbs).match(/article-([^.]+)\.md$/) || [])[1] || '';
