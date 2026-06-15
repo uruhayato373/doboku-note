@@ -364,6 +364,15 @@ const MAGAZINES = [
     fontSize: 42,
     fillBg: '#33356B',
   },
+  {
+    id: 'cd-essay',
+    fileBaseName: 'cd-essay-cover',
+    magazineDir: 'docs/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集',
+    lines: ['コンクリート診断士 記述式', '問題A・問題B 模範答案集', '劣化機構別 全8本セット'],
+    category: 'コンクリート診断士',
+    fontSize: 42,
+    fillBg: '#155E63',
+  },
 ];
 
 async function renderOne(mag, fonts) {
