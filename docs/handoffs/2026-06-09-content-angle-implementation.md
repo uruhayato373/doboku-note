@@ -62,7 +62,7 @@
 > - [ ] `content-angle-policy.md` を読む（§5 Red Line・§6.2 骨子）
 > - [ ] P-1: `ig-carousel-writer` で `angle: counter` slide-data 執筆（notebook-* 型・`meta.angle: counter`）
 > - [ ] `ig-post-create` で PNG 化 → `ig-carousel-qa` 採点（角度純度: 主角度 1 つ・反論骨子）
-> - [ ] P-2: `x-post-writer` で `type: experience`（公務員クラスター断片・断片まで・note 誘導・280 weighted）→ `x-post-qa`
+> - [x] P-2: `x-post-writer` で `type: experience`（公務員クラスター断片・断片まで・note 誘導・280 weighted）→ `x-post-qa`（2026-06-15 完了: `docs/sns/x/draft/059-pe-experience-公務員板挟み`・x-post-qa 3.0/3 合格・234 weighted。誘導は note 未公開のため当面サイト発注者ページ。実投稿→メトリクス比較はユーザー判断＝Phase 2 ゲート）
 > - [ ] `meta.angle` が lint を通るか確認（通らなければ slide-data スキーマ lint を最小拡張）
 > - [ ] 各成果物を即 commit（変更ファイルのみ明示 add）
 
