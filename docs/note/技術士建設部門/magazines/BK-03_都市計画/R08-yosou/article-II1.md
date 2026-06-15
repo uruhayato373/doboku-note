@@ -6,9 +6,9 @@ subject: urban-planning
 exam_type: II-1
 forecast: true
 theme: "R08予想問題・都市計画II-1"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/neb0cae7fce5a"
+noteId: "neb0cae7fce5a"
+notePublishedAt: "2026-06-15"
 price: 500
 coverTitle: "技術士 建設部門｜都市及び地方計画 R8予想 選択科目II-1 模範解答"
 cover:
