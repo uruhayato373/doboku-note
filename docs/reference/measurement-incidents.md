@@ -32,7 +32,7 @@ title: 計測・検証事故の記録
 
 - 本ファイルに恒久ルールとして記録（真実源）。
 - `weekly-review` / `weekly-plan` / `weekly-improve` / `nsm-experiment` の各 SKILL.md の「前提条件 / 条件未達→スキップ」「オフラインフォールバック」記述を、**「コミット済みスナップショットが既定の取得元。ライブ fetch は creds+到達性がある環境のみ任意」** に統一し、本ファイルへポインタを張った。
-- Meta API（IG 投稿）も同根で会社 PC 不可 → トークン取得/テストは Mac、本番投稿は GitHub Actions（`.claude/scripts/instagram/SETUP-mac.md`）。
+- Meta API（旧 IG Graph 投稿経路）も同根で会社 PC 不可だった。IG 投稿は 2026-06-17 に Business Suite（`.claude/skills/social/publish-ig-bs/SKILL.md`・ローカル GUI）へ一本化し、Graph API/Actions cron 経路は全廃。
 
 ### 教訓
 
@@ -45,7 +45,7 @@ title: 計測・検証事故の記録
 - `.github/workflows/fetch-metrics.yml` - 週次 GA4/GSC 取得・commit（計測の本体）
 - `.github/workflows/psi-audit.yml` - 日次 PSI 取得・commit
 - `.claude/state/metrics/{ga4,gsc,psi}/` - 計測スナップショット（エージェントの既定取得元）
-- `.claude/scripts/instagram/SETUP-mac.md` - 同根の Meta API 遮断と Mac/Actions 役割分担
+- `.claude/skills/social/publish-ig-bs/SKILL.md` - IG 投稿の現行経路（Business Suite・ローカル GUI）。旧 Graph API/Mac/Actions 経路は 2026-06-17 全廃
 
 ## 2026-05-16〜29: R2 アップロード Unauthorized の握り潰しによる本番画像 404（約2週間サイレント）
 
