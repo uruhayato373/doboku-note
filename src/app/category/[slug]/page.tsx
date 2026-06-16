@@ -12,7 +12,7 @@ import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
-import { resolveCategoryAffiliate, resolveCareerSidebarAd } from '@/config/affiliate-creatives';
+import { resolveCategoryCareerAd } from '@/config/affiliate-creatives';
 
 const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
@@ -720,14 +720,12 @@ export default async function CategoryPage({
     .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
     .filter((x): x is { slot: typeof x.slot; magazine: NonNullable<typeof x.magazine> } => Boolean(x.magazine));
 
-  // アフィリエイト（civil のみ）。docs ページのサイドバー条件をミラーし、転職アフィリを
-  // PC 右サイドバー上部に sticky 配置してファーストビュー内でインプレッションを確保する。
-  // モバイルは本文 1 セクション目の直後に visible 配置する（記事到達を阻害しない位置）。
+  // 転職アフィリ（資格別セグメント）。PC は右サイドバー上部に sticky 配置してファーストビュー内で
+  // インプレッションを確保し、モバイルは本文 1 セクション目の直後に visible 配置する（記事到達を阻害しない）。
   // ピクセルは PC サイドバー側のみ発火させ「1 ページ 1 ピクセル」を厳守（モバイルは href のみ）。
-  // creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。
-  const categoryAffiliate = resolveCategoryAffiliate(slug);
-  const careerSidebar =
-    categoryAffiliate?.kind === 'career' ? resolveCareerSidebarAd() : null;
+  // creative は資格層に合わせて出し分け（civil=施工管理系 BuildJob/GKS、pe=ハイクラス DX/コンサル）。
+  // 戻り値 null＝転職枠なし（concrete / pe-construction / pe-first-stage は単一カラム）。
+  const careerSidebar = resolveCategoryCareerAd(slug);
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   const mobileCareerAd = careerSidebar ? (
     <div className="zenn-desktop:hidden my-10">
