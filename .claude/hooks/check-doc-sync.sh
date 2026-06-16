@@ -20,3 +20,17 @@ if [ -n "$SKILLS_CHANGED" ] && [ -z "$REGISTRY_CHANGED" ]; then
   echo "$SKILLS_CHANGED" | sed 's/^/  /'
   echo ""
 fi
+
+# 決定/ポリシー文書の変更 → 並行SoT（ADR/skill/checklist/戦略SoT）の横展開確認を促す（意味的ドリフト防止）。
+# 台帳カップリング（上）では拾えない「同一決定の分散」を /doc-sync で照合させる forcing function。
+DECISION_CHANGED=$(echo "$STAGED" | grep -E "決定.*\.md$|ADR.*\.md$|^docs/reference/|noteコンテンツ計画\.md$|^\.claude/skills/.*/SKILL\.md$")
+if [ -n "$DECISION_CHANGED" ]; then
+  echo ""
+  echo "NOTE: 決定/ポリシー文書を変更しています。同じ決定を載せる並行SoT（ADR/skill/checklist/戦略SoT）の"
+  echo "  横断更新を確認し、必要なら /doc-sync を回してください。"
+  echo "$DECISION_CHANGED" | sed 's/^/  /'
+  echo ""
+fi
+
+# ポリシークラスタ（決定が複数文書に散在）の横展開もれを決定的に提示する。
+node scripts/check-policy-anchors.mjs --staged 2>/dev/null || true
