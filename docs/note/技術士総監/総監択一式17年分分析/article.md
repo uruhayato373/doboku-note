@@ -33,6 +33,9 @@ https://note.com/dobokunote/m/m607bf095b02a
 
 ---
 
+<!-- cta:pack-top -->
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+
 ## はじめに
 
 技術士二次試験 総合技術監理部門の択一式は、毎年40問が出題されます。合格には記述式と合わせて60%以上が必要で、択一式だけで見れば24問以上の正答が目安になります。
@@ -212,3 +215,10 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 **note のおすすめ続編**
 - 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 — [NPV](https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[PERT](https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[損益分岐点](https://doboku-note.com/docs/pe-comprehensive-management-break-even-point?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・[工程能力指数](https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index?utm_source=note&utm_medium=referral&utm_campaign=90-soukan-analysis)・負荷工数の解法
 - 【2026 年最新】総監キーワード集 2026 の変更点と学び直す優先順位（無料）
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6

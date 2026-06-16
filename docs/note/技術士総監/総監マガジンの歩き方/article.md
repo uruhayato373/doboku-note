@@ -25,6 +25,9 @@ doboku-note には記述式の模範論文・教材が20冊以上ありますが
 
 ---
 
+<!-- cta:pack-top -->
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+
 ## まず結論 — 必要なのは「共通装備＋あなたの立場の1冊」
 
 先に結論を出します。読み飛ばす方はここだけで完結します。
@@ -190,3 +193,10 @@ https://note.com/dobokunote/m/m171222175fac
    https://note.com/dobokunote/m/m171222175fac
 
 3分の地図はここまでです。あなたの合格答案が、いちばん早く形になることを願っています。
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6

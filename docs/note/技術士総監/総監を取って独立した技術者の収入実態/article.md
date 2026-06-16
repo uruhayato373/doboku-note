@@ -45,6 +45,9 @@ cover:
 
 ![独立した技術士の収入実態5ケース。食える独立と食えない独立の分岐を5事例で図示](img/figure-1-independence-cases.png)
 
+<!-- cta:pack-top -->
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+
 ## 結論：独立技術者の収入は二極化、初年度が勝負
 
 公開されている統計と事例を組み合わせると、まず押さえておくべき数字がある。
@@ -297,3 +300,10 @@ https://doboku-note.com
 - ビーバーズ「技術士として独立開業するには？」https://beavers.co.jp/blog/4628/
 - 建設コンサルタント・技術士人材センター「建設コンサルタントの技術士が独立して稼げるのか」https://jinzai.mo4c.com/info/dokuritu/
 - 技術士独立開業研究会 https://gijyutsusha-kenkyusha.com/
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6

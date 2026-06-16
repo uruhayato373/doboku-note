@@ -45,6 +45,9 @@ cover:
 
 https://note.com/dobokunote/m/m607bf095b02a
 
+<!-- cta:pack-top -->
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+
 ## 理由1：キーワード集は「出題頻度順」に並んでいない
 
 キーワード集は5管理の概念体系に沿って項目を並べた本で、各項目が試験で何回問われるかは示していません。だから全項目を平等に通読すると、17年で1回しか出ない項目にも、毎年問われる項目にも同じ時間を使ってしまいます。
@@ -149,3 +152,10 @@ https://doboku-note.com/category/pe-comprehensive-management?utm_source=note&utm
 
 - 【学習優先順位がわかる】総監択一式17年分680問を徹底分析（無料）
 - 総監二次試験 学習スケジュール完全版｜試験前6-7ヶ月を4フェーズに分けて設計（無料）
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6
