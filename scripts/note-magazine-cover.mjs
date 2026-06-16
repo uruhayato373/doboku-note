@@ -50,13 +50,16 @@ function curlJson(url) {
   if (b.startsWith('{') || b.startsWith('[')) { try { return JSON.parse(b); } catch { return null; } }
   return null;
 }
+// note のデフォルト見出し画像（未設定状態）を「カバー無し」と判定する。
+// 実カバー= assets.st-note.com/production/uploads/...、未設定= cloudfront の default_magazine_header。
+const isDefaultCover = (url) => !url || /\/assets\/default\/default_magazine_header/.test(url);
 function magazineCover(key) {
   // note の「マガジン画像」は API では cover / coverRectangle フィールド（eyecatch ではない）
   for (let p = 1; p <= 4; p++) {
     const d = curlJson(`https://note.com/api/v2/creators/${CREATOR}/contents?kind=magazine&page=${p}`);
     const c = d?.data?.contents ?? [];
     const hit = c.find((m) => m.key === key);
-    if (hit) return { name: hit.name, cover: hit.cover || hit.coverRectangle || null };
+    if (hit) { const url = hit.cover || hit.coverRectangle || null; return { name: hit.name, cover: isDefaultCover(url) ? null : url }; }
     if (d?.data?.isLastPage || c.length === 0) break;
   }
   return null;
