@@ -234,6 +234,35 @@ function checkNoteLinkCoverImage(file, content) {
   return issues;
 }
 
+/**
+ * 壊れた表（ヘッダー行＋セパレータ行のみで本文行がゼロ）を検出する。
+ *
+ * GFM では本文行の無い表は空テーブルとして崩れて描画される。PDF→MDX 変換や
+ * 「キーバリュー表の散文化」途中で、表本体だけ箇条書き・段落に置換され、
+ * ヘッダー行と区切り行が残骸として取り残されるパターン（2026-06-16、9 ファイル
+ * 32 箇所を是正）。lint-mdx-mobile.mjs 1-6（HIGH）と同一判定。§4 参照。
+ *
+ * 戻り値: { file, error } の配列（HIGH 相当、コミットブロック）
+ */
+function checkBrokenTables(file, content) {
+  const errors = [];
+  const lines = content.split("\n");
+  const isPipe = (s) => /^\s*\|.*\|\s*$/.test(s);
+  const isSep = (s) => /^\s*\|[-:\s|]+\|\s*$/.test(s) && /-/.test(s);
+  for (let i = 0; i + 1 < lines.length; i++) {
+    if (!isPipe(lines[i]) || !isSep(lines[i + 1])) continue;
+    // セパレータの直後に本文行（`| ... |`）が 1 行も無ければ壊れた表
+    const hasBody = i + 2 < lines.length && isPipe(lines[i + 2]);
+    if (!hasBody) {
+      errors.push({
+        file,
+        error: `broken table with no body rows (line ${i + 1}): ${lines[i].trim()} — remove the orphan header+separator or add body rows (§4 / lint 1-6)`,
+      });
+    }
+  }
+  return errors;
+}
+
 async function main() {
   const files = getStagedMdxFiles();
   const svgFiles = getStagedSvgFiles();
@@ -305,6 +334,11 @@ async function main() {
 
     // Image dimensions check (HIGH - blocks commit, CLS prevention)
     for (const e of checkImageDimensions(file, content)) {
+      errors.push(e);
+    }
+
+    // 壊れた表（HIGH — コミットブロック、§4 / lint 1-6）
+    for (const e of checkBrokenTables(file, content)) {
       errors.push(e);
     }
 
