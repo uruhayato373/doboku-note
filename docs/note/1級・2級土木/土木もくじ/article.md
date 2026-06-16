@@ -2,10 +2,10 @@
 notePricing: free
 noteSeries: 総合案内
 utmCampaign: 103-civil-index
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n4fde0f62dc20"
+noteId: "n4fde0f62dc20"
+notePublishedAt: "2026-06-16"
+noteStatus: published
 coverTitle:
   - 1級・2級土木施工管理
   - 経験記述もくじ

@@ -2,10 +2,10 @@
 notePricing: free
 noteSeries: 総合案内
 utmCampaign: 102-pe-construction-index
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n7279ca0d926f"
+noteId: "n7279ca0d926f"
+notePublishedAt: "2026-06-16"
+noteStatus: published
 coverTitle:
   - 技術士 建設部門(二次)
   - 模範解答もくじ

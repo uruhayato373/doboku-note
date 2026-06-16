@@ -64,22 +64,30 @@ for (const [key, ex] of Object.entries(CONFIG.exams)) {
     drifts.push(`D4 [${key}] config bottomCta が L2 noteId(${ex.L2.noteId}) を含まない`);
   }
 
-  // D1: 公開済み記事の CTA 欠落
+  // D1: 公開済み記事の CTA 欠落（magazines/ と excludeDirs・もくじ自身を除外し再帰探索）
   const baseDir = join(ROOT, ex.articleGlob);
   const exclude = new Set(ex.excludeDirs || []);
-  if (existsSync(baseDir)) {
-    for (const d of readdirSync(baseDir, { withFileTypes: true })) {
-      if (!d.isDirectory() || d.name === 'magazines' || exclude.has(d.name)) continue;
-      const f = join(baseDir, d.name, 'article.md');
-      if (!existsSync(f)) continue;
-      const raw = readFileSync(f, 'utf8');
-      const url = fm(raw, 'noteUrl');
-      if (!url) continue; // 未公開は対象外
-      const miss = [];
-      if (ex.topCta.text && !raw.includes(ex.topCta.marker)) miss.push('冒頭');
-      if (ex.bottomCta.text && !raw.includes(ex.bottomCta.marker)) miss.push('末尾');
-      if (miss.length) drifts.push(`D1 [${key}] 公開記事「${d.name}」に ${miss.join('・')} CTA 欠落`);
+  const collect = (dir) => {
+    const out = [];
+    if (!existsSync(dir)) return out;
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      if (e.isDirectory()) {
+        if (e.name === 'magazines' || exclude.has(e.name)) continue;
+        out.push(...collect(join(dir, e.name)));
+      } else if (e.name === 'article.md') out.push(dir);
     }
+    return out;
+  };
+  for (const adir of collect(baseDir)) {
+    const f = join(adir, 'article.md');
+    const raw = readFileSync(f, 'utf8');
+    const url = fm(raw, 'noteUrl');
+    if (!url || url === 'TBD') continue; // 未公開は対象外
+    const name = adir.slice(baseDir.length + 1) || adir;
+    const miss = [];
+    if (ex.topCta.text && !raw.includes(ex.topCta.marker)) miss.push('冒頭');
+    if (ex.bottomCta.text && !raw.includes(ex.bottomCta.marker)) miss.push('末尾');
+    if (miss.length) drifts.push(`D1 [${key}] 公開記事「${name}」に ${miss.join('・')} CTA 欠落`);
   }
 
   // D2: 公開済みマガジンが L2 もくじに未収録

@@ -41,12 +41,27 @@ if (!ex.topCta.text && !ex.bottomCta.text) {
 
 const baseDir = join(ROOT, ex.articleGlob);
 const exclude = new Set(ex.excludeDirs || []);
-const dirs = readdirSync(baseDir, { withFileTypes: true })
-  .filter(d => d.isDirectory() && d.name !== 'magazines' && !exclude.has(d.name));
+
+// 再帰的に article.md を収集する（magazines/ 配下と excludeDirs・もくじ自身は除外）。
+// 土木のような入れ子（1級土木/2級土木/{slug}/article.md）にも対応する。
+function collectArticles(dir) {
+  const out = [];
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    if (e.isDirectory()) {
+      if (e.name === 'magazines' || exclude.has(e.name)) continue;
+      out.push(...collectArticles(join(dir, e.name)));
+    } else if (e.name === 'article.md') {
+      out.push(dir);
+    }
+  }
+  return out;
+}
+const articleDirs = collectArticles(baseDir);
 
 let topN = 0, botN = 0, skipTop = 0, skipBot = 0;
-for (const d of dirs) {
-  const f = join(baseDir, d.name, 'article.md');
+for (const adir of articleDirs) {
+  const d = { name: adir.slice(baseDir.length + 1) || adir };
+  const f = join(adir, 'article.md');
   if (!existsSync(f)) continue;
   const raw = readFileSync(f, 'utf8');
   const m = raw.match(/^---\r?\n[\s\S]*?\r?\n---\r?\n/);
@@ -69,5 +84,5 @@ for (const d of dirs) {
   if (actions.length && APPLY) writeFileSync(f, head + body);
   if (actions.length) console.log((APPLY ? '[apply] ' : '[dry] ') + d.name + ' :: ' + actions.join(','));
 }
-console.log(`\nexam=${examKey} files=${dirs.length} TOP+${topN} BOTTOM+${botN} skipTop=${skipTop} skipBot=${skipBot} mode=${APPLY ? 'APPLY' : 'DRY'}`);
+console.log(`\nexam=${examKey} files=${articleDirs.length} TOP+${topN} BOTTOM+${botN} skipTop=${skipTop} skipBot=${skipBot} mode=${APPLY ? 'APPLY' : 'DRY'}`);
 if (!APPLY) console.log('（--apply で適用）');

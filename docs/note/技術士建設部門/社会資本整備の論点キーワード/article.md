@@ -248,3 +248,10 @@ PPPはより広い官民連携の総称で、PFI方式・コンセッション�
 A. この記事は出題テーマ「社会資本整備」の論点キーワードを、白書・重点計画ベースで知識として整理するインプット用の記事です。
 
 課題抽出から解決策・新たなリスクへと流す4部構成の書き方そのものは、[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide)や[必須科目Iのテーマ整理ハブ](https://doboku-note.com/docs/pe-construction-required-exam-themes)で扱っています。
+
+---
+
+<!-- cta:pe-construction-mokuji -->
+建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n7279ca0d926f

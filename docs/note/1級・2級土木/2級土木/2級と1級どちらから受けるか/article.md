@@ -90,3 +90,10 @@ https://note.com/dobokunote/n/n6e6db14f4dfc
 **土木・建設の資格は取った後どう得するか**（キャリア×お金マップ）
 
 （公開後にURL反映）
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20

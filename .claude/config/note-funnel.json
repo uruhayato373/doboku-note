@@ -30,20 +30,20 @@
     "pe-construction": {
       "label": "技術士建設部門",
       "articleGlob": "docs/note/技術士建設部門",
-      "excludeDirs": [],
+      "excludeDirs": ["建設部門もくじ"],
       "magazineExamMatch": ["pe-construction"],
-      "L2": { "noteId": "", "title": "建設部門もくじ（未構築）", "articleDir": "", "noteUrl": "" },
+      "L2": { "noteId": "n7279ca0d926f", "title": "建設部門もくじ", "articleDir": "docs/note/技術士建設部門/建設部門もくじ", "noteUrl": "https://note.com/dobokunote/n/n7279ca0d926f" },
       "topCta": { "marker": "cta:pack-top", "text": "" },
-      "bottomCta": { "marker": "cta:pe-construction-mokuji", "text": "" }
+      "bottomCta": { "marker": "cta:pe-construction-mokuji", "text": "<!-- cta:pe-construction-mokuji -->\n建設部門のほかの記事・科目別 模範解答は「建設部門もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/n7279ca0d926f" }
     },
     "civil": {
       "label": "1級・2級土木",
       "articleGlob": "docs/note/1級・2級土木",
-      "excludeDirs": [],
+      "excludeDirs": ["土木もくじ"],
       "magazineExamMatch": ["civil-1", "civil-2"],
-      "L2": { "noteId": "", "title": "土木もくじ（未構築）", "articleDir": "", "noteUrl": "" },
+      "L2": { "noteId": "n4fde0f62dc20", "title": "土木もくじ", "articleDir": "docs/note/1級・2級土木/土木もくじ", "noteUrl": "https://note.com/dobokunote/n/n4fde0f62dc20" },
       "topCta": { "marker": "cta:pack-top", "text": "" },
-      "bottomCta": { "marker": "cta:civil-mokuji", "text": "" }
+      "bottomCta": { "marker": "cta:civil-mokuji", "text": "<!-- cta:civil-mokuji -->\n1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/n4fde0f62dc20" }
     }
   }
 }
