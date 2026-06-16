@@ -99,14 +99,17 @@ try {
     ]);
     await chooser.setFiles(fileAbs);
     console.log('[3] ファイル選択 → アップロード中…');
-    await sleep(7000); // アップロード完了待ち
-
-    // 4. アップロード成功検証（埋め込み数の増加 or ".pdf" 表示）
-    const up = await page.evaluate(() => {
-      const ed = document.querySelector('[contenteditable=true]');
-      const embeds = document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length;
-      return { embeds, hasPdf: /\.pdf/i.test(ed?.innerText || '') };
-    });
+    // 4. アップロード成功検証（カード出現を最大 40s ポーリング・note のアップロード遅延/混雑対策）
+    let up = { embeds: embedsBefore, hasPdf: false };
+    for (let i = 0; i < 13; i++) {
+      await sleep(3000);
+      up = await page.evaluate(() => {
+        const ed = document.querySelector('[contenteditable=true]');
+        const embeds = document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service], [contenteditable=true] [data-name]').length;
+        return { embeds, hasPdf: /\.pdf/i.test(ed?.innerText || '') };
+      });
+      if (up.embeds > embedsBefore || up.hasPdf) break;
+    }
     console.log(`[4] upload check: embedsBefore=${embedsBefore} embedsAfter=${up.embeds} pdfVisible=${up.hasPdf}`);
     await page.screenshot({ path: join(ROOT, '.tmp/attach-uploaded.png'), fullPage: false }).catch(() => {});
     if (up.embeds <= embedsBefore && !up.hasPdf) { console.error('ABORT: ファイルカード未検出（アップロード失敗）→ 保存しない'); await ctx.close(); process.exit(5); }
