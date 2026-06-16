@@ -43,7 +43,7 @@ import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
-import { CIVIL_CAREER_AD, SCHOOL_SAT } from '@/config/affiliate-creatives';
+import { resolveCareerSidebarAd, SCHOOL_SAT } from '@/config/affiliate-creatives';
 
 
 /**
@@ -383,6 +383,8 @@ export default async function DocPage({
   // アフィリエイト (SAT/独学サポート) を非表示にしてカニバリ回避。
   // 精読ガイド (tankan, price なし) のみのページ (secondary / hub 等) はアフィリと併存させる。
   const sidebarHasPaidMagazine = sidebarMagazines.some(({ magazine }) => Boolean(magazine.price));
+  // サイドバー転職枠の creative（〜2026-08-31 はビルドジョブ ¥50,000、以降 GKS に自動復帰）。
+  const careerSidebarAd = resolveCareerSidebarAd();
 
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
@@ -709,13 +711,15 @@ export default async function DocPage({
                     />
                   </div>
                 )}
-              {/* dck = GKSキャリア（転職）を全 docs サイドバー上部に常設（位置 A: note CTA の下・
+              {/* 転職アフィリエイトを全 docs サイドバー上部に常設（位置 A: note CTA の下・
                   既存アフィリの上）。全 docs 無条件表示（sidebarHasPaidMagazine の抑制対象外）。
-                  2026-06-06: 従来は civil のみだったが全 docs へ拡大。GKS ピクセル（www15）は
-                  この 1 枠が唯一の発火源（civil の旧 GKS サイドバー枠は撤去、本文インライン
-                  CareerAffiliate は href のみ）＝1 ページ 1 GKS ピクセルを維持。 */}
+                  2026-06-06: 従来は civil のみだったが全 docs へ拡大。
+                  2026-06-16: creative を期間で出し分け（resolveCareerSidebarAd）。〜2026-08-31 は
+                  ビルドジョブ（無料面談 ¥50,000・GKS の 2 倍報酬の増額キャンペーン）、9/1 以降 GKS に
+                  自動復帰。GKS/ビルドジョブとも同カテゴリ（無料面談で成果）でカニバるため並置せず単独表示。
+                  この 1 枠が当該案件の唯一のピクセル発火源（本文インライン CareerAffiliate は href のみ）。 */}
               <div className="mb-3">
-                <SidebarAdBanner {...CIVIL_CAREER_AD} trackLabel="GKS-sidebar" />
+                <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
               </div>
               {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
               {hasCategoryNavCard && category && (

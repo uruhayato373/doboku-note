@@ -11,7 +11,17 @@
  * creative 情報の人間向け真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
  */
 
-/** GKSキャリア（施工管理 転職支援・A8.net）。300×250 banner + 計測ピクセル。 */
+/** サイドバー転職バナーの共通 creative 型（GKS / ビルドジョブ で出し分けるため）。 */
+export type SidebarAdCreative = {
+  readonly href: string;
+  readonly imageSrc: string;
+  readonly pixelSrc: string;
+  readonly alt: string;
+  readonly width: number;
+  readonly height: number;
+};
+
+/** GKSキャリア（施工管理 転職支援・A8.net）。300×250 banner + 計測ピクセル。無料面談 ¥25,000/件。 */
 export const CIVIL_CAREER_AD = {
   href: "https://px.a8.net/svt/ejp?a8mat=4B3VR8+F0LMU2+4R40+TSBE9",
   imageSrc:
@@ -21,6 +31,43 @@ export const CIVIL_CAREER_AD = {
   width: 300,
   height: 250,
 } as const;
+
+/**
+ * ビルドジョブ（建設業界特化 転職エージェント・A8.net）。300×250 banner + 計測ピクセル。
+ * 2026-08-31 まで「新規無料キャリア面談」の成果報酬が ¥50,000/件（GKS の ¥25,000 の 2 倍）の
+ * 期間限定増額キャンペーン中。GKS と同カテゴリ（無料面談で成果）のためカニバる ＝ 並置せず、
+ * サイドバー転職枠を期間限定で本案件へ単独切替する（resolveCareerSidebarAd）。
+ */
+export const BUILDJOB_CAREER_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
+  imageSrc:
+    "https://www21.a8.net/svt/bgt?aid=260605733026&wid=002&eno=01&mid=s00000024757004003000&mc=1",
+  pixelSrc: "https://www15.a8.net/0.gif?a8mat=4B5OO5+FHBA2+5B0Y+NTZCH",
+  alt: "建設業界特化 転職エージェント ビルドジョブ",
+  width: 300,
+  height: 250,
+} as const;
+
+/**
+ * サイドバー転職枠の creative を期間で出し分ける（ビルド時に評価＝SSG）。
+ * - 2026-08-31（JST）まで: ビルドジョブ（無料面談 ¥50,000 の増額キャンペーン中、GKS の 2 倍報酬）。
+ * - 2026-09-01（JST）以降: GKS に自動復帰（ビルドジョブの増額終了想定）。
+ * 注: SSG のためビルド時刻で固定される。9/1 以降の最初の本番再ビルドで自動的に GKS へ戻る。
+ *     キャンペーン期間中は GKS の唯一のピクセル源（このサイドバー枠）が止まるため、GKS の
+ *     「表示回数」は計測されなくなる（クリック・成果は href 経由で従来どおり計測される）。
+ * 人間向け真実源: docs/project/04_運営/02_アフィリエイト提携状況.md
+ */
+export function resolveCareerSidebarAd(): {
+  creative: SidebarAdCreative;
+  trackLabel: string;
+} {
+  // 2026-09-01 00:00 JST = 2026-08-31 15:00 UTC（月は 0 始まりのため 8 月 = 7）
+  const campaignEndUtcMs = Date.UTC(2026, 7, 31, 15, 0, 0);
+  if (Date.now() < campaignEndUtcMs) {
+    return { creative: BUILDJOB_CAREER_AD, trackLabel: "BuildJob-sidebar" };
+  }
+  return { creative: CIVIL_CAREER_AD, trackLabel: "GKS-sidebar" };
+}
 
 /** SAT 通信講座（スクール系・A8.net）。記事末テキストリンク カード用 creative。 */
 export const SCHOOL_SAT = {
