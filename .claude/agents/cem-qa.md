@@ -156,7 +156,7 @@ description の本文 contract として扱うのは boilerplate を除いた残
 
 | ツール | 役割 | 反映軸 |
 |---|---|---|
-| `node .claude/scripts/lint-mdx-mobile.mjs` | カテゴリ1（表）・6（導入文）・8（リンク）・9（コンポーネント原則）・12（散文密度）の機械チェック | モバイル / コンテンツ原則 |
+| `node .claude/scripts/lint-mdx-mobile.mjs` | カテゴリ1（表、壊れた表 1-7 含む）・6（導入文）・8（リンク）・9（コンポーネント原則）・12（散文密度）・15（文体: 文末の単調・長文）の機械チェック | モバイル / コンテンツ原則 |
 | `/check-mdx --rules syntax` | MDX 構文チェック（ビルドエラー予防） | 構造 |
 | `/check-mdx --rules links` | 参考資料リンク存在確認（HTTP HEAD） | 参考資料（補助） |
 | `WebFetch` | 参考資料の実体確認（§12 準拠、毎回必須）— **404 / redirect 検出を HIGH 違反として surface（捏造 URL 防止、2026-05-27 強化）** | 参考資料 |

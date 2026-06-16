@@ -49,6 +49,7 @@ templates/
 2. ファイル名を `{exam-id}.md` に変更
 3. `_schema.md` の6つの変数を埋める（詳細は `_schema.md` 参照）
 4. 対応するスキル（`exam-guide`, `exam-questions-import` など）の参照を更新
+5. **サイトに出すなら `src/config/categories.json`（ナビ）と `src/config/home-exam-cards.json`（トップの資格カード）の両方に登録**。整合は `npm run check-home-exam-coverage`（pre-commit / CI）が検査。詳細手順は [exam-content-policy.md](../../../../docs/reference/exam-content-policy.md) Part 4。
 
 ### 3. 設定ファイルの変更
 
