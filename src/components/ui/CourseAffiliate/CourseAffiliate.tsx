@@ -1,12 +1,39 @@
 import { ArrowRight } from "lucide-react";
 
+/**
+ * プリセット案件の creative（href / imageSrc / 計測ピクセル完全 URL）を集約。
+ * MDX 本文では mat / 画像 / 生ピクセルを直書きせず `program="..."` を指定する
+ * （mat 変更時の MDX 全置換を回避＝1 箇所変更で反映）。配信ドメインが creative ごとに
+ * 異なる（独学=www18 / SAT=www19）ため pixelSrc は完全 URL を持つ（trackingPixel の www19 固定とは別経路）。
+ */
+const COURSE_PRESETS = {
+  "dokugaku-keiken": {
+    href: "https://px.a8.net/svt/ejp?a8mat=4B3VR8+FAQ04A+4ASS+6M4J5",
+    imageSrc:
+      "https://www20.a8.net/svt/bgt?aid=260521604925&wid=002&eno=01&mid=s00000020062001111000&mc=1",
+    pixelSrc: "https://www18.a8.net/0.gif?a8mat=4B3VR8+FAQ04A+4ASS+6M4J5",
+  },
+  "sat-gijutsusi": {
+    href: "https://px.a8.net/svt/ejp?a8mat=4B3RUZ+6Y23MI+5TRO+BWGDT&a8ejpredirect=https%3A%2F%2Fwww.sat-co.info%2Fec%2Fgijutsusi",
+    imageSrc: "https://www.sat-co.info/ec//images/new_item/gijutsusi/img-products.png",
+    pixelSrc: "https://www19.a8.net/0.gif?a8mat=4B3RUZ+6Y23MI+5TRO+BWGDT",
+  },
+} as const;
+
 interface CourseAffiliateProps {
   readonly provider: string;
   readonly course: string;
   readonly description?: string;
-  readonly href: string;
-  readonly imageSrc: string;
+  /** プリセット案件キー（任意）。指定すると href/imageSrc/ピクセルを SSOT から解決し MDX に mat を直書きしない。 */
+  readonly program?: keyof typeof COURSE_PRESETS;
+  /** アフィリエイトリンク URL（`program` 指定時は省略可） */
+  readonly href?: string;
+  /** バナー画像 URL（`program` 指定時は省略可） */
+  readonly imageSrc?: string;
+  /** A8 mat 値（www19 配信の計測ピクセルを内部生成）。`program` と併用しない。 */
   readonly trackingPixel?: string;
+  /** `program` 指定時に計測ピクセル（preset の完全 URL）を描画するか（1 ページ 1 ピクセル制御）。 */
+  readonly withPixel?: boolean;
   readonly cta?: string;
 }
 
@@ -15,7 +42,8 @@ interface CourseAffiliateProps {
  *
  * ステマ規制（2023-10〜）対応のため「PR」バッジを必ず表示。
  * rel="nofollow sponsored" / target="_blank" は自動付与。
- * trackingPixel に A8.net の mat 値を渡すと 1x1 計測ピクセルを内部で組み立てる。
+ * 計測ピクセル: `program` 指定時は preset の完全 URL（任意ドメイン）を `withPixel` で描画。
+ * `trackingPixel`（mat 値）指定時は従来どおり www19 で内部生成（後方互換）。
  *
  * 配置原則: 記事末・hub末のCTA。ファーストビュー禁止（メイン導線と矛盾するため）。
  */
@@ -23,15 +51,26 @@ export default function CourseAffiliate({
   provider,
   course,
   description,
+  program,
   href,
   imageSrc,
   trackingPixel,
+  withPixel = false,
   cta = "詳細を見る",
 }: CourseAffiliateProps) {
+  const preset = program ? COURSE_PRESETS[program] : undefined;
+  const resolvedHref = href ?? preset?.href;
+  const resolvedImage = imageSrc ?? preset?.imageSrc;
+  const pixelUrl =
+    preset && withPixel
+      ? preset.pixelSrc
+      : trackingPixel
+        ? `https://www19.a8.net/0.gif?a8mat=${trackingPixel}`
+        : undefined;
   return (
     <div className="not-prose my-6">
       <a
-        href={href}
+        href={resolvedHref}
         rel="nofollow sponsored noopener"
         target="_blank"
         data-cta="affiliate"
@@ -49,7 +88,7 @@ export default function CourseAffiliate({
 
         <div className="flex shrink-0 items-center justify-center sm:w-40 w-full">
           <img
-            src={imageSrc}
+            src={resolvedImage}
             alt={`${provider} ${course}`}
             loading="lazy"
             className="max-h-32 sm:max-h-28 w-auto object-contain"
@@ -75,9 +114,9 @@ export default function CourseAffiliate({
         </div>
       </a>
 
-      {trackingPixel && (
+      {pixelUrl && (
         <img
-          src={`https://www19.a8.net/0.gif?a8mat=${trackingPixel}`}
+          src={pixelUrl}
           width={1}
           height={1}
           alt=""

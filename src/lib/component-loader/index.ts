@@ -46,6 +46,7 @@ export async function getCommonComponents() {
     CareerAffiliate: (await import("@/components/ui/CareerAffiliate/CareerAffiliate")).default,
     DokugakuBanner: (await import("@/components/ui/DokugakuBanner/DokugakuBanner")).default,
     SatTextLink: (await import("@/components/ui/SatTextLink/SatTextLink")).default,
+    DokugakuKeikenLink: (await import("@/components/ui/DokugakuKeikenLink/DokugakuKeikenLink")).default,
     BookCard: (await import("@/components/ui/BookCard/BookCard")).default,
     Question: (await import("@/components/ui/ChatBubble/Question")).default,
     Answer: (await import("@/components/ui/ChatBubble/Answer")).default,

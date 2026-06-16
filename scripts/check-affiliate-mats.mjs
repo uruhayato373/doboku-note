@@ -62,7 +62,8 @@ if (STAGED) {
   files = SCAN_DIRS.flatMap((d) => walk(d));
 }
 
-const unknown = []; // { file, mat }
+const unknown = []; // { file, mat }  src/ で許可リスト外
+const mdxRaw = []; // { file, mat }  .local/r2/posts に生 mat 直書き（禁止）
 const expiredHits = new Set(); // mat
 const seenKnown = new Set();
 
@@ -73,13 +74,16 @@ for (const file of files) {
   } catch {
     continue;
   }
+  const isMdx = file.startsWith('.local/r2/posts');
   for (const m of text.matchAll(MAT_RE)) {
     const mat = m[1];
+    // MDX 本文に生 mat 直書きは禁止（preset コンポーネント経由のみ）。既知/未知を問わず ERROR。
+    if (isMdx) mdxRaw.push({ file, mat });
     if (known.has(mat)) {
       seenKnown.add(mat);
       const entry = known.get(mat);
       if (entry.expiresAt && entry.expiresAt < today) expiredHits.add(mat);
-    } else {
+    } else if (!isMdx) {
       unknown.push({ file, mat });
     }
   }
@@ -94,6 +98,16 @@ if (expiredHits.size > 0) {
   }
 }
 
+if (mdxRaw.length > 0) {
+  console.error(
+    `[check-affiliate-mats] ✗ MDX 本文(.local/r2/posts)に生 a8mat 直書きが ${mdxRaw.length} 件あります（禁止）:`,
+  );
+  for (const u of mdxRaw) console.error(`  - ${u.mat}  (${u.file})`);
+  console.error(
+    '  → MDX は preset コンポーネント経由にする（CareerAffiliate program / CourseAffiliate program / DokugakuBanner / SatTextLink / DokugakuKeikenLink）。',
+  );
+}
+
 if (unknown.length > 0) {
   console.error(
     `[check-affiliate-mats] ✗ 許可リスト(${REGISTRY})に無い mat が ${unknown.length} 件見つかりました:`,
@@ -102,6 +116,9 @@ if (unknown.length > 0) {
   console.error(
     '  → 正規の新規案件なら affiliate-mats.json に追加、タイポなら mat を修正してください。',
   );
+}
+
+if (mdxRaw.length > 0 || unknown.length > 0) {
   process.exit(1);
 }
 

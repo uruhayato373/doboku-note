@@ -31,7 +31,7 @@
       "program": "sat",
       "label": "SAT 技術士/土木 教材セット（商品CTA）",
       "surfaces": ["article-end", "inline"],
-      "definedIn": "src/app/docs/[...slug]/page.tsx (SAT_DOBOKU_PRODUCT) / pe MDX 直書き",
+      "definedIn": "src/app/docs/[...slug]/page.tsx (SAT_DOBOKU_PRODUCT) / src/components/ui/CourseAffiliate (program=sat-gijutsusi preset)",
       "expiresAt": null
     },
     {
@@ -55,7 +55,7 @@
       "program": "dokugaku",
       "label": "独学サポート 1級土木（120×60 カード）",
       "surfaces": ["inline"],
-      "definedIn": ".local/r2/posts MDX 直書き（CourseAffiliate）",
+      "definedIn": "src/components/ui/CourseAffiliate (program=dokugaku-keiken preset)",
       "expiresAt": null
     },
     {
@@ -63,7 +63,7 @@
       "program": "dokugaku",
       "label": "独学サポート 1級土木（インライン テキストリンク）",
       "surfaces": ["inline"],
-      "definedIn": ".local/r2/posts MDX 直書き",
+      "definedIn": "src/components/ui/DokugakuKeikenLink",
       "expiresAt": null
     }
   ]
