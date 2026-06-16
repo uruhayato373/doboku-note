@@ -8,7 +8,7 @@ exam_type: II-1
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 theme: "環境影響評価手続き・建設リサイクル・ネイチャーポジティブ・特定建設作業騒音"
 coverTitle: "技術士 建設部門｜建設環境 R8予想 選択科目II-1 予想問題＋模範解答"
 cover:

@@ -9,7 +9,7 @@ theme: "グリーンインフラ・自然再生事業計画と建設発生土の
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜建設環境 R8予想 選択科目II-2 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
