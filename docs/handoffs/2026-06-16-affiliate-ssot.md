@@ -34,3 +34,33 @@
 
 - **`affiliate-courses.json` 完全一元化**: 全 creative の実体（href/imageSrc/pixelSrc/expiresAt）を 1 ファイルに集約し、各コンポーネント・`page.tsx` はそこを参照、lint 許可リストも自動導出（`affiliate-mats.json` との二重管理を解消）。現状は creative がコンポーネント／config に分散（各 1 箇所・重複なし）で運用可。**トリガー＝講座案件 5 件以上 or JSON 管理に移行したくなったとき**（詳細は 02 台帳「再検討トリガー #1」）。
 - インライン `DokugakuKeikenLink` は PR バッジ非表示（元の生リンク挙動を保存）。文中リンクへの PR 表示付与は別途デザイン判断。
+
+---
+
+# 追記: カテゴリ hub 転職サイドバー新設＋資格別セグメント（PR #256・2026-06-16）
+
+- ブランチ: `feat/category-hub-career-sidebar`（PR #256・`develop` ベース・**未マージ**）
+- 真実源（ポインタ）: `docs/project/04_運営/02_アフィリエイト提携状況.md`（カテゴリ hub 節 + DX creative 保管庫）。`07_アフィリ×note共存設計.md` WP2 を上書き。
+
+## 要約
+
+カテゴリ hub（`/category/{slug}`）の note CTA 縦積みでモバイル記事到達が阻害され（pe は 3 枚積み）、転職アフィリも最下部で不可視だった問題を、docs サイドバー方式のミラーで解消。あわせて資格層に転職 creative をセグメント。
+
+## 変更（コミット 3 本）
+
+1. `03874cb` civil カテゴリ hub を 2 カラム化（右サイドバー sticky 上部に転職バナー＝ピクセル源／モバイルは本文 1 セクション目直後に visible バナー href のみ）。note CTA をモバイル 1 枚／PC 2 枚並びに圧縮。
+2. `d01c5aa` note 圧縮を全カテゴリ共通化＋pe-comprehensive を転職サイドバー対象に追加（当初 GKS/BuildJob 流用）。
+3. `841e928` **資格別セグメント**（`resolveCategoryCareerAd` 新設）: civil=施工管理系（`resolveCareerSidebarAd`＝BuildJob/GKS）、pe=**ハイクラス DX/コンサル転職**（`PE_CONSULTING_CAREER_AD`, mat `4B5OO5+NTCZ6+4SXU+NUES1`）。GKS の「20代未経験/施工管理」が総監シニア層にミスマッチだったのを解消。旧 `resolveCategoryAffiliate`（gate 専用・props 未使用）撤去。`affiliate-mats.json` に DX mat 登録（9 種に）。
+
+- 1 ページ 1 ピクセル維持（ピクセルは PC サイドバー側のみ）。concrete / pe-construction / pe-first-stage は非該当＝単一カラム維持（空サイドバー無し）。
+
+## 検証済み
+
+`type-check` 緑 / `lint`（対象 0 error）/ `check-affiliate-mats` 緑（9/9）/ pre-commit・pre-push OK。civil/pe ともに 2 カラム＋ピクセル 1＋バナー 2、concrete 単一カラムを dev curl で確認（BuildJob 版時点）。**本番 build はローカル worktree 制約（Turbopack の symlink 拒否＋ディスク ENOSPC）で未実行**＝CI（権威ゲート）で確認。
+
+## 次アクション（ユーザー判断）
+
+1. PR #256 を `develop` マージ → `/deploy` で `main`
+2. **DX バナー画像の実描画を PR プレビュー / dev で目視**（creative URL は提供 HTML を逐語コピー・当方は実表示未確認）
+3. pe の DX 案件の位置づけが「ハイクラス DX/コンサル」想定どおりか最終確認（違えば creative 差替は `PE_CONSULTING_CAREER_AD` 1 箇所）
+4. スキル/エージェントへの影響なし（カテゴリ hub アフィリを参照する skill/agent は無し・`check-doc-coupling` 緑）

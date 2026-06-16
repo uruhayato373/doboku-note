@@ -63,7 +63,7 @@
 | # | サーフェス | 現状 | 判定 | 内容 |
 |---|---|---|---|---|
 | S1 | docs サイドバー SAT（keyword/guide/pastExam・`SAT_SIDEBAR_AD`） | SAT 300×250 | ✅ **変更** | SAT を撤去し、sidebarMagazines が空のとき `/links` note バナーに差し替え（keyword の既存フォールバックを guide/pastExam に拡張） |
-| S2 | カテゴリ hub の SAT カード（`resolveCategoryAffiliate`） | SchoolAffiliate(SAT) | ✅ **削除** | hub には既に完全パック + 精読ガイドの note CTA がある。S5 公開後は course-selection-guide への内部リンクカードに差し替え可 |
+| S2 | カテゴリ hub の SAT カード（旧 `resolveCategoryAffiliate`→現 `resolveCategoryCareerAd`） | SchoolAffiliate(SAT) | ✅ **削除** | hub には既に完全パック + 精読ガイドの note CTA がある。**※2026-06-16（PR #256）に hub を 2 カラム化し転職サイドバーを新設＝SAT 削除後の無アフィリ状態を解消（pe=ハイクラス DX/コンサル転職）。下記 WP2 追記参照** |
 | S3 | essay-exam-strategy 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | カード削除 → management-tradeoffs への内部リンク段落に差し替え（S5 公開後は course-selection-guide リンクへ更新予定） |
 | S4 | exam-application-guide 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | 文言修正で暫定維持（「総監部門の添削対応可否は資料請求で確認を」を明記、断定表現を除去）。アガルート承認後に総監対応講座へ差し替え |
 | S5 | course-selection-guide（独学か講座か） | draft 未公開 | ✅ **新規（公開）** | 「総監対応講座の現状」セクションを追加し published:true（2026-06-11）。note CTA を placement.ts に配線。末尾の SAT カード（実在しない総監講座名）は削除。アガルート承認後のアフィリ受け皿 |
@@ -196,6 +196,9 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 1. `resolveCategoryAffiliate` の `pe-comprehensive-management` 分岐を `return null` に変更
    （コメントで理由: SAT は総監講座非提供。course-selection-guide 公開後に内部リンクカード化を検討）。
 2. `HOME_AFFILIATE`（トップ）は変更しない。
+
+> [!note] 2026-06-16 更新（PR #256）— この WP2 は後続で上書き
+> 「SAT カード削除」自体は有効だが、その後の**無アフィリ状態は解消**した。`resolveCategoryAffiliate` は撤去し `resolveCategoryCareerAd`（資格別 creative セグメント）に一本化。pe-comprehensive は `return null` ではなく**ハイクラス DX/コンサル転職**（`PE_CONSULTING_CAREER_AD`, mat `4B5OO5+NTCZ6+4SXU+NUES1`）を返す＝カテゴリ hub の収益導線ゼロを解消（総監＝シニア技術者層に適合。GKS の 20代未経験/施工管理ミスマッチを回避）。詳細: `02_アフィリエイト提携状況.md` カテゴリ hub 節 / `docs/handoffs/2026-06-16-affiliate-ssot.md` 追記。
 
 ### ✅ WP3: PE MDX 3 ページの SAT 表記是正（S3/S4/S5 前半）
 
