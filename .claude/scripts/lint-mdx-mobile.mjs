@@ -5,7 +5,7 @@
  * review-mobile スキルのチェック項目のうち、機械判定可能なものを強制する。
  *
  * ルール根拠の単一真実源: `docs/reference/content-principles.md`
- *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-6)
+ *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-7)
  *   - §24 文体（1文の長さ・文末の単調回避） → カテゴリ15 (15-1, 15-2)
  *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-1〜9-6)
  *   - §7 過剰装飾を避ける               → カテゴリ7 (将来追加)
@@ -29,7 +29,7 @@
  *   1-3 MEDIUM 4列以上の表
  *   1-4 MEDIUM 3列以上の表でセル内テキスト15文字超
  *   1-5 HIGH   キーバリュー表
- *   1-6 HIGH   壊れた表（ヘッダー＋セパレータのみで本文行ゼロ — 表崩れ・空テーブル描画）
+ *   1-7 HIGH   壊れた表（ヘッダー＋セパレータのみで本文行ゼロ — 表崩れ・空テーブル描画）
  *   2-1 HIGH   本文 H1（# ）— ページ H1 は frontmatter title から自動描画
  *   2-3 MEDIUM 見出しがページタイトルとほぼ重複
  *   6-1 MEDIUM 表の直前行が見出しのみで導入文がない
@@ -197,14 +197,15 @@ function lintTable(table, findings) {
   const header = splitRow(table.headerLine);
   const colCount = header.length;
 
-  // 1-6 壊れた表（ヘッダー＋セパレータのみで本文行ゼロ）
+  // 1-7 壊れた表（ヘッダー＋セパレータのみで本文行ゼロ）
   // GFM ではセパレータ直後に `|` 始まりの本文行が無いと空テーブルとして崩れて描画される。
   // PDF→MDX 変換やキーバリュー表の散文化途中で、表本体だけ箇条書きに置換され
   // ヘッダー行＋区切り行が取り残されるパターン（§4）。
+  // NOTE: 1-6 は review-mobile タクソノミーで「独立定義表（MEDIUM）」に既割当のため 1-7 を採番。
   if (table.dataLines.length === 0) {
     findings.push({
       severity: 'HIGH',
-      rule: '1-6',
+      rule: '1-7',
       line: table.startLine,
       endLine: table.endLine,
       message: `壊れた表（本文行ゼロ）— ヘッダー「${header.join(' / ')}」と区切り行のみで本体がない。残骸の2行を削除するか、表本体を補うこと（§4）`,

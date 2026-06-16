@@ -240,7 +240,7 @@ function checkNoteLinkCoverImage(file, content) {
  * GFM では本文行の無い表は空テーブルとして崩れて描画される。PDF→MDX 変換や
  * 「キーバリュー表の散文化」途中で、表本体だけ箇条書き・段落に置換され、
  * ヘッダー行と区切り行が残骸として取り残されるパターン（2026-06-16、9 ファイル
- * 32 箇所を是正）。lint-mdx-mobile.mjs 1-6（HIGH）と同一判定。§4 参照。
+ * 32 箇所を是正）。lint-mdx-mobile.mjs 1-7（HIGH）と同一判定。§4 参照。
  *
  * 戻り値: { file, error } の配列（HIGH 相当、コミットブロック）
  */
@@ -256,7 +256,7 @@ function checkBrokenTables(file, content) {
     if (!hasBody) {
       errors.push({
         file,
-        error: `broken table with no body rows (line ${i + 1}): ${lines[i].trim()} — remove the orphan header+separator or add body rows (§4 / lint 1-6)`,
+        error: `broken table with no body rows (line ${i + 1}): ${lines[i].trim()} — remove the orphan header+separator or add body rows (§4 / lint 1-7)`,
       });
     }
   }
@@ -337,7 +337,7 @@ async function main() {
       errors.push(e);
     }
 
-    // 壊れた表（HIGH — コミットブロック、§4 / lint 1-6）
+    // 壊れた表（HIGH — コミットブロック、§4 / lint 1-7）
     for (const e of checkBrokenTables(file, content)) {
       errors.push(e);
     }

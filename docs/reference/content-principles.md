@@ -147,7 +147,7 @@ doboku-note のすべてのコンテンツ作成・校正時に従うべき原�
 - **キャプション table**（`| 表 3.1 ... |` ＋ `|:--|` の単一セル、直後に実データ表）: キャプションは `**表 3.1 ...**` の太字テキスト行にして、実データ表の上に置く
 - **空フォーム**（多列ヘッダーのみの帳票・様式の再現）: 空のまま残さず、記載項目を箇条書き化するか、原典に値があれば本文行を補う
 
-**機械検知**: `lint-mdx-mobile.mjs` カテゴリ **1-6（HIGH）**（review-mobile / bulk-score で surface）に加え、**`scripts/pre-commit-mdx.mjs` の `checkBrokenTables` が pre-commit でコミットをブロックする**（HIGH）。本文行ゼロの表を検出する。
+**機械検知**: `lint-mdx-mobile.mjs` カテゴリ **1-7（HIGH）**（review-mobile / bulk-score で surface）に加え、**`scripts/pre-commit-mdx.mjs` の `checkBrokenTables` が pre-commit でコミットをブロックする**（HIGH）。本文行ゼロの表を検出する。
 
 ### 5. ExamPointは文脈の後に配置
 
