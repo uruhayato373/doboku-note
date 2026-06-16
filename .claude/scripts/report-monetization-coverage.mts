@@ -36,6 +36,7 @@ import { getMagazine } from "../../src/lib/note-magazines.ts";
 import {
   resolveCategoryAffiliate,
   HOME_AFFILIATE,
+  resolveCareerSidebarAd,
 } from "../../src/config/affiliate-creatives.ts";
 
 const ROOT = process.cwd();
@@ -62,19 +63,23 @@ function normPath(p: string): string {
 }
 
 // ── アフィリエイト サイドバー配置の導出（page.tsx のミラー。SoT は page.tsx） ──
-// 2026-06-06: dck = GKS を全 docs サイドバー上部に常設（無条件）。SAT は PE keyword/guide/
-// pastExam に GKS の下で併置（priced な note マガジンが sidebar にある時 = sidebarHasPaidMagazine
-// は SAT のみ抑制、GKS は常設）。docs は全て最低 GKS が出るため affiliate は常に非 null。
+// 全 docs サイドバー上部に転職枠を無条件常設。creative は期間で出し分け
+// （resolveCareerSidebarAd: 〜2026-08-31 BuildJob / 9-01 以降 GKS に自動復帰）。SAT は PE
+// keyword/guide/pastExam に転職枠の下で併置（priced な note マガジンが sidebar にある時 =
+// sidebarHasPaidMagazine は SAT のみ抑制、転職枠は常設）。docs は全て最低 転職枠が出るため
+// affiliate は常に非 null。
 function deriveAffiliate(
   category: string,
   docGroup: string,
   sidebarHasPaidMagazine: boolean,
 ): string | null {
+  // サイドバー転職枠のプログラム名（"BuildJob" / "GKS"）。trackLabel = "{program}-sidebar"。
+  const career = resolveCareerSidebarAd().trackLabel.replace(/-sidebar$/, "");
   const hasSat =
     category === "pe-comprehensive-management" &&
     (docGroup === "keyword" || docGroup === "guide" || docGroup === "pastExam") &&
     !sidebarHasPaidMagazine;
-  return hasSat ? "GKS+SAT" : "GKS";
+  return hasSat ? `${career}+SAT` : career;
 }
 
 // ── load ──
