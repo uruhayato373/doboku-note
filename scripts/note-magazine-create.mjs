@@ -6,6 +6,7 @@
  * note-edit-magazine（編集専用）が扱わない「新規作成」を担う。
  */
 import { chromium } from 'playwright';
+import { spawnSync } from 'node:child_process';
 import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -83,10 +84,22 @@ try {
   console.log('[filled]', JSON.stringify(filled));
   await page.screenshot({ path: join(ROOT, '.tmp/mag-create-filled.png') });
   if (filled.title !== meta.title || filled.price !== String(price)) { console.log('ABORT: 読み戻し不一致→作成中止'); await ctx.close(); process.exit(3); }
-  // 作成
-  await page.getByRole('button', { name: '作成' }).first().click(); await sleep(5000);
-  const url = page.url();
-  const key = (url.match(/\/m\/(m[a-z0-9]+)/) || [])[1] || '';
-  console.log('[created] URL:', url, '| key:', key);
+  // 作成（リダイレクト遅延に強い polling で key 取得）
+  await page.getByRole('button', { name: '作成' }).first().click();
+  let url = '', key = '';
+  for (let i = 0; i < 12; i++) {
+    await sleep(2000); url = page.url();
+    key = (url.match(/\/m\/(m[a-z0-9]+)/) || [])[1] || '';
+    if (key) break;
+  }
+  // フォールバック: URL 未遷移でも作成済みのことがある→ API でタイトル一致のマガジン key を引く
+  if (!key) {
+    try {
+      const r = spawnSync('curl', ['-sS', '-m', '30', '--ssl-no-revoke', '-H', 'User-Agent: Mozilla/5.0', 'https://note.com/api/v2/creators/dobokunote/contents?kind=magazine&page=1'], { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 });
+      const d = JSON.parse(r.stdout); const hit = (d?.data?.contents || []).find((m) => m.name === meta.title);
+      if (hit) { key = hit.key; console.log('[created] URL未遷移→API でkey回収:', key); }
+    } catch {}
+  }
+  console.log('[created] URL:', url, '| key:', key || '(取得失敗・API/手動確認)');
   await page.screenshot({ path: join(ROOT, '.tmp/mag-created.png') });
 } finally { await ctx.close(); }
