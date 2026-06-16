@@ -200,6 +200,7 @@ cover:
 
 ## 参照
 
+- 意匠の素案試作（前段）: `/ogp-design-explore`（aidesigner / Canva の MCP で OGP デザイン案を試作 → 採用方向を本スキルの satori テンプレに実装して量産）
 - デザイン SSOT: `docs/reference/ogp-prompts.md`（レイアウト・配色・テーマ色・変更履歴の真実源）
 - OGP ギャラリー（一括目視 QA）: `scripts/ogp-gallery.mjs`（`npm run ogp-gallery`）
 - テンプレ定義: `.claude/config/ogp/templates.json`
