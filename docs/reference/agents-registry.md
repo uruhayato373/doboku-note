@@ -38,6 +38,7 @@ title: サブエージェント詳細レジストリ
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
 | `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
 | `/doc-sync`（コード変更面の完了時に親が起動）          | `doc-sync-auditor`                                              | 変更 diff × 候補 doc を突合し prose・表・コマンド・件数・閾値の意味的陳腐化を検出（適用は親） |
+| `/record-sales`                                      | `sales-recorder`                                                | 販売履歴テキスト正規化・productId 推定・重複チェック・JSON 追記 |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
@@ -94,6 +95,7 @@ title: サブエージェント詳細レジストリ
 | `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証。angle-slice 型は体験軸の合格捏造・**軸2 で角度純度（主角度 1 つ・experience 断片）** もチェック）。**+ 凍結リスク（§11）を重大減点ゲート**（near-duplicate テンプレ/同一 URL 反復/機械的タグ固定）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` §11 + **`docs/reference/content-angle-policy.md`** 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-12 更新） |
 | `x-repost-curator`             | X 引用RP 候補（`candidates.json`）を安全ゲート（誤情報/炎上/宣伝/無関係/古さ）＋関連性で選別し、引用コメントを生成して `approved.json` を出力。**exam 多様性ゲート**: 1セット内で同 exam は1件まで・reposted-log 直近10件を確認して連続回避。完全自動運用ではコメントが無検閲で投稿されるため「迷ったら reject」既定 | Evaluator+Generator | sonnet  | `.claude/skills/social/x-repost/SKILL.md` 参照 | ✅ 運用中（2026-06-08 起動、2026-06-10 exam多様性ゲート追加） |
 | `doc-sync-auditor`             | コード/スクリプト/スキル/設定の変更 diff と候補 doc を突合し、**意味的に陳腐化**した記述（prose・表・コマンド・パス・件数・閾値）を `file:line + 引用 + 矛盾根拠 + 修正案 + severity` で報告。**検出専用＝自動修正しない**。Bash 不可で親（`/doc-sync`）が grep/diff を抽出して渡す。`check-doc-refs`（壊れ参照）・`check-doc-coupling`（台帳もれ）が拾えない semantic staleness を担当 | Evaluator    | sonnet  | `.claude/skills/dev/doc-sync/SKILL.md` 参照、CLAUDE.md §8 | ✅ 運用中（2026-06-12 起動） |
+| `sales-recorder`               | note 販売履歴テキストを正規化して sales-log.json に追記。productId 推定・重複チェック・月次集計を行う。購入者名は記録しない（プライバシー保護） | Generator    | sonnet  | `/record-sales` 連携、`docs/reference/sales-tracking.md` 参照 | ✅ 運用中（2026-06-17 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 

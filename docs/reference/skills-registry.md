@@ -27,6 +27,8 @@ title: スキル ガバナンス記録
 
 合計 **64 スキル**（Phase 2 待機を除く）。
 
+> 2026-06-17 追加: `metrics/record-sales`（note 販売履歴を SSOT `sales-log.json` に記録するスキル。ダッシュボードペーストから正規化追記＋月次集計。Generator `sales-recorder` 新設）。運用ドキュメント `docs/reference/sales-tracking.md` と同時新設。
+
 > 2026-06-14 追加（スキャン書籍取り込み）: `conversion/pdf-to-mdx` に **`--scanned` モード**を追加（テキスト層なしスキャン書籍を視覚 OCR で内部リファレンス `docs/textbook/**.md` ＋図に変換）。手順は `references/scanned-image-pipeline.md` に分離（pdfimages 抽出 → 90°回転/見開き分割 → 並列 OCR → 章分割 → 図 bbox 判定・精密クロップ埋め込み）。あわせて **新エージェント `scanned-textbook-transcriber`（Generator・sonnet）** を新設＝スキャンページ画像の逐語 OCR ファンアウトワーカー（Read 画像＋Write のみ・Bash 不可）。図 bbox は `civil-exam-figure-extractor` と同型 Generator を流用。落とし穴も収録（macOS bash3.2 の `declare -A` 不可・zsh 未クオート非分割 `${=var}`・`pdfimages -j` が pdftoppm より高速＋ネイティブ・ディスク逼迫 ENOSPC で静かに truncate→破損ページはスプレッド直接クロップで救済）。旧メモリ `reference_scanned_pdf_pipeline`（pdftoppm 方式）を pdfimages 方式へ更新。技術士建設部門「論文対策キーワード」168 見開き → 7 章 .md（約312k字）＋図31点で実証。[[project_pe_construction_secondary]]
 
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
