@@ -34,7 +34,7 @@ import {
 } from "../../src/lib/magazine-placement.ts";
 import { getMagazine } from "../../src/lib/note-magazines.ts";
 import {
-  resolveCategoryAffiliate,
+  resolveCategoryCareerAd,
   HOME_AFFILIATE,
   resolveCareerSidebarAd,
 } from "../../src/config/affiliate-creatives.ts";
@@ -193,8 +193,9 @@ for (const [page, t] of traffic) {
     noteCta = resolveCategoryMagazines(category)
       .filter((s) => getMagazine(s.magazineId))
       .map((s) => s.magazineId);
-    const aff = resolveCategoryAffiliate(category);
-    affiliate = aff ? (aff.kind === "career" ? "GKS" : "SAT") : null;
+    // 転職プログラム名（"DXConsulting" / "BuildJob" / "GKS"）。trackLabel = "{program}-sidebar"。
+    const aff = resolveCategoryCareerAd(category);
+    affiliate = aff ? aff.trackLabel.replace(/-sidebar$/, "") : null;
   } else {
     continue;
   }
