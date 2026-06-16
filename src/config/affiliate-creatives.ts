@@ -104,13 +104,26 @@ export type CategoryAffiliate =
     };
 
 /**
- * カテゴリ hub に出すアフィリエイト（docs ページのサイドバー条件をミラー）:
- * - civil-1 / civil-2 → GKS 転職（CareerAffiliate）
- * - pe-comprehensive-management → なし（総監対応講座が市場に限られるため SAT カード撤去、2026-06-11）
- * - それ以外（concrete 系 / pe-construction / pe-first-stage）→ なし（docs でもアフィリ無し）
+ * カテゴリ hub に転職アフィリの「枠を出すか」を返すゲート（2026-06-16〜）。
+ *
+ * 注: カテゴリ hub の 2 カラム化以降、`src/app/category/[slug]/page.tsx` は本戻り値の
+ * `kind === 'career'` のみを参照し（careerSidebar 判定）、実 creative は `resolveCareerSidebarAd()`
+ * が描画する（期間で BuildJob ↔ GKS を出し分け）。下記 `props` は後方互換のため残置＝**現状未使用**。
+ *
+ * - civil-1 / civil-2 → 転職枠あり（受験者＝資格でキャリアアップ層と一致）。
+ * - pe-comprehensive-management → 転職枠あり（2026-06-16 新設）。GA4 流入 2 位の高トラフィックページの
+ *   収益導線ゼロを解消。**素性注意**: 総監（技術士）= シニア建設技術者層。GKS は「20代未経験/若手・
+ *   施工管理特化」がターゲットでミスマッチ。〜2026-08-31 はビルドジョブ（建設業界特化・広め）で適合するが、
+ *   9/1 の GKS 自動復帰後はシニア向け creative への差し替えを要検討（または pe のみ BuildJob 固定）。
+ *   真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
+ * - それ以外（concrete 系 / pe-construction / pe-first-stage）→ なし（docs でもアフィリ無し）。
  */
 export function resolveCategoryAffiliate(category: string): CategoryAffiliate | null {
-  if (category === "civil-construction-1" || category === "civil-construction-2") {
+  if (
+    category === "civil-construction-1" ||
+    category === "civil-construction-2" ||
+    category === "pe-comprehensive-management"
+  ) {
     return {
       kind: "career",
       props: {

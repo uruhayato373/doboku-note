@@ -795,17 +795,18 @@ export default async function CategoryPage({
                   ))}
                 </div>
               ) : (
-                <div className="pt-8 space-y-3">
-                  {categoryMagazines.map(({ slot, magazine }) => (
-                    <MagazineInlineCard
-                      key={slot.magazineId}
-                      url={buildMagazineUrl(magazine, slot.utmContent)}
-                      title={magazine.title}
-                      description={magazine.description}
-                      imageUrl={magazine.imageUrl}
-                      badge={magazine.badge}
-                      trackLabel={slot.utmContent}
-                    />
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 pt-8">
+                  {categoryMagazines.map(({ slot, magazine }, i) => (
+                    <div key={slot.magazineId} className={i === 0 ? '' : 'hidden sm:block'}>
+                      <MagazineInlineCard
+                        url={buildMagazineUrl(magazine, slot.utmContent)}
+                        title={magazine.title}
+                        description={magazine.description}
+                        imageUrl={magazine.imageUrl}
+                        badge={magazine.badge}
+                        trackLabel={slot.utmContent}
+                      />
+                    </div>
                   ))}
                 </div>
               )
@@ -970,6 +971,7 @@ export default async function CategoryPage({
                   return (
                     <>
                       {guideGroup && guideGroup.docs.length > 0 && <DocSection group={guideGroup} />}
+                      {mobileCareerAd}
                       {pillarGroup && <DocSection group={pillarGroup} />}
                       {pastExamGroup && (
                         <DocSection group={pastExamGroup} layout="pe-exam-table" />
