@@ -46,6 +46,9 @@ cover:
 
 ![総監対策に使えるAIツールの使い分け。NotebookLM・対話型AI・Claude Code の役割と向いている人](img/figure-1-ai-tools.png)
 
+<!-- cta:pack-top -->
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+
 ## 1. NotebookLM — 誰でも使える主役
 
 最初に勧めたいのが NotebookLM です。Google が提供する、ノーセットアップのWebアプリで、無料の範囲でも十分使えます。
@@ -136,3 +139,10 @@ https://doboku-note.com
 
 - 【総監択一】キーワード集を1周したのに点が取れない3つの理由｜5管理を「出題視点」で読み直す
 - 【学習優先順位がわかる】総監択一式17年分680問を徹底分析（無料）
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6

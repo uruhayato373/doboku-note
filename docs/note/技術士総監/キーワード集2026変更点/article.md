@@ -31,6 +31,9 @@ cover:
 
 https://note.com/dobokunote/m/m607bf095b02a
 
+<!-- cta:pack-top -->
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+
 ## キーワード集2026の概要
 
 キーワード集は、旧『青本』（2004年発行、2017年絶版）に替わるものとして編集されたもので、総監の5つの管理分野の概念と範囲を、主要キーワードの例示によって示しています。
@@ -200,3 +203,10 @@ https://doboku-note.com/category/pe-comprehensive-management
 **note のおすすめ続編**
 - 総監択一式 17 年分 680 問を徹底分析 — 毎年出るテーマと捨ててよい問題（無料）
 - 総監択一式 頻出計算問題 5 パターン完全攻略 ¥980 — 毎年 3〜5 問を確実な得点源に
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6

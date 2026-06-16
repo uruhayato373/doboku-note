@@ -30,23 +30,26 @@ note 公開用ドラフトの本文中の **数値・固有名詞・頻度主張
 | **B. キーワードページ参照** | 本文中のリンク先キーワードページ（`pe-comprehensive-management-{slug}/article.mdx`）の説明と本文記述が矛盾しないか | `.local/r2/posts/pe-comprehensive-management/{slug}/article.mdx` |
 | **C. 過去問データ参照** | 「17 年中 15 年で出題」「R03 以降毎年出題」等の頻度主張を実データと突合 | 同上 + `src/config/past-exam-backlinks.json`（過去問⇔キーワード紐付け JSON） |
 
-| **D. 白書ローカル一次照合** | 本文中の「白書由来の数値・固有名・事業名」（予防保全約3割縮減・八潮市・群マネ11件40団体・成瀬ダム・名古屋港サイバー攻撃 等）が**ローカル白書 PDF 原文に実在**するか（offline grep 照合、ハルシネーション検出） | `docs/textbook/白書等/*.pdf`（`.claude/scripts/whitepaper-grep-check.mjs` 経由） |
+| **D. 白書一次照合（NotebookLM）** | 本文中の「白書由来の数値・固有名・事業名」（予防保全約3割縮減・八潮市・群マネ11件40団体・成瀬ダム・名古屋港サイバー攻撃 等）が**白書原文に実在**するか（ハルシネーション検出） | NotebookLM 白書ノートブック `2bf7f0dd-3935-49be-8cef-2d428c59eaa9`（`notebooklm-cross-query.mjs` 経由）。**ローカル白書 PDF は 2026-06-17 に削除済み**＝grep 照合は不可 |
 
 **スコープ外**:
 - E. 外部 Web ファクト（白書以外の一次資料・最新統計を Web で確認）→ 必要時は WebSearch/WebFetch を親が別途実行
 
-### スコープ D の実行（2026-05-29 追加、白書連動 note 記事の必須チェック）
+### スコープ D の実行（白書連動 note 記事の必須チェック。2026-06-17 NotebookLM 方式へ移行）
 
 白書（国土交通白書・交通施策白書 等）の固有数値・事業名を引用する note 記事（5管理クロストレードオフ・白書R7完全対応集・R8予想問題集・模範論文の白書事例 等）では、**スコープ D を必ず実行**する。NotebookLM 抽出値や生成本文には数値ハルシネーション（120万人・2,600件・932港湾のような連番/固有数値のパターン補完）が混入しやすく、内部データ（A/B/C）では検出できないため。
 
+**照合先は NotebookLM 白書ノートブック**（白書 PDF をソース登録済み・ID `2bf7f0dd-3935-49be-8cef-2d428c59eaa9`）。**ローカル白書 PDF は 2026-06-17 に削除済み**のため旧 `whitepaper-grep-check.mjs`（offline grep）は使えない。
+
 ```bash
-# 記事内の白書由来 数値・固有名を自動抽出してローカル白書原文に grep 照合
-node .claude/scripts/whitepaper-grep-check.mjs --file docs/note/.../article.md
-# JSON で MISS だけ拾う / 他白書も含める
-node .claude/scripts/whitepaper-grep-check.mjs --file <path> --json --papers "国土交通,交通施策,情報通信,環境"
+# 記事内の白書由来 数値・固有名を抽出し、その実在を白書ノートブックに問い合わせて照合する
+node .claude/scripts/notebooklm-cross-query.mjs \
+  --notebook-id 2bf7f0dd-3935-49be-8cef-2d428c59eaa9 \
+  "次の数値・固有名が白書原文に実在するか、各々ページ/章とともに Yes/No で答えてください: <抽出した数値・事業名リスト>"
+# 認証切れ時は `notebooklm login`（ユーザーの手動 OAuth）。会社PCはプロキシで叩けない → Mac/クラウドで実行
 ```
 
-**判定**: MISS = 「白書原文に未ヒット」。原因は ①表記ゆれ（カンマ・全角半角・空白 → checker が吸収済みなので残れば真の不一致寄り）②出典白書が対象外（`--papers` に追加）③**数値捏造・年月の誤り**（要修正）。MISS を ⚠️ 要確認 として surface し、③に該当すれば ❌ 矛盾扱い。スクリプトの normalize は空白・カンマ・全半角を吸収するので、それでも MISS なら原典に無い疑いが濃い。
+**判定**: NotebookLM が「該当箇所を引用付きで確認」できれば OK。**引用を返せない／原文に無いと答えた**数値・事業名は ⚠️ 要確認 として surface し、数値捏造・年月誤りに該当すれば ❌ 矛盾扱い。NotebookLM が認証切れ・未応答で照合不能なら、その旨を明記（照合を偽装しない＝§12）。表記ゆれ（カンマ・全半角・空白）は質問文側で正規化して問う。
 
 ## 検査対象（典型例）
 

@@ -2,9 +2,21 @@
 
 # 既存記事の更新（update モード）
 
-すでに note に公開済みの記事を、修正済みの `draft.md` で**更新**する手順。
-新規作成（`editor.note.com/new`）ではなく、既存記事の編集画面を開いて本文を差し替え、
-「更新」する。価格変更・誤字修正・記述更新などの保守に使う。
+すでに note に公開済みの記事を**更新**する手順。
+新規作成（`editor.note.com/new`）ではなく、既存記事の編集画面を開いて差分を反映し「更新」する。
+
+> [!danger]
+> **ClipboardEvent paste は既存記事編集画面（`editor.note.com/notes/<id>/edit`）では機能しない（2026-06-16 実証）。**
+> `/new` では 1 回だけ成功する paste が、edit 画面では `result: None` で**無音失敗**する。
+> したがって**「全消去 → 再 paste」方式（旧 Phase U-2 → U-4）は実際には動かない**。
+> 旧版（2026-05-21）は「成功した」と記録していたが、再現せず。**全消去だけ成功して paste が空振りすると、空の本文で更新が確定し公開記事が消える**（2026-06-16 に L1 サイトマップで実際に発生→変更履歴から復旧）。
+>
+> **正しい更新手段（用途別）**:
+> 1. **末尾 / 特定箇所への追記**（CTA カード・1 段落程度）→ **type 方式**。caret を末尾へ置き、`type`（文章）＋ `Enter`＋`type`（URL 単独行）＋`Enter`。**URL は type だと OGP カード化する**（synthetic paste 不可）。本文・図版は非破壊。`scripts/wire-note-funnel-cta.mjs` 由来の CTA 追記はこの方式。
+> 2. **本文の全面差し替え**（大改稿）→ **編集画面では不可**。`/new` で作り直す（旧記事は変更履歴に残る）か、note の文字数が許せば 1 段落ずつ `type` で手直しする。**全消去→paste はしない**。
+> 3. **誤って空更新してしまった場合の復旧** → エディタ右上「その他」→「変更履歴」→ 直前のフル版（文字数が正しい版）→「この版を復元」→「公開に進む」→「更新する」。
+
+価格変更・誤字修正・CTA 追記などの軽微保守に使う。**本文の大規模差し替えには使わない**（paste 不可のため）。
 
 ## 起動
 
@@ -26,20 +38,23 @@
 
 create モードとの差分のみ記す。共通手順は [editor-operations.md](editor-operations.md) を参照。
 
+**追記モード（type 方式・推奨。本文・図版を非破壊で末尾に CTA 等を足す）**:
+
 ```
-Phase 0        : draft.md 読み込み（create と同じ。title / body / images を抽出）
-Phase U-0.5    : slug → 公開 URL を note-published.json（items）から引く。無ければ中断
-Phase 1        : ブラウザ起動 + アカウント照合ゲート（stats47 か。create と同じ）
+Phase 0        : 追記する文面（CTA テキスト＋URL）を用意
+Phase 1        : ブラウザ起動 + アカウント照合ゲート（dobokunote か）
 Phase U-1      : 既存記事の編集画面を開く（/new ではない）
-Phase U-1.5    : アイキャッチ差し替え（カバー更新時のみ。editor-operations.md Phase 2 と同じ）
-Phase U-2      : 既存本文を全消去
-Phase U-3      : タイトル更新（draft.md と差があれば。無ければスキップ）
-Phase U-4      : 本文 paste（チャンク分割。editor-operations.md Phase 4-2 と同じ）
-Phase U-5      : 本文画像の再挿入（editor-operations.md Phase 5 と同じ）
-Phase U-6      : 「更新」（create の「公開」ではない）
-Phase 8 後     : note-published.json の該当 item に updated_at を記録（URL は不変）
-→ 終了クリーンアップ（SKILL.md と同じ 3 段 + browser-use-user-data-dir kill）
+Phase U-A1     : 冪等チェック — 本文に既に対象 URL/marker があればスキップ（再追記しない）
+Phase U-A2     : caret を本文末尾へ（selectNodeContents → collapse(false)）
+Phase U-A3     : Enter → type(文章) → Enter → type(URL 単独行) → Enter
+                 ※ URL は type すると OGP カード化する（synthetic paste 不可）。sleep 4 で待つ
+Phase U-A4     : 反映確認（innerHTML に URL/noteId が含まれるか eval）。無ければ FAIL 報告・更新しない
+Phase U-6      : 「公開に進む」→「更新する」（2 段）。ハッシュタグ・価格は触らない
 ```
+
+**全面差し替えは編集画面では不可**（paste が効かない）。`/new` で作り直す。**「全消去 → 再 paste」は禁止**（空更新事故の原因）。
+
+> 旧フロー（Phase U-2 全消去 → U-4 paste → U-4.5 目次再挿入 → U-5 画像再挿入）は **paste が edit 画面で動かないため使えない**。冒頭の danger ブロックを参照。目次・本文画像も paste 前提だったため、これらを伴う全面更新は `/new` 作り直しでのみ可能。
 
 ### Phase U-1: 既存記事の編集画面を開く
 
@@ -58,65 +73,78 @@ browser-use --headed --profile "Profile 5" open "https://editor.note.com/notes/$
 
 編集画面が開いたら、既存のタイトル・本文・画像がすでに入った状態になる。
 
-### Phase U-2: 既存本文を全消去
+### ⛔ 旧 Phase U-2（全消去）/ U-4（再 paste）は廃止
 
-本文 contenteditable にフォーカスし、全選択 → 削除する。
+`document.execCommand('delete')` での全消去後に paste で入れ直す旧手順は、
+**edit 画面で paste が効かないため空更新事故になる**（冒頭 danger 参照）。**実行しない。**
+全面差し替えが必要なら `/new` で作り直す。
+
+### Phase U-A: 末尾追記（type 方式・推奨）
 
 ```bash
-browser-use --headed --profile "Profile 5" eval "
-  const editor = document.querySelector('[contenteditable=true]');
-  if (editor) {
-    editor.focus();
-    const r = document.createRange();
-    r.selectNodeContents(editor);
-    const sel = window.getSelection();
-    sel.removeAllRanges();
-    sel.addRange(r);
-    document.execCommand('delete');
-    'cleared';
-  } else { 'editor not found'; }
-"
-sleep 1
+NID="<noteId>"; URL="https://note.com/dobokunote/n/<送客先>"; SENT="<CTA 文章>"
+browser-use --headed --profile "$NOTE_PROFILE" open "https://editor.note.com/notes/$NID/edit"; sleep 6
+
+# U-A1 冪等チェック（既に追記済みならスキップ）
+HAS=$(browser-use --headed --profile "$NOTE_PROFILE" eval "var ed=document.querySelector('[contenteditable=true]');String(ed?ed.innerHTML.includes('<送客先noteId>'):'noeditor')" | tail -1)
+echo "$HAS" | grep -q true && { echo "SKIP already"; exit 0; }
+
+# U-A2 caret を末尾へ
+browser-use --headed --profile "$NOTE_PROFILE" eval "var ed=document.querySelector('[contenteditable=true]');ed.focus();var r=document.createRange();r.selectNodeContents(ed);r.collapse(false);var s=getSelection();s.removeAllRanges();s.addRange(r);'end'"
+
+# U-A3 type で追記（URL は type だと OGP カード化）
+browser-use --headed --profile "$NOTE_PROFILE" keys Enter
+browser-use --headed --profile "$NOTE_PROFILE" type "$SENT"
+browser-use --headed --profile "$NOTE_PROFILE" keys Enter
+browser-use --headed --profile "$NOTE_PROFILE" type "$URL"
+browser-use --headed --profile "$NOTE_PROFILE" keys Enter
+sleep 4
+
+# U-A4 反映確認（無ければ更新しない）
+browser-use --headed --profile "$NOTE_PROFILE" eval "String(document.querySelector('[contenteditable=true]').innerHTML.includes('<送客先noteId>'))"
 ```
 
-> ⚠️ 全選択がタイトル欄まで巻き込まないこと。本文 contenteditable に限定して
-> `selectNodeContents` する。初回実行時に、消去後タイトルが残っているか必ず確認する。
+実証済みバッチスクリプトの形は本セッションの note 導線 L3 ライブ反映（19 + 3 記事）で確立。1 記事ごとに U-1〜U-6 を直列実行し、複数記事は外側ループで回す（並行不可＝browser-use 競合）。
 
 ### Phase U-1.5: アイキャッチ差し替え（カバー更新時のみ）
 
 カバー画像を更新する場合、本文編集の前にアイキャッチを差し替える。
-editor-operations.md Phase 2 と同じ手順で、既存アイキャッチを `images/cover-1280x670.png`
-で置き換える（アイキャッチ領域を開く → 画像を選択し直す → トリミング保存）。
-カバーを変えない更新ではスキップする。
-
-### Phase U-4 以降
-
-本文 paste（Phase 4-2 のチャンク分割方式）、画像再挿入（Phase 5）は create と同一。
-**Phase 5（本文画像の挿入）は省略不可** — 表画像・インフォグラフィック・スクリーンショットを
-すべて挿入する。挿入数が多くても飛ばさない。
+editor-operations.md Phase 2 と同じ手順で既存アイキャッチを置き換える（画像はアップロード操作なので edit 画面でも機能する。paste 制約は本文テキストのみ）。
 
 ### Phase U-6: 「公開に進む」→「更新する」（2 段）
 
 公開済み記事の編集画面でも、右上ボタンは create と同じ **「公開に進む」**。
 それを押した次画面で **「更新する」**（create の「公開」とは別ラベル）をクリックする。
-**1 段ではなく 2 段操作**である点に注意（2026-05-21 #00 更新で実機確認）。
-有料記事の場合は Phase 7-Pricing と同様に有料エリア境界の確認が挟まる（半自動）。
+**1 段ではなく 2 段操作**。
+
+### Phase U-R: 空更新事故からの復旧（変更履歴）
+
+万一、空または壊れた本文で更新してしまったら、ソースから入れ直すより **note の変更履歴**が速くて確実:
+
+1. エディタ右上「**その他**」（`aria-label=その他`）→「**変更履歴**」をクリック
+2. 右ペインの版リストから**文字数が正しい直前の版**を選ぶ（破損版は文字数が極端に小さい）
+3. 「**この版を復元**」→「公開に進む」→「更新する」
+
+2026-06-16 に L1 サイトマップを空更新→ 19:29 版（2,871 字）復元で完全復旧した実績。
 
 ## 更新モードで「触らないもの」
 
 - ハッシュタグ（既存のまま。再入力すると重複する恐れ）
 - 販売価格（既存のまま。価格変更は note のペイウォール設定で行う別オペレーション）
 
-本文・本文中画像・（カバー更新時の）アイキャッチを差し替えるのが update モードの責務。
+**追記（type）またはカバー差し替え**が edit 画面でできる更新の範囲。**本文の全面差し替えはできない**（paste 不可）。
 
-## 実機検証で判明した注意点（2026-05-21 #00 更新）
+## 実機検証で判明した注意点
 
-初回実行で update モードは成功した。実 UI とのすり合わせで以下が判明:
+### 2026-06-16（最新・優先）
 
-- **編集画面 URL `editor.note.com/notes/<id>/edit` は正しく機能**した（記事ページの編集ボタン経由は不要）
-- **本文全消去はタイトルを巻き込まなかった**（`selectNodeContents` で contenteditable のみ。Phase U-2 の手順で OK）
-- **eval は最後に必ず文字列を返す**こと（IIFE で `return '<string>'`）。最後の式がオブジェクトを返すと browser-use が `result: None` を返し、成否判定を誤る
-- **本文 paste の前に、本文 contenteditable を browser-use の `click` で実フォーカスする**こと。
-  `editor.focus()` を JS で呼ぶだけだと初回 paste eval が `result: None` で本文が入らないことがあった。
-  `click` でフォーカス → window.__nb 注入 → paste 発火、の順にすると確実
-- 「更新」は 1 段ではなく **「公開に進む」→「更新する」の 2 段**（Phase U-6 参照）
+- **paste は edit 画面で動かない**。`/new` の初回 1 回のみ機能し、`notes/<id>/edit` では `result: None` で無音失敗する。clear+paste 方式は空更新事故になる（L1 サイトマップで実害→変更履歴復元）。**追記は type、全面差し替えは /new 作り直し、復旧は変更履歴**（冒頭 danger ＋ Phase U-A / U-R）。
+- **type による URL は OGP カード化する**（Enter で確定後 4 秒待つ）。CTA カードの追記はこれで安定。
+- **eval は最後に必ず文字列を返す**（`String(...)` で締める）。オブジェクト返しは `result: None` になり成否判定を誤る。
+- 複数記事は**直列**で回す（browser-use daemon 共有のため並行不可）。
+
+### 2026-05-21（旧・一部失効）
+
+- 編集画面 URL `editor.note.com/notes/<id>/edit` は機能する（これは現在も正）。
+- 「更新」は **「公開に進む」→「更新する」の 2 段**（現在も正）。
+- ~~「本文全消去 → paste で update 成功」~~ → **2026-06-16 に再現せず失効**。当時成功したように見えたのは別要因（小さい本文／タイミング）の可能性。clear+paste は使わない。

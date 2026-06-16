@@ -11,9 +11,8 @@ import type { PeChapter } from '@/config/pe-chapters';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
-import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
-import SchoolAffiliate from '@/components/ui/SchoolAffiliate/SchoolAffiliate';
-import { resolveCategoryAffiliate } from '@/config/affiliate-creatives';
+import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
+import { resolveCategoryAffiliate, resolveCareerSidebarAd } from '@/config/affiliate-creatives';
 
 const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
@@ -721,8 +720,27 @@ export default async function CategoryPage({
     .map((s) => ({ slot: s, magazine: getMagazine(s.magazineId) }))
     .filter((x): x is { slot: typeof x.slot; magazine: NonNullable<typeof x.magazine> } => Boolean(x.magazine));
 
-  // アフィリエイト（記事末・hub 末。note CTA とは別位置でカニバリ回避）。1 ページ 1 ピクセル。
+  // アフィリエイト（civil のみ）。docs ページのサイドバー条件をミラーし、転職アフィリを
+  // PC 右サイドバー上部に sticky 配置してファーストビュー内でインプレッションを確保する。
+  // モバイルは本文 1 セクション目の直後に visible 配置する（記事到達を阻害しない位置）。
+  // ピクセルは PC サイドバー側のみ発火させ「1 ページ 1 ピクセル」を厳守（モバイルは href のみ）。
+  // creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。
   const categoryAffiliate = resolveCategoryAffiliate(slug);
+  const careerSidebar =
+    categoryAffiliate?.kind === 'career' ? resolveCareerSidebarAd() : null;
+  // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
+  const mobileCareerAd = careerSidebar ? (
+    <div className="zenn-desktop:hidden my-10">
+      <SidebarAdBanner
+        href={careerSidebar.creative.href}
+        imageSrc={careerSidebar.creative.imageSrc}
+        alt={careerSidebar.creative.alt}
+        width={careerSidebar.creative.width}
+        height={careerSidebar.creative.height}
+        trackLabel={careerSidebar.trackLabel}
+      />
+    </div>
+  ) : null;
 
   return (
     <div className="min-h-screen flex flex-col bg-[var(--bg)] transition-colors duration-300">
@@ -750,25 +768,51 @@ export default async function CategoryPage({
           </div>
         </div>
 
-        {/* note 有料マガジン CTA（カテゴリ hub・文脈一致）。docs ページの placement とは別系統で、
-            試験単位の旗艦商品を提示する。未公開マガジンは getMagazine で除外済み。 */}
-        {categoryMagazines.length > 0 && (
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pt-8 space-y-3">
-            {categoryMagazines.map(({ slot, magazine }) => (
-              <MagazineInlineCard
-                key={slot.magazineId}
-                url={buildMagazineUrl(magazine, slot.utmContent)}
-                title={magazine.title}
-                description={magazine.description}
-                imageUrl={magazine.imageUrl}
-                badge={magazine.badge}
-                trackLabel={slot.utmContent}
-              />
-            ))}
-          </div>
-        )}
+        {/* カテゴリ本文 + note CTA + 右サイドバー。civil（careerSidebar 有り）のみ 2 カラム化し、
+            右サイドバー上部に転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル源）を sticky 配置。
+            note CTA はモバイル 1 枚／PC 2 枚並びに圧縮して記事グリッドへの到達を阻害しない。
+            非 civil は従来どおり単一カラム（flex 子 1 つ＝全幅）。 */}
+        <div className={careerSidebar
+          ? 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative'
+          : 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10'}>
+          <div className="flex-1 min-w-0">
+            {/* note 有料マガジン CTA（カテゴリ hub・文脈一致）。試験単位の旗艦商品を提示する。
+                未公開マガジンは getMagazine で除外済み。civil はモバイル 1 枚／PC 2 枚並び。 */}
+            {categoryMagazines.length > 0 && (
+              careerSidebar ? (
+                <div className="grid gap-3 sm:grid-cols-2 pt-8">
+                  {categoryMagazines.map(({ slot, magazine }, i) => (
+                    <div key={slot.magazineId} className={i === 0 ? '' : 'hidden sm:block'}>
+                      <MagazineInlineCard
+                        url={buildMagazineUrl(magazine, slot.utmContent)}
+                        title={magazine.title}
+                        description={magazine.description}
+                        imageUrl={magazine.imageUrl}
+                        badge={magazine.badge}
+                        trackLabel={slot.utmContent}
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 pt-8">
+                  {categoryMagazines.map(({ slot, magazine }, i) => (
+                    <div key={slot.magazineId} className={i === 0 ? '' : 'hidden sm:block'}>
+                      <MagazineInlineCard
+                        url={buildMagazineUrl(magazine, slot.utmContent)}
+                        title={magazine.title}
+                        description={magazine.description}
+                        imageUrl={magazine.imageUrl}
+                        badge={magazine.badge}
+                        trackLabel={slot.utmContent}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )
+            )}
 
-        <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-10 sm:py-12 text-[17px] leading-[1.9]">
+            <div className="py-10 sm:py-12 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-gray-500 text-lg">
@@ -814,6 +858,7 @@ export default async function CategoryPage({
                   return (
                     <>
                       {guideGroup && <DocSection group={guideGroup} />}
+                      {mobileCareerAd}
                       {textbookGroup && (
                         <section>
                           <div className="mb-6">
@@ -877,6 +922,7 @@ export default async function CategoryPage({
                   return (
                     <>
                       {guideGroup && <DocSection group={guideGroup} />}
+                      {mobileCareerAd}
                       {textbookGroup && <DocSection group={textbookGroup} />}
                       {primaryGroup && (
                         <DocSection
@@ -925,6 +971,7 @@ export default async function CategoryPage({
                   return (
                     <>
                       {guideGroup && guideGroup.docs.length > 0 && <DocSection group={guideGroup} />}
+                      {mobileCareerAd}
                       {pillarGroup && <DocSection group={pillarGroup} />}
                       {pastExamGroup && (
                         <DocSection group={pastExamGroup} layout="pe-exam-table" />
@@ -974,19 +1021,22 @@ export default async function CategoryPage({
               ))}
             </div>
           )}
-        </div>
-
-        {/* アフィリエイト（hub 末・ファーストビュー外）。docs サイドバー条件をミラー:
-            civil→GKS 転職 / PE→SAT 講座。note CTA は hero 直下、アフィリは末尾で位置を分離。 */}
-        {categoryAffiliate && (
-          <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 pb-12">
-            {categoryAffiliate.kind === 'career' ? (
-              <CareerAffiliate {...categoryAffiliate.props} />
-            ) : (
-              <SchoolAffiliate {...categoryAffiliate.props} />
-            )}
+            </div>
           </div>
-        )}
+
+          {careerSidebar && (
+            <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
+              <div className="sticky top-6">
+                {/* 転職アフィリ（PC 右サイドバー・sticky）。当ページ唯一のピクセル発火源。
+                    creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。 */}
+                <SidebarAdBanner
+                  {...careerSidebar.creative}
+                  trackLabel={careerSidebar.trackLabel}
+                />
+              </div>
+            </aside>
+          )}
+        </div>
       </main>
 
       <Footer />

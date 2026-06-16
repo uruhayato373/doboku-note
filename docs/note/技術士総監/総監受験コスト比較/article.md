@@ -46,6 +46,9 @@ cover:
 
 この記事では、IPEJ 公式統計と主要スクールの公表価格をもとに、感覚論ではなくデータで判断する材料を提供します。
 
+<!-- cta:pack-top -->
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+
 ## 1. 公式データで見る総監の合格率
 
 IPEJ が公表している「[技術士第二次試験結果一覧表](https://www.engineer.or.jp/c_topics/010/010868.html)」（S33-R7）から、総合技術監理部門単独の合格率を集計しました。
@@ -275,3 +278,10 @@ doboku-note の総監向けマガジンの中で **最も汎用性が高いの�
 - [日本技術サービス（JES）総合技術監理部門コース](https://ejes.jp/course_sogo)
 
 > 価格データは 2026 年 5 月 27 日時点で取得。各社の最新キャンペーン・改定は購入時に公式サイトでご確認ください。doboku-note の社内 SSoT は `docs/reference/pe-cem-school-prices.md` および `docs/reference/pe-cem-pass-rate-history.md` で管理しています。
+
+---
+
+<!-- cta:tankan-mokuji -->
+総監のほかの無料記事・有料マガジンは「総監もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n3ed4c77ceed6

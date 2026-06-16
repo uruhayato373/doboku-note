@@ -24,6 +24,7 @@ title: サブエージェント詳細レジストリ
 | `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter`           | 評価 → リライト → 再評価ループ |
 | `/audit-exam-mapping`                     | `exam-keyword-mapping-auditor`                                   | 紐づけ精度の semantic 評価 |
 | `/note-prepublish-review`                 | `note-link-injector`, `note-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列     |
+| `/audit-note-funnel --semantic`           | `note-funnel-auditor`                                            | note 導線の意味的監査（並び順・CTA関連性・回遊の質） |
 | `/civil-figure-rework`                    | `civil-exam-figure-extractor`, `civil-exam-figure-auditor`       | 過去問1次 図クロップ品質ループ（1ページ最大3反復） |
 | `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出      |
 | `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
@@ -37,6 +38,8 @@ title: サブエージェント詳細レジストリ
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
 | `/yt-shorts-create`（親が起動）                  | `yt-shorts-title-writer`, `yt-shorts-publisher-qa`              | YT Shorts の論点タイトル生成（既定上書き）→ 4軸採点 |
 | `/doc-sync`（コード変更面の完了時に親が起動）          | `doc-sync-auditor`                                              | 変更 diff × 候補 doc を突合し prose・表・コマンド・件数・閾値の意味的陳腐化を検出（適用は親） |
+| `/record-sales`                                      | `sales-recorder`                                                | 販売履歴テキスト正規化・productId 推定・重複チェック・JSON 追記 |
+| note 価格変更・マガジン操作（親が起動）                    | `note-operator`                                                 | 高レベル指示→スクリプト組み合わせ実行→SoT更新 |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
@@ -72,7 +75,8 @@ title: サブエージェント詳細レジストリ
 | `pe-secondary-exam-factcheck`  | 技術士第二次試験 建設部門 模範解答の**技術的事実だけ**を WebSearch で外部一次情報（国交省・e-Gov法令・各学会基準書）に照合（数値/基準値/法令名・条番号/制度名・施策/技術用語の定義分類/統計年次。論述の巧拙・設問適合は見ない＝QAの領分）。verified/uncertain/likely_wrong の3区分、`likely_wrong`は`must_fix`（公開前修正必須）。**合格科目外（土質基礎/鋼コン/トンネル/港湾/鉄道/電力土木 等）の専門事実ハルシネーションを捕捉する最後の砦**。`note-fact-checker`（内部データ）と`pe-secondary-exam-qa`（構造）を補完。**WebSearch必須＝会社PCプロキシで空振り→クラウド/CI/Mac実行**（不可時は`blocked_no_websearch`、照合を偽装しない）。捏造禁止・ソースURL無き「wrong」判定を出さない | Evaluator    | sonnet  | `pe-secondary-exam-writer`/`qa` と連携、`/pe-secondary-yosou` Step3 で起動 | ✅ 運用中（2026-06-10 新設、BK-04〜11 予想の事実担保） |
 | `note-link-injector`           | note ドラフトに doboku-note キーワードページへのインラインリンクを全 occurrence 注入（synonym 判断を含む semantic マッチ。**返却前 `note-lint` ゲート必須**）                | Generator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/pe-chapters.json` 参照         | ✅ 運用中（2026-04-29 起動）                      |
 | `note-figure-auditor`          | note ドラフトの図版を `note-svg-policy.md` 準拠で 4 軸監査（キャンバス・フォント・ブランド・密度）                                     | Evaluator    | sonnet  | note-prepublish-review 連携                                             | ✅ 運用中（2026-04-29 起動）                      |
-| `note-fact-checker`            | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）+ **D（白書ローカル一次照合）** でファクトチェック                          | Evaluator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照、**`.claude/scripts/whitepaper-grep-check.mjs`（スコープ D）** | ✅ 運用中（2026-04-29 起動、2026-05-29 スコープ D 追加） |
+| `note-fact-checker`            | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）+ **D（白書一次照合＝NotebookLM）** でファクトチェック                          | Evaluator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照、**NotebookLM 白書ノートブック `2bf7f0dd-3935-49be-8cef-2d428c59eaa9`（`notebooklm-cross-query.mjs` 経由・スコープ D）** | ✅ 運用中（2026-04-29 起動、2026-05-29 スコープ D 追加、2026-06-17 NotebookLM 方式へ移行＝ローカル白書 PDF 削除） |
+| `note-funnel-auditor`          | note 導線（資格別 3 層モデル）の**意味的**監査。4 軸（資格セグメント整合・もくじ構成・CTA 文面の関連性・回遊の質）。機械監査 `audit-note-funnel.mjs`（D1-D4）が拾えない並び順・文面ズレ・行き止まりを surface。audit-only | Evaluator    | sonnet  | `/audit-note-funnel --semantic` 起動、真実源 `docs/reference/note-funnel-architecture.md`・`.claude/config/note-funnel.json` 参照 | ✅ 運用中（2026-06-16 新設） |
 | `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface                           | Evaluator    | sonnet  | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照    | ✅ 運用中（2026-05-11 起動）                      |
 | `ig-carousel-writer`           | Instagram カルーセル `slide-data.json` v2 を1キーワードずつ執筆（枚数可変・figure 判断・findings ログ追記）。色を本文に書かない。`angle` パラメータで6切り口の hook とスライド構成を制御 | Generator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `sns-repurpose-policy.md` + **`docs/reference/content-angle-policy.md`** 参照 | 🚧 Phase 1 着手中（2026-05-20 起動、2026-06-10 angle 追加）             |
 | `ig-carousel-qa`               | Instagram カルーセル の **6 軸**ルーブリック品質評価（テキスト 5 軸 + デザイン統一性 1 軸）。過去問パックは PNG を Read し tokens.json と照合。**角度型は軸1で角度純度・軸5で Red Line（experience 断片/number 出典）を確認** | Evaluator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `docs/design-system/instagram-carousel-tokens.json` + **`docs/reference/content-angle-policy.md`** 参照 | 🚧 Phase 1 着手中（2026-05-20 起動、2026-05-27 第6軸追加、2026-05-28 lint E3 はみ出し検知連携） |
@@ -92,6 +96,8 @@ title: サブエージェント詳細レジストリ
 | `x-post-qa`                    | X 投稿 `tweets.md` の **5 軸**ルーブリック品質評価（文字数 280 weighted・論点的確さ・タグ 1-3 個・導線/UTM・偽成功検証。angle-slice 型は体験軸の合格捏造・**軸2 で角度純度（主角度 1 つ・experience 断片）** もチェック）。**+ 凍結リスク（§11）を重大減点ゲート**（near-duplicate テンプレ/同一 URL 反復/機械的タグ固定）。`publish-x` の予約完了ログを信用せず予約キュー実査を採点 | Evaluator    | sonnet  | `docs/reference/x-post-policy.md` §11 + **`docs/reference/content-angle-policy.md`** 参照、`x-post-writer` と対 | ✅ 運用中（2026-06-12 更新） |
 | `x-repost-curator`             | X 引用RP 候補（`candidates.json`）を安全ゲート（誤情報/炎上/宣伝/無関係/古さ）＋関連性で選別し、引用コメントを生成して `approved.json` を出力。**exam 多様性ゲート**: 1セット内で同 exam は1件まで・reposted-log 直近10件を確認して連続回避。完全自動運用ではコメントが無検閲で投稿されるため「迷ったら reject」既定 | Evaluator+Generator | sonnet  | `.claude/skills/social/x-repost/SKILL.md` 参照 | ✅ 運用中（2026-06-08 起動、2026-06-10 exam多様性ゲート追加） |
 | `doc-sync-auditor`             | コード/スクリプト/スキル/設定の変更 diff と候補 doc を突合し、**意味的に陳腐化**した記述（prose・表・コマンド・パス・件数・閾値）を `file:line + 引用 + 矛盾根拠 + 修正案 + severity` で報告。**検出専用＝自動修正しない**。Bash 不可で親（`/doc-sync`）が grep/diff を抽出して渡す。`check-doc-refs`（壊れ参照）・`check-doc-coupling`（台帳もれ）が拾えない semantic staleness を担当 | Evaluator    | sonnet  | `.claude/skills/dev/doc-sync/SKILL.md` 参照、CLAUDE.md §8 | ✅ 運用中（2026-06-12 起動） |
+| `sales-recorder`               | note 販売履歴テキストを正規化して sales-log.json に追記。productId 推定・重複チェック・月次集計を行う。購入者名は記録しない（プライバシー保護） | Generator    | sonnet  | `/record-sales` 連携、`docs/reference/sales-tracking.md` 参照 | ✅ 運用中（2026-06-17 起動） |
+| `note-operator`                | note.com への高レベル操作指示（価格変更・マガジン新設・記事収録など）を受け取り、既存スクリプト群を組み合わせて実行するオーケストレーター。dry-run 必須・account ゲート・変更後検証・SoT 更新を統括 | Orchestrator | sonnet  | 親が起動、`docs/reference/note-api-verification.md` 参照 | ✅ 運用中（2026-06-17 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
@@ -124,7 +130,7 @@ title: サブエージェント詳細レジストリ
 | **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query） | `/weekly-improve` 実行時 |
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 | **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |
-| **note-fact-checker（スコープ D）** | note 記事本文の白書由来 数値・固有名 + `docs/textbook/白書等/*.pdf` | ローカル白書 PDF 原文との offline grep 照合（ハルシネーション検出。`whitepaper-grep-check.mjs` が空白・カンマ・全半角ゆれを正規化吸収、MISS を ⚠️要確認 で surface） | 白書連動 note 記事（クロストレードオフ・白書R7対応集・R8予想問題集・模範論文の白書事例）公開前 |
+| **note-fact-checker（スコープ D）** | note 記事本文の白書由来 数値・固有名 + NotebookLM 白書ノートブック（`2bf7f0dd-3935-49be-8cef-2d428c59eaa9`・白書 PDF をソース登録済み） | NotebookLM 白書ノートブックへの問い合わせ照合（`notebooklm-cross-query.mjs`・引用を返せない数値を ⚠️要確認 で surface。認証切れ時は照合不能と明記）。**ローカル白書 PDF は 2026-06-17 削除＝offline grep 不可** | 白書連動 note 記事（クロストレードオフ・白書R7対応集・R8予想問題集・模範論文の白書事例）公開前 |
 | **ig-carousel-qa** | `slide-data.json`（v2）+ 過去問パックは `carousel/img/*.png` | スライド構成・文の完結性・図文整合・字数視認性・試験的正確性（5軸）+ デザイン統一性（過去問パック、tokens.json 照合） | IG カルーセル設定ファイル執筆後 / restyle 後 |
 | **civil-exam-figure-auditor** | `.local/r2/posts/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |

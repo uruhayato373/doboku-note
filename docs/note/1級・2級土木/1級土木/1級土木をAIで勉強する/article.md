@@ -92,3 +92,10 @@ https://doboku-note.com
 **総監をAIで勉強する**（AIツール使い分けの詳細）
 
 https://note.com/dobokunote/n/n89da1120ccaa
+
+---
+
+<!-- cta:civil-mokuji -->
+1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/n4fde0f62dc20

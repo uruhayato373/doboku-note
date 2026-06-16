@@ -293,6 +293,48 @@ sleep 3
 - 本文は window.__nb にチャンク分割注入する（eval 1 回 ≤ 4KB）。一括 eval は大きい本文でタイムアウトする
 - URL カード化は paste 後の手動 / 別 Phase の責務
 
+## Phase 4.5: 目次ブロック挿入（H2 が 3 つ以上のとき実行）
+
+note には**見出し（H2/H3）からクリックジャンプ可能な「目次」を自動生成するネイティブブロック**がある。**もくじ/総合案内/長文記事**ではこれを本文先頭に挿入する（短い単一セクション記事ではスキップ可）。
+
+> ⚠️ **markdown の `[text](#anchor)` リンクは note では機能しない**。見出しジャンプは必ずこのネイティブ目次ブロック（`<button id=toc-setting>`）で行う。Phase 0 で本文の `(#...)` アンカーは素テキスト化しておくこと。
+
+```bash
+# 本文 paste 完了後に実行。BODY_IDX は contenteditable の index
+browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-state.txt
+BODY_IDX=$(grep -oE '\[[0-9]+\]<div contenteditable=true role=textbox' /tmp/note-state.txt | grep -oE '[0-9]+' | head -1)
+
+# 1) 本文先頭に空段落を作り、その行へカーソルを移す
+browser-use --headed --profile "$NOTE_PROFILE" click "$BODY_IDX"
+browser-use --headed --profile "$NOTE_PROFILE" eval "
+  var ed=document.querySelector('[contenteditable=true]'); ed.focus();
+  var r=document.createRange(); r.selectNodeContents(ed); r.collapse(true);
+  var s=window.getSelection(); s.removeAllRanges(); s.addRange(r); String('caret-start');
+"
+browser-use --headed --profile "$NOTE_PROFILE" keys Enter
+browser-use --headed --profile "$NOTE_PROFILE" keys ArrowUp
+sleep 1
+
+# 2) 空行左の「+」メニューを開く → 目次ボタン（id=toc-setting）をクリック
+browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-state.txt
+MENU_IDX=$(grep -oE '\[[0-9]+\]<button aria-label=メニューを開く' /tmp/note-state.txt | grep -oE '[0-9]+' | head -1)
+browser-use --headed --profile "$NOTE_PROFILE" click "$MENU_IDX"
+sleep 2
+browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-state.txt
+TOC_IDX=$(grep -oE '\[[0-9]+\]<button id=toc-setting' /tmp/note-state.txt | grep -oE '[0-9]+' | head -1)
+browser-use --headed --profile "$NOTE_PROFILE" click "$TOC_IDX"
+sleep 2
+
+# 3) 実体検証は screenshot で行う（querySelector ベースの eval は note の目次 markup と一致せず当てにならない）
+browser-use --headed --profile "$NOTE_PROFILE" screenshot /tmp/note-toc-check.png
+```
+
+**実機で確認した落とし穴（2026-06-16）**:
+- **空段落の確立が肝**。`caret-start → Enter → ArrowUp` で本文先頭に空行を作ってから `+` メニューを開く。空行が無い／別行を掴むと挿入が無音で失敗する（本文先頭が intro 段落のまま＝目次未挿入）。**失敗したら編集画面を再読込してクリーンな状態でやり直す**と通る
+- **検証は screenshot で目視**。`document.querySelector('[data-name=index] …')` 等の eval 判定は note の目次 markup と一致せず `tocBlocks=0` の偽陰性、また `result: None`（最後の式が throw）になりやすい。公開ページ（または編集画面）の screenshot で「▼ 目次」ブロックの存在を確認する
+- **目次はソース markdown には保存されない**（note が見出しから自動生成する要素）。`--update` で本文を丸ごと貼り直すと目次は消えるので Phase 4.5 を再実行する
+- 左サイドバーの「目次」パネルはエディタの見出しナビ（常時表示）であり、**本文に挿入される目次ブロックとは別物**。混同しない
+
 ## Phase 5: 挿絵の挿入
 
 A シリーズ記事の標準画像配置（存在する画像のみ挿入）:
