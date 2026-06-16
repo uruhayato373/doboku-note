@@ -1,4 +1,14 @@
 import { ArrowRight, Check } from "lucide-react";
+import { CIVIL_CAREER_AD } from "@/config/affiliate-creatives";
+
+/**
+ * プリセット案件の href を SSOT（affiliate-creatives.ts）から解決するための対応表。
+ * MDX 本文では `href` に mat を直書きせず `program="gks"` を指定する（mat 変更時の
+ * 約 90 MDX 全置換を回避＝1 箇所変更で全インライン GKS に反映）。
+ */
+const CAREER_PRESETS = {
+  gks: CIVIL_CAREER_AD.href,
+} as const;
 
 interface CareerAffiliateProps {
   /** サービス名（例: "RSG建設転職"） */
@@ -7,8 +17,13 @@ interface CareerAffiliateProps {
   readonly category: string;
   /** 補足説明（任意） */
   readonly description?: string;
-  /** アフィリエイトリンク URL */
-  readonly href: string;
+  /**
+   * プリセット案件キー（任意）。指定すると `href` を SSOT から解決し、MDX に mat を直書きしない。
+   * 現状 `gks`（CIVIL_CAREER_AD）のみ。`href` と併用時は `href` を優先。
+   */
+  readonly program?: keyof typeof CAREER_PRESETS;
+  /** アフィリエイトリンク URL（`program` 指定時は省略可） */
+  readonly href?: string;
   /** バナー画像 URL（任意。無い場合はテキスト主体カードで描画） */
   readonly imageSrc?: string;
   /**
@@ -42,16 +57,18 @@ export default function CareerAffiliate({
   service,
   category,
   description,
+  program,
   href,
   imageSrc,
   trackingPixelUrl,
   points,
   cta = "無料で相談する",
 }: CareerAffiliateProps) {
+  const resolvedHref = href ?? (program ? CAREER_PRESETS[program] : undefined);
   return (
     <div className="not-prose my-6">
       <a
-        href={href}
+        href={resolvedHref}
         rel="nofollow sponsored noopener"
         target="_blank"
         data-cta="affiliate"

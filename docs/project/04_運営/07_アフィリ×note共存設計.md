@@ -1,7 +1,7 @@
 # アフィリエイト × note 有料マガジン 共存設計
 
 策定: 2026-06-10。実装: 2026-06-11（WP1〜WP6 すべて完了）。
-アフィリ（SAT・独学サポート・GKS）と note 有料マガジン（¥1,980〜¥7,980）を
+アフィリ（SAT・独学サポート・GKS・ビルドジョブ）と note 有料マガジン（¥1,980〜¥7,980）を
 各サーフェスでどう併置するかの設計書。実装は Sonnet サブエージェント（下記 WP1〜WP6）。
 
 > [!note] 実装ステータス（2026-06-11）
@@ -67,7 +67,7 @@
 | S3 | essay-exam-strategy 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | カード削除 → management-tradeoffs への内部リンク段落に差し替え（S5 公開後は course-selection-guide リンクへ更新予定） |
 | S4 | exam-application-guide 本文の SAT カード | CourseAffiliate(SAT) | ✅ **変更** | 文言修正で暫定維持（「総監部門の添削対応可否は資料請求で確認を」を明記、断定表現を除去）。アガルート承認後に総監対応講座へ差し替え |
 | S5 | course-selection-guide（独学か講座か） | draft 未公開 | ✅ **新規（公開）** | 「総監対応講座の現状」セクションを追加し published:true（2026-06-11）。note CTA を placement.ts に配線。末尾の SAT カード（実在しない総監講座名）は削除。アガルート承認後のアフィリ受け皿 |
-| S6 | docs サイドバー GKS（全 docs 常設） | GKS 300×250 | **維持** | 別 mat・note CTA より下位置。PE での CTR を 4 週間測定し、極端に低ければ PE のみ抑制を再検討 |
+| S6 | docs サイドバー GKS（全 docs 常設） | GKS 300×250 | **維持**（〜2026-08-31 はビルドジョブに期間切替） | 別 mat・note CTA より下位置。PE での CTR を 4 週間測定し、極端に低ければ PE のみ抑制を再検討。**2026-06-16: サイドバー転職枠を `resolveCareerSidebarAd()` で期間出し分け（〜8/31 ビルドジョブ ¥50,000 増額キャンペーン、9/1 以降 GKS 自動復帰）。真実源は `02_アフィリエイト提携状況.md`「ビルドジョブ creative 保管庫」** |
 
 ### Civil（1級・2級）
 
