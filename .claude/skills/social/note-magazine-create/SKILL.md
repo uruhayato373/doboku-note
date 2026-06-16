@@ -35,14 +35,18 @@ node scripts/note-magazine-create.mjs --dir <magazineDir> --commit   # 実作成
 
 ## 作成後
 
-1. `note-magazine-add --target {key} --notes {記事IDs} --commit` で記事を収録
-2. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl`（`https://note.com/dobokunote/m/{key}`）＋価格を更新
-3. `npm run verify-note-magazines` で SoTズレ0を確認
+1. **カバー設定**（必須・本スキルは設定しない）: `note-magazine-cover --key {key} --dir {magazineDir} --commit` で `_cover.png`（1280×670）を設定。**作成しただけだと note のデフォルト見出し画像のまま＝「未登録」に見える**（systematic 欠落・2026-06-16）。
+2. `note-magazine-add --target {key} --notes {記事IDs} --commit` で記事を収録
+3. （記事が未添付なら）`note-attach-pdf`（`note-attach-magazine-pdfs --dir {magazineDir} --commit`）で各記事末尾に印刷用 PDF を添付
+4. `src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ `noteUrl`（`https://note.com/dobokunote/m/{key}`）＋価格を更新
+5. `npm run verify-note-magazines` で SoTズレ0を確認
 
 ## 参照
 
 - `scripts/note-magazine-create.mjs` — 本体
 - `scripts/lib/note-meta.mjs` — `note掲載文.txt` パーサ（共有）
+- `.claude/skills/social/note-magazine-cover/` — マガジン見出し画像の設定（作成後の必須工程）
+- `.claude/skills/social/note-attach-pdf/` — 各記事末尾への印刷用 PDF 添付
 - `.claude/skills/social/note-edit-magazine/` — 既存マガジンの設定編集（別操作）
 - `.claude/skills/social/note-magazine-add/` — 記事の収録（別操作）
 - 真実源 `docs/reference/note-api-verification.md` / [[project_note_write_automation]]

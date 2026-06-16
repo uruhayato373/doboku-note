@@ -1,0 +1,55 @@
+---
+name: note-attach-pdf
+description: >
+  公開済み note 有料記事の本文末尾（有料エリア内）に印刷用 PDF をダウンロードカードとして添付し再公開する
+  ブラウザ CLI。`note-publish` が扱わない「ファイル添付」を担う（従来は半手動）。Playwright + システム Chrome。
+  1記事=note-attach-file、1マガジン直列バッチ=note-attach-magazine-pdfs。Use when user says
+  "note記事にPDFを添付", "印刷用PDFを記事末尾に", "マガジンのPDFが未添付", "/note-attach-pdf".
+  **既定 dry/probe・実添付は --commit。有料境界を非破壊検証してから再公開。収益アカウントのため偽成功ガード必須。Windows可。**
+disable-model-invocation: true
+user-invocable: true
+argument-hint: "--dir <magazineDir> [--commit]   (単記事: scripts/note-attach-file.mjs --note <key> --file <pdf> [--commit])"
+---
+
+公開済み記事へ印刷用 PDF を添付する。`note-publish`（記事公開）がカバー/本文/価格/有料境界までは自動化したが、**PDF ファイル添付は markdown 不可の note プラットフォーム機能で従来「半手動」**だった領域を自動化する。`note-edit-session` のログイン済み永続プロファイルを再利用。
+
+## ⚠️ 前提・背景
+
+- 記事本文に「**印刷用PDF｜本記事の模範解答**」節（説明文）があっても、**PDF ファイル本体は別途 note エディタで添付**しないと出ない（markdown では貼れない）。本スキルがその添付を自動化。
+- PDF は**本文末尾＝有料エリア内**（購入者のみダウンロード可）。
+- **note の公開ボタン「更新する／投稿する」は公開設定ページに無く、有料エリア設定ビューに出現する**。既存の有料線は「このラインより先を有料にする」**バー**で表示され、その位置には「ラインをこの場所に変更」ボタンが無い → **試験問題/予想問題直前の制御がバーなら触らない・変更ボタンなら寄せる**（さもないと正しい線を動かす）。
+
+## 使い方
+
+```bash
+# 1マガジン分を直列バッチ（frontmatter noteId ↔ 同dir PDF を突合・done-logで再開・1記事最大2回試行）
+node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir>            # dry（対象一覧のみ）
+node scripts/note-attach-magazine-pdfs.mjs --dir <magazineDir> --commit   # 実添付
+
+# 1記事だけ（単体ツール）
+node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path>            # probe（挿入メニュー構造ダンプ）
+node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --commit   # 実添付
+```
+
+- マッピング: `<magazineDir>/<year>/article-<type>.md` の frontmatter `noteId` と同 dir の PDF（II1→`/-II-1-/` ・II2→`/-II-2-/` ・III→`/-III-/`）を突合。noteId 無し（未公開）はスキップ。
+
+## フロー（実機確定・2026-06-16）
+
+1. account=dobokunote ゲート（**ページ描画遅延に強い polling**・偽 ABORT 防止）
+2. `editor.note.com/notes/{key}/edit` → 本文末尾へ（Ctrl+End→Enter）→「+」（aria-label「メニューを開く」）→「ファイル」→ native filechooser で PDF
+3. アップロード成功検証（埋め込み数増 or `.pdf` 出現）→「公開に進む」
+4. 「有料エリア設定」→ **有料エリアビューの描画待ち**→ 既存境界を**非破壊検証**（試験問題/予想問題直前=between0・崩れたら中断）→「更新する」
+5. 偽成功ガード: 公開ページを curl して**有料維持**（`購入手続き` 等）を実体確認
+
+## 冪等・安全弁
+
+- **冪等**: 本文に `.pdf`（添付カード）が既にあれば**再添付せず再公開のみ**（live 反映保証・二重添付しない）。バッチは done-log でスキップ・**失敗で停止→再実行で再開**。
+- **境界が崩れたら再公開しない**（無料漏れ防止のゲート）。
+- **ユーザー起動限定**（`disable-model-invocation`）＋サブエージェント化しない（決定的フロー＝原則5）。
+- 実績: BK-02 河川砂防・BK-03 都市計画 各18記事を添付（公開ページで有料維持＋ダウンロードカード実在を全件実査）。
+
+## 関連
+
+- `scripts/note-attach-file.mjs`（1記事）／`scripts/note-attach-magazine-pdfs.mjs`（マガジン直列バッチ）
+- 記事公開: `note-publish` ／ マガジンカバー: `note-magazine-cover` ／ 収録: `note-magazine-add`
+- 印刷用 PDF 生成: `scripts/magazine-to-pdf.mjs`（`magazine-pdf-builder`）／真実源 `docs/reference/note-api-verification.md`・[[project_note_write_automation]]

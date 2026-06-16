@@ -32,7 +32,7 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 | マガジン名/説明/価格 | 各 vertical の設定 | **`総監模範論文-<persona>/note掲載文.txt`** からコピペ |
 | ハッシュタグ | 記事内 | **`<RXX>/hashtags.txt`**（90 個前後・単一行 space 区切り） |
 | アイキャッチ | 生成画像 | **`<RXX>/img/cover.png`** |
-| 購入特典PDF | なし | **`<RXX>/模範論文-*.pdf`**（有料エリアに添付＝半自動） |
+| 購入特典PDF | なし | **`<RXX>/模範論文-*.pdf`**（有料エリアに添付。**Windows/Playwright では `note-attach-pdf`〔`note-attach-file.mjs`〕で自動化済**＝本 browser-use 系では半自動） |
 | 公開URL記録 | `note-published.json`（items） | **各記事 frontmatter `noteUrl`/`noteId`** ＋ `src/lib/note-magazines.ts`（マガジンURL・published） |
 
 ## 引数（バッチ対応）
@@ -148,7 +148,7 @@ export NOTE_PROFILE="Profile 1"   # note.com/dobokunote にログイン済みの
   Phase 4: 本文入力（一括 ClipboardEvent paste・URL は plain text）
   Phase 5: （図版なし方針のため通常スキップ）
   Phase 6: 下書き保存
-  Phase 7: 公開設定（有料価格・タグ・予約 or 即時）※有料境界とPDF添付は半自動
+  Phase 7: 公開設定（有料価格・タグ・予約 or 即時）※本 browser-use 系では有料境界とPDF添付は半自動（Windows/Playwright は note-publish〔境界〕・note-attach-pdf〔PDF〕で自動化済）
   Phase 8: 確認スクショ → 公開URLを frontmatter に反映
 → 全記事完了後にブラウザを閉じる + 必須クリーンアップ
 ```
@@ -184,7 +184,7 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 - **Phase 2 アイキャッチ**: `<RXX>/img/cover.png` をアップロード（本文入力前）
 - **Phase 4 本文**: free セグメントを一括 ClipboardEvent paste（H2/H3/太字が変換される唯一の方法。`type` 不可・連続 paste 不可）。**URL カード化は半手動**（本プロジェクトの記事はマガジンCTAの URL を単独行で持つ＝ペースト後に各 URL 行を行末 Enter → 4 秒待ちでカード化。references 4-3）
 - **Phase 7-Pricing**: `notePricing: paid` かつ `price>0` のとき有料設定。Shadow DOM 内 `<input id=price>` に JS で価格を上書き（`type` 不可）
-- **有料境界の指定 と 特典PDF添付 は半自動**（stats47 でも未到達領域）。価格設定までは自動、有料エリア境界の選択と PDF 添付は**人間が手動**で行う運用とする
+- **本 browser-use(Mac) 系では 有料境界の指定 と 特典PDF添付 は半自動**（stats47 でも未到達領域だった）。価格設定までは自動、有料エリア境界の選択と PDF 添付は人間が手動。**※Windows/Playwright 系では両方とも自動化済**＝有料境界は `note-publish`（`boundaryBeforeExam` 検証ゲート）、PDF 添付は `note-attach-pdf`（`note-attach-file.mjs`／既存境界を非破壊検証して再公開）。Windows 会社PCで運用する場合はこちらを使う
 - **Phase 7-Tags**: `<RXX>/hashtags.txt` の内容を入力
 - 予約日時があれば予約投稿、なければ「今すぐ公開」または下書き保存のみ
 
