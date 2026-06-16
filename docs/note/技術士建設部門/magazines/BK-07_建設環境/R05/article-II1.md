@@ -4,9 +4,9 @@ noteMagazine: BK-07
 year: R05
 subject: environment
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nbb36500d638d"
+noteId: "nbb36500d638d"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜建設環境 R05 選択科目II-1 模範解答"
 cover:

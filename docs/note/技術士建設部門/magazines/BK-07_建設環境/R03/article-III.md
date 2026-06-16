@@ -4,9 +4,9 @@ noteMagazine: BK-07
 year: R03
 subject: environment
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n308e3036f93e"
+noteId: "n308e3036f93e"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜建設環境 R03 選択科目III 模範解答"
 cover:

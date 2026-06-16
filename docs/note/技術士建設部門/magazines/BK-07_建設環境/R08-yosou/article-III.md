@@ -6,9 +6,9 @@ forecast: true
 subject: environment
 exam_type: III
 theme: "生物多様性（30by30・ネイチャーポジティブ・OECM）と建設分野の脱炭素・サーキュラーエコノミー（GX推進法・建設リサイクル法）"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n885b35a0de4c"
+noteId: "n885b35a0de4c"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜建設環境 R8予想 選択科目III 予想問題＋模範解答"
 cover:

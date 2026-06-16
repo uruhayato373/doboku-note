@@ -6,9 +6,9 @@ subject: environment
 exam_type: II-2
 forecast: true
 theme: "グリーンインフラ・自然再生事業計画と建設発生土の適正処理・再利用計画"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n698f232bc702"
+noteId: "n698f232bc702"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜建設環境 R8予想 選択科目II-2 模範解答"
 cover:

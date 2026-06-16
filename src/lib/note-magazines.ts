@@ -606,8 +606,8 @@ const MAGAZINES_RAW = {
   },
   'pe-construction-environment-magazine': {
     id: 'pe-construction-environment-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m76f1e545c541',
     title: '技術士 建設部門 2次｜建設環境 選択科目 模範解答集（R03-R07＋R8予想）',
     description:
       '技術士第二次試験 建設部門「建設環境」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として環境影響評価の発注・審査・環境保全対策に携わった視点で、各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。さらに令和8年度の出題傾向・改訂コンピテンシーから導出した予想問題＋フル模範解答（3記事）を加えた全18記事。各記事に印刷用PDF付き。',
