@@ -9,7 +9,7 @@ theme: "軟弱地盤改良と近接施工の地盤対策"
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜土質及び基礎 R8予想 選択科目II-2 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
