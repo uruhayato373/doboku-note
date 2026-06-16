@@ -16,7 +16,7 @@ title: スキル ガバナンス記録
 ```
 .claude/skills/
 ├── authoring/       # 10 — 記事を作る
-├── conversion/      # 4 — 形式変換（MDX / OGP 画像 / 紙用 PDF）
+├── conversion/      # 5 — 形式変換（MDX / OGP 画像 / 紙用 PDF）＋ OGP 意匠の素案試作
 ├── quality/         # 13 — MDX・note 公開前品質検査
 ├── management/      # 12 — 計画・分析・戦略
 ├── dev/             # 12 — 開発・CI/CD
@@ -25,10 +25,10 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **64 スキル**（Phase 2 待機を除く）。
+合計 **65 スキル**（Phase 2 待機を除く）。
 
 > 2026-06-17 追加: `metrics/record-sales`（note 販売履歴を SSOT `sales-log.json` に記録するスキル。ダッシュボードペーストから正規化追記＋月次集計。Generator `sales-recorder` 新設）。運用ドキュメント `docs/reference/sales-tracking.md` と同時新設。
-
+> 2026-06-16 追加: `conversion/ogp-design-explore`（OGP 画像 1200×630 の**意匠の新方向を aidesigner / Canva の MCP で素案として試作**する ideation 専用スキル）。`/ogp-create`（satori 決定論テンプレで量産）の**前段**を担い、採用方向を `ogp-templates.mjs`＋`ogp-prompts.md`（SSOT）に落として `npm run ogp` で量産する流れ。**量産・本番生成・per-article 生成はしない**（それは `/ogp-create`）。両 MCP は claude.ai OAuth 経由で会社 PC プロキシでも到達するが、**aidesigner は無料枠クレジット制限あり＝生成前に `get_credit_status` 確認＋ユーザー判断**、CI/headless では不可。`user-invocable: true`（外部 API 費用が発生）。素案は `.tmp/` に出し本番 `ogp.png` を上書きしない。文脈 [[project_ogp_design_ssot]]。
 > 2026-06-14 追加（スキャン書籍取り込み）: `conversion/pdf-to-mdx` に **`--scanned` モード**を追加（テキスト層なしスキャン書籍を視覚 OCR で内部リファレンス `docs/textbook/**.md` ＋図に変換）。手順は `references/scanned-image-pipeline.md` に分離（pdfimages 抽出 → 90°回転/見開き分割 → 並列 OCR → 章分割 → 図 bbox 判定・精密クロップ埋め込み）。あわせて **新エージェント `scanned-textbook-transcriber`（Generator・sonnet）** を新設＝スキャンページ画像の逐語 OCR ファンアウトワーカー（Read 画像＋Write のみ・Bash 不可）。図 bbox は `civil-exam-figure-extractor` と同型 Generator を流用。落とし穴も収録（macOS bash3.2 の `declare -A` 不可・zsh 未クオート非分割 `${=var}`・`pdfimages -j` が pdftoppm より高速＋ネイティブ・ディスク逼迫 ENOSPC で静かに truncate→破損ページはスプレッド直接クロップで救済）。旧メモリ `reference_scanned_pdf_pipeline`（pdftoppm 方式）を pdfimages 方式へ更新。技術士建設部門「論文対策キーワード」168 見開き → 7 章 .md（約312k字）＋図31点で実証。[[project_pe_construction_secondary]]
 
 > 2026-05-29 追加: `authoring/civil-keiken-magazine`（1級・2級土木 施工経験記述 マガジン模範答案の生成・採点。Generator `civil-keiken-essay-writer` ＋ Evaluator `civil-keiken-essay-qa`）。
