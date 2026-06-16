@@ -4,9 +4,9 @@ noteMagazine: BK-05
 year: R04
 subject: steel-concrete
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n455cbf0a6f8a"
+noteId: "n455cbf0a6f8a"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R04 選択科目III 模範解答"
 cover:

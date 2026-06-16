@@ -6,9 +6,9 @@ forecast: true
 subject: steel-concrete
 exam_type: III
 theme: "既設インフラの予防保全・長寿命化とデジタル技術活用／建設分野の脱炭素（低炭素コンクリート・鋼材低炭素化・カーボンニュートラル）"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n4863a5b0659b"
+noteId: "n4863a5b0659b"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目III 予想問題＋模範解答"
 cover:

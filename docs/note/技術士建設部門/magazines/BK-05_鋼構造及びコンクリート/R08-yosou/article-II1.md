@@ -5,9 +5,9 @@ year: "R08-yosou"
 forecast: true
 subject: steel-concrete
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nc5339dfd9d2e"
+noteId: "nc5339dfd9d2e"
+notePublishedAt: "2026-06-16"
 price: 500
 theme: "鋼材の疲労設計／溶接継手／中性化・塩害／プレストレストコンクリート"
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目II-1 予想問題＋模範解答"

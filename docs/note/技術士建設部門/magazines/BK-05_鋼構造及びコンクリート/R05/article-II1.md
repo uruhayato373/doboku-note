@@ -4,9 +4,9 @@ noteMagazine: BK-05
 year: R05
 subject: steel-concrete
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nb5cf34ff481a"
+noteId: "nb5cf34ff481a"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜鋼構造及びコンクリート R05 選択科目II-1 模範解答"
 cover:
