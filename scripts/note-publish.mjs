@@ -79,10 +79,11 @@ let publishedUrl = null;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
 
-  // 1. account ゲート
+  // 1. account ゲート（ページ描画遅延に強い polling・偽 ABORT 防止）
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await sleep(2500);
-  if (!/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
+  let acct = false;
+  for (let i = 0; i < 10; i++) { await sleep(2000); if (/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { acct = true; break; } }
+  if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
 
   // 2. 新規エディタ（/new が空ドラフトを生成）
