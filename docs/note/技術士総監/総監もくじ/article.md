@@ -2,10 +2,10 @@
 notePricing: free
 noteSeries: 総合案内
 utmCampaign: 101-tankan-index
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n3ed4c77ceed6"
+noteId: "n3ed4c77ceed6"
+notePublishedAt: "2026-06-16"
+noteStatus: published
 coverTitle:
   - 技術士 総監
   - 対策コンテンツもくじ
