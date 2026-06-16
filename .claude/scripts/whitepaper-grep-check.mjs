@@ -2,6 +2,12 @@
 /**
  * whitepaper-grep-check.mjs — 白書オフライン照合チェッカー
  *
+ * ⚠️ 2026-06-17 退役: ローカル白書 PDF（docs/textbook/白書等）はユーザーが削除し、
+ *    白書照合は NotebookLM 白書ノートブック（2bf7f0dd-3935-49be-8cef-2d428c59eaa9）へ移行した。
+ *    本スクリプトは PDF 不在で exit 1（偽合格しない）になり、NotebookLM 代替を案内する。
+ *    現行のスコープ D 手順は .claude/agents/note-fact-checker.md を参照。
+ *    （PDF を再配置すれば従来どおり動作する＝完全削除はしない）
+ *
  * note 記事・キーワードページ内の「白書由来の数値・固有名」が、ローカル白書 PDF の
  * 原文に実在するかを offline で grep 照合する。NotebookLM や Web に依存せず、
  * `docs/textbook/白書等/*.pdf` をキャッシュ付きテキスト化して突合する。
@@ -126,6 +132,9 @@ if (!FILE && !TERMS_ARG && !REBUILD) {
 const pdfs = selectPdfs();
 if (!pdfs.length) {
   console.error(`No matching PDFs under ${PDF_DIR} (papers filter: ${PAPERS.join(',') || 'all'})`);
+  console.error(`[DEPRECATED] ローカル白書 PDF は 2026-06-17 に削除済み。白書照合は NotebookLM へ移行しました。`);
+  console.error(`  代替: node .claude/scripts/notebooklm-cross-query.mjs --notebook-id 2bf7f0dd-3935-49be-8cef-2d428c59eaa9 "<数値・固有名の実在確認>"`);
+  console.error(`  詳細: .claude/agents/note-fact-checker.md スコープ D`);
   process.exit(1);
 }
 
