@@ -4,9 +4,9 @@ noteMagazine: BK-06
 year: R06
 subject: construction-planning
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nb0438364485f"
+noteId: "nb0438364485f"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R06 選択科目II-2 模範解答"
 cover:

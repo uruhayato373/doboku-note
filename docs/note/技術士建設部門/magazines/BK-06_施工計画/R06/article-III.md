@@ -4,9 +4,9 @@ noteMagazine: BK-06
 year: R06
 subject: construction-planning
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/naefdce189773"
+noteId: "naefdce189773"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R06 選択科目III 模範解答"
 cover:

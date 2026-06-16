@@ -5,9 +5,9 @@ year: "R08-yosou"
 forecast: true
 subject: construction-planning
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nac1ee98b8b8b"
+noteId: "nac1ee98b8b8b"
+notePublishedAt: "2026-06-16"
 price: 500
 theme: "仮設土留め工・担い手3法改正・BIM/CIM活用・コンクリート維持管理"
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R8予想 選択科目II-1 予想問題＋模範解答"
