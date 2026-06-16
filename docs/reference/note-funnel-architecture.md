@@ -59,7 +59,7 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 - **新規マガジン公開時** — その資格の L2 もくじに追記し、`audit-note-funnel` を実行
 - **新規記事公開時** — L3 CTA が入っているか（`wire-note-funnel-cta` 済みか）確認
 - **週次レビュー** — `npm run audit-note-funnel` を回しドリフトを surface（[workflows.md](workflows.md) 週次運用に組込）
-- **月次クラウドルーティン** — `note-funnel-auditor` で意味的レビュー（routine 重複は `/routines` で事前確認）
+- **月次クラウドルーティン** — `doboku-note note-funnel monthly audit`（RemoteTrigger `trig_01F5nDWSTs757Ge5K1ou6Dbr`・毎月 15 日 22:00 UTC ＝ 16 日 07:00 JST）。機械監査＋`note-funnel-auditor` 意味監査→ソース修復 PR（live 反映はローカルの `publish-note --update` が必要）。routine 重複は `/routines` で事前確認
 - **CI** — `check-note-funnel` が公開済みコンテンツのドリフトを赤落ちで機械検知
 
 ## 標準フロー（新規 L2 を増やすとき）
