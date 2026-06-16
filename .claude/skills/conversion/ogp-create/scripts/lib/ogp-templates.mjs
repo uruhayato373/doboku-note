@@ -4,12 +4,15 @@
  * 各テンプレは (props, sizeOpts) を受け取って satori element を返す純関数。
  * テンプレ追加時は 1) renderers に関数追加 2) .claude/config/ogp/templates.json に定義追加 3) docs/reference/ogp-prompts.md に出典記録 の3点セット。
  *
- * セーフティゾーン: 中央 630×630 が 1:1 クロップ時にも残る領域。
- *   タイトル・カテゴリチップ・ワードマーク・メタはこの内側に収まるよう描画する。
- *   装飾要素（グリッド・アクセントバー）は全幅 OK。クロップされても問題ない前提。
+ * レイアウト方針（2026-06-16〜）:
+ *   - mono-tag（サイト OGP / cover 無し note カバー）は全幅レイアウト。左右 72px パディング内に
+ *     ワードマーク・カテゴリチップ・タイトル（縦中央寄せ・最大76px）を置き、資格別テーマ色の 16px 外枠を描く。
+ *   - magazine-banner / note-cover-g2 は中央 630×630 セーフティゾーン（1:1 クロップ耐性）を厳守する別系統。
+ *   装飾要素（グリッド・アクセントバー）は全幅 OK。
+ *   デザイン真実源: docs/reference/ogp-prompts.md。
  *
  * サイズパラメータ: renderTemplate(id, props, { width, height }) で OGP=1200×630 と
- *   note カバー=1280×670 の両方をサポート。SAFE_L = (W - 630) / 2 で求める。
+ *   note カバー=1280×670 の両方をサポート。SAFETY_ZONE_WIDTH=630 は g2/banner 系のセーフ幅算出に使う。
  */
 
 const DEFAULT_WIDTH = 1200;
@@ -60,9 +63,11 @@ function debugSafetyOverlay(width) {
 
 // ---- テンプレート: mono-tag (T06) ----
 
-function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height }) {
-  const safeL = Math.round((width - SAFETY_ZONE_WIDTH) / 2);
-  const innerWidth = SAFETY_ZONE_WIDTH;
+function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor }, { width, height }) {
+  // 2026-06-16: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。左右 72px パディング。
+  const safeL = 72;
+  const innerWidth = width - safeL * 2;
+  const themeColor = accentColor || C_INK_NAVY;
 
   const fineGridUrl = gridDataUrl(30, 'rgba(15,30,63,0.04)', 1);
   const majorGridUrl = gridDataUrl(120, 'rgba(15,30,63,0.09)', 1.25);
@@ -98,19 +103,6 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height 
               { type: 'span', props: { style: { display: 'flex', color: C_CYAN }, children: '-' } },
               { type: 'span', props: { style: { display: 'flex' }, children: 'note' } },
             ],
-          },
-        },
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex',
-              fontSize: '14px',
-              color: C_INK_MUTED,
-              letterSpacing: '1.5px',
-              fontFamily: '"Noto Sans JP", Inter, sans-serif',
-            },
-            children: SITE_TAGLINE,
           },
         },
       ],
@@ -164,6 +156,7 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height 
         display: 'flex',
         flexDirection: 'column',
         flex: 1,
+        justifyContent: 'center',
         fontFamily: '"Noto Sans JP", Inter, sans-serif',
       },
       children: lines.map((line) => ({
@@ -203,15 +196,11 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height 
           type: 'div',
           props: { style: { display: 'flex' }, children: `READ ON ${SITE_DOMAIN}` },
         },
-        {
-          type: 'div',
-          props: { style: { display: 'flex' }, children: `${width} × ${height} · OG` },
-        },
       ],
     },
   };
 
-  const innerStack = [wordmark, categoryChip, titleBlock, metaRow].filter(Boolean);
+  const innerStack = [wordmark, categoryChip, titleBlock].filter(Boolean);
 
   const children = [
     // 背景グリッド（major + fine 重ね）
@@ -277,6 +266,24 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize }, { width, height 
           flexDirection: 'column',
         },
         children: innerStack,
+      },
+    },
+    // テーマ色の外枠（資格ごとのテーマカラー。余白感の解消＋分野の一目識別）
+    {
+      type: 'div',
+      props: {
+        style: {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          borderStyle: 'solid',
+          borderColor: themeColor,
+          borderWidth: '16px',
+        },
+        children: [],
       },
     },
   ];

@@ -18,6 +18,8 @@
 | `note-cover-tokens.json` | note カバー用デザイントークン真実源（generate-note-covers.mjs / renderNoteCoverG2 が参照） |
 | `proposals/` | リデザイン検討案アーカイブ（各サブフォルダに README + 静的プレビュー） |
 
+> サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）のデザイン SSOT は [`docs/reference/ogp-prompts.md`](../reference/ogp-prompts.md)。テーマ色は `note-cover-tokens.json` の `exams[].base` を OGP 外枠と共用する。
+
 ## 読み方
 
 1. **原則** (`principles.md`) を最初に読んで全体の方向性を理解する

@@ -2,7 +2,7 @@
 name: ogp-create
 description: >
   doboku-note サイト OGP 画像（1200×630 PNG）を生成する。共通テンプレ T06 Mono Tag に統一済み。
-  セーフティゾーン対応（中央 630×630 に収める）・4 層の日本語改行戦略。同じテンプレ実装は note カバー（1280×670）でも `scripts/generate-note-covers.mjs` 経由で再利用される。
+  全幅レイアウト（最大 76px タイトル）＋資格別テーマ色 16px 外枠・4 層の日本語改行戦略。同じテンプレ実装は note カバー（1280×670）でも `scripts/generate-note-covers.mjs` 経由で再利用される。
   Use when user asks to [OGP作成, OGP生成, サムネ作成, /ogp-create].
 ---
 
@@ -13,6 +13,8 @@ MDX ページの OGP 画像（1200×630 PNG）を、共通テンプレ T06 Mono 
 
 note 公開用ドラフト（`docs/note/`）のカバー画像（1280×670）も同じテンプレロジックを共有するため、両者で見た目が完全一致する。
 
+> **デザインの真実源（SSOT）は [`docs/reference/ogp-prompts.md`](../../../../docs/reference/ogp-prompts.md)**。レイアウト・配色・テーマ色・変更履歴はそちらで管理する。本 SKILL.md は運用（コマンド・引数・改行・トラブルシュート）を担う。OGP デザインを変更したら両方を同一コミットで更新する。
+
 ## 引数
 
 | 引数 | 必須 | 説明 | 例 |
@@ -22,14 +24,15 @@ note 公開用ドラフト（`docs/note/`）のカバー画像（1280×670）も
 | `--force` | — | 既存の `ogp.png` があっても上書き | |
 | `--dry-run` | — | マッピング結果のみ表示、ファイル生成しない | |
 | `--template <id>` | — | テンプレを強制指定（現状 `mono-tag` のみ） | `--template mono-tag` |
-| `--debug-safety` | — | 中央 630×630 のセーフティゾーン赤枠を画像に重ねて出力 | |
 | `--debug-wrap` | — | 改行結果とフォントサイズを stdout に一覧（ファイル生成なし） | |
+
+> `--debug-safety` は中央 630×630 の赤枠を重ねる（旧クロップ前提の検証用・現役）。ただし mono-tag は 2026-06-16 に全幅化したため、タイトルが枠を超えて描かれるのが正常。mono-tag の目視検証は OGP ギャラリー（`npm run ogp-gallery`、下記）で行う。赤枠は中央クロップ耐性が要る note-cover-g2 でのみ意味を持つ。
 
 ## テンプレート
 
 | ID | 用途 | デザイン |
 |---|---|---|
-| `mono-tag` | サイト OGP（1200×630）共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + 大タイトル + 下部メタ |
+| `mono-tag` | サイト OGP（1200×630）共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + **全幅・縦中央寄せ大タイトル（最大76px）** + **資格別テーマ色 16px 外枠**（下部メタ・タグラインは撤去済み） |
 | `magazine-banner` | note マガジンヘッダー（1280×670） | 中央 1280×216 帯クロップ対応。`generate-magazine-covers.mjs` 専用 |
 | `note-cover-g2` | note 記事カバー（1280×670） | 全幅バナー帯。**試験区分=ベース色 / 系列=濃淡** で 1級土木・2級土木・総監・共通 を色で判別。リード文→強調キーワード(HiBox)→全幅バナー帯→チップ3つ |
 
@@ -37,21 +40,24 @@ note 公開用ドラフト（`docs/note/`）のカバー画像（1280×670）も
 
 **note 記事カバーは `note-cover-g2`（2026-05-29 追加）が標準**。サイト OGP（`mono-tag`）とは別系統で、note のフィード・リンクカードで試験区分が色で一目でわかることを優先する。値の真実源は [`docs/design-system/note-cover-tokens.json`](../../../../docs/design-system/note-cover-tokens.json)、仕様は [`docs/design-system/note-cover.md`](../../../../docs/design-system/note-cover.md)。
 
-## セーフティゾーンとは
+## 全幅レイアウト（2026-06-16〜）
 
-OGP 画像は `1200×630`（1.91:1）で配信するが、一部プラットフォーム（note モバイル・Slack・Discord 等）は中央を 1:1 にクロップして表示する。そのため **中央 630×630 の正方形**に「欠けてはいけない情報」（タイトル・カテゴリチップ・ワードマーク・メタ）を全て収める必要がある。
+mono-tag は **全幅レイアウト**。左右 72px パディング内にワードマーク→カテゴリチップ→タイトル（縦中央寄せ）を左寄せで縦積みし、タイトルを `safetyWidth: 1010px`（`.claude/config/ogp/text.json`）に収まる最大フォント（上限 76px）で大きく描く。装飾（グリッド・アクセントバー）は外周まで伸びてよい。
 
-本スキルは `safetyWidth: 590px`（`.claude/config/ogp/text.json`）に基づいてタイトルと要素を配置する。装飾要素（アクセントバー・グリッド）はセーフティゾーン外まで伸びてよい（クロップされても問題ない）。
+旧「中央 630×630 セーフティゾーン」制約は mono-tag では撤廃した（外部リンクカードでの可読性優先）。中央 1:1 クロップ耐性が必要な **note-cover-g2**（note 記事カバー）は引き続き中央セーフ幅 590px を厳守する別系統。背景・経緯は [`docs/reference/ogp-prompts.md`](../../../../docs/reference/ogp-prompts.md)「変更履歴」を参照。
 
-note カバー（1280×670）も同じ「中央 630×630」を厳守。横幅が広い分、左右の装飾余白が増えるだけで主コンテンツ位置は同じ。
+## 資格別テーマ色（16px 外枠）
 
-**目視検証**:
+外枠 16px を資格区分のテーマ色で描き、サムネ一覧でも分野が色で判別できる。**色の真実源は [`docs/design-system/note-cover-tokens.json`](../../../../docs/design-system/note-cover-tokens.json) の `exams[].base`**（note カバーと共通・二重管理しない）。`ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` がカテゴリ→exam key を解決し、`resolveAccentColor()` が base 色を返す（未マッピングは既定ネイビー `#0f1e3f`）。色の対応表は ogp-prompts.md「テーマ色」を参照。新カテゴリ追加時は **`CATEGORY_TO_EXAM_KEY` + `note-cover-tokens.json` + ogp-prompts.md** を更新する。
+
+## QA: OGP ギャラリー
+
+一括再生成後の目視チェックは `npm run ogp-gallery` で行う（`scripts/ogp-gallery.mjs`）。`.local/r2/posts/**/ogp.png` を 1 枚の HTML グリッドに一覧化し、カテゴリ別フィルタで長タイトルのはみ出し・改行崩れ・テーマ色枠・余白をまとめて確認できる。
 
 ```bash
-node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs <slug> --debug-safety --force
+npm run ogp -- --all --force   # 全 ogp.png を再生成
+npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザで開く
 ```
-
-生成 PNG に中央 630×630 の赤枠が重なった状態で出力される。本番では `--debug-safety` を外して再生成する。
 
 ## 4 層の日本語改行戦略
 
@@ -63,7 +69,7 @@ node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs <slug> --debug-
 | 2a | 記号直前改行 | `（` `：` `〜` `──` 等の直前で分割、マーカーは次行先頭に残す |
 | 2b | 区切り文字分割 | 半角・全角スペースで分割、スペース自体は破棄 |
 | 3 | BudouX（初期無効） | `text.json` で `budouX.enabled: true` + `npm i budoux` で有効化 |
-| 4 | 文字数フォールバック | `charCountFallback: 18` 字ごとに機械的に折り返し |
+| 4 | 文字数フォールバック | `charCountFallback: 13` 字ごとに機械的に折り返し |
 
 `--debug-wrap` で各ページの実際の改行結果を確認できる:
 
@@ -74,7 +80,7 @@ node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs pe-comprehensiv
 
 ## フォントサイズの決定ロジック
 
-`pickFontSize` は `text.json` の `fontSizeTable`（`[54, 48, 42, 38, 34, 30]`）を上から試し、**全ての行が `safetyWidth=590` に収まる最大サイズ**を選ぶ。T06 Mono Tag のデザイン上限は 54px。
+`pickFontSize` は `text.json` の `fontSizeTable`（`[76, 68, 60, 54, 48, 42]`）を上から試し、**全ての行が `safetyWidth=1010` に収まる最大サイズ**を選ぶ。全幅レイアウトのデザイン上限は 76px。
 
 - 全幅日本語 1 文字 ≈ `fontSize × 1.0` 幅
 - 半角英数記号 1 文字 ≈ `fontSize × 0.58` 幅
@@ -157,7 +163,7 @@ ogp:
 ```bash
 node scripts/generate-note-covers.mjs            # 全 note 記事
 node scripts/generate-note-covers.mjs 1級土木    # slug 部分一致で対象を絞る
-node scripts/generate-note-covers.mjs 安全管理 --debug-safety
+node scripts/generate-note-covers.mjs 安全管理   # slug 部分一致で 1 記事だけ再生成
 ```
 
 ### `cover:` ブロック（G2 を出すための frontmatter）
@@ -188,13 +194,14 @@ cover:
 | 症状 | 対応 |
 |---|---|
 | `未知のカテゴリ` エラー | `src/config/categories.json` にカテゴリを追加、または frontmatter の `category` を修正 |
-| タイトルがセーフティゾーンからはみ出す | `--debug-safety` で確認。`text.json` の `fontSizeTable` を小さめに調整 |
+| タイトルが大きすぎ/はみ出す・改行が崩れる | `--debug-wrap` で改行とフォントを確認し、`frontmatter.ogp.title` で短い OGP 専用見出しを与える。全体は `npm run ogp-gallery` で目視 |
 | 長タイトルで単語が途中で破断 | `frontmatter.ogp.title` で `\n` を使い明示改行、または BudouX を有効化（`text.json` + `npm i budoux`） |
 | ルールが効かない | `--dry-run` で実際の解決結果を確認 |
 
 ## 参照
 
-- リファレンス: `docs/reference/ogp-prompts.md`（採用プロンプト出典）
+- デザイン SSOT: `docs/reference/ogp-prompts.md`（レイアウト・配色・テーマ色・変更履歴の真実源）
+- OGP ギャラリー（一括目視 QA）: `scripts/ogp-gallery.mjs`（`npm run ogp-gallery`）
 - テンプレ定義: `.claude/config/ogp/templates.json`
 - ルール: `.claude/config/ogp/rules.json`
 - 改行・フォント設定: `.claude/config/ogp/text.json`
