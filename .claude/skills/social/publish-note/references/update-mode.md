@@ -35,6 +35,7 @@ Phase U-1.5    : アイキャッチ差し替え（カバー更新時のみ。edi
 Phase U-2      : 既存本文を全消去
 Phase U-3      : タイトル更新（draft.md と差があれば。無ければスキップ）
 Phase U-4      : 本文 paste（チャンク分割。editor-operations.md Phase 4-2 と同じ）
+Phase U-4.5    : 目次ブロック再挿入（元記事に目次があった／H2 3 つ以上のとき。editor-operations.md Phase 4.5。本文丸ごと貼り直しで目次は消えるため再挿入が必須）
 Phase U-5      : 本文画像の再挿入（editor-operations.md Phase 5 と同じ）
 Phase U-6      : 「更新」（create の「公開」ではない）
 Phase 8 後     : note-published.json の該当 item に updated_at を記録（URL は不変）

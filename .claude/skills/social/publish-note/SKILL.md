@@ -113,6 +113,7 @@ console.log(JSON.stringify({ slug, title:title.substring(0,50), notePricing, seg
 - **Phase 2 アイキャッチ**: `data.cover`（＝`<dir>/img/cover.png`）をアップロード。editor-operations の例にある `images/cover-1280x670.png` は読み替える
 - **Phase 3 タイトル**: `data.title`（先頭 H1 は除去済）
 - **Phase 4 本文**: `data.segments`（＝全文）を**チャンク注入機構で 1 回 paste**（無料記事は free/paid 分割なし＝全文が無料）。BK-I の note URL・サイト URL 行のカード化は半手動（行末 Enter→4 秒）
+- **Phase 4.5 目次**: 見出し（H2）が 3 つ以上の記事（もくじ/総合案内/長文）は、本文先頭に note ネイティブ目次ブロック（`<button id=toc-setting>`）を挿入する（[references/editor-operations.md](references/editor-operations.md) Phase 4.5）。markdown の `#アンカー`は note で機能しないため、見出しジャンプはこのブロックが唯一の手段。短い単一セクション記事はスキップ
 - **Phase 5 挿絵**: スキップ（図版なし方針）
 - **Phase 6 下書き保存**: 共通
 - **Phase 7 公開設定**: **価格設定は行わない（無料）**。`<RXX>` 相当のタグは `data.tags`（hashtags.txt）。日時指定 → 予約公開、`now` → 即時公開、無指定 → 下書きのまま終了
@@ -146,6 +147,7 @@ export NOTE_PROFILE="Profile 1"   # note.com/dobokunote にログイン済みの
   Phase 2: アイキャッチ（img/cover.png・本文入力前に実行）
   Phase 3: タイトル入力（frontmatter title から H1 を除いた表示タイトル）
   Phase 4: 本文入力（一括 ClipboardEvent paste・URL は plain text）
+  Phase 4.5: 目次ブロック挿入（H2 3 つ以上＝もくじ/長文記事のとき。id=toc-setting。markdown #アンカーは note で機能しないため必須手段）
   Phase 5: （図版なし方針のため通常スキップ）
   Phase 6: 下書き保存
   Phase 7: 公開設定（有料価格・タグ・予約 or 即時）※本 browser-use 系では有料境界とPDF添付は半自動（Windows/Playwright は note-publish〔境界〕・note-attach-pdf〔PDF〕で自動化済）
