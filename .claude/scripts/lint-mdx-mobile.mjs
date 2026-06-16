@@ -4,8 +4,9 @@
  *
  * review-mobile スキルのチェック項目のうち、機械判定可能なものを強制する。
  *
- * ルール根拠の単一真実源: `.claude/content-principles.md`
- *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-5)
+ * ルール根拠の単一真実源: `docs/reference/content-principles.md`
+ *   - §4 表は2軸比較にのみ使う        → カテゴリ1 (1-1〜1-7)
+ *   - §24 文体（1文の長さ・文末の単調回避） → カテゴリ15 (15-1, 15-2)
  *   - §5 ExamPointは文脈の後に配置    → カテゴリ9 (9-1〜9-6)
  *   - §7 過剰装飾を避ける               → カテゴリ7 (将来追加)
  *   - §8 図表は説明の流れの中に配置     → カテゴリ10 (10-1〜10-5, ArticleImage 規約)
@@ -28,6 +29,7 @@
  *   1-3 MEDIUM 4列以上の表
  *   1-4 MEDIUM 3列以上の表でセル内テキスト15文字超
  *   1-5 HIGH   キーバリュー表
+ *   1-7 HIGH   壊れた表（ヘッダー＋セパレータのみで本文行ゼロ — 表崩れ・空テーブル描画）
  *   2-1 HIGH   本文 H1（# ）— ページ H1 は frontmatter title から自動描画
  *   2-3 MEDIUM 見出しがページタイトルとほぼ重複
  *   6-1 MEDIUM 表の直前行が見出しのみで導入文がない
@@ -60,6 +62,8 @@
  *  13-1 MEDIUM r8-essay-theme-* spoke で許可外の ### ペルソナ名を検出（content-principles.md §21）
  *  13-2 MEDIUM r8-essay-theme-* spoke で「## ペルソナ別の取り組み方」配下の ### サブセクション数が 4 個でない（content-principles.md §21、3 ペルソナ + 業界外救済 = 4 個が正常）
  *  14-1 MEDIUM factual table（数値・年代・指定数・統計データを含む verifiable claim 表）の直下に `<Callout type="reference" title="出典">` がない（content-principles.md §22）
+ *  15-1 MEDIUM 散文で同一の丁寧体文末（です／ます／ました）が3文以上連続（単調、§24。である調は対象外）
+ *  15-2 LOW    散文の1文が長すぎる（句点区切りで140字超、目安60〜80字、§24）
  */
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
@@ -192,6 +196,22 @@ function hasLongMath(cell) {
 function lintTable(table, findings) {
   const header = splitRow(table.headerLine);
   const colCount = header.length;
+
+  // 1-7 壊れた表（ヘッダー＋セパレータのみで本文行ゼロ）
+  // GFM ではセパレータ直後に `|` 始まりの本文行が無いと空テーブルとして崩れて描画される。
+  // PDF→MDX 変換やキーバリュー表の散文化途中で、表本体だけ箇条書きに置換され
+  // ヘッダー行＋区切り行が取り残されるパターン（§4）。
+  // NOTE: 1-6 は review-mobile タクソノミーで「独立定義表（MEDIUM）」に既割当のため 1-7 を採番。
+  if (table.dataLines.length === 0) {
+    findings.push({
+      severity: 'HIGH',
+      rule: '1-7',
+      line: table.startLine,
+      endLine: table.endLine,
+      message: `壊れた表（本文行ゼロ）— ヘッダー「${header.join(' / ')}」と区切り行のみで本体がない。残骸の2行を削除するか、表本体を補うこと（§4）`,
+    });
+    return; // 本体が無い表に列幅・KaTeX 判定をかけても無意味
+  }
 
   // 1-5 キーバリュー表
   const kvHeaders = ['項目', '内容', '正式名称', '目的', '所管', '施行', '概要'];
@@ -878,7 +898,7 @@ function lintRelatedKeywordsComponent(lines, findings) {
  * 10-3 MEDIUM alt 属性が 80 字超過
  * 10-5 HIGH   画像ファイル不在 or mime が拡張子と不一致（HTML エラーページ偽 JPG 等）
  *
- * 真実源: .claude/content-principles.md §8 L146
+ * 真実源: docs/reference/content-principles.md §8
  *   「caption は『図の説明』には使わない。ただし出典・帰属・機種名などの
  *   短い帰属情報（60字以内）は caption に書いてよい」
  */
@@ -1436,6 +1456,125 @@ function lintLegacyFrontmatter(raw, findings) {
 
 // ── メイン ───────────────────────────────────────────────────────────────────
 
+// ── カテゴリ15: 文体（1文の長さ・文末の単調回避） content-principles.md §24 ──────
+/**
+ * 15-1 MEDIUM 散文で同一の丁寧体文末（です／ます／ました）が3文以上連続（単調 = ③）。
+ *             である調の常体（〜である。〜する。〜た。）は学術的に許容され対象外。
+ * 15-2 LOW    散文の1文が長すぎる（句点区切りで実質140字超 = ①、目安は60〜80字）。
+ *
+ * 対象は「散文（地の文）」のみ。見出し・表・箇条書き・JSX コンポーネント・コード・
+ * 数式・bold 単独キャプション行は除外する（content-principles.md §24 の適用範囲）。
+ */
+function proseSentenceEnding(s) {
+  const t = s.trim();
+  if (/である$/.test(t)) return 'である';
+  if (/ました$/.test(t)) return 'ました';
+  if (/ます$/.test(t)) return 'ます';
+  if (/です$/.test(t)) return 'です';
+  if (/した$/.test(t)) return 'した';
+  if (/する$/.test(t)) return 'する';
+  if (/だ$/.test(t)) return 'だ';
+  if (/ない$/.test(t)) return 'ない';
+  if (/れる$/.test(t)) return 'れる';
+  if (/た$/.test(t)) return 'た';
+  return null; // 体言止め・疑問形・記号止めは対象外（連続判定を切る）
+}
+
+function isProseLine(line) {
+  const t = line.trim();
+  if (t === '') return false;
+  if (/^#{1,6}\s/.test(t)) return false; // 見出し
+  if (/^\|/.test(t)) return false; // 表
+  if (/^[-*+]\s/.test(t)) return false; // 箇条書き
+  if (/^\d+[.)]\s/.test(t)) return false; // 番号付きリスト
+  if (/^>/.test(t)) return false; // 引用
+  if (/^<\/?[A-Za-z]/.test(t)) return false; // JSX
+  if (/^\$\$/.test(t)) return false; // KaTeX ブロック
+  if (/^\{\/\*/.test(t)) return false; // MDX コメント
+  if (/^!\[/.test(t)) return false; // 画像
+  if (/^\*\*[^*]+\*\*$/.test(t)) return false; // bold 単独キャプション行
+  return true;
+}
+
+function lintProseStyle(lines, findings) {
+  const cleanInline = (s) =>
+    s
+      .replace(/\$[^$]*\$/g, '')
+      .replace(/\[([^\]]*)\]\([^)]*\)/g, '$1')
+      .replace(/\*\*/g, '')
+      .replace(/\*/g, '')
+      .replace(/`/g, '');
+
+  const sentences = []; // { line, ending }
+  let inFence = false;
+  let inJsx = false;
+
+  for (let idx = 0; idx < lines.length; idx++) {
+    const line = lines[idx];
+    if (/^\s*```/.test(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+    if (inJsx) {
+      if (/\/>\s*$|<\/[A-Za-z]/.test(line)) inJsx = false;
+      continue;
+    }
+    const trimmed = line.trim();
+    // 複数行 JSX コンポーネントブロックの開始（同一行で閉じないもの）
+    if (/^<[A-Z][A-Za-z]*/.test(trimmed) && !/\/>\s*$|<\/[A-Za-z]/.test(trimmed)) {
+      inJsx = true;
+      continue;
+    }
+    if (!isProseLine(line)) continue;
+
+    const cleaned = cleanInline(line);
+    const parts = cleaned.split('。');
+    for (let k = 0; k < parts.length - 1; k++) {
+      const sent = parts[k];
+      if (sent.trim() === '') continue;
+      const len = [...sent.trim()].length + 1; // 句点を含める
+      sentences.push({ line: idx + 1, ending: proseSentenceEnding(sent) });
+      if (len > 140) {
+        findings.push({
+          severity: 'LOW',
+          rule: '15-2',
+          line: idx + 1,
+          endLine: idx + 1,
+          message: `1文が長い（${len}字）。60〜80字を目安に句点で分割を検討（§24）`,
+        });
+      }
+    }
+  }
+
+  // 15-1: 同一文末が3文以上連続（ですます調＝です／ます／ました のみ対象）
+  // である調の技術文（〜である。〜する。〜た。の連続）は学術的な常体として許容され、
+  // 機械強制すると大量の誤検知になるため対象外。#3 の主眼であるコーチング系散文
+  // （ガイド＝ですます調）の単調さに絞る（§24）。
+  const POLITE_ENDINGS = new Set(['です', 'ます', 'ました']);
+  let i = 0;
+  while (i < sentences.length) {
+    const ending = sentences[i].ending;
+    if (!ending) {
+      i++;
+      continue;
+    }
+    let j = i + 1;
+    while (j < sentences.length && sentences[j].ending === ending) j++;
+    const runLen = j - i;
+    if (runLen >= 3 && POLITE_ENDINGS.has(ending)) {
+      findings.push({
+        severity: 'MEDIUM',
+        rule: '15-1',
+        line: sentences[i].line,
+        endLine: sentences[j - 1].line,
+        message: `文末「〜${ending}。」が${runLen}文連続。語尾に変化をつけて単調さを避ける（§24）`,
+      });
+    }
+    i = j;
+  }
+}
+
 function lintFile(filePath) {
   const raw = readFileSync(filePath, 'utf8');
   const findings = [];
@@ -1501,6 +1640,9 @@ function lintFile(filePath) {
 
   // カテゴリ13: R8 予想問題 spoke の固定 3 ペルソナ統一（content-principles.md §21）
   lintR8SpokeFixedPersonas(lines, raw, filePath, findings);
+
+  // カテゴリ15: 文体（1文の長さ・文末の単調回避）（content-principles.md §24）
+  lintProseStyle(lines, findings);
 
   // 行番号を frontmatter 分シフト（ただし 0-1, 0-2 はファイル全体 or frontmatter の問題なので対象外）
   for (const f of findings) {
