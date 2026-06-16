@@ -21,6 +21,8 @@
     "note-edit-magazine": "node scripts/note-edit-magazine.mjs",
     "note-magazine-add": "node scripts/note-magazine-add-articles.mjs",
     "note-magazine-cover": "node scripts/note-magazine-cover.mjs",
+    "note-attach-file": "node scripts/note-attach-file.mjs",
+    "note-attach-magazine-pdfs": "node scripts/note-attach-magazine-pdfs.mjs",
     "note-meta-lint": "node scripts/note-meta-lint.mjs",
     "note-meta-to-txt": "node scripts/note-meta-to-txt.mjs",
     "note-lint": "node scripts/note-lint.mjs",
