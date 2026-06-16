@@ -66,19 +66,26 @@ for (let i = 0; i < runnable.length; i++) {
   const t = runnable[i];
   const tag = `[${i + 1}/${runnable.length}] ${t.year}/${t.type} ${t.noteId}`;
   if (doneSet.has(t.noteId)) { console.log(`${tag} … SKIP(done)`); skip++; continue; }
-  console.log(`${tag} … 添付`);
-  try {
-    const out = execFileSync('node', ['scripts/note-attach-file.mjs', '--note', t.noteId, '--file', t.pdf, '--commit'], { cwd: ROOT, encoding: 'utf8', timeout: 300000, stdio: ['ignore', 'pipe', 'pipe'] });
-    const tail = (out || '').trim().split('\n').slice(-4).join(' | ');
-    console.log(`    OK :: ${tail}`);
-    appendFileSync(LOG, `OK\t${t.noteId}\t${t.rel}\n`);
-    ok++;
-  } catch (e) {
-    const eo = ((e.stdout || '') + (e.stderr || '')).trim().split('\n').slice(-3).join(' | ');
-    console.error(`    FAIL :: ${eo}`);
-    appendFileSync(LOG, `FAIL\t${t.noteId}\t${t.rel}\t${eo.slice(0, 120)}\n`);
+  // transient（account ゲート・描画遅延）対策: 最大2回試行。per-article は冪等なので再試行安全。
+  let done = false, lastErr = '';
+  for (let attempt = 1; attempt <= 2 && !done; attempt++) {
+    console.log(`${tag} … 添付${attempt > 1 ? `(retry ${attempt})` : ''}`);
+    try {
+      const out = execFileSync('node', ['scripts/note-attach-file.mjs', '--note', t.noteId, '--file', t.pdf, '--commit'], { cwd: ROOT, encoding: 'utf8', timeout: 300000, stdio: ['ignore', 'pipe', 'pipe'] });
+      const tail = (out || '').trim().split('\n').slice(-4).join(' | ');
+      console.log(`    OK :: ${tail}`);
+      appendFileSync(LOG, `OK\t${t.noteId}\t${t.rel}\n`);
+      ok++; done = true;
+    } catch (e) {
+      lastErr = ((e.stdout || '') + (e.stderr || '')).trim().split('\n').slice(-3).join(' | ');
+      console.error(`    ${attempt < 2 ? 'WARN(retry)' : 'FAIL'} :: ${lastErr}`);
+      if (attempt < 2) await new Promise((r) => setTimeout(r, 8000));
+    }
+  }
+  if (!done) {
+    appendFileSync(LOG, `FAIL\t${t.noteId}\t${t.rel}\t${lastErr.slice(0, 120)}\n`);
     fail++;
-    console.error(`\n[停止] ${t.year}/${t.type} で失敗。原因確認後に再実行で再開します（done はスキップ）。`);
+    console.error(`\n[停止] ${t.year}/${t.type} で2回失敗。原因確認後に再実行で再開します（done はスキップ）。`);
     break;
   }
   await new Promise((r) => setTimeout(r, 12000)); // pacing

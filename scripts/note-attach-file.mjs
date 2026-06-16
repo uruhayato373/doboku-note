@@ -50,9 +50,11 @@ let exitCode = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
 
-  // account ゲート
-  await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 }); await sleep(2500);
-  if (!/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
+  // account ゲート（ページ描画の遅延に強い polling・偽 ABORT 防止）
+  await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });
+  let acct = false;
+  for (let i = 0; i < 10; i++) { await sleep(2000); if (/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { acct = true; break; } }
+  if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK');
 
   // エディタ
@@ -125,6 +127,18 @@ try {
   const area = page.getByRole('button', { name: '有料エリア設定' });
   if (!(await area.count())) { console.error('ABORT: 有料エリア設定 未検出'); await ctx.close(); process.exit(6); }
   await area.first().click(); await sleep(3500);
+  // 有料エリアビューの描画待ち（試験問題 h2 と ライン制御が両方出るまで・偽 NG 防止）
+  let viewReady = false;
+  for (let i = 0; i < 12; i++) {
+    viewReady = await page.evaluate(() => {
+      const hasH2 = Array.from(document.querySelectorAll('h2')).some((el) => /^(試験問題|予想問題)/.test((el.innerText || '').trim()));
+      const hasLine = /このラインより先を有料にする|ラインをこの場所に変更/.test(document.body.innerText || '');
+      return hasH2 && hasLine;
+    });
+    if (viewReady) break;
+    await sleep(1500);
+  }
+  console.log('[5b] 有料エリアビュー描画=' + viewReady);
   const t = await page.evaluate(() => {
     const all = Array.from(document.querySelectorAll('h2, button, [role=button]'));
     const isBar = (el) => /このラインより先を有料にする/.test(el.innerText || '');
