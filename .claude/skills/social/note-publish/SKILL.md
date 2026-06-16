@@ -32,6 +32,17 @@ node scripts/note-publish.mjs --article <article.md path> --commit # 実公開�
 - カバー/タグは記事と同じ年度dir の `img/cover-<type>.png` / `hashtags-<type>.txt` を自動解決（`article-II1.md` → `cover-II1.png`/`hashtags-II1.txt`。無ければ `cover.png`/`hashtags.txt`）。
 - 価格・有料/無料は frontmatter `notePricing`/`price`。`notePricing: paid` かつ `price>0` で有料設定。
 
+### マガジン一括（バッチ）
+
+1マガジン分（`article-*.md` 全部）の公開は **`note-publish-magazine`** を使う（1記事ずつ `note-publish --commit` を直列実行・**冪等**〔frontmatter に noteUrl あればskip〕・1記事最大2回試行・失敗で停止→再実行で再開・公開順 R03→R08-yosou × II1→II2→III）。公開前の単品価格揃えは **`note-price-sweep`**（frontmatter `price` を一括スイープ・既定 1980→500・CRLF保持）。
+
+```
+node scripts/note-price-sweep.mjs --dir <magazineDir> --commit          # Step1: 価格スイープ（→ pathspec commit）
+node scripts/note-publish-magazine.mjs --dir <magazineDir> --commit     # Step2: 18記事を直列公開（→ writeback を pathspec commit）
+```
+
+長尺（18記事≈25分）なので `run_in_background` ＋ article-1 watcher で早期検証推奨。BK マガジン公開の全体パイプライン（sweep→publish→create→cover→add→attach-pdf→SoT→verify→push）は [[project_pe_construction_bk_magazines]] が真実源。**PDF 添付（`note-attach-pdf`）は 1日100件のアップロード上限あり＝1日最大5マガジン**に注意（記事公開の画像 eyecatch は別枠）。
+
 ## 自動化される工程 / 手動の例外
 
 | 工程 | 自動 |
