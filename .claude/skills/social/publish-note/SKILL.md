@@ -205,7 +205,10 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 
 ## トラブルシューティング
 
-要素検索ヘルパー（`find_idx`）・実証済み要素パターン・clipboard paste 不発時の対処は **[references/troubleshooting.md](references/troubleshooting.md)**。既存公開記事の本文更新は **[references/update-mode.md](references/update-mode.md)**。
+要素検索ヘルパー（`find_idx`）・実証済み要素パターン・clipboard paste 不発時の対処は **[references/troubleshooting.md](references/troubleshooting.md)**。既存公開記事の更新は **[references/update-mode.md](references/update-mode.md)**。
+
+> [!warning]
+> **既存公開記事の更新で paste は使えない**（`/new` 専用。`notes/<id>/edit` では無音失敗）。追記は **type 方式**（URL は type で OGP カード化）、全面差し替えは **`/new` 作り直し**、空更新事故の復旧は **note の変更履歴**。「全消去→再 paste」は禁止（2026-06-16 空更新事故）。詳細は update-mode.md 冒頭の danger ブロック。
 
 ## 参照
 
