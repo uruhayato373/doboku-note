@@ -26,6 +26,9 @@ jobs:
       - name: Type Check
         run: npm run type-check
 
+      - name: Check homepage exam coverage
+        run: npm run check-home-exam-coverage
+
       - name: Unit Tests
         run: npm test
 
