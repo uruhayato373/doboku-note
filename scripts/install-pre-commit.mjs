@@ -65,6 +65,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# アフィリエイト A8 mat が SSOT 許可リスト(affiliate-mats.json)に存在するか検証（mat タイポ/未登録/失効の取りこぼし防止）
+node scripts/check-affiliate-mats.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # ポリシークラスタ（決定が複数文書に散在）の横展開もれリマインダ＋台帳 rot 検出（意味的ドリフトの再発防止）
 # クラスタ提示は advisory（exit 0）。台帳の files/anchor が実在しない場合のみ exit 1 でブロック。
 node scripts/check-policy-anchors.mjs --staged
