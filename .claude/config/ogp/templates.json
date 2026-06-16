@@ -7,7 +7,7 @@
       "category": "汎用統一",
       "backgroundImage": null,
       "promptSource": "Claude Design handoff 2026-04-29",
-      "notes": "doboku-note サイト OGP（1200×630）と note カバー（1280×670）の共通テンプレ。中央 630×630 セーフティゾーンを厳守。warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Mono タグスタイル。"
+      "notes": "doboku-note サイト OGP（1200×630）と cover: 無し note カバー（1280×670 フォールバック）の共通テンプレ。2026-06-16 全幅リデザイン: 中央 630 セーフゾーンを撤廃し全幅化、タイトル最大76px縦中央寄せ、資格別テーマ色16px外枠（色は note-cover-tokens.json と共用）、下部メタ/タグライン撤去。warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー。デザイン SSOT は docs/reference/ogp-prompts.md。"
     },
     "magazine-banner": {
       "name": "Magazine Banner（note ヘッダー対応）",

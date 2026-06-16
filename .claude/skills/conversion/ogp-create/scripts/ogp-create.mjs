@@ -44,6 +44,23 @@ const templatesConfig = require(path.join(process.cwd(), '.claude/config/ogp/tem
 const rulesConfig = require(path.join(process.cwd(), '.claude/config/ogp/rules.json'));
 const textConfig = require(path.join(process.cwd(), '.claude/config/ogp/text.json'));
 
+// 試験区分→テーマ色（外枠・チップ）。色の真実源は docs/design-system/note-cover-tokens.json (base)。
+// ここは category(フルslug) → exam キー(short) の対応のみを持つ（色は重複させない）。
+const coverTokens = require(path.join(process.cwd(), 'docs/design-system/note-cover-tokens.json'));
+const CATEGORY_TO_EXAM_KEY = {
+  'pe-comprehensive-management': 'pe-comprehensive',
+  'civil-construction-1': 'civil-1',
+  'civil-construction-2': 'civil-2',
+  'concrete-chief-engineer': 'concrete-chief',
+  'concrete-diagnostician': 'concrete-diagnosis',
+  'pe-construction': 'pe-construction',
+  'pe-first-stage': 'pe-comprehensive',
+};
+function resolveAccentColor(category) {
+  const key = CATEGORY_TO_EXAM_KEY[category];
+  return coverTokens.exams?.[key]?.base || null;
+}
+
 import { renderTemplate, LAYOUT_CONSTANTS } from './lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from './lib/ogp-text.mjs';
 
@@ -216,12 +233,14 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
 
   const categoryLabel = categories.find(c => c.slug === data.category)?.label || '';
   const backgroundImage = loadBackgroundImage(templateDef);
+  const accentColor = resolveAccentColor(data.category);
 
   const element = renderTemplate(templateId, {
     lines,
     categoryLabel,
     fontSize,
     backgroundImage,
+    accentColor,
     debugSafety: args.debugSafety,
   });
 
