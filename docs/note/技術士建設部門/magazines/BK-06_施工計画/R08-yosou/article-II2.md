@@ -9,7 +9,7 @@ theme: "i-Construction 2.0・建設DX施工計画"
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 500
 coverTitle: "技術士 建設部門｜施工計画、施工設備及び積算 R8予想 選択科目II-2 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
