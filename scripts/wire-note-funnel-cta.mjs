@@ -70,7 +70,9 @@ for (const adir of articleDirs) {
   let body = raw.slice(m[0].length);
   const actions = [];
 
-  if (ex.topCta.text && !body.includes(ex.topCta.marker)) {
+  // ナビ/入口記事は冒頭パック CTA を付けない（無料→有料の導線思想に反するため）
+  const topExcluded = (ex.topCtaExcludeDirs || []).some(x => d.name === x || d.name.endsWith('/' + x));
+  if (ex.topCta.text && !topExcluded && !body.includes(ex.topCta.marker)) {
     const h2 = body.search(/^##\s/m);
     if (h2 >= 0) { body = body.slice(0, h2) + ex.topCta.text + '\n\n' + body.slice(h2); actions.push('TOP'); topN++; }
     else { actions.push('TOP-skip(noH2)'); skipTop++; }

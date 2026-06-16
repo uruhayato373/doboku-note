@@ -84,8 +84,10 @@ for (const [key, ex] of Object.entries(CONFIG.exams)) {
     const url = fm(raw, 'noteUrl');
     if (!url || url === 'TBD') continue; // 未公開は対象外
     const name = adir.slice(baseDir.length + 1) || adir;
+    // ナビ/入口記事は冒頭パック CTA を意図的に付けない（topCtaExcludeDirs）
+    const topExcluded = (ex.topCtaExcludeDirs || []).some(x => name === x || name.endsWith('/' + x));
     const miss = [];
-    if (ex.topCta.text && !raw.includes(ex.topCta.marker)) miss.push('冒頭');
+    if (ex.topCta.text && !topExcluded && !raw.includes(ex.topCta.marker)) miss.push('冒頭');
     if (ex.bottomCta.text && !raw.includes(ex.bottomCta.marker)) miss.push('末尾');
     if (miss.length) drifts.push(`D1 [${key}] 公開記事「${name}」に ${miss.join('・')} CTA 欠落`);
   }

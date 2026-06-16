@@ -12,6 +12,7 @@
       "articleGlob": "docs/note/技術士総監",
       "excludeDirs": ["総監もくじ"],
       "magazineExamMatch": ["総監", "5管理", "設問", "tradeoff", "essay-", "tankan", "r8-essay", "setsumon"],
+      "topCtaExcludeDirs": ["総監R08合格ロードマップ"],
       "L2": {
         "noteId": "n3ed4c77ceed6",
         "title": "総監もくじ",
