@@ -519,7 +519,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想6テーマ（各A/B案2バージョン）の全11記事。必須科目I を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-i-required-cover.webp',
-    price: '¥3,480（11記事セット・単品¥500）',
+    price: '¥3,480（11記事セット・単品¥780、約59%OFF）',
     badge: 'note 限定',
   },
 
@@ -534,7 +534,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想 全24記事（予想は II-2・III を各4テーマ網羅）。道路科目 合格者＋発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-01-road-cover.webp',
-    price: '¥3,480（24記事セット・単品¥500、約71%OFF）',
+    price: '¥3,480（24記事セット・単品¥780、約81%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-river-coast-magazine': {
@@ -548,7 +548,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想の II-1/II-2/III 全18記事。河川・砂防・海岸を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-02-river-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-urban-planning-magazine': {
@@ -562,7 +562,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       'R03〜R07＋R8予想 の II-1/II-2/III 全18記事。都市計画・まちづくりを発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-03-urban-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-geotechnical-magazine': {
@@ -575,7 +575,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜土質基礎 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。土質・基礎を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-04-geotech-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3、単品¥500）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-steel-concrete-magazine': {
@@ -588,7 +588,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜鋼コン 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。鋼構造・コンクリートを発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-05-steel-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3、単品¥500）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-construction-planning-magazine': {
@@ -601,7 +601,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜施工計画 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。施工計画・積算を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-06-construction-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3、単品¥500）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-environment-magazine': {
@@ -614,7 +614,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜建設環境 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。建設環境を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-07-environment-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3、単品¥500）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-port-airport-magazine': {
@@ -627,7 +627,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜港湾空港 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。港湾・空港を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-08-port-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3、単品¥500）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-power-civil-magazine': {
@@ -640,7 +640,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜電力土木 模範解答集',
     shortDescription: 'R03〜R07 全15記事。電力土木を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-09-power-cover.webp',
-    price: '¥1,980（15記事セット・単品¥500）',
+    price: '¥1,980（15記事セット・単品¥780、約83%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-railway-magazine': {
@@ -653,7 +653,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜鉄道 模範解答集',
     shortDescription: 'R03〜R07 全15記事。鉄道を発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-10-railway-cover.webp',
-    price: '¥1,980（15記事セット・単品¥500）',
+    price: '¥1,980（15記事セット・単品¥780、約83%OFF）',
     badge: 'note 限定',
   },
   'pe-construction-tunnel-magazine': {
@@ -666,7 +666,7 @@ const MAGAZINES_RAW = {
     shortTitle: '建設部門2次｜トンネル 模範解答集',
     shortDescription: 'R03〜R07＋R8予想 全18記事。トンネルを発注者視点でフル解答。',
     imageUrl: '/images/magazines/pe-construction-bk-11-tunnel-cover.webp',
-    price: '¥2,980（18記事セット・過去問15＋R8予想3、単品¥500）',
+    price: '¥2,980（18記事セット・単品¥780、約79%OFF）',
     badge: 'note 限定',
   },
 } as const satisfies Record<string, NoteMagazine>;

@@ -45,7 +45,7 @@
 3. **事実照合**: `pe-secondary-exam-factcheck` を3記事に起動（WebSearch接地）。`must_fix`（likely_wrong）は writer に**該当箇所のみ**修正させ**再照合して0**にする。`blocked_no_websearch` が返ったら**この科目を止めて報告**（環境不備）。
 4. **6軸採点**: `pe-secondary-exam-qa` を3記事に起動（forecast）。平均≥2.0かつ必須ゲート全通過まで修正ループ。軸6が弱ければ三側面/文化的価値/データ活用/合意形成を締めに加筆（字数上限内）。
 5. **梱包**: カバー（`generate-note-covers.mjs "{dir}"`）／ハッシュタグ3（過去問同型 or 近縁科目の hashtags を土台に年度タグを `#令和8年度`/`#R08予想`/`#予想問題`/`#出題予想`/`#試験直前対策` へ差し替え＋区分テーマ、1行1個~90）／PDF（一時spec・予想問題レンジ。Chrome無ならスキップ明示＋永続spec `scripts/pdf-specs/{dir}.json` 新規作成）。
-6. **SoT**: `note-magazines.ts` に `pe-construction-{subject}-magazine`（**published:false**）を新規登録。**予想3記事のみ構成**なので price は確定せず暫定（例 `'予想3記事（単品¥500）'`）にし、本文・note掲載文に確定価格を書かない（価格はユーザー判断）。`note掲載文.txt`（4セクション＋機械用ブロックは価格未確定なら省略可）。
+6. **SoT**: `note-magazines.ts` に `pe-construction-{subject}-magazine`（**published:false**）を新規登録。**予想3記事のみ構成**なので price は確定せず暫定（例 `'予想3記事（単品¥780）'`）にし、本文・note掲載文に確定価格を書かない（価格はユーザー判断）。`note掲載文.txt`（4セクション＋機械用ブロックは価格未確定なら省略可）。
 7. **commit（pathspec厳守）**: `git commit -- <dir> <note掲載文> <pdf-spec> src/lib/note-magazines.ts`。**`git add`＋bare commit は禁止**（並行index巻き込み）。pre-commit（note-lint/check-sns-urls）通過を確認。
 8. **科目完了を1行で報告** → 次の科目へ。
 
