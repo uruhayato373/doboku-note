@@ -6,9 +6,9 @@ subject: geotechnical
 exam_type: II-2
 forecast: true
 theme: "軟弱地盤改良と近接施工の地盤対策"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n9f997f0c4ac7"
+noteId: "n9f997f0c4ac7"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜土質及び基礎 R8予想 選択科目II-2 模範解答"
 cover:

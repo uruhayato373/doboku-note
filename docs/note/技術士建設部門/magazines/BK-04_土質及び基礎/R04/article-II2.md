@@ -4,9 +4,9 @@ noteMagazine: BK-04
 year: R04
 subject: geotechnical
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n96b3bd56aeeb"
+noteId: "n96b3bd56aeeb"
+notePublishedAt: "2026-06-16"
 price: 500
 coverTitle: "技術士 建設部門｜土質及び基礎 R04 選択科目II-2 模範解答"
 cover:
