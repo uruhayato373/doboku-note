@@ -86,10 +86,12 @@ try {
   if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK (dobokunote)');
 
-  // 2. 新規エディタ（/new が空ドラフトを生成）
+  // 2. 新規エディタ（/new が空ドラフトを生成・描画遅延に強い polling）
   await page.goto('https://editor.note.com/new', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  await sleep(5000);
-  if (!(await page.evaluate(() => !!document.querySelector('[contenteditable=true]')))) { console.error('ABORT: editor not loaded'); await ctx.close(); process.exit(3); }
+  await sleep(3000);
+  try { await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }); }
+  catch { console.error('ABORT: editor not loaded'); await ctx.close(); process.exit(3); }
+  await sleep(2000);
   const draftUrl = page.url();
   console.log('[2] editor:', draftUrl);
 
