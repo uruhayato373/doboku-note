@@ -251,13 +251,18 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
-  // 4. r0X-secondary (年度別 記述式問題ページ) → 全ペルソナ模範論文 + R07 のみ r8-forecast 強化 (年度ハブ、強 CTA)
+  // 4. r0X-secondary (年度別 記述式問題ページ) → ペルソナ導線は記事内 <PersonaSelector> に一本化。
+  //    記事外は非重複の横断CTA（R07のみ R8予想問題集 → 完全パック → コアパック）+ 精読サイドバー。
+  //    旧実装は ALL_PERSONA_MAGAZINES を記事下に全列挙していたが、記事内 PersonaSelector（厳選3）と
+  //    二重表示（記事下=公開済14ペルソナ）になり過剰だったため 2026-06-16 撤去（ユーザー判断:
+  //    「解答ペルソナ導線は記事内のシンプルリンクに統一」）。ペルソナ単品 CTA は記事内 PersonaSelector が担う。
   const secondaryMatch = slug.match(/^pe-comprehensive-management-r(0[1-9])-secondary$/);
   if (secondaryMatch) {
     const isR07 = secondaryMatch[1] === '07';
-    const inline: PlacementSlot[] = ALL_PERSONA_MAGAZINES.map((m, i) =>
-      slot(m, slug, `inline-${i + 1}`),
-    );
+    const inline: PlacementSlot[] = [
+      slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
+      slot(NEW_MAGAZINES.corePack, slug, 'inline-2'),
+    ];
     if (isR07) {
       inline.unshift(slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-r8'));
     }
