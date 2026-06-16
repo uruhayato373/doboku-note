@@ -74,7 +74,7 @@ user-invocable: true
 ### publish — note 公開前ゲート
 
 1. `/note-prepublish-review` を実行（記事個別の note 互換・字数・構造）
-2. **総監模範論文ペルソナ別マガジン**（`総監模範論文-{persona}`）の公開品質化は `docs/reference/note-essay-review-checklist.md` の Step 0〜6f ＋ 横展開ランブックを全 PASS させる（**新規ペルソナ＝R03-R07 evergreen のみ／per-persona R8予想（`R08-yosou-*`）は作らない＝決定2026**〔R8 は横断「R8予想問題集」に集約〕・各施策600字・`note掲載文.txt` 作成・セット価格を `note-magazines.ts` へ・**`_meta.yaml` は作らない**）
+2. **総監模範論文ペルソナ別マガジン**（`総監模範論文-{persona}`）の公開品質化は `docs/reference/note-essay-review-checklist.md` の Step 0〜6f ＋ 横展開ランブックを全 PASS させる（**全ペルソナ＝R03-R07 ＋ R8予想2記事（`R08-yosou-1`/`-2`）を作成＝2026-06-16 方針転換**〔旧「per-persona R8予想は作らない＝決定2026」を撤回。真実源→`総監マガジン構成_決定2026.md` 2026-06-16追補。横断「R8予想問題集」はフラッグシップとして併存・全記事パックのR8二重は受容〕・各施策600字・`note掲載文.txt` 作成・セット価格を `note-magazines.ts` へ・**`_meta.yaml` は作らない**）
 3. 大規模な記事公開は `docs/reference/note-publish-enhancement.md` の B0〜B9 工程に従う
 
 ### page — doboku-note 記述式ページの整備（①）
@@ -136,7 +136,7 @@ draft → needs-review → verified → approved
 - `.claude/skills/social/pe-note-plan/SKILL.md` — ④ note 有料記事 企画
 - `.claude/skills/quality/quality-cycle/SKILL.md` — キーワード/教科書版の品質サイクル（本スキルの設計元）
 - `.claude/skills/quality/note-prepublish-review/SKILL.md` — note 公開前ゲート
-- `docs/reference/note-essay-review-checklist.md` — **総監模範論文ペルソナ別マガジンの公開品質化 SoT**（Step 0〜6f・新規＝R03-R07 evergreen のみ/per-persona R8予想は作らない＝決定2026・note掲載文.txt・価格・_meta.yaml 廃止）
+- `docs/reference/note-essay-review-checklist.md` — **総監模範論文ペルソナ別マガジンの公開品質化 SoT**（Step 0〜6f・全ペルソナ＝R03-R07＋R8予想2記事を作成＝2026-06-16 方針転換〔旧「per-persona R8予想は作らない＝決定2026」撤回〕・note掲載文.txt・価格・_meta.yaml 廃止）
 - `docs/note/技術士総監/総監マガジン構成_決定2026.md` — **マガジン構成の上位決定（ADR）**。R8予想＝横断「R8予想問題集」に一本化／ペルソナ模範論文＝過去問evergreen純化（per-persona R8予想を作らない根拠）
 - `docs/reference/note-publish-enhancement.md` — note 公開引き上げ 10 工程
 - `CLAUDE.md` ハーネス設計原則 — Generator/Evaluator 分離
