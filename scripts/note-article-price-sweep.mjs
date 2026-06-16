@@ -90,11 +90,19 @@ if (MAGAZINES_ARG) {
   // note-magazines.ts から id パターンでフィルタ
   const tsPath = join(ROOT, 'src/lib/note-magazines.ts');
   const ts = readFileSync(tsPath, 'utf-8');
-  // 簡易パース: 'id': { ... noteUrl: 'https://note.com/.../m/KEY' ... published: true }
-  const re = new RegExp(`'(${PATTERN}[^']*)':\\s*\\{[^}]*noteUrl:\\s*['"]https://note\\.com/[^/]+/m/([a-z0-9]+)['"][^}]*published:\\s*true`, 'g');
+  // 各エントリを抽出（'key': { ... }, の形式）
+  const entryRe = new RegExp(`'(${PATTERN}[^']*)':\\s*\\{([^}]+)\\}`, 'g');
   let m;
-  while ((m = re.exec(ts))) {
-    magazineKeys.push(m[2]);
+  while ((m = entryRe.exec(ts))) {
+    const id = m[1];
+    const body = m[2];
+    // published: true と noteUrl 両方があるか確認
+    const hasPublished = /published:\s*true/.test(body);
+    const noteUrlMatch = body.match(/noteUrl:\s*['"]https:\/\/note\.com\/[^/]+\/m\/([a-z0-9]+)['"]/);
+    if (hasPublished && noteUrlMatch) {
+      magazineKeys.push(noteUrlMatch[1]);
+      console.log(`  ✓ ${id} → ${noteUrlMatch[1]}`);
+    }
   }
   console.log(`[pattern] "${PATTERN}" にマッチ: ${magazineKeys.length} マガジン`);
 }
