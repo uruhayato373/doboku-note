@@ -270,8 +270,8 @@ async function main() {
       const qTmp = join(packTmp, `q${q}`);
       mkdirSync(qTmp, { recursive: true });
 
-      // cover PNG（論点表示・IGチャームなし）
-      const coverSvg = renderExamCoverIg({ exam: coverExam, tag: '過去問', year: yearLabel(year), fmtLabel, format: 'reels', hidePage: true, showCta: false, topic });
+      // cover PNG（管理分野を主役・論点表示・IGチャームなし）
+      const coverSvg = renderExamCoverIg({ exam: coverExam, tag: '過去問', year: yearLabel(year), fmtLabel, format: 'reels', hidePage: true, showCta: false, topic, management: meta.management || null });
       const coverPng = join(qTmp, 'cover.png');
       writeFileSync(coverPng, await svgToPng(coverSvg, { width: W }));
       const coverMp4 = join(qTmp, 'cover.mp4');

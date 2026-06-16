@@ -103,8 +103,10 @@ for (const it of items) {
   const slideData = JSON.parse(readFileSync(slideFile, 'utf8'));
 
   const topic = topicFromTitle(it.title);
-  const management = managementFromSlides(slideData.slides);
-  const fmtLabel = management ? `技術士総監｜${management}` : '技術士総監';
+  // 管理分野キー（_meta.management が真実源。スライド埋め込みは fallback）
+  const management = slideData._meta?.management || managementFromSlides(slideData.slides) || null;
+  // 管理分野はカバー主役に表示するため、形式ラベルは年度横の従属表示のみに簡素化
+  const fmtLabel = '択一式 過去問';
   const coverExam = '技術士総監';
 
   try {
@@ -117,6 +119,7 @@ for (const it of items) {
       hidePage: true,
       showCta: false,
       topic,
+      management,
     });
     const png = await svgToPng(coverSvg, { width: W });
     await s3.send(new PutObjectCommand({ Bucket: BUCKET, Key: thumbKey, Body: png, ContentType: 'image/png' }));
