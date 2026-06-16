@@ -2,10 +2,10 @@
 notePricing: free
 noteSeries: 総合案内
 utmCampaign: 100-content-index
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
-noteStatus: draft
+noteUrl: "https://note.com/dobokunote/n/n296a88f64ac2"
+noteId: "n296a88f64ac2"
+notePublishedAt: "2026-06-16"
+noteStatus: published
 coverTitle:
   - doboku-note
   - コンテンツ総合案内
