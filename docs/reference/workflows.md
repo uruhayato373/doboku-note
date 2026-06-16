@@ -108,6 +108,8 @@ title: 推奨ワークフロー
 
 オンデマンド分析が必要な時は `/psi-audit` スキルで `performance-auditor` エージェントを呼び、`.claude/state/improvements/psi-{YYYY-MM-DD}.md` に詳細レポートを出す。
 
+週次レビューでは **`npm run audit-note-funnel`** も回し、note 導線のドリフト（公開記事の CTA 欠落・公開マガジンの L2 もくじ未収録・L2 の L1 未リンク）を surface する。意味的レビューは `/audit-note-funnel --semantic`（`note-funnel-auditor`）。真実源は [note-funnel-architecture.md](note-funnel-architecture.md)。
+
 ---
 
 ## PDF→MDX 変換フロー

@@ -136,6 +136,7 @@ title: スキル ガバナンス記録
 
 | 更新日 | スキル | バージョン | 変更概要 |
 |---|---|---|---|
+| 2026-06-16 | `social/audit-note-funnel` | （新設） | note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）の監査・修復スキルを新設。場当たりだった note CTA 設計を SSOT 化（真実源 `docs/reference/note-funnel-architecture.md`＋機械可読 `.claude/config/note-funnel.json`）。`scripts/audit-note-funnel.mjs`（D1 公開記事CTA欠落 / D2 マガジンL2未収録 / D3 L2のL1未リンク / D4 URL不一致）・`scripts/wire-note-funnel-cta.mjs`（冪等配線）・CI ゲート `check-note-funnel`（r2-audit.yml）・Evaluator エージェント `note-funnel-auditor`（意味監査）を同時新設。総監で L1/L2/L3 を実装（L1=n296a88f64ac2 / L2=n3ed4c77ceed6 / 30記事配線）、建設部門・土木の L2 は未構築 |
 | 2026-06-12 | `note-prepublish-review` | （機能追加） | Phase 1 に note 品質3ゲートを追加。**4d マガジンCTA形式**（`check-note-magazine-cta.mjs`＝markdown リンク形式のマガジンURL・URL同一行の価格¥を BLOCK、§14-c）／**4e 3点セット**（`check-note-3set.mjs --require`＝cover.png+hashtags.txt を無条件 BLOCK、§14-d。hashtags 存在を WARN→BLOCK 昇格）／**4f 段落長**（`reflow-note-paragraphs.mjs --dry`＝>120字段落を WARN、§14-e）。4d/4e は `note-lint.mjs`（pre-commit）にも配線（公開状態キー）。建設部門入口16本の旧¥1,980 CTA すり抜け・公開済2本の hashtags 欠落・185/402段落 120字超 の再発防止 |
 | 2026-05-20 | `pe-essay-review` | v1.1 → v1.2 | 横断チェック観点（数値一致・フレーム語句・施策構造）を追記 |
 | 2026-05-20 | `pe-essay-draft` | v1.2 → v1.3 | 必須ルール「設問3はペルソナ一貫性の例外＝国家スケール」を追加（R07 模範論文の設問3が業界内に閉じていた欠陥を修正）。設問制約リストにスコープ／視点要件の抽出を追加 |
