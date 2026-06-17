@@ -141,7 +141,8 @@ docs/textbook/経営学/経営学.pdf
 docs/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf
 docs/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf
 
-# IG Reels 中間ファイル（コミットするのは reels/video.mp4 + script.txt のみ）
+# IG Reels 中間ファイル（reels/ でコミットするのは script.txt + caption.txt のみ。
+# wav/mp4/中間物は全て再生成可能で R2 退避対象＝upload-sns-r2 / sns-archive-policy.md）
 docs/sns/instagram/**/reels/wav/
 docs/sns/instagram/**/reels/slide-*.mp4
 docs/sns/instagram/**/reels/_combined.mp4

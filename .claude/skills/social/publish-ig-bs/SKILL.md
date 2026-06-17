@@ -126,7 +126,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 - 2 種のリールを扱える（どちらも `<dir>/video.mp4` + `<dir>/caption.txt` フォールバックで読む）:
   - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。生成は `ig-reel-create`。
   - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
-- **動画は git に持たない（JIT）**: mp4 は再生成可能な派生物で gitignore（SoT は slide-data + reels/wav）。**`video.mp4` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4削除）が1コマンド化。
+- **動画・音声は git に持たない（JIT）**: mp4・wav は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は R2 退避＝`upload-sns-r2`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4削除）が1コマンド化。
 - 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡）。
 
 ### リールフローの実測（カルーセルとの差分）

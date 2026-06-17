@@ -26,8 +26,13 @@
 
 `docs/ig-posts/` は削除済み（2026-05-14）。Instagram 投稿は `docs/sns/instagram/` に統一。
 
+## バイナリ容量管理（R2 退避）
+
+reels の wav/mp4 等の再生成可能バイナリは git に溜め込まず R2 へ退避する。判定は `sns-archive-auditor` エージェント、実行は `npm run upload-sns-r2`。詳細・3層モデル・安全不変条件は `docs/reference/sns-archive-policy.md`。
+
 ## 関連ポリシー
 
 - 画像仕様: `docs/reference/sns-image-policy.md`
+- バイナリ退避運用: `docs/reference/sns-archive-policy.md`
 - SNS 集客戦略: `docs/project/03_SNS/01_SNS集客戦略.md`
 - 5 チャネル動線設計: `docs/project/03_SNS/02_チャネル動線設計.md`

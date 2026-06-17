@@ -17,6 +17,11 @@
 
 > [!important] 真実源は slide-data.json
 > 1 パックの「消えたら困る本体」は約 20KB のテキスト（slide-data.json + script/caption + status.json）だけ。wav/mp4/png は全て再生成できる。退避で wav/mp4 を消しても、最悪 JIT 再生成で復元できる。
+>
+> 旧運用（2026-06-09）は wav を「コミットする SoT」としていたが、2026-06-18 に wav も R2 退避へ統一した（git 肥大 596MB が大きく、gitignore と矛盾していたため）。経緯は `skills-registry.md` の 2026-06-18 エントリ。
+
+> [!warning] wav は JIT 動画の入力でもある
+> `reels/wav` は `publish-reel-jit.mjs` / `per-problem-shorts.mjs` の**入力素材**（解答/CTA ナレ）。R2 退避してローカル削除すると、その pack の動画 JIT 生成・流用は wav を **R2 から取得するか VOICEVOX で再生成**（script.txt から）してからになる。よって**まだ全リール（フル + reels-pp 各問）を投稿し切っていない pack は `--purge-local` しない**。`sns-archive-auditor` の「迷ったら KEEP/BLOCK」と `--posted-only` がこの早すぎる削除を防ぐ。
 
 ## 3 層モデル
 

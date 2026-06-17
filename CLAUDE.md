@@ -50,6 +50,7 @@ npm run type-check        # TypeScript チェック
 npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags）
 npm run generate-webp     # png/jpg → webp 変換
 npm run upload-images-r2  # 画像を R2 にアップロード
+npm run upload-sns-r2     # SNS バイナリ(reels wav/mp4)を R2 へ退避（--purge-local でローカル削除）
 npm run lint              # ESLint チェック
 npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 ```

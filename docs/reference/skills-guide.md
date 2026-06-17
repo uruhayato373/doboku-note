@@ -94,6 +94,7 @@ title: スキル ナビゲーションガイド
 | `/create-skill` | スキル作成ガイド | `スキルを作りたい`, `/create-skill` |
 | `/sync-r2-images` | R2 画像のローカル同期 | `R2同期`, `/sync-r2-images` |
 | `/diff-r2` | ローカル ↔ R2 の双方向差分検出 | `R2差分`, `/diff-r2` |
+| `npm run upload-sns-r2` + `sns-archive-auditor` エージェント | docs/sns の reels wav/mp4 等を R2 へ退避（容量削減）。`sns-archive-auditor` が SoT 無傷＝再生成可否で OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK を判定→`--purge-local` は R2 バイト一致検証後のみ削除。真実源 `sns-archive-policy.md` | `SNS容量削減`, `wav/mp4退避`, `投稿済みパック退避` |
 | `/monitor` | バックグラウンド監視 | `監視`, `/monitor` |
 | `/zenn-audit` | Zenn 本番 CSS との差分検出 | `Zenn差分`, `/zenn-audit` |
 | `/doc-sync` | コード/設定変更 diff × 候補 doc を `doc-sync-auditor` で突合し prose 陳腐化を検出→適用（機械ガード check-doc-refs/coupling の意味的な補完） | `ドキュメント同期`, `doc同期`, `仕様ズレ確認`, `/doc-sync` |
@@ -151,7 +152,7 @@ title: スキル ナビゲーションガイド
 2. `/ig-reel-create --exam {pack-id}` — カルーセル PNG → 全4問フル Reels mp4（VOICEVOX + ffmpeg、≈90-145秒）
    - **短い「1問1リール」が欲しいとき**: `node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs --ig-mode --year {r07} --pack {r07-pack-01} [--questions 1,2]` → `reels-pp/q<N>/{video.mp4,caption.txt}`（≈36-45秒・チャーム無し・論点 caption）
 3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `--now`。Graph API 経路は 2026-06-17 全廃）
-   - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4 は gitignore（SoT は slide-data + reels/wav）
+   - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4・wav は gitignore（コミットは slide-data + script.txt + caption.txt、wav は R2 退避＝upload-sns-r2／再生成可）
 4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
 5. `/create-x-card` — X 投稿カード作成（`/publish-x` 自動投稿は 2026-06-12 凍結を受け当面停止 → 投稿は人手。skills-guide §69 / policy §11）
 

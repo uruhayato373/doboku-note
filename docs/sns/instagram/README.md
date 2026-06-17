@@ -29,7 +29,7 @@ docs/sns/instagram/<slug>/
 ├── slide-data.json            # cover / board / cta 構成データ（ig-carousel-writer or 人手）
 ├── caption.txt                # generate-caption.cjs で生成（publish-ig-bs が読む）
 ├── carousel/img/*.png         # 4:5 投稿画像（2〜10 枚）
-└── reels/                     # リール素材（mp4 は JIT 生成・gitignore、SoT は slide-data + reels/wav）
+└── reels/                     # リール素材（mp4・wav は gitignore＝再生成可/R2退避、コミットは script.txt + caption.txt）
 ```
 
 ## 素材生成スクリプト（残置）
