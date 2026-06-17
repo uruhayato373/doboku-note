@@ -24,7 +24,8 @@
  *   別枠。PDF 添付の上限管理は note-attach-magazine-pdfs / note-attach-pdf を参照。
  * ---------------------------------------------------------------------------
  */
-import { readFileSync, existsSync, appendFileSync, globSync } from 'node:fs';
+import { readFileSync, existsSync, appendFileSync } from 'node:fs';
+import * as nodeFs from 'node:fs'; // globSync は Node 22+ のみ。--dir 経路でだけ参照（--list は不要）
 import { execFileSync } from 'node:child_process';
 import { join, dirname, basename } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -63,7 +64,8 @@ if (LIST) {
 } else {
   const abs = join(ROOT, DIR);
   if (!existsSync(abs)) { console.error('dir not found: ' + abs); process.exit(1); }
-  files = globSync(`${abs.replace(/\\/g, '/')}/**/${PATTERN}`).sort();
+  if (typeof nodeFs.globSync !== 'function') { console.error('--dir は Node 22+（fs.globSync）が必要。Node 20 では --list を使うこと'); process.exit(1); }
+  files = nodeFs.globSync(`${abs.replace(/\\/g, '/')}/**/${PATTERN}`).sort();
   srcLabel = DIR;
 }
 const rel = (f) => f.replace(/\\/g, '/').replace(ROOT.replace(/\\/g, '/') + '/', '');
