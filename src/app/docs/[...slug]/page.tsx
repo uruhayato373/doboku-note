@@ -86,7 +86,6 @@ function CivilSatProductCTA() {
           data-cta-label="SAT-end"
           className="block"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={SAT_DOBOKU_PRODUCT.imageSrc}
             alt={SAT_DOBOKU_PRODUCT.alt}
@@ -95,7 +94,6 @@ function CivilSatProductCTA() {
           />
         </a>
       </div>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={SAT_DOBOKU_PRODUCT.pixelSrc}
         width={1}

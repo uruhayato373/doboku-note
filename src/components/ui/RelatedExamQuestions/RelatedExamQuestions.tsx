@@ -52,14 +52,15 @@ function yearLabel(year: string): string {
 export default function RelatedExamQuestions({ pillar }: RelatedExamQuestionsProps) {
   const data = pillarExamData as PillarExamData;
   const entry = data.pillars[pillar];
-  if (!entry || entry.by_year.length === 0) return null;
 
   // 最新年度のみ初期展開（残りは折りたたみ）
   const [openYears, setOpenYears] = useState<Set<string>>(() => {
     const initial = new Set<string>();
-    if (entry.by_year[0]) initial.add(entry.by_year[0].year);
+    if (entry && entry.by_year[0]) initial.add(entry.by_year[0].year);
     return initial;
   });
+
+  if (!entry || entry.by_year.length === 0) return null;
 
   const toggleYear = (year: string) => {
     setOpenYears((prev) => {

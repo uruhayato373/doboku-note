@@ -110,7 +110,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
 
   // 1) 過去問→教材インデックスを優先
   const indexed = rankByIndex(currentMeta.slug, category);
-  let entries: { slug: string; title: string; description?: string }[] = [];
+  let entries: { slug: string; title: string; description?: string }[];
 
   if (indexed.length > 0) {
     // index のショート slug をフル slug に変換し、description も取得

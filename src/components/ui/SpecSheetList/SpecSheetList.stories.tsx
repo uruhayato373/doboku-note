@@ -27,7 +27,7 @@ const meta: Meta<typeof SpecSheetList> = {
     },
     className: { description: "追加のCSSクラス", control: "text" },
   },
-  decorators: [(Story) => <div className="max-w-2xl">{/* @ts-ignore */}<Story /></div>],
+  decorators: [(Story) => <div className="max-w-2xl">{/* @ts-expect-error - React 19 types compatibility in storybook decoration */}<Story /></div>],
 };
 
 export default meta;

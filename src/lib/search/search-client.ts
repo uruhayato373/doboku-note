@@ -50,7 +50,7 @@ let pf: PagefindModule | null = null;
 async function getPagefind(): Promise<PagefindModule> {
   if (pf) return pf;
   try {
-    // @ts-ignore - pagefind runtime is served from /pagefind/ at run time only
+    // @ts-expect-error - pagefind runtime is served from /pagefind/ at run time only
     pf = await import(/* webpackIgnore: true */ /* turbopackIgnore: true */ "/pagefind/pagefind.js");
     await pf!.init();
     return pf!;
