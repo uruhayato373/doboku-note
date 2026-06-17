@@ -22,7 +22,8 @@
 > - 追加修正: `scripts/note-publish-magazine.mjs` の `globSync`（Node 22+ 専用）を遅延化し Node 20 で `--list` 経路を起動可能に（commit `d62e76522`）。
 > - commit: `d62e76522`（スクリプト互換修正）/ `646dd504f`（16本 frontmatter 反映）。**未 push**（要判断）。
 >
-> **残作業の更新**: 下記「残作業」#1-2 は完了。**#3-5（もくじ無料セクションのリンク化 → もくじ再公開 → `audit-note-funnel`）は記事が live になってから**（先頭 06-17 21:00、全件 06-18 12:00 以降）。
+> **残作業の更新（2026-06-18 追記）**: #1-2 完了。**#3 もくじ無料セクションのリンク化＝完了**（16本の noteUrl を markdownリンク化・note-lint OK・CRLF/文字化けなし）。**#5 `audit-note-funnel`＝完了（ドリフトなし）**。
+> **残るは #4 もくじ再公開のみ**：編集済みの `建設部門もくじ`（有料12本＋無料16リンク）を live note (n7279ca0d926f) に反映する更新。**全16本が live になる 06-18 12:00 JST 以降に実施**（先行更新だと未公開記事リンクが一時404）。公開済み記事の更新は note-publish.mjs（/new専用）では不可＝browser-use update-mode か手動。
 > minor: 各 frontmatter の `noteStatus: draft` は writeBack 非対象フィールドのため残置（予約投稿に無影響）。
 
 ## このセッションのコミット（develop, push 済み）

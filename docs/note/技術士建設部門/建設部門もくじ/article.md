@@ -53,35 +53,35 @@ cover:
 
 建設部門 二次の対策を、無料記事で目的別にまとめています。記事は順次 note で公開し、本もくじから案内します。
 
-<!-- 無料記事リスト(16本): note 公開時に各記事タイトルを note URL でリンク化（未公開の間はプレーン表記）。必須Iの論点はA系統「〜の論点」6テーマを採用。B系統「〜の論点キーワード」6本（社会資本整備/持続可能な地域づくり/インフラ維持管理・更新/防災・減災/担い手・DX/低炭素・環境保全）は未公開hold（将来マージ候補）。 -->
+<!-- 無料記事リスト(16本): 2026-06-17 予約投稿設定済み→note URL でリンク化（markdownリンク・index書式）。必須Iの論点はA系統「〜の論点」6テーマを採用。B系統「〜の論点キーワード」6本は未公開hold（将来マージ候補）。 -->
 
 **勉強の進め方**
 
-- 建設部門二次の勉強法
-- 勉強時間とスケジュール
-- 建設部門二次の難易度と合格率
+- [建設部門二次の勉強法](https://note.com/dobokunote/n/n2d5a97eb6c3e)
+- [勉強時間とスケジュール](https://note.com/dobokunote/n/nccd86d00c2de)
+- [建設部門二次の難易度と合格率](https://note.com/dobokunote/n/nd2a733652805)
 
 **答案の書き方**
 
-- 業務経歴票の書き方
-- 選択科目II-1・II-2・IIIの書き分け
-- 答案構成のテンプレート
-- 必須科目I解答例の使い方
+- [業務経歴票の書き方](https://note.com/dobokunote/n/na4f084f1ad6d)
+- [選択科目II-1・II-2・IIIの書き分け](https://note.com/dobokunote/n/n601cfce4d651)
+- [答案構成のテンプレート](https://note.com/dobokunote/n/nf2bae03c9891)
+- [必須科目I解答例の使い方](https://note.com/dobokunote/n/n8f9e12fb262e)
 
 **選択科目の論文キーワード**
 
-- 道路の論文キーワード
-- 河川海岸の論文キーワード
-- 都市計画の論文キーワード
+- [道路の論文キーワード](https://note.com/dobokunote/n/n4bb25dc905b6)
+- [河川海岸の論文キーワード](https://note.com/dobokunote/n/n5b076755f430)
+- [都市計画の論文キーワード](https://note.com/dobokunote/n/n49c670fd81ad)
 
 **必須科目Iの論点**（6テーマ）
 
-- 防災・国土強靱化の論点
-- 担い手確保と生産性向上の論点
-- カーボンニュートラルとGXの論点
-- インフラ老朽化と維持管理の論点
-- 国土形成と地域づくりの論点
-- 建設DXとi-Constructionの論点
+- [防災・国土強靱化の論点](https://note.com/dobokunote/n/n696fbce4da9f)
+- [担い手確保と生産性向上の論点](https://note.com/dobokunote/n/n7d3872f81e0a)
+- [カーボンニュートラルとGXの論点](https://note.com/dobokunote/n/na5c037797084)
+- [インフラ老朽化と維持管理の論点](https://note.com/dobokunote/n/n93924bcacec3)
+- [国土形成と地域づくりの論点](https://note.com/dobokunote/n/ne217917f3f45)
+- [建設DXとi-Constructionの論点](https://note.com/dobokunote/n/n03ff3e6203ef)
 
 - 本サイト（建設部門の解説・過去問アーカイブ）: https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=102-pe-construction-index
 
