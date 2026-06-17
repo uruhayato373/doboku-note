@@ -14,6 +14,17 @@
 > [!note] 状態
 > 作業ツリー clean・`develop` と `origin/develop` 完全同期・このセッションの4コミットは全て push 済み。
 
+> [!important] 実施完了（2026-06-17 追記）
+> **無料16本すべて note 予約投稿を設定済み**（fail 0）。2026-06-17 21:00 → 06-18 12:00 JST を1時間おきに順次公開。
+> - canary 1本（建設部門二次の勉強法 @21:00）を先行実走し、予約UI selector が `scheduling.md` 由来のまま**初回で全一致**することを実UIスクショ（`2026年6月17日 21:00 日本標準時`）で確認 → 残り15本を 22:00 開始でバッチ予約（公開済み1本を skip し連番化、末尾 #16 @06-18 12:00 も実UI確認）。
+> - 全16本の frontmatter に一意の `noteUrl`/`noteId` を writeback（重複なし）。予約投稿は成功パス（opened/dateSet/timeSet/reserveBtn 全 true）でのみ書き戻すため、16本とも予約状態で確定。
+> - B系統6本は hold どおり未公開。
+> - 追加修正: `scripts/note-publish-magazine.mjs` の `globSync`（Node 22+ 専用）を遅延化し Node 20 で `--list` 経路を起動可能に（commit `d62e76522`）。
+> - commit: `d62e76522`（スクリプト互換修正）/ `646dd504f`（16本 frontmatter 反映）。**未 push**（要判断）。
+>
+> **残作業の更新**: 下記「残作業」#1-2 は完了。**#3-5（もくじ無料セクションのリンク化 → もくじ再公開 → `audit-note-funnel`）は記事が live になってから**（先頭 06-17 21:00、全件 06-18 12:00 以降）。
+> minor: 各 frontmatter の `noteStatus: draft` は writeBack 非対象フィールドのため残置（予約投稿に無影響）。
+
 ## このセッションのコミット（develop, push 済み）
 
 1. `b072c4561` 建設部門もくじ最新化（有料8→12本・「順次公開予定」削除）＋無料セクション16本構造化＋科目連動2本是正（河川海岸→河川砂防mag／都市計画→都市計画mag・陳腐化コピー除去）＋もくじ index 書式の**系統修正**（`check-note-magazine-cta` を「index は markdownリンク許容／価格¥は禁止」に小改修・3もくじ+L1総合案内から¥48箇所削除・§14-c に例外明文化・既存§14-b太字括弧9件是正）
