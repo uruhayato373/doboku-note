@@ -32,5 +32,15 @@ if [ -n "$DECISION_CHANGED" ]; then
   echo ""
 fi
 
+# ドキュメント肥大化（active handoff の蓄積）→ /doc-declutter（doc-curator）を促す forcing function。
+# 完了済み handoff が active のまま積み上がると棚卸し漏れ＝肥大化するため、一定数で nudge する（非ブロッキング）。
+ACTIVE_HANDOFFS=$(ls docs/handoffs/*.md 2>/dev/null | wc -l | tr -d ' ')
+if [ "${ACTIVE_HANDOFFS:-0}" -ge 6 ]; then
+  echo ""
+  echo "NOTE: active handoff が ${ACTIVE_HANDOFFS} 本あります。完了済みの退避・古い行の trim・重複の統廃合は"
+  echo "  /doc-declutter（機械 surfacer: npm run check-doc-lifecycle → doc-curator が処分判定）で。"
+  echo ""
+fi
+
 # ポリシークラスタ（決定が複数文書に散在）の横展開もれを決定的に提示する。
 node scripts/check-policy-anchors.mjs --staged 2>/dev/null || true

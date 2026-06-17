@@ -63,6 +63,7 @@
     "check-seo-meta:check": "node .claude/skills/quality/check-seo-meta/scripts/seo-meta-threshold-check.mjs",
     "check-doc-refs": "node scripts/check-doc-refs.mjs",
     "check-doc-coupling": "node scripts/check-doc-coupling.mjs --staged",
+    "check-doc-lifecycle": "node scripts/check-doc-lifecycle.mjs",
     "check-policy-anchors": "node scripts/check-policy-anchors.mjs",
     "check-links": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs",
     "check-links-audit": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope all --report .claude/state/link-audit/",
