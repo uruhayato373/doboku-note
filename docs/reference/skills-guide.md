@@ -76,7 +76,7 @@ title: スキル ナビゲーションガイド
 | `/note-publish` | note 有料記事を Playwright × システム Chrome で**下書き作成→公開**（`publish-note`=browser-use の Windows 決定的版）。account=dobokunote ゲート・**既定 draft / `--commit` で公開**・カバー/タイトル/本文(markdown)/価格(`#price`)/タグ/**有料境界を「試験問題・予想問題」直前に自動設定＋公開前に `boundaryBeforeExam` 検証**まで自動。**リンクカード化も type 方式で自動**（各URL行を Range選択→Delete→type→Enter。note の埋め込み検出は keyboard.type で起動・synthetic paste不可）。Windows(会社PC)動作（channel:chrome＋ignoreHTTPSErrors） | `note記事公開`, `note有料記事を投稿`, `note自動公開`, `/note-publish --article {path} [--commit]` |
 | `/note-magazine-cover` | note 有料マガジンの**見出し画像（cover）**を `_cover.png`（1280×670）から設定（Playwright × システム Chrome）。`note-magazine-create` が作成時に付けない systematic 欠落を補う＝**マガジン作成パイプラインの一工程**。**既定 probe・実保存は `--commit`**・「この画像を使う」→更新・保存後 API で `cover`/`coverRectangle`（`eyecatch` でない）が実カバー（未設定時 cloudfront `default_magazine_header`＝デフォルト判定）かを検証。Windows可 | `noteマガジンのカバー設定`, `マガジン見出し画像`, `マガジン画像が未登録`, `/note-magazine-cover --key {key} --dir {magazineDir}` |
 | `/note-attach-pdf` | 公開済み note 有料記事の**本文末尾（有料エリア内）に印刷用 PDF をダウンロードカードとして添付**し再公開（Playwright × システム Chrome）。`note-publish` が扱わない「ファイル添付」（従来半手動）を自動化。1記事=`note-attach-file.mjs`／1マガジン直列バッチ=`note-attach-magazine-pdfs.mjs`（noteId↔PDF 突合・done-log 再開・最大2回試行）。**既定 dry/probe・実添付は `--commit`**・有料境界を**非破壊検証**（試験問題直前を維持・崩れたら中断）→更新する・偽成功ガード（公開ページで有料維持を実査）・冪等（既添付は再公開のみ）。Windows可 | `note記事にPDF添付`, `印刷用PDFを記事末尾に`, `マガジンのPDFが未添付`, `/note-attach-pdf --dir {magazineDir} [--commit]` |
-| `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `scripts/publish-ig.mjs`（Graph API） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
+| `/publish-ig-bs` | Playwright × Meta Business Suite で IG **カルーセル/リール**を**予約投稿**（`--reel` で reels/video.mp4・IG 単独化・spinbutton 時刻・dry-run 必須）。即時は `--now`（Graph API 経路は 2026-06-17 全廃＝IG 投稿は本スキルに一本化） | `IG予約投稿`, `インスタ予約`, `リール予約`, `Business Suite 投稿`, `/publish-ig-bs` |
 | `/x-repost` | 高エンゲージな技術士総監/1級・2級土木ツイートを検索 → `x-repost-curator` で選別＋引用コメント生成 → Playwright で引用RP（ローカル `/loop` 運用・dry-run 必須） | `Xリポスト`, `引用リポスト`, `/x-repost` |
 | `/yt-shorts-create` | **v7: IG Reels mp4 から YouTube Shorts を派生**（**≤60秒**トリム〔60秒超は通常動画扱い〕+ 概要欄差替、`--from-reels`。投稿は3本/日・JST07:30/12:30/20:00、真実源 policy §5-7。MDX 直結 `--slug` は廃止） | `YouTube Shorts`, `YT 派生`, `/yt-shorts-create --from-reels r03-pack-01` |
 
@@ -148,7 +148,7 @@ title: スキル ナビゲーションガイド
 1. `/ig-post-create --exam {pack-id}` — Instagram カルーセル/Reels PNG（一次制作）
 2. `/ig-reel-create --exam {pack-id}` — カルーセル PNG → 全4問フル Reels mp4（VOICEVOX + ffmpeg、≈90-145秒）
    - **短い「1問1リール」が欲しいとき**: `node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs --ig-mode --year {r07} --pack {r07-pack-01} [--questions 1,2]` → `reels-pp/q<N>/{video.mp4,caption.txt}`（≈36-45秒・チャーム無し・論点 caption）
-3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `node scripts/publish-ig.mjs` = Graph API・公式）
+3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `--now`。Graph API 経路は 2026-06-17 全廃）
    - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4 は gitignore（SoT は slide-data + reels/wav）
 4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
 5. `/create-x-card` — X 投稿カード作成（`/publish-x` 自動投稿は 2026-06-12 凍結を受け当面停止 → 投稿は人手。skills-guide §69 / policy §11）
