@@ -368,6 +368,7 @@ if (mode === 'exam') {
       year: s.title || examYear,
       fmtLabel: slideData._meta.fmtLabel || s.subtitle || '',
       page: [s.pageIndex ?? 1, s.totalPages ?? totalPages],
+      management: slideData._meta?.management || null, // 5管理パックは管理分野を主役表示
     } : null;
     return { file: `${num}-${slideFilePart(s.type)}.png`, slide: { type: quizType, data }, examCover };
   });
