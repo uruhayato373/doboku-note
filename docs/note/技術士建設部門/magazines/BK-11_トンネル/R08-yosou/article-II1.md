@@ -5,9 +5,9 @@ year: "R08-yosou"
 forecast: true
 subject: tunnel
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n032d23ed032e"
+noteId: "n032d23ed032e"
+notePublishedAt: "2026-06-17"
 price: 780
 theme: "山岳トンネル変位管理・補助工法・開削支保工・シールド裏込め注入"
 coverTitle: "技術士 建設部門｜トンネル R8予想 選択科目II-1 予想問題＋模範解答"

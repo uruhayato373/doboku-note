@@ -4,9 +4,9 @@ noteMagazine: BK-11
 year: R04
 subject: tunnel
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n494cfb0cfcfc"
+noteId: "n494cfb0cfcfc"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜トンネル R04 選択科目III 模範解答（III-1・III-2）"
 cover:

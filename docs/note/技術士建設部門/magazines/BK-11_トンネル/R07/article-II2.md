@@ -4,9 +4,9 @@ noteMagazine: BK-11
 year: R07
 subject: tunnel
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nb45d158f2fd9"
+noteId: "nb45d158f2fd9"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜トンネル R07 選択科目II-2 模範解答"
 cover:
