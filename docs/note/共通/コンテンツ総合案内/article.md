@@ -55,7 +55,7 @@ doboku-note をご覧いただきありがとうございます。記事と有�
 - [令和8年度 総監記述式 R8予想問題（無料版）](https://note.com/dobokunote/n/n8e92e4673a99)
 - [設問(3)国家施策バンク 序章（無料）](https://note.com/dobokunote/n/n3eb135ebdff7)
 
-**公務員・発注者の方へ（クラスター）**
+**公務員・発注者の方へ**（クラスター）
 
 - [自治体の技術職員が総監を取る5つのメリット](https://note.com/dobokunote/n/n279ac7c6fe6a)
 - [働きながら総監に挑む学習設計（繁忙期を避ける逆算カレンダー）](https://note.com/dobokunote/n/nc7d70c92b8b0)
@@ -68,29 +68,29 @@ doboku-note をご覧いただきありがとうございます。記事と有�
 
 ### ② 仕上げる（有料マガジン）
 
-**コア4（型・論点・予想）**
+**コア4**（型・論点・予想）
 
 - [5管理 テキスト精読ガイド（doboku-note 連動）](https://note.com/dobokunote/m/m607bf095b02a)
-- [5管理クロス・トレードオフ全網羅（20セル）｜¥1,980](https://note.com/dobokunote/m/m921fbe060575)
-- [設問(3)国家施策バンク（将来課題11テーマ）｜¥2,980](https://note.com/dobokunote/m/m91516dfc27ac)
-- [令和8年度 R8予想問題集（出る6テーマ）｜¥3,480](https://note.com/dobokunote/m/m6854c7437d4d)
+- [5管理クロス・トレードオフ全網羅（20セル）](https://note.com/dobokunote/m/m921fbe060575)
+- [設問(3)国家施策バンク（将来課題11テーマ）](https://note.com/dobokunote/m/m91516dfc27ac)
+- [令和8年度 R8予想問題集（出る6テーマ）](https://note.com/dobokunote/m/m6854c7437d4d)
 
-**模範論文（あなたの立場で選ぶ）**
+**模範論文**（あなたの立場で選ぶ）
 
-- [ゼネコン版 R3-R7｜¥2,480](https://note.com/dobokunote/m/m32aaa137f22e)
-- [建設コンサル 河川・砂防 R3-R7｜¥2,480](https://note.com/dobokunote/m/m32132ecb3033)
-- [道路・橋梁設計コンサル R3-R7＋R8予想｜¥2,480](https://note.com/dobokunote/m/m09440aa379cf)
-- [都市計画コンサル R3-R7＋R8予想｜¥2,480](https://note.com/dobokunote/m/mf0f98993407f)
-- 自治体担当者向け（部署別）— [道路](https://note.com/dobokunote/m/m52186ffd12ca)／[河川](https://note.com/dobokunote/m/m32a8a5b3b473)／[砂防](https://note.com/dobokunote/m/m7cd44bf57187)／[都市計画](https://note.com/dobokunote/m/mf8c77e995511)／[契約・調達](https://note.com/dobokunote/m/m55b930cbfcf9)／[技術基準](https://note.com/dobokunote/m/mf9f281e2cb32)／[上水道](https://note.com/dobokunote/m/mf4c6792b4f9c)／[下水道](https://note.com/dobokunote/m/mf1cbc32d53aa)／[港湾](https://note.com/dobokunote/m/mf762f616c065)／[公園緑地](https://note.com/dobokunote/m/m6d1810e50b0a)（各 ¥2,480）
+- [ゼネコン版 R3-R7](https://note.com/dobokunote/m/m32aaa137f22e)
+- [建設コンサル 河川・砂防 R3-R7](https://note.com/dobokunote/m/m32132ecb3033)
+- [道路・橋梁設計コンサル R3-R7＋R8予想](https://note.com/dobokunote/m/m09440aa379cf)
+- [都市計画コンサル R3-R7＋R8予想](https://note.com/dobokunote/m/mf0f98993407f)
+- 自治体担当者向け（部署別）— [道路](https://note.com/dobokunote/m/m52186ffd12ca)／[河川](https://note.com/dobokunote/m/m32a8a5b3b473)／[砂防](https://note.com/dobokunote/m/m7cd44bf57187)／[都市計画](https://note.com/dobokunote/m/mf8c77e995511)／[契約・調達](https://note.com/dobokunote/m/m55b930cbfcf9)／[技術基準](https://note.com/dobokunote/m/mf9f281e2cb32)／[上水道](https://note.com/dobokunote/m/mf4c6792b4f9c)／[下水道](https://note.com/dobokunote/m/mf1cbc32d53aa)／[港湾](https://note.com/dobokunote/m/mf762f616c065)／[公園緑地](https://note.com/dobokunote/m/m6d1810e50b0a)
 
-**単発（択一の得点源）**
+**単発**（択一の得点源）
 
 - [総監択一 頻出計算問題 6パターン完全攻略](https://note.com/dobokunote/n/ne190c3ef2fca)
 
-**まとめ買い（お得）**
+**まとめ買い**（お得）
 
-- [総監記述式 コアパック（型×設問3×R8予想）｜¥5,480](https://note.com/dobokunote/m/m6e7de5e4ea3d)
-- [総監記述式 完全パック（型×設問3×予想×全ペルソナ＋精読 全部入り）｜¥14,800](https://note.com/dobokunote/m/m171222175fac)
+- [総監記述式 コアパック（型×設問3×R8予想）](https://note.com/dobokunote/m/m6e7de5e4ea3d)
+- [総監記述式 完全パック（型×設問3×予想×全ペルソナ＋精読 全部入り）](https://note.com/dobokunote/m/m171222175fac)
 
 > 自分の立場の模範論文を単品で揃えるか、横断で読みたいならパックが割安です。迷ったら **コアパック → 自分の立場の模範論文** の順がおすすめです。
 
@@ -104,14 +104,14 @@ doboku-note をご覧いただきありがとうございます。記事と有�
 
 ### 有料マガジン（科目別・R03-R07＋R8予想）
 
-- [必須科目I 模範解答集（R03-R07＋R8予想）｜¥3,480](https://note.com/dobokunote/m/m0f3bc3933454)
-- [道路 選択科目 模範解答集｜¥3,480](https://note.com/dobokunote/m/m9e825cfd8348)
-- [河川・砂防及び海岸・海洋｜¥2,980](https://note.com/dobokunote/m/mba17c3f8b894)
-- [都市及び地方計画｜¥2,980](https://note.com/dobokunote/m/mc8bd949f1f51)
-- [土質及び基礎｜¥2,980](https://note.com/dobokunote/m/me7ebb48b319e)
-- [鋼構造及びコンクリート｜¥2,980](https://note.com/dobokunote/m/md38f1de30c31)
-- [施工計画・施工設備及び積算｜¥2,980](https://note.com/dobokunote/m/m1562f66d9654)
-- [建設環境｜¥2,980](https://note.com/dobokunote/m/m76f1e545c541)
+- [必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)
+- [道路 選択科目 模範解答集](https://note.com/dobokunote/m/m9e825cfd8348)
+- [河川・砂防及び海岸・海洋](https://note.com/dobokunote/m/mba17c3f8b894)
+- [都市及び地方計画](https://note.com/dobokunote/m/mc8bd949f1f51)
+- [土質及び基礎](https://note.com/dobokunote/m/me7ebb48b319e)
+- [鋼構造及びコンクリート](https://note.com/dobokunote/m/md38f1de30c31)
+- [施工計画・施工設備及び積算](https://note.com/dobokunote/m/m1562f66d9654)
+- [建設環境](https://note.com/dobokunote/m/m76f1e545c541)
 
 > 港湾及び空港・電力土木・鉄道・トンネルは順次公開予定です。
 
@@ -131,14 +131,14 @@ doboku-note をご覧いただきありがとうございます。記事と有�
 
 **1級土木**
 
-- [施工経験記述 完成答案集（5管理）｜¥2,480](https://note.com/dobokunote/m/m150c9db08902)
-- [施工経験記述 過去問 模範答案集（R03-R07）｜¥2,480](https://note.com/dobokunote/m/m3a578194a0a9)
-- [2テーマ組合せ大全（5管理 全10組合せ）｜¥3,480](https://note.com/dobokunote/m/m74cfd7c695d6)
+- [施工経験記述 完成答案集（5管理）](https://note.com/dobokunote/m/m150c9db08902)
+- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9)
+- [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6)
 
 **2級土木**
 
-- [施工経験記述 完成答案集（安全・品質・工程）｜¥1,980](https://note.com/dobokunote/m/m1881a9578027)
-- [施工経験記述 過去問 模範答案集（R03-R07）｜¥2,480](https://note.com/dobokunote/m/md3aa0f9a37d7)
+- [施工経験記述 完成答案集（安全・品質・工程）](https://note.com/dobokunote/m/m1881a9578027)
+- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/md3aa0f9a37d7)
 
 ---
 
@@ -165,9 +165,9 @@ doboku-note をご覧いただきありがとうございます。記事と有�
 
 ## 目的から逆引き
 
-- **まず全体像を知りたい（総監）** → [R08 合格ロードマップ](https://note.com/dobokunote/n/n3d73729e6cc7)
-- **択一の点を上げたい（総監）** → [択一17年分分析](https://note.com/dobokunote/n/n3bcb87efddad)＋[計算6パターン](https://note.com/dobokunote/n/ne190c3ef2fca)
-- **記述式の型がほしい（総監）** → [コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d) → 自分の立場の模範論文
+- **まず全体像を知りたい**（総監） → [R08 合格ロードマップ](https://note.com/dobokunote/n/n3d73729e6cc7)
+- **択一の点を上げたい**（総監） → [択一17年分分析](https://note.com/dobokunote/n/n3bcb87efddad)＋[計算6パターン](https://note.com/dobokunote/n/ne190c3ef2fca)
+- **記述式の型がほしい**（総監） → [コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d) → 自分の立場の模範論文
 - **建設部門2次の模範解答がほしい** → 上の「技術士（建設部門）」の科目別マガジンから該当科目を
 - **施工管理技士の経験記述で詰まっている** → [1級](https://note.com/dobokunote/m/m150c9db08902)／[2級](https://note.com/dobokunote/m/m1881a9578027) 完成答案集
 - **公務員・発注者の立場で考えたい** → 上の「技術士（総監）」内の公務員・発注者クラスターを

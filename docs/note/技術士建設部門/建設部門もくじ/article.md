@@ -34,22 +34,54 @@ cover:
 
 まず**必須科目I**を全員、加えて**自分の選択科目**を1つ揃えるのが基本です。
 
-- [必須科目I 模範解答集（R03-R07＋R8予想）｜¥3,480](https://note.com/dobokunote/m/m0f3bc3933454)
-- [道路 選択科目 模範解答集｜¥3,480](https://note.com/dobokunote/m/m9e825cfd8348)
-- [河川・砂防及び海岸・海洋｜¥2,980](https://note.com/dobokunote/m/mba17c3f8b894)
-- [都市及び地方計画｜¥2,980](https://note.com/dobokunote/m/mc8bd949f1f51)
-- [土質及び基礎｜¥2,980](https://note.com/dobokunote/m/me7ebb48b319e)
-- [鋼構造及びコンクリート｜¥2,980](https://note.com/dobokunote/m/md38f1de30c31)
-- [施工計画・施工設備及び積算｜¥2,980](https://note.com/dobokunote/m/m1562f66d9654)
-- [建設環境｜¥2,980](https://note.com/dobokunote/m/m76f1e545c541)
-
-> 港湾及び空港・電力土木・鉄道・トンネルは順次公開予定です。
+- [必須科目I 模範解答集（R03-R07＋R8予想）](https://note.com/dobokunote/m/m0f3bc3933454)
+- [道路 選択科目 模範解答集](https://note.com/dobokunote/m/m9e825cfd8348)
+- [河川・砂防及び海岸・海洋](https://note.com/dobokunote/m/mba17c3f8b894)
+- [都市及び地方計画](https://note.com/dobokunote/m/mc8bd949f1f51)
+- [土質及び基礎](https://note.com/dobokunote/m/me7ebb48b319e)
+- [鋼構造及びコンクリート](https://note.com/dobokunote/m/md38f1de30c31)
+- [施工計画・施工設備及び積算](https://note.com/dobokunote/m/m1562f66d9654)
+- [建設環境](https://note.com/dobokunote/m/m76f1e545c541)
+- [港湾及び空港](https://note.com/dobokunote/m/m55096ddb1af6)
+- [電力土木](https://note.com/dobokunote/m/ma87d182c8113)
+- [鉄道](https://note.com/dobokunote/m/m535a4a4353c3)
+- [トンネル](https://note.com/dobokunote/m/m5da4b560d8be)
 
 ---
 
 ## まず読む（無料）
 
-建設部門 二次（業務経歴票の書き方・論点キーワード・科目別の書き分け 等）の無料入口記事を順次 note で公開予定です。先に読みたい方は本サイトの建設部門ガイドもご覧ください。
+建設部門 二次の対策を、無料記事で目的別にまとめています。記事は順次 note で公開し、本もくじから案内します。
+
+<!-- 無料記事リスト(16本): note 公開時に各記事タイトルを note URL でリンク化（未公開の間はプレーン表記）。必須Iの論点はA系統「〜の論点」6テーマを採用。B系統「〜の論点キーワード」6本（社会資本整備/持続可能な地域づくり/インフラ維持管理・更新/防災・減災/担い手・DX/低炭素・環境保全）は未公開hold（将来マージ候補）。 -->
+
+**勉強の進め方**
+
+- 建設部門二次の勉強法
+- 勉強時間とスケジュール
+- 建設部門二次の難易度と合格率
+
+**答案の書き方**
+
+- 業務経歴票の書き方
+- 選択科目II-1・II-2・IIIの書き分け
+- 答案構成のテンプレート
+- 必須科目I解答例の使い方
+
+**選択科目の論文キーワード**
+
+- 道路の論文キーワード
+- 河川海岸の論文キーワード
+- 都市計画の論文キーワード
+
+**必須科目Iの論点**（6テーマ）
+
+- 防災・国土強靱化の論点
+- 担い手確保と生産性向上の論点
+- カーボンニュートラルとGXの論点
+- インフラ老朽化と維持管理の論点
+- 国土形成と地域づくりの論点
+- 建設DXとi-Constructionの論点
 
 - 本サイト（建設部門の解説・過去問アーカイブ）: https://doboku-note.com/?utm_source=note&utm_medium=referral&utm_campaign=102-pe-construction-index
 

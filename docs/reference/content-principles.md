@@ -492,7 +492,9 @@ note 記事本文（`docs/note/**/article.md`）から有料マガジンへ誘�
   本記事の論点が、実際の答案でどう展開されるかを確認できます。
   ```
 
-**機械検知**: `.claude/scripts/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。関連: §14-b（太字内全角括弧）。
+**機械検知**: `.claude/scripts/check-note-magazine-cta.mjs`（① markdown リンク形式のマガジンURL ② マガジンURL同一行の ¥ を検出）。`scripts/note-lint.mjs`（pre-commit ゲート）と `/note-prepublish-review` Phase 1 の両方から呼ばれ、コミット時に自動 BLOCK する。価格が CTA から離れた別段落にある旧来パターン（既存マガジン記事）は対象外（誤検知回避のため近接のみ）。
+
+**もくじ index の例外**: frontmatter `noteSeries: 総合案内`（L1 総合案内・各資格 L2 もくじ）は多数マガジンを一覧する index ページのため、① markdown リンクのコンパクト列挙を許容する（note カードは bare URL でしか生成できず、12 本超を全部カード化すると index が冗長になる）。ただし ② 価格（¥）は index でも禁止（陳腐化する・note カードが実価格を表示する）。in-article CTA は「読者を 1〜2 件へ誘導」＝カード必須、index は「全件の一覧」＝リンク許容、と使い分ける。関連: §14-b（太字内全角括弧）。
 
 ### 14-d. note 記事の「3点セット」は公開状態で機械強制する
 

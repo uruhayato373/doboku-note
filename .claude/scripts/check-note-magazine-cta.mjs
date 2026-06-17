@@ -14,6 +14,10 @@
  *      → マガジンは価格改訂があり、本文直書きの価格は陳腐化して誤記化する。
  *        価格は note 販売ページに委譲する。価格 SoT は src/lib/note-magazines.ts。
  *
+ * 例外: もくじ index ページ（frontmatter `noteSeries: 総合案内`＝L1総合案内・各資格L2もくじ）は
+ *   多数マガジンを一覧する性質上 markdown リンクのコンパクト列挙を許容する（①は対象外）。
+ *   ただし価格（②）は index でも禁止（陳腐化する・note カードが実価格を表示する）。
+ *
  * 真実源: docs/reference/content-principles.md §14-c
  * 呼出元: scripts/note-lint.mjs（pre-commit ゲート）/ /note-prepublish-review Phase 1
  * 兄弟:   .claude/scripts/check-note-bold-paren.mjs（同じ「1チェッカー×2呼出元」パターン）
@@ -56,13 +60,15 @@ for (const file of files) {
   const fmMatch = content.match(/^(---\r?\n[\s\S]*?\r?\n---\r?\n)([\s\S]*)$/);
   const body = fmMatch ? fmMatch[2] : content;
   const fmLines = fmMatch ? fmMatch[1].split("\n").length - 1 : 0;
+  // もくじ index（noteSeries: 総合案内）は markdown リンク列挙を許容（price は維持）
+  const isIndex = fmMatch ? /^noteSeries:\s*総合案内\s*$/m.test(fmMatch[1]) : false;
   const lines = body.split("\n");
   const fileViolations = [];
   let inFence = false;
   lines.forEach((line, idx) => {
     if (/^\s*```/.test(line)) { inFence = !inFence; return; }
     if (inFence) return;
-    const v = checkLine(line);
+    const v = checkLine(line).filter((x) => !(isIndex && x.kind === "md"));
     if (v.length > 0) fileViolations.push({ line: idx + 1 + fmLines, v });
   });
   if (fileViolations.length > 0) {

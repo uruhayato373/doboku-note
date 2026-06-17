@@ -44,14 +44,14 @@ cover:
 
 ### 1級土木
 
-- [施工経験記述 完成答案集（5管理）｜¥2,480](https://note.com/dobokunote/m/m150c9db08902)
-- [施工経験記述 過去問 模範答案集（R03-R07）｜¥2,480](https://note.com/dobokunote/m/m3a578194a0a9)
-- [2テーマ組合せ大全（5管理 全10組合せ）｜¥3,480](https://note.com/dobokunote/m/m74cfd7c695d6)
+- [施工経験記述 完成答案集（5管理）](https://note.com/dobokunote/m/m150c9db08902)
+- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/m3a578194a0a9)
+- [2テーマ組合せ大全（5管理 全10組合せ）](https://note.com/dobokunote/m/m74cfd7c695d6)
 
 ### 2級土木
 
-- [施工経験記述 完成答案集（安全・品質・工程）｜¥1,980](https://note.com/dobokunote/m/m1881a9578027)
-- [施工経験記述 過去問 模範答案集（R03-R07）｜¥2,480](https://note.com/dobokunote/m/md3aa0f9a37d7)
+- [施工経験記述 完成答案集（安全・品質・工程）](https://note.com/dobokunote/m/m1881a9578027)
+- [施工経験記述 過去問 模範答案集（R03-R07）](https://note.com/dobokunote/m/md3aa0f9a37d7)
 
 ---
 
@@ -60,7 +60,7 @@ cover:
 - **2級をこれから始める** → [二次検定の全体像](https://note.com/dobokunote/n/n27455b88bcd5)＋[独学の学習設計](https://note.com/dobokunote/n/n0d6a78c48cef)
 - **経験記述の完成答案がほしい** → [1級](https://note.com/dobokunote/m/m150c9db08902)／[2級](https://note.com/dobokunote/m/m1881a9578027) 完成答案集
 - **過去問の年度別模範答案がほしい** → [1級](https://note.com/dobokunote/m/m3a578194a0a9)／[2級](https://note.com/dobokunote/m/md3aa0f9a37d7) 過去問模範答案集
-- **複数テーマに備えたい（1級）** → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)
+- **複数テーマに備えたい**（1級） → [2テーマ組合せ大全](https://note.com/dobokunote/m/m74cfd7c695d6)
 
 ---
 

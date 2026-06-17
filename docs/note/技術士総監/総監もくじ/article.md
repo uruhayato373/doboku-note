@@ -26,7 +26,7 @@ cover:
 
 書いているのは、総合技術監理部門に合格した元自治体の土木職（発注者側）です。受験生のときに「どれから手をつければいいか」がいちばん知りたかったので、その地図をそのまま記事にしました。
 
-総監の記述式は、どのテーマが出ても5つの管理（経済性・人的資源・情報・安全・社会環境）のトレードオフを自分の業務に置き換えて論じる試験です。だから教材は「書き方の型 → 設問(3)の弾薬 → 本番の演習 → 自分の立場の実例」の順でそろえると最短です。一気にそろえるなら[コアパック（¥5,480・型×設問3×R8予想）](https://note.com/dobokunote/m/m6e7de5e4ea3d)、全部入りは[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)が割安です。
+総監の記述式は、どのテーマが出ても5つの管理（経済性・人的資源・情報・安全・社会環境）のトレードオフを自分の業務に置き換えて論じる試験です。だから教材は「書き方の型 → 設問(3)の弾薬 → 本番の演習 → 自分の立場の実例」の順でそろえると最短です。一気にそろえるなら[コアパック（型×設問3×R8予想）](https://note.com/dobokunote/m/m6e7de5e4ea3d)、全部入りは[完全パック](https://note.com/dobokunote/m/m171222175fac)が割安です。
 
 > 他資格（建設部門・1級/2級土木 ほか）も含めた全体の入口は、[doboku-note 総合案内](https://note.com/dobokunote/n/n296a88f64ac2)からどうぞ。
 
@@ -64,12 +64,12 @@ cover:
 ### 共通装備（テーマを問わず効く土台）
 
 - [5管理 テキスト精読ガイド（doboku-note 連動）](https://note.com/dobokunote/m/m607bf095b02a)
-- [5管理クロス・トレードオフ全網羅（20セル）｜¥1,980](https://note.com/dobokunote/m/m921fbe060575)
-- [設問(3)国家施策バンク（将来課題11テーマ）｜¥2,980](https://note.com/dobokunote/m/m91516dfc27ac)
-- [令和8年度 R8予想問題集（出る6テーマ）｜¥3,480](https://note.com/dobokunote/m/m6854c7437d4d)
+- [5管理クロス・トレードオフ全網羅（20セル）](https://note.com/dobokunote/m/m921fbe060575)
+- [設問(3)国家施策バンク（将来課題11テーマ）](https://note.com/dobokunote/m/m91516dfc27ac)
+- [令和8年度 R8予想問題集（出る6テーマ）](https://note.com/dobokunote/m/m6854c7437d4d)
 - [総監択一 頻出計算問題 6パターン完全攻略](https://note.com/dobokunote/n/ne190c3ef2fca)
 
-### あなたの立場の模範論文（14ペルソナ・各 ¥2,480）
+### あなたの立場の模範論文（14ペルソナ）
 
 受注者系 — [ゼネコン](https://note.com/dobokunote/m/m32aaa137f22e)／[建設コンサル 河川・砂防](https://note.com/dobokunote/m/m32132ecb3033)／[道路・橋梁設計コンサル](https://note.com/dobokunote/m/m09440aa379cf)／[都市計画コンサル](https://note.com/dobokunote/m/mf0f98993407f)
 
@@ -77,8 +77,8 @@ cover:
 
 ### まとめ買い（お得）
 
-- [総監記述式 コアパック（型×設問3×R8予想）｜¥5,480](https://note.com/dobokunote/m/m6e7de5e4ea3d)
-- [総監記述式 完全パック（型×設問3×予想×全ペルソナ＋精読 全部入り）｜¥14,800](https://note.com/dobokunote/m/m171222175fac)
+- [総監記述式 コアパック（型×設問3×R8予想）](https://note.com/dobokunote/m/m6e7de5e4ea3d)
+- [総監記述式 完全パック（型×設問3×予想×全ペルソナ＋精読 全部入り）](https://note.com/dobokunote/m/m171222175fac)
 
 ---
 
