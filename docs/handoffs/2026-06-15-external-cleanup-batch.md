@@ -29,14 +29,14 @@ runbook: `docs/handoffs/2026-06-10-bk04-11-yosou-cloud-runbook.md`。BK-04〜08/
 |---|---|---|
 | [ ] | BK-I を差し替え投稿（R03/04/06/07 を I-1/I-2 両収録へ更新・note 公開済みのため本体差替） | #8 |
 | [ ] | 「立場別模範論文の選び方」を note 新規投稿（現 noteStatus: draft） | #7 (A-3) |
-| [ ] | roadmap 記事を note 再投稿（14 ペルソナ化＋¥3,480 を反映） | #7 (A-1/A-2) |
-| [ ] | 受注者ペルソナを note 反映: ゼネコン/河川コンサル=既存マガジン再投稿（de-blockquote/掲載文反映）、都市計画コンサル/道路橋梁コンサル=新規投稿 → published:true | #6（archive 済） |
-| [ ] | 自治体道路担当 R08 を note 反映（再投稿） | souban（archive 済） |
+| [ ] | ロードマップ記事(n3d73729e6cc7) を note 再公開（repo は ¥14,800/¥5,480・全14ペルソナ反映済＝note 反映待ち・260行/link card 多数で半手動） | #7 (A-1/A-2) |
+| [ ] | 自治体道路担当 R08 を note 公開（R08-yosou-1/2 が noteUrl 空＝未公開・新規投稿→マガジン＋完全パックへ収録） | souban（archive 済） |
 | [ ] | cd-essay-magazine を note 投稿（C のカバー＋essay QA 後） | #1 |
 
 **B の #7 行（A-1/A-2/A-3）完了で #7 を archive 可。**
 
 > 注: BK-02〜11 の note 本投稿（noteUrl 反映・published:true）は **2026-06-17 完了**（全 12 マガジン公開済み）。#8 bk-magazines handoff は archive 済。
+> 注: 受注者4ペルソナ（ゼネコン/河川コンサル/都市計画コンサル/道路橋梁コンサル）は **note 公開済**（2026-06-15・完全パック収録で実証）＝「published:true」完了。de-blockquote 改稿（旧 donsen-fixes B/C）は revert 済・再適用厳禁（E 注）。ゼネコン/河川コンサルへの R8予想2記事追加は ADR §残で追跡。
 
 ---
 
@@ -65,8 +65,8 @@ runbook: `docs/handoffs/2026-06-10-bk04-11-yosou-cloud-runbook.md`。BK-04〜08/
 | 完了 | 決定事項 | 出所 |
 |---|---|---|
 | [ ] | concrete-diagnostician の図版 著作権方針（SVG 描き直し / ライセンス取得 / draft 固定継続）。vertical 全体が draft-lock 中＝公開の前提条件 | #1 |
-| [ ] | 完全パック価格の hold 解除タイミング（note pack を 14 ペルソナへ再収録するか）。memory `feedback_essay_pack_ssot_adr` の 2 段ラダー（上段¥14,800/下段¥5,480・公開ゲート=note 収録完了まで¥14,800 を広告しない）と連動。**再収録まで現行 hold 維持＝B/C 修正の再適用は厳禁（既に revert 済 664bf452e）** | #7 (B/C) |
 
+> 注: 完全パック 2 段ラダー（上段¥14,800/下段¥5,480・14 ペルソナ再収録）の hold 解除は **2026-06-15 実行済**（essay-pack relaunch・ADR `総監マガジン構成_決定2026.md`）。**donsen-fixes #7 の B/C 修正（受注者ペルソナ de-blockquote 等）は revert 済（664bf452e）＝再適用は厳禁**（公開済の不均一は次回改訂で対応）。
 > 注: BK magazines の価格レビュー（3-way drift）は 2026-06-11 の価格ラダー最終確定で決着済（SSOT `noteコンテンツ計画.md`／`note-magazines.ts` 整合）。
 
 ---
