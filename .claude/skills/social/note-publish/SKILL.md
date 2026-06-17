@@ -4,7 +4,7 @@ description: >
   note.com/dobokunote の有料記事を Playwright × システム Chrome で「下書き作成→公開」する Windows 決定的パブリッシャ。カバー/タイトル/本文(markdown変換)/価格/タグ/有料境界を自動設定し、境界検証ゲート通過後に公開する。Use when user says [note記事公開, note有料記事を投稿, note自動公開, /note-publish].
 disable-model-invocation: true
 user-invocable: true
-argument-hint: "--article <article.md path> [--commit]"
+argument-hint: "--article <article.md path> [--commit] [--schedule YYYY-MM-DDTHH:MM]"
 ---
 
 `scripts/note-publish.mjs` を駆動し、note 有料記事を**下書き作成→公開**する。`publish-note`（browser-use=Mac・AIエージェント）の **Windows 決定的 Playwright 版**で、`note-magazine-add` と同じ「システム Chrome（`channel:'chrome'`）＋永続プロファイル（`.local/playwright-note-profile`）＋proxy＋`ignoreHTTPSErrors`」で会社PCの社内プロキシ（TLS傍受）を越える。
@@ -26,11 +26,13 @@ argument-hint: "--article <article.md path> [--commit]"
 
 ```
 node scripts/note-publish.mjs --article <article.md path>          # 下書き作成のみ（既定・安全）
-node scripts/note-publish.mjs --article <article.md path> --commit # 実公開（境界検証ゲート付き）
+node scripts/note-publish.mjs --article <article.md path> --commit # 即時公開（境界検証ゲート付き）
+node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07:00 # 予約投稿（JST）
 ```
 
 - カバー/タグは記事と同じ年度dir の `img/cover-<type>.png` / `hashtags-<type>.txt` を自動解決（`article-II1.md` → `cover-II1.png`/`hashtags-II1.txt`。無ければ `cover.png`/`hashtags.txt`）。
 - 価格・有料/無料は frontmatter `notePricing`/`price`。`notePricing: paid` かつ `price>0` で有料設定。
+- **予約投稿（時間ずらし可）**: `--schedule "YYYY-MM-DDTHH:MM"`（JST）で即時公開でなく予約公開（note は現在 無料で予約可）。即時「投稿する」の代わりに 日時設定→日付→時刻→「予約投稿」を操作。**日時を UI で確定できないときは即時公開せず下書きに退避**する安全弁つき。予約 UI selector は `publish-note/references/scheduling.md` 由来で、初回実走の `.tmp/np-sched-*.png` で要確認。
 
 ### マガジン一括（バッチ）
 
@@ -39,9 +41,11 @@ node scripts/note-publish.mjs --article <article.md path> --commit # 実公開�
 ```
 node scripts/note-price-sweep.mjs --dir <magazineDir> --commit          # Step1: 価格スイープ（→ pathspec commit）
 node scripts/note-publish-magazine.mjs --dir <magazineDir> --commit     # Step2: 18記事を直列公開（→ writeback を pathspec commit）
+# 明示リスト＋時間ずらし予約投稿（無料記事16本など）:
+node scripts/note-publish-magazine.mjs --list <manifest.txt> --schedule-start 2026-06-20T07:00 --interval-hours 24 --commit
 ```
 
-長尺（18記事≈25分）なので `run_in_background` ＋ article-1 watcher で早期検証推奨。BK マガジン公開の全体パイプライン（sweep→publish→create→cover→add→attach-pdf→SoT→verify→push）は [[project_pe_construction_bk_magazines]] が真実源。**PDF 添付（`note-attach-pdf`）は 1日100件のアップロード上限あり＝1日最大5マガジン**に注意（記事公開の画像 eyecatch は別枠）。
+無料記事（`article.md`）や対象を厳密に絞るときは `--pattern article.md` / `--list <manifest.txt>`（1行1パス・# コメント可）。**時間ずらし予約投稿**は `--schedule-start "YYYY-MM-DDTHH:MM"` ＋ `--interval-hours N`（既定24・slot i = start + i×interval・TZ非依存）。長尺（18記事≈25分）なので `run_in_background` ＋ article-1 watcher で早期検証推奨。BK マガジン公開の全体パイプライン（sweep→publish→create→cover→add→attach-pdf→SoT→verify→push）は [[project_pe_construction_bk_magazines]] が真実源。**PDF 添付（`note-attach-pdf`）は 1日100件のアップロード上限あり＝1日最大5マガジン**に注意（記事公開の画像 eyecatch は別枠）。
 
 ## 自動化される工程 / 手動の例外
 
