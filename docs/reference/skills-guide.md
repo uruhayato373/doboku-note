@@ -35,6 +35,7 @@ title: スキル ナビゲーションガイド
 | `/pdf-to-mdx` | PDF/画像 → MDX 変換（試験別テンプレート）。`--scanned` でテキスト層なしスキャン書籍を視覚 OCR（`scanned-textbook-transcriber`）→ 内部リファレンス .md ＋図クロップ | `PDF変換`, `MDX化`, `スキャン教材の文字起こし`, `書籍OCR`, `/pdf-to-mdx --exam {cem\|civil-construction-1\|general}`, `/pdf-to-mdx --scanned` |
 | `/exam-questions-import` | 過去問集 PDF → MDX（解答追加も可） | `過去問取込`, `/exam-questions-import --exam {civil-primary\|civil-secondary\|pe-primary\|pe-first-stage}` |
 | `/ogp-create` | サイト OGP（mono-tag・全幅＋資格別テーマ色外枠）＋ note 記事カバー（G2・試験色分け）生成。デザイン SSOT は `docs/reference/ogp-prompts.md`、一括目視 QA は `npm run ogp-gallery` | `OGP画像`, `noteカバー`, `/ogp-create` |
+| `/ogp-design-explore` | OGP 意匠の**新方向を aidesigner / Canva の MCP で素案として試作**し、採用案を `/ogp-create` の satori テンプレに落として量産につなぐ。試作専用（量産・per-article 生成は `/ogp-create`）。MCP は外部クレジット消費 | `OGPデザイン検討`, `OGP素案`, `OGPリデザイン試作`, `/ogp-design-explore` |
 | `/magazine-to-pdf` | note マガジンの article.md →「問題文＋解答」中心の紙用 PDF（spec 駆動・A/B案両収録） | `マガジンをPDF`, `記事を紙で`, `模範論文PDF`, `/magazine-to-pdf --spec scripts/pdf-specs/{name}.json [--desktop]` |
 
 ### 品質管理（quality）
