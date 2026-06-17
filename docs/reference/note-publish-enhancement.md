@@ -6,6 +6,9 @@ title: note 記事 公開前 拡充手順
 
 `docs/note/{slug}/article.md` を **note 公開レベル** まで引き上げる作業手順の真実源。`note-prepublish-review` スキル（公開前チェック）と役割分離し、本ドキュメントは「**拡充作業の how**」を担う。
 
+> [!note]
+> **記事の導入・無料部分・販売導線の構成**は [note-selling-structures.md](note-selling-structures.md)（売れる9型）を参照する。本書は「網羅性・図版・段落分割」など拡充作業の how、向こうは「読者の悩みをつかみ購入理由を作る本文の型」。精読ガイドは勘違い破壊型・チェックリスト型が効く（B1 章構成・導入設計で適用）。
+
 ## 適用範囲
 
 - `docs/note/magazines/総監テキスト精読ガイド/5管理-{管理名}/article.md` を中心とした「総監テキスト精読ガイド」シリーズ

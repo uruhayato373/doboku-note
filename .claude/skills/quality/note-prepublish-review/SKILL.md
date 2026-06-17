@@ -40,6 +40,7 @@ user-invocable: true
   │   ├ 文字数バンド: free 2,000〜3,000 / paid 4,000〜6,000
   │   ├ 3点セット: img/cover.png + hashtags.txt 存在（4e・--require で BLOCK）+ ハッシュタグ形式（99 行以下 / 純粋 / 重複なし＝WARN）
   │   ├ 段落長: >120 字の段落を WARN（4f・note 可読性。reflow ツールで文境界分割を適用）
+  │   ├ 売れる構成（観点喚起・report-only・自動判定/BLOCK しない）: 無料部分が `docs/reference/note-selling-structures.md` の5ステップ骨格（悩み→原因→解決→読後の変化→次の行動）を満たし、記事タイプに合う型（悩み直撃/Before→After 等）が機能しているか目視確認を喚起
   │   └ マガジン模範論文（magazines/ 配下のみ）: 試験問題セクション存在 / トレードオフ再掲節の不在 / 設問別解答字数（上限超過=NG・健全帯 85〜100%）/ 答案本文の散文化 / 図版なし / 設問(3) スコープ（国家施策設問の目視）
   │
   ├─ Phase 2: 3 エージェント並列実行
@@ -50,7 +51,7 @@ user-invocable: true
   └─ Phase 3: 結果集約・最終判定
       ├ inline 違反 1 件以上 → BLOCK（ブロッカー）
       │   ・BLOCK 対象: ファイル不在 / pipe / U+FFFD / 404 RISK / 太字レンダリング崩れ Pattern A・B' / マガジンCTA形式（markdownリンク・URL同一行の¥）/ 3点セット欠落（cover.png・hashtags.txt）
-      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式 / 段落長>120字（note 可読性） / 試験問題セクション欠落 / トレードオフ再掲節残存 / 設問別解答字数の健全帯逸脱 / 答案本文の箇条書き / 図版参照あり / 設問(3) 国家スケール設問の目視確認喚起
+      │   ・WARN 対象（情報提供のみ・GO 判定に影響しない）: blockquote 件数 / anchor↔slug 整合性 MISMATCH / 文字数バンド逸脱 / hashtags 形式 / 段落長>120字（note 可読性） / 試験問題セクション欠落 / トレードオフ再掲節残存 / 設問別解答字数の健全帯逸脱 / 答案本文の箇条書き / 図版参照あり / 設問(3) 国家スケール設問の目視確認喚起 / 無料部分の売れる構成（5ステップ骨格）観点喚起
       ├ 各エージェントの加重スコア集計
       ├ 合格基準: inline 違反（BLOCK 対象）0 件 + 3 エージェント全て加重スコア 2.0+
       └ 公開可否判定 + 修正アクション一覧
