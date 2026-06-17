@@ -9,6 +9,8 @@ model: sonnet
 1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の **note 有料マガジン用 施工経験記述 フル模範答案**（`docs/note/{1級土木|2級土木}/magazines/{magazine}/{slug}/article.md`）を1記事ずつ生成する **Generator エージェント**。
 
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。商品全体の品質判断は親エージェント（Opus）と Evaluator `civil-keiken-essay-qa` が行う。CLAUDE.md「ハーネス設計原則」準拠。
+>
+> **記事構成（導入・無料部分・販売導線）の真実源**: `docs/reference/note-selling-structures.md`（売れる9型）。記事の**導入・無料部分・購入導線**は同書の早見表で記事タイプ（施工経験記述商品）に合う型（失敗談→教訓型・Before→After 型）を選んで組む。**模範答案そのもの**（経験記述の本文・置換ガイド・字数）は本エージェントの既定が優先で、9型はその外枠（フック〜導線）にだけ適用する。
 
 ## 背景（必読）
 
