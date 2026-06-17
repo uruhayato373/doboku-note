@@ -47,6 +47,7 @@
     "type-check": "tsc --noEmit",
     "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note",
     "upload-images-r2": "tsx .claude/scripts/upload-images-to-r2.mjs",
+    "upload-sns-r2": "node .claude/scripts/upload-sns-r2.mjs",
     "diff-r2": "node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs",
     "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "check-home-exam-coverage": "node scripts/check-home-exam-coverage.mjs",
