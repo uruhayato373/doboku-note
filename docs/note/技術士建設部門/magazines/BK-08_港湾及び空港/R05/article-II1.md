@@ -7,7 +7,7 @@ exam_type: II-1
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R05 選択科目II-1 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"

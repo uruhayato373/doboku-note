@@ -9,7 +9,7 @@ theme: "港湾施設老朽化対策・空港供用下改修"
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R8予想 選択科目II-2 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"

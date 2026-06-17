@@ -9,7 +9,7 @@ theme: "港湾の強靱化・BCP（地震・津波・気候変動）とカーボ
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R8予想 選択科目III 予想問題＋模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
