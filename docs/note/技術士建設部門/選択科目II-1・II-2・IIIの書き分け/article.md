@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n601cfce4d651"
+noteId: "n601cfce4d651"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-sentaku-kakiwake
 coverTitle:

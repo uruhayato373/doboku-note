@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n5b076755f430"
+noteId: "n5b076755f430"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-river-coast-keyword
 coverTitle:

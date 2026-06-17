@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n4bb25dc905b6"
+noteId: "n4bb25dc905b6"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-road-keyword
 coverTitle:

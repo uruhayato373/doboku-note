@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/nd2a733652805"
+noteId: "nd2a733652805"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-nanido
 coverTitle:

@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/nf2bae03c9891"
+noteId: "nf2bae03c9891"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-toan-kousei
 coverTitle:

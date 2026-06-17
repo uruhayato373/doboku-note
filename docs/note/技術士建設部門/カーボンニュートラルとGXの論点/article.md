@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/na5c037797084"
+noteId: "na5c037797084"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-carbon-neutral
 coverTitle:

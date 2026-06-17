@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n2d5a97eb6c3e"
+noteId: "n2d5a97eb6c3e"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-secondary-study-method
 coverTitle:

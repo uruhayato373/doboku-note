@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/ne217917f3f45"
+noteId: "ne217917f3f45"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-kokudo-keisei-chiiki
 coverTitle:

@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/n93924bcacec3"
+noteId: "n93924bcacec3"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-infra-roukyuuka-iji
 coverTitle:

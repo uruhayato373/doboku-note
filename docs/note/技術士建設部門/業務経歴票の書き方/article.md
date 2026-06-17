@@ -1,8 +1,8 @@
 ---
 notePricing: free
 noteStatus: draft
-noteUrl: ""
-noteId: ""
+noteUrl: "https://note.com/dobokunote/n/na4f084f1ad6d"
+noteId: "na4f084f1ad6d"
 noteSeries: 技術士建設部門-無料入口
 utmCampaign: pe-construction-gyoumu-keireki-hyou
 coverTitle:
