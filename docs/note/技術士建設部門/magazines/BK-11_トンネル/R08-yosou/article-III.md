@@ -9,7 +9,7 @@ theme: "道路トンネルの老朽化・予防保全と防災・避難安全性
 noteUrl: ""
 noteId: ""
 notePublishedAt: ""
-price: 1980
+price: 780
 coverTitle: "技術士 建設部門｜トンネル R8予想 選択科目III 予想問題＋模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
