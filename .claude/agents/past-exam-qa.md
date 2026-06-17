@@ -78,7 +78,9 @@ secondary（記述）は ExamPoint を使わない構造（設問→解答本体
 | **2. 解答の正確性・完結性** | 25% | 各設問に正答1つ明示・全選択肢に正誤理由（なぜ誤りか）・計算問題は式あり・正答とExamPoint/解説に矛盾なし | 1設問で正誤理由が薄い | 正誤理由の欠落2件以上 or 選択肢の言い換えのみ | 正答欠落 or 正答が誤り |
 | **3. ExamPoint 折衷案準拠** | 20% | summary＝引っかけ1行・items≤2 体言止め・lint 9-11 ゼロ・検証の言い換えなし・§5分業順守 | items3項目1件 or lint 9-11 1件 | 冗長 ExamPoint 複数 or 正答記号を items に混入 | 句読点分割多数（lint 9-11 多発） |
 | **4. RelatedKeywords/リンク健全性** | 20% | slug 全件実在・civil は接頭辞付与・PE は bare・双方向バックリンクあり・死リンクなし | 死リンク/接頭辞落ち1件 | 同2件以上 | RelatedKeywords 欠落 or 大量 404 |
-| **5. モバイル視認性・文体** | 15% | 4列以上表なし・である調・U+FFFD なし・絵文字なし・lint mobile HIGH ゼロ | MEDIUM 1〜3件 | HIGH 1件 or 文字化け1件 | HIGH 2件以上 or 絵文字混入 |
+| **5. モバイル視認性・文体** | 15% | 4列以上表なし・である調・U+FFFD なし・絵文字なし・lint mobile HIGH/MEDIUM ゼロ | MEDIUM 1〜9件 | HIGH 1件 or 文字化け1件 or MEDIUM 10件以上 | HIGH 2件以上 or 絵文字混入 |
+
+> **軸5 の注意（過去問特有）**: 設問本文の計算過程の表（度数率・損益分岐点等）に由来する MEDIUM（セル幅超過）は、設問内容上やむを得ず `past-exam-rewriter` の修正対象外（設問文は不変）。これらは軸5の件数から除外し、不当に減点しない。ExamPoint・解説・関連リンク由来の MEDIUM のみを件数に数える。
 
 ### secondary（記述）の重み再配分
 
