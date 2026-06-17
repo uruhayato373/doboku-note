@@ -18,9 +18,15 @@
  *   4. 公開後に note 公開ページを実取得し 無料プレビュー/カード/価格 を実体検証（偽成功ガード）
  *
  * 使い方:
- *   node scripts/note-publish.mjs --article <article.md path>            # 下書き作成のみ（既定・安全）
- *   node scripts/note-publish.mjs --article <path> --commit             # 実公開
+ *   node scripts/note-publish.mjs --article <article.md path>                       # 下書き作成のみ（既定・安全）
+ *   node scripts/note-publish.mjs --article <path> --commit                        # 即時公開
+ *   node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07:00  # 予約投稿（JST）
  *   （カバー/タグは article と同じ年度dir の cover-<type>.png / hashtags-<type>.txt を自動解決）
+ *
+ * 予約投稿（--schedule, note は無料で予約公開可）:
+ *   - 即時公開の「投稿する」の代わりに 日時設定→日付→時刻→「予約投稿」を操作する。
+ *   - 安全弁: 日時を UI で確定できないときは即時公開せず下書きに退避する（誤即時公開を防止）。
+ *   - selector は scheduling.md 由来。初回実走で .tmp/np-sched-*.png を確認し必要なら調整すること。
  *
  * 真実源: docs/reference/note-api-verification.md / publish-note/SKILL.md（手順の元）
  * ---------------------------------------------------------------------------
@@ -39,6 +45,14 @@ const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] :
 const COMMIT = argv.includes('--commit');
 const ARTICLE = getArg('--article');
 if (!ARTICLE) { console.error('--article <path> required'); process.exit(1); }
+// --schedule "YYYY-MM-DDTHH:MM"（JST ローカル）。指定時は即時公開でなく予約投稿（note は無料で予約公開可）。
+const SCHEDULE = getArg('--schedule');
+let sched = null;
+if (SCHEDULE) {
+  const m = SCHEDULE.match(/^(\d{4})-(\d{2})-(\d{2})[T ](\d{2}):(\d{2})$/);
+  if (!m) { console.error('--schedule format must be YYYY-MM-DDTHH:MM (JST)'); process.exit(1); }
+  sched = { y: +m[1], mo: +m[2], d: +m[3], h: +m[4], mi: +m[5], date: `${m[1]}-${m[2]}-${m[3]}`, raw: SCHEDULE };
+}
 
 // ---- データ準備（frontmatter + body + cover/hashtags 解決）----
 // ARTICLE は相対（直接呼び）/絶対（note-publish-magazine の globSync 経由）どちらも受理。
@@ -66,7 +80,7 @@ const isPaid = notePricing === 'paid' && price > 0;
 // ガード: プレースホルダ残・空タイトル
 if (/\{\{|※note\s*公開後|MAGAZINE_URL/.test(body)) { console.error('ABORT: プレースホルダが本文に残存'); process.exit(1); }
 if (!title) { console.error('ABORT: タイトルが空'); process.exit(1); }
-console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} cover=${!!cover} tags=${tags.length} bodyChars=${[...body].length} mode=${COMMIT ? 'COMMIT(公開)' : 'DRAFT(下書きのみ)'}`);
+console.log(`[prep] title="${title.slice(0, 40)}" paid=${isPaid} price=${price} cover=${!!cover} tags=${tags.length} bodyChars=${[...body].length} mode=${COMMIT ? (sched ? `SCHEDULE(${sched.raw})` : 'COMMIT(即時公開)') : 'DRAFT(下書きのみ)'}`);
 
 // 冪等ガード: 既に公開済み（frontmatter に noteUrl あり）ならスキップ（バッチ再実行で重複公開しない）
 const existingUrl = fmField('noteUrl');
@@ -213,35 +227,77 @@ try {
     } else { console.log('[11] 有料エリア設定 ボタン未検出'); }
   }
 
-  // 12. 投稿 or 安全離脱
-  if (COMMIT && boundaryOk) {
+  // 12. 投稿 / 予約投稿 / 安全離脱
+  // frontmatter へ noteUrl/noteId/notePublishedAt を反映（冪等＋記録）。予約時は publishDate=予約日。
+  const writeBack = (url, publishDate) => {
+    try {
+      const id = (url.match(/\/n(?:otes)?\/([a-z0-9]+)/) || [])[1] || '';
+      if (id) {
+        const cleanUrl = `https://note.com/dobokunote/n/${id}`;
+        const upd = raw
+          .replace(/^noteUrl:.*$/m, `noteUrl: "${cleanUrl}"`)
+          .replace(/^noteId:.*$/m, `noteId: "${id}"`)
+          .replace(/^notePublishedAt:.*$/m, `notePublishedAt: "${publishDate}"`);
+        writeFileSync(articleAbs, upd);
+        console.log('[12] frontmatter 反映:', cleanUrl, publishDate);
+      }
+    } catch (e) { console.log('[12] frontmatter 反映 skip:', e.message.split('\n')[0]); }
+  };
+  const saveDraftExit = async (why) => {
+    console.log('[12] ' + why + ' → 下書き保存で終了（公開せず）。');
+    const cancel = page.getByRole('button', { name: 'キャンセル' }); if (await cancel.count()) { await cancel.first().click(); await sleep(1200); }
+    const d2 = page.getByRole('button', { name: '下書き保存' }); if (await d2.count()) { await d2.first().click(); await sleep(2500); }
+  };
+
+  if (COMMIT && boundaryOk && sched) {
+    // --- 予約投稿フロー（--schedule 指定時。selector は scheduling.md 由来・first-run 要検証）---
+    // 安全弁: 日時が UI に反映できないときは即時公開せず下書きへ退避（誤即時公開を防止）
+    const pad = (n) => String(n).padStart(2, '0');
+    const shot = async (t) => { try { await page.screenshot({ path: join(ROOT, `.tmp/np-sched-${t}.png`) }); } catch {} };
+    let opened = false;
+    for (const label of ['日時を指定して公開', '日時の設定', '公開日時', '投稿日時', '日時指定']) {
+      const el = page.getByText(label, { exact: false });
+      if (await el.count()) { try { await el.first().click(); opened = true; await sleep(1500); break; } catch {} }
+    }
+    await shot('open');
+    let dateSet = false;
+    for (let nav = 0; nav < 4 && opened && !dateSet; nav++) {
+      const day = page.locator(`[aria-label*="${sched.y}年"][aria-label*="${sched.mo}月"][aria-label*="${sched.d}日"]`);
+      if (await day.count()) { try { await day.first().click(); dateSet = true; await sleep(800); } catch {} }
+      if (!dateSet) { const nx = page.getByRole('button', { name: /次の月|次月|Next/ }); if (await nx.count()) { await nx.first().click(); await sleep(600); } else break; }
+    }
+    const timeStr = `${pad(sched.h)}:${pad(sched.mi)}`;
+    let timeSet = false;
+    const timeItem = page.getByText(timeStr, { exact: true });
+    if (await timeItem.count()) { try { await timeItem.first().click(); timeSet = true; await sleep(600); } catch {} }
+    await shot('datetime');
+    const reserveBtn = page.getByRole('button', { name: /予約投稿|予約する|予約設定/ });
+    const hasReserve = await reserveBtn.count();
+    console.log(`[12S] schedule=${sched.raw} opened=${opened} dateSet=${dateSet} timeSet=${timeSet} reserveBtn=${hasReserve}`);
+    if (opened && dateSet && timeSet && hasReserve) {
+      await reserveBtn.first().click(); await sleep(5000);
+      const close = page.getByRole('button', { name: '閉じる' }); if (await close.count()) { await close.first().click(); await sleep(1500); }
+      publishedUrl = page.url();
+      console.log('[12S] 予約投稿 clicked →', publishedUrl, '@', sched.raw);
+      writeBack(publishedUrl, sched.date);
+    } else {
+      await shot('abort');
+      await saveDraftExit('★中断: 予約投稿UIを確定できず（即時公開はしない・selector要first-run検証）★');
+    }
+  } else if (COMMIT && boundaryOk) {
+    // --- 即時公開（既存）---
     const submit = page.getByRole('button', { name: '投稿する', exact: true });
     if (await submit.count()) {
       await submit.first().click(); await sleep(5000);
       const close = page.getByRole('button', { name: '閉じる' }); if (await close.count()) { await close.first().click(); await sleep(1500); }
       publishedUrl = page.url();
       console.log('[12] 投稿する clicked → published:', publishedUrl);
-      // frontmatter へ noteUrl/noteId/notePublishedAt を反映（冪等＋記録）
-      try {
-        const id = (publishedUrl.match(/\/n(?:otes)?\/([a-z0-9]+)/) || [])[1] || '';
-        if (id) {
-          const cleanUrl = `https://note.com/dobokunote/n/${id}`;
-          const today = new Date().toISOString().slice(0, 10);
-          const upd = raw
-            .replace(/^noteUrl:.*$/m, `noteUrl: "${cleanUrl}"`)
-            .replace(/^noteId:.*$/m, `noteId: "${id}"`)
-            .replace(/^notePublishedAt:.*$/m, `notePublishedAt: "${today}"`);
-          writeFileSync(articleAbs, upd);
-          console.log('[12] frontmatter 反映:', cleanUrl);
-        }
-      } catch (e) { console.log('[12] frontmatter 反映 skip:', e.message.split('\n')[0]); }
+      writeBack(publishedUrl, new Date().toISOString().slice(0, 10));
     } else console.log('[12] 投稿する 未検出');
   } else {
     if (COMMIT && !boundaryOk) console.log('[12] ★中断: 境界検証 NG（boundaryBeforeExam=false）→ 公開しない★');
-    const cancel = page.getByRole('button', { name: 'キャンセル' });
-    if (await cancel.count()) { await cancel.first().click(); await sleep(1200); }
-    const d2 = page.getByRole('button', { name: '下書き保存' }); if (await d2.count()) { await d2.first().click(); await sleep(2500); }
-    console.log('[12] DRAFT モード/未検証 → 下書き保存で終了（公開せず）。URL=' + page.url());
+    await saveDraftExit('DRAFT モード/未検証');
+    console.log('[12] URL=' + page.url());
   }
   await page.screenshot({ path: join(ROOT, '.tmp/np-final.png') });
   console.log('RESULT:', JSON.stringify({ mode: COMMIT ? 'commit' : 'draft', boundaryOk, publishedUrl }));

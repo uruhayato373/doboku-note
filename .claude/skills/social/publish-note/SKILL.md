@@ -15,7 +15,7 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 - **実行は Mac 推奨**。会社 PC（Windows）はプロキシが外部 API（browser-use の LLM バックエンド等）を遮断する可能性が高い（[[project_ig_api_posting_setup]] と同根）。note 投稿は Mac で行う運用とする
 - **browser-use CLI がインストール済み**であること（`$HOME/.browser-use-env/` 等）
 - **Chrome プロファイルが note.com/dobokunote にログイン済み**であること。プロファイル名は環境変数 `NOTE_PROFILE` に設定（例: `export NOTE_PROFILE="Profile 1"`）。references の例にある `Profile 5` は stats47 用なので**使わない**
-- **予約投稿**は note プレミアム加入アカウントのみ可（通常アカウントは日時設定不可）
+- **予約投稿**は現在は無料（誰でも可・note プレミアム不要）。Windows Playwright 版は `scripts/note-publish.mjs --schedule "YYYY-MM-DDTHH:MM"`（JST）、時間ずらしバッチは `note-publish-magazine.mjs --list <manifest> --schedule-start ... --interval-hours N`
 
 ## 投稿先アカウント（最重要・誤爆防止）
 
@@ -59,7 +59,7 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 
 - **dir**: `docs/note/` からの相対パス（例 `技術士建設部門/防災・減災の論点キーワード`）。スペースを含むので**カンマ区切りのバッチでは各 dir をそのまま**書く
 - **日時・`now` 省略 → 下書き保存のみ**（既定・最も安全。まず1本これで挙動確認するのを推奨）
-- **`now`** → 即時公開／**`<M/D> <HH:MM>`** → 予約公開（note プレミアム加入アカウントのみ）
+- **`now`** → 即時公開／**`<M/D> <HH:MM>`** → 予約公開（note は現在 無料で予約可）
 - 例（下書き）: `/publish-note --free 技術士建設部門/防災・減災の論点キーワード`
 - 例（即時公開）: `/publish-note --free 技術士建設部門/社会資本整備の論点キーワード now`
 
