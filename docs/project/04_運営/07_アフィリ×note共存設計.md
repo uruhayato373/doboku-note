@@ -198,7 +198,7 @@ note 側は utm_content がスロット位置を既に符号化しているた�
 2. `HOME_AFFILIATE`（トップ）は変更しない。
 
 > [!note] 2026-06-16 更新（PR #256）— この WP2 は後続で上書き
-> 「SAT カード削除」自体は有効だが、その後の**無アフィリ状態は解消**した。`resolveCategoryAffiliate` は撤去し `resolveCategoryCareerAd`（資格別 creative セグメント）に一本化。pe-comprehensive は `return null` ではなく**ハイクラス DX/コンサル転職**（`PE_CONSULTING_CAREER_AD`, mat `4B5OO5+NTCZ6+4SXU+NUES1`）を返す＝カテゴリ hub の収益導線ゼロを解消（総監＝シニア技術者層に適合。GKS の 20代未経験/施工管理ミスマッチを回避）。詳細: `02_アフィリエイト提携状況.md` カテゴリ hub 節 / `docs/handoffs/2026-06-16-affiliate-ssot.md` 追記。
+> 「SAT カード削除」自体は有効だが、その後の**無アフィリ状態は解消**した。`resolveCategoryAffiliate` は撤去し `resolveCategoryCareerAd`（資格別 creative セグメント）に一本化。pe-comprehensive は `return null` ではなく**ハイクラス DX/コンサル転職**（`PE_CONSULTING_CAREER_AD`, mat `4B5OO5+NTCZ6+4SXU+NUES1`）を返す＝カテゴリ hub の収益導線ゼロを解消（総監＝シニア技術者層に適合。GKS の 20代未経験/施工管理ミスマッチを回避）。詳細: `02_アフィリエイト提携状況.md` カテゴリ hub 節。
 
 ### ✅ WP3: PE MDX 3 ページの SAT 表記是正（S3/S4/S5 前半）
 
