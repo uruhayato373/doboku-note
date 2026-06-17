@@ -645,8 +645,8 @@ const MAGAZINES_RAW = {
   },
   'pe-construction-railway-magazine': {
     id: 'pe-construction-railway-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/m535a4a4353c3',
     title: '技術士 建設部門 2次｜鉄道 選択科目 模範解答集（R03-R07）',
     description:
       '技術士第二次試験 建設部門「鉄道」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として道路・鉄道交差部の協議や鉄道関連土木の発注・監督に携わった視点で、軌道・鉄道構造物の各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。令和8年度の改訂コンピテンシーにも対応。各記事に印刷用PDF付き。',
