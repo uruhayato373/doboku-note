@@ -27,7 +27,7 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync, existsSync, writeFileSync } from 'node:fs';
-import { join, dirname, basename } from 'node:path';
+import { join, dirname, basename, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -41,7 +41,9 @@ const ARTICLE = getArg('--article');
 if (!ARTICLE) { console.error('--article <path> required'); process.exit(1); }
 
 // ---- データ準備（frontmatter + body + cover/hashtags 解決）----
-const articleAbs = join(ROOT, ARTICLE);
+// ARTICLE は相対（直接呼び）/絶対（note-publish-magazine の globSync 経由）どちらも受理。
+// resolve は絶対パスをそのまま、相対は ROOT 基準で解決する（join だと絶対+絶対で二重化する）。
+const articleAbs = resolve(ROOT, ARTICLE);
 if (!existsSync(articleAbs)) { console.error('article not found: ' + articleAbs); process.exit(1); }
 const raw = readFileSync(articleAbs, 'utf8');
 const fm = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '';
