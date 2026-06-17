@@ -19,6 +19,15 @@
       "note": "新規無料キャリア面談 ¥50,000 の増額キャンペーン期限。期限後はサイドバーが resolveCareerSidebarAd により GKS へ自動復帰。期限後に本 mat が配置され続けていれば WARN。"
     },
     {
+      "mat": "4B5OO5+NTCZ6+4SXU+NUES1",
+      "program": "dx-consulting",
+      "label": "ハイクラス DX・コンサル転職（技術士/総監 シニア層向け）",
+      "surfaces": ["sidebar", "inline"],
+      "definedIn": "src/config/affiliate-creatives.ts (PE_CONSULTING_CAREER_AD)",
+      "expiresAt": null,
+      "note": "pe-comprehensive-management カテゴリ hub 専用。GKS（20代未経験/施工管理）が総監（シニア技術者）にミスマッチなため差替（resolveCategoryCareerAd）。"
+    },
+    {
       "mat": "4B3RUZ+6Y22UQ+5TRO+5YJRM",
       "program": "sat",
       "label": "SAT eラーニング（現場系国家資格・テキストリンク）",

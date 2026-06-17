@@ -49,6 +49,21 @@ export const BUILDJOB_CAREER_AD = {
 } as const;
 
 /**
+ * ハイクラス DX・コンサル転職（A8.net）。技術士（総監）= シニア技術者・管理職層向け。300×250 + pixel。
+ * GKS（20代未経験/施工管理）が総監層にミスマッチなため、pe カテゴリ hub のサイドバー転職枠に充てる
+ * （2026-06-16）。資格別セグメント: civil=施工管理系（BuildJob/GKS）/ pe=ハイクラス DX/コンサル。
+ */
+export const PE_CONSULTING_CAREER_AD = {
+  href: "https://px.a8.net/svt/ejp?a8mat=4B5OO5+NTCZ6+4SXU+NUES1",
+  imageSrc:
+    "https://www23.a8.net/svt/bgt?aid=260605733040&wid=001&eno=01&mid=s00000022413004005000&mc=1",
+  pixelSrc: "https://www18.a8.net/0.gif?a8mat=4B5OO5+NTCZ6+4SXU+NUES1",
+  alt: "ハイクラス DX・コンサル転職",
+  width: 300,
+  height: 250,
+} as const;
+
+/**
  * サイドバー転職枠の creative を期間で出し分ける（ビルド時に評価＝SSG）。
  * - 2026-08-31（JST）まで: ビルドジョブ（無料面談 ¥50,000 の増額キャンペーン中、GKS の 2 倍報酬）。
  * - 2026-09-01（JST）以降: GKS に自動復帰（ビルドジョブの増額終了想定）。
@@ -104,37 +119,26 @@ export type CategoryAffiliate =
     };
 
 /**
- * カテゴリ hub に転職アフィリの「枠を出すか」を返すゲート（2026-06-16〜）。
+ * カテゴリ hub の右サイドバー転職枠 creative を「カテゴリ別」に解決する（2026-06-16〜）。
+ * 受験者層に creative をセグメントする（戻り値 null = 転職枠なし＝単一カラム）。
+ * page.tsx の careerSidebar 判定（ゲート）も兼ねる。
  *
- * 注: カテゴリ hub の 2 カラム化以降、`src/app/category/[slug]/page.tsx` は本戻り値の
- * `kind === 'career'` のみを参照し（careerSidebar 判定）、実 creative は `resolveCareerSidebarAd()`
- * が描画する（期間で BuildJob ↔ GKS を出し分け）。下記 `props` は後方互換のため残置＝**現状未使用**。
+ * - civil-1 / civil-2（施工管理・現場/若手層）→ `resolveCareerSidebarAd()`（期間で BuildJob ↔ GKS）。
+ * - pe-comprehensive-management（総監＝シニア技術者・管理職層）→ ハイクラス DX/コンサル転職
+ *   （`PE_CONSULTING_CAREER_AD`）。GKS の「20代未経験/施工管理」ミスマッチを解消（2026-06-16 差替）。
+ *   GA4 流入 2 位の高トラフィックページの収益導線ゼロも解消。
+ * - それ以外（concrete 系 / pe-construction / pe-first-stage）→ null（docs でもアフィリ無し）。
  *
- * - civil-1 / civil-2 → 転職枠あり（受験者＝資格でキャリアアップ層と一致）。
- * - pe-comprehensive-management → 転職枠あり（2026-06-16 新設）。GA4 流入 2 位の高トラフィックページの
- *   収益導線ゼロを解消。**素性注意**: 総監（技術士）= シニア建設技術者層。GKS は「20代未経験/若手・
- *   施工管理特化」がターゲットでミスマッチ。〜2026-08-31 はビルドジョブ（建設業界特化・広め）で適合するが、
- *   9/1 の GKS 自動復帰後はシニア向け creative への差し替えを要検討（または pe のみ BuildJob 固定）。
- *   真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
- * - それ以外（concrete 系 / pe-construction / pe-first-stage）→ なし（docs でもアフィリ無し）。
+ * 真実源: docs/project/04_運営/02_アフィリエイト提携状況.md。
  */
-export function resolveCategoryAffiliate(category: string): CategoryAffiliate | null {
-  if (
-    category === "civil-construction-1" ||
-    category === "civil-construction-2" ||
-    category === "pe-comprehensive-management"
-  ) {
-    return {
-      kind: "career",
-      props: {
-        service: "GKSキャリア",
-        category: "施工管理 転職エージェント",
-        href: CIVIL_CAREER_AD.href,
-        imageSrc: CIVIL_CAREER_AD.imageSrc,
-        trackingPixelUrl: CIVIL_CAREER_AD.pixelSrc,
-        points: ["施工管理に特化した求人", "在職中でも無料で相談 OK"],
-      },
-    };
+export function resolveCategoryCareerAd(
+  category: string,
+): { creative: SidebarAdCreative; trackLabel: string } | null {
+  if (category === "pe-comprehensive-management") {
+    return { creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" };
+  }
+  if (category === "civil-construction-1" || category === "civil-construction-2") {
+    return resolveCareerSidebarAd();
   }
   return null;
 }
