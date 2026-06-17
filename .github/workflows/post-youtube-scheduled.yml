@@ -45,7 +45,7 @@ jobs:
           cache: "npm"
 
       - name: 📦 Install deps
-        run: npm ci
+        run: npm ci --legacy-peer-deps
 
       - name: 🔍 Validate schedule (重複チェック)
         run: node .claude/scripts/youtube/validate-schedule.mjs
