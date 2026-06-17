@@ -59,8 +59,8 @@ docs/sns/instagram/
 │   │       │   │   ├── caption.txt    ← 主題のみ（ネタバレなし）+ エンゲージメント CTA
 │   │       │   │   ├── img/{00-09}.png  ← 1080×1920 PNG × 10
 │   │       │   │   ├── script.txt     ← TTS 読み上げ台本（ig-reel-create）
-│   │       │   │   ├── wav/slide-NN.wav  ← VOICEVOX 音声（中間ファイル）
-│   │       │   │   └── video.mp4      ← 最終 Reels 動画（VOICEVOX + ffmpeg 合成）
+│   │       │   │   ├── wav/slide-NN.wav  ← VOICEVOX 音声（gitignore・R2退避＝再生成可 / sns-archive-policy.md）
+│   │       │   │   └── video.mp4      ← 最終 Reels 動画（gitignore・JIT生成/R2退避＝コミットしない）
 │   │       │   └── stories/           ← ストーリー連投用（reels から 4 枚厳選）
 │   │       │       ├── img/01-cover.png   ← 表紙
 │   │       │       ├── img/02-problem.png ← Q1（典型問題）

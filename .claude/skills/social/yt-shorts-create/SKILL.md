@@ -22,7 +22,7 @@ allowed-tools: Bash, Read, Write
    winget install Gyan.FFmpeg
    ffmpeg -version
    ```
-2. **対象パックの Reels mp4 が既に生成済み**
+2. **対象パックの Reels mp4 が生成済み**（`slide-NN.mp4` は gitignore・再生成可＝手元に無ければ先に `ig-reel-create` で生成すること。`ls` 確認が空でも異常ではない）
    - `ig-reel-create` で生成: `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/slide-NN.mp4`
    - 必要なファイル: `slide-00.mp4` (cover) / `slide-01.mp4` (problem 1) / `slide-02.mp4` (answer 1) / `slide-09.mp4` (cta)
 3. **slide-data.json が存在**: `docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/slide-data.json`

@@ -63,7 +63,7 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 - 解像度: 1080×1920 (9:16)
 - 尺: 30-60 秒（IG Reels 90-110 秒からの短縮派生）
 - 内容: 1 動画 = 1 過去問パック（cover + 1 問 + a1 + cta が原則）または 1 キーワード
-- 生成元: **`docs/sns/instagram/_exam-packs/{試験}/<year>/pack-NN/reels/video.mp4` を ffmpeg でトリム**
+- 生成元: **`reels/video.mp4`（gitignore・R2退避＝手元に無ければ R2 取得 or `ig-reel-create` で再生成）を ffmpeg でトリム**
 - 字幕: IG Reels 用 ASS を 30-60 秒尺に合わせて再生成 → ffmpeg で焼き込み
 - 投稿: YouTube Data API v3 (`videos.insert` resumable upload)
 - 概要欄: IG Reels と独立した UTM (`utm_source=youtube`) と doboku-note / note リンク差替
