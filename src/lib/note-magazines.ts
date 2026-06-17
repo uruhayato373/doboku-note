@@ -632,8 +632,8 @@ const MAGAZINES_RAW = {
   },
   'pe-construction-power-civil-magazine': {
     id: 'pe-construction-power-civil-magazine',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/m/ma87d182c8113',
     title: '技術士 建設部門 2次｜電力土木 選択科目 模範解答集（R03-R07）',
     description:
       '技術士第二次試験 建設部門「電力土木」選択科目の令和3〜7年度を、II-1（全設問）・II-2（両選択肢）・III（両問題）の全選択肢でフル解答した模範解答集（5年分 × 3区分 ＝ 15記事）。元・地方自治体の土木職（発注者）として電力関連土木工事の調整・監督に携わった視点で、ダム・水路・発電所土木の各記事に設問全文（出典明記）・設問構成と論述方針・フル模範解答・採点者が見るポイントを収録。令和8年度の改訂コンピテンシーにも対応。各記事に印刷用PDF付き。',
