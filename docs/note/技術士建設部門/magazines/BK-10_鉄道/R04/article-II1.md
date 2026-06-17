@@ -4,9 +4,9 @@ noteMagazine: BK-10
 year: R04
 subject: railway
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/ncfe9282efcd9"
+noteId: "ncfe9282efcd9"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R04 選択科目II-1 模範解答（全4設問）"
 cover:

@@ -4,9 +4,9 @@ noteMagazine: BK-10
 year: R06
 subject: railway
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n329e9700404a"
+noteId: "n329e9700404a"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R06 選択科目III 模範解答"
 cover:

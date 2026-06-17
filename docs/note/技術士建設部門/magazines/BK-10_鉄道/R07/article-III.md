@@ -4,9 +4,9 @@ noteMagazine: BK-10
 year: R07
 subject: railway
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n64ae7892e25c"
+noteId: "n64ae7892e25c"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R07 選択科目III 模範解答"
 cover:

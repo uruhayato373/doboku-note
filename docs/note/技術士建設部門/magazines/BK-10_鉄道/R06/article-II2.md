@@ -4,9 +4,9 @@ noteMagazine: BK-10
 year: R06
 subject: railway
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n03caa00cb71e"
+noteId: "n03caa00cb71e"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜鉄道 R06 選択科目II-2 模範解答"
 cover:
