@@ -4,9 +4,9 @@ noteMagazine: BK-09
 year: R05
 subject: power-civil
 exam_type: II-1
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n771dab94c271"
+noteId: "n771dab94c271"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R05 選択科目II-1 模範解答"
 cover:

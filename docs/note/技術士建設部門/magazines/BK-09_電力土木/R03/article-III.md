@@ -4,9 +4,9 @@ noteMagazine: BK-09
 year: R03
 subject: power-civil
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nb1fd167b3930"
+noteId: "nb1fd167b3930"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R03 選択科目III 模範解答"
 cover:

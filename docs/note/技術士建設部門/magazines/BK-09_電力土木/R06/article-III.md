@@ -4,9 +4,9 @@ noteMagazine: BK-09
 year: R06
 subject: power-civil
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n9254d13a876e"
+noteId: "n9254d13a876e"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜電力土木 R06 選択科目III 模範解答"
 cover:
