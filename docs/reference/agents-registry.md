@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **45**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **46**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -43,6 +43,7 @@ title: サブエージェント詳細レジストリ
 | `/doc-declutter`（doc 棚卸し時に親が起動）            | `doc-curator`                                                  | 候補 doc を KEEP/TRIM/ARCHIVE/DELETE/CONSOLIDATE に分類（親が渡す外部実体の検証済みシグナルに基づく・適用は親） |
 | `/record-sales`                                      | `sales-recorder`                                                | 販売履歴テキスト正規化・productId 推定・重複チェック・JSON 追記 |
 | note 価格変更・マガジン操作（親が起動）                    | `note-operator`                                                 | 高レベル指示→スクリプト組み合わせ実行→SoT更新 |
+| SNS バイナリ退避（親が起動 / `upload-sns-r2` 連携）        | `sns-archive-auditor`                                          | 退避候補パックを OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK に分類（SoT 無傷＝再生成可否を判定・実行は親＋スクリプト） |
 
 ⏸️ Phase 2 で復活（着手条件: Web 月収 ¥15k 達成後）:
 
@@ -102,6 +103,7 @@ title: サブエージェント詳細レジストリ
 | `doc-curator`                  | doc の**ライフサイクル**（肥大化・完了・重複）を監査し候補 doc を `KEEP/TRIM/ARCHIVE/DELETE/CONSOLIDATE + 根拠引用 + confidence + 後追い` で分類。**親が渡した外部実体の検証済みシグナル（PR merged・published:true・ファイル実在・参照の有無）に基づき判定し、doc の自己申告で done と決めない**。検出専用＝退避/削除/参照更新/memory 同期はしない。Bash 不可。`doc-sync-auditor`（コード diff 起点の prose 陳腐化）とは守備範囲が直交 | Evaluator    | sonnet  | `.claude/skills/dev/doc-declutter/SKILL.md` 参照、機械 surfacer `scripts/check-doc-lifecycle.mjs` | ✅ 運用中（2026-06-17 起動） |
 | `sales-recorder`               | note 販売履歴テキストを正規化して sales-log.json に追記。productId 推定・重複チェック・月次集計を行う。購入者名は記録しない（プライバシー保護） | Generator    | sonnet  | `/record-sales` 連携、`docs/reference/sales-tracking.md` 参照 | ✅ 運用中（2026-06-17 起動） |
 | `note-operator`                | note.com への高レベル操作指示（価格変更・マガジン新設・記事収録など）を受け取り、既存スクリプト群を組み合わせて実行するオーケストレーター。dry-run 必須・account ゲート・変更後検証・SoT 更新を統括 | Orchestrator | sonnet  | 親が起動、`docs/reference/note-api-verification.md` 参照 | ✅ 運用中（2026-06-17 起動） |
+| `sns-archive-auditor`          | `docs/sns` のバイナリ（reels wav/mp4 等）退避の前段監査。各パックを **OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK** に分類（**SoT＝slide-data.json/script/caption が無傷で再生成可能か**＋投稿済み/制作中で判定）。「迷ったら KEEP/BLOCK」でローカル削除の不可逆性を構造で防ぐ。audit-only・Bash 不可（親が dry-run/R2 検証/git 状態を渡す）。実行は `npm run upload-sns-r2`（`--purge-local` は R2 バイト一致検証後のみ削除） | Evaluator    | sonnet  | `upload-sns-r2` 連携、`docs/reference/sns-archive-policy.md` 参照 | ✅ 運用中（2026-06-18 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 

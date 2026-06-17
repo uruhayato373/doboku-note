@@ -53,6 +53,15 @@ npm run upload-sns-r2 -- --posted-only --purge-local --skip-existing   # 投稿�
 > [!warning] --posted-only は status.json 更新が前提
 > 投稿済み判定は各パックの `status.json` のチャネルに `posted_at`（truthy）または `status: "posted"` があるかで行う。投稿後に status.json を更新していないと 0 件になる（2026-06-18 時点では全パックが `scheduled`/`posted_at: null` のため `--posted-only` は 0 件）。投稿フローで status.json を更新するか、`--prefix` で年度・資格を指定して旧パックを退避する。
 
+## 分業（sns-archive-auditor エージェント）
+
+「どのパックを削除して安全か」という**機械では測れない判断**は `sns-archive-auditor`（Evaluator・audit-only）に委ね、実行は親＋スクリプトが担う。
+
+- **親（実行）**: `npm run upload-sns-r2 -- --dry-run` で候補リストを取得し、各パックの `status.json`・git 追跡状態・更新日時をエージェントへ渡す。判定後、推奨された `upload-sns-r2` コマンドを実行する。
+- **エージェント（判定）**: 渡されたパックの `slide-data.json`/`script.txt`/`caption.txt` を Read し、**SoT が無傷で再生成可能か**を検証。`OFFLOAD`（退避可）/`ARCHIVE_KEEP`（R2 バックアップのみ）/`KEEP_LOCAL`（制作中）/`BLOCK`（SoT 欠落＝purge 禁止）に分類して返す。「迷ったら KEEP/BLOCK」で不可逆な削除を構造的に防ぐ。
+
+二重の安全網: スクリプトが「R2 にバイト一致で存在するまで削除しない」を守り、エージェントが「そもそも再生成できるか」を守る。
+
 ## R2 上のブラウズ（容量を食わずに確認）
 
 `rclone mount` で R2 を Finder からブラウズできる仮想フォルダにできる。退避済みパックを開いた時だけストリーム取得するため、ローカルディスクを消費しない。設定は別途 `rclone config`（R2 を S3 互換で登録）。
