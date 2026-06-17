@@ -9,15 +9,17 @@ interface LinkCardProps {
   readonly siteName: string;
   readonly imageUrl?: string;
   readonly category?: string;
+  readonly variant?: "compact" | "hero";
 }
 
-export default async function LinkCard({ 
-  url, 
-  title, 
+export default async function LinkCard({
+  url,
+  title,
   description,
-  siteName, 
-  imageUrl, 
-  category = "参考資料"
+  siteName,
+  imageUrl,
+  category = "参考資料",
+  variant = "compact"
 }: LinkCardProps) {
   // サーバーサイドでメタデータを取得
   const metadata = await getLinkMetadata(url);
@@ -36,6 +38,7 @@ export default async function LinkCard({
       imageUrl={displayImage}
       siteName={displaySiteName}
       category={category}
+      variant={variant}
     />
   );
 } 

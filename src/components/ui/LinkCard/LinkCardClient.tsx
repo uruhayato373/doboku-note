@@ -43,18 +43,33 @@ export default function LinkCardClient({
         <span className={isHero ? "block" : "flex"}>
           {imageUrl && (
             <span
-              className={`flex-shrink-0 overflow-hidden relative inline-block ${
-                isHero ? "block w-full aspect-[1280/670]" : "w-32 h-24"
+              className={`overflow-hidden relative ${
+                isHero ? "block w-full" : "flex-shrink-0 inline-block w-32 h-24"
               }`}
             >
-              <Image
-                src={imageUrl}
-                alt={title}
-                fill
-                className="object-cover group-hover:scale-105 transition-transform duration-300"
-                unoptimized
-                sizes={isHero ? "(max-width: 768px) 100vw, 768px" : "128px"}
-              />
+              {isHero ? (
+                // hero（ワイド）: 元画像のアスペクト比をそのまま使う（クロップしない）。
+                // width/height は読み込み前のプレースホルダ比。aspect-ratio: auto W/H の
+                // 仕様により、実画像ロード後は自然なアスペクト比が採用される。
+                <Image
+                  src={imageUrl}
+                  alt={title}
+                  width={1280}
+                  height={670}
+                  className="block w-full h-auto group-hover:scale-105 transition-transform duration-300"
+                  unoptimized
+                  sizes="(max-width: 768px) 100vw, 768px"
+                />
+              ) : (
+                <Image
+                  src={imageUrl}
+                  alt={title}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  unoptimized
+                  sizes="128px"
+                />
+              )}
               {category && (
                 <span className="absolute top-2 left-2 inline-block px-2 py-0.5 text-xs font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-sm shadow-sm">
                   {category}
