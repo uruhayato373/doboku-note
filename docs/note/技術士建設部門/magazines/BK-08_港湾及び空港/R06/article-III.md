@@ -4,9 +4,9 @@ noteMagazine: BK-08
 year: R06
 subject: port-airport
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/ndd7b3933c8a2"
+noteId: "ndd7b3933c8a2"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R06 選択科目III 模範解答"
 cover:

@@ -4,9 +4,9 @@ noteMagazine: BK-08
 year: R04
 subject: port-airport
 exam_type: III
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nf54279b546f7"
+noteId: "nf54279b546f7"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R04 選択科目III 模範解答"
 cover:

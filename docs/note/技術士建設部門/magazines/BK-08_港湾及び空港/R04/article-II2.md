@@ -4,9 +4,9 @@ noteMagazine: BK-08
 year: R04
 subject: port-airport
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n26f7fd3c0308"
+noteId: "n26f7fd3c0308"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R04 選択科目II-2 模範解答"
 cover:

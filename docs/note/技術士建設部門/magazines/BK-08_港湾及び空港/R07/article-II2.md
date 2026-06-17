@@ -4,9 +4,9 @@ noteMagazine: BK-08
 year: R07
 subject: port-airport
 exam_type: II-2
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n1152ec79dbe0"
+noteId: "n1152ec79dbe0"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R07 選択科目II-2 模範解答"
 cover:

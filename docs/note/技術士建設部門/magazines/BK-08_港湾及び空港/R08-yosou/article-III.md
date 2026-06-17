@@ -6,9 +6,9 @@ forecast: true
 subject: port-airport
 exam_type: III
 theme: "港湾の強靱化・BCP（地震・津波・気候変動）とカーボンニュートラルポート（CNP）推進"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/nbc7f930a7bd9"
+noteId: "nbc7f930a7bd9"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R8予想 選択科目III 予想問題＋模範解答"
 cover:

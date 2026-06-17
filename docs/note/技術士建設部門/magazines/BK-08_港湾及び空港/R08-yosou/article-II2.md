@@ -6,9 +6,9 @@ subject: port-airport
 exam_type: II-2
 forecast: true
 theme: "港湾施設老朽化対策・空港供用下改修"
-noteUrl: ""
-noteId: ""
-notePublishedAt: ""
+noteUrl: "https://note.com/dobokunote/n/n93d409ee67fb"
+noteId: "n93d409ee67fb"
+notePublishedAt: "2026-06-17"
 price: 780
 coverTitle: "技術士 建設部門｜港湾及び空港 R8予想 選択科目II-2 模範解答"
 cover:
