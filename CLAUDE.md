@@ -30,8 +30,8 @@
 src/                           # コンポーネント・CSS・レイアウト
 docs/project/                  # プロジェクト管理ドキュメント
 docs/reference/             # 作業マニュアル（詳細・手順）
-.claude/skills/                # スキル定義（71スキル、8カテゴリ）
-.claude/agents/                # サブエージェント定義（41）
+.claude/skills/                # スキル定義（件数の SSOT: skills-registry.md カテゴリ構造）
+.claude/agents/                # サブエージェント定義（件数の SSOT: agents-registry.md 一覧表）
 ```
 
 **URL**: すべて `/docs/{slug}` フラット。Convention A（個別ファイル名）と Convention B（`article.mdx`）が共存。新規コンテンツは Convention B 推奨。詳細・frontmatter テンプレ → [content-authoring.md](docs/reference/content-authoring.md)

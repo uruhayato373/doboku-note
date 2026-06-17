@@ -11,21 +11,24 @@ title: スキル ガバナンス記録
 
 ---
 
-## カテゴリ構造（Phase D 完了時）
+## カテゴリ構造（件数の SSOT＝`find .claude/skills -name SKILL.md` 実数）
+
+> このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
 
 ```
 .claude/skills/
-├── authoring/       # 10 — 記事を作る
+├── authoring/       # 12 — 記事を作る
 ├── conversion/      # 5 — 形式変換（MDX / OGP 画像 / 紙用 PDF）＋ OGP 意匠の素案試作
-├── quality/         # 13 — MDX・note 公開前品質検査
+├── quality/         # 14 — MDX・note 公開前品質検査
 ├── management/      # 12 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
-├── social/          # 9 — SNS 投稿
+├── social/          # 20 — SNS 投稿
+├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **65 スキル**（Phase 2 待機を除く）。
+合計 **80 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
 > 2026-06-17 追加（ドキュメント ライフサイクル監査）: `dev/doc-declutter`（doc の**肥大化棚卸し**＝完了 handoff の退避・古い行の trim・重複 doc の統廃合）。あわせて **新エージェント `doc-curator`（Evaluator・sonnet）** を新設＝候補 doc を KEEP/TRIM/ARCHIVE/DELETE/CONSOLIDATE に分類（**親が渡した外部実体の検証済みシグナルに基づき判定・doc の自己申告で done と決めない**・自動修正/退避はしない）。機械 surfacer `scripts/check-doc-lifecycle.mjs`（`npm run check-doc-lifecycle`・鮮度/orphan/PR・commit 言及で候補を非ブロッキングに列挙）も新設し、pre-commit hook `check-doc-sync.sh` に「active handoff が一定数を超えたら `/doc-declutter` を促す」nudge を追加。**`/doc-sync`（コード変更起点の prose 陳腐化）とは守備範囲が直交**（こちらは doc 自体のライフサイクル）。安全則は今セッションの handoff 整理の実体験から導出＝①外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから処分、未確認なら DELETE せず ARCHIVE ②退避≠削除（恒久 SSOT が内容を完全保持する時のみ DELETE）③参照は同一 commit で `_archive/` パス or SSOT へ張り替え（`check-doc-refs` ゲート）④`git commit -- <pathspec>` で並行セッションを巻き込まない ⑤memory も同期。`user-invocable: true`（退避/削除/参照更新の副作用が大きい）。
 > 2026-06-17 追加: `metrics/record-sales`（note 販売履歴を SSOT `sales-log.json` に記録するスキル。ダッシュボードペーストから正規化追記＋月次集計。Generator `sales-recorder` 新設）。運用ドキュメント `docs/reference/sales-tracking.md` と同時新設。
