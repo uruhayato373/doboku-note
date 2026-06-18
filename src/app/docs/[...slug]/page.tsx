@@ -28,6 +28,7 @@ import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import SchoolAffiliate from '@/components/ui/SchoolAffiliate/SchoolAffiliate';
+import CareerAffiliate from '@/components/ui/CareerAffiliate/CareerAffiliate';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl, type NoteMagazine } from '@/lib/note-magazines';
@@ -43,7 +44,7 @@ import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
-import { resolveCareerSidebarAd, SCHOOL_SAT } from '@/config/affiliate-creatives';
+import { resolveCareerSidebarAd, resolveCareerArticleEndCard, SCHOOL_SAT } from '@/config/affiliate-creatives';
 
 
 /**
@@ -662,6 +663,17 @@ export default async function DocPage({
             {Array.isArray((doc.meta as any).faqs) && (doc.meta as any).faqs.length > 0 && (
               <div className="mt-8">
                 <FAQCard faqs={(doc.meta as any).faqs} />
+              </div>
+            )}
+
+            {/* 記事末 転職 CTA（モバイル限定・civil 1/2 のみ・FAQ 直後）。
+                サイドバー転職枠（PC ≥993px が唯一のピクセル発火源）はモバイル非表示のため、
+                モバイル読者向けに visible なクリック面をここに新設する（ネイティブカード型）。
+                href のみ（ピクセルなし）＝計測はサイドバー側 1 発火を維持（1 ページ 1 ピクセル）。
+                creative は resolveCareerArticleEndCard が期間で出し分け（〜8/31 ビルドジョブ／以降 GKS）。 */}
+            {(category === 'civil-construction-1' || category === 'civil-construction-2') && (
+              <div className="mt-8 zenn-desktop:hidden">
+                <CareerAffiliate {...resolveCareerArticleEndCard()} />
               </div>
             )}
 
