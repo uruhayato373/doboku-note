@@ -711,7 +711,7 @@ export default async function CategoryPage({
   const allDocs = await getDocsMetaByCategory(slug);
   const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !(d as any).hideFromCategory);
 
-  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'pe-first-stage' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician')
+  const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'pe-first-stage' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' || slug === 'pe-construction')
     ? groupDocs(docs, slug)
     : null;
 
