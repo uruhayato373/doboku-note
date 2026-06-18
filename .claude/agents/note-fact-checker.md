@@ -19,7 +19,7 @@ note 公開用ドラフトの本文中の **数値・固有名詞・頻度主張
 類似エージェントとの差別化:
 
 - `note-link-injector`: 本文へのリンク注入（Generator）
-- `note-figure-auditor`: 図版の note-svg-policy 準拠監査（Evaluator）
+- `svg-figure-auditor`: 図版 SVG の品質監査（site/note 横断・Evaluator）
 - `note-fact-checker`（このエージェント）: 数値・主張の事実性監査（Evaluator）
 
 ## 担当スコープ（A + B + C）

@@ -19,7 +19,7 @@ model: sonnet
 類似エージェントとの差別化:
 
 - `civil-exam-figure-extractor`: 図 bbox spec の Generator
-- `note-figure-auditor`: note 公開用 SVG/PNG の note-svg-policy 準拠監査（参照モデル）
+- `svg-figure-auditor`: site/note 図版 SVG の品質監査（4軸ルーブリックの参照モデル）
 - `civil-exam-figure-auditor`（このエージェント）: 過去問図 PNG のクロップ品質・本文重複・alt 精度・MDX 結線の Evaluator
 
 ## 担当スコープ
@@ -33,7 +33,7 @@ model: sonnet
 
 ## 4軸ルーブリック
 
-`note-figure-auditor` の 4軸構成を参考に、過去問図特有の問題（テキスト写り込み・本文重複）を重視した配点。
+`svg-figure-auditor` の 4軸構成を参考に、過去問図特有の問題（テキスト写り込み・本文重複）を重視した配点。
 
 | 軸 | 重み | 3点 | 2点 | 1点 | 0点 |
 |---|---|---|---|---|---|
@@ -164,7 +164,7 @@ PDF 図要問題数: M
 ## 参照ドキュメント
 
 - `.claude/agents/civil-exam-figure-extractor.md` — Generator 側の bbox spec フォーマット
-- `.claude/agents/note-figure-auditor.md` — 4軸ルーブリックの参照モデル
+- `.claude/agents/svg-figure-auditor.md` — 4軸ルーブリックの参照モデル
 - `docs/reference/image-policy.md` — 画像ポリシー（答え漏らし禁止 L165-177）
 - `docs/reference/content-principles.md` §8 — 図の配置原則
 - `docs/reference/agents-registry.md` — Generator/Evaluator 分業原則（L71-96）

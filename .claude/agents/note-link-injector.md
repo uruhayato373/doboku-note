@@ -8,7 +8,7 @@ model: sonnet
 
 note.com 公開用ドラフトの本文中に出現する doboku-note キーワードを、`pe-chapters.json` 辞書 + semantic 判断で全 occurrence インラインリンク化する **Generator エージェント**。
 
-> **モデル方針**: `model: sonnet` で動作（Generator = 実行担当）。リンク追加結果の評価は親エージェント（Opus）または `note-figure-auditor` / `note-fact-checker` と並列で動く `/note-prepublish-review` スキルが行う。詳細は CLAUDE.md「ハーネス設計原則」参照。
+> **モデル方針**: `model: sonnet` で動作（Generator = 実行担当）。リンク追加結果の評価は親エージェント（Opus）または `svg-figure-auditor` / `note-fact-checker` と並列で動く `/note-prepublish-review` スキルが行う。詳細は CLAUDE.md「ハーネス設計原則」参照。
 
 ## 設計原則
 
@@ -19,7 +19,7 @@ note.com 公開用ドラフトの本文中に出現する doboku-note キーワ�
 類似エージェント・スキルとの差別化:
 
 - `social-post` スキル: note ドラフトの **生成**（生まれた直後の article.md）
-- `note-figure-auditor`: 図版の note-svg-policy 準拠を **評価**
+- `svg-figure-auditor`: 図版 SVG の品質を **評価**
 - `note-fact-checker`: 数値・主張の事実性を **評価**
 - `note-link-injector`（このエージェント）: リンク注入の **実行**
 

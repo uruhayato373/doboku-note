@@ -167,11 +167,13 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `.loca
 
 **出力**: `.claude/state/svg-audit.json`
 
-**ギャラリー生成**:
+**ギャラリー生成（目視 QA）**:
 ```bash
-node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs
+npm run svg-gallery               # 全サイト SVG を 1 枚 HTML で一覧（svg-audit.json 重大度バッジ付き）
+npm run svg-gallery -- --all      # note 図版（docs/note/**/img/figure-*）も第2セクションに含む
+node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs  # 旧: GitHub コメント用 Markdown
 ```
-Issue #64 に全 SVG をプレビュー付きで一覧するコメントを生成（`.tmp/svg-gallery-comment.md`）。
+`npm run svg-gallery` はローカル目視用（`.tmp/svg-gallery.html`・`--open` でブラウザ起動・svg-figure-auditor の視覚確認の足場）。`build-gallery-comment.mjs` は GitHub Issue/PR コメント用 Markdown（`.tmp/svg-gallery-comment.md`）で用途が別。
 
 **実行**: `node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs`
 

@@ -45,7 +45,7 @@ user-invocable: true
   │
   ├─ Phase 2: 3 エージェント並列実行
   │   ├ note-link-injector（Generator, Sonnet）— 全 occurrence リンク化（--audit-only 指定時はスキップ）
-  │   ├ note-figure-auditor（Evaluator, Sonnet）— note-svg-policy 準拠監査
+  │   ├ svg-figure-auditor（Evaluator, Sonnet）— note-svg-policy 準拠監査
   │   └ note-fact-checker（Evaluator, Sonnet）— A+B+C スコープのファクトチェック
   │
   └─ Phase 3: 結果集約・最終判定
@@ -206,7 +206,7 @@ esac
 3 つのエージェントを **同一メッセージ内** で Agent ツール multiple invocation により並列起動する:
 
 - `note-link-injector` — `subagent_type: note-link-injector`
-- `note-figure-auditor` — `subagent_type: note-figure-auditor`
+- `svg-figure-auditor` — `subagent_type: svg-figure-auditor`
 - `note-fact-checker` — `subagent_type: note-fact-checker`
 
 各エージェントへのプロンプトは「対象記事のフルパス」+「目的」+「報告フォーマット」を含む自己完結型にする（エージェントは会話履歴を持たないため）。
@@ -250,7 +250,7 @@ esac
 #### note-link-injector
 （agent からの報告をそのまま転記）
 
-#### note-figure-auditor
+#### svg-figure-auditor
 （同上）
 
 #### note-fact-checker
@@ -327,7 +327,7 @@ node .claude/scripts/build-note-published-index.mjs
 | `scripts/add-note-utm.mjs` | 公開直前の UTM 一括付与 |
 | `.claude/scripts/build-note-published-index.mjs` | 公開済み記事インデックス生成 |
 | `note-link-injector` agent | リンク注入の Generator |
-| `note-figure-auditor` agent | 図版品質の Evaluator |
+| `svg-figure-auditor` agent | 図版品質の Evaluator |
 | `note-fact-checker` agent | 事実性の Evaluator |
 | `docs/reference/note-svg-policy.md` | 図版品質ルールの真実源 |
 | `.claude/skills/social/social-post/SKILL.md` | リンク注入ルールの真実源 |

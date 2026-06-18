@@ -16,7 +16,7 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/keyword-page` | 総合技術監理キーワードページ作成・校正 | `キーワード作成`, `ページ更新`, `/keyword-page` |
-| `/create-svg` | MDX 記事用 SVG 図版作成 | `図版を作りたい`, `SVG 作成`, `/create-svg` |
+| `/create-svg` | MDX 記事用 SVG 図版作成。一括目視 QA は `npm run svg-gallery`（全サイト SVG を1枚 HTML・audit 重大度バッジ付き、`--all` で note 図版も） | `図版を作りたい`, `SVG 作成`, `/create-svg` |
 | `/illustrate-concept` | Web 画像検索→SVG 一括生成→MDX 挿入 | `コンセプト図`, `イラスト挿入`, `/illustrate-concept` |
 | `/improve-article` | 単一記事の対話的改善（PDF 照合 QA も可） | `記事を改善`, `校正して`, `/improve-article` |
 | `/promote-to-site` | Obsidian MD → doboku-note MDX 変換・配置 | `Obsidian記事を公開`, `MDX変換`, `.md→.mdx`, `promote` |

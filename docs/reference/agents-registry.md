@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **50**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **51**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -25,7 +25,7 @@ title: サブエージェント詳細レジストリ
 | `/quality-cycle --profile cem`            | `cem-qa`, `keyword-rewriter`                                     | 評価 → リライト → 再評価ループ |
 | `/quality-cycle --profile civil-textbook` | `civil-construction-review`, `civil-textbook-rewriter`           | 評価 → リライト → 再評価ループ |
 | `/audit-exam-mapping`                     | `exam-keyword-mapping-auditor`                                   | 紐づけ精度の semantic 評価 |
-| `/note-prepublish-review`                 | `note-link-injector`, `note-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列     |
+| `/note-prepublish-review`                 | `note-link-injector`, `svg-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列     |
 | `/audit-note-funnel --semantic`           | `note-funnel-auditor`                                            | note 導線の意味的監査（並び順・CTA関連性・回遊の質） |
 | `/civil-figure-rework`                    | `civil-exam-figure-extractor`, `civil-exam-figure-auditor`       | 過去問1次 図クロップ品質ループ（1ページ最大3反復） |
 | `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出      |
@@ -80,14 +80,15 @@ title: サブエージェント詳細レジストリ
 | `pe-secondary-exam-qa`         | 技術士第二次試験 建設部門 模範解答 article.md の**6軸**採点（設問適合/論述構成・論点絞り込み/分かりやすさ・あいまい表現排除/発注者視点・専門性/note完成度/**改訂コンピテンシー反映〔令和8〜：データ活用・多角的視点/ステークホルダー・持続可能な成果/経済/文化的価値〕**）＋必須ゲート（U+FFFD・note-lint〔note 非互換 BLOCK 全般: pipe表/太字内全角括弧/マガジンCTA形式/3点セット 等〕・本文価格/ID・**各選択肢が個別に字数上限〔枚数×600字〕内**・**全選択肢収録**〔片側欠落は不合格〕・設問1対1・旧方式残骸なし・論述式文体・著作権）。論述原則は `技術士論文の書き方`、改訂は `pe-construction-competency-revision-r8` から。**記事単位の完全梱包チェック**（cover:ブロック/img cover.png/hashtags~90/マガジン `note掲載文.txt`〔総監模範論文と同方式・旧_meta.yaml廃止〕・SoT）＋経験記述免責の誤流用ゲート。**末尾CTAは全区分で必須科目Iマガジンに統一**（選択科目=クロスセル/必須I=単品→セット、サイト無料ページ導線は不可）・**合格者コメント節は廃止**（あれば減点）・採点ポイントは箇条書き（pipe表不可）を採点。**予想問題モード（forecast:true）**＝記事内予想設問を真実源に設問適合採点、予想根拠/予想免責/予想専用見出しの有無・自作問題ゆえ出典行なしを検査。**必須Iの複数案併記（A案/B案）は両案収録・案ごと個別字数・最重要課題で実質分岐**を検査 | Evaluator    | sonnet  | `pe-secondary-exam-writer` と対、`docs/textbook/技術士論文の書き方` 参照 | ✅ 運用中（2026-06-09 起動、6軸化＋梱包チェック、2026-06-10 全選択肢収録ゲート＋末尾CTA/コメント廃止＋予想問題モード） |
 | `pe-secondary-exam-factcheck`  | 技術士第二次試験 建設部門 模範解答の**技術的事実だけ**を WebSearch で外部一次情報（国交省・e-Gov法令・各学会基準書）に照合（数値/基準値/法令名・条番号/制度名・施策/技術用語の定義分類/統計年次。論述の巧拙・設問適合は見ない＝QAの領分）。verified/uncertain/likely_wrong の3区分、`likely_wrong`は`must_fix`（公開前修正必須）。**合格科目外（土質基礎/鋼コン/トンネル/港湾/鉄道/電力土木 等）の専門事実ハルシネーションを捕捉する最後の砦**。`note-fact-checker`（内部データ）と`pe-secondary-exam-qa`（構造）を補完。**WebSearch必須＝会社PCプロキシで空振り→クラウド/CI/Mac実行**（不可時は`blocked_no_websearch`、照合を偽装しない）。捏造禁止・ソースURL無き「wrong」判定を出さない | Evaluator    | sonnet  | `pe-secondary-exam-writer`/`qa` と連携、`/pe-secondary-yosou` Step3 で起動 | ✅ 運用中（2026-06-10 新設、BK-04〜11 予想の事実担保） |
 | `note-link-injector`           | note ドラフトに doboku-note キーワードページへのインラインリンクを全 occurrence 注入（synonym 判断を含む semantic マッチ。**返却前 `note-lint` ゲート必須**）                | Generator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/pe-chapters.json` 参照         | ✅ 運用中（2026-04-29 起動）                      |
-| `note-figure-auditor`          | note ドラフトの図版を `note-svg-policy.md` 準拠で 4 軸監査（キャンバス・フォント・ブランド・密度）                                     | Evaluator    | sonnet  | note-prepublish-review 連携                                             | ✅ 運用中（2026-04-29 起動）                      |
+| `svg-figure-auditor`          | 図版 SVG を **site/note 横断**で品質監査。site（`.local/r2/posts/**/img/*.svg`）=svg-tokens.json/image-policy/principles、note（`docs/note/**/img/figure-*`）=note-svg-policy で各 4 軸採点（機械 svg audit P1-P8 の上の意味層＝概念伝達・alt・可読性・本文結線）。audit-only。**2026-06-18 新設＝旧 note-figure-auditor を吸収**                                     | Evaluator    | sonnet  | note-prepublish-review 連携                                             | ✅ 運用中（2026-04-29 起動）                      |
+| `svg-figure-rewriter`          | `svg-figure-auditor` の指摘を図版 SVG ソースに外科適用（色 token 化・font 引上げ・矢印 marker 統一・必須属性補完・重なり調整）。データ値・文言不変。site=`audit.mjs` で HIGH=0 自己確認、note=figure-*.svg 修正後に render で PNG 再生成。Edit で外科編集（whole-file Write 禁止＝CRLF 事故）                            | Generator    | sonnet  | `svg-figure-auditor` と対、真実源 `svg-tokens.json`/`note-svg-policy.md`         | ✅ 運用中（2026-06-18 新設）                      |
 | `note-fact-checker`            | note ドラフトの数値・主張を A（内部整合）+ B（キーワード参照）+ C（過去問データ）+ **D（白書一次照合＝NotebookLM）** でファクトチェック                          | Evaluator    | sonnet  | note-prepublish-review 連携、辞書 `src/config/past-exam-backlinks.json` 参照、**NotebookLM 白書ノートブック `2bf7f0dd-3935-49be-8cef-2d428c59eaa9`（`notebooklm-cross-query.mjs` 経由・スコープ D）** | ✅ 運用中（2026-04-29 起動、2026-05-29 スコープ D 追加、2026-06-17 NotebookLM 方式へ移行＝ローカル白書 PDF 削除） |
 | `note-funnel-auditor`          | note 導線（資格別 3 層モデル）の**意味的**監査。4 軸（資格セグメント整合・もくじ構成・CTA 文面の関連性・回遊の質）。機械監査 `audit-note-funnel.mjs`（D1-D4）が拾えない並び順・文面ズレ・行き止まりを surface。audit-only | Evaluator    | sonnet  | `/audit-note-funnel --semantic` 起動、真実源 `docs/reference/note-funnel-architecture.md`・`.claude/config/note-funnel.json` 参照 | ✅ 運用中（2026-06-16 新設） |
 | `exam-keyword-mapping-auditor` | PE 過去問 1 問の現紐づけ slug 群を semantic 評価し、追加/削除候補を confidence 付き JSON で surface                           | Evaluator    | sonnet  | audit-exam-mapping 連携、辞書 `.claude/state/keyword-summaries.json` 参照    | ✅ 運用中（2026-05-11 起動）                      |
 | `ig-carousel-writer`           | Instagram カルーセル `slide-data.json` v2 を1キーワードずつ執筆（枚数可変・figure 判断・findings ログ追記）。色を本文に書かない。`angle` パラメータで6切り口の hook とスライド構成を制御 | Generator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `sns-repurpose-policy.md` + **`docs/reference/content-angle-policy.md`** 参照 | 🚧 Phase 1 着手中（2026-05-20 起動、2026-06-10 angle 追加）             |
 | `ig-carousel-qa`               | Instagram カルーセル の **6 軸**ルーブリック品質評価（テキスト 5 軸 + デザイン統一性 1 軸）。過去問パックは PNG を Read し tokens.json と照合。**角度型は軸1で角度純度・軸5で Red Line（experience 断片/number 出典）を確認** | Evaluator    | sonnet  | `docs/reference/ig-carousel-policy.md` + `docs/design-system/instagram-carousel-tokens.json` + **`docs/reference/content-angle-policy.md`** 参照 | 🚧 Phase 1 着手中（2026-05-20 起動、2026-05-27 第6軸追加、2026-05-28 lint E3 はみ出し検知連携） |
 | `civil-exam-figure-extractor`  | 1級土木 primary（過去問1次）図クロップ bbox spec の Generator。事前レンダリング済み PDF ページ画像を Read し JSON spec を返す | Generator | sonnet | `/civil-figure-rework` 連携、`image-policy.md` L165-177 準拠 alt 生成 | ✅ 運用中（2026-05-28 起動） |
-| `civil-exam-figure-auditor`    | 1級土木 primary 図 PNG の 4 軸ルーブリック品質評価（クリップ純度・本文重複・alt 精度・MDX 結線）。次反復用 feedback JSON 返却 | Evaluator | sonnet | `/civil-figure-rework` 連携、`note-figure-auditor` の 4 軸構造を参考 | ✅ 運用中（2026-05-28 起動） |
+| `civil-exam-figure-auditor`    | 1級土木 primary 図 PNG の 4 軸ルーブリック品質評価（クリップ純度・本文重複・alt 精度・MDX 結線）。次反復用 feedback JSON 返却 | Evaluator | sonnet | `/civil-figure-rework` 連携、`svg-figure-auditor` の 4 軸構造を参考 | ✅ 運用中（2026-05-28 起動） |
 | `ig-reels-writer`              | Instagram Reels の `reels/script.json`（読み上げ台本・想定秒数・無音 pause）+ `caption.txt`（ネタバレなし・ハッシュタグ 3 階層 mix）を 1 パックずつ執筆。`angle` パラメータで6切り口の冒頭 Hook を制御 | Generator    | sonnet  | `docs/reference/ig-reels-policy.md` + `sns-repurpose-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、2026-06-10 angle 追加）       |
 | `ig-reels-qa`                  | Instagram Reels の **5 軸**ルーブリック品質評価（尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線）。「スワイプで」等カルーセル流用 CTA を重大減点 | Evaluator    | sonnet  | `docs/reference/ig-reels-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、戦略 v7 Phase B）       |
 | `ig-stories-writer`            | Instagram Stories の `stories/caption.txt` と `stories/note.md` をパック固有にキュレーション。投票/質問ステッカー文言・リンクスタンプ URL 確定。`angle` パラメータで6切り口の4枚ストーリー弧を制御 | Generator    | sonnet  | `docs/reference/ig-stories-policy.md` + `sns-repurpose-policy.md` 参照（戦略 v7 で新設） | 🚧 Phase 1（2026-05-28 起動、2026-06-10 angle 追加）       |
@@ -111,13 +112,14 @@ title: サブエージェント詳細レジストリ
 | `cem-essay-writer`             | 技術士総合技術監理部門（総監）記述式 note 有料マガジン用 模範論文／模範解答 article.md を生成（4タイプ＝persona模範論文〔総監模範論文-{persona}・R03-R07＋R08予想2記事〕/R8予想問題集/設問3国家施策バンク/5管理クロストレードオフ）。各施策600字以内・答案散文・導入ですます/答案である調・5管理正式名とトレードオフ多様性・設問3は国家スケール×一般技術者レベル・著者の真正経験座（元自治体土木＝発注者）。**返却前ゲート＝`essay-shisaku-charcount --strict`／`check-essay-heading-structure --strict`／`note-lint`**。工程・評価軸の真実源は `note-essay-review-checklist.md`、論述ルールは `pe-essay-draft`（サイト版）から再利用。**サイトの r0X-essay-{attr} を書く `/pe-essay-draft` とは別物** | Generator    | sonnet  | `note-essay-review-checklist.md` ランブック連携、`cem-essay-qa` と対 | ✅ 運用中（2026-06-18 起動） |
 | `cem-essay-qa`                 | 技術士総合技術監理部門（総監）記述式 note マガジン模範論文／模範解答 article.md の**5軸**採点（字数〔各施策600字〕→散文性→監理可能性〔越権排除〕→専門度〔設問3 NG用語/5管理正式名〕→白書根拠・真正性〔ペルソナ経験座・専門分野ラベル〕）＋必須ゲート（`essay-shisaku-charcount --strict`／`check-essay-heading-structure --strict`／`note-lint`／答案箇条書き0／blockquote濫用0／本文価格・URL直書き0〔導線リンクカードURL単独行は許可〕）。評価軸の真実源は `note-essay-review-checklist.md`。生成・修正しない（audit-only） | Evaluator    | sonnet  | `cem-essay-writer` と対、`note-essay-review-checklist.md` 参照 | ✅ 運用中（2026-06-18 起動） |
 
-### 退役したエージェント（2026-04-23 Phase A）
+### 退役したエージェント
 
 | エージェント | 役割 | 代替 |
 |---|---|---|
 | `aidesigner-frontend` | AIDesigner 連携の UI 生成 | 直接 Claude 指示 or AIDesigner MCP 直接 |
 | `ui-visual-qa` | UI 視覚 Evaluator（`.tsx` 視覚回帰） | `/design-review --visual`（同機能を design-review スキルに統合） |
 | `cem-advisor` | CEM 試験対策 Generator（placeholder） | Generator は `keyword-rewriter`、Evaluator は `cem-qa`、orchestration は `strategy-advisor` |
+| `note-figure-auditor` | note 図版を `note-svg-policy.md` 準拠で 4 軸監査（〜2026-06-18 Phase A 起源） | `svg-figure-auditor`（site/note 横断化して吸収・2026-06-18） |
 
 ## Generator と Evaluator の分離原則
 
@@ -145,6 +147,7 @@ title: サブエージェント詳細レジストリ
 | **note-fact-checker（スコープ D）** | note 記事本文の白書由来 数値・固有名 + NotebookLM 白書ノートブック（`2bf7f0dd-3935-49be-8cef-2d428c59eaa9`・白書 PDF をソース登録済み） | NotebookLM 白書ノートブックへの問い合わせ照合（`notebooklm-cross-query.mjs`・引用を返せない数値を ⚠️要確認 で surface。認証切れ時は照合不能と明記）。**ローカル白書 PDF は 2026-06-17 削除＝offline grep 不可** | 白書連動 note 記事（クロストレードオフ・白書R7対応集・R8予想問題集・模範論文の白書事例）公開前 |
 | **ig-carousel-qa** | `slide-data.json`（v2）+ 過去問パックは `carousel/img/*.png` | スライド構成・文の完結性・図文整合・字数視認性・試験的正確性（5軸）+ デザイン統一性（過去問パック、tokens.json 照合） | IG カルーセル設定ファイル執筆後 / restyle 後 |
 | **civil-exam-figure-auditor** | `.local/r2/posts/civil-construction-1/primary-*/img/*.png` + 該当 MDX | クリップ純度・本文重複なし・alt 精度・MDX 結線（4軸、加重 ≥2.0 かつ全軸 ≥2 で合格） | `/civil-figure-rework` 実行時、Generator 直後 |
+| **svg-figure-auditor** | site: `.local/r2/posts/**/img/*.svg` / note: `docs/note/**/img/figure-*.{svg,png}` | site=svg-tokens（viewBox/font/色 allowlist/marker）+ 概念伝達/alt/可読性/結線、note=note-svg-policy（キャンバス/フォント/ブランド/密度）。各 4 軸・加重 ≥2.0 かつ全軸 ≥2 | `/note-prepublish-review`（note 枝）/ 単体 SVG 監査時。機械 svg audit(P1-P8) の後段 |
 | **ig-reels-qa** | `reels/script.json` + `reels/caption.txt` + `reels/video.mp4` + 対応 `reels/img/*.png` | 尺・読み上げ完結性・キャプション/タグ品質・音声画面整合・保存導線（5軸）。「スワイプで」等カルーセル流用 CTA を重大減点 | IG Reels script.json 執筆後 / mp4 生成後 |
 | **ig-stories-qa** | `stories/caption.txt` + `stories/note.md` + 対応 `stories/img/01-04.png` | コピー力・リンク導線整合・ステッカー双方向性（3軸）。テンプレ未差替・ステッカー誤配置を減点 | IG Stories caption.txt 執筆後 |
 | **yt-shorts-publisher-qa** | `docs/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺=**≤60秒ゲート**・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点、予約後 `videos.list` 実査 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
