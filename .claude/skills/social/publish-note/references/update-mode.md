@@ -44,6 +44,9 @@ npm run note-append-cta -- --note <noteId> --after <既存カードkey or 文言
 
 安全弁: account=dobokunote assert・既存本文 <200字 で中断・追記 URL 既存で skip（冪等）・dry-run 既定・更新後は API（price/can_read/remained_char_num + body+embedded）で paywall とカード反映を実体検証必須。2026-06-18 に総監無料18本＋R8予想有料6本（paywall全保持）のコアパックCTAライブ反映で実証。有料記事で「有料エリア設定」未検出/`boundaryBeforeExam=false` のときは保存せず中断する（収益保護）。
 
+> [!important]
+> **更新通知ダイアログは必ず「いいえ」**: 「更新する」直後に **「この記事が更新されたことを購入・購読したユーザーに通知しますか？ いいえ／はい」** ダイアログが出る。`note-append-cta` は Phase 6d で **必ず「いいえ」をクリック**する（一括更新でフォロワー/購入者に通知スパムを送らない）。保存自体は「更新する」時点で確定済みで、ダイアログ未操作だと通知は飛ばないが、明示的に「いいえ」を押すのが正。手動更新時も同じ（「はい」を押さない）。
+
 ## 対象の制約
 
 - **公開済みの記事のみ**。`.claude/state/note-published.json` の `items` に

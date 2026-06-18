@@ -188,9 +188,19 @@ try {
     if (await b.count()) { await b.first().click(); updated = true; console.log(`[6c] 「${label}」クリック`); break; }
   }
   if (!updated) { console.error('ABORT: 「更新する」未検出。'); await page.screenshot({ path: join(ROOT, `.tmp/append-noupdate-${NOTE}.png`) }); await ctx.close(); process.exit(7); }
-  await sleep(5000);
+
+  // 6d. 更新通知ダイアログ「この記事が更新されたことを…通知しますか？」→ 必ず「いいえ」（購入者へ通知スパムを防ぐ）
+  await sleep(2500);
+  let notifyHandled = false;
+  for (let i = 0; i < 6 && !notifyHandled; i++) {
+    const no = page.getByRole('button', { name: 'いいえ', exact: true });
+    if (await no.count()) { await no.first().click(); notifyHandled = true; console.log('[6d] 更新通知ダイアログ→「いいえ」'); break; }
+    await sleep(1200);
+  }
+  if (!notifyHandled) console.log('[6d] 通知ダイアログ未検出（既に確定/通知なしの可能性）');
+  await sleep(3000);
   await page.screenshot({ path: join(ROOT, `.tmp/append-done-${NOTE}.png`) });
-  console.log(`[done] 更新完了（要 API 実体検証）。スクショ: .tmp/append-done-${NOTE}.png`);
+  console.log(`[done] 更新完了（通知=いいえ・要 API 実体検証）。スクショ: .tmp/append-done-${NOTE}.png`);
 } catch (e) {
   console.error('ERROR:', String(e).split('\n')[0]);
   exitCode = 9;
