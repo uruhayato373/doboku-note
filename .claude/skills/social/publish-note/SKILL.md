@@ -12,8 +12,9 @@ browser-use CLI（Chrome プロファイル経由）で **note.com/dobokunote** 
 
 ## 実行環境の前提（重要）
 
-- **実行は Mac 推奨**。会社 PC（Windows）はプロキシが外部 API（browser-use の LLM バックエンド等）を遮断する可能性が高い（[[project_ig_api_posting_setup]] と同根）。note 投稿は Mac で行う運用とする
-- **browser-use CLI がインストール済み**であること（`$HOME/.browser-use-env/` 等）
+- **browser-use 経路（本スキルの新規公開フロー）は Mac 推奨**。会社 PC（Windows）はプロキシが browser-use の LLM バックエンドを遮断する可能性が高く、browser-use 自体も未導入（[[project_ig_api_posting_setup]] と同根）
+- **ただし Windows でも動く Playwright 経路がある**（browser-use 不要・LLM バックエンド不要）: 新規公開＝`scripts/note-publish.mjs`、**公開済み記事への CTA 追記/ライブ反映＝`scripts/note-append-cta.mjs`（`npm run note-append-cta`）**、マガジン設定＝`note-edit-magazine.mjs`。いずれも `.local/playwright-note-profile`（永続・初回のみ手動ログイン）を使う。update 系の詳細は [references/update-mode.md](references/update-mode.md)
+- **browser-use CLI がインストール済み**であること（Mac 経路のみ・`$HOME/.browser-use-env/` 等）
 - **Chrome プロファイルが note.com/dobokunote にログイン済み**であること。プロファイル名は環境変数 `NOTE_PROFILE` に設定（例: `export NOTE_PROFILE="Profile 1"`）。references の例にある `Profile 5` は stats47 用なので**使わない**
 - **予約投稿**は現在は無料（誰でも可・note プレミアム不要）。Windows Playwright 版は `scripts/note-publish.mjs --schedule "YYYY-MM-DDTHH:MM"`（JST）、時間ずらしバッチは `note-publish-magazine.mjs --list <manifest> --schedule-start ... --interval-hours N`
 

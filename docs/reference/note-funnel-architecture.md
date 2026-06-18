@@ -48,21 +48,23 @@ note 記事・マガジンが増えると、記事末尾の CTA が場当たり�
 
 | ツール | 役割 |
 |---|---|
-| `npm run audit-note-funnel` | ドリフト検出（read-only）。公開記事の CTA 欠落／公開マガジンの L2 未収録／L2 の L1 未リンク／L2 URL 不一致 |
-| `npm run check-note-funnel` | CI ゲート（`audit --ci`、ドリフトで exit 1）。`r2-audit.yml` で発火 |
-| `npm run wire-note-funnel-cta -- --exam {key} [--apply]` | 資格別に L3 冒頭/末尾 CTA を冪等配線（既定は dry-run） |
+| `npm run audit-note-funnel` | **ソース**ドリフト検出（read-only・高速）。公開記事の CTA マーカー欠落／公開マガジンの L2 未収録／L2 の L1 未リンク／L2 URL 不一致（D1-D4） |
+| `npm run audit-note-funnel -- --live` | **＋ライブ反映検証（D5）**。公開記事の CTA が live note に実反映されているかを note 公開 API（body+embedded）で機械検証。**「ソースは正でもライブ未反映＝再投稿もれ」を検出**（2026-06-18 に総監19本で実害化した事故の機械検知）。低速・network依存のため CI ゲートには含めず、月次/手動で回す |
+| `npm run check-note-funnel` | CI ゲート（`audit --ci`、**ソースのみ**でドリフト exit 1・高速）。`r2-audit.yml` で発火 |
+| `npm run wire-note-funnel-cta -- --exam {key} [--apply]` | 資格別に L3 冒頭/末尾 CTA を**ソースへ**冪等配線（既定は dry-run） |
+| `npm run note-append-cta -- --note {id} ...` | **公開済み記事へ CTA を live 反映**（Playwright・Windows 可・browser-use 不要）。`--after`=free プレビューへアンカー挿入／`--boundary-h2`=有料境界保持。D5 ドリフトの修復手段。詳細 → [publish-note/references/update-mode.md](../../.claude/skills/social/publish-note/references/update-mode.md) |
 | `audit-note-funnel` スキル | 監査→修復→再公開の手順書（資格別 config 駆動） |
-| `note-funnel-auditor` エージェント | 意味的監査（もくじ構成・CTA 文面の関連性・回遊の質）。Evaluator・audit-only |
+| `note-funnel-auditor` エージェント | 意味的監査（もくじ構成・CTA 文面の関連性・回遊の質）。Evaluator・audit-only。機械の D1-D5 とは直交 |
 
 ## 見直しサイクル（定期）
 
 導線は**コンテンツ増加で必ず陳腐化する**ため、次のトリガーで監査する。
 
 - **新規マガジン公開時** — その資格の L2 もくじに追記し、`audit-note-funnel` を実行
-- **新規記事公開時** — L3 CTA が入っているか（`wire-note-funnel-cta` 済みか）確認
-- **週次レビュー** — `npm run audit-note-funnel` を回しドリフトを surface（[workflows.md](workflows.md) 週次運用に組込）
-- **月次クラウドルーティン** — `doboku-note note-funnel monthly audit`（RemoteTrigger `trig_01F5nDWSTs757Ge5K1ou6Dbr`・毎月 15 日 22:00 UTC ＝ 16 日 07:00 JST）。機械監査＋`note-funnel-auditor` 意味監査→ソース修復 PR（live 反映はローカルの `publish-note --update` が必要）。routine 重複は `/routines` で事前確認
-- **CI** — `check-note-funnel` が公開済みコンテンツのドリフトを赤落ちで機械検知
+- **新規記事公開時** — L3 CTA が入っているか（`wire-note-funnel-cta` 済みか）確認。**配線が公開より後なら `note-append-cta` で live 反映**（ソースだけ直して再投稿しないと live は死んだまま＝2026-06-18 の事故）
+- **週次レビュー** — `npm run audit-note-funnel` を回しソースドリフトを surface（[workflows.md](workflows.md) 週次運用に組込）
+- **月次クラウドルーティン** — `doboku-note note-funnel monthly audit`（RemoteTrigger `trig_01F5nDWSTs757Ge5K1ou6Dbr`・毎月 15 日 22:00 UTC ＝ 16 日 07:00 JST）。**`audit-note-funnel --live` でライブ反映(D5)まで検証**＋`note-funnel-auditor` 意味監査→ソース修復 PR。**ソースを直したら必ず `note-append-cta`／`publish-note --update` で live 反映**（D5 が再び出ないところまでがクローズ条件）。routine 重複は `/routines` で事前確認
+- **CI** — `check-note-funnel` が公開済みコンテンツの**ソース**ドリフトを赤落ちで機械検知（D5 は network 依存のため CI には含めない）
 
 ## 標準フロー（新規 L2 を増やすとき）
 
