@@ -18,6 +18,7 @@
     "sales-summary": "node scripts/sales-summary.mjs",
     "verify-note-magazines": "node scripts/verify-note-magazines.mjs",
     "note-edit-session": "node scripts/note-edit-session.mjs",
+    "note-append-cta": "node scripts/note-append-cta.mjs",
     "note-edit-magazine": "node scripts/note-edit-magazine.mjs",
     "note-magazine-add": "node scripts/note-magazine-add-articles.mjs",
     "note-magazine-cover": "node scripts/note-magazine-cover.mjs",

@@ -26,6 +26,17 @@
 
 `<slug>` は記事ディレクトリ名。複数指定はカンマ区切り（バッチ可）。
 
+### Windows 自動化（browser-use 不要・末尾 CTA 追記専用）
+
+会社PC（Windows）には browser-use が無いため、末尾への CTA カード追記は **`note-append-cta.mjs`**（Playwright・`note-publish.mjs` と同じ永続プロファイル）で決定論的に自動化する。追記のみ（caret 末尾 → type、全消去 paste なし）＝空更新事故が原理的に起きない。
+
+```
+npm run note-append-cta -- --note <noteId> --text "<文章>" --url <magazineUrl>            # dry-run（既定・安全）
+npm run note-append-cta -- --note <noteId> --text "<文章>" --url <magazineUrl> --commit   # 実更新（公開に進む→更新する）
+```
+
+安全弁: account=dobokunote assert・既存本文 <200字 で中断（誤記事ガード）・追記 URL 既存で skip（冪等）・dry-run 既定・更新後は API（body+embedded）で実体検証必須。**無料記事専用**（有料記事は「公開に進む」後が `更新する` でなく `有料エリア設定` になり自動中断する＝有料は free プレビュー側に別途配置が必要）。2026-06-18 に総監無料18本のコアパックCTAライブ反映で実証。
+
 ## 対象の制約
 
 - **公開済みの記事のみ**。`.claude/state/note-published.json` の `items` に
