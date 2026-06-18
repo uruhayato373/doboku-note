@@ -34,6 +34,7 @@ const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
 const FORCE = argv.includes('--force'); // 冪等スキップを無効化（中断ドラフト残骸の上書き等・原則使わない）
+const SAVE_ONLY = argv.includes('--save-only'); // 挿入せず、既存下書き（CTA配置済）の publish フローのみ実行
 
 const NOTE = getArg('--note');
 const TEXT = getArg('--text');
@@ -81,44 +82,49 @@ try {
 
   // 2c. 冪等チェック: 追記 URL が既に本文にあればスキップ
   const already = await page.evaluate((k) => (document.querySelector('[contenteditable=true]')?.innerHTML || '').includes(k), URL_KEY);
-  if (already && !FORCE) { console.log(`[skip] 既に ${URL_KEY} が本文に存在（重複追記しない）。上書きは --force`); await ctx.close(); process.exit(0); }
-  if (already && FORCE) console.log(`[force] ${URL_KEY} 既存だが --force で続行`);
+  if (SAVE_ONLY) {
+    if (!already) { console.error(`ABORT: --save-only だが ${URL_KEY} が下書きに無い。保存対象なし。`); await ctx.close(); process.exit(13); }
+    console.log(`[save-only] 既存下書きに ${URL_KEY} あり → 挿入せず publish フローのみ実行`);
+  } else {
+    if (already && !FORCE) { console.log(`[skip] 既に ${URL_KEY} が本文に存在（重複追記しない）。上書きは --force`); await ctx.close(); process.exit(0); }
+    if (already && FORCE) console.log(`[force] ${URL_KEY} 既存だが --force で続行`);
 
-  // 3. caret 位置決め（--after 指定時は該当ブロック直後＝free プレビュー内 / 既定は本文末尾）
-  const caret = await page.evaluate((needle) => {
-    const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-    const r = document.createRange();
-    if (needle) {
-      let target = null;
-      for (const child of ed.children) {
-        if ((child.textContent || '').includes(needle) || (child.innerHTML || '').includes(needle)) { target = child; break; }
+    // 3. caret 位置決め（--after 指定時は該当ブロック直後＝free プレビュー内 / 既定は本文末尾）
+    const caret = await page.evaluate((needle) => {
+      const ed = document.querySelector('[contenteditable=true]'); ed.focus();
+      const r = document.createRange();
+      if (needle) {
+        let target = null;
+        for (const child of ed.children) {
+          if ((child.textContent || '').includes(needle) || (child.innerHTML || '').includes(needle)) { target = child; break; }
+        }
+        if (!target) return 'anchor-not-found';
+        r.setStartAfter(target); r.collapse(true);
+        const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        return 'after-anchor';
       }
-      if (!target) return 'anchor-not-found';
-      r.setStartAfter(target); r.collapse(true);
+      r.selectNodeContents(ed); r.collapse(false);
       const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-      return 'after-anchor';
-    }
-    r.selectNodeContents(ed); r.collapse(false);
-    const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-    return 'end';
-  }, AFTER);
-  console.log(`[3] caret=${caret}`);
-  if (caret === 'anchor-not-found') { console.error(`ABORT: --after "${AFTER}" に一致するブロックが本文に無い。挿入しない。`); await ctx.close(); process.exit(8); }
-  await sleep(500);
+      return 'end';
+    }, AFTER);
+    console.log(`[3] caret=${caret}`);
+    if (caret === 'anchor-not-found') { console.error(`ABORT: --after "${AFTER}" に一致するブロックが本文に無い。挿入しない。`); await ctx.close(); process.exit(8); }
+    await sleep(500);
 
-  // 4. 追記: Enter → 文章 type → Enter → URL type → Enter（URL は type で OGP カード化）
-  await page.keyboard.press('Enter'); await sleep(400);
-  await page.keyboard.type(TEXT, { delay: 8 }); await sleep(700);
-  await page.keyboard.press('Enter'); await sleep(400);
-  await page.keyboard.type(URL, { delay: 10 }); await sleep(700);
-  await page.keyboard.press('Enter'); await sleep(4800);
+    // 4. 追記: Enter → 文章 type → Enter → URL type → Enter（URL は type で OGP カード化）
+    await page.keyboard.press('Enter'); await sleep(400);
+    await page.keyboard.type(TEXT, { delay: 8 }); await sleep(700);
+    await page.keyboard.press('Enter'); await sleep(400);
+    await page.keyboard.type(URL, { delay: 10 }); await sleep(700);
+    await page.keyboard.press('Enter'); await sleep(4800);
 
-  // 5. 反映検証（URL key がエディタ DOM に入ったか）
-  const ok = await page.evaluate((k) => (document.querySelector('[contenteditable=true]')?.innerHTML || '').includes(k), URL_KEY);
-  const cards = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length);
-  const afterChars = await page.evaluate(() => (document.querySelector('[contenteditable=true]')?.innerText || '').length);
-  console.log(`[5] 追記反映=${ok} cards=${cards} chars ${baseChars}→${afterChars}`);
-  if (!ok) { console.error('ABORT: 追記が DOM に反映されず。更新しない。'); await page.screenshot({ path: join(ROOT, '.tmp/append-fail.png') }); await ctx.close(); process.exit(5); }
+    // 5. 反映検証（URL key がエディタ DOM に入ったか）
+    const ok = await page.evaluate((k) => (document.querySelector('[contenteditable=true]')?.innerHTML || '').includes(k), URL_KEY);
+    const cards = await page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure, [contenteditable=true] [embedded-service]').length);
+    const afterChars = await page.evaluate(() => (document.querySelector('[contenteditable=true]')?.innerText || '').length);
+    console.log(`[5] 追記反映=${ok} cards=${cards} chars ${baseChars}→${afterChars}`);
+    if (!ok) { console.error('ABORT: 追記が DOM に反映されず。更新しない。'); await page.screenshot({ path: join(ROOT, '.tmp/append-fail.png') }); await ctx.close(); process.exit(5); }
+  }
 
   if (!COMMIT) {
     await page.screenshot({ path: join(ROOT, `.tmp/append-dry-${NOTE}.png`), fullPage: false });
@@ -126,10 +132,21 @@ try {
     await ctx.close(); process.exit(0);
   }
 
-  // 6. 公開に進む
+  // 6. 公開に進む（自動保存の落ち着きを待ってからクリックし、設定ページ到達を polling）
+  await sleep(3000); // 「保存中」が navigation を奪うのを避ける
   const next = page.getByRole('button', { name: '公開に進む' });
   if (!(await next.count())) { console.error('ABORT: 「公開に進む」未検出。更新せず終了。'); await page.screenshot({ path: join(ROOT, `.tmp/append-nonext-${NOTE}.png`) }); await ctx.close(); process.exit(6); }
-  await next.first().click(); await sleep(3500);
+  let onSettings = false;
+  for (let attempt = 0; attempt < 3 && !onSettings; attempt++) {
+    if (await next.count()) { await next.first().click(); }
+    for (let i = 0; i < 8; i++) {
+      await sleep(1800);
+      const a = await page.getByRole('button', { name: '有料エリア設定' }).count();
+      const u = await page.getByRole('button', { name: '更新する', exact: true }).count();
+      if (a || u) { onSettings = true; break; }
+    }
+  }
+  if (!onSettings) { console.error('ABORT: 公開設定ページに到達せず（保存中/描画遅延）。保存せず終了。'); await page.screenshot({ path: join(ROOT, `.tmp/append-nosettings-${NOTE}.png`) }); await ctx.close(); process.exit(12); }
 
   // 6b. 有料記事なら 有料エリア設定 → 境界を「予想問題/試験問題」H2 直前へ再設定し検証（note-publish.mjs 由来）。
   //     既存境界と同じ位置に揃える＝paywall 非破壊。検証 NG なら保存せず中断（収益保護）。

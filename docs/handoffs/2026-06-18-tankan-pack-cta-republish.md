@@ -54,8 +54,12 @@ URL 行は **行末で Enter → 4秒待つ**とリンクカードになる。�
 > [!done]
 > R8予想6本（経済安保/資源循環/気候変動適応/老朽化/AI社会/災害復旧）に **コアパックCTAを無料プレビュー内（R8集カード直後）へアンカー挿入** → `note-append-cta --after m6854c7437d4d --commit`。**6/6 paywall完全保持**（価格700・can_read False・有料5400-6500字ゲート維持）＋コアパック反映＋R8集カード保全をAPI検証。境界は「予想問題」H2直前に再設定＋`boundaryBeforeExam`ゲートで保護。
 
-## 残：計算問題集（¥300・ne190c3ef2fca）— 手動対応に保留
+## 計算問題集（¥300・ne190c3ef2fca）— 完了（2026-06-18）
 
-別構造（境界基準が「パターン」H2・`--boundary-h2 'パターン'`で対応可）だが、(1)有料設定画面の検出が不安定で `更新する` 未到達、(2)テスト中断で**末尾にコアパックの残骸下書き(has_draft:True)** が蓄積。**ライブ公開版は無傷**（価格300・ゲート維持・コアパック未反映）。手動（note-edit-session）で残骸下書きを破棄→精読ガイドカード直後にコアパック配置が安全。低優先（既に精読ガイド導線あり）。
+> [!done]
+> `note-append-cta --force --after m607bf095b02a --boundary-h2 'パターン' --commit` で **コアパックを無料プレビュー（精読ガイドカード直後）へ反映**。無料プレビュー 810→993字・**コアパック反映✓**・価格300維持・有料9498字ゲート維持・精読ガイド保全をAPI検証。境界は「パターン1」H2直前。公開フローのポーリング堅牢化（保存中で navigation を奪われる問題）＋`--save-only` を追加して解決。
+> 注: 初期テスト中断で末尾（有料領域）にコアパック残骸が1枚残存（非購入者には不可視・無害）。気になれば手動削除。
+
+**結論: 全25本（無料18＋R8有料6＋計算問題集）コアパックCTAライブ反映・paywall全保持・API実体検証済み。**
 
 真実源: [[../reference/note-funnel-architecture.md]]・memory `project_note_live_cta_drift`・自動化=`npm run note-append-cta`（[[../../.claude/skills/social/publish-note/references/update-mode.md]]）
