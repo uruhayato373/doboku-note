@@ -31,11 +31,18 @@
 会社PC（Windows）には browser-use が無いため、末尾への CTA カード追記は **`note-append-cta.mjs`**（Playwright・`note-publish.mjs` と同じ永続プロファイル）で決定論的に自動化する。追記のみ（caret 末尾 → type、全消去 paste なし）＝空更新事故が原理的に起きない。
 
 ```
-npm run note-append-cta -- --note <noteId> --text "<文章>" --url <magazineUrl>            # dry-run（既定・安全）
-npm run note-append-cta -- --note <noteId> --text "<文章>" --url <magazineUrl> --commit   # 実更新（公開に進む→更新する）
+npm run note-append-cta -- --note <noteId> --text "<文章>" --url <magazineUrl>            # 末尾追記・dry-run（既定・安全）
+npm run note-append-cta -- --note <noteId> --text "<文章>" --url <magazineUrl> --commit   # 末尾追記・実更新（無料記事）
+# 有料記事は free プレビュー内へアンカー挿入（末尾だと購入者しか見えないため）:
+npm run note-append-cta -- --note <noteId> --after <既存カードkey or 文言> --text "…" --url <url> --boundary-h2 '予想問題|試験問題' --commit
 ```
 
-安全弁: account=dobokunote assert・既存本文 <200字 で中断（誤記事ガード）・追記 URL 既存で skip（冪等）・dry-run 既定・更新後は API（body+embedded）で実体検証必須。**無料記事専用**（有料記事は「公開に進む」後が `更新する` でなく `有料エリア設定` になり自動中断する＝有料は free プレビュー側に別途配置が必要）。2026-06-18 に総監無料18本のコアパックCTAライブ反映で実証。
+オプション:
+- `--after <needle>`: needle（URLキー/文言）を含むブロックの直後に挿入（free プレビュー内へ）。省略時は本文末尾。
+- `--boundary-h2 <regex>`: 有料記事の境界基準 H2（既定 `試験問題|予想問題`、計算問題集等は `パターン`）。`公開に進む`→`有料エリア設定`→この H2 直前に境界を再設定し `boundaryBeforeExam` を検証してからのみ `更新する`（**paywall 非破壊**・検証 NG は保存せず中断）。
+- `--force`: 冪等スキップ無効化（中断ドラフト残骸の上書き等・原則使わない）。
+
+安全弁: account=dobokunote assert・既存本文 <200字 で中断・追記 URL 既存で skip（冪等）・dry-run 既定・更新後は API（price/can_read/remained_char_num + body+embedded）で paywall とカード反映を実体検証必須。2026-06-18 に総監無料18本＋R8予想有料6本（paywall全保持）のコアパックCTAライブ反映で実証。有料記事で「有料エリア設定」未検出/`boundaryBeforeExam=false` のときは保存せず中断する（収益保護）。
 
 ## 対象の制約
 

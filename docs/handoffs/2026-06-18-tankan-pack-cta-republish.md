@@ -49,8 +49,13 @@ URL 行は **行末で Enter → 4秒待つ**とリンクカードになる。�
 | 中 | 自治体技術職員の資格地図 | nb052deac97b1 | …/nb052deac97b1/edit | 完全のみ |
 | 中 | 道路担当の記述式テーマ選び | n6a992fc189c8 | …/n6a992fc189c8/edit | もくじのみ |
 
-## バッチB（後日・要注意）
+## バッチB（R8予想 有料6本）— 完了（2026-06-18）
 
-R8予想 有料6本（commit `ab35ca431` でソースにバンドルCTA追加済）。有料記事は **paywall境界・価格¥700を保持**したまま末尾 type 追記。ライブ無料プレビューには既にR8集カードあり＝**コアパックの1段だけ末尾追記**でよい。
+> [!done]
+> R8予想6本（経済安保/資源循環/気候変動適応/老朽化/AI社会/災害復旧）に **コアパックCTAを無料プレビュー内（R8集カード直後）へアンカー挿入** → `note-append-cta --after m6854c7437d4d --commit`。**6/6 paywall完全保持**（価格700・can_read False・有料5400-6500字ゲート維持）＋コアパック反映＋R8集カード保全をAPI検証。境界は「予想問題」H2直前に再設定＋`boundaryBeforeExam`ゲートで保護。
 
-真実源: [[../reference/note-funnel-architecture.md]]・memory `project_note_live_cta_drift`
+## 残：計算問題集（¥300・ne190c3ef2fca）— 手動対応に保留
+
+別構造（境界基準が「パターン」H2・`--boundary-h2 'パターン'`で対応可）だが、(1)有料設定画面の検出が不安定で `更新する` 未到達、(2)テスト中断で**末尾にコアパックの残骸下書き(has_draft:True)** が蓄積。**ライブ公開版は無傷**（価格300・ゲート維持・コアパック未反映）。手動（note-edit-session）で残骸下書きを破棄→精読ガイドカード直後にコアパック配置が安全。低優先（既に精読ガイド導線あり）。
+
+真実源: [[../reference/note-funnel-architecture.md]]・memory `project_note_live_cta_drift`・自動化=`npm run note-append-cta`（[[../../.claude/skills/social/publish-note/references/update-mode.md]]）

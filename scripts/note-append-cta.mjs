@@ -33,11 +33,18 @@ const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');
+const FORCE = argv.includes('--force'); // 冪等スキップを無効化（中断ドラフト残骸の上書き等・原則使わない）
 
 const NOTE = getArg('--note');
 const TEXT = getArg('--text');
 const URL = getArg('--url');
-if (!NOTE || !TEXT || !URL) { console.error('required: --note <noteId> --text "<文章>" --url <magazineUrl>'); process.exit(1); }
+// --after <needle>: 指定文字列(テキスト/URLキー)を含むブロックの直後に挿入（無料プレビュー内へ）。
+// 省略時は本文末尾に追記。有料記事は末尾だと有料エリア＝購入者しか見えないため --after で free プレビューに置く。
+const AFTER = getArg('--after');
+// --boundary-h2 <regex>: 有料記事の境界基準にする H2 の先頭一致パターン（既定=試験問題|予想問題）。
+// 例: 計算問題集は「## パターン 1…」が初の有料節 → --boundary-h2 'パターン'。
+const BOUNDARY_RE = getArg('--boundary-h2') || '試験問題|予想問題';
+if (!NOTE || !TEXT || !URL) { console.error('required: --note <noteId> --text "<文章>" --url <magazineUrl> [--after <needle>] [--boundary-h2 <regex>]'); process.exit(1); }
 // マガジン key（m... / n...）を URL から抽出（DOM 冪等チェック用の安定キー）
 const URL_KEY = (URL.match(/\/(?:m|n)\/([a-z0-9]+)/) || [])[1] || URL;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -74,14 +81,29 @@ try {
 
   // 2c. 冪等チェック: 追記 URL が既に本文にあればスキップ
   const already = await page.evaluate((k) => (document.querySelector('[contenteditable=true]')?.innerHTML || '').includes(k), URL_KEY);
-  if (already) { console.log(`[skip] 既に ${URL_KEY} が本文に存在（重複追記しない）`); await ctx.close(); process.exit(0); }
+  if (already && !FORCE) { console.log(`[skip] 既に ${URL_KEY} が本文に存在（重複追記しない）。上書きは --force`); await ctx.close(); process.exit(0); }
+  if (already && FORCE) console.log(`[force] ${URL_KEY} 既存だが --force で続行`);
 
-  // 3. caret を本文末尾へ
-  await page.evaluate(() => {
+  // 3. caret 位置決め（--after 指定時は該当ブロック直後＝free プレビュー内 / 既定は本文末尾）
+  const caret = await page.evaluate((needle) => {
     const ed = document.querySelector('[contenteditable=true]'); ed.focus();
-    const r = document.createRange(); r.selectNodeContents(ed); r.collapse(false);
+    const r = document.createRange();
+    if (needle) {
+      let target = null;
+      for (const child of ed.children) {
+        if ((child.textContent || '').includes(needle) || (child.innerHTML || '').includes(needle)) { target = child; break; }
+      }
+      if (!target) return 'anchor-not-found';
+      r.setStartAfter(target); r.collapse(true);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      return 'after-anchor';
+    }
+    r.selectNodeContents(ed); r.collapse(false);
     const s = getSelection(); s.removeAllRanges(); s.addRange(r);
-  });
+    return 'end';
+  }, AFTER);
+  console.log(`[3] caret=${caret}`);
+  if (caret === 'anchor-not-found') { console.error(`ABORT: --after "${AFTER}" に一致するブロックが本文に無い。挿入しない。`); await ctx.close(); process.exit(8); }
   await sleep(500);
 
   // 4. 追記: Enter → 文章 type → Enter → URL type → Enter（URL は type で OGP カード化）
@@ -104,15 +126,49 @@ try {
     await ctx.close(); process.exit(0);
   }
 
-  // 6. 公開に進む → 更新する（2段）
+  // 6. 公開に進む
   const next = page.getByRole('button', { name: '公開に進む' });
   if (!(await next.count())) { console.error('ABORT: 「公開に進む」未検出。更新せず終了。'); await page.screenshot({ path: join(ROOT, `.tmp/append-nonext-${NOTE}.png`) }); await ctx.close(); process.exit(6); }
   await next.first().click(); await sleep(3500);
-  // 公開済み記事は「更新する」（新規の「投稿する/公開」とは別ラベル）
+
+  // 6b. 有料記事なら 有料エリア設定 → 境界を「予想問題/試験問題」H2 直前へ再設定し検証（note-publish.mjs 由来）。
+  //     既存境界と同じ位置に揃える＝paywall 非破壊。検証 NG なら保存せず中断（収益保護）。
+  const area = page.getByRole('button', { name: '有料エリア設定' });
+  if (await area.count()) {
+    console.log('[6b] 有料記事フロー（境界保持）');
+    await area.first().click(); await sleep(3500);
+    const t = await page.evaluate((bre) => {
+      const RE = new RegExp('^(' + bre + ')');
+      const isLineBtn = (el) => (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button') && /ラインをこの場所に変更/.test(el.innerText || el.getAttribute('aria-label') || '');
+      const seq = Array.from(document.querySelectorAll('h1,h2,h3,button,[role=button]'));
+      const hIdx = seq.findIndex((el) => el.tagName === 'H2' && RE.test((el.innerText || '').trim()));
+      if (hIdx < 0) return { ok: false, reason: 'no boundary h2' };
+      let btn = null; for (let i = hIdx - 1; i >= 0; i--) { if (isLineBtn(seq[i])) { btn = seq[i]; break; } }
+      if (!btn) return { ok: false, reason: 'no preceding line-button' };
+      document.querySelectorAll('[data-np-target]').forEach((e) => e.removeAttribute('data-np-target')); btn.setAttribute('data-np-target', '1');
+      return { ok: true, heading: (seq[hIdx].innerText || '').slice(0, 24) };
+    }, BOUNDARY_RE);
+    console.log('[6b] boundary target:', JSON.stringify(t));
+    if (!t.ok) { console.error('ABORT: 有料境界の基準(試験/予想問題 H2)を特定できず。保存せず中断。'); await page.screenshot({ path: join(ROOT, `.tmp/append-boundary-${NOTE}.png`) }); await ctx.close(); process.exit(10); }
+    await page.click('[data-np-target="1"]'); await sleep(2500);
+    const v = await page.evaluate((bre) => {
+      const RE = new RegExp('^(' + bre + ')');
+      const seq = Array.from(document.querySelectorAll('h1,h2,h3,p,button,[role=button]'));
+      const lineIdx = seq.findIndex((el) => /このラインより先を有料にする/.test(el.innerText || ''));
+      const hIdx = seq.findIndex((el) => el.tagName === 'H2' && RE.test((el.innerText || '').trim()));
+      let between = 0; if (lineIdx >= 0 && hIdx > lineIdx) for (let i = lineIdx + 1; i < hIdx; i++) { const tx = (seq[i].innerText || '').trim(); if (tx && !/ラインをこの場所に変更|このラインより先/.test(tx)) between++; }
+      return { lineIdx, hIdx, between, boundaryBeforeExam: lineIdx >= 0 && hIdx > lineIdx && between === 0 };
+    }, BOUNDARY_RE);
+    console.log('[6b] boundary verify:', JSON.stringify(v));
+    await page.screenshot({ path: join(ROOT, `.tmp/append-boundary-${NOTE}.png`) });
+    if (!v.boundaryBeforeExam) { console.error('ABORT: 有料境界が「予想問題/試験問題」直前に揃わない。保存せず中断（paywall 保護）。'); await ctx.close(); process.exit(11); }
+  }
+
+  // 6c. 更新する（公開済み記事。新規の「投稿する/公開」とは別ラベル）
   let updated = false;
   for (const label of ['更新する', '更新']) {
     const b = page.getByRole('button', { name: label, exact: label === '更新する' });
-    if (await b.count()) { await b.first().click(); updated = true; console.log(`[6] 「${label}」クリック`); break; }
+    if (await b.count()) { await b.first().click(); updated = true; console.log(`[6c] 「${label}」クリック`); break; }
   }
   if (!updated) { console.error('ABORT: 「更新する」未検出。'); await page.screenshot({ path: join(ROOT, `.tmp/append-noupdate-${NOTE}.png`) }); await ctx.close(); process.exit(7); }
   await sleep(5000);
