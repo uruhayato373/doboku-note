@@ -10,7 +10,7 @@ OGP デザインはここで継続的に検討・改善する。レイアウト�
 - **OGP サイズ**: 1200×630（doboku-note サイト用）
 - **note カバーサイズ**: 1280×670（note 公開用ドラフト用、同テンプレを再利用）
 - **テンプレ実装**: `.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs` の `renderMonoTag` が真実源
-- **CSS のみで完結**（背景画像不要）。Midjourney などの外部ツールは使わない
+- **ベースは CSS のみで完結**（背景画像なしでも成立）。資格ごとに **AI 生成背景を任意で**最背面に敷ける（下記「資格別 AI 背景」、2026-06-18〜）。文字・ブランド枠は常に satori が正確に描く
 
 ## 採用テンプレ: T06 Mono Tag（mono-tag・サイト OGP）
 
@@ -35,6 +35,17 @@ OGP デザインはここで継続的に検討・改善する。レイアウト�
 5. **左寄せ・縦中央**: 主要要素は左端基準で縦に積み、タイトルブロックを縦方向中央に寄せて読み物感を担保
 
 > [!note] セーフティゾーン（中央 630×630）は mono-tag では 2026-06-16 に撤廃した。中央 1:1 クロップ耐性が必要な **note-cover-g2** は引き続き中央セーフ幅 590px を厳守する（別系統・下記参照）。
+
+## 資格別 AI 背景（任意・mono-tag）
+
+mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（2026-06-18〜）。文字・ブランド枠は従来どおり satori が正確に描き、背景は「装飾の下地」として最背面に入る。背景ファイルが無ければ従来のオフホワイト＋グリッド（**完全後方互換**）。
+
+- **置き場**: `.claude/config/ogp/backgrounds/<exam-key>.png`（資格ごとに 1 枚を全記事で共有）。`ogp-create.mjs` の `resolveBackgroundImage(category)` が category→exam-key で解決し、無ければ null。exam-key は上の「テーマ色」表と同じ。
+- **レイヤー順**（最背面→最前面）: 背景画像（`object-fit: cover`）→ 可読性スクリム（`C_SCRIM`、オフホワイト半透明・既定 **0.7**）→ グリッド/アクセントバー → ワードマーク・チップ・タイトル → テーマ色 16px 外枠。
+- **可読性の二重担保**: ① 生成時に各背景を平均輝度 ~202 へ正規化（暗い出力だけ白へ線形ブレンド、明るい出力は不変）② 描画時にスクリムを重ねる。背景が強すぎ/弱すぎは `ogp-templates.mjs` の `C_SCRIM` alpha で一括調整。
+- **生成**: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。`GEMINI_API_KEY`（`.env.local`）で AI Studio の画像モデルを呼ぶ。既定 `--mode flash`（`gemini-2.5-flash-image`）、`--mode imagen`（`imagen-4.0-generate-001`）に切替可。プロンプトは「near-white の淡い地＋テーマ色は細線アクセントのみ・文字なし・左中央は静かに」。flash は稀に画像でなくテキストを返すためリトライ＋「画像のみ返す」指示で吸収。
+- **コスト上限**: 画像生成は従量課金。AI Studio 取得キーは GCP の Generative Language API に **Quota（1日上限）**を設定して上限管理する（予算アラートは通知のみで自動停止しない）。
+- **既存 OGP への反映**: 背景を追加/更新したら `npm run ogp -- --all --force` で焼き込む（**任意**）。焼き込まなければ既存 OGP は据え置き、新規記事は通常生成で自動的に背景が乗る。
 
 ## テーマ色（資格別外枠）
 
@@ -100,6 +111,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | 2026-05-20 | magazine-banner 派生を追加 | note マガジンヘッダー帯（1280×216）クロップ対応 |
 | 2026-05-29 | note-cover-g2 派生を追加（note 記事カバーを試験色分け） | note フィード・リンクカードで試験区分を色で識別 |
 | 2026-06-16 | **mono-tag 全幅リデザイン**: セーフゾーン(630)撤廃→全幅、最大フォント 54→76px、資格別テーマ色 16px 外枠を追加、下部メタ「READ ON doboku-note.com」とワードマークのタグラインを撤去、タイトルを縦中央寄せ。`text.json` を v5 に更新（`safetyWidth` 590→1010、`fontSizeTable` 引き上げ、`charCountFallback` 18→13）。確認用に OGP ギャラリー（`npm run ogp-gallery`）を新設 | 外部リンクカードでの可読性・分野識別性の向上（参考: socialplus / commune の大文字・低余白カード） |
+| 2026-06-18 | **mono-tag に資格別 AI 背景（任意）を追加**: `renderMonoTag` に背景画像レイヤー＋可読性スクリム `C_SCRIM`（0.7）を新設、`ogp-create.mjs` に `resolveBackgroundImage`（`.claude/config/ogp/backgrounds/<exam-key>.png`）を配線。生成スクリプト `npm run ogp-backgrounds`（Gemini/Imagen・輝度正規化・リトライ）を新設。背景なしは完全後方互換 | プレーンなオフホワイトより見栄えを上げつつ、文字の正確性・ブランド一貫性を維持（AI は背景のみ・文字は satori） |
 
 ## 旧 5 種テンプレ（撤去済み・履歴）
 
