@@ -84,6 +84,62 @@ export function resolveCareerSidebarAd(): {
   return { creative: CIVIL_CAREER_AD, trackLabel: "GKS-sidebar" };
 }
 
+/** 記事末ネイティブカード（CareerAffiliate）の props 型。グラフィックバナーではなく訴求文言主体。 */
+export type CareerArticleEndCard = {
+  readonly service: string;
+  readonly category: string;
+  readonly description: string;
+  readonly href: string;
+  readonly points: readonly string[];
+  readonly cta: string;
+};
+
+/**
+ * civil（1級/2級）記事末・モバイル限定の転職ネイティブカードを解決する。
+ *
+ * 背景: サイドバー転職枠（`resolveCareerSidebarAd`）は PC（≥993px）のみ表示のため、
+ * モバイル読者には転職導線が一切「見えない／クリックできない」。記事末（FAQ 直後）に
+ * visible なネイティブカードを新設してモバイルのクリック面を確保する。
+ *
+ * ピクセル: このカードは **href のみ（計測ピクセルなし）**。インプレッション計測は
+ * サイドバー側の 1 発火を唯一の源として維持する（1 ページ 1 ピクセル原則）。
+ *
+ * creative は `resolveCareerSidebarAd()` と同じ期間境界で出し分ける
+ * （〜2026-08-31 ビルドジョブ ¥50,000 ／ 9-01 以降 GKS に自動復帰）。
+ * 文言は docs/project/04_運営/02_アフィリエイト提携状況.md の保管庫の公称値に基づく
+ * （未確認の数値は記載しない）。
+ */
+export function resolveCareerArticleEndCard(): CareerArticleEndCard {
+  if (resolveCareerSidebarAd().trackLabel === "BuildJob-sidebar") {
+    return {
+      service: "ビルドジョブ",
+      category: "建設業界特化 転職エージェント",
+      description:
+        "資格取得後のキャリアも視野に。建設・施工管理に特化した求人を、専任アドバイザーの無料キャリア面談で相談できます。",
+      href: BUILDJOB_CAREER_AD.href,
+      points: [
+        "建設業界に特化した求人紹介",
+        "専任アドバイザーによる無料キャリア面談",
+        "登録・相談はすべて無料",
+      ],
+      cta: "無料でキャリア相談する",
+    };
+  }
+  return {
+    service: "GKSキャリア",
+    category: "施工管理 転職エージェント",
+    description:
+      "施工管理のキャリアアップを考えるなら。20代・未経験/若手に強く、資格取得支援も受けられます。",
+    href: CIVIL_CAREER_AD.href,
+    points: [
+      "20代・未経験/若手の施工管理に強い",
+      "登録無料・資格取得支援あり",
+      "提携3,000社以上の求人ネットワーク",
+    ],
+    cta: "無料で求人を見る",
+  };
+}
+
 /** SAT 通信講座（スクール系・A8.net）。記事末テキストリンク カード用 creative。 */
 export const SCHOOL_SAT = {
   provider: "SAT",
