@@ -1,4 +1,3 @@
-import { ExternalLink } from 'lucide-react';
 import { getLinkMetadata } from '../../../lib/actions/link-metadata-actions';
 import LinkCardClient from './LinkCardClient';
 
@@ -6,10 +5,8 @@ interface LinkCardProps {
   readonly url: string;
   readonly title: string;
   readonly description?: string;
-  readonly siteName: string;
+  readonly siteName?: string;
   readonly imageUrl?: string;
-  readonly category?: string;
-  readonly variant?: "compact" | "hero";
 }
 
 export default async function LinkCard({
@@ -18,8 +15,6 @@ export default async function LinkCard({
   description,
   siteName,
   imageUrl,
-  category = "参考資料",
-  variant = "compact"
 }: LinkCardProps) {
   // サーバーサイドでメタデータを取得
   const metadata = await getLinkMetadata(url);
@@ -28,7 +23,7 @@ export default async function LinkCard({
   const displayTitle = title || metadata.title || 'タイトルなし';
   const displayDescription = description || metadata.description || '';
   const displayImage = imageUrl || metadata.image || '';
-  const displaySiteName = siteName || metadata.siteName || 'サイト名なし';
+  const displaySiteName = siteName || metadata.siteName || '';
 
   return (
     <LinkCardClient
@@ -37,8 +32,6 @@ export default async function LinkCard({
       description={displayDescription}
       imageUrl={displayImage}
       siteName={displaySiteName}
-      category={category}
-      variant={variant}
     />
   );
-} 
+}

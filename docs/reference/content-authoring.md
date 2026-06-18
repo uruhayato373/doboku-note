@@ -37,7 +37,7 @@ MDX 内で使える主要コンポーネント（`src/lib/component-loader/index
 - `<Timeline>`, `<PdcaCycle>` — 時系列・サイクル表示
 - `<SeeAlso href="/docs/slug" title="..." reason="..." />` — 内部 doboku-note ページへの「あわせて読みたい」カード
 - `<NoteLink url="..." title="..." description="..." coverImage="..." />` — **note 記事への導線専用カード**（リンク系の使い分けは下記参照）
-- `<LinkCard url="..." title="..." description="..." siteName="..." imageUrl="..." category="..." />` — 一般外部 URL のカード
+- `<LinkCard url="..." title="..." description="..." siteName="..." imageUrl="..." />` — 一般外部 URL のカード（OGP 画像を左に本来比で表示する横型カード。モバイルは画像を上に縦積み）
 - `<MagazineInlineCard>` / `<MagazineSidebarCard>` — note magazine（有料）販売ページへのカード
 
 ## リンク系コンポーネントの使い分け

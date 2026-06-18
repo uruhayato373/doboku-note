@@ -1,6 +1,5 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
 interface LinkCardClientProps {
@@ -9,103 +8,60 @@ interface LinkCardClientProps {
   readonly description?: string;
   readonly imageUrl?: string;
   readonly siteName?: string;
-  readonly category?: string;
-  /**
-   * "compact" (default): 左サムネ 128x96 + 右テキスト（参考資料リスト向け）
-   * "hero": 上部フル幅画像（高さ約 200px）+ 下テキスト（note カード等 CTA 強調向け）
-   */
-  readonly variant?: "compact" | "hero";
 }
 
+/**
+ * LinkCard — OGP 画像を左に本来比のまま（クロップしない）、右にタイトル・説明・サイト名を並べる横型カード。
+ * モバイル（< sm）では画像を上・テキストを下に積む。デスクトップでは画像とテキストを縦中央で揃える。
+ */
 export default function LinkCardClient({
   url,
   title,
   description,
   imageUrl,
-  siteName = "サイト名なし",
-  category = "参考資料",
-  variant = "compact",
+  siteName,
 }: LinkCardClientProps) {
   const handleClick = () => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const isHero = variant === "hero";
-
   return (
-    <span className="inline-block p-4">
+    <span className="not-prose inline-block p-4">
       <span
         onClick={handleClick}
-        className={`group cursor-pointer border border-gray-200 dark:border-gray-700 rounded-card-content overflow-hidden shadow-card-content hover:shadow-card-hover transition-all duration-300 bg-white dark:bg-gray-800 inline-block ${
-          isHero ? "max-w-3xl w-full" : "max-w-2xl"
-        }`}
+        className="group block w-full max-w-2xl cursor-pointer overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-card-content hover:shadow-card-hover transition-all duration-300"
       >
-        <span className={isHero ? "block" : "flex"}>
+        <span className="flex flex-col sm:flex-row sm:items-center">
           {imageUrl && (
-            <span
-              className={`overflow-hidden relative ${
-                isHero ? "block w-full" : "flex-shrink-0 inline-block w-32 h-24"
-              }`}
-            >
-              {isHero ? (
-                // hero（ワイド）: 元画像のアスペクト比をそのまま使う（クロップしない）。
-                // width/height は読み込み前のプレースホルダ比。aspect-ratio: auto W/H の
-                // 仕様により、実画像ロード後は自然なアスペクト比が採用される。
-                <Image
-                  src={imageUrl}
-                  alt={title}
-                  width={1280}
-                  height={670}
-                  className="block w-full h-auto group-hover:scale-105 transition-transform duration-300"
-                  unoptimized
-                  sizes="(max-width: 768px) 100vw, 768px"
-                />
-              ) : (
-                <Image
-                  src={imageUrl}
-                  alt={title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  unoptimized
-                  sizes="128px"
-                />
-              )}
-              {category && (
-                <span className="absolute top-2 left-2 inline-block px-2 py-0.5 text-xs font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 rounded-sm shadow-sm">
-                  {category}
-                </span>
-              )}
+            <span className="relative block w-full overflow-hidden sm:w-1/2 sm:shrink-0">
+              <Image
+                src={imageUrl}
+                alt={title}
+                width={1200}
+                height={630}
+                className="block h-auto w-full transition-transform duration-300 group-hover:scale-105"
+                unoptimized
+                sizes="(max-width: 640px) 100vw, 320px"
+              />
             </span>
           )}
 
-          <span className={`flex-1 p-4 inline-block ${isHero ? "block" : ""}`}>
-            <span className="flex items-center justify-end mb-2 inline-block">
-              <ExternalLink className="w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors" />
-            </span>
-
-            <span
-              className={`linkcard-title font-semibold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors block ${
-                isHero ? "text-base" : "text-sm"
-              }`}
-            >
+          <span className="block min-w-0 flex-1 p-4">
+            <span className="linkcard-title mb-2 line-clamp-2 text-base font-semibold text-gray-900 transition-colors group-hover:text-primary-600 dark:text-gray-100 dark:group-hover:text-primary-400">
               {title}
             </span>
 
             {description && (
-              <span
-                className={`text-gray-600 dark:text-gray-400 mb-2 block ${
-                  isHero ? "text-sm line-clamp-3" : "text-xs line-clamp-2"
-                }`}
-              >
+              <span className="mb-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
                 {description}
               </span>
             )}
 
-            <span className="flex items-center text-xs text-gray-500 dark:text-gray-400 inline-block">
-              {siteName && (
-                <span className="font-medium">{siteName}</span>
-              )}
-            </span>
+            {siteName && (
+              <span className="block text-xs font-medium text-gray-500 dark:text-gray-400">
+                {siteName}
+              </span>
+            )}
           </span>
         </span>
       </span>
