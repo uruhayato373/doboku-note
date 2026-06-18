@@ -1,5 +1,5 @@
 /**
- * SVG ギャラリー — サイト図版 SVG を1枚の HTML で一覧確認する目視 QA ツール。
+ * SVG ギャラリー — サイト/note 図版を1枚の HTML で一覧確認する目視 QA ツール（site/note タブ＋資格別フィルタ）。
  *
  * SVG デザインの共有化・一貫性チェック用。色トークン逸脱・フォント過小・
  * 矢印 marker のばらつき・レイアウト崩れをまとめてブラウザで確認できる。
@@ -10,10 +10,13 @@
  *   - check-mdx/.../svg/build-gallery-comment.mjs  … 同じ SVG を Markdown 化（PR コメント用）
  *   - 本スクリプト                                 … ローカル HTML 目視用
  *
+ * UI: 上部タブで「サイト（.local/r2/posts/**\/img/*.svg）」と「note（docs/note/**\/img/figure-*.png）」を
+ *     切替え、各タブ内で資格別（カテゴリ）に絞り込み。site タブは severity フィルタも併設。
+ *
  * Usage:
- *   node scripts/svg-gallery.mjs            → .tmp/svg-gallery.html を生成（site SVG）
+ *   node scripts/svg-gallery.mjs            → .tmp/svg-gallery.html を生成（site/note 両方をタブで）
  *   node scripts/svg-gallery.mjs --open     → 生成して既定ブラウザで開く（Windows）
- *   node scripts/svg-gallery.mjs --all      → note 図版（docs/note/**\/img/figure-*.png）も第2セクションに追加
+ *   （--all は後方互換で受理。note は常にタブ表示されるため指定不要）
  */
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
@@ -25,7 +28,7 @@ const NOTE = join(ROOT, "docs", "note");
 const AUDIT_STATE = join(ROOT, ".claude", "state", "svg-audit.json");
 const OUT = join(ROOT, ".tmp", "svg-gallery.html");
 
-const WITH_NOTE = process.argv.includes("--all");
+// note は常にタブで表示する（--all は後方互換で受理する no-op フラグ）
 
 // --- 機械監査結果（あれば）を file -> severity に集約 ---
 const fileSeverity = {};
@@ -129,36 +132,32 @@ function cardNote(o) {
 }
 
 const site = collectSite();
-const note = WITH_NOTE ? collectNote() : [];
+const note = collectNote();
 const siteCats = [...new Set(site.map((i) => i.category))].sort();
+const noteCats = [...new Set(note.map((i) => i.category))].sort();
 
 const sevButtons = hasAudit
-  ? `<span class="sep">|</span>
-  <button onclick="fs('')">全 severity</button>
-  <button onclick="fs('high')">&#128308; HIGH</button>
-  <button onclick="fs('medium')">&#128993; MEDIUM</button>
-  <button onclick="fs('low')">&#128994; LOW</button>
-  <button onclick="fs('clean')">&#9989; clean</button>`
-  : "";
-
-const noteSection = WITH_NOTE
-  ? `<h2 class="sec">note 図版 PNG（${note.length}）</h2>
-<div class="grid">
-${note.map(cardNote).join("\n")}
-</div>`
+  ? `<span class="sep">severity:</span>
+    <button onclick="fs('')">全</button>
+    <button onclick="fs('high')">&#128308; HIGH</button>
+    <button onclick="fs('medium')">&#128993; MEDIUM</button>
+    <button onclick="fs('low')">&#128994; LOW</button>
+    <button onclick="fs('clean')">&#9989; clean</button>`
   : "";
 
 const html = `<!doctype html>
 <html lang="ja"><head><meta charset="utf-8">
-<title>SVG Gallery (${site.length}${WITH_NOTE ? `+${note.length}` : ""})</title>
+<title>SVG Gallery (site ${site.length} / note ${note.length})</title>
 <style>
   body{font-family:system-ui,sans-serif;margin:0;background:#f4f4f5;color:#222}
-  header{position:sticky;top:0;z-index:9;background:#fff;padding:10px 16px;border-bottom:1px solid #ddd;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
-  header b{margin-right:10px}
-  .sep{color:#bbb;margin:0 4px}
+  header{position:sticky;top:0;z-index:9;background:#fff;padding:8px 16px 0;border-bottom:1px solid #ddd}
+  .tabs{display:flex;gap:8px;margin-bottom:8px}
+  .tab{font-size:13px;font-weight:bold;padding:6px 18px;border:1px solid #ccc;border-bottom:2px solid transparent;border-radius:6px 6px 0 0;background:#f4f4f5;cursor:pointer}
+  .tab.active{background:#fff;border-color:#2e6da4;border-bottom-color:#2e6da4;color:#2e6da4}
+  .filterbar{display:flex;gap:6px;flex-wrap:wrap;align-items:center;padding-bottom:8px}
+  .sep{color:#888;margin:0 2px 0 8px;font-size:12px;font-weight:bold}
   button{font-size:12px;padding:4px 10px;border:1px solid #ccc;border-radius:999px;background:#fff;cursor:pointer}
   button:hover{border-color:#2e6da4;color:#2e6da4}
-  h2.sec{margin:18px 16px 0;font-size:14px;color:#1a3a5c}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;padding:16px}
   .card{margin:0;background:#fff;border:1px solid #e5e5e5;border-radius:8px;overflow:hidden;display:flex;flex-direction:column}
   .card img{width:100%;display:block;background:#fff;padding:8px;box-sizing:border-box}
@@ -168,31 +167,56 @@ const html = `<!doctype html>
   .pat{color:#b22234;margin-top:2px}
 </style></head>
 <body>
-<header><b>SVG Gallery — site ${site.length} 枚${WITH_NOTE ? ` / note ${note.length} 枚` : ""}</b>
-  <button onclick="fc('')">全カテゴリ</button>
-  ${siteCats.map((c) => `<button onclick="fc('${esc(c)}')">${esc(c)}</button>`).join("\n  ")}
-  ${sevButtons}
+<header>
+  <div class="tabs">
+    <button class="tab active" data-tab="site" onclick="setTab('site')">サイト（${site.length}）</button>
+    <button class="tab" data-tab="note" onclick="setTab('note')">note（${note.length}）</button>
+  </div>
+  <div class="filterbar" id="bar-site">
+    <span class="sep">資格:</span><button onclick="fc('site','')">全</button>
+    ${siteCats.map((c) => `<button onclick="fc('site','${esc(c)}')">${esc(c)}</button>`).join("\n    ")}
+    ${sevButtons}
+  </div>
+  <div class="filterbar" id="bar-note" style="display:none">
+    <span class="sep">資格:</span><button onclick="fc('note','')">全</button>
+    ${noteCats.map((c) => `<button onclick="fc('note','${esc(c)}')">${esc(c)}</button>`).join("\n    ")}
+  </div>
 </header>
-<h2 class="sec">site 記事図版 SVG（${site.length}）</h2>
+<section id="sec-site">
 <div class="grid">
 ${site.map(cardSite).join("\n")}
 </div>
-${noteSection}
+</section>
+<section id="sec-note" style="display:none">
+<div class="grid">
+${note.map(cardNote).join("\n")}
+</div>
+</section>
 <script>
-var cF='',sF='';
-function apply(){document.querySelectorAll('.card').forEach(function(el){
-  var okc=(!cF||el.dataset.cat===cF);
-  var oks=(!sF||el.dataset.sev===sF);
-  el.style.display=(okc&&oks)?'':'none';
-});}
-function fc(c){cF=c;apply();}
-function fs(s){sF=s;apply();}
+var cF={site:'',note:''}, sF='';
+function applyCat(src){
+  var cf=cF[src];
+  document.querySelectorAll('#sec-'+src+' .card').forEach(function(el){
+    var okc=(!cf||el.dataset.cat===cf);
+    var oks=(src!=='site'||!sF||el.dataset.sev===sF);
+    el.style.display=(okc&&oks)?'':'none';
+  });
+}
+function setTab(t){
+  document.getElementById('sec-site').style.display=(t==='site')?'':'none';
+  document.getElementById('sec-note').style.display=(t==='note')?'':'none';
+  document.getElementById('bar-site').style.display=(t==='site')?'':'none';
+  document.getElementById('bar-note').style.display=(t==='note')?'':'none';
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.toggle('active',b.dataset.tab===t);});
+}
+function fc(src,c){cF[src]=c;applyCat(src);}
+function fs(s){sF=s;applyCat('site');}
 </script>
 </body></html>`;
 
 if (!existsSync(dirname(OUT))) mkdirSync(dirname(OUT), { recursive: true });
 writeFileSync(OUT, html, "utf8");
-console.log(`[svg-gallery] site ${site.length} 枚 / ${siteCats.length} カテゴリ${WITH_NOTE ? ` + note ${note.length} 枚` : ""}${hasAudit ? " (audit バッジ付き)" : " (audit 無し)"} → ${OUT}`);
+console.log(`[svg-gallery] site ${site.length} 枚（${siteCats.length} 資格）/ note ${note.length} 枚（${noteCats.length} 資格）${hasAudit ? " (audit バッジ付き)" : " (audit 無し)"} → ${OUT}`);
 
 if (process.argv.includes("--open")) {
   try {

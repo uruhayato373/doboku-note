@@ -169,11 +169,10 @@ HTTP HEAD（並列 10 / タイムアウト 15 秒）で検証。対象は `.loca
 
 **ギャラリー生成（目視 QA）**:
 ```bash
-npm run svg-gallery               # 全サイト SVG を 1 枚 HTML で一覧（svg-audit.json 重大度バッジ付き）
-npm run svg-gallery -- --all      # note 図版（docs/note/**/img/figure-*）も第2セクションに含む
+npm run svg-gallery               # site/note 図版を 1 枚 HTML で（site/note タブ＋資格別フィルタ・site は svg-audit.json 重大度バッジ）
 node .claude/skills/quality/check-mdx/scripts/rules/svg/build-gallery-comment.mjs  # 旧: GitHub コメント用 Markdown
 ```
-`npm run svg-gallery` はローカル目視用（`.tmp/svg-gallery.html`・`--open` でブラウザ起動・svg-figure-auditor の視覚確認の足場）。`build-gallery-comment.mjs` は GitHub Issue/PR コメント用 Markdown（`.tmp/svg-gallery-comment.md`）で用途が別。
+`npm run svg-gallery` はローカル目視用（`.tmp/svg-gallery.html`・`--open` でブラウザ起動・svg-figure-auditor の視覚確認の足場）。上部タブで「サイト／note」を切替え、各タブ内で資格別（カテゴリ）に絞り込む。`build-gallery-comment.mjs` は GitHub Issue/PR コメント用 Markdown（`.tmp/svg-gallery-comment.md`）で用途が別。
 
 **実行**: `node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs`
 
