@@ -56,6 +56,10 @@ https://note.com/dobokunote/m/m32aaa137f22e
 
 R3 は「現状不十分でも記してよい」と前文で明示されているため、ゼネコンでも「現場ごとに孤立」「BIM/CIM の属人化」など率直に書くと説得力が出ます。
 
+全14ペルソナのフル模範論文（R03〜R07）に、答案の「型」・設問(3)・R8予想まで全部入りの「完全パック」なら、自分の業務に最も近い書き方を分野横断で選べます。
+
+https://note.com/dobokunote/m/m171222175fac
+
 ## 試験問題（令和3年度 必須科目 I-2）
 
 本記事が解答するのは、技術士総合技術監理部門 令和3年度 必須科目（記述式）I-2「データ利活用」です。前文（出題の背景）の全文は [令和3年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r03) に掲載しています。ここでは解答すべき設問を再掲します。

@@ -57,6 +57,10 @@ https://note.com/dobokunote/m/m32aaa137f22e
 
 設定を入れ替えても論文の骨格（三層構造・トレードオフ明示・残余リスク）は流用できます。
 
+全14ペルソナのフル模範論文（R03〜R07）に、答案の「型」・設問(3)・R8予想まで全部入りの「完全パック」なら、自分の業務に最も近い書き方を分野横断で選べます。
+
+https://note.com/dobokunote/m/m171222175fac
+
 ## 試験問題（令和6年度 必須科目 I-2）
 
 本記事が解答するのは、技術士総合技術監理部門 令和6年度 必須科目（記述式）I-2「カーボンニュートラル（CN）」です。前文（CN の定義・2050 年長期戦略など出題の背景）の全文は [令和6年度 総監記述式 過去問解説](https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary?utm_source=note&utm_medium=referral&utm_campaign=essay-gc-r06) に掲載しています。ここでは解答すべき設問を再掲します（解答中、カーボンニュートラルは CN と略す）。
