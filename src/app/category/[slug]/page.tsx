@@ -71,6 +71,11 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
     pastExam: '年度別の択一式・記述式問題と解説',
     keyword: 'キーワード解説',
   },
+  'pe-construction': {
+    guide: '試験制度・勉強法・答案の書き方・業務経歴票の作り方',
+    keyword: '必須科目Iの論点キーワードと選択科目別の出題テーマ分析（R01〜R07）',
+    pastExam: '令和元〜7年度の必須科目I・選択科目（11科目）の記述式問題文',
+  },
   'concrete-chief-engineer': {
     guide: '試験概要・出題傾向・小論文対策',
     textbook: '8分野（材料・性質・耐久性・配合設計・製造品質管理・施工・製品・構造設計）の体系的な解説',
@@ -561,6 +566,86 @@ function PeFirstStageExamTable({ docs }: { docs: DocMeta[] }) {
 }
 
 /**
+ * 技術士第二次試験（建設部門）の過去問を 科目 × 年度 のマトリクスで表示。
+ * 行 = 必須科目I + 11 選択科目、列 = 令和元〜7年度。受験者は「必須 + 自分の選択科目1つ」を
+ * 年度横断で追うため、年度×2-3列の他資格テーブルではなく専用マトリクスにする。
+ */
+const PE_CONSTRUCTION_SUBJECTS: { key: string; label: string }[] = [
+  { key: 'required', label: '必須科目I' },
+  { key: 'geotechnical', label: '土質及び基礎' },
+  { key: 'steel-concrete', label: '鋼構造及びコンクリート' },
+  { key: 'urban-planning', label: '都市及び地方計画' },
+  { key: 'river-coast', label: '河川、砂防及び海岸・海洋' },
+  { key: 'port-airport', label: '港湾及び空港' },
+  { key: 'power-civil', label: '電力土木' },
+  { key: 'road', label: '道路' },
+  { key: 'railway', label: '鉄道' },
+  { key: 'tunnel', label: 'トンネル' },
+  { key: 'construction-planning', label: '施工計画、施工設備及び積算' },
+  { key: 'environment', label: '建設環境' },
+];
+
+function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
+  // 科目key → 年度code → Doc
+  const map = new Map<string, Map<string, DocMeta>>();
+  const yearSet = new Set<string>();
+  for (const doc of docs) {
+    const m = doc.slug?.match(/r(\d+)-([a-z-]+)$/);
+    if (!m) continue;
+    const yearCode = `r${m[1]}`;
+    const subject = m[2]!;
+    yearSet.add(yearCode);
+    if (!map.has(subject)) map.set(subject, new Map());
+    map.get(subject)!.set(yearCode, doc);
+  }
+
+  // 年度は新しい順（令和7 → 令和元）
+  const years = Array.from(yearSet).sort((a, b) => parseInt(b.slice(1)) - parseInt(a.slice(1)));
+  const colLabel = (code: string) => {
+    const num = parseInt(code.slice(1));
+    return num === 1 ? '令和元' : `令和${num}`;
+  };
+
+  // 定義順の科目のうちデータが存在するものだけ
+  const rows = PE_CONSTRUCTION_SUBJECTS.filter(s => map.has(s.key));
+
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full text-base border-collapse">
+        <thead>
+          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
+            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">科目</th>
+            {years.map(y => (
+              <th key={y} className="text-center py-3 px-3 font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">{colLabel(y)}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map(subject => {
+            const yearMap = map.get(subject.key)!;
+            return (
+              <tr key={subject.key} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{subject.label}</td>
+                {years.map(y => {
+                  const doc = yearMap.get(y);
+                  return (
+                    <td key={y} className="py-3 px-3 text-center">
+                      {doc ? (
+                        <Link href={`/docs/${doc.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">問題</Link>
+                      ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                    </td>
+                  );
+                })}
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
  * PE セクション別ツリー表示
  * キーワード集の5管理体系に基づきキーワードをグルーピング
  */
@@ -667,7 +752,7 @@ function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: DocMeta[]; k
   );
 }
 
-function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table' | 'pe-first-stage-table'; secondaryDocs?: DocMeta[] | undefined }) {
+function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table' | 'pe-first-stage-table' | 'pe-construction-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
   return (
     <section>
       <div className="mb-6">
@@ -685,6 +770,8 @@ function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?
         <PeExamTable docs={group.docs} />
       ) : layout === 'pe-first-stage-table' ? (
         <PeFirstStageExamTable docs={group.docs} />
+      ) : layout === 'pe-construction-exam-table' ? (
+        <PeConstructionExamTable docs={group.docs} />
       ) : (
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {group.docs.map(doc => (
@@ -1001,6 +1088,21 @@ export default async function CategoryPage({
                             <span className="text-blue-600 dark:text-blue-400 group-hover:translate-x-1 transition-transform" aria-hidden>›</span>
                           </Link>
                         </section>
+                      )}
+                    </>
+                  );
+                })()
+              ) : slug === 'pe-construction' ? (
+                (() => {
+                  const guideGroup = groups.find(g => g.title === getGroupLabel('pe-construction', 'guide'));
+                  const keywordGroup = groups.find(g => g.title === getGroupLabel('pe-construction', 'keyword'));
+                  const pastExamGroup = groups.find(g => g.title === getGroupLabel('pe-construction', 'pastExam'));
+                  return (
+                    <>
+                      {guideGroup && <DocSection group={guideGroup} />}
+                      {keywordGroup && <DocSection group={keywordGroup} />}
+                      {pastExamGroup && (
+                        <DocSection group={pastExamGroup} layout="pe-construction-exam-table" />
                       )}
                     </>
                   );
