@@ -1,6 +1,6 @@
 ---
 name: audit-note-funnel
-description: note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復する。公開記事の CTA 欠落・公開マガジンの L2 未収録・L2 の L1 未リンクを検出し、冪等スクリプトで配線する。Use when user says "note導線の見直し", "もくじ整備", "CTA配線", "ファネル監査". 真実源は docs/reference/note-funnel-architecture.md。
+description: note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）のドリフトを監査・修復する。ソース監査（D1-D4＝CTA 欠落・L2 未収録・L1 未リンク）に加え --live でライブ反映（D5＝配線後に再投稿せず live が死ぬドリフト）を検出し、wire-note-funnel-cta（ソース配線）／note-append-cta（公開済み記事へ live 反映）で修復する。Use when user says "note導線の見直し", "もくじ整備", "CTA配線", "ファネル監査". 真実源は docs/reference/note-funnel-architecture.md。
 disable-model-invocation: false
 user-invocable: true
 argument-hint: "[--exam tankan|pe-construction|civil] [--apply] | --semantic"
@@ -23,17 +23,19 @@ note 記事・マガジンの**回遊と購入の動線**（資格別 3 層モ�
 ### 1. 機械監査（ドリフト検出・read-only）
 
 ```bash
-npm run audit-note-funnel
+npm run audit-note-funnel            # ソース監査（D1-D4・高速）
+npm run audit-note-funnel -- --live  # ＋ライブ反映検証（D5）
 ```
 
-検出: D1 公開記事の CTA 欠落 / D2 公開マガジンの L2 未収録 / D3 L2 の L1 未リンク / D4 L2 URL 不一致。CI ゲートは `npm run check-note-funnel`（ドリフトで exit 1、`r2-audit.yml` で発火）。
+検出: D1 公開記事の CTA マーカー欠落（ソース）/ D2 公開マガジンの L2 未収録 / D3 L2 の L1 未リンク / D4 L2 URL 不一致 / **D5 公開記事の CTA が live note に未反映（`--live` のみ・note API body+embedded で機械検証＝「ソースは正でも配線後に再投稿せず live が死ぬ」ドリフトを検出。2026-06-18 に総監19本で実害化）**。CI ゲートは `npm run check-note-funnel`（**ソース D1-D4** のみ・exit 1、`r2-audit.yml`）。D5 は network 依存で低速のため CI 非対象＝月次/手動で回す。
 
 ### 2. 修復
 
 - **L3 CTA 欠落（D1）** → `npm run wire-note-funnel-cta -- --exam <key> --apply`（冪等・既存非破壊。まず `--apply` なしで dry-run）
 - **マガジン未収録（D2）** → 該当 L2 もくじ `article.md` に当該マガジンのリンクを追記
 - **L1 未リンク（D3）** → L1 `共通/コンテンツ総合案内/article.md` の該当資格セクションに L2 リンクを追記
-- 修復後は **公開済み記事/もくじは `publish-note --update` で live 反映**（ソース編集だけでは反映されない）
+- **ライブ未反映（D5）** → **`npm run note-append-cta`**（Playwright・Windows 可・browser-use 不要）で公開済み記事へ CTA を live 反映。`--after`=free プレビューへアンカー挿入／`--before-first-h2`=最初のH2直前へ挿入／`--keep-boundary`・`--boundary-h2`=有料記事の paywall 境界を保持／**更新通知は必ず「いいえ」を自動クリック**。または `publish-note --update`（type 追記）。詳細 → [publish-note/references/update-mode.md](../publish-note/references/update-mode.md)
+- 修復後は **公開済み記事/もくじはソース編集だけでは live に反映されない**＝必ず `note-append-cta` / `publish-note --update` を回し、`audit-note-funnel --live` で D5 が消えるところまでがクローズ条件
 
 ### 3. 意味的監査（任意・`--semantic`）
 
@@ -52,8 +54,9 @@ npm run audit-note-funnel
 | 関連 | 役割 |
 |---|---|
 | `note-funnel-auditor` エージェント | 意味的監査（Evaluator） |
-| `scripts/audit-note-funnel.mjs` | 機械監査（D1-D4） |
-| `scripts/wire-note-funnel-cta.mjs` | L3 CTA 冪等配線 |
+| `scripts/audit-note-funnel.mjs` | 機械監査（D1-D4 ソース ＋ `--live` で D5 ライブ反映） |
+| `scripts/wire-note-funnel-cta.mjs` | L3 CTA をソースへ冪等配線 |
+| `scripts/note-append-cta.mjs`（`npm run note-append-cta`） | 公開済み記事へ CTA を live 反映（D5 修復・Windows 可・通知いいえ） |
 | `.claude/config/note-funnel.json` | L1/L2 レジストリ・CTA 文面の機械可読 SSOT |
 | `publish-note` スキル | 公開・更新（L2 もくじ／記事の live 反映） |
 | `verify-note-magazines` | マガジン URL/価格/公開状態の突合 |

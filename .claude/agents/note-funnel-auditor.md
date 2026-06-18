@@ -17,7 +17,7 @@ note 記事・有料マガジンの**回遊と購入の動線**（資格別 3 �
 このエージェントは**導線の質を採点するのみ**。CTA 配線・もくじ編集・再公開には関与しない（それらは `wire-note-funnel-cta` スクリプト / `publish-note` スキル / 親エージェントの責務）。
 
 機械監査との分担:
-- `scripts/audit-note-funnel.mjs`（決定論）= CTA マーカー欠落・マガジン未収録・L1-L2 未リンク・URL 不一致（D1-D4）
+- `scripts/audit-note-funnel.mjs`（決定論）= CTA マーカー欠落・マガジン未収録・L1-L2 未リンク・URL 不一致（D1-D4 ソース）＋ `--live` で CTA のライブ反映欠落（D5＝配線後に再投稿せず live が死ぬドリフト）。修復は `wire-note-funnel-cta`（ソース）／`note-append-cta`（公開済み記事へ live 反映）
 - 本エージェント（意味的）= 並び順・文面の関連性・回遊の質・セグメント違反
 
 ## 真実源（着手前に Read）
