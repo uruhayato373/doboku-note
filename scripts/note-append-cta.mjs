@@ -35,6 +35,8 @@ const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] :
 const COMMIT = argv.includes('--commit');
 const FORCE = argv.includes('--force'); // 冪等スキップを無効化（中断ドラフト残骸の上書き等・原則使わない）
 const SAVE_ONLY = argv.includes('--save-only'); // 挿入せず、既存下書き（CTA配置済）の publish フローのみ実行
+const BEFORE_FIRST_H2 = argv.includes('--before-first-h2'); // 本文最初の H2 直前へ挿入（＝イントロ直後・冒頭の無料領域）
+const KEEP_BOUNDARY = argv.includes('--keep-boundary'); // 有料記事: 境界を動かさず既存を保持して更新（試験問題H2が無い記事用）
 
 const NOTE = getArg('--note');
 const TEXT = getArg('--text');
@@ -89,26 +91,33 @@ try {
     if (already && !FORCE) { console.log(`[skip] 既に ${URL_KEY} が本文に存在（重複追記しない）。上書きは --force`); await ctx.close(); process.exit(0); }
     if (already && FORCE) console.log(`[force] ${URL_KEY} 既存だが --force で続行`);
 
-    // 3. caret 位置決め（--after 指定時は該当ブロック直後＝free プレビュー内 / 既定は本文末尾）
-    const caret = await page.evaluate((needle) => {
+    // 3. caret 位置決め（--before-first-h2＝最初のH2直前 / --after＝該当ブロック直後 / 既定＝本文末尾）
+    const caret = await page.evaluate((arg) => {
+      const { needle, beforeH2 } = arg;
       const ed = document.querySelector('[contenteditable=true]'); ed.focus();
       const r = document.createRange();
+      const sel = () => { const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+      if (beforeH2) {
+        const h2 = ed.querySelector('h2');
+        if (!h2) return 'no-h2';
+        r.setStartBefore(h2); r.collapse(true); sel();
+        return 'before-first-h2';
+      }
       if (needle) {
         let target = null;
         for (const child of ed.children) {
           if ((child.textContent || '').includes(needle) || (child.innerHTML || '').includes(needle)) { target = child; break; }
         }
         if (!target) return 'anchor-not-found';
-        r.setStartAfter(target); r.collapse(true);
-        const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+        r.setStartAfter(target); r.collapse(true); sel();
         return 'after-anchor';
       }
-      r.selectNodeContents(ed); r.collapse(false);
-      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      r.selectNodeContents(ed); r.collapse(false); sel();
       return 'end';
-    }, AFTER);
+    }, { needle: AFTER, beforeH2: BEFORE_FIRST_H2 });
     console.log(`[3] caret=${caret}`);
     if (caret === 'anchor-not-found') { console.error(`ABORT: --after "${AFTER}" に一致するブロックが本文に無い。挿入しない。`); await ctx.close(); process.exit(8); }
+    if (caret === 'no-h2') { console.error('ABORT: 本文に H2 が無く --before-first-h2 の挿入位置を特定できない。'); await ctx.close(); process.exit(8); }
     await sleep(500);
 
     // 4. 追記: Enter → 文章 type → Enter → URL type → Enter（URL は type で OGP カード化）
@@ -151,7 +160,16 @@ try {
   // 6b. 有料記事なら 有料エリア設定 → 境界を「予想問題/試験問題」H2 直前へ再設定し検証（note-publish.mjs 由来）。
   //     既存境界と同じ位置に揃える＝paywall 非破壊。検証 NG なら保存せず中断（収益保護）。
   const area = page.getByRole('button', { name: '有料エリア設定' });
-  if (await area.count()) {
+  if (await area.count() && KEEP_BOUNDARY) {
+    // 試験問題型の境界が無い有料記事: 境界を動かさず既存を保持して更新（挿入は冒頭の無料領域なので境界は無関係）
+    console.log('[6b] 有料記事フロー（既存境界を保持・動かさない）');
+    await area.first().click(); await sleep(3500);
+    const hasLine = await page.evaluate(() => /このラインより先を有料にする/.test(document.body.innerText || ''));
+    await page.screenshot({ path: join(ROOT, `.tmp/append-keepboundary-${NOTE}.png`) });
+    console.log('[6b] 既存境界line=' + hasLine);
+    if (!hasLine) { console.error('ABORT: 有料記事だが既存境界lineを確認できず。保存せず中断（paywall保護）。'); await ctx.close(); process.exit(14); }
+    // 境界は触らず 6c へ
+  } else if (await area.count()) {
     console.log('[6b] 有料記事フロー（境界保持）');
     await area.first().click(); await sleep(3500);
     const t = await page.evaluate((bre) => {
