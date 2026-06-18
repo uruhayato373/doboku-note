@@ -20,7 +20,7 @@ const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
 
 const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pillar', 'pastExam', 'keyword'];
 const PE_FIRST_STAGE_GROUP_ORDER: DocGroupKey[] = ['primary'];
-const PE_CONSTRUCTION_GROUP_ORDER: DocGroupKey[] = ['guide', 'pastExam', 'keyword'];
+const PE_CONSTRUCTION_GROUP_ORDER: DocGroupKey[] = ['guide', 'keyword', 'pastExam'];
 const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
 const CONCRETE_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary'];
 

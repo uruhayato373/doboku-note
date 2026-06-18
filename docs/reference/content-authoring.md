@@ -210,12 +210,14 @@ published: true                      # false なら下書き・非表示
 ---
 ```
 
-**category の選択肢**:
+**category の選択肢**（真実源: `src/config/categories.json`）:
 - `civil-construction-1` — 1級土木施工管理技士
-- `pe-comprehensive-management` — 技術士総合技術監理技術部門
-- `civil-general` — 土木一般知識（両試験共用）
-- `construction-management` — 施工管理知識（両試験共用）
-- `keywords-law` — キーワード・法規（補助）
+- `civil-construction-2` — 2級土木施工管理技士
+- `pe-comprehensive-management` — 技術士（総合技術監理部門）
+- `pe-first-stage` — 技術士 第一次試験
+- `pe-construction` — 技術士第二次試験（建設部門）
+- `concrete-chief-engineer` — コンクリート主任技師
+- `concrete-diagnostician` — コンクリート診断士（下書き）
 
 **tags の例**:
 - `guide` — 試験ガイド・勉強方法
