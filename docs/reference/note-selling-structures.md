@@ -121,7 +121,7 @@ note 記事の**作成・リライト経路**ごとに、本書がどこから�
 |---|---|---|
 | 建設部門 模範解答（過去問／予想） | `pe-secondary-exam-writer`（Generator）・`/pe-secondary-yosou` | エージェント定義から本書を参照（導入・無料部分・販売導線） |
 | 1級2級 施工経験記述 | `civil-keiken-essay-writer`（Generator）・`/civil-keiken-magazine` | エージェント定義から本書を参照（導入・無料部分・販売導線） |
-| 総監 模範論文 essay（note） | 親駆動（専任 writer なし） | [note-essay-review-checklist.md](note-essay-review-checklist.md) から橋渡し |
+| 総監 記述式 模範論文（note・persona/R8予想/設問3バンク/クロストレードオフ） | `cem-essay-writer`（Generator）・`cem-essay-qa`（Evaluator） | エージェント定義＋ランブック [note-essay-review-checklist.md](note-essay-review-checklist.md) から本書を参照 |
 | 総監テキスト精読ガイド（note） | 親駆動（専任 writer なし） | [note-publish-enhancement.md](note-publish-enhancement.md) B1 から橋渡し |
 | 全 note 下書きの公開前ゲート | `/note-prepublish-review` | Phase 1 で無料部分の5ステップ骨格を report-only 観点喚起（自動判定・BLOCK しない） |
 

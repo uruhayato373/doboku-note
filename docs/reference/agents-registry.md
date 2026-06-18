@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **48**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **50**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -35,6 +35,7 @@ title: サブエージェント詳細レジストリ
 | `/civil-keiken-magazine`                  | `civil-keiken-essay-writer`, `civil-keiken-essay-qa`            | 施工経験記述マガジン模範答案の生成 → 5軸採点ループ |
 | 技術士建設部門 模範解答生成（親が起動）           | `pe-secondary-exam-writer`, `pe-secondary-exam-qa`              | 二次模範解答 article.md の生成 → 6軸採点ループ（論述メソッドは `技術士論文の書き方` 由来） |
 | `/pe-secondary-yosou`（建設部門二次 予想バッチ）   | `pe-secondary-exam-writer`, `pe-secondary-exam-factcheck`, `pe-secondary-exam-qa` | 1科目分の R8予想（II-1/II-2/III）を 生成 → 外部事実照合 → 6軸採点 → 梱包 → SoT → commit。クラウド実行前提（factcheck は WebSearch 必須） |
+| 総監 記述式 模範論文生成（親が起動／`note-essay-review-checklist` ランブック） | `cem-essay-writer`, `cem-essay-qa`                              | 総監 note 記述式（persona模範論文/R8予想/設問3バンク/クロストレードオフ）の生成 → 5軸採点ループ（字数→散文性→監理可能性→専門度→白書根拠）。評価軸の真実源は `note-essay-review-checklist.md` |
 | note カバーロールアウト（親が起動）              | `note-cover-writer`                                              | 記事の G2 `cover:` ブロック執筆 → `add-note-cover.mjs` → 再生成 |
 | X 投稿生成（親が起動 / `social-post` 連携）     | `x-post-writer`, `x-post-qa`                                     | X 投稿 `tweets.md` 執筆 → 5軸採点（多資格 exam 横断） |
 | `/x-repost`（親が起動）                          | `x-repost-curator`                                              | 引用RP 候補の選別＋引用コメント生成（discover/exec は純 Playwright） |
@@ -107,6 +108,8 @@ title: サブエージェント詳細レジストリ
 | `sns-archive-auditor`          | `docs/sns` のバイナリ（reels wav/mp4 等）退避の前段監査。各パックを **OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK** に分類（**SoT＝slide-data.json/script/caption が無傷で再生成可能か**＋投稿済み/制作中で判定）。「迷ったら KEEP/BLOCK」でローカル削除の不可逆性を構造で防ぐ。audit-only・Bash 不可（親が dry-run/R2 検証/git 状態を渡す）。実行は `npm run upload-sns-r2`（`--purge-local` は R2 バイト一致検証後のみ削除） | Evaluator    | sonnet  | `upload-sns-r2` 連携、`docs/reference/sns-archive-policy.md` 参照 | ✅ 運用中（2026-06-18 起動） |
 | `past-exam-qa`                 | 過去問記事（primary/secondary・総監＋1級2級土木）の既存 MDX 品質を5軸監査（構造統一・正答正確性/全選択肢正誤検証・ExamPoint 折衷案準拠〔引っかけ1行＋items最大2〕・RelatedKeywords健全性・モバイル/文体）。content-qa（変換忠実性）/civil-exam-figure-auditor（図）/cem-qa（キーワード）と守備範囲が直交。audit-only・Bash不可（親が lint/validate/slug実在を渡す） | Evaluator | sonnet | 親が起動（過去問品質サイクル）、`past-exam-rewriter` と対 | ✅ 運用中（2026-06-18 起動） |
 | `past-exam-rewriter`           | `past-exam-qa` の指摘を過去問 MDX に外科的適用する校正 Generator（総監＋土木の primary/secondary）。ExamPoint 折衷案圧縮（lint 9-11 準拠）・ドリフト見出し「各選択肢の検証：」撤去・RelatedKeywords 接頭辞/slug 修正・正誤理由補完・文体統一。設問文/正答/KaTeX は保持、正答修正は QA が誤りと明示時のみ慎重に。Edit で外科編集（whole-file Write 禁止＝CRLF事故）。civil の図/二次解答補完/一次の大量壊れExamPoint復元は civil 専用 Generator（figure-extractor/secondary-exam-writer/exampoint-restorer）に委譲 | Generator | sonnet | 親が起動（過去問品質サイクル）、`past-exam-qa` と対 | ✅ 運用中（2026-06-18 起動） |
+| `cem-essay-writer`             | 技術士総合技術監理部門（総監）記述式 note 有料マガジン用 模範論文／模範解答 article.md を生成（4タイプ＝persona模範論文〔総監模範論文-{persona}・R03-R07＋R08予想2記事〕/R8予想問題集/設問3国家施策バンク/5管理クロストレードオフ）。各施策600字以内・答案散文・導入ですます/答案である調・5管理正式名とトレードオフ多様性・設問3は国家スケール×一般技術者レベル・著者の真正経験座（元自治体土木＝発注者）。**返却前ゲート＝`essay-shisaku-charcount --strict`／`check-essay-heading-structure --strict`／`note-lint`**。工程・評価軸の真実源は `note-essay-review-checklist.md`、論述ルールは `pe-essay-draft`（サイト版）から再利用。**サイトの r0X-essay-{attr} を書く `/pe-essay-draft` とは別物** | Generator    | sonnet  | `note-essay-review-checklist.md` ランブック連携、`cem-essay-qa` と対 | ✅ 運用中（2026-06-18 起動） |
+| `cem-essay-qa`                 | 技術士総合技術監理部門（総監）記述式 note マガジン模範論文／模範解答 article.md の**5軸**採点（字数〔各施策600字〕→散文性→監理可能性〔越権排除〕→専門度〔設問3 NG用語/5管理正式名〕→白書根拠・真正性〔ペルソナ経験座・専門分野ラベル〕）＋必須ゲート（`essay-shisaku-charcount --strict`／`check-essay-heading-structure --strict`／`note-lint`／答案箇条書き0／blockquote濫用0／本文価格・URL直書き0〔導線リンクカードURL単独行は許可〕）。評価軸の真実源は `note-essay-review-checklist.md`。生成・修正しない（audit-only） | Evaluator    | sonnet  | `cem-essay-writer` と対、`note-essay-review-checklist.md` 参照 | ✅ 運用中（2026-06-18 起動） |
 
 ### 退役したエージェント（2026-04-23 Phase A）
 
@@ -147,6 +150,7 @@ title: サブエージェント詳細レジストリ
 | **yt-shorts-publisher-qa** | `docs/sns/youtube/<date>-<pack-id>/shorts.mp4` + `meta.json` + `thumbnail.png` | 尺=**≤60秒ゲート**・UTM 整合・タイトル長/検索性・字幕整合（4軸）。IG 用 UTM 混入を重大減点、予約後 `videos.list` 実査 | YT Shorts 派生 mp4 生成後（`yt-shorts-create --from-reels` 完了後） |
 | **ig-highlight-qa** | `highlights/NN_*/slide-data.json` + `img/*.png` | サムネ識別性・リードコピー力・ジャンル一貫性・余白配分／セーフエリア（4軸）。IG UI セーフエリア侵入・本文 y>=1280 侵入・06_materials の note 有料直リンクを重大減点。`ig-stories-qa`（過去問 4 枚連投）とは別文脈 | IG ハイライト slide-data.json 執筆後 / PNG 生成後 |
 | **pe-secondary-exam-qa** | `docs/note/技術士建設部門/magazines/{magazine}/{year}/article.md`（論述式 模範解答） | 設問適合・論述構成/論点絞り込み・分かりやすさ/あいまい表現排除・発注者視点/専門性・note完成度（5軸）＋字数上限〔枚数×600字〕・note-lint・設問1対1・論述式文体ゲート。論述原則は `技術士論文の書き方`（非公開・原則抽出）由来 | 技術士二次 模範解答 article.md 生成後 |
+| **cem-essay-qa** | `docs/note/技術士総監/magazines/{magazine}/{slug}/article.md`（総監記述式 模範論文／模範解答） | 字数〔各施策600字〕・散文性・監理可能性〔越権排除〕・専門度〔設問3 NG用語/5管理正式名〕・白書根拠/真正性〔ペルソナ経験座〕（5軸）＋字数 strict・見出し構造・note-lint・blockquote濫用ゲート。評価軸の真実源は `note-essay-review-checklist.md`。pe-secondary-exam-qa（建設部門）/cem-qa（キーワードページ）と守備範囲が直交 | 総監 note 記述式 模範論文 article.md 生成後 |
 | **past-exam-qa** | `.mdx`（過去問 primary/secondary・`pe-comprehensive-management`/`civil-construction-1`/`-2`） | 構造統一・正答正確性/全選択肢正誤検証・ExamPoint 折衷案準拠・RelatedKeywords健全性・モバイル文体（primary 5軸／secondary は軸3=ExamPoint を除外し4軸正規化、加重 ≥2.0 で合格） | 既存過去問記事の品質監査時・過去問品質サイクルの評価フェーズ |
 
 **対象ファイル・軸・起動タイミングが全て異なる**ため、これらは統合しない（「対象ドメインの分離」原則）。
@@ -171,6 +175,7 @@ title: サブエージェント詳細レジストリ
 | 1級土木 textbook/guide 品質サイクル | `/civil-textbook-cycle`（オーケストレータ） → `civil-construction-review`（評価） → `civil-textbook-rewriter`（改訂） → 再評価 → 人間レビュー |
 | UI コンポーネント変更 | 親エージェント（Generator） → `/design-review --visual`（視覚検証・スキル層で完結） → `/simplify` で修正 |
 | 過去問品質サイクル | `past-exam-qa`（評価・指摘）→ `past-exam-rewriter`（指摘適用）→ 親が lint-mdx-mobile/validate-mdx で検証 → 再評価 → 親が明示パス commit |
+| 総監 記述式 模範論文サイクル | `cem-essay-writer`（生成・自己ゲート）→ `cem-essay-qa`（5軸採点）→ 不合格は writer へ修正指示で再走 → 親が配線（note-magazines.ts/note掲載文.txt/PDF spec）・公開後 URL 反映・明示パス commit。ランブック＝`note-essay-review-checklist.md` |
 
 **注**: 月次企画・四半期レビュー・試験シーズン対策・広告最適化は Phase 2 で再開予定。
 
