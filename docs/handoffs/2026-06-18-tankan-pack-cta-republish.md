@@ -62,4 +62,11 @@ URL 行は **行末で Enter → 4秒待つ**とリンクカードになる。�
 
 **結論: 全25本（無料18＋R8有料6＋計算問題集）コアパックCTAライブ反映・paywall全保持・API実体検証済み。**
 
+## R8予想6本 末尾クロスセルの最適化（2026-06-18・commit 76c4fb540）
+
+末尾(有料領域)の3ペルソナ個別マガジン導線を **完全パック(m171222175fac)＋総監もくじ(n3ed4c77ceed6)** へ置換（ソース6本完了）。理由＝14中3ペルソナしか出さず・本命の完全パック未提示・末尾=もくじ回遊原則と不一致。
+
+> [!warning]
+> **ライブ未反映（保留）**: 末尾は有料領域＝購入者のみ＆公開APIでも取得不可（paywall裏）。`note-append-cta`は追記専用で旧3ペルソナブロックを削除できないため、ライブのクリーン置換は手動(note-edit-session)が必要。低可視面につき緊急度低・ソース修正(恒久)済みで実害なし。やるなら各R8記事で旧ブロック削除→完全パック+もくじへ差替え。
+
 真実源: [[../reference/note-funnel-architecture.md]]・memory `project_note_live_cta_drift`・自動化=`npm run note-append-cta`（[[../../.claude/skills/social/publish-note/references/update-mode.md]]）
