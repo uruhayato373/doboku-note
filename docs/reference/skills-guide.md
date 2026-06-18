@@ -27,6 +27,7 @@ title: スキル ナビゲーションガイド
 | `/pe-secondary-yosou` | 技術士建設部門2次 選択科目の R8予想を1科目分まるごと公開可能品質まで仕上げる統括（生成→**外部事実照合**→6軸採点→梱包→SoT→commit）。**予想はテーマ別の独立記事（テーマ網羅型・1記事1ディレクトリ）**で作る（年度ミラー/区分1ファイルでなく）。記事内は h2 ブロック構成（予想問題→なぜ出るか→論述の骨子→フル模範解答→採点ポイント）。過去問は区分1ファイル据え置き。**クラウド実行前提**（factcheck は WebSearch 必須） | `建設部門の予想問題を仕上げて`, `BK-0Xの予想`, `{科目}の予想問題集`, `/pe-secondary-yosou` |
 | `pe-secondary-exam-writer` エージェント | 技術士建設部門 2次試験 note有料マガジン用 模範解答を生成（全11専門分野・科目種別I/II-1/II-2/III。元公務員発注者視点注入、合格3科目=合格者訴求・残8科目=発注者監修訴求。過去問＋forecast予想モード） | `建設部門note模範解答`, `技術士2次マガジン`, `pe-secondary-exam-writer` |
 | `pe-secondary-exam-factcheck` エージェント | 建設部門2次 模範解答の技術的事実を WebSearch で外部一次情報に照合（合格科目外の専門ハルシネーション捕捉。QA=構造／note-fact-checker=内部 を補完） | `予想の事実確認`, `技術的事実の照合`, `pe-secondary-exam-factcheck` |
+| `cem-essay-writer` / `cem-essay-qa` エージェント | 技術士総監 記述式 note有料マガジンの模範論文/模範解答を生成・採点（4タイプ＝persona模範論文〔R03-R07＋R8予想2記事〕/R8予想問題集/設問3国家施策バンク/5管理クロストレードオフ。各施策600字・5軸採点。ランブック＝`note-essay-review-checklist.md`。**サイトの r0X-essay は `/pe-essay-draft` で別物**） | `総監note模範論文`, `総監記述式マガジン`, `cem-essay-writer` |
 
 ### 変換（conversion）
 
@@ -52,7 +53,7 @@ title: スキル ナビゲーションガイド
 | `/consolidate-duplicate-keyword` | 総監キーワード集の重複スラグ統合 | `重複スラグ統合`, `/consolidate-duplicate-keyword` |
 | `/note-prepublish-review` | note 公開前の統合品質ゲート | `note公開前チェック`, `公開準備`, `/note-prepublish-review` |
 | `/check-seo-meta` | title/description/OGP/canonical の検査 | `SEOメタ検査`, `OGP確認`, `/check-seo-meta` |
-| `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点 | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
+| `/pe-essay-review` | 総監記述式模範論文を 3 視点で採点（**サイト** r0X-essay ページ。note 有料マガジンは `cem-essay-qa`） | `記述式採点`, `模範論文レビュー`, `/pe-essay-review` |
 | `/keiken-charcount` | 1級・2級土木 施工経験記述マガジン答案を解答欄しきい値で字数チェック（決定論的・暫定値） | `経験記述の字数確認`, `答案の字数オーバー検出`, `/keiken-charcount` |
 | `/civil-figure-rework` | 1級土木 過去問1次の図クロップ品質ループ（extractor → auditor 最大3反復、1ページ単位 commit） | `過去問図再抽出`, `テキスト写り込み修正`, `/civil-figure-rework {exam-slug\|--all}` |
 | `/audit-pe-first-stage` | 技術士第一次試験全21ページの正答照合・原典視覚突合・構造検査（3軸監査） | `pe-first-stage監査`, `技術士第一次試験QA`, `/audit-pe-first-stage [--year R07] [--sub aptitude]` |
@@ -172,6 +173,12 @@ title: スキル ナビゲーションガイド
 1. `pe-secondary-exam-writer` エージェントに `year` / `subject` / `exam_type` / `magazine_id` を渡す
 2. 運営者が article.md をレビューして note 投稿（noteUrl を frontmatter に記入）
 3. 詳細: `docs/note/技術士建設部門/noteコンテンツ計画.md`、エージェント: `.claude/agents/pe-secondary-exam-writer.md`
+
+### 総監 記述式 模範論文（note 有料）を生成したい
+
+1. `cem-essay-writer` エージェントに `type`（`persona`/`r8yosou`/`setsumon3`/`crosstradeoff`）/ `magazine` / `slug` を渡す → `cem-essay-qa` で5軸採点（不合格は writer へ修正指示で再走）
+2. 工程・評価軸・公開ゲートの SoT＝`docs/reference/note-essay-review-checklist.md`（Step 0〜6f がランブック）。配線・公開後 URL 反映・commit は親
+3. **サイトの r0X-essay-{attr} ページは別物** → `/pe-essay-draft`（Generator）→ `/pe-essay-review`（Evaluator）
 
 ### Kindle EPUB（KDP 出版）を生成したい
 

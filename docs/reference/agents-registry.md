@@ -188,6 +188,7 @@ title: サブエージェント詳細レジストリ
    - model 選択ルールは `.claude/skills/dev/create-skill/SKILL.md` の「サブエージェント作成時の model 指定ルール」または CLAUDE.md「ハーネス設計原則」§6 を参照
 3. Generator か Evaluator かを明記（混在禁止）
 4. 本文に「モデル方針」欄を設け、`model: sonnet/inherit` を選んだ理由を 1-2 文で記載
-5. このファイル（agents-registry.md）の一覧表に行を追加
-6. CLAUDE.md の「サブエージェント `model:` クイックリファレンス」表にも行を追加
-7. 関連スキル（Generator 側）があれば `skills-registry.md` も更新
+5. このファイル（agents-registry.md）の「エージェント一覧」表・「スキル → エージェント呼出マップ」・（Evaluator なら）「Evaluator エージェントの区別」表・件数 SSOT を**同一 commit で**更新（`check-doc-coupling` が機械検知）
+6. **`docs/reference/skills-guide.md` も更新**（ユーザーが起動しうるエージェントなら早引き表＋用途別ガイドに行を追加。CLAUDE.md §8 の要件だが `check-doc-coupling` は agents-registry しか見ないため**手動で忘れない**＝2026-06-18 に cem-essay ペアで取りこぼした再発防止）
+7. CLAUDE.md は per-agent の表を持たず件数・詳細を agents-registry.md に委譲する（CLAUDE.md 本体の編集は不要。`model:` 方針の一文は §6 にある）
+8. 関連する Generator/Evaluator スキルを新設・改廃したら `skills-registry.md`（退役ログ）も更新

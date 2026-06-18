@@ -134,9 +134,10 @@ draft → needs-review → verified → approved
 - `.claude/skills/authoring/pe-essay-draft/SKILL.md` — ② 模範論文 Generator
 - `.claude/skills/quality/pe-essay-review/SKILL.md` — ③ 模範論文 Evaluator（3 ペルソナ）
 - `.claude/skills/social/pe-note-plan/SKILL.md` — ④ note 有料記事 企画
+- `.claude/agents/cem-essay-writer.md` / `.claude/agents/cem-essay-qa.md` — **note 有料マガジンの記述式模範論文の生成・採点**（本スキルの draft/review は**サイト** r0X-essay ページが対象。note 模範論文の生成・QA はこのペアが担う。ランブック＝note-essay-review-checklist.md）
 - `.claude/skills/quality/quality-cycle/SKILL.md` — キーワード/教科書版の品質サイクル（本スキルの設計元）
 - `.claude/skills/quality/note-prepublish-review/SKILL.md` — note 公開前ゲート
 - `docs/reference/note-essay-review-checklist.md` — **総監模範論文ペルソナ別マガジンの公開品質化 SoT**（Step 0〜6f・全ペルソナ＝R03-R07＋R8予想2記事を作成＝2026-06-16 方針転換〔旧「per-persona R8予想は作らない＝決定2026」撤回〕・note掲載文.txt・価格・_meta.yaml 廃止）
-- `docs/note/技術士総監/総監マガジン構成_決定2026.md` — **マガジン構成の上位決定（ADR）**。R8予想＝横断「R8予想問題集」に一本化／ペルソナ模範論文＝過去問evergreen純化（per-persona R8予想を作らない根拠）
+- `docs/note/技術士総監/総監マガジン構成_決定2026.md` — **マガジン構成の上位決定（ADR）**。2026-06-16 追補で旧「per-persona R8予想を作らない」を撤回＝**全14ペルソナで R03-R07＋R8予想2記事を作成**し、横断「R8予想問題集」はテーマ駆動フラッグシップとして併存（上行 note-essay-review-checklist と整合）
 - `docs/reference/note-publish-enhancement.md` — note 公開引き上げ 10 工程
 - `CLAUDE.md` ハーネス設計原則 — Generator/Evaluator 分離
