@@ -153,6 +153,56 @@
 
 **パイロット**: まず `textbook-grader-compaction`（10枚）で手順確立
 
+### pe-construction カテゴリページの過去問マトリクスをモバイル対応に刷新 🟡
+
+**発端**: `https://doboku-note.com/category/pe-construction`
+
+**問題**: `PeConstructionExamTable`（`src/app/category/[slug]/page.tsx` L588-646）が **12科目 × 7年度 = 8列テーブル**のマトリクスで、モバイルで以下の問題が生じる。
+- 8列がビューポートに収まらず横スクロール必須
+- 科目名が長い（「施工計画、施工設備及び積算」「河川、砂防及び海岸・海洋」等）のに列が多く窮屈
+- 各セルの「問題」テキストリンクがタップ領域として小さい
+
+**現状の実装**:
+```tsx
+// 12行（科目） × 最大8列（年度ヘッダ含む）のテーブル
+// overflow-x-auto でラップしているが根本解決ではない
+<th>科目</th><th>令和7</th><th>令和6</th>…<th>令和元</th>
+<tr><td>必須科目I</td><td>問題</td><td>問題</td>…</tr>
+<tr><td>施工計画、施工設備及び積算</td>…</tr>
+```
+
+**モバイル向け代替レイアウト（案）**:
+
+| 案 | 内容 | 実装コスト |
+|---|---|---|
+| A. 縦積み＋年度ボタン | 科目を縦に並べ、各科目直下に年度ボタン（R01〜R07）を横グリッドで配置 | 低 |
+| B. 科目タブ切替 | 科目タブを上部に並べ、選択した科目の年度リンクを表示 | 中 |
+| C. レスポンシブ二重レイアウト | モバイル=案A・デスクトップ=現状マトリクスを CSS で出し分け | 中 |
+
+**推奨**: 案C（デスクトップ現状維持・モバイルのみ縦積みグリッド）— 最小変更で UX 改善可能。
+
+```tsx
+{/* モバイル: 科目カード縦積み + 年度ボタングリッド */}
+<div className="zenn-desktop:hidden space-y-4">
+  {rows.map(subject => (
+    <div key={subject.key}>
+      <h4>{subject.label}</h4>
+      <div className="flex flex-wrap gap-2">
+        {years.map(y => doc ? <Link className="btn-year">{colLabel(y)}</Link> : null)}
+      </div>
+    </div>
+  ))}
+</div>
+{/* デスクトップ: 現状マトリクス */}
+<div className="hidden zenn-desktop:block overflow-x-auto">
+  <table>…</table>
+</div>
+```
+
+**実装ファイル**: `src/app/category/[slug]/page.tsx`（`PeConstructionExamTable` コンポーネント、L588-646）
+
+---
+
 ### pe-construction カテゴリページのキーワード重複整理 🟡
 
 **発端**: `https://doboku-note.com/category/pe-construction`（公開記事 121本）
