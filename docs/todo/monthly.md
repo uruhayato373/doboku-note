@@ -73,6 +73,61 @@
 
 ---
 
+### 記事構成ルールの SSOT 化 + サブエージェント管理（🟡 次月以降）
+
+**背景**: ガイド記事の薄さ・Callout 配置の問題・導入なし冒頭など、記事品質の問題が個別に発覚している。これらを都度バックログに書くのではなく、**記事構成ルールを SSOT に集約し、サブエージェントで強制・評価する仕組み**を整える。
+
+**やりたいこと**:
+
+#### 1. 記事構成ルール SSOT を作成する
+
+`docs/reference/article-structure-guide.md`（新設予定）<!-- doc-ref:ignore --> を新設し、以下を定義:
+- **記事の基本構成**（導入 → 本文 → まとめ → CTA の型）
+- **文字数目標**（ガイド記事 3,000字以上・テキスト記事 1,500字以上 等）
+- **Callout の使い方**（冒頭禁止・中盤以降の補足に限定・1記事3個以内 等）
+- **見出し構成**（H2 のみ・H1 は frontmatter から自動生成）
+- **内部リンクの配置**（本文末に関連記事・サイドバー誘導）
+- **CTA の型**（note マガジン誘導・過去問へのリンク）
+- たけブログ（`docs/todo/reference-sites.md`）の知見を反映（見出し構成テンプレ・導入3パターン等）
+
+#### 2. ガイド記事専用 Generator エージェントを新設する
+
+現状の `civil-textbook-rewriter` はテキスト記事向け。ガイド記事（3,000字以上・SEO重視）には専用エージェントが必要。
+
+- エージェント名（案）: `civil-guide-writer`
+- 真実源: `article-structure-guide.md` を読んで構成を決定
+- 入力: 記事 slug・対象資格・ターゲットキーワード
+- 出力: 3,000字以上の MDX（frontmatter 含む）
+
+#### 3. todo の書きぶり・グループ構成を SSOT 化し `todo-planner` に参照させる
+
+現状の `docs/todo/monthly.md` はバックログ項目の書き方・優先度表記・グループの切り方がバラバラ。  
+**`docs/reference/todo-writing-guide.md`（新設予定）**<!-- doc-ref:ignore --> に todo 記述ルールをまとめ、`todo-planner` エージェントがこれを読んで weekly.md を書くようにする。
+
+定義すべきルール:
+- バックログ項目の必須フィールド（発端 URL・問題・対応方針・対象スコープ・実装ファイル）
+- 優先度の表記統一（🔴 今週 / 🟡 今月 / 🟢 次月以降 + 期限目安）
+- グループの切り方（コンテンツ系 / UI 系 / SEO 系 / エージェント系 / インフラ系）
+- weekly.md の必須セクション（今週のゴール / 🔴 必須 / 🟡 準優先 / 🟢 余裕があれば）
+- Codex 候補の表記ルール（`[Codex候補]` タグ + 根拠）
+
+**SSOT の分割**:
+
+| SSOT ファイル | 内容 | 参照するエージェント |
+|---|---|---|
+| article-structure-guide.md（新設予定） | 記事構成・文字数・Callout・CTA の型 | `civil-guide-writer` / `civil-textbook-rewriter` / `keyword-rewriter` |
+| todo-writing-guide.md（新設予定） | todo 記述フォーマット・優先度・グループ定義 | `todo-planner` |
+
+**着手順**:
+1. たけブログ（`docs/todo/reference-sites.md`）の記事構成ノウハウを整理
+2. `docs/reference/article-structure-guide.md`（新設）を起草（Claude Code でドラフト → ユーザーレビュー）<!-- doc-ref:ignore -->
+3. `docs/reference/todo-writing-guide.md`（新設）を起草（現在の monthly.md の書き方を分析して抽象化）<!-- doc-ref:ignore -->
+4. `civil-guide-writer` エージェントを新設（article-structure-guide.md を真実源として参照）
+5. `todo-planner` エージェントの description に todo-writing-guide.md 参照を追加
+6. `docs/todo/monthly.md` のフォーマットを新ルールに合わせて整理
+
+---
+
 ### 2級土木（＋1級土木）ガイド記事の充実・SEO 強化（🟡 次月以降）
 
 **発端**: `https://doboku-note.com/category/civil-construction-2` のガイド記事が内容薄い
