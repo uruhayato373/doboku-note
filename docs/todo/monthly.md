@@ -163,6 +163,36 @@
 
 ---
 
+### 過去問ページの右サイドバー目次（TOC）を廃止し最適な UI/UX に置き換える（🟡 次月以降）
+
+**発端**: `https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki`
+
+**現状の問題**: 右サイドバーの目次（TOC）が 67 件の見出しを列挙していて長すぎる。過去問ページ（択一式）は問1〜問65（または67）が全て見出しになるため、TOC がそのまま問番号の羅列になり、ナビゲーションとして機能していない。
+
+**実装上の事実**:
+- `src/app/docs/[...slug]/page.tsx` L.734: `{docGroup !== 'pastExam' && <TableOfContents headings={headings} />}`
+- `pastExam`（CEM 択一過去問）は既に TOC 非表示 ✅
+- `primary`（1級・2級土木 択一）と `secondary`（記述）は TOC が出たまま ❌
+
+**検討すべき代替 UI/UX**:
+
+| 案 | 内容 | 向いているケース |
+|---|---|---|
+| A. TOC 廃止のみ | `primary`/`secondary` も TOC を非表示にする（1行修正） | 最小コスト・即時対応 |
+| B. 問番号ナビゲーター | Q1〜Q65 をコンパクトなグリッドボタンで表示。クリックで当該問にジャンプ | 択一 primary に最適・試験 UI らしい |
+| C. 年度・区分セレクター | 前期/後期、土木一般/専門/法規 など区分をリンクで表示 | secondary（記述）や 複数区分がある場合 |
+| D. 得点管理ウィジェット | 正解済み問題をローカルストレージで管理（☑/☒ で進捗表示） | 将来の PWA 機能と重複するため採用外 |
+
+**推奨方針**:
+- **短期**: 案 A（TOC 非表示）を即適用（`page.tsx` L.734 の条件に `&& docGroup !== 'primary' && docGroup !== 'secondary'` を追加）
+- **中期**: 案 B（問番号ナビゲーター）を `primary` 専用に実装。サイドバー上部に sticky で配置
+
+**実装ファイル**:
+- `src/app/docs/[...slug]/page.tsx` L.734（TOC 条件分岐）
+- `src/components/ui/ExamQuestionNav/ExamQuestionNav.tsx`（新規・案 B 用）
+
+---
+
 ### 過去問の `## 関連コンテンツ` を廃止し `RelatedArticles` コンポーネントへ移行（🟡 次月以降）
 
 **発端**: `https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki`
