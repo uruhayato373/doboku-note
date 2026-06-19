@@ -237,6 +237,40 @@
 
 ---
 
+### トップページ下部（note 教材・アフィリ・書籍）のデザイン統一 🟡
+
+**発端**: `https://doboku-note.com/` のフッター直上に3セクションが後付けで積み重なっていてサイトデザインと不整合。
+
+**現状の問題点**（`src/app/page.tsx` L142-172）:
+
+```
+Hero → ExamCards → LatestArticles → AboutSection
+↓ ここから後付けのアドホックセクション
+[note 有料教材]  MagazineSidebarCard（サイドバー用コンポーネント）を max-w-sm 左寄せで配置
+[アフィリエイト] SchoolAffiliate をそのまま max-w-3xl に配置
+[参考書籍]       BookSection "総監受験の参考書籍"（トップなのに総監限定タイトル）+ BookCard
+↓ Footer
+```
+
+1. **`MagazineSidebarCard` をメインカラムに使っている** — サイドバー用コンポーネントが本文幅に配置されて `max-w-sm` 左寄せになり、前後のフル幅セクションと不整合
+2. **セクションヘッダーのスタイルがバラバラ** — "Premium" ラベル（`font-mono text-[10px]`）が他セクション（Hero・ExamCards 等）の見出し設計と異なる
+3. **参考書籍のタイトルが資格固定** — "総監受験の参考書籍" はトップページ（全資格横断）のコンテキストに不適
+4. **`BookCard` は休止中** — アフィリエイト審査未通過なのに表示されている（別バックログ「BookCard 休止対応」と重複・連動）
+
+**やりたいこと**:
+1. 3セクションをまとめて **1つの "教材・リソース" セクション**に統合し、サイトの他セクションと同じデザインシステム（デザイントークン・余白・見出し階層）で設計し直す
+2. `MagazineSidebarCard` → トップページ用の **横幅フルの CTA カード**（`MagazineFeatureCard` 等・新規 or 既存コンポーネント流用）に置き換え
+3. `BookCard` はアフィリエイト審査通過まで非表示（「BookCard 休止対応」バックログと同時対応）
+4. スクールアフィリエイト（`SchoolAffiliate`）も同セクション内に統合して視覚的なまとまりを作る
+
+**実装ファイル**:
+- `src/app/page.tsx`（L142-172 を再設計）
+- `src/components/ui/MagazineSidebarCard/`（または新規 Feature 版コンポーネント）
+
+**備考**: デザイン反復は develop/ローカル(:3020)で実施し、ユーザーが確認してから develop push（毎回本番 deploy しない）。
+
+---
+
 ## 2. UI / UX
 
 ### 過去問ページの右サイドバー目次（TOC）を廃止し最適な UI/UX に置き換える 🟡
