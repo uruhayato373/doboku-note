@@ -338,6 +338,45 @@ Cloudflare → My Profile → API Tokens → 有効期限・権限スコープ�
 
 ---
 
+### 過去問・テキストの図クロップ品質整備（🟡 次月以降）
+
+**背景**: PDF から切り出した図が不適切にクロップされている（原典ページが丸ごと入っている・枠が余白だらけ・図が欠落など）。専用エージェント `civil-exam-figure-auditor`（1級土木 primary 用）と `civil-exam-figure-extractor`（bbox 仕様生成）は実装済みだが、未監査のページが多数残っている。
+
+**緊急度高（画像ゼロなのに「下図」参照あり）**:
+
+| ページ | 図参照行数 | 画像枚数 | 対応 |
+|---|---|---|---|
+| `civil-construction-2/primary-r03-kouki` | 5行 | 0枚 | 図クロップ未実施・要追加 |
+| `civil-construction-2/primary-r07-kouki` | 7行 | 0枚 | 図クロップ未実施・要追加 |
+
+**品質チェック未実施（画像あり・クロップ精度不明）**:
+
+| 分類 | ページ数 | 総画像枚数 | 担当エージェント |
+|---|---|---|---|
+| 1級土木 primary（H26〜R07） | 16本 | 約80枚 | `civil-exam-figure-auditor` |
+| 2級土木 primary（R03〜R07・画像あり） | 8本 | 約74枚 | （未整備） |
+| 1級土木 textbook | 10本 | 約70枚 | `civil-construction-qa` |
+| pe-first-stage（図参照>画像枚数の疑いあり） | 4本 | — | （未整備） |
+
+**pe-first-stage で図参照 > 画像枚数（欠落の可能性）**:
+- `r01-basic`: 参照5行 / 画像4枚
+- `r02-basic`: 参照7行 / 画像6枚
+- `r04-construction`: 参照8行 / 画像5枚
+- `r05-aptitude`: 参照2行 / 画像1枚
+
+**着手順**:
+1. 【緊急】2級 r03-kouki・r07-kouki に図クロップを追加（PDF → `pdfimages` → トリミング → webp → MDX 追記）
+2. 1級 primary 16本を `civil-exam-figure-auditor` で一括監査 → 指摘箇所を `civil-exam-figure-extractor` + 手動再クロップ
+3. pe-first-stage 4本の欠落疑いページを手動確認・補完
+4. 2級 primary・1級 textbook は監査スクリプト／エージェントを整備してから対応
+
+**PDF ソース**:
+- 1級土木: `.local/r2/pdfs/civil-construction-1/` 配下
+- 2級土木: `.local/r2/pdfs/civil-construction-2/` 配下
+- pe-first-stage: `.local/r2/pdfs/pe-first-stage/` 配下
+
+---
+
 ### 択一過去問の選択肢番号を `(1)(2)` → `1. 2.` に統一 `[Codex候補]`（🟡 次月以降）
 
 **発端**: `https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki`
