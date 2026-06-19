@@ -238,6 +238,46 @@ textbook-transport-machinery        ( 6枚)
 
 ---
 
+### AuthorCard の資格別カスタマイズ + 右サイドバー配置（🟡 次月以降）
+
+**発端**: `https://doboku-note.com/docs/pe-construction-bousai-genseigai-ronbun-keyword` など建設部門の記事末尾に「note で総監 R08 対策の続編を発信中」と表示されていて資格と噛み合っていない。
+
+**現状の問題**（`src/components/ui/AuthorCard/AuthorCard.tsx`）:
+- `AUTHOR.noteUrl` / `AUTHOR.noteLabel` が `src/config/author.ts` にハードコード → 全資格・全記事で総監リンクが出る
+- AuthorCard は記事末尾（`src/app/docs/[...slug]/page.tsx`）に固定配置、右サイドバーにはない
+
+**やりたいこと**:
+
+#### 1. note リンクを資格別に出し分ける
+
+記事の `category`（frontmatter）から資格を判定し、対応する note リンクに切り替える。
+
+| category 判定 | noteLabel | noteUrl |
+|---|---|---|
+| `pe-comprehensive-management` | note で総監 R08 対策を発信中 | 総監ロードマップ note URL |
+| `pe-construction` | note で技術士建設部門の模範解答を発信中 | 建設部門もくじ note URL |
+| `civil-construction-1` | note で1級土木の合格教材を発信中 | 1級土木もくじ note URL |
+| `civil-construction-2` | note で2級土木の合格教材を発信中 | 2級土木もくじ note URL |
+| その他 | （現状のデフォルト） | 総監ロードマップ URL |
+
+実装: `AuthorCard` に `category` prop を追加 → `src/config/author.ts` に `noteByCategory` マップを追加。
+
+#### 2. 右サイドバーの一番上に AuthorCard（コンパクト版）を配置
+
+参考: たけブログ（`docs/todo/reference-sites.md`）の著者プロフィール欄のデザイン。
+
+- 記事ページ（`src/app/docs/[...slug]/page.tsx`）の右サイドバー最上部に著者カードを `sticky` で表示
+- サイドバー用はアイコン + 名前 + 一言 bio + note リンクボタンのコンパクト版（`AuthorCardCompact`）
+- 現状は記事末尾にフル版 `AuthorCard` のみ → 末尾フル版は残し、サイドバーにコンパクト版を追加
+
+**実装ファイル**:
+- `src/config/author.ts` — `noteByCategory` マップ追加
+- `src/components/ui/AuthorCard/AuthorCard.tsx` — `category` prop 追加・出し分けロジック
+- `src/components/ui/AuthorCard/AuthorCardCompact.tsx` — 新規（サイドバー用）
+- `src/app/docs/[...slug]/page.tsx` — サイドバーに `AuthorCardCompact` を追加、`AuthorCard` に `category` を渡す
+
+---
+
 ### カテゴリページ全面 UI 刷新：ブログカード化 + 全資格サイドバー（🟡 次月以降）
 
 **背景**: 上記「noteリンクをサイドバーへ」とセットで実施する大きめのUI改善。参考サイト（ソーシャルPLUS ブログ `docs/todo/reference-sites.md`）の「余白を絞ったブログカード一覧 + 右サイドバー」レイアウトを doboku-note のカテゴリページに導入する。
