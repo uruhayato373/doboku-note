@@ -13,8 +13,11 @@
 >
 > **正しい更新手段（用途別）**:
 > 1. **末尾 / 特定箇所への追記**（CTA カード・1 段落程度）→ **type 方式**。caret を末尾へ置き、`type`（文章）＋ `Enter`＋`type`（URL 単独行）＋`Enter`。**URL は type だと OGP カード化する**（synthetic paste 不可）。本文・図版は非破壊。`scripts/wire-note-funnel-cta.mjs` 由来の CTA 追記はこの方式。
-> 2. **本文の全面差し替え**（大改稿）→ **編集画面では不可**。`/new` で作り直す（旧記事は変更履歴に残る）か、note の文字数が許せば 1 段落ずつ `type` で手直しする。**全消去→paste はしない**。
-> 3. **誤って空更新してしまった場合の復旧** → エディタ右上「その他」→「変更履歴」→ 直前のフル版（文字数が正しい版）→「この版を復元」→「公開に進む」→「更新する」。
+> 2. **特定の段落・価格・節だけの部分置換**（既存テキストを別テキストへ差し替え）→ **type 方式（Selection 削除 + 再入力）**。TreeWalker で対象文字列を含むノードを特定 → `Range` で**その範囲だけ**を選択 → `Delete` → `type` で新テキスト。**全消去（select-all）は絶対にしない**＝対象 needle で範囲を限定する。詳細は **Phase U-B**。2026-06-19 に建設部門もくじ（intro 段落差し替え + 無料16本リンク化）と総監ロードマップ（③価格 ¥2,480→¥3,480・目的別ガイド節の全面置換）で実証。
+> 3. **本文の全面差し替え**（大改稿・本文ほぼ全体）→ **編集画面では不可**。`/new` で作り直す（旧記事は変更履歴に残る）か、note の文字数が許せば 1 段落ずつ `type` で手直しする。**全消去→paste はしない**。
+> 4. **誤って空更新してしまった場合の復旧** → エディタ右上「その他」→「変更履歴」→ 直前のフル版（文字数が正しい版）→「この版を復元」→「公開に進む」→「更新する」。
+>
+> **一回限りの `.tmp/*.mjs` を書く前に**: 末尾追記・free 内アンカー挿入は `note-append-cta.mjs`（既存・冪等・検証込み）で足りる。部分置換（手段2）は専用スクリプトが無いので一回限りスクリプトが正当だが、**必ず本 Phase U-B のテンプレに沿わせる**（Selection 限定・通知いいえ・API 実体検証）。MCP playwright ツール（`mcp__playwright__*`）は永続ログインプロファイルを引き継げないため note 編集には使わない＝Playwright スクリプト + `.local/playwright-note-profile` 経路が正。
 
 価格変更・誤字修正・CTA 追記などの軽微保守に使う。**本文の大規模差し替えには使わない**（paste 不可のため）。
 
@@ -126,6 +129,61 @@ browser-use --headed --profile "$NOTE_PROFILE" eval "String(document.querySelect
 ```
 
 実証済みバッチスクリプトの形は本セッションの note 導線 L3 ライブ反映（19 + 3 記事）で確立。1 記事ごとに U-1〜U-6 を直列実行し、複数記事は外側ループで回す（並行不可＝browser-use 競合）。
+
+### Phase U-B: 部分置換（type 方式・段落/価格/節だけを差し替え）
+
+既存の特定テキスト（intro 段落・価格表記・1 セクション）を**別テキストへ差し替える**手段。paste は edit 画面で死んでいる（冒頭 danger）ので、**Selection で対象範囲を限定削除 → type で再入力**する。append（U-A）でも全面差し替え（/new）でもない中間ケース。2026-06-19 に Playwright スクリプト（`.local/playwright-note-profile` 経路）で実証。**専用 npm スクリプトは無い**ため一回限りスクリプトで実装するが、必ず以下の安全弁に沿わせる。
+
+**鉄則**:
+- **select-all しない**。対象 needle（差し替えたい文字列・節の先頭/末尾の固有文言）で `Range` を限定する。範囲を間違えると周辺本文を巻き込む。
+- **冪等チェック**を先に：新テキストの固有フレーズが既に本文にあればスキップ（再実行で二重化しない）。
+- **API 実体検証必須**：保存後 `https://note.com/api/v3/notes/<id>` の `data.body` に新テキストが入っているか確認。入っていなければ FAIL 報告（偽成功の罠）。
+
+**1) 1 ノード内の語句置換（価格・短いフレーズ）** — needle を含むテキストノードの該当部分だけ選択:
+
+```js
+await page.evaluate(({ oldText }) => {
+  const ed = document.querySelector('[contenteditable=true]');
+  const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT, null);
+  let node;
+  while ((node = w.nextNode())) {
+    const i = node.nodeValue ? node.nodeValue.indexOf(oldText) : -1;
+    if (i >= 0) {
+      const r = document.createRange();
+      r.setStart(node, i); r.setEnd(node, i + oldText.length);
+      const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      return true;
+    }
+  }
+  return false;
+}, { oldText: '¥2,480（6 本セット、単品比 17%OFF）' });
+await page.keyboard.press('Delete');
+await page.keyboard.type('¥3,480（6 テーマセット・各 ¥700、単品比 17%OFF）', { delay: 3 });
+```
+
+`page.evaluate` は**引数 1 個まで**（複数渡すならオブジェクトに包む。`(a,b)=>{}, a, b` は `Too many arguments` で落ちる）。
+
+**2) 節まるごと置換（先頭 needle 〜 次節 needle の手前まで）** — start ノード/offset と end ノード/offset を別々に拾って 1 つの Range にする:
+
+```js
+await page.evaluate(({ startNeedle, endNeedle }) => {
+  const ed = document.querySelector('[contenteditable=true]');
+  const w = document.createTreeWalker(ed, NodeFilter.SHOW_TEXT, null);
+  let sN=null,sO=0,eN=null,eO=0,node;
+  while ((node = w.nextNode())) {
+    if (!sN && node.nodeValue?.includes(startNeedle)) { sN=node; sO=node.nodeValue.indexOf(startNeedle); }
+    if (node.nodeValue?.includes(endNeedle)) { eN=node; eO=node.nodeValue.indexOf(endNeedle); break; }
+  }
+  if (!sN || !eN) return false;
+  const r = document.createRange(); r.setStart(sN,sO); r.setEnd(eN,eO);
+  getSelection().removeAllRanges(); getSelection().addRange(r);
+  return true;
+}, { startNeedle: '読み手の状況別に', endNeedle: '関連メディア' });
+await page.keyboard.press('Delete');
+// 新内容を行ごとに type。空行は Enter、URL 行は type→Enter→sleep(3000) で OGP カード化
+```
+
+その後の保存は U-6（「公開に進む」→「更新する」）と同じ。**通知ダイアログは必ず「いいえ」**（U-6 上の important 参照）。
 
 ### Phase U-1.5: アイキャッチ差し替え（カバー更新時のみ）
 
