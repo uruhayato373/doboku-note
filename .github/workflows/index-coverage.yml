@@ -1,0 +1,109 @@
+name: Index coverage audit (URL Inspection)
+
+# サイト全 sitemap URL の Google index 状態（送信して登録 / 検出-未登録 等）を
+# URL Inspection API で一括取得し、.claude/state/metrics/url-inspection/ に commit する。
+# ローカルは creds 未設定で叩けない（計測は CI/CD 供給が正・measurement-incidents.md 2026-06-05）ため CI で実行。
+# 既定ブランチ(main)を触らず deploy を起こさないよう push トリガーの一回限り運用。
+# 起動: ci/index-coverage ブランチへ push（または main 到達後は workflow_dispatch）。
+
+on:
+  push:
+    branches: ["ci/index-coverage"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Restore service account key
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY_JSON }}
+        run: |
+          mkdir -p credentials
+          printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
+          chmod 600 credentials/gsc-service-account.json
+
+      - name: Build URL list from live sitemap
+        run: |
+          mkdir -p .tmp
+          node .claude/scripts/list-sitemap-urls.mjs > .tmp/all-urls.txt
+          # URL Inspection は 2,000 URL/日/property が上限。安全側に 1,900 で頭打ち。
+          head -n 1900 .tmp/all-urls.txt > .tmp/inspect-urls.txt
+          echo "sitemap URLs: $(wc -l < .tmp/all-urls.txt) / inspecting: $(wc -l < .tmp/inspect-urls.txt)"
+
+      - name: Fetch fresh GSC page snapshot (28d)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimension page --days 28 --limit 1000
+
+      - name: URL Inspection (all sitemap URLs)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: |
+          node .claude/scripts/inspect-url.mjs --file .tmp/inspect-urls.txt > /tmp/inspect.log 2>&1
+          echo "--- tail of inspection log ---"
+          tail -8 /tmp/inspect.log
+
+      - name: Summarize coverage_state (→ job summary)
+        run: |
+          LATEST=$(ls -t .claude/state/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
+          if [ -z "$LATEST" ]; then echo "::error::inspection batch not produced"; exit 1; fi
+          {
+            echo "## Index coverage audit"
+            echo ""
+            echo "snapshot: \`$LATEST\`"
+            echo ""
+            echo "inspected: $(jq '.results|length' "$LATEST")"
+            echo ""
+            echo '```'
+            jq -r '.results[].index.coverage_state // "（error/null）"' "$LATEST" | sort | uniq -c | sort -rn
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          cat "$GITHUB_STEP_SUMMARY"
+
+      - name: Stage outputs
+        run: |
+          mkdir -p /tmp/idx
+          cp -r .claude/state/metrics/url-inspection /tmp/idx/ 2>/dev/null || true
+          cp -r .claude/state/metrics/gsc /tmp/idx/ 2>/dev/null || true
+
+      - name: Publish to develop
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
+
+          mkdir -p .claude/state/metrics/url-inspection .claude/state/metrics/gsc
+          cp -r /tmp/idx/url-inspection/* .claude/state/metrics/url-inspection/ 2>/dev/null || true
+          cp -r /tmp/idx/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
+
+          git add .claude/state/metrics/url-inspection .claude/state/metrics/gsc
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(metrics): index-coverage URL inspection $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f credentials/gsc-service-account.json
