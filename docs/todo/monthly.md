@@ -56,6 +56,48 @@
 
 ## バックログ（次月以降）
 
+### セキュリティ定期チェック：API トークン更新サイクルと Claude プラグイン棚卸し（🟢 次月以降）
+
+**背景**: CI/CD・Claude Code が複数の外部サービス API トークンを使っている。有効期限切れによるデプロイ停止（CLAUDE.md §12「500 の場合は Cloudflare API token 期限切れを仮説1番に確認」）が実際に起きており、定期チェックサイクルを決める必要がある。
+
+**対象トークン・シークレット（GitHub Secrets）**:
+
+| シークレット名 | 用途 | 推奨更新サイクル |
+|---|---|---|
+| `CLOUDFLARE_API_TOKEN` | Pages デプロイ・R2 同期 | 90日 |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 認証 | 変更時のみ |
+| `CLOUDFLARE_R2_ACCESS_KEY_ID` | R2 画像アップロード | 90日 |
+| `CLOUDFLARE_R2_SECRET_ACCESS_KEY` | R2 認証 | 90日 |
+| `PSI_API_KEY` | PageSpeed Insights 計測 | 180日 |
+| `YOUTUBE_CLIENT_SECRET` | YouTube API（Shorts 等） | 180日 |
+
+**Claude プラグイン（MCP サーバー）の棚卸し**:
+
+現在 `.mcp.json` に登録されている MCP サーバー:
+- `aidesigner` — AI デザイン生成
+- `context7` — コンテキスト補完
+
+棚卸しの観点:
+- 使っていない MCP サーバーは削除（攻撃面を減らす）
+- 各 MCP サーバーが要求する権限スコープを確認（必要最小限か）
+- MCP サーバー自体のバージョン・セキュリティアップデートを確認
+
+**やること**:
+1. GitHub Secrets の有効期限を確認し、期限切れ間近なものを更新
+2. Cloudflare API Token の権限スコープを最小化（Pages+R2 読み書きのみ）
+3. `.mcp.json` の MCP サーバーを棚卸し（不要なら削除、権限を確認）
+4. **更新サイクルを Google Calendar か schedule hook に登録**（次回確認日を固定）
+
+**チェック手順**:
+```
+GitHub → Settings → Secrets and variables → Actions → 各シークレットの最終更新日確認
+Cloudflare → My Profile → API Tokens → 有効期限・権限スコープ確認
+```
+
+**更新サイクル目安**: Cloudflare 系は 90 日ごと（四半期）、PSI/YouTube は 180 日ごと（半年）
+
+---
+
 ### 1級土木 テキストページの品質改善（🟡 次月以降）
 
 **発端**: `/docs/civil-construction-1-textbook-site-investigation` 等で発覚
