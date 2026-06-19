@@ -51,3 +51,22 @@
 - コンクリート診断士 cd-essay（来年向け、急がない）
 - iOS アプリ（Web月収¥15k達成後）
 - BK-08〜BK-11（港湾・電力・鉄道・トンネル）の投稿（受験者規模小）
+
+---
+
+## バックログ（次月以降）
+
+### 1級土木 テキストページの品質改善（🟡 次月以降）
+
+**発端**: `/docs/civil-construction-1-textbook-site-investigation` 等で発覚
+
+**問題点**:
+1. **頻出論点 Callout の内容が多すぎる** — 1つのCalloutに詰め込みすぎで読みにくい。箇条書き数を絞るか複数に分割する
+2. **記事冒頭に Callout が来るのはおかしい** — 本文の導入なしにいきなり Callout は構成として不自然。本文（概要・説明）を先に書き、Callout は補足・強調として中盤以降に配置する
+
+**対応方針**:
+- 対象スコープ: `civil-construction-1` の textbook 系ページ全件
+- `civil-construction-review` エージェントで一括監査 → `civil-textbook-rewriter` で修正
+- スキル: `/quality-cycle --profile civil-textbook`
+
+**参考 URL**: `https://doboku-note.com/docs/civil-construction-1-textbook-site-investigation`
