@@ -163,6 +163,59 @@
 
 ---
 
+### 過去問の `## 関連コンテンツ` を廃止し `RelatedArticles` コンポーネントへ移行（🟡 次月以降）
+
+**発端**: `https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki`
+
+**現状の問題（2点）**:
+
+1. **配置が悪い**: MDX 末尾に `## 関連コンテンツ` H2 + `<RelatedKeywords>` が直書きされていて、AuthorCard の後に埋まっている。記事本文の一部として扱われているが、ナビゲーション要素なので page.tsx レイヤーで制御すべき。
+
+2. **リンク先が間違い**: 2級土木 primary 過去問の `<RelatedKeywords>` が「1級土木 R07 問題A」など**他の過去問ページ**を指している。本来は各設問に関連する**キーワードページ・テキストページ**へのリンクであるべき（CEM 総監キーワードページの `<RelatedKeywords>` が正解例：「業績考課」「目標管理制度（MBO）」等の概念ページへリンク）。
+
+```mdx
+<!-- 現状（問題） -->
+## 関連コンテンツ
+<RelatedKeywords items={[
+  { label: "1級土木 R07 問題A（土木一般・専門・法規）", slug: "civil-construction-1-primary-r07-a" },
+  { label: "1級土木 R07 問題B（施工管理）", slug: "civil-construction-1-primary-r07-b" },
+]} />
+```
+
+**やりたいこと**:
+
+#### 1. MDX 末尾の `## 関連コンテンツ` を削除する
+
+過去問 MDX から `## 関連コンテンツ` H2 と `<RelatedKeywords>` の関連過去問リンク部分を全削除。対象は `civil-construction-2/primary-r*` 系（同パターンを grep で全特定）。
+
+#### 2. `RelatedArticles` コンポーネントを page.tsx レイヤーで実装する
+
+`src/app/docs/[...slug]/page.tsx` の DocCard の下（AuthorCard の前）に `RelatedArticles` を追加。MDX には書かず、page.tsx が frontmatter の `category` + `tags` を読んで自動生成する。
+
+- **コンポーネント**: `src/components/ui/RelatedArticles/RelatedArticles.tsx`（新規）
+- **入力**: 現在のページの `category`・`tags`・`slug`
+- **出力**: 同 category の近傍ページ（タグマッチ上位3〜5件）をカード形式で表示
+- **共通化**: 全資格・全記事種別で同じコンポーネントを使う（カテゴリ別に設定は不要）
+
+#### 3. 過去問の `<RelatedKeywords>` をキーワード・テキストページへのリンクに修正する
+
+各設問の論点に対応する**キーワードページ・テキストページ**をリンク先に変える。CEM 総監キーワードページが正解例。
+
+| 記事種別 | 現状 | あるべき姿 |
+|---|---|---|
+| CEM キーワードページ | 概念キーワードページへのリンク | ✅ 正しい |
+| 2級土木 primary 過去問 | 他の過去問ページへのリンク | ❌ → テキスト・キーワードページへ変更 |
+| 1級土木 primary 過去問 | 要確認 | 確認後対応 |
+
+**着手順**:
+1. `civil-construction-2/primary-r*` の `## 関連コンテンツ` を一括削除
+2. `RelatedArticles` コンポーネントを実装（backlinks インデックス活用）
+3. 2級土木 primary 各設問の正しい関連キーワードを追記（`past-exam-rewriter` エージェント活用）
+
+**参照**: `.claude/state/indexes/backlinks.json`（既存のバックリンクインデックス）
+
+---
+
 ### 2級土木 二次過去問の `- （1）` 二重表記を修正（🟡 次月以降）
 
 **発端**: `https://doboku-note.com/docs/civil-construction-2-secondary-r07`
