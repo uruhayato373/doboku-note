@@ -27,6 +27,25 @@ const COLORS = [
   '#F97316', // orange-500
 ];
 
+function CustomTooltip({
+  active,
+  payload,
+}: {
+  active?: boolean;
+  payload?: Array<{ payload: PortfolioItem }>;
+}) {
+  if (active && payload && payload.length) {
+    const data = payload[0]!.payload;
+    return (
+      <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded-sm shadow-lg">
+        <p className="font-medium text-gray-900 dark:text-white">{data.name}</p>
+        <p className="text-primary-600 dark:text-primary-400">{data.value}%</p>
+      </div>
+    );
+  }
+  return null;
+}
+
 export default function PieChart({ 
   title, 
   data, 
@@ -52,19 +71,6 @@ export default function PieChart({
         return { height: 300, innerRadius: 60, outerRadius: 120 };
     }
   }, [size]);
-
-  const CustomTooltip = ({ active, payload }: any) => {
-    if (active && payload && payload.length) {
-      const data = payload[0].payload;
-      return (
-        <div className="bg-white dark:bg-gray-800 p-3 border border-gray-200 dark:border-gray-700 rounded-sm shadow-lg">
-          <p className="font-medium text-gray-900 dark:text-white">{data.name}</p>
-          <p className="text-primary-600 dark:text-primary-400">{data.value}%</p>
-        </div>
-      );
-    }
-    return null;
-  };
 
   return (
     <div className="w-full">

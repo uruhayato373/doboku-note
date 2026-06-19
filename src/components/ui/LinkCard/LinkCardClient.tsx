@@ -21,14 +21,12 @@ export default function LinkCardClient({
   imageUrl,
   siteName,
 }: LinkCardClientProps) {
-  const handleClick = () => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   return (
     <span className="not-prose inline-block p-4">
-      <span
-        onClick={handleClick}
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
         className="group block w-full max-w-2xl cursor-pointer overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-card-content hover:shadow-card-hover transition-all duration-300"
       >
         <span className="flex flex-col sm:flex-row sm:items-center">
@@ -64,7 +62,7 @@ export default function LinkCardClient({
             )}
           </span>
         </span>
-      </span>
+      </a>
     </span>
   );
 }

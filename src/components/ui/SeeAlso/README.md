@@ -42,5 +42,4 @@
 ## 関連ファイル
 
 - 実装: [`SeeAlso.tsx`](./SeeAlso.tsx)
-- Storybook: [`SeeAlso.stories.tsx`](./SeeAlso.stories.tsx)
 - 使用ガイド: [`docs/reference/content-principles.md`](../../../../docs/reference/content-principles.md)

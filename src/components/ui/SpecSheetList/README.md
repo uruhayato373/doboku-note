@@ -65,5 +65,4 @@ doboku-note の記事本文中で使う**仕様書調リスト**。点検項目�
 
 - 実装: [`SpecSheetList.tsx`](./SpecSheetList.tsx)
 - スタイル: [`SpecSheetList.module.css`](./SpecSheetList.module.css)
-- Storybook: [`SpecSheetList.stories.tsx`](./SpecSheetList.stories.tsx)
 - ギャラリー（PNG スクショ付き）: [`docs/ui/speclist-gallery.md`](../../../../docs/ui/speclist-gallery.md)

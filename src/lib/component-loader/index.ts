@@ -1,141 +1,115 @@
-/**
- * コンポーネント動的ローダー
- * 共通コンポーネントと記事固有コンポーネントを効率的に管理
- */
-
 import React from "react";
-import { commonComponents, CommonComponentName } from "./common";
-import { specificComponents, SpecificComponentName } from "./specific";
+import { commonComponents } from "./common";
+import { specificComponents } from "./specific";
 
-/**
- * 共通コンポーネントを読み込み
- * 全記事で使用される基本コンポーネント
- */
-export async function getCommonComponents() {
-  return {
-    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
-      React.createElement("img", { ...props, loading: "lazy" }),
-    ArticleImage: (await import("@/components/ui/ArticleImage/ArticleImage"))
-      .default,
-    Callout: (await import("@/components/ui/Callout/Callout")).default,
-    ExamPoint: (await import("@/components/ui/ExamPoint/ExamPoint")).default,
-    RelatedKeywords: (await import("@/components/ui/RelatedKeywords/RelatedKeywords")).default,
-    RelatedExamQuestions: (await import("@/components/ui/RelatedExamQuestions/RelatedExamQuestions")).default,
-    SpecSheetList: (
-      await import("@/components/ui/SpecSheetList/SpecSheetList")
-    ).default,
-    LinkCard: (await import("@/components/ui/LinkCard/LinkCard")).default,
-    NoteLink: (await import("@/components/ui/NoteLink/NoteLink")).default,
-    MagazineInlineCard: (await import("@/components/ui/MagazineInlineCard/MagazineInlineCard")).default,
-    MagazineCard: (await import("@/components/ui/MagazineCard/MagazineCard")).default,
-    SeeAlso: (await import("@/components/ui/SeeAlso/SeeAlso")).default,
-    SpokeNavCard: (await import("@/components/ui/SpokeNavCard/SpokeNavCard")).default,
-    PersonaSelector: (await import("@/components/ui/PersonaSelector")).default,
-    SourceBadges: (await import("@/components/ui/SourceBadges")).default,
-    CardList: (await import("@/components/ui/CardList/CardList")).default,
-    ReferenceLinks: (await import("@/components/ui/ReferenceLinks")).default,
-    ExamContext: (await import("@/components/ui/ExamContext")).default,
-    DataTable: (await import("@/components/ui/DataTable/DataTable")).default,
-    Nowrap: (await import("@/components/ui/Nowrap/Nowrap")).default,
-    Underline: (await import("@/components/ui/Underline/Underline")).default,
-    Timeline: (await import("@/components/ui/Timeline/Timeline")).default,
-    ExamFields: (await import("@/components/ui/ExamFields/ExamFields")).default,
-    StatsCard: (await import("@/components/ui/StatsCard/StatsCard")).default,
-    PdcaCycle: (await import("@/components/ui/PdcaCycle/PdcaCycle")).default,
-    CourseAffiliate: (await import("@/components/ui/CourseAffiliate/CourseAffiliate")).default,
-    CareerAffiliate: (await import("@/components/ui/CareerAffiliate/CareerAffiliate")).default,
-    DokugakuBanner: (await import("@/components/ui/DokugakuBanner/DokugakuBanner")).default,
-    SatTextLink: (await import("@/components/ui/SatTextLink/SatTextLink")).default,
-    DokugakuKeikenLink: (await import("@/components/ui/DokugakuKeikenLink/DokugakuKeikenLink")).default,
-    BookCard: (await import("@/components/ui/BookCard/BookCard")).default,
-    Question: (await import("@/components/ui/ChatBubble/Question")).default,
-    Answer: (await import("@/components/ui/ChatBubble/Answer")).default,
-  };
-}
+type MdxComponent = React.ElementType;
+type ComponentRegistry = Record<string, MdxComponent>;
+type ComponentLoader = () => Promise<MdxComponent>;
 
-/**
- * 記事固有コンポーネントを動的に読み込み
- * 必要なコンポーネントのみを読み込んでバンドルサイズを最適化
- */
-export async function getSpecificComponents(componentNames: string[]) {
-  const components: { [key: string]: any } = {};
+const commonLoaders = {
+  ArticleImage: () => import("@/components/ui/ArticleImage/ArticleImage").then((m) => m.default),
+  Callout: () => import("@/components/ui/Callout/Callout").then((m) => m.default),
+  ExamPoint: () => import("@/components/ui/ExamPoint/ExamPoint").then((m) => m.default),
+  RelatedKeywords: () => import("@/components/ui/RelatedKeywords/RelatedKeywords").then((m) => m.default),
+  RelatedExamQuestions: () => import("@/components/ui/RelatedExamQuestions/RelatedExamQuestions").then((m) => m.default),
+  SpecSheetList: () => import("@/components/ui/SpecSheetList/SpecSheetList").then((m) => m.default),
+  LinkCard: () => import("@/components/ui/LinkCard/LinkCard").then((m) => m.default),
+  NoteLink: () => import("@/components/ui/NoteLink/NoteLink").then((m) => m.default),
+  MagazineInlineCard: () => import("@/components/ui/MagazineInlineCard/MagazineInlineCard").then((m) => m.default),
+  MagazineCard: () => import("@/components/ui/MagazineCard/MagazineCard").then((m) => m.default),
+  SeeAlso: () => import("@/components/ui/SeeAlso/SeeAlso").then((m) => m.default),
+  SpokeNavCard: () => import("@/components/ui/SpokeNavCard/SpokeNavCard").then((m) => m.default),
+  PersonaSelector: () => import("@/components/ui/PersonaSelector").then((m) => m.default),
+  SourceBadges: () => import("@/components/ui/SourceBadges").then((m) => m.default),
+  CardList: () => import("@/components/ui/CardList/CardList").then((m) => m.default),
+  ReferenceLinks: () => import("@/components/ui/ReferenceLinks").then((m) => m.default),
+  ExamContext: () => import("@/components/ui/ExamContext").then((m) => m.default),
+  DataTable: () => import("@/components/ui/DataTable/DataTable").then((m) => m.default),
+  Nowrap: () => import("@/components/ui/Nowrap/Nowrap").then((m) => m.default),
+  Underline: () => import("@/components/ui/Underline/Underline").then((m) => m.default),
+  Timeline: () => import("@/components/ui/Timeline/Timeline").then((m) => m.default),
+  ExamFields: () => import("@/components/ui/ExamFields/ExamFields").then((m) => m.default),
+  StatsCard: () => import("@/components/ui/StatsCard/StatsCard").then((m) => m.default),
+  PdcaCycle: () => import("@/components/ui/PdcaCycle/PdcaCycle").then((m) => m.default),
+  CourseAffiliate: () => import("@/components/ui/CourseAffiliate/CourseAffiliate").then((m) => m.default),
+  CareerAffiliate: () => import("@/components/ui/CareerAffiliate/CareerAffiliate").then((m) => m.default),
+  DokugakuBanner: () => import("@/components/ui/DokugakuBanner/DokugakuBanner").then((m) => m.default),
+  SatTextLink: () => import("@/components/ui/SatTextLink/SatTextLink").then((m) => m.default),
+  DokugakuKeikenLink: () => import("@/components/ui/DokugakuKeikenLink/DokugakuKeikenLink").then((m) => m.default),
+  BookCard: () => import("@/components/ui/BookCard/BookCard").then((m) => m.default),
+  Question: () => import("@/components/ui/ChatBubble/Question").then((m) => m.default),
+  Answer: () => import("@/components/ui/ChatBubble/Answer").then((m) => m.default),
+} satisfies Record<string, ComponentLoader>;
 
-  for (const componentName of componentNames) {
-    try {
-      switch (componentName) {
-        case "RealEstateCostsTable":
-          components[componentName] = (
-            await import(
-              "@/features/real-estate-investment/RealEstateCostsTable"
-            )
-          ).default;
-          break;
-        case "RealEstateApartmentCostsTable":
-          components[componentName] = (
-            await import(
-              "@/features/real-estate-investment/RealEstateApartmentCostsTable"
-            )
-          ).default;
-          break;
-        case "StackedBarChart":
-          components[componentName] = (
-            await import(
-              "@/features/nisa-ideco-guide-civil-servants/StackedBarChart"
-            )
-          ).default;
-          break;
-        case "PieChart":
-          components[componentName] = (
-            await import("@/features/nisa-ideco-guide-civil-servants/PieChart")
-          ).default;
-          break;
-        case "TimeBlockChart":
-          components[componentName] = (
-            await import("@/features/time-management-techniques/TimeBlockChart")
-          ).default;
-          break;
-        default:
-          console.warn(`Unknown specific component: ${componentName}`);
-      }
-    } catch (error) {
-      console.error(`Failed to load component ${componentName}:`, error);
-    }
-  }
+const specificLoaders = {
+  RealEstateCostsTable: () =>
+    import("@/features/real-estate-investment/RealEstateCostsTable").then((m) => m.default),
+  RealEstateApartmentCostsTable: () =>
+    import("@/features/real-estate-investment/RealEstateApartmentCostsTable").then((m) => m.default),
+  StackedBarChart: () =>
+    import("@/features/nisa-ideco-guide-civil-servants/StackedBarChart").then((m) => m.default),
+  PieChart: () =>
+    import("@/features/nisa-ideco-guide-civil-servants/PieChart").then((m) => m.default),
+  TimeBlockChart: () =>
+    import("@/features/time-management-techniques/TimeBlockChart").then((m) => m.default),
+} satisfies Record<string, ComponentLoader>;
+
+async function loadSelectedComponents(
+  componentNames: readonly string[],
+  loaders: Record<string, ComponentLoader>,
+): Promise<ComponentRegistry> {
+  const components: ComponentRegistry = {};
+
+  await Promise.all(
+    componentNames.map(async (componentName) => {
+      const loader = loaders[componentName];
+      if (!loader) return;
+      components[componentName] = await loader();
+    }),
+  );
 
   return components;
 }
 
-/**
- * 統合コンポーネント管理システム
- * 共通コンポーネント + 記事固有コンポーネントを効率的に結合
- */
-export async function getAllComponents(post: any) {
-  // 1. 共通コンポーネントを常時読み込み
-  const commonComps = await getCommonComponents();
+export async function getCommonComponents(componentNames?: readonly string[]) {
+  const selectedNames = componentNames ?? Object.keys(commonLoaders);
+  return {
+    img: (props: React.ImgHTMLAttributes<HTMLImageElement>) =>
+      React.createElement("img", { ...props, loading: "lazy" }),
+    ...(await loadSelectedComponents(selectedNames, commonLoaders)),
+  };
+}
 
-  // 2. MDXコンテンツから使用されているコンポーネントを解析
-  const { analyzeMDXComponents } = await import("./mdx-component-analyzer");
-  const usedComponents = analyzeMDXComponents(post.content);
+export async function getSpecificComponents(componentNames: readonly string[]) {
+  const unknownNames = componentNames.filter((name) => !specificLoaders[name]);
+  for (const name of unknownNames) {
+    console.warn(`Unknown specific component: ${name}`);
+  }
 
-  // 3. 記事固有コンポーネントのみを動的に読み込み
-  const specificComponentNames = usedComponents.filter((name) =>
-    Object.keys(specificComponents).includes(name)
+  return loadSelectedComponents(componentNames, specificLoaders);
+}
+
+export async function getAllComponents(post: { content: string }) {
+  const content = post.content;
+
+  const commonComponentNames = Object.keys(commonLoaders).filter((name) =>
+    content.includes(`<${name}`),
   );
-  const specificComps = await getSpecificComponents(specificComponentNames);
+  const specificComponentNames = Object.keys(specificLoaders).filter((name) =>
+    content.includes(`<${name}`),
+  );
 
-  // 4. 共通 + 記事固有コンポーネントを結合
-  const result = {
+  const [commonComps, specificComps] = await Promise.all([
+    getCommonComponents(commonComponentNames),
+    getSpecificComponents(specificComponentNames),
+  ]);
+
+  return {
     ...commonComps,
     ...specificComps,
   };
-
-  return result;
 }
 
-/**
- * 利用可能な全コンポーネント名を取得
- * デバッグや分析用
- */
 export function getAllAvailableComponentNames() {
   return {
     common: Object.keys(commonComponents),

@@ -17,7 +17,14 @@ export default function TimeBlockChart() {
   const chartPadding = 24;
   const barWidth = chartWidth - chartPadding * 2;
 
-  let offsetX = chartPadding;
+  const positionedBlocks = BLOCKS.map((block, index) => {
+    const minutesBefore = BLOCKS
+      .slice(0, index)
+      .reduce((sum, item) => sum + item.minutes, 0);
+    const w = (block.minutes / TOTAL_MINUTES) * barWidth;
+    const x = chartPadding + (minutesBefore / TOTAL_MINUTES) * barWidth;
+    return { block, x, w };
+  });
 
   return (
     <div className="max-w-4xl mx-auto my-6">
@@ -40,10 +47,7 @@ export default function TimeBlockChart() {
         </text>
 
         {/* ブロックバー */}
-        {BLOCKS.map((block, i) => {
-          const w = (block.minutes / TOTAL_MINUTES) * barWidth;
-          const x = offsetX;
-          offsetX += w;
+        {positionedBlocks.map(({ block, x, w }, i) => {
           const isLunch = block.label === '昼休み';
           const isNarrow = w < 60;
 
