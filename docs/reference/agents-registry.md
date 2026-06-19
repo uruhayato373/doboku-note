@@ -6,7 +6,7 @@ title: サブエージェント詳細レジストリ
 
 `.claude/agents/` に定義されたサブエージェント群の詳細。Generator/Evaluator 分離の原則に基づき設計。
 
-> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **51**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
+> **件数の SSOT**: エージェント数の真実源は `.claude/agents/*.md` の実数（`find .claude/agents -maxdepth 1 -name '*.md' | wc -l`＝現在 **52**）と下記「エージェント一覧」表。CLAUDE.md など他 doc は件数を重複記載せずここを指す。追加/削除は同一 commit でこの表を更新する。
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
@@ -30,6 +30,7 @@ title: サブエージェント詳細レジストリ
 | `/civil-figure-rework`                    | `civil-exam-figure-extractor`, `civil-exam-figure-auditor`       | 過去問1次 図クロップ品質ループ（1ページ最大3反復） |
 | `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出      |
 | `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
+| `/plan-weekly`                            | `todo-planner`                                                          | docs/todo/ 週次計画の軽量更新（Sonnet 1回） |
 | `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
 | `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
 | `/civil-keiken-magazine`                  | `civil-keiken-essay-writer`, `civil-keiken-essay-qa`            | 施工経験記述マガジン模範答案の生成 → 5軸採点ループ |
@@ -66,6 +67,7 @@ title: サブエージェント詳細レジストリ
 | `civil-construction-qa`        | 1級土木 textbook/guide ページの視覚＋網羅率検証（PDF 原本との3モード5軸ルーブリック）                                               | Evaluator    | sonnet  | check-mdx, review-mobile, Playwright MCP                              | ✅ 運用中                                     |
 | `civil-construction-review`    | 1級土木 textbook/guide の既存 MDX 校正（PDF照合なし、content-principles準拠＋モバイル視認性＋画像キャプション品質）                      | Evaluator    | inherit | lint-mdx-mobile, check-mdx, check-links                               | ✅ 運用中                                     |
 | `civil-keiken-essay-qa`        | 1級・2級土木 施工経験記述 マガジン模範答案の5軸採点（重複回避/形式適合/捏造なし/著作権・改変前提/採点視点）＋必須ゲート（U+FFFD・本文価格/ID〔導線リンクカードURLは許可〕・サイト重複・問題文整合・字数 strict）＋hashtags.txt 存在は推奨検査              | Evaluator    | sonnet  | civil-keiken-magazine 連携、civil-keiken-essay-writer と対                | ✅ 運用中（2026-05-29 起動）                      |
+| `todo-planner`                 | docs/todo/{annual,monthly,weekly}.md + git log を読み、今週の優先タスクを決定して weekly.md を直接更新する軽量プランナー（Codex候補ラベル付き）  | Generator    | sonnet  | plan-weekly                                                           | ✅ 運用中（2026-06-19 新設）                      |
 | `strategy-advisor`             | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター                                                               | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem               | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
 | `seo-auditor`                  | SEO 監査（Phase 2 で復活）                                                                                  | Evaluator    | sonnet  | fetch-gsc-data, fetch-ga4-data                                        | ⏸️ Phase 2 で復活                            |
 | `metrics-analyzer`             | GSC/GA4 計測データから改善機会を5パターン抽出（High-Impr-Low-CTR 等）                                                     | Evaluator    | sonnet  | weekly-improve                                                        | ✅ 運用中                                     |

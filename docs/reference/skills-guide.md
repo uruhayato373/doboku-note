@@ -113,9 +113,10 @@ title: スキル ナビゲーションガイド
 
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
+| `/plan-weekly` | docs/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量） | `週次計画`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
 | `/weekly-improve` | 計測→改善候補抽出→実験登録の軽量オーケストレータ | `今週の改善`, `PDCA`, `/weekly-improve` |
 | `/weekly-review` | 週次レビューを生成 | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
-| `/weekly-plan` | 週次計画を生成 | `週次計画`, `今週の計画`, `/weekly-plan` |
+| `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
 | `/north-star-metric` | NSM と Input Metrics を定義 | `NSM定義`, `北極星指標`, `/north-star-metric` |
 | `/growth-loops` | 成長ループの設計・評価 | `成長ループ`, `フライホイール設計`, `/growth-loops` |
