@@ -70,3 +70,101 @@
 - スキル: `/quality-cycle --profile civil-textbook`
 
 **参考 URL**: `https://doboku-note.com/docs/civil-construction-1-textbook-site-investigation`
+
+---
+
+### 1級土木 テキスト画像のカラー化（🟡 次月以降）
+
+**背景**: textbook 系ページに現在貼られている画像は WebSearch で拾った代替画像。本来は `docs/textbook/１級土木施工管理技士/` 配下の PDF から切り出した白黒図を使うべきで、それを ChatGPT でカラー化して差し替える。
+
+**対象**: 画像を持つ textbook ページ 14本・約250枚
+```
+textbook-construction-machinery-01  (46枚)
+textbook-construction-machinery-02  (50枚)
+textbook-schedule-management        (48枚)
+textbook-surveying                  (36枚)
+textbook-crane                      (14枚)
+textbook-demolition                 (14枚)
+textbook-grader-compaction          (10枚)
+textbook-distance-angle             ( 8枚)
+textbook-construction-mgmt-overview ( 8枚)
+textbook-quality-inspection         (未確認)
+textbook-scraper                    ( 4枚)
+textbook-leveling                   ( 2枚)
+textbook-loader                     ( 2枚)
+textbook-tractor-bulldozer          ( 2枚)
+textbook-transport-machinery        ( 6枚)
+```
+
+**PDF と章の対応**
+| textbook ページ群 | 参照 PDF |
+|---|---|
+| grader-compaction / machinery-01/02 / crane / scraper / loader / tractor / transport / shovel | `テキスト（土木一般編）/第２章_建設機械.pdf` |
+| site-investigation | `テキスト（土木一般編）/第１章_土工.pdf` |
+| surveying / distance-angle / leveling | `テキスト（土木一般編）/第５章_測量.pdf` |
+| demolition | `テキスト（土木一般編）/第６章_解体工事.pdf` |
+| schedule-management / schedule-charts 等 | `テキスト（施工管理・法規編）/` 配下の該当 PDF |
+
+**作業手順（1ページ単位で繰り返す）**
+
+1. **対応 PDF を特定し、該当ページを特定する**
+   - MDX の本文・見出しから図が何の説明かを読む
+   - PyMuPDF でページ画像をレンダリングして目視確認
+   ```bash
+   python -c "import fitz; doc=fitz.open('docs/textbook/１級土木施工管理技士/テキスト（土木一般編）/第２章_建設機械.pdf'); page=doc[N]; mat=fitz.Matrix(2,2); pix=page.get_pixmap(matrix=mat); pix.save('.tmp/page-N.png')"
+   ```
+
+2. **白黒図を PNG で切り出す**
+   - 上記でレンダリングした PNG からトリミング（必要なら手動クロップ）
+   - または `pdfimages -png` でページ内の画像を直接抽出
+   ```bash
+   pdfimages -png -f N -l N "docs/textbook/.../第２章_建設機械.pdf" .tmp/extracted
+   ```
+
+3. **ChatGPT でカラー化する**
+   - GPT-4o（画像編集モード）に白黒 PNG をアップロード
+   - プロンプト例:
+     > 「この白黒の建設機械の技術図をカラーに変換してください。線・ラベル・構造を完全に維持したまま、実機に近い現実的な配色を付けてください。背景は白のままにしてください。」
+   - 出力 PNG をダウンロード → `.tmp/colorized-{name}.png` に保存
+
+4. **既存の web 検索画像と差し替える**
+   ```bash
+   # 旧画像を削除（または退避）
+   rm ".local/r2/posts/civil-construction-1/{slug}/img/{old-name}.jpg"
+   rm ".local/r2/posts/civil-construction-1/{slug}/img/{old-name}.webp"
+   # カラー化画像を配置
+   cp .tmp/colorized-{name}.png ".local/r2/posts/civil-construction-1/{slug}/img/{name}.png"
+   ```
+
+5. **webp に変換する**
+   ```bash
+   npm run generate-webp
+   ```
+
+6. **MDX の参照ファイル名を更新する**（ファイル名が変わった場合のみ）
+   - `<ArticleImage src="img/{old}.webp"` → `<ArticleImage src="img/{new}.webp"`
+
+7. **インデックス再生成してコミット**
+   ```bash
+   npm run refresh-indexes
+   git add .local/r2/posts/civil-construction-1/{slug}/
+   git commit -m "img(civil-textbook): {slug} の画像をテキスト白黒→ChatGPTカラー化に差替"
+   ```
+
+8. **R2 同期は CI が自動実行**（main push 後に `r2-sync.yml` が `**/img/**` を同期）
+
+**進め方の推奨**
+- 1回のセッションで 1ページ（1章）単位で進める（画像数が多いため）
+- まず `textbook-grader-compaction`（10枚）で手順を確立してから残りに横展開
+- ChatGPT のカラー化品質が不十分な場合は `image-policy.md` の代替ソース（CC/PD 写真）を検討
+
+**進捗メモ**（着手したら更新）
+- [ ] textbook-grader-compaction（手順確立パイロット）
+- [ ] textbook-construction-machinery-01
+- [ ] textbook-construction-machinery-02
+- [ ] textbook-crane
+- [ ] textbook-scraper / loader / tractor / transport
+- [ ] textbook-surveying / distance-angle / leveling
+- [ ] textbook-demolition
+- [ ] textbook-schedule-management
+- [ ] textbook-construction-mgmt-overview
