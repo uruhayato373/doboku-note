@@ -44,6 +44,28 @@
 | AdSense 再申請完遂 | 進行中 |
 | pe-construction visible:true 化（noteURL確定後） | 待機中 |
 
+### handoff 残作業（🟡 今月中）
+
+**Mac 作業（note-edit-session / browser-use が必要）**:
+
+| タスク | handoff 出典 | 備考 |
+|---|---|---|
+| 建設部門もくじ note 再公開（有料12本＋無料16本リンク化済みを live に反映） | 2026-06-17 | browser-use update-mode |
+| 総監ロードマップ `n3d73729e6cc7` を14ペルソナ対応に手動更新（④節拡張・価格修正） | 2026-06-12 | note-edit-session |
+| 公務員学習設計 `nc7d70c92b8b0` をペルソナ選択案内に緩和 | 2026-06-12 | note-edit-session |
+| 「立場別模範論文の選び方」を note 新規投稿（3点セット作成済み） | 2026-06-12 | note-publish |
+| 自治体道路担当 R08（R08-yosou-1/2）を note 公開 → 完全パック・ペルソナマガジンへ収録 | 2026-06-15 | note-publish |
+| BK-I を差し替え投稿（R03/04/06/07 の I-1/I-2 両収録版へ更新） | 2026-06-15 | note-edit-session |
+
+**Claude Code / cloud 作業**:
+
+| タスク | handoff 出典 | 備考 |
+|---|---|---|
+| BK-09 電力土木 R08-yosou 3記事（II-1/II-2/III）生成 → factcheck → QA | 2026-06-10 | cloud claude.ai/code・WebSearch 必須 |
+| BK-10 鉄道 R08-yosou 3記事（II-1/II-2/III）生成 → factcheck → QA | 2026-06-10 | cloud claude.ai/code・WebSearch 必須 |
+| BK-09/10 完了後: pdf-specs に yosou エントリ追記 → PDF 再生成 | 2026-06-10 | Windows ローカル |
+| develop の未 push 2 commits（d62e765/646dd50）を push | 2026-06-17 | `git push origin develop` |
+
 ---
 
 ## 今月やらないこと
@@ -181,6 +203,48 @@ Cloudflare → My Profile → API Tokens → 有効期限・権限スコープ�
 - スキル: `/quality-cycle --profile civil-textbook`
 
 **参考 URL**: `https://doboku-note.com/docs/civil-construction-1-textbook-site-investigation`
+
+---
+
+### コンクリート診断士（cd）— 著作権方針決定後に再開（🟢 ユーザー判断待ち）
+
+**出典**: `docs/handoffs/2026-05-30-concrete-diagnostician.md`
+
+**現状**: ガイド4本・テキスト6章・択一98問が `published:false` で整備済み。記述式 note マガジン8記事も `note-magazines.ts` 登録済み。**図クロップ59点の著作権処理方針が未決定**のため全体が止まっている。
+
+**ユーザーが決める必要があること（3択）**:
+- **A. SVG 描き直し** — 図を SVG で再作成（著作権問題なし・コスト大）
+- **B. ライセンス取得** — 試験実施機関（JCMM）に問い合わせて許諾
+- **C. draft 固定継続** — 図クロップのあるページを `published:false` のまま販売しない（最小コスト）
+
+**方針決定後の残作業**:
+- 低確度フラグ問題（約40問）の人手校正（`.tmp/cd-final9.json` / `.tmp/cd-final10.json` 参照）
+- 欠番3問（問48・56・85）を MDX に補完
+- cd-essay-magazine の note カバー画像生成 → note 投稿（Mac）
+- 記述式 II 部（PDF7-9）の MDX 化（未着手・最後）
+- `npm run refresh-indexes` 実行
+
+---
+
+### content-angle P-1 カルーセルパイロット（🟢 次月以降）
+
+**出典**: `docs/handoffs/2026-06-09-content-angle-implementation.md`
+
+**残作業**:
+1. `ig-carousel-writer` で `angle: counter`（反論切り口）の slide-data.json を執筆
+   - source: note 記事「キーワード集が点にならない理由」
+2. `ig-post-create` で PNG 化 → `ig-carousel-qa` で採点（角度純度チェック）
+3. `meta.angle` フィールドが slide-data.json lint を通るか確認
+4. 結果が過去問パック平均（保存数・リーチ）を上回った場合のみ Phase 2 へ着手
+   - Phase 2: `angle-slides.mjs`・tokens.json 角度トークン・`ig-post-create --angle/--source` フラグ + skills-guide.md 更新
+
+---
+
+### 総監 R8予想6本の旧マガジン導線削除（🟢 次月以降・緊急度低）
+
+**出典**: `docs/handoffs/2026-06-18-tankan-pack-cta-republish.md`
+
+**内容**: R8予想6本の末尾有料領域に旧3ペルソナ個別マガジン導線ブロックが残っている。完全パック（`m171222175fac`）＋総監もくじ（`n3ed4c77ceed6`）へ置換する（Mac の note-edit-session で実施）。現状のまま実害なし。
 
 ---
 
