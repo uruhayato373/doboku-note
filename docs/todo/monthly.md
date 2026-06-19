@@ -168,3 +168,34 @@ textbook-transport-machinery        ( 6枚)
 - [ ] textbook-demolition
 - [ ] textbook-schedule-management
 - [ ] textbook-construction-mgmt-overview
+
+---
+
+### カテゴリページ右サイドバーに note リンクを追加（🟡 次月以降）
+
+**発端**: `https://doboku-note.com/category/civil-construction-2` の右サイドバーにアフィリエイト広告しかない。note 記事・マガジンへのリンクも並べて回遊・購入導線を強化したい。全資格カテゴリで同様に対応する。
+
+**現状の実装**（`src/app/category/[slug]/page.tsx`）:
+- 右サイドバー（`<aside>`）は `careerSidebar` が true のとき＝civil 系カテゴリのみ表示
+- 中身は `<SidebarAdBanner>`（転職アフィリ）1つだけ
+- note マガジン CTA はメインコンテンツ内に表示されているが、サイドバーにはない
+- 総監など civil 以外のカテゴリは右サイドバー自体が存在しない
+
+**やりたいこと**:
+1. 右サイドバーに、そのカテゴリに関連する note マガジン・記事のリンクリストを追加
+2. civil 以外の資格カテゴリ（pe-comprehensive-management 等）にも右サイドバーを表示する
+3. アフィリ広告は残しつつ、その下（または上）に note リンク群を sticky で表示
+
+**実装方針（案）**:
+- `resolveCategoryMagazines`（既存）でそのカテゴリに紐づくマガジン一覧を取得済み → これをサイドバーにも流用する
+- サイドバー表示条件を `careerSidebar || categoryMagazines.length > 0` に拡張
+- note リンクの UI は既存の `<MagazineCard>` またはシンプルなリンクリスト（タイトル + 価格 + arrow）
+- sticky で追従させる（アフィリと同じ `sticky top-6` コンテナ内に並べる）
+
+**対象カテゴリ**（note マガジンが存在する資格）:
+- `civil-construction-1`（1級土木）
+- `civil-construction-2`（2級土木）
+- `pe-comprehensive-management`（技術士総監）
+- 今後追加される資格も同様
+
+**参考 URL**: `https://doboku-note.com/category/civil-construction-2`
