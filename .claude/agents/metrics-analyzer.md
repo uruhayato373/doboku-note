@@ -21,7 +21,8 @@ GSC/GA4 の JSON データを読み込み、**改善候補のパターン検出*
 - **施策の実行**（meta 書き換え・ページ追加）: `keyword-rewriter` / ユーザー判断
 - **採点・優先順位付け**: `/nsm-experiment propose` の rubric
 - **実験登録**: `/nsm-experiment start`
-- **GSC/GA4 データ取得**: `seo-auditor` / `/fetch-gsc-data` / `/fetch-ga4-data`（本エージェントは既に取得済みのデータを読むのみ）
+- **GSC/GA4 データ取得**: CI（`fetch-metrics.yml`）/ `/fetch-gsc-data` / `/fetch-ga4-data`（本エージェントは既に取得済みのデータを読むのみ）
+- **index coverage の診断**（登録/未登録）: `gsc-index-auditor`（本エージェントは index 済みページの performance 専任）
 
 ## 入力
 

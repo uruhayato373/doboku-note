@@ -1,0 +1,95 @@
+---
+title: GSC 管理 SSOT（index coverage / performance / hygiene）
+---
+
+# GSC 管理 SSOT
+
+Google Search Console の継続管理（インデックス被覆・検索パフォーマンス・衛生）の**分業・閾値・cadence・判断マトリクス・観測ログ**の真実源。計測は CI/CD 供給が正（ローカル creds 不要・会社 PC はプロキシ遮断＝[measurement-incidents.md](measurement-incidents.md) 2026-06-05）。
+
+> [!note]
+> 2026-06-19 のトラフィック減調査で「サイトの約半分が未 index（原因はドメイン権威性）」が真因と判明。だが当時 index coverage を継続追跡する担当が無く、診断は memory の一回限り手順に留まっていた。本 doc + `gsc-index-auditor` + `index-coverage.yml`（月次）+ `/gsc-review` でこれを恒久構造化した。
+
+## 管理対象と定義
+
+| 領域 | 定義 | 主指標 |
+|---|---|---|
+| **Coverage** | sitemap 申告 URL のうち Google が index した割合 | `indexed_ratio = indexed / sitemap_urls` |
+| **Performance** | index 済みページの検索成績 | impressions / clicks / CTR / position |
+| **Hygiene** | sitemap の無効・重複申告 | 404 / redirect / canonical 不一致 |
+
+## 分業表（誰が何を担当するか）
+
+| 担当 | 種別 | 責務 | 入力 → 出力 |
+|---|---|---|---|
+| `index-coverage.yml` | CI（月次・JST 11:00 毎月1日） | 全 sitemap URL の URL Inspection + 履歴追記 | API/sitemap → `url-inspection/*.json` + `index-coverage-history.json`（develop） |
+| `fetch-metrics.yml` | CI（週次・金 JST 6:00） | GSC query/date + GA4 | API → `.claude/state/metrics/{gsc,ga4}/` |
+| `gsc-index-auditor` | Evaluator（sonnet） | coverage 分類・indexed_ratio・履歴差分・原因バケット・hygiene URL surface | url-inspection + history → 診断テキスト（audit-only） |
+| `metrics-analyzer` | Evaluator（sonnet） | index 済みページの performance 5 パターン | gsc/ga4 → `improvements/*.md` |
+| `performance-auditor` | Evaluator（sonnet） | CWV / PSI | psi → improvements |
+| `/gsc-review` | Skill（月次） | CI データ確認 → gsc-index-auditor 起動 → 観測ログ追記 | — |
+| `/weekly-improve` | Skill（週次） | metrics-analyzer 起動（performance） | — |
+| 機械履歴 | `index-coverage-history.json` | indexed_ratio の時系列 | CI が append |
+| 人間判断履歴 | 本 doc「観測・判断ログ」 | 何を打ち手にしたかの意思決定記録 | `/gsc-review` がユーザーと追記 |
+
+> [!important]
+> Coverage（gsc-index-auditor）と Performance（metrics-analyzer）は**守備範囲が直交**。前者は「載っているか」、後者は「載っているページがどう成績を出すか」。混同しない。
+
+## 閾値
+
+| 指標 | 警戒 | 目標 |
+|---|---|---|
+| `indexed_ratio` | < 60% | ≥ 80% |
+| `discovered_not_indexed` 割合 | > 20% | ≤ 20% |
+| hygiene（404 / redirect） | > 0 | 0 |
+| 未検査差分（`inspected < sitemap_urls`） | sitemap > 1,900（quota 上限） | — |
+
+## cadence
+
+- **月次**: `index-coverage.yml`（CI・毎月1日 JST 11:00）→ 翌日以降に `/gsc-review` を実行 → 本 doc 観測ログへ判断追記
+- **週次**: `fetch-metrics.yml`（CI・金 JST 6:00）→ `/weekly-improve`（performance 側）
+
+## 判断マトリクス（原因バケット → 打ち手）
+
+URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り分ける（推測ではなく実データで）。memory `reference_gsc_diagnosis_toolkit` の判定ロジックを本 doc に移植・SSOT 化。
+
+| 観測 | 真因 | 打ち手 |
+|---|---|---|
+| `検出-未登録` 多 + `page_fetch=SUCCESSFUL` | **ドメイン権威性**（技術問題なし。Google が登録価値を低く判定） | 外部被リンク獲得・独自データ資産・薄いページの統合／**量の抑制**（低権威ドメインへの大量追加は index 率を下げる）。内部リンク追加・title 調整では動かない |
+| `page_fetch` が SUCCESSFUL 以外 | **技術**（fetch 失敗 / robots / 5xx / SSR 破壊） | 最優先で修正。SSR は curl で `<main>` + 主要キーワード確認（[measurement-incidents.md](measurement-incidents.md) W16 BAILOUT） |
+| `404` / `redirect` / canonical 不一致 | **hygiene**（sitemap が無効/重複を申告） | 該当 URL を sitemap から除外 or 正リダイレクト。`docs/todo/` に起票 |
+| `代替ページ(canonical)` | 重複判定 | canonical 統合の意図と一致するか確認 |
+| index 済みなのに 90 日 imp=0 | 戦略資産集中の根拠 | 低価値ロングテールは強化対象外 |
+
+### 補助ツール（深掘り時）
+
+- 母集合生成: `node .claude/scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
+- URL Inspection: `npm run inspect-url -- --file <list>`（2,000 URL/日/property 上限）
+- 集計→履歴: `node .claude/scripts/append-coverage-history.mjs --batch <path> --date <YYYY-MM-DD> --sitemap-count N`
+- 既存分析: `.claude/scripts/{analyze-gsc-coverage,analyze-hubs,build-noindex-candidates}.mjs`
+
+## データの所在
+
+| 種別 | パス |
+|---|---|
+| URL Inspection 生データ | `.claude/state/metrics/url-inspection/inspection-batch-*.json` |
+| indexed_ratio 時系列 | `.claude/state/metrics/gsc/index-coverage-history.json` |
+| GSC query/page/date | `.claude/state/metrics/gsc/gsc-*.json` |
+| 改善候補（performance） | `.claude/state/improvements/*.md` |
+
+## 観測・判断ログ（append-only・人間の意思決定記録）
+
+> 数値は `index-coverage-history.json` を正とする。ここには「何を観測し、何を打ち手に決めたか」を記す。
+
+### 2026-04-27（初回計測）
+
+- batch: `inspection-batch-2026-04-27*.json`（756 件）
+- 送信して登録 **407（54%）** / 検出-未登録 **219（29%）** / クロール済み未登録 17 / redirect 48 / 404 20 / other 45
+- 診断: `page_fetch=SUCCESSFUL` 多数 → 技術問題なし＝**ドメイン権威性**が主因
+- 判断: 内部施策は天井（2026-04 GSC pivot）。独自データ + 外部被リンクへ集中。noindex 判断は受験期ピーク後（2026-08 以降）
+
+### 2026-06-19（トラフィック減の再調査）
+
+- published 1,012 / sitemap 1,030。GSC clicks ≈ 5/日（横ばい）、impressions 3 週で約 −30%、平均順位 約23→37（ブレンド悪化）。GA4 organic 760/週は GSC クリックの約20倍＝大半 Bing/Yahoo
+- 診断: 4 月以降 +256 ページ追加。**低権威ドメインへの量追加は index 率を下げる方向**（discovered-not-indexed を増やす仮説）。スクレープドーザ等の定義ロングテール個別 SEO は換金性ゼロで誤差
+- 判断: ①量の追加を止める（`no-new-keyword-pages` と整合）②独自データ + 被リンクで権威性 ③hygiene 即修正。本管理システム（gsc-index-auditor + 月次 CI + /gsc-review）を新設して継続追跡へ
+- 残課題: 「+256 ページで index 率が実際に下がったか」は最新 URL Inspection で確定予定（`index-coverage.yml` 実行後に `/gsc-review`）

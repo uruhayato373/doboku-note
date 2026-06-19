@@ -28,8 +28,9 @@ title: サブエージェント詳細レジストリ
 | `/note-prepublish-review`                 | `note-link-injector`, `svg-figure-auditor`, `note-fact-checker` | 公開前品質チェック 3 並列     |
 | `/audit-note-funnel --semantic`           | `note-funnel-auditor`                                            | note 導線の意味的監査（並び順・CTA関連性・回遊の質） |
 | `/civil-figure-rework`                    | `civil-exam-figure-extractor`, `civil-exam-figure-auditor`       | 過去問1次 図クロップ品質ループ（1ページ最大3反復） |
-| `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出      |
+| `/weekly-improve`                         | `metrics-analyzer`                                               | 計測データから改善機会抽出（performance）      |
 | `/psi-audit`                              | `performance-auditor`                                            | CWV 違反・回帰検出        |
+| `/gsc-review`                             | `gsc-index-auditor`                                              | index coverage 診断（coverage_state 分類・indexed_ratio・原因バケット） |
 | `/plan-weekly`                            | `todo-planner`                                                          | docs/todo/ 週次計画の軽量更新（Sonnet 1回） |
 | `/weekly-review`, `/weekly-plan`          | `strategy-advisor`（オーケストレータ）                                     | 戦略的な PDCA 統括       |
 | `/magazine-to-pdf`                        | `magazine-pdf-builder`                                           | 新規マガジンの PDF 抽出 spec 作成・変換実行 |
@@ -53,7 +54,6 @@ title: サブエージェント詳細レジストリ
 | 呼出元スキル | 起動エージェント |
 |---|---|
 | `/keyword-gap`, `/exam-demand`, `/discover-exam-season` | `content-planner` |
-| `/fetch-gsc-data` + 分析 | `seo-auditor` |
 
 ---
 
@@ -69,8 +69,8 @@ title: サブエージェント詳細レジストリ
 | `civil-keiken-essay-qa`        | 1級・2級土木 施工経験記述 マガジン模範答案の5軸採点（重複回避/形式適合/捏造なし/著作権・改変前提/採点視点）＋必須ゲート（U+FFFD・本文価格/ID〔導線リンクカードURLは許可〕・サイト重複・問題文整合・字数 strict）＋hashtags.txt 存在は推奨検査              | Evaluator    | sonnet  | civil-keiken-magazine 連携、civil-keiken-essay-writer と対                | ✅ 運用中（2026-05-29 起動）                      |
 | `todo-planner`                 | docs/todo/{backlog,annual,monthly,weekly}.md + git log を読み、今週の優先タスクを決定して weekly.md を直接更新する軽量プランナー。月初は backlog.md から monthly.md へ pull も担う（Codex候補ラベル付き）  | Generator    | sonnet  | plan-weekly                                                           | ✅ 運用中（2026-06-19 backlog.md 対応）            |
 | `strategy-advisor`             | 戦略・PDCA・レビュールーティング・収益化戦略を統括するオーケストレーター                                                               | Orchestrator | inherit | weekly-plan, weekly-review, critical-review, pre-mortem               | ✅ 運用中（⏸️ 競合分析・keyword-gap 等は Phase 2 で復活） |
-| `seo-auditor`                  | SEO 監査（Phase 2 で復活）                                                                                  | Evaluator    | sonnet  | fetch-gsc-data, fetch-ga4-data                                        | ⏸️ Phase 2 で復活                            |
-| `metrics-analyzer`             | GSC/GA4 計測データから改善機会を5パターン抽出（High-Impr-Low-CTR 等）                                                     | Evaluator    | sonnet  | weekly-improve                                                        | ✅ 運用中                                     |
+| `gsc-index-auditor`            | GSC URL Inspection から **index coverage** を診断（coverage_state 7バケット分類・indexed_ratio・履歴差分・原因バケット〔権威性/技術/hygiene〕・hygiene URL surface）。performance を見る metrics-analyzer と直交・audit-only | Evaluator    | sonnet  | gsc-review                                                            | ✅ 運用中（2026-06-19 起動）                     |
+| `metrics-analyzer`             | GSC/GA4 計測データから改善機会を5パターン抽出（High-Impr-Low-CTR 等。index 済みページの **performance** 専任＝coverage は gsc-index-auditor）                                                     | Evaluator    | sonnet  | weekly-improve                                                        | ✅ 運用中                                     |
 | `performance-auditor`          | PSI 計測データからしきい値違反・回帰を検出し、LCP 肥大・CLS 発生等の既知パターンに改善候補をマッピング                                            | Evaluator    | sonnet  | psi-audit                                                             | ✅ 運用中                                     |
 | `content-planner`              | コンテンツ企画（Phase 2 で復活）                                                                                 | Generator    | sonnet  | discover-exam-season, exam-demand, keyword-gap                        | ⏸️ Phase 2 で復活                            |
 | `keyword-rewriter`             | CEM キーワードページのバルクリライト                                                                                 | Generator    | sonnet  | quality-cycle 連携                                                      | ✅ 運用中                                     |
@@ -122,6 +122,7 @@ title: サブエージェント詳細レジストリ
 | `ui-visual-qa` | UI 視覚 Evaluator（`.tsx` 視覚回帰） | `/design-review --visual`（同機能を design-review スキルに統合） |
 | `cem-advisor` | CEM 試験対策 Generator（placeholder） | Generator は `keyword-rewriter`、Evaluator は `cem-qa`、orchestration は `strategy-advisor` |
 | `note-figure-auditor` | note 図版を `note-svg-policy.md` 準拠で 4 軸監査（〜2026-06-18 Phase A 起源） | `svg-figure-auditor`（site/note 横断化して吸収・2026-06-18） |
+| `seo-auditor` | SEO 総合監査（Phase 2 待機・GSC/GA4 取得＋分析の catch-all） | 2026-06-19 退役（統合再設計）。coverage→`gsc-index-auditor` / performance→`metrics-analyzer` / CWV→`performance-auditor` / 取得→CI（`fetch-metrics.yml`・`index-coverage.yml`）。keyword-gap は Phase 2 `content-planner`。真実源 `docs/reference/gsc-management.md` |
 
 ## Generator と Evaluator の分離原則
 
@@ -143,7 +144,8 @@ title: サブエージェント詳細レジストリ
 | **cem-qa** | `.mdx`（総監キーワード `group: keyword` 全件 + 横断トレードオフガイド `management-tradeoffs` の §23 構造チェック） | 5管理体系・コンポーネント原則・参考資料・横断トレードオフ §23（核同士の対称関係・固有名詞混入） | キーワードページ執筆後 / `management-tradeoffs` 編集後 |
 | **civil-construction-qa** | `.mdx`（1級土木 textbook/guide） | 視覚検証 + テキスト網羅率（3モード5軸） | 1級土木 MDX 生成後 |
 | **civil-construction-review** | `.mdx`（1級土木 textbook/guide） | content-principles準拠＋モバイル視認性＋画像キャプション品質（PDF照合なし、5軸） | 既存 MDX の定期校正・編集後 |
-| **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query） | `/weekly-improve` 実行時 |
+| **metrics-analyzer** | `.claude/state/metrics/gsc/*.json`, `.claude/state/metrics/ga4/*.json` | 5パターン抽出（High-Impr-Low-CTR, Rank-Stuck, Traffic-Drop, Hidden-Winner, Orphan-Query）＝index 済みページの performance | `/weekly-improve` 実行時 |
+| **gsc-index-auditor** | `.claude/state/metrics/url-inspection/*.json` + `.claude/state/metrics/gsc/index-coverage-history.json` | coverage_state 7バケット分類・`indexed_ratio`・履歴差分・原因バケット（権威性/技術/hygiene）・hygiene URL surface（**coverage 専任**＝performance は metrics-analyzer） | `/gsc-review` 実行時（月次 CI 後） |
 | **performance-auditor** | `.claude/state/metrics/psi/*.json` | しきい値違反＋回帰検出（LCP/CLS/INP/TBT/TTFB/Scores）＋既知パターンマッピング | `/psi-audit` 実行時 / 日次 workflow 後 |
 | **exam-keyword-mapping-auditor** | `.claude/state/exam-keyword-map.json` の anchor 1 件単位 | 紐づけ精度の 2 段階 semantic 評価（Stage 1=現紐づけのカバレッジ、Stage 2=候補発見）＋ 3 階層 confidence（auto_apply / needs_review / reject） | `/audit-exam-mapping audit-year` 実行時に各 anchor へ分配 |
 | **note-fact-checker（スコープ D）** | note 記事本文の白書由来 数値・固有名 + NotebookLM 白書ノートブック（`2bf7f0dd-3935-49be-8cef-2d428c59eaa9`・白書 PDF をソース登録済み） | NotebookLM 白書ノートブックへの問い合わせ照合（`notebooklm-cross-query.mjs`・引用を返せない数値を ⚠️要確認 で surface。認証切れ時は照合不能と明記）。**ローカル白書 PDF は 2026-06-17 削除＝offline grep 不可** | 白書連動 note 記事（クロストレードオフ・白書R7対応集・R8予想問題集・模範論文の白書事例）公開前 |

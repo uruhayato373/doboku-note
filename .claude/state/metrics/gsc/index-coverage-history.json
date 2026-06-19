@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "updated_at": "2026-06-19T12:11:59.662Z",
+  "entries": [
+    {
+      "date": "2026-04-27",
+      "run_at": "2026-06-19T12:11:59.662Z",
+      "sitemap_urls": 756,
+      "inspected": 756,
+      "indexed": 407,
+      "discovered_not_indexed": 219,
+      "crawled_not_indexed": 17,
+      "redirect": 48,
+      "not_found": 20,
+      "excluded_noindex": 0,
+      "other": 45,
+      "indexed_ratio": 0.538,
+      "batch_file": "inspection-batch-2026-04-27T11-49-43.json,inspection-batch-2026-04-27T11-49-46.json,inspection-batch-2026-04-27T11-49-47.json,inspection-batch-2026-04-27T11-49-54.json",
+      "notes": "初回計測(756件)。page_fetch SUCCESSFUL=技術問題なし→ドメイン権威性が主因。sitemap_urls≈inspected(4月時点のサイト規模)"
+    }
+  ]
+}

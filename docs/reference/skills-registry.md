@@ -20,7 +20,7 @@ title: スキル ガバナンス記録
 ├── authoring/       # 12 — 記事を作る
 ├── conversion/      # 5 — 形式変換（MDX / OGP 画像 / 紙用 PDF）＋ OGP 意匠の素案試作
 ├── quality/         # 14 — MDX・note 公開前品質検査
-├── management/      # 12 — 計画・分析・戦略
+├── management/      # 13 — 計画・分析・戦略
 ├── dev/             # 13 — 開発・CI/CD
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 20 — SNS 投稿
@@ -28,8 +28,9 @@ title: スキル ガバナンス記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **80 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **81 スキル**（9 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
 
+> 2026-06-19 新設（GSC 継続管理の統合再設計）: `management/gsc-review`（月次 GSC **index coverage** レビューのオーケストレータ・user-invocable）。あわせて **新エージェント `gsc-index-auditor`（Evaluator・sonnet・audit-only）** ＝URL Inspection から coverage_state 7バケット分類・`indexed_ratio`・履歴差分・原因バケット（権威性/技術/hygiene）を診断（performance を見る `metrics-analyzer` と直交）。取得は CI `index-coverage.yml`（月次 cron・全 sitemap URL を URL Inspection→`url-inspection/*.json`＋`index-coverage-history.json` を develop commit）、履歴追記は `scripts/append-coverage-history.mjs`（冪等・creds 不要）、母集合生成は `scripts/list-sitemap-urls.mjs`（公開 sitemap・creds 不要）。**SSOT は `docs/reference/gsc-management.md`**（分業表・閾値〔indexed_ratio 警戒<60%・目標≥80%〕・判断マトリクス・観測/判断ログ。memory `reference_gsc_diagnosis_toolkit` を移植）。**休止中 `seo-auditor` を退役**（責務を coverage/performance/CWV に分割・参照15箇所を再配線）。背景: 2026-06-19 のトラフィック減調査で「サイト約半分が未 index（原因はドメイン権威性）」が真因と判明したが継続追跡の担当が無かった。スキル件数 80→81・management 12→13、agent 件数は不変（+gsc-index-auditor / −seo-auditor）。
 > 2026-06-18 新設（SVG 図版監査・外科修正・目視ギャラリー）: 新エージェント `svg-figure-auditor`（Evaluator・sonnet・audit-only）＝site（`.local/r2/posts/**/img/*.svg`）と note（`docs/note/**/img/figure-*`）を横断で図版 SVG を 4 軸監査（site=`svg-tokens.json`/`image-policy.md`/`principles.md`、note=`note-svg-policy.md`。機械 svg audit P1-P8 の上の意味層＝概念伝達・alt・可読性・本文結線）。`svg-figure-rewriter`（Generator・sonnet）＝指摘を SVG ソースに外科適用（色 token 化/font 引上げ/矢印 marker 統一/必須属性補完/重なり調整。site は `audit.mjs` で HIGH=0 自己確認・note は figure-*.svg 修正後に render で PNG 再生成）。**旧 `note-figure-auditor` を吸収し退役**（守備範囲を site/note 横断へ拡張）。あわせて `npm run svg-gallery`（`scripts/svg-gallery.mjs`）＝site/note 図版を1枚 HTML で目視確認（**site/note タブ＋タブ内 資格別フィルタ**・`ogp-gallery` パターン＋site は `svg-audit.json` 重大度バッジ。`--all` は後方互換 no-op＝note は常にタブ表示）。既存 `build-gallery-comment.mjs`（GitHub コメント用 Markdown）は用途別で残置。配線替え: `/note-prepublish-review` Phase 2 の図版監査・`/create-svg` の skills-guide 行・`check-mdx` SKILL のギャラリー節を更新。agents-registry 件数 50→51（スキル件数は不変）。
 > 2026-06-17 追加（ドキュメント ライフサイクル監査）: `dev/doc-declutter`（doc の**肥大化棚卸し**＝完了 handoff の退避・古い行の trim・重複 doc の統廃合）。あわせて **新エージェント `doc-curator`（Evaluator・sonnet）** を新設＝候補 doc を KEEP/TRIM/ARCHIVE/DELETE/CONSOLIDATE に分類（**親が渡した外部実体の検証済みシグナルに基づき判定・doc の自己申告で done と決めない**・自動修正/退避はしない）。機械 surfacer `scripts/check-doc-lifecycle.mjs`（`npm run check-doc-lifecycle`・鮮度/orphan/PR・commit 言及で候補を非ブロッキングに列挙）も新設し、pre-commit hook `check-doc-sync.sh` に「active handoff が一定数を超えたら `/doc-declutter` を促す」nudge を追加。**`/doc-sync`（コード変更起点の prose 陳腐化）とは守備範囲が直交**（こちらは doc 自体のライフサイクル）。安全則は今セッションの handoff 整理の実体験から導出＝①外部実体（PR merged・published:true・deploy・ファイル実在）を検証してから処分、未確認なら DELETE せず ARCHIVE ②退避≠削除（恒久 SSOT が内容を完全保持する時のみ DELETE）③参照は同一 commit で `_archive/` パス or SSOT へ張り替え（`check-doc-refs` ゲート）④`git commit -- <pathspec>` で並行セッションを巻き込まない ⑤memory も同期。`user-invocable: true`（退避/削除/参照更新の副作用が大きい）。
 > 2026-06-17 追加: `metrics/record-sales`（note 販売履歴を SSOT `sales-log.json` に記録するスキル。ダッシュボードペーストから正規化追記＋月次集計。Generator `sales-recorder` 新設）。運用ドキュメント `docs/reference/sales-tracking.md` と同時新設。
@@ -140,6 +141,8 @@ title: スキル ガバナンス記録
 | 2026-04-23 | `aidesigner-frontend` | 直接 Claude 指示 or AIDesigner MCP 直接 |
 | 2026-04-23 | `ui-visual-qa` | `/design-review --visual`（スキル層に統合） |
 | 2026-04-23 | `cem-advisor` | Generator は `keyword-rewriter`、Evaluator は `cem-qa` |
+| 2026-06-18 | `note-figure-auditor` | `svg-figure-auditor`（site/note 横断化して吸収） |
+| 2026-06-19 | `seo-auditor` | GSC 統合再設計で分割: coverage→`gsc-index-auditor` / performance→`metrics-analyzer` / CWV→`performance-auditor` / 取得→CI。真実源 `docs/reference/gsc-management.md` |
 
 ### スキルバージョン更新履歴
 

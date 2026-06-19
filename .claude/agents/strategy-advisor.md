@@ -40,7 +40,7 @@ model: inherit
 
 「レビューして」の文脈から適切なスキル/エージェントを選択:
 - コンテンツ構成 → content-planner
-- SEO/パフォーマンス → seo-auditor
+- SEO coverage → gsc-index-auditor（/gsc-review）/ performance → metrics-analyzer（/weekly-improve）/ CWV → performance-auditor（/psi-audit）
 - 広告・収益 → 自身（/audit-ads 委譲）
 - 戦略・計画 → 自身（/critical-review）
 - UI/デザイン → /design-review, /ui-panel-review
@@ -63,7 +63,7 @@ model: inherit
 
 - MDX コンテンツの作成・編集（PDF→MDX 変換等）
 - サイトの開発・デプロイ
-- SEO 監査の実行（seo-auditor に委譲）
+- SEO 監査の実行（coverage→gsc-index-auditor / performance→metrics-analyzer / CWV→performance-auditor に委譲）
 - コンテンツ企画の詳細設計（content-planner に委譲）
 
 ## 推奨ワークフロー
