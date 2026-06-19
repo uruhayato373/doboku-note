@@ -73,6 +73,39 @@
 
 ---
 
+### 2級土木（＋1級土木）ガイド記事の充実・SEO 強化（🟡 次月以降）
+
+**発端**: `https://doboku-note.com/category/civil-construction-2` のガイド記事が内容薄い
+
+**現状（語数確認済み）**:
+
+| 記事 | 語数 |
+|---|---|
+| guide-schedule-management | 137語 |
+| guide-quality-management | 153語 |
+| guide-study-method | 153語 |
+| guide-concrete-key-points | 157語 |
+| … | … |
+| guide-exam-overview（最大） | 262語 |
+
+全14本が 137〜262語。SEO で上位表示を狙うには最低 800〜1500語が目安で、現状は全本不足。1級土木ガイドも同様（123〜262語）。
+
+**やりたいこと**:
+1. **既存ガイドの増量リライト** — 各ガイドの主要論点を深掘りし、合格体験談・具体的な勉強法・試験傾向を加えて 800語以上に増量
+2. **SEO キーワード設計の見直し** — `seoTitle` / `description` を検索意図に合わせて最適化（例: 「2級土木施工管理技士 勉強方法」「2級土木 合格率」など）
+3. **不足している記事テーマの追加** — 競合サイトが持っていて doboku-note にない記事を追加（例: 合格率・難易度比較・おすすめ参考書詳細レビュー）
+4. **内部リンク強化** — ガイド記事から過去問・テキストページへの誘導を増やす
+
+**優先度（着手順）**:
+- `guide-exam-overview`（最も検索ニーズが高い・現状でも最大の262語）を最初に 1500語超にリライト → 成果を見て残りに展開
+- `guide-study-method`・`guide-study-plan` も需要が高い（「勉強方法」「学習計画」は検索ボリューム大）
+
+**担当スキル**: `civil-textbook-rewriter` エージェント（guide 系にも適用可）または新規 `civil-guide-rewriter` エージェント
+
+**参考 URL**: `https://doboku-note.com/category/civil-construction-2`
+
+---
+
 ### 2級土木 二次過去問の `- （1）` 二重表記を修正（🟡 次月以降）
 
 **発端**: `https://doboku-note.com/docs/civil-construction-2-secondary-r07`
