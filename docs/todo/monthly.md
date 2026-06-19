@@ -199,3 +199,59 @@ textbook-transport-machinery        ( 6枚)
 - 今後追加される資格も同様
 
 **参考 URL**: `https://doboku-note.com/category/civil-construction-2`
+
+---
+
+### カテゴリページ全面 UI 刷新：ブログカード化 + 全資格サイドバー（🟡 次月以降）
+
+**背景**: 上記「noteリンクをサイドバーへ」とセットで実施する大きめのUI改善。参考サイト（ソーシャルPLUS ブログ `docs/todo/reference-sites.md`）の「余白を絞ったブログカード一覧 + 右サイドバー」レイアウトを doboku-note のカテゴリページに導入する。
+
+**やりたいこと（2点）**
+
+#### 1. 記事一覧をブログカード形式に（サムネイル画像付き）
+
+現状の `DocCard`（`src/app/category/[slug]/page.tsx` L.224）はタイトルのみのテキストカード。  
+これを **サムネイル画像 + タイトル + 概要文** のブログカード形式に変更する。
+
+- OGP 画像（`ogp.webp`）が各記事の `img/` 配下に存在 → サムネイルに流用可能
+- 画像 URL は `https://storage.doboku-note.com/posts/{slug}/ogp.webp`（R2）
+- `description` frontmatter を抜粋テキストとして表示
+- カード高さを揃えて余白を絞り、参考サイトのような高密度・整列感を出す
+- モバイルでは 1 列、PC では 2〜3 列グリッド（現状と同じ）
+
+実装イメージ:
+```tsx
+// DocCard を BlogDocCard に刷新（イメージ）
+<Link href={`/docs/${doc.slug}`} className="group flex flex-col overflow-hidden rounded-card border ...">
+  <div className="aspect-[16/9] overflow-hidden bg-gray-100">
+    <img src={`https://storage.doboku-note.com/posts/${doc.slug}/ogp.webp`} alt={doc.title} className="w-full h-full object-cover" />
+  </div>
+  <div className="p-4 flex flex-col gap-1">
+    <h3 className="font-bold text-[var(--ink)] line-clamp-2">{doc.title}</h3>
+    <p className="text-sm text-[var(--ink-muted)] line-clamp-2">{doc.description}</p>
+  </div>
+</Link>
+```
+
+#### 2. 右サイドバーを全資格カテゴリに拡張
+
+現状は civil 系のみ。`categoryMagazines.length > 0` を条件にして全資格で `<aside>` を表示する。
+
+サイドバー内の構成（上から順に）:
+- **note 有料マガジン・記事リスト** — `categoryMagazines` で取得したマガジンをリンクカード（タイトル + 価格 + arrow）で列挙。参考サイトの「カテゴリから記事を探す」スタイル（下線 + リンク配色）
+- **アフィリエイト広告**（civil のみ。他資格は広告なし）
+- `sticky top-6` で追従
+
+**実装の影響範囲**:
+- `src/app/category/[slug]/page.tsx`（メイン）
+  - `DocCard` コンポーネント → `BlogDocCard` に刷新
+  - `<aside>` 表示条件を `careerSidebar || categoryMagazines.length > 0` に変更
+  - サイドバー内にマガジンリンクリストを追加
+- `src/components/ui/SidebarNoteLinks/`（新規コンポーネント、任意）
+
+**注意点**:
+- OGP 画像が存在しない記事（`published: false` 等）はフォールバック画像（カテゴリ色のプレースホルダ）を表示
+- `next/image` の `remotePatterns` に `storage.doboku-note.com` が登録済みか確認（→ `next.config.mjs`）
+- `/design-review --visual` でモバイル・PC 両方を目視確認してからコミット
+
+**参考**: `docs/todo/reference-sites.md` ソーシャルPLUS ブログのサイドバー・カードデザイン観察
