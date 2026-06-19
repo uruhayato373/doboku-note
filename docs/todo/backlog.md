@@ -171,18 +171,35 @@
 
 ---
 
-### 過去問の `## 関連コンテンツ` を廃止し `RelatedArticles` コンポーネントへ移行 🟡
+### 関連記事セクションのレイアウト統一 — MDX 直書きを廃止し `RelatedArticles` コンポーネントへ全面移行 🟡
+
+**発端**: `https://doboku-note.com/docs/pe-construction-bousai-genseigai-ronbun-keyword`
 
 **問題**:
-1. MDX 末尾に `## 関連コンテンツ` + `<RelatedKeywords>` が直書きされていて AuthorCard の後に埋まっている
-2. 2級土木 primary の `<RelatedKeywords>` が他の過去問ページを指している（本来はキーワード・テキストページへ）
+- `## 関連記事` / `## 関連コンテンツ` が MDX 内に直書きされていて、`prose-blog` の中に plain markdown（見出し + リンク箇条書き）として流れ込む。コンポーネント化されておらず、記事によってレイアウトがバラバラ。
+- `<article>` の中に入るか外に出るかも記事によって異なり、視覚的な一貫性がない。
+
+**対象（計27本）**:
+
+| カテゴリ | 件数 | 節名 |
+|---|---|---|
+| `pe-construction`（建設部門キーワード等） | 22本 | `## 関連記事` |
+| `civil-construction-2`（2級土木 primary/secondary） | 3本 | `## 関連コンテンツ` |
+| `civil-construction-1`（1級土木） | 2本 | `## 関連コンテンツ` |
+
+加えて `civil-construction-2/primary-r*` は `<RelatedKeywords>` で他の過去問ページを指していて、リンク先も誤っている。
 
 **やること**:
-1. `civil-construction-2/primary-r*` の `## 関連コンテンツ` を一括削除
-2. `RelatedArticles` コンポーネントを page.tsx レイヤーで実装（frontmatter category + tags から自動生成）
-3. 2級土木 primary 各設問の正しい関連キーワードを追記（`past-exam-rewriter` 活用）
+1. **MDX から削除**: 27本すべての `## 関連記事` / `## 関連コンテンツ` 節を一括削除
+2. **コンポーネント実装**: `RelatedArticles`（新規）を page.tsx レイヤーで実装。frontmatter の `category` + `tags` から同カテゴリ近傍ページをカード形式で自動生成。全資格・全記事種別で共通使用。
+3. **配置**: `<article>` の外（DocCard の下・AuthorCard の前）に固定配置。MDX に依存しない。
+4. **`<RelatedKeywords>` のリンク先修正**: 2級土木 primary 各設問のリンクをキーワード・テキストページへ修正（`past-exam-rewriter` 活用）
 
 **新規コンポーネント**: `src/components/ui/RelatedArticles/RelatedArticles.tsx`
+
+**実装ファイル**:
+- `src/app/docs/[...slug]/page.tsx`（RelatedArticles を追加、既存の category 別条件分岐の後）
+- 27本の MDX（一括スクリプトで `## 関連記事` 節を削除）`[Codex候補]`
 
 ---
 
