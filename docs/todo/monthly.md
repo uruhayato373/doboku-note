@@ -56,6 +56,33 @@
 
 ## バックログ（次月以降）
 
+### 書籍アフィリエイト（BookCard）の休止対応 — page.tsx から削除する（🟡 次月以降）
+
+**発端**: `https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki` に「参考書籍」セクションが残っている
+
+**現状**:
+- `src/app/docs/[...slug]/page.tsx` に `<BookSection>` + `<BookCard asin="...">` が複数箇所に残っており実際に表示されている
+- もしもアフィリエイトのペイロードは `src/config/affiliate-books.json` に登録済み（ASIN 12件）
+
+**表示されている箇所（page.tsx）**:
+| 条件 | ASIN | 備考 |
+|---|---|---|
+| CEM keyword | `4274234746` | 総監キーワード集 |
+| CEM pastExam | `4798076546` | R8予想問題集 |
+| civil-1 secondary | `4886154557`, `4816378561` | 二次検定対策 |
+| civil-2 primary | `4816378383`, `4770329784` | 一次検定対策 |
+| （他にも 36 行のレンダリング記述あり） | | |
+
+**Amazon アソシエイト（PA-API）の状態**: Phase 0（書籍リストの手動蓄積中）— 審査未通過のため PA-API リンクは生成していない（`book-list.md` Phase 1 以降が未着手）
+
+**対応**:
+- **短期**: `page.tsx` の全 `<BookSection>` / `<BookCard>` ブロックをコメントアウトまたは削除して表示を止める
+- **中期**: 書籍アフィリエイト再開の判断タイミングを決める（Amazon アソシエイト審査通過後 or もしも単独で継続するか）
+
+**実装ファイル**: `src/app/docs/[...slug]/page.tsx`（BookSection/BookCard 関連 36 行）
+
+---
+
 ### セキュリティ定期チェック：API トークン更新サイクルと Claude プラグイン棚卸し（🟢 次月以降）
 
 **背景**: CI/CD・Claude Code が複数の外部サービス API トークンを使っている。有効期限切れによるデプロイ停止（CLAUDE.md §12「500 の場合は Cloudflare API token 期限切れを仮説1番に確認」）が実際に起きており、定期チェックサイクルを決める必要がある。
