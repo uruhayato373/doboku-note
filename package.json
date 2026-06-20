@@ -76,7 +76,8 @@
     "pre-commit:install": "node scripts/install-pre-commit.mjs",
     "pre-push:install": "node scripts/install-pre-push.mjs",
     "test": "node --test tests/",
-    "test:watch": "node --test --watch tests/"
+    "test:watch": "node --test --watch tests/",
+    "check-guide-length": "node scripts/check-guide-length.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",

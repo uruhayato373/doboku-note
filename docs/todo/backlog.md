@@ -32,6 +32,50 @@
 
 ## 1. コンテンツ品質
 
+### ガイド記事 3,000字下限の加筆バーンダウン（31本）🔴 `[Codex候補]`
+
+**発端**: ガイド記事（`group: guide`）で本文 3,000 字未満の薄い記事が散見。`content-principles.md §25` で「ガイド記事は本文（frontmatter除外・空白除去後）3,000字以上」を必須下限に制定（2026-06-21）。
+
+**方針**: 31本を §17（各 H2 セクション散文 200〜400字）に沿って加筆 → **全部 ≥3,000字になったら `check-guide-length` を pre-commit/CI（`r2-audit.yml`）に登録して赤落ちゲート化**。ゲート登録までは未配線（既存 main CI を割らないため）。
+
+**進捗確認**: `npm run check-guide-length`（published 全件・赤落ち）/ `node scripts/check-guide-length.mjs --all`（draft 含む一覧）。
+
+**対象31本**（字数昇順・残り字数。加筆は字数水増しでなく具体＝数値/体験/選択基準を足す。加筆後 `civil-construction-review` で5軸再確認）:
+
+- [ ] 1626 civil-construction-1/guide-textbooks（あと1374）
+- [ ] 1745 civil-construction-2/guide-study-method（あと1255）
+- [ ] 1748 civil-construction-2/guide-overview（あと1252）
+- [ ] 1822 civil-construction-1/guide-grade-comparison（あと1178）
+- [ ] 1829 civil-construction-1/guide-career-agents（あと1171）
+- [ ] 1867 civil-construction-2/guide-textbooks（あと1133）
+- [ ] 1971 civil-construction-2/guide-quality-management（あと1029）
+- [ ] 2019 civil-construction-2/guide-schedule-management（あと981）
+- [ ] 2056 civil-construction-1/guide-difficulty（あと944）
+- [ ] 2131 pe-construction/sentaku-kamoku-kakiwake（あと869）
+- [ ] 2142 civil-construction-2/guide-concrete-key-points（あと858）
+- [ ] 2152 civil-construction-2/guide-earthwork-key-points（あと848）
+- [ ] 2168 civil-construction-2/guide-law-key-points（あと832）
+- [ ] 2215 civil-construction-1/guide-study-method（あと785）
+- [ ] 2298 concrete-chief-engineer/guide-overview（あと702）
+- [ ] 2312 pe-construction/nanido-goukakuritsu（あと688）
+- [ ] 2419 civil-construction-2/guide-job-reality（あと581）
+- [ ] 2426 pe-construction/gyoumu-keireki-hyou（あと574）
+- [ ] 2429 civil-construction-2/guide-salary（あと571）
+- [ ] 2444 pe-construction/gakushuu-jikan-schedule（あと556）
+- [ ] 2453 civil-construction-2/guide-study-plan（あと547）
+- [ ] 2455 civil-construction-2/guide-career-change（あと545）
+- [ ] 2513 pe-construction/hissu-kamoku-kaitourei（あと487）
+- [ ] 2608 pe-comprehensive-management/course-selection-guide（あと392）
+- [ ] 2696 civil-construction-1/guide-study-plan（あと304）
+- [ ] 2751 civil-construction-1/guide-salary-up（あと249）
+- [ ] 2808 civil-construction-1/guide-career-salary（あと192）
+- [ ] 2855 pe-construction/secondary-study-method（あと145）
+- [ ] 2868 civil-construction-1/guide-market-value（あと132）
+- [ ] 2885 civil-construction-2/guide-career（あと115）
+- [ ] 2969 civil-construction-2/guide-exam-overview（あと31）
+
+**ゲート登録（最終ステップ・31本完了後）**: `scripts/install-pre-commit.mjs` に `check-guide-length.mjs --staged` を追記 → `npm run pre-commit:install`、`r2-audit.yml` に `npm run check-guide-length` を追加。
+
 ### 【完了 2026-06-20】1級土木 テキストページの品質改善（頻出論点Callout是正）
 
 **問題**: ①頻出論点 Callout の内容過多、②記事冒頭に巨大 Callout が来て本文が後回し。
