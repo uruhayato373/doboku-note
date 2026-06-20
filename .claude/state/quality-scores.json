@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T03:25:17.705Z",
+  "scored_at": "2026-06-20T03:39:51.874Z",
   "pages": {
     "backcasting": {
       "slug": "backcasting",
@@ -155,23 +155,6 @@
       "qualitative_comment": "JIS Q 31010リンクが個別規格ページでなくJSAトップページ止まりで公的資料の実体確認が不完全。民間2件は実在確認済み。他4軸はlint違反ゼロ・構成順序完備・双方向リンク揃いで高水準。",
       "scored_at": "2026-05-16T08:22:15.997Z"
     },
-    "parallel-system": {
-      "slug": "parallel-system",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 3,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 2.15,
-      "weak_axes": [
-        "reference",
-        "mobile"
-      ],
-      "qualitative_comment": "参考資料の公的機関リンクがJISCトップページ止まりで実質コンテンツ未到達。ExamPointの配置が47%地点で構成順序も歴史的背景H2が位置づけセクション後に挿入されており軽微な順序ズレあり。",
-      "scored_at": "2026-05-16T08:22:15.997Z"
-    },
     "risk-identification": {
       "slug": "risk-identification",
       "scores": {
@@ -267,25 +250,6 @@
       "weak_axes": [],
       "qualitative_comment": "参考資料・関連付けは強固。MEDIUM2件（factual table直下のインライン出典欠落）と「発展経緯」H2の重複が弱点。",
       "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "cites": {
-      "slug": "cites",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 3,
-        "linking": 2
-      },
-      "weighted": 2.15,
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "principle",
-        "linking"
-      ],
-      "qualitative_comment": "参考資料は公的・民間揃い満点だが、条約制定の背景・過去問での出題セクションが位置づけセクションより後に配置されており構造順序が規定から逸脱。表前導入文欠落・ExamPoint位置ズレも残存。",
-      "scored_at": "2026-05-16T08:22:15.997Z"
     },
     "civil-protection-act": {
       "slug": "civil-protection-act",
@@ -1603,34 +1567,6 @@
       "weighted": 2.15,
       "weak_axes": [],
       "qualitative_comment": "歴史H2がセクション末尾に挿入で順序ズレ。ExamPoint位置と§22インライン出典欠落がMEDIUM。参考資料は公的+民間揃い。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "theory-of-constraints": {
-      "slug": "theory-of-constraints",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "全軸2点安定。DBRセクション散文ゼロ・ExamPoint位置ズレ・公的機関リンク不在が共通弱点。歴史背景H2は削除候補。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "three-point-estimation": {
-      "slug": "three-point-estimation",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "5管理トレードオフH3欠落（現場運用mandatory）とExamPoint位置違反（57%）が主な減点。参考資料は実在確認済みだが公的一次資料なし。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "timeline-disaster": {
@@ -9661,6 +9597,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T03:25:17.705Z",
+      "scoring_method": "auto"
+    },
+    "cites": {
+      "slug": "cites",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:39:51.760Z",
+      "scoring_method": "auto"
+    },
+    "parallel-system": {
+      "slug": "parallel-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:39:51.802Z",
+      "scoring_method": "auto"
+    },
+    "theory-of-constraints": {
+      "slug": "theory-of-constraints",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:39:51.840Z",
+      "scoring_method": "auto"
+    },
+    "three-point-estimation": {
+      "slug": "three-point-estimation",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:39:51.872Z",
       "scoring_method": "auto"
     }
   }
