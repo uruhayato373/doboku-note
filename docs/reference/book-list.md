@@ -6,6 +6,9 @@ title: 紹介書籍リスト（Amazonアソシエイト用）
 
 doboku-note のコンテンツから紹介する書籍の手動キュレーション台帳。資格別×用途別に整理し、後日 PA-API 通過後に `src/config/amazon-books.json` へ機械可読化する前段の真実源。
 
+> [!warning]
+> **書籍アフィリエイトは現在「全面休止中」**（2026-06-20〜）。`src/config/affiliate-flags.ts` の `AFFILIATE_LINKS_ENABLED = false` により、`<BookCard>` も `<BookSection>`（「参考書籍」枠）も**サイト全体で一切描画されない**（もしも審査未通過のため。空の「参考書籍」見出しだけ残る不具合を解消した措置）。本ファイルの手順（BOOKCARD-TODO マーカー → `<BookCard asin="...">` 置換等）で配置を追加しても、フラグが `false` の間は表示されない。審査通過後に `AFFILIATE_LINKS_ENABLED = true` へ戻すと既存配置がそのまま全復活する。
+
 ## 運用ルール
 
 1. **追加条件**: 運営者が実際に読み込んだ・受験対策に有効と判断した書籍のみ掲載（未読書籍の推測掲載は禁止）
