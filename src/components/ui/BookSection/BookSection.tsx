@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { AFFILIATE_LINKS_ENABLED } from "@/config/affiliate-flags";
 
 interface BookSectionProps {
   /** セクション見出し。デフォルト "参考書籍"。記事内 h2 と区別するため div + 小ラベルでレンダリング */
@@ -32,6 +33,12 @@ export default function BookSection({
   children,
   className,
 }: BookSectionProps) {
+  // 書籍アフィリエイト休止中は見出し・キャプションごと非表示にする（子 BookCard は
+  // null を返すため、ラッパーを残すと空の「参考書籍」枠だけが出てしまう）。
+  if (!AFFILIATE_LINKS_ENABLED) {
+    return null;
+  }
+
   const containerClass = [className].filter(Boolean).join(" ");
 
   return (
