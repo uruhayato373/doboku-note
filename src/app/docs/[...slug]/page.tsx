@@ -24,6 +24,7 @@ import { compileMDX } from 'next-mdx-remote/rsc';
 import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
+import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
@@ -763,9 +764,13 @@ export default async function DocPage({
                 <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
               </div>
               {/* 過去問ページ（CEM 択一=pastExam, 1級2級土木/コンクリート系=primary/secondary）は
-                  TOC が問番号の羅列になりナビゲーションとして機能しないため非表示にする。 */}
+                  TOC が問番号の羅列になりナビゲーションとして機能しないため非表示にし、
+                  primary は代わりに設問番号グリッド（ExamQuestionNav）を出す。 */}
               {docGroup !== 'pastExam' && docGroup !== 'primary' && docGroup !== 'secondary' && (
                 <TableOfContents headings={headings} />
+              )}
+              {docGroup === 'primary' && (
+                <ExamQuestionNav headings={headings} variant="sidebar" />
               )}
               {hasCategoryNavCard && category && (
                 <div className="mt-3">
