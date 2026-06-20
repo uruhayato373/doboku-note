@@ -1,3 +1,9 @@
+import {
+  AFFILIATE_LINK_REL,
+  AffiliatePrBadge,
+  TrackingPixel,
+} from "@/components/ui/AffiliateParts";
+
 interface DokugakuBannerProps {
   /**
    * 計測ピクセル（1x1）を描画するか。
@@ -37,16 +43,10 @@ export default function DokugakuBanner({ withPixel = false }: DokugakuBannerProp
   return (
     <div className="not-prose my-6 flex flex-col items-center">
       <div className="relative inline-block max-w-full overflow-hidden rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-2 shadow-card-content">
-        <span
-          className="absolute right-2 top-2 z-10 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
-          style={{ background: "var(--color-ink-muted)" }}
-          aria-label="広告"
-        >
-          PR
-        </span>
+        <AffiliatePrBadge className="absolute right-2 top-2 z-10" />
         <a
           href={CREATIVE.href}
-          rel="nofollow sponsored noopener"
+          rel={AFFILIATE_LINK_REL}
           target="_blank"
           className="block"
         >
@@ -60,17 +60,7 @@ export default function DokugakuBanner({ withPixel = false }: DokugakuBannerProp
           />
         </a>
       </div>
-      {withPixel && (
-        <img
-          src={CREATIVE.pixelSrc}
-          width={1}
-          height={1}
-          alt=""
-          aria-hidden
-          style={{ position: "absolute", left: "-9999px" }}
-          suppressHydrationWarning
-        />
-      )}
+      <TrackingPixel src={withPixel ? CREATIVE.pixelSrc : undefined} />
     </div>
   );
 }

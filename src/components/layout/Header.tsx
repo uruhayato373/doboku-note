@@ -100,17 +100,12 @@ function CategoryIcon({ variant, className }: { variant: string; className?: str
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
   const categoryDropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
   const toggleCategoryDropdown = () => setIsCategoryOpen(prev => !prev);
   const closeCategoryDropdown = () => setIsCategoryOpen(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
@@ -164,17 +159,15 @@ export default function Header() {
               >
                 <Search className="w-6 h-6 text-[var(--ink-body)]" />
               </Link>
-              {mounted && (
-                <button
-                  onClick={toggleMenu}
-                  className="p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
-                  aria-label="メニューを開く"
-                  aria-expanded={isMenuOpen}
-                  aria-haspopup="true"
-                >
-                  <Menu className="w-6 h-6 text-[var(--ink-body)]" />
-                </button>
-              )}
+              <button
+                onClick={toggleMenu}
+                className="p-2 rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
+                aria-label="メニューを開く"
+                aria-expanded={isMenuOpen}
+                aria-haspopup="true"
+              >
+                <Menu className="w-6 h-6 text-[var(--ink-body)]" />
+              </button>
               <ThemeToggle />
             </div>
             {/* Desktop navigation and ThemeToggle */}
@@ -234,7 +227,7 @@ export default function Header() {
       </header>
 
       {/* オーバーレイ */}
-      {mounted && isMenuOpen && (
+      {isMenuOpen && (
         <div
           className="fixed inset-0 bg-black/50 z-40 md:hidden"
           onClick={closeMenu}
@@ -243,14 +236,13 @@ export default function Header() {
       )}
 
       {/* ドロワーメニュー */}
-      {mounted && (
-        <div
-          className={`fixed top-0 right-0 h-full w-64 bg-[var(--paper)] shadow-lift z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
-            isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
-          role="dialog"
-          aria-modal="true"
-        >
+      <div
+        className={`fixed top-0 right-0 h-full w-64 bg-[var(--paper)] shadow-lift z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+        role="dialog"
+        aria-modal="true"
+      >
         <div className="p-4">
           {/* 閉じるボタン */}
           <button
@@ -296,8 +288,7 @@ export default function Header() {
             </Link>
           </nav>
         </div>
-        </div>
-      )}
+      </div>
     </>
   );
 }

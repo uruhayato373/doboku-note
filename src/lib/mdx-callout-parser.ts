@@ -29,7 +29,6 @@ export function parseCallouts(content: string): string {
   let calloutType = '';
   let calloutTitle = '';
   let calloutContent: string[] = [];
-  let calloutStartIndex = -1;
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
@@ -74,7 +73,6 @@ export function parseCallouts(content: string): string {
       calloutType = calloutMatch[1]?.toLowerCase() || 'info';
       calloutTitle = calloutMatch[2]?.trim() || '';
       calloutContent = [];
-      calloutStartIndex = result.length;
 
       if (!SUPPORTED_TYPES.includes(calloutType)) {
         calloutType = 'info';

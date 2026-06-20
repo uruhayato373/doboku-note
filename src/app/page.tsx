@@ -92,14 +92,14 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
   categories.forEach((c) => labelByCategory.set(c.slug, c.label));
   return allMeta
     .filter((m) => m.published !== false)
-    .filter((m) => !(m as any).hideFromHome)
+    .filter((m) => !m.hideFromHome)
     .filter((m) => m.title && !m.title.startsWith("§"))
     .map((m) => {
       const dateStr =
-        (m as any).updatedAt ||
-        (m as any).dateModified ||
-        (m as any).publishedAt ||
-        (m as any).created;
+        m.updatedAt ||
+        m.dateModified ||
+        m.publishedAt ||
+        m.created;
       const date = dateStr ? new Date(dateStr) : null;
       return { meta: m, ts: date && !Number.isNaN(date.getTime()) ? date.getTime() : 0 };
     })
@@ -111,7 +111,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
       title: meta.shortTitle || meta.title,
       category: meta.category,
       categoryLabel: meta.category ? labelByCategory.get(meta.category) : undefined,
-      date: (meta as any).updatedAt || (meta as any).dateModified || (meta as any).publishedAt || (meta as any).created,
+      date: meta.updatedAt || meta.dateModified || meta.publishedAt || meta.created,
       tags: (meta.tags || []).filter(
         (t) => !["primary", "secondary", "past-questions", "guide", "textbook", "keyword"].includes(t),
       ),

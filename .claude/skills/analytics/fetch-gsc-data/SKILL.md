@@ -94,4 +94,6 @@ JSONファイルを Read ツールで読み込み、以下の観点で分析す�
 
 - `.claude/skills/analytics/fetch-gsc-data/scripts/fetch-gsc-data.mjs` — 実装
 - `CLAUDE.md` — プロジェクト概要
-- `seo-auditor` エージェント — GSC データを使って SEO 監査を実施
+- `gsc-index-auditor` エージェント — URL Inspection から index coverage を診断（`/gsc-review` 経由・月次）
+- `metrics-analyzer` エージェント — GSC/GA4 から performance 改善候補を抽出（`/weekly-improve` 経由・週次）
+- `docs/reference/gsc-management.md` — GSC 管理の分業・閾値・判断マトリクスの真実源

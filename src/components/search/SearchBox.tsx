@@ -6,6 +6,8 @@ import { cn } from "@/lib/cn";
 interface SearchBoxProps {
   className?: string;
   placeholder?: string;
+  value?: string;
+  onChange?: (query: string) => void;
   onSearch?: (query: string) => void;
   onFocus?: () => void;
   onBlur?: () => void;
@@ -15,6 +17,8 @@ interface SearchBoxProps {
 export function SearchBox({
   className,
   placeholder = "記事を検索...",
+  value,
+  onChange,
   onSearch,
   onFocus,
   onBlur,
@@ -22,9 +26,10 @@ export function SearchBox({
 }: SearchBoxProps) {
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [uncontrolledValue, setUncontrolledValue] = useState("");
   const inputRef = useRef<HTMLInputElement>(null);
   const suggestionsRef = useRef<HTMLDivElement>(null);
+  const inputValue = value ?? uncontrolledValue;
   const fetchSuggestions = useCallback(async (input: string) => {
     if (input.length < 2) {
       setSuggestions([]);
@@ -39,7 +44,10 @@ export function SearchBox({
   }, []);
 
   const handleInputChange = (value: string) => {
-    setInputValue(value);
+    onChange?.(value);
+    if (onChange === undefined) {
+      setUncontrolledValue(value);
+    }
     if (value.trim()) {
       fetchSuggestions(value);
       setShowSuggestions(true);
@@ -69,13 +77,16 @@ export function SearchBox({
 
   // 検索候補の選択
   const handleSuggestionClick = (suggestion: string) => {
-    setInputValue(suggestion);
+    handleInputChange(suggestion);
     handleSearch(suggestion);
   };
 
   // 検索クリア
   const handleClear = () => {
-    setInputValue("");
+    onChange?.("");
+    if (onChange === undefined) {
+      setUncontrolledValue("");
+    }
     setSuggestions([]);
     setShowSuggestions(false);
     onSearch?.("");

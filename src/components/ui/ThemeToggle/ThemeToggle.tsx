@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from '@/components/providers/ThemeProvider';
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
 /**
@@ -57,12 +57,12 @@ import { Sun, Moon } from 'lucide-react';
  * @returns {JSX.Element} テーマ切り替えボタンコンポーネント
  */
 export default function ThemeToggle() {
-  const [mounted, setMounted] = useState(false);
   const { theme, setTheme, resolvedTheme } = useTheme();
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => undefined,
+    () => true,
+    () => false,
+  );
 
   if (!mounted) {
     return (

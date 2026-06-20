@@ -36,13 +36,19 @@ export const availableComponents = {
 
 export type ComponentName = keyof typeof availableComponents;
 
+type ComponentMap = Record<string, unknown>;
+type ComponentMetadata = {
+  category?: string;
+  tags?: string[];
+};
+
 // MDXコンテンツから使用されているコンポーネントを解析
 export function analyzeMDXComponents(content: string): ComponentName[] {
   const usedComponents: ComponentName[] = [];
 
   // 各コンポーネントが使用されているかチェック
-  Object.entries(availableComponents).forEach(
-    ([componentName, componentString]) => {
+  Object.keys(availableComponents).forEach(
+    (componentName) => {
       // コンポーネントの使用パターンをチェック
       const patterns = [
         `<${componentName}`, // <ComponentName
@@ -67,9 +73,9 @@ export function analyzeMDXComponents(content: string): ComponentName[] {
 // 使用されているコンポーネントに基づいてコンポーネントオブジェクトを生成
 export function generateComponentObject(
   usedComponents: ComponentName[],
-  allComponents: any
+  allComponents: ComponentMap
 ) {
-  const componentObject: { [key: string]: any } = {};
+  const componentObject: ComponentMap = {};
 
   usedComponents.forEach((componentName) => {
     if (allComponents[componentName]) {
@@ -81,7 +87,7 @@ export function generateComponentObject(
 }
 
 // 記事のカテゴリやタグに基づいて追加で必要なコンポーネントを特定
-export function getAdditionalRequiredComponents(post: any): ComponentName[] {
+export function getAdditionalRequiredComponents(post: ComponentMetadata): ComponentName[] {
   const additionalComponents: ComponentName[] = [];
 
   // カテゴリ別の必須コンポーネント

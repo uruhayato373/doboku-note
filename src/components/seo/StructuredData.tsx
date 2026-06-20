@@ -21,7 +21,6 @@ function generateBreadcrumbSchema(
   meta: DocMeta | PostData,
   baseUrl: string
 ) {
-  const slug = "id" in meta ? meta.id : meta.slug;
   const category = meta.category;
 
   const items: object[] = [
@@ -56,7 +55,7 @@ function generateBreadcrumbSchema(
 }
 
 function isKeywordPage(meta: DocMeta | PostData): boolean {
-  return (meta as any).group === "keyword" || (meta.tags || []).includes("keyword");
+  return ("group" in meta && meta.group === "keyword") || (meta.tags || []).includes("keyword");
 }
 
 function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
@@ -109,19 +108,16 @@ function getExamName(category: string | undefined): string {
 }
 
 type FAQEntry = { q: string; a: string };
+type RawFAQEntry = FAQEntry | { question: string; answer: string };
 
 function getFAQs(meta: DocMeta | PostData): FAQEntry[] {
-  const raw = (meta as any).faqs;
+  const raw = "faqs" in meta ? meta.faqs : undefined;
   if (!Array.isArray(raw)) return [];
-  return raw.filter(
-    (item): item is FAQEntry =>
-      item != null &&
-      typeof item === "object" &&
-      typeof item.q === "string" &&
-      typeof item.a === "string" &&
-      item.q.trim().length > 0 &&
-      item.a.trim().length > 0
-  );
+  return raw.flatMap((item: RawFAQEntry) => {
+    const q = "q" in item ? item.q : item.question;
+    const a = "a" in item ? item.a : item.answer;
+    return q.trim().length > 0 && a.trim().length > 0 ? [{ q, a }] : [];
+  });
 }
 
 function generateFAQSchema(faqs: FAQEntry[]) {
@@ -197,7 +193,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
         }
 
         if (docMeta) {
-          const seoHeadline = (docMeta as any).seoTitle || docMeta.title;
+          const seoHeadline = docMeta.seoTitle || docMeta.title;
           return {
             "@context": "https://schema.org",
             "@type": "TechArticle",
@@ -215,15 +211,15 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
               name: "doboku-note",
             },
             datePublished:
-              (docMeta as any).publishedAt ||
-              (docMeta as any).created ||
+              docMeta.publishedAt ||
+              docMeta.created ||
               undefined,
             dateModified:
-              (docMeta as any).dateModified ||
-              (docMeta as any).lastRewrittenAt ||
-              (docMeta as any).updatedAt ||
-              (docMeta as any).publishedAt ||
-              (docMeta as any).created ||
+              docMeta.dateModified ||
+              docMeta.lastRewrittenAt ||
+              docMeta.updatedAt ||
+              docMeta.publishedAt ||
+              docMeta.created ||
               undefined,
             mainEntityOfPage: {
               "@type": "WebPage",

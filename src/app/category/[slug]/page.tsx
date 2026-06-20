@@ -6,15 +6,11 @@ import Footer from '@/components/layout/Footer';
 import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
-import peChaptersData from '@/config/pe-chapters.json';
-import type { PeChapter } from '@/config/pe-chapters';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAd } from '@/config/affiliate-creatives';
-
-const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
 export async function generateStaticParams() {
   const categories = getAllCategories();
@@ -645,113 +641,6 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
   );
 }
 
-/**
- * PE セクション別ツリー表示
- * キーワード集の5管理体系に基づきキーワードをグルーピング
- */
-function PeSectionTree({ sectionDocs, keywordDocs }: { sectionDocs: DocMeta[]; keywordDocs: DocMeta[] }) {
-  // セクションdigest の slug → DocMeta マップ（例: "section-3-1-human-behavior" → Doc）
-  const digestMap = new Map<string, DocMeta>();
-  for (const doc of sectionDocs) {
-    const sec = doc.section; // "3.1" 等
-    if (sec) digestMap.set(sec, doc);
-  }
-
-  // キーワードをセクション番号でグルーピング
-  const keywordsBySection = new Map<string, DocMeta[]>();
-  const unmapped: DocMeta[] = [];
-  for (const doc of keywordDocs) {
-    const sec = doc.section as string | undefined;
-    if (sec) {
-      if (!keywordsBySection.has(sec)) keywordsBySection.set(sec, []);
-      keywordsBySection.get(sec)!.push(doc);
-    } else {
-      unmapped.push(doc);
-    }
-  }
-
-  return (
-    <div className="space-y-10">
-      {PE_CHAPTERS.map(chapter => {
-        // この章にコンテンツがあるか確認
-        const hasContent = chapter.sections.some(sec =>
-          digestMap.has(sec.id) || keywordsBySection.has(sec.id)
-        );
-        if (!hasContent) return null;
-
-        return (
-          <div key={chapter.id}>
-            <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4">
-              {chapter.title}
-            </h3>
-            <div className="space-y-3 ml-2">
-              {chapter.sections.map(sec => {
-                const digest = digestMap.get(sec.id);
-                const keywords = keywordsBySection.get(sec.id) || [];
-                if (!digest && keywords.length === 0) return null;
-
-                return (
-                  <div key={sec.id} className="border-l-2 border-gray-200 dark:border-gray-700 pl-4">
-                    {/* セクションタイトル（digestがあればリンク） */}
-                    <div className="flex items-center gap-2 mb-1">
-                      {digest ? (
-                        <Link
-                          href={`/docs/${digest.slug}`}
-                          className="text-base font-semibold text-blue-700 dark:text-blue-400 hover:underline"
-                        >
-                          {sec.title}
-                        </Link>
-                      ) : (
-                        <span className="text-base font-semibold text-gray-700 dark:text-gray-300">{sec.title}</span>
-                      )}
-                    </div>
-                    {/* キーワードリスト */}
-                    {keywords.length > 0 && (
-                      <div className="flex flex-wrap gap-2 ml-9 mt-1">
-                        {keywords
-                          .sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'))
-                          .map(kw => (
-                          <Link
-                            key={kw.slug}
-                            href={`/docs/${kw.slug}`}
-                            className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                          >
-                            {kw.title}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        );
-      })}
-
-      {/* 未分類キーワード */}
-      {unmapped.length > 0 && (
-        <div>
-          <h3 className="text-lg font-bold text-gray-800 dark:text-gray-200 mb-4">その他</h3>
-          <div className="flex flex-wrap gap-2 ml-2">
-            {unmapped
-              .sort((a, b) => (a.title || '').localeCompare(b.title || '', 'ja'))
-              .map(kw => (
-              <Link
-                key={kw.slug}
-                href={`/docs/${kw.slug}`}
-                className="text-base px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-              >
-                {kw.title}
-              </Link>
-            ))}
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
 function DocSection({ group, layout, secondaryDocs }: { group: DocGroup; layout?: 'cards' | 'exam-table' | 'exam-table-2' | 'pe-exam-table' | 'pe-first-stage-table' | 'pe-construction-exam-table'; secondaryDocs?: DocMeta[] | undefined }) {
   return (
     <section>
@@ -796,7 +685,7 @@ export default async function CategoryPage({
   }
 
   const allDocs = await getDocsMetaByCategory(slug);
-  const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !(d as any).hideFromCategory);
+  const docs = allDocs.filter(d => d.published !== false && !d.tags?.includes('模範論文') && !d.hideFromCategory);
 
   const groups = (slug === 'civil-construction-1' || slug === 'civil-construction-2' || slug === 'pe-comprehensive-management' || slug === 'pe-first-stage' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' || slug === 'pe-construction')
     ? groupDocs(docs, slug)
@@ -935,7 +824,7 @@ export default async function CategoryPage({
                   const textbookAreas = textbookGroup ? TEXTBOOK_AREAS.map(area => ({
                     ...area,
                     docs: textbookGroup.docs.filter(d => {
-                      const order = (d as any).textbook_order ?? 999;
+                      const order = d.textbook_order ?? 999;
                       return order >= area.min && order <= area.max;
                     }),
                   })).filter(a => a.docs.length > 0) : [];

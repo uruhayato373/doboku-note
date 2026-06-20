@@ -31,7 +31,7 @@ model: sonnet
 | `/discover-trends-civil` | 土木系トレンド発見 |
 | `/discover-exam-season` | 試験季節性戦略 |
 | `/exam-demand` | 資格試験需要調査 |
-| `/keyword-gap` | コンテンツギャップ分析（seo-auditor と共同） |
+| `/keyword-gap` | コンテンツギャップ分析（GSC データは CI 供給・分析は metrics-analyzer/gsc-index-auditor） |
 | `/plan-affiliate` | アフィリエイト企画（ads 連携） |
 | `/exam-guide` | 試験対策ガイド生成（1級土木・技術士等、試験別設定ファイルでパラメタライズ） |
 | `/content-roadmap` | コンテンツ拡充ロードマップ生成 |
@@ -39,7 +39,7 @@ model: sonnet
 ## 担当外
 
 - MDX ファイルの作成・編集（PDF→MDX 変換等のコンテンツ制作実務）
-- SEO 監査の実行（seo-auditor に委譲）
+- SEO 監査の実行（coverage→gsc-index-auditor / performance→metrics-analyzer / CWV→performance-auditor に委譲）
 - 戦略・PDCA（strategy-advisor に委譲）
 - 広告の設定・実装
 
@@ -51,7 +51,7 @@ model: sonnet
 1. データ収集
    - /discover-trends-civil → 最新トレンド
    - /discover-exam-season → 試験季節性
-   - /fetch-gsc-data       → 検索需要（seo-auditor 経由）
+   - /fetch-gsc-data       → 検索需要（CI 供給スナップショットを参照）
 
 2. ギャップ分析
    - /keyword-gap           → 未カバーキーワード
@@ -70,7 +70,7 @@ model: sonnet
 
 | シナリオ | エージェント連携 |
 |---|---|
-| 月次コンテンツ企画 | content-planner → seo-auditor（データ）→ strategy-advisor（レビュー） |
+| 月次コンテンツ企画 | content-planner → CI 計測データ（gsc/ga4）→ strategy-advisor（レビュー） |
 | 試験シーズン対策 | content-planner（/exam-demand + /discover-exam-season）→ /plan-affiliate |
 | トレンド対応 | content-planner（/discover-trends-civil）→ /keyword-gap |
 

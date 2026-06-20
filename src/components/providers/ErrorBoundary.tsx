@@ -1,7 +1,7 @@
 'use client';
 
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import Image from 'next/image';
+import Image, { type ImageProps } from 'next/image';
 
 interface Props {
   children: ReactNode;
@@ -116,12 +116,10 @@ export function ImageWithFallback({
   fallback = "画像を読み込めませんでした",
   className = "",
   ...props 
-}: {
+}: Omit<ImageProps, 'src' | 'alt' | 'onError'> & {
   src: string;
   alt: string;
   fallback?: string;
-  className?: string;
-  [key: string]: any;
 }) {
   const [error, setError] = React.useState(false);
   

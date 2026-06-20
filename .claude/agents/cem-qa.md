@@ -201,7 +201,7 @@ description の本文 contract として扱うのは boilerplate を除いた残
 
 - **キーワードページの作成・修正** — `/keyword-page` スキル or 人間
 - **過去問ページ・論文ページの評価** — スコープ外（`content-qa` が PDF→MDX 変換を担当）
-- **SEO 最適化・検索インデックス** — `seo-auditor`
+- **検索インデックス（coverage）** — `gsc-index-auditor` / **検索 performance** — `metrics-analyzer`
 
 ## 連携パターン
 

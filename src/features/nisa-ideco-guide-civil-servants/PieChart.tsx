@@ -98,7 +98,7 @@ export default function PieChart({
                 <LabelList 
                   dataKey="value" 
                   position="inside" 
-                  formatter={(value: any) => `${value}%`}
+                  formatter={(value: unknown) => `${value ?? ''}%`}
                   style={{ 
                     fontSize: '12px', 
                     fontWeight: 'bold',

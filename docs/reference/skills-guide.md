@@ -114,7 +114,8 @@ title: スキル ナビゲーションガイド
 | スキル | 一言説明 | 呼ぶとき |
 |---|---|---|
 | `/plan-weekly` | docs/todo/ を読んで今週の優先タスクを決め weekly.md を直接更新（Sonnet 1回・軽量） | `週次計画`, `今週何をすべきか`, `weekly.md更新`, `/plan-weekly` |
-| `/weekly-improve` | 計測→改善候補抽出→実験登録の軽量オーケストレータ | `今週の改善`, `PDCA`, `/weekly-improve` |
+| `/weekly-improve` | 計測→改善候補抽出→実験登録の軽量オーケストレータ（performance 側） | `今週の改善`, `PDCA`, `/weekly-improve` |
+| `/gsc-review` | 月次 GSC index coverage レビュー（gsc-index-auditor 起動→判断ログ追記） | `GSC月次レビュー`, `インデックス率`, `index coverage`, `/gsc-review` |
 | `/weekly-review` | 週次レビューを生成 | `週次レビュー`, `今週の振り返り`, `/weekly-review` |
 | `/weekly-plan` | 週次計画を生成（NSM・メトリクス連動・重め） | `戦略的週次計画`, `NSM込みの計画`, `/weekly-plan` |
 | `/nsm-experiment` | NSM 改善の実験ライフサイクル管理 | `実験登録`, `NSM実験`, `/nsm-experiment` |
@@ -198,8 +199,14 @@ title: スキル ナビゲーションガイド
 
 ### 週次 PDCA を回したい
 
-1. `/weekly-improve` — 計測データから改善候補を自動抽出・実験登録
+1. `/weekly-improve` — 計測データから改善候補を自動抽出・実験登録（performance）
 2. `/weekly-review` → `/weekly-plan` — 振り返りと翌週計画の作成
+
+### GSC のインデックス状況（登録/未登録）を管理したい
+
+1. 月次 CI（`index-coverage.yml`）が URL Inspection を取得済みの前提（無ければ `gh workflow run index-coverage.yml`）
+2. `/gsc-review` — `gsc-index-auditor` が indexed_ratio・原因バケット（権威性/技術/hygiene）を診断
+3. `docs/reference/gsc-management.md` の観測・判断ログへ判断を追記（真実源）。performance 側は `/weekly-improve` と直交
 
 ### 記事を Obsidian から本番サイトに上げたい
 

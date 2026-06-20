@@ -1,5 +1,11 @@
-import { ArrowRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { CIVIL_CAREER_AD } from "@/config/affiliate-creatives";
+import {
+  AFFILIATE_LINK_REL,
+  AffiliateCta,
+  AffiliatePrBadge,
+  TrackingPixel,
+} from "@/components/ui/AffiliateParts";
 
 /**
  * プリセット案件の href を SSOT（affiliate-creatives.ts）から解決するための対応表。
@@ -69,20 +75,14 @@ export default function CareerAffiliate({
     <div className="not-prose my-6">
       <a
         href={resolvedHref}
-        rel="nofollow sponsored noopener"
+        rel={AFFILIATE_LINK_REL}
         target="_blank"
         data-cta="affiliate"
         data-cta-label={service}
         className="group relative flex flex-col sm:flex-row items-stretch gap-4 rounded-card-content border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4 shadow-card-content hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
         style={{ textDecoration: "none" }}
       >
-        <span
-          className="absolute right-3 top-3 inline-flex items-center rounded px-1.5 py-0.5 text-[10px] font-bold tracking-wider text-white"
-          style={{ background: "var(--color-ink-muted)" }}
-          aria-label="広告"
-        >
-          PR
-        </span>
+        <AffiliatePrBadge className="absolute right-3 top-3" />
 
         {imageSrc && (
           <div className="flex shrink-0 items-center justify-center sm:w-40 w-full">
@@ -123,24 +123,11 @@ export default function CareerAffiliate({
               ))}
             </ul>
           )}
-          <div className="mt-2.5 inline-flex items-center gap-1 text-sm font-bold text-brand dark:text-brand group-hover:gap-2 transition-all">
-            {cta}
-            <ArrowRight className="h-4 w-4" aria-hidden />
-          </div>
+          <AffiliateCta>{cta}</AffiliateCta>
         </div>
       </a>
 
-      {trackingPixelUrl && (
-        <img
-          src={trackingPixelUrl}
-          width={1}
-          height={1}
-          alt=""
-          aria-hidden
-          style={{ position: "absolute", left: "-9999px" }}
-          suppressHydrationWarning
-        />
-      )}
+      <TrackingPixel src={trackingPixelUrl} />
     </div>
   );
 }

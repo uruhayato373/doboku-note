@@ -7,9 +7,11 @@ import Link from 'next/link';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
 import { buildPastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
-import type { PastExamNavData } from '@/components/ui/PastExamNav/exam-nav-utils';
 import peChaptersData from '@/config/pe-chapters.json';
+import type { PeChapter } from '@/config/pe-chapters';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
+
+const peChapters = peChaptersData.chapters as PeChapter[];
 
 interface CategoryNavCardProps {
   variant: 'sidebar' | 'mobile';
@@ -35,8 +37,8 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
   const guides = categoryArticles
     .filter((m) => classifyDoc(m) === 'guide')
     .sort((a, b) => {
-      const oa = (a as any).guide_order ?? 999;
-      const ob = (b as any).guide_order ?? 999;
+      const oa = a.guide_order ?? 999;
+      const ob = b.guide_order ?? 999;
       return oa - ob;
     });
 
@@ -49,10 +51,10 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
           {guides.map((g) => (
             <li key={g.slug}>
               {g.slug === currentSlug ? (
-                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || (g as any).shortTitle || g.title}</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || g.shortTitle || g.title}</span>
               ) : (
                 <Link href={`/docs/${g.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
-                  {g.sidebar_label || (g as any).shortTitle || g.title}
+                  {g.sidebar_label || g.shortTitle || g.title}
                 </Link>
               )}
             </li>
@@ -86,8 +88,8 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
   const pillars = categoryArticles
     .filter((m) => classifyDoc(m) === 'pillar')
     .sort((a, b) => {
-      const sa = parseFloat(((a as any).section as string | undefined) ?? '99');
-      const sb = parseFloat(((b as any).section as string | undefined) ?? '99');
+      const sa = parseFloat(a.section ?? '99');
+      const sb = parseFloat(b.section ?? '99');
       return sa - sb;
     });
 
@@ -100,10 +102,10 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
           {pillars.map((p) => (
             <li key={p.slug}>
               {p.slug === currentSlug ? (
-                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || (p as any).shortTitle || p.title}</span>
+                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || p.shortTitle || p.title}</span>
               ) : (
                 <Link href={`/docs/${p.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
-                  {p.sidebar_label || (p as any).shortTitle || p.title}
+                  {p.sidebar_label || p.shortTitle || p.title}
                 </Link>
               )}
             </li>
@@ -119,10 +121,10 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
         {pillars.map((p) => (
           <li key={p.slug} className={`rounded-sm border px-4 py-3 transition-colors ${p.slug === currentSlug ? 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800' : 'border-gray-200 dark:border-gray-700 hover:border-blue-400 dark:hover:border-blue-500'}`}>
             {p.slug === currentSlug ? (
-              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || (p as any).shortTitle || p.title}</span>
+              <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || p.shortTitle || p.title}</span>
             ) : (
               <Link href={`/docs/${p.slug}`} className="text-sm text-brand hover:underline">
-                {p.sidebar_label || (p as any).shortTitle || p.title}
+                {p.sidebar_label || p.shortTitle || p.title}
               </Link>
             )}
           </li>
@@ -200,13 +202,13 @@ function PastExamCard({ variant, currentSlug, categoryArticles, category }: { va
 
 /* ━━━ セクション別解説カード ━━━ */
 function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sidebar' | 'mobile'; currentSlug: string; currentSection: string | undefined }) {
-  const chapters = peChaptersData.chapters;
+  const chapters = peChapters;
   const currentChapterId = currentSection?.split('.')[0];
 
   if (variant === 'sidebar') {
     const chapter = chapters.find(c => c.id === currentChapterId);
     const section = chapter?.sections.find(s => s.id === currentSection);
-    const keywords = (section as any)?.keywords as { slug: string; title: string }[] | undefined;
+    const keywords = section?.keywords;
     const currentSuffix = currentSlug.replace('pe-comprehensive-management-', '');
 
     if (!section || !keywords || keywords.length === 0) return null;
@@ -381,7 +383,7 @@ export default function CategoryNavCard({ variant, category, currentSlug, docGro
       case 'textbook': {
         const textbooks = categoryArticles
           .filter((m) => classifyDoc(m) === 'textbook')
-          .sort((a, b) => ((a as any).textbook_order ?? 999) - ((b as any).textbook_order ?? 999));
+          .sort((a, b) => (a.textbook_order ?? 999) - (b.textbook_order ?? 999));
         return <LinkListCard variant={variant} title="テキスト" currentSlug={currentSlug} docs={textbooks} />;
       }
       default:

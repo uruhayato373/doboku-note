@@ -10,5 +10,5 @@ export default function StackedBarChart({
   height = 500
 }: StackedBarChartProps) {
   // 一時的に無効化
-  return <div>Chart temporarily disabled</div>;
+  return <div style={{ width, height }}>Chart temporarily disabled</div>;
 } 

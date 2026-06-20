@@ -232,7 +232,7 @@ npm run refresh-indexes   # 全 3 インデックスを一括再生成
 **Phase 1 で停止中のスキル・エージェント**:
 - analytics 系スキル（GSC・GA4 データ取得、SEO 監査）
 - strategy 系スキル（競合調査・キーワードギャップ分析）
-- content-planner エージェント、seo-auditor エージェント
+- content-planner エージェント（Phase 2 待機）。SEO は gsc-index-auditor（coverage・月次 `/gsc-review`）+ metrics-analyzer（performance・週次 `/weekly-improve`）に分割稼働中（seo-auditor は 2026-06-19 退役）
 - ads 系スキル（アフィリエイト・AdSense 最適化）
 
 ### Phase 2（2026年秋予定: note 記事展開・iOS アプリ開発）

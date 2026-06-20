@@ -5,16 +5,18 @@
 // 未設定の場合はGoogle Analyticsが無効化される
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
+type GtagConfig = {
+  page_path?: string;
+  [key: string]: string | number | boolean | undefined;
+};
+
 // window.gtagの型定義
 declare global {
   interface Window {
     gtag: (
       command: "config" | "event",
       targetId: string,
-      config?: {
-        page_path?: string;
-        [key: string]: any; // 動的なプロパティを許可
-      }
+      config?: GtagConfig
     ) => void;
   }
 }
@@ -48,7 +50,7 @@ export const event = ({
   // 開発環境ではGoogle Analyticsイベントを無効化
   if (!GA_ID || process.env.NODE_ENV !== "production") return;
 
-  const eventParams: { [key: string]: any } = {
+  const eventParams: GtagConfig = {
     event_category: category,
     event_label: label,
   };
