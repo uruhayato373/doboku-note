@@ -606,38 +606,66 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
   const rows = PE_CONSTRUCTION_SUBJECTS.filter(s => map.has(s.key));
 
   return (
-    <div className="overflow-x-auto">
-      <table className="w-full text-base border-collapse">
-        <thead>
-          <tr className="border-b-2 border-gray-200 dark:border-gray-700">
-            <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">科目</th>
-            {years.map(y => (
-              <th key={y} className="text-center py-3 px-3 font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">{colLabel(y)}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map(subject => {
-            const yearMap = map.get(subject.key)!;
-            return (
-              <tr key={subject.key} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
-                <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{subject.label}</td>
+    <>
+      {/* モバイル: 科目カード縦積み + 年度ボタングリッド（8列テーブルの横スクロールを回避） */}
+      <div className="zenn-desktop:hidden space-y-4">
+        {rows.map(subject => {
+          const yearMap = map.get(subject.key)!;
+          return (
+            <div key={subject.key} className="rounded-lg border border-gray-200 dark:border-gray-700 p-4">
+              <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-3">{subject.label}</h4>
+              <div className="flex flex-wrap gap-2">
                 {years.map(y => {
                   const doc = yearMap.get(y);
-                  return (
-                    <td key={y} className="py-3 px-3 text-center">
-                      {doc ? (
-                        <Link href={`/docs/${doc.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">問題</Link>
-                      ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
-                    </td>
-                  );
+                  return doc ? (
+                    <Link
+                      key={y}
+                      href={`/docs/${doc.slug}`}
+                      className="inline-flex items-center rounded-md border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-900/20 px-3 py-2 text-sm font-medium text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
+                    >
+                      {colLabel(y)}
+                    </Link>
+                  ) : null;
                 })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      {/* デスクトップ: 現状マトリクス */}
+      <div className="hidden zenn-desktop:block overflow-x-auto">
+        <table className="w-full text-base border-collapse">
+          <thead>
+            <tr className="border-b-2 border-gray-200 dark:border-gray-700">
+              <th className="text-left py-3 px-4 font-semibold text-gray-700 dark:text-gray-300">科目</th>
+              {years.map(y => (
+                <th key={y} className="text-center py-3 px-3 font-semibold text-gray-700 dark:text-gray-300 whitespace-nowrap">{colLabel(y)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map(subject => {
+              const yearMap = map.get(subject.key)!;
+              return (
+                <tr key={subject.key} className="border-b border-gray-100 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                  <td className="py-3 px-4 font-medium text-gray-900 dark:text-gray-100">{subject.label}</td>
+                  {years.map(y => {
+                    const doc = yearMap.get(y);
+                    return (
+                      <td key={y} className="py-3 px-3 text-center">
+                        {doc ? (
+                          <Link href={`/docs/${doc.slug}`} className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline">問題</Link>
+                        ) : <span className="text-gray-300 dark:text-gray-600">—</span>}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 }
 
