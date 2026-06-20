@@ -243,12 +243,12 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ### 過去問ページの右サイドバー目次（TOC）を廃止し最適な UI/UX に置き換える 🟡
 
-**問題（短期は解消済）**: `primary`/`secondary` の TOC が 67件の問番号羅列になりナビゲーションとして機能していなかった。`pastExam`（CEM 択一）は既に非表示済で、1級・2級土木の `primary`/`secondary` も**PR #266（develop マージ待ち）で非表示化済 ✅**。本タスクが open なのは中期施策（`ExamQuestionNav`）が未着手のため。
+**問題（短期は解消済）**: `primary`/`secondary` の TOC が 67件の問番号羅列になりナビゲーションとして機能していなかった。`pastExam`（CEM 択一）は既に非表示済で、1級・2級土木の `primary`/`secondary` も**PR #266（develop マージ済）で非表示化済 ✅**。本タスクが open なのは中期施策（`ExamQuestionNav`）が未着手のため。
 
 **実装箇所**: `src/app/docs/[...slug]/page.tsx` L.734
 
 **推奨方針**:
-- 短期: `primary`/`secondary` も TOC 非表示（条件に `&& docGroup !== 'primary' && docGroup !== 'secondary'` 追加） — **✅ 実装済 2026-06-20 [PR #266](https://github.com/uruhayato373/doboku-note/pull/266)（develop へマージ待ち）**
+- 短期: `primary`/`secondary` も TOC 非表示（条件に `&& docGroup !== 'primary' && docGroup !== 'secondary'` 追加） — **✅ 実装・マージ済 2026-06-20 [PR #266](https://github.com/uruhayato373/doboku-note/pull/266)（develop へ squash マージ）**
 - 中期: 問番号ナビゲーター `ExamQuestionNav`（Q1〜Q65 のグリッドボタン）を `primary` 専用に実装 — 未着手
 
 **新規コンポーネント**: `src/components/ui/ExamQuestionNav/ExamQuestionNav.tsx`
