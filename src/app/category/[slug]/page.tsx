@@ -7,6 +7,7 @@ import { getAllCategories, getCategoryBySlug } from '@/lib/categories';
 import { getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import { classifyDoc, getGroupOrder, getGroupLabel, type DocGroupKey } from '@/lib/doc-classifier';
 import MagazineInlineCard from '@/components/ui/MagazineInlineCard';
+import MagazineSidebarPromoCard from '@/components/ui/MagazineSidebarPromoCard';
 import { resolveCategoryMagazines } from '@/lib/magazine-placement';
 import { getMagazine, buildMagazineUrl } from '@/lib/note-magazines';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
@@ -730,6 +731,11 @@ export default async function CategoryPage({
   // creative は資格層に合わせて出し分け（civil=施工管理系 BuildJob/GKS、pe=ハイクラス DX/コンサル）。
   // 戻り値 null＝転職枠なし（concrete / pe-construction / pe-first-stage は単一カラム）。
   const careerSidebar = resolveCategoryCareerAd(slug);
+  // 右サイドバー（PC・≥993px）は「note 有料マガジン CTA」または「転職枠」のどちらかがあれば出す。
+  // note CTA は冒頭全幅グリッドから PC 右サイドバーへ集約し、モバイルは記事一覧の下に出す（2026-06-20）。
+  // サイドバーは縦積みのため上位 3 マガジン（placement 優先順）に絞ってコンパクトに保つ。
+  const hubMagazines = categoryMagazines.slice(0, 3);
+  const hasSidebar = Boolean(careerSidebar) || hubMagazines.length > 0;
   // モバイル本文中の visible バナー（pixelSrc を渡さない＝PC サイドバー側が唯一の発火源）。
   const mobileCareerAd = careerSidebar ? (
     <div className="zenn-desktop:hidden my-10">
@@ -770,50 +776,14 @@ export default async function CategoryPage({
           </div>
         </div>
 
-        {/* カテゴリ本文 + note CTA + 右サイドバー。civil（careerSidebar 有り）のみ 2 カラム化し、
-            右サイドバー上部に転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル源）を sticky 配置。
-            note CTA はモバイル 1 枚／PC 2 枚並びに圧縮して記事グリッドへの到達を阻害しない。
-            非 civil は従来どおり単一カラム（flex 子 1 つ＝全幅）。 */}
-        <div className={careerSidebar
+        {/* カテゴリ本文 + 右サイドバー。note CTA（hub・文脈一致）または転職枠があれば 2 カラム化し、
+            PC（≥993px）右サイドバー上部に note マガジン CTA、その下に転職アフィリ（SidebarAdBanner＝
+            当ページ唯一のピクセル源）を sticky 配置。note CTA はモバイルでは記事一覧の下に出す。
+            note CTA も転職枠も無いカテゴリは従来どおり単一カラム（flex 子 1 つ＝全幅）。 */}
+        <div className={hasSidebar
           ? 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 flex gap-8 relative'
           : 'max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10'}>
           <div className="flex-1 min-w-0">
-            {/* note 有料マガジン CTA（カテゴリ hub・文脈一致）。試験単位の旗艦商品を提示する。
-                未公開マガジンは getMagazine で除外済み。civil はモバイル 1 枚／PC 2 枚並び。 */}
-            {categoryMagazines.length > 0 && (
-              careerSidebar ? (
-                <div className="grid gap-3 sm:grid-cols-2 pt-8">
-                  {categoryMagazines.map(({ slot, magazine }, i) => (
-                    <div key={slot.magazineId} className={i === 0 ? '' : 'hidden sm:block'}>
-                      <MagazineInlineCard
-                        url={buildMagazineUrl(magazine, slot.utmContent)}
-                        title={magazine.title}
-                        description={magazine.description}
-                        imageUrl={magazine.imageUrl}
-                        badge={magazine.badge}
-                        trackLabel={slot.utmContent}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 pt-8">
-                  {categoryMagazines.map(({ slot, magazine }, i) => (
-                    <div key={slot.magazineId} className={i === 0 ? '' : 'hidden sm:block'}>
-                      <MagazineInlineCard
-                        url={buildMagazineUrl(magazine, slot.utmContent)}
-                        title={magazine.title}
-                        description={magazine.description}
-                        imageUrl={magazine.imageUrl}
-                        badge={magazine.badge}
-                        trackLabel={slot.utmContent}
-                      />
-                    </div>
-                  ))}
-                </div>
-              )
-            )}
-
             <div className="py-10 sm:py-12 text-[17px] leading-[1.9]">
           {docs.length === 0 ? (
             <div className="text-center py-12">
@@ -1039,17 +1009,50 @@ export default async function CategoryPage({
             </div>
           )}
             </div>
+
+            {/* note 有料マガジン CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約するため、
+                サイドバー非表示のモバイルでは記事一覧の下にフォールバック表示する。 */}
+            {hubMagazines.length > 0 && (
+              <div className="zenn-desktop:hidden pb-10 grid gap-3 sm:grid-cols-2">
+                {hubMagazines.map(({ slot, magazine }) => (
+                  <MagazineInlineCard
+                    key={slot.magazineId}
+                    url={buildMagazineUrl(magazine, slot.utmContent)}
+                    title={magazine.title}
+                    description={magazine.description}
+                    imageUrl={magazine.imageUrl}
+                    badge={magazine.badge}
+                    trackLabel={slot.utmContent}
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
-          {careerSidebar && (
+          {hasSidebar && (
             <aside className="hidden zenn-desktop:block w-[300px] shrink-0 py-10 sm:py-12">
-              <div className="sticky top-6">
+              <div className="sticky top-6 space-y-3">
+                {/* note 有料マガジン CTA（PC 右サイドバー上部・文脈一致）。試験単位の旗艦商品を提示する。
+                    冒頭全幅グリッドから集約（2026-06-20）。未公開マガジンは getMagazine で除外済み。 */}
+                {hubMagazines.map(({ slot, magazine }) => (
+                  <MagazineSidebarPromoCard
+                    key={slot.magazineId}
+                    url={buildMagazineUrl(magazine, slot.utmContent)}
+                    title={magazine.title}
+                    description={magazine.description}
+                    imageUrl={magazine.imageUrl}
+                    badge={magazine.badge}
+                    trackLabel={slot.utmContent}
+                  />
+                ))}
                 {/* 転職アフィリ（PC 右サイドバー・sticky）。当ページ唯一のピクセル発火源。
                     creative は resolveCareerSidebarAd で期間出し分け（〜2026-08-31 ビルドジョブ / 以降 GKS）。 */}
-                <SidebarAdBanner
-                  {...careerSidebar.creative}
-                  trackLabel={careerSidebar.trackLabel}
-                />
+                {careerSidebar && (
+                  <SidebarAdBanner
+                    {...careerSidebar.creative}
+                    trackLabel={careerSidebar.trackLabel}
+                  />
+                )}
               </div>
             </aside>
           )}
