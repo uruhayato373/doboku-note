@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T02:58:33.610Z",
+  "scored_at": "2026-06-20T03:11:48.133Z",
   "pages": {
     "backcasting": {
       "slug": "backcasting",
@@ -468,20 +468,6 @@
       "qualitative_comment": "ExamPointが記事36%地点に配置され末尾位置づけH2内の総括Calloutが欠落。散文・構造は良好で参考資料も公的・民間両軸揃い。weighted=2.55で合格、mobile・principleが弱点軸。",
       "scored_at": "2026-05-16T08:22:15.997Z"
     },
-    "csv": {
-      "slug": "csv",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "ExamPoint位置(52%地点)がMEDIUM1件。CSV/CSR比較が箇条書き依存で散文薄。参考資料は公的+民間揃い・URL実在確認済み。構造・リンクは良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "decision-tree-analysis": {
       "slug": "decision-tree-analysis",
       "scores": {
@@ -885,20 +871,6 @@
       "qualitative_comment": "lint完全パス・参考資料実在確認済み。現場運用類型だが5管理トレードオフH3不在（mandatory未充足）で原則2点。歴史H2削除推奨。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "global-compact": {
-      "slug": "global-compact",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "全軸2点止まり。参考資料に公的資料なし、ExamPoint位置ズレ、L49数値のインライン出典欠落が主因。weighted=2.10で合格だがリライト候補。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "global-hr-development": {
       "slug": "global-hr-development",
       "scores": {
@@ -944,20 +916,6 @@
       "qualitative_comment": "構造・参考資料・関連付けは良好。ExamPoint位置(43%)と太字CommonMark違反(L61)、立法背景段落のインライン出典欠如(§22)が弱点。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "health-management": {
-      "slug": "health-management",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "構造・モバイル・原則・参考資料が各2点で均等に弱い。5管理H3欠落、shallow table、§22インライン出典不備が主因。関連付けのみ良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "heinrich-law": {
       "slug": "heinrich-law",
       "scores": {
@@ -984,20 +942,6 @@
       "weighted": 2.5,
       "weak_axes": [],
       "qualitative_comment": "モバイル・参考資料・関連付けは合格水準。現場運用類型で必須の5管理トレードオフH3が欠落、制度化背景H2が試験論点と乖離。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "human-resource-assessment": {
-      "slug": "human-resource-assessment",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "全軸2点止まり。5管理トレードオフH3欠落・ExamPoint位置ズレ・§22インライン出典違反が主要課題。history H2は削除候補。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "indirect-manufacturing-cost": {
@@ -9663,6 +9607,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T02:58:33.609Z",
+      "scoring_method": "auto"
+    },
+    "csv": {
+      "slug": "csv",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 2
+      },
+      "weighted": 2.9,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:11:48.033Z",
+      "scoring_method": "auto"
+    },
+    "global-compact": {
+      "slug": "global-compact",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:11:48.065Z",
+      "scoring_method": "auto"
+    },
+    "health-management": {
+      "slug": "health-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:11:48.097Z",
+      "scoring_method": "auto"
+    },
+    "human-resource-assessment": {
+      "slug": "human-resource-assessment",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:11:48.132Z",
       "scoring_method": "auto"
     }
   }
