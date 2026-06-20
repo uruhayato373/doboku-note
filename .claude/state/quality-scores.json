@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T02:03:07.490Z",
+  "scored_at": "2026-06-20T02:11:25.407Z",
   "pages": {
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
@@ -784,22 +784,6 @@
       "qualitative_comment": "lint ゼロ通過・構造完備。策定背景の年代記述にインライン出典なし（§22 MEDIUM）、民間参考資料 URL が 301 移転済み。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "eco-label": {
-      "slug": "eco-label",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 1.85,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "ISOタイプ表のセル長超過MEDIUM4件でモバイル軸1点。インライン出典欠落・歴史H2位置ズレが追加指摘。参考資料・リンクは充実。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "ecosystem-services": {
       "slug": "ecosystem-services",
       "scores": {
@@ -932,24 +916,6 @@
       "qualitative_comment": "ExamPoint位置(58%)とH2散文薄が弱点。参考資料・リンクは良好。概念理論類型で5管理H3は不要。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "extended-producer-responsibility": {
-      "slug": "extended-producer-responsibility",
-      "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 1.8,
-      "weak_axes": [
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "HIGH違反(9-11 ExamPoint句読点)で原則軸1点強制。3列表のセル超過が多数。OECD URL が301リダイレクト（カテゴリtopへ転送、指定文書に未到達）で参考資料軸1点。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "extreme-events": {
       "slug": "extreme-events",
       "scores": {
@@ -1013,22 +979,6 @@
         "mobile"
       ],
       "qualitative_comment": "モバイル軸がMEDIUM3件（§22インライン出典欠落）で1点。構造・参考資料・関連付けは揃っている。リライト推奨。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "front-loading": {
-      "slug": "front-loading",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 1.85,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "mobile=1（MEDIUM 3件: ExamPoint位置・alt超過・太字36字）、§22インライン出典欠如、URL2件とも実在確認済み",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "gantt-chart": {
@@ -1174,22 +1124,6 @@
       "weighted": 2.1,
       "weak_axes": [],
       "qualitative_comment": "全軸2点止まり。5管理トレードオフH3欠落・ExamPoint位置ズレ・§22インライン出典違反が主要課題。history H2は削除候補。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "ics": {
-      "slug": "ics",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 1,
-        "linking": 2
-      },
-      "weighted": 1.85,
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "参考資料が民間2件のみ（公的ソース欠落）で参考資料軸1点。ExamPoint位置ズレ・開発背景H2が位置づけ後に来る構造乱れも残存。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "indirect-manufacturing-cost": {
@@ -9703,6 +9637,62 @@
       "weighted": 2.85,
       "weak_axes": [],
       "scored_at": "2026-06-20T02:03:07.490Z",
+      "scoring_method": "auto"
+    },
+    "eco-label": {
+      "slug": "eco-label",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:11:25.308Z",
+      "scoring_method": "auto"
+    },
+    "extended-producer-responsibility": {
+      "slug": "extended-producer-responsibility",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:11:25.341Z",
+      "scoring_method": "auto"
+    },
+    "front-loading": {
+      "slug": "front-loading",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:11:25.374Z",
+      "scoring_method": "auto"
+    },
+    "ics": {
+      "slug": "ics",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:11:25.407Z",
       "scoring_method": "auto"
     }
   }
