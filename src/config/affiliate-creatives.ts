@@ -140,6 +140,46 @@ export function resolveCareerArticleEndCard(): CareerArticleEndCard {
   };
 }
 
+/**
+ * docs ページ（記事）のサイドバー転職枠 creative をカテゴリで解決（2026-06-20）。
+ * カテゴリ hub の `resolveCategoryCareerAd`（非該当=null＝枠なし）とは別物で、**docs は全カテゴリで枠を出す**
+ * 方針（2026-06-06 全 docs 常設）を維持しつつ、総監だけ creative を資格別セグメントする:
+ * - pe-comprehensive-management（総監＝シニア技術者・管理職層）→ ハイクラス DX/コンサル転職。
+ *   施工管理系（ビルドジョブ/GKS）は総監層にミスマッチなため。カテゴリ hub と同じセグメント判断。
+ * - それ以外（civil / pe-construction / concrete / pe-first-stage 等）→ `resolveCareerSidebarAd()`
+ *   （〜8/31 ビルドジョブ ¥50,000 ／ 9/1 以降 GKS）。
+ */
+export function resolveDocsCareerSidebarAd(
+  category: string,
+): { creative: SidebarAdCreative; trackLabel: string } {
+  if (category === "pe-comprehensive-management") {
+    return { creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" };
+  }
+  return resolveCareerSidebarAd();
+}
+
+/**
+ * 総監 docs 記事末（モバイル限定）ネイティブカード用の PE_CONSULTING（ハイクラス DX/コンサル）creative。
+ * href のみ（計測ピクセルなし）＝総監 docs サイドバー側の PE_CONSULTING 1 発火を唯一の源として維持
+ * （1 ページ 1 ピクセル）。文言は creative の公称ターゲティング（シニア技術者・管理職・DX/コンサル・無料相談）
+ * に限定し、未確認のブランド名・数値は記載しない（真実源: docs/project/04_運営/02_アフィリエイト提携状況.md）。
+ */
+export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
+  return {
+    service: "ハイクラス DX・コンサル転職",
+    category: "技術系管理職・コンサル",
+    description:
+      "資格取得後のキャリアの選択肢として。技術士・シニア技術者層に向けた DX・コンサル・技術系マネジメントのハイクラス求人を、無料で相談できます。",
+    href: PE_CONSULTING_CAREER_AD.href,
+    points: [
+      "シニア技術者・管理職層向けのハイクラス求人",
+      "DX・コンサル・技術系マネジメント領域",
+      "登録・相談はすべて無料",
+    ],
+    cta: "無料でキャリア相談する",
+  };
+}
+
 /** SAT 通信講座（スクール系・A8.net）。記事末テキストリンク カード用 creative。 */
 export const SCHOOL_SAT = {
   provider: "SAT",

@@ -45,7 +45,7 @@ import MetaRow from '@/components/ui/MetaRow/MetaRow';
 import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
-import { resolveCareerSidebarAd, resolveCareerArticleEndCard, SCHOOL_SAT } from '@/config/affiliate-creatives';
+import { resolveDocsCareerSidebarAd, resolveCareerArticleEndCard, resolvePeConsultingArticleEndCard, SCHOOL_SAT } from '@/config/affiliate-creatives';
 import type React from 'react';
 
 
@@ -406,7 +406,7 @@ export default async function DocPage({
   const inlineMagazines = filterRenderable(magazinePlacement.inline);
   const sidebarMagazines = filterRenderable(magazinePlacement.sidebar);
   // サイドバー転職枠の creative（〜2026-08-31 はビルドジョブ ¥50,000、以降 GKS に自動復帰）。
-  const careerSidebarAd = resolveCareerSidebarAd();
+  const careerSidebarAd = resolveDocsCareerSidebarAd(category ?? '');
 
   // 参考資料セクションを本文から抽出して別カードに切り出す
   // → 本文・TOC の両方から ## 参考資料 が消え、<ExternalReferences> として表示される
@@ -701,6 +701,14 @@ export default async function DocPage({
             {(category === 'civil-construction-1' || category === 'civil-construction-2' || category === 'pe-construction') && (
               <div className="mt-8 zenn-desktop:hidden">
                 <CareerAffiliate {...resolveCareerArticleEndCard()} />
+              </div>
+            )}
+            {/* 総監（pe-comprehensive-management）はシニア技術者・管理職層＝施工管理系(ビルドジョブ/GKS)が
+                ミスマッチのため、記事末モバイルカードもサイドバーと揃えて PE_CONSULTING(ハイクラスDX/コンサル)
+                で出す（2026-06-20）。href のみ＝計測はサイドバー側 PE_CONSULTING 1 発火を維持。 */}
+            {category === 'pe-comprehensive-management' && (
+              <div className="mt-8 zenn-desktop:hidden">
+                <CareerAffiliate {...resolvePeConsultingArticleEndCard()} />
               </div>
             )}
 
