@@ -111,52 +111,6 @@
 
 **実施**: 案C（レスポンシブ二重レイアウト）で実装・develop マージ済（[PR #267](https://github.com/uruhayato373/doboku-note/pull/267)）。モバイル＝科目カード縦積み＋年度ボタングリッド（横スクロール解消・タップ領域拡大）、デスクトップ＝現状マトリクス維持。`PeConstructionExamTable` の外科的変更。build pass で SSR 検証済。
 
-**発端**: `https://doboku-note.com/category/pe-construction`
-
-**問題**: `PeConstructionExamTable`（`src/app/category/[slug]/page.tsx` L588-646）が **12科目 × 7年度 = 8列テーブル**のマトリクスで、モバイルで以下の問題が生じる。
-- 8列がビューポートに収まらず横スクロール必須
-- 科目名が長い（「施工計画、施工設備及び積算」「河川、砂防及び海岸・海洋」等）のに列が多く窮屈
-- 各セルの「問題」テキストリンクがタップ領域として小さい
-
-**現状の実装**:
-```tsx
-// 12行（科目） × 最大8列（年度ヘッダ含む）のテーブル
-// overflow-x-auto でラップしているが根本解決ではない
-<th>科目</th><th>令和7</th><th>令和6</th>…<th>令和元</th>
-<tr><td>必須科目I</td><td>問題</td><td>問題</td>…</tr>
-<tr><td>施工計画、施工設備及び積算</td>…</tr>
-```
-
-**モバイル向け代替レイアウト（案）**:
-
-| 案 | 内容 | 実装コスト |
-|---|---|---|
-| A. 縦積み＋年度ボタン | 科目を縦に並べ、各科目直下に年度ボタン（R01〜R07）を横グリッドで配置 | 低 |
-| B. 科目タブ切替 | 科目タブを上部に並べ、選択した科目の年度リンクを表示 | 中 |
-| C. レスポンシブ二重レイアウト | モバイル=案A・デスクトップ=現状マトリクスを CSS で出し分け | 中 |
-
-**推奨**: 案C（デスクトップ現状維持・モバイルのみ縦積みグリッド）— 最小変更で UX 改善可能。
-
-```tsx
-{/* モバイル: 科目カード縦積み + 年度ボタングリッド */}
-<div className="zenn-desktop:hidden space-y-4">
-  {rows.map(subject => (
-    <div key={subject.key}>
-      <h4>{subject.label}</h4>
-      <div className="flex flex-wrap gap-2">
-        {years.map(y => doc ? <Link className="btn-year">{colLabel(y)}</Link> : null)}
-      </div>
-    </div>
-  ))}
-</div>
-{/* デスクトップ: 現状マトリクス */}
-<div className="hidden zenn-desktop:block overflow-x-auto">
-  <table>…</table>
-</div>
-```
-
-**実装ファイル**: `src/app/category/[slug]/page.tsx`（`PeConstructionExamTable` コンポーネント、L588-646）
-
 ---
 
 ### pe-construction カテゴリページのキーワード重複整理 🟡
@@ -291,15 +245,9 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### カテゴリページ右サイドバーに note リンクを追加 🟡
+### 【完了 2026-06-20】カテゴリページ右サイドバーに note リンクを追加
 
-**問題**: 右サイドバーにアフィリエイト広告しかない。civil 以外のカテゴリは右サイドバー自体が存在しない。
-
-**やること**:
-1. 右サイドバーに `resolveCategoryMagazines` で取得したマガジン一覧を追加
-2. 全資格カテゴリに右サイドバーを表示（`categoryMagazines.length > 0` を条件に拡張）
-
-**実装**: `src/app/category/[slug]/page.tsx`
+**実施**: 冒頭全幅 note CTA グリッドを PC 右サイドバー上部へ集約（`MagazineSidebarPromoCard` 新設・上位3マガジン）。カラム化判定を `hasSidebar = Boolean(careerSidebar) || hubMagazines.length > 0` 化し、転職枠の無いカテゴリでも magazines があれば右サイドバーを表示。モバイルは記事一覧の下にフォールバック。commit `311dfdd8a`（実装）/ `aa0ed5ad8`（アフィリ doc 追従）。`src/app/category/[slug]/page.tsx`。
 
 ---
 
@@ -308,10 +256,10 @@ Hero → ExamCards → LatestArticles → AboutSection
 **参考**: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）のブログカード一覧 + 右サイドバーデザイン
 
 **やること**:
-1. 記事一覧を `BlogDocCard`（サムネイル OGP 画像 + タイトル + 概要）に刷新
-2. 右サイドバーを全資格カテゴリに拡張（上記と重複・同時実施）
+1. 記事一覧を `BlogDocCard`（サムネイル OGP 画像 + タイトル + 概要）に刷新 ← 残課題
+2. ~~右サイドバーを全資格カテゴリに拡張~~ ← **✅ 完了 2026-06-20**（上記「右サイドバーに note リンク追加」で `hasSidebar` 化済。残るは記事一覧のブログカード化のみ）
 
-**実装**: `src/app/category/[slug]/page.tsx`（DocCard → BlogDocCard、aside 条件拡張）
+**実装**: `src/app/category/[slug]/page.tsx`（DocCard → BlogDocCard）
 
 ---
 
