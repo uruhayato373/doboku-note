@@ -191,35 +191,16 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### 関連記事セクションのレイアウト統一 — MDX 直書きを廃止し `RelatedArticles` コンポーネントへ全面移行 🟡
+### 【完了 2026-06-20】関連記事セクションのレイアウト統一 — RelatedArticles コンポーネントへ全面移行
 
-**発端**: `https://doboku-note.com/docs/pe-construction-bousai-genseigai-ronbun-keyword`
+**実施**:
+1. **コンポーネント実装**: `RelatedArticles`（[RelatedArticles.tsx](../../src/components/ui/RelatedArticles/RelatedArticles.tsx)）新設。category × トピックタグ共通数で同カテゴリ近傍を自動ランク→カード描画。**関連2件未満は自動 null**（タグ薄い過去問・既存 RelatedTextbooks/RelatedKeywords/SectionKeywords との重複回避）。commit `021359e1f`
+2. **配置**: page.tsx で AuthorCard の前に全資格・全記事種別共通配線。
+3. **MDX 一括除去**: 直書き `## 関連記事`/`## 関連コンテンツ` の見出し＋箇条書きリンクを**28本**から除去（`.tmp/strip-related-sections.mjs`）。`<MagazineCard>`(収益CTA)・`<RelatedKeywords>`(複数行curated) は丸ごと保全。commit `9abf32188`
+4. **`<RelatedKeywords>` リンク先修正**（2級 4本→分野別ガイド統一）も完了済み。
 
-**問題**:
-- `## 関連記事` / `## 関連コンテンツ` が MDX 内に直書きされていて、`prose-blog` の中に plain markdown（見出し + リンク箇条書き）として流れ込む。コンポーネント化されておらず、記事によってレイアウトがバラバラ。
-- `<article>` の中に入るか外に出るかも記事によって異なり、視覚的な一貫性がない。
-
-**対象（計27本）**:
-
-| カテゴリ | 件数 | 節名 |
-|---|---|---|
-| `pe-construction`（建設部門キーワード等） | 22本 | `## 関連記事` |
-| `civil-construction-2`（2級土木 primary/secondary） | 3本 | `## 関連コンテンツ` |
-| `civil-construction-1`（1級土木） | 2本 | `## 関連コンテンツ` |
-
-加えて `civil-construction-2/primary-r*` は `<RelatedKeywords>` で他の過去問ページを指していて、リンク先も誤っている。
-
-**やること**:
-1. **MDX から削除**: 27本すべての `## 関連記事` / `## 関連コンテンツ` 節を一括削除
-2. **コンポーネント実装**: `RelatedArticles`（新規）を page.tsx レイヤーで実装。frontmatter の `category` + `tags` から同カテゴリ近傍ページをカード形式で自動生成。全資格・全記事種別で共通使用。
-3. **配置**: `<article>` の外（DocCard の下・AuthorCard の前）に固定配置。MDX に依存しない。
-4. **`<RelatedKeywords>` のリンク先修正**: 2級土木 primary 各設問のリンクをキーワード・テキストページへ修正（`past-exam-rewriter` 活用） — **✅ 完了 2026-06-20**：2級にはキーワード/テキストページが無いため、分野別ガイド（土工/コンクリート/法規/品質/工程の重要ポイント・全published）へ統一。対象は RelatedKeywords を持つ 4本（r03/r05/r06/r07-zenki、他年度過去問・1級過去問の級ミスマッチ・空items の誤配置を解消）。slug は doc-meta-index で実在確認。残る 1〜3（`## 関連記事`/`## 関連コンテンツ` の MDX 直書き廃止＋`RelatedArticles` コンポーネント化、27本一括削除は `[Codex候補]`）は未着手。
-
-**新規コンポーネント**: `src/components/ui/RelatedArticles/RelatedArticles.tsx`
-
-**実装ファイル**:
-- `src/app/docs/[...slug]/page.tsx`（RelatedArticles を追加、既存の category 別条件分岐の後）
-- 27本の MDX（一括スクリプトで `## 関連記事` 節を削除）`[Codex候補]`
+**検証**: 全28本 HTTP 200・可視「関連記事」h2 重複なし・CEM keyword は自動 null・U+FFFD 0・CRLF 維持・refresh-indexes 反映。
+**残（任意）**: site-wide で関連度の目視スポット確認（develop 上・未 deploy）。
 
 ---
 
