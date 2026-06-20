@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 330" style="max-width:500px;width:100%" role="img" aria-label="平成26年度後期 No.13 ネットワーク式工程表。イベント0から9。クリティカルパスは0→1→3→4→7→8→9で必要日数38日。3→4はダミー。作業H（4→7）の最早開始は20日。">
   <defs>
-    <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
-    <marker id="arcp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b22234"/></marker>
+    <marker id="ar" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker>
+    <marker id="arcp" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="11" markerHeight="11" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b22234"/></marker>
   </defs>
   <style>
     .ti{font-family:Inter,'Noto Sans JP','Hiragino Sans',sans-serif;font-size:14px;fill:#555}
