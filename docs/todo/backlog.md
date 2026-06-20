@@ -32,15 +32,18 @@
 
 ## 1. コンテンツ品質
 
-### 1級土木 テキストページの品質改善 🟡
+### 1級土木 テキストページの品質改善 🟡（最優先帯 完了・残は任意）
 
 **問題**:
 1. 頻出論点 Callout の内容が多すぎる — 箇条書き数を絞るか複数に分割
 2. 記事冒頭に Callout が来る — 本文（概要・説明）を先に書き、Callout は中盤以降に
 
-**対象**: `civil-construction-1` の textbook 系ページ全件
+**対象**: `civil-construction-1` の textbook 系ページ全件（38本中、肥大 Callout 32本）
 
-**対応**: `civil-construction-review` で一括監査 → `civil-textbook-rewriter` で修正。スキル: `/quality-cycle --profile civil-textbook`
+**進捗（2026-06-20）**: 肥大 Callout の**最優先帯8本を是正完了**（`civil-textbook-rewriter` で本文先頭化＋表/SpecSheetList/散文へ移行、Callout は節直前の最重要1〜2点＝最大3行に分散、§7「3個以内」準拠、試験必須事実・KaTeX・ArticleImage 全保持）。対象＝12〜16行 Callout だった `site-investigation` `law-compliance` `river-act` `demolition` `road-act` `surveying-basics` `leveling` `distance-angle`（commit 7ec40082b/f5c330ea2/1dec08a87/f9e0436bf）。
+**残（任意・低優先）**: 8〜11行 Callout の ~24本。content-principles に硬い数値規定はなく、8〜11行は許容範囲のため一律是正は不要。気になるページのみ同手順で個別対応。
+
+**対応**: `civil-construction-review` で監査 → `civil-textbook-rewriter` で修正。スキル: `/quality-cycle --profile civil-textbook`
 
 **参考**: `https://doboku-note.com/docs/civil-construction-1-textbook-site-investigation`
 
