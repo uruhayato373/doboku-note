@@ -66,8 +66,8 @@ URL 行は **行末で Enter → 4秒待つ**とリンクカードになる。�
 
 末尾(有料領域)の3ペルソナ個別マガジン導線を **完全パック(m171222175fac)＋総監もくじ(n3ed4c77ceed6)** へ置換（ソース6本完了）。理由＝14中3ペルソナしか出さず・本命の完全パック未提示・末尾=もくじ回遊原則と不一致。
 
-> [!warning]
-> **ライブ未反映（保留）**: 末尾は有料領域＝購入者のみ＆公開APIでも取得不可（paywall裏）。`note-append-cta`は追記専用で旧3ペルソナブロックを削除できないため、ライブのクリーン置換は手動(note-edit-session)が必要。低可視面につき緊急度低・ソース修正(恒久)済みで実害なし。やるなら各R8記事で旧ブロック削除→完全パック+もくじへ差替え。
+> [!done]
+> **2026-06-20 ライブ反映完了**: 6本（n5116639ee21f/naace4eeaa230/n0c52cfabab78/nf12d75c3e606/n05314b15b375/nb4e6f088f0e8）の末尾旧3ペルソナ導線を Phase U-B で削除→完全パック(m171222175fac)+もくじ(n3ed4c77ceed6)へ置換。`note-append-cta`は追記専用で削除不可のため一回限り Playwright `.tmp/fix-r8-funnel.mjs` で実施。**6/6 ペイウォール完全保持**（price=700・can_read=false・remained>0・boundaryBeforeExam=true）＋新カード反映＋旧mag消失を API+編集DOM再読で実体検証。学び＝embedカードは block `<FIGURE>`でシグネチャ駆動の1ブロック削除が必須・note は公開記事もドラフト auto-save する。詳細は docs/todo/backlog.md §SNS 完了エントリ。
 
 真実源: [[../reference/note-funnel-architecture.md]]・memory `project_note_live_cta_drift`・自動化=`npm run note-append-cta`（[[../../.claude/skills/social/publish-note/references/update-mode.md]]）
 

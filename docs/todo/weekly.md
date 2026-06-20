@@ -14,7 +14,7 @@
 | 🟡 | develop → main デプロイ（W25〜W26 の統合分を本番反映） | Claude Code | | [x] |
 | 🟡 | 公務員学習設計 `nc7d70c92b8b0` をペルソナ選択案内に緩和 | Claude Code(Playwright) | | [x] |
 | 🟡 | BK-I を差し替え投稿（R03/04/06/07 の I-1/I-2 両収録版へ更新） | Mac手動 / browser-use | | [ ] |
-| 🟢 | 総監 R8予想6本の旧マガジン導線削除（完全パック + もくじへ置換） | Mac手動 / browser-use | | [ ] |
+| 🟢 | 総監 R8予想6本の旧マガジン導線削除（完全パック + もくじへ置換） | Claude Code(Playwright) | | [x] |
 
 ---
 
@@ -43,5 +43,5 @@
 - **【2026-06-20 ライブ更新セッション完了】** Phase U-B（update-mode.md 準拠・Selection限定・API実体検証・通知いいえ）で実施:
   - 公務員緩和 → ライブ nc7d70c92b8b0 反映済（旧「道路担当デフォルト断定」→「ロードマップから選べる」＋ロードマップカード。API hasOLD=false/hasNEW=true/hasRoadmap=true）。[x]
   - ライブ CTA ¥14,800→¥9,800: **API診断で実際に価格テキストを持つライブ記事は na030d9cb3060(本日公開)の1本だけ**と判明（他18本は「説明文＋埋め込みカード」形式で価格テキスト無し＝修正不要）。当該1本を修正済（API hasOLD=false）。backlog の「29本」は誤り→訂正済。
-- **【未了・要慎重】旧マガジン導線削除（R8予想6本）**: n5116639ee21f/naace4eeaa230/n0c52cfabab78/nf12d75c3e606/n05314b15b375/nb4e6f088f0e8。旧導線は**末尾「有料領域」**にあり public API で確認不可。編集＝**販売中有料商品6本の有料エリア改変＋ペイウォール境界保持保存**＝最高リスク。🟢「現状実害なし」なので、専用に有料境界保持を組んだ慎重セッションで別途実施（一括bulldoze はしない）。
+- **【2026-06-20 完了】旧マガジン導線削除（R8予想6本）**: n5116639ee21f/naace4eeaa230/n0c52cfabab78/nf12d75c3e606/n05314b15b375/nb4e6f088f0e8 の末尾有料領域の旧3ペルソナ導線（道路担当/ゼネコン/河川コンサル）を**完全パック m171222175fac + 総監もくじ n3ed4c77ceed6** へ Phase U-B 置換。手段＝偵察で実DOM確認（カードは block `<FIGURE>`）→ **シグネチャ駆動で1ブロックずつ Delete**（embed一括 Range Delete は ProseMirror で残カードが出るため不可）→ type → 公開に進む polling → 有料エリア設定で境界を「予想問題本文」H2直前へ再設定し `boundaryBeforeExam=true` 検証 → 更新する → 通知いいえ。**6/6 ペイウォール完全保持**（全 price=700・can_read=false・remained>0）＋新カード2反映＋旧mag=0 を API + 編集DOM再読で実体検証。スクリプト＝`.tmp/fix-r8-funnel.mjs`（偵察＝`.tmp/recon-r8-funnel.mjs`）。ソースは既に commit 76c4fb540 で修正済み。
 - **BK-I 差し替え**: 販売中の有料商品の /new 全面再作成＝高リスク・ライブ。空更新事故履歴あり。慎重に別途。
