@@ -16,7 +16,18 @@ const ThemeContext = createContext<ThemeContextValue | null>(null);
 const STORAGE_KEY = 'doboku-note-theme';
 
 function getSystemTheme(): ResolvedTheme {
+  if (typeof window === 'undefined') return 'light';
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
+function getInitialTheme(): Theme {
+  if (typeof window === 'undefined') return 'system';
+  const stored = localStorage.getItem(STORAGE_KEY);
+  return stored === 'light' || stored === 'dark' ? stored : 'system';
+}
+
+function resolveTheme(theme: Theme): ResolvedTheme {
+  return theme === 'system' ? getSystemTheme() : theme;
 }
 
 function applyResolved(resolved: ResolvedTheme) {
@@ -35,17 +46,8 @@ export function useTheme(): ThemeContextValue {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>('system');
-  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>('light');
-
-  // Sync state with what the flash-prevention script already applied to the DOM
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    const initial: Theme = stored === 'light' || stored === 'dark' ? stored : 'system';
-    const resolved: ResolvedTheme = initial === 'system' ? getSystemTheme() : initial;
-    setThemeState(initial);
-    setResolvedTheme(resolved);
-  }, []);
+  const [theme, setThemeState] = useState<Theme>(() => getInitialTheme());
+  const [resolvedTheme, setResolvedTheme] = useState<ResolvedTheme>(() => resolveTheme(getInitialTheme()));
 
   // Listen for system preference changes when theme is 'system'
   useEffect(() => {
@@ -61,7 +63,7 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   }, [theme]);
 
   const setTheme = (newTheme: Theme) => {
-    const resolved: ResolvedTheme = newTheme === 'system' ? getSystemTheme() : newTheme;
+    const resolved = resolveTheme(newTheme);
     setThemeState(newTheme);
     setResolvedTheme(resolved);
     applyResolved(resolved);

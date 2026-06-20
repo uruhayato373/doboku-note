@@ -72,7 +72,7 @@ export async function refreshLinkMetadata(url: string): Promise<LinkMetadata> {
 
     // メタデータを抽出
     return extractMetadataFromHtml(html, urlObj);
-  } catch (error) {
+  } catch {
     // エラーが発生した場合のフォールバック処理
     try {
       const urlObj = new URL(url);
@@ -82,7 +82,7 @@ export async function refreshLinkMetadata(url: string): Promise<LinkMetadata> {
         description: "メタデータの再取得に失敗しました",
         image: null,
       };
-    } catch (e) {
+    } catch {
       return {
         siteName: "サイト名なし",
         title: "タイトルなし",
@@ -219,7 +219,7 @@ export async function getLinkMetadata(url: string): Promise<LinkMetadata> {
         image: null,
       };
       return fallbackMetadata;
-    } catch (e) {
+    } catch {
       return {
         siteName: "サイト名なし",
         title: "タイトルなし",

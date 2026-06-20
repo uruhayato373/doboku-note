@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { getDoc, getAllDocSlugs, getDocsMetaByCategory } from '@/lib/docs';
+import { getDoc, getAllDocSlugs, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { getAllComponents } from '@/lib/component-loader';
@@ -21,6 +21,7 @@ import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
 import rehypeExternalLinks from 'rehype-external-links';
 import { compileMDX } from 'next-mdx-remote/rsc';
+import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
@@ -45,6 +46,7 @@ import { generateHeadingId } from '@/lib/toc';
 import { extractReferencesSection } from '@/lib/extract-references';
 import type { Pluggable } from 'unified';
 import { resolveCareerSidebarAd, resolveCareerArticleEndCard, SCHOOL_SAT } from '@/config/affiliate-creatives';
+import type React from 'react';
 
 
 /**
@@ -202,13 +204,20 @@ function stripLeadingH1(content: string): string {
   return content;
 }
 
-async function SafeMDXRemote({ source, components }: { source: string; components: any }) {
+async function SafeMDXRemote({
+  source,
+  components,
+}: {
+  source: string;
+  components: React.ComponentProps<typeof MDXProvider>['components'];
+}) {
+  let content: React.ReactElement;
   try {
     // Compile once and use the result directly (avoid double compilation)
-    const { content } = await compileMDX({ source, options: mdxOptions, components });
-    return <>{content}</>;
-  } catch (error: any) {
-    console.error('MDX compile error:', error?.message?.slice(0, 200));
+    ({ content } = await compileMDX({ source, options: mdxOptions, components }));
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : String(error);
+    console.error('MDX compile error:', message.slice(0, 200));
     return (
       <div className="p-4 border border-yellow-300 dark:border-yellow-700 rounded-sm bg-yellow-50 dark:bg-yellow-900/20">
         <p className="text-yellow-700 dark:text-yellow-400 font-semibold">
@@ -220,6 +229,7 @@ async function SafeMDXRemote({ source, components }: { source: string; component
       </div>
     );
   }
+  return <>{content}</>;
 }
 
 /**
@@ -254,6 +264,15 @@ function toISOStringSafe(value: unknown): string | undefined {
   return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
 }
 
+function normalizeFaqs(faqs: DocMeta['faqs']) {
+  if (!Array.isArray(faqs)) return [];
+  return faqs.flatMap((faq) => {
+    const q = 'q' in faq ? faq.q : faq.question;
+    const a = 'a' in faq ? faq.a : faq.answer;
+    return q.trim() && a.trim() ? [{ q, a }] : [];
+  });
+}
+
 /**
  * Generate metadata for each documentation page.
  */
@@ -280,23 +299,23 @@ export async function generateMetadata({
   }
 
   // SEOタイトル: frontmatter の seoTitle をそのまま使用
-  const seoTitle = (doc.meta as any).seoTitle || doc.meta.title;
+  const seoTitle = doc.meta.seoTitle || doc.meta.title;
   const title: string | { absolute: string } = { absolute: seoTitle };
   const ogTitle = seoTitle;
 
   const description = doc.meta.description || doc.meta.title;
 
-  const publishedTime = toISOStringSafe((doc.meta as any).publishedAt);
+  const publishedTime = toISOStringSafe(doc.meta.publishedAt);
   const modifiedTime = toISOStringSafe(
-    (doc.meta as any).lastRewrittenAt ||
-    (doc.meta as any).updatedAt ||
-    (doc.meta as any).publishedAt
+    doc.meta.lastRewrittenAt ||
+    doc.meta.updatedAt ||
+    doc.meta.publishedAt
   );
 
   // 幽霊ページ（公開60日以上 impressions=0 等）は frontmatter noindex:true で
   // 検索インデックスから除外。follow:true で内部リンク資産（回遊・トピック権威）は保持。
   // sitemap.xml からの除外は generate-sitemap.mjs 側で同フラグを参照。
-  const isNoindex = (doc.meta as any).noindex === true;
+  const isNoindex = doc.meta.noindex === true;
 
   return {
     title,
@@ -351,13 +370,21 @@ export default async function DocPage({
   }
 
   const category = doc.meta.category;
+  const faqs = normalizeFaqs(doc.meta.faqs);
+  const publishedAt = doc.meta.publishedAt || doc.meta.created;
+  const updatedAt = doc.meta.updatedAt || doc.meta.dateModified;
+  const authorDates = {
+    ...(publishedAt ? { publishedAt } : {}),
+    ...(updatedAt ? { updatedAt } : {}),
+    ...(doc.meta.lastRewrittenAt ? { lastRewrittenAt: doc.meta.lastRewrittenAt } : {}),
+  };
 
   // Load MDX components
-  const components = await getAllComponents(doc as any);
+  const components = await getAllComponents(doc);
 
   // Fetch category articles (metadata only)
   const categoryArticles = category
-    ? (await getDocsMetaByCategory(category)).filter(d => !d.tags?.includes('模範論文') && !(d as any).hideFromCategory)
+    ? (await getDocsMetaByCategory(category)).filter(d => !d.tags?.includes('模範論文') && !d.hideFromCategory)
     : [];
 
   // Determine page classification for navigation cards
@@ -378,10 +405,6 @@ export default async function DocPage({
       .filter((x): x is RenderableSlot => x.magazine !== null);
   const inlineMagazines = filterRenderable(magazinePlacement.inline);
   const sidebarMagazines = filterRenderable(magazinePlacement.sidebar);
-  // 自社の有料マガジン (price あり = 模範論文/予想/テンプレ) がサイドバーに出るページでは
-  // アフィリエイト (SAT/独学サポート) を非表示にしてカニバリ回避。
-  // 精読ガイド (tankan, price なし) のみのページ (secondary / hub 等) はアフィリと併存させる。
-  const sidebarHasPaidMagazine = sidebarMagazines.some(({ magazine }) => Boolean(magazine.price));
   // サイドバー転職枠の creative（〜2026-08-31 はビルドジョブ ¥50,000、以降 GKS に自動復帰）。
   const careerSidebarAd = resolveCareerSidebarAd();
 
@@ -436,8 +459,8 @@ export default async function DocPage({
               {/* タイトル直下 byline: 日付 + 読了時間（タグなし） */}
               <MetaRow
                 variant="byline"
-                publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
-                updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
+                publishedAt={doc.meta.publishedAt || doc.meta.created}
+                updatedAt={doc.meta.updatedAt || doc.meta.dateModified}
               />
               {/* MDX Content — 先頭の # H1 は server-side で描画済みのため strip。
                   参考資料セクションは extractReferencesSection で抽出済みのため strippedContent を渡す */}
@@ -447,8 +470,8 @@ export default async function DocPage({
               <MetaRow
                 variant="footer"
                 tags={doc.meta.tags as string[] | undefined}
-                publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
-                updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
+                publishedAt={doc.meta.publishedAt || doc.meta.created}
+                updatedAt={doc.meta.updatedAt || doc.meta.dateModified}
                 category={category}
               />
             </article>
@@ -660,9 +683,9 @@ export default async function DocPage({
             )}
 
             {/* よくある質問（frontmatter faqs を持つ記事のみ表示） */}
-            {Array.isArray((doc.meta as any).faqs) && (doc.meta as any).faqs.length > 0 && (
+            {faqs.length > 0 && (
               <div className="mt-8">
-                <FAQCard faqs={(doc.meta as any).faqs} />
+                <FAQCard faqs={faqs} />
               </div>
             )}
 
@@ -678,11 +701,7 @@ export default async function DocPage({
             )}
 
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
-            <AuthorCard
-              publishedAt={(doc.meta as any).publishedAt || (doc.meta as any).created}
-              updatedAt={(doc.meta as any).updatedAt || (doc.meta as any).dateModified}
-              lastRewrittenAt={(doc.meta as any).lastRewrittenAt}
-            />
+            <AuthorCard {...authorDates} />
           </main>
 
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
@@ -722,7 +741,7 @@ export default async function DocPage({
                   </div>
                 )}
               {/* 転職アフィリエイトを全 docs サイドバー上部に常設（位置 A: note CTA の下・
-                  既存アフィリの上）。全 docs 無条件表示（sidebarHasPaidMagazine の抑制対象外）。
+                  既存アフィリの上）。全 docs 無条件表示。
                   2026-06-06: 従来は civil のみだったが全 docs へ拡大。
                   2026-06-16: creative を期間で出し分け（resolveCareerSidebarAd）。〜2026-08-31 は
                   ビルドジョブ（無料面談 ¥50,000・GKS の 2 倍報酬の増額キャンペーン）、9/1 以降 GKS に

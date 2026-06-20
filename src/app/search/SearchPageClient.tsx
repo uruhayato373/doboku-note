@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { useSearch } from "@/hooks/useSearch";
 import { SearchBox } from "@/components/search/SearchBox";
@@ -16,11 +16,6 @@ export default function SearchPageClient() {
     query,
     setQuery,
     category,
-    setCategory,
-    tags,
-    setTags,
-    sortBy,
-    setSortBy,
     results,
     isLoading,
     error,
@@ -28,8 +23,6 @@ export default function SearchPageClient() {
     changePage,
     resetSearch,
   } = useSearch();
-
-  const [showFilters, setShowFilters] = useState(false);
 
   // URLの ?q= パラメータから初期検索を実行
   useEffect(() => {
@@ -46,21 +39,8 @@ export default function SearchPageClient() {
     updateSearchQuery({ q: searchQuery });
   };
 
-  const handleFilterChange = (filterType: string, value: string | string[]) => {
-    switch (filterType) {
-      case "category":
-        setCategory(value as string);
-        updateSearchQuery({ category: value as string });
-        break;
-      case "tags":
-        setTags(value as string[]);
-        updateSearchQuery({ tags: value as string[] });
-        break;
-      case "sortBy":
-        setSortBy(value as "relevance");
-        updateSearchQuery({ sortBy: value as "relevance" });
-        break;
-    }
+  const handleCategoryChange = (newCategory: string) => {
+    updateSearchQuery({ category: newCategory });
   };
 
   return (
@@ -84,6 +64,8 @@ export default function SearchPageClient() {
           {/* 検索ボックス */}
           <div className="mb-4">
             <SearchBox
+              value={query}
+              onChange={setQuery}
               placeholder="キーワードを入力して検索..."
               onSearch={handleSearch}
             />
@@ -93,12 +75,8 @@ export default function SearchPageClient() {
           <div className="mb-8">
             <SearchFilters
               category={category}
-              tags={tags}
-              sortBy={sortBy}
-              onFilterChange={handleFilterChange}
+              onCategoryChange={handleCategoryChange}
               onReset={resetSearch}
-              showFilters={showFilters}
-              onToggleFilters={() => setShowFilters(!showFilters)}
             />
           </div>
 

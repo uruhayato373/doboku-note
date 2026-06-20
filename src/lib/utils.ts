@@ -15,7 +15,7 @@ export function formatDateSafely(dateString: string): string {
     return format(date, "yyyy年MM月dd日", {
       locale: ja,
     });
-  } catch (error) {
+  } catch {
     return "日付不明";
   }
 }
@@ -29,7 +29,7 @@ export function isValidDate(dateString: string): boolean {
   try {
     const date = new Date(dateString);
     return !isNaN(date.getTime());
-  } catch (error) {
+  } catch {
     return false;
   }
 }

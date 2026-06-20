@@ -15,7 +15,7 @@ interface TextbookNavProps {
 export default function TextbookNav({ currentSlug, categoryArticles }: TextbookNavProps) {
   const textbooks = categoryArticles
     .filter((m) => classifyDoc(m) === 'textbook')
-    .sort((a, b) => ((a as any).textbook_order ?? 999) - ((b as any).textbook_order ?? 999));
+    .sort((a, b) => (a.textbook_order ?? 999) - (b.textbook_order ?? 999));
 
   const idx = textbooks.findIndex((m) => m.slug === currentSlug);
   if (idx === -1) return null;

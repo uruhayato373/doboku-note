@@ -1,10 +1,6 @@
 import React from "react";
 import { Briefcase, Heart } from "lucide-react";
 
-interface IconProps {
-  className?: string;
-}
-
 export const getCategoryIcon = (iconName: string, className?: string) => {
   const defaultClassName = "w-10 h-10 md:w-12 md:h-12 text-white";
   const iconClassName = className || defaultClassName;

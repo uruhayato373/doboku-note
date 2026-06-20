@@ -1,6 +1,5 @@
 "use client";
 
-import { ReactNode } from "react";
 import { Calendar, CheckCircle, Clock } from "lucide-react";
 
 interface TimelineItem {

@@ -4,12 +4,8 @@ import { cn } from "@/lib/cn";
 
 interface SearchFiltersProps {
   category: string;
-  tags: string[];
-  sortBy: "relevance";
-  onFilterChange: (filterType: string, value: string | string[]) => void;
+  onCategoryChange: (category: string) => void;
   onReset: () => void;
-  showFilters: boolean;
-  onToggleFilters: () => void;
 }
 
 const CATEGORIES = [
@@ -22,18 +18,13 @@ const CATEGORIES = [
 
 export function SearchFilters({
   category,
-  tags,
-  onFilterChange,
+  onCategoryChange,
   onReset,
 }: SearchFiltersProps) {
-  const handleCategoryChange = (newCategory: string) => {
-    onFilterChange("category", newCategory);
-  };
-
   return (
     <div className="flex flex-wrap items-center gap-2">
       <button
-        onClick={() => handleCategoryChange("")}
+        onClick={() => onCategoryChange("")}
         className={cn(
           "px-3 py-1.5 text-sm rounded-full border transition-colors",
           !category
@@ -46,7 +37,7 @@ export function SearchFilters({
       {CATEGORIES.map((cat) => (
         <button
           key={cat.value}
-          onClick={() => handleCategoryChange(cat.value)}
+          onClick={() => onCategoryChange(cat.value)}
           className={cn(
             "px-3 py-1.5 text-sm rounded-full border transition-colors",
             category === cat.value

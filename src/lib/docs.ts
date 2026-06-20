@@ -7,6 +7,20 @@ import { GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import { getS3Client } from './r2-client';
 import docMetaIndex from '@/config/doc-meta-index.json';
 
+type DocMetaIndex = {
+  docs: Record<string, Omit<DocMeta, 'slug'> & { slug?: string }>;
+};
+
+const typedDocMetaIndex = docMetaIndex as DocMetaIndex;
+
+function isMissingObjectError(error: unknown): boolean {
+  if (!(error instanceof Error)) return false;
+  const metadata = '$metadata' in error
+    ? (error as { $metadata?: { httpStatusCode?: number } }).$metadata
+    : undefined;
+  return error.name === 'NoSuchKey' || metadata?.httpStatusCode === 404;
+}
+
 /**
  * Preprocess MDX content for compatibility with MDX v3+ strict parser.
  * - Removes JSX comments {/* ... * /} (not supported in MDX v3)
@@ -100,6 +114,7 @@ const localContentDirectory = path.join(process.cwd(), '.local', 'r2', 'posts');
 export type DocMeta = {
   slug: string; // e.g., 'civil-construction-1-guide-strategy' (flattened)
   title: string;
+  seoTitle?: string;
   shortTitle?: string; // カード表示用の短縮タイトル
   subtitle?: string;   // カード表示用のサブタイトル
   description?: string;
@@ -107,10 +122,22 @@ export type DocMeta = {
   group?: string; // e.g., 'guide', 'past-exam', 'keyword' (explicit classification)
   tags?: string[]; // e.g., ['guide', 'primary'] (from frontmatter)
   sidebar_label?: string;
+  section?: string;
+  guide_order?: number;
+  textbook_order?: number;
   toc_min_heading_level?: number;
   toc_max_heading_level?: number;
   published?: boolean; // true=published, false=draft
-  [key: string]: any; // Allow other frontmatter fields
+  publishedAt?: string;
+  created?: string;
+  updatedAt?: string;
+  dateModified?: string;
+  lastRewrittenAt?: string;
+  noindex?: boolean;
+  hideFromCategory?: boolean;
+  hideFromHome?: boolean;
+  faqs?: ({ q: string; a: string } | { question: string; answer: string })[];
+  [key: string]: unknown; // Allow other frontmatter fields
 };
 
 /**
@@ -175,7 +202,7 @@ function findMdxFiles(dir: string, basePath: string[] = []): { slug: string; rel
  */
 export async function getDocMeta(slug: string): Promise<DocMeta | null> {
   // 高速パス: 静的 JSON lookup（ビルド済みインデックス）
-  const entry = (docMetaIndex as any).docs[slug];
+  const entry = typedDocMetaIndex.docs[slug];
   if (entry) {
     return { slug, ...entry } as DocMeta;
   }
@@ -298,8 +325,8 @@ export const getDoc = cache(async function getDoc(slug: string): Promise<Doc | n
       },
       content: processedContent,
     };
-  } catch (error: any) {
-    if (error.name === 'NoSuchKey' || error.$metadata?.httpStatusCode === 404) {
+  } catch (error: unknown) {
+    if (isMissingObjectError(error)) {
       return null;
     }
     throw error;
@@ -377,7 +404,7 @@ export async function getAllDocSlugs(): Promise<string[]> {
  * Pure in-memory filter on the static JSON index (zero I/O).
  */
 export function getDocsMetaByCategory(category: string): DocMeta[] {
-  const docs = (docMetaIndex as any).docs as Record<string, any>;
+  const docs = typedDocMetaIndex.docs;
   return Object.entries(docs)
     .filter(([, meta]) => meta.category === category)
     .map(([slug, meta]) => ({ slug, ...meta } as DocMeta));
@@ -388,7 +415,6 @@ export function getDocsMetaByCategory(category: string): DocMeta[] {
  * Pure in-memory read on the static JSON index (zero I/O).
  */
 export function getAllDocsMeta(): DocMeta[] {
-  const docs = (docMetaIndex as any).docs as Record<string, any>;
+  const docs = typedDocMetaIndex.docs;
   return Object.entries(docs).map(([slug, meta]) => ({ slug, ...meta } as DocMeta));
 }
-

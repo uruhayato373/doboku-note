@@ -94,7 +94,7 @@ function parseInlineCode(text: string, parentIdx: number): ReactNode {
 }
 
 function getContent(item: ListItem): ReactNode {
-  if (typeof item === "object" && item !== null && "content" in (item as any)) {
+  if (typeof item === "object" && item !== null && "content" in item) {
     return (item as { content: ReactNode }).content;
   }
   if (typeof item === "string") {
