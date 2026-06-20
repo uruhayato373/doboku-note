@@ -1,6 +1,6 @@
 ---
 name: civil-construction-qa
-description: 1級土木施工管理技士 textbook/guide ページの視覚検証＋テキスト網羅率＋5軸ルーブリック評価を担当するEvaluatorエージェント。
+description: 1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）textbook/guide ページの視覚検証＋テキスト網羅率＋5軸ルーブリック評価を担当するEvaluatorエージェント。
 model: sonnet
 ---
 

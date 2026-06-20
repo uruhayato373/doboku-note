@@ -1,6 +1,6 @@
 ---
 name: civil-construction-review
-description: 1級土木施工管理技士 textbook/guide ページの既存 MDX を5軸ルーブリックで校正するEvaluatorエージェント。PDF照合は行わず、content-principles準拠・モバイル視認性・画像キャプション品質に特化。
+description: 1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）textbook/guide ページの既存 MDX を5軸ルーブリックで校正するEvaluatorエージェント。PDF照合は行わず、content-principles準拠・モバイル視認性・画像キャプション品質に特化。
 model: inherit
 ---
 
