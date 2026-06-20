@@ -19,6 +19,17 @@
         "docs/note/技術士総監/noteコンテンツ計画.md",
         "src/lib/note-magazines.ts"
       ]
+    },
+    "guide-min-3000-chars": {
+      "decision": "ガイド記事（group: guide）は本文（frontmatter除外・空白除去後）3,000字以上が必須下限（2026-06-21）。過去問/キーワード/textbookは対象外。既存31本を加筆バーンダウン後に check-guide-length を pre-commit/CI へ配線する（それまでゲート未配線）",
+      "anchor": "docs/reference/content-principles.md",
+      "files": [
+        "docs/reference/content-principles.md",
+        "scripts/check-guide-length.mjs",
+        "scripts/install-pre-commit.mjs",
+        ".github/workflows/r2-audit.yml",
+        "docs/todo/backlog.md"
+      ]
     }
   }
 }
