@@ -93,10 +93,13 @@
 | 1級土木 textbook | 10本 | `civil-construction-qa` |
 | pe-first-stage（欠落疑い 4本） | 4本 | 未整備 |
 
+**ソース PDF の所在**（2026-06-20 訂正）: 当初「PDF 不在でブロック」と誤記したが、実際は `docs/textbook/２級土木施工管理技士/過去問/R03〜R07/`（前期/後期/二次・正答付き）に全年度が存在。1級も `docs/textbook/１級土木施工管理技士/` 等にあり。`.claude/pdfs/` だけを見て早合点しないこと。
+
 **着手順**:
-1. 【緊急・PDF待ち】2級 r03-kouki・r07-kouki に図クロップを追加 — **2026-06-20 ブロック確認**: 2級土木 R03後期/R07後期のソース PDF がリポジトリ・ローカルディスク上に存在しない（`.claude/pdfs/` は `guide.pdf` のみ）。図参照は r03=5箇所・r07=7箇所で実在確認済（土留め断面の部材記号・水準測量の観測値・ネットワーク工程表のノード構造・道路橋/鋼橋断面の部材名など、**図中にしか問題パラメータが無い**ため解説からの再構成は捏造リスク）。→ **ユーザーが 2級 R03後期・R07後期 PDF を `.claude/pdfs/` に配置すれば `civil-exam-figure-extractor` で着手可能**。
-2. 1級 primary 16本を `civil-exam-figure-auditor` で一括監査（同様に 1級ソース PDF 要）
-3. pe-first-stage 4本の欠落疑いを確認・補完
+1. ✅ **完了 2026-06-20**：2級 r03-kouki・r07-kouki に図クロップを追加（commit `c213be9af`）。`R03/R07_第一次検定_後期.pdf` を pdftoppm で 200dpi レンダリング→magick で crop+trim→webp(q80)。r03 5図（土留め工/水準測量/道路橋断面/工程表/管理図）、r07 7図（土の構成模式図/単純梁/力のモーメント/定常流れ管/基礎の種類/鋼道路橋/工程表）。下図参照数=ArticleImage 数で一致。
+2. 1級 primary 16本を `civil-exam-figure-auditor` で一括監査（ソース PDF は `docs/textbook/１級土木施工管理技士/` を使用）
+3. 2級 primary 残り（r04-r06・前期等）の図参照を同手順で点検・補完
+4. pe-first-stage 4本の欠落疑いを確認・補完
 
 ---
 
