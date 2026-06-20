@@ -74,7 +74,7 @@ const coverCandidates = [typeSuffix && join(dir, `img/cover-${typeSuffix}.png`),
 const cover = coverCandidates.find(existsSync) || null;
 const tagsCandidates = [typeSuffix && join(dir, `hashtags-${typeSuffix}.txt`), join(dir, 'hashtags.txt')].filter(Boolean);
 const tagsFile = tagsCandidates.find(existsSync);
-const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 30) : [];
+const tags = tagsFile ? readFileSync(tagsFile, 'utf8').split(/\r?\n/).map((s) => s.trim().replace(/^#/, '')).filter(Boolean).slice(0, 99) : [];
 const isPaid = notePricing === 'paid' && price > 0;
 
 // ガード: プレースホルダ残・空タイトル
