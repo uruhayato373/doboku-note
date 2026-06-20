@@ -94,8 +94,8 @@
 | pe-first-stage（欠落疑い 4本） | 4本 | 未整備 |
 
 **着手順**:
-1. 【緊急】2級 r03-kouki・r07-kouki に図クロップを追加
-2. 1級 primary 16本を `civil-exam-figure-auditor` で一括監査
+1. 【緊急・PDF待ち】2級 r03-kouki・r07-kouki に図クロップを追加 — **2026-06-20 ブロック確認**: 2級土木 R03後期/R07後期のソース PDF がリポジトリ・ローカルディスク上に存在しない（`.claude/pdfs/` は `guide.pdf` のみ）。図参照は r03=5箇所・r07=7箇所で実在確認済（土留め断面の部材記号・水準測量の観測値・ネットワーク工程表のノード構造・道路橋/鋼橋断面の部材名など、**図中にしか問題パラメータが無い**ため解説からの再構成は捏造リスク）。→ **ユーザーが 2級 R03後期・R07後期 PDF を `.claude/pdfs/` に配置すれば `civil-exam-figure-extractor` で着手可能**。
+2. 1級 primary 16本を `civil-exam-figure-auditor` で一括監査（同様に 1級ソース PDF 要）
 3. pe-first-stage 4本の欠落疑いを確認・補完
 
 ---
