@@ -290,8 +290,8 @@ Hero → ExamCards → LatestArticles → AboutSection
 **実装箇所**: `src/app/docs/[...slug]/page.tsx` L.734
 
 **推奨方針**:
-- 短期: `primary`/`secondary` も TOC 非表示（条件に `&& docGroup !== 'primary' && docGroup !== 'secondary'` 追加）
-- 中期: 問番号ナビゲーター `ExamQuestionNav`（Q1〜Q65 のグリッドボタン）を `primary` 専用に実装
+- 短期: `primary`/`secondary` も TOC 非表示（条件に `&& docGroup !== 'primary' && docGroup !== 'secondary'` 追加） — **✅ 実装済 2026-06-20 [PR #266](https://github.com/uruhayato373/doboku-note/pull/266)（develop へマージ待ち）**
+- 中期: 問番号ナビゲーター `ExamQuestionNav`（Q1〜Q65 のグリッドボタン）を `primary` 専用に実装 — 未着手
 
 **新規コンポーネント**: `src/components/ui/ExamQuestionNav/ExamQuestionNav.tsx`
 
