@@ -4,9 +4,9 @@ noteMagazine: BK-I
 year: R03
 subject: required
 exam_type: I
-noteUrl: "https://note.com/dobokunote/n/ne8b5b287351f"
-noteId: "ne8b5b287351f"
-notePublishedAt: "2026-06-09"
+noteUrl: "https://note.com/dobokunote/n/nb1ddc4eb7622"
+noteId: "nb1ddc4eb7622"
+notePublishedAt: "2026-06-20"
 price: 500
 coverTitle: "技術士 建設部門｜必須科目 I R03 模範解答"
 cover:
