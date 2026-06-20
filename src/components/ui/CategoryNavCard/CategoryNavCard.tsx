@@ -47,13 +47,13 @@ function GuideCard({ variant, currentSlug, categoryArticles }: { variant: 'sideb
   if (variant === 'sidebar') {
     return (
       <SidebarWrapper title="試験概要">
-        <ul className="space-y-1.5">
+        <ul>
           {guides.map((g) => (
-            <li key={g.slug}>
+            <li key={g.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
               {g.slug === currentSlug ? (
-                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || g.shortTitle || g.title}</span>
+                <span className="block py-2 text-sm font-bold text-gray-900 dark:text-gray-100">{g.sidebar_label || g.shortTitle || g.title}</span>
               ) : (
-                <Link href={`/docs/${g.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
+                <Link href={`/docs/${g.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
                   {g.sidebar_label || g.shortTitle || g.title}
                 </Link>
               )}
@@ -98,13 +98,13 @@ function PillarCard({ variant, currentSlug, categoryArticles }: { variant: 'side
   if (variant === 'sidebar') {
     return (
       <SidebarWrapper title="5 管理学習ガイド">
-        <ul className="space-y-1.5">
+        <ul>
           {pillars.map((p) => (
-            <li key={p.slug}>
+            <li key={p.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
               {p.slug === currentSlug ? (
-                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || p.shortTitle || p.title}</span>
+                <span className="block py-2 text-sm font-bold text-gray-900 dark:text-gray-100">{p.sidebar_label || p.shortTitle || p.title}</span>
               ) : (
-                <Link href={`/docs/${p.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
+                <Link href={`/docs/${p.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
                   {p.sidebar_label || p.shortTitle || p.title}
                 </Link>
               )}
@@ -218,17 +218,17 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
         <p className="text-xs text-gray-500 dark:text-gray-400 mb-2">
           {section.id} {section.title}
         </p>
-        <ul className="space-y-0.5 max-h-[280px] overflow-y-auto toc-scroll">
+        <ul className="max-h-[280px] overflow-y-auto toc-scroll">
           {keywords.map(kw => (
-            <li key={kw.slug}>
+            <li key={kw.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
               {kw.slug === currentSuffix ? (
-                <span className="block text-sm py-0.5 pl-2 border-l-2 border-blue-500 font-bold text-gray-900 dark:text-gray-100">
+                <span className="block text-sm py-2 font-bold text-gray-900 dark:text-gray-100">
                   {kw.title}
                 </span>
               ) : (
                 <Link
                   href={`/docs/pe-comprehensive-management-${kw.slug}`}
-                  className="block text-sm py-0.5 pl-2 border-l-2 border-transparent text-gray-600 dark:text-gray-400 hover:text-brand hover:border-brand transition-colors"
+                  className="block text-sm py-2 text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors"
                 >
                   {kw.title}
                 </Link>
@@ -305,13 +305,13 @@ function LinkListCard({ variant, title, currentSlug, docs }: { variant: 'sidebar
   if (variant === 'sidebar') {
     return (
       <SidebarWrapper title={title}>
-        <ul className="space-y-1.5">
+        <ul>
           {docs.map((d) => (
-            <li key={d.slug}>
+            <li key={d.slug} className="border-b border-gray-200/60 dark:border-gray-700/60 last:border-b-0">
               {d.slug === currentSlug ? (
-                <span className="text-sm font-bold text-gray-900 dark:text-gray-100">{d.sidebar_label || d.title}</span>
+                <span className="block py-2 text-sm font-bold text-gray-900 dark:text-gray-100">{d.sidebar_label || d.title}</span>
               ) : (
-                <Link href={`/docs/${d.slug}`} className="text-sm text-brand hover:text-brand-deep hover:underline">
+                <Link href={`/docs/${d.slug}`} className="block py-2 text-sm text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors">
                   {d.sidebar_label || d.title}
                 </Link>
               )}
