@@ -13,10 +13,15 @@
 > `.claude/state/quality-scores.json` の古い不合格53本（陳腐化）を修正。現在 **不合格0 / 100%合格**。
 > cem-qa採点146本（`qualitative_comment` 付き）は保持済み。
 
-## 次にやること: C（weighted 2.0–2.5 帯のリライト）
+## C（weighted 2.0–2.5 帯のリライト）
 
-- 帯の総数: **114本**（cem-qa コメント付き=64本 ← 主対象 / auto採点=50本 ← 形式OK・cem-qa未評価）
-- **最優先チャンク = cem-qa の 2.00–2.19 帯 24本**（esd / likelihood / pqcdsme / liquefaction / overall-equipment-effectiveness / human-factors / safety-instrumented-system / contingency / csv / global-compact / health-management / human-resource-assessment / multi-objective-optimization / periodic-inspection / standard-costing / target-cost / theory-of-constraints / three-point-estimation / parallel-system / cites / end-of-pipe / global-hr-development / surcharge / terrorism）
+### ✅ 最優先チャンク 24本 完了（2026-06-20、6バッチ）
+cem-qa 2.00–2.19 帯の24本を全リライト → lint全合格・auto再採点 2.90–3.00。**未デプロイ**（develop 積み上げ）。
+batch1 esd/likelihood/pqcdsme/liquefaction｜batch2 OEE/human-factors/SIS/contingency｜batch3 csv/global-compact/health-management/human-resource-assessment｜batch4 多目的最適化/定期点検/標準原価/目標原価｜batch5 TOC/三点見積り/並列システム/CITES｜batch6 EOP/グローバル人材/課徴金/テロリズム
+共通修正＝背景H2を位置づけ前へ移動／ExamPoint末尾移動／5管理トレードオフH3新設／表前導入文・表セル短縮／参考資料の公的民間バランス是正（壊れURL・HTTP500・JISCトップ等を200確認済URLへ差替）。
+
+### 残り: cem-qa 2.2–2.5 帯 40本（緊急度・低）
+合格マージンが大きい（2.2:2 / 2.3:27 / 2.4:7 / 2.5:4）。再取得は下記コマンドの上限を `<2.5` に。先頭例: inventory-control / personal-info-protection / risk-analysis / ojt-off-jt / second-career / circular-economy / competency-hr / crisis-management-manual / delphi-method / indirect-manufacturing-cost
 
 対象リスト再取得:
 ```bash
