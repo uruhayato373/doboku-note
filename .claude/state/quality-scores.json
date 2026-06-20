@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T02:39:01.884Z",
+  "scored_at": "2026-06-20T02:52:48.188Z",
   "pages": {
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
@@ -855,22 +855,6 @@
       "qualitative_comment": "構造・参考資料は良好。ExamPoint 配置が51%地点（§5違反）、発展背景の年代 verifiable claim にインライン出典なし（§22）が要修正。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "esd": {
-      "slug": "esd",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 3,
-        "linking": 3
-      },
-      "weighted": 2,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "MEDIUM 4件（表前導入文×2・ExamPoint位置・§22インライン出典）。成立背景H2がExamPoint後に置かれ構造順ズレ。参考資料・関連付けは完備。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "esg-environmental-assessment": {
       "slug": "esg-environmental-assessment",
       "scores": {
@@ -1279,38 +1263,6 @@
       "qualitative_comment": "モバイルがMEDIUM4件（見出し重複3件+ExamPoint位置）で弱点。インライン出典欠落も要対処。参考資料・関連付けは良好。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "likelihood": {
-      "slug": "likelihood",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 3,
-        "linking": 3
-      },
-      "weighted": 2,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "モバイル軸HIGH違反1件（表セル内KaTeX）が主因。ExamPoint位置ズレとfactual table直下インライン出典欠落（§22）がMEDIUM2件。参考資料・関連付けは良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "liquefaction": {
-      "slug": "liquefaction",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 1,
-        "reference": 3,
-        "linking": 3
-      },
-      "weighted": 2.05,
-      "weak_axes": [
-        "principle"
-      ],
-      "qualitative_comment": "MEDIUM 3件（lint太字2件＋§22インライン出典欠落）でコンテンツ原則1点。参考資料・関連付けは良好。5管理言及が歴史H2末尾1文に埋没。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "load-capacity": {
       "slug": "load-capacity",
       "scores": {
@@ -1634,22 +1586,6 @@
         "principle"
       ],
       "qualitative_comment": "§22 factual table 2件にインライン出典なし、セル1字超過。参考資料3件は全件実在。法令制度類型として構造・リンクは良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "pqcdsme": {
-      "slug": "pqcdsme",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 3,
-        "linking": 3
-      },
-      "weighted": 2,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "モバイル軸MEDIUM3件（見出し重複・太字スコープ超・太字デリミタ）で要修正。5管理トレードオフH3欠落とISO14001年代のインライン出典不足も要対応。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "problem-setting-ability": {
@@ -9676,6 +9612,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T02:39:01.883Z",
+      "scoring_method": "auto"
+    },
+    "esd": {
+      "slug": "esd",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:52:48.095Z",
+      "scoring_method": "auto"
+    },
+    "likelihood": {
+      "slug": "likelihood",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:52:48.129Z",
+      "scoring_method": "auto"
+    },
+    "liquefaction": {
+      "slug": "liquefaction",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:52:48.157Z",
+      "scoring_method": "auto"
+    },
+    "pqcdsme": {
+      "slug": "pqcdsme",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:52:48.187Z",
       "scoring_method": "auto"
     }
   }
