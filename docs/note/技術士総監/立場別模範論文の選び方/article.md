@@ -1,7 +1,10 @@
 ---
 notePricing: free
 noteSeries: 模範論文の選び方
-noteStatus: draft
+noteStatus: published
+noteUrl: https://note.com/dobokunote/n/na030d9cb3060
+noteId: na030d9cb3060
+notePublishedAt: 2026-06-20
 utmCampaign: persona-selector-intro
 coverTitle:
   - 総監記述式 模範論文
