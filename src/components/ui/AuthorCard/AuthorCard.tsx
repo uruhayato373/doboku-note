@@ -6,6 +6,8 @@ interface AuthorCardProps {
   publishedAt?: string;
   updatedAt?: string;
   lastRewrittenAt?: string;
+  /** 記事カテゴリ。note 送客先をカテゴリ別に出し分ける（未指定/未登録は L1 全資格案内）。 */
+  category?: string | undefined;
 }
 
 function formatDate(iso?: string): string | null {
@@ -23,10 +25,14 @@ export default function AuthorCard({
   publishedAt,
   updatedAt,
   lastRewrittenAt,
+  category,
 }: AuthorCardProps) {
   const published = formatDate(publishedAt);
   const updated = formatDate(updatedAt);
   const lastReviewed = formatDate(lastRewrittenAt);
+  // note 送客先をカテゴリ別に解決（未登録カテゴリは L1 全資格案内へ）。
+  const noteMap = AUTHOR.noteByCategory as Record<string, { noteUrl: string; noteLabel: string }>;
+  const note = (category && noteMap[category]) || AUTHOR.noteDefault;
 
   return (
     <MetaCard as="aside" ariaLabel="執筆者情報" className="mt-10">
@@ -68,13 +74,13 @@ export default function AuthorCard({
             </div>
           )}
           <a
-            href={AUTHOR.noteUrl}
+            href={note.noteUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="mt-4 inline-flex items-center gap-2 px-3.5 py-2 rounded-md bg-primary-600 dark:bg-primary-500 text-white text-sm font-bold shadow-sm hover:bg-primary-700 dark:hover:bg-primary-400 transition-colors"
           >
             <span aria-hidden>📘</span>
-            <span>{AUTHOR.noteLabel}</span>
+            <span>{note.noteLabel}</span>
           </a>
           <Link
             href="/about"

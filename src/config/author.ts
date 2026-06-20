@@ -50,4 +50,23 @@ export const AUTHOR = {
   noteUrl:
     "https://note.com/dobokunote/n/n3d73729e6cc7?utm_source=site&utm_medium=author-card&utm_campaign=profile-fixed-roadmap",
   noteLabel: "note で総監 R08 対策の続編を発信中",
+  // AuthorCard の note 送客先をカテゴリ別に出し分ける（旧: 全資格で総監ロードマップ固定だった）。
+  // 該当の無いカテゴリ（civil/concrete 等・L2 もくじ未構築）は noteDefault（L1 全資格案内）へ。
+  noteByCategory: {
+    "pe-comprehensive-management": {
+      noteUrl:
+        "https://note.com/dobokunote/n/n3d73729e6cc7?utm_source=site&utm_medium=author-card&utm_campaign=author-tankan-roadmap",
+      noteLabel: "note で総監 R08 対策の続編を発信中",
+    },
+    "pe-construction": {
+      noteUrl:
+        "https://note.com/dobokunote/n/n7279ca0d926f?utm_source=site&utm_medium=author-card&utm_campaign=author-pe-construction-mokuji",
+      noteLabel: "note で建設部門 二次対策を発信中",
+    },
+  },
+  noteDefault: {
+    noteUrl:
+      "https://note.com/dobokunote/n/n296a88f64ac2?utm_source=site&utm_medium=author-card&utm_campaign=author-l1-sitemap",
+    noteLabel: "note で土木系資格の対策を発信中",
+  },
 } as const;

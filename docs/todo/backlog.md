@@ -104,7 +104,9 @@
 
 **決定方針（2026-06-20）**: PDF の機械イラストはメーカー提供写真（コマツ/酒井重工業/トプコン等）が多く切出し使用は著作権 NG のため、**(C) Gemini/GPT でオリジナルのカラーイラストを生成して差し替える**（元PDFは形状リファレンスのみ）。**有料 → 着手前に必ずユーザー確認**（[[gemini-cost-confirm]]）。当面 web 写真は据え置き、生成画像が揃い次第入れ替え。**パイロット**＝`textbook-grader-compaction`（5枚）でスタイル/コスト確定 → 全24枚。手順・対象はワークリスト参照。
 
-### pe-construction カテゴリページの過去問マトリクスをモバイル対応に刷新 🟡
+### 【完了 2026-06-20】pe-construction カテゴリページの過去問マトリクスをモバイル対応に刷新
+
+**実施**: 案C（レスポンシブ二重レイアウト）で実装・develop マージ済（[PR #267](https://github.com/uruhayato373/doboku-note/pull/267)）。モバイル＝科目カード縦積み＋年度ボタングリッド（横スクロール解消・タップ領域拡大）、デスクトップ＝現状マトリクス維持。`PeConstructionExamTable` の外科的変更。build pass で SSR 検証済。
 
 **発端**: `https://doboku-note.com/category/pe-construction`
 

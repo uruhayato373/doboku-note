@@ -713,7 +713,7 @@ export default async function DocPage({
             )}
 
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
-            <AuthorCard {...authorDates} />
+            <AuthorCard {...authorDates} category={category ?? undefined} />
           </main>
 
           {/* Right Sidebar: Zenn 300px, visible at ≥993px (zenn-desktop) */}
