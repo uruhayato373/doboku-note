@@ -42,6 +42,7 @@
     "prebuild": "npm run generate-webp && npm run update-image-refs",
     "build": "rm -rf out && npm run refresh-indexes && next build && npx pagefind --site out --output-path out/pagefind && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs",
     "ogp": "node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs",
+    "ogp-backgrounds": "node scripts/generate-ogp-backgrounds.mjs",
     "ogp-gallery": "node scripts/ogp-gallery.mjs",
     "svg-gallery": "node scripts/svg-gallery.mjs",
     "start": "next start -p 3020",

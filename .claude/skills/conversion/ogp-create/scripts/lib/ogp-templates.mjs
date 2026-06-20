@@ -33,6 +33,10 @@ const C_INK_RULE = 'rgba(15, 30, 63, 0.12)';
 const C_CYAN = '#06b6d4';
 const C_CYAN_ACCENT = '#22d3ee';
 const C_NAVY_ACCENT = '#1e3a8a';
+// 背景画像（AI 生成）を敷くときの可読性スクリム。半透明オフホワイトで質感を残しつつ
+// タイトル・チップを読みやすく保つ。背景は生成側で淡く正規化済みなので 0.7 で質感を活かす。
+// alpha を上げるほど文字優先・背景は控えめになる（読みにくければ上げる）。
+const C_SCRIM = 'rgba(253, 252, 248, 0.7)';
 
 // --- helpers ---
 
@@ -63,11 +67,49 @@ function debugSafetyOverlay(width) {
 
 // ---- テンプレート: mono-tag (T06) ----
 
-function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor }, { width, height }) {
+function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor, backgroundImage }, { width, height }) {
   // 2026-06-16: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。左右 72px パディング。
   const safeL = 72;
   const innerWidth = width - safeL * 2;
   const themeColor = accentColor || C_INK_NAVY;
+
+  // AI 生成背景（資格ごとに共有）。指定があれば最背面に cover 配置し、上に可読性スクリムを敷く。
+  // 未指定なら従来どおりオフホワイト + グリッドのみ（出力は完全後方互換）。
+  const backgroundLayers = backgroundImage
+    ? [
+        {
+          type: 'img',
+          props: {
+            width,
+            height,
+            src: backgroundImage,
+            style: {
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            },
+          },
+        },
+        {
+          type: 'div',
+          props: {
+            style: {
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              background: C_SCRIM,
+            },
+            children: [],
+          },
+        },
+      ]
+    : [];
 
   const fineGridUrl = gridDataUrl(30, 'rgba(15,30,63,0.04)', 1);
   const majorGridUrl = gridDataUrl(120, 'rgba(15,30,63,0.09)', 1.25);
@@ -203,6 +245,8 @@ function renderMonoTag({ lines, categoryLabel: cat, fontSize, accentColor }, { w
   const innerStack = [wordmark, categoryChip, titleBlock].filter(Boolean);
 
   const children = [
+    // AI 生成背景 + 可読性スクリム（backgroundImage 指定時のみ。最背面）
+    ...backgroundLayers,
     // 背景グリッド（major + fine 重ね）
     {
       type: 'div',

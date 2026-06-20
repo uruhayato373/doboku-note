@@ -32,11 +32,11 @@ note 公開用ドラフト（`docs/note/`）のカバー画像（1280×670）も
 
 | ID | 用途 | デザイン |
 |---|---|---|
-| `mono-tag` | サイト OGP（1200×630）共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + **全幅・縦中央寄せ大タイトル（最大76px）** + **資格別テーマ色 16px 外枠**（下部メタ・タグラインは撤去済み） |
+| `mono-tag` | サイト OGP（1200×630）共通（T06） | warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー + Navy カテゴリチップ + **全幅・縦中央寄せ大タイトル（最大76px）** + **資格別テーマ色 16px 外枠**（下部メタ・タグラインは撤去済み）。**任意で資格別 AI 背景**（あり時は最背面に画像＋可読性スクリム `rgba(253,252,248,0.7)`／なし時は上記オフホワイト固定・後方互換、下記「資格別 AI 背景」） |
 | `magazine-banner` | note マガジンヘッダー（1280×670） | 中央 1280×216 帯クロップ対応。`generate-magazine-covers.mjs` 専用 |
 | `note-cover-g2` | note 記事カバー（1280×670） | 全幅バナー帯。**試験区分=ベース色 / 系列=濃淡** で 1級土木・2級土木・総監・共通 を色で判別。リード文→強調キーワード(HiBox)→全幅バナー帯→チップ3つ |
 
-過去 Phase で 5 種テンプレ（navy-white / dark-wood / red-line / blackboard / dark-grid）を併用していたが、2026-04-29 に T06 Mono Tag に統一（理由: SNS シェアでブランド一貫性を担保 + メンテ単純化）。旧テンプレの背景画像 (`assets/fonts/ogp-backgrounds/*.png`) は履歴として残置しているが現在は参照されない。
+過去 Phase で 5 種テンプレ（navy-white / dark-wood / red-line / blackboard / dark-grid）を併用していたが、2026-04-29 に T06 Mono Tag に統一（理由: SNS シェアでブランド一貫性を担保 + メンテ単純化）。**旧**テンプレの背景画像 (`assets/fonts/ogp-backgrounds/*.png`) は履歴として残置しているが現在は参照されない。新しい資格別 AI 背景は別系統で `.claude/config/ogp/backgrounds/<exam-key>.png|webp|jpg` に置き、`ogp-create.mjs` の `resolveBackgroundImage` が参照する（任意・未配置なら従来のオフホワイト+グリッドにフォールバック。下記「資格別 AI 背景」）。
 
 **note 記事カバーは `note-cover-g2`（2026-05-29 追加）が標準**。サイト OGP（`mono-tag`）とは別系統で、note のフィード・リンクカードで試験区分が色で一目でわかることを優先する。値の真実源は [`docs/design-system/note-cover-tokens.json`](../../../../docs/design-system/note-cover-tokens.json)、仕様は [`docs/design-system/note-cover.md`](../../../../docs/design-system/note-cover.md)。
 
@@ -49,6 +49,23 @@ mono-tag は **全幅レイアウト**。左右 72px パディング内にワー
 ## 資格別テーマ色（16px 外枠）
 
 外枠 16px を資格区分のテーマ色で描き、サムネ一覧でも分野が色で判別できる。**色の真実源は [`docs/design-system/note-cover-tokens.json`](../../../../docs/design-system/note-cover-tokens.json) の `exams[].base`**（note カバーと共通・二重管理しない）。`ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` がカテゴリ→exam key を解決し、`resolveAccentColor()` が base 色を返す（未マッピングは既定ネイビー `#0f1e3f`）。色の対応表は ogp-prompts.md「テーマ色」を参照。新カテゴリ追加時は **`CATEGORY_TO_EXAM_KEY` + `note-cover-tokens.json` + ogp-prompts.md** を更新する。
+
+## 資格別 AI 背景（任意・2026-06-18〜）
+
+mono-tag は資格ごとに **AI 生成背景**を最背面に任意で敷ける。文字・ブランド枠は satori が正確に描き、背景は下地。**背景なしは完全後方互換**（従来のオフホワイト+グリッド）。デザイン仕様の真実源は [`ogp-prompts.md`](../../../../docs/reference/ogp-prompts.md)「資格別 AI 背景」。
+
+- **置き場**: `.claude/config/ogp/backgrounds/<exam-key>.png|webp|jpg`（資格ごと1枚を全記事で共有）。`resolveBackgroundImage(category)` が解決し、無ければオフホワイトにフォールバック。
+- **生成**: `npm run ogp-backgrounds`（`scripts/generate-ogp-backgrounds.mjs`）。`GEMINI_API_KEY`（`.env.local`）が要る。未設定だとプロンプトのプレビューのみ表示して終了。
+
+```bash
+npm run ogp-backgrounds -- --all --dry-run   # 6資格のプロンプト確認（API 呼ばない）
+npm run ogp-backgrounds -- --all             # 全資格生成（既定 --mode flash=gemini-2.5-flash-image）
+npm run ogp-backgrounds -- --exam civil-1 --force --mode imagen   # 単一・imagen-4.0
+npm run ogp -- --all --force                 # 既存 OGP へ焼き込み（任意。新規記事は通常生成で自動反映）
+```
+
+- **可読性**: 生成時に平均輝度 ~202 へ正規化（暗い出力だけ白ブレンド）＋描画時にスクリム `C_SCRIM`（既定 0.7）。強すぎ/弱すぎは `ogp-templates.mjs` の `C_SCRIM` alpha で調整。
+- **コスト**: 画像生成は従量課金。AI Studio キーは GCP の Generative Language API に Quota（1日上限）を設定して上限管理（予算アラートは通知のみ）。
 
 ## QA: OGP ギャラリー
 

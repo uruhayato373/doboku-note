@@ -7,7 +7,7 @@
       "category": "汎用統一",
       "backgroundImage": null,
       "promptSource": "Claude Design handoff 2026-04-29",
-      "notes": "doboku-note サイト OGP（1200×630）と cover: 無し note カバー（1280×670 フォールバック）の共通テンプレ。2026-06-16 全幅リデザイン: 中央 630 セーフゾーンを撤廃し全幅化、タイトル最大76px縦中央寄せ、資格別テーマ色16px外枠（色は note-cover-tokens.json と共用）、下部メタ/タグライン撤去。warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー。デザイン SSOT は docs/reference/ogp-prompts.md。"
+      "notes": "doboku-note サイト OGP（1200×630）と cover: 無し note カバー（1280×670 フォールバック）の共通テンプレ。2026-06-16 全幅リデザイン: 中央 630 セーフゾーンを撤廃し全幅化、タイトル最大76px縦中央寄せ、資格別テーマ色16px外枠（色は note-cover-tokens.json と共用）、下部メタ/タグライン撤去。warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー。2026-06-18: 資格別 AI 背景（.claude/config/ogp/backgrounds/<exam-key>.png）を任意で最背面に敷ける（可読性スクリム C_SCRIM 経由・背景なしは後方互換、npm run ogp-backgrounds で生成）。デザイン SSOT は docs/reference/ogp-prompts.md。"
     },
     "magazine-banner": {
       "name": "Magazine Banner（note ヘッダー対応）",

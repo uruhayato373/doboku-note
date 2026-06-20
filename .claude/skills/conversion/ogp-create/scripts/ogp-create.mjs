@@ -68,6 +68,9 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = process.cwd();
 const POSTS_DIR = path.join(PROJECT_ROOT, '.local', 'r2', 'posts');
 const FONTS_DIR = path.join(__dirname, '..', 'assets', 'fonts');
+// 資格ごとに共有する AI 生成背景の置き場。<exam-key>.png|webp|jpg を探す。
+// 真実源の exam-key は CATEGORY_TO_EXAM_KEY（上）と note-cover-tokens.json に一致。
+const BACKGROUNDS_DIR = path.join(PROJECT_ROOT, '.claude', 'config', 'ogp', 'backgrounds');
 
 // ---- CLI 引数パース ----
 
@@ -180,6 +183,22 @@ function loadBackgroundImage(templateDef) {
   return `data:image/${ext};base64,${buf.toString('base64')}`;
 }
 
+// 資格ごとに共有する背景画像を解決する。category → exam-key → backgrounds/<key>.{png,webp,jpg}。
+// 存在しなければ null（＝従来のオフホワイト背景にフォールバック、後方互換）。
+function resolveBackgroundImage(category) {
+  const key = CATEGORY_TO_EXAM_KEY[category];
+  if (!key) return null;
+  for (const ext of ['png', 'webp', 'jpg', 'jpeg']) {
+    const abs = path.join(BACKGROUNDS_DIR, `${key}.${ext}`);
+    if (fs.existsSync(abs)) {
+      const buf = fs.readFileSync(abs);
+      const mime = ext === 'jpg' ? 'jpeg' : ext;
+      return `data:image/${mime};base64,${buf.toString('base64')}`;
+    }
+  }
+  return null;
+}
+
 // ---- 単一ページの生成処理 ----
 
 async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
@@ -232,7 +251,8 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   }
 
   const categoryLabel = categories.find(c => c.slug === data.category)?.label || '';
-  const backgroundImage = loadBackgroundImage(templateDef);
+  // 資格別共有背景を優先し、無ければテンプレ定義の静的背景にフォールバック。
+  const backgroundImage = resolveBackgroundImage(data.category) || loadBackgroundImage(templateDef);
   const accentColor = resolveAccentColor(data.category);
 
   const element = renderTemplate(templateId, {
