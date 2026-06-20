@@ -315,8 +315,9 @@ const MAGAZINES_RAW = {
 
   // ----- 総監記述式 完全パック（上段・全記事パック 2026年版）-----
   // 型 + 設問3 + R8 + 模範論文14ペルソナ + 精読 の全部入り（全18マガジン相当）。
-  // 2026-06-15 に9ペルソナ63記事＋精読6記事を収録し note 上で122記事に拡張・¥14,800へ改定済
-  //（note-magazine-add + note-edit-magazine、API実体検証済）。単品合計¥44,640相当（67%OFF）。
+  // 2026-06-15 に9ペルソナ63記事＋精読6記事を収録し note 上で122記事に拡張
+  //（note-magazine-add + note-edit-magazine、API実体検証済）。
+  // 価格は 2026-06-20 に ¥9,800 へ改定（旧 ¥14,800）。単品合計¥44,640相当（約78%OFF）。
   // 決定: 総監マガジン構成_決定2026.md §3-2 ＋ 2026-06-15 追補。
   'essay-complete-pack': {
     id: 'essay-complete-pack',
@@ -329,7 +330,7 @@ const MAGAZINES_RAW = {
     shortDescription:
       '型×設問3×予想×全14ペルソナ模範論文＋精読の全部入り。記述式対策の決定版バンドル。',
     imageUrl: '/images/magazines/magazine-essay-complete-pack-cover.webp',
-    price: '¥14,800',
+    price: '¥9,800',
     badge: 'note 限定',
   },
 

@@ -149,7 +149,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 1. 完全一致: 記述式戦略ハブは精読ガイド + 新規プレミアム + 全 3 ペルソナ模範論文を提示 (強 CTA)
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
     // パイプライン順 (完全パック → コアパック → 型 → 設問3 → 予想 → 模範論文 → 精読基礎)。
-    // 上段=完全パック¥14,800 を筆頭の強 CTA、下段=コアパック¥5,480 を次点（2段ラダー）。
+    // 上段=完全パック¥9,800 を筆頭の強 CTA、下段=コアパック¥5,480 を次点（2段ラダー）。
     // sidebar は sidebarImageUrl を持つ精読ガイドを維持（パックは sidebarImageUrl 未設定）。
     return {
       inline: [

@@ -46,7 +46,7 @@ cover:
 ![独立した技術士の収入実態5ケース。食える独立と食えない独立の分岐を5事例で図示](img/figure-1-independence-cases.png)
 
 <!-- cta:pack-top -->
-> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥14,800）](https://note.com/dobokunote/m/m171222175fac)を。
+> 総監の記述式を本気で仕上げるなら、書き方の「型」・設問(3)の「弾薬」・本番の「演習」を1セットにした[コアパック（¥5,480）](https://note.com/dobokunote/m/m6e7de5e4ea3d)が入口に最適です。全部そろえたい方は[完全パック（¥9,800）](https://note.com/dobokunote/m/m171222175fac)を。
 
 ## 結論：独立技術者の収入は二極化、初年度が勝負
 
