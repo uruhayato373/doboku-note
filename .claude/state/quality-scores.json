@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T01:46:16.804Z",
+  "scored_at": "2026-06-20T02:03:07.490Z",
   "pages": {
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
@@ -1087,23 +1087,6 @@
       "qualitative_comment": "MEDIUM 2件（表前導入文・ExamPoint位置）とL55付近の数値段落にインライン出典欠落。参考資料・関連付けは良好。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "halo-effect-errors": {
-      "slug": "halo-effect-errors",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
-        "linking": 2
-      },
-      "weighted": 1.6,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "qualitative_comment": "MEDIUM3件（表導入文欠・ExamPoint位置・参考資料民間のみ）。歴史H2が構造末尾に残存。公的機関リンク不足が最重点。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "hazardous-facility-disaster-prevention": {
       "slug": "hazardous-facility-disaster-prevention",
       "scores": {
@@ -1251,23 +1234,6 @@
       "qualitative_comment": "lint完全パス・構造順序正常。§22違反：L64「2001年施行の政策評価法」段落にインライン出典なし（MEDIUM）。参考資料URLはWebFetch網絡制限で実在未確認。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "inspection-methods": {
-      "slug": "inspection-methods",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 1,
-        "reference": 2,
-        "linking": 2
-      },
-      "weighted": 1.55,
-      "weak_axes": [
-        "mobile",
-        "principle"
-      ],
-      "qualitative_comment": "ExamPoint 位置違反・5管理H3 欠落・重複bullet・導入文なしが重なりモバイル/原則とも1点。参考資料は実在確認済み。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "internship": {
       "slug": "internship",
       "scores": {
@@ -1398,23 +1364,6 @@
       "weighted": 2.65,
       "weak_axes": [],
       "qualitative_comment": "lint違反ゼロ・参考資料実在確認済み。現場運用類型だが5管理トレードオフH3が明示なく、過去問核心Calloutも不在。全軸2点以上で合格水準。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "lead-time": {
-      "slug": "lead-time",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 1.7,
-      "weak_axes": [
-        "mobile",
-        "reference"
-      ],
-      "qualitative_comment": "SPT数式・計算例など経済性管理の核心は充実。参考資料が民間のみ・MEDIUM3件でモバイル/参考資料軸が弱点。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "lifecycle-assessment": {
@@ -1636,23 +1585,6 @@
       "weighted": 2.1,
       "weak_axes": [],
       "qualitative_comment": "概念理論類型。ExamPoint位置・参考資料民間のみ・インライン出典欠落の MEDIUM 3件。加重合計 2.20 で合格だがリライト推奨。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "natech": {
-      "slug": "natech",
-      "scores": {
-        "structure": 1,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 2
-      },
-      "weighted": 1.45,
-      "weak_axes": [
-        "structure",
-        "mobile"
-      ],
-      "qualitative_comment": "現場運用類型で5管理トレードオフH3が欠落。モバイルはMEDIUM3件（factual table出典・ExamPoint位置・参考資料民間欠落）。参考資料は公的2件のみ。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "nonconformity-rate": {
@@ -9715,6 +9647,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T01:46:16.803Z",
+      "scoring_method": "auto"
+    },
+    "halo-effect-errors": {
+      "slug": "halo-effect-errors",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:03:07.383Z",
+      "scoring_method": "auto"
+    },
+    "inspection-methods": {
+      "slug": "inspection-methods",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:03:07.416Z",
+      "scoring_method": "auto"
+    },
+    "lead-time": {
+      "slug": "lead-time",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:03:07.453Z",
+      "scoring_method": "auto"
+    },
+    "natech": {
+      "slug": "natech",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:03:07.490Z",
       "scoring_method": "auto"
     }
   }
