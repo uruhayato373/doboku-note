@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T03:39:51.874Z",
+  "scored_at": "2026-06-20T03:49:29.899Z",
   "pages": {
     "backcasting": {
       "slug": "backcasting",
@@ -700,22 +700,6 @@
       "qualitative_comment": "lint違反ゼロ・参考資料実在確認OK。L57の成立年記述（1922/1947/1974年）直下にインライン出典なし（§22 MEDIUM）のみ要修正。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "end-of-pipe": {
-      "slug": "end-of-pipe",
-      "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.15,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "モバイル軸でMEDIUM3件（表セル超過×2）。§22インライン出典不足も要修正。参考資料は公的のみ判定。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "environmental-accounting": {
       "slug": "environmental-accounting",
       "scores": {
@@ -833,20 +817,6 @@
       "weighted": 2.65,
       "weak_axes": [],
       "qualitative_comment": "lint完全パス・参考資料実在確認済み。現場運用類型だが5管理トレードオフH3不在（mandatory未充足）で原則2点。歴史H2削除推奨。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "global-hr-development": {
-      "slug": "global-hr-development",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 3,
-        "linking": 2
-      },
-      "weighted": 2.15,
-      "weak_axes": [],
-      "qualitative_comment": "背景H2が位置づけH2の後に配置（構造逸脱）、ExamPoint位置ずれ、インライン出典なし（§22）。参考資料は公的＋民間で満点。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "green-bond": {
@@ -1525,22 +1495,6 @@
       "qualitative_comment": "概念理論型。参考資料・関連付けは適切。歴史表の直前導入文欠落とfactual table直下インライン出典欠落（各MEDIUM）が2軸に影響。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "surcharge": {
-      "slug": "surcharge",
-      "scores": {
-        "structure": 3,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.15,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "モバイル軸 MEDIUM 3件（表前導入文欠落・ExamPoint位置・民間参考資料なし）で1点。参考資料は公的のみ。構造・関連付けは良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "targeted-attack": {
       "slug": "targeted-attack",
       "scores": {
@@ -1553,20 +1507,6 @@
       "weighted": 2.25,
       "weak_axes": [],
       "qualitative_comment": "全軸2点以上で合格水準。被害例の具体数値（125万件・SolarWinds2020）にインライン出典がない（§22 MEDIUM×2）。L101の関連キーワード列挙行（lint 8-1）。歴史H2は試験関連度あるがスリム化余地あり（LOW）。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "terrorism": {
-      "slug": "terrorism",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 3,
-        "linking": 2
-      },
-      "weighted": 2.15,
-      "weak_axes": [],
-      "qualitative_comment": "歴史H2がセクション末尾に挿入で順序ズレ。ExamPoint位置と§22インライン出典欠落がMEDIUM。参考資料は公的+民間揃い。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "timeline-disaster": {
@@ -9653,6 +9593,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T03:39:51.872Z",
+      "scoring_method": "auto"
+    },
+    "end-of-pipe": {
+      "slug": "end-of-pipe",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:49:29.783Z",
+      "scoring_method": "auto"
+    },
+    "global-hr-development": {
+      "slug": "global-hr-development",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:49:29.825Z",
+      "scoring_method": "auto"
+    },
+    "surcharge": {
+      "slug": "surcharge",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:49:29.861Z",
+      "scoring_method": "auto"
+    },
+    "terrorism": {
+      "slug": "terrorism",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:49:29.898Z",
       "scoring_method": "auto"
     }
   }
