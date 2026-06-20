@@ -32,18 +32,16 @@
 
 ## 1. コンテンツ品質
 
-### 1級土木 テキストページの品質改善 🟡（最優先帯 完了・残は任意）
+### 【完了 2026-06-20】1級土木 テキストページの品質改善（頻出論点Callout是正）
 
-**問題**:
-1. 頻出論点 Callout の内容が多すぎる — 箇条書き数を絞るか複数に分割
-2. 記事冒頭に Callout が来る — 本文（概要・説明）を先に書き、Callout は中盤以降に
+**問題**: ①頻出論点 Callout の内容過多、②記事冒頭に巨大 Callout が来て本文が後回し。
 
-**対象**: `civil-construction-1` の textbook 系ページ全件（38本中、肥大 Callout 32本）
+**実施**: `civil-construction-1` textbook の**肥大 Callout 全30本を是正完了**（`civil-textbook-rewriter`）。全ページ共通で **本文先行化**（Callout の前に必ず H2 本文を配置）＋ 列挙/データ/公式を**表・SpecSheetList・散文へ移行**＋ Callout は**節直前の引っかけ1〜2点（概ね最大3〜6行）**に圧縮＋ **§7「1記事3個以内」準拠**。試験必須事実（条番号・数値・公式）・KaTeX・ArticleImage・SVG は全保持、CRLF維持・U+FFFD 0、pre-commit 全通過。
+- **最優先帯（12〜16行）8本**: site-investigation / law-compliance / river-act / demolition / road-act / surveying-basics / leveling / distance-angle
+- **8〜11行帯 22本**: network-schedule / management-subplans / labor-standards / explosives-act / construction-mgmt-overview / machinery-overview / machinery-structure / building-standards / transport-machinery / tractor-bulldozer / standard-contract / shovel-excavator / quality-overview / control-chart / construction-plan-overview / construction-business / work-scheduling / schedule-overview / schedule-charts / quality-inspection / loader / grader-compaction / port-regulations
+- commit 群: 7ec40082b〜（pilot）… 各 batch（develop 反映済）
 
-**進捗（2026-06-20）**: 肥大 Callout の**最優先帯8本を是正完了**（`civil-textbook-rewriter` で本文先頭化＋表/SpecSheetList/散文へ移行、Callout は節直前の最重要1〜2点＝最大3行に分散、§7「3個以内」準拠、試験必須事実・KaTeX・ArticleImage 全保持）。対象＝12〜16行 Callout だった `site-investigation` `law-compliance` `river-act` `demolition` `road-act` `surveying-basics` `leveling` `distance-angle`（commit 7ec40082b/f5c330ea2/1dec08a87/f9e0436bf）。
-**残（任意・低優先）**: 8〜11行 Callout の ~24本。content-principles に硬い数値規定はなく、8〜11行は許容範囲のため一律是正は不要。気になるページのみ同手順で個別対応。
-
-**対応**: `civil-construction-review` で監査 → `civil-textbook-rewriter` で修正。スキル: `/quality-cycle --profile civil-textbook`
+**残（別タスク・低優先）**: textbook 画像の品質監査（`civil-construction-qa`）は別項目「過去問・テキストの図クロップ品質整備」で扱う。
 
 **参考**: `https://doboku-note.com/docs/civil-construction-1-textbook-site-investigation`
 
