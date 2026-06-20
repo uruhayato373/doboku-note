@@ -138,19 +138,31 @@
 
 ---
 
-### 1級土木 テキスト画像のカラー化 🟢
+### 1級土木 テキスト画像：web検索写真を PDF図クロップ＋Gemini カラー化で差し替え 🟢
 
-**背景**: textbook 系ページの画像を PDF 白黒図 → ChatGPT カラー化で差し替える。
+**背景**: textbook 系の一部ページは、本来 PDF（公式テキスト/問題集）の図をクロップすべきところを **web 検索のブランド名付き写真（.jpg）で暫定代替**している。著作権が不明確なため、**PDF から図をクロップし直し → Gemini API でカラー化 → web 写真を差し替える**（旧記載の「ChatGPT GPT-4o」は誤り、Gemini に統一）。
 
-**対象**: 画像を持つ textbook ページ 14本・約250枚
+**ソース PDF**: `docs/textbook/１級土木施工管理技士/`（`テキスト（土木一般編）/第２章_建設機械.pdf`・`問題集/`等）。※ [[1級・2級土木施工管理技士 ソースPDF]] 参照。
 
-**手順概要**:
-1. PyMuPDF で PDF 該当ページをレンダリング
-2. ChatGPT GPT-4o（画像編集）でカラー化
-3. 既存 web 検索画像と差し替え → `npm run generate-webp`
+**対象A＝web検索写真の差し替え（優先・著作権対応）— 8ページ・約24枚**（2026-06-20 現物照合）:
+| ページ | web写真.jpg |
+|---|---|
+| `textbook-crane` | 7 |
+| `textbook-grader-compaction` | 5 |
+| `textbook-distance-angle` | 4 |
+| `textbook-transport-machinery` | 3 |
+| `textbook-scraper` | 2 |
+| `textbook-leveling` / `textbook-loader` / `textbook-tractor-bulldozer` | 各1 |
+
+**対象B＝既存B&W図のカラー化（任意・後回し）**: `fig-*.png` で PDF 由来の白黒図を持つページ（construction-machinery-01=13 / -02=7 / schedule-management=24 / surveying=11 / demolition=6 / construction-mgmt-overview=4 ほか、計 約65枚）。すでに PDF クロップ済なので著作権問題はなく、見栄え向上のカラー化のみ。
+
+**手順**:
+1. `pdftoppm -r 200` で該当ページをレンダリング → `magick -crop+trim` で図を切り出し（過去問図と同手順）
+2. Gemini API（画像編集）でカラー化 — 実装は `scripts/generate-ogp-backgrounds.mjs` の Gemini 連携パターンを流用
+3. web 写真 .jpg を削除し、カラー化図に差し替え（alt も「ブランド名」から図の説明へ）→ `npm run generate-webp`
 4. `npm run refresh-indexes` → コミット（R2 同期は CI が自動）
 
-**パイロット**: まず `textbook-grader-compaction`（10枚）で手順確立
+**コスト注意**: Gemini 画像生成は**有料**。実行前に必ずユーザー確認（[[gemini-cost-confirm]]）。**まず対象A の `textbook-grader-compaction`（5枚）でパイロット**し品質・コストを確認してから全体へ。
 
 ### pe-construction カテゴリページの過去問マトリクスをモバイル対応に刷新 🟡
 
