@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T02:21:32.657Z",
+  "scored_at": "2026-06-20T02:39:01.884Z",
   "pages": {
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
@@ -1021,22 +1021,6 @@
       "qualitative_comment": "構造・参考資料・関連付けは良好。ExamPoint位置(43%)と太字CommonMark違反(L61)、立法背景段落のインライン出典欠如(§22)が弱点。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "hazop": {
-      "slug": "hazop",
-      "scores": {
-        "structure": 1,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 3,
-        "linking": 3
-      },
-      "weighted": 1.95,
-      "weak_axes": [
-        "structure"
-      ],
-      "qualitative_comment": "現場運用類型だが5管理トレードオフH3が欠落（mandatory）。alt超過とインライン出典なしのMEDIUM2件あり。参考資料・関連付けは良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "health-management": {
       "slug": "health-management",
       "scores": {
@@ -1846,22 +1830,6 @@
       "qualitative_comment": "全軸2点以上で合格水準。被害例の具体数値（125万件・SolarWinds2020）にインライン出典がない（§22 MEDIUM×2）。L101の関連キーワード列挙行（lint 8-1）。歴史H2は試験関連度あるがスリム化余地あり（LOW）。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "task-based-training": {
-      "slug": "task-based-training",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 1.95,
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "ハラスメントURL(L85)が404。5管理トレードオフH3欠落（現場運用型）。歴史H2削除候補。ExamPoint位置ズレ。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "terrorism": {
       "slug": "terrorism",
       "scores": {
@@ -1946,38 +1914,6 @@
       "weighted": 2.5,
       "weak_axes": [],
       "qualitative_comment": "現場運用類型で5管理トレードオフH3が欠落（mandatory）。歴史H2がTOC位置づけと重複。§22インライン出典なし2件。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "visual-management": {
-      "slug": "visual-management",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 1.95,
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "公的参考資料ゼロ・5管理H3欠落（現場運用型）・歴史H2が位置づけ後に置かれ構造順序ズレ",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "wacc-roic": {
-      "slug": "wacc-roic",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 1.95,
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "参考資料2件とも具体コンテンツ未到達URL。歴史H2が位置づけ後に挟まり構造順ズレ。ExamPoint位置・インライン出典も要修正。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "work-planning": {
@@ -9684,6 +9620,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T02:21:32.655Z",
+      "scoring_method": "auto"
+    },
+    "hazop": {
+      "slug": "hazop",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:39:01.793Z",
+      "scoring_method": "auto"
+    },
+    "task-based-training": {
+      "slug": "task-based-training",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:39:01.824Z",
+      "scoring_method": "auto"
+    },
+    "visual-management": {
+      "slug": "visual-management",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:39:01.854Z",
+      "scoring_method": "auto"
+    },
+    "wacc-roic": {
+      "slug": "wacc-roic",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:39:01.883Z",
       "scoring_method": "auto"
     }
   }

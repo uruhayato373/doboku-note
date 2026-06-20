@@ -8,8 +8,8 @@ tags:
   - keyword
 published: true
 reviewStatus: needs-review
-lastRewrittenAt: '2026-05-17T03:29:43Z'
-revisionCycle: 1
+lastRewrittenAt: '2026-06-20T00:00:00Z'
+revisionCycle: 2
 publishedAt: '2026-04-09'
 seoTitle: "HAZOP ｜ 技術士 総合技術監理部門 キーワード集"
 created: 2026-04-05
@@ -26,8 +26,9 @@ HAZOP（Hazard and Operability Study：危険・運転性検討）とは、**ガ
 
 <ArticleImage
   src="/posts/pe-comprehensive-management/hazop/img/hazop-guidewords.svg"
-  alt="HAZOP の 7 ガイドワード：プロセスパラメータ（例: 流量）に No / More / Less / As Well As / Part Of / Reverse / Other Than の 7 ガイドワードを掛け合わせて逸脱シナリオを網羅的に導出する"
+  alt="HAZOP の 7 ガイドワードをプロセスパラメータに掛け合わせて逸脱シナリオを導出する図"
 />
+{/* source: 7 ガイドワード = No / More / Less / As Well As / Part Of / Reverse / Other Than */}
 
 HAZOP では以下 7 種のガイドワードをプロセスパラメータに組み合わせて逸脱シナリオを導出する。
 
@@ -89,6 +90,16 @@ HAZOP は複数の原因が連鎖してプロセス逸脱に至るシナリオ�
 HAZOP は [FMEA](/docs/pe-comprehensive-management-fmea) と並ぶ代表的なハザード分析手法である。[PHA](/docs/pe-comprehensive-management-pha) が概略的なハザード評価であるのに対し、HAZOP はより詳細なプロセス分析に用いられる。過去問 [R04 Ⅰ-1-28](/docs/pe-comprehensive-management-r04-primary#1-28) では「なし／多い／少ない／逆に／他の」等のガイドワードで設計意図からの逸脱を同定する手法として HAZOP が正答に挙げられた。
 
 過去問 [R02 Ⅰ-1-25](/docs/pe-comprehensive-management-r02-primary#1-25) では関連キーワードとして扱われた（本問の 4 正答は [FTA](/docs/pe-comprehensive-management-fta)・[ETA](/docs/pe-comprehensive-management-eta)・[FMEA](/docs/pe-comprehensive-management-fmea)・[VTA](/docs/pe-comprehensive-management-vta-method)）。HAZOP は**プロセスパラメータの逸脱をガイドワード**で体系的に検討する点で、FMEA（構成要素の故障モード）や VTA（時系列の逸脱）とは識別する対象の粒度・観点が異なる。
+
+### 5 管理間のトレードオフ
+
+HAZOP を実施する総合技術監理者は、安全管理上の便益と他の管理領域との利益相反を意識的に調整する必要がある。
+
+安全管理の観点からは、逸脱シナリオを網羅的に抽出するために多くのノードを設定し、チーム審査を複数回繰り返すことが望ましい。しかし**経済性管理**との間では、チームの招集コストと審査工数が事業費を圧迫するトレードオフが生じる。特に中小規模のプロセス改造案件では、すべてのノードに対して詳細 HAZOP を実施する費用を確保することが難しく、スコープを絞るか審査の粒度を下げるかの判断が求められる。
+
+**人的資源管理**との間では、プロセスエンジニア・計装担当・運転員・安全担当といった多分野の専門家を同時に確保する必要があるため、通常業務との競合が課題となる。チームメンバーが兼務業務から長期間離れると生産側に影響が出るため、HAZOP セッションの集中度と期間を設計段階で最適化しなければならない。
+
+**情報管理**との間では、精度の高い P&ID（配管計装図）や工程フロー図が整備されていなければ逸脱の特定精度が低下するというトレードオフが存在する。情報整備コストを優先して詳細設計の完成を待つか、暫定 P&ID で早期に HAZOP を実施して設計変更コストを抑えるかは、プロジェクト段階と変更コストの大小によって判断が異なる。
 
 <ExamPoint
   summary="HAZOPのガイドワードによる体系的な逸脱検討を理解する"
