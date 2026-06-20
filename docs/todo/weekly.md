@@ -32,18 +32,7 @@
 
 ## メモ・ブロッカー
 
-<!-- 前週からの持ち越し理由・ブロッカーをここに記録 -->
-
-- **技術士二次筆記まで約2週間**（annual.md §7月上旬）。W26 が直前訴求の最終週。
-- **Mac手動4本はすべて note.com 操作が必要**（Playwright browser-use または手動）。Claude Code 単独では完結しない。優先順位は「新規投稿（直前訴求効果大）> 差し替え・緩和」。
-- **develop → main デプロイ**: W25 で feat/gsc-management・feat/ogp-ai-background・ci/index-coverage を develop に統合済み。試験ピーク前に本番反映すべき変更（component lint 整理・GSC 監査ワークフロー・OGP AI背景）が溜まっている。
-- **総監 R8予想6本の旧マガジン導線削除**: 現状のまま実害なし（backlog §SNS §旧マガジン導線削除）。BK-I 差し替えと同じ note-edit-session で実施すると効率的。
-- **W25 完了サマリ**: develop push 済み、建設部門もくじ note 再公開済み、総監ロードマップ14ペルソナ更新済み。
-- **【2026-06-20 完了】** 🔴2本を Claude Code(Playwright `note-publish.mjs`)で公開＝note 投稿は Mac 手動でなく自動化できると実証（立場別 na030d9cb3060 / R08 n30d34b67a8c5・nf90ba1382475）。完全パックも ¥14,800→¥9,800 改定に伴い repo の価格ドリフト全42ファイル同期＋develop→main デプロイ済み。
-- **【2026-06-20 ライブ更新セッション完了】** Phase U-B（update-mode.md 準拠・Selection限定・API実体検証・通知いいえ）で実施:
-  - 公務員緩和 → ライブ nc7d70c92b8b0 反映済（旧「道路担当デフォルト断定」→「ロードマップから選べる」＋ロードマップカード。API hasOLD=false/hasNEW=true/hasRoadmap=true）。[x]
-  - ライブ CTA ¥14,800→¥9,800: **API診断で実際に価格テキストを持つライブ記事は na030d9cb3060(本日公開)の1本だけ**と判明（他18本は「説明文＋埋め込みカード」形式で価格テキスト無し＝修正不要）。当該1本を修正済（API hasOLD=false）。backlog の「29本」は誤り→訂正済。
-- **【2026-06-20 完了】旧マガジン導線削除（R8予想6本）**: n5116639ee21f/naace4eeaa230/n0c52cfabab78/nf12d75c3e606/n05314b15b375/nb4e6f088f0e8 の末尾有料領域の旧3ペルソナ導線（道路担当/ゼネコン/河川コンサル）を**完全パック m171222175fac + 総監もくじ n3ed4c77ceed6** へ Phase U-B 置換。手段＝偵察で実DOM確認（カードは block `<FIGURE>`）→ **シグネチャ駆動で1ブロックずつ Delete**（embed一括 Range Delete は ProseMirror で残カードが出るため不可）→ type → 公開に進む polling → 有料エリア設定で境界を「予想問題本文」H2直前へ再設定し `boundaryBeforeExam=true` 検証 → 更新する → 通知いいえ。**6/6 ペイウォール完全保持**（全 price=700・can_read=false・remained>0）＋新カード2反映＋旧mag=0 を API + 編集DOM再読で実体検証。スクリプト＝`.tmp/fix-r8-funnel.mjs`（偵察＝`.tmp/recon-r8-funnel.mjs`）。ソースは既に commit 76c4fb540 で修正済み。
-- **【2026-06-20 全自動カットオーバー完了】BK-I 差し替え**: R03/04/06/07 の I-1・I-2 両収録版を Playwright で全自動入替完了。①ドラフトstaging（書式DOM検証＝H3×16/太字×61/両解答）→②公開（有料¥780・境界boundaryBeforeExam検証・API実体検証）→③マガジン `m0f3bc3933454` へ新4本追加→④旧4本をマガジンから削除（追加済toggle off）→⑤frontmatter新IDへ書戻し。新id: R03 `nb1ddc4eb7622`/R04 `n8d72cf82ca72`/R06 `n149dd5284f51`/R07 `n6cbd95df5aad`（全 price=780/can_read=false/remained 7600-8500）。マガジン=11件（新4 in・旧4 out・重複解消・R05/R8予想は不変）。
-  - **【ペンディング】旧4本（ne8b5b287351f/n61e459a3c541/nf7881f25de47/nffe6938dc40c）は published のまま**＝note 仕様で「販売実績/有料マガジン履歴のある有料記事は下書きに戻せない」（ダイアログ実機確認）。残る手段は不可逆「削除」のみ＝販売履歴ゆえ自動実行せず保留。マガジン外＋サイトfrontmatterも新ID＝**孤児化で実害最小**。気になれば note UI で手動削除。
-  - 自動化資産（.tmp・gitignore）: `publish-bki-drafts.mjs`（既存ドラフト公開）・`remove-bki-old-from-mag.mjs`（マガジン削除）・`unpublish-bki-old.mjs`（下書き戻し＝note制約で不可と判明）。学び＝note は販売実績のある有料記事の非公開化を禁止する。
+- **W26 全タスク完了**（前倒し消化）。note 投稿は Mac 手動でなく Claude Code(Playwright) で全自動化できると実証。
+- **2026-06-20 追加完了（会話発）**: 建設部門 docs モバイルにビルドジョブ転職カード追加＋develop→main デプロイ（本番反映確認済）。
+- **キャリーフォワード（W27 候補）**: ①総監モバイル記事末カード（要 PE_CONSULTING 創作）②AdSense 再申請完遂（外部承認）③pe-construction visible:true 化（待機）④BK-09/10 R8予想生成（試験後）⑤BK-I 旧4本の note 手動削除（任意・実害最小）。
+- 完了の詳細・学びは `docs/handoffs/` と memory に保全済み。

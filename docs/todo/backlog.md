@@ -32,18 +32,6 @@
 
 ## 1. コンテンツ品質
 
-### 【解決済 2026-06-20】技術士総監 primary の解答・解説が過密 — 計算式・試験対策ポイントを整理
-
-**結論**: 本項目は 2026-06-18 の折衷案決定（memory `pe-pastexam-answer-compromise`）で既に解消済み。現物照合の結果、h21〜r07 全 17 本とも ExamPoint は折衷案の形（summary＝引っかけ1行＋items 最大2項目）に圧縮済み、計算問題の KaTeX は「展開圧縮」ではなく**保持**が正（06-18 決定で目標反転）。当初 backlog の「KaTeX 1〜2行化／ExamPoint を引っかけ問のみに絞る」は失効。再作業不要。
-
-<details><summary>当初の起票内容（参考）</summary>
-
-**発端**: `https://doboku-note.com/docs/pe-comprehensive-management-r07-primary`。解答・解説（`<details>` 内）に教材レベルの計算導入文・KaTeX 数式・試験対策フレーズが入り込み「参考書の解説」化していた、という指摘。対象 `h21-primary`〜`h30-primary`＋`r04`・`r07`。→ 06-18 折衷案で per-option 検証は核（削ると thin content）と判断、ExamPoint は全廃せず圧縮、KaTeX は保持で確定。
-
-</details>
-
----
-
 ### 1級土木 テキストページの品質改善 🟡
 
 **問題**:
@@ -100,41 +88,6 @@
 2. 1級 primary 16本を `civil-exam-figure-auditor` で一括監査（ソース PDF は `docs/textbook/１級土木施工管理技士/` を使用）
 3. 2級 primary 残り（r04-r06・前期等）の図参照を同手順で点検・補完
 4. pe-first-stage 4本の欠落疑いを確認・補完
-
----
-
-### 【完了 2026-06-20】択一過去問の選択肢番号を `(1)(2)` → `1. 2.` に統一
-
-**実施**: 行頭 `(1)〜(4)` を markdown 順序リスト `1.〜4.` に統一（commit `464016905`）。**実ファイル数は 34本**（1級 24本＝h26〜r07 各 a/b ＋ 2級 10本＝r03〜r07 各 zenki/kouki）で旧記載の「47本」は誤り。変換は **7,463 箇所**（旧記載の行数は正）。表内 `| (n)` セルは行頭が `|` のため対象外で保持。全角括弧・(5)以上・コードフェンスの不在を事前検査、全LF・U+FFFDなし、pre-commit MDX 検証 34/34 通過。スクリプトは `transformMdxFile`（EOL保持）使用。
-
-<details><summary>当初の起票内容（参考）</summary>
-
-**問題**: 問題文は `(1)〜` 形式、解説の `<details>` 内は `1. 2.` 形式という二重表記。**対象**: 1級土木 primary 37本（約4,392行）+ 2級土木 primary 10本（約3,071行）= 計47本・7,463行
-
-**変換ルール**:
-```
-行頭 (1) → 1.  (2) → 2.  (3) → 3.  (4) → 4.
-テーブル行（|で始まる行）はスキップ
-```
-
-**実装**: frontmatter 除外・テーブルスキップ・CRLF 保持（`writeMdxFile` 経由）。`past-exam-rewriter` または一括スクリプト。
-
-</details>
-
----
-
-### 【完了 2026-06-20】2級土木 二次過去問の `- （1）` 二重表記を修正
-
-**問題**: 箇条書きマーカー `-` と全角括弧番号 `（1）` が二重に付いている。
-
-```mdx
-<!-- 現状 → 修正後 -->
-- （1）工事名  →  （1）工事名
-```
-
-**対象**: `civil-construction-2/secondary-r03〜r07`（5本）+ `civil-construction-1/secondary-r07`（1本）= 計6本
-
-**実施**: 6本144行の `- （n）` を `（n）` に修正（commit `9a1c48f37`）。ネストした `① ② …` のサブ項目は箇条書きとして保持。
 
 ---
 
@@ -283,24 +236,6 @@ Hero → ExamCards → LatestArticles → AboutSection
 - `src/components/ui/MagazineSidebarCard/`（または新規 Feature 版コンポーネント）
 
 **備考**: デザイン反復は develop/ローカル(:3020)で実施し、ユーザーが確認してから develop push（毎回本番 deploy しない）。
-
----
-
-### 【解決済 2026-06-20】公開済み note 記事のライブ CTA 価格
-
-**当初の想定（誤り）**: 約29本のライブ CTA が ¥14,800 のまま、と推定していた。
-
-**API 診断の実態**: 公開済み記事のライブ body を `note.com/api/v3/notes/<id>` で全数診断した結果、**「完全パック（¥価格）」のテキストを持つライブ記事は na030d9cb3060（2026-06-20 公開）の1本だけ**。他の公開済み記事は CTA が「説明文＋埋め込みカード（価格テキスト無し）」形式で公開されており、価格陳腐化が無い＝修正不要だった。当該1本は Phase U-B で ¥9,800 へ修正済（API hasOLD=false 検証）。**→ 本タスクはクローズ**。
-
----
-
-### ~~総監 R8予想6本の有料エリア内「旧3ペルソナ個別マガジン導線」を完全パック＋もくじへ置換~~ ✅ 完了（2026-06-20）
-
-**対象 noteId**: n5116639ee21f（資源循環）/ naace4eeaa230（老朽化インフラ）/ n0c52cfabab78（経済安全保障）/ nf12d75c3e606（災害復旧）/ n05314b15b375（気候変動適応）/ nb4e6f088f0e8（AI社会）。
-
-**実施**: 各記事末尾有料領域の旧3ペルソナ導線（道路担当/ゼネコン/河川コンサル）を**完全パック m171222175fac + 総監もくじ n3ed4c77ceed6** へ Phase U-B 置換。**6/6 ペイウォール完全保持**（price=700・can_read=false・remained>0・`boundaryBeforeExam=true`）＋新カード反映＋旧mag消失を API + 編集DOM再読で実体検証。**実害なし→慎重に完遂**（一括 bulldoze せず偵察→1本検証→残5本）。スクリプト＝`.tmp/fix-r8-funnel.mjs`。手順詳細は weekly.md W26 メモ参照。
-
-**実装の学び**: ①note の embed マガジンカードは block `<FIGURE>`＝範囲一括 Range Delete だと ProseMirror が残カードを出す → **旧ブロック固有シグネチャで1ブロックずつ Delete**（本文を巻き込めない自己限定）が正。②note は**公開記事でも編集をドラフト auto-save する**（abort 後に再開すると新内容が残る）→ 冪等チェックで「新内容あれば保存のみ」分岐が要る。③有料記事の保存は「公開に進む（保存中で navigation を奪われるので polling）→ 有料エリア設定で境界を H2 直前へ再設定+`boundaryBeforeExam` 検証 → 更新する → 通知いいえ」。
 
 ---
 
@@ -545,14 +480,6 @@ Hero → ExamCards → LatestArticles → AboutSection
 ---
 
 ## 5. SNS・マーケティング
-
-### ~~総監 R8予想6本の旧マガジン導線削除~~ ✅ 完了（2026-06-20）
-
-**出典**: `docs/handoffs/2026-06-18-tankan-pack-cta-republish.md`
-
-**実施**: R8予想6本の末尾有料領域の旧3ペルソナ導線を完全パック（`m171222175fac`）＋総監もくじ（`n3ed4c77ceed6`）へ Phase U-B 置換、6/6 ペイウォール保持を実体検証。詳細は §SNS 上掲の完了エントリ参照。
-
----
 
 ### content-angle P-1 カルーセルパイロット 🟢
 
