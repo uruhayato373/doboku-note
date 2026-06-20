@@ -51,7 +51,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 | スクリプト | 用途 | 引数 |
 |---|---|---|
 | `note-magazine-create.mjs` | マガジン新規作成 | `--txt <note掲載文.txt> [--commit]` |
-| `note-magazine-add-articles.mjs` | 記事をマガジンに収録 | `--to <key> --from <key> [--notes <key,...>] [--commit]` |
+| `note-magazine-add-articles.mjs` | 記事をマガジンに収録（収録解除は対象行の「追加済」を再clickでoff） | `--target <key> (--from <key> \| --notes <key,...>) [--commit]` |
 | `note-magazine-cover.mjs` | マガジンカバー設定 | `--key <key> --cover <path> [--commit]` |
 | `note-attach-magazine-pdfs.mjs` | マガジン収録記事に PDF 添付 | `--key <key> [--commit]` |
 
@@ -83,7 +83,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
    - `note掲載文.txt` が存在するか確認
    - 収録対象記事が note 上で公開済みか確認
 2. **マガジン作成**: `note-magazine-create.mjs --txt <path> --commit`
-3. **記事収録**: `note-magazine-add-articles.mjs --to <newKey> --notes <key1,key2,key3> --commit`
+3. **記事収録**: `note-magazine-add-articles.mjs --target <newKey> --notes <key1,key2,key3> --commit`
 4. **カバー設定**: `note-magazine-cover.mjs --key <newKey> --cover <path> --commit`
 5. **検証**: note API でマガジン構成を確認
 6. **SoT 更新**: `note-magazines.ts` にエントリ追加、`noteUrl` と `published: true` を設定

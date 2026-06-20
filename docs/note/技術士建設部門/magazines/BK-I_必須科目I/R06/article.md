@@ -7,7 +7,7 @@ exam_type: I
 noteUrl: "https://note.com/dobokunote/n/n149dd5284f51"
 noteId: "n149dd5284f51"
 notePublishedAt: "2026-06-20"
-price: 500
+price: 780
 coverTitle: "技術士 建設部門｜必須科目I R06 模範解答"
 cover:
   leadIn: "技術士 建設部門 2次"
