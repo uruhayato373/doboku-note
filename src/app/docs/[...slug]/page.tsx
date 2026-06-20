@@ -750,7 +750,11 @@ export default async function DocPage({
               <div className="mb-3">
                 <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
               </div>
-              {docGroup !== 'pastExam' && <TableOfContents headings={headings} />}
+              {/* 過去問ページ（CEM 択一=pastExam, 1級2級土木/コンクリート系=primary/secondary）は
+                  TOC が問番号の羅列になりナビゲーションとして機能しないため非表示にする。 */}
+              {docGroup !== 'pastExam' && docGroup !== 'primary' && docGroup !== 'secondary' && (
+                <TableOfContents headings={headings} />
+              )}
               {hasCategoryNavCard && category && (
                 <div className="mt-3">
                   <CategoryNavCard
