@@ -689,12 +689,16 @@ export default async function DocPage({
               </div>
             )}
 
-            {/* 記事末 転職 CTA（モバイル限定・civil 1/2 のみ・FAQ 直後）。
+            {/* 記事末 転職 CTA（モバイル限定・civil 1/2 + 建設部門・FAQ 直後）。
                 サイドバー転職枠（PC ≥993px が唯一のピクセル発火源）はモバイル非表示のため、
                 モバイル読者向けに visible なクリック面をここに新設する（ネイティブカード型）。
                 href のみ（ピクセルなし）＝計測はサイドバー側 1 発火を維持（1 ページ 1 ピクセル）。
-                creative は resolveCareerArticleEndCard が期間で出し分け（〜8/31 ビルドジョブ／以降 GKS）。 */}
-            {(category === 'civil-construction-1' || category === 'civil-construction-2') && (
+                creative は resolveCareerArticleEndCard が期間で出し分け（〜8/31 ビルドジョブ／以降 GKS）。
+                2026-06-20: pe-construction を追加。建設部門 docs はサイドバー(全docs無条件)で PC は
+                ビルドジョブ表示済みだが、モバイルの記事末カードが civil 限定で欠落していた。建設部門
+                受験者＝建設業界エンジニア＝ビルドジョブ(建設業界特化・無料面談¥50,000/件〜8/31)の
+                ド真ん中ターゲット。note→建設部門 docs の送客(既存)がモバイルでも収益化されるよう parity 化。 */}
+            {(category === 'civil-construction-1' || category === 'civil-construction-2' || category === 'pe-construction') && (
               <div className="mt-8 zenn-desktop:hidden">
                 <CareerAffiliate {...resolveCareerArticleEndCard()} />
               </div>
