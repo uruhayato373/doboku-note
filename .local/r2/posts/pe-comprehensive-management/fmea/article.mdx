@@ -10,8 +10,8 @@ published: true
 publishedAt: '2026-04-09'
 seoTitle: "FMEA ｜ 技術士 総合技術監理部門 キーワード集"
 reviewStatus: needs-review
-lastRewrittenAt: '2026-05-17T03:16:59Z'
-revisionCycle: 2
+lastRewrittenAt: '2026-06-20T00:00:00Z'
+revisionCycle: 3
 created: 2026-04-05
 dateModified: 2026-04-23
 ---
@@ -24,9 +24,10 @@ FMEA（Failure Mode and Effects Analysis：故障モード影響分析）とは�
 
 ## 分析の手順
 
+{/* source: FMEA の手順とリスク優先数 RPN（構成要素→故障モード→影響・原因分析→RPN 算出→対策優先度決定）の全体フロー図 */}
 <ArticleImage
   src="/posts/pe-comprehensive-management/fmea/img/fmea-rpn-flow.svg"
-  alt="FMEA の手順とリスク優先数 RPN：構成要素から故障モード・影響・原因を分析し、影響度 S・発生頻度 O・検出難易度 D の積で RPN を算出して対策優先度を決定する"
+  alt="FMEA の手順：故障モード・影響・原因を分析し RPN（発生頻度 O × 影響度 S × 検出難易度 D）で優先度を評価する"
 />
 
 FMEAでは、分析結果を**FMEAワークシート**（FMEA表）に記録しながら進める。各行に構成要素・故障モード・影響・原因・RPN・対策を記入し、チームで系統的に評価する。
@@ -73,6 +74,16 @@ RPNの値が大きいほど優先的に対策を要する。対策実施後は�
 FMEA は [FTA](/docs/pe-comprehensive-management-fta) とともにシステム安全工学の代表的手法である。[HAZOP](/docs/pe-comprehensive-management-hazop) がプロセスの逸脱に着目するのに対し、FMEA は構成要素の故障モードに着目する点で相互補完的である。過去問 [R04 Ⅰ-1-28](/docs/pe-comprehensive-management-r04-primary#1-28) では [VTA](/docs/pe-comprehensive-management-vta-method)・[ETA](/docs/pe-comprehensive-management-eta)・HAZOP・[THERP](/docs/pe-comprehensive-management-therp) と並べて各手法の定義が問われ、FMEA は「構成要素の故障モードとシステム全体への影響評価」として正答に挙げられた。
 
 過去問 [R02 Ⅰ-1-25](/docs/pe-comprehensive-management-r02-primary#1-25) では FMEA の定義として「システムの構成要素ごとに固有の故障モードを同定し、それらの故障モードが発生したときのシステムに及ぼす影響を分析する」が正しい記述として出題された。FTA（トップダウン）・ETA（ボトムアップの進展）・[VTA](/docs/pe-comprehensive-management-vta-method)（逸脱の時系列）との識別において、**FMEA は「構成要素単位の故障モード分析」** が核心識別点。
+
+### 5管理のトレードオフ
+
+FMEA を実施する総合技術監理の現場では、5 つの管理分野の間に構造的なトレードオフが生じる。
+
+**安全管理 × 経済性管理** のトレードオフが最も典型的である。安全管理の観点からは、すべての構成要素について網羅的に故障モードを洗い出し、RPN の高い箇所を確実に対策することが求められる。しかし経済性管理の観点では、分析対象の増加は工数・コストの増大を招く。対策として、重要度の高いサブシステムに絞ってスコープを定め、分析の深度を段階的に設定することで両立を図る。
+
+**安全管理 × 人的資源管理** では、FMEA の分析精度がチームメンバーの専門性に大きく依存する点がトレードオフの核心となる。安全管理として高精度な故障モード抽出を目指すほど、各部品・工程の機能を深く理解した専門家の関与が不可欠になるが、人的資源管理の観点では専門家の稼働時間は希少資源である。クロスファンクショナルチームによる分析工程の構造化と、外部専門家の効果的な活用で対応する。
+
+**情報管理 × 安全管理** の観点では、過去の故障データや類似システムの事例が豊富であるほど FMEA の発生頻度（O）と検出難易度（D）の評価精度が高まる。情報管理として故障データベースの整備・継続的な更新を行うことが、安全管理の実効性を底上げする。データ蓄積の仕組みを FMEA サイクルの一部として制度化することが重要である。
 
 <ExamPoint
   summary="FMEAのボトムアップ型分析とRPNの算出方法を理解する"

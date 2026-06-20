@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T02:11:25.407Z",
+  "scored_at": "2026-06-20T02:21:32.657Z",
   "pages": {
     "overall-equipment-effectiveness": {
       "slug": "overall-equipment-effectiveness",
@@ -195,23 +195,6 @@
         "reference"
       ],
       "qualitative_comment": "JIS Q 31010リンクが個別規格ページでなくJSAトップページ止まりで公的資料の実体確認が不完全。民間2件は実在確認済み。他4軸はlint違反ゼロ・構成順序完備・双方向リンク揃いで高水準。",
-      "scored_at": "2026-05-16T08:22:15.997Z"
-    },
-    "pha": {
-      "slug": "pha",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 1,
-        "linking": 3
-      },
-      "weighted": 1.95,
-      "weak_axes": [
-        "reference",
-        "structure"
-      ],
-      "qualitative_comment": "参考資料が民間3件のみで公的機関リンク（dau.edu）が301→403で実質機能せず§9違反。ExamPointが総合技術監理位置づけ末尾に欠落し§5配置ルール不履行。加重合計1.95で不合格。",
       "scored_at": "2026-05-16T08:22:15.997Z"
     },
     "parallel-system": {
@@ -949,22 +932,6 @@
       "qualitative_comment": "4列表とExamPoint位置のMEDIUM2件。5管理トレードオフH3欠如（現場運用類型でmandatory）とfactual table直下の§22インライン出典漏れ2件が原則軸を圧迫。参考資料・関連付けは良好。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "fmea": {
-      "slug": "fmea",
-      "scores": {
-        "structure": 1,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 3,
-        "linking": 3
-      },
-      "weighted": 1.95,
-      "weak_axes": [
-        "structure"
-      ],
-      "qualitative_comment": "現場運用類型で必須の5管理トレードオフH3が欠落。参考資料・リンクは良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "foreign-trainee-program": {
       "slug": "foreign-trainee-program",
       "scores": {
@@ -1226,22 +1193,6 @@
         "reference"
       ],
       "qualitative_comment": "JOGMEC・freee URL が 404、MLIT URL は内容不一致。参考資料軸が唯一の弱点で本文品質は高い。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "iso-26000": {
-      "slug": "iso-26000",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 1.85,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "モバイル MEDIUM 4件（表前導入文・ExamPoint位置・太字記法・参考資料公的欠落）で1点。公的参考資料・インライン出典追加が優先修正点。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "jit-production": {
@@ -1981,22 +1932,6 @@
       "weighted": 2.25,
       "weak_axes": [],
       "qualitative_comment": "参考資料・関連付けは満点。構造は歴史H2の順序ズレ、モバイル/コンテンツはfactual table出典欠落とExamPoint位置違反（各MEDIUM 2件）で減点。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "training-techniques": {
-      "slug": "training-techniques",
-      "scores": {
-        "structure": 2,
-        "mobile": 1,
-        "principle": 2,
-        "reference": 3,
-        "linking": 2
-      },
-      "weighted": 1.9,
-      "weak_axes": [
-        "mobile"
-      ],
-      "qualitative_comment": "モバイルMEDIUM5件（表前導入文欠落・セル超過・ExamPoint位置）が主弱点。現場運用類型で5管理H3欠落、歴史H2の配置・必要性も要確認。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "utilization-rate": {
@@ -9693,6 +9628,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T02:11:25.407Z",
+      "scoring_method": "auto"
+    },
+    "fmea": {
+      "slug": "fmea",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:21:32.296Z",
+      "scoring_method": "auto"
+    },
+    "iso-26000": {
+      "slug": "iso-26000",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:21:32.408Z",
+      "scoring_method": "auto"
+    },
+    "pha": {
+      "slug": "pha",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:21:32.536Z",
+      "scoring_method": "auto"
+    },
+    "training-techniques": {
+      "slug": "training-techniques",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:21:32.655Z",
       "scoring_method": "auto"
     }
   }
