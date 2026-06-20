@@ -308,7 +308,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ### 過去問ページの右サイドバー目次（TOC）を廃止し最適な UI/UX に置き換える 🟡
 
-**問題**: `primary`/`secondary` の TOC が 67件の問番号羅列になりナビゲーションとして機能していない。`pastExam`（CEM 択一）は既に非表示 ✅ だが、1級・2級土木の `primary`/`secondary` は TOC が出たまま ❌。
+**問題（短期は解消済）**: `primary`/`secondary` の TOC が 67件の問番号羅列になりナビゲーションとして機能していなかった。`pastExam`（CEM 択一）は既に非表示済で、1級・2級土木の `primary`/`secondary` も**PR #266（develop マージ待ち）で非表示化済 ✅**。本タスクが open なのは中期施策（`ExamQuestionNav`）が未着手のため。
 
 **実装箇所**: `src/app/docs/[...slug]/page.tsx` L.734
 
