@@ -165,7 +165,7 @@ Hero → ExamCards → LatestArticles → AboutSection
 1. **`MagazineSidebarCard` をメインカラムに使っている** — サイドバー用コンポーネントが本文幅に配置されて `max-w-sm` 左寄せになり、前後のフル幅セクションと不整合
 2. **セクションヘッダーのスタイルがバラバラ** — "Premium" ラベル（`font-mono text-[10px]`）が他セクション（Hero・ExamCards 等）の見出し設計と異なる
 3. **参考書籍のタイトルが資格固定** — "総監受験の参考書籍" はトップページ（全資格横断）のコンテキストに不適
-4. **`BookCard` は休止中** — アフィリエイト審査未通過なのに表示されている（別バックログ「BookCard 休止対応」と重複・連動）
+4. ~~**`BookCard` は休止中** — アフィリエイト審査未通過なのに表示されている~~ → **✅ 2026-06-20 解消**（`AFFILIATE_LINKS_ENABLED=false` で homepage 含め参考書籍枠は非表示済。残るは下記「やりたいこと」のデザイン統合のみ）
 
 **やりたいこと**:
 1. 3セクションをまとめて **1つの "教材・リソース" セクション**に統合し、サイトの他セクションと同じデザインシステム（デザイントークン・余白・見出し階層）で設計し直す
@@ -263,15 +263,11 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### 書籍アフィリエイト（BookCard）の休止対応 — page.tsx から削除する 🟡
+### 【完了 2026-06-20】書籍アフィリエイト（BookCard）の休止対応
 
-**問題**: `https://doboku-note.com/docs/civil-construction-2-primary-r07-zenki` に「参考書籍」セクションが残っている。Amazon アソシエイト審査未通過のため PA-API リンクは生成していないのに表示が出ている。
+**実施**: コメントアウトではなく単一フラグ化で解決（commit `284b840f5`）。`src/config/affiliate-flags.ts` の `AFFILIATE_LINKS_ENABLED=false` を `BookCard`・`BookSection` 双方が参照し、休止中は枠ごと非表示。BookCard は元々 null だったが BookSection が空の「参考書籍」見出し+キャプションを残していた不具合を解消。docs/homepage/MDX直書き全サーフェスで参考書籍=0 を確認。page.tsx / MDX の `<BookSection>`/`<BookCard>` 配置はそのまま残し、審査通過後に `true` へ戻すだけで全復活。
 
-**対応**:
-- 短期: `page.tsx` の全 `<BookSection>` / `<BookCard>` ブロックをコメントアウト（36行）
-- 中期: アソシエイト審査通過後 or もしも単独継続か判断して再設計
-
-**実装ファイル**: `src/app/docs/[...slug]/page.tsx`（BookSection/BookCard 関連 36行）
+**中期（残）**: アソシエイト審査通過後にフラグを `true` に戻し、再設計（[トップページ下部デザイン統一](#) と連動）。
 
 ---
 

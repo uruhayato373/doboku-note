@@ -2,6 +2,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import BookCard from "@/components/ui/BookCard/BookCard";
 import BookSection from "@/components/ui/BookSection/BookSection";
+import { AFFILIATE_LINKS_ENABLED } from "@/config/affiliate-flags";
 import MagazineSidebarCard from "@/components/ui/MagazineSidebarCard";
 import SchoolAffiliate from "@/components/ui/SchoolAffiliate/SchoolAffiliate";
 import { HOME_AFFILIATE } from "@/config/affiliate-creatives";
@@ -161,15 +162,19 @@ export default async function HomePage() {
             <SchoolAffiliate {...HOME_AFFILIATE.props} />
           </div>
         )}
-        {/* 参考書籍（補完ポジション・トップ最下部。ファーストビュー外） */}
-        <div className="mx-auto max-w-3xl px-4 py-10">
-          <BookSection
-            title="総監受験の参考書籍"
-            caption="総監受験を申込書から口頭試験まで通して押さえたいときに。"
-          >
-            <BookCard asin="4526084263" />
-          </BookSection>
-        </div>
+        {/* 参考書籍（補完ポジション・トップ最下部。ファーストビュー外）。
+            書籍アフィリエイト休止中（AFFILIATE_LINKS_ENABLED=false）は外側 py-10 ごと出さない
+            （BookSection の null 化だけだと空の余白帯が残るため）。 */}
+        {AFFILIATE_LINKS_ENABLED && (
+          <div className="mx-auto max-w-3xl px-4 py-10">
+            <BookSection
+              title="総監受験の参考書籍"
+              caption="総監受験を申込書から口頭試験まで通して押さえたいときに。"
+            >
+              <BookCard asin="4526084263" />
+            </BookSection>
+          </div>
+        )}
       </main>
       <Footer />
     </div>
