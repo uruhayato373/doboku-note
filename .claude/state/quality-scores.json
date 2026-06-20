@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T03:11:48.133Z",
+  "scored_at": "2026-06-20T03:25:17.705Z",
   "pages": {
     "backcasting": {
       "slug": "backcasting",
@@ -1277,20 +1277,6 @@
       "qualitative_comment": "lint違反ゼロ・参考資料実在確認済み。工法選定5要素表と箇条書きの冗長性（L29-43）と背景H2の歴史記述が軽微な減点要因。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "multi-objective-optimization": {
-      "slug": "multi-objective-optimization",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "概念理論類型。ExamPoint位置・参考資料民間のみ・インライン出典欠落の MEDIUM 3件。加重合計 2.20 で合格だがリライト推奨。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "nonconformity-rate": {
       "slug": "nonconformity-rate",
       "scores": {
@@ -1408,20 +1394,6 @@
       "weighted": 2.65,
       "weak_axes": [],
       "qualitative_comment": "lint 全通過・構造完備。歴史 H2 は LOW 懸念。参考資料は公的+Wikipedia のみで民間解説が欠落。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "periodic-inspection": {
-      "slug": "periodic-inspection",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "構造順序・ExamPoint配置・参考資料構成に軽微違反。制度的背景H2が位置づけ後に配置されている点と施行年の§22インライン出典漏れが主な指摘。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "personal-info-protection": {
@@ -1589,20 +1561,6 @@
       "qualitative_comment": "概念理論型。参考資料・関連付けは適切。歴史表の直前導入文欠落とfactual table直下インライン出典欠落（各MEDIUM）が2軸に影響。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
-    "standard-costing": {
-      "slug": "standard-costing",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "5管理トレードオフH3欠落（現場運用類型でmandatory）、shallow table・インライン出典なし・参考資料URL500エラーの4件MEDIUM。全軸2点以上で合格水準だがリライト推奨。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "surcharge": {
       "slug": "surcharge",
       "scores": {
@@ -1617,22 +1575,6 @@
         "mobile"
       ],
       "qualitative_comment": "モバイル軸 MEDIUM 3件（表前導入文欠落・ExamPoint位置・民間参考資料なし）で1点。参考資料は公的のみ。構造・関連付けは良好。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
-    "target-cost": {
-      "slug": "target-cost",
-      "scores": {
-        "structure": 2,
-        "mobile": 3,
-        "principle": 2,
-        "reference": 1,
-        "linking": 2
-      },
-      "weighted": 2.1,
-      "weak_axes": [
-        "reference"
-      ],
-      "qualitative_comment": "参考資料に公的機関リンクがなく1件はHTTP 500。5管理トレードオフH3欠落（現場運用類型）。lint違反ゼロで散文品質は良好。",
       "scored_at": "2026-05-29T05:50:43.342Z"
     },
     "targeted-attack": {
@@ -9663,6 +9605,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T03:11:48.132Z",
+      "scoring_method": "auto"
+    },
+    "multi-objective-optimization": {
+      "slug": "multi-objective-optimization",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:25:17.612Z",
+      "scoring_method": "auto"
+    },
+    "periodic-inspection": {
+      "slug": "periodic-inspection",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:25:17.644Z",
+      "scoring_method": "auto"
+    },
+    "standard-costing": {
+      "slug": "standard-costing",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:25:17.675Z",
+      "scoring_method": "auto"
+    },
+    "target-cost": {
+      "slug": "target-cost",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T03:25:17.705Z",
       "scoring_method": "auto"
     }
   }
