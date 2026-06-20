@@ -1,21 +1,7 @@
 {
   "version": 1,
-  "scored_at": "2026-06-20T02:52:48.188Z",
+  "scored_at": "2026-06-20T02:58:33.610Z",
   "pages": {
-    "overall-equipment-effectiveness": {
-      "slug": "overall-equipment-effectiveness",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "5管理トレードオフH3欠落・歴史H2の順序ズレ・公的参考資料なし。関連付けは充実。weighted=2.10で合格ラインクリアだがリライト推奨。",
-      "scored_at": "2026-05-29T05:50:43.342Z"
-    },
     "backcasting": {
       "slug": "backcasting",
       "scores": {
@@ -74,20 +60,6 @@
       "qualitative_comment": "HEP定義・エラータイプ・3分析手法・発展史を散文中心で網羅し、公的資料（JAEA）と民間記事の両方を収録。全セクション順序・ExamPoint位置・モバイル視認性いずれも基準を満たす高品質ページ。",
       "scored_at": "2026-05-16T08:22:15.997Z"
     },
-    "human-factors": {
-      "slug": "human-factors",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "ExamPointが記事45%地点に誤配置され、総合技術監理位置づけ末尾の総括ExamPoint欠落。ヒューマンファクタ研究の発展セクションは試験直結性が薄く§9懸念あり。加重2.10で合格だがリライト候補。",
-      "scored_at": "2026-05-16T08:22:15.997Z"
-    },
     "lopa": {
       "slug": "lopa",
       "scores": {
@@ -100,20 +72,6 @@
       "weighted": 2.45,
       "weak_axes": [],
       "qualitative_comment": "ExamPointが総合技術監理位置づけ末尾ではなく記事中間（L40）に配置されており§5鉄則違反。RelatedKeywords5件がLOPAの直接関連概念ではなく訓練系に偏っており関連付けの質が低い。",
-      "scored_at": "2026-05-16T08:22:15.997Z"
-    },
-    "safety-instrumented-system": {
-      "slug": "safety-instrumented-system",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [],
-      "qualitative_comment": "ExamPointが安全度水準末尾に置かれており§5鉄則違反。SISが生まれた背景H2の試験直結性は許容範囲内。全軸2点以上で合格基準クリア。",
       "scored_at": "2026-05-16T08:22:15.997Z"
     },
     "ojt-off-jt": {
@@ -397,25 +355,6 @@
       "weighted": 3,
       "weak_axes": [],
       "qualitative_comment": "lint違反ゼロ・参考資料2件実在確認済み・全セクション順序正常・散文中心で5管理トレードオフを歴史的背景まで含め記述。弱点軸なし。",
-      "scored_at": "2026-05-16T08:22:15.997Z"
-    },
-    "contingency": {
-      "slug": "contingency",
-      "scores": {
-        "structure": 2,
-        "mobile": 2,
-        "principle": 2,
-        "reference": 2,
-        "linking": 3
-      },
-      "weighted": 2.1,
-      "weak_axes": [
-        "structure",
-        "mobile",
-        "principle",
-        "reference"
-      ],
-      "qualitative_comment": "全軸2点水準で合格だが突出した強みがない。ExamPoint位置（40%地点）の末尾移動と、参考資料の内閣府トップページ→事業継続ガイドライン直接URLへの差し替えで2.5超えが狙える。",
       "scored_at": "2026-05-16T08:22:15.997Z"
     },
     "cost-driver": {
@@ -9668,6 +9607,62 @@
       "weighted": 3,
       "weak_axes": [],
       "scored_at": "2026-06-20T02:52:48.187Z",
+      "scoring_method": "auto"
+    },
+    "contingency": {
+      "slug": "contingency",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:58:33.508Z",
+      "scoring_method": "auto"
+    },
+    "human-factors": {
+      "slug": "human-factors",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:58:33.546Z",
+      "scoring_method": "auto"
+    },
+    "overall-equipment-effectiveness": {
+      "slug": "overall-equipment-effectiveness",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:58:33.577Z",
+      "scoring_method": "auto"
+    },
+    "safety-instrumented-system": {
+      "slug": "safety-instrumented-system",
+      "scores": {
+        "structure": 3,
+        "mobile": 3,
+        "principle": 3,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "scored_at": "2026-06-20T02:58:33.609Z",
       "scoring_method": "auto"
     }
   }
