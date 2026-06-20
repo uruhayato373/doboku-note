@@ -13,7 +13,7 @@
 | 🔴 | 自治体道路担当 R08（R08-yosou-1/2）を note 公開 → 完全パック・ペルソナマガジンへ収録 | Claude Code(Playwright) | | [x] |
 | 🟡 | develop → main デプロイ（W25〜W26 の統合分を本番反映） | Claude Code | | [x] |
 | 🟡 | 公務員学習設計 `nc7d70c92b8b0` をペルソナ選択案内に緩和 | Claude Code(Playwright) | | [x] |
-| 🟡 | BK-I を差し替え投稿（R03/04/06/07 の I-1/I-2 両収録版へ更新） | Mac手動 / browser-use | | [ ] |
+| 🟡 | BK-I を差し替え投稿（R03/04/06/07 の I-1/I-2 両収録版へ更新） | ドラフトstaging済→手動カットオーバー | | [~] |
 | 🟢 | 総監 R8予想6本の旧マガジン導線削除（完全パック + もくじへ置換） | Claude Code(Playwright) | | [x] |
 
 ---
@@ -44,4 +44,4 @@
   - 公務員緩和 → ライブ nc7d70c92b8b0 反映済（旧「道路担当デフォルト断定」→「ロードマップから選べる」＋ロードマップカード。API hasOLD=false/hasNEW=true/hasRoadmap=true）。[x]
   - ライブ CTA ¥14,800→¥9,800: **API診断で実際に価格テキストを持つライブ記事は na030d9cb3060(本日公開)の1本だけ**と判明（他18本は「説明文＋埋め込みカード」形式で価格テキスト無し＝修正不要）。当該1本を修正済（API hasOLD=false）。backlog の「29本」は誤り→訂正済。
 - **【2026-06-20 完了】旧マガジン導線削除（R8予想6本）**: n5116639ee21f/naace4eeaa230/n0c52cfabab78/nf12d75c3e606/n05314b15b375/nb4e6f088f0e8 の末尾有料領域の旧3ペルソナ導線（道路担当/ゼネコン/河川コンサル）を**完全パック m171222175fac + 総監もくじ n3ed4c77ceed6** へ Phase U-B 置換。手段＝偵察で実DOM確認（カードは block `<FIGURE>`）→ **シグネチャ駆動で1ブロックずつ Delete**（embed一括 Range Delete は ProseMirror で残カードが出るため不可）→ type → 公開に進む polling → 有料エリア設定で境界を「予想問題本文」H2直前へ再設定し `boundaryBeforeExam=true` 検証 → 更新する → 通知いいえ。**6/6 ペイウォール完全保持**（全 price=700・can_read=false・remained>0）＋新カード2反映＋旧mag=0 を API + 編集DOM再読で実体検証。スクリプト＝`.tmp/fix-r8-funnel.mjs`（偵察＝`.tmp/recon-r8-funnel.mjs`）。ソースは既に commit 76c4fb540 で修正済み。
-- **BK-I 差し替え**: 販売中の有料商品の /new 全面再作成＝高リスク・ライブ。空更新事故履歴あり。慎重に別途。
+- **【2026-06-20 ドラフトstaging完了・カットオーバー待ち】BK-I 差し替え**: R03/04/06/07 の I-1・I-2 両収録版を note ドラフト4本として作成（公開ゼロ・完全可逆・書式正確を DOM 検証）。新ドラフトid: R03 `nb1ddc4eb7622`/R04 `n8d72cf82ca72`/R06 `n149dd5284f51`/R07 `n6cbd95df5aad`。残＝公開→マガジン `m0f3bc3933454` 入替→旧4本（ne8b5b287351f/n61e459a3c541/nf7881f25de47/nffe6938dc40c）削除を**ユーザーが note UI で実施**。手順書＝`docs/handoffs/2026-06-20-bki-i2-draft-staging.md`。方式＝in-place type は書式崩れ確実ゆえ /new、ただし旧記事の非公開/マガジン削除は自動化なしゆえ最安全のドラフトstaging選択。価格ドリフト（frontmatter500/ライブ780）は公開時に780で揃える。
