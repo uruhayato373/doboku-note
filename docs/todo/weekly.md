@@ -9,11 +9,11 @@
 
 | 優先 | タスク | 担当 | Codex? | 完了 |
 |---|---|---|---|---|
-| 🔴 | 「立場別模範論文の選び方」を note 新規投稿 | Mac手動 / browser-use | | [ ] |
-| 🔴 | 自治体道路担当 R08（R08-yosou-1/2）を note 公開 → 完全パック・ペルソナマガジンへ収録 | Mac手動 / browser-use | | [ ] |
+| 🔴 | 「立場別模範論文の選び方」を note 新規投稿 | Claude Code(Playwright) | | [x] |
+| 🔴 | 自治体道路担当 R08（R08-yosou-1/2）を note 公開 → 完全パック・ペルソナマガジンへ収録 | Claude Code(Playwright) | | [x] |
+| 🟡 | develop → main デプロイ（W25〜W26 の統合分を本番反映） | Claude Code | | [x] |
+| 🟡 | 公務員学習設計 `nc7d70c92b8b0` をペルソナ選択案内に緩和 | Mac手動 / browser-use | | [~] |
 | 🟡 | BK-I を差し替え投稿（R03/04/06/07 の I-1/I-2 両収録版へ更新） | Mac手動 / browser-use | | [ ] |
-| 🟡 | 公務員学習設計 `nc7d70c92b8b0` をペルソナ選択案内に緩和 | Mac手動 / browser-use | | [ ] |
-| 🟡 | develop → main デプロイ（W25〜W26 の統合分を本番反映） | Claude Code | | [ ] |
 | 🟢 | 総監 R8予想6本の旧マガジン導線削除（完全パック + もくじへ置換） | Mac手動 / browser-use | | [ ] |
 
 ---
@@ -39,3 +39,6 @@
 - **develop → main デプロイ**: W25 で feat/gsc-management・feat/ogp-ai-background・ci/index-coverage を develop に統合済み。試験ピーク前に本番反映すべき変更（component lint 整理・GSC 監査ワークフロー・OGP AI背景）が溜まっている。
 - **総監 R8予想6本の旧マガジン導線削除**: 現状のまま実害なし（backlog §SNS §旧マガジン導線削除）。BK-I 差し替えと同じ note-edit-session で実施すると効率的。
 - **W25 完了サマリ**: develop push 済み、建設部門もくじ note 再公開済み、総監ロードマップ14ペルソナ更新済み。
+- **【2026-06-20 完了】** 🔴2本を Claude Code(Playwright `note-publish.mjs`)で公開＝note 投稿は Mac 手動でなく自動化できると実証（立場別 na030d9cb3060 / R08 n30d34b67a8c5・nf90ba1382475）。完全パックも ¥14,800→¥9,800 改定に伴い repo の価格ドリフト全42ファイル同期＋develop→main デプロイ済み。
+- **【公務員緩和 [~]】** repo は緩和済み（2026-06-12 適用済・道路担当デフォルト断定→ロードマップ選択へ）。残＝ライブ note nc7d70c92b8b0 への Phase U-B 反映のみ。**ライブ CTA(¥14,800→¥9,800) 修正29本（backlog 記録済・後回し）と同じ記事群＝まとめて1回のライブ更新セッションで実施するのが効率的**。
+- **BK-I 差し替え**: 販売中の有料商品の /new 全面再作成＝高リスク・ライブ。空更新事故履歴あり。慎重に別途。
