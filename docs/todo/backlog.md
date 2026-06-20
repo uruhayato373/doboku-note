@@ -32,23 +32,15 @@
 
 ## 1. コンテンツ品質
 
-### 技術士総監 primary の解答・解説が過密 — 計算式・試験対策ポイントを整理 🟡
+### 【解決済 2026-06-20】技術士総監 primary の解答・解説が過密 — 計算式・試験対策ポイントを整理
 
-**発端**: `https://doboku-note.com/docs/pe-comprehensive-management-r07-primary`
+**結論**: 本項目は 2026-06-18 の折衷案決定（memory `pe-pastexam-answer-compromise`）で既に解消済み。現物照合の結果、h21〜r07 全 17 本とも ExamPoint は折衷案の形（summary＝引っかけ1行＋items 最大2項目）に圧縮済み、計算問題の KaTeX は「展開圧縮」ではなく**保持**が正（06-18 決定で目標反転）。当初 backlog の「KaTeX 1〜2行化／ExamPoint を引っかけ問のみに絞る」は失効。再作業不要。
 
-**問題**: 解答・解説（`<details>` 内）に教材レベルの計算導入文・KaTeX 数式・試験対策フレーズが入り込んでいて、「過去問の答え合わせ」ではなく「参考書の解説」になってしまっている。
+<details><summary>当初の起票内容（参考）</summary>
 
-**r07-primary の確認値**:
-- KaTeX 数式ブロック: 3式（損益分岐点を KaTeX で全展開）
-- 計算導入文: 5件（「基本公式で解く」等）
-- 試験対策文言（ExamPoint summary/items 内の「頻出の引っかけ」等）: 6件
-- ExamPoint: 40問全てに配置（1問1個 = 計40個）
+**発端**: `https://doboku-note.com/docs/pe-comprehensive-management-r07-primary`。解答・解説（`<details>` 内）に教材レベルの計算導入文・KaTeX 数式・試験対策フレーズが入り込み「参考書の解説」化していた、という指摘。対象 `h21-primary`〜`h30-primary`＋`r04`・`r07`。→ 06-18 折衷案で per-option 検証は核（削ると thin content）と判断、ExamPoint は全廃せず圧縮、KaTeX は保持で確定。
 
-**あるべき姿**: 正答 + 各選択肢の正誤と1行理由。計算問題は KaTeX 展開不要・1〜2行テキストで。ExamPoint は引っかけポイントのある問題のみ。
-
-**対象**: `h21-primary`〜`h30-primary`（10本）+ `r04-primary`・`r07-primary`（2本）= 計12本
-
-**対応**: `past-exam-qa` で12本を一括監査 → `past-exam-rewriter` で KaTeX 圧縮・ExamPoint を絞る
+</details>
 
 ---
 
