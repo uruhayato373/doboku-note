@@ -164,6 +164,10 @@
 
 **コスト注意**: Gemini 画像生成は**有料**。実行前に必ずユーザー確認（[[gemini-cost-confirm]]）。**まず対象A の `textbook-grader-compaction`（5枚）でパイロット**し品質・コストを確認してから全体へ。
 
+**ワークリスト（対象24枚の元PDF対応・状態）**: [textbook-image-colorization.md](textbook-image-colorization.md)（2026-06-20 作成、後で Gemini/GPT 作業用）。
+
+**⚠ 未決の論点（2026-06-20 発見）**: PDF の機械イラストの多くは**メーカー提供の「写真」**（写真提供：コマツ/酒井重工業/トプコン等）で、これを使うと web 写真と同じ著作権問題になる。著者作図の「図」(線画) は別途あるが特定機種写真とは別物。→ 写真使用可／線画のみ／自前イラスト生成（Gemini/GPT でオリジナル生成）／据え置き のいずれにするか要ユーザー判断。詳細はワークリスト参照。**この判断が付くまで機械的な差し替えは保留**。
+
 ### pe-construction カテゴリページの過去問マトリクスをモバイル対応に刷新 🟡
 
 **発端**: `https://doboku-note.com/category/pe-construction`
