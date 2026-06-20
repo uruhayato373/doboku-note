@@ -25,6 +25,7 @@ import { MDXProvider } from '@mdx-js/react';
 import { extractHeadings } from '@/lib/toc';
 import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
+import RelatedArticles from '@/components/ui/RelatedArticles';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import MagazineSidebarCard from '@/components/ui/MagazineSidebarCard';
@@ -712,6 +713,12 @@ export default async function DocPage({
                 <CareerAffiliate {...resolvePeConsultingArticleEndCard()} />
               </div>
             )}
+
+            {/* 関連記事（全記事共通・記事末 AuthorCard の前。旧 MDX 直書き `## 関連記事` の置換。
+                同カテゴリ × トピックタグ共通数でランク。関連 2 件未満なら自動で非表示）。 */}
+            <div className="mt-8">
+              <RelatedArticles currentMeta={doc.meta} categoryArticles={categoryArticles} />
+            </div>
 
             {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}
             <AuthorCard {...authorDates} category={category ?? undefined} />
