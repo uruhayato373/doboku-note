@@ -118,6 +118,11 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 2. `.claude/agents/sales-recorder.md` の productId 推定ルールに追加
 3. 本ドキュメントの命名規則テーブルに追記
 
+> **機械ガード**: 手順②の取りこぼし（mapping 陳腐化）は `npm run check-sales-mapping` が検知する。
+> sales-log.json に出現する productId が sales-recorder.md の mapping パターンに 1 つも一致しない、
+> または `article:unknown-*` が残っていると **pre-commit で commit を止める**（sales-log.json か
+> sales-recorder.md を含むコミットのみ発火）。緊急回避は `SKIP_SALES_MAPPING=1`。
+
 ---
 
 ## 分析の観点
@@ -166,5 +171,6 @@ npm run sales-summary -- 2026-06   # 当月内の商品別内訳を確認
 |---|---|
 | `.claude/agents/sales-recorder.md` | 販売履歴正規化エージェント |
 | `.claude/skills/metrics/record-sales/SKILL.md` | 記録スキル |
-| `scripts/sales-summary.mjs` | 集計スクリプト |
+| `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
+| `scripts/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
 | `src/lib/note-magazines.ts` | マガジン ID マスター |
