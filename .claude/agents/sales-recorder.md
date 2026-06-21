@@ -57,6 +57,8 @@ kuro
 
 ## productId 推定ルール
 
+> **命名系統の注意（重要）**: sales-log.json の productId は本エージェント独自の `bk-*` / `essay-*` 系統で記録する。`src/lib/note-magazines.ts` の id（`pe-construction-*` 等）とは**別系統**で、突合させない。既存ログと同じ slug を再利用して `sales-summary` の商品別集計が分断されないようにすること（特に建設部門 必須科目I マガジンは `bk-i-required-essay-magazine` を必ず再利用）。
+
 ### マガジン（type: magazine）
 
 | 商品名パターン | productId |
@@ -82,6 +84,14 @@ kuro
 | `記述式 完全パック` / `完全パック` | `essay-complete-pack` |
 | `記述式 コアパック` / `コアパック` | `essay-core-pack` |
 | `技術士 建設部門 2次｜必須科目I` / `必須科目I 模範解答集` | `bk-i-required-essay-magazine` |
+| `建設部門2次｜道路 選択科目 模範解答集` | `bk-road-secondary-magazine` |
+| `建設部門2次｜土質基礎 選択科目 模範解答集` | `bk-geotechnical-secondary-magazine` |
+| `建設部門2次｜港湾空港 選択科目 模範解答集` | `bk-port-airport-secondary-magazine` |
+| `建設部門2次｜河川砂防 選択科目 模範解答集` | `bk-river-coast-secondary-magazine` |
+| `建設部門2次｜鋼コン 選択科目 模範解答集` / `鋼構造及びコンクリート 選択科目 模範解答集` | `bk-steel-concrete-secondary-magazine` |
+| `建設部門2次｜都市計画 選択科目 模範解答集` | `bk-urban-planning-secondary-magazine` |
+| `建設部門2次｜建設環境 選択科目 模範解答集` | `bk-environment-secondary-magazine` |
+| `建設部門2次｜{他科目} 選択科目 模範解答集` | `bk-{subject}-secondary-magazine`（subject は note-magazines.ts の romaji に合わせる） |
 
 ### 単品記事（type: article）
 
@@ -102,7 +112,10 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |
 | `技術士 建設部門｜必須科目I R8予想` | `article:bk-i-r8-yosou-*` |
+| `技術士 建設部門｜必須科目I R0{N} 模範解答`（過去問単品） | `article:bk-i-r0{N}-required` |
 | `技術士 建設部門｜土質及び基礎` | `article:bk-04-dositu-*` |
+| `技術士 建設部門｜{他科目} R8予想 選択科目{II-1/II-2/III}` | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-urban-planning-r8-yosou-ii2` / `bk-environment-r8-yosou-iii`） |
+| `老朽化インフラ × 予防保全`（総監R8予想） | `article:r8-aging-infra-preventive` |
 
 **推定できない場合**: `article:unknown-{YYYYMMDD}-{index}` として記録し、後でユーザーが修正。
 
