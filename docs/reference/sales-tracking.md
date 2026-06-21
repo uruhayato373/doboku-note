@@ -71,14 +71,14 @@ vim .claude/state/sales/sales-log.json
 ### 2. 集計の確認
 
 ```bash
-npm run sales-summary              # 全期間
-npm run sales-summary -- --month 2026-06  # 指定月
+npm run sales-summary              # 全期間（月次が並び、各月内に商品別内訳も表示）
+npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラグは無い）
 ```
 
 ### 3. note ダッシュボードとの突合
 
 1. note ダッシュボード → 売上 → 「今月の売上」を確認
-2. `npm run sales-summary -- --month YYYY-MM` と比較
+2. `npm run sales-summary -- YYYY-MM` と比較
 3. 差異があれば sales-log.json を確認・修正
 
 ---
@@ -93,7 +93,8 @@ npm run sales-summary -- --month 2026-06  # 指定月
 | テーマ別マガジン | `r8-essay-forecast`, `setsumon3-policy-bank` |
 | バンドル | `essay-complete-pack`, `essay-core-pack` |
 | 精読ガイド | `tankan-reading-guide` |
-| 建設部門 | `bk-i-required-essay-magazine` |
+| 建設部門 必須科目I | `bk-i-required-essay-magazine` |
+| 建設部門 選択科目 模範解答集 | `bk-{subject}-secondary-magazine`（例: `bk-road-secondary-magazine` / `bk-geotechnical-secondary-magazine` / `bk-port-airport-secondary-magazine`。subject は note-magazines.ts の romaji に合わせる） |
 
 ### 単品記事
 
@@ -106,7 +107,10 @@ npm run sales-summary -- --month 2026-06  # 指定月
 | 総監 計算問題 | `article:tankan-calc-6patterns` |
 | 総監 トレードオフ単品 | `article:tradeoff-information-management` |
 | 2級土木 経験記述 | `article:civil-2-pastexam-essay-r06` |
-| 建設部門 単品 | `article:bk-01-road-r8-yosou-ii1` |
+| 建設部門 道路 単品 | `article:bk-01-road-r8-yosou-ii1` |
+| 建設部門 他科目 R8予想単品 | `article:bk-{subject}-r8-yosou-{ii1\|ii2\|iii}`（例: `bk-steel-concrete-r8-yosou-ii1` / `bk-port-airport-r8-yosou-ii2` / `bk-environment-r8-yosou-iii`） |
+| 建設部門 過去問単品 | `article:bk-i-r07-required`（必須科目I R07 等） |
+| 総監 R8予想 老朽化インフラ | `article:r8-aging-infra-preventive` |
 
 ### 新商品の追加
 
@@ -121,24 +125,26 @@ npm run sales-summary -- --month 2026-06  # 指定月
 ### 月次トレンド
 
 ```bash
-npm run sales-summary -- --trend
+npm run sales-summary   # 引数なし＝全期間。月次が昇順で並ぶ（前月比は手計算）
 ```
 
 | 月 | 件数 | 売上 | 前月比 |
 |---|---|---|---|
 | 2026-05 | 16 | ¥33,220 | — |
-| 2026-06 | 40 | ¥89,760 | +170% |
+| 2026-06 | 58 | ¥113,060 | +240% |
 
 ### 商品別ランキング
 
+商品別内訳は月次サマリ内に売上降順で自動表示される（専用フラグは無い）:
+
 ```bash
-npm run sales-summary -- --by-product
+npm run sales-summary -- 2026-06   # 当月内の商品別内訳を確認
 ```
 
-| 商品 | 件数 | 売上 | 構成比 |
-|---|---|---|---|
-| essay-complete-pack | 5 | ¥39,900 | 44% |
-| r8-essay-forecast | 6 | ¥20,880 | 23% |
+| 商品 | 件数 | 売上 |
+|---|---|---|
+| essay-complete-pack | 6 | ¥47,880 |
+| r8-essay-forecast | 6 | ¥17,880 |
 
 ### 曜日・時間帯分析（将来）
 

@@ -1,69 +1,528 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-17",
+  "updatedAt": "2026-06-21",
   "currency": "JPY",
   "source": "note クリエイターダッシュボード「販売履歴」の手動転記",
   "privacyNote": "購入者名・ハンドルはプライバシー保護のため記録しない（売上分析には date / product / price で十分）。",
   "howToUpdate": "note ダッシュボード → 販売履歴 を開き、未記録の月の取引を sales[] に追記。productId は src/lib/note-magazines.ts の id に合わせる（単品記事は article:<slug>）。type は magazine | article。追記後 npm run sales-summary で検算。",
   "sales": [
-    { "date": "2026-05-11", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-05-15", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-05-16", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-05-21", "productId": "essay-road-municipality-magazine", "title": "模範論文 自治体 道路担当", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-22", "productId": "essay-general-contractor-magazine", "title": "模範論文 ゼネコン", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-24", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-05-26", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-27", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-27", "productId": "essay-river-consultant-magazine", "title": "模範論文 建設コンサル 河川・砂防", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-28", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-05-28", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-28", "productId": "essay-road-municipality-magazine", "title": "模範論文 自治体 道路担当", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-30", "productId": "article:r8-economic-security-supply-chain", "title": "R8予想問題 経済安全保障 × サプライチェーン強靱化", "type": "article", "price": 500 },
-    { "date": "2026-05-30", "productId": "article:r8-disaster-recovery-compound", "title": "R8予想問題 災害復旧 × 複合災害対応", "type": "article", "price": 500 },
-    { "date": "2026-05-30", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-05-31", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-06-01", "productId": "tradeoff-5kanri", "title": "5管理クロス・トレードオフ全網羅", "type": "magazine", "price": 1980 },
-    { "date": "2026-06-01", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 },
-    { "date": "2026-06-01", "productId": "article:setsumon3-economic-security", "title": "経済安全保障・サプライチェーン強靱化｜設問(3)国家施策バンク", "type": "article", "price": 300 },
-    { "date": "2026-06-02", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-06-02", "productId": "article:tankan-calc-6patterns", "title": "総監択一式 頻出計算問題 6パターン完全攻略", "type": "article", "price": 300 },
-    { "date": "2026-06-03", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-06-04", "productId": "article:r8-ai-society-info-governance", "title": "R8予想問題 AI社会 × 情報ガバナンス", "type": "article", "price": 500 },
-    { "date": "2026-06-06", "productId": "article:tankan-calc-6patterns", "title": "総監択一式 頻出計算問題 6パターン完全攻略", "type": "article", "price": 300 },
-    { "date": "2026-06-07", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 2480 },
-    { "date": "2026-06-08", "productId": "article:tradeoff-information-management", "title": "情報管理 × 他4管理｜トレードオフ構造と総監的解決策", "type": "article", "price": 500 },
-    { "date": "2026-06-08", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-06-11", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 },
-    { "date": "2026-06-11", "productId": "r8-essay-forecast", "title": "R8予想問題集（6テーマ模範論文）", "type": "magazine", "price": 3480 },
-    { "date": "2026-06-11", "productId": "article:civil-2-pastexam-essay-r06", "title": "2級土木 施工経験記述 令和6年度 過去問 模範答案（品質管理＋工程管理）", "type": "article", "price": 600 },
-    { "date": "2026-06-11", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 },
-    { "date": "2026-06-12", "productId": "article:bk-01-road-r8-yosou-ii1", "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）", "type": "article", "price": 500 },
-    { "date": "2026-06-12", "productId": "article:bk-01-road-r8-yosou-ii2-2", "title": "技術士 建設部門｜道路 R8予想 選択科目II-2 予想② インフラDX道路維持管理計画", "type": "article", "price": 500 },
-    { "date": "2026-06-12", "productId": "article:r8-economic-security-supply-chain", "title": "令和8年度 総監記述式 R8予想問題｜経済安全保障 × サプライチェーン強靱化", "type": "article", "price": 700 },
-    { "date": "2026-06-13", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 },
-    { "date": "2026-06-13", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-06-13", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 },
-    { "date": "2026-06-13", "productId": "article:civil-2-pastexam-essay-r07", "title": "2級土木 施工経験記述｜令和7年度 過去問 模範答案（安全管理＋工程管理）3工事", "type": "article", "price": 600 },
-    { "date": "2026-06-13", "productId": "r8-essay-forecast", "title": "技術士 総監｜記述式 R8予想問題集 2026最終予想", "type": "magazine", "price": 3480 },
-    { "date": "2026-06-14", "productId": "article:bk-01-road-r8-yosou-ii2-1", "title": "技術士 建設部門｜道路 R8予想 選択科目II-2-1 新モビリティ対応道路空間再配分計画", "type": "article", "price": 500 },
-    { "date": "2026-06-14", "productId": "essay-complete-pack", "title": "総監記述式 完全パック", "type": "magazine", "price": 7980 },
-    { "date": "2026-06-14", "productId": "article:bk-01-road-r8-yosou-ii1", "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）", "type": "article", "price": 500 },
-    { "date": "2026-06-14", "productId": "article:civil-2-essay-quality-complete", "title": "2級土木 施工経験記述｜品質管理 完成答案集（河川築堤・函渠 ほか）", "type": "article", "price": 600 },
-    { "date": "2026-06-14", "productId": "article:civil-2-pastexam-essay-r04", "title": "2級土木 施工経験記述｜令和4年度 過去問 模範答案（品質管理／工程管理 選択）", "type": "article", "price": 600 },
-    { "date": "2026-06-14", "productId": "tankan-reading-guide", "title": "5管理 テキスト精読ガイド", "type": "magazine", "price": 1980 },
-    { "date": "2026-06-14", "productId": "article:setsumon3-ai-society-5.0", "title": "Society 5.0・AIガバナンス｜設問(3)国家施策バンク", "type": "article", "price": 300 },
-    { "date": "2026-06-14", "productId": "article:tankan-calc-6patterns", "title": "総監択一式 頻出計算問題 6パターン完全攻略", "type": "article", "price": 300 },
-    { "date": "2026-06-14", "productId": "bk-i-required-essay-magazine", "title": "技術士 建設部門 2次｜必須科目I 模範解答集", "type": "magazine", "price": 3480 },
-    { "date": "2026-06-15", "productId": "article:bk-i-r8-yosou-04-cn-gx", "title": "技術士 建設部門｜必須科目I R8予想④ カーボンニュートラル・GX（模範解答）", "type": "article", "price": 500 },
-    { "date": "2026-06-15", "productId": "r8-essay-forecast", "title": "技術士 総監｜記述式 R8予想問題集 2026最終予想", "type": "magazine", "price": 3480 },
-    { "date": "2026-06-15", "productId": "article:bk-01-road-r8-yosou-iii-1", "title": "技術士 建設部門｜道路 R8予想 選択科目III 予想① 道路の脱炭素化", "type": "article", "price": 500 },
-    { "date": "2026-06-15", "productId": "article:bk-01-road-r8-yosou-iii-3", "title": "技術士 建設部門｜道路 R8予想 選択科目III 予想③ 道路ネットワークの事前防災", "type": "article", "price": 500 },
-    { "date": "2026-06-15", "productId": "article:bk-01-road-r8-yosou-ii2-2", "title": "技術士 建設部門｜道路 R8予想 選択科目II-2 予想② インフラDX道路維持管理計画", "type": "article", "price": 500 },
-    { "date": "2026-06-15", "productId": "article:bk-01-road-r8-yosou-ii1", "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）", "type": "article", "price": 500 },
-    { "date": "2026-06-15", "productId": "article:bk-01-road-r8-yosou-ii2-3", "title": "技術士 建設部門｜道路 R8予想 選択科目II-2 予想③ 道路啓開・災害復旧", "type": "article", "price": 500 },
-    { "date": "2026-06-15", "productId": "article:bk-i-r8-yosou-06-infra-dx", "title": "技術士 建設部門｜必須科目I R8予想⑥ インフラDX・データ活用（模範解答）", "type": "article", "price": 500 },
-    { "date": "2026-06-15", "productId": "article:bk-01-road-r8-yosou-ii1", "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）", "type": "article", "price": 500 },
-    { "date": "2026-06-17", "productId": "article:bk-04-dositu-r07-ii2", "title": "技術士 建設部門｜土質及び基礎 R07 選択科目II-2 模範解答（II-2-1・II-2-2）", "type": "article", "price": 500 },
-    { "date": "2026-06-17", "productId": "article:bk-01-road-r8-yosou-ii1", "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）", "type": "article", "price": 500 }
+    {
+      "date": "2026-05-11",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-05-15",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-05-16",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-05-21",
+      "productId": "essay-road-municipality-magazine",
+      "title": "模範論文 自治体 道路担当",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-22",
+      "productId": "essay-general-contractor-magazine",
+      "title": "模範論文 ゼネコン",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-24",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-05-26",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-27",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-27",
+      "productId": "essay-river-consultant-magazine",
+      "title": "模範論文 建設コンサル 河川・砂防",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-28",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-05-28",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-28",
+      "productId": "essay-road-municipality-magazine",
+      "title": "模範論文 自治体 道路担当",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-30",
+      "productId": "article:r8-economic-security-supply-chain",
+      "title": "R8予想問題 経済安全保障 × サプライチェーン強靱化",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-05-30",
+      "productId": "article:r8-disaster-recovery-compound",
+      "title": "R8予想問題 災害復旧 × 複合災害対応",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-05-30",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-05-31",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-06-01",
+      "productId": "tradeoff-5kanri",
+      "title": "5管理クロス・トレードオフ全網羅",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-06-01",
+      "productId": "essay-complete-pack",
+      "title": "総監記述式 完全パック",
+      "type": "magazine",
+      "price": 7980
+    },
+    {
+      "date": "2026-06-01",
+      "productId": "article:setsumon3-economic-security",
+      "title": "経済安全保障・サプライチェーン強靱化｜設問(3)国家施策バンク",
+      "type": "article",
+      "price": 300
+    },
+    {
+      "date": "2026-06-02",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-06-02",
+      "productId": "article:tankan-calc-6patterns",
+      "title": "総監択一式 頻出計算問題 6パターン完全攻略",
+      "type": "article",
+      "price": 300
+    },
+    {
+      "date": "2026-06-03",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-06-04",
+      "productId": "article:r8-ai-society-info-governance",
+      "title": "R8予想問題 AI社会 × 情報ガバナンス",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-06",
+      "productId": "article:tankan-calc-6patterns",
+      "title": "総監択一式 頻出計算問題 6パターン完全攻略",
+      "type": "article",
+      "price": 300
+    },
+    {
+      "date": "2026-06-07",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 2480
+    },
+    {
+      "date": "2026-06-08",
+      "productId": "article:tradeoff-information-management",
+      "title": "情報管理 × 他4管理｜トレードオフ構造と総監的解決策",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-08",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-06-11",
+      "productId": "essay-complete-pack",
+      "title": "総監記述式 完全パック",
+      "type": "magazine",
+      "price": 7980
+    },
+    {
+      "date": "2026-06-11",
+      "productId": "r8-essay-forecast",
+      "title": "R8予想問題集（6テーマ模範論文）",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-11",
+      "productId": "article:civil-2-pastexam-essay-r06",
+      "title": "2級土木 施工経験記述 令和6年度 過去問 模範答案（品質管理＋工程管理）",
+      "type": "article",
+      "price": 600
+    },
+    {
+      "date": "2026-06-11",
+      "productId": "essay-complete-pack",
+      "title": "総監記述式 完全パック",
+      "type": "magazine",
+      "price": 7980
+    },
+    {
+      "date": "2026-06-12",
+      "productId": "article:bk-01-road-r8-yosou-ii1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-12",
+      "productId": "article:bk-01-road-r8-yosou-ii2-2",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-2 予想② インフラDX道路維持管理計画",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-12",
+      "productId": "article:r8-economic-security-supply-chain",
+      "title": "令和8年度 総監記述式 R8予想問題｜経済安全保障 × サプライチェーン強靱化",
+      "type": "article",
+      "price": 700
+    },
+    {
+      "date": "2026-06-13",
+      "productId": "essay-complete-pack",
+      "title": "総監記述式 完全パック",
+      "type": "magazine",
+      "price": 7980
+    },
+    {
+      "date": "2026-06-13",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-06-13",
+      "productId": "essay-complete-pack",
+      "title": "総監記述式 完全パック",
+      "type": "magazine",
+      "price": 7980
+    },
+    {
+      "date": "2026-06-13",
+      "productId": "article:civil-2-pastexam-essay-r07",
+      "title": "2級土木 施工経験記述｜令和7年度 過去問 模範答案（安全管理＋工程管理）3工事",
+      "type": "article",
+      "price": 600
+    },
+    {
+      "date": "2026-06-13",
+      "productId": "r8-essay-forecast",
+      "title": "技術士 総監｜記述式 R8予想問題集 2026最終予想",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "article:bk-01-road-r8-yosou-ii2-1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-2-1 新モビリティ対応道路空間再配分計画",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "essay-complete-pack",
+      "title": "総監記述式 完全パック",
+      "type": "magazine",
+      "price": 7980
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "article:bk-01-road-r8-yosou-ii1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "article:civil-2-essay-quality-complete",
+      "title": "2級土木 施工経験記述｜品質管理 完成答案集（河川築堤・函渠 ほか）",
+      "type": "article",
+      "price": 600
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "article:civil-2-pastexam-essay-r04",
+      "title": "2級土木 施工経験記述｜令和4年度 過去問 模範答案（品質管理／工程管理 選択）",
+      "type": "article",
+      "price": 600
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "tankan-reading-guide",
+      "title": "5管理 テキスト精読ガイド",
+      "type": "magazine",
+      "price": 1980
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "article:setsumon3-ai-society-5.0",
+      "title": "Society 5.0・AIガバナンス｜設問(3)国家施策バンク",
+      "type": "article",
+      "price": 300
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "article:tankan-calc-6patterns",
+      "title": "総監択一式 頻出計算問題 6パターン完全攻略",
+      "type": "article",
+      "price": 300
+    },
+    {
+      "date": "2026-06-14",
+      "productId": "bk-i-required-essay-magazine",
+      "title": "技術士 建設部門 2次｜必須科目I 模範解答集",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-i-r8-yosou-04-cn-gx",
+      "title": "技術士 建設部門｜必須科目I R8予想④ カーボンニュートラル・GX（模範解答）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "r8-essay-forecast",
+      "title": "技術士 総監｜記述式 R8予想問題集 2026最終予想",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-01-road-r8-yosou-iii-1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目III 予想① 道路の脱炭素化",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-01-road-r8-yosou-iii-3",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目III 予想③ 道路ネットワークの事前防災",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-01-road-r8-yosou-ii2-2",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-2 予想② インフラDX道路維持管理計画",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-01-road-r8-yosou-ii1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-01-road-r8-yosou-ii2-3",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-2 予想③ 道路啓開・災害復旧",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-i-r8-yosou-06-infra-dx",
+      "title": "技術士 建設部門｜必須科目I R8予想⑥ インフラDX・データ活用（模範解答）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-15",
+      "productId": "article:bk-01-road-r8-yosou-ii1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-17",
+      "productId": "article:bk-04-dositu-r07-ii2",
+      "title": "技術士 建設部門｜土質及び基礎 R07 選択科目II-2 模範解答（II-2-1・II-2-2）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-17",
+      "productId": "article:bk-01-road-r8-yosou-ii1",
+      "title": "技術士 建設部門｜道路 R8予想 選択科目II-1 模範解答（全4予想設問）",
+      "type": "article",
+      "price": 500
+    },
+    {
+      "date": "2026-06-18",
+      "productId": "bk-i-required-essay-magazine",
+      "title": "技術士 建設部門 2次｜必須科目I 模範解答集",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-18",
+      "productId": "bk-geotechnical-secondary-magazine",
+      "title": "建設部門2次｜土質基礎 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-06-18",
+      "productId": "article:bk-environment-r8-yosou-iii",
+      "title": "技術士 建設部門｜建設環境 R8予想 選択科目III 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-06-19",
+      "productId": "bk-geotechnical-secondary-magazine",
+      "title": "建設部門2次｜土質基礎 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-06-19",
+      "productId": "article:bk-port-airport-r8-yosou-ii2",
+      "title": "技術士 建設部門｜港湾及び空港 R8予想 選択科目II-2 模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-06-20",
+      "productId": "bk-port-airport-secondary-magazine",
+      "title": "建設部門2次｜港湾空港 選択科目 模範解答集",
+      "type": "magazine",
+      "price": 2980
+    },
+    {
+      "date": "2026-06-20",
+      "productId": "bk-road-secondary-magazine",
+      "title": "建設部門2次｜道路 選択科目 模範解答集（R03-R07）",
+      "type": "magazine",
+      "price": 3480
+    },
+    {
+      "date": "2026-06-20",
+      "productId": "article:bk-urban-planning-r8-yosou-ii2",
+      "title": "技術士 建設部門｜都市及び地方計画 R8予想 選択科目II-2 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-06-20",
+      "productId": "article:r8-ai-society-info-governance",
+      "title": "令和8年度 総監記述式 R8予想問題｜AI社会 × 情報ガバナンス",
+      "type": "article",
+      "price": 700
+    },
+    {
+      "date": "2026-06-20",
+      "productId": "article:bk-i-r07-required",
+      "title": "技術士 建設部門｜必須科目I R07 模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-06-20",
+      "productId": "article:bk-steel-concrete-r8-yosou-ii1",
+      "title": "技術士 建設部門｜鋼構造及びコンクリート R8予想 選択科目II-1 予想問題＋模範解答",
+      "type": "article",
+      "price": 780
+    },
+    {
+      "date": "2026-06-21",
+      "productId": "article:r8-aging-infra-preventive",
+      "title": "令和8年度 総監記述式 R8予想問題｜老朽化インフラ × 予防保全",
+      "type": "article",
+      "price": 700
+    },
+    {
+      "date": "2026-06-21",
+      "productId": "article:r8-economic-security-supply-chain",
+      "title": "令和8年度 総監記述式 R8予想問題｜経済安全保障 × サプライチェーン強靱化",
+      "type": "article",
+      "price": 700
+    },
+    {
+      "date": "2026-06-21",
+      "productId": "article:r8-ai-society-info-governance",
+      "title": "令和8年度 総監記述式 R8予想問題｜AI社会 × 情報ガバナンス",
+      "type": "article",
+      "price": 700
+    },
+    {
+      "date": "2026-06-21",
+      "productId": "article:r8-ai-society-info-governance",
+      "title": "令和8年度 総監記述式 R8予想問題｜AI社会 × 情報ガバナンス",
+      "type": "article",
+      "price": 700
+    }
   ]
 }
