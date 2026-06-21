@@ -9,6 +9,7 @@ note 記事・有料マガジンへの**回遊と購入の動線設計**の真�
 > - `.claude/config/note-funnel.json` = 機械可読 SSOT（L1/L2 レジストリ・資格別 CTA 文面・マーカー）。スクリプト/CI/エージェントが参照
 > - `src/lib/note-magazines.ts` = マガジンの URL・価格・公開状態の真実源
 > - 各 `docs/note/{試験}/noteコンテンツ計画.md` = 試験別の戦略・価格企画・リリース計画
+> - `docs/project/03_SNS/02_チャネル動線設計.md` = **note → サイト送客リンク**の UTM 規約の SSOT。本書（記事間回遊＝note 内部の L1/L2/パック）は note→サイトの deep link / UTM は扱わない。サイト送客リンクは UTM 付きインライン（生 URL 単独行はカード化で UTM 消失）
 > - `.claude/state/note-published.json` = 公開済み単発記事の記録
 
 ## なぜ必要か（背景）
