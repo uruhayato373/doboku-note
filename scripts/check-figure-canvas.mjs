@@ -101,6 +101,15 @@ for (const full of files) {
       `${rel}\n    viewBox ${vb[0]}×${vb[1]} → 期待 ${expected[0]}×${expected[1]}（${canvas}）`
     );
   }
+  // XMLコメント内の '--' は不正（resvg/ブラウザでパース不能＝SNSレンダリング無音破綻）。
+  // 正規表現ベースの svg audit では拾えないため、ここで機械検出する。
+  const content = readFileSync(full, "utf8");
+  for (const m of content.matchAll(/<!--([\s\S]*?)-->/g)) {
+    if (m[1].includes("--")) {
+      errors.push(`${rel}\n    XMLコメント内に '--' があり SVG がパース不能（コメントを修正）`);
+      break;
+    }
+  }
 }
 
 if (errors.length) {
