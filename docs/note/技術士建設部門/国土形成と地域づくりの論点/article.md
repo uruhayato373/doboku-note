@@ -124,6 +124,8 @@ cover:
 
 また、必須科目Iで問われる6つの頻出テーマ系統の全体像は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=inline&utm_campaign=pe-kokudo&utm_content=exam-themes)で俯瞰できます。
 
+地域づくりの論点を用語単位で押さえるなら、[持続可能で活力ある地域づくりの論点キーワード集](https://doboku-note.com/docs/pe-construction-chiiki-dukuri-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-kokudo&utm_content=kw-chiiki)も参照してください。
+
 ## さらに深く学ぶには
 
 ここまでで「何を論じるか」の骨格は掴めたはずです。ただ、本番で評価されるのは、この論点を設問の流れに沿って1,800字の答案へ落とし込めるかどうかです。

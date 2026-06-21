@@ -99,6 +99,8 @@ R06 I-2では能登半島地震を例に、DXを活用して事前の防災・�
 
 必須科目Iの6系統と年度別出題の整理は[こちら](https://doboku-note.com/docs/pe-construction-required-exam-themes?utm_source=note&utm_medium=inline&utm_campaign=pe-bousai&utm_content=exam-themes)にまとめています。
 
+防災・減災の論点を用語単位で網羅したい場合は、[防災・減災の論点キーワード集](https://doboku-note.com/docs/pe-construction-bousai-genseigai-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-bousai&utm_content=kw-bousai)もサイトにまとめています。
+
 ## 発注者視点を一文織り込む
 
 ここで、発注者の立場から一つ補足します。

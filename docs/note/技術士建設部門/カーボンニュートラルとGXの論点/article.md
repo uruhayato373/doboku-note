@@ -92,6 +92,8 @@ cover:
 
 令和8年度の改訂内容は、サイトの[コンピテンシー改訂の解説](https://doboku-note.com/docs/pe-construction-competency-revision-r8?utm_source=note&utm_medium=inline&utm_campaign=pe-gx&utm_content=r8-revision)も参照してください。
 
+脱炭素・環境保全の論点を用語単位で押さえるなら、[低炭素社会・環境保全の論点キーワード集](https://doboku-note.com/docs/pe-construction-datsutanso-kankyo-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-gx&utm_content=kw-datsutanso)もサイトにあります。
+
 ### 発注者視点という差別化の引き出し
 
 脱炭素の解決策は技術論に偏りがちですが、誰がそれを工事として実装するかという制度面が抜けやすい論点です。

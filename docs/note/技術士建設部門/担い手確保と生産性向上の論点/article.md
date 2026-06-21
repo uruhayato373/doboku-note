@@ -115,6 +115,8 @@ i-Construction を中心に据える場合は、DXは目的ではなく担い手
 
 答案そのものの組み立て方は[記述式論文の書き方ガイド](https://doboku-note.com/docs/pe-construction-pe-secondary-essay-guide?utm_source=note&utm_medium=inline&utm_campaign=pe-ninaite&utm_content=essay-guide)も参考にしてください。
 
+担い手・生産性向上の論点を用語単位で押さえるなら、[担い手確保・生産性向上の論点キーワード集](https://doboku-note.com/docs/pe-construction-ninaite-dx-ronbun-keyword?utm_source=note&utm_medium=inline&utm_campaign=pe-ninaite&utm_content=kw-ninaite-dx)もどうぞ。
+
 ## さらに深く学ぶには
 
 ここまでで「担い手確保・生産性向上」をどう論じるかの骨格は見えてきたはずです。ただ、実際の試験で点になるのは、この論点を**設問の指示どおりに分解し、1,800字のフル模範解答として最後まで書き切る力**です。
