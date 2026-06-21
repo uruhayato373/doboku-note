@@ -70,3 +70,18 @@
 > [!warning]
 > **UTM バックログ 326件（`npm run check-note-site-utm` で全件監査）**: utm-missing 229 + bare-url 97。資格別ファイル＝建設部門149 / 1級・2級土木43 / 総監8。大半は `note-link-injector` が UTM 無しで注入した inline リンク。A系統6本のみ適合。pre-commit は `--staged` ゲート（触ったファイルだけ／`SKIP_NOTE_UTM=1` で回避）なので既存コミットは壊れない。**バーンダウンは他節展開と同時に資格単位で進める**のが効率的（記事を直すついでに UTM 化）。CI 全体ゲート化はバーンダウン後に判断。
 
+## 他節展開＝326件バーンダウンの推奨実装（コドモッド・次セッション）
+
+> [!important]
+> 手作業は非現実的（198ファイル）→ **決定的コドモッド `scripts/fix-note-site-utm.mjs` を新規実装して一括処理**が正解。最多 = `技術士総監/キーワード集2026変更点/article.md`(42件)。1級・2級土木の経験記述答案集マガジン群は各2件 bare-url が反復。
+
+**設計（判断不要・決定的）**:
+- `utm_source=note&utm_medium=inline` 固定。
+- `utm_campaign` = パス導出: `技術士総監`→`pe-comprehensive-management` / `技術士建設部門`→`pe-construction` / `1級土木`→`civil-construction-1` / `2級土木`→`civil-construction-2`。
+- `utm_content` = リンク先 slug から exam プレフィックス除去した dir 名。
+- **utm-missing(229)**: 既存 inline `](url)` に UTM クエリ付与のみ（完全機械）。
+- **bare-url(97)**: `<url>`単独行を `[アンカー](url?utm)` 化。**アンカー=リンク先記事 frontmatter の `shortTitle`/`title` を `.local/r2/posts/{exam}/{dir}/article.mdx` から引く**（dict不要・正確）。title 引けない dest は変換せず report。
+- **必ず `--dry-run` 先行**→件数/サンプル確認→`--apply`。.md は LF 維持の通常 write。適用後 `npm run check-note-site-utm`=0 と `U+FFFD` 確認。
+- 注意: **SoT(md) 修正のみ。live note 反映は別途ブラウザ必須**。
+- A系統6本は手作業で `utm_campaign=pe-bousai` 等の記事別粒度。コドモッドは exam 別粒度。粒度差は許容（後で正規化も可）。
+
