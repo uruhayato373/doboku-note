@@ -7,7 +7,7 @@ noteUrl: "https://note.com/dobokunote/n/n01444c9aa4a6"
 noteId: "n01444c9aa4a6"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "経済性管理 × 他4管理"]
-price: 500
+price: 780
 noteStatus: published
 cover:
   leadIn: "経済性 × 他4管理の衝突を"

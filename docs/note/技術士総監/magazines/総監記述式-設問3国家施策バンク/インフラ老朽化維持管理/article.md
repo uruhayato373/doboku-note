@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+price: 780
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n702de2881929
 noteId: n702de2881929

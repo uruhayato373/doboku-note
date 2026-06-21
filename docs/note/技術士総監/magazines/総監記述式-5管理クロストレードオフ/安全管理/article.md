@@ -7,7 +7,7 @@ noteUrl: "https://note.com/dobokunote/n/n771c1f2357f0"
 noteId: "n771c1f2357f0"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "安全管理 × 他4管理"]
-price: 500
+price: 780
 noteStatus: published
 cover:
   leadIn: "安全 × 他4管理の衝突を"

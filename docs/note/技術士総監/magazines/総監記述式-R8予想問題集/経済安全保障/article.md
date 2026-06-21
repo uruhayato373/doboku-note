@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n0c52cfabab78
 noteId: n0c52cfabab78
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "経済安全保障"]
-price: 700
+price: 780
 cover:
   leadIn: "令和8年度 総監記述式"
   hi: "R8"

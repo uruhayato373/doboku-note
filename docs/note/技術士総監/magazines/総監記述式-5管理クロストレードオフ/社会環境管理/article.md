@@ -7,7 +7,7 @@ noteUrl: "https://note.com/dobokunote/n/ne5ad458ebd84"
 noteId: "ne5ad458ebd84"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "社会環境管理 × 他4管理"]
-price: 500
+price: 780
 noteStatus: published
 cover:
   leadIn: "社会環境 × 他4管理の衝突を"

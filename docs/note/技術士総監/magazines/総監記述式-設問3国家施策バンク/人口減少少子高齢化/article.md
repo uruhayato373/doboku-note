@@ -1,5 +1,6 @@
 ---
 notePricing: paid
+price: 780
 noteStatus: published
 noteUrl: https://note.com/dobokunote/n/n6ebf5d6e340b
 noteId: n6ebf5d6e340b

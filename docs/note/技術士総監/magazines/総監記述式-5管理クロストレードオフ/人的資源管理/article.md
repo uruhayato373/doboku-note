@@ -7,7 +7,7 @@ noteUrl: "https://note.com/dobokunote/n/nc62f62f5c507"
 noteId: "nc62f62f5c507"
 notePublishedAt: "2026-06-01"
 coverTitle: ["5管理クロストレードオフ", "人的資源管理 × 他4管理"]
-price: 500
+price: 780
 noteStatus: published
 cover:
   leadIn: "人的資源 × 他4管理の衝突を"

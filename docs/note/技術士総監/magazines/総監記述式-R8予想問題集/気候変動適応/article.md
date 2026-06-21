@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n05314b15b375
 noteId: n05314b15b375
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "気候変動適応"]
-price: 700
+price: 780
 cover:
   leadIn: "令和8年度 総監記述式"
   hi: "R8"

@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n5116639ee21f
 noteId: n5116639ee21f
 notePublishedAt: 2026-05-25
 coverTitle: ["R8予想問題", "資源循環"]
-price: 700
+price: 780
 cover:
   leadIn: "令和8年度 総監記述式"
   hi: "R8"

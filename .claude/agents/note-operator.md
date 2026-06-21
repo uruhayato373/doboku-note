@@ -43,7 +43,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 | スクリプト | 用途 | 引数 |
 |---|---|---|
-| `note-article-price-sweep.mjs` | 複数マガジン収録記事の価格一括変更 | `--pattern <id> --price <price> [--commit]` |
+| `note-article-price-sweep.mjs` | マガジン収録記事／単独記事の価格一括変更 | `{--pattern <id>｜--magazines <key,...>｜--notes <key,...>} --price <price> [--exclude <key,...>] [--commit]`（`--exclude`=序章/無料リード保護、`--notes`=マガジン非所属の単独note） |
 | `note-edit-magazine.mjs` | マガジン設定（タイトル/説明/価格）編集 | `--key <key> --txt <note掲載文.txt> [--articles] [--commit]` |
 
 ### マガジン操作

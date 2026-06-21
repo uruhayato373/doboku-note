@@ -269,7 +269,7 @@ const MAGAZINES_RAW = {
       'R8の出る6テーマを分野不問の三層骨子＋3ペルソナ早見表で攻略。道路担当フル論文を実演収録。試験直前の最終予想。',
     imageUrl: '/images/magazines/magazine-r8-essay-forecast-cover.webp',
     sidebarImageUrl: '/images/magazines/magazine-r8-essay-forecast-sidebar.webp',
-    price: '¥3,480（6テーマセット・各¥700、単品比17%OFF）',
+    price: '¥3,480（6テーマセット・各¥780、単品比26%OFF）',
     badge: 'note 限定',
   },
 
@@ -309,7 +309,7 @@ const MAGAZINES_RAW = {
       '20セル全網羅・総監フレーム辞書・答案ひな型付き。序章無料＋有料5記事。',
     imageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
     sidebarImageUrl: '/images/magazines/magazine-tradeoff-5kanri-cover.webp',
-    price: '¥1,980（5本セット、21%OFF）',
+    price: '¥1,980（5本セット、49%OFF）',
     badge: 'note 限定',
   },
 
