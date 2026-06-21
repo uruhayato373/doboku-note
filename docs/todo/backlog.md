@@ -76,37 +76,11 @@
 
 ---
 
-### pe-construction カテゴリページのキーワード重複整理 🟡
+### pe-construction 選択科目キーワード集の欠落科目を補完 🟢
 
-**発端**: `https://doboku-note.com/category/pe-construction`（公開記事 121本）
+**残**: 選択科目の論点キーワード集（`*-ronbun-keyword`）が river-coast・road・urban-planning の3科目のみ。geotechnical・tunnel・railway 等が欠落。需要のある科目から新規作成する。
 
-**問題**: 同一テーマを「論点記事」と「キーワード集」の2種類で別 slug に作っているため、カテゴリページで見ると重複して見える。読者から区別しにくく、内部リンクも分散する。
-
-**重複グループ（必須科目I テーマ別）**:
-
-| テーマ | 論点記事 slug | キーワード集 slug |
-|---|---|---|
-| 防災・国土強靱化 | `bosai-kokudo-kyoujinka` | `bousai-genseigai-ronbun-keyword` |
-| インフラ維持管理 | `infra-roukyuuka-iji` | `iji-kanri-ronbun-keyword` |
-| 担い手確保・DX | `ninaite-kakuho-seisansei`・`kensetsu-dx` | `ninaite-dx-ronbun-keyword` |
-| カーボンニュートラル | `carbon-neutral-kensetsu` | `datsutanso-kankyo-ronbun-keyword` |
-| 地域づくり | `kokudo-keisei-chiiki` | `chiiki-dukuri-ronbun-keyword` |
-
-**その他の問題**:
-- slug 表記ゆれ: `bosai` vs `bousai`（ヘボン式と訓令式混在）、`chiiki-dukuri`（`tsukuri` の誤記の可能性）
-- 選択科目キーワード集（`*-ronbun-keyword`）が river-coast・road・urban-planning の3科目のみで不完全（geotechnical・tunnel・railway 等は欠落）
-- 受験ガイド系: `secondary-study-method`（勉強法）と `gakushuu-jikan-schedule`（勉強時間）がターゲット完全一致
-
-**整理の方針（案）**:
-- **A. 統合**: 各テーマの2記事を1本に合体（slug は論点記事側を維持、キーワード集をリダイレクト）
-- **B. 差別化明確化**: タイトル・description で「論点：論述の骨格」vs「キーワード：用語リスト」を明示し、相互リンクを張る
-- **C. カテゴリページでグループ表示**: 同一テーマの記事を「シリーズ」としてまとめて表示する UI を実装
-
-**ユーザー判断が必要**: A（削減）か B（並存・整理）か。SEO 的には統合が有利、コンテンツ量的には分離が有利。
-
-**着手前に確認**:
-- 各記事の GSC インプレッション・クリック数（検索流入が多い方を残す）
-- 内部リンク被リンク数（backlinks.json で確認）
+**完了（2026-06-21・B 差別化採用）**: 必須科目I の重複ペア5テーマ（論述メソッド短ページ ×論点キーワード集大ページ＝防災/インフラ/担い手DX/カーボン/地域）は、GSC実測でカニバリ無し（13ページ全て imp=0・未ランク）・切り口が別物（課題分解→4部構成の「論述の型」 vs 現状/計画/政策の「キーワードバンク」）と確認し、A統合でなく **B 差別化＋相互リンク** を適用（[[keep-differentiate-not-delete]] 準拠）。seoTitle を「論述の型・答案構成」/「論点キーワード集・暗記用」に明確化し、各ペアに相互リンク段落を挿入。勉強法ペア（secondary-study-method ↔ gakushuu-jikan-schedule）も相互リンク済。slug `chiiki-dukuri` は実在・機能しており誤記でない。
 
 ---
 
