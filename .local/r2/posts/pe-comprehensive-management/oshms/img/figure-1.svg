@@ -1,0 +1,107 @@
+<svg viewBox="0 0 400 430" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="OSHMSのPDCAサイクル。安全衛生方針を出発点に計画・実施・評価点検・改善を時計回りに循環させ、中央に継続的改善、外周にシステム監査とトップによる見直しを配置した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-label  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-step   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-en     { font-size: 11px; fill: #555; }
+      .t-center { font-size: 13px; font-weight: bold; fill: #3a7d44; }
+      .t-outer  { font-size: 11px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      /* brand濃淡4段: P・D・C・A */
+      .box-p { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand淡 */
+      .box-d { fill: #c9dbf8; stroke: #2e6da4; stroke-width: 1.5; } /* brand中 */
+      .box-c { fill: #d8e8fc; stroke: #2e6da4; stroke-width: 1.5; } /* brand中淡 */
+      .box-a { fill: #eef4ff; stroke: #2e6da4; stroke-width: 1.5; } /* brand最淡 */
+      /* positive: 継続的改善（中央） */
+      .circle-center { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }
+      /* surface: 安全衛生方針 */
+      .box-policy { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* warn: システム監査・トップ見直し */
+      .box-audit { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .arr { stroke: #8a8a8a; stroke-width: 2; fill: none; }
+      .arr-dash { stroke: #8a8a8a; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
+    </style>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arr-s" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="22" text-anchor="middle">OSHMSのPDCAサイクル</text>
+  <text class="t-sub"   x="200" y="38" text-anchor="middle">（労働安全衛生マネジメントシステムの基本的枠組み）</text>
+
+  <!-- 安全衛生方針（上部中央） -->
+  <rect class="box-policy" x="126" y="50" width="148" height="34" rx="6"/>
+  <text class="t-label" x="200" y="66" text-anchor="middle">安全衛生方針</text>
+  <text class="t-sub"   x="200" y="80" text-anchor="middle">トップが表明</text>
+
+  <!-- 方針→P -->
+  <line x1="200" y1="84" x2="200" y2="104" class="arr" marker-end="url(#arr)"/>
+
+  <!-- P 計画（上） -->
+  <rect class="box-p" x="126" y="106" width="148" height="50" rx="8"/>
+  <text class="t-step" x="200" y="128" text-anchor="middle">P 計画</text>
+  <text class="t-en"   x="200" y="146" text-anchor="middle">危険性調査・目標設定</text>
+
+  <!-- P→D（右カーブ） -->
+  <path d="M 274 131 Q 348 131 348 196" class="arr" marker-end="url(#arr)"/>
+
+  <!-- D 実施（右） -->
+  <rect class="box-d" x="278" y="198" width="118" height="50" rx="8"/>
+  <text class="t-step" x="337" y="220" text-anchor="middle">D 実施</text>
+  <text class="t-en"   x="337" y="238" text-anchor="middle">安全活動の実行</text>
+
+  <!-- D→C（右下カーブ） -->
+  <path d="M 348 248 Q 348 306 274 314" class="arr" marker-end="url(#arr)"/>
+
+  <!-- C 評価・点検（下） -->
+  <rect class="box-c" x="126" y="296" width="148" height="50" rx="8"/>
+  <text class="t-step" x="200" y="318" text-anchor="middle">C 評価・点検</text>
+  <text class="t-en"   x="200" y="336" text-anchor="middle">監視・測定・内部監査</text>
+
+  <!-- C→A（左カーブ） -->
+  <path d="M 126 321 Q 52 321 52 248" class="arr" marker-end="url(#arr)"/>
+
+  <!-- A 改善（左） -->
+  <rect class="box-a" x="4" y="198" width="118" height="50" rx="8"/>
+  <text class="t-step" x="63" y="220" text-anchor="middle">A 改善</text>
+  <text class="t-en"   x="63" y="238" text-anchor="middle">是正・予防処置</text>
+
+  <!-- A→P（左上カーブ） -->
+  <path d="M 52 198 Q 52 131 126 131" class="arr" marker-end="url(#arr)"/>
+
+  <!-- 中央：継続的改善 -->
+  <ellipse class="circle-center" cx="200" cy="226" rx="64" ry="40"/>
+  <text class="t-center" x="200" y="221" text-anchor="middle">継続的</text>
+  <text class="t-center" x="200" y="239" text-anchor="middle">改善</text>
+
+  <!-- ===== システム監査（右下外側） ===== -->
+  <rect class="box-audit" x="298" y="358" width="90" height="42" rx="6"/>
+  <text class="t-outer" x="343" y="375" text-anchor="middle">システム</text>
+  <text class="t-outer" x="343" y="391" text-anchor="middle">監査</text>
+  <!-- C→システム監査（実線：監査は評価活動の一部） -->
+  <line x1="274" y1="346" x2="308" y2="360" class="arr" marker-end="url(#arr)"/>
+  <!-- システム監査→C（点線フィードバック） -->
+  <path d="M 343 358 Q 343 270 274 310" class="arr-dash" marker-end="url(#arr-s)"/>
+
+  <!-- ===== トップによる見直し（左下外側） ===== -->
+  <rect class="box-audit" x="12" y="358" width="100" height="42" rx="6"/>
+  <text class="t-outer" x="62" y="375" text-anchor="middle">トップによる</text>
+  <text class="t-outer" x="62" y="391" text-anchor="middle">見直し</text>
+  <!-- A→トップ見直し（実線） -->
+  <line x1="63" y1="248" x2="63" y2="358" class="arr" marker-end="url(#arr)"/>
+  <!-- トップ見直し→安全衛生方針（点線フィードバック） -->
+  <path d="M 112 379 Q 200 408 200 88" class="arr-dash" marker-end="url(#arr-s)"/>
+
+  <!-- 凡例 -->
+  <line x1="16" y1="416" x2="46" y2="416" class="arr-dash"/>
+  <text class="t-foot" x="52" y="420">フィードバック</text>
+  <line x1="170" y1="416" x2="200" y2="416" class="arr" marker-end="url(#arr)"/>
+  <text class="t-foot" x="206" y="420">主フロー</text>
+</svg>

@@ -1,0 +1,102 @@
+<svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="統計分析6手法の俯瞰。記述統計・推定検定・相関分析・回帰分析・ロジスティック回帰・クラスター分析を目的軸（要約→推測→関係→予測→分類）で並べた手法マップ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 12px; fill: #555; }
+      .t-main   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 13px; fill: #555; }
+      .t-note   { font-size: 11px; fill: #8a8a8a; }
+      .t-label  { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      .t-white  { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .badge-brand    { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-warn     { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-danger   { fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+      .pill-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .pill-positive{ fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .pill-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .pill-danger  { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ===== タイトル ===== -->
+  <text class="t-title" x="200" y="28" text-anchor="middle">統計分析 6手法マップ</text>
+  <text class="t-sub" x="200" y="48" text-anchor="middle">目的で選ぶ手法の全体像</text>
+
+  <!-- ===== 凡例（目的グループ色） ===== -->
+  <rect class="pill-brand"    x="20"  y="58" width="52" height="16" rx="8"/>
+  <text class="t-note" x="46"  y="70" text-anchor="middle">要約</text>
+  <rect class="pill-positive" x="79"  y="58" width="52" height="16" rx="8"/>
+  <text class="t-note" x="105" y="70" text-anchor="middle">推測</text>
+  <rect class="pill-warn"     x="138" y="58" width="66" height="16" rx="8"/>
+  <text class="t-note" x="171" y="70" text-anchor="middle">関係・予測</text>
+  <rect class="pill-danger"   x="211" y="58" width="52" height="16" rx="8"/>
+  <text class="t-note" x="237" y="70" text-anchor="middle">分類</text>
+
+  <!-- ===== 縦フロー矢印 ===== -->
+  <!-- 矢印は各カードの中央に引く（x=200） -->
+  <line x1="200" y1="165" x2="200" y2="183" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="200" y1="253" x2="200" y2="271" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="200" y1="341" x2="200" y2="359" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="200" y1="429" x2="200" y2="447" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="200" y1="517" x2="200" y2="535" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ===== 1. 記述統計（要約 = brand） ===== -->
+  <rect class="box-brand" x="30" y="86" width="340" height="79" rx="8"/>
+  <!-- 目的バッジ -->
+  <rect class="pill-brand" x="42" y="96" width="44" height="18" rx="9"/>
+  <text class="t-note" x="64" y="109" text-anchor="middle">要約</text>
+  <!-- 手法名 -->
+  <text class="t-main" x="98" y="110">記述統計</text>
+  <!-- 説明 -->
+  <text class="t-body" x="42" y="133">データの特徴を数値で把握</text>
+  <text class="t-note" x="42" y="152">平均・中央値・分散・標準偏差・四分位数 等</text>
+
+  <!-- ===== 2. 推定・検定（推測 = positive） ===== -->
+  <rect class="box-positive" x="30" y="186" width="340" height="67" rx="8"/>
+  <rect class="pill-positive" x="42" y="196" width="44" height="18" rx="9"/>
+  <text class="t-note" x="64" y="209" text-anchor="middle">推測</text>
+  <text class="t-main" x="98" y="210">推定・検定</text>
+  <text class="t-body" x="42" y="232">標本から母集団を推し量る</text>
+  <text class="t-note" x="42" y="248">信頼区間・最尤推定・t検定・χ²検定 等</text>
+
+  <!-- ===== 3. 相関分析（関係 = warn） ===== -->
+  <rect class="box-warn" x="30" y="274" width="340" height="67" rx="8"/>
+  <rect class="pill-warn" x="42" y="284" width="44" height="18" rx="9"/>
+  <text class="t-note" x="64" y="297" text-anchor="middle">関係</text>
+  <text class="t-main" x="98" y="298">相関分析</text>
+  <text class="t-body" x="42" y="320">2変数の関連の強さを定量化</text>
+  <text class="t-note" x="42" y="336">相関係数 r（−1〜+1）・散布図 等</text>
+
+  <!-- ===== 4. 回帰分析（予測 = warn） ===== -->
+  <rect class="box-warn" x="30" y="362" width="340" height="67" rx="8"/>
+  <rect class="pill-warn" x="42" y="372" width="44" height="18" rx="9"/>
+  <text class="t-note" x="64" y="385" text-anchor="middle">予測</text>
+  <text class="t-main" x="98" y="386">回帰分析</text>
+  <text class="t-body" x="42" y="408">説明変数から目的変数を予測</text>
+  <text class="t-note" x="42" y="424">最小二乗法・単回帰・重回帰 等</text>
+
+  <!-- ===== 5. ロジスティック回帰（予測 = warn） ===== -->
+  <rect class="box-warn" x="30" y="450" width="340" height="67" rx="8"/>
+  <rect class="pill-warn" x="42" y="460" width="44" height="18" rx="9"/>
+  <text class="t-note" x="64" y="473" text-anchor="middle">予測</text>
+  <text class="t-main" x="98" y="474">ロジスティック回帰</text>
+  <text class="t-body" x="42" y="496">2値の確率を推定（0か1か）</text>
+  <text class="t-note" x="42" y="512">合格/不合格・発生/非発生 等</text>
+
+  <!-- ===== 6. クラスター分析（分類 = danger） ===== -->
+  <rect class="box-danger" x="30" y="538" width="340" height="30" rx="8"/>
+  <!-- 短縮表示（最下段） -->
+  <rect class="pill-danger" x="42" y="546" width="44" height="18" rx="9"/>
+  <text class="t-note" x="64" y="559" text-anchor="middle">分類</text>
+  <text class="t-main" x="98" y="559">クラスター分析</text>
+  <text class="t-note" x="310" y="559" text-anchor="end">類似度で群化</text>
+</svg>

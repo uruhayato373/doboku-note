@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="QCサークル活動の3つの基本理念。自分のため・仲間のため・会社のため の3理念と、上位概念TQMの関係を示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 12px; fill: #555; }
+      .t-main   { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 13px; fill: #555; }
+      .t-tag    { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-num    { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-brand  { font-size: 14px; font-weight: bold; fill: #2e6da4; }
+      .t-brand-sub { font-size: 12px; fill: #2e6da4; }
+      /* semantic colors */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .divider { stroke: #3a7d44; stroke-width: 1; stroke-dasharray: 4 3; opacity: 0.5; }
+    </style>
+    <marker id="arrow-up" markerWidth="9" markerHeight="7" refX="4.5" refY="7" orient="auto">
+      <polygon points="0,7 4.5,0 9,7" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- title -->
+  <text class="t-title" x="200" y="28" text-anchor="middle">QCサークルの3つの基本理念</text>
+  <text class="t-sub" x="200" y="48" text-anchor="middle">QCサークル活動が目指す3つの目的</text>
+
+  <!-- card 1: 自分のため (positive) -->
+  <rect class="box-positive" x="32" y="64" width="336" height="100" rx="8"/>
+  <!-- number badge -->
+  <circle class="badge-positive" cx="62" cy="90" r="16"/>
+  <text class="t-num" x="62" y="95" text-anchor="middle">1</text>
+  <!-- tag -->
+  <text class="t-tag" x="90" y="87">自分のため</text>
+  <!-- main text -->
+  <text class="t-main" x="90" y="110">能力を発揮し</text>
+  <text class="t-main" x="90" y="130">無限の可能性を引き出す</text>
+  <!-- right note -->
+  <text class="t-body" x="362" y="120" text-anchor="end">自己実現・自己啓発</text>
+
+  <!-- card 2: 仲間のため (positive) -->
+  <rect class="box-positive" x="32" y="180" width="336" height="100" rx="8"/>
+  <circle class="badge-positive" cx="62" cy="206" r="16"/>
+  <text class="t-num" x="62" y="211" text-anchor="middle">2</text>
+  <text class="t-tag" x="90" y="203">仲間のため</text>
+  <text class="t-main" x="90" y="226">人間性を尊重し</text>
+  <text class="t-main" x="90" y="246">明るい職場をつくる</text>
+  <text class="t-body" x="362" y="236" text-anchor="end">相互啓発・職場活性化</text>
+
+  <!-- card 3: 会社のため (positive) -->
+  <rect class="box-positive" x="32" y="296" width="336" height="100" rx="8"/>
+  <circle class="badge-positive" cx="62" cy="322" r="16"/>
+  <text class="t-num" x="62" y="327" text-anchor="middle">3</text>
+  <text class="t-tag" x="90" y="319">会社のため</text>
+  <text class="t-main" x="90" y="342">企業体質を改善し</text>
+  <text class="t-main" x="90" y="362">発展に寄与する</text>
+  <text class="t-body" x="362" y="352" text-anchor="end">品質・生産性向上</text>
+
+  <!-- arrow: 3理念 → TQM -->
+  <line x1="200" y1="402" x2="200" y2="418" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-up)"/>
+
+  <!-- TQM banner (brand) -->
+  <rect class="box-brand" x="32" y="422" width="336" height="44" rx="8"/>
+  <text class="t-brand" x="200" y="441" text-anchor="middle">TQM（総合品質管理）</text>
+  <text class="t-brand-sub" x="200" y="459" text-anchor="middle">経営者・管理者が全社的活動として実践・支援</text>
+
+</svg>

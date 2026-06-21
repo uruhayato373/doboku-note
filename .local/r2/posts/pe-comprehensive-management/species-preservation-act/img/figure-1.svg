@@ -1,0 +1,93 @@
+<svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="レッドリストカテゴリ階層。絶滅から情報不足・地域個体群まで9区分を危険度の高い順に上から示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-label  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 12px; fill: #555; }
+      .t-badge  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis   { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      /* danger: 絶滅・野生絶滅 */
+      .box-d1   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-d2   { fill: #f8d7da; stroke: #b22234; stroke-width: 1; stroke-dasharray: 4 2; }
+      /* warn: 絶滅危惧I類〜II類 */
+      .box-w0   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-w1   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; stroke-dasharray: 4 2; }
+      /* brand: 準絶滅危惧 */
+      .box-br   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      /* surface: 情報不足・地域個体群 */
+      .box-sf   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* indent bracket */
+      .brace    { fill: none; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- title -->
+  <text class="t-title" x="200" y="26" text-anchor="middle">レッドリスト カテゴリ階層</text>
+  <text class="t-sub"   x="200" y="44" text-anchor="middle">絶滅危険度が高い順（国際自然保護連合・環境省）</text>
+
+  <!-- danger axis -->
+  <text class="t-axis" x="22" y="66" text-anchor="middle">高</text>
+  <line x1="22" y1="72" x2="22" y2="480" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arr)"/>
+  <text class="t-axis" x="22" y="500" text-anchor="middle">低</text>
+
+  <!-- 1 絶滅 -->
+  <rect class="box-d1" x="42" y="58" width="346" height="52" rx="7"/>
+  <text class="t-label" x="62" y="81">絶滅</text>
+  <text class="t-note"  x="62" y="99">すでに絶滅したと考えられる種</text>
+
+  <!-- 2 野生絶滅 -->
+  <rect class="box-d2" x="42" y="118" width="346" height="52" rx="7"/>
+  <text class="t-label" x="62" y="141">野生絶滅</text>
+  <text class="t-note"  x="62" y="159">飼育・栽培下でのみ存続する種</text>
+
+  <!-- 3 絶滅危惧I類（親ボックス） -->
+  <rect class="box-w0" x="42" y="178" width="346" height="52" rx="7"/>
+  <text class="t-label" x="62" y="200">絶滅危惧I類</text>
+  <text class="t-note"  x="62" y="218">絶滅の危機に瀕している種</text>
+
+  <!-- brace for I類→IA/IB -->
+  <line class="brace" x1="62" y1="238" x2="62" y2="300"/>
+  <line class="brace" x1="62" y1="238" x2="70" y2="238"/>
+  <line class="brace" x1="62" y1="269" x2="70" y2="269"/>
+  <line class="brace" x1="62" y1="300" x2="70" y2="300"/>
+
+  <!-- 3a 絶滅危惧IA類 -->
+  <rect class="box-w1" x="72" y="232" width="316" height="44" rx="6"/>
+  <text class="t-badge" x="90" y="251">IA類</text>
+  <text class="t-note"  x="133" y="251">ごく近い将来、野生絶滅の危険性が極めて高い</text>
+  <text class="t-note"  x="90" y="268">（より深刻）</text>
+
+  <!-- 3b 絶滅危惧IB類 -->
+  <rect class="box-w1" x="72" y="282" width="316" height="44" rx="6"/>
+  <text class="t-badge" x="90" y="301">IB類</text>
+  <text class="t-note"  x="133" y="301">近い将来、野生絶滅の危険性が極めて高い</text>
+  <text class="t-note"  x="90" y="318">（IA類ほどではないが危険大）</text>
+
+  <!-- 4 絶滅危惧II類 -->
+  <rect class="box-w0" x="42" y="334" width="346" height="52" rx="7"/>
+  <text class="t-label" x="62" y="357">絶滅危惧II類</text>
+  <text class="t-note"  x="62" y="375">絶滅の危険が増大している種</text>
+
+  <!-- 5 準絶滅危惧 -->
+  <rect class="box-br" x="42" y="394" width="346" height="52" rx="7"/>
+  <text class="t-label" x="62" y="417">準絶滅危惧</text>
+  <text class="t-note"  x="62" y="435">条件次第で絶滅危惧に移行しうる種</text>
+
+  <!-- 6 情報不足 / 地域個体群 （横並び2列） -->
+  <rect class="box-sf" x="42"  y="454" width="166" height="52" rx="7"/>
+  <text class="t-label" x="62"  y="476">情報不足</text>
+  <text class="t-note"  x="62"  y="494">評価に必要な情報が不足</text>
+
+  <rect class="box-sf" x="222" y="454" width="166" height="52" rx="7"/>
+  <text class="t-label" x="242" y="476">地域個体群</text>
+  <text class="t-note"  x="242" y="494">地域孤立・絶滅危険の個体群</text>
+
+  <!-- footer note -->
+  <text class="t-sub" x="200" y="540" text-anchor="middle">I類（IA+IB）・II類 が「絶滅危惧種」の中核区分</text>
+  <text class="t-sub" x="200" y="556" text-anchor="middle">種の保存法の「国際希少野生動植物種」は第4条第4項で規定</text>
+</svg>

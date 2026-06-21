@@ -1,0 +1,109 @@
+<svg viewBox="0 0 400 560" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="持続可能な開発 5つのP。People・Prosperity・Planet・Peace・Partnershipの各カードに日本語訳・意味・該当目標範囲を示し、上部帯で経済・社会・環境の三側面調和を表す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-header   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub      { font-size: 11px; fill: #555; }
+      .t-p-en     { font-size: 15px; font-weight: bold; }
+      .t-p-ja     { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-p-desc   { font-size: 12px; fill: #555; }
+      .t-p-goals  { font-size: 11px; fill: #8a8a8a; }
+      .t-axis     { font-size: 11px; fill: #8a8a8a; font-style: italic; }
+      /* band */
+      .band-eco   { fill: #fff3cd; }
+      .band-soc   { fill: #e8f0fe; }
+      .band-env   { fill: #d0e8d0; }
+      /* cards */
+      .card-people      { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .card-prosperity  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn */
+      .card-planet      { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive */
+      .card-peace       { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface */
+      .card-partnership { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface */
+      /* badge colors — white bg + color stroke (淡色背景＋濃色文字に統一) */
+      .badge-people      { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-prosperity  { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-planet      { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-peace       { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .badge-partnership { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- ===== Title ===== -->
+  <text class="t-header" x="200" y="22" text-anchor="middle">持続可能な開発 5つのP</text>
+  <text class="t-sub" x="200" y="38" text-anchor="middle">SDGs 17目標は5つのPで分類される</text>
+
+  <!-- ===== 三側面帯 ===== -->
+  <!-- 経済 -->
+  <rect class="band-eco" x="18" y="48" width="117" height="20" rx="4"/>
+  <text class="t-sub" x="76" y="62" text-anchor="middle" font-weight="bold" fill="#d4a017">経済</text>
+  <!-- 社会 -->
+  <rect class="band-soc" x="141" y="48" width="117" height="20" rx="4"/>
+  <text class="t-sub" x="199" y="62" text-anchor="middle" font-weight="bold" fill="#2e6da4">社会</text>
+  <!-- 環境 -->
+  <rect class="band-env" x="264" y="48" width="117" height="20" rx="4"/>
+  <text class="t-sub" x="322" y="62" text-anchor="middle" font-weight="bold" fill="#3a7d44">環境</text>
+  <!-- arrow connecting them -->
+  <text class="t-axis" x="200" y="84" text-anchor="middle">三側面の統合・不可分な調和</text>
+
+  <!-- ===== カード共通 y-positions ===== -->
+  <!-- People   : y=90  -->
+  <!-- Prosperity: y=188 -->
+  <!-- Planet   : y=286 -->
+  <!-- Peace    : y=384 -->
+  <!-- Partnership: y=462 -->
+
+  <!-- ===== 1. People（人間）brand ===== -->
+  <rect class="card-people" x="18" y="90" width="363" height="88" rx="8"/>
+  <!-- badge -->
+  <rect class="badge-people" x="28" y="103" width="52" height="22" rx="4"/>
+  <text font-size="12" font-weight="bold" fill="#2e6da4" x="54" y="118" text-anchor="middle">People</text>
+  <!-- ja -->
+  <text class="t-p-ja" x="92" y="118">人間</text>
+  <!-- goals tag -->
+  <text class="t-p-goals" x="362" y="112" text-anchor="end">目標 1〜6</text>
+  <!-- desc line 1 -->
+  <text class="t-p-desc" x="28" y="143">貧困・飢餓ゼロ、健康、教育、</text>
+  <text class="t-p-desc" x="28" y="160">ジェンダー平等、安全な水</text>
+  <!-- Social pillar note -->
+  <text class="t-p-goals" x="362" y="160" text-anchor="end">社会の基盤</text>
+
+  <!-- ===== 2. Prosperity（繁栄）warn ===== -->
+  <rect class="card-prosperity" x="18" y="188" width="363" height="88" rx="8"/>
+  <rect class="badge-prosperity" x="28" y="201" width="76" height="22" rx="4"/>
+  <text font-size="12" font-weight="bold" fill="#d4a017" x="66" y="216" text-anchor="middle">Prosperity</text>
+  <text class="t-p-ja" x="116" y="216">繁栄</text>
+  <text class="t-p-goals" x="362" y="210" text-anchor="end">目標 7〜11</text>
+  <text class="t-p-desc" x="28" y="241">クリーンエネルギー、経済成長、</text>
+  <text class="t-p-desc" x="28" y="258">産業・技術革新、不平等解消</text>
+  <text class="t-p-goals" x="362" y="258" text-anchor="end">経済の成長</text>
+
+  <!-- ===== 3. Planet（地球）positive ===== -->
+  <rect class="card-planet" x="18" y="286" width="363" height="88" rx="8"/>
+  <rect class="badge-planet" x="28" y="299" width="52" height="22" rx="4"/>
+  <text font-size="12" font-weight="bold" fill="#3a7d44" x="54" y="314" text-anchor="middle">Planet</text>
+  <text class="t-p-ja" x="92" y="314">地球</text>
+  <text class="t-p-goals" x="362" y="308" text-anchor="end">目標 12〜15</text>
+  <text class="t-p-desc" x="28" y="339">持続可能な消費・生産、気候変動、</text>
+  <text class="t-p-desc" x="28" y="356">海と陸の豊かさを守る</text>
+  <text class="t-p-goals" x="362" y="356" text-anchor="end">環境の保全</text>
+
+  <!-- ===== 4. Peace（平和）surface ===== -->
+  <rect class="card-peace" x="18" y="384" width="363" height="68" rx="8"/>
+  <rect class="badge-peace" x="28" y="397" width="44" height="22" rx="4"/>
+  <text font-size="12" font-weight="bold" fill="#555" x="50" y="412" text-anchor="middle">Peace</text>
+  <text class="t-p-ja" x="84" y="412">平和</text>
+  <text class="t-p-goals" x="362" y="407" text-anchor="end">目標 16</text>
+  <text class="t-p-desc" x="28" y="437">平和・公正な社会と強い制度</text>
+
+  <!-- ===== 5. Partnership（連携）surface ===== -->
+  <rect class="card-partnership" x="18" y="462" width="363" height="68" rx="8"/>
+  <rect class="badge-partnership" x="28" y="475" width="86" height="22" rx="4"/>
+  <text font-size="12" font-weight="bold" fill="#555" x="71" y="490" text-anchor="middle">Partnership</text>
+  <text class="t-p-ja" x="126" y="490">連携</text>
+  <text class="t-p-goals" x="362" y="484" text-anchor="end">目標 17</text>
+  <text class="t-p-desc" x="28" y="515">グローバル・パートナーシップで</text>
+  <text class="t-p-desc" x="28" y="531">目標を達成する手段</text>
+
+  <!-- ===== footer ===== -->
+  <text class="t-axis" x="200" y="553" text-anchor="middle">SDGs 2030アジェンダ（2015年 国連サミット採択）</text>
+</svg>

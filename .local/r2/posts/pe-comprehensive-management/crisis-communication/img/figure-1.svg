@@ -1,0 +1,94 @@
+<svg viewBox="0 0 420 380" xmlns="http://www.w3.org/2000/svg" style="max-width:420px;width:100%" role="img" aria-label="危機広報の2目的。初動期の安全のための広報（迅速性重視）から収束期の安心のための広報（正確さ・迅速さ・安心感の工夫）へ時間軸で移行する図">
+  <!-- viewBox: 420px — 2カラム比較かつ時間軸矢印を配置するため <=400 より20px拡張 -->
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-head   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 13px; fill: #555; }
+      .t-small  { font-size: 11px; fill: #8a8a8a; }
+      .t-phase  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis   { font-size: 11px; fill: #8a8a8a; }
+      /* semantic: danger = 初動期・危険・緊急 */
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      /* semantic: positive = 収束期・安全・安心 */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      /* surface = ラベル背景 */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arr-danger" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#b22234"/>
+    </marker>
+    <marker id="arr-positive" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="210" y="28" text-anchor="middle">危機広報の2つの目的</text>
+
+  <!-- 時間軸ラベル -->
+  <text class="t-axis" x="20" y="56" text-anchor="middle">初動期</text>
+  <line x1="20" y1="60" x2="400" y2="60" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text class="t-axis" x="400" y="56" text-anchor="end">収束期</text>
+  <text class="t-axis" x="210" y="76" text-anchor="middle">時間経過</text>
+
+  <!-- ── 左カラム: 安全のための広報 ── -->
+  <!-- フェーズラベル -->
+  <rect class="box-surface" x="18" y="88" width="88" height="22" rx="4"/>
+  <text class="t-phase" x="62" y="104" text-anchor="middle">初動期</text>
+
+  <!-- メインボックス -->
+  <rect class="box-danger" x="18" y="118" width="178" height="186" rx="8"/>
+
+  <!-- 見出し -->
+  <text class="t-head" x="107" y="143" text-anchor="middle">安全のための広報</text>
+  <line x1="30" y1="150" x2="184" y2="150" stroke="#b22234" stroke-width="1"/>
+
+  <!-- キーワード強調 -->
+  <rect x="54" y="160" width="106" height="28" rx="5" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text class="t-head" x="107" y="179" text-anchor="middle" fill="#b22234">迅速性 重視</text>
+
+  <!-- 詳細 -->
+  <text class="t-body" x="107" y="210" text-anchor="middle">危機発生を</text>
+  <text class="t-body" x="107" y="228" text-anchor="middle">いち早く伝達</text>
+
+  <!-- 矢印: 方針 -->
+  <line x1="107" y1="238" x2="107" y2="256" stroke="#b22234" stroke-width="1.2" marker-end="url(#arr-danger)"/>
+  <text class="t-small" x="107" y="270" text-anchor="middle">初動遅れ＝信頼喪失</text>
+  <text class="t-small" x="107" y="285" text-anchor="middle">情報隠蔽と誤解される</text>
+
+  <!-- ── 右カラム: 安心のための広報 ── -->
+  <!-- フェーズラベル -->
+  <rect class="box-surface" x="226" y="88" width="88" height="22" rx="4"/>
+  <text class="t-phase" x="270" y="104" text-anchor="middle">収束期</text>
+
+  <!-- メインボックス -->
+  <rect class="box-positive" x="226" y="118" width="178" height="186" rx="8"/>
+
+  <!-- 見出し -->
+  <text class="t-head" x="315" y="143" text-anchor="middle">安心のための広報</text>
+  <line x1="238" y1="150" x2="392" y2="150" stroke="#3a7d44" stroke-width="1"/>
+
+  <!-- 3要素リスト -->
+  <text class="t-body" x="248" y="172" text-anchor="start">正確さ</text>
+  <text class="t-body" x="248" y="196" text-anchor="start">迅速さ</text>
+  <text class="t-body" x="248" y="220" text-anchor="start">安心感の工夫</text>
+  <text class="t-small" x="248" y="237" text-anchor="start">（安全への配慮を表現）</text>
+
+  <!-- 矢印: 方針 -->
+  <line x1="315" y1="248" x2="315" y2="256" stroke="#3a7d44" stroke-width="1.2" marker-end="url(#arr-positive)"/>
+  <text class="t-small" x="315" y="270" text-anchor="middle">3要素を組み合わせ</text>
+  <text class="t-small" x="315" y="285" text-anchor="middle">社会の信頼を回復</text>
+
+  <!-- 移行矢印（中央） -->
+  <line x1="200" y1="210" x2="222" y2="210" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- フッター: 共通原則 -->
+  <rect class="box-surface" x="18" y="318" width="386" height="48" rx="6"/>
+  <text class="t-body" x="210" y="337" text-anchor="middle" font-weight="bold" fill="#1a3a5c">共通: 情報を持つ組織が開示しないことで</text>
+  <text class="t-body" x="210" y="356" text-anchor="middle">社会的信頼を失うリスクがある</text>
+</svg>

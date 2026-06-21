@@ -1,0 +1,100 @@
+<svg viewBox="0 0 400 580" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="警戒レベル5段階と避難行動。レベル1心構えからレベル5緊急安全確保まで、切迫度に応じた住民行動と発令主体を示すラダー図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #8a8a8a; }
+      .t-num    { font-size: 17px; font-weight: bold; fill: #1a3a5c; }
+      .t-label  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-action { font-size: 12px; fill: #555; }
+      .t-issuer { font-size: 11px; fill: #8a8a8a; }
+      .t-info   { font-size: 11px; fill: #555; }
+      .t-axis   { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      /* semantic: positive */
+      .box-lv1  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-lv1 { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      /* semantic: brand */
+      .box-lv2  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-lv2 { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* semantic: warn */
+      .box-lv3  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-lv3 { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      /* semantic: danger */
+      .box-lv4  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .badge-lv4 { fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+      /* semantic: danger-deep (darker danger) */
+      .box-lv5  { fill: #f1b8bc; stroke: #7a0f18; stroke-width: 2; }
+      .badge-lv5 { fill: #ffffff; stroke: #7a0f18; stroke-width: 2; }
+      .t-num-lv5 { font-size: 17px; font-weight: bold; fill: #7a0f18; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- title -->
+  <text class="t-title" x="200" y="26" text-anchor="middle">警戒レベル5段階と避難行動</text>
+  <text class="t-sub"   x="200" y="44" text-anchor="middle">2021年災害対策基本法改正後の体系</text>
+
+  <!-- cut-off axis (切迫度) -->
+  <text class="t-axis" x="22" y="68"  text-anchor="middle">低</text>
+  <line x1="22" y1="76" x2="22" y2="524" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="t-axis" x="22" y="546" text-anchor="middle">高</text>
+  <text class="t-axis" x="22" y="310" text-anchor="middle" transform="rotate(-90,22,310)">切迫度</text>
+
+  <!-- === Level 1 === -->
+  <!-- semantic: positive -->
+  <rect class="box-lv1" x="44" y="60" width="344" height="82" rx="8"/>
+  <circle class="badge-lv1" cx="72" cy="101" r="17"/>
+  <text class="t-num" x="72" y="107" text-anchor="middle">1</text>
+  <!-- label + issuer -->
+  <text class="t-label"  x="100" y="84">心構えを高める</text>
+  <text class="t-issuer" x="100" y="100">発令主体：気象庁</text>
+  <!-- action -->
+  <text class="t-action" x="100" y="118">最新の防災気象情報に注意し</text>
+  <text class="t-action" x="100" y="133">災害への心構えを高める</text>
+
+  <!-- === Level 2 === -->
+  <!-- semantic: brand -->
+  <rect class="box-lv2" x="44" y="156" width="344" height="82" rx="8"/>
+  <circle class="badge-lv2" cx="72" cy="197" r="17"/>
+  <text class="t-num" x="72" y="203" text-anchor="middle">2</text>
+  <text class="t-label"  x="100" y="180">避難行動を確認する</text>
+  <text class="t-issuer" x="100" y="196">発令主体：気象庁</text>
+  <text class="t-action" x="100" y="214">ハザードマップで避難場所・</text>
+  <text class="t-action" x="100" y="229">避難経路・タイミングを再確認</text>
+
+  <!-- === Level 3 === -->
+  <!-- semantic: warn -->
+  <rect class="box-lv3" x="44" y="252" width="344" height="82" rx="8"/>
+  <circle class="badge-lv3" cx="72" cy="293" r="17"/>
+  <text class="t-num" x="72" y="299" text-anchor="middle">3</text>
+  <text class="t-label"  x="100" y="276">高齢者等避難</text>
+  <text class="t-issuer" x="100" y="292">発令主体：市町村長</text>
+  <text class="t-action" x="100" y="310">避難に時間を要する高齢者・</text>
+  <text class="t-action" x="100" y="325">障がい者等は避難を開始する</text>
+
+  <!-- === Level 4 === -->
+  <!-- semantic: danger -->
+  <rect class="box-lv4" x="44" y="348" width="344" height="82" rx="8"/>
+  <circle class="badge-lv4" cx="72" cy="389" r="17"/>
+  <text class="t-num" x="72" y="395" text-anchor="middle">4</text>
+  <text class="t-label"  x="100" y="372">避難指示（全員避難）</text>
+  <text class="t-issuer" x="100" y="388">発令主体：市町村長</text>
+  <text class="t-action" x="100" y="406">危険な場所にいる全員が</text>
+  <text class="t-action" x="100" y="421">指定緊急避難場所等へ避難する</text>
+
+  <!-- === Level 5 === -->
+  <!-- semantic: danger-deep -->
+  <rect class="box-lv5" x="44" y="444" width="344" height="90" rx="8"/>
+  <circle class="badge-lv5" cx="72" cy="489" r="17"/>
+  <text class="t-num-lv5" x="72" y="495" text-anchor="middle">5</text>
+  <text class="t-label"  x="100" y="468">緊急安全確保（最終手段）</text>
+  <text class="t-issuer" x="100" y="484">発令主体：市町村長（可能な範囲）</text>
+  <text class="t-action" x="100" y="502">既に災害が発生・切迫している</text>
+  <text class="t-action" x="100" y="517">命を守る最善の行動をとる</text>
+  <text class="t-action" x="100" y="528">※発令を待たず行動することが原則</text>
+
+  <!-- footer note -->
+  <text class="t-sub" x="200" y="568" text-anchor="middle">レベル1〜2 気象庁発令｜レベル3〜5 市町村長発令</text>
+</svg>

@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 560" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="ISO26000 社会的責任の7原則。説明責任・透明性・倫理的な行動・ステークホルダーの利害の尊重・法の支配の尊重・国際行動規範の尊重・人権の尊重をカード縦並びで示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #8a8a8a; }
+      .t-num    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-main   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc   { font-size: 12px; fill: #555; }
+      /* brand: #e8f0fe / #2e6da4 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* positive: #d0e8d0 / #3a7d44 — 倫理・人権アクセント */
+      .box-pos      { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-pos    { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="26" text-anchor="middle">ISO 26000 社会的責任の7原則</text>
+  <text class="t-sub"   x="200" y="44" text-anchor="middle">JIS Z 26000 に規格化。持続可能な発展への貢献が目的</text>
+
+  <!-- 凡例 -->
+  <rect fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" x="52" y="52" width="10" height="10" rx="2"/>
+  <text class="t-sub" x="66" y="62">倫理・人権系アクセント</text>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="200" y="52" width="10" height="10" rx="2"/>
+  <text class="t-sub" x="214" y="62">その他の原則</text>
+
+  <!-- カード1: 説明責任 (brand) -->
+  <rect class="box-brand" x="32" y="72" width="336" height="62" rx="7"/>
+  <circle class="badge-brand" cx="58" cy="103" r="14"/>
+  <text class="t-num" x="58" y="108" text-anchor="middle">1</text>
+  <text class="t-main" x="80" y="97">説明責任</text>
+  <text class="t-desc" x="80" y="116">社会・経済・環境への影響について説明責任を負う</text>
+
+  <!-- カード2: 透明性 (brand) -->
+  <rect class="box-brand" x="32" y="142" width="336" height="62" rx="7"/>
+  <circle class="badge-brand" cx="58" cy="173" r="14"/>
+  <text class="t-num" x="58" y="178" text-anchor="middle">2</text>
+  <text class="t-main" x="80" y="167">透明性</text>
+  <text class="t-desc" x="80" y="186">決定・活動が社会・環境に与える影響を透明に開示</text>
+
+  <!-- カード3: 倫理的な行動 (positive) -->
+  <rect class="box-pos" x="32" y="212" width="336" height="62" rx="7"/>
+  <circle class="badge-pos" cx="58" cy="243" r="14"/>
+  <text class="t-num" x="58" y="248" text-anchor="middle" fill="#3a7d44">3</text>
+  <text class="t-main" x="80" y="237" fill="#1a3a5c">倫理的な行動</text>
+  <text class="t-desc" x="80" y="256">誠実さ・公平さ・生命への配慮等の倫理規範に従う</text>
+
+  <!-- カード4: ステークホルダーの利害の尊重 (brand) -->
+  <rect class="box-brand" x="32" y="282" width="336" height="62" rx="7"/>
+  <circle class="badge-brand" cx="58" cy="313" r="14"/>
+  <text class="t-num" x="58" y="318" text-anchor="middle">4</text>
+  <text class="t-main" x="80" y="307">ステークホルダーの利害の尊重</text>
+  <text class="t-desc" x="80" y="326">利害関係者の利益を尊重し、よく考慮して対応する</text>
+
+  <!-- カード5: 法の支配の尊重 (brand) -->
+  <rect class="box-brand" x="32" y="352" width="336" height="62" rx="7"/>
+  <circle class="badge-brand" cx="58" cy="383" r="14"/>
+  <text class="t-num" x="58" y="388" text-anchor="middle">5</text>
+  <text class="t-main" x="80" y="377">法の支配の尊重</text>
+  <text class="t-desc" x="80" y="396">法の支配を尊重することを義務と認識して行動する</text>
+
+  <!-- カード6: 国際行動規範の尊重 (brand) -->
+  <rect class="box-brand" x="32" y="422" width="336" height="62" rx="7"/>
+  <circle class="badge-brand" cx="58" cy="453" r="14"/>
+  <text class="t-num" x="58" y="458" text-anchor="middle">6</text>
+  <text class="t-main" x="80" y="447">国際行動規範の尊重</text>
+  <text class="t-desc" x="80" y="466">法の支配の尊重と共に国際行動規範も尊重する</text>
+
+  <!-- カード7: 人権の尊重 (positive) -->
+  <rect class="box-pos" x="32" y="492" width="336" height="62" rx="7"/>
+  <circle class="badge-pos" cx="58" cy="523" r="14"/>
+  <text class="t-num" x="58" y="528" text-anchor="middle" fill="#3a7d44">7</text>
+  <text class="t-main" x="80" y="517" fill="#1a3a5c">人権の尊重</text>
+  <text class="t-desc" x="80" y="536">人権の重要性・普遍性の両方を認識し尊重する</text>
+</svg>
