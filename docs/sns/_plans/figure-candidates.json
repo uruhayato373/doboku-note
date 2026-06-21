@@ -1,0 +1,813 @@
+{
+  "summary": "5管理mdから図解SVG候補を抽出（記事+SNS両用）",
+  "agentCount": 5,
+  "logs": [
+    "図解候補: 5/5管理, 合計 77 個（high=47）"
+  ],
+  "result": {
+    "managements": [
+      {
+        "managementCode": "economic",
+        "managementName": "経済性管理",
+        "candidates": [
+          {
+            "concept": "PFI 3方式の比較（BTO / BOT / コンセッション）",
+            "mdRange": "§1-(6)",
+            "sendToSlug": "pe-comprehensive-management-pfi",
+            "layout": "2カラム比較（3列カード横並びでも可）",
+            "elements": "BTO=建設→所有権移転→民間運営／BOT=建設→民間運営→事業終了後に移転／コンセッション=所有権は公共・運営権のみ民間。各方式の所有権の所在をアイコンで対比",
+            "colorPlan": "brand=見出し、positive=コンセッション、ink-body=BTO/BOT本文、warn=所有権移転タイミングの強調",
+            "priority": "high",
+            "reason": "頻出。所有権の移転タイミングの違いが言葉だけだと混同しやすく、図で並べると一発で識別できる"
+          },
+          {
+            "concept": "事業投資評価3手法の比較（NPV / 回収期間法 / ROI）",
+            "mdRange": "§1-(2)",
+            "sendToSlug": "pe-comprehensive-management-payback-period-method",
+            "layout": "2カラム比較（3列マトリクス）",
+            "elements": "NPV=現在価値差額がプラスなら投資・時間価値考慮あり／回収期間法=回収年数が短いほど良・簡便／ROI=利益額÷投資額。各手法の判定基準・時間価値考慮の有無・長所短所を行で対比",
+            "colorPlan": "brand=見出し行、positive=採用判定の基準、ink-muted=短所、warn=時間価値の考慮有無",
+            "priority": "high",
+            "reason": "3手法の判定基準と時間価値考慮の有無が試験頻出の比較軸。マトリクスで横並びにすると違いが明確になる"
+          },
+          {
+            "concept": "事業評価3指標の階層（インプット→アウトプット→アウトカム）",
+            "mdRange": "§1-(3)(c)(d)(e)",
+            "sendToSlug": "pe-comprehensive-management-outcome-indicators",
+            "layout": "縦フロー（左→右の連鎖）",
+            "elements": "インプット指標=投入資源量（予算額）→アウトプット指標=活動量（道路整備延長・開催回数）→アウトカム指標=成果（渋滞緩和度）。投入→活動→成果の因果連鎖",
+            "colorPlan": "brand=アウトカム（最終成果）、ink-body=中間段、ink-muted=インプット、positive=矢印",
+            "priority": "high",
+            "reason": "3指標の混同が頻発。投入→活動→成果の連鎖フローにすると各指標の位置づけが直感的に理解できる"
+          },
+          {
+            "concept": "QC7つ道具 / 新QC7つ道具の使い分け（数値データ vs 言語データ）",
+            "mdRange": "§2-(3)(a)(b)",
+            "sendToSlug": "pe-comprehensive-management-quality-control",
+            "layout": "2カラム比較",
+            "elements": "左=QC7つ道具（数値データ）: 層別/パレート図/特性要因図/ヒストグラム/散布図/管理図/チェックシート。右=新QC7つ道具（言語データ）: 連関図/系統図/マトリックス図/PDPC/アローダイアグラム/親和図/マトリックスデータ解析",
+            "colorPlan": "brand=左右見出し、positive=数値データ列、warn=言語データ列、ink-body=各道具名",
+            "priority": "high",
+            "reason": "頻出。14手法をどちらに属するか問う出題が多く、数値/言語の2軸カードで一覧化すると暗記が一気に進む"
+          },
+          {
+            "concept": "正規分布と3σ則（68.3% / 95.4% / 99.7%）",
+            "mdRange": "§2-(3)(c)",
+            "sendToSlug": "pe-comprehensive-management-process-capability-index",
+            "layout": "その他（ベルカーブ＋区間ブラケット）",
+            "elements": "釣鐘曲線・μ中心・±σ=68.3%・±2σ=95.4%・±3σ=99.7%の区間ラベル。本文に既存SVGあり（簡素）→記事/SNS用に色付け強化",
+            "colorPlan": "brand=曲線、positive=±σ帯、warn=±2σ帯、ink-muted=±3σ帯、ink-strong=μ軸",
+            "priority": "high",
+            "reason": "確率計算問題の前提知識として頻出。3つの確率値を帯の色分けで示すと数値が定着する。既存SVGは色なしで転用に弱い"
+          },
+          {
+            "concept": "保全活動の体系（JIS Z 8141 ツリー）",
+            "mdRange": "§6-(3)",
+            "sendToSlug": "pe-comprehensive-management-preventive-maintenance",
+            "layout": "その他（ツリー／組織図）",
+            "elements": "保全活動→維持活動（予防保全[定期保全/予知保全]・事後保全）／改善活動（改良保全・保全予防）。6種の上下関係を樹形図化",
+            "colorPlan": "brand=ルート、positive=予防保全系、warn=事後保全、ink-body=改善活動系",
+            "priority": "high",
+            "reason": "保全種別の包含関係（予防保全配下に定期/予知等）が言葉では捉えにくく頻出。ツリーで体系を一望させる効果が大きい。既存SVGは色なし"
+          },
+          {
+            "concept": "バスタブカーブ（初期故障期/偶発故障期/摩耗故障期）",
+            "mdRange": "§6 冒頭",
+            "sendToSlug": "pe-comprehensive-management-bathtub-curve",
+            "layout": "その他（時系列カーブ＋3区間）",
+            "elements": "横軸=時間、縦軸=故障率のバスタブ曲線。初期故障期（高→減）／偶発故障期（一定低）／摩耗故障期（再上昇）の3区間分割と各区間の保全対応",
+            "colorPlan": "brand=曲線、warn=初期故障期・摩耗故障期帯、positive=偶発故障期帯",
+            "priority": "high",
+            "reason": "信頼性工学の代表図で頻出。3区間の色分けで故障率の推移と各期の対策が一目で伝わる。既存SVGは色なしで素朴"
+          },
+          {
+            "concept": "損益分岐点（売上高・総費用・固定費・利益/損失領域）",
+            "mdRange": "§4-(4)",
+            "sendToSlug": "pe-comprehensive-management-break-even-point",
+            "layout": "その他（グラフ＋交点）",
+            "elements": "横軸=売上数量、縦軸=収益費用。売上高線・総費用線（固定費＋変動費）・固定費線・損益分岐点交点・利益領域・損失領域",
+            "colorPlan": "brand=売上高線、warn=総費用線/損失領域、positive=利益領域、ink-muted=固定費線",
+            "priority": "high",
+            "reason": "管理会計の最頻出図。利益/損失領域の塗り分けと分岐点で経済性管理の核心が伝わる。既存SVGは色なしで転用弱い"
+          },
+          {
+            "concept": "財務3表の関係（B/S・P/L・C/F の役割）",
+            "mdRange": "§5-(1)〜(4)",
+            "sendToSlug": "pe-comprehensive-management-balance-sheet",
+            "layout": "カード縦並び（3カード）",
+            "elements": "B/S=一定時点の財政状態（資産=負債＋資本）／P/L=一定期間の経営成績（収益−費用=利益）／C/F=一定期間の資金の流れ。各表のタイミング軸（時点 vs 期間）と表す内容を対比",
+            "colorPlan": "brand=各表名、positive=資産/利益、warn=負債/費用、ink-muted=タイミング注記",
+            "priority": "medium",
+            "reason": "3表の違い（時点 vs 期間、何を表すか）が頻出。3カードで役割を並べると財務会計の全体像が掴める"
+          },
+          {
+            "concept": "貸借対照表（B/S）の構造（借方=貸方）",
+            "mdRange": "§5-(2)",
+            "sendToSlug": "pe-comprehensive-management-balance-sheet",
+            "layout": "2カラム比較（左右バランス図）",
+            "elements": "左=借方（資産の部）／右=貸方（負債の部＋純資産の部）。左右が一致する箱図で資産=負債＋資本を視覚化",
+            "colorPlan": "brand=見出し、positive=資産、warn=負債、ink-body=純資産",
+            "priority": "medium",
+            "reason": "B/Sの左右一致の構造は図でこそ理解が跳ねる定番。左右バランス箱で会計初学の受験者に効く"
+          },
+          {
+            "concept": "AHP（階層化意思決定法）の階層構造",
+            "mdRange": "§7-(3)",
+            "sendToSlug": "pe-comprehensive-management-analytic-hierarchy-process",
+            "layout": "その他（階層ツリー）",
+            "elements": "総合評価→評価要因（要因1/要因2、重要度W）→下位要因→代替案（A案/B案/C案）。重要度係数Wと評価値で総合評価値を算出する3層構造",
+            "colorPlan": "brand=総合評価（頂点）、positive=代替案、ink-body=評価要因層、ink-muted=重要度係数ラベル",
+            "priority": "medium",
+            "reason": "AHPは階層と重要度の掛け合わせが本質で、ツリーがあると総合評価値の式の意味が一気に分かる。既存SVGは色なしで密度過多"
+          },
+          {
+            "concept": "VE（バリューエンジニアリング）の価値式と基本ステップ",
+            "mdRange": "§7-(4)(e)",
+            "sendToSlug": "pe-comprehensive-management-value-engineering",
+            "layout": "縦フロー（式＋3ステップ）",
+            "elements": "価値=機能÷コスト（機能↑ or コスト↓で価値↑）。基本ステップ: 機能定義→機能評価→代替案作成。機能の分類=使用機能/魅力機能",
+            "colorPlan": "brand=価値式、positive=機能（分子）、warn=コスト（分母）、ink-body=3ステップ",
+            "priority": "medium",
+            "reason": "良作例の4E対策と同系。価値式と3ステップを1枚にするとVEの本質と手順が同時に押さえられる"
+          },
+          {
+            "concept": "デルファイ法のサイクル（収束アンケートの反復）",
+            "mdRange": "§7-(4)(a)",
+            "sendToSlug": "pe-comprehensive-management-delphi-method",
+            "layout": "縦フロー（ループ）",
+            "elements": "予測テーマ特定→専門家へ個別アンケート→集計→結果フィードバック→再アンケート（②〜④を反復し回答が収束）。匿名性が特徴",
+            "colorPlan": "brand=テーマ特定、positive=フィードバック矢印（ループ）、ink-body=各ステップ、warn=収束の到達点",
+            "priority": "medium",
+            "reason": "反復で収束するプロセスがループフローに向く。PDCA同様のサイクル図で手順が定着。既存SVGは縦長で色なし"
+          },
+          {
+            "concept": "JIT/プル型/プッシュ型 生産方式の比較",
+            "mdRange": "§3-(2)",
+            "sendToSlug": "pe-comprehensive-management-jit-production",
+            "layout": "2カラム比較",
+            "elements": "プル型=後工程引取り・かんばん・在庫最小（JIT）／プッシュ型=前工程からの計画押出し・MRP連動。情報と物の流れの向きを矢印で対比",
+            "colorPlan": "brand=見出し、positive=プル型、warn=プッシュ型、ink-muted=情報/物の流れ矢印",
+            "priority": "medium",
+            "reason": "プル/プッシュの流れの向きの違いが頻出かつ混同しやすい。矢印の向きで対比すると本質が伝わる"
+          },
+          {
+            "concept": "改善活動の原則（ECRS / 5S / 目で見る管理）",
+            "mdRange": "§3-(10)",
+            "sendToSlug": "pe-comprehensive-management-ecrs-principle",
+            "layout": "カード縦並び（または横カード）",
+            "elements": "ECRS=排除Eliminate→結合Combine→交換Rearrange→簡素化Simplify（改善の優先順）／5S=整理整頓清掃清潔躾／目で見る管理=可視化。3手法を改善の道具として並列",
+            "colorPlan": "brand=各手法名、positive=ECRSの優先順（E最優先）、ink-body=5S/可視化",
+            "priority": "low",
+            "reason": "ECRSは優先順位（E→C→R→S）がラダー図に向く。改善3点セットを1枚化すると工程管理の改善領域を俯瞰できる"
+          }
+        ]
+      },
+      {
+        "managementCode": "human",
+        "managementName": "人的資源管理",
+        "candidates": [
+          {
+            "concept": "マズローの欲求5段階説",
+            "mdRange": "§1-(5)(b)",
+            "sendToSlug": "pe-comprehensive-management-maslow-hierarchy-of-needs",
+            "layout": "ピラミッド/ラダー",
+            "elements": "5段ピラミッド（下→上）：生理的欲求／安全・安定／社会的（連帯）／尊厳（自我）／自己実現。下位充足→次へ上向き矢印",
+            "colorPlan": "brand濃淡で5段グラデーション、最上段（自己実現）を最濃brandで強調",
+            "priority": "high",
+            "reason": "頻出かつ階層構造が一目で伝わる定番図。既存ラフSVGの本番化候補（残課題に明記）"
+          },
+          {
+            "concept": "PM理論（リーダーシップ4類型）",
+            "mdRange": "§1-(6)",
+            "sendToSlug": "pe-comprehensive-management-pm-theory",
+            "layout": "マトリクス表（2×2）",
+            "elements": "縦軸P機能(目標達成)×横軸M機能(集団維持)。4象限：PM型／Pm型／pM型／pm型と各特徴1行",
+            "colorPlan": "PM型をpositive、pm型をdanger、Pm/pMをwarnで強弱表現",
+            "priority": "high",
+            "reason": "2軸×4象限の典型マトリクス、図解で類型差が即理解。既存ラフSVGの本番化候補"
+          },
+          {
+            "concept": "5つのインセンティブと3行動パターン",
+            "mdRange": "§1-(2)",
+            "sendToSlug": "pe-comprehensive-management-incentive",
+            "layout": "カード縦並び",
+            "elements": "5インセンティブ（物質的／評価的／人的／理念的／自己実現）カード＋3行動パターン（経済的／情緒的／管理的）の対応",
+            "colorPlan": "5カードはbrand基調、行動パターン側をink-bodyの帯で区別",
+            "priority": "high",
+            "reason": "5分類＋3パターンの組合せ構造。羅列を1枚で整理でき頻出"
+          },
+          {
+            "concept": "組織コミットメント3要素",
+            "mdRange": "§1-(3)",
+            "sendToSlug": "pe-comprehensive-management-organizational-commitment",
+            "layout": "カード縦並び（3枚）",
+            "elements": "情緒的（一体感）／功利的（損得・代償）／規範的（恩・忠誠心）の3カード＋『功利を抑え情緒・規範を高めると定着』の方向矢印",
+            "colorPlan": "情緒的=positive、規範的=brand、功利的=warn",
+            "priority": "high",
+            "reason": "3要素の性質差＋望ましい方向性が図で明快、択一頻出"
+          },
+          {
+            "concept": "組織構造7形態の比較",
+            "mdRange": "§1-(4)",
+            "sendToSlug": "pe-comprehensive-management-functional-organization",
+            "layout": "カード縦並び（特徴比較）",
+            "elements": "職能別／事業部制／マトリクス／ネットワーク／ピラミッド／ティール／達成型の7形態と各メリット・リスク一言",
+            "colorPlan": "全カードbrand外枠、メリット=positive・リスク=dangerの極小タグ",
+            "priority": "medium",
+            "reason": "7形態の使い分けを一覧化、択一の混同防止に有効"
+          },
+          {
+            "concept": "マグレガーのX理論とY理論",
+            "mdRange": "§1-(5)(a)",
+            "sendToSlug": "pe-comprehensive-management-mcgregor-xy-theory",
+            "layout": "2カラム比較",
+            "elements": "X理論（仕事嫌い・強制命令・責任回避・安全志向）vs Y理論（自律・目標で率先・自ら責任）",
+            "colorPlan": "X=warn寄り、Y=positive寄りで対比",
+            "priority": "high",
+            "reason": "対照的2類型の典型比較、図解効果が高く頻出"
+          },
+          {
+            "concept": "ハーズバーグ二要因理論",
+            "mdRange": "§1-(5)(c)",
+            "sendToSlug": "pe-comprehensive-management-herzberg-two-factor-theory",
+            "layout": "2カラム比較",
+            "elements": "衛生要因（給与・処遇・作業条件・方針＝不満予防）vs 動機付け要因（達成感・承認・充実感・責任・成長＝やる気喚起）",
+            "colorPlan": "衛生要因=ink-muted/warn、動機付け要因=positive",
+            "priority": "high",
+            "reason": "2要因の役割の違い（不満予防≠動機付け）を図で明示、頻出"
+          },
+          {
+            "concept": "労働三権（憲法28条）",
+            "mdRange": "§2 冒頭",
+            "sendToSlug": "pe-comprehensive-management-labor-union-act",
+            "layout": "カード縦並び（3枚）",
+            "elements": "団結権／団体交渉権／団体行動権（争議権）の3権＋憲法27条(労働権)・28条の根拠",
+            "colorPlan": "3権をbrand統一、憲法根拠をink-mutedの上部帯",
+            "priority": "medium",
+            "reason": "労働法体系の起点。3権を1枚で整理でき択一基礎"
+          },
+          {
+            "concept": "社員格付制度3類型の比較",
+            "mdRange": "§3-(2)(d)",
+            "sendToSlug": "pe-comprehensive-management-job-grade-system",
+            "layout": "マトリクス表",
+            "elements": "職能資格制度（潜在能力・降格少・人件費高）／職務等級制度（顕在能力・職務記述書・柔軟性低）／役割等級制度（両者折衷・役割で報酬）の評価軸比較",
+            "colorPlan": "3制度を列で色分け（brand/positive/warn）、評価軸を行見出し",
+            "priority": "high",
+            "reason": "混同しやすい3制度の評価対象・特性差を表で識別、頻出"
+          },
+          {
+            "concept": "ジョブ型 vs メンバーシップ型雇用",
+            "mdRange": "§3-(2)(c)",
+            "sendToSlug": "pe-comprehensive-management-personnel-management",
+            "layout": "2カラム比較",
+            "elements": "ジョブ型(職務主義・仕事に人・顕在能力・報酬高・変化対応容易)vs メンバーシップ型(属人主義・人に職務・OJT中心)",
+            "colorPlan": "ジョブ型=brand、メンバーシップ型=positiveで左右対比",
+            "priority": "medium",
+            "reason": "近年頻出の対比論点、軸ごとの違いが図で即理解"
+          },
+          {
+            "concept": "人事考課 3指標と3原則",
+            "mdRange": "§4-(1)(a)",
+            "sendToSlug": "pe-comprehensive-management-appraisal-three-principles",
+            "layout": "カード縦並び",
+            "elements": "3指標：情意考課(態度・意欲/インプット・短期)／成績考課(達成度/アウトプット・短期)／能力考課(難度/インプット・長期)＋3原則(公平・客観性・透明性)",
+            "colorPlan": "インプット系=brand、アウトプット系=positive、3原則を下部ink-muted帯",
+            "priority": "high",
+            "reason": "指標のインプット/アウトプット・短期/長期の区分が頻出、図で整理"
+          },
+          {
+            "concept": "評価バイアス6種",
+            "mdRange": "§4-(1)(d)",
+            "sendToSlug": "pe-comprehensive-management-halo-effect-errors",
+            "layout": "カード縦並び（6枚）",
+            "elements": "ハロー効果／中心化傾向／寛大化(厳格化)傾向／対比誤差／論理的誤差／遠近効果の6誤差と各1行定義",
+            "colorPlan": "全カードwarn外枠（誤り注意）、見出しink-strong",
+            "priority": "high",
+            "reason": "6誤差の取り違えが択一頻出、定義併記カードで識別性向上"
+          },
+          {
+            "concept": "職務設計の5つの中核的職務特性",
+            "mdRange": "§3-(2)(b)",
+            "sendToSlug": "pe-comprehensive-management-job-design",
+            "layout": "カード縦並び（5枚）",
+            "elements": "技能の多様性／仕事の一貫性／仕事の有意味性／自律性／フィードバックの5特性と効果一言",
+            "colorPlan": "5カードbrand基調、動機付け効果タグをpositive",
+            "priority": "medium",
+            "reason": "5特性の網羅性が問われる、カード化で抜け漏れ確認に有効"
+          },
+          {
+            "concept": "パワーハラスメント6類型",
+            "mdRange": "§2-(12)",
+            "sendToSlug": "pe-comprehensive-management-power-harassment",
+            "layout": "カード縦並び（6枚）",
+            "elements": "身体的攻撃／精神的攻撃／人間関係からの切り離し／過大な要求／過小な要求／個の侵害の6類型＋成立3要素",
+            "colorPlan": "6類型カードdanger外枠、成立3要素を上部ink-strong帯",
+            "priority": "medium",
+            "reason": "6類型＋3要素の網羅暗記が頻出、図で構造化"
+          },
+          {
+            "concept": "QCサークル3つの基本理念",
+            "mdRange": "§4-(3)",
+            "sendToSlug": "pe-comprehensive-management-qc-circle",
+            "layout": "カード縦並び（3枚）",
+            "elements": "能力発揮(自分のため)／人間性尊重・明るい職場(仲間のため)／企業体質改善・発展(会社のため)＋上位概念TQM",
+            "colorPlan": "3理念をpositive、TQMを上位brandバナー",
+            "priority": "medium",
+            "reason": "残課題に追記候補と明記、3理念→TQMの包含関係を図で整理"
+          }
+        ]
+      },
+      {
+        "managementCode": "info",
+        "managementName": "情報管理",
+        "candidates": [
+          {
+            "concept": "ビッグデータ分析プロセス（収集→格納→クレンジング→マイニング→活用）",
+            "mdRange": "§1-(2)",
+            "sendToSlug": "pe-comprehensive-management-data-mining",
+            "layout": "縦フロー（横5ステップ）",
+            "elements": "データ収集／データウェアハウス格納／データクレンジング／データマイニング／活用（意思決定）の5段階＋分岐注記「機械学習(仮説なし)／統計分析(仮説あり)」",
+            "colorPlan": "5段階を段階色で進行（brand→positive→warn→danger系のグラデ）、最終「活用」をbrand強調",
+            "priority": "high",
+            "reason": "工程順序＋仮説有無分岐が一目で伝わり過去問頻出"
+          },
+          {
+            "concept": "SWOT分析マトリクス（内部/外部×プラス/マイナス）",
+            "mdRange": "§1-(3) SWOT分析",
+            "sendToSlug": "pe-comprehensive-management-swot-analysis",
+            "layout": "2×2マトリクス",
+            "elements": "縦軸=内部環境/外部環境、横軸=プラス要因/マイナス要因、4象限=S強み/W弱み/O機会/T脅威",
+            "colorPlan": "S=positive、W=danger、O=brand、T=warn",
+            "priority": "high",
+            "reason": "2軸4象限の典型で図解効果が跳ねる定番出題"
+          },
+          {
+            "concept": "PPM分析マトリクス（市場成長率×相対的市場占有率）",
+            "mdRange": "§1-(3) PPM分析",
+            "sendToSlug": "pe-comprehensive-management-ppm-analysis",
+            "layout": "2×2マトリクス",
+            "elements": "縦軸=市場成長率(高/低)、横軸=相対的市場占有率(高/低)、4象限=花形/問題児/金のなる木/負け犬＋各打ち手(投資継続/選択と集中/収益源/撤退検討)",
+            "colorPlan": "花形=warn(★)、問題児=danger、金のなる木=positive(¥)、負け犬=ink-muted",
+            "priority": "high",
+            "reason": "4象限の名称と打ち手の対応が頻出、図一枚で記憶定着"
+          },
+          {
+            "concept": "プッシュ型／プル型コミュニケーション対比",
+            "mdRange": "§2-(1) コミュニケーション技法",
+            "sendToSlug": "pe-comprehensive-management-personal-communication",
+            "layout": "2カラム比較",
+            "elements": "プッシュ型=発信者起点(電子メール・手紙、読むかは受信者次第)／プル型=受信者起点(ウェブポータル・イントラ・eラーニング、必要時にアクセス)、矢印の向きで対比",
+            "colorPlan": "プッシュ=brand、プル=positive",
+            "priority": "high",
+            "reason": "方向性の違いを矢印で示すと誤答しやすい区別が明確化"
+          },
+          {
+            "concept": "知的財産権関連法規の体系（知的創作物／営業上の標識）",
+            "mdRange": "§3-(1) 知的財産権関連法規の体系",
+            "sendToSlug": "pe-comprehensive-management-industrial-property-rights",
+            "layout": "縦フロー（ツリー分類）",
+            "elements": "知的財産権→知的創作物(発明=特許法/考案=実用新案法/意匠=意匠法/商品の形態=不正競争防止法/半導体=回路配置法/新品種=種苗法/著作物=著作権法)／営業上の標識(商標=商標法/商号=商法・会社法)、＊=産業財産権法",
+            "colorPlan": "知的創作物=positive系、営業上の標識=danger系、産業財産権法ノードをbrandで強調",
+            "priority": "high",
+            "reason": "法律の所属分類が一覧化され頻出の体系問題に直結"
+          },
+          {
+            "concept": "出願から特許取得までの流れ（拒絶経路と取得経路の分岐）",
+            "mdRange": "§3-(2) 出願から特許取得までの流れ",
+            "sendToSlug": "pe-comprehensive-management-patent-rights",
+            "layout": "縦フロー（2分岐）",
+            "elements": "出願→方式審査→出願公開→審査請求→実体審査→(拒絶理由通知→意見書/補正→拒絶査定=拒絶経路)／(特許査定→設定登録→特許権=取得経路)、先願主義注記",
+            "colorPlan": "取得経路=positive、拒絶経路=danger、主幹=brand",
+            "priority": "high",
+            "reason": "工程順＋2経路の分岐構造が手続問題の核で図解効果大"
+          },
+          {
+            "concept": "著作者の権利の構造（人格権／財産権の二分）",
+            "mdRange": "§3-(6) 著作者の権利",
+            "sendToSlug": "pe-comprehensive-management-copyright",
+            "layout": "縦フロー（ツリー分類）",
+            "elements": "著作者の権利→著作者人格権(公表権/氏名表示権/同一性保持権)／著作権=財産権(複製権/上演権/公衆送信権/翻案権 等)、隣接権との区別注記",
+            "colorPlan": "人格権=warn系、財産権=brand系",
+            "priority": "high",
+            "reason": "人格権と財産権の分岐＋下位権利が頻出で一覧図が有効"
+          },
+          {
+            "concept": "4P分析と4C分析の対応（売り手視点↔買い手視点）",
+            "mdRange": "§1-(3) 4P分析/4C分析",
+            "sendToSlug": "pe-comprehensive-management-four-p-analysis",
+            "layout": "2カラム比較",
+            "elements": "4P(製品Product/価格Price/流通Place/プロモーションPromotion)↔4C(顧客価値Customer Value/コストCost/利便性Convenience/コミュニケーションCommunication)を行対応で並置",
+            "colorPlan": "4P=brand、4C=positive、対応行を矢印/罫線で連結",
+            "priority": "high",
+            "reason": "売り手↔買い手の視点反転が対応表で一目、混同しやすい"
+          },
+          {
+            "concept": "知的財産権の存続期間ラダー（法律別年数比較）",
+            "mdRange": "§3-(1) 表3.2",
+            "sendToSlug": "pe-comprehensive-management-industrial-property-rights",
+            "layout": "横バー比較（ランキング）",
+            "elements": "特許20年/実用新案10年/意匠25年/半導体回路配置10年/種苗25(30)年/商標10年(更新可)/著作権=死後70年、起算点(出願日/登録日/創作時)を併記",
+            "colorPlan": "年数長=brand濃、短=brand淡、著作権(更新/死後)をwarnで別扱い",
+            "priority": "high",
+            "reason": "数値比較が頻出かつ混同多発、バー長で直感把握"
+          },
+          {
+            "concept": "ナレッジマネジメント：形式知と暗黙知の対比",
+            "mdRange": "§1-(4) ナレッジマネジメント",
+            "sendToSlug": "pe-comprehensive-management-knowledge-sharing",
+            "layout": "2カラム比較",
+            "elements": "形式知(文章・図表で表現可)↔暗黙知(言語化困難、経験・ひらめき・人脈)、活用基盤=データウェアハウス/BIツール/集合知の3要素",
+            "colorPlan": "形式知=brand、暗黙知=warn、活用基盤3要素=positive",
+            "priority": "medium",
+            "reason": "二項対比＋活用基盤の関係が図で整理しやすい"
+          },
+          {
+            "concept": "記述統計の代表値（平均値/中央値/最頻値/四分位数）の特性比較",
+            "mdRange": "§1-(1)(a) 記述統計",
+            "sendToSlug": "pe-comprehensive-management-descriptive-statistics",
+            "layout": "カード縦並び",
+            "elements": "平均値(全値反映/外れ値に弱い)・中央値(外れ値に強い/比較に不向き)・最頻値(外れ値に強い/少数では不可)・四分位数(25/50/75%位置)の特性カード",
+            "colorPlan": "各カードをink基調、メリット=positive、デメリット=warnのバッジ",
+            "priority": "medium",
+            "reason": "代表値の長短対比が引っかけ頻出で一覧化に向く"
+          },
+          {
+            "concept": "情報公開法の不開示情報6類型",
+            "mdRange": "§2-(2) アカウンタビリティ",
+            "sendToSlug": "pe-comprehensive-management-disclosure-standards",
+            "layout": "カード縦並び（6項目）",
+            "elements": "個人情報/法人情報/国家安全情報/公共安全情報/審議検討等情報/事務事業情報の6類型カード、各1行定義",
+            "colorPlan": "6カード統一ink基調、見出しラベルをbrandで色分け",
+            "priority": "medium",
+            "reason": "6類型の列挙暗記を視覚グルーピングで支援"
+          },
+          {
+            "concept": "危機広報の2目的（安全のための広報／安心のための広報）",
+            "mdRange": "§2-(5) 危機広報",
+            "sendToSlug": "pe-comprehensive-management-crisis-communication",
+            "layout": "2カラム比較",
+            "elements": "安全のための広報(迅速性重視/初動期)↔安心のための広報(正確さ+迅速さ+安心感の工夫/収束期)、時間軸で初動→収束の移行を矢印で",
+            "colorPlan": "安全=danger(初動)、安心=positive(収束)",
+            "priority": "medium",
+            "reason": "2目的の役割と時間移行が図で明確化、出題増加領域"
+          },
+          {
+            "concept": "デジタルコミュニケーションツール5分類",
+            "mdRange": "§2-(3) デジタルコミュニケーションツール",
+            "sendToSlug": "pe-comprehensive-management-groupware",
+            "layout": "カード縦並び（5項目）",
+            "elements": "テレビ会議/ファイル共有/ビジネスチャット/社内SNS/グループウェアの5分類カード、各1行の機能定義",
+            "colorPlan": "5カード統一ink基調、アイコン的ラベルをbrandで分類色",
+            "priority": "low",
+            "reason": "用語整理が中心だが分類カード化で俯瞰性が上がる"
+          },
+          {
+            "concept": "統計分析6手法の俯瞰（記述→推定検定→相関→回帰→ロジスティック→クラスター）",
+            "mdRange": "§1-(1) 統計分析（親）",
+            "sendToSlug": "pe-comprehensive-management-descriptive-statistics",
+            "layout": "縦フロー（手法マップ）",
+            "elements": "記述統計/推定・検定/相関分析/回帰分析/ロジスティック回帰/クラスター分析の6手法を目的軸(要約→推測→関係→予測→分類)で配置",
+            "colorPlan": "目的グループ別に色帯(要約=brand/推測=positive/関係・予測=warn/分類=danger)",
+            "priority": "low",
+            "reason": "手法の全体地図として導入に有効だが各論ページへの俯瞰補助"
+          }
+        ]
+      },
+      {
+        "managementCode": "safety",
+        "managementName": "安全管理",
+        "candidates": [
+          {
+            "concept": "安全文化を支える4つの文化（J.リーズン）",
+            "mdRange": "§1-(1)",
+            "sendToSlug": "pe-comprehensive-management-safety-culture",
+            "layout": "2×2マトリクス（カード4枚）",
+            "elements": "中央=安全文化／4象限カード=報告する文化・正義の文化・柔軟な文化・学習する文化、各カードに1行特徴（報告→収集と処分の分離／正義→故意と過失の区別／柔軟→分散管理／学習→レッスンラーン）",
+            "colorPlan": "brand=安全文化中央、4カードはink-bodyで均等、各カード見出しbrand",
+            "priority": "high",
+            "reason": "頻出概念で4分類を2×2カードにすると暗記が一気に進む"
+          },
+          {
+            "concept": "リスクアセスメントの3プロセス（特定→分析→評価）",
+            "mdRange": "§2-(2)",
+            "sendToSlug": "pe-comprehensive-management-risk-assessment",
+            "layout": "縦フロー（3ステップ）",
+            "elements": "ステップ1=リスク特定（発見・認識・記述）→ステップ2=リスク分析（リスクレベル決定）→ステップ3=リスク評価（リスク基準と比較し受容可否判断）、全体を囲む枠=リスクアセスメント",
+            "colorPlan": "brand=各ステップ番号、positive=評価で受容可、ink-bodyで本文",
+            "priority": "high",
+            "reason": "用語定義の関係をフロー化すると3工程の順序と包含関係が一目で分かる"
+          },
+          {
+            "concept": "リスク対応の4方針（低減・移転・回避・保有）",
+            "mdRange": "§2-(3)",
+            "sendToSlug": "pe-comprehensive-management-risk-treatment",
+            "layout": "2×2カード",
+            "elements": "4カード=リスク低減（発生確率/損害額を下げる）・リスク移転（委託/保険）・リスク回避（手法変更/事業断念）・リスク保有（受容し監視継続）、補足=ALARP原則・絶対安全は不可",
+            "colorPlan": "低減=positive、移転=brand、回避=warn、保有=ink-muted",
+            "priority": "high",
+            "reason": "4E対策と同型の2×2カードで定番、施策選択の判断軸として頻出"
+          },
+          {
+            "concept": "リスクマトリクス（発生確率×影響度）",
+            "mdRange": "§2-(3)",
+            "sendToSlug": "pe-comprehensive-management-risk-treatment",
+            "layout": "2×2マトリクス（縦軸=影響度・横軸=発生確率）",
+            "elements": "縦軸=影響度（大/小）横軸=発生確率（高/低）、右上=最優先で低減、左下=保有/受容、対角矢印=右上→左下へ持っていく対応方針",
+            "colorPlan": "右上=danger、右下/左上=warn、左下=positive、矢印=brand",
+            "priority": "high",
+            "reason": "リスク値=発生確率×影響度の核心。色分けマトリクスは記述式でも図示しやすい王道"
+          },
+          {
+            "concept": "リスク認知の5バイアス",
+            "mdRange": "§2-(4)",
+            "sendToSlug": "pe-comprehensive-management-risk-perception",
+            "layout": "カード縦並び（5枚）",
+            "elements": "正常性バイアス・楽観主義バイアス・カタストロフィー/バイアス・ベテランバイアス・バージンバイアス、各カードに1行定義",
+            "colorPlan": "各カード見出しbrand、定義ink-body、危険方向のバイアスはwarnアクセント",
+            "priority": "medium",
+            "reason": "5分類の暗記カードとして有効、社会的受容の論点で頻出"
+          },
+          {
+            "concept": "労働安全衛生法の安全衛生管理体制（選任要件）",
+            "mdRange": "§3-(1)(b)",
+            "sendToSlug": "pe-comprehensive-management-occupational-safety-act",
+            "layout": "マトリクス表（役職×選任要件）",
+            "elements": "総括安全衛生管理者（建設100人/製造300人）・安全管理者（50人〜）・衛生管理者（50人〜）・産業医（50人〜）・安全/衛生/安全衛生委員会、各行に選任規模と根拠条文",
+            "colorPlan": "管理者=brand、委員会=ink-body、人数閾値はwarnで強調",
+            "priority": "high",
+            "reason": "選任人数の閾値が頻出ひっかけ。役職と規模を表にすると暗記効率が跳ねる"
+          },
+          {
+            "concept": "OSHMS（労働安全衛生マネジメントシステム）のPDCA",
+            "mdRange": "§3-(2)(d)",
+            "sendToSlug": "pe-comprehensive-management-oshms",
+            "layout": "円フロー（PDCA）",
+            "elements": "安全衛生方針→計画(P)→実施(D)→評価/点検(C)→改善(A)→システム監査、中央=継続的改善、トップによる見直し",
+            "colorPlan": "4象限を順にbrand濃淡、中央=positive（継続改善）",
+            "priority": "medium",
+            "reason": "PDCA円フローの定番、ISO45001/OSHMSの枠組み理解に直結"
+          },
+          {
+            "concept": "ハインリッヒの法則（1:29:300）",
+            "mdRange": "§4-(1)",
+            "sendToSlug": "pe-comprehensive-management-heinrich-law",
+            "layout": "ピラミッド",
+            "elements": "頂点=1件の重大災害／中段=29件の軽傷／底辺=300件のヒヤリハット（無傷災害）、底辺を減らす矢印=ヒヤリハット活動",
+            "colorPlan": "頂点=danger、中段=warn、底辺=ink-body、活動矢印=positive",
+            "priority": "high",
+            "reason": "ピラミッドの代表格。比率と未然防止の関係が一目で伝わる超頻出概念"
+          },
+          {
+            "concept": "システムの高信頼化6方策の整理",
+            "mdRange": "§4-(2)",
+            "sendToSlug": "pe-comprehensive-management-fail-safe",
+            "layout": "2カラム比較（故障回避系 vs 故障許容系）",
+            "elements": "左=フォールトアボイダンス（故障させない）／右=フォルトトレランス・フェールソフト・フェールセーフ・フールプルーフ・インターロック（故障/誤操作前提で安全側へ）、各語に1行",
+            "colorPlan": "左カラム=brand、右カラム=positive（安全側制御）、見出しink-strong",
+            "priority": "high",
+            "reason": "似た用語を回避系/許容系に二分すると混同が解消、頻出の引っかけ対策"
+          },
+          {
+            "concept": "事故の4M要因分析",
+            "mdRange": "§4-(3)",
+            "sendToSlug": "pe-comprehensive-management-four-m-analysis",
+            "layout": "2×2カード",
+            "elements": "Man(人)・Machine(設備)・Media(作業環境)・Management(管理)、各カードに要因例1行",
+            "colorPlan": "Man=brand、Machine=ink-body、Media=warn、Management=positive",
+            "priority": "high",
+            "reason": "4E対策と対の定番2×2、原因分析の軸として頻出"
+          },
+          {
+            "concept": "事故の4E対策",
+            "mdRange": "§4-(4)",
+            "sendToSlug": "pe-comprehensive-management-four-e-countermeasures",
+            "layout": "2×2カード",
+            "elements": "Engineering(工学的対策)・Education(教育)・Enforcement(強化/規制)・Example(模範)、各カードに1行",
+            "colorPlan": "Engineering=brand、Education=positive、Enforcement=warn、Example=ink-body",
+            "priority": "high",
+            "reason": "参考良作として明示された2×2カードの代表例、4Mとペアで頻出"
+          },
+          {
+            "concept": "危機への対応4段階（危機管理サイクル）",
+            "mdRange": "§5-(2)",
+            "sendToSlug": "pe-comprehensive-management-crisis-management-manual",
+            "layout": "円フロー/横フロー（4段階）",
+            "elements": "平常時準備段階→事前作業段階（危機管理計画/体制）→緊急事態対応段階（早期発見/迅速行動）→事後復旧段階（再発防止/信頼回復）",
+            "colorPlan": "準備=positive、事前=brand、緊急=danger、復旧=warn",
+            "priority": "high",
+            "reason": "危機管理の時間軸4段階。各段階の活動を載せると記述式の骨格になる"
+          },
+          {
+            "concept": "防災活動とBCMの比較",
+            "mdRange": "§5-(4)",
+            "sendToSlug": "pe-comprehensive-management-business-continuity-plan",
+            "layout": "2カラム比較",
+            "elements": "左=従来の防災活動（人命/物的被害の軽減が主目的）／右=事業継続マネジメント(BCM)（重要事業の継続/早期復旧・経営戦略レベル）、観点行=目的・対象・主体・時間軸",
+            "colorPlan": "左=ink-body、右=brand、BCM優位点をpositive",
+            "priority": "high",
+            "reason": "防災とBCPの違いは頻出論点、2カラム比較で差が明確になる"
+          },
+          {
+            "concept": "警戒レベル5段階と避難行動",
+            "mdRange": "§5-(9)",
+            "sendToSlug": "pe-comprehensive-management-alert-levels",
+            "layout": "ラダー（5段階）",
+            "elements": "レベル1=心構え→レベル2=避難行動確認→レベル3=高齢者等避難→レベル4=全員避難→レベル5=緊急安全確保、各段に取るべき行動",
+            "colorPlan": "レベル1-2=positive/brand、3=warn、4=danger、5=danger濃",
+            "priority": "medium",
+            "reason": "5段階の昇順ラダーは色で危険度が伝わり、避難行動の対応暗記に有効"
+          },
+          {
+            "concept": "システム安全工学手法の方向性マップ（FMEA/FTA/ETA）",
+            "mdRange": "§6-(1)",
+            "sendToSlug": "pe-comprehensive-management-fmea",
+            "layout": "2カラム比較（帰納/ボトムアップ vs 演繹/トップダウン）",
+            "elements": "FMEA=故障モードから影響へ（帰納/ボトムアップ）／FTA=頂上事象から原因へ（演繹/トップダウン）／ETA=初期事象から結果へ（前向き展開）、各手法に解析方向矢印",
+            "colorPlan": "帰納系=positive、演繹系=brand、ETA=warn、矢印で方向明示",
+            "priority": "high",
+            "reason": "FMEA/FTA/ETAの解析方向の混同が頻出ひっかけ、矢印付き比較で一発整理"
+          },
+          {
+            "concept": "直列システムと並列システムの信頼度",
+            "mdRange": "§6-(3)",
+            "sendToSlug": "pe-comprehensive-management-system-reliability",
+            "layout": "2カラム比較",
+            "elements": "左=直列（全要素必須・故障率合算で信頼性低下・例0.729）／右=並列（冗長化・全故障時のみ停止・例0.999）、ブロック図イメージ＋信頼性計算結果",
+            "colorPlan": "直列=warn（脆い）、並列=positive（冗長で堅牢）、ブロックink-body",
+            "priority": "high",
+            "reason": "冗長化の効果が数値で対比でき、信頼度計算問題の理解に直結する頻出論点"
+          },
+          {
+            "concept": "深層防護の5レベル（IAEA）",
+            "mdRange": "§6-(3)(d)",
+            "sendToSlug": "pe-comprehensive-management-system-reliability",
+            "layout": "ラダー/同心円（5層）",
+            "elements": "レベル1=異常運転/不具合の防止→2=異常運転の制御と検知→3=設計基準内に事故制御→4=過酷状態の制御/影響緩和→5=放射線影響の緩和、多重防護のイメージ",
+            "colorPlan": "内側レベル1=positive、外側へwarn→danger濃淡で深層化を表現",
+            "priority": "medium",
+            "reason": "多重防護の段階を層構造で示すと深層防護の本質（何重もの備え）が直感的に伝わる"
+          }
+        ]
+      },
+      {
+        "managementCode": "social",
+        "managementName": "社会環境管理",
+        "candidates": [
+          {
+            "concept": "循環型社会の処理優先順位5段階",
+            "mdRange": "§2-(1)",
+            "sendToSlug": "pe-comprehensive-management-circular-society-basic-act",
+            "layout": "ピラミッド/ラダー（上＝最優先）",
+            "elements": "発生抑制(リデュース)→再使用(リユース)→再生利用(リサイクル)→熱回収(サーマル)→適正処分。各段にRの英名と1行説明。最上段=最優先・最下段=最終手段の矢印",
+            "colorPlan": "上段ほどpositive(緑濃)、下段に向かいink-muted/warnへグラデーション。最終処分のみdanger寄り",
+            "priority": "high",
+            "reason": "循環基本法第7条の順位は総監頻出かつ順位を一目で固定できるラダーが最適"
+          },
+          {
+            "concept": "環境政策の実施手法7類型",
+            "mdRange": "§3-(1-d)",
+            "sendToSlug": "pe-comprehensive-management-environmental-basic-plan",
+            "layout": "カード縦並び（7枚）",
+            "elements": "規制的手法/枠組規制的手法/経済的手法/自主的取組手法/情報的手法/手続的手法/事業的手法。各カードに1行定義＋代表例(環境税・SDS・環境アセス等)",
+            "colorPlan": "強制度で色分け＝規制系をbrand濃、経済的をwarn、自主・情報をpositive、手続・事業をink-body",
+            "priority": "high",
+            "reason": "7手法の分類は択一頻出。手法名と代表例の対応をカードで一覧化すると暗記が跳ねる"
+          },
+          {
+            "concept": "環境の経済価値評価5手法（顕示選好/表明選好）",
+            "mdRange": "§3-(3)",
+            "sendToSlug": "pe-comprehensive-management-environmental-accounting",
+            "layout": "2カラム比較（顕示選好型3手法 vs 表明選好型2手法）",
+            "elements": "顕示選好型=代替法/トラベルコスト法/ヘドニック法、表明選好型=仮想評価法(CVM)/コンジョイント分析。各手法に評価の根拠(実消費行動/アンケート)を1語",
+            "colorPlan": "顕示選好型=brand系、表明選好型=positive系で2カラムを色分け、見出し帯で対比",
+            "priority": "high",
+            "reason": "図表5.11が試験出題実績あり。顕示/表明の二分と5手法の所属を一目化"
+          },
+          {
+            "concept": "カーボンニュートラル達成3ステップとCCS/BECCS/DACCS",
+            "mdRange": "§1-(2-e)",
+            "sendToSlug": "pe-comprehensive-management-carbon-neutral",
+            "layout": "縦フロー（3段）＋分岐カード",
+            "elements": "①省エネ強化→②非化石エネ導入拡大→③残存CO₂の貯留・活用。最終段から分岐でCCS(回収貯留)/BECCS(バイオ・カーボンネガティブ)/DACCS(大気直接回収)の差異を3カード",
+            "colorPlan": "ステップ本流をbrand、カーボンネガティブのBECCS/DACCSをpositive、CCSをink-body",
+            "priority": "high",
+            "reason": "3技術の違い(CO₂源)は混同されやすく、フロー＋カードで源の差を可視化できる"
+          },
+          {
+            "concept": "LCAの4プロセスと反復構造",
+            "mdRange": "§3-(5)",
+            "sendToSlug": "pe-comprehensive-management-lifecycle-assessment",
+            "layout": "縦フロー（双方向矢印・解釈が横断）",
+            "elements": "目的及び調査範囲の設定⇄インベントリ分析⇄影響評価、3工程すべてと双方向で結ぶ「解釈」、右に直接の用途(製品改善/戦略/政策/マーケ)",
+            "colorPlan": "本流3段をbrandグラデ、横断する解釈をwarnで強調、用途リストをink-muted",
+            "priority": "high",
+            "reason": "図表5.16(ISO14040)準拠。解釈が全工程と双方向な点が要点で、矢印図でしか伝わらない"
+          },
+          {
+            "concept": "5段階の警戒レベルと避難行動",
+            "mdRange": "§2-(9-e)",
+            "sendToSlug": "pe-comprehensive-management-climate-change-adaptation-act",
+            "layout": "ピラミッド/ラダー（レベル5が頂点）",
+            "elements": "L5緊急安全確保/L4避難指示/L3高齢者等避難/L2注意報/L1早期注意情報。各段に発令者(市町村長/気象庁)ととるべき行動1行",
+            "colorPlan": "L5=danger(濃赤)→L4=warn濃→L3=warn→L2=brand→L1=positive の危険度グラデ",
+            "priority": "high",
+            "reason": "図表5.10。発令者と行動の対応＋レベル順の危険度を色つきラダーで一目化"
+          },
+          {
+            "concept": "レッドリスト カテゴリ階層",
+            "mdRange": "§1-(5)",
+            "sendToSlug": "pe-comprehensive-management-species-preservation-act",
+            "layout": "ピラミッド/ラダー（絶滅危険度の降順）",
+            "elements": "絶滅→野生絶滅→絶滅危惧I類(IA/IB)→絶滅危惧II類→準絶滅危惧→情報不足／地域個体群。各段に危険度の1行",
+            "colorPlan": "絶滅=danger濃→危惧II=warn→準絶滅危惧=brand→情報不足=ink-muted の段階グラデ",
+            "priority": "medium",
+            "reason": "図表5.3。カテゴリの順序と入れ子(I類のIA/IB)はラダーで誤答を防げる"
+          },
+          {
+            "concept": "廃棄物の区分（一般廃棄物／産業廃棄物）",
+            "mdRange": "§2-(3)",
+            "sendToSlug": "pe-comprehensive-management-waste-management-act",
+            "layout": "縦フロー（ツリー分岐）",
+            "elements": "廃棄物→一般廃棄物(ごみ/し尿/特別管理一般)[市町村責任]＋産業廃棄物(20種類/特別管理産業)[事業者責任]。処理責任主体を末端に明示",
+            "colorPlan": "一般廃棄物枝=brand系、産業廃棄物枝=positive系、特別管理(両方)をwarnで強調",
+            "priority": "high",
+            "reason": "図表5.5。一般/産廃の区分と処理責任主体(市町村/事業者)の対応が頻出論点"
+          },
+          {
+            "concept": "ISO26000 社会的責任の7原則",
+            "mdRange": "§4-(1)",
+            "sendToSlug": "pe-comprehensive-management-esg-investment",
+            "layout": "カード縦並び（7枚）",
+            "elements": "説明責任/透明性/倫理的な行動/ステークホルダーの利害の尊重/法の支配の尊重/国際行動規範の尊重/人権の尊重。各1行",
+            "colorPlan": "全カードbrand基調、人権・倫理系をpositiveアクセントで差別化",
+            "priority": "medium",
+            "reason": "7原則は数と語の暗記が必要。カード列挙で抜け漏れチェックがしやすい"
+          },
+          {
+            "concept": "S+3E エネルギー政策の基本視点",
+            "mdRange": "§1-(7-a)",
+            "sendToSlug": "pe-comprehensive-management-energy",
+            "layout": "カード縦並び（S＋3Eの4要素）",
+            "elements": "S=安全性(Safety)を前提／3E=安定供給(Energy security)第一・経済効率性(Economic efficiency)・環境適合(Environment)。Sが大前提である構造を上位に配置",
+            "colorPlan": "Sをink-strongで別格化、3Eをbrand/positive/warnで3色、優先順位の序列を色で示す",
+            "priority": "medium",
+            "reason": "第六次エネ基本計画の柱。S(前提)と3Eの関係を1枚で固定すると論述でも使える"
+          },
+          {
+            "concept": "TCFD 提言の4要求項目",
+            "mdRange": "§4-(1)",
+            "sendToSlug": "pe-comprehensive-management-esg-investment",
+            "layout": "2×2カード（マトリクス）",
+            "elements": "ガバナンス(経営陣の関与)/戦略(シナリオ分析)/リスク管理/指標と目標。移行リスクと物理的リスクの2分類を補足帯",
+            "colorPlan": "4象限をbrand基調、戦略(シナリオ分析が特徴)をwarnで強調",
+            "priority": "medium",
+            "reason": "4項目＋シナリオ分析が要点。2×2カードで4E対策図と同じ訴求力を出せる"
+          },
+          {
+            "concept": "持続可能な開発 5つのP",
+            "mdRange": "§1-(1)",
+            "sendToSlug": "pe-comprehensive-management-sdgs",
+            "layout": "カード縦並び（5枚）",
+            "elements": "People(人間)/Prosperity(繁栄)/Planet(地球)/Peace(平和)/Partnership(連携)。各Pに1語の意味＋三側面(経済・社会・環境)の調和を上部帯",
+            "colorPlan": "Planet=positive、People=brand、Prosperity=warn、Peace/Partnershipをink-bodyで分類色",
+            "priority": "medium",
+            "reason": "5つのPは語呂・対応が頻出。カードで頭文字と意味を結びつけられる"
+          },
+          {
+            "concept": "環境保全の基本5原則＋PPP/EPR",
+            "mdRange": "§3-(2)",
+            "sendToSlug": "pe-comprehensive-management-environmental-basic-act",
+            "layout": "カード縦並び（7原則）",
+            "elements": "拡大生産者責任(EPR)/汚染者負担(PPP)/予防的措置/順応的取組/源流対策/協働/補完性。各1行定義、PPP・EPRはOECD提唱を付記",
+            "colorPlan": "経済系(EPR/PPP)=warn、予防・順応=positive、源流・協働・補完=brandの3グループ色",
+            "priority": "medium",
+            "reason": "原則名と定義の対応が択一頻出。7枚カードで似た原則の取り違えを防ぐ"
+          },
+          {
+            "concept": "環境アセスメント手続フロー（配慮書→方法書→準備書→評価書→報告書）",
+            "mdRange": "§3-(4-c)",
+            "sendToSlug": "pe-comprehensive-management-environmental-impact-assessment",
+            "layout": "縦フロー（5書類＋スクリーニング/スコーピング注記）",
+            "elements": "計画段階配慮書→(スクリーニング※第2種)→方法書(スコーピング)→調査予測評価→準備書→評価書→事後調査/報告書。住民・知事の意見聴取ポイントを左側に",
+            "colorPlan": "本流5書類をbrandグラデ、意見聴取(国民/知事)をpositive、スクリーニング/スコーピング注記をwarn",
+            "priority": "high",
+            "reason": "図表5.13は複雑なため、要点(書類順＋意見聴取＋スク・スコの位置)だけ抽出した縦フローが両用に有効"
+          },
+          {
+            "concept": "顕示選好型評価3手法の使い分け（長所・短所・適用範囲）",
+            "mdRange": "§3-(3-a)",
+            "sendToSlug": "pe-comprehensive-management-environmental-accounting",
+            "layout": "マトリクス表（3手法×特徴）",
+            "elements": "代替法/トラベルコスト法/ヘドニック法 × 評価対象・適用範囲(限定)・短所。例:代替法=市場財なしで評価不可、TC法=レクリエーション限定、ヘドニック法=地域限定",
+            "colorPlan": "適用範囲が広い列をpositive、限定的な制約をwarnで網掛け",
+            "priority": "low",
+            "reason": "5手法全体図(別候補)を補完。顕示型3手法の制約の違いを深掘りしたい層向け"
+          }
+        ]
+      }
+    ],
+    "total": 77,
+    "highCount": 47
+  }
+}

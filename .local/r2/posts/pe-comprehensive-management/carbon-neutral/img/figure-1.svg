@@ -1,0 +1,98 @@
+<svg viewBox="0 0 400 620" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="カーボンニュートラル達成の3ステップと残存CO₂処理技術CCS・BECCS・DACCSを縦積みで示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-main  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-en    { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-card  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 11px; fill: #555; }
+      .t-tag-g { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-tag-s { font-size: 11px; font-weight: bold; fill: #555; }
+      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+      /* brand: ステップ本流 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* positive: カーボンネガティブ技術 */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      /* surface: CCS（回収貯留のみ） */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#d7d7d7"/>
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="24" text-anchor="middle">カーボンニュートラル達成の3ステップ</text>
+
+  <!-- STEP 1 省エネルギーの強化 -->
+  <rect class="box-brand" x="40" y="56" width="320" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="87" r="14"/>
+  <text class="t-num" x="68" y="92" text-anchor="middle">1</text>
+  <text class="t-main" x="92" y="81">省エネルギーの強化</text>
+  <text class="t-en" x="92" y="99">Energy Efficiency</text>
+  <text class="t-note" x="354" y="91" text-anchor="end">需要側削減</text>
+
+  <!-- 矢印 1→2 -->
+  <line x1="200" y1="118" x2="200" y2="136" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 2 非化石エネルギー導入拡大 -->
+  <rect class="box-brand" x="40" y="140" width="320" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="171" r="14"/>
+  <text class="t-num" x="68" y="176" text-anchor="middle">2</text>
+  <text class="t-main" x="92" y="165">非化石エネルギー導入拡大</text>
+  <text class="t-en" x="92" y="183">Decarbonization of Supply</text>
+  <text class="t-note" x="354" y="175" text-anchor="end">再エネ等</text>
+
+  <!-- 矢印 2→3 -->
+  <line x1="200" y1="202" x2="200" y2="220" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- STEP 3 残存CO₂の貯留・活用 -->
+  <rect class="box-brand" x="40" y="224" width="320" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="255" r="14"/>
+  <text class="t-num" x="68" y="260" text-anchor="middle">3</text>
+  <text class="t-main" x="92" y="249">残存CO₂の貯留・活用</text>
+  <text class="t-en" x="92" y="267">Carbon Removal Technologies</text>
+  <text class="t-note" x="354" y="259" text-anchor="end">技術開発</text>
+
+  <!-- 分岐ライン（STEP3から3カード縦積みへ） -->
+  <line x1="200" y1="286" x2="200" y2="302" stroke="#8a8a8a" stroke-width="2"/>
+
+  <!-- CCS カード（最初: 発生源起点・貯留のみ） -->
+  <line x1="200" y1="302" x2="200" y2="318" stroke="#d7d7d7" stroke-width="1.5" marker-end="url(#arrow-gray)"/>
+  <rect class="box-surface" x="60" y="320" width="280" height="62" rx="7"/>
+  <text class="t-card" x="200" y="339" text-anchor="middle">CCS（Carbon dioxide Capture and Storage）</text>
+  <text class="t-desc" x="200" y="357" text-anchor="middle">発電所・化学工場のCO₂を分離・地中深く貯留</text>
+  <text class="t-tag-s" x="200" y="374" text-anchor="middle">排出ゼロ水準（マイナスにはならない）</text>
+
+  <!-- CCS→BECCS 矢印 -->
+  <line x1="200" y1="382" x2="200" y2="398" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- BECCS カード -->
+  <rect class="box-positive" x="60" y="400" width="280" height="62" rx="7"/>
+  <text class="t-card" x="200" y="419" text-anchor="middle">BECCS（Bioenergy with CCS）</text>
+  <text class="t-desc" x="200" y="437" text-anchor="middle">バイオマス燃焼のCO₂を回収・地中貯留</text>
+  <text class="t-tag-g" x="200" y="454" text-anchor="middle">カーボンネガティブ（排出量をマイナス化）</text>
+
+  <!-- BECCS→DACCS 矢印 -->
+  <line x1="200" y1="462" x2="200" y2="478" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+
+  <!-- DACCS カード -->
+  <rect class="box-positive" x="60" y="480" width="280" height="62" rx="7"/>
+  <text class="t-card" x="200" y="499" text-anchor="middle">DACCS（Direct Air Capture + CCS）</text>
+  <text class="t-desc" x="200" y="517" text-anchor="middle">大気中のCO₂を直接回収（DAC）＋地中貯留</text>
+  <text class="t-tag-g" x="200" y="534" text-anchor="middle">カーボンネガティブ（排出量をマイナス化）</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="566" text-anchor="middle">CO₂分離回収法：吸収法 / 吸着分離法 / 膜分離法 / 深冷分離法</text>
+</svg>

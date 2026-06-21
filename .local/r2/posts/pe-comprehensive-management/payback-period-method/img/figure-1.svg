@@ -1,0 +1,149 @@
+<svg viewBox="0 0 480 520" xmlns="http://www.w3.org/2000/svg" style="max-width:480px;width:100%" role="img" aria-label="事業投資評価3手法の比較：NPV法・回収期間法・ROIの判定基準・時間価値考慮・長所短所を横並びで対比">
+  <!-- viewBox=480 理由：3列マトリクス（手法名列＋3手法列）で横長が不可避。>400を認め最小500以内の480に設定 -->
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-head   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 12px; fill: #222; }
+      .t-muted  { font-size: 11px; fill: #8a8a8a; }
+      /* brand = 見出し行 */
+      .row-header { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      /* positive = 採用判定の基準 */
+      .row-judge  { fill: #d0e8d0; }
+      /* warn = 時間価値の考慮有無 */
+      .row-time   { fill: #fff3cd; }
+      /* surface = その他行 */
+      .row-pro    { fill: #f5f5f5; }
+      .row-con    { fill: #f5f5f5; }
+      .cell-border { fill: none; stroke: #d7d7d7; stroke-width: 0.8; }
+      /* 手法列ラベル背景 */
+      .col-npv    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .col-pbp    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .col-roi    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="240" y="24" text-anchor="middle">事業投資評価 3手法の比較</text>
+  <text class="t-sub" x="240" y="42" text-anchor="middle">総監テキスト §1-(2) 事業投資計画</text>
+
+  <!-- 列幅定義 (x座標):
+       行ラベル列: x=8  w=88
+       NPV列:      x=96  w=122
+       回収期間法: x=218 w=122
+       ROI列:      x=340 w=132
+  -->
+
+  <!-- ===== ヘッダー行 y=52 h=32 ===== -->
+  <!-- 行ラベルセル（空白） -->
+  <rect class="row-header" x="8" y="52" width="88" height="32" rx="4"/>
+  <!-- NPV法 -->
+  <rect class="row-header" x="96" y="52" width="122" height="32" rx="4"/>
+  <text class="t-head" x="157" y="73" text-anchor="middle">NPV法</text>
+  <!-- 回収期間法 -->
+  <rect class="row-header" x="218" y="52" width="122" height="32" rx="4"/>
+  <text class="t-head" x="279" y="73" text-anchor="middle">回収期間法</text>
+  <!-- ROI -->
+  <rect class="row-header" x="340" y="52" width="132" height="32" rx="4"/>
+  <text class="t-head" x="406" y="73" text-anchor="middle">投資利益率法（ROI）</text>
+
+  <!-- ===== 正式名称行 y=84 h=34 ===== -->
+  <rect class="row-pro" x="8" y="84" width="88" height="34"/>
+  <text class="t-label" x="52" y="105" text-anchor="middle">正式名称</text>
+  <rect class="cell-border" x="96" y="84" width="122" height="34"/>
+  <text class="t-body" x="157" y="102" text-anchor="middle">正味現在価値法</text>
+  <text class="t-muted" x="157" y="115" text-anchor="middle">Net Present Value</text>
+  <rect class="cell-border" x="218" y="84" width="122" height="34"/>
+  <text class="t-body" x="279" y="102" text-anchor="middle">回収期間法</text>
+  <text class="t-muted" x="279" y="115" text-anchor="middle">Payback Period</text>
+  <rect class="cell-border" x="340" y="84" width="132" height="34"/>
+  <text class="t-body" x="406" y="102" text-anchor="middle">投資利益率法</text>
+  <text class="t-muted" x="406" y="115" text-anchor="middle">Return on Investment</text>
+
+  <!-- ===== 採用判定基準行 y=118 h=54 (positive) ===== -->
+  <rect class="row-judge" x="8" y="118" width="88" height="54"/>
+  <rect style="fill:none;stroke:#3a7d44;stroke-width:0.8" x="8" y="118" width="88" height="54"/>
+  <text class="t-label" x="52" y="140" text-anchor="middle">採用の</text>
+  <text class="t-label" x="52" y="155" text-anchor="middle">判定基準</text>
+  <rect style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:0.8" x="96" y="118" width="122" height="54"/>
+  <text class="t-body" x="157" y="138" text-anchor="middle">正味現在価値</text>
+  <text class="t-body" x="157" y="152" text-anchor="middle">（V）＞ 0</text>
+  <text class="t-muted" x="157" y="166" text-anchor="middle">プラスなら投資実行</text>
+  <rect style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:0.8" x="218" y="118" width="122" height="54"/>
+  <text class="t-body" x="279" y="138" text-anchor="middle">回収年数が</text>
+  <text class="t-body" x="279" y="152" text-anchor="middle">短いほど有利</text>
+  <text class="t-muted" x="279" y="166" text-anchor="middle">基準年数以下で採用</text>
+  <rect style="fill:#d0e8d0;stroke:#3a7d44;stroke-width:0.8" x="340" y="118" width="132" height="54"/>
+  <text class="t-body" x="406" y="135" text-anchor="middle">ROI ＞ 平均借入率</text>
+  <text class="t-body" x="406" y="150" text-anchor="middle">利益額÷投資額×100</text>
+  <text class="t-muted" x="406" y="166" text-anchor="middle">[%]</text>
+
+  <!-- ===== 時間価値行 y=172 h=40 (warn) ===== -->
+  <rect class="row-time" x="8" y="172" width="88" height="40"/>
+  <rect style="fill:none;stroke:#d4a017;stroke-width:0.8" x="8" y="172" width="88" height="40"/>
+  <text class="t-label" x="52" y="189" text-anchor="middle">時間価値</text>
+  <text class="t-label" x="52" y="204" text-anchor="middle">の考慮</text>
+  <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="96" y="172" width="122" height="40"/>
+  <text class="t-body" x="157" y="187" text-anchor="middle" font-weight="bold">あり</text>
+  <text class="t-muted" x="157" y="204" text-anchor="middle">割引率 r で現在価値に換算</text>
+  <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="218" y="172" width="122" height="40"/>
+  <text class="t-body" x="279" y="187" text-anchor="middle" font-weight="bold">あり（基本形）</text>
+  <text class="t-muted" x="279" y="204" text-anchor="middle">均等資金年額 M で算出</text>
+  <rect style="fill:#fff3cd;stroke:#d4a017;stroke-width:0.8" x="340" y="172" width="132" height="40"/>
+  <text class="t-body" x="406" y="187" text-anchor="middle" font-weight="bold">なし（原則）</text>
+  <text class="t-muted" x="406" y="204" text-anchor="middle">平均利益額で計算</text>
+
+  <!-- ===== 長所行 y=212 h=60 ===== -->
+  <rect class="row-pro" x="8" y="212" width="88" height="60"/>
+  <rect class="cell-border" x="8" y="212" width="88" height="60"/>
+  <text class="t-label" x="52" y="246" text-anchor="middle">長所</text>
+  <rect class="cell-border" x="96" y="212" width="122" height="60"/>
+  <text class="t-body" x="103" y="232">・将来収益を現在価値で</text>
+  <text class="t-body" x="103" y="248"> 正確に評価</text>
+  <text class="t-body" x="103" y="264">・投資規模の大小を反映</text>
+  <rect class="cell-border" x="218" y="212" width="122" height="60"/>
+  <text class="t-body" x="225" y="232">・計算が簡便</text>
+  <text class="t-body" x="225" y="248">・流動性リスクを</text>
+  <text class="t-body" x="225" y="264"> 直感的に把握可能</text>
+  <rect class="cell-border" x="340" y="212" width="132" height="60"/>
+  <text class="t-body" x="347" y="232">・資本効率を比率で把握</text>
+  <text class="t-body" x="347" y="248">・複数案の優劣比較</text>
+  <text class="t-body" x="347" y="264"> がしやすい</text>
+
+  <!-- ===== 短所行 y=272 h=60 ===== -->
+  <rect class="row-con" x="8" y="272" width="88" height="60"/>
+  <rect class="cell-border" x="8" y="272" width="88" height="60"/>
+  <text class="t-label t-muted" x="52" y="306" text-anchor="middle" fill="#8a8a8a">短所</text>
+  <rect class="cell-border" x="96" y="272" width="122" height="60"/>
+  <text class="t-muted" x="103" y="292">・割引率の設定が難しい</text>
+  <text class="t-muted" x="103" y="308">・計算が複雑</text>
+  <rect class="cell-border" x="218" y="272" width="122" height="60"/>
+  <text class="t-muted" x="225" y="292">・回収後の収益を</text>
+  <text class="t-muted" x="225" y="308"> 評価しない</text>
+  <text class="t-muted" x="225" y="324">・規模の違いを無視</text>
+  <rect class="cell-border" x="340" y="272" width="132" height="60"/>
+  <text class="t-muted" x="347" y="292">・時間価値を考慮しない</text>
+  <text class="t-muted" x="347" y="308">・会計利益ベースで</text>
+  <text class="t-muted" x="347" y="324"> CF と乖離の可能性</text>
+
+  <!-- ===== 適用場面行 y=332 h=44 ===== -->
+  <rect class="row-pro" x="8" y="332" width="88" height="44"/>
+  <rect class="cell-border" x="8" y="332" width="88" height="44"/>
+  <text class="t-label" x="52" y="349" text-anchor="middle">適用</text>
+  <text class="t-label" x="52" y="364" text-anchor="middle">場面</text>
+  <rect class="cell-border" x="96" y="332" width="122" height="44"/>
+  <text class="t-body" x="103" y="350">大規模・長期の</text>
+  <text class="t-body" x="103" y="366">設備投資評価</text>
+  <rect class="cell-border" x="218" y="332" width="122" height="44"/>
+  <text class="t-body" x="225" y="350">資金繰り重視・</text>
+  <text class="t-body" x="225" y="366">短期投資の比較</text>
+  <rect class="cell-border" x="340" y="332" width="132" height="44"/>
+  <text class="t-body" x="347" y="350">経営指標・複数案の</text>
+  <text class="t-body" x="347" y="366">利益率比較</text>
+
+  <!-- フッター -->
+  <text class="t-muted" x="240" y="400" text-anchor="middle">現在価値法（PV）はすべての手法の基礎（総監テキスト §1-(2)）</text>
+</svg>

@@ -1,0 +1,89 @@
+<svg viewBox="0 0 400 620" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="環境政策の実施手法7類型。規制的・枠組規制的・経済的・自主的取組・情報的・手続的・事業的の各手法を定義と代表例とともに縦並びで示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-main   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-def    { font-size: 12px; fill: #555; }
+      .t-ex     { font-size: 11px; fill: #8a8a8a; }
+      .t-num    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      /* brand — 規制系 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* brand-mid — 枠組規制的 */
+      .box-brand2   { fill: #dce8fe; stroke: #2e6da4; stroke-width: 1.5; stroke-dasharray: 5 3; }
+      .badge-brand2 { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* warn — 経済的 */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-warn   { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      /* positive — 自主・情報 */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      /* surface — 手続・事業 */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-surface { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- title -->
+  <text class="t-title" x="200" y="26" text-anchor="middle">環境政策の実施手法 7 類型</text>
+  <text class="t-sub" x="200" y="44" text-anchor="middle">環境基本計画 第3項「環境政策の実施の手法」</text>
+
+  <!-- 1 規制的手法 (brand) -->
+  <rect class="box-brand" x="44" y="58" width="344" height="72" rx="8"/>
+  <circle class="badge-brand" cx="70" cy="94" r="14"/>
+  <text class="t-num" x="70" y="99" text-anchor="middle">1</text>
+  <text class="t-main" x="94" y="86">規制的手法</text>
+  <text class="t-def" x="94" y="104">法令で目標・遵守事項を定め統制的に達成</text>
+  <text class="t-ex"  x="94" y="120">例: 排出規制・パフォーマンス規制・土地利用規制</text>
+
+  <!-- 2 枠組規制的手法 (brand dashed) -->
+  <rect class="box-brand2" x="44" y="140" width="344" height="72" rx="8"/>
+  <circle class="badge-brand2" cx="70" cy="176" r="14"/>
+  <text class="t-num" x="70" y="181" text-anchor="middle">2</text>
+  <text class="t-main" x="94" y="168">枠組規制的手法</text>
+  <text class="t-def" x="94" y="186">達成目標を義務付け、または手続き遵守を義務付け</text>
+  <text class="t-ex"  x="94" y="202">例: 達成義務付け・計画策定義務</text>
+
+  <!-- 3 経済的手法 (warn) -->
+  <rect class="box-warn" x="44" y="222" width="344" height="72" rx="8"/>
+  <circle class="badge-warn" cx="70" cy="258" r="14"/>
+  <text class="t-num" x="70" y="263" text-anchor="middle">3</text>
+  <text class="t-main" x="94" y="250">経済的手法</text>
+  <text class="t-def" x="94" y="268">経済的インセンティブで合理的行動を誘導</text>
+  <text class="t-ex"  x="94" y="284">例: 環境税・課徴金・デポジット制度</text>
+
+  <!-- 4 自主的取組手法 (positive) -->
+  <rect class="box-positive" x="44" y="304" width="344" height="72" rx="8"/>
+  <circle class="badge-positive" cx="70" cy="340" r="14"/>
+  <text class="t-num" x="70" y="345" text-anchor="middle">4</text>
+  <text class="t-main" x="94" y="332">自主的取組手法</text>
+  <text class="t-def" x="94" y="350">事業者が行動計画を自ら設定・公表し推進</text>
+  <text class="t-ex"  x="94" y="366">例: 企業環境行動計画の公表</text>
+
+  <!-- 5 情報的手法 (positive) -->
+  <rect class="box-positive" x="44" y="386" width="344" height="72" rx="8"/>
+  <circle class="badge-positive" cx="70" cy="422" r="14"/>
+  <text class="t-num" x="70" y="427" text-anchor="middle">5</text>
+  <text class="t-main" x="94" y="414">情報的手法</text>
+  <text class="t-def" x="94" y="432">環境負荷情報の開示で消費者・事業者の選択を促進</text>
+  <text class="t-ex"  x="94" y="448">例: 環境ラベル・SDS・環境報告書・環境会計</text>
+
+  <!-- 6 手続的手法 (surface) -->
+  <rect class="box-surface" x="44" y="468" width="344" height="72" rx="8"/>
+  <circle class="badge-surface" cx="70" cy="504" r="14"/>
+  <text class="t-num" x="70" y="509" text-anchor="middle">6</text>
+  <text class="t-main" x="94" y="496">手続的手法</text>
+  <text class="t-def" x="94" y="514">意思決定過程に環境配慮の手続きを組み込む</text>
+  <text class="t-ex"  x="94" y="530">例: 環境影響評価（環境アセス）・PRTR制度</text>
+
+  <!-- 7 事業的手法 (surface) -->
+  <rect class="box-surface" x="44" y="550" width="344" height="56" rx="8"/>
+  <circle class="badge-surface" cx="70" cy="578" r="14"/>
+  <text class="t-num" x="70" y="583" text-anchor="middle">7</text>
+  <text class="t-main" x="94" y="572">事業的手法</text>
+  <text class="t-def" x="94" y="590">国・地方公共団体等が事業を進めて政策目的を実現</text>
+
+  <!-- footer -->
+</svg>

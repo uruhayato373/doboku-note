@@ -1,0 +1,156 @@
+<!-- viewBox幅=480: 3列比較マトリクスで各列に日本語テキストを収めるため <=500 を適用 -->
+<svg viewBox="0 0 480 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:480px;width:100%"
+     role="img"
+     aria-label="社員格付制度3類型の比較。職能資格制度・職務等級制度・役割等級制度を能力評価・降格・人件費・職務記述書・柔軟性の軸で比較したマトリクス表">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-head   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell   { font-size: 13px; fill: #222; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      /* brand: 職能資格制度 */
+      .col-brand-head { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .col-brand-cell { fill: #f4f7fe; stroke: #2e6da4; stroke-width: 0.8; }
+      /* positive: 職務等級制度 */
+      .col-pos-head   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .col-pos-cell   { fill: #eef6ee; stroke: #3a7d44; stroke-width: 0.8; }
+      /* warn: 役割等級制度 */
+      .col-warn-head  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .col-warn-cell  { fill: #fffbee; stroke: #d4a017; stroke-width: 0.8; }
+      /* 行見出し */
+      .col-axis-head  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .col-axis-cell  { fill: #fafafa; stroke: #d7d7d7; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="240" y="28" text-anchor="middle">社員格付制度 3類型の比較</text>
+
+  <!-- ===== 列定義 =====
+       軸列: x=10, w=100
+       brand列: x=113, w=113
+       positive列: x=229, w=113
+       warn列: x=345, w=125
+       行高: 60px  行Y基点: 60,120,180,240,300,360 -->
+
+  <!-- ===== ヘッダー行 ===== -->
+  <!-- 軸列ヘッダー -->
+  <rect class="col-axis-head" x="10"  y="60" width="100" height="52" rx="4"/>
+  <text class="t-axis" x="60" y="82" text-anchor="middle">評価軸</text>
+
+  <!-- brand列ヘッダー: 職能資格制度 -->
+  <rect class="col-brand-head" x="113" y="60" width="113" height="52" rx="4"/>
+  <text class="t-head" x="169" y="80" text-anchor="middle">職能資格制度</text>
+  <text class="t-sub"  x="169" y="97" text-anchor="middle">（潜在能力型）</text>
+
+  <!-- positive列ヘッダー: 職務等級制度 -->
+  <rect class="col-pos-head" x="229" y="60" width="113" height="52" rx="4"/>
+  <text class="t-head" x="285" y="80" text-anchor="middle">職務等級制度</text>
+  <text class="t-sub"  x="285" y="97" text-anchor="middle">（顕在能力型）</text>
+
+  <!-- warn列ヘッダー: 役割等級制度 -->
+  <rect class="col-warn-head" x="345" y="60" width="125" height="52" rx="4"/>
+  <text class="t-head" x="407" y="80" text-anchor="middle">役割等級制度</text>
+  <text class="t-sub"  x="407" y="97" text-anchor="middle">（折衷型）</text>
+
+  <!-- ===== 行1: 能力評価対象 ===== -->
+  <rect class="col-axis-cell"  x="10"  y="115" width="100" height="56" rx="3"/>
+  <text class="t-axis" x="60"  y="136" text-anchor="middle">能力</text>
+  <text class="t-axis" x="60"  y="153" text-anchor="middle">評価</text>
+
+  <rect class="col-brand-cell" x="113" y="115" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="169" y="136" text-anchor="middle">潜在能力</text>
+  <text class="t-sub"  x="169" y="153" text-anchor="middle">（将来の伸びしろ）</text>
+
+  <rect class="col-pos-cell"   x="229" y="115" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="285" y="136" text-anchor="middle">顕在能力</text>
+  <text class="t-sub"  x="285" y="153" text-anchor="middle">（現在の職務遂行力）</text>
+
+  <rect class="col-warn-cell"  x="345" y="115" width="125" height="56" rx="3"/>
+  <text class="t-cell" x="407" y="136" text-anchor="middle">役割の大きさ</text>
+  <text class="t-sub"  x="407" y="153" text-anchor="middle">（難度＋期待度）</text>
+
+  <!-- ===== 行2: 降格の有無 ===== -->
+  <rect class="col-axis-cell"  x="10"  y="174" width="100" height="56" rx="3"/>
+  <text class="t-axis" x="60"  y="195" text-anchor="middle">降格</text>
+  <text class="t-axis" x="60"  y="212" text-anchor="middle">の有無</text>
+
+  <rect class="col-brand-cell" x="113" y="174" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="169" y="195" text-anchor="middle">基本なし</text>
+  <text class="t-sub"  x="169" y="212" text-anchor="middle">（経験年数で昇格）</text>
+
+  <rect class="col-pos-cell"   x="229" y="174" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="285" y="195" text-anchor="middle">あり</text>
+  <text class="t-sub"  x="285" y="212" text-anchor="middle">（職務変化で変動）</text>
+
+  <rect class="col-warn-cell"  x="345" y="174" width="125" height="56" rx="3"/>
+  <text class="t-cell" x="407" y="195" text-anchor="middle">役割変化に</text>
+  <text class="t-sub"  x="407" y="212" text-anchor="middle">応じて変動</text>
+
+  <!-- ===== 行3: 人件費傾向 ===== -->
+  <rect class="col-axis-cell"  x="10"  y="233" width="100" height="56" rx="3"/>
+  <text class="t-axis" x="60"  y="254" text-anchor="middle">人件費</text>
+  <text class="t-axis" x="60"  y="271" text-anchor="middle">傾向</text>
+
+  <rect class="col-brand-cell" x="113" y="233" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="169" y="254" text-anchor="middle">高くなる</text>
+  <text class="t-sub"  x="169" y="271" text-anchor="middle">（降格なし・年功積上）</text>
+
+  <rect class="col-pos-cell"   x="229" y="233" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="285" y="254" text-anchor="middle">職務に連動</text>
+  <text class="t-sub"  x="285" y="271" text-anchor="middle">（職務ランク固定）</text>
+
+  <rect class="col-warn-cell"  x="345" y="233" width="125" height="56" rx="3"/>
+  <text class="t-cell" x="407" y="254" text-anchor="middle">役割で決定</text>
+  <text class="t-sub"  x="407" y="271" text-anchor="middle">（年齢・経験不問）</text>
+
+  <!-- ===== 行4: 職務記述書 ===== -->
+  <rect class="col-axis-cell"  x="10"  y="292" width="100" height="56" rx="3"/>
+  <text class="t-axis" x="60"  y="313" text-anchor="middle">職務</text>
+  <text class="t-axis" x="60"  y="330" text-anchor="middle">記述書</text>
+
+  <rect class="col-brand-cell" x="113" y="292" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="169" y="313" text-anchor="middle">不要</text>
+  <text class="t-sub"  x="169" y="330" text-anchor="middle">（資格ランク基準）</text>
+
+  <rect class="col-pos-cell"   x="229" y="292" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="285" y="313" text-anchor="middle">必須</text>
+  <text class="t-sub"  x="285" y="330" text-anchor="middle">（等級・報酬に連動）</text>
+
+  <rect class="col-warn-cell"  x="345" y="292" width="125" height="56" rx="3"/>
+  <text class="t-cell" x="407" y="313" text-anchor="middle">役割定義</text>
+  <text class="t-sub"  x="407" y="330" text-anchor="middle">で代替</text>
+
+  <!-- ===== 行5: 組織柔軟性 ===== -->
+  <rect class="col-axis-cell"  x="10"  y="351" width="100" height="56" rx="3"/>
+  <text class="t-axis" x="60"  y="372" text-anchor="middle">組織</text>
+  <text class="t-axis" x="60"  y="389" text-anchor="middle">柔軟性</text>
+
+  <rect class="col-brand-cell" x="113" y="351" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="169" y="372" text-anchor="middle">高い</text>
+  <text class="t-sub"  x="169" y="389" text-anchor="middle">（異動しやすい）</text>
+
+  <rect class="col-pos-cell"   x="229" y="351" width="113" height="56" rx="3"/>
+  <text class="t-cell" x="285" y="372" text-anchor="middle">低い</text>
+  <text class="t-sub"  x="285" y="389" text-anchor="middle">（記述書再検討が必要）</text>
+
+  <rect class="col-warn-cell"  x="345" y="351" width="125" height="56" rx="3"/>
+  <text class="t-cell" x="407" y="372" text-anchor="middle">中程度</text>
+  <text class="t-sub"  x="407" y="389" text-anchor="middle">（役割再定義で対応）</text>
+
+  <!-- ===== 凡例 ===== -->
+  <rect x="10"  y="420" width="14" height="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2" rx="2"/>
+  <text class="t-sub" x="28" y="432">職能資格制度</text>
+
+  <rect x="130" y="420" width="14" height="14" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2" rx="2"/>
+  <text class="t-sub" x="148" y="432">職務等級制度</text>
+
+  <rect x="255" y="420" width="14" height="14" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2" rx="2"/>
+  <text class="t-sub" x="273" y="432">役割等級制度</text>
+
+  <!-- フッター -->
+  <text class="t-sub" x="240" y="468" text-anchor="middle">同一役割・同一賃金が基本となる役割等級制度が近年注目される</text>
+</svg>
