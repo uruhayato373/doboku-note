@@ -83,6 +83,12 @@ node scripts/check-policy-anchors.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+# ガイド記事（group: guide）の本文 3,000 字下限（薄い記事の再発防止、content-principles §25）
+node scripts/check-guide-length.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {

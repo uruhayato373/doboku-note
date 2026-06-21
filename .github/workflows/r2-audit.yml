@@ -52,6 +52,11 @@ jobs:
       - name: Check note funnel drift (CTA / mokuji / L1-L2 links)
         run: npm run check-note-funnel
 
+      # ガイド記事（group: guide）の本文 3,000 字下限（薄い記事の再発防止、content-principles §25）。
+      # published guide 全件を検査。pre-commit は staged のみ検査するため、CI で全量の backstop。
+      - name: Check guide article length (published guide >= 3000 chars)
+        run: npm run check-guide-length
+
       - name: Diff local (main) vs R2 — images only
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
