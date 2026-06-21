@@ -24,6 +24,9 @@ model: inherit
 | **`civil-construction-review`（本エージェント）** | civil-1 textbook/guide | **なし** | 任意（推奨） | 既存 MDX の校正・品質向上 |
 | `cem-qa` | 総監キーワード | なし | なし | 総監固有構造の評価 |
 | `content-qa` | 過去問・基準書 MDX | なし | なし | 汎用 PDF→MDX 変換評価 |
+| `guide-qa` | **全資格 `group: guide`** | なし | なし | ガイド軸5軸（導入§26/読みやすさ/ボリューム/コンバージョン導線§20/モバイル） |
+
+> **`guide-qa` との棲み分け**（civil の guide 記事は両者の守備範囲が重なる）: ガイド特化の力点（リード文の質・末尾コンバージョン導線・読みやすさを重み付け）で採点したいときは `guide-qa`。本エージェントは civil の **textbook を含む** content-principles 全般の校正（図表・参考資料・モバイル・コンポーネント規約）を担う。guide 記事の体験品質サイクルは `guide-qa`（評価）→ `civil-textbook-rewriter`（修正）。
 
 **`civil-construction-qa` との棲み分け**:
 - `civil-construction-qa` は PDF→MDX 変換**直後**に「原典を忠実に再現できているか」を検証する重い処理
@@ -103,8 +106,8 @@ node .claude/scripts/lint-mdx-mobile.mjs <mdx-path>
 ```
 
 出力の HIGH/MEDIUM/LOW 件数を軸別に分類:
-- カテゴリ 1-* / 6-* → **モバイル視認性軸**
-- カテゴリ 9-* / 0-* → **テキスト原則軸**
+- カテゴリ 1-* / 6-1 → **モバイル視認性軸**（表まわり）
+- カテゴリ 6-2 / 6-3 / 6-4（見出し直下の導入文なし＝§2/§8/§17-2、group: guide 限定）/ 9-* / 0-* → **テキスト原則軸**
 - カテゴリ 8-* → **参考資料・関連付け軸**
 
 ### Step 3: 構文チェック
