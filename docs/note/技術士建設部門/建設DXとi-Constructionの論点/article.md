@@ -1,6 +1,6 @@
 ---
 notePricing: free
-noteStatus: draft
+noteStatus: published
 noteUrl: "https://note.com/dobokunote/n/n03ff3e6203ef"
 noteId: "n03ff3e6203ef"
 noteSeries: 技術士建設部門-無料入口
