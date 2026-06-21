@@ -32,64 +32,6 @@
 
 ## 1. コンテンツ品質
 
-### ガイド記事 品質改善（guide-qa 全96本監査の結果）🔴
-
-**発端**: 2026-06-21、新設 `guide-qa`（ガイド軸5軸）で全 `group: guide` 96本を一括監査（19本 Opus + 77本 Sonnet、コスト配慮で Sonnet 移譲）。結果は **合格 1 / リライト候補 38 / 不合格 57**。軸別平均: 導入 1.85 / 読みやすさ 1.80 / ボリューム 1.88 / 導線 1.51 / モバイル 2.32（3点満点）。詳細レポート: `.tmp/guide-audit/report.md`（全96本の file:line + 修正案）。
-
-**横断的な構造問題（優先度順・ROI高い順）**:
-1. ~~**末尾 `## 参考資料` 違反（§20）**~~ ✅ **完了（2026-06-21、commit 5d378feeb）**: 41本から機械撤去（transformMdxFile、lint 12-2=0 検証済）。残: 末尾H2命名が承認パターン外の 12-3 LOW 10本（pe-comprehensive、cosmetic）は任意。
-2. ~~**本文ボリューム不足（§25 3000字未満）**~~ ✅ **完了（2026-06-21、commit d6de9a6b5/c1509a8ab/126f162c6）**: パイロット2 + civil 22 + pe/concrete 8 = 計32本を加筆（Sonnet・自己lint検証＋機械再検証）。check-guide-length 緑（published guide 76件すべて ≥3000字）。**ゲートを pre-commit + CI(r2-audit.yml) に配線済**。
-3. **読みやすさ（§24 文末単調 lint 15-1）— 21/96本**: 「〜ます。」3〜11連続。ユーザー指摘の「稚拙さ」の実体。
-4. **導入リード（§26）— 18/96本**: 冒頭いきなり Callout・ベネフィット型でない・見出し直下に箇条書き（6-2）。
-
-**進め方（コスト配慮）**: ①まず §20 参考資料撤去を機械支援スイープ（検出は lint 12-2、置換は `civil-textbook-rewriter` を Sonnet で）→ ②ボリューム加筆（§25 バーンダウンと統合）→ ③文末単調・導入リードはリライト時に同時対応。Generator は **Sonnet 指定**で回す（§5 準拠、Opus は親判断のみ）。
-
-### ✅【完了 2026-06-21】ガイド記事 3,000字下限の加筆バーンダウン（32本）
-
-**発端**: ガイド記事（`group: guide`）で本文 3,000 字未満の薄い記事が散見。`content-principles.md §25` で「ガイド記事は本文（frontmatter除外・空白除去後）3,000字以上」を必須下限に制定（2026-06-21）。
-
-**方針**: 31本を §17（各 H2 セクション散文 200〜400字）に沿って加筆 → **全部 ≥3,000字になったら `check-guide-length` を pre-commit/CI（`r2-audit.yml`）に登録して赤落ちゲート化**。ゲート登録までは未配線（既存 main CI を割らないため）。
-
-**進捗確認**: `npm run check-guide-length`（published 全件・赤落ち）/ `node scripts/check-guide-length.mjs --all`（draft 含む一覧）。
-
-**対象31本**（字数昇順・残り字数。加筆は字数水増しでなく具体＝数値/体験/選択基準を足す。加筆後 `civil-construction-review` で5軸再確認）:
-
-- [ ] 1626 civil-construction-1/guide-textbooks（あと1374）
-- [ ] 1745 civil-construction-2/guide-study-method（あと1255）
-- [ ] 1748 civil-construction-2/guide-overview（あと1252）
-- [ ] 1822 civil-construction-1/guide-grade-comparison（あと1178）
-- [ ] 1829 civil-construction-1/guide-career-agents（あと1171）
-- [ ] 1867 civil-construction-2/guide-textbooks（あと1133）
-- [ ] 1971 civil-construction-2/guide-quality-management（あと1029）
-- [ ] 2019 civil-construction-2/guide-schedule-management（あと981）
-- [ ] 2056 civil-construction-1/guide-difficulty（あと944）
-- [ ] 2131 pe-construction/sentaku-kamoku-kakiwake（あと869）
-- [ ] 2142 civil-construction-2/guide-concrete-key-points（あと858）
-- [ ] 2152 civil-construction-2/guide-earthwork-key-points（あと848）
-- [ ] 2168 civil-construction-2/guide-law-key-points（あと832）
-- [ ] 2215 civil-construction-1/guide-study-method（あと785）
-- [ ] 2298 concrete-chief-engineer/guide-overview（あと702）
-- [ ] 2312 pe-construction/nanido-goukakuritsu（あと688）
-- [ ] 2419 civil-construction-2/guide-job-reality（あと581）
-- [ ] 2426 pe-construction/gyoumu-keireki-hyou（あと574）
-- [ ] 2429 civil-construction-2/guide-salary（あと571）
-- [ ] 2444 pe-construction/gakushuu-jikan-schedule（あと556）
-- [ ] 2453 civil-construction-2/guide-study-plan（あと547）
-- [ ] 2455 civil-construction-2/guide-career-change（あと545）
-- [ ] 2513 pe-construction/hissu-kamoku-kaitourei（あと487）
-- [ ] 2608 pe-comprehensive-management/course-selection-guide（あと392）
-- [ ] 2696 civil-construction-1/guide-study-plan（あと304）
-- [ ] 2751 civil-construction-1/guide-salary-up（あと249）
-- [ ] 2808 civil-construction-1/guide-career-salary（あと192）
-- [ ] 2855 pe-construction/secondary-study-method（あと145）
-- [ ] 2868 civil-construction-1/guide-market-value（あと132）
-- [ ] 2885 civil-construction-2/guide-career（あと115）
-- [ ] 2969 civil-construction-2/guide-exam-overview（あと31）
-
-**ゲート登録（最終ステップ・31本完了後）**: `scripts/install-pre-commit.mjs` に `check-guide-length.mjs --staged` を追記 → `npm run pre-commit:install`、`r2-audit.yml` に `npm run check-guide-length` を追加。
-
----
-
 ### 過去問・テキストの図クロップ品質整備 🟡
 
 **残タスク**（完了分は git 履歴: 2級 r03/r07 図クロップ=`c213be9af`／1級ネットワーク工程表 h26・h27・h29-b 補完=`6f296bf70`〜。緊急度高だった r03/r07 の画像ゼロは解消済）:
