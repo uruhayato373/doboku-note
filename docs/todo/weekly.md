@@ -1,38 +1,41 @@
 # 週間計画 — 2026-W26（06/22〜06/28）
 
-**今週のゴール**: 試験直前ピーク（技術士二次まで約2週間）に向けて、note 残作業（Mac手動操作4本）を消化し、直前訴求コンテンツを整備する
+**今週のゴール**: 試験直前ピーク（技術士二次まで約2週間）に向けた note 直前訴求の整備
 **参照**: [monthly.md](./monthly.md)
 
 ---
 
-## 今週やること
+## 今週やること（残・着手可能なもの）
 
-| 優先 | タスク | 担当 | Codex? | 完了 |
-|---|---|---|---|---|
-| 🔴 | 「立場別模範論文の選び方」を note 新規投稿 | Claude Code(Playwright) | | [x] |
-| 🔴 | 自治体道路担当 R08（R08-yosou-1/2）を note 公開 → 完全パック・ペルソナマガジンへ収録 | Claude Code(Playwright) | | [x] |
-| 🟡 | develop → main デプロイ（W25〜W26 の統合分を本番反映） | Claude Code | | [x] |
-| 🟡 | 公務員学習設計 `nc7d70c92b8b0` をペルソナ選択案内に緩和 | Claude Code(Playwright) | | [x] |
-| 🟡 | BK-I を差し替え投稿（R03/04/06/07 の I-1/I-2 両収録版へ更新） | Claude Code(Playwright) 全自動 | | [x] |
-| 🟢 | 総監 R8予想6本の旧マガジン導線削除（完全パック + もくじへ置換） | Claude Code(Playwright) | | [x] |
+> W26 計画分はすべて完了。下表は現時点で着手可能な残タスクのみ。
+
+| 優先 | タスク | 担当 | 状態 |
+|---|---|---|---|
+| 🟢 | 過去問図クロップ補完（2級 primary r04-r06／pe-first-stage 欠落疑い4本） | Claude Code | 着手可・非緊急 |
+| 🟣 | pe-construction キーワード重複の方針決定（A統合 / B差別化） | ユーザー判断 | 判断待ち |
+| 🟢 | 設問3バンク ¥300→¥780 値上げの効果モニタリング（数日後） | Claude Code | 観測待ち |
 
 ---
 
 ## 今週やらないこと
 
 - X 投稿（凍結中・今シーズン断念）
+- ガイド記事 品質改善（§24文末単調・§26導入リード）— **別セッションが作業中**（guide-fact-checker/guide-rewriter）。重複回避で不可侵
 - BK-09/10 yosou 生成（試験後 7月中旬以降に先送り確定）
-- バックログの UI 系タスク（TOC 廃止・RelatedArticles・AuthorCard 改修等）— 試験ピーク期は手を付けない
-- コンクリート診断士 cd-essay（来年向け、急がない）
-- iOS アプリ（Web 月収 ¥15k 達成後）
-- IG Reels / IG Carousel（試験直前週は note 作業を優先）
-- Kindle KDP 着手（試験後フェーズ）
+- バックログの UI 系タスク（トップ下部デザイン統一・AuthorCard・カテゴリUI刷新等）— 試験ピーク期は手を付けない
+- コンクリート診断士 cd-essay（来年向け）／iOS アプリ（Web 月収 ¥15k 達成後）／Kindle KDP（試験後）
+
+---
+
+## 完了ログ
+
+- **2026-06-21（会話発）総監 横断系単品 ¥780 統一 + funnel 整備**: R8予想6/設問3バンク11/トレードオフ5/計算1=23単品を live ¥780 化（序章2本は¥100保護、ペルソナ98本は不変）。price-sweep に `--exclude`/`--notes` 追加＋Mac全選択バグ修正。SoT追従（frontmatter/note-magazines.ts/noteコンテンツ計画/掲載文/もくじ）。修正漏れ2点（--help・設問3セット価格）を worktree→PR #268 で安全マージ。commit afc8ae51a / 3b7308e07 / ee1300d27。
+- **2026-06-20**: 建設部門 docs モバイルにビルドジョブ転職カード追加＋develop→main デプロイ（本番反映確認済）。
+- **W26 計画6本**: 立場別模範論文投稿／R08道路担当公開・収録／develop→main デプロイ／公務員学習設計の緩和／BK-I 両収録差替／R8予想6本の旧マガジン導線削除 — すべて Claude Code(Playwright) で全自動消化。
 
 ---
 
 ## メモ・ブロッカー
 
-- **W26 全タスク完了**（前倒し消化）。note 投稿は Mac 手動でなく Claude Code(Playwright) で全自動化できると実証。
-- **2026-06-20 追加完了（会話発）**: 建設部門 docs モバイルにビルドジョブ転職カード追加＋develop→main デプロイ（本番反映確認済）。
-- **キャリーフォワード（W27 候補）**: ①総監モバイル記事末カード（要 PE_CONSULTING 創作）②AdSense 再申請完遂（外部承認）③pe-construction visible:true 化（待機）④BK-09/10 R8予想生成（試験後）⑤BK-I 旧4本の note 手動削除（任意・実害最小）。
+- **キャリーフォワード（W27 候補）**: ①総監モバイル記事末カード（要 PE_CONSULTING 創作）②AdSense 再申請完遂（外部承認）③pe-construction visible:true 化（要件再確認＝120本は published:true 済だが `visible` フィールド未使用）④BK-09/10 R8予想生成（試験後）⑤BK-I 旧4本の note 手動削除（任意・note仕様で非公開化不可）。
 - 完了の詳細・学びは `docs/handoffs/` と memory に保全済み。
