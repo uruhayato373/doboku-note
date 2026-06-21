@@ -118,7 +118,7 @@ console.log(JSON.stringify({ slug, title:title.substring(0,50), notePricing, seg
 - **Phase 5 挿絵**: スキップ（図版なし方針）
 - **Phase 6 下書き保存**: 共通
 - **Phase 7 公開設定**: **価格設定は行わない（無料）**。`<RXX>` 相当のタグは `data.tags`（hashtags.txt）。日時指定 → 予約公開、`now` → 即時公開、無指定 → 下書きのまま終了
-- **Phase 8 検証＆記録**: 偽成功の罠に従い本文文字数・カバー・タグを実体検証。**公開した場合のみ** 記事 URL を当該 `article.md` frontmatter `noteUrl`/`noteId`/`notePublishedAt` に反映（これらは空文字で用意済み）。下書きのみなら記録しない
+- **Phase 8 検証＆記録**: 偽成功の罠に従い本文文字数・カバー・タグを実体検証。**公開した場合のみ** 記事 URL を当該 `article.md` frontmatter `noteUrl`/`noteId`/`notePublishedAt` に反映（これらは空文字で用意済み）し、`noteStatus` を published（予約投稿時は reserved）へ更新。下書きのみなら記録しない。※予約投稿は go-live が後刻のため weekly の `verify-note-status` が published へ最終是正
 
 ### 無料モードのガード
 
@@ -195,7 +195,7 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 
 公開（即時/予約）したら、その記事 URL（`note.com/dobokunote/n/<id>`）を：
 
-1. 当該記事 `article.md` の frontmatter `noteUrl` / `noteId` / `notePublishedAt` に記入
+1. 当該記事 `article.md` の frontmatter `noteUrl` / `noteId` / `notePublishedAt` / `noteStatus`（published／予約=reserved）に記入
 2. マガジン単位で全 7 記事が公開済みになったら、`src/lib/note-magazines.ts` の該当エントリを `published: true` ＋ マガジン `noteUrl` に更新（マガジンURL は `inject-magazine-url.cjs` で本文にも反映）
 
 下書き保存のみの場合は記録しない。

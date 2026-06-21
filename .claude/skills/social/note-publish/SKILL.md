@@ -66,7 +66,7 @@ note の埋め込み検出は **`keyboard.type`（実入力）で起動し、syn
 ## 既知の限界・運用
 
 - 1記事ずつ実行（バッチは呼び側でループ）。実行ごとに `/new` が空ドラフトを生成するため、失敗時は残った空ドラフトを削除する。
-- **冪等**: frontmatter に `noteUrl`（https）があれば**スキップ**（バッチ再実行で重複公開しない）。公開成功時に `noteUrl`/`noteId`/`notePublishedAt` を**当該 article.md frontmatter へ自動記録**。
+- **冪等**: frontmatter に `noteUrl`（https）があれば**スキップ**（バッチ再実行で重複公開しない）。公開成功時に `noteUrl`/`noteId`/`notePublishedAt`/`noteStatus`（published／予約=reserved）を**当該 article.md frontmatter へ自動記録**。
 - スクショ: `.tmp/np-boundary.png`（境界画面）/ `.tmp/np-final.png`（最終）。
 - 公開後 URL は記事 frontmatter `noteUrl`/`noteId` と `note-magazines.ts`（マガジン全記事公開後に `published:true`）へ反映する（[[feedback_no_price_in_mdx_body]]・真実源 `src/lib/note-magazines.ts`）。
 

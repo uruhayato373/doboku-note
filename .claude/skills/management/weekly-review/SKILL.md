@@ -46,10 +46,15 @@ description: >
 調査項目:
 - docs/ 配下で今週新規作成・更新されたファイル
 - カテゴリ別のページ数変動
+- note 公開状態ドリフト: `npm run verify-note-status` を実行（noteId 保有 article.md の
+  frontmatter noteStatus ↔ ライブ公開状態を note 公開 API で突合・creds 不要）。
+  ドリフト（ライブ=published / frontmatter=draft）があれば `-- --fix` で是正してコミット。
+  ※予約投稿は go-live がサーバ側後刻で writeback できず draft 取り残しが起きるため週次で自己修復する
 
 出力形式:
 - 「今週追加したページ」
 - 「更新したページ」
+- 「note 公開状態ドリフト是正（N 本）」（あれば）
 ```
 
 #### Agent C: NSM / パフォーマンス指標 + 実験進捗

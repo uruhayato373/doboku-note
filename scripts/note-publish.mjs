@@ -229,7 +229,7 @@ try {
 
   // 12. 投稿 / 予約投稿 / 安全離脱
   // frontmatter へ noteUrl/noteId/notePublishedAt を反映（冪等＋記録）。予約時は publishDate=予約日。
-  const writeBack = (url, publishDate) => {
+  const writeBack = (url, publishDate, statusVal = 'published') => {
     try {
       const id = (url.match(/\/n(?:otes)?\/([a-z0-9]+)/) || [])[1] || '';
       if (id) {
@@ -237,9 +237,12 @@ try {
         const upd = raw
           .replace(/^noteUrl:.*$/m, `noteUrl: "${cleanUrl}"`)
           .replace(/^noteId:.*$/m, `noteId: "${id}"`)
-          .replace(/^notePublishedAt:.*$/m, `notePublishedAt: "${publishDate}"`);
+          .replace(/^notePublishedAt:.*$/m, `notePublishedAt: "${publishDate}"`)
+          // noteStatus も書き戻す（draft 取り残しの再発防止）。即時=published / 予約=reserved。
+          // 予約の go-live 後分は verify-note-status が published へ是正。行が無ければ no-op。
+          .replace(/^noteStatus:.*$/m, `noteStatus: ${statusVal}`);
         writeFileSync(articleAbs, upd);
-        console.log('[12] frontmatter 反映:', cleanUrl, publishDate);
+        console.log('[12] frontmatter 反映:', cleanUrl, publishDate, `status=${statusVal}`);
       }
     } catch (e) { console.log('[12] frontmatter 反映 skip:', e.message.split('\n')[0]); }
   };
@@ -279,7 +282,7 @@ try {
       const close = page.getByRole('button', { name: '閉じる' }); if (await close.count()) { await close.first().click(); await sleep(1500); }
       publishedUrl = page.url();
       console.log('[12S] 予約投稿 clicked →', publishedUrl, '@', sched.raw);
-      writeBack(publishedUrl, sched.date);
+      writeBack(publishedUrl, sched.date, 'reserved');
     } else {
       await shot('abort');
       await saveDraftExit('★中断: 予約投稿UIを確定できず（即時公開はしない・selector要first-run検証）★');

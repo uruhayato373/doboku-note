@@ -1,0 +1,143 @@
+#!/usr/bin/env node
+// note 記事 frontmatter `noteStatus` ↔ ライブ公開状態の照合 reconciler。
+//
+// 背景（再発防止の対象）: note-publish.mjs の writeback は noteUrl/noteId/notePublishedAt を
+//   frontmatter へ書き戻すが、`noteStatus` は対象外だった（2026-06-21 に行追加済）。さらに
+//   予約投稿は go-live が note サーバ側で後刻に起きるためローカルで書き戻す機会が無い。結果
+//   「ライブは published なのに frontmatter は draft」というドリフトが発生する（2026-06-21、
+//   建設部門 無料入口 16 本で実害化）。実シグナルは「noteUrl 非空 OR noteStatus に publish」の
+//   OR（note-lint / check-note-3set）ゆえ機能は壊れず、検知されないまま放置されるのが厄介。
+//   本スクリプトはライブ真実と突合して SoT を自己修復する。
+//
+// 対象は「noteStatus 行を持つ記事」のみ（=この値を運用している記事）。noteStatus 行が無い記事
+//   （マガジン収録記事の一部など noteUrl で管理する別規約）には field を注入しない。
+//
+// 同系統: verify-note-magazines(マガジン SoT↔live)・audit-note-funnel --live(CTA 反映 D5)。
+//   いずれも network 依存・低速ゆえ CI ゲートに含めず weekly-review(クラウド)/手動で回す。
+//   note 公開 API は creds 不要（会社 PC プロキシ対策の --ssl-no-revoke を踏襲）。連続取得は
+//   レート制限されるため throttle + retry を入れている。
+//
+// 使い方:
+//   node scripts/verify-note-status.mjs          # 照合レポート（read-only・exit 0）
+//   node scripts/verify-note-status.mjs --fix     # ライブ published に合わせ既存 noteStatus 行を是正
+//   node scripts/verify-note-status.mjs --json     # 結果を JSON で stdout 出力
+
+import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const NOTE_DIR = join(ROOT, 'docs/note');
+const FIX = process.argv.includes('--fix');
+const JSON_OUT = process.argv.includes('--json');
+
+const sleepSync = (sec) => { try { execFileSync('sleep', [String(sec)]); } catch {} };
+
+// docs/note 配下の article.md を再帰収集
+function findArticles(dir) {
+  const out = [];
+  let entries = [];
+  try { entries = readdirSync(dir, { withFileTypes: true }); } catch { return out; }
+  for (const e of entries) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) out.push(...findArticles(p));
+    else if (e.name === 'article.md') out.push(p);
+  }
+  return out;
+}
+
+// frontmatter ブロック（先頭 --- … ---）
+function fmBlock(raw) {
+  const m = raw.match(/^---\n([\s\S]*?)\n---/);
+  return m ? m[1] : '';
+}
+const hasField = (block, k) => new RegExp('^' + k + ':', 'm').test(block);
+const fm = (block, k) => {
+  const m = block.match(new RegExp('^' + k + ':[ \\t]*(?:"(.*?)"|\'(.*?)\'|(.+?))[ \\t]*$', 'm'));
+  return m ? (m[1] ?? m[2] ?? m[3] ?? '').trim() : '';
+};
+
+// note 公開 API のライブ status を返す。'published' / 'draft' 等 / '404'(確定不在) / null(取得不能)
+function fetchLiveStatus(noteId, attempt = 0) {
+  let out = '';
+  try {
+    out = execFileSync('curl', ['-s', '--ssl-no-revoke', '--max-time', '20', `https://note.com/api/v3/notes/${noteId}`], { encoding: 'utf8', maxBuffer: 8 * 1024 * 1024 });
+  } catch { out = ''; }
+  try {
+    const d = JSON.parse(out);
+    const data = d.data || d;
+    if (data && data.status) return data.status;
+    // JSON は取れたが status 無し＝error オブジェクト（不在/非公開）→ 確定 404 扱い（retry しない）
+    return '404';
+  } catch {
+    // 空/非JSON＝throttle or network。最大2回 retry（待ち時間を伸ばす）
+    if (attempt < 2) { sleepSync(1.5 + attempt); return fetchLiveStatus(noteId, attempt + 1); }
+    return null;
+  }
+}
+
+// frontmatter ブロック内の既存 noteStatus 行のみを置換（行末コード保持・注入はしない）
+function setNoteStatus(raw, value) {
+  const m = raw.match(/^(---\n[\s\S]*?\n---)/);
+  if (!m) return raw;
+  const head = m[1];
+  if (!/^noteStatus:.*$/m.test(head)) return raw; // 行が無ければ何もしない
+  return raw.replace(head, head.replace(/^noteStatus:.*$/m, `noteStatus: ${value}`));
+}
+
+const articles = findArticles(NOTE_DIR);
+const drift = [];     // ライブ=published / 既存 noteStatus≠publish（自己修復対象）
+const warn = [];      // noteStatus=publish 主張だがライブ≠published（手動確認）
+const noLive = [];    // noteId 有だが取得不能（throttle/network・予約未live）
+let tracked = 0, untracked = 0, noId = 0, fixedCount = 0;
+
+for (const file of articles) {
+  const raw = readFileSync(file, 'utf8');
+  const block = fmBlock(raw);
+  const rel = file.slice(ROOT.length + 1);
+  if (!hasField(block, 'noteStatus')) { untracked++; continue; } // この値を運用しない記事は対象外
+  tracked++;
+  const noteId = fm(block, 'noteId');
+  const status = fm(block, 'noteStatus');
+  const fmPublished = /publish/i.test(status);
+  if (!noteId) {
+    // URL 未付与。noteStatus が publish 主張なら不整合（公開済みなのに ID 欠落）
+    if (fmPublished) warn.push({ rel, noteId: '(空)', status, live: 'no-id' });
+    continue;
+  }
+  sleepSync(0.4); // throttle（レート制限回避）
+  const live = fetchLiveStatus(noteId);
+  if (live === 'published') {
+    if (!fmPublished) {
+      drift.push({ rel, noteId, status, live });
+      if (FIX) { writeFileSync(file, setNoteStatus(raw, 'published')); fixedCount++; }
+    }
+  } else if (live === null) {
+    noLive.push({ rel, noteId, status });
+  } else { // '404' や 'draft' 等
+    if (fmPublished) warn.push({ rel, noteId, status, live });
+  }
+}
+
+if (JSON_OUT) {
+  console.log(JSON.stringify({ tracked, untracked, noId, drift, warn, noLive, fixed: fixedCount }, null, 2));
+} else {
+  console.log(`[verify-note-status] noteStatus 運用記事 ${tracked} 本を照合（非運用 ${untracked} 本スキップ）`);
+  if (drift.length) {
+    console.log(`\n■ ドリフト（ライブ=published / noteStatus≠publish）: ${drift.length} 本${FIX ? ' → 是正済み' : ''}`);
+    for (const d of drift) console.log(`  ${FIX ? 'FIX ' : 'DRIFT '}[${d.status || '空'}→published] ${d.rel}`);
+    if (!FIX) console.log(`  → 是正するには: npm run verify-note-status -- --fix`);
+  }
+  if (warn.length) {
+    console.log(`\n■ 要確認（noteStatus=publish 主張 / ライブ≠published）: ${warn.length} 本（自動修正しない）`);
+    for (const w of warn) console.log(`  WARN [fm=${w.status} live=${w.live}] ${w.rel}`);
+  }
+  if (noLive.length) {
+    console.log(`\n■ ライブ取得不能 ${noLive.length} 本（throttle/network・予約未live の可能性・再実行で確認）`);
+    for (const n of noLive) console.log(`  - [${n.status}] ${n.rel} (${n.noteId})`);
+  }
+  if (!drift.length && !warn.length && !noLive.length) console.log('  ✓ ドリフトなし（noteStatus とライブが整合）');
+}
+
+process.exit(0); // network 依存ゆえ CI ゲートにはせず常に exit 0

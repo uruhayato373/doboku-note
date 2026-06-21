@@ -17,6 +17,7 @@
     "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-keyword-relations && npm run build-pillar-exam-questions",
     "sales-summary": "node scripts/sales-summary.mjs",
     "verify-note-magazines": "node scripts/verify-note-magazines.mjs",
+    "verify-note-status": "node scripts/verify-note-status.mjs",
     "note-edit-session": "node scripts/note-edit-session.mjs",
     "note-append-cta": "node scripts/note-append-cta.mjs",
     "note-edit-magazine": "node scripts/note-edit-magazine.mjs",
