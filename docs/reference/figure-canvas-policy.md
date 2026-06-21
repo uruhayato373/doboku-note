@@ -41,6 +41,7 @@
 1. viewBox は **`400 500`（feed）か `640 360`（landscape）のいずれか**。それ以外は CI で赤落ち（§3）。
 2. landscape は **必ず `--wide` 接尾辞**を付け、`<ArticleImage>` で埋め込まない。
 3. 色は `svg-tokens.json` の allowlist のみ。濃色背景＋白文字・出典/図表番号の書き込みは禁止（create-svg 準拠）。
+4. **概念名タイトルを図の中に入れない**。SNS は枠レンダラー（`render-figure-sns`）が概念名をヘッダーに出し、記事は見出しが担うため、図内タイトルは SNS 出力で重複する。縦余白は「タイトル」ではなく実体（凡例・比較表・サマリー・要素拡大）で埋める。軸名・区分ラベル等の部分見出しは可。
 4. コミット前に `/check-mdx --rules svg` ＋ `node scripts/check-figure-canvas.mjs`（§3）。
 
 ---

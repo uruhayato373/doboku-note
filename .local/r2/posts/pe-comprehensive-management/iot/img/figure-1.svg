@@ -1,12 +1,11 @@
-<svg width="380" height="446" viewBox="0 0 380 446"
+<svg width="400" height="500" viewBox="0 0 400 500"
      xmlns="http://www.w3.org/2000/svg"
-     style="max-width:380px;width:100%"
+     style="max-width:400px;width:100%"
      role="img"
      aria-label="IoT システムの 4 層アーキテクチャ。下からデバイス層・ネットワーク層・プラットフォーム層・アプリケーション層の順に積層し、物理世界で取得したデータが上位層へ流れる構造を示す。">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
-      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
       .t-layer { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
       .t-role  { font-size: 12px; fill: #555; }
       .t-ex    { font-size: 11px; fill: #8a8a8a; }
@@ -19,43 +18,41 @@
     </marker>
   </defs>
 
-  <text class="t-title" x="190" y="24" text-anchor="middle">IoT システムの 4 層アーキテクチャ</text>
-
   <!-- データの流れ（左側ラベル） -->
-  <text class="t-side" x="15" y="240" text-anchor="middle"
-        transform="rotate(-90 15 240)">データが上位層へ流れる</text>
+  <text class="t-side" x="15" y="255" text-anchor="middle"
+        transform="rotate(-90 15 255)">データが上位層へ流れる</text>
 
   <!-- 第4層 アプリケーション層 -->
-  <rect class="box-brand" x="30" y="40" width="320" height="74" rx="8"/>
-  <text class="t-layer" x="46" y="65">第 4 層　アプリケーション層</text>
-  <text class="t-role"  x="46" y="84">ユーザー向けサービスの提供</text>
-  <text class="t-ex"    x="46" y="101">ダッシュボード・アラート・自動制御</text>
+  <rect class="box-brand" x="30" y="16" width="352" height="90" rx="8"/>
+  <text class="t-layer" x="46" y="44">第 4 層　アプリケーション層</text>
+  <text class="t-role"  x="46" y="66">ユーザー向けサービスの提供</text>
+  <text class="t-ex"    x="46" y="84">ダッシュボード・アラート・自動制御</text>
 
-  <line x1="190" y1="134" x2="190" y2="116" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-up)"/>
+  <line x1="206" y1="126" x2="206" y2="108" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-up)"/>
 
   <!-- 第3層 プラットフォーム層 -->
-  <rect class="box-brand" x="30" y="138" width="320" height="74" rx="8"/>
-  <text class="t-layer" x="46" y="163">第 3 層　プラットフォーム層</text>
-  <text class="t-role"  x="46" y="182">データの蓄積・処理・分析</text>
-  <text class="t-ex"    x="46" y="199">クラウド・エッジコンピューティング・AI</text>
+  <rect class="box-brand" x="30" y="130" width="352" height="90" rx="8"/>
+  <text class="t-layer" x="46" y="158">第 3 層　プラットフォーム層</text>
+  <text class="t-role"  x="46" y="180">データの蓄積・処理・分析</text>
+  <text class="t-ex"    x="46" y="198">クラウド・エッジコンピューティング・AI</text>
 
-  <line x1="190" y1="232" x2="190" y2="214" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-up)"/>
+  <line x1="206" y1="240" x2="206" y2="222" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-up)"/>
 
   <!-- 第2層 ネットワーク層 -->
-  <rect class="box-brand" x="30" y="236" width="320" height="74" rx="8"/>
-  <text class="t-layer" x="46" y="261">第 2 層　ネットワーク層</text>
-  <text class="t-role"  x="46" y="280">データの伝送・中継</text>
-  <text class="t-ex"    x="46" y="297">Wi-Fi・Bluetooth・LPWA・5G</text>
+  <rect class="box-brand" x="30" y="244" width="352" height="90" rx="8"/>
+  <text class="t-layer" x="46" y="272">第 2 層　ネットワーク層</text>
+  <text class="t-role"  x="46" y="294">データの伝送・中継</text>
+  <text class="t-ex"    x="46" y="312">Wi-Fi・Bluetooth・LPWA・5G</text>
 
-  <line x1="190" y1="330" x2="190" y2="312" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-up)"/>
+  <line x1="206" y1="354" x2="206" y2="336" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-up)"/>
 
   <!-- 第1層 デバイス層 -->
-  <rect class="box-brand" x="30" y="334" width="320" height="74" rx="8"/>
-  <text class="t-layer" x="46" y="359">第 1 層　デバイス層</text>
-  <text class="t-role"  x="46" y="378">データの取得とアクチュエータ制御</text>
-  <text class="t-ex"    x="46" y="395">センサー・RFID・カメラ</text>
+  <rect class="box-brand" x="30" y="358" width="352" height="90" rx="8"/>
+  <text class="t-layer" x="46" y="386">第 1 層　デバイス層</text>
+  <text class="t-role"  x="46" y="408">データの取得とアクチュエータ制御</text>
+  <text class="t-ex"    x="46" y="426">センサー・RFID・カメラ</text>
 
   <!-- 物理世界（基盤） -->
-  <rect class="box-surface" x="30" y="418" width="320" height="24" rx="6"/>
-  <text class="t-role" x="190" y="434" text-anchor="middle">物理世界（計測・制御の対象となるモノ）</text>
+  <rect class="box-surface" x="30" y="460" width="352" height="28" rx="6"/>
+  <text class="t-role" x="206" y="478" text-anchor="middle">物理世界（計測・制御の対象となるモノ）</text>
 </svg>
