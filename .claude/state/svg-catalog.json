@@ -9,8 +9,8 @@
     "withHighAudit": 0,
     "figures": {
       "total": 95,
-      "conforming": 2,
-      "needsRework": 93
+      "conforming": 4,
+      "needsRework": 91
     },
     "byCategory": {
       "civil-construction-1": 30,
@@ -204,10 +204,10 @@
       "slug": "textbook-histogram",
       "name": "figure-4-6.svg",
       "concept": "工程能力図: 品質特性値が規格中心付近で時間的に変動する様子を折れ線で示す。上限規格値・規格中心・下限規格値の 3 本の線とデータ点を配置",
-      "viewBox": "0 0 400 260",
-      "aspect": 1.538,
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
       "canvas": "feed",
-      "fitStatus": "needs-rework",
+      "fitStatus": "conforming",
       "hasWideVariant": false,
       "embedded": true,
       "audit": {
@@ -258,10 +258,10 @@
       "slug": "textbook-histogram",
       "name": "figure-4-9.svg",
       "concept": "ヒストグラムの 10 分布パターン (a〜j)。左右対称・ゆとり不足・下限規格値割れ・バラツキ大・左偏り・右偏り・二山・端切れ・端異常高・飛び離れ山。各セルの 2 本の破線は下限規格値・上限規格値",
-      "viewBox": "0 0 400 870",
-      "aspect": 0.46,
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
       "canvas": "feed",
-      "fitStatus": "needs-rework",
+      "fitStatus": "conforming",
       "hasWideVariant": false,
       "embedded": true,
       "audit": {

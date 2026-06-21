@@ -73,10 +73,8 @@
     "scope": ".local/r2/posts/**/img/figure-*.svg",
     "rule": "接尾辞 --wide なら viewBox==[640,360]、それ以外は viewBox==[400,500]",
     "migrationAllowlist": [
-      ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-6.svg",
       ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-7.svg",
       ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-8.svg",
-      ".local/r2/posts/civil-construction-1/textbook-histogram/img/figure-4-9.svg",
       ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-13.svg",
       ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-14.svg",
       ".local/r2/posts/civil-construction-1/textbook-network-schedule/img/figure-3-15.svg",
