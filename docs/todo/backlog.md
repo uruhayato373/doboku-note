@@ -88,46 +88,17 @@
 
 **ゲート登録（最終ステップ・31本完了後）**: `scripts/install-pre-commit.mjs` に `check-guide-length.mjs --staged` を追記 → `npm run pre-commit:install`、`r2-audit.yml` に `npm run check-guide-length` を追加。
 
-### 【完了 2026-06-20】1級土木 テキストページの品質改善（頻出論点Callout是正）
-
-**問題**: ①頻出論点 Callout の内容過多、②記事冒頭に巨大 Callout が来て本文が後回し。
-
-**実施**: `civil-construction-1` textbook の**肥大 Callout 全30本を是正完了**（`civil-textbook-rewriter`）。全ページ共通で **本文先行化**（Callout の前に必ず H2 本文を配置）＋ 列挙/データ/公式を**表・SpecSheetList・散文へ移行**＋ Callout は**節直前の引っかけ1〜2点（概ね最大3〜6行）**に圧縮＋ **§7「1記事3個以内」準拠**。試験必須事実（条番号・数値・公式）・KaTeX・ArticleImage・SVG は全保持、CRLF維持・U+FFFD 0、pre-commit 全通過。
-- **最優先帯（12〜16行）8本**: site-investigation / law-compliance / river-act / demolition / road-act / surveying-basics / leveling / distance-angle
-- **8〜11行帯 22本**: network-schedule / management-subplans / labor-standards / explosives-act / construction-mgmt-overview / machinery-overview / machinery-structure / building-standards / transport-machinery / tractor-bulldozer / standard-contract / shovel-excavator / quality-overview / control-chart / construction-plan-overview / construction-business / work-scheduling / schedule-overview / schedule-charts / quality-inspection / loader / grader-compaction / port-regulations
-- commit 群: 7ec40082b〜（pilot）… 各 batch（develop 反映済）
-
-**残（別タスク・低優先）**: textbook 画像の品質監査（`civil-construction-qa`）は別項目「過去問・テキストの図クロップ品質整備」で扱う。
-
-**参考**: `https://doboku-note.com/docs/civil-construction-1-textbook-site-investigation`
-
 ---
 
 ### 過去問・テキストの図クロップ品質整備 🟡
 
-**緊急度高（画像ゼロなのに「下図」参照あり）**:
+**残タスク**（完了分は git 履歴: 2級 r03/r07 図クロップ=`c213be9af`／1級ネットワーク工程表 h26・h27・h29-b 補完=`6f296bf70`〜。緊急度高だった r03/r07 の画像ゼロは解消済）:
 
-| ページ | 図参照行数 | 画像枚数 |
-|---|---|---|
-| `civil-construction-2/primary-r03-kouki` | 5行 | 0枚 |
-| `civil-construction-2/primary-r07-kouki` | 7行 | 0枚 |
+1. 2級 primary 残り（r04-r06・前期等）の図参照を点検・補完
+2. pe-first-stage 欠落疑い 4本を確認・補完
+3. 図クロップ**品質監査**（欠落でなく品質）— 1級 primary 16本＝`civil-exam-figure-auditor`／1級 textbook 10本＝`civil-construction-qa`。優先度低
 
-**品質チェック未実施**:
-
-| 分類 | ページ数 | 担当エージェント |
-|---|---|---|
-| 1級土木 primary（H26〜R07） | 16本 | `civil-exam-figure-auditor` |
-| 2級土木 primary（R03〜R07） | 8本 | 未整備 |
-| 1級土木 textbook | 10本 | `civil-construction-qa` |
-| pe-first-stage（欠落疑い 4本） | 4本 | 未整備 |
-
-**ソース PDF の所在**（2026-06-20 訂正）: 当初「PDF 不在でブロック」と誤記したが、実際は `docs/textbook/２級土木施工管理技士/過去問/R03〜R07/`（前期/後期/二次・正答付き）に全年度が存在。1級も `docs/textbook/１級土木施工管理技士/` 等にあり。`.claude/pdfs/` だけを見て早合点しないこと。
-
-**着手順**:
-1. ✅ **完了 2026-06-20**：2級 r03-kouki・r07-kouki に図クロップを追加（commit `c213be9af`）。`R03/R07_第一次検定_後期.pdf` を pdftoppm で 200dpi レンダリング→magick で crop+trim→webp(q80)。r03 5図（土留め工/水準測量/道路橋断面/工程表/管理図）、r07 7図（土の構成模式図/単純梁/力のモーメント/定常流れ管/基礎の種類/鋼道路橋/工程表）。下図参照数=ArticleImage 数で一致。
-2. 1級 primary は概ね図埋め込み済みだが、**ネットワーク工程表図が h26-b・h27-b・h29-b で欠落**していた（下図参照あり・画像なし）。→ ✅ **完了 2026-06-21**（commit `6f296bf70`〜`ae10003e8`）：年度別PDF不在のため `問題集/１級土木施工管理第１次試験問題集.pdf`（616p・論点別に過去問再録）を図ソースに、h29-b は p250 からクロップ（webp）、h26-b/h27-b は問題集に図つき設問の収録が無く素図SVGで補完。**過去問の問題図に解答情報（CP強調・正答・集計サマリー）を入れない**原則に従い、CP強調図は解説 `<details>` 内へ分離（[[exam-problem-figure-no-answer]]）。h29-b は設問・選択肢・正答のデータ破損も p250 を真実源に是正。**残る「欠落でなくクロップ品質の監査」**（`civil-exam-figure-auditor`・16本）は優先度低のまま。
-3. 2級 primary 残り（r04-r06・前期等）の図参照を同手順で点検・補完（ソース PDF は `docs/textbook/２級土木施工管理技士/過去問/`）
-4. pe-first-stage 4本の欠落疑いを確認・補完
+**ソース PDF**: `docs/textbook/{１級,２級}土木施工管理技士/`（年度別・論点別／正答付き）。`.claude/pdfs/` だけ見て「PDF不在」と早合点しない（2026-06-20 訂正）。手順=pdftoppm 200dpi→magick crop+trim→webp(q80)。**過去問の問題図に解答情報を入れない**（CP強調図は解説 `<details>` 内へ＝[[exam-problem-figure-no-answer]]）。
 
 ---
 
@@ -160,10 +131,6 @@
 **ワークリスト（対象24枚・元PDFリファレンス・状態）**: [textbook-image-colorization.md](textbook-image-colorization.md)（2026-06-20 作成）。
 
 **決定方針（2026-06-20）**: PDF の機械イラストはメーカー提供写真（コマツ/酒井重工業/トプコン等）が多く切出し使用は著作権 NG のため、**(C) Gemini/GPT でオリジナルのカラーイラストを生成して差し替える**（元PDFは形状リファレンスのみ）。**有料 → 着手前に必ずユーザー確認**（[[gemini-cost-confirm]]）。当面 web 写真は据え置き、生成画像が揃い次第入れ替え。**パイロット**＝`textbook-grader-compaction`（5枚）でスタイル/コスト確定 → 全24枚。手順・対象はワークリスト参照。
-
-### 【完了 2026-06-20】pe-construction カテゴリページの過去問マトリクスをモバイル対応に刷新
-
-**実施**: 案C（レスポンシブ二重レイアウト）で実装・develop マージ済（[PR #267](https://github.com/uruhayato373/doboku-note/pull/267)）。モバイル＝科目カード縦積み＋年度ボタングリッド（横スクロール解消・タップ領域拡大）、デスクトップ＝現状マトリクス維持。`PeConstructionExamTable` の外科的変更。build pass で SSR 検証済。
 
 ---
 
@@ -237,29 +204,6 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ## 2. UI / UX
 
-### 【完了 2026-06-20】過去問ページの右サイドバー目次（TOC）を廃止し設問グリッドナビに置換
-
-**実施**:
-- 短期: `primary`/`secondary` の TOC 非表示 — ✅ PR #266（develop マージ済）
-- 中期: 問番号ナビゲーター `ExamQuestionNav`（設問番号グリッド・`## 問題 No.N` → `#問題-noN` アンカージャンプ）を `primary` 右サイドバーに実装 — ✅ commit `b9ad2eb3d`。headings から番号抽出、タップ域36pxボタン、r07-a 66設問でアンカー整合確認。
-
-**新規コンポーネント**: `src/components/ui/ExamQuestionNav/ExamQuestionNav.tsx`（実装済）
-
----
-
-### 【完了 2026-06-20】関連記事セクションのレイアウト統一 — RelatedArticles コンポーネントへ全面移行
-
-**実施**:
-1. **コンポーネント実装**: `RelatedArticles`（[RelatedArticles.tsx](../../src/components/ui/RelatedArticles/RelatedArticles.tsx)）新設。category × トピックタグ共通数で同カテゴリ近傍を自動ランク→カード描画。**関連2件未満は自動 null**（タグ薄い過去問・既存 RelatedTextbooks/RelatedKeywords/SectionKeywords との重複回避）。commit `021359e1f`
-2. **配置**: page.tsx で AuthorCard の前に全資格・全記事種別共通配線。
-3. **MDX 一括除去**: 直書き `## 関連記事`/`## 関連コンテンツ` の見出し＋箇条書きリンクを**28本**から除去（`.tmp/strip-related-sections.mjs`）。`<MagazineCard>`(収益CTA)・`<RelatedKeywords>`(複数行curated) は丸ごと保全。commit `9abf32188`
-4. **`<RelatedKeywords>` リンク先修正**（2級 4本→分野別ガイド統一）も完了済み。
-
-**検証**: 全28本 HTTP 200・可視「関連記事」h2 重複なし・CEM keyword は自動 null・U+FFFD 0・CRLF 維持・refresh-indexes 反映。
-**残（任意）**: site-wide で関連度の目視スポット確認（develop 上・未 deploy）。
-
----
-
 ### AuthorCard の資格別カスタマイズ + 右サイドバー配置 🟡
 
 **問題**: `AUTHOR.noteLabel` / `AUTHOR.noteUrl` が全資格で総監リンクにハードコード（`src/config/author.ts`）
@@ -276,29 +220,15 @@ Hero → ExamCards → LatestArticles → AboutSection
 
 ---
 
-### 【完了 2026-06-20】カテゴリページ右サイドバーに note リンクを追加
+### カテゴリページの記事一覧をブログカード化 🟢
 
-**実施**: 冒頭全幅 note CTA グリッドを PC 右サイドバー上部へ集約（`MagazineSidebarPromoCard` 新設・上位3マガジン）。カラム化判定を `hasSidebar = Boolean(careerSidebar) || hubMagazines.length > 0` 化し、転職枠の無いカテゴリでも magazines があれば右サイドバーを表示。モバイルは記事一覧の下にフォールバック。commit `311dfdd8a`（実装）/ `aa0ed5ad8`（アフィリ doc 追従）。`src/app/category/[slug]/page.tsx`。
-
----
-
-### カテゴリページ全面 UI 刷新：ブログカード化 + 全資格サイドバー 🟢
-
-**参考**: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）のブログカード一覧 + 右サイドバーデザイン
-
-**やること**:
-1. 記事一覧を `BlogDocCard`（サムネイル OGP 画像 + タイトル + 概要）に刷新 ← 残課題
-2. ~~右サイドバーを全資格カテゴリに拡張~~ ← **✅ 完了 2026-06-20**（上記「右サイドバーに note リンク追加」で `hasSidebar` 化済。残るは記事一覧のブログカード化のみ）
-
-**実装**: `src/app/category/[slug]/page.tsx`（DocCard → BlogDocCard）
+記事一覧を `BlogDocCard`（サムネイル OGP 画像 + タイトル + 概要）に刷新。右サイドバー全資格拡張は完了済（`hasSidebar` 化）。参考: ソーシャルPLUS ブログ（`docs/todo/reference-sites.md`）。実装: `src/app/category/[slug]/page.tsx`（DocCard → BlogDocCard）。
 
 ---
 
-### 【完了 2026-06-20】書籍アフィリエイト（BookCard）の休止対応
+### 書籍アフィリエイト（BookCard）— 審査通過後に再有効化 🟡
 
-**実施**: コメントアウトではなく単一フラグ化で解決（commit `284b840f5`）。`src/config/affiliate-flags.ts` の `AFFILIATE_LINKS_ENABLED=false` を `BookCard`・`BookSection` 双方が参照し、休止中は枠ごと非表示。BookCard は元々 null だったが BookSection が空の「参考書籍」見出し+キャプションを残していた不具合を解消。docs/homepage/MDX直書き全サーフェスで参考書籍=0 を確認。page.tsx / MDX の `<BookSection>`/`<BookCard>` 配置はそのまま残し、審査通過後に `true` へ戻すだけで全復活。
-
-**中期（残）**: アソシエイト審査通過後にフラグを `true` に戻し、再設計（[トップページ下部デザイン統一](#) と連動）。
+アソシエイト審査通過後に `src/config/affiliate-flags.ts` の `AFFILIATE_LINKS_ENABLED` を `true` に戻す（現在 false で `BookCard`/`BookSection` を枠ごと非表示・commit `284b840f5`）。再有効化時は「トップページ下部デザイン統一」と連動して再設計。
 
 ---
 
