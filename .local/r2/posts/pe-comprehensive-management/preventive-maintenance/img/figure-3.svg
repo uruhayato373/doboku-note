@@ -1,0 +1,120 @@
+<svg viewBox="0 0 400 500" role="img" aria-label="バスタブ曲線：初期故障期（左）で高い故障率が急減し、偶発故障期（中央）で一定低水準を保ち、摩耗故障期（右）で再上昇する故障率の時系列変化と各期間の保全戦略" style="max-width:400px;width:100%" xmlns="http://www.w3.org/2000/svg">
+<style>
+  text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #222; }
+  .axis-label { font-size: 11px; fill: #555; }
+  .period-label { font-size: 13px; font-weight: bold; }
+  .cell-title { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+  .cell-body { font-size: 11px; fill: #555; }
+  .caption { font-size: 11px; fill: #8a8a8a; }
+</style>
+
+<!-- 定義: 矢印マーカー -->
+<defs>
+  <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+  </marker>
+</defs>
+
+<!-- ===== グラフ背景エリア ===== -->
+<!-- グラフ描画領域: x=55..380, y=18..275 -->
+
+<!-- 期間バンド -->
+<!-- 初期故障期バンド (warn) -->
+<rect x="55" y="18" width="90" height="257" fill="#fff3cd" stroke="none"/>
+<!-- 偶発故障期バンド (positive) -->
+<rect x="145" y="18" width="130" height="257" fill="#d0e8d0" stroke="none"/>
+<!-- 摩耗故障期バンド (danger) -->
+<rect x="275" y="18" width="105" height="257" fill="#f8d7da" stroke="none"/>
+
+<!-- グラフ外枠 -->
+<rect x="55" y="18" width="325" height="257" fill="none" stroke="#d7d7d7" stroke-width="1"/>
+
+<!-- 期間バンドの区切り線 -->
+<line x1="145" y1="18" x2="145" y2="275" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="4,3"/>
+<line x1="275" y1="18" x2="275" y2="275" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="4,3"/>
+
+<!-- ===== 期間ラベル（バンド上部）===== -->
+<text x="100" y="36" class="period-label" fill="#d4a017" text-anchor="middle">初期故障期</text>
+<text x="210" y="36" class="period-label" fill="#3a7d44" text-anchor="middle">偶発故障期</text>
+<text x="327" y="36" class="period-label" fill="#b22234" text-anchor="middle">摩耗故障期</text>
+
+<!-- DFR / CFR / IFR ラベル -->
+<text x="100" y="50" text-anchor="middle" class="axis-label" fill="#d4a017">（DFR）</text>
+<text x="210" y="50" text-anchor="middle" class="axis-label" fill="#3a7d44">（CFR）</text>
+<text x="327" y="50" text-anchor="middle" class="axis-label" fill="#b22234">（IFR）</text>
+
+<!-- ===== バスタブ曲線 ===== -->
+<!--
+  グラフ座標系: x=[55,380] y=[60,265] (故障率高=y小, 低=y大)
+  左端 (x=55) で高い → 中央 (x=145〜275) で低く水平 → 右端 (x=380) で上昇
+  制御点を調整してバスタブ形にする
+-->
+<path
+  d="M 55 68
+     C 80 68, 110 230, 145 238
+     L 275 238
+     C 305 238, 340 160, 380 68"
+  fill="none"
+  stroke="#2e6da4"
+  stroke-width="3"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+/>
+
+<!-- ===== 軸 ===== -->
+<!-- Y軸 -->
+<line x1="55" y1="275" x2="55" y2="15" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+<!-- X軸 -->
+<line x1="55" y1="275" x2="383" y2="275" stroke="#555" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+<!-- 軸ラベル -->
+<text x="8" y="148" class="axis-label" text-anchor="middle" transform="rotate(-90,8,148)">故障率 λ(t)</text>
+<text x="310" y="290" class="axis-label" text-anchor="middle">時間（使用期間）</text>
+
+<!-- ===== 下部サマリーテーブル ===== -->
+<!-- テーブル外枠 -->
+<rect x="5" y="295" width="390" height="185" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+
+<!-- 初期故障期セル -->
+<rect x="10" y="300" width="120" height="175" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+<text x="70" y="318" class="cell-title" text-anchor="middle" fill="#d4a017">初期故障期</text>
+<line x1="10" y1="322" x2="130" y2="322" stroke="#d4a017" stroke-width="0.8"/>
+<text x="20" y="338" class="cell-body" fill="#555">特性: 故障率が</text>
+<text x="20" y="352" class="cell-body" fill="#555">　　 急速に減少</text>
+<text x="20" y="372" class="cell-body" fill="#555">主因: 製造欠陥</text>
+<text x="20" y="386" class="cell-body" fill="#555">　　 初期不良</text>
+<text x="20" y="406" class="cell-body" fill="#555">対策: 初期点検</text>
+<text x="20" y="420" class="cell-body" fill="#555">　　 バーンイン</text>
+<text x="20" y="434" class="cell-body" fill="#555">　　（慣らし運転）</text>
+<text x="20" y="452" class="cell-body" fill="#555">　　 出荷前試験</text>
+
+<!-- 偶発故障期セル -->
+<rect x="140" y="300" width="120" height="175" rx="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+<text x="200" y="318" class="cell-title" text-anchor="middle" fill="#3a7d44">偶発故障期</text>
+<line x1="140" y1="322" x2="260" y2="322" stroke="#3a7d44" stroke-width="0.8"/>
+<text x="150" y="338" class="cell-body" fill="#555">特性: 故障率が</text>
+<text x="150" y="352" class="cell-body" fill="#555">　　 ほぼ一定</text>
+<text x="150" y="372" class="cell-body" fill="#555">主因: 偶発的外力</text>
+<text x="150" y="386" class="cell-body" fill="#555">　　 過負荷</text>
+<text x="150" y="406" class="cell-body" fill="#555">対策: 事後保全</text>
+<text x="150" y="420" class="cell-body" fill="#555">　　（BM）</text>
+<text x="150" y="434" class="cell-body" fill="#555">　　 予備品確保</text>
+<text x="150" y="452" class="cell-body" fill="#555">※PM効果は薄い</text>
+
+<!-- 摩耗故障期セル -->
+<rect x="270" y="300" width="120" height="175" rx="4" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+<text x="330" y="318" class="cell-title" text-anchor="middle" fill="#b22234">摩耗故障期</text>
+<line x1="270" y1="322" x2="390" y2="322" stroke="#b22234" stroke-width="0.8"/>
+<text x="280" y="338" class="cell-body" fill="#555">特性: 故障率が</text>
+<text x="280" y="352" class="cell-body" fill="#555">　　 急速に増加</text>
+<text x="280" y="372" class="cell-body" fill="#555">主因: 劣化・摩耗</text>
+<text x="280" y="386" class="cell-body" fill="#555">　　 疲労破壊</text>
+<text x="280" y="406" class="cell-body" fill="#555">対策: 予防保全</text>
+<text x="280" y="420" class="cell-body" fill="#555">　　（PM）</text>
+<text x="280" y="434" class="cell-body" fill="#555">　　 計画的更新</text>
+<text x="280" y="452" class="cell-body" fill="#555">　　 寿命前交換</text>
+
+<!-- キャプション -->
+<text x="200" y="492" class="caption" text-anchor="middle">予防保全が効くのは摩耗故障期。偶発故障期では効果が薄い</text>
+
+</svg>

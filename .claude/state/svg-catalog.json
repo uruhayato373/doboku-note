@@ -2,19 +2,19 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": ".local/r2/posts/**/img/*.svg",
   "summary": {
-    "total": 194,
+    "total": 196,
     "embedded": 143,
-    "orphan": 51,
+    "orphan": 53,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 95,
-      "conforming": 95,
+      "total": 98,
+      "conforming": 98,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 30,
-      "pe-comprehensive-management": 164
+      "pe-comprehensive-management": 166
     }
   },
   "entries": [
@@ -32,7 +32,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -50,7 +50,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -68,7 +68,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -86,7 +86,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -104,7 +104,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -176,7 +176,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -356,7 +356,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -374,7 +374,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -392,7 +392,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -410,7 +410,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -447,7 +447,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -464,7 +464,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -483,7 +483,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 8
+        "low": 0
       }
     },
     {
@@ -501,7 +501,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 15
+        "low": 0
       }
     },
     {
@@ -519,7 +519,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 20
+        "low": 0
       }
     },
     {
@@ -572,8 +572,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -680,7 +680,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -698,8 +698,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 3
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -716,8 +716,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 11
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -752,7 +752,7 @@
       "embedded": false,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -770,8 +770,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -842,8 +842,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -878,8 +878,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -896,8 +896,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 16
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -986,8 +986,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1004,8 +1004,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1076,8 +1076,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1238,7 +1238,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 6,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1418,8 +1418,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 13
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1527,7 +1527,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 21
+        "low": 0
       }
     },
     {
@@ -1578,6 +1578,24 @@
       "fitStatus": "conforming",
       "hasWideVariant": false,
       "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/exam-application-guide/img/figure-5-management-system.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "exam-application-guide",
+      "name": "figure-5-management-system.svg",
+      "concept": "総合技術監理と5つの管理の体系：頂点に総合技術監理（全体最適・トレードオフ調整）を置き、経済性管理・人的資源管理・情報管理・安全管理・社会環境管理の5つが接続され、各管理の主要3要素を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": false,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -1671,7 +1689,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 10
+        "low": 0
       }
     },
     {
@@ -1706,8 +1724,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 11,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1886,8 +1904,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 18
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1904,8 +1922,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 16
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1922,8 +1940,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 3,
-        "low": 18
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1940,8 +1958,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 9
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1958,8 +1976,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 5,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1976,8 +1994,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 9,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1994,8 +2012,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2012,8 +2030,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 7
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2030,8 +2048,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 11
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2048,7 +2066,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2066,8 +2084,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 20
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2084,8 +2102,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 5
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2102,8 +2120,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 39
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2120,8 +2138,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2138,8 +2156,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 29
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2247,7 +2265,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -2269,15 +2287,15 @@
       }
     },
     {
-      "file": ".local/r2/posts/pe-comprehensive-management/industrial-property-rights/img/ip-laws-system.svg",
+      "file": ".local/r2/posts/pe-comprehensive-management/industrial-property-rights/img/figure-2.svg",
       "category": "pe-comprehensive-management",
       "slug": "industrial-property-rights",
-      "name": "ip-laws-system.svg",
+      "name": "figure-2.svg",
       "concept": "知的財産権関連法規の体系：知的創作物（発明・考案・意匠・著作物等）と営業上の標識（商標・商号等）の二大区分。産業財産権法 4 法（特許・実用新案・意匠・商標）を ★ で示す",
-      "viewBox": "0 0 400 540",
-      "aspect": 0.741,
-      "canvas": null,
-      "fitStatus": "n/a",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
       "hasWideVariant": false,
       "embedded": true,
       "audit": {
@@ -2336,8 +2354,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2354,8 +2372,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 4
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2480,7 +2498,7 @@
       "embedded": false,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2498,8 +2516,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 18
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2624,7 +2642,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2642,8 +2660,8 @@
       "embedded": false,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 12
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2679,7 +2697,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 2
+        "low": 0
       }
     },
     {
@@ -2804,7 +2822,7 @@
       "embedded": false,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2930,7 +2948,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3007,6 +3025,24 @@
       }
     },
     {
+      "file": ".local/r2/posts/pe-comprehensive-management/preventive-maintenance/img/figure-3.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "preventive-maintenance",
+      "name": "figure-3.svg",
+      "concept": "バスタブ曲線：初期故障期（左）で高い故障率が急減し、偶発故障期（中央）で一定低水準を保ち、摩耗故障期（右）で再上昇する故障率の時系列変化と各期間の保全戦略",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": false,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": ".local/r2/posts/pe-comprehensive-management/process-capability-index/img/normal-distribution-3sigma.svg",
       "category": "pe-comprehensive-management",
       "slug": "process-capability-index",
@@ -3020,8 +3056,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3038,8 +3074,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 10
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3056,8 +3092,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 2,
-        "low": 14
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3074,7 +3110,7 @@
       "embedded": false,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3362,8 +3398,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 6
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3380,8 +3416,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3488,7 +3524,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
