@@ -1,0 +1,88 @@
+#!/usr/bin/env node
+// note 公開ドラフト（docs/note/**/*.md）内の「doboku-note.com/docs/ サイト送客リンク」が
+// UTM 規約に従っているかを検証する。
+//
+// 規約（真実源: docs/project/03_SNS/02_チャネル動線設計.md）:
+//   - サイト送客リンクは「アンカー文言付きインライン」 [テキスト](url?utm…) で張る。
+//   - インラインリンクの URL には utm_source=note を必ず付ける。
+//   - 生 URL を単独行/オートリンク（<url>）で置かない。/note-publish が自動でリンクカード化し
+//     UTM が落ちるため（note のカードは UTM 付き URL で安定生成されない）。
+//
+// 検出する違反:
+//   [bare-url]  </? https://doboku-note.com/docs/...> もしくは裸の URL（](… でない） … カード化で UTM 消失
+//   [utm-missing] [テキスト](https://doboku-note.com/docs/...) だが utm_source=note が無い
+//
+// note.com/ のマガジン CTA（note 内部リンク）は対象外（UTM 不要）。doboku-note.com/docs/ のみ対象。
+//
+// 使い方:
+//   node scripts/check-note-site-utm.mjs            # docs/note 全体を監査（--all 相当）
+//   node scripts/check-note-site-utm.mjs --staged   # git staged の docs/note/*.md のみ（pre-commit 用）
+//   SKIP_NOTE_UTM=1 で回避（既存違反のバーンダウン中など）
+// 違反 1 件でも exit 1。
+
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { execFileSync } from 'node:child_process';
+
+if (process.env.SKIP_NOTE_UTM === '1') {
+  console.log('[check-note-site-utm] SKIP_NOTE_UTM=1 のためスキップ');
+  process.exit(0);
+}
+
+const STAGED = process.argv.includes('--staged');
+const ROOT = 'docs/note';
+
+function walk(dir, acc) {
+  if (!existsSync(dir)) return acc;
+  for (const name of readdirSync(dir)) {
+    const p = join(dir, name);
+    const st = statSync(p);
+    if (st.isDirectory()) walk(p, acc);
+    else if (/\.md$/.test(p)) acc.push(p);
+  }
+  return acc;
+}
+
+let files;
+if (STAGED) {
+  files = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8' })
+    .split('\n')
+    .filter((f) => f.startsWith('docs/note/') && /\.md$/.test(f) && existsSync(f));
+} else {
+  files = walk(ROOT, []);
+}
+
+// `](url)` のインライン / それ以外（裸 or <url>）を 1 パスで分類する。
+// group1 = "](" があればインライン、無ければ裸URL（<url> 含む）。
+const RE = /(\]\()?<?(https?:\/\/doboku-note\.com\/docs\/[^\s)>]+)/g;
+
+const problems = [];
+for (const f of files) {
+  const lines = readFileSync(f, 'utf8').split('\n');
+  lines.forEach((line, i) => {
+    let m;
+    RE.lastIndex = 0;
+    while ((m = RE.exec(line)) !== null) {
+      const inline = Boolean(m[1]);
+      const url = m[2];
+      if (inline) {
+        if (!url.includes('utm_source=note')) {
+          problems.push(`${f}:${i + 1} [utm-missing] ${url}`);
+        }
+      } else {
+        problems.push(`${f}:${i + 1} [bare-url] ${url}`);
+      }
+    }
+  });
+}
+
+if (problems.length) {
+  console.error(`[check-note-site-utm] ✗ UTM 規約違反のサイト送客リンク ${problems.length} 件:`);
+  for (const p of problems) console.error('  ' + p);
+  console.error('\n対処: サイト送客リンクは [テキスト](https://doboku-note.com/docs/{slug}?utm_source=note&utm_medium=inline&utm_campaign={記事slug}&utm_content={送客先}) のインライン形式にする。');
+  console.error('生 URL 単独行は /note-publish がカード化し UTM が落ちる。真実源: docs/project/03_SNS/02_チャネル動線設計.md');
+  console.error('（既存違反のバーンダウン中は SKIP_NOTE_UTM=1 で一時回避可）');
+  process.exit(1);
+}
+
+console.log(`[check-note-site-utm] ✓ ${files.length} ファイルのサイト送客リンクは UTM 規約に適合`);

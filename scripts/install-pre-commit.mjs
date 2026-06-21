@@ -95,6 +95,12 @@ node scripts/check-figure-canvas.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
+
+# note→サイト送客リンクの UTM 規約（生URL単独行=カード化でUTM消失 / inline は utm_source=note 必須）。SKIP_NOTE_UTM=1 で回避
+node scripts/check-note-site-utm.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
 `;
 
 if (!existsSync(HOOKS_DIR)) {
