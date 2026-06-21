@@ -2,19 +2,19 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": ".local/r2/posts/**/img/*.svg",
   "summary": {
-    "total": 196,
+    "total": 199,
     "embedded": 143,
-    "orphan": 53,
+    "orphan": 56,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 98,
-      "conforming": 98,
+      "total": 101,
+      "conforming": 101,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 30,
-      "pe-comprehensive-management": 166
+      "pe-comprehensive-management": 169
     }
   },
   "entries": [
@@ -559,6 +559,24 @@
       }
     },
     {
+      "file": ".local/r2/posts/pe-comprehensive-management/accident-response-drill/img/figure-1.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "accident-response-drill",
+      "name": "figure-1.svg",
+      "concept": "事故・緊急事態対応タイムライン。発生・覚知から初動対応・応急対応・復旧・検証再発防止まで5フェーズを縦に並べ、検証が訓練へ還元される循環構造を示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": false,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": ".local/r2/posts/pe-comprehensive-management/activity-abc/img/abc-two-stage-allocation.svg",
       "category": "pe-comprehensive-management",
       "slug": "activity-abc",
@@ -798,6 +816,24 @@
       "slug": "carbon-neutral",
       "name": "figure-1.svg",
       "concept": "カーボンニュートラル達成の3ステップと残存CO₂処理技術CCS・BECCS・DACCSを縦積みで示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": false,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/carbon-neutral/img/figure-2.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "carbon-neutral",
+      "name": "figure-2.svg",
+      "concept": "カーボンニュートラル工程表。2013年度基準年から2020年宣言・2021年法制化・2023年GX推進法・2030年度46%削減中間目標・2050年ネットゼロまでを縦タイムラインと右側排出量イメージバーで示した図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -1374,6 +1410,24 @@
       "slug": "environmental-basic-act",
       "name": "figure-1.svg",
       "concept": "環境保全の基本5原則とPPP/EPR。EPR・PPPの経済系2原則、予防的措置・順応的取組の予防系2原則、源流対策・協働・補完性の実施系3原則をカード縦並びで示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": false,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": ".local/r2/posts/pe-comprehensive-management/environmental-basic-act/img/figure-2.svg",
+      "category": "pe-comprehensive-management",
+      "slug": "environmental-basic-act",
+      "name": "figure-2.svg",
+      "concept": "環境基本法を頂点とした日本の環境法令体系ツリー。直下に環境基本計画を配置し、その下に公害規制・循環型社会・自然共生・横断的手法の4系統に分岐して代表法令を列挙した階層図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
