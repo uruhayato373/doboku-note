@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 570" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="リスク認知の5バイアス。正常性・楽観主義・カタストロフィー・ベテラン・バージンの各バイアスを定義とともに縦並びカードで示した図">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="リスク認知の5バイアス。正常性・楽観主義・カタストロフィー・ベテラン・バージンの各バイアスを定義とともに縦並びカードで示した図">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -15,63 +15,59 @@
     </style>
   </defs>
 
-  <!-- title -->
-  <text class="t-title" x="200" y="26" text-anchor="middle">リスク認知の5バイアス</text>
-  <text class="t-sub" x="200" y="46" text-anchor="middle">認知の歪みがリスク評価を誤らせる</text>
+  <!-- サブタイトル：概念名除去・説明のみ残す -->
+  <text class="t-sub" x="200" y="16" text-anchor="middle">認知の歪みがリスク評価を誤らせる</text>
 
   <!-- 1 正常性バイアス -->
-  <!-- semantic: brand = リスク過小評価傾向 -->
-  <rect class="box-brand" x="20" y="58" width="360" height="82" rx="8"/>
-  <circle class="badge-brand" cx="50" cy="92" r="16"/>
-  <text class="t-num" x="50" y="97" text-anchor="middle">1</text>
-  <text class="t-name" x="76" y="83">正常性バイアス</text>
-  <text class="t-def" x="76" y="103">異常を示す情報も「正常な範囲」と</text>
-  <text class="t-def" x="76" y="120">解釈しようとする偏向</text>
-  <text class="t-tag" x="376" y="130" text-anchor="end">過小評価</text>
+  <rect class="box-brand" x="20" y="24" width="360" height="76" rx="8"/>
+  <circle class="badge-brand" cx="50" cy="56" r="16"/>
+  <text class="t-num" x="50" y="61" text-anchor="middle">1</text>
+  <text class="t-name" x="76" y="48">正常性バイアス</text>
+  <text class="t-def" x="76" y="67">異常を示す情報も「正常な範囲」と</text>
+  <text class="t-def" x="76" y="84">解釈しようとする偏向</text>
+  <text class="t-tag" x="376" y="92" text-anchor="end">過小評価</text>
 
   <!-- 2 楽観主義バイアス -->
-  <!-- semantic: brand = リスク過小評価傾向 -->
-  <rect class="box-brand" x="20" y="152" width="360" height="82" rx="8"/>
-  <circle class="badge-brand" cx="50" cy="186" r="16"/>
-  <text class="t-num" x="50" y="191" text-anchor="middle">2</text>
-  <text class="t-name" x="76" y="177">楽観主義バイアス</text>
-  <text class="t-def" x="76" y="197">心理的ストレスを回避するため、</text>
-  <text class="t-def" x="76" y="214">楽観的な方向に見ようとする偏向</text>
-  <text class="t-tag" x="376" y="224" text-anchor="end">過小評価</text>
+  <rect class="box-brand" x="20" y="108" width="360" height="76" rx="8"/>
+  <circle class="badge-brand" cx="50" cy="140" r="16"/>
+  <text class="t-num" x="50" y="145" text-anchor="middle">2</text>
+  <text class="t-name" x="76" y="132">楽観主義バイアス</text>
+  <text class="t-def" x="76" y="151">心理的ストレスを回避するため、</text>
+  <text class="t-def" x="76" y="168">楽観的な方向に見ようとする偏向</text>
+  <text class="t-tag" x="376" y="176" text-anchor="end">過小評価</text>
 
   <!-- 3 カタストロフィー・バイアス -->
-  <!-- semantic: warn = リスク過大評価傾向（特殊・唯一） -->
-  <rect class="box-warn" x="20" y="246" width="360" height="82" rx="8"/>
-  <circle class="badge-warn" cx="50" cy="280" r="16"/>
-  <text class="t-num" x="50" y="285" text-anchor="middle">3</text>
-  <text class="t-name" x="76" y="271">カタストロフィー・バイアス</text>
-  <text class="t-def" x="76" y="291">まれにしか起きないが壊滅的な</text>
-  <text class="t-def" x="76" y="308">被害をもたらすリスクを過大評価する偏向</text>
-  <text class="t-tag" x="376" y="318" text-anchor="end">過大評価</text>
+  <rect class="box-warn" x="20" y="192" width="360" height="76" rx="8"/>
+  <circle class="badge-warn" cx="50" cy="224" r="16"/>
+  <text class="t-num" x="50" y="229" text-anchor="middle">3</text>
+  <text class="t-name" x="76" y="216">カタストロフィー・バイアス</text>
+  <text class="t-def" x="76" y="235">まれにしか起きないが壊滅的な</text>
+  <text class="t-def" x="76" y="252">被害をもたらすリスクを過大評価する偏向</text>
+  <text class="t-tag" x="376" y="260" text-anchor="end">過大評価</text>
 
   <!-- 4 ベテランバイアス -->
-  <!-- semantic: brand = リスク過小評価傾向 -->
-  <rect class="box-brand" x="20" y="340" width="360" height="82" rx="8"/>
-  <circle class="badge-brand" cx="50" cy="374" r="16"/>
-  <text class="t-num" x="50" y="379" text-anchor="middle">4</text>
-  <text class="t-name" x="76" y="365">ベテランバイアス</text>
-  <text class="t-def" x="76" y="385">豊富な経験を優先し、現在の状況を</text>
-  <text class="t-def" x="76" y="402">十分考慮せずに判断する偏向</text>
-  <text class="t-tag" x="376" y="412" text-anchor="end">過小評価</text>
+  <rect class="box-brand" x="20" y="276" width="360" height="76" rx="8"/>
+  <circle class="badge-brand" cx="50" cy="308" r="16"/>
+  <text class="t-num" x="50" y="313" text-anchor="middle">4</text>
+  <text class="t-name" x="76" y="300">ベテランバイアス</text>
+  <text class="t-def" x="76" y="319">豊富な経験を優先し、現在の状況を</text>
+  <text class="t-def" x="76" y="336">十分考慮せずに判断する偏向</text>
+  <text class="t-tag" x="376" y="344" text-anchor="end">過小評価</text>
 
   <!-- 5 バージンバイアス -->
-  <!-- semantic: brand = リスク過小評価傾向 -->
-  <rect class="box-brand" x="20" y="434" width="360" height="82" rx="8"/>
-  <circle class="badge-brand" cx="50" cy="468" r="16"/>
-  <text class="t-num" x="50" y="473" text-anchor="middle">5</text>
-  <text class="t-name" x="76" y="459">バージンバイアス</text>
-  <text class="t-def" x="76" y="479">未経験な事象に対して、できるだけ</text>
-  <text class="t-def" x="76" y="496">正常であると判断しようとする偏向</text>
-  <text class="t-tag" x="376" y="506" text-anchor="end">過小評価</text>
+  <rect class="box-brand" x="20" y="360" width="360" height="76" rx="8"/>
+  <circle class="badge-brand" cx="50" cy="392" r="16"/>
+  <text class="t-num" x="50" y="397" text-anchor="middle">5</text>
+  <text class="t-name" x="76" y="384">バージンバイアス</text>
+  <text class="t-def" x="76" y="403">未経験な事象に対して、できるだけ</text>
+  <text class="t-def" x="76" y="420">正常であると判断しようとする偏向</text>
+  <text class="t-tag" x="376" y="428" text-anchor="end">過小評価</text>
 
   <!-- footer legend -->
-  <rect x="20" y="528" width="12" height="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="2"/>
-  <text class="t-sub" x="36" y="539">過小評価傾向</text>
-  <rect x="150" y="528" width="12" height="12" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="2"/>
-  <text class="t-sub" x="166" y="539">過大評価傾向</text>
+  <rect x="20" y="450" width="12" height="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="2"/>
+  <text class="t-sub" x="36" y="461">過小評価傾向</text>
+  <rect x="150" y="450" width="12" height="12" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="2"/>
+  <text class="t-sub" x="166" y="461">過大評価傾向</text>
+  <!-- サマリー -->
+  <text style="font-size:11px;fill:#8a8a8a;" x="200" y="490" text-anchor="middle">1・2・4・5は過小評価、3（カタストロフィー）のみ過大評価</text>
 </svg>

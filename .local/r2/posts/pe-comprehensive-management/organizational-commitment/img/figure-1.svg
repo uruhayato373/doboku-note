@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 510" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="組織コミットメント3要素：情緒的・功利的・規範的の定義と、功利を抑え情緒・規範を高めると有益な従業員が定着するという方向性を示す図">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="組織コミットメント3要素：情緒的・功利的・規範的の定義と、功利を抑え情緒・規範を高めると有益な従業員が定着するという方向性を示す図">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -35,59 +35,56 @@
     </marker>
   </defs>
 
-  <!-- タイトル -->
-  <text class="t-title" x="200" y="26" text-anchor="middle">組織コミットメント3要素</text>
-  <text class="t-sub" x="200" y="44" text-anchor="middle">所属組織への帰属意識・関係性を表す3つの構成要素</text>
-
   <!-- ① 情緒的コミットメント（positive=緑） -->
-  <rect class="box-positive" x="16" y="56" width="368" height="84" rx="8"/>
-  <circle class="badge-positive" cx="46" cy="98" r="16"/>
-  <text class="t-label" x="46" y="103" text-anchor="middle" fill="#3a7d44">①</text>
-  <text class="t-label" x="76" y="82">情緒的コミットメント</text>
-  <text class="t-en"   x="76" y="97">Affective Commitment</text>
+  <rect class="box-positive" x="16" y="12" width="368" height="90" rx="8"/>
+  <circle class="badge-positive" cx="46" cy="57" r="16"/>
+  <text class="t-label" x="46" y="62" text-anchor="middle" fill="#3a7d44">①</text>
+  <text class="t-label" x="76" y="40">情緒的コミットメント</text>
+  <text class="t-en"   x="76" y="56">Affective Commitment</text>
   <!-- キーワード: 一体感 -->
-  <text class="t-body" x="76" y="116">組織の目標・価値観との一体感から</text>
-  <text class="t-body" x="76" y="130">自ら貢献しようとする帰属意識</text>
+  <text class="t-body" x="76" y="75">組織の目標・価値観との一体感から</text>
+  <text class="t-body" x="76" y="91">自ら貢献しようとする帰属意識</text>
 
   <!-- ② 功利的コミットメント（warn=黄） -->
-  <rect class="box-warn" x="16" y="154" width="368" height="84" rx="8"/>
-  <circle class="badge-warn" cx="46" cy="196" r="16"/>
-  <text class="t-label" x="46" y="201" text-anchor="middle" fill="#d4a017">②</text>
-  <text class="t-label" x="76" y="180">功利的コミットメント</text>
-  <text class="t-en"   x="76" y="195">Continuance Commitment</text>
+  <rect class="box-warn" x="16" y="116" width="368" height="90" rx="8"/>
+  <circle class="badge-warn" cx="46" cy="161" r="16"/>
+  <text class="t-label" x="46" y="166" text-anchor="middle" fill="#d4a017">②</text>
+  <text class="t-label" x="76" y="144">功利的コミットメント</text>
+  <text class="t-en"   x="76" y="160">Continuance Commitment</text>
   <!-- キーワード: 損得・代償 -->
-  <text class="t-body" x="76" y="214">給与・培った技能価値を失いたくない</text>
-  <text class="t-body" x="76" y="228">離職に伴う損得・代償で留まる</text>
+  <text class="t-body" x="76" y="179">給与・培った技能価値を失いたくない</text>
+  <text class="t-body" x="76" y="196">離職に伴う損得・代償で留まる</text>
 
   <!-- ③ 規範的コミットメント（brand=青） -->
-  <rect class="box-brand" x="16" y="252" width="368" height="84" rx="8"/>
-  <circle class="badge-brand" cx="46" cy="294" r="16"/>
-  <text class="t-label" x="46" y="299" text-anchor="middle" fill="#2e6da4">③</text>
-  <text class="t-label" x="76" y="278">規範的コミットメント</text>
-  <text class="t-en"   x="76" y="293">Normative Commitment</text>
+  <rect class="box-brand" x="16" y="220" width="368" height="90" rx="8"/>
+  <circle class="badge-brand" cx="46" cy="265" r="16"/>
+  <text class="t-label" x="46" y="270" text-anchor="middle" fill="#2e6da4">③</text>
+  <text class="t-label" x="76" y="248">規範的コミットメント</text>
+  <text class="t-en"   x="76" y="264">Normative Commitment</text>
   <!-- キーワード: 恩・忠誠心 -->
-  <text class="t-body" x="76" y="312">会社への恩・忠誠心という基準で</text>
-  <text class="t-body" x="76" y="326">組織に尽くすべきと考える意識</text>
+  <text class="t-body" x="76" y="283">会社への恩・忠誠心という基準で</text>
+  <text class="t-body" x="76" y="299">組織に尽くすべきと考える意識</text>
 
   <!-- 方向矢印エリア -->
   <!-- 功利↓（抑制） -->
-  <text class="t-axis" x="58" y="366" text-anchor="middle">抑制</text>
-  <line x1="58" y1="370" x2="58" y2="394" stroke="#d4a017" stroke-width="2" marker-end="url(#arrow-down)"/>
+  <text class="t-axis" x="58" y="336" text-anchor="middle">抑制</text>
+  <line x1="58" y1="340" x2="58" y2="362" stroke="#d4a017" stroke-width="2" marker-end="url(#arrow-down)"/>
   <!-- 情緒↑（強化） -->
-  <text class="t-axis" x="178" y="396" text-anchor="middle">強化</text>
-  <line x1="178" y1="370" x2="178" y2="346" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-up)"/>
+  <text class="t-axis" x="178" y="364" text-anchor="middle">強化</text>
+  <line x1="178" y1="338" x2="178" y2="316" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-up)"/>
   <!-- 規範↑（強化） -->
-  <text class="t-axis" x="310" y="396" text-anchor="middle">強化</text>
-  <line x1="310" y1="370" x2="310" y2="346" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-up)"/>
+  <text class="t-axis" x="310" y="364" text-anchor="middle">強化</text>
+  <line x1="310" y1="338" x2="310" y2="316" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-up)"/>
 
   <!-- ラベル -->
-  <text class="t-body" x="58" y="406" text-anchor="middle" fill="#d4a017">功利的</text>
-  <text class="t-body" x="178" y="358" text-anchor="middle" fill="#3a7d44">情緒的</text>
-  <text class="t-body" x="310" y="358" text-anchor="middle" fill="#2e6da4">規範的</text>
+  <text class="t-body" x="58" y="376" text-anchor="middle" fill="#d4a017">功利的</text>
+  <text class="t-body" x="178" y="328" text-anchor="middle" fill="#3a7d44">情緒的</text>
+  <text class="t-body" x="310" y="328" text-anchor="middle" fill="#2e6da4">規範的</text>
 
   <!-- フッタ：定着効果 -->
-  <rect class="box-surface" x="16" y="416" width="368" height="78" rx="8"/>
-  <text class="t-foot" x="200" y="440" text-anchor="middle">功利を抑え 情緒・規範を高めると</text>
-  <text class="t-foot" x="200" y="458" text-anchor="middle" fill="#3a7d44">有益な従業員が定着する</text>
+  <rect class="box-surface" x="16" y="390" width="368" height="98" rx="8"/>
+  <text class="t-foot" x="200" y="420" text-anchor="middle">功利を抑え 情緒・規範を高めると</text>
+  <text class="t-foot" x="200" y="442" text-anchor="middle" fill="#3a7d44">有益な従業員が定着する</text>
+  <text class="t-axis" x="200" y="464" text-anchor="middle">管理上の着眼：採用・育成・評価制度で情緒的・規範的を強化</text>
 
 </svg>

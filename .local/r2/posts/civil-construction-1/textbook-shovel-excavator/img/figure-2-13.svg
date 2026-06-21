@@ -9,7 +9,7 @@
     .sensor { fill: #d4a017; stroke: #222; stroke-width: 0.8; }
     .hook { fill: none; stroke: #b22234; stroke-width: 1.5; }
     .lead { stroke: #555; stroke-width: 0.8; fill: none; }
-    .label { font-size: 10px; fill: #b22234; font-weight: bold; }
+    .label { font-size: 11px; fill: #b22234; font-weight: bold; }
     .part { font-size: 11px; fill: #1a3a5c; }
     .ground { stroke: #222; stroke-width: 1; }
     .hatch { stroke: #8a8a8a; stroke-width: 0.6; }

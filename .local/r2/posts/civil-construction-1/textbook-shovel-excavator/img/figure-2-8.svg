@@ -7,7 +7,7 @@
     .root { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
     .line { stroke: #555; stroke-width: 1; fill: none; }
     .label { font-size: 12px; fill: #1a3a5c; text-anchor: middle; }
-    .sub { font-size: 10px; fill: #555; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #555; text-anchor: middle; }
     .sect { font-size: 13px; font-weight: bold; fill: #222; }
   </style>
 

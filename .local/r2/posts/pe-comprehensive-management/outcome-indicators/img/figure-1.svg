@@ -1,4 +1,4 @@
-<svg viewBox="0 0 400 480" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="事業評価の3指標。インプット（投入資源量）からアウトプット（活動量）を経てアウトカム（成果）へと連鎖する因果フローを示した図">
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="事業評価の3指標。インプット（投入資源量）からアウトプット（活動量）を経てアウトカム（成果）へと連鎖する因果フローを示した図">
   <defs>
     <style>
       text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
@@ -24,45 +24,46 @@
     </marker>
   </defs>
 
-  <!-- タイトル -->
-  <text class="t-title" x="200" y="28" text-anchor="middle">事業評価の3指標</text>
-  <text class="t-sub"   x="200" y="48" text-anchor="middle">インプット → アウトプット → アウトカムの因果連鎖</text>
-
   <!-- ===== インプット指標（surface） ===== -->
-  <rect class="box-surface" x="30" y="68" width="340" height="98" rx="8"/>
-  <!-- 種別バッジ（白fill＋surface stroke＋濃色文字） -->
-  <rect x="30" y="68" width="100" height="26" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
-  <text class="t-en" x="80" y="86" text-anchor="middle">インプット指標</text>
+  <rect class="box-surface" x="30" y="12" width="340" height="108" rx="8"/>
+  <rect x="30" y="12" width="100" height="26" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-en" x="80" y="30" text-anchor="middle">インプット指標</text>
 
-  <text class="t-label" x="56" y="120">投入資源量</text>
-  <text class="t-detail" x="56" y="140">ヒト・モノ・金・情報などの資源量</text>
-  <text class="t-ex"    x="56" y="158">例）予算額</text>
+  <text class="t-label" x="56" y="66">投入資源量</text>
+  <text class="t-detail" x="56" y="86">ヒト・モノ・金・情報などの資源量</text>
+  <text class="t-ex"    x="56" y="104">例）予算額・職員数・設備費</text>
 
   <!-- 矢印 1本目 -->
-  <line x1="200" y1="170" x2="200" y2="196" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
-  <text class="t-arrow-label" x="212" y="188" text-anchor="start">活動へ投入</text>
+  <line x1="200" y1="124" x2="200" y2="148" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <text class="t-arrow-label" x="212" y="141" text-anchor="start">活動へ投入</text>
 
   <!-- ===== アウトプット指標（positive） ===== -->
-  <rect class="box-positive" x="30" y="200" width="340" height="98" rx="8"/>
-  <rect x="30" y="200" width="114" height="26" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
-  <text x="87" y="218" text-anchor="middle" font-size="12" fill="#1a3a5c">アウトプット指標</text>
+  <rect class="box-positive" x="30" y="152" width="340" height="108" rx="8"/>
+  <rect x="30" y="152" width="114" height="26" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="87" y="170" text-anchor="middle" font-size="12" fill="#1a3a5c">アウトプット指標</text>
 
-  <text class="t-label" x="56" y="252">活動量</text>
-  <text class="t-detail" x="56" y="272">行政活動を実際にどの程度行ったかを示す</text>
-  <text class="t-ex"    x="56" y="290">例）道路整備の延長距離・討論会の開催回数</text>
+  <text class="t-label" x="56" y="206">活動量</text>
+  <text class="t-detail" x="56" y="226">行政活動を実際にどの程度行ったかを示す</text>
+  <text class="t-ex"    x="56" y="244">例）道路整備の延長距離・討論会の開催回数</text>
 
   <!-- 矢印 2本目 -->
-  <line x1="200" y1="302" x2="200" y2="328" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
-  <text class="t-arrow-label" x="212" y="320" text-anchor="start">成果へ転化</text>
+  <line x1="200" y1="264" x2="200" y2="288" stroke="#3a7d44" stroke-width="2.5" marker-end="url(#arrowGreen)"/>
+  <text class="t-arrow-label" x="212" y="281" text-anchor="start">成果へ転化</text>
 
   <!-- ===== アウトカム指標（brand） ===== -->
-  <rect class="box-brand" x="30" y="332" width="340" height="98" rx="8"/>
-  <rect x="30" y="332" width="108" height="26" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
-  <text x="84" y="350" text-anchor="middle" font-size="12" fill="#1a3a5c">アウトカム指標</text>
+  <rect class="box-brand" x="30" y="292" width="340" height="108" rx="8"/>
+  <rect x="30" y="292" width="108" height="26" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="84" y="310" text-anchor="middle" font-size="12" fill="#1a3a5c">アウトカム指標</text>
 
-  <text class="t-label" x="56" y="384">成果</text>
-  <text class="t-detail" x="56" y="404">成果物によってどれだけ成果が上がったかを示す</text>
-  <text class="t-ex"    x="56" y="422">例）渋滞の緩和度（貨幣・数値・効率など）</text>
+  <text class="t-label" x="56" y="344">成果</text>
+  <text class="t-detail" x="56" y="364">成果物によってどれだけ効果が上がったかを示す</text>
+  <text class="t-ex"    x="56" y="382">例）渋滞の緩和度（貨幣・数値・効率など）</text>
 
-  <!-- フッター -->
+  <!-- サマリー帯 -->
+  <rect x="30" y="414" width="340" height="74" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text font-size="11" font-weight="bold" fill="#1a3a5c" x="200" y="436" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">総監の着眼：アウトカム最大化が最終目標</text>
+  <text font-size="11" fill="#555" x="200" y="454" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">インプット削減 → コスト管理　アウトプット増加 → 効率管理</text>
+  <text font-size="11" fill="#555" x="200" y="472" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">アウトカム向上 → 効果管理（PDCAで継続検証）</text>
+
+  <!-- フッター（削除） -->
 </svg>

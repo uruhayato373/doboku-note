@@ -9,7 +9,7 @@
     .piston { fill: #8a8a8a; stroke: #222; stroke-width: 1; }
     .pin { fill: #222; }
     .label { font-size: 11px; fill: #1a3a5c; }
-    .annot { font-size: 10px; fill: #555; }
+    .annot { font-size: 11px; fill: #555; }
   </style>
 
   <!-- Ground -->
