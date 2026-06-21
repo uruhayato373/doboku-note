@@ -28,6 +28,7 @@
 | `c73b3350b` | **A系統6本のサイト送客14リンクをインライン＋UTM化**＋規約追記 |
 | `596cfc876` | **A系統6本にB系統(論点キーワード集)への deep-dive 動線6本を追加** |
 | `e053ed848` | **UTM規約を生成側・SSOTに固定（逆戻り防止）**: note-link-injector にUTM仕様(ルール8)＋自己検証、02_チャネル動線設計に生URL→カード化注意、note-funnel-architecture に相互リンク |
+| `7aa9dd26b` | **lint `check-note-site-utm` 実装**: pre-commit `--staged` ゲート（`SKIP_NOTE_UTM=1` 回避）＋ `npm run check-note-site-utm`（全件監査）。**既存違反326件を可視化**（utm-missing 229/bare-url 97・総監/建設/土木の note-link-injector 由来）。A系統6本は適合 |
 
 > [!info]
 > 数値・制度はWebSearchで一次情報照合済み（第6次=R8.1.16閣議決定〜令和12年度・4重点目標）。文字化け0・pre-commit全通過・`check-sns-urls`でB系統URL本番実在を検証済み。
@@ -65,4 +66,7 @@
 
 > [!tip]
 > **生成側ドリフトは固定済み（commit e053ed848）**: note-link-injector・02_チャネル動線設計・note-funnel-architecture を更新済み。これで他節/他資格へ展開しても規約どおり再生産される。展開候補は ①建設部門の残り7記事（生URL→inline+UTM＋B動線）②総監(pe-comprehensive-management)のnote→サイトリンクのUTM化。規約が固まったので着手して安全。
+
+> [!warning]
+> **UTM バックログ 326件（`npm run check-note-site-utm` で全件監査）**: utm-missing 229 + bare-url 97。資格別ファイル＝建設部門149 / 1級・2級土木43 / 総監8。大半は `note-link-injector` が UTM 無しで注入した inline リンク。A系統6本のみ適合。pre-commit は `--staged` ゲート（触ったファイルだけ／`SKIP_NOTE_UTM=1` で回避）なので既存コミットは壊れない。**バーンダウンは他節展開と同時に資格単位で進める**のが効率的（記事を直すついでに UTM 化）。CI 全体ゲート化はバーンダウン後に判断。
 
